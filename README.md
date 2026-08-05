@@ -32,7 +32,7 @@ mitgeliefert):
 
 ```bash
 EXPO_PUBLIC_SUPABASE_URL=http://127.0.0.1:54321
-EXPO_PUBLIC_SUPABASE_ANON_KEY=sb_publishable_...
+EXPO_PUBLIC_SUPABASE_KEY=sb_publishable_...
 ```
 
 Nur Variablen mit dem Präfix `EXPO_PUBLIC_` landen im Client-Bundle; Expo setzt
@@ -48,7 +48,7 @@ erzeugen.
 | Key | `supabase status` → **Publishable** | Dashboard → Publishable key |
 
 Aktuelle Supabase-Versionen geben **Publishable** und **Secret** aus, nicht mehr
-`anon` und `service_role`. In `EXPO_PUBLIC_SUPABASE_ANON_KEY` gehört der
+`anon` und `service_role`. In `EXPO_PUBLIC_SUPABASE_KEY` gehört der
 Publishable Key — der Secret Key darf niemals in die App.
 
 ## Lokales Backend
@@ -62,6 +62,21 @@ supabase stop
 
 Studio: <http://localhost:54323>. `imgproxy` und `pooler` erscheinen als
 gestoppt — beide sind per Default deaktiviert und werden nicht gebraucht.
+
+## Development Build
+
+Barcode-Scanner, lokale Datenbank, Benachrichtigungen und der sichere
+Session-Speicher laufen **nicht in Expo Go**. Dafür wird ein Development Build
+gebraucht:
+
+```bash
+eas build --profile development --platform ios      # Simulator-Build
+eas build --profile development --platform android  # APK
+eas build --profile development-device --platform ios  # echtes Gerät
+```
+
+Danach den Build installieren und `bun start` laufen lassen — die App verbindet
+sich mit dem lokalen Metro. Profile stehen in `eas.json`.
 
 ## Stack
 

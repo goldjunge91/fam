@@ -40,7 +40,7 @@ export const env = {
   get supabaseUrl(): string {
     return requireEnv('EXPO_PUBLIC_SUPABASE_URL', process.env.EXPO_PUBLIC_SUPABASE_URL);
   },
-  get supabaseAnonKey(): string {
-    return requireEnv('EXPO_PUBLIC_SUPABASE_ANON_KEY', process.env.EXPO_PUBLIC_SUPABASE_ANON_KEY);
+  get supabaseKey(): string {
+    return requireEnv('EXPO_PUBLIC_SUPABASE_KEY', process.env.EXPO_PUBLIC_SUPABASE_KEY);
   },
 };
