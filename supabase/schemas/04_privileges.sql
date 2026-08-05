@@ -21,6 +21,7 @@ grant delete, insert, select, update on public.profiles to anon, authenticated, 
 grant delete, insert, select, update on public.households to anon, authenticated, service_role;
 grant delete, insert, select, update on public.household_members to anon, authenticated, service_role;
 grant delete, insert, select, update on public.products to anon, authenticated, service_role;
+grant delete, insert, select, update on public.household_invites to anon, authenticated, service_role;
 
 -- ------------------------------------------------------------ Schema `private`
 -- `authenticated` braucht USAGE, weil die RLS-Policies auf households und
@@ -47,6 +48,19 @@ revoke execute on function private.handle_new_user() from public, anon, authenti
 revoke execute on function private.guard_last_admin() from public, anon, authenticated;
 
 -- --------------------------------------------------------------------- public
--- create_household() SOLL vom Client aufrufbar sein — anders als die Helfer.
+-- Diese beiden RPCs SOLLEN vom Client aufrufbar sein — anders als die Helfer.
+--
+-- Achtung: Auf Supabase-Remote-Projekten vergeben ALTER DEFAULT PRIVILEGES
+-- EXECUTE auf neue public-Funktionen zusaetzlich direkt an `anon`. Der Entzug
+-- `from public` erreicht diesen separaten Grant nicht, und der Diff sieht ihn
+-- nicht, weil er lokal nicht existiert. Deshalb steht `anon` hier ausdruecklich
+-- mit drin — und `bash scripts/check-privileges.sh --linked` prueft es nach
+-- jedem Push nach.
 revoke execute on function public.create_household(text) from public, anon;
 grant execute on function public.create_household(text) to authenticated;
+
+-- redeem_invite() muss von Nicht-Mitgliedern aufrufbar sein — das ist sein
+-- ganzer Zweck. Aber nur von angemeldeten: die Mitgliedschaft braucht eine
+-- user_id.
+revoke execute on function public.redeem_invite(uuid) from public, anon;
+grant execute on function public.redeem_invite(uuid) to authenticated;

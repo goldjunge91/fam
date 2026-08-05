@@ -65,6 +65,7 @@ gediffed" ist zu pauschal. Offen bleiben:
 ```bash
 bun run db:diff -- -f beschreibender_name   # Migration erzeugen
 bun run db:reset                            # anwenden
+bun run test:db                             # pgTAP-Suite
 bun run db:advisors                         # Security- und Performance-Linter
 bun run db:diff                             # muss jetzt LEER sein
 ```
@@ -72,3 +73,35 @@ bun run db:diff                             # muss jetzt LEER sein
 Der letzte Schritt ist der wichtigste: Ist der Diff nach dem Anwenden nicht
 leer, weichen Schemadateien und Datenbank voneinander ab — dann stimmt die
 Deklaration nicht mehr.
+
+## Datenbanktests
+
+**Keine Wegwerf-SQL im Shell.** Datenbankverhalten wird in `supabase/tests/`
+als pgTAP-Suite geprueft, nicht mit einmaligen `docker exec psql`-Aufrufen.
+
+- `supabase/tests/helpers.sql` — Werkzeug (`create_user`, `authenticate_as`,
+  `as_postgres`, `authenticate_as_anon`), keine Assertions
+- `supabase/tests/NN_thema.test.sql` — je eine Suite, eingebunden per `\ir helpers.sql`
+
+Zwei Fallstricke, die beim Aufbau aufgetreten sind:
+
+- **Rollenwechsel wirkt nur in einer Transaktion.** Ausserhalb laeuft alles
+  weiter als `postgres` — und der umgeht RLS, sodass jeder Test faelschlich
+  gruen waere. pgTAP kapselt jede Datei in eine Transaktion, deshalb passt es.
+- **`reset role`, nicht `set role postgres`.** Letzteres scheitert mit
+  "permission denied to grant role postgres".
+
+### Remote
+
+`supabase test db --linked` funktioniert **nicht**: Die Verbindung nutzt eine
+Rolle ohne CREATE-Recht auf der Datenbank, das Anlegen des `tests`-Schemas
+scheitert. Gegen das verlinkte Projekt laufen stattdessen die
+Rechte-Zusicherungen:
+
+```bash
+bun run db:push   # pusht und prueft danach automatisch
+```
+
+Das ist nicht bloss Bequemlichkeit: Auf dem Remote vergeben
+ALTER DEFAULT PRIVILEGES `EXECUTE` an `anon` fuer jede neue public-Funktion.
+Bisher zweimal zugeschlagen — bei `create_household` und `redeem_invite`.

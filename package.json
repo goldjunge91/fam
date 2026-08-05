@@ -61,7 +61,8 @@
     "db:advisors": "supabase db advisors --local --type security && supabase db advisors --local --type performance",
     "db:types": "supabase gen types typescript --local > src/lib/database.types.ts",
     "db:check": "bash scripts/check-privileges.sh",
-    "db:push": "supabase db push && bash scripts/check-privileges.sh --linked"
+    "db:push": "supabase db push && bash scripts/check-privileges.sh --linked",
+    "test:db": "supabase test db --local supabase/tests/*.test.sql"
   },
   "private": true
 }
