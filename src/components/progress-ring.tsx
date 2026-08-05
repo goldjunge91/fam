@@ -102,7 +102,7 @@ export function ProgressRing({
         />
       </Svg>
 
-      <View style={styles.center} pointerEvents="none">
+      <View style={styles.center}>
         <ThemedText type="subtitle">{Math.round(value)}</ThemedText>
         <ThemedText type="small" themeColor="textSecondary">
           {target > 0 ? `von ${Math.round(target)} ${unit}` : unit}
@@ -136,6 +136,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     gap: Spacing.half,
+    // Als Prop ist pointerEvents seit RN 0.76 deprecated, im Style ist es korrekt.
+    pointerEvents: 'none',
   },
   remaining: {
     marginTop: Spacing.half,
