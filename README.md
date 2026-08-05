@@ -78,6 +78,14 @@ eas build --profile development-device --platform ios  # echtes Gerät
 Danach den Build installieren und `bun start` laufen lassen — die App verbindet
 sich mit dem lokalen Metro. Profile stehen in `eas.json`.
 
+**Nach jedem neuen nativen Modul neu bauen.** Native Module landen beim Build im
+Binary; Metro liefert nur JavaScript nach. Installierst du etwa
+`expo-secure-store`, `expo-sqlite` oder `expo-camera` und startest nur Metro neu,
+scheitert die App mit `Cannot find native module '…'` — und, weil der Import
+schon beim Laden von `_layout.tsx` wirft, mit den Folgefehlern
+`missing the required default export` und `Cannot read property 'ErrorBoundary'
+of undefined`. Die eigentliche Ursache steht dann ganz oben im Log.
+
 ## Stack
 
 | | Installiert | Geplant |
