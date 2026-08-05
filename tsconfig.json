@@ -2,6 +2,13 @@
   "extends": "expo/tsconfig.base",
   "compilerOptions": {
     "strict": true,
+    // Explizit statt automatisch: Seit Epic 2 laufen die
+    // Datenbank-Integrationstests ueber `node:sqlite` und brauchen die
+    // Node-Typen. Die automatische Aufnahme aus node_modules/@types greift
+    // dafuer nicht (`Cannot find name 'node:sqlite'`). Wer hier etwas
+    // ergaenzt, muss die anderen Eintraege mitfuehren — die Liste schaltet die
+    // Automatik ab.
+    "types": ["node", "jest", "react"],
     "paths": {
       "@/*": [
         "./src/*"
