@@ -19,8 +19,49 @@ bun install && bun start
 
 - `bun start` — Metro starten
 - `bun run ios` / `bun run android` / `bun run web`
-- `bun run lint` — Linting (wird durch Biome ersetzt, [#25](https://github.com/goldjunge91/fam/issues/25))
+- `bun run check` — Lint + Format prüfen (Biome), `bun run check:fix` schreibt
+- `bun run typecheck` — `tsc --noEmit`
+- `bun run test` — Jest. **Nicht `bun test`**: das startet Buns eigenen Runner,
+  ignoriert `jest.config.js` und schlägt fehl
 - `bun run reset-project` — auf ein leeres Template zurücksetzen
+
+## Umgebungsvariablen
+
+Lege eine `.env` im Projekt-Root an (sie ist gitignored und wird bewusst nicht
+mitgeliefert):
+
+```bash
+EXPO_PUBLIC_SUPABASE_URL=http://127.0.0.1:54321
+EXPO_PUBLIC_SUPABASE_ANON_KEY=sb_publishable_...
+```
+
+Nur Variablen mit dem Präfix `EXPO_PUBLIC_` landen im Client-Bundle; Expo setzt
+sie zur Build-Zeit als Literal ein. Fehlt eine Variable, bricht `src/lib/env.ts`
+mit einer klaren Meldung ab, statt später einen kryptischen Netzwerkfehler zu
+erzeugen.
+
+**Woher die Werte kommen:**
+
+| | Lokal | Gehostet |
+|---|---|---|
+| URL | `supabase status` → API URL | Dashboard → Project Settings → API |
+| Key | `supabase status` → **Publishable** | Dashboard → Publishable key |
+
+Aktuelle Supabase-Versionen geben **Publishable** und **Secret** aus, nicht mehr
+`anon` und `service_role`. In `EXPO_PUBLIC_SUPABASE_ANON_KEY` gehört der
+Publishable Key — der Secret Key darf niemals in die App.
+
+## Lokales Backend
+
+```bash
+supabase start    # Postgres, Auth, Realtime, Studio (braucht Docker)
+supabase status   # URLs und Keys anzeigen
+supabase db reset # Schema aus supabase/migrations/ neu aufbauen
+supabase stop
+```
+
+Studio: <http://localhost:54323>. `imgproxy` und `pooler` erscheinen als
+gestoppt — beide sind per Default deaktiviert und werden nicht gebraucht.
 
 ## Stack
 
