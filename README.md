@@ -69,14 +69,24 @@ Barcode-Scanner, lokale Datenbank, Benachrichtigungen und der sichere
 Session-Speicher laufen **nicht in Expo Go**. Dafür wird ein Development Build
 gebraucht:
 
+Alles in einem Schritt — bauen, laden, installieren, Simulator und Metro starten:
+
+```bash
+bash scripts/ios-dev.sh                # neuer Build
+bash scripts/ios-dev.sh --reuse-last   # letzten fertigen Build verwenden
+bash scripts/ios-dev.sh --no-metro     # nur installieren
+bash scripts/ios-dev.sh --device "iPhone 17"
+```
+
+Einzelschritte, falls nötig:
+
 ```bash
 eas build --profile development --platform ios      # Simulator-Build
 eas build --profile development --platform android  # APK
 eas build --profile development-device --platform ios  # echtes Gerät
 ```
 
-Danach den Build installieren und `bun start` laufen lassen — die App verbindet
-sich mit dem lokalen Metro. Profile stehen in `eas.json`.
+Profile stehen in `eas.json`.
 
 **Nach jedem neuen nativen Modul neu bauen.** Native Module landen beim Build im
 Binary; Metro liefert nur JavaScript nach. Installierst du etwa
