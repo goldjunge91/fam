@@ -57,6 +57,13 @@ create index if not exists products_name_fts_idx
 
 create index if not exists products_created_by_idx on public.products (created_by);
 
+-- Inkrementeller Pull der Sync-Engine (#47). Anders als bei den
+-- Haushaltstabellen gibt es hier keinen household_id-Praefix: products ist
+-- global. Die Sortierung ist (updated_at, id), weil der Pull ueber einen
+-- Keyset-Cursor blaettert und bei gleichem Zeitstempel die id als zweites
+-- Kriterium braucht.
+create index if not exists products_updated_idx on public.products (updated_at, id);
+
 create or replace trigger products_set_updated_at
   before update on public.products
   for each row

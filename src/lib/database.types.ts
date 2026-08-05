@@ -297,18 +297,21 @@ export type Database = {
           household_id: string
           joined_at: string
           role: string
+          updated_at: string
           user_id: string
         }
         Insert: {
           household_id: string
           joined_at?: string
           role?: string
+          updated_at?: string
           user_id: string
         }
         Update: {
           household_id?: string
           joined_at?: string
           role?: string
+          updated_at?: string
           user_id?: string
         }
         Relationships: [
@@ -544,6 +547,7 @@ export type Database = {
       storage_locations: {
         Row: {
           created_at: string
+          deleted_at: string | null
           household_id: string
           id: string
           kind: string
@@ -553,6 +557,7 @@ export type Database = {
         }
         Insert: {
           created_at?: string
+          deleted_at?: string | null
           household_id: string
           id?: string
           kind: string
@@ -562,6 +567,7 @@ export type Database = {
         }
         Update: {
           created_at?: string
+          deleted_at?: string | null
           household_id?: string
           id?: string
           kind?: string

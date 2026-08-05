@@ -14,11 +14,18 @@ create table if not exists public.households (
 -- UUID statt bigint identity, obwohl UUIDv4 die Index-Lokalitaet
 -- verschlechtert: Die App legt Datensaetze offline an (#46) und muss die ID
 -- dabei selbst vergeben. Bei einer serverseitigen Sequenz ginge das nicht.
+-- `updated_at` ist hier kein Beiwerk, sondern Voraussetzung fuer Epic 2: Der
+-- inkrementelle Pull der Sync-Engine fragt je Tabelle "was hat sich seit
+-- lastSyncedAt geaendert". Mit nur `joined_at` waere ein Rollenwechsel oder das
+-- Entfernen eines Mitglieds fuer diesen Pull unsichtbar — der lokale
+-- Rechte-Cache liesse sich nie aktualisieren und ein entfernter Nutzer behielte
+-- auf seinem Geraet Zugriffsrechte, die serverseitig laengst weg sind.
 create table if not exists public.household_members (
   household_id uuid not null references public.households (id) on delete cascade,
   user_id uuid not null references public.profiles (id) on delete cascade,
   role text not null default 'member' check (role in ('admin', 'member')),
   joined_at timestamptz not null default now(),
+  updated_at timestamptz not null default now(),
   primary key (household_id, user_id)
 );
 
@@ -83,35 +90,18 @@ $$;
 -- wirkungslos und wuerden einen Zustand behaupten, den die Datenbank nicht hat.
 
 -- ------------------------------------------------------------- Haushalt anlegen
--- Als RPC, nicht als INSERT aus dem Client: Haushalt und Admin-Mitgliedschaft
--- muessen zusammen entstehen. Ein Abbruch dazwischen hinterliesse einen
--- Haushalt ohne Admin, den danach niemand mehr verwalten koennte.
-create or replace function public.create_household(household_name text)
-returns uuid
-language plpgsql
-security definer
-set search_path = ''
-as $$
-declare
-  new_id uuid;
-  uid uuid := (select auth.uid());
-begin
-  if uid is null then
-    raise exception 'Nicht angemeldet';
-  end if;
-
-  insert into public.households (name, created_by)
-  values (household_name, uid)
-  returning id into new_id;
-
-  insert into public.household_members (household_id, user_id, role)
-  values (new_id, uid, 'admin');
-
-  return new_id;
-end;
-$$;
-
--- Rechte fuer dieses RPC: siehe migrations/*_privileges.sql.
+-- `public.create_household()` ist als RPC gebaut, nicht als INSERT aus dem
+-- Client: Haushalt und Admin-Mitgliedschaft muessen zusammen entstehen. Ein
+-- Abbruch dazwischen hinterliesse einen Haushalt ohne Admin, den danach niemand
+-- mehr verwalten koennte.
+--
+-- Die Definition steht bewusst NICHT hier, sondern in 08_inventory.sql: Dort
+-- legt sie zusaetzlich die Standard-Lagerorte an und braucht deshalb die
+-- storage_locations-Tabelle. Stuende hier eine zweite Fassung, gaebe es zwei
+-- Definitionen derselben Funktion, von denen die spaetere still gewinnt —
+-- und bei jeder Umsortierung von `schema_paths` kippte, welche das ist.
+--
+-- Rechte fuer dieses RPC: siehe 04_privileges.sql.
 
 -- ------------------------------------------------------- letzter Admin absichern
 -- Ohne diese Sperre kann sich der letzte Admin degradieren oder austragen und
@@ -152,6 +142,15 @@ create or replace trigger household_members_guard_last_admin
   before update or delete on public.household_members
   for each row
   execute function private.guard_last_admin();
+
+-- Reihenfolge ist hier relevant: Postgres feuert BEFORE-Row-Trigger in
+-- alphabetischer Reihenfolge ihres Namens. `..._guard_last_admin` laeuft also
+-- vor `..._set_updated_at`. Der Waechter gibt `coalesce(new, old)` zurueck,
+-- damit erreicht NEW den zweiten Trigger unveraendert.
+create or replace trigger household_members_set_updated_at
+  before update on public.household_members
+  for each row
+  execute function private.set_updated_at();
 
 -- ------------------------------------------------------------------------- RLS
 alter table public.households enable row level security;

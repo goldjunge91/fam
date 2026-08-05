@@ -9,7 +9,8 @@
 -- ACHTUNG: `alter publication ... add table` wird vom Schema-Diff NICHT erfasst
 -- (bekannter Caveat, supabase/cli#883). Die Statements hier landen deshalb
 -- moeglicherweise nicht in der generierten Migration — `supabase/tests/
--- 09_realtime.test.sql` prueft das Ergebnis und schlaegt an, wenn sie fehlen.
+-- 09_sync_and_realtime.test.sql` prueft das Ergebnis und schlaegt an, wenn sie
+-- fehlen.
 
 -- REPLICA IDENTITY FULL ist Voraussetzung dafuer, dass Realtime RLS auswerten
 -- kann: Ohne die vollstaendige alte Zeile kann Supabase nicht entscheiden, wer

@@ -7,7 +7,7 @@
 begin;
 \ir helpers.sql
 
-select plan(11);
+select plan(14);
 
 -- ------------------------------------------------- Sync-Spalten auf allen Tabellen
 -- `updated_at` treibt den inkrementellen Pull, `deleted_at` die Tombstones.
@@ -16,6 +16,16 @@ select has_column('public', 'fridge_items', 'updated_at', 'fridge_items hat upda
 select has_column('public', 'fridge_items', 'deleted_at', 'fridge_items hat deleted_at');
 select has_column('public', 'shopping_list_items', 'deleted_at', 'shopping_list_items hat deleted_at');
 select has_column('public', 'food_entries', 'deleted_at', 'food_entries hat deleted_at');
+
+-- storage_locations ist Spiegeltabelle der Offline-Engine (#45). Ohne
+-- deleted_at haette ein offline geloeschter Lagerort keinen Tombstone-Pfad und
+-- taeuchte beim naechsten Push wieder auf.
+select has_column('public', 'storage_locations', 'deleted_at', 'storage_locations hat deleted_at');
+
+-- household_members trug urspruenglich nur joined_at. Ohne updated_at ist ein
+-- Rollenwechsel fuer einen "updated_at >"-Pull unsichtbar, und ein entferntes
+-- Mitglied behielte lokal Rechte, die serverseitig weg sind.
+select has_column('public', 'household_members', 'updated_at', 'household_members hat updated_at');
 
 -- ------------------------------------------------------- updated_at-Automatik
 select tests.create_user('11111111-1111-1111-1111-111111111111', 'alice@example.com');
@@ -41,6 +51,19 @@ select isnt(
   (select updated_at from public.fridge_items),
   '2020-01-01'::timestamptz,
   'der Trigger ueberschreibt ein vom Client gesetztes updated_at'
+);
+
+-- Dasselbe fuer household_members. `guard_last_admin` feuert hier nicht: Es
+-- wird kein Admin degradiert, nur ein Zeitstempel angefasst. Die beiden
+-- BEFORE-Trigger laufen in alphabetischer Namensreihenfolge, `guard` also vor
+-- `set_updated_at`; `guard` gibt coalesce(new, old) zurueck und laesst NEW
+-- unveraendert durch.
+update public.household_members set updated_at = '2020-01-01'::timestamptz;
+
+select isnt(
+  (select min(updated_at) from public.household_members),
+  '2020-01-01'::timestamptz,
+  'der Trigger ueberschreibt ein vom Client gesetztes updated_at auch auf household_members'
 );
 
 -- ------------------------------------------------------------------ Tombstone

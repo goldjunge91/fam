@@ -18,11 +18,22 @@ create table if not exists public.storage_locations (
   sort_order integer not null default 0,
 
   created_at timestamptz not null default now(),
-  updated_at timestamptz not null default now()
+  updated_at timestamptz not null default now(),
+
+  -- Wie bei fridge_items: Ein hart geloeschter Lagerort waere fuer einen
+  -- Client, der waehrend des Loeschens offline war, nicht von "noch nie
+  -- gesehen" zu unterscheiden — er legte ihn beim naechsten Push wieder an.
+  -- Die Tabelle ist Spiegeltabelle der Offline-Engine (#45) und braucht den
+  -- Tombstone deshalb genauso.
+  deleted_at timestamptz
 );
 
 create index if not exists storage_locations_household_id_idx
   on public.storage_locations (household_id);
+
+-- Inkrementeller Pull der Sync-Engine (#47), analog zu fridge_items.
+create index if not exists storage_locations_household_updated_idx
+  on public.storage_locations (household_id, updated_at);
 
 create or replace trigger storage_locations_set_updated_at
   before update on public.storage_locations
