@@ -22,6 +22,13 @@ grant delete, insert, select, update on public.households to anon, authenticated
 grant delete, insert, select, update on public.household_members to anon, authenticated, service_role;
 grant delete, insert, select, update on public.products to anon, authenticated, service_role;
 grant delete, insert, select, update on public.household_invites to anon, authenticated, service_role;
+grant delete, insert, select, update on public.child_profiles to anon, authenticated, service_role;
+grant delete, insert, select, update on public.storage_locations to anon, authenticated, service_role;
+grant delete, insert, select, update on public.fridge_items to anon, authenticated, service_role;
+grant delete, insert, select, update on public.shopping_list_items to anon, authenticated, service_role;
+grant delete, insert, select, update on public.food_entries to anon, authenticated, service_role;
+grant delete, insert, select, update on public.weight_entries to anon, authenticated, service_role;
+grant delete, insert, select, update on public.user_goals to anon, authenticated, service_role;
 
 -- ------------------------------------------------------------ Schema `private`
 -- `authenticated` braucht USAGE, weil die RLS-Policies auf households und
