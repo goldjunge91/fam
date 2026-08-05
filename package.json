@@ -59,7 +59,9 @@
     "db:diff": "supabase db diff --use-pg-delta",
     "db:reset": "supabase db reset",
     "db:advisors": "supabase db advisors --local --type security && supabase db advisors --local --type performance",
-    "db:types": "supabase gen types typescript --local > src/lib/database.types.ts"
+    "db:types": "supabase gen types typescript --local > src/lib/database.types.ts",
+    "db:check": "bash scripts/check-privileges.sh",
+    "db:push": "supabase db push && bash scripts/check-privileges.sh --linked"
   },
   "private": true
 }
