@@ -1,10 +1,10 @@
 import type { ReactNode } from 'react';
 import { ScrollView, StyleSheet, View } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
-import { BottomTabInset, MaxContentWidth, Spacing } from '@/constants/theme';
+import { MaxContentWidth, Spacing, TabBarHeight } from '@/constants/theme';
 
 type ScreenProps = {
   title: string;
@@ -24,7 +24,14 @@ type ScreenProps = {
  * Listeneintrag unter der Leiste und ist nicht antippbar.
  */
 export function Screen({ title, subtitle, children, action, scroll = true }: ScreenProps) {
+  const insets = useSafeAreaInsets();
   const body = <View style={styles.body}>{children}</View>;
+
+  // Die native Tab-Leiste liegt ueber dem Inhalt und wird nicht von der Safe Area
+  // erfasst. Ohne diesen Abstand verschwindet der letzte Listeneintrag darunter
+  // und ist weder lesbar noch antippbar — im Simulator gemessen: die Leiste
+  // beginnt bei 90,5 % der Bildschirmhoehe, der Text lag bei 93,8 %.
+  const bottomPadding = insets.bottom + TabBarHeight + Spacing.four;
 
   return (
     <ThemedView style={styles.root}>
@@ -43,12 +50,12 @@ export function Screen({ title, subtitle, children, action, scroll = true }: Scr
 
         {scroll ? (
           <ScrollView
-            contentContainerStyle={styles.scrollContent}
+            contentContainerStyle={{ paddingBottom: bottomPadding }}
             showsVerticalScrollIndicator={false}>
             {body}
           </ScrollView>
         ) : (
-          body
+          <View style={[styles.body, { paddingBottom: bottomPadding }]}>{children}</View>
         )}
       </SafeAreaView>
     </ThemedView>
@@ -77,9 +84,6 @@ const styles = StyleSheet.create({
   headerText: {
     flexShrink: 1,
     gap: Spacing.half,
-  },
-  scrollContent: {
-    paddingBottom: BottomTabInset + Spacing.five,
   },
   body: {
     gap: Spacing.three,

@@ -75,4 +75,15 @@ export const Spacing = {
 } as const;
 
 export const BottomTabInset = Platform.select({ ios: 50, android: 80 }) ?? 0;
+
+/**
+ * Hoehe der nativen Tab-Leiste OHNE die untere Safe Area — die kommt ueber
+ * `useSafeAreaInsets().bottom` dazu.
+ *
+ * Der frueher hier verwendete `BottomTabInset` von 50 pt war zu klein: im
+ * Simulator (iPhone 17 Pro, iOS 26) beginnt die Leiste bei 90,5 % der
+ * Bildschirmhoehe, belegt also rund 81 pt inklusive Home-Indicator. Der letzte
+ * Karteninhalt lag dadurch unter der Leiste.
+ */
+export const TabBarHeight = Platform.select({ ios: 56, android: 64 }) ?? 56;
 export const MaxContentWidth = 800;
