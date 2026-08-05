@@ -6,24 +6,36 @@ import {
   TabTrigger,
   type TabTriggerSlotProps,
 } from 'expo-router/ui';
-import { SymbolView } from 'expo-symbols';
-import { Pressable, StyleSheet, useColorScheme, View } from 'react-native';
-import { Colors, MaxContentWidth, Spacing } from '@/constants/theme';
-import { ExternalLink } from './external-link';
+import { Pressable, StyleSheet, View } from 'react-native';
+import { MaxContentWidth, Spacing } from '@/constants/theme';
 import { ThemedText } from './themed-text';
 import { ThemedView } from './themed-view';
 
+/**
+ * Web-Variante der Tabs. NativeTabs gibt es im Browser nicht, deshalb eine
+ * eigene Leiste. Die Routennamen muessen mit denen in app-tabs.tsx
+ * uebereinstimmen, sonst laufen die Plattformen auseinander.
+ */
 export default function AppTabs() {
   return (
     <Tabs>
       <TabSlot style={{ height: '100%' }} />
       <TabList asChild>
         <CustomTabList>
-          <TabTrigger name="home" href="/" asChild>
-            <TabButton>Home</TabButton>
+          <TabTrigger name="index" href="/" asChild>
+            <TabButton>Übersicht</TabButton>
           </TabTrigger>
-          <TabTrigger name="explore" href="/explore" asChild>
-            <TabButton>Explore</TabButton>
+          <TabTrigger name="fridge" href="/fridge" asChild>
+            <TabButton>Vorrat</TabButton>
+          </TabTrigger>
+          <TabTrigger name="shopping-list" href="/shopping-list" asChild>
+            <TabButton>Einkauf</TabButton>
+          </TabTrigger>
+          <TabTrigger name="recipes" href="/recipes" asChild>
+            <TabButton>Rezepte</TabButton>
+          </TabTrigger>
+          <TabTrigger name="profile" href="/profile" asChild>
+            <TabButton>Profil</TabButton>
           </TabTrigger>
         </CustomTabList>
       </TabList>
@@ -46,28 +58,13 @@ export function TabButton({ children, isFocused, ...props }: TabTriggerSlotProps
 }
 
 export function CustomTabList(props: TabListProps) {
-  const scheme = useColorScheme();
-  const colors = Colors[scheme === 'unspecified' ? 'light' : scheme];
-
   return (
     <View {...props} style={styles.tabListContainer}>
       <ThemedView type="backgroundElement" style={styles.innerContainer}>
         <ThemedText type="smallBold" style={styles.brandText}>
-          Expo Starter
+          NutriTrack
         </ThemedText>
-
         {props.children}
-
-        <ExternalLink href="https://docs.expo.dev" asChild>
-          <Pressable style={styles.externalPressable}>
-            <ThemedText type="link">Docs</ThemedText>
-            <SymbolView
-              tintColor={colors.text}
-              name={{ ios: 'arrow.up.right.square', web: 'link' }}
-              size={12}
-            />
-          </Pressable>
-        </ExternalLink>
       </ThemedView>
     </View>
   );
@@ -84,7 +81,7 @@ const styles = StyleSheet.create({
   },
   innerContainer: {
     paddingVertical: Spacing.two,
-    paddingHorizontal: Spacing.five,
+    paddingHorizontal: Spacing.four,
     borderRadius: Spacing.five,
     flexDirection: 'row',
     alignItems: 'center',
@@ -102,12 +99,5 @@ const styles = StyleSheet.create({
     paddingVertical: Spacing.one,
     paddingHorizontal: Spacing.three,
     borderRadius: Spacing.three,
-  },
-  externalPressable: {
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
-    gap: Spacing.one,
-    marginLeft: Spacing.three,
   },
 });

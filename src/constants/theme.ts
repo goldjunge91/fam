@@ -14,6 +14,14 @@ export const Colors = {
     backgroundElement: '#F0F0F3',
     backgroundSelected: '#E0E1E6',
     textSecondary: '#60646C',
+    border: '#DDDDE3',
+    accent: '#208AEF',
+    // Ampel fuer Mindesthaltbarkeitsdaten (#71) und Zielerreichung.
+    // Farbe ist nie der einzige Traeger der Information — daneben steht immer
+    // ein Text oder ein Symbol, sonst ist die Anzeige fuer Farbfehlsichtige wertlos.
+    success: '#1A7F4B',
+    warning: '#B26A00',
+    danger: '#C62828',
   },
   dark: {
     text: '#ffffff',
@@ -21,6 +29,11 @@ export const Colors = {
     backgroundElement: '#212225',
     backgroundSelected: '#2E3135',
     textSecondary: '#B0B4BA',
+    border: '#35383D',
+    accent: '#4EA1F5',
+    success: '#4ADE80',
+    warning: '#FBBF24',
+    danger: '#F87171',
   },
 } as const;
 
