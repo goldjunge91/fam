@@ -1,9 +1,9 @@
--- households + household_members
+-- Gewuenschter Endzustand — NICHT von Hand migrieren.
 --
 -- Hier entscheidet sich, wer welche Daten sieht. Der Haushalt ist die Grenze
 -- zwischen "geteilt" (Vorrat, Einkaufsliste) und "privat" (Kalorien, Gewicht).
 
-create table public.households (
+create table if not exists public.households (
   id uuid primary key default gen_random_uuid(),
   name text not null check (length(trim(name)) between 1 and 80),
   created_by uuid not null references public.profiles (id) on delete restrict,
@@ -11,10 +11,10 @@ create table public.households (
   updated_at timestamptz not null default now()
 );
 
--- UUID statt bigint identity, obwohl UUIDv4 die Index-Lokalitaet verschlechtert:
--- Die App legt Datensaetze offline an (#46) und muss die ID dabei selbst
--- vergeben. Bei einer serverseitigen Sequenz ginge das nicht.
-create table public.household_members (
+-- UUID statt bigint identity, obwohl UUIDv4 die Index-Lokalitaet
+-- verschlechtert: Die App legt Datensaetze offline an (#46) und muss die ID
+-- dabei selbst vergeben. Bei einer serverseitigen Sequenz ginge das nicht.
+create table if not exists public.household_members (
   household_id uuid not null references public.households (id) on delete cascade,
   user_id uuid not null references public.profiles (id) on delete cascade,
   role text not null default 'member' check (role in ('admin', 'member')),
@@ -23,12 +23,14 @@ create table public.household_members (
 );
 
 -- Der Primaerschluessel deckt (household_id, user_id) ab und damit jede Suche,
--- die mit household_id beginnt. Die Gegenrichtung "alle Haushalte eines Nutzers"
--- braucht einen eigenen Index — genau die Query laeuft beim App-Start.
-create index household_members_user_id_idx on public.household_members (user_id);
-create index households_created_by_idx on public.households (created_by);
+-- die mit household_id beginnt. Die Gegenrichtung "alle Haushalte eines
+-- Nutzers" braucht einen eigenen Index — genau die Query laeuft beim App-Start.
+create index if not exists household_members_user_id_idx
+  on public.household_members (user_id);
+create index if not exists households_created_by_idx
+  on public.households (created_by);
 
-create trigger households_set_updated_at
+create or replace trigger households_set_updated_at
   before update on public.households
   for each row
   execute function private.set_updated_at();
@@ -42,14 +44,7 @@ create trigger households_set_updated_at
 -- dieses Haushalts? -> SELECT auf household_members"), bricht Postgres mit
 -- `infinite recursion detected in policy for relation "household_members"` ab.
 --
--- SECURITY DEFINER umgeht RLS innerhalb der Funktion und durchbricht damit den
--- Kreis. Drei Details sind dabei nicht optional:
---   * `set search_path = ''` — sonst laesst sich ueber einen manipulierten
---     Suchpfad fremder Code unter den Rechten des Eigentuemers ausfuehren
---   * die Funktion prueft `auth.uid()` selbst, statt einer uebergebenen ID zu
---     vertrauen
---   * sie liegt in `private`, nicht in `public`, sonst waere sie ueber PostgREST
---     direkt als RPC aufrufbar
+-- SECURITY DEFINER umgeht RLS innerhalb der Funktion und durchbricht den Kreis.
 
 create or replace function private.is_household_member(hid uuid)
 returns boolean
@@ -82,28 +77,26 @@ as $$
   );
 $$;
 
--- Wichtig: Diese beiden Funktionen werden INNERHALB von RLS-Policies aufgerufen,
--- und Postgres wertet Policy-Ausdruecke mit den Rechten der abfragenden Rolle
--- aus. `authenticated` braucht deshalb USAGE auf das Schema und EXECUTE auf die
+-- Diese beiden Funktionen werden INNERHALB von RLS-Policies aufgerufen, und
+-- Postgres wertet Policy-Ausdruecke mit den Rechten der abfragenden Rolle aus.
+-- `authenticated` braucht deshalb USAGE auf das Schema und EXECUTE auf die
 -- Funktionen — ohne das schlaegt jede Query mit
 -- `permission denied for function is_household_member` fehl.
 --
--- Dass sie trotzdem nicht als RPC aufrufbar sind, kommt nicht aus dem Entzug der
--- Rechte, sondern daraus, dass PostgREST nur die in `db-schemas` konfigurierten
--- Schemas exponiert (public, graphql_public, storage) — `private` ist nicht dabei.
+-- Dass sie trotzdem nicht als RPC aufrufbar sind, kommt nicht aus dem Entzug
+-- der Rechte, sondern daraus, dass PostgREST nur die unter `[api] schemas`
+-- konfigurierten Schemas exponiert — `private` ist nicht dabei.
 grant usage on schema private to authenticated;
 grant execute on function private.is_household_member(uuid) to authenticated;
 grant execute on function private.is_household_admin(uuid) to authenticated;
 
--- anon bleibt aussen vor: alle Policies sind `to authenticated`, ein anonymer
--- Client wertet sie nie aus.
 revoke execute on function private.is_household_member(uuid) from public, anon;
 revoke execute on function private.is_household_admin(uuid) from public, anon;
 
 -- ------------------------------------------------------------- Haushalt anlegen
 -- Als RPC, nicht als INSERT aus dem Client: Haushalt und Admin-Mitgliedschaft
--- muessen zusammen entstehen. Ein Abbruch dazwischen hinterliesse einen Haushalt
--- ohne Admin, den danach niemand mehr verwalten koennte.
+-- muessen zusammen entstehen. Ein Abbruch dazwischen hinterliesse einen
+-- Haushalt ohne Admin, den danach niemand mehr verwalten koennte.
 create or replace function public.create_household(household_name text)
 returns uuid
 language plpgsql
@@ -129,9 +122,49 @@ begin
 end;
 $$;
 
--- Dieses RPC soll der Client aufrufen duerfen — im Gegensatz zu den Helfern oben.
+-- Dieses RPC soll der Client aufrufen duerfen — anders als die Helfer oben.
 revoke execute on function public.create_household(text) from public, anon;
 grant execute on function public.create_household(text) to authenticated;
+
+-- ------------------------------------------------------- letzter Admin absichern
+-- Ohne diese Sperre kann sich der letzte Admin degradieren oder austragen und
+-- laesst einen Haushalt zurueck, den niemand mehr verwalten kann — inklusive
+-- der Daten aller anderen Mitglieder.
+create or replace function private.guard_last_admin()
+returns trigger
+language plpgsql
+security definer
+set search_path = ''
+as $$
+declare
+  removed_admin boolean;
+  remaining integer;
+begin
+  removed_admin := (tg_op = 'DELETE' and old.role = 'admin')
+    or (tg_op = 'UPDATE' and old.role = 'admin' and new.role <> 'admin');
+
+  if not removed_admin then
+    return coalesce(new, old);
+  end if;
+
+  select count(*) into remaining
+  from public.household_members
+  where household_id = old.household_id
+    and role = 'admin'
+    and user_id <> old.user_id;
+
+  if remaining = 0 then
+    raise exception 'Der letzte Administrator kann den Haushalt nicht verlassen. Ernenne zuerst jemand anderen.';
+  end if;
+
+  return coalesce(new, old);
+end;
+$$;
+
+create or replace trigger household_members_guard_last_admin
+  before update or delete on public.household_members
+  for each row
+  execute function private.guard_last_admin();
 
 -- ------------------------------------------------------------------------- RLS
 alter table public.households enable row level security;
@@ -175,43 +208,3 @@ create policy household_members_delete on public.household_members
     (select private.is_household_admin(household_id))
     or user_id = (select auth.uid())
   );
-
--- ------------------------------------------------------- letzter Admin absichern
--- Ohne diese Sperre kann sich der letzte Admin degradieren oder austragen und
--- laesst einen Haushalt zurueck, den niemand mehr verwalten kann — inklusive der
--- Daten aller anderen Mitglieder.
-create or replace function private.guard_last_admin()
-returns trigger
-language plpgsql
-security definer
-set search_path = ''
-as $$
-declare
-  removed_admin boolean;
-  remaining integer;
-begin
-  removed_admin := (tg_op = 'DELETE' and old.role = 'admin')
-    or (tg_op = 'UPDATE' and old.role = 'admin' and new.role <> 'admin');
-
-  if not removed_admin then
-    return coalesce(new, old);
-  end if;
-
-  select count(*) into remaining
-  from public.household_members
-  where household_id = old.household_id
-    and role = 'admin'
-    and user_id <> old.user_id;
-
-  if remaining = 0 then
-    raise exception 'Der letzte Administrator kann den Haushalt nicht verlassen. Ernenne zuerst jemand anderen.';
-  end if;
-
-  return coalesce(new, old);
-end;
-$$;
-
-create trigger household_members_guard_last_admin
-  before update or delete on public.household_members
-  for each row
-  execute function private.guard_last_admin();

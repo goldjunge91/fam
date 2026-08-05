@@ -56,7 +56,7 @@ Publishable Key — der Secret Key darf niemals in die App.
 ```bash
 supabase start    # Postgres, Auth, Realtime, Studio (braucht Docker)
 supabase status   # URLs und Keys anzeigen
-supabase db reset # Schema aus supabase/migrations/ neu aufbauen
+supabase db reset # Migrationen neu anwenden
 supabase stop
 ```
 
@@ -116,7 +116,25 @@ und die SDK-57-Variante gäbe es nur als Preview. Gestylt wird über `theme.ts`.
 `src/app/` ist ausschließlich Routing. Fachlogik liegt feature-first unter
 `src/features/<domain>/` (jeweils `components/`, `hooks/`, `api.ts`, `types.ts`),
 geteilte Bausteine in `src/components/`, Supabase- und DB-Setup in `src/lib/`.
-Das DB-Schema ist versioniert in `supabase/migrations/`, nicht im Dashboard.
+## Datenbankschema
+
+Das Projekt nutzt ausschließlich Supabases **Declarative Schema Workflow**. Der
+gewünschte Endzustand steht in `supabase/schemas/*.sql`; die Dateien unter
+`supabase/migrations/` werden **generiert und nie von Hand bearbeitet**.
+
+```bash
+# 1. Endzustand in supabase/schemas/ ändern
+# 2. Migration erzeugen und reviewen
+supabase db diff -f beschreibender_name
+# 3. Anwenden
+supabase db reset
+```
+
+Zum Ausprobieren während der Entwicklung `supabase db query` nutzen — das
+schreibt keine Migrationshistorie und lässt sich frei wiederholen.
+
+Die Reihenfolge der Schemadateien steht in `config.toml` unter `schema_paths`;
+Elterntabellen müssen vor ihren Fremdschlüsseln kommen.
 
 ## Dokumentation
 
