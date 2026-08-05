@@ -77,21 +77,10 @@ as $$
   );
 $$;
 
--- Diese beiden Funktionen werden INNERHALB von RLS-Policies aufgerufen, und
--- Postgres wertet Policy-Ausdruecke mit den Rechten der abfragenden Rolle aus.
--- `authenticated` braucht deshalb USAGE auf das Schema und EXECUTE auf die
--- Funktionen — ohne das schlaegt jede Query mit
--- `permission denied for function is_household_member` fehl.
---
--- Dass sie trotzdem nicht als RPC aufrufbar sind, kommt nicht aus dem Entzug
--- der Rechte, sondern daraus, dass PostgREST nur die unter `[api] schemas`
--- konfigurierten Schemas exponiert — `private` ist nicht dabei.
-grant usage on schema private to authenticated;
-grant execute on function private.is_household_member(uuid) to authenticated;
-grant execute on function private.is_household_admin(uuid) to authenticated;
-
-revoke execute on function private.is_household_member(uuid) from public, anon;
-revoke execute on function private.is_household_admin(uuid) from public, anon;
+-- ACHTUNG: Die Rechte fuer diese Funktionen stehen NICHT hier, sondern in
+-- supabase/migrations/*_privileges.sql. `supabase db diff` erfasst
+-- Schema-Privilegien und Funktions-Grants nicht — hier notiert waeren sie
+-- wirkungslos und wuerden einen Zustand behaupten, den die Datenbank nicht hat.
 
 -- ------------------------------------------------------------- Haushalt anlegen
 -- Als RPC, nicht als INSERT aus dem Client: Haushalt und Admin-Mitgliedschaft
@@ -122,9 +111,7 @@ begin
 end;
 $$;
 
--- Dieses RPC soll der Client aufrufen duerfen — anders als die Helfer oben.
-revoke execute on function public.create_household(text) from public, anon;
-grant execute on function public.create_household(text) to authenticated;
+-- Rechte fuer dieses RPC: siehe migrations/*_privileges.sql.
 
 -- ------------------------------------------------------- letzter Admin absichern
 -- Ohne diese Sperre kann sich der letzte Admin degradieren oder austragen und

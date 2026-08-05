@@ -55,7 +55,11 @@
     "check:fix": "biome check --write .",
     "typecheck": "tsc --noEmit",
     "test": "jest",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch",
+    "db:diff": "supabase db diff --use-pg-delta",
+    "db:reset": "supabase db reset",
+    "db:advisors": "supabase db advisors --local --type security && supabase db advisors --local --type performance",
+    "db:types": "supabase gen types typescript --local > src/lib/database.types.ts"
   },
   "private": true
 }
