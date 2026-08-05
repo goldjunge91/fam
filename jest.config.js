@@ -13,5 +13,17 @@ module.exports = {
 
   testMatch: ['**/*.test.ts', '**/*.test.tsx'],
 
-  collectCoverageFrom: ['src/**/*.{ts,tsx}', '!src/**/*.test.{ts,tsx}', '!src/components/ui/**'],
+  // Integrationstests sind bewusst ausgeschlossen: Sie brauchen eine laufende
+  // lokale Supabase-Instanz. Ein Standard-Testlauf, der ohne externe Dienste
+  // nicht durchlaeuft, wird irgendwann uebersprungen statt repariert.
+  // Sie laufen ueber `bun run test:integration` (jest.integration.config.js).
+  testPathIgnorePatterns: ['/node_modules/', '\\.integration\\.test\\.tsx?$'],
+
+  collectCoverageFrom: [
+    'src/**/*.{ts,tsx}',
+    '!src/**/*.test.{ts,tsx}',
+    '!src/components/ui/**',
+    // Generiert aus dem DB-Schema, nicht von Hand gepflegt.
+    '!src/lib/database.types.ts',
+  ],
 };

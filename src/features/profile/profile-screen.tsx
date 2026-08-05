@@ -1,15 +1,21 @@
-import { StyleSheet, View } from 'react-native';
+import { useQueryClient } from '@tanstack/react-query';
+import { router } from 'expo-router';
+import { useState } from 'react';
+import { Alert, StyleSheet, View } from 'react-native';
 
+import { Button } from '@/components/button';
 import { Card } from '@/components/card';
 import { Screen } from '@/components/screen';
 import { ThemedText } from '@/components/themed-text';
 import { Spacing } from '@/constants/theme';
+import { useSession } from '@/features/auth/session-provider';
+import { signOutAndClearLocalData } from '@/features/auth/sign-out';
 import { useTheme } from '@/hooks/use-theme';
 
 type ZeileProps = {
   label: string;
   wert: string;
-  /** Noch nicht umgesetzt — wird sichtbar als solches gekennzeichnet, statt so zu tun als ginge es. */
+  /** Noch nicht umgesetzt — wird als solches gekennzeichnet, statt so zu tun als ginge es. */
   offen?: boolean;
 };
 
@@ -26,18 +32,39 @@ function Zeile({ label, wert, offen }: ZeileProps) {
   );
 }
 
-/**
- * Profil und Einstellungen (#94).
- *
- * Zeigt bewusst an, was noch nicht implementiert ist, statt Schalter
- * anzubieten, die nichts tun.
- */
 export function ProfileScreen() {
+  const { session } = useSession();
+  const queryClient = useQueryClient();
+  const [signingOut, setSigningOut] = useState(false);
+
+  async function handleSignOut() {
+    if (signingOut) return;
+    setSigningOut(true);
+
+    const { error } = await signOutAndClearLocalData(queryClient);
+
+    setSigningOut(false);
+
+    if (error) {
+      Alert.alert('Abmelden fehlgeschlagen', error.message);
+      return;
+    }
+    // Kein manueller Redirect: Der Guard im Root-Layout uebernimmt, sobald die
+    // Session weg ist.
+  }
+
   return (
     <Screen title="Profil">
       <Card title="Konto">
-        <Zeile label="Anmeldung" wert="noch nicht eingerichtet" offen />
+        <Zeile label="Angemeldet als" wert={session?.user.email ?? '—'} />
         <Zeile label="Haushalt" wert="keiner" offen />
+        <View style={styles.aktion}>
+          <Button
+            label="Profil ergänzen"
+            variant="secondary"
+            onPress={() => router.push('/onboarding')}
+          />
+        </View>
       </Card>
 
       <Card title="Ziele">
@@ -56,6 +83,8 @@ export function ProfileScreen() {
           bleiben privat — die Trennung ist in der Datenbank erzwungen, nicht nur in der Anzeige.
         </ThemedText>
       </Card>
+
+      <Button label="Abmelden" variant="danger" onPress={handleSignOut} loading={signingOut} />
     </Screen>
   );
 }
@@ -68,5 +97,8 @@ const styles = StyleSheet.create({
     gap: Spacing.three,
     paddingVertical: Spacing.two,
     borderBottomWidth: StyleSheet.hairlineWidth,
+  },
+  aktion: {
+    marginTop: Spacing.two,
   },
 });

@@ -9,8 +9,16 @@ select tests.create_user('11111111-1111-1111-1111-111111111111', 'alice@example.
 select tests.create_user('22222222-2222-2222-2222-222222222222', 'bob@example.com');
 
 -- ------------------------------------------------------------------- Trigger
+-- Auf die eigenen Fixtures eingegrenzt statt `count(*)` ueber die ganze
+-- Tabelle: Sonst schlaegt der Test fehl, sobald irgendetwas anderes Daten
+-- hinterlassen hat (etwa die Integrationstests) — und meldet damit einen
+-- Fehler, den es im Code nicht gibt.
 select is(
-  (select count(*)::int from public.profiles),
+  (select count(*)::int from public.profiles
+   where id in (
+     '11111111-1111-1111-1111-111111111111',
+     '22222222-2222-2222-2222-222222222222'
+   )),
   2,
   'on_auth_user_created legt fuer jeden neuen auth.users-Eintrag ein Profil an'
 );

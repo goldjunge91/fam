@@ -5,6 +5,7 @@
   "dependencies": {
     "@expo/ui": "~57.0.9",
     "@supabase/supabase-js": "^2.112.1",
+    "@tanstack/react-query": "^5.101.4",
     "expo": "~57.0.10",
     "expo-constants": "~57.0.9",
     "expo-dev-client": "~57.0.10",
@@ -13,6 +14,7 @@
     "expo-glass-effect": "~57.0.1",
     "expo-image": "~57.0.2",
     "expo-linking": "~57.0.5",
+    "expo-network": "~57.0.1",
     "expo-router": "~57.0.10",
     "expo-secure-store": "~57.0.1",
     "expo-splash-screen": "~57.0.5",
@@ -30,7 +32,8 @@
     "react-native-svg": "15.15.4",
     "react-native-url-polyfill": "^4.0.0",
     "react-native-web": "~0.21.0",
-    "react-native-worklets": "0.10.1"
+    "react-native-worklets": "0.10.1",
+    "zod": "^4.4.3"
   },
   "devDependencies": {
     "@biomejs/biome": "^2.5.7",
@@ -62,7 +65,8 @@
     "db:types": "supabase gen types typescript --local > src/lib/database.types.ts",
     "db:check": "bash scripts/check-privileges.sh",
     "db:push": "supabase db push && bash scripts/check-privileges.sh --linked",
-    "test:db": "supabase test db --local supabase/tests/*.test.sql"
+    "test:db": "supabase test db --local supabase/tests/*.test.sql",
+    "test:integration": "jest --config jest.integration.config.js"
   },
   "private": true
 }

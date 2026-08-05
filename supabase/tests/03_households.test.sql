@@ -69,8 +69,11 @@ delete from public.household_members
 where user_id = '11111111-1111-1111-1111-111111111111';
 
 select tests.as_postgres();
+-- Auf den Testhaushalt eingegrenzt: Ein globales count(*) waere von Daten
+-- abhaengig, die andere Testlaeufe hinterlassen haben.
 select is(
-  (select count(*)::int from public.household_members where role = 'admin'),
+  (select count(*)::int from public.household_members
+   where household_id = :'hid' and role = 'admin'),
   1,
   'ein Mitglied ohne Adminrolle kann die Adminin nicht entfernen'
 );
@@ -105,7 +108,7 @@ where user_id = '11111111-1111-1111-1111-111111111111';
 
 select tests.as_postgres();
 select is(
-  (select count(*)::int from public.household_members),
+  (select count(*)::int from public.household_members where household_id = :'hid'),
   1,
   'mit einem zweiten Administrator gelingt der Austritt'
 );

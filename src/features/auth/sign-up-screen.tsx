@@ -1,0 +1,152 @@
+import { router } from 'expo-router';
+import { useState } from 'react';
+import { KeyboardAvoidingView, Platform, StyleSheet, View } from 'react-native';
+
+import { Button } from '@/components/button';
+import { Card } from '@/components/card';
+import { Screen } from '@/components/screen';
+import { TextField } from '@/components/text-field';
+import { ThemedText } from '@/components/themed-text';
+import { Spacing } from '@/constants/theme';
+import { authErrorMessage, signUp } from '@/features/auth/api';
+import { fieldErrors, signUpSchema } from '@/features/auth/auth-schemas';
+
+export function SignUpScreen() {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [passwordConfirmation, setPasswordConfirmation] = useState('');
+  const [errors, setErrors] = useState<Record<string, string>>({});
+  const [formError, setFormError] = useState<string | null>(null);
+  const [loading, setLoading] = useState(false);
+  const [needsConfirmation, setNeedsConfirmation] = useState(false);
+
+  async function handleSubmit() {
+    if (loading) return;
+
+    setFormError(null);
+    const parsed = signUpSchema.safeParse({ email, password, passwordConfirmation });
+
+    if (!parsed.success) {
+      setErrors(fieldErrors(parsed.error));
+      return;
+    }
+
+    setErrors({});
+    setLoading(true);
+
+    const { data, error } = await signUp(parsed.data.email, parsed.data.password);
+
+    setLoading(false);
+
+    if (error) {
+      setFormError(authErrorMessage(error));
+      return;
+    }
+
+    // Ist E-Mail-Bestaetigung aktiv, kommt eine User-Zeile ohne Session zurueck.
+    // Dann darf hier NICHT weitergeleitet werden — der Nutzer muss erst den Link
+    // aus der Mail oeffnen. Ohne diese Unterscheidung landet er auf einem leeren
+    // Bildschirm und haelt die Registrierung fuer gescheitert.
+    if (data.session === null) {
+      setNeedsConfirmation(true);
+      return;
+    }
+
+    router.replace('/onboarding');
+  }
+
+  if (needsConfirmation) {
+    return (
+      <Screen title="Fast geschafft">
+        <Card>
+          <ThemedText>
+            Wir haben dir eine E-Mail an {email} geschickt. Öffne den Link darin, um dein Konto zu
+            bestätigen.
+          </ThemedText>
+          <ThemedText type="small" themeColor="textSecondary">
+            Nichts angekommen? Sieh im Spam-Ordner nach.
+          </ThemedText>
+        </Card>
+
+        <Button
+          label="Zur Anmeldung"
+          variant="secondary"
+          onPress={() => router.replace('/sign-in')}
+        />
+      </Screen>
+    );
+  }
+
+  return (
+    <Screen title="Konto erstellen" subtitle="Für dich und deinen Haushalt">
+      <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : undefined}>
+        <Card>
+          <View style={styles.form}>
+            <TextField
+              label="E-Mail"
+              value={email}
+              onChangeText={setEmail}
+              error={errors.email}
+              autoCapitalize="none"
+              autoComplete="email"
+              keyboardType="email-address"
+              textContentType="emailAddress"
+              inputMode="email"
+            />
+
+            <TextField
+              label="Passwort"
+              value={password}
+              onChangeText={setPassword}
+              error={errors.password}
+              secureTextEntry
+              autoCapitalize="none"
+              // `new-password` signalisiert dem Passwortmanager, einen Vorschlag
+              // zu machen, statt ein bestehendes Passwort einzusetzen.
+              autoComplete="new-password"
+              textContentType="newPassword"
+            />
+
+            <TextField
+              label="Passwort wiederholen"
+              value={passwordConfirmation}
+              onChangeText={setPasswordConfirmation}
+              error={errors.passwordConfirmation}
+              secureTextEntry
+              autoCapitalize="none"
+              autoComplete="new-password"
+              textContentType="newPassword"
+              onSubmitEditing={handleSubmit}
+              returnKeyType="go"
+            />
+
+            {formError ? (
+              <ThemedText type="small" themeColor="danger">
+                {formError}
+              </ThemedText>
+            ) : null}
+
+            <Button label="Konto erstellen" onPress={handleSubmit} loading={loading} />
+
+            <ThemedText type="small" themeColor="textSecondary">
+              Vorrat und Einkaufsliste teilst du später mit deinem Haushalt. Kalorien, Gewicht und
+              Ziele bleiben privat.
+            </ThemedText>
+          </View>
+        </Card>
+
+        <Button
+          label="Ich habe schon ein Konto"
+          variant="secondary"
+          onPress={() => router.replace('/sign-in')}
+        />
+      </KeyboardAvoidingView>
+    </Screen>
+  );
+}
+
+const styles = StyleSheet.create({
+  form: {
+    gap: Spacing.three,
+  },
+});

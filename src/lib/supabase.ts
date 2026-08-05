@@ -4,7 +4,18 @@ import { createClient, type SupabaseClient } from '@supabase/supabase-js';
 import { AppState, Platform } from 'react-native';
 
 import { createChunkedStorage, type KeyValueStore } from '@/lib/chunked-storage';
+import type { Database } from '@/lib/database.types';
 import { env } from '@/lib/env';
+
+/**
+ * Typisierter Client. `database.types.ts` wird mit `bun run db:types` aus dem
+ * Schema erzeugt und ist committet — ohne die Datei bricht der Typecheck auf
+ * einem frischen Checkout, weil sie sonst erst nach einem lokalen
+ * Supabase-Start entstuende.
+ *
+ * Nach jeder Schemaaenderung neu generieren.
+ */
+export type TypedSupabaseClient = SupabaseClient<Database>;
 
 /**
  * Zentraler Supabase-Client, app-weit verwendet.
@@ -58,7 +69,7 @@ const secureStoreAdapter: KeyValueStore = {
   removeItem: (key) => loadSecureStore().deleteItemAsync(key),
 };
 
-let client: SupabaseClient | null = null;
+let client: TypedSupabaseClient | null = null;
 
 /**
  * Gibt den Client zurueck und legt ihn beim ersten Aufruf an.
@@ -66,10 +77,10 @@ let client: SupabaseClient | null = null;
  * Wirft, wenn Umgebungsvariablen oder das native Modul fehlen — aber erst hier
  * und mit einer Meldung, die den naechsten Schritt nennt.
  */
-export function getSupabase(): SupabaseClient {
+export function getSupabase(): TypedSupabaseClient {
   if (client) return client;
 
-  client = createClient(env.supabaseUrl, env.supabaseKey, {
+  client = createClient<Database>(env.supabaseUrl, env.supabaseKey, {
     auth: {
       // Im Browser gibt es kein SecureStore; dort nutzt supabase-js localStorage.
       storage: Platform.OS === 'web' ? undefined : createChunkedStorage(secureStoreAdapter),
@@ -92,7 +103,7 @@ export function getSupabase(): SupabaseClient {
 export function startSupabaseAutoRefresh(): () => void {
   if (Platform.OS === 'web') return () => {};
 
-  let supabase: SupabaseClient;
+  let supabase: TypedSupabaseClient;
   try {
     supabase = getSupabase();
   } catch (error) {

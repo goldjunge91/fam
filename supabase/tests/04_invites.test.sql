@@ -45,7 +45,7 @@ select isnt(
 
 select tests.as_postgres();
 select is(
-  (select count(*)::int from public.household_members),
+  (select count(*)::int from public.household_members where household_id = :'hid'),
   2,
   'Bob ist jetzt Mitglied'
 );
