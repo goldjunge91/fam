@@ -10,6 +10,7 @@ import { ThemedText } from '@/components/themed-text';
 import { Spacing } from '@/constants/theme';
 import { useSession } from '@/features/auth/session-provider';
 import { signOutAndClearLocalData } from '@/features/auth/sign-out';
+import { useHouseholds } from '@/features/household/api';
 import { useTheme } from '@/hooks/use-theme';
 
 type ZeileProps = {
@@ -36,6 +37,8 @@ export function ProfileScreen() {
   const { session } = useSession();
   const queryClient = useQueryClient();
   const [signingOut, setSigningOut] = useState(false);
+  const { data: households } = useHouseholds();
+  const currentHousehold = households?.[0];
 
   async function handleSignOut() {
     if (signingOut) return;
@@ -57,13 +60,22 @@ export function ProfileScreen() {
     <Screen title="Profil">
       <Card title="Konto">
         <Zeile label="Angemeldet als" wert={session?.user.email ?? '—'} />
-        <Zeile label="Haushalt" wert="keiner" offen />
+        <Zeile label="Haushalt" wert={currentHousehold?.name ?? 'Lädt...'} />
         <View style={styles.aktion}>
           <Button
             label="Profil ergänzen"
             variant="secondary"
             onPress={() => router.push('/onboarding')}
           />
+          {currentHousehold && (
+            <View style={{ marginTop: 8 }}>
+              <Button
+                label="Mitglieder verwalten"
+                variant="secondary"
+                onPress={() => router.push('/household/members')}
+              />
+            </View>
+          )}
         </View>
       </Card>
 
