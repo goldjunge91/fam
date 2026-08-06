@@ -5,6 +5,16 @@ import { type RealtimeSubscribeState, subscribeHouseholdRealtime } from '@/lib/s
 import { createServerClock } from '@/lib/sync/server-clock';
 import { assertLocalSupabase, type Device, setupTwoDevices } from '../../../test/setup-two-devices';
 
+let teardowns: Array<() => Promise<void>> = [];
+afterEach(async () => {
+  for (const t of teardowns) await t();
+  teardowns = [];
+});
+afterAll(async () => {
+  for (const t of teardowns) await t();
+  teardowns = [];
+});
+
 /**
  * Realtime → SQLite Bridge (#48) — kein Mock, echte lokale Supabase-
  * Realtime-Instanz, zwei echte Clients ("Geraete"), zwei echte node:sqlite-DBs.
@@ -93,7 +103,8 @@ describe('subscribeHouseholdRealtime', () => {
   beforeAll(assertLocalSupabase);
 
   it('AC1: Aenderung auf Geraet B erscheint auf Geraet A in unter 2s (Ziel laut Issue: <1s)', async () => {
-    const { deviceA, deviceB, householdId } = await setupTwoDevices('rt-propagate');
+    const { deviceA, deviceB, householdId, teardown } = await setupTwoDevices('rt-propagate');
+    teardowns.push(teardown);
     const id = crypto.randomUUID();
     const sub = waitForSubscribed(householdId);
 
@@ -153,7 +164,8 @@ describe('subscribeHouseholdRealtime', () => {
   }, 60_000);
 
   it('kein Echo-Loop: eigener Push kommt als Realtime-Event zurueck, ohne erneuten Outbox-Eintrag oder Duplikat', async () => {
-    const { deviceA, householdId } = await setupTwoDevices('rt-echo');
+    const { deviceA, householdId, teardown } = await setupTwoDevices('rt-echo');
+    teardowns.push(teardown);
     const id = crypto.randomUUID();
     const sub = waitForSubscribed(householdId);
 
@@ -197,7 +209,8 @@ describe('subscribeHouseholdRealtime', () => {
   }, 30_000);
 
   it('Reconnect: waehrend die Subscription abgemeldet ist verpasste Events werden durch einen vollen Pull nachgeholt', async () => {
-    const { deviceA, deviceB, householdId } = await setupTwoDevices('rt-reconnect');
+    const { deviceA, deviceB, householdId, teardown } = await setupTwoDevices('rt-reconnect');
+    teardowns.push(teardown);
     const idBeforeGap = crypto.randomUUID();
     const idDuringGap1 = crypto.randomUUID();
     const idDuringGap2 = crypto.randomUUID();
@@ -280,7 +293,8 @@ describe('subscribeHouseholdRealtime', () => {
   }, 30_000);
 
   it('Haushalts-Wechsel: nach unsubscribe() kommen keine Events mehr an und der Channel ist aus der Registry entfernt', async () => {
-    const { deviceA, deviceB, householdId } = await setupTwoDevices('rt-switch');
+    const { deviceA, deviceB, householdId, teardown } = await setupTwoDevices('rt-switch');
+    teardowns.push(teardown);
     const idAfterUnsub = crypto.randomUUID();
     const sub = waitForSubscribed(householdId);
 

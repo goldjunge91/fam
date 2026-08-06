@@ -88,6 +88,19 @@ Integrationstests selbst auf. `test:integration` läuft deshalb mit
 `--forceExit` — betrifft nur den Prozessabschluss nach Testende, nicht die
 Testergebnisse.
 
+**Test-Daten und Cleanup:** Jeder Integrationstest, der `setupTwoDevices()`
+nutzt, erzeugt echte Supabase-Benutzer, einen Haushalt und verknüpfte Tabellen
+in der lokalen bzw. CI-Datenbank. Ohne striktes Cleanup akkumulieren diese Daten
+über Test-Läufe hinweg. Da der Haushalt den Ersteller als letzten Admin erzwingt
+(Household-Admin-Constraint), schlägt ein reines Löschen des Benutzers per Auth-API
+oder Dashboard fehl. Der Cleanup **muss** über die Service-Role per direkten
+SQL-Deletes (erst Kind-Tabellen, dann `households`, dann User) erfolgen.
+`setupTwoDevices()` liefert hierfür eine `teardown()`-Funktion zurück, die in
+`afterEach` bzw. `afterAll` zwingend aufgerufen werden muss, da sonst
+(besonders in der CI) die Datenbank und der Auth-Service nach dutzenden
+verwaisten Test-Usern mit `504 Timeout` quittieren — was die Integrationstests
+zuverlässig fehlschlagen lässt.
+
 ## #50 — Netzwerkstatus + Hintergrund-Synchronisation
 
 Bewusst in zwei unabhängige, haushalts-freie Primitiven zerlegt, statt selbst

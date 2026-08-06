@@ -54,3 +54,4 @@ if (!/^https?:\/\/(127\.0\.0\.1|localhost)(:|\/|$)/.test(local.API_URL)) {
 
 process.env.EXPO_PUBLIC_SUPABASE_URL = local.API_URL;
 process.env.EXPO_PUBLIC_SUPABASE_KEY = local.ANON_KEY;
+process.env.SUPABASE_SERVICE_ROLE_KEY = local.SERVICE_ROLE_KEY;

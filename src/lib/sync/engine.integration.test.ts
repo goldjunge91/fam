@@ -3,6 +3,16 @@ import { syncHousehold } from '@/lib/sync/engine';
 import { createServerClock } from '@/lib/sync/server-clock';
 import { assertLocalSupabase, type Device, setupTwoDevices } from '../../../test/setup-two-devices';
 
+let teardowns: Array<() => Promise<void>> = [];
+afterEach(async () => {
+  for (const t of teardowns) await t();
+  teardowns = [];
+});
+afterAll(async () => {
+  for (const t of teardowns) await t();
+  teardowns = [];
+});
+
 /**
  * Zwei-Geraete-Konvergenztest der Sync-Engine (#47) — der eigentliche
  * Nachweis der Akzeptanzkriterien. Zwei echte lokale SQLite-Datenbanken, zwei
@@ -89,7 +99,8 @@ describe('syncHousehold — Zwei-Geraete-Konvergenz', () => {
   beforeAll(assertLocalSupabase);
 
   it('AC1: offline auf Geraet A erstellter Artikel erscheint nach Sync auf Geraet B', async () => {
-    const { deviceA, deviceB, householdId } = await setupTwoDevices();
+    const { deviceA, deviceB, householdId, teardown } = await setupTwoDevices();
+    teardowns.push(teardown);
     const id = crypto.randomUUID();
 
     await insertFridgeItemLocally(deviceA, id, householdId, 'Von A offline erstellt');
@@ -101,7 +112,8 @@ describe('syncHousehold — Zwei-Geraete-Konvergenz', () => {
   }, 30_000);
 
   it('AC2: gleichzeitige Bearbeitung auf beiden Geraeten endet auf beiden im selben Zustand', async () => {
-    const { deviceA, deviceB, householdId } = await setupTwoDevices();
+    const { deviceA, deviceB, householdId, teardown } = await setupTwoDevices();
+    teardowns.push(teardown);
     const id = crypto.randomUUID();
 
     // Ausgangszustand auf beiden Geraeten herstellen.
@@ -129,7 +141,8 @@ describe('syncHousehold — Zwei-Geraete-Konvergenz', () => {
   }, 30_000);
 
   it('AC3: ein offline geloeschter Artikel bleibt nach dem Sync geloescht — auch bei unabhaengiger anstehender Aenderung auf dem anderen Geraet', async () => {
-    const { deviceA, deviceB, householdId } = await setupTwoDevices();
+    const { deviceA, deviceB, householdId, teardown } = await setupTwoDevices();
+    teardowns.push(teardown);
     const id = crypto.randomUUID();
     const unrelatedId = crypto.randomUUID();
 
@@ -158,7 +171,8 @@ describe('syncHousehold — Zwei-Geraete-Konvergenz', () => {
   }, 30_000);
 
   it('AC4: ein doppelter Sync-Lauf erzeugt keine Duplikate', async () => {
-    const { deviceA, deviceB, householdId } = await setupTwoDevices();
+    const { deviceA, deviceB, householdId, teardown } = await setupTwoDevices();
+    teardowns.push(teardown);
     const id = crypto.randomUUID();
 
     await insertFridgeItemLocally(deviceA, id, householdId, 'Einmalig');
