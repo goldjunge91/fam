@@ -1,0 +1,391 @@
+import BottomSheet, { BottomSheetView } from '@expo/ui/community/bottom-sheet';
+import { useEffect, useRef, useState } from 'react';
+import { Pressable, ScrollView, StyleSheet, TextInput, View } from 'react-native';
+
+import { ThemedText } from '@/components/themed-text';
+import { Spacing } from '@/constants/theme';
+import { useTheme } from '@/hooks/use-theme';
+
+import type { LocalShoppingItem } from './use-shopping-list';
+
+export type StorageKind = 'fridge' | 'freezer' | 'pantry';
+
+export type TransferItem = {
+  shoppingItemId: string;
+  name: string;
+  quantity: number;
+  unit: string;
+  locationKind: StorageKind;
+  expiryDate: string | null;
+};
+
+const CATEGORY_TO_KIND: Record<string, StorageKind> = {
+  'Obst & Gemüse': 'fridge',
+  Milchprodukte: 'fridge',
+  'Fleisch & Fisch': 'fridge',
+  Getränke: 'fridge',
+  Tiefkühlkost: 'freezer',
+  Grundnahrungsmittel: 'pantry',
+  Snacks: 'pantry',
+  Backwaren: 'pantry',
+  Haushalt: 'pantry',
+};
+
+const KIND_CONFIG: Record<StorageKind, { label: string; icon: string }> = {
+  fridge: { label: 'Kühl', icon: '🧊' },
+  freezer: { label: 'Frost', icon: '❄️' },
+  pantry: { label: 'Kammer', icon: '🗄' },
+};
+
+const KINDS: StorageKind[] = ['fridge', 'freezer', 'pantry'];
+
+function defaultKind(item: LocalShoppingItem): StorageKind {
+  if (item.category && CATEGORY_TO_KIND[item.category]) {
+    return CATEGORY_TO_KIND[item.category];
+  }
+  return 'pantry';
+}
+
+// ---------------------------------------------------------------------------
+// Einzel-Zeile im Transfer-Sheet
+// ---------------------------------------------------------------------------
+
+interface TransferRowProps {
+  item: LocalShoppingItem;
+  transfer: TransferItem;
+  onUpdateKind: (kind: StorageKind) => void;
+  onUpdateExpiry: (expiry: string) => void;
+}
+
+function TransferRow({ item, transfer, onUpdateKind, onUpdateExpiry }: TransferRowProps) {
+  const theme = useTheme();
+
+  return (
+    <View style={[styles.transferRow, { borderBottomColor: theme.border }]}>
+      {/* Artikel-Header */}
+      <View style={styles.itemHeader}>
+        <ThemedText type="smallBold">{item.name}</ThemedText>
+
+        {/* Menge — grüner Pill-Badge wie im Screenshot */}
+        <View style={[styles.quantityBadge, { backgroundColor: theme.success }]}>
+          <ThemedText style={styles.quantityBadgeText}>
+            {item.quantity} {item.unit}
+          </ThemedText>
+        </View>
+      </View>
+
+      {/* Location-Picker + MHD */}
+      <View style={styles.controls}>
+        <View style={styles.kindPicker}>
+          {KINDS.map((kind) => {
+            const cfg = KIND_CONFIG[kind];
+            const isActive = transfer.locationKind === kind;
+            return (
+              <Pressable
+                key={kind}
+                onPress={() => onUpdateKind(kind)}
+                accessibilityRole="radio"
+                accessibilityState={{ selected: isActive }}
+                accessibilityLabel={cfg.label}
+                style={[
+                  styles.kindButton,
+                  {
+                    borderColor: isActive ? theme.accent : theme.border,
+                    backgroundColor: isActive ? `${theme.accent}18` : 'transparent',
+                  },
+                ]}>
+                <ThemedText style={styles.kindIcon}>{cfg.icon}</ThemedText>
+                <ThemedText
+                  type="small"
+                  style={{ color: isActive ? theme.accent : theme.textSecondary }}>
+                  {cfg.label}
+                </ThemedText>
+              </Pressable>
+            );
+          })}
+        </View>
+
+        {/* MHD */}
+        <View style={styles.mhdRow}>
+          <ThemedText type="small" themeColor="textSecondary" style={styles.mhdLabel}>
+            MHD
+          </ThemedText>
+          <TextInput
+            value={transfer.expiryDate ?? ''}
+            onChangeText={onUpdateExpiry}
+            placeholder="TT.MM.JJJJ"
+            placeholderTextColor={theme.textSecondary}
+            style={[
+              styles.mhdInput,
+              {
+                color: theme.text,
+                backgroundColor: theme.backgroundElement,
+                borderColor: theme.border,
+              },
+            ]}
+          />
+        </View>
+      </View>
+    </View>
+  );
+}
+
+// ---------------------------------------------------------------------------
+// Sheet
+// ---------------------------------------------------------------------------
+
+interface Props {
+  isOpen: boolean;
+  checkedItems: LocalShoppingItem[];
+  onConfirm: (transfers: TransferItem[]) => void;
+  onClose: () => void;
+}
+
+/**
+ * Bottom-Sheet zum Abschluss eines Einkaufs (#85/#86).
+ *
+ * Titel: "In Vorrat übernehmen" — genau wie im Screenshot.
+ * Pro Artikel: Pill-Badge Menge + 3 Location-Buttons + MHD-Feld.
+ * Confirm: "N Artikel in Vorrat übernehmen".
+ *
+ * Gecheckte Items werden beim Bestätigen per `onConfirm` übergeben.
+ * Der Aufrufer (ShoppingListScreen) ruft useCompleteShoppingRun auf,
+ * der die Items soft-deletet und in fridge_items insertet.
+ *
+ * Implementiert mit @expo/ui/community/bottom-sheet (nativer SwiftUI/Compose Sheet).
+ */
+export function CompleteRunSheet({ isOpen, checkedItems, onConfirm, onClose }: Props) {
+  const theme = useTheme();
+  const sheetRef = useRef<BottomSheet>(null);
+
+  const [transfers, setTransfers] = useState<Map<string, TransferItem>>(new Map());
+
+  // Sync transfers wenn checkedItems sich ändern
+  useEffect(() => {
+    const map = new Map<string, TransferItem>();
+    for (const item of checkedItems) {
+      map.set(item.id, {
+        shoppingItemId: item.id,
+        name: item.name,
+        quantity: item.quantity,
+        unit: item.unit,
+        locationKind: defaultKind(item),
+        expiryDate: null,
+      });
+    }
+    setTransfers(map);
+  }, [checkedItems]);
+
+  // Sheet öffnen/schließen via ref
+  useEffect(() => {
+    if (isOpen) {
+      sheetRef.current?.expand();
+    } else {
+      sheetRef.current?.close();
+    }
+  }, [isOpen]);
+
+  function updateKind(itemId: string, kind: StorageKind) {
+    setTransfers((prev) => {
+      const next = new Map(prev);
+      const t = next.get(itemId);
+      if (t) next.set(itemId, { ...t, locationKind: kind });
+      return next;
+    });
+  }
+
+  function updateExpiry(itemId: string, expiry: string) {
+    // TT.MM.JJJJ → ISO-Datum konvertieren
+    const parts = expiry.split('.');
+    let isoDate: string | null = null;
+    if (parts.length === 3 && parts[2].length === 4) {
+      isoDate = `${parts[2]}-${parts[1].padStart(2, '0')}-${parts[0].padStart(2, '0')}`;
+    }
+
+    setTransfers((prev) => {
+      const next = new Map(prev);
+      const t = next.get(itemId);
+      if (t) next.set(itemId, { ...t, expiryDate: isoDate });
+      return next;
+    });
+  }
+
+  function handleConfirm() {
+    onConfirm(Array.from(transfers.values()));
+  }
+
+  const count = checkedItems.length;
+
+  return (
+    <BottomSheet
+      ref={sheetRef}
+      snapPoints={['60%', '90%']}
+      enablePanDownToClose
+      onClose={onClose}
+      backgroundStyle={{ backgroundColor: theme.background }}
+      handleIndicatorStyle={{ backgroundColor: theme.border }}>
+      <BottomSheetView style={styles.sheetContent}>
+        {/* Header */}
+        <View style={styles.sheetHeader}>
+          <View>
+            <ThemedText type="title">In Vorrat übernehmen</ThemedText>
+            <ThemedText type="small" themeColor="textSecondary">
+              {count} {count === 1 ? 'Artikel' : 'Artikel'} abgehakt
+            </ThemedText>
+          </View>
+          <Pressable
+            onPress={onClose}
+            accessibilityRole="button"
+            accessibilityLabel="Schließen"
+            style={[styles.closeButton, { backgroundColor: theme.backgroundElement }]}>
+            <ThemedText>✕</ThemedText>
+          </Pressable>
+        </View>
+
+        {/* Artikel-Liste */}
+        <ScrollView style={styles.list} showsVerticalScrollIndicator={false}>
+          {checkedItems.map((item) => {
+            const transfer = transfers.get(item.id);
+            if (!transfer) return null;
+            return (
+              <TransferRow
+                key={item.id}
+                item={item}
+                transfer={transfer}
+                onUpdateKind={(kind) => updateKind(item.id, kind)}
+                onUpdateExpiry={(expiry) => updateExpiry(item.id, expiry)}
+              />
+            );
+          })}
+        </ScrollView>
+
+        {/* Confirm-Button — volle Breite, grün, wie im Screenshot */}
+        <View style={styles.actions}>
+          <Pressable
+            onPress={handleConfirm}
+            disabled={count === 0}
+            accessibilityRole="button"
+            accessibilityLabel={`${count} Artikel in Vorrat übernehmen`}
+            style={[
+              styles.confirmButton,
+              { backgroundColor: theme.success, opacity: count === 0 ? 0.5 : 1 },
+            ]}>
+            <ThemedText style={styles.confirmButtonText}>
+              ✓ {count} {count === 1 ? 'Artikel' : 'Artikel'} in Vorrat übernehmen
+            </ThemedText>
+          </Pressable>
+
+          <Pressable onPress={onClose} accessibilityRole="button" style={styles.cancelLink}>
+            <ThemedText type="small" themeColor="textSecondary">
+              Abbrechen
+            </ThemedText>
+          </Pressable>
+        </View>
+      </BottomSheetView>
+    </BottomSheet>
+  );
+}
+
+const styles = StyleSheet.create({
+  sheetContent: {
+    flex: 1,
+  },
+  sheetHeader: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'flex-start',
+    paddingHorizontal: Spacing.four,
+    paddingTop: Spacing.two,
+    paddingBottom: Spacing.three,
+  },
+  closeButton: {
+    width: 32,
+    height: 32,
+    borderRadius: 16,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  list: {
+    flex: 1,
+  },
+  transferRow: {
+    paddingHorizontal: Spacing.four,
+    paddingVertical: Spacing.three,
+    borderBottomWidth: StyleSheet.hairlineWidth,
+    gap: Spacing.two,
+  },
+  itemHeader: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+  quantityBadge: {
+    paddingHorizontal: Spacing.two,
+    paddingVertical: Spacing.half,
+    borderRadius: 20,
+  },
+  quantityBadgeText: {
+    color: '#fff',
+    fontSize: 13,
+    fontWeight: '600',
+  },
+  controls: {
+    gap: Spacing.two,
+  },
+  kindPicker: {
+    flexDirection: 'row',
+    gap: Spacing.two,
+  },
+  kindButton: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: Spacing.one,
+    paddingVertical: Spacing.two,
+    paddingHorizontal: Spacing.one,
+    borderRadius: 20,
+    borderWidth: 1.5,
+  },
+  kindIcon: {
+    fontSize: 14,
+  },
+  mhdRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: Spacing.two,
+  },
+  mhdLabel: {
+    width: 32,
+  },
+  mhdInput: {
+    flex: 1,
+    borderWidth: 1,
+    borderRadius: Spacing.two,
+    paddingHorizontal: Spacing.two,
+    paddingVertical: Spacing.one + 2,
+    fontSize: 14,
+  },
+  actions: {
+    paddingHorizontal: Spacing.four,
+    paddingTop: Spacing.three,
+    paddingBottom: Spacing.four,
+    gap: Spacing.two,
+    alignItems: 'center',
+  },
+  confirmButton: {
+    width: '100%',
+    paddingVertical: Spacing.three,
+    borderRadius: Spacing.three,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  confirmButtonText: {
+    color: '#fff',
+    fontWeight: '700',
+    fontSize: 16,
+  },
+  cancelLink: {
+    paddingVertical: Spacing.two,
+  },
+});
