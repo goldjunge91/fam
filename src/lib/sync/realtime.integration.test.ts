@@ -130,9 +130,12 @@ describe('subscribeHouseholdRealtime', () => {
         await deviceB.client
           .from('fridge_items')
           .insert({ id: warmupId, household_id: householdId, name: 'Aufwaermen' });
-        
+
         try {
-          await pollUntil(() => fridgeItemName(deviceA, warmupId), { timeoutMs: 3_000, intervalMs: 200 });
+          await pollUntil(() => fridgeItemName(deviceA, warmupId), {
+            timeoutMs: 3_000,
+            intervalMs: 200,
+          });
           isWarm = true;
           break;
         } catch {
