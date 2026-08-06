@@ -1,6 +1,6 @@
-import { Button, Column, Host, Row, Spacer, Text } from '@expo/ui';
+import { Button, Column, Host, Spacer, Text } from '@expo/ui';
 import { useState } from 'react';
-import { Pressable, StyleSheet, View } from 'react-native';
+import { Pressable, Text as RNText, StyleSheet, View } from 'react-native';
 import { TextField } from '@/components/text-field';
 import { Spacing } from '@/constants/theme';
 import { useTheme } from '@/hooks/use-theme';
@@ -84,12 +84,12 @@ export function ProfileStepForm({ onNext, onSkip }: ProfileStepFormProps) {
   return (
     <Host matchContents>
       <Column style={styles.container}>
-        <Text style={[styles.heading, { color: theme.text }]}>Dein Profil & Körperwerte</Text>
-        <Text style={[styles.subheading, { color: theme.textSecondary }]}>
+        <Text textStyle={{ ...styles.heading, color: theme.text }}>Dein Profil & Körperwerte</Text>
+        <Text textStyle={{ ...styles.subheading, color: theme.textSecondary }}>
           Alle Angaben sind freiwillig und dienen der genauen Kalorienberechnung.
         </Text>
 
-        <Spacer height={Spacing.three} />
+        <Spacer size={Spacing.three} />
 
         <TextField
           label="Rufname / Anzeigename"
@@ -98,7 +98,7 @@ export function ProfileStepForm({ onNext, onSkip }: ProfileStepFormProps) {
           placeholder="Wie möchtest du genannt werden?"
         />
 
-        <Spacer height={Spacing.two} />
+        <Spacer size={Spacing.two} />
 
         <TextField
           label="Geburtsdatum (JJJJ-MM-TT)"
@@ -108,9 +108,9 @@ export function ProfileStepForm({ onNext, onSkip }: ProfileStepFormProps) {
           inputMode="numeric"
         />
 
-        <Spacer height={Spacing.two} />
+        <Spacer size={Spacing.two} />
 
-        <Row style={styles.inputRow}>
+        <View style={styles.inputRow}>
           <View style={styles.halfInput}>
             <TextField
               label="Größe (cm)"
@@ -133,12 +133,14 @@ export function ProfileStepForm({ onNext, onSkip }: ProfileStepFormProps) {
               error={errors.weightKg}
             />
           </View>
-        </Row>
+        </View>
 
-        <Spacer height={Spacing.three} />
+        <Spacer size={Spacing.three} />
 
-        <Text style={[styles.label, { color: theme.text }]}>Berechnungsbasis (Geschlecht)</Text>
-        <Row style={styles.chipRow}>
+        <Text textStyle={{ ...styles.label, color: theme.text }}>
+          Berechnungsbasis (Geschlecht)
+        </Text>
+        <View style={styles.chipRow}>
           {SEX_OPTIONS.map((opt) => {
             const selected = sex === opt.value;
             return (
@@ -152,16 +154,16 @@ export function ProfileStepForm({ onNext, onSkip }: ProfileStepFormProps) {
                     borderColor: selected ? theme.accent : theme.border,
                   },
                 ]}>
-                <Text style={{ color: selected ? '#ffffff' : theme.text }}>{opt.label}</Text>
+                <RNText style={{ color: selected ? '#ffffff' : theme.text }}>{opt.label}</RNText>
               </Pressable>
             );
           })}
-        </Row>
+        </View>
 
-        <Spacer height={Spacing.three} />
+        <Spacer size={Spacing.three} />
 
-        <Text style={[styles.label, { color: theme.text }]}>Ernährungsziel</Text>
-        <Row style={styles.chipRow}>
+        <Text textStyle={{ ...styles.label, color: theme.text }}>Ernährungsziel</Text>
+        <View style={styles.chipRow}>
           {GOAL_OPTIONS.map((opt) => {
             const selected = weightGoal === opt.value;
             return (
@@ -175,16 +177,16 @@ export function ProfileStepForm({ onNext, onSkip }: ProfileStepFormProps) {
                     borderColor: selected ? theme.accent : theme.border,
                   },
                 ]}>
-                <Text style={{ color: selected ? '#ffffff' : theme.text }}>{opt.label}</Text>
+                <RNText style={{ color: selected ? '#ffffff' : theme.text }}>{opt.label}</RNText>
               </Pressable>
             );
           })}
-        </Row>
+        </View>
 
-        <Spacer height={Spacing.three} />
+        <Spacer size={Spacing.three} />
 
-        <Text style={[styles.label, { color: theme.text }]}>Aktivitätslevel im Alltag</Text>
-        <Column style={styles.stackChoices}>
+        <Text textStyle={{ ...styles.label, color: theme.text }}>Aktivitätslevel im Alltag</Text>
+        <View style={styles.stackChoices}>
           {ACTIVITY_OPTIONS.map((opt) => {
             const selected = activityLevel === opt.value;
             return (
@@ -198,18 +200,19 @@ export function ProfileStepForm({ onNext, onSkip }: ProfileStepFormProps) {
                     borderColor: selected ? theme.accent : theme.border,
                   },
                 ]}>
-                <Text style={{ color: selected ? '#ffffff' : theme.text }}>{opt.label}</Text>
+                <RNText style={{ color: selected ? '#ffffff' : theme.text }}>{opt.label}</RNText>
               </Pressable>
             );
           })}
-        </Column>
+        </View>
 
-        <Spacer height={Spacing.four} />
+        <Spacer size={Spacing.four} />
 
-        <Row style={styles.buttonRow}>
+        <View style={styles.buttonRow}>
           <Button onPress={handleSubmit}>Weiter</Button>
+          <Spacer size={Spacing.two} />
           <Button onPress={onSkip}>Später ausfüllen</Button>
-        </Row>
+        </View>
       </Column>
     </Host>
   );
@@ -225,9 +228,9 @@ const styles = StyleSheet.create({
   },
   subheading: {
     fontSize: 14,
-    marginTop: Spacing.one,
   },
   inputRow: {
+    flexDirection: 'row',
     gap: Spacing.two,
   },
   halfInput: {
@@ -236,9 +239,9 @@ const styles = StyleSheet.create({
   label: {
     fontSize: 14,
     fontWeight: '600',
-    marginBottom: Spacing.one,
   },
   chipRow: {
+    flexDirection: 'row',
     gap: Spacing.two,
   },
   chip: {
@@ -257,7 +260,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
   },
   buttonRow: {
-    gap: Spacing.two,
+    flexDirection: 'row',
     justifyContent: 'space-between',
   },
 });

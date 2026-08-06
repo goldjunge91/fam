@@ -1,6 +1,6 @@
-import { Button, Column, Host, Row, Spacer, Text } from '@expo/ui';
+import { Button, Column, Host, Spacer, Text } from '@expo/ui';
 import { useState } from 'react';
-import { Pressable, StyleSheet } from 'react-native';
+import { Pressable, Text as RNText, StyleSheet, View } from 'react-native';
 import { TextField } from '@/components/text-field';
 import { Spacing } from '@/constants/theme';
 import { useTheme } from '@/hooks/use-theme';
@@ -32,14 +32,14 @@ export function HouseholdStepForm({ onNext, onSkip }: HouseholdStepFormProps) {
   return (
     <Host matchContents>
       <Column style={styles.container}>
-        <Text style={[styles.heading, { color: theme.text }]}>Dein Haushalt</Text>
-        <Text style={[styles.subheading, { color: theme.textSecondary }]}>
+        <Text textStyle={{ ...styles.heading, color: theme.text }}>Dein Haushalt</Text>
+        <Text textStyle={{ ...styles.subheading, color: theme.textSecondary }}>
           Entscheide, wie du die App für Vorrat & Einkäufe nutzen möchtest.
         </Text>
 
-        <Spacer height={Spacing.three} />
+        <Spacer size={Spacing.three} />
 
-        <Column style={styles.choiceList}>
+        <View style={styles.choiceList}>
           <Pressable
             onPress={() => setChoice('create')}
             style={[
@@ -49,17 +49,17 @@ export function HouseholdStepForm({ onNext, onSkip }: HouseholdStepFormProps) {
                 borderColor: choice === 'create' ? theme.accent : theme.border,
               },
             ]}>
-            <Text
+            <RNText
               style={[styles.cardTitle, { color: choice === 'create' ? '#ffffff' : theme.text }]}>
               🏠 Neuen Haushalt erstellen
-            </Text>
-            <Text
+            </RNText>
+            <RNText
               style={[
                 styles.cardDesc,
                 { color: choice === 'create' ? '#f0f0f0' : theme.textSecondary },
               ]}>
               Erstelle eine eigene Gruppe für deine Familie oder WG und lade Mitglieder ein.
-            </Text>
+            </RNText>
           </Pressable>
 
           <Pressable
@@ -71,16 +71,17 @@ export function HouseholdStepForm({ onNext, onSkip }: HouseholdStepFormProps) {
                 borderColor: choice === 'join' ? theme.accent : theme.border,
               },
             ]}>
-            <Text style={[styles.cardTitle, { color: choice === 'join' ? '#ffffff' : theme.text }]}>
+            <RNText
+              style={[styles.cardTitle, { color: choice === 'join' ? '#ffffff' : theme.text }]}>
               🔗 Einem Haushalt beitreten
-            </Text>
-            <Text
+            </RNText>
+            <RNText
               style={[
                 styles.cardDesc,
                 { color: choice === 'join' ? '#f0f0f0' : theme.textSecondary },
               ]}>
               Gib einen 6-stelligen Einladungscode ein oder scanne später einen QR-Code.
-            </Text>
+            </RNText>
           </Pressable>
 
           <Pressable
@@ -92,20 +93,21 @@ export function HouseholdStepForm({ onNext, onSkip }: HouseholdStepFormProps) {
                 borderColor: choice === 'solo' ? theme.accent : theme.border,
               },
             ]}>
-            <Text style={[styles.cardTitle, { color: choice === 'solo' ? '#ffffff' : theme.text }]}>
+            <RNText
+              style={[styles.cardTitle, { color: choice === 'solo' ? '#ffffff' : theme.text }]}>
               👤 Vorerst alleine nutzen
-            </Text>
-            <Text
+            </RNText>
+            <RNText
               style={[
                 styles.cardDesc,
                 { color: choice === 'solo' ? '#f0f0f0' : theme.textSecondary },
               ]}>
               Starte mit einem privaten Bereich. Du kannst jederzeit andere zum Haushalt einladen.
-            </Text>
+            </RNText>
           </Pressable>
-        </Column>
+        </View>
 
-        <Spacer height={Spacing.three} />
+        <Spacer size={Spacing.three} />
 
         {choice === 'create' && (
           <TextField
@@ -126,12 +128,12 @@ export function HouseholdStepForm({ onNext, onSkip }: HouseholdStepFormProps) {
           />
         )}
 
-        <Spacer height={Spacing.four} />
+        <Spacer size={Spacing.four} />
 
-        <Row style={styles.buttonRow}>
+        <View style={styles.buttonRow}>
           <Button onPress={handleNext}>Weiter</Button>
           <Button onPress={onSkip}>Überspringen</Button>
-        </Row>
+        </View>
       </Column>
     </Host>
   );
@@ -147,7 +149,6 @@ const styles = StyleSheet.create({
   },
   subheading: {
     fontSize: 14,
-    marginTop: Spacing.one,
   },
   choiceList: {
     gap: Spacing.two,
@@ -167,7 +168,7 @@ const styles = StyleSheet.create({
     lineHeight: 18,
   },
   buttonRow: {
+    flexDirection: 'row',
     justifyContent: 'space-between',
-    gap: Spacing.two,
   },
 });

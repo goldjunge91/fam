@@ -37,24 +37,23 @@ export function WelcomeCarousel({ onStart }: WelcomeCarouselProps) {
   const theme = useTheme();
 
   const isLast = slideIndex === SLIDES.length - 1;
-
   const current = SLIDES[slideIndex];
 
   return (
     <Host matchContents>
       <Column style={styles.container}>
-        <Spacer height={Spacing.four} />
-        <Text style={[styles.iconText, { fontSize: 64 }]}>{current.icon}</Text>
-        <Spacer height={Spacing.three} />
-        <Text style={[styles.title, { color: theme.text }]}>{current.title}</Text>
-        <Spacer height={Spacing.two} />
-        <Text style={[styles.description, { color: theme.textSecondary }]}>
+        <Spacer size={Spacing.four} />
+        <Text textStyle={styles.iconText}>{current.icon}</Text>
+        <Spacer size={Spacing.three} />
+        <Text textStyle={{ ...styles.title, color: theme.text }}>{current.title}</Text>
+        <Spacer size={Spacing.two} />
+        <Text textStyle={{ ...styles.description, color: theme.textSecondary }}>
           {current.description}
         </Text>
 
-        <Spacer height={Spacing.four} />
+        <Spacer size={Spacing.four} />
 
-        <Row style={styles.pagination}>
+        <Row style={styles.paginationRow}>
           {SLIDES.map((slide, idx) => (
             <View
               key={slide.id}
@@ -69,18 +68,15 @@ export function WelcomeCarousel({ onStart }: WelcomeCarouselProps) {
           ))}
         </Row>
 
-        <Spacer height={Spacing.four} />
+        <Spacer size={Spacing.four} />
 
         <Column style={styles.buttonContainer}>
           {isLast ? (
             <Button onPress={onStart}>Jetzt starten</Button>
           ) : (
-            <Row style={styles.buttonRow}>
-              <Button
-                onPress={() => setSlideIndex((prev) => Math.min(SLIDES.length - 1, prev + 1))}>
-                Weiter
-              </Button>
-            </Row>
+            <Button onPress={() => setSlideIndex((prev) => Math.min(SLIDES.length - 1, prev + 1))}>
+              Weiter
+            </Button>
           )}
         </Column>
       </Column>
@@ -91,10 +87,9 @@ export function WelcomeCarousel({ onStart }: WelcomeCarouselProps) {
 const styles = StyleSheet.create({
   container: {
     padding: Spacing.four,
-    alignItems: 'center',
-    justifyContent: 'center',
   },
   iconText: {
+    fontSize: 64,
     textAlign: 'center',
   },
   title: {
@@ -107,20 +102,15 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     lineHeight: 22,
   },
-  pagination: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: Spacing.two,
+  paginationRow: {
+    paddingVertical: Spacing.two,
   },
   dot: {
     height: 8,
     borderRadius: 4,
+    marginHorizontal: 4,
   },
   buttonContainer: {
     width: '100%',
-  },
-  buttonRow: {
-    width: '100%',
-    justifyContent: 'center',
   },
 });

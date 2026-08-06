@@ -1,5 +1,5 @@
-import { Button, Column, Host, Row, Spacer, Text } from '@expo/ui';
-import { StyleSheet } from 'react-native';
+import { Button, Column, Host, Spacer, Text } from '@expo/ui';
+import { Text as RNText, StyleSheet, View } from 'react-native';
 import { Spacing } from '@/constants/theme';
 import { useTheme } from '@/hooks/use-theme';
 import { useOnboarding } from '../context/onboarding-context';
@@ -24,45 +24,45 @@ export function PermissionsStepForm({ onNext, onSkip }: PermissionsStepFormProps
   return (
     <Host matchContents>
       <Column style={styles.container}>
-        <Text style={[styles.heading, { color: theme.text }]}>Erlaubnisse & Funktionen</Text>
-        <Text style={[styles.subheading, { color: theme.textSecondary }]}>
+        <Text textStyle={{ ...styles.heading, color: theme.text }}>Erlaubnisse & Funktionen</Text>
+        <Text textStyle={{ ...styles.subheading, color: theme.textSecondary }}>
           Damit die App optimal funktioniert, empfehlen wir folgende Berechtigungen:
         </Text>
 
-        <Spacer height={Spacing.three} />
+        <Spacer size={Spacing.three} />
 
-        <Column style={styles.permissionList}>
-          <Column
+        <View style={styles.permissionList}>
+          <View
             style={[
               styles.permCard,
               { borderColor: theme.border, backgroundColor: theme.backgroundElement },
             ]}>
-            <Text style={[styles.permTitle, { color: theme.text }]}>🔔 Benachrichtigungen</Text>
-            <Text style={[styles.permDesc, { color: theme.textSecondary }]}>
+            <RNText style={[styles.permTitle, { color: theme.text }]}>🔔 Benachrichtigungen</RNText>
+            <RNText style={[styles.permDesc, { color: theme.textSecondary }]}>
               Erhalte rechtzeitige Erinnerungen, bevor Lebensmittel im Kühlschrank ablaufen.
-            </Text>
-          </Column>
+            </RNText>
+          </View>
 
-          <Spacer height={Spacing.two} />
+          <Spacer size={Spacing.two} />
 
-          <Column
+          <View
             style={[
               styles.permCard,
               { borderColor: theme.border, backgroundColor: theme.backgroundElement },
             ]}>
-            <Text style={[styles.permTitle, { color: theme.text }]}>📷 Kamera-Zugriff</Text>
-            <Text style={[styles.permDesc, { color: theme.textSecondary }]}>
+            <RNText style={[styles.permTitle, { color: theme.text }]}>📷 Kamera-Zugriff</RNText>
+            <RNText style={[styles.permDesc, { color: theme.textSecondary }]}>
               Scanne Barcodes von Lebensmitteln oder QR-Codes für den Haushaltsbeitritt.
-            </Text>
-          </Column>
-        </Column>
+            </RNText>
+          </View>
+        </View>
 
-        <Spacer height={Spacing.four} />
+        <Spacer size={Spacing.four} />
 
-        <Row style={styles.buttonRow}>
+        <View style={styles.buttonRow}>
           <Button onPress={handlePermissions}>Berechtigungen erlauben</Button>
           <Button onPress={onSkip}>Jetzt nicht</Button>
-        </Row>
+        </View>
       </Column>
     </Host>
   );
@@ -78,7 +78,6 @@ const styles = StyleSheet.create({
   },
   subheading: {
     fontSize: 14,
-    marginTop: Spacing.one,
   },
   permissionList: {
     width: '100%',
@@ -98,7 +97,7 @@ const styles = StyleSheet.create({
     lineHeight: 18,
   },
   buttonRow: {
+    flexDirection: 'row',
     justifyContent: 'space-between',
-    gap: Spacing.two,
   },
 });

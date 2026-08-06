@@ -1,5 +1,5 @@
-import { Button, Column, Host, Row, Spacer, Switch, Text } from '@expo/ui';
-import { StyleSheet } from 'react';
+import { Button, Column, Host, Spacer, Switch, Text } from '@expo/ui';
+import { Text as RNText, StyleSheet, View } from 'react-native';
 import { Spacing } from '@/constants/theme';
 import { useTheme } from '@/hooks/use-theme';
 import { useOnboarding } from '../context/onboarding-context';
@@ -20,74 +20,74 @@ export function ModuleSelectorForm({ onNext, onSkip }: ModuleSelectorFormProps) 
   return (
     <Host matchContents>
       <Column style={styles.container}>
-        <Text style={[styles.heading, { color: theme.text }]}>
+        <Text textStyle={{ ...styles.heading, color: theme.text }}>
           Welche Module möchtest du nutzen?
         </Text>
-        <Text style={[styles.subheading, { color: theme.textSecondary }]}>
+        <Text textStyle={{ ...styles.subheading, color: theme.textSecondary }}>
           Du kannst ungenutzte Module jederzeit später in den Einstellungen anpassen.
         </Text>
 
-        <Spacer height={Spacing.three} />
+        <Spacer size={Spacing.three} />
 
-        <Column style={styles.moduleList}>
-          <Row style={[styles.moduleRow, { borderColor: theme.border }]}>
-            <Column style={styles.moduleTextCol}>
-              <Text style={[styles.moduleTitle, { color: theme.text }]}>
+        <View style={styles.moduleList}>
+          <View style={[styles.moduleRow, { borderColor: theme.border }]}>
+            <View style={styles.moduleTextCol}>
+              <RNText style={[styles.moduleTitle, { color: theme.text }]}>
                 🧊 Kühlschrank & Vorrat
-              </Text>
-              <Text style={[styles.moduleDesc, { color: theme.textSecondary }]}>
+              </RNText>
+              <RNText style={[styles.moduleDesc, { color: theme.textSecondary }]}>
                 Bestand verwalten, MHD-Ampel und Benachrichtigungen vor Ablauf.
-              </Text>
-            </Column>
+              </RNText>
+            </View>
             <Switch value={state.modules.fridge} onValueChange={() => toggle('fridge')} />
-          </Row>
+          </View>
 
-          <Row style={[styles.moduleRow, { borderColor: theme.border }]}>
-            <Column style={styles.moduleTextCol}>
-              <Text style={[styles.moduleTitle, { color: theme.text }]}>
+          <View style={[styles.moduleRow, { borderColor: theme.border }]}>
+            <View style={styles.moduleTextCol}>
+              <RNText style={[styles.moduleTitle, { color: theme.text }]}>
                 🛒 Geteilte Einkaufsliste
-              </Text>
-              <Text style={[styles.moduleDesc, { color: theme.textSecondary }]}>
+              </RNText>
+              <RNText style={[styles.moduleDesc, { color: theme.textSecondary }]}>
                 Gemeinsam einkaufen und nach dem Abkassieren direkt im Kühlschrank speichern.
-              </Text>
-            </Column>
+              </RNText>
+            </View>
             <Switch
               value={state.modules.shoppingList}
               onValueChange={() => toggle('shoppingList')}
             />
-          </Row>
+          </View>
 
-          <Row style={[styles.moduleRow, { borderColor: theme.border }]}>
-            <Column style={styles.moduleTextCol}>
-              <Text style={[styles.moduleTitle, { color: theme.text }]}>
+          <View style={[styles.moduleRow, { borderColor: theme.border }]}>
+            <View style={styles.moduleTextCol}>
+              <RNText style={[styles.moduleTitle, { color: theme.text }]}>
                 🍎 Kalorienzähler & Tagebuch
-              </Text>
-              <Text style={[styles.moduleDesc, { color: theme.textSecondary }]}>
+              </RNText>
+              <RNText style={[styles.moduleDesc, { color: theme.textSecondary }]}>
                 Privat Nährwerte erfassen, Makros tracken und Grundumsatz berechnen.
-              </Text>
-            </Column>
+              </RNText>
+            </View>
             <Switch value={state.modules.calories} onValueChange={() => toggle('calories')} />
-          </Row>
+          </View>
 
-          <Row style={[styles.moduleRow, { borderColor: theme.border }]}>
-            <Column style={styles.moduleTextCol}>
-              <Text style={[styles.moduleTitle, { color: theme.text }]}>
+          <View style={[styles.moduleRow, { borderColor: theme.border }]}>
+            <View style={styles.moduleTextCol}>
+              <RNText style={[styles.moduleTitle, { color: theme.text }]}>
                 📖 Rezept-Manager & Meal-Planner
-              </Text>
-              <Text style={[styles.moduleDesc, { color: theme.textSecondary }]}>
+              </RNText>
+              <RNText style={[styles.moduleDesc, { color: theme.textSecondary }]}>
                 Rezepte anlegen, Portionsmengen berechnen und die Woche vorausplanen.
-              </Text>
-            </Column>
+              </RNText>
+            </View>
             <Switch value={state.modules.recipes} onValueChange={() => toggle('recipes')} />
-          </Row>
-        </Column>
+          </View>
+        </View>
 
-        <Spacer height={Spacing.four} />
+        <Spacer size={Spacing.four} />
 
-        <Row style={styles.buttonRow}>
+        <View style={styles.buttonRow}>
           <Button onPress={onNext}>Weiter</Button>
           <Button onPress={onSkip}>Überspringen</Button>
-        </Row>
+        </View>
       </Column>
     </Host>
   );
@@ -103,12 +103,12 @@ const styles = StyleSheet.create({
   },
   subheading: {
     fontSize: 14,
-    marginTop: Spacing.one,
   },
   moduleList: {
     gap: Spacing.two,
   },
   moduleRow: {
+    flexDirection: 'row',
     padding: Spacing.three,
     borderRadius: Spacing.two,
     borderWidth: 1,
@@ -129,7 +129,7 @@ const styles = StyleSheet.create({
     lineHeight: 18,
   },
   buttonRow: {
+    flexDirection: 'row',
     justifyContent: 'space-between',
-    gap: Spacing.two,
   },
 });

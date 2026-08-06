@@ -1,4 +1,3 @@
-import { Row } from '@expo/ui';
 import { StyleSheet, View } from 'react-native';
 import { Screen } from '@/components/screen';
 import { Spacing } from '@/constants/theme';
@@ -22,7 +21,7 @@ function OnboardingContent() {
     <Screen title={currentStep === 1 ? 'Willkommen' : `Schritt ${currentStep} von ${TOTAL_STEPS}`}>
       {currentStep > 1 && currentStep < TOTAL_STEPS && (
         <View style={styles.progressContainer}>
-          <Row style={styles.progressRow}>
+          <View style={styles.progressRow}>
             {Array.from({ length: TOTAL_STEPS }).map((_, idx) => {
               const stepNum = idx + 1;
               const active = stepNum <= currentStep;
@@ -38,7 +37,7 @@ function OnboardingContent() {
                 />
               );
             })}
-          </Row>
+          </View>
         </View>
       )}
 
@@ -66,6 +65,7 @@ const styles = StyleSheet.create({
     marginBottom: Spacing.two,
   },
   progressRow: {
+    flexDirection: 'row',
     gap: Spacing.one,
   },
   progressBar: {

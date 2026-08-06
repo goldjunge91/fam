@@ -1,6 +1,6 @@
 import { Button, Column, Host, Spacer, Text } from '@expo/ui';
 import { router } from 'expo-router';
-import { StyleSheet } from 'react-native';
+import { Text as RNText, StyleSheet } from 'react-native';
 import { Spacing } from '@/constants/theme';
 import { useTheme } from '@/hooks/use-theme';
 import { useOnboarding } from '../context/onboarding-context';
@@ -24,22 +24,22 @@ export function CompleteStepForm() {
   return (
     <Host matchContents>
       <Column style={styles.container}>
-        <Text style={[styles.icon, { fontSize: 64 }]}>🎉</Text>
-        <Spacer height={Spacing.two} />
-        <Text style={[styles.heading, { color: theme.text }]}>Alles bereit!</Text>
-        <Spacer height={Spacing.one} />
-        <Text style={[styles.subheading, { color: theme.textSecondary }]}>
-          Dein Profil ist eingerichtet und du bist startklar für {householdName}.
+        <Text textStyle={{ ...styles.icon }}>🎉</Text>
+        <Spacer size={Spacing.two} />
+        <Text textStyle={{ ...styles.heading, color: theme.text }}>Alles bereit!</Text>
+        <Spacer size={Spacing.one} />
+        <Text textStyle={{ ...styles.subheading, color: theme.textSecondary }}>
+          {`Dein Profil ist eingerichtet und du bist startklar für ${householdName}.`}
         </Text>
 
         {error && (
           <>
-            <Spacer height={Spacing.two} />
-            <Text style={{ color: theme.danger }}>{error}</Text>
+            <Spacer size={Spacing.two} />
+            <RNText style={{ color: theme.danger }}>{error}</RNText>
           </>
         )}
 
-        <Spacer height={Spacing.four} />
+        <Spacer size={Spacing.four} />
 
         <Button onPress={handleFinish}>{isLoading ? 'Speichern...' : 'Zum Dashboard'}</Button>
       </Column>
@@ -50,10 +50,9 @@ export function CompleteStepForm() {
 const styles = StyleSheet.create({
   container: {
     padding: Spacing.four,
-    alignItems: 'center',
-    justifyContent: 'center',
   },
   icon: {
+    fontSize: 64,
     textAlign: 'center',
   },
   heading: {
