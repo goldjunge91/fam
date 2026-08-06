@@ -5,6 +5,7 @@ import { useEffect } from 'react';
 import { useColorScheme } from 'react-native';
 
 import { AnimatedSplashOverlay } from '@/components/animated-icon';
+import { SyncStatusBanner } from '@/components/sync-status-banner';
 import { SessionProvider, useSession } from '@/features/auth/session-provider';
 import { queryClient, startQueryEnvironmentSync } from '@/lib/query-client';
 
@@ -58,6 +59,7 @@ export default function RootLayout() {
       <SessionProvider>
         <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
           <AnimatedSplashOverlay />
+          <SyncStatusBanner />
           <RootNavigator />
         </ThemeProvider>
       </SessionProvider>
