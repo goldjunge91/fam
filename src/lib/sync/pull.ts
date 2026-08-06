@@ -7,9 +7,8 @@ import {
 } from '@/lib/db/sync-state';
 import type { Entity, SqlDatabase } from '@/lib/db/types';
 import type { TypedSupabaseClient } from '@/lib/supabase';
-import { EPOCH_START, toEpochMs } from '@/lib/sync/cursor';
-import { upsertMirrorRow } from '@/lib/sync/mirror-write';
-import { resolve, type SyncSide } from '@/lib/sync/resolve';
+import { EPOCH_START } from '@/lib/sync/cursor';
+import { applyRemoteRow } from '@/lib/sync/mirror-write';
 
 /**
  * Pull-Haelfte der Sync-Engine (#47).
@@ -52,54 +51,6 @@ type RemoteRow = Record<string, unknown> & {
   updated_at: string;
   deleted_at?: string | null;
 };
-
-type LocalRowMeta = { updated_at: number; deleted_at: number | null; _dirty: number };
-
-/**
- * Wendet eine einzelne Remote-Zeile lokal an.
- *
- * `resolve()` laeuft nur, wenn die lokale Zeile `_dirty = 1` traegt — sonst
- * gibt es keinen Konflikt, die Remote-Zeile gewinnt immer kampflos. Gewinnt
- * `resolve()` fuer `'local'`, bleibt die lokale Zeile unangetastet; ihre
- * Absicht liegt weiterhin in der Outbox und wird dort erneut gepusht.
- */
-async function applyRemoteRow(
-  txn: SqlDatabase,
-  entity: Entity,
-  remoteRow: RemoteRow,
-  clockCeilingMs: number,
-): Promise<'written' | 'local-wins'> {
-  const meta = metaOf(entity);
-
-  const local = await txn.getFirstAsync<LocalRowMeta>(
-    `select updated_at, deleted_at, _dirty from ${meta.table} where id = ?`,
-    [remoteRow.id],
-  );
-
-  if (local === null || local._dirty === 0) {
-    await upsertMirrorRow(txn, entity, remoteRow, { dirty: 0 });
-    return 'written';
-  }
-
-  const localSide: SyncSide = {
-    id: remoteRow.id,
-    updatedAt: local.updated_at,
-    deletedAt: local.deleted_at,
-  };
-  const remoteSide: SyncSide = {
-    id: remoteRow.id,
-    updatedAt: toEpochMs(remoteRow.updated_at),
-    deletedAt:
-      meta.hasServerTombstone && remoteRow.deleted_at ? toEpochMs(remoteRow.deleted_at) : null,
-  };
-
-  const winner = resolve(localSide, remoteSide, { clockCeiling: clockCeilingMs });
-
-  if (winner === 'local') return 'local-wins';
-
-  await upsertMirrorRow(txn, entity, remoteRow, { dirty: 0 });
-  return 'written';
-}
 
 async function pullEntity(
   db: SqlDatabase,
