@@ -265,7 +265,15 @@ describe('applyRemoteRow', () => {
       `insert into storage_locations
          (id, household_id, name, kind, sort_order, updated_at, deleted_at, _dirty)
        values (?, ?, ?, ?, ?, ?, ?, 1)`,
-      ['loc-remote-1', 'hh-1', 'Lokal dirty, neuer', 'fridge', 0, toEpochMs('2024-01-15T14:00:00Z'), null],
+      [
+        'loc-remote-1',
+        'hh-1',
+        'Lokal dirty, neuer',
+        'fridge',
+        0,
+        toEpochMs('2024-01-15T14:00:00Z'),
+        null,
+      ],
     );
 
     const result = await applyRemoteRow(
@@ -289,7 +297,15 @@ describe('applyRemoteRow', () => {
       `insert into storage_locations
          (id, household_id, name, kind, sort_order, updated_at, deleted_at, _dirty)
        values (?, ?, ?, ?, ?, ?, ?, 1)`,
-      ['loc-remote-1', 'hh-1', 'Lokal bearbeitet, neuer', 'fridge', 0, toEpochMs('2024-01-15T15:00:00Z'), null],
+      [
+        'loc-remote-1',
+        'hh-1',
+        'Lokal bearbeitet, neuer',
+        'fridge',
+        0,
+        toEpochMs('2024-01-15T15:00:00Z'),
+        null,
+      ],
     );
 
     const result = await applyRemoteRow(
