@@ -1,14 +1,16 @@
 import { metaOf } from '@/lib/db/entities';
 import type { Entity, SqlDatabase, SqlParam } from '@/lib/db/types';
 import { toEpochMs } from '@/lib/sync/cursor';
+import { resolve, type SyncSide } from '@/lib/sync/resolve';
 
 /**
- * Gemeinsamer Remote→Lokal-Zeilenschreiber (#47).
+ * Gemeinsamer Remote→Lokal-Zeilenschreiber (#47, #48).
  *
  * Sowohl Pull ("eingehende Remote-Zeile anwenden") als auch Push ("Server-
- * Antwortzeile nach erfolgreichem Push anwenden") schreiben ueber diese eine
- * Funktion — das uuid/timestamptz→text/epoch-ms-Mapping existiert dadurch an
- * genau einer Stelle.
+ * Antwortzeile nach erfolgreichem Push anwenden") als auch die Realtime-Bridge
+ * ("eingehendes postgres_changes-Event anwenden") schreiben ueber diese eine
+ * Funktion — das uuid/timestamptz→text/epoch-ms-Mapping und die
+ * Konfliktentscheidung existieren dadurch an genau einer Stelle.
  */
 
 export type UpsertMirrorRowOptions = {
@@ -67,4 +69,71 @@ export async function upsertMirrorRow(
      on conflict(id) do update set ${updateAssignments}`,
     values,
   );
+}
+
+type RemoteRow = Record<string, unknown> & {
+  id: string;
+  updated_at: string;
+  deleted_at?: string | null;
+};
+
+type LocalRowMeta = { updated_at: number; deleted_at: number | null; _dirty: number };
+
+/**
+ * Wendet eine einzelne Remote-Zeile lokal an — von `pull.ts` (Seiten-Zeilen)
+ * und von `realtime.ts` (`postgres_changes`-Events) genutzt.
+ *
+ * `resolve()` laeuft nur, wenn die lokale Zeile `_dirty = 1` traegt — sonst
+ * gibt es keinen Konflikt, die Remote-Zeile gewinnt immer kampflos. Gewinnt
+ * `resolve()` fuer `'local'`, bleibt die lokale Zeile unangetastet; ihre
+ * Absicht liegt weiterhin in der Outbox und wird dort erneut gepusht.
+ */
+export async function applyRemoteRow(
+  txn: SqlDatabase,
+  entity: Entity,
+  remoteRow: RemoteRow,
+  clockCeilingMs: number,
+): Promise<'written' | 'local-wins'> {
+  const meta = metaOf(entity);
+
+  const local = await txn.getFirstAsync<LocalRowMeta>(
+    `select updated_at, deleted_at, _dirty from ${meta.table} where id = ?`,
+    [remoteRow.id],
+  );
+
+  if (local === null || local._dirty === 0) {
+    await upsertMirrorRow(txn, entity, remoteRow, { dirty: 0 });
+    return 'written';
+  }
+
+  const localSide: SyncSide = {
+    id: remoteRow.id,
+    updatedAt: local.updated_at,
+    deletedAt: local.deleted_at,
+  };
+  const remoteSide: SyncSide = {
+    id: remoteRow.id,
+    updatedAt: toEpochMs(remoteRow.updated_at),
+    deletedAt:
+      meta.hasServerTombstone && remoteRow.deleted_at ? toEpochMs(remoteRow.deleted_at) : null,
+  };
+
+  const winner = resolve(localSide, remoteSide, { clockCeiling: clockCeilingMs });
+
+  if (winner === 'local') return 'local-wins';
+
+  await upsertMirrorRow(txn, entity, remoteRow, { dirty: 0 });
+  return 'written';
+}
+
+/**
+ * Loescht eine Spiegelzeile hart — fuer ein echtes `DELETE`-Event, das nicht
+ * ueber den ueblichen Soft-Delete-Pfad kommt (App-seitige Loeschungen laufen
+ * immer als `update ... set deleted_at = ...` ueber `push.ts`). Ohne diesen
+ * Pfad bliebe eine Zeile verwaist, wenn je ausserhalb der App hart geloescht
+ * wird (z. B. Haushalts-Kaskadenloeschung).
+ */
+export async function deleteMirrorRow(txn: SqlDatabase, entity: Entity, id: string): Promise<void> {
+  const meta = metaOf(entity);
+  await txn.runAsync(`delete from ${meta.table} where id = ?`, [id]);
 }
