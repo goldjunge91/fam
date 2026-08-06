@@ -120,25 +120,26 @@ describe('subscribeHouseholdRealtime', () => {
     try {
       await sub.ready;
 
-      // Aufwaermrunde, ungemessen: direkt nach `supabase start` (immer der
-      // Fall in CI) braucht die logische Replikation hinter Realtime einen
-      // Moment, bis sie tatsaechlich Events ausliefert — unabhaengig vom
-      // Channel-Handshake, den `sub.ready` bereits abwartet. Ohne diese Runde
-      // faellt der Timing-Test in CI zuverlaessig auf einen Kaltstart-Timeout,
-      // nicht auf eine echte Latenzregression. Grosszuegiges Timeout hier,
-      // weil nicht die Geschwindigkeit gemessen wird, nur "ist es warm".
-      const warmupId = crypto.randomUUID();
-      await deviceB.client
-        .from('fridge_items')
-        .insert({ id: warmupId, household_id: householdId, name: 'Aufwaermen' });
-      // 45s statt 15s: zwei CI-Laeufe zeigten, dass ausgerechnet die ALLER-
-      // ERSTE Realtime-Zustellung im Jest-Worker deutlich mehr als 15s
-      // braucht (die anderen drei Tests dieser Datei, die je ihre eigene
-      // Subscription oeffnen, liefen in denselben CI-Laeufen zuverlaessig
-      // durch) — keine Kontention (isoliert und mit maxWorkers:2 reproduziert),
-      // sondern ein einmaliger Kaltstart-Preis fuer die erste WS-Verbindung
-      // in diesem Prozess/dieser Umgebung.
-      await pollUntil(() => fridgeItemName(deviceA, warmupId), { timeoutMs: 45_000 });
+      // Aufwaermrunde: In CI (direkt nach `supabase start`) geht das ALLERERSTE
+      // Realtime-Event manchmal im Replikations-Setup verloren, egal wie lange
+      // man darauf wartet (deshalb schlugen auch 45s/85s Timeouts fehl).
+      // Loesung: Wir senden alle 3 Sekunden einen Insert, bis einer ankommt.
+      let isWarm = false;
+      for (let i = 0; i < 20; i++) {
+        const warmupId = crypto.randomUUID();
+        await deviceB.client
+          .from('fridge_items')
+          .insert({ id: warmupId, household_id: householdId, name: 'Aufwaermen' });
+        
+        try {
+          await pollUntil(() => fridgeItemName(deviceA, warmupId), { timeoutMs: 3_000, intervalMs: 200 });
+          isWarm = true;
+          break;
+        } catch {
+          // Timeout - naechster Versuch
+        }
+      }
+      if (!isWarm) throw new Error('Realtime warmup failed after 60s');
 
       const start = Date.now();
       const { error } = await deviceB.client
