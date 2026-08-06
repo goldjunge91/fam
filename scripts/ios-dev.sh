@@ -32,7 +32,9 @@ while [ $# -gt 0 ]; do
   esac
 done
 
-WORK_DIR="${TMPDIR:-/tmp}/fam-ios-dev"
+# WORK_DIR="${TMPDIR:-/tmp}/fam-ios-dev"
+PROJECT_ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+WORK_DIR="$PROJECT_ROOT/temp"
 mkdir -p "$WORK_DIR"
 
 say() { printf '\n\033[1m==> %s\033[0m\n' "$1"; }
