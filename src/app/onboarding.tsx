@@ -1,5 +1,5 @@
-import { OnboardingScreen } from '@/features/auth/onboarding-screen';
+import { OnboardingFlow } from '@/features/onboarding/onboarding-flow';
 
 export default function OnboardingRoute() {
-  return <OnboardingScreen />;
+  return <OnboardingFlow />;
 }
