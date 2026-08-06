@@ -120,7 +120,14 @@ describe('subscribeHouseholdRealtime', () => {
       await deviceB.client
         .from('fridge_items')
         .insert({ id: warmupId, household_id: householdId, name: 'Aufwaermen' });
-      await pollUntil(() => fridgeItemName(deviceA, warmupId), { timeoutMs: 15_000 });
+      // 45s statt 15s: zwei CI-Laeufe zeigten, dass ausgerechnet die ALLER-
+      // ERSTE Realtime-Zustellung im Jest-Worker deutlich mehr als 15s
+      // braucht (die anderen drei Tests dieser Datei, die je ihre eigene
+      // Subscription oeffnen, liefen in denselben CI-Laeufen zuverlaessig
+      // durch) — keine Kontention (isoliert und mit maxWorkers:2 reproduziert),
+      // sondern ein einmaliger Kaltstart-Preis fuer die erste WS-Verbindung
+      // in diesem Prozess/dieser Umgebung.
+      await pollUntil(() => fridgeItemName(deviceA, warmupId), { timeoutMs: 45_000 });
 
       const start = Date.now();
       const { error } = await deviceB.client
