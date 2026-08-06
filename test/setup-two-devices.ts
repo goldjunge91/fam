@@ -106,6 +106,12 @@ export async function setupTwoDevices(prefix = 'device'): Promise<TwoDeviceSetup
     await admin.from('households').delete().eq('id', householdId);
     // Jetzt ist der User kein Admin mehr → deleteUser greift.
     await admin.auth.admin.deleteUser(userId);
+
+    // Versuche, offene WebSocket-Handles abzubauen, damit Jest sauber beenden kann
+    await clientA.removeAllChannels();
+    await clientB.removeAllChannels();
+    await clientA.realtime.disconnect();
+    await clientB.realtime.disconnect();
   };
 
   return {
