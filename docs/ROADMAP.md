@@ -7,6 +7,25 @@ Alle Issues: <https://github.com/goldjunge91/fam/issues>
 
 ---
 
+## Status-Übersicht
+
+> Stand: 2026-08-06
+
+| Welle | Thema | Status | Gate |
+|---|---|---|---|
+| 0 | Werkzeug & Supabase | ✅ Fertig | **A** ✅ Dev Build läuft |
+| 1 | Datenmodell & RLS | ✅ Fertig | **B** ✅ RLS-Tests grün |
+| 2 | Offline & Sync | 🟡 Fast fertig (#70 offen) | **C** ✅ Konflikttests grün |
+| 3 | Auth & Onboarding | ✅ Fertig (inkl. #104 6-Step Wizard) | — |
+| 4 | Haushalt | 🔴 Offen | — |
+| 5 | Kühlschrank + Einkaufsliste | 🔴 **In Arbeit** | **D** — 2-Geräte-Sync |
+| P | Lebensmittel-DB | 🔴 Offen | — |
+| 6 | Kalorien & Tagebuch | 🔴 Offen | — |
+| 7 | Dashboard & Navigation | 🔴 Offen | — |
+| 8 | Datenschutz | 🔴 Offen | MVP fertig |
+
+---
+
 ## Auf einen Blick
 
 | Welle | Thema | Issues | Gate |
