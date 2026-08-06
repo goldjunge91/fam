@@ -1,0 +1,101 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+# Ein neuer Push auf denselben PR/Branch bricht den vorherigen Lauf ab, statt
+# ihn zu Ende laufen zu lassen — spart Minuten bei schnell aufeinanderfolgenden
+# Commits.
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  # Muss mit der lokal verwendeten Version uebereinstimmen (siehe AGENTS.md:
+  # die pg-delta-Engine wurde gegen CLI 2.111 gegengeprueft).
+  SUPABASE_CLI_VERSION: 2.111.0
+
+jobs:
+  # Schnelles Feedback ohne Docker: Typecheck, Linter, mock-freie Unit-Tests.
+  checks:
+    name: Typecheck, Lint, Unit-Tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: 1.3.1
+
+      - name: Dependencies installieren
+        run: bun install --frozen-lockfile
+
+      - name: Typecheck
+        run: bun run typecheck
+
+      - name: Linter und Formatter (Biome)
+        run: bun run check
+
+      - name: Unit-Tests
+        run: bun run test
+
+  # Braucht eine echte lokale Supabase-Instanz (Docker) — RLS-Policies lassen
+  # sich nicht sinnvoll mocken (CLAUDE.md, #43: "Ein Fehler hier ist ein
+  # Datenleck, kein Bug").
+  database:
+    name: DB-Schema, RLS und Integrationstests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: 1.3.1
+
+      - name: Dependencies installieren
+        run: bun install --frozen-lockfile
+
+      - uses: supabase/setup-cli@v1
+        with:
+          version: ${{ env.SUPABASE_CLI_VERSION }}
+
+      - name: Lokalen Supabase-Stack starten
+        run: supabase start
+
+      - name: pgTAP-Suite (RLS gegen echtes Postgres, #43)
+        run: bun run test:db
+
+      - name: Integrationstests (echte lokale Instanz, #52-#58)
+        run: bun run test:integration
+
+      - name: Schema-Diff muss leer sein (Declarative-Schema-Workflow, AGENTS.md)
+        run: |
+          # --output-format explizit auf text, statt uns auf den Default zu
+          # verlassen: der lieferte in Tests auch ohne Aenderungen ein JSON-
+          # Objekt ({"diff":"",...}) statt leerem stdout — die naive
+          # Leerpruefung waere dadurch immer fehlgeschlagen.
+          diff_output="$(supabase db diff --use-pg-delta --output-format text)"
+          if [ -n "$diff_output" ]; then
+            echo "$diff_output"
+            echo
+            echo "supabase/schemas/ und die angewendeten Migrationen weichen voneinander ab."
+            echo "Neue Migration mit 'bun run db:diff -- -f <name>' erzeugen und committen."
+            exit 1
+          fi
+
+      - name: Generierte DB-Typen duerfen nicht abweichen (#31)
+        run: |
+          bun run db:types
+          if ! git diff --exit-code -- src/lib/database.types.ts; then
+            echo
+            echo "src/lib/database.types.ts ist veraltet. Neu generieren mit 'bun run db:types' und committen."
+            exit 1
+          fi
+
+      - name: Security-Advisors (blockierend)
+        run: supabase db advisors --local --type security --fail-on error
+
+      - name: Performance-Advisors (informativ)
+        run: supabase db advisors --local --type performance --fail-on none
