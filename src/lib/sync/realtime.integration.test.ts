@@ -109,6 +109,19 @@ describe('subscribeHouseholdRealtime', () => {
     try {
       await sub.ready;
 
+      // Aufwaermrunde, ungemessen: direkt nach `supabase start` (immer der
+      // Fall in CI) braucht die logische Replikation hinter Realtime einen
+      // Moment, bis sie tatsaechlich Events ausliefert — unabhaengig vom
+      // Channel-Handshake, den `sub.ready` bereits abwartet. Ohne diese Runde
+      // faellt der Timing-Test in CI zuverlaessig auf einen Kaltstart-Timeout,
+      // nicht auf eine echte Latenzregression. Grosszuegiges Timeout hier,
+      // weil nicht die Geschwindigkeit gemessen wird, nur "ist es warm".
+      const warmupId = crypto.randomUUID();
+      await deviceB.client
+        .from('fridge_items')
+        .insert({ id: warmupId, household_id: householdId, name: 'Aufwaermen' });
+      await pollUntil(() => fridgeItemName(deviceA, warmupId), { timeoutMs: 15_000 });
+
       const start = Date.now();
       const { error } = await deviceB.client
         .from('fridge_items')

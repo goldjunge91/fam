@@ -47,4 +47,16 @@ module.exports = {
   // Netzwerk gegen einen lokalen Docker-Stack ist langsamer als reine Logik;
   // der Default von 5 s reicht fuer signUp mit Passwort-Hashing nicht.
   testTimeout: 30_000,
+
+  // Alle Suiten teilen sich dieselbe lokale Supabase-Instanz (ein Postgres,
+  // ein Realtime-Container). Jests Default (CPU-Kerne minus 1) laesst zu viele
+  // Testdateien gleichzeitig gegen diese eine Instanz laufen — auf schwaecher
+  // dimensionierten CI-Runnern reicht das, um `realtime.integration.test.ts`s
+  // Timing-Test unter Kontention in den Timeout laufen zu lassen (beobachtet,
+  // nicht vermutet: reproduzierbar sowohl lokal im Vollstest als auch im
+  // ersten CI-Lauf dieser Datei, isoliert lief derselbe Test durchgehend in
+  // unter 2s durch). 2 haelt echte Parallelitaet fuer den Laufzeitgewinn,
+  // begrenzt aber die Anzahl gleichzeitiger Verbindungen gegen die eine
+  // geteilte Instanz.
+  maxWorkers: 2,
 };
