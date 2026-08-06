@@ -1,3 +1,4 @@
+import { parseOutboxEntry } from '@/lib/db/outbox';
 import type { Entity, OutboxEntry, OutboxOp } from '@/lib/db/types';
 
 /**
@@ -49,16 +50,6 @@ type Group = {
   startedWithInsert: boolean;
 };
 
-function parsePayload(entry: OutboxEntry): Record<string, unknown> {
-  const parsed: unknown = JSON.parse(entry.payload);
-
-  if (parsed === null || typeof parsed !== 'object' || Array.isArray(parsed)) {
-    throw new Error(`Outbox-Eintrag ${entry.id} hat kein Objekt als payload.`);
-  }
-
-  return parsed as Record<string, unknown>;
-}
-
 /**
  * Fasst die Outbox je Zeile zu hoechstens einem Push zusammen.
  *
@@ -99,7 +90,7 @@ export function coalesce(entries: readonly OutboxEntry[]): CoalesceResult {
 
   for (const entry of [...entries].sort((a, b) => a.id - b.id)) {
     const key = `${entry.entity}:${entry.entity_id}`;
-    const payload = parsePayload(entry);
+    const payload = parseOutboxEntry(entry);
     const group = open.get(key);
 
     if (group === undefined) {
