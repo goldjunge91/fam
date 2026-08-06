@@ -33,16 +33,38 @@ export type PushResult = {
 
 const SYNC_COLUMNS = new Set(['updated_at', 'deleted_at', '_dirty']);
 
+function normalizeUnit(unitVal: unknown): string {
+  if (typeof unitVal !== 'string') return 'piece';
+  const u = unitVal.toLowerCase().trim();
+  if (u === 'l' || u === 'liter' || u === 'litre') return 'l';
+  if (u === 'g' || u === 'gramm' || u === 'gram') return 'g';
+  if (u === 'kg' || u === 'kilogramm' || u === 'kilo') return 'kg';
+  if (u === 'ml' || u === 'milliliter') return 'ml';
+  if (u === 'piece' || u === 'stk' || u === 'stk.' || u === 'stück' || u === 'stueck') return 'piece';
+  if (u === 'package' || u === 'packung' || u === 'pkg') return 'package';
+  if (u === 'portion' || u === 'pck') return 'portion';
+  if (['g', 'kg', 'ml', 'l', 'piece', 'package', 'portion'].includes(u)) return u;
+  return 'piece';
+}
+
 /** insert-Payload: volle Zeile minus Sync-Spalten. id und created_at bleiben. */
 function buildInsertPayload(payload: Record<string, unknown>): Record<string, unknown> {
-  return Object.fromEntries(Object.entries(payload).filter(([key]) => !SYNC_COLUMNS.has(key)));
+  const result = Object.fromEntries(Object.entries(payload).filter(([key]) => !SYNC_COLUMNS.has(key)));
+  if ('unit' in result) {
+    result.unit = normalizeUnit(result.unit);
+  }
+  return result;
 }
 
 /** update-Payload: geaenderte Felder minus Sync-Spalten und id (id geht in .eq()). */
 function buildUpdatePayload(payload: Record<string, unknown>): Record<string, unknown> {
-  return Object.fromEntries(
+  const result = Object.fromEntries(
     Object.entries(payload).filter(([key]) => !SYNC_COLUMNS.has(key) && key !== 'id'),
   );
+  if ('unit' in result) {
+    result.unit = normalizeUnit(result.unit);
+  }
+  return result;
 }
 
 type AttemptResult = {
@@ -136,6 +158,47 @@ async function applyOnePush(
   // sicher auf dem Server — ein update mit demselben Inhalt ist idempotent.
   if (entry.op === 'insert' && response.error?.code === '23505') {
     response = await attempt(supabase, meta.table, 'update', entry.entityId, entry.payload, nowMs);
+  }
+
+  // 23503: Foreign Key Violation (z.B. location_id fehlt auf dem Server).
+  // Versucht den lokal vorhandenen Lagerort zuerst zu Supabase zu pushen oder
+  // setzt location_id auf null, damit das Lebensmittel nicht dauerhaft fehlschlaegt.
+  if (
+    response.error &&
+    (response.error.code === '23503' || response.error.message?.includes('location_id_fkey')) &&
+    entry.entity === 'fridge_items' &&
+    entry.payload.location_id
+  ) {
+    const locId = String(entry.payload.location_id);
+    const loc = await db.getFirstAsync<Record<string, unknown>>(
+      'select * from storage_locations where id = ?',
+      [locId],
+    );
+
+    if (loc) {
+      // biome-ignore lint/suspicious/noExplicitAny: generisches Insert
+      await (supabase.from('storage_locations') as any)
+        .insert(buildInsertPayload(loc))
+        .select();
+      response = await attempt(
+        supabase,
+        meta.table,
+        entry.op,
+        entry.entityId,
+        entry.payload,
+        nowMs,
+      );
+    } else {
+      const fallbackPayload = { ...entry.payload, location_id: null };
+      response = await attempt(
+        supabase,
+        meta.table,
+        entry.op,
+        entry.entityId,
+        fallbackPayload,
+        nowMs,
+      );
+    }
   }
 
   if (response.error) {

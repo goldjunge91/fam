@@ -1,97 +1,94 @@
+import { useQueryClient } from '@tanstack/react-query';
 import { router } from 'expo-router';
-import { useState } from 'react';
-import { Pressable, StyleSheet, View } from 'react-native';
+import { useEffect, useState } from 'react';
+import { ScrollView, StyleSheet, View } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { Button } from '@/components/button';
-import { Card } from '@/components/card';
 import { Screen } from '@/components/screen';
-import { TextField } from '@/components/text-field';
 import { ThemedText } from '@/components/themed-text';
 import { Spacing } from '@/constants/theme';
-import { updateProfile } from '@/features/auth/api';
+import { markOnboardingCompleted, updateProfile, useProfile } from '@/features/auth/api';
 import { fieldErrors, profileSchema } from '@/features/auth/auth-schemas';
+import { StepAccount } from '@/features/auth/onboarding/step-account';
+import { StepCreateHousehold } from '@/features/auth/onboarding/step-create-household';
+import { StepHouseholdInfo } from '@/features/auth/onboarding/step-household-info';
+import { StepIndicator } from '@/features/auth/onboarding/step-indicator';
+import { StepInventory } from '@/features/auth/onboarding/step-inventory';
+import { StepProfile } from '@/features/auth/onboarding/step-profile';
+import { StepWelcome } from '@/features/auth/onboarding/step-welcome';
+import { markOnboardingSessionCompleted } from '@/features/auth/onboarding-session';
 import { useSession } from '@/features/auth/session-provider';
 import { useTheme } from '@/hooks/use-theme';
 
-const ACTIVITY_LEVELS = [
-  { value: 'sedentary', label: 'Kaum Bewegung' },
-  { value: 'light', label: 'Leicht aktiv' },
-  { value: 'moderate', label: 'Mäßig aktiv' },
-  { value: 'active', label: 'Aktiv' },
-  { value: 'very_active', label: 'Sehr aktiv' },
-] as const;
-
-const SEX_OPTIONS = [
-  { value: 'male', label: 'Männlich' },
-  { value: 'female', label: 'Weiblich' },
-] as const;
-
-function ChoiceRow<T extends string>({
-  options,
-  value,
-  onChange,
-}: {
-  options: readonly { value: T; label: string }[];
-  value: T | undefined;
-  onChange: (value: T | undefined) => void;
-}) {
-  const theme = useTheme();
-
-  return (
-    <View style={styles.choices}>
-      {options.map((option) => {
-        const selected = value === option.value;
-        return (
-          <Pressable
-            key={option.value}
-            // Nochmal antippen hebt die Auswahl auf — sonst gaebe es keinen Weg
-            // zurueck zu "keine Angabe", und die Angabe ist freiwillig.
-            onPress={() => onChange(selected ? undefined : option.value)}
-            accessibilityRole="radio"
-            accessibilityState={{ selected }}
-            style={[
-              styles.choice,
-              {
-                backgroundColor: selected ? theme.accent : theme.backgroundElement,
-                borderColor: selected ? theme.accent : theme.border,
-              },
-            ]}>
-            <ThemedText type="small" style={selected ? styles.choiceSelected : undefined}>
-              {option.label}
-            </ThemedText>
-          </Pressable>
-        );
-      })}
-    </View>
-  );
-}
-
 /**
- * Profil-Onboarding (#57).
- *
- * Jedes Feld ist freiwillig. Die App muss mit einem unvollstaendigen Profil
- * funktionieren — fehlt etwas, meldet die Kalorienberechnung spaeter ehrlich
- * "nicht berechenbar" (#81), statt einen Wert zu raten.
+ * 6-Schritte Onboarding Workflow (#104):
+ * Jedem Schritt entspricht eine eigene Datei unter src/features/auth/onboarding/
  */
 export function OnboardingScreen() {
   const { session } = useSession();
+  const { data: profile } = useProfile(session?.user.id);
+  const queryClient = useQueryClient();
+  const theme = useTheme();
+  const insets = useSafeAreaInsets();
 
+  const [step, setStep] = useState<1 | 2 | 3 | 4 | 5 | 6>(1);
+
+  // Profil Formular (Schritt 6)
   const [displayName, setDisplayName] = useState('');
   const [birthDate, setBirthDate] = useState('');
   const [heightCm, setHeightCm] = useState('');
   const [sex, setSex] = useState<'male' | 'female' | undefined>();
   const [activityLevel, setActivityLevel] = useState<
-    (typeof ACTIVITY_LEVELS)[number]['value'] | undefined
+    'sedentary' | 'light' | 'moderate' | 'active' | 'very_active' | undefined
   >();
+  const [profileErrors, setProfileErrors] = useState<Record<string, string>>({});
+  const [profileFormError, setProfileFormError] = useState<string | null>(null);
+  const [profileLoading, setProfileLoading] = useState(false);
 
-  const [errors, setErrors] = useState<Record<string, string>>({});
-  const [formError, setFormError] = useState<string | null>(null);
-  const [loading, setLoading] = useState(false);
+  // Bestehende Profil-Daten aus der Datenbank vorausfüllen
+  useEffect(() => {
+    if (profile) {
+      if (profile.display_name && !displayName) {
+        setDisplayName(profile.display_name);
+      }
+      if (profile.birth_date && !birthDate) {
+        const parts = profile.birth_date.split('-');
+        if (parts.length === 3) {
+          setBirthDate(`${parts[2]}.${parts[1]}.${parts[0]}`);
+        } else {
+          setBirthDate(profile.birth_date);
+        }
+      }
+      if (profile.height_cm && !heightCm) {
+        setHeightCm(String(profile.height_cm));
+      }
+      if (profile.sex && !sex) {
+        setSex(profile.sex as 'male' | 'female');
+      }
+      if (profile.activity_level && !activityLevel) {
+        setActivityLevel(profile.activity_level);
+      }
+    }
+  }, [profile]);
 
-  async function handleSubmit() {
-    if (loading || !session) return;
+  async function markCompletedInCacheAndFinish() {
+    markOnboardingSessionCompleted();
+    if (session?.user.id) {
+      const nowIso = new Date().toISOString();
+      queryClient.setQueryData(['profile', session.user.id], (old: Record<string, unknown> | null) => ({
+        ...(old ?? {}),
+        onboarding_completed_at: nowIso,
+      }));
+      await queryClient.invalidateQueries({ queryKey: ['profile', session.user.id] });
+    }
+    router.replace('/');
+  }
 
-    setFormError(null);
+  async function handleSubmitProfile() {
+    if (profileLoading || !session) return;
+
+    setProfileFormError(null);
     const parsed = profileSchema.safeParse({
       displayName: displayName.trim() || undefined,
       birthDate: birthDate.trim() || undefined,
@@ -101,99 +98,124 @@ export function OnboardingScreen() {
     });
 
     if (!parsed.success) {
-      setErrors(fieldErrors(parsed.error));
+      setProfileErrors(fieldErrors(parsed.error));
       return;
     }
 
-    setErrors({});
-    setLoading(true);
+    setProfileErrors({});
+    setProfileLoading(true);
     const { error } = await updateProfile(session.user.id, parsed.data);
-    setLoading(false);
+    setProfileLoading(false);
 
     if (error) {
-      setFormError(error.message);
+      setProfileFormError(error.message);
       return;
     }
 
-    router.replace('/');
+    await markCompletedInCacheAndFinish();
   }
 
   return (
-    <Screen title="Dein Profil" subtitle="Alles freiwillig — du kannst es später ergänzen">
-      <Card>
-        <View style={styles.form}>
-          <TextField
-            label="Name"
-            value={displayName}
-            onChangeText={setDisplayName}
-            error={errors.displayName}
-            autoCapitalize="words"
-            placeholder="Wie sollen dich andere sehen?"
-          />
+    <Screen title={`Onboarding (${step}/6)`} scroll={false}>
+      <View style={styles.container}>
+        {/* Scrollbarer Inhalt in der Mitte */}
+        <ScrollView
+          style={styles.scrollContent}
+          contentContainerStyle={styles.scrollContainer}
+          showsVerticalScrollIndicator={false}>
+          <StepIndicator currentStep={step} totalSteps={6} />
 
-          <TextField
-            label="Geburtsdatum"
-            value={birthDate}
-            onChangeText={setBirthDate}
-            error={errors.birthDate}
-            placeholder="JJJJ-MM-TT"
-            autoCapitalize="none"
-            inputMode="numeric"
-          />
+          {step === 1 && <StepWelcome />}
+          {step === 2 && <StepInventory />}
+          {step === 3 && <StepHouseholdInfo />}
+          {step === 4 && <StepAccount onNext={() => setStep(5)} />}
+          {step === 5 && <StepCreateHousehold onNext={() => setStep(6)} />}
+          {step === 6 && (
+            <StepProfile
+              displayName={displayName}
+              setDisplayName={setDisplayName}
+              birthDate={birthDate}
+              setBirthDate={setBirthDate}
+              heightCm={heightCm}
+              setHeightCm={setHeightCm}
+              sex={sex}
+              setSex={setSex}
+              activityLevel={activityLevel}
+              setActivityLevel={setActivityLevel}
+              profileErrors={profileErrors}
+            />
+          )}
 
-          <TextField
-            label="Größe in cm"
-            value={heightCm}
-            onChangeText={setHeightCm}
-            error={errors.heightCm}
-            placeholder="178"
-            inputMode="numeric"
-            keyboardType="number-pad"
-          />
+          {profileFormError ? (
+            <ThemedText type="small" themeColor="danger">
+              {profileFormError}
+            </ThemedText>
+          ) : null}
+        </ScrollView>
+
+        {/* Fester Footer unten fixiert */}
+        <View
+          style={[
+            styles.fixedFooter,
+            {
+              borderTopColor: theme.border,
+              backgroundColor: theme.background,
+              paddingBottom: Math.max(insets.bottom, Spacing.two),
+            },
+          ]}>
+          <View style={styles.buttonRow}>
+            {step > 1 && (
+              <View style={styles.buttonCol}>
+                <Button
+                  label="Zurück"
+                  variant="secondary"
+                  onPress={() => setStep((s) => (s - 1) as 1 | 2 | 3 | 4 | 5 | 6)}
+                />
+              </View>
+            )}
+
+            <View style={styles.buttonCol}>
+              {step < 6 ? (
+                <Button
+                  label="Weiter"
+                  onPress={() => setStep((s) => (s + 1) as 1 | 2 | 3 | 4 | 5 | 6)}
+                />
+              ) : (
+                <Button
+                  label="Loslegen!"
+                  onPress={handleSubmitProfile}
+                  loading={profileLoading}
+                />
+              )}
+            </View>
+          </View>
         </View>
-      </Card>
-
-      <Card title="Berechnungsbasis">
-        <ThemedText type="small" themeColor="textSecondary">
-          Wird nur für die Schätzung deines Kalorienbedarfs verwendet. Ohne Angabe setzt du dein
-          Ziel später selbst.
-        </ThemedText>
-        <ChoiceRow options={SEX_OPTIONS} value={sex} onChange={setSex} />
-      </Card>
-
-      <Card title="Wie aktiv bist du?">
-        <ChoiceRow options={ACTIVITY_LEVELS} value={activityLevel} onChange={setActivityLevel} />
-      </Card>
-
-      {formError ? (
-        <ThemedText type="small" themeColor="danger">
-          {formError}
-        </ThemedText>
-      ) : null}
-
-      <Button label="Speichern" onPress={handleSubmit} loading={loading} />
-      <Button label="Später ausfüllen" variant="secondary" onPress={() => router.replace('/')} />
+      </View>
     </Screen>
   );
 }
 
 const styles = StyleSheet.create({
-  form: {
+  container: {
+    flex: 1,
+  },
+  scrollContent: {
+    flex: 1,
+  },
+  scrollContainer: {
+    paddingBottom: Spacing.four,
     gap: Spacing.three,
   },
-  choices: {
+  fixedFooter: {
+    paddingTop: Spacing.two,
+    borderTopWidth: StyleSheet.hairlineWidth,
+  },
+  buttonRow: {
     flexDirection: 'row',
-    flexWrap: 'wrap',
+    alignItems: 'center',
     gap: Spacing.two,
-    marginTop: Spacing.two,
   },
-  choice: {
-    borderWidth: 1,
-    borderRadius: Spacing.three,
-    paddingVertical: Spacing.two,
-    paddingHorizontal: Spacing.three,
-  },
-  choiceSelected: {
-    color: '#ffffff',
+  buttonCol: {
+    flex: 1,
   },
 });

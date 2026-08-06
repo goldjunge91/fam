@@ -42,9 +42,9 @@ export default function AppTabs() {
         <NativeTabs.Trigger.Label>Rezepte</NativeTabs.Trigger.Label>
       </NativeTabs.Trigger>
 
-      <NativeTabs.Trigger name="profile">
-        <NativeTabs.Trigger.Icon sf="person.crop.circle.fill" md="person" />
-        <NativeTabs.Trigger.Label>Profil</NativeTabs.Trigger.Label>
+      <NativeTabs.Trigger name="settings">
+        <NativeTabs.Trigger.Icon sf="gearshape.fill" md="settings" />
+        <NativeTabs.Trigger.Label>Einstellungen</NativeTabs.Trigger.Label>
       </NativeTabs.Trigger>
     </NativeTabs>
   );

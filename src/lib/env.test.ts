@@ -41,3 +41,30 @@ describe('requireEnv', () => {
     }
   });
 });
+
+describe('env.forceOnboarding', () => {
+  const originalEnv = process.env.EXPO_PUBLIC_FORCE_ONBOARDING;
+
+  afterEach(() => {
+    process.env.EXPO_PUBLIC_FORCE_ONBOARDING = originalEnv;
+  });
+
+  it('gibt true zurueck wenn EXPO_PUBLIC_FORCE_ONBOARDING auf true oder 1 gesetzt ist', () => {
+    const { env } = require('@/lib/env');
+    process.env.EXPO_PUBLIC_FORCE_ONBOARDING = 'true';
+    expect(env.forceOnboarding).toBe(true);
+
+    process.env.EXPO_PUBLIC_FORCE_ONBOARDING = '1';
+    expect(env.forceOnboarding).toBe(true);
+  });
+
+  it('gibt false zurueck wenn EXPO_PUBLIC_FORCE_ONBOARDING nicht true oder 1 ist', () => {
+    const { env } = require('@/lib/env');
+    process.env.EXPO_PUBLIC_FORCE_ONBOARDING = 'false';
+    expect(env.forceOnboarding).toBe(false);
+
+    process.env.EXPO_PUBLIC_FORCE_ONBOARDING = undefined;
+    expect(env.forceOnboarding).toBe(false);
+  });
+});
+

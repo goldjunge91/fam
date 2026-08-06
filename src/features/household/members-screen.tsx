@@ -82,8 +82,9 @@ export function MembersScreen() {
   }
 
   return (
-    <Screen title="Mitglieder" subtitle={currentHousehold?.name}>
+    <Screen title="Mitglieder" subtitle={currentHousehold?.name} scroll={false}>
       <FlatList
+        style={{ flex: 1 }}
         data={members}
         keyExtractor={(item) => item.user_id}
         contentContainerStyle={styles.list}

@@ -8,7 +8,23 @@ import { TextField } from '@/components/text-field';
 import { ThemedText } from '@/components/themed-text';
 import { Spacing } from '@/constants/theme';
 import { useHouseholds } from '@/features/household/api';
-import { useAddFridgeItemMutation, useStorageLocations } from '@/features/inventory/api';
+import {
+  useAddFridgeItemMutation,
+  useAddStorageLocationMutation,
+  useStorageLocations,
+} from '@/features/inventory/api';
+
+function formatOffsetDate(days: number): string {
+  const d = new Date();
+  d.setDate(d.getDate() + days);
+  return d.toISOString().split('T')[0];
+}
+
+function formatOffsetMonths(months: number): string {
+  const d = new Date();
+  d.setMonth(d.getMonth() + months);
+  return d.toISOString().split('T')[0];
+}
 
 export function AddItemScreen() {
   const { data: households } = useHouseholds();
@@ -18,18 +34,37 @@ export function AddItemScreen() {
     currentHousehold?.id,
   );
   const mutation = useAddFridgeItemMutation();
+  const addLocationMutation = useAddStorageLocationMutation();
 
   const [name, setName] = useState('');
   const [quantity, setQuantity] = useState('1');
   const [unit, setUnit] = useState('piece');
   const [locationId, setLocationId] = useState<string | null>(null);
+  const [expiryDate, setExpiryDate] = useState('');
+
+  // Neuer Lagerort State
+  const [showAddLocation, setShowAddLocation] = useState(false);
+  const [newLocationName, setNewLocationName] = useState('');
+
+  const activeLocationId = locationId ?? locations?.[0]?.id ?? null;
+
+  async function handleAddLocation() {
+    if (!currentHousehold || !newLocationName.trim()) return;
+    try {
+      const created = await addLocationMutation.mutateAsync({
+        household_id: currentHousehold.id,
+        name: newLocationName.trim(),
+      });
+      setLocationId(created.id);
+      setNewLocationName('');
+      setShowAddLocation(false);
+    } catch (err) {
+      console.error('Fehler beim Erstellen des Lagerorts:', err);
+    }
+  }
 
   async function handleSave() {
     if (!currentHousehold || !name.trim()) return;
-
-    // TODO: Bessere Picker für Einheit und Lagerort einbauen (derzeit MVP Hardcoded oder einfache Buttons)
-    // Wenn locationId nicht explizit gewählt wurde, nimm den ersten verfügbaren oder null
-    const chosenLocation = locationId ?? locations?.[0]?.id ?? null;
 
     try {
       await mutation.mutateAsync({
@@ -37,8 +72,8 @@ export function AddItemScreen() {
         name: name.trim(),
         quantity: parseFloat(quantity) || 1,
         unit: unit,
-        location_id: chosenLocation,
-        expiry_date: null, // Fürs Erste optional weggelassen oder später DatePicker hinzufügen
+        location_id: activeLocationId,
+        expiry_date: expiryDate.trim() || null,
       });
       router.back();
     } catch (err) {
@@ -71,24 +106,99 @@ export function AddItemScreen() {
           </View>
         </View>
 
-        <ThemedText style={{ marginTop: Spacing.four }}>Lagerort</ThemedText>
+        <ThemedText style={{ fontWeight: 'bold', marginTop: Spacing.two }}>
+          Mindesthaltbarkeitsdatum (MHD)
+        </ThemedText>
+        <TextField
+          placeholder="JJJJ-MM-TT (z.B. 2026-08-20)"
+          value={expiryDate}
+          onChangeText={setExpiryDate}
+        />
+        <View style={styles.quickDateGroup}>
+          <Button
+            label="+ 3 Tage"
+            variant="secondary"
+            onPress={() => setExpiryDate(formatOffsetDate(3))}
+          />
+          <Button
+            label="+ 7 Tage"
+            variant="secondary"
+            onPress={() => setExpiryDate(formatOffsetDate(7))}
+          />
+          <Button
+            label="+ 14 Tage"
+            variant="secondary"
+            onPress={() => setExpiryDate(formatOffsetDate(14))}
+          />
+          <Button
+            label="+ 1 Monat"
+            variant="secondary"
+            onPress={() => setExpiryDate(formatOffsetMonths(1))}
+          />
+        </View>
+
+        <View style={styles.locationHeaderRow}>
+          <ThemedText style={{ fontWeight: 'bold' }}>Lagerort</ThemedText>
+          {!showAddLocation && (
+            <Button
+              label="+ Neuer Lagerort"
+              variant="secondary"
+              onPress={() => setShowAddLocation(true)}
+            />
+          )}
+        </View>
+
+        {showAddLocation && (
+          <View style={styles.addLocationBox}>
+            <TextField
+              label="Name des Lagerorts"
+              placeholder="z.B. Keller, Regalfach, Gefrierfach"
+              value={newLocationName}
+              onChangeText={setNewLocationName}
+            />
+            <View style={styles.row}>
+              <View style={styles.flex}>
+                <Button
+                  label="Erstellen"
+                  onPress={handleAddLocation}
+                  loading={addLocationMutation.isPending}
+                  disabled={!newLocationName.trim()}
+                />
+              </View>
+              <View style={styles.flex}>
+                <Button
+                  label="Abbrechen"
+                  variant="secondary"
+                  onPress={() => {
+                    setShowAddLocation(false);
+                    setNewLocationName('');
+                  }}
+                />
+              </View>
+            </View>
+          </View>
+        )}
+
         {locationsLoading ? (
           <ThemedText>Lade Lagerorte...</ThemedText>
         ) : (
           <View style={styles.locationGroup}>
-            {locations?.map((loc) => (
-              <View key={loc.id} style={styles.locationButton}>
+            {locations?.map((loc) => {
+              const isSelected = activeLocationId === loc.id;
+              return (
                 <Button
+                  key={loc.id}
                   label={loc.name}
-                  variant={
-                    locationId === loc.id || (!locationId && locations[0].id === loc.id)
-                      ? 'primary'
-                      : 'secondary'
-                  }
+                  variant={isSelected ? 'primary' : 'secondary'}
                   onPress={() => setLocationId(loc.id)}
                 />
-              </View>
-            ))}
+              );
+            })}
+            {locations?.length === 0 && !showAddLocation && (
+              <ThemedText type="small" themeColor="textSecondary">
+                Keine Lagerorte vorhanden. Tippe auf &quot;+ Neuer Lagerort&quot; um einen anzulegen.
+              </ThemedText>
+            )}
           </View>
         )}
 
@@ -118,16 +228,31 @@ const styles = StyleSheet.create({
   flex: {
     flex: 1,
   },
+  quickDateGroup: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: Spacing.two,
+  },
+  locationHeaderRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginTop: Spacing.two,
+  },
+  addLocationBox: {
+    gap: Spacing.three,
+    padding: Spacing.three,
+    borderRadius: Spacing.two,
+    borderWidth: 1,
+    borderColor: '#ccc',
+  },
   locationGroup: {
     flexDirection: 'row',
     flexWrap: 'wrap',
     gap: Spacing.two,
   },
-  locationButton: {
-    paddingHorizontal: Spacing.three,
-    paddingVertical: Spacing.two,
-  },
   saveButton: {
-    marginTop: Spacing.six,
+    marginTop: Spacing.four,
   },
 });
+

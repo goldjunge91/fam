@@ -114,6 +114,13 @@ export async function setupTwoDevices(prefix = 'device'): Promise<TwoDeviceSetup
     await clientB.realtime.disconnect();
   };
 
+  // Workaround fuer "JWT issued at future" in lokalen Docker-Umgebungen:
+  // GoTrue generiert das Token, Realtime / PostgREST verifiziert es. Durch leichte
+  // Clock-Drifts zwischen den Containern oder zur Host-VM wird das Token
+  // abgewiesen, wenn es *zu frisch* ist (iat liegt in der Zukunft). 3s
+  // abwarten behebt das i. d. R. zuverlaessig.
+  await new Promise((resolve) => setTimeout(resolve, 3000));
+
   return {
     deviceA: { db: dbA, client: clientA },
     deviceB: { db: dbB, client: clientB },

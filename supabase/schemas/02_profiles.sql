@@ -26,6 +26,8 @@ create table if not exists public.profiles (
     activity_level in ('sedentary', 'light', 'moderate', 'active', 'very_active')
   ),
 
+  onboarding_completed_at timestamptz,
+
   created_at timestamptz not null default now(),
   updated_at timestamptz not null default now()
 );

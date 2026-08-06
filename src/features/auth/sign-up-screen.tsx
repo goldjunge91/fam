@@ -8,7 +8,7 @@ import { Screen } from '@/components/screen';
 import { TextField } from '@/components/text-field';
 import { ThemedText } from '@/components/themed-text';
 import { Spacing } from '@/constants/theme';
-import { authErrorMessage, signUp } from '@/features/auth/api';
+import { authErrorMessage, signInWithOAuthProvider, signUp } from '@/features/auth/api';
 import { fieldErrors, signUpSchema } from '@/features/auth/auth-schemas';
 
 export function SignUpScreen() {
@@ -128,6 +128,28 @@ export function SignUpScreen() {
 
             <Button label="Konto erstellen" onPress={handleSubmit} loading={loading} />
 
+            <View style={styles.divider}>
+              <ThemedText type="small" themeColor="textSecondary">oder weiter mit</ThemedText>
+            </View>
+
+            <Button
+              label="  Mit Apple anmelden"
+              variant="secondary"
+              onPress={async () => {
+                const { error } = await signInWithOAuthProvider('apple');
+                if (error) setFormError(authErrorMessage(error));
+              }}
+            />
+
+            <Button
+              label="🌐  Mit Google anmelden"
+              variant="secondary"
+              onPress={async () => {
+                const { error } = await signInWithOAuthProvider('google');
+                if (error) setFormError(authErrorMessage(error));
+              }}
+            />
+
             <ThemedText type="small" themeColor="textSecondary">
               Vorrat und Einkaufsliste teilst du später mit deinem Haushalt. Kalorien, Gewicht und
               Ziele bleiben privat.
@@ -148,5 +170,9 @@ export function SignUpScreen() {
 const styles = StyleSheet.create({
   form: {
     gap: Spacing.three,
+  },
+  divider: {
+    alignItems: 'center',
+    marginVertical: Spacing.one,
   },
 });

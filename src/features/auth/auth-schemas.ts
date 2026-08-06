@@ -62,6 +62,95 @@ export const newPasswordSchema = z
     path: ['passwordConfirmation'],
   });
 
+export function getDeviceDateFormat(): {
+  placeholder: string;
+  formatHint: string;
+  locale: string;
+} {
+  try {
+    const locale = typeof Intl !== 'undefined' ? Intl.DateTimeFormat().resolvedOptions().locale : 'de-DE';
+    const isUS = locale.startsWith('en-US');
+
+    if (isUS) {
+      return {
+        locale,
+        placeholder: 'MM/DD/YYYY (e.g. 05/15/1990)',
+        formatHint: 'MM/DD/YYYY',
+      };
+    }
+
+    return {
+      locale,
+      placeholder: 'TT.MM.JJJJ (z.B. 15.05.1990)',
+      formatHint: 'TT.MM.JJJJ',
+    };
+  } catch {
+    return {
+      locale: 'de-DE',
+      placeholder: 'TT.MM.JJJJ (z.B. 15.05.1990)',
+      formatHint: 'TT.MM.JJJJ',
+    };
+  }
+}
+
+export function normalizeDateInput(raw: string): string | null {
+  const str = raw.trim();
+  if (!str) return null;
+
+  // 1. ISO-Format: YYYY-MM-DD
+  const isoMatch = str.match(/^(\d{4})[-./](\d{1,2})[-./](\d{1,2})$/);
+  if (isoMatch) {
+    const [, y, m, d] = isoMatch;
+    const year = Number(y);
+    const month = Number(m);
+    const day = Number(d);
+    const date = new Date(year, month - 1, day);
+    if (
+      date.getFullYear() === year &&
+      date.getMonth() === month - 1 &&
+      date.getDate() === day
+    ) {
+      return `${year}-${String(month).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+    }
+  }
+
+  // 2. Deutsches / europäisches Format: DD.MM.YYYY
+  const deMatch = str.match(/^(\d{1,2})[-./](\d{1,2})[-./](\d{4})$/);
+  if (deMatch) {
+    const [, d, m, y] = deMatch;
+    const year = Number(y);
+    const month = Number(m);
+    const day = Number(d);
+    const date = new Date(year, month - 1, day);
+    if (
+      date.getFullYear() === year &&
+      date.getMonth() === month - 1 &&
+      date.getDate() === day
+    ) {
+      return `${year}-${String(month).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+    }
+  }
+
+  // 3. US-Format: MM/DD/YYYY (falls Gerät auf en-US eingestellt ist)
+  const usMatch = str.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})$/);
+  if (usMatch) {
+    const [, m, d, y] = usMatch;
+    const year = Number(y);
+    const month = Number(m);
+    const day = Number(d);
+    const date = new Date(year, month - 1, day);
+    if (
+      date.getFullYear() === year &&
+      date.getMonth() === month - 1 &&
+      date.getDate() === day
+    ) {
+      return `${year}-${String(month).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+    }
+  }
+
+  return null;
+}
+
 /**
  * Profil-Onboarding (#57). Alle Felder sind optional — die App muss mit einem
  * unvollstaendigen Profil funktionieren und meldet ein fehlendes Kalorienziel
@@ -71,11 +160,20 @@ export const profileSchema = z.object({
   displayName: z.string().trim().min(1, 'Bitte gib einen Namen ein.').max(80).optional(),
   birthDate: z
     .string()
-    .regex(/^\d{4}-\d{2}-\d{2}$/, 'Bitte im Format JJJJ-MM-TT.')
+    .transform((val, ctx) => {
+      const normalized = normalizeDateInput(val);
+      if (!normalized) {
+        ctx.addIssue({
+          code: z.ZodIssueCode.custom,
+          message: 'Bitte gib ein gültiges Datum ein (z.B. 15.05.1990).',
+        });
+        return z.NEVER;
+      }
+      return normalized;
+    })
     .refine((value) => {
       const date = new Date(value);
       if (Number.isNaN(date.getTime())) return false;
-      // Ein Geburtsdatum in der Zukunft ist ein Tippfehler, kein Sonderfall.
       return date <= new Date();
     }, 'Das Geburtsdatum kann nicht in der Zukunft liegen.')
     .optional(),

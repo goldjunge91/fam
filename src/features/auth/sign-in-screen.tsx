@@ -8,7 +8,7 @@ import { Screen } from '@/components/screen';
 import { TextField } from '@/components/text-field';
 import { ThemedText } from '@/components/themed-text';
 import { Spacing } from '@/constants/theme';
-import { authErrorMessage, signIn } from '@/features/auth/api';
+import { authErrorMessage, signIn, signInWithOAuthProvider } from '@/features/auth/api';
 import { fieldErrors, signInSchema } from '@/features/auth/auth-schemas';
 
 export function SignInScreen() {
@@ -19,8 +19,6 @@ export function SignInScreen() {
   const [loading, setLoading] = useState(false);
 
   async function handleSubmit() {
-    // Doppel-Submit abfangen: Ohne das erzeugt ein schneller zweiter Tap einen
-    // zweiten Request und laeuft in Supabases Rate Limit.
     if (loading) return;
 
     setFormError(null);
@@ -42,9 +40,6 @@ export function SignInScreen() {
       setFormError(authErrorMessage(error));
       return;
     }
-    // Kein manueller Redirect: Der SessionProvider bekommt das Event, und
-    // Stack.Protected wechselt die Route. Ein eigener Aufruf hier wuerde mit
-    // dem Guard konkurrieren.
   }
 
   return (
@@ -84,6 +79,28 @@ export function SignInScreen() {
             ) : null}
 
             <Button label="Anmelden" onPress={handleSubmit} loading={loading} />
+
+            <View style={styles.divider}>
+              <ThemedText type="small" themeColor="textSecondary">oder anmelden mit</ThemedText>
+            </View>
+
+            <Button
+              label="  Mit Apple anmelden"
+              variant="secondary"
+              onPress={async () => {
+                const { error } = await signInWithOAuthProvider('apple');
+                if (error) setFormError(authErrorMessage(error));
+              }}
+            />
+
+            <Button
+              label="🌐  Mit Google anmelden"
+              variant="secondary"
+              onPress={async () => {
+                const { error } = await signInWithOAuthProvider('google');
+                if (error) setFormError(authErrorMessage(error));
+              }}
+            />
           </View>
         </Card>
 
@@ -108,6 +125,10 @@ export function SignInScreen() {
 const styles = StyleSheet.create({
   form: {
     gap: Spacing.three,
+  },
+  divider: {
+    alignItems: 'center',
+    marginVertical: Spacing.one,
   },
   links: {
     alignItems: 'center',

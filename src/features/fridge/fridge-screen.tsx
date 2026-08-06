@@ -11,8 +11,8 @@ import { ThemedText } from '@/components/themed-text';
  */
 const LAGERORTE = [
   { key: 'fridge', name: 'Kühlschrank' },
-  { key: 'freezer', name: 'Gefrierfach' },
-  { key: 'pantry', name: 'Vorratsschrank' },
+  { key: 'freezer', name: 'Tiefkühltruhe' },
+  { key: 'pantry', name: 'Abstellkammer' },
 ] as const;
 
 export function FridgeScreen() {

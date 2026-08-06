@@ -126,6 +126,50 @@ async function pullEntity(
   return outcome;
 }
 
+async function reconcileOrphans(
+  db: SqlDatabase,
+  supabase: TypedSupabaseClient,
+  entity: Entity,
+  householdIds: readonly string[],
+) {
+  const meta = metaOf(entity);
+  if (!meta.householdScoped) return;
+
+  // 1. Remote-IDs von Supabase fuer den Haushalt laden
+  // biome-ignore lint/suspicious/noExplicitAny: generisches Select
+  const { data, error } = await (supabase.from(meta.table) as any)
+    .select('id')
+    .in('household_id', householdIds);
+
+  if (error || !data) return;
+
+  const remoteIds = new Set<string>((data as { id: string }[]).map((r) => r.id));
+
+  // 2. Lokale Outbox-IDs fuer diese Entity laden (lokal ungepushte Zeilen nicht loeschen)
+  const pendingOutbox = await db.getAllAsync<{ entity_id: string }>(
+    'select entity_id from outbox where entity = ?',
+    [entity],
+  );
+  const pendingIds = new Set<string>(pendingOutbox.map((o) => o.entity_id));
+
+  // 3. Lokale SQLite-IDs fuer die Haushalte laden
+  const inClause = householdIds.map(() => '?').join(',');
+  const localRows = await db.getAllAsync<{ id: string }>(
+    `select id from ${meta.table} where household_id in (${inClause})`,
+    [...householdIds],
+  );
+
+  // 4. Verwaiste Zeilen finden (lokal vorhanden, aber in Supabase geloescht & nicht in Outbox)
+  const orphanIds = localRows
+    .map((r) => r.id)
+    .filter((id) => !remoteIds.has(id) && !pendingIds.has(id));
+
+  if (orphanIds.length > 0) {
+    const deleteIn = orphanIds.map(() => '?').join(',');
+    await db.runAsync(`delete from ${meta.table} where id in (${deleteIn})`, orphanIds);
+  }
+}
+
 export async function pullHousehold(deps: {
   db: SqlDatabase;
   supabase: TypedSupabaseClient;
@@ -140,6 +184,7 @@ export async function pullHousehold(deps: {
     outcomes.push(
       await pullEntity(deps.db, deps.supabase, entity, deps.householdIds, deps.clockCeilingMs),
     );
+    await reconcileOrphans(deps.db, deps.supabase, entity, deps.householdIds);
   }
 
   return outcomes;

@@ -14,7 +14,7 @@ create table if not exists public.storage_locations (
   id uuid primary key default gen_random_uuid(),
   household_id uuid not null references public.households (id) on delete cascade,
   name text not null check (length(trim(name)) between 1 and 60),
-  kind text not null check (kind in ('fridge', 'freezer', 'pantry')),
+  kind text not null check (kind in ('fridge', 'freezer', 'pantry', 'custom')),
   sort_order integer not null default 0,
 
   created_at timestamptz not null default now(),
@@ -162,8 +162,8 @@ begin
   insert into public.storage_locations (household_id, name, kind, sort_order)
   values
     (new_id, 'Kühlschrank', 'fridge', 0),
-    (new_id, 'Gefrierfach', 'freezer', 1),
-    (new_id, 'Vorratsschrank', 'pantry', 2);
+    (new_id, 'Tiefkühltruhe', 'freezer', 1),
+    (new_id, 'Abstellkammer', 'pantry', 2);
 
   return new_id;
 end;

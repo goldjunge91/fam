@@ -1,5 +1,6 @@
+import { router } from 'expo-router';
 import type { ReactNode } from 'react';
-import { ScrollView, StyleSheet, View } from 'react-native';
+import { Pressable, ScrollView, StyleSheet, View } from 'react-native';
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { ThemedText } from '@/components/themed-text';
@@ -13,6 +14,8 @@ type ScreenProps = {
   /** Aktion rechts neben dem Titel, z. B. ein Hinzufuegen-Button. */
   action?: ReactNode;
   scroll?: boolean;
+  /** Zeigt explizit einen Zurueck-Button an (oder automatisch wenn router.canGoBack() true ist). */
+  showBackButton?: boolean;
 };
 
 /**
@@ -23,9 +26,18 @@ type ScreenProps = {
  * Android unterschiedlich hoch ist — ohne den Abstand liegt der letzte
  * Listeneintrag unter der Leiste und ist nicht antippbar.
  */
-export function Screen({ title, subtitle, children, action, scroll = true }: ScreenProps) {
+export function Screen({
+  title,
+  subtitle,
+  children,
+  action,
+  scroll = true,
+  showBackButton,
+}: ScreenProps) {
   const insets = useSafeAreaInsets();
   const body = <View style={styles.body}>{children}</View>;
+
+  const hasBack = showBackButton !== undefined ? showBackButton : router.canGoBack();
 
   // Die native Tab-Leiste liegt ueber dem Inhalt und wird nicht von der Safe Area
   // erfasst. Ohne diesen Abstand verschwindet der letzte Listeneintrag darunter
@@ -36,6 +48,18 @@ export function Screen({ title, subtitle, children, action, scroll = true }: Scr
   return (
     <ThemedView style={styles.root}>
       <SafeAreaView style={styles.safeArea} edges={['top', 'left', 'right']}>
+        {hasBack ? (
+          <Pressable
+            onPress={() => router.back()}
+            accessibilityRole="button"
+            accessibilityLabel="Zurück"
+            style={styles.backButton}>
+            <ThemedText type="smallBold" themeColor="accent">
+              ← Zurück
+            </ThemedText>
+          </Pressable>
+        ) : null}
+
         <View style={styles.header}>
           <View style={styles.headerText}>
             <ThemedText type="subtitle">{title}</ThemedText>
@@ -55,7 +79,7 @@ export function Screen({ title, subtitle, children, action, scroll = true }: Scr
             {body}
           </ScrollView>
         ) : (
-          <View style={[styles.body, { paddingBottom: bottomPadding }]}>{children}</View>
+          <View style={[styles.body, { flex: 1, paddingBottom: bottomPadding }]}>{children}</View>
         )}
       </SafeAreaView>
     </ThemedView>
@@ -72,6 +96,12 @@ const styles = StyleSheet.create({
     maxWidth: MaxContentWidth,
     alignSelf: 'center',
     paddingHorizontal: Spacing.three,
+  },
+  backButton: {
+    alignSelf: 'flex-start',
+    paddingTop: Spacing.two,
+    paddingBottom: Spacing.one,
+    paddingRight: Spacing.three,
   },
   header: {
     flexDirection: 'row',

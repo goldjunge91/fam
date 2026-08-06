@@ -68,11 +68,16 @@ export function ProfileScreen() {
             onPress={() => router.push('/onboarding')}
           />
           {currentHousehold && (
-            <View style={{ marginTop: 8 }}>
+            <View style={{ marginTop: 8, gap: 8 }}>
               <Button
                 label="Mitglieder verwalten"
                 variant="secondary"
                 onPress={() => router.push('/household/members')}
+              />
+              <Button
+                label="Lagerorte verwalten"
+                variant="secondary"
+                onPress={() => router.push('/household/storage-locations')}
               />
             </View>
           )}

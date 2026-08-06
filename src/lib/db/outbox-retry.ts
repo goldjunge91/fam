@@ -3,29 +3,26 @@ import { MAX_ATTEMPTS } from '@/lib/sync/backoff';
 
 /**
  * Retry-Primitive fuer dauerhaft gescheiterte Outbox-Eintraege (#51).
- *
- * Bewusst eine eigene Datei statt einer Ergaenzung von `outbox.ts`: Der
- * parallele Arbeitsstrang an #48/#50 aendert `outbox.ts` nicht, dieser Strang
- * an #51 aendert es damit ebenfalls nicht — die beiden Arbeitsstraenge teilen
- * sich keine einzige Datei, nicht einmal additiv.
  */
 
-/**
- * Macht alle terminal gescheiterten Eintraege wieder faellig, damit der
- * naechste Push-Lauf sie erneut versucht.
- *
- * "Terminal" ist ueberall im Sync-Layer `attempts >= MAX_ATTEMPTS`, keine
- * eigene Spalte (siehe `push.ts`). Der Retry setzt deshalb nur `attempts`
- * und `next_attempt_at` zurueck, nicht `last_error` — die letzte
- * Fehlermeldung bleibt sichtbar, bis ein neuer Versuch sie ersetzt oder
- * loescht.
- */
 export async function retryFailedOutboxEntries(
   db: SqlDatabase,
   nowMs = Date.now(),
 ): Promise<number> {
+  // Reparatur von veralteten uppercase 'L' Einheiten im Outbox JSON payload
+  const entries = await db.getAllAsync<{ id: number; payload: string }>(
+    "select id, payload from outbox where payload like '%\"unit\":\"L\"%' or payload like '%\"unit\":\"LITER\"%'",
+  );
+
+  for (const entry of entries) {
+    const fixedPayload = entry.payload
+      .replace(/"unit":"L"/g, '"unit":"l"')
+      .replace(/"unit":"LITER"/g, '"unit":"l"');
+    await db.runAsync('update outbox set payload = ? where id = ?', [fixedPayload, entry.id]);
+  }
+
   const result = await db.runAsync(
-    'update outbox set attempts = 0, next_attempt_at = ? where attempts >= ?',
+    "update outbox set attempts = 0, next_attempt_at = ?, last_error = null where attempts >= ? or last_error like '%unit%'",
     [nowMs, MAX_ATTEMPTS],
   );
 

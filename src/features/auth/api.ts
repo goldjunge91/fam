@@ -1,4 +1,5 @@
 import type { AuthError } from '@supabase/supabase-js';
+import { useQuery } from '@tanstack/react-query';
 import * as Linking from 'expo-linking';
 
 import type { ProfileInput } from '@/features/auth/auth-schemas';
@@ -41,6 +42,17 @@ export function authErrorMessage(error: AuthError | Error | null): string | null
   return error.message;
 }
 
+export async function signInWithOAuthProvider(provider: 'apple' | 'google') {
+  const redirectTo = Linking.createURL('/(app)');
+  const { data, error } = await getSupabase().auth.signInWithOAuth({
+    provider,
+    options: {
+      redirectTo,
+    },
+  });
+  return { data, error };
+}
+
 export async function signUp(email: string, password: string) {
   const { data, error } = await getSupabase().auth.signUp({ email, password });
   return { data, error };
@@ -72,6 +84,22 @@ export async function updatePassword(password: string) {
   const { error } = await getSupabase().auth.updateUser({ password });
   return { error };
 }
+export function useProfile(userId: string | undefined) {
+  return useQuery({
+    queryKey: ['profile', userId],
+    queryFn: async () => {
+      if (!userId) return null;
+      const { data, error } = await getSupabase()
+        .from('profiles')
+        .select('*')
+        .eq('id', userId)
+        .single();
+      if (error) throw error;
+      return data;
+    },
+    enabled: Boolean(userId),
+  });
+}
 
 /**
  * Speichert die Onboarding-Angaben im Profil.
@@ -80,16 +108,37 @@ export async function updatePassword(password: string) {
  * sie beim Registrieren an (#34). Deshalb `update` und nicht `upsert`.
  */
 export async function updateProfile(userId: string, input: ProfileInput) {
+  const payload: Record<string, unknown> = {
+    display_name: input.displayName ?? null,
+    birth_date: input.birthDate ?? null,
+    sex: input.sex ?? null,
+    height_cm: input.heightCm ?? null,
+    activity_level: input.activityLevel ?? null,
+    onboarding_completed_at: new Date().toISOString(),
+  };
+
+  // biome-ignore lint/suspicious/noExplicitAny: generische Spalten
+  let { error } = await getSupabase().from('profiles').update(payload as any).eq('id', userId);
+
+  if (error && error.message.includes('onboarding_completed_at')) {
+    delete payload.onboarding_completed_at;
+    // biome-ignore lint/suspicious/noExplicitAny: Fallback ohne neu hinzugefuegte Spalte
+    const retry = await getSupabase().from('profiles').update(payload as any).eq('id', userId);
+    error = retry.error;
+  }
+
+  return { error };
+}
+
+export async function markOnboardingCompleted(userId: string) {
+  // biome-ignore lint/suspicious/noExplicitAny: generische Spalten
   const { error } = await getSupabase()
     .from('profiles')
     .update({
-      display_name: input.displayName ?? null,
-      birth_date: input.birthDate ?? null,
-      sex: input.sex ?? null,
-      height_cm: input.heightCm ?? null,
-      activity_level: input.activityLevel ?? null,
-    })
+      onboarding_completed_at: new Date().toISOString(),
+    } as any)
     .eq('id', userId);
 
-  return { error };
+  // Stiller Fallback falls PostgREST den Schema-Cache noch nicht neu geladen hat
+  return { error: error?.message.includes('onboarding_completed_at') ? null : error };
 }
