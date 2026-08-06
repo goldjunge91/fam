@@ -146,7 +146,11 @@ describe('subscribeHouseholdRealtime', () => {
     } finally {
       unsubscribe();
     }
-  }, 30_000);
+    // 60s statt 30s: deckt die 45s-Aufwaermrunde (siehe Kommentar dort) plus
+    // Setup/Netzwerk-Overhead ab. Der aeussere Jest-Timeout schlug vorher zu,
+    // BEVOR das interne 45s-Poll-Timeout ueberhaupt greifen konnte — reiner
+    // Fluechtigkeitsfehler beim ersten Erhoehen, hier korrigiert.
+  }, 60_000);
 
   it('kein Echo-Loop: eigener Push kommt als Realtime-Event zurueck, ohne erneuten Outbox-Eintrag oder Duplikat', async () => {
     const { deviceA, householdId } = await setupTwoDevices('rt-echo');
