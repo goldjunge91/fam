@@ -1,0 +1,82 @@
+import type { Entity, SqlDatabase } from '@/lib/db/types';
+
+/**
+ * Pull-Cursor je Entity (#47).
+ *
+ * `sync_state.last_synced_at` ist der ROHE, unnormalisierte Server-String —
+ * siehe `migrations.ts`. Diese Datei fasst ihn nur an, transformiert ihn nie.
+ */
+
+const DEFAULT_SCOPE = 'default';
+
+export type SyncCursor = {
+  lastSyncedAt: string;
+  lastSyncedId: string;
+};
+
+type SyncStateRow = {
+  last_synced_at: string | null;
+  last_synced_id: string | null;
+  last_error: string | null;
+};
+
+/** Liest den Cursor einer Entity. `cursor` ist `null`, solange noch nie erfolgreich gepullt wurde. */
+export async function readSyncState(
+  db: SqlDatabase,
+  entity: Entity,
+  scope: string = DEFAULT_SCOPE,
+): Promise<{ cursor: SyncCursor | null; lastError: string | null }> {
+  const row = await db.getFirstAsync<SyncStateRow>(
+    'select last_synced_at, last_synced_id, last_error from sync_state where entity = ? and scope = ?',
+    [entity, scope],
+  );
+
+  if (row === null || row.last_synced_at === null || row.last_synced_id === null) {
+    return { cursor: null, lastError: row?.last_error ?? null };
+  }
+
+  return {
+    cursor: { lastSyncedAt: row.last_synced_at, lastSyncedId: row.last_synced_id },
+    lastError: row.last_error,
+  };
+}
+
+/**
+ * Schreibt den Cursor nach einer erfolgreich committeten Pull-Seite.
+ *
+ * Setzt `last_error` auf `null` — ein erfolgreicher Fortschritt loescht einen
+ * vorherigen Fehlerstand.
+ */
+export async function writeSyncCursor(
+  txn: SqlDatabase,
+  entity: Entity,
+  cursor: SyncCursor,
+  lastRunAtMs: number,
+  scope: string = DEFAULT_SCOPE,
+): Promise<void> {
+  await txn.runAsync(
+    `insert into sync_state (entity, scope, last_synced_at, last_synced_id, last_run_at, last_error)
+     values (?, ?, ?, ?, ?, null)
+     on conflict(entity, scope) do update set
+       last_synced_at = excluded.last_synced_at,
+       last_synced_id = excluded.last_synced_id,
+       last_run_at = excluded.last_run_at,
+       last_error = excluded.last_error`,
+    [entity, scope, cursor.lastSyncedAt, cursor.lastSyncedId, lastRunAtMs],
+  );
+}
+
+/** Schreibt einen Fehlerstand, ohne den bestehenden Cursor anzutasten. */
+export async function recordSyncError(
+  db: SqlDatabase,
+  entity: Entity,
+  error: string,
+  scope: string = DEFAULT_SCOPE,
+): Promise<void> {
+  await db.runAsync(
+    `insert into sync_state (entity, scope, last_error)
+     values (?, ?, ?)
+     on conflict(entity, scope) do update set last_error = excluded.last_error`,
+    [entity, scope, error],
+  );
+}
