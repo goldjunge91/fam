@@ -45,10 +45,10 @@ select tests.as_postgres();
 -- die Transaktions-Startzeit und ist innerhalb einer Transaktion konstant.
 -- pgTAP kapselt jede Datei in genau eine — ein Vergleich zweier Zeitpunkte
 -- waere immer gleich.
-update public.fridge_items set updated_at = '2020-01-01'::timestamptz;
+update public.fridge_items set updated_at = '2020-01-01'::timestamptz where household_id = :'hid';
 
 select isnt(
-  (select updated_at from public.fridge_items),
+  (select min(updated_at) from public.fridge_items where household_id = :'hid'),
   '2020-01-01'::timestamptz,
   'der Trigger ueberschreibt ein vom Client gesetztes updated_at'
 );
@@ -58,10 +58,10 @@ select isnt(
 -- BEFORE-Trigger laufen in alphabetischer Namensreihenfolge, `guard` also vor
 -- `set_updated_at`; `guard` gibt coalesce(new, old) zurueck und laesst NEW
 -- unveraendert durch.
-update public.household_members set updated_at = '2020-01-01'::timestamptz;
+update public.household_members set updated_at = '2020-01-01'::timestamptz where household_id = :'hid';
 
 select isnt(
-  (select min(updated_at) from public.household_members),
+  (select min(updated_at) from public.household_members where household_id = :'hid'),
   '2020-01-01'::timestamptz,
   'der Trigger ueberschreibt ein vom Client gesetztes updated_at auch auf household_members'
 );
@@ -70,11 +70,11 @@ select isnt(
 -- Ein inkrementeller Pull muss geloeschte Zeilen MITLIEFERN. Verschwaende die
 -- Zeile hart, koennte ein Client, der waehrend des Loeschens offline war, nicht
 -- unterscheiden zwischen "geloescht" und "noch nie gesehen".
-update public.fridge_items set deleted_at = now();
+update public.fridge_items set deleted_at = now() where household_id = :'hid';
 
 select is(
   (select count(*)::int from public.fridge_items
-   where updated_at > '2020-01-01'::timestamptz),
+   where updated_at > '2020-01-01'::timestamptz and household_id = :'hid'),
   1,
   'die geloeschte Zeile taucht im inkrementellen Pull weiterhin auf (Tombstone)'
 );
