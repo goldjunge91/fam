@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Alert, Modal, Pressable, ScrollView, Share, StyleSheet, View } from 'react-native';
+import QRCode from 'react-native-qrcode-svg';
 
 import { Button } from '@/components/button';
 import { Card } from '@/components/card';
@@ -30,6 +31,7 @@ export function InviteModal({ visible, householdId, householdName, onClose }: In
   const revokeMutation = useRevokeInviteMutation();
 
   const [createdToken, setCreatedToken] = useState<string | null>(null);
+  const [showQrCode, setShowQrCode] = useState(true);
 
   async function handleCreate() {
     if (!userId || !householdId) return;
@@ -41,6 +43,7 @@ export function InviteModal({ visible, householdId, householdName, onClose }: In
         maxUses: 5,
       });
       setCreatedToken(invite.token);
+      setShowQrCode(true);
     } catch (err) {
       Alert.alert(
         'Fehler',
@@ -69,6 +72,9 @@ export function InviteModal({ visible, householdId, householdName, onClose }: In
         onPress: async () => {
           try {
             await revokeMutation.mutateAsync({ inviteId, householdId });
+            if (createdToken && invites.find((i) => i.id === inviteId)?.token === createdToken) {
+              setCreatedToken(null);
+            }
           } catch (err) {
             Alert.alert('Fehler', err instanceof Error ? err.message : 'Fehler beim Zurückziehen');
           }
@@ -95,9 +101,21 @@ export function InviteModal({ visible, householdId, householdName, onClose }: In
             </ThemedText>
 
             {createdToken ? (
-              <Card title="Neuer Einladungs-Code">
+              <Card title="Neuer Einladungs-Code & QR-Code">
                 <View style={styles.createdBox}>
                   <ThemedText style={styles.tokenText}>{createdToken}</ThemedText>
+
+                  {showQrCode && (
+                    <View style={styles.qrContainer}>
+                      <QRCode value={`fam://join?token=${createdToken}`} size={180} />
+                    </View>
+                  )}
+
+                  <Button
+                    label={showQrCode ? 'QR-Code ausblenden' : 'QR-Code anzeigen'}
+                    variant="secondary"
+                    onPress={() => setShowQrCode(!showQrCode)}
+                  />
                   <Button label="Code / Link teilen" onPress={() => handleShare(createdToken)} />
                   <Button
                     label="Weiterer Code"
@@ -183,6 +201,15 @@ const styles = StyleSheet.create({
     color: '#10B981',
     textAlign: 'center',
     paddingVertical: 8,
+  },
+  qrContainer: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: Spacing.three,
+    backgroundColor: '#FFFFFF',
+    borderRadius: 16,
+    alignSelf: 'center',
+    marginVertical: Spacing.two,
   },
   sectionTitle: {
     fontWeight: 'bold',
