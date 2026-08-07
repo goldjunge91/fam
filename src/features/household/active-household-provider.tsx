@@ -18,7 +18,7 @@ interface ActiveHouseholdContextType {
 const ActiveHouseholdContext = createContext<ActiveHouseholdContextType | undefined>(undefined);
 
 export function ActiveHouseholdProvider({ children }: { children: React.ReactNode }) {
-  const { data: households = [], isLoading } = useHouseholds();
+  const { data: households = [], isLoading, isFetching } = useHouseholds();
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [isStoreLoaded, setIsStoreLoaded] = useState(false);
 
@@ -61,7 +61,7 @@ export function ActiveHouseholdProvider({ children }: { children: React.ReactNod
       activeHouseholdId,
       activeHousehold,
       households,
-      isLoading: isLoading || !isStoreLoaded,
+      isLoading: isLoading || isFetching || !isStoreLoaded,
       setActiveHouseholdId: handleSetActiveHouseholdId,
     }),
     [
@@ -69,6 +69,7 @@ export function ActiveHouseholdProvider({ children }: { children: React.ReactNod
       activeHousehold,
       households,
       isLoading,
+      isFetching,
       isStoreLoaded,
       handleSetActiveHouseholdId,
     ],

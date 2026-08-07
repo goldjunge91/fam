@@ -34,8 +34,9 @@ export function useCreateHouseholdMutation() {
       if (error) throw error;
       return data;
     },
-    onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ['households'] });
+    onSuccess: async () => {
+      await queryClient.invalidateQueries({ queryKey: ['households'] });
+      await queryClient.refetchQueries({ queryKey: ['households'] });
     },
   });
 }
@@ -242,8 +243,9 @@ export function useRedeemInviteMutation() {
       if (error) throw error;
       return data;
     },
-    onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ['households'] });
+    onSuccess: async () => {
+      await queryClient.invalidateQueries({ queryKey: ['households'] });
+      await queryClient.refetchQueries({ queryKey: ['households'] });
     },
   });
 }

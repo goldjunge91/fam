@@ -1,3 +1,4 @@
+import { useQueryClient } from '@tanstack/react-query';
 import { router } from 'expo-router';
 import { useState } from 'react';
 import { StyleSheet, View } from 'react-native';
@@ -15,6 +16,7 @@ export function CreateHouseholdScreen() {
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
 
   const mutation = useCreateHouseholdMutation();
+  const queryClient = useQueryClient();
 
   async function handleSubmit() {
     const trimmed = householdName.trim();
@@ -26,6 +28,7 @@ export function CreateHouseholdScreen() {
     setErrorMsg(null);
     try {
       await mutation.mutateAsync(trimmed);
+      await queryClient.refetchQueries({ queryKey: ['households'] });
       // Nach der Erstellung routen wir ins Dashboard.
       // Falls der Nutzer von der "Kein Haushalt"-Weiche kam, greift nun die App.
       router.replace('/');
