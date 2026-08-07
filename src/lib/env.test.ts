@@ -8,7 +8,6 @@ describe('requireEnv', () => {
   });
 
   it('entfernt umgebende Leerzeichen', () => {
-    // Kommt in der Praxis vor, wenn ein Wert aus dem Dashboard kopiert wird.
     expect(requireEnv('EXPO_PUBLIC_SUPABASE_KEY', '  sb_publishable_abc  ')).toBe(
       'sb_publishable_abc',
     );
@@ -24,7 +23,6 @@ describe('requireEnv', () => {
   });
 
   it('nennt die fehlende Variable beim Namen', () => {
-    // Der Name muss in der Meldung stehen — sonst weiss niemand, was fehlt.
     expect(() => requireEnv('EXPO_PUBLIC_SUPABASE_KEY', undefined)).toThrow(
       /EXPO_PUBLIC_SUPABASE_KEY/,
     );
