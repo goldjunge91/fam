@@ -75,7 +75,11 @@
     "db:check": "bash scripts/check-privileges.sh",
     "db:push": "supabase db push && bash scripts/check-privileges.sh --linked",
     "test:db": "supabase test db --local supabase/tests/*.test.sql",
-    "test:integration": "jest --config jest.integration.config.js --forceExit"
+    "test:integration": "jest --config jest.integration.config.js --forceExit",
+    "user:create": "bun scripts/test-users.ts create",
+    "user:list": "bun scripts/test-users.ts list",
+    "user:clean": "bun scripts/test-users.ts clean",
+    "user:delete": "bun scripts/test-users.ts delete"
   },
   "private": true
 }
