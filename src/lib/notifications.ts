@@ -33,10 +33,10 @@ try {
   if (NotificationsModule?.setNotificationHandler) {
     NotificationsModule.setNotificationHandler({
       handleNotification: async () => ({
-        shouldShowAlert: true,
+        shouldShowBanner: true,
+        // shouldShowAlert: true,
         shouldPlaySound: true,
         shouldSetBadge: true,
-        shouldShowBanner: true,
         shouldShowList: true,
       }),
     });

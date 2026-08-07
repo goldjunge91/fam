@@ -3,7 +3,20 @@ import { Pressable, StyleSheet, Switch, Text, View } from 'react-native';
 import { Button } from '@/components/button';
 import { Spacing } from '@/constants/theme';
 import { useTheme } from '@/hooks/use-theme';
+import { requestNotificationPermissions } from '@/lib/notifications';
 import { useOnboarding } from '../context/onboarding-context';
+
+// Defensiver Import: expo-camera ist nur in einem nativen Dev-Build verfügbar.
+// biome-ignore lint/suspicious/noExplicitAny: Dynamic Expo Camera Module
+let requestCameraPermissionsAsync: any = null;
+try {
+  const ExpoCamera = require('expo-camera');
+  if (ExpoCamera?.requestCameraPermissionsAsync) {
+    requestCameraPermissionsAsync = ExpoCamera.requestCameraPermissionsAsync;
+  }
+} catch {
+  requestCameraPermissionsAsync = null;
+}
 
 interface PermissionsStepFormProps {
   onNext: () => void;
@@ -20,6 +33,24 @@ export function PermissionsStepForm({ onNext, onSkip }: PermissionsStepFormProps
   const [camera, setCamera] = useState(state.permissions.cameraRequested ?? true);
 
   const handlePermissions = async () => {
+    // Kamera-Berechtigung anfordern wenn aktiviert
+    if (camera && requestCameraPermissionsAsync) {
+      try {
+        await requestCameraPermissionsAsync();
+      } catch {
+        // Graceful Fallback — nur im nativen Build verfügbar
+      }
+    }
+
+    // Benachrichtigungs-Berechtigung anfordern wenn aktiviert
+    if (notifications) {
+      try {
+        await requestNotificationPermissions();
+      } catch {
+        // Graceful Fallback — nur im nativen Build verfügbar
+      }
+    }
+
     updatePermissionsData({
       notificationsRequested: notifications,
       cameraRequested: camera,
