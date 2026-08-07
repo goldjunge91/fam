@@ -1,16 +1,16 @@
 import { router } from 'expo-router';
 import { useState } from 'react';
-import { Alert, FlatList, Pressable, StyleSheet, View } from 'react-native';
+import { Alert, FlatList, Image, Pressable, StyleSheet, View } from 'react-native';
 
 import { Button } from '@/components/button';
 import { Screen } from '@/components/screen';
 import { ThemedText } from '@/components/themed-text';
 import { Spacing } from '@/constants/theme';
 import { useSession } from '@/features/auth/session-provider';
+import { useActiveHousehold } from '@/features/household/active-household-provider';
 import {
   useDeleteHouseholdMutation,
   useHouseholdMembers,
-  useHouseholds,
   useLeaveHouseholdMutation,
   useRemoveMemberMutation,
   useUpdateMemberRoleMutation,
@@ -24,11 +24,9 @@ export function MembersScreen() {
   const currentUserId = session?.user.id;
   const theme = useTheme();
 
-  const { data: households = [] } = useHouseholds();
-  const [selectedHouseholdId, setSelectedHouseholdId] = useState<string | null>(null);
-
-  const currentHousehold = households.find((h) => h.id === selectedHouseholdId) ?? households[0];
-  const householdId = currentHousehold?.id ?? '';
+  const { activeHousehold, activeHouseholdId, households } = useActiveHousehold();
+  const currentHousehold = activeHousehold;
+  const householdId = activeHouseholdId ?? '';
 
   const { data: members, isLoading } = useHouseholdMembers(householdId);
   const updateRoleMutation = useUpdateMemberRoleMutation();
@@ -42,6 +40,7 @@ export function MembersScreen() {
 
   const myMembership = members?.find((m) => m.user_id === currentUserId);
   const isAdmin = myMembership?.role === 'admin';
+  const adminCount = members?.filter((m) => m.role === 'admin').length ?? 0;
 
   async function handleToggleRole(userId: string, currentRole: string, name: string) {
     if (!isAdmin || !householdId) return;
@@ -95,6 +94,14 @@ export function MembersScreen() {
 
   async function handleLeave() {
     if (!householdId) return;
+    if (isAdmin && adminCount <= 1) {
+      Alert.alert(
+        'Haushalt verlassen nicht möglich',
+        'Du bist der einzige Administrator dieses Haushalts. Ernenne zuerst ein anderes Mitglied zum Admin, bevor du den Haushalt verlässt.',
+      );
+      return;
+    }
+
     Alert.alert('Haushalt verlassen', 'Möchtest du den Haushalt wirklich verlassen?', [
       { text: 'Abbrechen', style: 'cancel' },
       {
@@ -173,11 +180,28 @@ export function MembersScreen() {
         contentContainerStyle={styles.list}
         renderItem={({ item }) => {
           const isMe = item.user_id === currentUserId;
-          const profile = item.profiles as unknown as { display_name: string | null };
+          const profile = item.profiles as unknown as {
+            display_name: string | null;
+            avatar_url: string | null;
+          };
           const displayName = profile?.display_name || 'Unbekanntes Mitglied';
+          const initials = (displayName || '?').substring(0, 2).toUpperCase();
 
           return (
             <View style={[styles.memberRow, { borderBottomColor: theme.border }]}>
+              <View
+                style={[
+                  styles.avatar,
+                  { backgroundColor: theme.backgroundElement },
+                  isMe && { borderColor: theme.accent, borderWidth: 2 },
+                ]}>
+                {profile?.avatar_url ? (
+                  <Image source={{ uri: profile.avatar_url }} style={styles.avatarImage} />
+                ) : (
+                  <ThemedText style={styles.avatarText}>{initials}</ThemedText>
+                )}
+              </View>
+
               <View style={styles.memberInfo}>
                 <ThemedText style={{ fontWeight: isMe ? 'bold' : 'normal' }}>
                   {displayName} {isMe ? '(Du)' : ''}
@@ -222,13 +246,32 @@ export function MembersScreen() {
               )}
 
               {isAdmin ? (
-                <Button
-                  label="Haushalt löschen"
-                  variant="danger"
-                  onPress={handleDelete}
-                  loading={loadingAction === 'delete'}
-                  disabled={loadingAction !== null && loadingAction !== 'delete'}
-                />
+                <View style={{ gap: Spacing.two }}>
+                  <Button
+                    label="Haushalt verlassen"
+                    variant="danger"
+                    onPress={handleLeave}
+                    loading={loadingAction === 'leave'}
+                    disabled={
+                      adminCount <= 1 || (loadingAction !== null && loadingAction !== 'leave')
+                    }
+                  />
+                  {adminCount <= 1 && (
+                    <ThemedText
+                      type="small"
+                      themeColor="textSecondary"
+                      style={{ textAlign: 'center', fontSize: 12 }}>
+                      Ernenne zuerst einen weiteren Admin, um den Haushalt zu verlassen.
+                    </ThemedText>
+                  )}
+                  <Button
+                    label="Haushalt löschen"
+                    variant="danger"
+                    onPress={handleDelete}
+                    loading={loadingAction === 'delete'}
+                    disabled={loadingAction !== null && loadingAction !== 'delete'}
+                  />
+                </View>
               ) : (
                 <Button
                   label="Haushalt verlassen"
@@ -255,7 +298,6 @@ export function MembersScreen() {
       <HouseholdSwitcherModal
         visible={showSwitcherModal}
         selectedHouseholdId={currentHousehold?.id}
-        onSelectHousehold={(id) => setSelectedHouseholdId(id)}
         onClose={() => setShowSwitcherModal(false)}
       />
     </Screen>
@@ -279,6 +321,23 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
     gap: Spacing.two,
+  },
+  avatar: {
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+    alignItems: 'center',
+    justifyContent: 'center',
+    overflow: 'hidden',
+  },
+  avatarImage: {
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+  },
+  avatarText: {
+    fontWeight: 'bold',
+    fontSize: 14,
   },
   memberInfo: {
     flex: 1,
