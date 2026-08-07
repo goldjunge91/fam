@@ -1,6 +1,7 @@
 /** @type {import('jest').Config} */
 module.exports = {
   preset: 'jest-expo',
+  setupFiles: ['<rootDir>/test/setup.js'],
 
   // Spiegelt die Pfad-Aliase aus tsconfig.json. Die spezifischere
   // `@/assets/`-Regel muss vor `@/` stehen, sonst greift sie nie.

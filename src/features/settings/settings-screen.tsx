@@ -11,6 +11,7 @@ import { Spacing } from '@/constants/theme';
 import { useSession } from '@/features/auth/session-provider';
 import { signOutAndClearLocalData } from '@/features/auth/sign-out';
 import { useHouseholds } from '@/features/household/api';
+import { NotificationSettingsCard } from '@/features/settings/notification-settings-card';
 import { useSyncStatus } from '@/hooks/use-sync-status';
 import { useTheme } from '@/hooks/use-theme';
 import { getDatabase } from '@/lib/db/client';
@@ -145,6 +146,8 @@ export function SettingsScreen() {
           </View>
         )}
       </Card>
+
+      <NotificationSettingsCard />
 
       <Card title="Synchronisation">
         <ThemedText type="small" themeColor="textSecondary">
