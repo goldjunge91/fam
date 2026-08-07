@@ -1,40 +1,97 @@
-import { Pressable, StyleSheet, View } from 'react-native';
+import { Pressable, ScrollView, StyleSheet, View } from 'react-native';
 
 import { ThemedText } from '@/components/themed-text';
 import { Spacing } from '@/constants/theme';
+import type { StorageLocation } from '@/features/inventory/use-storage-locations';
 import { useTheme } from '@/hooks/use-theme';
-import type { GroupedFridgeItems } from '../use-fridge-items';
+import type { LocalFridgeItem } from '../use-fridge-items';
 
-export type TabKind = 'fridge' | 'freezer' | 'pantry';
-
-export const TABS: { kind: TabKind; label: string; icon: string }[] = [
-  { kind: 'fridge', label: 'Kühl', icon: '🧊' },
-  { kind: 'freezer', label: 'Froster', icon: '❄️' },
-  { kind: 'pantry', label: 'Kammer', icon: '🗄' },
-];
-
-interface FridgeTabBarProps {
-  activeTab: TabKind;
-  onTabChange: (kind: TabKind) => void;
-  groups: GroupedFridgeItems[];
+export function getIconForLocation(kind?: string | null, name?: string | null): string {
+  const k = (kind ?? '').toLowerCase();
+  const n = (name ?? '').toLowerCase();
+  if (k === 'fridge') return '🫙';
+  if (k === 'freezer') return '❄️';
+  if (k === 'pantry') return '🥫';
+  if (
+    n.includes('tief') ||
+    n.includes('frost') ||
+    n.includes('eis') ||
+    n.includes('frier') ||
+    n.includes('freezer')
+  )
+    return '❄️';
+  if (n.includes('kühl') || n.includes('fridge')) return '🫙';
+  if (n.includes('kammer') || n.includes('schrank') || n.includes('regal') || n.includes('pantry'))
+    return '🥫';
+  return '📦';
 }
 
-export function FridgeTabBar({ activeTab, onTabChange, groups }: FridgeTabBarProps) {
+interface FridgeTabBarProps {
+  activeTab: string; // 'all' or location.id
+  onTabChange: (id: string) => void;
+  locations: StorageLocation[];
+  items: LocalFridgeItem[];
+}
+
+export function FridgeTabBar({ activeTab, onTabChange, locations, items }: FridgeTabBarProps) {
   const theme = useTheme();
 
   return (
-    <View style={[styles.tabBar, { backgroundColor: theme.backgroundElement }]}>
-      {TABS.map(({ kind, label, icon }) => {
-        const isActive = activeTab === kind;
-        const count = groups.find((g) => g.locationKind === kind)?.items.length ?? 0;
+    <ScrollView
+      horizontal
+      showsHorizontalScrollIndicator={false}
+      contentContainerStyle={[styles.tabBar, { backgroundColor: theme.backgroundElement }]}>
+      <Pressable
+        onPress={() => onTabChange('all')}
+        accessibilityRole="tab"
+        accessibilityState={{ selected: activeTab === 'all' }}
+        style={[
+          styles.tab,
+          activeTab === 'all' && {
+            backgroundColor: theme.background,
+            borderColor: theme.accent,
+            borderWidth: 1,
+          },
+        ]}>
+        <ThemedText style={styles.tabIcon}>📦</ThemedText>
+        <ThemedText
+          type="small"
+          style={{
+            color: activeTab === 'all' ? theme.text : theme.textSecondary,
+            fontWeight: activeTab === 'all' ? '600' : '400',
+          }}>
+          Alle
+        </ThemedText>
+        {items.length > 0 && (
+          <View
+            style={[
+              styles.tabBadge,
+              { backgroundColor: activeTab === 'all' ? theme.accent : theme.textSecondary },
+            ]}>
+            <ThemedText style={styles.tabBadgeText}>{items.length}</ThemedText>
+          </View>
+        )}
+      </Pressable>
+
+      {locations.map((loc) => {
+        const isActive = activeTab === loc.id;
+        const icon = getIconForLocation(loc.kind, loc.name);
+        const count = items.filter((i) => i.location_id === loc.id).length;
 
         return (
           <Pressable
-            key={kind}
-            onPress={() => onTabChange(kind)}
+            key={loc.id}
+            onPress={() => onTabChange(loc.id)}
             accessibilityRole="tab"
             accessibilityState={{ selected: isActive }}
-            style={[styles.tab, isActive && { backgroundColor: theme.background }]}>
+            style={[
+              styles.tab,
+              isActive && {
+                backgroundColor: theme.background,
+                borderColor: theme.accent,
+                borderWidth: 1,
+              },
+            ]}>
             <ThemedText style={styles.tabIcon}>{icon}</ThemedText>
             <ThemedText
               type="small"
@@ -42,7 +99,7 @@ export function FridgeTabBar({ activeTab, onTabChange, groups }: FridgeTabBarPro
                 color: isActive ? theme.text : theme.textSecondary,
                 fontWeight: isActive ? '600' : '400',
               }}>
-              {label}
+              {loc.name}
             </ThemedText>
             {count > 0 && (
               <View
@@ -56,7 +113,7 @@ export function FridgeTabBar({ activeTab, onTabChange, groups }: FridgeTabBarPro
           </Pressable>
         );
       })}
-    </View>
+    </ScrollView>
   );
 }
 
@@ -66,13 +123,14 @@ const styles = StyleSheet.create({
     borderRadius: Spacing.three,
     padding: Spacing.half,
     gap: Spacing.half,
+    alignItems: 'center',
   },
   tab: {
-    flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
     gap: Spacing.one,
+    paddingHorizontal: Spacing.three,
     paddingVertical: Spacing.two,
     borderRadius: Spacing.two + 2,
   },

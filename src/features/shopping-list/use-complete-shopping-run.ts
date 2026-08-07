@@ -139,6 +139,7 @@ export function useCompleteShoppingRun(householdId: string | undefined) {
     onSuccess: (_, variables) => {
       queryClient.invalidateQueries({ queryKey: ['shopping_list_items', variables.householdId] });
       queryClient.invalidateQueries({ queryKey: ['fridge_items', variables.householdId] });
+      queryClient.invalidateQueries({ queryKey: ['fridge_items_grouped', variables.householdId] });
       queryClient.invalidateQueries({ queryKey: ['sync-status'] });
     },
   });

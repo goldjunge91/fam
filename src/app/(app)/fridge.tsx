@@ -1,4 +1,4 @@
-import { FridgeScreen } from '@/features/inventory/fridge-screen';
+import { FridgeScreen } from '@/features/fridge/fridge-screen';
 
 export default function FridgeRoute() {
   return <FridgeScreen />;

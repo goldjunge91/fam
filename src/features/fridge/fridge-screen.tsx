@@ -7,39 +7,41 @@ import { Screen } from '@/components/screen';
 import { ThemedText } from '@/components/themed-text';
 import { Spacing } from '@/constants/theme';
 import { useHouseholds } from '@/features/household/api';
+import { useStorageLocations } from '@/features/inventory/use-storage-locations';
 
 import { FridgeItemRow } from './components/fridge-item-row';
-import { FridgeTabBar, TABS, type TabKind } from './components/fridge-tab-bar';
+import { FridgeTabBar } from './components/fridge-tab-bar';
 import { getExpiryInfo } from './expiry';
 import { type LocalFridgeItem, useFridgeItems } from './use-fridge-items';
 import { useUpdateFridgeItemQuantityMutation } from './use-fridge-mutations';
 
 /**
- * Vorrat-Bestand, gruppiert nach Lagerort (#67).
+ * Vorrat-Bestand, dynamisch gefiltert nach Lagerort (#67).
  *
- * - Tab-Filter: Kühl / Froster / Kammer
+ * - Dynamische Tab-Filter basierend auf den Lagerorten aus den Einstellungen
  * - Farbiger linker Rand als MHD-Ampel (#71, expiry.ts)
  * - MHD-Badge + Stepper (− / + )
  * - Lang drücken = Löschen-Bestätigung
  */
 export function FridgeScreen() {
-  const [activeTab, setActiveTab] = useState<TabKind>('fridge');
+  const [activeTab, setActiveTab] = useState<string>('all');
 
   const { data: households } = useHouseholds();
   const currentHousehold = households?.[0];
   const householdId = currentHousehold?.id;
 
-  const { data: groups = [], isLoading } = useFridgeItems(householdId);
+  const { data: locations = [] } = useStorageLocations(householdId);
+  const { data: allItems = [], isLoading } = useFridgeItems(householdId);
   const updateQty = useUpdateFridgeItemQuantityMutation();
 
-  const allItems = groups.flatMap((g) => g.items);
   const expiringCount = allItems.filter((item) => {
+    if (!item?.expiry_date) return false;
     const info = getExpiryInfo(item.expiry_date, new Date());
     return info.bucket === 'critical' || info.bucket === 'expired';
   }).length;
 
-  const activeGroup = groups.find((g) => g.locationKind === activeTab);
-  const visibleItems = activeGroup?.items ?? [];
+  const visibleItems =
+    activeTab === 'all' ? allItems : allItems.filter((item) => item.location_id === activeTab);
 
   function handleDecrement(item: LocalFridgeItem) {
     if (!householdId) return;
@@ -98,6 +100,11 @@ export function FridgeScreen() {
       ? `${allItems.length} Artikel gesamt · Tippe für Nährwerte`
       : 'Für alle im Haushalt sichtbar';
 
+  const activeLocationName =
+    activeTab === 'all'
+      ? 'Vorrat'
+      : (locations.find((l) => l.id === activeTab)?.name ?? 'Lagerort');
+
   return (
     <Screen
       title="Vorrat"
@@ -109,16 +116,21 @@ export function FridgeScreen() {
           </View>
         ) : undefined
       }>
-      {/* Tab-Leiste */}
-      <FridgeTabBar activeTab={activeTab} onTabChange={setActiveTab} groups={groups} />
+      {/* Dynamic Tab-Leiste für alle Lagerorte aus den Einstellungen */}
+      <FridgeTabBar
+        activeTab={activeTab}
+        onTabChange={setActiveTab}
+        locations={locations}
+        items={allItems}
+      />
 
       {/* Artikel-Liste des aktiven Tabs */}
       {isLoading ? null : visibleItems.length === 0 ? (
-        <Card>
+        <Card style={{ marginTop: Spacing.two }}>
           <EmptyState
             symbol="archivebox"
-            title={`${TABS.find((t) => t.kind === activeTab)?.label ?? 'Lagerort'} ist leer`}
-            hint="Schließe einen Einkauf ab, um Artikel automatisch einzulagern."
+            title={`${activeLocationName} ist leer`}
+            hint="Schließe einen Einkauf ab oder füge Artikel manuell hinzu."
           />
         </Card>
       ) : (
@@ -126,6 +138,7 @@ export function FridgeScreen() {
           data={visibleItems}
           keyExtractor={(item) => item.id}
           scrollEnabled={false}
+          style={{ marginTop: Spacing.two }}
           renderItem={({ item }) => (
             <FridgeItemRow
               item={item}

@@ -58,6 +58,7 @@ export function useAddFridgeItemMutation() {
     },
     onSuccess: (_, variables) => {
       queryClient.invalidateQueries({ queryKey: ['fridge_items', variables.household_id] });
+      queryClient.invalidateQueries({ queryKey: ['fridge_items_grouped', variables.household_id] });
       queryClient.invalidateQueries({ queryKey: ['sync-status'] });
     },
   });
@@ -117,6 +118,7 @@ export function useUpdateFridgeItemQuantityMutation() {
     },
     onSuccess: (_, variables) => {
       queryClient.invalidateQueries({ queryKey: ['fridge_items', variables.household_id] });
+      queryClient.invalidateQueries({ queryKey: ['fridge_items_grouped', variables.household_id] });
       queryClient.invalidateQueries({ queryKey: ['sync-status'] });
     },
   });

@@ -1,6 +1,6 @@
 import { router } from 'expo-router';
 import { useState } from 'react';
-import { Alert, FlatList, StyleSheet, View } from 'react-native';
+import { Alert, FlatList, Pressable, StyleSheet, View } from 'react-native';
 
 import { Button } from '@/components/button';
 import { Screen } from '@/components/screen';
@@ -12,7 +12,11 @@ import {
   useHouseholdMembers,
   useHouseholds,
   useLeaveHouseholdMutation,
+  useRemoveMemberMutation,
+  useUpdateMemberRoleMutation,
 } from '@/features/household/api';
+import { HouseholdSwitcherModal } from '@/features/household/household-switcher-modal';
+import { InviteModal } from '@/features/household/invite-modal';
 import { useTheme } from '@/hooks/use-theme';
 
 export function MembersScreen() {
@@ -20,21 +24,77 @@ export function MembersScreen() {
   const currentUserId = session?.user.id;
   const theme = useTheme();
 
-  const { data: households } = useHouseholds();
-  const currentHousehold = households?.[0];
+  const { data: households = [] } = useHouseholds();
+  const [selectedHouseholdId, setSelectedHouseholdId] = useState<string | null>(null);
 
-  const { data: members, isLoading } = useHouseholdMembers(currentHousehold?.id ?? '');
+  const currentHousehold = households.find((h) => h.id === selectedHouseholdId) ?? households[0];
+  const householdId = currentHousehold?.id ?? '';
+
+  const { data: members, isLoading } = useHouseholdMembers(householdId);
+  const updateRoleMutation = useUpdateMemberRoleMutation();
+  const removeMemberMutation = useRemoveMemberMutation();
   const leaveMutation = useLeaveHouseholdMutation();
   const deleteMutation = useDeleteHouseholdMutation();
 
   const [loadingAction, setLoadingAction] = useState<string | null>(null);
+  const [showInviteModal, setShowInviteModal] = useState(false);
+  const [showSwitcherModal, setShowSwitcherModal] = useState(false);
 
-  // Finde die eigene Mitgliedschaft, um zu prüfen, ob der aktuelle Nutzer Admin ist.
   const myMembership = members?.find((m) => m.user_id === currentUserId);
   const isAdmin = myMembership?.role === 'admin';
 
+  async function handleToggleRole(userId: string, currentRole: string, name: string) {
+    if (!isAdmin || !householdId) return;
+    const newRole = currentRole === 'admin' ? 'member' : 'admin';
+    const actionText =
+      newRole === 'admin' ? 'zum Administrator ernennen' : 'die Admin-Rolle entziehen';
+
+    Alert.alert('Rolle ändern', `Möchtest du "${name}" ${actionText}?`, [
+      { text: 'Abbrechen', style: 'cancel' },
+      {
+        text: 'Bestätigen',
+        onPress: async () => {
+          try {
+            await updateRoleMutation.mutateAsync({
+              householdId,
+              userId,
+              role: newRole,
+            });
+          } catch (err) {
+            Alert.alert(
+              'Fehler',
+              err instanceof Error ? err.message : 'Fehler beim Ändern der Rolle',
+            );
+          }
+        },
+      },
+    ]);
+  }
+
+  async function handleRemoveMember(userId: string, name: string) {
+    if (!isAdmin || !householdId) return;
+    Alert.alert(
+      'Mitglied entfernen',
+      `Möchtest du "${name}" wirklich aus dem Haushalt entfernen?`,
+      [
+        { text: 'Abbrechen', style: 'cancel' },
+        {
+          text: 'Entfernen',
+          style: 'destructive',
+          onPress: async () => {
+            try {
+              await removeMemberMutation.mutateAsync({ householdId, userId });
+            } catch (err) {
+              Alert.alert('Fehler', err instanceof Error ? err.message : 'Fehler beim Entfernen');
+            }
+          },
+        },
+      ],
+    );
+  }
+
   async function handleLeave() {
-    if (!currentHousehold) return;
+    if (!householdId) return;
     Alert.alert('Haushalt verlassen', 'Möchtest du den Haushalt wirklich verlassen?', [
       { text: 'Abbrechen', style: 'cancel' },
       {
@@ -43,7 +103,7 @@ export function MembersScreen() {
         onPress: async () => {
           setLoadingAction('leave');
           try {
-            await leaveMutation.mutateAsync(currentHousehold.id);
+            await leaveMutation.mutateAsync(householdId);
             router.replace('/');
           } catch (err: unknown) {
             Alert.alert('Fehler', err instanceof Error ? err.message : 'Fehler');
@@ -56,7 +116,7 @@ export function MembersScreen() {
   }
 
   async function handleDelete() {
-    if (!currentHousehold) return;
+    if (!householdId) return;
     Alert.alert(
       'Haushalt löschen',
       'Dieser Schritt löscht den kompletten Haushalt für alle Mitglieder und kann nicht rückgängig gemacht werden.',
@@ -68,7 +128,7 @@ export function MembersScreen() {
           onPress: async () => {
             setLoadingAction('delete');
             try {
-              await deleteMutation.mutateAsync(currentHousehold.id);
+              await deleteMutation.mutateAsync(householdId);
               router.replace('/');
             } catch (err: unknown) {
               Alert.alert('Fehler', err instanceof Error ? err.message : 'Fehler');
@@ -83,6 +143,29 @@ export function MembersScreen() {
 
   return (
     <Screen title="Mitglieder" subtitle={currentHousehold?.name} scroll={false}>
+      {households.length > 1 && (
+        <View style={{ marginBottom: Spacing.two }}>
+          <Button
+            label={`🏠 Haushalt wechseln (${currentHousehold?.name ?? ''})`}
+            variant="secondary"
+            onPress={() => setShowSwitcherModal(true)}
+          />
+        </View>
+      )}
+
+      {isAdmin && currentHousehold && (
+        <View style={styles.topActionRow}>
+          <View style={{ flex: 1 }}>
+            <Button label="+ Mitglied einladen" onPress={() => setShowInviteModal(true)} />
+          </View>
+          <Button
+            label="👶 Kinder-Profile"
+            variant="secondary"
+            onPress={() => router.push('/household/children')}
+          />
+        </View>
+      )}
+
       <FlatList
         style={{ flex: 1 }}
         data={members}
@@ -90,7 +173,6 @@ export function MembersScreen() {
         contentContainerStyle={styles.list}
         renderItem={({ item }) => {
           const isMe = item.user_id === currentUserId;
-          // Supabase liefert den gejointen Datensatz im angegebenen Alias
           const profile = item.profiles as unknown as { display_name: string | null };
           const displayName = profile?.display_name || 'Unbekanntes Mitglied';
 
@@ -101,15 +183,44 @@ export function MembersScreen() {
                   {displayName} {isMe ? '(Du)' : ''}
                 </ThemedText>
                 <ThemedText type="small" themeColor="textSecondary">
-                  Rolle: {item.role}
+                  Rolle: {item.role === 'admin' ? 'Administrator' : 'Mitglied'}
                 </ThemedText>
               </View>
+
+              {isAdmin && !isMe && (
+                <View style={styles.memberActions}>
+                  <Pressable
+                    onPress={() => handleToggleRole(item.user_id, item.role, displayName)}
+                    style={styles.roleTag}>
+                    <ThemedText type="small" style={{ color: theme.accent, fontSize: 12 }}>
+                      {item.role === 'admin' ? 'Admin ▾' : 'Mitglied ▾'}
+                    </ThemedText>
+                  </Pressable>
+                  <Pressable
+                    onPress={() => handleRemoveMember(item.user_id, displayName)}
+                    style={styles.removeTag}>
+                    <ThemedText type="small" style={{ color: theme.danger, fontSize: 12 }}>
+                      Entfernen
+                    </ThemedText>
+                  </Pressable>
+                </View>
+              )}
             </View>
           );
         }}
         ListFooterComponent={
           !isLoading ? (
             <View style={styles.actions}>
+              {!isAdmin && (
+                <View style={{ marginBottom: Spacing.three }}>
+                  <Button
+                    label="👶 Kinder-Profile verwalten"
+                    variant="secondary"
+                    onPress={() => router.push('/household/children')}
+                  />
+                </View>
+              )}
+
               {isAdmin ? (
                 <Button
                   label="Haushalt löschen"
@@ -131,24 +242,63 @@ export function MembersScreen() {
           ) : null
         }
       />
+
+      {currentHousehold && (
+        <InviteModal
+          visible={showInviteModal}
+          householdId={currentHousehold.id}
+          householdName={currentHousehold.name}
+          onClose={() => setShowInviteModal(false)}
+        />
+      )}
+
+      <HouseholdSwitcherModal
+        visible={showSwitcherModal}
+        selectedHouseholdId={currentHousehold?.id}
+        onSelectHousehold={(id) => setSelectedHouseholdId(id)}
+        onClose={() => setShowSwitcherModal(false)}
+      />
     </Screen>
   );
 }
 
 const styles = StyleSheet.create({
+  topActionRow: {
+    flexDirection: 'row',
+    gap: Spacing.two,
+    marginBottom: Spacing.three,
+  },
   list: {
-    paddingVertical: Spacing.four,
+    paddingVertical: Spacing.two,
     gap: Spacing.two,
   },
   memberRow: {
-    paddingVertical: Spacing.two,
+    paddingVertical: Spacing.three,
     borderBottomWidth: StyleSheet.hairlineWidth,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
+    gap: Spacing.two,
   },
   memberInfo: {
     flex: 1,
+  },
+  memberActions: {
+    flexDirection: 'row',
+    gap: 8,
+    alignItems: 'center',
+  },
+  roleTag: {
+    paddingHorizontal: 8,
+    paddingVertical: 4,
+    borderRadius: 8,
+    backgroundColor: 'rgba(16,185,129,0.1)',
+  },
+  removeTag: {
+    paddingHorizontal: 8,
+    paddingVertical: 4,
+    borderRadius: 8,
+    backgroundColor: 'rgba(239,68,68,0.1)',
   },
   actions: {
     marginTop: Spacing.six,
