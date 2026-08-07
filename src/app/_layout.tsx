@@ -69,6 +69,8 @@ function RootNavigator() {
   );
 }
 
+import { ActiveHouseholdProvider } from '@/features/household/active-household-provider';
+
 export default function RootLayout() {
   const colorScheme = useColorScheme();
 
@@ -99,11 +101,13 @@ export default function RootLayout() {
   return (
     <QueryClientProvider client={queryClient}>
       <SessionProvider>
-        <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-          <AnimatedSplashOverlay />
-          <SyncStatusBanner />
-          <RootNavigator />
-        </ThemeProvider>
+        <ActiveHouseholdProvider>
+          <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
+            <AnimatedSplashOverlay />
+            <SyncStatusBanner />
+            <RootNavigator />
+          </ThemeProvider>
+        </ActiveHouseholdProvider>
       </SessionProvider>
     </QueryClientProvider>
   );

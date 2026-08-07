@@ -6,10 +6,7 @@ import AppTabs from '@/components/app-tabs';
 import { useProfile } from '@/features/auth/api';
 import { isOnboardingSessionCompleted } from '@/features/auth/onboarding-session';
 import { useSession } from '@/features/auth/session-provider';
-import {
-  ActiveHouseholdProvider,
-  useActiveHousehold,
-} from '@/features/household/active-household-provider';
+import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { useRedeemInviteMutation } from '@/features/household/api';
 import { env } from '@/lib/env';
 import { consumePendingInviteToken } from '@/lib/pending-invite';
@@ -66,9 +63,5 @@ function AppLayoutContent() {
 
 /** Angemeldeter Bereich. Der Guard sitzt im Root-Layout. */
 export default function AppLayout() {
-  return (
-    <ActiveHouseholdProvider>
-      <AppLayoutContent />
-    </ActiveHouseholdProvider>
-  );
+  return <AppLayoutContent />;
 }
