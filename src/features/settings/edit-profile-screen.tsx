@@ -12,6 +12,7 @@ import { Spacing } from '@/constants/theme';
 import { updateProfile, useProfile } from '@/features/auth/api';
 import { fieldErrors, getDeviceDateFormat, profileSchema } from '@/features/auth/auth-schemas';
 import { useSession } from '@/features/auth/session-provider';
+import type { ActivityLevel } from '@/features/onboarding/types';
 import { useTheme } from '@/hooks/use-theme';
 
 const ACTIVITY_LEVELS = [
@@ -96,7 +97,7 @@ export function EditProfileScreen() {
       }
       if (profile.height_cm) setHeightCm(String(profile.height_cm));
       if (profile.sex) setSex(profile.sex as 'male' | 'female');
-      if (profile.activity_level) setActivityLevel(profile.activity_level);
+      if (profile.activity_level) setActivityLevel(profile.activity_level as ActivityLevel);
     }
   }, [profile]);
 

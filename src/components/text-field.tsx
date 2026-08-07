@@ -5,7 +5,7 @@ import { Spacing } from '@/constants/theme';
 import { useTheme } from '@/hooks/use-theme';
 
 type TextFieldProps = TextInputProps & {
-  label: string;
+  label?: string;
   /** Fehlermeldung fuer genau dieses Feld — nicht fuer das ganze Formular. */
   error?: string;
 };
@@ -15,16 +15,18 @@ export function TextField({ label, error, style, ...rest }: TextFieldProps) {
 
   return (
     <View style={styles.container}>
-      <ThemedText type="small" themeColor="textSecondary">
-        {label}
-      </ThemedText>
+      {label ? (
+        <ThemedText type="small" themeColor="textSecondary">
+          {label}
+        </ThemedText>
+      ) : null}
 
       <TextInput
         {...rest}
         placeholderTextColor={theme.textSecondary}
         // accessibilityLabel setzt das Label mit dem Feld in Beziehung; ohne das
         // liest ein Screenreader nur "Textfeld".
-        accessibilityLabel={label}
+        accessibilityLabel={label || rest.placeholder}
         // Bei einem Fehler wird die Meldung mit vorgelesen, statt sie nur
         // farblich zu markieren.
         accessibilityHint={error}

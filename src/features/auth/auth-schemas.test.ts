@@ -97,8 +97,9 @@ describe('profileSchema', () => {
     expect(profileSchema.safeParse({ birthDate: '1991-04-12' }).success).toBe(true);
   });
 
-  it('besteht auf dem Format JJJJ-MM-TT', () => {
-    expect(profileSchema.safeParse({ birthDate: '12.04.1991' }).success).toBe(false);
+  it('normalisiert deutsches Geburtsdatum (DD.MM.YYYY) auf ISO', () => {
+    const result = profileSchema.parse({ birthDate: '12.04.1991' });
+    expect(result.birthDate).toBe('1991-04-12');
   });
 
   it.each([0, -5, 300, 1000])('lehnt die unplausible Groesse %p ab', (heightCm) => {

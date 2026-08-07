@@ -22,7 +22,7 @@ export async function retryFailedOutboxEntries(
   }
 
   const result = await db.runAsync(
-    "update outbox set attempts = 0, next_attempt_at = ?, last_error = null where attempts >= ? or last_error like '%unit%'",
+    "update outbox set attempts = 0, next_attempt_at = ? where attempts >= ? or last_error like '%unit%'",
     [nowMs, MAX_ATTEMPTS],
   );
 

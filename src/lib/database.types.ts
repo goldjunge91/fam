@@ -437,6 +437,7 @@ export type Database = {
           display_name: string | null
           height_cm: number | null
           id: string
+          onboarding_completed_at: string | null
           sex: string | null
           updated_at: string
         }
@@ -448,6 +449,7 @@ export type Database = {
           display_name?: string | null
           height_cm?: number | null
           id: string
+          onboarding_completed_at?: string | null
           sex?: string | null
           updated_at?: string
         }
@@ -459,10 +461,78 @@ export type Database = {
           display_name?: string | null
           height_cm?: number | null
           id?: string
+          onboarding_completed_at?: string | null
           sex?: string | null
           updated_at?: string
         }
         Relationships: []
+      }
+      shopping_history: {
+        Row: {
+          category: string | null
+          completed_at: string
+          completed_by: string | null
+          created_at: string
+          expiry_date: string | null
+          household_id: string
+          id: string
+          item_name: string
+          location_kind: string | null
+          product_id: string | null
+          quantity: number
+          unit: string
+        }
+        Insert: {
+          category?: string | null
+          completed_at: string
+          completed_by?: string | null
+          created_at?: string
+          expiry_date?: string | null
+          household_id: string
+          id?: string
+          item_name: string
+          location_kind?: string | null
+          product_id?: string | null
+          quantity: number
+          unit: string
+        }
+        Update: {
+          category?: string | null
+          completed_at?: string
+          completed_by?: string | null
+          created_at?: string
+          expiry_date?: string | null
+          household_id?: string
+          id?: string
+          item_name?: string
+          location_kind?: string | null
+          product_id?: string | null
+          quantity?: number
+          unit?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "shopping_history_completed_by_fkey"
+            columns: ["completed_by"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "shopping_history_household_id_fkey"
+            columns: ["household_id"]
+            isOneToOne: false
+            referencedRelation: "households"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "shopping_history_product_id_fkey"
+            columns: ["product_id"]
+            isOneToOne: false
+            referencedRelation: "products"
+            referencedColumns: ["id"]
+          },
+        ]
       }
       shopping_list_items: {
         Row: {

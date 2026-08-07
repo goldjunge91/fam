@@ -108,43 +108,28 @@ export function useProfile(userId: string | undefined) {
  * sie beim Registrieren an (#34). Deshalb `update` und nicht `upsert`.
  */
 export async function updateProfile(userId: string, input: ProfileInput) {
-  const payload: Record<string, unknown> = {
-    display_name: input.displayName ?? null,
-    birth_date: input.birthDate ?? null,
-    sex: input.sex ?? null,
-    height_cm: input.heightCm ?? null,
-    activity_level: input.activityLevel ?? null,
-    onboarding_completed_at: new Date().toISOString(),
-  };
-
-  // biome-ignore lint/suspicious/noExplicitAny: generische Spalten
-  let { error } = await getSupabase()
+  const { error } = await getSupabase()
     .from('profiles')
-    .update(payload as any)
+    .update({
+      display_name: input.displayName ?? null,
+      birth_date: input.birthDate ?? null,
+      sex: input.sex ?? null,
+      height_cm: input.heightCm ?? null,
+      activity_level: input.activityLevel ?? null,
+      onboarding_completed_at: new Date().toISOString(),
+    })
     .eq('id', userId);
-
-  if (error && error.message.includes('onboarding_completed_at')) {
-    delete payload.onboarding_completed_at;
-    // biome-ignore lint/suspicious/noExplicitAny: Fallback ohne neu hinzugefuegte Spalte
-    const retry = await getSupabase()
-      .from('profiles')
-      .update(payload as any)
-      .eq('id', userId);
-    error = retry.error;
-  }
 
   return { error };
 }
 
 export async function markOnboardingCompleted(userId: string) {
-  // biome-ignore lint/suspicious/noExplicitAny: generische Spalten
   const { error } = await getSupabase()
     .from('profiles')
     .update({
       onboarding_completed_at: new Date().toISOString(),
-    } as any)
+    })
     .eq('id', userId);
 
-  // Stiller Fallback falls PostgREST den Schema-Cache noch nicht neu geladen hat
-  return { error: error?.message.includes('onboarding_completed_at') ? null : error };
+  return { error };
 }

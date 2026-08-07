@@ -8,7 +8,7 @@ import { Button } from '@/components/button';
 import { Screen } from '@/components/screen';
 import { ThemedText } from '@/components/themed-text';
 import { Spacing } from '@/constants/theme';
-import { markOnboardingCompleted, updateProfile, useProfile } from '@/features/auth/api';
+import { updateProfile, useProfile } from '@/features/auth/api';
 import { fieldErrors, profileSchema } from '@/features/auth/auth-schemas';
 import { StepAccount } from '@/features/auth/onboarding/step-account';
 import { StepCreateHousehold } from '@/features/auth/onboarding/step-create-household';
@@ -19,6 +19,7 @@ import { StepProfile } from '@/features/auth/onboarding/step-profile';
 import { StepWelcome } from '@/features/auth/onboarding/step-welcome';
 import { markOnboardingSessionCompleted } from '@/features/auth/onboarding-session';
 import { useSession } from '@/features/auth/session-provider';
+import type { ActivityLevel } from '@/features/onboarding/types';
 import { useTheme } from '@/hooks/use-theme';
 
 /**
@@ -39,9 +40,7 @@ export function OnboardingScreen() {
   const [birthDate, setBirthDate] = useState('');
   const [heightCm, setHeightCm] = useState('');
   const [sex, setSex] = useState<'male' | 'female' | undefined>();
-  const [activityLevel, setActivityLevel] = useState<
-    'sedentary' | 'light' | 'moderate' | 'active' | 'very_active' | undefined
-  >();
+  const [activityLevel, setActivityLevel] = useState<ActivityLevel | undefined>();
   const [profileErrors, setProfileErrors] = useState<Record<string, string>>({});
   const [profileFormError, setProfileFormError] = useState<string | null>(null);
   const [profileLoading, setProfileLoading] = useState(false);
@@ -49,25 +48,23 @@ export function OnboardingScreen() {
   // Bestehende Profil-Daten aus der Datenbank vorausfüllen
   useEffect(() => {
     if (profile) {
-      if (profile.display_name && !displayName) {
-        setDisplayName(profile.display_name);
+      if (profile.display_name) {
+        setDisplayName((prev) => prev || profile.display_name || '');
       }
-      if (profile.birth_date && !birthDate) {
+      if (profile.birth_date) {
         const parts = profile.birth_date.split('-');
-        if (parts.length === 3) {
-          setBirthDate(`${parts[2]}.${parts[1]}.${parts[0]}`);
-        } else {
-          setBirthDate(profile.birth_date);
-        }
+        const formatted =
+          parts.length === 3 ? `${parts[2]}.${parts[1]}.${parts[0]}` : profile.birth_date;
+        setBirthDate((prev) => prev || formatted);
       }
-      if (profile.height_cm && !heightCm) {
-        setHeightCm(String(profile.height_cm));
+      if (profile.height_cm) {
+        setHeightCm((prev) => prev || String(profile.height_cm));
       }
-      if (profile.sex && !sex) {
-        setSex(profile.sex as 'male' | 'female');
+      if (profile.sex) {
+        setSex((prev) => prev || (profile.sex as 'male' | 'female'));
       }
-      if (profile.activity_level && !activityLevel) {
-        setActivityLevel(profile.activity_level);
+      if (profile.activity_level) {
+        setActivityLevel((prev) => prev || (profile.activity_level as ActivityLevel));
       }
     }
   }, [profile]);

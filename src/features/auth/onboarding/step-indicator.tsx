@@ -12,13 +12,15 @@ export function StepIndicator({
 }) {
   const theme = useTheme();
 
+  const stepIds = Array.from({ length: totalSteps }, (_, i) => `step-${i + 1}`);
+
   return (
     <View style={styles.stepDots}>
-      {Array.from({ length: totalSteps }).map((_, i) => {
+      {stepIds.map((stepId, i) => {
         const active = i + 1 === currentStep;
         return (
           <View
-            key={i}
+            key={stepId}
             style={[
               styles.dot,
               {

@@ -14,7 +14,6 @@ import { useFridgeItems } from '@/features/inventory/api';
 import { ProductDetailModal } from '@/features/inventory/product-detail-modal';
 import { getProductDetails } from '@/features/inventory/product-details-catalog';
 import { useStorageLocations } from '@/features/inventory/use-storage-locations';
-import { useTheme } from '@/hooks/use-theme';
 
 function formatExpiryDate(rawDate: string | null): {
   text: string;
@@ -75,7 +74,6 @@ function formatExpiryDate(rawDate: string | null): {
 }
 
 export function FridgeScreen() {
-  const theme = useTheme();
   const { data: households } = useHouseholds();
   const currentHousehold = households?.[0];
 

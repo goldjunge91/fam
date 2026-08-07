@@ -29,7 +29,9 @@ export default function AppLayout() {
   }
 
   // Onboarding Guard (#104): Wenn EXPO_PUBLIC_FORCE_ONBOARDING=true in .env steht ODER der Account unvollständig ist, starte das Onboarding (einmalig pro App-Start).
-  const isUncompleted = profile ? profile.onboarding_completed_at == null : false;
+  const isUncompleted = profile
+    ? (profile as { onboarding_completed_at?: string | null }).onboarding_completed_at == null
+    : false;
   const shouldPrompt = (env.forceOnboarding || isUncompleted) && !isOnboardingSessionCompleted();
 
   if (shouldPrompt) {
