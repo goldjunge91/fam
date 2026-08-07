@@ -1,5 +1,5 @@
 import { router, useLocalSearchParams } from 'expo-router';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 
 import { Button } from '@/components/button';
@@ -9,6 +9,7 @@ import { TextField } from '@/components/text-field';
 import { ThemedText } from '@/components/themed-text';
 import { Spacing } from '@/constants/theme';
 import { useRedeemInviteMutation } from '@/features/household/api';
+import { consumePendingInviteToken } from '@/lib/pending-invite';
 
 export function JoinHouseholdScreen() {
   const params = useLocalSearchParams<{ token?: string }>();
@@ -16,6 +17,16 @@ export function JoinHouseholdScreen() {
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
 
   const redeemMutation = useRedeemInviteMutation();
+
+  useEffect(() => {
+    if (!params.token) {
+      consumePendingInviteToken().then((pending) => {
+        if (pending) {
+          setTokenInput(pending);
+        }
+      });
+    }
+  }, [params.token]);
 
   async function handleJoin() {
     const trimmed = tokenInput.trim();

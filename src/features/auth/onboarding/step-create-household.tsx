@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 
 import { Button } from '@/components/button';
@@ -6,15 +6,35 @@ import { Card } from '@/components/card';
 import { TextField } from '@/components/text-field';
 import { ThemedText } from '@/components/themed-text';
 import { Spacing } from '@/constants/theme';
-import { useCreateHouseholdMutation, useHouseholds } from '@/features/household/api';
+import {
+  useCreateHouseholdMutation,
+  useHouseholds,
+  useRedeemInviteMutation,
+} from '@/features/household/api';
+import { consumePendingInviteToken } from '@/lib/pending-invite';
 
 export function StepCreateHousehold({ onNext }: { onNext: () => void }) {
   const { data: households } = useHouseholds();
   const currentHousehold = households?.[0];
   const createHouseholdMutation = useCreateHouseholdMutation();
+  const redeemInviteMutation = useRedeemInviteMutation();
 
   const [householdName, setHouseholdName] = useState('');
   const [householdError, setHouseholdError] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (!currentHousehold) {
+      consumePendingInviteToken().then(async (pendingToken) => {
+        if (pendingToken) {
+          try {
+            await redeemInviteMutation.mutateAsync(pendingToken);
+          } catch (err) {
+            console.error('Fehler beim automatischen Einlösen der Einladung:', err);
+          }
+        }
+      });
+    }
+  }, [currentHousehold, redeemInviteMutation]);
 
   async function handleCreateHousehold() {
     const trimmed = householdName.trim();
