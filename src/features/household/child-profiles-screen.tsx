@@ -1,33 +1,44 @@
 import { useState } from 'react';
-import { Alert, FlatList, StyleSheet, View } from 'react-native';
+import { Alert, FlatList, Pressable, StyleSheet, View } from 'react-native';
 
 import { Button } from '@/components/button';
 import { Card } from '@/components/card';
+import { DatePicker } from '@/components/date-picker';
 import { Screen } from '@/components/screen';
 import { TextField } from '@/components/text-field';
 import { ThemedText } from '@/components/themed-text';
 import { Spacing } from '@/constants/theme';
+import { useActiveHousehold } from '@/features/household/active-household-provider';
 import {
   useAddChildProfileMutation,
   useChildProfiles,
   useDeleteChildProfileMutation,
-  useHouseholds,
+  useUpdateChildProfileMutation,
 } from '@/features/household/api';
 import { useTheme } from '@/hooks/use-theme';
 
 export function ChildProfilesScreen() {
   const theme = useTheme();
-  const { data: households } = useHouseholds();
-  const currentHousehold = households?.[0];
+  const { activeHousehold } = useActiveHousehold();
+  const currentHousehold = activeHousehold;
   const householdId = currentHousehold?.id ?? '';
 
   const { data: children = [], isLoading } = useChildProfiles(householdId);
   const addMutation = useAddChildProfileMutation();
+  const updateMutation = useUpdateChildProfileMutation();
   const deleteMutation = useDeleteChildProfileMutation();
 
   const [showAddForm, setShowAddForm] = useState(false);
   const [name, setName] = useState('');
   const [birthDate, setBirthDate] = useState('');
+  const [sex, setSex] = useState<'male' | 'female' | null>(null);
+  const [heightCm, setHeightCm] = useState('');
+
+  const [editingId, setEditingId] = useState<string | null>(null);
+  const [editName, setEditName] = useState('');
+  const [editBirthDate, setEditBirthDate] = useState('');
+  const [editSex, setEditSex] = useState<'male' | 'female' | null>(null);
+  const [editHeightCm, setEditHeightCm] = useState('');
 
   async function handleAdd() {
     const trimmed = name.trim();
@@ -38,12 +49,43 @@ export function ChildProfilesScreen() {
         householdId,
         displayName: trimmed,
         birthDate: birthDate.trim() || null,
+        sex,
+        heightCm: heightCm.trim() ? parseFloat(heightCm) : null,
       });
       setName('');
       setBirthDate('');
+      setSex(null);
+      setHeightCm('');
       setShowAddForm(false);
     } catch (err) {
       Alert.alert('Fehler', err instanceof Error ? err.message : 'Fehler beim Erstellen');
+    }
+  }
+
+  function startEdit(item: (typeof children)[0]) {
+    setEditingId(item.id);
+    setEditName(item.display_name);
+    setEditBirthDate(item.birth_date ?? '');
+    setEditSex((item.sex as 'male' | 'female') ?? null);
+    setEditHeightCm(item.height_cm ? String(item.height_cm) : '');
+  }
+
+  async function handleUpdate(id: string) {
+    const trimmed = editName.trim();
+    if (!trimmed || !householdId) return;
+
+    try {
+      await updateMutation.mutateAsync({
+        id,
+        householdId,
+        displayName: trimmed,
+        birthDate: editBirthDate.trim() || null,
+        sex: editSex,
+        heightCm: editHeightCm.trim() ? parseFloat(editHeightCm) : null,
+      });
+      setEditingId(null);
+    } catch (err) {
+      Alert.alert('Fehler', err instanceof Error ? err.message : 'Fehler beim Speichern');
     }
   }
 
@@ -79,11 +121,44 @@ export function ChildProfilesScreen() {
               value={name}
               onChangeText={setName}
             />
-            <TextField
+            <DatePicker
               label="Geburtsdatum (optional)"
-              placeholder="JJJJ-MM-TT (z. B. 2020-05-14)"
               value={birthDate}
               onChangeText={setBirthDate}
+            />
+
+            <ThemedText type="smallBold" style={{ marginTop: Spacing.one }}>
+              Geschlecht (optional)
+            </ThemedText>
+            <View style={styles.segmentedRow}>
+              <Pressable
+                onPress={() => setSex(sex === 'male' ? null : 'male')}
+                style={[
+                  styles.segmentBtn,
+                  { backgroundColor: sex === 'male' ? theme.accent : theme.backgroundElement },
+                ]}>
+                <ThemedText style={{ color: sex === 'male' ? '#fff' : theme.text }}>
+                  👦 Männlich
+                </ThemedText>
+              </Pressable>
+              <Pressable
+                onPress={() => setSex(sex === 'female' ? null : 'female')}
+                style={[
+                  styles.segmentBtn,
+                  { backgroundColor: sex === 'female' ? theme.accent : theme.backgroundElement },
+                ]}>
+                <ThemedText style={{ color: sex === 'female' ? '#fff' : theme.text }}>
+                  👧 Weiblich
+                </ThemedText>
+              </Pressable>
+            </View>
+
+            <TextField
+              label="Körpergröße in cm (optional)"
+              placeholder="z. B. 104"
+              value={heightCm}
+              onChangeText={setHeightCm}
+              keyboardType="numeric"
             />
 
             <View style={styles.buttonRow}>
@@ -123,25 +198,121 @@ export function ChildProfilesScreen() {
             data={children}
             keyExtractor={(item) => item.id}
             scrollEnabled={false}
-            renderItem={({ item }) => (
-              <View style={[styles.childRow, { borderBottomColor: theme.border }]}>
-                <View style={{ flex: 1 }}>
-                  <ThemedText style={{ fontWeight: 'bold', fontSize: 16 }}>
-                    👶 {item.display_name}
-                  </ThemedText>
-                  {item.birth_date ? (
-                    <ThemedText type="small" themeColor="textSecondary">
-                      Geboren: {new Date(item.birth_date).toLocaleDateString('de-DE')}
+            renderItem={({ item }) => {
+              const isEditing = editingId === item.id;
+              if (isEditing) {
+                return (
+                  <View style={[styles.editCard, { borderBottomColor: theme.border }]}>
+                    <TextField
+                      label="Name des Kindes"
+                      value={editName}
+                      onChangeText={setEditName}
+                    />
+                    <DatePicker
+                      label="Geburtsdatum"
+                      value={editBirthDate}
+                      onChangeText={setEditBirthDate}
+                    />
+
+                    <ThemedText type="smallBold" style={{ marginTop: Spacing.one }}>
+                      Geschlecht
                     </ThemedText>
-                  ) : null}
+                    <View style={styles.segmentedRow}>
+                      <Pressable
+                        onPress={() => setEditSex(editSex === 'male' ? null : 'male')}
+                        style={[
+                          styles.segmentBtn,
+                          {
+                            backgroundColor:
+                              editSex === 'male' ? theme.accent : theme.backgroundElement,
+                          },
+                        ]}>
+                        <ThemedText style={{ color: editSex === 'male' ? '#fff' : theme.text }}>
+                          👦 Männlich
+                        </ThemedText>
+                      </Pressable>
+                      <Pressable
+                        onPress={() => setEditSex(editSex === 'female' ? null : 'female')}
+                        style={[
+                          styles.segmentBtn,
+                          {
+                            backgroundColor:
+                              editSex === 'female' ? theme.accent : theme.backgroundElement,
+                          },
+                        ]}>
+                        <ThemedText style={{ color: editSex === 'female' ? '#fff' : theme.text }}>
+                          👧 Weiblich
+                        </ThemedText>
+                      </Pressable>
+                    </View>
+
+                    <TextField
+                      label="Körpergröße in cm"
+                      value={editHeightCm}
+                      onChangeText={setEditHeightCm}
+                      keyboardType="numeric"
+                    />
+
+                    <View style={styles.buttonRow}>
+                      <View style={styles.flex}>
+                        <Button
+                          label="Übernehmen"
+                          onPress={() => handleUpdate(item.id)}
+                          loading={updateMutation.isPending}
+                          disabled={!editName.trim()}
+                        />
+                      </View>
+                      <View style={styles.flex}>
+                        <Button
+                          label="Abbrechen"
+                          variant="secondary"
+                          onPress={() => setEditingId(null)}
+                        />
+                      </View>
+                    </View>
+                  </View>
+                );
+              }
+
+              return (
+                <View style={[styles.childRow, { borderBottomColor: theme.border }]}>
+                  <View style={{ flex: 1 }}>
+                    <ThemedText style={{ fontWeight: 'bold', fontSize: 16 }}>
+                      {item.sex === 'female' ? '👧' : item.sex === 'male' ? '👦' : '👶'}{' '}
+                      {item.display_name}
+                    </ThemedText>
+                    <ThemedText type="small" themeColor="textSecondary">
+                      {[
+                        item.birth_date
+                          ? `Geboren: ${new Date(item.birth_date).toLocaleDateString('de-DE')}`
+                          : null,
+                        item.height_cm ? `${item.height_cm} cm` : null,
+                        item.sex === 'male'
+                          ? 'männlich'
+                          : item.sex === 'female'
+                            ? 'weiblich'
+                            : null,
+                      ]
+                        .filter(Boolean)
+                        .join(' · ') || 'Keine Zusatzdaten'}
+                    </ThemedText>
+                  </View>
+
+                  <View style={styles.actionButtons}>
+                    <Button
+                      label="Bearbeiten"
+                      variant="secondary"
+                      onPress={() => startEdit(item)}
+                    />
+                    <Button
+                      label="Löschen"
+                      variant="danger"
+                      onPress={() => handleDelete(item.id, item.display_name)}
+                    />
+                  </View>
                 </View>
-                <Button
-                  label="Löschen"
-                  variant="danger"
-                  onPress={() => handleDelete(item.id, item.display_name)}
-                />
-              </View>
-            )}
+              );
+            }}
           />
         )}
       </Card>
@@ -161,11 +332,31 @@ const styles = StyleSheet.create({
   flex: {
     flex: 1,
   },
+  segmentedRow: {
+    flexDirection: 'row',
+    gap: Spacing.two,
+  },
+  segmentBtn: {
+    flex: 1,
+    paddingVertical: 10,
+    borderRadius: 10,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
   childRow: {
     flexDirection: 'row',
     alignItems: 'center',
     paddingVertical: Spacing.three,
     borderBottomWidth: StyleSheet.hairlineWidth,
     gap: Spacing.two,
+  },
+  editCard: {
+    paddingVertical: Spacing.three,
+    borderBottomWidth: StyleSheet.hairlineWidth,
+    gap: Spacing.three,
+  },
+  actionButtons: {
+    flexDirection: 'row',
+    gap: Spacing.one,
   },
 });

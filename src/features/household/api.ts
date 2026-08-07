@@ -1,5 +1,6 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 
+import type { Database } from '@/lib/database.types';
 import { getSupabase } from '@/lib/supabase';
 
 /**
@@ -313,6 +314,51 @@ export function useDeleteChildProfileMutation() {
   return useMutation({
     mutationFn: async ({ id, householdId: _householdId }: { id: string; householdId: string }) => {
       const { data, error } = await getSupabase().from('child_profiles').delete().eq('id', id);
+
+      if (error) throw error;
+      return data;
+    },
+    onSuccess: (_, variables) => {
+      queryClient.invalidateQueries({
+        queryKey: ['households', variables.householdId, 'children'],
+      });
+    },
+  });
+}
+
+export function useUpdateChildProfileMutation() {
+  const queryClient = useQueryClient();
+
+  return useMutation({
+    mutationFn: async ({
+      id,
+      householdId: _householdId,
+      displayName,
+      birthDate,
+      sex,
+      heightCm,
+    }: {
+      id: string;
+      householdId: string;
+      displayName?: string;
+      birthDate?: string | null;
+      sex?: string | null;
+      heightCm?: number | null;
+    }) => {
+      const updates: Database['public']['Tables']['child_profiles']['Update'] = {
+        updated_at: new Date().toISOString(),
+      };
+      if (displayName !== undefined) updates.display_name = displayName;
+      if (birthDate !== undefined) updates.birth_date = birthDate;
+      if (sex !== undefined) updates.sex = sex;
+      if (heightCm !== undefined) updates.height_cm = heightCm;
+
+      const { data, error } = await getSupabase()
+        .from('child_profiles')
+        .update(updates)
+        .eq('id', id)
+        .select('*')
+        .single();
 
       if (error) throw error;
       return data;
