@@ -11,7 +11,7 @@ import { getExpiryInfo } from '@/features/fridge/expiry';
 import { useExpiryNotifications } from '@/features/fridge/use-expiry-notifications';
 import { type LocalFridgeItem, useFridgeItems } from '@/features/fridge/use-fridge-items';
 import { useUpdateFridgeItemQuantityMutation } from '@/features/fridge/use-fridge-mutations';
-import { useHouseholds } from '@/features/household/api';
+import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { useAddShoppingItem } from '@/features/shopping-list/use-shopping-list-mutations';
 import { useTheme } from '@/hooks/use-theme';
 
@@ -23,9 +23,8 @@ export function DashboardScreen() {
     month: 'long',
   });
 
-  const { data: households } = useHouseholds();
-  const currentHousehold = households?.[0];
-  const householdId = currentHousehold?.id;
+  const { activeHouseholdId } = useActiveHousehold();
+  const householdId = activeHouseholdId ?? undefined;
 
   const { data: fridgeItems = [], isLoading } = useFridgeItems(householdId);
   const updateQuantityMutation = useUpdateFridgeItemQuantityMutation();

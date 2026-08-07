@@ -6,7 +6,7 @@ import { EmptyState } from '@/components/empty-state';
 import { Screen } from '@/components/screen';
 import { ThemedText } from '@/components/themed-text';
 import { Spacing } from '@/constants/theme';
-import { useHouseholds } from '@/features/household/api';
+import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { useTheme } from '@/hooks/use-theme';
 import { getSupabase } from '@/lib/supabase';
 import { CompleteRunSheet, type TransferItem } from './complete-run-sheet';
@@ -28,9 +28,8 @@ export function ShoppingListScreen() {
   const [sheetOpen, setSheetOpen] = useState(false);
   const theme = useTheme();
 
-  const { data: households } = useHouseholds();
-  const currentHousehold = households?.[0];
-  const householdId = currentHousehold?.id;
+  const { activeHouseholdId } = useActiveHousehold();
+  const householdId = activeHouseholdId ?? undefined;
 
   const { data: groups = [], isLoading } = useShoppingList(householdId);
 

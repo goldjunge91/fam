@@ -1,24 +1,42 @@
-import { Redirect } from 'expo-router';
+import { Redirect, router } from 'expo-router';
+import { useEffect } from 'react';
 import { ActivityIndicator, View } from 'react-native';
 
 import AppTabs from '@/components/app-tabs';
 import { useProfile } from '@/features/auth/api';
 import { isOnboardingSessionCompleted } from '@/features/auth/onboarding-session';
 import { useSession } from '@/features/auth/session-provider';
-import { useHouseholds } from '@/features/household/api';
+import {
+  ActiveHouseholdProvider,
+  useActiveHousehold,
+} from '@/features/household/active-household-provider';
+import { useRedeemInviteMutation } from '@/features/household/api';
 import { env } from '@/lib/env';
+import { consumePendingInviteToken } from '@/lib/pending-invite';
 import { useSyncEngine } from '@/lib/sync/sync-runner';
 
-/** Angemeldeter Bereich. Der Guard sitzt im Root-Layout. */
-export default function AppLayout() {
+function AppLayoutContent() {
   const { session } = useSession();
   const userId = session?.user.id;
   const { data: profile, isLoading: profileLoading } = useProfile(userId);
-  const { data: households, isLoading: householdsLoading } = useHouseholds();
-  const currentHousehold = households?.[0];
+  const { activeHouseholdId, households, isLoading: householdsLoading } = useActiveHousehold();
+  const redeemInvite = useRedeemInviteMutation();
 
-  // Automatischer Sync für den aktuellen Haushalt
-  useSyncEngine(currentHousehold?.id);
+  // Automatischer Sync für den aktiven Haushalt
+  useSyncEngine(activeHouseholdId ?? undefined);
+
+  useEffect(() => {
+    consumePendingInviteToken().then(async (pendingToken) => {
+      if (pendingToken) {
+        try {
+          await redeemInvite.mutateAsync(pendingToken);
+          router.replace('/');
+        } catch {
+          router.push({ pathname: '/household/join', params: { token: pendingToken } });
+        }
+      }
+    });
+  }, [redeemInvite]);
 
   if (profileLoading || householdsLoading) {
     return (
@@ -44,4 +62,13 @@ export default function AppLayout() {
   }
 
   return <AppTabs />;
+}
+
+/** Angemeldeter Bereich. Der Guard sitzt im Root-Layout. */
+export default function AppLayout() {
+  return (
+    <ActiveHouseholdProvider>
+      <AppLayoutContent />
+    </ActiveHouseholdProvider>
+  );
 }

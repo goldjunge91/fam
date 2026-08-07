@@ -1,27 +1,40 @@
+import { useQueryClient } from '@tanstack/react-query';
 import { router } from 'expo-router';
 import { Modal, Pressable, StyleSheet, View } from 'react-native';
 
 import { Button } from '@/components/button';
 import { ThemedText } from '@/components/themed-text';
 import { Spacing } from '@/constants/theme';
-import { useHouseholds } from '@/features/household/api';
+import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { useTheme } from '@/hooks/use-theme';
 
 interface HouseholdSwitcherModalProps {
   visible: boolean;
   selectedHouseholdId?: string;
-  onSelectHousehold: (householdId: string) => void;
+  onSelectHousehold?: (householdId: string) => void;
   onClose: () => void;
 }
 
 export function HouseholdSwitcherModal({
   visible,
-  selectedHouseholdId,
+  selectedHouseholdId: propSelectedId,
   onSelectHousehold,
   onClose,
 }: HouseholdSwitcherModalProps) {
   const theme = useTheme();
-  const { data: households = [] } = useHouseholds();
+  const queryClient = useQueryClient();
+  const { activeHouseholdId, households, setActiveHouseholdId } = useActiveHousehold();
+
+  const currentSelectedId = propSelectedId ?? activeHouseholdId;
+
+  const handleSelect = async (id: string) => {
+    await setActiveHouseholdId(id);
+    queryClient.invalidateQueries();
+    if (onSelectHousehold) {
+      onSelectHousehold(id);
+    }
+    onClose();
+  };
 
   return (
     <Modal visible={visible} animationType="fade" transparent onRequestClose={onClose}>
@@ -36,14 +49,11 @@ export function HouseholdSwitcherModal({
 
           <View style={styles.list}>
             {households.map((hh) => {
-              const isSelected = hh.id === selectedHouseholdId;
+              const isSelected = hh.id === currentSelectedId;
               return (
                 <Pressable
                   key={hh.id}
-                  onPress={() => {
-                    onSelectHousehold(hh.id);
-                    onClose();
-                  }}
+                  onPress={() => handleSelect(hh.id)}
                   style={[
                     styles.hhRow,
                     { borderBottomColor: theme.border },

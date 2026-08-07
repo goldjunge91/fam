@@ -10,7 +10,7 @@ import { ThemedText } from '@/components/themed-text';
 import { Spacing } from '@/constants/theme';
 import { useSession } from '@/features/auth/session-provider';
 import { signOutAndClearLocalData } from '@/features/auth/sign-out';
-import { useHouseholds } from '@/features/household/api';
+import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { useTheme } from '@/hooks/use-theme';
 
 type ZeileProps = {
@@ -37,8 +37,8 @@ export function ProfileScreen() {
   const { session } = useSession();
   const queryClient = useQueryClient();
   const [signingOut, setSigningOut] = useState(false);
-  const { data: households } = useHouseholds();
-  const currentHousehold = households?.[0];
+  const { activeHousehold } = useActiveHousehold();
+  const currentHousehold = activeHousehold;
 
   async function handleSignOut() {
     if (signingOut) return;

@@ -7,7 +7,7 @@ import { Screen } from '@/components/screen';
 import { TextField } from '@/components/text-field';
 import { ThemedText } from '@/components/themed-text';
 import { Spacing } from '@/constants/theme';
-import { useHouseholds } from '@/features/household/api';
+import { useActiveHousehold } from '@/features/household/active-household-provider';
 import {
   useAddStorageLocationMutation,
   useDeleteStorageLocationMutation,
@@ -18,8 +18,8 @@ import { useTheme } from '@/hooks/use-theme';
 
 export function StorageLocationsScreen() {
   const theme = useTheme();
-  const { data: households } = useHouseholds();
-  const currentHousehold = households?.[0];
+  const { activeHousehold } = useActiveHousehold();
+  const currentHousehold = activeHousehold;
 
   const { data: locations, isLoading } = useStorageLocations(currentHousehold?.id);
   const addMutation = useAddStorageLocationMutation();

@@ -6,7 +6,7 @@ import { EmptyState } from '@/components/empty-state';
 import { Screen } from '@/components/screen';
 import { ThemedText } from '@/components/themed-text';
 import { Spacing } from '@/constants/theme';
-import { useHouseholds } from '@/features/household/api';
+import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { useStorageLocations } from '@/features/inventory/use-storage-locations';
 
 import { FridgeItemRow } from './components/fridge-item-row';
@@ -26,9 +26,8 @@ import { useUpdateFridgeItemQuantityMutation } from './use-fridge-mutations';
 export function FridgeScreen() {
   const [activeTab, setActiveTab] = useState<string>('all');
 
-  const { data: households } = useHouseholds();
-  const currentHousehold = households?.[0];
-  const householdId = currentHousehold?.id;
+  const { activeHouseholdId } = useActiveHousehold();
+  const householdId = activeHouseholdId ?? undefined;
 
   const { data: locations = [] } = useStorageLocations(householdId);
   const { data: allItems = [], isLoading } = useFridgeItems(householdId);

@@ -8,7 +8,7 @@ import { TextField } from '@/components/text-field';
 import { ThemedText } from '@/components/themed-text';
 import { Spacing } from '@/constants/theme';
 import { useAddFridgeItemMutation } from '@/features/fridge/use-fridge-mutations';
-import { useHouseholds } from '@/features/household/api';
+import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { BarcodeScannerModal } from '@/features/inventory/barcode-scanner-modal';
 import { ProductSearchDropdown } from '@/features/inventory/product-search-dropdown';
 import {
@@ -30,8 +30,8 @@ function formatOffsetMonths(months: number): string {
 }
 
 export function AddItemScreen() {
-  const { data: households } = useHouseholds();
-  const currentHousehold = households?.[0];
+  const { activeHousehold } = useActiveHousehold();
+  const currentHousehold = activeHousehold;
 
   const { data: locations, isLoading: locationsLoading } = useStorageLocations(
     currentHousehold?.id,

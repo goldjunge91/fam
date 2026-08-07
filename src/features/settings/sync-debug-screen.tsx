@@ -7,7 +7,7 @@ import { Card } from '@/components/card';
 import { Screen } from '@/components/screen';
 import { ThemedText } from '@/components/themed-text';
 import { Spacing } from '@/constants/theme';
-import { useHouseholds } from '@/features/household/api';
+import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { BarcodeScannerModal } from '@/features/inventory/barcode-scanner-modal';
 import { useSyncStatus } from '@/hooks/use-sync-status';
 import { useTheme } from '@/hooks/use-theme';
@@ -46,8 +46,8 @@ type ItemRow = {
 export function SyncDebugScreen() {
   const theme = useTheme();
   const queryClient = useQueryClient();
-  const { data: households } = useHouseholds();
-  const currentHousehold = households?.[0];
+  const { activeHousehold } = useActiveHousehold();
+  const currentHousehold = activeHousehold;
   const syncStatus = useSyncStatus(getDatabase);
 
   const [loading, setLoading] = useState(false);

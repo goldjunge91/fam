@@ -10,7 +10,7 @@ import { ThemedText } from '@/components/themed-text';
 import { Spacing } from '@/constants/theme';
 import { useSession } from '@/features/auth/session-provider';
 import { signOutAndClearLocalData } from '@/features/auth/sign-out';
-import { useHouseholds } from '@/features/household/api';
+import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { NotificationSettingsCard } from '@/features/settings/notification-settings-card';
 import { useSyncStatus } from '@/hooks/use-sync-status';
 import { useTheme } from '@/hooks/use-theme';
@@ -43,8 +43,8 @@ export function SettingsScreen() {
   const [isSyncing, setIsSyncing] = useState(false);
   const [lastErrorMsg, setLastErrorMsg] = useState<string | null>(null);
 
-  const { data: households } = useHouseholds();
-  const currentHousehold = households?.[0];
+  const { activeHousehold } = useActiveHousehold();
+  const currentHousehold = activeHousehold;
   const syncStatus = useSyncStatus(getDatabase);
 
   useEffect(() => {
