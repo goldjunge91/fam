@@ -132,7 +132,8 @@ export function SettingsScreen() {
 
       <Card title="Lagerorte">
         <ThemedText type="small" themeColor="textSecondary">
-          Verwalte vordefinierte Orte wie Kühlschrank, Tiefkühltruhe und Abstellkammer oder lege neue an.
+          Verwalte vordefinierte Orte wie Kühlschrank, Tiefkühltruhe und Abstellkammer oder lege
+          neue an.
         </ThemedText>
         {currentHousehold && (
           <View style={styles.aktion}>

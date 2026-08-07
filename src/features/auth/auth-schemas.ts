@@ -68,7 +68,8 @@ export function getDeviceDateFormat(): {
   locale: string;
 } {
   try {
-    const locale = typeof Intl !== 'undefined' ? Intl.DateTimeFormat().resolvedOptions().locale : 'de-DE';
+    const locale =
+      typeof Intl !== 'undefined' ? Intl.DateTimeFormat().resolvedOptions().locale : 'de-DE';
     const isUS = locale.startsWith('en-US');
 
     if (isUS) {
@@ -105,11 +106,7 @@ export function normalizeDateInput(raw: string): string | null {
     const month = Number(m);
     const day = Number(d);
     const date = new Date(year, month - 1, day);
-    if (
-      date.getFullYear() === year &&
-      date.getMonth() === month - 1 &&
-      date.getDate() === day
-    ) {
+    if (date.getFullYear() === year && date.getMonth() === month - 1 && date.getDate() === day) {
       return `${year}-${String(month).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
     }
   }
@@ -122,11 +119,7 @@ export function normalizeDateInput(raw: string): string | null {
     const month = Number(m);
     const day = Number(d);
     const date = new Date(year, month - 1, day);
-    if (
-      date.getFullYear() === year &&
-      date.getMonth() === month - 1 &&
-      date.getDate() === day
-    ) {
+    if (date.getFullYear() === year && date.getMonth() === month - 1 && date.getDate() === day) {
       return `${year}-${String(month).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
     }
   }
@@ -139,11 +132,7 @@ export function normalizeDateInput(raw: string): string | null {
     const month = Number(m);
     const day = Number(d);
     const date = new Date(year, month - 1, day);
-    if (
-      date.getFullYear() === year &&
-      date.getMonth() === month - 1 &&
-      date.getDate() === day
-    ) {
+    if (date.getFullYear() === year && date.getMonth() === month - 1 && date.getDate() === day) {
       return `${year}-${String(month).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
     }
   }

@@ -43,14 +43,16 @@ export function StepCreateHousehold({ onNext }: { onNext: () => void }) {
             ✓ Aktueller Haushalt: {currentHousehold.name}
           </ThemedText>
           <ThemedText type="small" themeColor="textSecondary">
-            Du bist Mitglied im Haushalt &quot;{currentHousehold.name}&quot;. Du kannst nun dein Profil ausfüllen.
+            Du bist Mitglied im Haushalt &quot;{currentHousehold.name}&quot;. Du kannst nun dein
+            Profil ausfüllen.
           </ThemedText>
           <Button label="Weiter zu Schritt 6" onPress={onNext} />
         </View>
       ) : (
         <View style={styles.form}>
           <ThemedText type="small" themeColor="textSecondary">
-            Erstelle deinen ersten Haushalt (z.B. &quot;WG Müller&quot; oder &quot;Familie Schmidt&quot;).
+            Erstelle deinen ersten Haushalt (z.B. &quot;WG Müller&quot; oder &quot;Familie
+            Schmidt&quot;).
           </ThemedText>
           <TextField
             label="Name deines Haushalts"

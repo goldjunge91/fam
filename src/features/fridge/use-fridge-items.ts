@@ -80,16 +80,3 @@ export function useFridgeItems(householdId: string | undefined) {
     enabled: !!householdId,
   });
 }
-
-/**
- * Re-exports aus inventory/api.ts — der einzige Ort wo Mutations fuer
- * fridge_items definiert sind. Wir duplizieren keine Logik.
- *
- * useAddFridgeItemMutation     — insert via enqueueMutation
- * useUpdateFridgeItemQuantityMutation — update quantity (0 = soft-delete)
- * useDeleteStorageLocationMutation   — falls benoetigt
- */
-export {
-  useAddFridgeItemMutation,
-  useUpdateFridgeItemQuantityMutation,
-} from '@/features/inventory/api';

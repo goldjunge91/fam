@@ -81,7 +81,9 @@ export function SignInScreen() {
             <Button label="Anmelden" onPress={handleSubmit} loading={loading} />
 
             <View style={styles.divider}>
-              <ThemedText type="small" themeColor="textSecondary">oder anmelden mit</ThemedText>
+              <ThemedText type="small" themeColor="textSecondary">
+                oder anmelden mit
+              </ThemedText>
             </View>
 
             <Button

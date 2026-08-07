@@ -11,7 +11,7 @@ export async function retryFailedOutboxEntries(
 ): Promise<number> {
   // Reparatur von veralteten uppercase 'L' Einheiten im Outbox JSON payload
   const entries = await db.getAllAsync<{ id: number; payload: string }>(
-    "select id, payload from outbox where payload like '%\"unit\":\"L\"%' or payload like '%\"unit\":\"LITER\"%'",
+    'select id, payload from outbox where payload like \'%"unit":"L"%\' or payload like \'%"unit":"LITER"%\'',
   );
 
   for (const entry of entries) {

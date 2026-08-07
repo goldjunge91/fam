@@ -169,10 +169,38 @@ begin
 end;
 $$;
 
+-- ------------------------------------------------------------- Einkaufshistorie
+create table if not exists public.shopping_history (
+  id uuid primary key default gen_random_uuid(),
+  household_id uuid not null references public.households (id) on delete cascade,
+  completed_by uuid references public.profiles (id) on delete set null,
+  completed_at timestamptz not null,
+
+  item_name text not null,
+  quantity numeric(10, 3) not null,
+  unit text not null,
+  category text,
+  product_id uuid references public.products (id) on delete set null,
+
+  location_kind text check (location_kind in ('fridge', 'freezer', 'pantry')),
+  expiry_date date,
+
+  created_at timestamptz not null default now()
+);
+
+comment on table public.shopping_history is
+  'Historie abgeschlossener Einkäufe. Append-only, kein Offline-Sync-Flag.';
+
+create index if not exists shopping_history_household_id_idx
+  on public.shopping_history (household_id);
+create index if not exists shopping_history_completed_at_idx
+  on public.shopping_history (household_id, completed_at);
+
 -- ------------------------------------------------------------------------- RLS
 alter table public.storage_locations enable row level security;
 alter table public.fridge_items enable row level security;
 alter table public.shopping_list_items enable row level security;
+alter table public.shopping_history enable row level security;
 
 -- Geteilte Haushaltsdaten: Jedes Mitglied darf alles. Die Grenze verlaeuft am
 -- Haushalt, nicht an der Person — das ist der ganze Zweck des Features.
@@ -190,3 +218,9 @@ create policy shopping_list_items_all_member on public.shopping_list_items
   for all to authenticated
   using ((select private.is_household_member(household_id)))
   with check ((select private.is_household_member(household_id)));
+
+create policy shopping_history_all_member on public.shopping_history
+  for all to authenticated
+  using ((select private.is_household_member(household_id)))
+  with check ((select private.is_household_member(household_id)));
+

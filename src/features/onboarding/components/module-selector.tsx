@@ -1,5 +1,5 @@
-import { Button, Column, Host, Spacer, Switch, Text } from '@expo/ui';
-import { Text as RNText, StyleSheet, View } from 'react-native';
+import { Pressable, StyleSheet, Switch, Text, View } from 'react-native';
+import { Button } from '@/components/button';
 import { Spacing } from '@/constants/theme';
 import { useTheme } from '@/hooks/use-theme';
 import { useOnboarding } from '../context/onboarding-context';
@@ -18,94 +18,119 @@ export function ModuleSelectorForm({ onNext, onSkip }: ModuleSelectorFormProps) 
   };
 
   return (
-    <Host matchContents>
-      <Column style={styles.container}>
-        <Text textStyle={{ ...styles.heading, color: theme.text }}>
-          Welche Module möchtest du nutzen?
-        </Text>
-        <Text textStyle={{ ...styles.subheading, color: theme.textSecondary }}>
-          Du kannst ungenutzte Module jederzeit später in den Einstellungen anpassen.
-        </Text>
+    <View style={styles.container}>
+      <Text style={[styles.heading, { color: theme.text }]}>Welche Module möchtest du nutzen?</Text>
+      <Text style={[styles.subheading, { color: theme.textSecondary }]}>
+        Du kannst ungenutzte Module jederzeit später in den Einstellungen anpassen.
+      </Text>
 
-        <Spacer size={Spacing.three} />
-
-        <View style={styles.moduleList}>
-          <View style={[styles.moduleRow, { borderColor: theme.border }]}>
-            <View style={styles.moduleTextCol}>
-              <RNText style={[styles.moduleTitle, { color: theme.text }]}>
-                🧊 Kühlschrank & Vorrat
-              </RNText>
-              <RNText style={[styles.moduleDesc, { color: theme.textSecondary }]}>
-                Bestand verwalten, MHD-Ampel und Benachrichtigungen vor Ablauf.
-              </RNText>
-            </View>
-            <Switch value={state.modules.fridge} onValueChange={() => toggle('fridge')} />
+      <View style={styles.moduleList}>
+        <Pressable
+          onPress={() => toggle('fridge')}
+          style={[
+            styles.moduleRow,
+            {
+              backgroundColor: theme.backgroundElement,
+              borderColor: state.modules.fridge ? theme.accent : theme.border,
+            },
+          ]}>
+          <View style={styles.moduleTextCol}>
+            <Text style={[styles.moduleTitle, { color: theme.text }]}>🧊 Kühlschrank & Vorrat</Text>
+            <Text style={[styles.moduleDesc, { color: theme.textSecondary }]}>
+              Bestand verwalten, MHD-Ampel und Benachrichtigungen vor Ablauf.
+            </Text>
           </View>
+          <Switch value={state.modules.fridge} onValueChange={() => toggle('fridge')} />
+        </Pressable>
 
-          <View style={[styles.moduleRow, { borderColor: theme.border }]}>
-            <View style={styles.moduleTextCol}>
-              <RNText style={[styles.moduleTitle, { color: theme.text }]}>
-                🛒 Geteilte Einkaufsliste
-              </RNText>
-              <RNText style={[styles.moduleDesc, { color: theme.textSecondary }]}>
-                Gemeinsam einkaufen und nach dem Abkassieren direkt im Kühlschrank speichern.
-              </RNText>
-            </View>
-            <Switch
-              value={state.modules.shoppingList}
-              onValueChange={() => toggle('shoppingList')}
-            />
+        <Pressable
+          onPress={() => toggle('shoppingList')}
+          style={[
+            styles.moduleRow,
+            {
+              backgroundColor: theme.backgroundElement,
+              borderColor: state.modules.shoppingList ? theme.accent : theme.border,
+            },
+          ]}>
+          <View style={styles.moduleTextCol}>
+            <Text style={[styles.moduleTitle, { color: theme.text }]}>
+              🛒 Geteilte Einkaufsliste
+            </Text>
+            <Text style={[styles.moduleDesc, { color: theme.textSecondary }]}>
+              Gemeinsam einkaufen und nach dem Abkassieren direkt im Kühlschrank speichern.
+            </Text>
           </View>
+          <Switch value={state.modules.shoppingList} onValueChange={() => toggle('shoppingList')} />
+        </Pressable>
 
-          <View style={[styles.moduleRow, { borderColor: theme.border }]}>
-            <View style={styles.moduleTextCol}>
-              <RNText style={[styles.moduleTitle, { color: theme.text }]}>
-                🍎 Kalorienzähler & Tagebuch
-              </RNText>
-              <RNText style={[styles.moduleDesc, { color: theme.textSecondary }]}>
-                Privat Nährwerte erfassen, Makros tracken und Grundumsatz berechnen.
-              </RNText>
-            </View>
-            <Switch value={state.modules.calories} onValueChange={() => toggle('calories')} />
+        <Pressable
+          onPress={() => toggle('calories')}
+          style={[
+            styles.moduleRow,
+            {
+              backgroundColor: theme.backgroundElement,
+              borderColor: state.modules.calories ? theme.accent : theme.border,
+            },
+          ]}>
+          <View style={styles.moduleTextCol}>
+            <Text style={[styles.moduleTitle, { color: theme.text }]}>
+              🍎 Kalorienzähler & Tagebuch
+            </Text>
+            <Text style={[styles.moduleDesc, { color: theme.textSecondary }]}>
+              Privat Nährwerte erfassen, Makros tracken und Grundumsatz berechnen.
+            </Text>
           </View>
+          <Switch value={state.modules.calories} onValueChange={() => toggle('calories')} />
+        </Pressable>
 
-          <View style={[styles.moduleRow, { borderColor: theme.border }]}>
-            <View style={styles.moduleTextCol}>
-              <RNText style={[styles.moduleTitle, { color: theme.text }]}>
-                📖 Rezept-Manager & Meal-Planner
-              </RNText>
-              <RNText style={[styles.moduleDesc, { color: theme.textSecondary }]}>
-                Rezepte anlegen, Portionsmengen berechnen und die Woche vorausplanen.
-              </RNText>
-            </View>
-            <Switch value={state.modules.recipes} onValueChange={() => toggle('recipes')} />
+        <Pressable
+          onPress={() => toggle('recipes')}
+          style={[
+            styles.moduleRow,
+            {
+              backgroundColor: theme.backgroundElement,
+              borderColor: state.modules.recipes ? theme.accent : theme.border,
+            },
+          ]}>
+          <View style={styles.moduleTextCol}>
+            <Text style={[styles.moduleTitle, { color: theme.text }]}>
+              📖 Rezept-Manager & Meal-Planner
+            </Text>
+            <Text style={[styles.moduleDesc, { color: theme.textSecondary }]}>
+              Rezepte anlegen, Portionsmengen berechnen und die Woche vorausplanen.
+            </Text>
           </View>
+          <Switch value={state.modules.recipes} onValueChange={() => toggle('recipes')} />
+        </Pressable>
+      </View>
+
+      <View style={styles.buttonRow}>
+        <View style={styles.buttonCol}>
+          <Button label="Weiter" onPress={onNext} />
         </View>
-
-        <Spacer size={Spacing.four} />
-
-        <View style={styles.buttonRow}>
-          <Button onPress={onNext}>Weiter</Button>
-          <Button onPress={onSkip}>Überspringen</Button>
+        <View style={styles.buttonCol}>
+          <Button label="Überspringen" variant="secondary" onPress={onSkip} />
         </View>
-      </Column>
-    </Host>
+      </View>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    padding: Spacing.four,
+    gap: Spacing.three,
   },
   heading: {
     fontSize: 22,
-    fontWeight: 'bold',
+    fontWeight: '700',
   },
   subheading: {
     fontSize: 14,
+    lineHeight: 20,
   },
   moduleList: {
     gap: Spacing.two,
+    marginTop: Spacing.one,
   },
   moduleRow: {
     flexDirection: 'row',
@@ -120,8 +145,8 @@ const styles = StyleSheet.create({
     paddingRight: Spacing.two,
   },
   moduleTitle: {
-    fontSize: 16,
-    fontWeight: 'bold',
+    fontSize: 15,
+    fontWeight: '700',
   },
   moduleDesc: {
     fontSize: 13,
@@ -130,6 +155,10 @@ const styles = StyleSheet.create({
   },
   buttonRow: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    gap: Spacing.two,
+    marginTop: Spacing.three,
+  },
+  buttonCol: {
+    flex: 1,
   },
 });

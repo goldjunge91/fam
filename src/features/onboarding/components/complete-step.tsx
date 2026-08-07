@@ -1,13 +1,15 @@
-import { Button, Column, Host, Spacer, Text } from '@expo/ui';
 import { router } from 'expo-router';
-import { Text as RNText, StyleSheet } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
+import { Button } from '@/components/button';
 import { Spacing } from '@/constants/theme';
+import { useHouseholds } from '@/features/household/api';
 import { useTheme } from '@/hooks/use-theme';
 import { useOnboarding } from '../context/onboarding-context';
 
 export function CompleteStepForm() {
   const theme = useTheme();
   const { state, completeOnboarding, isLoading, error } = useOnboarding();
+  const { data: households } = useHouseholds();
 
   const handleFinish = async () => {
     await completeOnboarding();
@@ -15,54 +17,72 @@ export function CompleteStepForm() {
   };
 
   const householdName =
-    state.household.choice === 'create'
+    households?.[0]?.name ||
+    (state.household.choice === 'create'
       ? state.household.name || 'deinen neuen Haushalt'
       : state.household.choice === 'join'
         ? 'deinen Haushalt'
-        : 'deinen persönlichen Bereich';
+        : 'deinen persönlichen Bereich');
 
   return (
-    <Host matchContents>
-      <Column style={styles.container}>
-        <Text textStyle={{ ...styles.icon }}>🎉</Text>
-        <Spacer size={Spacing.two} />
-        <Text textStyle={{ ...styles.heading, color: theme.text }}>Alles bereit!</Text>
-        <Spacer size={Spacing.one} />
-        <Text textStyle={{ ...styles.subheading, color: theme.textSecondary }}>
-          {`Dein Profil ist eingerichtet und du bist startklar für ${householdName}.`}
-        </Text>
+    <View style={styles.container}>
+      <View style={[styles.iconContainer, { backgroundColor: theme.backgroundElement }]}>
+        <Text style={styles.icon}>🎉</Text>
+      </View>
 
-        {error && (
-          <>
-            <Spacer size={Spacing.two} />
-            <RNText style={{ color: theme.danger }}>{error}</RNText>
-          </>
-        )}
+      <Text style={[styles.heading, { color: theme.text }]}>Alles bereit!</Text>
+      <Text style={[styles.subheading, { color: theme.textSecondary }]}>
+        {`Dein Profil ist eingerichtet und du bist startklar für ${householdName}.`}
+      </Text>
 
-        <Spacer size={Spacing.four} />
+      {error ? <Text style={[styles.errorText, { color: theme.danger }]}>{error}</Text> : null}
 
-        <Button onPress={handleFinish}>{isLoading ? 'Speichern...' : 'Zum Dashboard'}</Button>
-      </Column>
-    </Host>
+      <View style={styles.buttonContainer}>
+        <Button
+          label={isLoading ? 'Speichern...' : 'Zum Dashboard'}
+          onPress={handleFinish}
+          loading={isLoading}
+        />
+      </View>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    padding: Spacing.four,
+    paddingVertical: Spacing.two,
+    alignItems: 'center',
+    gap: Spacing.three,
+  },
+  iconContainer: {
+    width: 96,
+    height: 96,
+    borderRadius: 48,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginVertical: Spacing.two,
   },
   icon: {
-    fontSize: 64,
+    fontSize: 52,
     textAlign: 'center',
   },
   heading: {
     fontSize: 24,
-    fontWeight: 'bold',
+    fontWeight: '700',
     textAlign: 'center',
   },
   subheading: {
     fontSize: 15,
     textAlign: 'center',
     lineHeight: 22,
+    paddingHorizontal: Spacing.two,
+  },
+  errorText: {
+    fontSize: 13,
+    textAlign: 'center',
+  },
+  buttonContainer: {
+    width: '100%',
+    marginTop: Spacing.two,
   },
 });

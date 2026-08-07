@@ -3,7 +3,7 @@
 begin;
 \ir helpers.sql
 
-select plan(11);
+select plan(13);
 
 select tests.create_user('11111111-1111-1111-1111-111111111111', 'alice@example.com');
 select tests.create_user('22222222-2222-2222-2222-222222222222', 'bob@example.com');
@@ -126,5 +126,25 @@ select is(
   'Entfernen setzt deleted_at, statt die Zeile zu loeschen'
 );
 
+-- ----------------------------------------------------------- Einkaufshistorie
+select tests.authenticate_as('11111111-1111-1111-1111-111111111111');
+insert into public.shopping_history (household_id, completed_by, completed_at, item_name, quantity, unit, location_kind)
+values (:'hid', '11111111-1111-1111-1111-111111111111', now(), 'Vollmilch', 2, 'l', 'fridge');
+
+select tests.authenticate_as('22222222-2222-2222-2222-222222222222');
+select is(
+  (select count(*)::int from public.shopping_history),
+  1,
+  'Haushaltsmitglieder koennen die Einkaufshistorie lesen'
+);
+
+select tests.authenticate_as('33333333-3333-3333-3333-333333333333');
+select is(
+  (select count(*)::int from public.shopping_history),
+  0,
+  'Aussenstehende sehen fremde Einkaufshistorie nicht'
+);
+
 select * from finish();
 rollback;
+

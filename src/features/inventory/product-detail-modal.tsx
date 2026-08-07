@@ -3,7 +3,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { ThemedText } from '@/components/themed-text';
 import { Spacing } from '@/constants/theme';
-import type { FridgeItem } from '@/features/inventory/api';
+import type { FridgeItem } from '@/features/fridge/use-fridge-mutations';
 import { getProductDetails } from '@/features/inventory/product-details-catalog';
 
 type ProductDetailModalProps = {
@@ -67,7 +67,9 @@ export function ProductDetailModal({ visible, item, onClose }: ProductDetailModa
             </Pressable>
           </View>
 
-          <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={styles.scrollBody}>
+          <ScrollView
+            showsVerticalScrollIndicator={false}
+            contentContainerStyle={styles.scrollBody}>
             {/* Header Card */}
             <View style={styles.headerCard}>
               <View style={styles.headerLeft}>
@@ -142,7 +144,12 @@ export function ProductDetailModal({ visible, item, onClose }: ProductDetailModa
                   </ThemedText>
                   <View style={styles.trackContainer}>
                     <View style={styles.trackBackground}>
-                      <View style={[styles.trackFill, { width: `${pWidth}%`, backgroundColor: '#3B82F6' }]} />
+                      <View
+                        style={[
+                          styles.trackFill,
+                          { width: `${pWidth}%`, backgroundColor: '#3B82F6' },
+                        ]}
+                      />
                     </View>
                   </View>
                   <ThemedText type="smallBold" style={styles.macroVal}>
@@ -157,7 +164,12 @@ export function ProductDetailModal({ visible, item, onClose }: ProductDetailModa
                   </ThemedText>
                   <View style={styles.trackContainer}>
                     <View style={styles.trackBackground}>
-                      <View style={[styles.trackFill, { width: `${cWidth}%`, backgroundColor: '#F59E0B' }]} />
+                      <View
+                        style={[
+                          styles.trackFill,
+                          { width: `${cWidth}%`, backgroundColor: '#F59E0B' },
+                        ]}
+                      />
                     </View>
                   </View>
                   <ThemedText type="smallBold" style={styles.macroVal}>
@@ -172,7 +184,12 @@ export function ProductDetailModal({ visible, item, onClose }: ProductDetailModa
                   </ThemedText>
                   <View style={styles.trackContainer}>
                     <View style={styles.trackBackground}>
-                      <View style={[styles.trackFill, { width: `${sugWidth}%`, backgroundColor: '#FBBF24' }]} />
+                      <View
+                        style={[
+                          styles.trackFill,
+                          { width: `${sugWidth}%`, backgroundColor: '#FBBF24' },
+                        ]}
+                      />
                     </View>
                   </View>
                   <ThemedText type="smallBold" style={styles.macroVal}>
@@ -187,7 +204,12 @@ export function ProductDetailModal({ visible, item, onClose }: ProductDetailModa
                   </ThemedText>
                   <View style={styles.trackContainer}>
                     <View style={styles.trackBackground}>
-                      <View style={[styles.trackFill, { width: `${fWidth}%`, backgroundColor: '#EC4899' }]} />
+                      <View
+                        style={[
+                          styles.trackFill,
+                          { width: `${fWidth}%`, backgroundColor: '#EC4899' },
+                        ]}
+                      />
                     </View>
                   </View>
                   <ThemedText type="smallBold" style={styles.macroVal}>
@@ -202,7 +224,12 @@ export function ProductDetailModal({ visible, item, onClose }: ProductDetailModa
                   </ThemedText>
                   <View style={styles.trackContainer}>
                     <View style={styles.trackBackground}>
-                      <View style={[styles.trackFill, { width: `${satWidth}%`, backgroundColor: '#F472B6' }]} />
+                      <View
+                        style={[
+                          styles.trackFill,
+                          { width: `${satWidth}%`, backgroundColor: '#F472B6' },
+                        ]}
+                      />
                     </View>
                   </View>
                   <ThemedText type="smallBold" style={styles.macroVal}>
@@ -217,7 +244,12 @@ export function ProductDetailModal({ visible, item, onClose }: ProductDetailModa
                   </ThemedText>
                   <View style={styles.trackContainer}>
                     <View style={styles.trackBackground}>
-                      <View style={[styles.trackFill, { width: `${sWidth}%`, backgroundColor: '#4B5563' }]} />
+                      <View
+                        style={[
+                          styles.trackFill,
+                          { width: `${sWidth}%`, backgroundColor: '#4B5563' },
+                        ]}
+                      />
                     </View>
                   </View>
                   <ThemedText type="smallBold" style={styles.macroVal}>
@@ -249,10 +281,7 @@ export function ProductDetailModal({ visible, item, onClose }: ProductDetailModa
                         },
                       ]}>
                       <ThemedText
-                        style={[
-                          styles.nutriPillText,
-                          { color: isActive ? '#FFFFFF' : ns.text },
-                        ]}>
+                        style={[styles.nutriPillText, { color: isActive ? '#FFFFFF' : ns.text }]}>
                         {ns.score}
                       </ThemedText>
                     </View>

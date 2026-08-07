@@ -13,7 +13,7 @@ import {
   useDeleteStorageLocationMutation,
   useStorageLocations,
   useUpdateStorageLocationMutation,
-} from '@/features/inventory/api';
+} from '@/features/inventory/use-storage-locations';
 import { useTheme } from '@/hooks/use-theme';
 
 export function StorageLocationsScreen() {
@@ -60,27 +60,23 @@ export function StorageLocationsScreen() {
 
   async function handleDelete(id: string, name: string) {
     if (!currentHousehold) return;
-    Alert.alert(
-      'Lagerort löschen',
-      `Möchtest du den Lagerort "${name}" wirklich löschen?`,
-      [
-        { text: 'Abbrechen', style: 'cancel' },
-        {
-          text: 'Löschen',
-          style: 'destructive',
-          onPress: async () => {
-            try {
-              await deleteMutation.mutateAsync({
-                id,
-                household_id: currentHousehold.id,
-              });
-            } catch (err) {
-              Alert.alert('Fehler', err instanceof Error ? err.message : 'Fehler beim Löschen');
-            }
-          },
+    Alert.alert('Lagerort löschen', `Möchtest du den Lagerort "${name}" wirklich löschen?`, [
+      { text: 'Abbrechen', style: 'cancel' },
+      {
+        text: 'Löschen',
+        style: 'destructive',
+        onPress: async () => {
+          try {
+            await deleteMutation.mutateAsync({
+              id,
+              household_id: currentHousehold.id,
+            });
+          } catch (err) {
+            Alert.alert('Fehler', err instanceof Error ? err.message : 'Fehler beim Löschen');
+          }
         },
-      ],
-    );
+      },
+    ]);
   }
 
   return (
@@ -115,11 +111,7 @@ export function StorageLocationsScreen() {
                 <View key={loc.id} style={[styles.row, { borderBottomColor: theme.border }]}>
                   {isEditing ? (
                     <View style={styles.editBox}>
-                      <TextField
-                        value={editingName}
-                        onChangeText={setEditingName}
-                        autoFocus
-                      />
+                      <TextField value={editingName} onChangeText={setEditingName} autoFocus />
                       <View style={styles.buttonRow}>
                         <View style={styles.flex}>
                           <Button

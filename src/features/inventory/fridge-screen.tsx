@@ -5,15 +5,15 @@ import { FlatList, Pressable, StyleSheet, View } from 'react-native';
 import { Screen } from '@/components/screen';
 import { ThemedText } from '@/components/themed-text';
 import { Spacing } from '@/constants/theme';
-import { useHouseholds } from '@/features/household/api';
 import {
   type FridgeItem,
-  useFridgeItems,
-  useStorageLocations,
   useUpdateFridgeItemQuantityMutation,
-} from '@/features/inventory/api';
+} from '@/features/fridge/use-fridge-mutations';
+import { useHouseholds } from '@/features/household/api';
+import { useFridgeItems } from '@/features/inventory/api';
 import { ProductDetailModal } from '@/features/inventory/product-detail-modal';
 import { getProductDetails } from '@/features/inventory/product-details-catalog';
+import { useStorageLocations } from '@/features/inventory/use-storage-locations';
 import { useTheme } from '@/hooks/use-theme';
 
 function formatExpiryDate(rawDate: string | null): {
@@ -134,13 +134,12 @@ export function FridgeScreen() {
         <View style={styles.locationTabsRow}>
           <Pressable
             onPress={() => setSelectedLocationId('all')}
-            style={[
-              styles.locationTab,
-              selectedLocationId === 'all' && styles.locationTabActive,
-            ]}>
+            style={[styles.locationTab, selectedLocationId === 'all' && styles.locationTabActive]}>
             <ThemedText
               type="smallBold"
-              style={selectedLocationId === 'all' ? styles.locationTabTextActive : styles.locationTabText}>
+              style={
+                selectedLocationId === 'all' ? styles.locationTabTextActive : styles.locationTabText
+              }>
               Alle
             </ThemedText>
           </Pressable>
@@ -149,7 +148,12 @@ export function FridgeScreen() {
             const isActive = selectedLocationId === loc.id;
             let icon = '📦';
             if (loc.kind === 'fridge' || loc.name.includes('Kühl')) icon = '🫙';
-            else if (loc.kind === 'freezer' || loc.name.includes('Tief') || loc.name.includes('Frost')) icon = '❄️';
+            else if (
+              loc.kind === 'freezer' ||
+              loc.name.includes('Tief') ||
+              loc.name.includes('Frost')
+            )
+              icon = '❄️';
             else if (loc.kind === 'pantry' || loc.name.includes('Kammer')) icon = '🥫';
 
             return (
@@ -196,9 +200,7 @@ export function FridgeScreen() {
               const statusColor = expiryInfo ? expiryInfo.color : '#10B981';
 
               return (
-                <Pressable
-                  style={styles.itemCard}
-                  onPress={() => setSelectedModalItem(item)}>
+                <Pressable style={styles.itemCard} onPress={() => setSelectedModalItem(item)}>
                   {/* Linker farbiger Statusbalken */}
                   <View style={[styles.statusStrip, { backgroundColor: statusColor }]} />
 

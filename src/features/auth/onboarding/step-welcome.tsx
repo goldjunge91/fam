@@ -8,7 +8,8 @@ export function StepWelcome() {
   return (
     <Card title="Schritt 1: Willkommen bei Fam App!">
       <ThemedText style={{ marginTop: Spacing.one, lineHeight: 22 }}>
-        Deine familiäre All-in-One Lösung zum Verwalten von Vorräten, gemeinsamen Einkaufslisten und Rezepten.
+        Deine familiäre All-in-One Lösung zum Verwalten von Vorräten, gemeinsamen Einkaufslisten und
+        Rezepten.
       </ThemedText>
       <View style={styles.featureList}>
         <View style={styles.featureRow}>

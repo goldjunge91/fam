@@ -7,12 +7,12 @@ import { Screen } from '@/components/screen';
 import { TextField } from '@/components/text-field';
 import { ThemedText } from '@/components/themed-text';
 import { Spacing } from '@/constants/theme';
+import { useAddFridgeItemMutation } from '@/features/fridge/use-fridge-mutations';
 import { useHouseholds } from '@/features/household/api';
 import {
-  useAddFridgeItemMutation,
   useAddStorageLocationMutation,
   useStorageLocations,
-} from '@/features/inventory/api';
+} from '@/features/inventory/use-storage-locations';
 
 function formatOffsetDate(days: number): string {
   const d = new Date();
@@ -196,7 +196,8 @@ export function AddItemScreen() {
             })}
             {locations?.length === 0 && !showAddLocation && (
               <ThemedText type="small" themeColor="textSecondary">
-                Keine Lagerorte vorhanden. Tippe auf &quot;+ Neuer Lagerort&quot; um einen anzulegen.
+                Keine Lagerorte vorhanden. Tippe auf &quot;+ Neuer Lagerort&quot; um einen
+                anzulegen.
               </ThemedText>
             )}
           </View>
@@ -255,4 +256,3 @@ const styles = StyleSheet.create({
     marginTop: Spacing.four,
   },
 });
-

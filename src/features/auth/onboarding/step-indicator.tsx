@@ -3,7 +3,13 @@ import { StyleSheet, View } from 'react-native';
 import { Spacing } from '@/constants/theme';
 import { useTheme } from '@/hooks/use-theme';
 
-export function StepIndicator({ currentStep, totalSteps = 6 }: { currentStep: number; totalSteps?: number }) {
+export function StepIndicator({
+  currentStep,
+  totalSteps = 6,
+}: {
+  currentStep: number;
+  totalSteps?: number;
+}) {
   const theme = useTheme();
 
   return (

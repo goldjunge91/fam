@@ -129,7 +129,9 @@ export function SignUpScreen() {
             <Button label="Konto erstellen" onPress={handleSubmit} loading={loading} />
 
             <View style={styles.divider}>
-              <ThemedText type="small" themeColor="textSecondary">oder weiter mit</ThemedText>
+              <ThemedText type="small" themeColor="textSecondary">
+                oder weiter mit
+              </ThemedText>
             </View>
 
             <Button

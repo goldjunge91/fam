@@ -3,12 +3,11 @@ import { ActivityIndicator, View } from 'react-native';
 
 import AppTabs from '@/components/app-tabs';
 import { useProfile } from '@/features/auth/api';
+import { isOnboardingSessionCompleted } from '@/features/auth/onboarding-session';
 import { useSession } from '@/features/auth/session-provider';
 import { useHouseholds } from '@/features/household/api';
 import { env } from '@/lib/env';
 import { useSyncEngine } from '@/lib/sync/sync-runner';
-
-import { isOnboardingSessionCompleted } from '@/features/auth/onboarding-session';
 
 /** Angemeldeter Bereich. Der Guard sitzt im Root-Layout. */
 export default function AppLayout() {
@@ -44,4 +43,3 @@ export default function AppLayout() {
 
   return <AppTabs />;
 }
-

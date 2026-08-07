@@ -118,12 +118,18 @@ export async function updateProfile(userId: string, input: ProfileInput) {
   };
 
   // biome-ignore lint/suspicious/noExplicitAny: generische Spalten
-  let { error } = await getSupabase().from('profiles').update(payload as any).eq('id', userId);
+  let { error } = await getSupabase()
+    .from('profiles')
+    .update(payload as any)
+    .eq('id', userId);
 
   if (error && error.message.includes('onboarding_completed_at')) {
     delete payload.onboarding_completed_at;
     // biome-ignore lint/suspicious/noExplicitAny: Fallback ohne neu hinzugefuegte Spalte
-    const retry = await getSupabase().from('profiles').update(payload as any).eq('id', userId);
+    const retry = await getSupabase()
+      .from('profiles')
+      .update(payload as any)
+      .eq('id', userId);
     error = retry.error;
   }
 

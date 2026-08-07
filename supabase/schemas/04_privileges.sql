@@ -26,6 +26,7 @@ grant delete, insert, select, update on public.child_profiles to anon, authentic
 grant delete, insert, select, update on public.storage_locations to anon, authenticated, service_role;
 grant delete, insert, select, update on public.fridge_items to anon, authenticated, service_role;
 grant delete, insert, select, update on public.shopping_list_items to anon, authenticated, service_role;
+grant delete, insert, select, update on public.shopping_history to anon, authenticated, service_role;
 grant delete, insert, select, update on public.food_entries to anon, authenticated, service_role;
 grant delete, insert, select, update on public.weight_entries to anon, authenticated, service_role;
 grant delete, insert, select, update on public.user_goals to anon, authenticated, service_role;

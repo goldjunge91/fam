@@ -152,14 +152,33 @@ create table if not exists app_meta (
 // normalisiert: Er geht unveraendert als Filter an PostgREST zurueck, damit
 // keine Mikrosekunde verlorengeht und der Cursor keine Zeile ueberspringt.
 //
-// `app_meta` belegte Schluessel: 'user_id' (zu welchem Nutzer diese Datenbank
-// gehoert — bei Wechsel wird alles geloescht, siehe client.ts) und
-// 'server_clock_offset_ms' (siehe sync/server-clock.ts).
+const V2_SHOPPING_HISTORY = `
+create table if not exists shopping_history (
+  id            text primary key not null,
+  household_id  text not null,
+  completed_by  text,
+  completed_at  text not null,
+  item_name     text not null,
+  quantity      real not null,
+  unit          text not null,
+  category      text,
+  product_id    text,
+  location_kind text,
+  expiry_date   text,
+  created_at    text not null
+);
+create index if not exists shopping_history_hh_idx on shopping_history (household_id, completed_at);
+`;
 
 export const MIGRATIONS: readonly Migration[] = [
   {
     version: 1,
     name: 'spiegeltabellen_outbox_sync_state',
     statements: [V1_MIRRORS, V1_OUTBOX, V1_STATE],
+  },
+  {
+    version: 2,
+    name: 'shopping_history',
+    statements: [V2_SHOPPING_HISTORY],
   },
 ];

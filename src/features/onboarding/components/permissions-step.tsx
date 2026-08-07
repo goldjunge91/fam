@@ -1,5 +1,6 @@
-import { Button, Column, Host, Spacer, Text } from '@expo/ui';
-import { Text as RNText, StyleSheet, View } from 'react-native';
+import { useState } from 'react';
+import { Pressable, StyleSheet, Switch, Text, View } from 'react-native';
+import { Button } from '@/components/button';
 import { Spacing } from '@/constants/theme';
 import { useTheme } from '@/hooks/use-theme';
 import { useOnboarding } from '../context/onboarding-context';
@@ -11,85 +12,115 @@ interface PermissionsStepFormProps {
 
 export function PermissionsStepForm({ onNext, onSkip }: PermissionsStepFormProps) {
   const theme = useTheme();
-  const { updatePermissionsData } = useOnboarding();
+  const { state, updatePermissionsData } = useOnboarding();
+
+  const [notifications, setNotifications] = useState(
+    state.permissions.notificationsRequested ?? true,
+  );
+  const [camera, setCamera] = useState(state.permissions.cameraRequested ?? true);
 
   const handlePermissions = async () => {
     updatePermissionsData({
-      notificationsRequested: true,
-      cameraRequested: true,
+      notificationsRequested: notifications,
+      cameraRequested: camera,
     });
     onNext();
   };
 
   return (
-    <Host matchContents>
-      <Column style={styles.container}>
-        <Text textStyle={{ ...styles.heading, color: theme.text }}>Erlaubnisse & Funktionen</Text>
-        <Text textStyle={{ ...styles.subheading, color: theme.textSecondary }}>
-          Damit die App optimal funktioniert, empfehlen wir folgende Berechtigungen:
-        </Text>
+    <View style={styles.container}>
+      <Text style={[styles.heading, { color: theme.text }]}>Erlaubnisse & Funktionen</Text>
+      <Text style={[styles.subheading, { color: theme.textSecondary }]}>
+        Damit die App optimal funktioniert, empfehlen wir folgende Berechtigungen:
+      </Text>
 
-        <Spacer size={Spacing.three} />
-
-        <View style={styles.permissionList}>
-          <View
-            style={[
-              styles.permCard,
-              { borderColor: theme.border, backgroundColor: theme.backgroundElement },
-            ]}>
-            <RNText style={[styles.permTitle, { color: theme.text }]}>🔔 Benachrichtigungen</RNText>
-            <RNText style={[styles.permDesc, { color: theme.textSecondary }]}>
-              Erhalte rechtzeitige Erinnerungen, bevor Lebensmittel im Kühlschrank ablaufen.
-            </RNText>
+      <View style={styles.permissionList}>
+        <Pressable
+          onPress={() => setNotifications((prev) => !prev)}
+          style={[
+            styles.permCard,
+            {
+              backgroundColor: theme.backgroundElement,
+              borderColor: notifications ? theme.accent : theme.border,
+            },
+          ]}>
+          <View style={styles.permRow}>
+            <View style={styles.permTextCol}>
+              <Text style={[styles.permTitle, { color: theme.text }]}>🔔 Benachrichtigungen</Text>
+              <Text style={[styles.permDesc, { color: theme.textSecondary }]}>
+                Erhalte rechtzeitige Erinnerungen, bevor Lebensmittel im Kühlschrank ablaufen.
+              </Text>
+            </View>
+            <Switch value={notifications} onValueChange={setNotifications} />
           </View>
+        </Pressable>
 
-          <Spacer size={Spacing.two} />
-
-          <View
-            style={[
-              styles.permCard,
-              { borderColor: theme.border, backgroundColor: theme.backgroundElement },
-            ]}>
-            <RNText style={[styles.permTitle, { color: theme.text }]}>📷 Kamera-Zugriff</RNText>
-            <RNText style={[styles.permDesc, { color: theme.textSecondary }]}>
-              Scanne Barcodes von Lebensmitteln oder QR-Codes für den Haushaltsbeitritt.
-            </RNText>
+        <Pressable
+          onPress={() => setCamera((prev) => !prev)}
+          style={[
+            styles.permCard,
+            {
+              backgroundColor: theme.backgroundElement,
+              borderColor: camera ? theme.accent : theme.border,
+            },
+          ]}>
+          <View style={styles.permRow}>
+            <View style={styles.permTextCol}>
+              <Text style={[styles.permTitle, { color: theme.text }]}>📷 Kamera-Zugriff</Text>
+              <Text style={[styles.permDesc, { color: theme.textSecondary }]}>
+                Scanne Barcodes von Lebensmitteln oder QR-Codes für den Haushaltsbeitritt.
+              </Text>
+            </View>
+            <Switch value={camera} onValueChange={setCamera} />
           </View>
-        </View>
+        </Pressable>
+      </View>
 
-        <Spacer size={Spacing.four} />
-
-        <View style={styles.buttonRow}>
-          <Button onPress={handlePermissions}>Berechtigungen erlauben</Button>
-          <Button onPress={onSkip}>Jetzt nicht</Button>
+      <View style={styles.buttonRow}>
+        <View style={styles.buttonCol}>
+          <Button label="Festlegen & Weiter" onPress={handlePermissions} />
         </View>
-      </Column>
-    </Host>
+        <View style={styles.buttonCol}>
+          <Button label="Jetzt nicht" variant="secondary" onPress={onSkip} />
+        </View>
+      </View>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    padding: Spacing.four,
+    gap: Spacing.three,
   },
   heading: {
     fontSize: 22,
-    fontWeight: 'bold',
+    fontWeight: '700',
   },
   subheading: {
     fontSize: 14,
+    lineHeight: 20,
   },
   permissionList: {
-    width: '100%',
+    gap: Spacing.two,
+    marginTop: Spacing.one,
   },
   permCard: {
     padding: Spacing.three,
     borderRadius: Spacing.two,
     borderWidth: 1,
   },
+  permRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  },
+  permTextCol: {
+    flex: 1,
+    paddingRight: Spacing.two,
+  },
   permTitle: {
-    fontSize: 16,
-    fontWeight: 'bold',
+    fontSize: 15,
+    fontWeight: '700',
     marginBottom: 4,
   },
   permDesc: {
@@ -98,6 +129,10 @@ const styles = StyleSheet.create({
   },
   buttonRow: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    gap: Spacing.two,
+    marginTop: Spacing.three,
+  },
+  buttonCol: {
+    flex: 1,
   },
 });

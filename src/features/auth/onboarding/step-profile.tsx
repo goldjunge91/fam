@@ -87,7 +87,8 @@ export function StepProfile({
     <>
       <Card title="Schritt 6: Dein Profil (Optional)">
         <ThemedText type="small" themeColor="textSecondary" style={{ marginBottom: Spacing.two }}>
-          Diese Angaben dienen zur Schätzung deines Kalorienbedarfs. Du kannst sie jederzeit in den Einstellungen ändern.
+          Diese Angaben dienen zur Schätzung deines Kalorienbedarfs. Du kannst sie jederzeit in den
+          Einstellungen ändern.
         </ThemedText>
         <View style={styles.form}>
           <TextField

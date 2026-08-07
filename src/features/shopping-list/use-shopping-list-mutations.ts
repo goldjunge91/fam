@@ -1,8 +1,8 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import * as Crypto from 'expo-crypto';
-import { normalizeUnit } from '@/features/inventory/api';
 import { getDatabase } from '@/lib/db/client';
 import { enqueueMutation } from '@/lib/db/outbox';
+import { normalizeUnit } from '@/lib/units';
 
 type AddItemInput = {
   household_id: string;

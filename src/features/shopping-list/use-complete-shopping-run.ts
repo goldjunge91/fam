@@ -1,9 +1,10 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import * as Crypto from 'expo-crypto';
 
-import { normalizeUnit, useStorageLocations } from '@/features/inventory/api';
+import { useStorageLocations } from '@/features/inventory/use-storage-locations';
 import { getDatabase } from '@/lib/db/client';
 import { enqueueMutation } from '@/lib/db/outbox';
+import { normalizeUnit } from '@/lib/units';
 
 import type { TransferItem } from './complete-run-sheet';
 import type { LocalShoppingItem } from './use-shopping-list';
@@ -19,11 +20,8 @@ type CompleteShoppingRunInput = {
  * Schliesst den Einkauf ab (#85/#86):
  *
  * 1. Fuer jeden Transfer-Eintrag: neues `fridge_items`-Insert via Outbox
- * 2. Fuer jeden gecheckte Shopping-Item: `checked_at` setzen (History behalten)
- *
- * Beide Schritte laufen sequentiell, da `enqueueMutation` intern
- * `withExclusiveTransactionAsync` benutzt — parallele Aufrufe wuerden sich
- * gegenseitig blockieren.
+ * 2a. History-Eintrag in `shopping_history` (direkter SQLite-Insert, append-only)
+ * 2b. Abgehakte Shopping-Items soft-deleten (aus der Liste entfernen via Outbox)
  *
  * Danach werden beide Caches invalidiert, sodass Einkaufsliste und
  * Vorrat-Screen sofort den neuen Zustand zeigen.
@@ -88,10 +86,33 @@ export function useCompleteShoppingRun(householdId: string | undefined) {
         });
       }
 
-      // Schritt 2: Abgehakte Shopping-Items soft-deleten (aus der Liste entfernen).
-      // History bleibt über die Outbox erhalten — der Push-Prozess schreibt den
-      // Tombstone nach Supabase, wo er mit Timestamp für Auswertungen verfügbar ist.
-      // Items die der User NICHT abgehakt hat (nicht erhalten) bleiben in der Liste.
+      // Schritt 2a: History-Eintrag anlegen (direkt via SQLite db.runAsync, da append-only und ohne Offline-Konflikte)
+      for (const item of input.checkedItems) {
+        const historyId = Crypto.randomUUID();
+        const transfer = input.transfers.find((t) => t.shoppingItemId === item.id);
+
+        await db.runAsync(
+          `insert into shopping_history
+             (id, household_id, completed_by, completed_at, item_name, quantity, unit, category, product_id, location_kind, expiry_date, created_at)
+           values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+          [
+            historyId,
+            input.householdId,
+            input.userId || null,
+            now,
+            item.name,
+            item.quantity,
+            normalizeUnit(item.unit),
+            item.category ?? null,
+            item.product_id ?? null,
+            transfer?.locationKind ?? null,
+            transfer?.expiryDate ?? null,
+            now,
+          ],
+        );
+      }
+
+      // Schritt 2b: Abgehakte Shopping-Items soft-deleten (aus der Liste entfernen)
       for (const item of input.checkedItems) {
         await enqueueMutation(db, {
           entity: 'shopping_list_items',
@@ -100,7 +121,6 @@ export function useCompleteShoppingRun(householdId: string | undefined) {
           payload: {
             id: item.id,
             household_id: input.householdId,
-            // checked_at/checked_by als Kontext für die History mitschicken
             checked_at: now,
             checked_by: input.userId,
             deleted_at: now,

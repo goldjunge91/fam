@@ -56,9 +56,15 @@ export function SyncDebugScreen() {
   const loadDebugData = useCallback(async () => {
     try {
       const db = await getDatabase();
-      const outbox = await db.getAllAsync<OutboxRow>('select * from outbox order by id desc limit 20');
-      const locs = await db.getAllAsync<LocationRow>('select id, name, kind, household_id from storage_locations limit 20');
-      const items = await db.getAllAsync<ItemRow>('select id, name, quantity, unit, location_id, household_id from fridge_items limit 20');
+      const outbox = await db.getAllAsync<OutboxRow>(
+        'select * from outbox order by id desc limit 20',
+      );
+      const locs = await db.getAllAsync<LocationRow>(
+        'select id, name, kind, household_id from storage_locations limit 20',
+      );
+      const items = await db.getAllAsync<ItemRow>(
+        'select id, name, quantity, unit, location_id, household_id from fridge_items limit 20',
+      );
 
       setOutboxRows(outbox);
       setLocationRows(locs);
@@ -132,14 +138,20 @@ export function SyncDebugScreen() {
           <ThemedText type="smallBold">{syncStatus.kind.toUpperCase()}</ThemedText>
         </View>
         <View style={styles.actionRow}>
-          <Button label="Jetzt synchronisieren & prüfen" onPress={handleSyncNow} loading={loading} />
+          <Button
+            label="Jetzt synchronisieren & prüfen"
+            onPress={handleSyncNow}
+            loading={loading}
+          />
         </View>
       </Card>
 
       <Card title="Aktueller Haushalt in DB">
         <View style={styles.zeile}>
           <ThemedText type="small">Haushalts-Name:</ThemedText>
-          <ThemedText type="smallBold">{currentHousehold?.name ?? 'Kein Haushalt geladen'}</ThemedText>
+          <ThemedText type="smallBold">
+            {currentHousehold?.name ?? 'Kein Haushalt geladen'}
+          </ThemedText>
         </View>
         <View style={styles.zeile}>
           <ThemedText type="small">Haushalts-ID:</ThemedText>

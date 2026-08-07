@@ -2,11 +2,10 @@ import { useEffect, useRef } from 'react';
 import { AppState } from 'react-native';
 
 import { getDatabase } from '@/lib/db/client';
-import { getSupabase } from '@/lib/supabase';
-import { syncHousehold, type SyncRunResult } from '@/lib/sync/engine';
-import { createServerClock } from '@/lib/sync/server-clock';
-
 import { retryFailedOutboxEntries } from '@/lib/db/outbox-retry';
+import { getSupabase } from '@/lib/supabase';
+import { type SyncRunResult, syncHousehold } from '@/lib/sync/engine';
+import { createServerClock } from '@/lib/sync/server-clock';
 
 const serverClock = createServerClock();
 let isSyncing = false;
@@ -50,7 +49,8 @@ export async function triggerHouseholdSync(
       pushedCount,
       pulledCount,
       hasErrors: Boolean(firstErr),
-      lastError: firstErr && 'error' in firstErr ? (firstErr as { error: string }).error : undefined,
+      lastError:
+        firstErr && 'error' in firstErr ? (firstErr as { error: string }).error : undefined,
     };
 
     return result;

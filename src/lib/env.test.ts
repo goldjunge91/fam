@@ -67,4 +67,3 @@ describe('env.forceOnboarding', () => {
     expect(env.forceOnboarding).toBe(false);
   });
 });
-

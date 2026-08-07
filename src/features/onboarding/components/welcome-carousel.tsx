@@ -1,6 +1,6 @@
-import { Button, Column, Host, Row, Spacer, Text } from '@expo/ui';
 import { useState } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { Pressable, StyleSheet, Text, View } from 'react-native';
+import { Button } from '@/components/button';
 import { Spacing } from '@/constants/theme';
 import { useTheme } from '@/hooks/use-theme';
 
@@ -40,69 +40,80 @@ export function WelcomeCarousel({ onStart }: WelcomeCarouselProps) {
   const current = SLIDES[slideIndex];
 
   return (
-    <Host matchContents>
-      <Column style={styles.container}>
-        <Spacer size={Spacing.four} />
-        <Text textStyle={styles.iconText}>{current.icon}</Text>
-        <Spacer size={Spacing.three} />
-        <Text textStyle={{ ...styles.title, color: theme.text }}>{current.title}</Text>
-        <Spacer size={Spacing.two} />
-        <Text textStyle={{ ...styles.description, color: theme.textSecondary }}>
-          {current.description}
-        </Text>
+    <View style={styles.container}>
+      <View style={[styles.iconContainer, { backgroundColor: theme.backgroundElement }]}>
+        <Text style={styles.iconText}>{current.icon}</Text>
+      </View>
 
-        <Spacer size={Spacing.four} />
+      <Text style={[styles.title, { color: theme.text }]}>{current.title}</Text>
 
-        <Row style={styles.paginationRow}>
-          {SLIDES.map((slide, idx) => (
-            <View
-              key={slide.id}
-              style={[
-                styles.dot,
-                {
-                  backgroundColor: idx === slideIndex ? theme.accent : theme.border,
-                  width: idx === slideIndex ? 24 : 8,
-                },
-              ]}
-            />
-          ))}
-        </Row>
+      <Text style={[styles.description, { color: theme.textSecondary }]}>
+        {current.description}
+      </Text>
 
-        <Spacer size={Spacing.four} />
+      <View style={styles.paginationRow}>
+        {SLIDES.map((slide, idx) => (
+          <Pressable
+            key={slide.id}
+            onPress={() => setSlideIndex(idx)}
+            style={[
+              styles.dot,
+              {
+                backgroundColor: idx === slideIndex ? theme.accent : theme.border,
+                width: idx === slideIndex ? 24 : 8,
+              },
+            ]}
+          />
+        ))}
+      </View>
 
-        <Column style={styles.buttonContainer}>
-          {isLast ? (
-            <Button onPress={onStart}>Jetzt starten</Button>
-          ) : (
-            <Button onPress={() => setSlideIndex((prev) => Math.min(SLIDES.length - 1, prev + 1))}>
-              Weiter
-            </Button>
-          )}
-        </Column>
-      </Column>
-    </Host>
+      <View style={styles.buttonContainer}>
+        {isLast ? (
+          <Button label="Jetzt starten" onPress={onStart} />
+        ) : (
+          <Button
+            label="Weiter"
+            onPress={() => setSlideIndex((prev) => Math.min(SLIDES.length - 1, prev + 1))}
+          />
+        )}
+      </View>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    padding: Spacing.four,
+    paddingVertical: Spacing.two,
+    alignItems: 'center',
+    gap: Spacing.three,
+  },
+  iconContainer: {
+    width: 96,
+    height: 96,
+    borderRadius: 48,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginVertical: Spacing.two,
   },
   iconText: {
-    fontSize: 64,
+    fontSize: 52,
     textAlign: 'center',
   },
   title: {
     fontSize: 22,
-    fontWeight: 'bold',
+    fontWeight: '700',
     textAlign: 'center',
   },
   description: {
     fontSize: 15,
     textAlign: 'center',
     lineHeight: 22,
+    paddingHorizontal: Spacing.two,
   },
   paginationRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
     paddingVertical: Spacing.two,
   },
   dot: {
@@ -112,5 +123,6 @@ const styles = StyleSheet.create({
   },
   buttonContainer: {
     width: '100%',
+    marginTop: Spacing.two,
   },
 });

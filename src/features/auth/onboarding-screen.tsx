@@ -76,10 +76,13 @@ export function OnboardingScreen() {
     markOnboardingSessionCompleted();
     if (session?.user.id) {
       const nowIso = new Date().toISOString();
-      queryClient.setQueryData(['profile', session.user.id], (old: Record<string, unknown> | null) => ({
-        ...(old ?? {}),
-        onboarding_completed_at: nowIso,
-      }));
+      queryClient.setQueryData(
+        ['profile', session.user.id],
+        (old: Record<string, unknown> | null) => ({
+          ...(old ?? {}),
+          onboarding_completed_at: nowIso,
+        }),
+      );
       await queryClient.invalidateQueries({ queryKey: ['profile', session.user.id] });
     }
     router.replace('/');
@@ -181,11 +184,7 @@ export function OnboardingScreen() {
                   onPress={() => setStep((s) => (s + 1) as 1 | 2 | 3 | 4 | 5 | 6)}
                 />
               ) : (
-                <Button
-                  label="Loslegen!"
-                  onPress={handleSubmitProfile}
-                  loading={profileLoading}
-                />
+                <Button label="Loslegen!" onPress={handleSubmitProfile} loading={profileLoading} />
               )}
             </View>
           </View>

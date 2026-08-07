@@ -2,6 +2,7 @@ import { StyleSheet, View } from 'react-native';
 import { Screen } from '@/components/screen';
 import { Spacing } from '@/constants/theme';
 import { useTheme } from '@/hooks/use-theme';
+import { AccountStepForm } from './components/account-step';
 import { CompleteStepForm } from './components/complete-step';
 import { HouseholdStepForm } from './components/household-step';
 import { ModuleSelectorForm } from './components/module-selector';
@@ -10,7 +11,7 @@ import { ProfileStepForm } from './components/profile-step-form';
 import { WelcomeCarousel } from './components/welcome-carousel';
 import { OnboardingProvider, useOnboarding } from './context/onboarding-context';
 
-const TOTAL_STEPS = 6;
+const TOTAL_STEPS = 7;
 
 function OnboardingContent() {
   const theme = useTheme();
@@ -42,11 +43,12 @@ function OnboardingContent() {
       )}
 
       {currentStep === 1 && <WelcomeCarousel onStart={() => setStep(2)} />}
-      {currentStep === 2 && <ProfileStepForm onNext={nextStep} onSkip={nextStep} />}
-      {currentStep === 3 && <HouseholdStepForm onNext={nextStep} onSkip={nextStep} />}
-      {currentStep === 4 && <ModuleSelectorForm onNext={nextStep} onSkip={nextStep} />}
-      {currentStep === 5 && <PermissionsStepForm onNext={nextStep} onSkip={nextStep} />}
-      {currentStep === 6 && <CompleteStepForm />}
+      {currentStep === 2 && <AccountStepForm onNext={nextStep} />}
+      {currentStep === 3 && <ProfileStepForm onNext={nextStep} onSkip={nextStep} />}
+      {currentStep === 4 && <HouseholdStepForm onNext={nextStep} onSkip={nextStep} />}
+      {currentStep === 5 && <ModuleSelectorForm onNext={nextStep} onSkip={nextStep} />}
+      {currentStep === 6 && <PermissionsStepForm onNext={nextStep} onSkip={nextStep} />}
+      {currentStep === 7 && <CompleteStepForm />}
     </Screen>
   );
 }

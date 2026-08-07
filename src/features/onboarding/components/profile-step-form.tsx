@@ -1,8 +1,10 @@
-import { Button, Column, Host, Spacer, Text } from '@expo/ui';
-import { useState } from 'react';
-import { Pressable, Text as RNText, StyleSheet, View } from 'react-native';
+import { useEffect, useState } from 'react';
+import { Pressable, StyleSheet, Text, View } from 'react-native';
+import { Button } from '@/components/button';
 import { TextField } from '@/components/text-field';
 import { Spacing } from '@/constants/theme';
+import { useProfile } from '@/features/auth/api';
+import { useSession } from '@/features/auth/session-provider';
 import { useTheme } from '@/hooks/use-theme';
 import { useOnboarding } from '../context/onboarding-context';
 import type { ActivityLevel, SexOption, WeightGoal } from '../types';
@@ -33,6 +35,8 @@ interface ProfileStepFormProps {
 export function ProfileStepForm({ onNext, onSkip }: ProfileStepFormProps) {
   const theme = useTheme();
   const { state, updateProfileData } = useOnboarding();
+  const { session } = useSession();
+  const { data: userProfile } = useProfile(session?.user.id);
 
   const [displayName, setDisplayName] = useState(state.profile.displayName ?? '');
   const [birthDate, setBirthDate] = useState(state.profile.birthDate ?? '');
@@ -45,6 +49,26 @@ export function ProfileStepForm({ onNext, onSkip }: ProfileStepFormProps) {
   const [weightGoal, setWeightGoal] = useState<WeightGoal | undefined>(state.profile.weightGoal);
 
   const [errors, setErrors] = useState<Record<string, string>>({});
+
+  useEffect(() => {
+    if (userProfile) {
+      if (userProfile.display_name) {
+        setDisplayName((prev) => prev || userProfile.display_name || '');
+      }
+      if (userProfile.birth_date) {
+        setBirthDate((prev) => prev || userProfile.birth_date || '');
+      }
+      if (userProfile.height_cm) {
+        setHeightCm((prev) => prev || String(userProfile.height_cm));
+      }
+      if (userProfile.sex) {
+        setSex((prev) => prev || (userProfile.sex as SexOption));
+      }
+      if (userProfile.activity_level) {
+        setActivityLevel((prev) => prev || (userProfile.activity_level as ActivityLevel));
+      }
+    }
+  }, [userProfile]);
 
   const handleSubmit = () => {
     const newErrors: Record<string, string> = {};
@@ -82,23 +106,19 @@ export function ProfileStepForm({ onNext, onSkip }: ProfileStepFormProps) {
   };
 
   return (
-    <Host matchContents>
-      <Column style={styles.container}>
-        <Text textStyle={{ ...styles.heading, color: theme.text }}>Dein Profil & Körperwerte</Text>
-        <Text textStyle={{ ...styles.subheading, color: theme.textSecondary }}>
-          Alle Angaben sind freiwillig und dienen der genauen Kalorienberechnung.
-        </Text>
+    <View style={styles.container}>
+      <Text style={[styles.heading, { color: theme.text }]}>Dein Profil & Körperwerte</Text>
+      <Text style={[styles.subheading, { color: theme.textSecondary }]}>
+        Alle Angaben sind freiwillig und dienen der genauen Kalorienberechnung.
+      </Text>
 
-        <Spacer size={Spacing.three} />
-
+      <View style={styles.formSection}>
         <TextField
           label="Rufname / Anzeigename"
           value={displayName}
           onChangeText={setDisplayName}
           placeholder="Wie möchtest du genannt werden?"
         />
-
-        <Spacer size={Spacing.two} />
 
         <TextField
           label="Geburtsdatum (JJJJ-MM-TT)"
@@ -107,8 +127,6 @@ export function ProfileStepForm({ onNext, onSkip }: ProfileStepFormProps) {
           placeholder="1990-05-15"
           inputMode="numeric"
         />
-
-        <Spacer size={Spacing.two} />
 
         <View style={styles.inputRow}>
           <View style={styles.halfInput}>
@@ -135,12 +153,10 @@ export function ProfileStepForm({ onNext, onSkip }: ProfileStepFormProps) {
           </View>
         </View>
 
-        <Spacer size={Spacing.three} />
-
-        <Text textStyle={{ ...styles.label, color: theme.text }}>
+        <Text style={[styles.sectionLabel, { color: theme.text }]}>
           Berechnungsbasis (Geschlecht)
         </Text>
-        <View style={styles.chipRow}>
+        <View style={styles.sexRow}>
           {SEX_OPTIONS.map((opt) => {
             const selected = sex === opt.value;
             return (
@@ -148,22 +164,22 @@ export function ProfileStepForm({ onNext, onSkip }: ProfileStepFormProps) {
                 key={opt.value}
                 onPress={() => setSex(selected ? undefined : opt.value)}
                 style={[
-                  styles.chip,
+                  styles.optionButton,
                   {
                     backgroundColor: selected ? theme.accent : theme.backgroundElement,
                     borderColor: selected ? theme.accent : theme.border,
                   },
                 ]}>
-                <RNText style={{ color: selected ? '#ffffff' : theme.text }}>{opt.label}</RNText>
+                <Text style={[styles.optionText, { color: selected ? '#ffffff' : theme.text }]}>
+                  {opt.label}
+                </Text>
               </Pressable>
             );
           })}
         </View>
 
-        <Spacer size={Spacing.three} />
-
-        <Text textStyle={{ ...styles.label, color: theme.text }}>Ernährungsziel</Text>
-        <View style={styles.chipRow}>
+        <Text style={[styles.sectionLabel, { color: theme.text }]}>Ernährungsziel</Text>
+        <View style={styles.goalStack}>
           {GOAL_OPTIONS.map((opt) => {
             const selected = weightGoal === opt.value;
             return (
@@ -171,22 +187,22 @@ export function ProfileStepForm({ onNext, onSkip }: ProfileStepFormProps) {
                 key={opt.value}
                 onPress={() => setWeightGoal(selected ? undefined : opt.value)}
                 style={[
-                  styles.chip,
+                  styles.choiceCard,
                   {
                     backgroundColor: selected ? theme.accent : theme.backgroundElement,
                     borderColor: selected ? theme.accent : theme.border,
                   },
                 ]}>
-                <RNText style={{ color: selected ? '#ffffff' : theme.text }}>{opt.label}</RNText>
+                <Text style={[styles.choiceText, { color: selected ? '#ffffff' : theme.text }]}>
+                  {opt.label}
+                </Text>
               </Pressable>
             );
           })}
         </View>
 
-        <Spacer size={Spacing.three} />
-
-        <Text textStyle={{ ...styles.label, color: theme.text }}>Aktivitätslevel im Alltag</Text>
-        <View style={styles.stackChoices}>
+        <Text style={[styles.sectionLabel, { color: theme.text }]}>Aktivitätslevel im Alltag</Text>
+        <View style={styles.activityStack}>
           {ACTIVITY_OPTIONS.map((opt) => {
             const selected = activityLevel === opt.value;
             return (
@@ -200,34 +216,42 @@ export function ProfileStepForm({ onNext, onSkip }: ProfileStepFormProps) {
                     borderColor: selected ? theme.accent : theme.border,
                   },
                 ]}>
-                <RNText style={{ color: selected ? '#ffffff' : theme.text }}>{opt.label}</RNText>
+                <Text style={[styles.choiceText, { color: selected ? '#ffffff' : theme.text }]}>
+                  {opt.label}
+                </Text>
               </Pressable>
             );
           })}
         </View>
+      </View>
 
-        <Spacer size={Spacing.four} />
-
-        <View style={styles.buttonRow}>
-          <Button onPress={handleSubmit}>Weiter</Button>
-          <Spacer size={Spacing.two} />
-          <Button onPress={onSkip}>Später ausfüllen</Button>
+      <View style={styles.buttonRow}>
+        <View style={styles.buttonCol}>
+          <Button label="Weiter" onPress={handleSubmit} />
         </View>
-      </Column>
-    </Host>
+        <View style={styles.buttonCol}>
+          <Button label="Später ausfüllen" variant="secondary" onPress={onSkip} />
+        </View>
+      </View>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    padding: Spacing.four,
+    gap: Spacing.three,
   },
   heading: {
     fontSize: 22,
-    fontWeight: 'bold',
+    fontWeight: '700',
   },
   subheading: {
     fontSize: 14,
+    lineHeight: 20,
+  },
+  formSection: {
+    gap: Spacing.three,
+    marginTop: Spacing.one,
   },
   inputRow: {
     flexDirection: 'row',
@@ -236,31 +260,50 @@ const styles = StyleSheet.create({
   halfInput: {
     flex: 1,
   },
-  label: {
+  sectionLabel: {
+    fontSize: 14,
+    fontWeight: '600',
+    marginTop: Spacing.two,
+  },
+  sexRow: {
+    flexDirection: 'row',
+    gap: Spacing.two,
+  },
+  optionButton: {
+    flex: 1,
+    paddingVertical: Spacing.two + 2,
+    paddingHorizontal: Spacing.three,
+    borderRadius: Spacing.two,
+    borderWidth: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  optionText: {
     fontSize: 14,
     fontWeight: '600',
   },
-  chipRow: {
-    flexDirection: 'row',
+  goalStack: {
     gap: Spacing.two,
   },
-  chip: {
-    paddingVertical: Spacing.two,
-    paddingHorizontal: Spacing.three,
-    borderRadius: Spacing.two,
-    borderWidth: 1,
-  },
-  stackChoices: {
+  activityStack: {
     gap: Spacing.two,
   },
   choiceCard: {
-    paddingVertical: Spacing.two,
+    paddingVertical: Spacing.two + 2,
     paddingHorizontal: Spacing.three,
     borderRadius: Spacing.two,
     borderWidth: 1,
   },
+  choiceText: {
+    fontSize: 14,
+    fontWeight: '500',
+  },
   buttonRow: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    gap: Spacing.two,
+    marginTop: Spacing.three,
+  },
+  buttonCol: {
+    flex: 1,
   },
 });

@@ -1,5 +1,6 @@
 import { createContext, type ReactNode, useContext, useState } from 'react';
 import { updateProfile } from '@/features/auth/api';
+import { markOnboardingSessionCompleted } from '@/features/auth/onboarding-session';
 import { useSession } from '@/features/auth/session-provider';
 import type {
   HouseholdOnboardingData,
@@ -97,6 +98,8 @@ export function OnboardingProvider({ children }: { children: ReactNode }) {
           return;
         }
       }
+
+      markOnboardingSessionCompleted();
       setIsLoading(false);
     } catch (e) {
       setError(e instanceof Error ? e.message : 'Fehler beim Speichern');
