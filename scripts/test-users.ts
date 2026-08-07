@@ -23,10 +23,10 @@ function loadEnv() {
   // Read main .env first
   parseEnvFile(path.resolve(rootDir, '.env'));
 
-  // If EXPO_PUBLIC_USE_LOCAL_DB=true, override with .env.dev
+  // If EXPO_PUBLIC_USE_LOCAL_DB=true, override with .env.development
   const useLocal = process.env.EXPO_PUBLIC_USE_LOCAL_DB?.trim().toLowerCase();
   if (useLocal === 'true' || useLocal === '1') {
-    parseEnvFile(path.resolve(rootDir, '.env.dev'));
+    parseEnvFile(path.resolve(rootDir, '.env.development'));
   }
 }
 

@@ -57,12 +57,12 @@
     "typescript": "~6.0.3"
   },
   "scripts": {
-    "start": "EXPO_NO_DOTENV=1 dotenv -e .env.dev -- expo start",
+    "start": "EXPO_NO_DOTENV=1 dotenv -e .env.development -- expo start",
     "start:remote": "EXPO_NO_DOTENV=1 dotenv -e .env -- expo start",
     "reset-project": "node ./scripts/reset-project.js",
-    "android": "EXPO_NO_DOTENV=1 dotenv -e .env.dev -- expo run:android",
+    "android": "EXPO_NO_DOTENV=1 dotenv -e .env.development -- expo run:android",
     "android:remote": "EXPO_NO_DOTENV=1 dotenv -e .env -- expo run:android",
-    "ios": "EXPO_NO_DOTENV=1 dotenv -e .env.dev -- expo run:ios",
+    "ios": "EXPO_NO_DOTENV=1 dotenv -e .env.development -- expo run:ios",
     "ios:remote": "EXPO_NO_DOTENV=1 dotenv -e .env -- expo run:ios",
     "web": "expo start --web",
     "lint": "biome lint .",
