@@ -8,9 +8,12 @@ import { Screen } from '@/components/screen';
 import { ThemedText } from '@/components/themed-text';
 import { Spacing } from '@/constants/theme';
 import { useHouseholds } from '@/features/household/api';
+import { BarcodeScannerModal } from '@/features/inventory/barcode-scanner-modal';
 import { useSyncStatus } from '@/hooks/use-sync-status';
 import { useTheme } from '@/hooks/use-theme';
 import { getDatabase } from '@/lib/db/client';
+import { sendTestNotification } from '@/lib/notifications';
+import type { OpenFoodFactsProduct } from '@/lib/open-food-facts';
 import { getLastSyncInfo, triggerHouseholdSync } from '@/lib/sync/sync-runner';
 
 type OutboxRow = {
@@ -48,10 +51,23 @@ export function SyncDebugScreen() {
   const syncStatus = useSyncStatus(getDatabase);
 
   const [loading, setLoading] = useState(false);
+  const [showScannerTest, setShowScannerTest] = useState(false);
   const [outboxRows, setOutboxRows] = useState<OutboxRow[]>([]);
   const [locationRows, setLocationRows] = useState<LocationRow[]>([]);
   const [itemRows, setItemRows] = useState<ItemRow[]>([]);
   const lastSyncInfo = getLastSyncInfo();
+
+  async function handleTestNotification() {
+    const result = await sendTestNotification();
+    Alert.alert(result.success ? 'Erfolg' : 'Hinweis', result.message);
+  }
+
+  function handleProductScanned(product: OpenFoodFactsProduct) {
+    Alert.alert(
+      'Produkt erkannt! 📷',
+      `Name: ${product.name}\nMarke: ${product.brand ?? '—'}\nBarcode: ${product.barcode}\nMenge: ${product.quantity} ${product.unit}`,
+    );
+  }
 
   const loadDebugData = useCallback(async () => {
     try {
@@ -146,6 +162,21 @@ export function SyncDebugScreen() {
         </View>
       </Card>
 
+      <Card title="Live-Test (Hardware & Push)">
+        <ThemedText type="small" themeColor="textSecondary">
+          Test-Aktionen für lokale Mitteilungen und die Kamera-Barcode-Erkennung.
+        </ThemedText>
+
+        <View style={styles.actionStack}>
+          <Button label="🔔 Test-Benachrichtigung senden" onPress={handleTestNotification} />
+          <Button
+            label="📷 Barcode-Scanner testen"
+            variant="secondary"
+            onPress={() => setShowScannerTest(true)}
+          />
+        </View>
+      </Card>
+
       <Card title="Aktueller Haushalt in DB">
         <View style={styles.zeile}>
           <ThemedText type="small">Haushalts-Name:</ThemedText>
@@ -229,6 +260,12 @@ export function SyncDebugScreen() {
           ))
         )}
       </Card>
+
+      <BarcodeScannerModal
+        visible={showScannerTest}
+        onClose={() => setShowScannerTest(false)}
+        onProductFound={handleProductScanned}
+      />
     </Screen>
   );
 }
@@ -242,6 +279,10 @@ const styles = StyleSheet.create({
   },
   actionRow: {
     marginTop: Spacing.three,
+  },
+  actionStack: {
+    marginTop: Spacing.three,
+    gap: Spacing.two,
   },
   boxItem: {
     paddingVertical: Spacing.two,

@@ -3,9 +3,10 @@
 # ios-dev.sh — Development Build erstellen, herunterladen, im iOS-Simulator
 # installieren und starten.
 #
-#   bash scripts/ios-dev.sh                 neuer Build (Standard)
+#   bash scripts/ios-dev.sh                 neuer Build (Standard, startet Metro im Vordergrund)
 #   bash scripts/ios-dev.sh --reuse-last    letzten fertigen Build verwenden
-#   bash scripts/ios-dev.sh --no-metro      nicht starten, nur installieren
+#   bash scripts/ios-dev.sh --no-metro      nicht starten, nur installieren & App oeffnen
+#   bash scripts/ios-dev.sh --background    Metro im Hintergrund starten
 #   bash scripts/ios-dev.sh --device "iPhone 17"
 #
 # Warum ueberhaupt ein neuer Build: Native Module landen beim Build im Binary.
@@ -19,15 +20,17 @@ PLATFORM="ios"
 DEVICE_NAME="iPhone 17 Pro"
 REUSE_LAST=false
 START_METRO=true
+BACKGROUND_METRO=false
 BUNDLE_ID="com.goldjunge91.fam"
 
 while [ $# -gt 0 ]; do
   case "$1" in
     --reuse-last) REUSE_LAST=true; shift ;;
     --no-metro) START_METRO=false; shift ;;
+    --background) BACKGROUND_METRO=true; shift ;;
     --device) DEVICE_NAME="$2"; shift 2 ;;
     --profile) PROFILE="$2"; shift 2 ;;
-    -h | --help) sed -n '2,13p' "$0" | sed 's/^# \{0,1\}//'; exit 0 ;;
+    -h | --help) sed -n '2,14p' "$0" | sed 's/^# \{0,1\}//'; exit 0 ;;
     *) echo "Unbekannte Option: $1" >&2; exit 1 ;;
   esac
 done
@@ -154,20 +157,45 @@ open -a Simulator
 
 # ------------------------------------------------------------------------ Metro
 if [ "$START_METRO" = true ]; then
-  say "Metro starten"
-  if lsof -ti :8081 >/dev/null 2>&1; then
-    echo "  Port 8081 belegt — bestehender Metro wird weiterverwendet"
+  if [ "$BACKGROUND_METRO" = true ]; then
+    say "Metro im Hintergrund starten"
+    if lsof -ti :8081 >/dev/null 2>&1; then
+      echo "  Port 8081 belegt — bestehender Metro wird weiterverwendet"
+    else
+      (cd "$PROJECT_ROOT" && bun start >"$WORK_DIR/metro.log" 2>&1 &)
+      until grep -qE "Waiting on|exp://" "$WORK_DIR/metro.log" 2>/dev/null; do sleep 2; done
+      echo "  bereit — Log: $WORK_DIR/metro.log"
+    fi
+
+    say "App starten"
+    xcrun simctl launch "$UDID" "$BUNDLE_ID" >/dev/null
+
+    say "Fertig"
+    echo "  Build:     $BUILD_ID"
+    echo "  Simulator: $DEVICE_NAME ($UDID)"
+    echo "  Metro-Log: $WORK_DIR/metro.log"
   else
-    (cd "$(dirname "$0")/.." && bun start >"$WORK_DIR/metro.log" 2>&1 &)
-    until grep -qE "Waiting on|exp://" "$WORK_DIR/metro.log" 2>/dev/null; do sleep 2; done
-    echo "  bereit — Log: $WORK_DIR/metro.log"
+    say "App im Simulator starten"
+    xcrun simctl launch "$UDID" "$BUNDLE_ID" >/dev/null
+
+    if lsof -ti :8081 >/dev/null 2>&1; then
+      say "Beende alten/hintergruendigen Metro-Prozess auf Port 8081..."
+      lsof -ti :8081 | xargs kill -9 2>/dev/null || true
+      sleep 1
+    fi
+
+    say "Fertig! Starte interaktiven Metro-Server..."
+    echo "  Build:     $BUILD_ID"
+    echo "  Simulator: $DEVICE_NAME ($UDID)"
+    echo "  [Tipp] Druecke 'r' im Terminal zum Neuladen oder 'd' fuer das Dev Menu."
+    echo ""
+    cd "$PROJECT_ROOT" && exec bun start
   fi
-
-  say "App starten"
+else
+  say "App starten (ohne Metro)"
   xcrun simctl launch "$UDID" "$BUNDLE_ID" >/dev/null
-fi
 
-say "Fertig"
-echo "  Build:     $BUILD_ID"
-echo "  Simulator: $DEVICE_NAME ($UDID)"
-[ "$START_METRO" = true ] && echo "  Metro-Log: $WORK_DIR/metro.log"
+  say "Fertig"
+  echo "  Build:     $BUILD_ID"
+  echo "  Simulator: $DEVICE_NAME ($UDID)"
+fi

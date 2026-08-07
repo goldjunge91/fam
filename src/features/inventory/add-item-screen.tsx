@@ -9,10 +9,13 @@ import { ThemedText } from '@/components/themed-text';
 import { Spacing } from '@/constants/theme';
 import { useAddFridgeItemMutation } from '@/features/fridge/use-fridge-mutations';
 import { useHouseholds } from '@/features/household/api';
+import { BarcodeScannerModal } from '@/features/inventory/barcode-scanner-modal';
+import { ProductSearchDropdown } from '@/features/inventory/product-search-dropdown';
 import {
   useAddStorageLocationMutation,
   useStorageLocations,
 } from '@/features/inventory/use-storage-locations';
+import type { OpenFoodFactsProduct } from '@/lib/open-food-facts';
 
 function formatOffsetDate(days: number): string {
   const d = new Date();
@@ -42,11 +45,18 @@ export function AddItemScreen() {
   const [locationId, setLocationId] = useState<string | null>(null);
   const [expiryDate, setExpiryDate] = useState('');
 
-  // Neuer Lagerort State
+  // Scanner & Modal State
+  const [showScanner, setShowScanner] = useState(false);
   const [showAddLocation, setShowAddLocation] = useState(false);
   const [newLocationName, setNewLocationName] = useState('');
 
   const activeLocationId = locationId ?? locations?.[0]?.id ?? null;
+
+  function handleSelectProduct(product: OpenFoodFactsProduct) {
+    setName(product.name);
+    if (product.quantity) setQuantity(String(product.quantity));
+    if (product.unit) setUnit(product.unit);
+  }
 
   async function handleAddLocation() {
     if (!currentHousehold || !newLocationName.trim()) return;
@@ -84,7 +94,19 @@ export function AddItemScreen() {
   return (
     <Screen title="Artikel hinzufügen">
       <View style={styles.form}>
-        <TextField label="Name" placeholder="z.B. Milch" value={name} onChangeText={setName} />
+        <Button
+          label="📷 Barcode scannen"
+          variant="secondary"
+          onPress={() => setShowScanner(true)}
+        />
+
+        <ProductSearchDropdown
+          label="Name"
+          placeholder="z. B. Milch oder Barcode-Name"
+          value={name}
+          onChangeText={setName}
+          onSelectProduct={handleSelectProduct}
+        />
 
         <View style={styles.row}>
           <View style={styles.flex}>
@@ -213,6 +235,12 @@ export function AddItemScreen() {
         </View>
         <Button label="Abbrechen" variant="secondary" onPress={() => router.back()} />
       </View>
+
+      <BarcodeScannerModal
+        visible={showScanner}
+        onClose={() => setShowScanner(false)}
+        onProductFound={handleSelectProduct}
+      />
     </Screen>
   );
 }
