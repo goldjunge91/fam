@@ -65,25 +65,6 @@ export function SignUpScreen() {
     );
   }
 
-  // if (needsConfirmation) {
-  //   return (
-  //     <Screen title="Fast geschafft">
-  //       <Card>
-  //         <ThemedText>
-  //           Wir haben dir eine E-Mail an {email} geschickt. Öffne den Link darin, um dein Konto zu
-  //           bestätigen.
-  //         </ThemedText>
-  //         <ThemedText type="small" themeColor="textSecondary">
-  //           Nichts angekommen? Sieh im Spam-Ordner nach.
-  //         </ThemedText>
-  //       </Card>
-
-  //       <Button
-  //         label="Zur Anmeldung"
-  //         variant="secondary"
-  //         onPress={() => router.replace('/sign-in')}
-  //       />
-  //     </Screen>
   return (
     <Screen title="Konto erstellen" subtitle="Für dich und deinen Haushalt">
       <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : undefined}>
