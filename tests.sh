@@ -9,6 +9,10 @@ echo " Starte lokale Test-Pipeline..."
 echo "========================================="
 echo ""
 
+echo "--> Dependencies installieren (--frozen-lockfile, wie beide CI-Jobs)..."
+bun install --frozen-lockfile
+echo ""
+
 echo "=== 1. CHECKS (kein Docker) ==="
 echo "--> Typecheck..."
 bun run typecheck
