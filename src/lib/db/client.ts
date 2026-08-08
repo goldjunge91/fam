@@ -62,12 +62,14 @@ function toPort(db: import('expo-sqlite').SQLiteDatabase): SqlDatabase {
   };
 }
 
+let rawDatabase: import('expo-sqlite').SQLiteDatabase | null = null;
 let database: SqlDatabase | null = null;
 let opening: Promise<SqlDatabase> | null = null;
 
 async function open(): Promise<SqlDatabase> {
   const SQLite = loadSQLite();
-  const db = toPort(await SQLite.openDatabaseAsync(DATABASE_NAME));
+  rawDatabase = await SQLite.openDatabaseAsync(DATABASE_NAME);
+  const db = toPort(rawDatabase);
 
   // WAL muss ausserhalb jeder Transaktion gesetzt werden — innerhalb lehnt
   // SQLite den Moduswechsel ab. Deshalb hier, vor den Migrationen.
@@ -112,10 +114,23 @@ export function getDatabase(): Promise<SqlDatabase> {
 export async function deleteLocalDatabase(): Promise<void> {
   const SQLite = loadSQLite();
 
+  if (rawDatabase) {
+    try {
+      await rawDatabase.closeAsync();
+    } catch (e) {
+      console.warn('[db] Fehler beim Schließen der Datenbank:', e);
+    }
+    rawDatabase = null;
+  }
+
   database = null;
   opening = null;
 
-  await SQLite.deleteDatabaseAsync(DATABASE_NAME);
+  try {
+    await SQLite.deleteDatabaseAsync(DATABASE_NAME);
+  } catch (e) {
+    console.warn('[db] Fehler beim Löschen der Datenbank:', e);
+  }
 }
 
 /**

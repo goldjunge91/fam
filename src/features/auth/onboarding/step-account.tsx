@@ -7,6 +7,7 @@ import { TextField } from '@/components/text-field';
 import { ThemedText } from '@/components/themed-text';
 import { Spacing } from '@/constants/theme';
 import { authErrorMessage, signIn, signInWithOAuthProvider, signUp } from '@/features/auth/api';
+import { PendingAuthBanner } from '@/features/auth/components/pending-auth-banner';
 import { useSession } from '@/features/auth/session-provider';
 import { useTheme } from '@/hooks/use-theme';
 
@@ -19,6 +20,7 @@ export function StepAccount({ onNext }: { onNext: () => void }) {
   const [authPassword, setAuthPassword] = useState('');
   const [authLoading, setAuthLoading] = useState(false);
   const [authError, setAuthError] = useState<string | null>(null);
+  const [pendingEmail, setPendingEmail] = useState<string | null>(null);
 
   async function handleAuthSubmit() {
     if (authLoading) return;
@@ -40,7 +42,23 @@ export function StepAccount({ onNext }: { onNext: () => void }) {
       return;
     }
 
+    if (authMode === 'sign_up' && result.data?.session === null) {
+      setPendingEmail(authEmail.trim());
+      return;
+    }
+
     onNext();
+  }
+
+  if (pendingEmail && !session) {
+    return (
+      <PendingAuthBanner
+        email={pendingEmail}
+        password={authPassword}
+        onConfirmed={onNext}
+        onChangeEmail={() => setPendingEmail(null)}
+      />
+    );
   }
 
   return (

@@ -10,6 +10,7 @@ import { ThemedText } from '@/components/themed-text';
 import { Spacing } from '@/constants/theme';
 import { authErrorMessage, signInWithOAuthProvider, signUp } from '@/features/auth/api';
 import { fieldErrors, signUpSchema } from '@/features/auth/auth-schemas';
+import { PendingAuthBanner } from '@/features/auth/components/pending-auth-banner';
 
 export function SignUpScreen() {
   const [email, setEmail] = useState('');
@@ -18,7 +19,7 @@ export function SignUpScreen() {
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [formError, setFormError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
-  const [needsConfirmation, setNeedsConfirmation] = useState(false);
+  const [pendingEmail, setPendingEmail] = useState<string | null>(null);
 
   async function handleSubmit() {
     if (loading) return;
@@ -43,40 +44,46 @@ export function SignUpScreen() {
       return;
     }
 
-    // Ist E-Mail-Bestaetigung aktiv, kommt eine User-Zeile ohne Session zurueck.
-    // Dann darf hier NICHT weitergeleitet werden — der Nutzer muss erst den Link
-    // aus der Mail oeffnen. Ohne diese Unterscheidung landet er auf einem leeren
-    // Bildschirm und haelt die Registrierung fuer gescheitert.
     if (data.session === null) {
-      setNeedsConfirmation(true);
+      setPendingEmail(parsed.data.email);
       return;
     }
 
     router.replace('/onboarding');
   }
 
-  if (needsConfirmation) {
+  if (pendingEmail) {
     return (
-      <Screen title="Fast geschafft">
-        <Card>
-          <ThemedText>
-            Wir haben dir eine E-Mail an {email} geschickt. Öffne den Link darin, um dein Konto zu
-            bestätigen.
-          </ThemedText>
-          <ThemedText type="small" themeColor="textSecondary">
-            Nichts angekommen? Sieh im Spam-Ordner nach.
-          </ThemedText>
-        </Card>
-
-        <Button
-          label="Zur Anmeldung"
-          variant="secondary"
-          onPress={() => router.replace('/sign-in')}
+      <Screen title="Konto aktivieren" subtitle="E-Mail-Bestätigung ausstehend">
+        <PendingAuthBanner
+          email={pendingEmail}
+          password={password}
+          onConfirmed={() => router.replace('/onboarding')}
+          onChangeEmail={() => setPendingEmail(null)}
         />
       </Screen>
     );
   }
 
+  // if (needsConfirmation) {
+  //   return (
+  //     <Screen title="Fast geschafft">
+  //       <Card>
+  //         <ThemedText>
+  //           Wir haben dir eine E-Mail an {email} geschickt. Öffne den Link darin, um dein Konto zu
+  //           bestätigen.
+  //         </ThemedText>
+  //         <ThemedText type="small" themeColor="textSecondary">
+  //           Nichts angekommen? Sieh im Spam-Ordner nach.
+  //         </ThemedText>
+  //       </Card>
+
+  //       <Button
+  //         label="Zur Anmeldung"
+  //         variant="secondary"
+  //         onPress={() => router.replace('/sign-in')}
+  //       />
+  //     </Screen>
   return (
     <Screen title="Konto erstellen" subtitle="Für dich und deinen Haushalt">
       <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : undefined}>
@@ -101,8 +108,6 @@ export function SignUpScreen() {
               error={errors.password}
               secureTextEntry
               autoCapitalize="none"
-              // `new-password` signalisiert dem Passwortmanager, einen Vorschlag
-              // zu machen, statt ein bestehendes Passwort einzusetzen.
               autoComplete="new-password"
               textContentType="newPassword"
             />

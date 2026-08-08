@@ -52,8 +52,7 @@ export function ProfileScreen() {
       Alert.alert('Abmelden fehlgeschlagen', error.message);
       return;
     }
-    // Kein manueller Redirect: Der Guard im Root-Layout uebernimmt, sobald die
-    // Session weg ist.
+    router.replace('/onboarding');
   }
 
   return (

@@ -58,6 +58,11 @@ export async function signUp(email: string, password: string) {
   return { data, error };
 }
 
+export async function resendConfirmationEmail(email: string) {
+  const { error } = await getSupabase().auth.resend({ type: 'signup', email });
+  return { error };
+}
+
 export async function signIn(email: string, password: string) {
   const { data, error } = await getSupabase().auth.signInWithPassword({ email, password });
   return { data, error };

@@ -85,6 +85,8 @@ export function SettingsScreen() {
 
     if (error) {
       Alert.alert('Abmelden fehlgeschlagen', error.message);
+    } else {
+      router.replace('/onboarding');
     }
   }
 
