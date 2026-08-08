@@ -1,4 +1,9 @@
-import { consumePendingInviteToken, savePendingInviteToken } from '@/lib/pending-invite';
+import {
+  clearPendingInviteToken,
+  consumePendingInviteToken,
+  peekPendingInviteToken,
+  savePendingInviteToken,
+} from '@/lib/pending-invite';
 
 describe('Household & Invites Domain Logic', () => {
   it('sollte Einladungs-URLs korrekt formatieren', () => {
@@ -82,6 +87,24 @@ describe('Household & Invites Domain Logic', () => {
 
     expect(consumedToken).toBe(testToken);
     expect(secondConsume).toBeNull();
+  });
+
+  it('sollte den Einladungs-Token per peek wiederholt lesbar halten, bis er explizit gelöscht wird (#128)', async () => {
+    const testToken = 'token-secret-456';
+
+    await savePendingInviteToken(testToken);
+
+    // Mehrere gleichzeitige Konsumenten (z. B. App-Layout und Onboarding-
+    // Schritt) duerfen sich beim blossen Lesen nicht gegenseitig den Token
+    // wegschnappen - anders als bei consumePendingInviteToken oben.
+    const firstPeek = await peekPendingInviteToken();
+    const secondPeek = await peekPendingInviteToken();
+    expect(firstPeek).toBe(testToken);
+    expect(secondPeek).toBe(testToken);
+
+    // Erst nach erfolgreicher Einloesung wird er wirklich entfernt.
+    await clearPendingInviteToken();
+    expect(await peekPendingInviteToken()).toBeNull();
   });
 
   it('sollte Kinder-Profil Zusatzdaten (Sex, Height) korrekt formatieren', () => {

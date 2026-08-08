@@ -9,7 +9,7 @@ import { useSession } from '@/features/auth/session-provider';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { useRedeemInviteMutation } from '@/features/household/api';
 import { env } from '@/lib/env';
-import { consumePendingInviteToken } from '@/lib/pending-invite';
+import { clearPendingInviteToken, peekPendingInviteToken } from '@/lib/pending-invite';
 import { useSyncEngine } from '@/lib/sync/sync-runner';
 
 function AppLayoutContent() {
@@ -23,13 +23,21 @@ function AppLayoutContent() {
   useSyncEngine(activeHouseholdId ?? undefined);
 
   useEffect(() => {
-    consumePendingInviteToken().then(async (pendingToken) => {
+    // Nur lesen, nicht loeschen (#128): Dieser Effekt laeuft auf jedem Mount
+    // von AppLayoutContent, auch wenn der synchrone Redirect weiter unten
+    // gleich danach nach /onboarding oder /household/create schickt. Wuerde
+    // hier destruktiv gelesen, waere der Token weg, bevor die Einloesung
+    // (die asynchron ist) ueberhaupt zu Ende lief. Erst bei Erfolg loeschen —
+    // schlaegt sie fehl, bleibt er liegen, und der manuelle Beitritts-Screen
+    // (/household/join) kann ihn spaeter noch verwenden.
+    peekPendingInviteToken().then(async (pendingToken) => {
       if (pendingToken) {
         try {
           await redeemInvite.mutateAsync(pendingToken);
+          await clearPendingInviteToken();
           router.replace('/');
-        } catch {
-          router.push({ pathname: '/household/join', params: { token: pendingToken } });
+        } catch (err) {
+          console.error('Automatische Einloesung fehlgeschlagen:', err);
         }
       }
     });

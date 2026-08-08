@@ -63,6 +63,12 @@ export function CreateHouseholdScreen() {
         </View>
       </Card>
 
+      <Button
+        label="Ich habe einen Einladungs-Code"
+        variant="secondary"
+        onPress={() => router.push('/household/join')}
+      />
+
       {router.canGoBack() && (
         <Button label="Abbrechen" variant="secondary" onPress={() => router.back()} />
       )}

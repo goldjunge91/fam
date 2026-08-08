@@ -9,7 +9,7 @@ import { TextField } from '@/components/text-field';
 import { ThemedText } from '@/components/themed-text';
 import { Spacing } from '@/constants/theme';
 import { useRedeemInviteMutation } from '@/features/household/api';
-import { consumePendingInviteToken } from '@/lib/pending-invite';
+import { clearPendingInviteToken, peekPendingInviteToken } from '@/lib/pending-invite';
 
 export function JoinHouseholdScreen() {
   const params = useLocalSearchParams<{ token?: string }>();
@@ -19,8 +19,11 @@ export function JoinHouseholdScreen() {
   const redeemMutation = useRedeemInviteMutation();
 
   useEffect(() => {
+    // Nicht-destruktiv lesen (#128): Bricht der Nutzer hier ab, ohne
+    // "Beitreten" zu tippen, bleibt der Token fuer einen spaeteren Versuch
+    // erhalten statt beim blossen Anzeigen des Screens verloren zu gehen.
     if (!params.token) {
-      consumePendingInviteToken().then((pending) => {
+      peekPendingInviteToken().then((pending) => {
         if (pending) {
           setTokenInput(pending);
         }
@@ -38,6 +41,7 @@ export function JoinHouseholdScreen() {
     setErrorMsg(null);
     try {
       await redeemMutation.mutateAsync(trimmed);
+      await clearPendingInviteToken();
       router.replace('/');
     } catch (err) {
       if (err instanceof Error) {

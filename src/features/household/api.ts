@@ -16,7 +16,7 @@ export function useHouseholds() {
         .select('*')
         .order('created_at', { ascending: true });
 
-      if (error) throw error;
+      if (error) throw new Error(error.message);
       return data;
     },
   });
@@ -31,7 +31,7 @@ export function useCreateHouseholdMutation() {
         household_name: householdName,
       });
 
-      if (error) throw error;
+      if (error) throw new Error(error.message);
       return data;
     },
     onSuccess: async () => {
@@ -51,7 +51,7 @@ export function useHouseholdMembers(householdId: string) {
         .eq('household_id', householdId)
         .order('joined_at', { ascending: true });
 
-      if (error) throw error;
+      if (error) throw new Error(error.message);
       return data;
     },
     enabled: !!householdId,
@@ -77,7 +77,7 @@ export function useUpdateMemberRoleMutation() {
         .eq('household_id', householdId)
         .eq('user_id', userId);
 
-      if (error) throw error;
+      if (error) throw new Error(error.message);
       return data;
     },
     onSuccess: (_, variables) => {
@@ -99,7 +99,7 @@ export function useRemoveMemberMutation() {
         .eq('household_id', householdId)
         .eq('user_id', userId);
 
-      if (error) throw error;
+      if (error) throw new Error(error.message);
       return data;
     },
     onSuccess: (_, variables) => {
@@ -121,7 +121,7 @@ export function useLeaveHouseholdMutation() {
         .delete()
         .eq('household_id', householdId);
 
-      if (error) throw error;
+      if (error) throw new Error(error.message);
       return data;
     },
     onSuccess: () => {
@@ -138,7 +138,7 @@ export function useDeleteHouseholdMutation() {
       // Nur der Admin/Ersteller darf löschen (RLS regelt das)
       const { data, error } = await getSupabase().from('households').delete().eq('id', householdId);
 
-      if (error) throw error;
+      if (error) throw new Error(error.message);
       return data;
     },
     onSuccess: () => {
@@ -159,7 +159,7 @@ export function useHouseholdInvites(householdId: string) {
         .gt('expires_at', new Date().toISOString())
         .order('created_at', { ascending: false });
 
-      if (error) throw error;
+      if (error) throw new Error(error.message);
       return data;
     },
     enabled: !!householdId,
@@ -193,7 +193,7 @@ export function useCreateInviteMutation() {
         .select('*')
         .single();
 
-      if (error) throw error;
+      if (error) throw new Error(error.message);
       return data;
     },
     onSuccess: (_, variables) => {
@@ -220,7 +220,7 @@ export function useRevokeInviteMutation() {
         .update({ revoked_at: new Date().toISOString() })
         .eq('id', inviteId);
 
-      if (error) throw error;
+      if (error) throw new Error(error.message);
       return data;
     },
     onSuccess: (_, variables) => {
@@ -240,7 +240,7 @@ export function useRedeemInviteMutation() {
         invite_token: inviteToken,
       });
 
-      if (error) throw error;
+      if (error) throw new Error(error.message);
       return data;
     },
     onSuccess: async () => {
@@ -260,7 +260,7 @@ export function useChildProfiles(householdId: string) {
         .eq('household_id', householdId)
         .order('created_at', { ascending: true });
 
-      if (error) throw error;
+      if (error) throw new Error(error.message);
       return data;
     },
     enabled: !!householdId,
@@ -299,7 +299,7 @@ export function useAddChildProfileMutation() {
         .select('*')
         .single();
 
-      if (error) throw error;
+      if (error) throw new Error(error.message);
       return data;
     },
     onSuccess: (_, variables) => {
@@ -317,7 +317,7 @@ export function useDeleteChildProfileMutation() {
     mutationFn: async ({ id, householdId: _householdId }: { id: string; householdId: string }) => {
       const { data, error } = await getSupabase().from('child_profiles').delete().eq('id', id);
 
-      if (error) throw error;
+      if (error) throw new Error(error.message);
       return data;
     },
     onSuccess: (_, variables) => {
@@ -362,7 +362,7 @@ export function useUpdateChildProfileMutation() {
         .select('*')
         .single();
 
-      if (error) throw error;
+      if (error) throw new Error(error.message);
       return data;
     },
     onSuccess: (_, variables) => {
