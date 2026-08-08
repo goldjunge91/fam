@@ -3,7 +3,11 @@ import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { Button } from '@/components/button';
 import { TextField } from '@/components/text-field';
 import { Spacing } from '@/constants/theme';
-import { useHouseholds } from '@/features/household/api';
+import {
+  useCreateHouseholdMutation,
+  useHouseholds,
+  useRedeemInviteMutation,
+} from '@/features/household/api';
 import { useTheme } from '@/hooks/use-theme';
 import { useOnboarding } from '../context/onboarding-context';
 import type { HouseholdChoice } from '../types';
@@ -19,19 +23,54 @@ export function HouseholdStepForm({ onNext, onSkip }: HouseholdStepFormProps) {
   const { data: households } = useHouseholds();
   const activeHousehold = households?.[0];
 
+  const createHouseholdMutation = useCreateHouseholdMutation();
+  const redeemInviteMutation = useRedeemInviteMutation();
+
   const [choice, setChoice] = useState<HouseholdChoice>(
     state.household.choice ?? (activeHousehold ? 'solo' : 'solo'),
   );
   const [householdName, setHouseholdName] = useState(state.household.name ?? '');
   const [inviteCode, setInviteCode] = useState(state.household.inviteCode ?? '');
+  const [errorMsg, setErrorMsg] = useState<string | null>(null);
 
-  const handleNext = () => {
+  const isPending = createHouseholdMutation.isPending || redeemInviteMutation.isPending;
+
+  const handleNext = async () => {
+    setErrorMsg(null);
+
     updateHouseholdData({
       choice,
       name: choice === 'create' ? householdName.trim() || 'Mein Haushalt' : undefined,
       inviteCode: choice === 'join' ? inviteCode.trim() : undefined,
     });
-    onNext();
+
+    if (activeHousehold) {
+      onNext();
+      return;
+    }
+
+    try {
+      if (choice === 'create') {
+        const name = householdName.trim() || 'Mein Haushalt';
+        await createHouseholdMutation.mutateAsync(name);
+      } else if (choice === 'join') {
+        const code = inviteCode.trim();
+        if (!code) {
+          setErrorMsg('Bitte gib einen Einladungscode ein.');
+          return;
+        }
+        await redeemInviteMutation.mutateAsync(code);
+      } else if (choice === 'solo') {
+        await createHouseholdMutation.mutateAsync('Mein Haushalt');
+      }
+      onNext();
+    } catch (err) {
+      if (err instanceof Error) {
+        setErrorMsg(err.message);
+      } else {
+        setErrorMsg('Fehler beim Erstellen oder Beitreten des Haushalts.');
+      }
+    }
   };
 
   return (
@@ -143,12 +182,18 @@ export function HouseholdStepForm({ onNext, onSkip }: HouseholdStepFormProps) {
         />
       )}
 
+      {errorMsg ? (
+        <Text style={{ color: theme.danger, fontSize: 13, marginTop: Spacing.one }}>
+          {errorMsg}
+        </Text>
+      ) : null}
+
       <View style={styles.buttonRow}>
         <View style={styles.buttonCol}>
-          <Button label="Weiter" onPress={handleNext} />
+          <Button label="Weiter" onPress={handleNext} loading={isPending} />
         </View>
         <View style={styles.buttonCol}>
-          <Button label="Überspringen" variant="secondary" onPress={onSkip} />
+          <Button label="Überspringen" variant="secondary" onPress={onSkip} disabled={isPending} />
         </View>
       </View>
     </View>

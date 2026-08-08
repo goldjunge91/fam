@@ -2,6 +2,7 @@ import { createContext, type ReactNode, useContext, useState } from 'react';
 import { updateProfile } from '@/features/auth/api';
 import { persistOnboardingCompleted } from '@/features/auth/onboarding-session';
 import { useSession } from '@/features/auth/session-provider';
+import { getSupabase } from '@/lib/supabase';
 import type {
   HouseholdOnboardingData,
   ModulePreferencesData,
@@ -99,8 +100,50 @@ export function OnboardingProvider({ children }: { children: ReactNode }) {
         }
       }
 
-      // Onboarding-Flag persistieren — beim naechsten Kaltstart wird dieser
-      // User als "bekannt" erkannt und direkt zum Login-Screen geleitet.
+      // 2. Failsafe Household-Prüfung: Stellt sicher, dass der Nutzer in der DB mindestens einem Haushalt angehört
+      const supabase = getSupabase();
+      const { data: existingHouseholds, error: hhErr } = await supabase
+        .from('households')
+        .select('id')
+        .limit(1);
+
+      if (hhErr) {
+        console.warn('Hinweis beim Prüfen bestehender Haushalte:', hhErr.message);
+      }
+
+      if (!existingHouseholds || existingHouseholds.length === 0) {
+        if (state.household.choice === 'create') {
+          const name = state.household.name?.trim() || 'Mein Haushalt';
+          const { error: createErr } = await supabase.rpc('create_household', {
+            household_name: name,
+          });
+          if (createErr) {
+            setError(`Fehler beim Erstellen des Haushalts: ${createErr.message}`);
+            setIsLoading(false);
+            return;
+          }
+        } else if (state.household.choice === 'join' && state.household.inviteCode) {
+          const { error: redeemErr } = await supabase.rpc('redeem_invite', {
+            invite_token: state.household.inviteCode,
+          });
+          if (redeemErr) {
+            setError(`Fehler beim Einlösen des Einladungscodes: ${redeemErr.message}`);
+            setIsLoading(false);
+            return;
+          }
+        } else {
+          const { error: createErr } = await supabase.rpc('create_household', {
+            household_name: 'Mein Haushalt',
+          });
+          if (createErr) {
+            setError(`Fehler beim Erstellen des Haushalts: ${createErr.message}`);
+            setIsLoading(false);
+            return;
+          }
+        }
+      }
+
+      // Onboarding-Flag persistieren
       await persistOnboardingCompleted();
       setIsLoading(false);
     } catch (e) {

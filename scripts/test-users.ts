@@ -1,52 +1,11 @@
-import * as fs from 'node:fs';
-import * as path from 'node:path';
 import { createClient } from '@supabase/supabase-js';
 
-function parseEnvFile(filePath: string) {
-  if (fs.existsSync(filePath)) {
-    const content = fs.readFileSync(filePath, 'utf8');
-    for (const line of content.split('\n')) {
-      const trimmed = line.trim();
-      if (trimmed && !trimmed.startsWith('#')) {
-        const [key, ...valParts] = trimmed.split('=');
-        if (key && valParts.length > 0) {
-          const val = valParts.join('=').trim();
-          process.env[key.trim()] = val;
-        }
-      }
-    }
-  }
-}
-
-function loadEnv() {
-  const rootDir = process.cwd();
-  // Read main .env first
-  parseEnvFile(path.resolve(rootDir, '.env'));
-
-  // If EXPO_PUBLIC_USE_LOCAL_DB=true, override with .env.development
-  const useLocal = process.env.EXPO_PUBLIC_USE_LOCAL_DB?.trim().toLowerCase();
-  if (useLocal === 'true' || useLocal === '1') {
-    parseEnvFile(path.resolve(rootDir, '.env.development'));
-  }
-}
-
-loadEnv();
-
-const isRemote = process.argv.includes('--remote');
-const LOCAL_URL = 'http://127.0.0.1:54321';
+// Das Skript dient AUSSCHLIESSLICH der lokalen Entwicklung
+const LOCAL_SUPABASE_URL = 'http://127.0.0.1:54321';
 const LOCAL_SERVICE_ROLE_KEY =
   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZS1kZW1vIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImV4cCI6MTk4MzgxMjk5Nn0.EGIM96RAZx35lJzdJsyH-qQwv8Hdp7fsn3W0YpN81IU';
 
-const SUPABASE_URL = isRemote
-  ? process.env.EXPO_PUBLIC_SUPABASE_URL || LOCAL_URL
-  : process.env.EXPO_PUBLIC_SUPABASE_URL || LOCAL_URL;
-const SUPABASE_KEY = isRemote
-  ? process.env.SUPABASE_SERVICE_ROLE_KEY ||
-    process.env.EXPO_PUBLIC_SUPABASE_KEY ||
-    LOCAL_SERVICE_ROLE_KEY
-  : LOCAL_SERVICE_ROLE_KEY;
-
-const supabase = createClient(SUPABASE_URL, SUPABASE_KEY, {
+const supabase = createClient(LOCAL_SUPABASE_URL, LOCAL_SERVICE_ROLE_KEY, {
   auth: {
     autoRefreshToken: false,
     persistSession: false,
@@ -54,8 +13,7 @@ const supabase = createClient(SUPABASE_URL, SUPABASE_KEY, {
 });
 
 async function main() {
-  const rawArgs = process.argv.slice(2);
-  const args = rawArgs.filter((a) => a !== '--remote' && a !== '--local');
+  const args = process.argv.slice(2);
   const command = args[0] || 'help';
 
   switch (command) {
@@ -79,16 +37,13 @@ async function main() {
 
 function printUsage() {
   console.log(`
-🛠️  Familie-App Test-Account Helper
+🛠️  Familie-App Test-Account Helper (Nur lokale Entwicklungsdatenbank)
 
 Befehle:
-  bun run user:create [email] [passwort] [name]  Erstellt einen Test-Account
+  bun run user:create [email] [passwort] [name]  Erstellt einen Test-Account auf der lokalen DB
   bun run user:list                              Listet alle vorhandenen Test-Accounts auf
   bun run user:clean                             Löscht ALLE Test-Accounts (*@example.com)
   bun run user:delete <email>                    Löscht einen spezifischen Test-Account
-
-Optionen:
-  --remote                                       Führt den Befehl gegen das gehostete Supabase aus
 
 Beispiele:
   bun run user:create
@@ -104,9 +59,8 @@ async function handleCreate(customEmail?: string, customPassword?: string, custo
   const password = customPassword || 'Passwort123!';
   const displayName = customName || `Test User ${randomSuffix}`;
 
-  console.log(`\n⏳ Erstelle Test-Account auf ${SUPABASE_URL}...`);
+  console.log(`\n⏳ Erstelle lokalen Test-Account auf ${LOCAL_SUPABASE_URL}...`);
 
-  let userId: string | null = null;
   const { data: adminData, error: adminErr } = await supabase.auth.admin.createUser({
     email,
     password,
@@ -114,93 +68,59 @@ async function handleCreate(customEmail?: string, customPassword?: string, custo
     user_metadata: { display_name: displayName },
   });
 
-  if (!adminErr && adminData?.user) {
-    userId = adminData.user.id;
-  } else {
-    const { data: signUpData, error: signUpErr } = await supabase.auth.signUp({
-      email,
-      password,
-      options: {
-        data: { display_name: displayName },
-      },
-    });
-
-    if (signUpErr) {
-      console.error('❌ Fehler beim Erstellen des Accounts:', signUpErr.message);
-      process.exit(1);
-    }
-    userId = signUpData.user?.id || null;
+  if (adminErr || !adminData?.user) {
+    console.error(
+      '❌ Fehler beim Erstellen des Test-Accounts:',
+      adminErr?.message || 'Unbekannter Fehler',
+    );
+    process.exit(1);
   }
 
-  if (userId) {
-    // Profil in public.profiles vervollständigen
-    const { error: profileErr } = await supabase.from('profiles').upsert({
-      id: userId,
-      display_name: displayName,
-      onboarding_completed_at: new Date().toISOString(),
-      updated_at: new Date().toISOString(),
-    });
-    if (profileErr) {
-      console.warn('⚠️ Profil-Update Hinweis:', profileErr.message);
-    }
+  const userId = adminData.user.id;
+
+  // Profil in public.profiles vervollständigen
+  const { error: profileErr } = await supabase.from('profiles').upsert({
+    id: userId,
+    display_name: displayName,
+    onboarding_completed_at: new Date().toISOString(),
+    updated_at: new Date().toISOString(),
+  });
+
+  if (profileErr) {
+    console.warn('⚠️ Profil-Update Hinweis:', profileErr.message);
   }
 
-  console.log('\n✅ Test-Account erfolgreich erstellt!');
+  console.log('\n✅ Lokaler Test-Account erfolgreich erstellt!');
   console.log(`──────────────────────────────────────────`);
   console.log(` 📧 E-Mail:   ${email}`);
   console.log(` 🔑 Passwort: ${password}`);
   console.log(` 👤 Name:     ${displayName}`);
-  if (userId) console.log(` 🆔 User ID:  ${userId}`);
+  console.log(` 🆔 User ID:  ${userId}`);
   console.log(`──────────────────────────────────────────\n`);
 }
 
 async function handleList() {
-  console.log(`\n📋 Suche nach Test-Accounts... (${SUPABASE_URL})\n`);
+  console.log(`\n📋 Suche nach lokalen Test-Accounts... (${LOCAL_SUPABASE_URL})\n`);
 
   const { data: usersData, error: adminErr } = await supabase.auth.admin.listUsers();
 
-  if (!adminErr && usersData?.users) {
-    console.log(`Gefunden: ${usersData.users.length} Account(s) in auth.users:\n`);
-    console.log('  E-Mail                        | Erstellt am          | ID');
-    console.log(
-      '--------------------------------------------------------------------------------------',
+  if (adminErr || !usersData?.users) {
+    console.error(
+      '❌ Fehler beim Abfragen der Admin-Benutzer:',
+      adminErr?.message || 'Keine Daten',
     );
-    for (const u of usersData.users) {
-      const emailFormatted = (u.email || '–').padEnd(30, ' ');
-      const createdFormatted = new Date(u.created_at).toLocaleString('de-DE').padEnd(20, ' ');
-      console.log(`  ${emailFormatted} | ${createdFormatted} | ${u.id}`);
-    }
-    console.log('');
-    return;
-  }
-
-  // Fallback: public.profiles
-  const { data: profiles, error } = await supabase
-    .from('profiles')
-    .select('id, display_name, onboarding_completed_at, created_at')
-    .order('created_at', { ascending: false });
-
-  if (error) {
-    console.error('❌ Fehler beim Abfragen der Profile:', error.message);
     process.exit(1);
   }
 
-  if (!profiles || profiles.length === 0) {
-    console.log('ℹ️ Keine Nutzer-Profile gefunden.');
-    return;
-  }
-
-  console.log(`Gefunden: ${profiles.length} Profil(e) in public.profiles:\n`);
-  console.log(
-    '  Name                          | ID                                   | Onboarding',
-  );
+  console.log(`Gefunden: ${usersData.users.length} Account(s) in auth.users:\n`);
+  console.log('  E-Mail                        | Erstellt am          | ID');
   console.log(
     '--------------------------------------------------------------------------------------',
   );
-  for (const p of profiles) {
-    const nameFormatted = (p.display_name || 'Unbenannt').padEnd(30, ' ');
-    const onboarding = p.onboarding_completed_at ? '✓ Abgeschlossen' : 'Offen';
-    console.log(`  ${nameFormatted} | ${p.id} | ${onboarding}`);
+  for (const u of usersData.users) {
+    const emailFormatted = (u.email || '–').padEnd(30, ' ');
+    const createdFormatted = new Date(u.created_at).toLocaleString('de-DE').padEnd(20, ' ');
+    console.log(`  ${emailFormatted} | ${createdFormatted} | ${u.id}`);
   }
   console.log('');
 }
@@ -211,7 +131,7 @@ async function handleDelete(email?: string) {
     process.exit(1);
   }
 
-  console.log(`\n⏳ Lösche Test-Account ${email}...`);
+  console.log(`\n⏳ Lösche lokalen Test-Account ${email}...`);
   const { data: adminUsers } = await supabase.auth.admin.listUsers();
   const target = adminUsers?.users?.find((u) => u.email?.toLowerCase() === email.toLowerCase());
 
@@ -228,7 +148,7 @@ async function handleDelete(email?: string) {
 }
 
 async function handleClean() {
-  console.log('\n🗑️  Bereinige Test-Accounts (*@example.com, *@test.fam, tester_*)...');
+  console.log('\n🗑️  Bereinige lokale Test-Accounts (*@example.com, *@test.fam, tester_*)...');
 
   const { data: adminUsers } = await supabase.auth.admin.listUsers();
   if (adminUsers?.users) {
@@ -250,9 +170,7 @@ async function handleClean() {
       await supabase.auth.admin.deleteUser(u.id);
       count++;
     }
-    console.log(`\n✅ Insgesammt ${count} Test-Account(s) gelöscht!\n`);
-  } else {
-    console.log('ℹ️ Keine Admin-Rechte verfügbar.');
+    console.log(`\n✅ Insgesamt ${count} Test-Account(s) gelöscht!\n`);
   }
 }
 
