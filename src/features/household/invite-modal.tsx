@@ -1,3 +1,4 @@
+import * as Clipboard from 'expo-clipboard';
 import { useState } from 'react';
 import { Alert, Modal, Pressable, ScrollView, Share, StyleSheet, View } from 'react-native';
 import QRCode from 'react-native-qrcode-svg';
@@ -30,8 +31,9 @@ export function InviteModal({ visible, householdId, householdName, onClose }: In
   const createMutation = useCreateInviteMutation();
   const revokeMutation = useRevokeInviteMutation();
 
-  const [createdToken, setCreatedToken] = useState<string | null>(null);
+  const [selectedToken, setSelectedToken] = useState<string | null>(null);
   const [showQrCode, setShowQrCode] = useState(true);
+  const [copyFeedback, setCopyFeedback] = useState<'code' | 'link' | null>(null);
 
   async function handleCreate() {
     if (!userId || !householdId) return;
@@ -42,13 +44,34 @@ export function InviteModal({ visible, householdId, householdName, onClose }: In
         expiresDays: 7,
         maxUses: 5,
       });
-      setCreatedToken(invite.token);
+      setSelectedToken(invite.token);
       setShowQrCode(true);
     } catch (err) {
       Alert.alert(
         'Fehler',
         err instanceof Error ? err.message : 'Einladung konnte nicht erstellt werden.',
       );
+    }
+  }
+
+  async function handleCopyCode(token: string) {
+    try {
+      await Clipboard.setStringAsync(token);
+      setCopyFeedback('code');
+      setTimeout(() => setCopyFeedback(null), 2000);
+    } catch (err) {
+      console.error('Fehler beim Kopieren des Codes:', err);
+    }
+  }
+
+  async function handleCopyLink(token: string) {
+    const inviteUrl = `fam://join?token=${token}`;
+    try {
+      await Clipboard.setStringAsync(inviteUrl);
+      setCopyFeedback('link');
+      setTimeout(() => setCopyFeedback(null), 2000);
+    } catch (err) {
+      console.error('Fehler beim Kopieren des Links:', err);
     }
   }
 
@@ -72,8 +95,8 @@ export function InviteModal({ visible, householdId, householdName, onClose }: In
         onPress: async () => {
           try {
             await revokeMutation.mutateAsync({ inviteId, householdId });
-            if (createdToken && invites.find((i) => i.id === inviteId)?.token === createdToken) {
-              setCreatedToken(null);
+            if (selectedToken && invites.find((i) => i.id === inviteId)?.token === selectedToken) {
+              setSelectedToken(null);
             }
           } catch (err) {
             Alert.alert('Fehler', err instanceof Error ? err.message : 'Fehler beim Zurückziehen');
@@ -100,27 +123,47 @@ export function InviteModal({ visible, householdId, householdName, onClose }: In
               &quot;{householdName}&quot; einzuladen.
             </ThemedText>
 
-            {createdToken ? (
-              <Card title="Neuer Einladungs-Code & QR-Code">
+            {selectedToken ? (
+              <Card title="Einladungs-Code & QR-Code">
                 <View style={styles.createdBox}>
-                  <ThemedText style={styles.tokenText}>{createdToken}</ThemedText>
+                  <ThemedText style={styles.tokenText}>{selectedToken}</ThemedText>
 
                   {showQrCode && (
                     <View style={styles.qrContainer}>
-                      <QRCode value={`fam://join?token=${createdToken}`} size={180} />
+                      <QRCode value={`fam://join?token=${selectedToken}`} size={180} />
                     </View>
                   )}
+
+                  <View style={styles.buttonRow}>
+                    <View style={{ flex: 1 }}>
+                      <Button
+                        label={copyFeedback === 'code' ? '✓ Code kopiert!' : 'Code kopieren'}
+                        onPress={() => handleCopyCode(selectedToken)}
+                      />
+                    </View>
+                    <View style={{ flex: 1 }}>
+                      <Button
+                        label={copyFeedback === 'link' ? '✓ Link kopiert!' : 'Link kopieren'}
+                        onPress={() => handleCopyLink(selectedToken)}
+                      />
+                    </View>
+                  </View>
 
                   <Button
                     label={showQrCode ? 'QR-Code ausblenden' : 'QR-Code anzeigen'}
                     variant="secondary"
                     onPress={() => setShowQrCode(!showQrCode)}
                   />
-                  <Button label="Code / Link teilen" onPress={() => handleShare(createdToken)} />
                   <Button
-                    label="Weiterer Code"
+                    label="Code / Link teilen"
                     variant="secondary"
-                    onPress={() => setCreatedToken(null)}
+                    onPress={() => handleShare(selectedToken)}
+                  />
+                  <Button
+                    label="+ Neuer Einladungs-Code"
+                    variant="secondary"
+                    onPress={handleCreate}
+                    loading={createMutation.isPending}
                   />
                 </View>
               </Card>
@@ -138,29 +181,56 @@ export function InviteModal({ visible, householdId, householdName, onClose }: In
                 Keine aktiven Einladungen vorhanden.
               </ThemedText>
             ) : (
-              invites.map((inv) => (
-                <View key={inv.id} style={[styles.inviteRow, { borderBottomColor: theme.border }]}>
-                  <View style={{ flex: 1 }}>
-                    <ThemedText type="smallBold" numberOfLines={1}>
-                      {inv.token}
-                    </ThemedText>
-                    <ThemedText type="small" themeColor="textSecondary">
-                      Gültig bis {new Date(inv.expires_at).toLocaleDateString('de-DE')} · {inv.uses}
-                      /{inv.max_uses} genutzt
-                    </ThemedText>
-                  </View>
-                  <View style={styles.inviteButtons}>
+              invites.map((inv) => {
+                const isSelected = inv.token === selectedToken;
+                return (
+                  <View
+                    key={inv.id}
+                    style={[
+                      styles.inviteRow,
+                      { borderBottomColor: theme.border },
+                      isSelected && { backgroundColor: `${theme.accent}15`, borderRadius: 8 },
+                    ]}>
                     <Pressable
-                      onPress={() => handleShare(inv.token)}
-                      style={styles.actionIconButton}>
-                      <ThemedText style={{ fontSize: 16 }}>📤</ThemedText>
+                      style={{ flex: 1 }}
+                      onPress={() => {
+                        setSelectedToken(inv.token);
+                        setShowQrCode(true);
+                      }}>
+                      <ThemedText type="smallBold" numberOfLines={1}>
+                        {inv.token}
+                      </ThemedText>
+                      <ThemedText type="small" themeColor="textSecondary">
+                        Gültig bis {new Date(inv.expires_at).toLocaleDateString('de-DE')} ·{' '}
+                        {inv.uses}/{inv.max_uses} genutzt
+                      </ThemedText>
                     </Pressable>
-                    <Pressable onPress={() => handleRevoke(inv.id)} style={styles.actionIconButton}>
-                      <ThemedText style={{ fontSize: 16 }}>🗑</ThemedText>
-                    </Pressable>
+                    <View style={styles.inviteButtons}>
+                      <Pressable
+                        onPress={() => {
+                          setSelectedToken(inv.token);
+                          setShowQrCode(true);
+                        }}
+                        accessibilityLabel="QR-Code anzeigen"
+                        style={styles.actionIconButton}>
+                        <ThemedText style={{ fontSize: 16 }}>📱</ThemedText>
+                      </Pressable>
+                      <Pressable
+                        onPress={() => handleShare(inv.token)}
+                        accessibilityLabel="Teilen"
+                        style={styles.actionIconButton}>
+                        <ThemedText style={{ fontSize: 16 }}>📤</ThemedText>
+                      </Pressable>
+                      <Pressable
+                        onPress={() => handleRevoke(inv.id)}
+                        accessibilityLabel="Zurückziehen"
+                        style={styles.actionIconButton}>
+                        <ThemedText style={{ fontSize: 16 }}>🗑</ThemedText>
+                      </Pressable>
+                    </View>
                   </View>
-                </View>
-              ))
+                );
+              })
             )}
           </ScrollView>
 
@@ -211,6 +281,10 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     marginVertical: Spacing.two,
   },
+  buttonRow: {
+    flexDirection: 'row',
+    gap: Spacing.two,
+  },
   sectionTitle: {
     fontWeight: 'bold',
     marginTop: Spacing.two,
@@ -219,6 +293,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     paddingVertical: Spacing.two,
+    paddingHorizontal: Spacing.one,
     borderBottomWidth: StyleSheet.hairlineWidth,
     gap: Spacing.two,
   },
