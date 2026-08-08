@@ -12,7 +12,7 @@ Neue Tabelle `supabase/schemas/08_inventory.sql`:
 create table if not exists public.shopping_history (
   id          uuid primary key default gen_random_uuid(),
   household_id uuid not null references public.households(id) on delete cascade,
-  completed_by uuid references public.profiles(id) on delete set null,
+  completed_by uuid references public.profiles(id) on delete set null, 
   completed_at timestamptz not null,
 
   -- Was wurde gekauft
@@ -44,24 +44,24 @@ Migration via `bun run db:diff -- -f add_shopping_history`.
 > [!IMPORTANT]
 > Kein Re-Export — alle Import-Stellen werden direkt umgeschrieben.
 
-| Was | Wohin |
-|---|---|
-| `useAddFridgeItemMutation`<br>`useUpdateFridgeItemQuantityMutation` | [NEW] `src/features/fridge/use-fridge-mutations.ts` |
-| `useStorageLocations`<br>`useDeleteStorageLocationMutation` | [NEW] `src/features/inventory/use-storage-locations.ts` |
-| `normalizeUnit` | [NEW] `src/lib/units.ts` (reines Utility, kein Feature) |
-| Typ `FridgeItem`, `StorageLocation` | direkt in die jeweiligen Feature-Dateien |
+| Was                                                                 | Wohin                                                   |
+| ------------------------------------------------------------------- | ------------------------------------------------------- |
+| `useAddFridgeItemMutation`<br>`useUpdateFridgeItemQuantityMutation` | [NEW] `src/features/fridge/use-fridge-mutations.ts`     |
+| `useStorageLocations`<br>`useDeleteStorageLocationMutation`         | [NEW] `src/features/inventory/use-storage-locations.ts` |
+| `normalizeUnit`                                                     | [NEW] `src/lib/units.ts` (reines Utility, kein Feature) |
+| Typ `FridgeItem`, `StorageLocation`                                 | direkt in die jeweiligen Feature-Dateien                |
 
 **Import-Stellen die angepasst werden:**
 
-| Datei | Neue Import-Quelle |
-|---|---|
-| `fridge/fridge-screen.tsx` | `fridge/use-fridge-mutations` |
-| `fridge/use-fridge-items.ts` | `inventory/use-storage-locations` |
-| `inventory/add-item-screen.tsx` | `fridge/use-fridge-mutations` + `inventory/use-storage-locations` |
-| `inventory/fridge-screen.tsx` | `fridge/use-fridge-mutations` + `inventory/use-storage-locations` |
-| `inventory/storage-locations-screen.tsx` | `inventory/use-storage-locations` |
-| `shopping-list/use-complete-shopping-run.ts` | `lib/units` + `inventory/use-storage-locations` |
-| `shopping-list/use-shopping-list-mutations.ts` | `lib/units` |
+| Datei                                          | Neue Import-Quelle                                                |
+| ---------------------------------------------- | ----------------------------------------------------------------- |
+| `fridge/fridge-screen.tsx`                     | `fridge/use-fridge-mutations`                                     |
+| `fridge/use-fridge-items.ts`                   | `inventory/use-storage-locations`                                 |
+| `inventory/add-item-screen.tsx`                | `fridge/use-fridge-mutations` + `inventory/use-storage-locations` |
+| `inventory/fridge-screen.tsx`                  | `fridge/use-fridge-mutations` + `inventory/use-storage-locations` |
+| `inventory/storage-locations-screen.tsx`       | `inventory/use-storage-locations`                                 |
+| `shopping-list/use-complete-shopping-run.ts`   | `lib/units` + `inventory/use-storage-locations`                   |
+| `shopping-list/use-shopping-list-mutations.ts` | `lib/units`                                                       |
 
 `inventory/api.ts` bleibt als Datei, enthält danach nur noch was ausschliesslich dem `inventory`-Feature gehört (z.B. Produkt-Katalog-Queries).
 

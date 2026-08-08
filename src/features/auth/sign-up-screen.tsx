@@ -44,7 +44,7 @@ export function SignUpScreen() {
       return;
     }
 
-    if (data.session === null) {
+    if (!data.session) {
       setPendingEmail(parsed.data.email);
       return;
     }

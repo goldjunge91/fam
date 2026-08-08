@@ -45,7 +45,7 @@ export function AccountStepForm({ onNext }: AccountStepFormProps) {
 
     // Ist E-Mail-Bestaetigung aktiv, kommt ein User ohne Session zurueck.
     // Dann muss die App im Warteraum (PendingAuthBanner) auf die Bestaetigung warten.
-    if (authMode === 'sign_up' && result.data?.session === null) {
+    if (authMode === 'sign_up' && !result.data?.session) {
       setPendingEmail(authEmail.trim());
       return;
     }
