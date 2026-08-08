@@ -53,7 +53,7 @@ export function AccountStepForm({ onNext }: AccountStepFormProps) {
     onNext();
   }
 
-  if (pendingEmail && !session) {
+  if (pendingEmail) {
     return (
       <View style={styles.container}>
         <PendingAuthBanner
