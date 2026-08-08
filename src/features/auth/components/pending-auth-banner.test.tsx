@@ -74,4 +74,24 @@ describe('PendingAuthBanner (Apple Liquid UI)', () => {
 
     expect(onChangeEmailMock).toHaveBeenCalled();
   });
+
+  it('sollte niemals per Passwort einloggen, solange keine echte Session existiert (#128)', async () => {
+    // Regression: fruehere Version versuchte alle 3s signIn(email, password) —
+    // das haette einen Nutzer ohne bestaetigte E-Mail anmelden koennen, sobald
+    // der Server einen unbestaetigten Sign-in zulaesst. Die Bestaetigung darf
+    // ausschliesslich ueber eine von Supabase selbst gelieferte Session laufen.
+    const { signIn } = require('@/features/auth/api');
+    const onConfirmedMock = jest.fn();
+
+    jest.useFakeTimers();
+
+    await render(<PendingAuthBanner email="test@example.com" onConfirmed={onConfirmedMock} />);
+
+    await jest.advanceTimersByTimeAsync(10_000);
+
+    expect(signIn).not.toHaveBeenCalled();
+    expect(onConfirmedMock).not.toHaveBeenCalled();
+
+    jest.useRealTimers();
+  });
 });

@@ -58,7 +58,6 @@ export function AccountStepForm({ onNext }: AccountStepFormProps) {
       <View style={styles.container}>
         <PendingAuthBanner
           email={pendingEmail}
-          password={authPassword}
           onConfirmed={onNext}
           onChangeEmail={() => setPendingEmail(null)}
         />

@@ -4,23 +4,17 @@ import { Animated, Easing, StyleSheet, View } from 'react-native';
 import { Button } from '@/components/button';
 import { ThemedText } from '@/components/themed-text';
 import { Spacing } from '@/constants/theme';
-import { authErrorMessage, resendConfirmationEmail, signIn } from '@/features/auth/api';
+import { authErrorMessage, resendConfirmationEmail } from '@/features/auth/api';
 import { useTheme } from '@/hooks/use-theme';
 import { getSupabase } from '@/lib/supabase';
 
 interface PendingAuthBannerProps {
   email: string;
-  password?: string;
   onConfirmed: () => void;
   onChangeEmail?: () => void;
 }
 
-export function PendingAuthBanner({
-  email,
-  password,
-  onConfirmed,
-  onChangeEmail,
-}: PendingAuthBannerProps) {
+export function PendingAuthBanner({ email, onConfirmed, onChangeEmail }: PendingAuthBannerProps) {
   const theme = useTheme();
   const [resending, setResending] = useState(false);
   const [resendStatus, setResendStatus] = useState<string | null>(null);
@@ -98,46 +92,35 @@ export function PendingAuthBanner({
     return () => clearInterval(timer);
   }, [cooldown]);
 
-  // Polling check every 3s to detect confirmation
+  // Erkennt die Bestaetigung ausschliesslich ueber einen echten Session-Wechsel:
+  // entweder eine bereits bestehende Session (Poll alle 3s als Fallback, falls
+  // der Deep-Link-Redirect die App im Hintergrund erwischt) oder das
+  // Auth-State-Event, das beim Klick auf den Bestaetigungslink feuert.
+  //
+  // Frueher wurde hier zusaetzlich alle 3s `signIn(email, password)` versucht.
+  // Das umgeht den Sinn der E-Mail-Bestaetigung: Ob ein Sign-in-Versuch fuer
+  // einen unbestaetigten Account durchgeht, haengt vom Server-Setting "Confirm
+  // email" ab — laesst es das zu, landet der Nutzer angemeldet in einem
+  // Account, dessen E-Mail nie verifiziert wurde, und haengt spaeter mit einer
+  // Session ohne funktionierendes Profil fest. Eine Session gilt hier nur dann
+  // als "bestaetigt", wenn Supabase sie selbst liefert.
   useEffect(() => {
     let active = true;
-    const targetEmail = email.trim().toLowerCase();
 
-    // Eine Session zaehlt nur als "bestaetigt", wenn sie zu genau dieser
-    // E-Mail gehoert. Ohne den Vergleich wuerde jede andere aktive Session
-    // (z. B. ein Account, mit dem man vorher schon eingeloggt war) die
-    // Wartezeit sofort beenden, obwohl die neue Adresse gar nicht bestaetigt
-    // wurde.
-    function belongsToTarget(session: { user: { email?: string | null } } | null) {
-      return !!session?.user.email && session.user.email.toLowerCase() === targetEmail;
-    }
-
-    async function checkAuthStatus() {
+    async function checkExistingSession() {
       try {
-        const supabase = getSupabase();
-        const { data: sessionData } = await supabase.auth.getSession();
-        if (belongsToTarget(sessionData.session)) {
-          if (active) onConfirmed();
-          return;
-        }
-
-        if (password) {
-          const { data: signInData, error } = await signIn(email, password);
-          if (!error && belongsToTarget(signInData.session)) {
-            if (active) onConfirmed();
-            return;
-          }
-        }
+        const { data } = await getSupabase().auth.getSession();
+        if (data.session && active) onConfirmed();
       } catch {
         // Silent catch during polling
       }
     }
 
-    const interval = setInterval(checkAuthStatus, 3000);
+    const interval = setInterval(checkExistingSession, 3000);
 
     // Listen to Supabase auth state changes (e.g. via deep link redirect)
     const { data: sub } = getSupabase().auth.onAuthStateChange((_event, session) => {
-      if (active && belongsToTarget(session)) {
+      if (session && active) {
         onConfirmed();
       }
     });
@@ -147,7 +130,7 @@ export function PendingAuthBanner({
       clearInterval(interval);
       sub.subscription.unsubscribe();
     };
-  }, [email, password, onConfirmed]);
+  }, [onConfirmed]);
 
   async function handleResend() {
     if (cooldown > 0 || resending) return;

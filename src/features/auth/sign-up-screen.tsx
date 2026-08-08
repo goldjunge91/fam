@@ -57,7 +57,6 @@ export function SignUpScreen() {
       <Screen title="Konto aktivieren" subtitle="E-Mail-Bestätigung ausstehend">
         <PendingAuthBanner
           email={pendingEmail}
-          password={password}
           onConfirmed={() => router.replace('/onboarding')}
           onChangeEmail={() => setPendingEmail(null)}
         />
