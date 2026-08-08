@@ -58,6 +58,7 @@
     "typescript": "~6.0.3"
   },
   "scripts": {
+    "prepare": "git config core.hooksPath .githooks",
     "start": "EXPO_NO_DOTENV=1 dotenv -e .env.development -- expo start",
     "start:remote": "EXPO_NO_DOTENV=1 dotenv -e .env -- expo start",
     "reset-project": "node ./scripts/reset-project.js",

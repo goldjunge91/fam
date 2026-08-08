@@ -3,6 +3,12 @@ module.exports = {
   preset: 'jest-expo',
   setupFiles: ['<rootDir>/test/setup.js'],
 
+  // Default (5000ms) ist zu knapp fuer Tests mit echten Timern/Intervallen
+  // (z. B. PendingAuthBanner pollt alle 3s) sobald alle Suiten gemeinsam um
+  // CPU konkurrieren statt einzeln zu laufen — beobachtet beim vollen
+  // `bun run test` unter Last, nicht bei isolierten Laeufen.
+  testTimeout: 15000,
+
   // Spiegelt die Pfad-Aliase aus tsconfig.json. Die spezifischere
   // `@/assets/`-Regel muss vor `@/` stehen, sonst greift sie nie.
   moduleNameMapper: {
