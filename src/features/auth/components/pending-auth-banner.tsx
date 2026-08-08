@@ -101,19 +101,29 @@ export function PendingAuthBanner({
   // Polling check every 3s to detect confirmation
   useEffect(() => {
     let active = true;
+    const targetEmail = email.trim().toLowerCase();
+
+    // Eine Session zaehlt nur als "bestaetigt", wenn sie zu genau dieser
+    // E-Mail gehoert. Ohne den Vergleich wuerde jede andere aktive Session
+    // (z. B. ein Account, mit dem man vorher schon eingeloggt war) die
+    // Wartezeit sofort beenden, obwohl die neue Adresse gar nicht bestaetigt
+    // wurde.
+    function belongsToTarget(session: { user: { email?: string | null } } | null) {
+      return !!session?.user.email && session.user.email.toLowerCase() === targetEmail;
+    }
 
     async function checkAuthStatus() {
       try {
         const supabase = getSupabase();
         const { data: sessionData } = await supabase.auth.getSession();
-        if (sessionData.session) {
+        if (belongsToTarget(sessionData.session)) {
           if (active) onConfirmed();
           return;
         }
 
         if (password) {
           const { data: signInData, error } = await signIn(email, password);
-          if (!error && signInData.session) {
+          if (!error && belongsToTarget(signInData.session)) {
             if (active) onConfirmed();
             return;
           }
@@ -127,7 +137,7 @@ export function PendingAuthBanner({
 
     // Listen to Supabase auth state changes (e.g. via deep link redirect)
     const { data: sub } = getSupabase().auth.onAuthStateChange((_event, session) => {
-      if (session && active) {
+      if (active && belongsToTarget(session)) {
         onConfirmed();
       }
     });
