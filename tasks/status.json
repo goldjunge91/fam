@@ -1,0 +1,92 @@
+{
+  "updated": "2026-08-08",
+  "projects": [
+    {
+      "name": "fam-housekeeping",
+      "status": "completed",
+      "path": "tasks/fam-housekeeping",
+      "tasks": [
+        {
+          "id": "fam-housekeeping/001",
+          "title": "Commit pending session-check changes",
+          "status": "completed",
+          "priority": "low",
+          "path": "tasks/fam-housekeeping/001-commit-pending-session-checks.md",
+          "commit": "4c97a65"
+        },
+        {
+          "id": "fam-housekeeping/002",
+          "title": "Remove dead code and orphaned onboarding duplicates",
+          "status": "completed",
+          "priority": "low",
+          "path": "tasks/fam-housekeeping/002-remove-dead-code.md",
+          "commit": "1a6a4ca"
+        },
+        {
+          "id": "fam-housekeeping/003",
+          "title": "Add pending-session component tests",
+          "status": "completed",
+          "priority": "medium",
+          "path": "tasks/fam-housekeeping/003-pending-session-tests.md",
+          "commit": "69b110f"
+        },
+        {
+          "id": "fam-housekeeping/004",
+          "title": "Refresh stale project docs",
+          "status": "completed",
+          "priority": "high",
+          "path": "tasks/fam-housekeeping/004-docs-refresh.md",
+          "commit": "8f0821b"
+        }
+      ]
+    },
+    {
+      "name": "fam-backlog",
+      "status": "planning",
+      "path": "tasks/fam-backlog",
+      "tasks": [
+        {
+          "id": "fam-backlog/001",
+          "title": "Welle 6 - Kalorien & Tagebuch (#81-88)",
+          "status": "pending",
+          "priority": "high",
+          "path": "tasks/fam-backlog/001-welle-6-kalorien-tagebuch.md",
+          "issues": ["#81", "#82", "#83", "#84", "#85", "#86", "#87", "#88"]
+        },
+        {
+          "id": "fam-backlog/002",
+          "title": "Realtime-Bridge (#48) + Netzwerk-/Hintergrund-Trigger (#50) anschliessen",
+          "status": "pending",
+          "priority": "high",
+          "path": "tasks/fam-backlog/002-sync-engine-realtime-wiring.md",
+          "issues": ["#48", "#50"]
+        },
+        {
+          "id": "fam-backlog/003",
+          "title": "Gate D - Zwei-Geraete-Sync verifizieren (#70)",
+          "status": "pending",
+          "priority": "medium",
+          "path": "tasks/fam-backlog/003-gate-d-two-device-verification.md",
+          "issues": ["#70"],
+          "blockedBy": ["fam-backlog/002"]
+        },
+        {
+          "id": "fam-backlog/004",
+          "title": "Welle 7 - Dashboard & Navigation (#89-95)",
+          "status": "pending",
+          "priority": "medium",
+          "path": "tasks/fam-backlog/004-welle-7-dashboard-polish.md",
+          "issues": ["#89", "#90", "#91", "#92", "#93", "#94", "#95"]
+        },
+        {
+          "id": "fam-backlog/005",
+          "title": "Welle 8 - Datenschutz & Compliance (#96-99)",
+          "status": "pending",
+          "priority": "low",
+          "path": "tasks/fam-backlog/005-welle-8-datenschutz.md",
+          "issues": ["#96", "#97", "#98", "#99"]
+        }
+      ]
+    }
+  ]
+}
