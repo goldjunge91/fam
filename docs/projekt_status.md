@@ -1,5 +1,11 @@
 # Projekt-Status: Family App (fam)
-> Stand: 2026-08-06 · Branch: `main`
+> Stand: 2026-08-08 · Branch: `main`
+>
+> Korrektur ggü. 2026-08-06: Epic 4 (Haushalt) und die Kern-Screens von Epic 5
+> (Kühlschrank/Einkaufsliste) sowie der Grossteil von Epic P (Lebensmittel-DB)
+> waren im Code bereits fertig, obwohl hier noch als offen geführt. Basis dieser
+> Korrektur: direkte Code-Prüfung (Dateien, Tests, `bun run typecheck/lint/test`),
+> nicht nur Commit-Messages.
 
 ## ✅ Abgeschlossene Epics & Issues
 
@@ -55,39 +61,39 @@
 | #58 | Logout inkl. lokaler Datenlöschung | ✅ |
 | **#104** | **App-Onboarding Multi-Step Wizard** | **✅ gerade gemergt** |
 
-### Epic 4 — Haushalt & Familie (🔴 OPEN #5)
+### Epic 4 — Haushalt & Familie (✅ CLOSED #5)
 | # | Issue | Status |
 |---|-------|--------|
-| #59 | Haushalt erstellen | 🔴 OPEN |
-| #60 | Mitgliederliste mit Rollen | 🔴 OPEN |
-| #61 | Einladung erzeugen (Link + QR-Code) | 🔴 OPEN |
-| #62 | Haushalt beitreten (Deep Link/Code) | 🔴 OPEN |
-| #63 | Rollenverwaltung + Mitglieder entfernen | 🔴 OPEN |
-| #64 | Haushalt verlassen und löschen | 🔴 OPEN |
-| #65 | Kinder-Profile anlegen | 🔴 OPEN |
-| #66 | Haushalts-Wechsler | 🔴 OPEN |
+| #59 | Haushalt erstellen | ✅ |
+| #60 | Mitgliederliste mit Rollen | ✅ |
+| #61 | Einladung erzeugen (Link + QR-Code) | ✅ |
+| #62 | Haushalt beitreten (Deep Link/Code) | ✅ |
+| #63 | Rollenverwaltung + Mitglieder entfernen | ✅ |
+| #64 | Haushalt verlassen und löschen | ✅ |
+| #65 | Kinder-Profile anlegen | ✅ |
+| #66 | Haushalts-Wechsler | ✅ |
 
-### Epic 5 — Kühlschrank-Tracker (🔴 OPEN #6)
+### Epic 5 — Kühlschrank-Tracker (🟡 OPEN #6, Code fertig)
 | # | Issue | Status |
 |---|-------|--------|
-| #67 | Bestandsliste gruppiert nach Lagerort | 🔴 OPEN |
-| #68 | Artikel manuell hinzufügen | 🔴 OPEN |
-| #69 | Artikel bearbeiten, verbrauchen, entfernen | 🔴 OPEN |
-| #70 | Realtime-Sync zwischen 2 Geräten | 🔴 OPEN |
-| #71 | Ablauf-Ampel + Sortierung nach MHD | 🔴 OPEN |
-| #72 | Lokale Benachrichtigungen (ablaufende Artikel) | 🔴 OPEN |
-| #73 | Dashboard-Widget 'läuft bald ab' | 🔴 OPEN |
+| #67 | Bestandsliste gruppiert nach Lagerort | ✅ |
+| #68 | Artikel manuell hinzufügen | ✅ |
+| #69 | Artikel bearbeiten, verbrauchen, entfernen | ✅ |
+| #70 | Realtime-Sync zwischen 2 Geräten | 🔴 OPEN — braucht zuerst die #48-Realtime-Bridge-Verdrahtung (aktuell nur Poll-Sync alle 20s), siehe `docs/SYNC_ENGINE.md` |
+| #71 | Ablauf-Ampel + Sortierung nach MHD | ✅ |
+| #72 | Lokale Benachrichtigungen (ablaufende Artikel) | ✅ |
+| #73 | Dashboard-Widget 'läuft bald ab' | ✅ |
 
-### Epic 6 — Lebensmittel-Datenbank & Barcode (🔴 OPEN #7)
+### Epic 6 — Lebensmittel-Datenbank & Barcode (🟡 OPEN #7, weitgehend fertig)
 | # | Issue | Status |
 |---|-------|--------|
-| #74 | Open-Food-Facts-Client + Mapping | 🔴 OPEN |
-| #75 | Produktsuche mit Debounce | 🔴 OPEN |
-| #76 | Barcode-Scanner | 🔴 OPEN |
-| #77 | Produktdetail mit Portionsauswahl | 🔴 OPEN |
-| #78 | Einheiten-Umrechnung (pure functions) | 🔴 OPEN |
-| #79 | Liste häufig verwendeter Lebensmittel | 🔴 OPEN |
-| #80 | Produkt manuell anlegen | 🔴 OPEN |
+| #74 | Open-Food-Facts-Client + Mapping | ✅ |
+| #75 | Produktsuche mit Debounce | ✅ |
+| #76 | Barcode-Scanner | ✅ |
+| #77 | Produktdetail mit Portionsauswahl | ✅ |
+| #78 | Einheiten-Umrechnung (pure functions) | ✅ |
+| #79 | Liste häufig verwendeter Lebensmittel | 🔴 OPEN — bewusst zurückgestellt, hängt an #86 (Welle 6) |
+| #80 | Produkt manuell anlegen | ✅ |
 
 ### Epic 7 — Kalorienziele & Ernährungstagebuch (🔴 OPEN #8)
 | # | Issue | Status |
@@ -145,16 +151,16 @@
 ## 📁 Aktueller Codestand
 
 ### Feature-Module (`src/features/`)
-- `auth/` — vollständig (Sign-in, Sign-up, Onboarding 6-Step Wizard)
-- `fridge/` — UI-Gerüst vorhanden
-- `household/` — Members-Screen vorhanden
-- `inventory/` — Add-Item-Screen mit Modal (letzter Commit)
-- `dashboard/` — Gerüst
+- `auth/` — vollständig (Sign-in, Sign-up, Onboarding 6-Step Wizard, PendingAuthBanner)
+- `fridge/` — fertig (Screen, Mutations, Ablauf-Ampel, Benachrichtigungen)
+- `household/` — fertig (Erstellen, Mitglieder/Rollen, Einladung+QR, Beitritt, Kinder-Profile, Wechsler)
+- `inventory/` — fertig (Add-Item, Barcode-Scanner, Produktsuche/-detail, Lagerorte)
+- `dashboard/` — überwiegend fertig (Ablauf-Widget angebunden; Kalorien/Ziele noch Platzhalter, warten auf Welle 6)
 - `onboarding/` — fertig
 - `profile/` — Gerüst
 - `recipes/` — Gerüst
 - `settings/` — Gerüst
-- `shopping-list/` — Gerüst
+- `shopping-list/` — fertig (Screen, Add-Item-Form, Complete-Run-Sheet, `shopping_history`)
 
 ### App-Routen (`src/app/`)
 - `(auth)/` — Login, Register
@@ -167,14 +173,22 @@
 
 ## 🎯 Empfohlene nächste Schritte
 
-**Als nächstes sinnvoll (Epic 4 — Haushalt):**
-1. `#59` Haushalt erstellen → DB-RPC `create_household` bereits vorhanden
-2. `#60` Mitgliederliste — Members-Screen Gerüst schon da
-3. `#61-62` Einladung erzeugen + Deep Link (QR-Code)
+**Als nächstes sinnvoll (Epic 6 — Kalorien & Tagebuch, noch nicht begonnen):**
+1. `#81` Grundumsatz-Formeln (reine Funktionen) — DB-Schema (`food_entries`,
+   `weight_entries`, `user_goals`) existiert bereits in
+   `supabase/schemas/09_tracking.sql`, nur Client-Code fehlt
+2. `#82` TDEE + Zielkalorien (mit Kappung auf Grundumsatz)
+3. `#83-88` Makro-Verteilung, Ziel-Setup, Tagebuch-Screen + CRUD + Tagessummen
 
-**Parallel dazu (Epic 8 — Dashboard):**
-- `#89` Tab-Struktur fertigstellen (Placeholder-Tabs existieren schon)
-- `#90` Template-Screens durch echte Screens ersetzen
+**Nachzügler aus Welle 2/5:**
+- Realtime-Bridge (#48) und Netzwerk-/Hintergrund-Trigger (#50) an
+  `(app)/_layout.tsx` anschliessen — aktuell läuft nur Poll-Sync alle 20s
+  (`src/lib/sync/sync-runner.ts`). Voraussetzung für eine sinnvolle
+  `#70`-Verifikation (Gate D, "<1s"-Konvergenz).
 
-**Epic 2 abschließen:**
-- `#70` Realtime-Sync Zwei-Geräte-Test → einziger offener Punkt
+**Parallel dazu (Epic 7 — Dashboard):**
+- `#89-90` Tab-Struktur/Template-Screens fertigstellen (Recipes/Settings sind
+  noch echte Gerüste)
+- `#91-93` Fortschrittsring/Makro-Balken/Tagesübersicht — hängen an den
+  Welle-6-Ergebnissen (aktuell Platzhalter `aufgenommen = 0`, `ziel = 0` im
+  Dashboard)

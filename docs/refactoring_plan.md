@@ -1,6 +1,11 @@
 # Refactoring-Plan: History + Feature-Slicing + File-Splitting
 
 > Stand: 2026-08-06
+>
+> **✅ Vollständig umgesetzt (Stand 2026-08-08).** Jede unten als `[NEW]`
+> gelistete Datei existiert im Code, `shopping_history` ist im Schema
+> (`supabase/schemas/08_inventory.sql`). Dieses Dokument bleibt als
+> Entscheidungsprotokoll erhalten, beschreibt aber keinen offenen Task mehr.
 
 ## Was geändert wird
 

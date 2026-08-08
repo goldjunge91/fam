@@ -7,15 +7,50 @@ Format: [Keep a Changelog](https://keepachangelog.com/de/1.1.0/)
 
 ## [Unreleased] — in Arbeit
 
-### Geplant (Welle 5 — Kühlschrank & Einkaufsliste)
-- `use-shopping-list.ts` — TanStack Query Hook für `shopping_list_items`
-- `use-shopping-list-mutations.ts` — Toggle, Add, Delete via Outbox
-- `use-fridge-items.ts` — Query Hook für `fridge_items` JOIN `storage_locations`
-- `use-fridge-mutations.ts` — Add, UpdateQty, Delete
-- `complete-run-sheet.tsx` — Bottom Sheet für Einkauf-Abschluss + Transfer in Vorrat
-- `use-complete-shopping-run.ts` — Batch-Mutation: checked items → fridge_items
-- `shopping-list-screen.tsx` — Einkaufsliste mit Checkbox + "Einkauf abschließen"
-- `fridge-screen.tsx` — Vorrat gruppiert nach Lagerort mit MHD-Ampel
+### Geplant (Welle 6 — Kalorien & Tagebuch)
+Noch nicht begonnen. DB-Schema existiert bereits (`food_entries`,
+`weight_entries`, `user_goals` in `supabase/schemas/09_tracking.sql`), fehlt
+ist reiner Client-Code: Grundumsatz-/TDEE-Formeln (#81-82), Makro-Verteilung
+(#83), Ziel-Setup-Screen (#84), Tagebuch-Screen + CRUD + Tagessummen (#85-88).
+
+### Offener Nachzügler (Welle 2/5)
+- Realtime-Bridge (#48) und Netzwerk-/Hintergrund-Trigger (#50) sind gebaut,
+  aber noch nicht an `(app)/_layout.tsx` angeschlossen — Details in
+  `docs/SYNC_ENGINE.md`. Voraussetzung für #70 (Gate D, Zwei-Geräte-Sync
+  unter 1s).
+
+---
+
+## [0.6.0] — 2026-08-07/08 — Haushalt, Kühlschrank & Einkaufsliste, Lebensmittel-DB
+
+Zwischen den letzten beiden CHANGELOG-Einträgen (Stand 2026-08-06) und jetzt
+wurden mehrere Wellen fertiggestellt, ohne dass der Changelog nachgezogen
+wurde. Nachträglich zusammengefasst anhand des Codes:
+
+### Added
+- **Epic 4 — Haushalt** (#59–66): Haushalt erstellen (`create-household-screen.tsx`),
+  Mitgliederliste mit Rollen-Toggle + Entfernen + Admin-Schutz
+  (`members-screen.tsx`), Einladung mit dauerhaftem QR-Code + getrennten
+  Kopier-Buttons (`invite-modal.tsx`), Beitritt per Deep Link
+  (`join-household-screen.tsx`), Verlassen/Löschen, Kinder-Profile
+  (`child-profiles-screen.tsx`), Haushalts-Wechsler
+  (`household-switcher-modal.tsx`), globaler `ActiveHouseholdProvider`
+- **Welle 5 — Kühlschrank & Einkaufsliste** (#67–69, #71–73): die unten schon
+  angekündigten Hooks (`use-fridge-mutations.ts`, `use-storage-locations.ts`,
+  `use-shopping-list*.ts`) sowie `fridge-screen.tsx`, `shopping-list-screen.tsx`,
+  `complete-run-sheet.tsx`, Ablauf-Ampel (`fridge/expiry.ts`), lokale
+  Benachrichtigungen (`use-expiry-notifications.ts`) und das
+  Dashboard-Ablauf-Widget
+- **Parallel-Track P — Lebensmittel-DB** (#74–78, #80): Open-Food-Facts-Client
+  (`src/lib/open-food-facts.ts`), Produktsuche (`product-search-dropdown.tsx`),
+  Barcode-Scanner (`barcode-scanner-modal.tsx`), Produktdetail
+  (`product-detail-modal.tsx`), Einheiten-Umrechnung (`src/lib/units.ts`)
+- **Sync-Engine-Verdrahtung:** `src/lib/sync/sync-runner.ts`
+  (`useSyncEngine`/`triggerHouseholdSync`) — Poll-Sync alle 20s + bei
+  App-Resume, eingehängt in `src/app/(app)/_layout.tsx`. Realtime-Bridge
+  und Netzwerk-Trigger sind weiterhin nicht angeschlossen (s. o.)
+- `docs/refactoring_plan.md` (Feature-Slicing, `shopping_history`-Tabelle) —
+  vollständig umgesetzt
 
 ---
 

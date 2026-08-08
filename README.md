@@ -3,9 +3,13 @@
 Expo-App für Haushalt, Einkauf und Ernährung: geteilter Kühlschrank-Bestand und
 Einkaufsliste für die ganze Familie, privates Kalorien- und Gewichts-Tracking pro Account.
 
-**Status: Gerüst.** Das Repo ist aktuell das Expo-SDK-57-Default-Template. Vom
-Backend-Stack ist noch nichts installiert — die Umsetzung ist in
-[99 Issues](https://github.com/goldjunge91/fam/issues) aufgeschlüsselt.
+**Status:** Foundation, Datenmodell/RLS, Offline-Sync-Kern, Auth/Onboarding und
+Haushalt (Epics 0–4) sind gebaut und getestet; Kühlschrank/Einkaufsliste und die
+Lebensmittel-Datenbank (Epic 5, Parallel-Track P) sind weitgehend fertig. Offen:
+Kalorien & Tagebuch (Epic 6, noch nicht begonnen), Dashboard-Feinschliff (Epic 7)
+und Datenschutz-Features (Epic 8). Details und Stand pro Issue in
+[docs/projekt_status.md](docs/projekt_status.md) und
+[docs/ROADMAP.md](docs/ROADMAP.md).
 
 ## Quick Start
 
@@ -99,15 +103,15 @@ of undefined`. Die eigentliche Ursache steht dann ganz oben im Log.
 
 ## Stack
 
-| | Installiert | Geplant |
-|---|---|---|
-| Runtime | Expo SDK 57, React Native 0.86, React 19.2 | — |
-| Routing | Expo Router (NativeTabs, typedRoutes) | — |
-| Styling | StyleSheet + `src/constants/theme.ts` | — |
-| Backend | — | Supabase (Postgres, Auth, Realtime, RLS) |
-| Offline | — | `expo-sqlite` + Outbox-Sync |
-| Server-State | — | TanStack Query |
-| Tests | — | jest-expo, RLS-Tests gegen lokales Postgres |
+| | Installiert |
+|---|---|
+| Runtime | Expo SDK 57, React Native 0.86, React 19.2 |
+| Routing | Expo Router (NativeTabs, typedRoutes) |
+| Styling | StyleSheet + `src/constants/theme.ts` |
+| Backend | Supabase (Postgres, Auth, Realtime, RLS) |
+| Offline | `expo-sqlite` + Outbox-Sync (Pull/Push/LWW), App-seitig per Polling verdrahtet — Realtime-Bridge und Netzwerk-Trigger sind gebaut, aber noch nicht an `_layout.tsx` angeschlossen (siehe [docs/SYNC_ENGINE.md](docs/SYNC_ENGINE.md)) |
+| Server-State | TanStack Query |
+| Tests | jest-expo + Testing Library, pgTAP-RLS-Tests gegen lokales Postgres |
 
 Kein NativeWind: die stabile Version 4.2.6 ist nicht für RN 0.86 / React 19 gebaut,
 und die SDK-57-Variante gäbe es nur als Preview. Gestylt wird über `theme.ts`.

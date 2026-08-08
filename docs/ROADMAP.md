@@ -9,20 +9,29 @@ Alle Issues: <https://github.com/goldjunge91/fam/issues>
 
 ## Status-Übersicht
 
-> Stand: 2026-08-06
+> Stand: 2026-08-08 — korrigiert nach Code-Abgleich; der vorherige Stand
+> (2026-08-06) hatte Welle 4 und Teile von Welle 5/P noch als offen geführt,
+> obwohl der Code dafür bereits existierte und getestet ist.
 
 | Welle | Thema | Status | Gate |
 |---|---|---|---|
 | 0 | Werkzeug & Supabase | ✅ Fertig | **A** ✅ Dev Build läuft |
 | 1 | Datenmodell & RLS | ✅ Fertig | **B** ✅ RLS-Tests grün |
-| 2 | Offline & Sync | 🟡 Fast fertig (#70 offen) | **C** ✅ Konflikttests grün |
+| 2 | Offline & Sync | 🟡 Fast fertig (#70 offen — braucht zusätzlich die #48-Realtime-Verdrahtung, siehe unten) | **C** ✅ Konflikttests grün |
 | 3 | Auth & Onboarding | ✅ Fertig (inkl. #104 6-Step Wizard) | — |
-| 4 | Haushalt | 🔴 Offen | — |
-| 5 | Kühlschrank + Einkaufsliste | 🔴 **In Arbeit** | **D** — 2-Geräte-Sync |
-| P | Lebensmittel-DB | 🔴 Offen | — |
-| 6 | Kalorien & Tagebuch | 🔴 Offen | — |
-| 7 | Dashboard & Navigation | 🔴 Offen | — |
+| 4 | Haushalt | ✅ Fertig (#59–66 alle im Code, mit Tests: Erstellen, Mitgliederliste, Rollen/Entfernen, Einladung+QR, Beitritt, Verlassen/Löschen, Kinder-Profile, Haushalts-Wechsler) | — |
+| 5 | Kühlschrank + Einkaufsliste | ✅ Code fertig (#67–69, #71–73); **D offen** | **D** — 2-Geräte-Sync, blockiert auf #48-Verdrahtung (s.u.) |
+| P | Lebensmittel-DB | ✅ weitgehend fertig (#74–78, #80); #79 offen (hängt an #86/Welle 6) | — |
+| 6 | Kalorien & Tagebuch | 🔴 Offen — noch nicht begonnen, aber DB-Schema (`food_entries`, `weight_entries`, `user_goals` in `supabase/schemas/09_tracking.sql`) existiert bereits | — |
+| 7 | Dashboard & Navigation | 🟡 Teilweise (Dashboard zeigt bereits Ablauf-Widget/#73), Rest blockiert auf #84/#87 aus Welle 6 | — |
 | 8 | Datenschutz | 🔴 Offen | MVP fertig |
+
+**Sync-Engine-Nachzügler:** Die App synct aktiv, aber nur poll-basiert (alle 20s
++ bei App-Resume, siehe `src/lib/sync/sync-runner.ts`). Die bereits gebaute
+Realtime→SQLite-Bridge (#48) sowie Netzwerk-/Hintergrund-Trigger (#50) sind
+noch nicht an `_layout.tsx` angeschlossen — Details in `docs/SYNC_ENGINE.md`.
+Das ist die eigentliche Voraussetzung, bevor #70 (Gate D, "<1s"-Konvergenz)
+sinnvoll verifiziert werden kann.
 
 ---
 
@@ -117,7 +126,7 @@ Der technisch riskanteste Teil. Braucht Gate A und Gate B.
 [#56](https://github.com/goldjunge91/fam/issues/56) ist der Praxistest für den SecureStore-Adapter aus [#30](https://github.com/goldjunge91/fam/issues/30). Fällt der durch, sind
 Nutzer nach jedem App-Neustart ausgeloggt — ein Fehler, der sonst erst spät auffällt.
 
-## Welle 4 — Haushalt
+## Welle 4 — Haushalt ✅ Fertig
 
 ```
 #59 Haushalt erstellen
@@ -128,7 +137,7 @@ Nutzer nach jedem App-Neustart ausgeloggt — ein Fehler, der sonst erst spät a
 #66 Haushalts-Wechsler (braucht #59 und #48)
 ```
 
-## Welle 5 — Kühlschrank
+## Welle 5 — Kühlschrank ✅ Code fertig, Gate D offen
 
 Erstes Feature, das Welle 1, 2 und 4 gleichzeitig belastet — der eigentliche
 Integrationstest der Architektur.

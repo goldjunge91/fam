@@ -9,18 +9,27 @@ gebauten Zustand — die Task-Liste für das, was noch fehlt, steht in
 
 ## Scope-Grenze
 
+> **Update (Epic 4 abgeschlossen):** Es gibt jetzt einen "aktiver Haushalt"-Context
+> (`useActiveHousehold`, `src/features/household/active-household-provider.tsx`).
+> Ein neuer, in diesem Dokument ursprünglich nicht gelisteter Wrapper —
+> `src/lib/sync/sync-runner.ts` (`triggerHouseholdSync`, `useSyncEngine`) — ruft
+> `syncHousehold()` **poll-basiert** auf: beim Laden, alle 20s per `setInterval`,
+> und wenn die App aus dem Hintergrund zurückkehrt (`AppState === 'active'`).
+> Verdrahtet in `src/app/(app)/_layout.tsx` via `useSyncEngine(activeHouseholdId)`.
+> **Weiterhin nicht verdrahtet:** `subscribeHouseholdRealtime()` (#48, die
+> Realtime→SQLite-Bridge unten) sowie `startNetworkReconnectTrigger()`/
+> `registerBackgroundSync()` (#50) — keine der drei Funktionen wird von
+> irgendwo im App-Code aufgerufen. Solange das so ist, konvergieren Änderungen
+> nur alle ~20s (oder beim App-Wiedereinstieg), nicht in Echtzeit — relevant für
+> die #70-Zwei-Geräte-Verifikation (Gate D), deren "<1s"-Ziel die Realtime-Bridge
+> voraussetzt.
+
 Die Engine ist **haushalts-parametrisiert**: jede Funktion nimmt
-`householdIds`/`supabase`/`db` explizit als Parameter entgegen. Sie ist
-**nicht** in `src/app/_layout.tsx` oder irgendeine Komponente eingehängt —
-dafür gibt es noch keinen "aktiver Haushalt"-Context (Welle 4 hat noch nicht
-begonnen). Wer die Engine später verdrahtet, ruft `syncHousehold()` mit den
-Haushalts-IDs des angemeldeten Nutzers auf; wie diese IDs ermittelt werden,
-ist Sache von Epic 4. Dasselbe gilt für #48/#50: `subscribeHouseholdRealtime()`
-nimmt `householdIds` entgegen statt sie selbst aufzulösen,
-`startNetworkReconnectTrigger()`/`registerBackgroundSync()` nehmen einen
-caller-gelieferten Callback statt selbst `syncHousehold()` aufzurufen. Diese
-PR ändert dadurch **kein beobachtbares App-Verhalten** — nichts davon wird von
-`_layout.tsx` aus aufgerufen.
+`householdIds`/`supabase`/`db` explizit als Parameter entgegen. Dasselbe gilt für
+#48/#50: `subscribeHouseholdRealtime()` nimmt `householdIds` entgegen statt sie
+selbst aufzulösen, `startNetworkReconnectTrigger()`/`registerBackgroundSync()`
+nehmen einen caller-gelieferten Callback statt selbst `syncHousehold()`
+aufzurufen.
 
 ## Module
 
@@ -227,9 +236,11 @@ um dauerhaft fehlgeschlagene Einträge anzuzeigen.
 
 ## Was absichtlich fehlt
 
-- Keine App-Verdrahtung (`_layout.tsx`, Hooks, Komponenten) — Epic 4. Weder
-  `subscribeHouseholdRealtime` noch `startNetworkReconnectTrigger`/
-  `registerBackgroundSync` werden von irgendwo im App-Code aufgerufen.
+- Poll-basierte App-Verdrahtung ist da (`sync-runner.ts` in `(app)/_layout.tsx`,
+  siehe Scope-Grenze oben), aber `subscribeHouseholdRealtime` (#48) und
+  `startNetworkReconnectTrigger`/`registerBackgroundSync` (#50) werden noch
+  von nirgendwo im App-Code aufgerufen — offener Anschluss, kein Epic-4-Thema
+  mehr (Epic 4 ist fertig), sondern ein eigenständiger Nachzügler aus Welle 2/5.
 - Keine UI — #51 (separater Workstream/PR).
 - Keine Schemaänderung — Serverzeit kommt aus dem `Date`-Header, kein
   dediziertes RPC nötig. Falls die Keyset-Pagination je auf eine
