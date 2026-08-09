@@ -1,0 +1,285 @@
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
+
+import type { GoalType } from '@/features/calorie-tracking/tdee';
+import type { Database } from '@/lib/database.types';
+import { getSupabase } from '@/lib/supabase';
+
+/**
+ * `food_entries`/`weight_entries`/`user_goals` sind bewusst NICHT Teil des
+ * lokalen SQLite-Sync-Engines (`src/lib/db/entities.ts`): sie sind streng
+ * privat pro Account, ohne Haushaltsbezug (siehe Kommentar am Kopf von
+ * `supabase/schemas/09_tracking.sql`). Direkter Supabase-Zugriff + React
+ * Query, genau wie `src/features/household/api.ts` fuer `child_profiles`.
+ */
+
+export type FoodEntryRow = Database['public']['Tables']['food_entries']['Row'];
+export type UserGoalRow = Database['public']['Tables']['user_goals']['Row'];
+export type WeightEntryRow = Database['public']['Tables']['weight_entries']['Row'];
+
+export type MealType = 'breakfast' | 'lunch' | 'dinner' | 'snack';
+
+// --------------------------------------------------------------------- Ziele
+
+export function currentGoalQueryKey(userId: string | undefined) {
+  return ['calorie-tracking', 'goal', 'current', userId] as const;
+}
+
+/**
+ * Aktuell gueltiges Ziel: die juengste nicht geloeschte `user_goals`-Zeile.
+ * `user_goals` historisiert ueber `valid_from` statt zu ueberschreiben — ein
+ * neues Ziel ist immer ein Insert, nie ein Update (siehe `useSetGoalMutation`).
+ */
+export function useCurrentGoal(userId: string | undefined) {
+  return useQuery({
+    queryKey: currentGoalQueryKey(userId),
+    queryFn: async () => {
+      const { data, error } = await getSupabase()
+        .from('user_goals')
+        .select('*')
+        .eq('user_id', userId as string)
+        .is('deleted_at', null)
+        .order('valid_from', { ascending: false })
+        .limit(1)
+        .maybeSingle();
+
+      if (error) throw new Error(error.message);
+      return data;
+    },
+    enabled: !!userId,
+  });
+}
+
+export function useSetGoalMutation() {
+  const queryClient = useQueryClient();
+
+  return useMutation({
+    mutationFn: async (input: {
+      userId: string;
+      goalType: GoalType;
+      rateKgPerWeek: number | null;
+      dailyKcal: number;
+      proteinG: number;
+      carbsG: number;
+      fatG: number;
+      targetWeightKg?: number | null;
+    }) => {
+      const { data, error } = await getSupabase()
+        .from('user_goals')
+        .insert({
+          user_id: input.userId,
+          goal_type: input.goalType,
+          rate_kg_per_week: input.rateKgPerWeek,
+          daily_kcal: input.dailyKcal,
+          protein_g: input.proteinG,
+          carbs_g: input.carbsG,
+          fat_g: input.fatG,
+          target_weight_kg: input.targetWeightKg ?? null,
+        })
+        .select('*')
+        .single();
+
+      if (error) throw new Error(error.message);
+      return data;
+    },
+    onSuccess: (_, variables) => {
+      queryClient.invalidateQueries({ queryKey: currentGoalQueryKey(variables.userId) });
+    },
+  });
+}
+
+// ------------------------------------------------------------------- Gewicht
+
+export function latestWeightEntryQueryKey(userId: string | undefined) {
+  return ['calorie-tracking', 'weight', 'latest', userId] as const;
+}
+
+export function useLatestWeightEntry(userId: string | undefined) {
+  return useQuery({
+    queryKey: latestWeightEntryQueryKey(userId),
+    queryFn: async () => {
+      const { data, error } = await getSupabase()
+        .from('weight_entries')
+        .select('*')
+        .eq('user_id', userId as string)
+        .is('deleted_at', null)
+        .order('measured_on', { ascending: false })
+        .limit(1)
+        .maybeSingle();
+
+      if (error) throw new Error(error.message);
+      return data;
+    },
+    enabled: !!userId,
+  });
+}
+
+export function useAddWeightEntryMutation() {
+  const queryClient = useQueryClient();
+
+  return useMutation({
+    mutationFn: async (input: { userId: string; weightKg: number; measuredOn?: string }) => {
+      const { data, error } = await getSupabase()
+        .from('weight_entries')
+        .insert({
+          user_id: input.userId,
+          weight_kg: input.weightKg,
+          measured_on: input.measuredOn,
+        })
+        .select('*')
+        .single();
+
+      if (error) throw new Error(error.message);
+      return data;
+    },
+    onSuccess: (_, variables) => {
+      queryClient.invalidateQueries({ queryKey: latestWeightEntryQueryKey(variables.userId) });
+    },
+  });
+}
+
+// ------------------------------------------------------------- Tagebuch
+
+export function foodEntriesQueryKey(userId: string | undefined, isoDate: string) {
+  return ['calorie-tracking', 'food-entries', userId, isoDate] as const;
+}
+
+/** Alle Tagebucheintraege eines Kalendertags (#85/#87), aelteste zuerst. */
+export function useFoodEntries(userId: string | undefined, isoDate: string) {
+  return useQuery({
+    queryKey: foodEntriesQueryKey(userId, isoDate),
+    queryFn: async () => {
+      const { data, error } = await getSupabase()
+        .from('food_entries')
+        .select('*')
+        .eq('user_id', userId as string)
+        .eq('logged_on', isoDate)
+        .is('deleted_at', null)
+        .order('created_at', { ascending: true });
+
+      if (error) throw new Error(error.message);
+      return data;
+    },
+    enabled: !!userId,
+  });
+}
+
+export type FoodEntryInput = {
+  userId: string;
+  loggedOn: string;
+  mealType: MealType;
+  name: string;
+  quantity: number;
+  unit: string;
+  kcal: number | null;
+  proteinG: number | null;
+  carbsG: number | null;
+  fatG: number | null;
+  productId?: string | null;
+};
+
+export function useAddFoodEntryMutation() {
+  const queryClient = useQueryClient();
+
+  return useMutation({
+    mutationFn: async (input: FoodEntryInput) => {
+      const { data, error } = await getSupabase()
+        .from('food_entries')
+        .insert({
+          user_id: input.userId,
+          logged_on: input.loggedOn,
+          meal_type: input.mealType,
+          name: input.name,
+          quantity: input.quantity,
+          unit: input.unit,
+          kcal: input.kcal,
+          protein_g: input.proteinG,
+          carbs_g: input.carbsG,
+          fat_g: input.fatG,
+          product_id: input.productId ?? null,
+        })
+        .select('*')
+        .single();
+
+      if (error) throw new Error(error.message);
+      return data;
+    },
+    onSuccess: (_, variables) => {
+      queryClient.invalidateQueries({
+        queryKey: foodEntriesQueryKey(variables.userId, variables.loggedOn),
+      });
+    },
+  });
+}
+
+export function useUpdateFoodEntryMutation() {
+  const queryClient = useQueryClient();
+
+  return useMutation({
+    mutationFn: async (
+      input: Partial<Omit<FoodEntryInput, 'userId' | 'loggedOn'>> & {
+        id: string;
+        userId: string;
+        loggedOn: string;
+      },
+    ) => {
+      const updates: Database['public']['Tables']['food_entries']['Update'] = {
+        updated_at: new Date().toISOString(),
+      };
+      if (input.mealType !== undefined) updates.meal_type = input.mealType;
+      if (input.name !== undefined) updates.name = input.name;
+      if (input.quantity !== undefined) updates.quantity = input.quantity;
+      if (input.unit !== undefined) updates.unit = input.unit;
+      if (input.kcal !== undefined) updates.kcal = input.kcal;
+      if (input.proteinG !== undefined) updates.protein_g = input.proteinG;
+      if (input.carbsG !== undefined) updates.carbs_g = input.carbsG;
+      if (input.fatG !== undefined) updates.fat_g = input.fatG;
+      if (input.productId !== undefined) updates.product_id = input.productId;
+
+      const { data, error } = await getSupabase()
+        .from('food_entries')
+        .update(updates)
+        .eq('id', input.id)
+        .select('*')
+        .single();
+
+      if (error) throw new Error(error.message);
+      return data;
+    },
+    onSuccess: (_, variables) => {
+      queryClient.invalidateQueries({
+        queryKey: foodEntriesQueryKey(variables.userId, variables.loggedOn),
+      });
+    },
+  });
+}
+
+export function useDeleteFoodEntryMutation() {
+  const queryClient = useQueryClient();
+
+  return useMutation({
+    mutationFn: async ({
+      id,
+      userId: _userId,
+      loggedOn: _loggedOn,
+    }: {
+      id: string;
+      userId: string;
+      loggedOn: string;
+    }) => {
+      // Soft-Delete: `deleted_at` statt Zeile loeschen, konsistent mit dem
+      // Spaltendesign der Tabelle (Vergangenheit bleibt fuer Auswertungen erhalten).
+      const { data, error } = await getSupabase()
+        .from('food_entries')
+        .update({ deleted_at: new Date().toISOString() })
+        .eq('id', id);
+
+      if (error) throw new Error(error.message);
+      return data;
+    },
+    onSuccess: (_, variables) => {
+      queryClient.invalidateQueries({
+        queryKey: foodEntriesQueryKey(variables.userId, variables.loggedOn),
+      });
+    },
+  });
+}

@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-09",
+  "updated": "2026-08-10",
   "projects": [
     {
       "name": "fam-housekeeping",
@@ -48,7 +48,7 @@
         {
           "id": "fam-backlog/001",
           "title": "Welle 6 - Kalorien & Tagebuch (#81-88)",
-          "status": "in_progress",
+          "status": "completed",
           "priority": "high",
           "path": "tasks/fam-backlog/001-welle-6-kalorien-tagebuch.md",
           "issues": [
@@ -61,7 +61,7 @@
             "#87",
             "#88"
           ],
-          "notes": "#81/#82 (Grundumsatz + TDEE/Zielkalorien) als reine Funktionen implementiert in src/features/calorie-tracking/{bmr,tdee}.ts. #83-#88 (Screens, Persistenz, Dashboard-Anschluss) noch offen."
+          "notes": "Komplett implementiert. #81/#82 reine Funktionen (bmr.ts/tdee.ts). #83-#88 + Dashboard-Anschluss: direkter Supabase-Zugriff (api.ts, kein lokaler Sync-Engine, Tabellen sind streng privat), neuer 6. Tab 'Tagebuch', Ziel-Setup-Screen unter /settings/goals. typecheck/lint/test gruen, db:diff leer (keine Schemaaenderung noetig)."
         },
         {
           "id": "fam-backlog/002",
@@ -124,7 +124,7 @@
           "priority": "high",
           "path": "tasks/fam-backlog/006-sqlite-locking-und-datenleck.md",
           "commit": "f58e3bf",
-          "notes": "Code behoben. Offen: `bun run db:push` fuer die Migration 20260809195849_haushalts_mitglieder_profile.sql (nur lokal angewandt) und die Verifikation am Geraet."
+          "notes": "Code behoben, Migration 20260809195849_haushalts_mitglieder_profile.sql gepusht (inkl. manuellem anon-Revoke-Fix fuer household_member_profiles, check-privileges.sh --linked jetzt OK, db:diff leer). Offen: nur noch die Geraete-Verifikation (siehe 003)."
         },
         {
           "id": "fam-backlog/007",

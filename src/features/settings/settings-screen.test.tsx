@@ -40,6 +40,10 @@ jest.mock('@/lib/db/client', () => ({
   getDatabase: jest.fn(),
 }));
 
+jest.mock('@/features/calorie-tracking/api', () => ({
+  useCurrentGoal: () => ({ data: null, isLoading: false }),
+}));
+
 // `Screen` fragt den Router, ob es etwas zum Zurueckgehen gibt; ausserhalb
 // eines Navigators gibt es dafuer keinen Zustand.
 jest.mock('expo-router', () => ({

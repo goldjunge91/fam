@@ -31,10 +31,15 @@ Push aufs verlinkte Projekt.
       `auth/app-entry.ts`
 - [x] Mitgliedernamen sichtbar: RPC `household_member_profiles` gibt nur
       Anzeigename und Avatar heraus, `profiles` bleibt privat
-- [ ] `bun run db:push` — die Migration
-      `20260809195849_haushalts_mitglieder_profile.sql` ist nur lokal
-      angewandt. Ohne Push zeigt die App gegen Remote weiterhin
-      "Unbekanntes Mitglied", und der RPC-Aufruf schlägt dort fehl
+- [x] `bun run db:push` — Migration `20260809195849_haushalts_mitglieder_profile.sql`
+      angewendet. `check-privileges.sh --linked` schlug danach mit einem
+      Verstoss fehl: `anon` konnte `household_member_profiles` (SECURITY
+      DEFINER) aufrufen — die generierte Migration enthielt nur
+      `REVOKE ... FROM PUBLIC`, nicht `FROM PUBLIC, anon` (die bekannte
+      pg-delta-Luecke, siehe Notes). Manuell per
+      `supabase db query --linked` behoben (`revoke execute ... from anon`),
+      nicht per Migration — genau der in den Notes beschriebene Fall.
+      `check-privileges.sh --linked` danach OK, `bun run db:diff` danach leer.
 - [ ] Verifikation am Gerät (gehört inhaltlich zu
       `003-gate-d-two-device-verification.md`): kein "database is locked" im
       Log, nach Nutzerwechsel sofort der neue Haushalt, keine RLS-Fehler in
