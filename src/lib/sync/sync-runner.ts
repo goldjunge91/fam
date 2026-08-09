@@ -4,7 +4,10 @@ import { AppState } from 'react-native';
 import { getDatabase } from '@/lib/db/client';
 import { retryFailedOutboxEntries } from '@/lib/db/outbox-retry';
 import { getSupabase } from '@/lib/supabase';
+import { setBackgroundSyncHandler } from '@/lib/sync/background-sync';
 import { type SyncRunResult, syncHousehold } from '@/lib/sync/engine';
+import { startNetworkReconnectTrigger } from '@/lib/sync/network-trigger';
+import { subscribeHouseholdRealtime } from '@/lib/sync/realtime';
 import { createServerClock } from '@/lib/sync/server-clock';
 
 const serverClock = createServerClock();
@@ -93,6 +96,63 @@ export function useSyncEngine(householdId: string | undefined) {
     return () => {
       clearInterval(interval);
       subscription.remove();
+    };
+  }, [householdId]);
+}
+
+/**
+ * Realtime + Netzwerk-Reconnect + Hintergrund-Sync-Handler fuer den aktiven
+ * Haushalt (#48, #50). Ergaenzt useSyncEngine (Poll alle 20s) um Nahe-
+ * Echtzeit-Konvergenz — wird IMMER zusammen mit useSyncEngine aufgerufen,
+ * nie als Ersatz: der App-Start-Sync von useSyncEngine deckt den allerersten
+ * Connect ab, dieser Hook nur Aenderungen danach.
+ */
+export function useRealtimeSync(householdId: string | undefined) {
+  // Hintergrund-Sync-Handler unabhaengig vom Realtime/Netzwerk-Teil pflegen,
+  // damit die Task, egal wann sie vom OS geweckt wird, immer den aktuell
+  // aktiven Haushalt kennt. Kein Haushalt (z.B. waehrend Onboarding) →
+  // Handler auf null: die Task bleibt registriert und tut beim naechsten
+  // Aufwachen einfach nichts (siehe background-sync.ts Kommentar).
+  useEffect(() => {
+    setBackgroundSyncHandler(
+      householdId
+        ? async () => {
+            await triggerHouseholdSync([householdId]);
+          }
+        : null,
+    );
+    return () => setBackgroundSyncHandler(null);
+  }, [householdId]);
+
+  useEffect(() => {
+    if (!householdId) return;
+
+    const onReconnect = async () => {
+      await triggerHouseholdSync([householdId]);
+    };
+
+    let cancelled = false;
+    let unsubscribeRealtime: (() => void) | null = null;
+
+    (async () => {
+      const db = await getDatabase();
+      const supabase = getSupabase();
+      if (cancelled) return; // Haushalt hat sich gewechselt, waehrend getDatabase() lief
+      unsubscribeRealtime = subscribeHouseholdRealtime({
+        db,
+        supabase,
+        householdIds: [householdId],
+        serverClock,
+        onReconnectResyncNeeded: onReconnect,
+      });
+    })();
+
+    const stopNetworkTrigger = startNetworkReconnectTrigger({ onReconnect });
+
+    return () => {
+      cancelled = true;
+      unsubscribeRealtime?.();
+      stopNetworkTrigger();
     };
   }, [householdId]);
 }

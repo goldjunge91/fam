@@ -10,7 +10,7 @@ import { useActiveHousehold } from '@/features/household/active-household-provid
 import { useRedeemInviteMutation } from '@/features/household/api';
 import { env } from '@/lib/env';
 import { clearPendingInviteToken, peekPendingInviteToken } from '@/lib/pending-invite';
-import { useSyncEngine } from '@/lib/sync/sync-runner';
+import { useRealtimeSync, useSyncEngine } from '@/lib/sync/sync-runner';
 
 function AppLayoutContent() {
   const { session } = useSession();
@@ -21,6 +21,7 @@ function AppLayoutContent() {
 
   // Automatischer Sync für den aktiven Haushalt
   useSyncEngine(activeHouseholdId ?? undefined);
+  useRealtimeSync(activeHouseholdId ?? undefined);
 
   useEffect(() => {
     // Nur lesen, nicht loeschen (#128): Dieser Effekt laeuft auf jedem Mount

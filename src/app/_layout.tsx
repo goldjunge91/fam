@@ -14,8 +14,10 @@ import { env } from '@/lib/env';
 import { savePendingInviteToken } from '@/lib/pending-invite';
 import { queryClient, startQueryEnvironmentSync } from '@/lib/query-client';
 import { getSupabase } from '@/lib/supabase';
+import { defineBackgroundSyncTask, registerBackgroundSync } from '@/lib/sync/background-sync';
 
 SplashScreen.preventAutoHideAsync();
+defineBackgroundSyncTask();
 
 /**
  * Wechselt zwischen angemeldetem und nicht angemeldetem Bereich.
@@ -132,6 +134,16 @@ export default function RootLayout() {
   useEffect(() => {
     // Bindet TanStack Query an AppState und Netzwerkstatus — siehe query-client.ts.
     return startQueryEnvironmentSync();
+  }, []);
+
+  useEffect(() => {
+    // Registriert die Hintergrund-Task beim OS (#50) — einmalig pro App-Leben,
+    // unabhaengig vom aktiven Haushalt. Der eigentliche Sync-Handler kommt aus
+    // useRealtimeSync in (app)/_layout.tsx, sobald ein Haushalt aktiv ist;
+    // bis dahin ist die Task registriert, aber ihr Handler ist null (No-op).
+    registerBackgroundSync().catch((err) => {
+      console.warn('[BackgroundSync] Registrierung fehlgeschlagen:', err);
+    });
   }, []);
 
   return (

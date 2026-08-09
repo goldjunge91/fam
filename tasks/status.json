@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-08",
+  "updated": "2026-08-09",
   "projects": [
     {
       "name": "fam-housekeeping",
@@ -56,10 +56,11 @@
         {
           "id": "fam-backlog/002",
           "title": "Realtime-Bridge (#48) + Netzwerk-/Hintergrund-Trigger (#50) anschliessen",
-          "status": "pending",
+          "status": "in_progress",
           "priority": "high",
           "path": "tasks/fam-backlog/002-sync-engine-realtime-wiring.md",
-          "issues": ["#48", "#50"]
+          "issues": ["#48", "#50"],
+          "notes": "Wiring implemented (useRealtimeSync in sync-runner.ts, background-sync task defined+registered in root _layout.tsx). Manual two-device verification (echo/loop check, realtime convergence) still outstanding."
         },
         {
           "id": "fam-backlog/003",
