@@ -132,7 +132,17 @@ file_size_limit = "50MiB"
 enabled = true
 # The base URL of your website. Used as an allow-list for redirects and for constructing URLs used
 # in emails.
-site_url = "http://127.0.0.1:3000"
+# Ziel des Bestaetigungslinks, seit signUp() kein emailRedirectTo mehr setzt.
+#
+# Zeigte vorher auf http://127.0.0.1:3000 — dort lauscht nichts, der Browser
+# meldete nach dem Klick "Die Website ist nicht erreichbar". Die Bestaetigung
+# hatte stattgefunden, nur sah man das nirgends.
+#
+# Die Edge Function auth-confirmed liegt im selben Projekt wie GoTrue und ist
+# damit ohne zusaetzliche Infrastruktur erreichbar. Remote gehoert die
+# entsprechende Projekt-URL ins Dashboard unter Authentication > URL
+# Configuration (diese Datei steuert nur die lokale Instanz).
+site_url = "http://127.0.0.1:54321/functions/v1/auth-confirmed"
 # A list of *exact* URLs that auth providers are permitted to redirect to post authentication.
 # fam://* covers the app's own deep links (email confirmation, password
 # reset) built via Linking.createURL() - see src/features/auth/api.ts.
@@ -348,6 +358,14 @@ enabled = false
 authorization_url_path = "/oauth/consent"
 # Allow dynamic client registration
 allow_dynamic_registration = false
+
+# Landeseite des E-Mail-Bestaetigungslinks. `verify_jwt = false` ist zwingend:
+# Ein Browser, der einem Link aus einer E-Mail folgt, schickt keinen
+# Authorization-Header — mit dem Default antwortet die Function 401 und der
+# Nutzer saehe wieder eine Fehlerseite. Die Function gibt ausschliesslich
+# statisches HTML zurueck und liest weder Datenbank noch Tokens.
+[functions.auth-confirmed]
+verify_jwt = false
 
 [edge_runtime]
 enabled = true

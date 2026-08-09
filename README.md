@@ -52,6 +52,17 @@ von jedem Gerät. Die App wartet nicht auf einen Deep Link, sondern fragt den
 Server selbst (alle 10 s, plus „Jetzt prüfen"-Knopf); wer schneller sein will,
 tippt den Code direkt ein.
 
+Nach dem Klick landet der Browser auf der Edge Function `auth-confirmed`
+(`supabase/functions/auth-confirmed/`) — sie zeigt „E-Mail bestätigt" bzw.
+„Dieser Link wurde schon benutzt". Vorher zeigte der Browser dort
+„Die Website ist nicht erreichbar", weil `site_url` auf einen toten Port zeigte.
+Die Seite löst bewusst keine Tokens ein; sie informiert nur.
+
+Fürs Deployment: `supabase functions deploy auth-confirmed` und im Dashboard
+unter **Authentication > URL Configuration** die Site URL auf
+`https://<projekt>.supabase.co/functions/v1/auth-confirmed` setzen —
+`supabase/config.toml` steuert nur die lokale Instanz.
+
 Nur Variablen mit dem Präfix `EXPO_PUBLIC_` landen im Client-Bundle; Expo setzt
 sie zur Build-Zeit als Literal ein. Fehlt eine Variable, bricht `src/lib/env.ts`
 mit einer klaren Meldung ab, statt später einen kryptischen Netzwerkfehler zu
