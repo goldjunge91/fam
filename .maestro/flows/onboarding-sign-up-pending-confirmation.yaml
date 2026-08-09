@@ -17,9 +17,9 @@ appId: com.goldjunge91.fam
     clearState: true
 
 - extendedWaitUntil:
-    visible: "fam, http://.*"
+    visible: "http://.*"
     timeout: 30000
-- tapOn: "fam, http://.*"
+- tapOn: "http://.*"
 
 # expo-dev-client zeigt nach dem Bundle-Laden ggf. einmalig ein "Dev Tools"-
 # Info-Popup (siehe onboarding-sign-in.yaml) - optional, damit es den Flow
