@@ -34,6 +34,11 @@ jest.mock('@/hooks/use-theme', () => ({
 }));
 
 describe('PendingAuthBanner (Apple Liquid UI)', () => {
+  afterEach(() => {
+    jest.clearAllTimers();
+    jest.useRealTimers();
+  });
+
   it('sollte E-Mail-Adresse und Bestätigungs-Hinweis rendern', async () => {
     await render(
       <PendingAuthBanner
@@ -198,9 +203,9 @@ describe('PendingAuthBanner (Apple Liquid UI)', () => {
           onConfirmed={jest.fn()}
         />,
       );
-      await jest.advanceTimersByTimeAsync(5 * 60_000);
+      await jest.advanceTimersByTimeAsync(60_000);
 
-      expect(signIn.mock.calls.length).toBeLessThanOrEqual(30);
+      expect(signIn.mock.calls.length).toBeLessThanOrEqual(6);
 
       jest.useRealTimers();
     });

@@ -1,0 +1,32 @@
+appId: com.goldjunge91.fam
+env:
+  TEST_EMAIL: maestro-e2e@example.com
+  TEST_PASSWORD: Passwort123!
+---
+# Meldet aus dem Dashboard ab und wieder an - der einzige Flow, der den
+# eigenstaendigen (auth)/sign-in-Screen (src/features/auth/sign-in-screen.tsx)
+# tatsaechlich besucht. Die testIDs sign-in-email/sign-in-password wurden im
+# golden-path-Commit (5456aae) mit angelegt, aber bis jetzt nie exercised, da
+# onboarding-sign-in.yaml ausschliesslich den Account-Step-Login nutzt.
+#
+# Voraussetzungen: siehe ../subflows/sign-out-and-relaunch.yaml
+# (EXPO_PUBLIC_FORCE_ONBOARDING=false noetig).
+
+- runFlow: ../subflows/sign-out-and-relaunch.yaml
+
+- tapOn:
+    id: "sign-in-email"
+- inputText: "${TEST_EMAIL}"
+- tapOn:
+    id: "sign-in-password"
+- inputText: "${TEST_PASSWORD}"
+- hideKeyboard
+- tapOn: "Anmelden"
+
+# iOS' eigener Keychain-Dialog ("Passwort sichern?") kann nach dem Absenden
+# erscheinen - kein App-UI.
+- tapOn:
+    text: "^Später$"
+    optional: true
+
+- assertVisible: "Übersicht"

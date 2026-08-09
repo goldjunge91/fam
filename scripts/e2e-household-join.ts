@@ -1,0 +1,42 @@
+import { spawnSync } from 'node:child_process';
+import { createFreshConfirmedUser, createInviteFixture } from './lib/e2e-fixtures';
+
+// Seedet einen Host-Account samt Haushalt + Invite-Token sowie einen
+// zweiten, haushaltslosen Testaccount (der beitretende Nutzer) und fuehrt
+// damit gezielt household-join-via-invite.yaml aus. Eigenes Script statt
+// Teil der `bun run e2e`-Suite, weil kein einzelner Maestro-Flow beide
+// Accounts gleichzeitig anlegen kann.
+const HOUSEHOLD_NAME = 'Maestro E2E Einladungs-Haushalt';
+
+async function main() {
+  const invite = await createInviteFixture(HOUSEHOLD_NAME);
+  console.log(`\n⏳ Host-Haushalt "${invite.householdName}" erstellt (Host: ${invite.host.email})`);
+
+  const joiner = await createFreshConfirmedUser('maestro-e2e-join');
+  console.log(`⏳ Beitretender Testaccount erstellt: ${joiner.email}`);
+  console.log(`⏳ Starte Maestro-Flow household-join-via-invite.yaml...\n`);
+
+  const result = spawnSync(
+    'maestro',
+    [
+      'test',
+      '.maestro/flows/household-join-via-invite.yaml',
+      '-e',
+      `EMAIL=${joiner.email}`,
+      '-e',
+      `PASSWORD=${joiner.password}`,
+      '-e',
+      `INVITE_TOKEN=${invite.token}`,
+      '-e',
+      `HOUSEHOLD_NAME=${invite.householdName}`,
+    ],
+    { stdio: 'inherit' },
+  );
+
+  process.exit(result.status ?? 1);
+}
+
+main().catch((err) => {
+  console.error('Fataler Fehler:', err);
+  process.exit(1);
+});

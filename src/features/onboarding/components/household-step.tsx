@@ -165,6 +165,7 @@ export function HouseholdStepForm({ onNext, onSkip }: HouseholdStepFormProps) {
 
       {choice === 'create' && (
         <TextField
+          testID="onboarding-household-name"
           label="Name deines Haushalts"
           value={householdName}
           onChangeText={setHouseholdName}
@@ -174,6 +175,7 @@ export function HouseholdStepForm({ onNext, onSkip }: HouseholdStepFormProps) {
 
       {choice === 'join' && (
         <TextField
+          testID="onboarding-household-invite-code"
           label="6-stelliger Einladungscode"
           value={inviteCode}
           onChangeText={setInviteCode}

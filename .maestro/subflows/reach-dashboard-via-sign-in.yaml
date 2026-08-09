@@ -1,0 +1,77 @@
+appId: com.goldjunge91.fam
+env:
+  TEST_EMAIL: maestro-e2e@example.com
+  TEST_PASSWORD: Passwort123!
+---
+# Geteilter Praefix: frische Install -> Onboarding -> Anmelden mit einem
+# bestehenden, bestaetigten Account -> restliche Schritte ueberspringen ->
+# Dashboard. Wird per `runFlow` aus anderen Flows wiederverwendet (siehe
+# ../flows/session-persists-after-relaunch.yaml, ../flows/sign-out-and-relaunch.yaml).
+#
+# Liegt bewusst ausserhalb von .maestro/flows/, damit `maestro test
+# .maestro/flows` (= `bun run e2e`) diese Datei nicht zusaetzlich als
+# eigenstaendigen Test aufgreift - inhaltlich waere das nur eine Dopplung von
+# flows/onboarding-sign-in.yaml.
+#
+# Voraussetzungen: siehe ../flows/onboarding-sign-in.yaml.
+
+- launchApp:
+    clearState: true
+
+# clearState wischt die gemerkte Metro-Verbindung des Expo-Dev-Clients, daher
+# oeffnet eine frische Install immer erst den Dev-Client-Launcher statt
+# direkt unseren JS-Bundle. Die Server-Zeile kommt per Netzwerk-Discovery,
+# das kann ein paar Sekunden dauern - extendedWaitUntil statt des kuerzeren
+# Standard-Tap-Timeouts.
+- extendedWaitUntil:
+    visible: "fam, http://.*"
+    timeout: 30000
+- tapOn: "fam, http://.*"
+
+# expo-dev-client zeigt nach dem ersten Laden des JS-Bundles einmalig ein
+# "Dev Tools"-Info-Popup - clearState wischt das Flag, das es unterdrueckt,
+# also kann es bei jedem clearState-Lauf erneut erscheinen. optional:true
+# ueberspringt den Schritt ohne den Flow scheitern zu lassen, falls es nicht
+# auftaucht.
+- tapOn:
+    text: "Continue"
+    optional: true
+
+# Das Schliessen der Info-Karte oben legt darunter das eigentliche
+# Dev-Client-Menu (Reload/Go home/Tools) frei statt es zu schliessen - auch
+# das noch schliessen.
+- tapOn:
+    text: "Close"
+    optional: true
+
+# Welcome-Carousel: 3 Slides, "Weiter" bis zum letzten mit "Jetzt starten".
+- tapOn: "Weiter"
+- tapOn: "Weiter"
+- tapOn: "Jetzt starten"
+
+# Account-Step: Default-Tab ist "Registrieren" - zu "Anmelden" wechseln.
+- tapOn: "Anmelden"
+- tapOn:
+    id: "onboarding-account-email"
+- inputText: "${TEST_EMAIL}"
+- tapOn:
+    id: "onboarding-account-password"
+- inputText: "${TEST_PASSWORD}"
+- hideKeyboard
+- tapOn: "Anmelden & weiter"
+
+# iOS' eigener Keychain-Dialog ("Passwort sichern?") kann nach dem Absenden
+# erscheinen - kein App-UI, exakter Match damit "Später" nicht versehentlich
+# den spaeteren "Später ausfüllen"-Button trifft.
+- tapOn:
+    text: "^Später$"
+    optional: true
+
+# Restliche Schritte sind fuer einen wiederkehrenden Nutzer alle ueberspringbar.
+- tapOn: "Später ausfüllen" # Profil-Step
+- tapOn: "Überspringen" # Haushalts-Step
+- tapOn: "Überspringen" # Modul-Auswahl
+- tapOn: "Jetzt nicht" # Berechtigungen
+- tapOn: "Zum Dashboard" # Abschluss-Step
+
+- assertVisible: "Übersicht"

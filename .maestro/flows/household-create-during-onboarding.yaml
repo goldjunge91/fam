@@ -1,0 +1,79 @@
+appId: com.goldjunge91.fam
+tags:
+  - fixture
+env:
+  HOUSEHOLD_NAME: Maestro E2E Haushalt
+---
+# Prueft die tatsaechliche Haushalts-ERSTELLUNG im Onboarding
+# (household-step.tsx, choice "create") - nicht nur das Ueberspringen wie in
+# onboarding-sign-in.yaml. Braucht dafuer einen Account OHNE bestehenden
+# Haushalt: sobald `activeHousehold` gesetzt ist, kuerzt household-step.tsx
+# jede Auswahl per `onNext()` sofort ab, ohne create_household() aufzurufen.
+#
+# `tags: [fixture]` haelt diesen Flow aus `bun run e2e`
+# (`maestro test .maestro/flows --exclude-tags fixture`) heraus - EMAIL/
+# PASSWORD kommen von einem Seed-Script, nicht aus einem manuell angelegten
+# Testaccount. Nicht direkt ausfuehren, sondern:
+#   bun run e2e:household-create
+
+- launchApp:
+    clearState: true
+
+- extendedWaitUntil:
+    visible: "fam, http://.*"
+    timeout: 30000
+- tapOn: "fam, http://.*"
+
+# expo-dev-client zeigt nach dem Bundle-Laden ggf. einmalig ein "Dev Tools"-
+# Info-Popup (siehe onboarding-sign-in.yaml) - optional, damit es den Flow
+# nicht scheitern laesst, wenn es nicht auftaucht.
+- tapOn:
+    text: "Continue"
+    optional: true
+- tapOn:
+    text: "Close"
+    optional: true
+
+- tapOn: "Weiter"
+- tapOn: "Weiter"
+- tapOn: "Jetzt starten"
+
+- tapOn: "Anmelden"
+- tapOn:
+    id: "onboarding-account-email"
+- inputText: "${EMAIL}"
+- tapOn:
+    id: "onboarding-account-password"
+- inputText: "${PASSWORD}"
+- hideKeyboard
+- tapOn: "Anmelden & weiter"
+
+# iOS' eigener Keychain-Dialog ("Passwort sichern?") kann nach dem Absenden
+# erscheinen - kein App-UI, exakter Match damit "Später" nicht versehentlich
+# den folgenden "Später ausfüllen"-Button trifft.
+- tapOn:
+    text: "^Später$"
+    optional: true
+
+- tapOn: "Später ausfüllen" # Profil-Step
+
+- tapOn: "🏠 Neuen Haushalt erstellen"
+- tapOn:
+    id: "onboarding-household-name"
+- inputText: "${HOUSEHOLD_NAME}"
+- hideKeyboard
+- tapOn: "Weiter"
+
+- tapOn: "Überspringen" # Modul-Auswahl
+- tapOn: "Jetzt nicht" # Berechtigungen
+- tapOn: "Zum Dashboard" # Abschluss-Step
+
+- assertVisible: "Übersicht"
+
+# Der neue Haushaltsname erscheint auf dem Einstellungen-Tab
+# (settings-screen.tsx, Zeile "Aktueller Haushalt") - zuverlaessiger als eine
+# Assertion auf den Complete-Step-Untertitel, dessen Text je nach
+# React-Query-Timing zwischen dem echten Namen und einem generischen
+# Platzhalter wechseln kann.
+- tapOn: "Einstellungen"
+- assertVisible: "${HOUSEHOLD_NAME}"
