@@ -92,7 +92,7 @@ export function AddItemScreen() {
   }
 
   return (
-    <Screen title="Artikel hinzufügen">
+    <Screen title="Artikel hinzufügen" back={{ label: 'Abbrechen' }}>
       <View style={styles.form}>
         <Button
           label="📷 Barcode scannen"

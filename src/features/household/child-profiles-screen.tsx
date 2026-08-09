@@ -111,7 +111,10 @@ export function ChildProfilesScreen() {
   }
 
   return (
-    <Screen title="Kinder-Profile" subtitle={currentHousehold?.name} showBackButton>
+    <Screen
+      title="Kinder-Profile"
+      subtitle={currentHousehold?.name}
+      back={{ label: 'Mitglieder', href: '/household/members' }}>
       {showAddForm ? (
         <Card title="Kinder-Profil hinzufügen">
           <View style={styles.form}>

@@ -41,7 +41,28 @@ mitgeliefert):
 EXPO_PUBLIC_SUPABASE_URL=http://127.0.0.1:54321
 EXPO_PUBLIC_SUPABASE_KEY=sb_publishable_...
 EXPO_PUBLIC_FORCE_ONBOARDING=false  # optional: bei true wird beim App-Start das Profil-Onboarding geöffnet
+EXPO_PUBLIC_DEV_TOOLS=false         # optional: bei true erscheint der Entwickler-Bereich in den Einstellungen
 ```
+
+### Entwickler-Bereich
+
+Mit `EXPO_PUBLIC_DEV_TOOLS=true` bekommen die Einstellungen eine Gruppe
+„Entwickler" mit einer eigenen Seite. Sie beantwortet die Fragen, die die App
+sonst nirgends beantwortet:
+
+- **gegen welches Supabase-Projekt** dieser Build läuft — lokal oder das
+  verlinkte Projekt mit echten Daten (rot markiert)
+- **Restlaufzeit des Zugriffstokens** — die Erklärung für viele
+  „auf einmal geht nichts mehr"-Momente
+- **ob die lokale SQLite-Datei zum angemeldeten Nutzer gehört**, dazu
+  Schema-Version, Outbox-Zähler und Zeilenzahlen
+- Aktionen: Sync erzwingen, Test-Benachrichtigung, Sync-Diagnose, lokale
+  Datenbank löschen
+
+Bewusst ein eigener Schalter statt `__DEV__`: Der Bereich ist gerade in einem
+echten Build nützlich (etwa TestFlight, wo unklar ist, gegen welches Projekt er
+läuft) und soll sich umgekehrt auch während der Entwicklung abschalten lassen,
+um die Einstellungen so zu sehen wie Nutzer.
 
 ### E-Mail-Bestätigung
 

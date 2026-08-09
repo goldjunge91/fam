@@ -1,79 +1,42 @@
 import { useQueryClient } from '@tanstack/react-query';
 import { router } from 'expo-router';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { Alert, StyleSheet, View } from 'react-native';
 
 import { Button } from '@/components/button';
-import { Card } from '@/components/card';
 import { Screen } from '@/components/screen';
-import { ThemedText } from '@/components/themed-text';
 import { Spacing } from '@/constants/theme';
 import { useSession } from '@/features/auth/session-provider';
 import { signOutAndClearLocalData } from '@/features/auth/sign-out';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
-import { NotificationSettingsCard } from '@/features/settings/notification-settings-card';
+import { classifySupabaseTarget } from '@/features/settings/dev/dev-info';
+import { SettingsGroup, SettingsRow } from '@/features/settings/settings-menu';
+import { describeSyncStatus } from '@/features/settings/sync-status-text';
 import { useSyncStatus } from '@/hooks/use-sync-status';
-import { useTheme } from '@/hooks/use-theme';
 import { getDatabase } from '@/lib/db/client';
-import { triggerHouseholdSync } from '@/lib/sync/sync-runner';
+import { env } from '@/lib/env';
 
-type ZeileProps = {
-  label: string;
-  wert: string;
-  offen?: boolean;
-};
-
-function Zeile({ label, wert, offen }: ZeileProps) {
-  const theme = useTheme();
-
-  return (
-    <View style={[styles.zeile, { borderBottomColor: theme.border }]}>
-      <ThemedText type="small">{label}</ThemedText>
-      <ThemedText type="small" themeColor={offen ? 'textSecondary' : 'text'}>
-        {wert}
-      </ThemedText>
-    </View>
-  );
-}
-
+/**
+ * Einstellungen als Verzeichnis, nicht als Sammelseite.
+ *
+ * Vorher lag hier alles untereinander: Profilzeile, Haushaltsaktionen,
+ * Lagerorte, das komplette Benachrichtigungsformular, der Sync-Status samt
+ * Knoepfen und Fehlermeldung. Das war eine lange Scrollstrecke, auf der
+ * Anzeigen, Aktionen und Formulare optisch gleich aussahen.
+ *
+ * Jetzt fuehrt jeder Punkt auf seine eigene Seite. Was auf der Uebersicht
+ * bleibt, ist der jeweils aktuelle Wert rechts — angemeldete Adresse, aktiver
+ * Haushalt, Sync-Zustand —, damit der haeufigste Grund fuer einen Blick in die
+ * Einstellungen ohne Antippen beantwortet ist.
+ */
 export function SettingsScreen() {
   const { session } = useSession();
   const queryClient = useQueryClient();
   const [signingOut, setSigningOut] = useState(false);
-  const [isSyncing, setIsSyncing] = useState(false);
-  const [lastErrorMsg, setLastErrorMsg] = useState<string | null>(null);
 
-  const { activeHousehold } = useActiveHousehold();
-  const currentHousehold = activeHousehold;
+  const { activeHousehold, households } = useActiveHousehold();
   const syncStatus = useSyncStatus(getDatabase);
-
-  useEffect(() => {
-    if (syncStatus.kind === 'failed') {
-      getDatabase().then((db) => {
-        db.getFirstAsync<{ last_error: string | null }>(
-          'select last_error from outbox where last_error is not null order by id desc limit 1',
-        ).then((row) => {
-          if (row?.last_error) {
-            setLastErrorMsg(row.last_error);
-          }
-        });
-      });
-    } else {
-      setLastErrorMsg(null);
-    }
-  }, [syncStatus.kind]);
-
-  async function handleManualSync() {
-    if (isSyncing || !currentHousehold) return;
-    setIsSyncing(true);
-
-    try {
-      await triggerHouseholdSync([currentHousehold.id], true);
-      queryClient.invalidateQueries();
-    } finally {
-      setIsSyncing(false);
-    }
-  }
+  const sync = describeSyncStatus(syncStatus);
 
   async function handleSignOut() {
     if (signingOut) return;
@@ -90,125 +53,109 @@ export function SettingsScreen() {
     }
   }
 
-  let syncStatusText = 'Alle Daten sind synchronisiert';
-  let syncStatusColor: 'accent' | 'warning' | 'danger' = 'accent';
+  const hasHousehold = Boolean(activeHousehold);
 
-  if (syncStatus.kind === 'offline') {
-    syncStatusText =
-      syncStatus.pendingCount > 0
-        ? `Offline (${syncStatus.pendingCount} Änderungen ausstehend)`
-        : 'Offline (Keine Internetverbindung)';
-    syncStatusColor = 'warning';
-  } else if (syncStatus.kind === 'syncing') {
-    syncStatusText = `Synchronisiere … (${syncStatus.pendingCount} ausstehend)`;
-    syncStatusColor = 'warning';
-  } else if (syncStatus.kind === 'failed') {
-    syncStatusText = `${syncStatus.failedCount} Änderungen konnten nicht synchronisiert werden.`;
-    syncStatusColor = 'danger';
-  }
+  // Schon in der Uebersicht sichtbar, nicht erst eine Ebene tiefer: Ob dieser
+  // Build gegen die echten Daten laeuft, ist die Information, die man beim
+  // Ausprobieren nicht suchen wollen sollte.
+  const supabaseTarget = env.devTools
+    ? classifySupabaseTarget(env.supabaseUrl)
+    : { label: '', tone: 'accent' as const };
 
   return (
     <Screen title="Einstellungen">
-      <Card title="Profil">
-        <Zeile label="Angemeldet als" wert={session?.user.email ?? '—'} />
-        <View style={styles.aktion}>
-          <Button
-            label="Profil ergänzen / bearbeiten"
-            variant="secondary"
+      <View style={styles.groups}>
+        <SettingsGroup title="Konto">
+          <SettingsRow
+            icon="👤"
+            label="Profil"
+            value={session?.user.email ?? '—'}
             onPress={() => router.push('/settings/profile')}
+            last
           />
-        </View>
-      </Card>
+        </SettingsGroup>
 
-      <Card title="Haushalt & Mitnutzer">
-        <Zeile label="Aktueller Haushalt" wert={currentHousehold?.name ?? 'Lädt...'} />
-        {currentHousehold && (
-          <View style={styles.aktionStack}>
-            <Button
-              label="Mitglieder verwalten"
-              variant="secondary"
-              onPress={() => router.push('/household/members')}
-            />
-          </View>
-        )}
-      </Card>
-
-      <Card title="Lagerorte">
-        <ThemedText type="small" themeColor="textSecondary">
-          Verwalte vordefinierte Orte wie Kühlschrank, Tiefkühltruhe und Abstellkammer oder lege
-          neue an.
-        </ThemedText>
-        {currentHousehold && (
-          <View style={styles.aktion}>
-            <Button
-              label="Lagerorte verwalten"
-              variant="secondary"
-              onPress={() => router.push('/household/storage-locations')}
-            />
-          </View>
-        )}
-      </Card>
-
-      <NotificationSettingsCard />
-
-      <Card title="Synchronisation">
-        <ThemedText type="small" themeColor="textSecondary">
-          Daten werden im Hintergrund automatisch synchronisiert.
-        </ThemedText>
-        <ThemedText
-          type="smallBold"
-          themeColor={syncStatusColor}
-          style={{ marginTop: Spacing.two }}>
-          {syncStatusText}
-        </ThemedText>
-        {lastErrorMsg && (
-          <ThemedText type="small" themeColor="danger" style={{ marginTop: Spacing.one }}>
-            Ursache: {lastErrorMsg}
-          </ThemedText>
-        )}
-        <View style={styles.aktionStack}>
-          <Button
+        <SettingsGroup title="Haushalt">
+          <SettingsRow
+            icon="🏠"
+            label="Mitglieder"
+            value={activeHousehold?.name ?? 'Kein Haushalt'}
+            hint={hasHousehold ? undefined : 'Erst einem Haushalt beitreten'}
+            onPress={hasHousehold ? () => router.push('/household/members') : undefined}
+            disabled={!hasHousehold}
+          />
+          <SettingsRow
+            icon="👶"
+            label="Kinder-Profile"
+            onPress={hasHousehold ? () => router.push('/household/children') : undefined}
+            disabled={!hasHousehold}
+          />
+          <SettingsRow
+            icon="📦"
+            label="Lagerorte"
+            hint="Kühlschrank, Tiefkühler, Vorratskammer"
+            onPress={hasHousehold ? () => router.push('/household/storage-locations') : undefined}
+            disabled={!hasHousehold}
+          />
+          <SettingsRow
+            icon="🔗"
             label={
-              syncStatus.kind === 'failed'
-                ? 'Fehlgeschlagene erneut versuchen'
-                : 'Jetzt synchronisieren'
+              households.length > 1 ? 'Haushalt wechseln oder beitreten' : 'Haushalt beitreten'
             }
-            onPress={handleManualSync}
-            loading={isSyncing}
-            disabled={!currentHousehold}
+            onPress={() => router.push('/household/join')}
+            last
           />
-          <Button
-            label="Sync-Diagnose & Outbox anzeigen"
-            variant="secondary"
-            onPress={() => router.push('/settings/sync-debug')}
+        </SettingsGroup>
+
+        <SettingsGroup title="App">
+          <SettingsRow
+            icon="🔔"
+            label="Benachrichtigungen"
+            onPress={() => router.push('/settings/notifications')}
           />
-        </View>
-      </Card>
+          <SettingsRow
+            icon="🔄"
+            label="Synchronisation"
+            value={sync.short}
+            onPress={() => router.push('/settings/sync')}
+            last
+          />
+        </SettingsGroup>
 
-      <Card title="Ziele & Daten">
-        <Zeile label="Kalorienziel" wert="nicht gesetzt" offen />
-        <Zeile label="Export" wert="in Vorbereitung" offen />
-      </Card>
+        <SettingsGroup title="Ziele & Daten">
+          <SettingsRow icon="🎯" label="Kalorienziel" value="nicht gesetzt" disabled />
+          <SettingsRow icon="📤" label="Export" value="in Vorbereitung" disabled last />
+        </SettingsGroup>
 
-      <Button label="Abmelden" variant="danger" onPress={handleSignOut} loading={signingOut} />
+        {/* Nur mit EXPO_PUBLIC_DEV_TOOLS=true. Die Gruppe verschwindet dann
+            vollstaendig statt nur deaktiviert zu sein — ein ausgegrauter
+            Eintrag "Entwickler" waere fuer Nutzer eine Frage ohne Antwort. */}
+        {env.devTools ? (
+          <SettingsGroup title="Entwickler">
+            <SettingsRow
+              icon="🛠"
+              label="Entwickler-Werkzeuge"
+              hint="Umgebung, Session, lokale Datenbank"
+              value={supabaseTarget.label}
+              onPress={() => router.push('/settings/dev')}
+              last
+            />
+          </SettingsGroup>
+        ) : null}
+      </View>
+
+      <View style={styles.abmelden}>
+        <Button label="Abmelden" variant="danger" onPress={handleSignOut} loading={signingOut} />
+      </View>
     </Screen>
   );
 }
 
 const styles = StyleSheet.create({
-  zeile: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    gap: Spacing.three,
-    paddingVertical: Spacing.two,
-    borderBottomWidth: StyleSheet.hairlineWidth,
+  groups: {
+    gap: Spacing.four,
   },
-  aktion: {
-    marginTop: Spacing.three,
-  },
-  aktionStack: {
-    marginTop: Spacing.three,
-    gap: Spacing.two,
+  abmelden: {
+    marginTop: Spacing.five,
   },
 });

@@ -43,7 +43,7 @@ export function ForgotPasswordScreen() {
 
   if (sent) {
     return (
-      <Screen title="E-Mail unterwegs">
+      <Screen title="E-Mail unterwegs" back={{ label: 'Anmelden', href: '/sign-in' }}>
         <Card>
           {/* Bewusst neutral formuliert: Eine Bestaetigung, dass genau diese
               Adresse ein Konto hat, waere eine Auskunft ueber fremde Nutzer. */}
@@ -62,7 +62,10 @@ export function ForgotPasswordScreen() {
   }
 
   return (
-    <Screen title="Passwort zurücksetzen" subtitle="Wir schicken dir einen Link">
+    <Screen
+      title="Passwort zurücksetzen"
+      subtitle="Wir schicken dir einen Link"
+      back={{ label: 'Anmelden', href: '/sign-in' }}>
       <Card>
         <View style={styles.form}>
           <TextField

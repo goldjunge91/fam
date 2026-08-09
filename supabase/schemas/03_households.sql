@@ -194,3 +194,54 @@ create policy household_members_delete on public.household_members
     (select private.is_household_admin(household_id))
     or user_id = (select auth.uid())
   );
+
+-- ------------------------------------------------- Mitgliederliste mit Namen
+--
+-- Mitglieder muessen sehen, wer sonst im Haushalt ist. `profiles` ist aber
+-- bewusst streng privat (siehe Kopf von 02_profiles.sql): Dort liegen
+-- Geburtsdatum, Geschlecht, Koerpergroesse und Aktivitaetslevel — die
+-- Rechenbasis fuer das Kalorienziel. Eine SELECT-Policy koennte das nicht
+-- trennen, denn RLS wirkt auf Zeilen, nicht auf Spalten: Wer die Zeile sehen
+-- darf, sieht sie ganz.
+--
+-- Deshalb ein RPC, das genau die zwei Spalten herausgibt, die zur
+-- Identifikation noetig sind — Anzeigename und Avatar. Die Gesundheitsdaten
+-- bleiben unerreichbar, und was den Haushalt verlaesst, steht hier an einer
+-- Stelle statt verteilt in Policies.
+--
+-- SECURITY DEFINER, weil die Funktion die profiles-RLS gezielt umgeht; die
+-- Berechtigung prueft sie selbst ueber `is_household_member`. Ohne diese
+-- Pruefung waere sie ein Leck fuer beliebige Haushalts-IDs.
+--
+-- Rechte fuer dieses RPC: siehe 04_privileges.sql.
+create or replace function public.household_member_profiles(hid uuid)
+returns table (
+  user_id uuid,
+  display_name text,
+  avatar_url text,
+  role text,
+  joined_at timestamptz
+)
+language sql
+security definer
+stable
+set search_path = ''
+as $$
+  select
+    m.user_id,
+    p.display_name,
+    p.avatar_url,
+    m.role,
+    m.joined_at
+  from public.household_members as m
+  -- left join: ein Mitglied ohne Profilzeile darf nicht aus der Liste fallen.
+  left join public.profiles as p on p.id = m.user_id
+  where m.household_id = hid
+    and private.is_household_member(hid)
+  order by m.joined_at;
+$$;
+
+comment on function public.household_member_profiles(uuid) is
+  'Mitglieder eines Haushalts mit Anzeigename und Avatar. Gibt bewusst NUR '
+  'diese beiden Profilspalten heraus — die Gesundheitsdaten in profiles '
+  'bleiben privat.';

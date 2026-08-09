@@ -85,14 +85,49 @@ function eventTypeToOp(
  * **Kein Modul-weites Register.** Der einzige Zustand ist der Closure ueber
  * die von DIESEM Aufruf erzeugten Channels — ein erneuter Aufruf nach
  * `unsubscribe()` ist dadurch sicher, ohne dass irgendetwas Buch fuehren muss.
+ *
+ * **Das Abmelden ist `async`, und darauf muss gewartet werden**, bevor
+ * derselbe Haushalt erneut abonniert wird. Grund ist supabase-js:
+ * `supabase.channel(topic)` legt keinen neuen Channel an, wenn zu diesem Topic
+ * schon einer registriert ist — es gibt den vorhandenen zurueck
+ * (`RealtimeClient.channel()`). `removeChannel()` wiederum nimmt ihn erst nach
+ * einem `await channel.unsubscribe()` aus der Registry. Wer sofort neu
+ * abonniert, bekommt deshalb die alte, bereits subscribte Instanz — und
+ * `channel.on('postgres_changes', …)` wirft darauf
+ * "cannot add `postgres_changes` callbacks … after `subscribe()`".
  */
-export function subscribeHouseholdRealtime(deps: SubscribeHouseholdRealtimeDeps): () => void {
+export function subscribeHouseholdRealtime(
+  deps: SubscribeHouseholdRealtimeDeps,
+): () => Promise<void> {
   const channels: RealtimeChannel[] = [];
 
   for (const householdId of deps.householdIds) {
     let hasDisconnected = false;
 
-    const channel = deps.supabase.channel(`household:${householdId}`);
+    const topic = `household:${householdId}`;
+
+    // Einen stehengebliebenen Channel zu diesem Topic zuerst abraeumen.
+    //
+    // `supabase.channel(topic)` legt nichts Neues an, wenn zu dem Topic schon
+    // etwas registriert ist — es gibt die vorhandene Instanz zurueck
+    // (`RealtimeClient.channel()`). Ist die bereits subscribt, wirft das
+    // `channel.on('postgres_changes', …)` weiter unten mit "cannot add
+    // `postgres_changes` callbacks … after `subscribe()`".
+    //
+    // Stehen bleiben kann einer, wenn das Modul mit der unsubscribe-Closure
+    // ersetzt wird, der Supabase-Client aber weiterlebt — im Dev-Build bei
+    // jedem Fast Refresh. Die Cleanup-Funktion dieses Aufrufs laeuft dann nie.
+    // `removeChannel()` nimmt den Channel synchron aus der Registry (der
+    // await darin betrifft nur das Leave zum Server), deshalb genuegt hier
+    // fire-and-forget: die naechste Zeile bekommt garantiert eine frische
+    // Instanz.
+    for (const stale of deps.supabase.getChannels()) {
+      if (stale.topic === `realtime:${topic}`) {
+        void deps.supabase.removeChannel(stale);
+      }
+    }
+
+    const channel = deps.supabase.channel(topic);
 
     for (const entity of REALTIME_TABLES) {
       channel.on(
@@ -124,9 +159,11 @@ export function subscribeHouseholdRealtime(deps: SubscribeHouseholdRealtimeDeps)
     channels.push(channel);
   }
 
-  return () => {
+  return async () => {
+    // Sequenziell und abgewartet: Erst wenn `removeChannel` durch ist, ist der
+    // Channel aus der Registry des Clients raus und das Topic wieder frei.
     for (const channel of channels) {
-      void deps.supabase.removeChannel(channel);
+      await deps.supabase.removeChannel(channel);
     }
   };
 }

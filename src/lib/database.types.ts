@@ -784,6 +784,16 @@ export type Database = {
     }
     Functions: {
       create_household: { Args: { household_name: string }; Returns: string }
+      household_member_profiles: {
+        Args: { hid: string }
+        Returns: {
+          avatar_url: string
+          display_name: string
+          joined_at: string
+          role: string
+          user_id: string
+        }[]
+      }
       redeem_invite: { Args: { invite_token: string }; Returns: string }
     }
     Enums: {

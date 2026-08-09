@@ -131,7 +131,7 @@ export function SyncDebugScreen() {
     : 'Noch nicht synchronisiert';
 
   return (
-    <Screen title="Sync-Diagnose" showBackButton>
+    <Screen title="Sync-Diagnose" back={{ label: 'Synchronisation', href: '/settings/sync' }}>
       <Card title="Letzter Synchronisations-Lauf">
         <View style={styles.zeile}>
           <ThemedText type="small">Uhrzeit:</ThemedText>

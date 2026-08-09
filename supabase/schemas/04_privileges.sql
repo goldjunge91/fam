@@ -72,3 +72,11 @@ grant execute on function public.create_household(text) to authenticated;
 -- user_id.
 revoke execute on function public.redeem_invite(uuid) from public, anon;
 grant execute on function public.redeem_invite(uuid) to authenticated;
+
+-- household_member_profiles() umgeht die profiles-RLS (SECURITY DEFINER) und
+-- prueft die Mitgliedschaft selbst. Fuer `anon` gaebe es nichts zu pruefen —
+-- ohne auth.uid() ist niemand Mitglied —, aber der Entzug bleibt trotzdem
+-- ausdruecklich stehen: bei einer Funktion, die RLS umgeht, ist die
+-- Rechtevergabe kein Ort fuer Implizites.
+revoke execute on function public.household_member_profiles(uuid) from public, anon;
+grant execute on function public.household_member_profiles(uuid) to authenticated;

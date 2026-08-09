@@ -132,7 +132,7 @@ export function useRealtimeSync(householdId: string | undefined) {
     };
 
     let cancelled = false;
-    let unsubscribeRealtime: (() => void) | null = null;
+    let unsubscribeRealtime: (() => Promise<void>) | null = null;
 
     (async () => {
       const db = await getDatabase();
@@ -151,7 +151,12 @@ export function useRealtimeSync(householdId: string | undefined) {
 
     return () => {
       cancelled = true;
-      unsubscribeRealtime?.();
+      // Das Abmelden ist async (es wartet das Leave zum Server ab). Hier nicht
+      // abgewartet — eine Cleanup-Funktion kann das nicht. Das ist unbedenklich:
+      // Aus der Channel-Registry ist der Channel bereits synchron raus, und ein
+      // spaeterer Aufbau auf demselben Topic raeumt ohnehin selbst auf (siehe
+      // `subscribeHouseholdRealtime`).
+      void unsubscribeRealtime?.();
       stopNetworkTrigger();
     };
   }, [householdId]);

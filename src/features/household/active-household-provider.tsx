@@ -1,6 +1,15 @@
 import type React from 'react';
-import { createContext, useCallback, useContext, useEffect, useMemo, useState } from 'react';
+import {
+  createContext,
+  useCallback,
+  useContext,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from 'react';
 
+import { useSession } from '@/features/auth/session-provider';
 import { useHouseholds } from '@/features/household/api';
 import type { Database } from '@/lib/database.types';
 import { getStoredActiveHouseholdId, setStoredActiveHouseholdId } from './active-household-store';
@@ -18,6 +27,8 @@ interface ActiveHouseholdContextType {
 const ActiveHouseholdContext = createContext<ActiveHouseholdContextType | undefined>(undefined);
 
 export function ActiveHouseholdProvider({ children }: { children: React.ReactNode }) {
+  const { session } = useSession();
+  const userId = session?.user.id ?? null;
   const { data: households = [], isLoading, isFetching } = useHouseholds();
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [isStoreLoaded, setIsStoreLoaded] = useState(false);
@@ -30,6 +41,29 @@ export function ActiveHouseholdProvider({ children }: { children: React.ReactNod
       setIsStoreLoaded(true);
     });
   }, []);
+
+  /**
+   * Verwirft die Auswahl, sobald ein anderer Nutzer angemeldet ist.
+   *
+   * Dieser Provider haengt im Root-Layout und wird bei An- und Abmeldung nie
+   * neu gemountet — `selectedId` wuerde also den Nutzerwechsel ueberleben. Bis
+   * der Fix an `useHouseholds()` griff, war das eine der Stellen, ueber die der
+   * Haushalt des Vornutzers beim neuen Nutzer wieder auftauchte.
+   *
+   * Bewusst nur bei einem Wechsel *weg von* einer bekannten Nutzer-Id: Der
+   * Uebergang `null → userId` ist der normale Kaltstart, und dort darf die
+   * gerade aus dem Speicher gelesene Auswahl nicht weggeworfen werden.
+   */
+  const previousUserIdRef = useRef<string | null>(null);
+  useEffect(() => {
+    const previousUserId = previousUserIdRef.current;
+    previousUserIdRef.current = userId;
+
+    if (previousUserId === null || previousUserId === userId) return;
+
+    setSelectedId(null);
+    setStoredActiveHouseholdId(null);
+  }, [userId]);
 
   // Wähle den aktiven Haushalt aus der geladenen Liste (mit Fallback auf den ersten)
   const activeHousehold = useMemo(() => {
