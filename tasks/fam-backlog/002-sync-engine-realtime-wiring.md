@@ -29,9 +29,10 @@ Solange das so bleibt, konvergieren Änderungen zwischen Geräten nur alle
 - [x] `registerBackgroundSync()` + `setBackgroundSyncHandler()` verdrahten
       (inkl. `defineBackgroundSyncTask()` im Modul-Scope von `src/app/_layout.tsx`,
       ohne die schlaegt `registerTaskAsync` zur Laufzeit fehl)
-- [ ] Manuell verifizieren, dass kein Echo/keine Sync-Schleife entsteht
+- [x] Manuell verifizieren, dass kein Echo/keine Sync-Schleife entsteht
       (Design dazu steht schon als Doc-Comment in `src/lib/sync/realtime.ts`,
-      Abschnitt "Echo-Unterdrueckung") — steht noch aus, siehe Notes
+      Abschnitt "Echo-Unterdrueckung") — durchgefuehrt, kein Echo/keine
+      Schleife beobachtet; dafuer vier andere Befunde, siehe unten
 
 ## Notes
 
@@ -57,3 +58,24 @@ mit React-Baum lebt. Weckt das OS die Hintergrund-Task in einem
 vollständig beendeten App-Zustand (headless), ist unklar, ob Expos
 Background-Task-Boot den React-Baum erneut mountet — dann wäre der
 Handler-Slot wieder `null`.
+
+## Nachtrag 2026-08-09 — Verifikation durchgefuehrt
+
+Die manuelle Verifikation am iOS-Simulator hat den Echo-/Schleifen-Fall
+bestaetigt (kein Echo, keine Schleife — das Design aus `realtime.ts` traegt).
+Sie hat dabei aber vier andere Fehler freigelegt, die nichts mit der
+Verdrahtung selbst zu tun haben und in `006-sqlite-locking-und-datenleck.md`
+weiterverfolgt werden:
+
+1. `SQLITE_BUSY` im laufenden Betrieb ("database is locked")
+2. Haushalt des Vornutzers nach einem Account-Wechsel
+3. `cannot add postgres_changes callbacks … after subscribe()` beim Remount
+4. `permission denied for function create_household` ohne Session
+
+Behoben in `f58e3bf`. Befund 3 betrifft `realtime.ts` direkt und damit diesen
+Task: `subscribeHouseholdRealtime` raeumt jetzt einen stehengebliebenen
+Channel desselben Topics ab, bevor es einen neuen anlegt.
+
+Die Konvergenzmessung selbst (<1s, Offline-Wiederkehr) gehoert zu Gate D und
+steht dort weiterhin offen — sie war waehrend der Fehlersuche nicht
+aussagekraeftig.
