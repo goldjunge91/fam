@@ -49,8 +49,20 @@ Die Bestätigungsmail enthält beides: einen **Link** und einen **6-stelligen
 Code**. Der Link trägt bewusst kein `fam://`-Redirect mehr — er setzt nur noch
 serverseitig `email_confirmed_at` und funktioniert deshalb aus jedem Browser und
 von jedem Gerät. Die App wartet nicht auf einen Deep Link, sondern fragt den
-Server selbst (alle 10 s, plus „Jetzt prüfen"-Knopf); wer schneller sein will,
+Server selbst (alle 15 s, plus „Jetzt prüfen"-Knopf); wer schneller sein will,
 tippt den Code direkt ein.
+
+> **Remote zwingend: eigener SMTP-Server.** Der eingebaute Mailversand von
+> Supabase ist ausdrücklich nicht für Produktion gedacht — er
+> [„refuses to deliver messages to addresses that are not part of the project's
+> team"](https://supabase.com/docs/guides/auth/auth-smtp) und ist auf **2 Mails
+> pro Stunde** begrenzt. Dazu kommt: Seit **2026-06-03** können neu angelegte
+> Free-Projekte mit dem Standard-SMTP **keine Auth-Templates mehr anpassen**
+> ([Changelog](https://supabase.com/changelog)). `fam_app` wurde am 2026-08-05
+> erstellt, fällt also darunter. Ohne eigenen SMTP-Server enthielte die Mail
+> remote das Standard-Template — **ohne den 6-stelligen Code**, während die App
+> weiterhin ein Code-Feld anzeigt. Link, Polling und „Jetzt prüfen" funktionieren
+> auch dann; der Code-Weg nicht. Custom SMTP löst beides auf einmal.
 
 Nach dem Klick landet der Browser auf der Edge Function `auth-confirmed`
 (`supabase/functions/auth-confirmed/`) — sie zeigt „E-Mail bestätigt" bzw.
