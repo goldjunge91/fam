@@ -43,6 +43,15 @@ EXPO_PUBLIC_SUPABASE_KEY=sb_publishable_...
 EXPO_PUBLIC_FORCE_ONBOARDING=false  # optional: bei true wird beim App-Start das Profil-Onboarding geöffnet
 ```
 
+### E-Mail-Bestätigung
+
+Die Bestätigungsmail enthält beides: einen **Link** und einen **6-stelligen
+Code**. Der Link trägt bewusst kein `fam://`-Redirect mehr — er setzt nur noch
+serverseitig `email_confirmed_at` und funktioniert deshalb aus jedem Browser und
+von jedem Gerät. Die App wartet nicht auf einen Deep Link, sondern fragt den
+Server selbst (alle 10 s, plus „Jetzt prüfen"-Knopf); wer schneller sein will,
+tippt den Code direkt ein.
+
 Nur Variablen mit dem Präfix `EXPO_PUBLIC_` landen im Client-Bundle; Expo setzt
 sie zur Build-Zeit als Literal ein. Fehlt eine Variable, bricht `src/lib/env.ts`
 mit einer klaren Meldung ab, statt später einen kryptischen Netzwerkfehler zu

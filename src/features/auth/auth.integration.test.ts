@@ -212,4 +212,128 @@ describe('Auth gegen die lokale Supabase-Instanz', () => {
     const { data: members } = await client.from('household_members').select('role');
     expect(members).toEqual([{ role: 'admin' }]);
   }, 30_000);
+
+  /**
+   * Der Bestaetigungsflow selbst — der Teil, den die uebrigen Tests dieser Suite
+   * mit `admin.createUser({ email_confirm: true })` bewusst umgehen.
+   *
+   * Ohne Testdoubles: echte Registrierung, echte Mail aus Mailpit, echter
+   * `verifyOtp`-Aufruf. Genau das deckt den Bug ab, der zu diesem Umbau gefuehrt
+   * hat — ein Unit-Test mit gemocktem Client haette ihn nie gefunden, weil er in
+   * der Kette Mailtemplate → GoTrue-Token → Client-Aufruf sass.
+   */
+  describe('E-Mail-Bestaetigung per 6-stelligem Code', () => {
+    /** Web-UI von Mailpit, aus `supabase status` (INBUCKET_URL). */
+    const MAILPIT_URL = 'http://127.0.0.1:54324';
+
+    /**
+     * Holt die zuletzt an `email` zugestellte Nachricht. Mailpit stellt sofort
+     * zu, aber GoTrue verschickt asynchron — deshalb kurz nachfassen statt
+     * einmal blind zu greifen.
+     */
+    async function fetchLatestMessageTo(email: string, attempts = 20): Promise<string> {
+      for (let i = 0; i < attempts; i++) {
+        const listRes = await fetch(
+          `${MAILPIT_URL}/api/v1/search?query=${encodeURIComponent(`to:${email}`)}`,
+        );
+        if (listRes.ok) {
+          const list = (await listRes.json()) as { messages?: { ID: string }[] };
+          const id = list.messages?.[0]?.ID;
+          if (id) {
+            const msgRes = await fetch(`${MAILPIT_URL}/api/v1/message/${id}`);
+            const msg = (await msgRes.json()) as { HTML?: string; Text?: string };
+            return msg.HTML || msg.Text || '';
+          }
+        }
+        await new Promise((resolve) => setTimeout(resolve, 500));
+      }
+      throw new Error(`Keine Mail an ${email} in Mailpit gefunden.`);
+    }
+
+    /** Der 6-stellige Code aus supabase/templates/confirm.html ({{ .Token }}). */
+    function extractCode(body: string): string {
+      const match = body.match(/\b(\d{6})\b/);
+      if (!match) throw new Error(`Kein 6-stelliger Code in der Mail:\n${body}`);
+      return match[1];
+    }
+
+    it('loest den Code aus der Mail ein und liefert eine bestaetigte Session', async () => {
+      const email = uniqueEmail();
+      const password = 'langgenug1';
+
+      const { data: signUpData, error: signUpError } = await client.auth.signUp({
+        email,
+        password,
+      });
+      expect(signUpError).toBeNull();
+      // Mit enable_confirmations=true gibt es hier bewusst noch keine Session.
+      expect(signUpData.session).toBeNull();
+
+      const code = extractCode(await fetchLatestMessageTo(email));
+
+      const { data, error } = await client.auth.verifyOtp({ email, token: code, type: 'signup' });
+
+      expect(error).toBeNull();
+      expect(data.session).not.toBeNull();
+      // Der Kern der Zusicherung: die Adresse gilt jetzt serverseitig als geprueft.
+      expect(data.session?.user.email_confirmed_at).toEqual(expect.any(String));
+    }, 30_000);
+
+    it('weist denselben Code beim zweiten Mal ab', async () => {
+      // Der Token gilt genau einmal — dieselbe Eigenschaft, die den
+      // Bestaetigungslink beim zweiten Klick scheitern laesst. Sie ist gewollt,
+      // und die App muss sie als solche melden statt im Wartezustand zu haengen.
+      const email = uniqueEmail();
+      await client.auth.signUp({ email, password: 'langgenug1' });
+
+      const code = extractCode(await fetchLatestMessageTo(email));
+
+      const first = await client.auth.verifyOtp({ email, token: code, type: 'signup' });
+      expect(first.error).toBeNull();
+
+      const second = await client.auth.verifyOtp({ email, token: code, type: 'signup' });
+      expect(second.error).not.toBeNull();
+      expect(second.data.session).toBeNull();
+    }, 30_000);
+
+    it('schickt einen Link ohne fam://-Deep-Link, der in jedem Browser aufgeht', async () => {
+      // Regression: Der Link zeigte auf `fam:///onboarding`. Ein Browser ohne
+      // installierte App kann ein Custom Scheme nicht aufloesen — der Klick lief
+      // dort ins Leere. Und weil die Session nur im Fragment dieses einen
+      // Redirects zurueckkam, war der One-Time-Token danach verbrannt.
+      //
+      // Jetzt hat der Link genau eine Aufgabe: `email_confirmed_at` setzen. Das
+      // gelingt von jedem Geraet aus; die App fragt den Server selbst.
+      const email = uniqueEmail();
+      await client.auth.signUp({ email, password: 'langgenug1' });
+
+      const body = await fetchLatestMessageTo(email);
+
+      expect(body).toContain('/auth/v1/verify');
+      expect(body).not.toContain('fam://');
+    }, 30_000);
+
+    it('bestaetigt den Account, wenn der Link wie aus einem fremden Browser aufgerufen wird', async () => {
+      // Der Fall aus dem Bug-Report, jetzt als Zusicherung: Ein reiner
+      // HTTP-Aufruf des Links — ohne App, ohne Deep Link, ohne Fragment
+      // auszuwerten — muss die Adresse serverseitig bestaetigen. Genau daran
+      // haengt, dass die App danach per signInWithPassword weiterkommt.
+      const email = uniqueEmail();
+      const password = 'langgenug1';
+      await client.auth.signUp({ email, password });
+
+      const body = await fetchLatestMessageTo(email);
+      const link = body.match(/href="([^"]*\/auth\/v1\/verify[^"]*)"/)?.[1]?.replace(/&amp;/g, '&');
+      if (!link) throw new Error(`Kein Bestaetigungslink in der Mail:\n${body}`);
+
+      // Kein Redirect folgen: Der Browser wuerde es tun, aber uns interessiert
+      // nur, dass der Aufruf selbst die Bestaetigung ausloest.
+      const res = await fetch(link, { redirect: 'manual' });
+      expect(res.status).toBeGreaterThanOrEqual(300);
+
+      const after = await client.auth.signInWithPassword({ email, password });
+      expect(after.error).toBeNull();
+      expect(after.data.session?.user.email_confirmed_at).toEqual(expect.any(String));
+    }, 30_000);
+  });
 });

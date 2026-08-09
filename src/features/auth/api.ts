@@ -33,6 +33,16 @@ export function authErrorMessage(error: AuthError | Error | null): string | null
   if (raw.includes('email rate limit') || raw.includes('over_email_send_rate_limit')) {
     return 'Zu viele Versuche. Bitte warte einen Moment.';
   }
+  // Bestaetigungscode und Bestaetigungslink teilen sich denselben One-Time-Token.
+  // Wer den Link geklickt hat, entwertet damit auch den Code — und umgekehrt.
+  // Beide Faelle melden dasselbe, weil sie fuer den Nutzer dasselbe bedeuten.
+  if (
+    raw.includes('token has expired or is invalid') ||
+    raw.includes('otp_expired') ||
+    raw.includes('email link is invalid or has expired')
+  ) {
+    return 'Der Code ist abgelaufen oder wurde schon benutzt. Fordere einen neuen an.';
+  }
   // Netzwerkfehler sind der haeufigste Fall auf dem Handy und verdienen einen
   // Hinweis auf die Ursache statt eines rohen Fetch-Fehlers.
   if (raw.includes('network request failed') || raw.includes('fetch failed')) {
@@ -54,29 +64,44 @@ export async function signInWithOAuthProvider(provider: 'apple' | 'google') {
 }
 
 /**
- * `emailRedirectTo` fehlte hier bisher komplett, wodurch der
- * Bestaetigungs-Link auf `site_url` zeigte (in der lokalen Entwicklung eine
- * tote Web-Adresse) statt auf einen Deep Link zurueck in die App. Ohne den
- * Deep Link bestaetigt der Klick den Account zwar serverseitig, aber die App
- * bekommt nie eine Session und die PendingAuthBanner-Anzeige haengt fest.
- * Siehe `fam://*` in `additional_redirect_urls` (supabase/config.toml) und
- * das Token-Parsing in `src/app/_layout.tsx`.
+ * Registrierung. **Bewusst ohne `emailRedirectTo`** — der Bestaetigungslink
+ * fuehrt nicht in die App zurueck.
  *
- * Ziel bewusst `/onboarding`, nicht `/`: Expo Router behandelt jede
- * eingehende Deep-Link-URL zusaetzlich zu unserem manuellen Token-Parsing
- * automatisch als Navigationsziel. `/` durchlaeuft (app)/_layout.tsx's
- * Redirect-Logik neu und hat den laufenden Onboarding-Wizard mitten in
- * Schritt 2 zurueckgesetzt (#128-artig). `/onboarding` ist die Route, auf der
- * der Wizard ohnehin schon steht — eine erneute Navigation dorthin ist fuer
- * React Navigation ein No-Op, waehrend ein Kaltstart (App vorher beendet)
- * weiterhin korrekt direkt im Onboarding landet.
+ * Ein `fam://`-Deep-Link als Redirect-Ziel war genau die Ursache des Problems:
+ * Er reicht die Session ueber das URL-Fragment eines One-Time-Tokens zurueck.
+ * Verpasst die App diesen einen Versuch — Kaltstart-Race, Browser-Preload, oder
+ * schlicht weil die Mail auf einem anderen Geraet geoeffnet wurde —, ist der
+ * Token verbrannt und jeder weitere Klick meldet "Email link is invalid or has
+ * expired". Auf einem Rechner ohne installierte App liess sich das Scheme
+ * ohnehin nie aufloesen.
+ *
+ * Ohne Redirect hat der Link nur noch eine Aufgabe: serverseitig
+ * `email_confirmed_at` zu setzen. Das gelingt aus **jedem** Browser und von
+ * jedem Geraet aus. Dass die App davon erfaehrt, ist ihre eigene Sache —
+ * `PendingAuthBanner` fragt den Server aktiv, und der 6-stellige Code aus
+ * derselben Mail (`confirmSignUpWithCode`) ist der direkte Weg.
  */
 export async function signUp(email: string, password: string) {
-  const redirectTo = Linking.createURL('/onboarding');
-  const { data, error } = await getSupabase().auth.signUp({
+  const { data, error } = await getSupabase().auth.signUp({ email, password });
+  return { data, error };
+}
+
+/**
+ * Loest den 6-stelligen Code aus der Bestaetigungsmail ein.
+ *
+ * Der verlaessliche Bestaetigungsweg: er braucht weder Browser noch Deep Link
+ * noch registriertes URL-Scheme und funktioniert damit von jedem Geraet und
+ * jedem Mailclient aus. Bei Erfolg liefert `verifyOtp` direkt eine Session —
+ * der `onAuthStateChange`-Listener im PendingAuthBanner feuert dadurch von
+ * selbst, ein zusaetzliches `setSession` waere doppelt.
+ *
+ * Der Aufrufer validiert den Code vorher mit `confirmationCodeSchema`.
+ */
+export async function confirmSignUpWithCode(email: string, token: string) {
+  const { data, error } = await getSupabase().auth.verifyOtp({
     email,
-    password,
-    options: { emailRedirectTo: redirectTo },
+    token,
+    type: 'signup',
   });
   return { data, error };
 }

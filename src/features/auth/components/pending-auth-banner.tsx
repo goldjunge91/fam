@@ -2,23 +2,48 @@ import { useEffect, useRef, useState } from 'react';
 import { Animated, Easing, StyleSheet, View } from 'react-native';
 
 import { Button } from '@/components/button';
+import { TextField } from '@/components/text-field';
 import { ThemedText } from '@/components/themed-text';
 import { Spacing } from '@/constants/theme';
-import { authErrorMessage, resendConfirmationEmail } from '@/features/auth/api';
+import {
+  authErrorMessage,
+  confirmSignUpWithCode,
+  resendConfirmationEmail,
+  signIn,
+  signOut,
+} from '@/features/auth/api';
+import { confirmationCodeSchema } from '@/features/auth/auth-schemas';
 import { useTheme } from '@/hooks/use-theme';
+import { clearAuthDeepLinkError, subscribeAuthDeepLinkError } from '@/lib/auth-deep-link-state';
 import { getSupabase } from '@/lib/supabase';
 
 interface PendingAuthBannerProps {
   email: string;
   onConfirmed: () => void;
   onChangeEmail?: () => void;
+  /**
+   * Das eben eingegebene Passwort. Nur fuer den Ausweg "Ich habe den Link schon
+   * geklickt" gebraucht und ausschliesslich im Speicher — nichts davon wird
+   * gespeichert. Fehlt es, blendet die Komponente diesen Button aus.
+   */
+  password?: string;
 }
 
-export function PendingAuthBanner({ email, onConfirmed, onChangeEmail }: PendingAuthBannerProps) {
+export function PendingAuthBanner({
+  email,
+  onConfirmed,
+  onChangeEmail,
+  password,
+}: PendingAuthBannerProps) {
   const theme = useTheme();
   const [resending, setResending] = useState(false);
   const [resendStatus, setResendStatus] = useState<string | null>(null);
+  const [resendFailed, setResendFailed] = useState(false);
   const [cooldown, setCooldown] = useState(0);
+  const [code, setCode] = useState('');
+  const [codeError, setCodeError] = useState<string | null>(null);
+  const [confirming, setConfirming] = useState(false);
+  const [recovering, setRecovering] = useState(false);
 
   // Pulse animations for Liquid Ring & Live Indicator
   const pulseAnim = useRef(new Animated.Value(1)).current;
@@ -92,18 +117,19 @@ export function PendingAuthBanner({ email, onConfirmed, onChangeEmail }: Pending
     return () => clearInterval(timer);
   }, [cooldown]);
 
-  // Erkennt die Bestaetigung ausschliesslich ueber einen echten Session-Wechsel:
-  // entweder eine bereits bestehende Session (Poll alle 3s als Fallback, falls
-  // der Deep-Link-Redirect die App im Hintergrund erwischt) oder das
-  // Auth-State-Event, das beim Klick auf den Bestaetigungslink feuert.
-  //
-  // Frueher wurde hier zusaetzlich alle 3s `signIn(email, password)` versucht.
-  // Das umgeht den Sinn der E-Mail-Bestaetigung: Ob ein Sign-in-Versuch fuer
-  // einen unbestaetigten Account durchgeht, haengt vom Server-Setting "Confirm
-  // email" ab — laesst es das zu, landet der Nutzer angemeldet in einem
-  // Account, dessen E-Mail nie verifiziert wurde, und haengt spaeter mit einer
-  // Session ohne funktionierendes Profil fest. Eine Session gilt hier nur dann
-  // als "bestaetigt", wenn Supabase sie selbst liefert.
+  // Ein fehlgeschlagener Bestaetigungslink meldet sich ueber _layout.tsx hier.
+  // Praktisch immer bedeutet er "Link schon benutzt" — der Token gilt genau
+  // einmal. Diese Meldung gehoert neben das Code-Feld, weil genau dort der
+  // Ausweg liegt.
+  useEffect(() => {
+    return subscribeAuthDeepLinkError((error) => {
+      if (error) setCodeError(authErrorMessage(new Error(error)));
+    });
+  }, []);
+
+  // Deep-Link-Pfad: die App bekommt die Session direkt (nur auf dem Geraet, auf
+  // dem die App laeuft). Session-Poll als Absicherung, falls der Redirect die
+  // App im Hintergrund erwischt hat.
   useEffect(() => {
     let active = true;
 
@@ -118,7 +144,6 @@ export function PendingAuthBanner({ email, onConfirmed, onChangeEmail }: Pending
 
     const interval = setInterval(checkExistingSession, 3000);
 
-    // Listen to Supabase auth state changes (e.g. via deep link redirect)
     const { data: sub } = getSupabase().auth.onAuthStateChange((_event, session) => {
       if (session && active) {
         onConfirmed();
@@ -132,20 +157,143 @@ export function PendingAuthBanner({ email, onConfirmed, onChangeEmail }: Pending
     };
   }, [onConfirmed]);
 
+  // Bestaetigung von einem BELIEBIGEN Geraet aus.
+  //
+  // Der Deep Link oben hilft nur, wenn die Mail auf genau dem Geraet geoeffnet
+  // wird, auf dem die App laeuft. Wer sie am Rechner oder auf einem zweiten
+  // Telefon anklickt, bestaetigt den Account serverseitig — die App erfuhr davon
+  // bisher nie und blieb im Wartezustand haengen. Deshalb fragt sie selbst nach.
+  //
+  // `signInWithPassword` ist hier die Statusabfrage: Solange die Adresse nicht
+  // bestaetigt ist, lehnt der Server ab (`email_not_confirmed`); sobald sie es
+  // ist, kommt eine Session. Der frueher hier notierte Einwand — ein Server mit
+  // abgeschaltetem "Confirm email" koennte eine Session fuer eine ungepruefte
+  // Adresse liefern — bleibt gueltig und wird deshalb ausdruecklich abgefangen:
+  // ohne `email_confirmed_at` wird die Session verworfen und sofort wieder
+  // abgemeldet. Geprueft wird also die Eigenschaft, nicht das Verfahren.
+  //
+  // Intervall 10s und nicht 3s wegen `[auth.rate_limit] sign_in_sign_ups = 30`
+  // pro 5 Minuten und IP (config.toml): schnelleres Pollen wuerde das Kontingent
+  // aufbrauchen und echte Anmeldeversuche mit blockieren.
+  useEffect(() => {
+    if (!password) return;
+    let active = true;
+
+    async function checkConfirmedOnServer() {
+      try {
+        const { data, error } = await signIn(email, password as string);
+        if (!active || error || !data.session) return;
+
+        if (!data.session.user.email_confirmed_at) {
+          await signOut();
+          return;
+        }
+
+        onConfirmed();
+      } catch {
+        // Netzwerkaussetzer beim Pollen sind kein Fehler, den der Nutzer sehen muss.
+      }
+    }
+
+    const interval = setInterval(checkConfirmedOnServer, 10_000);
+    return () => {
+      active = false;
+      clearInterval(interval);
+    };
+  }, [email, password, onConfirmed]);
+
+  /** Der verlaessliche Weg: 6-stelliger Code aus der Mail. */
+  async function handleConfirmCode() {
+    if (confirming) return;
+    setCodeError(null);
+    clearAuthDeepLinkError();
+
+    const parsed = confirmationCodeSchema.safeParse({ code });
+    if (!parsed.success) {
+      // Ungueltige Eingabe gar nicht erst ans Netz geben.
+      setCodeError(parsed.error.issues[0]?.message ?? 'Ungültiger Code.');
+      return;
+    }
+
+    setConfirming(true);
+    const { data, error } = await confirmSignUpWithCode(email, parsed.data.code);
+    setConfirming(false);
+
+    if (error) {
+      setCodeError(authErrorMessage(error) || 'Der Code konnte nicht geprüft werden.');
+      return;
+    }
+    if (!data.session) {
+      setCodeError('Der Code wurde akzeptiert, aber es kam keine Sitzung zurück.');
+      return;
+    }
+
+    onConfirmed();
+  }
+
+  /**
+   * Ausweg fuer den Fall, dass der Link bereits eingeloest wurde: serverseitig
+   * ist der Account dann bestaetigt, in der App fehlt aber die Session — vorher
+   * eine Sackgasse ohne Ausgang.
+   *
+   * Die Session wird nur akzeptiert, wenn Supabase `email_confirmed_at`
+   * mitliefert. Das haelt die Zusicherung der Komponente aufrecht, dass hier
+   * niemand mit unbestaetigter Adresse durchkommt — unabhaengig davon, wie der
+   * Server "Confirm email" gerade konfiguriert hat.
+   */
+  async function handleAlreadyConfirmed() {
+    if (!password || recovering) return;
+    setCodeError(null);
+    setResendStatus(null);
+    setRecovering(true);
+
+    const { data, error } = await signIn(email, password);
+
+    if (error) {
+      setRecovering(false);
+      setCodeError(authErrorMessage(error) || 'Anmeldung fehlgeschlagen.');
+      return;
+    }
+
+    if (!data.session?.user.email_confirmed_at) {
+      // Der Server hat eine Session fuer eine unbestaetigte Adresse geliefert.
+      // Nicht uebernehmen, sondern sofort wieder abmelden.
+      await signOut();
+      setRecovering(false);
+      setCodeError('Deine E-Mail-Adresse ist noch nicht bestätigt.');
+      return;
+    }
+
+    setRecovering(false);
+    clearAuthDeepLinkError();
+    onConfirmed();
+  }
+
   async function handleResend() {
     if (cooldown > 0 || resending) return;
     setResending(true);
     setResendStatus(null);
+    setResendFailed(false);
 
     const { error } = await resendConfirmationEmail(email);
     setResending(false);
 
     if (error) {
+      setResendFailed(true);
       setResendStatus(authErrorMessage(error) || 'Fehler beim Senden.');
-    } else {
-      setResendStatus('Bestätigungs-E-Mail erneut gesendet!');
-      setCooldown(60);
+      return;
     }
+
+    // Bewusst keine Erfolgsmeldung: Supabase antwortet auch dann mit 200, wenn
+    // gar keine Mail rausgeht — etwa weil der Account laengst bestaetigt ist
+    // (Schutz vor dem Ausspaehen registrierter Adressen). "Erneut gesendet!" war
+    // an dieser Stelle also nachweislich falsch, und der Nutzer wartete auf eine
+    // Mail, die nie kam.
+    setResendStatus(
+      'Falls dein Konto noch nicht bestätigt ist, ist eine neue E-Mail unterwegs. ' +
+        'Kommt nichts an, hast du den Link vermutlich schon benutzt — nutze dann den Button darunter.',
+    );
+    setCooldown(60);
   }
 
   return (
@@ -193,18 +341,45 @@ export function PendingAuthBanner({ email, onConfirmed, onChangeEmail }: Pending
 
       {/* Description */}
       <ThemedText type="small" themeColor="textSecondary" style={styles.descriptionText}>
-        Wir haben dir einen Bestätigungslink per E-Mail gesendet. Sobald du auf den Link klickst,
-        loggt dich die App automatisch ein und geht von alleine weiter.
+        Wir haben dir eine E-Mail geschickt. Klick den Link darin — egal auf welchem Gerät, die App
+        merkt das von selbst und geht weiter. Oder gib den 6-stelligen Code aus der E-Mail hier ein.
       </ThemedText>
+
+      {/* Code-Eingabe: der verlaessliche Bestaetigungsweg */}
+      <View style={styles.codeBlock}>
+        <TextField
+          testID="pending-auth-code"
+          label="Code aus der E-Mail"
+          value={code}
+          onChangeText={(next) => {
+            // Nur Ziffern uebernehmen: beim Kopieren aus einem Mailclient kommen
+            // regelmaessig Leerzeichen mit.
+            setCode(next.replace(/\D/g, '').slice(0, 6));
+            setCodeError(null);
+          }}
+          error={codeError ?? undefined}
+          placeholder="123456"
+          keyboardType="number-pad"
+          maxLength={6}
+          autoComplete="sms-otp"
+          textContentType="oneTimeCode"
+          returnKeyType="go"
+          onSubmitEditing={handleConfirmCode}
+          style={styles.codeInput}
+        />
+
+        <Button
+          label="Bestätigen"
+          onPress={handleConfirmCode}
+          loading={confirming}
+          disabled={code.length !== 6}
+        />
+      </View>
 
       {resendStatus && (
         <ThemedText
           type="small"
-          themeColor={
-            resendStatus.includes('erfolgreich') || resendStatus.includes('gesendet')
-              ? 'accent'
-              : 'danger'
-          }
+          themeColor={resendFailed ? 'danger' : 'textSecondary'}
           style={{ textAlign: 'center' }}>
           {resendStatus}
         </ThemedText>
@@ -221,6 +396,15 @@ export function PendingAuthBanner({ email, onConfirmed, onChangeEmail }: Pending
           loading={resending}
           disabled={cooldown > 0}
         />
+
+        {password && (
+          <Button
+            label="Jetzt prüfen"
+            variant="secondary"
+            onPress={handleAlreadyConfirmed}
+            loading={recovering}
+          />
+        )}
 
         {onChangeEmail && (
           <Button
@@ -293,6 +477,15 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     lineHeight: 20,
     paddingHorizontal: Spacing.two,
+  },
+  codeBlock: {
+    width: '100%',
+    gap: Spacing.two,
+  },
+  codeInput: {
+    textAlign: 'center',
+    fontSize: 24,
+    letterSpacing: 8,
   },
   actions: {
     width: '100%',

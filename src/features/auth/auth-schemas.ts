@@ -52,6 +52,22 @@ export const signUpSchema = z
 
 export const resetRequestSchema = z.object({ email });
 
+/**
+ * Der 6-stellige Code aus der Bestaetigungsmail ({{ .Token }} in
+ * supabase/templates/confirm.html).
+ *
+ * Der Zuschnitt auf genau sechs Ziffern ist keine Bequemlichkeit, sondern
+ * Eingangspruefung: was hier nicht durchkommt, erreicht `verifyOtp` gar nicht
+ * erst. `trim()` faengt die fuehrenden Leerzeichen ab, die beim Kopieren aus
+ * einem Mailclient regelmaessig mitkommen.
+ */
+export const confirmationCodeSchema = z.object({
+  code: z
+    .string()
+    .trim()
+    .regex(/^\d{6}$/, 'Bitte die 6 Ziffern aus der E-Mail eingeben.'),
+});
+
 export const newPasswordSchema = z
   .object({
     password,
@@ -177,6 +193,7 @@ export const profileSchema = z.object({
   activityLevel: z.enum(['sedentary', 'light', 'moderate', 'active', 'very_active']).optional(),
 });
 
+export type ConfirmationCodeInput = z.infer<typeof confirmationCodeSchema>;
 export type SignInInput = z.infer<typeof signInSchema>;
 export type SignUpInput = z.infer<typeof signUpSchema>;
 export type ProfileInput = z.infer<typeof profileSchema>;
