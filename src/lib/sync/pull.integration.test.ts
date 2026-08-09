@@ -18,6 +18,19 @@ import {
 
 const SUPABASE_URL = process.env.EXPO_PUBLIC_SUPABASE_URL ?? '';
 const SUPABASE_KEY = process.env.EXPO_PUBLIC_SUPABASE_KEY ?? '';
+const SERVICE_ROLE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY ?? '';
+
+let _admin: SupabaseClient<Database> | null = null;
+function adminClient(): SupabaseClient<Database> {
+  if (_admin) return _admin;
+  if (!SERVICE_ROLE_KEY) {
+    throw new Error('SUPABASE_SERVICE_ROLE_KEY fehlt.');
+  }
+  _admin = createClient<Database>(SUPABASE_URL, SERVICE_ROLE_KEY, {
+    auth: { persistSession: false, autoRefreshToken: false },
+  });
+  return _admin;
+}
 
 function inMemoryStorage() {
   const data = new Map<string, string>();
@@ -44,8 +57,21 @@ function uniqueEmail() {
 
 async function signUpAndCreateHousehold(client: SupabaseClient<Database>) {
   const email = uniqueEmail();
-  const { error: signUpError } = await client.auth.signUp({ email, password: 'langgenug1' });
-  if (signUpError) throw signUpError;
+  const password = 'langgenug1';
+
+  // Admin-Erstellung mit email_confirm:true statt client.auth.signUp():
+  // seit enable_confirmations=true (config.toml) liefert signUp() erst nach
+  // Klick auf den Bestaetigungslink eine Session. Diese Suite testet Pull,
+  // nicht den Bestaetigungs-Flow.
+  const { error: createError } = await adminClient().auth.admin.createUser({
+    email,
+    password,
+    email_confirm: true,
+  });
+  if (createError) throw createError;
+
+  const { error: signInError } = await client.auth.signInWithPassword({ email, password });
+  if (signInError) throw signInError;
 
   const { data: householdId, error: hhError } = await client.rpc('create_household', {
     household_name: `Pull-Test ${email}`,

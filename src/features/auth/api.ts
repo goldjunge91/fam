@@ -53,8 +53,31 @@ export async function signInWithOAuthProvider(provider: 'apple' | 'google') {
   return { data, error };
 }
 
+/**
+ * `emailRedirectTo` fehlte hier bisher komplett, wodurch der
+ * Bestaetigungs-Link auf `site_url` zeigte (in der lokalen Entwicklung eine
+ * tote Web-Adresse) statt auf einen Deep Link zurueck in die App. Ohne den
+ * Deep Link bestaetigt der Klick den Account zwar serverseitig, aber die App
+ * bekommt nie eine Session und die PendingAuthBanner-Anzeige haengt fest.
+ * Siehe `fam://*` in `additional_redirect_urls` (supabase/config.toml) und
+ * das Token-Parsing in `src/app/_layout.tsx`.
+ *
+ * Ziel bewusst `/onboarding`, nicht `/`: Expo Router behandelt jede
+ * eingehende Deep-Link-URL zusaetzlich zu unserem manuellen Token-Parsing
+ * automatisch als Navigationsziel. `/` durchlaeuft (app)/_layout.tsx's
+ * Redirect-Logik neu und hat den laufenden Onboarding-Wizard mitten in
+ * Schritt 2 zurueckgesetzt (#128-artig). `/onboarding` ist die Route, auf der
+ * der Wizard ohnehin schon steht — eine erneute Navigation dorthin ist fuer
+ * React Navigation ein No-Op, waehrend ein Kaltstart (App vorher beendet)
+ * weiterhin korrekt direkt im Onboarding landet.
+ */
 export async function signUp(email: string, password: string) {
-  const { data, error } = await getSupabase().auth.signUp({ email, password });
+  const redirectTo = Linking.createURL('/onboarding');
+  const { data, error } = await getSupabase().auth.signUp({
+    email,
+    password,
+    options: { emailRedirectTo: redirectTo },
+  });
   return { data, error };
 }
 

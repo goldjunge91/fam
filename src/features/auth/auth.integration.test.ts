@@ -19,6 +19,46 @@ import type { Database } from '@/lib/database.types';
 // .env, die auf das Remote-Projekt zeigt.
 const SUPABASE_URL = process.env.EXPO_PUBLIC_SUPABASE_URL ?? '';
 const SUPABASE_KEY = process.env.EXPO_PUBLIC_SUPABASE_KEY ?? '';
+const SERVICE_ROLE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY ?? '';
+
+let _admin: SupabaseClient<Database> | null = null;
+function adminClient(): SupabaseClient<Database> {
+  if (_admin) return _admin;
+  if (!SERVICE_ROLE_KEY) {
+    throw new Error('SUPABASE_SERVICE_ROLE_KEY fehlt.');
+  }
+  _admin = createClient<Database>(SUPABASE_URL, SERVICE_ROLE_KEY, {
+    auth: { persistSession: false, autoRefreshToken: false },
+  });
+  return _admin;
+}
+
+/**
+ * Admin-Erstellung mit email_confirm:true statt `client.auth.signUp()`:
+ * seit enable_confirmations=true (config.toml) liefert signUp() erst nach
+ * Klick auf den Bestaetigungslink eine Session. Diese Suite testet Trigger,
+ * RLS und den chunkenden Storage-Adapter — nicht den Bestaetigungs-Flow
+ * selbst (der hat eigene Tests: pending-auth-banner.test.tsx).
+ */
+async function signUpConfirmed(client: SupabaseClient<Database>, email: string, password: string) {
+  const { data: createData, error: createError } = await adminClient().auth.admin.createUser({
+    email,
+    password,
+    email_confirm: true,
+  });
+  if (createError) throw createError;
+
+  const { data, error } = await client.auth.signInWithPassword({ email, password });
+  if (error) throw error;
+
+  // Workaround fuer "JWT issued at future" in lokalen Docker-Umgebungen (wie
+  // in setup-two-devices.ts): GoTrue und PostgREST laufen in getrennten
+  // Containern mit leicht driftenden Uhren, ein sofort danach verifiziertes
+  // Token wird gelegentlich als "aus der Zukunft" abgelehnt.
+  await new Promise((resolve) => setTimeout(resolve, 3000));
+
+  return { user: createData.user, session: data.session };
+}
 
 /** In-Memory-Speicher, der das iOS-Limit von SecureStore nachbildet. */
 function createMemoryStore(maxValueLength = 2048) {
@@ -78,27 +118,26 @@ describe('Auth gegen die lokale Supabase-Instanz', () => {
 
   it('legt beim Registrieren automatisch ein Profil an', async () => {
     const email = uniqueEmail();
-    const { data, error } = await client.auth.signUp({ email, password: 'langgenug1' });
+    const { user } = await signUpConfirmed(client, email, 'langgenug1');
 
-    expect(error).toBeNull();
-    expect(data.user).not.toBeNull();
+    expect(user).not.toBeNull();
 
     // Der Trigger on_auth_user_created (#34) soll gefeuert haben.
     const { data: profile, error: profileError } = await client
       .from('profiles')
       .select('id, display_name')
-      .eq('id', data.user?.id ?? '')
+      .eq('id', user?.id ?? '')
       .single();
 
     expect(profileError).toBeNull();
-    expect(profile?.id).toBe(data.user?.id);
+    expect(profile?.id).toBe(user?.id);
     // display_name wird aus dem lokalen Teil der E-Mail vorbelegt.
     expect(profile?.display_name).toBe(email.split('@')[0]);
   }, 30_000);
 
   it('speichert die Session durch den chunkenden Adapter und ueberlebt einen Client-Neustart', async () => {
     const email = uniqueEmail();
-    await client.auth.signUp({ email, password: 'langgenug1' });
+    await signUpConfirmed(client, email, 'langgenug1');
 
     // Der eigentliche Praxistest fuer #30: Der Speicher wirft, sobald ein
     // Einzelwert 2048 Zeichen ueberschreitet. Kaeme die Session ungechunkt an,
@@ -119,7 +158,7 @@ describe('Auth gegen die lokale Supabase-Instanz', () => {
 
   it('meldet falsche Zugangsdaten, ohne zu verraten ob die Adresse existiert', async () => {
     const email = uniqueEmail();
-    await client.auth.signUp({ email, password: 'langgenug1' });
+    await signUpConfirmed(client, email, 'langgenug1');
     await client.auth.signOut();
 
     const falschesPasswort = await client.auth.signInWithPassword({
@@ -140,8 +179,8 @@ describe('Auth gegen die lokale Supabase-Instanz', () => {
 
   it('sperrt nach dem Abmelden den Zugriff auf eigene Daten', async () => {
     const email = uniqueEmail();
-    const { data } = await client.auth.signUp({ email, password: 'langgenug1' });
-    const userId = data.user?.id ?? '';
+    const { user } = await signUpConfirmed(client, email, 'langgenug1');
+    const userId = user?.id ?? '';
 
     const angemeldet = await client.from('profiles').select('id').eq('id', userId);
     expect(angemeldet.data).toHaveLength(1);
@@ -157,7 +196,7 @@ describe('Auth gegen die lokale Supabase-Instanz', () => {
 
   it('laesst einen angemeldeten Nutzer einen Haushalt anlegen', async () => {
     const email = uniqueEmail();
-    await client.auth.signUp({ email, password: 'langgenug1' });
+    await signUpConfirmed(client, email, 'langgenug1');
 
     const { data: householdId, error } = await client.rpc('create_household', {
       household_name: 'Testhaushalt',

@@ -8,9 +8,11 @@ import { useColorScheme } from 'react-native';
 import { AnimatedSplashOverlay } from '@/components/animated-icon';
 import { SyncStatusBanner } from '@/components/sync-status-banner';
 import { SessionProvider, useSession } from '@/features/auth/session-provider';
+import { parseAuthErrorFromUrl, parseAuthTokensFromUrl } from '@/lib/auth-deep-link';
 import { env } from '@/lib/env';
 import { savePendingInviteToken } from '@/lib/pending-invite';
 import { queryClient, startQueryEnvironmentSync } from '@/lib/query-client';
+import { getSupabase } from '@/lib/supabase';
 
 SplashScreen.preventAutoHideAsync();
 
@@ -78,6 +80,29 @@ export default function RootLayout() {
     function handleUrl(url: string | null) {
       if (!url) return;
       try {
+        // Bestaetigungs-/Passwort-Reset-Links tragen die Session im
+        // URL-Fragment (impliziter Flow, siehe auth-deep-link.ts). Das muss
+        // vor Linking.parse() geprueft werden — parse() wertet nur Pfad und
+        // Query aus, das Fragment ignoriert es.
+        const tokens = parseAuthTokensFromUrl(url);
+        if (tokens) {
+          getSupabase()
+            .auth.setSession({
+              access_token: tokens.accessToken,
+              refresh_token: tokens.refreshToken,
+            })
+            .catch((err) => {
+              console.error('Fehler beim Anwenden der Deep-Link-Session:', err);
+            });
+          return;
+        }
+
+        const authError = parseAuthErrorFromUrl(url);
+        if (authError) {
+          console.warn('Deep Link meldet einen Auth-Fehler:', authError);
+          return;
+        }
+
         const parsed = Linking.parse(url);
         const token = parsed.queryParams?.token;
         if (typeof token === 'string' && token.trim()) {

@@ -70,14 +70,23 @@ export async function setupTwoDevices(prefix = 'device'): Promise<TwoDeviceSetup
   const email = uniqueEmail(prefix);
   const password = 'langgenug1';
 
-  const clientA = makeClient();
-  const { error: signUpError } = await clientA.auth.signUp({ email, password });
-  if (signUpError) throw signUpError;
+  // Admin-Erstellung mit email_confirm:true statt des oeffentlichen
+  // signUp()-Wegs: seit enable_confirmations=true (lokal jetzt passend zum
+  // Remote-Projekt, siehe config.toml) liefert signUp() keine Session mehr,
+  // solange die Adresse nicht per Klick auf den Bestaetigungslink bestaetigt
+  // wurde. Diese Suite prueft Sync-Konvergenz, nicht den
+  // Bestaetigungs-Flow — der hat eigene Tests (PendingAuthBanner).
+  const { data: createData, error: createError } = await adminClient().auth.admin.createUser({
+    email,
+    password,
+    email_confirm: true,
+  });
+  if (createError) throw createError;
+  const userId = createData.user.id;
 
-  const {
-    data: { user },
-  } = await clientA.auth.getUser();
-  const userId = user!.id;
+  const clientA = makeClient();
+  const { error: signInAError } = await clientA.auth.signInWithPassword({ email, password });
+  if (signInAError) throw signInAError;
 
   const { data: householdId, error: hhError } = await clientA.rpc('create_household', {
     household_name: `Test ${email}`,
