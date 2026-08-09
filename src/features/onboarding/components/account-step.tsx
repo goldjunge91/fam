@@ -123,6 +123,7 @@ export function AccountStepForm({ onNext }: AccountStepFormProps) {
           </View>
 
           <TextField
+            testID="onboarding-account-email"
             label="E-Mail Adresse"
             value={authEmail}
             onChangeText={setAuthEmail}
@@ -131,6 +132,7 @@ export function AccountStepForm({ onNext }: AccountStepFormProps) {
             keyboardType="email-address"
           />
           <TextField
+            testID="onboarding-account-password"
             label="Passwort"
             value={authPassword}
             onChangeText={setAuthPassword}

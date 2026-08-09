@@ -27,6 +27,9 @@ bun install && bun start
 - `bun run typecheck` — `tsc --noEmit`
 - `bun run test` — Jest. **Nicht `bun test`**: das startet Buns eigenen Runner,
   ignoriert `jest.config.js` und schlägt fehl
+- `bun run e2e` — Maestro-Flows gegen einen laufenden Simulator/Emulator
+  (Dev Build + `supabase start` + Testaccount nötig, siehe
+  `.maestro/flows/onboarding-sign-in.yaml`)
 - `bun run reset-project` — auf ein leeres Template zurücksetzen
 
 ## Umgebungsvariablen

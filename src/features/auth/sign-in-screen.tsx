@@ -48,6 +48,7 @@ export function SignInScreen() {
         <Card>
           <View style={styles.form}>
             <TextField
+              testID="sign-in-email"
               label="E-Mail"
               value={email}
               onChangeText={setEmail}
@@ -60,6 +61,7 @@ export function SignInScreen() {
             />
 
             <TextField
+              testID="sign-in-password"
               label="Passwort"
               value={password}
               onChangeText={setPassword}
