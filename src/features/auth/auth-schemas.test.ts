@@ -1,10 +1,36 @@
 import {
+  confirmationCodeSchema,
   fieldErrors,
   newPasswordSchema,
   profileSchema,
   signInSchema,
   signUpSchema,
 } from '@/features/auth/auth-schemas';
+
+describe('confirmationCodeSchema', () => {
+  it('akzeptiert genau sechs Ziffern', () => {
+    expect(confirmationCodeSchema.parse({ code: '472913' }).code).toBe('472913');
+  });
+
+  it('entfernt Leerzeichen, die beim Kopieren aus dem Mailclient mitkommen', () => {
+    expect(confirmationCodeSchema.parse({ code: '  472913 ' }).code).toBe('472913');
+  });
+
+  it.each(['47291', '4729134', '47291a', 'abcdef', '', '   ', '472 913'])(
+    'lehnt die ungueltige Eingabe %p ab',
+    (code) => {
+      expect(confirmationCodeSchema.safeParse({ code }).success).toBe(false);
+    },
+  );
+
+  it('nennt in der Fehlermeldung, was erwartet wird', () => {
+    const result = confirmationCodeSchema.safeParse({ code: '123' });
+    expect(result.success).toBe(false);
+    if (!result.success) {
+      expect(fieldErrors(result.error).code).toBe('Bitte die 6 Ziffern aus der E-Mail eingeben.');
+    }
+  });
+});
 
 describe('signInSchema', () => {
   it('normalisiert die E-Mail auf Kleinbuchstaben und ohne Leerzeichen', () => {

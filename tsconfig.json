@@ -23,5 +23,13 @@
     "**/*.tsx",
     ".expo/types/**/*.ts",
     "expo-env.d.ts"
+  ],
+  // Edge Functions laufen auf Deno, nicht auf React Native: Sie kennen globale
+  // Namen wie `Deno`, die es im App-Bundle nicht gibt, und umgekehrt nichts aus
+  // `@/*`. Ohne diesen Ausschluss scheitert `tsc --noEmit` an
+  // "Cannot find name 'Deno'" — an Code, der nie ins Bundle gelangt.
+  // Geprueft werden sie stattdessen von `deno check`/`supabase functions deploy`.
+  "exclude": [
+    "supabase/functions"
   ]
 }

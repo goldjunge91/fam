@@ -9,6 +9,7 @@ import { AnimatedSplashOverlay } from '@/components/animated-icon';
 import { SyncStatusBanner } from '@/components/sync-status-banner';
 import { SessionProvider, useSession } from '@/features/auth/session-provider';
 import { parseAuthErrorFromUrl, parseAuthTokensFromUrl } from '@/lib/auth-deep-link';
+import { setAuthDeepLinkError } from '@/lib/auth-deep-link-state';
 import { env } from '@/lib/env';
 import { savePendingInviteToken } from '@/lib/pending-invite';
 import { queryClient, startQueryEnvironmentSync } from '@/lib/query-client';
@@ -93,13 +94,23 @@ export default function RootLayout() {
             })
             .catch((err) => {
               console.error('Fehler beim Anwenden der Deep-Link-Session:', err);
+              setAuthDeepLinkError(
+                'Die Anmeldung ueber den Link hat nicht geklappt. Gib stattdessen den 6-stelligen Code aus der E-Mail ein.',
+              );
             });
           return;
         }
 
         const authError = parseAuthErrorFromUrl(url);
         if (authError) {
+          // Der haeufigste Fall ist ein bereits eingeloester Link ("Email link
+          // is invalid or has expired"): Der Bestaetigungs-Token gilt genau
+          // einmal, jeder weitere Klick scheitert zwangslaeufig. Frueher endete
+          // das hier in einem console.warn und der Nutzer sass ohne Hinweis in
+          // einem Wartezustand fest, der sich nie mehr aufloeste. Jetzt
+          // erreicht die Meldung den PendingAuthBanner samt Ausweg.
           console.warn('Deep Link meldet einen Auth-Fehler:', authError);
+          setAuthDeepLinkError(authError);
           return;
         }
 
