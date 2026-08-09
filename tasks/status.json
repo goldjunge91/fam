@@ -48,10 +48,11 @@
         {
           "id": "fam-backlog/001",
           "title": "Welle 6 - Kalorien & Tagebuch (#81-88)",
-          "status": "pending",
+          "status": "in_progress",
           "priority": "high",
           "path": "tasks/fam-backlog/001-welle-6-kalorien-tagebuch.md",
-          "issues": ["#81", "#82", "#83", "#84", "#85", "#86", "#87", "#88"]
+          "issues": ["#81", "#82", "#83", "#84", "#85", "#86", "#87", "#88"],
+          "notes": "#81/#82 (Grundumsatz + TDEE/Zielkalorien) als reine Funktionen implementiert in src/features/calorie-tracking/{bmr,tdee}.ts. #83-#88 (Screens, Persistenz, Dashboard-Anschluss) noch offen."
         },
         {
           "id": "fam-backlog/002",
