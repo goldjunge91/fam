@@ -24,9 +24,9 @@ env:
 # das kann ein paar Sekunden dauern - extendedWaitUntil statt des kuerzeren
 # Standard-Tap-Timeouts.
 - extendedWaitUntil:
-    visible: "fam, http://.*"
+    visible: "http://.*"
     timeout: 30000
-- tapOn: "fam, http://.*"
+- tapOn: "http://.*"
 
 # expo-dev-client zeigt nach dem ersten Laden des JS-Bundles einmalig ein
 # "Dev Tools"-Info-Popup - clearState wischt das Flag, das es unterdrueckt,
@@ -68,8 +68,17 @@ env:
     optional: true
 
 # Restliche Schritte sind fuer einen wiederkehrenden Nutzer alle ueberspringbar.
+- scrollUntilVisible:
+    element: "Später ausfüllen"
 - tapOn: "Später ausfüllen" # Profil-Step
-- tapOn: "Überspringen" # Haushalts-Step
+- scrollUntilVisible:
+    element: "🏠 Neuen Haushalt erstellen"
+- tapOn: "🏠 Neuen Haushalt erstellen"
+- tapOn:
+    id: "onboarding-household-name"
+- inputText: "Familie E2E"
+- hideKeyboard
+- tapOn: "Weiter"
 - tapOn: "Überspringen" # Modul-Auswahl
 - tapOn: "Jetzt nicht" # Berechtigungen
 - tapOn: "Zum Dashboard" # Abschluss-Step
