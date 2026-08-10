@@ -96,32 +96,84 @@ export function formatOFFProduct(raw: any): OpenFoodFactsProduct | null {
 }
 
 /**
+ * Nur die Felder, die `formatOFFProduct` tatsaechlich liest. Ohne diesen
+ * Filter liefert die Suche das volle Produktobjekt je Treffer (Zutatenliste,
+ * Verpackungsangaben, Bilder in allen Aufloesungen, Sprachvarianten, ...) —
+ * das macht die Anfrage auf Mobilfunk spuerbar langsam, obwohl davon nichts
+ * angezeigt wird.
+ */
+const SEARCH_FIELDS = [
+  'code',
+  'product_name',
+  'product_name_de',
+  'generic_name',
+  'generic_name_de',
+  'brands',
+  'categories',
+  'quantity',
+  'image_front_small_url',
+  'image_front_url',
+  'nutriments',
+  'nutriscore_grade',
+  'nova_group',
+  'nutrient_levels',
+].join(',');
+
+/** Session-Cache identischer Suchanfragen — v.a. beim Loeschen/erneuten Tippen relevant. */
+const searchCache = new Map<string, OpenFoodFactsProduct[]>();
+const SEARCH_CACHE_LIMIT = 50;
+
+function cacheSearchResult(key: string, products: OpenFoodFactsProduct[]) {
+  if (searchCache.size >= SEARCH_CACHE_LIMIT) {
+    const oldestKey = searchCache.keys().next().value;
+    if (oldestKey !== undefined) searchCache.delete(oldestKey);
+  }
+  searchCache.set(key, products);
+}
+
+/**
  * Durchsucht Open Food Facts nach Produktnamen (DE/WW).
+ *
+ * `signal` erlaubt es Aufrufern, eine ueberholte Anfrage abzubrechen (z. B.
+ * bei schnellem Weitertippen) statt auf eine Antwort zu warten, die eh
+ * verworfen wird.
  */
 export async function searchOpenFoodFacts(
   query: string,
   limit = 8,
+  signal?: AbortSignal,
 ): Promise<OpenFoodFactsProduct[]> {
   const trimmed = query.trim();
   if (trimmed.length < 2) return [];
 
+  const cacheKey = `${trimmed.toLowerCase()}|${limit}`;
+  const cached = searchCache.get(cacheKey);
+  if (cached) return cached;
+
   try {
-    const url = `https://world.openfoodfacts.org/cgi/search.pl?search_terms=${encodeURIComponent(
-      trimmed,
-    )}&search_simple=1&action=process&json=1&page_size=${limit}&lc=de&cc=de`;
+    const url =
+      `https://world.openfoodfacts.org/cgi/search.pl?search_terms=${encodeURIComponent(trimmed)}` +
+      `&search_simple=1&action=process&json=1&page_size=${limit}&lc=de&cc=de&fields=${SEARCH_FIELDS}`;
 
     const res = await fetch(url, {
       headers: { 'User-Agent': 'FamApp/1.0 (contact@fam.app)' },
+      signal,
     });
 
     if (!res.ok) return [];
     const data = await res.json();
     const products = data.products || [];
 
-    return products
+    const formatted = products
       .map(formatOFFProduct)
       .filter((p: OpenFoodFactsProduct | null): p is OpenFoodFactsProduct => p !== null);
+
+    cacheSearchResult(cacheKey, formatted);
+    return formatted;
   } catch (err) {
+    // Abgebrochene Anfragen (ueberholt durch die naechste Eingabe) sind
+    // erwartetes Verhalten, kein Fehler — nicht in der Konsole aufschlagen.
+    if (err instanceof Error && err.name === 'AbortError') return [];
     console.error('Fehler bei Open Food Facts Suche:', err);
     return [];
   }

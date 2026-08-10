@@ -57,14 +57,23 @@ export function FoodSearchScreen() {
       return;
     }
 
+    // Bricht eine noch laufende Anfrage ab, sobald eine neue Eingabe
+    // ueberholt hat — ohne das wartet die UI teils auf eine Antwort, die
+    // gleich verworfen wird, statt sofort die neue Suche zu zeigen.
+    const controller = new AbortController();
     const timer = setTimeout(async () => {
       setSearching(true);
-      const found = await searchOpenFoodFacts(query);
-      setResults(found);
-      setSearching(false);
+      const found = await searchOpenFoodFacts(query, 8, controller.signal);
+      if (!controller.signal.aborted) {
+        setResults(found);
+        setSearching(false);
+      }
     }, 300);
 
-    return () => clearTimeout(timer);
+    return () => {
+      clearTimeout(timer);
+      controller.abort();
+    };
   }, [query]);
 
   function goToDetail(extraParams: Record<string, string>) {
