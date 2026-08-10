@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { ActivityIndicator, Modal, Pressable, StyleSheet, View } from 'react-native';
 
 import { Button } from '@/components/button';
+import { TextField } from '@/components/text-field';
 import { ThemedText } from '@/components/themed-text';
 import { Spacing } from '@/constants/theme';
 import { useTheme } from '@/hooks/use-theme';
@@ -41,25 +42,42 @@ export function BarcodeScannerModal({
   const [permission, requestPermission] = useCameraPermissionsHook();
   const [scanning, setScanning] = useState(false);
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
+  const [manualBarcode, setManualBarcode] = useState('');
 
-  async function handleBarcodeScanned({ data }: { data: string }) {
-    if (scanning || !data) return;
+  /**
+   * Gemeinsamer Lookup fuer Kamera-Scan und manuelle Eingabe (#Simulator-
+   * Fallback): der iOS-Simulator hat grundsaetzlich keinen Kamerazugriff —
+   * das ist eine Apple-Einschraenkung, keine Frage der Host-Hardware —,
+   * ohne diesen Weg liesse sich der Scanner dort gar nicht testen.
+   */
+  async function lookupBarcode(barcode: string) {
+    if (scanning || !barcode) return;
     setScanning(true);
     setErrorMsg(null);
 
     try {
-      const product = await fetchProductByBarcode(data);
+      const product = await fetchProductByBarcode(barcode);
       if (product) {
         onProductFound(product);
         onClose();
       } else {
-        setErrorMsg(`Kein Produkt für Barcode ${data} gefunden.`);
+        setErrorMsg(`Kein Produkt für Barcode ${barcode} gefunden.`);
       }
     } catch {
       setErrorMsg('Fehler beim Abrufen der Produktdaten.');
     } finally {
       setScanning(false);
     }
+  }
+
+  function handleBarcodeScanned({ data }: { data: string }) {
+    lookupBarcode(data);
+  }
+
+  function handleManualSubmit() {
+    const trimmed = manualBarcode.trim();
+    lookupBarcode(trimmed);
+    setManualBarcode('');
   }
 
   return (
@@ -77,8 +95,8 @@ export function BarcodeScannerModal({
             <View style={styles.permissionBox}>
               <ThemedText style={{ textAlign: 'center' }} themeColor="textSecondary">
                 Der Kamera-Barcode-Scanner benötigt ein natives Build (`bun run ios` oder `bun run
-                android`). In Web/Expo Go kannst du Produkte direkt über die Live-Produktsuche
-                eingeben.
+                android`). Gib den Barcode unten manuell ein, oder nutze direkt die
+                Live-Produktsuche.
               </ThemedText>
             </View>
           ) : !permission?.granted ? (
@@ -100,6 +118,19 @@ export function BarcodeScannerModal({
               <View style={styles.targetFrame} />
             </View>
           )}
+
+          <View style={styles.manualRow}>
+            <View style={styles.flex}>
+              <TextField
+                placeholder="Barcode manuell eingeben"
+                value={manualBarcode}
+                onChangeText={setManualBarcode}
+                keyboardType="numeric"
+                onSubmitEditing={handleManualSubmit}
+              />
+            </View>
+            <Button label="Suchen" onPress={handleManualSubmit} disabled={!manualBarcode.trim()} />
+          </View>
 
           {scanning && (
             <View style={styles.statusBox}>
@@ -138,6 +169,14 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
+  },
+  manualRow: {
+    flexDirection: 'row',
+    alignItems: 'flex-end',
+    gap: Spacing.two,
+  },
+  flex: {
+    flex: 1,
   },
   permissionBox: {
     flex: 1,
