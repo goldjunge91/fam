@@ -135,12 +135,11 @@ export type OpenFoodFactsSearchResult = {
   /** true, wenn eine weitere Seite (`page + 1`) vermutlich noch Treffer hat. */
   hasMore: boolean;
   /**
-   * true, wenn die Anfrage auch nach Retries fehlgeschlagen ist — bewusst
-   * getrennt von "keine Treffer". Open Food Facts' Such-Endpunkte antworten
-   * zur Zeit auffaellig oft (~50-80 % im Test, auch bei identischen Anfragen
-   * kurz hintereinander) mit einem 503 "Page temporarily unavailable". Ohne
-   * dieses Feld sieht ein Nutzer bei "hafer" oder "toma" faelschlich "keine
-   * Treffer", obwohl der Dienst nur kurz nicht erreichbar war.
+   * true, wenn keine Anfrage rausgegangen ist bzw. sie fehlgeschlagen ist —
+   * bewusst getrennt von "keine Treffer". Siehe `SlidingWindowRateLimiter`
+   * fuer den Hintergrund (Open Food Facts' dokumentiertes Anfragelimit).
+   * Ohne dieses Feld sieht ein Nutzer bei "hafer" oder "toma" faelschlich
+   * "keine Treffer".
    */
   failed: boolean;
 };
@@ -153,16 +152,66 @@ function delay(ms: number): Promise<void> {
 }
 
 /**
- * Holt eine URL, mit kurzem Retry bei 5xx-Antworten (siehe `failed` oben fuer
- * den Hintergrund). Ein Abbruch (`signal`) wird nie erneut versucht — die
- * Anfrage ist bewusst obsolet, retryen wuerde nur Last erzeugen.
+ * Client-seitiges Anfragelimit nach den dokumentierten Open-Food-Facts-Regeln
+ * (https://openfoodfacts.github.io/openfoodfacts-server/api/): maximal 10
+ * Suchanfragen und 15 Produktabfragen pro Minute und IP — mit der
+ * ausdruecklichen Warnung, die Suche NICHT als Search-as-you-type zu nutzen,
+ * sonst folgt eine IP-Sperre ("wuerdest du sehr schnell geblockt").
+ *
+ * Ein Sicherheitsabstand zum dokumentierten Wert ist Absicht: mehrere
+ * Geraete im selben WLAN teilen sich eine IP, und ohne Abstand loest schon
+ * ein einzelner Retry die Sperre aus statt sie zu vermeiden.
  */
-async function fetchWithRetry(url: string, signal: AbortSignal | undefined): Promise<Response> {
+export class SlidingWindowRateLimiter {
+  private timestamps: number[] = [];
+
+  constructor(
+    private readonly limit: number,
+    private readonly windowMs: number,
+  ) {}
+
+  private prune(now: number) {
+    while (this.timestamps.length > 0 && now - this.timestamps[0] > this.windowMs) {
+      this.timestamps.shift();
+    }
+  }
+
+  isLimited(now: number = Date.now()): boolean {
+    this.prune(now);
+    return this.timestamps.length >= this.limit;
+  }
+
+  record(now: number = Date.now()): void {
+    this.prune(now);
+    this.timestamps.push(now);
+  }
+}
+
+// Sicherheitsabstand zu den dokumentierten 10/min bzw. 15/min.
+const searchRateLimiter = new SlidingWindowRateLimiter(8, 60_000);
+const productRateLimiter = new SlidingWindowRateLimiter(12, 60_000);
+
+/**
+ * Holt die Produkt-Detail-URL, mit kurzem Retry bei 5xx-Antworten und einem
+ * Rate-Limit-Check vor jedem einzelnen Versuch (jeder Versuch verbraucht
+ * echtes Budget). Ein Abbruch (`signal`) wird nie erneut versucht.
+ *
+ * Nur fuer den Produkt-Endpunkt (15/min) — die Suche (10/min, ausdruecklich
+ * ohne Search-as-you-type erlaubt) retryt bewusst nicht, siehe
+ * `searchOpenFoodFacts`.
+ */
+async function fetchProductWithRetry(
+  url: string,
+  signal: AbortSignal | undefined,
+): Promise<Response | null> {
   let lastResponse: Response | undefined;
   let lastError: unknown;
 
   for (let attempt = 0; attempt <= MAX_RETRIES; attempt++) {
+    if (productRateLimiter.isLimited()) return lastResponse ?? null;
+
     try {
+      productRateLimiter.record();
       const res = await fetch(url, {
         headers: { 'User-Agent': 'FamApp/1.0 (contact@fam.app)' },
         signal,
@@ -177,7 +226,8 @@ async function fetchWithRetry(url: string, signal: AbortSignal | undefined): Pro
   }
 
   if (lastResponse) return lastResponse;
-  throw lastError;
+  if (lastError) throw lastError;
+  return null;
 }
 
 /** Session-Cache identischer Suchanfragen (Begriff+Seite) — v.a. beim Loeschen/erneuten Tippen relevant. */
@@ -203,6 +253,13 @@ function cacheSearchResult(key: string, result: OpenFoodFactsSearchResult) {
  * Seite) sich lohnt. So laedt die UI beim Scrollen nach, statt entweder
  * alles auf einmal oder nur eine zufaellige Kappung zu zeigen.
  *
+ * Bewusst OHNE Retry bei einem Fehlschlag: Open Food Facts limitiert Suchen
+ * auf 10/min/IP und untersagt Search-as-you-type ausdruecklich — ein Retry
+ * waere hier die falsche Antwort, er verbraucht nur weiteres Budget. Statt
+ * dessen ein clientseitiges Limit (`searchRateLimiter`), das gar nicht erst
+ * rausfeuert, wenn wir am Limit sind (`failed: true` statt eines Requests,
+ * der sowieso abgelehnt wuerde).
+ *
  * `signal` erlaubt es Aufrufern, eine ueberholte Anfrage abzubrechen (z. B.
  * bei schnellem Weitertippen) statt auf eine Antwort zu warten, die eh
  * verworfen wird.
@@ -219,6 +276,10 @@ export async function searchOpenFoodFacts(
   const cached = searchCache.get(cacheKey);
   if (cached) return cached;
 
+  if (searchRateLimiter.isLimited()) {
+    return { products: [], hasMore: false, failed: true };
+  }
+
   try {
     // `sort_by=unique_scans_n`: bekannteste/meistgescannte Treffer zuerst.
     // Ohne das liefert die Suche irgendeine Teilmenge der Treffer in
@@ -229,7 +290,11 @@ export async function searchOpenFoodFacts(
       `&search_simple=1&action=process&json=1&page_size=${pageSize}&page=${page}` +
       `&sort_by=unique_scans_n&lc=de&cc=de&fields=${SEARCH_FIELDS}`;
 
-    const res = await fetchWithRetry(url, signal);
+    searchRateLimiter.record();
+    const res = await fetch(url, {
+      headers: { 'User-Agent': 'FamApp/1.0 (contact@fam.app)' },
+      signal,
+    });
 
     if (!res.ok) return { products: [], hasMore: false, failed: true };
     const data = await res.json();
@@ -340,9 +405,9 @@ export async function fetchProductByBarcode(
       trimmed,
     )}.json?lc=de&cc=de`;
 
-    const res = await fetchWithRetry(url, signal);
+    const res = await fetchProductWithRetry(url, signal);
 
-    if (!res.ok) return null;
+    if (!res?.ok) return null;
     const data = await res.json();
 
     if (data.status !== 1 || !data.product) return null;

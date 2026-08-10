@@ -125,9 +125,15 @@ export function FoodSearchScreen() {
     // Bricht eine noch laufende Anfrage ab, sobald eine neue Eingabe
     // ueberholt hat — ohne das wartet die UI teils auf eine Antwort, die
     // gleich verworfen wird, statt sofort die neue Suche zu zeigen.
+    //
+    // 800ms statt der ueblichen 300ms: Open Food Facts limitiert Suchen auf
+    // 10/min/IP und untersagt Search-as-you-type ausdruecklich ("you would
+    // be blocked very quickly") — ein kurzes Debounce waere hier ein
+    // Verstoss gegen die dokumentierten Nutzungsregeln, kein Feinschliff.
+    // `searchOpenFoodFacts` haelt zusaetzlich ein eigenes Anfragelimit ein.
     const controller = new AbortController();
     const trimmedQuery = query.trim();
-    const timer = setTimeout(() => runSearch(trimmedQuery, controller.signal), 300);
+    const timer = setTimeout(() => runSearch(trimmedQuery, controller.signal), 800);
 
     return () => {
       clearTimeout(timer);

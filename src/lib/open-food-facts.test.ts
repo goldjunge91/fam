@@ -4,7 +4,41 @@ import {
   parseQuantityAndUnit,
   productFromRouteParams,
   productToRouteParams,
+  SlidingWindowRateLimiter,
 } from './open-food-facts';
+
+describe('SlidingWindowRateLimiter', () => {
+  it('erlaubt Anfragen bis zum Limit und blockt danach', () => {
+    const limiter = new SlidingWindowRateLimiter(3, 60_000);
+    const t0 = 1_000_000;
+
+    expect(limiter.isLimited(t0)).toBe(false);
+    limiter.record(t0);
+    expect(limiter.isLimited(t0)).toBe(false);
+    limiter.record(t0);
+    expect(limiter.isLimited(t0)).toBe(false);
+    limiter.record(t0);
+
+    expect(limiter.isLimited(t0)).toBe(true);
+  });
+
+  it('laesst wieder Anfragen zu, sobald aeltere aus dem Fenster fallen', () => {
+    const limiter = new SlidingWindowRateLimiter(2, 60_000);
+    const t0 = 1_000_000;
+
+    limiter.record(t0);
+    limiter.record(t0 + 1_000);
+    expect(limiter.isLimited(t0 + 2_000)).toBe(true);
+
+    // Das erste Timestamp ist nach 60s aus dem Fenster raus.
+    expect(limiter.isLimited(t0 + 61_000)).toBe(false);
+  });
+
+  it('startet unbelastet (kein Limit ohne vorherige Anfragen)', () => {
+    const limiter = new SlidingWindowRateLimiter(1, 60_000);
+    expect(limiter.isLimited()).toBe(false);
+  });
+});
 
 describe('Open Food Facts Helper', () => {
   it('sollte Mengen und Einheiten korrekt parsen', () => {
