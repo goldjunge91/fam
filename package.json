@@ -83,7 +83,7 @@
     "db:types": "supabase gen types typescript --local > src/lib/database.types.ts",
     "db:check": "bash scripts/check-privileges.sh",
     "db:push": "supabase db push && bash scripts/check-privileges.sh --linked",
-    "test:db": "supabase test db --local supabase/tests/*.test.sql",
+    "test:db": "bash scripts/check-clean-db.sh && supabase test db --local supabase/tests/*.test.sql",
     "test:integration": "jest --config jest.integration.config.js --forceExit",
     "e2e": "maestro test .maestro/flows",
     "user:create": "bun scripts/test-users.ts create",
