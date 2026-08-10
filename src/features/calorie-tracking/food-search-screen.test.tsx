@@ -1,4 +1,4 @@
-import { fireEvent, render, screen, waitFor } from '@testing-library/react-native';
+import { fireEvent, render, screen } from '@testing-library/react-native';
 import { router } from 'expo-router';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
@@ -127,10 +127,17 @@ describe('FoodSearchScreen', () => {
   });
 
   it('sucht bei Eingabe live und navigiert bei Auswahl zur Erfassung', async () => {
+    // Debounce ist ein echtes setTimeout (800ms, siehe food-search-screen.tsx)
+    // ausserhalb jeder von RNTL verfolgten act()-Grenze. Mit echten Timern
+    // + waitFor lief das als Wettlauf gegen die Wanduhr — act()-Warnungen
+    // inklusive, sobald die Maschine unter Last war. Fake-Timer + gezieltes
+    // Vorspulen macht daraus einen deterministischen Schritt.
+    jest.useFakeTimers();
     await renderScreen();
     fireEvent.changeText(screen.getByPlaceholderText('Wonach suchst du?'), 'Hafermilch');
+    await jest.advanceTimersByTimeAsync(800);
 
-    await waitFor(() => expect(screen.getByText('Hafermilch')).toBeTruthy());
+    expect(screen.getByText('Hafermilch')).toBeTruthy();
     expect(mockSearchOpenFoodFacts).toHaveBeenCalledWith(
       'Hafermilch',
       expect.objectContaining({ page: 1, pageSize: 20 }),
@@ -151,6 +158,8 @@ describe('FoodSearchScreen', () => {
         }),
       }),
     );
+
+    jest.useRealTimers();
   });
 
   it('erkennt eine abgetippte Zahlenfolge als Barcode und nutzt den exakten Lookup', async () => {
@@ -161,10 +170,12 @@ describe('FoodSearchScreen', () => {
       caloriesPer100g: 91,
     });
 
+    jest.useFakeTimers();
     await renderScreen();
     fireEvent.changeText(screen.getByPlaceholderText('Wonach suchst du?'), '4019300005307');
+    await jest.advanceTimersByTimeAsync(800);
 
-    await waitFor(() => expect(screen.getByText('Balance Reich an Protein')).toBeTruthy());
+    expect(screen.getByText('Balance Reich an Protein')).toBeTruthy();
     expect(mockFetchProductByBarcode).toHaveBeenCalledWith(
       '4019300005307',
       expect.any(AbortSignal),
@@ -178,17 +189,19 @@ describe('FoodSearchScreen', () => {
         params: expect.objectContaining({ name: 'Balance Reich an Protein', brand: 'Exquisa' }),
       }),
     );
+
+    jest.useRealTimers();
   });
 
   it('zeigt bei einem fehlgeschlagenen Request einen Hinweis statt "keine Treffer" und erlaubt Retry', async () => {
     mockSearchOpenFoodFacts.mockResolvedValueOnce({ products: [], hasMore: false, failed: true });
 
+    jest.useFakeTimers();
     await renderScreen();
     fireEvent.changeText(screen.getByPlaceholderText('Wonach suchst du?'), 'hafer');
+    await jest.advanceTimersByTimeAsync(800);
 
-    await waitFor(() =>
-      expect(screen.getByText(/Open Food Facts ist gerade nicht erreichbar/)).toBeTruthy(),
-    );
+    expect(screen.getByText(/Open Food Facts ist gerade nicht erreichbar/)).toBeTruthy();
     expect(screen.queryByText(/Keine Treffer/)).toBeNull();
 
     mockSearchOpenFoodFacts.mockResolvedValueOnce({
@@ -198,7 +211,9 @@ describe('FoodSearchScreen', () => {
     });
     await fireEvent.press(screen.getByText('Erneut versuchen'));
 
-    await waitFor(() => expect(screen.getByText('Haferflocken')).toBeTruthy());
+    expect(screen.getByText('Haferflocken')).toBeTruthy();
+
+    jest.useRealTimers();
   });
 
   it('"Schneller Eintrag" navigiert ohne Produktdaten zur Erfassung', async () => {
