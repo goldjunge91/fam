@@ -1,0 +1,76 @@
+appId: com.goldjunge91.fam
+tags:
+  - fixture
+---
+# Prueft den Haushalts-BEITRITT im Onboarding (household-step.tsx, choice
+# "join") ueber ein echtes redeem_invite()-RPC. Braucht wie die
+# Create-Variante einen Account ohne bestehenden Haushalt, dazu einen
+# gueltigen Invite-Token - beides kommt vom Seed-Script.
+#
+# `tags: [fixture]` haelt diesen Flow aus `bun run e2e` heraus. Nicht direkt
+# ausfuehren, sondern:
+#   bun run e2e:household-join
+#
+# Der Invite-Token ist laut supabase/schemas/06_household_invites.sql ein
+# UUID, keine 6-stellige Zahl - das Placeholder-Label im UI
+# ("6-stelliger Einladungscode") ist ungenau, aendert aber nichts daran, dass
+# das Feld den kompletten Token entgegennimmt.
+
+- launchApp:
+    clearState: true
+
+- extendedWaitUntil:
+    visible: "http://.*"
+    timeout: 30000
+- tapOn: "http://.*"
+
+# expo-dev-client zeigt nach dem Bundle-Laden ggf. einmalig ein "Dev Tools"-
+# Info-Popup (siehe onboarding-sign-in.yaml) - optional, damit es den Flow
+# nicht scheitern laesst, wenn es nicht auftaucht.
+- tapOn:
+    text: "Continue"
+    optional: true
+- tapOn:
+    text: "Close"
+    optional: true
+
+- tapOn: "Weiter"
+- tapOn: "Weiter"
+- tapOn: "Jetzt starten"
+
+- tapOn: "Anmelden"
+- tapOn:
+    id: "onboarding-account-email"
+- inputText: "${EMAIL}"
+- tapOn:
+    id: "onboarding-account-password"
+- inputText: "${PASSWORD}"
+- hideKeyboard
+- tapOn: "Anmelden & weiter"
+
+# iOS' eigener Keychain-Dialog ("Passwort sichern?") kann nach dem Absenden
+# erscheinen - kein App-UI, exakter Match damit "Später" nicht versehentlich
+# den folgenden "Später ausfüllen"-Button trifft.
+- tapOn:
+    text: "^Später$"
+    optional: true
+
+- scrollUntilVisible:
+    element: "Später ausfüllen"
+- tapOn: "Später ausfüllen" # Profil-Step
+
+- tapOn: "🔗 Einem Haushalt beitreten"
+- tapOn:
+    id: "onboarding-household-invite-code"
+- inputText: "${INVITE_TOKEN}"
+- hideKeyboard
+- tapOn: "Weiter"
+
+- tapOn: "Überspringen" # Modul-Auswahl
+- tapOn: "Jetzt nicht" # Berechtigungen
+- tapOn: "Zum Dashboard" # Abschluss-Step
+
+- assertVisible: "Übersicht"
+
+- tapOn: "Einstellungen"
+- assertVisible: "${HOUSEHOLD_NAME}"

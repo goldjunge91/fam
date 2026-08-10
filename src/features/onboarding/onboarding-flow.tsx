@@ -66,7 +66,7 @@ function OnboardingContent() {
       )}
 
       {currentStep === 1 && <WelcomeCarousel onStart={() => setStep(2)} />}
-      {currentStep === 2 && <AccountStepForm onNext={nextStep} />}
+      {currentStep === 2 && <AccountStepForm onNext={() => setStep(3)} />}
       {currentStep === 3 && <ProfileStepForm onNext={nextStep} onSkip={nextStep} />}
       {currentStep === 4 && <HouseholdStepForm onNext={nextStep} onSkip={nextStep} />}
       {currentStep === 5 && <ModuleSelectorForm onNext={nextStep} onSkip={nextStep} />}

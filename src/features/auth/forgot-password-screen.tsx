@@ -69,6 +69,7 @@ export function ForgotPasswordScreen() {
       <Card>
         <View style={styles.form}>
           <TextField
+            testID="forgot-password-email"
             label="E-Mail"
             value={email}
             onChangeText={setEmail}

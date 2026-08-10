@@ -1,7 +1,7 @@
 appId: com.goldjunge91.fam
 env:
-  TEST_EMAIL: maestro-e2e@example.com
-  TEST_PASSWORD: Passwort123!
+    TEST_EMAIL: maestro-e2e@example.com
+    TEST_PASSWORD: Passwort123!
 ---
 # Golden-path E2E flow: fresh app install -> onboarding wizard -> sign in
 # with an existing account -> skip the optional steps -> land on the
@@ -25,13 +25,31 @@ env:
 #     -e TEST_EMAIL=other@example.com -e TEST_PASSWORD='Other123!'
 
 - launchApp:
-    clearState: true
+      clearState: true
 
 # clearState wipes the Expo dev-client's remembered Metro connection, so a
 # fresh install always opens the dev-client launcher first instead of our
-# JS bundle. Tap the remembered dev server row to reconnect (regex avoids
-# hardcoding the machine's LAN IP/port, which changes per developer).
-- tapOn: "fam, http://.*"
+# JS bundle. It finds the server via network auto-discovery, which can take
+# a few seconds - extendedWaitUntil covers that instead of the default tap
+# timeout. Regex avoids hardcoding the machine's LAN IP/port.
+- extendedWaitUntil:
+      visible: "http://.*"
+      timeout: 50000
+- tapOn: "http://.*"
+
+# expo-dev-client shows a one-time "Dev Tools" info popup after the JS bundle
+# loads on a fresh install; clearState wipes the flag that suppresses it, so
+# it can reappear on any clearState run. optional:true skips this step
+# without failing the flow if it doesn't show up.
+- tapOn:
+      text: "Continue"
+      optional: true
+
+# Dismissing the info card above reveals the underlying dev-client menu
+# sheet (Reload/Go home/Tools) rather than closing it - close it too.
+- tapOn:
+      text: "Close"
+      optional: true
 
 # Welcome-carousel: 3 slides, "Weiter" until the last one shows "Jetzt starten".
 - tapOn: "Weiter"
@@ -41,17 +59,33 @@ env:
 # Account step: default tab is "Registrieren" - switch to "Anmelden".
 - tapOn: "Anmelden"
 - tapOn:
-    id: "onboarding-account-email"
+      id: "onboarding-account-email"
 - inputText: "${TEST_EMAIL}"
 - tapOn:
-    id: "onboarding-account-password"
+      id: "onboarding-account-password"
 - inputText: "${TEST_PASSWORD}"
 - hideKeyboard
 - tapOn: "Anmelden & weiter"
 
+# iOS' own Keychain-Dialog ("Passwort sichern?") kann nach dem Absenden
+# erscheinen - kein App-UI, exakter Match damit "Später" nicht versehentlich
+# den spaeteren "Später ausfüllen"-Button trifft.
+- tapOn:
+      text: "^Später$"
+      optional: true
+
 # Remaining steps are all skippable for a returning user.
+- scrollUntilVisible:
+    element: "Später ausfüllen"
 - tapOn: "Später ausfüllen" # Profil-Step
-- tapOn: "Überspringen" # Haushalts-Step
+- scrollUntilVisible:
+    element: "🏠 Neuen Haushalt erstellen"
+- tapOn: "🏠 Neuen Haushalt erstellen"
+- tapOn:
+    id: "onboarding-household-name"
+- inputText: "Familie E2E"
+- hideKeyboard
+- tapOn: "Weiter"
 - tapOn: "Überspringen" # Modul-Auswahl
 - tapOn: "Jetzt nicht" # Berechtigungen
 - tapOn: "Zum Dashboard" # Abschluss-Step

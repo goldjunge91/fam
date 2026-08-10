@@ -30,6 +30,10 @@ bun install && bun start
 - `bun run e2e` — Maestro-Flows gegen einen laufenden Simulator/Emulator
   (Dev Build + `supabase start` + Testaccount nötig, siehe
   `.maestro/flows/onboarding-sign-in.yaml`)
+- `bun run e2e:household-create` / `bun run e2e:household-join` — Haushalts-
+  Erstellung/-Beitritt im Onboarding; seeden sich ihren Testaccount selbst
+  (siehe `scripts/lib/e2e-fixtures.ts`), `bun run e2e:all` führt alle drei
+  nacheinander aus
 - `bun run user:create` / `bun run user:list` / `bun run user:clean` / `bun run user:delete` — Verwaltung lokaler Test-Accounts (`scripts/test-users.ts`)
 - `bash scripts/create-user-with-household.sh` — Erstellt Test-User mit Haushalt und befüllter Einkaufsliste
 - `bun run reset-project` — auf ein leeres Template zurücksetzen
