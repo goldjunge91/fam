@@ -138,4 +138,9 @@ describe('SettingsScreen', () => {
     expect(getByText('Erst einem Haushalt beitreten')).toBeTruthy();
     expect(getByText('Haushalt beitreten')).toBeTruthy();
   });
+
+  it('zeigt die App-Version im Fussbereich an (#94)', async () => {
+    const { getByText } = await renderScreen();
+    expect(getByText('fam v1.0.0')).toBeTruthy();
+  });
 });

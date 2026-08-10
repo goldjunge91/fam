@@ -1,10 +1,12 @@
 import { useQueryClient } from '@tanstack/react-query';
+import Constants from 'expo-constants';
 import { router } from 'expo-router';
 import { useState } from 'react';
 import { Alert, StyleSheet, View } from 'react-native';
 
 import { Button } from '@/components/button';
 import { Screen } from '@/components/screen';
+import { ThemedText } from '@/components/themed-text';
 import { Spacing } from '@/constants/theme';
 import { useSession } from '@/features/auth/session-provider';
 import { signOutAndClearLocalData } from '@/features/auth/sign-out';
@@ -63,6 +65,8 @@ export function SettingsScreen() {
   const supabaseTarget = env.devTools
     ? classifySupabaseTarget(env.supabaseUrl)
     : { label: '', tone: 'accent' as const };
+
+  const appVersion = Constants.expoConfig?.version ?? '1.0.0';
 
   return (
     <Screen title="Einstellungen">
@@ -167,6 +171,12 @@ export function SettingsScreen() {
       <View style={styles.abmelden}>
         <Button label="Abmelden" variant="danger" onPress={handleSignOut} loading={signingOut} />
       </View>
+
+      <View style={styles.versionContainer}>
+        <ThemedText type="small" style={styles.versionText}>
+          {`fam v${appVersion}`}
+        </ThemedText>
+      </View>
     </Screen>
   );
 }
@@ -177,5 +187,13 @@ const styles = StyleSheet.create({
   },
   abmelden: {
     marginTop: Spacing.five,
+  },
+  versionContainer: {
+    alignItems: 'center',
+    marginTop: Spacing.four,
+    marginBottom: Spacing.two,
+  },
+  versionText: {
+    opacity: 0.6,
   },
 });
