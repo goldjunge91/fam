@@ -80,10 +80,16 @@ export function DiaryScreen() {
   );
 
   function openEntry(mealType: MealType, entryId?: string) {
-    router.push({
-      pathname: '/add-food-entry',
-      params: { date: selectedDate, mealType, ...(entryId ? { entryId } : {}) },
-    });
+    if (entryId) {
+      router.push({
+        pathname: '/add-food-entry',
+        params: { date: selectedDate, mealType, entryId },
+      });
+      return;
+    }
+    // Neuer Eintrag: erst ueber die Lebensmittelsuche (Freitext/Barcode/
+    // Zuletzt/Haeufig), die reicht die Auswahl an /add-food-entry weiter.
+    router.push({ pathname: '/food-search', params: { date: selectedDate, mealType } });
   }
 
   return (

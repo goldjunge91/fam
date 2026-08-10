@@ -1,4 +1,9 @@
-import { formatOFFProduct, parseQuantityAndUnit } from './open-food-facts';
+import {
+  formatOFFProduct,
+  parseQuantityAndUnit,
+  productFromRouteParams,
+  productToRouteParams,
+} from './open-food-facts';
 
 describe('Open Food Facts Helper', () => {
   it('sollte Mengen und Einheiten korrekt parsen', () => {
@@ -45,5 +50,95 @@ describe('Open Food Facts Helper', () => {
   it('sollte null zurückgeben wenn kein Produktname vorhanden ist', () => {
     expect(formatOFFProduct(null)).toBeNull();
     expect(formatOFFProduct({ product_name: '' })).toBeNull();
+  });
+
+  it('sollte Nutri-Score, NOVA-Gruppe und Naehrwert-Ampel mit auslesen', () => {
+    const raw = {
+      code: '4019300005307',
+      product_name_de: 'Balance Reich an Protein',
+      nutriscore_grade: 'b',
+      nova_group: 4,
+      nutrient_levels: { fat: 'low', 'saturated-fat': 'low', sugars: 'moderate', salt: 'high' },
+      nutriments: {
+        'energy-kcal_100g': 91,
+        proteins_100g: 10,
+        carbohydrates_100g: 3.3,
+        fat_100g: 4.2,
+        sugars_100g: 2.1,
+        'saturated-fat_100g': 2.9,
+        salt_100g: 1.1,
+      },
+    };
+
+    const formatted = formatOFFProduct(raw);
+    expect(formatted?.nutriScore).toBe('b');
+    expect(formatted?.novaGroup).toBe(4);
+    expect(formatted?.sugarsPer100g).toBe(2.1);
+    expect(formatted?.saturatedFatPer100g).toBe(2.9);
+    expect(formatted?.saltPer100g).toBe(1.1);
+    expect(formatted?.nutrientLevels).toEqual({
+      fat: 'low',
+      saturatedFat: 'low',
+      sugars: 'moderate',
+      salt: 'high',
+    });
+  });
+
+  it('sollte nutrientLevels weglassen, wenn Open Food Facts keine Ampel liefert', () => {
+    const formatted = formatOFFProduct({ code: '1', product_name: 'Test' });
+    expect(formatted?.nutrientLevels).toBeUndefined();
+  });
+});
+
+describe('productToRouteParams / productFromRouteParams', () => {
+  it('sollte ein Produkt verlustfrei durch Router-Params hindurch rundtripen', () => {
+    const product = formatOFFProduct({
+      code: '4019300005307',
+      product_name_de: 'Balance Reich an Protein',
+      brands: 'Exquisa',
+      image_front_small_url: 'https://images.openfoodfacts.org/1.jpg',
+      nutriscore_grade: 'b',
+      nova_group: 4,
+      nutrient_levels: { fat: 'low', sugars: 'moderate', salt: 'high' },
+      nutriments: {
+        'energy-kcal_100g': 91,
+        proteins_100g: 10,
+        carbohydrates_100g: 3.3,
+        fat_100g: 4.2,
+        sugars_100g: 2.1,
+        'saturated-fat_100g': 2.9,
+        salt_100g: 1.1,
+      },
+    });
+    expect(product).not.toBeNull();
+
+    const params = productToRouteParams(product as ReturnType<typeof formatOFFProduct> & object);
+    const roundTripped = productFromRouteParams(params);
+
+    expect(roundTripped).toEqual({
+      name: 'Balance Reich an Protein',
+      brand: 'Exquisa',
+      imageUrl: 'https://images.openfoodfacts.org/1.jpg',
+      caloriesPer100g: 91,
+      proteinsPer100g: 10,
+      carbsPer100g: 3.3,
+      fatPer100g: 4.2,
+      sugarsPer100g: 2.1,
+      saturatedFatPer100g: 2.9,
+      saltPer100g: 1.1,
+      nutriScore: 'b',
+      novaGroup: 4,
+      nutrientLevels: { fat: 'low', sugars: 'moderate', salt: 'high' },
+    });
+  });
+
+  it('sollte ohne Namen null zurueckgeben', () => {
+    expect(productFromRouteParams({})).toBeNull();
+  });
+
+  it('sollte mit expo-router-Array-Params (z.B. bei mehrfachen Query-Keys) umgehen', () => {
+    expect(productFromRouteParams({ name: ['Apfel', 'Birne'], kcalPer100g: ['52'] })).toEqual(
+      expect.objectContaining({ name: 'Apfel', caloriesPer100g: 52 }),
+    );
   });
 });

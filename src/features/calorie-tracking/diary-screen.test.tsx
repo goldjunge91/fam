@@ -107,14 +107,14 @@ describe('DiaryScreen', () => {
     expect(screen.getByText('Kalorien: 640/2000')).toBeTruthy(); // 190 + 450
   });
 
-  it('oeffnet das Hinzufuegen-Formular vorbelegt mit der Mahlzeit', async () => {
+  it('oeffnet die Lebensmittelsuche vorbelegt mit der Mahlzeit', async () => {
     await renderScreen();
     const addButtons = screen.getAllByText('+ Hinzufügen');
     await fireEvent.press(addButtons[0]);
 
     expect(router.push).toHaveBeenCalledWith(
       expect.objectContaining({
-        pathname: '/add-food-entry',
+        pathname: '/food-search',
         params: expect.objectContaining({ mealType: 'breakfast' }),
       }),
     );

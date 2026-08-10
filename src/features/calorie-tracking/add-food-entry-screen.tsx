@@ -1,10 +1,11 @@
 import { router, useLocalSearchParams } from 'expo-router';
 import { useEffect, useState } from 'react';
-import { Alert, StyleSheet, View } from 'react-native';
+import { Alert, Image, StyleSheet, View } from 'react-native';
 
 import { Button } from '@/components/button';
 import { Screen } from '@/components/screen';
 import { TextField } from '@/components/text-field';
+import { ThemedText } from '@/components/themed-text';
 import { Spacing } from '@/constants/theme';
 import { useSession } from '@/features/auth/session-provider';
 import {
@@ -15,8 +16,30 @@ import {
   useUpdateFoodEntryMutation,
 } from '@/features/calorie-tracking/api';
 import { MEAL_LABELS } from '@/features/calorie-tracking/diary-screen';
-import { ProductSearchDropdown } from '@/features/inventory/product-search-dropdown';
-import type { OpenFoodFactsProduct } from '@/lib/open-food-facts';
+import { useTheme } from '@/hooks/use-theme';
+import {
+  type NutrientLevel,
+  type OpenFoodFactsProduct,
+  productFromRouteParams,
+} from '@/lib/open-food-facts';
+
+const UNIT_LABELS: Record<string, string> = {
+  g: 'g',
+  kg: 'kg',
+  ml: 'ml',
+  l: 'l',
+  piece: 'Stück',
+  package: 'Packung',
+  portion: 'Portion',
+};
+const UNITS = Object.keys(UNIT_LABELS);
+
+type Per100gReference = {
+  kcal?: number;
+  protein?: number;
+  carbs?: number;
+  fat?: number;
+};
 
 /**
  * Skaliert einen Naehrwert "pro 100g/100ml" auf die eingegebene Menge.
@@ -37,9 +60,55 @@ function scaleToQuantity(per100: number, quantity: number, unit: string): number
   return Math.round(((per100 * gramsOrMlEquivalent) / 100) * 10) / 10;
 }
 
-/** Eintrag hinzufuegen/bearbeiten/loeschen (#86), als Modal-Route erreicht. */
+type Badge = { label: string; tone: 'good' | 'warn' };
+
+/**
+ * Leitet Bewertungs-Badges aus echten Open-Food-Facts-Signalen ab
+ * (`nutrient_levels`, `nova_group`). Bewusst keine erfundenen Badges wie
+ * "Kalorienarm" — dafuer liefert OFF kein Standardfeld.
+ */
+function buildNutritionBadges(
+  nutrientLevels: OpenFoodFactsProduct['nutrientLevels'] | undefined,
+  novaGroup: number | undefined,
+): Badge[] {
+  const badges: Badge[] = [];
+  const add = (level: NutrientLevel | undefined, lowLabel: string, highLabel: string) => {
+    if (level === 'low') badges.push({ label: lowLabel, tone: 'good' });
+    else if (level === 'high') badges.push({ label: highLabel, tone: 'warn' });
+  };
+  add(nutrientLevels?.fat, 'Fettarm', 'Reich an Fett');
+  add(nutrientLevels?.saturatedFat, 'Wenig gesättigte Fettsäuren', 'Viel gesättigte Fettsäuren');
+  add(nutrientLevels?.sugars, 'Wenig Zucker', 'Viel Zucker');
+  add(nutrientLevels?.salt, 'Wenig Salz', 'Viel Salz');
+  if (novaGroup === 4) badges.push({ label: 'Stark verarbeitet', tone: 'warn' });
+  return badges;
+}
+
+/**
+ * Eintrag hinzufuegen/bearbeiten/loeschen (#86), als Modal-Route erreicht.
+ *
+ * Drei Ausgangslagen:
+ * - Bearbeiten eines bestehenden Eintrags (`entryId`-Param) — laedt aus
+ *   `useFoodEntries`, keine 100g-Referenz, Felder bleiben direkt editierbar.
+ * - Aus der Lebensmittelsuche/Barcode-Scan (`kcalPer100g`-Param u.a.) — Menge
+ *   startet bei 100g/ml, Makros werden bei Mengen-/Einheitenaenderung live
+ *   aus den 100g-Werten neu berechnet.
+ * - "Schneller Eintrag" (keine Produkt-Params) — leeres Formular, alles
+ *   manuell.
+ */
 export function AddFoodEntryScreen() {
-  const params = useLocalSearchParams<{ date: string; mealType: MealType; entryId?: string }>();
+  const theme = useTheme();
+  const params = useLocalSearchParams<{
+    date: string;
+    mealType: MealType;
+    entryId?: string;
+    quantity?: string;
+    unit?: string;
+    kcal?: string;
+    proteinG?: string;
+    carbsG?: string;
+    fatG?: string;
+  }>();
   const { session } = useSession();
   const userId = session?.user.id;
   const isEditing = !!params.entryId;
@@ -52,42 +121,99 @@ export function AddFoodEntryScreen() {
   const deleteMutation = useDeleteFoodEntryMutation();
 
   const [name, setName] = useState('');
+  const [brand, setBrand] = useState<string | undefined>(undefined);
+  const [imageUrl, setImageUrl] = useState<string | undefined>(undefined);
+  const [nutriScore, setNutriScore] = useState<string | undefined>(undefined);
+  const [badges, setBadges] = useState<Badge[]>([]);
   const [quantity, setQuantity] = useState('1');
   const [unit, setUnit] = useState('g');
   const [kcalInput, setKcalInput] = useState('');
   const [proteinInput, setProteinInput] = useState('');
   const [carbsInput, setCarbsInput] = useState('');
   const [fatInput, setFatInput] = useState('');
-  const [initializedFromEntry, setInitializedFromEntry] = useState(false);
+  const [per100g, setPer100g] = useState<Per100gReference | null>(null);
+  const [initialized, setInitialized] = useState(false);
 
+  // Vorbefuellung: bestehender Eintrag > Produkt aus der Suche > leer. Laeuft
+  // bewusst nur einmal (Guard ueber `initialized`) statt bei jeder
+  // Param-/Query-Aenderung neu zu greifen.
+  // biome-ignore lint/correctness/useExhaustiveDependencies: nur beim ersten Mount vorbefuellen.
   useEffect(() => {
-    if (!existingEntry || initializedFromEntry) return;
-    setName(existingEntry.name);
-    setQuantity(String(existingEntry.quantity));
-    setUnit(existingEntry.unit);
-    setKcalInput(existingEntry.kcal !== null ? String(existingEntry.kcal) : '');
-    setProteinInput(existingEntry.protein_g !== null ? String(existingEntry.protein_g) : '');
-    setCarbsInput(existingEntry.carbs_g !== null ? String(existingEntry.carbs_g) : '');
-    setFatInput(existingEntry.fat_g !== null ? String(existingEntry.fat_g) : '');
-    setInitializedFromEntry(true);
-  }, [existingEntry, initializedFromEntry]);
+    if (initialized) return;
 
-  function handleSelectProduct(product: OpenFoodFactsProduct) {
-    setName(product.name);
-    const qty = parseFloat(quantity) || 1;
+    if (existingEntry) {
+      setName(existingEntry.name);
+      setQuantity(String(existingEntry.quantity));
+      setUnit(existingEntry.unit);
+      setKcalInput(existingEntry.kcal !== null ? String(existingEntry.kcal) : '');
+      setProteinInput(existingEntry.protein_g !== null ? String(existingEntry.protein_g) : '');
+      setCarbsInput(existingEntry.carbs_g !== null ? String(existingEntry.carbs_g) : '');
+      setFatInput(existingEntry.fat_g !== null ? String(existingEntry.fat_g) : '');
+      setInitialized(true);
+      return;
+    }
+
+    if (isEditing) return; // Editier-Modus wartet auf existingEntry aus der Query.
+
+    const product = productFromRouteParams(params as Record<string, string | string[] | undefined>);
+    if (!product) {
+      setInitialized(true);
+      return;
+    }
+
+    setName(product.name ?? '');
+    setBrand(product.brand);
+    setImageUrl(product.imageUrl);
+    setNutriScore(product.nutriScore);
+    setBadges(buildNutritionBadges(product.nutrientLevels, product.novaGroup));
+
     if (product.caloriesPer100g !== undefined) {
-      setKcalInput(String(scaleToQuantity(product.caloriesPer100g, qty, unit)));
+      // Aus Suche/Barcode: 100g/ml-Referenz, Menge startet bei 100.
+      const ref: Per100gReference = {
+        kcal: product.caloriesPer100g,
+        protein: product.proteinsPer100g,
+        carbs: product.carbsPer100g,
+        fat: product.fatPer100g,
+      };
+      setPer100g(ref);
+      setQuantity('100');
+      setUnit('g');
+      setKcalInput(ref.kcal !== undefined ? String(ref.kcal) : '');
+      setProteinInput(ref.protein !== undefined ? String(ref.protein) : '');
+      setCarbsInput(ref.carbs !== undefined ? String(ref.carbs) : '');
+      setFatInput(ref.fat !== undefined ? String(ref.fat) : '');
+    } else {
+      // Aus "Zuletzt"/"Haeufig": bereits fertige Snapshot-Werte, keine
+      // Live-Skalierung (wie bei manueller Erfassung).
+      setQuantity(params.quantity ? String(params.quantity) : '1');
+      setUnit(params.unit ? String(params.unit) : 'g');
+      setKcalInput(params.kcal ? String(params.kcal) : '');
+      setProteinInput(params.proteinG ? String(params.proteinG) : '');
+      setCarbsInput(params.carbsG ? String(params.carbsG) : '');
+      setFatInput(params.fatG ? String(params.fatG) : '');
     }
-    if (product.proteinsPer100g !== undefined) {
-      setProteinInput(String(scaleToQuantity(product.proteinsPer100g, qty, unit)));
+
+    setInitialized(true);
+  }, [existingEntry, isEditing, initialized]);
+
+  // Live-Neuberechnung, wenn Menge/Einheit geaendert werden UND eine
+  // 100g-Referenz vorliegt (Produkt aus Suche/Barcode). `per100g` bewusst
+  // nicht in den Deps: es aendert sich nur einmal bei der Vorbefuellung oben,
+  // ein Re-Trigger darueber waere redundant zur Initialisierung.
+  // biome-ignore lint/correctness/useExhaustiveDependencies: per100g ist eine stabile Referenz ab der Vorbefuellung.
+  useEffect(() => {
+    if (!per100g || !initialized) return;
+    const qty = parseFloat(quantity);
+    if (Number.isNaN(qty)) return;
+
+    if (per100g.kcal !== undefined) setKcalInput(String(scaleToQuantity(per100g.kcal, qty, unit)));
+    if (per100g.protein !== undefined) {
+      setProteinInput(String(scaleToQuantity(per100g.protein, qty, unit)));
     }
-    if (product.carbsPer100g !== undefined) {
-      setCarbsInput(String(scaleToQuantity(product.carbsPer100g, qty, unit)));
-    }
-    if (product.fatPer100g !== undefined) {
-      setFatInput(String(scaleToQuantity(product.fatPer100g, qty, unit)));
-    }
-  }
+    if (per100g.carbs !== undefined)
+      setCarbsInput(String(scaleToQuantity(per100g.carbs, qty, unit)));
+    if (per100g.fat !== undefined) setFatInput(String(scaleToQuantity(per100g.fat, qty, unit)));
+  }, [quantity, unit]);
 
   async function handleSave() {
     if (!userId || !name.trim() || !params.date || !params.mealType) return;
@@ -147,32 +273,48 @@ export function AddFoodEntryScreen() {
   return (
     <Screen title={title} back={{ label: 'Abbrechen' }}>
       <View style={styles.form}>
-        <ProductSearchDropdown
-          label="Name"
-          placeholder="z. B. Haferflocken"
-          value={name}
-          onChangeText={setName}
-          onSelectProduct={handleSelectProduct}
-        />
-
-        <View style={styles.row}>
-          <View style={styles.flex}>
-            <TextField
-              label="Menge"
-              value={quantity}
-              onChangeText={setQuantity}
-              keyboardType="numeric"
-            />
+        <View style={styles.hero}>
+          {imageUrl ? (
+            <Image source={{ uri: imageUrl }} style={styles.heroImage} />
+          ) : (
+            <View
+              style={[styles.heroImagePlaceholder, { backgroundColor: theme.backgroundElement }]}>
+              <ThemedText style={{ fontSize: 28 }}>🍽️</ThemedText>
+            </View>
+          )}
+          <View style={styles.heroText}>
+            <TextField placeholder="Name des Lebensmittels" value={name} onChangeText={setName} />
+            {brand ? (
+              <ThemedText type="small" themeColor="textSecondary">
+                {brand}
+              </ThemedText>
+            ) : null}
           </View>
-          <View style={styles.flex}>
-            <TextField
-              label="Einheit"
-              placeholder="g, ml, piece..."
-              value={unit}
-              onChangeText={setUnit}
-            />
-          </View>
+          {nutriScore ? (
+            <View style={[styles.nutriBadge, { backgroundColor: theme.accent }]}>
+              <ThemedText style={styles.nutriBadgeText}>{nutriScore.toUpperCase()}</ThemedText>
+            </View>
+          ) : null}
         </View>
+
+        {badges.length > 0 ? (
+          <View style={styles.badgeRow}>
+            {badges.map((badge) => (
+              <View
+                key={badge.label}
+                style={[
+                  styles.badge,
+                  { backgroundColor: `${theme[badge.tone === 'good' ? 'success' : 'warning']}22` },
+                ]}>
+                <ThemedText
+                  type="small"
+                  style={{ color: theme[badge.tone === 'good' ? 'success' : 'warning'] }}>
+                  {badge.tone === 'good' ? '🟢' : '⚠️'} {badge.label}
+                </ThemedText>
+              </View>
+            ))}
+          </View>
+        ) : null}
 
         <View style={styles.row}>
           <View style={styles.flex}>
@@ -185,9 +327,9 @@ export function AddFoodEntryScreen() {
           </View>
           <View style={styles.flex}>
             <TextField
-              label="Eiweiß (g)"
-              value={proteinInput}
-              onChangeText={setProteinInput}
+              label="Kohlenhydrate (g)"
+              value={carbsInput}
+              onChangeText={setCarbsInput}
               keyboardType="numeric"
             />
           </View>
@@ -195,9 +337,9 @@ export function AddFoodEntryScreen() {
         <View style={styles.row}>
           <View style={styles.flex}>
             <TextField
-              label="Kohlenhydrate (g)"
-              value={carbsInput}
-              onChangeText={setCarbsInput}
+              label="Eiweiß (g)"
+              value={proteinInput}
+              onChangeText={setProteinInput}
               keyboardType="numeric"
             />
           </View>
@@ -209,6 +351,27 @@ export function AddFoodEntryScreen() {
               keyboardType="numeric"
             />
           </View>
+        </View>
+
+        <ThemedText type="smallBold" style={{ marginTop: Spacing.one }}>
+          Menge
+        </ThemedText>
+        <TextField value={quantity} onChangeText={setQuantity} keyboardType="numeric" />
+        <View style={styles.unitRow}>
+          {UNITS.map((u) => (
+            <ThemedText
+              key={u}
+              onPress={() => setUnit(u)}
+              style={[
+                styles.unitPill,
+                {
+                  backgroundColor: unit === u ? theme.accent : theme.backgroundElement,
+                  color: unit === u ? '#fff' : theme.text,
+                },
+              ]}>
+              {UNIT_LABELS[u]}
+            </ThemedText>
+          ))}
         </View>
 
         <View style={styles.saveButton}>
@@ -235,8 +398,51 @@ export function AddFoodEntryScreen() {
 
 const styles = StyleSheet.create({
   form: {
-    gap: Spacing.four,
-    marginTop: Spacing.four,
+    gap: Spacing.three,
+    marginTop: Spacing.two,
+  },
+  hero: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: Spacing.three,
+  },
+  heroImage: {
+    width: 56,
+    height: 56,
+    borderRadius: 14,
+  },
+  heroImagePlaceholder: {
+    width: 56,
+    height: 56,
+    borderRadius: 14,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  heroText: {
+    flex: 1,
+    gap: 2,
+  },
+  nutriBadge: {
+    width: 34,
+    height: 34,
+    borderRadius: 10,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  nutriBadgeText: {
+    color: '#fff',
+    fontWeight: '900',
+    fontSize: 15,
+  },
+  badgeRow: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: Spacing.one,
+  },
+  badge: {
+    paddingHorizontal: 10,
+    paddingVertical: 4,
+    borderRadius: 10,
   },
   row: {
     flexDirection: 'row',
@@ -244,6 +450,17 @@ const styles = StyleSheet.create({
   },
   flex: {
     flex: 1,
+  },
+  unitRow: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: Spacing.one,
+  },
+  unitPill: {
+    paddingHorizontal: 12,
+    paddingVertical: 8,
+    borderRadius: 10,
+    overflow: 'hidden',
   },
   saveButton: {
     marginTop: Spacing.two,

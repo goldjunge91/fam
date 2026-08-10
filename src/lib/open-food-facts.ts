@@ -1,3 +1,5 @@
+export type NutrientLevel = 'low' | 'moderate' | 'high';
+
 export type OpenFoodFactsProduct = {
   barcode: string;
   name: string;
@@ -10,6 +12,19 @@ export type OpenFoodFactsProduct = {
   proteinsPer100g?: number;
   carbsPer100g?: number;
   fatPer100g?: number;
+  sugarsPer100g?: number;
+  saturatedFatPer100g?: number;
+  saltPer100g?: number;
+  /** A–E, Open Food Facts Nutri-Score. */
+  nutriScore?: 'a' | 'b' | 'c' | 'd' | 'e';
+  /** NOVA-Verarbeitungsgrad 1 (unverarbeitet) bis 4 (stark verarbeitet). */
+  novaGroup?: 1 | 2 | 3 | 4;
+  nutrientLevels?: {
+    fat?: NutrientLevel;
+    saturatedFat?: NutrientLevel;
+    sugars?: NutrientLevel;
+    salt?: NutrientLevel;
+  };
 };
 
 /**
@@ -49,6 +64,15 @@ export function formatOFFProduct(raw: any): OpenFoodFactsProduct | null {
 
   const { quantity, unit } = parseQuantityAndUnit(raw.quantity);
   const nutriments = raw.nutriments || {};
+  const rawLevels = raw.nutrient_levels || {};
+
+  const nutrientLevels: OpenFoodFactsProduct['nutrientLevels'] = {
+    fat: rawLevels.fat,
+    saturatedFat: rawLevels['saturated-fat'],
+    sugars: rawLevels.sugars,
+    salt: rawLevels.salt,
+  };
+  const hasNutrientLevels = Object.values(nutrientLevels).some((level) => level !== undefined);
 
   return {
     barcode: raw.code || raw._id || '',
@@ -62,6 +86,12 @@ export function formatOFFProduct(raw: any): OpenFoodFactsProduct | null {
     proteinsPer100g: nutriments.proteins_100g ?? nutriments.proteins_value,
     carbsPer100g: nutriments.carbohydrates_100g ?? nutriments.carbohydrates_value,
     fatPer100g: nutriments.fat_100g ?? nutriments.fat_value,
+    sugarsPer100g: nutriments.sugars_100g ?? nutriments.sugars_value,
+    saturatedFatPer100g: nutriments['saturated-fat_100g'] ?? nutriments['saturated-fat_value'],
+    saltPer100g: nutriments.salt_100g ?? nutriments.salt_value,
+    nutriScore: raw.nutriscore_grade || undefined,
+    novaGroup: raw.nova_group || undefined,
+    nutrientLevels: hasNutrientLevels ? nutrientLevels : undefined,
   };
 }
 
@@ -95,6 +125,69 @@ export async function searchOpenFoodFacts(
     console.error('Fehler bei Open Food Facts Suche:', err);
     return [];
   }
+}
+
+/**
+ * Kodiert ein Produkt als Expo-Router-Params (nur Strings erlaubt), damit die
+ * Lebensmittelsuche es an die Detail-/Erfassungsseite weiterreichen kann,
+ * ohne einen globalen Zwischenspeicher zu brauchen.
+ */
+export function productToRouteParams(product: OpenFoodFactsProduct): Record<string, string> {
+  const params: Record<string, string> = { name: product.name };
+  if (product.brand) params.brand = product.brand;
+  if (product.imageUrl) params.imageUrl = product.imageUrl;
+  if (product.caloriesPer100g !== undefined) params.kcalPer100g = String(product.caloriesPer100g);
+  if (product.proteinsPer100g !== undefined) {
+    params.proteinPer100g = String(product.proteinsPer100g);
+  }
+  if (product.carbsPer100g !== undefined) params.carbsPer100g = String(product.carbsPer100g);
+  if (product.fatPer100g !== undefined) params.fatPer100g = String(product.fatPer100g);
+  if (product.sugarsPer100g !== undefined) params.sugarPer100g = String(product.sugarsPer100g);
+  if (product.saturatedFatPer100g !== undefined) {
+    params.satFatPer100g = String(product.saturatedFatPer100g);
+  }
+  if (product.saltPer100g !== undefined) params.saltPer100g = String(product.saltPer100g);
+  if (product.nutriScore) params.nutriScore = product.nutriScore;
+  if (product.novaGroup !== undefined) params.novaGroup = String(product.novaGroup);
+  if (product.nutrientLevels) params.nutrientLevels = JSON.stringify(product.nutrientLevels);
+  return params;
+}
+
+function firstString(value: string | string[] | undefined): string | undefined {
+  return Array.isArray(value) ? value[0] : value;
+}
+
+function firstNumber(value: string | string[] | undefined): number | undefined {
+  const raw = firstString(value);
+  if (raw === undefined) return undefined;
+  const num = parseFloat(raw);
+  return Number.isNaN(num) ? undefined : num;
+}
+
+/** Kehrt `productToRouteParams` um — liest ein Produkt aus `useLocalSearchParams()`. */
+export function productFromRouteParams(
+  params: Record<string, string | string[] | undefined>,
+): Partial<OpenFoodFactsProduct> | null {
+  const name = firstString(params.name);
+  if (!name) return null;
+
+  const nutrientLevelsRaw = firstString(params.nutrientLevels);
+
+  return {
+    name,
+    brand: firstString(params.brand),
+    imageUrl: firstString(params.imageUrl),
+    caloriesPer100g: firstNumber(params.kcalPer100g),
+    proteinsPer100g: firstNumber(params.proteinPer100g),
+    carbsPer100g: firstNumber(params.carbsPer100g),
+    fatPer100g: firstNumber(params.fatPer100g),
+    sugarsPer100g: firstNumber(params.sugarPer100g),
+    saturatedFatPer100g: firstNumber(params.satFatPer100g),
+    saltPer100g: firstNumber(params.saltPer100g),
+    nutriScore: firstString(params.nutriScore) as OpenFoodFactsProduct['nutriScore'],
+    novaGroup: firstNumber(params.novaGroup) as OpenFoodFactsProduct['novaGroup'],
+    nutrientLevels: nutrientLevelsRaw ? JSON.parse(nutrientLevelsRaw) : undefined,
+  };
 }
 
 /**
