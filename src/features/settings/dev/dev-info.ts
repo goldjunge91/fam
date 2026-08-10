@@ -1,0 +1,99 @@
+/**
+ * Reine Auswertungen fuer den Entwickler-Bereich.
+ *
+ * Ohne Zugriff auf `process.env`, Uhr oder Datenbank — alles kommt als
+ * Argument herein. Damit sind gerade die Faelle pruefbar, die man von Hand nie
+ * herstellt: ein abgelaufener Token, eine unbekannte Supabase-URL, eine
+ * lokale Datenbank, die noch dem vorigen Nutzer gehoert.
+ */
+
+export type SupabaseTarget = {
+  kind: 'lokal' | 'remote' | 'unbekannt';
+  label: string;
+  /** `danger` fuer remote: Wer dort versehentlich testet, aendert echte Daten. */
+  tone: 'accent' | 'warning' | 'danger';
+};
+
+/**
+ * Lokale Instanz oder gehostetes Projekt?
+ *
+ * Die wichtigste Zeile des ganzen Bereichs. Ein Build, der unbemerkt gegen das
+ * verlinkte Projekt laeuft, legt beim Ausprobieren echte Konten und Haushalte
+ * an — genau davor warnt auch `test/setup-integration.js`, dort allerdings nur
+ * fuer die Tests.
+ */
+export function classifySupabaseTarget(url: string): SupabaseTarget {
+  let host: string;
+  try {
+    host = new URL(url).hostname;
+  } catch {
+    return { kind: 'unbekannt', label: 'Nicht lesbar', tone: 'warning' };
+  }
+
+  if (host === '127.0.0.1' || host === 'localhost' || host === '::1') {
+    return { kind: 'lokal', label: 'Lokal', tone: 'accent' };
+  }
+
+  // Ein Emulator/Simulator spricht den Host des Entwicklungsrechners ueber
+  // dessen LAN-Adresse oder ueber 10.0.2.2 (Android-Emulator) an — auch das
+  // ist die lokale Instanz, nur nicht ueber localhost erreichbar.
+  if (host === '10.0.2.2' || /^192\.168\.\d{1,3}\.\d{1,3}$/.test(host)) {
+    return { kind: 'lokal', label: 'Lokal (über LAN)', tone: 'accent' };
+  }
+
+  return { kind: 'remote', label: 'Remote — echte Daten', tone: 'danger' };
+}
+
+/**
+ * Zeigt genug vom Schluessel, um ihn wiederzuerkennen, und wenig genug, um
+ * einen Screenshot des Bereichs unbedenklich zu machen.
+ */
+export function maskSecret(value: string, visible = 8): string {
+  if (value.length <= visible) return '…';
+  return `${value.slice(0, visible)}…`;
+}
+
+/**
+ * Restlaufzeit des Zugriffstokens.
+ *
+ * `exp` ist eine Unix-Zeit in SEKUNDEN (JWT-Konvention), `nowMs` in
+ * Millisekunden — die Verwechslung der beiden ist der uebliche Fehler an
+ * dieser Stelle, deshalb stehen die Einheiten in den Namen.
+ */
+export function formatTokenExpiry(expSeconds: number | undefined, nowMs: number): string {
+  if (expSeconds === undefined) return 'unbekannt';
+
+  const remainingMs = expSeconds * 1000 - nowMs;
+  if (remainingMs <= 0) return 'abgelaufen';
+
+  const minutes = Math.floor(remainingMs / 60_000);
+  if (minutes < 1) return 'unter 1 min';
+  if (minutes < 60) return `noch ${minutes} min`;
+
+  const hours = Math.floor(minutes / 60);
+  return `noch ${hours} h ${minutes % 60} min`;
+}
+
+export type DatabaseOwnership = {
+  label: string;
+  tone: 'accent' | 'warning' | 'danger';
+};
+
+/**
+ * Gehoert die lokale Datenbank dem angemeldeten Nutzer?
+ *
+ * Die Frage ist nicht theoretisch: Genau diese Abweichung war das
+ * Cross-Account-Datenleck (siehe `docs/plans/fix-sqlite-locking-und-household-datenleck.md`).
+ * Seitdem raeumt `getDatabase()` sie beim Anmelden auf — hier steht, ob das
+ * auch tatsaechlich passiert ist.
+ */
+export function describeDatabaseOwnership(
+  storedUserId: string | null,
+  sessionUserId: string | null,
+): DatabaseOwnership {
+  if (sessionUserId === null) return { label: 'nicht angemeldet', tone: 'warning' };
+  if (storedUserId === null) return { label: 'noch nicht zugeordnet', tone: 'warning' };
+  if (storedUserId === sessionUserId) return { label: 'stimmt überein', tone: 'accent' };
+
+  return { label: `FREMD (${storedUserId.slice(0, 8)}…)`, tone: 'danger' };
+}

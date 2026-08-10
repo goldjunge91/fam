@@ -28,6 +28,13 @@ export const ENTITIES: Readonly<Record<Entity, EntityMeta>> = {
     householdScoped: true,
     columns: ['id', 'household_id', 'name', 'kind', 'sort_order', 'created_at'],
   },
+  stores: {
+    entity: 'stores',
+    table: 'stores',
+    hasServerTombstone: true,
+    householdScoped: true,
+    columns: ['id', 'household_id', 'name', 'color', 'sort_order', 'category_order', 'created_at'],
+  },
   fridge_items: {
     entity: 'fridge_items',
     table: 'fridge_items',
@@ -60,6 +67,8 @@ export const ENTITIES: Readonly<Record<Entity, EntityMeta>> = {
       'unit',
       'category',
       'sort_index',
+      'store_id',
+      'price_estimate',
       'checked_at',
       'checked_by',
       'added_by',
@@ -93,6 +102,7 @@ export const ENTITIES: Readonly<Record<Entity, EntityMeta>> = {
 
 export const ALL_ENTITIES: readonly Entity[] = [
   'storage_locations',
+  'stores',
   'fridge_items',
   'shopping_list_items',
   'products',

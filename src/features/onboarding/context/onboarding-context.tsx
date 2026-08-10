@@ -1,7 +1,10 @@
+import { useQueryClient } from '@tanstack/react-query';
 import { createContext, type ReactNode, useContext, useState } from 'react';
 import { updateProfile } from '@/features/auth/api';
 import { persistOnboardingCompleted } from '@/features/auth/onboarding-session';
 import { useSession } from '@/features/auth/session-provider';
+import { HOUSEHOLDS_QUERY_KEY } from '@/features/household/api';
+import { saveModulePreferences } from '@/features/settings/module-preferences';
 import { getSupabase } from '@/lib/supabase';
 import type {
   HouseholdOnboardingData,
@@ -20,7 +23,8 @@ interface OnboardingContextType {
   setStep: (step: number) => void;
   nextStep: () => void;
   prevStep: () => void;
-  completeOnboarding: () => Promise<void>;
+  /** `true`, wenn alles gespeichert wurde. Nur dann darf weiternavigiert werden. */
+  completeOnboarding: () => Promise<boolean>;
   isLoading: boolean;
   error: string | null;
 }
@@ -45,6 +49,7 @@ const OnboardingContext = createContext<OnboardingContextType | null>(null);
 
 export function OnboardingProvider({ children }: { children: ReactNode }) {
   const { session } = useSession();
+  const queryClient = useQueryClient();
   const [state, setState] = useState<OnboardingState>(initialOnboardingState);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -77,8 +82,17 @@ export function OnboardingProvider({ children }: { children: ReactNode }) {
     setState((prev) => ({ ...prev, currentStep: Math.max(1, prev.currentStep - 1) }));
   };
 
-  const completeOnboarding = async () => {
-    if (!session) return;
+  const completeOnboarding = async (): Promise<boolean> => {
+    // Ohne Session gibt es nichts zu speichern — und `create_household` ist
+    // nur an `authenticated` vergeben, der Aufruf endete in
+    // "permission denied for function create_household". Frueher lief die
+    // Funktion hier still ins Leere und der Aufrufer navigierte trotzdem
+    // weiter.
+    if (!session) {
+      setError('Du bist nicht angemeldet. Bitte melde dich zuerst an.');
+      return false;
+    }
+
     setIsLoading(true);
     setError(null);
 
@@ -96,8 +110,19 @@ export function OnboardingProvider({ children }: { children: ReactNode }) {
         if (profileErr) {
           setError(profileErr.message);
           setIsLoading(false);
-          return;
+          return false;
         }
+      }
+
+      // 1b. Modul-Auswahl speichern (#95) — anders als der Profil-Block oben
+      // immer, da state.modules ueber den Default-State immer alle vier Keys
+      // traegt (nie "leer"). Ohne diesen Aufruf verwirft completeOnboarding
+      // die Auswahl aus ModuleSelectorForm bisher stillschweigend.
+      const { error: modulesErr } = await saveModulePreferences(session.user.id, state.modules);
+      if (modulesErr) {
+        setError(modulesErr.message);
+        setIsLoading(false);
+        return false;
       }
 
       // 2. Failsafe Household-Prüfung: Stellt sicher, dass der Nutzer in der DB mindestens einem Haushalt angehört
@@ -120,7 +145,7 @@ export function OnboardingProvider({ children }: { children: ReactNode }) {
           if (createErr) {
             setError(`Fehler beim Erstellen des Haushalts: ${createErr.message}`);
             setIsLoading(false);
-            return;
+            return false;
           }
         } else if (state.household.choice === 'join' && state.household.inviteCode) {
           const { error: redeemErr } = await supabase.rpc('redeem_invite', {
@@ -129,7 +154,7 @@ export function OnboardingProvider({ children }: { children: ReactNode }) {
           if (redeemErr) {
             setError(`Fehler beim Einlösen des Einladungscodes: ${redeemErr.message}`);
             setIsLoading(false);
-            return;
+            return false;
           }
         } else {
           const { error: createErr } = await supabase.rpc('create_household', {
@@ -138,17 +163,27 @@ export function OnboardingProvider({ children }: { children: ReactNode }) {
           if (createErr) {
             setError(`Fehler beim Erstellen des Haushalts: ${createErr.message}`);
             setIsLoading(false);
-            return;
+            return false;
           }
         }
       }
 
+      // Der Haushalt entstand gerade per RPC, nicht ueber die Mutation aus
+      // `household/api.ts` — der Query-Cache weiss also nichts davon. Ohne
+      // diese Invalidierung sieht der angemeldete Bereich weiterhin null
+      // Haushalte und schickt den Nutzer direkt wieder ins Anlege-Formular,
+      // aus dem er gerade kam.
+      await queryClient.invalidateQueries({ queryKey: HOUSEHOLDS_QUERY_KEY });
+      await queryClient.refetchQueries({ queryKey: HOUSEHOLDS_QUERY_KEY });
+
       // Onboarding-Flag persistieren
       await persistOnboardingCompleted();
       setIsLoading(false);
+      return true;
     } catch (e) {
       setError(e instanceof Error ? e.message : 'Fehler beim Speichern');
       setIsLoading(false);
+      return false;
     }
   };
 

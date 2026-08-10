@@ -12,6 +12,19 @@ type AddItemInput = {
   category?: string | null;
   product_id?: string | null;
   sort_index?: number;
+  store_id?: string | null;
+  price_estimate?: number | null;
+};
+
+type UpdateItemInput = {
+  id: string;
+  household_id: string;
+  name: string;
+  quantity: number;
+  unit: string;
+  category: string | null;
+  store_id: string | null;
+  price_estimate: number | null;
 };
 
 type ToggleItemInput = {
@@ -64,14 +77,16 @@ export function useAddShoppingItem() {
           unit: normUnit,
           category: input.category ?? null,
           sort_index: sortIndex,
+          store_id: input.store_id ?? null,
+          price_estimate: input.price_estimate ?? null,
           created_at: now,
           updated_at: now,
         },
         applyLocally: async (txn) => {
           await txn.runAsync(
             `insert into shopping_list_items
-               (id, household_id, product_id, name, quantity, unit, category, sort_index, created_at, updated_at, _dirty)
-             values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 1)`,
+               (id, household_id, product_id, name, quantity, unit, category, sort_index, store_id, price_estimate, created_at, updated_at, _dirty)
+             values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 1)`,
             [
               id,
               input.household_id,
@@ -81,6 +96,8 @@ export function useAddShoppingItem() {
               normUnit,
               input.category ?? null,
               sortIndex,
+              input.store_id ?? null,
+              input.price_estimate ?? null,
               now,
               nowMs,
             ],
@@ -89,6 +106,63 @@ export function useAddShoppingItem() {
       });
 
       return id;
+    },
+    onSuccess: (_, variables) => {
+      queryClient.invalidateQueries({ queryKey: ['shopping_list_items', variables.household_id] });
+      queryClient.invalidateQueries({ queryKey: ['sync-status'] });
+    },
+  });
+}
+
+/**
+ * Bearbeitet einen bestehenden Artikel — bislang vor allem fuer die
+ * Marktzuordnung gedacht (ein Artikel ohne Markt liess sich bisher gar nicht
+ * mehr aendern), deckt aber alle Felder aus dem Formular ab, weil dort noch
+ * weitere Punkte dazukommen werden.
+ */
+export function useUpdateShoppingItem() {
+  const queryClient = useQueryClient();
+
+  return useMutation({
+    mutationFn: async (input: UpdateItemInput) => {
+      const db = await getDatabase();
+      const now = new Date().toISOString();
+      const nowMs = Date.now();
+      const normUnit = normalizeUnit(input.unit);
+
+      await enqueueMutation(db, {
+        entity: 'shopping_list_items',
+        entityId: input.id,
+        op: 'update',
+        payload: {
+          id: input.id,
+          household_id: input.household_id,
+          name: input.name,
+          quantity: input.quantity,
+          unit: normUnit,
+          category: input.category,
+          store_id: input.store_id,
+          price_estimate: input.price_estimate,
+          updated_at: now,
+        },
+        applyLocally: async (txn) => {
+          await txn.runAsync(
+            `update shopping_list_items
+             set name = ?, quantity = ?, unit = ?, category = ?, store_id = ?, price_estimate = ?, updated_at = ?, _dirty = 1
+             where id = ?`,
+            [
+              input.name,
+              input.quantity,
+              normUnit,
+              input.category,
+              input.store_id,
+              input.price_estimate,
+              nowMs,
+              input.id,
+            ],
+          );
+        },
+      });
     },
     onSuccess: (_, variables) => {
       queryClient.invalidateQueries({ queryKey: ['shopping_list_items', variables.household_id] });

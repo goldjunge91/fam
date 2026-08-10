@@ -36,6 +36,19 @@ export function requireEnv(variableName: string, value: string | undefined | nul
   return value.trim();
 }
 
+/**
+ * Deutet eine Schalter-Variable.
+ *
+ * Rein und exportiert, damit die Randfaelle ohne `process.env` pruefbar sind:
+ * In einer `.env` steht mal `true`, mal `1`, mal `True` mit einem Leerzeichen
+ * dahinter — und ein nicht erkannter Wert waere ein stillschweigend
+ * deaktivierter Schalter, den niemand sucht.
+ */
+export function isFlagEnabled(value: string | undefined | null): boolean {
+  const normalized = value?.trim().toLowerCase();
+  return normalized === 'true' || normalized === '1';
+}
+
 export const env = {
   get supabaseUrl(): string {
     return requireEnv('EXPO_PUBLIC_SUPABASE_URL', process.env.EXPO_PUBLIC_SUPABASE_URL);
@@ -44,7 +57,19 @@ export const env = {
     return requireEnv('EXPO_PUBLIC_SUPABASE_KEY', process.env.EXPO_PUBLIC_SUPABASE_KEY);
   },
   get forceOnboarding(): boolean {
-    const val = process.env.EXPO_PUBLIC_FORCE_ONBOARDING?.trim().toLowerCase();
-    return val === 'true' || val === '1';
+    return isFlagEnabled(process.env.EXPO_PUBLIC_FORCE_ONBOARDING);
+  },
+  /**
+   * Blendet den Entwickler-Bereich in den Einstellungen ein.
+   *
+   * Bewusst ein eigener Schalter und nicht `__DEV__`: Der Bereich ist gerade
+   * dann nuetzlich, wenn er in einem echten Build erreichbar ist — etwa in
+   * einem TestFlight-Build, bei dem geklaert werden muss, gegen welches
+   * Supabase-Projekt er laeuft. Umgekehrt soll er sich auch waehrend der
+   * Entwicklung abschalten lassen, um die Einstellungen so zu sehen, wie
+   * Nutzer sie sehen.
+   */
+  get devTools(): boolean {
+    return isFlagEnabled(process.env.EXPO_PUBLIC_DEV_TOOLS);
   },
 };

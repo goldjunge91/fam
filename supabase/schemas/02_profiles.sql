@@ -28,6 +28,16 @@ create table if not exists public.profiles (
 
   onboarding_completed_at timestamptz,
 
+  -- Modul-Aktivierung (#95): welche Bereiche der Nutzer im Onboarding
+  -- ausgewaehlt hat. Default true, damit ein Nutzer ohne bewusste Wahl
+  -- (z. B. alte Sessions vor #95) alles wie bisher sieht. Dashboard und
+  -- Einstellungen sind laut docs/VISION.md bewusst nicht abwaehlbar und
+  -- brauchen deshalb keine eigene Spalte.
+  module_fridge boolean not null default true,
+  module_shopping_list boolean not null default true,
+  module_calories boolean not null default true,
+  module_recipes boolean not null default true,
+
   created_at timestamptz not null default now(),
   updated_at timestamptz not null default now()
 );

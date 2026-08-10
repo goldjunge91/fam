@@ -4,23 +4,33 @@ import { ActivityIndicator, View } from 'react-native';
 
 import AppTabs from '@/components/app-tabs';
 import { useProfile } from '@/features/auth/api';
-import { isOnboardingSessionCompleted } from '@/features/auth/onboarding-session';
+import { resolveAppEntry } from '@/features/auth/app-entry';
+import {
+  isOnboardingSessionCompleted,
+  persistOnboardingCompleted,
+} from '@/features/auth/onboarding-session';
 import { useSession } from '@/features/auth/session-provider';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { useRedeemInviteMutation } from '@/features/household/api';
 import { env } from '@/lib/env';
 import { clearPendingInviteToken, peekPendingInviteToken } from '@/lib/pending-invite';
-import { useSyncEngine } from '@/lib/sync/sync-runner';
+import { useRealtimeSync, useSyncEngine } from '@/lib/sync/sync-runner';
 
 function AppLayoutContent() {
-  const { session } = useSession();
+  const { session, seenOnboarding } = useSession();
   const userId = session?.user.id;
   const { data: profile, isLoading: profileLoading } = useProfile(userId);
-  const { activeHouseholdId, households, isLoading: householdsLoading } = useActiveHousehold();
+  const {
+    activeHouseholdId,
+    households,
+    isLoading: householdsLoading,
+    isError: householdsError,
+  } = useActiveHousehold();
   const redeemInvite = useRedeemInviteMutation();
 
   // Automatischer Sync für den aktiven Haushalt
   useSyncEngine(activeHouseholdId ?? undefined);
+  useRealtimeSync(activeHouseholdId ?? undefined);
 
   useEffect(() => {
     // Nur lesen, nicht loeschen (#128): Dieser Effekt laeuft auf jedem Mount
@@ -43,7 +53,34 @@ function AppLayoutContent() {
     });
   }, [redeemInvite]);
 
-  if (profileLoading || householdsLoading) {
+  // Onboarding Guard (#104): Wenn EXPO_PUBLIC_FORCE_ONBOARDING=true in .env steht ODER der Account unvollständig ist, starte das Onboarding (einmalig pro App-Start).
+  const isUncompleted = profile
+    ? (profile as { onboarding_completed_at?: string | null }).onboarding_completed_at == null
+    : false;
+  const shouldPrompt = (env.forceOnboarding || isUncompleted) && !isOnboardingSessionCompleted();
+
+  const decision = resolveAppEntry({
+    hasSession: Boolean(userId),
+    hasSeenOnboarding: seenOnboarding,
+    isLoading: profileLoading || householdsLoading,
+    shouldPromptOnboarding: shouldPrompt,
+    householdCount: households?.length ?? 0,
+    householdsError,
+  });
+
+  // Wer angemeldet ist, einen Haushalt hat und an keiner Weiche mehr haengt,
+  // ist erkennbar eingerichtet — auch wenn das Geraete-Flag fehlt, weil das
+  // Konto nicht ueber diesen Flow entstanden ist. Einmal nachtragen, sonst
+  // landet derselbe Nutzer nach dem Abmelden im Onboarding statt beim
+  // Anmelden (`isNewUser` im Root-Layout haengt an genau diesem Flag).
+  const istEingerichtet = decision.kind === 'weiter';
+  useEffect(() => {
+    if (istEingerichtet && !seenOnboarding && !isOnboardingSessionCompleted()) {
+      persistOnboardingCompleted();
+    }
+  }, [istEingerichtet, seenOnboarding]);
+
+  if (decision.kind === 'warten') {
     return (
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
         <ActivityIndicator size="large" />
@@ -51,19 +88,8 @@ function AppLayoutContent() {
     );
   }
 
-  // Onboarding Guard (#104): Wenn EXPO_PUBLIC_FORCE_ONBOARDING=true in .env steht ODER der Account unvollständig ist, starte das Onboarding (einmalig pro App-Start).
-  const isUncompleted = profile
-    ? (profile as { onboarding_completed_at?: string | null }).onboarding_completed_at == null
-    : false;
-  const shouldPrompt = (env.forceOnboarding || isUncompleted) && !isOnboardingSessionCompleted();
-
-  if (shouldPrompt) {
-    return <Redirect href="/onboarding" />;
-  }
-
-  // Wenn der Nutzer in gar keinem Haushalt Mitglied ist, leiten wir ihn auf die Erstellen-Seite um
-  if (!households || households.length === 0) {
-    return <Redirect href="/household/create" />;
+  if (decision.kind === 'umleiten') {
+    return <Redirect href={decision.to} />;
   }
 
   return <AppTabs />;

@@ -24,6 +24,7 @@ grant delete, insert, select, update on public.products to anon, authenticated, 
 grant delete, insert, select, update on public.household_invites to anon, authenticated, service_role;
 grant delete, insert, select, update on public.child_profiles to anon, authenticated, service_role;
 grant delete, insert, select, update on public.storage_locations to anon, authenticated, service_role;
+grant delete, insert, select, update on public.stores to anon, authenticated, service_role;
 grant delete, insert, select, update on public.fridge_items to anon, authenticated, service_role;
 grant delete, insert, select, update on public.shopping_list_items to anon, authenticated, service_role;
 grant delete, insert, select, update on public.shopping_history to anon, authenticated, service_role;
@@ -72,3 +73,11 @@ grant execute on function public.create_household(text) to authenticated;
 -- user_id.
 revoke execute on function public.redeem_invite(uuid) from public, anon;
 grant execute on function public.redeem_invite(uuid) to authenticated;
+
+-- household_member_profiles() umgeht die profiles-RLS (SECURITY DEFINER) und
+-- prueft die Mitgliedschaft selbst. Fuer `anon` gaebe es nichts zu pruefen —
+-- ohne auth.uid() ist niemand Mitglied —, aber der Entzug bleibt trotzdem
+-- ausdruecklich stehen: bei einer Funktion, die RLS umgeht, ist die
+-- Rechtevergabe kein Ort fuer Implizites.
+revoke execute on function public.household_member_profiles(uuid) from public, anon;
+grant execute on function public.household_member_profiles(uuid) to authenticated;

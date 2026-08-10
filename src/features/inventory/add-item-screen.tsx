@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 
 import { Button } from '@/components/button';
+import { DateWheelField } from '@/components/date-wheel-field';
 import { Screen } from '@/components/screen';
 import { TextField } from '@/components/text-field';
 import { ThemedText } from '@/components/themed-text';
@@ -92,7 +93,7 @@ export function AddItemScreen() {
   }
 
   return (
-    <Screen title="Artikel hinzufügen">
+    <Screen title="Artikel hinzufügen" back={{ label: 'Abbrechen' }}>
       <View style={styles.form}>
         <Button
           label="📷 Barcode scannen"
@@ -128,14 +129,13 @@ export function AddItemScreen() {
           </View>
         </View>
 
-        <ThemedText style={{ fontWeight: 'bold', marginTop: Spacing.two }}>
-          Mindesthaltbarkeitsdatum (MHD)
-        </ThemedText>
-        <TextField
-          placeholder="JJJJ-MM-TT (z.B. 2026-08-20)"
-          value={expiryDate}
-          onChangeText={setExpiryDate}
-        />
+        <View style={{ marginTop: Spacing.two }}>
+          <DateWheelField
+            label="Mindesthaltbarkeitsdatum (MHD)"
+            value={expiryDate}
+            onChange={setExpiryDate}
+          />
+        </View>
         <View style={styles.quickDateGroup}>
           <Button
             label="+ 3 Tage"

@@ -68,8 +68,13 @@ export type Migration = {
 
 // ------------------------------------------------------------------ Entitaeten
 
-/** Die vier Spiegeltabellen aus #45. Die privaten Tracking-Tabellen sind bewusst nicht dabei. */
-export type Entity = 'storage_locations' | 'fridge_items' | 'shopping_list_items' | 'products';
+/** Die Spiegeltabellen aus #45. Die privaten Tracking-Tabellen sind bewusst nicht dabei. */
+export type Entity =
+  | 'storage_locations'
+  | 'stores'
+  | 'fridge_items'
+  | 'shopping_list_items'
+  | 'products';
 
 export type OutboxOp = 'insert' | 'update' | 'delete';
 

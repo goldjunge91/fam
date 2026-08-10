@@ -3,7 +3,7 @@
 begin;
 \ir helpers.sql
 
-select plan(10);
+select plan(14);
 
 select tests.create_user('11111111-1111-1111-1111-111111111111', 'alice@example.com');
 select tests.create_user('22222222-2222-2222-2222-222222222222', 'bob@example.com');
@@ -76,6 +76,38 @@ select is(
    where household_id = :'hid' and role = 'admin'),
   1,
   'ein Mitglied ohne Adminrolle kann die Adminin nicht entfernen'
+);
+
+-- ------------------------------------------- Mitgliederliste mit Anzeigenamen
+-- Mitglieder muessen sehen, WER sonst im Haushalt ist — ohne dass dabei die
+-- privaten Gesundheitsdaten aus profiles mitkommen.
+select tests.authenticate_as('22222222-2222-2222-2222-222222222222');
+
+select is(
+  (select count(*)::int from public.household_member_profiles(:'hid')),
+  2,
+  'household_member_profiles listet alle Mitglieder des Haushalts'
+);
+
+select is(
+  (select display_name from public.household_member_profiles(:'hid')
+   where user_id = '11111111-1111-1111-1111-111111111111'),
+  'alice',
+  'Bob sieht den Anzeigenamen der anderen Mitglieder'
+);
+
+-- Die Gegenprobe zum Test darueber: Der direkte Weg bleibt zu. Das RPC ist die
+-- einzige Tuer, und sie gibt nur Anzeigename und Avatar heraus.
+select is_empty(
+  $$ select id from public.profiles where id = '11111111-1111-1111-1111-111111111111' $$,
+  'der direkte Zugriff auf fremde Profile bleibt gesperrt'
+);
+
+select tests.authenticate_as('33333333-3333-3333-3333-333333333333');
+
+select is_empty(
+  format($$ select user_id from public.household_member_profiles(%L) $$, :'hid'),
+  'Aussenstehende bekommen die Mitgliederliste eines fremden Haushalts nicht'
 );
 
 -- ------------------------------------------------------- letzter Admin bleibt

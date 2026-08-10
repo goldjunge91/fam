@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-08",
+  "updated": "2026-08-10",
   "projects": [
     {
       "name": "fam-housekeeping",
@@ -48,18 +48,33 @@
         {
           "id": "fam-backlog/001",
           "title": "Welle 6 - Kalorien & Tagebuch (#81-88)",
-          "status": "pending",
+          "status": "completed",
           "priority": "high",
           "path": "tasks/fam-backlog/001-welle-6-kalorien-tagebuch.md",
-          "issues": ["#81", "#82", "#83", "#84", "#85", "#86", "#87", "#88"]
+          "issues": [
+            "#81",
+            "#82",
+            "#83",
+            "#84",
+            "#85",
+            "#86",
+            "#87",
+            "#88"
+          ],
+          "notes": "Komplett implementiert. #81/#82 reine Funktionen (bmr.ts/tdee.ts). #83-#88 + Dashboard-Anschluss: direkter Supabase-Zugriff (api.ts, kein lokaler Sync-Engine, Tabellen sind streng privat), neuer 6. Tab 'Tagebuch', Ziel-Setup-Screen unter /settings/goals. typecheck/lint/test gruen, db:diff leer (keine Schemaaenderung noetig)."
         },
         {
           "id": "fam-backlog/002",
           "title": "Realtime-Bridge (#48) + Netzwerk-/Hintergrund-Trigger (#50) anschliessen",
-          "status": "pending",
+          "status": "completed",
           "priority": "high",
           "path": "tasks/fam-backlog/002-sync-engine-realtime-wiring.md",
-          "issues": ["#48", "#50"]
+          "issues": [
+            "#48",
+            "#50"
+          ],
+          "notes": "Verdrahtung implementiert; manuelle Verifikation durchgefuehrt — kein Echo/keine Schleife. Dabei vier andere Fehler freigelegt, weiterverfolgt in fam-backlog/006 (behoben in f58e3bf, darunter die Channel-Kollision in realtime.ts). Konvergenzmessung <1s gehoert zu fam-backlog/003.",
+          "commit": "8bf2178"
         },
         {
           "id": "fam-backlog/003",
@@ -67,16 +82,28 @@
           "status": "pending",
           "priority": "medium",
           "path": "tasks/fam-backlog/003-gate-d-two-device-verification.md",
-          "issues": ["#70"],
-          "blockedBy": ["fam-backlog/002"]
+          "issues": [
+            "#70"
+          ],
+          "blockedBy": [],
+          "notes": "Nicht mehr blockiert. Erster Durchlauf war nicht auswertbar (lief in die Fehler aus fam-backlog/006, behoben in f58e3bf) — Messung ist zu wiederholen."
         },
         {
           "id": "fam-backlog/004",
           "title": "Welle 7 - Dashboard & Navigation (#89-95)",
-          "status": "pending",
+          "status": "completed",
           "priority": "medium",
           "path": "tasks/fam-backlog/004-welle-7-dashboard-polish.md",
-          "issues": ["#89", "#90", "#91", "#92", "#93", "#94", "#95"]
+          "issues": [
+            "#89",
+            "#90",
+            "#91",
+            "#92",
+            "#93",
+            "#94",
+            "#95"
+          ],
+          "notes": "#91/#92 waren bereits seit Welle 6 erledigt (veraltete Doku). #89: tote profile-screen.tsx + Duplikat-Route entfernt, Web-Tabs an native 6 Tabs angeglichen. #90: nur Aufraeumen (kein Rezept-CRUD, das ist Zukunfts-Epic #12). #93/#94 als bereits erfuellt eingeordnet (Dashboard zeigt Tagesuebersicht, Settings ist der Account-Hub). #95 komplett neu: module_* Spalten auf profiles, Onboarding speichert Auswahl, /settings/modules zum Umschalten, ModuleGate blendet Tab-Inhalte aus."
         },
         {
           "id": "fam-backlog/005",
@@ -84,7 +111,29 @@
           "status": "pending",
           "priority": "low",
           "path": "tasks/fam-backlog/005-welle-8-datenschutz.md",
-          "issues": ["#96", "#97", "#98", "#99"]
+          "issues": [
+            "#96",
+            "#97",
+            "#98",
+            "#99"
+          ]
+        },
+        {
+          "id": "fam-backlog/006",
+          "title": "SQLite-Sperrfehler, Cross-Account-Datenleck und Zugriffsluecken",
+          "status": "in_progress",
+          "priority": "high",
+          "path": "tasks/fam-backlog/006-sqlite-locking-und-datenleck.md",
+          "commit": "f58e3bf",
+          "notes": "Code behoben, Migration 20260809195849_haushalts_mitglieder_profile.sql gepusht (inkl. manuellem anon-Revoke-Fix fuer household_member_profiles, check-privileges.sh --linked jetzt OK, db:diff leer). Offen: nur noch die Geraete-Verifikation (siehe 003)."
+        },
+        {
+          "id": "fam-backlog/007",
+          "title": "Einstellungen als Menue, Entwickler-Bereich, benannte Zurueck-Wege",
+          "status": "completed",
+          "priority": "medium",
+          "path": "tasks/fam-backlog/007-einstellungen-und-entwicklerbereich.md",
+          "commit": "f58e3bf"
         }
       ]
     }
