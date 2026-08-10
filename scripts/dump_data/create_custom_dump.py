@@ -4,11 +4,13 @@ import sqlite3
 import urllib.request
 import os
 
-# Konfiguration
+# Dynamische Pfade: Speichert alles immer im selben Ordner wie das Skript selbst
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+LOCAL_GZ_FILE = os.path.join(SCRIPT_DIR, "off_dump.jsonl.gz")
+OUTPUT_DB = os.path.join(SCRIPT_DIR, "products_de.db")
+
 OFF_DUMP_URL = "https://static.openfoodfacts.org/data/openfoodfacts-products.jsonl.gz"
-LOCAL_GZ_FILE = "off_dump.jsonl.gz"
-OUTPUT_DB = "products_de.db"
-TARGET_COUNTRY_TAG = "en:germany" # Für AT/CH einfach erweitern
+TARGET_COUNTRY_TAG = "en:germany"
 
 def download_dump():
     if not os.path.exists(LOCAL_GZ_FILE):
@@ -19,13 +21,21 @@ def download_dump():
         print("Lokaler Dump bereits vorhanden, überspringe Download.")
 
 def process_and_create_sqlite():
+    # Falls alte DB existiert, vorher löschen für sauberen Neuaufbau
+    if os.path.exists(OUTPUT_DB):
+        os.remove(OUTPUT_DB)
+
     print("Erstelle SQLite-Datenbank...")
     conn = sqlite3.connect(OUTPUT_DB)
     cursor = conn.cursor()
 
-    # Tabelle & Indexe anlegen
+    # SQLite Performance-Pragmas
+    cursor.execute("PRAGMA synchronous = OFF;")
+    cursor.execute("PRAGMA journal_mode = MEMORY;")
+
+    # Tabelle anlegen (Indexe erstellen wir erst GANZ AM ENDE!)
     cursor.execute("""
-        CREATE TABLE IF NOT EXISTS products (
+        CREATE TABLE products (
             code TEXT PRIMARY KEY,
             product_name TEXT,
             brand TEXT,
@@ -41,8 +51,6 @@ def process_and_create_sqlite():
             salt REAL
         );
     """)
-    cursor.execute("CREATE INDEX IF NOT EXISTS idx_product_name ON products(product_name);")
-    cursor.execute("CREATE INDEX IF NOT EXISTS idx_brand ON products(brand);")
 
     count = 0
     inserted = 0
@@ -102,12 +110,12 @@ def process_and_create_sqlite():
             ))
 
             # In Tausender-Blöcken in SQLite schreiben (Batching für maximale Geschwindigkeit)
-            if len(batch) >= 1000:
+            if len(batch) >= 5000:
                 cursor.executemany("""
                     INSERT OR REPLACE INTO products VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
                 """, batch)
                 batch = []
-                inserted += 1000
+                inserted += 5000
 
         # Restliche Daten schreiben
         if batch:
@@ -117,6 +125,13 @@ def process_and_create_sqlite():
             inserted += len(batch)
 
     conn.commit()
+
+    # Indexe ERST JETZT erstellen (spart extrem viel Zeit!)
+    print("Erstelle Indexe für die Suchfunktion...")
+    cursor.execute("CREATE INDEX idx_product_name ON products(product_name);")
+    cursor.execute("CREATE INDEX idx_brand ON products(brand);")
+    conn.commit()
+
     conn.close()
     print(f"FERTIG! Insgesamt {inserted} deutsche Produkte in '{OUTPUT_DB}' gespeichert.")
 

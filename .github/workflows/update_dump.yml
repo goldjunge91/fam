@@ -1,0 +1,70 @@
+name: Open Food Facts Dump Update
+
+on:
+  # 1. Manuell über die GitHub-Weboberfläche ausführen
+  workflow_dispatch:
+
+  # 2. Automatisch am 1. Tag jedes Monats um 02:00 Uhr nachts
+  # (Für wöchentlich jeden Sonntag: "0 2 * * 0")
+  schedule:
+    - cron: "0 2 1 * *"
+
+jobs:
+  build-and-release:
+    runs-on: ubuntu-latest
+
+    # Berechtigungen zum Erstellen von Releases setzen
+    permissions:
+      contents: write
+
+    steps:
+      # 1. Repository auschecken
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      # 2. Python 3.11 auf der GitHub-Maschine einrichten
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      # 3. Benötigte Pakete installieren (z. B. orjson für Speed)
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install orjson requests
+
+      # 4. Dein Skript ausführen
+      - name: Run Dump Script
+        run: |
+          python scripts/dump_data/create_custom_dump.py
+
+      # 5. Datumsstempel erzeugen & Datei nummerieren/umbenennen
+      - name: Prepare Versioned Database
+        run: |
+          # Aktuelles Datum im Format YYYY-MM-DD erzeugen (z. B. 2026-08-10)
+          DATE_TAG=$(date +'%Y-%m-%d')
+          echo "RELEASE_TAG=$DATE_TAG" >> $GITHUB_ENV
+
+          # Pfad zur erzeugten DB (Passe den Pfad an, falls das Skript woanders ausgibt)
+          ORIGINAL_DB="scripts/dump_data/products_de.db"
+          NEW_NAME="scripts/dump_data/products_de_${DATE_TAG}.db"
+
+          # Datei umbenennen mit Datum/Nummerierung
+          mv "$ORIGINAL_DB" "$NEW_NAME"
+
+          # Komprimieren
+          gzip -k "$NEW_NAME"
+
+          # Dateipfade für nächsten Schritt speichern
+          echo "DB_PATH=$NEW_NAME" >> $GITHUB_ENV
+          echo "GZ_PATH=${NEW_NAME}.gz" >> $GITHUB_ENV
+
+      # 6. Automatisches GitHub Release erstellen und .db + .gz anhängen
+      - name: Create GitHub Release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh release create "dump-${RELEASE_TAG}" "${{ env.GZ_PATH }}" "${{ env.DB_PATH }}" \
+            --title "Open Food Facts Dump ${RELEASE_TAG}" \
+            --notes "Automatisches monatliches Update der Produktdatenbank für Deutschland vom ${RELEASE_TAG}."
