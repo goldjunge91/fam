@@ -12,6 +12,7 @@ import { BarcodeScannerModal } from '@/features/inventory/barcode-scanner-modal'
 import { useSyncStatus } from '@/hooks/use-sync-status';
 import { useTheme } from '@/hooks/use-theme';
 import { getDatabase } from '@/lib/db/client';
+import { deleteOutboxEntries } from '@/lib/db/outbox';
 import { sendTestNotification } from '@/lib/notifications';
 import type { OpenFoodFactsProduct } from '@/lib/open-food-facts';
 import { getLastSyncInfo, triggerHouseholdSync } from '@/lib/sync/sync-runner';
@@ -126,6 +127,26 @@ export function SyncDebugScreen() {
     );
   }
 
+  function handleDeleteOutboxEntry(row: OutboxRow) {
+    Alert.alert(
+      `Eintrag #${row.id} löschen?`,
+      'Diese einzelne fehlgeschlagene Änderung wird verworfen und nicht mehr synchronisiert.',
+      [
+        { text: 'Abbrechen', style: 'cancel' },
+        {
+          text: 'Löschen',
+          style: 'destructive',
+          onPress: async () => {
+            const db = await getDatabase();
+            await deleteOutboxEntries(db, [row.id]);
+            queryClient.invalidateQueries();
+            await loadDebugData();
+          },
+        },
+      ],
+    );
+  }
+
   const formattedLastSync = lastSyncInfo?.timestamp
     ? new Date(lastSyncInfo.timestamp).toLocaleTimeString('de-DE')
     : 'Noch nicht synchronisiert';
@@ -214,6 +235,13 @@ export function SyncDebugScreen() {
               <ThemedText type="small" style={styles.payloadCode}>
                 Payload: {row.payload}
               </ThemedText>
+              <View style={styles.rowDeleteButton}>
+                <Button
+                  label="Eintrag löschen"
+                  variant="secondary"
+                  onPress={() => handleDeleteOutboxEntry(row)}
+                />
+              </View>
             </View>
           ))
         )}
@@ -293,5 +321,8 @@ const styles = StyleSheet.create({
     fontFamily: 'Courier',
     fontSize: 11,
     marginTop: 2,
+  },
+  rowDeleteButton: {
+    marginTop: Spacing.one,
   },
 });

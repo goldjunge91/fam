@@ -1,7 +1,8 @@
 import BottomSheet, { BottomSheetView } from '@expo/ui/community/bottom-sheet';
 import { useEffect, useRef, useState } from 'react';
-import { Pressable, ScrollView, StyleSheet, TextInput, View } from 'react-native';
+import { Pressable, ScrollView, StyleSheet, View } from 'react-native';
 
+import { DateWheelField } from '@/components/date-wheel-field';
 import { ThemedText } from '@/components/themed-text';
 import { Spacing } from '@/constants/theme';
 import { useTheme } from '@/hooks/use-theme';
@@ -54,7 +55,7 @@ interface TransferRowProps {
   item: LocalShoppingItem;
   transfer: TransferItem;
   onUpdateKind: (kind: StorageKind) => void;
-  onUpdateExpiry: (expiry: string) => void;
+  onUpdateExpiry: (isoDate: string) => void;
 }
 
 function TransferRow({ item, transfer, onUpdateKind, onUpdateExpiry }: TransferRowProps) {
@@ -110,20 +111,9 @@ function TransferRow({ item, transfer, onUpdateKind, onUpdateExpiry }: TransferR
           <ThemedText type="small" themeColor="textSecondary" style={styles.mhdLabel}>
             MHD
           </ThemedText>
-          <TextInput
-            value={transfer.expiryDate ?? ''}
-            onChangeText={onUpdateExpiry}
-            placeholder="TT.MM.JJJJ"
-            placeholderTextColor={theme.textSecondary}
-            style={[
-              styles.mhdInput,
-              {
-                color: theme.text,
-                backgroundColor: theme.backgroundElement,
-                borderColor: theme.border,
-              },
-            ]}
-          />
+          <View style={styles.mhdField}>
+            <DateWheelField value={transfer.expiryDate ?? ''} onChange={onUpdateExpiry} />
+          </View>
         </View>
       </View>
     </View>
@@ -194,14 +184,7 @@ export function CompleteRunSheet({ isOpen, checkedItems, onConfirm, onClose }: P
     });
   }
 
-  function updateExpiry(itemId: string, expiry: string) {
-    // TT.MM.JJJJ → ISO-Datum konvertieren
-    const parts = expiry.split('.');
-    let isoDate: string | null = null;
-    if (parts.length === 3 && parts[2].length === 4) {
-      isoDate = `${parts[2]}-${parts[1].padStart(2, '0')}-${parts[0].padStart(2, '0')}`;
-    }
-
+  function setExpiryDate(itemId: string, isoDate: string | null) {
     setTransfers((prev) => {
       const next = new Map(prev);
       const t = next.get(itemId);
@@ -253,7 +236,7 @@ export function CompleteRunSheet({ isOpen, checkedItems, onConfirm, onClose }: P
                 item={item}
                 transfer={transfer}
                 onUpdateKind={(kind) => updateKind(item.id, kind)}
-                onUpdateExpiry={(expiry) => updateExpiry(item.id, expiry)}
+                onUpdateExpiry={(isoDate) => setExpiryDate(item.id, isoDate)}
               />
             );
           })}
@@ -358,13 +341,8 @@ const styles = StyleSheet.create({
   mhdLabel: {
     width: 32,
   },
-  mhdInput: {
+  mhdField: {
     flex: 1,
-    borderWidth: 1,
-    borderRadius: Spacing.two,
-    paddingHorizontal: Spacing.two,
-    paddingVertical: Spacing.one + 2,
-    fontSize: 14,
   },
   actions: {
     paddingHorizontal: Spacing.four,
