@@ -1,4 +1,4 @@
-import { act, fireEvent, render, screen } from '@testing-library/react-native';
+import { fireEvent, render, screen } from '@testing-library/react-native';
 import { saveNotificationSettings } from '@/lib/notifications';
 import { NotificationSettingsCard } from './notification-settings-card';
 
@@ -34,12 +34,8 @@ describe('NotificationSettingsCard', () => {
   it('sollte bei Schalter-Aktivierung Optionen einblenden und saveNotificationSettings aufrufen', async () => {
     await render(<NotificationSettingsCard />);
 
-    await act(async () => {});
-
     const switchEl = screen.getByRole('switch');
-    await act(async () => {
-      fireEvent(switchEl, 'valueChange', true);
-    });
+    await fireEvent(switchEl, 'valueChange', true);
 
     expect(saveNotificationSettings).toHaveBeenCalledWith(
       expect.objectContaining({ enabled: true }),
