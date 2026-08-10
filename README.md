@@ -30,7 +30,25 @@ bun install && bun start
 - `bun run e2e` — Maestro-Flows gegen einen laufenden Simulator/Emulator
   (Dev Build + `supabase start` + Testaccount nötig, siehe
   `.maestro/flows/onboarding-sign-in.yaml`)
+- `bun run user:create` / `bun run user:list` / `bun run user:clean` / `bun run user:delete` — Verwaltung lokaler Test-Accounts (`scripts/test-users.ts`)
+- `bash scripts/create-user-with-household.sh` — Erstellt Test-User mit Haushalt und befüllter Einkaufsliste
 - `bun run reset-project` — auf ein leeres Template zurücksetzen
+
+### Test-Accounts & Skripte
+
+Zum schnellen Testen auf der lokalen Entwicklungsdatenbank (`supabase start`):
+
+- **Bash Script (`scripts/create-user-with-household.sh`)**:
+  - `./scripts/create-user-with-household.sh` — Erstellt 1 neuen Test-Nutzer mit eigenem Haushalt, Standard-Lagerorten und vorausgefüllten Einkaufslisten-Produkten.
+  - `./scripts/create-user-with-household.sh <anzahl>` — Kann mehrmals oder mit einer Anzahl aufgerufen werden (z. B. `./scripts/create-user-with-household.sh 5`), um mehrere Test-User gleichzeitig mit jeweils eigenem Haushalt anzulegen.
+  - `./scripts/create-user-with-household.sh [email] [passwort] [name] [haushalt]` — Erstellt einen spezifischen Nutzer mit individuellem Haushaltsnamen und Produkten.
+
+- **TypeScript Helper (`scripts/test-users.ts`)**:
+  - `bun run user:create [email] [passwort] [name]` — Erstellt einen einfachen Test-Account
+  - `bun run user:list` — Listet vorhandene Test-Accounts auf
+  - `bun run user:clean` — Löscht alle Test-Accounts (`*@example.com`, `tester_*`)
+  - `bun run user:delete <email>` — Löscht einen bestimmten Test-Account
+
 
 ## Umgebungsvariablen
 

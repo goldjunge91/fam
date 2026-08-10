@@ -170,6 +170,37 @@ create table if not exists shopping_history (
 create index if not exists shopping_history_hh_idx on shopping_history (household_id, completed_at);
 `;
 
+const V3_STORES = `
+create table if not exists stores (
+  id           text primary key not null,
+  household_id text not null,
+  name         text not null,
+  color        text not null,
+  sort_order   integer not null default 0,
+  created_at   text,
+  updated_at   integer not null,
+  deleted_at   integer,
+  _dirty       integer not null default 0
+);
+create index if not exists stores_hh_idx on stores (household_id, sort_order);
+create index if not exists stores_dirty_idx on stores (_dirty) where _dirty = 1;
+
+alter table shopping_list_items add column store_id text;
+alter table shopping_list_items add column price_estimate real;
+create index if not exists shopping_list_items_store_idx on shopping_list_items (store_id);
+`;
+
+const V4_STORES_REVERSE_ORDER = `
+alter table stores add column reverse_order integer not null default 0;
+`;
+
+// Das binaere "umkehren" wich einer per Drag&Drop editierbaren Reihenfolge
+// (Kategorie-IDs, kommagetrennt) — siehe category_order in shopping-categories.ts.
+const V5_STORE_CATEGORY_ORDER = `
+alter table stores drop column reverse_order;
+alter table stores add column category_order text;
+`;
+
 export const MIGRATIONS: readonly Migration[] = [
   {
     version: 1,
@@ -180,5 +211,20 @@ export const MIGRATIONS: readonly Migration[] = [
     version: 2,
     name: 'shopping_history',
     statements: [V2_SHOPPING_HISTORY],
+  },
+  {
+    version: 3,
+    name: 'stores',
+    statements: [V3_STORES],
+  },
+  {
+    version: 4,
+    name: 'stores_reverse_order',
+    statements: [V4_STORES_REVERSE_ORDER],
+  },
+  {
+    version: 5,
+    name: 'stores_category_order',
+    statements: [V5_STORE_CATEGORY_ORDER],
   },
 ];

@@ -90,6 +90,39 @@ create or replace trigger fridge_items_set_updated_at
   for each row
   execute function private.set_updated_at();
 
+-- ------------------------------------------------------------------- Maerkte
+-- Frei verwaltbar pro Haushalt statt fest auf deutsche Ketten verdrahtet —
+-- die App bietet REWE/Aldi/Lidl/... nur als Anlege-Presets in der UI an
+-- (siehe store-presets.ts), das Schema kennt sie nicht.
+create table if not exists public.stores (
+  id uuid primary key default gen_random_uuid(),
+  household_id uuid not null references public.households (id) on delete cascade,
+  name text not null check (length(trim(name)) between 1 and 60),
+  color text not null default '#6B7280' check (color ~* '^#[0-9a-f]{6}$'),
+  sort_order integer not null default 0,
+  -- Marktspezifische Laufstrecke: kommagetrennte Liste von Kategorie-IDs aus
+  -- shopping-categories.ts, vom Nutzer per Drag&Drop editierbar. NULL/leer
+  -- bedeutet Standardreihenfolge. Bewusst pro Markt statt global, damit die
+  -- Reihenfolge des einen Supermarkts nicht die eines anderen mitreisst; als
+  -- normale Spalte der bereits synchronisierten `stores`-Zeile automatisch
+  -- haushaltsweit geteilt.
+  category_order text,
+
+  created_at timestamptz not null default now(),
+  updated_at timestamptz not null default now(),
+  deleted_at timestamptz
+);
+
+create index if not exists stores_household_id_idx
+  on public.stores (household_id);
+create index if not exists stores_household_updated_idx
+  on public.stores (household_id, updated_at);
+
+create or replace trigger stores_set_updated_at
+  before update on public.stores
+  for each row
+  execute function private.set_updated_at();
+
 -- ------------------------------------------------------------- Einkaufsliste
 create table if not exists public.shopping_list_items (
   id uuid primary key default gen_random_uuid(),
@@ -102,6 +135,13 @@ create table if not exists public.shopping_list_items (
     check (unit in ('g', 'kg', 'ml', 'l', 'piece', 'package', 'portion')),
   category text,
   sort_index integer not null default 0,
+
+  -- Optional: ohne Marktzuordnung landet der Artikel in der "Ohne Markt"-
+  -- Gruppe der UI. on delete set null statt cascade — ein geloeschter Markt
+  -- soll den Artikel nicht mitreissen.
+  store_id uuid references public.stores (id) on delete set null,
+  -- Manuelle Schaetzung, kein automatischer Preisvergleich (siehe #16).
+  price_estimate numeric(10, 2) check (price_estimate >= 0),
 
   -- Zeitstempel statt Boolean: Beim "Einkauf abschliessen" (Phase 2) ist damit
   -- rekonstruierbar, was zu diesem Einkauf gehoerte. Ausserdem laesst sich ein
@@ -122,6 +162,8 @@ create index if not exists shopping_list_items_household_id_idx
   on public.shopping_list_items (household_id);
 create index if not exists shopping_list_items_product_id_idx
   on public.shopping_list_items (product_id);
+create index if not exists shopping_list_items_store_id_idx
+  on public.shopping_list_items (store_id);
 create index if not exists shopping_list_items_checked_by_idx
   on public.shopping_list_items (checked_by);
 create index if not exists shopping_list_items_added_by_idx
@@ -198,6 +240,7 @@ create index if not exists shopping_history_completed_at_idx
 
 -- ------------------------------------------------------------------------- RLS
 alter table public.storage_locations enable row level security;
+alter table public.stores enable row level security;
 alter table public.fridge_items enable row level security;
 alter table public.shopping_list_items enable row level security;
 alter table public.shopping_history enable row level security;
@@ -205,6 +248,11 @@ alter table public.shopping_history enable row level security;
 -- Geteilte Haushaltsdaten: Jedes Mitglied darf alles. Die Grenze verlaeuft am
 -- Haushalt, nicht an der Person — das ist der ganze Zweck des Features.
 create policy storage_locations_all_member on public.storage_locations
+  for all to authenticated
+  using ((select private.is_household_member(household_id)))
+  with check ((select private.is_household_member(household_id)));
+
+create policy stores_all_member on public.stores
   for all to authenticated
   using ((select private.is_household_member(household_id)))
   with check ((select private.is_household_member(household_id)));

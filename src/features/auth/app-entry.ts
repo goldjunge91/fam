@@ -25,6 +25,17 @@ export function resolveAppEntry(input: {
   isLoading: boolean;
   shouldPromptOnboarding: boolean;
   householdCount: number;
+  /**
+   * Der Haushalts-Request ist fehlgeschlagen (nicht: noch am Laden). Ohne
+   * diese Unterscheidung faellt ein Netzwerk-Fehler auf denselben Zustand wie
+   * "wirklich keine Haushalte" — `useHouseholds()` liefert im Fehlerfall
+   * `data: undefined`, und der aufrufende Provider defaultet das auf `[]`.
+   * Ein Kaltstart (App komplett beendet und neu geoeffnet) ist dafuer
+   * anfaelliger als ein warmer JS-Reload: Der erste Request nach dem
+   * Prozessstart kann mit der Netzwerk-Initialisierung des Simulators oder
+   * der Session-Wiederherstellung aus dem SecureStore kollidieren.
+   */
+  householdsError?: boolean;
 }): AppEntryDecision {
   // Regel 1: In den angemeldeten Bereich gehoert nur, wer angemeldet ist. Das
   // Root-Layout laesst die Gruppe fuer neu installierte Geraete offen
@@ -55,6 +66,12 @@ export function resolveAppEntry(input: {
   if (input.isLoading) return { kind: 'warten' };
 
   if (input.shouldPromptOnboarding) return { kind: 'umleiten', to: '/onboarding' };
+
+  // Ein fehlgeschlagener Ladeversuch ist kein Beleg fuer "kein Haushalt" —
+  // sonst schickt ein Netzwerk-Hickser beim Kaltstart einen Nutzer mit
+  // echtem Haushalt ins Anlegen-Formular. Lieber warten (der Provider
+  // versucht es im Hintergrund erneut), als faelschlich umzuleiten.
+  if (input.householdsError) return { kind: 'warten' };
 
   // Angemeldet, aber in keinem Haushalt Mitglied. Jetzt ist das Formular
   // richtig — und der RPC dahinter darf laufen.

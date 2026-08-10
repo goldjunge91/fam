@@ -95,6 +95,18 @@ describe('resolveAppEntry', () => {
     });
   });
 
+  it('leitet bei fehlgeschlagenem Haushalts-Request NICHT zum Anlegen um', () => {
+    // Regression: Ein Kaltstart-Netzwerkfehler kollabierte households auf []
+    // und schickte Nutzer mit echtem Haushalt faelschlich ins Anlegen-Formular.
+    expect(
+      resolveAppEntry({
+        ...angemeldetUndEingerichtet,
+        householdCount: 0,
+        householdsError: true,
+      }),
+    ).toEqual({ kind: 'warten' });
+  });
+
   it('bevorzugt das Onboarding gegenueber der Haushalts-Weiche', () => {
     // Beides trifft zu; ohne die Reihenfolge landete der Nutzer im Formular.
     expect(

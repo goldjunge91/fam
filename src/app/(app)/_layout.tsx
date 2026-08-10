@@ -20,7 +20,12 @@ function AppLayoutContent() {
   const { session, seenOnboarding } = useSession();
   const userId = session?.user.id;
   const { data: profile, isLoading: profileLoading } = useProfile(userId);
-  const { activeHouseholdId, households, isLoading: householdsLoading } = useActiveHousehold();
+  const {
+    activeHouseholdId,
+    households,
+    isLoading: householdsLoading,
+    isError: householdsError,
+  } = useActiveHousehold();
   const redeemInvite = useRedeemInviteMutation();
 
   // Automatischer Sync für den aktiven Haushalt
@@ -60,6 +65,7 @@ function AppLayoutContent() {
     isLoading: profileLoading || householdsLoading,
     shouldPromptOnboarding: shouldPrompt,
     householdCount: households?.length ?? 0,
+    householdsError,
   });
 
   // Wer angemeldet ist, einen Haushalt hat und an keiner Weiche mehr haengt,

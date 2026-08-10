@@ -59,7 +59,11 @@ export function DateWheelField({
 
   return (
     <View style={styles.container}>
-      {label && <ThemedText style={styles.label}>{label}</ThemedText>}
+      {label && (
+        <ThemedText type="small" themeColor="textSecondary">
+          {label}
+        </ThemedText>
+      )}
       <Pressable
         onPress={open}
         accessibilityRole="button"
@@ -122,12 +126,9 @@ const styles = StyleSheet.create({
   container: {
     gap: Spacing.one,
   },
-  label: {
-    fontWeight: 'bold',
-  },
   field: {
     borderWidth: 1,
-    borderRadius: Spacing.two,
+    borderRadius: Spacing.three,
     paddingHorizontal: Spacing.three,
     paddingVertical: Spacing.two + 2,
   },

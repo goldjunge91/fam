@@ -557,9 +557,11 @@ export type Database = {
           household_id: string
           id: string
           name: string
+          price_estimate: number | null
           product_id: string | null
           quantity: number
           sort_index: number
+          store_id: string | null
           unit: string
           updated_at: string
         }
@@ -573,9 +575,11 @@ export type Database = {
           household_id: string
           id?: string
           name: string
+          price_estimate?: number | null
           product_id?: string | null
           quantity?: number
           sort_index?: number
+          store_id?: string | null
           unit?: string
           updated_at?: string
         }
@@ -589,9 +593,11 @@ export type Database = {
           household_id?: string
           id?: string
           name?: string
+          price_estimate?: number | null
           product_id?: string | null
           quantity?: number
           sort_index?: number
+          store_id?: string | null
           unit?: string
           updated_at?: string
         }
@@ -622,6 +628,13 @@ export type Database = {
             columns: ["product_id"]
             isOneToOne: false
             referencedRelation: "products"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "shopping_list_items_store_id_fkey"
+            columns: ["store_id"]
+            isOneToOne: false
+            referencedRelation: "stores"
             referencedColumns: ["id"]
           },
         ]
@@ -660,6 +673,50 @@ export type Database = {
         Relationships: [
           {
             foreignKeyName: "storage_locations_household_id_fkey"
+            columns: ["household_id"]
+            isOneToOne: false
+            referencedRelation: "households"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      stores: {
+        Row: {
+          category_order: string | null
+          color: string
+          created_at: string
+          deleted_at: string | null
+          household_id: string
+          id: string
+          name: string
+          sort_order: number
+          updated_at: string
+        }
+        Insert: {
+          category_order?: string | null
+          color?: string
+          created_at?: string
+          deleted_at?: string | null
+          household_id: string
+          id?: string
+          name: string
+          sort_order?: number
+          updated_at?: string
+        }
+        Update: {
+          category_order?: string | null
+          color?: string
+          created_at?: string
+          deleted_at?: string | null
+          household_id?: string
+          id?: string
+          name?: string
+          sort_order?: number
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "stores_household_id_fkey"
             columns: ["household_id"]
             isOneToOne: false
             referencedRelation: "households"

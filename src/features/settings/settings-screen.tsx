@@ -100,6 +100,13 @@ export function SettingsScreen() {
             disabled={!hasHousehold}
           />
           <SettingsRow
+            icon="🏬"
+            label="Märkte"
+            hint="REWE, Aldi, Lidl, ..."
+            onPress={hasHousehold ? () => router.push('/household/stores') : undefined}
+            disabled={!hasHousehold}
+          />
+          <SettingsRow
             icon="🔗"
             label={
               households.length > 1 ? 'Haushalt wechseln oder beitreten' : 'Haushalt beitreten'

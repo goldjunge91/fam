@@ -7,9 +7,10 @@ import { ThemedText } from '@/components/themed-text';
 import { Spacing } from '@/constants/theme';
 import { useTheme } from '@/hooks/use-theme';
 
+import { type StorageKind, storageKindForCategory } from './shopping-categories';
 import type { LocalShoppingItem } from './use-shopping-list';
 
-export type StorageKind = 'fridge' | 'freezer' | 'pantry';
+export type { StorageKind };
 
 export type TransferItem = {
   shoppingItemId: string;
@@ -18,18 +19,6 @@ export type TransferItem = {
   unit: string;
   locationKind: StorageKind;
   expiryDate: string | null;
-};
-
-const CATEGORY_TO_KIND: Record<string, StorageKind> = {
-  'Obst & Gemüse': 'fridge',
-  Milchprodukte: 'fridge',
-  'Fleisch & Fisch': 'fridge',
-  Getränke: 'fridge',
-  Tiefkühlkost: 'freezer',
-  Grundnahrungsmittel: 'pantry',
-  Snacks: 'pantry',
-  Backwaren: 'pantry',
-  Haushalt: 'pantry',
 };
 
 const KIND_CONFIG: Record<StorageKind, { label: string; icon: string }> = {
@@ -41,10 +30,7 @@ const KIND_CONFIG: Record<StorageKind, { label: string; icon: string }> = {
 const KINDS: StorageKind[] = ['fridge', 'freezer', 'pantry'];
 
 function defaultKind(item: LocalShoppingItem): StorageKind {
-  if (item.category && CATEGORY_TO_KIND[item.category]) {
-    return CATEGORY_TO_KIND[item.category];
-  }
-  return 'pantry';
+  return storageKindForCategory(item.category);
 }
 
 // ---------------------------------------------------------------------------
