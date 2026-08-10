@@ -27,6 +27,16 @@
       "preset": "recommended"
     }
   },
+  "overrides": [
+    {
+      "includes": ["src/**/*.test.{ts,tsx}", "src/**/*.integration.test.{ts,tsx}"],
+      "linter": {
+        "domains": {
+          "test": "all"
+        }
+      }
+    }
+  ],
   "javascript": {
     "formatter": {
       "quoteStyle": "single",

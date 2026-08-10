@@ -212,6 +212,15 @@ describe('PendingAuthBanner (Apple Liquid UI)', () => {
       // sign_in_sign_ups = 30 pro 5 Minuten und IP (supabase/config.toml).
       // Schnelleres Pollen wuerde das Kontingent aufbrauchen und echte
       // Anmeldeversuche mit blockieren.
+      //
+      // Simuliert werden 4 Intervall-Ticks (60s) statt der vollen 5 Minuten:
+      // Der Poll laeuft ueber ein festes setInterval ohne Backoff, die Kadenz
+      // ist in dieser Zeitspanne also bereits vollstaendig geprueft — und
+      // schaerfer als vorher (exakte Kadenz statt nur einer Obergrenze).
+      // Die vollen 300s zu simulieren hiesse zusaetzlich ~100 Ticks des
+      // unabhaengigen Session-Polls (alle 3s, #166) und die Ring-/Punkt-
+      // Animation durchlaufen zu lassen — das trieb den Test unter Last
+      // ueber den 15s-testTimeout, ohne die Aussage zu verstaerken.
       const { signIn } = require('@/features/auth/api');
       signIn.mockResolvedValue({
         data: { session: null },
@@ -227,9 +236,12 @@ describe('PendingAuthBanner (Apple Liquid UI)', () => {
           onConfirmed={jest.fn()}
         />,
       );
-      await jest.advanceTimersByTimeAsync(5 * 60_000);
+      await jest.advanceTimersByTimeAsync(4 * 15_000);
 
-      expect(signIn.mock.calls.length).toBeLessThan(30);
+      // Bei 15s-Kadenz sind das in 5 Minuten 20 Anfragen, ein Drittel unter
+      // dem Kontingent von 30 (siehe Intervall-Kommentar in
+      // pending-auth-banner.tsx).
+      expect(signIn.mock.calls.length).toBe(4);
 
       jest.useRealTimers();
     });

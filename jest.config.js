@@ -3,6 +3,13 @@ module.exports = {
   preset: 'jest-expo',
   setupFiles: ['<rootDir>/test/setup.js'],
 
+  // Preset default nur (jest-)?react-native|@react-native(-community)? —
+  // deckt Expo-Pakete und react-native-svg nicht ab, die unkompiliertes
+  // ESM ausliefern.
+  transformIgnorePatterns: [
+    'node_modules/(?!(.bun|(jest-)?react-native|@react-native(-community)?|expo(nent)?|@expo(nent)?/.*|@expo-google-fonts/.*|react-navigation|@react-navigation/.*|@sentry/react-native|native-base|react-native-svg))',
+  ],
+
   // Default (5000ms) ist zu knapp fuer Tests mit echten Timern/Intervallen
   // (z. B. PendingAuthBanner pollt alle 3s) sobald alle Suiten gemeinsam um
   // CPU konkurrieren statt einzeln zu laufen — beobachtet beim vollen
@@ -26,6 +33,9 @@ module.exports = {
   // Sie laufen ueber `bun run test:integration` (jest.integration.config.js).
   testPathIgnorePatterns: ['/node_modules/', '\\.integration\\.test\\.tsx?$'],
 
+  // Bewusst nicht standardmaessig an: Instrumentierung kostet auf jedem Lauf
+  // Zeit (Default-`test`, Pre-Commit-Hook, CI-Checks-Job). Wer den Bericht
+  // braucht, ruft `bun run test:coverage` auf.
   collectCoverageFrom: [
     'src/**/*.{ts,tsx}',
     '!src/**/*.test.{ts,tsx}',

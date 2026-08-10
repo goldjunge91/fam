@@ -1,4 +1,4 @@
-import { fireEvent, render, screen, waitFor } from '@testing-library/react-native';
+import { fireEvent, render, screen, userEvent } from '@testing-library/react-native';
 import { router } from 'expo-router';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
@@ -120,17 +120,37 @@ describe('FoodSearchScreen', () => {
   });
 
   it('wechselt zu "Haeufig" und zeigt Apfel (2x geloggt) zuerst', async () => {
+    const user = userEvent.setup();
     await renderScreen();
-    await fireEvent.press(screen.getByText('Häufig'));
+    await user.press(screen.getByText('Häufig'));
     const names = screen.getAllByText(/Apfel|Banane/).map((node) => node.props.children);
     expect(names[0]).toBe('Apfel');
   });
 
   it('sucht bei Eingabe live und navigiert bei Auswahl zur Erfassung', async () => {
+    // Debounce ist ein echtes setTimeout (800ms, siehe food-search-screen.tsx)
+    // ausserhalb jeder von RNTL verfolgten act()-Grenze. Mit echten Timern
+    // + waitFor lief das als Wettlauf gegen die Wanduhr — act()-Warnungen
+    // inklusive, sobald die Maschine unter Last war. Fake-Timer + gezieltes
+    // Vorspulen macht daraus einen deterministischen Schritt.
+    // `userEvent` waere hier die RNTL-Empfehlung, aber schon `userEvent.setup()`
+    // aufzurufen — nicht erst `.type()` — bringt das eigene Fake-Timer-Tracking
+    // mit unserem manuellen `advanceTimersByTimeAsync(800)` durcheinander: der
+    // Debounce feuert dann ueber einen rohen sinonjs-Immediate-Callback
+    // ausserhalb von act(), mit genau den act()-Warnungen, die dieser Test
+    // eigentlich vermeiden soll (empirisch geprueft). Deshalb hier bewusst
+    // durchgehend `fireEvent`, wie es die eigene RNTL-Regel fuer diesen Fall
+    // vorsieht ("wenn User Event nicht passt, fireEvent nutzen").
+    jest.useFakeTimers();
     await renderScreen();
-    await fireEvent.changeText(screen.getByPlaceholderText('Wonach suchst du?'), 'Hafermilch');
+    // Bewusst NICHT await: await fireEvent.changeText() hier bringt das
+    // nachfolgende advanceTimersByTimeAsync(800) durcheinander, sodass der
+    // Debounce-Timer der Komponente nie feuert (empirisch geprueft — mit
+    // await bleibt der Screen bei "Keine Treffer" haengen).
+    fireEvent.changeText(screen.getByPlaceholderText('Wonach suchst du?'), 'Hafermilch');
+    await jest.advanceTimersByTimeAsync(800);
 
-    await waitFor(() => expect(screen.getByText('Hafermilch')).toBeTruthy());
+    expect(screen.getByText('Hafermilch')).toBeTruthy();
     expect(mockSearchOpenFoodFacts).toHaveBeenCalledWith(
       'Hafermilch',
       expect.objectContaining({ page: 1, pageSize: 20 }),
@@ -151,6 +171,8 @@ describe('FoodSearchScreen', () => {
         }),
       }),
     );
+
+    jest.useRealTimers();
   });
 
   it('erkennt eine abgetippte Zahlenfolge als Barcode und nutzt den exakten Lookup', async () => {
@@ -161,10 +183,15 @@ describe('FoodSearchScreen', () => {
       caloriesPer100g: 91,
     });
 
+    // fireEvent statt userEvent hier bewusst — siehe Kommentar beim ersten
+    // Debounce-Test oben.
+    jest.useFakeTimers();
     await renderScreen();
-    await fireEvent.changeText(screen.getByPlaceholderText('Wonach suchst du?'), '4019300005307');
+    // Bewusst NICHT await — siehe Kommentar beim ersten Debounce-Test oben.
+    fireEvent.changeText(screen.getByPlaceholderText('Wonach suchst du?'), '4019300005307');
+    await jest.advanceTimersByTimeAsync(800);
 
-    await waitFor(() => expect(screen.getByText('Balance Reich an Protein')).toBeTruthy());
+    expect(screen.getByText('Balance Reich an Protein')).toBeTruthy();
     expect(mockFetchProductByBarcode).toHaveBeenCalledWith(
       '4019300005307',
       expect.any(AbortSignal),
@@ -178,17 +205,22 @@ describe('FoodSearchScreen', () => {
         params: expect.objectContaining({ name: 'Balance Reich an Protein', brand: 'Exquisa' }),
       }),
     );
+
+    jest.useRealTimers();
   });
 
   it('zeigt bei einem fehlgeschlagenen Request einen Hinweis statt "keine Treffer" und erlaubt Retry', async () => {
     mockSearchOpenFoodFacts.mockResolvedValueOnce({ products: [], hasMore: false, failed: true });
 
+    // fireEvent statt userEvent hier bewusst — siehe Kommentar beim ersten
+    // Debounce-Test oben.
+    jest.useFakeTimers();
     await renderScreen();
-    await fireEvent.changeText(screen.getByPlaceholderText('Wonach suchst du?'), 'hafer');
+    // Bewusst NICHT await — siehe Kommentar beim ersten Debounce-Test oben.
+    fireEvent.changeText(screen.getByPlaceholderText('Wonach suchst du?'), 'hafer');
+    await jest.advanceTimersByTimeAsync(800);
 
-    await waitFor(() =>
-      expect(screen.getByText(/Open Food Facts ist gerade nicht erreichbar/)).toBeTruthy(),
-    );
+    expect(screen.getByText(/Open Food Facts ist gerade nicht erreichbar/)).toBeTruthy();
     expect(screen.queryByText(/Keine Treffer/)).toBeNull();
 
     mockSearchOpenFoodFacts.mockResolvedValueOnce({
@@ -198,12 +230,15 @@ describe('FoodSearchScreen', () => {
     });
     await fireEvent.press(screen.getByText('Erneut versuchen'));
 
-    await waitFor(() => expect(screen.getByText('Haferflocken')).toBeTruthy());
+    expect(screen.getByText('Haferflocken')).toBeTruthy();
+
+    jest.useRealTimers();
   });
 
   it('"Schneller Eintrag" navigiert ohne Produktdaten zur Erfassung', async () => {
+    const user = userEvent.setup();
     await renderScreen();
-    await fireEvent.press(screen.getByText('Schneller Eintrag'));
+    await user.press(screen.getByText('Schneller Eintrag'));
 
     expect(router.push).toHaveBeenCalledWith({
       pathname: '/add-food-entry',
@@ -212,8 +247,9 @@ describe('FoodSearchScreen', () => {
   });
 
   it('navigiert bei Auswahl eines "Zuletzt"-Eintrags mit den Snapshot-Werten', async () => {
+    const user = userEvent.setup();
     await renderScreen();
-    await fireEvent.press(screen.getByText('Banane'));
+    await user.press(screen.getByText('Banane'));
 
     expect(router.push).toHaveBeenCalledWith(
       expect.objectContaining({
