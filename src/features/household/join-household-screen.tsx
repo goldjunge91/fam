@@ -53,7 +53,10 @@ export function JoinHouseholdScreen() {
   }
 
   return (
-    <Screen title="Haushalt beitreten" subtitle="Mit Einladungs-Code oder Link">
+    <Screen
+      title="Haushalt beitreten"
+      subtitle="Mit Einladungs-Code oder Link"
+      back={{ label: 'Einstellungen', href: '/settings' }}>
       <Card title="Einlösung">
         <View style={styles.form}>
           <TextField

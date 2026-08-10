@@ -34,7 +34,25 @@ bun install && bun start
   Erstellung/-Beitritt im Onboarding; seeden sich ihren Testaccount selbst
   (siehe `scripts/lib/e2e-fixtures.ts`), `bun run e2e:all` führt alle drei
   nacheinander aus
+- `bun run user:create` / `bun run user:list` / `bun run user:clean` / `bun run user:delete` — Verwaltung lokaler Test-Accounts (`scripts/test-users.ts`)
+- `bash scripts/create-user-with-household.sh` — Erstellt Test-User mit Haushalt und befüllter Einkaufsliste
 - `bun run reset-project` — auf ein leeres Template zurücksetzen
+
+### Test-Accounts & Skripte
+
+Zum schnellen Testen auf der lokalen Entwicklungsdatenbank (`supabase start`):
+
+- **Bash Script (`scripts/create-user-with-household.sh`)**:
+  - `./scripts/create-user-with-household.sh` — Erstellt 1 neuen Test-Nutzer mit eigenem Haushalt, Standard-Lagerorten und vorausgefüllten Einkaufslisten-Produkten.
+  - `./scripts/create-user-with-household.sh <anzahl>` — Kann mehrmals oder mit einer Anzahl aufgerufen werden (z. B. `./scripts/create-user-with-household.sh 5`), um mehrere Test-User gleichzeitig mit jeweils eigenem Haushalt anzulegen.
+  - `./scripts/create-user-with-household.sh [email] [passwort] [name] [haushalt]` — Erstellt einen spezifischen Nutzer mit individuellem Haushaltsnamen und Produkten.
+
+- **TypeScript Helper (`scripts/test-users.ts`)**:
+  - `bun run user:create [email] [passwort] [name]` — Erstellt einen einfachen Test-Account
+  - `bun run user:list` — Listet vorhandene Test-Accounts auf
+  - `bun run user:clean` — Löscht alle Test-Accounts (`*@example.com`, `tester_*`)
+  - `bun run user:delete <email>` — Löscht einen bestimmten Test-Account
+
 
 ## Umgebungsvariablen
 
@@ -45,7 +63,28 @@ mitgeliefert):
 EXPO_PUBLIC_SUPABASE_URL=http://127.0.0.1:54321
 EXPO_PUBLIC_SUPABASE_KEY=sb_publishable_...
 EXPO_PUBLIC_FORCE_ONBOARDING=false  # optional: bei true wird beim App-Start das Profil-Onboarding geöffnet
+EXPO_PUBLIC_DEV_TOOLS=false         # optional: bei true erscheint der Entwickler-Bereich in den Einstellungen
 ```
+
+### Entwickler-Bereich
+
+Mit `EXPO_PUBLIC_DEV_TOOLS=true` bekommen die Einstellungen eine Gruppe
+„Entwickler" mit einer eigenen Seite. Sie beantwortet die Fragen, die die App
+sonst nirgends beantwortet:
+
+- **gegen welches Supabase-Projekt** dieser Build läuft — lokal oder das
+  verlinkte Projekt mit echten Daten (rot markiert)
+- **Restlaufzeit des Zugriffstokens** — die Erklärung für viele
+  „auf einmal geht nichts mehr"-Momente
+- **ob die lokale SQLite-Datei zum angemeldeten Nutzer gehört**, dazu
+  Schema-Version, Outbox-Zähler und Zeilenzahlen
+- Aktionen: Sync erzwingen, Test-Benachrichtigung, Sync-Diagnose, lokale
+  Datenbank löschen
+
+Bewusst ein eigener Schalter statt `__DEV__`: Der Bereich ist gerade in einem
+echten Build nützlich (etwa TestFlight, wo unklar ist, gegen welches Projekt er
+läuft) und soll sich umgekehrt auch während der Entwicklung abschalten lassen,
+um die Einstellungen so zu sehen wie Nutzer.
 
 ### E-Mail-Bestätigung
 
@@ -53,8 +92,20 @@ Die Bestätigungsmail enthält beides: einen **Link** und einen **6-stelligen
 Code**. Der Link trägt bewusst kein `fam://`-Redirect mehr — er setzt nur noch
 serverseitig `email_confirmed_at` und funktioniert deshalb aus jedem Browser und
 von jedem Gerät. Die App wartet nicht auf einen Deep Link, sondern fragt den
-Server selbst (alle 10 s, plus „Jetzt prüfen"-Knopf); wer schneller sein will,
+Server selbst (alle 15 s, plus „Jetzt prüfen"-Knopf); wer schneller sein will,
 tippt den Code direkt ein.
+
+> **Remote zwingend: eigener SMTP-Server.** Der eingebaute Mailversand von
+> Supabase ist ausdrücklich nicht für Produktion gedacht — er
+> [„refuses to deliver messages to addresses that are not part of the project's
+> team"](https://supabase.com/docs/guides/auth/auth-smtp) und ist auf **2 Mails
+> pro Stunde** begrenzt. Dazu kommt: Seit **2026-06-03** können neu angelegte
+> Free-Projekte mit dem Standard-SMTP **keine Auth-Templates mehr anpassen**
+> ([Changelog](https://supabase.com/changelog)). `fam_app` wurde am 2026-08-05
+> erstellt, fällt also darunter. Ohne eigenen SMTP-Server enthielte die Mail
+> remote das Standard-Template — **ohne den 6-stelligen Code**, während die App
+> weiterhin ein Code-Feld anzeigt. Link, Polling und „Jetzt prüfen" funktionieren
+> auch dann; der Code-Weg nicht. Custom SMTP löst beides auf einmal.
 
 Nach dem Klick landet der Browser auf der Edge Function `auth-confirmed`
 (`supabase/functions/auth-confirmed/`) — sie zeigt „E-Mail bestätigt" bzw.

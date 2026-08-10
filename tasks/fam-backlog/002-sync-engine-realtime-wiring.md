@@ -1,6 +1,6 @@
 # 002: Realtime-Bridge (#48) + Netzwerk-/Hintergrund-Trigger (#50) anschliessen
 
-**Status**: pending
+**Status**: completed
 **Created**: 2026-08-08
 **Priority**: high
 
@@ -13,23 +13,69 @@ alle 20s + bei `AppState === 'active'`). Die bereits fertig gebauten und
 getesteten Funktionen `subscribeHouseholdRealtime()` (#48, Realtime→SQLite-
 Bridge) sowie `startNetworkReconnectTrigger()`/`registerBackgroundSync()`
 (#50) werden von **nirgendwo** im App-Code aufgerufen — Details und
-Design-Entscheidungen in `docs/SYNC_ENGINE.md`.
+Design-Entscheidungen stehen als Doc-Comments direkt in `src/lib/sync/realtime.ts`,
+`src/lib/sync/network-trigger.ts` und `src/lib/sync/background-sync.ts`
+(`docs/SYNC_ENGINE.md` existiert in diesem Repo nicht).
 
 Solange das so bleibt, konvergieren Änderungen zwischen Geräten nur alle
 ~20s statt in Echtzeit.
 
 ## Action Items
 
-- [ ] `subscribeHouseholdRealtime()` in `(app)/_layout.tsx` (oder einem
+- [x] `subscribeHouseholdRealtime()` in `(app)/_layout.tsx` (oder einem
       passenden Provider) für den aktiven Haushalt abonnieren, inkl.
       sauberem Unsubscribe bei Haushaltswechsel/Unmount
-- [ ] `startNetworkReconnectTrigger()` verdrahten, Callback = `triggerHouseholdSync`
-- [ ] `registerBackgroundSync()` + `setBackgroundSyncHandler()` verdrahten
-- [ ] Manuell verifizieren, dass kein Echo/keine Sync-Schleife entsteht
-      (Design dazu steht schon in `docs/SYNC_ENGINE.md`, Abschnitt "#48")
+- [x] `startNetworkReconnectTrigger()` verdrahten, Callback = `triggerHouseholdSync`
+- [x] `registerBackgroundSync()` + `setBackgroundSyncHandler()` verdrahten
+      (inkl. `defineBackgroundSyncTask()` im Modul-Scope von `src/app/_layout.tsx`,
+      ohne die schlaegt `registerTaskAsync` zur Laufzeit fehl)
+- [x] Manuell verifizieren, dass kein Echo/keine Sync-Schleife entsteht
+      (Design dazu steht schon als Doc-Comment in `src/lib/sync/realtime.ts`,
+      Abschnitt "Echo-Unterdrueckung") — durchgefuehrt, kein Echo/keine
+      Schleife beobachtet; dafuer vier andere Befunde, siehe unten
 
 ## Notes
 
 Blockiert eine sinnvolle Durchführung von
 `003-gate-d-two-device-verification.md` — ohne Realtime-Bridge ist das
 "<1s"-Konvergenzziel aus Gate D gar nicht erreichbar, nur das ~20s-Polling.
+
+**Verdrahtung implementiert** (neuer Hook `useRealtimeSync` in
+`src/lib/sync/sync-runner.ts`, aufgerufen aus `(app)/_layout.tsx`;
+`defineBackgroundSyncTask()`/`registerBackgroundSync()` in `src/app/_layout.tsx`).
+Lint/Typecheck sowie die bestehenden Regressionstests
+(`realtime.integration.test.ts`, `reconnect.test.ts`) laufen weiter grün —
+an den zugrundeliegenden, bereits getesteten Bausteinen wurde nichts
+verändert. Die manuelle Zwei-Geräte-Verifikation (Echtzeit-Konvergenz <20s,
+kein Echo/keine Schleife, Reconnect-Fall) aus dem letzten Action Item steht
+noch aus und sollte vor Abschluss von `003-gate-d-two-device-verification.md`
+nachgeholt werden.
+
+Bekannte, nicht behobene Grenze (Eigenschaft des bestehenden
+`background-sync.ts`-Designs, keine Regression durch diese Verdrahtung):
+`setBackgroundSyncHandler` wird nur gesetzt, während `(app)/_layout.tsx`
+mit React-Baum lebt. Weckt das OS die Hintergrund-Task in einem
+vollständig beendeten App-Zustand (headless), ist unklar, ob Expos
+Background-Task-Boot den React-Baum erneut mountet — dann wäre der
+Handler-Slot wieder `null`.
+
+## Nachtrag 2026-08-09 — Verifikation durchgefuehrt
+
+Die manuelle Verifikation am iOS-Simulator hat den Echo-/Schleifen-Fall
+bestaetigt (kein Echo, keine Schleife — das Design aus `realtime.ts` traegt).
+Sie hat dabei aber vier andere Fehler freigelegt, die nichts mit der
+Verdrahtung selbst zu tun haben und in `006-sqlite-locking-und-datenleck.md`
+weiterverfolgt werden:
+
+1. `SQLITE_BUSY` im laufenden Betrieb ("database is locked")
+2. Haushalt des Vornutzers nach einem Account-Wechsel
+3. `cannot add postgres_changes callbacks … after subscribe()` beim Remount
+4. `permission denied for function create_household` ohne Session
+
+Behoben in `f58e3bf`. Befund 3 betrifft `realtime.ts` direkt und damit diesen
+Task: `subscribeHouseholdRealtime` raeumt jetzt einen stehengebliebenen
+Channel desselben Topics ab, bevor es einen neuen anlegt.
+
+Die Konvergenzmessung selbst (<1s, Offline-Wiederkehr) gehoert zu Gate D und
+steht dort weiterhin offen — sie war waehrend der Fehlersuche nicht
+aussagekraeftig.

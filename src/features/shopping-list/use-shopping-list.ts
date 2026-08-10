@@ -1,6 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 
 import { getDatabase } from '@/lib/db/client';
+import { effectiveSortOrder, UNCATEGORIZED_LABEL } from './shopping-categories';
 
 export type LocalShoppingItem = {
   id: string;
@@ -10,6 +11,8 @@ export type LocalShoppingItem = {
   quantity: number;
   unit: string;
   category: string | null;
+  store_id: string | null;
+  price_estimate: number | null;
   checked_at: string | null;
   checked_by: string | null;
   sort_index: number;
@@ -22,7 +25,37 @@ export type GroupedShoppingItems = {
   items: LocalShoppingItem[];
 };
 
-const DEFAULT_CATEGORY = 'Sonstiges';
+/**
+ * Gruppiert Artikel nach Kategorie und sortiert die Gruppen nach der
+ * Supermarkt-Laufstrecke (`shopping-categories.ts`) statt nach
+ * Insertion-Order. Unkategorisierte Artikel ("Sonstiges") sinken ans Ende.
+ * `customOrderIds` ist eine per Drag&Drop editierte, marktspezifische
+ * Laufstrecke (Kategorie-IDs) — fehlt sie, gilt die Standardreihenfolge.
+ *
+ * Eigenstaendig exportiert, damit z.B. eine markt-gefilterte Ansicht dieselbe
+ * Gruppierung client-seitig auf eine Teilmenge anwenden kann.
+ */
+export function groupByCategory(
+  items: LocalShoppingItem[],
+  customOrderIds?: readonly string[] | null,
+): GroupedShoppingItems[] {
+  const groupMap = new Map<string, LocalShoppingItem[]>();
+  for (const item of items) {
+    const cat = item.category ?? UNCATEGORIZED_LABEL;
+    if (!groupMap.has(cat)) {
+      groupMap.set(cat, []);
+    }
+    groupMap.get(cat)?.push(item);
+  }
+
+  return Array.from(groupMap.entries())
+    .map(([category, groupItems]) => ({ category, items: groupItems }))
+    .sort(
+      (a, b) =>
+        effectiveSortOrder(a.category, customOrderIds) -
+        effectiveSortOrder(b.category, customOrderIds),
+    );
+}
 
 /**
  * Liest alle aktiven Einkaufslisten-Artikel fuer den Haushalt aus SQLite (#85).
@@ -41,6 +74,7 @@ export function useShoppingList(householdId: string | undefined) {
       const db = await getDatabase();
       const items = await db.getAllAsync<LocalShoppingItem>(
         `select id, household_id, product_id, name, quantity, unit, category,
+                store_id, price_estimate,
                 checked_at, checked_by, sort_index, created_at, updated_at
          from shopping_list_items
          where household_id = ? and deleted_at is null
@@ -51,20 +85,7 @@ export function useShoppingList(householdId: string | undefined) {
         [householdId],
       );
 
-      // Groupierung nach Kategorie — Reihenfolge der Gruppen ist Insertion-Order
-      const groupMap = new Map<string, LocalShoppingItem[]>();
-      for (const item of items) {
-        const cat = item.category ?? DEFAULT_CATEGORY;
-        if (!groupMap.has(cat)) {
-          groupMap.set(cat, []);
-        }
-        groupMap.get(cat)?.push(item);
-      }
-
-      return Array.from(groupMap.entries()).map(([category, groupItems]) => ({
-        category,
-        items: groupItems,
-      }));
+      return groupByCategory(items);
     },
     enabled: !!householdId,
   });
@@ -80,6 +101,7 @@ export function useCheckedShoppingItems(householdId: string | undefined) {
       const db = await getDatabase();
       return db.getAllAsync<LocalShoppingItem>(
         `select id, household_id, product_id, name, quantity, unit, category,
+                store_id, price_estimate,
                 checked_at, checked_by, sort_index, created_at, updated_at
          from shopping_list_items
          where household_id = ? and deleted_at is null and checked_at is not null

@@ -1,15 +1,42 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 
+import { useSession } from '@/features/auth/session-provider';
 import type { Database } from '@/lib/database.types';
 import { getSupabase } from '@/lib/supabase';
 
 /**
+ * Praefix aller Haushaltslisten — eine Liste je Nutzer.
+ *
+ * Bewusst mit dem Zwischenstueck `by-user` statt schlicht `['households', userId]`:
+ * An derselben Position steht in `['households', householdId, 'members']` eine
+ * Haushalts-Id. Technisch kollidiert das nicht (eine Nutzer-Id ist nie eine
+ * Haushalts-Id), aber der Slot haette zwei Bedeutungen, und ein vertauschtes
+ * Argument wuerde still denselben Cache-Eintrag teilen statt aufzufallen.
+ */
+export const HOUSEHOLDS_QUERY_KEY = ['households', 'by-user'] as const;
+
+export function householdsQueryKey(userId: string | undefined) {
+  return [...HOUSEHOLDS_QUERY_KEY, userId] as const;
+}
+
+/**
  * Laedt alle Haushalte, in denen der aktuell angemeldete Nutzer Mitglied ist.
  * Dank RLS liefert dieser einfache Select genau die richtige Teilmenge.
+ *
+ * Der Schluessel traegt die Nutzer-Id, und das ist keine Kosmetik: Mit einem
+ * gemeinsamen `['households']` blieb ein bereits gemounteter Observer nach
+ * einem Nutzerwechsel an den Daten des Vornutzers haengen — `queryClient.clear()`
+ * beim Logout benachrichtigt gemountete Observer naemlich nicht, und danach
+ * findet auch keine Invalidierung sie mehr. Mit nutzerspezifischem Schluessel
+ * wechselt der Observer beim Anmelden auf eine andere Query und *kann* die
+ * fremden Daten gar nicht mehr ausliefern.
  */
 export function useHouseholds() {
+  const { session } = useSession();
+  const userId = session?.user.id;
+
   return useQuery({
-    queryKey: ['households'],
+    queryKey: householdsQueryKey(userId),
     queryFn: async () => {
       const { data, error } = await getSupabase()
         .from('households')
@@ -19,6 +46,10 @@ export function useHouseholds() {
       if (error) throw new Error(error.message);
       return data;
     },
+    // Ohne Session liefert der Select nur RLS-bedingt Leeres — der Request
+    // waere reine Last. Wichtiger: waehrend des Abmeldens entsteht so gar kein
+    // Fenster, in dem noch etwas geladen wird.
+    enabled: !!userId,
   });
 }
 
@@ -35,24 +66,35 @@ export function useCreateHouseholdMutation() {
       return data;
     },
     onSuccess: async () => {
-      await queryClient.invalidateQueries({ queryKey: ['households'] });
-      await queryClient.refetchQueries({ queryKey: ['households'] });
+      await queryClient.invalidateQueries({ queryKey: HOUSEHOLDS_QUERY_KEY });
+      await queryClient.refetchQueries({ queryKey: HOUSEHOLDS_QUERY_KEY });
     },
   });
 }
 
+/**
+ * Mitglieder eines Haushalts samt Anzeigename und Avatar.
+ *
+ * Ueber das RPC `household_member_profiles` statt per Join auf `profiles`:
+ * `profiles` ist bewusst streng privat — dort liegen Geburtsdatum, Geschlecht,
+ * Koerpergroesse und Aktivitaetslevel. Die RLS-Policy gibt deshalb nur die
+ * eigene Zeile frei, und der fruehere Join `profiles:user_id(*)` lieferte fuer
+ * alle anderen `null`; im Screen stand dann "Unbekanntes Mitglied".
+ *
+ * Eine Policy koennte das nicht loesen: RLS wirkt auf Zeilen, nicht auf
+ * Spalten. Das RPC gibt genau die zwei Spalten heraus, die zur Identifikation
+ * noetig sind, und prueft serverseitig die Mitgliedschaft.
+ */
 export function useHouseholdMembers(householdId: string) {
   return useQuery({
     queryKey: ['households', householdId, 'members'],
     queryFn: async () => {
-      const { data, error } = await getSupabase()
-        .from('household_members')
-        .select('*, profiles:user_id(*)')
-        .eq('household_id', householdId)
-        .order('joined_at', { ascending: true });
+      const { data, error } = await getSupabase().rpc('household_member_profiles', {
+        hid: householdId,
+      });
 
       if (error) throw new Error(error.message);
-      return data;
+      return data ?? [];
     },
     enabled: !!householdId,
   });
@@ -125,7 +167,7 @@ export function useLeaveHouseholdMutation() {
       return data;
     },
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ['households'] });
+      queryClient.invalidateQueries({ queryKey: HOUSEHOLDS_QUERY_KEY });
     },
   });
 }
@@ -142,7 +184,7 @@ export function useDeleteHouseholdMutation() {
       return data;
     },
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ['households'] });
+      queryClient.invalidateQueries({ queryKey: HOUSEHOLDS_QUERY_KEY });
     },
   });
 }
@@ -244,8 +286,8 @@ export function useRedeemInviteMutation() {
       return data;
     },
     onSuccess: async () => {
-      await queryClient.invalidateQueries({ queryKey: ['households'] });
-      await queryClient.refetchQueries({ queryKey: ['households'] });
+      await queryClient.invalidateQueries({ queryKey: HOUSEHOLDS_QUERY_KEY });
+      await queryClient.refetchQueries({ queryKey: HOUSEHOLDS_QUERY_KEY });
     },
   });
 }

@@ -122,10 +122,39 @@ describe('PendingAuthBanner (Apple Liquid UI)', () => {
           onConfirmed={onConfirmedMock}
         />,
       );
-      await jest.advanceTimersByTimeAsync(10_000);
+      await jest.advanceTimersByTimeAsync(15_000);
 
       expect(signIn).toHaveBeenCalledWith('test@example.com', 'geheim-genug');
       expect(onConfirmedMock).toHaveBeenCalled();
+
+      jest.useRealTimers();
+    });
+
+    it('sollte onConfirmed genau einmal auslösen, auch wenn mehrere Quellen melden', async () => {
+      // Der Poll meldet die Bestaetigung, und weil signIn eine Session anlegt,
+      // feuert zusaetzlich onAuthStateChange — dazu laeuft alle 3s der
+      // getSession-Poll. In account-step.tsx ist onConfirmed das `onNext` des
+      // Wizards: Jeder Aufruf zu viel ueberspringt einen Schritt.
+      const { signIn } = require('@/features/auth/api');
+      signIn.mockResolvedValue({
+        data: { session: { user: { email_confirmed_at: '2026-08-09T06:07:57Z' } } },
+        error: null,
+      });
+      const onConfirmedMock = jest.fn();
+
+      jest.useFakeTimers();
+
+      await render(
+        <PendingAuthBanner
+          email="test@example.com"
+          password="geheim-genug"
+          onConfirmed={onConfirmedMock}
+        />,
+      );
+      // Lange genug fuer mehrere Durchlaeufe beider Poll-Intervalle.
+      await jest.advanceTimersByTimeAsync(90_000);
+
+      expect(onConfirmedMock).toHaveBeenCalledTimes(1);
 
       jest.useRealTimers();
     });
@@ -176,7 +205,7 @@ describe('PendingAuthBanner (Apple Liquid UI)', () => {
           onConfirmed={onConfirmedMock}
         />,
       );
-      await jest.advanceTimersByTimeAsync(10_000);
+      await jest.advanceTimersByTimeAsync(15_000);
 
       expect(signOut).toHaveBeenCalled();
       expect(onConfirmedMock).not.toHaveBeenCalled();
@@ -188,6 +217,15 @@ describe('PendingAuthBanner (Apple Liquid UI)', () => {
       // sign_in_sign_ups = 30 pro 5 Minuten und IP (supabase/config.toml).
       // Schnelleres Pollen wuerde das Kontingent aufbrauchen und echte
       // Anmeldeversuche mit blockieren.
+      //
+      // Simuliert werden 4 Intervall-Ticks (60s) statt der vollen 5 Minuten:
+      // Der Poll laeuft ueber ein festes setInterval ohne Backoff, die Kadenz
+      // ist in dieser Zeitspanne also bereits vollstaendig geprueft — und
+      // schaerfer als vorher (exakte Kadenz statt nur einer Obergrenze).
+      // Die vollen 300s zu simulieren hiesse zusaetzlich ~100 Ticks des
+      // unabhaengigen Session-Polls (alle 3s, #166) und die Ring-/Punkt-
+      // Animation durchlaufen zu lassen — das trieb den Test unter Last
+      // ueber den 15s-testTimeout, ohne die Aussage zu verstaerken.
       const { signIn } = require('@/features/auth/api');
       signIn.mockResolvedValue({
         data: { session: null },
@@ -203,9 +241,12 @@ describe('PendingAuthBanner (Apple Liquid UI)', () => {
           onConfirmed={jest.fn()}
         />,
       );
-      await jest.advanceTimersByTimeAsync(60_000);
+      await jest.advanceTimersByTimeAsync(4 * 15_000);
 
-      expect(signIn.mock.calls.length).toBeLessThanOrEqual(6);
+      // Bei 15s-Kadenz sind das in 5 Minuten 20 Anfragen, ein Drittel unter
+      // dem Kontingent von 30 (siehe Intervall-Kommentar in
+      // pending-auth-banner.tsx).
+      expect(signIn.mock.calls.length).toBe(4);
 
       jest.useRealTimers();
     });

@@ -1,11 +1,14 @@
 # Projekt-Status: Family App (fam)
-> Stand: 2026-08-08 · Branch: `main`
+> Stand: 2026-08-10 · Branch: `worktree-realtime-sync-wiring`
 >
 > Korrektur ggü. 2026-08-06: Epic 4 (Haushalt) und die Kern-Screens von Epic 5
 > (Kühlschrank/Einkaufsliste) sowie der Grossteil von Epic P (Lebensmittel-DB)
 > waren im Code bereits fertig, obwohl hier noch als offen geführt. Basis dieser
 > Korrektur: direkte Code-Prüfung (Dateien, Tests, `bun run typecheck/lint/test`),
 > nicht nur Commit-Messages.
+>
+> Update 2026-08-10: Epic 7 (Kalorienziele & Ernährungstagebuch, #81–#88) ist
+> jetzt vollständig im Code (siehe unten), inklusive Dashboard-Anschluss.
 
 ## ✅ Abgeschlossene Epics & Issues
 
@@ -92,31 +95,31 @@
 | #76 | Barcode-Scanner | ✅ |
 | #77 | Produktdetail mit Portionsauswahl | ✅ |
 | #78 | Einheiten-Umrechnung (pure functions) | ✅ |
-| #79 | Liste häufig verwendeter Lebensmittel | 🔴 OPEN — bewusst zurückgestellt, hängt an #86 (Welle 6) |
+| #79 | Liste häufig verwendeter Lebensmittel | 🔴 OPEN — bewusst zurückgestellt, Voraussetzung #86 jetzt erfüllt |
 | #80 | Produkt manuell anlegen | ✅ |
 
-### Epic 7 — Kalorienziele & Ernährungstagebuch (🔴 OPEN #8)
+### Epic 7 — Kalorienziele & Ernährungstagebuch (✅ Fertig)
 | # | Issue | Status |
 |---|-------|--------|
-| #81 | Grundumsatz-Formeln (pure functions) | 🔴 OPEN |
-| #82 | TDEE und Zielkalorien berechnen | 🔴 OPEN |
-| #83 | Makro-Verteilung mit Presets | 🔴 OPEN |
-| #84 | Ziel-Setup-Screen | 🔴 OPEN |
-| #85 | Tagebuch-Screen nach Mahlzeiten | 🔴 OPEN |
-| #86 | Eintrag hinzufügen, bearbeiten, löschen | 🔴 OPEN |
-| #87 | Tagessummen und Restkalorien | 🔴 OPEN |
-| #88 | Datumsnavigation im Tagebuch | 🔴 OPEN |
+| #81 | Grundumsatz-Formeln (pure functions) | ✅ |
+| #82 | TDEE und Zielkalorien berechnen | ✅ |
+| #83 | Makro-Verteilung mit Presets | ✅ |
+| #84 | Ziel-Setup-Screen | ✅ |
+| #85 | Tagebuch-Screen nach Mahlzeiten | ✅ |
+| #86 | Eintrag hinzufügen, bearbeiten, löschen | ✅ |
+| #87 | Tagessummen und Restkalorien | ✅ |
+| #88 | Datumsnavigation im Tagebuch | ✅ |
 
-### Epic 8 — Dashboard & Navigation (🔴 OPEN #9)
+### Epic 8 — Dashboard & Navigation (✅ Fertig)
 | # | Issue | Status |
 |---|-------|--------|
-| #89 | Tab-Struktur erweitern | 🔴 OPEN |
-| #90 | Template-Screens durch echte Screens ersetzen | 🔴 OPEN |
-| #91 | Animierter Kalorien-Fortschrittsring | 🔴 OPEN |
-| #92 | Makro-Fortschrittsbalken | 🔴 OPEN |
-| #93 | Dashboard-Tagesübersicht | 🔴 OPEN |
-| #94 | Profil- und Einstellungs-Screen | 🔴 OPEN |
-| #95 | Modul-Aktivierung (Feature-Flags) | 🔴 OPEN |
+| #89 | Tab-Struktur erweitern | ✅ (tote profile-screen.tsx entfernt, Web-Tabs an native 6 Tabs angeglichen) |
+| #90 | Template-Screens durch echte Screens ersetzen | ✅ (bewusst nur Aufräumen — Rezept-CRUD ist Zukunfts-Epic #12) |
+| #91 | Animierter Kalorien-Fortschrittsring | ✅ (schon seit Welle 6) |
+| #92 | Makro-Fortschrittsbalken | ✅ (schon seit Welle 6) |
+| #93 | Dashboard-Tagesübersicht | ✅ (Dashboard zeigt Ring+Makros+Ablauf-Widget bereits auf einer Seite) |
+| #94 | Profil- und Einstellungs-Screen | ✅ (settings-screen.tsx ist der Account-Hub, doppelter profile-screen.tsx entfernt) |
+| #95 | Modul-Aktivierung (Feature-Flags) | ✅ (neue profiles-Spalten, /settings/modules, ModuleGate) |
 
 ### Epic 9 — Datenschutz & Compliance (🔴 OPEN #10)
 | # | Issue | Status |
@@ -155,40 +158,32 @@
 - `fridge/` — fertig (Screen, Mutations, Ablauf-Ampel, Benachrichtigungen)
 - `household/` — fertig (Erstellen, Mitglieder/Rollen, Einladung+QR, Beitritt, Kinder-Profile, Wechsler)
 - `inventory/` — fertig (Add-Item, Barcode-Scanner, Produktsuche/-detail, Lagerorte)
-- `dashboard/` — überwiegend fertig (Ablauf-Widget angebunden; Kalorien/Ziele noch Platzhalter, warten auf Welle 6)
-- `onboarding/` — fertig
-- `profile/` — Gerüst
-- `recipes/` — Gerüst
-- `settings/` — Gerüst
+- `dashboard/` — fertig (Ablauf-Widget, Kalorienring und Makro-Balken an echte Daten aus Welle 6 angebunden)
+- `calorie-tracking/` — fertig (Grundumsatz/TDEE/Makro-Presets als reine Funktionen, Ziel-Setup-Screen, Tagebuch-Screen mit CRUD/Tagessummen/Datumsnavigation)
+- `onboarding/` — fertig (inkl. Modul-Auswahl, jetzt tatsächlich persistiert — #95)
+- `recipes/` — Gerüst (bewusst so belassen, echter Rezept-Builder ist Zukunfts-Epic #12), hinter `ModuleGate` erreichbar
+- `settings/` — fertig (Verzeichnis mit Unterseiten, inkl. `/settings/modules` für #95)
 - `shopping-list/` — fertig (Screen, Add-Item-Form, Complete-Run-Sheet, `shopping_history`)
+
+`profile/` wurde entfernt — war ein nirgends verlinkter Duplikat-Screen von
+`settings-screen.tsx` (Bereinigung im Rahmen von #89/#94).
 
 ### App-Routen (`src/app/`)
 - `(auth)/` — Login, Register
-- `(app)/` — fridge, index, profile, recipes, settings, shopping-list
+- `(app)/` — fridge, index, recipes, settings, shopping-list, diary (alle vier
+  Modul-Tabs hinter `ModuleGate`)
 - `household/` — storage-locations
-- `settings/` — profile, sync-debug
-- `onboarding.tsx`, `add-item.tsx`
+- `settings/` — profile, sync-debug, goals, modules
+- `onboarding.tsx`, `add-item.tsx`, `add-food-entry.tsx`
 
 ---
 
 ## 🎯 Empfohlene nächste Schritte
 
-**Als nächstes sinnvoll (Epic 6 — Kalorien & Tagebuch, noch nicht begonnen):**
-1. `#81` Grundumsatz-Formeln (reine Funktionen) — DB-Schema (`food_entries`,
-   `weight_entries`, `user_goals`) existiert bereits in
-   `supabase/schemas/09_tracking.sql`, nur Client-Code fehlt
-2. `#82` TDEE + Zielkalorien (mit Kappung auf Grundumsatz)
-3. `#83-88` Makro-Verteilung, Ziel-Setup, Tagebuch-Screen + CRUD + Tagessummen
+**Epic 8 (Dashboard & Navigation) ist fertig.** Sinnvoller nächster Schritt:
+Gate D (`#70`, Zwei-Geräte-Sync-Verifikation) nachholen, oder Epic 9
+(Datenschutz & Compliance, `#96-99`).
 
-**Nachzügler aus Welle 2/5:**
-- Realtime-Bridge (#48) und Netzwerk-/Hintergrund-Trigger (#50) an
-  `(app)/_layout.tsx` anschliessen — aktuell läuft nur Poll-Sync alle 20s
-  (`src/lib/sync/sync-runner.ts`). Voraussetzung für eine sinnvolle
-  `#70`-Verifikation (Gate D, "<1s"-Konvergenz).
-
-**Parallel dazu (Epic 7 — Dashboard):**
-- `#89-90` Tab-Struktur/Template-Screens fertigstellen (Recipes/Settings sind
-  noch echte Gerüste)
-- `#91-93` Fortschrittsring/Makro-Balken/Tagesübersicht — hängen an den
-  Welle-6-Ergebnissen (aktuell Platzhalter `aufgenommen = 0`, `ziel = 0` im
-  Dashboard)
+**Nachzügler aus Welle 2/5:** erledigt — Realtime-Bridge (#48) und
+Netzwerk-/Hintergrund-Trigger (#50) sind an `(app)/_layout.tsx` angeschlossen.
+Offen bleibt die `#70`-Verifikation (Gate D, "<1s"-Konvergenz) am Gerät.

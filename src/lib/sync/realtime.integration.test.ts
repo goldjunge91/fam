@@ -159,7 +159,7 @@ describe('subscribeHouseholdRealtime', () => {
       // noch "nahezu sofort", nicht "im Polling-Takt".
       expect(elapsed).toBeLessThan(2000);
     } finally {
-      unsubscribe();
+      await unsubscribe();
     }
     // 60s statt 30s: deckt die 45s-Aufwaermrunde (siehe Kommentar dort) plus
     // Setup/Netzwerk-Overhead ab. Der aeussere Jest-Timeout schlug vorher zu,
@@ -208,7 +208,7 @@ describe('subscribeHouseholdRealtime', () => {
 
       expect(await fridgeItemCount(deviceA, id)).toBe(1);
     } finally {
-      unsubscribe();
+      await unsubscribe();
     }
   }, 30_000);
 
@@ -248,7 +248,7 @@ describe('subscribeHouseholdRealtime', () => {
     await pollUntil(() => fridgeItemName(deviceA, idBeforeGap));
 
     // Echte Abmeldung — kein simuliertes Event, ein echter Teardown.
-    unsubscribe1();
+    await unsubscribe1();
     await new Promise((r) => setTimeout(r, 300));
 
     // Waehrend A keinen Channel hat, aendert B mehrere Zeilen. Diese Events
@@ -292,7 +292,7 @@ describe('subscribeHouseholdRealtime', () => {
       expect(await fridgeItemCount(deviceA, idDuringGap2)).toBe(1);
       expect(resyncCalls).toBeGreaterThanOrEqual(1);
     } finally {
-      unsubscribe2();
+      await unsubscribe2();
     }
   }, 30_000);
 
@@ -314,7 +314,7 @@ describe('subscribeHouseholdRealtime', () => {
     try {
       await sub.ready;
 
-      unsubscribe();
+      await unsubscribe();
       await new Promise((r) => setTimeout(r, 300));
 
       await deviceB.client
@@ -329,6 +329,122 @@ describe('subscribeHouseholdRealtime', () => {
         .filter((c) => c.topic === `realtime:household:${householdId}`);
       expect(remainingChannels).toHaveLength(0);
     } finally {
+    }
+  }, 30_000);
+
+  it('raeumt einen stehengebliebenen Channel desselben Topics ab, statt daran zu scheitern', async () => {
+    // Regression fuer: "cannot add `postgres_changes` callbacks for
+    // realtime:household:… after `subscribe()`".
+    //
+    // `supabase.channel(topic)` gibt zu einem bereits registrierten Topic die
+    // vorhandene Instanz zurueck. Ist die schon subscribt, wirft `.on()`.
+    // Zurueckbleiben kann so eine Instanz, wenn das Modul mit der
+    // unsubscribe-Closure ersetzt wird, der Client aber weiterlebt — im
+    // Dev-Build bei jedem Fast Refresh.
+    //
+    // Hier wird genau dieser Zustand hergestellt: ein subscribter Channel auf
+    // dem Topic, den niemand mehr abraeumt.
+    const { deviceA, deviceB, householdId, teardown } = await setupTwoDevices('rt-stale');
+    teardowns.push(teardown);
+
+    const leaked = deviceA.client.channel(`household:${householdId}`);
+    leaked.on(
+      'postgres_changes',
+      { event: '*', schema: 'public', table: 'fridge_items' },
+      () => {},
+    );
+    await new Promise<void>((resolve) => {
+      leaked.subscribe((status) => {
+        if (status === 'SUBSCRIBED') resolve();
+      });
+    });
+
+    const sub = waitForSubscribed(householdId);
+    const unsubscribe = subscribeHouseholdRealtime({
+      db: deviceA.db,
+      supabase: deviceA.client,
+      householdIds: [householdId],
+      serverClock: createServerClock(),
+      onReconnectResyncNeeded: async () => {},
+      onStatusChange: sub.onStatusChange,
+    });
+
+    try {
+      await sub.ready;
+
+      // Und das Abo funktioniert wirklich — der Guard hat nicht bloss den
+      // Fehler unterdrueckt.
+      const id = crypto.randomUUID();
+      await deviceB.client
+        .from('fridge_items')
+        .insert({ id, household_id: householdId, name: 'Nach dem Abraeumen' });
+
+      await pollUntil(() => fridgeItemName(deviceA, id));
+      expect(await fridgeItemName(deviceA, id)).toBe('Nach dem Abraeumen');
+    } finally {
+      await unsubscribe();
+    }
+  }, 30_000);
+
+  it('erneutes Abonnieren desselben Haushalts direkt nach dem Abmelden wirft nicht', async () => {
+    // Regression: `supabase.channel(topic)` liefert zu einem schon
+    // registrierten Topic dieselbe Instanz zurueck, und `removeChannel()`
+    // nimmt sie erst nach einem await aus der Registry. Wer ohne Wartezeit neu
+    // abonnierte, bekam die alte, bereits subscribte Instanz — und
+    // `channel.on('postgres_changes', …)` warf darauf "cannot add
+    // `postgres_changes` callbacks … after `subscribe()`".
+    //
+    // Bewusst OHNE das `setTimeout(300)` der Tests darueber: Genau diese
+    // Gnadenfrist hat den Fehler bisher verdeckt. In der App gibt es sie nicht
+    // — dort remountet der Hook (Fast Refresh, Haushaltswechsel) sofort.
+    const { deviceA, deviceB, householdId, teardown } = await setupTwoDevices('rt-resubscribe');
+    teardowns.push(teardown);
+
+    const first = waitForSubscribed(householdId);
+    const unsubscribeFirst = subscribeHouseholdRealtime({
+      db: deviceA.db,
+      supabase: deviceA.client,
+      householdIds: [householdId],
+      serverClock: createServerClock(),
+      onReconnectResyncNeeded: async () => {},
+      onStatusChange: first.onStatusChange,
+    });
+    await first.ready;
+    await unsubscribeFirst();
+
+    // Der Kern der Zusicherung: SOFORT nach dem awaiteten Abmelden ist das
+    // Topic frei — ohne Gnadenfrist. Genau daran haengt, ob das folgende
+    // `subscribe` eine frische Instanz bekommt oder die alte, schon
+    // subscribte. Mit einem nicht abgewarteten `removeChannel` ist der Channel
+    // hier noch registriert.
+    expect(
+      deviceA.client.getChannels().filter((c) => c.topic === `realtime:household:${householdId}`),
+    ).toHaveLength(0);
+
+    const second = waitForSubscribed(householdId);
+    const unsubscribeSecond = subscribeHouseholdRealtime({
+      db: deviceA.db,
+      supabase: deviceA.client,
+      householdIds: [householdId],
+      serverClock: createServerClock(),
+      onReconnectResyncNeeded: async () => {},
+      onStatusChange: second.onStatusChange,
+    });
+
+    try {
+      await second.ready;
+
+      // Und das neue Abo funktioniert auch wirklich, ist also nicht bloss
+      // fehlerfrei aufgebaut worden.
+      const id = crypto.randomUUID();
+      await deviceB.client
+        .from('fridge_items')
+        .insert({ id, household_id: householdId, name: 'Nach dem Neu-Abonnieren' });
+
+      await pollUntil(() => fridgeItemName(deviceA, id));
+      expect(await fridgeItemName(deviceA, id)).toBe('Nach dem Neu-Abonnieren');
+    } finally {
+      await unsubscribeSecond();
     }
   }, 30_000);
 });

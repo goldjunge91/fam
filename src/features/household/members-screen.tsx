@@ -15,6 +15,7 @@ import {
   useRemoveMemberMutation,
   useUpdateMemberRoleMutation,
 } from '@/features/household/api';
+import { isHouseholdAdmin } from '@/features/household/household-helpers';
 import { HouseholdSwitcherModal } from '@/features/household/household-switcher-modal';
 import { InviteModal } from '@/features/household/invite-modal';
 import { useTheme } from '@/hooks/use-theme';
@@ -39,7 +40,7 @@ export function MembersScreen() {
   const [showSwitcherModal, setShowSwitcherModal] = useState(false);
 
   const myMembership = members?.find((m) => m.user_id === currentUserId);
-  const isAdmin = myMembership?.role === 'admin';
+  const isAdmin = isHouseholdAdmin(myMembership?.role);
   const adminCount = members?.filter((m) => m.role === 'admin').length ?? 0;
 
   async function handleToggleRole(userId: string, currentRole: string, name: string) {
@@ -149,16 +150,22 @@ export function MembersScreen() {
   }
 
   return (
-    <Screen title="Mitglieder" subtitle={currentHousehold?.name} scroll={false}>
-      {households.length > 1 && (
-        <View style={{ marginBottom: Spacing.two }}>
-          <Button
-            label={`🏠 Haushalt wechseln (${currentHousehold?.name ?? ''})`}
-            variant="secondary"
-            onPress={() => setShowSwitcherModal(true)}
-          />
-        </View>
-      )}
+    <Screen
+      title="Mitglieder"
+      subtitle={currentHousehold?.name}
+      scroll={false}
+      back={{ label: 'Einstellungen', href: '/settings' }}>
+      <View style={{ marginBottom: Spacing.two }}>
+        <Button
+          label={
+            households.length > 1
+              ? `🏠 Haushalt wechseln (${currentHousehold?.name ?? ''})`
+              : '🏠 Haushalt wechseln / beitreten'
+          }
+          variant="secondary"
+          onPress={() => setShowSwitcherModal(true)}
+        />
+      </View>
 
       {isAdmin && currentHousehold && (
         <View style={styles.topActionRow}>
@@ -180,12 +187,8 @@ export function MembersScreen() {
         contentContainerStyle={styles.list}
         renderItem={({ item }) => {
           const isMe = item.user_id === currentUserId;
-          const profile = item.profiles as unknown as {
-            display_name: string | null;
-            avatar_url: string | null;
-          };
-          const displayName = profile?.display_name || 'Unbekanntes Mitglied';
-          const initials = (displayName || '?').substring(0, 2).toUpperCase();
+          const displayName = item.display_name || 'Unbekanntes Mitglied';
+          const initials = displayName.substring(0, 2).toUpperCase();
 
           return (
             <View style={[styles.memberRow, { borderBottomColor: theme.border }]}>
@@ -195,8 +198,8 @@ export function MembersScreen() {
                   { backgroundColor: theme.backgroundElement },
                   isMe && { borderColor: theme.accent, borderWidth: 2 },
                 ]}>
-                {profile?.avatar_url ? (
-                  <Image source={{ uri: profile.avatar_url }} style={styles.avatarImage} />
+                {item.avatar_url ? (
+                  <Image source={{ uri: item.avatar_url }} style={styles.avatarImage} />
                 ) : (
                   <ThemedText style={styles.avatarText}>{initials}</ThemedText>
                 )}

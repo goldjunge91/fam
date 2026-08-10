@@ -12,7 +12,7 @@
 begin;
 \ir helpers.sql
 
-select plan(11);
+select plan(12);
 
 -- ------------------------------------------------------ Tabellen brauchen RLS
 select is_empty(
@@ -59,6 +59,22 @@ select ok(
   not has_function_privilege('anon', 'private.is_household_admin(uuid)', 'execute'),
   'anon kann is_household_admin nicht aufrufen'
 );
+
+-- Black-Box Direktausführung als anon: Muss mit Permission Denied fehlschlagen
+select tests.authenticate_as_anon();
+select throws_ok(
+  $$ select private.is_household_member('00000000-0000-0000-0000-000000000000'::uuid) $$,
+  '42501',
+  NULL,
+  'anon wird beim direkten Aufruf von private.is_household_member per SQLSTATE 42501 abgeblockt'
+);
+
+-- Zurueck zu einer Rolle mit USAGE auf `private`: die folgenden Checks
+-- muessen `private.is_household_member(uuid)` zu einem regprocedure
+-- aufloesen koennen, was als `anon` schon am fehlenden Schema-USAGE
+-- scheitert (SQLSTATE 42501, aber "permission denied for schema private"
+-- statt eines von throws_ok gefangenen Funktionsaufrufs).
+select tests.as_postgres();
 
 -- ------------------------------------------------------------- Gegenprobe
 -- Ohne diese Rechte scheitert JEDE Query mit

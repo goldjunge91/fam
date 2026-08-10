@@ -10,6 +10,7 @@ import {
 } from '@/features/household/api';
 import { useTheme } from '@/hooks/use-theme';
 import { useOnboarding } from '../context/onboarding-context';
+import { validateHouseholdOnboarding } from '../onboarding-helpers';
 import type { HouseholdChoice } from '../types';
 
 interface HouseholdStepFormProps {
@@ -38,28 +39,28 @@ export function HouseholdStepForm({ onNext, onSkip }: HouseholdStepFormProps) {
   const handleNext = async () => {
     setErrorMsg(null);
 
-    updateHouseholdData({
-      choice,
-      name: choice === 'create' ? householdName.trim() || 'Mein Haushalt' : undefined,
-      inviteCode: choice === 'join' ? inviteCode.trim() : undefined,
-    });
+    // Bei "create" liefert die UI absichtlich einen Fallback-Namen, bevor
+    // validiert wird - ein leerer Name soll die Erstellung nicht blockieren.
+    const name = choice === 'create' ? householdName.trim() || 'Mein Haushalt' : undefined;
+    const code = choice === 'join' ? inviteCode.trim() : undefined;
+
+    updateHouseholdData({ choice, name, inviteCode: code });
 
     if (activeHousehold) {
       onNext();
       return;
     }
 
+    if (!validateHouseholdOnboarding({ choice, name, inviteCode: code })) {
+      setErrorMsg('Bitte gib einen Einladungscode ein.');
+      return;
+    }
+
     try {
       if (choice === 'create') {
-        const name = householdName.trim() || 'Mein Haushalt';
-        await createHouseholdMutation.mutateAsync(name);
+        await createHouseholdMutation.mutateAsync(name ?? 'Mein Haushalt');
       } else if (choice === 'join') {
-        const code = inviteCode.trim();
-        if (!code) {
-          setErrorMsg('Bitte gib einen Einladungscode ein.');
-          return;
-        }
-        await redeemInviteMutation.mutateAsync(code);
+        await redeemInviteMutation.mutateAsync(code ?? '');
       } else if (choice === 'solo') {
         await createHouseholdMutation.mutateAsync('Mein Haushalt');
       }

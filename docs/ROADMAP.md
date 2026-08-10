@@ -21,9 +21,9 @@ Alle Issues: <https://github.com/goldjunge91/fam/issues>
 | 3 | Auth & Onboarding | ✅ Fertig (inkl. #104 6-Step Wizard) | — |
 | 4 | Haushalt | ✅ Fertig (#59–66 alle im Code, mit Tests: Erstellen, Mitgliederliste, Rollen/Entfernen, Einladung+QR, Beitritt, Verlassen/Löschen, Kinder-Profile, Haushalts-Wechsler) | — |
 | 5 | Kühlschrank + Einkaufsliste | ✅ Code fertig (#67–69, #71–73); **D offen** | **D** — 2-Geräte-Sync, blockiert auf #48-Verdrahtung (s.u.) |
-| P | Lebensmittel-DB | ✅ weitgehend fertig (#74–78, #80); #79 offen (hängt an #86/Welle 6) | — |
-| 6 | Kalorien & Tagebuch | 🔴 Offen — noch nicht begonnen, aber DB-Schema (`food_entries`, `weight_entries`, `user_goals` in `supabase/schemas/09_tracking.sql`) existiert bereits | — |
-| 7 | Dashboard & Navigation | 🟡 Teilweise (Dashboard zeigt bereits Ablauf-Widget/#73), Rest blockiert auf #84/#87 aus Welle 6 | — |
+| P | Lebensmittel-DB | ✅ weitgehend fertig (#74–78, #80); #79 offen (Voraussetzung #86 jetzt erfüllt) | — |
+| 6 | Kalorien & Tagebuch | ✅ Fertig (#81–#88: Rechenkern, Ziel-Setup, Tagebuch-Screen samt CRUD/Tagessummen/Datumsnavigation, Dashboard-Anschluss) | — |
+| 7 | Dashboard & Navigation | ✅ Fertig (#89–#95: Navigation aufgeräumt, Modul-Aktivierung inkl. neuer `profiles`-Spalten, Rezepte-Platzhalter bewusst nicht zum Rezept-Builder ausgebaut — das ist Zukunfts-Epic #12) | — |
 | 8 | Datenschutz | 🔴 Offen | MVP fertig |
 
 **Sync-Engine-Nachzügler:** Die App synct aktiv, aber nur poll-basiert (alle 20s

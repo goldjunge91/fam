@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { ActivityIndicator, Image, Pressable, StyleSheet, View } from 'react-native';
+import { ActivityIndicator, Image, Pressable, ScrollView, StyleSheet, View } from 'react-native';
 
 import { TextField } from '@/components/text-field';
 import { ThemedText } from '@/components/themed-text';
@@ -36,9 +36,9 @@ export function ProductSearchDropdown({
 
     const timer = setTimeout(async () => {
       setSearching(true);
-      const results = await searchOpenFoodFacts(value);
-      setSuggestions(results);
-      setShowDropdown(results.length > 0);
+      const { products } = await searchOpenFoodFacts(value);
+      setSuggestions(products);
+      setShowDropdown(products.length > 0);
       setSearching(false);
     }, 300);
 
@@ -64,11 +64,14 @@ export function ProductSearchDropdown({
       )}
 
       {showDropdown && suggestions.length > 0 && (
-        <View
+        <ScrollView
           style={[
             styles.dropdown,
             { backgroundColor: theme.background, borderColor: theme.border },
-          ]}>
+          ]}
+          nestedScrollEnabled
+          keyboardShouldPersistTaps="handled"
+          showsVerticalScrollIndicator>
           {suggestions.map((item) => (
             <Pressable
               key={item.barcode || item.name}
@@ -97,7 +100,7 @@ export function ProductSearchDropdown({
               </View>
             </Pressable>
           ))}
-        </View>
+        </ScrollView>
       )}
     </View>
   );

@@ -1,4 +1,4 @@
-import { MissingEnvError, requireEnv } from '@/lib/env';
+import { env, isFlagEnabled, MissingEnvError, requireEnv } from '@/lib/env';
 
 describe('requireEnv', () => {
   it('gibt einen gesetzten Wert zurueck', () => {
@@ -62,6 +62,39 @@ describe('env.forceOnboarding', () => {
     expect(env.forceOnboarding).toBe(false);
 
     process.env.EXPO_PUBLIC_FORCE_ONBOARDING = undefined;
+    expect(env.forceOnboarding).toBe(false);
+  });
+});
+
+describe('isFlagEnabled', () => {
+  it.each([['true'], ['1'], ['TRUE'], ['  true  ']])('erkennt %s als eingeschaltet', (wert) => {
+    expect(isFlagEnabled(wert)).toBe(true);
+  });
+
+  it.each([['false'], ['0'], ['ja'], [''], [undefined], [null]])(
+    'behandelt %s als ausgeschaltet',
+    (wert) => {
+      expect(isFlagEnabled(wert as string | undefined | null)).toBe(false);
+    },
+  );
+});
+
+describe('env.devTools', () => {
+  const original = process.env.EXPO_PUBLIC_DEV_TOOLS;
+
+  afterEach(() => {
+    process.env.EXPO_PUBLIC_DEV_TOOLS = original;
+  });
+
+  it('ist ohne gesetzte Variable aus', () => {
+    process.env.EXPO_PUBLIC_DEV_TOOLS = undefined;
+    expect(env.devTools).toBe(false);
+  });
+
+  it('laesst sich unabhaengig vom Onboarding-Schalter einschalten', () => {
+    process.env.EXPO_PUBLIC_DEV_TOOLS = 'true';
+    process.env.EXPO_PUBLIC_FORCE_ONBOARDING = 'false';
+    expect(env.devTools).toBe(true);
     expect(env.forceOnboarding).toBe(false);
   });
 });

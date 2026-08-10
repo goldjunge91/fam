@@ -2,9 +2,10 @@ import { ALL_ENTITIES, ENTITIES, hasServerTombstone, metaOf } from '@/lib/db/ent
 import type { Entity } from '@/lib/db/types';
 
 describe('entities', () => {
-  it('kennt genau die vier Spiegeltabellen aus #45', () => {
+  it('kennt genau die fuenf Spiegeltabellen aus #45', () => {
     expect(ALL_ENTITIES).toEqual([
       'storage_locations',
+      'stores',
       'fridge_items',
       'shopping_list_items',
       'products',
@@ -14,6 +15,7 @@ describe('entities', () => {
   it('hasServerTombstone ist nur bei products false', () => {
     const expected: Record<Entity, boolean> = {
       storage_locations: true,
+      stores: true,
       fridge_items: true,
       shopping_list_items: true,
       products: false,
@@ -27,6 +29,7 @@ describe('entities', () => {
   it('householdScoped ist nur bei products false', () => {
     const expected: Record<Entity, boolean> = {
       storage_locations: true,
+      stores: true,
       fridge_items: true,
       shopping_list_items: true,
       products: false,

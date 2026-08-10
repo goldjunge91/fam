@@ -54,7 +54,10 @@ export function SignUpScreen() {
 
   if (pendingEmail) {
     return (
-      <Screen title="Konto aktivieren" subtitle="E-Mail-Bestätigung ausstehend">
+      <Screen
+        title="Konto aktivieren"
+        subtitle="E-Mail-Bestätigung ausstehend"
+        back={{ label: 'Anmelden', href: '/sign-in' }}>
         <PendingAuthBanner
           email={pendingEmail}
           password={password}
@@ -66,7 +69,10 @@ export function SignUpScreen() {
   }
 
   return (
-    <Screen title="Konto erstellen" subtitle="Für dich und deinen Haushalt">
+    <Screen
+      title="Konto erstellen"
+      subtitle="Für dich und deinen Haushalt"
+      back={{ label: 'Anmelden', href: '/sign-in' }}>
       <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : undefined}>
         <Card>
           <View style={styles.form}>

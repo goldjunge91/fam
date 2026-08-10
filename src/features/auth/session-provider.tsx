@@ -1,6 +1,7 @@
 import type { Session } from '@supabase/supabase-js';
 import { createContext, type ReactNode, use, useEffect, useState } from 'react';
 
+import { setActiveUserId } from '@/lib/db/client';
 import { getSupabase, startSupabaseAutoRefresh } from '@/lib/supabase';
 import { hasSeenOnboarding } from './onboarding-session';
 
@@ -62,6 +63,10 @@ export function SessionProvider({ children }: { children: ReactNode }) {
     Promise.all([supabase.auth.getSession(), hasSeenOnboarding()])
       .then(([{ data, error }, seenOnboarding]) => {
         if (!active) return;
+        // Vor setState: Das Re-Render kann Komponenten mounten, die sofort
+        // `getDatabase()` aufrufen. Stuende dort noch der vorige Nutzer, wuerde
+        // dieser erste Aufruf die Eigentumspruefung ueberspringen.
+        setActiveUserId(data.session?.user.id ?? null);
         setState({
           session: data.session,
           isLoading: false,
@@ -79,6 +84,7 @@ export function SessionProvider({ children }: { children: ReactNode }) {
       // Ab hier ist der Ladevorgang in jedem Fall abgeschlossen: Das Event
       // feuert auch bei SIGNED_OUT und TOKEN_REFRESHED.
       // seenOnboarding bleibt unveraendert (wurde bereits gelesen).
+      setActiveUserId(session?.user.id ?? null);
       setState((prev) => ({ ...prev, session, isLoading: false, error: null }));
     });
 

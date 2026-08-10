@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { ActivityIndicator, Modal, Pressable, StyleSheet, View } from 'react-native';
 
 import { Button } from '@/components/button';
@@ -41,9 +41,15 @@ export function BarcodeScannerModal({
   const [permission, requestPermission] = useCameraPermissionsHook();
   const [scanning, setScanning] = useState(false);
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
+  // Ref statt nur State: die Kamera feuert onBarcodeScanned pro erkanntem Frame,
+  // oft mehrfach bevor der scanning-State-Update im naechsten Render sichtbar
+  // wird. Ohne synchronen Guard rutschen mehrere Aufrufe durch und loesen
+  // mehrfache Navigation (mehrfach gestapeltes Modal) aus.
+  const scanningRef = useRef(false);
 
   async function handleBarcodeScanned({ data }: { data: string }) {
-    if (scanning || !data) return;
+    if (scanningRef.current || !data) return;
+    scanningRef.current = true;
     setScanning(true);
     setErrorMsg(null);
 
@@ -58,6 +64,7 @@ export function BarcodeScannerModal({
     } catch {
       setErrorMsg('Fehler beim Abrufen der Produktdaten.');
     } finally {
+      scanningRef.current = false;
       setScanning(false);
     }
   }
@@ -77,8 +84,8 @@ export function BarcodeScannerModal({
             <View style={styles.permissionBox}>
               <ThemedText style={{ textAlign: 'center' }} themeColor="textSecondary">
                 Der Kamera-Barcode-Scanner benötigt ein natives Build (`bun run ios` oder `bun run
-                android`). In Web/Expo Go kannst du Produkte direkt über die Live-Produktsuche
-                eingeben.
+                android`). Im Simulator (kein Kamerazugriff) oder ohne Kamera gib den Barcode
+                stattdessen direkt in die Suche ein.
               </ThemedText>
             </View>
           ) : !permission?.granted ? (

@@ -9,7 +9,7 @@ import { Screen } from '@/components/screen';
 import { TextField } from '@/components/text-field';
 import { ThemedText } from '@/components/themed-text';
 import { Spacing } from '@/constants/theme';
-import { useCreateHouseholdMutation } from '@/features/household/api';
+import { HOUSEHOLDS_QUERY_KEY, useCreateHouseholdMutation } from '@/features/household/api';
 
 export function CreateHouseholdScreen() {
   const [householdName, setHouseholdName] = useState('');
@@ -28,7 +28,7 @@ export function CreateHouseholdScreen() {
     setErrorMsg(null);
     try {
       await mutation.mutateAsync(trimmed);
-      await queryClient.refetchQueries({ queryKey: ['households'] });
+      await queryClient.refetchQueries({ queryKey: HOUSEHOLDS_QUERY_KEY });
       // Nach der Erstellung routen wir ins Dashboard.
       // Falls der Nutzer von der "Kein Haushalt"-Weiche kam, greift nun die App.
       router.replace('/');
@@ -42,7 +42,10 @@ export function CreateHouseholdScreen() {
   }
 
   return (
-    <Screen title="Haushalt erstellen" subtitle="Lade später deine Familie oder WG ein">
+    <Screen
+      title="Haushalt erstellen"
+      subtitle="Lade später deine Familie oder WG ein"
+      back={{ label: 'Haushalte' }}>
       <Card>
         <View style={styles.form}>
           <TextField

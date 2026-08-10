@@ -1,5 +1,7 @@
 import { MIGRATIONS } from '@/lib/db/migrations';
 import { runMigrations } from '@/lib/db/migrator';
+import { ensureDatabaseBelongsTo } from '@/lib/db/ownership';
+import { type SqlStatementDriver, serializeDatabase } from '@/lib/db/serialize';
 import type { SqlDatabase } from '@/lib/db/types';
 
 /**
@@ -38,18 +40,20 @@ function loadSQLite(): typeof import('expo-sqlite') {
 const DATABASE_NAME = 'fam.db';
 
 /**
- * Uebersetzt eine `SQLiteDatabase` in den Port.
+ * Uebersetzt eine `SQLiteDatabase` in die rohe Statement-Schicht.
  *
  * Noetig, weil `expo-sqlite` die Parameter als Pflichtargument fuehrt (und
  * zusaetzlich variadisch ueberlaedt), der Port sie aber optional macht. Ohne
  * diese duenne Schicht passt die Signatur nicht — und ein `as`-Cast wuerde die
  * Unstimmigkeit nur verstecken.
  *
- * Nebeneffekt, der uns entgegenkommt: Der Adapter reicht in
- * `withExclusiveTransactionAsync` das Transaktions-Handle weiter, sodass der
- * Aufrufer gar nicht erst versucht ist, auf das aeussere Handle zuzugreifen.
+ * Transaktionen fehlen hier bewusst: Die kommen aus `serialize.ts`, nicht von
+ * `expo-sqlite`. Dessen `withExclusiveTransactionAsync` oeffnet pro Aufruf eine
+ * eigene Connection und faehrt ein deferred `BEGIN` — die Kombination, die zu
+ * "database is locked" gefuehrt hat. Die Begruendung steht ausfuehrlich im Kopf
+ * von `serialize.ts`.
  */
-function toPort(db: import('expo-sqlite').SQLiteDatabase): SqlDatabase {
+function toDriver(db: import('expo-sqlite').SQLiteDatabase): SqlStatementDriver {
   return {
     execAsync: (source) => db.execAsync(source),
     runAsync: (source, params) => db.runAsync(source, [...(params ?? [])]),
@@ -57,8 +61,6 @@ function toPort(db: import('expo-sqlite').SQLiteDatabase): SqlDatabase {
       db.getAllAsync<T>(source, [...(params ?? [])]),
     getFirstAsync: <T>(source: string, params?: readonly (string | number | null)[]) =>
       db.getFirstAsync<T>(source, [...(params ?? [])]),
-    withExclusiveTransactionAsync: (task) =>
-      db.withExclusiveTransactionAsync((txn) => task(toPort(txn))),
   };
 }
 
@@ -66,16 +68,84 @@ let rawDatabase: import('expo-sqlite').SQLiteDatabase | null = null;
 let database: SqlDatabase | null = null;
 let opening: Promise<SqlDatabase> | null = null;
 
+/** Der zuletzt gemeldete angemeldete Nutzer. `null` = noch unbekannt oder abgemeldet. */
+let activeUserId: string | null = null;
+/** Fuer welche Nutzer-Id die geoeffnete Datei bereits geprueft wurde. */
+let checkedUserId: string | null = null;
+
+/**
+ * Meldet den angemeldeten Nutzer an die Datenbankschicht.
+ *
+ * Wird vom `SessionProvider` aufgerufen, und zwar **synchron vor** dessen
+ * `setState`: Sonst koennte eine Komponente durch das Re-Render schon
+ * `getDatabase()` aufrufen, waehrend hier noch der vorige Nutzer steht — und
+ * genau dieser Aufruf wuerde die Pruefung ueberspringen.
+ */
+export function setActiveUserId(userId: string | null): void {
+  activeUserId = userId;
+}
+
+/**
+ * Ist die geoeffnete Datei fuer den aktuell bekannten Nutzer freigegeben?
+ *
+ * Bei `activeUserId === null` gibt es nichts zu vergleichen — beim App-Start,
+ * bevor die Session gelesen ist, und nach dem Abmelden. Der Preis dafuer ist
+ * bewusst klein gehalten: In diesem Fenster laeuft nur die Outbox-Zaehlung des
+ * `SyncStatusBanner`, also eine Zahl, kein Inhalt. Sobald die Session da ist,
+ * prueft der naechste Aufruf.
+ */
+function isVerifiedForActiveUser(): boolean {
+  return activeUserId === null || checkedUserId === activeUserId;
+}
+
 async function open(): Promise<SqlDatabase> {
   const SQLite = loadSQLite();
   rawDatabase = await SQLite.openDatabaseAsync(DATABASE_NAME);
-  const db = toPort(rawDatabase);
+  const db = serializeDatabase(toDriver(rawDatabase));
 
   // WAL muss ausserhalb jeder Transaktion gesetzt werden — innerhalb lehnt
   // SQLite den Moduswechsel ab. Deshalb hier, vor den Migrationen.
   await db.execAsync('PRAGMA journal_mode = WAL');
 
+  // Netz fuer Connections, die uns nicht gehoeren: die Devtools-Registrierung
+  // von `expo-sqlite` im Dev-Build und WAL-Checkpoints. Die Zugriffe der App
+  // selbst laufen serialisiert ueber eine Connection und kollidieren nicht mehr
+  // (siehe `serialize.ts`) — dieser PRAGMA ersetzt das nicht, er sichert nur
+  // den Rest ab. Wert 5000, weil die UI alle 3 s pollt: kuerzer hiesse, mitten
+  // im normalen Takt aufzugeben.
+  await db.execAsync('PRAGMA busy_timeout = 5000');
+
   await runMigrations(db, MIGRATIONS);
+
+  return db;
+}
+
+/**
+ * Oeffnet — falls noetig — und prueft die Zugehoerigkeit zum angemeldeten Nutzer.
+ *
+ * Beides in einem Durchlauf, weil beides unter denselben Mutex gehoert: Ein
+ * Wipe mitten im Betrieb loescht die Datei, auf der ein paralleler Aufrufer
+ * gerade arbeiten wuerde.
+ */
+async function openAndVerify(): Promise<SqlDatabase> {
+  let db = database ?? (await open());
+  database = db;
+
+  const userId = activeUserId;
+  if (userId !== null && checkedUserId !== userId) {
+    db = await ensureDatabaseBelongsTo(db, userId, async () => {
+      // Nur schliessen und loeschen — `opening` bleibt stehen, denn wir sind
+      // gerade selbst dieses Promise. Wuerde es hier zurueckgesetzt, koennte
+      // ein zweiter Aufrufer daneben einen zweiten Oeffnungslauf starten.
+      await closeAndDeleteFile();
+      const fresh = await open();
+      database = fresh;
+      return fresh;
+    });
+
+    database = db;
+    checkedUserId = userId;
+  }
 
   return db;
 }
@@ -86,32 +156,38 @@ async function open(): Promise<SqlDatabase> {
  * Das `opening`-Promise ist kein Detail: Beim Start koennen mehrere Aufrufer
  * gleichzeitig hier landen, und zwei parallele Migrationslaeufe auf derselben
  * Datei enden in `database is locked`.
+ *
+ * Die Nutzerpruefung sitzt bewusst hier drin und nicht in einem Effekt weiter
+ * oben im Komponentenbaum: Der `SyncStatusBanner` haengt im Root-Layout und
+ * ruft `getDatabase()` unabhaengig von jedem Auth- oder Onboarding-Zustand auf.
+ * Ein Gate, das nur innerhalb von `(app)/_layout.tsx` sitzt, wuerde ihn
+ * strukturell uebersehen. So wartet jeder Aufrufer auf denselben Lauf.
  */
 export function getDatabase(): Promise<SqlDatabase> {
-  if (database) return Promise.resolve(database);
+  if (database && isVerifiedForActiveUser()) return Promise.resolve(database);
 
   if (!opening) {
-    opening = open()
-      .then((db) => {
-        database = db;
-        return db;
-      })
-      .finally(() => {
-        opening = null;
-      });
+    opening = openAndVerify().finally(() => {
+      opening = null;
+    });
   }
 
   return opening;
 }
 
 /**
- * Loescht die lokale Datenbank vollstaendig.
+ * Schliesst die Connection und loescht die Datei — ohne `opening` anzufassen.
  *
- * Beim Logout Pflicht, nicht Kosmetik: Ohne diesen Schritt saehe der naechste
- * Nutzer auf demselben Geraet den Kuehlschrank und die Einkaufsliste des
- * vorigen. Bei lokal persistierten Haushaltsdaten ist das ein Datenleck.
+ * Getrennt von `deleteLocalDatabase()`, weil der Wipe aus `openAndVerify()`
+ * heraus *innerhalb* des laufenden Oeffnungs-Promise passiert und es deshalb
+ * nicht zuruecksetzen darf.
+ *
+ * Das Schliessen ist nicht optional: `deleteDatabaseAsync` wirft, solange
+ * irgendeine Connection die Datei noch haelt ("Unable to delete database that
+ * is currently open"). Genau daran ist das Aufraeumen beim Logout bisher
+ * stillschweigend gescheitert, wenn eine Transaktion haengengeblieben war.
  */
-export async function deleteLocalDatabase(): Promise<void> {
+async function closeAndDeleteFile(): Promise<void> {
   const SQLite = loadSQLite();
 
   if (rawDatabase) {
@@ -124,7 +200,6 @@ export async function deleteLocalDatabase(): Promise<void> {
   }
 
   database = null;
-  opening = null;
 
   try {
     await SQLite.deleteDatabaseAsync(DATABASE_NAME);
@@ -134,32 +209,18 @@ export async function deleteLocalDatabase(): Promise<void> {
 }
 
 /**
- * Stellt sicher, dass die lokale Datenbank zum angemeldeten Nutzer gehoert.
+ * Loescht die lokale Datenbank vollstaendig.
  *
- * Meldet sich auf demselben Geraet ein anderer Nutzer an, wird alles Lokale
- * verworfen und neu aufgebaut. Zweite Verteidigungslinie hinter dem Logout:
- * Ein abgebrochener oder fehlgeschlagener Logout darf nicht dazu fuehren, dass
- * fremde Haushaltsdaten stehen bleiben.
+ * Beim Logout Pflicht, nicht Kosmetik: Ohne diesen Schritt saehe der naechste
+ * Nutzer auf demselben Geraet den Kuehlschrank und die Einkaufsliste des
+ * vorigen. Bei lokal persistierten Haushaltsdaten ist das ein Datenleck.
  */
-export async function ensureDatabaseBelongsTo(userId: string): Promise<SqlDatabase> {
-  let db = await getDatabase();
+export async function deleteLocalDatabase(): Promise<void> {
+  await closeAndDeleteFile();
 
-  const row = await db.getFirstAsync<{ value: string }>(
-    'select value from app_meta where key = ?',
-    ['user_id'],
-  );
-
-  if (row?.value === userId) return db;
-
-  if (row?.value !== undefined && row.value !== userId) {
-    await deleteLocalDatabase();
-    db = await getDatabase();
-  }
-
-  await db.runAsync('insert or replace into app_meta (key, value) values (?, ?)', [
-    'user_id',
-    userId,
-  ]);
-
-  return db;
+  opening = null;
+  // Die naechste geoeffnete Datei muss neu geprueft werden. Ohne das Zuruecksetzen
+  // wuerde eine spaeter erneut angelegte Datenbank als "fuer diesen Nutzer schon
+  // geprueft" gelten.
+  checkedUserId = null;
 }

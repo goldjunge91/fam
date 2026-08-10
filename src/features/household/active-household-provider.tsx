@@ -1,6 +1,15 @@
 import type React from 'react';
-import { createContext, useCallback, useContext, useEffect, useMemo, useState } from 'react';
+import {
+  createContext,
+  useCallback,
+  useContext,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from 'react';
 
+import { useSession } from '@/features/auth/session-provider';
 import { useHouseholds } from '@/features/household/api';
 import type { Database } from '@/lib/database.types';
 import { getStoredActiveHouseholdId, setStoredActiveHouseholdId } from './active-household-store';
@@ -12,15 +21,33 @@ interface ActiveHouseholdContextType {
   activeHousehold: Household | null;
   households: Household[];
   isLoading: boolean;
+  /** Der Haushalts-Request ist fehlgeschlagen — siehe Kommentar in `app-entry.ts`. */
+  isError: boolean;
   setActiveHouseholdId: (id: string) => Promise<void>;
 }
 
 const ActiveHouseholdContext = createContext<ActiveHouseholdContextType | undefined>(undefined);
 
 export function ActiveHouseholdProvider({ children }: { children: React.ReactNode }) {
-  const { data: households = [], isLoading, isFetching } = useHouseholds();
+  const { session } = useSession();
+  const userId = session?.user.id ?? null;
+  const { data: households = [], isLoading, isFetching, isError, refetch } = useHouseholds();
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [isStoreLoaded, setIsStoreLoaded] = useState(false);
+
+  // Selbstheilung: Ein fehlgeschlagener Kaltstart-Request (z.B. Simulator-
+  // Netzwerkstack noch nicht bereit) darf nicht auf Dauer im "warten"-Zustand
+  // haengen bleiben. `useQuery`s eingebautes `retry` versucht es nur beim
+  // ersten Fetch; ist der einmal fehlgeschlagen, wuerde ohne diesen Effekt nie
+  // wieder automatisch nachgefragt. Das Intervall stoppt sich selbst, sobald
+  // `isError` durch einen erfolgreichen Refetch wieder `false` wird.
+  useEffect(() => {
+    if (!isError) return;
+    const interval = setInterval(() => {
+      refetch();
+    }, 3000);
+    return () => clearInterval(interval);
+  }, [isError, refetch]);
 
   useEffect(() => {
     getStoredActiveHouseholdId().then((storedId) => {
@@ -30,6 +57,29 @@ export function ActiveHouseholdProvider({ children }: { children: React.ReactNod
       setIsStoreLoaded(true);
     });
   }, []);
+
+  /**
+   * Verwirft die Auswahl, sobald ein anderer Nutzer angemeldet ist.
+   *
+   * Dieser Provider haengt im Root-Layout und wird bei An- und Abmeldung nie
+   * neu gemountet — `selectedId` wuerde also den Nutzerwechsel ueberleben. Bis
+   * der Fix an `useHouseholds()` griff, war das eine der Stellen, ueber die der
+   * Haushalt des Vornutzers beim neuen Nutzer wieder auftauchte.
+   *
+   * Bewusst nur bei einem Wechsel *weg von* einer bekannten Nutzer-Id: Der
+   * Uebergang `null → userId` ist der normale Kaltstart, und dort darf die
+   * gerade aus dem Speicher gelesene Auswahl nicht weggeworfen werden.
+   */
+  const previousUserIdRef = useRef<string | null>(null);
+  useEffect(() => {
+    const previousUserId = previousUserIdRef.current;
+    previousUserIdRef.current = userId;
+
+    if (previousUserId === null || previousUserId === userId) return;
+
+    setSelectedId(null);
+    setStoredActiveHouseholdId(null);
+  }, [userId]);
 
   // Wähle den aktiven Haushalt aus der geladenen Liste (mit Fallback auf den ersten)
   const activeHousehold = useMemo(() => {
@@ -62,6 +112,7 @@ export function ActiveHouseholdProvider({ children }: { children: React.ReactNod
       activeHousehold,
       households,
       isLoading: isLoading || isFetching || !isStoreLoaded,
+      isError,
       setActiveHouseholdId: handleSetActiveHouseholdId,
     }),
     [
@@ -71,6 +122,7 @@ export function ActiveHouseholdProvider({ children }: { children: React.ReactNod
       isLoading,
       isFetching,
       isStoreLoaded,
+      isError,
       handleSetActiveHouseholdId,
     ],
   );

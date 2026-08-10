@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { Animated, Easing, StyleSheet, View } from 'react-native';
 
 import { Button } from '@/components/button';
@@ -44,6 +44,39 @@ export function PendingAuthBanner({
   const [codeError, setCodeError] = useState<string | null>(null);
   const [confirming, setConfirming] = useState(false);
   const [recovering, setRecovering] = useState(false);
+
+  /**
+   * `onConfirmed` darf genau einmal feuern.
+   *
+   * Drei Quellen melden die Bestaetigung unabhaengig voneinander: der
+   * 3s-Session-Poll, der `onAuthStateChange`-Listener und der 15s-Server-Poll.
+   * Ein erfolgreicher `signIn` im Server-Poll loest zwei davon gleichzeitig aus
+   * — der Listener feuert, weil eine Session entstanden ist, und der Poll ruft
+   * danach selbst auf.
+   *
+   * In `account-step.tsx` ist `onConfirmed` das `onNext` des Wizards, das genau
+   * einen Schritt weiterschaltet: Ein zweiter Aufruf ueberspringt einen Schritt.
+   *
+   * `confirmOnce` haelt bewusst eine leere Dependency-Liste und ruft
+   * `onConfirmed` ueber eine Ref auf. Die Aufrufer uebergeben teils eine
+   * Inline-Funktion (`onConfirmed={() => router.replace('/onboarding')}` in
+   * sign-up-screen.tsx), die bei jedem Render eine neue Identitaet bekommt.
+   * Haenge man `confirmOnce` direkt daran, wechselte auch dessen Identitaet
+   * staendig — und mit ihr die der Effekte weiter unten, die dann in einer
+   * Dauerschleife aus Auf- und Abbau landen: Intervalle und der
+   * onAuthStateChange-Listener wuerden pro Render neu registriert, und die
+   * Komponente kaeme nie zur Ruhe.
+   */
+  const confirmedRef = useRef(false);
+  const onConfirmedRef = useRef(onConfirmed);
+  useEffect(() => {
+    onConfirmedRef.current = onConfirmed;
+  });
+  const confirmOnce = useCallback(() => {
+    if (confirmedRef.current) return;
+    confirmedRef.current = true;
+    onConfirmedRef.current();
+  }, []);
 
   // Pulse animations for Liquid Ring & Live Indicator
   const pulseAnim = useRef(new Animated.Value(1)).current;
@@ -136,7 +169,7 @@ export function PendingAuthBanner({
     async function checkExistingSession() {
       try {
         const { data } = await getSupabase().auth.getSession();
-        if (data.session && active) onConfirmed();
+        if (data.session && active) confirmOnce();
       } catch {
         // Silent catch during polling
       }
@@ -146,7 +179,7 @@ export function PendingAuthBanner({
 
     const { data: sub } = getSupabase().auth.onAuthStateChange((_event, session) => {
       if (session && active) {
-        onConfirmed();
+        confirmOnce();
       }
     });
 
@@ -155,7 +188,7 @@ export function PendingAuthBanner({
       clearInterval(interval);
       sub.subscription.unsubscribe();
     };
-  }, [onConfirmed]);
+  }, [confirmOnce]);
 
   // Bestaetigung von einem BELIEBIGEN Geraet aus.
   //
@@ -172,9 +205,14 @@ export function PendingAuthBanner({
   // ohne `email_confirmed_at` wird die Session verworfen und sofort wieder
   // abgemeldet. Geprueft wird also die Eigenschaft, nicht das Verfahren.
   //
-  // Intervall 10s und nicht 3s wegen `[auth.rate_limit] sign_in_sign_ups = 30`
-  // pro 5 Minuten und IP (config.toml): schnelleres Pollen wuerde das Kontingent
-  // aufbrauchen und echte Anmeldeversuche mit blockieren.
+  // Intervall 15s wegen `[auth.rate_limit] sign_in_sign_ups = 30` pro 5 Minuten
+  // und **IP** (config.toml). Ein fehlgeschlagener Versuch zaehlt genauso mit
+  // wie ein erfolgreicher, das Kontingent ist also schlicht die Anzahl Anfragen.
+  //
+  // 10s waeren exakt 30 Anfragen pro 5 Minuten — das gesamte Kontingent, ohne
+  // jeden Spielraum: Der "Jetzt pruefen"-Knopf, ein zweites Geraet hinter
+  // derselben NAT (Haushalt, Buero) oder ein paralleler Anmeldeversuch liefen
+  // sofort in ein 429. 15s sind 20 Anfragen und lassen ein Drittel frei.
   useEffect(() => {
     if (!password) return;
     let active = true;
@@ -189,18 +227,18 @@ export function PendingAuthBanner({
           return;
         }
 
-        onConfirmed();
+        confirmOnce();
       } catch {
         // Netzwerkaussetzer beim Pollen sind kein Fehler, den der Nutzer sehen muss.
       }
     }
 
-    const interval = setInterval(checkConfirmedOnServer, 10_000);
+    const interval = setInterval(checkConfirmedOnServer, 15_000);
     return () => {
       active = false;
       clearInterval(interval);
     };
-  }, [email, password, onConfirmed]);
+  }, [email, password, confirmOnce]);
 
   /** Der verlaessliche Weg: 6-stelliger Code aus der Mail. */
   async function handleConfirmCode() {
@@ -228,7 +266,7 @@ export function PendingAuthBanner({
       return;
     }
 
-    onConfirmed();
+    confirmOnce();
   }
 
   /**
@@ -266,7 +304,7 @@ export function PendingAuthBanner({
 
     setRecovering(false);
     clearAuthDeepLinkError();
-    onConfirmed();
+    confirmOnce();
   }
 
   async function handleResend() {

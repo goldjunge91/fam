@@ -7,6 +7,9 @@ import { ProgressRing } from '@/components/progress-ring';
 import { Screen } from '@/components/screen';
 import { ThemedText } from '@/components/themed-text';
 import { Spacing } from '@/constants/theme';
+import { useSession } from '@/features/auth/session-provider';
+import { useCurrentGoal, useFoodEntries } from '@/features/calorie-tracking/api';
+import { calculateDailyTotals } from '@/features/calorie-tracking/daily-totals';
 import { getExpiryInfo } from '@/features/fridge/expiry';
 import { useExpiryNotifications } from '@/features/fridge/use-expiry-notifications';
 import { type LocalFridgeItem, useFridgeItems } from '@/features/fridge/use-fridge-items';
@@ -15,9 +18,17 @@ import { useActiveHousehold } from '@/features/household/active-household-provid
 import { useAddShoppingItem } from '@/features/shopping-list/use-shopping-list-mutations';
 import { useTheme } from '@/hooks/use-theme';
 
+function toIsoDate(date: Date): string {
+  const y = date.getFullYear();
+  const m = String(date.getMonth() + 1).padStart(2, '0');
+  const d = String(date.getDate()).padStart(2, '0');
+  return `${y}-${m}-${d}`;
+}
+
 export function DashboardScreen() {
   const theme = useTheme();
-  const heute = new Date().toLocaleDateString('de-DE', {
+  const now = new Date();
+  const heute = now.toLocaleDateString('de-DE', {
     weekday: 'long',
     day: 'numeric',
     month: 'long',
@@ -33,12 +44,23 @@ export function DashboardScreen() {
   // Hintergrund-Benachrichtigungen aktivieren/synchronisieren
   useExpiryNotifications(householdId);
 
-  // Platzhalter bis #87 (Tagessummen) und #84 (Ziele) angebunden sind.
-  const aufgenommen = 0;
-  const ziel = 0;
+  const { session } = useSession();
+  const userId = session?.user.id;
+  const todayIso = toIsoDate(now);
+  const { data: currentGoal } = useCurrentGoal(userId);
+  const { data: todayEntries = [] } = useFoodEntries(userId, todayIso);
+  const totals = calculateDailyTotals(
+    todayEntries.map((e) => ({
+      kcal: e.kcal,
+      proteinG: e.protein_g,
+      carbsG: e.carbs_g,
+      fatG: e.fat_g,
+    })),
+  );
+  const aufgenommen = totals.kcal;
+  const ziel = currentGoal?.daily_kcal ?? 0;
 
   // Filtere ablaufende / abgelaufene Produkte (in <= 3 Tagen oder bereits abgelaufen)
-  const now = new Date();
   const expiringItems = fridgeItems
     .filter((item) => {
       if (!item.expiry_date) return false;
@@ -89,17 +111,21 @@ export function DashboardScreen() {
         <ProgressRing value={aufgenommen} target={ziel} label="Kalorien" />
         {ziel === 0 ? (
           <ThemedText type="small" themeColor="textSecondary" style={styles.centered}>
-            Noch kein Kalorienziel gesetzt. Lege es im Profil an, damit hier ein Fortschritt
-            erscheint.
+            Noch kein Kalorienziel gesetzt. Lege es unter Einstellungen an, damit hier ein
+            Fortschritt erscheint.
           </ThemedText>
         ) : null}
       </Card>
 
       <Card title="Makronährstoffe">
         <View style={styles.macros}>
-          <MacroBar label="Eiweiß" value={0} target={0} />
-          <MacroBar label="Kohlenhydrate" value={0} target={0} />
-          <MacroBar label="Fett" value={0} target={0} />
+          <MacroBar label="Eiweiß" value={totals.proteinG} target={currentGoal?.protein_g ?? 0} />
+          <MacroBar
+            label="Kohlenhydrate"
+            value={totals.carbsG}
+            target={currentGoal?.carbs_g ?? 0}
+          />
+          <MacroBar label="Fett" value={totals.fatG} target={currentGoal?.fat_g ?? 0} />
         </View>
       </Card>
 

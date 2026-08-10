@@ -1,6 +1,7 @@
 import type { QueryClient } from '@tanstack/react-query';
 
 import { signOut } from '@/features/auth/api';
+import { setStoredActiveHouseholdId } from '@/features/household/active-household-store';
 import { deleteLocalDatabase } from '@/lib/db/client';
 
 /**
@@ -24,7 +25,16 @@ export async function signOutAndClearLocalData(queryClient: QueryClient): Promis
   //
   // Der Query-Cache dagegen bleibt ohne diesen Aufruf bestehen und wuerde dem
   // naechsten Nutzer die Daten des vorigen zeigen.
-  queryClient.clear();
+  //
+  // `resetQueries()` und nicht `clear()`: `clear()` wirft die Eintraege aus dem
+  // Cache, benachrichtigt die bereits gemounteten Observer aber nicht. Die
+  // liefern danach unveraendert die Daten des Vornutzers aus — und weil ihre
+  // Query nicht mehr im Cache liegt, trifft sie auch keine spaetere
+  // `invalidateQueries` mehr. Genau so kam der alte Haushalt beim neuen Nutzer
+  // wieder auf den Schirm (#-Fix Cross-Account-Datenleck). `resetQueries()`
+  // laesst die Observer angebunden und setzt sie auf den Initialzustand
+  // zurueck.
+  await queryClient.resetQueries();
 
   // Seit Epic 2 liegen Kuehlschrank und Einkaufsliste lokal in SQLite. Bleibt
   // die Datei stehen, sieht der naechste Nutzer auf demselben Geraet die Daten
@@ -38,6 +48,15 @@ export async function signOutAndClearLocalData(queryClient: QueryClient): Promis
     await deleteLocalDatabase();
   } catch (cleanupError) {
     console.warn('[auth] lokale Datenbank nicht geloescht:', (cleanupError as Error).message);
+  }
+
+  // Eigener try, bewusst nicht im selben Block wie das Loeschen oben: Scheitert
+  // das Loeschen der Datenbank, muss die gemerkte Haushalts-Id trotzdem weg.
+  // Sonst startet der naechste Nutzer mit der Auswahl des vorigen.
+  try {
+    await setStoredActiveHouseholdId(null);
+  } catch (cleanupError) {
+    console.warn('[auth] aktiver Haushalt nicht zurueckgesetzt:', (cleanupError as Error).message);
   }
 
   return { error: null };

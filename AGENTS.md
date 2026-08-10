@@ -2,6 +2,16 @@
 
 Read the exact versioned docs at https://docs.expo.dev/versions/v57.0.0/ before writing any code.
 
+# React Native Testing Library in this project
+
+This project uses `@testing-library/react-native`. Its APIs and testing conventions can differ from your training data.
+Before writing or changing RNTL tests, read the relevant guide in
+`node_modules/@testing-library/react-native/docs/`, starting with
+`node_modules/@testing-library/react-native/docs/guides/llm-guidelines.md`.
+Prefer those package docs over stale assumptions, and follow deprecation notices.
+also make sure to read `.agents/rules/react-native-testing-library.md` for react native testing library rules and guidelines.
+
+
 # Datenbank: ausschliesslich Declarative Schema
 
 **Migrationsdateien unter `supabase/migrations/` werden niemals von Hand
@@ -53,12 +63,12 @@ Quelle: [Known caveats](https://supabase.com/docs/guides/local-development/decla
 `create policy` **wird** erfasst — die verbreitete Aussage "RLS wird nicht
 gediffed" ist zu pauschal. Offen bleiben:
 
-| Objekt | Konsequenz fuer dieses Projekt |
-|---|---|
-| `alter policy` (Umbenennen) | Policies nie umbenennen — immer `drop` + `create` |
-| `alter publication … add table` | trifft #44 (Realtime) |
-| DML (`insert`/`update`/`delete`) | trifft Seed-Daten → `supabase/seed.sql` |
-| Materialized Views, View-Ownership | bisher nicht verwendet |
+| Objekt                             | Konsequenz fuer dieses Projekt                    |
+| ---------------------------------- | ------------------------------------------------- |
+| `alter policy` (Umbenennen)        | Policies nie umbenennen — immer `drop` + `create` |
+| `alter publication … add table`    | trifft #44 (Realtime)                             |
+| DML (`insert`/`update`/`delete`)   | trifft Seed-Daten → `supabase/seed.sql`           |
+| Materialized Views, View-Ownership | bisher nicht verwendet                            |
 
 ### Nach jeder Schemaaenderung
 
