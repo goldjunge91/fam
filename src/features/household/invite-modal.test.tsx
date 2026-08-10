@@ -46,6 +46,10 @@ jest.mock('@/hooks/use-theme', () => ({
 }));
 
 describe('InviteModal & QR Code Component', () => {
+  beforeEach(() => {
+    jest.clearAllMocks();
+  });
+
   it('sollte Einladungs-Modal und aktive Einladungen rendern', async () => {
     await render(
       <InviteModal
@@ -56,16 +60,8 @@ describe('InviteModal & QR Code Component', () => {
       />,
     );
 
-    expect(screen.getByText('Mitglied einladen')).toBeTruthy();
-    expect(screen.getByText('token-abc-123')).toBeTruthy();
-  });
-
-  it('sollte QR-Code Payload-Formatierung korrekt durchführen', () => {
-    const token = 'token-abc-123';
-    const qrPayload = `fam://join?token=${token}`;
-
-    expect(qrPayload).toBe('fam://join?token=token-abc-123');
-    expect(qrPayload).toContain('fam://join');
+    expect(screen.getByText('Mitglied einladen')).toBeOnTheScreen();
+    expect(screen.getByText('token-abc-123')).toBeOnTheScreen();
   });
 
   it('sollte nach Erstellung eines neuen Tokens den QR-Code anzeigen und Umschalt-Button rendern', async () => {
