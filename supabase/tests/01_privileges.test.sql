@@ -69,6 +69,13 @@ select throws_ok(
   'anon wird beim direkten Aufruf von private.is_household_member per SQLSTATE 42501 abgeblockt'
 );
 
+-- Zurueck zu einer Rolle mit USAGE auf `private`: die folgenden Checks
+-- muessen `private.is_household_member(uuid)` zu einem regprocedure
+-- aufloesen koennen, was als `anon` schon am fehlenden Schema-USAGE
+-- scheitert (SQLSTATE 42501, aber "permission denied for schema private"
+-- statt eines von throws_ok gefangenen Funktionsaufrufs).
+select tests.as_postgres();
+
 -- ------------------------------------------------------------- Gegenprobe
 -- Ohne diese Rechte scheitert JEDE Query mit
 -- "permission denied for function is_household_member". Der Test verhindert,
