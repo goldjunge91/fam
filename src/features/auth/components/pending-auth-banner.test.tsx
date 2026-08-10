@@ -117,10 +117,39 @@ describe('PendingAuthBanner (Apple Liquid UI)', () => {
           onConfirmed={onConfirmedMock}
         />,
       );
-      await jest.advanceTimersByTimeAsync(10_000);
+      await jest.advanceTimersByTimeAsync(15_000);
 
       expect(signIn).toHaveBeenCalledWith('test@example.com', 'geheim-genug');
       expect(onConfirmedMock).toHaveBeenCalled();
+
+      jest.useRealTimers();
+    });
+
+    it('sollte onConfirmed genau einmal auslösen, auch wenn mehrere Quellen melden', async () => {
+      // Der Poll meldet die Bestaetigung, und weil signIn eine Session anlegt,
+      // feuert zusaetzlich onAuthStateChange — dazu laeuft alle 3s der
+      // getSession-Poll. In account-step.tsx ist onConfirmed das `onNext` des
+      // Wizards: Jeder Aufruf zu viel ueberspringt einen Schritt.
+      const { signIn } = require('@/features/auth/api');
+      signIn.mockResolvedValue({
+        data: { session: { user: { email_confirmed_at: '2026-08-09T06:07:57Z' } } },
+        error: null,
+      });
+      const onConfirmedMock = jest.fn();
+
+      jest.useFakeTimers();
+
+      await render(
+        <PendingAuthBanner
+          email="test@example.com"
+          password="geheim-genug"
+          onConfirmed={onConfirmedMock}
+        />,
+      );
+      // Lange genug fuer mehrere Durchlaeufe beider Poll-Intervalle.
+      await jest.advanceTimersByTimeAsync(90_000);
+
+      expect(onConfirmedMock).toHaveBeenCalledTimes(1);
 
       jest.useRealTimers();
     });
@@ -171,7 +200,7 @@ describe('PendingAuthBanner (Apple Liquid UI)', () => {
           onConfirmed={onConfirmedMock}
         />,
       );
-      await jest.advanceTimersByTimeAsync(10_000);
+      await jest.advanceTimersByTimeAsync(15_000);
 
       expect(signOut).toHaveBeenCalled();
       expect(onConfirmedMock).not.toHaveBeenCalled();
@@ -200,7 +229,7 @@ describe('PendingAuthBanner (Apple Liquid UI)', () => {
       );
       await jest.advanceTimersByTimeAsync(5 * 60_000);
 
-      expect(signIn.mock.calls.length).toBeLessThanOrEqual(30);
+      expect(signIn.mock.calls.length).toBeLessThan(30);
 
       jest.useRealTimers();
     });
