@@ -120,6 +120,12 @@ export function SettingsScreen() {
             label="Synchronisation"
             value={sync.short}
             onPress={() => router.push('/settings/sync')}
+          />
+          <SettingsRow
+            icon="🧩"
+            label="Module"
+            hint="Vorrat, Einkauf, Tagebuch, Rezepte"
+            onPress={() => router.push('/settings/modules')}
             last
           />
         </SettingsGroup>

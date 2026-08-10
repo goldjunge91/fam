@@ -437,6 +437,10 @@ export type Database = {
           display_name: string | null
           height_cm: number | null
           id: string
+          module_calories: boolean
+          module_fridge: boolean
+          module_recipes: boolean
+          module_shopping_list: boolean
           onboarding_completed_at: string | null
           sex: string | null
           updated_at: string
@@ -449,6 +453,10 @@ export type Database = {
           display_name?: string | null
           height_cm?: number | null
           id: string
+          module_calories?: boolean
+          module_fridge?: boolean
+          module_recipes?: boolean
+          module_shopping_list?: boolean
           onboarding_completed_at?: string | null
           sex?: string | null
           updated_at?: string
@@ -461,6 +469,10 @@ export type Database = {
           display_name?: string | null
           height_cm?: number | null
           id?: string
+          module_calories?: boolean
+          module_fridge?: boolean
+          module_recipes?: boolean
+          module_shopping_list?: boolean
           onboarding_completed_at?: string | null
           sex?: string | null
           updated_at?: string

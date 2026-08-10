@@ -110,16 +110,16 @@
 | #87 | Tagessummen und Restkalorien | ✅ |
 | #88 | Datumsnavigation im Tagebuch | ✅ |
 
-### Epic 8 — Dashboard & Navigation (🔴 OPEN #9)
+### Epic 8 — Dashboard & Navigation (✅ Fertig)
 | # | Issue | Status |
 |---|-------|--------|
-| #89 | Tab-Struktur erweitern | 🔴 OPEN |
-| #90 | Template-Screens durch echte Screens ersetzen | 🔴 OPEN |
-| #91 | Animierter Kalorien-Fortschrittsring | 🔴 OPEN |
-| #92 | Makro-Fortschrittsbalken | 🔴 OPEN |
-| #93 | Dashboard-Tagesübersicht | 🔴 OPEN |
-| #94 | Profil- und Einstellungs-Screen | 🔴 OPEN |
-| #95 | Modul-Aktivierung (Feature-Flags) | 🔴 OPEN |
+| #89 | Tab-Struktur erweitern | ✅ (tote profile-screen.tsx entfernt, Web-Tabs an native 6 Tabs angeglichen) |
+| #90 | Template-Screens durch echte Screens ersetzen | ✅ (bewusst nur Aufräumen — Rezept-CRUD ist Zukunfts-Epic #12) |
+| #91 | Animierter Kalorien-Fortschrittsring | ✅ (schon seit Welle 6) |
+| #92 | Makro-Fortschrittsbalken | ✅ (schon seit Welle 6) |
+| #93 | Dashboard-Tagesübersicht | ✅ (Dashboard zeigt Ring+Makros+Ablauf-Widget bereits auf einer Seite) |
+| #94 | Profil- und Einstellungs-Screen | ✅ (settings-screen.tsx ist der Account-Hub, doppelter profile-screen.tsx entfernt) |
+| #95 | Modul-Aktivierung (Feature-Flags) | ✅ (neue profiles-Spalten, /settings/modules, ModuleGate) |
 
 ### Epic 9 — Datenschutz & Compliance (🔴 OPEN #10)
 | # | Issue | Status |
@@ -160,30 +160,29 @@
 - `inventory/` — fertig (Add-Item, Barcode-Scanner, Produktsuche/-detail, Lagerorte)
 - `dashboard/` — fertig (Ablauf-Widget, Kalorienring und Makro-Balken an echte Daten aus Welle 6 angebunden)
 - `calorie-tracking/` — fertig (Grundumsatz/TDEE/Makro-Presets als reine Funktionen, Ziel-Setup-Screen, Tagebuch-Screen mit CRUD/Tagessummen/Datumsnavigation)
-- `onboarding/` — fertig
-- `profile/` — Gerüst
-- `recipes/` — Gerüst
-- `settings/` — Gerüst
+- `onboarding/` — fertig (inkl. Modul-Auswahl, jetzt tatsächlich persistiert — #95)
+- `recipes/` — Gerüst (bewusst so belassen, echter Rezept-Builder ist Zukunfts-Epic #12), hinter `ModuleGate` erreichbar
+- `settings/` — fertig (Verzeichnis mit Unterseiten, inkl. `/settings/modules` für #95)
 - `shopping-list/` — fertig (Screen, Add-Item-Form, Complete-Run-Sheet, `shopping_history`)
+
+`profile/` wurde entfernt — war ein nirgends verlinkter Duplikat-Screen von
+`settings-screen.tsx` (Bereinigung im Rahmen von #89/#94).
 
 ### App-Routen (`src/app/`)
 - `(auth)/` — Login, Register
-- `(app)/` — fridge, index, profile, recipes, settings, shopping-list, diary
+- `(app)/` — fridge, index, recipes, settings, shopping-list, diary (alle vier
+  Modul-Tabs hinter `ModuleGate`)
 - `household/` — storage-locations
-- `settings/` — profile, sync-debug, goals
+- `settings/` — profile, sync-debug, goals, modules
 - `onboarding.tsx`, `add-item.tsx`, `add-food-entry.tsx`
 
 ---
 
 ## 🎯 Empfohlene nächste Schritte
 
-**Als nächstes sinnvoll (Epic 8 — Dashboard & Navigation):**
-- `#89-90` Tab-Struktur/Template-Screens fertigstellen (Recipes/Settings sind
-  noch echte Gerüste)
-- `#91-93` Fortschrittsring/Makro-Balken/Tagesübersicht — Grundlage aus Welle 6
-  (Ziel + Tagessummen) steht jetzt; `#91`/`#92` sind als `ProgressRing`/
-  `MacroBar`-Komponenten bereits gebaut und im Dashboard/Tagebuch verdrahtet,
-  `#93` (eigene Tagesübersicht-Zusammenfassung) offen
+**Epic 8 (Dashboard & Navigation) ist fertig.** Sinnvoller nächster Schritt:
+Gate D (`#70`, Zwei-Geräte-Sync-Verifikation) nachholen, oder Epic 9
+(Datenschutz & Compliance, `#96-99`).
 
 **Nachzügler aus Welle 2/5:** erledigt — Realtime-Bridge (#48) und
 Netzwerk-/Hintergrund-Trigger (#50) sind an `(app)/_layout.tsx` angeschlossen.

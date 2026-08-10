@@ -23,7 +23,7 @@ Alle Issues: <https://github.com/goldjunge91/fam/issues>
 | 5 | Kühlschrank + Einkaufsliste | ✅ Code fertig (#67–69, #71–73); **D offen** | **D** — 2-Geräte-Sync, blockiert auf #48-Verdrahtung (s.u.) |
 | P | Lebensmittel-DB | ✅ weitgehend fertig (#74–78, #80); #79 offen (Voraussetzung #86 jetzt erfüllt) | — |
 | 6 | Kalorien & Tagebuch | ✅ Fertig (#81–#88: Rechenkern, Ziel-Setup, Tagebuch-Screen samt CRUD/Tagessummen/Datumsnavigation, Dashboard-Anschluss) | — |
-| 7 | Dashboard & Navigation | 🟡 Teilweise (Dashboard zeigt Ablauf-Widget/#73 sowie jetzt Kalorien/Makros aus Welle 6); #89–#95 (Tab-Struktur, Template-Screens, Profil/Einstellungen, Modul-Aktivierung) offen | — |
+| 7 | Dashboard & Navigation | ✅ Fertig (#89–#95: Navigation aufgeräumt, Modul-Aktivierung inkl. neuer `profiles`-Spalten, Rezepte-Platzhalter bewusst nicht zum Rezept-Builder ausgebaut — das ist Zukunfts-Epic #12) | — |
 | 8 | Datenschutz | 🔴 Offen | MVP fertig |
 
 **Sync-Engine-Nachzügler:** Die App synct aktiv, aber nur poll-basiert (alle 20s

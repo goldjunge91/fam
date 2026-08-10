@@ -4,6 +4,7 @@ import { updateProfile } from '@/features/auth/api';
 import { persistOnboardingCompleted } from '@/features/auth/onboarding-session';
 import { useSession } from '@/features/auth/session-provider';
 import { HOUSEHOLDS_QUERY_KEY } from '@/features/household/api';
+import { saveModulePreferences } from '@/features/settings/module-preferences';
 import { getSupabase } from '@/lib/supabase';
 import type {
   HouseholdOnboardingData,
@@ -111,6 +112,17 @@ export function OnboardingProvider({ children }: { children: ReactNode }) {
           setIsLoading(false);
           return false;
         }
+      }
+
+      // 1b. Modul-Auswahl speichern (#95) — anders als der Profil-Block oben
+      // immer, da state.modules ueber den Default-State immer alle vier Keys
+      // traegt (nie "leer"). Ohne diesen Aufruf verwirft completeOnboarding
+      // die Auswahl aus ModuleSelectorForm bisher stillschweigend.
+      const { error: modulesErr } = await saveModulePreferences(session.user.id, state.modules);
+      if (modulesErr) {
+        setError(modulesErr.message);
+        setIsLoading(false);
+        return false;
       }
 
       // 2. Failsafe Household-Prüfung: Stellt sicher, dass der Nutzer in der DB mindestens einem Haushalt angehört
