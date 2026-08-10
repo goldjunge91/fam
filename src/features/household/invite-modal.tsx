@@ -13,6 +13,7 @@ import {
   useHouseholdInvites,
   useRevokeInviteMutation,
 } from '@/features/household/api';
+import { formatInviteUrl } from '@/features/household/household-helpers';
 import { useTheme } from '@/hooks/use-theme';
 
 interface InviteModalProps {
@@ -65,7 +66,7 @@ export function InviteModal({ visible, householdId, householdName, onClose }: In
   }
 
   async function handleCopyLink(token: string) {
-    const inviteUrl = `fam://join?token=${token}`;
+    const inviteUrl = formatInviteUrl(token);
     try {
       await Clipboard.setStringAsync(inviteUrl);
       setCopyFeedback('link');
@@ -76,7 +77,7 @@ export function InviteModal({ visible, householdId, householdName, onClose }: In
   }
 
   async function handleShare(token: string) {
-    const inviteUrl = `fam://join?token=${token}`;
+    const inviteUrl = formatInviteUrl(token);
     try {
       await Share.share({
         message: `Tritt unserem Haushalt "${householdName}" in Fam bei!\n\nEinladungs-Code: ${token}\nLink: ${inviteUrl}`,
@@ -130,7 +131,7 @@ export function InviteModal({ visible, householdId, householdName, onClose }: In
 
                   {showQrCode && (
                     <View style={styles.qrContainer}>
-                      <QRCode value={`fam://join?token=${selectedToken}`} size={180} />
+                      <QRCode value={formatInviteUrl(selectedToken)} size={180} />
                     </View>
                   )}
 

@@ -87,9 +87,7 @@ describe('calculateBmr', () => {
     if (result.ok) {
       expect(result.formula).toBe('mifflin_st_jeor');
       expect(result.ageYears).toBe(36);
-      expect(result.bmrKcal).toBe(
-        mifflinStJeorBmr({ sex: 'male', weightKg: 80, heightCm: 180, ageYears: 36 }),
-      );
+      expect(result.bmrKcal).toBe(1750);
     }
   });
 
@@ -98,9 +96,7 @@ describe('calculateBmr', () => {
     expect(result.ok).toBe(true);
     if (result.ok) {
       expect(result.formula).toBe('harris_benedict');
-      expect(result.bmrKcal).toBe(
-        harrisBenedictBmr({ sex: 'male', weightKg: 80, heightCm: 180, ageYears: 36 }),
-      );
+      expect(result.bmrKcal).toBeCloseTo(1819.57, 2);
     }
   });
 

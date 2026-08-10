@@ -15,6 +15,7 @@ import {
   useRemoveMemberMutation,
   useUpdateMemberRoleMutation,
 } from '@/features/household/api';
+import { isHouseholdAdmin } from '@/features/household/household-helpers';
 import { HouseholdSwitcherModal } from '@/features/household/household-switcher-modal';
 import { InviteModal } from '@/features/household/invite-modal';
 import { useTheme } from '@/hooks/use-theme';
@@ -39,7 +40,7 @@ export function MembersScreen() {
   const [showSwitcherModal, setShowSwitcherModal] = useState(false);
 
   const myMembership = members?.find((m) => m.user_id === currentUserId);
-  const isAdmin = myMembership?.role === 'admin';
+  const isAdmin = isHouseholdAdmin(myMembership?.role);
   const adminCount = members?.filter((m) => m.role === 'admin').length ?? 0;
 
   async function handleToggleRole(userId: string, currentRole: string, name: string) {

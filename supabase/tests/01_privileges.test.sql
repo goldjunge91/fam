@@ -12,7 +12,7 @@
 begin;
 \ir helpers.sql
 
-select plan(11);
+select plan(12);
 
 -- ------------------------------------------------------ Tabellen brauchen RLS
 select is_empty(
@@ -58,6 +58,15 @@ select ok(
 select ok(
   not has_function_privilege('anon', 'private.is_household_admin(uuid)', 'execute'),
   'anon kann is_household_admin nicht aufrufen'
+);
+
+-- Black-Box Direktausführung als anon: Muss mit Permission Denied fehlschlagen
+select tests.authenticate_as_anon();
+select throws_ok(
+  $$ select private.is_household_member('00000000-0000-0000-0000-000000000000'::uuid) $$,
+  '42501',
+  NULL,
+  'anon wird beim direkten Aufruf von private.is_household_member per SQLSTATE 42501 abgeblockt'
 );
 
 -- ------------------------------------------------------------- Gegenprobe
