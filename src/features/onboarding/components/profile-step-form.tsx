@@ -7,6 +7,7 @@ import { useProfile } from '@/features/auth/api';
 import { useSession } from '@/features/auth/session-provider';
 import { useTheme } from '@/hooks/use-theme';
 import { useOnboarding } from '../context/onboarding-context';
+import { validateOnboardingProfile } from '../onboarding-helpers';
 import type { ActivityLevel, SexOption, WeightGoal } from '../types';
 
 const SEX_OPTIONS: { value: SexOption; label: string }[] = [
@@ -71,23 +72,23 @@ export function ProfileStepForm({ onNext, onSkip }: ProfileStepFormProps) {
   }, [userProfile]);
 
   const handleSubmit = () => {
-    const newErrors: Record<string, string> = {};
+    const parsedHeight = heightCm.trim() ? Number(heightCm.replace(',', '.')) : undefined;
+    const parsedWeight = weightKg.trim() ? Number(weightKg.replace(',', '.')) : undefined;
 
-    if (heightCm.trim()) {
-      const h = Number(heightCm.replace(',', '.'));
-      if (Number.isNaN(h) || h < 50 || h > 250) {
+    const validation = validateOnboardingProfile({
+      heightCm: parsedHeight,
+      weightKg: parsedWeight,
+      birthDate: birthDate.trim() || undefined,
+    });
+
+    if (!validation.isValid) {
+      const newErrors: Record<string, string> = {};
+      if (parsedHeight !== undefined && (parsedHeight < 50 || parsedHeight > 250)) {
         newErrors.heightCm = 'Bitte eine verlässliche Größe (50–250 cm) eingeben';
       }
-    }
-
-    if (weightKg.trim()) {
-      const w = Number(weightKg.replace(',', '.'));
-      if (Number.isNaN(w) || w < 20 || w > 300) {
+      if (parsedWeight !== undefined && (parsedWeight < 20 || parsedWeight > 300)) {
         newErrors.weightKg = 'Bitte ein verlässliches Gewicht (20–300 kg) eingeben';
       }
-    }
-
-    if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors);
       return;
     }

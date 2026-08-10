@@ -128,7 +128,7 @@ describe('FoodSearchScreen', () => {
 
   it('sucht bei Eingabe live und navigiert bei Auswahl zur Erfassung', async () => {
     await renderScreen();
-    fireEvent.changeText(screen.getByPlaceholderText('Wonach suchst du?'), 'Hafermilch');
+    await fireEvent.changeText(screen.getByPlaceholderText('Wonach suchst du?'), 'Hafermilch');
 
     await waitFor(() => expect(screen.getByText('Hafermilch')).toBeTruthy());
     expect(mockSearchOpenFoodFacts).toHaveBeenCalledWith(
@@ -162,7 +162,7 @@ describe('FoodSearchScreen', () => {
     });
 
     await renderScreen();
-    fireEvent.changeText(screen.getByPlaceholderText('Wonach suchst du?'), '4019300005307');
+    await fireEvent.changeText(screen.getByPlaceholderText('Wonach suchst du?'), '4019300005307');
 
     await waitFor(() => expect(screen.getByText('Balance Reich an Protein')).toBeTruthy());
     expect(mockFetchProductByBarcode).toHaveBeenCalledWith(
@@ -184,7 +184,7 @@ describe('FoodSearchScreen', () => {
     mockSearchOpenFoodFacts.mockResolvedValueOnce({ products: [], hasMore: false, failed: true });
 
     await renderScreen();
-    fireEvent.changeText(screen.getByPlaceholderText('Wonach suchst du?'), 'hafer');
+    await fireEvent.changeText(screen.getByPlaceholderText('Wonach suchst du?'), 'hafer');
 
     await waitFor(() =>
       expect(screen.getByText(/Open Food Facts ist gerade nicht erreichbar/)).toBeTruthy(),

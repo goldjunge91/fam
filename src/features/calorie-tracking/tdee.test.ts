@@ -1,18 +1,16 @@
-import {
-  ACTIVITY_MULTIPLIERS,
-  type ActivityLevel,
-  calculateTargetCalories,
-  calculateTdee,
-} from '@/features/calorie-tracking/tdee';
+import { calculateTargetCalories, calculateTdee } from '@/features/calorie-tracking/tdee';
 
 describe('calculateTdee', () => {
-  it.each(Object.keys(ACTIVITY_MULTIPLIERS) as ActivityLevel[])(
-    'wendet den Multiplikator fuer "%s" exakt an',
-    (activityLevel) => {
-      const bmrKcal = 1700;
-      expect(calculateTdee(bmrKcal, activityLevel)).toBe(
-        bmrKcal * ACTIVITY_MULTIPLIERS[activityLevel],
-      );
+  it.each([
+    ['sedentary', 2040],
+    ['light', 2337.5],
+    ['moderate', 2635],
+    ['active', 2932.5],
+    ['very_active', 3230],
+  ] as const)(
+    'berechnet für "%s" den korrekten TDEE-Wert %i kcal',
+    (activityLevel, expectedTdee) => {
+      expect(calculateTdee(1700, activityLevel)).toBe(expectedTdee);
     },
   );
 });

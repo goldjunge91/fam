@@ -15,6 +15,7 @@ import {
   useDeleteChildProfileMutation,
   useUpdateChildProfileMutation,
 } from '@/features/household/api';
+import { parseChildHeight } from '@/features/household/household-helpers';
 import { useTheme } from '@/hooks/use-theme';
 
 export function ChildProfilesScreen() {
@@ -50,7 +51,7 @@ export function ChildProfilesScreen() {
         displayName: trimmed,
         birthDate: birthDate.trim() || null,
         sex,
-        heightCm: heightCm.trim() ? parseFloat(heightCm) : null,
+        heightCm: parseChildHeight(heightCm),
       });
       setName('');
       setBirthDate('');
@@ -81,7 +82,7 @@ export function ChildProfilesScreen() {
         displayName: trimmed,
         birthDate: editBirthDate.trim() || null,
         sex: editSex,
-        heightCm: editHeightCm.trim() ? parseFloat(editHeightCm) : null,
+        heightCm: parseChildHeight(editHeightCm),
       });
       setEditingId(null);
     } catch (err) {

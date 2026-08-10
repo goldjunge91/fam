@@ -116,11 +116,19 @@ export async function setupTwoDevices(prefix = 'device'): Promise<TwoDeviceSetup
     // Jetzt ist der User kein Admin mehr → deleteUser greift.
     await admin.auth.admin.deleteUser(userId);
 
-    // Versuche, offene WebSocket-Handles abzubauen, damit Jest sauber beenden kann
-    await clientA.removeAllChannels();
-    await clientB.removeAllChannels();
-    await clientA.realtime.disconnect();
-    await clientB.realtime.disconnect();
+    // Versuche, offene WebSocket-Handles und SQLite-Verbindungen abzubauen, damit Jest sauber beenden kann
+    try {
+      await clientA.removeAllChannels();
+      await clientB.removeAllChannels();
+      await clientA.realtime.disconnect();
+      await clientB.realtime.disconnect();
+      (clientA.realtime as any).conn?.close();
+      (clientB.realtime as any).conn?.close();
+    } catch {
+      // Ignoriere Fehler bei bereits geschlossenen Sockets
+    }
+    dbA.close();
+    dbB.close();
   };
 
   // Workaround fuer "JWT issued at future" in lokalen Docker-Umgebungen:
