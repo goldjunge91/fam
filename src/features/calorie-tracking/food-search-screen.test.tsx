@@ -6,6 +6,7 @@ import { FoodSearchScreen } from '@/features/calorie-tracking/food-search-screen
 
 const mockUseFoodHistory = jest.fn();
 const mockSearchOpenFoodFacts = jest.fn();
+const mockFetchProductByBarcode = jest.fn();
 
 jest.mock('expo-router', () => ({
   router: { push: jest.fn(), back: jest.fn(), canGoBack: () => false },
@@ -29,6 +30,7 @@ jest.mock('@/lib/open-food-facts', () => {
   return {
     ...actual,
     searchOpenFoodFacts: (...args: unknown[]) => mockSearchOpenFoodFacts(...args),
+    fetchProductByBarcode: (...args: unknown[]) => mockFetchProductByBarcode(...args),
   };
 });
 
@@ -100,9 +102,13 @@ beforeEach(() => {
     isLoading: false,
   });
   mockSearchOpenFoodFacts.mockReset();
-  mockSearchOpenFoodFacts.mockResolvedValue([
-    { barcode: '123', name: 'Hafermilch', brand: 'Oatly', caloriesPer100g: 59 },
-  ]);
+  mockSearchOpenFoodFacts.mockResolvedValue({
+    products: [{ barcode: '123', name: 'Hafermilch', brand: 'Oatly', caloriesPer100g: 59 }],
+    hasMore: false,
+    failed: false,
+  });
+  mockFetchProductByBarcode.mockReset();
+  mockFetchProductByBarcode.mockResolvedValue(null);
   (router.push as jest.Mock).mockClear();
 });
 
@@ -125,6 +131,12 @@ describe('FoodSearchScreen', () => {
     fireEvent.changeText(screen.getByPlaceholderText('Wonach suchst du?'), 'Hafermilch');
 
     await waitFor(() => expect(screen.getByText('Hafermilch')).toBeTruthy());
+    expect(mockSearchOpenFoodFacts).toHaveBeenCalledWith(
+      'Hafermilch',
+      expect.objectContaining({ page: 1, pageSize: 20 }),
+    );
+    expect(mockFetchProductByBarcode).not.toHaveBeenCalled();
+
     await fireEvent.press(screen.getByText('Hafermilch'));
 
     expect(router.push).toHaveBeenCalledWith(
@@ -139,6 +151,54 @@ describe('FoodSearchScreen', () => {
         }),
       }),
     );
+  });
+
+  it('erkennt eine abgetippte Zahlenfolge als Barcode und nutzt den exakten Lookup', async () => {
+    mockFetchProductByBarcode.mockResolvedValue({
+      barcode: '4019300005307',
+      name: 'Balance Reich an Protein',
+      brand: 'Exquisa',
+      caloriesPer100g: 91,
+    });
+
+    await renderScreen();
+    fireEvent.changeText(screen.getByPlaceholderText('Wonach suchst du?'), '4019300005307');
+
+    await waitFor(() => expect(screen.getByText('Balance Reich an Protein')).toBeTruthy());
+    expect(mockFetchProductByBarcode).toHaveBeenCalledWith(
+      '4019300005307',
+      expect.any(AbortSignal),
+    );
+    expect(mockSearchOpenFoodFacts).not.toHaveBeenCalled();
+
+    await fireEvent.press(screen.getByText('Balance Reich an Protein'));
+    expect(router.push).toHaveBeenCalledWith(
+      expect.objectContaining({
+        pathname: '/add-food-entry',
+        params: expect.objectContaining({ name: 'Balance Reich an Protein', brand: 'Exquisa' }),
+      }),
+    );
+  });
+
+  it('zeigt bei einem fehlgeschlagenen Request einen Hinweis statt "keine Treffer" und erlaubt Retry', async () => {
+    mockSearchOpenFoodFacts.mockResolvedValueOnce({ products: [], hasMore: false, failed: true });
+
+    await renderScreen();
+    fireEvent.changeText(screen.getByPlaceholderText('Wonach suchst du?'), 'hafer');
+
+    await waitFor(() =>
+      expect(screen.getByText(/Open Food Facts ist gerade nicht erreichbar/)).toBeTruthy(),
+    );
+    expect(screen.queryByText(/Keine Treffer/)).toBeNull();
+
+    mockSearchOpenFoodFacts.mockResolvedValueOnce({
+      products: [{ barcode: '123', name: 'Haferflocken', caloriesPer100g: 380 }],
+      hasMore: false,
+      failed: false,
+    });
+    await fireEvent.press(screen.getByText('Erneut versuchen'));
+
+    await waitFor(() => expect(screen.getByText('Haferflocken')).toBeTruthy());
   });
 
   it('"Schneller Eintrag" navigiert ohne Produktdaten zur Erfassung', async () => {

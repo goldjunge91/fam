@@ -1,5 +1,6 @@
 import {
   formatOFFProduct,
+  isLikelyBarcode,
   parseQuantityAndUnit,
   productFromRouteParams,
   productToRouteParams,
@@ -13,6 +14,18 @@ describe('Open Food Facts Helper', () => {
     expect(parseQuantityAndUnit('250 ml')).toEqual({ quantity: 250, unit: 'ml' });
     expect(parseQuantityAndUnit('1 Stück')).toEqual({ quantity: 1, unit: 'piece' });
     expect(parseQuantityAndUnit(undefined)).toEqual({ quantity: 1, unit: 'piece' });
+  });
+
+  it.each([
+    ['40193000053', true], // EAN-11 artig, im 6-14-Fenster
+    ['4019300005307', true], // EAN-13
+    ['12345678', true], // EAN-8
+    ['Haferflocken', false],
+    ['123', false], // zu kurz, eher eine Mengenangabe als ein Barcode
+    ['123456789012345', false], // zu lang
+    ['4019 300 005 307', false], // Leerzeichen -> kein reiner Zifferncode
+  ])('sollte "%s" korrekt als Barcode einstufen: %s', (value, expected) => {
+    expect(isLikelyBarcode(value)).toBe(expected);
   });
 
   it('sollte Open Food Facts Rohdaten ordentlich formatieren', () => {

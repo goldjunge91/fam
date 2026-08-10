@@ -28,6 +28,17 @@ export type OpenFoodFactsProduct = {
 };
 
 /**
+ * Erkennt, ob eine Eingabe eher ein abgetippter Barcode als ein Produktname
+ * ist (EAN-8 bis GTIN-14: 6-14 Ziffern, nichts anderes). Die normale Suche
+ * nutzt das, um bei so einer Eingabe den exakten Barcode-Lookup statt der
+ * unscharfen Namenssuche zu verwenden — eigene manuelle Eingabe im
+ * Scanner-Modal braucht es dafuer nicht, das Suchfeld deckt es ab.
+ */
+export function isLikelyBarcode(value: string): boolean {
+  return /^\d{6,14}$/.test(value.trim());
+}
+
+/**
  * Normalisiert rohe Mengenstrings wie "500 g", "1.5 L", "1 kg" in Menge und Einheit.
  */
 export function parseQuantityAndUnit(rawQuantity?: string): { quantity: number; unit: string } {
@@ -119,20 +130,78 @@ const SEARCH_FIELDS = [
   'nutrient_levels',
 ].join(',');
 
-/** Session-Cache identischer Suchanfragen — v.a. beim Loeschen/erneuten Tippen relevant. */
-const searchCache = new Map<string, OpenFoodFactsProduct[]>();
-const SEARCH_CACHE_LIMIT = 50;
+export type OpenFoodFactsSearchResult = {
+  products: OpenFoodFactsProduct[];
+  /** true, wenn eine weitere Seite (`page + 1`) vermutlich noch Treffer hat. */
+  hasMore: boolean;
+  /**
+   * true, wenn die Anfrage auch nach Retries fehlgeschlagen ist — bewusst
+   * getrennt von "keine Treffer". Open Food Facts' Such-Endpunkte antworten
+   * zur Zeit auffaellig oft (~50-80 % im Test, auch bei identischen Anfragen
+   * kurz hintereinander) mit einem 503 "Page temporarily unavailable". Ohne
+   * dieses Feld sieht ein Nutzer bei "hafer" oder "toma" faelschlich "keine
+   * Treffer", obwohl der Dienst nur kurz nicht erreichbar war.
+   */
+  failed: boolean;
+};
 
-function cacheSearchResult(key: string, products: OpenFoodFactsProduct[]) {
+const MAX_RETRIES = 2;
+const RETRY_DELAY_MS = 500;
+
+function delay(ms: number): Promise<void> {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+/**
+ * Holt eine URL, mit kurzem Retry bei 5xx-Antworten (siehe `failed` oben fuer
+ * den Hintergrund). Ein Abbruch (`signal`) wird nie erneut versucht — die
+ * Anfrage ist bewusst obsolet, retryen wuerde nur Last erzeugen.
+ */
+async function fetchWithRetry(url: string, signal: AbortSignal | undefined): Promise<Response> {
+  let lastResponse: Response | undefined;
+  let lastError: unknown;
+
+  for (let attempt = 0; attempt <= MAX_RETRIES; attempt++) {
+    try {
+      const res = await fetch(url, {
+        headers: { 'User-Agent': 'FamApp/1.0 (contact@fam.app)' },
+        signal,
+      });
+      if (res.ok || res.status < 500) return res;
+      lastResponse = res;
+    } catch (err) {
+      if (signal?.aborted) throw err;
+      lastError = err;
+    }
+    if (attempt < MAX_RETRIES) await delay(RETRY_DELAY_MS);
+  }
+
+  if (lastResponse) return lastResponse;
+  throw lastError;
+}
+
+/** Session-Cache identischer Suchanfragen (Begriff+Seite) — v.a. beim Loeschen/erneuten Tippen relevant. */
+const searchCache = new Map<string, OpenFoodFactsSearchResult>();
+const SEARCH_CACHE_LIMIT = 100;
+
+function cacheSearchResult(key: string, result: OpenFoodFactsSearchResult) {
   if (searchCache.size >= SEARCH_CACHE_LIMIT) {
     const oldestKey = searchCache.keys().next().value;
     if (oldestKey !== undefined) searchCache.delete(oldestKey);
   }
-  searchCache.set(key, products);
+  searchCache.set(key, result);
 }
 
 /**
- * Durchsucht Open Food Facts nach Produktnamen (DE/WW).
+ * Durchsucht Open Food Facts nach Produktnamen (DE/WW), seitenweise.
+ *
+ * Bewusst kein festes Gesamt-Limit: ein Begriff wie "Haferflocken" hat
+ * hunderte Treffer bei Open Food Facts. Statt eine willkuerliche Teilmenge
+ * abzuschneiden, liefert jeder Aufruf eine Seite (`pageSize`, Default 20) —
+ * `sort_by=unique_scans_n` sortiert dabei die bekanntesten/meistgescannten
+ * Produkte nach vorn, `hasMore` sagt dem Aufrufer, ob Nachladen (naechste
+ * Seite) sich lohnt. So laedt die UI beim Scrollen nach, statt entweder
+ * alles auf einmal oder nur eine zufaellige Kappung zu zeigen.
  *
  * `signal` erlaubt es Aufrufern, eine ueberholte Anfrage abzubrechen (z. B.
  * bei schnellem Weitertippen) statt auf eine Antwort zu warten, die eh
@@ -140,42 +209,56 @@ function cacheSearchResult(key: string, products: OpenFoodFactsProduct[]) {
  */
 export async function searchOpenFoodFacts(
   query: string,
-  limit = 8,
-  signal?: AbortSignal,
-): Promise<OpenFoodFactsProduct[]> {
+  options: { page?: number; pageSize?: number; signal?: AbortSignal } = {},
+): Promise<OpenFoodFactsSearchResult> {
+  const { page = 1, pageSize = 20, signal } = options;
   const trimmed = query.trim();
-  if (trimmed.length < 2) return [];
+  if (trimmed.length < 2) return { products: [], hasMore: false, failed: false };
 
-  const cacheKey = `${trimmed.toLowerCase()}|${limit}`;
+  const cacheKey = `${trimmed.toLowerCase()}|${pageSize}|${page}`;
   const cached = searchCache.get(cacheKey);
   if (cached) return cached;
 
   try {
+    // `sort_by=unique_scans_n`: bekannteste/meistgescannte Treffer zuerst.
+    // Ohne das liefert die Suche irgendeine Teilmenge der Treffer in
+    // Datenbank-Reihenfolge — bei einem Begriff wie "Haferflocken" mit
+    // hunderten Treffern faellt sonst zufaellig aus, was die erste Seite zeigt.
     const url =
       `https://world.openfoodfacts.org/cgi/search.pl?search_terms=${encodeURIComponent(trimmed)}` +
-      `&search_simple=1&action=process&json=1&page_size=${limit}&lc=de&cc=de&fields=${SEARCH_FIELDS}`;
+      `&search_simple=1&action=process&json=1&page_size=${pageSize}&page=${page}` +
+      `&sort_by=unique_scans_n&lc=de&cc=de&fields=${SEARCH_FIELDS}`;
 
-    const res = await fetch(url, {
-      headers: { 'User-Agent': 'FamApp/1.0 (contact@fam.app)' },
-      signal,
-    });
+    const res = await fetchWithRetry(url, signal);
 
-    if (!res.ok) return [];
+    if (!res.ok) return { products: [], hasMore: false, failed: true };
     const data = await res.json();
-    const products = data.products || [];
+    const rawProducts = data.products || [];
 
-    const formatted = products
+    const products = rawProducts
       .map(formatOFFProduct)
       .filter((p: OpenFoodFactsProduct | null): p is OpenFoodFactsProduct => p !== null);
 
-    cacheSearchResult(cacheKey, formatted);
-    return formatted;
+    // Eine volle Seite bedeutet nicht zwingend, dass es mehr gibt, aber eine
+    // unvollstaendige Seite bedeutet sicher das Gegenteil — konservativ genug,
+    // ohne uns auf ein bestimmtes `count`-Feld der API zu verlassen.
+    const result: OpenFoodFactsSearchResult = {
+      products,
+      hasMore: rawProducts.length === pageSize,
+      failed: false,
+    };
+    cacheSearchResult(cacheKey, result);
+    return result;
   } catch (err) {
     // Abgebrochene Anfragen (ueberholt durch die naechste Eingabe) sind
     // erwartetes Verhalten, kein Fehler — nicht in der Konsole aufschlagen.
-    if (err instanceof Error && err.name === 'AbortError') return [];
+    // Der Signal-Check ist die verlaessliche Quelle: Expos natives Fetch
+    // wirft bei einem Abort keine standardkonforme `AbortError`-DOMException,
+    // sondern einen generischen Error ("FetchRequestCanceledException") -
+    // `err.name` verlaesslich zu pruefen geht hier nicht.
+    if (signal?.aborted) return { products: [], hasMore: false, failed: false };
     console.error('Fehler bei Open Food Facts Suche:', err);
-    return [];
+    return { products: [], hasMore: false, failed: true };
   }
 }
 
@@ -245,7 +328,10 @@ export function productFromRouteParams(
 /**
  * Ruft ein Produkt anhand seines Barcodes (EAN-8, EAN-13) ab.
  */
-export async function fetchProductByBarcode(barcode: string): Promise<OpenFoodFactsProduct | null> {
+export async function fetchProductByBarcode(
+  barcode: string,
+  signal?: AbortSignal,
+): Promise<OpenFoodFactsProduct | null> {
   const trimmed = barcode.trim();
   if (!trimmed) return null;
 
@@ -254,9 +340,7 @@ export async function fetchProductByBarcode(barcode: string): Promise<OpenFoodFa
       trimmed,
     )}.json?lc=de&cc=de`;
 
-    const res = await fetch(url, {
-      headers: { 'User-Agent': 'FamApp/1.0 (contact@fam.app)' },
-    });
+    const res = await fetchWithRetry(url, signal);
 
     if (!res.ok) return null;
     const data = await res.json();
@@ -264,6 +348,7 @@ export async function fetchProductByBarcode(barcode: string): Promise<OpenFoodFa
     if (data.status !== 1 || !data.product) return null;
     return formatOFFProduct(data.product);
   } catch (err) {
+    if (signal?.aborted) return null;
     console.error('Fehler bei Open Food Facts Barcode-Abfrage:', err);
     return null;
   }
