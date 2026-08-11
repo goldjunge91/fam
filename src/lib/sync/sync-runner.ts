@@ -231,6 +231,7 @@ export function useSyncEngine(householdId: string | undefined) {
     let debounceTimer: ReturnType<typeof setTimeout> | null = null;
     let burstStartedAt: number | null = null;
     let writesInBurst = 0;
+    let outboxEffectCancelled = false;
 
     const flushDebouncedSync = () => {
       debounceTimer = null;
@@ -248,7 +249,24 @@ export function useSyncEngine(householdId: string | undefined) {
       if (writesInBurst === 1) {
         burstStartedAt = now;
         if (householdIdRef.current) {
-          triggerHouseholdSync([householdIdRef.current], false, queryClient);
+          // Fire-and-forget: `triggerHouseholdSync` gibt `null` zurueck, wenn
+          // z.B. bereits ein anderer Sync laeuft (isSyncing-Guard, etwa ein
+          // gerade laufender AppState-Resume-Sync). Ohne Fallback wuerde
+          // dieser einzelne Schreibvorgang dann still bis zum naechsten
+          // 20s-Poll warten, statt das #70-AC1-Ziel "unter einer Sekunde" zu
+          // erreichen. Nur nachholen, wenn zwischenzeitlich kein zweiter
+          // Schreibvorgang bereits einen Debounce-Timer gesetzt hat.
+          triggerHouseholdSync([householdIdRef.current], false, queryClient).then((result) => {
+            if (
+              result === null &&
+              !outboxEffectCancelled &&
+              writesInBurst === 1 &&
+              !debounceTimer &&
+              householdIdRef.current
+            ) {
+              debounceTimer = setTimeout(flushDebouncedSync, OUTBOX_DEBOUNCE_MS);
+            }
+          });
         }
         return;
       }
@@ -264,6 +282,7 @@ export function useSyncEngine(householdId: string | undefined) {
 
     return () => {
       activeSyncEngineIntervals -= 1;
+      outboxEffectCancelled = true;
       clearInterval(interval);
       subscription.remove();
       if (debounceTimer) clearTimeout(debounceTimer);
