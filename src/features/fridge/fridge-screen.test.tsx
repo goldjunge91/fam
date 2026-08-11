@@ -1,11 +1,10 @@
 import { fireEvent, render, screen } from '@testing-library/react-native';
+import { Alert } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import { FridgeScreen } from '@/features/fridge/fridge-screen';
 
 const mockUpdateQtyMutate = jest.fn();
-const mockRestoreMutate = jest.fn();
-const mockShowUndoSnackbar = jest.fn();
 
 let mockItems: unknown[] = [];
 let mockParams: Record<string, string> = {};
@@ -30,11 +29,6 @@ jest.mock('@/features/fridge/use-fridge-items', () => ({
 
 jest.mock('@/features/fridge/use-fridge-mutations', () => ({
   useUpdateFridgeItemQuantityMutation: () => ({ mutate: mockUpdateQtyMutate, isPending: false }),
-  useRestoreFridgeItemMutation: () => ({ mutate: mockRestoreMutate, isPending: false }),
-}));
-
-jest.mock('@/components/snackbar', () => ({
-  useSnackbar: () => ({ showUndoSnackbar: mockShowUndoSnackbar }),
 }));
 
 jest.mock('@/features/inventory/use-product', () => ({
@@ -87,27 +81,35 @@ beforeEach(() => {
     },
   ];
   mockUpdateQtyMutate.mockClear();
-  mockRestoreMutate.mockClear();
-  mockShowUndoSnackbar.mockClear();
 });
 
-it('loescht einen Artikel bei Lang-Druck sofort und zeigt eine Undo-Snackbar (#69)', async () => {
+it('fragt bei Lang-Druck vor dem Loeschen nach Bestaetigung', async () => {
+  const alertSpy = jest.spyOn(Alert, 'alert').mockImplementation(() => {});
+
   await renderScreen();
 
   await fireEvent(screen.getByLabelText('Milch, 2 l'), 'longPress');
+
+  expect(alertSpy).toHaveBeenCalledWith(
+    'Artikel löschen',
+    '"Milch" aus dem Vorrat entfernen?',
+    expect.arrayContaining([
+      expect.objectContaining({ text: 'Abbrechen', style: 'cancel' }),
+      expect.objectContaining({ text: 'Löschen', style: 'destructive' }),
+    ]),
+  );
+  expect(mockUpdateQtyMutate).not.toHaveBeenCalled();
+
+  const buttons = alertSpy.mock.calls[0][2] as { text: string; onPress?: () => void }[];
+  buttons.find((b) => b.text === 'Löschen')?.onPress?.();
 
   expect(mockUpdateQtyMutate).toHaveBeenCalledWith({
     id: 'item-1',
     household_id: 'hh-1',
     delta: -2,
   });
-  expect(mockShowUndoSnackbar).toHaveBeenCalledWith(
-    expect.objectContaining({ message: '"Milch" gelöscht', onUndo: expect.any(Function) }),
-  );
 
-  const { onUndo } = mockShowUndoSnackbar.mock.calls[0][0];
-  onUndo();
-  expect(mockRestoreMutate).toHaveBeenCalledWith({ id: 'item-1', household_id: 'hh-1' });
+  alertSpy.mockRestore();
 });
 
 describe('Sortier-Toggle MHD/Name (#71)', () => {

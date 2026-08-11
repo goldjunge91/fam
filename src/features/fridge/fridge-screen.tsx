@@ -5,7 +5,6 @@ import { Alert, FlatList, StyleSheet, View } from 'react-native';
 import { Card } from '@/components/card';
 import { EmptyState } from '@/components/empty-state';
 import { Screen } from '@/components/screen';
-import { useSnackbar } from '@/components/snackbar';
 import { ThemedText } from '@/components/themed-text';
 import { Spacing } from '@/constants/theme';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
@@ -17,10 +16,7 @@ import { FridgeItemRow } from './components/fridge-item-row';
 import { FridgeTabBar } from './components/fridge-tab-bar';
 import { compareByExpiry, getExpiryInfo } from './expiry';
 import { type LocalFridgeItem, useFridgeItems } from './use-fridge-items';
-import {
-  useRestoreFridgeItemMutation,
-  useUpdateFridgeItemQuantityMutation,
-} from './use-fridge-mutations';
+import { useUpdateFridgeItemQuantityMutation } from './use-fridge-mutations';
 
 /**
  * Vorrat-Bestand, dynamisch gefiltert nach Lagerort (#67).
@@ -46,8 +42,6 @@ export function FridgeScreen() {
   const { data: locations = [] } = useStorageLocations(householdId);
   const { data: allItems = [], isLoading } = useFridgeItems(householdId);
   const updateQty = useUpdateFridgeItemQuantityMutation();
-  const restoreItem = useRestoreFridgeItemMutation();
-  const { showUndoSnackbar } = useSnackbar();
 
   const expiringCount = allItems.filter((item) => {
     if (!item?.expiry_date) return false;
@@ -98,17 +92,17 @@ export function FridgeScreen() {
     updateQty.mutate({ id: item.id, household_id: householdId, delta: 1 });
   }
 
-  // Loescht sofort statt eines Bestaetigungs-Dialogs (#69) — die Snackbar mit
-  // "Rueckgaengig" ersetzt die Bestaetigung, statt sie zu ergaenzen.
   function handleDeletePress(item: LocalFridgeItem) {
     if (!householdId) return;
-    updateQty.mutate({ id: item.id, household_id: householdId, delta: -item.quantity });
-    showUndoSnackbar({
-      message: `"${item.name}" gelöscht`,
-      onUndo: () => {
-        restoreItem.mutate({ id: item.id, household_id: householdId });
+    Alert.alert('Artikel löschen', `"${item.name}" aus dem Vorrat entfernen?`, [
+      { text: 'Abbrechen', style: 'cancel' },
+      {
+        text: 'Löschen',
+        style: 'destructive',
+        onPress: () =>
+          updateQty.mutate({ id: item.id, household_id: householdId, delta: -item.quantity }),
       },
-    });
+    ]);
   }
 
   if (!householdId) {
