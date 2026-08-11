@@ -9,6 +9,7 @@ import { useSnackbar } from '@/components/snackbar';
 import { ThemedText } from '@/components/themed-text';
 import { Spacing } from '@/constants/theme';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
+import { ProductDetailModal } from '@/features/inventory/product-detail-modal';
 import { useStorageLocations } from '@/features/inventory/use-storage-locations';
 import { useTheme } from '@/hooks/use-theme';
 
@@ -37,6 +38,7 @@ export function FridgeScreen() {
   const showExpiringOnly = params.filter === 'expiring';
   const [activeTab, setActiveTab] = useState<string>('all');
   const [sortMode, setSortMode] = useState<SortMode>('expiry');
+  const [selectedItem, setSelectedItem] = useState<LocalFridgeItem | null>(null);
 
   const { activeHouseholdId } = useActiveHousehold();
   const householdId = activeHouseholdId ?? undefined;
@@ -190,6 +192,7 @@ export function FridgeScreen() {
           renderItem={({ item }) => (
             <FridgeItemRow
               item={item}
+              onPress={() => setSelectedItem(item)}
               onDecrement={() => handleDecrement(item)}
               onIncrement={() => handleIncrement(item)}
               onDelete={() => handleDeletePress(item)}
@@ -197,6 +200,12 @@ export function FridgeScreen() {
           )}
         />
       )}
+
+      <ProductDetailModal
+        visible={!!selectedItem}
+        item={selectedItem}
+        onClose={() => setSelectedItem(null)}
+      />
     </Screen>
   );
 }

@@ -9,6 +9,7 @@ export type FridgeItem = {
   id: string;
   household_id: string;
   location_id: string | null;
+  product_id: string | null;
   name: string;
   quantity: number;
   unit: string;
@@ -38,11 +39,12 @@ export function useAddFridgeItemMutation() {
         },
         applyLocally: async (txn) => {
           await txn.runAsync(
-            'insert into fridge_items (id, household_id, location_id, name, quantity, unit, expiry_date, created_at, updated_at) values (?, ?, ?, ?, ?, ?, ?, ?, ?)',
+            'insert into fridge_items (id, household_id, location_id, product_id, name, quantity, unit, expiry_date, created_at, updated_at) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
             [
               id,
               item.household_id,
               item.location_id ?? null,
+              item.product_id ?? null,
               item.name,
               item.quantity,
               normUnit,

@@ -37,6 +37,10 @@ jest.mock('@/components/snackbar', () => ({
   useSnackbar: () => ({ showUndoSnackbar: mockShowUndoSnackbar }),
 }));
 
+jest.mock('@/features/inventory/use-product', () => ({
+  useProduct: () => ({ data: null, isLoading: false }),
+}));
+
 jest.mock('@/hooks/use-theme', () => ({
   useTheme: () => ({
     background: '#FFFFFF',

@@ -17,22 +17,30 @@ const EXPIRY_LEFT_BORDER: Record<ExpiryBucket, string> = {
 
 interface FridgeItemRowProps {
   item: LocalFridgeItem;
+  onPress: () => void;
   onDecrement: () => void;
   onIncrement: () => void;
   onDelete: () => void;
 }
 
-export function FridgeItemRow({ item, onDecrement, onIncrement, onDelete }: FridgeItemRowProps) {
+export function FridgeItemRow({
+  item,
+  onPress,
+  onDecrement,
+  onIncrement,
+  onDelete,
+}: FridgeItemRowProps) {
   const theme = useTheme();
   const expiry = getExpiryInfo(item.expiry_date, new Date());
   const borderColor = EXPIRY_LEFT_BORDER[expiry.bucket];
 
   return (
     <Pressable
+      onPress={onPress}
       onLongPress={onDelete}
       accessibilityRole="button"
       accessibilityLabel={`${item.name}, ${item.quantity} ${item.unit}`}
-      accessibilityHint="Lang drücken zum Löschen"
+      accessibilityHint="Tippen für Nährwerte, lang drücken zum Löschen"
       style={[styles.itemRow, { borderBottomColor: theme.border }]}>
       {/* MHD-Ampel — linker farbiger Streifen */}
       <View style={[styles.expiryBar, { backgroundColor: borderColor }]} />
