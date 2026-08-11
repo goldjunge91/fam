@@ -1,5 +1,5 @@
 import { router } from 'expo-router';
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { Alert, Pressable, StyleSheet, View } from 'react-native';
 
 import { Button } from '@/components/button';
@@ -50,6 +50,8 @@ const SEGMENT_LABELS: Record<PresetSelection, string> = {
 };
 
 const CUSTOM_RATIO_TOLERANCE = 1;
+const MIN_MANUAL_KCAL = 1000;
+const MAX_MANUAL_KCAL = 10000;
 
 function parsePercent(input: string): number {
   const value = parseFloat(input.replace(',', '.'));
@@ -80,6 +82,8 @@ export function GoalSetupScreen() {
   const [customCarbsPct, setCustomCarbsPct] = useState('40');
   const [customFatPct, setCustomFatPct] = useState('30');
   const [weightInput, setWeightInput] = useState('');
+  const [manualKcalInput, setManualKcalInput] = useState('');
+  const [overrideTouched, setOverrideTouched] = useState(false);
 
   const customPercentSum =
     parsePercent(customProteinPct) + parsePercent(customCarbsPct) + parsePercent(customFatPct);
@@ -123,13 +127,36 @@ export function GoalSetupScreen() {
     return { bmrKcal: bmrResult.bmrKcal, target };
   }, [hasProfileFields, weightKg, sex, birthDate, heightCm, activityLevel, goalType, rate]);
 
-  // Getrennt vom kcal-Ziel: eine ungueltige benutzerdefinierte Verteilung soll
-  // die kcal-Vorschau nicht verstecken, nur das Speichern blockieren.
+  // Vorbefuellung des Override-Felds mit dem berechneten Wert (#84) — nur
+  // solange der Nutzer es nicht selbst angefasst hat, sonst wuerde jede
+  // Aenderung an Tempo/Gewicht die manuelle Eingabe stillschweigend ueberschreiben.
+  const calculatedKcal = targetPreview?.target.targetKcal;
+  useEffect(() => {
+    if (overrideTouched || calculatedKcal === undefined) return;
+    setManualKcalInput(String(Math.round(calculatedKcal)));
+  }, [calculatedKcal, overrideTouched]);
+
+  // Kappung wie in calculateTargetCalories: nie unter den Grundumsatz, nie
+  // ausserhalb eines global sicheren Bereichs — der Override darf die
+  // physiologische Untergrenze nicht umgehen.
+  const manualKcal = parseFloat(manualKcalInput.replace(',', '.'));
+  const overrideValid =
+    targetPreview !== null &&
+    !Number.isNaN(manualKcal) &&
+    manualKcal >= targetPreview.bmrKcal &&
+    manualKcal >= MIN_MANUAL_KCAL &&
+    manualKcal <= MAX_MANUAL_KCAL;
+  const effectiveKcal = overrideValid ? manualKcal : (targetPreview?.target.targetKcal ?? null);
+
+  // Getrennt vom kcal-Ziel: eine ungueltige benutzerdefinierte Verteilung oder
+  // ein ungueltiger Override soll die kcal-Vorschau nicht verstecken, nur das
+  // Speichern blockieren.
   const preview =
-    targetPreview && activeRatio
+    targetPreview && activeRatio && overrideValid
       ? {
           ...targetPreview,
-          macros: calculateMacroTargets(targetPreview.target.targetKcal, activeRatio),
+          effectiveKcal: effectiveKcal as number,
+          macros: calculateMacroTargets(effectiveKcal as number, activeRatio),
         }
       : null;
 
@@ -145,7 +172,7 @@ export function GoalSetupScreen() {
         userId,
         goalType,
         rateKgPerWeek: goalType === 'maintain' ? null : rate,
-        dailyKcal: Math.round(preview.target.targetKcal),
+        dailyKcal: Math.round(preview.effectiveKcal),
         proteinG: preview.macros.proteinG,
         carbsG: preview.macros.carbsG,
         fatG: preview.macros.fatG,
@@ -157,17 +184,22 @@ export function GoalSetupScreen() {
   }
 
   const cappedText =
-    preview?.target.capped &&
-    (preview.target.cappedReason === 'bmr_floor'
+    targetPreview?.target.capped &&
+    (targetPreview.target.cappedReason === 'bmr_floor'
       ? 'Auf deinen Grundumsatz gekappt, damit das Ziel gesund bleibt.'
       : 'Auf ein sicheres Mindestmaß gekappt.');
 
   const rateWarningText =
-    preview?.target.rateWarning === 'below_recommended_range'
+    targetPreview?.target.rateWarning === 'below_recommended_range'
       ? 'Dieses Tempo liegt unter der empfohlenen Spanne (0,25–1,0 kg/Woche).'
-      : preview?.target.rateWarning === 'above_recommended_range'
+      : targetPreview?.target.rateWarning === 'above_recommended_range'
         ? 'Dieses Tempo liegt über der empfohlenen Spanne (0,25–1,0 kg/Woche) und ist auf Dauer nicht gesund.'
         : null;
+
+  const overrideErrorText =
+    targetPreview && !overrideValid
+      ? `Muss zwischen deinem Grundumsatz (${Math.round(targetPreview.bmrKcal)} kcal) und ${MAX_MANUAL_KCAL} kcal liegen.`
+      : null;
 
   return (
     <Screen title="Kalorienziel" back={{ label: 'Einstellungen', href: '/settings' }}>
@@ -297,9 +329,20 @@ export function GoalSetupScreen() {
 
                 {targetPreview ? (
                   <View style={[styles.preview, { borderColor: theme.border }]}>
-                    <ThemedText type="subtitle">
-                      {Math.round(targetPreview.target.targetKcal)} kcal / Tag
-                    </ThemedText>
+                    <TextField
+                      label="Ziel-Kalorien (kcal/Tag)"
+                      value={manualKcalInput}
+                      onChangeText={(text) => {
+                        setOverrideTouched(true);
+                        setManualKcalInput(text);
+                      }}
+                      keyboardType="numeric"
+                    />
+                    {overrideErrorText ? (
+                      <ThemedText type="small" themeColor="danger">
+                        {overrideErrorText}
+                      </ThemedText>
+                    ) : null}
                     {preview ? (
                       <ThemedText type="small" themeColor="textSecondary">
                         Eiweiß {preview.macros.proteinG} g · Kohlenhydrate {preview.macros.carbsG} g
