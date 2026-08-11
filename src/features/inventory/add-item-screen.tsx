@@ -8,15 +8,18 @@ import { Screen } from '@/components/screen';
 import { TextField } from '@/components/text-field';
 import { ThemedText } from '@/components/themed-text';
 import { Spacing } from '@/constants/theme';
+import { useSession } from '@/features/auth/session-provider';
 import { useAddFridgeItemMutation } from '@/features/fridge/use-fridge-mutations';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { BarcodeScannerModal } from '@/features/inventory/barcode-scanner-modal';
 import { consumePendingProductSelection } from '@/features/inventory/pending-product-selection';
 import { ProductSearchDropdown } from '@/features/inventory/product-search-dropdown';
+import { useAddProductMutation } from '@/features/inventory/use-product-mutations';
 import {
   useAddStorageLocationMutation,
   useStorageLocations,
 } from '@/features/inventory/use-storage-locations';
+import { getDatabase } from '@/lib/db/client';
 import type { OpenFoodFactsProduct } from '@/lib/open-food-facts';
 
 function formatOffsetDate(days: number): string {
@@ -40,12 +43,16 @@ export function AddItemScreen() {
   );
   const mutation = useAddFridgeItemMutation();
   const addLocationMutation = useAddStorageLocationMutation();
+  const addProductMutation = useAddProductMutation();
+  const { session } = useSession();
+  const userId = session?.user.id;
 
   const [name, setName] = useState('');
   const [quantity, setQuantity] = useState('1');
   const [unit, setUnit] = useState('piece');
   const [locationId, setLocationId] = useState<string | null>(null);
   const [expiryDate, setExpiryDate] = useState('');
+  const [selectedProduct, setSelectedProduct] = useState<OpenFoodFactsProduct | null>(null);
 
   // Scanner & Modal State
   const [showScanner, setShowScanner] = useState(false);
@@ -58,6 +65,36 @@ export function AddItemScreen() {
     setName(product.name);
     if (product.quantity) setQuantity(String(product.quantity));
     if (product.unit) setUnit(product.unit);
+    setSelectedProduct(product);
+  }
+
+  // Persistiert einen OFF-Treffer in `products` (#74), wenn er tatsaechlich
+  // zum Bestand hinzugefuegt wird — nicht schon bei der Auswahl im Dropdown,
+  // sonst wuerden auch verworfene Formulare Zeilen anlegen. Dedupe per
+  // Barcode-Lookup VOR dem Enqueue: `enqueueMutation` kann kein Upsert, und
+  // ein Race mit einem zweiten Client faengt der 23505-Fallback in push.ts.
+  async function persistOffProductIfNeeded(product: OpenFoodFactsProduct) {
+    if (!product.barcode || !userId) return;
+    const db = await getDatabase();
+    const existing = await db.getFirstAsync<{ id: string }>(
+      'select id from products where barcode = ?',
+      [product.barcode],
+    );
+    if (existing) return;
+
+    await addProductMutation.mutateAsync({
+      barcode: product.barcode,
+      name: product.name,
+      brand: product.brand ?? undefined,
+      kcal_per_100: product.caloriesPer100g ?? undefined,
+      protein_g_per_100: product.proteinsPer100g ?? undefined,
+      carbs_g_per_100: product.carbsPer100g ?? undefined,
+      fat_g_per_100: product.fatPer100g ?? undefined,
+      sugar_g_per_100: product.sugarsPer100g ?? undefined,
+      salt_g_per_100: product.saltPer100g ?? undefined,
+      source: 'off',
+      created_by: userId,
+    });
   }
 
   // Nimmt ein Produkt entgegen, das ueber "Produkt manuell anlegen" (#80) im
@@ -93,6 +130,9 @@ export function AddItemScreen() {
     if (!currentHousehold || !name.trim()) return;
 
     try {
+      if (selectedProduct) {
+        await persistOffProductIfNeeded(selectedProduct);
+      }
       await mutation.mutateAsync({
         household_id: currentHousehold.id,
         name: name.trim(),
