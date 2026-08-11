@@ -34,6 +34,25 @@ jest.mock('@/features/calorie-tracking/api', () => ({
   useDeleteFoodEntryMutation: () => ({ mutateAsync: mockDeleteMutateAsync, isPending: false }),
 }));
 
+let mockChildProfiles: { id: string; display_name: string }[] = [];
+
+jest.mock('@/features/household/active-household-provider', () => ({
+  useActiveHousehold: () => ({ activeHousehold: { id: 'hh-1', name: 'Zuhause' } }),
+}));
+
+jest.mock('@/features/household/api', () => ({
+  useChildProfiles: () => ({ data: mockChildProfiles, isLoading: false }),
+}));
+
+const mockSetProfile = jest.fn();
+
+jest.mock('@/features/calorie-tracking/active-profile-store', () => ({
+  useActiveProfile: () => ({
+    profile: { type: 'adult', userId: 'user-1' },
+    setProfile: mockSetProfile,
+  }),
+}));
+
 jest.mock('@/hooks/use-theme', () => ({
   useTheme: () => ({
     background: '#FFFFFF',
@@ -64,9 +83,60 @@ function renderScreen() {
 beforeEach(() => {
   mockParams = {};
   mockFoodEntries = [];
+  mockChildProfiles = [];
   mockAddMutateAsync.mockClear();
   mockUpdateMutateAsync.mockClear();
   mockDeleteMutateAsync.mockClear();
+  mockSetProfile.mockClear();
+});
+
+describe('AddFoodEntryScreen — Profil-Auswahl (#65)', () => {
+  beforeEach(() => {
+    mockParams = { date: '2026-08-10', mealType: 'lunch' };
+    mockChildProfiles = [{ id: 'child-1', display_name: 'Mia' }];
+  });
+
+  it('zeigt keine Profil-Auswahl ohne Kinderprofile', async () => {
+    mockChildProfiles = [];
+    await renderScreen();
+    expect(screen.queryByText('Für wen?')).not.toBeOnTheScreen();
+  });
+
+  it('zeigt "Ich" und alle Kinderprofile, wenn Kinderprofile vorhanden sind', async () => {
+    await renderScreen();
+    expect(screen.getByText('Für wen?')).toBeTruthy();
+    expect(screen.getByText('Ich')).toBeTruthy();
+    expect(screen.getByText('Mia')).toBeTruthy();
+  });
+
+  it('waehlt beim Antippen eines Kindes dessen Profil', async () => {
+    await renderScreen();
+    await fireEvent.press(screen.getByText('Mia'));
+    expect(mockSetProfile).toHaveBeenCalledWith({
+      type: 'child',
+      childProfileId: 'child-1',
+      householdId: 'hh-1',
+    });
+  });
+
+  it('blendet die Profil-Auswahl beim Bearbeiten eines Eintrags aus', async () => {
+    mockParams = { date: '2026-08-10', mealType: 'dinner', entryId: 'entry-1' };
+    mockFoodEntries = [
+      {
+        id: 'entry-1',
+        name: 'Reis',
+        quantity: 150,
+        unit: 'g',
+        kcal: 195,
+        protein_g: 4,
+        carbs_g: 43,
+        fat_g: 0.5,
+        meal_type: 'dinner',
+      },
+    ];
+    await renderScreen();
+    expect(screen.queryByText('Für wen?')).not.toBeOnTheScreen();
+  });
 });
 
 describe('AddFoodEntryScreen — Produkt aus der Suche (100g-Referenz)', () => {

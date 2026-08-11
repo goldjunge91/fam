@@ -8,6 +8,7 @@ import { TextField } from '@/components/text-field';
 import { ThemedText } from '@/components/themed-text';
 import { Spacing } from '@/constants/theme';
 import { useSession } from '@/features/auth/session-provider';
+import { useActiveProfile } from '@/features/calorie-tracking/active-profile-store';
 import {
   type MealType,
   useAddFoodEntryMutation,
@@ -16,6 +17,8 @@ import {
   useUpdateFoodEntryMutation,
 } from '@/features/calorie-tracking/api';
 import { MEAL_LABELS } from '@/features/calorie-tracking/diary-screen';
+import { useActiveHousehold } from '@/features/household/active-household-provider';
+import { useChildProfiles } from '@/features/household/api';
 import { useTheme } from '@/hooks/use-theme';
 import {
   type NutrientLevel,
@@ -95,7 +98,12 @@ export function AddFoodEntryScreen() {
   const userId = session?.user.id;
   const isEditing = !!params.entryId;
 
-  const { data: entries = [] } = useFoodEntries(userId, params.date);
+  const { activeHousehold } = useActiveHousehold();
+  const { data: childProfiles = [] } = useChildProfiles(activeHousehold?.id ?? '');
+  const { profile, setProfile } = useActiveProfile(activeHousehold?.id);
+  const childProfileId = profile?.type === 'child' ? profile.childProfileId : null;
+
+  const { data: entries = [] } = useFoodEntries(userId, params.date, childProfileId);
   const existingEntry = params.entryId ? entries.find((e) => e.id === params.entryId) : undefined;
 
   const addMutation = useAddFoodEntryMutation();
@@ -223,6 +231,7 @@ export function AddFoodEntryScreen() {
       proteinG: proteinInput.trim() ? parseFloat(proteinInput) : null,
       carbsG: carbsInput.trim() ? parseFloat(carbsInput) : null,
       fatG: fatInput.trim() ? parseFloat(fatInput) : null,
+      childProfileId,
     };
 
     try {
@@ -267,6 +276,47 @@ export function AddFoodEntryScreen() {
   return (
     <Screen title={title} back={{ label: 'Abbrechen' }}>
       <View style={styles.form}>
+        {!isEditing && childProfiles.length > 0 ? (
+          <View>
+            <ThemedText type="smallBold">Für wen?</ThemedText>
+            <View style={styles.unitRow}>
+              <ThemedText
+                onPress={() => userId && setProfile({ type: 'adult', userId })}
+                style={[
+                  styles.unitPill,
+                  {
+                    backgroundColor: !childProfileId ? theme.accent : theme.backgroundElement,
+                    color: !childProfileId ? '#fff' : theme.text,
+                  },
+                ]}>
+                Ich
+              </ThemedText>
+              {childProfiles.map((child) => (
+                <ThemedText
+                  key={child.id}
+                  onPress={() =>
+                    activeHousehold &&
+                    setProfile({
+                      type: 'child',
+                      childProfileId: child.id,
+                      householdId: activeHousehold.id,
+                    })
+                  }
+                  style={[
+                    styles.unitPill,
+                    {
+                      backgroundColor:
+                        childProfileId === child.id ? theme.accent : theme.backgroundElement,
+                      color: childProfileId === child.id ? '#fff' : theme.text,
+                    },
+                  ]}>
+                  {child.display_name}
+                </ThemedText>
+              ))}
+            </View>
+          </View>
+        ) : null}
+
         <View style={styles.hero}>
           {imageUrl ? (
             <Image source={{ uri: imageUrl }} style={styles.heroImage} />
