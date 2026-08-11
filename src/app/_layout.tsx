@@ -6,6 +6,7 @@ import { useEffect } from 'react';
 import { useColorScheme } from 'react-native';
 
 import { AnimatedSplashOverlay } from '@/components/animated-icon';
+import { SnackbarProvider } from '@/components/snackbar';
 import { SyncStatusBanner } from '@/components/sync-status-banner';
 import { SessionProvider, useSession } from '@/features/auth/session-provider';
 import { parseAuthErrorFromUrl, parseAuthTokensFromUrl } from '@/lib/auth-deep-link';
@@ -163,9 +164,11 @@ export default function RootLayout() {
       <SessionProvider>
         <ActiveHouseholdProvider>
           <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-            <AnimatedSplashOverlay />
-            <SyncStatusBanner />
-            <RootNavigator />
+            <SnackbarProvider>
+              <AnimatedSplashOverlay />
+              <SyncStatusBanner />
+              <RootNavigator />
+            </SnackbarProvider>
           </ThemeProvider>
         </ActiveHouseholdProvider>
       </SessionProvider>
