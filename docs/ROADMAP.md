@@ -13,7 +13,7 @@ Alle Issues: <https://github.com/goldjunge91/fam/issues>
 >
 > **Korrektur 2026-08-11 (AC-Verifikation):** 32 zuvor als "fertig" geführte Issues wurden einzeln gegen ihre Akzeptanzkriterien im Code geprüft, nicht nur gegen Commit-Messages. 17 waren wirklich fertig (jetzt geschlossen). **15 hatten eine Lücke** — 13 fehlte ein einzelnes AC, bei **#78 und #80 existierte trotz vorheriger ✅-Markierung keine Implementierung**. Issue-Details in `docs/projekt_status.md`.
 >
-> **Nachtrag 2026-08-11:** alle 15 Lücken auf Branch `ac-luecken-fixes` geschlossen (22 Commits). Offen bleibt nur noch das organisatorische Nachziehen (Branch pushen, PR, GitHub-Issues schließen).
+> **Nachtrag 2026-08-11:** alle 15 Lücken auf Branch `ac-luecken-fixes` geschlossen (22 Commits) und über PR #119 (Merge `45b650c`) in `main` gemerged. Alle 15 GitHub-Issues mit Beleg-Kommentar geschlossen.
 
 | Welle | Thema | Status | Gate |
 |---|---|---|---|

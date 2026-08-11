@@ -1,6 +1,6 @@
 # 008: AC-Lücken aus der Verifikation vom 2026-08-11
 
-**Status**: done (alle 15 Punkte auf Branch `ac-luecken-fixes` umgesetzt, 22 Commits)
+**Status**: done (alle 15 Punkte auf Branch `ac-luecken-fixes` umgesetzt, 22 Commits; gemerged via PR #119, Merge-Commit `45b650c`; alle 15 GitHub-Issues mit Beleg-Kommentar geschlossen)
 **Created**: 2026-08-11
 **Resolved**: 2026-08-11
 **Priority**: medium (hoch für #78/#80, siehe Reihenfolge unten)
