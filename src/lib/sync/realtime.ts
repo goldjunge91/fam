@@ -6,6 +6,7 @@ import {
 
 import type { Entity, SqlDatabase } from '@/lib/db/types';
 import type { TypedSupabaseClient } from '@/lib/supabase';
+import { toEpochMs } from '@/lib/sync/cursor';
 import { applyRemoteRow, deleteMirrorRow } from '@/lib/sync/mirror-write';
 import { clockCeiling, type ServerClock } from '@/lib/sync/server-clock';
 
@@ -21,7 +22,19 @@ import { clockCeiling, type ServerClock } from '@/lib/sync/server-clock';
  */
 const REALTIME_TABLES: readonly Entity[] = ['fridge_items', 'shopping_list_items'];
 
-export type RealtimeRowEvent = { entity: Entity; op: 'insert' | 'update' | 'delete'; id: string };
+export type RealtimeRowEvent = {
+  entity: Entity;
+  op: 'insert' | 'update' | 'delete';
+  id: string;
+  /**
+   * Ende-zu-Ende-Latenz in ms: lokale Ankunftszeit minus des Server-
+   * `updated_at` aus der Zeile selbst. Miss- und anzeigbar auf einem
+   * einzelnen Geraet, ohne Uhr-Abgleich mit dem sendenden Geraet — die
+   * Server-Zeit ist der gemeinsame Bezugspunkt. `null` bei `delete`
+   * (kein `updated_at` im `old`-Payload).
+   */
+  latencyMs: number | null;
+};
 
 type SubscribeHouseholdRealtimeDeps = {
   db: SqlDatabase;
@@ -183,6 +196,7 @@ async function handlePayload(
 
   const op = eventTypeToOp(payload.eventType);
   const nowMs = deps.now?.() ?? Date.now();
+  let latencyMs: number | null = null;
 
   await deps.db.withExclusiveTransactionAsync(async (txn) => {
     if (op === 'delete') {
@@ -194,11 +208,14 @@ async function handlePayload(
 
     const row = payload.new as { id: string; updated_at: string; deleted_at?: string | null };
     await applyRemoteRow(txn, entity, row, clockCeiling(deps.serverClock, nowMs));
+    // Ankunft minus Server-Commit-Zeit — die eigentliche Ende-zu-Ende-Latenz,
+    // die der Nutzer als "wie lange bis eine Aenderung ankommt" erlebt.
+    latencyMs = nowMs - toEpochMs(row.updated_at);
   });
 
   const id =
     op === 'delete' ? (payload.old as { id?: string }).id : (payload.new as { id?: string }).id;
   if (typeof id === 'string') {
-    deps.onRowApplied?.({ entity, op, id });
+    deps.onRowApplied?.({ entity, op, id, latencyMs });
   }
 }

@@ -1,10 +1,21 @@
-import { onlineManager, useQuery } from '@tanstack/react-query';
-import { useSyncExternalStore } from 'react';
+import { onlineManager, useQuery, useQueryClient } from '@tanstack/react-query';
+import { useEffect, useState, useSyncExternalStore } from 'react';
 
 import { getDatabase } from '@/lib/db/client';
+import { onOutboxChanged } from '@/lib/db/outbox';
 import type { SqlDatabase } from '@/lib/db/types';
 import { MAX_ATTEMPTS } from '@/lib/sync/backoff';
 import { computeSyncStatusView, type SyncStatusView } from '@/lib/sync/sync-status';
+
+/**
+ * Wie lange "Synchronisiere..." nach einem lokalen Schreibvorgang sichtbar
+ * bleibt — bewusst kurz und fix, nicht an den tatsaechlichen Push gekoppelt
+ * (siehe Kommentar in `sync-status.ts`). Ein weiterer Schreibvorgang in
+ * dieser Zeit verlaengert die Anzeige (derselbe Timer wird neu gestartet),
+ * ein Schwung von Aenderungen zeigt also durchgehend "synchronisiert" statt
+ * zu flackern.
+ */
+const RECENT_WRITE_DISPLAY_MS = 1_500;
 
 /**
  * Liest Netzwerkstatus und Outbox-Zaehler und leitet daraus den Anzeigezustand
@@ -17,12 +28,27 @@ import { computeSyncStatusView, type SyncStatusView } from '@/lib/sync/sync-stat
  * Reconnect-*Trigger*, nicht diese *Anzeige*; beide speisen sich letztlich aus
  * denselben Events.
  *
- * Outbox-Zaehler werden gepollt statt ueber einen Event-Emitter aus
- * `outbox.ts`/`push.ts` beobachtet — haelt dieses Feature vollstaendig additiv
- * (keine bereits gemergte Sync-Engine-Datei wird angefasst). Die dadurch
- * moegliche Verzoegerung von bis zu drei Sekunden faellt praktisch nicht auf,
- * da ohnehin nichts haeufiger als das synchronisiert.
+ * Die `pending`/`failed`-Zaehler (fuer die Beschriftung, `offline`/`failed`)
+ * werden weiterhin per `refetchInterval` gepollt — fuer die reine Anzeige
+ * reicht das. Nur der `syncing`-Ausloeser selbst haengt jetzt an
+ * `onOutboxChanged()` (`lib/db/outbox.ts`), damit "Synchronisiere..." direkt
+ * nach einem Schreibvorgang erscheint statt erst beim naechsten Poll-Tick.
  */
+const outboxCountsQueryKey = ['sync-status', 'outbox-counts'] as const;
+
+async function fetchOutboxCounts(db: SqlDatabase): Promise<{ pending: number; failed: number }> {
+  const pending = await db.getFirstAsync<{ count: number }>(
+    'select count(*) as count from outbox where attempts < ?',
+    [MAX_ATTEMPTS],
+  );
+  const failed = await db.getFirstAsync<{ count: number }>(
+    'select count(*) as count from outbox where attempts >= ?',
+    [MAX_ATTEMPTS],
+  );
+
+  return { pending: pending?.count ?? 0, failed: failed?.count ?? 0 };
+}
+
 export function useSyncStatus(getDb: () => Promise<SqlDatabase> = getDatabase): SyncStatusView {
   const isOnline = useSyncExternalStore(
     (onChange) => onlineManager.subscribe(onChange),
@@ -30,22 +56,39 @@ export function useSyncStatus(getDb: () => Promise<SqlDatabase> = getDatabase): 
     () => true,
   );
 
+  const queryClient = useQueryClient();
+  const [recentLocalWrite, setRecentLocalWrite] = useState(false);
+  useEffect(() => {
+    let hideTimer: ReturnType<typeof setTimeout> | null = null;
+    let cancelled = false;
+    const unsubscribe = onOutboxChanged(() => {
+      // Bewusst NICHT `invalidateQueries` + sofortiges `setRecentLocalWrite(true)`:
+      // `invalidateQueries` markiert die Query nur als stale, der Refetch laeuft
+      // asynchron im Hintergrund. Da `recentLocalWrite` synchron kippt, zeigte die
+      // Anzeige fuer ein bis zwei Frames "Synchronisiere ... 0 ausstehend" (den
+      // alten Zaehlerstand), bevor sich das durch den Refetch selbst korrigierte.
+      // Stattdessen hier den echten Zaehlerstand zuerst lesen und beide Updates
+      // (Cache + `recentLocalWrite`) im selben Tick anwenden.
+      void (async () => {
+        const db = await getDb();
+        const counts = await fetchOutboxCounts(db);
+        if (cancelled) return;
+        queryClient.setQueryData(outboxCountsQueryKey, counts);
+        setRecentLocalWrite(true);
+        if (hideTimer) clearTimeout(hideTimer);
+        hideTimer = setTimeout(() => setRecentLocalWrite(false), RECENT_WRITE_DISPLAY_MS);
+      })();
+    });
+    return () => {
+      cancelled = true;
+      unsubscribe();
+      if (hideTimer) clearTimeout(hideTimer);
+    };
+  }, [queryClient, getDb]);
+
   const { data } = useQuery({
-    queryKey: ['sync-status', 'outbox-counts'],
-    queryFn: async () => {
-      const db = await getDb();
-
-      const pending = await db.getFirstAsync<{ count: number }>(
-        'select count(*) as count from outbox where attempts < ?',
-        [MAX_ATTEMPTS],
-      );
-      const failed = await db.getFirstAsync<{ count: number }>(
-        'select count(*) as count from outbox where attempts >= ?',
-        [MAX_ATTEMPTS],
-      );
-
-      return { pending: pending?.count ?? 0, failed: failed?.count ?? 0 };
-    },
+    queryKey: outboxCountsQueryKey,
+    queryFn: async () => fetchOutboxCounts(await getDb()),
     refetchInterval: 3_000,
     // Kein `_dirty`/`household_id`-Filter: die Outbox ist geraetelokal, nicht
     // haushaltsgebunden — der Zaehler braucht keinen "aktiver Haushalt"-Context.
@@ -56,5 +99,6 @@ export function useSyncStatus(getDb: () => Promise<SqlDatabase> = getDatabase): 
     isOnline,
     pendingCount: data.pending,
     failedCount: data.failed,
+    recentLocalWrite,
   });
 }

@@ -6,11 +6,11 @@ import { EmptyState } from '@/components/empty-state';
 import { Screen } from '@/components/screen';
 import { ThemedText } from '@/components/themed-text';
 import { Spacing } from '@/constants/theme';
+import { useSession } from '@/features/auth/session-provider';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { useHouseholdMembers } from '@/features/household/api';
 import { useTheme } from '@/hooks/use-theme';
 import { formatRelativeTime } from '@/lib/format-relative-time';
-import { getSupabase } from '@/lib/supabase';
 import { getLastSyncInfo } from '@/lib/sync/sync-runner';
 import { CompleteRunSheet, type TransferItem } from './complete-run-sheet';
 import { AddItemModal } from './components/add-item-modal';
@@ -43,6 +43,8 @@ export function ShoppingListScreen() {
   const [storeFilter, setStoreFilter] = useState<string>(ALL_FILTER);
   const theme = useTheme();
   const scrollRef = useRef<ScrollView>(null);
+  const { session } = useSession();
+  const userId = session?.user.id;
 
   // Beim Wechsel des Markt-Filters (Karte oder Chip antippen) an den Anfang
   // scrollen, damit die Tab-Leiste und der Anfang der gefilterten Liste
@@ -107,15 +109,11 @@ export function ShoppingListScreen() {
   ];
 
   async function handleToggle(item: LocalShoppingItem) {
-    const {
-      data: { user },
-    } = await getSupabase().auth.getUser();
-
     await toggleItem.mutateAsync({
       id: item.id,
       household_id: item.household_id,
       checked_at: item.checked_at ? null : new Date().toISOString(),
-      checked_by: item.checked_at ? null : (user?.id ?? null),
+      checked_by: item.checked_at ? null : (userId ?? null),
     });
   }
 
@@ -132,13 +130,10 @@ export function ShoppingListScreen() {
 
   async function handleCompleteRun(transfers: TransferItem[]) {
     if (!householdId) return;
-    const {
-      data: { user },
-    } = await getSupabase().auth.getUser();
 
     await completeRun.mutateAsync({
       householdId,
-      userId: user?.id ?? '',
+      userId: userId ?? null,
       checkedItems,
       transfers,
     });

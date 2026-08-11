@@ -61,13 +61,13 @@
   },
   "scripts": {
     "prepare": "git config core.hooksPath .githooks",
-    "start": "EXPO_NO_DOTENV=1 dotenv -e .env.development -- expo start",
-    "start:remote": "EXPO_NO_DOTENV=1 dotenv -e .env -- expo start",
+    "start": "EXPO_NO_DOTENV=1 dotenv -o -e .env.development -- expo start",
+    "start:remote": "EXPO_NO_DOTENV=1 dotenv -o -e .env -- expo start",
     "reset-project": "node ./scripts/reset-project.js",
-    "android": "EXPO_NO_DOTENV=1 dotenv -e .env.development -- expo run:android",
-    "android:remote": "EXPO_NO_DOTENV=1 dotenv -e .env -- expo run:android",
-    "ios": "EXPO_NO_DOTENV=1 dotenv -e .env.development -- expo run:ios",
-    "ios:remote": "EXPO_NO_DOTENV=1 dotenv -e .env -- expo run:ios",
+    "android": "EXPO_NO_DOTENV=1 dotenv -o -e .env.development -- expo run:android",
+    "android:remote": "EXPO_NO_DOTENV=1 dotenv -o -e .env -- expo run:android",
+    "ios": "EXPO_NO_DOTENV=1 dotenv -o -e .env.development -- expo run:ios",
+    "ios:remote": "EXPO_NO_DOTENV=1 dotenv -o -e .env -- expo run:ios",
     "web": "expo start --web",
     "lint": "biome lint .",
     "format": "biome format --write .",
@@ -92,7 +92,8 @@
     "user:create": "bun scripts/test-users.ts create",
     "user:list": "bun scripts/test-users.ts list",
     "user:clean": "bun scripts/test-users.ts clean",
-    "user:delete": "bun scripts/test-users.ts delete"
+    "user:delete": "bun scripts/test-users.ts delete",
+    "test:env": "EXPO_NO_DOTENV=1 dotenv -o -e .env -- bun -e \"console.log(process.env.EXPO_PUBLIC_SUPABASE_URL)\""
   },
   "private": true
 }

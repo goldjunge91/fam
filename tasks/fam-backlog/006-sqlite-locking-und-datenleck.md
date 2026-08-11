@@ -1,6 +1,6 @@
 # 006: SQLite-Sperrfehler, Cross-Account-Datenleck und Zugriffslücken
 
-**Status**: in_progress
+**Status**: completed
 **Created**: 2026-08-09
 **Priority**: high
 
@@ -11,8 +11,8 @@ Aufgefallen bei der Zwei-Geräte-Verifikation aus
 Nachverfolgen als zusammenhängend herausstellten — vollständige Diagnose mit
 Belegen in `docs/plans/fix-sqlite-locking-und-household-datenleck.md`.
 
-Der Code ist behoben (`f58e3bf`); offen sind die Verifikation am Gerät und der
-Push aufs verlinkte Projekt.
+Der Code ist behoben (`f58e3bf`); die Geräte-Verifikation ist abgeschlossen
+(siehe `003-gate-d-two-device-verification.md`).
 
 ## Action Items
 

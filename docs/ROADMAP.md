@@ -137,7 +137,7 @@ Nutzer nach jedem App-Neustart ausgeloggt — ein Fehler, der sonst erst spät a
 #66 Haushalts-Wechsler (braucht #59 und #48)
 ```
 
-## Welle 5 — Kühlschrank ✅ Code fertig, Gate D offen
+## Welle 5 — Kühlschrank ✅ Code fertig, Gate D ✅
 
 Erstes Feature, das Welle 1, 2 und 4 gleichzeitig belastet — der eigentliche
 Integrationstest der Architektur.

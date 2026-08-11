@@ -31,7 +31,7 @@ export function ActiveHouseholdProvider({ children }: { children: React.ReactNod
   const { session } = useSession();
   const userId = session?.user.id ?? null;
   const queryClient = useQueryClient();
-  const { data: households = [], isLoading, isFetching, isError } = useHouseholds();
+  const { data: households = [], isLoading, isError } = useHouseholds();
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [isStoreLoaded, setIsStoreLoaded] = useState(false);
 
@@ -105,7 +105,15 @@ export function ActiveHouseholdProvider({ children }: { children: React.ReactNod
       activeHouseholdId,
       activeHousehold,
       households,
-      isLoading: isLoading || isFetching || !isStoreLoaded,
+      // Bewusst OHNE `isFetching`: das waere bei jedem Hintergrund-Refetch
+      // wahr (Poll alle 20s, Reconnect, Vordergrund-Wechsel — siehe
+      // household-bootstrap-sync.ts) und liesse `resolveAppEntry()` bei jedem
+      // dieser Refetches kurz `{ kind: 'warten' }` liefern. Das unmountet
+      // `<AppTabs/>` und damit den gerade offenen Tab/Screen — sichtbar als
+      // "springt zurueck zur Uebersicht". `isLoading` (TanStack Querys
+      // `isPending && isFetching`) ist dagegen nur beim allerersten Laden
+      // wahr, genau das richtige Signal fuer den Vollbild-Ladezustand.
+      isLoading: isLoading || !isStoreLoaded,
       isError,
       setActiveHouseholdId: handleSetActiveHouseholdId,
     }),
@@ -114,7 +122,6 @@ export function ActiveHouseholdProvider({ children }: { children: React.ReactNod
       activeHousehold,
       households,
       isLoading,
-      isFetching,
       isStoreLoaded,
       isError,
       handleSetActiveHouseholdId,

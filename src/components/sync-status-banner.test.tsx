@@ -93,44 +93,49 @@ describe('SyncStatusBanner', () => {
     expect(await screen.findByText('Offline')).toBeTruthy();
   });
 
-  it('zeigt den ausstehenden Zaehler aus echten Outbox-Zeilen', async () => {
-    await enqueueMutation(db, {
-      entity: 'storage_locations',
-      entityId: 'loc-1',
-      op: 'insert',
-      payload: { id: 'loc-1', household_id: 'hh-1', name: 'Kühlschrank', kind: 'fridge' },
-      applyLocally: (txn) => insertStorageLocation(txn, 'loc-1'),
-    });
-
+  it('zeigt den ausstehenden Zaehler kurz nach einem echten lokalen Schreibvorgang', async () => {
+    // Erst rendern, dann schreiben — wie im echten App-Baum: das Banner
+    // haengt bereits am Root, bevor je eine Mutation passiert. `enqueueMutation`
+    // vor dem Mount aufzurufen wuerde die Benachrichtigung verpassen, die
+    // `useSyncStatus` erst ab seinem `useEffect` abonniert.
     await render(renderBanner({ getDb: async () => db }));
+
+    await act(async () => {
+      await enqueueMutation(db, {
+        entity: 'storage_locations',
+        entityId: 'loc-1',
+        op: 'insert',
+        payload: { id: 'loc-1', household_id: 'hh-1', name: 'Kühlschrank', kind: 'fridge' },
+        applyLocally: (txn) => insertStorageLocation(txn, 'loc-1'),
+      });
+    });
 
     expect(await screen.findByText('Synchronisiere … 1 ausstehend')).toBeTruthy();
   });
 
-  it('verschwindet wieder, nachdem die Outbox-Zeilen wie bei einem erfolgreichen Push geloescht wurden', async () => {
-    await enqueueMutation(db, {
-      entity: 'storage_locations',
-      entityId: 'loc-2',
-      op: 'insert',
-      payload: { id: 'loc-2', household_id: 'hh-1', name: 'Vorrat', kind: 'pantry' },
-      applyLocally: (txn) => insertStorageLocation(txn, 'loc-2'),
-    });
-
+  it('verschwindet von selbst kurz nach dem Schreibvorgang — unabhaengig davon, ob der Push schon durch ist', async () => {
+    // Der Kern der neuen Semantik (#Sync-Diagnose-Session): "synchronisiere"
+    // ist keine Anzeige des tatsaechlichen Push-Fortschritts mehr, sondern
+    // eine kurze, feste Rueckmeldung auf den lokalen Schreibvorgang. Die
+    // Outbox-Zeile bleibt hier absichtlich bestehen (kein Push simuliert) —
+    // die Anzeige muss trotzdem verschwinden.
     await render(renderBanner({ getDb: async () => db }));
+
+    await act(async () => {
+      await enqueueMutation(db, {
+        entity: 'storage_locations',
+        entityId: 'loc-2',
+        op: 'insert',
+        payload: { id: 'loc-2', household_id: 'hh-1', name: 'Vorrat', kind: 'pantry' },
+        applyLocally: (txn) => insertStorageLocation(txn, 'loc-2'),
+      });
+    });
     expect(await screen.findByText(/ausstehend/)).toBeTruthy();
 
-    // Simuliert, was push.ts bei Erfolg tut: die Outbox-Zeilen loeschen.
-    const due = await loadDueOutboxEntries(db, Date.now());
-    await db.runAsync(
-      `delete from outbox where id in (${due.map(() => '?').join(', ')})`,
-      due.map((entry) => entry.id),
-    );
-
-    // useSyncStatus pollt alle 3s (refetchInterval) — das naechste Intervall
-    // abwarten statt die Uhr zu faelschen, damit der Test den echten
-    // Query-Zyklus durchlaeuft. `waitFor` haelt die Assertion act()-sicher am
-    // Laufen, statt einmalig nach einem festen Sleep zu pruefen.
     await waitFor(() => expect(screen.queryByText(/ausstehend/)).toBeNull(), { timeout: 4_000 });
+
+    const due = await loadDueOutboxEntries(db, Date.now());
+    expect(due).toHaveLength(1);
   }, 10_000);
 
   it('zeigt den Fehlerzustand und ruft onRetry beim Tap auf', async () => {

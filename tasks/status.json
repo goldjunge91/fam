@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-10",
+  "updated": "2026-08-11",
   "projects": [
     {
       "name": "fam-housekeeping",
@@ -79,14 +79,14 @@
         {
           "id": "fam-backlog/003",
           "title": "Gate D - Zwei-Geraete-Sync verifizieren (#70)",
-          "status": "pending",
+          "status": "completed",
           "priority": "medium",
           "path": "tasks/fam-backlog/003-gate-d-two-device-verification.md",
           "issues": [
             "#70"
           ],
           "blockedBy": [],
-          "notes": "Nicht mehr blockiert. Erster Durchlauf war nicht auswertbar (lief in die Fehler aus fam-backlog/006, behoben in f58e3bf) — Messung ist zu wiederholen."
+          "notes": "Alle 5 AC per manueller Zwei-Geraete-Verifikation bestaetigt. Dabei drei Folgefehler gefunden und behoben: added_by/checked_by-UUID-Fehler bei Offline-Auth-Fallback, isFetching-bedingtes Zurueckspringen zur Uebersicht, und AC1 (\"unter einer Sekunde\") verlangte einen Sofort-Push bei einzelnen Schreibvorgaengen statt reinem 20s-Poll — dafuer den debounced Sync-Nudge in sync-runner.ts ergaenzt (leading edge sofort, trailing debounce nur fuer Schwuenge)."
         },
         {
           "id": "fam-backlog/004",
@@ -121,11 +121,11 @@
         {
           "id": "fam-backlog/006",
           "title": "SQLite-Sperrfehler, Cross-Account-Datenleck und Zugriffsluecken",
-          "status": "in_progress",
+          "status": "completed",
           "priority": "high",
           "path": "tasks/fam-backlog/006-sqlite-locking-und-datenleck.md",
           "commit": "f58e3bf",
-          "notes": "Code behoben, Migration 20260809195849_haushalts_mitglieder_profile.sql gepusht (inkl. manuellem anon-Revoke-Fix fuer household_member_profiles, check-privileges.sh --linked jetzt OK, db:diff leer). Offen: nur noch die Geraete-Verifikation (siehe 003)."
+          "notes": "Code behoben, Migration 20260809195849_haushalts_mitglieder_profile.sql gepusht (inkl. manuellem anon-Revoke-Fix fuer household_member_profiles, check-privileges.sh --linked jetzt OK, db:diff leer). Geraete-Verifikation abgeschlossen (siehe 003)."
         },
         {
           "id": "fam-backlog/007",
