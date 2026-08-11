@@ -9,29 +9,25 @@ Alle Issues: <https://github.com/goldjunge91/fam/issues>
 
 ## Status-Übersicht
 
-> Stand: 2026-08-08 — korrigiert nach Code-Abgleich; der vorherige Stand
-> (2026-08-06) hatte Welle 4 und Teile von Welle 5/P noch als offen geführt,
-> obwohl der Code dafür bereits existierte und getestet ist.
+> Stand: 2026-08-11 — korrigiert nach Code-Abgleich und Schließen der GitHub-Issues (#9, #58, #66, #70, #89–#92, #95).
+>
+> **Korrektur 2026-08-11 (AC-Verifikation):** 32 zuvor als "fertig" geführte Issues wurden einzeln gegen ihre Akzeptanzkriterien im Code geprüft, nicht nur gegen Commit-Messages. 17 waren wirklich fertig (jetzt geschlossen). **15 haben eine Lücke** — 13 fehlt ein einzelnes AC, bei **#78 und #80 existiert trotz vorheriger ✅-Markierung keine Implementierung**. Die Wellen-Status unten spiegeln das jetzt wider; Issue-Details in `docs/projekt_status.md`.
 
 | Welle | Thema | Status | Gate |
 |---|---|---|---|
 | 0 | Werkzeug & Supabase | ✅ Fertig | **A** ✅ Dev Build läuft |
 | 1 | Datenmodell & RLS | ✅ Fertig | **B** ✅ RLS-Tests grün |
-| 2 | Offline & Sync | 🟡 Fast fertig (#70 offen — braucht zusätzlich die #48-Realtime-Verdrahtung, siehe unten) | **C** ✅ Konflikttests grün |
+| 2 | Offline & Sync | ✅ Fertig (#70 verifiziert in Commit `1a76351` / `b06cd4d`) | **C** ✅ Konflikttests grün |
 | 3 | Auth & Onboarding | ✅ Fertig (inkl. #104 6-Step Wizard) | — |
-| 4 | Haushalt | ✅ Fertig (#59–66 alle im Code, mit Tests: Erstellen, Mitgliederliste, Rollen/Entfernen, Einladung+QR, Beitritt, Verlassen/Löschen, Kinder-Profile, Haushalts-Wechsler) | — |
-| 5 | Kühlschrank + Einkaufsliste | ✅ Code fertig (#67–69, #71–73); **D offen** | **D** — 2-Geräte-Sync, blockiert auf #48-Verdrahtung (s.u.) |
-| P | Lebensmittel-DB | ✅ weitgehend fertig (#74–78, #80); #79 offen (Voraussetzung #86 jetzt erfüllt) | — |
-| 6 | Kalorien & Tagebuch | ✅ Fertig (#81–#88: Rechenkern, Ziel-Setup, Tagebuch-Screen samt CRUD/Tagessummen/Datumsnavigation, Dashboard-Anschluss) | — |
-| 7 | Dashboard & Navigation | ✅ Fertig (#89–#95: Navigation aufgeräumt, Modul-Aktivierung inkl. neuer `profiles`-Spalten, Rezepte-Platzhalter bewusst nicht zum Rezept-Builder ausgebaut — das ist Zukunfts-Epic #12) | — |
+| 4 | Haushalt | 🟡 Fast fertig — #59–64, #66 geschlossen; #65 offen (Kinder-Profil nicht als Mahlzeit-Ziel wählbar) | — |
+| 5 | Kühlschrank + Einkaufsliste | 🟡 Fast fertig — #67, #68, #70, #72 geschlossen; #69 (kein Undo), #71 (kein Sortier-Toggle), #73 (Widget versteckt sich nicht) offen | **D** ✅ 2-Geräte-Sync verifiziert |
+| P | Lebensmittel-DB | 🔴 Deutlich weniger fertig als bisher dokumentiert — nur #77 geschlossen; #74–76 haben AC-Lücken, **#78 und #80 sind nicht implementiert**, #79 offen (Voraussetzung #86 jetzt erfüllt) | — |
+| 6 | Kalorien & Tagebuch | 🟡 Kern fertig (#81, #82, #87 geschlossen) — #83–86, #88 haben je ein fehlendes AC (Presets, Ziel-Override, Kinder-Profile, Undo, Offline-Cache) | — |
+| 7 | Dashboard & Navigation | 🟡 Fast fertig — #89–92, #95 geschlossen; #93 offen (kein Pull-to-Refresh) | — |
 | 8 | Datenschutz | 🔴 Offen | MVP fertig |
 
-**Sync-Engine-Nachzügler:** Die App synct aktiv, aber nur poll-basiert (alle 20s
-+ bei App-Resume, siehe `src/lib/sync/sync-runner.ts`). Die bereits gebaute
-Realtime→SQLite-Bridge (#48) sowie Netzwerk-/Hintergrund-Trigger (#50) sind
-noch nicht an `_layout.tsx` angeschlossen — Details in `docs/SYNC_ENGINE.md`.
-Das ist die eigentliche Voraussetzung, bevor #70 (Gate D, "<1s"-Konvergenz)
-sinnvoll verifiziert werden kann.
+**Sync-Engine-Nachzügler:** Erledigt — Realtime-Bridge (#48), Netzwerk-/Hintergrund-Trigger (#50) sowie Gate D (#70 2-Geräte-Sync) wurden verdrahtet (Commit `1a76351` / `b06cd4d`, PR #118). Der Sync läuft aktuell über **Realtime-Bridge + Netzwerk-Reconnect + Background-Sync + Poll-Fallback (20s)**, alle vier aktiv verdrahtet in `(app)/_layout.tsx`.
+
 
 ---
 
@@ -126,7 +122,7 @@ Der technisch riskanteste Teil. Braucht Gate A und Gate B.
 [#56](https://github.com/goldjunge91/fam/issues/56) ist der Praxistest für den SecureStore-Adapter aus [#30](https://github.com/goldjunge91/fam/issues/30). Fällt der durch, sind
 Nutzer nach jedem App-Neustart ausgeloggt — ein Fehler, der sonst erst spät auffällt.
 
-## Welle 4 — Haushalt ✅ Fertig
+## Welle 4 — Haushalt 🟡 Fast fertig (#65 offen)
 
 ```
 #59 Haushalt erstellen
@@ -137,7 +133,10 @@ Nutzer nach jedem App-Neustart ausgeloggt — ein Fehler, der sonst erst spät a
 #66 Haushalts-Wechsler (braucht #59 und #48)
 ```
 
-## Welle 5 — Kühlschrank ✅ Code fertig, Gate D ✅
+> **Stand 2026-08-11:** #65 offen — Kinder-Profil-CRUD fertig, aber beim Loggen einer
+> Mahlzeit in `calorie-tracking/` nicht als Ziel wählbar.
+
+## Welle 5 — Kühlschrank 🟡 Fast fertig, Gate D ✅
 
 Erstes Feature, das Welle 1, 2 und 4 gleichzeitig belastet — der eigentliche
 Integrationstest der Architektur.
@@ -148,6 +147,10 @@ Integrationstest der Architektur.
 #71 Ablauf-Ampel → #72 Lokale Benachrichtigungen
 #73 Dashboard-Widget (braucht #71 und #93)
 ```
+
+> **Stand 2026-08-11:** #69 (kein Undo nach Entfernen), #71 (kein Sortier-Toggle nach
+> MHD) und #73 (Widget versteckt sich nicht bei 0 Artikeln, kein Tap-Through) bleiben
+> offen.
 
 > **Gate D:** [#70](https://github.com/goldjunge91/fam/issues/70) verifiziert — Änderung auf Gerät A erscheint auf Gerät B in unter
 > einer Sekunde, Offline-Änderungen kommen nach Reconnect korrekt an.
@@ -164,6 +167,12 @@ mehrere Personen oder Agenten parallel arbeiten.
 #79 Häufig verwendet        (erst nach #86)
 ```
 
+> **Stand 2026-08-11:** #78 und #80 existieren trotz Abhängigkeitspfeilen oben faktisch
+> nicht im Code (siehe `docs/projekt_status.md`, Epic 6). #74–76 haben je eine AC-Lücke.
+> Nur #77 ist vollständig verifiziert. Bevor hier weitergebaut wird: #78 zuerst, weil
+> #77 (Portionsskalierung) bereits eine eigene, unvollständige Kopie der Umrechnungslogik
+> mitschleppt statt #78 zu nutzen.
+
 ## Welle 6 — Kalorien & Tagebuch
 
 Der Rechenkern besteht aus reinen Funktionen — ohne I/O, damit mock-frei testbar.
@@ -177,6 +186,11 @@ Der Rechenkern besteht aus reinen Funktionen — ohne I/O, damit mock-frei testb
 Bei [#82](https://github.com/goldjunge91/fam/issues/82) die Sicherheitskappung nicht weglassen: Das Ziel darf nie unter den
 Grundumsatz fallen.
 
+> **Stand 2026-08-11:** #81/#82/#87 verifiziert und geschlossen. #83 (Presets weichen
+> vom Spec ab, kein freies Anpassen), #84 (kein Ziel-Override), #85 (ignoriert
+> `child_profile_id`), #86 (Confirm-Dialog statt Undo) und #88 (vergangene Tage nicht
+> offline verfügbar) bleiben offen — Details in `docs/projekt_status.md`.
+
 ## Welle 7 — Dashboard & Navigation
 
 ```
@@ -188,6 +202,9 @@ Grundumsatz fallen.
 
 Laut `CLAUDE.md` bekommt jede UI-Änderung einen eigenen Commit, und
 `src/components/ui/` wird nicht angefasst.
+
+> **Stand 2026-08-11:** #89–92, #95 verifiziert und geschlossen. #93 bleibt offen — kein
+> Pull-to-Refresh im Dashboard (`RefreshControl` kommt im Repo nirgends vor).
 
 ## Welle 8 — Datenschutz
 

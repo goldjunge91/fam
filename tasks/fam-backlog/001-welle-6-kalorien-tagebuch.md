@@ -1,6 +1,6 @@
 # 001: Welle 6 — Kalorien & Tagebuch (#81–88)
 
-**Status**: completed
+**Status**: partial (siehe Verifikation 2026-08-11 unten)
 **Created**: 2026-08-08
 **Priority**: high
 
@@ -74,3 +74,22 @@ direkter Supabase-Zugriff + React Query (`src/features/calorie-tracking/api.ts`)
   Hooks, Stil wie `invite-modal.test.tsx`). `bun run typecheck`/`lint`/`test`
   gruen, `bun run db:diff` leer (keine Schemaänderung nötig — Tabellen
   existierten bereits).
+
+## Verifikation 2026-08-11 (gegen GitHub-AC, nicht nur gegen diese Notizen)
+
+`#81`, `#82`, `#87` bestätigt und auf GitHub geschlossen. Fünf Issues bleiben
+offen — jeweils ein konkretes AC fehlt, kein reines Doku-Problem:
+
+- `#83` — `low_carb`-Preset in `macros.ts` ist 30/20/50 statt der im Issue
+  spezifizierten 40/20/40; freies Anpassen der Makros (AC) existiert nicht.
+- `#84` — kein manuelles Überschreiben des berechneten Ziels möglich, nur
+  Speichern des berechneten Werts.
+- `#85` — `child_profile_id` existiert im Schema (`09_tracking.sql`), wird
+  aber in `api.ts`/`diary-screen.tsx` nirgends referenziert; Tagebuch
+  funktioniert nur für den eingeloggten Erwachsenen.
+- `#86` — "Löschen mit Undo" ist tatsächlich ein Confirm-Dialog *vor* dem
+  Löschen, kein Undo danach.
+- `#88` — vergangene Tage sind NICHT offline verfügbar: kein
+  `persistQueryClient`/`AsyncStoragePersister` im Repo, und `food_entries`
+  läuft bewusst am SQLite-Sync vorbei (siehe Architekturentscheidung oben) —
+  Cache ist rein in-memory und geht beim Neustart offline verloren.

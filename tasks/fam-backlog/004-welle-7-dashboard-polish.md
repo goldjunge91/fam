@@ -1,6 +1,6 @@
 # 004: Welle 7 — Dashboard & Navigation (#89–95)
 
-**Status**: completed
+**Status**: partial (siehe Verifikation 2026-08-11 unten)
 **Created**: 2026-08-08
 **Priority**: medium
 
@@ -49,3 +49,10 @@ Keine Schema-Überraschung: reine Spalten-Migration, `check-privileges.sh
 `006`). `bun run typecheck`/`check`/`test` grün, `db:diff` nach Push leer.
 
 Neue Tests: `module-gate.test.tsx`, `module-settings-screen.test.tsx`.
+
+## Verifikation 2026-08-11 (gegen GitHub-AC, nicht nur gegen diese Notizen)
+
+`#89`–`#92`, `#95` bestätigt und auf GitHub geschlossen (`#94` war es bereits).
+`#93` bleibt offen: Dashboard zeigt Ring + Makros + Ablauf-Widget zwar auf
+einer Seite, aber Pull-to-Refresh (Teil des ACs) fehlt komplett —
+`RefreshControl` kommt im gesamten Repo nicht vor.

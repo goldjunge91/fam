@@ -48,7 +48,7 @@
         {
           "id": "fam-backlog/001",
           "title": "Welle 6 - Kalorien & Tagebuch (#81-88)",
-          "status": "completed",
+          "status": "partial",
           "priority": "high",
           "path": "tasks/fam-backlog/001-welle-6-kalorien-tagebuch.md",
           "issues": [
@@ -61,7 +61,7 @@
             "#87",
             "#88"
           ],
-          "notes": "Komplett implementiert. #81/#82 reine Funktionen (bmr.ts/tdee.ts). #83-#88 + Dashboard-Anschluss: direkter Supabase-Zugriff (api.ts, kein lokaler Sync-Engine, Tabellen sind streng privat), neuer 6. Tab 'Tagebuch', Ziel-Setup-Screen unter /settings/goals. typecheck/lint/test gruen, db:diff leer (keine Schemaaenderung noetig)."
+          "notes": "Verifikation 2026-08-11 gegen Akzeptanzkriterien: #81/#82/#87 verifiziert und auf GitHub geschlossen. #83 (Preset-Werte weichen von Spec ab, kein freies Anpassen), #84 (kein manuelles Ziel-Override), #85 (ignoriert child_profile_id), #86 (Confirm-Dialog statt Undo), #88 (vergangene Tage nicht offline verfuegbar) bleiben offen - je ein konkretes AC fehlt, siehe docs/projekt_status.md."
         },
         {
           "id": "fam-backlog/002",
@@ -91,7 +91,7 @@
         {
           "id": "fam-backlog/004",
           "title": "Welle 7 - Dashboard & Navigation (#89-95)",
-          "status": "completed",
+          "status": "partial",
           "priority": "medium",
           "path": "tasks/fam-backlog/004-welle-7-dashboard-polish.md",
           "issues": [
@@ -103,7 +103,7 @@
             "#94",
             "#95"
           ],
-          "notes": "#91/#92 waren bereits seit Welle 6 erledigt (veraltete Doku). #89: tote profile-screen.tsx + Duplikat-Route entfernt, Web-Tabs an native 6 Tabs angeglichen. #90: nur Aufraeumen (kein Rezept-CRUD, das ist Zukunfts-Epic #12). #93/#94 als bereits erfuellt eingeordnet (Dashboard zeigt Tagesuebersicht, Settings ist der Account-Hub). #95 komplett neu: module_* Spalten auf profiles, Onboarding speichert Auswahl, /settings/modules zum Umschalten, ModuleGate blendet Tab-Inhalte aus."
+          "notes": "Verifikation 2026-08-11 gegen Akzeptanzkriterien: #89-92, #95 verifiziert und auf GitHub geschlossen (#94 schon vorher zu). #93 bleibt offen - Dashboard zeigt Ring+Makros+Ablauf-Widget auf einer Seite, aber kein Pull-to-Refresh (RefreshControl kommt im Repo nirgends vor)."
         },
         {
           "id": "fam-backlog/005",
