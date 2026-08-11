@@ -115,6 +115,31 @@ export function isOffDumpAttached(): boolean {
   return attachedThisSession;
 }
 
+export type OffDumpStatus = {
+  attached: boolean;
+  /** Release-Tag der zuletzt heruntergeladenen Version, `null` wenn noch nie geladen. */
+  storedReleaseTag: string | null;
+  fileExists: boolean;
+  fileSizeBytes: number;
+};
+
+/**
+ * Fuers Entwickler-Bereich (#79-Nachfrage "woher weiss ich, ob wir den
+ * Release runtergeladen haben"): fasst zusammen, ob der Dump lokal liegt,
+ * welche Version, und ob er an die aktuelle Connection angehaengt ist.
+ */
+export async function getOffDumpStatus(db: SqlDatabase): Promise<OffDumpStatus> {
+  const { File, Paths } = loadFileSystem();
+  const target = new File(Paths.document, DUMP_FILE_NAME);
+
+  return {
+    attached: attachedThisSession,
+    storedReleaseTag: await getStoredReleaseTag(db),
+    fileExists: target.exists,
+    fileSizeBytes: target.exists ? target.size : 0,
+  };
+}
+
 /**
  * Haengt den lokalen Dump als `off_dump`-Schema an die uebergebene
  * Verbindung an (`ATTACH DATABASE ... AS off_dump`) — danach per
