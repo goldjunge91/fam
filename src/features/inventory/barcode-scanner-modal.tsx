@@ -1,3 +1,4 @@
+import * as Haptics from 'expo-haptics';
 import { useRef, useState } from 'react';
 import { ActivityIndicator, Modal, Pressable, StyleSheet, View } from 'react-native';
 
@@ -56,6 +57,7 @@ export function BarcodeScannerModal({
     try {
       const product = await fetchProductByBarcode(data);
       if (product) {
+        await Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success);
         onProductFound(product);
         onClose();
       } else {
