@@ -1,3 +1,4 @@
+import { onlineManager } from '@tanstack/react-query';
 import { fireEvent, render, screen, waitFor } from '@testing-library/react-native';
 import { router } from 'expo-router';
 import { useState } from 'react';
@@ -31,6 +32,12 @@ jest.mock('@/lib/open-food-facts', () => ({
   searchOpenFoodFacts: jest.fn(),
 }));
 
+const mockGetAllAsync = jest.fn().mockResolvedValue([]);
+
+jest.mock('@/lib/db/client', () => ({
+  getDatabase: async () => ({ getAllAsync: mockGetAllAsync }),
+}));
+
 jest.mock('@/hooks/use-theme', () => ({
   useTheme: () => ({
     background: '#FFFFFF',
@@ -46,6 +53,8 @@ const mockSearch = searchOpenFoodFacts as jest.Mock;
 
 beforeEach(() => {
   mockSearch.mockReset();
+  mockGetAllAsync.mockReset();
+  mockGetAllAsync.mockResolvedValue([]);
   (router.push as jest.Mock).mockReset();
 });
 
@@ -83,4 +92,67 @@ it('zeigt keine "manuell anlegen"-Affordance, wenn Treffer gefunden werden', asy
   });
 
   expect(screen.queryByText(/manuell anlegen/)).not.toBeOnTheScreen();
+});
+
+it('zeigt lokale Treffer und fragt Open Food Facts nicht an, wenn genug lokale Treffer da sind', async () => {
+  mockGetAllAsync.mockResolvedValue(
+    Array.from({ length: 5 }, (_, i) => ({
+      barcode: `local-${i}`,
+      name: `Lokales Produkt ${i}`,
+      brand: null,
+      kcal_per_100: 100,
+      protein_g_per_100: null,
+      carbs_g_per_100: null,
+      fat_g_per_100: null,
+    })),
+  );
+
+  await render(<ControlledDropdown onSelectProduct={() => {}} />);
+  await fireEvent.changeText(screen.getByPlaceholderText('z. B. Hafermilch'), 'Produkt');
+
+  await waitFor(() => {
+    expect(screen.getByText('Lokales Produkt 0')).toBeTruthy();
+  });
+
+  expect(mockSearch).not.toHaveBeenCalled();
+});
+
+it('ergaenzt OFF-Treffer, wenn lokale Treffer unter dem Schwellwert liegen', async () => {
+  mockGetAllAsync.mockResolvedValue([
+    {
+      barcode: 'local-1',
+      name: 'Lokale Milch',
+      brand: null,
+      kcal_per_100: 42,
+      protein_g_per_100: null,
+      carbs_g_per_100: null,
+      fat_g_per_100: null,
+    },
+  ]);
+  mockSearch.mockResolvedValue({
+    products: [{ barcode: 'off-1', name: 'OFF Milch', quantity: 1, unit: 'l' }],
+  });
+
+  await render(<ControlledDropdown onSelectProduct={() => {}} />);
+  await fireEvent.changeText(screen.getByPlaceholderText('z. B. Hafermilch'), 'Milch');
+
+  await waitFor(() => {
+    expect(screen.getByText('Lokale Milch')).toBeTruthy();
+    expect(screen.getByText('OFF Milch')).toBeTruthy();
+  });
+});
+
+it('fragt Open Food Facts nicht an, wenn offline', async () => {
+  onlineManager.setOnline(false);
+  mockGetAllAsync.mockResolvedValue([]);
+
+  await render(<ControlledDropdown onSelectProduct={() => {}} />);
+  await fireEvent.changeText(screen.getByPlaceholderText('z. B. Hafermilch'), 'Fantasieprodukt');
+
+  await waitFor(() => {
+    expect(screen.getByText('+ "Fantasieprodukt" manuell anlegen')).toBeTruthy();
+  });
+
+  expect(mockSearch).not.toHaveBeenCalled();
+  onlineManager.setOnline(true);
 });
