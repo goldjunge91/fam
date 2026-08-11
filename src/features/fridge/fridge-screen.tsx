@@ -1,6 +1,6 @@
-import { useLocalSearchParams } from 'expo-router';
+import { router, useLocalSearchParams } from 'expo-router';
 import { useState } from 'react';
-import { Alert, FlatList, StyleSheet, View } from 'react-native';
+import { Alert, FlatList, Pressable, StyleSheet, View } from 'react-native';
 
 import { Card } from '@/components/card';
 import { EmptyState } from '@/components/empty-state';
@@ -134,11 +134,20 @@ export function FridgeScreen() {
       title="Vorrat"
       subtitle={subtitle}
       action={
-        expiringCount > 0 ? (
-          <View style={styles.expiringBadge}>
-            <ThemedText style={styles.expiringBadgeText}>⚠ {expiringCount} ablaufend</ThemedText>
-          </View>
-        ) : undefined
+        <View style={styles.headerActions}>
+          {expiringCount > 0 ? (
+            <View style={styles.expiringBadge}>
+              <ThemedText style={styles.expiringBadgeText}>⚠ {expiringCount} ablaufend</ThemedText>
+            </View>
+          ) : null}
+          <Pressable
+            onPress={() => router.push('/add-item')}
+            accessibilityRole="button"
+            accessibilityLabel="Artikel hinzufügen"
+            style={[styles.addHeaderButton, { backgroundColor: theme.accent }]}>
+            <ThemedText style={styles.addHeaderButtonText}>+</ThemedText>
+          </Pressable>
+        </View>
       }>
       {/* Dynamic Tab-Leiste für alle Lagerorte aus den Einstellungen */}
       <FridgeTabBar
@@ -216,6 +225,11 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     overflow: 'hidden',
   },
+  headerActions: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: Spacing.two,
+  },
   expiringBadge: {
     backgroundColor: '#FFF3E0',
     paddingHorizontal: Spacing.two,
@@ -226,5 +240,18 @@ const styles = StyleSheet.create({
     color: '#B26A00',
     fontSize: 12,
     fontWeight: '600',
+  },
+  addHeaderButton: {
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  addHeaderButtonText: {
+    color: '#fff',
+    fontSize: 24,
+    fontWeight: '600',
+    lineHeight: 28,
   },
 });

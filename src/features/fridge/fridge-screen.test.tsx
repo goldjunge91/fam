@@ -1,4 +1,5 @@
 import { fireEvent, render, screen } from '@testing-library/react-native';
+import { router } from 'expo-router';
 import { Alert } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
@@ -110,6 +111,14 @@ it('fragt bei Lang-Druck vor dem Loeschen nach Bestaetigung', async () => {
   });
 
   alertSpy.mockRestore();
+});
+
+it('oeffnet das Artikel-hinzufuegen-Formular ueber den Header-Button', async () => {
+  await renderScreen();
+
+  await fireEvent.press(screen.getByLabelText('Artikel hinzufügen'));
+
+  expect(router.push).toHaveBeenCalledWith('/add-item');
 });
 
 describe('Sortier-Toggle MHD/Name (#71)', () => {
