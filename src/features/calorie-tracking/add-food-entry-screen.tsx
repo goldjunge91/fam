@@ -1,3 +1,4 @@
+import * as Crypto from 'expo-crypto';
 import { router, useLocalSearchParams } from 'expo-router';
 import { useEffect, useState } from 'react';
 import { Alert, Image, StyleSheet, View } from 'react-native';
@@ -22,6 +23,8 @@ import { MEAL_LABELS } from '@/features/calorie-tracking/diary-screen';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { useChildProfiles } from '@/features/household/api';
 import { useTheme } from '@/hooks/use-theme';
+import { getDatabase } from '@/lib/db/client';
+import { recordProductUsage } from '@/lib/db/product-usage';
 import {
   type NutrientLevel,
   type OpenFoodFactsProduct,
@@ -243,6 +246,25 @@ export function AddFoodEntryScreen() {
         await updateMutation.mutateAsync({ id: params.entryId, ...payload });
       } else {
         await addMutation.mutateAsync(payload);
+
+        void getDatabase()
+          .then((db) =>
+            recordProductUsage(db, {
+              id: Crypto.randomUUID(),
+              userId,
+              householdId: activeHousehold?.id ?? null,
+              feature: 'diary',
+              mealType: payload.mealType,
+              name: payload.name,
+              unit: payload.unit,
+              quantity: payload.quantity,
+              kcal: payload.kcal,
+              proteinG: payload.proteinG,
+              carbsG: payload.carbsG,
+              fatG: payload.fatG,
+            }),
+          )
+          .catch((err) => console.error('Fehler beim Protokollieren der Nutzung:', err));
       }
       router.back();
     } catch (err) {

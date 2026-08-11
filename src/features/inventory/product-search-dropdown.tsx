@@ -8,7 +8,12 @@ import { ThemedText } from '@/components/themed-text';
 import { Spacing } from '@/constants/theme';
 import { useTheme } from '@/hooks/use-theme';
 import { getDatabase } from '@/lib/db/client';
-import { type OpenFoodFactsProduct, searchOpenFoodFacts } from '@/lib/open-food-facts';
+import { isOffDumpAttached } from '@/lib/off-dump/off-dump';
+import {
+  type OpenFoodFactsProduct,
+  parseQuantityAndUnit,
+  searchOpenFoodFacts,
+} from '@/lib/open-food-facts';
 
 /** Unter dieser Zahl lokaler Treffer lohnt sich der zusaetzliche OFF-Request noch. */
 const LOCAL_RESULT_THRESHOLD = 5;
@@ -40,7 +45,7 @@ function toOpenFoodFactsProduct(row: LocalProductRow): OpenFoodFactsProduct {
  * FTS/tsvector-Entsprechung wie der Server, ein einfaches `LIKE` reicht fuer
  * den gepflegten, deutlich kleineren lokalen Bestand.
  */
-async function searchLocalProducts(query: string): Promise<OpenFoodFactsProduct[]> {
+async function searchOwnProducts(query: string): Promise<OpenFoodFactsProduct[]> {
   const db = await getDatabase();
   const rows = await db.getAllAsync<LocalProductRow>(
     `select barcode, name, brand, kcal_per_100, protein_g_per_100, carbs_g_per_100, fat_g_per_100
@@ -51,6 +56,92 @@ async function searchLocalProducts(query: string): Promise<OpenFoodFactsProduct[
     [`%${query.trim().toLowerCase()}%`],
   );
   return rows.map(toOpenFoodFactsProduct);
+}
+
+type OffDumpProductRow = {
+  code: string | null;
+  product_name: string;
+  brand: string | null;
+  quantity: string | null;
+  nutriscore: string | null;
+  energy_kcal: number | null;
+  fat: number | null;
+  saturated_fat: number | null;
+  carbohydrates: number | null;
+  sugars: number | null;
+  proteins: number | null;
+  salt: number | null;
+};
+
+function toOpenFoodFactsProductFromDump(row: OffDumpProductRow): OpenFoodFactsProduct {
+  const { quantity, unit } = parseQuantityAndUnit(row.quantity ?? undefined);
+  return {
+    barcode: row.code ?? '',
+    name: row.product_name,
+    brand: row.brand ?? undefined,
+    quantity,
+    unit,
+    caloriesPer100g: row.energy_kcal ?? undefined,
+    proteinsPer100g: row.proteins ?? undefined,
+    carbsPer100g: row.carbohydrates ?? undefined,
+    fatPer100g: row.fat ?? undefined,
+    sugarsPer100g: row.sugars ?? undefined,
+    saturatedFatPer100g: row.saturated_fat ?? undefined,
+    saltPer100g: row.salt ?? undefined,
+    nutriScore: (row.nutriscore || undefined) as OpenFoodFactsProduct['nutriScore'],
+  };
+}
+
+/**
+ * Suche gegen den angehaengten OpenFoodFacts-Dump (#79 + Dump-CI-Workflow,
+ * `off-dump.ts`). Laeuft still ins Leere, solange der Dump noch nicht
+ * heruntergeladen/angehaengt ist (`no such table: off_dump.products`) — das
+ * ist beim App-Start fuer einen Moment der Normalfall, kein Fehler, den die
+ * Suche dem Nutzer zeigen muesste.
+ */
+async function searchOffDump(query: string): Promise<OpenFoodFactsProduct[]> {
+  if (!isOffDumpAttached()) return [];
+
+  try {
+    const db = await getDatabase();
+    const rows = await db.getAllAsync<OffDumpProductRow>(
+      `select code, product_name, brand, quantity, nutriscore, energy_kcal, fat, saturated_fat, carbohydrates, sugars, proteins, salt
+       from off_dump.products
+       where lower(product_name) like ?
+       order by product_name
+       limit 20`,
+      [`%${query.trim().toLowerCase()}%`],
+    );
+    return rows.map(toOpenFoodFactsProductFromDump);
+  } catch {
+    return [];
+  }
+}
+
+/** Barcode-Dedupe ueber mehrere Quellen — Produkte ohne Barcode gelten als eindeutig. */
+function dedupeByBarcode(products: OpenFoodFactsProduct[]): OpenFoodFactsProduct[] {
+  const seen = new Set<string>();
+  const result: OpenFoodFactsProduct[] = [];
+  for (const product of products) {
+    if (product.barcode && seen.has(product.barcode)) continue;
+    if (product.barcode) seen.add(product.barcode);
+    result.push(product);
+  }
+  return result;
+}
+
+/**
+ * Lokale Suche insgesamt: erst der eigene, gepflegte `products`-Spiegel,
+ * dann — falls das noch nicht reicht — der grosse angehaengte OFF-Dump. So
+ * liefert die Suche auch ohne Netz brauchbare Treffer statt nur der
+ * Handvoll selbst angelegten Produkte.
+ */
+async function searchLocalProducts(query: string): Promise<OpenFoodFactsProduct[]> {
+  const ownResults = await searchOwnProducts(query);
+  if (ownResults.length >= LOCAL_RESULT_THRESHOLD) return ownResults;
+
+  const dumpResults = await searchOffDump(query);
+  return dedupeByBarcode([...ownResults, ...dumpResults]);
 }
 
 interface ProductSearchDropdownProps {

@@ -36,6 +36,14 @@ jest.mock('@/features/calorie-tracking/api', () => ({
   useRestoreFoodEntryMutation: () => ({ mutate: mockRestoreMutate, isPending: false }),
 }));
 
+jest.mock('@/lib/db/client', () => ({
+  getDatabase: async () => ({}),
+}));
+
+jest.mock('@/lib/db/product-usage', () => ({
+  recordProductUsage: jest.fn().mockResolvedValue(undefined),
+}));
+
 jest.mock('@/components/snackbar', () => ({
   useSnackbar: () => ({ showUndoSnackbar: mockShowUndoSnackbar }),
 }));

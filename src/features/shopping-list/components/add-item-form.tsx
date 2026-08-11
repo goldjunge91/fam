@@ -1,3 +1,4 @@
+import * as Crypto from 'expo-crypto';
 import { useEffect, useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 
@@ -8,9 +9,12 @@ import { WheelPickerField } from '@/components/wheel-picker-field';
 import { Spacing } from '@/constants/theme';
 import { useSession } from '@/features/auth/session-provider';
 import { BarcodeScannerModal } from '@/features/inventory/barcode-scanner-modal';
+import { FrequentProductsQuickSelect } from '@/features/inventory/frequent-products-quick-select';
 import { persistOffProductIfNeeded } from '@/features/inventory/persist-off-product';
 import { ProductSearchDropdown } from '@/features/inventory/product-search-dropdown';
 import { useAddProductMutation } from '@/features/inventory/use-product-mutations';
+import { getDatabase } from '@/lib/db/client';
+import { recordProductUsage } from '@/lib/db/product-usage';
 import type { OpenFoodFactsProduct } from '@/lib/open-food-facts';
 import { UNIT_OPTIONS } from '@/lib/units';
 import { guessCategory } from '../shopping-categories';
@@ -75,6 +79,24 @@ export function AddItemForm({ householdId, onDismiss }: AddItemFormProps) {
       price_estimate: parsedPrice != null && !Number.isNaN(parsedPrice) ? parsedPrice : null,
     });
 
+    if (userId) {
+      void getDatabase()
+        .then((db) =>
+          recordProductUsage(db, {
+            id: Crypto.randomUUID(),
+            userId,
+            householdId,
+            feature: 'shopping_list',
+            productId,
+            name: trimmed,
+            brand: selectedProduct?.brand ?? null,
+            barcode: selectedProduct?.barcode ?? null,
+            unit,
+          }),
+        )
+        .catch((err) => console.error('Fehler beim Protokollieren der Nutzung:', err));
+    }
+
     setName('');
     setQuantity('1');
     setPrice('');
@@ -87,6 +109,12 @@ export function AddItemForm({ householdId, onDismiss }: AddItemFormProps) {
   return (
     <View style={styles.form}>
       <Button label="📷 Barcode scannen" variant="secondary" onPress={() => setShowScanner(true)} />
+
+      <FrequentProductsQuickSelect
+        feature="shopping_list"
+        userId={userId}
+        onSelectProduct={handleSelectProduct}
+      />
 
       <ProductSearchDropdown
         label="Name"

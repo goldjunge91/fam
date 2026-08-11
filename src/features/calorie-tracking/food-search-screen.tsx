@@ -7,12 +7,13 @@ import { TextField } from '@/components/text-field';
 import { ThemedText } from '@/components/themed-text';
 import { Spacing } from '@/constants/theme';
 import { useSession } from '@/features/auth/session-provider';
-import { useFoodHistory } from '@/features/calorie-tracking/api';
+import type { MealType } from '@/features/calorie-tracking/api';
 import {
   dedupeRecentFoods,
   type FoodHistoryEntry,
   rankFrequentFoods,
 } from '@/features/calorie-tracking/food-history';
+import { useLocalFoodUsage } from '@/features/calorie-tracking/use-local-food-usage';
 import { BarcodeScannerModal } from '@/features/inventory/barcode-scanner-modal';
 import { useTheme } from '@/hooks/use-theme';
 import {
@@ -67,7 +68,10 @@ export function FoodSearchScreen() {
   const queryRef = useRef(query);
   queryRef.current = query;
 
-  const { data: historyRaw = [], isLoading: historyLoading } = useFoodHistory(userId);
+  const { data: history = [], isLoading: historyLoading } = useLocalFoodUsage(
+    userId,
+    params.mealType as MealType,
+  );
 
   /**
    * Abgetippter Barcode statt Produktname: exakter Lookup statt unscharfer
@@ -187,16 +191,6 @@ export function FoodSearchScreen() {
   function selectManualEntry() {
     goToDetail({});
   }
-
-  const history: FoodHistoryEntry[] = historyRaw.map((e) => ({
-    name: e.name,
-    kcal: e.kcal,
-    proteinG: e.protein_g,
-    carbsG: e.carbs_g,
-    fatG: e.fat_g,
-    quantity: e.quantity,
-    unit: e.unit,
-  }));
 
   const isSearchMode = query.trim().length >= 2;
   const historyList =

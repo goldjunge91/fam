@@ -155,29 +155,11 @@ export function useAddWeightEntryMutation() {
  * "Zuletzt"/"Haeufig" bei der Lebensmittelsuche (`food-history.ts`
  * verarbeitet das Ergebnis weiter). Kein eigener Query pro Tab: beide
  * Ansichten leiten sich clientseitig aus derselben Liste ab.
+ *
+ * Quelle ist die lokale `product_usage`-Tabelle (`use-local-food-usage.ts`),
+ * nicht Supabase — siehe dort fuer die Begruendung (#79: offline-faehig und
+ * nach Mahlzeitart gefiltert).
  */
-export function foodHistoryQueryKey(userId: string | undefined) {
-  return ['calorie-tracking', 'food-history', userId] as const;
-}
-
-export function useFoodHistory(userId: string | undefined) {
-  return useQuery({
-    queryKey: foodHistoryQueryKey(userId),
-    queryFn: async () => {
-      const { data, error } = await getSupabase()
-        .from('food_entries')
-        .select('name, kcal, protein_g, carbs_g, fat_g, quantity, unit')
-        .eq('user_id', userId as string)
-        .is('deleted_at', null)
-        .order('created_at', { ascending: false })
-        .limit(60);
-
-      if (error) throw new Error(error.message);
-      return data;
-    },
-    enabled: !!userId,
-  });
-}
 
 // ------------------------------------------------------------- Tagebuch
 

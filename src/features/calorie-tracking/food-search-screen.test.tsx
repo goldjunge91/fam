@@ -4,7 +4,7 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import { FoodSearchScreen } from '@/features/calorie-tracking/food-search-screen';
 
-const mockUseFoodHistory = jest.fn();
+const mockUseLocalFoodUsage = jest.fn();
 const mockSearchOpenFoodFacts = jest.fn();
 const mockFetchProductByBarcode = jest.fn();
 
@@ -21,8 +21,8 @@ jest.mock('@/features/auth/session-provider', () => ({
   useSession: () => ({ session: { user: { id: 'user-1' } } }),
 }));
 
-jest.mock('@/features/calorie-tracking/api', () => ({
-  useFoodHistory: (...args: unknown[]) => mockUseFoodHistory(...args),
+jest.mock('@/features/calorie-tracking/use-local-food-usage', () => ({
+  useLocalFoodUsage: (...args: unknown[]) => mockUseLocalFoodUsage(...args),
 }));
 
 jest.mock('@/lib/open-food-facts', () => {
@@ -68,33 +68,33 @@ function renderScreen() {
 }
 
 beforeEach(() => {
-  mockUseFoodHistory.mockReset();
-  mockUseFoodHistory.mockReturnValue({
+  mockUseLocalFoodUsage.mockReset();
+  mockUseLocalFoodUsage.mockReturnValue({
     data: [
       {
         name: 'Apfel',
         kcal: 52,
-        protein_g: 0.3,
-        carbs_g: 14,
-        fat_g: 0.2,
+        proteinG: 0.3,
+        carbsG: 14,
+        fatG: 0.2,
         quantity: 100,
         unit: 'g',
       },
       {
         name: 'Banane',
         kcal: 89,
-        protein_g: 1.1,
-        carbs_g: 23,
-        fat_g: 0.3,
+        proteinG: 1.1,
+        carbsG: 23,
+        fatG: 0.3,
         quantity: 100,
         unit: 'g',
       },
       {
         name: 'Apfel',
         kcal: 52,
-        protein_g: 0.3,
-        carbs_g: 14,
-        fat_g: 0.2,
+        proteinG: 0.3,
+        carbsG: 14,
+        fatG: 0.2,
         quantity: 100,
         unit: 'g',
       },

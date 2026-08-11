@@ -11,7 +11,9 @@ import { SyncStatusBanner } from '@/components/sync-status-banner';
 import { SessionProvider, useSession } from '@/features/auth/session-provider';
 import { parseAuthErrorFromUrl, parseAuthTokensFromUrl } from '@/lib/auth-deep-link';
 import { setAuthDeepLinkError } from '@/lib/auth-deep-link-state';
+import { getDatabase } from '@/lib/db/client';
 import { env } from '@/lib/env';
+import { attachOffDump, ensureOffDumpDownloaded } from '@/lib/off-dump/off-dump';
 import { savePendingInviteToken } from '@/lib/pending-invite';
 import {
   asyncStoragePersister,
@@ -152,6 +154,22 @@ export default function RootLayout() {
     registerBackgroundSync().catch((err) => {
       console.warn('[BackgroundSync] Registrierung fehlgeschlagen:', err);
     });
+  }, []);
+
+  useEffect(() => {
+    // Laedt den lokalen OpenFoodFacts-Dump (#79 + Dump-CI-Workflow) und
+    // haengt ihn an — nie blockierend fuer den App-Start, ein Fehlschlag
+    // (kein Netz, kein Development Build mit expo-file-system) darf die App
+    // nicht aufhalten, die Suche faellt dann einfach auf online/den eigenen
+    // Produkt-Cache zurueck.
+    getDatabase()
+      .then(async (db) => {
+        await ensureOffDumpDownloaded(db);
+        await attachOffDump(db);
+      })
+      .catch((err) => {
+        console.warn('[OffDump] Laden/Anhaengen fehlgeschlagen:', err);
+      });
   }, []);
 
   return (
