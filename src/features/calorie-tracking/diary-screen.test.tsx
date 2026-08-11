@@ -34,6 +34,24 @@ jest.mock('@/features/calorie-tracking/api', () => ({
   useFoodEntries: (...args: unknown[]) => mockUseFoodEntries(...args),
 }));
 
+let mockChildProfiles: { id: string; display_name: string }[] = [];
+const mockSetProfile = jest.fn();
+
+jest.mock('@/features/household/active-household-provider', () => ({
+  useActiveHousehold: () => ({ activeHousehold: { id: 'hh-1', name: 'Zuhause' } }),
+}));
+
+jest.mock('@/features/household/api', () => ({
+  useChildProfiles: () => ({ data: mockChildProfiles, isLoading: false }),
+}));
+
+jest.mock('@/features/calorie-tracking/active-profile-store', () => ({
+  useActiveProfile: () => ({
+    profile: { type: 'adult', userId: 'user-1' },
+    setProfile: mockSetProfile,
+  }),
+}));
+
 jest.mock('@/hooks/use-theme', () => ({
   useTheme: () => ({
     background: '#FFFFFF',
@@ -62,6 +80,8 @@ function renderScreen() {
 }
 
 beforeEach(() => {
+  mockChildProfiles = [];
+  mockSetProfile.mockClear();
   mockUseFoodEntries.mockReset();
   mockUseFoodEntries.mockReturnValue({
     data: [
@@ -138,5 +158,34 @@ describe('DiaryScreen', () => {
 
     await fireEvent.press(screen.getByLabelText('Vorheriger Tag'));
     expect(screen.getByText('Gestern')).toBeTruthy();
+  });
+});
+
+describe('DiaryScreen — Profil-Auswahl (#85)', () => {
+  beforeEach(() => {
+    mockChildProfiles = [{ id: 'child-1', display_name: 'Mia' }];
+  });
+
+  it('zeigt keine Profil-Auswahl ohne Kinderprofile', async () => {
+    mockChildProfiles = [];
+    await renderScreen();
+    expect(screen.queryByText('Ich')).not.toBeOnTheScreen();
+  });
+
+  it('zeigt "Ich" und alle Kinderprofile, wenn Kinderprofile vorhanden sind', async () => {
+    await renderScreen();
+    expect(screen.getByText('Ich')).toBeTruthy();
+    expect(screen.getByText('Mia')).toBeTruthy();
+  });
+
+  it('filtert useFoodEntries nach dem gewaehlten Kind-Profil', async () => {
+    await renderScreen();
+    await fireEvent.press(screen.getByText('Mia'));
+
+    expect(mockSetProfile).toHaveBeenCalledWith({
+      type: 'child',
+      childProfileId: 'child-1',
+      householdId: 'hh-1',
+    });
   });
 });
