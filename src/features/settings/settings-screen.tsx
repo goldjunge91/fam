@@ -37,7 +37,7 @@ export function SettingsScreen() {
   const queryClient = useQueryClient();
   const [signingOut, setSigningOut] = useState(false);
 
-  const { activeHousehold, households } = useActiveHousehold();
+  const { activeHousehold } = useActiveHousehold();
   const syncStatus = useSyncStatus(getDatabase);
   const sync = describeSyncStatus(syncStatus);
   const { data: currentGoal } = useCurrentGoal(session?.user.id);
@@ -86,15 +86,8 @@ export function SettingsScreen() {
             icon="🏠"
             label="Mitglieder"
             value={activeHousehold?.name ?? 'Kein Haushalt'}
-            hint={hasHousehold ? undefined : 'Erst einem Haushalt beitreten'}
-            onPress={hasHousehold ? () => router.push('/household/members') : undefined}
-            disabled={!hasHousehold}
-          />
-          <SettingsRow
-            icon="👶"
-            label="Kinder-Profile"
-            onPress={hasHousehold ? () => router.push('/household/children') : undefined}
-            disabled={!hasHousehold}
+            hint={hasHousehold ? undefined : 'Haushalt wechseln oder beitreten'}
+            onPress={() => router.push('/household/members')}
           />
           <SettingsRow
             icon="📦"
@@ -109,13 +102,6 @@ export function SettingsScreen() {
             hint="REWE, Aldi, Lidl, ..."
             onPress={hasHousehold ? () => router.push('/household/stores') : undefined}
             disabled={!hasHousehold}
-          />
-          <SettingsRow
-            icon="🔗"
-            label={
-              households.length > 1 ? 'Haushalt wechseln oder beitreten' : 'Haushalt beitreten'
-            }
-            onPress={() => router.push('/household/join')}
             last
           />
         </SettingsGroup>

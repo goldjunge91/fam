@@ -89,7 +89,6 @@ describe('SettingsScreen', () => {
     for (const eintrag of [
       'Profil',
       'Mitglieder',
-      'Kinder-Profile',
       'Lagerorte',
       'Benachrichtigungen',
       'Synchronisation',
@@ -97,6 +96,11 @@ describe('SettingsScreen', () => {
     ]) {
       expect(getByText(eintrag)).toBeTruthy();
     }
+
+    // Kinder-Profile und Haushalt-Beitritt sind jetzt ausschliesslich unter
+    // Mitglieder erreichbar, nicht mehr als eigene Zeile hier.
+    expect(queryByText('Kinder-Profile')).toBeNull();
+    expect(queryByText('Haushalt beitreten')).toBeNull();
 
     // Diese Bedienelemente lagen frueher direkt auf der Uebersicht und gehoeren
     // jetzt auf die Unterseiten.
@@ -128,15 +132,15 @@ describe('SettingsScreen', () => {
     expect(getByText('Lokal')).toBeTruthy();
   });
 
-  it('bietet ohne Haushalt keine Haushalts-Unterseiten an, aber den Beitritt', async () => {
+  it('bietet ohne Haushalt keine Haushalts-Unterseiten an, aber Mitglieder bleibt der Weg zum Beitritt', async () => {
     mockHouseholds = [];
     mockActiveHousehold = null;
 
     const { getByText } = await renderScreen();
 
     expect(getByText('Kein Haushalt')).toBeTruthy();
-    expect(getByText('Erst einem Haushalt beitreten')).toBeTruthy();
-    expect(getByText('Haushalt beitreten')).toBeTruthy();
+    expect(getByText('Haushalt wechseln oder beitreten')).toBeTruthy();
+    expect(getByText('Mitglieder')).toBeTruthy();
   });
 
   it('zeigt die App-Version im Fussbereich an (#94)', async () => {
