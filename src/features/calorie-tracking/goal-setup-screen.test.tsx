@@ -135,3 +135,29 @@ describe('GoalSetupScreen', () => {
     expect(screen.getByText('Ziel speichern')).toBeTruthy();
   });
 });
+
+describe('GoalSetupScreen — benutzerdefinierte Makro-Verteilung (#83)', () => {
+  it('zeigt einen Fehlertext und blockiert Speichern, wenn die Summe nicht 100% ergibt', async () => {
+    await renderScreen();
+    await fireEvent.press(screen.getByText('Benutzerdefiniert'));
+    await fireEvent.changeText(screen.getByLabelText('Eiweiß %'), '50');
+    await fireEvent.changeText(screen.getByLabelText('Kohlenhydrate %'), '50');
+    await fireEvent.changeText(screen.getByLabelText('Fett %'), '50');
+
+    expect(screen.getByText(/Die Summe muss 100 % ergeben/)).toBeTruthy();
+    expect(screen.getByText('Ziel speichern').parent).toBeDisabled();
+  });
+
+  it('speichert mit der benutzerdefinierten Verteilung, wenn die Summe 100% ergibt', async () => {
+    await renderScreen();
+    await fireEvent.press(screen.getByText('Benutzerdefiniert'));
+    await fireEvent.changeText(screen.getByLabelText('Eiweiß %'), '25');
+    await fireEvent.changeText(screen.getByLabelText('Kohlenhydrate %'), '50');
+    await fireEvent.changeText(screen.getByLabelText('Fett %'), '25');
+
+    expect(screen.queryByText(/Die Summe muss 100 % ergeben/)).toBeNull();
+
+    await fireEvent.press(screen.getByText('Ziel speichern'));
+    expect(mockSetGoal).toHaveBeenCalled();
+  });
+});

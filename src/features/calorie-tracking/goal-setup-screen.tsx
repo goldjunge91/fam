@@ -17,7 +17,11 @@ import {
   useSetGoalMutation,
 } from '@/features/calorie-tracking/api';
 import { calculateBmr, type Sex } from '@/features/calorie-tracking/bmr';
-import { calculateMacroTargets, type MacroPreset } from '@/features/calorie-tracking/macros';
+import {
+  calculateMacroTargets,
+  type MacroPreset,
+  type MacroRatio,
+} from '@/features/calorie-tracking/macros';
 import {
   type ActivityLevel,
   calculateTargetCalories,
@@ -38,6 +42,20 @@ const PRESET_LABELS: Record<MacroPreset, string> = {
   low_carb: 'Low-Carb',
 };
 
+type PresetSelection = MacroPreset | 'custom';
+
+const SEGMENT_LABELS: Record<PresetSelection, string> = {
+  ...PRESET_LABELS,
+  custom: 'Benutzerdefiniert',
+};
+
+const CUSTOM_RATIO_TOLERANCE = 1;
+
+function parsePercent(input: string): number {
+  const value = parseFloat(input.replace(',', '.'));
+  return Number.isNaN(value) ? 0 : value;
+}
+
 /**
  * Ziel-Setup (#84). Baut direkt auf den reinen Funktionen aus #81/#82/#83 auf
  * — die gesamte Vorschau (Grundumsatz → TDEE → Zielkalorien → Makros) laeuft
@@ -57,8 +75,25 @@ export function GoalSetupScreen() {
   const [showForm, setShowForm] = useState(false);
   const [goalType, setGoalType] = useState<GoalType>('lose');
   const [rateInput, setRateInput] = useState('0.5');
-  const [preset, setPreset] = useState<MacroPreset>('balanced');
+  const [preset, setPreset] = useState<PresetSelection>('balanced');
+  const [customProteinPct, setCustomProteinPct] = useState('30');
+  const [customCarbsPct, setCustomCarbsPct] = useState('40');
+  const [customFatPct, setCustomFatPct] = useState('30');
   const [weightInput, setWeightInput] = useState('');
+
+  const customPercentSum =
+    parsePercent(customProteinPct) + parsePercent(customCarbsPct) + parsePercent(customFatPct);
+  const customRatioValid = Math.abs(customPercentSum - 100) <= CUSTOM_RATIO_TOLERANCE;
+  const activeRatio: MacroPreset | MacroRatio | null =
+    preset === 'custom'
+      ? customRatioValid
+        ? {
+            protein: parsePercent(customProteinPct) / 100,
+            carbs: parsePercent(customCarbsPct) / 100,
+            fat: parsePercent(customFatPct) / 100,
+          }
+        : null
+      : preset;
 
   const sex = (profile?.sex as Sex | null) ?? null;
   const birthDate = profile?.birth_date ?? null;
@@ -72,7 +107,7 @@ export function GoalSetupScreen() {
 
   const rate = parseFloat(rateInput.replace(',', '.')) || 0;
 
-  const preview = useMemo(() => {
+  const targetPreview = useMemo(() => {
     if (!hasProfileFields || weightKg === null || Number.isNaN(weightKg)) return null;
     const bmrResult = calculateBmr({ sex, birthDate, heightCm, weightKg }, new Date());
     if (!bmrResult.ok) return null;
@@ -85,9 +120,18 @@ export function GoalSetupScreen() {
       goalType,
       rateKgPerWeek: rate,
     });
-    const macros = calculateMacroTargets(target.targetKcal, preset);
-    return { bmrKcal: bmrResult.bmrKcal, target, macros };
-  }, [hasProfileFields, weightKg, sex, birthDate, heightCm, activityLevel, goalType, rate, preset]);
+    return { bmrKcal: bmrResult.bmrKcal, target };
+  }, [hasProfileFields, weightKg, sex, birthDate, heightCm, activityLevel, goalType, rate]);
+
+  // Getrennt vom kcal-Ziel: eine ungueltige benutzerdefinierte Verteilung soll
+  // die kcal-Vorschau nicht verstecken, nur das Speichern blockieren.
+  const preview =
+    targetPreview && activeRatio
+      ? {
+          ...targetPreview,
+          macros: calculateMacroTargets(targetPreview.target.targetKcal, activeRatio),
+        }
+      : null;
 
   const formVisible = showForm || (!goalLoading && !currentGoal);
 
@@ -190,7 +234,7 @@ export function GoalSetupScreen() {
                   Makro-Verteilung
                 </ThemedText>
                 <View style={styles.segmentedRow}>
-                  {(Object.keys(PRESET_LABELS) as MacroPreset[]).map((p) => (
+                  {(Object.keys(SEGMENT_LABELS) as PresetSelection[]).map((p) => (
                     <Pressable
                       key={p}
                       onPress={() => setPreset(p)}
@@ -199,11 +243,47 @@ export function GoalSetupScreen() {
                         { backgroundColor: preset === p ? theme.accent : theme.backgroundElement },
                       ]}>
                       <ThemedText style={{ color: preset === p ? '#fff' : theme.text }}>
-                        {PRESET_LABELS[p]}
+                        {SEGMENT_LABELS[p]}
                       </ThemedText>
                     </Pressable>
                   ))}
                 </View>
+
+                {preset === 'custom' ? (
+                  <View style={styles.form}>
+                    <View style={styles.row}>
+                      <View style={styles.flex}>
+                        <TextField
+                          label="Eiweiß %"
+                          value={customProteinPct}
+                          onChangeText={setCustomProteinPct}
+                          keyboardType="numeric"
+                        />
+                      </View>
+                      <View style={styles.flex}>
+                        <TextField
+                          label="Kohlenhydrate %"
+                          value={customCarbsPct}
+                          onChangeText={setCustomCarbsPct}
+                          keyboardType="numeric"
+                        />
+                      </View>
+                      <View style={styles.flex}>
+                        <TextField
+                          label="Fett %"
+                          value={customFatPct}
+                          onChangeText={setCustomFatPct}
+                          keyboardType="numeric"
+                        />
+                      </View>
+                    </View>
+                    {!customRatioValid ? (
+                      <ThemedText type="small" themeColor="danger">
+                        Die Summe muss 100 % ergeben (aktuell {customPercentSum} %).
+                      </ThemedText>
+                    ) : null}
+                  </View>
+                ) : null}
 
                 {needsWeightInput ? (
                   <TextField
@@ -215,15 +295,17 @@ export function GoalSetupScreen() {
                   />
                 ) : null}
 
-                {preview ? (
+                {targetPreview ? (
                   <View style={[styles.preview, { borderColor: theme.border }]}>
                     <ThemedText type="subtitle">
-                      {Math.round(preview.target.targetKcal)} kcal / Tag
+                      {Math.round(targetPreview.target.targetKcal)} kcal / Tag
                     </ThemedText>
-                    <ThemedText type="small" themeColor="textSecondary">
-                      Eiweiß {preview.macros.proteinG} g · Kohlenhydrate {preview.macros.carbsG} g ·
-                      Fett {preview.macros.fatG} g
-                    </ThemedText>
+                    {preview ? (
+                      <ThemedText type="small" themeColor="textSecondary">
+                        Eiweiß {preview.macros.proteinG} g · Kohlenhydrate {preview.macros.carbsG} g
+                        · Fett {preview.macros.fatG} g
+                      </ThemedText>
+                    ) : null}
                     {cappedText ? (
                       <ThemedText type="small" themeColor="warning">
                         {cappedText}
@@ -274,6 +356,10 @@ const styles = StyleSheet.create({
     gap: Spacing.three,
   },
   segmentedRow: {
+    flexDirection: 'row',
+    gap: Spacing.two,
+  },
+  row: {
     flexDirection: 'row',
     gap: Spacing.two,
   },
