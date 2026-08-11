@@ -11,7 +11,13 @@ import type { LocalShoppingItem } from './use-shopping-list';
 
 type CompleteShoppingRunInput = {
   householdId: string;
-  userId: string;
+  /**
+   * `null` statt eines erzwungenen leeren Strings: `fridge_items.added_by`/
+   * `shopping_list_items.checked_by` sind nullable `uuid`-Spalten — ein
+   * leerer String ist dort kein gueltiger Wert
+   * ("invalid input syntax for type uuid").
+   */
+  userId: string | null;
   checkedItems: LocalShoppingItem[];
   transfers: TransferItem[];
 };
@@ -98,7 +104,7 @@ export function useCompleteShoppingRun(householdId: string | undefined) {
           [
             historyId,
             input.householdId,
-            input.userId || null,
+            input.userId,
             now,
             item.name,
             item.quantity,
