@@ -22,6 +22,7 @@ describe('FridgeItemRow', () => {
     await render(
       <FridgeItemRow
         item={dummyItem}
+        onPress={jest.fn()}
         onDecrement={jest.fn()}
         onIncrement={jest.fn()}
         onDelete={jest.fn()}
@@ -40,6 +41,7 @@ describe('FridgeItemRow', () => {
     await render(
       <FridgeItemRow
         item={dummyItem}
+        onPress={jest.fn()}
         onDecrement={onDecMock}
         onIncrement={onIncMock}
         onDelete={jest.fn()}
@@ -51,5 +53,22 @@ describe('FridgeItemRow', () => {
 
     await fireEvent.press(screen.getByLabelText('Menge reduzieren'));
     expect(onDecMock).toHaveBeenCalledTimes(1);
+  });
+
+  it('sollte onPress beim Antippen der Zeile auslösen', async () => {
+    const onPressMock = jest.fn();
+
+    await render(
+      <FridgeItemRow
+        item={dummyItem}
+        onPress={onPressMock}
+        onDecrement={jest.fn()}
+        onIncrement={jest.fn()}
+        onDelete={jest.fn()}
+      />,
+    );
+
+    await fireEvent.press(screen.getByLabelText('Vollmilch, 1 l'));
+    expect(onPressMock).toHaveBeenCalledTimes(1);
   });
 });

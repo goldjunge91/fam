@@ -8,6 +8,7 @@ import { Screen } from '@/components/screen';
 import { TextField } from '@/components/text-field';
 import { ThemedText } from '@/components/themed-text';
 import { Spacing } from '@/constants/theme';
+import { useSession } from '@/features/auth/session-provider';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import {
   useAddChildProfileMutation,
@@ -20,6 +21,8 @@ import { useTheme } from '@/hooks/use-theme';
 
 export function ChildProfilesScreen() {
   const theme = useTheme();
+  const { session } = useSession();
+  const userId = session?.user.id;
   const { activeHousehold } = useActiveHousehold();
   const currentHousehold = activeHousehold;
   const householdId = currentHousehold?.id ?? '';
@@ -43,7 +46,7 @@ export function ChildProfilesScreen() {
 
   async function handleAdd() {
     const trimmed = name.trim();
-    if (!trimmed || !householdId) return;
+    if (!trimmed || !householdId || !userId) return;
 
     try {
       await addMutation.mutateAsync({
@@ -52,6 +55,7 @@ export function ChildProfilesScreen() {
         birthDate: birthDate.trim() || null,
         sex,
         heightCm: parseChildHeight(heightCm),
+        managedBy: userId,
       });
       setName('');
       setBirthDate('');

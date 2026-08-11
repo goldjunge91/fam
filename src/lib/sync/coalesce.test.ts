@@ -199,4 +199,63 @@ describe('coalesce', () => {
 
     expect(() => coalesce([broken])).toThrow(/payload/);
   });
+
+  describe('restore (#69)', () => {
+    it('macht aus insert, delete, restore einen einzelnen insert mit den urspruenglichen Daten', () => {
+      // insert+delete waeren fuer sich discardable (Server hat nie davon
+      // gewusst) — ein eigenstaendiger restore-Push liefe gegen eine dort nie
+      // existente Zeile. Der Nettozustand ist ein normaler insert.
+      const result = coalesce([
+        entry('insert', { name: 'Milch', quantity: 1 }),
+        entry('delete', {}),
+        entry('restore', { deleted_at: null, updated_at: 123 }),
+      ]);
+
+      expect(result.discardable).toEqual([1, 2]);
+      expect(result.pushes).toHaveLength(1);
+      expect(result.pushes[0].op).toBe('insert');
+      expect(result.pushes[0].payload).toEqual({
+        name: 'Milch',
+        quantity: 1,
+        deleted_at: null,
+        updated_at: 123,
+      });
+      expect(result.pushes[0].sourceIds).toEqual([3]);
+    });
+
+    it('macht aus insert, update, delete, restore ebenfalls einen insert mit allen Aenderungen', () => {
+      const result = coalesce([
+        entry('insert', { name: 'Milch', quantity: 1 }),
+        entry('update', { quantity: 3 }),
+        entry('delete', {}),
+        entry('restore', { deleted_at: null }),
+      ]);
+
+      expect(result.discardable).toEqual([1, 2, 3]);
+      expect(result.pushes).toHaveLength(1);
+      expect(result.pushes[0].op).toBe('insert');
+      expect(result.pushes[0].payload).toEqual({ name: 'Milch', quantity: 3, deleted_at: null });
+    });
+
+    it('haelt update*, delete, restore als zwei getrennte Pushes (Zeile existierte bereits auf dem Server)', () => {
+      const result = coalesce([
+        entry('update', { quantity: 3 }),
+        entry('delete', {}),
+        entry('restore', { deleted_at: null }),
+      ]);
+
+      expect(result.discardable).toEqual([]);
+      expect(result.pushes.map((p) => p.op)).toEqual(['delete', 'restore']);
+      expect(result.pushes[1].payload).toEqual({ deleted_at: null });
+      expect(result.pushes[1].sourceIds).toEqual([3]);
+    });
+
+    it('behandelt ein eigenstaendiges restore ohne vorherige Gruppe wie jeden anderen Op', () => {
+      const result = coalesce([entry('restore', { deleted_at: null })]);
+
+      expect(result.pushes).toHaveLength(1);
+      expect(result.pushes[0].op).toBe('restore');
+      expect(result.discardable).toEqual([]);
+    });
+  });
 });

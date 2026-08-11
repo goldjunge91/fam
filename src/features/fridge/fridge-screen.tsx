@@ -1,5 +1,6 @@
+import { router, useLocalSearchParams } from 'expo-router';
 import { useState } from 'react';
-import { Alert, FlatList, StyleSheet, View } from 'react-native';
+import { Alert, FlatList, Pressable, StyleSheet, View } from 'react-native';
 
 import { Card } from '@/components/card';
 import { EmptyState } from '@/components/empty-state';
@@ -7,11 +8,13 @@ import { Screen } from '@/components/screen';
 import { ThemedText } from '@/components/themed-text';
 import { Spacing } from '@/constants/theme';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
+import { ProductDetailModal } from '@/features/inventory/product-detail-modal';
 import { useStorageLocations } from '@/features/inventory/use-storage-locations';
+import { useTheme } from '@/hooks/use-theme';
 
 import { FridgeItemRow } from './components/fridge-item-row';
 import { FridgeTabBar } from './components/fridge-tab-bar';
-import { getExpiryInfo } from './expiry';
+import { compareByExpiry, getExpiryInfo } from './expiry';
 import { type LocalFridgeItem, useFridgeItems } from './use-fridge-items';
 import { useUpdateFridgeItemQuantityMutation } from './use-fridge-mutations';
 
@@ -23,8 +26,15 @@ import { useUpdateFridgeItemQuantityMutation } from './use-fridge-mutations';
  * - MHD-Badge + Stepper (− / + )
  * - Lang drücken = Löschen-Bestätigung
  */
+type SortMode = 'expiry' | 'name';
+
 export function FridgeScreen() {
+  const theme = useTheme();
+  const params = useLocalSearchParams<{ filter?: string }>();
+  const showExpiringOnly = params.filter === 'expiring';
   const [activeTab, setActiveTab] = useState<string>('all');
+  const [sortMode, setSortMode] = useState<SortMode>('expiry');
+  const [selectedItem, setSelectedItem] = useState<LocalFridgeItem | null>(null);
 
   const { activeHouseholdId } = useActiveHousehold();
   const householdId = activeHouseholdId ?? undefined;
@@ -39,8 +49,27 @@ export function FridgeScreen() {
     return info.bucket === 'critical' || info.bucket === 'expired';
   }).length;
 
-  const visibleItems =
+  // filter=expiring (#73, vom Dashboard-Widget) ueberschreibt den
+  // Lagerort-Tab-Filter, statt ihn zu kombinieren — einfacher, und die
+  // Tab-Auswahl bleibt fuer den naechsten Besuch ohne den Query-Param erhalten.
+  const locationFiltered =
     activeTab === 'all' ? allItems : allItems.filter((item) => item.location_id === activeTab);
+  const baseItems = showExpiringOnly
+    ? allItems.filter((item) =>
+        ['expired', 'critical'].includes(getExpiryInfo(item.expiry_date, new Date()).bucket),
+      )
+    : locationFiltered;
+
+  // SQL liefert bereits MHD-sortiert (default) — der Toggle sortiert nur
+  // client-seitig um, keine Requery noetig fuer "Name" (#71).
+  const visibleItems = [...baseItems].sort((a, b) =>
+    sortMode === 'name'
+      ? a.name.localeCompare(b.name, 'de')
+      : compareByExpiry(
+          getExpiryInfo(a.expiry_date, new Date()),
+          getExpiryInfo(b.expiry_date, new Date()),
+        ),
+  );
 
   function handleDecrement(item: LocalFridgeItem) {
     if (!householdId) return;
@@ -65,17 +94,13 @@ export function FridgeScreen() {
 
   function handleDeletePress(item: LocalFridgeItem) {
     if (!householdId) return;
-    Alert.alert('Artikel löschen', `"${item.name}" sofort aus dem Vorrat entfernen?`, [
+    Alert.alert('Artikel löschen', `"${item.name}" aus dem Vorrat entfernen?`, [
       { text: 'Abbrechen', style: 'cancel' },
       {
         text: 'Löschen',
         style: 'destructive',
         onPress: () =>
-          updateQty.mutate({
-            id: item.id,
-            household_id: householdId,
-            delta: -item.quantity,
-          }),
+          updateQty.mutate({ id: item.id, household_id: householdId, delta: -item.quantity }),
       },
     ]);
   }
@@ -109,11 +134,20 @@ export function FridgeScreen() {
       title="Vorrat"
       subtitle={subtitle}
       action={
-        expiringCount > 0 ? (
-          <View style={styles.expiringBadge}>
-            <ThemedText style={styles.expiringBadgeText}>⚠ {expiringCount} ablaufend</ThemedText>
-          </View>
-        ) : undefined
+        <View style={styles.headerActions}>
+          {expiringCount > 0 ? (
+            <View style={styles.expiringBadge}>
+              <ThemedText style={styles.expiringBadgeText}>⚠ {expiringCount} ablaufend</ThemedText>
+            </View>
+          ) : null}
+          <Pressable
+            onPress={() => router.push('/add-item')}
+            accessibilityRole="button"
+            accessibilityLabel="Artikel hinzufügen"
+            style={[styles.addHeaderButton, { backgroundColor: theme.accent }]}>
+            <ThemedText style={styles.addHeaderButtonText}>+</ThemedText>
+          </Pressable>
+        </View>
       }>
       {/* Dynamic Tab-Leiste für alle Lagerorte aus den Einstellungen */}
       <FridgeTabBar
@@ -122,6 +156,26 @@ export function FridgeScreen() {
         locations={locations}
         items={allItems}
       />
+
+      {/* Sortier-Toggle: MHD (Default) oder Name (#71) */}
+      {allItems.length > 0 ? (
+        <View style={styles.sortRow}>
+          {(['expiry', 'name'] as const).map((mode) => (
+            <ThemedText
+              key={mode}
+              onPress={() => setSortMode(mode)}
+              style={[
+                styles.sortPill,
+                {
+                  backgroundColor: sortMode === mode ? theme.accent : theme.backgroundElement,
+                  color: sortMode === mode ? '#fff' : theme.text,
+                },
+              ]}>
+              {mode === 'expiry' ? 'MHD' : 'Name'}
+            </ThemedText>
+          ))}
+        </View>
+      ) : null}
 
       {/* Artikel-Liste des aktiven Tabs */}
       {isLoading ? null : visibleItems.length === 0 ? (
@@ -141,6 +195,7 @@ export function FridgeScreen() {
           renderItem={({ item }) => (
             <FridgeItemRow
               item={item}
+              onPress={() => setSelectedItem(item)}
               onDecrement={() => handleDecrement(item)}
               onIncrement={() => handleIncrement(item)}
               onDelete={() => handleDeletePress(item)}
@@ -148,11 +203,33 @@ export function FridgeScreen() {
           )}
         />
       )}
+
+      <ProductDetailModal
+        visible={!!selectedItem}
+        item={selectedItem}
+        onClose={() => setSelectedItem(null)}
+      />
     </Screen>
   );
 }
 
 const styles = StyleSheet.create({
+  sortRow: {
+    flexDirection: 'row',
+    gap: Spacing.one,
+    marginTop: Spacing.two,
+  },
+  sortPill: {
+    paddingHorizontal: 12,
+    paddingVertical: 6,
+    borderRadius: 10,
+    overflow: 'hidden',
+  },
+  headerActions: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: Spacing.two,
+  },
   expiringBadge: {
     backgroundColor: '#FFF3E0',
     paddingHorizontal: Spacing.two,
@@ -163,5 +240,18 @@ const styles = StyleSheet.create({
     color: '#B26A00',
     fontSize: 12,
     fontWeight: '600',
+  },
+  addHeaderButton: {
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  addHeaderButtonText: {
+    color: '#fff',
+    fontSize: 24,
+    fontWeight: '600',
+    lineHeight: 28,
   },
 });

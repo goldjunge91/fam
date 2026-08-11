@@ -9,6 +9,7 @@ export type FridgeItem = {
   id: string;
   household_id: string;
   location_id: string | null;
+  product_id: string | null;
   name: string;
   quantity: number;
   unit: string;
@@ -38,11 +39,12 @@ export function useAddFridgeItemMutation() {
         },
         applyLocally: async (txn) => {
           await txn.runAsync(
-            'insert into fridge_items (id, household_id, location_id, name, quantity, unit, expiry_date, created_at, updated_at) values (?, ?, ?, ?, ?, ?, ?, ?, ?)',
+            'insert into fridge_items (id, household_id, location_id, product_id, name, quantity, unit, expiry_date, created_at, updated_at) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
             [
               id,
               item.household_id,
               item.location_id ?? null,
+              item.product_id ?? null,
               item.name,
               item.quantity,
               normUnit,
@@ -50,6 +52,49 @@ export function useAddFridgeItemMutation() {
               now,
               now,
             ],
+          );
+        },
+      });
+
+      return id;
+    },
+    onSuccess: (_, variables) => {
+      queryClient.invalidateQueries({ queryKey: ['fridge_items', variables.household_id] });
+      queryClient.invalidateQueries({ queryKey: ['fridge_items_grouped', variables.household_id] });
+      queryClient.invalidateQueries({ queryKey: ['sync-status'] });
+    },
+  });
+}
+
+/**
+ * Macht ein geloeschtes fridge_item rueckgaengig (#69) — setzt nur
+ * `deleted_at` zurueck, ruehrt `quantity` nicht an. Der
+ * Zero-Quantity-Loeschpfad in `useUpdateFridgeItemQuantityMutation` setzt
+ * beim Loeschen ebenfalls nur `deleted_at`, die Menge bleibt stehen; Undo
+ * spiegelt das exakt.
+ *
+ * Braucht den `restore`-Outbox-Op: `buildUpdatePayload()` in `push.ts`
+ * filtert `deleted_at` aus jedem `update`-Push heraus, ein normales `update`
+ * mit `deleted_at: null` im Payload würde also lokal wirken, aber nie zum
+ * Server durchdringen.
+ */
+export function useRestoreFridgeItemMutation() {
+  const queryClient = useQueryClient();
+
+  return useMutation({
+    mutationFn: async ({ id, household_id }: { id: string; household_id: string }) => {
+      const db = await getDatabase();
+      const now = new Date().toISOString();
+
+      await enqueueMutation(db, {
+        entity: 'fridge_items',
+        entityId: id,
+        op: 'restore',
+        payload: { id, household_id, deleted_at: null, updated_at: now },
+        applyLocally: async (txn) => {
+          await txn.runAsync(
+            'update fridge_items set deleted_at = null, updated_at = ? where id = ?',
+            [now, id],
           );
         },
       });

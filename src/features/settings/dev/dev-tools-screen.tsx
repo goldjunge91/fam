@@ -22,7 +22,6 @@ import { deleteLocalDatabase, getDatabase } from '@/lib/db/client';
 import { env } from '@/lib/env';
 import { sendTestNotification } from '@/lib/notifications';
 import { MAX_ATTEMPTS } from '@/lib/sync/backoff';
-import { triggerHouseholdSync } from '@/lib/sync/sync-runner';
 
 /**
  * Entwickler-Bereich, sichtbar nur mit `EXPO_PUBLIC_DEV_TOOLS=true`.
@@ -221,19 +220,6 @@ export function DevToolsScreen() {
 
       <Card title="Aktionen">
         <View style={styles.aktionStack}>
-          <Button
-            label="Sync erzwingen (inkl. Fehlgeschlagener)"
-            onPress={() =>
-              mitBusy('sync', async () => {
-                if (!activeHousehold) throw new Error('Kein aktiver Haushalt.');
-                await triggerHouseholdSync([activeHousehold.id], true);
-                queryClient.invalidateQueries();
-                await ladeSnapshot();
-              })
-            }
-            loading={busy === 'sync'}
-            disabled={!activeHousehold}
-          />
           <Button
             label="Test-Benachrichtigung senden"
             variant="secondary"

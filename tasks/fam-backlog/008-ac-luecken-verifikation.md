@@ -1,7 +1,8 @@
 # 008: AC-Lücken aus der Verifikation vom 2026-08-11
 
-**Status**: pending
+**Status**: done (alle 15 Punkte auf Branch `ac-luecken-fixes` umgesetzt, 22 Commits)
 **Created**: 2026-08-11
+**Resolved**: 2026-08-11
 **Priority**: medium (hoch für #78/#80, siehe Reihenfolge unten)
 
 ## Description
@@ -29,7 +30,7 @@ kann in beliebiger Reihenfolge oder parallel erledigt werden.
 
 ### Fundament — Lebensmittel-DB
 
-- [ ] `#78` Einheiten-Umrechnung als reine Funktion — **nicht implementiert
+- [x] `#78` Einheiten-Umrechnung als reine Funktion — **nicht implementiert
       wie spezifiziert**. `src/lib/units.ts` enthält nur Label-Normalisierung
       (`normalizeUnit()`), keine echte Umrechnungsmathematik. Die tatsächliche
       (unvollständige) Logik ist eine unexportierte Inline-Funktion in
@@ -44,7 +45,7 @@ kann in beliebiger Reihenfolge oder parallel erledigt werden.
       nach Vorbild `src/lib/units.test.ts`; `add-food-entry-screen.tsx` nutzt
       diese Funktion statt der eigenen Inline-Kopie.
 
-- [ ] `#80` Produkt manuell anlegen — **nicht implementiert**. Kein Code-Pfad
+- [x] `#80` Produkt manuell anlegen — **nicht implementiert**. Kein Code-Pfad
       im gesamten `src`-Baum fügt eine Zeile in `products` ein (grep nach
       `.from('products')` und `source='manual'` = leer).
       `src/features/inventory/add-item-screen.tsx` legt nur `fridge_items`
@@ -53,7 +54,7 @@ kann in beliebiger Reihenfolge oder parallel erledigt werden.
       100g, Einheit) einen `products`-Datensatz mit `source='manual'`
       anlegt, der danach über die normale Produktsuche wieder auffindbar ist.
 
-- [ ] `#74` Open-Food-Facts-Client + Mapping — **PARTIAL**. Client
+- [x] `#74` Open-Food-Facts-Client + Mapping — **PARTIAL**. Client
       (`src/lib/open-food-facts.ts`) mit Plausibilitätsprüfungen,
       User-Agent, Timeout/Error-Handling und 17 Tests ist solide. Fehlendes
       AC: "Ergebnis wird in `products` gespeichert" — OFF-Treffer werden nur
@@ -63,7 +64,7 @@ kann in beliebiger Reihenfolge oder parallel erledigt werden.
       aktualisiert wird, damit er danach lokal auffindbar ist (baut auf #78
       für saubere Einheiten auf).
 
-- [ ] `#75` Produktsuche mit Debounce — **PARTIAL**. 300ms-Debounce
+- [x] `#75` Produktsuche mit Debounce — **PARTIAL**. 300ms-Debounce
       korrekt umgesetzt (`product-search-dropdown.tsx:37-43`). Fehlendes AC:
       lokales SQLite→`products`→OFF-Tiering mit Offline-Fallback — Code ruft
       `searchOpenFoodFacts()` direkt auf, keine lokale Vorstufe, kein
@@ -73,7 +74,7 @@ kann in beliebiger Reihenfolge oder parallel erledigt werden.
       nur lokale Treffer statt eines Fehlers (baut auf #74 auf, damit es
       überhaupt lokale Treffer gibt).
 
-- [ ] `#76` Barcode-Scanner — **PARTIAL**. `barcode-scanner-modal.tsx` mit
+- [x] `#76` Barcode-Scanner — **PARTIAL**. `barcode-scanner-modal.tsx` mit
       Kamera, Permission-Denied-Fallback und Debounce ist fertig. Fehlendes
       AC: haptisches Feedback beim erfolgreichen Scan — kein
       `expo-haptics`-Import in der Datei.
@@ -82,7 +83,7 @@ kann in beliebiger Reihenfolge oder parallel erledigt werden.
 
 ### Architektur — Offline-Tagebuch
 
-- [ ] `#88` Datumsnavigation im Tagebuch — **PARTIAL**. Pfeil-Navigation und
+- [x] `#88` Datumsnavigation im Tagebuch — **PARTIAL**. Pfeil-Navigation und
       Zukunfts-Sperre funktionieren. Fehlendes AC: "Vergangene Tage
       funktionieren offline aus dem lokalen Cache" — architektonisch nicht
       erfüllt. `food_entries` läuft bewusst am SQLite-Sync-Engine vorbei
@@ -99,7 +100,7 @@ kann in beliebiger Reihenfolge oder parallel erledigt werden.
 
 ### Kinder-Profile-Integration
 
-- [ ] `#65` Kinder-Profile anlegen — **PARTIAL**. CRUD
+- [x] `#65` Kinder-Profile anlegen — **PARTIAL**. CRUD
       (`child-profiles-screen.tsx` + Mutations) vollständig. Fehlendes AC:
       beim Loggen einer Mahlzeit ist kein Kinder-Profil als Ziel wählbar —
       kein `child`-Bezug irgendwo in `calorie-tracking/`.
@@ -108,7 +109,7 @@ kann in beliebiger Reihenfolge oder parallel erledigt werden.
       mit dem passenden `child_profile_id` schreibt (hängt mit #85 zusammen —
       am besten zusammen umsetzen).
 
-- [ ] `#85` Tagebuch-Screen nach Mahlzeiten — **PARTIAL**. Mahlzeiten-
+- [x] `#85` Tagebuch-Screen nach Mahlzeiten — **PARTIAL**. Mahlzeiten-
       Gruppierung funktioniert. Fehlendes AC: Kinder-Profil-Kontext.
       `child_profile_id` existiert bereits im Schema
       (`supabase/schemas/09_tracking.sql`), wird aber in `api.ts` und
@@ -119,7 +120,7 @@ kann in beliebiger Reihenfolge oder parallel erledigt werden.
 
 ### Ziel- und Makro-Feinschliff
 
-- [ ] `#83` Makro-Verteilung mit Presets — **PARTIAL**. Drei Presets in
+- [x] `#83` Makro-Verteilung mit Presets — **PARTIAL**. Drei Presets in
       `src/features/calorie-tracking/macros.ts` vorhanden, aber
       `low_carb` ist im Code 30/20/50, während das Issue 40/20/40
       spezifiziert — Diskrepanz klären (Issue-Text vs. ernährungswissen-
@@ -130,7 +131,7 @@ kann in beliebiger Reihenfolge oder parallel erledigt werden.
       dokumentiert) UND eine UI zum manuellen Anpassen der drei Prozentwerte
       vor dem Speichern existiert (mit Summen-Validierung = 100%).
 
-- [ ] `#84` Ziel-Setup-Screen — **PARTIAL**. Live-Vorschau (BMR→TDEE→
+- [x] `#84` Ziel-Setup-Screen — **PARTIAL**. Live-Vorschau (BMR→TDEE→
       Zielkalorien→Makros) und Kappungs-Erklärung funktionieren. Fehlendes
       AC: manuelles Überschreiben des berechneten Ziels ist nicht möglich,
       nur der berechnete Wert lässt sich speichern.
@@ -139,7 +140,7 @@ kann in beliebiger Reihenfolge oder parallel erledigt werden.
       vorbefüllt aber überschreibbar macht — die Sicherheitskappung (Ziel nie
       unter Grundumsatz) muss dabei weiterhin greifen.
 
-- [ ] `#86` Eintrag hinzufügen, bearbeiten, löschen — **PARTIAL**. Soft-
+- [x] `#86` Eintrag hinzufügen, bearbeiten, löschen — **PARTIAL**. Soft-
       Delete (`deleted_at`) funktioniert. Fehlendes AC: "Löschen mit Undo"
       ist tatsächlich ein Confirm-Dialog *vor* dem Löschen, kein Undo danach.
       **Fertig, wenn:** Löschen sofort ausführt und eine Snackbar/Toast mit
@@ -148,14 +149,14 @@ kann in beliebiger Reihenfolge oder parallel erledigt werden.
 
 ### Kühlschrank-Politur
 
-- [ ] `#69` Artikel bearbeiten, verbrauchen, entfernen — **PARTIAL**. Menge
+- [x] `#69` Artikel bearbeiten, verbrauchen, entfernen — **PARTIAL**. Menge
       ±, Soft-Delete funktionieren (`use-fridge-mutations.ts`). Fehlendes
       AC: kein Undo direkt nach dem Entfernen (`grep -rn Undo
       src/features/fridge` = leer).
       **Fertig, wenn:** Entfernen sofort ausführt und eine Snackbar mit
       "Rückgängig" zeigt — gleiches Muster wie bei #86.
 
-- [ ] `#71` Ablauf-Ampel und Sortierung nach MHD — **PARTIAL**. Die reine
+- [x] `#71` Ablauf-Ampel und Sortierung nach MHD — **PARTIAL**. Die reine
       Ampel-Funktion (`expiry.ts`, deterministisch, gut getestet) und die
       Gruppierung nach Lagerort sind fertig. Fehlendes AC: kein
       Sortier-Toggle nach MHD — Artikel sind aktuell nur gruppiert, nicht
@@ -163,7 +164,7 @@ kann in beliebiger Reihenfolge oder parallel erledigt werden.
       **Fertig, wenn:** `fridge-screen.tsx` einen Sortier-Control anbietet,
       der (innerhalb der Gruppen oder global) nach MHD sortiert.
 
-- [ ] `#73` Dashboard-Widget 'läuft bald ab' — **PARTIAL**. Zeigt die
+- [x] `#73` Dashboard-Widget 'läuft bald ab' — **PARTIAL**. Zeigt die
       nächsten ablaufenden Artikel sortiert an. Zwei fehlende ACs: (1) die
       Karte bleibt bei 0 ablaufenden Artikeln sichtbar (zeigt einen
       `EmptyState` statt sich auszublenden); (2) kein Tap-Through zur
@@ -175,7 +176,7 @@ kann in beliebiger Reihenfolge oder parallel erledigt werden.
 
 ### Dashboard-Politur
 
-- [ ] `#93` Dashboard-Tagesübersicht — **PARTIAL**. Ring + Makros +
+- [x] `#93` Dashboard-Tagesübersicht — **PARTIAL**. Ring + Makros +
       Ablauf-Widget sind auf einer Seite vereint, `EmptyState` und
       Loading-Handling vorhanden. Fehlendes AC: Pull-to-Refresh — kein
       `RefreshControl` im gesamten Repo (`grep -rl RefreshControl src` =

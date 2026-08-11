@@ -11,7 +11,9 @@ Alle Issues: <https://github.com/goldjunge91/fam/issues>
 
 > Stand: 2026-08-11 — korrigiert nach Code-Abgleich und Schließen der GitHub-Issues (#9, #58, #66, #70, #89–#92, #95).
 >
-> **Korrektur 2026-08-11 (AC-Verifikation):** 32 zuvor als "fertig" geführte Issues wurden einzeln gegen ihre Akzeptanzkriterien im Code geprüft, nicht nur gegen Commit-Messages. 17 waren wirklich fertig (jetzt geschlossen). **15 haben eine Lücke** — 13 fehlt ein einzelnes AC, bei **#78 und #80 existiert trotz vorheriger ✅-Markierung keine Implementierung**. Die Wellen-Status unten spiegeln das jetzt wider; Issue-Details in `docs/projekt_status.md`.
+> **Korrektur 2026-08-11 (AC-Verifikation):** 32 zuvor als "fertig" geführte Issues wurden einzeln gegen ihre Akzeptanzkriterien im Code geprüft, nicht nur gegen Commit-Messages. 17 waren wirklich fertig (jetzt geschlossen). **15 hatten eine Lücke** — 13 fehlte ein einzelnes AC, bei **#78 und #80 existierte trotz vorheriger ✅-Markierung keine Implementierung**. Issue-Details in `docs/projekt_status.md`.
+>
+> **Nachtrag 2026-08-11:** alle 15 Lücken auf Branch `ac-luecken-fixes` geschlossen (22 Commits). Offen bleibt nur noch das organisatorische Nachziehen (Branch pushen, PR, GitHub-Issues schließen).
 
 | Welle | Thema | Status | Gate |
 |---|---|---|---|
@@ -19,11 +21,11 @@ Alle Issues: <https://github.com/goldjunge91/fam/issues>
 | 1 | Datenmodell & RLS | ✅ Fertig | **B** ✅ RLS-Tests grün |
 | 2 | Offline & Sync | ✅ Fertig (#70 verifiziert in Commit `1a76351` / `b06cd4d`) | **C** ✅ Konflikttests grün |
 | 3 | Auth & Onboarding | ✅ Fertig (inkl. #104 6-Step Wizard) | — |
-| 4 | Haushalt | 🟡 Fast fertig — #59–64, #66 geschlossen; #65 offen (Kinder-Profil nicht als Mahlzeit-Ziel wählbar) | — |
-| 5 | Kühlschrank + Einkaufsliste | 🟡 Fast fertig — #67, #68, #70, #72 geschlossen; #69 (kein Undo), #71 (kein Sortier-Toggle), #73 (Widget versteckt sich nicht) offen | **D** ✅ 2-Geräte-Sync verifiziert |
-| P | Lebensmittel-DB | 🔴 Deutlich weniger fertig als bisher dokumentiert — nur #77 geschlossen; #74–76 haben AC-Lücken, **#78 und #80 sind nicht implementiert**, #79 offen (Voraussetzung #86 jetzt erfüllt) | — |
-| 6 | Kalorien & Tagebuch | 🟡 Kern fertig (#81, #82, #87 geschlossen) — #83–86, #88 haben je ein fehlendes AC (Presets, Ziel-Override, Kinder-Profile, Undo, Offline-Cache) | — |
-| 7 | Dashboard & Navigation | 🟡 Fast fertig — #89–92, #95 geschlossen; #93 offen (kein Pull-to-Refresh) | — |
+| 4 | Haushalt | ✅ Fertig — #59–66 alle geschlossen | — |
+| 5 | Kühlschrank + Einkaufsliste | ✅ Fertig — #67–73 alle geschlossen | **D** ✅ 2-Geräte-Sync verifiziert |
+| P | Lebensmittel-DB | ✅ Fertig — #74–78, #80 alle geschlossen; #79 offen (bewusst zurückgestellt) | — |
+| 6 | Kalorien & Tagebuch | ✅ Fertig — #81–88 alle geschlossen | — |
+| 7 | Dashboard & Navigation | ✅ Fertig — #89–95 alle geschlossen | — |
 | 8 | Datenschutz | 🔴 Offen | MVP fertig |
 
 **Sync-Engine-Nachzügler:** Erledigt — Realtime-Bridge (#48), Netzwerk-/Hintergrund-Trigger (#50) sowie Gate D (#70 2-Geräte-Sync) wurden verdrahtet (Commit `1a76351` / `b06cd4d`, PR #118). Der Sync läuft aktuell über **Realtime-Bridge + Netzwerk-Reconnect + Background-Sync + Poll-Fallback (20s)**, alle vier aktiv verdrahtet in `(app)/_layout.tsx`.
@@ -122,7 +124,7 @@ Der technisch riskanteste Teil. Braucht Gate A und Gate B.
 [#56](https://github.com/goldjunge91/fam/issues/56) ist der Praxistest für den SecureStore-Adapter aus [#30](https://github.com/goldjunge91/fam/issues/30). Fällt der durch, sind
 Nutzer nach jedem App-Neustart ausgeloggt — ein Fehler, der sonst erst spät auffällt.
 
-## Welle 4 — Haushalt 🟡 Fast fertig (#65 offen)
+## Welle 4 — Haushalt ✅ Fertig
 
 ```
 #59 Haushalt erstellen
@@ -133,10 +135,10 @@ Nutzer nach jedem App-Neustart ausgeloggt — ein Fehler, der sonst erst spät a
 #66 Haushalts-Wechsler (braucht #59 und #48)
 ```
 
-> **Stand 2026-08-11:** #65 offen — Kinder-Profil-CRUD fertig, aber beim Loggen einer
-> Mahlzeit in `calorie-tracking/` nicht als Ziel wählbar.
+> **Stand 2026-08-11:** #65 geschlossen — Kinder-Profil ist jetzt beim Loggen einer
+> Mahlzeit als Ziel wählbar (`useActiveProfile`, Picker in `add-food-entry-screen.tsx`).
 
-## Welle 5 — Kühlschrank 🟡 Fast fertig, Gate D ✅
+## Welle 5 — Kühlschrank ✅ Fertig, Gate D ✅
 
 Erstes Feature, das Welle 1, 2 und 4 gleichzeitig belastet — der eigentliche
 Integrationstest der Architektur.
@@ -148,9 +150,9 @@ Integrationstest der Architektur.
 #73 Dashboard-Widget (braucht #71 und #93)
 ```
 
-> **Stand 2026-08-11:** #69 (kein Undo nach Entfernen), #71 (kein Sortier-Toggle nach
-> MHD) und #73 (Widget versteckt sich nicht bei 0 Artikeln, kein Tap-Through) bleiben
-> offen.
+> **Stand 2026-08-11:** #69 (Undo-Snackbar + `restore`-Outbox-Op), #71 (MHD/Name-
+> Sortier-Toggle) und #73 (Widget blendet sich bei 0 Artikeln aus, Tap-Through zu
+> `/fridge?filter=expiring`) geschlossen.
 
 > **Gate D:** [#70](https://github.com/goldjunge91/fam/issues/70) verifiziert — Änderung auf Gerät A erscheint auf Gerät B in unter
 > einer Sekunde, Offline-Änderungen kommen nach Reconnect korrekt an.
@@ -167,11 +169,11 @@ mehrere Personen oder Agenten parallel arbeiten.
 #79 Häufig verwendet        (erst nach #86)
 ```
 
-> **Stand 2026-08-11:** #78 und #80 existieren trotz Abhängigkeitspfeilen oben faktisch
-> nicht im Code (siehe `docs/projekt_status.md`, Epic 6). #74–76 haben je eine AC-Lücke.
-> Nur #77 ist vollständig verifiziert. Bevor hier weitergebaut wird: #78 zuerst, weil
-> #77 (Portionsskalierung) bereits eine eigene, unvollständige Kopie der Umrechnungslogik
-> mitschleppt statt #78 zu nutzen.
+> **Stand 2026-08-11:** #78, #80 sowie #74–76 geschlossen — `units.ts` hat jetzt
+> `toGramsEquivalent`/`scaleToQuantity`, `add-product-screen.tsx` legt manuelle
+> Produkte an, OFF-Treffer werden persistiert, die Suche hat ein lokales
+> `products`-Tiering, der Barcode-Scanner gibt Haptic-Feedback. Nur #79 bleibt
+> offen (bewusst zurückgestellt).
 
 ## Welle 6 — Kalorien & Tagebuch
 
@@ -186,10 +188,10 @@ Der Rechenkern besteht aus reinen Funktionen — ohne I/O, damit mock-frei testb
 Bei [#82](https://github.com/goldjunge91/fam/issues/82) die Sicherheitskappung nicht weglassen: Das Ziel darf nie unter den
 Grundumsatz fallen.
 
-> **Stand 2026-08-11:** #81/#82/#87 verifiziert und geschlossen. #83 (Presets weichen
-> vom Spec ab, kein freies Anpassen), #84 (kein Ziel-Override), #85 (ignoriert
-> `child_profile_id`), #86 (Confirm-Dialog statt Undo) und #88 (vergangene Tage nicht
-> offline verfügbar) bleiben offen — Details in `docs/projekt_status.md`.
+> **Stand 2026-08-11:** #81/#82/#87 verifiziert und geschlossen. #83 (Preset auf
+> 40/20/40 korrigiert + freies Anpassen), #84 (Ziel-Override), #85
+> (`child_profile_id`-Filter), #86 (Undo-Snackbar) und #88 (persistierter
+> Offline-Cache) jetzt ebenfalls geschlossen — Details in `docs/projekt_status.md`.
 
 ## Welle 7 — Dashboard & Navigation
 
@@ -203,8 +205,8 @@ Grundumsatz fallen.
 Laut `CLAUDE.md` bekommt jede UI-Änderung einen eigenen Commit, und
 `src/components/ui/` wird nicht angefasst.
 
-> **Stand 2026-08-11:** #89–92, #95 verifiziert und geschlossen. #93 bleibt offen — kein
-> Pull-to-Refresh im Dashboard (`RefreshControl` kommt im Repo nirgends vor).
+> **Stand 2026-08-11:** #89–92, #95 verifiziert und geschlossen. #93 jetzt ebenfalls
+> geschlossen — Pull-to-Refresh im Dashboard ruft `triggerHouseholdSync` auf.
 
 ## Welle 8 — Datenschutz
 

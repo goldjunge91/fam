@@ -1,4 +1,4 @@
-import { QueryClientProvider } from '@tanstack/react-query';
+import { PersistQueryClientProvider } from '@tanstack/react-query-persist-client';
 import * as Linking from 'expo-linking';
 import { DarkTheme, DefaultTheme, Stack, ThemeProvider } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
@@ -6,13 +6,19 @@ import { useEffect } from 'react';
 import { useColorScheme } from 'react-native';
 
 import { AnimatedSplashOverlay } from '@/components/animated-icon';
+import { SnackbarProvider } from '@/components/snackbar';
 import { SyncStatusBanner } from '@/components/sync-status-banner';
 import { SessionProvider, useSession } from '@/features/auth/session-provider';
 import { parseAuthErrorFromUrl, parseAuthTokensFromUrl } from '@/lib/auth-deep-link';
 import { setAuthDeepLinkError } from '@/lib/auth-deep-link-state';
 import { env } from '@/lib/env';
 import { savePendingInviteToken } from '@/lib/pending-invite';
-import { queryClient, startQueryEnvironmentSync } from '@/lib/query-client';
+import {
+  asyncStoragePersister,
+  queryClient,
+  shouldPersistQuery,
+  startQueryEnvironmentSync,
+} from '@/lib/query-client';
 import { getSupabase } from '@/lib/supabase';
 import { defineBackgroundSyncTask, registerBackgroundSync } from '@/lib/sync/background-sync';
 
@@ -149,16 +155,23 @@ export default function RootLayout() {
   }, []);
 
   return (
-    <QueryClientProvider client={queryClient}>
+    <PersistQueryClientProvider
+      client={queryClient}
+      persistOptions={{
+        persister: asyncStoragePersister,
+        dehydrateOptions: { shouldDehydrateQuery: shouldPersistQuery },
+      }}>
       <SessionProvider>
         <ActiveHouseholdProvider>
           <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-            <AnimatedSplashOverlay />
-            <SyncStatusBanner />
-            <RootNavigator />
+            <SnackbarProvider>
+              <AnimatedSplashOverlay />
+              <SyncStatusBanner />
+              <RootNavigator />
+            </SnackbarProvider>
           </ThemeProvider>
         </ActiveHouseholdProvider>
       </SessionProvider>
-    </QueryClientProvider>
+    </PersistQueryClientProvider>
   );
 }

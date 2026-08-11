@@ -1,5 +1,5 @@
 import { router } from 'expo-router';
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { Alert, Pressable, StyleSheet, View } from 'react-native';
 
 import { Button } from '@/components/button';
@@ -17,7 +17,11 @@ import {
   useSetGoalMutation,
 } from '@/features/calorie-tracking/api';
 import { calculateBmr, type Sex } from '@/features/calorie-tracking/bmr';
-import { calculateMacroTargets, type MacroPreset } from '@/features/calorie-tracking/macros';
+import {
+  calculateMacroTargets,
+  type MacroPreset,
+  type MacroRatio,
+} from '@/features/calorie-tracking/macros';
 import {
   type ActivityLevel,
   calculateTargetCalories,
@@ -38,6 +42,22 @@ const PRESET_LABELS: Record<MacroPreset, string> = {
   low_carb: 'Low-Carb',
 };
 
+type PresetSelection = MacroPreset | 'custom';
+
+const SEGMENT_LABELS: Record<PresetSelection, string> = {
+  ...PRESET_LABELS,
+  custom: 'Benutzerdefiniert',
+};
+
+const CUSTOM_RATIO_TOLERANCE = 1;
+const MIN_MANUAL_KCAL = 1000;
+const MAX_MANUAL_KCAL = 10000;
+
+function parsePercent(input: string): number {
+  const value = parseFloat(input.replace(',', '.'));
+  return Number.isNaN(value) ? 0 : value;
+}
+
 /**
  * Ziel-Setup (#84). Baut direkt auf den reinen Funktionen aus #81/#82/#83 auf
  * — die gesamte Vorschau (Grundumsatz → TDEE → Zielkalorien → Makros) laeuft
@@ -57,8 +77,27 @@ export function GoalSetupScreen() {
   const [showForm, setShowForm] = useState(false);
   const [goalType, setGoalType] = useState<GoalType>('lose');
   const [rateInput, setRateInput] = useState('0.5');
-  const [preset, setPreset] = useState<MacroPreset>('balanced');
+  const [preset, setPreset] = useState<PresetSelection>('balanced');
+  const [customProteinPct, setCustomProteinPct] = useState('30');
+  const [customCarbsPct, setCustomCarbsPct] = useState('40');
+  const [customFatPct, setCustomFatPct] = useState('30');
   const [weightInput, setWeightInput] = useState('');
+  const [manualKcalInput, setManualKcalInput] = useState('');
+  const [overrideTouched, setOverrideTouched] = useState(false);
+
+  const customPercentSum =
+    parsePercent(customProteinPct) + parsePercent(customCarbsPct) + parsePercent(customFatPct);
+  const customRatioValid = Math.abs(customPercentSum - 100) <= CUSTOM_RATIO_TOLERANCE;
+  const activeRatio: MacroPreset | MacroRatio | null =
+    preset === 'custom'
+      ? customRatioValid
+        ? {
+            protein: parsePercent(customProteinPct) / 100,
+            carbs: parsePercent(customCarbsPct) / 100,
+            fat: parsePercent(customFatPct) / 100,
+          }
+        : null
+      : preset;
 
   const sex = (profile?.sex as Sex | null) ?? null;
   const birthDate = profile?.birth_date ?? null;
@@ -72,7 +111,7 @@ export function GoalSetupScreen() {
 
   const rate = parseFloat(rateInput.replace(',', '.')) || 0;
 
-  const preview = useMemo(() => {
+  const targetPreview = useMemo(() => {
     if (!hasProfileFields || weightKg === null || Number.isNaN(weightKg)) return null;
     const bmrResult = calculateBmr({ sex, birthDate, heightCm, weightKg }, new Date());
     if (!bmrResult.ok) return null;
@@ -85,9 +124,41 @@ export function GoalSetupScreen() {
       goalType,
       rateKgPerWeek: rate,
     });
-    const macros = calculateMacroTargets(target.targetKcal, preset);
-    return { bmrKcal: bmrResult.bmrKcal, target, macros };
-  }, [hasProfileFields, weightKg, sex, birthDate, heightCm, activityLevel, goalType, rate, preset]);
+    return { bmrKcal: bmrResult.bmrKcal, target };
+  }, [hasProfileFields, weightKg, sex, birthDate, heightCm, activityLevel, goalType, rate]);
+
+  // Vorbefuellung des Override-Felds mit dem berechneten Wert (#84) — nur
+  // solange der Nutzer es nicht selbst angefasst hat, sonst wuerde jede
+  // Aenderung an Tempo/Gewicht die manuelle Eingabe stillschweigend ueberschreiben.
+  const calculatedKcal = targetPreview?.target.targetKcal;
+  useEffect(() => {
+    if (overrideTouched || calculatedKcal === undefined) return;
+    setManualKcalInput(String(Math.round(calculatedKcal)));
+  }, [calculatedKcal, overrideTouched]);
+
+  // Kappung wie in calculateTargetCalories: nie unter den Grundumsatz, nie
+  // ausserhalb eines global sicheren Bereichs — der Override darf die
+  // physiologische Untergrenze nicht umgehen.
+  const manualKcal = parseFloat(manualKcalInput.replace(',', '.'));
+  const overrideValid =
+    targetPreview !== null &&
+    !Number.isNaN(manualKcal) &&
+    manualKcal >= targetPreview.bmrKcal &&
+    manualKcal >= MIN_MANUAL_KCAL &&
+    manualKcal <= MAX_MANUAL_KCAL;
+  const effectiveKcal = overrideValid ? manualKcal : (targetPreview?.target.targetKcal ?? null);
+
+  // Getrennt vom kcal-Ziel: eine ungueltige benutzerdefinierte Verteilung oder
+  // ein ungueltiger Override soll die kcal-Vorschau nicht verstecken, nur das
+  // Speichern blockieren.
+  const preview =
+    targetPreview && activeRatio && overrideValid
+      ? {
+          ...targetPreview,
+          effectiveKcal: effectiveKcal as number,
+          macros: calculateMacroTargets(effectiveKcal as number, activeRatio),
+        }
+      : null;
 
   const formVisible = showForm || (!goalLoading && !currentGoal);
 
@@ -101,7 +172,7 @@ export function GoalSetupScreen() {
         userId,
         goalType,
         rateKgPerWeek: goalType === 'maintain' ? null : rate,
-        dailyKcal: Math.round(preview.target.targetKcal),
+        dailyKcal: Math.round(preview.effectiveKcal),
         proteinG: preview.macros.proteinG,
         carbsG: preview.macros.carbsG,
         fatG: preview.macros.fatG,
@@ -113,17 +184,22 @@ export function GoalSetupScreen() {
   }
 
   const cappedText =
-    preview?.target.capped &&
-    (preview.target.cappedReason === 'bmr_floor'
+    targetPreview?.target.capped &&
+    (targetPreview.target.cappedReason === 'bmr_floor'
       ? 'Auf deinen Grundumsatz gekappt, damit das Ziel gesund bleibt.'
       : 'Auf ein sicheres Mindestmaß gekappt.');
 
   const rateWarningText =
-    preview?.target.rateWarning === 'below_recommended_range'
+    targetPreview?.target.rateWarning === 'below_recommended_range'
       ? 'Dieses Tempo liegt unter der empfohlenen Spanne (0,25–1,0 kg/Woche).'
-      : preview?.target.rateWarning === 'above_recommended_range'
+      : targetPreview?.target.rateWarning === 'above_recommended_range'
         ? 'Dieses Tempo liegt über der empfohlenen Spanne (0,25–1,0 kg/Woche) und ist auf Dauer nicht gesund.'
         : null;
+
+  const overrideErrorText =
+    targetPreview && !overrideValid
+      ? `Muss zwischen deinem Grundumsatz (${Math.round(targetPreview.bmrKcal)} kcal) und ${MAX_MANUAL_KCAL} kcal liegen.`
+      : null;
 
   return (
     <Screen title="Kalorienziel" back={{ label: 'Einstellungen', href: '/settings' }}>
@@ -190,7 +266,7 @@ export function GoalSetupScreen() {
                   Makro-Verteilung
                 </ThemedText>
                 <View style={styles.segmentedRow}>
-                  {(Object.keys(PRESET_LABELS) as MacroPreset[]).map((p) => (
+                  {(Object.keys(SEGMENT_LABELS) as PresetSelection[]).map((p) => (
                     <Pressable
                       key={p}
                       onPress={() => setPreset(p)}
@@ -199,11 +275,47 @@ export function GoalSetupScreen() {
                         { backgroundColor: preset === p ? theme.accent : theme.backgroundElement },
                       ]}>
                       <ThemedText style={{ color: preset === p ? '#fff' : theme.text }}>
-                        {PRESET_LABELS[p]}
+                        {SEGMENT_LABELS[p]}
                       </ThemedText>
                     </Pressable>
                   ))}
                 </View>
+
+                {preset === 'custom' ? (
+                  <View style={styles.form}>
+                    <View style={styles.row}>
+                      <View style={styles.flex}>
+                        <TextField
+                          label="Eiweiß %"
+                          value={customProteinPct}
+                          onChangeText={setCustomProteinPct}
+                          keyboardType="numeric"
+                        />
+                      </View>
+                      <View style={styles.flex}>
+                        <TextField
+                          label="Kohlenhydrate %"
+                          value={customCarbsPct}
+                          onChangeText={setCustomCarbsPct}
+                          keyboardType="numeric"
+                        />
+                      </View>
+                      <View style={styles.flex}>
+                        <TextField
+                          label="Fett %"
+                          value={customFatPct}
+                          onChangeText={setCustomFatPct}
+                          keyboardType="numeric"
+                        />
+                      </View>
+                    </View>
+                    {!customRatioValid ? (
+                      <ThemedText type="small" themeColor="danger">
+                        Die Summe muss 100 % ergeben (aktuell {customPercentSum} %).
+                      </ThemedText>
+                    ) : null}
+                  </View>
+                ) : null}
 
                 {needsWeightInput ? (
                   <TextField
@@ -215,15 +327,28 @@ export function GoalSetupScreen() {
                   />
                 ) : null}
 
-                {preview ? (
+                {targetPreview ? (
                   <View style={[styles.preview, { borderColor: theme.border }]}>
-                    <ThemedText type="subtitle">
-                      {Math.round(preview.target.targetKcal)} kcal / Tag
-                    </ThemedText>
-                    <ThemedText type="small" themeColor="textSecondary">
-                      Eiweiß {preview.macros.proteinG} g · Kohlenhydrate {preview.macros.carbsG} g ·
-                      Fett {preview.macros.fatG} g
-                    </ThemedText>
+                    <TextField
+                      label="Ziel-Kalorien (kcal/Tag)"
+                      value={manualKcalInput}
+                      onChangeText={(text) => {
+                        setOverrideTouched(true);
+                        setManualKcalInput(text);
+                      }}
+                      keyboardType="numeric"
+                    />
+                    {overrideErrorText ? (
+                      <ThemedText type="small" themeColor="danger">
+                        {overrideErrorText}
+                      </ThemedText>
+                    ) : null}
+                    {preview ? (
+                      <ThemedText type="small" themeColor="textSecondary">
+                        Eiweiß {preview.macros.proteinG} g · Kohlenhydrate {preview.macros.carbsG} g
+                        · Fett {preview.macros.fatG} g
+                      </ThemedText>
+                    ) : null}
                     {cappedText ? (
                       <ThemedText type="small" themeColor="warning">
                         {cappedText}
@@ -274,6 +399,10 @@ const styles = StyleSheet.create({
     gap: Spacing.three,
   },
   segmentedRow: {
+    flexDirection: 'row',
+    gap: Spacing.two,
+  },
+  row: {
     flexDirection: 'row',
     gap: Spacing.two,
   },

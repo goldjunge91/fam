@@ -1,6 +1,5 @@
 import { fireEvent, render, screen } from '@testing-library/react-native';
 import { router } from 'expo-router';
-import { Alert } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import { AddFoodEntryScreen } from '@/features/calorie-tracking/add-food-entry-screen';
@@ -16,6 +15,8 @@ let mockFoodEntries: unknown[] = [];
 const mockAddMutateAsync = jest.fn().mockResolvedValue({});
 const mockUpdateMutateAsync = jest.fn().mockResolvedValue({});
 const mockDeleteMutateAsync = jest.fn().mockResolvedValue({});
+const mockRestoreMutate = jest.fn();
+const mockShowUndoSnackbar = jest.fn();
 
 jest.mock('expo-router', () => ({
   router: { push: jest.fn(), back: jest.fn(), canGoBack: () => false },
@@ -32,6 +33,30 @@ jest.mock('@/features/calorie-tracking/api', () => ({
   useAddFoodEntryMutation: () => ({ mutateAsync: mockAddMutateAsync, isPending: false }),
   useUpdateFoodEntryMutation: () => ({ mutateAsync: mockUpdateMutateAsync, isPending: false }),
   useDeleteFoodEntryMutation: () => ({ mutateAsync: mockDeleteMutateAsync, isPending: false }),
+  useRestoreFoodEntryMutation: () => ({ mutate: mockRestoreMutate, isPending: false }),
+}));
+
+jest.mock('@/components/snackbar', () => ({
+  useSnackbar: () => ({ showUndoSnackbar: mockShowUndoSnackbar }),
+}));
+
+let mockChildProfiles: { id: string; display_name: string }[] = [];
+
+jest.mock('@/features/household/active-household-provider', () => ({
+  useActiveHousehold: () => ({ activeHousehold: { id: 'hh-1', name: 'Zuhause' } }),
+}));
+
+jest.mock('@/features/household/api', () => ({
+  useChildProfiles: () => ({ data: mockChildProfiles, isLoading: false }),
+}));
+
+const mockSetProfile = jest.fn();
+
+jest.mock('@/features/calorie-tracking/active-profile-store', () => ({
+  useActiveProfile: () => ({
+    profile: { type: 'adult', userId: 'user-1' },
+    setProfile: mockSetProfile,
+  }),
 }));
 
 jest.mock('@/hooks/use-theme', () => ({
@@ -64,9 +89,62 @@ function renderScreen() {
 beforeEach(() => {
   mockParams = {};
   mockFoodEntries = [];
+  mockChildProfiles = [];
   mockAddMutateAsync.mockClear();
   mockUpdateMutateAsync.mockClear();
   mockDeleteMutateAsync.mockClear();
+  mockRestoreMutate.mockClear();
+  mockShowUndoSnackbar.mockClear();
+  mockSetProfile.mockClear();
+});
+
+describe('AddFoodEntryScreen — Profil-Auswahl (#65)', () => {
+  beforeEach(() => {
+    mockParams = { date: '2026-08-10', mealType: 'lunch' };
+    mockChildProfiles = [{ id: 'child-1', display_name: 'Mia' }];
+  });
+
+  it('zeigt keine Profil-Auswahl ohne Kinderprofile', async () => {
+    mockChildProfiles = [];
+    await renderScreen();
+    expect(screen.queryByText('Für wen?')).not.toBeOnTheScreen();
+  });
+
+  it('zeigt "Ich" und alle Kinderprofile, wenn Kinderprofile vorhanden sind', async () => {
+    await renderScreen();
+    expect(screen.getByText('Für wen?')).toBeTruthy();
+    expect(screen.getByText('Ich')).toBeTruthy();
+    expect(screen.getByText('Mia')).toBeTruthy();
+  });
+
+  it('waehlt beim Antippen eines Kindes dessen Profil', async () => {
+    await renderScreen();
+    await fireEvent.press(screen.getByText('Mia'));
+    expect(mockSetProfile).toHaveBeenCalledWith({
+      type: 'child',
+      childProfileId: 'child-1',
+      householdId: 'hh-1',
+    });
+  });
+
+  it('blendet die Profil-Auswahl beim Bearbeiten eines Eintrags aus', async () => {
+    mockParams = { date: '2026-08-10', mealType: 'dinner', entryId: 'entry-1' };
+    mockFoodEntries = [
+      {
+        id: 'entry-1',
+        name: 'Reis',
+        quantity: 150,
+        unit: 'g',
+        kcal: 195,
+        protein_g: 4,
+        carbs_g: 43,
+        fat_g: 0.5,
+        meal_type: 'dinner',
+      },
+    ];
+    await renderScreen();
+    expect(screen.queryByText('Für wen?')).not.toBeOnTheScreen();
+  });
 });
 
 describe('AddFoodEntryScreen — Produkt aus der Suche (100g-Referenz)', () => {
@@ -102,6 +180,15 @@ describe('AddFoodEntryScreen — Produkt aus der Suche (100g-Referenz)', () => {
     const quantityField = screen.getByDisplayValue('100');
     await fireEvent.changeText(quantityField, '200');
     expect(screen.getByDisplayValue('118')).toBeTruthy(); // 59 kcal/100g * 200g / 100
+  });
+
+  it('zeigt einen Hinweis statt stiller Skalierung bei stueckbasierten Einheiten', async () => {
+    await renderScreen();
+    await fireEvent.press(screen.getByText('Stück'));
+    expect(
+      screen.getByText(/Automatische Umrechnung für diese Einheit nicht möglich/),
+    ).toBeTruthy();
+    expect(screen.getByDisplayValue('59')).toBeTruthy(); // Rohwert bleibt unveraendert stehen
   });
 
   it('speichert einen neuen Eintrag mit den berechneten Werten', async () => {
@@ -159,12 +246,7 @@ describe('AddFoodEntryScreen — bestehenden Eintrag bearbeiten', () => {
     expect(screen.getByText('Löschen')).toBeTruthy();
   });
 
-  it('ruft beim Loeschen (nach Bestaetigung) die Delete-Mutation auf', async () => {
-    const alertSpy = jest.spyOn(Alert, 'alert').mockImplementation((_title, _msg, buttons) => {
-      const destructive = buttons?.find((b) => b.style === 'destructive');
-      destructive?.onPress?.();
-    });
-
+  it('loescht sofort ohne Bestaetigungsdialog und zeigt eine Undo-Snackbar (#86)', async () => {
     await renderScreen();
     await fireEvent.press(screen.getByText('Löschen'));
 
@@ -174,7 +256,16 @@ describe('AddFoodEntryScreen — bestehenden Eintrag bearbeiten', () => {
       loggedOn: '2026-08-10',
     });
     expect(router.back).toHaveBeenCalled();
+    expect(mockShowUndoSnackbar).toHaveBeenCalledWith(
+      expect.objectContaining({ message: '"Reis" gelöscht', onUndo: expect.any(Function) }),
+    );
 
-    alertSpy.mockRestore();
+    const { onUndo } = mockShowUndoSnackbar.mock.calls[0][0];
+    onUndo();
+    expect(mockRestoreMutate).toHaveBeenCalledWith({
+      id: 'entry-1',
+      userId: 'user-1',
+      loggedOn: '2026-08-10',
+    });
   });
 });

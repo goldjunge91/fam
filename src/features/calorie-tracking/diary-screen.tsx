@@ -9,6 +9,7 @@ import { Screen } from '@/components/screen';
 import { ThemedText } from '@/components/themed-text';
 import { Spacing } from '@/constants/theme';
 import { useSession } from '@/features/auth/session-provider';
+import { useActiveProfile } from '@/features/calorie-tracking/active-profile-store';
 import {
   type FoodEntryRow,
   type MealType,
@@ -16,6 +17,8 @@ import {
   useFoodEntries,
 } from '@/features/calorie-tracking/api';
 import { calculateDailyTotals } from '@/features/calorie-tracking/daily-totals';
+import { useActiveHousehold } from '@/features/household/active-household-provider';
+import { useChildProfiles } from '@/features/household/api';
 import { useTheme } from '@/hooks/use-theme';
 
 const MEAL_ORDER: MealType[] = ['breakfast', 'lunch', 'dinner', 'snack'];
@@ -64,8 +67,13 @@ export function DiaryScreen() {
   const [selectedDate, setSelectedDate] = useState(todayIso);
   const isToday = selectedDate === todayIso;
 
-  const { data: entries = [], isLoading } = useFoodEntries(userId, selectedDate);
-  const { data: currentGoal } = useCurrentGoal(userId);
+  const { activeHousehold } = useActiveHousehold();
+  const { data: childProfiles = [] } = useChildProfiles(activeHousehold?.id ?? '');
+  const { profile, setProfile } = useActiveProfile(activeHousehold?.id);
+  const childProfileId = profile?.type === 'child' ? profile.childProfileId : null;
+
+  const { data: entries = [], isLoading } = useFoodEntries(userId, selectedDate, childProfileId);
+  const { data: currentGoal } = useCurrentGoal(userId, childProfileId);
 
   const totals = calculateDailyTotals(
     entries.map((e) => ({ kcal: e.kcal, proteinG: e.protein_g, carbsG: e.carbs_g, fatG: e.fat_g })),
@@ -94,6 +102,44 @@ export function DiaryScreen() {
 
   return (
     <Screen title="Tagebuch">
+      {childProfiles.length > 0 ? (
+        <View style={styles.profileRow}>
+          <ThemedText
+            onPress={() => userId && setProfile({ type: 'adult', userId })}
+            style={[
+              styles.profilePill,
+              {
+                backgroundColor: !childProfileId ? theme.accent : theme.backgroundElement,
+                color: !childProfileId ? '#fff' : theme.text,
+              },
+            ]}>
+            Ich
+          </ThemedText>
+          {childProfiles.map((child) => (
+            <ThemedText
+              key={child.id}
+              onPress={() =>
+                activeHousehold &&
+                setProfile({
+                  type: 'child',
+                  childProfileId: child.id,
+                  householdId: activeHousehold.id,
+                })
+              }
+              style={[
+                styles.profilePill,
+                {
+                  backgroundColor:
+                    childProfileId === child.id ? theme.accent : theme.backgroundElement,
+                  color: childProfileId === child.id ? '#fff' : theme.text,
+                },
+              ]}>
+              {child.display_name}
+            </ThemedText>
+          ))}
+        </View>
+      ) : null}
+
       <View style={styles.dateRow}>
         <Pressable
           onPress={() => setSelectedDate((d) => addDays(d, -1))}
@@ -178,6 +224,19 @@ export function DiaryScreen() {
 }
 
 const styles = StyleSheet.create({
+  profileRow: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: Spacing.one,
+    paddingBottom: Spacing.two,
+    justifyContent: 'center',
+  },
+  profilePill: {
+    paddingHorizontal: 12,
+    paddingVertical: 8,
+    borderRadius: 10,
+    overflow: 'hidden',
+  },
   dateRow: {
     flexDirection: 'row',
     alignItems: 'center',

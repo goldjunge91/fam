@@ -1,12 +1,15 @@
-import { Alert, Pressable, StyleSheet, View } from 'react-native';
+import { useQueryClient } from '@tanstack/react-query';
+import { router } from 'expo-router';
+import { useState } from 'react';
+import { Alert, Pressable, RefreshControl, ScrollView, StyleSheet, View } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { Card } from '@/components/card';
-import { EmptyState } from '@/components/empty-state';
 import { MacroBar } from '@/components/macro-bar';
 import { ProgressRing } from '@/components/progress-ring';
 import { Screen } from '@/components/screen';
 import { ThemedText } from '@/components/themed-text';
-import { Spacing } from '@/constants/theme';
+import { Spacing, TabBarHeight } from '@/constants/theme';
 import { useSession } from '@/features/auth/session-provider';
 import { useCurrentGoal, useFoodEntries } from '@/features/calorie-tracking/api';
 import { calculateDailyTotals } from '@/features/calorie-tracking/daily-totals';
@@ -17,6 +20,7 @@ import { useUpdateFridgeItemQuantityMutation } from '@/features/fridge/use-fridg
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { useAddShoppingItem } from '@/features/shopping-list/use-shopping-list-mutations';
 import { useTheme } from '@/hooks/use-theme';
+import { triggerHouseholdSync } from '@/lib/sync/sync-runner';
 
 function toIsoDate(date: Date): string {
   const y = date.getFullYear();
@@ -27,6 +31,9 @@ function toIsoDate(date: Date): string {
 
 export function DashboardScreen() {
   const theme = useTheme();
+  const insets = useSafeAreaInsets();
+  const queryClient = useQueryClient();
+  const [refreshing, setRefreshing] = useState(false);
   const now = new Date();
   const heute = now.toLocaleDateString('de-DE', {
     weekday: 'long',
@@ -105,85 +112,121 @@ export function DashboardScreen() {
     }
   }
 
+  // `useSyncEngine` laeuft bereits app-weit gemountet ((app)/_layout.tsx) —
+  // ein erneuter Hook-Aufruf hier wuerde gegen dessen
+  // Duplicate-Mount-Schutz laufen. Pull-to-Refresh ruft stattdessen die
+  // exportierte `triggerHouseholdSync()` direkt auf (#93).
+  async function handleRefresh() {
+    if (!householdId) return;
+    setRefreshing(true);
+    try {
+      await triggerHouseholdSync([householdId], false, queryClient);
+    } finally {
+      setRefreshing(false);
+    }
+  }
+
+  const bottomPadding = insets.bottom + TabBarHeight + Spacing.four;
+
   return (
-    <Screen title="Übersicht" subtitle={heute}>
-      <Card>
-        <ProgressRing value={aufgenommen} target={ziel} label="Kalorien" />
-        {ziel === 0 ? (
-          <ThemedText type="small" themeColor="textSecondary" style={styles.centered}>
-            Noch kein Kalorienziel gesetzt. Lege es unter Einstellungen an, damit hier ein
-            Fortschritt erscheint.
-          </ThemedText>
-        ) : null}
-      </Card>
-
-      <Card title="Makronährstoffe">
-        <View style={styles.macros}>
-          <MacroBar label="Eiweiß" value={totals.proteinG} target={currentGoal?.protein_g ?? 0} />
-          <MacroBar
-            label="Kohlenhydrate"
-            value={totals.carbsG}
-            target={currentGoal?.carbs_g ?? 0}
+    <Screen title="Übersicht" subtitle={heute} scroll={false}>
+      <ScrollView
+        testID="dashboard-scroll-view"
+        contentContainerStyle={{ paddingBottom: bottomPadding }}
+        showsVerticalScrollIndicator={false}
+        refreshControl={
+          <RefreshControl
+            testID="dashboard-refresh-control"
+            refreshing={refreshing}
+            onRefresh={handleRefresh}
+            tintColor={theme.accent}
           />
-          <MacroBar label="Fett" value={totals.fatG} target={currentGoal?.fat_g ?? 0} />
-        </View>
-      </Card>
+        }>
+        <Card>
+          <ProgressRing value={aufgenommen} target={ziel} label="Kalorien" />
+          {ziel === 0 ? (
+            <ThemedText type="small" themeColor="textSecondary" style={styles.centered}>
+              Noch kein Kalorienziel gesetzt. Lege es unter Einstellungen an, damit hier ein
+              Fortschritt erscheint.
+            </ThemedText>
+          ) : null}
+        </Card>
 
-      <Card title="Läuft bald ab">
-        {isLoading ? (
-          <ThemedText type="small" themeColor="textSecondary">
-            Lade Vorräte...
-          </ThemedText>
-        ) : expiringItems.length === 0 ? (
-          <EmptyState
-            symbol="checkmark.circle"
-            title="Nichts läuft demnächst ab"
-            hint="Sobald du Vorräte mit Mindesthaltbarkeitsdatum erfasst, erscheinen sie hier."
-          />
-        ) : (
-          <View style={styles.expiringList}>
-            {expiringItems.map((item) => {
-              const info = getExpiryInfo(item.expiry_date, now);
-              return (
-                <View key={item.id} style={[styles.itemRow, { borderBottomColor: theme.border }]}>
-                  <View style={styles.itemInfo}>
-                    <ThemedText type="smallBold">{item.name}</ThemedText>
-                    <ThemedText type="small" themeColor="textSecondary">
-                      {item.quantity} {item.unit} · {item.location_name ?? 'Kühlschrank'}
-                    </ThemedText>
-                    <View
-                      style={[styles.badge, { backgroundColor: `${theme[info.themeColor]}22` }]}>
-                      <ThemedText
-                        type="small"
-                        style={{ color: theme[info.themeColor], fontWeight: 'bold' }}>
-                        {info.label}
-                      </ThemedText>
-                    </View>
-                  </View>
-
-                  <View style={styles.actionButtons}>
-                    <Pressable
-                      onPress={() => handleConsume(item)}
-                      style={[styles.btn, { backgroundColor: `${theme.accent}18` }]}>
-                      <ThemedText type="small" style={{ color: theme.accent, fontSize: 12 }}>
-                        ✓ Verbraucht
-                      </ThemedText>
-                    </Pressable>
-
-                    <Pressable
-                      onPress={() => handleAddToShoppingList(item)}
-                      style={[styles.btn, { backgroundColor: `${theme.textSecondary}18` }]}>
-                      <ThemedText type="small" style={{ fontSize: 12 }}>
-                        🛒 Einkaufen
-                      </ThemedText>
-                    </Pressable>
-                  </View>
-                </View>
-              );
-            })}
+        <Card title="Makronährstoffe">
+          <View style={styles.macros}>
+            <MacroBar label="Eiweiß" value={totals.proteinG} target={currentGoal?.protein_g ?? 0} />
+            <MacroBar
+              label="Kohlenhydrate"
+              value={totals.carbsG}
+              target={currentGoal?.carbs_g ?? 0}
+            />
+            <MacroBar label="Fett" value={totals.fatG} target={currentGoal?.fat_g ?? 0} />
           </View>
-        )}
-      </Card>
+        </Card>
+
+        {/* Kein leerer Card-Rumpf mehr, sobald geladen und nichts ablaeuft. */}
+        {isLoading || expiringItems.length > 0 ? (
+          <Pressable
+            onPress={() => router.push({ pathname: '/fridge', params: { filter: 'expiring' } })}
+            accessibilityRole="button"
+            accessibilityLabel="Alle bald ablaufenden Artikel im Vorrat anzeigen">
+            <Card title="Läuft bald ab">
+              {isLoading ? (
+                <ThemedText type="small" themeColor="textSecondary">
+                  Lade Vorräte...
+                </ThemedText>
+              ) : (
+                <View style={styles.expiringList}>
+                  {expiringItems.map((item) => {
+                    const info = getExpiryInfo(item.expiry_date, now);
+                    return (
+                      <View
+                        key={item.id}
+                        style={[styles.itemRow, { borderBottomColor: theme.border }]}>
+                        <View style={styles.itemInfo}>
+                          <ThemedText type="smallBold">{item.name}</ThemedText>
+                          <ThemedText type="small" themeColor="textSecondary">
+                            {item.quantity} {item.unit} · {item.location_name ?? 'Kühlschrank'}
+                          </ThemedText>
+                          <View
+                            style={[
+                              styles.badge,
+                              { backgroundColor: `${theme[info.themeColor]}22` },
+                            ]}>
+                            <ThemedText
+                              type="small"
+                              style={{ color: theme[info.themeColor], fontWeight: 'bold' }}>
+                              {info.label}
+                            </ThemedText>
+                          </View>
+                        </View>
+
+                        <View style={styles.actionButtons}>
+                          <Pressable
+                            onPress={() => handleConsume(item)}
+                            style={[styles.btn, { backgroundColor: `${theme.accent}18` }]}>
+                            <ThemedText type="small" style={{ color: theme.accent, fontSize: 12 }}>
+                              ✓ Verbraucht
+                            </ThemedText>
+                          </Pressable>
+
+                          <Pressable
+                            onPress={() => handleAddToShoppingList(item)}
+                            style={[styles.btn, { backgroundColor: `${theme.textSecondary}18` }]}>
+                            <ThemedText type="small" style={{ fontSize: 12 }}>
+                              🛒 Einkaufen
+                            </ThemedText>
+                          </Pressable>
+                        </View>
+                      </View>
+                    );
+                  })}
+                </View>
+              )}
+            </Card>
+          </Pressable>
+        ) : null}
+      </ScrollView>
     </Screen>
   );
 }

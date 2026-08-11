@@ -4,24 +4,30 @@ import { Alert, Image, StyleSheet, View } from 'react-native';
 
 import { Button } from '@/components/button';
 import { Screen } from '@/components/screen';
+import { useSnackbar } from '@/components/snackbar';
 import { TextField } from '@/components/text-field';
 import { ThemedText } from '@/components/themed-text';
 import { Spacing } from '@/constants/theme';
 import { useSession } from '@/features/auth/session-provider';
+import { useActiveProfile } from '@/features/calorie-tracking/active-profile-store';
 import {
   type MealType,
   useAddFoodEntryMutation,
   useDeleteFoodEntryMutation,
   useFoodEntries,
+  useRestoreFoodEntryMutation,
   useUpdateFoodEntryMutation,
 } from '@/features/calorie-tracking/api';
 import { MEAL_LABELS } from '@/features/calorie-tracking/diary-screen';
+import { useActiveHousehold } from '@/features/household/active-household-provider';
+import { useChildProfiles } from '@/features/household/api';
 import { useTheme } from '@/hooks/use-theme';
 import {
   type NutrientLevel,
   type OpenFoodFactsProduct,
   productFromRouteParams,
 } from '@/lib/open-food-facts';
+import { scaleToQuantity } from '@/lib/units';
 
 const UNIT_LABELS: Record<string, string> = {
   g: 'g',
@@ -40,25 +46,6 @@ type Per100gReference = {
   carbs?: number;
   fat?: number;
 };
-
-/**
- * Skaliert einen Naehrwert "pro 100g/100ml" auf die eingegebene Menge.
- *
- * `kg`/`l` werden auf Gramm/Milliliter umgerechnet. Bei stueckbasierten
- * Einheiten (`piece`/`package`/`portion`) fehlt der Mengenbezug fuer eine
- * korrekte Skalierung — dort bleibt der Rohwert stehen, als Ausgangspunkt fuer
- * eine manuelle Korrektur statt eines falschen Automatik-Werts.
- */
-function scaleToQuantity(per100: number, quantity: number, unit: string): number {
-  const gramsOrMlEquivalent =
-    unit === 'kg' || unit === 'l'
-      ? quantity * 1000
-      : unit === 'g' || unit === 'ml'
-        ? quantity
-        : null;
-  if (gramsOrMlEquivalent === null) return per100;
-  return Math.round(((per100 * gramsOrMlEquivalent) / 100) * 10) / 10;
-}
 
 type Badge = { label: string; tone: 'good' | 'warn' };
 
@@ -113,12 +100,19 @@ export function AddFoodEntryScreen() {
   const userId = session?.user.id;
   const isEditing = !!params.entryId;
 
-  const { data: entries = [] } = useFoodEntries(userId, params.date);
+  const { activeHousehold } = useActiveHousehold();
+  const { data: childProfiles = [] } = useChildProfiles(activeHousehold?.id ?? '');
+  const { profile, setProfile } = useActiveProfile(activeHousehold?.id);
+  const childProfileId = profile?.type === 'child' ? profile.childProfileId : null;
+
+  const { data: entries = [] } = useFoodEntries(userId, params.date, childProfileId);
   const existingEntry = params.entryId ? entries.find((e) => e.id === params.entryId) : undefined;
 
   const addMutation = useAddFoodEntryMutation();
   const updateMutation = useUpdateFoodEntryMutation();
   const deleteMutation = useDeleteFoodEntryMutation();
+  const restoreMutation = useRestoreFoodEntryMutation();
+  const { showUndoSnackbar } = useSnackbar();
 
   const [name, setName] = useState('');
   const [brand, setBrand] = useState<string | undefined>(undefined);
@@ -133,6 +127,7 @@ export function AddFoodEntryScreen() {
   const [fatInput, setFatInput] = useState('');
   const [per100g, setPer100g] = useState<Per100gReference | null>(null);
   const [initialized, setInitialized] = useState(false);
+  const [unitNotScalable, setUnitNotScalable] = useState(false);
 
   // Vorbefuellung: bestehender Eintrag > Produkt aus der Suche > leer. Laeuft
   // bewusst nur einmal (Guard ueber `initialized`) statt bei jeder
@@ -206,13 +201,24 @@ export function AddFoodEntryScreen() {
     const qty = parseFloat(quantity);
     if (Number.isNaN(qty)) return;
 
-    if (per100g.kcal !== undefined) setKcalInput(String(scaleToQuantity(per100g.kcal, qty, unit)));
-    if (per100g.protein !== undefined) {
-      setProteinInput(String(scaleToQuantity(per100g.protein, qty, unit)));
-    }
-    if (per100g.carbs !== undefined)
-      setCarbsInput(String(scaleToQuantity(per100g.carbs, qty, unit)));
-    if (per100g.fat !== undefined) setFatInput(String(scaleToQuantity(per100g.fat, qty, unit)));
+    const scaled = {
+      kcal: per100g.kcal !== undefined ? scaleToQuantity(per100g.kcal, qty, unit) : undefined,
+      protein:
+        per100g.protein !== undefined ? scaleToQuantity(per100g.protein, qty, unit) : undefined,
+      carbs: per100g.carbs !== undefined ? scaleToQuantity(per100g.carbs, qty, unit) : undefined,
+      fat: per100g.fat !== undefined ? scaleToQuantity(per100g.fat, qty, unit) : undefined,
+    };
+
+    const anyNotConvertible = Object.values(scaled).some(
+      (result) => result !== undefined && !result.convertible,
+    );
+    setUnitNotScalable(anyNotConvertible);
+    if (anyNotConvertible) return; // Werte bleiben stehen, kein stilles Einfrieren auf falschen Rohwert.
+
+    if (scaled.kcal?.convertible) setKcalInput(String(scaled.kcal.value));
+    if (scaled.protein?.convertible) setProteinInput(String(scaled.protein.value));
+    if (scaled.carbs?.convertible) setCarbsInput(String(scaled.carbs.value));
+    if (scaled.fat?.convertible) setFatInput(String(scaled.fat.value));
   }, [quantity, unit]);
 
   async function handleSave() {
@@ -229,6 +235,7 @@ export function AddFoodEntryScreen() {
       proteinG: proteinInput.trim() ? parseFloat(proteinInput) : null,
       carbsG: carbsInput.trim() ? parseFloat(carbsInput) : null,
       fatG: fatInput.trim() ? parseFloat(fatInput) : null,
+      childProfileId,
     };
 
     try {
@@ -243,27 +250,26 @@ export function AddFoodEntryScreen() {
     }
   }
 
-  function handleDelete() {
+  // Loescht sofort statt eines Bestaetigungs-Dialogs (#86) — die Snackbar mit
+  // "Rueckgaengig" ersetzt die Bestaetigung, statt sie zu ergaenzen.
+  async function handleDelete() {
     if (!userId || !params.entryId || !params.date) return;
-    Alert.alert('Eintrag löschen', `"${name}" wirklich löschen?`, [
-      { text: 'Abbrechen', style: 'cancel' },
-      {
-        text: 'Löschen',
-        style: 'destructive',
-        onPress: async () => {
-          try {
-            await deleteMutation.mutateAsync({
-              id: params.entryId as string,
-              userId: userId as string,
-              loggedOn: params.date,
-            });
-            router.back();
-          } catch (err) {
-            Alert.alert('Fehler', err instanceof Error ? err.message : 'Fehler beim Löschen');
-          }
+    const entryId = params.entryId;
+    const loggedOn = params.date;
+    const entryName = name;
+
+    try {
+      await deleteMutation.mutateAsync({ id: entryId, userId, loggedOn });
+      router.back();
+      showUndoSnackbar({
+        message: `"${entryName}" gelöscht`,
+        onUndo: () => {
+          restoreMutation.mutate({ id: entryId, userId, loggedOn });
         },
-      },
-    ]);
+      });
+    } catch (err) {
+      Alert.alert('Fehler', err instanceof Error ? err.message : 'Fehler beim Löschen');
+    }
   }
 
   const title = isEditing
@@ -273,6 +279,47 @@ export function AddFoodEntryScreen() {
   return (
     <Screen title={title} back={{ label: 'Abbrechen' }}>
       <View style={styles.form}>
+        {!isEditing && childProfiles.length > 0 ? (
+          <View>
+            <ThemedText type="smallBold">Für wen?</ThemedText>
+            <View style={styles.unitRow}>
+              <ThemedText
+                onPress={() => userId && setProfile({ type: 'adult', userId })}
+                style={[
+                  styles.unitPill,
+                  {
+                    backgroundColor: !childProfileId ? theme.accent : theme.backgroundElement,
+                    color: !childProfileId ? '#fff' : theme.text,
+                  },
+                ]}>
+                Ich
+              </ThemedText>
+              {childProfiles.map((child) => (
+                <ThemedText
+                  key={child.id}
+                  onPress={() =>
+                    activeHousehold &&
+                    setProfile({
+                      type: 'child',
+                      childProfileId: child.id,
+                      householdId: activeHousehold.id,
+                    })
+                  }
+                  style={[
+                    styles.unitPill,
+                    {
+                      backgroundColor:
+                        childProfileId === child.id ? theme.accent : theme.backgroundElement,
+                      color: childProfileId === child.id ? '#fff' : theme.text,
+                    },
+                  ]}>
+                  {child.display_name}
+                </ThemedText>
+              ))}
+            </View>
+          </View>
+        ) : null}
+
         <View style={styles.hero}>
           {imageUrl ? (
             <Image source={{ uri: imageUrl }} style={styles.heroImage} />
@@ -373,6 +420,12 @@ export function AddFoodEntryScreen() {
             </ThemedText>
           ))}
         </View>
+        {unitNotScalable ? (
+          <ThemedText type="small" themeColor="warning">
+            Automatische Umrechnung für diese Einheit nicht möglich — Nährwerte bitte manuell
+            anpassen.
+          </ThemedText>
+        ) : null}
 
         <View style={styles.saveButton}>
           <Button

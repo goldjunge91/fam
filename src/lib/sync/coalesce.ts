@@ -62,6 +62,8 @@ type Group = {
  * | `insert, update*` | ein `insert` mit allen Aenderungen eingearbeitet |
  * | `insert, …, delete` | faellt komplett weg → `discardable` |
  * | `update*, delete` | ein `delete` |
+ * | `insert, …, delete, restore` | ein `insert` mit den urspruenglichen Daten (#69) |
+ * | `update*, delete, restore` | ein `delete`, gefolgt von einem eigenstaendigen `restore` |
  *
  * Ein `delete` schliesst die Gruppe. Ein danach folgender Eintrag mit
  * derselben id beginnt eine neue — mit frischen UUIDs kommt das nicht vor, aber
@@ -76,6 +78,10 @@ export function coalesce(entries: readonly OutboxEntry[]): CoalesceResult {
   const open = new Map<string, Group>();
   const closed: Group[] = [];
   const discardable: number[] = [];
+  // Payload einer verworfenen insert+delete-Gruppe, aufgehoben pro entity_id
+  // fuer den Fall, dass ein `restore` (#69) danach folgt — siehe Randfall
+  // unten bei `entry.op === 'restore'`.
+  const discardedInsertPayloads = new Map<string, Record<string, unknown>>();
 
   const finish = (group: Group): void => {
     // Angelegt und wieder geloescht, ohne dass der Server je davon wusste:
@@ -83,6 +89,7 @@ export function coalesce(entries: readonly OutboxEntry[]): CoalesceResult {
     // wartende insert-Gruppe den Server nicht erreicht haben.
     if (group.op === 'delete' && group.startedWithInsert) {
       discardable.push(...group.sourceIds);
+      discardedInsertPayloads.set(`${group.entity}:${group.entityId}`, group.payload);
       return;
     }
     closed.push(group);
@@ -94,15 +101,26 @@ export function coalesce(entries: readonly OutboxEntry[]): CoalesceResult {
     const group = open.get(key);
 
     if (group === undefined) {
+      // Randfall: `insert -> delete -> restore` auf derselben id, alles vor
+      // dem naechsten Push. insert+delete wurden oben bereits als
+      // `discardable` verworfen (Server hat nie davon erfahren) — ein
+      // eigenstaendiger `restore`-Push liefe dann gegen eine auf dem Server
+      // nie existente Zeile (0 Zeilen zurueck, failed-permanent). Der
+      // Netto-Zustand ist stattdessen ein normaler `insert` mit den
+      // urspruenglichen Daten plus allem, was der `restore`-Eintrag mitbringt.
+      const discardedInsertPayload =
+        entry.op === 'restore' ? discardedInsertPayloads.get(key) : undefined;
+
       open.set(key, {
         entity: entry.entity,
         entityId: entry.entity_id,
-        op: entry.op,
-        payload,
+        op: discardedInsertPayload ? 'insert' : entry.op,
+        payload: discardedInsertPayload ? { ...discardedInsertPayload, ...payload } : payload,
         sourceIds: [entry.id],
         sequence: entry.id,
-        startedWithInsert: entry.op === 'insert',
+        startedWithInsert: discardedInsertPayload !== undefined || entry.op === 'insert',
       });
+      if (discardedInsertPayload) discardedInsertPayloads.delete(key);
       continue;
     }
 
@@ -110,7 +128,11 @@ export function coalesce(entries: readonly OutboxEntry[]): CoalesceResult {
 
     if (entry.op === 'delete') {
       group.op = 'delete';
-      group.payload = payload;
+      // Payload NICHT auf den (meist leeren) delete-Payload ueberschreiben:
+      // `attempt()` in push.ts ignoriert ihn fuer echte delete-Pushes ohnehin
+      // (setzt nur `deleted_at`), aber `finish()` braucht die vollen
+      // akkumulierten Daten, falls gleich ein `restore` folgt (#69) und diese
+      // Gruppe discardable wird.
       finish(group);
       open.delete(key);
       continue;

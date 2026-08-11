@@ -1,10 +1,12 @@
 export type MacroPreset = 'balanced' | 'high_protein' | 'low_carb';
 
+export type MacroRatio = { protein: number; carbs: number; fat: number };
+
 /** Anteil an den Zielkalorien je Makronaehrstoff (#83). */
-const PRESET_RATIOS: Record<MacroPreset, { protein: number; carbs: number; fat: number }> = {
+const PRESET_RATIOS: Record<MacroPreset, MacroRatio> = {
   balanced: { protein: 0.3, carbs: 0.4, fat: 0.3 },
   high_protein: { protein: 0.4, carbs: 0.3, fat: 0.3 },
-  low_carb: { protein: 0.3, carbs: 0.2, fat: 0.5 },
+  low_carb: { protein: 0.4, carbs: 0.2, fat: 0.4 },
 };
 
 /** kcal pro Gramm, physiologische Brennwerte. */
@@ -18,14 +20,19 @@ export type MacroTargets = {
 
 /**
  * Leitet aus einer Ziel-Kalorienzahl (siehe `calculateTargetCalories` in
- * `tdee.ts`) eine Makro-Verteilung in Gramm ab, ueber feste Presets (#83).
+ * `tdee.ts`) eine Makro-Verteilung in Gramm ab (#83) — entweder ueber eines
+ * der festen Presets oder eine benutzerdefinierte Verteilung
+ * ({protein,carbs,fat}, Anteile 0-1).
  *
  * Rundet je Makro einzeln — die drei Werte summieren sich deshalb kcal-maessig
  * nicht immer exakt auf `targetKcal`, weichen aber nie um mehr als eine
  * Rundungseinheit pro Makro ab.
  */
-export function calculateMacroTargets(targetKcal: number, preset: MacroPreset): MacroTargets {
-  const ratios = PRESET_RATIOS[preset];
+export function calculateMacroTargets(
+  targetKcal: number,
+  preset: MacroPreset | MacroRatio,
+): MacroTargets {
+  const ratios = typeof preset === 'string' ? PRESET_RATIOS[preset] : preset;
   return {
     proteinG: Math.round((targetKcal * ratios.protein) / KCAL_PER_GRAM.protein),
     carbsG: Math.round((targetKcal * ratios.carbs) / KCAL_PER_GRAM.carbs),

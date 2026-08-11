@@ -1,4 +1,6 @@
-import { focusManager, onlineManager, QueryClient } from '@tanstack/react-query';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { createAsyncStoragePersister } from '@tanstack/query-async-storage-persister';
+import { focusManager, onlineManager, type Query, QueryClient } from '@tanstack/react-query';
 import * as Network from 'expo-network';
 import { AppState, type AppStateStatus, Platform } from 'react-native';
 
@@ -65,4 +67,27 @@ export function startQueryEnvironmentSync(): () => void {
   return () => {
     appStateSubscription.remove();
   };
+}
+
+/**
+ * Persistiert nur die Kalorien-Tracking-Queries (#88) ueber `AsyncStorage`.
+ *
+ * `food_entries`/`weight_entries`/`user_goals` laufen bewusst NICHT ueber die
+ * SQLite-Sync-Engine — streng privat, nicht haushaltsgebunden (siehe
+ * `tasks/fam-backlog/001-welle-6-...md`). Das AC verlangt nur, dass bereits
+ * geladene Tage einen Neustart ueberstehen — ein Lese-Cache-Problem, keins,
+ * das eine volle Sync-Engine-Integration braucht. Alle Query-Key-Factories in
+ * `calorie-tracking/api.ts` beginnen mit `'calorie-tracking'`; die Allowlist
+ * haengt bewusst an diesem Praefix statt an einzelnen Keys, damit neue
+ * Tracking-Queries automatisch erfasst werden, ohne diese Datei anzufassen.
+ * Haushalts-/Kuehlschrankdaten (schon ueber SQLite offlinefaehig) bleiben
+ * unpersistiert, um redundante Schreibzugriffe zu vermeiden.
+ */
+export const asyncStoragePersister = createAsyncStoragePersister({
+  storage: AsyncStorage,
+  key: '@fam/react-query-cache',
+});
+
+export function shouldPersistQuery(query: Query): boolean {
+  return query.queryKey[0] === 'calorie-tracking';
 }

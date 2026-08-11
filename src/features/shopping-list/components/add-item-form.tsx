@@ -3,8 +3,15 @@ import { StyleSheet, View } from 'react-native';
 
 import { Button } from '@/components/button';
 import { TextField } from '@/components/text-field';
+import { ThemedText } from '@/components/themed-text';
 import { WheelPickerField } from '@/components/wheel-picker-field';
 import { Spacing } from '@/constants/theme';
+import { useSession } from '@/features/auth/session-provider';
+import { BarcodeScannerModal } from '@/features/inventory/barcode-scanner-modal';
+import { persistOffProductIfNeeded } from '@/features/inventory/persist-off-product';
+import { ProductSearchDropdown } from '@/features/inventory/product-search-dropdown';
+import { useAddProductMutation } from '@/features/inventory/use-product-mutations';
+import type { OpenFoodFactsProduct } from '@/lib/open-food-facts';
 import { UNIT_OPTIONS } from '@/lib/units';
 import { guessCategory } from '../shopping-categories';
 import { useAddShoppingItem } from '../use-shopping-list-mutations';
@@ -25,12 +32,24 @@ export function AddItemForm({ householdId, onDismiss }: AddItemFormProps) {
   const [category, setCategory] = useState<string | null>(null);
   const [storeId, setStoreId] = useState<string | null>(null);
   const [nameError, setNameError] = useState<string | null>(null);
+  const [selectedProduct, setSelectedProduct] = useState<OpenFoodFactsProduct | null>(null);
+  const [showScanner, setShowScanner] = useState(false);
 
   const addItem = useAddShoppingItem();
+  const addProductMutation = useAddProductMutation();
+  const { session } = useSession();
+  const userId = session?.user.id;
 
   useEffect(() => {
     setCategory(guessCategory(name));
   }, [name]);
+
+  function handleSelectProduct(product: OpenFoodFactsProduct) {
+    setName(product.name);
+    if (product.quantity) setQuantity(String(product.quantity));
+    if (product.unit) setUnit(product.unit);
+    setSelectedProduct(product);
+  }
 
   async function handleAdd() {
     const trimmed = name.trim();
@@ -41,9 +60,13 @@ export function AddItemForm({ householdId, onDismiss }: AddItemFormProps) {
     setNameError(null);
 
     const parsedPrice = price.trim() ? Number(price.trim().replace(',', '.')) : null;
+    const productId = selectedProduct
+      ? await persistOffProductIfNeeded(selectedProduct, userId, addProductMutation)
+      : null;
 
     await addItem.mutateAsync({
       household_id: householdId,
+      product_id: productId,
       name: trimmed,
       quantity: Number(quantity) || 1,
       unit,
@@ -57,19 +80,30 @@ export function AddItemForm({ householdId, onDismiss }: AddItemFormProps) {
     setPrice('');
     setCategory(null);
     setStoreId(null);
+    setSelectedProduct(null);
     onDismiss();
   }
 
   return (
     <View style={styles.form}>
-      <TextField
+      <Button label="📷 Barcode scannen" variant="secondary" onPress={() => setShowScanner(true)} />
+
+      <ProductSearchDropdown
         label="Name"
-        value={name}
-        onChangeText={setName}
         placeholder="z. B. Milch"
-        autoFocus
-        error={nameError ?? undefined}
+        value={name}
+        onChangeText={(text) => {
+          setName(text);
+          setSelectedProduct(null);
+        }}
+        onSelectProduct={handleSelectProduct}
       />
+      {nameError ? (
+        <ThemedText type="small" themeColor="danger">
+          {nameError}
+        </ThemedText>
+      ) : null}
+
       <View style={styles.row}>
         <View style={{ flex: 1 }}>
           <TextField
@@ -104,6 +138,12 @@ export function AddItemForm({ householdId, onDismiss }: AddItemFormProps) {
         <Button label="Abbrechen" variant="secondary" onPress={onDismiss} />
         <Button label="Hinzufügen" onPress={handleAdd} loading={addItem.isPending} />
       </View>
+
+      <BarcodeScannerModal
+        visible={showScanner}
+        onClose={() => setShowScanner(false)}
+        onProductFound={handleSelectProduct}
+      />
     </View>
   );
 }

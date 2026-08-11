@@ -20,24 +20,33 @@ export type MealType = 'breakfast' | 'lunch' | 'dinner' | 'snack';
 
 // --------------------------------------------------------------------- Ziele
 
-export function currentGoalQueryKey(userId: string | undefined) {
-  return ['calorie-tracking', 'goal', 'current', userId] as const;
+export function currentGoalQueryKey(userId: string | undefined, childProfileId?: string | null) {
+  return ['calorie-tracking', 'goal', 'current', userId, childProfileId ?? null] as const;
 }
 
 /**
  * Aktuell gueltiges Ziel: die juengste nicht geloeschte `user_goals`-Zeile.
  * `user_goals` historisiert ueber `valid_from` statt zu ueberschreiben — ein
  * neues Ziel ist immer ein Insert, nie ein Update (siehe `useSetGoalMutation`).
+ *
+ * `childProfileId` filtert zusaetzlich zu `user_id` (#65/#85): `undefined`/
+ * `null` liest das Ziel des Erwachsenen selbst (`child_profile_id is null`),
+ * eine id liest das Ziel des jeweiligen Kindes.
  */
-export function useCurrentGoal(userId: string | undefined) {
+export function useCurrentGoal(userId: string | undefined, childProfileId?: string | null) {
   return useQuery({
-    queryKey: currentGoalQueryKey(userId),
+    queryKey: currentGoalQueryKey(userId, childProfileId),
     queryFn: async () => {
-      const { data, error } = await getSupabase()
+      let query = getSupabase()
         .from('user_goals')
         .select('*')
         .eq('user_id', userId as string)
-        .is('deleted_at', null)
+        .is('deleted_at', null);
+      query = childProfileId
+        ? query.eq('child_profile_id', childProfileId)
+        : query.is('child_profile_id', null);
+
+      const { data, error } = await query
         .order('valid_from', { ascending: false })
         .limit(1)
         .maybeSingle();
@@ -62,6 +71,7 @@ export function useSetGoalMutation() {
       carbsG: number;
       fatG: number;
       targetWeightKg?: number | null;
+      childProfileId?: string | null;
     }) => {
       const { data, error } = await getSupabase()
         .from('user_goals')
@@ -74,6 +84,7 @@ export function useSetGoalMutation() {
           carbs_g: input.carbsG,
           fat_g: input.fatG,
           target_weight_kg: input.targetWeightKg ?? null,
+          child_profile_id: input.childProfileId ?? null,
         })
         .select('*')
         .single();
@@ -82,7 +93,9 @@ export function useSetGoalMutation() {
       return data;
     },
     onSuccess: (_, variables) => {
-      queryClient.invalidateQueries({ queryKey: currentGoalQueryKey(variables.userId) });
+      queryClient.invalidateQueries({
+        queryKey: currentGoalQueryKey(variables.userId, variables.childProfileId),
+      });
     },
   });
 }
@@ -168,22 +181,41 @@ export function useFoodHistory(userId: string | undefined) {
 
 // ------------------------------------------------------------- Tagebuch
 
-export function foodEntriesQueryKey(userId: string | undefined, isoDate: string) {
-  return ['calorie-tracking', 'food-entries', userId, isoDate] as const;
+export function foodEntriesQueryKey(
+  userId: string | undefined,
+  isoDate: string,
+  childProfileId?: string | null,
+) {
+  return ['calorie-tracking', 'food-entries', userId, isoDate, childProfileId ?? null] as const;
 }
 
-/** Alle Tagebucheintraege eines Kalendertags (#85/#87), aelteste zuerst. */
-export function useFoodEntries(userId: string | undefined, isoDate: string) {
+/**
+ * Alle Tagebucheintraege eines Kalendertags (#85/#87), aelteste zuerst.
+ *
+ * `childProfileId` filtert zusaetzlich zu `user_id` (#65/#85): `undefined`/
+ * `null` zeigt die Eintraege des Erwachsenen selbst, eine id die eines
+ * bestimmten Kindes — beide liegen unter demselben `user_id` (dem loggenden
+ * Erwachsenen), `child_profile_id` ist nur ein Zusatz-Tag.
+ */
+export function useFoodEntries(
+  userId: string | undefined,
+  isoDate: string,
+  childProfileId?: string | null,
+) {
   return useQuery({
-    queryKey: foodEntriesQueryKey(userId, isoDate),
+    queryKey: foodEntriesQueryKey(userId, isoDate, childProfileId),
     queryFn: async () => {
-      const { data, error } = await getSupabase()
+      let query = getSupabase()
         .from('food_entries')
         .select('*')
         .eq('user_id', userId as string)
         .eq('logged_on', isoDate)
-        .is('deleted_at', null)
-        .order('created_at', { ascending: true });
+        .is('deleted_at', null);
+      query = childProfileId
+        ? query.eq('child_profile_id', childProfileId)
+        : query.is('child_profile_id', null);
+
+      const { data, error } = await query.order('created_at', { ascending: true });
 
       if (error) throw new Error(error.message);
       return data;
@@ -204,6 +236,7 @@ export type FoodEntryInput = {
   carbsG: number | null;
   fatG: number | null;
   productId?: string | null;
+  childProfileId?: string | null;
 };
 
 export function useAddFoodEntryMutation() {
@@ -225,6 +258,7 @@ export function useAddFoodEntryMutation() {
           carbs_g: input.carbsG,
           fat_g: input.fatG,
           product_id: input.productId ?? null,
+          child_profile_id: input.childProfileId ?? null,
         })
         .select('*')
         .single();
@@ -234,7 +268,11 @@ export function useAddFoodEntryMutation() {
     },
     onSuccess: (_, variables) => {
       queryClient.invalidateQueries({
-        queryKey: foodEntriesQueryKey(variables.userId, variables.loggedOn),
+        queryKey: foodEntriesQueryKey(
+          variables.userId,
+          variables.loggedOn,
+          variables.childProfileId,
+        ),
       });
     },
   });
@@ -300,6 +338,36 @@ export function useDeleteFoodEntryMutation() {
       const { data, error } = await getSupabase()
         .from('food_entries')
         .update({ deleted_at: new Date().toISOString() })
+        .eq('id', id);
+
+      if (error) throw new Error(error.message);
+      return data;
+    },
+    onSuccess: (_, variables) => {
+      queryClient.invalidateQueries({
+        queryKey: foodEntriesQueryKey(variables.userId, variables.loggedOn),
+      });
+    },
+  });
+}
+
+/** Macht `useDeleteFoodEntryMutation` rueckgaengig (#86) — gleiche Architektur, kein Sync-Layer noetig. */
+export function useRestoreFoodEntryMutation() {
+  const queryClient = useQueryClient();
+
+  return useMutation({
+    mutationFn: async ({
+      id,
+      userId: _userId,
+      loggedOn: _loggedOn,
+    }: {
+      id: string;
+      userId: string;
+      loggedOn: string;
+    }) => {
+      const { data, error } = await getSupabase()
+        .from('food_entries')
+        .update({ deleted_at: null })
         .eq('id', id);
 
       if (error) throw new Error(error.message);

@@ -96,7 +96,7 @@ describe('GoalSetupScreen', () => {
 
   it('zeigt eine Kalorien-Vorschau, sobald Profil und Gewicht vorhanden sind', async () => {
     await renderScreen();
-    expect(screen.getByText(/kcal \/ Tag/)).toBeTruthy();
+    expect(screen.getByLabelText('Ziel-Kalorien (kcal/Tag)')).toBeTruthy();
   });
 
   it('speichert das Ziel mit den berechneten Werten', async () => {
@@ -133,5 +133,56 @@ describe('GoalSetupScreen', () => {
 
     await fireEvent.press(screen.getByText('Ziel anpassen'));
     expect(screen.getByText('Ziel speichern')).toBeTruthy();
+  });
+});
+
+describe('GoalSetupScreen — benutzerdefinierte Makro-Verteilung (#83)', () => {
+  it('zeigt einen Fehlertext und blockiert Speichern, wenn die Summe nicht 100% ergibt', async () => {
+    await renderScreen();
+    await fireEvent.press(screen.getByText('Benutzerdefiniert'));
+    await fireEvent.changeText(screen.getByLabelText('Eiweiß %'), '50');
+    await fireEvent.changeText(screen.getByLabelText('Kohlenhydrate %'), '50');
+    await fireEvent.changeText(screen.getByLabelText('Fett %'), '50');
+
+    expect(screen.getByText(/Die Summe muss 100 % ergeben/)).toBeTruthy();
+    expect(screen.getByText('Ziel speichern').parent).toBeDisabled();
+  });
+
+  it('speichert mit der benutzerdefinierten Verteilung, wenn die Summe 100% ergibt', async () => {
+    await renderScreen();
+    await fireEvent.press(screen.getByText('Benutzerdefiniert'));
+    await fireEvent.changeText(screen.getByLabelText('Eiweiß %'), '25');
+    await fireEvent.changeText(screen.getByLabelText('Kohlenhydrate %'), '50');
+    await fireEvent.changeText(screen.getByLabelText('Fett %'), '25');
+
+    expect(screen.queryByText(/Die Summe muss 100 % ergeben/)).toBeNull();
+
+    await fireEvent.press(screen.getByText('Ziel speichern'));
+    expect(mockSetGoal).toHaveBeenCalled();
+  });
+});
+
+describe('GoalSetupScreen — manueller kcal-Override (#84)', () => {
+  it('blockiert Speichern und zeigt einen Fehler, wenn der Override unter den Grundumsatz faellt', async () => {
+    await renderScreen();
+    await fireEvent.changeText(screen.getByLabelText('Ziel-Kalorien (kcal/Tag)'), '100');
+
+    expect(screen.getByText(/Muss zwischen deinem Grundumsatz/)).toBeTruthy();
+    expect(screen.getByText('Ziel speichern').parent).toBeDisabled();
+  });
+
+  it('speichert mit dem manuell ueberschriebenen kcal-Wert und neu berechneten Makros', async () => {
+    await renderScreen();
+    await fireEvent.changeText(screen.getByLabelText('Ziel-Kalorien (kcal/Tag)'), '2200');
+    await fireEvent.press(screen.getByText('Ziel speichern'));
+
+    expect(mockSetGoal).toHaveBeenCalledWith(
+      expect.objectContaining({
+        dailyKcal: 2200,
+        proteinG: expect.any(Number),
+        carbsG: expect.any(Number),
+        fatG: expect.any(Number),
+      }),
+    );
   });
 });

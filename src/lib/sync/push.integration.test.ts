@@ -246,6 +246,42 @@ describe('pushOutbox gegen die lokale Supabase-Instanz', () => {
     expect(localRow?.deleted_at).not.toBeNull();
   }, 30_000);
 
+  it('pusht ein restore, das deleted_at serverseitig und lokal wieder auf null setzt (#69)', async () => {
+    const { data: created } = await client
+      .from('fridge_items')
+      .insert({
+        household_id: householdId,
+        name: 'Wird wiederhergestellt',
+        quantity: 1,
+        unit: 'piece',
+      })
+      .select()
+      .single();
+    const remoteId = created?.id as string;
+
+    await client
+      .from('fridge_items')
+      .update({ deleted_at: new Date().toISOString() })
+      .eq('id', remoteId);
+
+    await insertOutboxRow(db, {
+      entity: 'fridge_items',
+      entityId: remoteId,
+      op: 'restore',
+      payload: { id: remoteId, household_id: householdId, deleted_at: null },
+    });
+
+    const result = await pushOutbox({ db, supabase: client });
+    expect(result.outcomes[0]).toMatchObject({ kind: 'pushed' });
+
+    const remote = await client
+      .from('fridge_items')
+      .select('deleted_at')
+      .eq('id', remoteId)
+      .single();
+    expect(remote.data?.deleted_at).toBeNull();
+  }, 30_000);
+
   it('products lehnt delete sofort ab, ohne Netzwerkaufruf — kein Server-Tombstone', async () => {
     const productId = crypto.randomUUID();
     await insertOutboxRow(db, {

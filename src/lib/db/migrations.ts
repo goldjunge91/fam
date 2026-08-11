@@ -220,6 +220,31 @@ create table if not exists households (
 );
 `;
 
+// SQLite kennt kein `ALTER TABLE ... ALTER COLUMN` fuer CHECK-Constraints —
+// die Tabelle muss neu angelegt und die Daten kopiert werden. Bewusst nicht
+// per Pauschal-`delete from outbox` vorher geleert: auf einem Geraet mit
+// wartenden, noch nicht gepushten Eintraegen wuerde das lokale Aenderungen
+// verlieren, die der Server nie gesehen hat.
+const V7_OUTBOX_RESTORE_OP = `
+create table outbox_v7 (
+  id              integer primary key autoincrement,
+  entity          text    not null,
+  entity_id       text    not null,
+  op              text    not null check (op in ('insert','update','delete','restore')),
+  payload         text    not null,
+  created_at      integer not null,
+  attempts        integer not null default 0,
+  last_error      text,
+  next_attempt_at integer not null default 0
+);
+insert into outbox_v7 (id, entity, entity_id, op, payload, created_at, attempts, last_error, next_attempt_at)
+  select id, entity, entity_id, op, payload, created_at, attempts, last_error, next_attempt_at from outbox;
+drop table outbox;
+alter table outbox_v7 rename to outbox;
+create index if not exists outbox_row_idx on outbox (entity, entity_id, id);
+create index if not exists outbox_due_idx on outbox (next_attempt_at, id);
+`;
+
 export const MIGRATIONS: readonly Migration[] = [
   {
     version: 1,
@@ -250,5 +275,10 @@ export const MIGRATIONS: readonly Migration[] = [
     version: 6,
     name: 'households',
     statements: [V6_HOUSEHOLDS],
+  },
+  {
+    version: 7,
+    name: 'outbox_restore_op',
+    statements: [V7_OUTBOX_RESTORE_OP],
   },
 ];

@@ -14,9 +14,6 @@ import { useCurrentGoal } from '@/features/calorie-tracking/api';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { classifySupabaseTarget } from '@/features/settings/dev/dev-info';
 import { SettingsGroup, SettingsRow } from '@/features/settings/settings-menu';
-import { describeSyncStatus } from '@/features/settings/sync-status-text';
-import { useSyncStatus } from '@/hooks/use-sync-status';
-import { getDatabase } from '@/lib/db/client';
 import { env } from '@/lib/env';
 
 /**
@@ -29,17 +26,20 @@ import { env } from '@/lib/env';
  *
  * Jetzt fuehrt jeder Punkt auf seine eigene Seite. Was auf der Uebersicht
  * bleibt, ist der jeweils aktuelle Wert rechts — angemeldete Adresse, aktiver
- * Haushalt, Sync-Zustand —, damit der haeufigste Grund fuer einen Blick in die
- * Einstellungen ohne Antippen beantwortet ist.
+ * Haushalt —, damit der haeufigste Grund fuer einen Blick in die Einstellungen
+ * ohne Antippen beantwortet ist.
+ *
+ * Kein eigener Sync-Status/-Trigger hier: `SyncStatusBanner` zeigt den
+ * Zustand bereits app-weit an, manuelles Anstossen geht ueber Pull-to-Refresh
+ * im Dashboard. Die Detailseite (`/settings/sync`) bleibt fuer Diagnosezwecke
+ * ausschliesslich ueber die Entwickler-Werkzeuge erreichbar.
  */
 export function SettingsScreen() {
   const { session } = useSession();
   const queryClient = useQueryClient();
   const [signingOut, setSigningOut] = useState(false);
 
-  const { activeHousehold, households } = useActiveHousehold();
-  const syncStatus = useSyncStatus(getDatabase);
-  const sync = describeSyncStatus(syncStatus);
+  const { activeHousehold } = useActiveHousehold();
   const { data: currentGoal } = useCurrentGoal(session?.user.id);
 
   async function handleSignOut() {
@@ -86,15 +86,8 @@ export function SettingsScreen() {
             icon="🏠"
             label="Mitglieder"
             value={activeHousehold?.name ?? 'Kein Haushalt'}
-            hint={hasHousehold ? undefined : 'Erst einem Haushalt beitreten'}
-            onPress={hasHousehold ? () => router.push('/household/members') : undefined}
-            disabled={!hasHousehold}
-          />
-          <SettingsRow
-            icon="👶"
-            label="Kinder-Profile"
-            onPress={hasHousehold ? () => router.push('/household/children') : undefined}
-            disabled={!hasHousehold}
+            hint={hasHousehold ? undefined : 'Haushalt wechseln oder beitreten'}
+            onPress={() => router.push('/household/members')}
           />
           <SettingsRow
             icon="📦"
@@ -109,13 +102,6 @@ export function SettingsScreen() {
             hint="REWE, Aldi, Lidl, ..."
             onPress={hasHousehold ? () => router.push('/household/stores') : undefined}
             disabled={!hasHousehold}
-          />
-          <SettingsRow
-            icon="🔗"
-            label={
-              households.length > 1 ? 'Haushalt wechseln oder beitreten' : 'Haushalt beitreten'
-            }
-            onPress={() => router.push('/household/join')}
             last
           />
         </SettingsGroup>
@@ -125,12 +111,6 @@ export function SettingsScreen() {
             icon="🔔"
             label="Benachrichtigungen"
             onPress={() => router.push('/settings/notifications')}
-          />
-          <SettingsRow
-            icon="🔄"
-            label="Synchronisation"
-            value={sync.short}
-            onPress={() => router.push('/settings/sync')}
           />
           <SettingsRow
             icon="🧩"

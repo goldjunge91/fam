@@ -1,5 +1,5 @@
-import { router } from 'expo-router';
-import { useState } from 'react';
+import { router, useFocusEffect } from 'expo-router';
+import { useCallback, useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 
 import { Button } from '@/components/button';
@@ -8,10 +8,14 @@ import { Screen } from '@/components/screen';
 import { TextField } from '@/components/text-field';
 import { ThemedText } from '@/components/themed-text';
 import { Spacing } from '@/constants/theme';
+import { useSession } from '@/features/auth/session-provider';
 import { useAddFridgeItemMutation } from '@/features/fridge/use-fridge-mutations';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { BarcodeScannerModal } from '@/features/inventory/barcode-scanner-modal';
+import { consumePendingProductSelection } from '@/features/inventory/pending-product-selection';
+import { persistOffProductIfNeeded } from '@/features/inventory/persist-off-product';
 import { ProductSearchDropdown } from '@/features/inventory/product-search-dropdown';
+import { useAddProductMutation } from '@/features/inventory/use-product-mutations';
 import {
   useAddStorageLocationMutation,
   useStorageLocations,
@@ -39,12 +43,16 @@ export function AddItemScreen() {
   );
   const mutation = useAddFridgeItemMutation();
   const addLocationMutation = useAddStorageLocationMutation();
+  const addProductMutation = useAddProductMutation();
+  const { session } = useSession();
+  const userId = session?.user.id;
 
   const [name, setName] = useState('');
   const [quantity, setQuantity] = useState('1');
   const [unit, setUnit] = useState('piece');
   const [locationId, setLocationId] = useState<string | null>(null);
   const [expiryDate, setExpiryDate] = useState('');
+  const [selectedProduct, setSelectedProduct] = useState<OpenFoodFactsProduct | null>(null);
 
   // Scanner & Modal State
   const [showScanner, setShowScanner] = useState(false);
@@ -57,7 +65,22 @@ export function AddItemScreen() {
     setName(product.name);
     if (product.quantity) setQuantity(String(product.quantity));
     if (product.unit) setUnit(product.unit);
+    setSelectedProduct(product);
   }
+
+  // Nimmt ein Produkt entgegen, das ueber "Produkt manuell anlegen" (#80) im
+  // add-product-Screen erstellt wurde und beim Zurueckkommen hier abgeholt
+  // wird — Expo Router kennt keine Rueckgabewerte aus gepushten Routen.
+  useFocusEffect(
+    useCallback(() => {
+      const created = consumePendingProductSelection();
+      if (created) {
+        setName(created.name);
+        if (created.quantity) setQuantity(String(created.quantity));
+        if (created.unit) setUnit(created.unit);
+      }
+    }, []),
+  );
 
   async function handleAddLocation() {
     if (!currentHousehold || !newLocationName.trim()) return;
@@ -78,8 +101,12 @@ export function AddItemScreen() {
     if (!currentHousehold || !name.trim()) return;
 
     try {
+      const productId = selectedProduct
+        ? await persistOffProductIfNeeded(selectedProduct, userId, addProductMutation)
+        : null;
       await mutation.mutateAsync({
         household_id: currentHousehold.id,
+        product_id: productId,
         name: name.trim(),
         quantity: parseFloat(quantity) || 1,
         unit: unit,
