@@ -12,67 +12,24 @@ export type StorageLocation = {
   sort_order: number;
 };
 
-export const DEFAULT_STORAGE_LOCATIONS = [
-  { name: 'Kühlschrank', kind: 'fridge', sort_order: 0 },
-  { name: 'Tiefkühltruhe', kind: 'freezer', sort_order: 1 },
-  { name: 'Abstellkammer', kind: 'pantry', sort_order: 2 },
-] as const;
-
+/**
+ * `create_household()` legt die 3 Standard-Lagerorte serverseitig an
+ * (supabase/schemas/08_inventory.sql). Ein client-seitiger Fallback hier
+ * wuerde nach dem Beitritt zu einem bestehenden Haushalt Duplikate erzeugen,
+ * weil die lokale SQLite-Kopie direkt nach dem Beitritt leer ist, bis der
+ * erste Pull-Sync durchgelaufen ist — das sieht identisch aus wie "wurde nie
+ * angelegt".
+ */
 export function useStorageLocations(householdId: string | undefined) {
   return useQuery({
     queryKey: ['storage_locations', householdId],
     queryFn: async () => {
       if (!householdId) return [];
       const db = await getDatabase();
-      const existing = await db.getAllAsync<StorageLocation>(
+      return db.getAllAsync<StorageLocation>(
         'select id, household_id, name, kind, sort_order from storage_locations where household_id = ? and deleted_at is null order by sort_order',
         [householdId],
       );
-
-      if (existing.length > 0) {
-        return existing;
-      }
-
-      // Prüfe ob überhaupt jemals Daten für diesen Haushalt da waren
-      const allRows = await db.getAllAsync<{ id: string }>(
-        'select id from storage_locations where household_id = ? limit 1',
-        [householdId],
-      );
-
-      if (allRows.length === 0) {
-        // 3 Standard-Lagerorte automatisch anlegen
-        for (const loc of DEFAULT_STORAGE_LOCATIONS) {
-          const id = Crypto.randomUUID();
-          const now = new Date().toISOString();
-          const nowMs = Date.now();
-          await enqueueMutation(db, {
-            entity: 'storage_locations',
-            entityId: id,
-            op: 'insert',
-            payload: {
-              id,
-              household_id: householdId,
-              name: loc.name,
-              kind: loc.kind,
-              sort_order: loc.sort_order,
-              created_at: now,
-              updated_at: now,
-            },
-            applyLocally: async (txn) => {
-              await txn.runAsync(
-                'insert into storage_locations (id, household_id, name, kind, sort_order, created_at, updated_at, _dirty) values (?, ?, ?, ?, ?, ?, ?, 1)',
-                [id, householdId, loc.name, loc.kind, loc.sort_order, now, nowMs],
-              );
-            },
-          });
-        }
-        return db.getAllAsync<StorageLocation>(
-          'select id, household_id, name, kind, sort_order from storage_locations where household_id = ? and deleted_at is null order by sort_order',
-          [householdId],
-        );
-      }
-
-      return existing;
     },
     enabled: !!householdId,
   });

@@ -126,12 +126,45 @@ async function pullEntity(
   return outcome;
 }
 
+/**
+ * Bereinigt verwaiste `households`-Spiegelzeilen.
+ *
+ * Anders als der household-gescopte Zweig unten: beide Abfragen sind
+ * ungefiltert (household_id gibt es hier nicht — die Zeile IST der
+ * Haushalt), und es gibt keine Outbox-`pendingIds`-Ausnahme, weil Haushalte
+ * nie ueber die Outbox angelegt werden (siehe migrations.ts-Kommentar bei
+ * V6_HOUSEHOLDS). Die RLS-Policy `households_select_member` sorgt dafuer,
+ * dass ein entferntes Mitglied die Zeile serverseitig gar nicht mehr sieht —
+ * genau wie ein hart geloeschter Haushalt verschwindet er einfach aus
+ * `remoteIds` und wird hier lokal entsprechend geloescht.
+ */
+async function reconcileHouseholdOrphans(db: SqlDatabase, supabase: TypedSupabaseClient) {
+  // biome-ignore lint/suspicious/noExplicitAny: generisches Select, siehe push.ts
+  const { data, error } = await (supabase.from('households') as any).select('id');
+  if (error || !data) return;
+
+  const remoteIds = new Set<string>((data as { id: string }[]).map((r) => r.id));
+
+  const localRows = await db.getAllAsync<{ id: string }>('select id from households');
+  const orphanIds = localRows.map((r) => r.id).filter((id) => !remoteIds.has(id));
+
+  if (orphanIds.length > 0) {
+    const deleteIn = orphanIds.map(() => '?').join(',');
+    await db.runAsync(`delete from households where id in (${deleteIn})`, orphanIds);
+  }
+}
+
 async function reconcileOrphans(
   db: SqlDatabase,
   supabase: TypedSupabaseClient,
   entity: Entity,
   householdIds: readonly string[],
 ) {
+  if (entity === 'households') {
+    await reconcileHouseholdOrphans(db, supabase);
+    return;
+  }
+
   const meta = metaOf(entity);
   if (!meta.householdScoped) return;
 

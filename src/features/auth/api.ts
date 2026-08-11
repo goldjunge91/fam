@@ -3,6 +3,7 @@ import { useQuery } from '@tanstack/react-query';
 import * as Linking from 'expo-linking';
 
 import type { ProfileInput } from '@/features/auth/auth-schemas';
+import { isOrphanedProfileError } from '@/features/auth/orphaned-profile-error';
 import { getSupabase } from '@/lib/supabase';
 
 /**
@@ -151,6 +152,10 @@ export function useProfile(userId: string | undefined) {
       return data;
     },
     enabled: Boolean(userId),
+    // PGRST116 (verwaiste Session, siehe orphaned-session.ts) ist
+    // deterministisch — ein Retry aendert das Ergebnis nie, verzoegert nur
+    // die automatische Abmeldung.
+    retry: (failureCount, error) => !isOrphanedProfileError(error) && failureCount < 2,
   });
 }
 
