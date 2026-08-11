@@ -34,6 +34,21 @@ const RECENT_WRITE_DISPLAY_MS = 1_500;
  * `onOutboxChanged()` (`lib/db/outbox.ts`), damit "Synchronisiere..." direkt
  * nach einem Schreibvorgang erscheint statt erst beim naechsten Poll-Tick.
  */
+const outboxCountsQueryKey = ['sync-status', 'outbox-counts'] as const;
+
+async function fetchOutboxCounts(db: SqlDatabase): Promise<{ pending: number; failed: number }> {
+  const pending = await db.getFirstAsync<{ count: number }>(
+    'select count(*) as count from outbox where attempts < ?',
+    [MAX_ATTEMPTS],
+  );
+  const failed = await db.getFirstAsync<{ count: number }>(
+    'select count(*) as count from outbox where attempts >= ?',
+    [MAX_ATTEMPTS],
+  );
+
+  return { pending: pending?.count ?? 0, failed: failed?.count ?? 0 };
+}
+
 export function useSyncStatus(getDb: () => Promise<SqlDatabase> = getDatabase): SyncStatusView {
   const isOnline = useSyncExternalStore(
     (onChange) => onlineManager.subscribe(onChange),
@@ -45,37 +60,35 @@ export function useSyncStatus(getDb: () => Promise<SqlDatabase> = getDatabase): 
   const [recentLocalWrite, setRecentLocalWrite] = useState(false);
   useEffect(() => {
     let hideTimer: ReturnType<typeof setTimeout> | null = null;
+    let cancelled = false;
     const unsubscribe = onOutboxChanged(() => {
-      setRecentLocalWrite(true);
-      // Ohne das bliebe `pendingCount` bis zum naechsten 3s-Poll-Tick auf dem
-      // alten Stand — die Anzeige spraenge sofort auf "Synchronisiere...",
-      // aber mit einer veralteten (oft 0) Zahl.
-      queryClient.invalidateQueries({ queryKey: ['sync-status', 'outbox-counts'] });
-      if (hideTimer) clearTimeout(hideTimer);
-      hideTimer = setTimeout(() => setRecentLocalWrite(false), RECENT_WRITE_DISPLAY_MS);
+      // Bewusst NICHT `invalidateQueries` + sofortiges `setRecentLocalWrite(true)`:
+      // `invalidateQueries` markiert die Query nur als stale, der Refetch laeuft
+      // asynchron im Hintergrund. Da `recentLocalWrite` synchron kippt, zeigte die
+      // Anzeige fuer ein bis zwei Frames "Synchronisiere ... 0 ausstehend" (den
+      // alten Zaehlerstand), bevor sich das durch den Refetch selbst korrigierte.
+      // Stattdessen hier den echten Zaehlerstand zuerst lesen und beide Updates
+      // (Cache + `recentLocalWrite`) im selben Tick anwenden.
+      void (async () => {
+        const db = await getDb();
+        const counts = await fetchOutboxCounts(db);
+        if (cancelled) return;
+        queryClient.setQueryData(outboxCountsQueryKey, counts);
+        setRecentLocalWrite(true);
+        if (hideTimer) clearTimeout(hideTimer);
+        hideTimer = setTimeout(() => setRecentLocalWrite(false), RECENT_WRITE_DISPLAY_MS);
+      })();
     });
     return () => {
+      cancelled = true;
       unsubscribe();
       if (hideTimer) clearTimeout(hideTimer);
     };
-  }, [queryClient]);
+  }, [queryClient, getDb]);
 
   const { data } = useQuery({
-    queryKey: ['sync-status', 'outbox-counts'],
-    queryFn: async () => {
-      const db = await getDb();
-
-      const pending = await db.getFirstAsync<{ count: number }>(
-        'select count(*) as count from outbox where attempts < ?',
-        [MAX_ATTEMPTS],
-      );
-      const failed = await db.getFirstAsync<{ count: number }>(
-        'select count(*) as count from outbox where attempts >= ?',
-        [MAX_ATTEMPTS],
-      );
-
-      return { pending: pending?.count ?? 0, failed: failed?.count ?? 0 };
-    },
+    queryKey: outboxCountsQueryKey,
+    queryFn: async () => fetchOutboxCounts(await getDb()),
     refetchInterval: 3_000,
     // Kein `_dirty`/`household_id`-Filter: die Outbox ist geraetelokal, nicht
     // haushaltsgebunden — der Zaehler braucht keinen "aktiver Haushalt"-Context.
