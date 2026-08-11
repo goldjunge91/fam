@@ -1,5 +1,5 @@
-import { router } from 'expo-router';
-import { useState } from 'react';
+import { router, useFocusEffect } from 'expo-router';
+import { useCallback, useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 
 import { Button } from '@/components/button';
@@ -11,6 +11,7 @@ import { Spacing } from '@/constants/theme';
 import { useAddFridgeItemMutation } from '@/features/fridge/use-fridge-mutations';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { BarcodeScannerModal } from '@/features/inventory/barcode-scanner-modal';
+import { consumePendingProductSelection } from '@/features/inventory/pending-product-selection';
 import { ProductSearchDropdown } from '@/features/inventory/product-search-dropdown';
 import {
   useAddStorageLocationMutation,
@@ -58,6 +59,20 @@ export function AddItemScreen() {
     if (product.quantity) setQuantity(String(product.quantity));
     if (product.unit) setUnit(product.unit);
   }
+
+  // Nimmt ein Produkt entgegen, das ueber "Produkt manuell anlegen" (#80) im
+  // add-product-Screen erstellt wurde und beim Zurueckkommen hier abgeholt
+  // wird — Expo Router kennt keine Rueckgabewerte aus gepushten Routen.
+  useFocusEffect(
+    useCallback(() => {
+      const created = consumePendingProductSelection();
+      if (created) {
+        setName(created.name);
+        if (created.quantity) setQuantity(String(created.quantity));
+        if (created.unit) setUnit(created.unit);
+      }
+    }, []),
+  );
 
   async function handleAddLocation() {
     if (!currentHousehold || !newLocationName.trim()) return;

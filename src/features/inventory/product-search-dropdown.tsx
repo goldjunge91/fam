@@ -1,3 +1,4 @@
+import { router } from 'expo-router';
 import { useEffect, useState } from 'react';
 import { ActivityIndicator, Image, Pressable, ScrollView, StyleSheet, View } from 'react-native';
 
@@ -26,11 +27,13 @@ export function ProductSearchDropdown({
   const [suggestions, setSuggestions] = useState<OpenFoodFactsProduct[]>([]);
   const [searching, setSearching] = useState(false);
   const [showDropdown, setShowDropdown] = useState(false);
+  const [searched, setSearched] = useState(false);
 
   useEffect(() => {
     if (!value || value.trim().length < 2) {
       setSuggestions([]);
       setShowDropdown(false);
+      setSearched(false);
       return;
     }
 
@@ -38,12 +41,15 @@ export function ProductSearchDropdown({
       setSearching(true);
       const { products } = await searchOpenFoodFacts(value);
       setSuggestions(products);
-      setShowDropdown(products.length > 0);
+      setSearched(true);
+      setShowDropdown(true);
       setSearching(false);
     }, 300);
 
     return () => clearTimeout(timer);
   }, [value]);
+
+  const showEmptyState = searched && !searching && suggestions.length === 0;
 
   return (
     <View style={styles.container}>
@@ -63,7 +69,7 @@ export function ProductSearchDropdown({
         </View>
       )}
 
-      {showDropdown && suggestions.length > 0 && (
+      {showDropdown && (suggestions.length > 0 || showEmptyState) && (
         <ScrollView
           style={[
             styles.dropdown,
@@ -72,6 +78,26 @@ export function ProductSearchDropdown({
           nestedScrollEnabled
           keyboardShouldPersistTaps="handled"
           showsVerticalScrollIndicator>
+          {showEmptyState ? (
+            <Pressable
+              onPress={() => {
+                setShowDropdown(false);
+                router.push({
+                  pathname: '/add-product',
+                  params: { prefillName: value.trim() },
+                });
+              }}
+              style={[styles.itemRow, { borderBottomColor: theme.border }]}>
+              <View style={styles.itemText}>
+                <ThemedText type="smallBold">
+                  + &quot;{value.trim()}&quot; manuell anlegen
+                </ThemedText>
+                <ThemedText type="small" themeColor="textSecondary">
+                  Kein Treffer bei Open Food Facts gefunden
+                </ThemedText>
+              </View>
+            </Pressable>
+          ) : null}
           {suggestions.map((item) => (
             <Pressable
               key={item.barcode || item.name}
