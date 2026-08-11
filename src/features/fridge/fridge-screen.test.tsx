@@ -102,3 +102,55 @@ it('loescht einen Artikel bei Lang-Druck sofort und zeigt eine Undo-Snackbar (#6
   onUndo();
   expect(mockRestoreMutate).toHaveBeenCalledWith({ id: 'item-1', household_id: 'hh-1' });
 });
+
+describe('Sortier-Toggle MHD/Name (#71)', () => {
+  beforeEach(() => {
+    const soon = new Date();
+    soon.setDate(soon.getDate() + 2);
+    mockItems = [
+      {
+        id: 'item-apfel',
+        household_id: 'hh-1',
+        location_id: null,
+        product_id: null,
+        name: 'Apfel',
+        quantity: 1,
+        unit: 'piece',
+        expiry_date: null, // bucket 'none' -> steht bei MHD-Sortierung hinten
+        added_by: null,
+        created_at: '',
+        location_kind: null,
+        location_name: null,
+      },
+      {
+        id: 'item-zwiebel',
+        household_id: 'hh-1',
+        location_id: null,
+        product_id: null,
+        name: 'Zwiebel',
+        quantity: 1,
+        unit: 'piece',
+        expiry_date: soon.toISOString().split('T')[0], // bucket 'soon' -> steht bei MHD-Sortierung vorn
+        added_by: null,
+        created_at: '',
+        location_kind: null,
+        location_name: null,
+      },
+    ];
+  });
+
+  function itemOrder() {
+    return screen.getAllByLabelText(/piece$/).map((el) => el.props.accessibilityLabel as string);
+  }
+
+  it('sortiert standardmaessig nach MHD (bald ablaufend zuerst)', async () => {
+    await renderScreen();
+    expect(itemOrder()).toEqual(['Zwiebel, 1 piece', 'Apfel, 1 piece']);
+  });
+
+  it('sortiert nach Name, wenn der Name-Toggle gewaehlt wird', async () => {
+    await renderScreen();
+    await fireEvent.press(screen.getByText('Name'));
+    expect(itemOrder()).toEqual(['Apfel, 1 piece', 'Zwiebel, 1 piece']);
+  });
+});

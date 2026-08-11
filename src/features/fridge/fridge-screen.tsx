@@ -9,10 +9,11 @@ import { ThemedText } from '@/components/themed-text';
 import { Spacing } from '@/constants/theme';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { useStorageLocations } from '@/features/inventory/use-storage-locations';
+import { useTheme } from '@/hooks/use-theme';
 
 import { FridgeItemRow } from './components/fridge-item-row';
 import { FridgeTabBar } from './components/fridge-tab-bar';
-import { getExpiryInfo } from './expiry';
+import { compareByExpiry, getExpiryInfo } from './expiry';
 import { type LocalFridgeItem, useFridgeItems } from './use-fridge-items';
 import {
   useRestoreFridgeItemMutation,
@@ -27,8 +28,12 @@ import {
  * - MHD-Badge + Stepper (− / + )
  * - Lang drücken = Löschen-Bestätigung
  */
+type SortMode = 'expiry' | 'name';
+
 export function FridgeScreen() {
+  const theme = useTheme();
   const [activeTab, setActiveTab] = useState<string>('all');
+  const [sortMode, setSortMode] = useState<SortMode>('expiry');
 
   const { activeHouseholdId } = useActiveHousehold();
   const householdId = activeHouseholdId ?? undefined;
@@ -45,8 +50,18 @@ export function FridgeScreen() {
     return info.bucket === 'critical' || info.bucket === 'expired';
   }).length;
 
-  const visibleItems =
-    activeTab === 'all' ? allItems : allItems.filter((item) => item.location_id === activeTab);
+  // SQL liefert bereits MHD-sortiert (default) — der Toggle sortiert nur
+  // client-seitig um, keine Requery noetig fuer "Name" (#71).
+  const visibleItems = [
+    ...(activeTab === 'all' ? allItems : allItems.filter((item) => item.location_id === activeTab)),
+  ].sort((a, b) =>
+    sortMode === 'name'
+      ? a.name.localeCompare(b.name, 'de')
+      : compareByExpiry(
+          getExpiryInfo(a.expiry_date, new Date()),
+          getExpiryInfo(b.expiry_date, new Date()),
+        ),
+  );
 
   function handleDecrement(item: LocalFridgeItem) {
     if (!householdId) return;
@@ -125,6 +140,26 @@ export function FridgeScreen() {
         items={allItems}
       />
 
+      {/* Sortier-Toggle: MHD (Default) oder Name (#71) */}
+      {allItems.length > 0 ? (
+        <View style={styles.sortRow}>
+          {(['expiry', 'name'] as const).map((mode) => (
+            <ThemedText
+              key={mode}
+              onPress={() => setSortMode(mode)}
+              style={[
+                styles.sortPill,
+                {
+                  backgroundColor: sortMode === mode ? theme.accent : theme.backgroundElement,
+                  color: sortMode === mode ? '#fff' : theme.text,
+                },
+              ]}>
+              {mode === 'expiry' ? 'MHD' : 'Name'}
+            </ThemedText>
+          ))}
+        </View>
+      ) : null}
+
       {/* Artikel-Liste des aktiven Tabs */}
       {isLoading ? null : visibleItems.length === 0 ? (
         <Card style={{ marginTop: Spacing.two }}>
@@ -155,6 +190,17 @@ export function FridgeScreen() {
 }
 
 const styles = StyleSheet.create({
+  sortRow: {
+    flexDirection: 'row',
+    gap: Spacing.one,
+    marginTop: Spacing.two,
+  },
+  sortPill: {
+    paddingHorizontal: 12,
+    paddingVertical: 6,
+    borderRadius: 10,
+    overflow: 'hidden',
+  },
   expiringBadge: {
     backgroundColor: '#FFF3E0',
     paddingHorizontal: Spacing.two,
