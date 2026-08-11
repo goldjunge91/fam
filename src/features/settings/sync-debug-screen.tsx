@@ -1,5 +1,5 @@
 import { useQueryClient } from '@tanstack/react-query';
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import { Alert, StyleSheet, View } from 'react-native';
 
 import { Button } from '@/components/button';
@@ -21,6 +21,7 @@ import {
   getLastSyncInfo,
   getRealtimeDiagnostics,
   getRealtimeLatencySamples,
+  getRealtimeLatencySampleVersion,
   triggerHouseholdSync,
 } from '@/lib/sync/sync-runner';
 
@@ -77,6 +78,21 @@ export function SyncDebugScreen() {
   const activeIntervalCount = getActiveSyncEngineIntervalCount();
   const realtimeDiagnostics = getRealtimeDiagnostics();
   const latencySamples = getRealtimeLatencySamples();
+  const latencySampleVersion = getRealtimeLatencySampleVersion();
+  // Nur neu berechnen, wenn tatsaechlich ein neues Sample dazukam (siehe
+  // Kommentar bei `realtimeLatencySampleVersion` in sync-runner.ts), nicht bei
+  // jedem 2s-`forceTick`. `null` = kein Insert/Update-Sample im Ringpuffer
+  // (z.B. wenn bisher nur Deletes ankamen, deren `latencyMs` immer `null`
+  // ist) — ohne diese Unterscheidung zeigte `reduce` faelschlich `0 ms` statt
+  // eines erkennbar leeren Zustands.
+  // biome-ignore lint/correctness/useExhaustiveDependencies: latencySamples-Referenz aendert sich nie (in-place mutiert), latencySampleVersion ist das eigentliche Signal
+  const averageLatencyMs = useMemo(() => {
+    const numericSamples = latencySamples
+      .map((s) => s.latencyMs)
+      .filter((v): v is number => v !== null);
+    if (numericSamples.length === 0) return null;
+    return Math.round(numericSamples.reduce((sum, v, _i, arr) => sum + v / arr.length, 0));
+  }, [latencySampleVersion]);
 
   async function handleTestNotification() {
     const result = await sendTestNotification();
@@ -253,13 +269,7 @@ export function SyncDebugScreen() {
             <View style={styles.zeile}>
               <ThemedText type="small">Durchschnitt:</ThemedText>
               <ThemedText type="smallBold">
-                {Math.round(
-                  latencySamples
-                    .map((s) => s.latencyMs)
-                    .filter((v): v is number => v !== null)
-                    .reduce((sum, v, _i, arr) => sum + v / arr.length, 0),
-                )}{' '}
-                ms
+                {averageLatencyMs === null ? '—' : `${averageLatencyMs} ms`}
               </ThemedText>
             </View>
             {latencySamples

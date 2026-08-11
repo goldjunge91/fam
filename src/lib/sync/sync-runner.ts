@@ -78,6 +78,20 @@ export function getRealtimeLatencySamples(): readonly RealtimeLatencySample[] {
   return realtimeLatencySamples;
 }
 
+/**
+ * `realtimeLatencySamples` wird in-place mutiert (`push`/`shift`) — die
+ * Array-Referenz aus `getRealtimeLatencySamples()` aendert sich also nie,
+ * womit sie als `useMemo`-Dependency untauglich ist (immer "gleich", auch
+ * nach neuen Samples). Dieser Zaehler steigt bei jedem echten neuen Sample,
+ * damit die Debug-Anzeige den Durchschnitt gezielt statt bei jedem 2s-Tick
+ * neu berechnen kann.
+ */
+let realtimeLatencySampleVersion = 0;
+
+export function getRealtimeLatencySampleVersion() {
+  return realtimeLatencySampleVersion;
+}
+
 function recordRealtimeLatency(
   entity: Entity,
   op: 'insert' | 'update' | 'delete',
@@ -87,6 +101,7 @@ function recordRealtimeLatency(
   if (realtimeLatencySamples.length > MAX_LATENCY_SAMPLES) {
     realtimeLatencySamples.shift();
   }
+  realtimeLatencySampleVersion += 1;
 }
 
 /**
