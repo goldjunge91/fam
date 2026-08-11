@@ -1,4 +1,5 @@
-import { render, screen } from '@testing-library/react-native';
+import { fireEvent, render, screen } from '@testing-library/react-native';
+import { router } from 'expo-router';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import { DashboardScreen } from '@/features/dashboard/dashboard-screen';
@@ -100,5 +101,35 @@ describe('DashboardScreen — "Läuft bald ab"-Karte (#73)', () => {
     await renderScreen();
     expect(screen.getByText('Läuft bald ab')).toBeTruthy();
     expect(screen.getByText('Joghurt')).toBeTruthy();
+  });
+
+  it('navigiert bei Tap auf die Karte zur gefilterten Vorratsliste', async () => {
+    const soon = new Date();
+    soon.setDate(soon.getDate() + 1);
+    mockFridgeItems = [
+      {
+        id: 'item-1',
+        household_id: 'hh-1',
+        location_id: null,
+        product_id: null,
+        name: 'Joghurt',
+        quantity: 1,
+        unit: 'piece',
+        expiry_date: soon.toISOString().split('T')[0],
+        added_by: null,
+        created_at: '',
+        location_kind: null,
+        location_name: null,
+      },
+    ];
+    await renderScreen();
+    await fireEvent.press(
+      screen.getByLabelText('Alle bald ablaufenden Artikel im Vorrat anzeigen'),
+    );
+
+    expect(router.push).toHaveBeenCalledWith({
+      pathname: '/fridge',
+      params: { filter: 'expiring' },
+    });
   });
 });

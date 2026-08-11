@@ -1,3 +1,4 @@
+import { useLocalSearchParams } from 'expo-router';
 import { useState } from 'react';
 import { Alert, FlatList, StyleSheet, View } from 'react-native';
 
@@ -32,6 +33,8 @@ type SortMode = 'expiry' | 'name';
 
 export function FridgeScreen() {
   const theme = useTheme();
+  const params = useLocalSearchParams<{ filter?: string }>();
+  const showExpiringOnly = params.filter === 'expiring';
   const [activeTab, setActiveTab] = useState<string>('all');
   const [sortMode, setSortMode] = useState<SortMode>('expiry');
 
@@ -50,11 +53,20 @@ export function FridgeScreen() {
     return info.bucket === 'critical' || info.bucket === 'expired';
   }).length;
 
+  // filter=expiring (#73, vom Dashboard-Widget) ueberschreibt den
+  // Lagerort-Tab-Filter, statt ihn zu kombinieren — einfacher, und die
+  // Tab-Auswahl bleibt fuer den naechsten Besuch ohne den Query-Param erhalten.
+  const locationFiltered =
+    activeTab === 'all' ? allItems : allItems.filter((item) => item.location_id === activeTab);
+  const baseItems = showExpiringOnly
+    ? allItems.filter((item) =>
+        ['expired', 'critical'].includes(getExpiryInfo(item.expiry_date, new Date()).bucket),
+      )
+    : locationFiltered;
+
   // SQL liefert bereits MHD-sortiert (default) — der Toggle sortiert nur
   // client-seitig um, keine Requery noetig fuer "Name" (#71).
-  const visibleItems = [
-    ...(activeTab === 'all' ? allItems : allItems.filter((item) => item.location_id === activeTab)),
-  ].sort((a, b) =>
+  const visibleItems = [...baseItems].sort((a, b) =>
     sortMode === 'name'
       ? a.name.localeCompare(b.name, 'de')
       : compareByExpiry(

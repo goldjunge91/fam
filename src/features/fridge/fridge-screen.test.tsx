@@ -8,10 +8,12 @@ const mockRestoreMutate = jest.fn();
 const mockShowUndoSnackbar = jest.fn();
 
 let mockItems: unknown[] = [];
+let mockParams: Record<string, string> = {};
 
 jest.mock('expo-router', () => ({
   router: { push: jest.fn(), back: jest.fn(), canGoBack: () => false },
   useNavigation: () => ({ canGoBack: () => false, addListener: () => () => {} }),
+  useLocalSearchParams: () => mockParams,
 }));
 
 jest.mock('@/features/household/active-household-provider', () => ({
@@ -63,6 +65,7 @@ function renderScreen() {
 }
 
 beforeEach(() => {
+  mockParams = {};
   mockItems = [
     {
       id: 'item-1',
@@ -152,5 +155,51 @@ describe('Sortier-Toggle MHD/Name (#71)', () => {
     await renderScreen();
     await fireEvent.press(screen.getByText('Name'));
     expect(itemOrder()).toEqual(['Apfel, 1 piece', 'Zwiebel, 1 piece']);
+  });
+});
+
+describe('filter=expiring vom Dashboard-Widget (#73)', () => {
+  beforeEach(() => {
+    mockParams = { filter: 'expiring' };
+    const soon = new Date();
+    soon.setDate(soon.getDate() + 1);
+    const farAway = new Date();
+    farAway.setDate(farAway.getDate() + 30);
+    mockItems = [
+      {
+        id: 'item-critical',
+        household_id: 'hh-1',
+        location_id: 'loc-1',
+        product_id: null,
+        name: 'Bald abgelaufen',
+        quantity: 1,
+        unit: 'piece',
+        expiry_date: soon.toISOString().split('T')[0],
+        added_by: null,
+        created_at: '',
+        location_kind: null,
+        location_name: null,
+      },
+      {
+        id: 'item-ok',
+        household_id: 'hh-1',
+        location_id: 'loc-2',
+        product_id: null,
+        name: 'Noch lange haltbar',
+        quantity: 1,
+        unit: 'piece',
+        expiry_date: farAway.toISOString().split('T')[0],
+        added_by: null,
+        created_at: '',
+        location_kind: null,
+        location_name: null,
+      },
+    ];
+  });
+
+  it('zeigt nur bald ablaufende/abgelaufene Artikel, unabhaengig vom Lagerort-Tab', async () => {
+    await renderScreen();
+    expect(screen.getByText('Bald abgelaufen')).toBeTruthy();
+    expect(screen.queryByText('Noch lange haltbar')).not.toBeOnTheScreen();
   });
 });

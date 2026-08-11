@@ -1,3 +1,4 @@
+import { router } from 'expo-router';
 import { Alert, Pressable, StyleSheet, View } from 'react-native';
 
 import { Card } from '@/components/card';
@@ -130,55 +131,65 @@ export function DashboardScreen() {
 
       {/* Kein leerer Card-Rumpf mehr, sobald geladen und nichts ablaeuft. */}
       {isLoading || expiringItems.length > 0 ? (
-        <Card title="Läuft bald ab">
-          {isLoading ? (
-            <ThemedText type="small" themeColor="textSecondary">
-              Lade Vorräte...
-            </ThemedText>
-          ) : (
-            <View style={styles.expiringList}>
-              {expiringItems.map((item) => {
-                const info = getExpiryInfo(item.expiry_date, now);
-                return (
-                  <View key={item.id} style={[styles.itemRow, { borderBottomColor: theme.border }]}>
-                    <View style={styles.itemInfo}>
-                      <ThemedText type="smallBold">{item.name}</ThemedText>
-                      <ThemedText type="small" themeColor="textSecondary">
-                        {item.quantity} {item.unit} · {item.location_name ?? 'Kühlschrank'}
-                      </ThemedText>
-                      <View
-                        style={[styles.badge, { backgroundColor: `${theme[info.themeColor]}22` }]}>
-                        <ThemedText
-                          type="small"
-                          style={{ color: theme[info.themeColor], fontWeight: 'bold' }}>
-                          {info.label}
+        <Pressable
+          onPress={() => router.push({ pathname: '/fridge', params: { filter: 'expiring' } })}
+          accessibilityRole="button"
+          accessibilityLabel="Alle bald ablaufenden Artikel im Vorrat anzeigen">
+          <Card title="Läuft bald ab">
+            {isLoading ? (
+              <ThemedText type="small" themeColor="textSecondary">
+                Lade Vorräte...
+              </ThemedText>
+            ) : (
+              <View style={styles.expiringList}>
+                {expiringItems.map((item) => {
+                  const info = getExpiryInfo(item.expiry_date, now);
+                  return (
+                    <View
+                      key={item.id}
+                      style={[styles.itemRow, { borderBottomColor: theme.border }]}>
+                      <View style={styles.itemInfo}>
+                        <ThemedText type="smallBold">{item.name}</ThemedText>
+                        <ThemedText type="small" themeColor="textSecondary">
+                          {item.quantity} {item.unit} · {item.location_name ?? 'Kühlschrank'}
                         </ThemedText>
+                        <View
+                          style={[
+                            styles.badge,
+                            { backgroundColor: `${theme[info.themeColor]}22` },
+                          ]}>
+                          <ThemedText
+                            type="small"
+                            style={{ color: theme[info.themeColor], fontWeight: 'bold' }}>
+                            {info.label}
+                          </ThemedText>
+                        </View>
+                      </View>
+
+                      <View style={styles.actionButtons}>
+                        <Pressable
+                          onPress={() => handleConsume(item)}
+                          style={[styles.btn, { backgroundColor: `${theme.accent}18` }]}>
+                          <ThemedText type="small" style={{ color: theme.accent, fontSize: 12 }}>
+                            ✓ Verbraucht
+                          </ThemedText>
+                        </Pressable>
+
+                        <Pressable
+                          onPress={() => handleAddToShoppingList(item)}
+                          style={[styles.btn, { backgroundColor: `${theme.textSecondary}18` }]}>
+                          <ThemedText type="small" style={{ fontSize: 12 }}>
+                            🛒 Einkaufen
+                          </ThemedText>
+                        </Pressable>
                       </View>
                     </View>
-
-                    <View style={styles.actionButtons}>
-                      <Pressable
-                        onPress={() => handleConsume(item)}
-                        style={[styles.btn, { backgroundColor: `${theme.accent}18` }]}>
-                        <ThemedText type="small" style={{ color: theme.accent, fontSize: 12 }}>
-                          ✓ Verbraucht
-                        </ThemedText>
-                      </Pressable>
-
-                      <Pressable
-                        onPress={() => handleAddToShoppingList(item)}
-                        style={[styles.btn, { backgroundColor: `${theme.textSecondary}18` }]}>
-                        <ThemedText type="small" style={{ fontSize: 12 }}>
-                          🛒 Einkaufen
-                        </ThemedText>
-                      </Pressable>
-                    </View>
-                  </View>
-                );
-              })}
-            </View>
-          )}
-        </Card>
+                  );
+                })}
+              </View>
+            )}
+          </Card>
+        </Pressable>
       ) : null}
     </Screen>
   );
