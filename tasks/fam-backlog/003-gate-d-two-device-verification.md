@@ -1,6 +1,6 @@
 # 003: Gate D — Zwei-Geräte-Sync verifizieren (#70)
 
-**Status**: pending (teilweise durchgefuehrt)
+**Status**: completed
 **Created**: 2026-08-08
 **Priority**: medium
 
@@ -13,14 +13,14 @@ lässt sich das "<1s"-Ziel gar nicht erfüllen (nur Poll-Sync alle 20s aktiv).
 
 ## Action Items
 
-- [ ] Zwei Simulatoren/Emulatoren gleichzeitig starten (per `argent`
+- [x] Zwei Simulatoren/Emulatoren gleichzeitig starten (per `argent`
       MCP-Tooling möglich)
-- [ ] Beide Geräte im selben Haushalt anmelden
-- [ ] Änderung auf Gerät A vornehmen, prüfen dass sie < 1s später auf
+- [x] Beide Geräte im selben Haushalt anmelden
+- [x] Änderung auf Gerät A vornehmen, prüfen dass sie < 1s später auf
       Gerät B ankommt
-- [ ] Gerät B offline schalten, dort ändern, wieder online bringen,
+- [x] Gerät B offline schalten, dort ändern, wieder online bringen,
       Konvergenz prüfen (kein Datenverlust, keine Duplikate)
-- [ ] Ergebnis in `docs/ROADMAP.md` als Gate D ✅ vermerken
+- [x] Ergebnis in `docs/ROADMAP.md` als Gate D ✅ vermerken
 
 ## Notes
 
@@ -40,3 +40,19 @@ angefasst wurden:
 - nach Logout + Anmeldung als anderer Nutzer zeigen Einstellungen und
   Sync-Diagnose sofort den NEUEN Haushalt
 - keine RLS-Fehler in der Outbox
+
+**Stand 2026-08-11:** Wiederholung durchgefuehrt, alle 5 AC bestaetigt.
+Dabei drei weitere Fehler aufgedeckt und behoben:
+
+- `added_by`/`checked_by` UUID-Fehler bei Offline-Auth-Fallback (leerer
+  String statt gueltiger UUID)
+- `isFetching` in `active-household-provider.tsx` loeste bei jedem
+  Hintergrund-Refetch ein kurzes Zurueckspringen zur Uebersicht aus
+- AC1 ("< 1s") war mit reinem 20s-Poll nicht erreichbar — `useSyncEngine`
+  bekam einen debounced Sync-Nudge (`onOutboxChanged`): der erste
+  Schreibvorgang eines Schwungs pusht sofort, nur Schwuenge ab dem zweiten
+  Schreibvorgang werden gebuendelt
+
+Zusaetzlich: `sync-status`-Banner haengt jetzt am lokalen Schreibvorgang
+statt an `pendingCount`, und die Sync-Diagnose zeigt Realtime-Latenz,
+-Verbindung und aktive Poll-Intervalle live an.
