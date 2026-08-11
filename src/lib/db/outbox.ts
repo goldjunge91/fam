@@ -55,6 +55,31 @@ export type EnqueueMutationInput = {
   now?: number;
 };
 
+type OutboxChangedListener = () => void;
+const outboxChangedListeners = new Set<OutboxChangedListener>();
+
+/**
+ * Benachrichtigt bei jedem erfolgreichen `enqueueMutation()` — der einzige
+ * Zweck ist, entfernten Aufrufern (der Sync-Engine, dem Sync-Status-Banner)
+ * ein "gerade ist etwas lokal geschrieben worden" zu geben, ohne dass dieses
+ * Modul irgendetwas ueber Haushalte, React Query oder Netzwerk wissen muss —
+ * dieselbe Trennung wie sonst zwischen `lib/db/` und `lib/sync/`.
+ *
+ * Bewusst ein einfacher Listener-Satz, kein Event mit Payload: Was genau
+ * geaendert wurde, steht schon lokal in der Outbox: Aufrufer, die mehr
+ * brauchen, lesen sie selbst.
+ */
+export function onOutboxChanged(listener: OutboxChangedListener): () => void {
+  outboxChangedListeners.add(listener);
+  return () => {
+    outboxChangedListeners.delete(listener);
+  };
+}
+
+function notifyOutboxChanged(): void {
+  for (const listener of outboxChangedListeners) listener();
+}
+
 /**
  * Schreibt Spiegeltabelle und Outbox-Eintrag atomar.
  *
@@ -75,6 +100,8 @@ export async function enqueueMutation(db: SqlDatabase, input: EnqueueMutationInp
       [input.entity, input.entityId, input.op, payloadJson, createdAt],
     );
   });
+
+  notifyOutboxChanged();
 }
 
 /**

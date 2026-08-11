@@ -15,7 +15,14 @@ import { getDatabase } from '@/lib/db/client';
 import { deleteOutboxEntries } from '@/lib/db/outbox';
 import { sendTestNotification } from '@/lib/notifications';
 import type { OpenFoodFactsProduct } from '@/lib/open-food-facts';
-import { getLastSyncInfo, triggerHouseholdSync } from '@/lib/sync/sync-runner';
+import {
+  getActiveSyncEngineIntervalCount,
+  getLastRealtimeStatus,
+  getLastSyncInfo,
+  getRealtimeDiagnostics,
+  getRealtimeLatencySamples,
+  triggerHouseholdSync,
+} from '@/lib/sync/sync-runner';
 
 type OutboxRow = {
   id: number;
@@ -56,7 +63,20 @@ export function SyncDebugScreen() {
   const [outboxRows, setOutboxRows] = useState<OutboxRow[]>([]);
   const [locationRows, setLocationRows] = useState<LocationRow[]>([]);
   const [itemRows, setItemRows] = useState<ItemRow[]>([]);
+  // `getLastSyncInfo`/`getLastRealtimeStatus` lesen Modul-Zustand, keinen
+  // React State — ohne diesen Tick wuerde sich die Anzeige nur nach einer
+  // manuellen Aktion (z.B. "Jetzt synchronisieren") aktualisieren, obwohl
+  // sich der Realtime-Status jederzeit im Hintergrund aendern kann.
+  const [, forceTick] = useState(0);
+  useEffect(() => {
+    const interval = setInterval(() => forceTick((t) => t + 1), 2000);
+    return () => clearInterval(interval);
+  }, []);
   const lastSyncInfo = getLastSyncInfo();
+  const realtimeStatus = getLastRealtimeStatus();
+  const activeIntervalCount = getActiveSyncEngineIntervalCount();
+  const realtimeDiagnostics = getRealtimeDiagnostics();
+  const latencySamples = getRealtimeLatencySamples();
 
   async function handleTestNotification() {
     const result = await sendTestNotification();
@@ -174,6 +194,33 @@ export function SyncDebugScreen() {
           <ThemedText type="small">Aktueller Sync-Status:</ThemedText>
           <ThemedText type="smallBold">{syncStatus.kind.toUpperCase()}</ThemedText>
         </View>
+        <View style={styles.zeile}>
+          <ThemedText type="small">Realtime-Verbindung:</ThemedText>
+          <ThemedText
+            type="smallBold"
+            themeColor={realtimeStatus === 'SUBSCRIBED' ? 'success' : 'danger'}>
+            {realtimeStatus ?? 'nie verbunden'}
+          </ThemedText>
+        </View>
+        <View style={styles.zeile}>
+          <ThemedText type="small">Aktive Poll-Intervalle:</ThemedText>
+          <ThemedText type="smallBold" themeColor={activeIntervalCount > 1 ? 'danger' : 'success'}>
+            {activeIntervalCount}
+            {activeIntervalCount > 1 ? ' — sollte 1 sein!' : ''}
+          </ThemedText>
+        </View>
+        <View style={styles.zeile}>
+          <ThemedText type="small">Realtime Status-Wechsel gesamt:</ThemedText>
+          <ThemedText type="smallBold">{realtimeDiagnostics.statusChangeCount}</ThemedText>
+        </View>
+        <View style={styles.zeile}>
+          <ThemedText type="small">Realtime Reconnects gesamt:</ThemedText>
+          <ThemedText
+            type="smallBold"
+            themeColor={realtimeDiagnostics.reconnectCount > 0 ? 'danger' : 'success'}>
+            {realtimeDiagnostics.reconnectCount}
+          </ThemedText>
+        </View>
         <View style={styles.actionRow}>
           <Button
             label="Jetzt synchronisieren & prüfen"
@@ -181,6 +228,54 @@ export function SyncDebugScreen() {
             loading={loading}
           />
         </View>
+      </Card>
+
+      <Card title={`Realtime-Latenz (letzte ${latencySamples.length} Zeilen)`}>
+        {latencySamples.length === 0 ? (
+          <ThemedText type="small" themeColor="textSecondary">
+            Noch keine ueber Realtime empfangene Zeile in dieser Sitzung. Auf einem zweiten Geraet
+            etwas aendern, um Messwerte zu sammeln.
+          </ThemedText>
+        ) : (
+          <>
+            <View style={styles.zeile}>
+              <ThemedText type="small">Letzte Latenz:</ThemedText>
+              <ThemedText
+                type="smallBold"
+                themeColor={
+                  (latencySamples[latencySamples.length - 1].latencyMs ?? 0) > 2000
+                    ? 'danger'
+                    : 'success'
+                }>
+                {latencySamples[latencySamples.length - 1].latencyMs ?? '—'} ms
+              </ThemedText>
+            </View>
+            <View style={styles.zeile}>
+              <ThemedText type="small">Durchschnitt:</ThemedText>
+              <ThemedText type="smallBold">
+                {Math.round(
+                  latencySamples
+                    .map((s) => s.latencyMs)
+                    .filter((v): v is number => v !== null)
+                    .reduce((sum, v, _i, arr) => sum + v / arr.length, 0),
+                )}{' '}
+                ms
+              </ThemedText>
+            </View>
+            {latencySamples
+              .slice()
+              .reverse()
+              .map((sample, i) => (
+                // biome-ignore lint/suspicious/noArrayIndexKey: Ringpuffer ohne stabile Id, Reihenfolge aendert sich nicht rueckwirkend
+                <View key={i} style={[styles.boxItem, { borderBottomColor: theme.border }]}>
+                  <ThemedText type="small" themeColor="textSecondary">
+                    {new Date(sample.timestamp).toLocaleTimeString('de-DE')} —{' '}
+                    {sample.op.toUpperCase()} {sample.entity}: {sample.latencyMs ?? '—'} ms
+                  </ThemedText>
+                </View>
+              ))}
+          </>
+        )}
       </Card>
 
       <Card title="Live-Test (Hardware & Push)">
