@@ -22,6 +22,7 @@ import {
   type OpenFoodFactsProduct,
   productFromRouteParams,
 } from '@/lib/open-food-facts';
+import { scaleToQuantity } from '@/lib/units';
 
 const UNIT_LABELS: Record<string, string> = {
   g: 'g',
@@ -40,25 +41,6 @@ type Per100gReference = {
   carbs?: number;
   fat?: number;
 };
-
-/**
- * Skaliert einen Naehrwert "pro 100g/100ml" auf die eingegebene Menge.
- *
- * `kg`/`l` werden auf Gramm/Milliliter umgerechnet. Bei stueckbasierten
- * Einheiten (`piece`/`package`/`portion`) fehlt der Mengenbezug fuer eine
- * korrekte Skalierung — dort bleibt der Rohwert stehen, als Ausgangspunkt fuer
- * eine manuelle Korrektur statt eines falschen Automatik-Werts.
- */
-function scaleToQuantity(per100: number, quantity: number, unit: string): number {
-  const gramsOrMlEquivalent =
-    unit === 'kg' || unit === 'l'
-      ? quantity * 1000
-      : unit === 'g' || unit === 'ml'
-        ? quantity
-        : null;
-  if (gramsOrMlEquivalent === null) return per100;
-  return Math.round(((per100 * gramsOrMlEquivalent) / 100) * 10) / 10;
-}
 
 type Badge = { label: string; tone: 'good' | 'warn' };
 
@@ -133,6 +115,7 @@ export function AddFoodEntryScreen() {
   const [fatInput, setFatInput] = useState('');
   const [per100g, setPer100g] = useState<Per100gReference | null>(null);
   const [initialized, setInitialized] = useState(false);
+  const [unitNotScalable, setUnitNotScalable] = useState(false);
 
   // Vorbefuellung: bestehender Eintrag > Produkt aus der Suche > leer. Laeuft
   // bewusst nur einmal (Guard ueber `initialized`) statt bei jeder
@@ -206,13 +189,24 @@ export function AddFoodEntryScreen() {
     const qty = parseFloat(quantity);
     if (Number.isNaN(qty)) return;
 
-    if (per100g.kcal !== undefined) setKcalInput(String(scaleToQuantity(per100g.kcal, qty, unit)));
-    if (per100g.protein !== undefined) {
-      setProteinInput(String(scaleToQuantity(per100g.protein, qty, unit)));
-    }
-    if (per100g.carbs !== undefined)
-      setCarbsInput(String(scaleToQuantity(per100g.carbs, qty, unit)));
-    if (per100g.fat !== undefined) setFatInput(String(scaleToQuantity(per100g.fat, qty, unit)));
+    const scaled = {
+      kcal: per100g.kcal !== undefined ? scaleToQuantity(per100g.kcal, qty, unit) : undefined,
+      protein:
+        per100g.protein !== undefined ? scaleToQuantity(per100g.protein, qty, unit) : undefined,
+      carbs: per100g.carbs !== undefined ? scaleToQuantity(per100g.carbs, qty, unit) : undefined,
+      fat: per100g.fat !== undefined ? scaleToQuantity(per100g.fat, qty, unit) : undefined,
+    };
+
+    const anyNotConvertible = Object.values(scaled).some(
+      (result) => result !== undefined && !result.convertible,
+    );
+    setUnitNotScalable(anyNotConvertible);
+    if (anyNotConvertible) return; // Werte bleiben stehen, kein stilles Einfrieren auf falschen Rohwert.
+
+    if (scaled.kcal?.convertible) setKcalInput(String(scaled.kcal.value));
+    if (scaled.protein?.convertible) setProteinInput(String(scaled.protein.value));
+    if (scaled.carbs?.convertible) setCarbsInput(String(scaled.carbs.value));
+    if (scaled.fat?.convertible) setFatInput(String(scaled.fat.value));
   }, [quantity, unit]);
 
   async function handleSave() {
@@ -373,6 +367,12 @@ export function AddFoodEntryScreen() {
             </ThemedText>
           ))}
         </View>
+        {unitNotScalable ? (
+          <ThemedText type="small" themeColor="warning">
+            Automatische Umrechnung für diese Einheit nicht möglich — Nährwerte bitte manuell
+            anpassen.
+          </ThemedText>
+        ) : null}
 
         <View style={styles.saveButton}>
           <Button

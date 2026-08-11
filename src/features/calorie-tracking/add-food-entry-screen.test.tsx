@@ -104,6 +104,15 @@ describe('AddFoodEntryScreen — Produkt aus der Suche (100g-Referenz)', () => {
     expect(screen.getByDisplayValue('118')).toBeTruthy(); // 59 kcal/100g * 200g / 100
   });
 
+  it('zeigt einen Hinweis statt stiller Skalierung bei stueckbasierten Einheiten', async () => {
+    await renderScreen();
+    await fireEvent.press(screen.getByText('Stück'));
+    expect(
+      screen.getByText(/Automatische Umrechnung für diese Einheit nicht möglich/),
+    ).toBeTruthy();
+    expect(screen.getByDisplayValue('59')).toBeTruthy(); // Rohwert bleibt unveraendert stehen
+  });
+
   it('speichert einen neuen Eintrag mit den berechneten Werten', async () => {
     await renderScreen();
     await fireEvent.press(screen.getByText('Speichern'));
