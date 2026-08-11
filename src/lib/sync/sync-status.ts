@@ -22,13 +22,21 @@ export type SyncStatusView =
  * 2. **Offline wird immer gezeigt**, auch ohne ausstehende Aenderungen: Der
  *    Nutzer soll wissen, warum sich gerade nichts aktualisiert, nicht nur,
  *    dass etwas in der Warteschlange steht.
- * 3. **Ausstehend** heisst online, aber noch nicht durchgekommen.
+ * 3. **"Synchronisiere" ist bewusst kein Dauerzustand.** Lokal-first heisst:
+ *    die Aenderung ist ab dem Schreibvorgang sicher und sichtbar, der Push
+ *    ist ein Hintergrundvorgang. `recentLocalWrite` kommt von
+ *    `onOutboxChanged()` (`lib/db/outbox.ts`) und ist nur kurz nach einem
+ *    Schreibvorgang wahr (siehe `use-sync-status.ts`) — nicht solange
+ *    `pendingCount > 0` ist, was bei einem Netzwerk-Hickser laenger dauern
+ *    kann, als hier eine Meldung wert waere. Fuer echte, anhaltende Probleme
+ *    gibt es `offline`/`failed` weiter oben.
  * 4. Sonst: nichts zu zeigen.
  */
 export function computeSyncStatusView(input: {
   isOnline: boolean;
   pendingCount: number;
   failedCount: number;
+  recentLocalWrite: boolean;
 }): SyncStatusView {
   if (input.failedCount > 0) {
     return { kind: 'failed', failedCount: input.failedCount };
@@ -38,7 +46,7 @@ export function computeSyncStatusView(input: {
     return { kind: 'offline', pendingCount: input.pendingCount };
   }
 
-  if (input.pendingCount > 0) {
+  if (input.recentLocalWrite) {
     return { kind: 'syncing', pendingCount: input.pendingCount };
   }
 

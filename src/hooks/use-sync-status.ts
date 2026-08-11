@@ -1,10 +1,21 @@
-import { onlineManager, useQuery } from '@tanstack/react-query';
-import { useSyncExternalStore } from 'react';
+import { onlineManager, useQuery, useQueryClient } from '@tanstack/react-query';
+import { useEffect, useState, useSyncExternalStore } from 'react';
 
 import { getDatabase } from '@/lib/db/client';
+import { onOutboxChanged } from '@/lib/db/outbox';
 import type { SqlDatabase } from '@/lib/db/types';
 import { MAX_ATTEMPTS } from '@/lib/sync/backoff';
 import { computeSyncStatusView, type SyncStatusView } from '@/lib/sync/sync-status';
+
+/**
+ * Wie lange "Synchronisiere..." nach einem lokalen Schreibvorgang sichtbar
+ * bleibt — bewusst kurz und fix, nicht an den tatsaechlichen Push gekoppelt
+ * (siehe Kommentar in `sync-status.ts`). Ein weiterer Schreibvorgang in
+ * dieser Zeit verlaengert die Anzeige (derselbe Timer wird neu gestartet),
+ * ein Schwung von Aenderungen zeigt also durchgehend "synchronisiert" statt
+ * zu flackern.
+ */
+const RECENT_WRITE_DISPLAY_MS = 1_500;
 
 /**
  * Liest Netzwerkstatus und Outbox-Zaehler und leitet daraus den Anzeigezustand
@@ -17,11 +28,11 @@ import { computeSyncStatusView, type SyncStatusView } from '@/lib/sync/sync-stat
  * Reconnect-*Trigger*, nicht diese *Anzeige*; beide speisen sich letztlich aus
  * denselben Events.
  *
- * Outbox-Zaehler werden gepollt statt ueber einen Event-Emitter aus
- * `outbox.ts`/`push.ts` beobachtet — haelt dieses Feature vollstaendig additiv
- * (keine bereits gemergte Sync-Engine-Datei wird angefasst). Die dadurch
- * moegliche Verzoegerung von bis zu drei Sekunden faellt praktisch nicht auf,
- * da ohnehin nichts haeufiger als das synchronisiert.
+ * Die `pending`/`failed`-Zaehler (fuer die Beschriftung, `offline`/`failed`)
+ * werden weiterhin per `refetchInterval` gepollt — fuer die reine Anzeige
+ * reicht das. Nur der `syncing`-Ausloeser selbst haengt jetzt an
+ * `onOutboxChanged()` (`lib/db/outbox.ts`), damit "Synchronisiere..." direkt
+ * nach einem Schreibvorgang erscheint statt erst beim naechsten Poll-Tick.
  */
 export function useSyncStatus(getDb: () => Promise<SqlDatabase> = getDatabase): SyncStatusView {
   const isOnline = useSyncExternalStore(
@@ -29,6 +40,25 @@ export function useSyncStatus(getDb: () => Promise<SqlDatabase> = getDatabase): 
     () => onlineManager.isOnline(),
     () => true,
   );
+
+  const queryClient = useQueryClient();
+  const [recentLocalWrite, setRecentLocalWrite] = useState(false);
+  useEffect(() => {
+    let hideTimer: ReturnType<typeof setTimeout> | null = null;
+    const unsubscribe = onOutboxChanged(() => {
+      setRecentLocalWrite(true);
+      // Ohne das bliebe `pendingCount` bis zum naechsten 3s-Poll-Tick auf dem
+      // alten Stand — die Anzeige spraenge sofort auf "Synchronisiere...",
+      // aber mit einer veralteten (oft 0) Zahl.
+      queryClient.invalidateQueries({ queryKey: ['sync-status', 'outbox-counts'] });
+      if (hideTimer) clearTimeout(hideTimer);
+      hideTimer = setTimeout(() => setRecentLocalWrite(false), RECENT_WRITE_DISPLAY_MS);
+    });
+    return () => {
+      unsubscribe();
+      if (hideTimer) clearTimeout(hideTimer);
+    };
+  }, [queryClient]);
 
   const { data } = useQuery({
     queryKey: ['sync-status', 'outbox-counts'],
@@ -56,5 +86,6 @@ export function useSyncStatus(getDb: () => Promise<SqlDatabase> = getDatabase): 
     isOnline,
     pendingCount: data.pending,
     failedCount: data.failed,
+    recentLocalWrite,
   });
 }
