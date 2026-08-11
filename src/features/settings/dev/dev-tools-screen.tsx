@@ -232,9 +232,9 @@ export function DevToolsScreen() {
             loading={busy === 'notify'}
           />
           <Button
-            label="Synchronisation öffnen"
+            label="Sync-Diagnose & Outbox öffnen"
             variant="secondary"
-            onPress={() => router.push('/settings/sync')}
+            onPress={() => router.push('/settings/sync-debug')}
           />
           <Button
             label="Lokale Datenbank löschen"

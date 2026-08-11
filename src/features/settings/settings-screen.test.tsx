@@ -32,14 +32,6 @@ jest.mock('@/features/household/active-household-provider', () => ({
   }),
 }));
 
-jest.mock('@/hooks/use-sync-status', () => ({
-  useSyncStatus: () => ({ kind: 'failed', failedCount: 2 }),
-}));
-
-jest.mock('@/lib/db/client', () => ({
-  getDatabase: jest.fn(),
-}));
-
 jest.mock('@/features/calorie-tracking/api', () => ({
   useCurrentGoal: () => ({ data: null, isLoading: false }),
 }));
@@ -86,14 +78,7 @@ describe('SettingsScreen', () => {
   it('zeigt die Menuepunkte statt der Formulare', async () => {
     const { getByText, queryByText } = await renderScreen();
 
-    for (const eintrag of [
-      'Profil',
-      'Mitglieder',
-      'Lagerorte',
-      'Benachrichtigungen',
-      'Synchronisation',
-      'Abmelden',
-    ]) {
+    for (const eintrag of ['Profil', 'Mitglieder', 'Lagerorte', 'Benachrichtigungen', 'Abmelden']) {
       expect(getByText(eintrag)).toBeTruthy();
     }
 
@@ -101,6 +86,11 @@ describe('SettingsScreen', () => {
     // Mitglieder erreichbar, nicht mehr als eigene Zeile hier.
     expect(queryByText('Kinder-Profile')).toBeNull();
     expect(queryByText('Haushalt beitreten')).toBeNull();
+
+    // Synchronisation ist keine eigene Settings-Zeile mehr: Status kommt vom
+    // app-weiten SyncStatusBanner, manuelles Anstossen ueber Dashboard-Pull-
+    // to-Refresh, die Detailseite bleibt nur ueber Entwickler-Werkzeuge erreichbar.
+    expect(queryByText('Synchronisation')).toBeNull();
 
     // Diese Bedienelemente lagen frueher direkt auf der Uebersicht und gehoeren
     // jetzt auf die Unterseiten.
@@ -113,8 +103,6 @@ describe('SettingsScreen', () => {
 
     expect(getByText('marco@example.com')).toBeTruthy();
     expect(getByText('Familie Tozzi')).toBeTruthy();
-    // Der Sync-Zustand steht als Kurzfassung in der Zeile.
-    expect(getByText('2 fehlgeschlagen')).toBeTruthy();
   });
 
   it('blendet den Entwickler-Bereich ohne Flag aus', async () => {
