@@ -1,4 +1,4 @@
-import { ALL_ENTITIES, metaOf } from '@/lib/db/entities';
+import { ALL_ENTITIES, ENTITIES, metaOf } from '@/lib/db/entities';
 import { MIGRATIONS } from '@/lib/db/migrations';
 import { runMigrations } from '@/lib/db/migrator';
 import { createTestDatabase, type TestDatabase } from '../../../test/node-sqlite-adapter';
@@ -50,4 +50,19 @@ describe('entities.ts gegen das echte migrierte Schema', () => {
       expect(new Set(realNonSyncColumns)).toEqual(new Set(meta.columns));
     },
   );
+
+  // 'households' ist bewusst nicht in ALL_ENTITIES (siehe Kommentar dort) —
+  // deshalb hier ein eigener Test statt eines it.each-Eintrags.
+  it('households: jede Spalte aus entities.ts existiert wirklich, keine unbekannte Nicht-Sync-Spalte', async () => {
+    const meta = ENTITIES.households;
+    const realColumns = await columnNamesOf(db, meta.table);
+
+    for (const column of meta.columns) {
+      expect(realColumns).toContain(column);
+    }
+
+    const syncColumns = ['updated_at', 'deleted_at', '_dirty'];
+    const realNonSyncColumns = realColumns.filter((c) => !syncColumns.includes(c));
+    expect(new Set(realNonSyncColumns)).toEqual(new Set(meta.columns));
+  });
 });

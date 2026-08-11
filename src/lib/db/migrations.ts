@@ -201,6 +201,25 @@ alter table stores drop column reverse_order;
 alter table stores add column category_order text;
 `;
 
+// Kein household_id: diese Zeile IST der Haushalt, genau wie bei `products`
+// kein globaler Katalog household-gescoped ist. Pull-only — Haushalte werden
+// nie ueber die Outbox angelegt/geaendert (create_household()/redeem_invite()
+// bleiben direkte Online-RPCs), `_dirty` bleibt deshalb dauerhaft 0. Kein
+// Server-Tombstone (harte Loeschung), `deleted_at` bleibt dauerhaft null —
+// beide Spalten stehen trotzdem da, weil `upsertMirrorRow` sie fuer jede
+// Entity unconditional schreibt (siehe mirror-write.ts).
+const V6_HOUSEHOLDS = `
+create table if not exists households (
+  id         text primary key not null,
+  name       text not null,
+  created_by text,
+  created_at text,
+  updated_at integer not null,
+  deleted_at integer,
+  _dirty     integer not null default 0
+);
+`;
+
 export const MIGRATIONS: readonly Migration[] = [
   {
     version: 1,
@@ -226,5 +245,10 @@ export const MIGRATIONS: readonly Migration[] = [
     version: 5,
     name: 'stores_category_order',
     statements: [V5_STORE_CATEGORY_ORDER],
+  },
+  {
+    version: 6,
+    name: 'households',
+    statements: [V6_HOUSEHOLDS],
   },
 ];

@@ -297,4 +297,112 @@ describe('pullHousehold gegen die lokale Supabase-Instanz', () => {
 
     expect(counted.executed).toEqual([]);
   }, 30_000);
+
+  it('pullt households: der Nutzer sieht genau seinen eigenen Haushalt', async () => {
+    const outcomes = await pullHousehold({
+      db,
+      supabase: client,
+      householdIds: [],
+      clockCeilingMs: Date.now(),
+      entities: ['households'],
+    });
+
+    const outcome = outcomes.find((o) => o.entity === 'households');
+    expect(outcome?.rowsWritten).toBe(1);
+
+    const rows = await db.getAllAsync<{ id: string }>('select id from households');
+    expect(rows.map((r) => r.id)).toEqual([householdId]);
+  }, 30_000);
+
+  it('pullt households: der Haushalt eines anderen Nutzers taucht nie lokal auf (RLS-Scoping)', async () => {
+    const otherClient = makeClient();
+    await signUpAndCreateHousehold(otherClient); // Haushalt B — der primaere Nutzer ist dort kein Mitglied
+
+    await pullHousehold({
+      db,
+      supabase: client,
+      householdIds: [],
+      clockCeilingMs: Date.now(),
+      entities: ['households'],
+    });
+
+    const rows = await db.getAllAsync<{ id: string }>('select id from households');
+    expect(rows).toEqual([{ id: householdId }]);
+  }, 30_000);
+
+  it('reconcileOrphans entfernt households lokal, nachdem die Mitgliedschaft entzogen wurde', async () => {
+    await pullHousehold({
+      db,
+      supabase: client,
+      householdIds: [],
+      clockCeilingMs: Date.now(),
+      entities: ['households'],
+    });
+    expect(await db.getAllAsync('select id from households')).toHaveLength(1);
+
+    const { data: userData, error: userErr } = await client.auth.getUser();
+    if (userErr || !userData.user) throw userErr ?? new Error('kein user');
+
+    // `guard_last_admin()` (03_households.sql) blockiert das Entfernen des
+    // letzten Admins — realistisch, deshalb erst einen zweiten Admin
+    // anlegen, bevor der primaere Nutzer seine eigene Mitgliedschaft verliert.
+    const { data: secondUser, error: secondUserErr } = await adminClient().auth.admin.createUser({
+      email: uniqueEmail(),
+      password: 'langgenug1',
+      email_confirm: true,
+    });
+    if (secondUserErr || !secondUser.user) throw secondUserErr ?? new Error('kein zweiter Nutzer');
+
+    const { error: addAdminErr } = await adminClient()
+      .from('household_members')
+      .insert({ household_id: householdId, user_id: secondUser.user.id, role: 'admin' });
+    if (addAdminErr) throw addAdminErr;
+
+    const { error: removeErr } = await adminClient()
+      .from('household_members')
+      .delete()
+      .eq('household_id', householdId)
+      .eq('user_id', userData.user.id);
+    if (removeErr) throw removeErr;
+
+    await pullHousehold({
+      db,
+      supabase: client,
+      householdIds: [],
+      clockCeilingMs: Date.now(),
+      entities: ['households'],
+    });
+
+    expect(await db.getAllAsync('select id from households')).toHaveLength(0);
+  }, 30_000);
+
+  it('reconcileOrphans entfernt eine lokale households-Zeile, die remote nicht (mehr) existiert', async () => {
+    // Deckt denselben Reconciliation-Pfad ab wie ein hart geloeschter
+    // Haushalt, ohne gegen `guard_last_admin()` zu laufen (der jede
+    // Haushalts-Loeschung blockiert, sobald households_members kaskadiert —
+    // ein vorbestehendes, von dieser Aenderung unabhaengiges Verhalten).
+    await pullHousehold({
+      db,
+      supabase: client,
+      householdIds: [],
+      clockCeilingMs: Date.now(),
+      entities: ['households'],
+    });
+    await db.runAsync(
+      "insert into households (id, name, updated_at, _dirty) values ('00000000-0000-0000-0000-00000000dead', 'Nie remote existent', ?, 0)",
+      [Date.now()],
+    );
+    expect(await db.getAllAsync('select id from households')).toHaveLength(2);
+
+    await pullHousehold({
+      db,
+      supabase: client,
+      householdIds: [],
+      clockCeilingMs: Date.now(),
+      entities: ['households'],
+    });
+
+    const rows = await db.getAllAsync<{ id: string }>('select id from households');
+    expect(rows).toEqual([{ id: householdId }]);
+  }, 30_000);
 });

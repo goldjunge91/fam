@@ -1,27 +1,34 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 
 import { useSession } from '@/features/auth/session-provider';
+import { householdsQueryKey } from '@/features/household/query-keys';
 import type { Database } from '@/lib/database.types';
+import { getDatabase } from '@/lib/db/client';
 import { getSupabase } from '@/lib/supabase';
+import { triggerHouseholdsPull } from '@/lib/sync/household-bootstrap-sync';
+
+export { HOUSEHOLDS_QUERY_KEY, householdsQueryKey } from '@/features/household/query-keys';
 
 /**
- * Praefix aller Haushaltslisten — eine Liste je Nutzer.
- *
- * Bewusst mit dem Zwischenstueck `by-user` statt schlicht `['households', userId]`:
- * An derselben Position steht in `['households', householdId, 'members']` eine
- * Haushalts-Id. Technisch kollidiert das nicht (eine Nutzer-Id ist nie eine
- * Haushalts-Id), aber der Slot haette zwei Bedeutungen, und ein vertauschtes
- * Argument wuerde still denselben Cache-Eintrag teilen statt aufzufallen.
+ * Form der lokal gespiegelten `households`-Zeile — bewusst nicht das volle
+ * `Database['public']['Tables']['households']['Row']`: `updated_at` wird
+ * lokal nicht selektiert (kein Konsument braucht es), und `created_by`/
+ * `created_at` sind hier nullable, weil die lokale Spiegeltabelle (anders
+ * als der Server) keine NOT-NULL-Constraints traegt (siehe migrations.ts).
  */
-export const HOUSEHOLDS_QUERY_KEY = ['households', 'by-user'] as const;
-
-export function householdsQueryKey(userId: string | undefined) {
-  return [...HOUSEHOLDS_QUERY_KEY, userId] as const;
-}
+export type Household = {
+  id: string;
+  name: string;
+  created_by: string | null;
+  created_at: string | null;
+};
 
 /**
- * Laedt alle Haushalte, in denen der aktuell angemeldete Nutzer Mitglied ist.
- * Dank RLS liefert dieser einfache Select genau die richtige Teilmenge.
+ * Liest alle Haushalte, in denen der aktuell angemeldete Nutzer Mitglied
+ * ist, aus dem lokalen SQLite-Spiegel — network-unabhaengig und praktisch
+ * instant, auch im Kaltstart ohne Verbindung. `household-bootstrap-sync.ts`
+ * haelt den Spiegel im Hintergrund frisch (Pull bei Sitzungsbeginn, alle
+ * 20s, bei Reconnect und beim Vordergrund-Wechsel).
  *
  * Der Schluessel traegt die Nutzer-Id, und das ist keine Kosmetik: Mit einem
  * gemeinsamen `['households']` blieb ein bereits gemounteter Observer nach
@@ -38,23 +45,19 @@ export function useHouseholds() {
   return useQuery({
     queryKey: householdsQueryKey(userId),
     queryFn: async () => {
-      const { data, error } = await getSupabase()
-        .from('households')
-        .select('*')
-        .order('created_at', { ascending: true });
-
-      if (error) throw new Error(error.message);
-      return data;
+      const db = await getDatabase();
+      return db.getAllAsync<Household>(
+        'select id, name, created_by, created_at from households order by created_at asc',
+      );
     },
-    // Ohne Session liefert der Select nur RLS-bedingt Leeres — der Request
-    // waere reine Last. Wichtiger: waehrend des Abmeldens entsteht so gar kein
-    // Fenster, in dem noch etwas geladen wird.
     enabled: !!userId,
   });
 }
 
 export function useCreateHouseholdMutation() {
   const queryClient = useQueryClient();
+  const { session } = useSession();
+  const userId = session?.user.id;
 
   return useMutation({
     mutationFn: async (householdName: string) => {
@@ -66,8 +69,9 @@ export function useCreateHouseholdMutation() {
       return data;
     },
     onSuccess: async () => {
-      await queryClient.invalidateQueries({ queryKey: HOUSEHOLDS_QUERY_KEY });
-      await queryClient.refetchQueries({ queryKey: HOUSEHOLDS_QUERY_KEY });
+      if (userId) {
+        await triggerHouseholdsPull(userId, queryClient);
+      }
     },
   });
 }
@@ -154,6 +158,8 @@ export function useRemoveMemberMutation() {
 
 export function useLeaveHouseholdMutation() {
   const queryClient = useQueryClient();
+  const { session } = useSession();
+  const userId = session?.user.id;
 
   return useMutation({
     mutationFn: async (householdId: string) => {
@@ -166,14 +172,18 @@ export function useLeaveHouseholdMutation() {
       if (error) throw new Error(error.message);
       return data;
     },
-    onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: HOUSEHOLDS_QUERY_KEY });
+    onSuccess: async () => {
+      if (userId) {
+        await triggerHouseholdsPull(userId, queryClient);
+      }
     },
   });
 }
 
 export function useDeleteHouseholdMutation() {
   const queryClient = useQueryClient();
+  const { session } = useSession();
+  const userId = session?.user.id;
 
   return useMutation({
     mutationFn: async (householdId: string) => {
@@ -183,8 +193,10 @@ export function useDeleteHouseholdMutation() {
       if (error) throw new Error(error.message);
       return data;
     },
-    onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: HOUSEHOLDS_QUERY_KEY });
+    onSuccess: async () => {
+      if (userId) {
+        await triggerHouseholdsPull(userId, queryClient);
+      }
     },
   });
 }
@@ -275,6 +287,8 @@ export function useRevokeInviteMutation() {
 
 export function useRedeemInviteMutation() {
   const queryClient = useQueryClient();
+  const { session } = useSession();
+  const userId = session?.user.id;
 
   return useMutation({
     mutationFn: async (inviteToken: string) => {
@@ -286,8 +300,9 @@ export function useRedeemInviteMutation() {
       return data;
     },
     onSuccess: async () => {
-      await queryClient.invalidateQueries({ queryKey: HOUSEHOLDS_QUERY_KEY });
-      await queryClient.refetchQueries({ queryKey: HOUSEHOLDS_QUERY_KEY });
+      if (userId) {
+        await triggerHouseholdsPull(userId, queryClient);
+      }
     },
   });
 }

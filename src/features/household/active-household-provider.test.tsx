@@ -21,8 +21,10 @@ import {
  * — der Test waere dann auch ohne den Fix gruen.
  *
  * Echt sind hier React Query, der Provider und `useHouseholds()`. Ersetzt ist
- * nur, was in einem Unit-Test nicht laufen kann: die Netzwerkschicht und die
- * Quelle der Session.
+ * nur, was in einem Unit-Test nicht laufen kann: die lokale Datenbank und die
+ * Quelle der Session. `household-bootstrap-sync.ts` ist als No-Op gemockt —
+ * dessen Pull-Verhalten hat einen eigenen Test (household-bootstrap-sync.test.ts),
+ * hier geht es nur um das Umschalten zwischen bereits gespiegelten Nutzern.
  */
 let mockCurrentUserId: string | null = 'user-a';
 
@@ -40,17 +42,16 @@ jest.mock('@/features/auth/session-provider', () => ({
   }),
 }));
 
-jest.mock('@/lib/supabase', () => ({
-  getSupabase: () => ({
-    from: () => ({
-      select: () => ({
-        order: async () => ({
-          data: mockCurrentUserId ? (mockHouseholdsByUser[mockCurrentUserId] ?? []) : [],
-          error: null,
-        }),
-      }),
-    }),
+jest.mock('@/lib/db/client', () => ({
+  getDatabase: async () => ({
+    getAllAsync: async () =>
+      mockCurrentUserId ? (mockHouseholdsByUser[mockCurrentUserId] ?? []) : [],
   }),
+}));
+
+jest.mock('@/lib/sync/household-bootstrap-sync', () => ({
+  useHouseholdsBootstrapSync: () => {},
+  triggerHouseholdsPull: async () => null,
 }));
 
 function ActiveHouseholdProbe() {

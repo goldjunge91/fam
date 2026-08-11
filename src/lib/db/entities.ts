@@ -12,9 +12,9 @@ export type EntityMeta = {
   entity: Entity;
   /** Lokaler und entfernter Tabellenname sind identisch — deshalb derselbe Typ wie `entity`. */
   table: Entity;
-  /** false nur bei 'products' — dort gibt es serverseitig kein deleted_at. */
+  /** false bei 'products' und 'households' — dort gibt es serverseitig kein deleted_at (harte Loeschung). */
   hasServerTombstone: boolean;
-  /** false nur bei 'products' — global, kein household_id-Praefix. */
+  /** false bei 'products' und 'households' — beide global, kein household_id-Praefix. */
   householdScoped: boolean;
   /** Spalten ohne updated_at/deleted_at/_dirty, id zuerst. 1:1 aus migrations.ts's V1_MIRRORS. */
   columns: readonly string[];
@@ -98,8 +98,24 @@ export const ENTITIES: Readonly<Record<Entity, EntityMeta>> = {
       'created_at',
     ],
   },
+  households: {
+    entity: 'households',
+    table: 'households',
+    hasServerTombstone: false,
+    householdScoped: false,
+    columns: ['id', 'name', 'created_by', 'created_at'],
+  },
 };
 
+/**
+ * Default-Entity-Set fuer `pullHousehold()` — bewusst OHNE 'households'.
+ *
+ * `pullHousehold()` wird immer schon mit einer bekannten Haushalts-Id
+ * aufgerufen (`useSyncEngine`). 'households' wird stattdessen exklusiv vom
+ * nutzerscoped Bootstrap-Trigger (`household-bootstrap-sync.ts`) per
+ * `entities: ['households']`-Override gepullt — sonst gaebe es einen
+ * redundanten Voll-Pull bei jedem 20s-Tick jedes aktiven Haushalts.
+ */
 export const ALL_ENTITIES: readonly Entity[] = [
   'storage_locations',
   'stores',

@@ -24,6 +24,7 @@ const MIRROR_TABLES = [
   'fridge_items',
   'shopping_list_items',
   'products',
+  'households',
 ] as const;
 
 type ColumnInfo = { name: string; type: string; notnull: number };
@@ -53,6 +54,13 @@ describe('lokales Schema', () => {
     for (const table of MIRROR_TABLES) {
       expect(names).toContain(table);
     }
+  });
+
+  it('legt zusaetzlich households an (Migration v6, lokaler Haushalts-Spiegel)', async () => {
+    const tables = await db.getAllAsync<{ name: string }>(
+      "select name from sqlite_master where type = 'table' and name = 'households'",
+    );
+    expect(tables).toHaveLength(1);
   });
 
   it('legt Outbox, Sync-Stand und app_meta an', async () => {

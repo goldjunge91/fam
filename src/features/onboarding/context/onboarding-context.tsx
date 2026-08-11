@@ -3,9 +3,9 @@ import { createContext, type ReactNode, useContext, useState } from 'react';
 import { updateProfile } from '@/features/auth/api';
 import { persistOnboardingCompleted } from '@/features/auth/onboarding-session';
 import { useSession } from '@/features/auth/session-provider';
-import { HOUSEHOLDS_QUERY_KEY } from '@/features/household/api';
 import { saveModulePreferences } from '@/features/settings/module-preferences';
 import { getSupabase } from '@/lib/supabase';
+import { triggerHouseholdsPull } from '@/lib/sync/household-bootstrap-sync';
 import type {
   HouseholdOnboardingData,
   ModulePreferencesData,
@@ -169,12 +169,11 @@ export function OnboardingProvider({ children }: { children: ReactNode }) {
       }
 
       // Der Haushalt entstand gerade per RPC, nicht ueber die Mutation aus
-      // `household/api.ts` — der Query-Cache weiss also nichts davon. Ohne
-      // diese Invalidierung sieht der angemeldete Bereich weiterhin null
-      // Haushalte und schickt den Nutzer direkt wieder ins Anlege-Formular,
-      // aus dem er gerade kam.
-      await queryClient.invalidateQueries({ queryKey: HOUSEHOLDS_QUERY_KEY });
-      await queryClient.refetchQueries({ queryKey: HOUSEHOLDS_QUERY_KEY });
+      // `household/api.ts` — der lokale Spiegel weiss also nichts davon. Ohne
+      // diesen Pull sieht der angemeldete Bereich weiterhin null Haushalte
+      // (liest nur den bisherigen lokalen Stand) und schickt den Nutzer
+      // direkt wieder ins Anlege-Formular, aus dem er gerade kam.
+      await triggerHouseholdsPull(session.user.id, queryClient);
 
       // Onboarding-Flag persistieren
       await persistOnboardingCompleted();

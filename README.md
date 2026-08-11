@@ -66,6 +66,10 @@ EXPO_PUBLIC_FORCE_ONBOARDING=false  # optional: bei true wird beim App-Start das
 EXPO_PUBLIC_DEV_TOOLS=false         # optional: bei true erscheint der Entwickler-Bereich in den Einstellungen
 ```
 
+`127.0.0.1` funktioniert nur im iOS-Simulator (localhost = der Mac selbst).
+Fuer ein physisches Geraet im selben WLAN die LAN-IP des Mac verwenden, z. B.
+`http://192.168.1.23:54321` (`ifconfig | grep "inet "` zum Finden).
+
 ### Entwickler-Bereich
 
 Mit `EXPO_PUBLIC_DEV_TOOLS=true` bekommen die Einstellungen eine Gruppe

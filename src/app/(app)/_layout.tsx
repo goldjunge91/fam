@@ -1,3 +1,4 @@
+import { useQueryClient } from '@tanstack/react-query';
 import { Redirect, router } from 'expo-router';
 import { useEffect } from 'react';
 import { ActivityIndicator, View } from 'react-native';
@@ -9,6 +10,7 @@ import {
   isOnboardingSessionCompleted,
   persistOnboardingCompleted,
 } from '@/features/auth/onboarding-session';
+import { useSignOutOnOrphanedProfile } from '@/features/auth/orphaned-session';
 import { useSession } from '@/features/auth/session-provider';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { useRedeemInviteMutation } from '@/features/household/api';
@@ -19,7 +21,9 @@ import { useRealtimeSync, useSyncEngine } from '@/lib/sync/sync-runner';
 function AppLayoutContent() {
   const { session, seenOnboarding } = useSession();
   const userId = session?.user.id;
-  const { data: profile, isLoading: profileLoading } = useProfile(userId);
+  const queryClient = useQueryClient();
+  const { data: profile, isLoading: profileLoading, error: profileError } = useProfile(userId);
+  useSignOutOnOrphanedProfile(profileError, queryClient);
   const {
     activeHouseholdId,
     households,

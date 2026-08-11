@@ -1,4 +1,3 @@
-import { useQueryClient } from '@tanstack/react-query';
 import { router } from 'expo-router';
 import { useState } from 'react';
 import { StyleSheet, View } from 'react-native';
@@ -9,14 +8,13 @@ import { Screen } from '@/components/screen';
 import { TextField } from '@/components/text-field';
 import { ThemedText } from '@/components/themed-text';
 import { Spacing } from '@/constants/theme';
-import { HOUSEHOLDS_QUERY_KEY, useCreateHouseholdMutation } from '@/features/household/api';
+import { useCreateHouseholdMutation } from '@/features/household/api';
 
 export function CreateHouseholdScreen() {
   const [householdName, setHouseholdName] = useState('');
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
 
   const mutation = useCreateHouseholdMutation();
-  const queryClient = useQueryClient();
 
   async function handleSubmit() {
     const trimmed = householdName.trim();
@@ -27,8 +25,10 @@ export function CreateHouseholdScreen() {
 
     setErrorMsg(null);
     try {
+      // `useCreateHouseholdMutation`s onSuccess pullt den neuen Haushalt
+      // bereits in den lokalen Spiegel und invalidiert die Query, bevor
+      // dieses mutateAsync aufloest — kein zusaetzlicher Refetch noetig.
       await mutation.mutateAsync(trimmed);
-      await queryClient.refetchQueries({ queryKey: HOUSEHOLDS_QUERY_KEY });
       // Nach der Erstellung routen wir ins Dashboard.
       // Falls der Nutzer von der "Kein Haushalt"-Weiche kam, greift nun die App.
       router.replace('/');

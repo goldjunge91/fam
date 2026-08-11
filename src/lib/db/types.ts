@@ -74,7 +74,8 @@ export type Entity =
   | 'stores'
   | 'fridge_items'
   | 'shopping_list_items'
-  | 'products';
+  | 'products'
+  | 'households';
 
 export type OutboxOp = 'insert' | 'update' | 'delete';
 
