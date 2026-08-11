@@ -1,5 +1,7 @@
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { fireEvent, render, screen } from '@testing-library/react-native';
 import { router } from 'expo-router';
+import { act } from 'react';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import { DashboardScreen } from '@/features/dashboard/dashboard-screen';
@@ -42,6 +44,12 @@ jest.mock('@/features/shopping-list/use-shopping-list-mutations', () => ({
   useAddShoppingItem: () => ({ mutateAsync: jest.fn(), isPending: false }),
 }));
 
+const mockTriggerHouseholdSync = jest.fn().mockResolvedValue(null);
+
+jest.mock('@/lib/sync/sync-runner', () => ({
+  triggerHouseholdSync: (...args: unknown[]) => mockTriggerHouseholdSync(...args),
+}));
+
 jest.mock('@/hooks/use-theme', () => ({
   useTheme: () => ({
     background: '#FFFFFF',
@@ -57,19 +65,23 @@ jest.mock('@/hooks/use-theme', () => ({
 }));
 
 function renderScreen() {
+  const queryClient = new QueryClient({ defaultOptions: { queries: { retry: false } } });
   return render(
     <SafeAreaProvider
       initialMetrics={{
         frame: { x: 0, y: 0, width: 390, height: 844 },
         insets: { top: 47, left: 0, right: 0, bottom: 34 },
       }}>
-      <DashboardScreen />
+      <QueryClientProvider client={queryClient}>
+        <DashboardScreen />
+      </QueryClientProvider>
     </SafeAreaProvider>,
   );
 }
 
 beforeEach(() => {
   mockFridgeItems = [];
+  mockTriggerHouseholdSync.mockClear();
 });
 
 describe('DashboardScreen — "Läuft bald ab"-Karte (#73)', () => {
@@ -131,5 +143,19 @@ describe('DashboardScreen — "Läuft bald ab"-Karte (#73)', () => {
       pathname: '/fridge',
       params: { filter: 'expiring' },
     });
+  });
+});
+
+describe('DashboardScreen — Pull-to-Refresh (#93)', () => {
+  it('loest triggerHouseholdSync fuer den aktiven Haushalt aus', async () => {
+    await renderScreen();
+
+    const scrollView = screen.getByTestId('dashboard-scroll-view');
+    const onRefresh = scrollView.props.refreshControl.props.onRefresh as () => Promise<void>;
+    await act(async () => {
+      await onRefresh();
+    });
+
+    expect(mockTriggerHouseholdSync).toHaveBeenCalledWith(['hh-1'], false, expect.anything());
   });
 });
