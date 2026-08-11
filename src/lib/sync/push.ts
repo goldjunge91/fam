@@ -90,7 +90,7 @@ type AttemptResult = {
 async function attempt(
   supabase: TypedSupabaseClient,
   table: Entity,
-  op: 'insert' | 'update' | 'delete',
+  op: 'insert' | 'update' | 'delete' | 'restore',
   entityId: string,
   payload: Record<string, unknown>,
   nowMs: number,
@@ -111,6 +111,11 @@ async function attempt(
     return response as AttemptResult;
   }
 
+  if (op === 'restore') {
+    const response = await query.update({ deleted_at: null }).eq('id', entityId).select();
+    return response as AttemptResult;
+  }
+
   const response = await query.update(buildUpdatePayload(payload)).eq('id', entityId).select();
   return response as AttemptResult;
 }
@@ -125,10 +130,10 @@ async function applyOnePush(
 ): Promise<{ outcome: PushOutcome; stop: boolean }> {
   const meta = metaOf(entry.entity);
 
-  // products hat kein deleted_at serverseitig — ein delete waere ein
+  // products hat kein deleted_at serverseitig — ein delete/restore waere ein
   // Soft-Delete-Versuch gegen eine nicht existente Spalte. Kein Netzwerkaufruf.
-  if (entry.op === 'delete' && !meta.hasServerTombstone) {
-    const message = `${entry.entity} unterstuetzt kein Loeschen (kein Server-Tombstone).`;
+  if ((entry.op === 'delete' || entry.op === 'restore') && !meta.hasServerTombstone) {
+    const message = `${entry.entity} unterstuetzt kein Loeschen/Wiederherstellen (kein Server-Tombstone).`;
     await recordOutboxOutcome(db, entry.sourceIds, {
       attempts: MAX_ATTEMPTS,
       lastError: message,

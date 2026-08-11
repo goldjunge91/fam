@@ -77,7 +77,14 @@ export type Entity =
   | 'products'
   | 'households';
 
-export type OutboxOp = 'insert' | 'update' | 'delete';
+/**
+ * `restore` setzt `deleted_at` serverseitig zurueck auf `null` — fuer
+ * Undo-nach-Loeschen (#69), wo ein reines `update` es nicht tut:
+ * `buildUpdatePayload()` in `push.ts` filtert `deleted_at` aus jedem
+ * `update`-Push explizit heraus (`SYNC_COLUMNS`), ein `restore` ist deshalb
+ * eine eigene Operation statt ein `update` mit `deleted_at: null` im Payload.
+ */
+export type OutboxOp = 'insert' | 'update' | 'delete' | 'restore';
 
 export type OutboxEntry = {
   id: number;
