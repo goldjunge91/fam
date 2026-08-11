@@ -350,3 +350,33 @@ export function useDeleteFoodEntryMutation() {
     },
   });
 }
+
+/** Macht `useDeleteFoodEntryMutation` rueckgaengig (#86) — gleiche Architektur, kein Sync-Layer noetig. */
+export function useRestoreFoodEntryMutation() {
+  const queryClient = useQueryClient();
+
+  return useMutation({
+    mutationFn: async ({
+      id,
+      userId: _userId,
+      loggedOn: _loggedOn,
+    }: {
+      id: string;
+      userId: string;
+      loggedOn: string;
+    }) => {
+      const { data, error } = await getSupabase()
+        .from('food_entries')
+        .update({ deleted_at: null })
+        .eq('id', id);
+
+      if (error) throw new Error(error.message);
+      return data;
+    },
+    onSuccess: (_, variables) => {
+      queryClient.invalidateQueries({
+        queryKey: foodEntriesQueryKey(variables.userId, variables.loggedOn),
+      });
+    },
+  });
+}

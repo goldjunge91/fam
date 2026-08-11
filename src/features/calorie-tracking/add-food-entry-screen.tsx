@@ -4,6 +4,7 @@ import { Alert, Image, StyleSheet, View } from 'react-native';
 
 import { Button } from '@/components/button';
 import { Screen } from '@/components/screen';
+import { useSnackbar } from '@/components/snackbar';
 import { TextField } from '@/components/text-field';
 import { ThemedText } from '@/components/themed-text';
 import { Spacing } from '@/constants/theme';
@@ -14,6 +15,7 @@ import {
   useAddFoodEntryMutation,
   useDeleteFoodEntryMutation,
   useFoodEntries,
+  useRestoreFoodEntryMutation,
   useUpdateFoodEntryMutation,
 } from '@/features/calorie-tracking/api';
 import { MEAL_LABELS } from '@/features/calorie-tracking/diary-screen';
@@ -109,6 +111,8 @@ export function AddFoodEntryScreen() {
   const addMutation = useAddFoodEntryMutation();
   const updateMutation = useUpdateFoodEntryMutation();
   const deleteMutation = useDeleteFoodEntryMutation();
+  const restoreMutation = useRestoreFoodEntryMutation();
+  const { showUndoSnackbar } = useSnackbar();
 
   const [name, setName] = useState('');
   const [brand, setBrand] = useState<string | undefined>(undefined);
@@ -246,27 +250,26 @@ export function AddFoodEntryScreen() {
     }
   }
 
-  function handleDelete() {
+  // Loescht sofort statt eines Bestaetigungs-Dialogs (#86) — die Snackbar mit
+  // "Rueckgaengig" ersetzt die Bestaetigung, statt sie zu ergaenzen.
+  async function handleDelete() {
     if (!userId || !params.entryId || !params.date) return;
-    Alert.alert('Eintrag löschen', `"${name}" wirklich löschen?`, [
-      { text: 'Abbrechen', style: 'cancel' },
-      {
-        text: 'Löschen',
-        style: 'destructive',
-        onPress: async () => {
-          try {
-            await deleteMutation.mutateAsync({
-              id: params.entryId as string,
-              userId: userId as string,
-              loggedOn: params.date,
-            });
-            router.back();
-          } catch (err) {
-            Alert.alert('Fehler', err instanceof Error ? err.message : 'Fehler beim Löschen');
-          }
+    const entryId = params.entryId;
+    const loggedOn = params.date;
+    const entryName = name;
+
+    try {
+      await deleteMutation.mutateAsync({ id: entryId, userId, loggedOn });
+      router.back();
+      showUndoSnackbar({
+        message: `"${entryName}" gelöscht`,
+        onUndo: () => {
+          restoreMutation.mutate({ id: entryId, userId, loggedOn });
         },
-      },
-    ]);
+      });
+    } catch (err) {
+      Alert.alert('Fehler', err instanceof Error ? err.message : 'Fehler beim Löschen');
+    }
   }
 
   const title = isEditing

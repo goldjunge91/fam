@@ -1,6 +1,5 @@
 import { fireEvent, render, screen } from '@testing-library/react-native';
 import { router } from 'expo-router';
-import { Alert } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import { AddFoodEntryScreen } from '@/features/calorie-tracking/add-food-entry-screen';
@@ -16,6 +15,8 @@ let mockFoodEntries: unknown[] = [];
 const mockAddMutateAsync = jest.fn().mockResolvedValue({});
 const mockUpdateMutateAsync = jest.fn().mockResolvedValue({});
 const mockDeleteMutateAsync = jest.fn().mockResolvedValue({});
+const mockRestoreMutate = jest.fn();
+const mockShowUndoSnackbar = jest.fn();
 
 jest.mock('expo-router', () => ({
   router: { push: jest.fn(), back: jest.fn(), canGoBack: () => false },
@@ -32,6 +33,11 @@ jest.mock('@/features/calorie-tracking/api', () => ({
   useAddFoodEntryMutation: () => ({ mutateAsync: mockAddMutateAsync, isPending: false }),
   useUpdateFoodEntryMutation: () => ({ mutateAsync: mockUpdateMutateAsync, isPending: false }),
   useDeleteFoodEntryMutation: () => ({ mutateAsync: mockDeleteMutateAsync, isPending: false }),
+  useRestoreFoodEntryMutation: () => ({ mutate: mockRestoreMutate, isPending: false }),
+}));
+
+jest.mock('@/components/snackbar', () => ({
+  useSnackbar: () => ({ showUndoSnackbar: mockShowUndoSnackbar }),
 }));
 
 let mockChildProfiles: { id: string; display_name: string }[] = [];
@@ -87,6 +93,8 @@ beforeEach(() => {
   mockAddMutateAsync.mockClear();
   mockUpdateMutateAsync.mockClear();
   mockDeleteMutateAsync.mockClear();
+  mockRestoreMutate.mockClear();
+  mockShowUndoSnackbar.mockClear();
   mockSetProfile.mockClear();
 });
 
@@ -238,12 +246,7 @@ describe('AddFoodEntryScreen — bestehenden Eintrag bearbeiten', () => {
     expect(screen.getByText('Löschen')).toBeTruthy();
   });
 
-  it('ruft beim Loeschen (nach Bestaetigung) die Delete-Mutation auf', async () => {
-    const alertSpy = jest.spyOn(Alert, 'alert').mockImplementation((_title, _msg, buttons) => {
-      const destructive = buttons?.find((b) => b.style === 'destructive');
-      destructive?.onPress?.();
-    });
-
+  it('loescht sofort ohne Bestaetigungsdialog und zeigt eine Undo-Snackbar (#86)', async () => {
     await renderScreen();
     await fireEvent.press(screen.getByText('Löschen'));
 
@@ -253,7 +256,16 @@ describe('AddFoodEntryScreen — bestehenden Eintrag bearbeiten', () => {
       loggedOn: '2026-08-10',
     });
     expect(router.back).toHaveBeenCalled();
+    expect(mockShowUndoSnackbar).toHaveBeenCalledWith(
+      expect.objectContaining({ message: '"Reis" gelöscht', onUndo: expect.any(Function) }),
+    );
 
-    alertSpy.mockRestore();
+    const { onUndo } = mockShowUndoSnackbar.mock.calls[0][0];
+    onUndo();
+    expect(mockRestoreMutate).toHaveBeenCalledWith({
+      id: 'entry-1',
+      userId: 'user-1',
+      loggedOn: '2026-08-10',
+    });
   });
 });
