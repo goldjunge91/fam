@@ -23,6 +23,7 @@
     "expo-glass-effect": "~57.0.1",
     "expo-haptics": "~57.0.1",
     "expo-image": "~57.0.2",
+    "expo-image-picker": "~57.0.9",
     "expo-linking": "~57.0.5",
     "expo-network": "~57.0.1",
     "expo-notifications": "~57.0.9",
@@ -39,6 +40,7 @@
     "react": "19.2.3",
     "react-dom": "19.2.3",
     "react-native": "0.86.2",
+    "react-native-draggable-flatlist": "^4.0.3",
     "react-native-gesture-handler": "~2.32.0",
     "react-native-qrcode-svg": "^6.3.21",
     "react-native-reanimated": "4.5.1",
@@ -68,6 +70,7 @@
   "scripts": {
     "prepare": "git config core.hooksPath .githooks",
     "start": "EXPO_NO_DOTENV=1 dotenv -o -e .env.development -- expo start",
+    "clean": "expo prebuild --clean -p ios",
     "start:remote": "EXPO_NO_DOTENV=1 dotenv -o -e .env -- expo start",
     "reset-project": "node ./scripts/reset-project.js",
     "android": "EXPO_NO_DOTENV=1 dotenv -o -e .env.development -- expo run:android",

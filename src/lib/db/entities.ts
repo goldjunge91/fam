@@ -105,6 +105,66 @@ export const ENTITIES: Readonly<Record<Entity, EntityMeta>> = {
     householdScoped: false,
     columns: ['id', 'name', 'created_by', 'created_at'],
   },
+  recipes: {
+    entity: 'recipes',
+    table: 'recipes',
+    hasServerTombstone: true,
+    householdScoped: true,
+    columns: [
+      'id',
+      'household_id',
+      'title',
+      'instructions',
+      'cover_image_path',
+      'cook_time_minutes',
+      'difficulty',
+      'dish_types',
+      'dietary_tags',
+      'hashtags',
+      'default_servings',
+      'created_by',
+      'created_at',
+    ],
+  },
+  recipe_components: {
+    entity: 'recipe_components',
+    table: 'recipe_components',
+    hasServerTombstone: true,
+    householdScoped: true,
+    columns: ['id', 'recipe_id', 'household_id', 'name', 'serving_grams', 'created_at'],
+  },
+  recipe_component_items: {
+    entity: 'recipe_component_items',
+    table: 'recipe_component_items',
+    hasServerTombstone: true,
+    householdScoped: true,
+    columns: [
+      'id',
+      'component_id',
+      'recipe_id',
+      'household_id',
+      'product_id',
+      'sub_component_id',
+      'grams',
+      'quantity',
+      'unit',
+      'created_at',
+    ],
+  },
+  recipe_steps: {
+    entity: 'recipe_steps',
+    table: 'recipe_steps',
+    hasServerTombstone: true,
+    householdScoped: true,
+    columns: ['id', 'recipe_id', 'household_id', 'position', 'text', 'image_path', 'created_at'],
+  },
+  recipe_step_ingredients: {
+    entity: 'recipe_step_ingredients',
+    table: 'recipe_step_ingredients',
+    hasServerTombstone: true,
+    householdScoped: true,
+    columns: ['id', 'step_id', 'item_id', 'household_id', 'created_at'],
+  },
 };
 
 /**
@@ -122,6 +182,11 @@ export const ALL_ENTITIES: readonly Entity[] = [
   'fridge_items',
   'shopping_list_items',
   'products',
+  'recipes',
+  'recipe_components',
+  'recipe_component_items',
+  'recipe_steps',
+  'recipe_step_ingredients',
 ];
 
 export function hasServerTombstone(entity: Entity): boolean {

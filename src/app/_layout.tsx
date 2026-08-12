@@ -3,7 +3,8 @@ import * as Linking from 'expo-linking';
 import { DarkTheme, DefaultTheme, Stack, ThemeProvider } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 import { useEffect } from 'react';
-import { useColorScheme } from 'react-native';
+import { StyleSheet, useColorScheme } from 'react-native';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
 import { AnimatedSplashOverlay } from '@/components/animated-icon';
 import { SnackbarProvider } from '@/components/snackbar';
@@ -173,23 +174,31 @@ export default function RootLayout() {
   }, []);
 
   return (
-    <PersistQueryClientProvider
-      client={queryClient}
-      persistOptions={{
-        persister: asyncStoragePersister,
-        dehydrateOptions: { shouldDehydrateQuery: shouldPersistQuery },
-      }}>
-      <SessionProvider>
-        <ActiveHouseholdProvider>
-          <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-            <SnackbarProvider>
-              <AnimatedSplashOverlay />
-              <SyncStatusBanner />
-              <RootNavigator />
-            </SnackbarProvider>
-          </ThemeProvider>
-        </ActiveHouseholdProvider>
-      </SessionProvider>
-    </PersistQueryClientProvider>
+    <GestureHandlerRootView style={styles.root}>
+      <PersistQueryClientProvider
+        client={queryClient}
+        persistOptions={{
+          persister: asyncStoragePersister,
+          dehydrateOptions: { shouldDehydrateQuery: shouldPersistQuery },
+        }}>
+        <SessionProvider>
+          <ActiveHouseholdProvider>
+            <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
+              <SnackbarProvider>
+                <AnimatedSplashOverlay />
+                <SyncStatusBanner />
+                <RootNavigator />
+              </SnackbarProvider>
+            </ThemeProvider>
+          </ActiveHouseholdProvider>
+        </SessionProvider>
+      </PersistQueryClientProvider>
+    </GestureHandlerRootView>
   );
 }
+
+const styles = StyleSheet.create({
+  root: {
+    flex: 1,
+  },
+});

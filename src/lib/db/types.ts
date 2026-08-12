@@ -75,7 +75,12 @@ export type Entity =
   | 'fridge_items'
   | 'shopping_list_items'
   | 'products'
-  | 'households';
+  | 'households'
+  | 'recipes'
+  | 'recipe_components'
+  | 'recipe_component_items'
+  | 'recipe_steps'
+  | 'recipe_step_ingredients';
 
 /**
  * `restore` setzt `deleted_at` serverseitig zurueck auf `null` — fuer

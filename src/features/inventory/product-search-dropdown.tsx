@@ -1,6 +1,6 @@
 import { onlineManager } from '@tanstack/react-query';
 import { router } from 'expo-router';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { ActivityIndicator, Image, Pressable, ScrollView, StyleSheet, View } from 'react-native';
 
 import { TextField } from '@/components/text-field';
@@ -164,8 +164,19 @@ export function ProductSearchDropdown({
   const [searching, setSearching] = useState(false);
   const [showDropdown, setShowDropdown] = useState(false);
   const [searched, setSearched] = useState(false);
+  // `value` aendert sich auch, wenn `onSelectProduct` den Query-Text auf den
+  // gewaehlten Produktnamen setzt (siehe recipe-create-screen.tsx). Ohne diese
+  // Markierung faengt der Such-Effekt unten diese Aenderung ab und oeffnet das
+  // Dropdown eine Suche spaeter erneut — Auswahl wirkte dann wie 2x noetig.
+  const justSelectedValueRef = useRef<string | null>(null);
 
   useEffect(() => {
+    if (justSelectedValueRef.current !== null) {
+      const wasSelection = justSelectedValueRef.current === value;
+      justSelectedValueRef.current = null;
+      if (wasSelection) return;
+    }
+
     if (!value || value.trim().length < 2) {
       setSuggestions([]);
       setShowDropdown(false);
@@ -223,7 +234,6 @@ export function ProductSearchDropdown({
             styles.dropdown,
             { backgroundColor: theme.background, borderColor: theme.border },
           ]}
-          nestedScrollEnabled
           keyboardShouldPersistTaps="handled"
           showsVerticalScrollIndicator>
           {showEmptyState ? (
@@ -250,6 +260,7 @@ export function ProductSearchDropdown({
             <Pressable
               key={item.barcode || item.name}
               onPress={() => {
+                justSelectedValueRef.current = item.name;
                 onSelectProduct(item);
                 setShowDropdown(false);
               }}
@@ -291,6 +302,11 @@ const styles = StyleSheet.create({
     top: 36,
   },
   dropdown: {
+    position: 'absolute',
+    top: '100%',
+    left: 0,
+    right: 0,
+    zIndex: 20,
     borderRadius: 12,
     borderWidth: 1,
     marginTop: 4,

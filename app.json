@@ -46,13 +46,14 @@
           "barcodeScannerEnabled": true
         }
       ],
+      "expo-sharing",
       [
-        "expo-notifications",
+        "expo-image-picker",
         {
-          "color": "#208AEF"
+          "photosPermission": "Die App $(PRODUCT_NAME) benötigt Zugriff auf deine Fotos, um ein Titelbild für ein Rezept auszuwählen."
         }
       ],
-      "expo-sharing"
+      "./plugins/withoutPushEntitlement"
     ],
     "experiments": {
       "typedRoutes": true,

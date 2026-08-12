@@ -2,13 +2,18 @@ import { ALL_ENTITIES, ENTITIES, hasServerTombstone, metaOf } from '@/lib/db/ent
 import type { Entity } from '@/lib/db/types';
 
 describe('entities', () => {
-  it('kennt genau die fuenf Spiegeltabellen aus #45', () => {
+  it('kennt genau die zehn Spiegeltabellen aus #45/#123/Wizard-Redesign', () => {
     expect(ALL_ENTITIES).toEqual([
       'storage_locations',
       'stores',
       'fridge_items',
       'shopping_list_items',
       'products',
+      'recipes',
+      'recipe_components',
+      'recipe_component_items',
+      'recipe_steps',
+      'recipe_step_ingredients',
     ]);
   });
 
@@ -25,6 +30,11 @@ describe('entities', () => {
       shopping_list_items: true,
       products: false,
       households: false,
+      recipes: true,
+      recipe_components: true,
+      recipe_component_items: true,
+      recipe_steps: true,
+      recipe_step_ingredients: true,
     };
 
     for (const entity of ALL_ENTITIES) {
@@ -40,6 +50,11 @@ describe('entities', () => {
       shopping_list_items: true,
       products: false,
       households: false,
+      recipes: true,
+      recipe_components: true,
+      recipe_component_items: true,
+      recipe_steps: true,
+      recipe_step_ingredients: true,
     };
 
     for (const entity of ALL_ENTITIES) {
