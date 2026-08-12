@@ -15,7 +15,7 @@ Alle Issues: <https://github.com/goldjunge91/fam/issues>
 >
 > **Nachtrag 2026-08-11:** alle 15 Lücken auf Branch `ac-luecken-fixes` geschlossen (22 Commits) und über PR #119 (Merge `45b650c`) in `main` gemerged. Alle 15 GitHub-Issues mit Beleg-Kommentar geschlossen.
 >
-> **Nachtrag 2026-08-12:** Welle 8 (#96–#99, letzte offene MVP-Welle) implementiert — Details im Wellen-Abschnitt unten. Der MVP (Wellen 0–8) ist damit vollständig; offen bleiben nur #79 (bewusst zurückgestellt) und die Phase-2–4-Epics (#11–#24).
+> **Nachtrag 2026-08-12:** Welle 8 (#96–#99, letzte offene MVP-Welle) implementiert, und #79 (war bereits im Code fertig, nur nicht verifiziert) geschlossen. Der MVP (Wellen 0–8, GitHub-Milestone "Phase 1 - MVP") ist damit **vollständig geschlossen** (0 offene Issues). Offen bleiben nur die Phase-2–4-Epics (#11–#24).
 
 | Welle | Thema | Status | Gate |
 |---|---|---|---|
@@ -25,7 +25,7 @@ Alle Issues: <https://github.com/goldjunge91/fam/issues>
 | 3 | Auth & Onboarding | ✅ Fertig (inkl. #104 6-Step Wizard) | — |
 | 4 | Haushalt | ✅ Fertig — #59–66 alle geschlossen | — |
 | 5 | Kühlschrank + Einkaufsliste | ✅ Fertig — #67–73 alle geschlossen | **D** ✅ 2-Geräte-Sync verifiziert |
-| P | Lebensmittel-DB | ✅ Fertig — #74–78, #80 alle geschlossen; #79 offen (bewusst zurückgestellt) | — |
+| P | Lebensmittel-DB | ✅ Fertig — #74–80 alle geschlossen | — |
 | 6 | Kalorien & Tagebuch | ✅ Fertig — #81–88 alle geschlossen | — |
 | 7 | Dashboard & Navigation | ✅ Fertig — #89–95 alle geschlossen | — |
 | 8 | Datenschutz | ✅ Fertig — #96–99 implementiert | MVP fertig |
@@ -174,8 +174,12 @@ mehrere Personen oder Agenten parallel arbeiten.
 > **Stand 2026-08-11:** #78, #80 sowie #74–76 geschlossen — `units.ts` hat jetzt
 > `toGramsEquivalent`/`scaleToQuantity`, `add-product-screen.tsx` legt manuelle
 > Produkte an, OFF-Treffer werden persistiert, die Suche hat ein lokales
-> `products`-Tiering, der Barcode-Scanner gibt Haptic-Feedback. Nur #79 bleibt
-> offen (bewusst zurückgestellt).
+> `products`-Tiering, der Barcode-Scanner gibt Haptic-Feedback.
+>
+> **Nachtrag 2026-08-12:** #79 war bereits vollständig implementiert
+> (`product_usage`-Tabelle, `FrequentProductsQuickSelect`, `useLocalFoodUsage`)
+> — nur nicht gegen die Akzeptanzkriterien verifiziert und geschlossen worden.
+> Jetzt geschlossen. Damit ist Epic 6 (#7) komplett.
 
 ## Welle 6 — Kalorien & Tagebuch
 
