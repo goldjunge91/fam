@@ -3,6 +3,7 @@ import { runMigrations } from '@/lib/db/migrator';
 import { ensureDatabaseBelongsTo } from '@/lib/db/ownership';
 import { type SqlStatementDriver, serializeDatabase } from '@/lib/db/serialize';
 import type { SqlDatabase } from '@/lib/db/types';
+import { resetOffDumpAttachment } from '@/lib/off-dump/off-dump';
 
 /**
  * Der einzige Ort im Projekt, der `expo-sqlite` benutzen darf.
@@ -200,6 +201,10 @@ async function closeAndDeleteFile(): Promise<void> {
   }
 
   database = null;
+  // Die geloeschte Datei nimmt jeden bisherigen `ATTACH ... AS off_dump` mit —
+  // ohne diesen Reset wuerde `attachOffDump()` faelschlich "schon angehaengt"
+  // gegen die naechste, frische Connection melden (siehe off-dump.ts).
+  resetOffDumpAttachment();
 
   try {
     await SQLite.deleteDatabaseAsync(DATABASE_NAME);

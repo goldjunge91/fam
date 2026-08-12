@@ -31,6 +31,9 @@ function loadFileSystem(): typeof import('expo-file-system') {
 const REPO = 'goldjunge91/fam';
 const DUMP_FILE_NAME = 'off-dump.db';
 const RELEASE_TAG_KEY = 'off_dump_release_tag';
+const LAST_CHECK_KEY = 'off_dump_last_check_at';
+/** Der Dump-CI-Workflow (`update_dump.yml`) veroeffentlicht hoechstens monatlich. */
+const CHECK_TTL_MS = 24 * 60 * 60 * 1000;
 
 export type GitHubReleaseAsset = {
   name: string;
@@ -80,6 +83,21 @@ async function setStoredReleaseTag(db: SqlDatabase, tag: string): Promise<void> 
   );
 }
 
+async function getLastCheckAt(db: SqlDatabase): Promise<number | null> {
+  const row = await db.getFirstAsync<{ value: string | null }>(
+    'select value from app_meta where key = ?',
+    [LAST_CHECK_KEY],
+  );
+  return row?.value ? Number(row.value) : null;
+}
+
+async function setLastCheckAt(db: SqlDatabase, timestamp: number): Promise<void> {
+  await db.runAsync(
+    'insert into app_meta (key, value) values (?, ?) on conflict(key) do update set value = excluded.value',
+    [LAST_CHECK_KEY, String(timestamp)],
+  );
+}
+
 /**
  * Laedt den Dump herunter, wenn eine neuere Version verfuegbar ist (oder noch
  * keine lokale Datei existiert) — sonst ein No-Op. Wirft nie: bei fehlendem
@@ -87,14 +105,25 @@ async function setStoredReleaseTag(db: SqlDatabase, tag: string): Promise<void> 
  * kein Fehlerfall. Gedacht fuers Feuern-und-Vergessen beim App-Start
  * (`.catch()` beim Aufrufer reicht als Absicherung).
  *
+ * Fragt `checkForNewDumpRelease()` hoechstens einmal pro `CHECK_TTL_MS` an,
+ * solange schon eine lokale Datei vorliegt — sonst schlaegt jeder App-Start
+ * gegen die anonyme GitHub-Rate-Limit-Grenze auf, obwohl der Dump laut
+ * `update_dump.yml` nur monatlich neu erscheint.
+ *
  * Liefert den lokalen Datei-URI, sobald irgendeine Version vorliegt.
  */
 export async function ensureOffDumpDownloaded(db: SqlDatabase): Promise<string | null> {
   const { File, Paths } = loadFileSystem();
   const target = new File(Paths.document, DUMP_FILE_NAME);
 
+  const lastCheckAt = await getLastCheckAt(db);
+  if (target.exists && lastCheckAt !== null && Date.now() - lastCheckAt < CHECK_TTL_MS) {
+    return target.uri;
+  }
+
   const release = await checkForNewDumpRelease();
   if (!release) return target.exists ? target.uri : null;
+  await setLastCheckAt(db, Date.now());
 
   const storedTag = await getStoredReleaseTag(db);
   if (release.tag === storedTag && target.exists) return target.uri;
@@ -113,6 +142,17 @@ let attachedThisSession = false;
 /** Ob `attachOffDump` in diesem Prozesslauf bereits erfolgreich angehaengt hat. */
 export function isOffDumpAttached(): boolean {
   return attachedThisSession;
+}
+
+/**
+ * Setzt den Attach-Status zurueck, wenn die zugrundeliegende Connection
+ * verschwindet (Logout-Wipe, Nutzerwechsel-Wipe in `client.ts`). Ohne diesen
+ * Aufruf haelt `attachedThisSession` weiter `true` gegen eine Verbindung, an
+ * der nie ein `ATTACH` lief — `isOffDumpAttached()`/`getOffDumpStatus()`
+ * luegen dann, und `attachOffDump()` haengt nie neu an.
+ */
+export function resetOffDumpAttachment(): void {
+  attachedThisSession = false;
 }
 
 export type OffDumpStatus = {
@@ -162,4 +202,18 @@ export async function attachOffDump(db: SqlDatabase): Promise<boolean> {
   await db.execAsync(`ATTACH DATABASE '${escapedPath}' AS off_dump`);
   attachedThisSession = true;
   return true;
+}
+
+/**
+ * Einstiegspunkt fuer App-Start/Nutzerwechsel: haengt zuerst an, was schon
+ * lokal liegt (schnell, kein Netz noetig), bevor `ensureOffDumpDownloaded`
+ * — TTL-gated, siehe dort — im Hintergrund auf eine neue Version prueft. Der
+ * zweite `attachOffDump`-Aufruf ist kein Duplikat: Lag noch keine Datei vor,
+ * war der erste ein No-Op (`return false`), und erst nach dem Download gibt
+ * es etwas anzuhaengen.
+ */
+export async function initOffDump(db: SqlDatabase): Promise<void> {
+  await attachOffDump(db);
+  await ensureOffDumpDownloaded(db);
+  await attachOffDump(db);
 }
