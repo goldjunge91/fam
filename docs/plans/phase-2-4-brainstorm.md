@@ -404,6 +404,25 @@ falls die Paid-Kandidaten-Liste wächst — kein Thema für den ersten Bau.
 
 ---
 
+## Milestone-Neuordnung (2026-08-12)
+
+Die ursprünglichen Phase-2/3/4-Milestones waren nach grobem Themenblock
+sortiert ("Einkaufsliste, Rezepte, Fortschritt, Push"), nicht nach
+tatsächlicher Priorität/Abhängigkeit. Nach dem Brainstorm neu geordnet:
+
+- **Phase 2 - Core** (als Nächstes): `#12` Rezept-Manager, `#11`
+  Einkaufsliste-Fix.
+- **Phase 3 - Advanced** (baut auf Rezepten auf): `#15` Meal-Planner, `#19`
+  Kochmodus, `#21` Rezept-Sharing, `#23` Monetarisierung/Abo-Infrastruktur
+  (muss zeitlich mit den ersten Paid-Gates aus #15/#19/#21 mithalten), `#14`
+  Push-Benachrichtigungen, `#121` Prospekt-Tracking.
+- **Phase 4 - Community** (später/unabhängig): `#20` Gamification (braucht
+  u. a. #21 für ein Achievement), `#13` Fortschritts-Charts, `#17`
+  Health-Integration (explizit "nach hinten gestellt"), `#122` UI/UX
+  Komponenten-System (noch kein Konzept, kein Blocker für #12 — **kein**
+  Rewrite-Vorlauf vor Rezept-Manager, wie ursprünglich fälschlich
+  vorgeschlagen), plus unverändert die zurückgestellten `#16`/`#18`/`#22`/`#24`.
+
 ## Priorität/Status auf einen Blick (Stand dieser Konversation)
 
 | # | Epic | Status laut Nutzer |
