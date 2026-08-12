@@ -2,6 +2,7 @@ import { Image } from 'expo-image';
 import { router, useLocalSearchParams } from 'expo-router';
 import { useMemo, useState } from 'react';
 import {
+  Alert,
   Pressable,
   SafeAreaView,
   ScrollView,
@@ -15,7 +16,13 @@ import Svg, { Circle, Path } from 'react-native-svg';
 import { calculateComponentPer100g, calculateServingNutrition, scaleServing } from './nutrition';
 import { useRecipeCoverUrl } from './recipe-cover';
 import { useRecipeStepImageUrl } from './recipe-step-image';
-import { type DishType, type RecipeDetail, type RecipeStep, useRecipeDetail } from './use-recipes';
+import {
+  type DishType,
+  type RecipeDetail,
+  type RecipeStep,
+  useDeleteRecipeMutation,
+  useRecipeDetail,
+} from './use-recipes';
 
 const DIFFICULTY_LABELS: Record<string, string> = {
   easy: 'Einfach',
@@ -86,6 +93,33 @@ export function RecipeDetailScreen() {
 
   const { data, isLoading } = useRecipeDetail(id);
   const { data: coverUrl } = useRecipeCoverUrl(data?.recipe.cover_image_path);
+  const deleteMutation = useDeleteRecipeMutation();
+
+  const handleDelete = () => {
+    if (!data) return;
+    const { recipe } = data;
+    Alert.alert('Rezept löschen', `„${recipe.title}“ wird dauerhaft entfernt.`, [
+      { text: 'Abbrechen', style: 'cancel' },
+      {
+        text: 'Löschen',
+        style: 'destructive',
+        onPress: () => {
+          deleteMutation.mutate(
+            { id: recipe.id, household_id: recipe.household_id },
+            {
+              onSuccess: () => router.back(),
+              onError: (error) => {
+                Alert.alert(
+                  'Fehler',
+                  error instanceof Error ? error.message : 'Rezept konnte nicht gelöscht werden.',
+                );
+              },
+            },
+          );
+        },
+      },
+    ]);
+  };
 
   const topLevelComponents = useMemo(
     () => (data ? data.components.filter((c) => c.serving_grams !== null) : []),
@@ -157,6 +191,22 @@ export function RecipeDetailScreen() {
             accessibilityRole="button"
             accessibilityLabel="Edit recipe">
             <Text style={styles.editText}>Edit</Text>
+          </Pressable>
+          <Pressable
+            style={styles.deleteButton}
+            onPress={handleDelete}
+            disabled={deleteMutation.isPending}
+            accessibilityRole="button"
+            accessibilityLabel="Delete recipe">
+            <Svg width={18} height={18} viewBox="0 0 24 24" fill="none">
+              <Path
+                d="M4 7h16M9 7V5a2 2 0 012-2h2a2 2 0 012 2v2m2 0v13a2 2 0 01-2 2H9a2 2 0 01-2-2V7h10z"
+                stroke="#FF5262"
+                strokeWidth={2}
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </Svg>
           </Pressable>
         </View>
       </View>
@@ -347,6 +397,11 @@ const styles = StyleSheet.create({
     color: '#FF5262',
     fontSize: 14,
     fontWeight: '600',
+  },
+  deleteButton: {
+    backgroundColor: '#FFE2E2',
+    padding: 8,
+    borderRadius: 18,
   },
   scrollView: {
     flex: 1,
