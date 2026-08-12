@@ -7,14 +7,19 @@
 -- Bucket steht stattdessen in `supabase/seed.sql` (lokal) und muss auf dem
 -- verlinkten Projekt einmalig manuell angelegt werden.
 --
--- ACHTUNG (analog 12_recipe_storage.sql): `storage.objects` liegt ausserhalb
--- des Schemas, das `db diff` vergleicht. Die Policies hier laufen zwar gegen
--- die Schatten-DB beim Diffen ("Seeding globals"), landen aber in KEINER
--- generierten Migration und fehlen deshalb nach einem echten
--- `db reset`/`db push`, bis sie einmalig manuell nachgezogen werden
--- (`supabase db query [--linked] < supabase/schemas/13_recipe_step_storage.sql`).
--- `supabase/tests/10_recipes.test.sql` prueft das Ergebnis und schlaegt an,
--- wenn sie fehlen.
+-- ACHTUNG (analog 12_recipe_storage.sql): `storage` ist ein von Supabase
+-- verwaltetes System-Schema, `db diff` vergleicht nur die von uns selbst
+-- deklarierten Schemas — `storage.objects` gehoert strukturell nie zum
+-- verglichenen Objektbestand, egal ob `migra` oder `pg-delta` laeuft. Die
+-- Policies hier laufen zwar gegen die Schatten-DB beim Diffen ("Seeding
+-- globals"), landen aber in KEINER generierten Migration.
+--
+-- Verbindlich angewendet werden diese Policies deshalb ueber die
+-- handgeschriebene Ausnahme-Migration
+-- `supabase/migrations/20260812204337_recipe_storage_policies.sql` (siehe
+-- Kommentar dort). Aendert sich diese Datei, muss die Migration von Hand
+-- nachgezogen werden. `supabase/tests/10_recipes.test.sql` prueft das
+-- Ergebnis und schlaegt an, wenn die Policies fehlen.
 --
 -- Pfadkonvention: `<household_id>/<step_id>.<ext>` — analog `recipe-covers`,
 -- `storage.foldername(name)[1]` traegt die Haushalts-Id fuer die RLS-Pruefung.
