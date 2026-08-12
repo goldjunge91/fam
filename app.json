@@ -25,13 +25,7 @@
       "favicon": "./assets/images/favicon.png"
     },
     "plugins": [
-      [
-        "expo-file-system",
-        {
-          "supportsOpeningDocumentsInPlace": true,
-          "enableFileSharing": true
-        }
-      ],
+      "expo-file-system",
       "expo-router",
       [
         "expo-splash-screen",
