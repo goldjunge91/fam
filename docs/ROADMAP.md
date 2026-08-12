@@ -14,6 +14,8 @@ Alle Issues: <https://github.com/goldjunge91/fam/issues>
 > **Korrektur 2026-08-11 (AC-Verifikation):** 32 zuvor als "fertig" geführte Issues wurden einzeln gegen ihre Akzeptanzkriterien im Code geprüft, nicht nur gegen Commit-Messages. 17 waren wirklich fertig (jetzt geschlossen). **15 hatten eine Lücke** — 13 fehlte ein einzelnes AC, bei **#78 und #80 existierte trotz vorheriger ✅-Markierung keine Implementierung**. Issue-Details in `docs/projekt_status.md`.
 >
 > **Nachtrag 2026-08-11:** alle 15 Lücken auf Branch `ac-luecken-fixes` geschlossen (22 Commits) und über PR #119 (Merge `45b650c`) in `main` gemerged. Alle 15 GitHub-Issues mit Beleg-Kommentar geschlossen.
+>
+> **Nachtrag 2026-08-12:** Welle 8 (#96–#99, letzte offene MVP-Welle) implementiert — Details im Wellen-Abschnitt unten. Der MVP (Wellen 0–8) ist damit vollständig; offen bleiben nur #79 (bewusst zurückgestellt) und die Phase-2–4-Epics (#11–#24).
 
 | Welle | Thema | Status | Gate |
 |---|---|---|---|
@@ -26,7 +28,7 @@ Alle Issues: <https://github.com/goldjunge91/fam/issues>
 | P | Lebensmittel-DB | ✅ Fertig — #74–78, #80 alle geschlossen; #79 offen (bewusst zurückgestellt) | — |
 | 6 | Kalorien & Tagebuch | ✅ Fertig — #81–88 alle geschlossen | — |
 | 7 | Dashboard & Navigation | ✅ Fertig — #89–95 alle geschlossen | — |
-| 8 | Datenschutz | 🔴 Offen | MVP fertig |
+| 8 | Datenschutz | ✅ Fertig — #96–99 implementiert | MVP fertig |
 
 **Sync-Engine-Nachzügler:** Erledigt — Realtime-Bridge (#48), Netzwerk-/Hintergrund-Trigger (#50) sowie Gate D (#70 2-Geräte-Sync) wurden verdrahtet (Commit `1a76351` / `b06cd4d`, PR #118). Der Sync läuft aktuell über **Realtime-Bridge + Netzwerk-Reconnect + Background-Sync + Poll-Fallback (20s)**, alle vier aktiv verdrahtet in `(app)/_layout.tsx`.
 
@@ -208,13 +210,26 @@ Laut `CLAUDE.md` bekommt jede UI-Änderung einen eigenen Commit, und
 > **Stand 2026-08-11:** #89–92, #95 verifiziert und geschlossen. #93 jetzt ebenfalls
 > geschlossen — Pull-to-Refresh im Dashboard ruft `triggerHouseholdSync` auf.
 
-## Welle 8 — Datenschutz
+## Welle 8 — Datenschutz ✅ Fertig
 
 ```
 #96 Datenschutzerklärung → #99 Store-Privacy-Labels
 #97 Datenexport
 #98 Account-Löschung (braucht #58, #64)
 ```
+
+> **Stand 2026-08-12:** Alle vier Issues implementiert. #96:
+> `docs/DATENSCHUTZ.md` + In-App-Screen (`/settings/privacy`) beschreiben TLS/
+> at-rest/RLS statt der nicht haltbaren E2EE-Zusage. #97: vollständiger
+> JSON-Export (`/settings/export`, `expo-sharing`, seitenweise gegen große
+> Tabellen). #98: Edge Function `delete-account` (Service-Role,
+> `auth.admin.deleteUser`) plus neues RPC `prepare_account_deletion()` —
+> dabei einen vorbestehenden Bug in `guard_last_admin` gefunden und behoben,
+> der bislang **jede** Haushaltslöschung mit mehr als einem Mitglied
+> blockierte (Trigger feuerte auch beim kaskadierten Löschen des ganzen
+> Haushalts). #99: `docs/PRIVACY_LABELS.md` als Store-Referenz, ungenutzte
+> `microphonePermission` aus `app.json` entfernt. Neue pgTAP-Tests in
+> `03_households.test.sql` (22 statt 15 Assertions).
 
 Mit Welle 8 ist der MVP komplett. Phase 2–4 sind als Epics
 ([#11](https://github.com/goldjunge91/fam/issues/11)–[#24](https://github.com/goldjunge91/fam/issues/24)) beschrieben und werden aufgeschlüsselt, sobald der MVP steht.

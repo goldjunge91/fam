@@ -12,13 +12,16 @@
   (Commit uncommitted changes, toter Code, fehlende Tests, Doku-Refresh).
   Status: **completed** (2026-08-08).
 - **fam-backlog** — nächste Epics/Wellen laut `docs/ROADMAP.md`.
-  Status: **in progress**. Gate D (#70) verifiziert. Am 2026-08-11 wurden 32
-  zuvor als "fertig" geführte Issues einzeln gegen ihre Akzeptanzkriterien im
-  Code geprüft (nicht nur gegen Commit-Messages): 17 waren wirklich fertig und
-  wurden erst jetzt auf GitHub geschlossen; 15 haben eine Lücke, davon `#78`
-  und `#80` trotz vorheriger ✅-Markierung komplett unimplementiert. Details in
-  `docs/projekt_status.md` und `tasks/fam-backlog/README.md`. Offen: Welle 8
-  (#96–#99) sowie die 15 aufgedeckten Lücken.
+  Status: **MVP komplett** (2026-08-12). Gate D (#70) verifiziert. Am
+  2026-08-11 wurden 32 zuvor als "fertig" geführte Issues einzeln gegen ihre
+  Akzeptanzkriterien im Code geprüft (nicht nur gegen Commit-Messages): 17
+  waren wirklich fertig und wurden erst jetzt auf GitHub geschlossen; 15
+  hatten eine Lücke, davon `#78` und `#80` trotz vorheriger ✅-Markierung
+  komplett unimplementiert — alle 15 wurden noch am selben Tag geschlossen.
+  Am 2026-08-12 wurde die letzte offene MVP-Welle (Welle 8, Datenschutz,
+  #96–#99) implementiert. Details in `docs/projekt_status.md` und
+  `tasks/fam-backlog/README.md`. Offen bleiben nur #79 (bewusst
+  zurückgestellt) und die Phase-2–4-Epics (#11–#24).
 
 
 ## Verweise

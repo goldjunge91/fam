@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-11",
+  "updated": "2026-08-12",
   "projects": [
     {
       "name": "fam-housekeeping",
@@ -108,7 +108,7 @@
         {
           "id": "fam-backlog/005",
           "title": "Welle 8 - Datenschutz & Compliance (#96-99)",
-          "status": "pending",
+          "status": "completed",
           "priority": "low",
           "path": "tasks/fam-backlog/005-welle-8-datenschutz.md",
           "issues": [
@@ -116,7 +116,8 @@
             "#97",
             "#98",
             "#99"
-          ]
+          ],
+          "notes": "Alle vier Issues implementiert: Datenschutzerklaerung + In-App-Screen (#96), JSON-Export (#97), Edge Function delete-account + RPC prepare_account_deletion (#98, dabei vorbestehenden guard_last_admin-Bug gefunden/behoben), Privacy-Labels-Referenz + app.json bereinigt (#99)."
         },
         {
           "id": "fam-backlog/006",
