@@ -13,6 +13,9 @@ echo "--> Dependencies installieren (--frozen-lockfile, wie beide CI-Jobs)..."
 bun install --frozen-lockfile
 echo ""
 
+echo "--> Linter und Formatter (Biome)..."
+bun run check:fix
+
 echo "=== 1. CHECKS (kein Docker) ==="
 echo "--> Typecheck..."
 bun run typecheck
