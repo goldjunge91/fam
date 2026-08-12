@@ -128,7 +128,12 @@ export function SettingsScreen() {
             value={currentGoal ? `${currentGoal.daily_kcal ?? '–'} kcal` : 'nicht gesetzt'}
             onPress={() => router.push('/settings/goals')}
           />
-          <SettingsRow icon="📤" label="Export" value="in Vorbereitung" disabled last />
+          <SettingsRow
+            icon="📤"
+            label="Export"
+            onPress={() => router.push('/settings/export')}
+            last
+          />
         </SettingsGroup>
 
         {/* Nur mit EXPO_PUBLIC_DEV_TOOLS=true. Die Gruppe verschwindet dann
