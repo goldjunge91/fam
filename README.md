@@ -3,11 +3,12 @@
 Expo-App für Haushalt, Einkauf und Ernährung: geteilter Kühlschrank-Bestand und
 Einkaufsliste für die ganze Familie, privates Kalorien- und Gewichts-Tracking pro Account.
 
-**Status:** Foundation, Datenmodell/RLS, Offline-Sync-Kern, Auth/Onboarding und
-Haushalt (Epics 0–4) sind gebaut und getestet; Kühlschrank/Einkaufsliste und die
-Lebensmittel-Datenbank (Epic 5, Parallel-Track P) sind weitgehend fertig. Offen:
-Kalorien & Tagebuch (Epic 6, noch nicht begonnen), Dashboard-Feinschliff (Epic 7)
-und Datenschutz-Features (Epic 8). Details und Stand pro Issue in
+**Status:** MVP komplett — alle Wellen 0–8 aus `docs/ROADMAP.md` sind gebaut
+und getestet (Foundation, Datenmodell/RLS, Offline-Sync, Auth/Onboarding,
+Haushalt, Kühlschrank/Einkaufsliste, Lebensmittel-Datenbank, Kalorien &
+Tagebuch, Dashboard, Datenschutz). Offen bleibt bewusst nur #79 (Liste
+häufig verwendeter Lebensmittel, zurückgestellt) sowie die als Epics
+beschriebenen Phase-2–4-Features (#11–#24). Details und Stand pro Issue in
 [docs/projekt_status.md](docs/projekt_status.md) und
 [docs/ROADMAP.md](docs/ROADMAP.md).
 
@@ -226,6 +227,11 @@ Elterntabellen müssen vor ihren Fremdschlüsseln kommen.
 ## Dokumentation
 
 - [Produktvision](docs/VISION.md) — Features, Module, Datenschutz-Konzept
+- [Datenschutzerklärung](docs/DATENSCHUTZ.md) — was verarbeitet wird, welche
+  Berechtigungen die App braucht, keine Ende-zu-Ende-Verschlüsselung (siehe
+  Korrektur in `docs/VISION.md`)
+- [App-Store-Privacy-Labels](docs/PRIVACY_LABELS.md) — Referenz für Apple
+  "App Privacy" und Google "Data Safety"
 - [Roadmap](docs/ROADMAP.md) — in welcher Reihenfolge die Issues abgearbeitet werden
 - [AGENTS.md](AGENTS.md) — Hinweise für KI-Agenten
 

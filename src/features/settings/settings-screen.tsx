@@ -128,10 +128,16 @@ export function SettingsScreen() {
             value={currentGoal ? `${currentGoal.daily_kcal ?? '–'} kcal` : 'nicht gesetzt'}
             onPress={() => router.push('/settings/goals')}
           />
+          <SettingsRow icon="📤" label="Export" onPress={() => router.push('/settings/export')} />
           <SettingsRow
-            icon="📤"
-            label="Export"
-            onPress={() => router.push('/settings/export')}
+            icon="🔒"
+            label="Datenschutz"
+            onPress={() => router.push('/settings/privacy')}
+          />
+          <SettingsRow
+            icon="🗑️"
+            label="Konto löschen"
+            onPress={() => router.push('/settings/delete-account')}
             last
           />
         </SettingsGroup>
