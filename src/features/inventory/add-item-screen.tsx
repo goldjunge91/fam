@@ -1,3 +1,5 @@
+import { useQueryClient } from '@tanstack/react-query';
+import * as Crypto from 'expo-crypto';
 import { router, useFocusEffect } from 'expo-router';
 import { useCallback, useState } from 'react';
 import { StyleSheet, View } from 'react-native';
@@ -12,6 +14,7 @@ import { useSession } from '@/features/auth/session-provider';
 import { useAddFridgeItemMutation } from '@/features/fridge/use-fridge-mutations';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { BarcodeScannerModal } from '@/features/inventory/barcode-scanner-modal';
+import { FrequentProductsQuickSelect } from '@/features/inventory/frequent-products-quick-select';
 import { consumePendingProductSelection } from '@/features/inventory/pending-product-selection';
 import { persistOffProductIfNeeded } from '@/features/inventory/persist-off-product';
 import { ProductSearchDropdown } from '@/features/inventory/product-search-dropdown';
@@ -20,6 +23,8 @@ import {
   useAddStorageLocationMutation,
   useStorageLocations,
 } from '@/features/inventory/use-storage-locations';
+import { getDatabase } from '@/lib/db/client';
+import { recordProductUsage } from '@/lib/db/product-usage';
 import type { OpenFoodFactsProduct } from '@/lib/open-food-facts';
 
 function formatOffsetDate(days: number): string {
@@ -46,6 +51,7 @@ export function AddItemScreen() {
   const addProductMutation = useAddProductMutation();
   const { session } = useSession();
   const userId = session?.user.id;
+  const queryClient = useQueryClient();
 
   const [name, setName] = useState('');
   const [quantity, setQuantity] = useState('1');
@@ -113,6 +119,26 @@ export function AddItemScreen() {
         location_id: activeLocationId,
         expiry_date: expiryDate.trim() || null,
       });
+
+      if (userId) {
+        void getDatabase()
+          .then((db) =>
+            recordProductUsage(db, {
+              id: Crypto.randomUUID(),
+              userId,
+              householdId: currentHousehold.id,
+              feature: 'fridge',
+              productId,
+              name: name.trim(),
+              brand: selectedProduct?.brand ?? null,
+              barcode: selectedProduct?.barcode ?? null,
+              unit,
+            }),
+          )
+          .then(() => queryClient.invalidateQueries({ queryKey: ['product_usage'] }))
+          .catch((err) => console.error('Fehler beim Protokollieren der Nutzung:', err));
+      }
+
       router.back();
     } catch (err) {
       console.error(err);
@@ -126,6 +152,12 @@ export function AddItemScreen() {
           label="📷 Barcode scannen"
           variant="secondary"
           onPress={() => setShowScanner(true)}
+        />
+
+        <FrequentProductsQuickSelect
+          feature="fridge"
+          userId={userId}
+          onSelectProduct={handleSelectProduct}
         />
 
         <ProductSearchDropdown

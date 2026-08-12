@@ -245,6 +245,36 @@ create index if not exists outbox_row_idx on outbox (entity, entity_id, id);
 create index if not exists outbox_due_idx on outbox (next_attempt_at, id);
 `;
 
+// Lokale Nutzungshistorie (#79) — genau wie `shopping_history` bewusst ohne
+// `_dirty`/Outbox/Server-Sync: reine Geraetestatistik fuer die
+// Haeufig-genutzt-Anzeige in Vorrat, Einkaufsliste und Tagebuch. Die
+// kcal/macro-Spalten sind nur fuer `feature = 'diary'` befuellt (dort zum
+// Speicherzeitpunkt ohnehin bekannt) und lassen sich damit 1:1 in
+// `FoodHistoryEntry` (food-history.ts) einlesen, ohne eine zweite
+// Rank/Dedupe-Implementierung zu brauchen.
+const V8_PRODUCT_USAGE = `
+create table if not exists product_usage (
+  id           text primary key not null,
+  user_id      text not null,
+  household_id text,
+  feature      text not null check (feature in ('fridge','shopping_list','diary')),
+  meal_type    text check (meal_type in ('breakfast','lunch','dinner','snack')),
+  product_id   text,
+  name         text not null,
+  brand        text,
+  barcode      text,
+  unit         text,
+  quantity     real,
+  kcal         real,
+  protein_g    real,
+  carbs_g      real,
+  fat_g        real,
+  used_at      text not null
+);
+create index if not exists product_usage_lookup_idx
+  on product_usage (user_id, feature, meal_type, used_at);
+`;
+
 export const MIGRATIONS: readonly Migration[] = [
   {
     version: 1,
@@ -280,5 +310,10 @@ export const MIGRATIONS: readonly Migration[] = [
     version: 7,
     name: 'outbox_restore_op',
     statements: [V7_OUTBOX_RESTORE_OP],
+  },
+  {
+    version: 8,
+    name: 'product_usage',
+    statements: [V8_PRODUCT_USAGE],
   },
 ];

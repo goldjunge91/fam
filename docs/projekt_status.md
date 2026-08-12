@@ -5,7 +5,7 @@
 >
 > **Korrektur 2026-08-11 (Verifikation gegen Code+AC, nicht nur gegen Doku):** 32 als "fertig" geführte Issues wurden einzeln gegen ihre Akzeptanzkriterien im Code geprüft. 17 waren tatsächlich vollständig — die wurden jetzt erst auf GitHub geschlossen (vorher stand die Doku auf ✅, GitHub auf offen). Bei **13 Issues fehlte ein konkretes AC**, bei **2 (#78, #80) existierte trotz ✅-Markierung gar keine Implementierung**.
 >
-> **Nachtrag 2026-08-11: alle 15 AC-Lücken geschlossen** (Branch `ac-luecken-fixes`, 22 Commits, siehe `tasks/fam-backlog/008-ac-luecken-verifikation.md`). Noch offen: Branch pushen, PR öffnen, GitHub-Issues mit Beleg-Kommentar schließen — nicht Teil dieser lokalen Session.
+> **Nachtrag 2026-08-11: alle 15 AC-Lücken geschlossen** (Branch `ac-luecken-fixes`, 22 Commits, siehe `tasks/fam-backlog/008-ac-luecken-verifikation.md`). PR #119 in `main` gemerged (Merge-Commit `45b650c`), alle 15 GitHub-Issues (#65, #69, #71, #73, #74, #75, #76, #78, #80, #83, #84, #85, #86, #88, #93) mit Beleg-Kommentar geschlossen.
 
 
 ## ✅ Abgeschlossene Epics & Issues
@@ -178,9 +178,7 @@
 
 ## 🎯 Empfohlene nächste Schritte
 
-Gate D (#70) ist verifiziert und alle 4 Wellen-Gates sind grün. **17 Issues aus Welle 4/5/6/7/8-Vorarbeiten wurden am 2026-08-11 gegen ihre Akzeptanzkriterien geprüft und auf GitHub geschlossen.** Bei der Prüfung kamen **15 offene Lücken** zum Vorschein (13 Issues mit einzelnen fehlenden AC, 2 Issues — `#78`, `#80` — komplett unimplementiert trotz vorheriger "✅"-Markierung); **alle 15 wurden noch am selben Tag auf Branch `ac-luecken-fixes` geschlossen** (22 Commits, jeweils mit Tests; Details in `tasks/fam-backlog/008-ac-luecken-verifikation.md`).
-
-Offen bleibt organisatorisch: Branch pushen, PR öffnen, die 15 GitHub-Issues mit Beleg-Kommentar schließen (Stil wie die 17 vorher geschlossenen).
+Gate D (#70) ist verifiziert und alle 4 Wellen-Gates sind grün. **17 Issues aus Welle 4/5/6/7/8-Vorarbeiten wurden am 2026-08-11 gegen ihre Akzeptanzkriterien geprüft und auf GitHub geschlossen.** Bei der Prüfung kamen **15 offene Lücken** zum Vorschein (13 Issues mit einzelnen fehlenden AC, 2 Issues — `#78`, `#80` — komplett unimplementiert trotz vorheriger "✅"-Markierung); **alle 15 wurden noch am selben Tag auf Branch `ac-luecken-fixes` geschlossen** (22 Commits, jeweils mit Tests; Details in `tasks/fam-backlog/008-ac-luecken-verifikation.md`) und über PR #119 (Merge `45b650c`) in `main` gemerged. Alle 15 GitHub-Issues sind mit Beleg-Kommentar geschlossen.
 
 Nächster inhaltlicher Schritt:
 - **Welle 8 (Datenschutz & Compliance, `#96–99`)** — der letzte MVP-Baustein, bisher nicht begonnen.

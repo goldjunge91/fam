@@ -21,7 +21,13 @@ import { useTheme } from '@/hooks/use-theme';
 import { deleteLocalDatabase, getDatabase } from '@/lib/db/client';
 import { env } from '@/lib/env';
 import { sendTestNotification } from '@/lib/notifications';
+import { getOffDumpStatus, type OffDumpStatus } from '@/lib/off-dump/off-dump';
 import { MAX_ATTEMPTS } from '@/lib/sync/backoff';
+
+function formatBytes(bytes: number): string {
+  if (bytes <= 0) return '0 MB';
+  return `${(bytes / 1024 / 1024).toFixed(1)} MB`;
+}
 
 /**
  * Entwickler-Bereich, sichtbar nur mit `EXPO_PUBLIC_DEV_TOOLS=true`.
@@ -82,12 +88,14 @@ export function DevToolsScreen() {
   const { activeHousehold } = useActiveHousehold();
 
   const [snapshot, setSnapshot] = useState<DbSnapshot | null>(null);
+  const [offDump, setOffDump] = useState<OffDumpStatus | null>(null);
   const [dbError, setDbError] = useState<string | null>(null);
   const [busy, setBusy] = useState<string | null>(null);
 
   const ladeSnapshot = useCallback(async () => {
     try {
       const db = await getDatabase();
+      setOffDump(await getOffDumpStatus(db));
 
       const zahl = async (sql: string, params: readonly (string | number)[] = []) =>
         (await db.getFirstAsync<{ c: number }>(sql, params))?.c ?? 0;
@@ -216,6 +224,20 @@ export function DevToolsScreen() {
         <View style={styles.aktionStack}>
           <Button label="Neu einlesen" variant="secondary" onPress={ladeSnapshot} />
         </View>
+      </Card>
+
+      <Card title="OpenFoodFacts-Dump">
+        <Zeile
+          label="Heruntergeladen"
+          wert={offDump?.fileExists ? `ja · ${formatBytes(offDump.fileSizeBytes)}` : 'nein'}
+          tone={offDump?.fileExists ? undefined : 'warning'}
+        />
+        <Zeile label="Release" wert={offDump?.storedReleaseTag ?? '—'} />
+        <Zeile
+          label="Angehängt"
+          wert={offDump?.attached ? 'ja' : 'nein'}
+          tone={offDump?.attached ? undefined : 'warning'}
+        />
       </Card>
 
       <Card title="Aktionen">

@@ -29,6 +29,7 @@ jest.mock('expo-router', () => ({
 }));
 
 jest.mock('@/lib/open-food-facts', () => ({
+  ...jest.requireActual('@/lib/open-food-facts'),
   searchOpenFoodFacts: jest.fn(),
 }));
 
@@ -36,6 +37,12 @@ const mockGetAllAsync = jest.fn().mockResolvedValue([]);
 
 jest.mock('@/lib/db/client', () => ({
   getDatabase: async () => ({ getAllAsync: mockGetAllAsync }),
+}));
+
+let mockOffDumpAttached = false;
+
+jest.mock('@/lib/off-dump/off-dump', () => ({
+  isOffDumpAttached: () => mockOffDumpAttached,
 }));
 
 jest.mock('@/hooks/use-theme', () => ({
@@ -56,6 +63,7 @@ beforeEach(() => {
   mockGetAllAsync.mockReset();
   mockGetAllAsync.mockResolvedValue([]);
   (router.push as jest.Mock).mockReset();
+  mockOffDumpAttached = false;
 });
 
 it('bietet "manuell anlegen" an, wenn Open Food Facts keinen Treffer liefert', async () => {
@@ -140,6 +148,42 @@ it('ergaenzt OFF-Treffer, wenn lokale Treffer unter dem Schwellwert liegen', asy
     expect(screen.getByText('Lokale Milch')).toBeTruthy();
     expect(screen.getByText('OFF Milch')).toBeTruthy();
   });
+});
+
+it('ergaenzt Treffer aus dem angehaengten OFF-Dump auch offline, wenn lokale Treffer unter dem Schwellwert liegen', async () => {
+  onlineManager.setOnline(false);
+  mockOffDumpAttached = true;
+  mockGetAllAsync.mockImplementation((sql: string) => {
+    if (sql.includes('off_dump.products')) {
+      return Promise.resolve([
+        {
+          code: 'dump-1',
+          product_name: 'Dump Hafermilch',
+          brand: 'Oatly',
+          quantity: '1l',
+          nutriscore: 'b',
+          energy_kcal: 59,
+          fat: 1.5,
+          saturated_fat: 0.2,
+          carbohydrates: 6.6,
+          sugars: 3.3,
+          proteins: 1,
+          salt: 0.1,
+        },
+      ]);
+    }
+    return Promise.resolve([]);
+  });
+
+  await render(<ControlledDropdown onSelectProduct={() => {}} />);
+  await fireEvent.changeText(screen.getByPlaceholderText('z. B. Hafermilch'), 'Hafermilch');
+
+  await waitFor(() => {
+    expect(screen.getByText('Dump Hafermilch')).toBeTruthy();
+  });
+
+  expect(mockSearch).not.toHaveBeenCalled();
+  onlineManager.setOnline(true);
 });
 
 it('fragt Open Food Facts nicht an, wenn offline', async () => {

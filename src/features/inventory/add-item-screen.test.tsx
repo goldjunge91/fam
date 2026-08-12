@@ -1,3 +1,4 @@
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { fireEvent, render, screen } from '@testing-library/react-native';
 import { router } from 'expo-router';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
@@ -5,14 +6,17 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { AddItemScreen } from '@/features/inventory/add-item-screen';
 
 function renderScreen() {
+  const queryClient = new QueryClient({ defaultOptions: { queries: { retry: false } } });
   return render(
-    <SafeAreaProvider
-      initialMetrics={{
-        frame: { x: 0, y: 0, width: 390, height: 844 },
-        insets: { top: 47, left: 0, right: 0, bottom: 34 },
-      }}>
-      <AddItemScreen />
-    </SafeAreaProvider>,
+    <QueryClientProvider client={queryClient}>
+      <SafeAreaProvider
+        initialMetrics={{
+          frame: { x: 0, y: 0, width: 390, height: 844 },
+          insets: { top: 47, left: 0, right: 0, bottom: 34 },
+        }}>
+        <AddItemScreen />
+      </SafeAreaProvider>
+    </QueryClientProvider>,
   );
 }
 
@@ -52,6 +56,11 @@ jest.mock('@/features/inventory/use-product-mutations', () => ({
 
 jest.mock('@/lib/db/client', () => ({
   getDatabase: async () => ({ getFirstAsync: mockGetFirstAsync }),
+}));
+
+jest.mock('@/lib/db/product-usage', () => ({
+  recordProductUsage: jest.fn().mockResolvedValue(undefined),
+  getFrequentProductUsage: jest.fn().mockResolvedValue([]),
 }));
 
 jest.mock('@/features/inventory/barcode-scanner-modal', () => ({
