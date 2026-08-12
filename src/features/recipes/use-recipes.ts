@@ -30,7 +30,6 @@ export type RecipeListItem = {
   household_id: string;
   title: string;
   instructions: string | null;
-  steps: string[];
   cover_image_path: string | null;
   cook_time_minutes: number | null;
   difficulty: Difficulty | null;
@@ -42,8 +41,7 @@ export type RecipeListItem = {
 };
 
 /** Rohzeile aus SQLite: die `text[]`-Server-Spalten kommen lokal als JSON-Text an. */
-type RecipeRow = Omit<RecipeListItem, 'steps' | 'dish_types' | 'dietary_tags' | 'hashtags'> & {
-  steps: string;
+type RecipeRow = Omit<RecipeListItem, 'dish_types' | 'dietary_tags' | 'hashtags'> & {
   dish_types: string;
   dietary_tags: string;
   hashtags: string;
@@ -62,24 +60,45 @@ function parseJsonArray<T>(raw: string | null | undefined): T[] {
 function toRecipeListItem(row: RecipeRow): RecipeListItem {
   return {
     ...row,
-    steps: parseJsonArray<string>(row.steps),
     dish_types: parseJsonArray<DishType>(row.dish_types),
     dietary_tags: parseJsonArray<DietaryTag>(row.dietary_tags),
     hashtags: parseJsonArray<string>(row.hashtags),
   };
 }
 
-const RECIPE_COLUMNS = `id, household_id, title, instructions, steps, cover_image_path,
+const RECIPE_COLUMNS = `id, household_id, title, instructions, cover_image_path,
   cook_time_minutes, difficulty, dish_types, dietary_tags, hashtags, default_servings, created_at`;
 
 export type RecipeComponent = RecipeComponentRow & { name: string; recipe_id: string };
-export type RecipeComponentItem = RecipeComponentItemRow & { id: string };
+export type RecipeComponentItem = RecipeComponentItemRow & {
+  id: string;
+  quantity: number | null;
+  unit: string;
+};
+
+export type RecipeStep = {
+  id: string;
+  recipe_id: string;
+  position: number;
+  text: string;
+  image_path: string | null;
+  /** IDs der referenzierten recipe_component_items (recipe_step_ingredients). */
+  ingredientIds: string[];
+};
+
+/**
+ * Nur um `name` erweitert gegenueber `ProductNutritionRow` — nutrition.ts
+ * selbst bleibt bewusst frei von Anzeige-Feldern, `name` wird ausschliesslich
+ * fuer Zutaten-Chips (Rezept-Detail/Wizard) gebraucht.
+ */
+export type ProductRow = ProductNutritionRow & { name: string };
 
 export type RecipeDetail = {
   recipe: RecipeListItem;
   components: RecipeComponent[];
   items: RecipeComponentItem[];
-  productsById: Map<string, ProductNutritionRow>;
+  steps: RecipeStep[];
+  productsById: Map<string, ProductRow>;
 };
 
 function nowStamp() {
@@ -129,27 +148,52 @@ export function useRecipeDetail(recipeId: string | undefined) {
       );
 
       const items = await db.getAllAsync<RecipeComponentItem>(
-        `select id, component_id, product_id, sub_component_id, grams
+        `select id, component_id, product_id, sub_component_id, grams, quantity, unit
          from recipe_component_items
          where recipe_id = ? and deleted_at is null`,
         [recipeId],
       );
 
+      const stepRows = await db.getAllAsync<Omit<RecipeStep, 'ingredientIds'>>(
+        `select id, recipe_id, position, text, image_path
+         from recipe_steps
+         where recipe_id = ? and deleted_at is null
+         order by position`,
+        [recipeId],
+      );
+      const stepIngredientRows = await db.getAllAsync<{ step_id: string; item_id: string }>(
+        `select rsi.step_id, rsi.item_id
+         from recipe_step_ingredients rsi
+         join recipe_steps rs on rs.id = rsi.step_id
+         where rs.recipe_id = ? and rsi.deleted_at is null and rs.deleted_at is null`,
+        [recipeId],
+      );
+      const ingredientIdsByStep = new Map<string, string[]>();
+      for (const row of stepIngredientRows) {
+        const list = ingredientIdsByStep.get(row.step_id) ?? [];
+        list.push(row.item_id);
+        ingredientIdsByStep.set(row.step_id, list);
+      }
+      const steps: RecipeStep[] = stepRows.map((row) => ({
+        ...row,
+        ingredientIds: ingredientIdsByStep.get(row.id) ?? [],
+      }));
+
       const productIds = [
         ...new Set(items.map((i) => i.product_id).filter((id): id is string => !!id)),
       ];
-      const productsById = new Map<string, ProductNutritionRow>();
+      const productsById = new Map<string, ProductRow>();
       if (productIds.length > 0) {
         const placeholders = productIds.map(() => '?').join(', ');
-        const products = await db.getAllAsync<ProductNutritionRow>(
-          `select id, kcal_per_100, protein_g_per_100, carbs_g_per_100, fat_g_per_100
+        const products = await db.getAllAsync<ProductRow>(
+          `select id, name, kcal_per_100, protein_g_per_100, carbs_g_per_100, fat_g_per_100
            from products where id in (${placeholders})`,
           productIds,
         );
         for (const p of products) productsById.set(p.id, p);
       }
 
-      return { recipe, components, items, productsById };
+      return { recipe, components, items, steps, productsById };
     },
     enabled: !!recipeId,
   });
@@ -165,7 +209,6 @@ export function useAddRecipeMutation() {
       household_id: string;
       title: string;
       instructions?: string | null;
-      steps?: string[];
       cover_image_path?: string | null;
       cook_time_minutes?: number | null;
       difficulty?: Difficulty | null;
@@ -184,7 +227,6 @@ export function useAddRecipeMutation() {
         household_id: input.household_id,
         title: input.title,
         instructions: input.instructions ?? null,
-        steps: input.steps ?? [],
         cover_image_path: input.cover_image_path ?? null,
         cook_time_minutes: input.cook_time_minutes ?? null,
         difficulty: input.difficulty ?? null,
@@ -203,16 +245,15 @@ export function useAddRecipeMutation() {
         applyLocally: async (txn) => {
           await txn.runAsync(
             `insert into recipes (
-               id, household_id, title, instructions, steps, cover_image_path,
+               id, household_id, title, instructions, cover_image_path,
                cook_time_minutes, difficulty, dish_types, dietary_tags, hashtags,
                default_servings, created_by, created_at, updated_at, _dirty
-             ) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 1)`,
+             ) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 1)`,
             [
               row.id,
               row.household_id,
               row.title,
               row.instructions,
-              JSON.stringify(row.steps),
               row.cover_image_path,
               row.cook_time_minutes,
               row.difficulty,
@@ -246,7 +287,6 @@ export function useUpdateRecipeMutation() {
       household_id: string;
       title: string;
       instructions?: string | null;
-      steps?: string[];
       cover_image_path?: string | null;
       cook_time_minutes?: number | null;
       difficulty?: Difficulty | null;
@@ -260,7 +300,6 @@ export function useUpdateRecipeMutation() {
 
       const patch = {
         instructions: input.instructions ?? null,
-        steps: input.steps ?? [],
         cover_image_path: input.cover_image_path ?? null,
         cook_time_minutes: input.cook_time_minutes ?? null,
         difficulty: input.difficulty ?? null,
@@ -284,14 +323,13 @@ export function useUpdateRecipeMutation() {
         applyLocally: async (txn) => {
           await txn.runAsync(
             `update recipes set
-               title = ?, instructions = ?, steps = ?, cover_image_path = ?,
+               title = ?, instructions = ?, cover_image_path = ?,
                cook_time_minutes = ?, difficulty = ?, dish_types = ?, dietary_tags = ?,
                hashtags = ?, default_servings = ?, updated_at = ?, _dirty = 1
              where id = ?`,
             [
               input.title,
               patch.instructions,
-              JSON.stringify(patch.steps),
               patch.cover_image_path,
               patch.cook_time_minutes,
               patch.difficulty,
@@ -336,6 +374,58 @@ export function useDeleteRecipeMutation() {
         'select id from recipe_component_items where recipe_id = ? and deleted_at is null',
         [input.id],
       );
+      const steps = await db.getAllAsync<{ id: string }>(
+        'select id from recipe_steps where recipe_id = ? and deleted_at is null',
+        [input.id],
+      );
+      const stepIngredients =
+        steps.length > 0
+          ? await db.getAllAsync<{ id: string }>(
+              `select id from recipe_step_ingredients
+               where step_id in (${steps.map(() => '?').join(', ')}) and deleted_at is null`,
+              steps.map((s) => s.id),
+            )
+          : [];
+
+      for (const stepIngredient of stepIngredients) {
+        await enqueueMutation(db, {
+          entity: 'recipe_step_ingredients',
+          entityId: stepIngredient.id,
+          op: 'delete',
+          payload: {
+            id: stepIngredient.id,
+            household_id: input.household_id,
+            deleted_at: iso,
+            updated_at: iso,
+          },
+          applyLocally: async (txn) => {
+            await txn.runAsync(
+              'update recipe_step_ingredients set deleted_at = ?, updated_at = ?, _dirty = 1 where id = ?',
+              [ms, ms, stepIngredient.id],
+            );
+          },
+        });
+      }
+
+      for (const step of steps) {
+        await enqueueMutation(db, {
+          entity: 'recipe_steps',
+          entityId: step.id,
+          op: 'delete',
+          payload: {
+            id: step.id,
+            household_id: input.household_id,
+            deleted_at: iso,
+            updated_at: iso,
+          },
+          applyLocally: async (txn) => {
+            await txn.runAsync(
+              'update recipe_steps set deleted_at = ?, updated_at = ?, _dirty = 1 where id = ?',
+              [ms, ms, step.id],
+            );
+          },
+        });
+      }
 
       for (const item of items) {
         await enqueueMutation(db, {
@@ -579,12 +669,17 @@ export function useAddItemMutation() {
       product_id?: string | null;
       sub_component_id?: string | null;
       grams: number;
+      /** Rohe Nutzereingabe, siehe Kommentar auf recipe_component_items.quantity. */
+      quantity?: number | null;
+      unit?: string;
     }) => {
       const db = await getDatabase();
       const id = Crypto.randomUUID();
       const { iso, ms } = nowStamp();
       const productId = input.product_id ?? null;
       const subComponentId = input.sub_component_id ?? null;
+      const quantity = input.quantity ?? null;
+      const unit = input.unit ?? 'g';
 
       await enqueueMutation(db, {
         entity: 'recipe_component_items',
@@ -598,14 +693,16 @@ export function useAddItemMutation() {
           product_id: productId,
           sub_component_id: subComponentId,
           grams: input.grams,
+          quantity,
+          unit,
           created_at: iso,
           updated_at: iso,
         },
         applyLocally: async (txn) => {
           await txn.runAsync(
             `insert into recipe_component_items
-               (id, component_id, recipe_id, household_id, product_id, sub_component_id, grams, created_at, updated_at, _dirty)
-             values (?, ?, ?, ?, ?, ?, ?, ?, ?, 1)`,
+               (id, component_id, recipe_id, household_id, product_id, sub_component_id, grams, quantity, unit, created_at, updated_at, _dirty)
+             values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 1)`,
             [
               id,
               input.component_id,
@@ -614,6 +711,8 @@ export function useAddItemMutation() {
               productId,
               subComponentId,
               input.grams,
+              quantity,
+              unit,
               iso,
               ms,
             ],
@@ -621,7 +720,7 @@ export function useAddItemMutation() {
         },
       });
 
-      return { id, ...input };
+      return { id, ...input, quantity, unit };
     },
     onSuccess: (_, variables) => {
       queryClient.invalidateQueries({ queryKey: ['recipe-detail', variables.recipe_id] });
@@ -630,7 +729,8 @@ export function useAddItemMutation() {
   });
 }
 
-export function useUpdateItemGramsMutation() {
+/** War frueher `useUpdateItemGramsMutation` — aendert jetzt auch quantity/unit, nicht nur grams. */
+export function useUpdateItemMutation() {
   const queryClient = useQueryClient();
 
   return useMutation({
@@ -639,9 +739,13 @@ export function useUpdateItemGramsMutation() {
       recipe_id: string;
       household_id: string;
       grams: number;
+      quantity?: number | null;
+      unit?: string;
     }) => {
       const db = await getDatabase();
       const { iso, ms } = nowStamp();
+      const quantity = input.quantity ?? null;
+      const unit = input.unit ?? 'g';
 
       await enqueueMutation(db, {
         entity: 'recipe_component_items',
@@ -651,12 +755,14 @@ export function useUpdateItemGramsMutation() {
           id: input.id,
           household_id: input.household_id,
           grams: input.grams,
+          quantity,
+          unit,
           updated_at: iso,
         },
         applyLocally: async (txn) => {
           await txn.runAsync(
-            'update recipe_component_items set grams = ?, updated_at = ?, _dirty = 1 where id = ?',
-            [input.grams, ms, input.id],
+            'update recipe_component_items set grams = ?, quantity = ?, unit = ?, updated_at = ?, _dirty = 1 where id = ?',
+            [input.grams, quantity, unit, ms, input.id],
           );
         },
       });
@@ -691,6 +797,253 @@ export function useDeleteItemMutation() {
         applyLocally: async (txn) => {
           await txn.runAsync(
             'update recipe_component_items set deleted_at = ?, updated_at = ?, _dirty = 1 where id = ?',
+            [ms, ms, input.id],
+          );
+        },
+      });
+
+      return input.id;
+    },
+    onSuccess: (_, variables) => {
+      queryClient.invalidateQueries({ queryKey: ['recipe-detail', variables.recipe_id] });
+      queryClient.invalidateQueries({ queryKey: ['sync-status'] });
+    },
+  });
+}
+
+// ------------------------------------------------------------- Schritte (Wizard)
+
+export function useAddStepMutation() {
+  const queryClient = useQueryClient();
+
+  return useMutation({
+    mutationFn: async (input: {
+      recipe_id: string;
+      household_id: string;
+      position: number;
+      text: string;
+      image_path?: string | null;
+    }) => {
+      const db = await getDatabase();
+      const id = Crypto.randomUUID();
+      const { iso, ms } = nowStamp();
+      const imagePath = input.image_path ?? null;
+
+      await enqueueMutation(db, {
+        entity: 'recipe_steps',
+        entityId: id,
+        op: 'insert',
+        payload: {
+          id,
+          recipe_id: input.recipe_id,
+          household_id: input.household_id,
+          position: input.position,
+          text: input.text,
+          image_path: imagePath,
+          created_at: iso,
+          updated_at: iso,
+        },
+        applyLocally: async (txn) => {
+          await txn.runAsync(
+            `insert into recipe_steps
+               (id, recipe_id, household_id, position, text, image_path, created_at, updated_at, _dirty)
+             values (?, ?, ?, ?, ?, ?, ?, ?, 1)`,
+            [
+              id,
+              input.recipe_id,
+              input.household_id,
+              input.position,
+              input.text,
+              imagePath,
+              iso,
+              ms,
+            ],
+          );
+        },
+      });
+
+      return { id, ...input, image_path: imagePath };
+    },
+    onSuccess: (_, variables) => {
+      queryClient.invalidateQueries({ queryKey: ['recipe-detail', variables.recipe_id] });
+      queryClient.invalidateQueries({ queryKey: ['sync-status'] });
+    },
+  });
+}
+
+export function useUpdateStepMutation() {
+  const queryClient = useQueryClient();
+
+  return useMutation({
+    mutationFn: async (input: {
+      id: string;
+      recipe_id: string;
+      household_id: string;
+      position: number;
+      text: string;
+      image_path?: string | null;
+    }) => {
+      const db = await getDatabase();
+      const { iso, ms } = nowStamp();
+      const imagePath = input.image_path ?? null;
+
+      await enqueueMutation(db, {
+        entity: 'recipe_steps',
+        entityId: input.id,
+        op: 'update',
+        payload: {
+          id: input.id,
+          household_id: input.household_id,
+          position: input.position,
+          text: input.text,
+          image_path: imagePath,
+          updated_at: iso,
+        },
+        applyLocally: async (txn) => {
+          await txn.runAsync(
+            'update recipe_steps set position = ?, text = ?, image_path = ?, updated_at = ?, _dirty = 1 where id = ?',
+            [input.position, input.text, imagePath, ms, input.id],
+          );
+        },
+      });
+
+      return input.id;
+    },
+    onSuccess: (_, variables) => {
+      queryClient.invalidateQueries({ queryKey: ['recipe-detail', variables.recipe_id] });
+      queryClient.invalidateQueries({ queryKey: ['sync-status'] });
+    },
+  });
+}
+
+export function useDeleteStepMutation() {
+  const queryClient = useQueryClient();
+
+  return useMutation({
+    mutationFn: async (input: { id: string; recipe_id: string; household_id: string }) => {
+      const db = await getDatabase();
+      const { iso, ms } = nowStamp();
+
+      // Zutaten-Referenzen dieses Schritts muessen einzeln als geloescht
+      // markiert werden — analog zum Loeschen eines Rezepts oben, kein
+      // serverseitiges Kaskadieren bei Soft-Delete.
+      const stepIngredients = await db.getAllAsync<{ id: string }>(
+        'select id from recipe_step_ingredients where step_id = ? and deleted_at is null',
+        [input.id],
+      );
+      for (const stepIngredient of stepIngredients) {
+        await enqueueMutation(db, {
+          entity: 'recipe_step_ingredients',
+          entityId: stepIngredient.id,
+          op: 'delete',
+          payload: {
+            id: stepIngredient.id,
+            household_id: input.household_id,
+            deleted_at: iso,
+            updated_at: iso,
+          },
+          applyLocally: async (txn) => {
+            await txn.runAsync(
+              'update recipe_step_ingredients set deleted_at = ?, updated_at = ?, _dirty = 1 where id = ?',
+              [ms, ms, stepIngredient.id],
+            );
+          },
+        });
+      }
+
+      await enqueueMutation(db, {
+        entity: 'recipe_steps',
+        entityId: input.id,
+        op: 'delete',
+        payload: {
+          id: input.id,
+          household_id: input.household_id,
+          deleted_at: iso,
+          updated_at: iso,
+        },
+        applyLocally: async (txn) => {
+          await txn.runAsync(
+            'update recipe_steps set deleted_at = ?, updated_at = ?, _dirty = 1 where id = ?',
+            [ms, ms, input.id],
+          );
+        },
+      });
+
+      return input.id;
+    },
+    onSuccess: (_, variables) => {
+      queryClient.invalidateQueries({ queryKey: ['recipe-detail', variables.recipe_id] });
+      queryClient.invalidateQueries({ queryKey: ['sync-status'] });
+    },
+  });
+}
+
+export function useAddStepIngredientMutation() {
+  const queryClient = useQueryClient();
+
+  return useMutation({
+    mutationFn: async (input: {
+      step_id: string;
+      item_id: string;
+      recipe_id: string;
+      household_id: string;
+    }) => {
+      const db = await getDatabase();
+      const id = Crypto.randomUUID();
+      const { iso, ms } = nowStamp();
+
+      await enqueueMutation(db, {
+        entity: 'recipe_step_ingredients',
+        entityId: id,
+        op: 'insert',
+        payload: {
+          id,
+          step_id: input.step_id,
+          item_id: input.item_id,
+          household_id: input.household_id,
+          created_at: iso,
+          updated_at: iso,
+        },
+        applyLocally: async (txn) => {
+          await txn.runAsync(
+            `insert into recipe_step_ingredients
+               (id, step_id, item_id, household_id, created_at, updated_at, _dirty)
+             values (?, ?, ?, ?, ?, ?, 1)`,
+            [id, input.step_id, input.item_id, input.household_id, iso, ms],
+          );
+        },
+      });
+
+      return { id, ...input };
+    },
+    onSuccess: (_, variables) => {
+      queryClient.invalidateQueries({ queryKey: ['recipe-detail', variables.recipe_id] });
+      queryClient.invalidateQueries({ queryKey: ['sync-status'] });
+    },
+  });
+}
+
+export function useRemoveStepIngredientMutation() {
+  const queryClient = useQueryClient();
+
+  return useMutation({
+    mutationFn: async (input: { id: string; recipe_id: string; household_id: string }) => {
+      const db = await getDatabase();
+      const { iso, ms } = nowStamp();
+
+      await enqueueMutation(db, {
+        entity: 'recipe_step_ingredients',
+        entityId: input.id,
+        op: 'delete',
+        payload: {
+          id: input.id,
+          household_id: input.household_id,
+          deleted_at: iso,
+          updated_at: iso,
+        },
+        applyLocally: async (txn) => {
+          await txn.runAsync(
+            'update recipe_step_ingredients set deleted_at = ?, updated_at = ?, _dirty = 1 where id = ?',
             [ms, ms, input.id],
           );
         },
