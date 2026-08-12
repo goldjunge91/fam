@@ -11,28 +11,18 @@ import {
   type ProductUsageRow,
 } from '@/lib/db/product-usage';
 import type { OpenFoodFactsProduct } from '@/lib/open-food-facts';
+import { rankByName } from '@/lib/rank-by-name';
 
 /**
  * Haeufig verwendete Produkte je Name, absteigend nach Haeufigkeit sortiert —
  * bei Gleichstand bleibt die juengste Fundstelle vorn, weil
  * `getFrequentProductUsage` bereits neueste zuerst liefert (stabile Sortierung).
- * Dasselbe Ranking-Prinzip wie `rankFrequentFoods` in
+ * Nutzt dasselbe `rankByName` wie `rankFrequentFoods` in
  * `calorie-tracking/food-history.ts`, hier fuer Vorrat/Einkaufsliste ohne
  * Mahlzeitart-Bezug.
  */
 function rankByFrequency(rowsNewestFirst: ProductUsageRow[]): ProductUsageRow[] {
-  const counts = new Map<string, number>();
-  const representative = new Map<string, ProductUsageRow>();
-
-  for (const row of rowsNewestFirst) {
-    const key = row.name.toLowerCase();
-    counts.set(key, (counts.get(key) ?? 0) + 1);
-    if (!representative.has(key)) representative.set(key, row);
-  }
-
-  return Array.from(representative.entries())
-    .sort(([a], [b]) => (counts.get(b) ?? 0) - (counts.get(a) ?? 0))
-    .map(([, row]) => row);
+  return rankByName(rowsNewestFirst, { caseInsensitive: true });
 }
 
 function toOpenFoodFactsProduct(row: ProductUsageRow): OpenFoodFactsProduct {

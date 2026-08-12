@@ -1,3 +1,5 @@
+import { rankByName } from '@/lib/rank-by-name';
+
 export type FoodHistoryEntry = {
   name: string;
   kcal: number | null;
@@ -34,15 +36,5 @@ export function dedupeRecentFoods(entriesNewestFirst: FoodHistoryEntry[]): FoodH
  * juengste Fundstelle vorn (stabile Sortierung + `entriesNewestFirst`).
  */
 export function rankFrequentFoods(entriesNewestFirst: FoodHistoryEntry[]): FoodHistoryEntry[] {
-  const counts = new Map<string, number>();
-  const representative = new Map<string, FoodHistoryEntry>();
-
-  for (const entry of entriesNewestFirst) {
-    counts.set(entry.name, (counts.get(entry.name) ?? 0) + 1);
-    if (!representative.has(entry.name)) representative.set(entry.name, entry);
-  }
-
-  return Array.from(representative.values()).sort(
-    (a, b) => (counts.get(b.name) ?? 0) - (counts.get(a.name) ?? 0),
-  );
+  return rankByName(entriesNewestFirst);
 }
