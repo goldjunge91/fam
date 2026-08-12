@@ -82,9 +82,16 @@ export type ProductUsageRow = {
 };
 
 /**
- * Rohdaten fuer die Haeufig-genutzt-Anzeige, neueste zuerst — Dedupe/Ranking
- * nach Haeufigkeit (mit Aktualitaet als Tiebreak) macht der Aufrufer, siehe
- * `dedupeRecentFoods`/`rankFrequentFoods` in `food-history.ts`.
+ * Rohdaten fuer die Haeufig-genutzt-Anzeige, ein Eintrag je Name (case-
+ * insensitiv), absteigend nach Haeufigkeit sortiert — bei Gleichstand bleibt
+ * die juengste Fundstelle vorn. Dedupe/Ranking laeuft in SQL (statt beim
+ * Aufrufer wie zuvor), damit `limit` distinkte Produkte begrenzt statt
+ * Rohzeilen: sonst kann ein einzelnes, oft protokolliertes Produkt (z. B.
+ * taeglicher Kaffee) das ganze `limit`-Fenster fuellen, bevor die
+ * JS-seitige Dedupe (`dedupeRecentFoods`/`rankFrequentFoods` in
+ * `food-history.ts`) ueberhaupt zum Zug kommt. Diese Funktionen bleiben
+ * bestehen, werden mit bereits deduplizierten Zeilen aber zu einer
+ * Durchreiche.
  *
  * `mealType: null` liefert alle Mahlzeitarten (fuer `fridge`/`shopping_list`,
  * die keine kennen); ein gesetzter Wert schraenkt fuer `diary` ein (#79 AC:
@@ -101,10 +108,17 @@ export async function getFrequentProductUsage(
 ): Promise<ProductUsageRow[]> {
   const { userId, feature, mealType = null, limit = 200 } = params;
   return db.getAllAsync<ProductUsageRow>(
-    `select name, brand, barcode, product_id, unit, quantity, kcal, protein_g, carbs_g, fat_g, used_at
-     from product_usage
-     where user_id = ? and feature = ? and (? is null or meal_type = ?)
-     order by used_at desc
+    `with ranked as (
+       select *,
+              row_number() over (partition by lower(name) order by used_at desc) as rn,
+              count(*) over (partition by lower(name)) as freq
+       from product_usage
+       where user_id = ? and feature = ? and (? is null or meal_type = ?)
+     )
+     select name, brand, barcode, product_id, unit, quantity, kcal, protein_g, carbs_g, fat_g, used_at
+     from ranked
+     where rn = 1
+     order by freq desc, used_at desc
      limit ?`,
     [userId, feature, mealType, mealType, limit],
   );
