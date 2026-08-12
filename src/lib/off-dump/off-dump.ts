@@ -189,7 +189,15 @@ export async function getOffDumpStatus(db: SqlDatabase): Promise<OffDumpStatus> 
  * unterstuetzt laut `SqlDatabase`-Port ohnehin keine Parameterbindung.
  *
  * Einmal pro Prozesslauf: ein zweites `ATTACH ... AS off_dump` auf derselben
- * Connection schlaegt fehl ("database off_dump is already in use").
+ * Connection schlaegt fehl ("database off_dump is already in use"). Im Dev-
+ * Betrieb passiert genau das bei jedem Metro-Fast-Refresh dieses Moduls: Der
+ * native SQLite-Connection-Handle bleibt ueber den Reload hinweg bestehen
+ * (nichts schliesst ihn), aber `attachedThisSession` ist ein JS-Modul-Level-
+ * `let` und wird beim Reload auf `false` zurueckgesetzt — der naechste
+ * Aufruf haelt sich faelschlich fuer den ersten und attacht erneut gegen
+ * dieselbe, laengst angehaengte Connection. Statt das als Fehler nach oben
+ * zu reichen, werten wir genau diese SQLite-Fehlermeldung als "war schon
+ * angehaengt" statt als echten Fehlschlag.
  */
 export async function attachOffDump(db: SqlDatabase): Promise<boolean> {
   if (attachedThisSession) return true;
@@ -199,7 +207,12 @@ export async function attachOffDump(db: SqlDatabase): Promise<boolean> {
   if (!target.exists) return false;
 
   const escapedPath = toFsPath(target.uri).replace(/'/g, "''");
-  await db.execAsync(`ATTACH DATABASE '${escapedPath}' AS off_dump`);
+  try {
+    await db.execAsync(`ATTACH DATABASE '${escapedPath}' AS off_dump`);
+  } catch (err) {
+    const message = err instanceof Error ? err.message : String(err);
+    if (!message.includes('off_dump is already in use')) throw err;
+  }
   attachedThisSession = true;
   return true;
 }
