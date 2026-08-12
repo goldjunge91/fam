@@ -471,3 +471,39 @@ falls die Paid-Kandidaten-Liste wächst — kein Thema für den ersten Bau.
     Skript müsste um `nova_group` erweitert werden, sonst funktioniert das
     Achievement nur für Produkte, die live über die OFF-API geladen wurden
     (nicht für den Offline-Produktbestand aus dem Dump).
+
+## Erstellte Issues (2026-08-12)
+
+Erste Runde: nur die drei höchstprioritären Epics (#12, #15, #19), plus zwei
+neue Epics für bisher unerfasste Ideen. Die zurückgestellten Epics (#16,
+#18, #22, #24) haben bewusst noch keine Kind-Issues.
+
+**Neue Epics:**
+- [#121](https://github.com/goldjunge91/fam/issues/121) — Prospekt-/Angebots-Tracking (Phase 3 - Advanced)
+- [#122](https://github.com/goldjunge91/fam/issues/122) — UI/UX Komponenten-System (Phase 2 - Core)
+
+**#12 Rezept-Manager:**
+- [#123](https://github.com/goldjunge91/fam/issues/123) Datenmodell (recipes, recipe_components, rekursiv)
+- [#124](https://github.com/goldjunge91/fam/issues/124) Rekursive Nährwert-Berechnung (reine Funktion)
+- [#125](https://github.com/goldjunge91/fam/issues/125) Erstellen/Bearbeiten-Screen (Komponenten-Baukasten)
+- [#126](https://github.com/goldjunge91/fam/issues/126) Liste & Detail-Screen
+- [#127](https://github.com/goldjunge91/fam/issues/127) Ins Tagebuch loggen mit individueller Komponenten-Anpassung
+
+**#15 Meal-Planner:**
+- [#128](https://github.com/goldjunge91/fam/issues/128) Datenmodell (meal_plans, meal_plan_entries)
+- [#129](https://github.com/goldjunge91/fam/issues/129) Wochenplan-Grid mit Drag & Drop
+- [#130](https://github.com/goldjunge91/fam/issues/130) Portionen-/Personen-Eingabe je Eintrag
+- [#131](https://github.com/goldjunge91/fam/issues/131) → Einkaufsliste: kuratierte Generierung
+- [#132](https://github.com/goldjunge91/fam/issues/132) → Einkaufsliste: vollautomatische Übernahme (Paid)
+
+**#19 Kochmodus:**
+- [#133](https://github.com/goldjunge91/fam/issues/133) Basis-Screen (kostenlos: nur Zutaten+Text)
+- [#134](https://github.com/goldjunge91/fam/issues/134) Geführte Schritt-für-Schritt-Navigation (Paid)
+- [#135](https://github.com/goldjunge91/fam/issues/135) Timer mit manueller Kontrolle (Paid)
+- [#136](https://github.com/goldjunge91/fam/issues/136) Sprachsteuerung (Paid, separate Ausbaustufe)
+- [#137](https://github.com/goldjunge91/fam/issues/137) "Was kann ich kochen?" (zurückgestellt, braucht KI)
+
+**Noch ohne Kind-Issues:** #11 (MHD-Vorausfüllung — kleines eigenständiges
+Issue, noch zu erstellen), #13, #14, #20, #21, #23 (alle inhaltlich fertig
+gebrainstormt, aber noch nicht in dieser Runde), #16/#18/#22/#24
+(zurückgestellt).
