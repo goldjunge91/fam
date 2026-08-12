@@ -1,11 +1,11 @@
 import { Image } from 'expo-image';
+import { memo } from 'react';
 import { Pressable, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
-import {
-  NestableDraggableFlatList,
-  NestableScrollContainer,
-  type RenderItemParams,
-  ScaleDecorator,
-} from 'react-native-draggable-flatlist';
+import ReorderableList, {
+  type ReorderableListReorderEvent,
+  reorderItems,
+  useReorderableDrag,
+} from 'react-native-reorderable-list';
 import Svg, { Path } from 'react-native-svg';
 
 import { pickRecipeStepImage } from '@/features/recipes/recipe-step-image';
@@ -35,6 +35,103 @@ interface RecipeWizardStepStepsProps {
   onBack: () => void;
   onNext: () => void;
 }
+
+interface StepCardProps {
+  step: WizardStepItem;
+  index: number;
+  ingredients: AvailableIngredient[];
+  onUpdateStep: (id: string, patch: Partial<WizardStepItem>) => void;
+  onRemoveStep: (id: string) => void;
+  onToggleIngredient: (stepId: string, itemId: string) => void;
+  onPickImage: (stepId: string) => void;
+}
+
+const StepCard = memo(function StepCard({
+  step,
+  index,
+  ingredients,
+  onUpdateStep,
+  onRemoveStep,
+  onToggleIngredient,
+  onPickImage,
+}: StepCardProps) {
+  const drag = useReorderableDrag();
+
+  return (
+    <View style={styles.stepCard}>
+      <View style={styles.stepHeader}>
+        <TouchableOpacity
+          onLongPress={drag}
+          style={styles.dragHandle}
+          accessibilityLabel="Schritt verschieben">
+          <Text style={styles.dragHandleText}>≡</Text>
+        </TouchableOpacity>
+        <Text style={styles.stepIndex}>Schritt {index + 1}</Text>
+        <TouchableOpacity
+          onPress={() => onRemoveStep(step.id)}
+          style={styles.trashCircleButton}
+          accessibilityRole="button"
+          accessibilityLabel="Delete step">
+          <Svg width={16} height={16} viewBox="0 0 24 24" fill="none">
+            <Path
+              d="M3 6h18M19 6v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6m3 0V4a2 2 0 012-2h4a2 2 0 012 2v2"
+              stroke="#FF5262"
+              strokeWidth={2}
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </Svg>
+        </TouchableOpacity>
+      </View>
+
+      {ingredients.length > 0 ? (
+        <View style={styles.chipRow}>
+          {ingredients.map((ing) => {
+            const selected = step.ingredientIds.includes(ing.itemId);
+            return (
+              <Pressable
+                key={ing.itemId}
+                style={[styles.chip, selected && styles.chipActive]}
+                onPress={() => onToggleIngredient(step.id, ing.itemId)}>
+                <Text style={[styles.chipText, selected && styles.chipTextActive]}>
+                  {ing.label}
+                </Text>
+              </Pressable>
+            );
+          })}
+        </View>
+      ) : null}
+
+      <TextInput
+        style={styles.stepInput}
+        value={step.text}
+        onChangeText={(val) => onUpdateStep(step.id, { text: val })}
+        placeholder={`Was ist in Schritt ${index + 1} zu tun?`}
+        placeholderTextColor="#C4B0B2"
+        multiline
+      />
+
+      {step.localImageUri ? (
+        <View style={styles.imagePreviewWrap}>
+          <Image
+            source={{ uri: step.localImageUri }}
+            style={styles.imagePreview}
+            contentFit="cover"
+          />
+          <TouchableOpacity
+            style={styles.removeImageBtn}
+            onPress={() => onUpdateStep(step.id, { localImageUri: null, existingImagePath: null })}>
+            <Text style={styles.removeImageBtnText}>Bild entfernen</Text>
+          </TouchableOpacity>
+        </View>
+      ) : (
+        <TouchableOpacity style={styles.addImageBtn} onPress={() => onPickImage(step.id)}>
+          <Text style={styles.addImageBtnText}>+ Bild hinzufügen</Text>
+        </TouchableOpacity>
+      )}
+    </View>
+  );
+});
 
 export function RecipeWizardStepSteps({
   steps,
@@ -81,116 +178,52 @@ export function RecipeWizardStepSteps({
     if (uri) updateStep(stepId, { localImageUri: uri });
   }
 
+  function handleReorder({ from, to }: ReorderableListReorderEvent) {
+    onStepsChange(reorderItems(steps, from, to));
+  }
+
   return (
-    <NestableScrollContainer
+    <ReorderableList
       style={styles.scrollView}
       contentContainerStyle={styles.scrollContent}
-      showsVerticalScrollIndicator={false}>
-      <Text style={styles.sectionLabel}>Zubereitungsschritte</Text>
-      <Text style={styles.hint}>Zum Umsortieren einen Schritt gedrückt halten und ziehen.</Text>
+      showsVerticalScrollIndicator={false}
+      data={steps}
+      onReorder={handleReorder}
+      keyExtractor={(item) => item.id}
+      renderItem={({ item, index }) => (
+        <StepCard
+          step={item}
+          index={index ?? 0}
+          ingredients={ingredients}
+          onUpdateStep={updateStep}
+          onRemoveStep={removeStep}
+          onToggleIngredient={toggleIngredient}
+          onPickImage={pickImageFor}
+        />
+      )}
+      ListHeaderComponent={
+        <>
+          <Text style={styles.sectionLabel}>Zubereitungsschritte</Text>
+          <Text style={styles.hint}>Zum Umsortieren einen Schritt gedrückt halten und ziehen.</Text>
+        </>
+      }
+      ListFooterComponent={
+        <>
+          <TouchableOpacity style={styles.addStepBtn} onPress={addStep}>
+            <Text style={styles.addStepBtnText}>+ Schritt hinzufügen</Text>
+          </TouchableOpacity>
 
-      <NestableDraggableFlatList<WizardStepItem>
-        data={steps}
-        keyExtractor={(item) => item.id}
-        renderItem={({ item, getIndex, drag, isActive }: RenderItemParams<WizardStepItem>) => {
-          const index = getIndex() ?? 0;
-          return (
-            <ScaleDecorator>
-              <View style={[styles.stepCard, isActive && styles.stepCardActive]}>
-                <View style={styles.stepHeader}>
-                  <TouchableOpacity
-                    onLongPress={drag}
-                    style={styles.dragHandle}
-                    accessibilityLabel="Schritt verschieben">
-                    <Text style={styles.dragHandleText}>≡</Text>
-                  </TouchableOpacity>
-                  <Text style={styles.stepIndex}>Schritt {index + 1}</Text>
-                  <TouchableOpacity
-                    onPress={() => removeStep(item.id)}
-                    style={styles.trashCircleButton}
-                    accessibilityRole="button"
-                    accessibilityLabel="Delete step">
-                    <Svg width={16} height={16} viewBox="0 0 24 24" fill="none">
-                      <Path
-                        d="M3 6h18M19 6v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6m3 0V4a2 2 0 012-2h4a2 2 0 012 2v2"
-                        stroke="#FF5262"
-                        strokeWidth={2}
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </Svg>
-                  </TouchableOpacity>
-                </View>
-
-                {ingredients.length > 0 ? (
-                  <View style={styles.chipRow}>
-                    {ingredients.map((ing) => {
-                      const selected = item.ingredientIds.includes(ing.itemId);
-                      return (
-                        <Pressable
-                          key={ing.itemId}
-                          style={[styles.chip, selected && styles.chipActive]}
-                          onPress={() => toggleIngredient(item.id, ing.itemId)}>
-                          <Text style={[styles.chipText, selected && styles.chipTextActive]}>
-                            {ing.label}
-                          </Text>
-                        </Pressable>
-                      );
-                    })}
-                  </View>
-                ) : null}
-
-                <TextInput
-                  style={styles.stepInput}
-                  value={item.text}
-                  onChangeText={(val) => updateStep(item.id, { text: val })}
-                  placeholder={`Was ist in Schritt ${index + 1} zu tun?`}
-                  placeholderTextColor="#C4B0B2"
-                  multiline
-                />
-
-                {item.localImageUri ? (
-                  <View style={styles.imagePreviewWrap}>
-                    <Image
-                      source={{ uri: item.localImageUri }}
-                      style={styles.imagePreview}
-                      contentFit="cover"
-                    />
-                    <TouchableOpacity
-                      style={styles.removeImageBtn}
-                      onPress={() =>
-                        updateStep(item.id, { localImageUri: null, existingImagePath: null })
-                      }>
-                      <Text style={styles.removeImageBtnText}>Bild entfernen</Text>
-                    </TouchableOpacity>
-                  </View>
-                ) : (
-                  <TouchableOpacity
-                    style={styles.addImageBtn}
-                    onPress={() => pickImageFor(item.id)}>
-                    <Text style={styles.addImageBtnText}>+ Bild hinzufügen</Text>
-                  </TouchableOpacity>
-                )}
-              </View>
-            </ScaleDecorator>
-          );
-        }}
-        onDragEnd={({ data }) => onStepsChange(data)}
-      />
-
-      <TouchableOpacity style={styles.addStepBtn} onPress={addStep}>
-        <Text style={styles.addStepBtnText}>+ Schritt hinzufügen</Text>
-      </TouchableOpacity>
-
-      <View style={styles.navRow}>
-        <Pressable style={[styles.navButton, styles.navButtonSecondary]} onPress={onBack}>
-          <Text style={styles.navButtonSecondaryText}>Zurück</Text>
-        </Pressable>
-        <Pressable style={[styles.navButton, styles.navButtonPrimary]} onPress={onNext}>
-          <Text style={styles.navButtonPrimaryText}>Weiter</Text>
-        </Pressable>
-      </View>
-    </NestableScrollContainer>
+          <View style={styles.navRow}>
+            <Pressable style={[styles.navButton, styles.navButtonSecondary]} onPress={onBack}>
+              <Text style={styles.navButtonSecondaryText}>Zurück</Text>
+            </Pressable>
+            <Pressable style={[styles.navButton, styles.navButtonPrimary]} onPress={onNext}>
+              <Text style={styles.navButtonPrimaryText}>Weiter</Text>
+            </Pressable>
+          </View>
+        </>
+      }
+    />
   );
 }
 
@@ -219,13 +252,6 @@ const styles = StyleSheet.create({
     padding: 16,
     marginBottom: 14,
     gap: 10,
-  },
-  stepCardActive: {
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.2,
-    shadowRadius: 8,
-    elevation: 6,
   },
   stepHeader: {
     flexDirection: 'row',
