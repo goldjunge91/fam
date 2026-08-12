@@ -1,3 +1,4 @@
+import { useQueryClient } from '@tanstack/react-query';
 import * as Crypto from 'expo-crypto';
 import { router, useFocusEffect } from 'expo-router';
 import { useCallback, useState } from 'react';
@@ -50,6 +51,7 @@ export function AddItemScreen() {
   const addProductMutation = useAddProductMutation();
   const { session } = useSession();
   const userId = session?.user.id;
+  const queryClient = useQueryClient();
 
   const [name, setName] = useState('');
   const [quantity, setQuantity] = useState('1');
@@ -133,6 +135,7 @@ export function AddItemScreen() {
               unit,
             }),
           )
+          .then(() => queryClient.invalidateQueries({ queryKey: ['product_usage'] }))
           .catch((err) => console.error('Fehler beim Protokollieren der Nutzung:', err));
       }
 

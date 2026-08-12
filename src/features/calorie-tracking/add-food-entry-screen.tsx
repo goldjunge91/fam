@@ -1,3 +1,4 @@
+import { useQueryClient } from '@tanstack/react-query';
 import * as Crypto from 'expo-crypto';
 import { router, useLocalSearchParams } from 'expo-router';
 import { useEffect, useState } from 'react';
@@ -102,6 +103,7 @@ export function AddFoodEntryScreen() {
   const { session } = useSession();
   const userId = session?.user.id;
   const isEditing = !!params.entryId;
+  const queryClient = useQueryClient();
 
   const { activeHousehold } = useActiveHousehold();
   const { data: childProfiles = [] } = useChildProfiles(activeHousehold?.id ?? '');
@@ -264,6 +266,7 @@ export function AddFoodEntryScreen() {
               fatG: payload.fatG,
             }),
           )
+          .then(() => queryClient.invalidateQueries({ queryKey: ['product_usage'] }))
           .catch((err) => console.error('Fehler beim Protokollieren der Nutzung:', err));
       }
       router.back();

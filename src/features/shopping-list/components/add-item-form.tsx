@@ -1,3 +1,4 @@
+import { useQueryClient } from '@tanstack/react-query';
 import * as Crypto from 'expo-crypto';
 import { useEffect, useState } from 'react';
 import { StyleSheet, View } from 'react-native';
@@ -43,6 +44,7 @@ export function AddItemForm({ householdId, onDismiss }: AddItemFormProps) {
   const addProductMutation = useAddProductMutation();
   const { session } = useSession();
   const userId = session?.user.id;
+  const queryClient = useQueryClient();
 
   useEffect(() => {
     setCategory(guessCategory(name));
@@ -94,6 +96,7 @@ export function AddItemForm({ householdId, onDismiss }: AddItemFormProps) {
             unit,
           }),
         )
+        .then(() => queryClient.invalidateQueries({ queryKey: ['product_usage'] }))
         .catch((err) => console.error('Fehler beim Protokollieren der Nutzung:', err));
     }
 
