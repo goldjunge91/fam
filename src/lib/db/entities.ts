@@ -115,7 +115,6 @@ export const ENTITIES: Readonly<Record<Entity, EntityMeta>> = {
       'household_id',
       'title',
       'instructions',
-      'steps',
       'cover_image_path',
       'cook_time_minutes',
       'difficulty',
@@ -147,8 +146,24 @@ export const ENTITIES: Readonly<Record<Entity, EntityMeta>> = {
       'product_id',
       'sub_component_id',
       'grams',
+      'quantity',
+      'unit',
       'created_at',
     ],
+  },
+  recipe_steps: {
+    entity: 'recipe_steps',
+    table: 'recipe_steps',
+    hasServerTombstone: true,
+    householdScoped: true,
+    columns: ['id', 'recipe_id', 'household_id', 'position', 'text', 'image_path', 'created_at'],
+  },
+  recipe_step_ingredients: {
+    entity: 'recipe_step_ingredients',
+    table: 'recipe_step_ingredients',
+    hasServerTombstone: true,
+    householdScoped: true,
+    columns: ['id', 'step_id', 'item_id', 'household_id', 'created_at'],
   },
 };
 
@@ -170,6 +185,8 @@ export const ALL_ENTITIES: readonly Entity[] = [
   'recipes',
   'recipe_components',
   'recipe_component_items',
+  'recipe_steps',
+  'recipe_step_ingredients',
 ];
 
 export function hasServerTombstone(entity: Entity): boolean {

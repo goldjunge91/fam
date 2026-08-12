@@ -341,6 +341,46 @@ alter table recipes add column hashtags text not null default '[]';
 alter table recipes add column default_servings integer not null default 1;
 `;
 
+// Rezept-Wizard: Schritte bekommen eine eigene Tabelle statt des bisherigen
+// `recipes.steps`-JSON-Arrays (Bild + Zutaten-Referenzen pro Schritt sind
+// Pro-Schritt-Metadaten, dafuer reicht eine Array-Spalte nicht mehr). Zudem
+// quantity/unit auf recipe_component_items fuer die Mengen-Roheingabe
+// (grams bleibt die kanonische, von nutrition.ts genutzte Spalte).
+const V11_RECIPE_STEPS = `
+alter table recipes drop column steps;
+
+alter table recipe_component_items add column quantity real;
+alter table recipe_component_items add column unit text not null default 'g';
+
+create table if not exists recipe_steps (
+  id           text primary key not null,
+  recipe_id    text not null,
+  household_id text not null,
+  position     integer not null,
+  text         text not null,
+  image_path   text,
+  created_at   text,
+  updated_at   integer not null,
+  deleted_at   integer,
+  _dirty       integer not null default 0
+);
+create index if not exists recipe_steps_recipe_idx on recipe_steps (recipe_id, deleted_at);
+create index if not exists recipe_steps_dirty_idx on recipe_steps (_dirty) where _dirty = 1;
+
+create table if not exists recipe_step_ingredients (
+  id           text primary key not null,
+  step_id      text not null,
+  item_id      text not null,
+  household_id text not null,
+  created_at   text,
+  updated_at   integer not null,
+  deleted_at   integer,
+  _dirty       integer not null default 0
+);
+create index if not exists recipe_step_ingredients_step_idx on recipe_step_ingredients (step_id, deleted_at);
+create index if not exists recipe_step_ingredients_dirty_idx on recipe_step_ingredients (_dirty) where _dirty = 1;
+`;
+
 export const MIGRATIONS: readonly Migration[] = [
   {
     version: 1,
@@ -391,5 +431,10 @@ export const MIGRATIONS: readonly Migration[] = [
     version: 10,
     name: 'recipe_metadata_und_storage',
     statements: [V10_RECIPE_METADATA],
+  },
+  {
+    version: 11,
+    name: 'recipe_steps',
+    statements: [V11_RECIPE_STEPS],
   },
 ];

@@ -488,8 +488,10 @@ export type Database = {
           household_id: string
           id: string
           product_id: string | null
+          quantity: number | null
           recipe_id: string
           sub_component_id: string | null
+          unit: string
           updated_at: string
         }
         Insert: {
@@ -500,8 +502,10 @@ export type Database = {
           household_id: string
           id?: string
           product_id?: string | null
+          quantity?: number | null
           recipe_id: string
           sub_component_id?: string | null
+          unit?: string
           updated_at?: string
         }
         Update: {
@@ -512,8 +516,10 @@ export type Database = {
           household_id?: string
           id?: string
           product_id?: string | null
+          quantity?: number | null
           recipe_id?: string
           sub_component_id?: string | null
+          unit?: string
           updated_at?: string
         }
         Relationships: [
@@ -602,6 +608,109 @@ export type Database = {
           },
         ]
       }
+      recipe_step_ingredients: {
+        Row: {
+          created_at: string
+          deleted_at: string | null
+          household_id: string
+          id: string
+          item_id: string
+          step_id: string
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          deleted_at?: string | null
+          household_id: string
+          id?: string
+          item_id: string
+          step_id: string
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          deleted_at?: string | null
+          household_id?: string
+          id?: string
+          item_id?: string
+          step_id?: string
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "recipe_step_ingredients_household_id_fkey"
+            columns: ["household_id"]
+            isOneToOne: false
+            referencedRelation: "households"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "recipe_step_ingredients_item_id_fkey"
+            columns: ["item_id"]
+            isOneToOne: false
+            referencedRelation: "recipe_component_items"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "recipe_step_ingredients_step_id_fkey"
+            columns: ["step_id"]
+            isOneToOne: false
+            referencedRelation: "recipe_steps"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      recipe_steps: {
+        Row: {
+          created_at: string
+          deleted_at: string | null
+          household_id: string
+          id: string
+          image_path: string | null
+          position: number
+          recipe_id: string
+          text: string
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          deleted_at?: string | null
+          household_id: string
+          id?: string
+          image_path?: string | null
+          position: number
+          recipe_id: string
+          text: string
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          deleted_at?: string | null
+          household_id?: string
+          id?: string
+          image_path?: string | null
+          position?: number
+          recipe_id?: string
+          text?: string
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "recipe_steps_household_id_fkey"
+            columns: ["household_id"]
+            isOneToOne: false
+            referencedRelation: "households"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "recipe_steps_recipe_id_fkey"
+            columns: ["recipe_id"]
+            isOneToOne: false
+            referencedRelation: "recipes"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       recipes: {
         Row: {
           cook_time_minutes: number | null
@@ -617,7 +726,6 @@ export type Database = {
           household_id: string
           id: string
           instructions: string | null
-          steps: string[]
           title: string
           updated_at: string
         }
@@ -635,7 +743,6 @@ export type Database = {
           household_id: string
           id?: string
           instructions?: string | null
-          steps?: string[]
           title: string
           updated_at?: string
         }
@@ -653,7 +760,6 @@ export type Database = {
           household_id?: string
           id?: string
           instructions?: string | null
-          steps?: string[]
           title?: string
           updated_at?: string
         }

@@ -8,3 +8,7 @@
 insert into storage.buckets (id, name, public, file_size_limit)
 values ('recipe-covers', 'recipe-covers', false, 5242880)
 on conflict (id) do nothing;
+
+insert into storage.buckets (id, name, public, file_size_limit)
+values ('recipe-step-images', 'recipe-step-images', false, 5242880)
+on conflict (id) do nothing;

@@ -21,7 +21,7 @@ export type UpsertMirrorRowOptions = {
 function toSqlParam(value: unknown): SqlParam {
   if (value === undefined || value === null) return null;
   if (typeof value === 'string' || typeof value === 'number') return value;
-  // Postgres text[]-Spalten (recipes.steps/dish_types/dietary_tags/hashtags)
+  // Postgres text[]-Spalten (recipes.dish_types/dietary_tags/hashtags)
   // kommen von postgrest-js als JS-Array — SQLite kennt keinen Array-Typ,
   // deshalb als JSON-Text gespiegelt. Aufrufer, die die Spalte lesen, parsen
   // selbst zurueck (siehe use-recipes.ts).

@@ -25,13 +25,8 @@ create table if not exists public.recipes (
 
   title text not null check (length(trim(title)) between 1 and 200),
   -- Kurzer Einfuehrungstext (Wizard-Schritt "Introduction"). Die eigentliche
-  -- Zubereitung steht in `steps`, nicht hier.
+  -- Zubereitung steht in `recipe_steps`, nicht hier.
   instructions text,
-  -- Nummerierte Zubereitungsschritte, in Eingabereihenfolge. Bewusst ein
-  -- Array statt einer eigenen Tabelle: kein Bedarf fuer Pro-Schritt-Metadaten
-  -- (Timer/Audio sind eigene, spaeter geplante Paid-Features, #133-#136) —
-  -- eine Spalte spart Tabelle, RLS und Sync-Entity fuer reine Textzeilen.
-  steps text[] not null default '{}',
 
   cover_image_path text,
   cook_time_minutes integer check (cook_time_minutes > 0),
@@ -120,7 +115,17 @@ create table if not exists public.recipe_component_items (
   product_id uuid references public.products (id) on delete set null,
   sub_component_id uuid references public.recipe_components (id) on delete cascade,
 
+  -- Kanonische Rechengroesse fuer nutrition.ts, wird aus quantity/unit
+  -- abgeleitet (client-seitig ueber toGramsEquivalent, kein DB-Trigger —
+  -- konsistent mit dem Muster, dass Naehrwertberechnung Sache der reinen
+  -- Funktionen in src/features/recipes/nutrition.ts ist, nicht der DB).
   grams numeric(8, 2) not null check (grams > 0),
+  -- Rohe Nutzereingabe (z. B. "2" + "piece"), nullable fuer Altdaten ohne
+  -- Roheingabe. Gleiche erlaubte Einheiten wie fridge_items/shopping_list
+  -- (08_inventory.sql), siehe src/lib/units.ts.
+  quantity numeric(10, 2) check (quantity > 0),
+  unit text not null default 'g'
+    check (unit in ('g', 'kg', 'ml', 'l', 'piece', 'package', 'portion')),
 
   created_at timestamptz not null default now(),
   updated_at timestamptz not null default now(),
@@ -131,7 +136,7 @@ create table if not exists public.recipe_component_items (
 );
 
 comment on table public.recipe_component_items is
-  'Position innerhalb einer Komponente: entweder Zutat (product_id) oder Unterkomponente (sub_component_id), nie beides.';
+  'Position innerhalb einer Komponente: entweder Zutat (product_id) oder Unterkomponente (sub_component_id), nie beides. quantity/unit ist die Roheingabe, grams die daraus abgeleitete kanonische Menge.';
 
 create index if not exists recipe_component_items_component_id_idx
   on public.recipe_component_items (component_id);
@@ -144,6 +149,67 @@ create index if not exists recipe_component_items_household_updated_idx
 
 create or replace trigger recipe_component_items_set_updated_at
   before update on public.recipe_component_items
+  for each row
+  execute function private.set_updated_at();
+
+-- --------------------------------------------------------- Zubereitungsschritte
+-- Vormals ein reines text[] auf `recipes` (siehe Git-Historie). Der Wizard
+-- (#12-Folgearbeit) braucht pro Schritt jetzt ein optionales Bild und
+-- referenzierte Zutaten — beides ist Pro-Schritt-Metadaten, fuer die eine
+-- Array-Spalte nicht mehr reicht, deshalb eine eigene Tabelle.
+create table if not exists public.recipe_steps (
+  id uuid primary key default gen_random_uuid(),
+  recipe_id uuid not null references public.recipes (id) on delete cascade,
+  household_id uuid not null references public.households (id) on delete cascade,
+
+  position integer not null check (position >= 0),
+  text text not null check (length(trim(text)) between 1 and 2000),
+  image_path text,
+
+  created_at timestamptz not null default now(),
+  updated_at timestamptz not null default now(),
+  deleted_at timestamptz
+);
+
+comment on table public.recipe_steps is
+  'Ein Zubereitungsschritt eines Rezepts, in Reihenfolge ueber position. image_path zeigt in den recipe-step-images-Bucket (13_recipe_step_storage.sql).';
+
+create index if not exists recipe_steps_recipe_id_idx
+  on public.recipe_steps (recipe_id);
+create index if not exists recipe_steps_household_updated_idx
+  on public.recipe_steps (household_id, updated_at);
+
+create or replace trigger recipe_steps_set_updated_at
+  before update on public.recipe_steps
+  for each row
+  execute function private.set_updated_at();
+
+-- ---------------------------------------------- Zutaten-Referenzen je Schritt
+create table if not exists public.recipe_step_ingredients (
+  id uuid primary key default gen_random_uuid(),
+  step_id uuid not null references public.recipe_steps (id) on delete cascade,
+  item_id uuid not null references public.recipe_component_items (id) on delete cascade,
+  household_id uuid not null references public.households (id) on delete cascade,
+
+  created_at timestamptz not null default now(),
+  updated_at timestamptz not null default now(),
+  deleted_at timestamptz,
+
+  unique (step_id, item_id)
+);
+
+comment on table public.recipe_step_ingredients is
+  'Verknuepft einen Zubereitungsschritt mit den darin verwendeten Zutaten-Positionen (recipe_component_items), fuer die Zutaten-Chips im Wizard und in der Detailansicht.';
+
+create index if not exists recipe_step_ingredients_step_id_idx
+  on public.recipe_step_ingredients (step_id);
+create index if not exists recipe_step_ingredients_item_id_idx
+  on public.recipe_step_ingredients (item_id);
+create index if not exists recipe_step_ingredients_household_updated_idx
+  on public.recipe_step_ingredients (household_id, updated_at);
+
+create or replace trigger recipe_step_ingredients_set_updated_at
+  before update on public.recipe_step_ingredients
   for each row
   execute function private.set_updated_at();
 
@@ -209,6 +275,8 @@ create or replace trigger recipe_component_items_check_consistency
 alter table public.recipes enable row level security;
 alter table public.recipe_components enable row level security;
 alter table public.recipe_component_items enable row level security;
+alter table public.recipe_steps enable row level security;
+alter table public.recipe_step_ingredients enable row level security;
 
 create policy recipes_household on public.recipes
   for all to authenticated
@@ -221,6 +289,16 @@ create policy recipe_components_household on public.recipe_components
   with check ((select private.is_household_member(household_id)));
 
 create policy recipe_component_items_household on public.recipe_component_items
+  for all to authenticated
+  using ((select private.is_household_member(household_id)))
+  with check ((select private.is_household_member(household_id)));
+
+create policy recipe_steps_household on public.recipe_steps
+  for all to authenticated
+  using ((select private.is_household_member(household_id)))
+  with check ((select private.is_household_member(household_id)));
+
+create policy recipe_step_ingredients_household on public.recipe_step_ingredients
   for all to authenticated
   using ((select private.is_household_member(household_id)))
   with check ((select private.is_household_member(household_id)));
