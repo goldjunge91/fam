@@ -14,7 +14,8 @@ import Svg, { Circle, Path } from 'react-native-svg';
 
 import { calculateComponentPer100g, calculateServingNutrition, scaleServing } from './nutrition';
 import { useRecipeCoverUrl } from './recipe-cover';
-import { type DishType, useRecipeDetail } from './use-recipes';
+import { useRecipeStepImageUrl } from './recipe-step-image';
+import { type DishType, type RecipeDetail, type RecipeStep, useRecipeDetail } from './use-recipes';
 
 const DIFFICULTY_LABELS: Record<string, string> = {
   easy: 'Einfach',
@@ -43,6 +44,40 @@ const DIETARY_TAG_LABELS: Record<string, string> = {
 
 function round(n: number): number {
   return Math.round(n);
+}
+
+/** Zutaten-Chip-Label "Produktname (Komponentenname)" fuer eine referenzierte recipe_component_items-Zeile. */
+function ingredientLabel(itemId: string, data: RecipeDetail): string {
+  const item = data.items.find((i) => i.id === itemId);
+  if (!item) return itemId;
+  const product = item.product_id ? data.productsById.get(item.product_id) : undefined;
+  const component = data.components.find((c) => c.id === item.component_id);
+  return `${product?.name ?? '?'}${component ? ` (${component.name})` : ''}`;
+}
+
+function StepCard({ step, data }: { step: RecipeStep; data: RecipeDetail }) {
+  const { data: imageUrl } = useRecipeStepImageUrl(step.image_path);
+
+  return (
+    <View style={styles.stepCard}>
+      <View style={styles.bulletRow}>
+        <Text style={styles.stepIndex}>{String(step.position + 1).padStart(2, '0')}</Text>
+        <Text style={styles.ingredientText}>{step.text}</Text>
+      </View>
+      {imageUrl ? (
+        <Image source={{ uri: imageUrl }} style={styles.stepImage} contentFit="cover" />
+      ) : null}
+      {step.ingredientIds.length > 0 ? (
+        <View style={styles.stepChipRow}>
+          {step.ingredientIds.map((id) => (
+            <Text key={id} style={styles.stepChip}>
+              {ingredientLabel(id, data)}
+            </Text>
+          ))}
+        </View>
+      ) : null}
+    </View>
+  );
 }
 
 export function RecipeDetailScreen() {
@@ -229,16 +264,12 @@ export function RecipeDetailScreen() {
 
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>Zubereitung</Text>
-          {recipe.steps.length === 0 ? (
+          {data.steps.length === 0 ? (
             <Text style={styles.emptyText}>Noch keine Zubereitungsschritte.</Text>
           ) : (
             <View style={styles.ingredientsList}>
-              {recipe.steps.map((text, index) => (
-                // biome-ignore lint/suspicious/noArrayIndexKey: reine Textliste, statisch aus dem Rezept geladen
-                <View key={`${index}-${text}`} style={styles.bulletRow}>
-                  <Text style={styles.stepIndex}>{String(index + 1).padStart(2, '0')}</Text>
-                  <Text style={styles.ingredientText}>{text}</Text>
-                </View>
+              {data.steps.map((step) => (
+                <StepCard key={step.id} step={step} data={data} />
               ))}
             </View>
           )}
@@ -475,6 +506,29 @@ const styles = StyleSheet.create({
   ingredientsList: {
     marginTop: 12,
     gap: 10,
+  },
+  stepCard: {
+    gap: 8,
+  },
+  stepImage: {
+    width: '100%',
+    height: 160,
+    borderRadius: 16,
+  },
+  stepChipRow: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: 6,
+    marginLeft: 34,
+  },
+  stepChip: {
+    fontSize: 12,
+    fontWeight: '600',
+    color: '#FF5262',
+    backgroundColor: '#FFE2E2',
+    paddingHorizontal: 10,
+    paddingVertical: 4,
+    borderRadius: 12,
   },
   bulletRow: {
     flexDirection: 'row',
