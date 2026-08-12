@@ -1,5 +1,22 @@
 # Projekt-Status: Family App (fam)
-> Stand: 2026-08-11 · Branch: `ac-luecken-fixes`
+> Stand: 2026-08-12 · Branch: `main`
+>
+> **MVP komplett: GitHub-Milestone "Phase 1 - MVP" hat 0 offene Issues (56 geschlossen).**
+> Wellen 0–8 aus `docs/ROADMAP.md` sind vollständig umgesetzt, getestet und
+> auf GitHub geschlossen. Offen sind ausschließlich die Phase-2–4-Epics
+> (#11–#24) — noch unspezifiziertes Zukunftswerk, siehe Abschnitt
+> "Roadmap (offene Epics, Future)" unten.
+>
+> Update 2026-08-12: Welle 8 (Datenschutz & Compliance, #96–#99) implementiert
+> — Datenschutzerklärung (`docs/DATENSCHUTZ.md`), Datenexport, Account-
+> Löschung (Edge Function `delete-account` + RPC `prepare_account_deletion`,
+> dabei einen vorbestehenden Bug in `guard_last_admin` gefunden und behoben,
+> der jede Haushaltslöschung mit mehr als einem Mitglied blockierte),
+> Privacy-Labels-Referenz (`docs/PRIVACY_LABELS.md`). #79 (Liste häufig
+> verwendeter Lebensmittel) stellte sich als bereits vollständig implementiert
+> heraus (nur nicht verifiziert) und wurde ebenfalls geschlossen. Damit sind
+> auch Epic 6 (#7), Epic 9 (#10) sowie die zuvor "fast fertig" markierten
+> Epics 2 und 3 (#3, #4) geschlossen.
 >
 > Update 2026-08-11: Epic 8 (Dashboard & Navigation, #89–#95) sowie Gate D (#70, 2-Geräte-Sync-Verifikation) sind vollständig im Code umgesetzt, verifiziert und auf GitHub geschlossen (Commits `704b953`, `4c262cf`, `1a76351`, `b06cd4d`, `f58e3bf`).
 >
@@ -38,7 +55,7 @@
 | #43 | RLS-Integrationstests gegen echtes Postgres | ✅ |
 | #44 | Realtime-Publication aktiviert | ✅ |
 
-### Epic 2 — Offline-Layer & Sync-Engine (🟡 OPEN #3, fast fertig)
+### Epic 2 — Offline-Layer & Sync-Engine (✅ CLOSED #3)
 | # | Issue | Status |
 |---|-------|--------|
 | #45 | expo-sqlite + lokales Schema | ✅ |
@@ -50,7 +67,7 @@
 | #51 | Offline-Indikator + SyncStatusBanner | ✅ |
 | **#70** | **Realtime-Sync zwischen 2 Geräten verifizieren** | **✅ CLOSED (Commit `1a76351` / `b06cd4d`)** |
 
-### Epic 3 — Auth & Onboarding (🟡 OPEN #4)
+### Epic 3 — Auth & Onboarding (✅ CLOSED #4)
 | # | Issue | Status |
 |---|-------|--------|
 | #52 | (auth)-Route-Group + Auth-Guard | ✅ |
@@ -93,7 +110,7 @@
 | #76 | Barcode-Scanner | ✅ CLOSED (2026-08-11) — `Haptics.notificationAsync` bei erfolgreichem Scan |
 | #77 | Produktdetail mit Portionsauswahl | ✅ CLOSED (Portionsskalierung sitzt in `add-food-entry-screen.tsx`, nicht in `inventory/product-detail-modal.tsx` — letzteres ist eine statische Demo) |
 | #78 | Einheiten-Umrechnung (pure functions) | ✅ CLOSED (2026-08-11) — `toGramsEquivalent`/`scaleToQuantity` in `units.ts`, `add-food-entry-screen.tsx` nutzt sie |
-| #79 | Liste häufig verwendeter Lebensmittel | 🔴 OPEN — bewusst zurückgestellt, Voraussetzung #86 jetzt erfüllt |
+| #79 | Liste häufig verwendeter Lebensmittel | ✅ CLOSED (2026-08-12) — war bereits implementiert (`product_usage`, `FrequentProductsQuickSelect`, `useLocalFoodUsage`), nur nicht verifiziert |
 | #80 | Produkt manuell anlegen | ✅ CLOSED (2026-08-11) — neuer `add-product-screen.tsx`, verlinkt aus der Produktsuche |
 
 ### Epic 7 — Kalorienziele & Ernährungstagebuch (✅ CLOSED)
@@ -119,13 +136,13 @@
 | #94 | Profil- und Einstellungs-Screen | ✅ (settings-screen.tsx ist der Account-Hub, doppelter profile-screen.tsx entfernt) |
 | #95 | Modul-Aktivierung (Feature-Flags) | ✅ CLOSED (neue profiles-Spalten, /settings/modules, ModuleGate) |
 
-### Epic 9 — Datenschutz & Compliance (🔴 OPEN #10)
+### Epic 9 — Datenschutz & Compliance (✅ CLOSED #10)
 | # | Issue | Status |
 |---|-------|--------|
-| #96 | Datenschutzerklärung (Verschlüsselung) | 🔴 OPEN |
-| #97 | Datenexport | 🔴 OPEN |
-| #98 | Account- und Datenlöschung | 🔴 OPEN |
-| #99 | App-Store-Privacy-Labels | 🔴 OPEN |
+| #96 | Datenschutzerklärung (Verschlüsselung) | ✅ CLOSED (2026-08-12) — `docs/DATENSCHUTZ.md` + `/settings/privacy` |
+| #97 | Datenexport | ✅ CLOSED (2026-08-12) — `/settings/export`, JSON via `expo-sharing` |
+| #98 | Account- und Datenlöschung | ✅ CLOSED (2026-08-12) — Edge Function `delete-account` + RPC `prepare_account_deletion` |
+| #99 | App-Store-Privacy-Labels | ✅ CLOSED (2026-08-12) — `docs/PRIVACY_LABELS.md` |
 
 ---
 
@@ -180,6 +197,8 @@
 
 Gate D (#70) ist verifiziert und alle 4 Wellen-Gates sind grün. **17 Issues aus Welle 4/5/6/7/8-Vorarbeiten wurden am 2026-08-11 gegen ihre Akzeptanzkriterien geprüft und auf GitHub geschlossen.** Bei der Prüfung kamen **15 offene Lücken** zum Vorschein (13 Issues mit einzelnen fehlenden AC, 2 Issues — `#78`, `#80` — komplett unimplementiert trotz vorheriger "✅"-Markierung); **alle 15 wurden noch am selben Tag auf Branch `ac-luecken-fixes` geschlossen** (22 Commits, jeweils mit Tests; Details in `tasks/fam-backlog/008-ac-luecken-verifikation.md`) und über PR #119 (Merge `45b650c`) in `main` gemerged. Alle 15 GitHub-Issues sind mit Beleg-Kommentar geschlossen.
 
+**MVP komplett (2026-08-12):** Welle 8 (Datenschutz & Compliance, `#96–99`) implementiert, `#79` verifiziert und geschlossen. GitHub-Milestone "Phase 1 - MVP" hat 0 offene Issues.
+
 Nächster inhaltlicher Schritt:
-- **Welle 8 (Datenschutz & Compliance, `#96–99`)** — der letzte MVP-Baustein, bisher nicht begonnen.
+- **Phase 2–4 aufschlüsseln** (`#11`–`#24`) — bisher nur grobe Epics ohne Kind-Issues, siehe "Roadmap (offene Epics, Future)" oben.
 
