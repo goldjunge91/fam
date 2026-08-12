@@ -8,5 +8,14 @@
   "testExplorer.hideEmptyLog": true,
   "testExplorer.mergeSuites": true,
   "testExplorer.showOnRun": true,
-  "telemetry.feedback.enabled": false
+  "telemetry.feedback.enabled": false,
+  "chat.mcp.serverSampling": {
+    "fam/.vscode/mcp.json: expo": {
+      "allowedModels": [
+        "copilot/auto",
+        "copilotcli/auto",
+        "agent-host-copilotcli:auto"
+      ]
+    }
+  }
 }
