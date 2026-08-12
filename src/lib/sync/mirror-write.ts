@@ -21,6 +21,11 @@ export type UpsertMirrorRowOptions = {
 function toSqlParam(value: unknown): SqlParam {
   if (value === undefined || value === null) return null;
   if (typeof value === 'string' || typeof value === 'number') return value;
+  // Postgres text[]-Spalten (recipes.steps/dish_types/dietary_tags/hashtags)
+  // kommen von postgrest-js als JS-Array — SQLite kennt keinen Array-Typ,
+  // deshalb als JSON-Text gespiegelt. Aufrufer, die die Spalte lesen, parsen
+  // selbst zurueck (siehe use-recipes.ts).
+  if (Array.isArray(value)) return JSON.stringify(value);
   // numeric-Spalten kommen von postgrest-js als JS-Number, alles andere in
   // diesem Schema ist text/uuid/date — als String. Ein anderer Typ waere
   // Schema-Drift zwischen supabase/schemas/*.sql und entities.ts.

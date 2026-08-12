@@ -105,6 +105,51 @@ export const ENTITIES: Readonly<Record<Entity, EntityMeta>> = {
     householdScoped: false,
     columns: ['id', 'name', 'created_by', 'created_at'],
   },
+  recipes: {
+    entity: 'recipes',
+    table: 'recipes',
+    hasServerTombstone: true,
+    householdScoped: true,
+    columns: [
+      'id',
+      'household_id',
+      'title',
+      'instructions',
+      'steps',
+      'cover_image_path',
+      'cook_time_minutes',
+      'difficulty',
+      'dish_types',
+      'dietary_tags',
+      'hashtags',
+      'default_servings',
+      'created_by',
+      'created_at',
+    ],
+  },
+  recipe_components: {
+    entity: 'recipe_components',
+    table: 'recipe_components',
+    hasServerTombstone: true,
+    householdScoped: true,
+    columns: ['id', 'recipe_id', 'household_id', 'name', 'serving_grams', 'created_at'],
+  },
+  recipe_component_items: {
+    entity: 'recipe_component_items',
+    table: 'recipe_component_items',
+    hasServerTombstone: true,
+    householdScoped: true,
+    columns: [
+      'id',
+      'component_id',
+      'recipe_id',
+      'household_id',
+      'product_id',
+      'sub_component_id',
+      'grams',
+      'created_at',
+    ],
+  },
 };
 
 /**
@@ -122,6 +167,9 @@ export const ALL_ENTITIES: readonly Entity[] = [
   'fridge_items',
   'shopping_list_items',
   'products',
+  'recipes',
+  'recipe_components',
+  'recipe_component_items',
 ];
 
 export function hasServerTombstone(entity: Entity): boolean {

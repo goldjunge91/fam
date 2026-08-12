@@ -275,6 +275,72 @@ create index if not exists product_usage_lookup_idx
   on product_usage (user_id, feature, meal_type, used_at);
 `;
 
+// Baukasten-Mahlzeiten (#123). Wie beim Serverschema keine Fremdschluessel —
+// `recipe_id`/`component_id`/`sub_component_id` sind reine Textspalten, die
+// Pull-Reihenfolge zwischen den drei Tabellen ist nicht garantiert. Die
+// Konsistenzpruefung (Zykel, fremdes Rezept) laeuft ausschliesslich
+// serverseitig beim Push (private.check_recipe_component_item_consistency());
+// der lokale Spiegel ist ein Cache und vertraut dem, was der Server annimmt.
+const V9_RECIPES = `
+create table if not exists recipes (
+  id           text primary key not null,
+  household_id text not null,
+  title        text not null,
+  instructions text,
+  created_by   text,
+  created_at   text,
+  updated_at   integer not null,
+  deleted_at   integer,
+  _dirty       integer not null default 0
+);
+create index if not exists recipes_hh_idx on recipes (household_id, deleted_at);
+create index if not exists recipes_dirty_idx on recipes (_dirty) where _dirty = 1;
+
+create table if not exists recipe_components (
+  id            text primary key not null,
+  recipe_id     text not null,
+  household_id  text not null,
+  name          text not null,
+  serving_grams real,
+  created_at    text,
+  updated_at    integer not null,
+  deleted_at    integer,
+  _dirty        integer not null default 0
+);
+create index if not exists recipe_components_recipe_idx on recipe_components (recipe_id, deleted_at);
+create index if not exists recipe_components_dirty_idx on recipe_components (_dirty) where _dirty = 1;
+
+create table if not exists recipe_component_items (
+  id               text primary key not null,
+  component_id     text not null,
+  recipe_id        text not null,
+  household_id     text not null,
+  product_id       text,
+  sub_component_id text,
+  grams            real not null,
+  created_at       text,
+  updated_at       integer not null,
+  deleted_at       integer,
+  _dirty           integer not null default 0
+);
+create index if not exists recipe_component_items_component_idx on recipe_component_items (component_id, deleted_at);
+create index if not exists recipe_component_items_dirty_idx on recipe_component_items (_dirty) where _dirty = 1;
+`;
+
+// Rezept-Metadaten aus dem Wizard-Redesign (#125). `text[]`-Spalten
+// (dish_types/dietary_tags/hashtags/steps) haben in SQLite keine Entsprechung
+// — als JSON-Text gespiegelt, siehe `toSqlParam` in mirror-write.ts.
+const V10_RECIPE_METADATA = `
+alter table recipes add column steps text not null default '[]';
+alter table recipes add column cover_image_path text;
+alter table recipes add column cook_time_minutes integer;
+alter table recipes add column difficulty text;
+alter table recipes add column dish_types text not null default '[]';
+alter table recipes add column dietary_tags text not null default '[]';
+alter table recipes add column hashtags text not null default '[]';
+alter table recipes add column default_servings integer not null default 1;
+`;
+
 export const MIGRATIONS: readonly Migration[] = [
   {
     version: 1,
@@ -315,5 +381,15 @@ export const MIGRATIONS: readonly Migration[] = [
     version: 8,
     name: 'product_usage',
     statements: [V8_PRODUCT_USAGE],
+  },
+  {
+    version: 9,
+    name: 'recipes',
+    statements: [V9_RECIPES],
+  },
+  {
+    version: 10,
+    name: 'recipe_metadata_und_storage',
+    statements: [V10_RECIPE_METADATA],
   },
 ];

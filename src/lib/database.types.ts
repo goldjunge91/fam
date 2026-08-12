@@ -479,6 +479,201 @@ export type Database = {
         }
         Relationships: []
       }
+      recipe_component_items: {
+        Row: {
+          component_id: string
+          created_at: string
+          deleted_at: string | null
+          grams: number
+          household_id: string
+          id: string
+          product_id: string | null
+          recipe_id: string
+          sub_component_id: string | null
+          updated_at: string
+        }
+        Insert: {
+          component_id: string
+          created_at?: string
+          deleted_at?: string | null
+          grams: number
+          household_id: string
+          id?: string
+          product_id?: string | null
+          recipe_id: string
+          sub_component_id?: string | null
+          updated_at?: string
+        }
+        Update: {
+          component_id?: string
+          created_at?: string
+          deleted_at?: string | null
+          grams?: number
+          household_id?: string
+          id?: string
+          product_id?: string | null
+          recipe_id?: string
+          sub_component_id?: string | null
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "recipe_component_items_component_id_fkey"
+            columns: ["component_id"]
+            isOneToOne: false
+            referencedRelation: "recipe_components"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "recipe_component_items_household_id_fkey"
+            columns: ["household_id"]
+            isOneToOne: false
+            referencedRelation: "households"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "recipe_component_items_product_id_fkey"
+            columns: ["product_id"]
+            isOneToOne: false
+            referencedRelation: "products"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "recipe_component_items_recipe_id_fkey"
+            columns: ["recipe_id"]
+            isOneToOne: false
+            referencedRelation: "recipes"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "recipe_component_items_sub_component_id_fkey"
+            columns: ["sub_component_id"]
+            isOneToOne: false
+            referencedRelation: "recipe_components"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      recipe_components: {
+        Row: {
+          created_at: string
+          deleted_at: string | null
+          household_id: string
+          id: string
+          name: string
+          recipe_id: string
+          serving_grams: number | null
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          deleted_at?: string | null
+          household_id: string
+          id?: string
+          name: string
+          recipe_id: string
+          serving_grams?: number | null
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          deleted_at?: string | null
+          household_id?: string
+          id?: string
+          name?: string
+          recipe_id?: string
+          serving_grams?: number | null
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "recipe_components_household_id_fkey"
+            columns: ["household_id"]
+            isOneToOne: false
+            referencedRelation: "households"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "recipe_components_recipe_id_fkey"
+            columns: ["recipe_id"]
+            isOneToOne: false
+            referencedRelation: "recipes"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      recipes: {
+        Row: {
+          cook_time_minutes: number | null
+          cover_image_path: string | null
+          created_at: string
+          created_by: string | null
+          default_servings: number
+          deleted_at: string | null
+          dietary_tags: string[]
+          difficulty: string | null
+          dish_types: string[]
+          hashtags: string[]
+          household_id: string
+          id: string
+          instructions: string | null
+          steps: string[]
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          cook_time_minutes?: number | null
+          cover_image_path?: string | null
+          created_at?: string
+          created_by?: string | null
+          default_servings?: number
+          deleted_at?: string | null
+          dietary_tags?: string[]
+          difficulty?: string | null
+          dish_types?: string[]
+          hashtags?: string[]
+          household_id: string
+          id?: string
+          instructions?: string | null
+          steps?: string[]
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          cook_time_minutes?: number | null
+          cover_image_path?: string | null
+          created_at?: string
+          created_by?: string | null
+          default_servings?: number
+          deleted_at?: string | null
+          dietary_tags?: string[]
+          difficulty?: string | null
+          dish_types?: string[]
+          hashtags?: string[]
+          household_id?: string
+          id?: string
+          instructions?: string | null
+          steps?: string[]
+          title?: string
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "recipes_created_by_fkey"
+            columns: ["created_by"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "recipes_household_id_fkey"
+            columns: ["household_id"]
+            isOneToOne: false
+            referencedRelation: "households"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       shopping_history: {
         Row: {
           category: string | null
