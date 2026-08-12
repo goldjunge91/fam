@@ -863,6 +863,7 @@ export type Database = {
           user_id: string
         }[]
       }
+      prepare_account_deletion: { Args: never; Returns: undefined }
       redeem_invite: { Args: { invite_token: string }; Returns: string }
     }
     Enums: {

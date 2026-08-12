@@ -124,6 +124,28 @@ begin
     return coalesce(new, old);
   end if;
 
+  -- Der ganze Haushalt wird gerade mitgeloescht (`delete from households`
+  -- kaskadiert hierher): Bei `on delete cascade` ist die Elternzeile zum
+  -- Zeitpunkt dieses Row-Triggers bereits weg (empirisch geprueft, nicht nur
+  -- angenommen). Dann gibt es keinen Haushalt mehr, den ein fehlender Admin
+  -- verwaisen liesse — die Sperre waere hier nur im Weg (#98/#64).
+  if not exists (select 1 from public.households where id = old.household_id) then
+    return coalesce(new, old);
+  end if;
+
+  -- Verbleiben nach dieser Aenderung ueberhaupt keine anderen Mitglieder mehr,
+  -- gibt es ebenfalls niemanden, der ohne Admin zurueckbliebe — der Fall
+  -- "letzter Admin verlaesst einen Haushalt, der dadurch leer wird" ist erlaubt,
+  -- nur "anderen Mitgliedern den Admin entziehen" nicht.
+  select count(*) into remaining
+  from public.household_members
+  where household_id = old.household_id
+    and user_id <> old.user_id;
+
+  if remaining = 0 then
+    return coalesce(new, old);
+  end if;
+
   select count(*) into remaining
   from public.household_members
   where household_id = old.household_id
@@ -151,6 +173,100 @@ create or replace trigger household_members_set_updated_at
   before update on public.household_members
   for each row
   execute function private.set_updated_at();
+
+-- ------------------------------------------------------- Kontoloeschung vorbereiten
+-- `public.prepare_account_deletion()` (#98): raeumt Haushaltsbezuege des
+-- aufrufenden Nutzers auf, BEVOR die Edge Function `delete-account` per
+-- Admin-API `auth.users` loescht. Zwei Dinge wuerden sonst kaskadierend
+-- blockieren:
+--
+-- 1. `households.created_by references profiles on delete restrict` — ein
+--    Nutzer, der einen noch bestehenden Haushalt erstellt hat, kann sein
+--    Profil nie loeschen, solange `created_by` auf ihn zeigt.
+-- 2. Ist er in einem Haushalt mit weiteren Mitgliedern der letzte Admin,
+--    wuerde ihn niemand mehr verwalten koennen — dieselbe Situation, die
+--    `guard_last_admin` schon beim manuellen Verlassen verhindert.
+--
+-- Statt beides in der Edge Function per einzelnen REST-Calls zu behandeln
+-- (nicht atomar, RLS muesste mit Service-Role umgangen werden), laeuft es
+-- hier als eine Transaktion unter der Identitaet des aufrufenden Nutzers
+-- (`auth.uid()`), SECURITY DEFINER nur fuer den households-Zugriff.
+--
+-- Nimmt bewusst keine user_id entgegen — ausschliesslich `auth.uid()` selbst,
+-- damit niemand die Loeschung fuer einen anderen Account anstossen kann.
+create or replace function public.prepare_account_deletion()
+returns void
+language plpgsql
+security definer
+set search_path = ''
+as $$
+declare
+  uid uuid := (select auth.uid());
+  rec record;
+  other_admins integer;
+  other_members integer;
+  new_owner uuid;
+begin
+  if uid is null then
+    raise exception 'not authenticated';
+  end if;
+
+  -- Haushalte, in denen dieser Nutzer Admin ist: Bricht ab, wenn er dort der
+  -- letzte Admin waere UND noch andere Mitglieder zurueckbliebe. Der Abbruch
+  -- rollt die ganze Funktion zurueck — die Edge Function sieht die Exception
+  -- und fragt den Nutzer nach einer Entscheidung (Admin uebertragen oder
+  -- Haushalt mitloeschen), bevor sie es erneut versucht.
+  for rec in
+    select hm.household_id, h.name
+    from public.household_members hm
+    join public.households h on h.id = hm.household_id
+    where hm.user_id = uid and hm.role = 'admin'
+  loop
+    select count(*) into other_admins
+    from public.household_members
+    where household_id = rec.household_id and role = 'admin' and user_id <> uid;
+
+    select count(*) into other_members
+    from public.household_members
+    where household_id = rec.household_id and user_id <> uid;
+
+    if other_admins = 0 and other_members > 0 then
+      raise exception 'last_admin_with_members: % (%)', rec.name, rec.household_id;
+    end if;
+  end loop;
+
+  -- Haushalte, in denen dieser Nutzer das letzte verbleibende Mitglied ist:
+  -- komplett loeschen. Cascade raeumt household_members, child_profiles,
+  -- fridge_items, shopping_list_items usw. mit ab (#98 AC "Haushalte mit
+  -- weiteren Mitgliedern bleiben bestehen" — dieser Haushalt hat keine).
+  delete from public.households h
+  where exists (
+    select 1 from public.household_members hm
+    where hm.household_id = h.id and hm.user_id = uid
+  )
+  and (
+    select count(*) from public.household_members hm2
+    where hm2.household_id = h.id
+  ) = 1;
+
+  -- Verbleibende Haushalte, die dieser Nutzer erstellt hat: `created_by` auf
+  -- ein verbleibendes Mitglied uebertragen (bevorzugt einen anderen Admin),
+  -- sonst blockiert `on delete restrict` gleich die Profil-Loeschung.
+  for rec in
+    select id from public.households where created_by = uid
+  loop
+    select user_id into new_owner
+    from public.household_members
+    where household_id = rec.id and user_id <> uid
+    order by (role = 'admin') desc, joined_at asc
+    limit 1;
+
+    if new_owner is not null then
+      update public.households set created_by = new_owner where id = rec.id;
+    end if;
+  end loop;
+end;
+$$;
 
 -- ------------------------------------------------------------------------- RLS
 alter table public.households enable row level security;

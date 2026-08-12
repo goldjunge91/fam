@@ -74,6 +74,12 @@ grant execute on function public.create_household(text) to authenticated;
 revoke execute on function public.redeem_invite(uuid) from public, anon;
 grant execute on function public.redeem_invite(uuid) to authenticated;
 
+-- prepare_account_deletion() liest ausschliesslich auth.uid() selbst — fuer
+-- `anon` gaebe es niemanden, aber der Entzug bleibt trotzdem ausdruecklich
+-- stehen (SECURITY DEFINER, siehe Kommentar in 03_households.sql).
+revoke execute on function public.prepare_account_deletion() from public, anon;
+grant execute on function public.prepare_account_deletion() to authenticated;
+
 -- household_member_profiles() umgeht die profiles-RLS (SECURITY DEFINER) und
 -- prueft die Mitgliedschaft selbst. Fuer `anon` gaebe es nichts zu pruefen —
 -- ohne auth.uid() ist niemand Mitglied —, aber der Entzug bleibt trotzdem
