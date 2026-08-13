@@ -1,3 +1,4 @@
+import { router } from 'expo-router';
 import { useEffect, useState } from 'react';
 import { ActivityIndicator, Alert, Pressable, StyleSheet, View } from 'react-native';
 
@@ -184,13 +185,27 @@ export function MealPlannerScreen() {
         </Pressable>
       </View>
 
-      <Pressable
-        accessibilityRole="button"
-        accessibilityLabel="Letzte Woche erneut verwenden"
-        onPress={handleReuseLastWeek}
-        style={styles.reuseButton}>
-        <ThemedText type="link">Letzte Woche erneut verwenden</ThemedText>
-      </Pressable>
+      <View style={styles.actionsRow}>
+        <Pressable
+          accessibilityRole="button"
+          accessibilityLabel="Letzte Woche erneut verwenden"
+          onPress={handleReuseLastWeek}>
+          <ThemedText type="link">Letzte Woche erneut verwenden</ThemedText>
+        </Pressable>
+        {plan ? (
+          <Pressable
+            accessibilityRole="button"
+            accessibilityLabel="Fehlende Zutaten anzeigen"
+            onPress={() =>
+              router.push({
+                pathname: '/meal-planner/shopping-needs',
+                params: { mealPlanId: plan.id },
+              })
+            }>
+            <ThemedText type="link">Fehlende Zutaten</ThemedText>
+          </Pressable>
+        ) : null}
+      </View>
 
       {planLoading ? (
         <ActivityIndicator style={styles.loading} />
@@ -250,6 +265,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  reuseButton: { alignItems: 'center', marginBottom: Spacing.two },
+  actionsRow: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    gap: Spacing.four,
+    marginBottom: Spacing.two,
+  },
   loading: { marginTop: Spacing.five },
 });

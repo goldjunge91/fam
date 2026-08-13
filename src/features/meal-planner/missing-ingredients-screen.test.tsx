@@ -1,0 +1,113 @@
+import { render, screen, userEvent } from '@testing-library/react-native';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+
+import { MissingIngredientsScreen } from './missing-ingredients-screen';
+
+const mockAddMutateAsync = jest.fn().mockResolvedValue(undefined);
+
+// Stabile Objektidentitaet noetig: `AutoBackButton` (Screen) haengt seinen
+// Effekt an `[navigation]` - ein bei jedem Aufruf neu erzeugtes Objekt
+// (z. B. `() => ({...})`) triggert den Effekt jedes Mal erneut und damit
+// eine Endlosschleife aus setState-Aufrufen.
+const mockNavigation = { canGoBack: () => true, addListener: () => () => {} };
+
+jest.mock('expo-router', () => ({
+  router: { push: jest.fn(), back: jest.fn(), canGoBack: () => true },
+  useLocalSearchParams: () => ({ mealPlanId: 'plan-1' }),
+  useNavigation: () => mockNavigation,
+}));
+
+jest.mock('@/features/auth/session-provider', () => ({
+  useSession: () => ({ session: { user: { id: 'user-1' } } }),
+}));
+
+jest.mock('@/features/household/active-household-provider', () => ({
+  useActiveHousehold: () => ({ activeHouseholdId: 'hh-1' }),
+}));
+
+jest.mock('@/features/shopping-list/use-shopping-list-mutations', () => ({
+  useAddShoppingItem: () => ({ mutateAsync: mockAddMutateAsync, isPending: false }),
+}));
+
+// Modulweite Konstante statt Array-Literal im Mock: die Screen-Komponente
+// haengt einen Effekt an `missing` (praeselektiert alle Artikel). Ein bei
+// jedem Render neu erzeugtes Array-Literal aendert die Referenz staendig und
+// erzeugt dieselbe Endlosschleife wie eine instabile `useNavigation()`.
+const mockMissingIngredients = [
+  {
+    productId: 'p1',
+    name: 'Tomaten',
+    missingGrams: 300,
+    preferredStoreId: 'store-1',
+    preferredStoreName: 'Aldi',
+  },
+  {
+    productId: 'p2',
+    name: 'Hackfleisch',
+    missingGrams: 500,
+    preferredStoreId: null,
+    preferredStoreName: null,
+  },
+];
+
+jest.mock('./use-shopping-needs', () => ({
+  useMealPlanShoppingNeeds: () => ({
+    data: mockMissingIngredients,
+    isLoading: false,
+  }),
+}));
+
+function renderScreen() {
+  return render(
+    <SafeAreaProvider
+      initialMetrics={{
+        frame: { x: 0, y: 0, width: 390, height: 844 },
+        insets: { top: 47, left: 0, right: 0, bottom: 34 },
+      }}>
+      <MissingIngredientsScreen />
+    </SafeAreaProvider>,
+  );
+}
+
+beforeEach(() => {
+  mockAddMutateAsync.mockClear();
+});
+
+describe('MissingIngredientsScreen', () => {
+  it('zeigt fehlende Zutaten mit Menge und History-Praeferenz', async () => {
+    await renderScreen();
+
+    expect(screen.getByText('Tomaten')).toBeOnTheScreen();
+    expect(screen.getByText(/300 g fehlen/)).toBeOnTheScreen();
+    expect(screen.getByText(/zuletzt bei Aldi/)).toBeOnTheScreen();
+    expect(screen.getByText('Hackfleisch')).toBeOnTheScreen();
+  });
+
+  it('ist standardmaessig alles vorausgewaehlt und uebernimmt beim Bestaetigen', async () => {
+    const user = userEvent.setup();
+    await renderScreen();
+
+    expect(screen.getByText('2 Artikel zur Einkaufsliste hinzufügen')).toBeOnTheScreen();
+
+    await user.press(screen.getByText('2 Artikel zur Einkaufsliste hinzufügen'));
+
+    expect(mockAddMutateAsync).toHaveBeenCalledTimes(2);
+    expect(mockAddMutateAsync).toHaveBeenCalledWith(
+      expect.objectContaining({ name: 'Tomaten', quantity: 300, unit: 'g', store_id: 'store-1' }),
+    );
+    expect(mockAddMutateAsync).toHaveBeenCalledWith(
+      expect.objectContaining({ name: 'Hackfleisch', quantity: 500, unit: 'g', store_id: null }),
+    );
+  });
+
+  it('Abwaehlen eines Artikels nimmt ihn aus der Uebernahme heraus', async () => {
+    const user = userEvent.setup();
+    await renderScreen();
+
+    await user.press(screen.getByRole('checkbox', { name: 'Hackfleisch' }));
+    await user.press(screen.getByText('1 Artikel zur Einkaufsliste hinzufügen'));
+
+    expect(mockAddMutateAsync).toHaveBeenCalledTimes(1);
+    expect(mockAddMutateAsync).toHaveBeenCalledWith(expect.objectContaining({ name: 'Tomaten' }));
+  });
+});

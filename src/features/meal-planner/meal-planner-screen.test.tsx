@@ -21,15 +21,18 @@ const mockEnsureMutate = jest.fn();
 const mockEnsureMutateAsync = jest.fn().mockResolvedValue({ id: 'plan-1' });
 const mockReuseMutate = jest.fn();
 
+// Stabile Objektidentitaet noetig: `AutoBackButton` (Screen) haengt seinen
+// Effekt an `[navigation]` - ein bei jedem Aufruf neu erzeugtes Objekt
+// triggert den Effekt jedes Mal erneut und damit eine Endlosschleife aus
+// setState-Aufrufen.
+const mockNavigation = { canGoBack: () => true, addListener: () => () => {} };
+
 jest.mock('expo-router', () => ({
   router: { push: jest.fn(), back: jest.fn(), canGoBack: () => true },
   // `Screen` fragt bei einem `back`-Ziel ohne `href` per `useNavigation()`,
   // ob es etwas zum Zurueckgehen gibt (AutoBackButton) — ausserhalb eines
   // Navigators gibt es dafuer keinen echten Kontext.
-  useNavigation: () => ({
-    canGoBack: () => true,
-    addListener: () => () => {},
-  }),
+  useNavigation: () => mockNavigation,
 }));
 
 jest.mock('@/features/auth/session-provider', () => ({
