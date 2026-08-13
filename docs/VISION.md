@@ -20,7 +20,7 @@ richtiggestellt, damit die Roadmap nichts verspricht, was die Architektur nicht 
 |---|---|---|
 | REWE-/EDEKA-API für Preisvergleich | Keine öffentlichen APIs; Scraping verstößt gegen die ToS beider Ketten und bricht bei jedem Layout-Wechsel | `PriceProvider`-Interface mit manueller Preiseingabe und Open Food Facts; echte Kette erst mit offiziellem Zugang ([#16](https://github.com/goldjunge91/fam/issues/16)) |
 | `expo-apple-healthkit` | Paket existiert nicht auf npm | `@kingstinct/react-native-healthkit` (iOS), Health Connect (Android) ([#17](https://github.com/goldjunge91/fam/issues/17)) |
-| `expo-in-app-purchases` | Deprecated, kein SDK-57-Build | RevenueCat oder `expo-iap` ([#23](https://github.com/goldjunge91/fam/issues/23)) |
+| `expo-in-app-purchases` | Deprecated, kein SDK-57-Build | RevenueCat (`react-native-purchases`) — entschieden und implementiert: Kauf-Flow, Paywall-UI, Customer Center, Entitlement „Premium" ([#23](https://github.com/goldjunge91/fam/issues/23)) |
 | `expo-widgets` | Kein offizielles Expo-Paket | Native Targets (WidgetKit / Glance) via Config-Plugin ([#24](https://github.com/goldjunge91/fam/issues/24)) |
 | E2E-Verschlüsselung der Gesundheitsdaten | E2EE und serverseitige Queries/RLS schließen sich aus — bei echter E2EE könnte der Server nicht filtern | TLS, Verschlüsselung at rest, Zugriffstrennung über RLS, Tokens im Keychain/Keystore ([#96](https://github.com/goldjunge91/fam/issues/96)) |
 | `react-native-reusables` als Library | Ist eine Copy-Paste-Registry, keine Runtime-Dependency | Eigene Komponenten auf `theme.ts` |
@@ -41,7 +41,9 @@ Einstellungen) und Mitglieder. Kinder bekommen vereinfachte Profile ohne eigenen
 verwaltet durch ein Elternteil. Ein Account kann in mehreren Haushalten sein.
 
 **Geteilt:** Kühlschrank-Bestand, Einkaufsliste, Meal-Planner, Rezept-Bibliothek,
-Familien-Challenges.
+Familien-Challenges, **Premium-Status** — sobald ein Haushaltsmitglied ein aktives Abo hat,
+gilt Premium für den gesamten Haushalt, solange dieses Mitglied im Haushalt bleibt
+(entschieden 2026-08-14, siehe [#142](https://github.com/goldjunge91/fam/issues/142)).
 **Privat:** Kalorien, Gewicht, Körpermaße, Ziele — technisch getrennt über RLS, nicht nur
 in der UI ausgeblendet. Selbst ein Haushalts-Admin hat keinen Zugriff.
 

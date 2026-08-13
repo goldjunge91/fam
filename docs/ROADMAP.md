@@ -238,6 +238,12 @@ Laut `CLAUDE.md` bekommt jede UI-Änderung einen eigenen Commit, und
 Mit Welle 8 ist der MVP komplett. Phase 2–4 sind als Epics
 ([#11](https://github.com/goldjunge91/fam/issues/11)–[#24](https://github.com/goldjunge91/fam/issues/24)) beschrieben und werden aufgeschlüsselt, sobald der MVP steht.
 
+> **Stand 2026-08-14:** Aufschlüsselung läuft in `docs/plans/phase-2-4-brainstorm.md`.
+> Für #23 (Premium/Monetarisierung) steht die RevenueCat-Grundinfrastruktur
+> (Kauf-Flow, Paywall-UI, Customer Center, Entitlement „Premium"); Nachfolgearbeiten
+> (Feature-Gating, haushaltsweites Premium, Webhook-Sync, Store-Setup,
+> Datenschutz-Doku, QA) sind als Issues [#141](https://github.com/goldjunge91/fam/issues/141)–[#146](https://github.com/goldjunge91/fam/issues/146) erfasst.
+
 ---
 
 ## Parallel arbeiten
