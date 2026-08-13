@@ -80,11 +80,19 @@ export function PremiumProvider({ children }: { children: ReactNode }) {
       Purchases.logIn(userId)
         .then(({ customerInfo: info }) => setCustomerInfo(info))
         .catch((err) => console.warn('[Premium] RevenueCat logIn fehlgeschlagen:', err));
-    } else {
-      Purchases.logOut()
-        .then((info) => setCustomerInfo(info))
-        .catch((err) => console.warn('[Premium] RevenueCat logOut fehlgeschlagen:', err));
+      return;
     }
+
+    // Purchases.logOut() wirft, wenn der RevenueCat-User schon anonym ist —
+    // und das ist er beim allerersten App-Start immer, bevor sich je jemand
+    // angemeldet hat. Ohne diese Pruefung loggt das bei jedem Start einen
+    // Fehler, der keiner ist.
+    Purchases.isAnonymous()
+      .then((isAnonymous) => {
+        if (isAnonymous) return;
+        return Purchases.logOut().then((info) => setCustomerInfo(info));
+      })
+      .catch((err) => console.warn('[Premium] RevenueCat logOut fehlgeschlagen:', err));
   }, [session?.user.id]);
 
   const isForced = env.forcePremium;

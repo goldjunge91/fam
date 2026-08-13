@@ -12,10 +12,11 @@ import { env } from '@/lib/env';
 /**
  * Entitlement-Identifier aus dem RevenueCat-Dashboard (Entitlements-Tab).
  * Muss dort exakt so angelegt werden, bevor echte Kaeufe geprueft werden
- * koennen. Aktueller Stand im "Foodapp"-Projekt: `Pro` ("access to all
- * features"), verknuepft mit dem Test-Store-Produkt `fam_premium_monthly`.
+ * koennen. Aktueller Stand im "Foodapp"-Projekt: `Premium`, verknuepft mit
+ * den Test-Store-Produkten `fam_premium_monthly` (4,99 €/Monat) und
+ * `fam_premium_yearly` (49,99 €/Jahr) im Offering "default".
  */
-export const PREMIUM_ENTITLEMENT_ID = 'Pro';
+export const PREMIUM_ENTITLEMENT_ID = 'Premium';
 
 let configured = false;
 

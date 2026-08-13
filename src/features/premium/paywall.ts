@@ -1,7 +1,7 @@
 import { Platform } from 'react-native';
 import RevenueCatUI, { PAYWALL_RESULT } from 'react-native-purchases-ui';
 
-import { PREMIUM_ENTITLEMENT_ID, isPurchasesConfigured } from '@/lib/purchases';
+import { isPurchasesConfigured, PREMIUM_ENTITLEMENT_ID } from '@/lib/purchases';
 
 /**
  * `react-native-purchases-ui` ist iOS/Android-only (natives View-Hosting,
