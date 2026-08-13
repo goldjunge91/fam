@@ -13,8 +13,6 @@ export interface IngredientItem {
   /** Rohe Nutzereingabe, siehe recipe_component_items.quantity. */
   quantity: string;
   unit: string;
-  /** Gesetzt, nachdem die Zeile auf Seite 1 als recipe_component_items-Zeile persistiert wurde. */
-  itemId: string | null;
   /** true, wenn quantity/unit ohne bekanntes Produkt-Stueckgewicht nicht in Gramm umrechenbar war. */
   notConvertible: boolean;
 }
@@ -32,7 +30,12 @@ export interface WizardStepItem {
   text: string;
   localImageUri: string | null;
   existingImagePath: string | null;
-  /** IngredientItem.itemId-Werte der in diesem Schritt referenzierten Zutaten. */
+  /**
+   * IngredientItem.id-Werte (lokale Client-IDs, nicht recipe_component_items.id)
+   * der in diesem Schritt referenzierten Zutaten — solange nicht final
+   * gespeichert wurde, gibt es noch keine DB-Zeile dafuer. Wird beim
+   * Speichern in echte item-IDs uebersetzt, siehe recipe-create-screen.tsx.
+   */
   ingredientIds: string[];
 }
 
@@ -43,7 +46,6 @@ export function newIngredient(): IngredientItem {
     productQuery: '',
     quantity: '',
     unit: 'g',
-    itemId: null,
     notConvertible: false,
   };
 }

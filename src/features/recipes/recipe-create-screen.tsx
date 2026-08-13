@@ -66,7 +66,6 @@ export function RecipeCreateScreen() {
   const householdId = data?.recipe.household_id ?? activeHouseholdId ?? undefined;
 
   const [wizardStep, setWizardStep] = useState<1 | 2 | 3>(1);
-  const [recipeId, setRecipeId] = useState<string | null>(data?.recipe.id ?? null);
   const [saving, setSaving] = useState(false);
 
   const [title, setTitle] = useState('');
@@ -97,7 +96,6 @@ export function RecipeCreateScreen() {
     setDietaryTags(data.recipe.dietary_tags);
     setHashtagsInput(data.recipe.hashtags.join(' '));
     setExistingCoverPath(data.recipe.cover_image_path);
-    setRecipeId(data.recipe.id);
     // Zutaten-Komponenten werden beim Bearbeiten bewusst nicht aus den
     // vorhandenen recipe_components rekonstruiert — nur die Rezeptfelder oben
     // sind editierbar, Zutaten bleiben ein reiner Neuanlage-Schritt.
@@ -207,8 +205,26 @@ export function RecipeCreateScreen() {
     ]);
   }
 
-  /** Seite 1 "Weiter": persistiert Rezept + Zutaten, dann zu Seite 2. */
-  async function handleNextFromBasics() {
+  /**
+   * Seite 1 "Weiter": reine Navigation, keine Persistenz. Das Rezept bleibt
+   * bis zum finalen Speichern (Seite 3) ausschliesslich im Formular-State —
+   * so entsteht waehrend des Bearbeitens kein einziger Schreibzugriff auf
+   * SQLite/Outbox und damit kein Sync-Traffic, bevor der Nutzer wirklich
+   * fertig ist.
+   */
+  function handleNextFromBasics() {
+    if (!title.trim()) return;
+    setWizardStep(2);
+  }
+
+  /**
+   * Seite 3 "Speichern": persistiert das komplette Rezept — Basisdaten,
+   * Titelbild, Zutaten und Schritte — in einem Zug. Vorher wurde bewusst
+   * nichts geschrieben (siehe `handleNextFromBasics`); dieser eine Schwung
+   * geht durch die normale Outbox (#46) und wird von deren Debounce als ein
+   * einzelner Push behandelt, statt vieler kleiner waehrend des Bearbeitens.
+   */
+  async function handleFinalSave() {
     if (!title.trim() || !householdId || !userId) return;
     setSaving(true);
     try {
@@ -254,8 +270,18 @@ export function RecipeCreateScreen() {
         });
       }
 
+      // Wizard-Seiten 2/3 referenzieren Zutaten ueber die lokale
+      // IngredientItem.id (siehe recipe-wizard-step-steps.tsx) — diese Map
+      // uebersetzt sie nach dem Persistieren auf die echten
+      // recipe_component_items.id fuer die Schritt-Zutaten-Verknuepfung unten.
+      const localToRealItemId = new Map<string, string>();
+
       if (!isEditing) {
         const db = await getDatabase();
+        // Nur zur UI-Rueckmeldung ("nicht umrechenbar"), falls beim Speichern
+        // ein Stueckgewicht fehlt — der Nutzer sieht die Markierung erst
+        // wieder, wenn er auf Seite 1 zurueckgeht, deshalb wird sie trotzdem
+        // gepflegt statt stillschweigend verworfen.
         const updatedComponents: IngredientComponentGroup[] = [];
 
         for (const comp of components) {
@@ -319,11 +345,8 @@ export function RecipeCreateScreen() {
               quantity: Number.parseFloat(source.quantity),
               unit: source.unit,
             });
-            updatedItemsById.set(resolved.itemId, {
-              ...source,
-              itemId: added.id,
-              notConvertible: false,
-            });
+            localToRealItemId.set(resolved.itemId, added.id);
+            updatedItemsById.set(resolved.itemId, { ...source, notConvertible: false });
           }
 
           updatedComponents.push({
@@ -335,26 +358,12 @@ export function RecipeCreateScreen() {
         setComponents(updatedComponents);
       }
 
-      setRecipeId(newRecipeId);
-      setWizardStep(2);
-    } catch (err) {
-      Alert.alert('Fehler', err instanceof Error ? err.message : 'Konnte nicht speichern.');
-    } finally {
-      setSaving(false);
-    }
-  }
-
-  /** Seite 3 "Speichern": persistiert Schritte inkl. Bild + Zutaten-Referenzen. */
-  async function handleFinalSave() {
-    if (!recipeId || !householdId) return;
-    setSaving(true);
-    try {
       let position = 0;
       for (const step of wizardSteps) {
         if (!step.text.trim()) continue;
 
         const created = await addStep.mutateAsync({
-          recipe_id: recipeId,
+          recipe_id: newRecipeId,
           household_id: householdId,
           position,
           text: step.text.trim(),
@@ -368,7 +377,7 @@ export function RecipeCreateScreen() {
           );
           await updateStep.mutateAsync({
             id: created.id,
-            recipe_id: recipeId,
+            recipe_id: newRecipeId,
             household_id: householdId,
             position,
             text: step.text.trim(),
@@ -376,11 +385,16 @@ export function RecipeCreateScreen() {
           });
         }
 
-        for (const itemId of step.ingredientIds) {
+        for (const localItemId of step.ingredientIds) {
+          const realItemId = localToRealItemId.get(localItemId);
+          // Zutat wurde nicht persistiert (kein Produkt gewaehlt oder nicht
+          // umrechenbar) — Referenz verwerfen statt auf eine nie existente
+          // Zeile zu verweisen.
+          if (!realItemId) continue;
           await addStepIngredient.mutateAsync({
             step_id: created.id,
-            item_id: itemId,
-            recipe_id: recipeId,
+            item_id: realItemId,
+            recipe_id: newRecipeId,
             household_id: householdId,
           });
         }
@@ -388,7 +402,7 @@ export function RecipeCreateScreen() {
         position += 1;
       }
 
-      router.replace({ pathname: '/recipe/detail', params: { id: recipeId } });
+      router.replace({ pathname: '/recipe/detail', params: { id: newRecipeId } });
     } catch (err) {
       Alert.alert('Fehler', err instanceof Error ? err.message : 'Konnte nicht speichern.');
     } finally {

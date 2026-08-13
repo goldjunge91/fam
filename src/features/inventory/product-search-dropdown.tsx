@@ -18,6 +18,12 @@ import {
 /** Unter dieser Zahl lokaler Treffer lohnt sich der zusaetzliche OFF-Request noch. */
 const LOCAL_RESULT_THRESHOLD = 5;
 
+/** Seitengroesse fuer OFF-Nachladen beim Scrollen, siehe `loadMoreOffResults`. */
+const OFF_PAGE_SIZE = 100;
+
+/** Wie nah am unteren Rand (px) das Nachladen beim Scrollen ausloest. */
+const LOAD_MORE_THRESHOLD_PX = 70;
+
 type LocalProductRow = {
   barcode: string | null;
   name: string;
@@ -43,7 +49,9 @@ function toOpenFoodFactsProduct(row: LocalProductRow): OpenFoodFactsProduct {
 /**
  * Lokale Suche gegen den `products`-Spiegel (#75) — SQLite hat keine
  * FTS/tsvector-Entsprechung wie der Server, ein einfaches `LIKE` reicht fuer
- * den gepflegten, deutlich kleineren lokalen Bestand.
+ * den gepflegten, deutlich kleineren lokalen Bestand. Bleibt bewusst ohne
+ * Pagination: der selbst angelegte Bestand ist klein, 20 Treffer reichen hier
+ * praktisch immer — anders als beim OFF-Dump unten.
  */
 async function searchOwnProducts(query: string): Promise<OpenFoodFactsProduct[]> {
   const db = await getDatabase();
@@ -92,15 +100,22 @@ function toOpenFoodFactsProductFromDump(row: OffDumpProductRow): OpenFoodFactsPr
   };
 }
 
+type OffDumpSearchResult = { products: OpenFoodFactsProduct[]; hasMore: boolean };
+
 /**
  * Suche gegen den angehaengten OpenFoodFacts-Dump (#79 + Dump-CI-Workflow,
  * `off-dump.ts`). Laeuft still ins Leere, solange der Dump noch nicht
  * heruntergeladen/angehaengt ist (`no such table: off_dump.products`) — das
  * ist beim App-Start fuer einen Moment der Normalfall, kein Fehler, den die
  * Suche dem Nutzer zeigen muesste.
+ *
+ * Anders als der gepflegte `products`-Spiegel ist der Dump ein Abzug der
+ * kompletten OFF-Datenbank — ein Begriff wie "Milch" hat hier genauso
+ * hunderte Treffer wie bei der Netz-Suche, deshalb paginiert (`offset`)
+ * statt eines harten Limits.
  */
-async function searchOffDump(query: string): Promise<OpenFoodFactsProduct[]> {
-  if (!isOffDumpAttached()) return [];
+async function searchOffDump(query: string, offset = 0): Promise<OffDumpSearchResult> {
+  if (!isOffDumpAttached()) return { products: [], hasMore: false };
 
   try {
     const db = await getDatabase();
@@ -109,12 +124,15 @@ async function searchOffDump(query: string): Promise<OpenFoodFactsProduct[]> {
        from off_dump.products
        where lower(product_name) like ?
        order by product_name
-       limit 20`,
-      [`%${query.trim().toLowerCase()}%`],
+       limit ? offset ?`,
+      [`%${query.trim().toLowerCase()}%`, OFF_PAGE_SIZE, offset],
     );
-    return rows.map(toOpenFoodFactsProductFromDump);
+    return {
+      products: rows.map(toOpenFoodFactsProductFromDump),
+      hasMore: rows.length === OFF_PAGE_SIZE,
+    };
   } catch {
-    return [];
+    return { products: [], hasMore: false };
   }
 }
 
@@ -132,16 +150,21 @@ function dedupeByBarcode(products: OpenFoodFactsProduct[]): OpenFoodFactsProduct
 
 /**
  * Lokale Suche insgesamt: erst der eigene, gepflegte `products`-Spiegel,
- * dann — falls das noch nicht reicht — der grosse angehaengte OFF-Dump. So
- * liefert die Suche auch ohne Netz brauchbare Treffer statt nur der
- * Handvoll selbst angelegten Produkte.
+ * dann — falls das noch nicht reicht — die erste Seite des grossen
+ * angehaengten OFF-Dumps. So liefert die Suche auch ohne Netz brauchbare
+ * Treffer statt nur der Handvoll selbst angelegten Produkte. `dumpHasMore`
+ * sagt dem Aufrufer, ob beim Scrollen weitere Dump-Seiten sich lohnen.
  */
-async function searchLocalProducts(query: string): Promise<OpenFoodFactsProduct[]> {
+async function searchLocalProducts(
+  query: string,
+): Promise<{ results: OpenFoodFactsProduct[]; dumpHasMore: boolean }> {
   const ownResults = await searchOwnProducts(query);
-  if (ownResults.length >= LOCAL_RESULT_THRESHOLD) return ownResults;
+  if (ownResults.length >= LOCAL_RESULT_THRESHOLD) {
+    return { results: ownResults, dumpHasMore: false };
+  }
 
-  const dumpResults = await searchOffDump(query);
-  return dedupeByBarcode([...ownResults, ...dumpResults]);
+  const { products: dumpResults, hasMore } = await searchOffDump(query);
+  return { results: dedupeByBarcode([...ownResults, ...dumpResults]), dumpHasMore: hasMore };
 }
 
 interface ProductSearchDropdownProps {
@@ -164,6 +187,21 @@ export function ProductSearchDropdown({
   const [searching, setSearching] = useState(false);
   const [showDropdown, setShowDropdown] = useState(false);
   const [searched, setSearched] = useState(false);
+  // Paginierungs-Status fuer das Nachladen weiterer OFF-Seiten beim Scrollen
+  // (#Performance-Feedback: "OpenFoodFacts findet 700+, angezeigt werden nur
+  // ~30" — ohne das kappt die erste Seite die Suche hart).
+  const [offPage, setOffPage] = useState(1);
+  const [offHasMore, setOffHasMore] = useState(false);
+  // Nachlade-Status fuer den lokalen OFF-Dump, unabhaengig vom Netz-OFF-Status
+  // oben — beide Quellen koennen hunderte Treffer haben und werden nacheinander
+  // ausgeschoepft (erst Dump, dann Netz), siehe `loadMoreOffResults`.
+  const [dumpOffset, setDumpOffset] = useState(0);
+  const [dumpHasMore, setDumpHasMore] = useState(false);
+  const [loadingMoreOff, setLoadingMoreOff] = useState(false);
+  // `value` beim Ausloesen der aktuellen Suche — schuetzt vor veralteten
+  // Nachlade-Antworten, wenn der Nutzer inzwischen weitergetippt hat.
+  const queryRef = useRef(value);
+  queryRef.current = value;
   // `value` aendert sich auch, wenn `onSelectProduct` den Query-Text auf den
   // gewaehlten Produktnamen setzt (siehe recipe-create-screen.tsx). Ohne diese
   // Markierung faengt der Such-Effekt unten diese Aenderung ab und oeffnet das
@@ -181,23 +219,36 @@ export function ProductSearchDropdown({
       setSuggestions([]);
       setShowDropdown(false);
       setSearched(false);
+      setOffHasMore(false);
+      setOffPage(1);
+      setDumpHasMore(false);
+      setDumpOffset(0);
       return;
     }
 
     const timer = setTimeout(async () => {
       setSearching(true);
+      setOffHasMore(false);
+      setOffPage(1);
+      setDumpHasMore(false);
+      setDumpOffset(0);
 
-      const localResults = await searchLocalProducts(value);
+      const { results: localResults, dumpHasMore } = await searchLocalProducts(value);
+      setDumpHasMore(dumpHasMore);
       const needsOffLookup =
         localResults.length < LOCAL_RESULT_THRESHOLD && onlineManager.isOnline();
 
       if (!needsOffLookup) {
         setSuggestions(localResults);
       } else {
-        const { products: offResults } = await searchOpenFoodFacts(value);
+        const { products: offResults, hasMore } = await searchOpenFoodFacts(value, {
+          page: 1,
+          pageSize: OFF_PAGE_SIZE,
+        });
         const localBarcodes = new Set(localResults.map((p) => p.barcode).filter(Boolean));
         const dedupedOffResults = offResults.filter((p) => !localBarcodes.has(p.barcode));
         setSuggestions([...localResults, ...dedupedOffResults]);
+        setOffHasMore(hasMore);
       }
 
       setSearched(true);
@@ -207,6 +258,47 @@ export function ProductSearchDropdown({
 
     return () => clearTimeout(timer);
   }, [value]);
+
+  /**
+   * Laedt beim Scrollen ans Ende des Dropdowns nach — erst weitere Seiten des
+   * lokalen OFF-Dumps (guenstig, kein Rate-Limit), erst wenn der ausgeschoepft
+   * ist, weitere Seiten der Netz-Suche. Ohne das war bei Begriffen mit
+   * hunderten Treffern (z. B. "Milch") nach der ersten Seite (20) Schluss,
+   * obwohl sowohl Dump als auch OFF deutlich mehr liefern.
+   */
+  async function loadMoreOffResults() {
+    if (loadingMoreOff || searching) return;
+    const currentQuery = queryRef.current;
+
+    if (dumpHasMore) {
+      const nextOffset = dumpOffset + OFF_PAGE_SIZE;
+      setLoadingMoreOff(true);
+      const { products: dumpResults, hasMore } = await searchOffDump(currentQuery, nextOffset);
+      if (queryRef.current === currentQuery) {
+        setSuggestions((prev) => dedupeByBarcode([...prev, ...dumpResults]));
+        setDumpHasMore(hasMore);
+        setDumpOffset(nextOffset);
+      }
+      setLoadingMoreOff(false);
+      return;
+    }
+
+    if (!offHasMore) return;
+    const nextPage = offPage + 1;
+    setLoadingMoreOff(true);
+
+    const { products: offResults, hasMore } = await searchOpenFoodFacts(currentQuery, {
+      page: nextPage,
+      pageSize: OFF_PAGE_SIZE,
+    });
+
+    if (queryRef.current === currentQuery) {
+      setSuggestions((prev) => dedupeByBarcode([...prev, ...offResults]));
+      setOffHasMore(hasMore);
+      setOffPage(nextPage);
+    }
+    setLoadingMoreOff(false);
+  }
 
   const showEmptyState = searched && !searching && suggestions.length === 0;
 
@@ -235,7 +327,14 @@ export function ProductSearchDropdown({
             { backgroundColor: theme.background, borderColor: theme.border },
           ]}
           keyboardShouldPersistTaps="handled"
-          showsVerticalScrollIndicator>
+          showsVerticalScrollIndicator
+          onScroll={({ nativeEvent }) => {
+            const { contentOffset, contentSize, layoutMeasurement } = nativeEvent;
+            const distanceToBottom =
+              contentSize.height - contentOffset.y - layoutMeasurement.height;
+            if (distanceToBottom < LOAD_MORE_THRESHOLD_PX) loadMoreOffResults();
+          }}
+          scrollEventThrottle={100}>
           {showEmptyState ? (
             <Pressable
               onPress={() => {
@@ -285,6 +384,11 @@ export function ProductSearchDropdown({
               </View>
             </Pressable>
           ))}
+          {loadingMoreOff && (
+            <View style={styles.loadingMore}>
+              <ActivityIndicator size="small" color={theme.accent} />
+            </View>
+          )}
         </ScrollView>
       )}
     </View>
@@ -300,6 +404,10 @@ const styles = StyleSheet.create({
     position: 'absolute',
     right: 12,
     top: 36,
+  },
+  loadingMore: {
+    paddingVertical: Spacing.two,
+    alignItems: 'center',
   },
   dropdown: {
     position: 'absolute',

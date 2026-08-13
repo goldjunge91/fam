@@ -12,6 +12,12 @@ import { pickRecipeStepImage } from '@/features/recipes/recipe-step-image';
 import type { IngredientComponentGroup, WizardStepItem } from './types';
 
 interface AvailableIngredient {
+  /**
+   * Die lokale `IngredientItem.id` — nicht `itemId` (recipe_component_items.id).
+   * Solange das Rezept nicht final gespeichert ist, existiert noch keine
+   * DB-Zeile; der Wizard referenziert Zutaten deshalb ueber ihre stabile
+   * Client-ID und uebersetzt erst beim Speichern in echte item-IDs.
+   */
   itemId: string;
   label: string;
 }
@@ -20,8 +26,8 @@ function availableIngredients(components: IngredientComponentGroup[]): Available
   const result: AvailableIngredient[] = [];
   for (const comp of components) {
     for (const item of comp.items) {
-      if (item.itemId && item.product) {
-        result.push({ itemId: item.itemId, label: `${item.product.name} (${comp.title})` });
+      if (item.product) {
+        result.push({ itemId: item.id, label: `${item.product.name} (${comp.title})` });
       }
     }
   }

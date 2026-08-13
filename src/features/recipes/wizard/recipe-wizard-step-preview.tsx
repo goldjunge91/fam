@@ -52,11 +52,14 @@ export function RecipeWizardStepPreview({
 }: RecipeWizardStepPreviewProps) {
   const [tab, setTab] = useState<PreviewTab>('ingredients');
 
+  // Schluessel ist die lokale IngredientItem.id, nicht die (erst beim
+  // finalen Speichern entstehende) DB-item-ID — siehe Kommentar in
+  // recipe-wizard-step-steps.tsx.
   const ingredientLabelById = new Map<string, string>();
   for (const comp of components) {
     for (const item of comp.items) {
-      if (item.itemId && item.product) {
-        ingredientLabelById.set(item.itemId, `${item.product.name} (${comp.title})`);
+      if (item.product) {
+        ingredientLabelById.set(item.id, `${item.product.name} (${comp.title})`);
       }
     }
   }
