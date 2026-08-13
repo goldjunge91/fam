@@ -36,6 +36,22 @@ jest.mock('@/features/calorie-tracking/api', () => ({
   useCurrentGoal: () => ({ data: null, isLoading: false }),
 }));
 
+jest.mock('@/features/premium/premium-provider', () => ({
+  usePremium: () => ({
+    isPremium: false,
+    isForced: false,
+    customerInfo: null,
+    loading: false,
+    refresh: jest.fn(),
+  }),
+}));
+
+jest.mock('@/features/premium/paywall', () => ({
+  presentPaywall: jest.fn(),
+  presentPaywallIfNeeded: jest.fn(),
+  presentCustomerCenter: jest.fn(),
+}));
+
 // `Screen` fragt den Router, ob es etwas zum Zurueckgehen gibt; ausserhalb
 // eines Navigators gibt es dafuer keinen Zustand.
 jest.mock('expo-router', () => ({
@@ -134,5 +150,10 @@ describe('SettingsScreen', () => {
   it('zeigt die App-Version im Fussbereich an (#94)', async () => {
     const { getByText } = await renderScreen();
     expect(getByText('fam v1.0.0')).toBeTruthy();
+  });
+
+  it('bietet ohne Premium einen Freischalten-Einstieg an', async () => {
+    const { getByText } = await renderScreen();
+    expect(getByText('Premium freischalten')).toBeTruthy();
   });
 });

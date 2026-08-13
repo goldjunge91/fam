@@ -11,6 +11,7 @@ import { ThemedText } from '@/components/themed-text';
 import { Spacing } from '@/constants/theme';
 import { useSession } from '@/features/auth/session-provider';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
+import { presentPaywall } from '@/features/premium/paywall';
 import { usePremium } from '@/features/premium/premium-provider';
 import {
   classifySupabaseTarget,
@@ -264,6 +265,17 @@ export function DevToolsScreen() {
             label="Sync-Diagnose & Outbox öffnen"
             variant="secondary"
             onPress={() => router.push('/settings/sync-debug')}
+          />
+          <Button
+            label="Paywall öffnen (Test Store)"
+            variant="secondary"
+            onPress={() =>
+              mitBusy('paywall', async () => {
+                const outcome = await presentPaywall();
+                Alert.alert('Paywall-Ergebnis', outcome);
+              })
+            }
+            loading={busy === 'paywall'}
           />
           <Button
             label="Lokale Datenbank löschen"

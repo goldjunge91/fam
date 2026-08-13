@@ -12,6 +12,8 @@ import { useSession } from '@/features/auth/session-provider';
 import { signOutAndClearLocalData } from '@/features/auth/sign-out';
 import { useCurrentGoal } from '@/features/calorie-tracking/api';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
+import { presentCustomerCenter, presentPaywall } from '@/features/premium/paywall';
+import { usePremium } from '@/features/premium/premium-provider';
 import { classifySupabaseTarget } from '@/features/settings/dev/dev-info';
 import { SettingsGroup, SettingsRow } from '@/features/settings/settings-menu';
 import { env } from '@/lib/env';
@@ -41,6 +43,31 @@ export function SettingsScreen() {
 
   const { activeHousehold } = useActiveHousehold();
   const { data: currentGoal } = useCurrentGoal(session?.user.id);
+  const { isPremium, isForced, refresh } = usePremium();
+  const [openingPremium, setOpeningPremium] = useState(false);
+
+  async function handlePremiumPress() {
+    if (openingPremium) return;
+    setOpeningPremium(true);
+    try {
+      if (isPremium) {
+        await presentCustomerCenter();
+      } else {
+        const outcome = await presentPaywall();
+        if (outcome === 'unavailable') {
+          Alert.alert(
+            'Nicht verfügbar',
+            'Käufe sind in diesem Build nicht verfügbar (Web oder ohne RevenueCat-Konfiguration).',
+          );
+        }
+      }
+    } catch (err) {
+      Alert.alert('Fehlgeschlagen', err instanceof Error ? err.message : String(err));
+    } finally {
+      setOpeningPremium(false);
+      await refresh();
+    }
+  }
 
   async function handleSignOut() {
     if (signingOut) return;
@@ -77,6 +104,17 @@ export function SettingsScreen() {
             label="Profil"
             value={session?.user.email ?? '—'}
             onPress={() => router.push('/settings/profile')}
+            last
+          />
+        </SettingsGroup>
+
+        <SettingsGroup title="Premium">
+          <SettingsRow
+            icon={isPremium ? '⭐' : '🔓'}
+            label={isPremium ? 'Abo verwalten' : 'Premium freischalten'}
+            value={isPremium ? (isForced ? 'aktiv (erzwungen)' : 'aktiv') : undefined}
+            onPress={handlePremiumPress}
+            disabled={openingPremium}
             last
           />
         </SettingsGroup>

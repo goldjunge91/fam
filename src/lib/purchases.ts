@@ -1,5 +1,11 @@
 import { Platform } from 'react-native';
-import Purchases, { type CustomerInfo, LOG_LEVEL } from 'react-native-purchases';
+import Purchases, {
+  type CustomerInfo,
+  LOG_LEVEL,
+  type PurchasesError,
+  type PurchasesOffering,
+  type PurchasesPackage,
+} from 'react-native-purchases';
 
 import { env } from '@/lib/env';
 
@@ -65,4 +71,63 @@ export function isPurchasesConfigured(): boolean {
 export function hasPremiumEntitlement(customerInfo: CustomerInfo | null): boolean {
   if (!customerInfo) return false;
   return customerInfo.entitlements.active[PREMIUM_ENTITLEMENT_ID] !== undefined;
+}
+
+/**
+ * Liefert die kaufbaren Packages des aktuellen Offerings (Dashboard: Offerings
+ * > "default", aktuell markiert). Leeres Array ohne konfigurierten API-Key
+ * oder ohne aktuelles Offering, statt zu werfen — der Aufrufer entscheidet,
+ * wie er eine leere Paywall behandelt.
+ */
+export async function currentPackages(): Promise<PurchasesPackage[]> {
+  if (!isPurchasesConfigured()) return [];
+  const offerings = await Purchases.getOfferings();
+  return offerings.current?.availablePackages ?? [];
+}
+
+/** Wie `currentPackages()`, gibt aber das ganze Offering zurueck (z.B. fuer `RevenueCatUI.Paywall`). */
+export async function currentOffering(): Promise<PurchasesOffering | null> {
+  if (!isPurchasesConfigured()) return null;
+  const offerings = await Purchases.getOfferings();
+  return offerings.current ?? null;
+}
+
+export type PurchaseOutcome =
+  | { kind: 'purchased'; customerInfo: CustomerInfo }
+  | { kind: 'cancelled' }
+  | { kind: 'failed'; error: PurchasesError };
+
+/**
+ * Kauft ein Package. Nutzerabbruch ist kein Fehler (siehe `error.userCancelled`)
+ * — der Aufrufer soll dann still bleiben statt einen Alert zu zeigen.
+ *
+ * Schaltet Premium nicht selbst frei: `PremiumProvider` haengt an
+ * `Purchases.addCustomerInfoUpdateListener` und uebernimmt das anhand der
+ * zurueckgegebenen `customerInfo` als einzige Quelle der Wahrheit.
+ */
+export async function buyPackage(pkg: PurchasesPackage): Promise<PurchaseOutcome> {
+  try {
+    const { customerInfo } = await Purchases.purchasePackage(pkg);
+    return { kind: 'purchased', customerInfo };
+  } catch (error) {
+    const purchasesError = error as PurchasesError;
+    if (purchasesError.userCancelled) return { kind: 'cancelled' };
+    return { kind: 'failed', error: purchasesError };
+  }
+}
+
+/**
+ * Fragt den Store nach bereits getaetigten Kaeufen und synchronisiert sie zu
+ * RevenueCat. Eine Nutzeraktion (sichtbarer "Kaeufe wiederherstellen"-Knopf),
+ * kein automatischer Schritt — auf iOS von Apple fuer Abo-Apps vorgeschrieben.
+ */
+export async function restorePurchases(): Promise<
+  { ok: true; customerInfo: CustomerInfo } | { ok: false; error: unknown }
+> {
+  try {
+    const customerInfo = await Purchases.restorePurchases();
+    return { ok: true, customerInfo };
+  } catch (error) {
+    return { ok: false, error };
+  }
 }
