@@ -5,7 +5,7 @@ import { getDatabase } from '@/lib/db/client';
 import { enqueueMutation } from '@/lib/db/outbox';
 import { addDays, defaultWeekPlanName, previousWeekStart } from './week';
 
-export type MealSlot = 'breakfast' | 'lunch' | 'dinner' | 'snack';
+export type MealSlot = 'breakfast' | 'lunch' | 'dinner';
 export type ServingsMode = 'portions' | 'people';
 
 export type MealPlan = {
@@ -49,6 +49,43 @@ export function useMealPlan(householdId: string | undefined, weekStartDate: stri
         [householdId, weekStartDate],
       );
       return row ?? null;
+    },
+    enabled: !!householdId,
+  });
+}
+
+/**
+ * Eintraege ueber einen beliebigen Datumsbereich, haushaltsweit — unabhaengig
+ * von einem einzelnen `meal_plan_id`.
+ *
+ * Fuer die Tages-/3-Tage-Ansicht (#129-Nachtrag) reicht `useMealPlanEntries`
+ * nicht: ein Fenster kann ueber zwei Kalenderwochen (und damit zwei
+ * `meal_plans`-Zeilen) hinweg liegen. `entry_date`/`household_id` liegen
+ * bereits denormalisiert auf `meal_plan_entries`, ein Filter direkt darauf
+ * ist deshalb genauso billig wie ueber `meal_plan_id` und funktioniert fuer
+ * jede Fensterbreite gleich.
+ */
+export function useMealPlanEntriesInRange(
+  householdId: string | undefined,
+  startDate: string,
+  endDate: string,
+) {
+  return useQuery({
+    queryKey: ['meal-plan-entries-range', householdId, startDate, endDate],
+    queryFn: async (): Promise<MealPlanEntry[]> => {
+      if (!householdId) return [];
+      const db = await getDatabase();
+      return db.getAllAsync<MealPlanEntry>(
+        `select e.id, e.meal_plan_id, e.household_id, e.recipe_id, e.entry_date, e.meal_slot,
+                e.servings_mode, e.portions, e.people_count,
+                coalesce(r.title, '?') as recipe_title
+         from meal_plan_entries e
+         left join recipes r on r.id = e.recipe_id
+         where e.household_id = ? and e.deleted_at is null
+           and e.entry_date >= ? and e.entry_date <= ?
+         order by e.entry_date, e.meal_slot`,
+        [householdId, startDate, endDate],
+      );
     },
     enabled: !!householdId,
   });
@@ -193,6 +230,7 @@ export function useAddEntryMutation() {
     },
     onSuccess: (_, variables) => {
       queryClient.invalidateQueries({ queryKey: ['meal-plan-entries', variables.meal_plan_id] });
+      queryClient.invalidateQueries({ queryKey: ['meal-plan-entries-range'] });
       queryClient.invalidateQueries({ queryKey: ['sync-status'] });
     },
   });
@@ -237,6 +275,7 @@ export function useUpdateEntryMutation() {
     },
     onSuccess: (_, variables) => {
       queryClient.invalidateQueries({ queryKey: ['meal-plan-entries', variables.meal_plan_id] });
+      queryClient.invalidateQueries({ queryKey: ['meal-plan-entries-range'] });
       queryClient.invalidateQueries({ queryKey: ['sync-status'] });
     },
   });
@@ -272,6 +311,7 @@ export function useDeleteEntryMutation() {
     },
     onSuccess: (_, variables) => {
       queryClient.invalidateQueries({ queryKey: ['meal-plan-entries', variables.meal_plan_id] });
+      queryClient.invalidateQueries({ queryKey: ['meal-plan-entries-range'] });
       queryClient.invalidateQueries({ queryKey: ['sync-status'] });
     },
   });
@@ -372,6 +412,7 @@ export function useReuseLastWeekMutation() {
       queryClient.invalidateQueries({
         queryKey: ['meal-plan-entries', variables.target_meal_plan_id],
       });
+      queryClient.invalidateQueries({ queryKey: ['meal-plan-entries-range'] });
       queryClient.invalidateQueries({ queryKey: ['sync-status'] });
     },
   });
