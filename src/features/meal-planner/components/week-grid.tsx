@@ -7,35 +7,50 @@ import { ThemedText } from '@/components/themed-text';
 import { Spacing } from '@/constants/theme';
 import { useTheme } from '@/hooks/use-theme';
 import type { MealPlanEntry, MealSlot } from '../use-meal-plans';
-import { MEAL_SLOT_LABELS, MEAL_SLOTS, weekDates, weekdayLabel } from '../week';
+import { MEAL_SLOT_LABELS, MEAL_SLOTS, weekdayLabel } from '../week';
 
 export type DraggableRecipe = { id: string; title: string };
 
 type CellRect = { x: number; y: number; width: number; height: number };
 
 type WeekGridProps = {
-  weekStart: string;
+  /** Sichtbare Tage, in Reihenfolge — 1 (Tag), 3 (3 Tage) oder 7 (Woche). */
+  dates: readonly string[];
   entries: readonly MealPlanEntry[];
   recipes: readonly DraggableRecipe[];
   onDropRecipe: (date: string, slot: MealSlot, recipe: DraggableRecipe) => void;
   onTapEntry: (entry: MealPlanEntry) => void;
+  /**
+   * Tippen auf eine leere Zelle (#129-Nachtrag): oeffnet einen Rezept-Picker
+   * statt sich auf Drag & Drop zu verlassen. Drag & Drop bleibt als
+   * zusaetzlicher Weg bestehen, ist aber auf echten Geraeten fehleranfaellig
+   * (Zell-Koordinaten werden nur einmal gemessen, siehe Kommentar unten) —
+   * Tippen ist der verlaessliche Hauptweg, um ein Gericht einzutragen.
+   */
+  onTapEmptyCell: (date: string, slot: MealSlot) => void;
 };
 
 /**
- * Wochenraster (#129-AC 1): 7 Tage (Zeilen) x 4 Mahlzeiten-Slots (Spalten).
- * Rezept-Chips aus der Ablage unten werden per `react-native-gesture-handler`
- * auf eine Zelle gezogen.
+ * Tages-/3-Tage-/Wochenraster (#129, Nachtrag fuer mehrere Ansichten): so
+ * viele Tage (Zeilen) wie `dates` lang ist, x 3 Mahlzeiten-Slots (Spalten).
+ * Ein Gericht kommt entweder per Tippen auf eine leere Zelle (Rezept-Picker)
+ * oder per Drag & Drop aus der Ablage unten in eine Zelle.
  *
- * Bekannte Grenze: Zell-Koordinaten werden bei jedem Layout gemessen
- * (`measure()`), aber nicht bei jedem Scroll-Event neu — waehrend eines
- * Drags scrollen aendert deshalb die Trefferflaeche nicht mit. Fuer eine
- * Wochenansicht mit 7 Zeilen ist das in der Praxis selten relevant (die
- * Ablage bleibt beim Ziehen ohnehin sichtbar), wird hier aber bewusst nicht
- * geloest, um den Umfang von #129 nicht zu sprengen.
+ * Bekannte Grenze beim Drag & Drop: Zell-Koordinaten werden bei jedem Layout
+ * gemessen (`measure()`), aber nicht bei jedem Scroll-Event neu — waehrend
+ * eines Drags scrollen aendert deshalb die Trefferflaeche nicht mit. Deshalb
+ * ist Tippen (`onTapEmptyCell`) der primaere, verlaessliche Weg.
  */
-export function WeekGrid({ weekStart, entries, recipes, onDropRecipe, onTapEntry }: WeekGridProps) {
+export function WeekGrid({
+  dates,
+  entries,
+  recipes,
+  onDropRecipe,
+  onTapEntry,
+  onTapEmptyCell,
+}: WeekGridProps) {
   const theme = useTheme();
-  const days = weekDates(weekStart);
+  const days = dates;
   const cellRects = useRef(new Map<string, CellRect>());
 
   const [draggingTitle, setDraggingTitle] = useState<string | null>(null);
@@ -113,9 +128,15 @@ export function WeekGrid({ weekStart, entries, recipes, onDropRecipe, onTapEntry
                   onLayout={() => {}}
                   style={[styles.cell, { borderColor: theme.border }]}>
                   {cellEntries.length === 0 ? (
-                    <ThemedText type="small" themeColor="textSecondary">
-                      +
-                    </ThemedText>
+                    <Pressable
+                      accessibilityRole="button"
+                      accessibilityLabel={`${MEAL_SLOT_LABELS[slot]} am ${weekdayLabel(date)}, Gericht hinzufügen`}
+                      onPress={() => onTapEmptyCell(date, slot)}
+                      style={styles.emptyCell}>
+                      <ThemedText type="small" themeColor="textSecondary">
+                        +
+                      </ThemedText>
+                    </Pressable>
                   ) : (
                     cellEntries.map((entry) => (
                       <Pressable
@@ -237,6 +258,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     gap: 2,
+  },
+  emptyCell: {
+    width: '100%',
+    alignItems: 'center',
+    justifyContent: 'center',
+    minHeight: CELL_MIN_HEIGHT - Spacing.half * 2,
   },
   entryChip: {
     borderRadius: 8,
