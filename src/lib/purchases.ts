@@ -58,7 +58,22 @@ export function initPurchases(): void {
     return;
   }
 
-  if (__DEV__) Purchases.setLogLevel(LOG_LEVEL.DEBUG);
+  if (__DEV__) {
+    Purchases.setLogLevel(LOG_LEVEL.DEBUG);
+
+    // Ohne eigenen Handler ruft das SDK fuer WARN/ERROR-Log-Zeilen
+    // console.warn/console.error auf, und React Natives LogBox faengt das als
+    // Vollbild-Ueberlagerung ab — auch fuer Zeilen, die gar kein Fehler sind,
+    // etwa "[Test Store] Purchase failure simulated successfully": Das ist
+    // der Test-Store-Dialog, der plangemaess einen Fehlkauf durchspielt.
+    // console.log haelt die Zeile im Metro-Log sichtbar, ohne die App zu
+    // unterbrechen. Nichts wird gefiltert — nur die Console-Funktion aendert
+    // sich, jede Nachricht bleibt vollstaendig sichtbar.
+    Purchases.setLogHandler((_level, message) => {
+      console.log(`[RevenueCat] ${message}`);
+    });
+  }
+
   Purchases.configure({ apiKey });
   configured = true;
 }
