@@ -1,6 +1,6 @@
 import { router } from 'expo-router';
-import { useEffect, useState } from 'react';
-import { ActivityIndicator, Alert, Pressable, StyleSheet, View } from 'react-native';
+import { useState } from 'react';
+import { Alert, Pressable, StyleSheet, View } from 'react-native';
 
 import { Screen } from '@/components/screen';
 import { ThemedText } from '@/components/themed-text';
@@ -11,6 +11,7 @@ import { useHouseholdMembers } from '@/features/household/api';
 import { useRecipes } from '@/features/recipes/use-recipes';
 import { useTheme } from '@/hooks/use-theme';
 import { type EntryFormInitial, EntryFormModal } from './components/entry-form-modal';
+import { RecipePickerModal } from './components/recipe-picker-modal';
 import { type DraggableRecipe, WeekGrid } from './components/week-grid';
 import type { ResolvedServings } from './servings';
 import { usePortionsPerPerson } from './settings';
@@ -21,11 +22,19 @@ import {
   useDeleteEntryMutation,
   useEnsureMealPlanMutation,
   useMealPlan,
-  useMealPlanEntries,
+  useMealPlanEntriesInRange,
   useReuseLastWeekMutation,
   useUpdateEntryMutation,
 } from './use-meal-plans';
-import { defaultWeekPlanName, getWeekStart, nextWeekStart, previousWeekStart } from './week';
+import {
+  getWeekStart,
+  rangeDates,
+  rangeLabel,
+  shiftAnchor,
+  VIEW_MODE_LABELS,
+  VIEW_MODES,
+  type ViewMode,
+} from './week';
 
 function todayIso(): string {
   const now = new Date();
@@ -34,10 +43,15 @@ function todayIso(): string {
 }
 
 type PendingDrop = { date: string; slot: MealSlot; recipe: DraggableRecipe };
+type PendingCell = { date: string; slot: MealSlot };
 
 /**
- * Meal-Planner-Screen (#129): Wochenplan-Grid mit Drag & Drop +
+ * Meal-Planner-Screen (#129, Nachtrag): Tages-/3-Tage-/Wochenraster mit
+ * Tippen-zum-Hinzufuegen (Hauptweg) und Drag & Drop (Zusatzweg) +
  * "letzte Woche erneut verwenden".
+ *
+ * Eigene Seite, nicht Teil von Rezepte — erreichbar von der Uebersicht
+ * (Dashboard-Karte) und zusaetzlich als Shortcut aus dem Rezepte-Screen.
  */
 export function MealPlannerScreen() {
   const theme = useTheme();
@@ -46,12 +60,25 @@ export function MealPlannerScreen() {
   const { activeHouseholdId } = useActiveHousehold();
   const householdId = activeHouseholdId ?? undefined;
 
-  const [weekStart, setWeekStart] = useState(() => getWeekStart(todayIso()));
+  const [viewMode, setViewMode] = useState<ViewMode>('week');
+  const [anchorDate, setAnchorDate] = useState(() => todayIso());
+  const [pendingCell, setPendingCell] = useState<PendingCell | null>(null);
   const [pendingDrop, setPendingDrop] = useState<PendingDrop | null>(null);
   const [editingEntry, setEditingEntry] = useState<MealPlanEntry | null>(null);
 
-  const { data: plan, isLoading: planLoading } = useMealPlan(householdId, weekStart);
-  const { data: entries = [] } = useMealPlanEntries(plan?.id);
+  const dates = rangeDates(anchorDate, viewMode);
+  const weekStart = getWeekStart(anchorDate);
+
+  // Wochenplan der sichtbaren Kalenderwoche — nur fuer die wochenweiten
+  // Aktionen ("letzte Woche erneut verwenden", "fehlende Zutaten"), die in
+  // Tages-/3-Tage-Ansicht ausgeblendet bleiben. Eintraege selbst haengen
+  // nicht an einem einzelnen Plan, siehe useMealPlanEntriesInRange.
+  const { data: plan } = useMealPlan(householdId, weekStart);
+  const { data: entries = [] } = useMealPlanEntriesInRange(
+    householdId,
+    dates[0],
+    dates[dates.length - 1],
+  );
   const { data: recipes = [] } = useRecipes(householdId);
   const { data: members = [] } = useHouseholdMembers(householdId ?? '');
   const { data: portionsPerPerson } = usePortionsPerPerson();
@@ -62,33 +89,44 @@ export function MealPlannerScreen() {
   const deleteEntry = useDeleteEntryMutation();
   const reuseLastWeek = useReuseLastWeekMutation();
 
-  // Wochenplan bei Bedarf automatisch anlegen, sobald diese Woche betreten
-  // wird — sonst haette ein Drop keinen meal_plan_id, auf den er zeigen kann.
-  // biome-ignore lint/correctness/useExhaustiveDependencies: ensurePlan.mutate ist stabil genug, Aufnahme wuerde eine Endlosschleife riskieren.
-  useEffect(() => {
-    if (!householdId || !userId || planLoading || plan) return;
-    ensurePlan.mutate({
-      household_id: householdId,
-      week_start_date: weekStart,
-      created_by: userId,
-    });
-  }, [householdId, userId, weekStart, plan, planLoading]);
-
   const draggableRecipes: DraggableRecipe[] = recipes.map((r) => ({ id: r.id, title: r.title }));
 
   function handleDropRecipe(date: string, slot: MealSlot, recipe: DraggableRecipe) {
     setPendingDrop({ date, slot, recipe });
   }
 
+  function handleTapEmptyCell(date: string, slot: MealSlot) {
+    setPendingCell({ date, slot });
+  }
+
+  function handlePickRecipe(recipe: DraggableRecipe) {
+    if (!pendingCell) return;
+    setPendingDrop({ date: pendingCell.date, slot: pendingCell.slot, recipe });
+    setPendingCell(null);
+  }
+
   function handleTapEntry(entry: MealPlanEntry) {
     setEditingEntry(entry);
   }
 
-  function handleSaveNewEntry(resolved: ResolvedServings) {
-    if (!pendingDrop || !plan || !householdId || !userId) return;
+  // Legt bei Bedarf den Wochenplan der Kalenderwoche an, in der `date` liegt
+  // — nicht zwingend die aktuell angezeigte Woche, ein 3-Tage-Fenster kann
+  // ueber einen Wochenwechsel hinweg liegen.
+  async function ensurePlanForDate(date: string) {
+    if (!householdId || !userId) throw new Error('Kein Haushalt/Nutzer');
+    return ensurePlan.mutateAsync({
+      household_id: householdId,
+      week_start_date: getWeekStart(date),
+      created_by: userId,
+    });
+  }
+
+  async function handleSaveNewEntry(resolved: ResolvedServings) {
+    if (!pendingDrop || !householdId || !userId) return;
+    const targetPlan = await ensurePlanForDate(pendingDrop.date);
     addEntry.mutate(
       {
-        meal_plan_id: plan.id,
+        meal_plan_id: targetPlan.id,
         household_id: householdId,
         recipe_id: pendingDrop.recipe.id,
         entry_date: pendingDrop.date,
@@ -127,20 +165,12 @@ export function MealPlannerScreen() {
 
   async function handleReuseLastWeek() {
     if (!householdId || !userId) return;
-    let targetPlanId = plan?.id;
-    if (!targetPlanId) {
-      const created = await ensurePlan.mutateAsync({
-        household_id: householdId,
-        week_start_date: weekStart,
-        created_by: userId,
-      });
-      targetPlanId = created.id;
-    }
+    const targetPlan = await ensurePlanForDate(weekStart);
     reuseLastWeek.mutate(
       {
         household_id: householdId,
         week_start_date: weekStart,
-        target_meal_plan_id: targetPlanId,
+        target_meal_plan_id: targetPlan.id,
         created_by: userId,
       },
       {
@@ -163,61 +193,88 @@ export function MealPlannerScreen() {
 
   return (
     <Screen
-      title="Wochenplan"
-      subtitle={plan?.name ?? defaultWeekPlanName(weekStart)}
+      title="Essensplan"
+      subtitle={rangeLabel(anchorDate, viewMode)}
       scroll={false}
-      back={{ label: 'Rezepte' }}>
+      back={{ label: 'Übersicht', href: '/' }}>
+      <View style={styles.viewModeRow}>
+        {VIEW_MODES.map((mode) => (
+          <Pressable
+            key={mode}
+            accessibilityRole="button"
+            accessibilityLabel={`${VIEW_MODE_LABELS[mode]}-Ansicht`}
+            accessibilityState={{ selected: viewMode === mode }}
+            onPress={() => setViewMode(mode)}
+            style={[
+              styles.viewModeButton,
+              { backgroundColor: viewMode === mode ? theme.accent : theme.backgroundElement },
+            ]}>
+            <ThemedText
+              type="smallBold"
+              style={{ color: viewMode === mode ? '#ffffff' : theme.text }}>
+              {VIEW_MODE_LABELS[mode]}
+            </ThemedText>
+          </Pressable>
+        ))}
+      </View>
+
       <View style={styles.weekNav}>
         <Pressable
           accessibilityRole="button"
-          accessibilityLabel="Vorherige Woche"
-          onPress={() => setWeekStart((w) => previousWeekStart(w))}
+          accessibilityLabel="Zurück"
+          onPress={() => setAnchorDate((d) => shiftAnchor(d, viewMode, -1))}
           style={[styles.weekNavButton, { backgroundColor: theme.backgroundElement }]}>
           <ThemedText>‹</ThemedText>
         </Pressable>
-        <ThemedText type="smallBold">{defaultWeekPlanName(weekStart)}</ThemedText>
+        <ThemedText type="smallBold">{rangeLabel(anchorDate, viewMode)}</ThemedText>
         <Pressable
           accessibilityRole="button"
-          accessibilityLabel="Nächste Woche"
-          onPress={() => setWeekStart((w) => nextWeekStart(w))}
+          accessibilityLabel="Weiter"
+          onPress={() => setAnchorDate((d) => shiftAnchor(d, viewMode, 1))}
           style={[styles.weekNavButton, { backgroundColor: theme.backgroundElement }]}>
           <ThemedText>›</ThemedText>
         </Pressable>
       </View>
 
-      <View style={styles.actionsRow}>
-        <Pressable
-          accessibilityRole="button"
-          accessibilityLabel="Letzte Woche erneut verwenden"
-          onPress={handleReuseLastWeek}>
-          <ThemedText type="link">Letzte Woche erneut verwenden</ThemedText>
-        </Pressable>
-        {plan ? (
+      {viewMode === 'week' ? (
+        <View style={styles.actionsRow}>
           <Pressable
             accessibilityRole="button"
-            accessibilityLabel="Fehlende Zutaten anzeigen"
-            onPress={() =>
-              router.push({
-                pathname: '/meal-planner/shopping-needs',
-                params: { mealPlanId: plan.id },
-              })
-            }>
-            <ThemedText type="link">Fehlende Zutaten</ThemedText>
+            accessibilityLabel="Letzte Woche erneut verwenden"
+            onPress={handleReuseLastWeek}>
+            <ThemedText type="link">Letzte Woche erneut verwenden</ThemedText>
           </Pressable>
-        ) : null}
-      </View>
+          {plan ? (
+            <Pressable
+              accessibilityRole="button"
+              accessibilityLabel="Fehlende Zutaten anzeigen"
+              onPress={() =>
+                router.push({
+                  pathname: '/meal-planner/shopping-needs',
+                  params: { mealPlanId: plan.id },
+                })
+              }>
+              <ThemedText type="link">Fehlende Zutaten</ThemedText>
+            </Pressable>
+          ) : null}
+        </View>
+      ) : null}
 
-      {planLoading ? (
-        <ActivityIndicator style={styles.loading} />
-      ) : (
-        <WeekGrid
-          weekStart={weekStart}
-          entries={entries}
-          recipes={draggableRecipes}
-          onDropRecipe={handleDropRecipe}
-          onTapEntry={handleTapEntry}
-        />
-      )}
+      <WeekGrid
+        dates={dates}
+        entries={entries}
+        recipes={draggableRecipes}
+        onDropRecipe={handleDropRecipe}
+        onTapEntry={handleTapEntry}
+        onTapEmptyCell={handleTapEmptyCell}
+      />
+
+      <RecipePickerModal
+        visible={pendingCell !== null}
+        recipes={draggableRecipes}
+        onDismiss={() => setPendingCell(null)}
+        onSelect={handlePickRecipe}
+      />
 
       {pendingDrop ? (
         <EntryFormModal
@@ -251,6 +308,17 @@ export function MealPlannerScreen() {
 }
 
 const styles = StyleSheet.create({
+  viewModeRow: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    gap: Spacing.two,
+    marginBottom: Spacing.two,
+  },
+  viewModeButton: {
+    paddingHorizontal: Spacing.three,
+    paddingVertical: Spacing.one,
+    borderRadius: 16,
+  },
   weekNav: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -271,5 +339,4 @@ const styles = StyleSheet.create({
     gap: Spacing.four,
     marginBottom: Spacing.two,
   },
-  loading: { marginTop: Spacing.five },
 });

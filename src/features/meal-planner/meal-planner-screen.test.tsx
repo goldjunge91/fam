@@ -55,12 +55,14 @@ jest.mock('./settings', () => ({
   usePortionsPerPerson: () => ({ data: 1.25 }),
 }));
 
+const mockAddMutate = jest.fn();
+
 jest.mock('./use-meal-plans', () => ({
   useMealPlan: () => ({
     data: { id: 'plan-1', name: 'Woche 34', week_start_date: '2026-08-17' },
     isLoading: false,
   }),
-  useMealPlanEntries: () => ({
+  useMealPlanEntriesInRange: () => ({
     data: [
       {
         id: 'entry-1',
@@ -80,7 +82,7 @@ jest.mock('./use-meal-plans', () => ({
     mutate: mockEnsureMutate,
     mutateAsync: mockEnsureMutateAsync,
   }),
-  useAddEntryMutation: () => ({ mutate: jest.fn() }),
+  useAddEntryMutation: () => ({ mutate: mockAddMutate }),
   useUpdateEntryMutation: () => ({ mutate: jest.fn() }),
   useDeleteEntryMutation: () => ({ mutate: jest.fn() }),
   useReuseLastWeekMutation: () => ({ mutate: mockReuseMutate }),
@@ -90,14 +92,36 @@ beforeEach(() => {
   mockEnsureMutate.mockClear();
   mockEnsureMutateAsync.mockClear();
   mockReuseMutate.mockClear();
+  mockAddMutate.mockClear();
 });
 
 describe('MealPlannerScreen', () => {
   it('zeigt den Titel und den zugeordneten Wochenplan-Eintrag', async () => {
     await renderScreen();
 
-    expect(screen.getByText('Wochenplan')).toBeOnTheScreen();
+    expect(screen.getByText('Essensplan')).toBeOnTheScreen();
     expect(screen.getByText('Spaghetti Bolognese')).toBeOnTheScreen();
+  });
+
+  it('zeigt die Ansichts-Umschalter Tag/3 Tage/Woche, Woche als Standard', async () => {
+    await renderScreen();
+
+    expect(screen.getByRole('button', { name: 'Tag-Ansicht' })).toBeOnTheScreen();
+    expect(screen.getByRole('button', { name: '3 Tage-Ansicht' })).toBeOnTheScreen();
+    expect(screen.getByRole('button', { name: 'Woche-Ansicht', selected: true })).toBeOnTheScreen();
+  });
+
+  it('blendet die wochenweiten Aktionen in der Tagesansicht aus', async () => {
+    const user = userEvent.setup();
+    await renderScreen();
+
+    expect(screen.getByRole('button', { name: 'Letzte Woche erneut verwenden' })).toBeOnTheScreen();
+
+    await user.press(screen.getByRole('button', { name: 'Tag-Ansicht' }));
+
+    expect(
+      screen.queryByRole('button', { name: 'Letzte Woche erneut verwenden' }),
+    ).not.toBeOnTheScreen();
   });
 
   it('loest "letzte Woche erneut verwenden" ueber die Mutation aus', async () => {
@@ -110,5 +134,22 @@ describe('MealPlannerScreen', () => {
       expect.objectContaining({ household_id: 'hh-1', target_meal_plan_id: 'plan-1' }),
       expect.anything(),
     );
+  });
+
+  it('oeffnet beim Tippen auf eine leere Zelle den Rezept-Picker und traegt die Auswahl ein (#129-Nachtrag)', async () => {
+    const user = userEvent.setup();
+    await renderScreen();
+
+    await user.press(
+      screen.getByRole('button', { name: 'Frühstück am Montag, Gericht hinzufügen' }),
+    );
+
+    expect(screen.getByText('Rezept auswählen')).toBeOnTheScreen();
+
+    await user.press(screen.getByRole('button', { name: 'Spaghetti Bolognese eintragen' }));
+
+    // Rezept-Picker schliesst sich, Portionen-/Personen-Formular oeffnet sich fuer die Auswahl.
+    expect(screen.queryByText('Rezept auswählen')).not.toBeOnTheScreen();
+    expect(screen.getByRole('button', { name: 'Speichern' })).toBeOnTheScreen();
   });
 });
