@@ -98,3 +98,21 @@ describe('env.devTools', () => {
     expect(env.forceOnboarding).toBe(false);
   });
 });
+
+describe('env.offFactsOffline', () => {
+  const original = process.env.EXPO_PUBLIC_OFF_OFFLINE;
+
+  afterEach(() => {
+    process.env.EXPO_PUBLIC_OFF_OFFLINE = original;
+  });
+
+  it('ist ohne gesetzte Variable aus', () => {
+    process.env.EXPO_PUBLIC_OFF_OFFLINE = undefined;
+    expect(env.offFactsOffline).toBe(false);
+  });
+
+  it('ist bei true eingeschaltet', () => {
+    process.env.EXPO_PUBLIC_OFF_OFFLINE = 'true';
+    expect(env.offFactsOffline).toBe(true);
+  });
+});

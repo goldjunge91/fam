@@ -1,3 +1,5 @@
+import { env } from '@/lib/env';
+
 export type NutrientLevel = 'low' | 'moderate' | 'high';
 
 export type OpenFoodFactsProduct = {
@@ -276,6 +278,10 @@ export async function searchOpenFoodFacts(
   const cached = searchCache.get(cacheKey);
   if (cached) return cached;
 
+  if (env.offFactsOffline) {
+    return { products: [], hasMore: false, failed: true };
+  }
+
   if (searchRateLimiter.isLimited()) {
     return { products: [], hasMore: false, failed: true };
   }
@@ -399,6 +405,7 @@ export async function fetchProductByBarcode(
 ): Promise<OpenFoodFactsProduct | null> {
   const trimmed = barcode.trim();
   if (!trimmed) return null;
+  if (env.offFactsOffline) return null;
 
   try {
     const url = `https://world.openfoodfacts.org/api/v2/product/${encodeURIComponent(

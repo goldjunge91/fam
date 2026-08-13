@@ -72,4 +72,12 @@ export const env = {
   get devTools(): boolean {
     return isFlagEnabled(process.env.EXPO_PUBLIC_DEV_TOOLS);
   },
+  /**
+   * Unterbindet jeden Open-Food-Facts-Netzwerkzugriff (Suche + Barcode-Lookup).
+   * Zum Testen des Offline-Verhaltens, ohne echtes Netz aus- und wieder
+   * einzuschalten oder auf ein Rate-Limit zu warten.
+   */
+  get offFactsOffline(): boolean {
+    return isFlagEnabled(process.env.EXPO_PUBLIC_OFF_OFFLINE);
+  },
 };
