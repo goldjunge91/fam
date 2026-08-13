@@ -146,6 +146,16 @@ describe('DashboardScreen — "Läuft bald ab"-Karte (#73)', () => {
   });
 });
 
+describe('DashboardScreen — Essensplan-Karte (#129-Nachtrag)', () => {
+  it('navigiert bei Tap auf die Karte zum Meal-Planner, als eigene Seite erreichbar', async () => {
+    await renderScreen();
+
+    await fireEvent.press(screen.getByLabelText('Essensplan öffnen'));
+
+    expect(router.push).toHaveBeenCalledWith('/meal-planner');
+  });
+});
+
 describe('DashboardScreen — Pull-to-Refresh (#93)', () => {
   it('loest triggerHouseholdSync fuer den aktiven Haushalt aus', async () => {
     await renderScreen();

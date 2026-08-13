@@ -604,6 +604,49 @@ module.exports = {
 - Avoid shared mutable state
 - Use `findBy` queries for async elements
 
+### Issue: State update from a raw callback (outside `fireEvent`/`userEvent`) doesn't show up in assertions
+A callback captured from `jest.mock(...)` (e.g. a mocked `onAuthStateChange`/
+listener registration) and invoked directly in the test bypasses Testing
+Library's automatic `act()` wrapping. `render`/`fireEvent`/`userEvent` wrap
+themselves in `act()` already — a raw callback does not.
+
+- **Use `await act(async () => { rawCallback(...); })`** — the synchronous
+  `act(() => { ... })` does not reliably flush the resulting `setState`
+  before the next assertion runs; the update genuinely happened but the test
+  reads stale UI and times out on `findBy*`/`getBy*`.
+- Verified: skipping `act()` entirely and relying on `await findByText(...)`
+  to eventually pick up the update *does* pass, but logs a React warning
+  ("An update ... was not wrapped in act(...)"). That's not a fix, just a
+  warning-producing pass — prefer the explicit `act(async ...)` wrap.
+- Reproduced live in `test/examples/act-and-real-timers-demo/` (run via
+  `npx jest --config test/examples/act-and-real-timers-demo/jest.demo.config.js`).
+
+### Issue: Tests with real `setInterval`/`setTimeout` polling hang or run slow ("Jest did not exit...")
+A component that keeps a real timer running (e.g. a banner polling every
+few seconds) holds Node's event loop open for as long as it stays mounted.
+If the test's assertion is wrong or the component isn't cleanly unmounted,
+this shows up as an intermittent multi-second hang instead of a fast, clear
+failure — easy to mistake for an infinite loop in production code.
+
+- Default to `jest.useFakeTimers()` in `beforeEach` for any test whose
+  component uses real timers, so a stuck assertion fails fast instead of
+  hanging the whole `npx jest` invocation.
+- In `afterEach`, call **`jest.runOnlyPendingTimers()` before
+  `jest.useRealTimers()`** — switching back to real timers without first
+  draining pending fake-timer work leaves scheduled tasks in an
+  inconsistent state (testing-library.com's own recommendation).
+- Prefer **`jest.advanceTimersByTimeAsync(ms)` over `jest.advanceTimersByTime(ms)`**
+  when the timer callback triggers a React state update — the async variant
+  flushes microtasks/promises between timer executions and avoids
+  promise/timer deadlocks; wrap it in
+  `await act(async () => { await jest.advanceTimersByTimeAsync(ms); })`.
+- If a test combines fake timers with `userEvent` (e.g. `user.type` between
+  timer advances), pass `userEvent.setup({ advanceTimers: jest.advanceTimersByTime })`
+  — otherwise `userEvent`'s built-in inter-action delays never advance under
+  fake time and the test times out. Do not work around this with
+  `delay: null`; that causes its own unexpected behavior per the
+  testing-library docs.
+
 ### Issue: Mock not working
 - Ensure mock is before import
 - Use `jest.resetModules()` between tests

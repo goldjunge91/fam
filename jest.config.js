@@ -3,6 +3,14 @@ module.exports = {
   preset: 'jest-expo',
   setupFiles: ['<rootDir>/test/setup.js'],
 
+  // Ohne diesen Resolver landet `react-native-reanimated/mock` (ueber
+  // `react-native-worklets`) trotzdem bei den `.native.ts`-Dateien und damit
+  // beim echten nativen Worklets-Modul, das es unter Jest nicht gibt (#129,
+  // erster Reanimated/Gesture-Handler-Import im Testcode). Der von
+  // react-native-worklets mitgelieferte Resolver filtert `.native`-Varianten
+  // ausschliesslich fuer dieses Paket heraus.
+  resolver: '<rootDir>/node_modules/react-native-worklets/jest/resolver.js',
+
   // Preset default nur (jest-)?react-native|@react-native(-community)? —
   // deckt Expo-Pakete und react-native-svg nicht ab, die unkompiliertes
   // ESM ausliefern.

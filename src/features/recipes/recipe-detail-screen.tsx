@@ -279,6 +279,14 @@ export function RecipeDetailScreen() {
           </View>
         ) : null}
 
+        <Pressable
+          style={styles.cookModeButton}
+          onPress={() => router.push({ pathname: '/recipe/cook', params: { id: recipe.id } })}
+          accessibilityRole="button"
+          accessibilityLabel="Kochmodus starten">
+          <Text style={styles.cookModeButtonText}>Kochmodus starten</Text>
+        </Pressable>
+
         {recipe.instructions ? (
           <View style={styles.section}>
             <Text style={styles.descriptionText}>{recipe.instructions}</Text>
@@ -399,6 +407,17 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
     paddingVertical: 8,
     borderRadius: 18,
+  },
+  cookModeButton: {
+    backgroundColor: '#FF5262',
+    paddingVertical: 14,
+    borderRadius: 16,
+    alignItems: 'center',
+  },
+  cookModeButtonText: {
+    color: '#FFFFFF',
+    fontSize: 15,
+    fontWeight: '700',
   },
   editText: {
     color: '#FF5262',

@@ -164,6 +164,17 @@ export function DashboardScreen() {
           </View>
         </Card>
 
+        <Pressable
+          onPress={() => router.push('/meal-planner')}
+          accessibilityRole="button"
+          accessibilityLabel="Essensplan öffnen">
+          <Card title="Essensplan">
+            <ThemedText type="small" themeColor="textSecondary">
+              Wochenplan ansehen, bearbeiten oder Gerichte eintragen
+            </ThemedText>
+          </Card>
+        </Pressable>
+
         {/* Kein leerer Card-Rumpf mehr, sobald geladen und nichts ablaeuft. */}
         {isLoading || expiringItems.length > 0 ? (
           <Pressable

@@ -1,0 +1,155 @@
+/**
+ * Reine Datumsfunktionen fuer den Wochenplan-Grid (#129). Kein I/O.
+ *
+ * Arbeitet ausschliesslich mit `YYYY-MM-DD`-Strings (wie
+ * `meal_plans.week_start_date`/`meal_plan_entries.entry_date`), nicht mit
+ * `Date`-Objekten samt Zeitzone — ein Kalenderdatum hat keine Uhrzeit, und
+ * ein `Date`-Roundtrip haette an Zeitzonengrenzen den falschen Tag ergeben.
+ */
+
+// Bewusst ohne 'snack': der Wochenplan bildet nur die drei Hauptmahlzeiten ab
+// (anders als das Kalorien-Tagebuch, das 'snack' als eigene Kategorie kennt).
+export const MEAL_SLOTS = ['breakfast', 'lunch', 'dinner'] as const;
+export type MealSlot = (typeof MEAL_SLOTS)[number];
+
+export const MEAL_SLOT_LABELS: Record<MealSlot, string> = {
+  breakfast: 'Frühstück',
+  lunch: 'Mittag',
+  dinner: 'Abend',
+};
+
+export const WEEKDAY_LABELS = [
+  'Montag',
+  'Dienstag',
+  'Mittwoch',
+  'Donnerstag',
+  'Freitag',
+  'Samstag',
+  'Sonntag',
+] as const;
+
+function pad(n: number): string {
+  return String(n).padStart(2, '0');
+}
+
+function toDateOnlyString(date: Date): string {
+  return `${date.getUTCFullYear()}-${pad(date.getUTCMonth() + 1)}-${pad(date.getUTCDate())}`;
+}
+
+function parseDateOnly(dateStr: string): Date {
+  const [y, m, d] = dateStr.split('-').map(Number);
+  return new Date(Date.UTC(y, m - 1, d));
+}
+
+/** Montag der Kalenderwoche, die `dateStr` enthaelt (ISO-Wochenstart). */
+export function getWeekStart(dateStr: string): string {
+  const date = parseDateOnly(dateStr);
+  // getUTCDay(): 0 = Sonntag ... 6 = Samstag. Abstand zum Montag dieser Woche.
+  const day = date.getUTCDay();
+  const diffToMonday = day === 0 ? -6 : 1 - day;
+  date.setUTCDate(date.getUTCDate() + diffToMonday);
+  return toDateOnlyString(date);
+}
+
+export function addDays(dateStr: string, days: number): string {
+  const date = parseDateOnly(dateStr);
+  date.setUTCDate(date.getUTCDate() + days);
+  return toDateOnlyString(date);
+}
+
+/** Die sieben Kalendertage (Montag..Sonntag) einer mit `weekStart` beginnenden Woche. */
+export function weekDates(weekStart: string): string[] {
+  return Array.from({ length: 7 }, (_, i) => addDays(weekStart, i));
+}
+
+export function previousWeekStart(weekStart: string): string {
+  return addDays(weekStart, -7);
+}
+
+export function nextWeekStart(weekStart: string): string {
+  return addDays(weekStart, 7);
+}
+
+const MONTH_LABELS = [
+  'Jan.',
+  'Feb.',
+  'März',
+  'Apr.',
+  'Mai',
+  'Juni',
+  'Juli',
+  'Aug.',
+  'Sep.',
+  'Okt.',
+  'Nov.',
+  'Dez.',
+];
+
+/** Standard-Name eines neu angelegten Wochenplans, z. B. "Woche 17.–23. Aug.". */
+export function defaultWeekPlanName(weekStart: string): string {
+  const start = parseDateOnly(weekStart);
+  const end = parseDateOnly(addDays(weekStart, 6));
+  const startDay = start.getUTCDate();
+  const endDay = end.getUTCDate();
+  const endMonth = MONTH_LABELS[end.getUTCMonth()];
+  return `Woche ${startDay}.–${endDay}. ${endMonth}`;
+}
+
+export function weekdayLabel(dateStr: string): string {
+  const date = parseDateOnly(dateStr);
+  const day = date.getUTCDay();
+  const index = day === 0 ? 6 : day - 1;
+  return WEEKDAY_LABELS[index];
+}
+
+// ------------------------------------------------------------- Ansichts-Modi
+// (#129-Nachtrag: Wochen-, 3-Tage- und Tagesansicht statt nur Woche.)
+
+export const VIEW_MODES = ['day', 'threeDay', 'week'] as const;
+export type ViewMode = (typeof VIEW_MODES)[number];
+
+export const VIEW_MODE_LABELS: Record<ViewMode, string> = {
+  day: 'Tag',
+  threeDay: '3 Tage',
+  week: 'Woche',
+};
+
+/** Anzahl der Kalendertage, die eine Ansicht auf einmal zeigt. */
+const VIEW_MODE_DAY_COUNT: Record<ViewMode, number> = {
+  day: 1,
+  threeDay: 3,
+  week: 7,
+};
+
+/**
+ * Sichtbare Tage einer Ansicht, ausgehend von einem Ankerdatum.
+ *
+ * Nur die Wochenansicht richtet sich am Montag der Kalenderwoche aus (wie
+ * `weekDates`) — Tages- und 3-Tage-Ansicht sind ein gleitendes Fenster ab dem
+ * Ankerdatum selbst, damit "vor/zurueck" den Nutzer nicht ueberraschend an
+ * einen Wochenanfang zurueckspringen laesst.
+ */
+export function rangeDates(anchor: string, mode: ViewMode): string[] {
+  const start = mode === 'week' ? getWeekStart(anchor) : anchor;
+  return Array.from({ length: VIEW_MODE_DAY_COUNT[mode] }, (_, i) => addDays(start, i));
+}
+
+/** Naechstes/vorheriges Fenster derselben Ansicht (verschiebt um deren Tageszahl). */
+export function shiftAnchor(anchor: string, mode: ViewMode, direction: 1 | -1): string {
+  return addDays(anchor, direction * VIEW_MODE_DAY_COUNT[mode]);
+}
+
+/** Ueberschrift fuer den sichtbaren Zeitraum, z. B. "17. Aug." oder "17.–19. Aug.". */
+export function rangeLabel(anchor: string, mode: ViewMode): string {
+  if (mode === 'week') return defaultWeekPlanName(getWeekStart(anchor));
+
+  const dates = rangeDates(anchor, mode);
+  const start = parseDateOnly(dates[0]);
+  const end = parseDateOnly(dates[dates.length - 1]);
+  const startDay = start.getUTCDate();
+  const endDay = end.getUTCDate();
+  const endMonth = MONTH_LABELS[end.getUTCMonth()];
+
+  if (dates.length === 1) return `${startDay}. ${endMonth}`;
+  return `${startDay}.–${endDay}. ${endMonth}`;
+}
