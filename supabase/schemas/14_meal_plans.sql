@@ -69,8 +69,11 @@ create table if not exists public.meal_plan_entries (
   -- erneut verwenden" (#129) kopiert Eintraege per simpler +7-Tage-Addition
   -- auf entry_date, ohne Wochentag<->Datum erst zurueckrechnen zu muessen.
   entry_date date not null,
+  -- Kein 'snack': der Wochenplan bildet nur die drei Hauptmahlzeiten ab
+  -- (Produktentscheidung, siehe PR-Feedback zu #129 — anders als das
+  -- Kalorien-Tagebuch, das 'snack' als Eintragskategorie kennt).
   meal_slot text not null
-    check (meal_slot in ('breakfast', 'lunch', 'dinner', 'snack')),
+    check (meal_slot in ('breakfast', 'lunch', 'dinner')),
 
   -- Portionen-/Personen-Eingabe (#130). servings_mode bestimmt, welche
   -- Eingabe die urspruengliche Nutzer-Absicht war; portions ist in beiden

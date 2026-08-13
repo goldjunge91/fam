@@ -88,7 +88,7 @@ select throws_ok(
   format(
     $$ insert into public.meal_plan_entries
          (meal_plan_id, household_id, recipe_id, entry_date, meal_slot, servings_mode, portions)
-       values (%L, %L, %L, '2026-08-19', 'snack', 'portions', 2) $$,
+       values (%L, %L, %L, '2026-08-19', 'dinner', 'portions', 2) $$,
     :'plan_id', :'hid', :'recipe_id'
   ),
   '42501',
@@ -103,7 +103,7 @@ select throws_ok(
   format(
     $$ insert into public.meal_plan_entries
          (meal_plan_id, household_id, recipe_id, entry_date, meal_slot, servings_mode, portions, people_count)
-       values (%L, %L, %L, '2026-08-19', 'snack', 'portions', 2, 3) $$,
+       values (%L, %L, %L, '2026-08-19', 'dinner', 'portions', 2, 3) $$,
     :'plan_id', :'hid', :'recipe_id'
   ),
   '23514',
@@ -115,7 +115,7 @@ select throws_ok(
   format(
     $$ insert into public.meal_plan_entries
          (meal_plan_id, household_id, recipe_id, entry_date, meal_slot, servings_mode, portions)
-       values (%L, %L, %L, '2026-08-19', 'snack', 'people', 2) $$,
+       values (%L, %L, %L, '2026-08-19', 'dinner', 'people', 2) $$,
     :'plan_id', :'hid', :'recipe_id'
   ),
   '23514',
