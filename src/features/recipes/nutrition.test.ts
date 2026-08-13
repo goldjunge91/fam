@@ -1,4 +1,5 @@
 import {
+  calculateAdjustedServingNutrition,
   calculateComponentPer100g,
   calculateServingNutrition,
   type ProductNutritionRow,
@@ -101,6 +102,30 @@ describe('calculateServingNutrition', () => {
     ];
     const serving = calculateServingNutrition(withSubOnly, items, productsById);
     expect(serving.kcal).toBeCloseTo(780, 5);
+  });
+});
+
+describe('calculateAdjustedServingNutrition', () => {
+  it('verhaelt sich wie calculateServingNutrition ohne Overrides', () => {
+    const adjusted = calculateAdjustedServingNutrition(components, items, productsById, new Map());
+    expect(adjusted.kcal).toBeCloseTo(780, 5);
+    expect(adjusted.grams).toBe(500);
+  });
+
+  it('nutzt "mehr Soße" nur fuer die Berechnung, ohne serving_grams zu veraendern', () => {
+    const overrides = new Map([['sauce', 400]]); // statt 200g
+    const adjusted = calculateAdjustedServingNutrition(components, items, productsById, overrides);
+    // 300g Nudeln (600kcal) + 400g Soße a 90kcal/100g (360kcal) = 960kcal
+    expect(adjusted.kcal).toBeCloseTo(960, 5);
+    expect(adjusted.grams).toBe(700);
+    expect(sauceKomponente.serving_grams).toBe(200); // Original unveraendert
+  });
+
+  it('ueberspringt eine auf 0 gesetzte Komponente', () => {
+    const overrides = new Map([['sauce', 0]]);
+    const adjusted = calculateAdjustedServingNutrition(components, items, productsById, overrides);
+    expect(adjusted.kcal).toBeCloseTo(600, 5); // nur noch die Nudeln
+    expect(adjusted.grams).toBe(300);
   });
 });
 

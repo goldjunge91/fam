@@ -309,6 +309,13 @@ export function RecipeDetailScreen() {
               {round(scaledServing.protein_g)} g Protein · {round(scaledServing.carbs_g)} g
               Kohlenhydrate · {round(scaledServing.fat_g)} g Fett
             </Text>
+            <Pressable
+              style={styles.logButton}
+              onPress={() => router.push({ pathname: '/recipe/log', params: { id: recipe.id } })}
+              accessibilityRole="button"
+              accessibilityLabel="Ins Tagebuch loggen">
+              <Text style={styles.logButtonText}>Ins Tagebuch loggen</Text>
+            </Pressable>
           </View>
         ) : null}
 
@@ -546,6 +553,18 @@ const styles = StyleSheet.create({
     fontSize: 13,
     color: '#332222',
     fontWeight: '600',
+  },
+  logButton: {
+    backgroundColor: '#FF5262',
+    borderRadius: 20,
+    paddingVertical: 12,
+    alignItems: 'center',
+    marginTop: 14,
+  },
+  logButtonText: {
+    color: '#FFFFFF',
+    fontSize: 15,
+    fontWeight: '700',
   },
   descriptionText: {
     fontSize: 15,

@@ -136,6 +136,33 @@ export function calculateServingNutrition(
 }
 
 /**
+ * Wie `calculateServingNutrition`, aber mit individuell angepassten
+ * Portions-Grammmengen je oberster Komponente (#127: "mehr Soße" beim
+ * Loggen, ohne das Original-Rezept zu veraendern). `gramsByComponentId`
+ * ueberschreibt `serving_grams` nur fuer die Berechnung — persistiert wird
+ * hier nichts, das Ergebnis ist ein reiner kcal/Makro-Snapshot fuers
+ * Tagebuch. Fehlt ein Override, gilt die Rezept-Vorgabe als Ausgangswert.
+ */
+export function calculateAdjustedServingNutrition(
+  components: readonly RecipeComponentRow[],
+  items: readonly RecipeComponentItemRow[],
+  productsById: ReadonlyMap<string, ProductNutritionRow>,
+  gramsByComponentId: ReadonlyMap<string, number>,
+): NutritionTotal {
+  const total: NutritionTotal = { grams: 0, kcal: 0, protein_g: 0, carbs_g: 0, fat_g: 0 };
+
+  for (const component of components) {
+    if (component.serving_grams === null) continue;
+    const grams = gramsByComponentId.get(component.id) ?? component.serving_grams;
+    if (grams <= 0) continue;
+    const per100 = calculateComponentPer100g(component.id, items, productsById);
+    addScaled(total, per100, grams);
+  }
+
+  return total;
+}
+
+/**
  * Klassisches Hochskalieren: "2 Portionen" multipliziert alle
  * Portions-Grammmengen linear (Brainstorm-Entscheidung — kein
  * Baukasten-Skalieren auf dieser Ebene).
