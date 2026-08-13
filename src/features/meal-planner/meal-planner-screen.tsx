@@ -192,11 +192,7 @@ export function MealPlannerScreen() {
     : undefined;
 
   return (
-    <Screen
-      title="Essensplan"
-      subtitle={rangeLabel(anchorDate, viewMode)}
-      scroll={false}
-      back={{ label: 'Übersicht', href: '/' }}>
+    <Screen title="Essensplan" subtitle={rangeLabel(anchorDate, viewMode)} scroll={false}>
       <View style={styles.viewModeRow}>
         {VIEW_MODES.map((mode) => (
           <Pressable

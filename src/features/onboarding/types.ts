@@ -28,6 +28,7 @@ export interface ModulePreferencesData {
   shoppingList: boolean;
   calories: boolean;
   recipes: boolean;
+  mealPlanner: boolean;
 }
 
 export interface PermissionsOnboardingData {

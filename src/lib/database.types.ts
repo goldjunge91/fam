@@ -564,6 +564,7 @@ export type Database = {
           id: string
           module_calories: boolean
           module_fridge: boolean
+          module_meal_planner: boolean
           module_recipes: boolean
           module_shopping_list: boolean
           onboarding_completed_at: string | null
@@ -580,6 +581,7 @@ export type Database = {
           id: string
           module_calories?: boolean
           module_fridge?: boolean
+          module_meal_planner?: boolean
           module_recipes?: boolean
           module_shopping_list?: boolean
           onboarding_completed_at?: string | null
@@ -596,6 +598,7 @@ export type Database = {
           id?: string
           module_calories?: boolean
           module_fridge?: boolean
+          module_meal_planner?: boolean
           module_recipes?: boolean
           module_shopping_list?: boolean
           onboarding_completed_at?: string | null

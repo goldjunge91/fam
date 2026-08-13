@@ -15,7 +15,7 @@ jest.mock('@/features/auth/session-provider', () => ({
 
 jest.mock('@/features/settings/module-preferences', () => ({
   useModulePreferences: () => ({
-    data: { fridge: true, shoppingList: true, calories: false, recipes: true },
+    data: { fridge: true, shoppingList: true, calories: false, recipes: true, mealPlanner: true },
     isLoading: false,
   }),
   useUpdateModulePreferencesMutation: () => ({ mutate: mockMutate, isPending: false }),
@@ -53,12 +53,13 @@ beforeEach(() => {
 });
 
 describe('ModuleSettingsScreen', () => {
-  it('zeigt alle vier Module mit ihrem aktuellen Zustand', async () => {
+  it('zeigt alle fünf Module mit ihrem aktuellen Zustand', async () => {
     await renderScreen();
     expect(screen.getByText(/Kühlschrank & Vorrat/)).toBeTruthy();
     expect(screen.getByText(/Geteilte Einkaufsliste/)).toBeTruthy();
     expect(screen.getByText(/Kalorienzähler & Tagebuch/)).toBeTruthy();
     expect(screen.getByText(/Rezepte/)).toBeTruthy();
+    expect(screen.getByText(/Meal-Planner/)).toBeTruthy();
   });
 
   it('schaltet ein aktiviertes Modul beim Antippen aus', async () => {

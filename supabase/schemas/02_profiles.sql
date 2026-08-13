@@ -37,6 +37,7 @@ create table if not exists public.profiles (
   module_shopping_list boolean not null default true,
   module_calories boolean not null default true,
   module_recipes boolean not null default true,
+  module_meal_planner boolean not null default true,
 
   created_at timestamptz not null default now(),
   updated_at timestamptz not null default now()

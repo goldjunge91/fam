@@ -93,14 +93,30 @@ export function ModuleSelectorForm({ onNext, onSkip }: ModuleSelectorFormProps) 
             },
           ]}>
           <View style={styles.moduleTextCol}>
-            <Text style={[styles.moduleTitle, { color: theme.text }]}>
-              📖 Rezept-Manager & Meal-Planner
-            </Text>
+            <Text style={[styles.moduleTitle, { color: theme.text }]}>📖 Rezept-Manager</Text>
             <Text style={[styles.moduleDesc, { color: theme.textSecondary }]}>
-              Rezepte anlegen, Portionsmengen berechnen und die Woche vorausplanen.
+              Rezepte anlegen und Portionsmengen berechnen.
             </Text>
           </View>
           <Switch value={state.modules.recipes} onValueChange={() => toggle('recipes')} />
+        </Pressable>
+
+        <Pressable
+          onPress={() => toggle('mealPlanner')}
+          style={[
+            styles.moduleRow,
+            {
+              backgroundColor: theme.backgroundElement,
+              borderColor: state.modules.mealPlanner ? theme.accent : theme.border,
+            },
+          ]}>
+          <View style={styles.moduleTextCol}>
+            <Text style={[styles.moduleTitle, { color: theme.text }]}>🗓️ Meal-Planner</Text>
+            <Text style={[styles.moduleDesc, { color: theme.textSecondary }]}>
+              Die Woche vorausplanen und Mahlzeiten Mitgliedern zuordnen.
+            </Text>
+          </View>
+          <Switch value={state.modules.mealPlanner} onValueChange={() => toggle('mealPlanner')} />
         </Pressable>
       </View>
 

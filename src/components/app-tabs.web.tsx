@@ -37,6 +37,9 @@ export default function AppTabs() {
           <TabTrigger name="recipes" href="/recipes" asChild>
             <TabButton>Rezepte</TabButton>
           </TabTrigger>
+          <TabTrigger name="meal-planner" href="/meal-planner" asChild>
+            <TabButton>Essensplan</TabButton>
+          </TabTrigger>
           <TabTrigger name="settings" href="/settings" asChild>
             <TabButton>Einstellungen</TabButton>
           </TabTrigger>

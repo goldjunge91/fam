@@ -47,6 +47,11 @@ export default function AppTabs() {
         <NativeTabs.Trigger.Label>Rezepte</NativeTabs.Trigger.Label>
       </NativeTabs.Trigger>
 
+      <NativeTabs.Trigger name="meal-planner">
+        <NativeTabs.Trigger.Icon sf="calendar" md="calendar_month" />
+        <NativeTabs.Trigger.Label>Essensplan</NativeTabs.Trigger.Label>
+      </NativeTabs.Trigger>
+
       <NativeTabs.Trigger name="settings">
         <NativeTabs.Trigger.Icon sf="gearshape.fill" md="settings" />
         <NativeTabs.Trigger.Label>Einstellungen</NativeTabs.Trigger.Label>

@@ -37,6 +37,12 @@ const MODULE_ROWS: { key: keyof ModulePreferences; icon: string; title: string; 
     title: 'Rezepte',
     desc: 'Im Haushalt geteilte Rezeptsammlung.',
   },
+  {
+    key: 'mealPlanner',
+    icon: '🗓️',
+    title: 'Meal-Planner',
+    desc: 'Wochenplanung fuer den Haushalt, Mahlzeiten Mitgliedern zuordnen.',
+  },
 ];
 
 /**
