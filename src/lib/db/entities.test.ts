@@ -2,7 +2,7 @@ import { ALL_ENTITIES, ENTITIES, hasServerTombstone, metaOf } from '@/lib/db/ent
 import type { Entity } from '@/lib/db/types';
 
 describe('entities', () => {
-  it('kennt genau die zehn Spiegeltabellen aus #45/#123/Wizard-Redesign', () => {
+  it('kennt genau die zwoelf Spiegeltabellen aus #45/#123/Wizard-Redesign/#128', () => {
     expect(ALL_ENTITIES).toEqual([
       'storage_locations',
       'stores',
@@ -14,6 +14,8 @@ describe('entities', () => {
       'recipe_component_items',
       'recipe_steps',
       'recipe_step_ingredients',
+      'meal_plans',
+      'meal_plan_entries',
     ]);
   });
 
@@ -35,6 +37,8 @@ describe('entities', () => {
       recipe_component_items: true,
       recipe_steps: true,
       recipe_step_ingredients: true,
+      meal_plans: true,
+      meal_plan_entries: true,
     };
 
     for (const entity of ALL_ENTITIES) {
@@ -55,6 +59,8 @@ describe('entities', () => {
       recipe_component_items: true,
       recipe_steps: true,
       recipe_step_ingredients: true,
+      meal_plans: true,
+      meal_plan_entries: true,
     };
 
     for (const entity of ALL_ENTITIES) {

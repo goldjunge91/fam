@@ -381,6 +381,45 @@ create index if not exists recipe_step_ingredients_step_idx on recipe_step_ingre
 create index if not exists recipe_step_ingredients_dirty_idx on recipe_step_ingredients (_dirty) where _dirty = 1;
 `;
 
+// Meal-Planner (#128). Wie bei recipes keine Fremdschluessel im lokalen
+// Spiegel — meal_plan_id/recipe_id sind reine Textspalten, Konsistenz
+// (RLS, Wochen-Eindeutigkeit) prueft ausschliesslich der Server.
+const V12_MEAL_PLANS = `
+create table if not exists meal_plans (
+  id              text primary key not null,
+  household_id    text not null,
+  name            text not null,
+  week_start_date text not null,
+  created_by      text,
+  created_at      text,
+  updated_at      integer not null,
+  deleted_at      integer,
+  _dirty          integer not null default 0
+);
+create index if not exists meal_plans_hh_idx on meal_plans (household_id, deleted_at);
+create index if not exists meal_plans_week_idx on meal_plans (household_id, week_start_date);
+create index if not exists meal_plans_dirty_idx on meal_plans (_dirty) where _dirty = 1;
+
+create table if not exists meal_plan_entries (
+  id            text primary key not null,
+  meal_plan_id  text not null,
+  household_id  text not null,
+  recipe_id     text not null,
+  entry_date    text not null,
+  meal_slot     text not null,
+  servings_mode text not null default 'portions',
+  portions      real not null,
+  people_count  integer,
+  created_by    text,
+  created_at    text,
+  updated_at    integer not null,
+  deleted_at    integer,
+  _dirty        integer not null default 0
+);
+create index if not exists meal_plan_entries_plan_idx on meal_plan_entries (meal_plan_id, deleted_at);
+create index if not exists meal_plan_entries_dirty_idx on meal_plan_entries (_dirty) where _dirty = 1;
+`;
+
 export const MIGRATIONS: readonly Migration[] = [
   {
     version: 1,
@@ -436,5 +475,10 @@ export const MIGRATIONS: readonly Migration[] = [
     version: 11,
     name: 'recipe_steps',
     statements: [V11_RECIPE_STEPS],
+  },
+  {
+    version: 12,
+    name: 'meal_plans',
+    statements: [V12_MEAL_PLANS],
   },
 ];
