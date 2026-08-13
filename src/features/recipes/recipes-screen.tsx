@@ -44,6 +44,20 @@ function SearchIcon() {
   );
 }
 
+function CalendarIcon() {
+  return (
+    <Svg width={18} height={18} viewBox="0 0 24 24" fill="none">
+      <Path
+        d="M7 3v3M17 3v3M4 8h16M5 5h14a1 1 0 011 1v13a1 1 0 01-1 1H5a1 1 0 01-1-1V6a1 1 0 011-1z"
+        stroke="#FF5262"
+        strokeWidth={2}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </Svg>
+  );
+}
+
 function PencilIcon() {
   return (
     <Svg width={18} height={18} viewBox="0 0 24 24" fill="none">
@@ -239,6 +253,13 @@ export function RecipesScreen() {
           <Text style={styles.headerSubtitle}>Was kochst du heute?</Text>
         </View>
         <View style={styles.headerActions}>
+          <TouchableOpacity
+            style={styles.iconButton}
+            onPress={() => router.push('/meal-planner')}
+            accessibilityRole="button"
+            accessibilityLabel="Wochenplan öffnen">
+            <CalendarIcon />
+          </TouchableOpacity>
           <TouchableOpacity
             style={styles.iconButton}
             onPress={() => router.push('/recipe/create')}
