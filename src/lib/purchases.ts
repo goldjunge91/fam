@@ -6,35 +6,47 @@ import { env } from '@/lib/env';
 /**
  * Entitlement-Identifier aus dem RevenueCat-Dashboard (Entitlements-Tab).
  * Muss dort exakt so angelegt werden, bevor echte Kaeufe geprueft werden
- * koennen.
+ * koennen. Aktueller Stand im "Foodapp"-Projekt: `Pro` ("access to all
+ * features"), verknuepft mit dem Test-Store-Produkt `fam_premium_monthly`.
  */
-export const PREMIUM_ENTITLEMENT_ID = 'premium';
+export const PREMIUM_ENTITLEMENT_ID = 'Pro';
 
 let configured = false;
 
 /**
  * Konfiguriert den RevenueCat-SDK einmalig pro App-Leben.
  *
- * Ohne API-Key (noch kein RevenueCat-Projekt verknuepft, siehe `env.ts`)
- * bleibt das bewusst ein No-op mit Warnung statt eines Absturzes — die
- * Paywall-Vorbereitung soll nicht voraussetzen, dass schon ein
- * RevenueCat-Projekt existiert. `EXPO_PUBLIC_FORCE_PREMIUM` funktioniert
- * dann trotzdem, siehe `PremiumProvider`.
+ * Key-Wahl, in dieser Reihenfolge:
+ * 1. In Entwicklungs-Builds (`__DEV__`) der RevenueCat Test Store
+ *    (`EXPO_PUBLIC_REVENUECAT_TEST_STORE_API_KEY`) — eine synthetische Store-
+ *    Implementierung, die echte Entitlement-Aenderungen ohne Sandbox-Account
+ *    oder App-Store-Review ausloest. Siehe `revenueCatTestStoreApiKey` in
+ *    `env.ts`.
+ * 2. Sonst der plattformeigene Key (`revenueCatApiKeyIos`/`Android`) — fuer
+ *    Sandbox- und Produktions-Builds.
+ *
+ * Ohne passenden Key (noch keine Store-App im RevenueCat-Projekt angelegt)
+ * bleibt das bewusst ein No-op mit Warnung statt eines Absturzes.
+ * `EXPO_PUBLIC_FORCE_PREMIUM` funktioniert dann trotzdem, siehe
+ * `PremiumProvider`.
  */
 export function initPurchases(): void {
   if (configured) return;
 
-  const apiKey = Platform.select({
-    ios: env.revenueCatApiKeyIos,
-    android: env.revenueCatApiKeyAndroid,
-    default: undefined,
-  });
+  const apiKey =
+    (__DEV__ && env.revenueCatTestStoreApiKey) ||
+    Platform.select({
+      ios: env.revenueCatApiKeyIos,
+      android: env.revenueCatApiKeyAndroid,
+      default: undefined,
+    });
 
   if (!apiKey) {
     console.warn(
-      '[Purchases] Kein RevenueCat-API-Key gesetzt (EXPO_PUBLIC_REVENUECAT_IOS_API_KEY / ' +
-        '_ANDROID_API_KEY). Kaeufe bleiben deaktiviert; EXPO_PUBLIC_FORCE_PREMIUM=true ' +
-        'schaltet Premium-Funktionen trotzdem zum Testen frei.',
+      '[Purchases] Kein RevenueCat-API-Key gesetzt (EXPO_PUBLIC_REVENUECAT_TEST_STORE_API_KEY ' +
+        'fuer die Entwicklung, sonst EXPO_PUBLIC_REVENUECAT_IOS_API_KEY / _ANDROID_API_KEY). ' +
+        'Kaeufe bleiben deaktiviert; EXPO_PUBLIC_FORCE_PREMIUM=true schaltet Premium-Funktionen ' +
+        'trotzdem zum Testen frei.',
     );
     return;
   }
