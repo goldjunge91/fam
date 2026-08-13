@@ -37,6 +37,7 @@ export type RecipeListItem = {
   dietary_tags: DietaryTag[];
   hashtags: string[];
   default_servings: number;
+  created_by: string | null;
   created_at: string | null;
 };
 
@@ -67,7 +68,8 @@ function toRecipeListItem(row: RecipeRow): RecipeListItem {
 }
 
 const RECIPE_COLUMNS = `id, household_id, title, instructions, cover_image_path,
-  cook_time_minutes, difficulty, dish_types, dietary_tags, hashtags, default_servings, created_at`;
+  cook_time_minutes, difficulty, dish_types, dietary_tags, hashtags, default_servings,
+  created_by, created_at`;
 
 export type RecipeComponent = RecipeComponentRow & { name: string; recipe_id: string };
 export type RecipeComponentItem = RecipeComponentItemRow & {

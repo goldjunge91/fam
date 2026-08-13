@@ -79,6 +79,7 @@
     "android:remote": "EXPO_NO_DOTENV=1 dotenv -o -e .env -- expo run:android",
     "ios": "EXPO_NO_DOTENV=1 dotenv -o -e .env.development -- expo run:ios",
     "ios:remote": "EXPO_NO_DOTENV=1 dotenv -o -e .env -- expo run:ios",
+    "ios:preview": "EXPO_NO_PUSH_ENTITLEMENT=1 EXPO_NO_DOTENV=1 dotenv -o -e .env -- expo run:ios --device --configuration Release",
     "web": "expo start --web",
     "lint": "biome lint .",
     "format": "biome format --write .",
