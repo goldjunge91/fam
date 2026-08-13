@@ -10,6 +10,7 @@ import { AnimatedSplashOverlay } from '@/components/animated-icon';
 import { SnackbarProvider } from '@/components/snackbar';
 import { SyncStatusBanner } from '@/components/sync-status-banner';
 import { SessionProvider, useSession } from '@/features/auth/session-provider';
+import { PremiumProvider } from '@/features/premium/premium-provider';
 import { parseAuthErrorFromUrl, parseAuthTokensFromUrl } from '@/lib/auth-deep-link';
 import { setAuthDeepLinkError } from '@/lib/auth-deep-link-state';
 import { getDatabase } from '@/lib/db/client';
@@ -182,15 +183,17 @@ export default function RootLayout() {
           dehydrateOptions: { shouldDehydrateQuery: shouldPersistQuery },
         }}>
         <SessionProvider>
-          <ActiveHouseholdProvider>
-            <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-              <SnackbarProvider>
-                <AnimatedSplashOverlay />
-                <SyncStatusBanner />
-                <RootNavigator />
-              </SnackbarProvider>
-            </ThemeProvider>
-          </ActiveHouseholdProvider>
+          <PremiumProvider>
+            <ActiveHouseholdProvider>
+              <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
+                <SnackbarProvider>
+                  <AnimatedSplashOverlay />
+                  <SyncStatusBanner />
+                  <RootNavigator />
+                </SnackbarProvider>
+              </ThemeProvider>
+            </ActiveHouseholdProvider>
+          </PremiumProvider>
         </SessionProvider>
       </PersistQueryClientProvider>
     </GestureHandlerRootView>

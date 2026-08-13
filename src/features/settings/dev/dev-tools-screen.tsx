@@ -11,6 +11,7 @@ import { ThemedText } from '@/components/themed-text';
 import { Spacing } from '@/constants/theme';
 import { useSession } from '@/features/auth/session-provider';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
+import { usePremium } from '@/features/premium/premium-provider';
 import {
   classifySupabaseTarget,
   describeDatabaseOwnership,
@@ -86,6 +87,7 @@ export function DevToolsScreen() {
   const { session } = useSession();
   const queryClient = useQueryClient();
   const { activeHousehold } = useActiveHousehold();
+  const { isPremium, isForced } = usePremium();
 
   const [snapshot, setSnapshot] = useState<DbSnapshot | null>(null);
   const [offDump, setOffDump] = useState<OffDumpStatus | null>(null);
@@ -182,6 +184,11 @@ export function DevToolsScreen() {
           wert={`${Constants.expoConfig?.version ?? '—'} (${Platform.OS} ${Platform.Version})`}
         />
         <Zeile label="Onboarding erzwungen" wert={env.forceOnboarding ? 'ja' : 'nein'} />
+        <Zeile
+          label="Premium"
+          wert={isPremium ? (isForced ? 'ja (erzwungen)' : 'ja') : 'nein'}
+          tone={isForced ? 'warning' : undefined}
+        />
       </Card>
 
       <Card title="Session">

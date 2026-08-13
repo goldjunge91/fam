@@ -80,4 +80,29 @@ export const env = {
   get offFactsOffline(): boolean {
     return isFlagEnabled(process.env.EXPO_PUBLIC_OFF_OFFLINE);
   },
+  /**
+   * Schaltet Premium-Funktionen hart frei, unabhaengig davon, was RevenueCat
+   * zum aktuellen Nutzer sagt.
+   *
+   * Fuer die Entwicklung einzelner Premium-Funktionen, solange die eigentliche
+   * Kaufstrecke (Paywall, Produkte im App Store/Play Store Connect) noch nicht
+   * steht — ohne diesen Schalter braeuchte es dafuer einen Sandbox-Kauf pro
+   * Testlauf. Siehe `PremiumProvider` in `@/features/premium`.
+   */
+  get forcePremium(): boolean {
+    return isFlagEnabled(process.env.EXPO_PUBLIC_FORCE_PREMIUM);
+  },
+  /**
+   * RevenueCat-Projekt-API-Keys, getrennt pro Store (siehe RevenueCat-Dashboard
+   * unter Project Settings > API Keys). Bewusst optional (`string | undefined`,
+   * kein `requireEnv`): Solange noch kein RevenueCat-Projekt existiert, soll
+   * die App trotzdem starten — `initPurchases()` protokolliert dann nur eine
+   * Warnung und Kaeufe bleiben deaktiviert.
+   */
+  get revenueCatApiKeyIos(): string | undefined {
+    return process.env.EXPO_PUBLIC_REVENUECAT_IOS_API_KEY?.trim() || undefined;
+  },
+  get revenueCatApiKeyAndroid(): string | undefined {
+    return process.env.EXPO_PUBLIC_REVENUECAT_ANDROID_API_KEY?.trim() || undefined;
+  },
 };
