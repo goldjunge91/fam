@@ -353,12 +353,32 @@ export function RecipeDetailScreen() {
                   data.productsById,
                 );
                 const grams = (component.serving_grams ?? 0) * servings;
+                const componentItems = data.items.filter((i) => i.component_id === component.id);
                 return (
-                  <View key={component.id} style={styles.bulletRow}>
-                    <Text style={styles.bulletPoint}>•</Text>
-                    <Text style={styles.ingredientText}>
-                      {component.name} — {round(grams)} g · {round(per100.kcal)} kcal/100g
-                    </Text>
+                  <View key={component.id} style={styles.componentGroup}>
+                    <View style={styles.bulletRow}>
+                      <Text style={styles.bulletPoint}>•</Text>
+                      <Text style={styles.ingredientText}>
+                        {component.name} — {round(grams)} g · {round(per100.kcal)} kcal/100g
+                      </Text>
+                    </View>
+                    {componentItems.map((item) => {
+                      const product = item.product_id
+                        ? data.productsById.get(item.product_id)
+                        : undefined;
+                      const subComponent = item.sub_component_id
+                        ? data.components.find((c) => c.id === item.sub_component_id)
+                        : undefined;
+                      const label = product?.name ?? subComponent?.name ?? '?';
+                      return (
+                        <View key={item.id} style={styles.subBulletRow}>
+                          <Text style={styles.subBulletPoint}>–</Text>
+                          <Text style={styles.subIngredientText}>
+                            {label} · {item.quantity ?? item.grams} {item.unit}
+                          </Text>
+                        </View>
+                      );
+                    })}
                   </View>
                 );
               })}
@@ -644,5 +664,25 @@ const styles = StyleSheet.create({
     fontSize: 15,
     color: '#332222',
     lineHeight: 22,
+  },
+  componentGroup: {
+    marginBottom: 8,
+  },
+  subBulletRow: {
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+    gap: 8,
+    paddingLeft: 20,
+  },
+  subBulletPoint: {
+    color: '#9B51E0',
+    fontSize: 14,
+    lineHeight: 20,
+  },
+  subIngredientText: {
+    flex: 1,
+    fontSize: 13,
+    color: '#665555',
+    lineHeight: 20,
   },
 });

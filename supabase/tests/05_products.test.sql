@@ -15,17 +15,20 @@ values
 
 -- ------------------------------------------------------------ global lesbar
 -- Anders als alles andere im Schema: Produktdaten sind nicht personenbezogen.
+-- Zaehlt gezielt Alices Produkte, nicht die ganze Tabelle — seit den
+-- Rezeptvorlagen (#Recipe-Templates) enthaelt products auch admin-seed-bare
+-- Grundzutaten (supabase/seed.sql), die Tabelle ist also nie leer.
 select tests.authenticate_as('22222222-2222-2222-2222-222222222222');
 
 select is(
-  (select count(*)::int from public.products),
+  (select count(*)::int from public.products where created_by = '11111111-1111-1111-1111-111111111111'),
   2,
   'Bob sieht auch Produkte, die Alice angelegt hat'
 );
 
 -- ------------------------------------------------------- fremde unveraenderbar
-update public.products set name = 'gekapert' where source = 'off';
-update public.products set name = 'gekapert' where source = 'manual';
+update public.products set name = 'gekapert' where barcode = '4001234567890';
+update public.products set name = 'gekapert' where created_by = '11111111-1111-1111-1111-111111111111' and source = 'manual';
 
 select tests.as_postgres();
 select is_empty(
@@ -34,12 +37,15 @@ select is_empty(
 );
 
 -- ------------------------------------------------ eigenes manuelles aenderbar
+-- Scoped auf Alices eigene Zeile (created_by), nicht auf source = 'manual'
+-- allein — davon gibt es seit den Seed-Grundzutaten jetzt viele.
 select tests.authenticate_as('11111111-1111-1111-1111-111111111111');
-update public.products set name = 'Apfel, korrigiert' where source = 'manual';
+update public.products set name = 'Apfel, korrigiert'
+  where created_by = '11111111-1111-1111-1111-111111111111' and source = 'manual';
 
 select tests.as_postgres();
 select is(
-  (select name from public.products where source = 'manual'),
+  (select name from public.products where created_by = '11111111-1111-1111-1111-111111111111' and source = 'manual'),
   'Apfel, korrigiert',
   'Alice kann ihr eigenes manuelles Produkt korrigieren'
 );
@@ -49,11 +55,11 @@ select is(
 -- geteilt und darf nicht von einem einzelnen Nutzer veraendert werden — auch
 -- nicht von dem, der den Import ausgeloest hat.
 select tests.authenticate_as('11111111-1111-1111-1111-111111111111');
-update public.products set name = 'OFF veraendert' where source = 'off';
+update public.products set name = 'OFF veraendert' where barcode = '4001234567890';
 
 select tests.as_postgres();
 select is(
-  (select name from public.products where source = 'off'),
+  (select name from public.products where barcode = '4001234567890'),
   'Haferflocken',
   'auch der Anleger kann ein importiertes Produkt nicht aendern'
 );

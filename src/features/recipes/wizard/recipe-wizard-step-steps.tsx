@@ -26,8 +26,13 @@ function availableIngredients(components: IngredientComponentGroup[]): Available
   const result: AvailableIngredient[] = [];
   for (const comp of components) {
     for (const item of comp.items) {
-      if (item.product) {
-        result.push({ itemId: item.id, label: `${item.product.name} (${comp.title})` });
+      // item.product ist nur bei einer frisch abgeschlossenen OFF-Suche
+      // gesetzt. Beim Bearbeiten geladene Zutaten haben stattdessen
+      // productQuery/existingProductId (siehe recipe-create-screen.tsx-
+      // Hydration) — ohne diesen Fallback wuerden sie hier fehlen.
+      const name = item.product?.name ?? (item.existingProductId ? item.productQuery : null);
+      if (name) {
+        result.push({ itemId: item.id, label: `${name} (${comp.title})` });
       }
     }
   }

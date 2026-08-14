@@ -58,8 +58,14 @@ export function RecipeWizardStepPreview({
   const ingredientLabelById = new Map<string, string>();
   for (const comp of components) {
     for (const item of comp.items) {
-      if (item.product) {
-        ingredientLabelById.set(item.id, `${item.product.name} (${comp.title})`);
+      // item.product ist nur bei einer frisch abgeschlossenen OFF-Suche
+      // gesetzt. Beim Bearbeiten geladene Zutaten haben stattdessen
+      // productQuery/existingProductId (siehe recipe-create-screen.tsx-
+      // Hydration) — ohne diesen Fallback fehlten sie hier komplett bzw.
+      // zeigten nur ihre rohe ID.
+      const name = item.product?.name ?? (item.existingProductId ? item.productQuery : null);
+      if (name) {
+        ingredientLabelById.set(item.id, `${name} (${comp.title})`);
       }
     }
   }
@@ -139,10 +145,11 @@ export function RecipeWizardStepPreview({
             <View key={comp.id} style={styles.componentSection}>
               <Text style={styles.sectionLabel}>{comp.title}</Text>
               {comp.items
-                .filter((item) => item.product)
+                .filter((item) => item.product || item.existingProductId)
                 .map((item) => (
                   <Text key={item.id} style={styles.ingredientLine}>
-                    • {item.product?.name} — {item.quantity} {unitLabel(item.unit)}
+                    • {item.product?.name ?? item.productQuery} — {item.quantity}{' '}
+                    {unitLabel(item.unit)}
                   </Text>
                 ))}
             </View>
