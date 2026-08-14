@@ -6,7 +6,7 @@ import { presentPaywallIfNeeded } from '@/features/premium/paywall';
 import { usePremium } from '@/features/premium/premium-provider';
 import { useAddShoppingItem } from '@/features/shopping-list/use-shopping-list-mutations';
 import { useTheme } from '@/hooks/use-theme';
-import { useRecipeShoppingNeeds } from '../use-recipe-shopping-needs';
+import { type RecipeShoppingNeed, useRecipeShoppingNeeds } from '../use-recipe-shopping-needs';
 import type { RecipeDetail } from '../use-recipes';
 
 type Props = {
@@ -16,6 +16,12 @@ type Props = {
   onClose: () => void;
 };
 
+// Stabile Referenz statt Inline-`= []`: `data` ist `undefined`, solange die
+// Query deaktiviert ist (kein Premium-Zugriff) — ein Inline-Default legt bei
+// jedem Render ein neues Array an, das `useEffect`-Dependency unten wuerde
+// das als Aenderung sehen und in eine Endlosschleife aus setState laufen.
+const EMPTY_MISSING: RecipeShoppingNeed[] = [];
+
 export function RecipeShoppingSheet({ visible, detail, servings, onClose }: Props) {
   const theme = useTheme();
   const { isPremium, refresh } = usePremium();
@@ -24,7 +30,7 @@ export function RecipeShoppingSheet({ visible, detail, servings, onClose }: Prop
   const [unlocking, setUnlocking] = useState(false);
   const addShoppingItem = useAddShoppingItem();
   const hasAccess = isPremium || accessGranted;
-  const { data: missing = [], isLoading } = useRecipeShoppingNeeds(
+  const { data: missing = EMPTY_MISSING, isLoading } = useRecipeShoppingNeeds(
     detail,
     servings,
     visible && hasAccess,
