@@ -202,7 +202,10 @@ export function GoalSetupScreen() {
       : null;
 
   return (
-    <Screen title="Kalorienziel" back={{ label: 'Einstellungen', href: '/settings' }}>
+    <Screen
+      title="Kalorienziel"
+      back={{ label: 'Einstellungen', href: '/settings' }}
+      backStyle="icon">
       {!hasProfileFields ? (
         <Card title="Profil vervollständigen">
           <ThemedText themeColor="textSecondary">

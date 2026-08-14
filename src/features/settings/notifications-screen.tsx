@@ -11,7 +11,10 @@ import { NotificationSettingsCard } from '@/features/settings/notification-setti
  */
 export function NotificationsScreen() {
   return (
-    <Screen title="Benachrichtigungen" back={{ label: 'Einstellungen', href: '/settings' }}>
+    <Screen
+      title="Benachrichtigungen"
+      back={{ label: 'Einstellungen', href: '/settings' }}
+      backStyle="icon">
       <NotificationSettingsCard />
     </Screen>
   );

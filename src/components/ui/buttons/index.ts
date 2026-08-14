@@ -1,3 +1,4 @@
+export { AutoBackArrowButton, BackArrowButton } from './back-arrow-button';
 export { AutoBackButton, BackButton, type BackTarget } from './back-button';
 export { BackIconButton } from './back-icon-button';
 export { Button } from './button';

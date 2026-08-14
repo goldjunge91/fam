@@ -5,7 +5,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { GradientBackground } from '@/components/gradient-background';
 import { PageHeader } from '@/components/page-header';
 import { FontSize, ThemedText } from '@/components/themed-text';
-import { BackIconButton, Button } from '@/components/ui/buttons';
+import { BackArrowButton, Button } from '@/components/ui/buttons';
 import { Spacing } from '@/constants/theme';
 import { presentCustomerCenter, presentPaywall } from '@/features/premium/paywall';
 import { usePremium } from '@/features/premium/premium-provider';
@@ -20,7 +20,11 @@ const BENEFITS: { icon: string; title: string; hint: string }[] = [
     title: 'Fehlendes direkt einkaufen',
     hint: 'Aus Rezepten und dem Essensplan übernehmen',
   },
-  { icon: '🔄', title: 'Bestände automatisch ergänzen', hint: 'Niedrige Vorräte auf die Einkaufsliste setzen' },
+  {
+    icon: '🔄',
+    title: 'Bestände automatisch ergänzen',
+    hint: 'Niedrige Vorräte auf die Einkaufsliste setzen',
+  },
 ];
 
 /**
@@ -86,7 +90,11 @@ export function PremiumScreen() {
     <View style={styles.root}>
       <GradientBackground colors={['#FFD2B9', '#F8F4EF', '#EEE7F4']} />
       <SafeAreaView style={styles.safeArea} edges={['top', 'left', 'right']}>
-        <PageHeader title="fam Premium" align="center" leading={<BackIconButton href="/settings" />} />
+        <PageHeader
+          title="fam Premium"
+          align="center"
+          leading={<BackArrowButton label="Einstellungen" href="/settings" />}
+        />
 
         <ScrollView contentContainerStyle={styles.scroll} showsVerticalScrollIndicator={false}>
           <View style={styles.hero}>
@@ -132,7 +140,11 @@ export function PremiumScreen() {
             </>
           ) : (
             <>
-              <View style={[styles.planBox, { borderColor: theme.accent, backgroundColor: theme.background }]}>
+              <View
+                style={[
+                  styles.planBox,
+                  { borderColor: theme.accent, backgroundColor: theme.background },
+                ]}>
                 <ThemedText style={styles.planTitle}>Jahresabo</ThemedText>
                 <ThemedText themeColor="textSecondary" style={styles.planHint}>
                   Der genaue Preis wird vor dem Kauf im App Store angezeigt.

@@ -89,7 +89,10 @@ export function DeleteAccountScreen() {
   }
 
   return (
-    <Screen title="Konto löschen" back={{ label: 'Einstellungen', href: '/settings' }}>
+    <Screen
+      title="Konto löschen"
+      back={{ label: 'Einstellungen', href: '/settings' }}
+      backStyle="icon">
       <Card>
         <ThemedText type="small" themeColor="textSecondary">
           Löscht deinen Account und alle privaten Daten dauerhaft — Profil, Ernährungstagebuch,

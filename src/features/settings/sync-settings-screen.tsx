@@ -59,7 +59,10 @@ export function SyncSettingsScreen() {
   const { text, tone } = describeSyncStatus(syncStatus);
 
   return (
-    <Screen title="Synchronisation" back={{ label: 'Einstellungen', href: '/settings' }}>
+    <Screen
+      title="Synchronisation"
+      back={{ label: 'Einstellungen', href: '/settings' }}
+      backStyle="icon">
       <Card title="Status">
         <ThemedText type="small" themeColor="textSecondary">
           Daten werden im Hintergrund automatisch synchronisiert.

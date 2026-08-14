@@ -15,6 +15,7 @@ const ICONS = {
   members: require('@/assets/images/figma/profile-members.svg'),
   premium: require('@/assets/images/figma/profile-premium.svg'),
   chevron: require('@/assets/images/figma/chevron.svg'),
+  arrow: require('@/assets/images/figma/arrow.svg'),
   mealArtwork: require('@/assets/images/figma/meal-artwork.svg'),
   camera: require('@/assets/images/figma/camera-1.svg'),
 } as const;

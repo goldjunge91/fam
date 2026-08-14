@@ -33,7 +33,7 @@ export function MealPlannerSettingsScreen() {
   }
 
   return (
-    <Screen title="Portionen pro Person" back={{ label: 'Einstellungen' }}>
+    <Screen title="Portionen pro Person" back={{ label: 'Einstellungen' }} backStyle="icon">
       <View style={styles.content}>
         <ThemedText themeColor="textSecondary">
           Im Personen-Modus des Wochenplans wird die Personenzahl mit diesem Faktor in Portionen

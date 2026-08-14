@@ -12,7 +12,7 @@ export type BackTarget = {
   href?: Href;
 };
 
-function goBackTo(href: Href | undefined) {
+export function goBackTo(href: Href | undefined) {
   if (router.canGoBack()) {
     router.back();
     return;

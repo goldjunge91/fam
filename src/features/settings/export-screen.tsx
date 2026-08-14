@@ -52,7 +52,7 @@ export function ExportScreen() {
   }
 
   return (
-    <Screen title="Export" back={{ label: 'Einstellungen', href: '/settings' }}>
+    <Screen title="Export" back={{ label: 'Einstellungen', href: '/settings' }} backStyle="icon">
       <Card>
         <ThemedText type="small" themeColor="textSecondary">
           Exportiert dein Profil, deine Ziele, das Ernährungstagebuch, deinen Gewichtsverlauf und

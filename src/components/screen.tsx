@@ -6,7 +6,9 @@ import { GradientBackground } from '@/components/gradient-background';
 import { FontSize, ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
 import {
+  AutoBackArrowButton,
   AutoBackButton,
+  BackArrowButton,
   BackButton,
   type BackTarget,
   MenuButton,
@@ -58,6 +60,13 @@ type ScreenProps = {
    * Titel. Individuell ist nur die Beschriftung — und die nennt das Ziel.
    */
   back?: BackTarget;
+  /**
+   * `'icon'` zeigt den runden Pfeil-Button im `MenuButton`-Look statt des
+   * textbasierten "‹ Ziel"-Links — fuer alle von den Einstellungen aus
+   * erreichbaren Screens (#??? , "richtiger Zurück-Button"). Andere Screens
+   * bleiben unveraendert beim textbasierten Default.
+   */
+  backStyle?: 'text' | 'icon';
 };
 
 /**
@@ -75,6 +84,7 @@ export function Screen({
   action,
   scroll = true,
   back,
+  backStyle = 'text',
   chrome,
   backgroundGradient,
 }: ScreenProps) {
@@ -92,7 +102,13 @@ export function Screen({
         style={[styles.safeArea, chrome && styles.chromeSafeArea]}
         edges={['top', 'left', 'right']}>
         {chrome ? null : back ? (
-          back.href ? (
+          backStyle === 'icon' ? (
+            back.href ? (
+              <BackArrowButton label={back.label} href={back.href} />
+            ) : (
+              <AutoBackArrowButton label={back.label} />
+            )
+          ) : back.href ? (
             <BackButton label={back.label} href={back.href} />
           ) : (
             <AutoBackButton label={back.label} />

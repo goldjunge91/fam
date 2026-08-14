@@ -179,7 +179,8 @@ export function DevToolsScreen() {
     <Screen
       title="Entwickler"
       subtitle="Nur sichtbar mit EXPO_PUBLIC_DEV_TOOLS"
-      back={{ label: 'Einstellungen', href: '/settings' }}>
+      back={{ label: 'Einstellungen', href: '/settings' }}
+      backStyle="icon">
       <Card title="Umgebung">
         <Zeile label="Supabase" wert={ziel.label} tone={ziel.tone} />
         <Zeile label="URL" wert={env.supabaseUrl} />

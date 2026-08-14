@@ -65,7 +65,7 @@ export function ModuleSettingsScreen() {
   }
 
   return (
-    <Screen title="Module" back={{ label: 'Einstellungen', href: '/settings' }}>
+    <Screen title="Module" back={{ label: 'Einstellungen', href: '/settings' }} backStyle="icon">
       <Card>
         <ThemedText type="small" themeColor="textSecondary">
           Deaktivierte Module verschwinden aus der Navigation, deine Daten bleiben erhalten.

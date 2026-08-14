@@ -62,7 +62,10 @@ const SECTIONS: Section[] = [
 
 export function PrivacyScreen() {
   return (
-    <Screen title="Datenschutz" back={{ label: 'Einstellungen', href: '/settings' }}>
+    <Screen
+      title="Datenschutz"
+      back={{ label: 'Einstellungen', href: '/settings' }}
+      backStyle="icon">
       <View style={styles.sections}>
         {SECTIONS.map((section) => (
           <Card key={section.title}>

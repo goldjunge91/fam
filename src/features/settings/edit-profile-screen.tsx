@@ -135,7 +135,10 @@ export function EditProfileScreen() {
   }
 
   return (
-    <Screen title="Profil bearbeiten" back={{ label: 'Einstellungen', href: '/settings' }}>
+    <Screen
+      title="Profil bearbeiten"
+      back={{ label: 'Einstellungen', href: '/settings' }}
+      backStyle="icon">
       <Card title="Persönliche Angaben">
         <View style={styles.form}>
           <TextField
