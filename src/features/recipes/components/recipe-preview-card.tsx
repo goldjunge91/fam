@@ -29,7 +29,8 @@ const PALETTES = [
   ['#89966E', '#D6C99A'],
 ] as const;
 
-function RecipeArtwork({
+/** Bild-Kachel mit Farbverlauf-Fallback ohne Cover — auch fuer den Drag-Tray des Essensplans. */
+export function RecipeArtwork({
   coverUrl,
   title,
   paletteIndex = 0,

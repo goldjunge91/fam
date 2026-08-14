@@ -98,13 +98,6 @@ export function MealPlannerScreen() {
 
   const dates = rangeDates(anchorDate, viewMode);
   const weekStart = getWeekStart(anchorDate);
-  const currentWeekStart = getWeekStart(todayIso());
-  const periodContext =
-    viewMode === 'week' && weekStart === currentWeekStart
-      ? 'Diese Woche'
-      : viewMode === 'day' && anchorDate === todayIso()
-        ? 'Heute'
-        : VIEW_MODE_LABELS[viewMode];
 
   // Wochenplan der sichtbaren Kalenderwoche — nur fuer die wochenweiten
   // Aktionen ("letzte Woche erneut verwenden", "fehlende Zutaten"), die in
@@ -126,7 +119,11 @@ export function MealPlannerScreen() {
   const deleteEntry = useDeleteEntryMutation();
   const reuseLastWeek = useReuseLastWeekMutation();
 
-  const draggableRecipes: DraggableRecipe[] = recipes.map((r) => ({ id: r.id, title: r.title }));
+  const draggableRecipes: DraggableRecipe[] = recipes.map((r) => ({
+    id: r.id,
+    title: r.title,
+    coverImagePath: r.cover_image_path,
+  }));
 
   function handleDropRecipe(date: string, slot: MealSlot, recipe: DraggableRecipe) {
     setPendingDrop({ date, slot, recipe });
@@ -195,7 +192,11 @@ export function MealPlannerScreen() {
   function handleDeleteEntry() {
     if (!editingEntry || !householdId) return;
     deleteEntry.mutate(
-      { id: editingEntry.id, meal_plan_id: editingEntry.meal_plan_id, household_id: householdId },
+      {
+        id: editingEntry.id,
+        meal_plan_id: editingEntry.meal_plan_id,
+        household_id: householdId,
+      },
       { onSuccess: () => setEditingEntry(null) },
     );
   }
@@ -260,6 +261,7 @@ export function MealPlannerScreen() {
             }))}
             selected={viewMode}
             onSelect={setViewMode}
+            labelStyle={styles.viewModeLabel}
           />
 
           <View style={styles.periodRow}>
@@ -274,9 +276,6 @@ export function MealPlannerScreen() {
             </Pressable>
             <View style={styles.periodCopy}>
               <ThemedText style={styles.periodTitle}>{periodLabel(dates)}</ThemedText>
-              <ThemedText themeColor="textSecondary" style={styles.periodContext}>
-                {periodContext}
-              </ThemedText>
             </View>
             <Pressable
               role="button"
@@ -395,6 +394,10 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingHorizontal: 14,
   },
+  viewModeLabel: {
+    ...FontSize[18],
+    lineHeight: 22,
+  },
   periodRow: {
     height: 43,
     flexDirection: 'row',
@@ -417,15 +420,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   periodTitle: {
-    ...FontSize[12],
-    lineHeight: 14,
+    ...FontSize[17],
+    lineHeight: 21,
     fontWeight: 700,
-  },
-  periodContext: {
-    ...FontSize[8],
-    lineHeight: 11,
-    fontWeight: 500,
-    marginTop: 1,
   },
   actionsRow: {
     flexDirection: 'row',

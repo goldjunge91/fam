@@ -130,4 +130,22 @@ describe('WeekGrid', () => {
 
     expect(onTapEmptyCell).toHaveBeenCalledWith('2026-08-17', 'breakfast');
   });
+
+  it('zeigt bei einem einzelnen Tag (Tagesansicht) alle drei Mahlzeiten-Slots untereinander', async () => {
+    await render(
+      <WeekGrid
+        dates={['2026-08-17']}
+        entries={[]}
+        recipes={[]}
+        onDropRecipe={jest.fn()}
+        onTapEntry={jest.fn()}
+        onTapEmptyCell={jest.fn()}
+      />,
+    );
+
+    expect(screen.getByText('Frühstück')).toBeOnTheScreen();
+    expect(screen.getByText('Mittag')).toBeOnTheScreen();
+    expect(screen.getByText('Abendessen')).toBeOnTheScreen();
+    expect(screen.getAllByText('+ Gericht').length).toBe(3);
+  });
 });
