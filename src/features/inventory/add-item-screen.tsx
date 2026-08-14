@@ -5,6 +5,8 @@ import { useCallback, useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 
 import { DateWheelField } from '@/components/date-wheel-field';
+import { FilterChipBar } from '@/components/filter-chip-bar';
+import { QuantityStepper } from '@/components/quantity-stepper';
 import { Screen } from '@/components/screen';
 import { TextField } from '@/components/text-field';
 import { ThemedText } from '@/components/themed-text';
@@ -41,6 +43,30 @@ function formatOffsetMonths(months: number): string {
   return d.toISOString().split('T')[0];
 }
 
+type QuickDateKey = 'd3' | 'd7' | 'd14' | 'm1' | 'none';
+
+const QUICK_DATE_OPTIONS: { value: QuickDateKey; label: string }[] = [
+  { value: 'd3', label: '+ 3 Tage' },
+  { value: 'd7', label: '+ 7 Tage' },
+  { value: 'd14', label: '+ 14 Tage' },
+  { value: 'm1', label: '+ 1 Monat' },
+];
+
+function quickDateOffset(key: QuickDateKey): string {
+  switch (key) {
+    case 'd3':
+      return formatOffsetDate(3);
+    case 'd7':
+      return formatOffsetDate(7);
+    case 'd14':
+      return formatOffsetDate(14);
+    case 'm1':
+      return formatOffsetMonths(1);
+    default:
+      return '';
+  }
+}
+
 export function AddItemScreen() {
   const { activeHousehold } = useActiveHousehold();
   const currentHousehold = activeHousehold;
@@ -70,6 +96,9 @@ export function AddItemScreen() {
   const [newLocationName, setNewLocationName] = useState('');
 
   const activeLocationId = locationId ?? locations?.[0]?.id ?? null;
+  const selectedQuickDate =
+    QUICK_DATE_OPTIONS.find((option) => quickDateOffset(option.value) === expiryDate)?.value ??
+    'none';
 
   function handleSelectProduct(product: OpenFoodFactsProduct) {
     setName(product.name);
@@ -185,12 +214,14 @@ export function AddItemScreen() {
 
         <View style={styles.row}>
           <View style={styles.flex}>
-            <TextField
+            <ThemedText type="small" themeColor="textSecondary" style={styles.fieldLabel}>
+              Menge
+            </ThemedText>
+            <QuantityStepper
+              value={Number.parseInt(quantity, 10) || 1}
+              onChange={(value) => setQuantity(String(value))}
+              max={999}
               label="Menge"
-              placeholder="1"
-              value={quantity}
-              onChangeText={setQuantity}
-              keyboardType="numeric"
             />
           </View>
           <View style={styles.flex}>
@@ -210,28 +241,12 @@ export function AddItemScreen() {
             onChange={setExpiryDate}
           />
         </View>
-        <View style={styles.quickDateGroup}>
-          <Button
-            label="+ 3 Tage"
-            variant="secondary"
-            onPress={() => setExpiryDate(formatOffsetDate(3))}
-          />
-          <Button
-            label="+ 7 Tage"
-            variant="secondary"
-            onPress={() => setExpiryDate(formatOffsetDate(7))}
-          />
-          <Button
-            label="+ 14 Tage"
-            variant="secondary"
-            onPress={() => setExpiryDate(formatOffsetDate(14))}
-          />
-          <Button
-            label="+ 1 Monat"
-            variant="secondary"
-            onPress={() => setExpiryDate(formatOffsetMonths(1))}
-          />
-        </View>
+        <FilterChipBar
+          label="Schnellauswahl MHD"
+          options={QUICK_DATE_OPTIONS}
+          selected={selectedQuickDate}
+          onSelect={(value) => setExpiryDate(quickDateOffset(value))}
+        />
 
         <View style={styles.locationHeaderRow}>
           <ThemedText style={{ fontWeight: 'bold' }}>Lagerort</ThemedText>
@@ -277,26 +292,20 @@ export function AddItemScreen() {
 
         {locationsLoading ? (
           <ThemedText>Lade Lagerorte...</ThemedText>
+        ) : locations?.length ? (
+          <FilterChipBar
+            label="Lagerort"
+            options={locations.map((loc) => ({ value: loc.id, label: loc.name }))}
+            selected={activeLocationId ?? ''}
+            onSelect={setLocationId}
+          />
         ) : (
-          <View style={styles.locationGroup}>
-            {locations?.map((loc) => {
-              const isSelected = activeLocationId === loc.id;
-              return (
-                <Button
-                  key={loc.id}
-                  label={loc.name}
-                  variant={isSelected ? 'primary' : 'secondary'}
-                  onPress={() => setLocationId(loc.id)}
-                />
-              );
-            })}
-            {locations?.length === 0 && !showAddLocation && (
-              <ThemedText type="small" themeColor="textSecondary">
-                Keine Lagerorte vorhanden. Tippe auf &quot;+ Neuer Lagerort&quot; um einen
-                anzulegen.
-              </ThemedText>
-            )}
-          </View>
+          !showAddLocation && (
+            <ThemedText type="small" themeColor="textSecondary">
+              Keine Lagerorte vorhanden. Tippe auf &quot;+ Neuer Lagerort&quot; um einen
+              anzulegen.
+            </ThemedText>
+          )
         )}
 
         <View style={styles.saveButton}>
@@ -331,10 +340,8 @@ const styles = StyleSheet.create({
   flex: {
     flex: 1,
   },
-  quickDateGroup: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    gap: Spacing.two,
+  fieldLabel: {
+    marginBottom: Spacing.one,
   },
   locationHeaderRow: {
     flexDirection: 'row',
@@ -348,11 +355,6 @@ const styles = StyleSheet.create({
     borderRadius: Spacing.two,
     borderWidth: 1,
     borderColor: '#ccc',
-  },
-  locationGroup: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    gap: Spacing.two,
   },
   saveButton: {
     marginTop: Spacing.four,
