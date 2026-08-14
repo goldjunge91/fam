@@ -2,12 +2,16 @@ import { router, usePathname } from 'expo-router';
 import { useEffect, useRef } from 'react';
 import { Animated, Modal, Pressable, ScrollView, StyleSheet, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { CalendarDayIcon } from '@/components/calendar-day-icon';
 import { FamIcon, type FamIconName } from '@/components/fam-icon';
 import { FontSize, ThemedText } from '@/components/themed-text';
 
 import { useNavigationChrome } from './navigation-chrome-provider';
 
-type NavRoute = { label: string; href: string; icon: FamIconName };
+// 'calendarDay' ist kein statisches FamIcon, sondern das Kalenderblatt mit
+// dem heutigen Datum (CalendarDayIcon) — eigener Sentinel-Wert statt eines
+// weiteren FamIconName-Eintrags, weil er dynamisch ist.
+type NavRoute = { label: string; href: string; icon: FamIconName | 'calendarDay' };
 
 const GROUPS: { title: string; routes: NavRoute[] }[] = [
   { title: 'Heute', routes: [{ label: 'Übersicht', href: '/', icon: 'overview' }] },
@@ -17,7 +21,7 @@ const GROUPS: { title: string; routes: NavRoute[] }[] = [
       { label: 'Vorrat', href: '/fridge', icon: 'fridge' },
       { label: 'Einkauf', href: '/shopping-list', icon: 'shopping' },
       { label: 'Rezepte', href: '/recipes', icon: 'recipes' },
-      { label: 'Essensplan', href: '/meal-planner', icon: 'mealPlan' },
+      { label: 'Essensplan', href: '/meal-planner', icon: 'calendarDay' },
     ],
   },
   {
@@ -110,7 +114,11 @@ export function NavigationDrawer() {
                       accessibilityState={{ selected: isActive }}
                       style={[styles.navRow, isActive && styles.navRowActive]}>
                       <View style={styles.navIcon}>
-                        <FamIcon name={route.icon} size={35} />
+                        {route.icon === 'calendarDay' ? (
+                          <CalendarDayIcon size={35} />
+                        ) : (
+                          <FamIcon name={route.icon} size={35} />
+                        )}
                       </View>
                       <ThemedText
                         type={isActive ? 'smallBold' : 'default'}
