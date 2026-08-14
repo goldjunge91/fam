@@ -178,6 +178,21 @@ export function EditProfileScreen() {
         <ChoiceRow options={ACTIVITY_LEVELS} value={activityLevel} onChange={setActivityLevel} />
       </Card>
 
+      <Card title="Ziele & Wochenplan">
+        <View style={styles.form}>
+          <Button
+            label="Ziele & Fortschritt"
+            variant="secondary"
+            onPress={() => router.push('/settings/goals')}
+          />
+          <Button
+            label="Portionen pro Person"
+            variant="secondary"
+            onPress={() => router.push('/settings/meal-planner')}
+          />
+        </View>
+      </Card>
+
       {formError ? (
         <ThemedText type="small" themeColor="danger">
           {formError}

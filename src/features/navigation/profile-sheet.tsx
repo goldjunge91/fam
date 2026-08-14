@@ -1,6 +1,6 @@
 import { router } from 'expo-router';
 import { useState } from 'react';
-import { Modal, Pressable, ScrollView, StyleSheet, View } from 'react-native';
+import { Modal, Pressable, StyleSheet, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { FamIcon, type FamIconName } from '@/components/fam-icon';
 import { FontSize, ThemedText } from '@/components/themed-text';
@@ -85,59 +85,41 @@ export function ProfileSheet() {
               </View>
             </View>
 
-            <ScrollView showsVerticalScrollIndicator={false} style={styles.rows}>
-              <ProfileRow
-                icon="profile"
-                title="Mein Profil"
-                subtitle="Persönliche Daten und Ziele"
-                onPress={() => go('/settings/profile')}
-                borderColor={theme.border}
-              />
-              <ProfileRow
-                icon="goals"
-                title="Ziele & Fortschritt"
-                subtitle="Kalorienziel, Makros und Gewicht"
-                onPress={() => go('/settings/goals')}
-                borderColor={theme.border}
-              />
-              <ProfileRow
-                icon="mealPlan"
-                title="Portionen pro Person"
-                subtitle="Umrechnungsfaktor für den Wochenplan"
-                onPress={() => go('/settings/meal-planner')}
-                borderColor={theme.border}
-              />
-              <ProfileRow
-                icon="household"
-                title={activeHousehold?.name ?? 'Haushalt'}
-                subtitle={
-                  households.length > 1 ? 'Aktiver Haushalt · wechseln' : 'Aktiver Haushalt'
+            <ProfileRow
+              icon="profile"
+              title="Mein Profil"
+              subtitle="Persönliche Daten und Ziele"
+              onPress={() => go('/settings/profile')}
+              borderColor={theme.border}
+            />
+            <ProfileRow
+              icon="household"
+              title={activeHousehold?.name ?? 'Haushalt'}
+              subtitle={households.length > 1 ? 'Aktiver Haushalt · wechseln' : 'Aktiver Haushalt'}
+              onPress={() => {
+                if (households.length > 1) {
+                  setSwitcherVisible(true);
+                } else {
+                  closeProfile();
                 }
-                onPress={() => {
-                  if (households.length > 1) {
-                    setSwitcherVisible(true);
-                  } else {
-                    closeProfile();
-                  }
-                }}
-                borderColor={theme.border}
-              />
-              <ProfileRow
-                icon="members"
-                title="Haushalt verwalten"
-                subtitle="Mitglieder, Kinder und Einladungen"
-                onPress={() => go('/household/members')}
-                borderColor={theme.border}
-              />
-              <ProfileRow
-                icon="premium"
-                title="Premium"
-                subtitle={isPremium ? 'Aktiv für den Haushalt' : 'Jetzt freischalten'}
-                onPress={() => go('/settings')}
-                borderColor="transparent"
-                isLast
-              />
-            </ScrollView>
+              }}
+              borderColor={theme.border}
+            />
+            <ProfileRow
+              icon="members"
+              title="Haushalt verwalten"
+              subtitle="Mitglieder, Kinder und Einladungen"
+              onPress={() => go('/household/members')}
+              borderColor={theme.border}
+            />
+            <ProfileRow
+              icon="premium"
+              title="Premium"
+              subtitle={isPremium ? 'Aktiv für den Haushalt' : 'Jetzt freischalten'}
+              onPress={() => go('/settings')}
+              borderColor="transparent"
+              isLast
+            />
           </View>
         </View>
       </Modal>
@@ -202,10 +184,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     left: 16,
     right: 16,
-    // Feste Hoehe passte nur fuer 4 Zeilen — inzwischen sind es 6
-    // (Ziele & Fortschritt, Portionen pro Person kamen dazu). Statt die
-    // Karte weiter aufzublasen, deckelt maxHeight sie und der Rest scrollt.
-    maxHeight: 560,
+    height: 390,
     borderRadius: 28,
     paddingHorizontal: 20,
     paddingTop: 12,
@@ -213,10 +192,6 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(255,255,255,0.94)',
     boxShadow: '0 -8px 28px rgba(41, 28, 46, 0.18)',
     borderCurve: 'continuous',
-  },
-  rows: {
-    flexGrow: 1,
-    flexShrink: 1,
   },
   handleArea: {
     alignItems: 'center',
