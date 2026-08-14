@@ -34,7 +34,9 @@ import {
   useAddStepMutation,
   useDeleteComponentMutation,
   useDeleteItemMutation,
+  useDeleteStepMutation,
   useRecipeDetail,
+  useRemoveStepIngredientMutation,
   useUpdateComponentMutation,
   useUpdateItemMutation,
   useUpdateRecipeMutation,
@@ -68,7 +70,9 @@ export function RecipeCreateScreen() {
   const addProduct = useAddProductMutation();
   const addStep = useAddStepMutation();
   const updateStep = useUpdateStepMutation();
+  const deleteStep = useDeleteStepMutation();
   const addStepIngredient = useAddStepIngredientMutation();
+  const removeStepIngredient = useRemoveStepIngredientMutation();
 
   const isEditing = !!data;
   const householdId = data?.recipe.household_id ?? activeHouseholdId ?? undefined;
@@ -134,6 +138,27 @@ export function RecipeCreateScreen() {
         }),
     }));
     if (hydrated.length > 0) setComponents(hydrated);
+
+    // Zubereitungsschritte aus recipe_steps rekonstruieren — dieselbe Luecke
+    // wie bei den Zutaten: ohne diese Hydration blieb beim Bearbeiten nur ein
+    // leeres Schrittfeld sichtbar, und ein Speichern haette einen doppelten
+    // Schritt mit falscher position angelegt statt die bestehenden zu zeigen.
+    const hydratedSteps: WizardStepItem[] = data.steps
+      .slice()
+      .sort((a, b) => a.position - b.position)
+      .map((step) => ({
+        id: step.id,
+        serverId: step.id,
+        text: step.text,
+        localImageUri: null,
+        existingImagePath: step.image_path,
+        // ingredientIds bei recipe_steps sind bereits echte
+        // recipe_component_items.id-Werte — decken sich mit den oben
+        // hydrierten IngredientItem.id (dort ebenfalls die echte ID), daher
+        // ohne Umweg direkt uebernehmbar.
+        ingredientIds: step.ingredientIds,
+      }));
+    if (hydratedSteps.length > 0) setWizardSteps(hydratedSteps);
   }, [data]);
 
   async function handlePickCover() {
@@ -479,41 +504,77 @@ export function RecipeCreateScreen() {
         }
       }
 
+      const stepsDb = await getDatabase();
+      const originalStepIds = new Set(data ? data.steps.map((s) => s.id) : []);
+      const keptStepIds = new Set<string>();
+
       let position = 0;
       for (const step of wizardSteps) {
         if (!step.text.trim()) continue;
 
-        const created = await addStep.mutateAsync({
-          recipe_id: newRecipeId,
-          household_id: householdId,
-          position,
-          text: step.text.trim(),
-        });
-
-        if (step.localImageUri) {
-          const imagePath = await uploadRecipeStepImage(
-            step.localImageUri,
-            householdId,
-            created.id,
-          );
+        let stepId: string;
+        if (step.serverId) {
+          // Bestehender Schritt: aktualisieren statt einen zweiten mit
+          // derselben position anzulegen.
+          keptStepIds.add(step.serverId);
+          stepId = step.serverId;
+          const imagePath = step.localImageUri
+            ? await uploadRecipeStepImage(step.localImageUri, householdId, stepId)
+            : step.existingImagePath;
           await updateStep.mutateAsync({
-            id: created.id,
+            id: stepId,
             recipe_id: newRecipeId,
             household_id: householdId,
             position,
             text: step.text.trim(),
             image_path: imagePath,
           });
+
+          // Bestehende Zutaten-Verknuepfungen dieses Schritts komplett
+          // ersetzen statt einzeln zu diffen — bei wenigen Zutaten je Schritt
+          // kein spuerbarer Mehraufwand, aber deutlich weniger Fehlerflaeche.
+          const existingLinks = await stepsDb.getAllAsync<{ id: string }>(
+            'select id from recipe_step_ingredients where step_id = ? and deleted_at is null',
+            [stepId],
+          );
+          for (const link of existingLinks) {
+            await removeStepIngredient.mutateAsync({
+              id: link.id,
+              recipe_id: newRecipeId,
+              household_id: householdId,
+            });
+          }
+        } else {
+          const created = await addStep.mutateAsync({
+            recipe_id: newRecipeId,
+            household_id: householdId,
+            position,
+            text: step.text.trim(),
+          });
+          stepId = created.id;
+
+          if (step.localImageUri) {
+            const imagePath = await uploadRecipeStepImage(step.localImageUri, householdId, stepId);
+            await updateStep.mutateAsync({
+              id: stepId,
+              recipe_id: newRecipeId,
+              household_id: householdId,
+              position,
+              text: step.text.trim(),
+              image_path: imagePath,
+            });
+          }
         }
 
         for (const localItemId of step.ingredientIds) {
           const realItemId = localToRealItemId.get(localItemId);
-          // Zutat wurde nicht persistiert (kein Produkt gewaehlt oder nicht
-          // umrechenbar) — Referenz verwerfen statt auf eine nie existente
-          // Zeile zu verweisen.
+          // Zutat wurde nicht persistiert (kein Produkt gewaehlt, nicht
+          // umrechenbar, oder in diesem Bearbeiten-Durchgang entfernt) —
+          // Referenz verwerfen statt auf eine nie existente/geloeschte Zeile
+          // zu verweisen.
           if (!realItemId) continue;
           await addStepIngredient.mutateAsync({
-            step_id: created.id,
+            step_id: stepId,
             item_id: realItemId,
             recipe_id: newRecipeId,
             household_id: householdId,
@@ -521,6 +582,19 @@ export function RecipeCreateScreen() {
         }
 
         position += 1;
+      }
+
+      // Schritte, die urspruenglich existierten aber jetzt aus dem Formular
+      // entfernt wurden, loeschen — sonst blieben sie unsichtbar in der DB
+      // stehen (dieselbe "Geisterzutaten"-Logik wie bei den Komponenten oben).
+      for (const stepId of originalStepIds) {
+        if (!keptStepIds.has(stepId)) {
+          await deleteStep.mutateAsync({
+            id: stepId,
+            recipe_id: newRecipeId,
+            household_id: householdId,
+          });
+        }
       }
 
       router.replace({ pathname: '/recipe/detail', params: { id: newRecipeId } });
