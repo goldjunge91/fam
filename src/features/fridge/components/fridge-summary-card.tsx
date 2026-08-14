@@ -99,7 +99,8 @@ export function FridgeSummaryCard({
 const styles = StyleSheet.create({
   card: {
     minHeight: 178,
-    borderRadius: 26,
+    // Gleicher Radius wie components/card.tsx — beides "surface-elevated"-Flaechen.
+    borderRadius: 28,
     borderCurve: 'continuous',
     paddingHorizontal: 18,
     paddingVertical: 24,

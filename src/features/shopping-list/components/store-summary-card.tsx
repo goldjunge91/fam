@@ -68,7 +68,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     gap: Spacing.three,
-    borderRadius: 20,
+    // Gleicher Radius wie components/card.tsx — beides "surface-elevated"-Flaechen.
+    borderRadius: 28,
     paddingVertical: Spacing.three,
     paddingLeft: Spacing.two,
     paddingRight: Spacing.three,
