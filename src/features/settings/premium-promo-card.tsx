@@ -1,7 +1,7 @@
 import { router } from 'expo-router';
 import { Pressable, StyleSheet, View } from 'react-native';
 
-import { FontSize, ThemedText } from '@/components/themed-text';
+import { ThemedText } from '@/components/themed-text';
 import { usePremium } from '@/features/premium/premium-provider';
 
 /**
@@ -24,14 +24,18 @@ export function PremiumPromoCard() {
       <ThemedText type="subtitle" style={styles.title}>
         {isPremium ? 'Premium ist aktiv' : 'Premium für den ganzen Haushalt'}
       </ThemedText>
-      <ThemedText style={styles.subtitle}>
+      <ThemedText type="default" style={styles.subtitle}>
         {isPremium
           ? 'Alle Mitglieder profitieren von den Premium-Funktionen.'
           : 'Kochmodus, intelligente Einkaufslisten und weitere Automationen.'}
       </ThemedText>
       <View style={styles.pill}>
-        <ThemedText style={styles.pillText}>
-          {isPremium ? (isForced ? 'Abo verwalten (erzwungen)' : 'Abo verwalten') : 'Premium ansehen'}
+        <ThemedText type="default" style={styles.pillText}>
+          {isPremium
+            ? isForced
+              ? 'Abo verwalten (erzwungen)'
+              : 'Abo verwalten'
+            : 'Premium ansehen'}
         </ThemedText>
       </View>
     </Pressable>
@@ -59,11 +63,11 @@ const styles = StyleSheet.create({
     color: '#fff',
   },
   subtitle: {
-    width: '78%',
-    marginTop: 4,
+    // width: '78%',
+    // marginTop: 4,
     color: 'rgba(255,255,255,0.82)',
-    ...FontSize[8],
-    lineHeight: 10.8,
+    // ...FontSize[8],
+    // lineHeight: 10.8,
   },
   pill: {
     alignSelf: 'flex-start',
@@ -75,8 +79,8 @@ const styles = StyleSheet.create({
   },
   pillText: {
     color: '#604765',
-    ...FontSize[8],
-    lineHeight: 10,
+    // ...FontSize[8],
+    // lineHeight: 10,
     fontWeight: '600',
   },
   pressed: {
