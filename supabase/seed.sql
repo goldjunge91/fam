@@ -76,9 +76,9 @@ values
   ('70121328-f669-5fab-91b5-f5cec9fde031', 'Rührei mit Gouda', 10, 'easy', array['breakfast'], array['vegetarian'], 2, 10)
 on conflict (id) do nothing;
 
-insert into public.recipe_template_components (id, template_id, name)
-values ('9c116245-3a0f-51ee-9f8c-61aec3388e31', '70121328-f669-5fab-91b5-f5cec9fde031', 'Zutaten')
-on conflict (id) do nothing;
+insert into public.recipe_template_components (id, template_id, name, serving_grams)
+values ('9c116245-3a0f-51ee-9f8c-61aec3388e31', '70121328-f669-5fab-91b5-f5cec9fde031', 'Zutaten', 166)
+on conflict (id) do update set serving_grams = excluded.serving_grams;
 
 insert into public.recipe_template_items (id, component_id, template_id, product_id, grams, quantity, unit)
 values
@@ -103,9 +103,9 @@ values
   ('da19a794-bfa8-5005-ac23-33e88444c4d4', 'Overnight Oats mit Banane und Honig', 5, 'easy', array['breakfast'], array['vegetarian'], 1, 20)
 on conflict (id) do nothing;
 
-insert into public.recipe_template_components (id, template_id, name)
-values ('aa605aa6-e90a-5323-8b55-9ee8b05d25b4', 'da19a794-bfa8-5005-ac23-33e88444c4d4', 'Zutaten')
-on conflict (id) do nothing;
+insert into public.recipe_template_components (id, template_id, name, serving_grams)
+values ('aa605aa6-e90a-5323-8b55-9ee8b05d25b4', 'da19a794-bfa8-5005-ac23-33e88444c4d4', 'Zutaten', 345)
+on conflict (id) do update set serving_grams = excluded.serving_grams;
 
 insert into public.recipe_template_items (id, component_id, template_id, product_id, grams, quantity, unit)
 values
@@ -130,9 +130,9 @@ values
   ('2f569bd5-2c90-5b7c-bee1-7f94a2cf4f69', 'Klassische Pfannkuchen', 20, 'easy', array['breakfast','brunch'], array['vegetarian'], 4, 30)
 on conflict (id) do nothing;
 
-insert into public.recipe_template_components (id, template_id, name)
-values ('9a1535a0-7ffd-5f2c-9492-9e30022446d4', '2f569bd5-2c90-5b7c-bee1-7f94a2cf4f69', 'Zutaten')
-on conflict (id) do nothing;
+insert into public.recipe_template_components (id, template_id, name, serving_grams)
+values ('9a1535a0-7ffd-5f2c-9492-9e30022446d4', '2f569bd5-2c90-5b7c-bee1-7f94a2cf4f69', 'Zutaten', 662)
+on conflict (id) do update set serving_grams = excluded.serving_grams;
 
 insert into public.recipe_template_items (id, component_id, template_id, product_id, grams, quantity, unit)
 values
@@ -158,9 +158,9 @@ values
   ('318a277c-4061-5ee9-8939-63839491ab4f', 'Bananen-Porridge', 10, 'easy', array['breakfast'], array['vegetarian'], 1, 40)
 on conflict (id) do nothing;
 
-insert into public.recipe_template_components (id, template_id, name)
-values ('8d2e7110-f1b5-5f20-9b02-8fe033dce0f5', '318a277c-4061-5ee9-8939-63839491ab4f', 'Zutaten')
-on conflict (id) do nothing;
+insert into public.recipe_template_components (id, template_id, name, serving_grams)
+values ('8d2e7110-f1b5-5f20-9b02-8fe033dce0f5', '318a277c-4061-5ee9-8939-63839491ab4f', 'Zutaten', 320)
+on conflict (id) do update set serving_grams = excluded.serving_grams;
 
 insert into public.recipe_template_items (id, component_id, template_id, product_id, grams, quantity, unit)
 values
@@ -184,9 +184,9 @@ values
   ('e78f5944-54ab-5ab4-b0f3-f3806a68c90d', 'Joghurt mit Apfel und Honig', 5, 'easy', array['breakfast','snack'], array['vegetarian'], 1, 50)
 on conflict (id) do nothing;
 
-insert into public.recipe_template_components (id, template_id, name)
-values ('1e2a3377-3402-50f5-9bf8-d8c8fc8dccdd', 'e78f5944-54ab-5ab4-b0f3-f3806a68c90d', 'Zutaten')
-on conflict (id) do nothing;
+insert into public.recipe_template_components (id, template_id, name, serving_grams)
+values ('1e2a3377-3402-50f5-9bf8-d8c8fc8dccdd', 'e78f5944-54ab-5ab4-b0f3-f3806a68c90d', 'Zutaten', 285)
+on conflict (id) do update set serving_grams = excluded.serving_grams;
 
 insert into public.recipe_template_items (id, component_id, template_id, product_id, grams, quantity, unit)
 values
@@ -210,9 +210,9 @@ values
   ('8d4bae92-90b5-5150-8647-2a96e5c38b7f', 'Spaghetti Bolognese', 35, 'medium', array['dinner','lunch'], '{}', 4, 60)
 on conflict (id) do nothing;
 
-insert into public.recipe_template_components (id, template_id, name)
-values ('dea9cfa2-1758-5362-bdcd-7f9f6d76edca', '8d4bae92-90b5-5150-8647-2a96e5c38b7f', 'Zutaten')
-on conflict (id) do nothing;
+insert into public.recipe_template_components (id, template_id, name, serving_grams)
+values ('dea9cfa2-1758-5362-bdcd-7f9f6d76edca', '8d4bae92-90b5-5150-8647-2a96e5c38b7f', 'Zutaten', 1353)
+on conflict (id) do update set serving_grams = excluded.serving_grams;
 
 insert into public.recipe_template_items (id, component_id, template_id, product_id, grams, quantity, unit)
 values
@@ -242,9 +242,9 @@ values
   ('c1568e2d-fffa-5501-8251-e24eebb082ed', 'Chili con Carne', 40, 'medium', array['dinner'], '{}', 4, 70)
 on conflict (id) do nothing;
 
-insert into public.recipe_template_components (id, template_id, name)
-values ('5504412e-a8aa-5d87-9e6c-25721f0538f4', 'c1568e2d-fffa-5501-8251-e24eebb082ed', 'Zutaten')
-on conflict (id) do nothing;
+insert into public.recipe_template_components (id, template_id, name, serving_grams)
+values ('5504412e-a8aa-5d87-9e6c-25721f0538f4', 'c1568e2d-fffa-5501-8251-e24eebb082ed', 'Zutaten', 1490)
+on conflict (id) do update set serving_grams = excluded.serving_grams;
 
 insert into public.recipe_template_items (id, component_id, template_id, product_id, grams, quantity, unit)
 values
@@ -273,9 +273,9 @@ values
   ('c500d69e-a639-5705-86ef-8a3096d8ffd3', 'Hähnchen-Gemüse-Pfanne mit Reis', 30, 'medium', array['dinner'], '{}', 3, 80)
 on conflict (id) do nothing;
 
-insert into public.recipe_template_components (id, template_id, name)
-values ('bfeb6343-cbca-5ddc-befc-8862aa538849', 'c500d69e-a639-5705-86ef-8a3096d8ffd3', 'Zutaten')
-on conflict (id) do nothing;
+insert into public.recipe_template_components (id, template_id, name, serving_grams)
+values ('bfeb6343-cbca-5ddc-befc-8862aa538849', 'c500d69e-a639-5705-86ef-8a3096d8ffd3', 'Zutaten', 1030)
+on conflict (id) do update set serving_grams = excluded.serving_grams;
 
 insert into public.recipe_template_items (id, component_id, template_id, product_id, grams, quantity, unit)
 values
@@ -303,9 +303,9 @@ values
   ('4d77f981-c9da-5ead-8de1-20b18b5f90bd', 'Kichererbsen-Curry', 30, 'easy', array['dinner','lunch'], array['vegetarian'], 3, 90)
 on conflict (id) do nothing;
 
-insert into public.recipe_template_components (id, template_id, name)
-values ('1b9c235c-7dba-523b-9261-08d04f875ba6', '4d77f981-c9da-5ead-8de1-20b18b5f90bd', 'Zutaten')
-on conflict (id) do nothing;
+insert into public.recipe_template_components (id, template_id, name, serving_grams)
+values ('1b9c235c-7dba-523b-9261-08d04f875ba6', '4d77f981-c9da-5ead-8de1-20b18b5f90bd', 'Zutaten', 1210)
+on conflict (id) do update set serving_grams = excluded.serving_grams;
 
 insert into public.recipe_template_items (id, component_id, template_id, product_id, grams, quantity, unit)
 values
@@ -333,9 +333,9 @@ values
   ('02c72ddc-c99d-5a8f-8a24-db7808a5b87d', 'Couscous-Salat mit Kichererbsen', 20, 'easy', array['lunch'], array['vegetarian'], 3, 100)
 on conflict (id) do nothing;
 
-insert into public.recipe_template_components (id, template_id, name)
-values ('031a9e0f-1dcb-5951-b2fc-73e2771482a5', '02c72ddc-c99d-5a8f-8a24-db7808a5b87d', 'Zutaten')
-on conflict (id) do nothing;
+insert into public.recipe_template_components (id, template_id, name, serving_grams)
+values ('031a9e0f-1dcb-5951-b2fc-73e2771482a5', '02c72ddc-c99d-5a8f-8a24-db7808a5b87d', 'Zutaten', 630)
+on conflict (id) do update set serving_grams = excluded.serving_grams;
 
 insert into public.recipe_template_items (id, component_id, template_id, product_id, grams, quantity, unit)
 values
@@ -362,9 +362,9 @@ values
   ('2c994ead-c7f8-5de8-a15c-41f88b57612a', 'Linsen-Eintopf', 35, 'easy', array['lunch','dinner'], array['vegetarian'], 4, 110)
 on conflict (id) do nothing;
 
-insert into public.recipe_template_components (id, template_id, name)
-values ('206b023c-6746-5c8a-b9f6-cb6ff307f374', '2c994ead-c7f8-5de8-a15c-41f88b57612a', 'Zutaten')
-on conflict (id) do nothing;
+insert into public.recipe_template_components (id, template_id, name, serving_grams)
+values ('206b023c-6746-5c8a-b9f6-cb6ff307f374', '2c994ead-c7f8-5de8-a15c-41f88b57612a', 'Zutaten', 713)
+on conflict (id) do update set serving_grams = excluded.serving_grams;
 
 insert into public.recipe_template_items (id, component_id, template_id, product_id, grams, quantity, unit)
 values
@@ -392,9 +392,9 @@ values
   ('3d325d09-a191-5957-b067-739db2dc14b4', 'Kartoffel-Gulasch', 45, 'medium', array['dinner'], '{}', 4, 120)
 on conflict (id) do nothing;
 
-insert into public.recipe_template_components (id, template_id, name)
-values ('bc1482f5-8da5-5ff6-a270-1e5a7837d3c7', '3d325d09-a191-5957-b067-739db2dc14b4', 'Zutaten')
-on conflict (id) do nothing;
+insert into public.recipe_template_components (id, template_id, name, serving_grams)
+values ('bc1482f5-8da5-5ff6-a270-1e5a7837d3c7', '3d325d09-a191-5957-b067-739db2dc14b4', 'Zutaten', 1110)
+on conflict (id) do update set serving_grams = excluded.serving_grams;
 
 insert into public.recipe_template_items (id, component_id, template_id, product_id, grams, quantity, unit)
 values
@@ -422,9 +422,9 @@ values
   ('7d568089-e4ef-5826-87c2-f18b03958463', 'Thunfisch-Couscous-Salat', 20, 'easy', array['lunch'], '{}', 2, 130)
 on conflict (id) do nothing;
 
-insert into public.recipe_template_components (id, template_id, name)
-values ('0e33d01b-5652-559e-85aa-259e1a942208', '7d568089-e4ef-5826-87c2-f18b03958463', 'Zutaten')
-on conflict (id) do nothing;
+insert into public.recipe_template_components (id, template_id, name, serving_grams)
+values ('0e33d01b-5652-559e-85aa-259e1a942208', '7d568089-e4ef-5826-87c2-f18b03958463', 'Zutaten', 485)
+on conflict (id) do update set serving_grams = excluded.serving_grams;
 
 insert into public.recipe_template_items (id, component_id, template_id, product_id, grams, quantity, unit)
 values
@@ -451,9 +451,9 @@ values
   ('c0e8a39d-fece-5aab-9e1a-ee6173f9dd2b', 'Hähnchen-Schnitzel mit Kartoffeln', 35, 'medium', array['dinner'], '{}', 2, 140)
 on conflict (id) do nothing;
 
-insert into public.recipe_template_components (id, template_id, name)
-values ('69256b0c-30c7-5fd6-8dea-55ded80278b0', 'c0e8a39d-fece-5aab-9e1a-ee6173f9dd2b', 'Zutaten')
-on conflict (id) do nothing;
+insert into public.recipe_template_components (id, template_id, name, serving_grams)
+values ('69256b0c-30c7-5fd6-8dea-55ded80278b0', 'c0e8a39d-fece-5aab-9e1a-ee6173f9dd2b', 'Zutaten', 883)
+on conflict (id) do update set serving_grams = excluded.serving_grams;
 
 insert into public.recipe_template_items (id, component_id, template_id, product_id, grams, quantity, unit)
 values
@@ -481,9 +481,9 @@ values
   ('62ef23d2-9375-5b25-91c1-ec23ca91e056', 'Gemüse-Reispfanne', 25, 'easy', array['dinner','lunch'], array['vegetarian'], 3, 150)
 on conflict (id) do nothing;
 
-insert into public.recipe_template_components (id, template_id, name)
-values ('5afaf59a-a37d-5bab-ae16-78d5f92686dc', '62ef23d2-9375-5b25-91c1-ec23ca91e056', 'Zutaten')
-on conflict (id) do nothing;
+insert into public.recipe_template_components (id, template_id, name, serving_grams)
+values ('5afaf59a-a37d-5bab-ae16-78d5f92686dc', '62ef23d2-9375-5b25-91c1-ec23ca91e056', 'Zutaten', 755)
+on conflict (id) do update set serving_grams = excluded.serving_grams;
 
 insert into public.recipe_template_items (id, component_id, template_id, product_id, grams, quantity, unit)
 values
@@ -510,9 +510,9 @@ values
   ('e7a4f5e4-805f-5054-ae3a-272e4d9bcd5f', 'Frischkäse-Dip mit Paprika', 10, 'easy', array['snack','appetizer'], array['vegetarian'], 4, 160)
 on conflict (id) do nothing;
 
-insert into public.recipe_template_components (id, template_id, name)
-values ('a4c0e901-31a7-5f43-8686-f6a2cdaab3fe', 'e7a4f5e4-805f-5054-ae3a-272e4d9bcd5f', 'Zutaten')
-on conflict (id) do nothing;
+insert into public.recipe_template_components (id, template_id, name, serving_grams)
+values ('a4c0e901-31a7-5f43-8686-f6a2cdaab3fe', 'e7a4f5e4-805f-5054-ae3a-272e4d9bcd5f', 'Zutaten', 306)
+on conflict (id) do update set serving_grams = excluded.serving_grams;
 
 insert into public.recipe_template_items (id, component_id, template_id, product_id, grams, quantity, unit)
 values
@@ -536,9 +536,9 @@ values
   ('7bfde7e2-17d6-5d57-8ee5-715e653c3347', 'Honig-Joghurt mit Haferflocken', 5, 'easy', array['snack','dessert'], array['vegetarian'], 1, 170)
 on conflict (id) do nothing;
 
-insert into public.recipe_template_components (id, template_id, name)
-values ('b963cd21-60a1-5c54-9a63-86a32d1c93a4', '7bfde7e2-17d6-5d57-8ee5-715e653c3347', 'Zutaten')
-on conflict (id) do nothing;
+insert into public.recipe_template_components (id, template_id, name, serving_grams)
+values ('b963cd21-60a1-5c54-9a63-86a32d1c93a4', '7bfde7e2-17d6-5d57-8ee5-715e653c3347', 'Zutaten', 260)
+on conflict (id) do update set serving_grams = excluded.serving_grams;
 
 insert into public.recipe_template_items (id, component_id, template_id, product_id, grams, quantity, unit)
 values
@@ -562,9 +562,9 @@ values
   ('077964e4-5011-568c-acef-b96c54f832d4', 'Geröstete Kichererbsen', 25, 'easy', array['snack'], array['vegetarian'], 4, 180)
 on conflict (id) do nothing;
 
-insert into public.recipe_template_components (id, template_id, name)
-values ('eea5d7b2-ff1b-5384-9221-b2f1df58e055', '077964e4-5011-568c-acef-b96c54f832d4', 'Zutaten')
-on conflict (id) do nothing;
+insert into public.recipe_template_components (id, template_id, name, serving_grams)
+values ('eea5d7b2-ff1b-5384-9221-b2f1df58e055', '077964e4-5011-568c-acef-b96c54f832d4', 'Zutaten', 483)
+on conflict (id) do update set serving_grams = excluded.serving_grams;
 
 insert into public.recipe_template_items (id, component_id, template_id, product_id, grams, quantity, unit)
 values
@@ -588,9 +588,9 @@ values
   ('0b053108-709d-5a35-9171-28a7541d3a4b', 'Bananenbrot', 55, 'medium', array['dessert','breakfast'], array['vegetarian'], 8, 190)
 on conflict (id) do nothing;
 
-insert into public.recipe_template_components (id, template_id, name)
-values ('3ddf2d61-a533-570a-9824-d8caae250af0', '0b053108-709d-5a35-9171-28a7541d3a4b', 'Zutaten')
-on conflict (id) do nothing;
+insert into public.recipe_template_components (id, template_id, name, serving_grams)
+values ('3ddf2d61-a533-570a-9824-d8caae250af0', '0b053108-709d-5a35-9171-28a7541d3a4b', 'Zutaten', 860)
+on conflict (id) do update set serving_grams = excluded.serving_grams;
 
 insert into public.recipe_template_items (id, component_id, template_id, product_id, grams, quantity, unit)
 values
@@ -617,9 +617,9 @@ values
   ('bcae14e1-2c3a-54b7-9b2c-3fcf92a05d3e', 'Schoko-Pfannkuchen', 20, 'easy', array['dessert','breakfast'], array['vegetarian'], 4, 200)
 on conflict (id) do nothing;
 
-insert into public.recipe_template_components (id, template_id, name)
-values ('f4e500e2-96bd-559d-9cb8-beb0b6035d2a', 'bcae14e1-2c3a-54b7-9b2c-3fcf92a05d3e', 'Zutaten')
-on conflict (id) do nothing;
+insert into public.recipe_template_components (id, template_id, name, serving_grams)
+values ('f4e500e2-96bd-559d-9cb8-beb0b6035d2a', 'bcae14e1-2c3a-54b7-9b2c-3fcf92a05d3e', 'Zutaten', 690)
+on conflict (id) do update set serving_grams = excluded.serving_grams;
 
 insert into public.recipe_template_items (id, component_id, template_id, product_id, grams, quantity, unit)
 values
@@ -645,9 +645,9 @@ values
   ('99fc2ade-065a-5b99-bee4-b5a07e7686b1', 'Apfel-Crumble', 40, 'medium', array['dessert'], array['vegetarian'], 4, 210)
 on conflict (id) do nothing;
 
-insert into public.recipe_template_components (id, template_id, name)
-values ('6c640854-939b-50d4-b845-ef3fd8cffbc1', '99fc2ade-065a-5b99-bee4-b5a07e7686b1', 'Zutaten')
-on conflict (id) do nothing;
+insert into public.recipe_template_components (id, template_id, name, serving_grams)
+values ('6c640854-939b-50d4-b845-ef3fd8cffbc1', '99fc2ade-065a-5b99-bee4-b5a07e7686b1', 'Zutaten', 740)
+on conflict (id) do update set serving_grams = excluded.serving_grams;
 
 insert into public.recipe_template_items (id, component_id, template_id, product_id, grams, quantity, unit)
 values
@@ -673,9 +673,9 @@ values
   ('6d184a8e-ebfe-5d51-ba58-2e7d7c4d5c7d', 'Schokoladenkuchen', 50, 'medium', array['dessert'], array['vegetarian'], 8, 220)
 on conflict (id) do nothing;
 
-insert into public.recipe_template_components (id, template_id, name)
-values ('70ed1d36-7c04-5f6b-9e15-f74e00184c15', '6d184a8e-ebfe-5d51-ba58-2e7d7c4d5c7d', 'Zutaten')
-on conflict (id) do nothing;
+insert into public.recipe_template_components (id, template_id, name, serving_grams)
+values ('70ed1d36-7c04-5f6b-9e15-f74e00184c15', '6d184a8e-ebfe-5d51-ba58-2e7d7c4d5c7d', 'Zutaten', 920)
+on conflict (id) do update set serving_grams = excluded.serving_grams;
 
 insert into public.recipe_template_items (id, component_id, template_id, product_id, grams, quantity, unit)
 values
@@ -703,9 +703,9 @@ values
   ('f35fcc20-0e80-526e-a46c-ca2de27aadef', 'Tomaten-Knoblauch-Dip', 10, 'easy', array['appetizer'], array['vegetarian'], 4, 230)
 on conflict (id) do nothing;
 
-insert into public.recipe_template_components (id, template_id, name)
-values ('6f12ecea-9b08-52aa-a2d6-df8c2103e416', 'f35fcc20-0e80-526e-a46c-ca2de27aadef', 'Zutaten')
-on conflict (id) do nothing;
+insert into public.recipe_template_components (id, template_id, name, serving_grams)
+values ('6f12ecea-9b08-52aa-a2d6-df8c2103e416', 'f35fcc20-0e80-526e-a46c-ca2de27aadef', 'Zutaten', 272)
+on conflict (id) do update set serving_grams = excluded.serving_grams;
 
 insert into public.recipe_template_items (id, component_id, template_id, product_id, grams, quantity, unit)
 values
@@ -729,9 +729,9 @@ values
   ('73aa9a5c-0174-55bc-9b1f-a731a1357ce2', 'Brunch-Eierspeise mit Gouda und Paprika', 15, 'easy', array['brunch'], array['vegetarian'], 2, 240)
 on conflict (id) do nothing;
 
-insert into public.recipe_template_components (id, template_id, name)
-values ('accfe692-1013-55af-a788-b27be2fd8f24', '73aa9a5c-0174-55bc-9b1f-a731a1357ce2', 'Zutaten')
-on conflict (id) do nothing;
+insert into public.recipe_template_components (id, template_id, name, serving_grams)
+values ('accfe692-1013-55af-a788-b27be2fd8f24', '73aa9a5c-0174-55bc-9b1f-a731a1357ce2', 'Zutaten', 316)
+on conflict (id) do update set serving_grams = excluded.serving_grams;
 
 insert into public.recipe_template_items (id, component_id, template_id, product_id, grams, quantity, unit)
 values

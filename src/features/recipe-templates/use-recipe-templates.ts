@@ -211,11 +211,19 @@ export function useApplyRecipeTemplateMutation() {
       });
 
       for (const component of template.components) {
+        // Fallback fuer den Fall, dass eine Vorlage (Seed-Fehler oder
+        // zukuenftig manuell gepflegt) kein serving_grams hat: ohne den Wert
+        // blendet recipe-detail-screen.tsx die Komponente komplett aus
+        // (topLevelComponents filtert auf serving_grams !== null) — die
+        // Zutaten wirken dann "verloren", obwohl sie in der DB stehen.
+        const servingGrams =
+          component.serving_grams ?? component.items.reduce((sum, item) => sum + item.grams, 0);
+
         const newComponent = await addComponent.mutateAsync({
           recipe_id: recipe.id,
           household_id,
           name: component.name,
-          serving_grams: component.serving_grams,
+          serving_grams: servingGrams,
         });
 
         for (const item of component.items) {
