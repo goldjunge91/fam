@@ -7,6 +7,7 @@ import {
   useAddComponentMutation,
   useAddItemMutation,
   useAddRecipeMutation,
+  useAddStepIngredientMutation,
   useAddStepMutation,
 } from '@/features/recipes/use-recipes';
 import { getSupabase } from '@/lib/supabase';
@@ -175,13 +176,22 @@ export function useRecipeTemplateDetail(templateId: string | undefined) {
  * Uebernimmt eine Vorlage als neues Rezept in den Haushalt — ruft dieselbe
  * Sequenz bestehender Mutation-Hooks auf, die auch der Wizard in
  * recipe-create-screen.tsx's handleFinalSave nutzt (useAddRecipeMutation ->
- * useAddComponentMutation -> useAddItemMutation -> useAddStepMutation). Läuft
- * vollständig über den lokalen Outbox-Mechanismus, funktioniert also auch
- * offline, sobald das Template einmal geladen wurde.
+ * useAddComponentMutation -> useAddItemMutation -> useAddStepMutation ->
+ * useAddStepIngredientMutation). Läuft vollständig über den lokalen
+ * Outbox-Mechanismus, funktioniert also auch offline, sobald das Template
+ * einmal geladen wurde.
  *
- * Bewusster Scope-Cut: keine recipe_step_ingredients-Verknüpfung (nur für die
- * Zutaten-Chips je Schritt relevant, keine funktionale Einbuße) und kein
- * Cover-Bild-Kopiervorgang (Templates haben in v1 kein Bild).
+ * Die "Zutaten"-Sektion in recipe-detail-screen.tsx zeigt nur eine
+ * Komponenten-Summe (Name + Gesamtgramm) — die einzelnen Zutaten erscheinen
+ * dort ausschliesslich als Chips unter den Zubereitungsschritten
+ * (`recipe_step_ingredients`). Ohne diese Verknuepfung wirken kopierte
+ * Vorlagen "leer", obwohl recipe_component_items korrekt angelegt sind. Da
+ * die Vorlagen-Seed-Daten keine Schritt-Zutaten-Zuordnung kennen (Scope-Cut,
+ * siehe 15_recipe_templates.sql), werden hier pragmatisch alle Zutaten des
+ * Rezepts an den ersten Schritt gehaengt statt an gar keinen — nicht
+ * schrittgenau, aber sichtbar.
+ *
+ * Kein Cover-Bild-Kopiervorgang (Templates haben in v1 kein Bild).
  */
 export function useApplyRecipeTemplateMutation() {
   const queryClient = useQueryClient();
@@ -189,6 +199,7 @@ export function useApplyRecipeTemplateMutation() {
   const addComponent = useAddComponentMutation();
   const addItem = useAddItemMutation();
   const addStep = useAddStepMutation();
+  const addStepIngredient = useAddStepIngredientMutation();
 
   return useMutation({
     mutationFn: async (input: {
@@ -210,12 +221,13 @@ export function useApplyRecipeTemplateMutation() {
         created_by,
       });
 
+      const newItemIds: string[] = [];
+
       for (const component of template.components) {
         // Fallback fuer den Fall, dass eine Vorlage (Seed-Fehler oder
         // zukuenftig manuell gepflegt) kein serving_grams hat: ohne den Wert
         // blendet recipe-detail-screen.tsx die Komponente komplett aus
-        // (topLevelComponents filtert auf serving_grams !== null) — die
-        // Zutaten wirken dann "verloren", obwohl sie in der DB stehen.
+        // (topLevelComponents filtert auf serving_grams !== null).
         const servingGrams =
           component.serving_grams ?? component.items.reduce((sum, item) => sum + item.grams, 0);
 
@@ -228,7 +240,7 @@ export function useApplyRecipeTemplateMutation() {
 
         for (const item of component.items) {
           if (!item.product_id) continue; // sub_component_id-Verschachtelung nicht Teil der Vorlagen-Seed-Daten
-          await addItem.mutateAsync({
+          const newItem = await addItem.mutateAsync({
             component_id: newComponent.id,
             recipe_id: recipe.id,
             household_id,
@@ -237,16 +249,30 @@ export function useApplyRecipeTemplateMutation() {
             quantity: item.quantity,
             unit: item.unit,
           });
+          newItemIds.push(newItem.id);
         }
       }
 
+      let firstStepId: string | null = null;
       for (const step of template.steps) {
-        await addStep.mutateAsync({
+        const newStep = await addStep.mutateAsync({
           recipe_id: recipe.id,
           household_id,
           position: step.position,
           text: step.text,
         });
+        if (firstStepId === null) firstStepId = newStep.id;
+      }
+
+      if (firstStepId !== null) {
+        for (const itemId of newItemIds) {
+          await addStepIngredient.mutateAsync({
+            step_id: firstStepId,
+            item_id: itemId,
+            recipe_id: recipe.id,
+            household_id,
+          });
+        }
       }
 
       return recipe;
