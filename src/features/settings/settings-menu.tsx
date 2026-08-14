@@ -71,7 +71,11 @@ export function SettingsRow({
         !last && { borderBottomWidth: StyleSheet.hairlineWidth, borderBottomColor: theme.border },
         disabled && styles.disabled,
       ]}>
-      {icon ? <ThemedText style={styles.icon}>{icon}</ThemedText> : null}
+      {icon ? (
+        <View style={[styles.iconTile, { backgroundColor: theme.backgroundSelected }]}>
+          <ThemedText style={styles.icon}>{icon}</ThemedText>
+        </View>
+      ) : null}
 
       <View style={styles.labelBlock}>
         <ThemedText themeColor={tone === 'danger' ? 'danger' : 'text'}>{label}</ThemedText>
@@ -127,8 +131,15 @@ const styles = StyleSheet.create({
     gap: Spacing.two,
     paddingVertical: Spacing.three,
   },
+  iconTile: {
+    width: 34,
+    height: 34,
+    borderRadius: Spacing.three,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
   icon: {
-    width: 24,
+    ...FontSize[14],
     textAlign: 'center',
   },
   labelBlock: {
