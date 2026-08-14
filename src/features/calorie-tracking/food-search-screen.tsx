@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from 'react';
 import { ActivityIndicator, FlatList, Image, Pressable, StyleSheet, View } from 'react-native';
 
 import { Screen } from '@/components/screen';
+import { SegmentedControl } from '@/components/segmented-control';
 import { TextField } from '@/components/text-field';
 import { FontSize, ThemedText } from '@/components/themed-text';
 import { Spacing } from '@/constants/theme';
@@ -221,33 +222,15 @@ export function FoodSearchScreen() {
         </View>
 
         {!isSearchMode ? (
-          <View style={styles.segmentedRow}>
-            <Pressable
-              onPress={() => setHistoryTab('recent')}
-              style={[
-                styles.segmentBtn,
-                {
-                  backgroundColor: historyTab === 'recent' ? theme.accent : theme.backgroundElement,
-                },
-              ]}>
-              <ThemedText style={{ color: historyTab === 'recent' ? '#fff' : theme.text }}>
-                Zuletzt
-              </ThemedText>
-            </Pressable>
-            <Pressable
-              onPress={() => setHistoryTab('frequent')}
-              style={[
-                styles.segmentBtn,
-                {
-                  backgroundColor:
-                    historyTab === 'frequent' ? theme.accent : theme.backgroundElement,
-                },
-              ]}>
-              <ThemedText style={{ color: historyTab === 'frequent' ? '#fff' : theme.text }}>
-                Häufig
-              </ThemedText>
-            </Pressable>
-          </View>
+          <SegmentedControl
+            label="Verlauf"
+            options={[
+              { value: 'recent', label: 'Zuletzt' },
+              { value: 'frequent', label: 'Häufig' },
+            ]}
+            selected={historyTab}
+            onSelect={setHistoryTab}
+          />
         ) : null}
       </View>
 
@@ -400,17 +383,6 @@ const styles = StyleSheet.create({
   },
   footerLoader: {
     marginVertical: Spacing.three,
-  },
-  segmentedRow: {
-    flexDirection: 'row',
-    gap: Spacing.two,
-  },
-  segmentBtn: {
-    flex: 1,
-    paddingVertical: 10,
-    borderRadius: 10,
-    alignItems: 'center',
-    justifyContent: 'center',
   },
   row: {
     flexDirection: 'row',
