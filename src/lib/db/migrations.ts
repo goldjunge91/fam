@@ -437,6 +437,18 @@ alter table fridge_items add column package_size real;
 alter table fridge_items add column package_size_unit text;
 `;
 
+// Premium gilt haushaltsweit — der lokale Spiegel braucht die Server-Wahrheit
+// aus 03_households.sql (premium_active/premium_expires_at/premium_updated_at),
+// sonst sieht ein Mitglied, das selbst nie eingekauft hat, den Status nicht.
+// SQLite kennt kein boolean, deshalb integer (0/1) wie ueberall sonst in
+// diesem Schema (siehe _dirty) — toSqlParam in mirror-write.ts wandelt den
+// Postgres-boolean beim Pull entsprechend um.
+const V15_HOUSEHOLD_PREMIUM = `
+alter table households add column premium_active integer not null default 0;
+alter table households add column premium_expires_at text;
+alter table households add column premium_updated_at text;
+`;
+
 export const MIGRATIONS: readonly Migration[] = [
   {
     version: 1,
@@ -507,5 +519,10 @@ export const MIGRATIONS: readonly Migration[] = [
     version: 14,
     name: 'item_package_size',
     statements: [V14_ITEM_PACKAGE_SIZE],
+  },
+  {
+    version: 15,
+    name: 'household_premium',
+    statements: [V15_HOUSEHOLD_PREMIUM],
   },
 ];

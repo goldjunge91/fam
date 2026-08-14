@@ -31,6 +31,8 @@ export type MissingIngredientView = {
 export function useMealPlanShoppingNeeds(
   mealPlanId: string | undefined,
   householdId: string | undefined,
+  /** Premium-Feature (#131 kuratiert, sonst nur die Vorschau der Paywall) — ohne Zugriff wird gar nicht erst gerechnet. */
+  enabled: boolean = true,
 ) {
   return useQuery({
     queryKey: ['meal-plan-shopping-needs', mealPlanId],
@@ -136,6 +138,6 @@ export function useMealPlanShoppingNeeds(
       }
       return result;
     },
-    enabled: !!mealPlanId && !!householdId,
+    enabled: !!mealPlanId && !!householdId && enabled,
   });
 }

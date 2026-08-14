@@ -183,8 +183,8 @@ export default function RootLayout() {
           dehydrateOptions: { shouldDehydrateQuery: shouldPersistQuery },
         }}>
         <SessionProvider>
-          <PremiumProvider>
-            <ActiveHouseholdProvider>
+          <ActiveHouseholdProvider>
+            <PremiumProvider>
               <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
                 <SnackbarProvider>
                   <AnimatedSplashOverlay />
@@ -192,8 +192,8 @@ export default function RootLayout() {
                   <RootNavigator />
                 </SnackbarProvider>
               </ThemeProvider>
-            </ActiveHouseholdProvider>
-          </PremiumProvider>
+            </PremiumProvider>
+          </ActiveHouseholdProvider>
         </SessionProvider>
       </PersistQueryClientProvider>
     </GestureHandlerRootView>

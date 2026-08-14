@@ -21,7 +21,13 @@ export type Household = {
   name: string;
   created_by: string | null;
   created_at: string | null;
+  /** Haushaltsweiter Premium-Status, serverseitig vom RevenueCat-Webhook gepflegt (siehe 03_households.sql). */
+  premium_active: boolean;
+  premium_expires_at: string | null;
 };
+
+/** Rohzeile aus SQLite: `premium_active` kommt als 0/1, kein eigener Bool-Typ. */
+type HouseholdRow = Omit<Household, 'premium_active'> & { premium_active: number };
 
 /**
  * Liest alle Haushalte, in denen der aktuell angemeldete Nutzer Mitglied
@@ -46,9 +52,11 @@ export function useHouseholds() {
     queryKey: householdsQueryKey(userId),
     queryFn: async () => {
       const db = await getDatabase();
-      return db.getAllAsync<Household>(
-        'select id, name, created_by, created_at from households order by created_at asc',
+      const rows = await db.getAllAsync<HouseholdRow>(
+        `select id, name, created_by, created_at, premium_active, premium_expires_at
+         from households order by created_at asc`,
       );
+      return rows.map((row) => ({ ...row, premium_active: row.premium_active === 1 }));
     },
     enabled: !!userId,
   });

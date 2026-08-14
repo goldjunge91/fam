@@ -8,7 +8,19 @@ create table if not exists public.households (
   name text not null check (length(trim(name)) between 1 and 80),
   created_by uuid not null references public.profiles (id) on delete restrict,
   created_at timestamptz not null default now(),
-  updated_at timestamptz not null default now()
+  updated_at timestamptz not null default now(),
+  -- Premium gilt haushaltsweit, nicht pro Nutzer: RevenueCat wird per
+  -- `Purchases.logIn(householdId)` an genau diese Zeile gebunden (nicht an
+  -- eine user_id), damit ein Kauf allen Mitgliedern zugutekommt. Die Wahrheit
+  -- liegt hier statt nur im RevenueCat-SDK jedes einzelnen Geraets, weil ein
+  -- Mitglied, das selbst nie eingekauft hat, sonst nie `isPremium: true`
+  -- saehe. Serverseitig gepflegt vom RevenueCat-Webhook
+  -- (supabase/functions/revenuecat-webhook) — siehe Schreibschutz in
+  -- 04_privileges.sql, sonst koennte sich jeder Haushalts-Admin selbst
+  -- freischalten.
+  premium_active boolean not null default false,
+  premium_expires_at timestamptz,
+  premium_updated_at timestamptz
 );
 
 -- UUID statt bigint identity, obwohl UUIDv4 die Index-Lokalitaet

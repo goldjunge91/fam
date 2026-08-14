@@ -372,6 +372,12 @@ allow_dynamic_registration = false
 [functions.auth-confirmed]
 verify_jwt = false
 
+# RevenueCat schickt keinen Supabase-JWT — Auth laeuft ueber ein geteiltes
+# Secret im Authorization-Header, geprueft im Function-Code selbst (siehe
+# supabase/functions/revenuecat-webhook/index.ts).
+[functions.revenuecat-webhook]
+verify_jwt = false
+
 [edge_runtime]
 enabled = true
 # Supported request policies: `oneshot`, `per_worker`.

@@ -2,14 +2,14 @@ import type { ReactNode } from 'react';
 import { createContext, useCallback, useContext, useEffect, useMemo, useState } from 'react';
 import Purchases, { type CustomerInfo } from 'react-native-purchases';
 
-import { useSession } from '@/features/auth/session-provider';
+import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { env } from '@/lib/env';
 import { hasPremiumEntitlement, initPurchases, isPurchasesConfigured } from '@/lib/purchases';
 
 type PremiumContextValue = {
-  /** Ob der aktuelle Nutzer Zugriff auf Premium-Funktionen hat. */
+  /** Ob der aktive Haushalt Zugriff auf Premium-Funktionen hat. */
   isPremium: boolean;
-  /** Ob `isPremium` ueber `EXPO_PUBLIC_FORCE_PREMIUM` erzwungen ist statt aus RevenueCat zu kommen. */
+  /** Ob `isPremium` ueber `EXPO_PUBLIC_FORCE_PREMIUM` erzwungen ist statt aus RevenueCat/der DB zu kommen. */
   isForced: boolean;
   /** `null` ohne konfigurierten RevenueCat-API-Key oder vor dem ersten Laden. */
   customerInfo: CustomerInfo | null;
@@ -21,27 +21,36 @@ const PremiumContext = createContext<PremiumContextValue | null>(null);
 
 /**
  * Stellt den Premium-Status app-weit bereit, um einzelne Funktionen hinter
- * eine Paywall stellen zu koennen, bevor die eigentliche Kaufstrecke
- * (Produkte, Paywall-UI) fertig ist.
+ * eine Paywall stellen zu koennen.
  *
- * Zwei Quellen, in dieser Reihenfolge:
+ * Drei Quellen, in dieser Reihenfolge:
  *
  * 1. `EXPO_PUBLIC_FORCE_PREMIUM=true` — schaltet Premium hart frei, egal was
- *    RevenueCat sagt. Zum Entwickeln einzelner Premium-Funktionen ohne
- *    Sandbox-Kauf pro Testlauf.
- * 2. Das RevenueCat-Entitlement `premium` (`PREMIUM_ENTITLEMENT_ID`) aus
- *    `CustomerInfo`, sobald ein API-Key konfiguriert ist (`initPurchases`).
+ *    RevenueCat oder die DB sagen. Zum Entwickeln einzelner Premium-
+ *    Funktionen ohne Sandbox-Kauf pro Testlauf.
+ * 2. `households.premium_active` aus dem lokalen SQLite-Spiegel
+ *    (`activeHousehold`) — die serverseitige, vom RevenueCat-Webhook
+ *    gepflegte Wahrheit. Offline verfuegbar wie der Rest der App, und der
+ *    einzige Weg, wie ein Mitglied den Kauf eines anderen Mitglieds sieht.
+ * 3. Das RevenueCat-Entitlement `premium` (`PREMIUM_ENTITLEMENT_ID`) aus dem
+ *    live geladenen `CustomerInfo` — greift sofort nach dem eigenen Kauf,
+ *    noch bevor der Webhook durchgelaufen ist und die DB-Zeile aktualisiert
+ *    hat.
  *
- * Ohne API-Key bleibt `customerInfo` `null` und `isPremium` haengt allein an
- * der Force-Variable — die App startet trotzdem, siehe `lib/purchases.ts`.
+ * Ohne API-Key bleibt `customerInfo` `null` und Punkt 3 traegt nichts bei —
+ * die App startet trotzdem, siehe `lib/purchases.ts`.
  *
- * Muss innerhalb von `SessionProvider` stehen: der RevenueCat-User wird an
- * die Supabase-User-ID gebunden (`Purchases.logIn`), damit Kaeufe
- * geraeteuebergreifend demselben Account zugeordnet sind statt an einer
- * anonymen RevenueCat-ID zu haengen, die bei Neuinstallation verlorenginge.
+ * Muss innerhalb von `ActiveHouseholdProvider` stehen: der RevenueCat-User
+ * wird an die `household_id` gebunden (`Purchases.logIn`), nicht an die
+ * Supabase-User-ID — Premium gilt haushaltsweit, nicht pro Person. Alle
+ * Mitglieder eines Haushalts teilen sich dadurch denselben RevenueCat-
+ * Kunden; ein Kauf durch irgendein Mitglied macht CustomerInfo fuer alle
+ * anderen ebenfalls sichtbar, sobald sie selbst online nachfragen — die
+ * DB-Zeile (Punkt 2) ist trotzdem die primaere Quelle, weil sie das auch
+ * offline kann.
  */
 export function PremiumProvider({ children }: { children: ReactNode }) {
-  const { session } = useSession();
+  const { activeHouseholdId, activeHousehold } = useActiveHousehold();
   const [customerInfo, setCustomerInfo] = useState<CustomerInfo | null>(null);
   const [loading, setLoading] = useState(true);
 
@@ -74,18 +83,20 @@ export function PremiumProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     if (!isPurchasesConfigured()) return;
-    const userId = session?.user.id;
 
-    if (userId) {
-      Purchases.logIn(userId)
+    // Bindet RevenueCat an den Haushalt statt an die Person — siehe
+    // Kommentar am Provider. Ein Haushaltswechsel (HouseholdSwitcherModal)
+    // loggt hier automatisch auf den neuen `activeHouseholdId` um.
+    if (activeHouseholdId) {
+      Purchases.logIn(activeHouseholdId)
         .then(({ customerInfo: info }) => setCustomerInfo(info))
         .catch((err) => console.warn('[Premium] RevenueCat logIn fehlgeschlagen:', err));
       return;
     }
 
     // Purchases.logOut() wirft, wenn der RevenueCat-User schon anonym ist —
-    // und das ist er beim allerersten App-Start immer, bevor sich je jemand
-    // angemeldet hat. Ohne diese Pruefung loggt das bei jedem Start einen
+    // und das ist er beim allerersten App-Start immer, bevor je ein Haushalt
+    // ausgewaehlt wurde. Ohne diese Pruefung loggt das bei jedem Start einen
     // Fehler, der keiner ist.
     Purchases.isAnonymous()
       .then((isAnonymous) => {
@@ -93,10 +104,11 @@ export function PremiumProvider({ children }: { children: ReactNode }) {
         return Purchases.logOut().then((info) => setCustomerInfo(info));
       })
       .catch((err) => console.warn('[Premium] RevenueCat logOut fehlgeschlagen:', err));
-  }, [session?.user.id]);
+  }, [activeHouseholdId]);
 
   const isForced = env.forcePremium;
-  const isPremium = isForced || hasPremiumEntitlement(customerInfo);
+  const isPremium =
+    isForced || (activeHousehold?.premium_active ?? false) || hasPremiumEntitlement(customerInfo);
 
   const value = useMemo(
     () => ({ isPremium, isForced, customerInfo, loading, refresh }),
