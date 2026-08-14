@@ -21,7 +21,7 @@ export function PremiumPromoCard() {
       accessibilityRole="button"
       style={({ pressed }) => [styles.card, pressed && styles.pressed]}>
       <ThemedText style={styles.watermark}>✦</ThemedText>
-      <ThemedText style={styles.title}>
+      <ThemedText type="subtitle" style={styles.title}>
         {isPremium ? 'Premium ist aktiv' : 'Premium für den ganzen Haushalt'}
       </ThemedText>
       <ThemedText style={styles.subtitle}>
@@ -57,9 +57,6 @@ const styles = StyleSheet.create({
   },
   title: {
     color: '#fff',
-    ...FontSize[13],
-    lineHeight: 16,
-    fontWeight: '600',
   },
   subtitle: {
     width: '78%',
