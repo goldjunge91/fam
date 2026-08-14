@@ -46,14 +46,7 @@ jest.mock('@/lib/off-dump/off-dump', () => ({
 }));
 
 jest.mock('@/hooks/use-theme', () => ({
-  useTheme: () => ({
-    background: '#FFFFFF',
-    backgroundElement: '#F0F0F3',
-    border: '#DDDDE3',
-    text: '#000000',
-    textSecondary: '#60646C',
-    accent: '#208AEF',
-  }),
+  useTheme: () => require('@/constants/theme').Colors.light,
 }));
 
 const mockSearch = searchOpenFoodFacts as jest.Mock;

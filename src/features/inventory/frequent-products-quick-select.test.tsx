@@ -15,14 +15,7 @@ jest.mock('@/lib/db/product-usage', () => ({
 }));
 
 jest.mock('@/hooks/use-theme', () => ({
-  useTheme: () => ({
-    background: '#FFFFFF',
-    backgroundElement: '#F0F0F3',
-    border: '#DDDDE3',
-    text: '#000000',
-    textSecondary: '#60646C',
-    accent: '#208AEF',
-  }),
+  useTheme: () => require('@/constants/theme').Colors.light,
 }));
 
 function row(overrides: Partial<ProductUsageRow>): ProductUsageRow {

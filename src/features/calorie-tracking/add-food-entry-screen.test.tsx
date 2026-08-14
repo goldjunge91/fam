@@ -69,18 +69,7 @@ jest.mock('@/features/calorie-tracking/active-profile-store', () => ({
 }));
 
 jest.mock('@/hooks/use-theme', () => ({
-  useTheme: () => ({
-    background: '#FFFFFF',
-    backgroundElement: '#F0F0F3',
-    backgroundSelected: '#E0E1E6',
-    text: '#000000',
-    textSecondary: '#60646C',
-    border: '#DDDDE3',
-    accent: '#208AEF',
-    success: '#1A7F4B',
-    warning: '#B26A00',
-    danger: '#C62828',
-  }),
+  useTheme: () => require('@/constants/theme').Colors.light,
 }));
 
 function renderScreen() {

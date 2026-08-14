@@ -21,16 +21,7 @@ jest.mock('@/lib/supabase', () => ({
 }));
 
 jest.mock('@/hooks/use-theme', () => ({
-  useTheme: () => ({
-    background: '#FFFFFF',
-    backgroundElement: '#F0F0F3',
-    backgroundSelected: '#E0E1E6',
-    text: '#000000',
-    border: '#CCCCCC',
-    textSecondary: '#666666',
-    accent: '#208AEF',
-    danger: '#C62828',
-  }),
+  useTheme: () => require('@/constants/theme').Colors.light,
 }));
 
 describe('PendingAuthBanner (Apple Liquid UI)', () => {

@@ -6,11 +6,7 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { SnackbarProvider, useSnackbar } from '@/components/snackbar';
 
 jest.mock('@/hooks/use-theme', () => ({
-  useTheme: () => ({
-    background: '#FFFFFF',
-    text: '#000000',
-    accent: '#208AEF',
-  }),
+  useTheme: () => require('@/constants/theme').Colors.light,
 }));
 
 function TriggerButton({ onUndo, durationMs }: { onUndo: () => void; durationMs?: number }) {
