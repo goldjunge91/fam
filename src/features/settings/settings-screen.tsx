@@ -113,6 +113,7 @@ export function SettingsScreen() {
             accessibilityRole="button"
             style={({ pressed }) => [styles.premiumCard, pressed && styles.pressed]}>
             <GradientBackground colors={['#715574', '#a36e72', '#c59677']} />
+            <ThemedText style={styles.premiumWatermark}>✦</ThemedText>
             <ThemedText style={styles.premiumTitle}>
               {isPremium ? 'Premium ist aktiv' : 'Premium für den ganzen Haushalt'}
             </ThemedText>
@@ -122,7 +123,7 @@ export function SettingsScreen() {
                 : 'Kochmodus, intelligente Einkaufslisten und weitere Automationen.'}
             </ThemedText>
             <View style={styles.premiumPill}>
-              <ThemedText themeColor="accent" style={styles.premiumPillText}>
+              <ThemedText style={styles.premiumPillText}>
                 {isPremium ? (isForced ? 'Abo verwalten (erzwungen)' : 'Abo verwalten') : 'Premium ansehen'}
               </ThemedText>
             </View>
@@ -266,11 +267,19 @@ const styles = StyleSheet.create({
     ...FontSize[19],
     lineHeight: 19,
   },
+  // 1:1 aus dem Mockup: .fsp-premium / .fsp-premium:after / strong / small / span.
   premiumCard: {
     overflow: 'hidden',
     borderRadius: 21,
-    padding: Spacing.three,
-    gap: Spacing.one,
+    padding: 14,
+    boxShadow: '0 13px 28px rgba(103,74,106,.2)',
+  },
+  premiumWatermark: {
+    position: 'absolute',
+    right: 16,
+    top: 9,
+    color: 'rgba(255,255,255,0.24)',
+    fontSize: 58,
   },
   premiumTitle: {
     color: '#fff',
@@ -278,20 +287,23 @@ const styles = StyleSheet.create({
     fontWeight: '600',
   },
   premiumSubtitle: {
-    color: 'rgba(255,255,255,0.85)',
-    ...FontSize[11],
-    lineHeight: 15,
+    width: '78%',
+    marginTop: 4,
+    color: 'rgba(255,255,255,0.82)',
+    ...FontSize[8],
+    lineHeight: 11,
   },
   premiumPill: {
     alignSelf: 'flex-start',
-    marginTop: Spacing.one,
-    paddingHorizontal: Spacing.two,
+    marginTop: 9,
+    paddingHorizontal: 9,
     paddingVertical: 6,
     borderRadius: 10,
-    backgroundColor: 'rgba(255,255,255,0.92)',
+    backgroundColor: 'rgba(255,255,255,0.9)',
   },
   premiumPillText: {
-    ...FontSize[11],
+    color: '#604765',
+    ...FontSize[8],
     fontWeight: '600',
   },
   groups: {
