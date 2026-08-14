@@ -1,9 +1,9 @@
+import { useQueryClient } from '@tanstack/react-query';
+import Constants from 'expo-constants';
 import { router } from 'expo-router';
 import { useState } from 'react';
-import Constants from 'expo-constants';
 import { Alert, Pressable, ScrollView, StyleSheet, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { useQueryClient } from '@tanstack/react-query';
 
 import { GradientBackground } from '@/components/gradient-background';
 import { PageHeader } from '@/components/page-header';
@@ -17,8 +17,8 @@ import { useCurrentGoal } from '@/features/calorie-tracking/api';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { useNavigationChrome } from '@/features/navigation/navigation-chrome-provider';
 import { useProfileInitials } from '@/features/navigation/use-profile-initials';
-import { usePremium } from '@/features/premium/premium-provider';
 import { classifySupabaseTarget } from '@/features/settings/dev/dev-info';
+import { PremiumPromoCard } from '@/features/settings/premium-promo-card';
 import { SettingsGroup, SettingsRow } from '@/features/settings/settings-menu';
 import { useTheme } from '@/hooks/use-theme';
 import { env } from '@/lib/env';
@@ -43,7 +43,6 @@ export function SettingsScreen() {
   const initials = useProfileInitials();
   const { activeHousehold } = useActiveHousehold();
   const { data: currentGoal } = useCurrentGoal(session?.user.id);
-  const { isPremium, isForced } = usePremium();
 
   async function handleSignOut() {
     if (signingOut) return;
@@ -80,54 +79,39 @@ export function SettingsScreen() {
           title="Einstellungen"
           align="center"
           leading={<MenuButton onPress={openDrawer} />}
-          trailing={<ProfileButton initials={initials} onPress={() => router.push('/settings/profile')} />}
+          trailing={
+            <ProfileButton initials={initials} onPress={() => router.push('/settings/profile')} />
+          }
         />
 
         <ScrollView contentContainerStyle={styles.scroll} showsVerticalScrollIndicator={false}>
-          <Pressable
-            onPress={() => router.push('/settings/profile')}
-            accessibilityRole="button"
-            style={({ pressed }) => [
-              styles.profileRow,
-              { backgroundColor: `${theme.backgroundElement}B8`, borderColor: theme.border },
-              pressed && styles.pressed,
-            ]}>
-            <View style={[styles.profileAvatar, { backgroundColor: theme.accent }]}>
-              <ThemedText style={styles.profileAvatarText}>{initials}</ThemedText>
-            </View>
-            <View style={styles.profileTextWrap}>
-              <ThemedText type="smallBold" numberOfLines={1}>
-                {displayName}
+          <View style={styles.topCards}>
+            <Pressable
+              onPress={() => router.push('/settings/profile')}
+              accessibilityRole="button"
+              style={({ pressed }) => [
+                styles.profileRow,
+                { backgroundColor: `${theme.backgroundElement}B8`, borderColor: theme.border },
+                pressed && styles.pressed,
+              ]}>
+              <View style={[styles.profileAvatar, { backgroundColor: theme.accent }]}>
+                <ThemedText style={styles.profileAvatarText}>{initials}</ThemedText>
+              </View>
+              <View style={styles.profileTextWrap}>
+                <ThemedText type="smallBold" numberOfLines={1}>
+                  {displayName}
+                </ThemedText>
+                <ThemedText type="small" themeColor="textSecondary" numberOfLines={1}>
+                  {session?.user.email ?? '—'}
+                </ThemedText>
+              </View>
+              <ThemedText themeColor="textSecondary" style={styles.chevron}>
+                ›
               </ThemedText>
-              <ThemedText type="small" themeColor="textSecondary" numberOfLines={1}>
-                {session?.user.email ?? '—'}
-              </ThemedText>
-            </View>
-            <ThemedText themeColor="textSecondary" style={styles.chevron}>
-              ›
-            </ThemedText>
-          </Pressable>
+            </Pressable>
 
-          <Pressable
-            onPress={() => router.push('/settings/premium')}
-            accessibilityRole="button"
-            style={({ pressed }) => [styles.premiumCard, pressed && styles.pressed]}>
-            <GradientBackground colors={['#715574', '#a36e72', '#c59677']} />
-            <ThemedText style={styles.premiumWatermark}>✦</ThemedText>
-            <ThemedText style={styles.premiumTitle}>
-              {isPremium ? 'Premium ist aktiv' : 'Premium für den ganzen Haushalt'}
-            </ThemedText>
-            <ThemedText style={styles.premiumSubtitle}>
-              {isPremium
-                ? 'Alle Mitglieder profitieren von den Premium-Funktionen.'
-                : 'Kochmodus, intelligente Einkaufslisten und weitere Automationen.'}
-            </ThemedText>
-            <View style={styles.premiumPill}>
-              <ThemedText style={styles.premiumPillText}>
-                {isPremium ? (isForced ? 'Abo verwalten (erzwungen)' : 'Abo verwalten') : 'Premium ansehen'}
-              </ThemedText>
-            </View>
-          </Pressable>
+            <PremiumPromoCard />
+          </View>
 
           <View style={styles.groups}>
             <SettingsGroup title="Haushalt">
@@ -142,7 +126,9 @@ export function SettingsScreen() {
                 icon="📦"
                 label="Lagerorte"
                 hint="Kühlschrank, Tiefkühler, Vorratskammer"
-                onPress={hasHousehold ? () => router.push('/household/storage-locations') : undefined}
+                onPress={
+                  hasHousehold ? () => router.push('/household/storage-locations') : undefined
+                }
                 disabled={!hasHousehold}
               />
               <SettingsRow
@@ -183,7 +169,11 @@ export function SettingsScreen() {
                 value={currentGoal ? `${currentGoal.daily_kcal ?? '–'} kcal` : 'nicht gesetzt'}
                 onPress={() => router.push('/settings/goals')}
               />
-              <SettingsRow icon="📤" label="Export" onPress={() => router.push('/settings/export')} />
+              <SettingsRow
+                icon="📤"
+                label="Export"
+                onPress={() => router.push('/settings/export')}
+              />
               <SettingsRow
                 icon="🔒"
                 label="Datenschutz"
@@ -215,7 +205,12 @@ export function SettingsScreen() {
           </View>
 
           <View style={styles.abmelden}>
-            <Button label="Abmelden" variant="danger" onPress={handleSignOut} loading={signingOut} />
+            <Button
+              label="Abmelden"
+              variant="danger"
+              onPress={handleSignOut}
+              loading={signingOut}
+            />
           </View>
 
           <ThemedText type="small" style={styles.versionText}>
@@ -238,6 +233,9 @@ const styles = StyleSheet.create({
     paddingHorizontal: Spacing.three,
     paddingBottom: Spacing.six,
     gap: Spacing.four,
+  },
+  topCards: {
+    gap: 10,
   },
   profileRow: {
     flexDirection: 'row',
@@ -266,45 +264,6 @@ const styles = StyleSheet.create({
   chevron: {
     ...FontSize[19],
     lineHeight: 19,
-  },
-  // 1:1 aus dem Mockup: .fsp-premium / .fsp-premium:after / strong / small / span.
-  premiumCard: {
-    overflow: 'hidden',
-    borderRadius: 21,
-    padding: 14,
-    boxShadow: '0 13px 28px rgba(103,74,106,.2)',
-  },
-  premiumWatermark: {
-    position: 'absolute',
-    right: 16,
-    top: 9,
-    color: 'rgba(255,255,255,0.24)',
-    fontSize: 58,
-  },
-  premiumTitle: {
-    color: '#fff',
-    ...FontSize[13],
-    fontWeight: '600',
-  },
-  premiumSubtitle: {
-    width: '78%',
-    marginTop: 4,
-    color: 'rgba(255,255,255,0.82)',
-    ...FontSize[8],
-    lineHeight: 11,
-  },
-  premiumPill: {
-    alignSelf: 'flex-start',
-    marginTop: 9,
-    paddingHorizontal: 9,
-    paddingVertical: 6,
-    borderRadius: 10,
-    backgroundColor: 'rgba(255,255,255,0.9)',
-  },
-  premiumPillText: {
-    color: '#604765',
-    ...FontSize[8],
-    fontWeight: '600',
   },
   groups: {
     gap: Spacing.four,
