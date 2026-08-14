@@ -64,6 +64,31 @@ export const Fonts = Platform.select({
   },
 });
 
+/**
+ * Zentrale Schriftstufen des fam Design-Systems.
+ * Komponenten kombinieren diese Größen nur noch mit semantischen Gewichten.
+ */
+export const Typography = {
+  micro: { fontSize: 9, lineHeight: 14 },
+  captionCompact: { fontSize: 11, lineHeight: 14 },
+  caption: { fontSize: 11, lineHeight: 15 },
+  detail: { fontSize: 12, lineHeight: 16 },
+  label: { fontSize: 13, lineHeight: 17 },
+  bodySmall: { fontSize: 14, lineHeight: 20 },
+  controlValue: { fontSize: 15, lineHeight: 20 },
+  body: { fontSize: 16, lineHeight: 22 },
+  bodyRelaxed: { fontSize: 16, lineHeight: 24 },
+  controlValueLarge: { fontSize: 17, lineHeight: 22 },
+  bodyLarge: { fontSize: 18, lineHeight: 24 },
+  controlAction: { fontSize: 20, lineHeight: 22 },
+  headingSmall: { fontSize: 20, lineHeight: 26 },
+  controlActionLarge: { fontSize: 22, lineHeight: 24 },
+  title: { fontSize: 32, lineHeight: 44 },
+  display: { fontSize: 48, lineHeight: 52 },
+  link: { fontSize: 14, lineHeight: 30 },
+  code: { fontSize: 12 },
+} as const;
+
 export const Spacing = {
   half: 2,
   one: 4,
