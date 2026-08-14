@@ -255,7 +255,8 @@ export function RecipeCreateScreen() {
   }
 
   function handleCancel() {
-    const hasInput = title.trim() || components.some((c) => c.items.some((i) => i.product));
+    const hasInput =
+      title.trim() || components.some((c) => c.items.some((i) => i.product || i.existingProductId));
     if (!hasInput) {
       router.back();
       return;
