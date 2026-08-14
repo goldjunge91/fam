@@ -7,6 +7,7 @@ import ReorderableList, {
   useReorderableDrag,
 } from 'react-native-reorderable-list';
 import Svg, { Path } from 'react-native-svg';
+import { FontSize } from '@/components/themed-text';
 
 import { pickRecipeStepImage } from '@/features/recipes/recipe-step-image';
 import type { IngredientComponentGroup, WizardStepItem } from './types';
@@ -86,7 +87,7 @@ const StepCard = memo(function StepCard({
           <Svg width={16} height={16} viewBox="0 0 24 24" fill="none">
             <Path
               d="M3 6h18M19 6v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6m3 0V4a2 2 0 012-2h4a2 2 0 012 2v2"
-              stroke="#FF5262"
+              stroke="#705773"
               strokeWidth={2}
               strokeLinecap="round"
               strokeLinejoin="round"
@@ -118,7 +119,7 @@ const StepCard = memo(function StepCard({
         value={step.text}
         onChangeText={(val) => onUpdateStep(step.id, { text: val })}
         placeholder={`Was ist in Schritt ${index + 1} zu tun?`}
-        placeholderTextColor="#C4B0B2"
+        placeholderTextColor="#A89FA8"
         multiline
       />
 
@@ -214,6 +215,7 @@ export function RecipeWizardStepSteps({
       )}
       ListHeaderComponent={
         <>
+          <Text style={styles.eyebrow}>SCHRITT 3 VON 4</Text>
           <Text style={styles.sectionLabel}>Zubereitungsschritte</Text>
           <Text style={styles.hint}>Zum Umsortieren einen Schritt gedrückt halten und ziehen.</Text>
         </>
@@ -243,25 +245,36 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   scrollContent: {
-    paddingHorizontal: 20,
+    paddingHorizontal: 16,
     paddingBottom: 24,
   },
+  eyebrow: {
+    paddingTop: 8,
+    paddingBottom: 6,
+    ...FontSize[8],
+    lineHeight: 10,
+    fontWeight: '500',
+    color: '#766E78',
+    letterSpacing: 0.7,
+  },
   sectionLabel: {
-    fontSize: 16,
+    ...FontSize[21],
+    lineHeight: 25,
     fontWeight: '700',
-    color: '#2A181A',
+    color: '#302A31',
     marginBottom: 4,
   },
   hint: {
-    fontSize: 13,
-    color: '#8A6E70',
+    ...FontSize[13],
+    color: '#786F79',
     marginBottom: 16,
   },
   stepCard: {
-    backgroundColor: '#FFF6F2',
-    borderRadius: 20,
-    padding: 16,
-    marginBottom: 14,
+    backgroundColor: 'rgba(255,255,255,0.70)',
+    borderRadius: 19,
+    borderCurve: 'continuous',
+    padding: 11,
+    marginBottom: 12,
     gap: 10,
   },
   stepHeader: {
@@ -273,20 +286,20 @@ const styles = StyleSheet.create({
     padding: 4,
   },
   dragHandleText: {
-    fontSize: 20,
-    color: '#C4B0B2',
+    ...FontSize[20],
+    color: '#A89FA8',
   },
   stepIndex: {
     flex: 1,
-    fontSize: 14,
+    ...FontSize[14],
     fontWeight: '700',
-    color: '#FF5262',
+    color: '#705773',
   },
   trashCircleButton: {
     width: 36,
     height: 36,
     borderRadius: 18,
-    backgroundColor: '#FFE2E2',
+    backgroundColor: '#EEE5EC',
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -299,14 +312,14 @@ const styles = StyleSheet.create({
     paddingHorizontal: 12,
     paddingVertical: 6,
     borderRadius: 14,
-    backgroundColor: '#FFE2E2',
+    backgroundColor: '#EEE5EC',
   },
   chipActive: {
-    backgroundColor: '#FF5262',
+    backgroundColor: '#705773',
   },
   chipText: {
-    color: '#FF5262',
-    fontSize: 12,
+    color: '#705773',
+    ...FontSize[12],
     fontWeight: '600',
   },
   chipTextActive: {
@@ -318,8 +331,8 @@ const styles = StyleSheet.create({
     minHeight: 72,
     paddingHorizontal: 16,
     paddingVertical: 12,
-    fontSize: 15,
-    color: '#332222',
+    ...FontSize[15],
+    color: '#302A31',
     textAlignVertical: 'top',
   },
   imagePreviewWrap: {
@@ -334,31 +347,32 @@ const styles = StyleSheet.create({
     alignSelf: 'flex-start',
   },
   removeImageBtnText: {
-    color: '#FF5262',
-    fontSize: 13,
+    color: '#705773',
+    ...FontSize[13],
     fontWeight: '600',
   },
   addImageBtn: {
     alignSelf: 'flex-start',
   },
   addImageBtnText: {
-    color: '#FF5262',
-    fontSize: 13,
+    color: '#705773',
+    ...FontSize[13],
     fontWeight: '600',
   },
   addStepBtn: {
     width: '100%',
-    height: 52,
-    backgroundColor: '#FF5262',
-    borderRadius: 26,
+    height: 42,
+    backgroundColor: '#EEE5EC',
+    borderRadius: 14,
+    borderCurve: 'continuous',
     alignItems: 'center',
     justifyContent: 'center',
     marginTop: 4,
     marginBottom: 28,
   },
   addStepBtnText: {
-    color: '#FFFFFF',
-    fontSize: 16,
+    color: '#705773',
+    ...FontSize[10],
     fontWeight: '600',
   },
   navRow: {
@@ -368,25 +382,26 @@ const styles = StyleSheet.create({
   },
   navButton: {
     flex: 1,
-    height: 52,
-    borderRadius: 26,
+    minHeight: 48,
+    borderRadius: 16,
+    borderCurve: 'continuous',
     alignItems: 'center',
     justifyContent: 'center',
   },
   navButtonPrimary: {
-    backgroundColor: '#FF5262',
+    backgroundColor: '#705773',
   },
   navButtonPrimaryText: {
     color: '#FFFFFF',
-    fontSize: 16,
+    ...FontSize[11],
     fontWeight: '600',
   },
   navButtonSecondary: {
-    backgroundColor: '#FFE2E2',
+    backgroundColor: '#EEE5EC',
   },
   navButtonSecondaryText: {
-    color: '#FF5262',
-    fontSize: 16,
+    color: '#705773',
+    ...FontSize[11],
     fontWeight: '600',
   },
 });

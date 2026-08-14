@@ -31,7 +31,8 @@ jest.mock('@/lib/supabase', () => ({
           return builder;
         },
         maybeSingle: async () => {
-          const exists = !!id && !!householdId && mockExistingChildProfiles.has(`${householdId}:${id}`);
+          const exists =
+            !!id && !!householdId && mockExistingChildProfiles.has(`${householdId}:${id}`);
           return { data: exists ? { id } : null, error: null };
         },
       };

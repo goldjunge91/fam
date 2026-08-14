@@ -1,6 +1,7 @@
 import { useQueryClient } from '@tanstack/react-query';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { Screen } from '@/components/screen';
+import { FontSize } from '@/components/themed-text';
 import { Spacing } from '@/constants/theme';
 import { useSession } from '@/features/auth/session-provider';
 import { signOutAndClearLocalData } from '@/features/auth/sign-out';
@@ -99,7 +100,7 @@ const styles = StyleSheet.create({
     padding: Spacing.one,
   },
   signOutText: {
-    fontSize: 12,
+    ...FontSize[12],
     textDecorationLine: 'underline',
   },
   progressBar: {

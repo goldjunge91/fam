@@ -1,18 +1,12 @@
 import { router, useLocalSearchParams } from 'expo-router';
 import { useEffect, useState } from 'react';
-import {
-  Alert,
-  KeyboardAvoidingView,
-  Platform,
-  ScrollView,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-} from 'react-native';
+import { Alert, KeyboardAvoidingView, ScrollView, StyleSheet, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import Svg, { Path } from 'react-native-svg';
 
+import { GradientBackground } from '@/components/gradient-background';
+import { PageHeader } from '@/components/page-header';
+import { FontSize, ThemedText } from '@/components/themed-text';
+import { HeaderIconButton } from '@/components/ui/buttons';
 import { useSession } from '@/features/auth/session-provider';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { persistOffProductIfNeeded } from '@/features/inventory/persist-off-product';
@@ -77,7 +71,7 @@ export function RecipeCreateScreen() {
   const isEditing = !!data;
   const householdId = data?.recipe.household_id ?? activeHouseholdId ?? undefined;
 
-  const [wizardStep, setWizardStep] = useState<1 | 2 | 3>(1);
+  const [wizardStep, setWizardStep] = useState<1 | 2 | 3 | 4>(1);
   const [saving, setSaving] = useState(false);
 
   const [title, setTitle] = useState('');
@@ -609,123 +603,162 @@ export function RecipeCreateScreen() {
   const coverPreviewUri = localCoverUri;
 
   return (
-    <SafeAreaView style={styles.safeArea}>
-      <View style={styles.header}>
-        <TouchableOpacity
-          style={styles.backButton}
-          onPress={() => router.back()}
-          accessibilityRole="button"
-          accessibilityLabel="Go back">
-          <Svg width={24} height={24} viewBox="0 0 24 24" fill="none">
-            <Path
-              d="M15 18l-6-6 6-6"
-              stroke="#FF5262"
-              strokeWidth={2.5}
-              strokeLinecap="round"
-              strokeLinejoin="round"
+    <View style={styles.root}>
+      <GradientBackground colors={['#FFD2B9', '#F8F4EF', '#EEE7F4']} />
+      <SafeAreaView style={styles.safeArea} edges={['top', 'left', 'right']}>
+        <PageHeader
+          title={isEditing ? 'Rezept bearbeiten' : 'Rezept erstellen'}
+          leading={
+            <HeaderIconButton label="Zurück" onPress={handleCancel}>
+              <ThemedText style={styles.backGlyph}>‹</ThemedText>
+            </HeaderIconButton>
+          }
+        />
+
+        <View style={styles.progressRow}>
+          {[1, 2, 3, 4].map((step) => (
+            <View
+              key={step}
+              style={[styles.progressSegment, step <= wizardStep && styles.progressSegmentActive]}
             />
-          </Svg>
-        </TouchableOpacity>
+          ))}
+        </View>
 
-        <Text style={styles.headerTitle}>
-          {isEditing ? 'Rezept bearbeiten' : `Neues Rezept (${wizardStep}/3)`}
-        </Text>
-        <View style={{ width: 24 }} />
-      </View>
-
-      <KeyboardAvoidingView
-        style={styles.keyboardAvoider}
-        behavior={Platform.OS === 'ios' ? 'padding' : undefined}
-        keyboardVerticalOffset={Platform.OS === 'ios' ? 12 : 0}>
-        {wizardStep === 1 ? (
-          <ScrollView
-            style={styles.scrollView}
-            contentContainerStyle={styles.scrollContent}
-            showsVerticalScrollIndicator={false}
-            keyboardShouldPersistTaps="handled">
-            <RecipeWizardStepBasics
-              title={title}
-              onTitleChange={setTitle}
-              description={description}
-              onDescriptionChange={setDescription}
-              cookTimeMinutes={cookTimeMinutes}
-              onCookTimeMinutesChange={setCookTimeMinutes}
-              defaultServings={defaultServings}
-              onDefaultServingsChange={setDefaultServings}
-              difficulty={difficulty}
-              onDifficultyChange={setDifficulty}
-              dishTypes={dishTypes}
-              onDishTypesChange={setDishTypes}
-              dietaryTags={dietaryTags}
-              onDietaryTagsChange={setDietaryTags}
-              hashtagsInput={hashtagsInput}
-              onHashtagsInputChange={setHashtagsInput}
-              coverPreviewUri={coverPreviewUri}
-              onPickCover={handlePickCover}
+        <KeyboardAvoidingView
+          style={styles.keyboardAvoider}
+          behavior={process.env.EXPO_OS === 'ios' ? 'padding' : undefined}
+          keyboardVerticalOffset={12}>
+          {wizardStep === 1 ? (
+            <ScrollView
+              style={styles.scrollView}
+              contentContainerStyle={styles.scrollContent}
+              showsVerticalScrollIndicator={false}
+              keyboardShouldPersistTaps="handled">
+              <RecipeWizardStepBasics
+                mode="details"
+                title={title}
+                onTitleChange={setTitle}
+                description={description}
+                onDescriptionChange={setDescription}
+                cookTimeMinutes={cookTimeMinutes}
+                onCookTimeMinutesChange={setCookTimeMinutes}
+                defaultServings={defaultServings}
+                onDefaultServingsChange={setDefaultServings}
+                difficulty={difficulty}
+                onDifficultyChange={setDifficulty}
+                dishTypes={dishTypes}
+                onDishTypesChange={setDishTypes}
+                dietaryTags={dietaryTags}
+                onDietaryTagsChange={setDietaryTags}
+                hashtagsInput={hashtagsInput}
+                onHashtagsInputChange={setHashtagsInput}
+                coverPreviewUri={coverPreviewUri}
+                onPickCover={handlePickCover}
+                components={components}
+                onAddIngredient={handleAddIngredient}
+                onRemoveIngredient={handleRemoveIngredient}
+                onSelectProduct={handleSelectProduct}
+                onUpdateIngredientQuery={handleUpdateIngredientQuery}
+                onUpdateQuantity={handleUpdateQuantity}
+                onUpdateUnit={handleUpdateUnit}
+                onAddComponentGroup={handleAddComponentGroup}
+                saving={saving}
+                onCancel={handleCancel}
+                onNext={handleNextFromBasics}
+              />
+            </ScrollView>
+          ) : wizardStep === 2 ? (
+            <ScrollView
+              style={styles.scrollView}
+              contentContainerStyle={styles.scrollContent}
+              showsVerticalScrollIndicator={false}
+              keyboardShouldPersistTaps="handled">
+              <RecipeWizardStepBasics
+                mode="ingredients"
+                title={title}
+                onTitleChange={setTitle}
+                description={description}
+                onDescriptionChange={setDescription}
+                cookTimeMinutes={cookTimeMinutes}
+                onCookTimeMinutesChange={setCookTimeMinutes}
+                defaultServings={defaultServings}
+                onDefaultServingsChange={setDefaultServings}
+                difficulty={difficulty}
+                onDifficultyChange={setDifficulty}
+                dishTypes={dishTypes}
+                onDishTypesChange={setDishTypes}
+                dietaryTags={dietaryTags}
+                onDietaryTagsChange={setDietaryTags}
+                hashtagsInput={hashtagsInput}
+                onHashtagsInputChange={setHashtagsInput}
+                coverPreviewUri={coverPreviewUri}
+                onPickCover={handlePickCover}
+                components={components}
+                onAddIngredient={handleAddIngredient}
+                onRemoveIngredient={handleRemoveIngredient}
+                onSelectProduct={handleSelectProduct}
+                onUpdateIngredientQuery={handleUpdateIngredientQuery}
+                onUpdateQuantity={handleUpdateQuantity}
+                onUpdateUnit={handleUpdateUnit}
+                onAddComponentGroup={handleAddComponentGroup}
+                saving={saving}
+                onCancel={() => setWizardStep(1)}
+                onNext={() => setWizardStep(3)}
+              />
+            </ScrollView>
+          ) : wizardStep === 3 ? (
+            <RecipeWizardStepSteps
+              steps={wizardSteps}
+              onStepsChange={setWizardSteps}
               components={components}
-              onAddIngredient={handleAddIngredient}
-              onRemoveIngredient={handleRemoveIngredient}
-              onSelectProduct={handleSelectProduct}
-              onUpdateIngredientQuery={handleUpdateIngredientQuery}
-              onUpdateQuantity={handleUpdateQuantity}
-              onUpdateUnit={handleUpdateUnit}
-              onAddComponentGroup={handleAddComponentGroup}
-              saving={saving}
-              onCancel={handleCancel}
-              onNext={handleNextFromBasics}
+              onBack={() => setWizardStep(2)}
+              onNext={() => setWizardStep(4)}
             />
-          </ScrollView>
-        ) : wizardStep === 2 ? (
-          <RecipeWizardStepSteps
-            steps={wizardSteps}
-            onStepsChange={setWizardSteps}
-            components={components}
-            onBack={() => setWizardStep(1)}
-            onNext={() => setWizardStep(3)}
-          />
-        ) : (
-          <RecipeWizardStepPreview
-            coverPreviewUri={coverPreviewUri}
-            title={title}
-            description={description}
-            cookTimeMinutes={cookTimeMinutes}
-            defaultServings={defaultServings}
-            difficulty={difficulty}
-            dishTypes={dishTypes}
-            dietaryTags={dietaryTags}
-            hashtagsInput={hashtagsInput}
-            components={components}
-            steps={wizardSteps}
-            saving={saving}
-            onBack={() => setWizardStep(2)}
-            onSave={handleFinalSave}
-          />
-        )}
-      </KeyboardAvoidingView>
-    </SafeAreaView>
+          ) : (
+            <RecipeWizardStepPreview
+              coverPreviewUri={coverPreviewUri}
+              title={title}
+              description={description}
+              cookTimeMinutes={cookTimeMinutes}
+              defaultServings={defaultServings}
+              difficulty={difficulty}
+              dishTypes={dishTypes}
+              dietaryTags={dietaryTags}
+              hashtagsInput={hashtagsInput}
+              components={components}
+              steps={wizardSteps}
+              saving={saving}
+              onBack={() => setWizardStep(3)}
+              onSave={handleFinalSave}
+            />
+          )}
+        </KeyboardAvoidingView>
+      </SafeAreaView>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
+  root: {
+    flex: 1,
+  },
   safeArea: {
     flex: 1,
-    backgroundColor: '#FFFDF9',
+    width: '100%',
+    maxWidth: 800,
+    alignSelf: 'center',
   },
-  header: {
+  backGlyph: { ...FontSize[27], lineHeight: 29, fontWeight: 400 },
+  progressRow: {
+    height: 16,
     flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    paddingHorizontal: 20,
-    paddingVertical: 14,
+    gap: 5,
+    paddingHorizontal: 16,
+    paddingTop: 2,
+    paddingBottom: 10,
   },
-  backButton: {
-    padding: 6,
-  },
-  headerTitle: {
-    fontSize: 20,
-    fontWeight: '700',
-    color: '#FF5262',
-  },
+  progressSegment: { flex: 1, height: 4, borderRadius: 3, backgroundColor: '#DFD6DD' },
+  progressSegmentActive: { backgroundColor: '#755B79' },
   keyboardAvoider: {
     flex: 1,
   },
@@ -733,7 +766,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   scrollContent: {
-    paddingHorizontal: 20,
+    paddingHorizontal: 16,
     paddingBottom: 24,
   },
 });

@@ -2,10 +2,9 @@ import * as Clipboard from 'expo-clipboard';
 import { useState } from 'react';
 import { Alert, Modal, Pressable, ScrollView, Share, StyleSheet, View } from 'react-native';
 import QRCode from 'react-native-qrcode-svg';
-
-import { Button } from '@/components/button';
 import { Card } from '@/components/card';
-import { ThemedText } from '@/components/themed-text';
+import { FontSize, ThemedText } from '@/components/themed-text';
+import { Button } from '@/components/ui/buttons';
 import { Spacing } from '@/constants/theme';
 import { useSession } from '@/features/auth/session-provider';
 import {
@@ -115,7 +114,7 @@ export function InviteModal({ visible, householdId, householdName, onClose }: In
             <View style={styles.headerRow}>
               <ThemedText type="subtitle">Mitglied einladen</ThemedText>
               <Pressable onPress={onClose} hitSlop={10}>
-                <ThemedText style={{ fontSize: 18, color: theme.textSecondary }}>✕</ThemedText>
+                <ThemedText style={{ ...FontSize[18], color: theme.textSecondary }}>✕</ThemedText>
               </Pressable>
             </View>
 
@@ -214,19 +213,19 @@ export function InviteModal({ visible, householdId, householdName, onClose }: In
                         }}
                         accessibilityLabel="QR-Code anzeigen"
                         style={styles.actionIconButton}>
-                        <ThemedText style={{ fontSize: 16 }}>📱</ThemedText>
+                        <ThemedText style={{ ...FontSize[16] }}>📱</ThemedText>
                       </Pressable>
                       <Pressable
                         onPress={() => handleShare(inv.token)}
                         accessibilityLabel="Teilen"
                         style={styles.actionIconButton}>
-                        <ThemedText style={{ fontSize: 16 }}>📤</ThemedText>
+                        <ThemedText style={{ ...FontSize[16] }}>📤</ThemedText>
                       </Pressable>
                       <Pressable
                         onPress={() => handleRevoke(inv.id)}
                         accessibilityLabel="Zurückziehen"
                         style={styles.actionIconButton}>
-                        <ThemedText style={{ fontSize: 16 }}>🗑</ThemedText>
+                        <ThemedText style={{ ...FontSize[16] }}>🗑</ThemedText>
                       </Pressable>
                     </View>
                   </View>
@@ -268,7 +267,7 @@ const styles = StyleSheet.create({
   },
   tokenText: {
     fontWeight: 'bold',
-    fontSize: 15,
+    ...FontSize[15],
     color: '#10B981',
     textAlign: 'center',
     paddingVertical: 8,

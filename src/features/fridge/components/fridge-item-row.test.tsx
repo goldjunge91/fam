@@ -1,6 +1,27 @@
-import { fireEvent, render, screen } from '@testing-library/react-native';
+import { render, screen, userEvent } from '@testing-library/react-native';
 import type { LocalFridgeItem } from '../use-fridge-items';
 import { FridgeItemRow } from './fridge-item-row';
+
+jest.mock('react-native-gesture-handler/ReanimatedSwipeable', () => {
+  const React = require('react');
+  const { View } = require('react-native');
+  return {
+    __esModule: true,
+    default: ({ children, renderRightActions }: Record<string, unknown>) =>
+      React.createElement(
+        View,
+        null,
+        children,
+        typeof renderRightActions === 'function'
+          ? renderRightActions(
+              { value: 0 },
+              { value: 0 },
+              { close: jest.fn(), openLeft: jest.fn(), openRight: jest.fn(), reset: jest.fn() },
+            )
+          : null,
+      ),
+  };
+});
 
 describe('FridgeItemRow', () => {
   const dummyItem: LocalFridgeItem = {
@@ -11,6 +32,8 @@ describe('FridgeItemRow', () => {
     name: 'Vollmilch',
     quantity: 1,
     unit: 'l',
+    package_size: null,
+    package_size_unit: null,
     expiry_date: null,
     added_by: 'usr-1',
     created_at: new Date().toISOString(),
@@ -23,9 +46,8 @@ describe('FridgeItemRow', () => {
       <FridgeItemRow
         item={dummyItem}
         onPress={jest.fn()}
-        onDecrement={jest.fn()}
-        onIncrement={jest.fn()}
-        onDelete={jest.fn()}
+        onLongPress={jest.fn()}
+        onRemove={jest.fn()}
       />,
     );
 
@@ -34,41 +56,69 @@ describe('FridgeItemRow', () => {
     expect(screen.getByText('1 l')).toBeTruthy();
   });
 
-  it('sollte onIncrement und onDecrement beim Klick auf die Stepper-Knöpfe auslösen', async () => {
-    const onIncMock = jest.fn();
-    const onDecMock = jest.fn();
-
+  it('zeigt eine kompakte Zeile ohne Mengen-Buttons oder dekorative Kacheln', async () => {
     await render(
       <FridgeItemRow
         item={dummyItem}
         onPress={jest.fn()}
-        onDecrement={onDecMock}
-        onIncrement={onIncMock}
-        onDelete={jest.fn()}
+        onLongPress={jest.fn()}
+        onRemove={jest.fn()}
       />,
     );
 
-    await fireEvent.press(screen.getByLabelText('Menge erhöhen'));
-    expect(onIncMock).toHaveBeenCalledTimes(1);
-
-    await fireEvent.press(screen.getByLabelText('Menge reduzieren'));
-    expect(onDecMock).toHaveBeenCalledTimes(1);
+    expect(screen.queryByRole('button', { name: 'Menge erhöhen' })).not.toBeOnTheScreen();
+    expect(screen.queryByRole('button', { name: 'Menge reduzieren' })).not.toBeOnTheScreen();
+    expect(screen.queryByText('V')).not.toBeOnTheScreen();
   });
 
   it('sollte onPress beim Antippen der Zeile auslösen', async () => {
     const onPressMock = jest.fn();
+    const user = userEvent.setup();
 
     await render(
       <FridgeItemRow
         item={dummyItem}
         onPress={onPressMock}
-        onDecrement={jest.fn()}
-        onIncrement={jest.fn()}
-        onDelete={jest.fn()}
+        onLongPress={jest.fn()}
+        onRemove={jest.fn()}
       />,
     );
 
-    await fireEvent.press(screen.getByLabelText('Vollmilch, 1 l'));
+    await user.press(screen.getByRole('button', { name: 'Vollmilch, 1 l' }));
     expect(onPressMock).toHaveBeenCalledTimes(1);
+  });
+
+  it('sollte onLongPress für den Schnellzugriff auf Produktinformationen auslösen', async () => {
+    const onLongPress = jest.fn();
+    const user = userEvent.setup();
+
+    await render(
+      <FridgeItemRow
+        item={dummyItem}
+        onPress={jest.fn()}
+        onLongPress={onLongPress}
+        onRemove={jest.fn()}
+      />,
+    );
+    await user.longPress(screen.getByRole('button', { name: 'Vollmilch, 1 l' }));
+
+    expect(onLongPress).toHaveBeenCalledTimes(1);
+  });
+
+  it('stellt nach dem Linkswisch eine Entfernen-Aktion bereit', async () => {
+    const onRemove = jest.fn();
+    const user = userEvent.setup();
+
+    await render(
+      <FridgeItemRow
+        item={dummyItem}
+        onPress={jest.fn()}
+        onLongPress={jest.fn()}
+        onRemove={onRemove}
+      />,
+    );
+    await user.press(screen.getByRole('button', { name: 'Vollmilch entfernen' }));
+
+    expect(onRemove).toHaveBeenCalledTimes(1);
   });
 });

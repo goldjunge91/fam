@@ -2,7 +2,7 @@ import BottomSheet, { BottomSheetView } from '@expo/ui/community/bottom-sheet';
 import { useEffect, useRef, useState } from 'react';
 import { Animated, PanResponder, Pressable, StyleSheet, View } from 'react-native';
 
-import { ThemedText } from '@/components/themed-text';
+import { FontSize, ThemedText } from '@/components/themed-text';
 import { Spacing } from '@/constants/theme';
 import { useTheme } from '@/hooks/use-theme';
 import {
@@ -242,14 +242,14 @@ const styles = StyleSheet.create({
     borderBottomWidth: StyleSheet.hairlineWidth,
   },
   rowLabel: {
-    fontSize: 15,
+    ...FontSize[15],
   },
   handle: {
     paddingHorizontal: Spacing.three,
     paddingVertical: Spacing.two,
   },
   handleIcon: {
-    fontSize: 20,
+    ...FontSize[20],
     opacity: 0.5,
   },
   actions: {
@@ -269,6 +269,6 @@ const styles = StyleSheet.create({
   saveButtonText: {
     color: '#fff',
     fontWeight: '700',
-    fontSize: 15,
+    ...FontSize[15],
   },
 });

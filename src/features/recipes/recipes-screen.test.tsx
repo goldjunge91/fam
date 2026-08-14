@@ -1,17 +1,17 @@
 import { render, screen, userEvent } from '@testing-library/react-native';
 import { router } from 'expo-router';
 
+import type { RecipeTemplateListItem } from '@/features/recipe-templates/use-recipe-templates';
+
 import { RecipesScreen } from './recipes-screen';
 import type { RecipeListItem } from './use-recipes';
 
 let mockRecipes: RecipeListItem[] = [];
+let mockTemplates: RecipeTemplateListItem[] = [];
+const mockOpenDrawer = jest.fn();
 
 jest.mock('expo-router', () => ({
   router: { push: jest.fn(), back: jest.fn(), canGoBack: () => false },
-}));
-
-jest.mock('@/features/auth/session-provider', () => ({
-  useSession: () => ({ session: { user: { id: 'user-1' } } }),
 }));
 
 jest.mock('@/features/household/active-household-provider', () => ({
@@ -23,11 +23,15 @@ jest.mock('./use-recipes', () => ({
 }));
 
 jest.mock('@/features/recipe-templates/use-recipe-templates', () => ({
-  useRecipeTemplates: () => ({ data: [], isLoading: false }),
+  useRecipeTemplates: () => ({ data: mockTemplates, isLoading: false }),
 }));
 
 jest.mock('./recipe-cover', () => ({
   useRecipeCoverUrl: () => ({ data: null }),
+}));
+
+jest.mock('@/features/navigation/navigation-chrome-provider', () => ({
+  useNavigationChrome: () => ({ openDrawer: mockOpenDrawer }),
 }));
 
 function makeRecipe(overrides: Partial<RecipeListItem>): RecipeListItem {
@@ -49,79 +53,73 @@ function makeRecipe(overrides: Partial<RecipeListItem>): RecipeListItem {
   };
 }
 
+function makeTemplate(overrides: Partial<RecipeTemplateListItem>): RecipeTemplateListItem {
+  return {
+    id: overrides.id ?? 'template-id',
+    title: overrides.title ?? 'Vorlage',
+    cover_image_path: null,
+    cook_time_minutes: 30,
+    difficulty: 'easy',
+    dish_types: ['dinner'],
+    dietary_tags: [],
+    default_servings: 2,
+    sort_order: 0,
+    ...overrides,
+  };
+}
+
 beforeEach(() => {
   mockRecipes = [];
+  mockTemplates = [];
+  mockOpenDrawer.mockClear();
   (router.push as jest.Mock).mockClear();
 });
 
 describe('RecipesScreen — leerer Zustand', () => {
-  it('zeigt einen Hinweis, wenn der Haushalt noch keine Rezepte hat', async () => {
-    mockRecipes = [];
+  it('zeigt einen Hinweis, wenn weder Haushaltsrezepte noch Vorlagen vorhanden sind', async () => {
     await render(<RecipesScreen />);
+
     expect(screen.getByText('Noch keine Rezepte im Haushalt.')).toBeOnTheScreen();
   });
 });
 
-describe('RecipesScreen — Abschnitte', () => {
+describe('RecipesScreen — Entdecken', () => {
   beforeEach(() => {
     mockRecipes = [
       makeRecipe({
         id: 'r1',
         title: 'Salat Overview',
-        instructions: 'Kurze Zusammenfassung der Zutaten',
         cook_time_minutes: 20,
         dish_types: ['lunch'],
-        created_by: 'user-2',
-        created_at: '2024-01-01T00:00:00.000Z',
       }),
-      makeRecipe({
-        id: 'r2',
-        title: 'Pizza Home',
-        dish_types: ['dinner'],
-        created_by: 'user-1',
-        created_at: '2024-01-02T00:00:00.000Z',
-      }),
-      makeRecipe({
-        id: 'r3',
-        title: 'Kuchen Mine',
-        dish_types: ['dessert'],
-        created_by: 'user-1',
-        created_at: '2024-01-03T00:00:00.000Z',
-      }),
-      makeRecipe({
-        id: 'r4',
-        title: 'Suppe Fremd',
-        dish_types: ['lunch'],
-        created_by: 'user-2',
-        created_at: '2024-01-04T00:00:00.000Z',
-      }),
+      makeRecipe({ id: 'r2', title: 'Pizza Home', dish_types: ['dinner'] }),
+      makeRecipe({ id: 'r3', title: 'Kuchen Mine', dish_types: ['dessert'] }),
+      makeRecipe({ id: 'r4', title: 'Suppe Fremd', dish_types: ['lunch'] }),
     ];
   });
 
-  it('zeigt das erste Rezept als "Trending Recipe" mit Kurzbeschreibung', async () => {
+  it('zeigt die Figma-Abschnitte und das erste Rezept als Trending-Karte', async () => {
     await render(<RecipesScreen />);
 
-    expect(screen.getByText('Trending Recipe')).toBeOnTheScreen();
-    expect(screen.getByText('Salat Overview')).toBeOnTheScreen();
-    expect(screen.getByText('Kurze Zusammenfassung der Zutaten')).toBeOnTheScreen();
-    expect(screen.getByText('20min')).toBeOnTheScreen();
+    expect(screen.getByText('Trending')).toBeOnTheScreen();
+    expect(screen.getAllByRole('button', { name: 'Salat Overview' })).toHaveLength(2);
+    expect(screen.getByText('Unsere Rezepte')).toBeOnTheScreen();
+    expect(screen.getByText('Top Rezepte')).toBeOnTheScreen();
   });
 
-  it('zeigt in "Deine Rezepte" nur Rezepte des angemeldeten Users', async () => {
-    await render(<RecipesScreen />);
-
-    expect(screen.getByText('Deine Rezepte')).toBeOnTheScreen();
-    expect(screen.getByText('Pizza Home')).toBeOnTheScreen();
-    expect(screen.getByText('Kuchen Mine')).toBeOnTheScreen();
-  });
-
-  it('navigiert bei Tap auf ein Rezept zur Detailansicht', async () => {
+  it('öffnet das Navigationsmenü über den Header', async () => {
     const user = userEvent.setup();
     await render(<RecipesScreen />);
 
-    // "Pizza Home" landet sowohl in "Deine Rezepte" als auch (als reines
-    // Thumbnail) in "Kuerzlich hinzugefuegt" — beide Vorkommen fuehren zum
-    // selben Rezept, deshalb genuegt das erste.
+    await user.press(screen.getByRole('button', { name: 'Menü öffnen' }));
+
+    expect(mockOpenDrawer).toHaveBeenCalledTimes(1);
+  });
+
+  it('navigiert bei Tap auf ein Haushaltsrezept zur Detailansicht', async () => {
+    const user = userEvent.setup();
+    await render(<RecipesScreen />);
+
     await user.press(screen.getAllByRole('button', { name: 'Pizza Home' })[0]);
 
     expect(router.push).toHaveBeenCalledWith({
@@ -130,48 +128,60 @@ describe('RecipesScreen — Abschnitte', () => {
     });
   });
 
-  it('navigiert bei Tap auf das Stift-Icon zum Rezept-Wizard', async () => {
+  it('öffnet über "Alle ansehen" das gemeinsame Raster aller Haushaltsrezepte', async () => {
     const user = userEvent.setup();
     await render(<RecipesScreen />);
 
-    await user.press(screen.getByRole('button', { name: 'Rezept anlegen' }));
+    await user.press(screen.getByRole('button', { name: 'Alle ansehen' }));
 
-    expect(router.push).toHaveBeenCalledWith('/recipe/create');
+    expect(screen.getByText('Unsere Rezepte')).toBeOnTheScreen();
+    expect(screen.getByRole('button', { name: 'Suppe Fremd' })).toBeOnTheScreen();
+    expect(screen.getByRole('button', { name: 'Zurück zu Rezepte' })).toBeOnTheScreen();
   });
 
-  it('filtert alle Abschnitte ueber die Kategorie-Pills', async () => {
+  it('filtert die Rezeptkarten über die Kategorie-Chips', async () => {
     const user = userEvent.setup();
     await render(<RecipesScreen />);
 
-    await user.press(screen.getByText('Dessert'));
+    await user.press(screen.getByRole('button', { name: 'Rezeptkategorie: Dessert' }));
 
-    expect(screen.getByText('Kuchen Mine')).toBeOnTheScreen();
-    expect(screen.queryByText('Salat Overview')).not.toBeOnTheScreen();
-    expect(screen.queryByText('Pizza Home')).not.toBeOnTheScreen();
+    expect(screen.getAllByRole('button', { name: 'Kuchen Mine' }).length).toBeGreaterThan(0);
+    expect(screen.queryByRole('button', { name: 'Pizza Home' })).not.toBeOnTheScreen();
   });
 
-  it('filtert ueber die Suche nach Tap auf das Such-Icon', async () => {
+  it('filtert über das zugängliche Suchfeld', async () => {
     const user = userEvent.setup();
     await render(<RecipesScreen />);
 
     await user.press(screen.getByRole('button', { name: 'Rezepte durchsuchen' }));
-    await user.type(screen.getByPlaceholderText('Rezepte durchsuchen…'), 'Pizza');
+    await user.type(screen.getByRole('searchbox', { name: 'Rezepte durchsuchen' }), 'Pizza');
 
-    expect(screen.getByText('Pizza Home')).toBeOnTheScreen();
-    expect(screen.queryByText('Salat Overview')).not.toBeOnTheScreen();
+    expect(screen.getAllByRole('button', { name: 'Pizza Home' }).length).toBeGreaterThan(0);
+    expect(screen.queryByRole('button', { name: 'Salat Overview' })).not.toBeOnTheScreen();
+  });
+
+  it('zeigt für Favoriten einen ehrlichen Leerzustand ohne Persistenz vorzutäuschen', async () => {
+    const user = userEvent.setup();
+    await render(<RecipesScreen />);
+
+    await user.press(screen.getByRole('button', { name: 'Meine Favoriten öffnen' }));
+
+    expect(screen.getByText('Meine Favoriten')).toBeOnTheScreen();
+    expect(screen.getByText('Noch keine Favoriten gespeichert.')).toBeOnTheScreen();
   });
 });
 
-describe('RecipesScreen — "Deine Rezepte" Fallback', () => {
-  it('faellt auf andere Rezepte zurueck, wenn der User selbst keine angelegt hat', async () => {
-    mockRecipes = [
-      makeRecipe({ id: 'r1', title: 'Fremdes Trending', created_by: 'user-2' }),
-      makeRecipe({ id: 'r2', title: 'Fremdes Zweites', created_by: 'user-2' }),
-    ];
-
+describe('RecipesScreen — Vorlagen', () => {
+  it('öffnet fam-Vorlagen in der Vorlagen-Detailansicht', async () => {
+    const user = userEvent.setup();
+    mockTemplates = [makeTemplate({ id: 't1', title: 'Fam Ofengemüse' })];
     await render(<RecipesScreen />);
 
-    expect(screen.getByText('Deine Rezepte')).toBeOnTheScreen();
-    expect(screen.getByText('Fremdes Zweites')).toBeOnTheScreen();
+    await user.press(screen.getAllByRole('button', { name: 'Fam Ofengemüse' })[0]);
+
+    expect(router.push).toHaveBeenCalledWith({
+      pathname: '/recipe/template-detail',
+      params: { id: 't1' },
+    });
   });
 });

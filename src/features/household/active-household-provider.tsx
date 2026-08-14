@@ -109,7 +109,7 @@ export function ActiveHouseholdProvider({ children }: { children: React.ReactNod
       // wahr (Poll alle 20s, Reconnect, Vordergrund-Wechsel — siehe
       // household-bootstrap-sync.ts) und liesse `resolveAppEntry()` bei jedem
       // dieser Refetches kurz `{ kind: 'warten' }` liefern. Das unmountet
-      // `<AppTabs/>` und damit den gerade offenen Tab/Screen — sichtbar als
+      // `<AppShell/>` und damit den gerade offenen Screen — sichtbar als
       // "springt zurueck zur Uebersicht". `isLoading` (TanStack Querys
       // `isPending && isFetching`) ist dagegen nur beim allerersten Laden
       // wahr, genau das richtige Signal fuer den Vollbild-Ladezustand.

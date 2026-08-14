@@ -2,7 +2,7 @@ import { useLocalSearchParams } from 'expo-router';
 import { useEffect, useState } from 'react';
 import { ActivityIndicator, Pressable, StyleSheet, View } from 'react-native';
 
-import { Button } from '@/components/button';
+import { Button } from '@/components/ui/buttons';
 import { Screen } from '@/components/screen';
 import { ThemedText } from '@/components/themed-text';
 import { Spacing } from '@/constants/theme';
@@ -57,6 +57,7 @@ export function MissingIngredientsScreen() {
         unit: 'g',
         product_id: item.productId,
         store_id: item.preferredStoreId,
+        recipe_names: item.recipeNames,
       });
     }
     setAddedCount(toAdd.length);
@@ -133,6 +134,11 @@ function IngredientRow({
           {item.missingGrams} g fehlen
           {item.preferredStoreName ? ` · zuletzt bei ${item.preferredStoreName}` : ''}
         </ThemedText>
+        {item.recipeNames.length > 0 ? (
+          <ThemedText type="small" themeColor="textSecondary" numberOfLines={1}>
+            🍽️ {item.recipeNames.join(', ')}
+          </ThemedText>
+        ) : null}
       </View>
     </Pressable>
   );

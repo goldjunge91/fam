@@ -70,6 +70,8 @@ describe('Open Food Facts Helper', () => {
       categories: 'Pflanzliche Lebensmittel, Getränke',
       quantity: '1 L',
       image_front_small_url: 'https://images.openfoodfacts.org/1.jpg',
+      ingredients_text_de: 'Wasser, Hafer, Rapsöl',
+      allergens_tags: ['en:oats', 'de:gluten'],
       nutriments: {
         'energy-kcal_100g': 59,
         proteins_100g: 1.1,
@@ -91,6 +93,8 @@ describe('Open Food Facts Helper', () => {
       proteinsPer100g: 1.1,
       carbsPer100g: 6.6,
       fatPer100g: 3.0,
+      ingredients: 'Wasser, Hafer, Rapsöl',
+      allergens: ['oats', 'gluten'],
     });
   });
 

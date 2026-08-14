@@ -1,70 +1,97 @@
+import { Image } from 'expo-image';
 import { router, useLocalSearchParams } from 'expo-router';
-import { useState } from 'react';
-import {
-  ActivityIndicator,
-  Alert,
-  ScrollView,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-} from 'react-native';
+import { type ReactNode, useState } from 'react';
+import { ActivityIndicator, Alert, Pressable, ScrollView, StyleSheet, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import Svg, { Circle, Path } from 'react-native-svg';
+import Svg, { Circle, Defs, LinearGradient, Rect, Stop } from 'react-native-svg';
 
+import { GradientBackground } from '@/components/gradient-background';
+import { PageHeader } from '@/components/page-header';
+import { FontSize, ThemedText } from '@/components/themed-text';
+import { HeaderIconButton } from '@/components/ui/buttons';
 import { useSession } from '@/features/auth/session-provider';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
+import { useRecipeCoverUrl } from '@/features/recipes/recipe-cover';
+import { useRecipeFavorites } from '@/features/recipes/recipe-favorites';
 import {
   DIETARY_TAGS,
   DIFFICULTIES,
   DISH_TYPES,
 } from '@/features/recipes/wizard/recipe-metadata-options';
+import { useTheme } from '@/hooks/use-theme';
 
 import { useApplyRecipeTemplateMutation, useRecipeTemplateDetail } from './use-recipe-templates';
 
-const DIFFICULTY_LABELS = Object.fromEntries(DIFFICULTIES.map((d) => [d.value, d.label]));
-const DISH_TYPE_LABELS = Object.fromEntries(DISH_TYPES.map((d) => [d.value, d.label]));
-const DIETARY_TAG_LABELS = Object.fromEntries(DIETARY_TAGS.map((d) => [d.value, d.label]));
+const DIFFICULTY_LABELS = Object.fromEntries(DIFFICULTIES.map((item) => [item.value, item.label]));
+const DISH_TYPE_LABELS = Object.fromEntries(DISH_TYPES.map((item) => [item.value, item.label]));
+const DIETARY_TAG_LABELS = Object.fromEntries(DIETARY_TAGS.map((item) => [item.value, item.label]));
 
-function BackIcon() {
+function BackGlyph() {
+  return <ThemedText style={styles.backGlyph}>‹</ThemedText>;
+}
+
+function HeartGlyph({ filled }: { filled: boolean }) {
+  const theme = useTheme();
   return (
-    <Svg width={24} height={24} viewBox="0 0 24 24" fill="none">
-      <Path
-        d="M15 18l-6-6 6-6"
-        stroke="#FF5262"
-        strokeWidth={2.5}
-        strokeLinecap="round"
-        strokeLinejoin="round"
+    <ThemedText style={[styles.heartGlyph, { color: theme.accent }]}>
+      {filled ? '♥' : '♡'}
+    </ThemedText>
+  );
+}
+
+function MetaPill({ children }: { children: ReactNode }) {
+  const theme = useTheme();
+  return (
+    <View style={[styles.metaPill, { backgroundColor: `${theme.backgroundElement}D6` }]}>
+      <ThemedText themeColor="textSecondary" style={styles.metaPillText}>
+        {children}
+      </ThemedText>
+    </View>
+  );
+}
+
+function HeroArtwork({ coverUrl, title }: { coverUrl?: string | null; title: string }) {
+  if (coverUrl) {
+    return (
+      <Image
+        source={{ uri: coverUrl }}
+        style={StyleSheet.absoluteFill}
+        contentFit="cover"
+        accessibilityLabel={`Bild von ${title}`}
       />
-    </Svg>
-  );
-}
+    );
+  }
 
-function ClockIcon() {
   return (
-    <Svg width={16} height={16} viewBox="0 0 24 24" fill="none">
-      <Circle cx={12} cy={12} r={9} stroke="#332222" strokeWidth={2} />
-      <Path d="M12 7v5l3 3" stroke="#332222" strokeWidth={2} strokeLinecap="round" />
+    <Svg width="100%" height="100%" accessibilityLabel={`Illustration für ${title}`}>
+      <Defs>
+        <LinearGradient id="template-cover" x1="0%" y1="0%" x2="100%" y2="100%">
+          <Stop offset="0%" stopColor="#D3A06F" />
+          <Stop offset="58%" stopColor="#8A696C" />
+          <Stop offset="100%" stopColor="#574458" />
+        </LinearGradient>
+      </Defs>
+      <Rect width="100%" height="100%" fill="url(#template-cover)" />
+      <Circle cx="78%" cy="16%" r="30%" fill="rgba(255,226,187,0.30)" />
+      <Circle cx="51%" cy="102%" r="31%" fill="rgba(101,150,111,0.30)" />
     </Svg>
   );
 }
 
-/**
- * Vorschau eines vorgefertigten Rezepts ("Vorlage"), erreichbar direkt aus
- * der Rezepte-Übersicht (recipes-screen.tsx) — keine eigene "Vorlagen"-Liste,
- * die Vorschläge erscheinen dort als ganz normale Rezept-Karten. Der primäre
- * CTA hier kopiert die Vorlage in den aktiven Haushalt.
- */
 export function RecipeTemplateDetailScreen() {
+  const theme = useTheme();
   const { id } = useLocalSearchParams<{ id: string }>();
   const { activeHouseholdId } = useActiveHousehold();
   const { session } = useSession();
   const [isApplying, setIsApplying] = useState(false);
-
+  const [servings, setServings] = useState<number | null>(null);
   const { data: template, isLoading } = useRecipeTemplateDetail(id);
+  const { data: coverUrl } = useRecipeCoverUrl(template?.cover_image_path);
   const applyTemplate = useApplyRecipeTemplateMutation();
+  const { isFavorite, toggleFavorite } = useRecipeFavorites();
+  const favorite = isFavorite(`template:${id}`);
 
-  const handleCopy = async () => {
+  async function copyTemplate() {
     if (!template || !activeHouseholdId || !session?.user.id) return;
     setIsApplying(true);
     try {
@@ -76,199 +103,303 @@ export function RecipeTemplateDetailScreen() {
       router.replace({ pathname: '/recipe/detail', params: { id: recipe.id } });
     } catch (error) {
       Alert.alert(
-        'Fehler',
-        error instanceof Error ? error.message : 'Rezept konnte nicht kopiert werden.',
+        'Rezept konnte nicht übernommen werden',
+        error instanceof Error ? error.message : 'Bitte versuche es erneut.',
       );
     } finally {
       setIsApplying(false);
     }
-  };
+  }
 
   if (isLoading || !template) {
     return (
-      <SafeAreaView style={styles.safeArea}>
-        <View style={styles.header}>
-          <TouchableOpacity
-            style={styles.headerIconButton}
-            onPress={() => router.back()}
-            accessibilityRole="button"
-            accessibilityLabel="Zurück">
-            <BackIcon />
-          </TouchableOpacity>
-        </View>
-        <ActivityIndicator style={styles.loading} color="#FF5262" />
-      </SafeAreaView>
+      <View style={styles.root}>
+        <GradientBackground colors={['#FFD2B9', '#F8F4EF', '#EEE7F4']} />
+        <SafeAreaView style={styles.safeArea} edges={['top', 'left', 'right']}>
+          <PageHeader
+            title="Rezept"
+            leading={
+              <HeaderIconButton label="Zurück" onPress={() => router.back()}>
+                <BackGlyph />
+              </HeaderIconButton>
+            }
+          />
+          <ActivityIndicator style={styles.loading} color={theme.accent} />
+        </SafeAreaView>
+      </View>
     );
   }
 
-  const allTags = [...template.dish_types, ...template.dietary_tags];
+  const currentServings = servings ?? template.default_servings;
+  const scale = currentServings / Math.max(1, template.default_servings);
+  const tags = [...template.dish_types, ...template.dietary_tags];
 
   return (
-    <SafeAreaView style={styles.safeArea}>
-      <View style={styles.header}>
-        <TouchableOpacity
-          style={styles.headerIconButton}
-          onPress={() => router.back()}
-          accessibilityRole="button"
-          accessibilityLabel="Zurück">
-          <BackIcon />
-        </TouchableOpacity>
-        <Text style={styles.headerTitle} numberOfLines={1}>
-          {template.title}
-        </Text>
-        <View style={styles.headerIconButton} />
-      </View>
+    <View style={styles.root}>
+      <GradientBackground colors={['#FFD2B9', '#F8F4EF', '#EEE7F4']} />
+      <SafeAreaView style={styles.safeArea} edges={['top', 'left', 'right']}>
+        <PageHeader
+          title="Rezept"
+          leading={
+            <HeaderIconButton label="Zurück" onPress={() => router.back()}>
+              <BackGlyph />
+            </HeaderIconButton>
+          }
+          trailing={
+            <HeaderIconButton
+              label={favorite ? 'Aus Favoriten entfernen' : 'Zu Favoriten hinzufügen'}
+              onPress={() => toggleFavorite(`template:${id}`)}>
+              <HeartGlyph filled={favorite} />
+            </HeaderIconButton>
+          }
+        />
 
-      <ScrollView
-        style={styles.scrollView}
-        contentContainerStyle={styles.scrollContent}
-        showsVerticalScrollIndicator={false}>
-        <Text style={styles.title}>{template.title}</Text>
-
-        <View style={styles.badgeRow}>
-          {template.difficulty ? (
-            <View style={styles.badgePill}>
-              <Text style={styles.badgePillText}>{DIFFICULTY_LABELS[template.difficulty]}</Text>
+        <ScrollView
+          style={styles.scroll}
+          contentContainerStyle={styles.content}
+          showsVerticalScrollIndicator={false}>
+          <View style={styles.hero}>
+            <HeroArtwork coverUrl={coverUrl} title={template.title} />
+            <View style={[styles.heroBadge, { backgroundColor: `${theme.backgroundElement}E8` }]}>
+              <ThemedText themeColor="accent" style={styles.heroBadgeText}>
+                Entdecken
+              </ThemedText>
             </View>
-          ) : null}
-          {template.cook_time_minutes ? (
-            <View style={styles.timeBadge}>
-              <ClockIcon />
-              <Text style={styles.timeText}>{template.cook_time_minutes}min</Text>
-            </View>
-          ) : null}
-          {allTags.map((tag) => (
-            <View key={tag} style={styles.badgePillAlt}>
-              <Text style={styles.badgePillAltText}>
-                {DISH_TYPE_LABELS[tag] ?? DIETARY_TAG_LABELS[tag] ?? tag}
-              </Text>
-            </View>
-          ))}
-        </View>
+          </View>
 
-        {template.instructions ? (
-          <Text style={styles.instructions}>{template.instructions}</Text>
-        ) : null}
-
-        <Text style={styles.sectionLabel}>Zutaten</Text>
-        {template.components.map((component) => (
-          <View key={component.id} style={styles.componentBlock}>
-            {template.components.length > 1 ? (
-              <Text style={styles.componentName}>{component.name}</Text>
+          <ThemedText style={styles.title}>{template.title}</ThemedText>
+          <View style={styles.metaRow}>
+            {template.cook_time_minutes ? (
+              <MetaPill>{template.cook_time_minutes} Minuten</MetaPill>
             ) : null}
-            {component.items.map((item) => (
-              <View key={item.id} style={styles.ingredientRow}>
-                <Text style={styles.ingredientName}>{item.product_name ?? 'Zutat'}</Text>
-                <Text style={styles.ingredientAmount}>
-                  {item.quantity ?? item.grams} {item.unit}
-                </Text>
+            {template.difficulty ? (
+              <MetaPill>{DIFFICULTY_LABELS[template.difficulty]}</MetaPill>
+            ) : null}
+            {tags.map((tag) => (
+              <MetaPill key={tag}>
+                {DISH_TYPE_LABELS[tag] ?? DIETARY_TAG_LABELS[tag] ?? tag}
+              </MetaPill>
+            ))}
+          </View>
+
+          {template.instructions ? (
+            <ThemedText themeColor="textSecondary" style={styles.description}>
+              {template.instructions}
+            </ThemedText>
+          ) : null}
+
+          <View style={styles.sectionHeading}>
+            <ThemedText style={styles.sectionTitle}>Zutaten</ThemedText>
+            <View
+              style={[styles.portionControl, { backgroundColor: `${theme.backgroundElement}D6` }]}>
+              <Pressable
+                onPress={() => setServings(Math.max(1, currentServings - 1))}
+                role="button"
+                aria-label="Weniger Portionen"
+                style={styles.portionButton}>
+                <ThemedText themeColor="accent" style={styles.portionSign}>
+                  −
+                </ThemedText>
+              </Pressable>
+              <ThemedText style={styles.portionValue}>{currentServings} Portionen</ThemedText>
+              <Pressable
+                onPress={() => setServings(currentServings + 1)}
+                role="button"
+                aria-label="Mehr Portionen"
+                style={styles.portionButton}>
+                <ThemedText themeColor="accent" style={styles.portionSign}>
+                  +
+                </ThemedText>
+              </Pressable>
+            </View>
+          </View>
+
+          <View style={styles.groupList}>
+            {template.components.map((component) => (
+              <View
+                key={component.id}
+                style={[
+                  styles.ingredientGroup,
+                  { backgroundColor: `${theme.backgroundElement}D6` },
+                ]}>
+                <View style={[styles.groupHeader, { borderBottomColor: theme.border }]}>
+                  <ThemedText style={styles.groupTitle}>{component.name}</ThemedText>
+                  {component.serving_grams !== null ? (
+                    <ThemedText themeColor="textSecondary" style={styles.groupMeta}>
+                      {Math.round(component.serving_grams * scale)} g
+                    </ThemedText>
+                  ) : null}
+                </View>
+                {component.items.map((item, index) => (
+                  <View
+                    key={item.id}
+                    style={[
+                      styles.ingredientRow,
+                      index < component.items.length - 1 && {
+                        borderBottomColor: theme.border,
+                        borderBottomWidth: StyleSheet.hairlineWidth,
+                      },
+                    ]}>
+                    <ThemedText style={styles.ingredientName} numberOfLines={1}>
+                      {item.product_name ?? 'Zutat'}
+                    </ThemedText>
+                    <ThemedText themeColor="textSecondary" style={styles.ingredientAmount}>
+                      {Math.round((item.quantity ?? item.grams) * scale)} {item.unit}
+                    </ThemedText>
+                  </View>
+                ))}
               </View>
             ))}
           </View>
-        ))}
 
-        {template.steps.length > 0 ? (
-          <>
-            <Text style={styles.sectionLabel}>Zubereitung</Text>
-            {template.steps.map((step) => (
-              <View key={step.id} style={styles.stepRow}>
-                <Text style={styles.stepIndex}>{String(step.position + 1).padStart(2, '0')}</Text>
-                <Text style={styles.stepText}>{step.text}</Text>
-              </View>
-            ))}
-          </>
-        ) : null}
-      </ScrollView>
+          <View style={styles.sectionHeading}>
+            <ThemedText style={styles.sectionTitle}>Zubereitung</ThemedText>
+            <ThemedText themeColor="textSecondary" style={styles.sectionCount}>
+              {template.steps.length} {template.steps.length === 1 ? 'Schritt' : 'Schritte'}
+            </ThemedText>
+          </View>
+          {template.steps.length > 0 ? (
+            <View style={[styles.stepsCard, { backgroundColor: `${theme.backgroundElement}D6` }]}>
+              {template.steps.map((step, index) => (
+                <View
+                  key={step.id}
+                  style={[
+                    styles.stepRow,
+                    index < template.steps.length - 1 && {
+                      borderBottomColor: theme.border,
+                      borderBottomWidth: StyleSheet.hairlineWidth,
+                    },
+                  ]}>
+                  <ThemedText style={styles.stepText}>
+                    {step.position + 1}. {step.text}
+                  </ThemedText>
+                </View>
+              ))}
+            </View>
+          ) : null}
+        </ScrollView>
 
-      <View style={styles.footer}>
-        <TouchableOpacity
-          style={[styles.copyButton, isApplying && styles.copyButtonDisabled]}
-          onPress={handleCopy}
-          disabled={isApplying || !activeHouseholdId}
-          accessibilityRole="button"
-          accessibilityLabel="In meine Rezepte kopieren">
-          {isApplying ? (
-            <ActivityIndicator color="#FFFFFF" />
-          ) : (
-            <Text style={styles.copyButtonText}>In meine Rezepte kopieren</Text>
-          )}
-        </TouchableOpacity>
-      </View>
-    </SafeAreaView>
+        <View style={styles.stickyAction}>
+          <Pressable
+            onPress={copyTemplate}
+            disabled={isApplying || !activeHouseholdId || !session}
+            role="button"
+            style={({ pressed }) => [
+              styles.primaryButton,
+              { backgroundColor: theme.accent },
+              (isApplying || !activeHouseholdId || !session) && styles.disabled,
+              pressed && styles.pressed,
+            ]}>
+            {isApplying ? (
+              <ActivityIndicator color="#FFFFFF" />
+            ) : (
+              <ThemedText style={styles.primaryButtonText}>In meine Rezepte übernehmen</ThemedText>
+            )}
+          </Pressable>
+        </View>
+      </SafeAreaView>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
-  safeArea: { flex: 1, backgroundColor: '#FFFDF9' },
-  header: {
+  root: { flex: 1 },
+  safeArea: { flex: 1, width: '100%', maxWidth: 800, alignSelf: 'center' },
+  loading: { marginTop: 60 },
+  backGlyph: { ...FontSize[27], lineHeight: 29, fontWeight: 400 },
+  heartGlyph: { ...FontSize[24], lineHeight: 27, fontWeight: 500 },
+  scroll: { flex: 1 },
+  content: { paddingHorizontal: 15, paddingBottom: 96 },
+  hero: { height: 205, marginHorizontal: -15, overflow: 'hidden' },
+  heroBadge: {
+    position: 'absolute',
+    top: 14,
+    left: 15,
+    paddingHorizontal: 9,
+    paddingVertical: 6,
+    borderRadius: 10,
+    borderCurve: 'continuous',
+  },
+  heroBadgeText: { ...FontSize[8], lineHeight: 10, fontWeight: 500 },
+  title: {
+    paddingTop: 15,
+    ...FontSize[22],
+    lineHeight: 26,
+    fontWeight: 700,
+    letterSpacing: -0.7,
+  },
+  metaRow: { flexDirection: 'row', flexWrap: 'wrap', gap: 6, paddingTop: 5 },
+  metaPill: {
+    borderRadius: 10,
+    borderCurve: 'continuous',
+    paddingHorizontal: 8,
+    paddingVertical: 6,
+  },
+  metaPillText: { ...FontSize[8], lineHeight: 10, fontWeight: 500 },
+  description: { paddingTop: 12, ...FontSize[10], lineHeight: 15, fontWeight: 500 },
+  sectionHeading: {
+    minHeight: 52,
+    paddingTop: 9,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    paddingHorizontal: 20,
-    paddingVertical: 12,
+    gap: 12,
   },
-  headerIconButton: { width: 40, height: 40, alignItems: 'center', justifyContent: 'center' },
-  headerTitle: { flex: 1, textAlign: 'center', fontSize: 16, fontWeight: '700', color: '#332222' },
-  loading: { marginTop: 60 },
-  scrollView: { flex: 1 },
-  scrollContent: { paddingHorizontal: 20, paddingBottom: 120 },
-  title: { fontSize: 24, fontWeight: '700', color: '#332222', marginBottom: 12 },
-  badgeRow: { flexDirection: 'row', flexWrap: 'wrap', gap: 8, marginBottom: 16 },
-  badgePill: {
-    backgroundColor: '#FFE2E2',
-    borderRadius: 14,
-    paddingHorizontal: 12,
-    paddingVertical: 6,
-  },
-  badgePillText: { fontSize: 12, fontWeight: '600', color: '#FF5262' },
-  badgePillAlt: {
-    backgroundColor: '#F3E8FF',
-    borderRadius: 14,
-    paddingHorizontal: 12,
-    paddingVertical: 6,
-  },
-  badgePillAltText: { fontSize: 12, fontWeight: '600', color: '#9B51E0' },
-  timeBadge: { flexDirection: 'row', alignItems: 'center', gap: 4 },
-  timeText: { fontSize: 13, color: '#332222' },
-  instructions: { fontSize: 14, color: '#665555', marginBottom: 16, lineHeight: 20 },
-  sectionLabel: {
-    fontSize: 16,
-    fontWeight: '700',
-    color: '#332222',
-    marginTop: 12,
-    marginBottom: 8,
-  },
-  componentBlock: { marginBottom: 8 },
-  componentName: { fontSize: 13, fontWeight: '600', color: '#9B51E0', marginBottom: 4 },
-  ingredientRow: {
+  sectionTitle: { ...FontSize[13], lineHeight: 16, fontWeight: 700 },
+  sectionCount: { ...FontSize[8], lineHeight: 10, fontWeight: 500 },
+  portionControl: {
+    width: 138,
+    height: 35,
+    borderRadius: 13,
+    borderCurve: 'continuous',
     flexDirection: 'row',
+    alignItems: 'center',
+  },
+  portionButton: { width: 34, height: 35, alignItems: 'center', justifyContent: 'center' },
+  portionSign: { ...FontSize[15], lineHeight: 18, fontWeight: 500 },
+  portionValue: {
+    flex: 1,
+    textAlign: 'center',
+    ...FontSize[9],
+    lineHeight: 11,
+    fontWeight: 500,
+  },
+  groupList: { gap: 9 },
+  ingredientGroup: { borderRadius: 18, borderCurve: 'continuous', overflow: 'hidden' },
+  groupHeader: {
+    minHeight: 33,
+    paddingHorizontal: 12,
+    flexDirection: 'row',
+    alignItems: 'center',
     justifyContent: 'space-between',
-    paddingVertical: 6,
+    gap: 10,
     borderBottomWidth: StyleSheet.hairlineWidth,
-    borderBottomColor: '#EEE2E2',
   },
-  ingredientName: { fontSize: 14, color: '#332222', flex: 1 },
-  ingredientAmount: { fontSize: 14, color: '#665555' },
-  stepRow: { flexDirection: 'row', gap: 12, marginBottom: 12 },
-  stepIndex: { fontSize: 13, fontWeight: '700', color: '#FF5262', width: 24 },
-  stepText: { flex: 1, fontSize: 14, color: '#332222', lineHeight: 20 },
-  footer: {
-    position: 'absolute',
-    left: 0,
-    right: 0,
-    bottom: 0,
-    padding: 20,
-    backgroundColor: '#FFFDF9',
-    borderTopWidth: StyleSheet.hairlineWidth,
-    borderTopColor: '#EEE2E2',
+  groupTitle: { flex: 1, ...FontSize[10], lineHeight: 12, fontWeight: 700 },
+  groupMeta: { ...FontSize[8], lineHeight: 10, fontWeight: 500 },
+  ingredientRow: {
+    minHeight: 28,
+    paddingHorizontal: 12,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    gap: 12,
   },
-  copyButton: {
-    backgroundColor: '#FF5262',
-    borderRadius: 24,
-    height: 52,
+  ingredientName: { flex: 1, ...FontSize[9], lineHeight: 11, fontWeight: 500 },
+  ingredientAmount: { ...FontSize[9], lineHeight: 11, fontWeight: 500 },
+  stepsCard: { borderRadius: 18, borderCurve: 'continuous', overflow: 'hidden' },
+  stepRow: { minHeight: 28, paddingHorizontal: 12, paddingVertical: 8, justifyContent: 'center' },
+  stepText: { ...FontSize[9], lineHeight: 13, fontWeight: 500 },
+  stickyAction: { position: 'absolute', left: 15, right: 15, bottom: 12 },
+  primaryButton: {
+    minHeight: 48,
+    borderRadius: 16,
+    borderCurve: 'continuous',
     alignItems: 'center',
     justifyContent: 'center',
+    paddingHorizontal: 16,
   },
-  copyButtonDisabled: { opacity: 0.6 },
-  copyButtonText: { color: '#FFFFFF', fontSize: 16, fontWeight: '700' },
+  primaryButtonText: { color: '#FFFFFF', ...FontSize[11], lineHeight: 14, fontWeight: 700 },
+  disabled: { opacity: 0.45 },
+  pressed: { opacity: 0.75, transform: [{ scale: 0.99 }] },
 });

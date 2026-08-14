@@ -4,7 +4,7 @@ import { ActivityIndicator, FlatList, Image, Pressable, StyleSheet, View } from 
 
 import { Screen } from '@/components/screen';
 import { TextField } from '@/components/text-field';
-import { ThemedText } from '@/components/themed-text';
+import { FontSize, ThemedText } from '@/components/themed-text';
 import { Spacing } from '@/constants/theme';
 import { useSession } from '@/features/auth/session-provider';
 import type { MealType } from '@/features/calorie-tracking/api';
@@ -216,7 +216,7 @@ export function FoodSearchScreen() {
             accessibilityRole="button"
             accessibilityLabel="Barcode scannen"
             style={[styles.scanBtn, { backgroundColor: theme.backgroundElement }]}>
-            <ThemedText style={{ fontSize: 20 }}>📷</ThemedText>
+            <ThemedText style={{ ...FontSize[20] }}>📷</ThemedText>
           </Pressable>
         </View>
 
@@ -308,7 +308,7 @@ export function FoodSearchScreen() {
       <Pressable
         onPress={selectManualEntry}
         style={[styles.quickEntryBtn, { backgroundColor: theme.backgroundElement }]}>
-        <ThemedText style={{ fontSize: 18 }}>🍽️</ThemedText>
+        <ThemedText style={{ ...FontSize[18] }}>🍽️</ThemedText>
         <ThemedText type="smallBold">Schneller Eintrag</ThemedText>
       </Pressable>
 
@@ -329,7 +329,7 @@ function ProductRow({ product, onPress }: { product: OpenFoodFactsProduct; onPre
         <Image source={{ uri: product.imageUrl }} style={styles.rowImg} />
       ) : (
         <View style={[styles.rowImgPlaceholder, { backgroundColor: theme.backgroundElement }]}>
-          <ThemedText style={{ fontSize: 16 }}>🥫</ThemedText>
+          <ThemedText style={{ ...FontSize[16] }}>🥫</ThemedText>
         </View>
       )}
       <View style={styles.rowText}>
@@ -352,7 +352,7 @@ function HistoryRow({ entry, onPress }: { entry: FoodHistoryEntry; onPress: () =
   return (
     <Pressable onPress={onPress} style={[styles.row, { borderBottomColor: theme.border }]}>
       <View style={[styles.rowImgPlaceholder, { backgroundColor: theme.backgroundElement }]}>
-        <ThemedText style={{ fontSize: 16 }}>🥫</ThemedText>
+        <ThemedText style={{ ...FontSize[16] }}>🥫</ThemedText>
       </View>
       <View style={styles.rowText}>
         <ThemedText type="smallBold" numberOfLines={1}>

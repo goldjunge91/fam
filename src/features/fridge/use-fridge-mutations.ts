@@ -13,6 +13,8 @@ export type FridgeItem = {
   name: string;
   quantity: number;
   unit: string;
+  package_size: number | null;
+  package_size_unit: string | null;
   expiry_date: string | null;
 };
 
@@ -25,6 +27,9 @@ export function useAddFridgeItemMutation() {
       const id = Crypto.randomUUID();
       const now = new Date().toISOString();
       const normUnit = normalizeUnit(item.unit);
+      const normPackageUnit = item.package_size_unit
+        ? normalizeUnit(item.package_size_unit)
+        : null;
 
       await enqueueMutation(db, {
         entity: 'fridge_items',
@@ -34,12 +39,16 @@ export function useAddFridgeItemMutation() {
           id,
           ...item,
           unit: normUnit,
+          package_size_unit: normPackageUnit,
           created_at: now,
           updated_at: now,
         },
         applyLocally: async (txn) => {
           await txn.runAsync(
-            'insert into fridge_items (id, household_id, location_id, product_id, name, quantity, unit, expiry_date, created_at, updated_at) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
+            `insert into fridge_items
+               (id, household_id, location_id, product_id, name, quantity, unit,
+                package_size, package_size_unit, expiry_date, created_at, updated_at)
+             values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
             [
               id,
               item.household_id,
@@ -48,6 +57,8 @@ export function useAddFridgeItemMutation() {
               item.name,
               item.quantity,
               normUnit,
+              item.package_size ?? null,
+              normPackageUnit,
               item.expiry_date ?? null,
               now,
               now,
@@ -164,6 +175,55 @@ export function useUpdateFridgeItemQuantityMutation() {
     onSuccess: (_, variables) => {
       queryClient.invalidateQueries({ queryKey: ['fridge_items', variables.household_id] });
       queryClient.invalidateQueries({ queryKey: ['fridge_items_grouped', variables.household_id] });
+      queryClient.invalidateQueries({ queryKey: ['sync-status'] });
+    },
+  });
+}
+
+export function useUpdateFridgeItemMutation() {
+  const queryClient = useQueryClient();
+
+  return useMutation({
+    mutationFn: async (item: FridgeItem) => {
+      const db = await getDatabase();
+      const now = new Date().toISOString();
+      const unit = normalizeUnit(item.unit);
+      const packageSizeUnit = item.package_size_unit
+        ? normalizeUnit(item.package_size_unit)
+        : null;
+      const payload = { ...item, unit, package_size_unit: packageSizeUnit, updated_at: now };
+
+      await enqueueMutation(db, {
+        entity: 'fridge_items',
+        entityId: item.id,
+        op: 'update',
+        payload,
+        applyLocally: async (txn) => {
+          await txn.runAsync(
+            `update fridge_items
+             set location_id = ?, product_id = ?, name = ?, quantity = ?, unit = ?,
+                 package_size = ?, package_size_unit = ?, expiry_date = ?, updated_at = ?
+             where id = ?`,
+            [
+              item.location_id,
+              item.product_id,
+              item.name,
+              item.quantity,
+              unit,
+              item.package_size,
+              packageSizeUnit,
+              item.expiry_date,
+              now,
+              item.id,
+            ],
+          );
+        },
+      });
+      return payload;
+    },
+    onSuccess: (_, variables) => {
+      queryClient.invalidateQueries({ queryKey: ['fridge_items', variables.household_id] });
+      queryClient.invalidateQueries({ queryKey: ['fridge_item', variables.id] });
       queryClient.invalidateQueries({ queryKey: ['sync-status'] });
     },
   });

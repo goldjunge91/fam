@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
-import { Button } from '@/components/button';
 import { TextField } from '@/components/text-field';
+import { FontSize } from '@/components/themed-text';
+import { Button } from '@/components/ui/buttons';
 import { Spacing } from '@/constants/theme';
 import { useProfile } from '@/features/auth/api';
 import { useSession } from '@/features/auth/session-provider';
@@ -243,11 +244,11 @@ const styles = StyleSheet.create({
     gap: Spacing.three,
   },
   heading: {
-    fontSize: 22,
+    ...FontSize[22],
     fontWeight: '700',
   },
   subheading: {
-    fontSize: 14,
+    ...FontSize[14],
     lineHeight: 20,
   },
   formSection: {
@@ -262,7 +263,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   sectionLabel: {
-    fontSize: 14,
+    ...FontSize[14],
     fontWeight: '600',
     marginTop: Spacing.two,
   },
@@ -280,7 +281,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   optionText: {
-    fontSize: 14,
+    ...FontSize[14],
     fontWeight: '600',
   },
   goalStack: {
@@ -296,7 +297,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
   },
   choiceText: {
-    fontSize: 14,
+    ...FontSize[14],
     fontWeight: '500',
   },
   buttonRow: {

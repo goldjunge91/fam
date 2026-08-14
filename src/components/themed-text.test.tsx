@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react-native';
 
-import { ThemedText } from '@/components/themed-text';
+import { FontSize, ThemedText } from '@/components/themed-text';
 import { Colors } from '@/constants/theme';
 
 // Wichtig fuer alle weiteren Tests im Projekt: In @testing-library/react-native
@@ -26,6 +26,6 @@ describe('ThemedText', () => {
   it('uebernimmt die Schriftgroesse des gewaehlten Typs', async () => {
     await render(<ThemedText type="title">Kuehlschrank</ThemedText>);
 
-    expect(screen.getByText('Kuehlschrank')).toHaveStyle({ fontSize: 48 });
+    expect(screen.getByText('Kuehlschrank')).toHaveStyle({ ...FontSize[48] });
   });
 });

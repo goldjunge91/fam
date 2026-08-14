@@ -92,18 +92,29 @@ function ingredientNeedsForRecipe(need: RecipeNeedInput): Map<string, number> {
   return result;
 }
 
+export type IngredientNeedsResult = {
+  /** Bedarf in Gramm je Produkt, ueber alle Rezepte des Wochenplans summiert. */
+  needs: Map<string, number>;
+  /** Welche Rezepte zu diesem Produktbedarf beigetragen haben (fuer die Anzeige "aus welchem Gericht"). */
+  recipeIdsByProduct: Map<string, Set<string>>;
+};
+
 /** Summierter Zutatenbedarf ueber alle Rezepte eines Wochenplans hinweg. */
 export function computeIngredientNeeds(
   recipeNeeds: readonly RecipeNeedInput[],
-): Map<string, number> {
+): IngredientNeedsResult {
   const total = new Map<string, number>();
+  const recipeIdsByProduct = new Map<string, Set<string>>();
   for (const need of recipeNeeds) {
     const perRecipe = ingredientNeedsForRecipe(need);
     for (const [productId, grams] of perRecipe) {
       total.set(productId, (total.get(productId) ?? 0) + grams);
+      const recipeIds = recipeIdsByProduct.get(productId) ?? new Set<string>();
+      recipeIds.add(need.recipeId);
+      recipeIdsByProduct.set(productId, recipeIds);
     }
   }
-  return total;
+  return { needs: total, recipeIdsByProduct };
 }
 
 export type StockRow = {

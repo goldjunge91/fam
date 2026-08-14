@@ -1,6 +1,6 @@
-import { addOrMergeShoppingItem } from '@/lib/db/shopping-list-merge';
 import { MIGRATIONS } from '@/lib/db/migrations';
 import { runMigrations } from '@/lib/db/migrator';
+import { addOrMergeShoppingItem } from '@/lib/db/shopping-list-merge';
 import { createTestDatabase, type TestDatabase } from '../../../test/node-sqlite-adapter';
 
 /**
@@ -47,7 +47,13 @@ describe('addOrMergeShoppingItem', () => {
   }
 
   it('legt einen neuen Artikel an, wenn noch keiner mit passendem Produkt/Name existiert', async () => {
-    await add({ household_id: 'hh-1', name: 'Mehl', quantity: 500, unit: 'g', product_id: 'prod-mehl' });
+    await add({
+      household_id: 'hh-1',
+      name: 'Mehl',
+      quantity: 500,
+      unit: 'g',
+      product_id: 'prod-mehl',
+    });
 
     const items = await readItems(db, 'hh-1');
     expect(items).toHaveLength(1);
@@ -56,8 +62,20 @@ describe('addOrMergeShoppingItem', () => {
 
   it('fuehrt zwei Artikel mit demselben Produkt zusammen, statt ein Duplikat anzulegen', async () => {
     // Simuliert: Rezept A braucht 300g Mehl, Rezept B (Wochenplaner) 200g.
-    await add({ household_id: 'hh-1', name: 'Mehl', quantity: 300, unit: 'g', product_id: 'prod-mehl' });
-    await add({ household_id: 'hh-1', name: 'Mehl', quantity: 200, unit: 'g', product_id: 'prod-mehl' });
+    await add({
+      household_id: 'hh-1',
+      name: 'Mehl',
+      quantity: 300,
+      unit: 'g',
+      product_id: 'prod-mehl',
+    });
+    await add({
+      household_id: 'hh-1',
+      name: 'Mehl',
+      quantity: 200,
+      unit: 'g',
+      product_id: 'prod-mehl',
+    });
 
     const items = await readItems(db, 'hh-1');
     expect(items).toHaveLength(1);
@@ -74,7 +92,13 @@ describe('addOrMergeShoppingItem', () => {
   });
 
   it('legt einen neuen Eintrag an, wenn sich die Einheit unterscheidet, statt falsch zu summieren', async () => {
-    await add({ household_id: 'hh-1', name: 'Milch', quantity: 1, unit: 'l', product_id: 'prod-milch' });
+    await add({
+      household_id: 'hh-1',
+      name: 'Milch',
+      quantity: 1,
+      unit: 'l',
+      product_id: 'prod-milch',
+    });
     await add({
       household_id: 'hh-1',
       name: 'Milch',
@@ -100,7 +124,13 @@ describe('addOrMergeShoppingItem', () => {
       firstId,
     ]);
 
-    await add({ household_id: 'hh-1', name: 'Zucker', quantity: 1, unit: 'kg', product_id: 'prod-zucker' });
+    await add({
+      household_id: 'hh-1',
+      name: 'Zucker',
+      quantity: 1,
+      unit: 'kg',
+      product_id: 'prod-zucker',
+    });
 
     const items = await readItems(db, 'hh-1');
     expect(items).toHaveLength(2);
@@ -108,8 +138,20 @@ describe('addOrMergeShoppingItem', () => {
   });
 
   it('vermischt Artikel verschiedener Haushalte nicht', async () => {
-    await add({ household_id: 'hh-1', name: 'Reis', quantity: 1, unit: 'kg', product_id: 'prod-reis' });
-    await add({ household_id: 'hh-2', name: 'Reis', quantity: 1, unit: 'kg', product_id: 'prod-reis' });
+    await add({
+      household_id: 'hh-1',
+      name: 'Reis',
+      quantity: 1,
+      unit: 'kg',
+      product_id: 'prod-reis',
+    });
+    await add({
+      household_id: 'hh-2',
+      name: 'Reis',
+      quantity: 1,
+      unit: 'kg',
+      product_id: 'prod-reis',
+    });
 
     expect(await readItems(db, 'hh-1')).toHaveLength(1);
     expect(await readItems(db, 'hh-2')).toHaveLength(1);

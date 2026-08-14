@@ -55,6 +55,14 @@ jest.mock('./settings', () => ({
   usePortionsPerPerson: () => ({ data: 1.25 }),
 }));
 
+jest.mock('@/features/navigation/navigation-chrome-provider', () => ({
+  useNavigationChrome: () => ({ openDrawer: jest.fn(), openProfile: jest.fn() }),
+}));
+
+jest.mock('@/features/navigation/use-profile-initials', () => ({
+  useProfileInitials: () => 'MM',
+}));
+
 const mockAddMutate = jest.fn();
 
 jest.mock('./use-meal-plans', () => ({

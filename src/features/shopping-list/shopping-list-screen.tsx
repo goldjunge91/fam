@@ -1,14 +1,18 @@
+import { useLocalSearchParams } from 'expo-router';
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { Alert, Pressable, ScrollView, SectionList, StyleSheet, View } from 'react-native';
+import { Alert, ScrollView, SectionList, StyleSheet, View } from 'react-native';
 
 import { Card } from '@/components/card';
 import { EmptyState } from '@/components/empty-state';
 import { Screen } from '@/components/screen';
 import { ThemedText } from '@/components/themed-text';
+import { Button } from '@/components/ui/buttons';
 import { Spacing } from '@/constants/theme';
 import { useSession } from '@/features/auth/session-provider';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { useHouseholdMembers } from '@/features/household/api';
+import { useNavigationChrome } from '@/features/navigation/navigation-chrome-provider';
+import { useProfileInitials } from '@/features/navigation/use-profile-initials';
 import { useTheme } from '@/hooks/use-theme';
 import { formatRelativeTime } from '@/lib/format-relative-time';
 import { getLastSyncInfo } from '@/lib/sync/sync-runner';
@@ -36,6 +40,7 @@ const UNASSIGNED_COLOR = '#8E8E93';
  * Checkliste dieses Markts, mit markt-farbigem "Einkauf abschließen"-Button.
  */
 export function ShoppingListScreen() {
+  const params = useLocalSearchParams<{ action?: string }>();
   const [addModalOpen, setAddModalOpen] = useState(false);
   const [sheetOpen, setSheetOpen] = useState(false);
   const [orderSheetOpen, setOrderSheetOpen] = useState(false);
@@ -45,6 +50,8 @@ export function ShoppingListScreen() {
   const scrollRef = useRef<ScrollView>(null);
   const { session } = useSession();
   const userId = session?.user.id;
+  const { openDrawer, openProfile } = useNavigationChrome();
+  const initials = useProfileInitials();
 
   // Beim Wechsel des Markt-Filters (Karte oder Chip antippen) an den Anfang
   // scrollen, damit die Tab-Leiste und der Anfang der gefilterten Liste
@@ -53,6 +60,14 @@ export function ShoppingListScreen() {
   useEffect(() => {
     scrollRef.current?.scrollTo({ y: 0, animated: true });
   }, [storeFilter]);
+
+  // ?action=add (#150, globaler Plus-Button -> Schnellauswahl "Einkaufsartikel").
+  // Als Effekt statt Initialwert: navigiert man von hier aus erneut auf
+  // /shopping-list?action=add, bleibt der Screen gemountet — nur ein neuer
+  // Parameter-Wert loest das Oeffnen dann zuverlaessig aus.
+  useEffect(() => {
+    if (params.action === 'add') setAddModalOpen(true);
+  }, [params.action]);
 
   const { activeHouseholdId } = useActiveHousehold();
   const householdId = activeHouseholdId ?? undefined;
@@ -145,9 +160,11 @@ export function ShoppingListScreen() {
     .filter((g) => g.items.length > 0)
     .map((g) => ({ title: g.category, data: g.items }));
 
+  const chrome = { onMenuPress: openDrawer, onAvatarPress: openProfile, initials };
+
   if (!householdId) {
     return (
-      <Screen title="Einkauf" subtitle="Gemeinsame Liste">
+      <Screen title="Einkauf" subtitle="Gemeinsame Liste" chrome={chrome}>
         <Card>
           <EmptyState
             symbol="cart"
@@ -159,32 +176,31 @@ export function ShoppingListScreen() {
     );
   }
 
-  const completeButtonColor = isUnassignedFilter
+  const completeActionColor = isUnassignedFilter
     ? UNASSIGNED_COLOR
     : (activeStore?.color ?? theme.danger);
-  const completeButtonLabel = activeStore
+  const completeActionLabel = activeStore
     ? `Einkauf bei ${activeStore.name} abschließen`
     : 'Einkauf abschließen';
 
   return (
-    <Screen
-      title="Einkauf"
-      subtitle={subtitleParts.join(' · ')}
-      scroll={false}
-      action={
-        <Pressable
-          onPress={() => setAddModalOpen(true)}
-          accessibilityRole="button"
-          accessibilityLabel="Artikel hinzufügen"
-          style={[styles.addHeaderButton, { backgroundColor: theme.accent }]}>
-          <ThemedText style={styles.addHeaderButtonText}>+</ThemedText>
-        </Pressable>
-      }>
+    <Screen title="Einkauf" subtitle={subtitleParts.join(' · ')} scroll={false} chrome={chrome}>
       <ScrollView
         ref={scrollRef}
         style={styles.scroll}
         showsVerticalScrollIndicator={false}
         contentContainerStyle={styles.scrollContent}>
+        <View style={styles.overviewHeader}>
+          <ThemedText type="small" themeColor="textSecondary">
+            {isAllFilter
+              ? 'Deine Einkaufslisten'
+              : isUnassignedFilter
+                ? 'Ohne Markt'
+                : (activeStore?.name ?? 'Einkaufsliste')}
+          </ThemedText>
+          <Button label="+ Artikel hinzufügen" onPress={() => setAddModalOpen(true)} />
+        </View>
+
         {isLoading ? null : allItems.length === 0 ? (
           <Card>
             <EmptyState
@@ -243,15 +259,12 @@ export function ShoppingListScreen() {
             ) : (
               <>
                 {activeStore && (
-                  <Pressable
+                  <Button
+                    variant="link"
+                    label="⠿ Reihenfolge bearbeiten"
                     onPress={() => setOrderSheetOpen(true)}
-                    accessibilityRole="button"
                     accessibilityLabel="Reihenfolge für diesen Markt bearbeiten"
-                    style={styles.reorderButton}>
-                    <ThemedText type="small" style={{ color: theme.accent }}>
-                      ⠿ Reihenfolge bearbeiten
-                    </ThemedText>
-                  </Pressable>
+                  />
                 )}
                 <SectionList
                   sections={sections}
@@ -281,24 +294,22 @@ export function ShoppingListScreen() {
         )}
 
         {hasCheckedItems ? (
-          <Pressable
-            onPress={() => setSheetOpen(true)}
-            accessibilityRole="button"
-            accessibilityLabel={`${completeButtonLabel}, ${checkedItems.length} Artikel abgehakt`}
-            style={({ pressed }) => [
-              styles.completeButton,
-              { backgroundColor: completeButtonColor, opacity: pressed ? 0.85 : 1 },
-            ]}>
-            <ThemedText style={styles.completeButtonText}>
-              🛒 {completeButtonLabel} ({checkedItems.length})
-            </ThemedText>
-          </Pressable>
+          <View style={styles.completeAction}>
+            <Button
+              size="large"
+              label={`🛒 ${completeActionLabel} (${checkedItems.length})`}
+              onPress={() => setSheetOpen(true)}
+              accessibilityLabel={`${completeActionLabel}, ${checkedItems.length} Artikel abgehakt`}
+              backgroundColor={completeActionColor}
+            />
+          </View>
         ) : null}
       </ScrollView>
 
       <AddItemModal
         visible={addModalOpen}
         householdId={householdId}
+        initialStoreId={activeStore?.id ?? null}
         onDismiss={() => setAddModalOpen(false)}
       />
 
@@ -321,30 +332,12 @@ export function ShoppingListScreen() {
 }
 
 const styles = StyleSheet.create({
-  addHeaderButton: {
-    width: 40,
-    height: 40,
-    borderRadius: 20,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  addHeaderButtonText: {
-    color: '#fff',
-    fontSize: 24,
-    fontWeight: '600',
-    lineHeight: 28,
-  },
   scroll: {
     flex: 1,
   },
   scrollContent: {
     gap: Spacing.three,
     paddingBottom: Spacing.four,
-  },
-  reorderButton: {
-    alignSelf: 'flex-end',
-    paddingHorizontal: Spacing.three,
-    paddingTop: Spacing.two,
   },
   sectionHeader: {
     paddingHorizontal: Spacing.three,
@@ -357,17 +350,13 @@ const styles = StyleSheet.create({
     gap: Spacing.three,
     paddingTop: Spacing.two,
   },
-  completeButton: {
-    borderRadius: Spacing.three,
-    paddingVertical: Spacing.three,
-    paddingHorizontal: Spacing.four,
+  overviewHeader: {
+    flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'center',
-    marginTop: Spacing.two,
+    justifyContent: 'space-between',
+    gap: Spacing.two,
   },
-  completeButtonText: {
-    color: '#fff',
-    fontWeight: '700',
-    fontSize: 16,
+  completeAction: {
+    marginTop: Spacing.two,
   },
 });

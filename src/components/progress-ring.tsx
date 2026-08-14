@@ -8,7 +8,7 @@ import Animated, {
 } from 'react-native-reanimated';
 import Svg, { Circle } from 'react-native-svg';
 
-import { ThemedText } from '@/components/themed-text';
+import { FontSize, ThemedText } from '@/components/themed-text';
 import { Spacing } from '@/constants/theme';
 import { useTheme } from '@/hooks/use-theme';
 
@@ -23,6 +23,14 @@ type ProgressRingProps = {
   strokeWidth?: number;
   label: string;
   unit?: string;
+  /**
+   * 'value' (Default): grosse Zahl + Rest im Ring, wie bisher — Rezept-Log.
+   * 'percent': nur die Prozentzahl, fuer kompakte Widgets wie das Dashboard.
+   * 'remaining': Restwert + Einheit, fuer Tagesbilanzen wie das Tagebuch.
+   */
+  displayMode?: 'value' | 'percent' | 'remaining';
+  progressColor?: string;
+  trackColor?: string;
 };
 
 /**
@@ -40,6 +48,9 @@ export function ProgressRing({
   strokeWidth = 14,
   label,
   unit = 'kcal',
+  displayMode = 'value',
+  progressColor,
+  trackColor,
 }: ProgressRingProps) {
   const theme = useTheme();
   const reducedMotion = useReducedMotion();
@@ -83,7 +94,7 @@ export function ProgressRing({
           cx={size / 2}
           cy={size / 2}
           r={radius}
-          stroke={theme.backgroundSelected}
+          stroke={trackColor ?? theme.backgroundSelected}
           strokeWidth={strokeWidth}
           fill="none"
         />
@@ -91,7 +102,7 @@ export function ProgressRing({
           cx={size / 2}
           cy={size / 2}
           r={radius}
-          stroke={exceeded ? theme.warning : theme.accent}
+          stroke={exceeded ? theme.warning : (progressColor ?? theme.accent)}
           strokeWidth={strokeWidth}
           fill="none"
           strokeLinecap="round"
@@ -103,18 +114,37 @@ export function ProgressRing({
       </Svg>
 
       <View style={styles.center}>
-        <ThemedText type="subtitle">{Math.round(value)}</ThemedText>
-        <ThemedText type="small" themeColor="textSecondary">
-          {target > 0 ? `von ${Math.round(target)} ${unit}` : unit}
-        </ThemedText>
-        {target > 0 ? (
-          <ThemedText
-            type="small"
-            themeColor={exceeded ? 'warning' : 'textSecondary'}
-            style={styles.remaining}>
-            {exceeded ? `${Math.abs(remaining)} darüber` : `${remaining} übrig`}
+        {displayMode === 'percent' ? (
+          <ThemedText type="smallBold" style={styles.percentText}>
+            {Math.round(clamped * 100)}%
           </ThemedText>
-        ) : null}
+        ) : displayMode === 'remaining' ? (
+          <>
+            <ThemedText style={styles.remainingValue}>
+              {target > 0 ? Math.abs(remaining) : Math.round(value)}
+            </ThemedText>
+            <ThemedText
+              themeColor={exceeded ? 'warning' : 'textSecondary'}
+              style={styles.remainingLabel}>
+              {target > 0 ? `${unit} ${exceeded ? 'darüber' : 'übrig'}` : unit}
+            </ThemedText>
+          </>
+        ) : (
+          <>
+            <ThemedText type="subtitle">{Math.round(value)}</ThemedText>
+            <ThemedText type="small" themeColor="textSecondary">
+              {target > 0 ? `von ${Math.round(target)} ${unit}` : unit}
+            </ThemedText>
+            {target > 0 ? (
+              <ThemedText
+                type="small"
+                themeColor={exceeded ? 'warning' : 'textSecondary'}
+                style={styles.remaining}>
+                {exceeded ? `${Math.abs(remaining)} darüber` : `${remaining} übrig`}
+              </ThemedText>
+            ) : null}
+          </>
+        )}
       </View>
     </View>
   );
@@ -141,5 +171,19 @@ const styles = StyleSheet.create({
   },
   remaining: {
     marginTop: Spacing.half,
+  },
+  percentText: {
+    ...FontSize[18],
+  },
+  remainingValue: {
+    ...FontSize[24],
+    lineHeight: 28,
+    fontWeight: 700,
+    letterSpacing: -0.5,
+  },
+  remainingLabel: {
+    ...FontSize[9],
+    lineHeight: 12,
+    fontWeight: 600,
   },
 });

@@ -1,6 +1,6 @@
 import { ActivityIndicator, type ColorValue, Pressable, StyleSheet, View } from 'react-native';
 
-import { ThemedText } from '@/components/themed-text';
+import { Typography, ThemedText } from '@/components/themed-text';
 import { Spacing } from '@/constants/theme';
 import { useTheme } from '@/hooks/use-theme';
 
@@ -97,6 +97,6 @@ const styles = StyleSheet.create({
     opacity: 0.8,
   },
   largeLabel: {
-    fontSize: 16,
+    ...Typography.body,
   },
 });

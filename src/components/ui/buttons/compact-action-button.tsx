@@ -31,7 +31,7 @@ export function CompactActionButton({
         { backgroundColor: theme.backgroundElement, borderColor: theme.border },
         pressed && styles.pressed,
       ]}>
-      <ThemedText type="small">{label}</ThemedText>
+      <ThemedText type="default">{label}</ThemedText>
       <View style={[styles.chevron, expanded && styles.chevronExpanded]}>
         <View
           style={[styles.chevronLine, styles.chevronLeft, { backgroundColor: theme.textSecondary }]}

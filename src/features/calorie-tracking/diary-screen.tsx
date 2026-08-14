@@ -1,13 +1,16 @@
 import { router } from 'expo-router';
 import { useState } from 'react';
-import { Pressable, StyleSheet, View } from 'react-native';
+import { Pressable, ScrollView, StyleSheet, View } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
-import { Card } from '@/components/card';
-import { MacroBar } from '@/components/macro-bar';
+import { PlusIcon } from '@/components/fam-icon';
+import { FilterChipBar } from '@/components/filter-chip-bar';
+import { GradientBackground } from '@/components/gradient-background';
+import { PageHeader } from '@/components/page-header';
+import { ProgressBar } from '@/components/progress-bar';
 import { ProgressRing } from '@/components/progress-ring';
-import { Screen } from '@/components/screen';
-import { ThemedText } from '@/components/themed-text';
-import { Spacing } from '@/constants/theme';
+import { FontSize, ThemedText } from '@/components/themed-text';
+import { HeaderIconButton, MenuButton } from '@/components/ui/buttons';
 import { useSession } from '@/features/auth/session-provider';
 import { useActiveProfile } from '@/features/calorie-tracking/active-profile-store';
 import {
@@ -19,6 +22,7 @@ import {
 import { calculateDailyTotals } from '@/features/calorie-tracking/daily-totals';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { useChildProfiles } from '@/features/household/api';
+import { useNavigationChrome } from '@/features/navigation/navigation-chrome-provider';
 import { useTheme } from '@/hooks/use-theme';
 
 const MEAL_ORDER: MealType[] = ['breakfast', 'lunch', 'dinner', 'snack'];
@@ -30,15 +34,15 @@ export const MEAL_LABELS: Record<MealType, string> = {
 };
 
 function parseIsoDate(iso: string): Date {
-  const [y, m, d] = iso.split('-').map(Number);
-  return new Date(y, m - 1, d);
+  const [year, month, day] = iso.split('-').map(Number);
+  return new Date(year, month - 1, day);
 }
 
 function toIsoDate(date: Date): string {
-  const y = date.getFullYear();
-  const m = String(date.getMonth() + 1).padStart(2, '0');
-  const d = String(date.getDate()).padStart(2, '0');
-  return `${y}-${m}-${d}`;
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, '0');
+  const day = String(date.getDate()).padStart(2, '0');
+  return `${year}-${month}-${day}`;
 }
 
 function addDays(iso: string, delta: number): string {
@@ -47,9 +51,17 @@ function addDays(iso: string, delta: number): string {
   return toIsoDate(date);
 }
 
-function formatDiaryDate(iso: string, todayIso: string): string {
+function relativeDateLabel(iso: string, todayIso: string): string {
   if (iso === todayIso) return 'Heute';
   if (iso === addDays(todayIso, -1)) return 'Gestern';
+  if (iso === addDays(todayIso, 1)) return 'Morgen';
+  return parseIsoDate(iso).toLocaleDateString('de-DE', {
+    day: 'numeric',
+    month: 'long',
+  });
+}
+
+function fullDateLabel(iso: string): string {
   return parseIsoDate(iso).toLocaleDateString('de-DE', {
     weekday: 'long',
     day: 'numeric',
@@ -57,15 +69,131 @@ function formatDiaryDate(iso: string, todayIso: string): string {
   });
 }
 
-/** Tagebuch (#85, #87, #88): Datumsnavigation, Tagessummen, Mahlzeiten-Gliederung. */
+function formatKcal(value: number): string {
+  return `${Math.round(value).toLocaleString('de-DE')} kcal`;
+}
+
+function MacroSummary({ label, value, target }: { label: string; value: number; target: number }) {
+  const theme = useTheme();
+  const exceeded = target > 0 && value > target;
+
+  return (
+    <View
+      style={[styles.macroCard, { backgroundColor: `${theme.backgroundElement}D6` }]}
+      accessible
+      accessibilityRole="progressbar"
+      accessibilityLabel={
+        target > 0
+          ? `${label}: ${Math.round(value)} von ${Math.round(target)} Gramm`
+          : `${label}: ${Math.round(value)} Gramm, kein Ziel gesetzt`
+      }>
+      <View style={styles.macroLabels}>
+        <ThemedText style={styles.macroLabel}>{label}</ThemedText>
+        <ThemedText themeColor="textSecondary" style={styles.macroValue}>
+          {Math.round(value)} / {target > 0 ? Math.round(target) : '–'} g
+        </ThemedText>
+      </View>
+      <ProgressBar
+        value={target > 0 ? value / target : 0}
+        color={exceeded ? theme.warning : theme.accent}
+        trackColor={theme.backgroundSelected}
+      />
+    </View>
+  );
+}
+
+type MealSectionProps = {
+  meal: MealType;
+  entries: FoodEntryRow[];
+  isLast: boolean;
+  onAdd: () => void;
+  onEntry: (entryId: string) => void;
+};
+
+function MealSection({ meal, entries, isLast, onAdd, onEntry }: MealSectionProps) {
+  const theme = useTheme();
+  const mealKcal = entries.reduce((sum, entry) => sum + (entry.kcal ?? 0), 0);
+
+  return (
+    <View style={!isLast ? [styles.mealSection, { borderBottomColor: theme.border }] : undefined}>
+      <View style={styles.mealHeader}>
+        <View style={styles.mealHeading}>
+          <ThemedText style={styles.mealTitle}>{MEAL_LABELS[meal]}</ThemedText>
+          <ThemedText themeColor="textSecondary" style={styles.mealKcal}>
+            {formatKcal(mealKcal)}
+          </ThemedText>
+        </View>
+        <Pressable
+          onPress={onAdd}
+          role="button"
+          aria-label={`Zu ${MEAL_LABELS[meal]} hinzufügen`}
+          style={({ pressed }) => [
+            styles.addButton,
+            { backgroundColor: theme.accent },
+            pressed && styles.pressed,
+          ]}>
+          <PlusIcon size={18} />
+        </Pressable>
+      </View>
+
+      {entries.map((entry) => (
+        <Pressable
+          key={entry.id}
+          onPress={() => onEntry(entry.id)}
+          role="button"
+          aria-label={`${entry.name} bearbeiten`}
+          style={({ pressed }) => [
+            styles.entryRow,
+            { backgroundColor: `${theme.backgroundSelected}78` },
+            pressed && styles.pressed,
+          ]}>
+          <View style={styles.entryInfo}>
+            <ThemedText style={styles.entryName} numberOfLines={1}>
+              {entry.name}
+            </ThemedText>
+            <ThemedText themeColor="textSecondary" style={styles.entryQuantity} numberOfLines={1}>
+              {entry.quantity} {entry.unit}
+            </ThemedText>
+          </View>
+          <ThemedText themeColor="textSecondary" style={styles.entryKcal}>
+            {entry.kcal !== null ? formatKcal(entry.kcal) : '–'}
+          </ThemedText>
+        </Pressable>
+      ))}
+    </View>
+  );
+}
+
+function SummaryRow({
+  label,
+  value,
+  accent = false,
+}: {
+  label: string;
+  value: string;
+  accent?: boolean;
+}) {
+  return (
+    <View style={styles.summaryRow}>
+      <ThemedText themeColor="textSecondary" style={styles.summaryLabel}>
+        {label}
+      </ThemedText>
+      <ThemedText themeColor={accent ? 'accent' : 'text'} style={styles.summaryValue}>
+        {value}
+      </ThemedText>
+    </View>
+  );
+}
+
+/** Tagebuch nach Figma: Tagesbilanz, Makros und kompakte Mahlzeitenliste. */
 export function DiaryScreen() {
   const theme = useTheme();
+  const { openDrawer } = useNavigationChrome();
   const { session } = useSession();
   const userId = session?.user.id;
 
   const todayIso = toIsoDate(new Date());
   const [selectedDate, setSelectedDate] = useState(todayIso);
-  const isToday = selectedDate === todayIso;
 
   const { activeHousehold } = useActiveHousehold();
   const { data: childProfiles = [] } = useChildProfiles(activeHousehold?.id ?? '');
@@ -74,18 +202,36 @@ export function DiaryScreen() {
 
   const { data: entries = [], isLoading } = useFoodEntries(userId, selectedDate, childProfileId);
   const { data: currentGoal } = useCurrentGoal(userId, childProfileId);
-
   const totals = calculateDailyTotals(
-    entries.map((e) => ({ kcal: e.kcal, proteinG: e.protein_g, carbsG: e.carbs_g, fatG: e.fat_g })),
+    entries.map((entry) => ({
+      kcal: entry.kcal,
+      proteinG: entry.protein_g,
+      carbsG: entry.carbs_g,
+      fatG: entry.fat_g,
+    })),
   );
+  const calorieGoal = currentGoal?.daily_kcal ?? 0;
+  const remaining = calorieGoal - totals.kcal;
 
   const entriesByMeal = MEAL_ORDER.reduce<Record<MealType, FoodEntryRow[]>>(
-    (acc, meal) => {
-      acc[meal] = entries.filter((e) => e.meal_type === meal);
-      return acc;
+    (grouped, meal) => {
+      grouped[meal] = entries.filter((entry) => entry.meal_type === meal);
+      return grouped;
     },
     { breakfast: [], lunch: [], dinner: [], snack: [] },
   );
+  const profileOptions = [
+    { value: 'adult', label: 'Ich' },
+    ...childProfiles.map((child) => ({ value: child.id, label: child.display_name })),
+  ];
+
+  function selectProfile(value: string) {
+    if (value === 'adult') {
+      if (userId) setProfile({ type: 'adult', userId });
+    } else if (activeHousehold) {
+      setProfile({ type: 'child', childProfileId: value, householdId: activeHousehold.id });
+    }
+  }
 
   function openEntry(mealType: MealType, entryId?: string) {
     if (entryId) {
@@ -95,185 +241,248 @@ export function DiaryScreen() {
       });
       return;
     }
-    // Neuer Eintrag: erst ueber die Lebensmittelsuche (Freitext/Barcode/
-    // Zuletzt/Haeufig), die reicht die Auswahl an /add-food-entry weiter.
     router.push({ pathname: '/food-search', params: { date: selectedDate, mealType } });
   }
 
   return (
-    <Screen title="Tagebuch">
-      {childProfiles.length > 0 ? (
-        <View style={styles.profileRow}>
-          <ThemedText
-            onPress={() => userId && setProfile({ type: 'adult', userId })}
-            style={[
-              styles.profilePill,
-              {
-                backgroundColor: !childProfileId ? theme.accent : theme.backgroundElement,
-                color: !childProfileId ? '#fff' : theme.text,
-              },
-            ]}>
-            Ich
-          </ThemedText>
-          {childProfiles.map((child) => (
-            <ThemedText
-              key={child.id}
-              onPress={() =>
-                activeHousehold &&
-                setProfile({
-                  type: 'child',
-                  childProfileId: child.id,
-                  householdId: activeHousehold.id,
-                })
-              }
-              style={[
-                styles.profilePill,
-                {
-                  backgroundColor:
-                    childProfileId === child.id ? theme.accent : theme.backgroundElement,
-                  color: childProfileId === child.id ? '#fff' : theme.text,
-                },
-              ]}>
-              {child.display_name}
-            </ThemedText>
-          ))}
-        </View>
-      ) : null}
-
-      <View style={styles.dateRow}>
-        <Pressable
-          onPress={() => setSelectedDate((d) => addDays(d, -1))}
-          accessibilityRole="button"
-          accessibilityLabel="Vorheriger Tag"
-          style={styles.dateArrow}>
-          <ThemedText type="subtitle">‹</ThemedText>
-        </Pressable>
-        <ThemedText type="smallBold">{formatDiaryDate(selectedDate, todayIso)}</ThemedText>
-        <Pressable
-          onPress={() => !isToday && setSelectedDate((d) => addDays(d, 1))}
-          disabled={isToday}
-          accessibilityRole="button"
-          accessibilityLabel="Nächster Tag"
-          style={[styles.dateArrow, isToday && styles.dateArrowDisabled]}>
-          <ThemedText type="subtitle">›</ThemedText>
-        </Pressable>
-      </View>
-
-      <Card>
-        <ProgressRing value={totals.kcal} target={currentGoal?.daily_kcal ?? 0} label="Kalorien" />
-        {!currentGoal ? (
-          <ThemedText type="small" themeColor="textSecondary" style={styles.centered}>
-            Noch kein Kalorienziel gesetzt. Lege es unter Einstellungen an.
-          </ThemedText>
-        ) : null}
-      </Card>
-
-      <Card title="Makronährstoffe">
-        <View style={styles.macros}>
-          <MacroBar label="Eiweiß" value={totals.proteinG} target={currentGoal?.protein_g ?? 0} />
-          <MacroBar
-            label="Kohlenhydrate"
-            value={totals.carbsG}
-            target={currentGoal?.carbs_g ?? 0}
-          />
-          <MacroBar label="Fett" value={totals.fatG} target={currentGoal?.fat_g ?? 0} />
-        </View>
-      </Card>
-
-      {isLoading ? (
-        <ThemedText type="small" themeColor="textSecondary">
-          Lade Tagebuch...
-        </ThemedText>
-      ) : (
-        MEAL_ORDER.map((meal) => (
-          <Card key={meal} title={MEAL_LABELS[meal]}>
-            {entriesByMeal[meal].length === 0 ? (
-              <ThemedText type="small" themeColor="textSecondary">
-                Noch nichts erfasst.
-              </ThemedText>
-            ) : (
-              <View style={styles.entryList}>
-                {entriesByMeal[meal].map((entry) => (
-                  <Pressable
-                    key={entry.id}
-                    onPress={() => openEntry(meal, entry.id)}
-                    style={[styles.entryRow, { borderBottomColor: theme.border }]}>
-                    <View style={styles.entryInfo}>
-                      <ThemedText type="smallBold">{entry.name}</ThemedText>
-                      <ThemedText type="small" themeColor="textSecondary">
-                        {entry.quantity} {entry.unit}
-                      </ThemedText>
-                    </View>
-                    <ThemedText type="small" themeColor="textSecondary">
-                      {entry.kcal !== null ? `${Math.round(entry.kcal)} kcal` : '–'}
-                    </ThemedText>
-                  </Pressable>
-                ))}
+    <View style={styles.root}>
+      <GradientBackground colors={['#FFD2B9', '#F8F4EF', '#EEE7F4']} />
+      <SafeAreaView style={styles.safeArea} edges={['top', 'left', 'right']}>
+        <PageHeader
+          title="Tagebuch"
+          align="center"
+          leading={<MenuButton onPress={openDrawer} />}
+          trailing={
+            <HeaderIconButton
+              label="Ziele und Fortschritt öffnen"
+              onPress={() => router.push('/settings/goals')}>
+              <View style={styles.goalIcon}>
+                <View
+                  style={[styles.goalBar, styles.goalBarShort, { backgroundColor: theme.accent }]}
+                />
+                <View
+                  style={[styles.goalBar, styles.goalBarTall, { backgroundColor: theme.accent }]}
+                />
+                <View
+                  style={[styles.goalBar, styles.goalBarMid, { backgroundColor: theme.accent }]}
+                />
               </View>
-            )}
-            <Pressable onPress={() => openEntry(meal)} style={styles.addRow}>
-              <ThemedText type="small" themeColor="accent">
-                + Hinzufügen
+            </HeaderIconButton>
+          }
+        />
+
+        <ScrollView
+          showsVerticalScrollIndicator={false}
+          contentContainerStyle={styles.content}
+          contentInsetAdjustmentBehavior="never">
+          {childProfiles.length > 0 ? (
+            <FilterChipBar
+              label="Tagebuchprofil"
+              options={profileOptions}
+              selected={childProfileId ?? 'adult'}
+              onSelect={selectProfile}
+            />
+          ) : null}
+
+          <View style={styles.dateRow}>
+            <Pressable
+              onPress={() => setSelectedDate((date) => addDays(date, -1))}
+              role="button"
+              aria-label="Vorheriger Tag"
+              style={({ pressed }) => [styles.dateArrow, pressed && styles.pressed]}>
+              <ThemedText themeColor="accent" style={styles.chevron}>
+                ‹
               </ThemedText>
             </Pressable>
-          </Card>
-        ))
-      )}
-    </Screen>
+            <Pressable
+              onPress={() => setSelectedDate(todayIso)}
+              role="button"
+              aria-label="Heutigen Tag anzeigen"
+              style={styles.dateCopy}>
+              <ThemedText themeColor="accent" style={styles.relativeDate}>
+                {relativeDateLabel(selectedDate, todayIso)}
+              </ThemedText>
+              <ThemedText themeColor="textSecondary" style={styles.fullDate}>
+                {fullDateLabel(selectedDate)}
+              </ThemedText>
+            </Pressable>
+            <Pressable
+              onPress={() => setSelectedDate((date) => addDays(date, 1))}
+              role="button"
+              aria-label="Nächster Tag"
+              style={({ pressed }) => [styles.dateArrow, pressed && styles.pressed]}>
+              <ThemedText themeColor="accent" style={styles.chevron}>
+                ›
+              </ThemedText>
+            </Pressable>
+          </View>
+
+          <View style={[styles.summaryCard, { backgroundColor: `${theme.backgroundElement}D6` }]}>
+            <ProgressRing
+              value={totals.kcal}
+              target={calorieGoal}
+              label="Kalorien"
+              displayMode="remaining"
+              size={128}
+              strokeWidth={3}
+              progressColor={theme.accent}
+              trackColor={theme.backgroundSelected}
+            />
+            <View style={styles.summaryStats}>
+              <SummaryRow label="Gegessen" value={formatKcal(totals.kcal)} />
+              <SummaryRow
+                label="Grundziel"
+                value={calorieGoal > 0 ? formatKcal(calorieGoal) : '–'}
+              />
+              <SummaryRow
+                label="Übrig"
+                value={calorieGoal > 0 ? formatKcal(remaining) : 'Kein Ziel'}
+                accent={remaining >= 0}
+              />
+              <ThemedText
+                themeColor={currentGoal ? 'success' : 'textSecondary'}
+                style={styles.goalStatus}>
+                {currentGoal ? 'Tagesziel ist aktiv' : 'Noch kein Tagesziel hinterlegt'}
+              </ThemedText>
+            </View>
+          </View>
+
+          <View style={styles.macroRow}>
+            <MacroSummary
+              label="Protein"
+              value={totals.proteinG}
+              target={currentGoal?.protein_g ?? 0}
+            />
+            <MacroSummary
+              label="Kohlenhydrate"
+              value={totals.carbsG}
+              target={currentGoal?.carbs_g ?? 0}
+            />
+            <MacroSummary label="Fett" value={totals.fatG} target={currentGoal?.fat_g ?? 0} />
+          </View>
+
+          <View style={[styles.mealsCard, { backgroundColor: `${theme.backgroundElement}D6` }]}>
+            {isLoading ? (
+              <ThemedText themeColor="textSecondary" style={styles.loadingText}>
+                Lade Tagebuch...
+              </ThemedText>
+            ) : (
+              MEAL_ORDER.map((meal, index) => (
+                <MealSection
+                  key={meal}
+                  meal={meal}
+                  entries={entriesByMeal[meal]}
+                  isLast={index === MEAL_ORDER.length - 1}
+                  onAdd={() => openEntry(meal)}
+                  onEntry={(entryId) => openEntry(meal, entryId)}
+                />
+              ))
+            )}
+          </View>
+        </ScrollView>
+      </SafeAreaView>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
-  profileRow: {
+  root: { flex: 1 },
+  safeArea: { flex: 1, width: '100%', maxWidth: 800, alignSelf: 'center' },
+  content: { paddingHorizontal: 16, paddingTop: 2, paddingBottom: 126, gap: 8 },
+  goalIcon: {
+    width: 20,
+    height: 20,
     flexDirection: 'row',
-    flexWrap: 'wrap',
-    gap: Spacing.one,
-    paddingBottom: Spacing.two,
+    alignItems: 'flex-end',
     justifyContent: 'center',
+    gap: 2,
   },
-  profilePill: {
-    paddingHorizontal: 12,
-    paddingVertical: 8,
-    borderRadius: 10,
-    overflow: 'hidden',
-  },
-  dateRow: {
+  goalBar: { width: 4, borderRadius: 2 },
+  goalBarShort: { height: 7 },
+  goalBarTall: { height: 17 },
+  goalBarMid: { height: 12 },
+  dateRow: { height: 42, flexDirection: 'row', alignItems: 'center' },
+  dateArrow: { width: 40, height: 38, alignItems: 'center', justifyContent: 'center' },
+  chevron: { ...FontSize[21], lineHeight: 23, fontWeight: 500 },
+  dateCopy: { flex: 1, alignItems: 'center', justifyContent: 'center' },
+  relativeDate: { ...FontSize[14], lineHeight: 17, fontWeight: 700 },
+  fullDate: { marginTop: 1, ...FontSize[10], lineHeight: 12, fontWeight: 500 },
+  summaryCard: {
+    minHeight: 160,
+    borderRadius: 24,
+    borderCurve: 'continuous',
+    padding: 16,
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'center',
-    gap: Spacing.four,
-    paddingBottom: Spacing.one,
+    gap: 16,
   },
-  dateArrow: {
-    paddingHorizontal: Spacing.three,
-    paddingVertical: Spacing.one,
+  summaryStats: { flex: 1, minWidth: 0, gap: 9 },
+  summaryRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'baseline',
+    gap: 8,
   },
-  dateArrowDisabled: {
-    opacity: 0.3,
+  summaryLabel: { ...FontSize[10], lineHeight: 12, fontWeight: 500 },
+  summaryValue: { ...FontSize[10], lineHeight: 12, fontWeight: 700, textAlign: 'right' },
+  goalStatus: { marginTop: 2, ...FontSize[9], lineHeight: 12, fontWeight: 600 },
+  macroRow: { flexDirection: 'row', gap: 7 },
+  macroCard: {
+    flex: 1,
+    minWidth: 0,
+    height: 58,
+    borderRadius: 16,
+    borderCurve: 'continuous',
+    paddingHorizontal: 10,
+    paddingVertical: 9,
+    justifyContent: 'space-between',
   },
-  centered: {
-    textAlign: 'center',
-    marginTop: Spacing.two,
-  },
-  macros: {
-    gap: Spacing.three,
-  },
-  entryList: {
-    gap: 0,
-  },
-  entryRow: {
+  macroLabels: { gap: 1 },
+  macroLabel: { ...FontSize[10], lineHeight: 12, fontWeight: 700 },
+  macroValue: { ...FontSize[8], lineHeight: 10, fontWeight: 500 },
+  mealsCard: { borderRadius: 20, borderCurve: 'continuous', overflow: 'hidden' },
+  mealSection: { borderBottomWidth: StyleSheet.hairlineWidth },
+  mealHeader: {
+    minHeight: 48,
+    paddingHorizontal: 16,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    paddingVertical: Spacing.two,
-    borderBottomWidth: StyleSheet.hairlineWidth,
-    gap: Spacing.two,
+    gap: 12,
   },
-  entryInfo: {
-    flex: 1,
-    gap: 2,
+  mealHeading: { flex: 1, minWidth: 0 },
+  mealTitle: { ...FontSize[12], lineHeight: 15, fontWeight: 700 },
+  mealKcal: { marginTop: 1, ...FontSize[9], lineHeight: 11, fontWeight: 500 },
+  addButton: {
+    width: 32,
+    height: 32,
+    borderRadius: 11,
+    borderCurve: 'continuous',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
-  addRow: {
-    paddingTop: Spacing.two,
+  entryRow: {
+    minHeight: 42,
+    marginHorizontal: 8,
+    marginBottom: 6,
+    borderRadius: 11,
+    borderCurve: 'continuous',
+    paddingHorizontal: 10,
+    paddingVertical: 6,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    gap: 10,
   },
+  entryInfo: { flex: 1, minWidth: 0 },
+  entryName: { ...FontSize[10], lineHeight: 12, fontWeight: 700 },
+  entryQuantity: { marginTop: 1, ...FontSize[9], lineHeight: 11, fontWeight: 500 },
+  entryKcal: { ...FontSize[9], lineHeight: 11, fontWeight: 600 },
+  loadingText: {
+    paddingHorizontal: 16,
+    paddingVertical: 24,
+    ...FontSize[11],
+    lineHeight: 14,
+  },
+  pressed: { opacity: 0.72 },
 });

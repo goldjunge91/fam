@@ -1,6 +1,6 @@
 import { Pressable, StyleSheet } from 'react-native';
 
-import { ThemedText } from '@/components/themed-text';
+import { FontSize, ThemedText } from '@/components/themed-text';
 import { useTheme } from '@/hooks/use-theme';
 
 type ProfileButtonProps = {
@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
   },
   initials: {
     color: '#fff',
-    fontSize: 14,
+    ...FontSize[14],
     lineHeight: 20,
     fontWeight: '500',
   },

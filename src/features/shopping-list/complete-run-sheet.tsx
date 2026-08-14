@@ -3,9 +3,10 @@ import { useEffect, useRef, useState } from 'react';
 import { Pressable, ScrollView, StyleSheet, View } from 'react-native';
 
 import { DateWheelField } from '@/components/date-wheel-field';
-import { ThemedText } from '@/components/themed-text';
+import { FontSize, ThemedText } from '@/components/themed-text';
 import { Spacing } from '@/constants/theme';
 import { useTheme } from '@/hooks/use-theme';
+import { formatAmount, formatPackageHint } from '@/lib/package-size';
 
 import { type StorageKind, storageKindForCategory } from './shopping-categories';
 import type { LocalShoppingItem } from './use-shopping-list';
@@ -14,9 +15,12 @@ export type { StorageKind };
 
 export type TransferItem = {
   shoppingItemId: string;
+  productId: string | null;
   name: string;
   quantity: number;
   unit: string;
+  packageSize: number | null;
+  packageSizeUnit: string | null;
   locationKind: StorageKind;
   expiryDate: string | null;
 };
@@ -46,6 +50,7 @@ interface TransferRowProps {
 
 function TransferRow({ item, transfer, onUpdateKind, onUpdateExpiry }: TransferRowProps) {
   const theme = useTheme();
+  const packageHint = formatPackageHint(item.package_size, item.package_size_unit);
 
   return (
     <View style={[styles.transferRow, { borderBottomColor: theme.border }]}>
@@ -56,10 +61,15 @@ function TransferRow({ item, transfer, onUpdateKind, onUpdateExpiry }: TransferR
         {/* Menge — grüner Pill-Badge wie im Screenshot */}
         <View style={[styles.quantityBadge, { backgroundColor: theme.success }]}>
           <ThemedText style={styles.quantityBadgeText}>
-            {item.quantity} {item.unit}
+            {formatAmount(item.quantity, item.unit)}
           </ThemedText>
         </View>
       </View>
+      {packageHint ? (
+        <ThemedText type="small" themeColor="textSecondary">
+          {packageHint}
+        </ThemedText>
+      ) : null}
 
       {/* Location-Picker + MHD */}
       <View style={styles.controls}>
@@ -142,9 +152,12 @@ export function CompleteRunSheet({ isOpen, checkedItems, onConfirm, onClose }: P
     for (const item of checkedItems) {
       map.set(item.id, {
         shoppingItemId: item.id,
+        productId: item.product_id,
         name: item.name,
         quantity: item.quantity,
         unit: item.unit,
+        packageSize: item.package_size,
+        packageSizeUnit: item.package_size_unit,
         locationKind: defaultKind(item),
         expiryDate: null,
       });
@@ -295,7 +308,7 @@ const styles = StyleSheet.create({
   },
   quantityBadgeText: {
     color: '#fff',
-    fontSize: 13,
+    ...FontSize[13],
     fontWeight: '600',
   },
   controls: {
@@ -317,7 +330,7 @@ const styles = StyleSheet.create({
     borderWidth: 1.5,
   },
   kindIcon: {
-    fontSize: 14,
+    ...FontSize[14],
   },
   mhdRow: {
     flexDirection: 'row',
@@ -347,7 +360,7 @@ const styles = StyleSheet.create({
   confirmButtonText: {
     color: '#fff',
     fontWeight: '700',
-    fontSize: 16,
+    ...FontSize[16],
   },
   cancelLink: {
     paddingVertical: Spacing.two,

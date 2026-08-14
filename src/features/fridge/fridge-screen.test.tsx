@@ -1,14 +1,36 @@
-import { fireEvent, render, screen } from '@testing-library/react-native';
-import { router } from 'expo-router';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { fireEvent, render, screen, userEvent } from '@testing-library/react-native';
 import { Alert } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import { FridgeScreen } from '@/features/fridge/fridge-screen';
 
 const mockUpdateQtyMutate = jest.fn();
+const mockUpdateItemMutateAsync = jest.fn().mockResolvedValue({});
 
 let mockItems: unknown[] = [];
 let mockParams: Record<string, string> = {};
+
+jest.mock('react-native-gesture-handler/ReanimatedSwipeable', () => {
+  const React = require('react');
+  const { View } = require('react-native');
+  return {
+    __esModule: true,
+    default: ({ children, renderRightActions }: Record<string, unknown>) =>
+      React.createElement(
+        View,
+        null,
+        children,
+        typeof renderRightActions === 'function'
+          ? renderRightActions(
+              { value: 0 },
+              { value: 0 },
+              { close: jest.fn(), openLeft: jest.fn(), openRight: jest.fn(), reset: jest.fn() },
+            )
+          : null,
+      ),
+  };
+});
 
 jest.mock('expo-router', () => ({
   router: { push: jest.fn(), back: jest.fn(), canGoBack: () => false },
@@ -30,10 +52,22 @@ jest.mock('@/features/fridge/use-fridge-items', () => ({
 
 jest.mock('@/features/fridge/use-fridge-mutations', () => ({
   useUpdateFridgeItemQuantityMutation: () => ({ mutate: mockUpdateQtyMutate, isPending: false }),
+  useUpdateFridgeItemMutation: () => ({
+    mutateAsync: mockUpdateItemMutateAsync,
+    isPending: false,
+  }),
 }));
 
 jest.mock('@/features/inventory/use-product', () => ({
   useProduct: () => ({ data: null, isLoading: false }),
+}));
+
+jest.mock('@/features/navigation/navigation-chrome-provider', () => ({
+  useNavigationChrome: () => ({ openDrawer: jest.fn(), openProfile: jest.fn() }),
+}));
+
+jest.mock('@/features/navigation/use-profile-initials', () => ({
+  useProfileInitials: () => 'MM',
 }));
 
 jest.mock('@/hooks/use-theme', () => ({
@@ -52,14 +86,19 @@ jest.mock('@/hooks/use-theme', () => ({
 }));
 
 function renderScreen() {
+  const queryClient = new QueryClient({
+    defaultOptions: { queries: { retry: false, gcTime: Number.POSITIVE_INFINITY } },
+  });
   return render(
-    <SafeAreaProvider
-      initialMetrics={{
-        frame: { x: 0, y: 0, width: 390, height: 844 },
-        insets: { top: 47, left: 0, right: 0, bottom: 34 },
-      }}>
-      <FridgeScreen />
-    </SafeAreaProvider>,
+    <QueryClientProvider client={queryClient}>
+      <SafeAreaProvider
+        initialMetrics={{
+          frame: { x: 0, y: 0, width: 390, height: 844 },
+          insets: { top: 47, left: 0, right: 0, bottom: 34 },
+        }}>
+        <FridgeScreen />
+      </SafeAreaProvider>
+    </QueryClientProvider>,
   );
 }
 
@@ -82,14 +121,33 @@ beforeEach(() => {
     },
   ];
   mockUpdateQtyMutate.mockClear();
+  mockUpdateItemMutateAsync.mockClear();
 });
 
-it('fragt bei Lang-Druck vor dem Loeschen nach Bestaetigung', async () => {
-  const alertSpy = jest.spyOn(Alert, 'alert').mockImplementation(() => {});
+it('öffnet beim kurzen Tap das Aktions-Sheet und ändert dort die Menge', async () => {
+  const user = userEvent.setup();
 
   await renderScreen();
+  await user.press(screen.getByRole('button', { name: 'Milch, 2 l' }));
 
-  await fireEvent(screen.getByLabelText('Milch, 2 l'), 'longPress');
+  expect(screen.getByRole('button', { name: 'Bearbeiten' })).toBeOnTheScreen();
+  expect(screen.getByRole('button', { name: 'Produktinformationen' })).toBeOnTheScreen();
+
+  await user.press(screen.getByRole('button', { name: 'Menge erhöhen' }));
+  expect(mockUpdateQtyMutate).toHaveBeenCalledWith({
+    id: 'item-1',
+    household_id: 'hh-1',
+    delta: 1,
+  });
+});
+
+it('fragt vor dem Entfernen aus dem Aktions-Sheet nach Bestaetigung', async () => {
+  const alertSpy = jest.spyOn(Alert, 'alert').mockImplementation(() => {});
+  const user = userEvent.setup();
+
+  await renderScreen();
+  await user.press(screen.getByRole('button', { name: 'Milch, 2 l' }));
+  await user.press(screen.getByRole('button', { name: 'Entfernen' }));
 
   expect(alertSpy).toHaveBeenCalledWith(
     'Artikel löschen',
@@ -113,12 +171,70 @@ it('fragt bei Lang-Druck vor dem Loeschen nach Bestaetigung', async () => {
   alertSpy.mockRestore();
 });
 
-it('oeffnet das Artikel-hinzufuegen-Formular ueber den Header-Button', async () => {
+it('fragt auch über die Linkswisch-Aktion vor dem Entfernen nach', async () => {
+  const alertSpy = jest.spyOn(Alert, 'alert').mockImplementation(() => {});
+  const user = userEvent.setup();
+
+  await renderScreen();
+  await user.press(screen.getByRole('button', { name: 'Milch entfernen' }));
+
+  expect(alertSpy).toHaveBeenCalledWith(
+    'Artikel löschen',
+    '"Milch" aus dem Vorrat entfernen?',
+    expect.any(Array),
+  );
+  alertSpy.mockRestore();
+});
+
+it('öffnet Produktinformationen per Long Press und über die Info-Aktion', async () => {
+  const user = userEvent.setup();
+
+  await renderScreen();
+  const row = screen.getByRole('button', { name: 'Milch, 2 l' });
+
+  await user.longPress(row);
+  expect(screen.getByText('Produktdaten von Open Food Facts')).toBeOnTheScreen();
+  await user.press(screen.getByRole('button', { name: 'Schließen' }));
+
+  await user.press(row);
+  await user.press(screen.getByRole('button', { name: 'Produktinformationen' }));
+  expect(screen.getByText('Produktdaten von Open Food Facts')).toBeOnTheScreen();
+});
+
+it('bearbeitet einen Vorratsartikel im eigenen Bottom Sheet', async () => {
+  const user = userEvent.setup();
+
+  await renderScreen();
+  await user.press(screen.getByRole('button', { name: 'Milch, 2 l' }));
+  await user.press(screen.getByRole('button', { name: 'Bearbeiten' }));
+
+  expect(screen.getByText('Artikel bearbeiten')).toBeOnTheScreen();
+  fireEvent.changeText(screen.getByLabelText('Artikelname'), 'Haferdrink');
+  await user.press(screen.getByRole('button', { name: 'Menge erhöhen' }));
+  await user.press(screen.getByRole('button', { name: 'Änderungen speichern' }));
+
+  expect(mockUpdateItemMutateAsync).toHaveBeenCalledWith(
+    expect.objectContaining({
+      id: 'item-1',
+      name: 'Haferdrink',
+      quantity: 3,
+      unit: 'l',
+    }),
+  );
+});
+
+it('bietet im Vorrat keine Lagerort-Verwaltung an', async () => {
+  await renderScreen();
+  expect(screen.queryByRole('button', { name: 'Lagerorte verwalten' })).not.toBeOnTheScreen();
+});
+
+it('zeigt die grosszügige Zusammenfassung über der kompakten Arbeitsliste', async () => {
   await renderScreen();
 
-  await fireEvent.press(screen.getByLabelText('Artikel hinzufügen'));
-
-  expect(router.push).toHaveBeenCalledWith('/add-item');
+  expect(screen.getByLabelText('1 Artikel im Vorrat, 0 kritisch, 0 bald fällig')).toBeTruthy();
+  expect(screen.getByText('Dein Vorrat heute')).toBeTruthy();
+  expect(screen.getByText('Alles gut im Blick')).toBeTruthy();
+  expect(screen.getByRole('button', { name: 'Milch, 2 l' })).toBeTruthy();
 });
 
 describe('Sortier-Toggle MHD/Name (#71)', () => {
@@ -167,8 +283,13 @@ describe('Sortier-Toggle MHD/Name (#71)', () => {
   });
 
   it('sortiert nach Name, wenn der Name-Toggle gewaehlt wird', async () => {
+    const user = userEvent.setup();
     await renderScreen();
-    await fireEvent.press(screen.getByText('Name'));
+    await user.press(
+      screen.getByRole('button', {
+        name: 'Sortierung ändern, aktuell nach Haltbarkeit',
+      }),
+    );
     expect(itemOrder()).toEqual(['Apfel, 1 piece', 'Zwiebel, 1 piece']);
   });
 });

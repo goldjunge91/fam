@@ -38,8 +38,15 @@ export function Card({ children, title, footer, onPress, style }: CardProps) {
 const styles = StyleSheet.create({
   card: {
     padding: Spacing.three,
-    borderRadius: Spacing.four,
+    borderRadius: 28,
     gap: Spacing.two,
+    // Weicher, warmer Schatten statt harter Kante — passend zum
+    // "surface-elevated"-Look des fam-Design-Systems (Figma, #150).
+    shadowColor: '#594059',
+    shadowOffset: { width: 0, height: 8 },
+    shadowOpacity: 0.09,
+    shadowRadius: 20,
+    elevation: 2,
   },
   pressed: {
     opacity: 0.7,

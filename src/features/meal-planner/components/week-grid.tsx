@@ -3,43 +3,58 @@ import { Pressable, ScrollView, StyleSheet, View } from 'react-native';
 import { Gesture, GestureDetector } from 'react-native-gesture-handler';
 import Animated, { runOnJS, useAnimatedStyle, useSharedValue } from 'react-native-reanimated';
 
-import { ThemedText } from '@/components/themed-text';
-import { Spacing } from '@/constants/theme';
+import { FontSize, ThemedText } from '@/components/themed-text';
 import { useTheme } from '@/hooks/use-theme';
+
 import type { MealPlanEntry, MealSlot } from '../use-meal-plans';
-import { MEAL_SLOT_LABELS, MEAL_SLOTS, weekdayLabel } from '../week';
+import { MEAL_SLOTS, weekdayLabel } from '../week';
 
 export type DraggableRecipe = { id: string; title: string };
 
 type CellRect = { x: number; y: number; width: number; height: number };
 
 type WeekGridProps = {
-  /** Sichtbare Tage, in Reihenfolge — 1 (Tag), 3 (3 Tage) oder 7 (Woche). */
   dates: readonly string[];
   entries: readonly MealPlanEntry[];
   recipes: readonly DraggableRecipe[];
   onDropRecipe: (date: string, slot: MealSlot, recipe: DraggableRecipe) => void;
   onTapEntry: (entry: MealPlanEntry) => void;
-  /**
-   * Tippen auf eine leere Zelle (#129-Nachtrag): oeffnet einen Rezept-Picker
-   * statt sich auf Drag & Drop zu verlassen. Drag & Drop bleibt als
-   * zusaetzlicher Weg bestehen, ist aber auf echten Geraeten fehleranfaellig
-   * (Zell-Koordinaten werden nur einmal gemessen, siehe Kommentar unten) —
-   * Tippen ist der verlaessliche Hauptweg, um ein Gericht einzutragen.
-   */
   onTapEmptyCell: (date: string, slot: MealSlot) => void;
 };
 
+const SLOT_LABELS: Record<MealSlot, string> = {
+  breakfast: 'Frühstück',
+  lunch: 'Mittag',
+  dinner: 'Abendessen',
+};
+
+const MONTH_LABELS = [
+  'Jan.',
+  'Feb.',
+  'März',
+  'Apr.',
+  'Mai',
+  'Juni',
+  'Juli',
+  'Aug.',
+  'Sep.',
+  'Okt.',
+  'Nov.',
+  'Dez.',
+];
+
+function dateLabel(date: string) {
+  const [, month, day] = date.split('-').map(Number);
+  return `${day}. ${MONTH_LABELS[month - 1]}`;
+}
+
+function portionLabel(portions: number) {
+  return `${portions} ${portions === 1 ? 'Portion' : 'Portionen'}`;
+}
+
 /**
- * Tages-/3-Tage-/Wochenraster (#129, Nachtrag fuer mehrere Ansichten): so
- * viele Tage (Zeilen) wie `dates` lang ist, x 3 Mahlzeiten-Slots (Spalten).
- * Ein Gericht kommt entweder per Tippen auf eine leere Zelle (Rezept-Picker)
- * oder per Drag & Drop aus der Ablage unten in eine Zelle.
- *
- * Bekannte Grenze beim Drag & Drop: Zell-Koordinaten werden bei jedem Layout
- * gemessen (`measure()`), aber nicht bei jedem Scroll-Event neu — waehrend
- * eines Drags scrollen aendert deshalb die Trefferflaeche nicht mit. Deshalb
- * ist Tippen (`onTapEmptyCell`) der primaere, verlaessliche Weg.
+ * Responsive Tageskarten des Essensplans. Tippen bleibt der primaere Weg;
+ * die vorhandene Drag-Ablage sitzt weiter unter den sichtbaren Tagen.
  */
 export function WeekGrid({
   dates,
@@ -50,9 +65,7 @@ export function WeekGrid({
   onTapEmptyCell,
 }: WeekGridProps) {
   const theme = useTheme();
-  const days = dates;
   const cellRects = useRef(new Map<string, CellRect>());
-
   const [draggingTitle, setDraggingTitle] = useState<string | null>(null);
   const translateX = useSharedValue(0);
   const translateY = useSharedValue(0);
@@ -97,96 +110,117 @@ export function WeekGrid({
 
   return (
     <View style={styles.root}>
-      <ScrollView style={styles.grid} showsVerticalScrollIndicator={false}>
-        <View style={[styles.headerRow, { borderColor: theme.border }]}>
-          <View style={styles.dayColumnHeader} />
-          {MEAL_SLOTS.map((slot) => (
-            <View key={slot} style={styles.slotHeaderCell}>
-              <ThemedText type="small" themeColor="textSecondary">
-                {MEAL_SLOT_LABELS[slot]}
+      <ScrollView
+        style={styles.scroll}
+        contentContainerStyle={styles.content}
+        showsVerticalScrollIndicator={false}>
+        {dates.map((date) => (
+          <View
+            key={date}
+            style={[
+              styles.dayCard,
+              {
+                backgroundColor: `${theme.backgroundElement}E3`,
+                borderColor: `${theme.backgroundElement}F5`,
+              },
+            ]}>
+            <View style={styles.dayHeader}>
+              <ThemedText style={styles.dayName}>{weekdayLabel(date)}</ThemedText>
+              <ThemedText themeColor="textSecondary" style={styles.dayDate}>
+                {dateLabel(date)}
               </ThemedText>
             </View>
-          ))}
-        </View>
 
-        {days.map((date) => (
-          <View key={date} style={[styles.dayRow, { borderColor: theme.border }]}>
-            <View style={styles.dayColumnHeader}>
-              <ThemedText type="smallBold">{weekdayLabel(date).slice(0, 2)}</ThemedText>
-              <ThemedText type="small" themeColor="textSecondary">
-                {date.slice(8, 10)}.{date.slice(5, 7)}.
-              </ThemedText>
-            </View>
+            <View style={[styles.slotRow, { borderTopColor: `${theme.text}12` }]}>
+              {MEAL_SLOTS.map((slot, slotIndex) => {
+                const key = `${date}|${slot}`;
+                const cellEntries = entriesByCell.get(key) ?? [];
+                return (
+                  <View
+                    key={slot}
+                    ref={(node) => registerCell(key, node)}
+                    style={[
+                      styles.slot,
+                      slotIndex > 0 && { borderLeftColor: `${theme.text}12`, borderLeftWidth: 1 },
+                    ]}>
+                    <ThemedText themeColor="textSecondary" style={styles.slotLabel}>
+                      {SLOT_LABELS[slot]}
+                    </ThemedText>
 
-            {MEAL_SLOTS.map((slot) => {
-              const key = `${date}|${slot}`;
-              const cellEntries = entriesByCell.get(key) ?? [];
-              return (
-                <View
-                  key={slot}
-                  ref={(node) => registerCell(key, node)}
-                  onLayout={() => {}}
-                  style={[styles.cell, { borderColor: theme.border }]}>
-                  {cellEntries.length === 0 ? (
-                    <Pressable
-                      accessibilityRole="button"
-                      accessibilityLabel={`${MEAL_SLOT_LABELS[slot]} am ${weekdayLabel(date)}, Gericht hinzufügen`}
-                      onPress={() => onTapEmptyCell(date, slot)}
-                      style={styles.emptyCell}>
-                      <ThemedText type="small" themeColor="textSecondary">
-                        +
-                      </ThemedText>
-                    </Pressable>
-                  ) : (
-                    cellEntries.map((entry) => (
+                    {cellEntries.map((entry) => (
                       <Pressable
                         key={entry.id}
-                        accessibilityRole="button"
-                        accessibilityLabel={`${entry.recipe_title}, ${entry.portions} Portionen`}
+                        role="button"
+                        aria-label={`${entry.recipe_title}, ${portionLabel(entry.portions)}`}
                         onPress={() => onTapEntry(entry)}
-                        style={[styles.entryChip, { backgroundColor: theme.accent }]}>
-                        <ThemedText type="small" style={{ color: '#ffffff' }} numberOfLines={2}>
+                        style={({ pressed }) => [
+                          styles.entryChip,
+                          { backgroundColor: theme.backgroundSelected },
+                          pressed && styles.pressed,
+                        ]}>
+                        <ThemedText style={styles.entryTitle} numberOfLines={1}>
                           {entry.recipe_title}
                         </ThemedText>
-                        <ThemedText type="small" style={{ color: '#ffffff' }}>
-                          {entry.portions}×
+                        <ThemedText themeColor="textSecondary" style={styles.entryMeta}>
+                          {portionLabel(entry.portions)}
                         </ThemedText>
                       </Pressable>
-                    ))
-                  )}
-                </View>
-              );
-            })}
+                    ))}
+
+                    <Pressable
+                      role="button"
+                      aria-label={`${SLOT_LABELS[slot]} am ${weekdayLabel(date)}, Gericht hinzufügen`}
+                      onPress={() => onTapEmptyCell(date, slot)}
+                      style={({ pressed }) => [
+                        styles.addButton,
+                        { borderColor: theme.border },
+                        pressed && styles.pressed,
+                      ]}>
+                      <ThemedText themeColor="accent" style={styles.addText}>
+                        {cellEntries.length > 0 ? '+ Weiteres' : '+ Gericht'}
+                      </ThemedText>
+                    </Pressable>
+                  </View>
+                );
+              })}
+            </View>
           </View>
         ))}
-      </ScrollView>
 
-      <View style={[styles.tray, { borderColor: theme.border, backgroundColor: theme.background }]}>
-        <ThemedText type="small" themeColor="textSecondary" style={styles.trayLabel}>
-          Rezepte auf einen Tag/eine Mahlzeit ziehen
-        </ThemedText>
-        <ScrollView
-          horizontal
-          showsHorizontalScrollIndicator={false}
-          contentContainerStyle={styles.trayContent}>
-          {recipes.map((recipe) => (
-            <DraggableChip
-              key={recipe.id}
-              recipe={recipe}
-              translateX={translateX}
-              translateY={translateY}
-              onDragStart={(title) => setDraggingTitle(title)}
-              onDragEnd={handleDrop}
-            />
-          ))}
-        </ScrollView>
-      </View>
+        {recipes.length > 0 ? (
+          <View
+            style={[
+              styles.tray,
+              { backgroundColor: `${theme.backgroundElement}C7`, borderColor: theme.border },
+            ]}>
+            <ThemedText style={styles.trayTitle}>Rezepte zum Ziehen</ThemedText>
+            <ThemedText themeColor="textSecondary" style={styles.trayLabel}>
+              Optional: Rezept halten und auf eine Mahlzeit ziehen
+            </ThemedText>
+            <ScrollView
+              horizontal
+              showsHorizontalScrollIndicator={false}
+              contentContainerStyle={styles.trayContent}>
+              {recipes.map((recipe) => (
+                <DraggableChip
+                  key={recipe.id}
+                  recipe={recipe}
+                  translateX={translateX}
+                  translateY={translateY}
+                  onDragStart={setDraggingTitle}
+                  onDragEnd={handleDrop}
+                />
+              ))}
+            </ScrollView>
+          </View>
+        ) : null}
+      </ScrollView>
 
       {draggingTitle ? (
         <Animated.View
           pointerEvents="none"
           style={[styles.dragOverlay, overlayStyle, { backgroundColor: theme.accent }]}>
-          <ThemedText type="small" style={{ color: '#ffffff' }} numberOfLines={1}>
+          <ThemedText style={styles.dragText} numberOfLines={1}>
             {draggingTitle}
           </ThemedText>
         </Animated.View>
@@ -209,7 +243,6 @@ function DraggableChip({
   onDragEnd: (absoluteX: number, absoluteY: number, recipe: DraggableRecipe) => void;
 }) {
   const theme = useTheme();
-
   const pan = Gesture.Pan()
     .onBegin((event) => {
       'worklet';
@@ -229,8 +262,8 @@ function DraggableChip({
 
   return (
     <GestureDetector gesture={pan}>
-      <View style={[styles.recipeChip, { backgroundColor: theme.backgroundElement }]}>
-        <ThemedText type="small" numberOfLines={1} style={styles.recipeChipText}>
+      <View style={[styles.recipeChip, { backgroundColor: theme.backgroundSelected }]}>
+        <ThemedText style={styles.recipeChipText} numberOfLines={1}>
           {recipe.title}
         </ThemedText>
       </View>
@@ -238,57 +271,146 @@ function DraggableChip({
   );
 }
 
-const CELL_MIN_HEIGHT = 56;
-
 const styles = StyleSheet.create({
-  root: { flex: 1 },
-  grid: { flex: 1 },
-  headerRow: { flexDirection: 'row', borderBottomWidth: 1, paddingBottom: Spacing.one },
-  dayColumnHeader: { width: 40, justifyContent: 'center', paddingLeft: Spacing.one },
-  slotHeaderCell: { flex: 1, alignItems: 'center' },
-  dayRow: {
-    flexDirection: 'row',
-    borderBottomWidth: StyleSheet.hairlineWidth,
-    minHeight: CELL_MIN_HEIGHT,
-  },
-  cell: {
+  root: {
     flex: 1,
-    borderLeftWidth: StyleSheet.hairlineWidth,
-    padding: Spacing.half,
-    alignItems: 'center',
-    justifyContent: 'center',
-    gap: 2,
   },
-  emptyCell: {
-    width: '100%',
+  scroll: {
+    flex: 1,
+  },
+  content: {
+    gap: 8,
+    paddingTop: 10,
+    paddingBottom: 126,
+  },
+  dayCard: {
+    overflow: 'hidden',
+    borderWidth: 1,
+    borderRadius: 20,
+    borderCurve: 'continuous',
+  },
+  dayHeader: {
+    height: 30,
+    flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'center',
-    minHeight: CELL_MIN_HEIGHT - Spacing.half * 2,
+    justifyContent: 'space-between',
+    paddingHorizontal: 12,
+  },
+  dayName: {
+    ...FontSize[12],
+    lineHeight: 15,
+    fontWeight: 700,
+  },
+  dayDate: {
+    ...FontSize[9],
+    lineHeight: 12,
+    fontWeight: 500,
+  },
+  slotRow: {
+    flexDirection: 'row',
+    borderTopWidth: 1,
+  },
+  slot: {
+    flex: 1,
+    minWidth: 0,
+    minHeight: 88,
+    gap: 4,
+    paddingHorizontal: 6,
+    paddingVertical: 6,
+  },
+  slotLabel: {
+    ...FontSize[7],
+    lineHeight: 9,
+    fontWeight: 700,
+    letterSpacing: 0.55,
+    textTransform: 'uppercase',
   },
   entryChip: {
-    borderRadius: 8,
-    paddingHorizontal: Spacing.one,
-    paddingVertical: 2,
+    minHeight: 31,
+    justifyContent: 'center',
+    borderRadius: 10,
+    borderCurve: 'continuous',
+    paddingHorizontal: 7,
+    paddingVertical: 5,
+  },
+  entryTitle: {
+    ...FontSize[9],
+    lineHeight: 11,
+    fontWeight: 700,
+  },
+  entryMeta: {
+    ...FontSize[7],
+    lineHeight: 9,
+    fontWeight: 500,
+  },
+  addButton: {
+    minHeight: 27,
     alignItems: 'center',
-    width: '100%',
+    justifyContent: 'center',
+    borderWidth: 1,
+    borderStyle: 'dashed',
+    borderRadius: 9,
+    borderCurve: 'continuous',
+    paddingHorizontal: 4,
   },
-  tray: { borderTopWidth: 1, paddingVertical: Spacing.two },
-  trayLabel: { paddingHorizontal: Spacing.three, paddingBottom: Spacing.one },
-  trayContent: { paddingHorizontal: Spacing.three, gap: Spacing.two },
+  addText: {
+    ...FontSize[8],
+    lineHeight: 10,
+    fontWeight: 600,
+  },
+  pressed: {
+    opacity: 0.7,
+  },
+  tray: {
+    overflow: 'hidden',
+    borderWidth: 1,
+    borderRadius: 18,
+    borderCurve: 'continuous',
+    paddingVertical: 12,
+  },
+  trayTitle: {
+    paddingHorizontal: 12,
+    ...FontSize[11],
+    lineHeight: 14,
+    fontWeight: 700,
+  },
+  trayLabel: {
+    paddingHorizontal: 12,
+    paddingTop: 1,
+    paddingBottom: 8,
+    ...FontSize[8],
+    lineHeight: 11,
+    fontWeight: 500,
+  },
+  trayContent: {
+    gap: 7,
+    paddingHorizontal: 12,
+  },
   recipeChip: {
-    borderRadius: 20,
-    paddingHorizontal: Spacing.three,
-    paddingVertical: Spacing.two,
     maxWidth: 160,
+    borderRadius: 11,
+    borderCurve: 'continuous',
+    paddingHorizontal: 12,
+    paddingVertical: 8,
   },
-  recipeChipText: {},
+  recipeChipText: {
+    ...FontSize[10],
+    lineHeight: 13,
+    fontWeight: 600,
+  },
   dragOverlay: {
     position: 'absolute',
     left: 0,
     top: 0,
-    borderRadius: 8,
-    paddingHorizontal: Spacing.two,
-    paddingVertical: Spacing.one,
     maxWidth: 160,
+    borderRadius: 10,
+    paddingHorizontal: 10,
+    paddingVertical: 6,
+  },
+  dragText: {
+    color: '#FFFFFF',
+    ...FontSize[9],
+    lineHeight: 12,
+    fontWeight: 700,
   },
 });

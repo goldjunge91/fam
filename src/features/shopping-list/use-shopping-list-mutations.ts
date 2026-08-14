@@ -2,7 +2,10 @@ import { useMutation, useQueryClient } from '@tanstack/react-query';
 import * as Crypto from 'expo-crypto';
 import { getDatabase } from '@/lib/db/client';
 import { enqueueMutation } from '@/lib/db/outbox';
-import { addOrMergeShoppingItem, type AddShoppingItemInput as AddItemInput } from '@/lib/db/shopping-list-merge';
+import {
+  type AddShoppingItemInput as AddItemInput,
+  addOrMergeShoppingItem,
+} from '@/lib/db/shopping-list-merge';
 import { normalizeUnit } from '@/lib/units';
 
 type UpdateItemInput = {
@@ -11,6 +14,8 @@ type UpdateItemInput = {
   name: string;
   quantity: number;
   unit: string;
+  package_size?: number | null;
+  package_size_unit?: string | null;
   category: string | null;
   store_id: string | null;
   price_estimate: number | null;
@@ -71,6 +76,9 @@ export function useUpdateShoppingItem() {
       const now = new Date().toISOString();
       const nowMs = Date.now();
       const normUnit = normalizeUnit(input.unit);
+      const normPackageUnit = input.package_size_unit
+        ? normalizeUnit(input.package_size_unit)
+        : null;
 
       await enqueueMutation(db, {
         entity: 'shopping_list_items',
@@ -82,6 +90,8 @@ export function useUpdateShoppingItem() {
           name: input.name,
           quantity: input.quantity,
           unit: normUnit,
+          package_size: input.package_size ?? null,
+          package_size_unit: normPackageUnit,
           category: input.category,
           store_id: input.store_id,
           price_estimate: input.price_estimate,
@@ -90,12 +100,15 @@ export function useUpdateShoppingItem() {
         applyLocally: async (txn) => {
           await txn.runAsync(
             `update shopping_list_items
-             set name = ?, quantity = ?, unit = ?, category = ?, store_id = ?, price_estimate = ?, updated_at = ?, _dirty = 1
+             set name = ?, quantity = ?, unit = ?, package_size = ?, package_size_unit = ?,
+                 category = ?, store_id = ?, price_estimate = ?, updated_at = ?, _dirty = 1
              where id = ?`,
             [
               input.name,
               input.quantity,
               normUnit,
+              input.package_size ?? null,
+              normPackageUnit,
               input.category,
               input.store_id,
               input.price_estimate,

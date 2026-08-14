@@ -1,153 +1,104 @@
-import { Pressable, ScrollView, StyleSheet, View } from 'react-native';
+import { useState } from 'react';
+import { Pressable, StyleSheet, View } from 'react-native';
 
 import { ThemedText } from '@/components/themed-text';
+import { CompactActionButton } from '@/components/ui/buttons/compact-action-button';
 import { Spacing } from '@/constants/theme';
 import type { StorageLocation } from '@/features/inventory/use-storage-locations';
 import { useTheme } from '@/hooks/use-theme';
-import type { LocalFridgeItem } from '../use-fridge-items';
-
-export function getIconForLocation(kind?: string | null, name?: string | null): string {
-  const k = (kind ?? '').toLowerCase();
-  const n = (name ?? '').toLowerCase();
-  if (k === 'fridge') return '🫙';
-  if (k === 'freezer') return '❄️';
-  if (k === 'pantry') return '🥫';
-  if (
-    n.includes('tief') ||
-    n.includes('frost') ||
-    n.includes('eis') ||
-    n.includes('frier') ||
-    n.includes('freezer')
-  )
-    return '❄️';
-  if (n.includes('kühl') || n.includes('fridge')) return '🫙';
-  if (n.includes('kammer') || n.includes('schrank') || n.includes('regal') || n.includes('pantry'))
-    return '🥫';
-  return '📦';
-}
 
 interface FridgeTabBarProps {
-  activeTab: string; // 'all' or location.id
+  activeTab: string;
   onTabChange: (id: string) => void;
   locations: StorageLocation[];
-  items: LocalFridgeItem[];
 }
 
-export function FridgeTabBar({ activeTab, onTabChange, locations, items }: FridgeTabBarProps) {
+export function FridgeTabBar({ activeTab, onTabChange, locations }: FridgeTabBarProps) {
   const theme = useTheme();
+  const [isOpen, setIsOpen] = useState(false);
+  const options = [{ id: 'all', name: 'Alle' }, ...locations];
+  const activeLocation = options.find((location) => location.id === activeTab);
+
+  function selectLocation(id: string) {
+    onTabChange(id);
+    setIsOpen(false);
+  }
 
   return (
-    <ScrollView
-      horizontal
-      showsHorizontalScrollIndicator={false}
-      contentContainerStyle={[styles.tabBar, { backgroundColor: theme.backgroundElement }]}>
-      <Pressable
-        onPress={() => onTabChange('all')}
-        accessibilityRole="tab"
-        accessibilityState={{ selected: activeTab === 'all' }}
-        style={[
-          styles.tab,
-          activeTab === 'all' && {
-            backgroundColor: theme.background,
-            borderColor: theme.accent,
-            borderWidth: 1,
-          },
-        ]}>
-        <ThemedText style={styles.tabIcon}>📦</ThemedText>
-        <ThemedText
-          type="small"
-          style={{
-            color: activeTab === 'all' ? theme.text : theme.textSecondary,
-            fontWeight: activeTab === 'all' ? '600' : '400',
-          }}>
-          Alle
-        </ThemedText>
-        {items.length > 0 && (
-          <View
-            style={[
-              styles.tabBadge,
-              { backgroundColor: activeTab === 'all' ? theme.accent : theme.textSecondary },
-            ]}>
-            <ThemedText style={styles.tabBadgeText}>{items.length}</ThemedText>
-          </View>
-        )}
-      </Pressable>
+    <View style={styles.container}>
+      <CompactActionButton
+        label={activeLocation?.name ?? 'Lagerort auswählen'}
+        accessibilityLabel={`Lagerort auswählen, aktuell ${activeLocation?.name ?? 'keiner'}`}
+        expanded={isOpen}
+        onPress={() => setIsOpen((current) => !current)}
+      />
 
-      {locations.map((loc) => {
-        const isActive = activeTab === loc.id;
-        const icon = getIconForLocation(loc.kind, loc.name);
-        const count = items.filter((i) => i.location_id === loc.id).length;
-
-        return (
-          <Pressable
-            key={loc.id}
-            onPress={() => onTabChange(loc.id)}
-            accessibilityRole="tab"
-            accessibilityState={{ selected: isActive }}
-            style={[
-              styles.tab,
-              isActive && {
-                backgroundColor: theme.background,
-                borderColor: theme.accent,
-                borderWidth: 1,
-              },
-            ]}>
-            <ThemedText style={styles.tabIcon}>{icon}</ThemedText>
-            <ThemedText
-              type="small"
-              style={{
-                color: isActive ? theme.text : theme.textSecondary,
-                fontWeight: isActive ? '600' : '400',
-              }}>
-              {loc.name}
-            </ThemedText>
-            {count > 0 && (
-              <View
-                style={[
-                  styles.tabBadge,
-                  { backgroundColor: isActive ? theme.accent : theme.textSecondary },
+      {isOpen ? (
+        <View
+          accessibilityRole="menu"
+          style={[
+            styles.menu,
+            { backgroundColor: theme.backgroundElement, borderColor: theme.border },
+          ]}>
+          {options.map((location, index) => {
+            const selected = location.id === activeTab;
+            return (
+              <Pressable
+                key={location.id}
+                accessibilityRole="menuitem"
+                accessibilityLabel={location.name}
+                accessibilityState={{ selected }}
+                onPress={() => selectLocation(location.id)}
+                style={({ pressed }) => [
+                  styles.option,
+                  index > 0 && {
+                    borderTopColor: theme.border,
+                    borderTopWidth: StyleSheet.hairlineWidth,
+                  },
+                  selected && { backgroundColor: theme.backgroundSelected },
+                  pressed && styles.pressed,
                 ]}>
-                <ThemedText style={styles.tabBadgeText}>{count}</ThemedText>
-              </View>
-            )}
-          </Pressable>
-        );
-      })}
-    </ScrollView>
+                <ThemedText type="default" style={selected ? styles.selectedLabel : undefined}>
+                  {location.name}
+                </ThemedText>
+                {selected ? <ThemedText themeColor="accent">✓</ThemedText> : null}
+              </Pressable>
+            );
+          })}
+        </View>
+      ) : null}
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
-  tabBar: {
-    flexDirection: 'row',
-    borderRadius: Spacing.three,
-    padding: Spacing.half,
-    gap: Spacing.half,
-    alignItems: 'center',
+  container: {
+    position: 'relative',
+    zIndex: 30,
   },
-  tab: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    gap: Spacing.one,
+  menu: {
+    position: 'absolute',
+    top: 40,
+    left: 0,
+    right: 0,
+    borderWidth: StyleSheet.hairlineWidth,
+    borderRadius: 14,
+    borderCurve: 'continuous',
+    overflow: 'hidden',
+    boxShadow: '0 10px 28px rgba(42, 32, 44, 0.18)',
+    elevation: 8,
+  },
+  option: {
+    minHeight: 42,
     paddingHorizontal: Spacing.three,
-    paddingVertical: Spacing.two,
-    borderRadius: Spacing.two + 2,
-  },
-  tabIcon: {
-    fontSize: 14,
-  },
-  tabBadge: {
-    minWidth: 18,
-    height: 18,
-    borderRadius: 9,
+    flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'center',
-    paddingHorizontal: 4,
+    justifyContent: 'space-between',
   },
-  tabBadgeText: {
-    color: '#fff',
-    fontSize: 11,
-    fontWeight: '700',
+  pressed: {
+    opacity: 0.72,
+  },
+  selectedLabel: {
+    fontWeight: 700,
   },
 });

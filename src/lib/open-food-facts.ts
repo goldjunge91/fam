@@ -19,6 +19,8 @@ export type OpenFoodFactsProduct = {
   saltPer100g?: number;
   /** A–E, Open Food Facts Nutri-Score. */
   nutriScore?: 'a' | 'b' | 'c' | 'd' | 'e';
+  ingredients?: string;
+  allergens?: string[];
   /** NOVA-Verarbeitungsgrad 1 (unverarbeitet) bis 4 (stark verarbeitet). */
   novaGroup?: 1 | 2 | 3 | 4;
   nutrientLevels?: {
@@ -86,6 +88,12 @@ export function formatOFFProduct(raw: any): OpenFoodFactsProduct | null {
     salt: rawLevels.salt,
   };
   const hasNutrientLevels = Object.values(nutrientLevels).some((level) => level !== undefined);
+  const ingredients = raw.ingredients_text_de || raw.ingredients_text || undefined;
+  const allergenTags: unknown[] = Array.isArray(raw.allergens_tags) ? raw.allergens_tags : [];
+  const allergens = allergenTags
+    .filter((tag): tag is string => typeof tag === 'string')
+    .map((tag) => tag.replace(/^[a-z]{2}:/i, '').replaceAll('-', ' '))
+    .filter(Boolean);
 
   return {
     barcode: raw.code || raw._id || '',
@@ -103,6 +111,8 @@ export function formatOFFProduct(raw: any): OpenFoodFactsProduct | null {
     saturatedFatPer100g: nutriments['saturated-fat_100g'] ?? nutriments['saturated-fat_value'],
     saltPer100g: nutriments.salt_100g ?? nutriments.salt_value,
     nutriScore: raw.nutriscore_grade || undefined,
+    ingredients,
+    allergens: allergens.length > 0 ? allergens : undefined,
     novaGroup: raw.nova_group || undefined,
     nutrientLevels: hasNutrientLevels ? nutrientLevels : undefined,
   };
@@ -128,6 +138,9 @@ const SEARCH_FIELDS = [
   'image_front_url',
   'nutriments',
   'nutriscore_grade',
+  'ingredients_text',
+  'ingredients_text_de',
+  'allergens_tags',
   'nova_group',
   'nutrient_levels',
 ].join(',');

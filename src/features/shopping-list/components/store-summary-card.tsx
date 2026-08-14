@@ -1,6 +1,7 @@
 import { Pressable, StyleSheet, View } from 'react-native';
 
-import { ThemedText } from '@/components/themed-text';
+import { ProgressBar } from '@/components/progress-bar';
+import { FontSize, ThemedText } from '@/components/themed-text';
 import { Spacing } from '@/constants/theme';
 import { useTheme } from '@/hooks/use-theme';
 import { formatEuro } from '@/lib/format-currency';
@@ -15,9 +16,9 @@ interface StoreSummaryCardProps {
 }
 
 /**
- * Karte fuer die "Alle Listen"-Uebersicht: farbiges Avatar-Initial, Name,
- * Fortschritt und geschaetzte Summe. `onPress` wechselt in die
- * Detailansicht des Marktes.
+ * Karte fuer die "Alle Listen"-Uebersicht: farbiger linker Streifen, Name,
+ * Fortschritt und geschaetzte Summe (#150, Figma "02.01 · Einkauf —
+ * Märkte"). `onPress` wechselt in die Detailansicht des Marktes.
  */
 export function StoreSummaryCard({
   name,
@@ -29,7 +30,6 @@ export function StoreSummaryCard({
 }: StoreSummaryCardProps) {
   const theme = useTheme();
   const progress = totalCount > 0 ? checkedCount / totalCount : 0;
-  const initial = name.charAt(0).toUpperCase();
 
   return (
     <Pressable
@@ -37,70 +37,60 @@ export function StoreSummaryCard({
       accessibilityRole="button"
       accessibilityLabel={`${name}, ${checkedCount} von ${totalCount} Artikeln, ${formatEuro(totalEstimate)} geschätzt`}
       style={[styles.card, { backgroundColor: theme.backgroundElement }]}>
-      <View style={styles.row}>
-        <View style={[styles.avatar, { backgroundColor: color }]}>
-          <ThemedText style={styles.avatarText}>{initial}</ThemedText>
-        </View>
-        <View style={styles.info}>
-          <ThemedText type="smallBold">{name}</ThemedText>
-          <ThemedText type="small" themeColor="textSecondary">
-            {checkedCount} von {totalCount} Artikeln
-          </ThemedText>
-        </View>
-        <View style={styles.priceBlock}>
-          <ThemedText type="smallBold">{formatEuro(totalEstimate)}</ThemedText>
-          <ThemedText type="small" themeColor="textSecondary">
-            geschätzt
-          </ThemedText>
+      <View style={[styles.stripe, { backgroundColor: color }]} />
+
+      <View style={styles.info}>
+        <ThemedText type="smallBold">{name}</ThemedText>
+        <ThemedText type="small" themeColor="textSecondary">
+          {checkedCount} von {totalCount} Artikeln erledigt
+        </ThemedText>
+        <View style={styles.progressWrap}>
+          <ProgressBar value={progress} color={color} />
         </View>
       </View>
 
-      <View style={[styles.progressTrack, { backgroundColor: theme.border }]}>
-        <View
-          style={[styles.progressFill, { width: `${progress * 100}%`, backgroundColor: color }]}
-        />
+      <View style={styles.priceBlock}>
+        <ThemedText type="smallBold">{formatEuro(totalEstimate)}</ThemedText>
+        <ThemedText type="small" themeColor="textSecondary">
+          geschätzt
+        </ThemedText>
       </View>
+
+      <ThemedText themeColor="textSecondary" style={styles.chevron}>
+        ›
+      </ThemedText>
     </Pressable>
   );
 }
 
 const styles = StyleSheet.create({
   card: {
-    borderRadius: Spacing.four,
-    padding: Spacing.three,
-    gap: Spacing.two,
-  },
-  row: {
     flexDirection: 'row',
     alignItems: 'center',
     gap: Spacing.three,
+    borderRadius: 20,
+    paddingVertical: Spacing.three,
+    paddingLeft: Spacing.two,
+    paddingRight: Spacing.three,
+    overflow: 'hidden',
   },
-  avatar: {
-    width: 36,
-    height: 36,
-    borderRadius: Spacing.two,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  avatarText: {
-    color: '#fff',
-    fontWeight: '700',
-    fontSize: 16,
+  stripe: {
+    width: 5,
+    alignSelf: 'stretch',
+    borderRadius: 3,
   },
   info: {
     flex: 1,
-    gap: 2,
+    gap: 4,
+  },
+  progressWrap: {
+    marginTop: 5,
   },
   priceBlock: {
     alignItems: 'flex-end',
+    gap: 2,
   },
-  progressTrack: {
-    height: 4,
-    borderRadius: 2,
-    overflow: 'hidden',
-  },
-  progressFill: {
-    height: '100%',
-    borderRadius: 2,
+  chevron: {
+    ...FontSize[20],
   },
 });

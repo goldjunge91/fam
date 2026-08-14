@@ -133,6 +133,29 @@ export async function ensureOffDumpDownloaded(db: SqlDatabase): Promise<string |
   return target.uri;
 }
 
+/**
+ * Erzwingt einen sofortigen Release-Check und Download, unabhaengig vom
+ * `CHECK_TTL_MS`-Gate und selbst wenn Tag und Datei bereits uebereinstimmen —
+ * fuer den manuellen "Dump neu laden"-Knopf im Entwickler-Bereich, wo genau
+ * dieses Warten/Ueberspringen den Sinn der Aktion untergraeben wuerde. Wirft
+ * (statt `null` zurueckzugeben) bei fehlendem Netz/Release, damit der
+ * aufrufende Button den Fehler in einem `Alert` anzeigen kann.
+ */
+export async function forceRefreshOffDump(db: SqlDatabase): Promise<string> {
+  const { File, Paths } = loadFileSystem();
+  const target = new File(Paths.document, DUMP_FILE_NAME);
+
+  const release = await checkForNewDumpRelease();
+  if (!release) {
+    throw new Error('Kein Release gefunden (kein Netz oder GitHub nicht erreichbar).');
+  }
+
+  await setLastCheckAt(db, Date.now());
+  await File.downloadFileAsync(release.downloadUrl, target, { idempotent: true });
+  await setStoredReleaseTag(db, release.tag);
+  return target.uri;
+}
+
 function toFsPath(uri: string): string {
   return uri.startsWith('file://') ? uri.slice('file://'.length) : uri;
 }

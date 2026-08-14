@@ -10,10 +10,13 @@ describe('ShoppingItemRow', () => {
     name: 'Hafermilch',
     quantity: 2,
     unit: 'l',
+    package_size: null,
+    package_size_unit: null,
     category: 'Getränke',
     sort_index: 0,
     store_id: null,
     price_estimate: null,
+    recipe_names: [],
     checked_at: null,
     checked_by: null,
     created_at: new Date().toISOString(),
@@ -32,6 +35,32 @@ describe('ShoppingItemRow', () => {
 
     expect(screen.getByText('Hafermilch')).toBeTruthy();
     expect(screen.getByText('2 l')).toBeTruthy();
+  });
+
+  it('sollte die Ursprungsgerichte anzeigen, wenn der Artikel aus einem Rezept stammt', async () => {
+    await render(
+      <ShoppingItemRow
+        item={{ ...dummyItem, recipe_names: ['Spaghetti Bolognese', 'Pfannkuchen'] }}
+        onToggle={jest.fn()}
+        onDelete={jest.fn()}
+        onEdit={jest.fn()}
+      />,
+    );
+
+    expect(screen.getByText(/Spaghetti Bolognese, Pfannkuchen/)).toBeTruthy();
+  });
+
+  it('sollte kein Gericht-Badge anzeigen, wenn der Artikel manuell hinzugefuegt wurde', async () => {
+    await render(
+      <ShoppingItemRow
+        item={dummyItem}
+        onToggle={jest.fn()}
+        onDelete={jest.fn()}
+        onEdit={jest.fn()}
+      />,
+    );
+
+    expect(screen.queryByText(/🍽️/)).not.toBeOnTheScreen();
   });
 
   it('sollte onToggle beim Antippen aufrufen', async () => {

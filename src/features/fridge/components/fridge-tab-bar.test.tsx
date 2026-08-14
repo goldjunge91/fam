@@ -1,7 +1,6 @@
-import { fireEvent, render, screen } from '@testing-library/react-native';
+import { render, screen, userEvent } from '@testing-library/react-native';
 import type { StorageLocation } from '@/features/inventory/use-storage-locations';
-import type { LocalFridgeItem } from '../use-fridge-items';
-import { FridgeTabBar, getIconForLocation } from './fridge-tab-bar';
+import { FridgeTabBar } from './fridge-tab-bar';
 
 const mockLocations: StorageLocation[] = [
   { id: 'loc-1', name: 'Kühlschrank', kind: 'fridge', household_id: 'hh-1', sort_order: 0 },
@@ -9,95 +8,44 @@ const mockLocations: StorageLocation[] = [
   { id: 'loc-3', name: 'Abstellkammer', kind: 'pantry', household_id: 'hh-1', sort_order: 2 },
 ];
 
-const mockItems: LocalFridgeItem[] = [
-  {
-    id: 'item-1',
-    household_id: 'hh-1',
-    name: 'Milch',
-    quantity: 1,
-    unit: 'L',
-    location_id: 'loc-1',
-    product_id: null,
-    expiry_date: null,
-    added_by: null,
-    created_at: '',
-    location_kind: 'fridge',
-    location_name: 'Kühlschrank',
-  },
-  {
-    id: 'item-2',
-    household_id: 'hh-1',
-    name: 'Eis',
-    quantity: 2,
-    unit: 'Packung',
-    location_id: 'loc-2',
-    product_id: null,
-    expiry_date: null,
-    added_by: null,
-    created_at: '',
-    location_kind: 'freezer',
-    location_name: 'Tiefkühltruhe',
-  },
-];
+describe('FridgeTabBar Component', () => {
+  it('zeigt zunächst nur den aktiven Lagerort im kompakten Dropdown-Button', async () => {
+    await render(
+      <FridgeTabBar activeTab="loc-1" onTabChange={jest.fn()} locations={mockLocations} />,
+    );
 
-describe('FridgeTabBar Component & getIconForLocation', () => {
-  describe('getIconForLocation', () => {
-    it('sollte passende Icons basierend auf Kind und Name zurückgeben', () => {
-      expect(getIconForLocation('fridge', 'Kühlschrank')).toBe('🫙');
-      expect(getIconForLocation('freezer', 'Tiefkühltruhe')).toBe('❄️');
-      expect(getIconForLocation('pantry', 'Abstellkammer')).toBe('🥫');
-      expect(getIconForLocation('custom', 'Gefrierfach')).toBe('❄️');
-      expect(getIconForLocation('custom', 'Vorratsschrank')).toBe('🥫');
-      expect(getIconForLocation('custom', 'Keller')).toBe('📦');
-      expect(getIconForLocation(null, null)).toBe('📦');
-    });
+    expect(screen.queryByText('Alle')).not.toBeOnTheScreen();
+    expect(
+      screen.getByRole('button', { name: 'Lagerort auswählen, aktuell Kühlschrank' }),
+    ).toBeOnTheScreen();
+    expect(screen.queryByText('Tiefkühltruhe')).not.toBeOnTheScreen();
   });
 
-  describe('FridgeTabBar Component', () => {
-    it('sollte den "Alle"-Tab und alle Lagerorte rendern', async () => {
-      await render(
-        <FridgeTabBar
-          activeTab="all"
-          onTabChange={jest.fn()}
-          locations={mockLocations}
-          items={mockItems}
-        />,
-      );
+  it('öffnet die Lagerorte direkt darunter und übernimmt die Auswahl', async () => {
+    const handleTabChange = jest.fn();
+    const user = userEvent.setup();
+    await render(
+      <FridgeTabBar activeTab="loc-1" onTabChange={handleTabChange} locations={mockLocations} />,
+    );
 
-      expect(screen.getByText('Alle')).toBeTruthy();
-      expect(screen.getByText('Kühlschrank')).toBeTruthy();
-      expect(screen.getByText('Tiefkühltruhe')).toBeTruthy();
-      expect(screen.getByText('Abstellkammer')).toBeTruthy();
-    });
+    await user.press(
+      screen.getByRole('button', { name: 'Lagerort auswählen, aktuell Kühlschrank' }),
+    );
+    expect(screen.getByRole('menuitem', { name: 'Tiefkühltruhe' })).toBeOnTheScreen();
 
-    it('sollte bei Tab-Klick onTabChange mit der ID aufrufen', async () => {
-      const handleTabChange = jest.fn();
-      await render(
-        <FridgeTabBar
-          activeTab="all"
-          onTabChange={handleTabChange}
-          locations={mockLocations}
-          items={mockItems}
-        />,
-      );
+    await user.press(screen.getByRole('menuitem', { name: 'Tiefkühltruhe' }));
+    expect(handleTabChange).toHaveBeenCalledTimes(1);
+    expect(handleTabChange).toHaveBeenCalledWith('loc-2');
+    expect(screen.queryByRole('menuitem', { name: 'Tiefkühltruhe' })).not.toBeOnTheScreen();
+  });
 
-      await fireEvent.press(screen.getByText('Kühlschrank'));
-      expect(handleTabChange).toHaveBeenCalledTimes(1);
-      expect(handleTabChange).toHaveBeenCalledWith('loc-1');
-    });
+  it('zeigt keine Icons oder Zähler-Kacheln in den Tabs', async () => {
+    await render(
+      <FridgeTabBar activeTab="loc-1" onTabChange={jest.fn()} locations={mockLocations} />,
+    );
 
-    it('sollte korrekte Badge-Anzahlen für Elemente pro Lagerort anzeigen', async () => {
-      await render(
-        <FridgeTabBar
-          activeTab="all"
-          onTabChange={jest.fn()}
-          locations={mockLocations}
-          items={mockItems}
-        />,
-      );
-
-      expect(screen.getByText('2')).toBeTruthy();
-      expect(screen.getAllByText('1')).toHaveLength(2);
-    });
+    expect(screen.queryByText('🫙')).not.toBeOnTheScreen();
+    expect(screen.queryByText('❄️')).not.toBeOnTheScreen();
+    expect(screen.queryByText('🥫')).not.toBeOnTheScreen();
   });
 });

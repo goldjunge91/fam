@@ -3,12 +3,11 @@ import * as Crypto from 'expo-crypto';
 import { router, useLocalSearchParams } from 'expo-router';
 import { useEffect, useState } from 'react';
 import { Alert, Image, StyleSheet, View } from 'react-native';
-
-import { Button } from '@/components/button';
 import { Screen } from '@/components/screen';
 import { useSnackbar } from '@/components/snackbar';
 import { TextField } from '@/components/text-field';
-import { ThemedText } from '@/components/themed-text';
+import { FontSize, ThemedText } from '@/components/themed-text';
+import { Button } from '@/components/ui/buttons';
 import { Spacing } from '@/constants/theme';
 import { useSession } from '@/features/auth/session-provider';
 import { useActiveProfile } from '@/features/calorie-tracking/active-profile-store';
@@ -351,7 +350,7 @@ export function AddFoodEntryScreen() {
           ) : (
             <View
               style={[styles.heroImagePlaceholder, { backgroundColor: theme.backgroundElement }]}>
-              <ThemedText style={{ fontSize: 28 }}>🍽️</ThemedText>
+              <ThemedText style={{ ...FontSize[28] }}>🍽️</ThemedText>
             </View>
           )}
           <View style={styles.heroText}>
@@ -510,7 +509,7 @@ const styles = StyleSheet.create({
   nutriBadgeText: {
     color: '#fff',
     fontWeight: '900',
-    fontSize: 15,
+    ...FontSize[15],
   },
   badgeRow: {
     flexDirection: 'row',

@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react';
 import { Pressable, StyleSheet, View } from 'react-native';
 
-import { ThemedText } from '@/components/themed-text';
+import { FontSize, ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
 import { Spacing } from '@/constants/theme';
 import { useTheme } from '@/hooks/use-theme';
@@ -141,7 +141,7 @@ const styles = StyleSheet.create({
     textAlign: 'right',
   },
   chevron: {
-    fontSize: 20,
+    ...FontSize[20],
     lineHeight: 20,
   },
   pressed: {

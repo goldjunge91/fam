@@ -1,11 +1,20 @@
-import { type Href, router, useNavigation } from 'expo-router';
-import { type ReactNode, useEffect, useState } from 'react';
-import { Pressable, ScrollView, StyleSheet, View } from 'react-native';
+import type { ReactNode } from 'react';
+import { ScrollView, StyleSheet, View } from 'react-native';
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 
-import { ThemedText } from '@/components/themed-text';
+import { GradientBackground } from '@/components/gradient-background';
+import { FontSize, ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
-import { MaxContentWidth, Spacing, TabBarHeight } from '@/constants/theme';
+import {
+  AutoBackButton,
+  BackButton,
+  type BackTarget,
+  MenuButton,
+  ProfileButton,
+} from '@/components/ui/buttons';
+import { MaxContentWidth, Spacing } from '@/constants/theme';
+
+export type { BackTarget } from '@/components/ui/buttons';
 
 type ScreenProps = {
   title: string;
@@ -13,6 +22,22 @@ type ScreenProps = {
   children: ReactNode;
   /** Aktion rechts neben dem Titel, z. B. ein Hinzufuegen-Button. */
   action?: ReactNode;
+  /**
+   * Hamburger + Avatar statt Zurueck-Knopf — fuer die Hub-Screens, die frueher
+   * per Bottom-Tab erreichbar waren (#150, Figma "00 · Screens — Übersicht &
+   * Navigation"). Mit `chrome` gesetzt wird `back`/`action` ignoriert: beide
+   * Header-Varianten schliessen sich aus.
+   */
+  chrome?: {
+    onMenuPress: () => void;
+    onAvatarPress: () => void;
+    initials: string;
+  };
+  /**
+   * Verlauf statt der flachen Theme-Hintergrundfarbe — bislang nur die
+   * Übersicht nutzt das (#150, Figma "00.01 · Übersicht — Normal").
+   */
+  backgroundGradient?: string[];
   scroll?: boolean;
   /**
    * Wohin diese Seite zurueckfuehrt. Ohne Angabe gibt es keinen Knopf.
@@ -35,105 +60,38 @@ type ScreenProps = {
   back?: BackTarget;
 };
 
-export type BackTarget = {
-  /** Das Ziel beim Namen, z. B. `Einstellungen`. Erscheint als `‹ Einstellungen`. */
-  label: string;
-  /**
-   * Ausweichziel, wenn es keine Historie gibt — etwa weil die Seite per
-   * `Redirect` betreten wurde.
-   *
-   * Ohne `href` erscheint der Knopf nur, wenn es wirklich etwas zu verlassen
-   * gibt. Das ist der richtige Modus fuer Seiten, die auch als Sackgasse
-   * erreicht werden koennen: `/household/create` kommt per Redirect, wenn der
-   * Nutzer noch in keinem Haushalt ist — ein Ausweg nach `/settings` wuerde
-   * ihn dort nur wieder hierher zurueckwerfen.
-   */
-  href?: Href;
-};
-
 /**
- * Zurueck gehen, ohne je eine ungedeckte Aktion abzusetzen.
+ * Gemeinsames Geruest aller Screens: Safe Area, Titelzeile, begrenzte Breite.
  *
- * Erst pruefen statt dem Zustand von vorhin zu vertrauen: Zwischen Rendern und
- * Antippen kann sich die Navigation geaendert haben, und ein ungedecktes
- * `GO_BACK` quittiert React Navigation mit einer Fehlermeldung. Gibt es keine
- * Historie, uebernimmt das Ausweichziel — so ist der Knopf nie ohne Wirkung.
+ * Seit #150 gibt es keine native Bottom-Tab-Leiste mehr (Hamburger-Drawer +
+ * globaler Plus-Button statt `NativeTabs`) — der zusaetzliche Bodenabstand
+ * ist nur noch fuer Hub-Screens (`chrome` gesetzt) noetig, damit der
+ * schwebende Plus-Button den letzten Listeneintrag nicht verdeckt.
  */
-function goBackTo(href: Href | undefined) {
-  if (router.canGoBack()) {
-    router.back();
-    return;
-  }
-  if (href) router.replace(href);
-}
-
-function BackButton({ label, href }: BackTarget) {
-  return (
-    <Pressable
-      onPress={() => goBackTo(href)}
-      accessibilityRole="button"
-      accessibilityLabel={`Zurück zu ${label}`}
-      style={styles.backButton}>
-      <ThemedText type="smallBold" themeColor="accent">
-        {`‹ ${label}`}
-      </ThemedText>
-    </Pressable>
-  );
-}
-
-/**
- * Zeigt den Knopf nur, wenn der zustaendige Navigator wirklich zurueck kann.
- *
- * Nur fuer Ziele ohne `href` noetig. Eigene Komponente, damit
- * `useNavigation()` ausschliesslich in diesem Fall laeuft — wuerde `Screen`
- * den Hook immer aufrufen, haenge jeder Screen an einem Navigations-Context,
- * auch die ohne Zurueck-Knopf.
- *
- * Mit Listener statt einmaligem Lesen: `canGoBack()` ist eine Momentaufnahme,
- * und React rendert nicht neu, wenn sich der Navigationszustand aendert.
- */
-function AutoBackButton({ label }: { label: string }) {
-  const navigation = useNavigation();
-  const [canGoBack, setCanGoBack] = useState(false);
-
-  useEffect(() => {
-    const update = () => setCanGoBack(navigation.canGoBack());
-    update();
-
-    const unsubscribeState = navigation.addListener('state', update);
-    const unsubscribeFocus = navigation.addListener('focus', update);
-
-    return () => {
-      unsubscribeState();
-      unsubscribeFocus();
-    };
-  }, [navigation]);
-
-  return canGoBack ? <BackButton label={label} /> : null;
-}
-
-/**
- * Gemeinsames Geruest aller Tab-Screens: Safe Area, Titelzeile, begrenzte
- * Breite und genug Abstand nach unten, damit die Tab-Leiste nichts verdeckt.
- *
- * `BottomTabInset` beruecksichtigt, dass die native Tab-Leiste auf iOS und
- * Android unterschiedlich hoch ist — ohne den Abstand liegt der letzte
- * Listeneintrag unter der Leiste und ist nicht antippbar.
- */
-export function Screen({ title, subtitle, children, action, scroll = true, back }: ScreenProps) {
+export function Screen({
+  title,
+  subtitle,
+  children,
+  action,
+  scroll = true,
+  back,
+  chrome,
+  backgroundGradient,
+}: ScreenProps) {
   const insets = useSafeAreaInsets();
   const body = <View style={styles.body}>{children}</View>;
 
-  // Die native Tab-Leiste liegt ueber dem Inhalt und wird nicht von der Safe Area
-  // erfasst. Ohne diesen Abstand verschwindet der letzte Listeneintrag darunter
-  // und ist weder lesbar noch antippbar — im Simulator gemessen: die Leiste
-  // beginnt bei 90,5 % der Bildschirmhoehe, der Text lag bei 93,8 %.
-  const bottomPadding = insets.bottom + TabBarHeight + Spacing.four;
+  // Nur Hub-Screens (chrome gesetzt) haben den schwebenden Plus-Button unten
+  // im Weg — alle anderen Screens brauchen nur noch die normale Safe Area.
+  const bottomPadding = insets.bottom + Spacing.four + (chrome ? Spacing.six : 0);
 
   return (
     <ThemedView style={styles.root}>
-      <SafeAreaView style={styles.safeArea} edges={['top', 'left', 'right']}>
-        {back ? (
+      {backgroundGradient ? <GradientBackground colors={backgroundGradient} /> : null}
+      <SafeAreaView
+        style={[styles.safeArea, chrome && styles.chromeSafeArea]}
+        edges={['top', 'left', 'right']}>
+        {chrome ? null : back ? (
           back.href ? (
             <BackButton label={back.label} href={back.href} />
           ) : (
@@ -141,17 +99,36 @@ export function Screen({ title, subtitle, children, action, scroll = true, back 
           )
         ) : null}
 
-        <View style={styles.header}>
-          <View style={styles.headerText}>
-            <ThemedText type="subtitle">{title}</ThemedText>
-            {subtitle ? (
-              <ThemedText type="small" themeColor="textSecondary">
-                {subtitle}
+        {chrome ? (
+          <View style={styles.chromeHeader}>
+            <MenuButton onPress={chrome.onMenuPress} />
+
+            <View style={styles.chromeTitleWrap}>
+              {subtitle ? (
+                <ThemedText type="small" themeColor="textSecondary" style={styles.chromeSubtitle}>
+                  {subtitle}
+                </ThemedText>
+              ) : null}
+              <ThemedText type="subtitle" style={styles.chromeTitle}>
+                {title}
               </ThemedText>
-            ) : null}
+            </View>
+
+            <ProfileButton initials={chrome.initials} onPress={chrome.onAvatarPress} />
           </View>
-          {action}
-        </View>
+        ) : (
+          <View style={styles.header}>
+            <View style={styles.headerText}>
+              <ThemedText type="subtitle">{title}</ThemedText>
+              {subtitle ? (
+                <ThemedText type="small" themeColor="textSecondary">
+                  {subtitle}
+                </ThemedText>
+              ) : null}
+            </View>
+            {action}
+          </View>
+        )}
 
         {scroll ? (
           <ScrollView
@@ -178,11 +155,8 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     paddingHorizontal: Spacing.three,
   },
-  backButton: {
-    alignSelf: 'flex-start',
-    paddingTop: Spacing.two,
-    paddingBottom: Spacing.one,
-    paddingRight: Spacing.three,
+  chromeSafeArea: {
+    paddingHorizontal: 21,
   },
   header: {
     flexDirection: 'row',
@@ -195,6 +169,33 @@ const styles = StyleSheet.create({
   headerText: {
     flexShrink: 1,
     gap: Spacing.half,
+  },
+  chromeHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    gap: Spacing.two,
+    height: 94,
+    paddingTop: 13,
+    paddingBottom: 23,
+  },
+  chromeTitleWrap: {
+    flex: 1,
+    alignItems: 'center',
+    gap: 2,
+  },
+  chromeTitle: {
+    textAlign: 'center',
+    ...FontSize[23],
+    lineHeight: 28,
+    fontWeight: '500',
+    letterSpacing: -0.5,
+  },
+  chromeSubtitle: {
+    textAlign: 'center',
+    ...FontSize[12],
+    lineHeight: 16,
+    fontWeight: '400',
   },
   body: {
     gap: Spacing.three,

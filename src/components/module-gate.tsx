@@ -1,7 +1,7 @@
 import { router } from 'expo-router';
 import type { ReactNode } from 'react';
 
-import { Button } from '@/components/button';
+import { Button } from '@/components/ui/buttons';
 import { Card } from '@/components/card';
 import { EmptyState } from '@/components/empty-state';
 import { Screen } from '@/components/screen';
@@ -19,10 +19,13 @@ type ModuleGateProps = {
 };
 
 /**
- * Blendet Tab-*Inhalte* aus, wenn ein Modul deaktiviert ist (#95) — nicht den
- * Tab selbst. Siehe Kommentar in `app-tabs.tsx`: `NativeTabs` sind statisch,
- * ein Remount beim Hinzufuegen/Entfernen eines Triggers wuerde den gesamten
- * Navigationszustand verlieren.
+ * Blendet Hub-Screen-*Inhalte* aus, wenn ein Modul deaktiviert ist (#95) —
+ * nicht den Drawer-Eintrag selbst. Frueher (vor #150) war das noetig, weil
+ * `NativeTabs` statisch sind und ein Remount beim Hinzufuegen/Entfernen eines
+ * Triggers den gesamten Navigationszustand verloren haette. Mit dem
+ * Hamburger-Drawer (`NavigationDrawer`) ist die Route selbst zwar nicht mehr
+ * static-empfindlich, aber ein deaktiviertes Modul soll trotzdem nicht in der
+ * Navigation auftauchen wie ein volles Feature — der Ersatz-Screen bleibt.
  *
  * Waehrend `useModulePreferences` laedt, werden die Kinder optimistisch
  * gerendert (Default in der DB ist ueberall `true`) statt eines

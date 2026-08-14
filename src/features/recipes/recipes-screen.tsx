@@ -1,33 +1,30 @@
-import { Image } from 'expo-image';
 import { router } from 'expo-router';
 import { useMemo, useState } from 'react';
-import {
-  ActivityIndicator,
-  Pressable,
-  ScrollView,
-  StyleSheet,
-  Text,
-  TextInput,
-  TouchableOpacity,
-  View,
-} from 'react-native';
+import { ActivityIndicator, ScrollView, StyleSheet, TextInput, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Svg, { Circle, Path } from 'react-native-svg';
-
-import { useSession } from '@/features/auth/session-provider';
+import { FilterChipBar } from '@/components/filter-chip-bar';
+import { GradientBackground } from '@/components/gradient-background';
+import { PageHeader } from '@/components/page-header';
+import { SectionHeading } from '@/components/section-heading';
+import { FontSize, ThemedText } from '@/components/themed-text';
+import { HeaderIconButton, MenuButton } from '@/components/ui/buttons';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
+import { useNavigationChrome } from '@/features/navigation/navigation-chrome-provider';
 import {
   type RecipeTemplateListItem,
   useRecipeTemplates,
 } from '@/features/recipe-templates/use-recipe-templates';
+import { useTheme } from '@/hooks/use-theme';
 
-import { useRecipeCoverUrl } from './recipe-cover';
+import { RecipeHeroCard, RecipePreviewCard } from './components/recipe-preview-card';
+import { type RecipeFavoriteKey, useRecipeFavorites } from './recipe-favorites';
 import { type DishType, type RecipeListItem, useRecipes } from './use-recipes';
 
 const DIFFICULTY_LABELS: Record<string, string> = {
   easy: 'Einfach',
   medium: 'Mittel',
-  hard: 'Schwer',
+  hard: 'Anspruchsvoll',
 };
 
 const CATEGORY_FILTERS: { value: DishType | 'all'; label: string }[] = [
@@ -39,22 +36,76 @@ const CATEGORY_FILTERS: { value: DishType | 'all'; label: string }[] = [
   { value: 'dessert', label: 'Dessert' },
 ];
 
-function SearchIcon() {
+type RecipeView = 'discover' | 'favorites' | 'household';
+
+type RecipeEntry = {
+  key: string;
+  id: string;
+  kind: 'recipe' | 'template';
+  title: string;
+  coverImagePath: string | null;
+  cookTimeMinutes: number | null;
+  difficultyLabel: string | null;
+  servings: number;
+  dishTypes: DishType[];
+};
+
+function recipeEntry(recipe: RecipeListItem): RecipeEntry {
+  return {
+    key: `recipe-${recipe.id}`,
+    id: recipe.id,
+    kind: 'recipe',
+    title: recipe.title,
+    coverImagePath: recipe.cover_image_path,
+    cookTimeMinutes: recipe.cook_time_minutes,
+    difficultyLabel: recipe.difficulty ? DIFFICULTY_LABELS[recipe.difficulty] : null,
+    servings: recipe.default_servings,
+    dishTypes: recipe.dish_types,
+  };
+}
+
+function templateEntry(template: RecipeTemplateListItem): RecipeEntry {
+  return {
+    key: `template-${template.id}`,
+    id: template.id,
+    kind: 'template',
+    title: template.title,
+    coverImagePath: template.cover_image_path,
+    cookTimeMinutes: template.cook_time_minutes,
+    difficultyLabel: template.difficulty ? DIFFICULTY_LABELS[template.difficulty] : null,
+    servings: template.default_servings,
+    dishTypes: template.dish_types,
+  };
+}
+
+function openEntry(entry: RecipeEntry) {
+  if (entry.kind === 'template') {
+    router.push({ pathname: '/recipe/template-detail', params: { id: entry.id } });
+    return;
+  }
+  router.push({ pathname: '/recipe/detail', params: { id: entry.id } });
+}
+
+function favoriteKey(entry: RecipeEntry): RecipeFavoriteKey {
+  return `${entry.kind}:${entry.id}`;
+}
+
+function SearchIcon({ color }: { color: string }) {
   return (
     <Svg width={18} height={18} viewBox="0 0 24 24" fill="none">
-      <Circle cx={11} cy={11} r={8} stroke="#FF5262" strokeWidth={2} />
-      <Path d="M21 21l-4.35-4.35" stroke="#FF5262" strokeWidth={2} strokeLinecap="round" />
+      <Circle cx={10.5} cy={10.5} r={6.5} stroke={color} strokeWidth={2} />
+      <Path d="m15.5 15.5 5 5" stroke={color} strokeWidth={2} strokeLinecap="round" />
     </Svg>
   );
 }
 
-function CalendarIcon() {
+function HeartIcon({ color }: { color: string }) {
   return (
-    <Svg width={18} height={18} viewBox="0 0 24 24" fill="none">
+    <Svg width={19} height={19} viewBox="0 0 24 24" fill="none">
       <Path
-        d="M7 3v3M17 3v3M4 8h16M5 5h14a1 1 0 011 1v13a1 1 0 01-1 1H5a1 1 0 01-1-1V6a1 1 0 011-1z"
-        stroke="#FF5262"
-        strokeWidth={2}
+        d="M20.8 5.8a5.2 5.2 0 0 0-7.4 0L12 7.2l-1.4-1.4a5.2 5.2 0 0 0-7.4 7.4L12 22l8.8-8.8a5.2 5.2 0 0 0 0-7.4Z"
+        stroke={color}
+        strokeWidth={1.9}
         strokeLinecap="round"
         strokeLinejoin="round"
       />
@@ -62,13 +113,13 @@ function CalendarIcon() {
   );
 }
 
-function PencilIcon() {
+function BackIcon({ color }: { color: string }) {
   return (
-    <Svg width={18} height={18} viewBox="0 0 24 24" fill="none">
+    <Svg width={19} height={19} viewBox="0 0 24 24" fill="none">
       <Path
-        d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4 12.5-12.5z"
-        stroke="#FF5262"
-        strokeWidth={2}
+        d="m15 18-6-6 6-6"
+        stroke={color}
+        strokeWidth={2.2}
         strokeLinecap="round"
         strokeLinejoin="round"
       />
@@ -76,612 +127,287 @@ function PencilIcon() {
   );
 }
 
-function HeartIcon() {
+function RecipeGrid({ entries }: { entries: RecipeEntry[] }) {
   return (
-    <Svg width={15} height={15} viewBox="0 0 24 24" fill="none">
-      <Path
-        d="M12 21s-6.7-4.35-9.3-8.1C1.1 10.5 1.5 7 4.4 5.5c2.2-1.15 4.6-.4 5.9 1.4l1.7 2.3 1.7-2.3c1.3-1.8 3.7-2.55 5.9-1.4 2.9 1.5 3.3 5 1.7 7.4C18.7 16.65 12 21 12 21z"
-        stroke="#FF5262"
-        strokeWidth={2}
-        strokeLinejoin="round"
-      />
-    </Svg>
-  );
-}
-
-function ClockIcon({ color = '#665555' }: { color?: string }) {
-  return (
-    <Svg width={13} height={13} viewBox="0 0 24 24" fill="none">
-      <Circle cx={12} cy={12} r={9} stroke={color} strokeWidth={2} />
-      <Path d="M12 7v5l3.5 2" stroke={color} strokeWidth={2} strokeLinecap="round" />
-    </Svg>
-  );
-}
-
-/**
- * Rein visuelles Herz-Icon ohne Persistenz — es gibt noch keine
- * Favoriten-Tabelle. Nur der Kreis, kein Toggle-Zustand, damit nichts
- * vorgaukelt wird, was nicht gespeichert wird.
- */
-function FavoriteBadge() {
-  return (
-    <View style={styles.favoriteBadge}>
-      <HeartIcon />
+    <View style={styles.grid}>
+      {entries.map((entry, index) => (
+        <RecipePreviewCard
+          key={entry.key}
+          title={entry.title}
+          coverImagePath={entry.coverImagePath}
+          cookTimeMinutes={entry.cookTimeMinutes}
+          difficultyLabel={entry.difficultyLabel}
+          servings={entry.servings}
+          paletteIndex={index + entry.title.length}
+          onPress={() => openEntry(entry)}
+        />
+      ))}
     </View>
   );
 }
 
-function openRecipe(id: string) {
-  router.push({ pathname: '/recipe/detail', params: { id } });
-}
-
-function TrendingCard({ recipe }: { recipe: RecipeListItem }) {
-  const { data: coverUrl } = useRecipeCoverUrl(recipe.cover_image_path);
-
+function EmptyPanel({ children }: { children: string }) {
+  const theme = useTheme();
   return (
-    <TouchableOpacity
-      style={styles.trendingCard}
-      activeOpacity={0.9}
-      onPress={() => openRecipe(recipe.id)}
-      accessibilityRole="button"
-      accessibilityLabel={recipe.title}>
-      <View style={styles.trendingMedia}>
-        {coverUrl ? (
-          <Image source={{ uri: coverUrl }} style={StyleSheet.absoluteFill} contentFit="cover" />
-        ) : null}
-        <FavoriteBadge />
-      </View>
-      <View style={styles.trendingBody}>
-        <View style={styles.trendingBodyText}>
-          <Text style={styles.trendingTitle} numberOfLines={1}>
-            {recipe.title}
-          </Text>
-          {recipe.instructions ? (
-            <Text style={styles.trendingSubtitle} numberOfLines={1}>
-              {recipe.instructions}
-            </Text>
-          ) : null}
-        </View>
-        <View style={styles.trendingMeta}>
-          {recipe.cook_time_minutes ? (
-            <View style={styles.metaRow}>
-              <ClockIcon />
-              <Text style={styles.trendingMetaText}>{recipe.cook_time_minutes}min</Text>
-            </View>
-          ) : null}
-          {recipe.difficulty ? (
-            <Text style={styles.trendingMetaSub}>{DIFFICULTY_LABELS[recipe.difficulty]}</Text>
-          ) : null}
-        </View>
-      </View>
-    </TouchableOpacity>
+    <View style={[styles.emptyPanel, { backgroundColor: `${theme.backgroundElement}C7` }]}>
+      <ThemedText style={styles.emptyTitle}>{children}</ThemedText>
+      <ThemedText themeColor="textSecondary" style={styles.emptyCopy}>
+        Über den Plus-Button kannst du jederzeit ein neues Rezept anlegen.
+      </ThemedText>
+    </View>
   );
 }
 
-function MiniRecipeCard({ recipe, onWhite }: { recipe: RecipeListItem; onWhite?: boolean }) {
-  const { data: coverUrl } = useRecipeCoverUrl(recipe.cover_image_path);
-
-  return (
-    <TouchableOpacity
-      style={styles.miniCard}
-      activeOpacity={0.9}
-      onPress={() => openRecipe(recipe.id)}
-      accessibilityRole="button"
-      accessibilityLabel={recipe.title}>
-      <View style={styles.miniMedia}>
-        {coverUrl ? (
-          <Image source={{ uri: coverUrl }} style={StyleSheet.absoluteFill} contentFit="cover" />
-        ) : null}
-        <FavoriteBadge />
-      </View>
-      <View style={[styles.miniBody, onWhite ? undefined : styles.miniBodyOnTint]}>
-        <Text style={styles.miniTitle} numberOfLines={1}>
-          {recipe.title}
-        </Text>
-        <View style={styles.miniMetaRow}>
-          {recipe.difficulty ? (
-            <Text style={styles.miniMetaText}>{DIFFICULTY_LABELS[recipe.difficulty]}</Text>
-          ) : null}
-          {recipe.cook_time_minutes ? (
-            <View style={styles.metaRow}>
-              <ClockIcon />
-              <Text style={styles.miniMetaText}>{recipe.cook_time_minutes}min</Text>
-            </View>
-          ) : null}
-        </View>
-      </View>
-    </TouchableOpacity>
-  );
-}
-
-/**
- * Vorgefertigte Rezepte ("Vorlagen", siehe recipe-templates-Feature) werden
- * bewusst NICHT als eigene "Vorlagen"-Liste/Screen gezeigt, sondern als ganz
- * normale Rezept-Karten direkt hier in der Übersicht — Tippen öffnet die
- * Vorschau mit "In meine Rezepte kopieren"-Button
- * (recipe-template-detail-screen.tsx).
- */
-function TemplateThumbCard({ template }: { template: RecipeTemplateListItem }) {
-  return (
-    <TouchableOpacity
-      style={styles.thumbCard}
-      activeOpacity={0.9}
-      onPress={() =>
-        router.push({ pathname: '/recipe/template-detail', params: { id: template.id } })
-      }
-      accessibilityRole="button"
-      accessibilityLabel={template.title}>
-      <View style={styles.templateThumbLabel}>
-        <Text style={styles.templateThumbText} numberOfLines={2}>
-          {template.title}
-        </Text>
-      </View>
-    </TouchableOpacity>
-  );
-}
-
-function ThumbCard({ recipe }: { recipe: RecipeListItem }) {
-  const { data: coverUrl } = useRecipeCoverUrl(recipe.cover_image_path);
-
-  return (
-    <TouchableOpacity
-      style={styles.thumbCard}
-      activeOpacity={0.9}
-      onPress={() => openRecipe(recipe.id)}
-      accessibilityRole="button"
-      accessibilityLabel={recipe.title}>
-      {coverUrl ? (
-        <Image source={{ uri: coverUrl }} style={StyleSheet.absoluteFill} contentFit="cover" />
-      ) : null}
-    </TouchableOpacity>
-  );
+function matchesEntry(entry: RecipeEntry, category: DishType | 'all', query: string) {
+  const matchesCategory = category === 'all' || entry.dishTypes.includes(category);
+  const matchesQuery = !query || entry.title.toLocaleLowerCase('de').includes(query);
+  return matchesCategory && matchesQuery;
 }
 
 export function RecipesScreen() {
+  const theme = useTheme();
+  const { openDrawer } = useNavigationChrome();
+  const [view, setView] = useState<RecipeView>('discover');
   const [searchQuery, setSearchQuery] = useState('');
   const [showSearch, setShowSearch] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState<DishType | 'all'>('all');
 
   const { activeHouseholdId } = useActiveHousehold();
-  const { session } = useSession();
-  const userId = session?.user.id;
-  const { data: recipes = [], isLoading } = useRecipes(activeHouseholdId ?? undefined);
-  const { data: templates = [] } = useRecipeTemplates();
+  const { data: recipes = [], isLoading: recipesLoading } = useRecipes(
+    activeHouseholdId ?? undefined,
+  );
+  const { data: templates = [], isLoading: templatesLoading } = useRecipeTemplates();
+  const { favorites } = useRecipeFavorites();
 
-  const filteredTemplates = useMemo(() => {
-    const query = searchQuery.trim().toLowerCase();
-    return templates.filter((t) => {
-      const matchesCategory = selectedCategory === 'all' || t.dish_types.includes(selectedCategory);
-      const matchesQuery = !query || t.title.toLowerCase().includes(query);
-      return matchesCategory && matchesQuery;
-    });
-  }, [templates, searchQuery, selectedCategory]);
+  const { householdEntries, templateEntries } = useMemo(() => {
+    const query = searchQuery.trim().toLocaleLowerCase('de');
+    return {
+      householdEntries: recipes
+        .map(recipeEntry)
+        .filter((entry) => matchesEntry(entry, selectedCategory, query)),
+      templateEntries: templates
+        .map(templateEntry)
+        .filter((entry) => matchesEntry(entry, selectedCategory, query)),
+    };
+  }, [recipes, searchQuery, selectedCategory, templates]);
 
-  const filteredRecipes = useMemo(() => {
-    const query = searchQuery.trim().toLowerCase();
-    return recipes.filter((recipe) => {
-      const matchesCategory =
-        selectedCategory === 'all' || recipe.dish_types.includes(selectedCategory);
-      const matchesQuery = !query || recipe.title.toLowerCase().includes(query);
-      return matchesCategory && matchesQuery;
-    });
-  }, [recipes, searchQuery, selectedCategory]);
-
-  const { trending, yourRecipes, topRecipes, recentlyAdded } = useMemo(() => {
-    const trendingRecipe = filteredRecipes[0];
-    const rest = filteredRecipes.slice(1);
-
-    const mine = userId ? rest.filter((r) => r.created_by === userId) : [];
-    const yours = (mine.length > 0 ? mine : rest).slice(0, 4);
-    const yourIds = new Set(yours.map((r) => r.id));
-
-    const remaining = rest.filter((r) => !yourIds.has(r.id));
-    const top = remaining.slice(0, 4);
-
-    const recent = [...rest]
-      .sort((a, b) => (b.created_at ?? '').localeCompare(a.created_at ?? ''))
-      .slice(0, 6);
-
-    return { trending: trendingRecipe, yourRecipes: yours, topRecipes: top, recentlyAdded: recent };
-  }, [filteredRecipes, userId]);
+  const featured = templateEntries[0] ?? householdEntries[0];
+  const favoriteEntries = [...householdEntries, ...templateEntries].filter((entry) =>
+    favorites.has(favoriteKey(entry)),
+  );
+  const topEntries = (
+    templateEntries.length > 0 ? templateEntries.slice(1) : householdEntries.slice(1)
+  ).slice(0, 4);
+  const newEntries = [...templateEntries]
+    .reverse()
+    .filter((entry) => entry.key !== featured?.key)
+    .slice(0, 4);
+  const isLoading = recipesLoading || templatesLoading;
+  const screenTitle =
+    view === 'favorites' ? 'Meine Favoriten' : view === 'household' ? 'Unsere Rezepte' : 'Rezepte';
 
   return (
-    <SafeAreaView style={styles.safeArea}>
-      <View style={styles.header}>
-        <View>
-          <Text style={styles.headerTitle}>Rezepte</Text>
-          <Text style={styles.headerSubtitle}>Was kochst du heute?</Text>
-        </View>
-        <View style={styles.headerActions}>
-          <TouchableOpacity
-            style={styles.iconButton}
-            onPress={() => router.push('/meal-planner')}
-            accessibilityRole="button"
-            accessibilityLabel="Wochenplan öffnen">
-            <CalendarIcon />
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={styles.iconButton}
-            onPress={() => router.push('/recipe/create')}
-            accessibilityRole="button"
-            accessibilityLabel="Rezept anlegen">
-            <PencilIcon />
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={styles.iconButton}
-            onPress={() => setShowSearch((v) => !v)}
-            accessibilityRole="button"
-            accessibilityLabel="Rezepte durchsuchen">
-            <SearchIcon />
-          </TouchableOpacity>
-        </View>
-      </View>
-
-      <ScrollView
-        style={styles.scrollView}
-        contentContainerStyle={styles.scrollContent}
-        showsVerticalScrollIndicator={false}>
-        {showSearch ? (
-          <View style={styles.searchBarContainer}>
-            <SearchIcon />
-            <TextInput
-              style={styles.searchInput}
-              value={searchQuery}
-              onChangeText={setSearchQuery}
-              placeholder="Rezepte durchsuchen…"
-              placeholderTextColor="#C4B0B2"
-              autoFocus
-            />
-          </View>
-        ) : null}
+    <View style={styles.root}>
+      <GradientBackground colors={['#FFD2B9', '#F8F4EF', '#EEE7F4']} />
+      <SafeAreaView style={styles.safeArea} edges={['top', 'left', 'right']}>
+        <PageHeader
+          title={screenTitle}
+          leading={
+            view === 'discover' ? (
+              <MenuButton onPress={openDrawer} />
+            ) : (
+              <HeaderIconButton label="Zurück zu Rezepte" onPress={() => setView('discover')}>
+                <BackIcon color={theme.text} />
+              </HeaderIconButton>
+            )
+          }
+          trailing={
+            <>
+              {view === 'discover' ? (
+                <HeaderIconButton
+                  label="Meine Favoriten öffnen"
+                  onPress={() => setView('favorites')}>
+                  <HeartIcon color={theme.accent} />
+                </HeaderIconButton>
+              ) : null}
+              <HeaderIconButton
+                label="Rezepte durchsuchen"
+                onPress={() => setShowSearch((visible) => !visible)}>
+                <SearchIcon color={theme.text} />
+              </HeaderIconButton>
+            </>
+          }
+        />
 
         <ScrollView
-          horizontal
-          showsHorizontalScrollIndicator={false}
-          style={styles.categoriesScroll}
-          contentContainerStyle={styles.categoriesContent}>
-          {CATEGORY_FILTERS.map((cat) => {
-            const isActive = cat.value === selectedCategory;
-            return (
-              <Pressable
-                key={cat.value}
-                style={[
-                  styles.categoryPill,
-                  isActive ? styles.categoryPillActive : styles.categoryPillInactive,
-                ]}
-                onPress={() => setSelectedCategory(cat.value)}>
-                <Text
-                  style={[
-                    styles.categoryText,
-                    isActive ? styles.categoryTextActive : styles.categoryTextInactive,
-                  ]}>
-                  {cat.label}
-                </Text>
-              </Pressable>
-            );
-          })}
-        </ScrollView>
+          style={styles.scroll}
+          contentContainerStyle={styles.content}
+          keyboardShouldPersistTaps="handled"
+          showsVerticalScrollIndicator={false}>
+          {showSearch ? (
+            <View style={[styles.searchBar, { backgroundColor: `${theme.backgroundElement}D9` }]}>
+              <SearchIcon color={theme.textSecondary} />
+              <TextInput
+                value={searchQuery}
+                onChangeText={setSearchQuery}
+                role="searchbox"
+                aria-label="Rezepte durchsuchen"
+                placeholder="Rezepte durchsuchen…"
+                placeholderTextColor={theme.textSecondary}
+                autoFocus
+                style={[styles.searchInput, { color: theme.text }]}
+              />
+            </View>
+          ) : null}
 
-        {isLoading ? (
-          <ActivityIndicator style={styles.loading} color="#FF5262" />
-        ) : filteredRecipes.length === 0 ? (
-          <View style={styles.emptyState}>
-            <Text style={styles.emptyStateText}>
-              {recipes.length === 0
-                ? 'Noch keine Rezepte im Haushalt.'
-                : 'Keine Rezepte für diesen Filter.'}
-            </Text>
+          <View style={styles.filters}>
+            <FilterChipBar
+              label="Rezeptkategorie"
+              options={CATEGORY_FILTERS}
+              selected={selectedCategory}
+              onSelect={setSelectedCategory}
+            />
           </View>
-        ) : (
-          <>
-            {trending ? (
-              <View style={styles.section}>
-                <Text style={styles.sectionLabel}>Trending Recipe</Text>
-                <TrendingCard recipe={trending} />
-              </View>
-            ) : null}
 
-            {yourRecipes.length > 0 ? (
-              <View style={styles.yourRecipesContainer}>
-                <Text style={styles.yourRecipesLabel}>Deine Rezepte</Text>
-                <View style={styles.miniGrid}>
-                  {yourRecipes.map((recipe) => (
-                    <MiniRecipeCard key={recipe.id} recipe={recipe} onWhite />
-                  ))}
+          {isLoading ? (
+            <ActivityIndicator
+              accessibilityLabel="Rezepte werden geladen"
+              color={theme.accent}
+              style={styles.loading}
+            />
+          ) : view === 'favorites' ? (
+            favoriteEntries.length > 0 ? (
+              <RecipeGrid entries={favoriteEntries} />
+            ) : (
+              <EmptyPanel>Noch keine Favoriten gespeichert.</EmptyPanel>
+            )
+          ) : view === 'household' ? (
+            householdEntries.length > 0 ? (
+              <RecipeGrid entries={householdEntries} />
+            ) : (
+              <EmptyPanel>Keine Rezepte für diesen Filter.</EmptyPanel>
+            )
+          ) : featured || householdEntries.length > 0 || templateEntries.length > 0 ? (
+            <>
+              {featured ? (
+                <View style={styles.section}>
+                  <SectionHeading title="Trending" eyebrow="Community" />
+                  <RecipeHeroCard
+                    title={featured.title}
+                    coverImagePath={featured.coverImagePath}
+                    cookTimeMinutes={featured.cookTimeMinutes}
+                    difficultyLabel={featured.difficultyLabel}
+                    servings={featured.servings}
+                    onPress={() => openEntry(featured)}
+                  />
                 </View>
-              </View>
-            ) : null}
+              ) : null}
 
-            {topRecipes.length > 0 ? (
               <View style={styles.section}>
-                <Text style={styles.sectionLabel}>Top Rezepte</Text>
-                <ScrollView
-                  horizontal
-                  showsHorizontalScrollIndicator={false}
-                  contentContainerStyle={styles.thumbRow}>
-                  {topRecipes.map((recipe) => (
-                    <ThumbCard key={recipe.id} recipe={recipe} />
-                  ))}
-                </ScrollView>
+                <SectionHeading
+                  title="Unsere Rezepte"
+                  actionLabel="Alle ansehen"
+                  onActionPress={() => setView('household')}
+                />
+                {householdEntries.length > 0 ? (
+                  <RecipeGrid entries={householdEntries.slice(0, 4)} />
+                ) : (
+                  <EmptyPanel>Noch keine Rezepte im Haushalt.</EmptyPanel>
+                )}
               </View>
-            ) : null}
 
-            {recentlyAdded.length > 0 ? (
-              <View style={styles.section}>
-                <Text style={styles.sectionLabel}>Kürzlich hinzugefügt</Text>
-                <ScrollView
-                  horizontal
-                  showsHorizontalScrollIndicator={false}
-                  contentContainerStyle={styles.thumbRow}>
-                  {recentlyAdded.map((recipe) => (
-                    <ThumbCard key={recipe.id} recipe={recipe} />
-                  ))}
-                </ScrollView>
-              </View>
-            ) : null}
-          </>
-        )}
+              {topEntries.length > 0 ? (
+                <View style={styles.section}>
+                  <SectionHeading title="Top Rezepte" />
+                  <RecipeGrid entries={topEntries} />
+                </View>
+              ) : null}
 
-        {filteredTemplates.length > 0 ? (
-          <View style={styles.section}>
-            <Text style={styles.sectionLabel}>Entdecken</Text>
-            <ScrollView
-              horizontal
-              showsHorizontalScrollIndicator={false}
-              contentContainerStyle={styles.thumbRow}>
-              {filteredTemplates.map((template) => (
-                <TemplateThumbCard key={template.id} template={template} />
-              ))}
-            </ScrollView>
-          </View>
-        ) : null}
-      </ScrollView>
-    </SafeAreaView>
+              {newEntries.length > 0 ? (
+                <View style={styles.section}>
+                  <SectionHeading title="Neu von fam" />
+                  <RecipeGrid entries={newEntries} />
+                </View>
+              ) : null}
+            </>
+          ) : (
+            <EmptyPanel>Noch keine Rezepte im Haushalt.</EmptyPanel>
+          )}
+        </ScrollView>
+      </SafeAreaView>
+    </View>
   );
 }
 
-const CARD_RADIUS = 24;
-
 const styles = StyleSheet.create({
+  root: {
+    flex: 1,
+  },
   safeArea: {
     flex: 1,
-    backgroundColor: '#FFFDF9',
+    width: '100%',
+    maxWidth: 800,
+    alignSelf: 'center',
   },
-  header: {
-    flexDirection: 'row',
-    alignItems: 'flex-start',
-    justifyContent: 'space-between',
-    paddingHorizontal: 20,
-    paddingVertical: 16,
-  },
-  headerTitle: {
-    fontSize: 28,
-    fontWeight: '700',
-    color: '#FF5262',
-  },
-  headerSubtitle: {
-    fontSize: 14,
-    color: '#332222',
-    marginTop: 2,
-  },
-  headerActions: {
-    flexDirection: 'row',
-    gap: 10,
-  },
-  iconButton: {
-    width: 40,
-    height: 40,
-    borderRadius: 20,
-    backgroundColor: '#FFE2E2',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  scrollView: {
+  scroll: {
     flex: 1,
   },
-  scrollContent: {
-    paddingHorizontal: 20,
-    paddingBottom: 24,
+  content: {
+    paddingHorizontal: 15,
+    paddingTop: 4,
+    paddingBottom: 126,
   },
-  searchBarContainer: {
+  filters: {
+    marginBottom: 16,
+  },
+  searchBar: {
+    height: 42,
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#FFE2E2',
-    borderRadius: 22,
-    height: 48,
-    paddingHorizontal: 16,
-    marginBottom: 16,
-    gap: 10,
+    gap: 9,
+    borderRadius: 14,
+    borderCurve: 'continuous',
+    paddingHorizontal: 13,
+    marginBottom: 10,
   },
   searchInput: {
     flex: 1,
-    fontSize: 15,
-    color: '#332222',
-  },
-  categoriesScroll: {
-    marginBottom: 20,
-  },
-  categoriesContent: {
-    gap: 10,
-  },
-  categoryPill: {
-    paddingHorizontal: 18,
-    paddingVertical: 8,
-    borderRadius: 20,
-  },
-  categoryPillActive: {
-    backgroundColor: '#FF5262',
-  },
-  categoryPillInactive: {
-    backgroundColor: '#FFE2E2',
-  },
-  categoryText: {
-    fontSize: 14,
-    fontWeight: '600',
-  },
-  categoryTextActive: {
-    color: '#FFFFFF',
-  },
-  categoryTextInactive: {
-    color: '#FF5262',
+    height: '100%',
+    ...FontSize[14],
+    fontWeight: 500,
+    paddingVertical: 0,
   },
   loading: {
-    marginTop: 40,
-  },
-  emptyState: {
-    paddingVertical: 40,
-    alignItems: 'center',
-  },
-  emptyStateText: {
-    color: '#665555',
-    fontSize: 15,
-    textAlign: 'center',
+    marginTop: 42,
   },
   section: {
-    marginBottom: 24,
+    marginBottom: 20,
   },
-  sectionLabel: {
-    fontSize: 15,
-    fontWeight: '700',
-    color: '#FF5262',
-    marginBottom: 12,
-  },
-  favoriteBadge: {
-    position: 'absolute',
-    top: 10,
-    right: 10,
-    width: 30,
-    height: 30,
-    borderRadius: 15,
-    backgroundColor: 'rgba(255, 255, 255, 0.85)',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  metaRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 4,
-  },
-
-  // Trending
-  trendingCard: {
-    borderRadius: CARD_RADIUS,
-    overflow: 'hidden',
-    backgroundColor: '#FFFFFF',
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.08,
-    shadowRadius: 10,
-    elevation: 3,
-  },
-  trendingMedia: {
-    height: 200,
-    backgroundColor: '#F3E8FF',
-  },
-  trendingBody: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    paddingHorizontal: 16,
-    paddingVertical: 14,
-    gap: 12,
-  },
-  trendingBodyText: {
-    flex: 1,
-    gap: 2,
-  },
-  trendingTitle: {
-    fontSize: 16,
-    fontWeight: '700',
-    color: '#332222',
-  },
-  trendingSubtitle: {
-    fontSize: 12,
-    color: '#665555',
-  },
-  trendingMeta: {
-    alignItems: 'flex-end',
-    gap: 4,
-  },
-  trendingMetaText: {
-    fontSize: 13,
-    color: '#665555',
-  },
-  trendingMetaSub: {
-    fontSize: 12,
-    color: '#FF5262',
-    fontWeight: '600',
-  },
-
-  // "Deine Rezepte" — Pink container
-  yourRecipesContainer: {
-    backgroundColor: '#FF5262',
-    borderRadius: 28,
-    padding: 20,
-    marginBottom: 24,
-  },
-  yourRecipesLabel: {
-    fontSize: 15,
-    fontWeight: '700',
-    color: '#FFFFFF',
-    marginBottom: 14,
-  },
-  miniGrid: {
+  grid: {
     flexDirection: 'row',
     flexWrap: 'wrap',
-    gap: 12,
+    gap: 8,
   },
-  miniCard: {
-    width: '47%',
-    borderRadius: 18,
-    overflow: 'hidden',
-    backgroundColor: '#FFFFFF',
-  },
-  miniMedia: {
-    height: 110,
-    backgroundColor: '#F3E8FF',
-  },
-  miniBody: {
-    padding: 10,
-    gap: 4,
-  },
-  miniBodyOnTint: {
-    backgroundColor: '#FFFFFF',
-  },
-  miniTitle: {
-    fontSize: 13,
-    fontWeight: '700',
-    color: '#332222',
-  },
-  miniMetaRow: {
-    flexDirection: 'row',
+  emptyPanel: {
+    minHeight: 124,
+    borderRadius: 20,
+    borderCurve: 'continuous',
     alignItems: 'center',
-    justifyContent: 'space-between',
+    justifyContent: 'center',
+    paddingHorizontal: 28,
+    paddingVertical: 22,
   },
-  miniMetaText: {
-    fontSize: 11,
-    color: '#665555',
+  emptyTitle: {
+    ...FontSize[14],
+    lineHeight: 18,
+    fontWeight: 700,
+    textAlign: 'center',
   },
-
-  // Thumb-only rows (Top Rezepte / Kürzlich hinzugefügt)
-  thumbRow: {
-    gap: 12,
-  },
-  thumbCard: {
-    width: 140,
-    height: 110,
-    borderRadius: 18,
-    overflow: 'hidden',
-    backgroundColor: '#F3E8FF',
-  },
-  templateThumbLabel: {
-    flex: 1,
-    justifyContent: 'flex-end',
-    padding: 10,
-  },
-  templateThumbText: {
-    fontSize: 13,
-    fontWeight: '700',
-    color: '#332222',
+  emptyCopy: {
+    ...FontSize[11],
+    lineHeight: 15,
+    fontWeight: 500,
+    textAlign: 'center',
+    marginTop: 5,
   },
 });

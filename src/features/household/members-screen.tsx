@@ -1,10 +1,9 @@
 import { router } from 'expo-router';
 import { useState } from 'react';
 import { Alert, FlatList, Image, Pressable, StyleSheet, View } from 'react-native';
-
-import { Button } from '@/components/button';
 import { Screen } from '@/components/screen';
-import { ThemedText } from '@/components/themed-text';
+import { FontSize, ThemedText } from '@/components/themed-text';
+import { Button } from '@/components/ui/buttons';
 import { Spacing } from '@/constants/theme';
 import { useSession } from '@/features/auth/session-provider';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
@@ -219,14 +218,14 @@ export function MembersScreen() {
                   <Pressable
                     onPress={() => handleToggleRole(item.user_id, item.role, displayName)}
                     style={styles.roleTag}>
-                    <ThemedText type="small" style={{ color: theme.accent, fontSize: 12 }}>
+                    <ThemedText type="small" style={{ color: theme.accent, ...FontSize[12] }}>
                       {item.role === 'admin' ? 'Admin ▾' : 'Mitglied ▾'}
                     </ThemedText>
                   </Pressable>
                   <Pressable
                     onPress={() => handleRemoveMember(item.user_id, displayName)}
                     style={styles.removeTag}>
-                    <ThemedText type="small" style={{ color: theme.danger, fontSize: 12 }}>
+                    <ThemedText type="small" style={{ color: theme.danger, ...FontSize[12] }}>
                       Entfernen
                     </ThemedText>
                   </Pressable>
@@ -263,7 +262,7 @@ export function MembersScreen() {
                     <ThemedText
                       type="small"
                       themeColor="textSecondary"
-                      style={{ textAlign: 'center', fontSize: 12 }}>
+                      style={{ textAlign: 'center', ...FontSize[12] }}>
                       Ernenne zuerst einen weiteren Admin, um den Haushalt zu verlassen.
                     </ThemedText>
                   )}
@@ -340,7 +339,7 @@ const styles = StyleSheet.create({
   },
   avatarText: {
     fontWeight: 'bold',
-    fontSize: 14,
+    ...FontSize[14],
   },
   memberInfo: {
     flex: 1,

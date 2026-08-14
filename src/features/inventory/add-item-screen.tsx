@@ -4,11 +4,11 @@ import { router, useFocusEffect } from 'expo-router';
 import { useCallback, useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 
-import { Button } from '@/components/button';
 import { DateWheelField } from '@/components/date-wheel-field';
 import { Screen } from '@/components/screen';
 import { TextField } from '@/components/text-field';
 import { ThemedText } from '@/components/themed-text';
+import { Button } from '@/components/ui/buttons';
 import { Spacing } from '@/constants/theme';
 import { useSession } from '@/features/auth/session-provider';
 import { useAddFridgeItemMutation } from '@/features/fridge/use-fridge-mutations';
@@ -26,6 +26,8 @@ import {
 import { getDatabase } from '@/lib/db/client';
 import { recordProductUsage } from '@/lib/db/product-usage';
 import type { OpenFoodFactsProduct } from '@/lib/open-food-facts';
+import { formatPackageHint } from '@/lib/package-size';
+import { normalizeUnit } from '@/lib/units';
 
 function formatOffsetDate(days: number): string {
   const d = new Date();
@@ -56,6 +58,8 @@ export function AddItemScreen() {
   const [name, setName] = useState('');
   const [quantity, setQuantity] = useState('1');
   const [unit, setUnit] = useState('piece');
+  const [packageSize, setPackageSize] = useState<number | null>(null);
+  const [packageSizeUnit, setPackageSizeUnit] = useState<string | null>(null);
   const [locationId, setLocationId] = useState<string | null>(null);
   const [expiryDate, setExpiryDate] = useState('');
   const [selectedProduct, setSelectedProduct] = useState<OpenFoodFactsProduct | null>(null);
@@ -69,8 +73,14 @@ export function AddItemScreen() {
 
   function handleSelectProduct(product: OpenFoodFactsProduct) {
     setName(product.name);
-    if (product.quantity) setQuantity(String(product.quantity));
-    if (product.unit) setUnit(product.unit);
+    const productUnit = normalizeUnit(product.unit);
+    const productQuantity = product.quantity ?? null;
+    const hasKnownPackageSize =
+      productQuantity !== null && ['g', 'kg', 'ml', 'l'].includes(productUnit);
+    setQuantity('1');
+    setUnit(hasKnownPackageSize ? 'package' : productUnit);
+    setPackageSize(hasKnownPackageSize ? productQuantity : null);
+    setPackageSizeUnit(hasKnownPackageSize ? productUnit : null);
     setSelectedProduct(product);
   }
 
@@ -110,15 +120,19 @@ export function AddItemScreen() {
       const productId = selectedProduct
         ? await persistOffProductIfNeeded(selectedProduct, userId, addProductMutation)
         : null;
-      await mutation.mutateAsync({
+      const values = {
         household_id: currentHousehold.id,
         product_id: productId,
         name: name.trim(),
         quantity: parseFloat(quantity) || 1,
-        unit: unit,
+        unit,
+        package_size: packageSize,
+        package_size_unit: packageSizeUnit,
         location_id: activeLocationId,
         expiry_date: expiryDate.trim() || null,
-      });
+      };
+
+      await mutation.mutateAsync(values);
 
       if (userId) {
         void getDatabase()
@@ -132,7 +146,8 @@ export function AddItemScreen() {
               name: name.trim(),
               brand: selectedProduct?.brand ?? null,
               barcode: selectedProduct?.barcode ?? null,
-              unit,
+              quantity: packageSize ?? (parseFloat(quantity) || 1),
+              unit: packageSizeUnit ?? unit,
             }),
           )
           .then(() => queryClient.invalidateQueries({ queryKey: ['product_usage'] }))

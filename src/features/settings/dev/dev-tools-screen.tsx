@@ -4,7 +4,7 @@ import { router } from 'expo-router';
 import { useCallback, useEffect, useState } from 'react';
 import { Alert, Platform, StyleSheet, View } from 'react-native';
 
-import { Button } from '@/components/button';
+import { Button } from '@/components/ui/buttons';
 import { Card } from '@/components/card';
 import { Screen } from '@/components/screen';
 import { ThemedText } from '@/components/themed-text';
@@ -23,7 +23,12 @@ import { useTheme } from '@/hooks/use-theme';
 import { deleteLocalDatabase, getDatabase } from '@/lib/db/client';
 import { env } from '@/lib/env';
 import { sendTestNotification } from '@/lib/notifications';
-import { getOffDumpStatus, type OffDumpStatus } from '@/lib/off-dump/off-dump';
+import {
+  attachOffDump,
+  forceRefreshOffDump,
+  getOffDumpStatus,
+  type OffDumpStatus,
+} from '@/lib/off-dump/off-dump';
 import { MAX_ATTEMPTS } from '@/lib/sync/backoff';
 
 function formatBytes(bytes: number): string {
@@ -246,6 +251,22 @@ export function DevToolsScreen() {
           wert={offDump?.attached ? 'ja' : 'nein'}
           tone={offDump?.attached ? undefined : 'warning'}
         />
+
+        <View style={styles.aktionStack}>
+          <Button
+            label="Neueste Dump-Datei laden"
+            variant="secondary"
+            onPress={() =>
+              mitBusy('off-dump', async () => {
+                const db = await getDatabase();
+                await forceRefreshOffDump(db);
+                await attachOffDump(db);
+                setOffDump(await getOffDumpStatus(db));
+              })
+            }
+            loading={busy === 'off-dump'}
+          />
+        </View>
       </Card>
 
       <Card title="Aktionen">

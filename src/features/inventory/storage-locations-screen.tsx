@@ -1,11 +1,10 @@
 import { useState } from 'react';
 import { Alert, StyleSheet, View } from 'react-native';
-
-import { Button } from '@/components/button';
 import { Card } from '@/components/card';
 import { Screen } from '@/components/screen';
 import { TextField } from '@/components/text-field';
-import { ThemedText } from '@/components/themed-text';
+import { FontSize, ThemedText } from '@/components/themed-text';
+import { Button } from '@/components/ui/buttons';
 import { Spacing } from '@/constants/theme';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import {
@@ -181,7 +180,7 @@ const styles = StyleSheet.create({
   },
   nameText: {
     fontWeight: 'bold',
-    fontSize: 16,
+    ...FontSize[16],
   },
   actionButtons: {
     flexDirection: 'row',
