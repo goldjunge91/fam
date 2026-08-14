@@ -12,6 +12,55 @@ OUTPUT_DB = os.path.join(SCRIPT_DIR, "products_de.db")
 OFF_DUMP_URL = "https://static.openfoodfacts.org/data/openfoodfacts-products.jsonl.gz"
 TARGET_COUNTRY_TAG = "en:germany"
 
+
+def extract_nutrient(item, key):
+    """Liest einen Naehrwert je 100g/100ml aus einem OFF-Produkt.
+
+    Bug-Fix (#Rezept-Vorlagen): Der bisherige Code las ausschliesslich den
+    `<feld>_100g`-Schluessel. Viele OFF-Eintraege fuehren denselben Wert aber
+    nur unter dem Basis-Schluessel (`<feld>`, ohne Suffix) oder ausschliesslich
+    als `<feld>_serving` + `serving_quantity` (Gramm/ml pro Portion). Ohne
+    Fallback blieb der Grossteil der Zeilen leer (siehe Recherche-Notiz unten:
+    von rund 405.000 deutschen Zeilen im zuletzt veroeffentlichten Dump hatten
+    nur 88 vollstaendige Kern-Naehrwerte).
+
+    Reihenfolge: `<feld>_100g` -> `<feld>` (viele Beitraege melden implizit
+    pro 100g/ml ohne Suffix) -> aus `<feld>_serving` + `serving_quantity`
+    hochgerechnet.
+    """
+    nutriments = item.get("nutriments") or {}
+
+    for suffix in ("_100g", ""):
+        raw = nutriments.get(f"{key}{suffix}")
+        if raw is None:
+            continue
+        try:
+            return float(raw)
+        except (TypeError, ValueError):
+            continue
+
+    serving_raw = nutriments.get(f"{key}_serving")
+    serving_size_g = item.get("serving_quantity")
+    if serving_raw is not None and serving_size_g:
+        try:
+            serving_val = float(serving_raw)
+            size_g = float(serving_size_g)
+            if size_g > 0:
+                return serving_val * 100.0 / size_g
+        except (TypeError, ValueError):
+            pass
+
+    # Sonderfall Energie: sehr viele Eintraege fuehren nur "energy" (kJ) statt
+    # "energy-kcal", weil kJ die EU-Pflichtangabe ist und kcal optional dazu
+    # kommt. 1 kcal = 4.184 kJ.
+    if key == "energy-kcal":
+        kj = extract_nutrient(item, "energy")
+        if kj is not None:
+            return kj / 4.184
+
+    return None
+
+
 def download_dump():
     if not os.path.exists(LOCAL_GZ_FILE):
         print("Lade Open Food Facts Dump herunter (kann ein paar Minuten dauern)...")
@@ -54,6 +103,7 @@ def process_and_create_sqlite():
 
     count = 0
     inserted = 0
+    complete_nutrition = 0
     batch = []
 
     print("Verarbeite Daten und filtere für Deutschland...")
@@ -94,15 +144,17 @@ def process_and_create_sqlite():
             # Nutriscore
             nutriscore = item.get("nutriscore_grade", "").lower()
 
-            # Nährwerte (per 100g/100ml)
-            nutriments = item.get("nutriments", {})
-            energy_kcal = nutriments.get("energy-kcal_100g") or nutriments.get("energy-kcal")
-            fat = nutriments.get("fat_100g")
-            saturated_fat = nutriments.get("saturated-fat_100g")
-            carbohydrates = nutriments.get("carbohydrates_100g")
-            sugars = nutriments.get("sugars_100g")
-            proteins = nutriments.get("proteins_100g")
-            salt = nutriments.get("salt_100g")
+            # Nährwerte (per 100g/100ml), mit Fallback-Kette (siehe extract_nutrient)
+            energy_kcal = extract_nutrient(item, "energy-kcal")
+            fat = extract_nutrient(item, "fat")
+            saturated_fat = extract_nutrient(item, "saturated-fat")
+            carbohydrates = extract_nutrient(item, "carbohydrates")
+            sugars = extract_nutrient(item, "sugars")
+            proteins = extract_nutrient(item, "proteins")
+            salt = extract_nutrient(item, "salt")
+
+            if None not in (energy_kcal, proteins, carbohydrates, fat):
+                complete_nutrition += 1
 
             batch.append((
                 str(code), product_name, brand, quantity, stores, nutriscore,
@@ -133,7 +185,13 @@ def process_and_create_sqlite():
     conn.commit()
 
     conn.close()
+
+    quote = (complete_nutrition / inserted * 100) if inserted else 0
     print(f"FERTIG! Insgesamt {inserted} deutsche Produkte in '{OUTPUT_DB}' gespeichert.")
+    print(
+        f"Davon mit vollstaendigen Kern-Naehrwerten (kcal/Protein/Kohlenhydrate/Fett): "
+        f"{complete_nutrition} ({quote:.1f} %)."
+    )
 
 if __name__ == "__main__":
     download_dump()
