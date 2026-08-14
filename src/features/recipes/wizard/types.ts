@@ -15,12 +15,28 @@ export interface IngredientItem {
   unit: string;
   /** true, wenn quantity/unit ohne bekanntes Produkt-Stueckgewicht nicht in Gramm umrechenbar war. */
   notConvertible: boolean;
+  /**
+   * `recipe_component_items.id`, wenn diese Zeile beim Bearbeiten aus einem
+   * bestehenden Rezept geladen wurde — null bei einer neu hinzugefuegten
+   * Zutat. Steuert beim Speichern, ob update (Menge/Einheit geaendert) oder
+   * insert (neu) laeuft, siehe recipe-create-screen.tsx.
+   */
+  existingItemId: string | null;
+  /**
+   * `products.id` der bereits aufgeloesten Zutat, wenn aus einem bestehenden
+   * Rezept geladen — spart beim Speichern den OFF-Suche/Anlegen-Umweg
+   * (persistOffProductIfNeeded), solange der Nutzer keine neue Suche
+   * gestartet hat (siehe `product`, das dann Vorrang hat).
+   */
+  existingProductId: string | null;
 }
 
 export interface IngredientComponentGroup {
   id: string;
   title: string;
   items: IngredientItem[];
+  /** `recipe_components.id`, wenn beim Bearbeiten aus einem bestehenden Rezept geladen. */
+  existingComponentId: string | null;
 }
 
 export interface WizardStepItem {
@@ -47,6 +63,8 @@ export function newIngredient(): IngredientItem {
     quantity: '',
     unit: 'g',
     notConvertible: false,
+    existingItemId: null,
+    existingProductId: null,
   };
 }
 

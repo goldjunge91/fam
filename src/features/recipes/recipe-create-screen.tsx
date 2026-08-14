@@ -32,7 +32,11 @@ import {
   useAddRecipeMutation,
   useAddStepIngredientMutation,
   useAddStepMutation,
+  useDeleteComponentMutation,
+  useDeleteItemMutation,
   useRecipeDetail,
+  useUpdateComponentMutation,
+  useUpdateItemMutation,
   useUpdateRecipeMutation,
   useUpdateStepMutation,
 } from './use-recipes';
@@ -56,7 +60,11 @@ export function RecipeCreateScreen() {
   const addRecipe = useAddRecipeMutation();
   const updateRecipe = useUpdateRecipeMutation();
   const addComponent = useAddComponentMutation();
+  const updateComponent = useUpdateComponentMutation();
+  const deleteComponent = useDeleteComponentMutation();
   const addItem = useAddItemMutation();
+  const updateItem = useUpdateItemMutation();
+  const deleteItem = useDeleteItemMutation();
   const addProduct = useAddProductMutation();
   const addStep = useAddStepMutation();
   const updateStep = useUpdateStepMutation();
@@ -80,7 +88,7 @@ export function RecipeCreateScreen() {
   const [existingCoverPath, setExistingCoverPath] = useState<string | null>(null);
 
   const [components, setComponents] = useState<IngredientComponentGroup[]>([
-    { id: 'comp-1', title: 'Zutaten', items: [newIngredient()] },
+    { id: 'comp-1', title: 'Zutaten', items: [newIngredient()], existingComponentId: null },
   ]);
 
   const [wizardSteps, setWizardSteps] = useState<WizardStepItem[]>([newWizardStep()]);
@@ -96,9 +104,36 @@ export function RecipeCreateScreen() {
     setDietaryTags(data.recipe.dietary_tags);
     setHashtagsInput(data.recipe.hashtags.join(' '));
     setExistingCoverPath(data.recipe.cover_image_path);
-    // Zutaten-Komponenten werden beim Bearbeiten bewusst nicht aus den
-    // vorhandenen recipe_components rekonstruiert — nur die Rezeptfelder oben
-    // sind editierbar, Zutaten bleiben ein reiner Neuanlage-Schritt.
+
+    // Zutaten-Komponenten aus den vorhandenen recipe_components/-items
+    // rekonstruieren, damit sie beim Bearbeiten nicht verschwinden. Nur der
+    // Flachfall (Positionen zeigen auf ein product_id) wird abgebildet — eine
+    // Position, die stattdessen auf eine Unterkomponente zeigt
+    // (sub_component_id, Baukasten-Verschachtelung), wird uebersprungen: das
+    // Wizard-Formular kennt kein Editieren verschachtelter Komponenten, eine
+    // grobe Rekonstruktion wuerde beim Speichern eher Daten verfaelschen als
+    // helfen.
+    const hydrated: IngredientComponentGroup[] = data.components.map((component) => ({
+      id: component.id,
+      title: component.name,
+      existingComponentId: component.id,
+      items: data.items
+        .filter((item) => item.component_id === component.id && item.product_id !== null)
+        .map((item) => {
+          const product = item.product_id ? data.productsById.get(item.product_id) : undefined;
+          return {
+            id: item.id,
+            product: null,
+            productQuery: product?.name ?? '',
+            quantity: item.quantity !== null ? String(item.quantity) : String(item.grams),
+            unit: item.unit,
+            notConvertible: false,
+            existingItemId: item.id,
+            existingProductId: item.product_id,
+          };
+        }),
+    }));
+    if (hydrated.length > 0) setComponents(hydrated);
   }, [data]);
 
   async function handlePickCover() {
@@ -189,6 +224,7 @@ export function RecipeCreateScreen() {
         id: `comp-${Date.now()}`,
         title: `Zutaten-Gruppe ${prev.length + 1}`,
         items: [newIngredient()],
+        existingComponentId: null,
       },
     ]);
   }
@@ -276,7 +312,7 @@ export function RecipeCreateScreen() {
       // recipe_component_items.id fuer die Schritt-Zutaten-Verknuepfung unten.
       const localToRealItemId = new Map<string, string>();
 
-      if (!isEditing) {
+      {
         const db = await getDatabase();
         // Nur zur UI-Rueckmeldung ("nicht umrechenbar"), falls beim Speichern
         // ein Stueckgewicht fehlt — der Nutzer sieht die Markierung erst
@@ -284,28 +320,53 @@ export function RecipeCreateScreen() {
         // gepflegt statt stillschweigend verworfen.
         const updatedComponents: IngredientComponentGroup[] = [];
 
-        for (const comp of components) {
-          const readyItems = comp.items.filter(
-            (item) => item.product && Number.parseFloat(item.quantity) > 0,
-          );
-          if (readyItems.length === 0) {
-            updatedComponents.push(comp);
-            continue;
+        // Bestehende Komponenten/Positionen (Bearbeiten-Fall) fuer den
+        // Abgleich am Ende: alles, was hier nicht mehr auftaucht, wurde vom
+        // Nutzer entfernt und muss geloescht werden — ohne diesen Abgleich
+        // blieben geloeschte Zutaten in der DB stehen ("Geisterzutaten").
+        const originalComponentIds = new Set(data ? data.components.map((c) => c.id) : []);
+        const originalItemByComponent = new Map<string, string>();
+        if (data) {
+          for (const item of data.items) {
+            if (item.product_id !== null) originalItemByComponent.set(item.id, item.component_id);
           }
+        }
+        const keptComponentIds = new Set<string>();
+        const keptItemIds = new Set<string>();
 
+        for (const comp of components) {
           const updatedItemsById = new Map(comp.items.map((item) => [item.id, item]));
-          const resolvedItems: { itemId: string; productId: string; grams: number }[] = [];
+          type Resolved = {
+            sourceItemId: string;
+            existingItemId: string | null;
+            productId: string;
+            grams: number;
+            quantity: number;
+            unit: string;
+          };
+          const resolvedItems: Resolved[] = [];
 
-          for (const item of readyItems) {
-            if (!item.product) continue;
-            const productId = await persistOffProductIfNeeded(item.product, userId, addProduct);
+          for (const item of comp.items) {
+            const quantity = Number.parseFloat(item.quantity);
+            if (!(quantity > 0)) continue;
+
+            // item.product gesetzt = Nutzer hat (neu) eine OFF-Suche
+            // abgeschlossen — gilt auch, wenn dieselbe Zeile vorher schon
+            // eine andere Zutat war (Produkt-Ersetzung: alte Position wird
+            // unten ueber den originalItemByComponent-Abgleich geloescht,
+            // hier entsteht eine neue).
+            let productId: string | null = null;
+            if (item.product) {
+              productId = await persistOffProductIfNeeded(item.product, userId, addProduct);
+            } else if (item.existingProductId) {
+              productId = item.existingProductId;
+            }
             if (!productId) continue;
 
             const productRow = await db.getFirstAsync<{ serving_size_g: number | null }>(
               'select serving_size_g from products where id = ?',
               [productId],
             );
-            const quantity = Number.parseFloat(item.quantity);
             const conversion = toGramsEquivalent(quantity, item.unit, {
               servingWeightG: productRow?.serving_size_g ?? undefined,
             });
@@ -314,7 +375,14 @@ export function RecipeCreateScreen() {
               updatedItemsById.set(item.id, { ...item, notConvertible: true });
               continue;
             }
-            resolvedItems.push({ itemId: item.id, productId, grams: conversion.grams });
+            resolvedItems.push({
+              sourceItemId: item.id,
+              existingItemId: item.product ? null : item.existingItemId,
+              productId,
+              grams: conversion.grams,
+              quantity,
+              unit: item.unit,
+            });
           }
 
           if (resolvedItems.length === 0) {
@@ -326,27 +394,56 @@ export function RecipeCreateScreen() {
           }
 
           const totalGrams = resolvedItems.reduce((sum, r) => sum + r.grams, 0);
-          const component = await addComponent.mutateAsync({
-            recipe_id: newRecipeId,
-            household_id: householdId,
-            name: comp.title,
-            serving_grams: totalGrams > 0 ? totalGrams : null,
-          });
 
-          for (const resolved of resolvedItems) {
-            const source = updatedItemsById.get(resolved.itemId);
-            if (!source) continue;
-            const added = await addItem.mutateAsync({
-              component_id: component.id,
+          let realComponentId: string;
+          if (comp.existingComponentId) {
+            keptComponentIds.add(comp.existingComponentId);
+            await updateComponent.mutateAsync({
+              id: comp.existingComponentId,
               recipe_id: newRecipeId,
               household_id: householdId,
-              product_id: resolved.productId,
-              grams: resolved.grams,
-              quantity: Number.parseFloat(source.quantity),
-              unit: source.unit,
+              name: comp.title,
+              serving_grams: totalGrams > 0 ? totalGrams : null,
             });
-            localToRealItemId.set(resolved.itemId, added.id);
-            updatedItemsById.set(resolved.itemId, { ...source, notConvertible: false });
+            realComponentId = comp.existingComponentId;
+          } else {
+            const created = await addComponent.mutateAsync({
+              recipe_id: newRecipeId,
+              household_id: householdId,
+              name: comp.title,
+              serving_grams: totalGrams > 0 ? totalGrams : null,
+            });
+            realComponentId = created.id;
+          }
+
+          for (const resolved of resolvedItems) {
+            const source = updatedItemsById.get(resolved.sourceItemId);
+            if (!source) continue;
+
+            if (resolved.existingItemId) {
+              keptItemIds.add(resolved.existingItemId);
+              await updateItem.mutateAsync({
+                id: resolved.existingItemId,
+                recipe_id: newRecipeId,
+                household_id: householdId,
+                grams: resolved.grams,
+                quantity: resolved.quantity,
+                unit: resolved.unit,
+              });
+              localToRealItemId.set(resolved.sourceItemId, resolved.existingItemId);
+            } else {
+              const added = await addItem.mutateAsync({
+                component_id: realComponentId,
+                recipe_id: newRecipeId,
+                household_id: householdId,
+                product_id: resolved.productId,
+                grams: resolved.grams,
+                quantity: resolved.quantity,
+                unit: resolved.unit,
+              });
+              localToRealItemId.set(resolved.sourceItemId, added.id);
+            }
+            updatedItemsById.set(resolved.sourceItemId, { ...source, notConvertible: false });
           }
 
           updatedComponents.push({
@@ -356,6 +453,30 @@ export function RecipeCreateScreen() {
         }
 
         setComponents(updatedComponents);
+
+        if (isEditing) {
+          for (const componentId of originalComponentIds) {
+            if (!keptComponentIds.has(componentId)) {
+              await deleteComponent.mutateAsync({
+                id: componentId,
+                recipe_id: newRecipeId,
+                household_id: householdId,
+              });
+            }
+          }
+          for (const [itemId, componentId] of originalItemByComponent) {
+            // Nur explizit loeschen, wenn die Komponente selbst erhalten
+            // blieb — sonst hat deleteComponent die Position bereits
+            // kaskadierend entfernt.
+            if (!keptItemIds.has(itemId) && keptComponentIds.has(componentId)) {
+              await deleteItem.mutateAsync({
+                id: itemId,
+                recipe_id: newRecipeId,
+                household_id: householdId,
+              });
+            }
+          }
+        }
       }
 
       let position = 0;
