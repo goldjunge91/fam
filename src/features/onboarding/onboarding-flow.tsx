@@ -1,5 +1,6 @@
 import { useQueryClient } from '@tanstack/react-query';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
+import { ProgressBar } from '@/components/progress-bar';
 import { Screen } from '@/components/screen';
 import { FontSize } from '@/components/themed-text';
 import { Spacing } from '@/constants/theme';
@@ -39,23 +40,7 @@ function OnboardingContent() {
     <Screen title={currentStep === 1 ? 'Willkommen' : `Schritt ${currentStep} von ${TOTAL_STEPS}`}>
       {currentStep > 1 && currentStep < TOTAL_STEPS && (
         <View style={styles.progressContainer}>
-          <View style={styles.progressRow}>
-            {Array.from({ length: TOTAL_STEPS }).map((_, idx) => {
-              const stepNum = idx + 1;
-              const active = stepNum <= currentStep;
-              return (
-                <View
-                  key={stepNum}
-                  style={[
-                    styles.progressBar,
-                    {
-                      backgroundColor: active ? theme.accent : theme.border,
-                    },
-                  ]}
-                />
-              );
-            })}
-          </View>
+          <ProgressBar value={currentStep / TOTAL_STEPS} color={theme.accent} />
           {session && (
             <Pressable onPress={handleEmergencySignOut} style={styles.signOutLink}>
               <Text style={[styles.signOutText, { color: theme.textSecondary }]}>
@@ -90,10 +75,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: Spacing.four,
     marginBottom: Spacing.two,
   },
-  progressRow: {
-    flexDirection: 'row',
-    gap: Spacing.one,
-  },
   signOutLink: {
     alignSelf: 'center',
     marginTop: Spacing.two,
@@ -102,10 +83,5 @@ const styles = StyleSheet.create({
   signOutText: {
     ...FontSize[12],
     textDecorationLine: 'underline',
-  },
-  progressBar: {
-    flex: 1,
-    height: 4,
-    borderRadius: 2,
   },
 });
