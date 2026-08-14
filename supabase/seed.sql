@@ -210,20 +210,26 @@ values
   ('8d4bae92-90b5-5150-8647-2a96e5c38b7f', 'Spaghetti Bolognese', 35, 'medium', array['dinner','lunch'], '{}', 4, 60)
 on conflict (id) do nothing;
 
+delete from public.recipe_template_components where id = 'dea9cfa2-1758-5362-bdcd-7f9f6d76edca';
+
 insert into public.recipe_template_components (id, template_id, name, serving_grams)
-values ('dea9cfa2-1758-5362-bdcd-7f9f6d76edca', '8d4bae92-90b5-5150-8647-2a96e5c38b7f', 'Zutaten', 1353)
+values ('a7fa8943-f69d-5d03-b6f6-af112d7e0450', '8d4bae92-90b5-5150-8647-2a96e5c38b7f', 'Sauce', 953)
+on conflict (id) do update set serving_grams = excluded.serving_grams;
+
+insert into public.recipe_template_components (id, template_id, name, serving_grams)
+values ('3b3c7154-ae3a-5885-bc81-ba32aea8c905', '8d4bae92-90b5-5150-8647-2a96e5c38b7f', 'Nudeln', 400)
 on conflict (id) do update set serving_grams = excluded.serving_grams;
 
 insert into public.recipe_template_items (id, component_id, template_id, product_id, grams, quantity, unit)
 values
-  ('036b118b-b1a0-5fa2-be4a-e353e84d8fc9', 'dea9cfa2-1758-5362-bdcd-7f9f6d76edca', '8d4bae92-90b5-5150-8647-2a96e5c38b7f', '869764ff-4322-5315-b401-d69d0da91252', 400, 400, 'g'),
-  ('11515d71-dfe0-552d-a813-46424d4f74e2', 'dea9cfa2-1758-5362-bdcd-7f9f6d76edca', '8d4bae92-90b5-5150-8647-2a96e5c38b7f', '1435bd1e-16b7-5b61-af7b-ba896491d677', 400, 400, 'g'),
-  ('53e4340a-33ac-51eb-9cd5-91a050fa7d12', 'dea9cfa2-1758-5362-bdcd-7f9f6d76edca', '8d4bae92-90b5-5150-8647-2a96e5c38b7f', '9769015e-92ed-54c9-bc23-f6a5677e8338', 400, 400, 'g'),
-  ('4118f0f5-9049-516e-95f7-a694bb63c6d1', 'dea9cfa2-1758-5362-bdcd-7f9f6d76edca', '8d4bae92-90b5-5150-8647-2a96e5c38b7f', '7bd2cd4c-5c95-55d4-b6f6-6fdc15bacd04', 40, 40, 'g'),
-  ('84751539-5943-5a71-8aea-b219ae7277ab', 'dea9cfa2-1758-5362-bdcd-7f9f6d76edca', '8d4bae92-90b5-5150-8647-2a96e5c38b7f', '669fa5f9-cfe3-5c78-af75-964c9326efd8', 80, 80, 'g'),
-  ('2c121303-c458-5e17-94a6-c2077b6937ff', 'dea9cfa2-1758-5362-bdcd-7f9f6d76edca', '8d4bae92-90b5-5150-8647-2a96e5c38b7f', '2d5e8b74-f732-5ebb-bb29-87ad85bae5ea', 10, 10, 'g'),
-  ('b7fab2bb-4267-5362-bffc-4d78c23d3b6c', 'dea9cfa2-1758-5362-bdcd-7f9f6d76edca', '8d4bae92-90b5-5150-8647-2a96e5c38b7f', 'ba00e36d-2a23-5607-b809-9b6f72d14e9d', 20, 20, 'g'),
-  ('5044a973-a50d-5ea0-9487-e489822ef22c', 'dea9cfa2-1758-5362-bdcd-7f9f6d76edca', '8d4bae92-90b5-5150-8647-2a96e5c38b7f', '2a1683a5-a292-5e88-b373-cf8d39b846be', 3, 3, 'g')
+  ('8aa807af-7774-5994-9d08-292165426dc8', 'a7fa8943-f69d-5d03-b6f6-af112d7e0450', '8d4bae92-90b5-5150-8647-2a96e5c38b7f', '1435bd1e-16b7-5b61-af7b-ba896491d677', 400, 400, 'g'),
+  ('b56f5c90-c18c-5116-94fc-465f6899e9ff', 'a7fa8943-f69d-5d03-b6f6-af112d7e0450', '8d4bae92-90b5-5150-8647-2a96e5c38b7f', '9769015e-92ed-54c9-bc23-f6a5677e8338', 400, 400, 'g'),
+  ('cea1b259-4e9f-5035-be7f-9af6a85ee9a5', 'a7fa8943-f69d-5d03-b6f6-af112d7e0450', '8d4bae92-90b5-5150-8647-2a96e5c38b7f', '7bd2cd4c-5c95-55d4-b6f6-6fdc15bacd04', 40, 40, 'g'),
+  ('9497b6f1-ade6-5712-8bef-491e99159252', 'a7fa8943-f69d-5d03-b6f6-af112d7e0450', '8d4bae92-90b5-5150-8647-2a96e5c38b7f', '669fa5f9-cfe3-5c78-af75-964c9326efd8', 80, 80, 'g'),
+  ('9a33652d-ad36-5a03-8dac-9a208a383f32', 'a7fa8943-f69d-5d03-b6f6-af112d7e0450', '8d4bae92-90b5-5150-8647-2a96e5c38b7f', '2d5e8b74-f732-5ebb-bb29-87ad85bae5ea', 10, 10, 'g'),
+  ('323cb5be-eb5c-5b84-9bf8-4d6b94ec5da8', 'a7fa8943-f69d-5d03-b6f6-af112d7e0450', '8d4bae92-90b5-5150-8647-2a96e5c38b7f', 'ba00e36d-2a23-5607-b809-9b6f72d14e9d', 20, 20, 'g'),
+  ('08f16247-412c-5a49-b7dd-64d1ef1f4935', 'a7fa8943-f69d-5d03-b6f6-af112d7e0450', '8d4bae92-90b5-5150-8647-2a96e5c38b7f', '2a1683a5-a292-5e88-b373-cf8d39b846be', 3, 3, 'g'),
+  ('8e049b91-7752-5be2-adff-1303b847d9d4', '3b3c7154-ae3a-5885-bc81-ba32aea8c905', '8d4bae92-90b5-5150-8647-2a96e5c38b7f', '869764ff-4322-5315-b401-d69d0da91252', 400, 400, 'g')
 on conflict (id) do nothing;
 
 insert into public.recipe_template_steps (id, template_id, position, text)
@@ -273,19 +279,25 @@ values
   ('c500d69e-a639-5705-86ef-8a3096d8ffd3', 'Hähnchen-Gemüse-Pfanne mit Reis', 30, 'medium', array['dinner'], '{}', 3, 80)
 on conflict (id) do nothing;
 
+delete from public.recipe_template_components where id = 'bfeb6343-cbca-5ddc-befc-8862aa538849';
+
 insert into public.recipe_template_components (id, template_id, name, serving_grams)
-values ('bfeb6343-cbca-5ddc-befc-8862aa538849', 'c500d69e-a639-5705-86ef-8a3096d8ffd3', 'Zutaten', 1030)
+values ('86ffcbaa-8a54-5a35-9119-14d4ad4991b8', 'c500d69e-a639-5705-86ef-8a3096d8ffd3', 'Pfanne', 790)
+on conflict (id) do update set serving_grams = excluded.serving_grams;
+
+insert into public.recipe_template_components (id, template_id, name, serving_grams)
+values ('1af198fa-c97a-5583-bd11-494c2fe52678', 'c500d69e-a639-5705-86ef-8a3096d8ffd3', 'Reis', 240)
 on conflict (id) do update set serving_grams = excluded.serving_grams;
 
 insert into public.recipe_template_items (id, component_id, template_id, product_id, grams, quantity, unit)
 values
-  ('1555e215-378b-5368-9c14-c50c18a3ba8d', 'bfeb6343-cbca-5ddc-befc-8862aa538849', 'c500d69e-a639-5705-86ef-8a3096d8ffd3', '617e05e0-ad69-5a19-8fd3-225a56b33fd3', 400, 400, 'g'),
-  ('2cf09bd7-74f5-5c3a-b294-c8da5e8ea2cd', 'bfeb6343-cbca-5ddc-befc-8862aa538849', 'c500d69e-a639-5705-86ef-8a3096d8ffd3', 'd1d42080-0a0d-5388-90cf-49d775108306', 150, 150, 'g'),
-  ('4666f2f3-5aa9-55f0-9959-b762690a0f64', 'bfeb6343-cbca-5ddc-befc-8862aa538849', 'c500d69e-a639-5705-86ef-8a3096d8ffd3', '669fa5f9-cfe3-5c78-af75-964c9326efd8', 80, 80, 'g'),
-  ('2fe494c1-c9d3-50aa-bed1-f6da0aebbb79', 'bfeb6343-cbca-5ddc-befc-8862aa538849', 'c500d69e-a639-5705-86ef-8a3096d8ffd3', '297f392c-c806-5f90-b2b2-b2b54d055ca7', 120, 120, 'g'),
-  ('53467511-20d5-533f-b4db-6ecd0729ac85', 'bfeb6343-cbca-5ddc-befc-8862aa538849', 'c500d69e-a639-5705-86ef-8a3096d8ffd3', 'e06b83d6-c3a4-583b-a36a-57c2fc699eba', 240, 240, 'g'),
-  ('0dcb498f-92c4-5d8c-813e-06d1607ed754', 'bfeb6343-cbca-5ddc-befc-8862aa538849', 'c500d69e-a639-5705-86ef-8a3096d8ffd3', 'ba00e36d-2a23-5607-b809-9b6f72d14e9d', 20, 20, 'g'),
-  ('81bea04e-3e24-574d-bda7-4d6e0c78c027', 'bfeb6343-cbca-5ddc-befc-8862aa538849', 'c500d69e-a639-5705-86ef-8a3096d8ffd3', 'fde39f28-ffd1-57d2-a2dc-7f6fb42bfb92', 20, 20, 'g')
+  ('696f487a-a616-551e-9343-914c21115aa4', '86ffcbaa-8a54-5a35-9119-14d4ad4991b8', 'c500d69e-a639-5705-86ef-8a3096d8ffd3', '617e05e0-ad69-5a19-8fd3-225a56b33fd3', 400, 400, 'g'),
+  ('066efad0-51be-53c4-8d82-d892e16a72a5', '86ffcbaa-8a54-5a35-9119-14d4ad4991b8', 'c500d69e-a639-5705-86ef-8a3096d8ffd3', 'd1d42080-0a0d-5388-90cf-49d775108306', 150, 150, 'g'),
+  ('c65f9aeb-e219-59e7-aa21-3efbb6f75044', '86ffcbaa-8a54-5a35-9119-14d4ad4991b8', 'c500d69e-a639-5705-86ef-8a3096d8ffd3', '669fa5f9-cfe3-5c78-af75-964c9326efd8', 80, 80, 'g'),
+  ('7207d609-2035-5c45-8cef-2dfa21ecea32', '86ffcbaa-8a54-5a35-9119-14d4ad4991b8', 'c500d69e-a639-5705-86ef-8a3096d8ffd3', '297f392c-c806-5f90-b2b2-b2b54d055ca7', 120, 120, 'g'),
+  ('e2359211-f88a-51a9-a706-158b2222c0d4', '86ffcbaa-8a54-5a35-9119-14d4ad4991b8', 'c500d69e-a639-5705-86ef-8a3096d8ffd3', 'ba00e36d-2a23-5607-b809-9b6f72d14e9d', 20, 20, 'g'),
+  ('897d155d-d9ff-5dc5-a2e6-fb3b77a2bb67', '86ffcbaa-8a54-5a35-9119-14d4ad4991b8', 'c500d69e-a639-5705-86ef-8a3096d8ffd3', 'fde39f28-ffd1-57d2-a2dc-7f6fb42bfb92', 20, 20, 'g'),
+  ('a64c35a1-eb66-53f2-83cd-66f806d4a52f', '1af198fa-c97a-5583-bd11-494c2fe52678', 'c500d69e-a639-5705-86ef-8a3096d8ffd3', 'e06b83d6-c3a4-583b-a36a-57c2fc699eba', 240, 240, 'g')
 on conflict (id) do nothing;
 
 insert into public.recipe_template_steps (id, template_id, position, text)
@@ -303,19 +315,25 @@ values
   ('4d77f981-c9da-5ead-8de1-20b18b5f90bd', 'Kichererbsen-Curry', 30, 'easy', array['dinner','lunch'], array['vegetarian'], 3, 90)
 on conflict (id) do nothing;
 
+delete from public.recipe_template_components where id = '1b9c235c-7dba-523b-9261-08d04f875ba6';
+
 insert into public.recipe_template_components (id, template_id, name, serving_grams)
-values ('1b9c235c-7dba-523b-9261-08d04f875ba6', '4d77f981-c9da-5ead-8de1-20b18b5f90bd', 'Zutaten', 1210)
+values ('289ed387-4407-5df5-b239-553bb8c08e51', '4d77f981-c9da-5ead-8de1-20b18b5f90bd', 'Curry', 1010)
+on conflict (id) do update set serving_grams = excluded.serving_grams;
+
+insert into public.recipe_template_components (id, template_id, name, serving_grams)
+values ('05b1a0e3-b835-5303-801f-34503253a916', '4d77f981-c9da-5ead-8de1-20b18b5f90bd', 'Reis', 200)
 on conflict (id) do update set serving_grams = excluded.serving_grams;
 
 insert into public.recipe_template_items (id, component_id, template_id, product_id, grams, quantity, unit)
 values
-  ('45e7991f-ed95-516f-ab4f-a38170290fae', '1b9c235c-7dba-523b-9261-08d04f875ba6', '4d77f981-c9da-5ead-8de1-20b18b5f90bd', '8c8b2a6e-1cc8-56fa-bc80-3022ed2a4807', 400, 400, 'g'),
-  ('771b9ba8-0086-5758-9309-de1452f63cd3', '1b9c235c-7dba-523b-9261-08d04f875ba6', '4d77f981-c9da-5ead-8de1-20b18b5f90bd', '9769015e-92ed-54c9-bc23-f6a5677e8338', 400, 400, 'g'),
-  ('f966eb64-c74a-5663-b520-3cdb8d531c8e', '1b9c235c-7dba-523b-9261-08d04f875ba6', '4d77f981-c9da-5ead-8de1-20b18b5f90bd', '669fa5f9-cfe3-5c78-af75-964c9326efd8', 80, 80, 'g'),
-  ('1db3a254-12b1-5c86-9036-3e71357fd386', '1b9c235c-7dba-523b-9261-08d04f875ba6', '4d77f981-c9da-5ead-8de1-20b18b5f90bd', '2d5e8b74-f732-5ebb-bb29-87ad85bae5ea', 10, 10, 'g'),
-  ('18a017ec-b3f5-5ea9-a29a-449a860a2c27', '1b9c235c-7dba-523b-9261-08d04f875ba6', '4d77f981-c9da-5ead-8de1-20b18b5f90bd', '297f392c-c806-5f90-b2b2-b2b54d055ca7', 100, 100, 'g'),
-  ('b51a2568-9e73-5ce4-8d21-8eb2aacf3f7e', '1b9c235c-7dba-523b-9261-08d04f875ba6', '4d77f981-c9da-5ead-8de1-20b18b5f90bd', 'ba00e36d-2a23-5607-b809-9b6f72d14e9d', 20, 20, 'g'),
-  ('e29b6912-74a8-5a8d-a89a-3f3ca3f0f783', '1b9c235c-7dba-523b-9261-08d04f875ba6', '4d77f981-c9da-5ead-8de1-20b18b5f90bd', 'e06b83d6-c3a4-583b-a36a-57c2fc699eba', 200, 200, 'g')
+  ('dcec7f43-3a6c-5ffe-b093-13a1392846a5', '289ed387-4407-5df5-b239-553bb8c08e51', '4d77f981-c9da-5ead-8de1-20b18b5f90bd', '8c8b2a6e-1cc8-56fa-bc80-3022ed2a4807', 400, 400, 'g'),
+  ('009fde10-6643-5fb3-b14a-9438fab34551', '289ed387-4407-5df5-b239-553bb8c08e51', '4d77f981-c9da-5ead-8de1-20b18b5f90bd', '9769015e-92ed-54c9-bc23-f6a5677e8338', 400, 400, 'g'),
+  ('05a87e2d-85a6-56eb-a249-0e28d7f50cc0', '289ed387-4407-5df5-b239-553bb8c08e51', '4d77f981-c9da-5ead-8de1-20b18b5f90bd', '669fa5f9-cfe3-5c78-af75-964c9326efd8', 80, 80, 'g'),
+  ('6bc38fca-96bc-57d2-91b6-090c057dc723', '289ed387-4407-5df5-b239-553bb8c08e51', '4d77f981-c9da-5ead-8de1-20b18b5f90bd', '2d5e8b74-f732-5ebb-bb29-87ad85bae5ea', 10, 10, 'g'),
+  ('9d8d87f7-adae-57ec-9e4e-32a3e05e464d', '289ed387-4407-5df5-b239-553bb8c08e51', '4d77f981-c9da-5ead-8de1-20b18b5f90bd', '297f392c-c806-5f90-b2b2-b2b54d055ca7', 100, 100, 'g'),
+  ('8cb62082-221c-5076-a2b3-a1bf06bdc37f', '289ed387-4407-5df5-b239-553bb8c08e51', '4d77f981-c9da-5ead-8de1-20b18b5f90bd', 'ba00e36d-2a23-5607-b809-9b6f72d14e9d', 20, 20, 'g'),
+  ('f2da0a38-f496-5acf-8b9f-0a8a586a2947', '05b1a0e3-b835-5303-801f-34503253a916', '4d77f981-c9da-5ead-8de1-20b18b5f90bd', 'e06b83d6-c3a4-583b-a36a-57c2fc699eba', 200, 200, 'g')
 on conflict (id) do nothing;
 
 insert into public.recipe_template_steps (id, template_id, position, text)
@@ -451,19 +469,25 @@ values
   ('c0e8a39d-fece-5aab-9e1a-ee6173f9dd2b', 'Hähnchen-Schnitzel mit Kartoffeln', 35, 'medium', array['dinner'], '{}', 2, 140)
 on conflict (id) do nothing;
 
+delete from public.recipe_template_components where id = '69256b0c-30c7-5fd6-8dea-55ded80278b0';
+
 insert into public.recipe_template_components (id, template_id, name, serving_grams)
-values ('69256b0c-30c7-5fd6-8dea-55ded80278b0', 'c0e8a39d-fece-5aab-9e1a-ee6173f9dd2b', 'Zutaten', 883)
+values ('018d2414-b4d7-509b-922c-d2d45f7e6b9a', 'c0e8a39d-fece-5aab-9e1a-ee6173f9dd2b', 'Schnitzel', 463)
+on conflict (id) do update set serving_grams = excluded.serving_grams;
+
+insert into public.recipe_template_components (id, template_id, name, serving_grams)
+values ('7fb8fe79-312e-54e1-934c-9ccec4d0cc55', 'c0e8a39d-fece-5aab-9e1a-ee6173f9dd2b', 'Kartoffeln', 420)
 on conflict (id) do update set serving_grams = excluded.serving_grams;
 
 insert into public.recipe_template_items (id, component_id, template_id, product_id, grams, quantity, unit)
 values
-  ('3dda7f6c-b218-5130-bfc6-65a7d395eb4c', '69256b0c-30c7-5fd6-8dea-55ded80278b0', 'c0e8a39d-fece-5aab-9e1a-ee6173f9dd2b', '617e05e0-ad69-5a19-8fd3-225a56b33fd3', 300, 300, 'g'),
-  ('8ee1f117-e550-51c5-82c0-1b9e044b83d6', '69256b0c-30c7-5fd6-8dea-55ded80278b0', 'c0e8a39d-fece-5aab-9e1a-ee6173f9dd2b', '986090c4-abd3-51ab-83cf-485d6d30374b', 60, 60, 'g'),
-  ('d3c4061e-aa4f-523e-814b-8ed7110d3bda', '69256b0c-30c7-5fd6-8dea-55ded80278b0', 'c0e8a39d-fece-5aab-9e1a-ee6173f9dd2b', '3581cf9f-a44e-5ded-8d50-3b185deda15a', 60, 1, 'piece'),
-  ('e61feb20-78a2-5538-840b-025a4d5a0a55', '69256b0c-30c7-5fd6-8dea-55ded80278b0', 'c0e8a39d-fece-5aab-9e1a-ee6173f9dd2b', '7b419bb0-be87-5005-b0c6-4225c701d31d', 40, 40, 'g'),
-  ('d7b38aed-49d3-5117-a01b-f4a60fe1835c', '69256b0c-30c7-5fd6-8dea-55ded80278b0', 'c0e8a39d-fece-5aab-9e1a-ee6173f9dd2b', '061b09fe-9c2a-5a23-94c8-1c610861159f', 400, 400, 'g'),
-  ('22bc28af-afbb-5d98-b19a-6a5a3a2bc07f', '69256b0c-30c7-5fd6-8dea-55ded80278b0', 'c0e8a39d-fece-5aab-9e1a-ee6173f9dd2b', '9c1838fa-5ef3-58a4-a683-306cdcacc40e', 20, 20, 'g'),
-  ('0ba5732e-b4fa-5db1-a13b-ea97e1a5509f', '69256b0c-30c7-5fd6-8dea-55ded80278b0', 'c0e8a39d-fece-5aab-9e1a-ee6173f9dd2b', '2a1683a5-a292-5e88-b373-cf8d39b846be', 3, 3, 'g')
+  ('28a67a41-7d51-5b5b-98d9-85773688a5e1', '018d2414-b4d7-509b-922c-d2d45f7e6b9a', 'c0e8a39d-fece-5aab-9e1a-ee6173f9dd2b', '617e05e0-ad69-5a19-8fd3-225a56b33fd3', 300, 300, 'g'),
+  ('861afe23-c037-5b32-8f33-acf8de60a777', '018d2414-b4d7-509b-922c-d2d45f7e6b9a', 'c0e8a39d-fece-5aab-9e1a-ee6173f9dd2b', '986090c4-abd3-51ab-83cf-485d6d30374b', 60, 60, 'g'),
+  ('2ddfee7d-7328-5f45-a635-d2af2c8207ce', '018d2414-b4d7-509b-922c-d2d45f7e6b9a', 'c0e8a39d-fece-5aab-9e1a-ee6173f9dd2b', '3581cf9f-a44e-5ded-8d50-3b185deda15a', 60, 1, 'piece'),
+  ('d70a644b-2852-530f-aed2-79631227e52e', '018d2414-b4d7-509b-922c-d2d45f7e6b9a', 'c0e8a39d-fece-5aab-9e1a-ee6173f9dd2b', '7b419bb0-be87-5005-b0c6-4225c701d31d', 40, 40, 'g'),
+  ('710fe12c-71ec-5d16-9f3b-f45e133c4fb3', '018d2414-b4d7-509b-922c-d2d45f7e6b9a', 'c0e8a39d-fece-5aab-9e1a-ee6173f9dd2b', '2a1683a5-a292-5e88-b373-cf8d39b846be', 3, 3, 'g'),
+  ('df9eb716-bcbc-5483-8a16-0d650dbc85e0', '7fb8fe79-312e-54e1-934c-9ccec4d0cc55', 'c0e8a39d-fece-5aab-9e1a-ee6173f9dd2b', '061b09fe-9c2a-5a23-94c8-1c610861159f', 400, 400, 'g'),
+  ('49707227-0f27-5ab8-91a6-62042825b43b', '7fb8fe79-312e-54e1-934c-9ccec4d0cc55', 'c0e8a39d-fece-5aab-9e1a-ee6173f9dd2b', '9c1838fa-5ef3-58a4-a683-306cdcacc40e', 20, 20, 'g')
 on conflict (id) do nothing;
 
 insert into public.recipe_template_steps (id, template_id, position, text)
@@ -481,19 +505,25 @@ values
   ('62ef23d2-9375-5b25-91c1-ec23ca91e056', 'Gemüse-Reispfanne', 25, 'easy', array['dinner','lunch'], array['vegetarian'], 3, 150)
 on conflict (id) do nothing;
 
+delete from public.recipe_template_components where id = '5afaf59a-a37d-5bab-ae16-78d5f92686dc';
+
 insert into public.recipe_template_components (id, template_id, name, serving_grams)
-values ('5afaf59a-a37d-5bab-ae16-78d5f92686dc', '62ef23d2-9375-5b25-91c1-ec23ca91e056', 'Zutaten', 755)
+values ('56a82f72-0b57-5ab0-ad00-6d727947eb1c', '62ef23d2-9375-5b25-91c1-ec23ca91e056', 'Gemüse', 515)
+on conflict (id) do update set serving_grams = excluded.serving_grams;
+
+insert into public.recipe_template_components (id, template_id, name, serving_grams)
+values ('08832fd7-1736-5316-a0c2-71e3f4cd7f27', '62ef23d2-9375-5b25-91c1-ec23ca91e056', 'Reis', 240)
 on conflict (id) do update set serving_grams = excluded.serving_grams;
 
 insert into public.recipe_template_items (id, component_id, template_id, product_id, grams, quantity, unit)
 values
-  ('de18c784-df2f-561a-8822-440a4e00ecec', '5afaf59a-a37d-5bab-ae16-78d5f92686dc', '62ef23d2-9375-5b25-91c1-ec23ca91e056', 'e06b83d6-c3a4-583b-a36a-57c2fc699eba', 240, 240, 'g'),
-  ('d4f3bd5c-7aa2-5b47-8888-d1b71e33b1b1', '5afaf59a-a37d-5bab-ae16-78d5f92686dc', '62ef23d2-9375-5b25-91c1-ec23ca91e056', 'd1d42080-0a0d-5388-90cf-49d775108306', 120, 120, 'g'),
-  ('8a5258e1-b816-583f-88f7-3e32b926d4ad', '5afaf59a-a37d-5bab-ae16-78d5f92686dc', '62ef23d2-9375-5b25-91c1-ec23ca91e056', '297f392c-c806-5f90-b2b2-b2b54d055ca7', 100, 100, 'g'),
-  ('46f0db5d-c498-5137-83e8-92a69713e62d', '5afaf59a-a37d-5bab-ae16-78d5f92686dc', '62ef23d2-9375-5b25-91c1-ec23ca91e056', '669fa5f9-cfe3-5c78-af75-964c9326efd8', 60, 60, 'g'),
-  ('d0d6ad21-ef43-5b40-82c0-6631b1536ece', '5afaf59a-a37d-5bab-ae16-78d5f92686dc', '62ef23d2-9375-5b25-91c1-ec23ca91e056', '8c8b2a6e-1cc8-56fa-bc80-3022ed2a4807', 200, 200, 'g'),
-  ('b3d974a9-9a34-52e5-a294-9aed430e5221', '5afaf59a-a37d-5bab-ae16-78d5f92686dc', '62ef23d2-9375-5b25-91c1-ec23ca91e056', 'fde39f28-ffd1-57d2-a2dc-7f6fb42bfb92', 20, 20, 'g'),
-  ('e80ef5da-aeb4-5284-9afe-e8f734742b12', '5afaf59a-a37d-5bab-ae16-78d5f92686dc', '62ef23d2-9375-5b25-91c1-ec23ca91e056', 'ba00e36d-2a23-5607-b809-9b6f72d14e9d', 15, 15, 'g')
+  ('22f46493-7a13-58ee-aa00-6a6feb64d8e7', '56a82f72-0b57-5ab0-ad00-6d727947eb1c', '62ef23d2-9375-5b25-91c1-ec23ca91e056', 'd1d42080-0a0d-5388-90cf-49d775108306', 120, 120, 'g'),
+  ('8f5f5bcc-4836-535b-a4c1-acdf2aced11d', '56a82f72-0b57-5ab0-ad00-6d727947eb1c', '62ef23d2-9375-5b25-91c1-ec23ca91e056', '297f392c-c806-5f90-b2b2-b2b54d055ca7', 100, 100, 'g'),
+  ('927e3df1-efac-543a-90c0-7df3fde55f84', '56a82f72-0b57-5ab0-ad00-6d727947eb1c', '62ef23d2-9375-5b25-91c1-ec23ca91e056', '669fa5f9-cfe3-5c78-af75-964c9326efd8', 60, 60, 'g'),
+  ('ea18ade0-b503-59c4-bbaa-4e2dd4deab42', '56a82f72-0b57-5ab0-ad00-6d727947eb1c', '62ef23d2-9375-5b25-91c1-ec23ca91e056', '8c8b2a6e-1cc8-56fa-bc80-3022ed2a4807', 200, 200, 'g'),
+  ('38dec621-de4f-5d40-baa1-4f1b5fa79bae', '56a82f72-0b57-5ab0-ad00-6d727947eb1c', '62ef23d2-9375-5b25-91c1-ec23ca91e056', 'fde39f28-ffd1-57d2-a2dc-7f6fb42bfb92', 20, 20, 'g'),
+  ('b55781d8-f83b-5c3b-93db-95b83193966c', '56a82f72-0b57-5ab0-ad00-6d727947eb1c', '62ef23d2-9375-5b25-91c1-ec23ca91e056', 'ba00e36d-2a23-5607-b809-9b6f72d14e9d', 15, 15, 'g'),
+  ('a4a0bb0e-9e68-5bc7-8f4f-1c1d5392bf7c', '08832fd7-1736-5316-a0c2-71e3f4cd7f27', '62ef23d2-9375-5b25-91c1-ec23ca91e056', 'e06b83d6-c3a4-583b-a36a-57c2fc699eba', 240, 240, 'g')
 on conflict (id) do nothing;
 
 insert into public.recipe_template_steps (id, template_id, position, text)
@@ -645,17 +675,23 @@ values
   ('99fc2ade-065a-5b99-bee4-b5a07e7686b1', 'Apfel-Crumble', 40, 'medium', array['dessert'], array['vegetarian'], 4, 210)
 on conflict (id) do nothing;
 
+delete from public.recipe_template_components where id = '6c640854-939b-50d4-b845-ef3fd8cffbc1';
+
 insert into public.recipe_template_components (id, template_id, name, serving_grams)
-values ('6c640854-939b-50d4-b845-ef3fd8cffbc1', '99fc2ade-065a-5b99-bee4-b5a07e7686b1', 'Zutaten', 740)
+values ('ba9c5ec4-6ae2-5a5a-a7db-0fbff76d3246', '99fc2ade-065a-5b99-bee4-b5a07e7686b1', 'Äpfel', 400)
+on conflict (id) do update set serving_grams = excluded.serving_grams;
+
+insert into public.recipe_template_components (id, template_id, name, serving_grams)
+values ('b35c7edb-94e6-5e9c-a56a-472daf78da82', '99fc2ade-065a-5b99-bee4-b5a07e7686b1', 'Streusel', 340)
 on conflict (id) do update set serving_grams = excluded.serving_grams;
 
 insert into public.recipe_template_items (id, component_id, template_id, product_id, grams, quantity, unit)
 values
-  ('0acf4a3a-3f46-5122-a33d-f516c432b60b', '6c640854-939b-50d4-b845-ef3fd8cffbc1', '99fc2ade-065a-5b99-bee4-b5a07e7686b1', 'd8fa049a-69b6-5519-bad9-5df38dbb11f0', 400, 400, 'g'),
-  ('7c62f26f-9465-56db-9405-c63a1c143f03', '6c640854-939b-50d4-b845-ef3fd8cffbc1', '99fc2ade-065a-5b99-bee4-b5a07e7686b1', '3552bd53-8e7d-59a2-9f35-97600b9e858d', 100, 100, 'g'),
-  ('b985aa08-09e1-5145-a2b6-e40d614fd3a8', '6c640854-939b-50d4-b845-ef3fd8cffbc1', '99fc2ade-065a-5b99-bee4-b5a07e7686b1', '7b419bb0-be87-5005-b0c6-4225c701d31d', 100, 100, 'g'),
-  ('a356a2af-4f8f-5d04-9786-64de50ebb5b4', '6c640854-939b-50d4-b845-ef3fd8cffbc1', '99fc2ade-065a-5b99-bee4-b5a07e7686b1', '9c1838fa-5ef3-58a4-a683-306cdcacc40e', 80, 80, 'g'),
-  ('a4309d88-08b7-5237-aded-d0c5c8765a9d', '6c640854-939b-50d4-b845-ef3fd8cffbc1', '99fc2ade-065a-5b99-bee4-b5a07e7686b1', 'd6a5a3dd-7f38-5627-8b30-e270a5a5fb96', 60, 60, 'g')
+  ('f70052d6-992a-5df5-9a10-cb7954fbc509', 'ba9c5ec4-6ae2-5a5a-a7db-0fbff76d3246', '99fc2ade-065a-5b99-bee4-b5a07e7686b1', 'd8fa049a-69b6-5519-bad9-5df38dbb11f0', 400, 400, 'g'),
+  ('c5fadc96-2d8d-50ef-8cd4-840da1f48fd0', 'b35c7edb-94e6-5e9c-a56a-472daf78da82', '99fc2ade-065a-5b99-bee4-b5a07e7686b1', '3552bd53-8e7d-59a2-9f35-97600b9e858d', 100, 100, 'g'),
+  ('aa79b018-51a6-5ba5-9d4e-72702e4b350c', 'b35c7edb-94e6-5e9c-a56a-472daf78da82', '99fc2ade-065a-5b99-bee4-b5a07e7686b1', '7b419bb0-be87-5005-b0c6-4225c701d31d', 100, 100, 'g'),
+  ('1446fb40-2088-5f67-94ff-448d33303942', 'b35c7edb-94e6-5e9c-a56a-472daf78da82', '99fc2ade-065a-5b99-bee4-b5a07e7686b1', '9c1838fa-5ef3-58a4-a683-306cdcacc40e', 80, 80, 'g'),
+  ('f455e054-cd91-5d4e-b3c8-9ee7d4706479', 'b35c7edb-94e6-5e9c-a56a-472daf78da82', '99fc2ade-065a-5b99-bee4-b5a07e7686b1', 'd6a5a3dd-7f38-5627-8b30-e270a5a5fb96', 60, 60, 'g')
 on conflict (id) do nothing;
 
 insert into public.recipe_template_steps (id, template_id, position, text)
