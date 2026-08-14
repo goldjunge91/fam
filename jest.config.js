@@ -15,8 +15,13 @@ module.exports = {
   // deckt Expo-Pakete und react-native-svg nicht ab, die unkompiliertes
   // ESM ausliefern. `react-native-purchases-ui` zieht `@revenuecat/*` als
   // unkompiliertes ESM nach (Hybrid-Mappings fuer die Web-Zielplattform).
+  // `standard-navigation` ist eine neue Transitiv-Abhaengigkeit von
+  // `expo-router` (`useNavigation`-Export) — ohne sie in der Liste bricht
+  // jeder Test, der `expo-router` nicht per `jest.mock()` ersetzt und
+  // stattdessen (auch nur transitiv, z. B. ueber `AutoBackButton`) echtes
+  // `useNavigation` importiert: "Cannot use import statement outside a module".
   transformIgnorePatterns: [
-    'node_modules/(?!(.bun|(jest-)?react-native|@react-native(-community)?|expo(nent)?|@expo(nent)?/.*|@expo-google-fonts/.*|react-navigation|@react-navigation/.*|@sentry/react-native|native-base|react-native-svg|react-native-purchases-ui|@revenuecat/.*))',
+    'node_modules/(?!(.bun|(jest-)?react-native|@react-native(-community)?|expo(nent)?|@expo(nent)?/.*|@expo-google-fonts/.*|react-navigation|@react-navigation/.*|@sentry/react-native|native-base|react-native-svg|react-native-purchases-ui|@revenuecat/.*|standard-navigation))',
   ],
 
   // Default (5000ms) ist zu knapp fuer Tests mit echten Timern/Intervallen
