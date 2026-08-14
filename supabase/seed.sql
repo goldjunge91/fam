@@ -51,17 +51,28 @@ values
   ('fde39f28-ffd1-57d2-a2dc-7f6fb42bfb92', '4388844204096', 'Sojasauce', 'REWE, Rewe Beste Wahl', 21, 2.4, 2.3, 0.2, 1, 14, 'off', null),
   ('f71ec39a-f5b9-5b49-98d5-f337cd6ace83', '4337256011402', 'Frischkäse Natur', 'Rewe', 270, 6, 3, 26, 3, 0.7, 'off', null),
   ('669fa5f9-cfe3-5c78-af75-964c9326efd8', null, 'Zwiebeln', null, 40, 1.1, 9.3, 0.1, 4.2, 0, 'manual', null),
-  ('297f392c-c806-5f90-b2b2-b2b54d055ca7', null, 'Karotten', null, 35, 0.9, 7.6, 0.2, 4.7, 0.1, 'manual', null),
+  ('297f392c-c806-5f90-b2b2-b2b54d055ca7', '4311501700594', 'Karotten-Scheiben', 'EDEKA', 32, 1.2, 5.4, 0.3, 4, 0.1, 'off', null),
   ('2d5e8b74-f732-5ebb-bb29-87ad85bae5ea', null, 'Knoblauch', null, 143, 6.4, 28, 0.5, 1, 0.02, 'manual', null),
-  ('061b09fe-9c2a-5a23-94c8-1c610861159f', null, 'Kartoffeln', null, 77, 2, 17, 0.1, 0.8, 0.01, 'manual', null),
+  ('061b09fe-9c2a-5a23-94c8-1c610861159f', '4311532044261', 'Kartoffeln vorwiegend festkochend', 'Edeka, Gut & Günstig', 73, 1.9, 14.8, 0.01, 0.8, 0.01, 'off', null),
   ('5403b232-3d62-53ce-9515-d13982e70155', null, 'Bananen', null, 95, 1.1, 21, 0.3, 12, 0, 'manual', null),
   ('d8fa049a-69b6-5519-bad9-5df38dbb11f0', null, 'Äpfel', null, 52, 0.3, 14, 0.2, 10, 0, 'manual', null),
   ('617e05e0-ad69-5a19-8fd3-225a56b33fd3', null, 'Hähnchenbrustfilet', null, 110, 23, 0, 2, 0, 0.1, 'manual', null),
   ('84197347-44c0-5620-90f8-f6b2a27054f7', null, 'Zitrone', null, 29, 1.1, 9.3, 0.3, 2.5, 0, 'manual', null),
-  ('9fe8439d-9aec-5180-9370-c96a7fb8be23', null, 'Honig', null, 304, 0.3, 76, 0, 76, 0, 'manual', null),
-  ('3404fb06-6463-5457-98bf-11129c261d6d', null, 'Thunfisch in Wasser, abgetropft', null, 116, 26, 0, 1, 0, 0.9, 'manual', null),
-  ('b1210958-463a-585d-9c5d-373cc45981dc', null, 'Linsen rot, getrocknet', null, 325, 24, 52, 1.4, 2, 0.03, 'manual', null)
-on conflict (id) do nothing;
+  ('9fe8439d-9aec-5180-9370-c96a7fb8be23', '4337256764353', 'Blütenhonig flüssig', 'Rewe, Rewe Bio', 300, 0.5, 75, 0.5, 75, 0, 'off', null),
+  ('3404fb06-6463-5457-98bf-11129c261d6d', '4388860139075', 'Thunfisch Filets im eigenen Saft', 'Ja', 118, 27.2, 0, 1, 0, 0.9, 'off', null),
+  ('b1210958-463a-585d-9c5d-373cc45981dc', '4337256187398', 'Rote Linsen', 'Rewe, Rewe Bio', 337, 26, 49, 1.4, 2, 0.03, 'off', null)
+on conflict (id) do update set
+  barcode = excluded.barcode,
+  name = excluded.name,
+  brand = excluded.brand,
+  kcal_per_100 = excluded.kcal_per_100,
+  protein_g_per_100 = excluded.protein_g_per_100,
+  carbs_g_per_100 = excluded.carbs_g_per_100,
+  fat_g_per_100 = excluded.fat_g_per_100,
+  sugar_g_per_100 = excluded.sugar_g_per_100,
+  salt_g_per_100 = excluded.salt_g_per_100,
+  source = excluded.source;
+
 
 -- ============================================================
 -- Rezeptvorlagen (#Recipe-Templates): admin-kuratierte Bibliothek,
