@@ -74,6 +74,7 @@ on conflict (id) do update set
   source = excluded.source;
 
 
+
 -- ============================================================
 -- Rezeptvorlagen (#Recipe-Templates): admin-kuratierte Bibliothek,
 -- global lesbar (siehe supabase/schemas/15_recipe_templates.sql).
@@ -795,5 +796,148 @@ values
   ('3f743705-ffe6-5b41-a4d6-33f0d502e09a', '73aa9a5c-0174-55bc-9b1f-a731a1357ce2', 1, 'Eier verquirlen, Paprika unterrühren.'),
   ('9f750408-1552-5a5b-8763-33f35c15dc16', '73aa9a5c-0174-55bc-9b1f-a731a1357ce2', 2, 'Butter in einer Pfanne erhitzen, Eiermasse hineingeben.'),
   ('00ed3d3a-16e6-5eb2-b1b2-71722a109fda', '73aa9a5c-0174-55bc-9b1f-a731a1357ce2', 3, 'Gouda reiben, kurz vor Ende unterrühren und stocken lassen.')
+on conflict (id) do nothing;
+
+-- Käse-Kartoffel-Auflauf
+insert into public.recipe_templates
+  (id, title, cook_time_minutes, difficulty, dish_types, dietary_tags, default_servings, sort_order)
+values
+  ('89b4728a-8594-55be-b7ef-7d691dec292b', 'Käse-Kartoffel-Auflauf', 50, 'medium', array['dinner'], array['vegetarian'], 4, 250)
+on conflict (id) do nothing;
+
+insert into public.recipe_template_components (id, template_id, name, serving_grams)
+values ('794258d0-abc4-53eb-a80d-c4cc4c1d4201', '89b4728a-8594-55be-b7ef-7d691dec292b', 'Zutaten', 983)
+on conflict (id) do update set serving_grams = excluded.serving_grams;
+
+insert into public.recipe_template_items (id, component_id, template_id, product_id, grams, quantity, unit)
+values
+  ('fa16351d-fb2d-5b75-9534-c0304e1e0eac', '794258d0-abc4-53eb-a80d-c4cc4c1d4201', '89b4728a-8594-55be-b7ef-7d691dec292b', '061b09fe-9c2a-5a23-94c8-1c610861159f', 600, 600, 'g'),
+  ('5e92de0d-7577-56e0-a07f-9c0f44adb9ac', '794258d0-abc4-53eb-a80d-c4cc4c1d4201', '89b4728a-8594-55be-b7ef-7d691dec292b', '495964f4-f59c-54d5-a6a7-96f3108e0763', 150, 150, 'g'),
+  ('de88c5bd-d13c-56ee-9464-c53a09e71975', '794258d0-abc4-53eb-a80d-c4cc4c1d4201', '89b4728a-8594-55be-b7ef-7d691dec292b', '822dcf16-0c0a-5e06-b473-e15521ae62ad', 200, 200, 'ml'),
+  ('297a3e4c-80c3-50c7-9554-c64e9eb44e9e', '794258d0-abc4-53eb-a80d-c4cc4c1d4201', '89b4728a-8594-55be-b7ef-7d691dec292b', '9c1838fa-5ef3-58a4-a683-306cdcacc40e', 30, 30, 'g'),
+  ('251f8636-980c-5eed-9cf5-4b04736d8f99', '794258d0-abc4-53eb-a80d-c4cc4c1d4201', '89b4728a-8594-55be-b7ef-7d691dec292b', '2a1683a5-a292-5e88-b373-cf8d39b846be', 3, 3, 'g')
+on conflict (id) do nothing;
+
+insert into public.recipe_template_steps (id, template_id, position, text)
+values
+  ('ee3c9ca8-2c9d-5b62-b1e0-b6ac67dd8f5c', '89b4728a-8594-55be-b7ef-7d691dec292b', 0, 'Kartoffeln schälen und in dünne Scheiben schneiden.'),
+  ('260d313d-68ac-5eec-9b8c-7283d5950e50', '89b4728a-8594-55be-b7ef-7d691dec292b', 1, 'Kartoffelscheiben schichtweise in eine Auflaufform legen.'),
+  ('9fa476db-6223-5909-aeaa-08204db7867c', '89b4728a-8594-55be-b7ef-7d691dec292b', 2, 'Milch mit Salz verrühren und darübergießen.'),
+  ('0584c596-78c9-5b08-9fd4-a717f65d64ec', '89b4728a-8594-55be-b7ef-7d691dec292b', 3, 'Gouda reiben und darüberstreuen, Butter in Flöckchen daraufsetzen.'),
+  ('efd893d5-6025-56d2-98b2-01a7b3fbce58', '89b4728a-8594-55be-b7ef-7d691dec292b', 4, 'Bei 180°C ca. 40 Minuten backen, bis die Kartoffeln gar sind.')
+on conflict (id) do nothing;
+
+-- Linsensuppe mit Karotten
+insert into public.recipe_templates
+  (id, title, cook_time_minutes, difficulty, dish_types, dietary_tags, default_servings, sort_order)
+values
+  ('a1153937-1594-5402-b180-1ef70fbeb660', 'Linsensuppe mit Karotten', 35, 'easy', array['lunch','dinner'], array['vegetarian'], 4, 260)
+on conflict (id) do nothing;
+
+insert into public.recipe_template_components (id, template_id, name, serving_grams)
+values ('8e078d43-2f96-5892-be5c-15c14329e02e', 'a1153937-1594-5402-b180-1ef70fbeb660', 'Zutaten', 703)
+on conflict (id) do update set serving_grams = excluded.serving_grams;
+
+insert into public.recipe_template_items (id, component_id, template_id, product_id, grams, quantity, unit)
+values
+  ('d3a8ca34-0ff2-5228-b4e4-b2d78c6a8f25', '8e078d43-2f96-5892-be5c-15c14329e02e', 'a1153937-1594-5402-b180-1ef70fbeb660', 'b1210958-463a-585d-9c5d-373cc45981dc', 250, 250, 'g'),
+  ('4c852618-17e2-58c7-b9c6-90b6bfa5c393', '8e078d43-2f96-5892-be5c-15c14329e02e', 'a1153937-1594-5402-b180-1ef70fbeb660', '297f392c-c806-5f90-b2b2-b2b54d055ca7', 200, 200, 'g'),
+  ('1fb13945-3ca5-5ccd-be83-d58245eee41c', '8e078d43-2f96-5892-be5c-15c14329e02e', 'a1153937-1594-5402-b180-1ef70fbeb660', '061b09fe-9c2a-5a23-94c8-1c610861159f', 200, 200, 'g'),
+  ('8fd0b011-0820-5d69-953e-c5c5ae990278', '8e078d43-2f96-5892-be5c-15c14329e02e', 'a1153937-1594-5402-b180-1ef70fbeb660', '7bd2cd4c-5c95-55d4-b6f6-6fdc15bacd04', 30, 30, 'g'),
+  ('f32a66a3-0a1e-58e0-967f-57816316631b', '8e078d43-2f96-5892-be5c-15c14329e02e', 'a1153937-1594-5402-b180-1ef70fbeb660', 'ba00e36d-2a23-5607-b809-9b6f72d14e9d', 20, 20, 'g'),
+  ('d3f78652-8479-5973-aad6-6bfdf994e0a1', '8e078d43-2f96-5892-be5c-15c14329e02e', 'a1153937-1594-5402-b180-1ef70fbeb660', '2a1683a5-a292-5e88-b373-cf8d39b846be', 3, 3, 'g')
+on conflict (id) do nothing;
+
+insert into public.recipe_template_steps (id, template_id, position, text)
+values
+  ('8ccbdc72-6107-5e37-a0e8-f768cc5e9efb', 'a1153937-1594-5402-b180-1ef70fbeb660', 0, 'Karotten und Kartoffeln würfeln.'),
+  ('c0477f59-26d4-558a-ba15-aba61b844969', 'a1153937-1594-5402-b180-1ef70fbeb660', 1, 'Alles zusammen mit den Linsen in Olivenöl kurz anschwitzen.'),
+  ('80d88677-4a53-5f93-a6c7-6a2d965837be', 'a1153937-1594-5402-b180-1ef70fbeb660', 2, 'Tomatenmark einrühren, mit Wasser bedeckt aufkochen.'),
+  ('4622f6a3-23b1-5393-9fb6-fd38703f5843', 'a1153937-1594-5402-b180-1ef70fbeb660', 3, '20 Minuten köcheln lassen, mit Salz abschmecken.')
+on conflict (id) do nothing;
+
+-- Thunfisch-Reis-Salat
+insert into public.recipe_templates
+  (id, title, cook_time_minutes, difficulty, dish_types, dietary_tags, default_servings, sort_order)
+values
+  ('3e73b7b6-6505-5ec8-ba38-1bdab94085f7', 'Thunfisch-Reis-Salat', 25, 'easy', array['lunch'], '{}', 2, 270)
+on conflict (id) do nothing;
+
+insert into public.recipe_template_components (id, template_id, name, serving_grams)
+values ('49fa930c-59f3-565d-8ed9-ba57aa23eedf', '3e73b7b6-6505-5ec8-ba38-1bdab94085f7', 'Zutaten', 577)
+on conflict (id) do update set serving_grams = excluded.serving_grams;
+
+insert into public.recipe_template_items (id, component_id, template_id, product_id, grams, quantity, unit)
+values
+  ('856bdae9-3c66-5e58-92b3-deb432e68246', '49fa930c-59f3-565d-8ed9-ba57aa23eedf', '3e73b7b6-6505-5ec8-ba38-1bdab94085f7', 'e06b83d6-c3a4-583b-a36a-57c2fc699eba', 200, 200, 'g'),
+  ('74cabf7d-8006-5d3c-a0a5-34be62e711bd', '49fa930c-59f3-565d-8ed9-ba57aa23eedf', '3e73b7b6-6505-5ec8-ba38-1bdab94085f7', '3404fb06-6463-5457-98bf-11129c261d6d', 160, 160, 'g'),
+  ('e57757ad-585b-5124-8978-1ed59e12dc81', '49fa930c-59f3-565d-8ed9-ba57aa23eedf', '3e73b7b6-6505-5ec8-ba38-1bdab94085f7', 'd1d42080-0a0d-5388-90cf-49d775108306', 100, 100, 'g'),
+  ('98ffdc5a-5c19-55d1-affe-5e7d87c0a29d', '49fa930c-59f3-565d-8ed9-ba57aa23eedf', '3e73b7b6-6505-5ec8-ba38-1bdab94085f7', '813d808a-ab08-590f-98d6-cfe4e2eef826', 100, 100, 'g'),
+  ('e2c6deab-658b-536c-aac1-0447f86ae694', '49fa930c-59f3-565d-8ed9-ba57aa23eedf', '3e73b7b6-6505-5ec8-ba38-1bdab94085f7', 'ba00e36d-2a23-5607-b809-9b6f72d14e9d', 15, 15, 'g'),
+  ('29cb5a89-1fbe-5248-afc7-2c1d65bcf078', '49fa930c-59f3-565d-8ed9-ba57aa23eedf', '3e73b7b6-6505-5ec8-ba38-1bdab94085f7', '2a1683a5-a292-5e88-b373-cf8d39b846be', 2, 2, 'g')
+on conflict (id) do nothing;
+
+insert into public.recipe_template_steps (id, template_id, position, text)
+values
+  ('17b68040-3a05-5e39-b8df-bc9f524f89c3', '3e73b7b6-6505-5ec8-ba38-1bdab94085f7', 0, 'Reis nach Packungsangabe kochen und abkühlen lassen.'),
+  ('8f3aa02a-1464-5229-bc92-6486eb2616ff', '3e73b7b6-6505-5ec8-ba38-1bdab94085f7', 1, 'Paprika fein würfeln, Thunfisch abtropfen lassen.'),
+  ('65a39cc7-16fb-515e-aad6-2e36fa9f53b5', '3e73b7b6-6505-5ec8-ba38-1bdab94085f7', 2, 'Reis, Thunfisch und Paprika mit Joghurt und Olivenöl vermengen.'),
+  ('9aa4f7ba-042d-50e9-b763-d217c258f558', '3e73b7b6-6505-5ec8-ba38-1bdab94085f7', 3, 'Mit Salz abschmecken.')
+on conflict (id) do nothing;
+
+-- Haferflocken-Honig-Riegel
+insert into public.recipe_templates
+  (id, title, cook_time_minutes, difficulty, dish_types, dietary_tags, default_servings, sort_order)
+values
+  ('18626fb1-8dda-505d-ac42-4959d06d4604', 'Haferflocken-Honig-Riegel', 35, 'medium', array['snack','breakfast'], array['vegetarian'], 6, 280)
+on conflict (id) do nothing;
+
+insert into public.recipe_template_components (id, template_id, name, serving_grams)
+values ('4c91a566-5100-5229-9805-dcd828e14bff', '18626fb1-8dda-505d-ac42-4959d06d4604', 'Zutaten', 370)
+on conflict (id) do update set serving_grams = excluded.serving_grams;
+
+insert into public.recipe_template_items (id, component_id, template_id, product_id, grams, quantity, unit)
+values
+  ('a659a0d3-d338-5d2d-88e1-cbeec8acaccb', '4c91a566-5100-5229-9805-dcd828e14bff', '18626fb1-8dda-505d-ac42-4959d06d4604', '3552bd53-8e7d-59a2-9f35-97600b9e858d', 200, 200, 'g'),
+  ('3645c45f-5daa-5a44-883e-457090c1ee56', '4c91a566-5100-5229-9805-dcd828e14bff', '18626fb1-8dda-505d-ac42-4959d06d4604', '9fe8439d-9aec-5180-9370-c96a7fb8be23', 80, 80, 'g'),
+  ('7688bdab-77dd-5b8b-8d7f-a44662fde93b', '4c91a566-5100-5229-9805-dcd828e14bff', '18626fb1-8dda-505d-ac42-4959d06d4604', '9c1838fa-5ef3-58a4-a683-306cdcacc40e', 60, 60, 'g'),
+  ('a75a71ef-6321-5252-9425-ff0baaa98198', '4c91a566-5100-5229-9805-dcd828e14bff', '18626fb1-8dda-505d-ac42-4959d06d4604', 'd6a5a3dd-7f38-5627-8b30-e270a5a5fb96', 30, 30, 'g')
+on conflict (id) do nothing;
+
+insert into public.recipe_template_steps (id, template_id, position, text)
+values
+  ('3da7e965-cb88-5ee5-8ad7-869eda79ee16', '18626fb1-8dda-505d-ac42-4959d06d4604', 0, 'Butter, Honig und Zucker in einem Topf schmelzen.'),
+  ('ecdc28c3-f1fe-5b3f-8bd9-7873afadca08', '18626fb1-8dda-505d-ac42-4959d06d4604', 1, 'Haferflocken unterrühren, bis alles gleichmäßig bedeckt ist.'),
+  ('5bfc4f3f-a7cb-5ed0-943c-4f0748eabed8', '18626fb1-8dda-505d-ac42-4959d06d4604', 2, 'Masse in eine Form drücken und glattstreichen.'),
+  ('1fd4fdf1-565f-503f-ae89-1445430755db', '18626fb1-8dda-505d-ac42-4959d06d4604', 3, 'Bei 180°C ca. 20 Minuten backen, auskühlen lassen und in Riegel schneiden.')
+on conflict (id) do nothing;
+
+-- Kichererbsen-Karotten-Pfanne mit Reis
+insert into public.recipe_templates
+  (id, title, cook_time_minutes, difficulty, dish_types, dietary_tags, default_servings, sort_order)
+values
+  ('c8f0b3c2-c277-55ff-9d3c-04eda747a0a4', 'Kichererbsen-Karotten-Pfanne mit Reis', 25, 'easy', array['dinner','lunch'], array['vegetarian'], 3, 290)
+on conflict (id) do nothing;
+
+insert into public.recipe_template_components (id, template_id, name, serving_grams)
+values ('24eca9ed-673b-5297-a4fe-bab16ba81aaa', 'c8f0b3c2-c277-55ff-9d3c-04eda747a0a4', 'Zutaten', 890)
+on conflict (id) do update set serving_grams = excluded.serving_grams;
+
+insert into public.recipe_template_items (id, component_id, template_id, product_id, grams, quantity, unit)
+values
+  ('afe5c292-5dd2-5d0f-b170-1f8cb9767501', '24eca9ed-673b-5297-a4fe-bab16ba81aaa', 'c8f0b3c2-c277-55ff-9d3c-04eda747a0a4', '8c8b2a6e-1cc8-56fa-bc80-3022ed2a4807', 400, 400, 'g'),
+  ('9c249468-d894-5369-9efa-6ca87da91a9c', '24eca9ed-673b-5297-a4fe-bab16ba81aaa', 'c8f0b3c2-c277-55ff-9d3c-04eda747a0a4', 'e06b83d6-c3a4-583b-a36a-57c2fc699eba', 200, 200, 'g'),
+  ('1e0b9013-ed44-58c0-8930-fb30ed321b71', '24eca9ed-673b-5297-a4fe-bab16ba81aaa', 'c8f0b3c2-c277-55ff-9d3c-04eda747a0a4', '297f392c-c806-5f90-b2b2-b2b54d055ca7', 150, 150, 'g'),
+  ('9dda40fd-5f2b-5cb7-9a06-81a8adab8a55', '24eca9ed-673b-5297-a4fe-bab16ba81aaa', 'c8f0b3c2-c277-55ff-9d3c-04eda747a0a4', 'd1d42080-0a0d-5388-90cf-49d775108306', 100, 100, 'g'),
+  ('32418d97-c6ec-5338-bf03-0d955503023c', '24eca9ed-673b-5297-a4fe-bab16ba81aaa', 'c8f0b3c2-c277-55ff-9d3c-04eda747a0a4', 'fde39f28-ffd1-57d2-a2dc-7f6fb42bfb92', 20, 20, 'g'),
+  ('d9a52c26-abef-5c0c-966b-54574b6b51d9', '24eca9ed-673b-5297-a4fe-bab16ba81aaa', 'c8f0b3c2-c277-55ff-9d3c-04eda747a0a4', 'ba00e36d-2a23-5607-b809-9b6f72d14e9d', 20, 20, 'g')
+on conflict (id) do nothing;
+
+insert into public.recipe_template_steps (id, template_id, position, text)
+values
+  ('4593897c-7f6d-56b4-9e61-db6a577a3893', 'c8f0b3c2-c277-55ff-9d3c-04eda747a0a4', 0, 'Reis nach Packungsangabe kochen.'),
+  ('378be4b5-451a-54a7-bce1-c7756c7cb72b', 'c8f0b3c2-c277-55ff-9d3c-04eda747a0a4', 1, 'Karotten und Paprika würfeln, in Olivenöl anbraten.'),
+  ('b9390b2f-ef78-5486-b5b6-a4ef92f27f39', 'c8f0b3c2-c277-55ff-9d3c-04eda747a0a4', 2, 'Kichererbsen dazugeben und mitbraten.'),
+  ('d21e7ca5-b05b-53a6-87d9-52ee89552907', 'c8f0b3c2-c277-55ff-9d3c-04eda747a0a4', 3, 'Mit Sojasauce ablöschen, mit Reis servieren.')
 on conflict (id) do nothing;
 
