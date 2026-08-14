@@ -3,6 +3,7 @@ import { Modal, Pressable, StyleSheet, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { FontSize, ThemedText } from '@/components/themed-text';
+import type { MealType } from '@/features/calorie-tracking/api';
 import { useTheme } from '@/hooks/use-theme';
 
 import { useNavigationChrome } from './navigation-chrome-provider';
@@ -10,9 +11,27 @@ import { useNavigationChrome } from './navigation-chrome-provider';
 type QuickAddOption = {
   title: string;
   subtitle: string;
-  href: string;
+  href: string | (() => string);
   backgroundColor: string;
 };
+
+/** Lokales Datum, nicht UTC — sonst rutscht das Datum kurz nach Mitternacht. */
+function todayIso(): string {
+  const date = new Date();
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, '0');
+  const day = String(date.getDate()).padStart(2, '0');
+  return `${year}-${month}-${day}`;
+}
+
+/** Grobe Tageszeit-Heuristik, damit der Schnellzugriff nicht mit einer leeren Mahlzeit startet. */
+function defaultMealType(): MealType {
+  const hour = new Date().getHours();
+  if (hour < 10) return 'breakfast';
+  if (hour < 15) return 'lunch';
+  if (hour < 21) return 'dinner';
+  return 'snack';
+}
 
 const OPTIONS: QuickAddOption[] = [
   {
@@ -30,7 +49,9 @@ const OPTIONS: QuickAddOption[] = [
   {
     title: 'Tagebucheintrag',
     subtitle: 'Mahlzeit oder Lebensmittel erfassen',
-    href: '/add-food-entry',
+    // `/add-food-entry` braucht date+mealType (#food-entries-query) — ohne das
+    // laeuft der Tagebuch-Query mit dem String "undefined" gegen Postgres.
+    href: () => `/add-food-entry?date=${todayIso()}&mealType=${defaultMealType()}`,
     backgroundColor: '#F3E9D7',
   },
   {
@@ -92,7 +113,7 @@ export function QuickAddSheet() {
             {OPTIONS.map((option) => (
               <Pressable
                 key={option.title}
-                onPress={() => go(option.href)}
+                onPress={() => go(typeof option.href === 'function' ? option.href() : option.href)}
                 accessibilityRole="button"
                 style={[styles.tile, { backgroundColor: option.backgroundColor }]}>
                 <View style={styles.tileIcon} />
