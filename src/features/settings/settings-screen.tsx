@@ -150,12 +150,6 @@ export function SettingsScreen() {
                 label="Module"
                 hint="Vorrat, Einkauf, Tagebuch, Rezepte"
                 onPress={() => router.push('/settings/modules')}
-              />
-              <SettingsRow
-                icon="🍽️"
-                label="Portionen pro Person"
-                hint="Umrechnungsfaktor für den Wochenplan"
-                onPress={() => router.push('/settings/meal-planner')}
                 last
               />
             </SettingsGroup>
