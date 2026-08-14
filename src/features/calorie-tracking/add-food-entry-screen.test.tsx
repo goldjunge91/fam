@@ -178,8 +178,10 @@ describe('AddFoodEntryScreen — Produkt aus der Suche (100g-Referenz)', () => {
 
   it('skaliert kcal live, wenn die Menge geaendert wird', async () => {
     await renderScreen();
-    const quantityField = screen.getByDisplayValue('100');
+    await fireEvent.press(screen.getByLabelText('Menge direkt eingeben'));
+    const quantityField = screen.getByLabelText('Menge eingeben');
     await fireEvent.changeText(quantityField, '200');
+    await fireEvent(quantityField, 'blur');
     expect(screen.getByDisplayValue('118')).toBeTruthy(); // 59 kcal/100g * 200g / 100
   });
 
