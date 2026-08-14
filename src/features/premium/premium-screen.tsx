@@ -119,10 +119,10 @@ export function PremiumScreen() {
           {isPremium ? (
             <>
               <View style={[styles.activeBox, { backgroundColor: `${theme.success}1F` }]}>
-                <ThemedText type="smallBold" themeColor="success">
+                <ThemedText themeColor="success" style={styles.activeTitle}>
                   ✓ Premium aktiv
                 </ThemedText>
-                <ThemedText type="small" themeColor="textSecondary" style={styles.activeHint}>
+                <ThemedText themeColor="textSecondary" style={styles.activeHint}>
                   {isForced
                     ? 'Für diesen Build erzwungen (Entwicklermodus).'
                     : 'Gilt für alle aktuellen Haushaltsmitglieder.'}
@@ -133,8 +133,8 @@ export function PremiumScreen() {
           ) : (
             <>
               <View style={[styles.planBox, { borderColor: theme.accent, backgroundColor: theme.background }]}>
-                <ThemedText type="smallBold">Jahresabo</ThemedText>
-                <ThemedText type="small" themeColor="textSecondary" style={styles.planHint}>
+                <ThemedText style={styles.planTitle}>Jahresabo</ThemedText>
+                <ThemedText themeColor="textSecondary" style={styles.planHint}>
                   Der genaue Preis wird vor dem Kauf im App Store angezeigt.
                 </ThemedText>
               </View>
@@ -165,15 +165,17 @@ const styles = StyleSheet.create({
     paddingBottom: Spacing.six,
     gap: Spacing.three,
   },
+  // Masse 1:1 aus dem fam-settings-premium-flow-Mockup (.fsp-crown,
+  // .fsp-paywall, .fsp-plan, .fsp-active) uebernommen.
   hero: {
     alignItems: 'center',
-    paddingVertical: Spacing.two,
+    paddingTop: 4,
     gap: 4,
   },
   crown: {
     width: 66,
     height: 66,
-    marginBottom: Spacing.two,
+    marginBottom: 11,
     borderRadius: 22,
     overflow: 'hidden',
     alignItems: 'center',
@@ -189,23 +191,36 @@ const styles = StyleSheet.create({
     letterSpacing: -0.45,
   },
   heroSubtitle: {
+    ...FontSize[9],
     maxWidth: 270,
     textAlign: 'center',
-    lineHeight: 18,
+    lineHeight: 13,
+    marginTop: 6,
   },
   activeBox: {
-    padding: Spacing.three,
+    padding: 13,
     borderRadius: 18,
   },
+  activeTitle: {
+    ...FontSize[10],
+    fontWeight: '600',
+  },
   activeHint: {
-    marginTop: 4,
+    ...FontSize[8],
+    marginTop: 3,
   },
   planBox: {
-    padding: Spacing.three,
+    paddingVertical: 11,
+    paddingHorizontal: 12,
     borderWidth: 2,
     borderRadius: 17,
   },
+  planTitle: {
+    ...FontSize[10],
+    fontWeight: '600',
+  },
   planHint: {
-    marginTop: 4,
+    ...FontSize[7],
+    marginTop: 3,
   },
 });
