@@ -16,6 +16,10 @@ import Svg, { Circle, Path } from 'react-native-svg';
 
 import { useSession } from '@/features/auth/session-provider';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
+import {
+  type RecipeTemplateListItem,
+  useRecipeTemplates,
+} from '@/features/recipe-templates/use-recipe-templates';
 
 import { useRecipeCoverUrl } from './recipe-cover';
 import { type DishType, type RecipeListItem, useRecipes } from './use-recipes';
@@ -190,6 +194,32 @@ function MiniRecipeCard({ recipe, onWhite }: { recipe: RecipeListItem; onWhite?:
   );
 }
 
+/**
+ * Vorgefertigte Rezepte ("Vorlagen", siehe recipe-templates-Feature) werden
+ * bewusst NICHT als eigene "Vorlagen"-Liste/Screen gezeigt, sondern als ganz
+ * normale Rezept-Karten direkt hier in der Übersicht — Tippen öffnet die
+ * Vorschau mit "In meine Rezepte kopieren"-Button
+ * (recipe-template-detail-screen.tsx).
+ */
+function TemplateThumbCard({ template }: { template: RecipeTemplateListItem }) {
+  return (
+    <TouchableOpacity
+      style={styles.thumbCard}
+      activeOpacity={0.9}
+      onPress={() =>
+        router.push({ pathname: '/recipe/template-detail', params: { id: template.id } })
+      }
+      accessibilityRole="button"
+      accessibilityLabel={template.title}>
+      <View style={styles.templateThumbLabel}>
+        <Text style={styles.templateThumbText} numberOfLines={2}>
+          {template.title}
+        </Text>
+      </View>
+    </TouchableOpacity>
+  );
+}
+
 function ThumbCard({ recipe }: { recipe: RecipeListItem }) {
   const { data: coverUrl } = useRecipeCoverUrl(recipe.cover_image_path);
 
@@ -216,6 +246,16 @@ export function RecipesScreen() {
   const { session } = useSession();
   const userId = session?.user.id;
   const { data: recipes = [], isLoading } = useRecipes(activeHouseholdId ?? undefined);
+  const { data: templates = [] } = useRecipeTemplates();
+
+  const filteredTemplates = useMemo(() => {
+    const query = searchQuery.trim().toLowerCase();
+    return templates.filter((t) => {
+      const matchesCategory = selectedCategory === 'all' || t.dish_types.includes(selectedCategory);
+      const matchesQuery = !query || t.title.toLowerCase().includes(query);
+      return matchesCategory && matchesQuery;
+    });
+  }, [templates, searchQuery, selectedCategory]);
 
   const filteredRecipes = useMemo(() => {
     const query = searchQuery.trim().toLowerCase();
@@ -381,6 +421,20 @@ export function RecipesScreen() {
             ) : null}
           </>
         )}
+
+        {filteredTemplates.length > 0 ? (
+          <View style={styles.section}>
+            <Text style={styles.sectionLabel}>Entdecken</Text>
+            <ScrollView
+              horizontal
+              showsHorizontalScrollIndicator={false}
+              contentContainerStyle={styles.thumbRow}>
+              {filteredTemplates.map((template) => (
+                <TemplateThumbCard key={template.id} template={template} />
+              ))}
+            </ScrollView>
+          </View>
+        ) : null}
       </ScrollView>
     </SafeAreaView>
   );
@@ -619,5 +673,15 @@ const styles = StyleSheet.create({
     borderRadius: 18,
     overflow: 'hidden',
     backgroundColor: '#F3E8FF',
+  },
+  templateThumbLabel: {
+    flex: 1,
+    justifyContent: 'flex-end',
+    padding: 10,
+  },
+  templateThumbText: {
+    fontSize: 13,
+    fontWeight: '700',
+    color: '#332222',
   },
 });
