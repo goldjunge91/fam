@@ -22,10 +22,7 @@ const GROUPS: { title: string; routes: NavRoute[] }[] = [
   },
   {
     title: 'Privat',
-    routes: [
-      { label: 'Tagebuch', href: '/diary', icon: 'diary' },
-      { label: 'Ziele & Fortschritt', href: '/settings/goals', icon: 'goals' },
-    ],
+    routes: [{ label: 'Tagebuch', href: '/diary', icon: 'diary' }],
   },
 ];
 

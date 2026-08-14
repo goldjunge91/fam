@@ -93,6 +93,13 @@ export function ProfileSheet() {
               borderColor={theme.border}
             />
             <ProfileRow
+              icon="goals"
+              title="Ziele & Fortschritt"
+              subtitle="Kalorienziel, Makros und Gewicht"
+              onPress={() => go('/settings/goals')}
+              borderColor={theme.border}
+            />
+            <ProfileRow
               icon="household"
               title={activeHousehold?.name ?? 'Haushalt'}
               subtitle={households.length > 1 ? 'Aktiver Haushalt · wechseln' : 'Aktiver Haushalt'}

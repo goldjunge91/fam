@@ -13,7 +13,6 @@ import { Spacing } from '@/constants/theme';
 import { useProfile } from '@/features/auth/api';
 import { useSession } from '@/features/auth/session-provider';
 import { signOutAndClearLocalData } from '@/features/auth/sign-out';
-import { useCurrentGoal } from '@/features/calorie-tracking/api';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { useNavigationChrome } from '@/features/navigation/navigation-chrome-provider';
 import { useProfileInitials } from '@/features/navigation/use-profile-initials';
@@ -42,7 +41,6 @@ export function SettingsScreen() {
   const { data: profile } = useProfile(session?.user.id);
   const initials = useProfileInitials();
   const { activeHousehold } = useActiveHousehold();
-  const { data: currentGoal } = useCurrentGoal(session?.user.id);
 
   async function handleSignOut() {
     if (signingOut) return;
@@ -162,13 +160,7 @@ export function SettingsScreen() {
               />
             </SettingsGroup>
 
-            <SettingsGroup title="Ziele & Daten">
-              <SettingsRow
-                icon="🎯"
-                label="Kalorienziel"
-                value={currentGoal ? `${currentGoal.daily_kcal ?? '–'} kcal` : 'nicht gesetzt'}
-                onPress={() => router.push('/settings/goals')}
-              />
+            <SettingsGroup title="Daten">
               <SettingsRow
                 icon="📤"
                 label="Export"
