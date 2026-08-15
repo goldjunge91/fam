@@ -1,8 +1,101 @@
+# NutriTrack (fam)
+
+- **NutriTrack** ist eine Expo- und React-Native-App für Haushalte und Familien, die geteilte Bestands- und Einkaufslisten mit einem Wöchentlichen Essensplanner und der möglichkeit privatem Kalorien-, Nährwert- und Gewichts-Tracking zu kombinieren.
+- **Mental Anchor / Comparison:** Denke an NutriTrack als eine datenschutzorientierte, kollaborative Kombination aus *Bring!* und *MyFitnessPal* mit strikter Trennung zwischen Haushalts- und Privatdaten.
+- **Goal:** Schnelle, zuverlässige mobile Workflows für iOS und Android mit robuster Offline-Fähigkeit und synchronisiertem Haushaltszustand.
+
+---
+
+## What Makes NutriTrack Special (1–4 Non-Negotiable Pillars)
+
+1. **Strikte Datentrennung & RLS-Autorität:** Geteilte Haushaltsdaten (Kühlschrank, Vorrat, Einkaufszettel) und private Nutzerdaten (Kalorien, Gewicht, Tagebuch) sind auf Datenbankebene per Supabase RLS strikt isoliert.
+2. **Ausschließlich Declaratives Datenbankschema:** Die Schemadefinitionen in `supabase/schemas/*.sql` sind die einzige Wahrheit. Migrationsdateien werden niemals manuell verfasst, sondern ausschließlich über `bun run db:diff` mit `pg-delta` generiert.
+3. **High-Density Dark-Mode UI:** True Black (`#000`) Hintergrund, weiße Primärschrift, informationsdicht, kein dekorativer Card/Pill-Ballast und keine dauerhaft GPU-belastenden CSS-Repaint-Animationen (Pulse, Shimmer, Blur).
+4. **Local-First & Offline-Belastbarkeit:** Lokale SQLite-Datenbank (`expo-sqlite`) mit Outbox-Sync für reibungslose Bedienung auch ohne stabile Netzverbindung.
+
+---
+
+## Multi-Surface Layer
+
+- **Mobile (iOS & Android):** Hauptzielplattform mit Expo SDK 57, React Native 0.86 und React 19.2. Erfordert für native Module (Kamera, Barcode-Scanner, SQLite, SecureStore, Notifications) einen Dev Client (`scripts/ios-dev.sh`); läuft nicht in Standard Expo Go.
+- **Web / Edge Functions / Services:** Supabase Edge Functions (z. B. `auth-confirmed`), Web-Vorschau via `expo start --web`, Supabase Studio (`localhost:54323`) für lokale Inspektion.
+- **Backend & Auth:** Supabase (Postgres, GoTrue Auth, Realtime, Storage) via Docker (`supabase start`); RevenueCat für In-App-Käufe und Abonnements.
+- wir haben noch kein Devoloper account für den Apple App Store, daher ist die iOS-Distribution derzeit nicht am funktionieren und wir können nur lokale Builds auf iOS testen.
+
+---
+
+## A Note from Marco
+
 Im Marco. Your my agent. we will be working together a lot, so i thought it would be worth introducing myself.
 
 i love to build. i focus on building complex things as simple as possible. i love to find ways to reduce complexity when solving problems.
 
 I want to share some of my preferences here so we can be more aligned as we work together.
+> *"I like ambitious ideas, simple systems, and software that feels obvious. Do not preserve complexity just because it already exists. Do not introduce machinery because it looks architecturally impressive. Understand the real constraint, then fight for the smallest model that makes the correct behavior unsurprising.*
+>
+> *Channel both 'measure twice, cut once' and 'yagni'. Fight scope creep. Try to honor the dev's intent in both a minimal and realistic fashion.*
+>
+> *The rest of this document is meant to help you navigate the codebase and make changes effectively. Think of these instructions less as 'hard rules', more as 'good defaults'. The developer's preferences should be able to override anything here.*
+>
+> *Of note: Most developer contributions are often controlled remotely. This means you should be careful about accessing data, killing dev servers, and other things that may damage the project instance that the developer is using."*
+
+- **Override Clause:** Anweisungen in dieser Datei sind *starke Standardwerte, keine starre Dogmatik*. Explizite Anweisungen im Prompt des Maintainers überschreiben die `AGENTS.md` jederzeit.
+
+---
+
+## Glossary
+
+| Term | Meaning & Dialect |
+| :--- | :--- |
+| **`You`** | Der KI-Agent, der den Code liest, plant und bearbeitet. |
+| **`We / Maintainers`** | Marco und die Maintainer des Projekts (deine Gesprächspartner). |
+| **`User`** | Der Endnutzer der NutriTrack-App bzw. die Person, die App später verwenden wird. |
+| **`Household (Haushalt)`** | Die geteilte Entität für gemeinsame Bestände, Einkaufslisten und Einladungen. |
+| **`Inventory / Fridge`** | Geteilter Lebensmittelbestand mit Lagerorten (Kühlschrank, Vorrat, Tiefkühler). |
+| **`Diary / Log`** | Privates, nutzerspezifisches Ernährungstagebuch (Mahlzeiten, Kalorien, Makronährstoffe). |
+| **`Declarative Schema`** | Der deklarative Schemazustand unter `supabase/schemas/*.sql`. |
+| **`Outbox`** | Lokale SQLite-Warteschlange für Offline-Mutationen vor dem Push an Supabase. |
+| **`Dev Build`** | Natives Binary (`scripts/ios-dev.sh`), das für native Expo-Module zwingend nötig ist. |
+
+---
+
+## Ways to Hurt Yourself (Safety Guardrails)
+
+- **Niemals Migrationen von Hand schreiben oder editieren:** Ändere stets `supabase/schemas/*.sql`, erzeuge die Migration mit `bun run db:diff` und wende sie mit `bun run db:reset` an.
+- **Niemals `bun test` ausführen:** Führe immer `bun run test` aus. `bun test` nutzt die native Bun-Engine, ignoriert `jest.config.js` und schlägt fehl.
+- **Kein `apply_migration` oder Einweg-SQL:** Nutze für Tests die pgTAP-Suite in `supabase/tests/` via `bun run test:db`.
+- **Fragen sind Read-Only:** Wenn ein Prompt mit "wie schwer wäre es", "warum passiert X", "sollten wir", "können wir" beginnt, beantworte die Frage, mache Vorschläge, aber ändere keine Dateien ohne Freigabe.
+- **Keine stillen Native-Module-Installationen:** Das Hinzufügen nativer Abhängigkeiten erfordert einen Rebuild des Dev-Clients (`scripts/ios-dev.sh`). Weise den Nutzer immer darauf hin.
+- **Laufende Prozesse schützen:** Beende keine aktiven Simulator-Sessions, Metro-Server oder Docker-Container, es sei denn, es wurde ausdrücklich angewiesen.
+
+---
+
+## 7. "Hit Every Surface" & Feature Completeness Checklist
+
+- **RLS & Security Policies:** Jede neue Tabelle in `supabase/schemas/*.sql` muss explizite RLS-Policies und zugehörige pgTAP-Tests in `supabase/tests/` erhalten.
+- **Reverse States Rule:** Zu jeder UI-Aktion (z. B. `check_item`, `add_favorite`, `archive_recipe`) muss das logische Gegenstück (`uncheck_item`, `remove_favorite`, `unarchive_recipe`) implementiert werden.
+- **Typ-Synchronisation:** Nach jeder Datenbankänderung muss `bun run db:types` ausgeführt werden, um `src/lib/database.types.ts` synchron zu halten.
+- **Offline- & Outbox-Parität:** Schema-Erweiterungen an synchronisierten Entitäten müssen sowohl im lokalen SQLite-Schema als auch im Sync-Handler berücksichtigt werden.
+
+---
+
+## Tooling, Commands & CLI Quirks
+
+- **Paketmanager:** `bun` für alle Paketoperationen und Skripte (`bun run <cmd>`).
+- **Linter & Formatter:** Biome (`bun run check` zum Prüfen, `bun run check:fix` zum Beheben). Kein ESLint / Prettier.
+- **Typecheck:** `bun run typecheck` (`tsc --noEmit`).
+- **Tests:** `bun run test` (Jest Unit-Tests) und `bun run test:db` (pgTAP DB-Tests).
+- **Datenbank-Workflow:**
+
+```bash
+  bun run db:diff -- -f <feature_name>  # Migration erzeugen
+  bun run db:reset                      # Lokal anwenden
+  bun run test:db                       # pgTAP-Suite validieren
+  bun run db:advisors                   # Security/Performance prüfen
+  bun run db:diff                       # Muss danach LEER sein
+  bun run db:types                      # TypeScript-Typen aktualisieren
+
+```
 
 ## Coding preferences - general
 
@@ -28,7 +121,7 @@ I want to share some of my preferences here so we can be more aligned as we work
 - A question is a request for an answer, not for changes. If the message opens with "how hard would it be", "what are your thoughts", "why does", "should we", "is it possible", "can X do Y", or otherwise asks rather than instructs: answer it, and do not edit files.
 - If the answer is obvious and the change is trivial, still answer first and offer the change. Ask before making it.
 
-# Visual and design work
+## Visual and design work
 
 - Do not edit real components first. For any non-trivial Ul, layout, or copy change, build several distinct static mocks, publish them with the html-communication skill, report the URL, and stop. Wait for a pick before implementing.
 - Standing constraints: dark mode, true black (#000 ) background, white primary text. Information-dense, no decorative card/pill chrome, no light-gray subtitle lines above sections. Minimal copy. No em dashes.
@@ -37,6 +130,15 @@ I want to share some of my preferences here so we can be more aligned as we work
 # Expo HAS CHANGED
 
 Read the exact versioned docs at <https://docs.expo.dev/versions/v57.0.0/> before writing any code.
+
+## Taste & Architectural Rules of Thumb
+
+- **Simplicity & YAGNI:** Halte Lösungen schlank. Vermeide unnötige Abstraktionsschichten oder Wrapper-Funktionen.
+- **Typesicherheit ohne `any`:** Inferenz nutzen. Typsysteme sollen sich an Änderungen anpassen. Code soll modernen TypeScript-Standards entsprechen.
+- **Feature-First Struktur:** `src/app/` dient ausschließlich dem Routing (Expo Router). Fachlogik gehört nach `src/features/<domain>/` (mit `components/`, `hooks/`, `api.ts`, `types.ts`), geteilte UI nach `src/components/`.
+- **UI & Layout:** Striktes Dark Theme (`#000`), semantisches Styling via `src/constants/theme.ts`, kein Em-Dash in Copy, Informationsdichte vor Deko.
+- **Expo SDK 57:** Vor dem Schreiben nativer Expo-Features stets die versionierte Dokumentation (<https://docs.expo.dev/versions/v57.0.0/>) konsultieren.
+- **Testing Library:** Vor Änderungen an Komponententests die Regeln in `.agents/rules/react-native-testing-library.md` beachten.
 
 ## Pull Requests
 
@@ -57,106 +159,10 @@ Before writing or changing RNTL tests, read the relevant guide in
 Prefer those package docs over stale assumptions, and follow deprecation notices.
 also make sure to read `.agents/rules/react-native-testing-library.md` for react native testing library rules and guidelines.
 
-## Datenbank: ausschliesslich Declarative Schema
+## Verification & Pull Request Instructions
 
-**Migrationsdateien unter `supabase/migrations/` werden niemals von Hand
-erstellt oder bearbeitet.** Kein `supabase migration new` mit anschliessendem
-Selberschreiben, keine "schnelle Korrektur" in einer bestehenden Datei.
-
-Der Ablauf ist immer:
-
-1. Gewuenschten **Endzustand** in `supabase/schemas/*.sql` eintragen
-2. `supabase db diff -f <name>` erzeugt die Migration
-3. Generierte Migration reviewen
-4. `supabase db reset` (lokal) bzw. `supabase db push` (remote)
-
-Zum Ausprobieren waehrend der Entwicklung `supabase db query` bzw. das
-MCP-Werkzeug `execute_sql` verwenden — **nicht** `apply_migration`: das schreibt
-bei jedem Aufruf einen Eintrag in die Migrationshistorie und macht spaetere
-Diffs leer oder widerspruechlich.
-
-**Warum:** Handgeschriebene Migrationen und generierte Diffs laufen
-auseinander. Sobald beides gemischt wird, ist der tatsaechliche Schemazustand
-nur noch aus der Historie rekonstruierbar statt an einer Stelle ablesbar.
-
-**Reihenfolge:** Die Dateien in `supabase/schemas/` laufen lexikografisch.
-Bei Fremdschluessel-Abhaengigkeiten muss die Elterntabelle zuerst kommen —
-entweder ueber die Namensgebung (`01_...`, `02_...`) oder ueber eine explizite
-Liste in `schema_paths` in `config.toml`.
-
-## Diff-Engine: immer `pg-delta`
-
-**Nur ueber `bun run db:diff` diffen** — das Script setzt `--use-pg-delta`.
-
-Die Wahl der Engine ist nicht kosmetisch. Die aeltere `migra` (in manchen
-CLI-Versionen noch Default) erfasst weder Schema-Privilegien noch
-Funktions-Grants noch Kommentare. Schlimmer: Weil sie die Supabase-Default-
-Grants auf Tabellen nicht kennt, erzeugt sie Migrationen, die
-`revoke ... on public.<tabelle> from authenticated` enthalten — wer die
-anwendet, sperrt die App aus.
-
-`pg-delta` erfasst Tabellen, Policies, Trigger, Indizes, Constraints,
-Kommentare, Schema-Privilegien und Funktions-Grants. Damit gehoert **alles** in
-`supabase/schemas/`; eine handgeschriebene Migration ist nicht noetig.
-
-Gegengeprueft (CLI 2.111, lokal): `pg-delta` erzeugte eine vollstaendige
-Migration und meldete danach einen leeren Diff — der Workflow ist idempotent.
-
-### Trotzdem nicht erfasst
-
-Quelle: [Known caveats](https://supabase.com/docs/guides/local-development/declarative-database-schemas#known-caveats).
-`create policy` **wird** erfasst — die verbreitete Aussage "RLS wird nicht
-gediffed" ist zu pauschal. Offen bleiben:
-
-| Objekt                             | Konsequenz fuer dieses Projekt                    |
-| ---------------------------------- | ------------------------------------------------- |
-| `alter policy` (Umbenennen)        | Policies nie umbenennen — immer `drop` + `create` |
-| `alter publication … add table`    | trifft #44 (Realtime)                             |
-| DML (`insert`/`update`/`delete`)   | trifft Seed-Daten → `supabase/seed.sql`           |
-| Materialized Views, View-Ownership | bisher nicht verwendet                            |
-
-### Nach jeder Schemaaenderung
-
-```bash
-bun run db:diff -- -f beschreibender_name   # Migration erzeugen
-bun run db:reset                            # anwenden
-bun run test:db                             # pgTAP-Suite
-bun run db:advisors                         # Security- und Performance-Linter
-bun run db:diff                             # muss jetzt LEER sein
-```
-
-Der letzte Schritt ist der wichtigste: Ist der Diff nach dem Anwenden nicht
-leer, weichen Schemadateien und Datenbank voneinander ab — dann stimmt die
-Deklaration nicht mehr.
-
-## Datenbanktests
-
-**Keine Wegwerf-SQL im Shell.** Datenbankverhalten wird in `supabase/tests/`
-als pgTAP-Suite geprueft, nicht mit einmaligen `docker exec psql`-Aufrufen.
-
-- `supabase/tests/helpers.sql` — Werkzeug (`create_user`, `authenticate_as`,
-  `as_postgres`, `authenticate_as_anon`), keine Assertions
-- `supabase/tests/NN_thema.test.sql` — je eine Suite, eingebunden per `\ir helpers.sql`
-
-Zwei Fallstricke, die beim Aufbau aufgetreten sind:
-
-- **Rollenwechsel wirkt nur in einer Transaktion.** Ausserhalb laeuft alles
-  weiter als `postgres` — und der umgeht RLS, sodass jeder Test faelschlich
-  gruen waere. pgTAP kapselt jede Datei in eine Transaktion, deshalb passt es.
-- **`reset role`, nicht `set role postgres`.** Letzteres scheitert mit
-  "permission denied to grant role postgres".
-
-### Remote
-
-`supabase test db --linked` funktioniert **nicht**: Die Verbindung nutzt eine
-Rolle ohne CREATE-Recht auf der Datenbank, das Anlegen des `tests`-Schemas
-scheitert. Gegen das verlinkte Projekt laufen stattdessen die
-Rechte-Zusicherungen:
-
-```bash
-bun run db:push   # pusht und prueft danach automatisch
-```
-
-Das ist nicht bloss Bequemlichkeit: Auf dem Remote vergeben
-ALTER DEFAULT PRIVILEGES `EXECUTE` an `anon` fuer jede neue public-Funktion.
-Bisher zweimal zugeschlagen — bei `create_household` und `redeem_invite`.
+- **Lokale Verifikation vor Fertigstellung:**
+  1. `bun run check` (Biome Lint/Format)
+  2. `bun run typecheck` (TypeScript)
+  3. `bun run test` (Jest Unit Tests)
+  4. `bun run test:db` (sofern DB-Schemas betroffen sind)
