@@ -36,7 +36,7 @@ create table if not exists public.recipes (
   dish_types text[] not null default '{}'
     check (dish_types <@ array['breakfast', 'lunch', 'dinner', 'snack', 'dessert', 'appetizer', 'brunch']),
   dietary_tags text[] not null default '{}'
-    check (dietary_tags <@ array['vegetarian', 'high_fat', 'low_fat', 'lactose_free', 'sugar_free', 'gluten_free']),
+    check (dietary_tags <@ array['vegetarian', 'vegan', 'high_fat', 'low_fat', 'lactose_free', 'sugar_free', 'gluten_free']),
   -- Frei vergeben, kein fester Katalog wie bei dish_types/dietary_tags.
   hashtags text[] not null default '{}',
   -- Vom Autor angegebene Portionenzahl ("Serving for 4 People") — rein
