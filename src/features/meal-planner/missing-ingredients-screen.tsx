@@ -1,24 +1,36 @@
 import { useLocalSearchParams } from 'expo-router';
 import { useEffect, useState } from 'react';
-import { ActivityIndicator, Pressable, StyleSheet, View } from 'react-native';
-
-import { Button } from '@/components/button';
+import { ActivityIndicator, Alert, Pressable, StyleSheet, View } from 'react-native';
 import { Screen } from '@/components/screen';
 import { ThemedText } from '@/components/themed-text';
+import { Button } from '@/components/ui/buttons';
 import { Spacing } from '@/constants/theme';
 import { useSession } from '@/features/auth/session-provider';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
+import { presentPaywallIfNeeded } from '@/features/premium/paywall';
+import { usePremium } from '@/features/premium/premium-provider';
 import { useAddShoppingItem } from '@/features/shopping-list/use-shopping-list-mutations';
 import { useTheme } from '@/hooks/use-theme';
 import { type MissingIngredientView, useMealPlanShoppingNeeds } from './use-shopping-needs';
 
+// Stabile Referenz statt Inline-`= []`: `EMPTY_MISSING` bleibt beim naechsten
+// Render dieselbe Array-Instanz. Ein Inline-Default legt bei jedem Render
+// ein neues Array an — der useEffect unten haengt an `[missing]`, das waere
+// dieselbe Endlosschleife wie in recipe-shopping-sheet.tsx (siehe dortigen
+// Fix): setSelected -> Re-Render -> neues [] -> Effekt feuert erneut.
+const EMPTY_MISSING: MissingIngredientView[] = [];
+
 /**
- * Kuratierte Uebernahme fehlender Zutaten in die Einkaufsliste (#131).
+ * Kuratierte Uebernahme fehlender Zutaten in die Einkaufsliste (#131),
+ * Premium-Feature — dieselbe Funktion wie "Fehlendes direkt einkaufen" aus
+ * `recipe-shopping-sheet.tsx`, hier fuer den ganzen Wochenplan statt ein
+ * einzelnes Rezept. Ohne Zugriff zeigt der Screen einen Hinweis samt Button
+ * zur echten RevenueCat-Paywall statt der Liste.
  *
- * Standard-Fluss: alle berechneten fehlenden Zutaten sind vorausgewaehlt,
- * der Nutzer kann einzelne abwaehlen, bevor er uebernimmt — kein
- * Ein-Klick-ohne-Rueckfrage-Automatismus (das ist #132, Paid, ausserhalb
- * des Scopes hier). Artikel mit Kaufhistorie zeigen den zuletzt verwendeten
+ * Standard-Fluss (mit Zugriff): alle berechneten fehlenden Zutaten sind
+ * vorausgewaehlt, der Nutzer kann einzelne abwaehlen, bevor er uebernimmt —
+ * kein Ein-Klick-ohne-Rueckfrage-Automatismus (das ist #132, ausserhalb des
+ * Scopes hier). Artikel mit Kaufhistorie zeigen den zuletzt verwendeten
  * Markt als Badge; Artikel ohne Historie zeigen keinen Badge und brauchen
  * keine gesonderte Auswahl, weil es nichts zum Auswaehlen gibt.
  */
@@ -27,8 +39,14 @@ export function MissingIngredientsScreen() {
   const { session } = useSession();
   const { activeHouseholdId } = useActiveHousehold();
   const householdId = activeHouseholdId ?? undefined;
+  const { isPremium } = usePremium();
+  const [unlocking, setUnlocking] = useState(false);
 
-  const { data: missing = [], isLoading } = useMealPlanShoppingNeeds(mealPlanId, householdId);
+  const { data: missing = EMPTY_MISSING, isLoading } = useMealPlanShoppingNeeds(
+    mealPlanId,
+    householdId,
+    isPremium,
+  );
   const [selected, setSelected] = useState<Set<string>>(new Set());
   const addShoppingItem = useAddShoppingItem();
   const [addedCount, setAddedCount] = useState<number | null>(null);
@@ -57,9 +75,25 @@ export function MissingIngredientsScreen() {
         unit: 'g',
         product_id: item.productId,
         store_id: item.preferredStoreId,
+        recipe_names: item.recipeNames,
       });
     }
     setAddedCount(toAdd.length);
+  }
+
+  async function unlockPremium() {
+    setUnlocking(true);
+    try {
+      const outcome = await presentPaywallIfNeeded();
+      if (outcome === 'unavailable') {
+        Alert.alert(
+          'Premium nicht verfügbar',
+          'Die Premium-Paywall ist auf diesem Gerät nicht konfiguriert.',
+        );
+      }
+    } finally {
+      setUnlocking(false);
+    }
   }
 
   return (
@@ -67,7 +101,15 @@ export function MissingIngredientsScreen() {
       title="Fehlende Zutaten"
       subtitle="Bedarf dieser Woche minus Vorrat"
       back={{ label: 'Wochenplan' }}>
-      {isLoading ? (
+      {!isPremium ? (
+        <View style={styles.list}>
+          <ThemedText themeColor="textSecondary">
+            fam vergleicht den Bedarf des ganzen Wochenplans mit eurem Vorrat und übernimmt nur
+            Fehlendes in die Einkaufsliste.
+          </ThemedText>
+          <Button label="Premium ansehen" onPress={unlockPremium} loading={unlocking} />
+        </View>
+      ) : isLoading ? (
         <ActivityIndicator style={styles.loading} />
       ) : missing.length === 0 ? (
         <ThemedText themeColor="textSecondary">
@@ -133,6 +175,11 @@ function IngredientRow({
           {item.missingGrams} g fehlen
           {item.preferredStoreName ? ` · zuletzt bei ${item.preferredStoreName}` : ''}
         </ThemedText>
+        {item.recipeNames.length > 0 ? (
+          <ThemedText type="small" themeColor="textSecondary" numberOfLines={1}>
+            🍽️ {item.recipeNames.join(', ')}
+          </ThemedText>
+        ) : null}
       </View>
     </Pressable>
   );

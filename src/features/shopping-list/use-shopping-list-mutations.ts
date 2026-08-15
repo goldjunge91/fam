@@ -2,19 +2,11 @@ import { useMutation, useQueryClient } from '@tanstack/react-query';
 import * as Crypto from 'expo-crypto';
 import { getDatabase } from '@/lib/db/client';
 import { enqueueMutation } from '@/lib/db/outbox';
+import {
+  type AddShoppingItemInput as AddItemInput,
+  addOrMergeShoppingItem,
+} from '@/lib/db/shopping-list-merge';
 import { normalizeUnit } from '@/lib/units';
-
-type AddItemInput = {
-  household_id: string;
-  name: string;
-  quantity: number;
-  unit: string;
-  category?: string | null;
-  product_id?: string | null;
-  sort_index?: number;
-  store_id?: string | null;
-  price_estimate?: number | null;
-};
 
 type UpdateItemInput = {
   id: string;
@@ -22,6 +14,8 @@ type UpdateItemInput = {
   name: string;
   quantity: number;
   unit: string;
+  package_size?: number | null;
+  package_size_unit?: string | null;
   category: string | null;
   store_id: string | null;
   price_estimate: number | null;
@@ -41,7 +35,13 @@ type DeleteItemInput = {
 };
 
 /**
- * Fuegt einen neuen Artikel zur Einkaufsliste hinzu (#86).
+ * Fuegt einen neuen Artikel zur Einkaufsliste hinzu (#86) — oder erhoeht,
+ * falls derselbe Artikel (gleiches Produkt bzw. gleicher Name, gleiche
+ * Einheit) bereits offen auf der Liste steht, dessen Menge (#131/#146).
+ * Verhindert Duplikate unabhaengig von der Quelle: manueller Eintrag,
+ * Wochenplaner-Bedarf oder Rezept. Die eigentliche Merge-Logik steckt in
+ * `@/lib/db/shopping-list-merge`, damit sie ohne `expo-crypto`/`expo-sqlite`
+ * gegen eine echte SQLite-Instanz testbar ist.
  *
  * Kein Server-Round-Trip noetig: UUID wird lokal generiert, Eintrag
  * landet sofort in SQLite und in der Outbox.
@@ -52,60 +52,7 @@ export function useAddShoppingItem() {
   return useMutation({
     mutationFn: async (input: AddItemInput) => {
       const db = await getDatabase();
-      const id = Crypto.randomUUID();
-      const now = new Date().toISOString();
-      const nowMs = Date.now();
-      const normUnit = normalizeUnit(input.unit);
-
-      // sort_index: am Ende einfuegen
-      const lastRow = await db.getFirstAsync<{ sort_index: number }>(
-        'select sort_index from shopping_list_items where household_id = ? and deleted_at is null order by sort_index desc limit 1',
-        [input.household_id],
-      );
-      const sortIndex = input.sort_index ?? (lastRow?.sort_index ?? -1) + 1;
-
-      await enqueueMutation(db, {
-        entity: 'shopping_list_items',
-        entityId: id,
-        op: 'insert',
-        payload: {
-          id,
-          household_id: input.household_id,
-          product_id: input.product_id ?? null,
-          name: input.name,
-          quantity: input.quantity,
-          unit: normUnit,
-          category: input.category ?? null,
-          sort_index: sortIndex,
-          store_id: input.store_id ?? null,
-          price_estimate: input.price_estimate ?? null,
-          created_at: now,
-          updated_at: now,
-        },
-        applyLocally: async (txn) => {
-          await txn.runAsync(
-            `insert into shopping_list_items
-               (id, household_id, product_id, name, quantity, unit, category, sort_index, store_id, price_estimate, created_at, updated_at, _dirty)
-             values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 1)`,
-            [
-              id,
-              input.household_id,
-              input.product_id ?? null,
-              input.name,
-              input.quantity,
-              normUnit,
-              input.category ?? null,
-              sortIndex,
-              input.store_id ?? null,
-              input.price_estimate ?? null,
-              now,
-              nowMs,
-            ],
-          );
-        },
-      });
-
-      return id;
+      return addOrMergeShoppingItem(db, Crypto.randomUUID(), input);
     },
     onSuccess: (_, variables) => {
       queryClient.invalidateQueries({ queryKey: ['shopping_list_items', variables.household_id] });
@@ -129,6 +76,9 @@ export function useUpdateShoppingItem() {
       const now = new Date().toISOString();
       const nowMs = Date.now();
       const normUnit = normalizeUnit(input.unit);
+      const normPackageUnit = input.package_size_unit
+        ? normalizeUnit(input.package_size_unit)
+        : null;
 
       await enqueueMutation(db, {
         entity: 'shopping_list_items',
@@ -140,6 +90,8 @@ export function useUpdateShoppingItem() {
           name: input.name,
           quantity: input.quantity,
           unit: normUnit,
+          package_size: input.package_size ?? null,
+          package_size_unit: normPackageUnit,
           category: input.category,
           store_id: input.store_id,
           price_estimate: input.price_estimate,
@@ -148,12 +100,15 @@ export function useUpdateShoppingItem() {
         applyLocally: async (txn) => {
           await txn.runAsync(
             `update shopping_list_items
-             set name = ?, quantity = ?, unit = ?, category = ?, store_id = ?, price_estimate = ?, updated_at = ?, _dirty = 1
+             set name = ?, quantity = ?, unit = ?, package_size = ?, package_size_unit = ?,
+                 category = ?, store_id = ?, price_estimate = ?, updated_at = ?, _dirty = 1
              where id = ?`,
             [
               input.name,
               input.quantity,
               normUnit,
+              input.package_size ?? null,
+              normPackageUnit,
               input.category,
               input.store_id,
               input.price_estimate,

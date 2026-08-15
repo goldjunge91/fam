@@ -22,14 +22,7 @@ jest.mock('@/features/auth/session-provider', () => ({
 }));
 
 jest.mock('@/hooks/use-theme', () => ({
-  useTheme: () => ({
-    text: '#000000',
-    textSecondary: '#666666',
-    accent: '#208AEF',
-    danger: '#C62828',
-    border: '#CCCCCC',
-    backgroundElement: '#F0F0F3',
-  }),
+  useTheme: () => require('@/constants/theme').Colors.light,
 }));
 
 async function fillAndSubmit() {

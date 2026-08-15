@@ -658,7 +658,7 @@ Screen component allowing household members to view, create, edit, and delete ch
 1: import { useState } from 'react';
 2: import { Alert, FlatList, Pressable, StyleSheet, View } from 'react-native';
 3: 
-4: import { Button } from '@/components/button';
+4: import { Button } from '@/components/ui/buttons';
 5: import { Card } from '@/components/card';
 6: import { DatePicker } from '@/components/date-picker';
 7: import { Screen } from '@/components/screen';
@@ -849,7 +849,7 @@ Screen for creating a new household entity and routing user into dashboard or jo
 3: import { useState } from 'react';
 4: import { StyleSheet, View } from 'react-native';
 5: 
-6: import { Button } from '@/components/button';
+6: import { Button } from '@/components/ui/buttons';
 7: import { Card } from '@/components/card';
 8: import { Screen } from '@/components/screen';
 9: import { TextField } from '@/components/text-field';
@@ -961,7 +961,7 @@ Modal dialog component enabling users to switch between multiple households or n
 2: import { router } from 'expo-router';
 3: import { Modal, Pressable, StyleSheet, View } from 'react-native';
 4: 
-5: import { Button } from '@/components/button';
+5: import { Button } from '@/components/ui/buttons';
 6: import { ThemedText } from '@/components/themed-text';
 7: import { Spacing } from '@/constants/theme';
 8: import { useActiveHousehold } from '@/features/household/active-household-provider';
@@ -1100,7 +1100,7 @@ Modal component allowing household administrators to generate, copy, share, and 
 3: import { Alert, Modal, Pressable, ScrollView, Share, StyleSheet, View } from 'react-native';
 4: import QRCode from 'react-native-qrcode-svg';
 5: 
-6: import { Button } from '@/components/button';
+6: import { Button } from '@/components/ui/buttons';
 7: import { Card } from '@/components/card';
 8: import { ThemedText } from '@/components/themed-text';
 9: import { Spacing } from '@/constants/theme';
@@ -1272,7 +1272,7 @@ Screen allowing users to redeem an invitation token or deep link to join an exis
 2: import { useEffect, useState } from 'react';
 3: import { StyleSheet, View } from 'react-native';
 4: 
-5: import { Button } from '@/components/button';
+5: import { Button } from '@/components/ui/buttons';
 6: import { Card } from '@/components/card';
 7: import { Screen } from '@/components/screen';
 8: import { TextField } from '@/components/text-field';
@@ -1398,7 +1398,7 @@ Screen showing members of the active household, providing role management, membe
 2: import { useState } from 'react';
 3: import { Alert, FlatList, Image, Pressable, StyleSheet, View } from 'react-native';
 4: 
-5: import { Button } from '@/components/button';
+5: import { Button } from '@/components/ui/buttons';
 6: import { Screen } from '@/components/screen';
 7: import { ThemedText } from '@/components/themed-text';
 8: import { Spacing } from '@/constants/theme';

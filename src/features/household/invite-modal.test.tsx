@@ -36,13 +36,7 @@ jest.mock('@/features/household/api', () => ({
 }));
 
 jest.mock('@/hooks/use-theme', () => ({
-  useTheme: () => ({
-    background: '#FFFFFF',
-    text: '#000000',
-    border: '#CCCCCC',
-    textSecondary: '#666666',
-    accent: '#10B981',
-  }),
+  useTheme: () => require('@/constants/theme').Colors.light,
 }));
 
 describe('InviteModal & QR Code Component', () => {

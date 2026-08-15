@@ -67,6 +67,7 @@ schema_paths = [
   "./schemas/12_recipe_storage.sql",
   "./schemas/13_recipe_step_storage.sql",
   "./schemas/14_meal_plans.sql",
+  "./schemas/15_recipe_templates.sql",
   "./schemas/04_privileges.sql",
   "./schemas/*.sql",
 ]
@@ -369,6 +370,12 @@ allow_dynamic_registration = false
 # Nutzer saehe wieder eine Fehlerseite. Die Function gibt ausschliesslich
 # statisches HTML zurueck und liest weder Datenbank noch Tokens.
 [functions.auth-confirmed]
+verify_jwt = false
+
+# RevenueCat schickt keinen Supabase-JWT — Auth laeuft ueber ein geteiltes
+# Secret im Authorization-Header, geprueft im Function-Code selbst (siehe
+# supabase/functions/revenuecat-webhook/index.ts).
+[functions.revenuecat-webhook]
 verify_jwt = false
 
 [edge_runtime]

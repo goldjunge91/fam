@@ -3,8 +3,9 @@ import { useEffect, useRef, useState } from 'react';
 import { ActivityIndicator, FlatList, Image, Pressable, StyleSheet, View } from 'react-native';
 
 import { Screen } from '@/components/screen';
+import { SegmentedControl } from '@/components/segmented-control';
 import { TextField } from '@/components/text-field';
-import { ThemedText } from '@/components/themed-text';
+import { FontSize, ThemedText } from '@/components/themed-text';
 import { Spacing } from '@/constants/theme';
 import { useSession } from '@/features/auth/session-provider';
 import type { MealType } from '@/features/calorie-tracking/api';
@@ -216,38 +217,20 @@ export function FoodSearchScreen() {
             accessibilityRole="button"
             accessibilityLabel="Barcode scannen"
             style={[styles.scanBtn, { backgroundColor: theme.backgroundElement }]}>
-            <ThemedText style={{ fontSize: 20 }}>📷</ThemedText>
+            <ThemedText style={{ ...FontSize[20] }}>📷</ThemedText>
           </Pressable>
         </View>
 
         {!isSearchMode ? (
-          <View style={styles.segmentedRow}>
-            <Pressable
-              onPress={() => setHistoryTab('recent')}
-              style={[
-                styles.segmentBtn,
-                {
-                  backgroundColor: historyTab === 'recent' ? theme.accent : theme.backgroundElement,
-                },
-              ]}>
-              <ThemedText style={{ color: historyTab === 'recent' ? '#fff' : theme.text }}>
-                Zuletzt
-              </ThemedText>
-            </Pressable>
-            <Pressable
-              onPress={() => setHistoryTab('frequent')}
-              style={[
-                styles.segmentBtn,
-                {
-                  backgroundColor:
-                    historyTab === 'frequent' ? theme.accent : theme.backgroundElement,
-                },
-              ]}>
-              <ThemedText style={{ color: historyTab === 'frequent' ? '#fff' : theme.text }}>
-                Häufig
-              </ThemedText>
-            </Pressable>
-          </View>
+          <SegmentedControl
+            label="Verlauf"
+            options={[
+              { value: 'recent', label: 'Zuletzt' },
+              { value: 'frequent', label: 'Häufig' },
+            ]}
+            selected={historyTab}
+            onSelect={setHistoryTab}
+          />
         ) : null}
       </View>
 
@@ -308,7 +291,7 @@ export function FoodSearchScreen() {
       <Pressable
         onPress={selectManualEntry}
         style={[styles.quickEntryBtn, { backgroundColor: theme.backgroundElement }]}>
-        <ThemedText style={{ fontSize: 18 }}>🍽️</ThemedText>
+        <ThemedText style={{ ...FontSize[18] }}>🍽️</ThemedText>
         <ThemedText type="smallBold">Schneller Eintrag</ThemedText>
       </Pressable>
 
@@ -329,7 +312,7 @@ function ProductRow({ product, onPress }: { product: OpenFoodFactsProduct; onPre
         <Image source={{ uri: product.imageUrl }} style={styles.rowImg} />
       ) : (
         <View style={[styles.rowImgPlaceholder, { backgroundColor: theme.backgroundElement }]}>
-          <ThemedText style={{ fontSize: 16 }}>🥫</ThemedText>
+          <ThemedText style={{ ...FontSize[16] }}>🥫</ThemedText>
         </View>
       )}
       <View style={styles.rowText}>
@@ -352,7 +335,7 @@ function HistoryRow({ entry, onPress }: { entry: FoodHistoryEntry; onPress: () =
   return (
     <Pressable onPress={onPress} style={[styles.row, { borderBottomColor: theme.border }]}>
       <View style={[styles.rowImgPlaceholder, { backgroundColor: theme.backgroundElement }]}>
-        <ThemedText style={{ fontSize: 16 }}>🥫</ThemedText>
+        <ThemedText style={{ ...FontSize[16] }}>🥫</ThemedText>
       </View>
       <View style={styles.rowText}>
         <ThemedText type="smallBold" numberOfLines={1}>
@@ -400,17 +383,6 @@ const styles = StyleSheet.create({
   },
   footerLoader: {
     marginVertical: Spacing.three,
-  },
-  segmentedRow: {
-    flexDirection: 'row',
-    gap: Spacing.two,
-  },
-  segmentBtn: {
-    flex: 1,
-    paddingVertical: 10,
-    borderRadius: 10,
-    alignItems: 'center',
-    justifyContent: 'center',
   },
   row: {
     flexDirection: 'row',

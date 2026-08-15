@@ -1,8 +1,9 @@
 import { Pressable, StyleSheet, View } from 'react-native';
 
-import { ThemedText } from '@/components/themed-text';
+import { ThemedText, Typography } from '@/components/themed-text';
 import { Spacing } from '@/constants/theme';
 import { useTheme } from '@/hooks/use-theme';
+import { formatAmount, formatPackageHint } from '@/lib/package-size';
 
 import type { LocalShoppingItem } from '../use-shopping-list';
 
@@ -16,6 +17,7 @@ interface ShoppingItemRowProps {
 export function ShoppingItemRow({ item, onToggle, onDelete, onEdit }: ShoppingItemRowProps) {
   const theme = useTheme();
   const isChecked = item.checked_at !== null;
+  const packageHint = formatPackageHint(item.package_size, item.package_size_unit);
 
   return (
     <View style={[styles.itemRow, { borderBottomColor: theme.border }]}>
@@ -36,18 +38,36 @@ export function ShoppingItemRow({ item, onToggle, onDelete, onEdit }: ShoppingIt
               backgroundColor: isChecked ? theme.accent : 'transparent',
             },
           ]}>
-          {isChecked ? <ThemedText style={{ color: '#fff', fontSize: 12 }}>✓</ThemedText> : null}
+          {isChecked ? (
+            <ThemedText style={[styles.checkmark, { color: '#fff' }]}>✓</ThemedText>
+          ) : null}
         </View>
 
         <View style={styles.itemContent}>
-          <ThemedText
-            type="small"
-            style={isChecked ? { textDecorationLine: 'line-through', opacity: 0.5 } : undefined}>
-            {item.name}
-          </ThemedText>
-          <ThemedText type="small" themeColor="textSecondary">
-            {item.quantity} {item.unit}
-          </ThemedText>
+          <View style={styles.itemContentTop}>
+            <ThemedText
+              type="small"
+              style={isChecked ? { textDecorationLine: 'line-through', opacity: 0.5 } : undefined}>
+              {item.name}
+            </ThemedText>
+            <ThemedText type="small" themeColor="textSecondary">
+              {formatAmount(item.quantity, item.unit)}
+            </ThemedText>
+          </View>
+          {packageHint ? (
+            <ThemedText type="small" themeColor="textSecondary" numberOfLines={1}>
+              {packageHint}
+            </ThemedText>
+          ) : null}
+          {item.recipe_names.length > 0 ? (
+            <ThemedText
+              type="small"
+              themeColor="textSecondary"
+              numberOfLines={1}
+              style={styles.recipeBadge}>
+              🍽️ {item.recipe_names.join(', ')}
+            </ThemedText>
+          ) : null}
         </View>
       </Pressable>
 
@@ -88,15 +108,24 @@ const styles = StyleSheet.create({
   },
   itemContent: {
     flex: 1,
+    gap: 2,
+  },
+  itemContentTop: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
+  },
+  recipeBadge: {
+    opacity: 0.75,
   },
   editButton: {
     padding: Spacing.one,
   },
   editIcon: {
-    fontSize: 15,
+    ...Typography.controlValue,
     opacity: 0.6,
+  },
+  checkmark: {
+    ...Typography.detail,
   },
 });

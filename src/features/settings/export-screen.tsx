@@ -1,10 +1,9 @@
 import { useState } from 'react';
 import { Alert, StyleSheet, View } from 'react-native';
-
-import { Button } from '@/components/button';
 import { Card } from '@/components/card';
 import { Screen } from '@/components/screen';
 import { ThemedText } from '@/components/themed-text';
+import { Button } from '@/components/ui/buttons';
 import { Spacing } from '@/constants/theme';
 import { useSession } from '@/features/auth/session-provider';
 import { buildUserDataExport } from '@/features/settings/data-export';
@@ -52,7 +51,7 @@ export function ExportScreen() {
   }
 
   return (
-    <Screen title="Export" back={{ label: 'Einstellungen', href: '/settings' }}>
+    <Screen title="Export" back={{ label: 'Einstellungen', href: '/settings' }} backStyle="icon">
       <Card>
         <ThemedText type="small" themeColor="textSecondary">
           Exportiert dein Profil, deine Ziele, das Ernährungstagebuch, deinen Gewichtsverlauf und

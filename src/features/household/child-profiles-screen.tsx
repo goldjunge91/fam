@@ -1,12 +1,11 @@
 import { useState } from 'react';
 import { Alert, FlatList, Pressable, StyleSheet, View } from 'react-native';
-
-import { Button } from '@/components/button';
 import { Card } from '@/components/card';
 import { DatePicker } from '@/components/date-picker';
 import { Screen } from '@/components/screen';
 import { TextField } from '@/components/text-field';
-import { ThemedText } from '@/components/themed-text';
+import { FontSize, ThemedText } from '@/components/themed-text';
+import { Button } from '@/components/ui/buttons';
 import { Spacing } from '@/constants/theme';
 import { useSession } from '@/features/auth/session-provider';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
@@ -285,7 +284,7 @@ export function ChildProfilesScreen() {
               return (
                 <View style={[styles.childRow, { borderBottomColor: theme.border }]}>
                   <View style={{ flex: 1 }}>
-                    <ThemedText style={{ fontWeight: 'bold', fontSize: 16 }}>
+                    <ThemedText style={{ fontWeight: 'bold', ...FontSize[16] }}>
                       {item.sex === 'female' ? '👧' : item.sex === 'male' ? '👦' : '👶'}{' '}
                       {item.display_name}
                     </ThemedText>

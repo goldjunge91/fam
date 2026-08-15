@@ -18,7 +18,7 @@ The `profile-screen.tsx` file implements the user profile screen component (`Pro
 3: import { useState } from 'react';
 4: import { Alert, StyleSheet, View } from 'react-native';
 5: 
-6: import { Button } from '@/components/button';
+6: import { Button } from '@/components/ui/buttons';
 7: import { Card } from '@/components/card';
 8: import { Screen } from '@/components/screen';
 9: import { ThemedText } from '@/components/themed-text';
@@ -33,7 +33,7 @@ The `profile-screen.tsx` file implements the user profile screen component (`Pro
 - **Line 2 (`import { router } from 'expo-router';`)**: Imports Expo Router's navigation object to handle screen transitions (e.g., navigating to `/onboarding`, `/household/members`, or `/household/storage-locations`).
 - **Line 3 (`import { useState } from 'react';`)**: Imports React's local state hook to manage the sign-out loading state (`signingOut`).
 - **Line 4 (`import { Alert, StyleSheet, View } from 'react-native';`)**: Imports core React Native UI components (`View`, `StyleSheet`) and the native alert dialog module (`Alert`) to show sign-out error messages.
-- **Line 6 (`import { Button } from '@/components/button';`)**: Imports custom reusable button component with variant support (`secondary`, `danger`) and loading indicator integration.
+- **Line 6 (`import { Button } from '@/components/ui/buttons';`)**: Imports custom reusable button component with variant support (`secondary`, `danger`) and loading indicator integration.
 - **Line 7 (`import { Card } from '@/components/card';`)**: Imports styled card container component for grouping information sections with section titles.
 - **Line 8 (`import { Screen } from '@/components/screen';`)**: Imports layout wrapper screen component providing safe area handling, scrolling support, and screen title header.
 - **Line 9 (`import { ThemedText } from '@/components/themed-text';`)**: Imports theme-aware text component supporting typography styles and theme color tokens.

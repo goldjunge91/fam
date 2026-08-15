@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Pressable, StyleSheet, Switch, Text, View } from 'react-native';
-import { Button } from '@/components/button';
+import { FontSize } from '@/components/themed-text';
+import { Button } from '@/components/ui/buttons';
 import { Spacing } from '@/constants/theme';
 import { useTheme } from '@/hooks/use-theme';
 import { requestNotificationPermissions } from '@/lib/notifications';
@@ -124,11 +125,11 @@ const styles = StyleSheet.create({
     gap: Spacing.three,
   },
   heading: {
-    fontSize: 22,
+    ...FontSize[22],
     fontWeight: '700',
   },
   subheading: {
-    fontSize: 14,
+    ...FontSize[14],
     lineHeight: 20,
   },
   permissionList: {
@@ -150,12 +151,12 @@ const styles = StyleSheet.create({
     paddingRight: Spacing.two,
   },
   permTitle: {
-    fontSize: 15,
+    ...FontSize[15],
     fontWeight: '700',
     marginBottom: 4,
   },
   permDesc: {
-    fontSize: 13,
+    ...FontSize[13],
     lineHeight: 18,
   },
   buttonRow: {

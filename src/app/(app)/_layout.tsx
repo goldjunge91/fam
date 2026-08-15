@@ -3,7 +3,7 @@ import { Redirect, router } from 'expo-router';
 import { useEffect } from 'react';
 import { ActivityIndicator, View } from 'react-native';
 
-import AppTabs from '@/components/app-tabs';
+import AppShell from '@/components/app-shell';
 import { useProfile } from '@/features/auth/api';
 import { resolveAppEntry } from '@/features/auth/app-entry';
 import {
@@ -96,7 +96,7 @@ function AppLayoutContent() {
     return <Redirect href={decision.to} />;
   }
 
-  return <AppTabs />;
+  return <AppShell />;
 }
 
 /** Angemeldeter Bereich. Der Guard sitzt im Root-Layout. */

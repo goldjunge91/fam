@@ -3,12 +3,13 @@ import * as Crypto from 'expo-crypto';
 import { router, useLocalSearchParams } from 'expo-router';
 import { useEffect, useState } from 'react';
 import { Alert, Image, StyleSheet, View } from 'react-native';
-
-import { Button } from '@/components/button';
+import { FilterChipBar } from '@/components/filter-chip-bar';
+import { QuantityStepper } from '@/components/quantity-stepper';
 import { Screen } from '@/components/screen';
 import { useSnackbar } from '@/components/snackbar';
 import { TextField } from '@/components/text-field';
-import { ThemedText } from '@/components/themed-text';
+import { FontSize, ThemedText } from '@/components/themed-text';
+import { Button } from '@/components/ui/buttons';
 import { Spacing } from '@/constants/theme';
 import { useSession } from '@/features/auth/session-provider';
 import { useActiveProfile } from '@/features/calorie-tracking/active-profile-store';
@@ -307,41 +308,27 @@ export function AddFoodEntryScreen() {
         {!isEditing && childProfiles.length > 0 ? (
           <View>
             <ThemedText type="smallBold">Für wen?</ThemedText>
-            <View style={styles.unitRow}>
-              <ThemedText
-                onPress={() => userId && setProfile({ type: 'adult', userId })}
-                style={[
-                  styles.unitPill,
-                  {
-                    backgroundColor: !childProfileId ? theme.accent : theme.backgroundElement,
-                    color: !childProfileId ? '#fff' : theme.text,
-                  },
-                ]}>
-                Ich
-              </ThemedText>
-              {childProfiles.map((child) => (
-                <ThemedText
-                  key={child.id}
-                  onPress={() =>
-                    activeHousehold &&
-                    setProfile({
-                      type: 'child',
-                      childProfileId: child.id,
-                      householdId: activeHousehold.id,
-                    })
-                  }
-                  style={[
-                    styles.unitPill,
-                    {
-                      backgroundColor:
-                        childProfileId === child.id ? theme.accent : theme.backgroundElement,
-                      color: childProfileId === child.id ? '#fff' : theme.text,
-                    },
-                  ]}>
-                  {child.display_name}
-                </ThemedText>
-              ))}
-            </View>
+            <FilterChipBar
+              label="Für wen?"
+              options={[
+                { value: 'adult', label: 'Ich' },
+                ...childProfiles.map((child) => ({ value: child.id, label: child.display_name })),
+              ]}
+              selected={childProfileId ?? 'adult'}
+              onSelect={(value) => {
+                if (value === 'adult') {
+                  if (userId) setProfile({ type: 'adult', userId });
+                  return;
+                }
+                if (activeHousehold) {
+                  setProfile({
+                    type: 'child',
+                    childProfileId: value,
+                    householdId: activeHousehold.id,
+                  });
+                }
+              }}
+            />
           </View>
         ) : null}
 
@@ -351,7 +338,7 @@ export function AddFoodEntryScreen() {
           ) : (
             <View
               style={[styles.heroImagePlaceholder, { backgroundColor: theme.backgroundElement }]}>
-              <ThemedText style={{ fontSize: 28 }}>🍽️</ThemedText>
+              <ThemedText style={{ ...FontSize[28] }}>🍽️</ThemedText>
             </View>
           )}
           <View style={styles.heroText}>
@@ -428,23 +415,18 @@ export function AddFoodEntryScreen() {
         <ThemedText type="smallBold" style={{ marginTop: Spacing.one }}>
           Menge
         </ThemedText>
-        <TextField value={quantity} onChangeText={setQuantity} keyboardType="numeric" />
-        <View style={styles.unitRow}>
-          {UNITS.map((u) => (
-            <ThemedText
-              key={u}
-              onPress={() => setUnit(u)}
-              style={[
-                styles.unitPill,
-                {
-                  backgroundColor: unit === u ? theme.accent : theme.backgroundElement,
-                  color: unit === u ? '#fff' : theme.text,
-                },
-              ]}>
-              {UNIT_LABELS[u]}
-            </ThemedText>
-          ))}
-        </View>
+        <QuantityStepper
+          value={Number.parseInt(quantity, 10) || 1}
+          onChange={(value) => setQuantity(String(value))}
+          max={9999}
+          label="Menge"
+        />
+        <FilterChipBar
+          label="Einheit"
+          options={UNITS.map((u) => ({ value: u, label: UNIT_LABELS[u] }))}
+          selected={unit}
+          onSelect={setUnit}
+        />
         {unitNotScalable ? (
           <ThemedText type="small" themeColor="warning">
             Automatische Umrechnung für diese Einheit nicht möglich — Nährwerte bitte manuell
@@ -510,7 +492,7 @@ const styles = StyleSheet.create({
   nutriBadgeText: {
     color: '#fff',
     fontWeight: '900',
-    fontSize: 15,
+    ...FontSize[15],
   },
   badgeRow: {
     flexDirection: 'row',
@@ -528,17 +510,6 @@ const styles = StyleSheet.create({
   },
   flex: {
     flex: 1,
-  },
-  unitRow: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    gap: Spacing.one,
-  },
-  unitPill: {
-    paddingHorizontal: 12,
-    paddingVertical: 8,
-    borderRadius: 10,
-    overflow: 'hidden',
   },
   saveButton: {
     marginTop: Spacing.two,

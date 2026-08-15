@@ -420,6 +420,35 @@ create index if not exists meal_plan_entries_plan_idx on meal_plan_entries (meal
 create index if not exists meal_plan_entries_dirty_idx on meal_plan_entries (_dirty) where _dirty = 1;
 `;
 
+// Zeigt in der Einkaufsliste, aus welchem Gericht ein Artikel stammt.
+// `text[]`-Server-Spalte, lokal als JSON-Text gespiegelt (dasselbe Muster wie
+// `recipes.dish_types`, siehe toSqlParam in mirror-write.ts).
+const V13_SHOPPING_LIST_RECIPE_NAMES = `
+alter table shopping_list_items add column recipe_names text not null default '[]';
+`;
+
+// Packungsanzahl und Packungsinhalt duerfen nicht mehr zu einer Gesamtmenge
+// zusammenfallen: 2 Packungen à 500 g bleiben als 2 + package_size 500 g
+// erhalten und koennen so bis in den Vorrat uebernommen werden.
+const V14_ITEM_PACKAGE_SIZE = `
+alter table shopping_list_items add column package_size real;
+alter table shopping_list_items add column package_size_unit text;
+alter table fridge_items add column package_size real;
+alter table fridge_items add column package_size_unit text;
+`;
+
+// Premium gilt haushaltsweit — der lokale Spiegel braucht die Server-Wahrheit
+// aus 03_households.sql (premium_active/premium_expires_at/premium_updated_at),
+// sonst sieht ein Mitglied, das selbst nie eingekauft hat, den Status nicht.
+// SQLite kennt kein boolean, deshalb integer (0/1) wie ueberall sonst in
+// diesem Schema (siehe _dirty) — toSqlParam in mirror-write.ts wandelt den
+// Postgres-boolean beim Pull entsprechend um.
+const V15_HOUSEHOLD_PREMIUM = `
+alter table households add column premium_active integer not null default 0;
+alter table households add column premium_expires_at text;
+alter table households add column premium_updated_at text;
+`;
+
 export const MIGRATIONS: readonly Migration[] = [
   {
     version: 1,
@@ -480,5 +509,20 @@ export const MIGRATIONS: readonly Migration[] = [
     version: 12,
     name: 'meal_plans',
     statements: [V12_MEAL_PLANS],
+  },
+  {
+    version: 13,
+    name: 'shopping_list_recipe_names',
+    statements: [V13_SHOPPING_LIST_RECIPE_NAMES],
+  },
+  {
+    version: 14,
+    name: 'item_package_size',
+    statements: [V14_ITEM_PACKAGE_SIZE],
+  },
+  {
+    version: 15,
+    name: 'household_premium',
+    statements: [V15_HOUSEHOLD_PREMIUM],
   },
 ];

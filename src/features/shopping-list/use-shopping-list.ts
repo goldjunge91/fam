@@ -10,15 +10,32 @@ export type LocalShoppingItem = {
   name: string;
   quantity: number;
   unit: string;
+  package_size: number | null;
+  package_size_unit: string | null;
   category: string | null;
   store_id: string | null;
   price_estimate: number | null;
+  /** Titel der Gerichte, aus denen dieser Artikel stammt (leer bei manuellem Eintrag). */
+  recipe_names: string[];
   checked_at: string | null;
   checked_by: string | null;
   sort_index: number;
   created_at: string;
   updated_at: string;
 };
+
+/** Rohzeile aus SQLite: `recipe_names` (Server-`text[]`) kommt lokal als JSON-Text an. */
+type LocalShoppingItemRow = Omit<LocalShoppingItem, 'recipe_names'> & { recipe_names: string };
+
+function parseRecipeNames(raw: string | null | undefined): string[] {
+  if (!raw) return [];
+  try {
+    const parsed = JSON.parse(raw);
+    return Array.isArray(parsed) ? (parsed as string[]) : [];
+  } catch {
+    return [];
+  }
+}
 
 export type GroupedShoppingItems = {
   category: string;
@@ -72,9 +89,10 @@ export function useShoppingList(householdId: string | undefined) {
       if (!householdId) return [];
 
       const db = await getDatabase();
-      const items = await db.getAllAsync<LocalShoppingItem>(
-        `select id, household_id, product_id, name, quantity, unit, category,
-                store_id, price_estimate,
+      const rows = await db.getAllAsync<LocalShoppingItemRow>(
+        `select id, household_id, product_id, name, quantity, unit,
+                package_size, package_size_unit, category,
+                store_id, price_estimate, recipe_names,
                 checked_at, checked_by, sort_index, created_at, updated_at
          from shopping_list_items
          where household_id = ? and deleted_at is null
@@ -84,6 +102,10 @@ export function useShoppingList(householdId: string | undefined) {
            name asc`,
         [householdId],
       );
+      const items = rows.map((row) => ({
+        ...row,
+        recipe_names: parseRecipeNames(row.recipe_names),
+      }));
 
       return groupByCategory(items);
     },
@@ -99,15 +121,17 @@ export function useCheckedShoppingItems(householdId: string | undefined) {
       if (!householdId) return [];
 
       const db = await getDatabase();
-      return db.getAllAsync<LocalShoppingItem>(
-        `select id, household_id, product_id, name, quantity, unit, category,
-                store_id, price_estimate,
+      const rows = await db.getAllAsync<LocalShoppingItemRow>(
+        `select id, household_id, product_id, name, quantity, unit,
+                package_size, package_size_unit, category,
+                store_id, price_estimate, recipe_names,
                 checked_at, checked_by, sort_index, created_at, updated_at
          from shopping_list_items
          where household_id = ? and deleted_at is null and checked_at is not null
          order by name asc`,
         [householdId],
       );
+      return rows.map((row) => ({ ...row, recipe_names: parseRecipeNames(row.recipe_names) }));
     },
     enabled: !!householdId,
   });

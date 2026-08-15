@@ -1,18 +1,12 @@
 import { router, useLocalSearchParams } from 'expo-router';
 import { useEffect, useState } from 'react';
-import {
-  Alert,
-  KeyboardAvoidingView,
-  Platform,
-  ScrollView,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-} from 'react-native';
+import { Alert, KeyboardAvoidingView, ScrollView, StyleSheet, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import Svg, { Path } from 'react-native-svg';
 
+import { GradientBackground } from '@/components/gradient-background';
+import { PageHeader } from '@/components/page-header';
+import { FontSize, ThemedText } from '@/components/themed-text';
+import { HeaderIconButton } from '@/components/ui/buttons';
 import { useSession } from '@/features/auth/session-provider';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { persistOffProductIfNeeded } from '@/features/inventory/persist-off-product';
@@ -32,7 +26,13 @@ import {
   useAddRecipeMutation,
   useAddStepIngredientMutation,
   useAddStepMutation,
+  useDeleteComponentMutation,
+  useDeleteItemMutation,
+  useDeleteStepMutation,
   useRecipeDetail,
+  useRemoveStepIngredientMutation,
+  useUpdateComponentMutation,
+  useUpdateItemMutation,
   useUpdateRecipeMutation,
   useUpdateStepMutation,
 } from './use-recipes';
@@ -56,16 +56,22 @@ export function RecipeCreateScreen() {
   const addRecipe = useAddRecipeMutation();
   const updateRecipe = useUpdateRecipeMutation();
   const addComponent = useAddComponentMutation();
+  const updateComponent = useUpdateComponentMutation();
+  const deleteComponent = useDeleteComponentMutation();
   const addItem = useAddItemMutation();
+  const updateItem = useUpdateItemMutation();
+  const deleteItem = useDeleteItemMutation();
   const addProduct = useAddProductMutation();
   const addStep = useAddStepMutation();
   const updateStep = useUpdateStepMutation();
+  const deleteStep = useDeleteStepMutation();
   const addStepIngredient = useAddStepIngredientMutation();
+  const removeStepIngredient = useRemoveStepIngredientMutation();
 
   const isEditing = !!data;
   const householdId = data?.recipe.household_id ?? activeHouseholdId ?? undefined;
 
-  const [wizardStep, setWizardStep] = useState<1 | 2 | 3>(1);
+  const [wizardStep, setWizardStep] = useState<1 | 2 | 3 | 4>(1);
   const [saving, setSaving] = useState(false);
 
   const [title, setTitle] = useState('');
@@ -80,7 +86,7 @@ export function RecipeCreateScreen() {
   const [existingCoverPath, setExistingCoverPath] = useState<string | null>(null);
 
   const [components, setComponents] = useState<IngredientComponentGroup[]>([
-    { id: 'comp-1', title: 'Zutaten', items: [newIngredient()] },
+    { id: 'comp-1', title: 'Zutaten', items: [newIngredient()], existingComponentId: null },
   ]);
 
   const [wizardSteps, setWizardSteps] = useState<WizardStepItem[]>([newWizardStep()]);
@@ -96,9 +102,57 @@ export function RecipeCreateScreen() {
     setDietaryTags(data.recipe.dietary_tags);
     setHashtagsInput(data.recipe.hashtags.join(' '));
     setExistingCoverPath(data.recipe.cover_image_path);
-    // Zutaten-Komponenten werden beim Bearbeiten bewusst nicht aus den
-    // vorhandenen recipe_components rekonstruiert — nur die Rezeptfelder oben
-    // sind editierbar, Zutaten bleiben ein reiner Neuanlage-Schritt.
+
+    // Zutaten-Komponenten aus den vorhandenen recipe_components/-items
+    // rekonstruieren, damit sie beim Bearbeiten nicht verschwinden. Nur der
+    // Flachfall (Positionen zeigen auf ein product_id) wird abgebildet — eine
+    // Position, die stattdessen auf eine Unterkomponente zeigt
+    // (sub_component_id, Baukasten-Verschachtelung), wird uebersprungen: das
+    // Wizard-Formular kennt kein Editieren verschachtelter Komponenten, eine
+    // grobe Rekonstruktion wuerde beim Speichern eher Daten verfaelschen als
+    // helfen.
+    const hydrated: IngredientComponentGroup[] = data.components.map((component) => ({
+      id: component.id,
+      title: component.name,
+      existingComponentId: component.id,
+      items: data.items
+        .filter((item) => item.component_id === component.id && item.product_id !== null)
+        .map((item) => {
+          const product = item.product_id ? data.productsById.get(item.product_id) : undefined;
+          return {
+            id: item.id,
+            product: null,
+            productQuery: product?.name ?? '',
+            quantity: item.quantity !== null ? String(item.quantity) : String(item.grams),
+            unit: item.unit,
+            notConvertible: false,
+            existingItemId: item.id,
+            existingProductId: item.product_id,
+          };
+        }),
+    }));
+    if (hydrated.length > 0) setComponents(hydrated);
+
+    // Zubereitungsschritte aus recipe_steps rekonstruieren — dieselbe Luecke
+    // wie bei den Zutaten: ohne diese Hydration blieb beim Bearbeiten nur ein
+    // leeres Schrittfeld sichtbar, und ein Speichern haette einen doppelten
+    // Schritt mit falscher position angelegt statt die bestehenden zu zeigen.
+    const hydratedSteps: WizardStepItem[] = data.steps
+      .slice()
+      .sort((a, b) => a.position - b.position)
+      .map((step) => ({
+        id: step.id,
+        serverId: step.id,
+        text: step.text,
+        localImageUri: null,
+        existingImagePath: step.image_path,
+        // ingredientIds bei recipe_steps sind bereits echte
+        // recipe_component_items.id-Werte — decken sich mit den oben
+        // hydrierten IngredientItem.id (dort ebenfalls die echte ID), daher
+        // ohne Umweg direkt uebernehmbar.
+        ingredientIds: step.ingredientIds,
+      }));
+    if (hydratedSteps.length > 0) setWizardSteps(hydratedSteps);
   }, [data]);
 
   async function handlePickCover() {
@@ -189,12 +243,14 @@ export function RecipeCreateScreen() {
         id: `comp-${Date.now()}`,
         title: `Zutaten-Gruppe ${prev.length + 1}`,
         items: [newIngredient()],
+        existingComponentId: null,
       },
     ]);
   }
 
   function handleCancel() {
-    const hasInput = title.trim() || components.some((c) => c.items.some((i) => i.product));
+    const hasInput =
+      title.trim() || components.some((c) => c.items.some((i) => i.product || i.existingProductId));
     if (!hasInput) {
       router.back();
       return;
@@ -276,7 +332,7 @@ export function RecipeCreateScreen() {
       // recipe_component_items.id fuer die Schritt-Zutaten-Verknuepfung unten.
       const localToRealItemId = new Map<string, string>();
 
-      if (!isEditing) {
+      {
         const db = await getDatabase();
         // Nur zur UI-Rueckmeldung ("nicht umrechenbar"), falls beim Speichern
         // ein Stueckgewicht fehlt — der Nutzer sieht die Markierung erst
@@ -284,28 +340,53 @@ export function RecipeCreateScreen() {
         // gepflegt statt stillschweigend verworfen.
         const updatedComponents: IngredientComponentGroup[] = [];
 
-        for (const comp of components) {
-          const readyItems = comp.items.filter(
-            (item) => item.product && Number.parseFloat(item.quantity) > 0,
-          );
-          if (readyItems.length === 0) {
-            updatedComponents.push(comp);
-            continue;
+        // Bestehende Komponenten/Positionen (Bearbeiten-Fall) fuer den
+        // Abgleich am Ende: alles, was hier nicht mehr auftaucht, wurde vom
+        // Nutzer entfernt und muss geloescht werden — ohne diesen Abgleich
+        // blieben geloeschte Zutaten in der DB stehen ("Geisterzutaten").
+        const originalComponentIds = new Set(data ? data.components.map((c) => c.id) : []);
+        const originalItemByComponent = new Map<string, string>();
+        if (data) {
+          for (const item of data.items) {
+            if (item.product_id !== null) originalItemByComponent.set(item.id, item.component_id);
           }
+        }
+        const keptComponentIds = new Set<string>();
+        const keptItemIds = new Set<string>();
 
+        for (const comp of components) {
           const updatedItemsById = new Map(comp.items.map((item) => [item.id, item]));
-          const resolvedItems: { itemId: string; productId: string; grams: number }[] = [];
+          type Resolved = {
+            sourceItemId: string;
+            existingItemId: string | null;
+            productId: string;
+            grams: number;
+            quantity: number;
+            unit: string;
+          };
+          const resolvedItems: Resolved[] = [];
 
-          for (const item of readyItems) {
-            if (!item.product) continue;
-            const productId = await persistOffProductIfNeeded(item.product, userId, addProduct);
+          for (const item of comp.items) {
+            const quantity = Number.parseFloat(item.quantity);
+            if (!(quantity > 0)) continue;
+
+            // item.product gesetzt = Nutzer hat (neu) eine OFF-Suche
+            // abgeschlossen — gilt auch, wenn dieselbe Zeile vorher schon
+            // eine andere Zutat war (Produkt-Ersetzung: alte Position wird
+            // unten ueber den originalItemByComponent-Abgleich geloescht,
+            // hier entsteht eine neue).
+            let productId: string | null = null;
+            if (item.product) {
+              productId = await persistOffProductIfNeeded(item.product, userId, addProduct);
+            } else if (item.existingProductId) {
+              productId = item.existingProductId;
+            }
             if (!productId) continue;
 
             const productRow = await db.getFirstAsync<{ serving_size_g: number | null }>(
               'select serving_size_g from products where id = ?',
               [productId],
             );
-            const quantity = Number.parseFloat(item.quantity);
             const conversion = toGramsEquivalent(quantity, item.unit, {
               servingWeightG: productRow?.serving_size_g ?? undefined,
             });
@@ -314,7 +395,14 @@ export function RecipeCreateScreen() {
               updatedItemsById.set(item.id, { ...item, notConvertible: true });
               continue;
             }
-            resolvedItems.push({ itemId: item.id, productId, grams: conversion.grams });
+            resolvedItems.push({
+              sourceItemId: item.id,
+              existingItemId: item.product ? null : item.existingItemId,
+              productId,
+              grams: conversion.grams,
+              quantity,
+              unit: item.unit,
+            });
           }
 
           if (resolvedItems.length === 0) {
@@ -326,27 +414,56 @@ export function RecipeCreateScreen() {
           }
 
           const totalGrams = resolvedItems.reduce((sum, r) => sum + r.grams, 0);
-          const component = await addComponent.mutateAsync({
-            recipe_id: newRecipeId,
-            household_id: householdId,
-            name: comp.title,
-            serving_grams: totalGrams > 0 ? totalGrams : null,
-          });
 
-          for (const resolved of resolvedItems) {
-            const source = updatedItemsById.get(resolved.itemId);
-            if (!source) continue;
-            const added = await addItem.mutateAsync({
-              component_id: component.id,
+          let realComponentId: string;
+          if (comp.existingComponentId) {
+            keptComponentIds.add(comp.existingComponentId);
+            await updateComponent.mutateAsync({
+              id: comp.existingComponentId,
               recipe_id: newRecipeId,
               household_id: householdId,
-              product_id: resolved.productId,
-              grams: resolved.grams,
-              quantity: Number.parseFloat(source.quantity),
-              unit: source.unit,
+              name: comp.title,
+              serving_grams: totalGrams > 0 ? totalGrams : null,
             });
-            localToRealItemId.set(resolved.itemId, added.id);
-            updatedItemsById.set(resolved.itemId, { ...source, notConvertible: false });
+            realComponentId = comp.existingComponentId;
+          } else {
+            const created = await addComponent.mutateAsync({
+              recipe_id: newRecipeId,
+              household_id: householdId,
+              name: comp.title,
+              serving_grams: totalGrams > 0 ? totalGrams : null,
+            });
+            realComponentId = created.id;
+          }
+
+          for (const resolved of resolvedItems) {
+            const source = updatedItemsById.get(resolved.sourceItemId);
+            if (!source) continue;
+
+            if (resolved.existingItemId) {
+              keptItemIds.add(resolved.existingItemId);
+              await updateItem.mutateAsync({
+                id: resolved.existingItemId,
+                recipe_id: newRecipeId,
+                household_id: householdId,
+                grams: resolved.grams,
+                quantity: resolved.quantity,
+                unit: resolved.unit,
+              });
+              localToRealItemId.set(resolved.sourceItemId, resolved.existingItemId);
+            } else {
+              const added = await addItem.mutateAsync({
+                component_id: realComponentId,
+                recipe_id: newRecipeId,
+                household_id: householdId,
+                product_id: resolved.productId,
+                grams: resolved.grams,
+                quantity: resolved.quantity,
+                unit: resolved.unit,
+              });
+              localToRealItemId.set(resolved.sourceItemId, added.id);
+            }
+            updatedItemsById.set(resolved.sourceItemId, { ...source, notConvertible: false });
           }
 
           updatedComponents.push({
@@ -356,43 +473,103 @@ export function RecipeCreateScreen() {
         }
 
         setComponents(updatedComponents);
+
+        if (isEditing) {
+          for (const componentId of originalComponentIds) {
+            if (!keptComponentIds.has(componentId)) {
+              await deleteComponent.mutateAsync({
+                id: componentId,
+                recipe_id: newRecipeId,
+                household_id: householdId,
+              });
+            }
+          }
+          for (const [itemId, componentId] of originalItemByComponent) {
+            // Nur explizit loeschen, wenn die Komponente selbst erhalten
+            // blieb — sonst hat deleteComponent die Position bereits
+            // kaskadierend entfernt.
+            if (!keptItemIds.has(itemId) && keptComponentIds.has(componentId)) {
+              await deleteItem.mutateAsync({
+                id: itemId,
+                recipe_id: newRecipeId,
+                household_id: householdId,
+              });
+            }
+          }
+        }
       }
+
+      const stepsDb = await getDatabase();
+      const originalStepIds = new Set(data ? data.steps.map((s) => s.id) : []);
+      const keptStepIds = new Set<string>();
 
       let position = 0;
       for (const step of wizardSteps) {
         if (!step.text.trim()) continue;
 
-        const created = await addStep.mutateAsync({
-          recipe_id: newRecipeId,
-          household_id: householdId,
-          position,
-          text: step.text.trim(),
-        });
-
-        if (step.localImageUri) {
-          const imagePath = await uploadRecipeStepImage(
-            step.localImageUri,
-            householdId,
-            created.id,
-          );
+        let stepId: string;
+        if (step.serverId) {
+          // Bestehender Schritt: aktualisieren statt einen zweiten mit
+          // derselben position anzulegen.
+          keptStepIds.add(step.serverId);
+          stepId = step.serverId;
+          const imagePath = step.localImageUri
+            ? await uploadRecipeStepImage(step.localImageUri, householdId, stepId)
+            : step.existingImagePath;
           await updateStep.mutateAsync({
-            id: created.id,
+            id: stepId,
             recipe_id: newRecipeId,
             household_id: householdId,
             position,
             text: step.text.trim(),
             image_path: imagePath,
           });
+
+          // Bestehende Zutaten-Verknuepfungen dieses Schritts komplett
+          // ersetzen statt einzeln zu diffen — bei wenigen Zutaten je Schritt
+          // kein spuerbarer Mehraufwand, aber deutlich weniger Fehlerflaeche.
+          const existingLinks = await stepsDb.getAllAsync<{ id: string }>(
+            'select id from recipe_step_ingredients where step_id = ? and deleted_at is null',
+            [stepId],
+          );
+          for (const link of existingLinks) {
+            await removeStepIngredient.mutateAsync({
+              id: link.id,
+              recipe_id: newRecipeId,
+              household_id: householdId,
+            });
+          }
+        } else {
+          const created = await addStep.mutateAsync({
+            recipe_id: newRecipeId,
+            household_id: householdId,
+            position,
+            text: step.text.trim(),
+          });
+          stepId = created.id;
+
+          if (step.localImageUri) {
+            const imagePath = await uploadRecipeStepImage(step.localImageUri, householdId, stepId);
+            await updateStep.mutateAsync({
+              id: stepId,
+              recipe_id: newRecipeId,
+              household_id: householdId,
+              position,
+              text: step.text.trim(),
+              image_path: imagePath,
+            });
+          }
         }
 
         for (const localItemId of step.ingredientIds) {
           const realItemId = localToRealItemId.get(localItemId);
-          // Zutat wurde nicht persistiert (kein Produkt gewaehlt oder nicht
-          // umrechenbar) — Referenz verwerfen statt auf eine nie existente
-          // Zeile zu verweisen.
+          // Zutat wurde nicht persistiert (kein Produkt gewaehlt, nicht
+          // umrechenbar, oder in diesem Bearbeiten-Durchgang entfernt) —
+          // Referenz verwerfen statt auf eine nie existente/geloeschte Zeile
+          // zu verweisen.
           if (!realItemId) continue;
           await addStepIngredient.mutateAsync({
-            step_id: created.id,
+            step_id: stepId,
             item_id: realItemId,
             recipe_id: newRecipeId,
             household_id: householdId,
@@ -400,6 +577,19 @@ export function RecipeCreateScreen() {
         }
 
         position += 1;
+      }
+
+      // Schritte, die urspruenglich existierten aber jetzt aus dem Formular
+      // entfernt wurden, loeschen — sonst blieben sie unsichtbar in der DB
+      // stehen (dieselbe "Geisterzutaten"-Logik wie bei den Komponenten oben).
+      for (const stepId of originalStepIds) {
+        if (!keptStepIds.has(stepId)) {
+          await deleteStep.mutateAsync({
+            id: stepId,
+            recipe_id: newRecipeId,
+            household_id: householdId,
+          });
+        }
       }
 
       router.replace({ pathname: '/recipe/detail', params: { id: newRecipeId } });
@@ -413,123 +603,162 @@ export function RecipeCreateScreen() {
   const coverPreviewUri = localCoverUri;
 
   return (
-    <SafeAreaView style={styles.safeArea}>
-      <View style={styles.header}>
-        <TouchableOpacity
-          style={styles.backButton}
-          onPress={() => router.back()}
-          accessibilityRole="button"
-          accessibilityLabel="Go back">
-          <Svg width={24} height={24} viewBox="0 0 24 24" fill="none">
-            <Path
-              d="M15 18l-6-6 6-6"
-              stroke="#FF5262"
-              strokeWidth={2.5}
-              strokeLinecap="round"
-              strokeLinejoin="round"
+    <View style={styles.root}>
+      <GradientBackground colors={['#FFD2B9', '#F8F4EF', '#EEE7F4']} />
+      <SafeAreaView style={styles.safeArea} edges={['top', 'left', 'right']}>
+        <PageHeader
+          title={isEditing ? 'Rezept bearbeiten' : 'Rezept erstellen'}
+          leading={
+            <HeaderIconButton label="Zurück" onPress={handleCancel}>
+              <ThemedText style={styles.backGlyph}>‹</ThemedText>
+            </HeaderIconButton>
+          }
+        />
+
+        <View style={styles.progressRow}>
+          {[1, 2, 3, 4].map((step) => (
+            <View
+              key={step}
+              style={[styles.progressSegment, step <= wizardStep && styles.progressSegmentActive]}
             />
-          </Svg>
-        </TouchableOpacity>
+          ))}
+        </View>
 
-        <Text style={styles.headerTitle}>
-          {isEditing ? 'Rezept bearbeiten' : `Neues Rezept (${wizardStep}/3)`}
-        </Text>
-        <View style={{ width: 24 }} />
-      </View>
-
-      <KeyboardAvoidingView
-        style={styles.keyboardAvoider}
-        behavior={Platform.OS === 'ios' ? 'padding' : undefined}
-        keyboardVerticalOffset={Platform.OS === 'ios' ? 12 : 0}>
-        {wizardStep === 1 ? (
-          <ScrollView
-            style={styles.scrollView}
-            contentContainerStyle={styles.scrollContent}
-            showsVerticalScrollIndicator={false}
-            keyboardShouldPersistTaps="handled">
-            <RecipeWizardStepBasics
-              title={title}
-              onTitleChange={setTitle}
-              description={description}
-              onDescriptionChange={setDescription}
-              cookTimeMinutes={cookTimeMinutes}
-              onCookTimeMinutesChange={setCookTimeMinutes}
-              defaultServings={defaultServings}
-              onDefaultServingsChange={setDefaultServings}
-              difficulty={difficulty}
-              onDifficultyChange={setDifficulty}
-              dishTypes={dishTypes}
-              onDishTypesChange={setDishTypes}
-              dietaryTags={dietaryTags}
-              onDietaryTagsChange={setDietaryTags}
-              hashtagsInput={hashtagsInput}
-              onHashtagsInputChange={setHashtagsInput}
-              coverPreviewUri={coverPreviewUri}
-              onPickCover={handlePickCover}
+        <KeyboardAvoidingView
+          style={styles.keyboardAvoider}
+          behavior={process.env.EXPO_OS === 'ios' ? 'padding' : undefined}
+          keyboardVerticalOffset={12}>
+          {wizardStep === 1 ? (
+            <ScrollView
+              style={styles.scrollView}
+              contentContainerStyle={styles.scrollContent}
+              showsVerticalScrollIndicator={false}
+              keyboardShouldPersistTaps="handled">
+              <RecipeWizardStepBasics
+                mode="details"
+                title={title}
+                onTitleChange={setTitle}
+                description={description}
+                onDescriptionChange={setDescription}
+                cookTimeMinutes={cookTimeMinutes}
+                onCookTimeMinutesChange={setCookTimeMinutes}
+                defaultServings={defaultServings}
+                onDefaultServingsChange={setDefaultServings}
+                difficulty={difficulty}
+                onDifficultyChange={setDifficulty}
+                dishTypes={dishTypes}
+                onDishTypesChange={setDishTypes}
+                dietaryTags={dietaryTags}
+                onDietaryTagsChange={setDietaryTags}
+                hashtagsInput={hashtagsInput}
+                onHashtagsInputChange={setHashtagsInput}
+                coverPreviewUri={coverPreviewUri}
+                onPickCover={handlePickCover}
+                components={components}
+                onAddIngredient={handleAddIngredient}
+                onRemoveIngredient={handleRemoveIngredient}
+                onSelectProduct={handleSelectProduct}
+                onUpdateIngredientQuery={handleUpdateIngredientQuery}
+                onUpdateQuantity={handleUpdateQuantity}
+                onUpdateUnit={handleUpdateUnit}
+                onAddComponentGroup={handleAddComponentGroup}
+                saving={saving}
+                onCancel={handleCancel}
+                onNext={handleNextFromBasics}
+              />
+            </ScrollView>
+          ) : wizardStep === 2 ? (
+            <ScrollView
+              style={styles.scrollView}
+              contentContainerStyle={styles.scrollContent}
+              showsVerticalScrollIndicator={false}
+              keyboardShouldPersistTaps="handled">
+              <RecipeWizardStepBasics
+                mode="ingredients"
+                title={title}
+                onTitleChange={setTitle}
+                description={description}
+                onDescriptionChange={setDescription}
+                cookTimeMinutes={cookTimeMinutes}
+                onCookTimeMinutesChange={setCookTimeMinutes}
+                defaultServings={defaultServings}
+                onDefaultServingsChange={setDefaultServings}
+                difficulty={difficulty}
+                onDifficultyChange={setDifficulty}
+                dishTypes={dishTypes}
+                onDishTypesChange={setDishTypes}
+                dietaryTags={dietaryTags}
+                onDietaryTagsChange={setDietaryTags}
+                hashtagsInput={hashtagsInput}
+                onHashtagsInputChange={setHashtagsInput}
+                coverPreviewUri={coverPreviewUri}
+                onPickCover={handlePickCover}
+                components={components}
+                onAddIngredient={handleAddIngredient}
+                onRemoveIngredient={handleRemoveIngredient}
+                onSelectProduct={handleSelectProduct}
+                onUpdateIngredientQuery={handleUpdateIngredientQuery}
+                onUpdateQuantity={handleUpdateQuantity}
+                onUpdateUnit={handleUpdateUnit}
+                onAddComponentGroup={handleAddComponentGroup}
+                saving={saving}
+                onCancel={() => setWizardStep(1)}
+                onNext={() => setWizardStep(3)}
+              />
+            </ScrollView>
+          ) : wizardStep === 3 ? (
+            <RecipeWizardStepSteps
+              steps={wizardSteps}
+              onStepsChange={setWizardSteps}
               components={components}
-              onAddIngredient={handleAddIngredient}
-              onRemoveIngredient={handleRemoveIngredient}
-              onSelectProduct={handleSelectProduct}
-              onUpdateIngredientQuery={handleUpdateIngredientQuery}
-              onUpdateQuantity={handleUpdateQuantity}
-              onUpdateUnit={handleUpdateUnit}
-              onAddComponentGroup={handleAddComponentGroup}
-              saving={saving}
-              onCancel={handleCancel}
-              onNext={handleNextFromBasics}
+              onBack={() => setWizardStep(2)}
+              onNext={() => setWizardStep(4)}
             />
-          </ScrollView>
-        ) : wizardStep === 2 ? (
-          <RecipeWizardStepSteps
-            steps={wizardSteps}
-            onStepsChange={setWizardSteps}
-            components={components}
-            onBack={() => setWizardStep(1)}
-            onNext={() => setWizardStep(3)}
-          />
-        ) : (
-          <RecipeWizardStepPreview
-            coverPreviewUri={coverPreviewUri}
-            title={title}
-            description={description}
-            cookTimeMinutes={cookTimeMinutes}
-            defaultServings={defaultServings}
-            difficulty={difficulty}
-            dishTypes={dishTypes}
-            dietaryTags={dietaryTags}
-            hashtagsInput={hashtagsInput}
-            components={components}
-            steps={wizardSteps}
-            saving={saving}
-            onBack={() => setWizardStep(2)}
-            onSave={handleFinalSave}
-          />
-        )}
-      </KeyboardAvoidingView>
-    </SafeAreaView>
+          ) : (
+            <RecipeWizardStepPreview
+              coverPreviewUri={coverPreviewUri}
+              title={title}
+              description={description}
+              cookTimeMinutes={cookTimeMinutes}
+              defaultServings={defaultServings}
+              difficulty={difficulty}
+              dishTypes={dishTypes}
+              dietaryTags={dietaryTags}
+              hashtagsInput={hashtagsInput}
+              components={components}
+              steps={wizardSteps}
+              saving={saving}
+              onBack={() => setWizardStep(3)}
+              onSave={handleFinalSave}
+            />
+          )}
+        </KeyboardAvoidingView>
+      </SafeAreaView>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
+  root: {
+    flex: 1,
+  },
   safeArea: {
     flex: 1,
-    backgroundColor: '#FFFDF9',
+    width: '100%',
+    maxWidth: 800,
+    alignSelf: 'center',
   },
-  header: {
+  backGlyph: { ...FontSize[27], lineHeight: 29, fontWeight: 400 },
+  progressRow: {
+    height: 16,
     flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    paddingHorizontal: 20,
-    paddingVertical: 14,
+    gap: 5,
+    paddingHorizontal: 16,
+    paddingTop: 2,
+    paddingBottom: 10,
   },
-  backButton: {
-    padding: 6,
-  },
-  headerTitle: {
-    fontSize: 20,
-    fontWeight: '700',
-    color: '#FF5262',
-  },
+  progressSegment: { flex: 1, height: 4, borderRadius: 3, backgroundColor: '#DFD6DD' },
+  progressSegmentActive: { backgroundColor: '#755B79' },
   keyboardAvoider: {
     flex: 1,
   },
@@ -537,7 +766,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   scrollContent: {
-    paddingHorizontal: 20,
+    paddingHorizontal: 16,
     paddingBottom: 24,
   },
 });

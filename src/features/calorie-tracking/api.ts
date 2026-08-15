@@ -202,7 +202,10 @@ export function useFoodEntries(
       if (error) throw new Error(error.message);
       return data;
     },
-    enabled: !!userId,
+    // isoDate kommt bei manchen Aufrufern aus Router-Params und kann fehlen
+    // (#food-entries-query) — ohne die Absicherung schickt PostgREST den
+    // JS-Wert `undefined` als woertliche Zeichenkette an Postgres.
+    enabled: !!userId && !!isoDate,
   });
 }
 

@@ -2,12 +2,11 @@ import { useQueryClient } from '@tanstack/react-query';
 import { router } from 'expo-router';
 import { useEffect, useState } from 'react';
 import { Alert, Pressable, StyleSheet, View } from 'react-native';
-
-import { Button } from '@/components/button';
 import { Card } from '@/components/card';
 import { Screen } from '@/components/screen';
 import { TextField } from '@/components/text-field';
 import { ThemedText } from '@/components/themed-text';
+import { Button } from '@/components/ui/buttons';
 import { Spacing } from '@/constants/theme';
 import { updateProfile, useProfile } from '@/features/auth/api';
 import { fieldErrors, getDeviceDateFormat, profileSchema } from '@/features/auth/auth-schemas';
@@ -135,7 +134,10 @@ export function EditProfileScreen() {
   }
 
   return (
-    <Screen title="Profil bearbeiten" back={{ label: 'Einstellungen', href: '/settings' }}>
+    <Screen
+      title="Profil bearbeiten"
+      back={{ label: 'Einstellungen', href: '/settings' }}
+      backStyle="icon">
       <Card title="Persönliche Angaben">
         <View style={styles.form}>
           <TextField
@@ -176,6 +178,21 @@ export function EditProfileScreen() {
 
       <Card title="Wie aktiv bist du?">
         <ChoiceRow options={ACTIVITY_LEVELS} value={activityLevel} onChange={setActivityLevel} />
+      </Card>
+
+      <Card title="Ziele & Wochenplan">
+        <View style={styles.form}>
+          <Button
+            label="Ziele & Fortschritt"
+            variant="secondary"
+            onPress={() => router.push('/settings/goals')}
+          />
+          <Button
+            label="Portionen pro Person"
+            variant="secondary"
+            onPress={() => router.push('/settings/meal-planner')}
+          />
+        </View>
       </Card>
 
       {formError ? (

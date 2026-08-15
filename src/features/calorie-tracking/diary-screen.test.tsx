@@ -52,19 +52,16 @@ jest.mock('@/features/calorie-tracking/active-profile-store', () => ({
   }),
 }));
 
+jest.mock('@/features/navigation/navigation-chrome-provider', () => ({
+  useNavigationChrome: () => ({ openDrawer: jest.fn(), openProfile: jest.fn() }),
+}));
+
+jest.mock('@/features/navigation/use-profile-initials', () => ({
+  useProfileInitials: () => 'MM',
+}));
+
 jest.mock('@/hooks/use-theme', () => ({
-  useTheme: () => ({
-    background: '#FFFFFF',
-    backgroundElement: '#F0F0F3',
-    backgroundSelected: '#E0E1E6',
-    text: '#000000',
-    textSecondary: '#60646C',
-    border: '#DDDDE3',
-    accent: '#208AEF',
-    success: '#1A7F4B',
-    warning: '#B26A00',
-    danger: '#C62828',
-  }),
+  useTheme: () => require('@/constants/theme').Colors.light,
 }));
 
 function renderScreen() {
@@ -129,8 +126,7 @@ describe('DiaryScreen', () => {
 
   it('oeffnet die Lebensmittelsuche vorbelegt mit der Mahlzeit', async () => {
     await renderScreen();
-    const addButtons = screen.getAllByText('+ Hinzufügen');
-    await fireEvent.press(addButtons[0]);
+    await fireEvent.press(screen.getByRole('button', { name: 'Zu Frühstück hinzufügen' }));
 
     expect(router.push).toHaveBeenCalledWith(
       expect.objectContaining({

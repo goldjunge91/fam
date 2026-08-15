@@ -12,7 +12,7 @@
 begin;
 \ir helpers.sql
 
-select plan(12);
+select plan(15);
 
 -- ------------------------------------------------------ Tabellen brauchen RLS
 select is_empty(
@@ -94,6 +94,24 @@ select ok(
 select ok(
   has_function_privilege('authenticated', 'public.create_household(text)', 'execute'),
   'authenticated kann create_household aufrufen'
+);
+
+-- --------------------------------------------- Premium-Spalten sind geschuetzt
+-- households_update_admin erlaubt jedem Admin, seine Haushaltszeile zu
+-- aendern — ohne diesen Spaltenschutz koennte er premium_active per
+-- normalem UPDATE selbst auf true setzen. Nur der RevenueCat-Webhook
+-- (service_role) darf das.
+select ok(
+  not has_column_privilege('authenticated', 'public.households', 'premium_active', 'update'),
+  'authenticated kann premium_active nicht per UPDATE aendern'
+);
+select ok(
+  not has_column_privilege('authenticated', 'public.households', 'premium_expires_at', 'update'),
+  'authenticated kann premium_expires_at nicht per UPDATE aendern'
+);
+select ok(
+  has_column_privilege('authenticated', 'public.households', 'name', 'update'),
+  'authenticated kann name weiterhin per UPDATE aendern (Gegenprobe)'
 );
 
 select * from finish();

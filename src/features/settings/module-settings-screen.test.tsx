@@ -15,25 +15,14 @@ jest.mock('@/features/auth/session-provider', () => ({
 
 jest.mock('@/features/settings/module-preferences', () => ({
   useModulePreferences: () => ({
-    data: { fridge: true, shoppingList: true, calories: false, recipes: true },
+    data: { fridge: true, shoppingList: true, calories: false, recipes: true, mealPlanner: true },
     isLoading: false,
   }),
   useUpdateModulePreferencesMutation: () => ({ mutate: mockMutate, isPending: false }),
 }));
 
 jest.mock('@/hooks/use-theme', () => ({
-  useTheme: () => ({
-    background: '#FFFFFF',
-    backgroundElement: '#F0F0F3',
-    backgroundSelected: '#E0E1E6',
-    text: '#000000',
-    textSecondary: '#60646C',
-    border: '#DDDDE3',
-    accent: '#208AEF',
-    success: '#1A7F4B',
-    warning: '#B26A00',
-    danger: '#C62828',
-  }),
+  useTheme: () => require('@/constants/theme').Colors.light,
 }));
 
 function renderScreen() {
@@ -53,12 +42,13 @@ beforeEach(() => {
 });
 
 describe('ModuleSettingsScreen', () => {
-  it('zeigt alle vier Module mit ihrem aktuellen Zustand', async () => {
+  it('zeigt alle fünf Module mit ihrem aktuellen Zustand', async () => {
     await renderScreen();
     expect(screen.getByText(/Kühlschrank & Vorrat/)).toBeTruthy();
     expect(screen.getByText(/Geteilte Einkaufsliste/)).toBeTruthy();
     expect(screen.getByText(/Kalorienzähler & Tagebuch/)).toBeTruthy();
     expect(screen.getByText(/Rezepte/)).toBeTruthy();
+    expect(screen.getByText(/Meal-Planner/)).toBeTruthy();
   });
 
   it('schaltet ein aktiviertes Modul beim Antippen aus', async () => {

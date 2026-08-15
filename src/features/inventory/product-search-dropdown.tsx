@@ -1,10 +1,20 @@
 import { onlineManager } from '@tanstack/react-query';
 import { router } from 'expo-router';
-import { useEffect, useRef, useState } from 'react';
-import { ActivityIndicator, Image, Pressable, ScrollView, StyleSheet, View } from 'react-native';
+import type { ReactNode } from 'react';
+import { forwardRef, useEffect, useImperativeHandle, useRef, useState } from 'react';
+import {
+  ActivityIndicator,
+  Image,
+  Pressable,
+  ScrollView,
+  type StyleProp,
+  StyleSheet,
+  type TextStyle,
+  View,
+} from 'react-native';
 
 import { TextField } from '@/components/text-field';
-import { ThemedText } from '@/components/themed-text';
+import { ThemedText, Typography } from '@/components/themed-text';
 import { Spacing } from '@/constants/theme';
 import { useTheme } from '@/hooks/use-theme';
 import { getDatabase } from '@/lib/db/client';
@@ -173,15 +183,31 @@ interface ProductSearchDropdownProps {
   value: string;
   onChangeText: (text: string) => void;
   onSelectProduct: (product: OpenFoodFactsProduct) => void;
+  inputStyle?: StyleProp<TextStyle>;
+  trailing?: ReactNode;
+  size?: 'default' | 'large';
 }
 
-export function ProductSearchDropdown({
-  label = 'Name',
-  placeholder = 'z. B. Hafermilch',
-  value,
-  onChangeText,
-  onSelectProduct,
-}: ProductSearchDropdownProps) {
+export type ProductSearchDropdownHandle = {
+  dismiss: () => void;
+};
+
+export const ProductSearchDropdown = forwardRef<
+  ProductSearchDropdownHandle,
+  ProductSearchDropdownProps
+>(function ProductSearchDropdown(
+  {
+    label = 'Name',
+    placeholder = 'z. B. Hafermilch',
+    value,
+    onChangeText,
+    onSelectProduct,
+    inputStyle,
+    trailing,
+    size = 'default',
+  },
+  ref,
+) {
   const theme = useTheme();
   const [suggestions, setSuggestions] = useState<OpenFoodFactsProduct[]>([]);
   const [searching, setSearching] = useState(false);
@@ -198,6 +224,7 @@ export function ProductSearchDropdown({
   const [dumpOffset, setDumpOffset] = useState(0);
   const [dumpHasMore, setDumpHasMore] = useState(false);
   const [loadingMoreOff, setLoadingMoreOff] = useState(false);
+  const blurTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   // `value` beim Ausloesen der aktuellen Suche — schuetzt vor veralteten
   // Nachlade-Antworten, wenn der Nutzer inzwischen weitergetippt hat.
   const queryRef = useRef(value);
@@ -207,6 +234,23 @@ export function ProductSearchDropdown({
   // Markierung faengt der Such-Effekt unten diese Aenderung ab und oeffnet das
   // Dropdown eine Suche spaeter erneut — Auswahl wirkte dann wie 2x noetig.
   const justSelectedValueRef = useRef<string | null>(null);
+
+  function cancelScheduledDismiss() {
+    if (blurTimerRef.current === null) return;
+    clearTimeout(blurTimerRef.current);
+    blurTimerRef.current = null;
+  }
+
+  function dismiss() {
+    cancelScheduledDismiss();
+    setShowDropdown(false);
+  }
+
+  useImperativeHandle(ref, () => ({ dismiss }));
+
+  useEffect(() => () => {
+    cancelScheduledDismiss();
+  });
 
   useEffect(() => {
     if (justSelectedValueRef.current !== null) {
@@ -303,11 +347,19 @@ export function ProductSearchDropdown({
   const showEmptyState = searched && !searching && suggestions.length === 0;
 
   return (
-    <View style={styles.container}>
+    <View style={styles.container} onTouchStart={(event) => event.stopPropagation()}>
       <TextField
         label={label}
         placeholder={placeholder}
         value={value}
+        style={inputStyle}
+        trailing={trailing}
+        size={size}
+        onFocus={cancelScheduledDismiss}
+        onBlur={() => {
+          cancelScheduledDismiss();
+          blurTimerRef.current = setTimeout(() => setShowDropdown(false), 120);
+        }}
         onChangeText={(text) => {
           onChangeText(text);
           setShowDropdown(true);
@@ -346,10 +398,13 @@ export function ProductSearchDropdown({
               }}
               style={[styles.itemRow, { borderBottomColor: theme.border }]}>
               <View style={styles.itemText}>
-                <ThemedText type="smallBold">
+                <ThemedText type="smallBold" style={size === 'large' && styles.largeSuggestionText}>
                   + &quot;{value.trim()}&quot; manuell anlegen
                 </ThemedText>
-                <ThemedText type="small" themeColor="textSecondary">
+                <ThemedText
+                  type="small"
+                  themeColor="textSecondary"
+                  style={size === 'large' && styles.largeSuggestionText}>
                   Kein Treffer bei Open Food Facts gefunden
                 </ThemedText>
               </View>
@@ -368,15 +423,24 @@ export function ProductSearchDropdown({
                 <Image source={{ uri: item.imageUrl }} style={styles.img} />
               ) : (
                 <View style={[styles.imgPlaceholder, { backgroundColor: theme.backgroundElement }]}>
-                  <ThemedText style={{ fontSize: 14 }}>🥫</ThemedText>
+                  <ThemedText style={size === 'large' ? styles.largeEmoji : styles.defaultEmoji}>
+                    🥫
+                  </ThemedText>
                 </View>
               )}
 
               <View style={styles.itemText}>
-                <ThemedText type="smallBold" numberOfLines={1}>
+                <ThemedText
+                  type="smallBold"
+                  numberOfLines={1}
+                  style={size === 'large' && styles.largeSuggestionText}>
                   {item.name}
                 </ThemedText>
-                <ThemedText type="small" themeColor="textSecondary" numberOfLines={1}>
+                <ThemedText
+                  type="small"
+                  themeColor="textSecondary"
+                  numberOfLines={1}
+                  style={size === 'large' && styles.largeSuggestionText}>
                   {item.brand ? `${item.brand} · ` : ''}
                   {item.quantity} {item.unit}
                   {item.caloriesPer100g ? ` · ${item.caloriesPer100g} kcal/100g` : ''}
@@ -393,7 +457,7 @@ export function ProductSearchDropdown({
       )}
     </View>
   );
-}
+});
 
 const styles = StyleSheet.create({
   container: {
@@ -446,5 +510,14 @@ const styles = StyleSheet.create({
   },
   itemText: {
     flex: 1,
+  },
+  defaultEmoji: {
+    ...Typography.bodySmall,
+  },
+  largeEmoji: {
+    ...Typography.body,
+  },
+  largeSuggestionText: {
+    ...Typography.body,
   },
 });

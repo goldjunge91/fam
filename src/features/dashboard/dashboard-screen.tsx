@@ -1,24 +1,25 @@
 import { useQueryClient } from '@tanstack/react-query';
 import { router } from 'expo-router';
 import { useState } from 'react';
-import { Alert, Pressable, RefreshControl, ScrollView, StyleSheet, View } from 'react-native';
+import { Pressable, RefreshControl, ScrollView, StyleSheet, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-
-import { Card } from '@/components/card';
-import { MacroBar } from '@/components/macro-bar';
+import { FamIcon } from '@/components/fam-icon';
 import { ProgressRing } from '@/components/progress-ring';
 import { Screen } from '@/components/screen';
-import { ThemedText } from '@/components/themed-text';
-import { Spacing, TabBarHeight } from '@/constants/theme';
+import { FontSize, ThemedText } from '@/components/themed-text';
+import { Spacing } from '@/constants/theme';
 import { useSession } from '@/features/auth/session-provider';
 import { useCurrentGoal, useFoodEntries } from '@/features/calorie-tracking/api';
 import { calculateDailyTotals } from '@/features/calorie-tracking/daily-totals';
 import { getExpiryInfo } from '@/features/fridge/expiry';
 import { useExpiryNotifications } from '@/features/fridge/use-expiry-notifications';
-import { type LocalFridgeItem, useFridgeItems } from '@/features/fridge/use-fridge-items';
-import { useUpdateFridgeItemQuantityMutation } from '@/features/fridge/use-fridge-mutations';
+import { useFridgeItems } from '@/features/fridge/use-fridge-items';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
-import { useAddShoppingItem } from '@/features/shopping-list/use-shopping-list-mutations';
+import { useMealPlanEntriesInRange } from '@/features/meal-planner/use-meal-plans';
+import { MEAL_SLOT_LABELS, MEAL_SLOTS } from '@/features/meal-planner/week';
+import { useNavigationChrome } from '@/features/navigation/navigation-chrome-provider';
+import { useProfileInitials } from '@/features/navigation/use-profile-initials';
+import { useShoppingList } from '@/features/shopping-list/use-shopping-list';
 import { useTheme } from '@/hooks/use-theme';
 import { triggerHouseholdSync } from '@/lib/sync/sync-runner';
 
@@ -34,6 +35,8 @@ export function DashboardScreen() {
   const insets = useSafeAreaInsets();
   const queryClient = useQueryClient();
   const [refreshing, setRefreshing] = useState(false);
+  const { openDrawer, openProfile } = useNavigationChrome();
+  const initials = useProfileInitials();
   const now = new Date();
   const heute = now.toLocaleDateString('de-DE', {
     weekday: 'long',
@@ -44,9 +47,8 @@ export function DashboardScreen() {
   const { activeHouseholdId } = useActiveHousehold();
   const householdId = activeHouseholdId ?? undefined;
 
-  const { data: fridgeItems = [], isLoading } = useFridgeItems(householdId);
-  const updateQuantityMutation = useUpdateFridgeItemQuantityMutation();
-  const addShoppingItemMutation = useAddShoppingItem();
+  const { data: fridgeItems = [] } = useFridgeItems(householdId);
+  const { data: shoppingGroups = [] } = useShoppingList(householdId);
 
   // Hintergrund-Benachrichtigungen aktivieren/synchronisieren
   useExpiryNotifications(householdId);
@@ -66,51 +68,34 @@ export function DashboardScreen() {
   );
   const aufgenommen = totals.kcal;
   const ziel = currentGoal?.daily_kcal ?? 0;
+  const verbleibend = Math.round(ziel - aufgenommen);
 
-  // Filtere ablaufende / abgelaufene Produkte (in <= 3 Tagen oder bereits abgelaufen)
-  const expiringItems = fridgeItems
-    .filter((item) => {
-      if (!item.expiry_date) return false;
-      const info = getExpiryInfo(item.expiry_date, now);
-      return (
-        info.bucket === 'expired' ||
-        info.bucket === 'critical' ||
-        (info.daysLeft !== null && info.daysLeft <= 3)
-      );
-    })
-    .sort((a, b) => {
-      const dateA = a.expiry_date ? new Date(a.expiry_date).getTime() : Infinity;
-      const dateB = b.expiry_date ? new Date(b.expiry_date).getTime() : Infinity;
-      return dateA - dateB;
-    });
+  // Naechster geplanter Eintrag von heute, in der Reihenfolge Fruehstueck ->
+  // Mittag -> Abend — die Slot-Reihenfolge steht nicht in der DB, deshalb
+  // client-seitig sortiert (#150, Figma "Heute geplant").
+  const { data: todayMealEntries = [] } = useMealPlanEntriesInRange(
+    householdId,
+    todayIso,
+    todayIso,
+  );
+  const nextMeal = [...todayMealEntries].sort(
+    (a, b) => MEAL_SLOTS.indexOf(a.meal_slot) - MEAL_SLOTS.indexOf(b.meal_slot),
+  )[0];
 
-  async function handleConsume(item: LocalFridgeItem) {
-    if (!householdId) return;
-    try {
-      await updateQuantityMutation.mutateAsync({
-        id: item.id,
-        household_id: householdId,
-        delta: -1,
-      });
-    } catch (err) {
-      Alert.alert('Fehler', err instanceof Error ? err.message : 'Fehler beim Verbrauchen');
-    }
-  }
+  // "Laeuft bald ab" (in <= 3 Tagen oder bereits abgelaufen) fuer das Vorrat-Widget.
+  const expiringCount = fridgeItems.filter((item) => {
+    if (!item.expiry_date) return false;
+    const info = getExpiryInfo(item.expiry_date, now);
+    return (
+      info.bucket === 'expired' ||
+      info.bucket === 'critical' ||
+      (info.daysLeft !== null && info.daysLeft <= 3)
+    );
+  }).length;
 
-  async function handleAddToShoppingList(item: LocalFridgeItem) {
-    if (!householdId) return;
-    try {
-      await addShoppingItemMutation.mutateAsync({
-        household_id: householdId,
-        name: item.name,
-        quantity: 1,
-        unit: item.unit,
-      });
-      Alert.alert('Einkaufsliste', `"${item.name}" wurde auf die Einkaufsliste gesetzt.`);
-    } catch (err) {
-      Alert.alert('Fehler', err instanceof Error ? err.message : 'Fehler beim Hinzufügen');
-    }
-  }
+  const openShoppingCount = shoppingGroups
+    .flatMap((g) => g.items)
+    .filter((item) => item.checked_at === null).length;
 
   // `useSyncEngine` laeuft bereits app-weit gemountet ((app)/_layout.tsx) —
   // ein erneuter Hook-Aufruf hier wuerde gegen dessen
@@ -126,10 +111,17 @@ export function DashboardScreen() {
     }
   }
 
-  const bottomPadding = insets.bottom + TabBarHeight + Spacing.four;
+  // Kein natives Tab-Bar-Polster mehr noetig (#150) — nur noch Puffer fuer
+  // den schwebenden Plus-Button.
+  const bottomPadding = insets.bottom + Spacing.four + Spacing.six;
 
   return (
-    <Screen title="Übersicht" subtitle={heute} scroll={false}>
+    <Screen
+      title="Übersicht"
+      subtitle={heute}
+      scroll={false}
+      chrome={{ onMenuPress: openDrawer, onAvatarPress: openProfile, initials }}
+      backgroundGradient={['#FFCCB2', '#F9F2EB', '#E8DEF2']}>
       <ScrollView
         testID="dashboard-scroll-view"
         contentContainerStyle={{ paddingBottom: bottomPadding }}
@@ -142,143 +134,220 @@ export function DashboardScreen() {
             tintColor={theme.accent}
           />
         }>
-        <Card>
-          <ProgressRing value={aufgenommen} target={ziel} label="Kalorien" />
-          {ziel === 0 ? (
-            <ThemedText type="small" themeColor="textSecondary" style={styles.centered}>
-              Noch kein Kalorienziel gesetzt. Lege es unter Einstellungen an, damit hier ein
-              Fortschritt erscheint.
-            </ThemedText>
-          ) : null}
-        </Card>
-
-        <Card title="Makronährstoffe">
-          <View style={styles.macros}>
-            <MacroBar label="Eiweiß" value={totals.proteinG} target={currentGoal?.protein_g ?? 0} />
-            <MacroBar
-              label="Kohlenhydrate"
-              value={totals.carbsG}
-              target={currentGoal?.carbs_g ?? 0}
+        {/* Kalorien heute — kompakter Ring + Copy nebeneinander (#150, Figma "Kalorien heute") */}
+        <View
+          style={[
+            styles.glassCard,
+            styles.calorieCard,
+            { backgroundColor: theme.backgroundElement },
+          ]}>
+          <View style={styles.ringWrap}>
+            <ProgressRing
+              value={aufgenommen}
+              target={ziel}
+              size={94}
+              strokeWidth={10}
+              label="Kalorien"
+              displayMode="percent"
+              progressColor="#D9785C"
+              trackColor="#DAD3DB"
             />
-            <MacroBar label="Fett" value={totals.fatG} target={currentGoal?.fat_g ?? 0} />
           </View>
-        </Card>
+          <View style={styles.calorieCopy}>
+            <ThemedText type="small" themeColor="textSecondary" style={styles.calorieLabel}>
+              Kalorien heute
+            </ThemedText>
+            <ThemedText type="title" style={styles.calorieValue}>
+              {Math.round(aufgenommen).toLocaleString('de-DE')}
+            </ThemedText>
+            <ThemedText
+              type="small"
+              themeColor={ziel === 0 ? 'textSecondary' : 'accent'}
+              style={styles.calorieRemaining}>
+              {ziel === 0
+                ? 'Noch kein Ziel gesetzt'
+                : verbleibend >= 0
+                  ? `${verbleibend} kcal verbleibend`
+                  : `${Math.abs(verbleibend)} kcal über dem Ziel`}
+            </ThemedText>
+          </View>
+        </View>
 
+        {/* Heute geplant (#150, Figma "Heute geplant") */}
         <Pressable
           onPress={() => router.push('/meal-planner')}
           accessibilityRole="button"
-          accessibilityLabel="Essensplan öffnen">
-          <Card title="Essensplan">
-            <ThemedText type="small" themeColor="textSecondary">
-              Wochenplan ansehen, bearbeiten oder Gerichte eintragen
+          accessibilityLabel="Essensplan öffnen"
+          style={[
+            styles.glassCard,
+            styles.plannedCard,
+            { backgroundColor: theme.backgroundElement },
+          ]}>
+          <FamIcon name="mealArtwork" size={79} />
+          <View style={styles.plannedCopy}>
+            <ThemedText type="small" themeColor="danger" style={styles.plannedKicker}>
+              HEUTE GEPLANT
             </ThemedText>
-          </Card>
+            <ThemedText type="smallBold" numberOfLines={1} style={styles.plannedTitle}>
+              {nextMeal?.recipe_title ?? 'Noch nichts geplant'}
+            </ThemedText>
+            <ThemedText type="small" themeColor="textSecondary" style={styles.plannedMeta}>
+              {nextMeal
+                ? `${MEAL_SLOT_LABELS[nextMeal.meal_slot]} · ${nextMeal.portions} Portionen`
+                : 'Wochenplan öffnen'}
+            </ThemedText>
+          </View>
+          <FamIcon name="chevron" size={20} />
         </Pressable>
 
-        {/* Kein leerer Card-Rumpf mehr, sobald geladen und nichts ablaeuft. */}
-        {isLoading || expiringItems.length > 0 ? (
+        {/* Vorrat / Einkauf — kompakte Navigations-Kacheln statt Inline-Liste (#150) */}
+        <View style={styles.widgetRow}>
           <Pressable
             onPress={() => router.push({ pathname: '/fridge', params: { filter: 'expiring' } })}
             accessibilityRole="button"
-            accessibilityLabel="Alle bald ablaufenden Artikel im Vorrat anzeigen">
-            <Card title="Läuft bald ab">
-              {isLoading ? (
-                <ThemedText type="small" themeColor="textSecondary">
-                  Lade Vorräte...
-                </ThemedText>
-              ) : (
-                <View style={styles.expiringList}>
-                  {expiringItems.map((item) => {
-                    const info = getExpiryInfo(item.expiry_date, now);
-                    return (
-                      <View
-                        key={item.id}
-                        style={[styles.itemRow, { borderBottomColor: theme.border }]}>
-                        <View style={styles.itemInfo}>
-                          <ThemedText type="smallBold">{item.name}</ThemedText>
-                          <ThemedText type="small" themeColor="textSecondary">
-                            {item.quantity} {item.unit} · {item.location_name ?? 'Kühlschrank'}
-                          </ThemedText>
-                          <View
-                            style={[
-                              styles.badge,
-                              { backgroundColor: `${theme[info.themeColor]}22` },
-                            ]}>
-                            <ThemedText
-                              type="small"
-                              style={{ color: theme[info.themeColor], fontWeight: 'bold' }}>
-                              {info.label}
-                            </ThemedText>
-                          </View>
-                        </View>
-
-                        <View style={styles.actionButtons}>
-                          <Pressable
-                            onPress={() => handleConsume(item)}
-                            style={[styles.btn, { backgroundColor: `${theme.accent}18` }]}>
-                            <ThemedText type="small" style={{ color: theme.accent, fontSize: 12 }}>
-                              ✓ Verbraucht
-                            </ThemedText>
-                          </Pressable>
-
-                          <Pressable
-                            onPress={() => handleAddToShoppingList(item)}
-                            style={[styles.btn, { backgroundColor: `${theme.textSecondary}18` }]}>
-                            <ThemedText type="small" style={{ fontSize: 12 }}>
-                              🛒 Einkaufen
-                            </ThemedText>
-                          </Pressable>
-                        </View>
-                      </View>
-                    );
-                  })}
-                </View>
-              )}
-            </Card>
+            accessibilityLabel="Alle bald ablaufenden Artikel im Vorrat anzeigen"
+            style={[styles.glassCard, styles.widget, { backgroundColor: theme.backgroundElement }]}>
+            <View style={[styles.widgetBadge, { backgroundColor: `${theme.warning}33` }]}>
+              <ThemedText type="smallBold" themeColor="warning">
+                {expiringCount}
+              </ThemedText>
+            </View>
+            <View style={styles.widgetSpacer} />
+            <ThemedText type="small" themeColor="textSecondary" style={styles.widgetLabel}>
+              Läuft bald ab
+            </ThemedText>
+            <ThemedText type="smallBold" style={styles.widgetAction}>
+              Vorrat prüfen
+            </ThemedText>
           </Pressable>
-        ) : null}
+
+          <Pressable
+            onPress={() => router.push('/shopping-list')}
+            accessibilityRole="button"
+            accessibilityLabel="Einkaufsliste öffnen"
+            style={[styles.glassCard, styles.widget, { backgroundColor: theme.backgroundElement }]}>
+            <View style={[styles.widgetBadge, { backgroundColor: `${theme.accent}26` }]}>
+              <ThemedText type="smallBold" themeColor="accent">
+                {openShoppingCount}
+              </ThemedText>
+            </View>
+            <View style={styles.widgetSpacer} />
+            <ThemedText type="small" themeColor="textSecondary" style={styles.widgetLabel}>
+              Einkauf
+            </ThemedText>
+            <ThemedText type="smallBold" style={styles.widgetAction}>
+              {openShoppingCount > 0 ? 'Noch offen' : 'Erledigt'}
+            </ThemedText>
+          </Pressable>
+        </View>
       </ScrollView>
     </Screen>
   );
 }
 
 const styles = StyleSheet.create({
-  centered: {
-    textAlign: 'center',
-    marginTop: Spacing.two,
+  glassCard: {
+    borderCurve: 'continuous',
+    boxShadow: '0 8px 22px rgba(89, 64, 89, 0.1)',
   },
-  macros: {
-    gap: Spacing.three,
-  },
-  expiringList: {
-    gap: Spacing.two,
-  },
-  itemRow: {
-    paddingVertical: Spacing.two,
-    borderBottomWidth: StyleSheet.hairlineWidth,
+  calorieCard: {
+    height: 176,
+    borderRadius: 36,
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'space-between',
-    gap: Spacing.two,
+    gap: 24,
+    paddingHorizontal: 22,
+    paddingVertical: 20,
+    marginBottom: 15,
   },
-  itemInfo: {
-    flex: 1,
-    gap: 2,
-  },
-  badge: {
-    alignSelf: 'flex-start',
-    paddingHorizontal: 6,
-    paddingVertical: 2,
-    borderRadius: 6,
-    marginTop: 2,
-  },
-  actionButtons: {
-    gap: 6,
-  },
-  btn: {
-    paddingHorizontal: 8,
-    paddingVertical: 4,
-    borderRadius: 8,
+  ringWrap: {
+    width: 113,
+    height: 113,
     alignItems: 'center',
+    justifyContent: 'center',
+  },
+  calorieCopy: {
+    flex: 1,
+    gap: 4,
+  },
+  calorieLabel: {
+    ...FontSize[13],
+    lineHeight: 18,
+    fontWeight: '400',
+  },
+  calorieValue: {
+    ...FontSize[27],
+    lineHeight: 34,
+    fontWeight: '500',
+  },
+  calorieRemaining: {
+    ...FontSize[13],
+    lineHeight: 18,
+    fontWeight: '400',
+  },
+  plannedCard: {
+    height: 140,
+    borderRadius: 33,
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 16,
+    paddingLeft: 16,
+    paddingRight: 18,
+    paddingVertical: 16,
+    marginBottom: 15,
+  },
+  plannedCopy: {
+    flex: 1,
+    gap: 5,
+  },
+  plannedKicker: {
+    ...FontSize[11],
+    lineHeight: 16,
+    letterSpacing: 0.1,
+    fontWeight: '500',
+  },
+  plannedTitle: {
+    ...FontSize[17],
+    lineHeight: 22,
+    fontWeight: '500',
+  },
+  plannedMeta: {
+    ...FontSize[12],
+    lineHeight: 16,
+    fontWeight: '400',
+  },
+  widgetRow: {
+    flexDirection: 'row',
+    gap: 12,
+  },
+  widget: {
+    flex: 1,
+    height: 138,
+    borderRadius: 30,
+    padding: 16,
+    gap: 8,
+    boxShadow: '0 8px 20px rgba(46, 31, 51, 0.08)',
+  },
+  widgetBadge: {
+    alignSelf: 'flex-start',
+    minWidth: 36,
+    height: 28,
+    borderRadius: 12,
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingHorizontal: Spacing.one,
+  },
+  widgetSpacer: {
+    flex: 1,
+  },
+  widgetLabel: {
+    ...FontSize[14],
+    lineHeight: 20,
+    fontWeight: '400',
+  },
+  widgetAction: {
+    ...FontSize[17],
+    lineHeight: 22,
+    fontWeight: '500',
   },
 });

@@ -38,6 +38,7 @@ const initialOnboardingState: OnboardingState = {
     shoppingList: true,
     calories: true,
     recipes: true,
+    mealPlanner: true,
   },
   permissions: {
     notificationsRequested: false,
@@ -115,7 +116,7 @@ export function OnboardingProvider({ children }: { children: ReactNode }) {
       }
 
       // 1b. Modul-Auswahl speichern (#95) — anders als der Profil-Block oben
-      // immer, da state.modules ueber den Default-State immer alle vier Keys
+      // immer, da state.modules ueber den Default-State immer alle fuenf Keys
       // traegt (nie "leer"). Ohne diesen Aufruf verwirft completeOnboarding
       // die Auswahl aus ModuleSelectorForm bisher stillschweigend.
       const { error: modulesErr } = await saveModulePreferences(session.user.id, state.modules);

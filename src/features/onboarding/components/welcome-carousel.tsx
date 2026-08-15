@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
-import { Button } from '@/components/button';
+import { FontSize } from '@/components/themed-text';
+import { Button } from '@/components/ui/buttons';
 import { Spacing } from '@/constants/theme';
 import { useTheme } from '@/hooks/use-theme';
 
@@ -96,16 +97,16 @@ const styles = StyleSheet.create({
     marginVertical: Spacing.two,
   },
   iconText: {
-    fontSize: 52,
+    ...FontSize[52],
     textAlign: 'center',
   },
   title: {
-    fontSize: 22,
+    ...FontSize[22],
     fontWeight: '700',
     textAlign: 'center',
   },
   description: {
-    fontSize: 15,
+    ...FontSize[15],
     textAlign: 'center',
     lineHeight: 22,
     paddingHorizontal: Spacing.two,

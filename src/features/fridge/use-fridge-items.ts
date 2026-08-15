@@ -10,6 +10,8 @@ export type LocalFridgeItem = {
   name: string;
   quantity: number;
   unit: string;
+  package_size: number | null;
+  package_size_unit: string | null;
   expiry_date: string | null;
   added_by: string | null;
   created_at: string;
@@ -35,7 +37,8 @@ export function useFridgeItems(householdId: string | undefined) {
       return db.getAllAsync<LocalFridgeItem>(
         `select
            fi.id, fi.household_id, fi.location_id, fi.product_id,
-           fi.name, fi.quantity, fi.unit, fi.expiry_date, fi.added_by, fi.created_at,
+           fi.name, fi.quantity, fi.unit, fi.package_size, fi.package_size_unit,
+           fi.expiry_date, fi.added_by, fi.created_at,
            sl.kind as location_kind,
            sl.name as location_name
          from fridge_items fi

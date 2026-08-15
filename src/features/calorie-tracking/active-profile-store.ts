@@ -2,6 +2,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useEffect, useState } from 'react';
 
 import { useSession } from '@/features/auth/session-provider';
+import { getSupabase } from '@/lib/supabase';
 
 /**
  * Aktives Tracking-Profil (#65/#85): der eingeloggte Erwachsene selbst oder
@@ -43,9 +44,39 @@ export async function setStoredActiveChildProfileId(
 }
 
 /**
+ * Prueft, ob eine `child_profiles`-Zeile noch existiert und zum Haushalt
+ * gehoert. Die in AsyncStorage gemerkte Auswahl ueberlebt geraeteseitig
+ * unabhaengig vom DB-Zustand — wird das Kindprofil geloescht (oder stammt
+ * die id aus einem anderen/zurueckgesetzten Zustand), muss das erkannt
+ * werden, bevor die id in einen Insert wandert (FK-Constraint auf
+ * `food_entries`/`user_goals`).
+ */
+async function childProfileExists(householdId: string, childProfileId: string): Promise<boolean> {
+  const { data, error } = await getSupabase()
+    .from('child_profiles')
+    .select('id')
+    .eq('id', childProfileId)
+    .eq('household_id', householdId)
+    .maybeSingle();
+
+  if (error) {
+    // Bei einem Netzwerk-/Serverfehler nicht blind auf "ungueltig" schliessen —
+    // sonst wirft ein voruebergehender Fehler den Nutzer staendig aufs
+    // Erwachsenen-Profil zurueck. Im Zweifel die gespeicherte Auswahl behalten.
+    return true;
+  }
+  return data != null;
+}
+
+/**
  * Liefert das aktive Profil fuer die Kalorien-Tracking-Screens, Default ist
  * immer der eingeloggte Erwachsene. Eine gespeicherte Kind-Auswahl je
  * Haushalt ueberlebt einen Neustart.
+ *
+ * Die gespeicherte `childProfileId` wird gegen die DB validiert: existiert
+ * das Profil nicht mehr, faellt die Auswahl auf den Erwachsenen zurueck und
+ * der veraltete AsyncStorage-Eintrag wird geloescht (siehe
+ * `childProfileExists`).
  */
 export function useActiveProfile(householdId: string | undefined): {
   profile: ActiveProfile | null;
@@ -66,11 +97,22 @@ export function useActiveProfile(householdId: string | undefined): {
     }
 
     let cancelled = false;
-    getStoredActiveChildProfileId(householdId).then((childProfileId) => {
+    getStoredActiveChildProfileId(householdId).then(async (childProfileId) => {
+      if (cancelled || !childProfileId) {
+        if (!cancelled) setProfileState({ type: 'adult', userId });
+        return;
+      }
+
+      const stillExists = await childProfileExists(householdId, childProfileId);
       if (cancelled) return;
-      setProfileState(
-        childProfileId ? { type: 'child', childProfileId, householdId } : { type: 'adult', userId },
-      );
+
+      if (!stillExists) {
+        await setStoredActiveChildProfileId(householdId, null);
+        if (!cancelled) setProfileState({ type: 'adult', userId });
+        return;
+      }
+
+      setProfileState({ type: 'child', childProfileId, householdId });
     });
     return () => {
       cancelled = true;

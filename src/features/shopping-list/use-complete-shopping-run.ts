@@ -61,10 +61,13 @@ export function useCompleteShoppingRun(householdId: string | undefined) {
           payload: {
             id,
             household_id: input.householdId,
+            product_id: transfer.productId,
             location_id: locationId,
             name: transfer.name,
             quantity: transfer.quantity,
             unit: normUnit,
+            package_size: transfer.packageSize,
+            package_size_unit: transfer.packageSizeUnit,
             expiry_date: transfer.expiryDate ?? null,
             added_by: input.userId,
             created_at: now,
@@ -73,15 +76,18 @@ export function useCompleteShoppingRun(householdId: string | undefined) {
           applyLocally: async (txn) => {
             await txn.runAsync(
               `insert into fridge_items
-                 (id, household_id, location_id, name, quantity, unit, expiry_date, added_by, created_at, updated_at, _dirty)
-               values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 1)`,
+                 (id, household_id, product_id, location_id, name, quantity, unit, package_size, package_size_unit, expiry_date, added_by, created_at, updated_at, _dirty)
+               values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 1)`,
               [
                 id,
                 input.householdId,
+                transfer.productId,
                 locationId,
                 transfer.name,
                 transfer.quantity,
                 normUnit,
+                transfer.packageSize,
+                transfer.packageSizeUnit,
                 transfer.expiryDate ?? null,
                 input.userId,
                 now,

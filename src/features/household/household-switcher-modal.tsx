@@ -1,9 +1,8 @@
 import { useQueryClient } from '@tanstack/react-query';
 import { router } from 'expo-router';
 import { Modal, Pressable, StyleSheet, View } from 'react-native';
-
-import { Button } from '@/components/button';
-import { ThemedText } from '@/components/themed-text';
+import { FontSize, ThemedText } from '@/components/themed-text';
+import { Button } from '@/components/ui/buttons';
 import { Spacing } from '@/constants/theme';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { useTheme } from '@/hooks/use-theme';
@@ -43,7 +42,7 @@ export function HouseholdSwitcherModal({
           <View style={styles.headerRow}>
             <ThemedText type="subtitle">Haushalt wechseln</ThemedText>
             <Pressable onPress={onClose} hitSlop={10}>
-              <ThemedText style={{ fontSize: 18, color: theme.textSecondary }}>✕</ThemedText>
+              <ThemedText style={{ ...FontSize[18], color: theme.textSecondary }}>✕</ThemedText>
             </Pressable>
           </View>
 

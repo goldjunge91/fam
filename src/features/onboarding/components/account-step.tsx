@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
-import { Button } from '@/components/button';
 import { TextField } from '@/components/text-field';
+import { FontSize } from '@/components/themed-text';
+import { Button } from '@/components/ui/buttons';
 import { Spacing } from '@/constants/theme';
 import { authErrorMessage, signIn, signUp } from '@/features/auth/api';
 import { PendingAuthBanner } from '@/features/auth/components/pending-auth-banner';
@@ -141,7 +142,7 @@ export function AccountStepForm({ onNext }: AccountStepFormProps) {
             secureTextEntry
           />
 
-          {authError && <Text style={{ color: theme.danger, fontSize: 13 }}>{authError}</Text>}
+          {authError && <Text style={{ color: theme.danger, ...FontSize[13] }}>{authError}</Text>}
 
           <Button
             label={authMode === 'sign_up' ? 'Konto erstellen & weiter' : 'Anmelden & weiter'}
@@ -159,11 +160,11 @@ const styles = StyleSheet.create({
     gap: Spacing.three,
   },
   heading: {
-    fontSize: 22,
+    ...FontSize[22],
     fontWeight: '700',
   },
   subheading: {
-    fontSize: 14,
+    ...FontSize[14],
     lineHeight: 20,
   },
   activeContainer: {
@@ -177,11 +178,11 @@ const styles = StyleSheet.create({
     gap: Spacing.one,
   },
   activeTitle: {
-    fontSize: 15,
+    ...FontSize[15],
     fontWeight: '700',
   },
   activeDesc: {
-    fontSize: 13,
+    ...FontSize[13],
     lineHeight: 18,
   },
   form: {
@@ -201,7 +202,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   tabText: {
-    fontSize: 14,
+    ...FontSize[14],
     fontWeight: '600',
   },
 });

@@ -1,9 +1,8 @@
 import * as Haptics from 'expo-haptics';
 import { useRef, useState } from 'react';
 import { ActivityIndicator, Modal, Pressable, StyleSheet, View } from 'react-native';
-
-import { Button } from '@/components/button';
-import { ThemedText } from '@/components/themed-text';
+import { FontSize, ThemedText } from '@/components/themed-text';
+import { Button } from '@/components/ui/buttons';
 import { Spacing } from '@/constants/theme';
 import { useTheme } from '@/hooks/use-theme';
 import { fetchProductByBarcode, type OpenFoodFactsProduct } from '@/lib/open-food-facts';
@@ -78,7 +77,7 @@ export function BarcodeScannerModal({
           <View style={styles.headerRow}>
             <ThemedText type="subtitle">📷 Barcode scannen</ThemedText>
             <Pressable onPress={onClose} hitSlop={10}>
-              <ThemedText style={{ fontSize: 18, color: theme.textSecondary }}>✕</ThemedText>
+              <ThemedText style={{ ...FontSize[18], color: theme.textSecondary }}>✕</ThemedText>
             </Pressable>
           </View>
 

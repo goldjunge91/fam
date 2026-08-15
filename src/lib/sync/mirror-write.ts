@@ -21,6 +21,10 @@ export type UpsertMirrorRowOptions = {
 function toSqlParam(value: unknown): SqlParam {
   if (value === undefined || value === null) return null;
   if (typeof value === 'string' || typeof value === 'number') return value;
+  // Postgres boolean-Spalten (households.premium_active) kommen von
+  // postgrest-js als JS-boolean — SQLite kennt keinen eigenen Bool-Typ,
+  // deshalb als 0/1 gespiegelt, wie auch `_dirty` in diesem Schema.
+  if (typeof value === 'boolean') return value ? 1 : 0;
   // Postgres text[]-Spalten (recipes.dish_types/dietary_tags/hashtags)
   // kommen von postgrest-js als JS-Array — SQLite kennt keinen Array-Typ,
   // deshalb als JSON-Text gespiegelt. Aufrufer, die die Spalte lesen, parsen

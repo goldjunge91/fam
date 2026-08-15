@@ -29,6 +29,17 @@ jest.mock('@/features/shopping-list/use-shopping-list-mutations', () => ({
   useAddShoppingItem: () => ({ mutateAsync: mockAddMutateAsync, isPending: false }),
 }));
 
+let mockIsPremium = true;
+
+jest.mock('@/features/premium/premium-provider', () => ({
+  usePremium: () => ({ isPremium: mockIsPremium }),
+}));
+
+const mockPresentPaywallIfNeeded = jest.fn();
+jest.mock('@/features/premium/paywall', () => ({
+  presentPaywallIfNeeded: () => mockPresentPaywallIfNeeded(),
+}));
+
 // Modulweite Konstante statt Array-Literal im Mock: die Screen-Komponente
 // haengt einen Effekt an `missing` (praeselektiert alle Artikel). Ein bei
 // jedem Render neu erzeugtes Array-Literal aendert die Referenz staendig und
@@ -40,6 +51,7 @@ const mockMissingIngredients = [
     missingGrams: 300,
     preferredStoreId: 'store-1',
     preferredStoreName: 'Aldi',
+    recipeNames: ['Bolognese'],
   },
   {
     productId: 'p2',
@@ -47,6 +59,7 @@ const mockMissingIngredients = [
     missingGrams: 500,
     preferredStoreId: null,
     preferredStoreName: null,
+    recipeNames: [],
   },
 ];
 
@@ -71,6 +84,8 @@ function renderScreen() {
 
 beforeEach(() => {
   mockAddMutateAsync.mockClear();
+  mockPresentPaywallIfNeeded.mockClear();
+  mockIsPremium = true;
 });
 
 describe('MissingIngredientsScreen', () => {
@@ -109,5 +124,20 @@ describe('MissingIngredientsScreen', () => {
 
     expect(mockAddMutateAsync).toHaveBeenCalledTimes(1);
     expect(mockAddMutateAsync).toHaveBeenCalledWith(expect.objectContaining({ name: 'Tomaten' }));
+  });
+
+  it('zeigt ohne Premium einen Paywall-Hinweis statt der Zutatenliste', async () => {
+    const user = userEvent.setup();
+    mockIsPremium = false;
+    mockPresentPaywallIfNeeded.mockResolvedValue('purchased');
+
+    await renderScreen();
+
+    expect(screen.queryByText('Tomaten')).not.toBeOnTheScreen();
+    expect(screen.getByRole('button', { name: 'Premium ansehen' })).toBeOnTheScreen();
+
+    await user.press(screen.getByRole('button', { name: 'Premium ansehen' }));
+
+    expect(mockPresentPaywallIfNeeded).toHaveBeenCalledTimes(1);
   });
 });

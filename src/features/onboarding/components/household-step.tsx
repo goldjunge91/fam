@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
-import { Button } from '@/components/button';
 import { TextField } from '@/components/text-field';
+import { FontSize } from '@/components/themed-text';
+import { Button } from '@/components/ui/buttons';
 import { Spacing } from '@/constants/theme';
 import {
   useCreateHouseholdMutation,
@@ -186,7 +187,7 @@ export function HouseholdStepForm({ onNext, onSkip }: HouseholdStepFormProps) {
       )}
 
       {errorMsg ? (
-        <Text style={{ color: theme.danger, fontSize: 13, marginTop: Spacing.one }}>
+        <Text style={{ color: theme.danger, ...FontSize[13], marginTop: Spacing.one }}>
           {errorMsg}
         </Text>
       ) : null}
@@ -208,11 +209,11 @@ const styles = StyleSheet.create({
     gap: Spacing.three,
   },
   heading: {
-    fontSize: 22,
+    ...FontSize[22],
     fontWeight: '700',
   },
   subheading: {
-    fontSize: 14,
+    ...FontSize[14],
     lineHeight: 20,
   },
   activeCard: {
@@ -223,14 +224,14 @@ const styles = StyleSheet.create({
     marginVertical: Spacing.one,
   },
   activeBadge: {
-    fontSize: 12,
+    ...FontSize[12],
     fontWeight: '700',
     color: '#2e7d32',
     textTransform: 'uppercase',
     letterSpacing: 0.5,
   },
   activeTitle: {
-    fontSize: 16,
+    ...FontSize[16],
     fontWeight: '700',
   },
   choiceList: {
@@ -244,11 +245,11 @@ const styles = StyleSheet.create({
     gap: 4,
   },
   choiceTitle: {
-    fontSize: 15,
+    ...FontSize[15],
     fontWeight: '700',
   },
   choiceDesc: {
-    fontSize: 13,
+    ...FontSize[13],
     lineHeight: 18,
   },
   buttonRow: {

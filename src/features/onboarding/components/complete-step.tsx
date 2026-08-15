@@ -1,6 +1,7 @@
 import { router } from 'expo-router';
 import { StyleSheet, Text, View } from 'react-native';
-import { Button } from '@/components/button';
+import { FontSize } from '@/components/themed-text';
+import { Button } from '@/components/ui/buttons';
 import { Spacing } from '@/constants/theme';
 import { useHouseholds } from '@/features/household/api';
 import { useTheme } from '@/hooks/use-theme';
@@ -69,22 +70,22 @@ const styles = StyleSheet.create({
     marginVertical: Spacing.two,
   },
   icon: {
-    fontSize: 52,
+    ...FontSize[52],
     textAlign: 'center',
   },
   heading: {
-    fontSize: 24,
+    ...FontSize[24],
     fontWeight: '700',
     textAlign: 'center',
   },
   subheading: {
-    fontSize: 15,
+    ...FontSize[15],
     textAlign: 'center',
     lineHeight: 22,
     paddingHorizontal: Spacing.two,
   },
   errorText: {
-    fontSize: 13,
+    ...FontSize[13],
     textAlign: 'center',
   },
   buttonContainer: {

@@ -397,6 +397,41 @@ Einzelkäufe) nötig.
 zweite/günstigere Einstiegsstufe bleibt eine mögliche spätere Erweiterung,
 falls die Paid-Kandidaten-Liste wächst — kein Thema für den ersten Bau.
 
+**Umgesetzt (2026-08-14): RevenueCat-Grundinfrastruktur steht.** Commits
+`06a5928`…`70cf2bf`: RevenueCat-Grundgerüst, Test Store für die Entwicklung,
+Kauf-Flow + Paywall-UI + Customer Center angebunden, Entitlement auf
+„Premium" benannt inkl. Jahresabo, LogBox-Overlay-Fix für RevenueCat-Logs.
+`src/features/premium/premium-provider.tsx` stellt `usePremium()` app-weit
+bereit (inkl. `EXPO_PUBLIC_FORCE_PREMIUM`-Dev-Override).
+
+**Lücke nach Prüfung (2026-08-14):** `usePremium()`/`isPremium` wird bisher
+nur in Settings/Dev-Tools angezeigt — **keine einzige Funktion ist tatsächlich
+gegated.** Die eigentlichen Paid-Features aus #19/#15 (#132, #134–#136)
+existieren als Feature noch gar nicht. Neues Issue
+[#141](https://github.com/goldjunge91/fam/issues/141) verfolgt das,
+Startpunkt bewusst Kochmodus — mit dem Zusatzbefund, dass der Kochmodus
+trotz geschlossenem #133 aktuell in der App generell nicht sichtbar ist (vor
+dem Gating erst zu klären).
+
+**Entschieden (2026-08-14): Premium gilt haushaltsweit, nicht pro User.** Hat
+ein Mitglied des Haushalts ein aktives Abo, hat der **gesamte Haushalt**
+Premium-Zugriff, solange mindestens ein Premium-User im Haushalt ist.
+RevenueCat-Entitlements sind aber user-gebunden — die Ableitung auf
+Haushaltsebene braucht serverseitige Unterstützung. Dafür neu:
+[#142](https://github.com/goldjunge91/fam/issues/142) (Provider-Erweiterung
++ Datenmodell) und [#143](https://github.com/goldjunge91/fam/issues/143)
+(RevenueCat-Webhook → Supabase-Sync, Voraussetzung für #142).
+
+**Weitere Lücken identifiziert (2026-08-14), je ein neues Issue:**
+- [#144](https://github.com/goldjunge91/fam/issues/144) — Store-Produktkonfiguration
+  (App Store Connect / Play Console), bisher nur Sandbox/Test Store.
+- [#145](https://github.com/goldjunge91/fam/issues/145) — Datenschutz-Dokumentation
+  (README, `docs/DATENSCHUTZ.md`, dieses Dokument) an das Premium-Modell
+  anpassen; der Zielkonflikt war im Epic von Anfang an benannt, aber bei der
+  Umsetzung nicht nachgezogen.
+- [#146](https://github.com/goldjunge91/fam/issues/146) — QA für Kauf-/Restore-/Abo-Flow
+  end-to-end (Sandbox auf echten Geräten), bisher kein dediziertes Test-Issue.
+
 ### #24 — Homescreen-Widgets
 
 **Nutzer-Feedback:** **Vorerst zurückgestellt.** Eventuell ebenfalls ein
@@ -439,7 +474,7 @@ tatsächlicher Priorität/Abhängigkeit. Nach dem Brainstorm neu geordnet:
 | 20 | Gamification | Grundsätzlich ja; XP/Streak/Achievement-Konzept mit Stufen (Bronze–Platin) steht; Level pro Account UND pro Haushalt |
 | 21 | Rezept-Sharing | An Rezeptdatenbank gekoppelt, App-eigene Rezepte + Sharing, Paid-Kandidat |
 | 22 | Analytics | Zurückgestellt |
-| 23 | Monetarisierung | Entschieden: ein Abo-Modell (kein Einzelkauf), eine Stufe für alles |
+| 23 | Monetarisierung | Entschieden: ein Abo-Modell (kein Einzelkauf), eine Stufe für alles, haushaltsweit gültig; RevenueCat-Grundinfrastruktur implementiert, aber noch kein Feature gegated (#141–#146) |
 | 24 | Widgets | Zurückgestellt, evtl. Paid |
 
 ## Neue, noch nicht erfasste Ideen
@@ -523,6 +558,19 @@ neue Epics für bisher unerfasste Ideen. Die zurückgestellten Epics (#16,
 - [#137](https://github.com/goldjunge91/fam/issues/137) "Was kann ich kochen?" (zurückgestellt, braucht KI)
 
 **Noch ohne Kind-Issues:** #11 (MHD-Vorausfüllung — kleines eigenständiges
-Issue, noch zu erstellen), #13, #14, #20, #21, #23 (alle inhaltlich fertig
+Issue, noch zu erstellen), #13, #14, #20, #21 (alle inhaltlich fertig
 gebrainstormt, aber noch nicht in dieser Runde), #16/#18/#22/#24
 (zurückgestellt).
+
+## Erstellte Issues (2026-08-14) — Paywall-Nachfolgearbeiten (#23)
+
+Nach Prüfung der bereits umgesetzten RevenueCat-Grundinfrastruktur
+(Commits `06a5928`…`70cf2bf`) gegen Epics/Roadmap: sechs neue Issues für
+identifizierte Lücken, alle unter Milestone „Phase 3 - Advanced":
+
+- [#141](https://github.com/goldjunge91/fam/issues/141) Premium-Feature-Gating: Kochmodus hinter Paywall stellen
+- [#142](https://github.com/goldjunge91/fam/issues/142) Premium-Status haushaltsweit statt nur pro User gewähren
+- [#143](https://github.com/goldjunge91/fam/issues/143) RevenueCat-Webhook → Supabase-Sync vorbereiten
+- [#144](https://github.com/goldjunge91/fam/issues/144) Store-Produktkonfiguration (App Store Connect / Play Console)
+- [#145](https://github.com/goldjunge91/fam/issues/145) Datenschutz-Dokumentation an Premium-Modell anpassen
+- [#146](https://github.com/goldjunge91/fam/issues/146) QA: Kauf-, Restore- und Abo-Flow end-to-end testen

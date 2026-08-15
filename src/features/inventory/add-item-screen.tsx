@@ -4,11 +4,13 @@ import { router, useFocusEffect } from 'expo-router';
 import { useCallback, useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 
-import { Button } from '@/components/button';
 import { DateWheelField } from '@/components/date-wheel-field';
+import { FilterChipBar } from '@/components/filter-chip-bar';
+import { QuantityStepper } from '@/components/quantity-stepper';
 import { Screen } from '@/components/screen';
 import { TextField } from '@/components/text-field';
 import { ThemedText } from '@/components/themed-text';
+import { Button } from '@/components/ui/buttons';
 import { Spacing } from '@/constants/theme';
 import { useSession } from '@/features/auth/session-provider';
 import { useAddFridgeItemMutation } from '@/features/fridge/use-fridge-mutations';
@@ -26,6 +28,7 @@ import {
 import { getDatabase } from '@/lib/db/client';
 import { recordProductUsage } from '@/lib/db/product-usage';
 import type { OpenFoodFactsProduct } from '@/lib/open-food-facts';
+import { normalizeUnit } from '@/lib/units';
 
 function formatOffsetDate(days: number): string {
   const d = new Date();
@@ -37,6 +40,30 @@ function formatOffsetMonths(months: number): string {
   const d = new Date();
   d.setMonth(d.getMonth() + months);
   return d.toISOString().split('T')[0];
+}
+
+type QuickDateKey = 'd3' | 'd7' | 'd14' | 'm1' | 'none';
+
+const QUICK_DATE_OPTIONS: { value: QuickDateKey; label: string }[] = [
+  { value: 'd3', label: '+ 3 Tage' },
+  { value: 'd7', label: '+ 7 Tage' },
+  { value: 'd14', label: '+ 14 Tage' },
+  { value: 'm1', label: '+ 1 Monat' },
+];
+
+function quickDateOffset(key: QuickDateKey): string {
+  switch (key) {
+    case 'd3':
+      return formatOffsetDate(3);
+    case 'd7':
+      return formatOffsetDate(7);
+    case 'd14':
+      return formatOffsetDate(14);
+    case 'm1':
+      return formatOffsetMonths(1);
+    default:
+      return '';
+  }
 }
 
 export function AddItemScreen() {
@@ -56,6 +83,8 @@ export function AddItemScreen() {
   const [name, setName] = useState('');
   const [quantity, setQuantity] = useState('1');
   const [unit, setUnit] = useState('piece');
+  const [packageSize, setPackageSize] = useState<number | null>(null);
+  const [packageSizeUnit, setPackageSizeUnit] = useState<string | null>(null);
   const [locationId, setLocationId] = useState<string | null>(null);
   const [expiryDate, setExpiryDate] = useState('');
   const [selectedProduct, setSelectedProduct] = useState<OpenFoodFactsProduct | null>(null);
@@ -66,11 +95,20 @@ export function AddItemScreen() {
   const [newLocationName, setNewLocationName] = useState('');
 
   const activeLocationId = locationId ?? locations?.[0]?.id ?? null;
+  const selectedQuickDate =
+    QUICK_DATE_OPTIONS.find((option) => quickDateOffset(option.value) === expiryDate)?.value ??
+    'none';
 
   function handleSelectProduct(product: OpenFoodFactsProduct) {
     setName(product.name);
-    if (product.quantity) setQuantity(String(product.quantity));
-    if (product.unit) setUnit(product.unit);
+    const productUnit = normalizeUnit(product.unit);
+    const productQuantity = product.quantity ?? null;
+    const hasKnownPackageSize =
+      productQuantity !== null && ['g', 'kg', 'ml', 'l'].includes(productUnit);
+    setQuantity('1');
+    setUnit(hasKnownPackageSize ? 'package' : productUnit);
+    setPackageSize(hasKnownPackageSize ? productQuantity : null);
+    setPackageSizeUnit(hasKnownPackageSize ? productUnit : null);
     setSelectedProduct(product);
   }
 
@@ -110,15 +148,19 @@ export function AddItemScreen() {
       const productId = selectedProduct
         ? await persistOffProductIfNeeded(selectedProduct, userId, addProductMutation)
         : null;
-      await mutation.mutateAsync({
+      const values = {
         household_id: currentHousehold.id,
         product_id: productId,
         name: name.trim(),
         quantity: parseFloat(quantity) || 1,
-        unit: unit,
+        unit,
+        package_size: packageSize,
+        package_size_unit: packageSizeUnit,
         location_id: activeLocationId,
         expiry_date: expiryDate.trim() || null,
-      });
+      };
+
+      await mutation.mutateAsync(values);
 
       if (userId) {
         void getDatabase()
@@ -132,7 +174,8 @@ export function AddItemScreen() {
               name: name.trim(),
               brand: selectedProduct?.brand ?? null,
               barcode: selectedProduct?.barcode ?? null,
-              unit,
+              quantity: packageSize ?? (parseFloat(quantity) || 1),
+              unit: packageSizeUnit ?? unit,
             }),
           )
           .then(() => queryClient.invalidateQueries({ queryKey: ['product_usage'] }))
@@ -170,12 +213,14 @@ export function AddItemScreen() {
 
         <View style={styles.row}>
           <View style={styles.flex}>
-            <TextField
+            <ThemedText type="small" themeColor="textSecondary" style={styles.fieldLabel}>
+              Menge
+            </ThemedText>
+            <QuantityStepper
+              value={Number.parseInt(quantity, 10) || 1}
+              onChange={(value) => setQuantity(String(value))}
+              max={999}
               label="Menge"
-              placeholder="1"
-              value={quantity}
-              onChangeText={setQuantity}
-              keyboardType="numeric"
             />
           </View>
           <View style={styles.flex}>
@@ -195,28 +240,12 @@ export function AddItemScreen() {
             onChange={setExpiryDate}
           />
         </View>
-        <View style={styles.quickDateGroup}>
-          <Button
-            label="+ 3 Tage"
-            variant="secondary"
-            onPress={() => setExpiryDate(formatOffsetDate(3))}
-          />
-          <Button
-            label="+ 7 Tage"
-            variant="secondary"
-            onPress={() => setExpiryDate(formatOffsetDate(7))}
-          />
-          <Button
-            label="+ 14 Tage"
-            variant="secondary"
-            onPress={() => setExpiryDate(formatOffsetDate(14))}
-          />
-          <Button
-            label="+ 1 Monat"
-            variant="secondary"
-            onPress={() => setExpiryDate(formatOffsetMonths(1))}
-          />
-        </View>
+        <FilterChipBar
+          label="Schnellauswahl MHD"
+          options={QUICK_DATE_OPTIONS}
+          selected={selectedQuickDate}
+          onSelect={(value) => setExpiryDate(quickDateOffset(value))}
+        />
 
         <View style={styles.locationHeaderRow}>
           <ThemedText style={{ fontWeight: 'bold' }}>Lagerort</ThemedText>
@@ -262,26 +291,19 @@ export function AddItemScreen() {
 
         {locationsLoading ? (
           <ThemedText>Lade Lagerorte...</ThemedText>
+        ) : locations?.length ? (
+          <FilterChipBar
+            label="Lagerort"
+            options={locations.map((loc) => ({ value: loc.id, label: loc.name }))}
+            selected={activeLocationId ?? ''}
+            onSelect={setLocationId}
+          />
         ) : (
-          <View style={styles.locationGroup}>
-            {locations?.map((loc) => {
-              const isSelected = activeLocationId === loc.id;
-              return (
-                <Button
-                  key={loc.id}
-                  label={loc.name}
-                  variant={isSelected ? 'primary' : 'secondary'}
-                  onPress={() => setLocationId(loc.id)}
-                />
-              );
-            })}
-            {locations?.length === 0 && !showAddLocation && (
-              <ThemedText type="small" themeColor="textSecondary">
-                Keine Lagerorte vorhanden. Tippe auf &quot;+ Neuer Lagerort&quot; um einen
-                anzulegen.
-              </ThemedText>
-            )}
-          </View>
+          !showAddLocation && (
+            <ThemedText type="small" themeColor="textSecondary">
+              Keine Lagerorte vorhanden. Tippe auf &quot;+ Neuer Lagerort&quot; um einen anzulegen.
+            </ThemedText>
+          )
         )}
 
         <View style={styles.saveButton}>
@@ -316,10 +338,8 @@ const styles = StyleSheet.create({
   flex: {
     flex: 1,
   },
-  quickDateGroup: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    gap: Spacing.two,
+  fieldLabel: {
+    marginBottom: Spacing.one,
   },
   locationHeaderRow: {
     flexDirection: 'row',
@@ -333,11 +353,6 @@ const styles = StyleSheet.create({
     borderRadius: Spacing.two,
     borderWidth: 1,
     borderColor: '#ccc',
-  },
-  locationGroup: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    gap: Spacing.two,
   },
   saveButton: {
     marginTop: Spacing.four,

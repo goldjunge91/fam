@@ -1,13 +1,18 @@
+import { Image } from 'expo-image';
 import { router } from 'expo-router';
 import { useState } from 'react';
 import { Alert, Pressable, StyleSheet, View } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
-import { Screen } from '@/components/screen';
-import { ThemedText } from '@/components/themed-text';
-import { Spacing } from '@/constants/theme';
+import { GradientBackground } from '@/components/gradient-background';
+import { PageHeader } from '@/components/page-header';
+import { SegmentedControl } from '@/components/segmented-control';
+import { FontSize, ThemedText } from '@/components/themed-text';
+import { HeaderIconButton, MenuButton } from '@/components/ui/buttons';
 import { useSession } from '@/features/auth/session-provider';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { useHouseholdMembers } from '@/features/household/api';
+import { useNavigationChrome } from '@/features/navigation/navigation-chrome-provider';
 import { useRecipes } from '@/features/recipes/use-recipes';
 import { useTheme } from '@/hooks/use-theme';
 import { type EntryFormInitial, EntryFormModal } from './components/entry-form-modal';
@@ -29,7 +34,6 @@ import {
 import {
   getWeekStart,
   rangeDates,
-  rangeLabel,
   shiftAnchor,
   VIEW_MODE_LABELS,
   VIEW_MODES,
@@ -40,6 +44,31 @@ function todayIso(): string {
   const now = new Date();
   const pad = (n: number) => String(n).padStart(2, '0');
   return `${now.getFullYear()}-${pad(now.getMonth() + 1)}-${pad(now.getDate())}`;
+}
+
+const MONTH_LABELS = [
+  'Januar',
+  'Februar',
+  'März',
+  'April',
+  'Mai',
+  'Juni',
+  'Juli',
+  'August',
+  'September',
+  'Oktober',
+  'November',
+  'Dezember',
+];
+
+function periodLabel(dates: readonly string[]) {
+  const start = dates[0].split('-').map(Number);
+  const end = dates[dates.length - 1].split('-').map(Number);
+  const sameMonth = start[0] === end[0] && start[1] === end[1];
+
+  if (dates.length === 1) return `${start[2]}. ${MONTH_LABELS[start[1] - 1]}`;
+  if (sameMonth) return `${start[2]}.–${end[2]}. ${MONTH_LABELS[end[1] - 1]}`;
+  return `${start[2]}. ${MONTH_LABELS[start[1] - 1]}–${end[2]}. ${MONTH_LABELS[end[1] - 1]}`;
 }
 
 type PendingDrop = { date: string; slot: MealSlot; recipe: DraggableRecipe };
@@ -55,6 +84,7 @@ type PendingCell = { date: string; slot: MealSlot };
  */
 export function MealPlannerScreen() {
   const theme = useTheme();
+  const { openDrawer } = useNavigationChrome();
   const { session } = useSession();
   const userId = session?.user.id;
   const { activeHouseholdId } = useActiveHousehold();
@@ -89,7 +119,11 @@ export function MealPlannerScreen() {
   const deleteEntry = useDeleteEntryMutation();
   const reuseLastWeek = useReuseLastWeekMutation();
 
-  const draggableRecipes: DraggableRecipe[] = recipes.map((r) => ({ id: r.id, title: r.title }));
+  const draggableRecipes: DraggableRecipe[] = recipes.map((r) => ({
+    id: r.id,
+    title: r.title,
+    coverImagePath: r.cover_image_path,
+  }));
 
   function handleDropRecipe(date: string, slot: MealSlot, recipe: DraggableRecipe) {
     setPendingDrop({ date, slot, recipe });
@@ -158,7 +192,11 @@ export function MealPlannerScreen() {
   function handleDeleteEntry() {
     if (!editingEntry || !householdId) return;
     deleteEntry.mutate(
-      { id: editingEntry.id, meal_plan_id: editingEntry.meal_plan_id, household_id: householdId },
+      {
+        id: editingEntry.id,
+        meal_plan_id: editingEntry.meal_plan_id,
+        household_id: householdId,
+      },
       { onSuccess: () => setEditingEntry(null) },
     );
   }
@@ -192,82 +230,113 @@ export function MealPlannerScreen() {
     : undefined;
 
   return (
-    <Screen
-      title="Essensplan"
-      subtitle={rangeLabel(anchorDate, viewMode)}
-      scroll={false}
-      back={{ label: 'Übersicht', href: '/' }}>
-      <View style={styles.viewModeRow}>
-        {VIEW_MODES.map((mode) => (
-          <Pressable
-            key={mode}
-            accessibilityRole="button"
-            accessibilityLabel={`${VIEW_MODE_LABELS[mode]}-Ansicht`}
-            accessibilityState={{ selected: viewMode === mode }}
-            onPress={() => setViewMode(mode)}
-            style={[
-              styles.viewModeButton,
-              { backgroundColor: viewMode === mode ? theme.accent : theme.backgroundElement },
-            ]}>
-            <ThemedText
-              type="smallBold"
-              style={{ color: viewMode === mode ? '#ffffff' : theme.text }}>
-              {VIEW_MODE_LABELS[mode]}
-            </ThemedText>
-          </Pressable>
-        ))}
-      </View>
+    <View style={styles.root}>
+      <GradientBackground colors={['#FFD2B9', '#F8F4EF', '#EEE7F4']} />
+      <SafeAreaView style={styles.safeArea} edges={['top', 'left', 'right']}>
+        <PageHeader
+          title="Essensplan"
+          align="center"
+          leading={<MenuButton onPress={openDrawer} />}
+          trailing={
+            <HeaderIconButton
+              label="Aktuelle Woche anzeigen"
+              onPress={() => setAnchorDate(todayIso())}>
+              <Image
+                source="sf:calendar"
+                contentFit="contain"
+                tintColor={theme.accent}
+                style={styles.calendarIcon}
+              />
+            </HeaderIconButton>
+          }
+        />
 
-      <View style={styles.weekNav}>
-        <Pressable
-          accessibilityRole="button"
-          accessibilityLabel="Zurück"
-          onPress={() => setAnchorDate((d) => shiftAnchor(d, viewMode, -1))}
-          style={[styles.weekNavButton, { backgroundColor: theme.backgroundElement }]}>
-          <ThemedText>‹</ThemedText>
-        </Pressable>
-        <ThemedText type="smallBold">{rangeLabel(anchorDate, viewMode)}</ThemedText>
-        <Pressable
-          accessibilityRole="button"
-          accessibilityLabel="Weiter"
-          onPress={() => setAnchorDate((d) => shiftAnchor(d, viewMode, 1))}
-          style={[styles.weekNavButton, { backgroundColor: theme.backgroundElement }]}>
-          <ThemedText>›</ThemedText>
-        </Pressable>
-      </View>
+        <View style={styles.content}>
+          <SegmentedControl
+            label="Zeitraum"
+            options={VIEW_MODES.map((mode) => ({
+              value: mode,
+              label: VIEW_MODE_LABELS[mode],
+              accessibilityLabel: `${VIEW_MODE_LABELS[mode]}-Ansicht`,
+            }))}
+            selected={viewMode}
+            onSelect={setViewMode}
+            labelStyle={styles.viewModeLabel}
+          />
 
-      {viewMode === 'week' ? (
-        <View style={styles.actionsRow}>
-          <Pressable
-            accessibilityRole="button"
-            accessibilityLabel="Letzte Woche erneut verwenden"
-            onPress={handleReuseLastWeek}>
-            <ThemedText type="link">Letzte Woche erneut verwenden</ThemedText>
-          </Pressable>
-          {plan ? (
+          <View style={styles.periodRow}>
             <Pressable
-              accessibilityRole="button"
-              accessibilityLabel="Fehlende Zutaten anzeigen"
-              onPress={() =>
-                router.push({
-                  pathname: '/meal-planner/shopping-needs',
-                  params: { mealPlanId: plan.id },
-                })
-              }>
-              <ThemedText type="link">Fehlende Zutaten</ThemedText>
+              role="button"
+              aria-label="Vorheriger Zeitraum"
+              onPress={() => setAnchorDate((date) => shiftAnchor(date, viewMode, -1))}
+              style={({ pressed }) => [styles.periodButton, pressed && styles.pressed]}>
+              <ThemedText themeColor="accent" style={styles.chevron}>
+                ‹
+              </ThemedText>
             </Pressable>
-          ) : null}
-        </View>
-      ) : null}
+            <View style={styles.periodCopy}>
+              <ThemedText style={styles.periodTitle}>{periodLabel(dates)}</ThemedText>
+            </View>
+            <Pressable
+              role="button"
+              aria-label="Nächster Zeitraum"
+              onPress={() => setAnchorDate((date) => shiftAnchor(date, viewMode, 1))}
+              style={({ pressed }) => [styles.periodButton, pressed && styles.pressed]}>
+              <ThemedText themeColor="accent" style={styles.chevron}>
+                ›
+              </ThemedText>
+            </Pressable>
+          </View>
 
-      <WeekGrid
-        dates={dates}
-        entries={entries}
-        recipes={draggableRecipes}
-        onDropRecipe={handleDropRecipe}
-        onTapEntry={handleTapEntry}
-        onTapEmptyCell={handleTapEmptyCell}
-      />
+          {viewMode === 'week' ? (
+            <View style={styles.actionsRow}>
+              <Pressable
+                role="button"
+                aria-label="Vorwoche übernehmen"
+                onPress={handleReuseLastWeek}
+                style={({ pressed }) => [
+                  styles.actionButton,
+                  { backgroundColor: `${theme.backgroundElement}C7` },
+                  pressed && styles.pressed,
+                ]}>
+                <ThemedText themeColor="accent" style={styles.actionLabel}>
+                  Vorwoche übernehmen
+                </ThemedText>
+              </Pressable>
+              <Pressable
+                role="button"
+                aria-label="Einkauf vorbereiten"
+                disabled={!plan}
+                onPress={() => {
+                  if (!plan) return;
+                  router.push({
+                    pathname: '/meal-planner/shopping-needs',
+                    params: { mealPlanId: plan.id },
+                  });
+                }}
+                style={({ pressed }) => [
+                  styles.actionButton,
+                  { backgroundColor: `${theme.backgroundElement}C7` },
+                  !plan && styles.disabled,
+                  pressed && styles.pressed,
+                ]}>
+                <ThemedText themeColor="accent" style={styles.actionLabel}>
+                  Einkauf vorbereiten
+                </ThemedText>
+              </Pressable>
+            </View>
+          ) : null}
+
+          <WeekGrid
+            dates={dates}
+            entries={entries}
+            recipes={draggableRecipes}
+            onDropRecipe={handleDropRecipe}
+            onTapEntry={handleTapEntry}
+            onTapEmptyCell={handleTapEmptyCell}
+          />
+        </View>
+      </SafeAreaView>
 
       <RecipePickerModal
         visible={pendingCell !== null}
@@ -303,40 +372,82 @@ export function MealPlannerScreen() {
           onDelete={handleDeleteEntry}
         />
       ) : null}
-    </Screen>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
-  viewModeRow: {
-    flexDirection: 'row',
-    justifyContent: 'center',
-    gap: Spacing.two,
-    marginBottom: Spacing.two,
+  root: {
+    flex: 1,
   },
-  viewModeButton: {
-    paddingHorizontal: Spacing.three,
-    paddingVertical: Spacing.one,
-    borderRadius: 16,
+  safeArea: {
+    flex: 1,
+    width: '100%',
+    maxWidth: 800,
+    alignSelf: 'center',
   },
-  weekNav: {
+  calendarIcon: {
+    width: 19,
+    height: 19,
+  },
+  content: {
+    flex: 1,
+    paddingHorizontal: 14,
+  },
+  viewModeLabel: {
+    ...FontSize[18],
+    lineHeight: 22,
+  },
+  periodRow: {
+    height: 43,
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'center',
-    gap: Spacing.three,
-    marginBottom: Spacing.two,
+    paddingTop: 9,
   },
-  weekNavButton: {
-    width: 32,
-    height: 32,
-    borderRadius: 16,
+  periodButton: {
+    width: 36,
+    height: 34,
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  chevron: {
+    ...FontSize[19],
+    lineHeight: 22,
+    fontWeight: 500,
+  },
+  periodCopy: {
+    flex: 1,
+    alignItems: 'center',
+  },
+  periodTitle: {
+    ...FontSize[17],
+    lineHeight: 21,
+    fontWeight: 700,
   },
   actionsRow: {
     flexDirection: 'row',
+    gap: 7,
+    paddingTop: 9,
+  },
+  actionButton: {
+    flex: 1,
+    minHeight: 42,
+    alignItems: 'center',
     justifyContent: 'center',
-    gap: Spacing.four,
-    marginBottom: Spacing.two,
+    borderRadius: 14,
+    borderCurve: 'continuous',
+    paddingHorizontal: 8,
+  },
+  actionLabel: {
+    ...FontSize[10],
+    lineHeight: 13,
+    fontWeight: 700,
+    textAlign: 'center',
+  },
+  pressed: {
+    opacity: 0.7,
+  },
+  disabled: {
+    opacity: 0.45,
   },
 });

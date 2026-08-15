@@ -69,18 +69,7 @@ jest.mock('@/features/calorie-tracking/active-profile-store', () => ({
 }));
 
 jest.mock('@/hooks/use-theme', () => ({
-  useTheme: () => ({
-    background: '#FFFFFF',
-    backgroundElement: '#F0F0F3',
-    backgroundSelected: '#E0E1E6',
-    text: '#000000',
-    textSecondary: '#60646C',
-    border: '#DDDDE3',
-    accent: '#208AEF',
-    success: '#1A7F4B',
-    warning: '#B26A00',
-    danger: '#C62828',
-  }),
+  useTheme: () => require('@/constants/theme').Colors.light,
 }));
 
 function renderScreen() {
@@ -189,8 +178,10 @@ describe('AddFoodEntryScreen — Produkt aus der Suche (100g-Referenz)', () => {
 
   it('skaliert kcal live, wenn die Menge geaendert wird', async () => {
     await renderScreen();
-    const quantityField = screen.getByDisplayValue('100');
+    await fireEvent.press(screen.getByLabelText('Menge direkt eingeben'));
+    const quantityField = screen.getByLabelText('Menge eingeben');
     await fireEvent.changeText(quantityField, '200');
+    await fireEvent(quantityField, 'blur');
     expect(screen.getByDisplayValue('118')).toBeTruthy(); // 59 kcal/100g * 200g / 100
   });
 

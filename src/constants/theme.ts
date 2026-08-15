@@ -7,33 +7,38 @@ import '@/global.css';
 
 import { Platform } from 'react-native';
 
+// Figma-Design-System "fam" (Mobile Design Library, August 2026):
+// https://www.figma.com/design/6RkH2npU7OF3B62Fa9SvoY/fam-–-App-Mockup
+// Warme, gedeckte Mauve-/Creme-Palette statt des frueheren Blau/Weiss-Themes.
+// Dark Mode ist im Figma-File nicht ausgefuehrt — die Werte hier fuehren
+// dieselben Farbtoene auf einem dunklen Hintergrund weiter.
 export const Colors = {
   light: {
-    text: '#000000',
-    background: '#ffffff',
-    backgroundElement: '#F0F0F3',
-    backgroundSelected: '#E0E1E6',
-    textSecondary: '#60646C',
-    border: '#DDDDE3',
-    accent: '#208AEF',
+    text: '#2D2830', // fam/color/text-primary
+    background: '#F8F4EF', // fam/color/bg-app
+    backgroundElement: '#FBF7F2', // fam/color/bg-surface (Karten, Listen)
+    backgroundSelected: '#E9E1E7', // color/selection/segment-bg
+    textSecondary: '#786F79', // fam/color/text-secondary
+    border: '#E4DDE3',
+    accent: '#705773', // fam/color/bg-accent
     // Ampel fuer Mindesthaltbarkeitsdaten (#71) und Zielerreichung.
     // Farbe ist nie der einzige Traeger der Information — daneben steht immer
     // ein Text oder ein Symbol, sonst ist die Anzeige fuer Farbfehlsichtige wertlos.
-    success: '#1A7F4B',
-    warning: '#B26A00',
-    danger: '#C62828',
+    success: '#78906F', // fam/color/status-success
+    warning: '#C69059', // fam/color/status-warning
+    danger: '#C65F50', // fam/color/status-danger (Figma: kritische MHD-Zeilen)
   },
   dark: {
-    text: '#ffffff',
-    background: '#000000',
-    backgroundElement: '#212225',
-    backgroundSelected: '#2E3135',
-    textSecondary: '#B0B4BA',
-    border: '#35383D',
-    accent: '#4EA1F5',
-    success: '#4ADE80',
-    warning: '#FBBF24',
-    danger: '#F87171',
+    text: '#F2ECE7',
+    background: '#211D23',
+    backgroundElement: '#2B262E',
+    backgroundSelected: '#382F3B',
+    textSecondary: '#B7ADB3',
+    border: '#3E3640',
+    accent: '#B79CBA',
+    success: '#8FAE86',
+    warning: '#D9A86C',
+    danger: '#D9776A',
   },
 } as const;
 
@@ -74,16 +79,9 @@ export const Spacing = {
   six: 64,
 } as const;
 
-export const BottomTabInset = Platform.select({ ios: 50, android: 80 }) ?? 0;
+/** Feste Höhen für wiederverwendbare Controls aus dem fam Design-System. */
+export const ControlSize = {
+  compactHeight: 34,
+} as const;
 
-/**
- * Hoehe der nativen Tab-Leiste OHNE die untere Safe Area — die kommt ueber
- * `useSafeAreaInsets().bottom` dazu.
- *
- * Der frueher hier verwendete `BottomTabInset` von 50 pt war zu klein: im
- * Simulator (iPhone 17 Pro, iOS 26) beginnt die Leiste bei 90,5 % der
- * Bildschirmhoehe, belegt also rund 81 pt inklusive Home-Indicator. Der letzte
- * Karteninhalt lag dadurch unter der Leiste.
- */
-export const TabBarHeight = Platform.select({ ios: 56, android: 64 }) ?? 56;
 export const MaxContentWidth = 800;

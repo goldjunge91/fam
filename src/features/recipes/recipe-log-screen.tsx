@@ -1,93 +1,115 @@
 import { router, useLocalSearchParams } from 'expo-router';
 import { useEffect, useMemo, useState } from 'react';
 import {
+  Alert,
+  KeyboardAvoidingView,
   Pressable,
   ScrollView,
   StyleSheet,
-  Text,
   TextInput,
-  TouchableOpacity,
   View,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import Svg, { Path } from 'react-native-svg';
 
+import { FilterChipBar } from '@/components/filter-chip-bar';
+import { GradientBackground } from '@/components/gradient-background';
+import { PageHeader } from '@/components/page-header';
+import { FontSize, ThemedText } from '@/components/themed-text';
+import { HeaderIconButton } from '@/components/ui/buttons';
 import type { MealType } from '@/features/calorie-tracking/api';
+import { useTheme } from '@/hooks/use-theme';
 
 import { calculateAdjustedServingNutrition } from './nutrition';
-import { useRecipeDetail } from './use-recipes';
+import { useRecipeDetail, useUpdateComponentMutation } from './use-recipes';
 
-const MEAL_ORDER: MealType[] = ['breakfast', 'lunch', 'dinner', 'snack'];
-// Duplikat von `MEAL_LABELS` aus dem Diary-Screen statt Import: der zieht
-// transitiv den gesamten Dashboard-Kram (ProgressRing/Reanimated) mit rein,
-// nur fuer vier Konstanten unnoetig schwere Kopplung zweier Screens.
-const MEAL_LABELS: Record<MealType, string> = {
-  breakfast: 'Frühstück',
-  lunch: 'Mittagessen',
-  dinner: 'Abendessen',
-  snack: 'Snacks',
-};
+const MEAL_OPTIONS: { value: MealType; label: string }[] = [
+  { value: 'breakfast', label: 'Frühstück' },
+  { value: 'lunch', label: 'Mittag' },
+  { value: 'dinner', label: 'Abend' },
+  { value: 'snack', label: 'Snacks' },
+];
 
-function round(n: number): number {
-  return Math.round(n);
+function round(value: number): number {
+  return Math.round(value);
 }
 
 function toIsoDate(date: Date): string {
-  const y = date.getFullYear();
-  const m = String(date.getMonth() + 1).padStart(2, '0');
-  const d = String(date.getDate()).padStart(2, '0');
-  return `${y}-${m}-${d}`;
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, '0');
+  const day = String(date.getDate()).padStart(2, '0');
+  return `${year}-${month}-${day}`;
 }
 
-/**
- * Portionsanpassung vor dem Tagebuch-Eintrag (#127): startet mit den
- * Rezept-Grammmengen je oberster Komponente, laesst sie individuell
- * anpassen ("mehr Soße"), ohne das Rezept selbst zu veraendern. Uebergibt
- * das Ergebnis als fertigen kcal/Makro-Snapshot an `/add-food-entry` — genau
- * denselben Pfad, den die App fuer "Zuletzt/Häufig"-Eintraege schon nutzt
- * (siehe dortiger Screen-Kommentar), kein Live-Bezug auf das Rezept.
- */
+function BackGlyph() {
+  return <ThemedText style={styles.backGlyph}>‹</ThemedText>;
+}
+
 export function RecipeLogScreen() {
-  const { id } = useLocalSearchParams<{ id: string }>();
+  const theme = useTheme();
+  const { id, mode } = useLocalSearchParams<{ id: string; mode?: string }>();
+  const isWeighMode = mode === 'weigh';
   const { data, isLoading } = useRecipeDetail(id);
+  const updateComponent = useUpdateComponentMutation();
   const [mealType, setMealType] = useState<MealType>('lunch');
   const [gramsById, setGramsById] = useState<Record<string, number> | null>(null);
 
   const topLevelComponents = useMemo(
-    () => (data ? data.components.filter((c) => c.serving_grams !== null) : []),
+    () => (data ? data.components.filter((component) => component.serving_grams !== null) : []),
     [data],
   );
 
-  // Ausgangswert = Rezept-Portionsgrammmengen (AC #127), einmal beim Laden
-  // uebernommen — danach gehoert der State dem Formular, nicht dem Rezept.
-  // biome-ignore lint/correctness/useExhaustiveDependencies: nur beim ersten Laden der Daten vorbefuellen.
+  // biome-ignore lint/correctness/useExhaustiveDependencies: Initialwerte nur einmal aus den geladenen Rezeptdaten übernehmen.
   useEffect(() => {
     if (!data || gramsById !== null) return;
     const initial: Record<string, number> = {};
-    for (const c of topLevelComponents) initial[c.id] = c.serving_grams ?? 0;
+    for (const component of topLevelComponents) {
+      initial[component.id] = component.serving_grams ?? 0;
+    }
     setGramsById(initial);
   }, [data]);
 
   const gramsMap = useMemo(() => new Map(Object.entries(gramsById ?? {})), [gramsById]);
-
-  const total = useMemo(() => {
-    if (!data) return null;
-    return calculateAdjustedServingNutrition(
-      data.components,
-      data.items,
-      data.productsById,
-      gramsMap,
-    );
-  }, [data, gramsMap]);
+  const total = useMemo(
+    () =>
+      data
+        ? calculateAdjustedServingNutrition(
+            data.components,
+            data.items,
+            data.productsById,
+            gramsMap,
+          )
+        : null,
+    [data, gramsMap],
+  );
 
   function updateGrams(componentId: string, raw: string) {
     const value = raw.trim() === '' ? 0 : Number(raw.replace(',', '.'));
     if (Number.isNaN(value) || value < 0) return;
-    setGramsById((prev) => ({ ...(prev ?? {}), [componentId]: value }));
+    setGramsById((previous) => ({ ...(previous ?? {}), [componentId]: value }));
   }
 
-  function handleSubmit() {
+  async function handleSubmit() {
     if (!data || !total) return;
+    if (isWeighMode) {
+      try {
+        for (const component of topLevelComponents) {
+          await updateComponent.mutateAsync({
+            id: component.id,
+            recipe_id: data.recipe.id,
+            household_id: data.recipe.household_id,
+            name: component.name,
+            serving_grams: gramsById?.[component.id] ?? component.serving_grams,
+          });
+        }
+        router.back();
+      } catch (error) {
+        Alert.alert(
+          'Gewichte konnten nicht gespeichert werden',
+          error instanceof Error ? error.message : 'Bitte versuche es erneut.',
+        );
+      }
+      return;
+    }
     router.push({
       pathname: '/add-food-entry',
       params: {
@@ -105,248 +127,220 @@ export function RecipeLogScreen() {
   }
 
   return (
-    <SafeAreaView style={styles.safeArea}>
-      <View style={styles.header}>
-        <TouchableOpacity
-          style={styles.headerIconButton}
-          onPress={() => router.back()}
-          accessibilityRole="button"
-          accessibilityLabel="Zurück">
-          <Svg width={24} height={24} viewBox="0 0 24 24" fill="none">
-            <Path
-              d="M15 18l-6-6 6-6"
-              stroke="#FF5262"
-              strokeWidth={2.5}
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </Svg>
-        </TouchableOpacity>
-        <Text style={styles.headerTitle} numberOfLines={1}>
-          Ins Tagebuch loggen
-        </Text>
-        <View style={styles.headerIconButton} />
-      </View>
+    <View style={styles.root}>
+      <GradientBackground colors={['#FFD2B9', '#F8F4EF', '#EEE7F4']} />
+      <SafeAreaView style={styles.safeArea} edges={['top', 'left', 'right']}>
+        <PageHeader
+          title="Fertig"
+          leading={
+            <HeaderIconButton label="Zurück" onPress={() => router.back()}>
+              <BackGlyph />
+            </HeaderIconButton>
+          }
+        />
 
-      {isLoading || !data ? (
-        <Text style={styles.loadingText}>Lädt…</Text>
-      ) : (
-        <ScrollView style={styles.scrollView} contentContainerStyle={styles.scrollContent}>
-          <Text style={styles.recipeTitle}>{data.recipe.title}</Text>
-
-          <Text style={styles.sectionLabel}>Mahlzeit</Text>
-          <View style={styles.mealRow}>
-            {MEAL_ORDER.map((meal) => {
-              const isActive = meal === mealType;
-              return (
-                <Pressable
-                  key={meal}
-                  style={[
-                    styles.mealPill,
-                    isActive ? styles.mealPillActive : styles.mealPillInactive,
-                  ]}
-                  onPress={() => setMealType(meal)}>
-                  <Text
-                    style={[
-                      styles.mealText,
-                      isActive ? styles.mealTextActive : styles.mealTextInactive,
-                    ]}>
-                    {MEAL_LABELS[meal]}
-                  </Text>
-                </Pressable>
-              );
-            })}
+        <KeyboardAvoidingView
+          style={styles.keyboardAvoider}
+          behavior={process.env.EXPO_OS === 'ios' ? 'padding' : undefined}>
+          <View style={styles.finishBackdrop}>
+            <View style={[styles.finishArtwork, { backgroundColor: theme.backgroundSelected }]} />
+            <ThemedText style={styles.finishTitle}>Guten Appetit!</ThemedText>
+            <ThemedText themeColor="textSecondary" style={styles.finishSubtitle}>
+              {isWeighMode
+                ? 'Verbessere die Mengen deines Haushaltsrezepts.'
+                : 'Trage deine tatsächliche Portion ins Tagebuch ein.'}
+            </ThemedText>
           </View>
 
-          <Text style={styles.sectionLabel}>Portionsmengen</Text>
-          {topLevelComponents.length === 0 ? (
-            <Text style={styles.emptyText}>Dieses Rezept hat noch keine Komponenten.</Text>
-          ) : (
-            <View style={styles.componentList}>
-              {topLevelComponents.map((component) => (
-                <View key={component.id} style={styles.componentRow}>
-                  <Text style={styles.componentName}>{component.name}</Text>
-                  <View style={styles.gramsField}>
-                    <TextInput
-                      style={styles.gramsInput}
-                      keyboardType="numeric"
-                      value={String(gramsById?.[component.id] ?? component.serving_grams ?? 0)}
-                      onChangeText={(v) => updateGrams(component.id, v)}
-                      accessibilityLabel={`Grammmenge für ${component.name}`}
-                    />
-                    <Text style={styles.gramsUnit}>g</Text>
-                  </View>
+          <View style={[styles.sheet, { backgroundColor: theme.backgroundElement }]}>
+            <View style={[styles.sheetHandle, { backgroundColor: theme.border }]} />
+            <View style={styles.sheetHeader}>
+              <View>
+                <ThemedText style={styles.sheetTitle}>
+                  {isWeighMode ? 'Zubereitete Gewichte' : 'Ins Tagebuch eintragen'}
+                </ThemedText>
+                <ThemedText themeColor="textSecondary" style={styles.sheetSubtitle}>
+                  {isWeighMode
+                    ? 'Diese Werte verbessern die Berechnung in deinem Haushaltsrezept.'
+                    : 'Wie viel davon war auf deinem Teller?'}
+                </ThemedText>
+              </View>
+              <Pressable
+                onPress={() => router.back()}
+                role="button"
+                aria-label="Schließen"
+                style={[styles.closeButton, { backgroundColor: theme.backgroundSelected }]}>
+                <ThemedText themeColor="accent" style={styles.closeGlyph}>
+                  ×
+                </ThemedText>
+              </Pressable>
+            </View>
+
+            {isLoading || !data ? (
+              <ThemedText themeColor="textSecondary" style={styles.loadingText}>
+                Rezept wird geladen…
+              </ThemedText>
+            ) : (
+              <ScrollView
+                showsVerticalScrollIndicator={false}
+                keyboardShouldPersistTaps="handled"
+                contentContainerStyle={styles.sheetContent}>
+                {!isWeighMode ? (
+                  <FilterChipBar
+                    label="Mahlzeit"
+                    options={MEAL_OPTIONS}
+                    selected={mealType}
+                    onSelect={setMealType}
+                  />
+                ) : null}
+
+                <View style={styles.componentList}>
+                  {topLevelComponents.map((component) => (
+                    <View key={component.id} style={styles.componentRow}>
+                      <ThemedText style={styles.componentName}>{component.name}</ThemedText>
+                      <View style={[styles.gramsField, { borderColor: theme.border }]}>
+                        <TextInput
+                          value={String(gramsById?.[component.id] ?? component.serving_grams ?? 0)}
+                          onChangeText={(value) => updateGrams(component.id, value)}
+                          keyboardType="decimal-pad"
+                          accessibilityLabel={`Grammmenge für ${component.name}`}
+                          style={[styles.gramsInput, { color: theme.text }]}
+                        />
+                        <ThemedText themeColor="textSecondary" style={styles.gramsUnit}>
+                          g
+                        </ThemedText>
+                      </View>
+                    </View>
+                  ))}
                 </View>
-              ))}
-            </View>
-          )}
 
-          {total ? (
-            <View style={styles.totalsCard}>
-              <Text style={styles.totalsKcal}>{round(total.kcal)} kcal</Text>
-              <Text style={styles.totalsMacros}>
-                {round(total.protein_g)} g Protein · {round(total.carbs_g)} g Kohlenhydrate ·{' '}
-                {round(total.fat_g)} g Fett
-              </Text>
-            </View>
-          ) : null}
+                {total && !isWeighMode ? (
+                  <View style={[styles.totalCard, { backgroundColor: theme.backgroundSelected }]}>
+                    <ThemedText style={styles.totalKcal}>{round(total.kcal)} kcal</ThemedText>
+                    <ThemedText themeColor="textSecondary" style={styles.totalMacros}>
+                      {round(total.protein_g)} g Protein · {round(total.carbs_g)} g Kohlenhydrate ·{' '}
+                      {round(total.fat_g)} g Fett
+                    </ThemedText>
+                  </View>
+                ) : null}
 
-          <Pressable
-            style={styles.submitButton}
-            onPress={handleSubmit}
-            accessibilityRole="button"
-            accessibilityLabel="Ins Tagebuch übernehmen">
-            <Text style={styles.submitButtonText}>Ins Tagebuch übernehmen</Text>
-          </Pressable>
-        </ScrollView>
-      )}
-    </SafeAreaView>
+                <Pressable
+                  onPress={handleSubmit}
+                  disabled={!total || updateComponent.isPending}
+                  role="button"
+                  style={({ pressed }) => [
+                    styles.submitButton,
+                    { backgroundColor: theme.accent },
+                    (!total || updateComponent.isPending) && styles.disabled,
+                    pressed && styles.pressed,
+                  ]}>
+                  <ThemedText style={styles.submitText}>
+                    {isWeighMode ? 'Gewichte speichern' : 'Ins Tagebuch übernehmen'}
+                  </ThemedText>
+                </Pressable>
+              </ScrollView>
+            )}
+          </View>
+        </KeyboardAvoidingView>
+      </SafeAreaView>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
-  safeArea: {
-    flex: 1,
-    backgroundColor: '#FFFDF9',
-  },
-  loadingText: {
+  root: { flex: 1 },
+  safeArea: { flex: 1, width: '100%', maxWidth: 800, alignSelf: 'center' },
+  keyboardAvoider: { flex: 1, justifyContent: 'flex-end' },
+  backGlyph: { ...FontSize[27], lineHeight: 29, fontWeight: 400 },
+  finishBackdrop: { flex: 1, minHeight: 150, alignItems: 'center', paddingTop: 30, opacity: 0.55 },
+  finishArtwork: { width: 82, height: 82, borderRadius: 27, borderCurve: 'continuous' },
+  finishTitle: { paddingTop: 18, ...FontSize[23], lineHeight: 28, fontWeight: 700 },
+  finishSubtitle: {
+    paddingTop: 5,
+    ...FontSize[10],
+    lineHeight: 13,
+    fontWeight: 500,
     textAlign: 'center',
-    marginTop: 40,
-    color: '#665555',
   },
-  header: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    paddingHorizontal: 20,
-    paddingVertical: 14,
-    gap: 10,
-  },
-  headerIconButton: {
-    width: 24,
-    padding: 6,
-  },
-  headerTitle: {
-    flex: 1,
-    textAlign: 'center',
-    fontSize: 17,
-    fontWeight: '700',
-    color: '#FF5262',
-  },
-  scrollView: {
-    flex: 1,
-  },
-  scrollContent: {
-    paddingHorizontal: 20,
-    paddingBottom: 40,
-    gap: 4,
-  },
-  recipeTitle: {
-    fontSize: 20,
-    fontWeight: '700',
-    color: '#332222',
-    marginBottom: 16,
-  },
-  sectionLabel: {
-    fontSize: 14,
-    fontWeight: '700',
-    color: '#FF5262',
-    marginBottom: 10,
-    marginTop: 12,
-  },
-  emptyText: {
-    color: '#665555',
-    fontSize: 14,
-  },
-  mealRow: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    gap: 8,
-  },
-  mealPill: {
+  sheet: {
+    maxHeight: '72%',
+    minHeight: 360,
+    borderTopLeftRadius: 28,
+    borderTopRightRadius: 28,
+    borderCurve: 'continuous',
     paddingHorizontal: 16,
-    paddingVertical: 8,
-    borderRadius: 18,
+    paddingTop: 10,
+    paddingBottom: 19,
   },
-  mealPillActive: {
-    backgroundColor: '#FF5262',
-  },
-  mealPillInactive: {
-    backgroundColor: '#FFE2E2',
-  },
-  mealText: {
-    fontSize: 14,
-    fontWeight: '600',
-  },
-  mealTextActive: {
-    color: '#FFFFFF',
-  },
-  mealTextInactive: {
-    color: '#FF5262',
-  },
-  componentList: {
-    gap: 10,
-  },
-  componentRow: {
+  sheetHandle: { width: 38, height: 4, borderRadius: 3, alignSelf: 'center' },
+  sheetHeader: {
+    minHeight: 65,
+    paddingTop: 13,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    backgroundColor: '#FFFFFF',
-    borderRadius: 16,
-    paddingHorizontal: 14,
-    paddingVertical: 10,
-    gap: 10,
+    gap: 12,
   },
-  componentName: {
-    flex: 1,
-    fontSize: 15,
-    fontWeight: '600',
-    color: '#332222',
+  sheetTitle: { ...FontSize[18], lineHeight: 22, fontWeight: 700, letterSpacing: -0.4 },
+  sheetSubtitle: { paddingTop: 7, ...FontSize[9], lineHeight: 12, fontWeight: 500 },
+  closeButton: {
+    width: 32,
+    height: 32,
+    borderRadius: 11,
+    borderCurve: 'continuous',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
+  closeGlyph: { ...FontSize[18], lineHeight: 20, fontWeight: 500 },
+  loadingText: { paddingVertical: 30, textAlign: 'center', ...FontSize[10] },
+  sheetContent: { gap: 12, paddingTop: 4, paddingBottom: 4 },
+  componentList: { gap: 10 },
+  componentRow: { minHeight: 40, flexDirection: 'row', alignItems: 'center', gap: 9 },
+  componentName: { flex: 1, ...FontSize[10], lineHeight: 12, fontWeight: 700 },
   gramsField: {
+    width: 90,
+    height: 40,
+    borderWidth: 1,
+    borderRadius: 12,
+    borderCurve: 'continuous',
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 4,
+    paddingHorizontal: 10,
   },
   gramsInput: {
-    width: 60,
+    flex: 1,
+    height: '100%',
+    paddingVertical: 0,
     textAlign: 'right',
-    fontSize: 15,
-    color: '#332222',
-    borderBottomWidth: 1,
-    borderBottomColor: '#FFE2E2',
-    paddingVertical: 2,
+    ...FontSize[10],
+    fontWeight: 500,
   },
-  gramsUnit: {
-    fontSize: 14,
-    color: '#665555',
+  gramsUnit: { paddingLeft: 4, ...FontSize[10], lineHeight: 12, fontWeight: 500 },
+  totalCard: {
+    minHeight: 53,
+    borderRadius: 15,
+    borderCurve: 'continuous',
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingHorizontal: 11,
   },
-  totalsCard: {
-    backgroundColor: '#FFE2E2',
-    borderRadius: 18,
-    padding: 16,
-    marginTop: 20,
-    gap: 4,
-  },
-  totalsKcal: {
-    fontSize: 20,
-    fontWeight: '700',
-    color: '#FF5262',
-  },
-  totalsMacros: {
-    fontSize: 13,
-    color: '#665555',
+  totalKcal: { ...FontSize[15], lineHeight: 18, fontWeight: 700 },
+  totalMacros: {
+    paddingTop: 3,
+    ...FontSize[8],
+    lineHeight: 10,
+    fontWeight: 500,
+    textAlign: 'center',
   },
   submitButton: {
-    backgroundColor: '#FF5262',
-    borderRadius: 22,
-    paddingVertical: 14,
+    minHeight: 48,
+    borderRadius: 16,
+    borderCurve: 'continuous',
     alignItems: 'center',
-    marginTop: 20,
+    justifyContent: 'center',
+    paddingHorizontal: 16,
   },
-  submitButtonText: {
-    color: '#FFFFFF',
-    fontSize: 16,
-    fontWeight: '700',
-  },
+  submitText: { color: '#FFFFFF', ...FontSize[11], lineHeight: 14, fontWeight: 700 },
+  disabled: { opacity: 0.4 },
+  pressed: { opacity: 0.75, transform: [{ scale: 0.99 }] },
 });

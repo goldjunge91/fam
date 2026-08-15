@@ -1,6 +1,6 @@
 import { Pressable, ScrollView, StyleSheet, View } from 'react-native';
 
-import { ThemedText } from '@/components/themed-text';
+import { FontSize, ThemedText } from '@/components/themed-text';
 import { Spacing } from '@/constants/theme';
 import { useTheme } from '@/hooks/use-theme';
 import type { Store } from '../use-stores';
@@ -39,7 +39,11 @@ function FilterChip({ label, count, isActive, tint, activeTextColor, onPress }: 
           ]}>
           <ThemedText
             type="small"
-            style={{ color: isActive ? activeTextColor : tint, fontWeight: '700', fontSize: 11 }}>
+            style={{
+              color: isActive ? activeTextColor : tint,
+              fontWeight: '700',
+              ...FontSize[11],
+            }}>
             {count}
           </ThemedText>
         </View>

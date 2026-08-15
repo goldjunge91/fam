@@ -1,9 +1,8 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { Animated, Easing, StyleSheet, View } from 'react-native';
-
-import { Button } from '@/components/button';
 import { TextField } from '@/components/text-field';
-import { ThemedText } from '@/components/themed-text';
+import { FontSize, ThemedText } from '@/components/themed-text';
+import { Button } from '@/components/ui/buttons';
 import { Spacing } from '@/constants/theme';
 import {
   authErrorMessage,
@@ -490,7 +489,7 @@ const styles = StyleSheet.create({
     shadowRadius: 4,
   },
   iconSymbol: {
-    fontSize: 22,
+    ...FontSize[22],
   },
   headerRow: {
     flexDirection: 'row',
@@ -503,7 +502,7 @@ const styles = StyleSheet.create({
     borderRadius: 4,
   },
   titleText: {
-    fontSize: 18,
+    ...FontSize[18],
     fontWeight: '700',
   },
   emailCapsule: {
@@ -522,7 +521,7 @@ const styles = StyleSheet.create({
   },
   codeInput: {
     textAlign: 'center',
-    fontSize: 24,
+    ...FontSize[24],
     letterSpacing: 8,
   },
   actions: {

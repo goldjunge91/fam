@@ -6,13 +6,14 @@ import { getSupabase } from '@/lib/supabase';
 /**
  * Modul-Aktivierung (#95). Dashboard und Einstellungen sind laut
  * `docs/VISION.md` bewusst nicht abwaehlbar und haben deshalb keinen Eintrag
- * hier — nur die vier Tabs, die `ModuleGate` tatsaechlich ausblenden kann.
+ * hier — nur die fuenf Tabs, die `ModuleGate` tatsaechlich ausblenden kann.
  */
 export type ModulePreferences = {
   fridge: boolean;
   shoppingList: boolean;
   calories: boolean;
   recipes: boolean;
+  mealPlanner: boolean;
 };
 
 export function modulePreferencesQueryKey(userId: string | undefined) {
@@ -25,7 +26,9 @@ export function useModulePreferences(userId: string | undefined) {
     queryFn: async (): Promise<ModulePreferences> => {
       const { data, error } = await getSupabase()
         .from('profiles')
-        .select('module_fridge, module_shopping_list, module_calories, module_recipes')
+        .select(
+          'module_fridge, module_shopping_list, module_calories, module_recipes, module_meal_planner',
+        )
         .eq('id', userId as string)
         .single();
 
@@ -35,6 +38,7 @@ export function useModulePreferences(userId: string | undefined) {
         shoppingList: data.module_shopping_list,
         calories: data.module_calories,
         recipes: data.module_recipes,
+        mealPlanner: data.module_meal_planner,
       };
     },
     enabled: !!userId,
@@ -57,6 +61,7 @@ export function useUpdateModulePreferencesMutation() {
       if (modules.shoppingList !== undefined) updates.module_shopping_list = modules.shoppingList;
       if (modules.calories !== undefined) updates.module_calories = modules.calories;
       if (modules.recipes !== undefined) updates.module_recipes = modules.recipes;
+      if (modules.mealPlanner !== undefined) updates.module_meal_planner = modules.mealPlanner;
 
       const { error } = await getSupabase().from('profiles').update(updates).eq('id', userId);
       if (error) throw new Error(error.message);
@@ -80,6 +85,7 @@ export async function saveModulePreferences(userId: string, modules: ModulePrefe
       module_shopping_list: modules.shoppingList,
       module_calories: modules.calories,
       module_recipes: modules.recipes,
+      module_meal_planner: modules.mealPlanner,
     })
     .eq('id', userId);
 

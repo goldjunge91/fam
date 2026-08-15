@@ -59,7 +59,15 @@ create table if not exists public.fridge_items (
 
   created_at timestamptz not null default now(),
   updated_at timestamptz not null default now(),
-  deleted_at timestamptz
+  deleted_at timestamptz,
+
+  -- Snapshot des Packungsinhalts, z. B. 500 g bei "2 Packungen Haferflocken".
+  -- Nullable fuer lose Ware und bestehende Datensaetze ohne bekannte Groesse.
+  package_size numeric(10, 3) check (package_size > 0),
+  package_size_unit text
+    check (package_size_unit in ('g', 'kg', 'ml', 'l', 'piece', 'portion')),
+  constraint fridge_items_package_size_complete
+    check ((package_size is null) = (package_size_unit is null))
 );
 
 comment on table public.fridge_items is
@@ -110,7 +118,15 @@ create table if not exists public.stores (
 
   created_at timestamptz not null default now(),
   updated_at timestamptz not null default now(),
-  deleted_at timestamptz
+  deleted_at timestamptz,
+
+  -- Einkaufsmenge und Packungsinhalt bleiben getrennt:
+  -- quantity=2, unit='package', package_size=500, package_size_unit='g'.
+  package_size numeric(10, 3) check (package_size > 0),
+  package_size_unit text
+    check (package_size_unit in ('g', 'kg', 'ml', 'l', 'piece', 'portion')),
+  constraint shopping_list_items_package_size_complete
+    check ((package_size is null) = (package_size_unit is null))
 );
 
 create index if not exists stores_household_id_idx
@@ -143,6 +159,14 @@ create table if not exists public.shopping_list_items (
   -- Manuelle Schaetzung, kein automatischer Preisvergleich (siehe #16).
   price_estimate numeric(10, 2) check (price_estimate >= 0),
 
+  -- Denormalisierter Titel-Snapshot statt FK auf recipes: Ein Artikel kann
+  -- aus mehreren Rezepten desselben Wochenplans stammen (derselbe Zutatenbedarf
+  -- wird ueber alle Rezepte aggregiert, bevor er hier landet, siehe
+  -- use-shopping-needs.ts), eine einzelne recipe_id koennte das nicht
+  -- abbilden. Snapshot statt Live-Join, damit ein spaeter umbenanntes oder
+  -- geloeschtes Rezept die Anzeige "fuer welches Gericht" nicht verliert.
+  recipe_names text[] not null default '{}',
+
   -- Zeitstempel statt Boolean: Beim "Einkauf abschliessen" (Phase 2) ist damit
   -- rekonstruierbar, was zu diesem Einkauf gehoerte. Ausserdem laesst sich ein
   -- Zeitstempel per Last-Write-Wins mergen, ein Boolean nicht sinnvoll.
@@ -152,7 +176,15 @@ create table if not exists public.shopping_list_items (
 
   created_at timestamptz not null default now(),
   updated_at timestamptz not null default now(),
-  deleted_at timestamptz
+  deleted_at timestamptz,
+
+  -- Einkaufsmenge und Packungsinhalt bleiben getrennt:
+  -- quantity=2, unit='package', package_size=500, package_size_unit='g'.
+  package_size numeric(10, 3) check (package_size > 0),
+  package_size_unit text
+    check (package_size_unit in ('g', 'kg', 'ml', 'l', 'piece', 'portion')),
+  constraint shopping_list_items_package_size_complete
+    check ((package_size is null) = (package_size_unit is null))
 );
 
 comment on table public.shopping_list_items is
@@ -271,4 +303,3 @@ create policy shopping_history_all_member on public.shopping_history
   for all to authenticated
   using ((select private.is_household_member(household_id)))
   with check ((select private.is_household_member(household_id)));
-

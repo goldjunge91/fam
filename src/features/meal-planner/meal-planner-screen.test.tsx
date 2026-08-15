@@ -48,11 +48,28 @@ jest.mock('@/features/household/api', () => ({
 }));
 
 jest.mock('@/features/recipes/use-recipes', () => ({
-  useRecipes: () => ({ data: [{ id: 'r1', title: 'Spaghetti Bolognese' }] }),
+  useRecipes: () => ({
+    data: [{ id: 'r1', title: 'Spaghetti Bolognese', cover_image_path: null }],
+  }),
+}));
+
+// Die Drag-Card im Tray zeigt das Rezeptbild ueber `useRecipeCoverUrl` (echtes
+// `useQuery`) — ohne QueryClientProvider in diesem Test-Setup wuerde das
+// werfen, siehe react-query-Fehlermeldung "No QueryClient set".
+jest.mock('@/features/recipes/recipe-cover', () => ({
+  useRecipeCoverUrl: () => ({ data: null }),
 }));
 
 jest.mock('./settings', () => ({
   usePortionsPerPerson: () => ({ data: 1.25 }),
+}));
+
+jest.mock('@/features/navigation/navigation-chrome-provider', () => ({
+  useNavigationChrome: () => ({ openDrawer: jest.fn(), openProfile: jest.fn() }),
+}));
+
+jest.mock('@/features/navigation/use-profile-initials', () => ({
+  useProfileInitials: () => 'MM',
 }));
 
 const mockAddMutate = jest.fn();
@@ -106,29 +123,27 @@ describe('MealPlannerScreen', () => {
   it('zeigt die Ansichts-Umschalter Tag/3 Tage/Woche, Woche als Standard', async () => {
     await renderScreen();
 
-    expect(screen.getByRole('button', { name: 'Tag-Ansicht' })).toBeOnTheScreen();
-    expect(screen.getByRole('button', { name: '3 Tage-Ansicht' })).toBeOnTheScreen();
-    expect(screen.getByRole('button', { name: 'Woche-Ansicht', selected: true })).toBeOnTheScreen();
+    expect(screen.getByRole('tab', { name: 'Tag-Ansicht' })).toBeOnTheScreen();
+    expect(screen.getByRole('tab', { name: '3 Tage-Ansicht' })).toBeOnTheScreen();
+    expect(screen.getByRole('tab', { name: 'Woche-Ansicht', selected: true })).toBeOnTheScreen();
   });
 
   it('blendet die wochenweiten Aktionen in der Tagesansicht aus', async () => {
     const user = userEvent.setup();
     await renderScreen();
 
-    expect(screen.getByRole('button', { name: 'Letzte Woche erneut verwenden' })).toBeOnTheScreen();
+    expect(screen.getByRole('button', { name: 'Vorwoche übernehmen' })).toBeOnTheScreen();
 
-    await user.press(screen.getByRole('button', { name: 'Tag-Ansicht' }));
+    await user.press(screen.getByRole('tab', { name: 'Tag-Ansicht' }));
 
-    expect(
-      screen.queryByRole('button', { name: 'Letzte Woche erneut verwenden' }),
-    ).not.toBeOnTheScreen();
+    expect(screen.queryByRole('button', { name: 'Vorwoche übernehmen' })).not.toBeOnTheScreen();
   });
 
   it('loest "letzte Woche erneut verwenden" ueber die Mutation aus', async () => {
     const user = userEvent.setup();
     await renderScreen();
 
-    await user.press(screen.getByRole('button', { name: 'Letzte Woche erneut verwenden' }));
+    await user.press(screen.getByRole('button', { name: 'Vorwoche übernehmen' }));
 
     expect(mockReuseMutate).toHaveBeenCalledWith(
       expect.objectContaining({ household_id: 'hh-1', target_meal_plan_id: 'plan-1' }),

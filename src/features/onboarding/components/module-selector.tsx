@@ -1,5 +1,6 @@
 import { Pressable, StyleSheet, Switch, Text, View } from 'react-native';
-import { Button } from '@/components/button';
+import { FontSize } from '@/components/themed-text';
+import { Button } from '@/components/ui/buttons';
 import { Spacing } from '@/constants/theme';
 import { useTheme } from '@/hooks/use-theme';
 import { useOnboarding } from '../context/onboarding-context';
@@ -93,14 +94,30 @@ export function ModuleSelectorForm({ onNext, onSkip }: ModuleSelectorFormProps) 
             },
           ]}>
           <View style={styles.moduleTextCol}>
-            <Text style={[styles.moduleTitle, { color: theme.text }]}>
-              📖 Rezept-Manager & Meal-Planner
-            </Text>
+            <Text style={[styles.moduleTitle, { color: theme.text }]}>📖 Rezept-Manager</Text>
             <Text style={[styles.moduleDesc, { color: theme.textSecondary }]}>
-              Rezepte anlegen, Portionsmengen berechnen und die Woche vorausplanen.
+              Rezepte anlegen und Portionsmengen berechnen.
             </Text>
           </View>
           <Switch value={state.modules.recipes} onValueChange={() => toggle('recipes')} />
+        </Pressable>
+
+        <Pressable
+          onPress={() => toggle('mealPlanner')}
+          style={[
+            styles.moduleRow,
+            {
+              backgroundColor: theme.backgroundElement,
+              borderColor: state.modules.mealPlanner ? theme.accent : theme.border,
+            },
+          ]}>
+          <View style={styles.moduleTextCol}>
+            <Text style={[styles.moduleTitle, { color: theme.text }]}>🗓️ Meal-Planner</Text>
+            <Text style={[styles.moduleDesc, { color: theme.textSecondary }]}>
+              Die Woche vorausplanen und Mahlzeiten Mitgliedern zuordnen.
+            </Text>
+          </View>
+          <Switch value={state.modules.mealPlanner} onValueChange={() => toggle('mealPlanner')} />
         </Pressable>
       </View>
 
@@ -121,11 +138,11 @@ const styles = StyleSheet.create({
     gap: Spacing.three,
   },
   heading: {
-    fontSize: 22,
+    ...FontSize[22],
     fontWeight: '700',
   },
   subheading: {
-    fontSize: 14,
+    ...FontSize[14],
     lineHeight: 20,
   },
   moduleList: {
@@ -145,11 +162,11 @@ const styles = StyleSheet.create({
     paddingRight: Spacing.two,
   },
   moduleTitle: {
-    fontSize: 15,
+    ...FontSize[15],
     fontWeight: '700',
   },
   moduleDesc: {
-    fontSize: 13,
+    ...FontSize[13],
     marginTop: 2,
     lineHeight: 18,
   },

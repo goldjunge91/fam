@@ -174,6 +174,8 @@ export type Database = {
           id: string
           location_id: string | null
           name: string
+          package_size: number | null
+          package_size_unit: string | null
           product_id: string | null
           quantity: number
           unit: string
@@ -188,6 +190,8 @@ export type Database = {
           id?: string
           location_id?: string | null
           name: string
+          package_size?: number | null
+          package_size_unit?: string | null
           product_id?: string | null
           quantity?: number
           unit?: string
@@ -202,6 +206,8 @@ export type Database = {
           id?: string
           location_id?: string | null
           name?: string
+          package_size?: number | null
+          package_size_unit?: string | null
           product_id?: string | null
           quantity?: number
           unit?: string
@@ -337,6 +343,9 @@ export type Database = {
           created_by: string
           id: string
           name: string
+          premium_active: boolean
+          premium_expires_at: string | null
+          premium_updated_at: string | null
           updated_at: string
         }
         Insert: {
@@ -344,6 +353,9 @@ export type Database = {
           created_by: string
           id?: string
           name: string
+          premium_active?: boolean
+          premium_expires_at?: string | null
+          premium_updated_at?: string | null
           updated_at?: string
         }
         Update: {
@@ -351,6 +363,9 @@ export type Database = {
           created_by?: string
           id?: string
           name?: string
+          premium_active?: boolean
+          premium_expires_at?: string | null
+          premium_updated_at?: string | null
           updated_at?: string
         }
         Relationships: [
@@ -564,6 +579,7 @@ export type Database = {
           id: string
           module_calories: boolean
           module_fridge: boolean
+          module_meal_planner: boolean
           module_recipes: boolean
           module_shopping_list: boolean
           onboarding_completed_at: string | null
@@ -580,6 +596,7 @@ export type Database = {
           id: string
           module_calories?: boolean
           module_fridge?: boolean
+          module_meal_planner?: boolean
           module_recipes?: boolean
           module_shopping_list?: boolean
           onboarding_completed_at?: string | null
@@ -596,6 +613,7 @@ export type Database = {
           id?: string
           module_calories?: boolean
           module_fridge?: boolean
+          module_meal_planner?: boolean
           module_recipes?: boolean
           module_shopping_list?: boolean
           onboarding_completed_at?: string | null
@@ -836,6 +854,192 @@ export type Database = {
           },
         ]
       }
+      recipe_template_components: {
+        Row: {
+          created_at: string
+          id: string
+          name: string
+          serving_grams: number | null
+          template_id: string
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          name: string
+          serving_grams?: number | null
+          template_id: string
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          name?: string
+          serving_grams?: number | null
+          template_id?: string
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "recipe_template_components_template_id_fkey"
+            columns: ["template_id"]
+            isOneToOne: false
+            referencedRelation: "recipe_templates"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      recipe_template_items: {
+        Row: {
+          component_id: string
+          created_at: string
+          grams: number
+          id: string
+          product_id: string | null
+          quantity: number | null
+          sub_component_id: string | null
+          template_id: string
+          unit: string
+          updated_at: string
+        }
+        Insert: {
+          component_id: string
+          created_at?: string
+          grams: number
+          id?: string
+          product_id?: string | null
+          quantity?: number | null
+          sub_component_id?: string | null
+          template_id: string
+          unit?: string
+          updated_at?: string
+        }
+        Update: {
+          component_id?: string
+          created_at?: string
+          grams?: number
+          id?: string
+          product_id?: string | null
+          quantity?: number | null
+          sub_component_id?: string | null
+          template_id?: string
+          unit?: string
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "recipe_template_items_component_id_fkey"
+            columns: ["component_id"]
+            isOneToOne: false
+            referencedRelation: "recipe_template_components"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "recipe_template_items_product_id_fkey"
+            columns: ["product_id"]
+            isOneToOne: false
+            referencedRelation: "products"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "recipe_template_items_sub_component_id_fkey"
+            columns: ["sub_component_id"]
+            isOneToOne: false
+            referencedRelation: "recipe_template_components"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "recipe_template_items_template_id_fkey"
+            columns: ["template_id"]
+            isOneToOne: false
+            referencedRelation: "recipe_templates"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      recipe_template_steps: {
+        Row: {
+          created_at: string
+          id: string
+          position: number
+          template_id: string
+          text: string
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          position: number
+          template_id: string
+          text: string
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          position?: number
+          template_id?: string
+          text?: string
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "recipe_template_steps_template_id_fkey"
+            columns: ["template_id"]
+            isOneToOne: false
+            referencedRelation: "recipe_templates"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      recipe_templates: {
+        Row: {
+          cook_time_minutes: number | null
+          cover_image_path: string | null
+          created_at: string
+          default_servings: number
+          dietary_tags: string[]
+          difficulty: string | null
+          dish_types: string[]
+          hashtags: string[]
+          id: string
+          instructions: string | null
+          sort_order: number
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          cook_time_minutes?: number | null
+          cover_image_path?: string | null
+          created_at?: string
+          default_servings?: number
+          dietary_tags?: string[]
+          difficulty?: string | null
+          dish_types?: string[]
+          hashtags?: string[]
+          id?: string
+          instructions?: string | null
+          sort_order?: number
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          cook_time_minutes?: number | null
+          cover_image_path?: string | null
+          created_at?: string
+          default_servings?: number
+          dietary_tags?: string[]
+          difficulty?: string | null
+          dish_types?: string[]
+          hashtags?: string[]
+          id?: string
+          instructions?: string | null
+          sort_order?: number
+          title?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
       recipes: {
         Row: {
           cook_time_minutes: number | null
@@ -983,9 +1187,12 @@ export type Database = {
           household_id: string
           id: string
           name: string
+          package_size: number | null
+          package_size_unit: string | null
           price_estimate: number | null
           product_id: string | null
           quantity: number
+          recipe_names: string[]
           sort_index: number
           store_id: string | null
           unit: string
@@ -1001,9 +1208,12 @@ export type Database = {
           household_id: string
           id?: string
           name: string
+          package_size?: number | null
+          package_size_unit?: string | null
           price_estimate?: number | null
           product_id?: string | null
           quantity?: number
+          recipe_names?: string[]
           sort_index?: number
           store_id?: string | null
           unit?: string
@@ -1019,9 +1229,12 @@ export type Database = {
           household_id?: string
           id?: string
           name?: string
+          package_size?: number | null
+          package_size_unit?: string | null
           price_estimate?: number | null
           product_id?: string | null
           quantity?: number
+          recipe_names?: string[]
           sort_index?: number
           store_id?: string | null
           unit?: string
@@ -1115,6 +1328,8 @@ export type Database = {
           household_id: string
           id: string
           name: string
+          package_size: number | null
+          package_size_unit: string | null
           sort_order: number
           updated_at: string
         }
@@ -1126,6 +1341,8 @@ export type Database = {
           household_id: string
           id?: string
           name: string
+          package_size?: number | null
+          package_size_unit?: string | null
           sort_order?: number
           updated_at?: string
         }
@@ -1137,6 +1354,8 @@ export type Database = {
           household_id?: string
           id?: string
           name?: string
+          package_size?: number | null
+          package_size_unit?: string | null
           sort_order?: number
           updated_at?: string
         }

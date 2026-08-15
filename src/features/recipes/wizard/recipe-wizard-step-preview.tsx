@@ -1,6 +1,7 @@
 import { Image } from 'expo-image';
 import { useState } from 'react';
 import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { FontSize } from '@/components/themed-text';
 
 import type { DietaryTag, Difficulty, DishType } from '@/features/recipes/use-recipes';
 import { UNIT_OPTIONS } from '@/lib/units';
@@ -58,8 +59,14 @@ export function RecipeWizardStepPreview({
   const ingredientLabelById = new Map<string, string>();
   for (const comp of components) {
     for (const item of comp.items) {
-      if (item.product) {
-        ingredientLabelById.set(item.id, `${item.product.name} (${comp.title})`);
+      // item.product ist nur bei einer frisch abgeschlossenen OFF-Suche
+      // gesetzt. Beim Bearbeiten geladene Zutaten haben stattdessen
+      // productQuery/existingProductId (siehe recipe-create-screen.tsx-
+      // Hydration) — ohne diesen Fallback fehlten sie hier komplett bzw.
+      // zeigten nur ihre rohe ID.
+      const name = item.product?.name ?? (item.existingProductId ? item.productQuery : null);
+      if (name) {
+        ingredientLabelById.set(item.id, `${name} (${comp.title})`);
       }
     }
   }
@@ -69,6 +76,8 @@ export function RecipeWizardStepPreview({
       style={styles.scrollView}
       contentContainerStyle={styles.scrollContent}
       showsVerticalScrollIndicator={false}>
+      <Text style={styles.eyebrow}>SCHRITT 4 VON 4</Text>
+      <Text style={styles.pageTitle}>Vorschau</Text>
       <View style={styles.coverCard}>
         {coverPreviewUri ? (
           <Image
@@ -139,10 +148,11 @@ export function RecipeWizardStepPreview({
             <View key={comp.id} style={styles.componentSection}>
               <Text style={styles.sectionLabel}>{comp.title}</Text>
               {comp.items
-                .filter((item) => item.product)
+                .filter((item) => item.product || item.existingProductId)
                 .map((item) => (
                   <Text key={item.id} style={styles.ingredientLine}>
-                    • {item.product?.name} — {item.quantity} {unitLabel(item.unit)}
+                    • {item.product?.name ?? item.productQuery} — {item.quantity}{' '}
+                    {unitLabel(item.unit)}
                   </Text>
                 ))}
             </View>
@@ -197,33 +207,52 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   scrollContent: {
-    paddingHorizontal: 20,
+    paddingHorizontal: 16,
     paddingBottom: 24,
+  },
+  eyebrow: {
+    paddingTop: 8,
+    ...FontSize[8],
+    lineHeight: 10,
+    fontWeight: '500',
+    color: '#766E78',
+    letterSpacing: 0.7,
+  },
+  pageTitle: {
+    paddingTop: 6,
+    paddingBottom: 12,
+    ...FontSize[21],
+    lineHeight: 25,
+    fontWeight: '700',
+    color: '#302A31',
+    letterSpacing: -0.35,
   },
   coverCard: {
     width: '100%',
     height: 200,
-    backgroundColor: '#FFE2E2',
-    borderRadius: 28,
+    backgroundColor: '#EEE5EC',
+    borderRadius: 19,
+    borderCurve: 'continuous',
     overflow: 'hidden',
     marginBottom: 16,
     justifyContent: 'center',
     alignItems: 'center',
   },
   coverPlaceholderText: {
-    color: '#B4898B',
-    fontSize: 14,
+    color: '#786F79',
+    ...FontSize[14],
   },
   title: {
-    fontSize: 22,
+    ...FontSize[22],
     fontWeight: '700',
-    color: '#2A181A',
+    color: '#302A31',
     marginBottom: 16,
   },
   tabBar: {
     flexDirection: 'row',
-    backgroundColor: '#FFE2E2',
-    borderRadius: 18,
+    backgroundColor: '#EEE5EC',
+    borderRadius: 14,
+    borderCurve: 'continuous',
     padding: 4,
     marginBottom: 16,
   },
@@ -234,12 +263,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   tabActive: {
-    backgroundColor: '#FF5262',
+    backgroundColor: '#705773',
   },
   tabText: {
-    fontSize: 14,
+    ...FontSize[14],
     fontWeight: '600',
-    color: '#FF5262',
+    color: '#705773',
   },
   tabTextActive: {
     color: '#FFFFFF',
@@ -248,8 +277,8 @@ const styles = StyleSheet.create({
     gap: 12,
   },
   description: {
-    fontSize: 15,
-    color: '#332222',
+    ...FontSize[15],
+    color: '#302A31',
   },
   metaRow: {
     flexDirection: 'row',
@@ -257,10 +286,10 @@ const styles = StyleSheet.create({
     gap: 8,
   },
   metaBadge: {
-    fontSize: 13,
+    ...FontSize[13],
     fontWeight: '600',
-    color: '#332222',
-    backgroundColor: '#FFE2E2',
+    color: '#302A31',
+    backgroundColor: '#EEE5EC',
     paddingHorizontal: 12,
     paddingVertical: 6,
     borderRadius: 14,
@@ -271,40 +300,41 @@ const styles = StyleSheet.create({
     gap: 8,
   },
   tag: {
-    fontSize: 12,
+    ...FontSize[12],
     fontWeight: '600',
-    color: '#FF5262',
-    backgroundColor: '#FFF0EF',
+    color: '#705773',
+    backgroundColor: '#F2EBF1',
     paddingHorizontal: 10,
     paddingVertical: 5,
     borderRadius: 12,
   },
   hashtags: {
-    fontSize: 13,
-    color: '#8A6E70',
+    ...FontSize[13],
+    color: '#786F79',
   },
   componentSection: {
     gap: 4,
   },
   sectionLabel: {
-    fontSize: 15,
+    ...FontSize[15],
     fontWeight: '700',
-    color: '#2A181A',
+    color: '#302A31',
   },
   ingredientLine: {
-    fontSize: 14,
-    color: '#332222',
+    ...FontSize[14],
+    color: '#302A31',
   },
   stepCard: {
-    backgroundColor: '#FFF6F2',
-    borderRadius: 20,
-    padding: 16,
+    backgroundColor: 'rgba(255,255,255,0.70)',
+    borderRadius: 19,
+    borderCurve: 'continuous',
+    padding: 12,
     gap: 8,
   },
   stepIndex: {
-    fontSize: 13,
+    ...FontSize[13],
     fontWeight: '700',
-    color: '#FF5262',
+    color: '#705773',
   },
   stepImage: {
     width: '100%',
@@ -312,8 +342,8 @@ const styles = StyleSheet.create({
     borderRadius: 14,
   },
   stepText: {
-    fontSize: 14,
-    color: '#332222',
+    ...FontSize[14],
+    color: '#302A31',
   },
   chipRow: {
     flexDirection: 'row',
@@ -321,10 +351,10 @@ const styles = StyleSheet.create({
     gap: 6,
   },
   chip: {
-    fontSize: 12,
+    ...FontSize[12],
     fontWeight: '600',
-    color: '#FF5262',
-    backgroundColor: '#FFE2E2',
+    color: '#705773',
+    backgroundColor: '#EEE5EC',
     paddingHorizontal: 10,
     paddingVertical: 4,
     borderRadius: 12,
@@ -337,25 +367,26 @@ const styles = StyleSheet.create({
   },
   navButton: {
     flex: 1,
-    height: 52,
-    borderRadius: 26,
+    minHeight: 48,
+    borderRadius: 16,
+    borderCurve: 'continuous',
     alignItems: 'center',
     justifyContent: 'center',
   },
   navButtonPrimary: {
-    backgroundColor: '#FF5262',
+    backgroundColor: '#705773',
   },
   navButtonPrimaryText: {
     color: '#FFFFFF',
-    fontSize: 16,
+    ...FontSize[11],
     fontWeight: '600',
   },
   navButtonSecondary: {
-    backgroundColor: '#FFE2E2',
+    backgroundColor: '#EEE5EC',
   },
   navButtonSecondaryText: {
-    color: '#FF5262',
-    fontSize: 16,
+    color: '#705773',
+    ...FontSize[11],
     fontWeight: '600',
   },
   navButtonDisabled: {

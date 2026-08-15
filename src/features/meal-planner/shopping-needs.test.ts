@@ -22,13 +22,13 @@ describe('computeIngredientNeeds', () => {
       items: sauceItems,
     };
 
-    const result = computeIngredientNeeds([need]);
+    const { needs } = computeIngredientNeeds([need]);
 
     // 1 Portion Soße besteht zu 50/350 aus Tomaten, 300/350 aus Hackfleisch,
     // insgesamt aber immer auf serving_grams (200g) normiert -> bei 2
     // Portionen: 400g Gesamtmasse im selben Verhaeltnis.
-    expect(result.get('tomaten')).toBeCloseTo((50 / 350) * 200 * 2, 4);
-    expect(result.get('hack')).toBeCloseTo((300 / 350) * 200 * 2, 4);
+    expect(needs.get('tomaten')).toBeCloseTo((50 / 350) * 200 * 2, 4);
+    expect(needs.get('hack')).toBeCloseTo((300 / 350) * 200 * 2, 4);
   });
 
   it('summiert den Bedarf ueber mehrere Rezepte/Eintraege desselben Produkts', () => {
@@ -45,10 +45,30 @@ describe('computeIngredientNeeds', () => {
       items: [{ component_id: 'other', product_id: 'tomaten', sub_component_id: null, grams: 100 }],
     };
 
-    const result = computeIngredientNeeds([need1, need2]);
+    const { needs } = computeIngredientNeeds([need1, need2]);
 
     const fromSauce = (50 / 350) * 200;
-    expect(result.get('tomaten')).toBeCloseTo(fromSauce + 100, 4);
+    expect(needs.get('tomaten')).toBeCloseTo(fromSauce + 100, 4);
+  });
+
+  it('haelt fest, welche Rezepte zum Bedarf eines Produkts beigetragen haben', () => {
+    const need1: RecipeNeedInput = {
+      recipeId: 'r1',
+      portions: 1,
+      components: [sauceComponent],
+      items: sauceItems,
+    };
+    const need2: RecipeNeedInput = {
+      recipeId: 'r2',
+      portions: 1,
+      components: [{ id: 'other', serving_grams: 100 }],
+      items: [{ component_id: 'other', product_id: 'tomaten', sub_component_id: null, grams: 100 }],
+    };
+
+    const { recipeIdsByProduct } = computeIngredientNeeds([need1, need2]);
+
+    expect(recipeIdsByProduct.get('tomaten')).toEqual(new Set(['r1', 'r2']));
+    expect(recipeIdsByProduct.get('hack')).toEqual(new Set(['r1']));
   });
 
   it('rekursiv verschachtelte Unterkomponenten werden mit eingerechnet', () => {
@@ -63,15 +83,15 @@ describe('computeIngredientNeeds', () => {
       ],
     };
 
-    const result = computeIngredientNeeds([base]);
+    const { needs } = computeIngredientNeeds([base]);
 
     // "sauce" kommt zweimal vor: einmal als eigene oberste Komponente
     // (serving_grams=200) und einmal als Unterkomponente von noodle_base
     // (200g von serving-normierten 300g).
     const directSauceTomaten = (50 / 350) * 200;
     const viaNoodleBaseTomaten = (50 / 350) * ((200 / 300) * 300);
-    expect(result.get('tomaten')).toBeCloseTo(directSauceTomaten + viaNoodleBaseTomaten, 4);
-    expect(result.get('noodles')).toBeCloseTo((100 / 300) * 300, 4);
+    expect(needs.get('tomaten')).toBeCloseTo(directSauceTomaten + viaNoodleBaseTomaten, 4);
+    expect(needs.get('noodles')).toBeCloseTo((100 / 300) * 300, 4);
   });
 
   it('ignoriert Komponenten ohne serving_grams (reine Unterkomponenten)', () => {
@@ -84,7 +104,7 @@ describe('computeIngredientNeeds', () => {
       ],
     };
 
-    expect(computeIngredientNeeds([need]).size).toBe(0);
+    expect(computeIngredientNeeds([need]).needs.size).toBe(0);
   });
 });
 

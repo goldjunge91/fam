@@ -28,7 +28,7 @@ This file implements the user profile editing screen (`EditProfileScreen`). It a
 3: import { useEffect, useState } from 'react';
 4: import { Alert, Pressable, StyleSheet, View } from 'react-native';
 5: 
-6: import { Button } from '@/components/button';
+6: import { Button } from '@/components/ui/buttons';
 7: import { Card } from '@/components/card';
 8: import { Screen } from '@/components/screen';
 9: import { TextField } from '@/components/text-field';
@@ -512,7 +512,7 @@ This file contains the primary settings overview screen (`SettingsScreen`). It a
 3: import { useEffect, useState } from 'react';
 4: import { Alert, StyleSheet, View } from 'react-native';
 5: 
-6: import { Button } from '@/components/button';
+6: import { Button } from '@/components/ui/buttons';
 7: import { Card } from '@/components/card';
 8: import { Screen } from '@/components/screen';
 9: import { ThemedText } from '@/components/themed-text';
@@ -776,7 +776,7 @@ This file provides a developer and diagnostic tool screen (`SyncDebugScreen`). I
 2: import { useCallback, useEffect, useState } from 'react';
 3: import { Alert, StyleSheet, View } from 'react-native';
 4: 
-5: import { Button } from '@/components/button';
+5: import { Button } from '@/components/ui/buttons';
 6: import { Card } from '@/components/card';
 7: import { Screen } from '@/components/screen';
 8: import { ThemedText } from '@/components/themed-text';

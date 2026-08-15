@@ -16,6 +16,8 @@ export type MissingIngredientView = {
   /** Aus der Kaufhistorie: zuletzt fuer dieses Produkt verwendeter Markt (falls vorhanden). */
   preferredStoreId: string | null;
   preferredStoreName: string | null;
+  /** Titel der Rezepte, deren Bedarf zu dieser fehlenden Menge beigetragen hat. */
+  recipeNames: string[];
 };
 
 /**
@@ -29,6 +31,8 @@ export type MissingIngredientView = {
 export function useMealPlanShoppingNeeds(
   mealPlanId: string | undefined,
   householdId: string | undefined,
+  /** Premium-Feature (#131 kuratiert, sonst nur die Vorschau der Paywall) — ohne Zugriff wird gar nicht erst gerechnet. */
+  enabled: boolean = true,
 ) {
   return useQuery({
     queryKey: ['meal-plan-shopping-needs', mealPlanId],
@@ -70,8 +74,14 @@ export function useMealPlanShoppingNeeds(
         components: components.filter((c) => c.recipe_id === recipeId),
         items: items.filter((i) => i.recipe_id === recipeId),
       }));
-      const needs = computeIngredientNeeds(recipeNeeds);
+      const { needs, recipeIdsByProduct } = computeIngredientNeeds(recipeNeeds);
       if (needs.size === 0) return [];
+
+      const recipeTitleRows = await db.getAllAsync<{ id: string; title: string }>(
+        `select id, title from recipes where id in (${placeholders})`,
+        recipeIds,
+      );
+      const recipeTitleById = new Map(recipeTitleRows.map((r) => [r.id, r.title]));
 
       const stockRows = await db.getAllAsync<{
         product_id: string;
@@ -113,16 +123,21 @@ export function useMealPlanShoppingNeeds(
            limit 1`,
           [householdId, item.productId],
         );
+        const recipeNames = [...(recipeIdsByProduct.get(item.productId) ?? [])]
+          .map((recipeId) => recipeTitleById.get(recipeId))
+          .filter((title): title is string => title !== undefined);
+
         result.push({
           productId: item.productId,
           name: product?.name ?? item.productId,
           missingGrams: Math.round(item.missingGrams),
           preferredStoreId: historyRow?.store_id ?? null,
           preferredStoreName: historyRow?.store_name ?? null,
+          recipeNames,
         });
       }
       return result;
     },
-    enabled: !!mealPlanId && !!householdId,
+    enabled: !!mealPlanId && !!householdId && enabled,
   });
 }

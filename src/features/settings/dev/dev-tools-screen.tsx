@@ -3,14 +3,15 @@ import Constants from 'expo-constants';
 import { router } from 'expo-router';
 import { useCallback, useEffect, useState } from 'react';
 import { Alert, Platform, StyleSheet, View } from 'react-native';
-
-import { Button } from '@/components/button';
 import { Card } from '@/components/card';
 import { Screen } from '@/components/screen';
 import { ThemedText } from '@/components/themed-text';
+import { Button } from '@/components/ui/buttons';
 import { Spacing } from '@/constants/theme';
 import { useSession } from '@/features/auth/session-provider';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
+import { presentPaywall } from '@/features/premium/paywall';
+import { usePremium } from '@/features/premium/premium-provider';
 import {
   classifySupabaseTarget,
   describeDatabaseOwnership,
@@ -21,7 +22,12 @@ import { useTheme } from '@/hooks/use-theme';
 import { deleteLocalDatabase, getDatabase } from '@/lib/db/client';
 import { env } from '@/lib/env';
 import { sendTestNotification } from '@/lib/notifications';
-import { getOffDumpStatus, type OffDumpStatus } from '@/lib/off-dump/off-dump';
+import {
+  attachOffDump,
+  forceRefreshOffDump,
+  getOffDumpStatus,
+  type OffDumpStatus,
+} from '@/lib/off-dump/off-dump';
 import { MAX_ATTEMPTS } from '@/lib/sync/backoff';
 
 function formatBytes(bytes: number): string {
@@ -86,6 +92,7 @@ export function DevToolsScreen() {
   const { session } = useSession();
   const queryClient = useQueryClient();
   const { activeHousehold } = useActiveHousehold();
+  const { isPremium, isForced } = usePremium();
 
   const [snapshot, setSnapshot] = useState<DbSnapshot | null>(null);
   const [offDump, setOffDump] = useState<OffDumpStatus | null>(null);
@@ -171,7 +178,8 @@ export function DevToolsScreen() {
     <Screen
       title="Entwickler"
       subtitle="Nur sichtbar mit EXPO_PUBLIC_DEV_TOOLS"
-      back={{ label: 'Einstellungen', href: '/settings' }}>
+      back={{ label: 'Einstellungen', href: '/settings' }}
+      backStyle="icon">
       <Card title="Umgebung">
         <Zeile label="Supabase" wert={ziel.label} tone={ziel.tone} />
         <Zeile label="URL" wert={env.supabaseUrl} />
@@ -182,6 +190,11 @@ export function DevToolsScreen() {
           wert={`${Constants.expoConfig?.version ?? '—'} (${Platform.OS} ${Platform.Version})`}
         />
         <Zeile label="Onboarding erzwungen" wert={env.forceOnboarding ? 'ja' : 'nein'} />
+        <Zeile
+          label="Premium"
+          wert={isPremium ? (isForced ? 'ja (erzwungen)' : 'ja') : 'nein'}
+          tone={isForced ? 'warning' : undefined}
+        />
       </Card>
 
       <Card title="Session">
@@ -238,6 +251,22 @@ export function DevToolsScreen() {
           wert={offDump?.attached ? 'ja' : 'nein'}
           tone={offDump?.attached ? undefined : 'warning'}
         />
+
+        <View style={styles.aktionStack}>
+          <Button
+            label="Neueste Dump-Datei laden"
+            variant="secondary"
+            onPress={() =>
+              mitBusy('off-dump', async () => {
+                const db = await getDatabase();
+                await forceRefreshOffDump(db);
+                await attachOffDump(db);
+                setOffDump(await getOffDumpStatus(db));
+              })
+            }
+            loading={busy === 'off-dump'}
+          />
+        </View>
       </Card>
 
       <Card title="Aktionen">
@@ -257,6 +286,17 @@ export function DevToolsScreen() {
             label="Sync-Diagnose & Outbox öffnen"
             variant="secondary"
             onPress={() => router.push('/settings/sync-debug')}
+          />
+          <Button
+            label="Paywall öffnen (Test Store)"
+            variant="secondary"
+            onPress={() =>
+              mitBusy('paywall', async () => {
+                const outcome = await presentPaywall();
+                Alert.alert('Paywall-Ergebnis', outcome);
+              })
+            }
+            loading={busy === 'paywall'}
           />
           <Button
             label="Lokale Datenbank löschen"

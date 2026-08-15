@@ -37,6 +37,12 @@ const MODULE_ROWS: { key: keyof ModulePreferences; icon: string; title: string; 
     title: 'Rezepte',
     desc: 'Im Haushalt geteilte Rezeptsammlung.',
   },
+  {
+    key: 'mealPlanner',
+    icon: '🗓️',
+    title: 'Meal-Planner',
+    desc: 'Wochenplanung fuer den Haushalt, Mahlzeiten Mitgliedern zuordnen.',
+  },
 ];
 
 /**
@@ -59,7 +65,7 @@ export function ModuleSettingsScreen() {
   }
 
   return (
-    <Screen title="Module" back={{ label: 'Einstellungen', href: '/settings' }}>
+    <Screen title="Module" back={{ label: 'Einstellungen', href: '/settings' }} backStyle="icon">
       <Card>
         <ThemedText type="small" themeColor="textSecondary">
           Deaktivierte Module verschwinden aus der Navigation, deine Daten bleiben erhalten.

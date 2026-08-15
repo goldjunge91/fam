@@ -2,8 +2,8 @@ import { Picker } from '@expo/ui/community/picker';
 import { useState } from 'react';
 import { Modal, Platform, Pressable, StyleSheet, View } from 'react-native';
 
-import { Button } from '@/components/button';
-import { ThemedText } from '@/components/themed-text';
+import { ThemedText, Typography } from '@/components/themed-text';
+import { Button } from '@/components/ui/buttons';
 import { Spacing } from '@/constants/theme';
 import { useTheme } from '@/hooks/use-theme';
 
@@ -17,6 +17,7 @@ interface WheelPickerFieldProps {
   value: string;
   options: readonly WheelPickerOption[];
   onChange: (value: string) => void;
+  size?: 'default' | 'large';
 }
 
 /**
@@ -27,7 +28,13 @@ interface WheelPickerFieldProps {
  * bereits nativ als Dropdown (Material 3 `ExposedDropdownMenuBox`), das erst
  * beim Antippen aufklappt — dort reicht die Komponente direkt.
  */
-export function WheelPickerField({ label, value, options, onChange }: WheelPickerFieldProps) {
+export function WheelPickerField({
+  label,
+  value,
+  options,
+  onChange,
+  size = 'default',
+}: WheelPickerFieldProps) {
   const theme = useTheme();
   const [isOpen, setIsOpen] = useState(false);
   const [pendingValue, setPendingValue] = useState(value);
@@ -52,7 +59,10 @@ export function WheelPickerField({ label, value, options, onChange }: WheelPicke
     return (
       <View style={styles.container}>
         {label && (
-          <ThemedText type="small" themeColor="textSecondary">
+          <ThemedText
+            type="small"
+            themeColor="textSecondary"
+            style={size === 'large' && styles.largeLabel}>
             {label}
           </ThemedText>
         )}
@@ -68,7 +78,10 @@ export function WheelPickerField({ label, value, options, onChange }: WheelPicke
   return (
     <View style={styles.container}>
       {label && (
-        <ThemedText type="small" themeColor="textSecondary">
+        <ThemedText
+          type="small"
+          themeColor="textSecondary"
+          style={size === 'large' && styles.largeLabel}>
           {label}
         </ThemedText>
       )}
@@ -80,7 +93,9 @@ export function WheelPickerField({ label, value, options, onChange }: WheelPicke
           styles.field,
           { backgroundColor: theme.backgroundElement, borderColor: theme.border },
         ]}>
-        <ThemedText style={{ color: theme.text }}>{selectedLabel}</ThemedText>
+        <ThemedText style={[{ color: theme.text }, size === 'large' && styles.largeSelectedLabel]}>
+          {selectedLabel}
+        </ThemedText>
       </Pressable>
 
       <Modal visible={isOpen} transparent animationType="fade" onRequestClose={cancel}>
@@ -116,6 +131,12 @@ const styles = StyleSheet.create({
     borderRadius: Spacing.three,
     paddingHorizontal: Spacing.three,
     paddingVertical: Spacing.two + 2,
+  },
+  largeLabel: {
+    ...Typography.body,
+  },
+  largeSelectedLabel: {
+    ...Typography.bodyLarge,
   },
   backdrop: {
     flex: 1,

@@ -40,8 +40,20 @@ jest.mock('@/features/fridge/use-expiry-notifications', () => ({
   useExpiryNotifications: () => {},
 }));
 
-jest.mock('@/features/shopping-list/use-shopping-list-mutations', () => ({
-  useAddShoppingItem: () => ({ mutateAsync: jest.fn(), isPending: false }),
+jest.mock('@/features/shopping-list/use-shopping-list', () => ({
+  useShoppingList: () => ({ data: [] }),
+}));
+
+jest.mock('@/features/meal-planner/use-meal-plans', () => ({
+  useMealPlanEntriesInRange: () => ({ data: [] }),
+}));
+
+jest.mock('@/features/navigation/navigation-chrome-provider', () => ({
+  useNavigationChrome: () => ({ openDrawer: jest.fn(), openProfile: jest.fn() }),
+}));
+
+jest.mock('@/features/navigation/use-profile-initials', () => ({
+  useProfileInitials: () => 'MM',
 }));
 
 const mockTriggerHouseholdSync = jest.fn().mockResolvedValue(null);
@@ -51,17 +63,7 @@ jest.mock('@/lib/sync/sync-runner', () => ({
 }));
 
 jest.mock('@/hooks/use-theme', () => ({
-  useTheme: () => ({
-    background: '#FFFFFF',
-    backgroundElement: '#F0F0F3',
-    text: '#000000',
-    textSecondary: '#60646C',
-    border: '#DDDDE3',
-    accent: '#208AEF',
-    success: '#1A7F4B',
-    warning: '#B26A00',
-    danger: '#C62828',
-  }),
+  useTheme: () => require('@/constants/theme').Colors.light,
 }));
 
 function renderScreen() {
@@ -84,14 +86,16 @@ beforeEach(() => {
   mockTriggerHouseholdSync.mockClear();
 });
 
-describe('DashboardScreen — "Läuft bald ab"-Karte (#73)', () => {
-  it('blendet die Karte komplett aus, wenn keine Artikel bald ablaufen', async () => {
+describe('DashboardScreen — Vorrat-Widget "Läuft bald ab" (#73, #150)', () => {
+  it('zeigt das Widget mit Badge 0, wenn nichts bald ablaeuft', async () => {
     mockFridgeItems = [];
     await renderScreen();
-    expect(screen.queryByText('Läuft bald ab')).not.toBeOnTheScreen();
+    expect(screen.getByText('Läuft bald ab')).toBeTruthy();
+    // Beide Widgets (Vorrat + Einkauf) zeigen "0", da auch die Einkaufsliste im Mock leer ist.
+    expect(screen.getAllByText('0').length).toBeGreaterThan(0);
   });
 
-  it('zeigt die Karte mit Artikeln, wenn welche bald ablaufen', async () => {
+  it('zeigt die Anzahl bald ablaufender Artikel im Badge', async () => {
     const soon = new Date();
     soon.setDate(soon.getDate() + 1);
     mockFridgeItems = [
@@ -112,7 +116,7 @@ describe('DashboardScreen — "Läuft bald ab"-Karte (#73)', () => {
     ];
     await renderScreen();
     expect(screen.getByText('Läuft bald ab')).toBeTruthy();
-    expect(screen.getByText('Joghurt')).toBeTruthy();
+    expect(screen.getByText('1')).toBeTruthy();
   });
 
   it('navigiert bei Tap auf die Karte zur gefilterten Vorratsliste', async () => {

@@ -658,7 +658,7 @@ The shopping list feature follows an **Offline-First Data Flow**:
 1: import { useState } from 'react';
 2: import { StyleSheet, View } from 'react-native';
 3: 
-4: import { Button } from '@/components/button';
+4: import { Button } from '@/components/ui/buttons';
 5: import { Card } from '@/components/card';
 6: import { TextField } from '@/components/text-field';
 7: import { Spacing } from '@/constants/theme';

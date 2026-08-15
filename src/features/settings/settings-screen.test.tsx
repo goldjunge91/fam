@@ -36,6 +36,34 @@ jest.mock('@/features/calorie-tracking/api', () => ({
   useCurrentGoal: () => ({ data: null, isLoading: false }),
 }));
 
+jest.mock('@/features/premium/premium-provider', () => ({
+  usePremium: () => ({
+    isPremium: false,
+    isForced: false,
+    customerInfo: null,
+    loading: false,
+    refresh: jest.fn(),
+  }),
+}));
+
+jest.mock('@/features/premium/paywall', () => ({
+  presentPaywall: jest.fn(),
+  presentPaywallIfNeeded: jest.fn(),
+  presentCustomerCenter: jest.fn(),
+}));
+
+jest.mock('@/features/navigation/navigation-chrome-provider', () => ({
+  useNavigationChrome: () => ({ openDrawer: jest.fn(), openProfile: jest.fn() }),
+}));
+
+jest.mock('@/features/navigation/use-profile-initials', () => ({
+  useProfileInitials: () => 'MM',
+}));
+
+jest.mock('@/features/auth/api', () => ({
+  useProfile: () => ({ data: { display_name: 'Marco Müller' } }),
+}));
+
 // `Screen` fragt den Router, ob es etwas zum Zurueckgehen gibt; ausserhalb
 // eines Navigators gibt es dafuer keinen Zustand.
 jest.mock('expo-router', () => ({
@@ -78,7 +106,10 @@ describe('SettingsScreen', () => {
   it('zeigt die Menuepunkte statt der Formulare', async () => {
     const { getByText, queryByText } = await renderScreen();
 
-    for (const eintrag of ['Profil', 'Mitglieder', 'Lagerorte', 'Benachrichtigungen', 'Abmelden']) {
+    // "Profil" ist keine eigene Zeile mehr, sondern die grosse Profil-Karte
+    // oben (Name + E-Mail statt Label) — geprueft in
+    // "beantwortet die haeufigsten Fragen ohne Antippen".
+    for (const eintrag of ['Mitglieder', 'Lagerorte', 'Benachrichtigungen', 'Abmelden']) {
       expect(getByText(eintrag)).toBeTruthy();
     }
 
@@ -101,6 +132,7 @@ describe('SettingsScreen', () => {
   it('beantwortet die haeufigsten Fragen ohne Antippen', async () => {
     const { getByText } = await renderScreen();
 
+    expect(getByText('Marco Müller')).toBeTruthy();
     expect(getByText('marco@example.com')).toBeTruthy();
     expect(getByText('Familie Tozzi')).toBeTruthy();
   });
@@ -134,5 +166,11 @@ describe('SettingsScreen', () => {
   it('zeigt die App-Version im Fussbereich an (#94)', async () => {
     const { getByText } = await renderScreen();
     expect(getByText('fam v1.0.0')).toBeTruthy();
+  });
+
+  it('bietet ohne Premium einen Einstieg zum Premium-Screen an', async () => {
+    const { getByText } = await renderScreen();
+    expect(getByText('Premium für den ganzen Haushalt')).toBeTruthy();
+    expect(getByText('Premium ansehen')).toBeTruthy();
   });
 });

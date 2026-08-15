@@ -38,6 +38,26 @@ grant delete, insert, select, update on public.recipe_steps to anon, authenticat
 grant delete, insert, select, update on public.recipe_step_ingredients to anon, authenticated, service_role;
 grant delete, insert, select, update on public.meal_plans to anon, authenticated, service_role;
 grant delete, insert, select, update on public.meal_plan_entries to anon, authenticated, service_role;
+grant delete, insert, select, update on public.recipe_templates to anon, authenticated, service_role;
+grant delete, insert, select, update on public.recipe_template_components to anon, authenticated, service_role;
+grant delete, insert, select, update on public.recipe_template_items to anon, authenticated, service_role;
+grant delete, insert, select, update on public.recipe_template_steps to anon, authenticated, service_role;
+
+-- --------------------------------------------------- Premium-Spalten schuetzen
+-- RLS wirkt auf Zeilen, nicht auf Spalten (siehe Kommentar in 03_households.sql
+-- bei household_member_profiles): `households_update_admin` erlaubt jedem
+-- Admin, seine eigene Haushaltszeile zu aendern — ohne diese Einschraenkung
+-- koennte er ueber ein normales UPDATE `premium_active` selbst auf `true`
+-- setzen und sich Premium gratis freischalten. Ein spaltenscharfes REVOKE
+-- allein wuerde nichts bewirken, solange der Tabellen-Grant oben weiter
+-- besteht (Postgres prueft Tabellen- UND Spaltenrechte, jedes ausreichend
+-- fuer sich) — deshalb erst das Tabellenrecht fuer `authenticated` entziehen
+-- und danach nur die Spalte zurueckgeben, die Clients wirklich aendern
+-- duerfen. `service_role` bleibt unberuehrt: Der RevenueCat-Webhook
+-- (supabase/functions/revenuecat-webhook) laeuft mit Service-Role und
+-- umgeht RLS ohnehin.
+revoke update on public.households from authenticated;
+grant update (name) on public.households to authenticated;
 
 -- ------------------------------------------------------------ Schema `private`
 -- `authenticated` braucht USAGE, weil die RLS-Policies auf households und

@@ -34,7 +34,8 @@ export function TotalEstimateCard({
 
 const styles = StyleSheet.create({
   card: {
-    borderRadius: Spacing.four,
+    // Gleicher Radius wie components/card.tsx — beides "surface-elevated"-Flaechen.
+    borderRadius: 28,
     padding: Spacing.four,
     alignItems: 'center',
     gap: Spacing.half,

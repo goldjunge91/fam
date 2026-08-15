@@ -1,11 +1,10 @@
 import { useQueryClient } from '@tanstack/react-query';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { Alert, StyleSheet, View } from 'react-native';
-
-import { Button } from '@/components/button';
 import { Card } from '@/components/card';
 import { Screen } from '@/components/screen';
-import { ThemedText } from '@/components/themed-text';
+import { FontSize, ThemedText } from '@/components/themed-text';
+import { Button } from '@/components/ui/buttons';
 import { Spacing } from '@/constants/theme';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { BarcodeScannerModal } from '@/features/inventory/barcode-scanner-modal';
@@ -188,7 +187,10 @@ export function SyncDebugScreen() {
     : 'Noch nicht synchronisiert';
 
   return (
-    <Screen title="Sync-Diagnose" back={{ label: 'Synchronisation', href: '/settings/sync' }}>
+    <Screen
+      title="Sync-Diagnose"
+      back={{ label: 'Synchronisation', href: '/settings/sync' }}
+      backStyle="icon">
       <Card title="Letzter Synchronisations-Lauf">
         <View style={styles.zeile}>
           <ThemedText type="small">Uhrzeit:</ThemedText>
@@ -424,7 +426,7 @@ const styles = StyleSheet.create({
   },
   payloadCode: {
     fontFamily: 'Courier',
-    fontSize: 11,
+    ...FontSize[11],
     marginTop: 2,
   },
   rowDeleteButton: {

@@ -1,9 +1,8 @@
 import { useState } from 'react';
 import { Modal, Pressable, StyleSheet, View } from 'react-native';
-
-import { Button } from '@/components/button';
 import { TextField } from '@/components/text-field';
-import { ThemedText } from '@/components/themed-text';
+import { FontSize, ThemedText } from '@/components/themed-text';
+import { Button } from '@/components/ui/buttons';
 import { Spacing } from '@/constants/theme';
 import { useTheme } from '@/hooks/use-theme';
 
@@ -78,7 +77,7 @@ export function DatePicker({
             styles.pickerBtn,
             { backgroundColor: theme.backgroundElement, borderColor: theme.border },
           ]}>
-          <ThemedText style={{ fontSize: 18 }}>📅</ThemedText>
+          <ThemedText style={{ ...FontSize[18] }}>📅</ThemedText>
         </Pressable>
       </View>
 
@@ -225,7 +224,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   btnText: {
-    fontSize: 18,
+    ...FontSize[18],
     fontWeight: 'bold',
   },
   modalActions: {
