@@ -71,9 +71,10 @@ export function FridgeScreen() {
     activeLocationId === 'all' || locations.some((location) => location.id === activeLocationId)
       ? activeLocationId
       : 'all';
-  const locationFiltered = selectedLocationId !== 'all'
-    ? allItems.filter((item) => item.location_id === selectedLocationId)
-    : allItems;
+  const locationFiltered =
+    selectedLocationId !== 'all'
+      ? allItems.filter((item) => item.location_id === selectedLocationId)
+      : allItems;
   const baseItems = showExpiringOnly
     ? allItems.filter((item) =>
         ['expired', 'critical'].includes(getExpiryInfo(item.expiry_date, today).bucket),

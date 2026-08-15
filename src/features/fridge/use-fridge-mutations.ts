@@ -27,9 +27,7 @@ export function useAddFridgeItemMutation() {
       const id = Crypto.randomUUID();
       const now = new Date().toISOString();
       const normUnit = normalizeUnit(item.unit);
-      const normPackageUnit = item.package_size_unit
-        ? normalizeUnit(item.package_size_unit)
-        : null;
+      const normPackageUnit = item.package_size_unit ? normalizeUnit(item.package_size_unit) : null;
 
       await enqueueMutation(db, {
         entity: 'fridge_items',
@@ -188,9 +186,7 @@ export function useUpdateFridgeItemMutation() {
       const db = await getDatabase();
       const now = new Date().toISOString();
       const unit = normalizeUnit(item.unit);
-      const packageSizeUnit = item.package_size_unit
-        ? normalizeUnit(item.package_size_unit)
-        : null;
+      const packageSizeUnit = item.package_size_unit ? normalizeUnit(item.package_size_unit) : null;
       const payload = { ...item, unit, package_size_unit: packageSizeUnit, updated_at: now };
 
       await enqueueMutation(db, {

@@ -1,9 +1,8 @@
 import DateTimePicker from '@expo/ui/community/datetime-picker';
 import { useState } from 'react';
 import { Modal, Platform, Pressable, StyleSheet, View } from 'react-native';
-
-import { Button } from '@/components/ui/buttons';
 import { ThemedText } from '@/components/themed-text';
+import { Button } from '@/components/ui/buttons';
 import { Spacing } from '@/constants/theme';
 import { useTheme } from '@/hooks/use-theme';
 

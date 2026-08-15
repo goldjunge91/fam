@@ -2,12 +2,11 @@ import { useQueryClient } from '@tanstack/react-query';
 import { router } from 'expo-router';
 import { useEffect, useState } from 'react';
 import { Alert, Pressable, StyleSheet, View } from 'react-native';
-
-import { Button } from '@/components/ui/buttons';
 import { Card } from '@/components/card';
 import { Screen } from '@/components/screen';
 import { TextField } from '@/components/text-field';
 import { ThemedText } from '@/components/themed-text';
+import { Button } from '@/components/ui/buttons';
 import { Spacing } from '@/constants/theme';
 import { updateProfile, useProfile } from '@/features/auth/api';
 import { fieldErrors, getDeviceDateFormat, profileSchema } from '@/features/auth/auth-schemas';

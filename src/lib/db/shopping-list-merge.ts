@@ -121,9 +121,7 @@ export async function addOrMergeShoppingItem(
   const now = new Date().toISOString();
   const nowMs = Date.now();
   const normUnit = normalizeUnit(input.unit);
-  const normPackageUnit = input.package_size_unit
-    ? normalizeUnit(input.package_size_unit)
-    : null;
+  const normPackageUnit = input.package_size_unit ? normalizeUnit(input.package_size_unit) : null;
 
   const existing = await findMergeableShoppingItem(db, {
     household_id: input.household_id,

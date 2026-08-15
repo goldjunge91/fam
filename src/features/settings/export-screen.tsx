@@ -1,10 +1,9 @@
 import { useState } from 'react';
 import { Alert, StyleSheet, View } from 'react-native';
-
-import { Button } from '@/components/ui/buttons';
 import { Card } from '@/components/card';
 import { Screen } from '@/components/screen';
 import { ThemedText } from '@/components/themed-text';
+import { Button } from '@/components/ui/buttons';
 import { Spacing } from '@/constants/theme';
 import { useSession } from '@/features/auth/session-provider';
 import { buildUserDataExport } from '@/features/settings/data-export';

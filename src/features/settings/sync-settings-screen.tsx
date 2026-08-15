@@ -2,11 +2,10 @@ import { useQueryClient } from '@tanstack/react-query';
 import { router } from 'expo-router';
 import { useEffect, useState } from 'react';
 import { StyleSheet, View } from 'react-native';
-
-import { Button } from '@/components/ui/buttons';
 import { Card } from '@/components/card';
 import { Screen } from '@/components/screen';
 import { ThemedText } from '@/components/themed-text';
+import { Button } from '@/components/ui/buttons';
 import { Spacing } from '@/constants/theme';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { describeSyncStatus } from '@/features/settings/sync-status-text';

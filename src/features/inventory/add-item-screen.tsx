@@ -28,7 +28,6 @@ import {
 import { getDatabase } from '@/lib/db/client';
 import { recordProductUsage } from '@/lib/db/product-usage';
 import type { OpenFoodFactsProduct } from '@/lib/open-food-facts';
-import { formatPackageHint } from '@/lib/package-size';
 import { normalizeUnit } from '@/lib/units';
 
 function formatOffsetDate(days: number): string {
@@ -302,8 +301,7 @@ export function AddItemScreen() {
         ) : (
           !showAddLocation && (
             <ThemedText type="small" themeColor="textSecondary">
-              Keine Lagerorte vorhanden. Tippe auf &quot;+ Neuer Lagerort&quot; um einen
-              anzulegen.
+              Keine Lagerorte vorhanden. Tippe auf &quot;+ Neuer Lagerort&quot; um einen anzulegen.
             </ThemedText>
           )
         )}

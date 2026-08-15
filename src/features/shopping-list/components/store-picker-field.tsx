@@ -1,9 +1,8 @@
 import { useState } from 'react';
 import { Alert, Pressable, StyleSheet, View } from 'react-native';
-
-import { Button } from '@/components/ui/buttons';
 import { TextField } from '@/components/text-field';
 import { ThemedText } from '@/components/themed-text';
+import { Button } from '@/components/ui/buttons';
 import { Spacing } from '@/constants/theme';
 import { useTheme } from '@/hooks/use-theme';
 import { STORE_COLOR_PALETTE, STORE_PRESETS } from '../store-presets';

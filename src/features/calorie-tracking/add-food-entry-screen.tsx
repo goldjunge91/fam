@@ -321,7 +321,11 @@ export function AddFoodEntryScreen() {
                   return;
                 }
                 if (activeHousehold) {
-                  setProfile({ type: 'child', childProfileId: value, householdId: activeHousehold.id });
+                  setProfile({
+                    type: 'child',
+                    childProfileId: value,
+                    householdId: activeHousehold.id,
+                  });
                 }
               }}
             />

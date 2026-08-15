@@ -1,10 +1,9 @@
 import { useEffect, useState } from 'react';
 import { StyleSheet, View } from 'react-native';
-
-import { Button } from '@/components/ui/buttons';
 import { Screen } from '@/components/screen';
 import { TextField } from '@/components/text-field';
 import { ThemedText } from '@/components/themed-text';
+import { Button } from '@/components/ui/buttons';
 import { Spacing } from '@/constants/theme';
 import { DEFAULT_PORTIONS_PER_PERSON } from '@/features/meal-planner/servings';
 import { usePortionsPerPerson, useSetPortionsPerPerson } from '@/features/meal-planner/settings';
