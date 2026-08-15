@@ -1,6 +1,12 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 
 import {
+  calculateServingNutrition,
+  type ProductNutritionRow,
+  type RecipeComponentItemRow,
+  type RecipeComponentRow,
+} from '@/features/recipes/nutrition';
+import {
   type DietaryTag,
   type Difficulty,
   type DishType,
@@ -80,6 +86,139 @@ export function useRecipeTemplates() {
     },
     staleTime: 5 * 60 * 1000,
   });
+}
+
+export type RecipeTemplateWithNutrition = RecipeTemplateListItem & {
+  /** kcal/Protein/Kohlenhydrate fuer 1 Portion, `null` ohne Komponenten oder Naehrwertdaten. */
+  kcalPerServing: number | null;
+  proteinGPerServing: number | null;
+  carbsGPerServing: number | null;
+};
+
+/**
+ * Wie `useRecipeTemplates`, ergaenzt um die Portions-Naehrwerte — fuer die
+ * "Nach Kalorien"-Kacheln und die abgeleiteten High-Protein-/Low-Carb-Filter
+ * im Entdecken-Screen. Laedt Komponenten/Positionen aller Vorlagen in zwei
+ * Batch-Queries (kein N+1) und rechnet client-seitig mit den reinen
+ * Funktionen aus `nutrition.ts` — Naehrwertberechnung ist bewusst Sache des
+ * Clients, nicht der DB (siehe Kommentar in 11_recipes.sql).
+ */
+export function useRecipeTemplatesWithNutrition() {
+  return useQuery({
+    queryKey: ['recipe-templates', 'with-nutrition'],
+    queryFn: async (): Promise<RecipeTemplateWithNutrition[]> => {
+      const supabase = getSupabase();
+
+      const [
+        { data: templates, error: templatesError },
+        { data: components, error: componentsError },
+        { data: items, error: itemsError },
+      ] = await Promise.all([
+        supabase
+          .from('recipe_templates')
+          .select(
+            'id, title, cover_image_path, cook_time_minutes, difficulty, dish_types, dietary_tags, default_servings, sort_order',
+          )
+          .order('sort_order', { ascending: true }),
+        supabase.from('recipe_template_components').select('id, template_id, serving_grams'),
+        supabase
+          .from('recipe_template_items')
+          .select(
+            'component_id, template_id, product_id, sub_component_id, grams, products(id, kcal_per_100, protein_g_per_100, carbs_g_per_100, fat_g_per_100)',
+          ),
+      ]);
+
+      if (templatesError) throw templatesError;
+      if (componentsError) throw componentsError;
+      if (itemsError) throw itemsError;
+
+      type ItemRow = {
+        component_id: string;
+        template_id: string;
+        product_id: string | null;
+        sub_component_id: string | null;
+        grams: number;
+        products: ProductNutritionRow | null;
+      };
+
+      const productsById = new Map<string, ProductNutritionRow>();
+      const itemsByTemplate = new Map<string, RecipeComponentItemRow[]>();
+      for (const row of (items ?? []) as ItemRow[]) {
+        if (row.products) productsById.set(row.products.id, row.products);
+        const list = itemsByTemplate.get(row.template_id) ?? [];
+        list.push({
+          component_id: row.component_id,
+          product_id: row.product_id,
+          sub_component_id: row.sub_component_id,
+          grams: row.grams,
+        });
+        itemsByTemplate.set(row.template_id, list);
+      }
+
+      const componentsByTemplate = new Map<string, RecipeComponentRow[]>();
+      type ComponentRow = { id: string; template_id: string; serving_grams: number | null };
+      for (const row of (components ?? []) as ComponentRow[]) {
+        const list = componentsByTemplate.get(row.template_id) ?? [];
+        list.push({ id: row.id, serving_grams: row.serving_grams });
+        componentsByTemplate.set(row.template_id, list);
+      }
+
+      return ((templates ?? []) as RecipeTemplateListItem[]).map((template) => {
+        const templateComponents = componentsByTemplate.get(template.id) ?? [];
+        const templateItems = itemsByTemplate.get(template.id) ?? [];
+        const nutrition = calculateServingNutrition(
+          templateComponents,
+          templateItems,
+          productsById,
+        );
+        const hasNutrition = nutrition.kcal > 0;
+        return {
+          ...template,
+          kcalPerServing: hasNutrition ? Math.round(nutrition.kcal) : null,
+          proteinGPerServing: hasNutrition ? Math.round(nutrition.protein_g) : null,
+          carbsGPerServing: hasNutrition ? Math.round(nutrition.carbs_g) : null,
+        };
+      });
+    },
+    staleTime: 5 * 60 * 1000,
+  });
+}
+
+export type CalorieBucket = { min: number; max: number; label: string };
+
+/** Die 10 Kacheln fuer "Rezepte nach Kalorien" (Entdecken-Screen), je 100 kcal breit ab 100. */
+export const CALORIE_BUCKETS: CalorieBucket[] = [
+  { min: 50, max: 100, label: '50–100' },
+  { min: 100, max: 200, label: '100–200' },
+  { min: 200, max: 300, label: '200–300' },
+  { min: 300, max: 400, label: '300–400' },
+  { min: 400, max: 500, label: '400–500' },
+  { min: 500, max: 600, label: '500–600' },
+  { min: 600, max: 700, label: '600–700' },
+  { min: 700, max: 800, label: '700–800' },
+  { min: 800, max: 900, label: '800–900' },
+  { min: 900, max: 1000, label: '900–1000' },
+];
+
+/** Ob `kcal` in den Bucket faellt — obere Grenze inklusive, damit z. B. 1000 noch in den letzten Bucket faellt. */
+export function isInCalorieBucket(kcal: number, bucket: CalorieBucket): boolean {
+  return kcal > bucket.min && kcal <= bucket.max;
+}
+
+/**
+ * Grober, rein abgeleiteter Schnellfilter (#131-Vorschlag): High Protein ab
+ * 25% Kalorienanteil aus Protein, Low Carb unter 20g Kohlenhydrate/Portion.
+ * Bewusst kein eigener dietary_tag dafuer (siehe 15_recipe_templates.sql) —
+ * anders als "vegan" laesst sich das direkt aus den ohnehin vorhandenen
+ * Naehrwerten ableiten, ein gepflegter Tag waere doppelt haltbare Wahrheit.
+ */
+export function isHighProteinTemplate(template: RecipeTemplateWithNutrition): boolean {
+  if (!template.kcalPerServing || !template.proteinGPerServing) return false;
+  return (template.proteinGPerServing * 4) / template.kcalPerServing >= 0.25;
+}
+
+export function isLowCarbTemplate(template: RecipeTemplateWithNutrition): boolean {
+  return template.carbsGPerServing !== null && template.carbsGPerServing < 20;
 }
 
 /** Ein Template inkl. Komponente(n), Positionen und Zubereitungsschritten. */

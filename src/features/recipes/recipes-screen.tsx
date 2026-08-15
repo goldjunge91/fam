@@ -1,9 +1,16 @@
 import { router } from 'expo-router';
 import { useMemo, useState } from 'react';
-import { ActivityIndicator, ScrollView, StyleSheet, TextInput, View } from 'react-native';
+import {
+  ActivityIndicator,
+  type ImageSourcePropType,
+  Pressable,
+  ScrollView,
+  StyleSheet,
+  TextInput,
+  View,
+} from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Svg, { Circle, Path } from 'react-native-svg';
-import { FilterChipBar } from '@/components/filter-chip-bar';
 import { GradientBackground } from '@/components/gradient-background';
 import { PageHeader } from '@/components/page-header';
 import { SectionHeading } from '@/components/section-heading';
@@ -11,12 +18,17 @@ import { FontSize, ThemedText } from '@/components/themed-text';
 import { HeaderIconButton, MenuButton } from '@/components/ui/buttons';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { useNavigationChrome } from '@/features/navigation/navigation-chrome-provider';
+import { getTemplateCoverImage } from '@/features/recipe-templates/template-cover-images';
 import {
-  type RecipeTemplateListItem,
-  useRecipeTemplates,
+  CALORIE_BUCKETS,
+  isInCalorieBucket,
+  type RecipeTemplateWithNutrition,
+  useRecipeTemplatesWithNutrition,
 } from '@/features/recipe-templates/use-recipe-templates';
 import { useTheme } from '@/hooks/use-theme';
 
+import { CalorieCarousel } from './components/calorie-carousel';
+import { CATEGORY_TILES, CategoryCarousel } from './components/category-carousel';
 import { RecipeHeroCard, RecipePreviewCard } from './components/recipe-preview-card';
 import { type RecipeFavoriteKey, useRecipeFavorites } from './recipe-favorites';
 import { type DishType, type RecipeListItem, useRecipes } from './use-recipes';
@@ -27,16 +39,15 @@ const DIFFICULTY_LABELS: Record<string, string> = {
   hard: 'Anspruchsvoll',
 };
 
-const CATEGORY_FILTERS: { value: DishType | 'all'; label: string }[] = [
-  { value: 'all', label: 'Alle' },
-  { value: 'breakfast', label: 'Frühstück' },
-  { value: 'lunch', label: 'Mittag' },
-  { value: 'dinner', label: 'Abend' },
-  { value: 'snack', label: 'Snack' },
-  { value: 'dessert', label: 'Dessert' },
+/** Reihenfolge der "Nach Mahlzeiten"-Carousels — Snack und Dessert teilen sich eine Reihe. */
+const MEAL_SECTIONS: { key: string; title: string; dishTypes: DishType[] }[] = [
+  { key: 'breakfast', title: 'Frühstück', dishTypes: ['breakfast'] },
+  { key: 'lunch', title: 'Mittagessen', dishTypes: ['lunch'] },
+  { key: 'dinner', title: 'Abendessen', dishTypes: ['dinner'] },
+  { key: 'snackDessert', title: 'Snacks & Dessert', dishTypes: ['snack', 'dessert'] },
 ];
 
-type RecipeView = 'discover' | 'favorites' | 'household';
+type RecipeView = 'discover' | 'favorites' | 'household' | 'templates';
 
 type RecipeEntry = {
   key: string;
@@ -44,6 +55,7 @@ type RecipeEntry = {
   kind: 'recipe' | 'template';
   title: string;
   coverImagePath: string | null;
+  coverImageAsset: ImageSourcePropType | null;
   cookTimeMinutes: number | null;
   difficultyLabel: string | null;
   servings: number;
@@ -57,6 +69,7 @@ function recipeEntry(recipe: RecipeListItem): RecipeEntry {
     kind: 'recipe',
     title: recipe.title,
     coverImagePath: recipe.cover_image_path,
+    coverImageAsset: null,
     cookTimeMinutes: recipe.cook_time_minutes,
     difficultyLabel: recipe.difficulty ? DIFFICULTY_LABELS[recipe.difficulty] : null,
     servings: recipe.default_servings,
@@ -64,13 +77,16 @@ function recipeEntry(recipe: RecipeListItem): RecipeEntry {
   };
 }
 
-function templateEntry(template: RecipeTemplateListItem): RecipeEntry {
+function templateEntry(template: RecipeTemplateWithNutrition): RecipeEntry {
   return {
     key: `template-${template.id}`,
     id: template.id,
     kind: 'template',
     title: template.title,
-    coverImagePath: template.cover_image_path,
+    // cover_image_path ist bei Vorlagen ein gebuendeltes Asset, kein
+    // Storage-Pfad — deshalb hier nicht durchreichen, siehe coverImageAsset.
+    coverImagePath: null,
+    coverImageAsset: getTemplateCoverImage(template.cover_image_path),
     cookTimeMinutes: template.cook_time_minutes,
     difficultyLabel: template.difficulty ? DIFFICULTY_LABELS[template.difficulty] : null,
     servings: template.default_servings,
@@ -99,20 +115,6 @@ function SearchIcon({ color }: { color: string }) {
   );
 }
 
-function HeartIcon({ color }: { color: string }) {
-  return (
-    <Svg width={19} height={19} viewBox="0 0 24 24" fill="none">
-      <Path
-        d="M20.8 5.8a5.2 5.2 0 0 0-7.4 0L12 7.2l-1.4-1.4a5.2 5.2 0 0 0-7.4 7.4L12 22l8.8-8.8a5.2 5.2 0 0 0 0-7.4Z"
-        stroke={color}
-        strokeWidth={1.9}
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </Svg>
-  );
-}
-
 function BackIcon({ color }: { color: string }) {
   return (
     <Svg width={19} height={19} viewBox="0 0 24 24" fill="none">
@@ -127,7 +129,7 @@ function BackIcon({ color }: { color: string }) {
   );
 }
 
-function RecipeGrid({ entries }: { entries: RecipeEntry[] }) {
+function RecipeList({ entries }: { entries: RecipeEntry[] }) {
   return (
     <View style={styles.grid}>
       {entries.map((entry, index) => (
@@ -135,6 +137,7 @@ function RecipeGrid({ entries }: { entries: RecipeEntry[] }) {
           key={entry.key}
           title={entry.title}
           coverImagePath={entry.coverImagePath}
+          coverImageAsset={entry.coverImageAsset}
           cookTimeMinutes={entry.cookTimeMinutes}
           difficultyLabel={entry.difficultyLabel}
           servings={entry.servings}
@@ -142,6 +145,35 @@ function RecipeGrid({ entries }: { entries: RecipeEntry[] }) {
           onPress={() => openEntry(entry)}
         />
       ))}
+    </View>
+  );
+}
+
+/** Ein Carousel aus großen Foto-Karten für eine Mahlzeitenkategorie — scrollt links/rechts. */
+function MealCarousel({ title, entries }: { title: string; entries: RecipeEntry[] }) {
+  return (
+    <View style={styles.section}>
+      <SectionHeading title={title} />
+      <ScrollView
+        horizontal
+        showsHorizontalScrollIndicator={false}
+        contentContainerStyle={styles.dishRow}>
+        {entries.map((entry, index) => (
+          <RecipePreviewCard
+            key={entry.key}
+            title={entry.title}
+            coverImagePath={entry.coverImagePath}
+            coverImageAsset={entry.coverImageAsset}
+            cookTimeMinutes={entry.cookTimeMinutes}
+            difficultyLabel={entry.difficultyLabel}
+            servings={entry.servings}
+            paletteIndex={index + entry.title.length}
+            width={168}
+            height={224}
+            onPress={() => openEntry(entry)}
+          />
+        ))}
+      </ScrollView>
     </View>
   );
 }
@@ -158,53 +190,107 @@ function EmptyPanel({ children }: { children: string }) {
   );
 }
 
-function matchesEntry(entry: RecipeEntry, category: DishType | 'all', query: string) {
-  const matchesCategory = category === 'all' || entry.dishTypes.includes(category);
-  const matchesQuery = !query || entry.title.toLocaleLowerCase('de').includes(query);
-  return matchesCategory && matchesQuery;
-}
-
 export function RecipesScreen() {
   const theme = useTheme();
   const { openDrawer } = useNavigationChrome();
   const [view, setView] = useState<RecipeView>('discover');
   const [searchQuery, setSearchQuery] = useState('');
   const [showSearch, setShowSearch] = useState(false);
-  const [selectedCategory, setSelectedCategory] = useState<DishType | 'all'>('all');
+  const [templateCategoryFilter, setTemplateCategoryFilter] = useState<string | null>(null);
+  const [templateCalorieFilter, setTemplateCalorieFilter] = useState<number | null>(null);
 
   const { activeHouseholdId } = useActiveHousehold();
   const { data: recipes = [], isLoading: recipesLoading } = useRecipes(
     activeHouseholdId ?? undefined,
   );
-  const { data: templates = [], isLoading: templatesLoading } = useRecipeTemplates();
+  const { data: templates = [], isLoading: templatesLoading } = useRecipeTemplatesWithNutrition();
   const { favorites } = useRecipeFavorites();
 
-  const { householdEntries, templateEntries } = useMemo(() => {
-    const query = searchQuery.trim().toLocaleLowerCase('de');
-    return {
-      householdEntries: recipes
+  const query = searchQuery.trim().toLocaleLowerCase('de');
+
+  const householdEntries = useMemo(
+    () =>
+      recipes
         .map(recipeEntry)
-        .filter((entry) => matchesEntry(entry, selectedCategory, query)),
-      templateEntries: templates
-        .map(templateEntry)
-        .filter((entry) => matchesEntry(entry, selectedCategory, query)),
-    };
-  }, [recipes, searchQuery, selectedCategory, templates]);
+        .filter((entry) => !query || entry.title.toLocaleLowerCase('de').includes(query)),
+    [recipes, query],
+  );
+
+  const searchedTemplates = useMemo(
+    () => templates.filter((t) => !query || t.title.toLocaleLowerCase('de').includes(query)),
+    [templates, query],
+  );
+  const templateEntries = useMemo(() => searchedTemplates.map(templateEntry), [searchedTemplates]);
+
+  const filteredTemplateEntries = useMemo(() => {
+    if (!templateCategoryFilter && templateCalorieFilter === null) return templateEntries;
+    const tile = templateCategoryFilter
+      ? CATEGORY_TILES.find((t) => t.key === templateCategoryFilter)
+      : null;
+    const bucket = templateCalorieFilter !== null ? CALORIE_BUCKETS[templateCalorieFilter] : null;
+    return searchedTemplates
+      .filter((t) => !tile || tile.matches(t))
+      .filter(
+        (t) =>
+          !bucket || (t.kcalPerServing !== null && isInCalorieBucket(t.kcalPerServing, bucket)),
+      )
+      .map(templateEntry);
+  }, [searchedTemplates, templateEntries, templateCategoryFilter, templateCalorieFilter]);
+
+  const mealSections = useMemo(
+    () =>
+      MEAL_SECTIONS.map((section) => ({
+        ...section,
+        entries: searchedTemplates
+          .filter((t) => section.dishTypes.some((type) => t.dish_types.includes(type)))
+          .map(templateEntry),
+      })).filter((section) => section.entries.length > 0),
+    [searchedTemplates],
+  );
 
   const featured = templateEntries[0] ?? householdEntries[0];
   const favoriteEntries = [...householdEntries, ...templateEntries].filter((entry) =>
     favorites.has(favoriteKey(entry)),
   );
-  const topEntries = (
-    templateEntries.length > 0 ? templateEntries.slice(1) : householdEntries.slice(1)
-  ).slice(0, 4);
-  const newEntries = [...templateEntries]
-    .reverse()
-    .filter((entry) => entry.key !== featured?.key)
-    .slice(0, 4);
   const isLoading = recipesLoading || templatesLoading;
+
+  function openTemplates() {
+    setTemplateCategoryFilter(null);
+    setTemplateCalorieFilter(null);
+    setView('templates');
+  }
+
+  function selectCategoryTile(key: string | null) {
+    setTemplateCategoryFilter(key);
+    setTemplateCalorieFilter(null);
+    if (key) setView('templates');
+  }
+
+  function selectCalorieTile(index: number | null) {
+    setTemplateCalorieFilter(index);
+    setTemplateCategoryFilter(null);
+    if (index !== null) setView('templates');
+  }
+
+  function goBackToDiscover() {
+    setTemplateCategoryFilter(null);
+    setTemplateCalorieFilter(null);
+    setView('discover');
+  }
+
+  const activeCategoryTile = templateCategoryFilter
+    ? CATEGORY_TILES.find((t) => t.key === templateCategoryFilter)
+    : null;
+  const activeCalorieBucket =
+    templateCalorieFilter !== null ? CALORIE_BUCKETS[templateCalorieFilter] : null;
   const screenTitle =
-    view === 'favorites' ? 'Meine Favoriten' : view === 'household' ? 'Unsere Rezepte' : 'Rezepte';
+    view === 'favorites'
+      ? 'Meine Favoriten'
+      : view === 'household'
+        ? 'Unsere Rezepte'
+        : view === 'templates'
+          ? (activeCategoryTile?.label ?? activeCalorieBucket?.label ?? 'Vorlagen')
+          : 'Rezepte';
 
   return (
     <View style={styles.root}>
@@ -213,29 +299,20 @@ export function RecipesScreen() {
         <PageHeader
           title={screenTitle}
           leading={
-            view === 'discover' ? (
+            view === 'discover' || view === 'favorites' ? (
               <MenuButton onPress={openDrawer} />
             ) : (
-              <HeaderIconButton label="Zurück zu Rezepte" onPress={() => setView('discover')}>
+              <HeaderIconButton label="Zurück zu Rezepte" onPress={goBackToDiscover}>
                 <BackIcon color={theme.text} />
               </HeaderIconButton>
             )
           }
           trailing={
-            <>
-              {view === 'discover' ? (
-                <HeaderIconButton
-                  label="Meine Favoriten öffnen"
-                  onPress={() => setView('favorites')}>
-                  <HeartIcon color={theme.accent} />
-                </HeaderIconButton>
-              ) : null}
-              <HeaderIconButton
-                label="Rezepte durchsuchen"
-                onPress={() => setShowSearch((visible) => !visible)}>
-                <SearchIcon color={theme.text} />
-              </HeaderIconButton>
-            </>
+            <HeaderIconButton
+              label="Rezepte durchsuchen"
+              onPress={() => setShowSearch((visible) => !visible)}>
+              <SearchIcon color={theme.text} />
+            </HeaderIconButton>
           }
         />
 
@@ -260,14 +337,52 @@ export function RecipesScreen() {
             </View>
           ) : null}
 
-          <View style={styles.filters}>
-            <FilterChipBar
-              label="Rezeptkategorie"
-              options={CATEGORY_FILTERS}
-              selected={selectedCategory}
-              onSelect={setSelectedCategory}
-            />
-          </View>
+          {view === 'discover' || view === 'favorites' ? (
+            <View style={styles.modeToggle}>
+              <Pressable
+                onPress={() => setView('discover')}
+                role="button"
+                aria-label="Entdecken"
+                aria-selected={view === 'discover'}
+                style={[
+                  styles.modeButton,
+                  {
+                    backgroundColor:
+                      view === 'discover' ? theme.text : `${theme.backgroundElement}D9`,
+                    borderColor: view === 'discover' ? theme.text : theme.border,
+                  },
+                ]}>
+                <ThemedText
+                  style={[
+                    styles.modeButtonLabel,
+                    { color: view === 'discover' ? theme.background : theme.textSecondary },
+                  ]}>
+                  Entdecken
+                </ThemedText>
+              </Pressable>
+              <Pressable
+                onPress={() => setView('favorites')}
+                role="button"
+                aria-label="Meine Favoriten"
+                aria-selected={view === 'favorites'}
+                style={[
+                  styles.modeButton,
+                  {
+                    backgroundColor:
+                      view === 'favorites' ? theme.text : `${theme.backgroundElement}D9`,
+                    borderColor: view === 'favorites' ? theme.text : theme.border,
+                  },
+                ]}>
+                <ThemedText
+                  style={[
+                    styles.modeButtonLabel,
+                    { color: view === 'favorites' ? theme.background : theme.textSecondary },
+                  ]}>
+                  Meine Favoriten
+                </ThemedText>
+              </Pressable>
+            </View>
+          ) : null}
 
           {isLoading ? (
             <ActivityIndicator
@@ -277,17 +392,23 @@ export function RecipesScreen() {
             />
           ) : view === 'favorites' ? (
             favoriteEntries.length > 0 ? (
-              <RecipeGrid entries={favoriteEntries} />
+              <RecipeList entries={favoriteEntries} />
             ) : (
               <EmptyPanel>Noch keine Favoriten gespeichert.</EmptyPanel>
             )
           ) : view === 'household' ? (
             householdEntries.length > 0 ? (
-              <RecipeGrid entries={householdEntries} />
+              <RecipeList entries={householdEntries} />
             ) : (
               <EmptyPanel>Keine Rezepte für diesen Filter.</EmptyPanel>
             )
-          ) : featured || householdEntries.length > 0 || templateEntries.length > 0 ? (
+          ) : view === 'templates' ? (
+            filteredTemplateEntries.length > 0 ? (
+              <RecipeList entries={filteredTemplateEntries} />
+            ) : (
+              <EmptyPanel>Keine Vorlagen für diesen Filter.</EmptyPanel>
+            )
+          ) : featured || householdEntries.length > 0 || templates.length > 0 ? (
             <>
               {featured ? (
                 <View style={styles.section}>
@@ -295,6 +416,7 @@ export function RecipesScreen() {
                   <RecipeHeroCard
                     title={featured.title}
                     coverImagePath={featured.coverImagePath}
+                    coverImageAsset={featured.coverImageAsset}
                     cookTimeMinutes={featured.cookTimeMinutes}
                     difficultyLabel={featured.difficultyLabel}
                     servings={featured.servings}
@@ -310,23 +432,42 @@ export function RecipesScreen() {
                   onActionPress={() => setView('household')}
                 />
                 {householdEntries.length > 0 ? (
-                  <RecipeGrid entries={householdEntries.slice(0, 4)} />
+                  <RecipeList entries={householdEntries.slice(0, 4)} />
                 ) : (
                   <EmptyPanel>Noch keine Rezepte im Haushalt.</EmptyPanel>
                 )}
               </View>
 
-              {topEntries.length > 0 ? (
-                <View style={styles.section}>
-                  <SectionHeading title="Top Rezepte" />
-                  <RecipeGrid entries={topEntries} />
-                </View>
-              ) : null}
+              <View style={styles.section}>
+                <SectionHeading title="Kategorien" />
+                <CategoryCarousel
+                  selectedKey={templateCategoryFilter}
+                  onSelect={selectCategoryTile}
+                />
+              </View>
 
-              {newEntries.length > 0 ? (
+              <View style={styles.section}>
+                <SectionHeading title="Rezepte nach Kalorien" />
+                <CalorieCarousel
+                  selectedIndex={templateCalorieFilter}
+                  onSelect={selectCalorieTile}
+                />
+              </View>
+
+              {mealSections.length > 0 ? (
                 <View style={styles.section}>
-                  <SectionHeading title="Neu von fam" />
-                  <RecipeGrid entries={newEntries} />
+                  <SectionHeading
+                    title="Nach Mahlzeiten"
+                    actionLabel="Alle Vorlagen ansehen"
+                    onActionPress={openTemplates}
+                  />
+                  {mealSections.map((section) => (
+                    <MealCarousel
+                      key={section.key}
+                      title={section.title}
+                      entries={section.entries}
+                    />
+                  ))}
                 </View>
               ) : null}
             </>
@@ -357,8 +498,23 @@ const styles = StyleSheet.create({
     paddingTop: 4,
     paddingBottom: 126,
   },
-  filters: {
-    marginBottom: 16,
+  modeToggle: {
+    flexDirection: 'row',
+    gap: 8,
+    marginBottom: 18,
+  },
+  modeButton: {
+    flex: 1,
+    height: 40,
+    borderRadius: 10,
+    borderCurve: 'continuous',
+    borderWidth: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  modeButtonLabel: {
+    ...FontSize[13],
+    fontWeight: 700,
   },
   searchBar: {
     height: 42,
@@ -383,10 +539,12 @@ const styles = StyleSheet.create({
   section: {
     marginBottom: 20,
   },
-  grid: {
+  dishRow: {
     flexDirection: 'row',
-    flexWrap: 'wrap',
-    gap: 8,
+    gap: 12,
+  },
+  grid: {
+    gap: 10,
   },
   emptyPanel: {
     minHeight: 124,

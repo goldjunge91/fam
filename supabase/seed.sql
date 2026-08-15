@@ -83,9 +83,9 @@ on conflict (id) do update set
 
 -- Rührei mit Gouda
 insert into public.recipe_templates
-  (id, title, cook_time_minutes, difficulty, dish_types, dietary_tags, default_servings, sort_order)
+  (id, title, cover_image_path, cook_time_minutes, difficulty, dish_types, dietary_tags, default_servings, sort_order)
 values
-  ('70121328-f669-5fab-91b5-f5cec9fde031', 'Rührei mit Gouda', 10, 'easy', array['breakfast'], array['vegetarian'], 2, 10)
+  ('70121328-f669-5fab-91b5-f5cec9fde031', 'Rührei mit Gouda', 'ruehrei-mit-gouda', 10, 'easy', array['breakfast'], array['vegetarian'], 2, 10)
 on conflict (id) do nothing;
 
 insert into public.recipe_template_components (id, template_id, name, serving_grams)
@@ -110,9 +110,9 @@ on conflict (id) do nothing;
 
 -- Overnight Oats mit Banane und Honig
 insert into public.recipe_templates
-  (id, title, cook_time_minutes, difficulty, dish_types, dietary_tags, default_servings, sort_order)
+  (id, title, cover_image_path, cook_time_minutes, difficulty, dish_types, dietary_tags, default_servings, sort_order)
 values
-  ('da19a794-bfa8-5005-ac23-33e88444c4d4', 'Overnight Oats mit Banane und Honig', 5, 'easy', array['breakfast'], array['vegetarian'], 1, 20)
+  ('da19a794-bfa8-5005-ac23-33e88444c4d4', 'Overnight Oats mit Banane und Honig', 'overnight-oats-mit-banane-und-honig', 5, 'easy', array['breakfast'], array['vegetarian'], 1, 20)
 on conflict (id) do nothing;
 
 insert into public.recipe_template_components (id, template_id, name, serving_grams)
@@ -137,9 +137,9 @@ on conflict (id) do nothing;
 
 -- Klassische Pfannkuchen
 insert into public.recipe_templates
-  (id, title, cook_time_minutes, difficulty, dish_types, dietary_tags, default_servings, sort_order)
+  (id, title, cover_image_path, cook_time_minutes, difficulty, dish_types, dietary_tags, default_servings, sort_order)
 values
-  ('2f569bd5-2c90-5b7c-bee1-7f94a2cf4f69', 'Klassische Pfannkuchen', 20, 'easy', array['breakfast','brunch'], array['vegetarian'], 4, 30)
+  ('2f569bd5-2c90-5b7c-bee1-7f94a2cf4f69', 'Klassische Pfannkuchen', 'klassische-pfannkuchen', 20, 'easy', array['breakfast','brunch'], array['vegetarian'], 4, 30)
 on conflict (id) do nothing;
 
 insert into public.recipe_template_components (id, template_id, name, serving_grams)
@@ -165,9 +165,9 @@ on conflict (id) do nothing;
 
 -- Bananen-Porridge
 insert into public.recipe_templates
-  (id, title, cook_time_minutes, difficulty, dish_types, dietary_tags, default_servings, sort_order)
+  (id, title, cover_image_path, cook_time_minutes, difficulty, dish_types, dietary_tags, default_servings, sort_order)
 values
-  ('318a277c-4061-5ee9-8939-63839491ab4f', 'Bananen-Porridge', 10, 'easy', array['breakfast'], array['vegetarian'], 1, 40)
+  ('318a277c-4061-5ee9-8939-63839491ab4f', 'Bananen-Porridge', 'bananen-porridge', 10, 'easy', array['breakfast'], array['vegetarian'], 1, 40)
 on conflict (id) do nothing;
 
 insert into public.recipe_template_components (id, template_id, name, serving_grams)
@@ -191,9 +191,9 @@ on conflict (id) do nothing;
 
 -- Joghurt mit Apfel und Honig
 insert into public.recipe_templates
-  (id, title, cook_time_minutes, difficulty, dish_types, dietary_tags, default_servings, sort_order)
+  (id, title, cover_image_path, cook_time_minutes, difficulty, dish_types, dietary_tags, default_servings, sort_order)
 values
-  ('e78f5944-54ab-5ab4-b0f3-f3806a68c90d', 'Joghurt mit Apfel und Honig', 5, 'easy', array['breakfast','snack'], array['vegetarian'], 1, 50)
+  ('e78f5944-54ab-5ab4-b0f3-f3806a68c90d', 'Joghurt mit Apfel und Honig', 'joghurt-mit-apfel-und-honig', 5, 'easy', array['breakfast','snack'], array['vegetarian'], 1, 50)
 on conflict (id) do nothing;
 
 insert into public.recipe_template_components (id, template_id, name, serving_grams)
@@ -217,9 +217,9 @@ on conflict (id) do nothing;
 
 -- Spaghetti Bolognese
 insert into public.recipe_templates
-  (id, title, cook_time_minutes, difficulty, dish_types, dietary_tags, default_servings, sort_order)
+  (id, title, cover_image_path, cook_time_minutes, difficulty, dish_types, dietary_tags, default_servings, sort_order)
 values
-  ('8d4bae92-90b5-5150-8647-2a96e5c38b7f', 'Spaghetti Bolognese', 35, 'medium', array['dinner','lunch'], '{}', 4, 60)
+  ('8d4bae92-90b5-5150-8647-2a96e5c38b7f', 'Spaghetti Bolognese', 'spaghetti-bolognese', 35, 'medium', array['dinner','lunch'], '{}', 4, 60)
 on conflict (id) do nothing;
 
 delete from public.recipe_template_components where id = 'dea9cfa2-1758-5362-bdcd-7f9f6d76edca';
@@ -255,9 +255,9 @@ on conflict (id) do nothing;
 
 -- Chili con Carne
 insert into public.recipe_templates
-  (id, title, cook_time_minutes, difficulty, dish_types, dietary_tags, default_servings, sort_order)
+  (id, title, cover_image_path, cook_time_minutes, difficulty, dish_types, dietary_tags, default_servings, sort_order)
 values
-  ('c1568e2d-fffa-5501-8251-e24eebb082ed', 'Chili con Carne', 40, 'medium', array['dinner'], '{}', 4, 70)
+  ('c1568e2d-fffa-5501-8251-e24eebb082ed', 'Chili con Carne', 'chili-con-carne', 40, 'medium', array['dinner'], '{}', 4, 70)
 on conflict (id) do nothing;
 
 insert into public.recipe_template_components (id, template_id, name, serving_grams)
@@ -286,9 +286,9 @@ on conflict (id) do nothing;
 
 -- Hähnchen-Gemüse-Pfanne mit Reis
 insert into public.recipe_templates
-  (id, title, cook_time_minutes, difficulty, dish_types, dietary_tags, default_servings, sort_order)
+  (id, title, cover_image_path, cook_time_minutes, difficulty, dish_types, dietary_tags, default_servings, sort_order)
 values
-  ('c500d69e-a639-5705-86ef-8a3096d8ffd3', 'Hähnchen-Gemüse-Pfanne mit Reis', 30, 'medium', array['dinner'], '{}', 3, 80)
+  ('c500d69e-a639-5705-86ef-8a3096d8ffd3', 'Hähnchen-Gemüse-Pfanne mit Reis', 'haehnchen-gemuese-pfanne-mit-reis', 30, 'medium', array['dinner'], '{}', 3, 80)
 on conflict (id) do nothing;
 
 delete from public.recipe_template_components where id = 'bfeb6343-cbca-5ddc-befc-8862aa538849';
@@ -322,9 +322,9 @@ on conflict (id) do nothing;
 
 -- Kichererbsen-Curry
 insert into public.recipe_templates
-  (id, title, cook_time_minutes, difficulty, dish_types, dietary_tags, default_servings, sort_order)
+  (id, title, cover_image_path, cook_time_minutes, difficulty, dish_types, dietary_tags, default_servings, sort_order)
 values
-  ('4d77f981-c9da-5ead-8de1-20b18b5f90bd', 'Kichererbsen-Curry', 30, 'easy', array['dinner','lunch'], array['vegetarian'], 3, 90)
+  ('4d77f981-c9da-5ead-8de1-20b18b5f90bd', 'Kichererbsen-Curry', 'kichererbsen-curry', 30, 'easy', array['dinner','lunch'], array['vegetarian','vegan'], 3, 90)
 on conflict (id) do nothing;
 
 delete from public.recipe_template_components where id = '1b9c235c-7dba-523b-9261-08d04f875ba6';
@@ -358,9 +358,9 @@ on conflict (id) do nothing;
 
 -- Couscous-Salat mit Kichererbsen
 insert into public.recipe_templates
-  (id, title, cook_time_minutes, difficulty, dish_types, dietary_tags, default_servings, sort_order)
+  (id, title, cover_image_path, cook_time_minutes, difficulty, dish_types, dietary_tags, default_servings, sort_order)
 values
-  ('02c72ddc-c99d-5a8f-8a24-db7808a5b87d', 'Couscous-Salat mit Kichererbsen', 20, 'easy', array['lunch'], array['vegetarian'], 3, 100)
+  ('02c72ddc-c99d-5a8f-8a24-db7808a5b87d', 'Couscous-Salat mit Kichererbsen', 'couscous-salat-mit-kichererbsen', 20, 'easy', array['lunch'], array['vegetarian','vegan'], 3, 100)
 on conflict (id) do nothing;
 
 insert into public.recipe_template_components (id, template_id, name, serving_grams)
@@ -387,9 +387,9 @@ on conflict (id) do nothing;
 
 -- Linsen-Eintopf
 insert into public.recipe_templates
-  (id, title, cook_time_minutes, difficulty, dish_types, dietary_tags, default_servings, sort_order)
+  (id, title, cover_image_path, cook_time_minutes, difficulty, dish_types, dietary_tags, default_servings, sort_order)
 values
-  ('2c994ead-c7f8-5de8-a15c-41f88b57612a', 'Linsen-Eintopf', 35, 'easy', array['lunch','dinner'], array['vegetarian'], 4, 110)
+  ('2c994ead-c7f8-5de8-a15c-41f88b57612a', 'Linsen-Eintopf', 'linsen-eintopf', 35, 'easy', array['lunch','dinner'], array['vegetarian','vegan'], 4, 110)
 on conflict (id) do nothing;
 
 insert into public.recipe_template_components (id, template_id, name, serving_grams)
@@ -417,9 +417,9 @@ on conflict (id) do nothing;
 
 -- Kartoffel-Gulasch
 insert into public.recipe_templates
-  (id, title, cook_time_minutes, difficulty, dish_types, dietary_tags, default_servings, sort_order)
+  (id, title, cover_image_path, cook_time_minutes, difficulty, dish_types, dietary_tags, default_servings, sort_order)
 values
-  ('3d325d09-a191-5957-b067-739db2dc14b4', 'Kartoffel-Gulasch', 45, 'medium', array['dinner'], '{}', 4, 120)
+  ('3d325d09-a191-5957-b067-739db2dc14b4', 'Kartoffel-Gulasch', 'kartoffel-gulasch', 45, 'medium', array['dinner'], '{}', 4, 120)
 on conflict (id) do nothing;
 
 insert into public.recipe_template_components (id, template_id, name, serving_grams)
@@ -447,9 +447,9 @@ on conflict (id) do nothing;
 
 -- Thunfisch-Couscous-Salat
 insert into public.recipe_templates
-  (id, title, cook_time_minutes, difficulty, dish_types, dietary_tags, default_servings, sort_order)
+  (id, title, cover_image_path, cook_time_minutes, difficulty, dish_types, dietary_tags, default_servings, sort_order)
 values
-  ('7d568089-e4ef-5826-87c2-f18b03958463', 'Thunfisch-Couscous-Salat', 20, 'easy', array['lunch'], '{}', 2, 130)
+  ('7d568089-e4ef-5826-87c2-f18b03958463', 'Thunfisch-Couscous-Salat', 'thunfisch-couscous-salat', 20, 'easy', array['lunch'], '{}', 2, 130)
 on conflict (id) do nothing;
 
 insert into public.recipe_template_components (id, template_id, name, serving_grams)
@@ -476,9 +476,9 @@ on conflict (id) do nothing;
 
 -- Hähnchen-Schnitzel mit Kartoffeln
 insert into public.recipe_templates
-  (id, title, cook_time_minutes, difficulty, dish_types, dietary_tags, default_servings, sort_order)
+  (id, title, cover_image_path, cook_time_minutes, difficulty, dish_types, dietary_tags, default_servings, sort_order)
 values
-  ('c0e8a39d-fece-5aab-9e1a-ee6173f9dd2b', 'Hähnchen-Schnitzel mit Kartoffeln', 35, 'medium', array['dinner'], '{}', 2, 140)
+  ('c0e8a39d-fece-5aab-9e1a-ee6173f9dd2b', 'Hähnchen-Schnitzel mit Kartoffeln', 'haehnchen-schnitzel-mit-kartoffeln', 35, 'medium', array['dinner'], '{}', 2, 140)
 on conflict (id) do nothing;
 
 delete from public.recipe_template_components where id = '69256b0c-30c7-5fd6-8dea-55ded80278b0';
@@ -512,9 +512,9 @@ on conflict (id) do nothing;
 
 -- Gemüse-Reispfanne
 insert into public.recipe_templates
-  (id, title, cook_time_minutes, difficulty, dish_types, dietary_tags, default_servings, sort_order)
+  (id, title, cover_image_path, cook_time_minutes, difficulty, dish_types, dietary_tags, default_servings, sort_order)
 values
-  ('62ef23d2-9375-5b25-91c1-ec23ca91e056', 'Gemüse-Reispfanne', 25, 'easy', array['dinner','lunch'], array['vegetarian'], 3, 150)
+  ('62ef23d2-9375-5b25-91c1-ec23ca91e056', 'Gemüse-Reispfanne', 'gemuese-reispfanne', 25, 'easy', array['dinner','lunch'], array['vegetarian','vegan'], 3, 150)
 on conflict (id) do nothing;
 
 delete from public.recipe_template_components where id = '5afaf59a-a37d-5bab-ae16-78d5f92686dc';
@@ -547,9 +547,9 @@ on conflict (id) do nothing;
 
 -- Frischkäse-Dip mit Paprika
 insert into public.recipe_templates
-  (id, title, cook_time_minutes, difficulty, dish_types, dietary_tags, default_servings, sort_order)
+  (id, title, cover_image_path, cook_time_minutes, difficulty, dish_types, dietary_tags, default_servings, sort_order)
 values
-  ('e7a4f5e4-805f-5054-ae3a-272e4d9bcd5f', 'Frischkäse-Dip mit Paprika', 10, 'easy', array['snack','appetizer'], array['vegetarian'], 4, 160)
+  ('e7a4f5e4-805f-5054-ae3a-272e4d9bcd5f', 'Frischkäse-Dip mit Paprika', 'frischkaese-dip-mit-paprika', 10, 'easy', array['snack','appetizer'], array['vegetarian'], 4, 160)
 on conflict (id) do nothing;
 
 insert into public.recipe_template_components (id, template_id, name, serving_grams)
@@ -573,9 +573,9 @@ on conflict (id) do nothing;
 
 -- Honig-Joghurt mit Haferflocken
 insert into public.recipe_templates
-  (id, title, cook_time_minutes, difficulty, dish_types, dietary_tags, default_servings, sort_order)
+  (id, title, cover_image_path, cook_time_minutes, difficulty, dish_types, dietary_tags, default_servings, sort_order)
 values
-  ('7bfde7e2-17d6-5d57-8ee5-715e653c3347', 'Honig-Joghurt mit Haferflocken', 5, 'easy', array['snack','dessert'], array['vegetarian'], 1, 170)
+  ('7bfde7e2-17d6-5d57-8ee5-715e653c3347', 'Honig-Joghurt mit Haferflocken', 'honig-joghurt-mit-haferflocken', 5, 'easy', array['snack','dessert'], array['vegetarian'], 1, 170)
 on conflict (id) do nothing;
 
 insert into public.recipe_template_components (id, template_id, name, serving_grams)
@@ -599,9 +599,9 @@ on conflict (id) do nothing;
 
 -- Geröstete Kichererbsen
 insert into public.recipe_templates
-  (id, title, cook_time_minutes, difficulty, dish_types, dietary_tags, default_servings, sort_order)
+  (id, title, cover_image_path, cook_time_minutes, difficulty, dish_types, dietary_tags, default_servings, sort_order)
 values
-  ('077964e4-5011-568c-acef-b96c54f832d4', 'Geröstete Kichererbsen', 25, 'easy', array['snack'], array['vegetarian'], 4, 180)
+  ('077964e4-5011-568c-acef-b96c54f832d4', 'Geröstete Kichererbsen', 'geroestete-kichererbsen', 25, 'easy', array['snack'], array['vegetarian','vegan'], 4, 180)
 on conflict (id) do nothing;
 
 insert into public.recipe_template_components (id, template_id, name, serving_grams)
@@ -625,9 +625,9 @@ on conflict (id) do nothing;
 
 -- Bananenbrot
 insert into public.recipe_templates
-  (id, title, cook_time_minutes, difficulty, dish_types, dietary_tags, default_servings, sort_order)
+  (id, title, cover_image_path, cook_time_minutes, difficulty, dish_types, dietary_tags, default_servings, sort_order)
 values
-  ('0b053108-709d-5a35-9171-28a7541d3a4b', 'Bananenbrot', 55, 'medium', array['dessert','breakfast'], array['vegetarian'], 8, 190)
+  ('0b053108-709d-5a35-9171-28a7541d3a4b', 'Bananenbrot', 'bananenbrot', 55, 'medium', array['dessert','breakfast'], array['vegetarian'], 8, 190)
 on conflict (id) do nothing;
 
 insert into public.recipe_template_components (id, template_id, name, serving_grams)
@@ -654,9 +654,9 @@ on conflict (id) do nothing;
 
 -- Schoko-Pfannkuchen
 insert into public.recipe_templates
-  (id, title, cook_time_minutes, difficulty, dish_types, dietary_tags, default_servings, sort_order)
+  (id, title, cover_image_path, cook_time_minutes, difficulty, dish_types, dietary_tags, default_servings, sort_order)
 values
-  ('bcae14e1-2c3a-54b7-9b2c-3fcf92a05d3e', 'Schoko-Pfannkuchen', 20, 'easy', array['dessert','breakfast'], array['vegetarian'], 4, 200)
+  ('bcae14e1-2c3a-54b7-9b2c-3fcf92a05d3e', 'Schoko-Pfannkuchen', 'schoko-pfannkuchen', 20, 'easy', array['dessert','breakfast'], array['vegetarian'], 4, 200)
 on conflict (id) do nothing;
 
 insert into public.recipe_template_components (id, template_id, name, serving_grams)
@@ -682,9 +682,9 @@ on conflict (id) do nothing;
 
 -- Apfel-Crumble
 insert into public.recipe_templates
-  (id, title, cook_time_minutes, difficulty, dish_types, dietary_tags, default_servings, sort_order)
+  (id, title, cover_image_path, cook_time_minutes, difficulty, dish_types, dietary_tags, default_servings, sort_order)
 values
-  ('99fc2ade-065a-5b99-bee4-b5a07e7686b1', 'Apfel-Crumble', 40, 'medium', array['dessert'], array['vegetarian'], 4, 210)
+  ('99fc2ade-065a-5b99-bee4-b5a07e7686b1', 'Apfel-Crumble', 'apfel-crumble', 40, 'medium', array['dessert'], array['vegetarian'], 4, 210)
 on conflict (id) do nothing;
 
 delete from public.recipe_template_components where id = '6c640854-939b-50d4-b845-ef3fd8cffbc1';
@@ -716,9 +716,9 @@ on conflict (id) do nothing;
 
 -- Schokoladenkuchen
 insert into public.recipe_templates
-  (id, title, cook_time_minutes, difficulty, dish_types, dietary_tags, default_servings, sort_order)
+  (id, title, cover_image_path, cook_time_minutes, difficulty, dish_types, dietary_tags, default_servings, sort_order)
 values
-  ('6d184a8e-ebfe-5d51-ba58-2e7d7c4d5c7d', 'Schokoladenkuchen', 50, 'medium', array['dessert'], array['vegetarian'], 8, 220)
+  ('6d184a8e-ebfe-5d51-ba58-2e7d7c4d5c7d', 'Schokoladenkuchen', 'schokoladenkuchen', 50, 'medium', array['dessert'], array['vegetarian'], 8, 220)
 on conflict (id) do nothing;
 
 insert into public.recipe_template_components (id, template_id, name, serving_grams)
@@ -746,9 +746,9 @@ on conflict (id) do nothing;
 
 -- Tomaten-Knoblauch-Dip
 insert into public.recipe_templates
-  (id, title, cook_time_minutes, difficulty, dish_types, dietary_tags, default_servings, sort_order)
+  (id, title, cover_image_path, cook_time_minutes, difficulty, dish_types, dietary_tags, default_servings, sort_order)
 values
-  ('f35fcc20-0e80-526e-a46c-ca2de27aadef', 'Tomaten-Knoblauch-Dip', 10, 'easy', array['appetizer'], array['vegetarian'], 4, 230)
+  ('f35fcc20-0e80-526e-a46c-ca2de27aadef', 'Tomaten-Knoblauch-Dip', 'tomaten-knoblauch-dip', 10, 'easy', array['appetizer'], array['vegetarian','vegan'], 4, 230)
 on conflict (id) do nothing;
 
 insert into public.recipe_template_components (id, template_id, name, serving_grams)
@@ -772,9 +772,9 @@ on conflict (id) do nothing;
 
 -- Brunch-Eierspeise mit Gouda und Paprika
 insert into public.recipe_templates
-  (id, title, cook_time_minutes, difficulty, dish_types, dietary_tags, default_servings, sort_order)
+  (id, title, cover_image_path, cook_time_minutes, difficulty, dish_types, dietary_tags, default_servings, sort_order)
 values
-  ('73aa9a5c-0174-55bc-9b1f-a731a1357ce2', 'Brunch-Eierspeise mit Gouda und Paprika', 15, 'easy', array['brunch'], array['vegetarian'], 2, 240)
+  ('73aa9a5c-0174-55bc-9b1f-a731a1357ce2', 'Brunch-Eierspeise mit Gouda und Paprika', 'brunch-eierspeise-mit-gouda-und-paprika', 15, 'easy', array['brunch'], array['vegetarian'], 2, 240)
 on conflict (id) do nothing;
 
 insert into public.recipe_template_components (id, template_id, name, serving_grams)
@@ -800,9 +800,9 @@ on conflict (id) do nothing;
 
 -- Käse-Kartoffel-Auflauf
 insert into public.recipe_templates
-  (id, title, cook_time_minutes, difficulty, dish_types, dietary_tags, default_servings, sort_order)
+  (id, title, cover_image_path, cook_time_minutes, difficulty, dish_types, dietary_tags, default_servings, sort_order)
 values
-  ('89b4728a-8594-55be-b7ef-7d691dec292b', 'Käse-Kartoffel-Auflauf', 50, 'medium', array['dinner'], array['vegetarian'], 4, 250)
+  ('89b4728a-8594-55be-b7ef-7d691dec292b', 'Käse-Kartoffel-Auflauf', 'kaese-kartoffel-auflauf', 50, 'medium', array['dinner'], array['vegetarian'], 4, 250)
 on conflict (id) do nothing;
 
 insert into public.recipe_template_components (id, template_id, name, serving_grams)
@@ -829,9 +829,9 @@ on conflict (id) do nothing;
 
 -- Linsensuppe mit Karotten
 insert into public.recipe_templates
-  (id, title, cook_time_minutes, difficulty, dish_types, dietary_tags, default_servings, sort_order)
+  (id, title, cover_image_path, cook_time_minutes, difficulty, dish_types, dietary_tags, default_servings, sort_order)
 values
-  ('a1153937-1594-5402-b180-1ef70fbeb660', 'Linsensuppe mit Karotten', 35, 'easy', array['lunch','dinner'], array['vegetarian'], 4, 260)
+  ('a1153937-1594-5402-b180-1ef70fbeb660', 'Linsensuppe mit Karotten', 'linsensuppe-mit-karotten', 35, 'easy', array['lunch','dinner'], array['vegetarian','vegan'], 4, 260)
 on conflict (id) do nothing;
 
 insert into public.recipe_template_components (id, template_id, name, serving_grams)
@@ -858,9 +858,9 @@ on conflict (id) do nothing;
 
 -- Thunfisch-Reis-Salat
 insert into public.recipe_templates
-  (id, title, cook_time_minutes, difficulty, dish_types, dietary_tags, default_servings, sort_order)
+  (id, title, cover_image_path, cook_time_minutes, difficulty, dish_types, dietary_tags, default_servings, sort_order)
 values
-  ('3e73b7b6-6505-5ec8-ba38-1bdab94085f7', 'Thunfisch-Reis-Salat', 25, 'easy', array['lunch'], '{}', 2, 270)
+  ('3e73b7b6-6505-5ec8-ba38-1bdab94085f7', 'Thunfisch-Reis-Salat', 'thunfisch-reis-salat', 25, 'easy', array['lunch'], '{}', 2, 270)
 on conflict (id) do nothing;
 
 insert into public.recipe_template_components (id, template_id, name, serving_grams)
@@ -887,9 +887,9 @@ on conflict (id) do nothing;
 
 -- Haferflocken-Honig-Riegel
 insert into public.recipe_templates
-  (id, title, cook_time_minutes, difficulty, dish_types, dietary_tags, default_servings, sort_order)
+  (id, title, cover_image_path, cook_time_minutes, difficulty, dish_types, dietary_tags, default_servings, sort_order)
 values
-  ('18626fb1-8dda-505d-ac42-4959d06d4604', 'Haferflocken-Honig-Riegel', 35, 'medium', array['snack','breakfast'], array['vegetarian'], 6, 280)
+  ('18626fb1-8dda-505d-ac42-4959d06d4604', 'Haferflocken-Honig-Riegel', 'haferflocken-honig-riegel', 35, 'medium', array['snack','breakfast'], array['vegetarian'], 6, 280)
 on conflict (id) do nothing;
 
 insert into public.recipe_template_components (id, template_id, name, serving_grams)
@@ -914,9 +914,9 @@ on conflict (id) do nothing;
 
 -- Kichererbsen-Karotten-Pfanne mit Reis
 insert into public.recipe_templates
-  (id, title, cook_time_minutes, difficulty, dish_types, dietary_tags, default_servings, sort_order)
+  (id, title, cover_image_path, cook_time_minutes, difficulty, dish_types, dietary_tags, default_servings, sort_order)
 values
-  ('c8f0b3c2-c277-55ff-9d3c-04eda747a0a4', 'Kichererbsen-Karotten-Pfanne mit Reis', 25, 'easy', array['dinner','lunch'], array['vegetarian'], 3, 290)
+  ('c8f0b3c2-c277-55ff-9d3c-04eda747a0a4', 'Kichererbsen-Karotten-Pfanne mit Reis', 'kichererbsen-karotten-pfanne-mit-reis', 25, 'easy', array['dinner','lunch'], array['vegetarian','vegan'], 3, 290)
 on conflict (id) do nothing;
 
 insert into public.recipe_template_components (id, template_id, name, serving_grams)

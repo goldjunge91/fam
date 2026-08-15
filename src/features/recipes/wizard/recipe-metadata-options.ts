@@ -20,6 +20,7 @@ export const DISH_TYPES: { value: DishType; label: string }[] = [
 
 export const DIETARY_TAGS: { value: DietaryTag; label: string }[] = [
   { value: 'vegetarian', label: 'Vegetarisch' },
+  { value: 'vegan', label: 'Vegan' },
   { value: 'high_fat', label: 'Fettreich' },
   { value: 'low_fat', label: 'Fettarm' },
   { value: 'lactose_free', label: 'Laktosefrei' },

@@ -1,16 +1,23 @@
 import { Image } from 'expo-image';
 import { useId } from 'react';
+import type { ImageSourcePropType } from 'react-native';
 import { Pressable, StyleSheet, View } from 'react-native';
 import Svg, { Circle, Defs, LinearGradient, Rect, Stop } from 'react-native-svg';
 
 import { FontSize, ThemedText } from '@/components/themed-text';
-import { useTheme } from '@/hooks/use-theme';
 
 import { useRecipeCoverUrl } from '../recipe-cover';
 
 type RecipePreview = {
   title: string;
   coverImagePath?: string | null;
+  /**
+   * Gebuendeltes Asset (z. B. aus `template-cover-images.ts`) statt eines
+   * Supabase-Storage-Pfads — nimmt Vorrang vor `coverImagePath`, wenn gesetzt.
+   * Fuer Vorlagen-Karten, deren Bilder App-seitig mitgeliefert werden statt
+   * ueber den privaten `recipe-covers`-Bucket signiert zu werden.
+   */
+  coverImageAsset?: ImageSourcePropType | null;
   cookTimeMinutes?: number | null;
   difficultyLabel?: string | null;
   servings?: number | null;
@@ -19,6 +26,9 @@ type RecipePreview = {
 type RecipePreviewCardProps = RecipePreview & {
   onPress: () => void;
   paletteIndex?: number;
+  /** Fuer Carousel-Kacheln (fixe Breite statt volle Breite). Default: volle Breite, 200 hoch. */
+  width?: number;
+  height?: number;
 };
 
 const PALETTES = [
@@ -32,21 +42,25 @@ const PALETTES = [
 /** Bild-Kachel mit Farbverlauf-Fallback ohne Cover — auch fuer den Drag-Tray des Essensplans. */
 export function RecipeArtwork({
   coverUrl,
+  coverSource,
   title,
   paletteIndex = 0,
 }: {
   coverUrl?: string | null;
+  /** Gebuendeltes Asset, nimmt Vorrang vor `coverUrl` — siehe `RecipePreview.coverImageAsset`. */
+  coverSource?: ImageSourcePropType | null;
   title: string;
   paletteIndex?: number;
 }) {
   const rawId = useId();
   const gradientId = `recipe-art-${rawId.replace(/[^a-zA-Z0-9_-]/g, '')}`;
   const palette = PALETTES[Math.abs(paletteIndex) % PALETTES.length];
+  const source = coverSource ?? (coverUrl ? { uri: coverUrl } : null);
 
-  if (coverUrl) {
+  if (source) {
     return (
       <Image
-        source={{ uri: coverUrl }}
+        source={source}
         contentFit="cover"
         transition={180}
         style={StyleSheet.absoluteFill}
@@ -77,6 +91,32 @@ export function RecipeArtwork({
   );
 }
 
+/**
+ * Weicher Verlauf von transparent (oben) zu dunkel (unten) fuer Foto-Karten
+ * mit hellem Text-Overlay. Ueber `react-native-svg` statt einer flachen
+ * `rgba(...)`-View, weil eine Volltonflaeche eine harte Kante zum Bild
+ * erzeugt statt sanft auszublenden — dieselbe Technik wie `GradientBackground`.
+ */
+function FadeShade({ height }: { height: `${number}%` }) {
+  const rawId = useId();
+  const gradientId = `card-shade-${rawId.replace(/[^a-zA-Z0-9_-]/g, '')}`;
+
+  return (
+    <Svg
+      style={{ position: 'absolute', left: 0, right: 0, bottom: 0 }}
+      width="100%"
+      height={height}>
+      <Defs>
+        <LinearGradient id={gradientId} x1="0%" y1="0%" x2="0%" y2="100%">
+          <Stop offset="0%" stopColor="#140e10" stopOpacity={0} />
+          <Stop offset="100%" stopColor="#140e10" stopOpacity={0.78} />
+        </LinearGradient>
+      </Defs>
+      <Rect width="100%" height="100%" fill={`url(#${gradientId})`} />
+    </Svg>
+  );
+}
+
 function formatMeta({
   cookTimeMinutes,
   difficultyLabel,
@@ -89,18 +129,27 @@ function formatMeta({
   return { left, right };
 }
 
-/** Die gemeinsame Rasterkarte der Rezept-, Favoriten- und Entdecken-Ansichten. */
+/**
+ * Die gemeinsame Karte der Rezept-, Favoriten- und Entdecken-Ansichten.
+ *
+ * Volle Breite statt Zwei-Spalten-Raster, Foto randlos mit Namen/Meta als
+ * heller Text auf einem Verlauf am unteren Bildrand (Mockup-Variante B, vom
+ * Maintainer ausgewaehlt) — dieselbe Bildsprache wie `RecipeHeroCard`, nur
+ * kompakter fuer Listen statt fuer den einzelnen Trending-Einstieg.
+ */
 export function RecipePreviewCard({
   title,
   coverImagePath,
+  coverImageAsset,
   cookTimeMinutes,
   difficultyLabel,
   servings,
   onPress,
   paletteIndex,
+  width,
+  height,
 }: RecipePreviewCardProps) {
-  const theme = useTheme();
-  const { data: coverUrl } = useRecipeCoverUrl(coverImagePath);
+  const { data: coverUrl } = useRecipeCoverUrl(coverImageAsset ? null : coverImagePath);
   const meta = formatMeta({ cookTimeMinutes, difficultyLabel, servings });
 
   return (
@@ -110,30 +159,24 @@ export function RecipePreviewCard({
       aria-label={title}
       style={({ pressed }) => [
         styles.card,
-        { backgroundColor: `${theme.backgroundElement}E8` },
+        width !== undefined && { width },
+        height !== undefined && { height },
         pressed && styles.cardPressed,
       ]}>
-      <View style={styles.artwork}>
-        <RecipeArtwork
-          title={title}
-          coverUrl={coverUrl}
-          paletteIndex={paletteIndex ?? title.length}
-        />
-      </View>
-      <View style={styles.body}>
-        <ThemedText style={styles.title} numberOfLines={1}>
+      <RecipeArtwork
+        title={title}
+        coverUrl={coverUrl}
+        coverSource={coverImageAsset}
+        paletteIndex={paletteIndex ?? title.length}
+      />
+      <FadeShade height="62%" />
+      <View style={styles.cardCopy}>
+        <ThemedText style={styles.cardTitle} numberOfLines={1}>
           {title}
         </ThemedText>
-        <View style={styles.metaRow}>
-          <ThemedText themeColor="textSecondary" style={styles.meta} numberOfLines={1}>
-            {meta.left || 'Rezept'}
-          </ThemedText>
-          {meta.right ? (
-            <ThemedText themeColor="textSecondary" style={styles.meta} numberOfLines={1}>
-              {meta.right}
-            </ThemedText>
-          ) : null}
-        </View>
+        <ThemedText style={styles.cardMeta} numberOfLines={1}>
+          {[meta.left, meta.right].filter(Boolean).join(' · ') || 'Rezept'}
+        </ThemedText>
       </View>
     </Pressable>
   );
@@ -147,6 +190,7 @@ type RecipeHeroCardProps = RecipePreviewCardProps & {
 export function RecipeHeroCard({
   title,
   coverImagePath,
+  coverImageAsset,
   cookTimeMinutes,
   difficultyLabel,
   servings,
@@ -154,7 +198,7 @@ export function RecipeHeroCard({
   paletteIndex,
   eyebrow = 'Community',
 }: RecipeHeroCardProps) {
-  const { data: coverUrl } = useRecipeCoverUrl(coverImagePath);
+  const { data: coverUrl } = useRecipeCoverUrl(coverImageAsset ? null : coverImagePath);
   const meta = formatMeta({ cookTimeMinutes, difficultyLabel, servings });
 
   return (
@@ -166,6 +210,7 @@ export function RecipeHeroCard({
       <RecipeArtwork
         title={title}
         coverUrl={coverUrl}
+        coverSource={coverImageAsset}
         paletteIndex={paletteIndex ?? title.length}
       />
       <View style={styles.heroShade} />
@@ -184,47 +229,35 @@ export function RecipeHeroCard({
 
 const styles = StyleSheet.create({
   card: {
-    flex: 1,
-    minWidth: '46%',
-    maxWidth: '49%',
-    height: 132,
-    borderRadius: 18,
+    width: '100%',
+    height: 200,
+    borderRadius: 22,
     borderCurve: 'continuous',
-    padding: 6,
     overflow: 'hidden',
   },
   cardPressed: {
     opacity: 0.82,
     transform: [{ scale: 0.985 }],
   },
-  artwork: {
-    height: 84,
-    overflow: 'hidden',
-    borderRadius: 13,
-    borderCurve: 'continuous',
+  cardCopy: {
+    position: 'absolute',
+    left: 16,
+    right: 16,
+    bottom: 14,
   },
-  body: {
-    flex: 1,
-    justifyContent: 'center',
-    paddingHorizontal: 5,
-    paddingTop: 4,
+  cardTitle: {
+    color: '#FFFFFF',
+    ...FontSize[19],
+    lineHeight: 22,
+    fontWeight: 700,
+    letterSpacing: -0.3,
   },
-  title: {
+  cardMeta: {
+    color: 'rgba(255,255,255,0.86)',
     ...FontSize[11],
     lineHeight: 14,
-    fontWeight: 700,
-  },
-  metaRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    gap: 4,
-  },
-  meta: {
-    flexShrink: 1,
-    ...FontSize[8],
-    lineHeight: 10,
-    fontWeight: 500,
+    fontWeight: 600,
+    marginTop: 3,
   },
   hero: {
     height: 170,

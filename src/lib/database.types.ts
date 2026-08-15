@@ -174,6 +174,8 @@ export type Database = {
           id: string
           location_id: string | null
           name: string
+          package_size: number | null
+          package_size_unit: string | null
           product_id: string | null
           quantity: number
           unit: string
@@ -188,6 +190,8 @@ export type Database = {
           id?: string
           location_id?: string | null
           name: string
+          package_size?: number | null
+          package_size_unit?: string | null
           product_id?: string | null
           quantity?: number
           unit?: string
@@ -202,6 +206,8 @@ export type Database = {
           id?: string
           location_id?: string | null
           name?: string
+          package_size?: number | null
+          package_size_unit?: string | null
           product_id?: string | null
           quantity?: number
           unit?: string
@@ -337,6 +343,9 @@ export type Database = {
           created_by: string
           id: string
           name: string
+          premium_active: boolean
+          premium_expires_at: string | null
+          premium_updated_at: string | null
           updated_at: string
         }
         Insert: {
@@ -344,6 +353,9 @@ export type Database = {
           created_by: string
           id?: string
           name: string
+          premium_active?: boolean
+          premium_expires_at?: string | null
+          premium_updated_at?: string | null
           updated_at?: string
         }
         Update: {
@@ -351,6 +363,9 @@ export type Database = {
           created_by?: string
           id?: string
           name?: string
+          premium_active?: boolean
+          premium_expires_at?: string | null
+          premium_updated_at?: string | null
           updated_at?: string
         }
         Relationships: [
@@ -1172,9 +1187,12 @@ export type Database = {
           household_id: string
           id: string
           name: string
+          package_size: number | null
+          package_size_unit: string | null
           price_estimate: number | null
           product_id: string | null
           quantity: number
+          recipe_names: string[]
           sort_index: number
           store_id: string | null
           unit: string
@@ -1190,9 +1208,12 @@ export type Database = {
           household_id: string
           id?: string
           name: string
+          package_size?: number | null
+          package_size_unit?: string | null
           price_estimate?: number | null
           product_id?: string | null
           quantity?: number
+          recipe_names?: string[]
           sort_index?: number
           store_id?: string | null
           unit?: string
@@ -1208,9 +1229,12 @@ export type Database = {
           household_id?: string
           id?: string
           name?: string
+          package_size?: number | null
+          package_size_unit?: string | null
           price_estimate?: number | null
           product_id?: string | null
           quantity?: number
+          recipe_names?: string[]
           sort_index?: number
           store_id?: string | null
           unit?: string
@@ -1304,6 +1328,8 @@ export type Database = {
           household_id: string
           id: string
           name: string
+          package_size: number | null
+          package_size_unit: string | null
           sort_order: number
           updated_at: string
         }
@@ -1315,6 +1341,8 @@ export type Database = {
           household_id: string
           id?: string
           name: string
+          package_size?: number | null
+          package_size_unit?: string | null
           sort_order?: number
           updated_at?: string
         }
@@ -1326,6 +1354,8 @@ export type Database = {
           household_id?: string
           id?: string
           name?: string
+          package_size?: number | null
+          package_size_unit?: string | null
           sort_order?: number
           updated_at?: string
         }
