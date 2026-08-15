@@ -17,5 +17,16 @@
         "agent-host-copilotcli:auto"
       ]
     }
+  },
+  "editor.tokenColorCustomizations": {
+    "textMateRules": [
+      {
+        "scope": "markup.inline.raw.string.markdown",
+        "settings": {
+          "foreground": "#4FC1FF",
+          "fontStyle": ""
+        }
+      }
+    ]
   }
 }
