@@ -34,7 +34,7 @@ describe('ShoppingItemRow', () => {
     );
 
     expect(screen.getByText('Hafermilch')).toBeTruthy();
-    expect(screen.getByText('2 l')).toBeTruthy();
+    expect(screen.getByText('2 L')).toBeTruthy();
   });
 
   it('sollte die Ursprungsgerichte anzeigen, wenn der Artikel aus einem Rezept stammt', async () => {

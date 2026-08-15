@@ -35,9 +35,9 @@ describe('WeekGrid', () => {
       />,
     );
 
-    expect(screen.getByText('Frühstück')).toBeOnTheScreen();
-    expect(screen.getByText('Mittag')).toBeOnTheScreen();
-    expect(screen.getByText('Abend')).toBeOnTheScreen();
+    expect(screen.getAllByText('Frühstück').length).toBe(WEEK.length);
+    expect(screen.getAllByText('Mittag').length).toBe(WEEK.length);
+    expect(screen.getAllByText('Abendessen').length).toBe(WEEK.length);
     expect(screen.queryByText('Snack')).not.toBeOnTheScreen();
   });
 
@@ -53,7 +53,7 @@ describe('WeekGrid', () => {
       />,
     );
 
-    expect(screen.getAllByText('+').length).toBe(21); // 7 Tage x 3 Slots
+    expect(screen.getAllByText('+ Gericht').length).toBe(21); // 7 Tage x 3 Slots
   });
 
   it('zeigt nur so viele Tagesreihen wie `dates` lang ist (Tages-/3-Tage-Ansicht)', async () => {
@@ -68,7 +68,7 @@ describe('WeekGrid', () => {
       />,
     );
 
-    expect(screen.getAllByText('+').length).toBe(9); // 3 Tage x 3 Slots
+    expect(screen.getAllByText('+ Gericht').length).toBe(9); // 3 Tage x 3 Slots
   });
 
   it('zeigt einen zugeordneten Wochenplan-Eintrag mit Rezepttitel und Portionen', async () => {
@@ -85,7 +85,7 @@ describe('WeekGrid', () => {
     );
 
     expect(screen.getByText('Spaghetti Bolognese')).toBeOnTheScreen();
-    expect(screen.getByText('4×')).toBeOnTheScreen();
+    expect(screen.getByText('4 Portionen')).toBeOnTheScreen();
   });
 
   it('ruft onTapEntry auf, wenn ein zugeordneter Eintrag angetippt wird', async () => {

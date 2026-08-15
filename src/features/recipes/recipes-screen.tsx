@@ -141,15 +141,12 @@ function RecipeList({ entries }: { entries: RecipeEntry[] }) {
   );
 }
 
-/** Ein Carousel aus großen Foto-Karten für eine Mahlzeitenkategorie — scrollt links/rechts. */
-function MealCarousel({ title, entries }: { title: string; entries: RecipeEntry[] }) {
+/** Vollbreite Foto-Karten fuer eine Mahlzeitenkategorie. */
+function MealSection({ title, entries }: { title: string; entries: RecipeEntry[] }) {
   return (
     <View style={styles.section}>
       <SectionHeading title={title} />
-      <ScrollView
-        horizontal
-        showsHorizontalScrollIndicator={false}
-        contentContainerStyle={styles.dishRow}>
+      <View style={styles.grid}>
         {entries.map((entry, index) => (
           <RecipePreviewCard
             key={entry.key}
@@ -159,12 +156,10 @@ function MealCarousel({ title, entries }: { title: string; entries: RecipeEntry[
             difficultyLabel={entry.difficultyLabel}
             servings={entry.servings}
             paletteIndex={index + entry.title.length}
-            width={168}
-            height={224}
             onPress={() => openEntry(entry)}
           />
         ))}
-      </ScrollView>
+      </View>
     </View>
   );
 }
@@ -452,7 +447,7 @@ export function RecipesScreen() {
                     onActionPress={openTemplates}
                   />
                   {mealSections.map((section) => (
-                    <MealCarousel
+                    <MealSection
                       key={section.key}
                       title={section.title}
                       entries={section.entries}
@@ -528,10 +523,6 @@ const styles = StyleSheet.create({
   },
   section: {
     marginBottom: 20,
-  },
-  dishRow: {
-    flexDirection: 'row',
-    gap: 12,
   },
   grid: {
     gap: 10,

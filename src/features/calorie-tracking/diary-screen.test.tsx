@@ -126,8 +126,7 @@ describe('DiaryScreen', () => {
 
   it('oeffnet die Lebensmittelsuche vorbelegt mit der Mahlzeit', async () => {
     await renderScreen();
-    const addButtons = screen.getAllByText('+ Hinzufügen');
-    await fireEvent.press(addButtons[0]);
+    await fireEvent.press(screen.getByRole('button', { name: 'Zu Frühstück hinzufügen' }));
 
     expect(router.push).toHaveBeenCalledWith(
       expect.objectContaining({

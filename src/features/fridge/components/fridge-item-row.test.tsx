@@ -53,7 +53,7 @@ describe('FridgeItemRow', () => {
 
     expect(screen.getByText('Vollmilch')).toBeTruthy();
     expect(screen.getByText('Kühlschrank')).toBeTruthy();
-    expect(screen.getByText('1 l')).toBeTruthy();
+    expect(screen.getByText('1 L')).toBeTruthy();
   });
 
   it('zeigt eine kompakte Zeile ohne Mengen-Buttons oder dekorative Kacheln', async () => {
@@ -84,7 +84,7 @@ describe('FridgeItemRow', () => {
       />,
     );
 
-    await user.press(screen.getByRole('button', { name: 'Vollmilch, 1 l' }));
+    await user.press(screen.getByRole('button', { name: 'Vollmilch, 1 L' }));
     expect(onPressMock).toHaveBeenCalledTimes(1);
   });
 
@@ -100,7 +100,7 @@ describe('FridgeItemRow', () => {
         onRemove={jest.fn()}
       />,
     );
-    await user.longPress(screen.getByRole('button', { name: 'Vollmilch, 1 l' }));
+    await user.longPress(screen.getByRole('button', { name: 'Vollmilch, 1 L' }));
 
     expect(onLongPress).toHaveBeenCalledTimes(1);
   });

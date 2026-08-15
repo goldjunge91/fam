@@ -18,9 +18,6 @@ type RecipePreview = {
 type RecipePreviewCardProps = RecipePreview & {
   onPress: () => void;
   paletteIndex?: number;
-  /** Fuer Carousel-Kacheln (fixe Breite statt volle Breite). Default: volle Breite, 200 hoch. */
-  width?: number;
-  height?: number;
 };
 
 const PALETTES = [
@@ -157,8 +154,6 @@ export function RecipePreviewCard({
   servings,
   onPress,
   paletteIndex,
-  width,
-  height,
 }: RecipePreviewCardProps) {
   const { data: coverUrl } = useRecipeCoverUrl(coverImagePath);
   const meta = formatMeta({ cookTimeMinutes, difficultyLabel, servings });
@@ -168,12 +163,7 @@ export function RecipePreviewCard({
       onPress={onPress}
       role="button"
       aria-label={title}
-      style={({ pressed }) => [
-        styles.card,
-        width !== undefined && { width },
-        height !== undefined && { height },
-        pressed && styles.cardPressed,
-      ]}>
+      style={({ pressed }) => [styles.card, pressed && styles.cardPressed]}>
       <RecipeArtwork
         title={title}
         coverUrl={coverUrl}
