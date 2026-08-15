@@ -141,25 +141,31 @@ function RecipeList({ entries }: { entries: RecipeEntry[] }) {
   );
 }
 
-/** Vollbreite Foto-Karten fuer eine Mahlzeitenkategorie. */
+/** Horizontal scrollende Foto-Karten fuer eine Mahlzeitenkategorie. */
 function MealSection({ title, entries }: { title: string; entries: RecipeEntry[] }) {
   return (
     <View style={styles.section}>
       <SectionHeading title={title} />
-      <View style={styles.grid}>
+      <ScrollView
+        horizontal
+        role="list"
+        aria-label={`${title} Rezepte`}
+        showsHorizontalScrollIndicator={false}
+        contentContainerStyle={styles.mealCarouselContent}>
         {entries.map((entry, index) => (
-          <RecipePreviewCard
-            key={entry.key}
-            title={entry.title}
-            coverImagePath={entry.coverImagePath}
-            cookTimeMinutes={entry.cookTimeMinutes}
-            difficultyLabel={entry.difficultyLabel}
-            servings={entry.servings}
-            paletteIndex={index + entry.title.length}
-            onPress={() => openEntry(entry)}
-          />
+          <View key={entry.key} style={styles.mealCarouselCard}>
+            <RecipePreviewCard
+              title={entry.title}
+              coverImagePath={entry.coverImagePath}
+              cookTimeMinutes={entry.cookTimeMinutes}
+              difficultyLabel={entry.difficultyLabel}
+              servings={entry.servings}
+              paletteIndex={index + entry.title.length}
+              onPress={() => openEntry(entry)}
+            />
+          </View>
         ))}
-      </View>
+      </ScrollView>
     </View>
   );
 }
@@ -526,6 +532,12 @@ const styles = StyleSheet.create({
   },
   grid: {
     gap: 10,
+  },
+  mealCarouselContent: {
+    gap: 10,
+  },
+  mealCarouselCard: {
+    width: 260,
   },
   emptyPanel: {
     minHeight: 124,

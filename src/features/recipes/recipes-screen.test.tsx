@@ -171,6 +171,18 @@ describe('RecipesScreen — Entdecken', () => {
 });
 
 describe('RecipesScreen — Vorlagen', () => {
+  it('zeigt fuer jede Mahlzeit einen eigenen horizontalen Rezept-Carousel', async () => {
+    mockTemplates = [
+      makeTemplate({ id: 'breakfast-1', title: 'Porridge', dish_types: ['breakfast'] }),
+      makeTemplate({ id: 'breakfast-2', title: 'Omelett', dish_types: ['breakfast'] }),
+      makeTemplate({ id: 'dinner-1', title: 'Curry', dish_types: ['dinner'] }),
+    ];
+    await render(<RecipesScreen />);
+
+    expect(screen.getByRole('list', { name: 'Frühstück Rezepte' })).toHaveProp('horizontal', true);
+    expect(screen.getByRole('list', { name: 'Abendessen Rezepte' })).toHaveProp('horizontal', true);
+  });
+
   it('öffnet fam-Vorlagen in der Vorlagen-Detailansicht', async () => {
     const user = userEvent.setup();
     mockTemplates = [makeTemplate({ id: 't1', title: 'Fam Ofengemüse' })];
