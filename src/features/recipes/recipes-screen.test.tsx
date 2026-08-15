@@ -184,4 +184,22 @@ describe('RecipesScreen — Vorlagen', () => {
       params: { id: 't1' },
     });
   });
+
+  it('öffnet über "Alle Vorlagen ansehen" das gemeinsame Raster aller Vorlagen (#136)', async () => {
+    const user = userEvent.setup();
+    mockTemplates = [
+      makeTemplate({ id: 't1', title: 'Fam Ofengemüse' }),
+      makeTemplate({ id: 't2', title: 'Fam Linsensuppe' }),
+      makeTemplate({ id: 't3', title: 'Fam Nudelauflauf' }),
+      makeTemplate({ id: 't4', title: 'Fam Reispfanne' }),
+      makeTemplate({ id: 't5', title: 'Fam Kürbissuppe' }),
+    ];
+    await render(<RecipesScreen />);
+
+    await user.press(screen.getAllByRole('button', { name: 'Alle Vorlagen ansehen' })[0]);
+
+    expect(screen.getByText('Vorlagen')).toBeOnTheScreen();
+    expect(screen.getByRole('button', { name: 'Fam Kürbissuppe' })).toBeOnTheScreen();
+    expect(screen.getByRole('button', { name: 'Zurück zu Rezepte' })).toBeOnTheScreen();
+  });
 });

@@ -36,7 +36,7 @@ const CATEGORY_FILTERS: { value: DishType | 'all'; label: string }[] = [
   { value: 'dessert', label: 'Dessert' },
 ];
 
-type RecipeView = 'discover' | 'favorites' | 'household';
+type RecipeView = 'discover' | 'favorites' | 'household' | 'templates';
 
 type RecipeEntry = {
   key: string;
@@ -127,7 +127,7 @@ function BackIcon({ color }: { color: string }) {
   );
 }
 
-function RecipeGrid({ entries }: { entries: RecipeEntry[] }) {
+function RecipeList({ entries }: { entries: RecipeEntry[] }) {
   return (
     <View style={styles.grid}>
       {entries.map((entry, index) => (
@@ -204,7 +204,13 @@ export function RecipesScreen() {
     .slice(0, 4);
   const isLoading = recipesLoading || templatesLoading;
   const screenTitle =
-    view === 'favorites' ? 'Meine Favoriten' : view === 'household' ? 'Unsere Rezepte' : 'Rezepte';
+    view === 'favorites'
+      ? 'Meine Favoriten'
+      : view === 'household'
+        ? 'Unsere Rezepte'
+        : view === 'templates'
+          ? 'Vorlagen'
+          : 'Rezepte';
 
   return (
     <View style={styles.root}>
@@ -277,15 +283,21 @@ export function RecipesScreen() {
             />
           ) : view === 'favorites' ? (
             favoriteEntries.length > 0 ? (
-              <RecipeGrid entries={favoriteEntries} />
+              <RecipeList entries={favoriteEntries} />
             ) : (
               <EmptyPanel>Noch keine Favoriten gespeichert.</EmptyPanel>
             )
           ) : view === 'household' ? (
             householdEntries.length > 0 ? (
-              <RecipeGrid entries={householdEntries} />
+              <RecipeList entries={householdEntries} />
             ) : (
               <EmptyPanel>Keine Rezepte für diesen Filter.</EmptyPanel>
+            )
+          ) : view === 'templates' ? (
+            templateEntries.length > 0 ? (
+              <RecipeList entries={templateEntries} />
+            ) : (
+              <EmptyPanel>Keine Vorlagen für diesen Filter.</EmptyPanel>
             )
           ) : featured || householdEntries.length > 0 || templateEntries.length > 0 ? (
             <>
@@ -310,7 +322,7 @@ export function RecipesScreen() {
                   onActionPress={() => setView('household')}
                 />
                 {householdEntries.length > 0 ? (
-                  <RecipeGrid entries={householdEntries.slice(0, 4)} />
+                  <RecipeList entries={householdEntries.slice(0, 4)} />
                 ) : (
                   <EmptyPanel>Noch keine Rezepte im Haushalt.</EmptyPanel>
                 )}
@@ -318,15 +330,23 @@ export function RecipesScreen() {
 
               {topEntries.length > 0 ? (
                 <View style={styles.section}>
-                  <SectionHeading title="Top Rezepte" />
-                  <RecipeGrid entries={topEntries} />
+                  <SectionHeading
+                    title="Top Rezepte"
+                    actionLabel="Alle Vorlagen ansehen"
+                    onActionPress={() => setView('templates')}
+                  />
+                  <RecipeList entries={topEntries} />
                 </View>
               ) : null}
 
               {newEntries.length > 0 ? (
                 <View style={styles.section}>
-                  <SectionHeading title="Neu von fam" />
-                  <RecipeGrid entries={newEntries} />
+                  <SectionHeading
+                    title="Neu von fam"
+                    actionLabel="Alle Vorlagen ansehen"
+                    onActionPress={() => setView('templates')}
+                  />
+                  <RecipeList entries={newEntries} />
                 </View>
               ) : null}
             </>
@@ -384,9 +404,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   grid: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    gap: 8,
+    gap: 10,
   },
   emptyPanel: {
     minHeight: 124,

@@ -9,11 +9,13 @@ import { GradientBackground } from '@/components/gradient-background';
 import { PageHeader } from '@/components/page-header';
 import { FontSize, ThemedText } from '@/components/themed-text';
 import { HeaderIconButton } from '@/components/ui/buttons';
+import { presentPaywallIfNeeded } from '@/features/premium/paywall';
+import { usePremium } from '@/features/premium/premium-provider';
 import { useTheme } from '@/hooks/use-theme';
 
 import { RecipeRatingSheet } from './components/recipe-rating-sheet';
 import { useRecipeStepImageUrl } from './recipe-step-image';
-import { type RecipeStep, useRecipeDetail } from './use-recipes';
+import { type RecipeDetail, type RecipeStep, useRecipeDetail } from './use-recipes';
 
 function BackGlyph() {
   return <ThemedText style={styles.backGlyph}>‹</ThemedText>;
@@ -96,10 +98,102 @@ function FinishAction({
   );
 }
 
+/**
+ * Kochmodus-Basis-Ansicht (#133, kostenlose Stufe): reiner Lese-Screen mit
+ * Zutatenliste, Basis-Rezepttext und nummerierten Schritten. Bewusst kein
+ * interaktiver Schritt-fuer-Schritt-Ablauf und kein Timer — das bleibt
+ * Premium (#134/#135), siehe `CookingModeScreen` und `BENEFITS` in
+ * `premium-screen.tsx`.
+ */
+function FreeCookingMode({ data }: { data: RecipeDetail }) {
+  const theme = useTheme();
+  const { recipe, items, steps, productsById } = data;
+  const ingredients = items.filter((item) => item.product_id !== null);
+  const [unlocking, setUnlocking] = useState(false);
+
+  async function unlockPremium() {
+    setUnlocking(true);
+    try {
+      await presentPaywallIfNeeded();
+    } finally {
+      setUnlocking(false);
+    }
+  }
+
+  return (
+    <View style={styles.root}>
+      <GradientBackground colors={['#FFD2B9', '#F8F4EF', '#EEE7F4']} />
+      <SafeAreaView style={styles.safeArea} edges={['top', 'left', 'right']}>
+        <PageHeader
+          title="Kochmodus"
+          leading={
+            <HeaderIconButton label="Kochmodus schließen" onPress={() => router.back()}>
+              <BackGlyph />
+            </HeaderIconButton>
+          }
+        />
+        <ScrollView contentContainerStyle={styles.freeContent} showsVerticalScrollIndicator={false}>
+          <ThemedText style={styles.stepTitle}>{recipe.title}</ThemedText>
+
+          {ingredients.length > 0 ? (
+            <View style={[styles.freeCard, { backgroundColor: `${theme.backgroundElement}D6` }]}>
+              {ingredients.map((item) => {
+                const product = item.product_id ? productsById.get(item.product_id) : undefined;
+                return (
+                  <View key={item.id} style={styles.freeIngredientRow}>
+                    <ThemedText>{product?.name ?? 'Zutat'}</ThemedText>
+                    <ThemedText themeColor="textSecondary">
+                      {item.quantity ?? item.grams} {item.quantity ? item.unit : 'g'}
+                    </ThemedText>
+                  </View>
+                );
+              })}
+            </View>
+          ) : null}
+
+          {recipe.instructions ? (
+            <ThemedText themeColor="textSecondary" style={styles.stepDescription}>
+              {recipe.instructions}
+            </ThemedText>
+          ) : null}
+
+          {steps.length > 0 ? (
+            <View style={styles.freeStepsList}>
+              {steps.map((step) => (
+                <View key={step.id} style={styles.freeStepRow}>
+                  <ThemedText themeColor="accent" style={styles.freeStepNumber}>
+                    {step.position + 1}.
+                  </ThemedText>
+                  <ThemedText style={styles.freeStepText}>{step.text}</ThemedText>
+                </View>
+              ))}
+            </View>
+          ) : null}
+
+          <Pressable
+            onPress={unlockPremium}
+            role="button"
+            style={({ pressed }) => [
+              styles.nextButton,
+              styles.fallbackButton,
+              { backgroundColor: theme.accent },
+              pressed && styles.pressed,
+            ]}>
+            <ThemedText style={styles.nextButtonText}>
+              {unlocking ? 'Öffnet…' : 'Geführten Kochmodus freischalten'}
+            </ThemedText>
+          </Pressable>
+        </ScrollView>
+      </SafeAreaView>
+    </View>
+  );
+}
+
 export function CookingModeScreen() {
   const theme = useTheme();
   const { id } = useLocalSearchParams<{ id: string }>();
   const { data, isLoading } = useRecipeDetail(id);
+  const { isPremium } = usePremium();
   const [stepIndex, setStepIndex] = useState(0);
   const [finished, setFinished] = useState(false);
   const [ratingOpen, setRatingOpen] = useState(false);
@@ -149,6 +243,10 @@ export function CookingModeScreen() {
         </SafeAreaView>
       </View>
     );
+  }
+
+  if (!isPremium) {
+    return <FreeCookingMode data={data} />;
   }
 
   const { recipe, steps } = data;
@@ -432,6 +530,13 @@ const styles = StyleSheet.create({
   pressed: { opacity: 0.75, transform: [{ scale: 0.99 }] },
   fallbackContent: { flexGrow: 1, paddingHorizontal: 16, paddingBottom: 16 },
   fallbackButton: { flex: 0, marginTop: 'auto' },
+  freeContent: { flexGrow: 1, paddingHorizontal: 16, paddingBottom: 16, gap: 14 },
+  freeCard: { borderRadius: 17, borderCurve: 'continuous', padding: 13, gap: 8 },
+  freeIngredientRow: { flexDirection: 'row', justifyContent: 'space-between' },
+  freeStepsList: { gap: 12 },
+  freeStepRow: { flexDirection: 'row', gap: 8 },
+  freeStepNumber: { ...FontSize[11], fontWeight: 700 },
+  freeStepText: { flex: 1, ...FontSize[11], lineHeight: 18, fontWeight: 500 },
   finishContent: {
     flexGrow: 1,
     alignItems: 'center',

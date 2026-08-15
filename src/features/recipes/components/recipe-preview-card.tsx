@@ -4,7 +4,6 @@ import { Pressable, StyleSheet, View } from 'react-native';
 import Svg, { Circle, Defs, LinearGradient, Rect, Stop } from 'react-native-svg';
 
 import { FontSize, ThemedText } from '@/components/themed-text';
-import { useTheme } from '@/hooks/use-theme';
 
 import { useRecipeCoverUrl } from '../recipe-cover';
 
@@ -77,6 +76,32 @@ export function RecipeArtwork({
   );
 }
 
+/**
+ * Weicher Verlauf von transparent (oben) zu dunkel (unten) fuer Foto-Karten
+ * mit hellem Text-Overlay. Ueber `react-native-svg` statt einer flachen
+ * `rgba(...)`-View, weil eine Volltonflaeche eine harte Kante zum Bild
+ * erzeugt statt sanft auszublenden — dieselbe Technik wie `GradientBackground`.
+ */
+function FadeShade({ height }: { height: `${number}%` }) {
+  const rawId = useId();
+  const gradientId = `card-shade-${rawId.replace(/[^a-zA-Z0-9_-]/g, '')}`;
+
+  return (
+    <Svg
+      style={{ position: 'absolute', left: 0, right: 0, bottom: 0 }}
+      width="100%"
+      height={height}>
+      <Defs>
+        <LinearGradient id={gradientId} x1="0%" y1="0%" x2="0%" y2="100%">
+          <Stop offset="0%" stopColor="#140e10" stopOpacity={0} />
+          <Stop offset="100%" stopColor="#140e10" stopOpacity={0.78} />
+        </LinearGradient>
+      </Defs>
+      <Rect width="100%" height="100%" fill={`url(#${gradientId})`} />
+    </Svg>
+  );
+}
+
 function formatMeta({
   cookTimeMinutes,
   difficultyLabel,
@@ -89,7 +114,14 @@ function formatMeta({
   return { left, right };
 }
 
-/** Die gemeinsame Rasterkarte der Rezept-, Favoriten- und Entdecken-Ansichten. */
+/**
+ * Die gemeinsame Karte der Rezept-, Favoriten- und Entdecken-Ansichten.
+ *
+ * Volle Breite statt Zwei-Spalten-Raster, Foto randlos mit Namen/Meta als
+ * heller Text auf einem Verlauf am unteren Bildrand (Mockup-Variante B, vom
+ * Maintainer ausgewaehlt) — dieselbe Bildsprache wie `RecipeHeroCard`, nur
+ * kompakter fuer Listen statt fuer den einzelnen Trending-Einstieg.
+ */
 export function RecipePreviewCard({
   title,
   coverImagePath,
@@ -99,7 +131,6 @@ export function RecipePreviewCard({
   onPress,
   paletteIndex,
 }: RecipePreviewCardProps) {
-  const theme = useTheme();
   const { data: coverUrl } = useRecipeCoverUrl(coverImagePath);
   const meta = formatMeta({ cookTimeMinutes, difficultyLabel, servings });
 
@@ -108,32 +139,20 @@ export function RecipePreviewCard({
       onPress={onPress}
       role="button"
       aria-label={title}
-      style={({ pressed }) => [
-        styles.card,
-        { backgroundColor: `${theme.backgroundElement}E8` },
-        pressed && styles.cardPressed,
-      ]}>
-      <View style={styles.artwork}>
-        <RecipeArtwork
-          title={title}
-          coverUrl={coverUrl}
-          paletteIndex={paletteIndex ?? title.length}
-        />
-      </View>
-      <View style={styles.body}>
-        <ThemedText style={styles.title} numberOfLines={1}>
+      style={({ pressed }) => [styles.card, pressed && styles.cardPressed]}>
+      <RecipeArtwork
+        title={title}
+        coverUrl={coverUrl}
+        paletteIndex={paletteIndex ?? title.length}
+      />
+      <FadeShade height="62%" />
+      <View style={styles.cardCopy}>
+        <ThemedText style={styles.cardTitle} numberOfLines={1}>
           {title}
         </ThemedText>
-        <View style={styles.metaRow}>
-          <ThemedText themeColor="textSecondary" style={styles.meta} numberOfLines={1}>
-            {meta.left || 'Rezept'}
-          </ThemedText>
-          {meta.right ? (
-            <ThemedText themeColor="textSecondary" style={styles.meta} numberOfLines={1}>
-              {meta.right}
-            </ThemedText>
-          ) : null}
-        </View>
+        <ThemedText style={styles.cardMeta} numberOfLines={1}>
+          {[meta.left, meta.right].filter(Boolean).join(' · ') || 'Rezept'}
+        </ThemedText>
       </View>
     </Pressable>
   );
@@ -184,47 +203,35 @@ export function RecipeHeroCard({
 
 const styles = StyleSheet.create({
   card: {
-    flex: 1,
-    minWidth: '46%',
-    maxWidth: '49%',
-    height: 132,
-    borderRadius: 18,
+    width: '100%',
+    height: 200,
+    borderRadius: 22,
     borderCurve: 'continuous',
-    padding: 6,
     overflow: 'hidden',
   },
   cardPressed: {
     opacity: 0.82,
     transform: [{ scale: 0.985 }],
   },
-  artwork: {
-    height: 84,
-    overflow: 'hidden',
-    borderRadius: 13,
-    borderCurve: 'continuous',
+  cardCopy: {
+    position: 'absolute',
+    left: 16,
+    right: 16,
+    bottom: 14,
   },
-  body: {
-    flex: 1,
-    justifyContent: 'center',
-    paddingHorizontal: 5,
-    paddingTop: 4,
+  cardTitle: {
+    color: '#FFFFFF',
+    ...FontSize[19],
+    lineHeight: 22,
+    fontWeight: 700,
+    letterSpacing: -0.3,
   },
-  title: {
+  cardMeta: {
+    color: 'rgba(255,255,255,0.86)',
     ...FontSize[11],
     lineHeight: 14,
-    fontWeight: 700,
-  },
-  metaRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    gap: 4,
-  },
-  meta: {
-    flexShrink: 1,
-    ...FontSize[8],
-    lineHeight: 10,
-    fontWeight: 500,
+    fontWeight: 600,
+    marginTop: 3,
   },
   hero: {
     height: 170,

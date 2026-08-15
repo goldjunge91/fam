@@ -117,12 +117,12 @@ it('öffnet beim kurzen Tap das Aktions-Sheet und ändert dort die Menge', async
   const user = userEvent.setup();
 
   await renderScreen();
-  await user.press(screen.getByRole('button', { name: 'Milch, 2 l' }));
+  await user.press(screen.getByRole('button', { name: 'Milch, 2 L' }));
 
   expect(screen.getByRole('button', { name: 'Bearbeiten' })).toBeOnTheScreen();
   expect(screen.getByRole('button', { name: 'Produktinformationen' })).toBeOnTheScreen();
 
-  await user.press(screen.getByRole('button', { name: 'Menge erhöhen' }));
+  await user.press(screen.getByRole('button', { name: 'Aktuelle Menge erhöhen' }));
   expect(mockUpdateQtyMutate).toHaveBeenCalledWith({
     id: 'item-1',
     household_id: 'hh-1',
@@ -135,7 +135,7 @@ it('fragt vor dem Entfernen aus dem Aktions-Sheet nach Bestaetigung', async () =
   const user = userEvent.setup();
 
   await renderScreen();
-  await user.press(screen.getByRole('button', { name: 'Milch, 2 l' }));
+  await user.press(screen.getByRole('button', { name: 'Milch, 2 L' }));
   await user.press(screen.getByRole('button', { name: 'Entfernen' }));
 
   expect(alertSpy).toHaveBeenCalledWith(
@@ -179,7 +179,7 @@ it('öffnet Produktinformationen per Long Press und über die Info-Aktion', asyn
   const user = userEvent.setup();
 
   await renderScreen();
-  const row = screen.getByRole('button', { name: 'Milch, 2 l' });
+  const row = screen.getByRole('button', { name: 'Milch, 2 L' });
 
   await user.longPress(row);
   expect(screen.getByText('Produktdaten von Open Food Facts')).toBeOnTheScreen();
@@ -194,7 +194,7 @@ it('bearbeitet einen Vorratsartikel im eigenen Bottom Sheet', async () => {
   const user = userEvent.setup();
 
   await renderScreen();
-  await user.press(screen.getByRole('button', { name: 'Milch, 2 l' }));
+  await user.press(screen.getByRole('button', { name: 'Milch, 2 L' }));
   await user.press(screen.getByRole('button', { name: 'Bearbeiten' }));
 
   expect(screen.getByText('Artikel bearbeiten')).toBeOnTheScreen();
@@ -223,7 +223,7 @@ it('zeigt die grosszügige Zusammenfassung über der kompakten Arbeitsliste', as
   expect(screen.getByLabelText('1 Artikel im Vorrat, 0 kritisch, 0 bald fällig')).toBeTruthy();
   expect(screen.getByText('Dein Vorrat heute')).toBeTruthy();
   expect(screen.getByText('Alles gut im Blick')).toBeTruthy();
-  expect(screen.getByRole('button', { name: 'Milch, 2 l' })).toBeTruthy();
+  expect(screen.getByRole('button', { name: 'Milch, 2 L' })).toBeTruthy();
 });
 
 describe('Sortier-Toggle MHD/Name (#71)', () => {
@@ -263,12 +263,12 @@ describe('Sortier-Toggle MHD/Name (#71)', () => {
   });
 
   function itemOrder() {
-    return screen.getAllByLabelText(/piece$/).map((el) => el.props.accessibilityLabel as string);
+    return screen.getAllByLabelText(/Stück$/).map((el) => el.props.accessibilityLabel as string);
   }
 
   it('sortiert standardmaessig nach MHD (bald ablaufend zuerst)', async () => {
     await renderScreen();
-    expect(itemOrder()).toEqual(['Zwiebel, 1 piece', 'Apfel, 1 piece']);
+    expect(itemOrder()).toEqual(['Zwiebel, 1 Stück', 'Apfel, 1 Stück']);
   });
 
   it('sortiert nach Name, wenn der Name-Toggle gewaehlt wird', async () => {
@@ -279,7 +279,7 @@ describe('Sortier-Toggle MHD/Name (#71)', () => {
         name: 'Sortierung ändern, aktuell nach Haltbarkeit',
       }),
     );
-    expect(itemOrder()).toEqual(['Apfel, 1 piece', 'Zwiebel, 1 piece']);
+    expect(itemOrder()).toEqual(['Apfel, 1 Stück', 'Zwiebel, 1 Stück']);
   });
 });
 

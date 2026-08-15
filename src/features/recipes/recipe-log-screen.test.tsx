@@ -13,6 +13,7 @@ jest.mock('expo-router', () => ({
 
 jest.mock('./use-recipes', () => ({
   useRecipeDetail: () => ({ data: mockDetail, isLoading: false }),
+  useUpdateComponentMutation: () => ({ mutateAsync: jest.fn(), isPending: false }),
 }));
 
 function makeDetail(): RecipeDetail {
@@ -134,7 +135,7 @@ describe('RecipeLogScreen', () => {
     const user = userEvent.setup();
     await render(<RecipeLogScreen />);
 
-    await user.press(screen.getByText('Abendessen'));
+    await user.press(screen.getByText('Abend'));
     await user.press(screen.getByRole('button', { name: 'Ins Tagebuch übernehmen' }));
 
     expect(router.push).toHaveBeenCalledWith({
