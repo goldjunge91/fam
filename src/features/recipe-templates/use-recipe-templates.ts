@@ -330,7 +330,9 @@ export function useRecipeTemplateDetail(templateId: string | undefined) {
  * Rezepts an den ersten Schritt gehaengt statt an gar keinen — nicht
  * schrittgenau, aber sichtbar.
  *
- * Kein Cover-Bild-Kopiervorgang (Templates haben in v1 kein Bild).
+ * Das Cover wird nicht dupliziert: Template und Haushaltsrezept referenzieren
+ * denselben global lesbaren Storage-Pfad, bis der Nutzer ein eigenes Cover
+ * auswaehlt.
  */
 export function useApplyRecipeTemplateMutation() {
   const queryClient = useQueryClient();
@@ -352,6 +354,7 @@ export function useApplyRecipeTemplateMutation() {
         household_id,
         title: template.title,
         instructions: template.instructions,
+        cover_image_path: template.cover_image_path,
         cook_time_minutes: template.cook_time_minutes,
         difficulty: template.difficulty,
         dish_types: template.dish_types,

@@ -24,11 +24,8 @@ create table if not exists public.recipe_templates (
   title text not null check (length(trim(title)) between 1 and 200),
   instructions text,
 
-  -- Slug eines gebuendelten App-Assets aus assets/rezepte/<slug>.jpg, kein
-  -- Supabase-Storage-Pfad (siehe src/features/recipe-templates/template-cover-images.ts).
-  -- Vorlagen sind global und admin-kuratiert, daher passt ein gebuendeltes
-  -- Asset besser als der private, haushaltsscoped recipe-covers-Bucket, der
-  -- fuer recipes.cover_image_path verwendet wird.
+  -- Kuratierte Cover verwenden `templates/<template_id>.jpg` im privaten
+  -- Storage-Bucket `recipe-covers` (siehe 12_recipe_storage.sql).
   cover_image_path text,
   cook_time_minutes integer check (cook_time_minutes > 0),
   difficulty text check (difficulty in ('easy', 'medium', 'hard')),

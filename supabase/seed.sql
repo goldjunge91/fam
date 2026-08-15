@@ -941,3 +941,7 @@ values
   ('d21e7ca5-b05b-53a6-87d9-52ee89552907', 'c8f0b3c2-c277-55ff-9d3c-04eda747a0a4', 3, 'Mit Sojasauce ablöschen, mit Reis servieren.')
 on conflict (id) do nothing;
 
+-- Kuratierte Cover liegen unter der stabilen Template-ID. Die Upload-Quelle
+-- sind die gleichnamigen Rezeptbilder in `assets/rezepte`.
+update public.recipe_templates
+set cover_image_path = format('templates/%s.jpg', id);

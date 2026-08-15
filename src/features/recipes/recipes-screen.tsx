@@ -2,7 +2,6 @@ import { router } from 'expo-router';
 import { useMemo, useState } from 'react';
 import {
   ActivityIndicator,
-  type ImageSourcePropType,
   Pressable,
   ScrollView,
   StyleSheet,
@@ -18,7 +17,6 @@ import { FontSize, ThemedText } from '@/components/themed-text';
 import { HeaderIconButton, MenuButton } from '@/components/ui/buttons';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { useNavigationChrome } from '@/features/navigation/navigation-chrome-provider';
-import { getTemplateCoverImage } from '@/features/recipe-templates/template-cover-images';
 import {
   CALORIE_BUCKETS,
   isInCalorieBucket,
@@ -55,7 +53,6 @@ type RecipeEntry = {
   kind: 'recipe' | 'template';
   title: string;
   coverImagePath: string | null;
-  coverImageAsset: ImageSourcePropType | null;
   cookTimeMinutes: number | null;
   difficultyLabel: string | null;
   servings: number;
@@ -69,7 +66,6 @@ function recipeEntry(recipe: RecipeListItem): RecipeEntry {
     kind: 'recipe',
     title: recipe.title,
     coverImagePath: recipe.cover_image_path,
-    coverImageAsset: null,
     cookTimeMinutes: recipe.cook_time_minutes,
     difficultyLabel: recipe.difficulty ? DIFFICULTY_LABELS[recipe.difficulty] : null,
     servings: recipe.default_servings,
@@ -83,10 +79,7 @@ function templateEntry(template: RecipeTemplateWithNutrition): RecipeEntry {
     id: template.id,
     kind: 'template',
     title: template.title,
-    // cover_image_path ist bei Vorlagen ein gebuendeltes Asset, kein
-    // Storage-Pfad — deshalb hier nicht durchreichen, siehe coverImageAsset.
-    coverImagePath: null,
-    coverImageAsset: getTemplateCoverImage(template.cover_image_path),
+    coverImagePath: template.cover_image_path,
     cookTimeMinutes: template.cook_time_minutes,
     difficultyLabel: template.difficulty ? DIFFICULTY_LABELS[template.difficulty] : null,
     servings: template.default_servings,
@@ -137,7 +130,6 @@ function RecipeList({ entries }: { entries: RecipeEntry[] }) {
           key={entry.key}
           title={entry.title}
           coverImagePath={entry.coverImagePath}
-          coverImageAsset={entry.coverImageAsset}
           cookTimeMinutes={entry.cookTimeMinutes}
           difficultyLabel={entry.difficultyLabel}
           servings={entry.servings}
@@ -163,7 +155,6 @@ function MealCarousel({ title, entries }: { title: string; entries: RecipeEntry[
             key={entry.key}
             title={entry.title}
             coverImagePath={entry.coverImagePath}
-            coverImageAsset={entry.coverImageAsset}
             cookTimeMinutes={entry.cookTimeMinutes}
             difficultyLabel={entry.difficultyLabel}
             servings={entry.servings}
@@ -416,7 +407,6 @@ export function RecipesScreen() {
                   <RecipeHeroCard
                     title={featured.title}
                     coverImagePath={featured.coverImagePath}
-                    coverImageAsset={featured.coverImageAsset}
                     cookTimeMinutes={featured.cookTimeMinutes}
                     difficultyLabel={featured.difficultyLabel}
                     servings={featured.servings}

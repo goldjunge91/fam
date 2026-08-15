@@ -1,6 +1,5 @@
 import { Image } from 'expo-image';
 import { useId } from 'react';
-import type { ImageSourcePropType } from 'react-native';
 import { Pressable, StyleSheet, View } from 'react-native';
 import Svg, { Circle, Defs, LinearGradient, Rect, Stop } from 'react-native-svg';
 
@@ -11,13 +10,6 @@ import { useRecipeCoverUrl } from '../recipe-cover';
 type RecipePreview = {
   title: string;
   coverImagePath?: string | null;
-  /**
-   * Gebuendeltes Asset (z. B. aus `template-cover-images.ts`) statt eines
-   * Supabase-Storage-Pfads — nimmt Vorrang vor `coverImagePath`, wenn gesetzt.
-   * Fuer Vorlagen-Karten, deren Bilder App-seitig mitgeliefert werden statt
-   * ueber den privaten `recipe-covers`-Bucket signiert zu werden.
-   */
-  coverImageAsset?: ImageSourcePropType | null;
   cookTimeMinutes?: number | null;
   difficultyLabel?: string | null;
   servings?: number | null;
@@ -42,20 +34,19 @@ const PALETTES = [
 /** Bild-Kachel mit Farbverlauf-Fallback ohne Cover — auch fuer den Drag-Tray des Essensplans. */
 export function RecipeArtwork({
   coverUrl,
-  coverSource,
+  coverPath,
   title,
   paletteIndex = 0,
 }: {
   coverUrl?: string | null;
-  /** Gebuendeltes Asset, nimmt Vorrang vor `coverUrl` — siehe `RecipePreview.coverImageAsset`. */
-  coverSource?: ImageSourcePropType | null;
+  coverPath?: string | null;
   title: string;
   paletteIndex?: number;
 }) {
   const rawId = useId();
   const gradientId = `recipe-art-${rawId.replace(/[^a-zA-Z0-9_-]/g, '')}`;
   const palette = PALETTES[Math.abs(paletteIndex) % PALETTES.length];
-  const source = coverSource ?? (coverUrl ? { uri: coverUrl } : null);
+  const source = coverUrl ? { uri: coverUrl } : null;
 
   if (source) {
     return (
@@ -65,6 +56,27 @@ export function RecipeArtwork({
         transition={180}
         style={StyleSheet.absoluteFill}
         accessibilityLabel={`Bild von ${title}`}
+        onLoad={({ cacheType, source: loadedSource }) => {
+          if (__DEV__) {
+            console.log('[RecipeCover] image:success', {
+              title,
+              path: coverPath ?? null,
+              cacheType,
+              width: loadedSource.width,
+              height: loadedSource.height,
+              mediaType: loadedSource.mediaType,
+            });
+          }
+        }}
+        onError={({ error }) => {
+          if (__DEV__) {
+            console.log('[RecipeCover] image:error', {
+              title,
+              path: coverPath ?? null,
+              message: error,
+            });
+          }
+        }}
       />
     );
   }
@@ -140,7 +152,6 @@ function formatMeta({
 export function RecipePreviewCard({
   title,
   coverImagePath,
-  coverImageAsset,
   cookTimeMinutes,
   difficultyLabel,
   servings,
@@ -149,7 +160,7 @@ export function RecipePreviewCard({
   width,
   height,
 }: RecipePreviewCardProps) {
-  const { data: coverUrl } = useRecipeCoverUrl(coverImageAsset ? null : coverImagePath);
+  const { data: coverUrl } = useRecipeCoverUrl(coverImagePath);
   const meta = formatMeta({ cookTimeMinutes, difficultyLabel, servings });
 
   return (
@@ -166,7 +177,7 @@ export function RecipePreviewCard({
       <RecipeArtwork
         title={title}
         coverUrl={coverUrl}
-        coverSource={coverImageAsset}
+        coverPath={coverImagePath}
         paletteIndex={paletteIndex ?? title.length}
       />
       <FadeShade height="62%" />
@@ -190,7 +201,6 @@ type RecipeHeroCardProps = RecipePreviewCardProps & {
 export function RecipeHeroCard({
   title,
   coverImagePath,
-  coverImageAsset,
   cookTimeMinutes,
   difficultyLabel,
   servings,
@@ -198,7 +208,7 @@ export function RecipeHeroCard({
   paletteIndex,
   eyebrow = 'Community',
 }: RecipeHeroCardProps) {
-  const { data: coverUrl } = useRecipeCoverUrl(coverImageAsset ? null : coverImagePath);
+  const { data: coverUrl } = useRecipeCoverUrl(coverImagePath);
   const meta = formatMeta({ cookTimeMinutes, difficultyLabel, servings });
 
   return (
@@ -210,7 +220,7 @@ export function RecipeHeroCard({
       <RecipeArtwork
         title={title}
         coverUrl={coverUrl}
-        coverSource={coverImageAsset}
+        coverPath={coverImagePath}
         paletteIndex={paletteIndex ?? title.length}
       />
       <View style={styles.heroShade} />
