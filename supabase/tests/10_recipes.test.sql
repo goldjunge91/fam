@@ -218,15 +218,14 @@ select set_eq(
   'RLS-Policies fuer den recipe-covers-Bucket sind vorhanden (siehe 12_recipe_storage.sql)'
 );
 
-select like(
+select ok(
   (
     select qual
     from pg_policies
     where schemaname = 'storage'
       and tablename = 'objects'
       and policyname = 'recipe_covers_select'
-  ),
-  '%templates%',
+  ) like '%templates%',
   'Template-Cover sind fuer authentifizierte Nutzer lesbar'
 );
 
