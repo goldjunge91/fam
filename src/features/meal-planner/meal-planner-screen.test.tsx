@@ -117,7 +117,12 @@ describe('MealPlannerScreen', () => {
     await renderScreen();
 
     expect(screen.getByText('Essensplan')).toBeOnTheScreen();
-    expect(screen.getByText('Spaghetti Bolognese')).toBeOnTheScreen();
+    // `getByText` waere hier mehrdeutig: das Zieh-Tray listet denselben
+    // Rezeptnamen zusaetzlich als Vorschlag. Der Kalendereintrag selbst hat
+    // ein eigenes `aria-label`, darueber ist er eindeutig zu finden.
+    expect(
+      screen.getByRole('button', { name: 'Spaghetti Bolognese, 4 Portionen' }),
+    ).toBeOnTheScreen();
   });
 
   it('zeigt die Ansichts-Umschalter Tag/3 Tage/Woche, Woche als Standard', async () => {
