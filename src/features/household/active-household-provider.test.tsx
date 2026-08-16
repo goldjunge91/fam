@@ -76,7 +76,13 @@ describe('ActiveHouseholdProvider bei Nutzerwechsel', () => {
   beforeEach(() => {
     mockCurrentUserId = 'user-a';
     queryClient = new QueryClient({
-      defaultOptions: { queries: { retry: false, staleTime: 30_000 } },
+      defaultOptions: {
+        queries: {
+          retry: false,
+          staleTime: 30_000,
+          gcTime: Number.POSITIVE_INFINITY,
+        },
+      },
     });
   });
 

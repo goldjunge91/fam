@@ -5,6 +5,7 @@ import { FrequentProductsQuickSelect } from '@/features/inventory/frequent-produ
 import type { ProductUsageRow } from '@/lib/db/product-usage';
 
 const mockGetFrequentProductUsage = jest.fn<Promise<ProductUsageRow[]>, unknown[]>();
+let activeTestTrees: (() => Promise<void>)[] = [];
 
 jest.mock('@/lib/db/client', () => ({
   getDatabase: async () => ({}),
@@ -41,11 +42,22 @@ async function renderWithClient(ui: React.ReactElement) {
     // dadurch den Jest-Prozess offen. Im isolierten Test-Client ist GC unnoetig.
     defaultOptions: { queries: { retry: false, gcTime: Number.POSITIVE_INFINITY } },
   });
-  return render(<QueryClientProvider client={queryClient}>{ui}</QueryClientProvider>);
+  const result = await render(<QueryClientProvider client={queryClient}>{ui}</QueryClientProvider>);
+  activeTestTrees.push(async () => {
+    await result.unmount();
+    queryClient.clear();
+  });
 }
 
 beforeEach(() => {
   mockGetFrequentProductUsage.mockReset();
+});
+
+afterEach(async () => {
+  for (const dispose of activeTestTrees) {
+    await dispose();
+  }
+  activeTestTrees = [];
 });
 
 test('rendert nichts, solange kein Nutzer bekannt ist', async () => {
