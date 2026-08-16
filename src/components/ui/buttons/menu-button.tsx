@@ -25,8 +25,8 @@ export function MenuButton({ onPress }: MenuButtonProps) {
 
 const styles = StyleSheet.create({
   button: {
-    width: 58,
-    height: 58,
+    width: 50,
+    height: 50,
     borderRadius: Radius.sheet,
     borderCurve: 'continuous',
     alignItems: 'center',
