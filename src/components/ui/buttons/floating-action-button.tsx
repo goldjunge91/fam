@@ -36,6 +36,6 @@ const styles = StyleSheet.create({
     borderCurve: 'continuous',
     alignItems: 'center',
     justifyContent: 'center',
-    transform: [{ translateY: -27 }],
+    transform: [{ translateY: -20 }],
   },
 });

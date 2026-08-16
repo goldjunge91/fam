@@ -222,7 +222,7 @@ export function DashboardScreen() {
                 boxShadow: `0 8px 20px ${withAlpha(theme.shadowCard, 0.08)}`,
               },
             ]}>
-            <View style={[styles.widgetBadge, { backgroundColor: `${theme.warning}33` }]}>
+            <View style={[styles.widgetBadge, { backgroundColor: withAlpha(theme.warning, 0.2) }]}>
               <ThemedText type="smallBold" themeColor="warning">
                 {expiringCount}
               </ThemedText>

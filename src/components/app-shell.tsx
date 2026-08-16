@@ -1,9 +1,9 @@
 import { Stack } from 'expo-router';
 import { StyleSheet, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-
 import { PlusIcon } from '@/components/fam-icon';
 import { FloatingActionButton } from '@/components/ui/buttons';
+import { Layout } from '@/constants/theme';
 import {
   NavigationChromeProvider,
   useNavigationChrome,
@@ -12,7 +12,6 @@ import { NavigationDrawer } from '@/features/navigation/navigation-drawer';
 import { ProfileSheet } from '@/features/navigation/profile-sheet';
 import { QuickAddSheet } from '@/features/navigation/quick-add-sheet';
 import { useTheme } from '@/hooks/use-theme';
-
 /**
  * Ersetzt die frueheren `NativeTabs` (#150, Figma "00 · Screens — Übersicht &
  * Navigation"): Stack-Navigation ohne eigenes Chrome, Hamburger-Drawer +
@@ -48,7 +47,7 @@ function GlobalAddButton() {
       style={[
         styles.wrap,
         {
-          height: 88 + insets.bottom,
+          height: Layout.floatingActionAreaHeight + insets.bottom,
           paddingBottom: insets.bottom,
         },
       ]}>

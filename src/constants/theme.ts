@@ -68,6 +68,10 @@ export const Colors = {
 
 export type ThemeColor = keyof typeof Colors.light & keyof typeof Colors.dark;
 
+export function normalizeThemeMode(scheme: string | null | undefined): keyof typeof Colors {
+  return scheme === 'dark' ? 'dark' : 'light';
+}
+
 export type GradientSpec = {
   readonly colors: readonly string[];
   readonly locations?: readonly number[];
@@ -135,6 +139,11 @@ export const Spacing = {
   four: 24,
   five: 32,
   six: 64,
+} as const;
+
+export const Layout = {
+  floatingActionAreaHeight: Spacing.four + Spacing.six, // 88
+  floatingActionClearance: Spacing.six,
 } as const;
 
 /** Feste Höhen für wiederverwendbare Controls aus dem fam Design-System. */

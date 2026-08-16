@@ -83,10 +83,6 @@ export function RecipeLogScreen() {
     [data, gramsMap],
   );
 
-  // function updateGrams(componentIsubmitText: { color: '#FFFFFF',   fontWeight: 700 }lace(',', '.'));
-  //   if (Number.isNaN(value) || value < 0) return;
-  //   setGramsById((previous) => ({ ...(previous ?? {}), [componentId]: value }));
-  // }
   function updateGrams(componentId: string, raw: string) {
     const value = raw.trim() === '' ? 0 : Number(raw.replace(',', '.'));
     if (Number.isNaN(value) || value < 0) return;

@@ -41,7 +41,6 @@ export function RecipeShoppingSheet({ visible, detail, servings, onClose }: Prop
     setSelected(new Set(missing.map((item) => item.productId)));
   }, [missing]);
 
-  // async function unlockPremiumbuttonText: { color: '#FFFFFF',   fontWeight: 700 }fNeeded();
   async function unlockPremium() {
     setUnlocking(true);
     try {

@@ -1,7 +1,6 @@
 import type { ReactNode } from 'react';
 import { ScrollView, StyleSheet, View } from 'react-native';
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
-
 import { GradientBackground } from '@/components/gradient-background';
 import { FontSize, ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
@@ -12,7 +11,7 @@ import {
   MenuButton,
   ProfileButton,
 } from '@/components/ui/buttons';
-import { type GradientSpec, MaxContentWidth, Spacing } from '@/constants/theme';
+import { type GradientSpec, Layout, MaxContentWidth, Spacing } from '@/constants/theme';
 
 export type { BackTarget } from '@/components/ui/buttons';
 
@@ -92,7 +91,8 @@ export function Screen({
 
   // Nur Hub-Screens (chrome gesetzt) haben den schwebenden Plus-Button unten
   // im Weg — alle anderen Screens brauchen nur noch die normale Safe Area.
-  const bottomPadding = insets.bottom + Spacing.four + (chrome ? Spacing.six : 0);
+  const bottomPadding =
+    insets.bottom + Spacing.four + (chrome ? Layout.floatingActionClearance : 0);
 
   return (
     <ThemedView style={styles.root}>

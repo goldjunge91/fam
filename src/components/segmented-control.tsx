@@ -88,7 +88,7 @@ export function SegmentedControl<T extends string>({
                   color: active
                     ? appearance === 'surface'
                       ? theme.text
-                      : '#FFFFFF'
+                      : theme.onAccent
                     : theme.textSecondary,
                 },
                 labelStyle,

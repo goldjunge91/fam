@@ -122,7 +122,7 @@ export function NavigationDrawer() {
                       ]}>
                       <View style={styles.navIcon}>
                         {route.icon === 'calendarDay' ? (
-                          <CalendarDayIcon size={35} color={isActive ? theme.accent : theme.text} />
+                          <CalendarDayIcon size={35} />
                         ) : (
                           <FamIcon
                             name={route.icon}

@@ -51,7 +51,7 @@ function currentDayOfMonth(): number {
  * wechseln"). Aktualisiert sich beim Ruecksprung aus dem Hintergrund und –
  * falls die App ueber Mitternacht hinweg offen bleibt – per Minutentakt.
  */
-export function CalendarDayIcon({ size = 35, color }: { size?: number; color?: string }) {
+export function CalendarDayIcon({ size = 35 }: { size?: number }) {
   const [day, setDay] = useState(currentDayOfMonth);
 
   useEffect(() => {
@@ -77,7 +77,6 @@ export function CalendarDayIcon({ size = 35, color }: { size?: number; color?: s
     <Image
       source={source}
       contentFit="contain"
-      tintColor={color}
       accessibilityLabel={`Essensplan, heute der ${day}.`}
       style={{ width: size, height: size }}
     />

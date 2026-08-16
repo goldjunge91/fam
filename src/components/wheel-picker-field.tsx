@@ -95,9 +95,7 @@ export function WheelPickerField({
           styles.field,
           { backgroundColor: theme.backgroundElement, borderColor: theme.border },
         ]}>
-        <ThemedText
-          type="bodyLarge"
-          style={[{ color: theme.text }, size === 'large' && styles.largeSelectedLabel]}>
+        <ThemedText style={[{ color: theme.text }, size === 'large' && styles.largeSelectedLabel]}>
           {selectedLabel}
         </ThemedText>
       </Pressable>

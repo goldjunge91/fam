@@ -20,7 +20,7 @@ export function FridgeTabBar({ activeTab, onTabChange, locations }: FridgeTabBar
   const activeLocation = options.find((location) => location.id === activeTab);
 
   function selectLocation(id: string) {
-    onTabChange(id);
+    if (id !== activeTab) onTabChange(id);
     setIsOpen(false);
   }
 

@@ -9,12 +9,13 @@ import { PageHeader } from '@/components/page-header';
 import { SegmentedControl } from '@/components/segmented-control';
 import { FontSize, ThemedText } from '@/components/themed-text';
 import { HeaderIconButton, MenuButton } from '@/components/ui/buttons';
-import { Gradients, Radius } from '@/constants/theme';
+import { Radius, withAlpha } from '@/constants/theme';
 import { useSession } from '@/features/auth/session-provider';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { useHouseholdMembers } from '@/features/household/api';
 import { useNavigationChrome } from '@/features/navigation/navigation-chrome-provider';
 import { useRecipes } from '@/features/recipes/use-recipes';
+import { useHubGradient } from '@/hooks/use-hub-gradient';
 import { useTheme } from '@/hooks/use-theme';
 import { type EntryFormInitial, EntryFormModal } from './components/entry-form-modal';
 import { MealPlannerVersionSwitcher } from './components/meal-planner-version-switcher';
@@ -86,6 +87,7 @@ type PendingCell = { date: string; slot: MealSlot };
  */
 export function MealPlannerScreen() {
   const theme = useTheme();
+  const hubGradient = useHubGradient();
   const { openDrawer } = useNavigationChrome();
   const { session } = useSession();
   const userId = session?.user.id;
@@ -233,7 +235,7 @@ export function MealPlannerScreen() {
 
   return (
     <View style={styles.root}>
-      <GradientBackground {...Gradients.hub.light} />
+      <GradientBackground {...hubGradient} />
       <SafeAreaView style={styles.safeArea} edges={['top', 'left', 'right']}>
         <PageHeader
           title="Essensplan"
@@ -300,7 +302,7 @@ export function MealPlannerScreen() {
                 onPress={handleReuseLastWeek}
                 style={({ pressed }) => [
                   styles.actionButton,
-                  { backgroundColor: `${theme.backgroundElement}C7` },
+                  { backgroundColor: withAlpha(theme.backgroundElement, 0.78) },
                   pressed && styles.pressed,
                 ]}>
                 <ThemedText themeColor="accent" style={styles.actionLabel}>
@@ -320,7 +322,7 @@ export function MealPlannerScreen() {
                 }}
                 style={({ pressed }) => [
                   styles.actionButton,
-                  { backgroundColor: `${theme.backgroundElement}C7` },
+                  { backgroundColor: withAlpha(theme.backgroundElement, 0.78) },
                   !plan && styles.disabled,
                   pressed && styles.pressed,
                 ]}>
