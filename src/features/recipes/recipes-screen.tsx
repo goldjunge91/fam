@@ -14,8 +14,9 @@ import { GradientBackground } from '@/components/gradient-background';
 import { PageHeader } from '@/components/page-header';
 import { SectionHeading } from '@/components/section-heading';
 import { FontSize, ThemedText } from '@/components/themed-text';
+import { ThemedView } from '@/components/themed-view';
 import { BackButton, HeaderIconButton, MenuButton } from '@/components/ui/buttons';
-import { Radius } from '@/constants/theme';
+import { Radius, Spacing } from '@/constants/theme';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { useNavigationChrome } from '@/features/navigation/navigation-chrome-provider';
 import {
@@ -166,14 +167,13 @@ function MealSection({ title, entries }: { title: string; entries: RecipeEntry[]
 }
 
 function EmptyPanel({ children }: { children: string }) {
-  const theme = useTheme();
   return (
-    <View style={[styles.emptyPanel, { backgroundColor: `${theme.backgroundElement}C7` }]}>
+    <ThemedView type="backgroundElement" style={styles.emptyPanel}>
       <ThemedText style={styles.emptyTitle}>{children}</ThemedText>
       <ThemedText type="caption" themeColor="textSecondary" style={styles.emptyCopy}>
         Über den Plus-Button kannst du jederzeit ein neues Rezept anlegen.
       </ThemedText>
-    </View>
+    </ThemedView>
   );
 }
 
@@ -297,7 +297,7 @@ export function RecipesScreen() {
             : 'Rezepte';
 
   return (
-    <View style={styles.root}>
+    <ThemedView type="background" style={styles.root}>
       <GradientBackground {...hubGradient} />
       <SafeAreaView style={styles.safeArea} edges={['top', 'left', 'right']}>
         <PageHeader
@@ -331,7 +331,7 @@ export function RecipesScreen() {
           keyboardShouldPersistTaps="handled"
           showsVerticalScrollIndicator={false}>
           {showSearch ? (
-            <View style={[styles.searchBar, { backgroundColor: `${theme.backgroundElement}D9` }]}>
+            <ThemedView type="backgroundElement" style={styles.searchBar}>
               <SearchIcon color={theme.textSecondary} />
               <TextInput
                 value={searchQuery}
@@ -343,7 +343,7 @@ export function RecipesScreen() {
                 autoFocus
                 style={[styles.searchInput, { color: theme.text }]}
               />
-            </View>
+            </ThemedView>
           ) : null}
 
           {showViewFilter ? (
@@ -541,7 +541,7 @@ export function RecipesScreen() {
           )}
         </ScrollView>
       </SafeAreaView>
-    </View>
+    </ThemedView>
   );
 }
 
@@ -560,12 +560,12 @@ const styles = StyleSheet.create({
   },
   content: {
     paddingHorizontal: 15,
-    paddingTop: 4,
+    paddingTop: Spacing.one,
     paddingBottom: 126,
   },
   modeToggle: {
     flexDirection: 'row',
-    gap: 8,
+    gap: Spacing.two,
     marginBottom: 18,
   },
   headerActions: {
@@ -587,7 +587,7 @@ const styles = StyleSheet.create({
   },
   recipeShortcuts: {
     flexDirection: 'row',
-    gap: 8,
+    gap: Spacing.two,
   },
   recipeShortcut: {
     flex: 1,
@@ -626,16 +626,16 @@ const styles = StyleSheet.create({
     marginTop: 42,
   },
   section: {
-    marginBottom: 20,
+    marginBottom: Spacing.four,
   },
   mealSection: {
-    marginBottom: 32,
+    marginBottom: Spacing.five + Spacing.five,
   },
   grid: {
-    gap: 10,
+    gap: Spacing.five,
   },
   mealCarouselContent: {
-    gap: 10,
+    gap: Spacing.four,
   },
   mealCarouselCard: {
     width: 260,
