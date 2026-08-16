@@ -240,7 +240,12 @@ describe('PendingAuthBanner (Apple Liquid UI)', () => {
       expect(signIn.mock.calls.length).toBe(4);
 
       jest.useRealTimers();
-    });
+      // Eigener Timeout ueber dem globalen Default (siehe jest.config.js):
+      // selbst 60s simulierte Zeit treibt bei vollem `bun run test` unter
+      // CPU-Last noch reale Sekunden nah an die 15s-Grenze (#... beobachtet
+      // 2026-08-17). Mehr Luft hier statt den globalen Default fuer alle
+      // Tests hochzusetzen.
+    }, 30_000);
   });
 
   describe('Bestätigung per 6-stelligem Code', () => {
