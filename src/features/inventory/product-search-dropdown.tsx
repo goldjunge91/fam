@@ -234,6 +234,11 @@ export const ProductSearchDropdown = forwardRef<
   // Markierung faengt der Such-Effekt unten diese Aenderung ab und oeffnet das
   // Dropdown eine Suche spaeter erneut — Auswahl wirkte dann wie 2x noetig.
   const justSelectedValueRef = useRef<string | null>(null);
+  // Beim Bearbeiten eines bestehenden Rezepts kommt `value` bereits mit dem
+  // gespeicherten Produktnamen gemountet (Hydration in recipe-create-screen.tsx).
+  // Ohne diese Markierung wuerde der Such-Effekt unten das auch als
+  // "getippt" werten und fuer jede Zutat gleichzeitig ihr Dropdown aufklappen.
+  const hasMountedRef = useRef(false);
 
   function cancelScheduledDismiss() {
     if (blurTimerRef.current === null) return;
@@ -253,6 +258,11 @@ export const ProductSearchDropdown = forwardRef<
   });
 
   useEffect(() => {
+    if (!hasMountedRef.current) {
+      hasMountedRef.current = true;
+      return;
+    }
+
     if (justSelectedValueRef.current !== null) {
       const wasSelection = justSelectedValueRef.current === value;
       justSelectedValueRef.current = null;

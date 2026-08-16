@@ -11,10 +11,12 @@ import { type OpenFoodFactsProduct, searchOpenFoodFacts } from '@/lib/open-food-
 // TextInput-Text. Der Test braucht deshalb einen echten kontrollierten Loop.
 function ControlledDropdown({
   onSelectProduct,
+  initialValue = '',
 }: {
   onSelectProduct: (p: OpenFoodFactsProduct) => void;
+  initialValue?: string;
 }) {
-  const [value, setValue] = useState('');
+  const [value, setValue] = useState(initialValue);
   return (
     <ProductSearchDropdown
       value={value}
@@ -177,6 +179,21 @@ it('ergaenzt Treffer aus dem angehaengten OFF-Dump auch offline, wenn lokale Tre
 
   expect(mockSearch).not.toHaveBeenCalled();
   onlineManager.setOnline(true);
+});
+
+it('oeffnet das Dropdown nicht, wenn mit bereits gesetztem Wert gemountet wird (Rezept bearbeiten)', async () => {
+  mockSearch.mockResolvedValue({
+    products: [{ barcode: '123', name: 'Hafermilch', quantity: 1, unit: 'l' }],
+  });
+
+  await render(<ControlledDropdown initialValue="Hafermilch" onSelectProduct={() => {}} />);
+
+  // Genug Zeit fuer den 300ms-Debounce der Suche verstreichen lassen, damit
+  // ein faelschlich ausgeloester Effekt sich auch tatsaechlich zeigen wuerde.
+  await new Promise((resolve) => setTimeout(resolve, 400));
+
+  expect(screen.queryByText('Hafermilch')).not.toBeOnTheScreen();
+  expect(mockSearch).not.toHaveBeenCalled();
 });
 
 it('fragt Open Food Facts nicht an, wenn offline', async () => {
