@@ -11,7 +11,7 @@ import { ProgressBar } from '@/components/progress-bar';
 import { ProgressRing } from '@/components/progress-ring';
 import { FontSize, ThemedText } from '@/components/themed-text';
 import { HeaderIconButton, MenuButton } from '@/components/ui/buttons';
-import { Gradients, Radius } from '@/constants/theme';
+import { Radius } from '@/constants/theme';
 import { useSession } from '@/features/auth/session-provider';
 import { useActiveProfile } from '@/features/calorie-tracking/active-profile-store';
 import {
@@ -24,6 +24,7 @@ import { calculateDailyTotals } from '@/features/calorie-tracking/daily-totals';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { useChildProfiles } from '@/features/household/api';
 import { useNavigationChrome } from '@/features/navigation/navigation-chrome-provider';
+import { useHubGradient } from '@/hooks/use-hub-gradient';
 import { useTheme } from '@/hooks/use-theme';
 
 const MEAL_ORDER: MealType[] = ['breakfast', 'lunch', 'dinner', 'snack'];
@@ -133,7 +134,7 @@ function MealSection({ meal, entries, isLast, onAdd, onEntry }: MealSectionProps
             { backgroundColor: theme.accent },
             pressed && styles.pressed,
           ]}>
-          <PlusIcon size={18} />
+          <PlusIcon size={18} color={theme.onAccent} />
         </Pressable>
       </View>
       {entries.map((entry) => (
@@ -188,6 +189,7 @@ function SummaryRow({
 /** Tagebuch nach Figma: Tagesbilanz, Makros und kompakte Mahlzeitenliste. */
 export function DiaryScreen() {
   const theme = useTheme();
+  const hubGradient = useHubGradient();
   const { openDrawer } = useNavigationChrome();
   const { session } = useSession();
   const userId = session?.user.id;
@@ -246,7 +248,7 @@ export function DiaryScreen() {
 
   return (
     <View style={styles.root}>
-      <GradientBackground {...Gradients.hub} />
+      <GradientBackground {...hubGradient} />
       <SafeAreaView style={styles.safeArea} edges={['top', 'left', 'right']}>
         <PageHeader
           title="Tagebuch"

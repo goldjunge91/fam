@@ -41,7 +41,7 @@ export function FamIcon({
   );
 }
 
-export function MenuIcon({ size = 26 }: { size?: number }) {
+export function MenuIcon({ size = 26, color }: { size?: number; color?: string }) {
   const lineWidth = size * (2 / 3);
 
   return (
@@ -51,6 +51,7 @@ export function MenuIcon({ size = 26 }: { size?: number }) {
           key={position}
           source={require('@/assets/images/figma/menu-line.svg')}
           contentFit="fill"
+          tintColor={color}
           style={[
             styles.iconPart,
             {
@@ -66,7 +67,7 @@ export function MenuIcon({ size = 26 }: { size?: number }) {
   );
 }
 
-export function PlusIcon({ size = 28 }: { size?: number }) {
+export function PlusIcon({ size = 28, color }: { size?: number; color?: string }) {
   const strokeLength = size * (7 / 12);
   const offset = (size - strokeLength) / 2;
 
@@ -75,6 +76,7 @@ export function PlusIcon({ size = 28 }: { size?: number }) {
       <Image
         source={require('@/assets/images/figma/plus-horizontal.svg')}
         contentFit="fill"
+        tintColor={color}
         style={[
           styles.iconPart,
           { left: offset, top: size / 2 - 1, width: strokeLength, height: 2 },
@@ -83,6 +85,7 @@ export function PlusIcon({ size = 28 }: { size?: number }) {
       <Image
         source={require('@/assets/images/figma/plus-vertical.svg')}
         contentFit="fill"
+        tintColor={color}
         style={[
           styles.iconPart,
           { left: size / 2 - 1, top: offset, width: 2, height: strokeLength },

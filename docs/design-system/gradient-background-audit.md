@@ -1,9 +1,10 @@
 # Audit: `GradientBackground`-Farbstopps
 
 > Bestandsaufnahme für Issue [#122](https://github.com/goldjunge91/fam/issues/122)
-> (Design-System). **Umgesetzt (2026-08-16): alle 17 Render-Fundstellen in
-> 12 Screen-Komponenten nutzen jetzt `Gradients.hub`.** Der Token hält Farben
-> und Stop-Positionen der Variante B zentral. A und C sind Geschichte, D
+> (Design-System). **Umgesetzt (2026-08-16): alle ursprünglichen 17
+> Render-Fundstellen in 12 Screen-Komponenten nutzen `Gradients.hub`.** Der
+> Token hält Light-/Dark-Farben und Stop-Positionen zentral; die regulären
+> Verbraucher wählen sie mit `useHubGradient()`. A und C sind Geschichte, D
 > bleibt bewusster Sonderfall. Details unten. **Weiterhin offen:** die 10
 > Screens mit manuellem `<GradientBackground>` bauen ihre
 > Struktur (Safe Area, `PageHeader`, Breite) noch selbst statt `<Screen>`
@@ -13,7 +14,9 @@
 Historische und aktuelle Fundstellen von `<GradientBackground>` bzw.
 `<Screen backgroundGradient>`, Stand dieses Audits (`git grep`, keine
 Testdateien). Die früher duplizierten Arrays sind inzwischen durch
-`Gradients.hub` ersetzt.
+`Gradients.hub.light`/`dark` ersetzt. Die zusätzliche Essensplaner-V2 erhöht
+den aktuellen Bestand auf 18 Render-Verwendungen in 13 Dateien; Original und
+V2 bleiben während ihres Vergleichs ausdrücklich auf der hellen Variante.
 
 ## Variante A — bisher meistverwendet, jetzt auf B umgestellt (war 15 Fundstellen)
 
@@ -37,7 +40,7 @@ Testdateien). Die früher duplizierten Arrays sind inzwischen durch
 → War bislang die am häufigsten verwendete Kombination — jetzt Geschichte:
 alle 15 Fundstellen sind auf Variante B migriert.
 
-## Variante B — Standard für alle Hub-Screens (jetzt 17 Fundstellen)
+## Variante B — Standard für alle Hub-Screens (ursprünglich 17 Fundstellen)
 
 ```
 ['#FFCCB2', '#F9F2EB', '#E8DEF2']
@@ -49,9 +52,10 @@ alle 15 Fundstellen sind auf Variante B migriert.
 | `src/features/fridge/fridge-screen.tsx` | 150 | Vorrat (war Variante C) |
 | alle 15 A-Fundstellen (oben) | — | Rezepte, Kochmodus, Tagebuch, Einstellungen, Essensplan, Premium, … |
 
-**Umgesetzt:** der eine Verlauf für alle Hub-Screens — 17 von 17. Das Array
-steht nur noch einmal in `Gradients.hub`; die 17 Verbraucher referenzieren
-den Token.
+**Umgesetzt:** ein semantischer Hub-Verlauf mit zentraler Light- und
+Dark-Ausprägung. 16 der ursprünglichen Verbraucher wählen sie über
+`useHubGradient()`; der zurückgestellte Essensplaner und seine V2-Kopie sind
+für den laufenden Vergleich explizit auf `Gradients.hub.light` fixiert.
 
 ## Variante C — Vorrat, jetzt auf B umgestellt (war 1 Fundstelle)
 
@@ -78,9 +82,10 @@ Premium-Badge-Optik aus, nicht nach Drift.
 
 ## Zusammenfassung
 
-- **B ist der einzige Hub-Verlauf.** Farben und Stop-Positionen liegen in
-  `Gradients.hub`; alle 17 Fundstellen in 12 Screen-Komponenten verwenden
-  den Token. Es gab keine strukturellen Änderungen an den Screens.
+- **B ist der einzige Hub-Verlauf.** Light-/Dark-Farben und Stop-Positionen
+  liegen in `Gradients.hub`; reguläre Screens beziehen die passende Variante
+  über `useHubGradient()`. Es gab keine strukturellen Änderungen an diesen
+  Screens.
 - **Noch offen, bewusst nicht Teil dieser Migration:** die 10 Screens, die
   `<GradientBackground>` manuell statt über `Screen`s
   `backgroundGradient`-Prop einbinden, bauen ihre Struktur (Safe Area,
@@ -107,28 +112,20 @@ Tokens, in zwei erkennbaren Clustern plus drei `#000`-Ausreißern:
 `shadowSheet` (`#2A1F2C`, dunkles Mauve/Violett — Sheets/Overlays/Dropdowns),
 je aus dem Mittelwert des jeweiligen Clusters. Ein neuer `withAlpha(hex,
 alpha)`-Helper in `theme.ts` erlaubt, den Farbton mit variabler Deckkraft in
-`boxShadow`-Strings einzusetzen. **13 der 15 verbliebenen Fundstellen sind
+`boxShadow`-Strings einzusetzen. **Alle 15 verbliebenen Fundstellen sind
 migriert** (die drei `#000`-Ausreißer plus alle `rgba(...)`-Literale beider
 Cluster): `quick-add-sheet.tsx`, `profile-sheet.tsx`, `fridge-screen.tsx`,
 `fridge-tab-bar.tsx`, `fridge-summary-card.tsx`, `edit-fridge-item-sheet.tsx`,
 `fridge-item-actions-sheet.tsx`, `product-information.tsx`,
 `floating-action-button.tsx`, `segmented-control.tsx`, `dashboard-screen.tsx`
-(2×), `card.tsx`.
-
-**Bewusst nicht migriert (2 Fälle):** `premium-promo-card.tsx`
-(`rgba(103,74,106,.2)`) und `navigation-drawer.tsx`
-(`rgba(41, 31, 43, 0.18)`). Beide Komponenten sind fast vollständig
-hartcodiert gestylt (Hintergrundfarben, Verläufe, Textfarben — nicht nur der
-Schatten laufen nicht über `useTheme()`), oft mit explizitem Verweis auf ein
-1:1 aus Figma übernommenes Mockup. Nur den Schatten zu tokenisieren und den
-Rest hartcodiert zu lassen wäre eine inkonsistente Teilkorrektur — beide
-brauchen stattdessen eine vollständige Theme-Anbindung, kein isolierter
-Schatten-Fix. Vorgemerkt als eigener, größerer Posten.
+(2×), `card.tsx`, `premium-promo-card.tsx` und `navigation-drawer.tsx`.
+Die beiden zuletzt genannten Komponenten wurden vollständig auf Theme-Werte
+umgestellt, nicht nur ihr Schatten. In ihren Implementierungen verbleiben
+keine lokalen Hex-/RGBA-Farbwerte.
 
 ## Nächster Schritt
 
 Gradient- und Schattenfarben-Migration sind abgeschlossen. Die separate
 Essensplaner-V2 belegt das Zielmuster. Offen bleiben ihre Übernahme als
-regulärer Essensplaner, die anschließende strukturelle `Screen`-Migration der
-übrigen betroffenen Screens sowie die volle Theme-Anbindung von
-`premium-promo-card.tsx`/`navigation-drawer.tsx`.
+regulärer Essensplaner und die anschließende strukturelle `Screen`-Migration
+der übrigen betroffenen Screens.

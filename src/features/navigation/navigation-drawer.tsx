@@ -5,7 +5,8 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { CalendarDayIcon } from '@/components/calendar-day-icon';
 import { FamIcon, type FamIconName } from '@/components/fam-icon';
 import { FontSize, ThemedText } from '@/components/themed-text';
-import { Radius } from '@/constants/theme';
+import { Radius, withAlpha } from '@/constants/theme';
+import { useTheme } from '@/hooks/use-theme';
 import { useNavigationChrome } from './navigation-chrome-provider';
 
 // 'calendarDay' ist kein statisches FamIcon, sondern das Kalenderblatt mit
@@ -38,6 +39,7 @@ const DRAWER_WIDTH_RATIO = 0.84;
  * gleichberechtigt in einer Liste statt in sieben Tabs.
  */
 export function NavigationDrawer() {
+  const theme = useTheme();
   const insets = useSafeAreaInsets();
   const { isDrawerOpen, closeDrawer } = useNavigationChrome();
   const pathname = usePathname();
@@ -60,7 +62,7 @@ export function NavigationDrawer() {
     <Modal visible={isDrawerOpen} transparent animationType="fade" onRequestClose={closeDrawer}>
       <View style={StyleSheet.absoluteFill}>
         <Pressable
-          style={[styles.dim, { top: 0 }]}
+          style={[styles.dim, { top: 0, backgroundColor: withAlpha(theme.shadowSheet, 0.3) }]}
           onPress={closeDrawer}
           accessibilityRole="button"
           accessibilityLabel="Menü schließen"
@@ -72,6 +74,8 @@ export function NavigationDrawer() {
               paddingTop: Math.max(insets.top - 20, 27),
               paddingBottom: Math.max(insets.bottom, 26),
               width: `${DRAWER_WIDTH_RATIO * 100}%`,
+              backgroundColor: withAlpha(theme.backgroundElement, 0.97),
+              boxShadow: `24px 0 64px ${withAlpha(theme.shadowSheet, 0.18)}`,
               transform: [
                 {
                   translateX: translateX.interpolate({
@@ -82,7 +86,7 @@ export function NavigationDrawer() {
               ],
             },
           ]}>
-          <View style={styles.header}>
+          <View style={[styles.header, { borderBottomColor: withAlpha(theme.text, 0.15) }]}>
             <ThemedText type="subtitle" style={styles.brand}>
               fam
             </ThemedText>
@@ -112,12 +116,19 @@ export function NavigationDrawer() {
                       onPress={() => navigateTo(route.href)}
                       accessibilityRole="button"
                       accessibilityState={{ selected: isActive }}
-                      style={[styles.navRow, isActive && styles.navRowActive]}>
+                      style={[
+                        styles.navRow,
+                        isActive && { backgroundColor: theme.backgroundSelected },
+                      ]}>
                       <View style={styles.navIcon}>
                         {route.icon === 'calendarDay' ? (
-                          <CalendarDayIcon size={35} />
+                          <CalendarDayIcon size={35} color={isActive ? theme.accent : theme.text} />
                         ) : (
-                          <FamIcon name={route.icon} size={35} />
+                          <FamIcon
+                            name={route.icon}
+                            size={35}
+                            color={isActive ? theme.accent : theme.text}
+                          />
                         )}
                       </View>
                       <ThemedText
@@ -137,9 +148,9 @@ export function NavigationDrawer() {
           <Pressable
             onPress={() => navigateTo('/settings')}
             accessibilityRole="button"
-            style={styles.manageRow}>
+            style={[styles.manageRow, { backgroundColor: theme.backgroundSelected }]}>
             <View style={styles.settingsIcon}>
-              <FamIcon name="settings" size={37} />
+              <FamIcon name="settings" size={37} color={theme.text} />
             </View>
             <ThemedText type="smallBold" style={styles.navLabel}>
               Einstellungen
@@ -155,7 +166,6 @@ export function NavigationDrawer() {
 const styles = StyleSheet.create({
   dim: {
     ...StyleSheet.absoluteFill,
-    backgroundColor: 'rgba(31,26,33,0.3)',
   },
   drawer: {
     position: 'absolute',
@@ -164,8 +174,6 @@ const styles = StyleSheet.create({
     bottom: 0,
     maxWidth: 340,
     paddingHorizontal: 20,
-    backgroundColor: 'rgba(251,248,244,0.97)',
-    boxShadow: '24px 0 64px rgba(41, 31, 43, 0.18)',
   },
   header: {
     flexDirection: 'row',
@@ -176,7 +184,6 @@ const styles = StyleSheet.create({
     paddingTop: 11,
     paddingBottom: 21,
     borderBottomWidth: StyleSheet.hairlineWidth,
-    borderBottomColor: 'rgba(64,54,66,0.15)',
   },
   scroll: {
     flex: 1,
@@ -211,9 +218,6 @@ const styles = StyleSheet.create({
     borderRadius: Radius.sheet,
     borderCurve: 'continuous',
   },
-  navRowActive: {
-    backgroundColor: '#F0E2DF',
-  },
   navIcon: {
     width: 35,
     height: 35,
@@ -234,7 +238,6 @@ const styles = StyleSheet.create({
     height: 65,
     padding: 15,
     borderRadius: Radius.sheet,
-    backgroundColor: '#EEE8EE',
     borderCurve: 'continuous',
   },
   settingsIcon: {

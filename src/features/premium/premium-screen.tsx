@@ -6,10 +6,11 @@ import { GradientBackground } from '@/components/gradient-background';
 import { PageHeader } from '@/components/page-header';
 import { FontSize, ThemedText } from '@/components/themed-text';
 import { BackButton, Button } from '@/components/ui/buttons';
-import { Gradients, Radius, Spacing } from '@/constants/theme';
+import { Radius, Spacing } from '@/constants/theme';
 import { presentCustomerCenter, presentPaywall } from '@/features/premium/paywall';
 import { usePremium } from '@/features/premium/premium-provider';
 import { SettingsGroup, SettingsRow } from '@/features/settings/settings-menu';
+import { useHubGradient } from '@/hooks/use-hub-gradient';
 import { useTheme } from '@/hooks/use-theme';
 import { restorePurchases } from '@/lib/purchases';
 
@@ -38,6 +39,7 @@ const BENEFITS: { icon: string; title: string; hint: string }[] = [
  */
 export function PremiumScreen() {
   const theme = useTheme();
+  const hubGradient = useHubGradient();
   const { isPremium, isForced, refresh } = usePremium();
   const [busy, setBusy] = useState(false);
 
@@ -88,7 +90,7 @@ export function PremiumScreen() {
 
   return (
     <View style={styles.root}>
-      <GradientBackground {...Gradients.hub} />
+      <GradientBackground {...hubGradient} />
       <SafeAreaView style={styles.safeArea} edges={['top', 'left', 'right']}>
         <PageHeader
           title="fam Premium"

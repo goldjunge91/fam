@@ -9,9 +9,10 @@ import { GradientBackground } from '@/components/gradient-background';
 import { PageHeader } from '@/components/page-header';
 import { FontSize, ThemedText } from '@/components/themed-text';
 import { HeaderIconButton } from '@/components/ui/buttons';
-import { Gradients, Radius } from '@/constants/theme';
+import { Radius } from '@/constants/theme';
 import { presentPaywallIfNeeded } from '@/features/premium/paywall';
 import { usePremium } from '@/features/premium/premium-provider';
+import { useHubGradient } from '@/hooks/use-hub-gradient';
 import { useTheme } from '@/hooks/use-theme';
 import { RecipeRatingSheet } from './components/recipe-rating-sheet';
 import { useRecipeStepImageUrl } from './recipe-step-image';
@@ -107,6 +108,7 @@ function FinishAction({
  */
 function FreeCookingMode({ data }: { data: RecipeDetail }) {
   const theme = useTheme();
+  const hubGradient = useHubGradient();
   const { recipe, items, steps, productsById } = data;
   const ingredients = items.filter((item) => item.product_id !== null);
   const [unlocking, setUnlocking] = useState(false);
@@ -122,7 +124,7 @@ function FreeCookingMode({ data }: { data: RecipeDetail }) {
 
   return (
     <View style={styles.root}>
-      <GradientBackground {...Gradients.hub} />
+      <GradientBackground {...hubGradient} />
       <SafeAreaView style={styles.safeArea} edges={['top', 'left', 'right']}>
         <PageHeader
           title="Kochmodus"
@@ -191,6 +193,7 @@ function FreeCookingMode({ data }: { data: RecipeDetail }) {
 
 export function CookingModeScreen() {
   const theme = useTheme();
+  const hubGradient = useHubGradient();
   const { id } = useLocalSearchParams<{ id: string }>();
   const { data, isLoading } = useRecipeDetail(id);
   const { isPremium } = usePremium();
@@ -227,7 +230,7 @@ export function CookingModeScreen() {
   if (isLoading || !data) {
     return (
       <View style={styles.root}>
-        <GradientBackground {...Gradients.hub} />
+        <GradientBackground {...hubGradient} />
         <SafeAreaView style={styles.safeArea} edges={['top', 'left', 'right']}>
           <PageHeader
             title="Kochmodus"
@@ -264,7 +267,7 @@ export function CookingModeScreen() {
   if (finished) {
     return (
       <View style={styles.root}>
-        <GradientBackground {...Gradients.hub} />
+        <GradientBackground {...hubGradient} />
         <SafeAreaView style={styles.safeArea} edges={['top', 'left', 'right']}>
           <PageHeader
             title="Fertig"
@@ -326,7 +329,7 @@ export function CookingModeScreen() {
 
   return (
     <View style={styles.root}>
-      <GradientBackground {...Gradients.hub} />
+      <GradientBackground {...hubGradient} />
       <SafeAreaView style={styles.safeArea} edges={['top', 'left', 'right']}>
         <PageHeader
           title="Kochmodus"

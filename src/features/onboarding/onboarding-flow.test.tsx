@@ -54,7 +54,9 @@ jest.mock('@/lib/supabase', () => ({
 }));
 
 async function renderFlow() {
-  const queryClient = new QueryClient({ defaultOptions: { queries: { retry: false } } });
+  const queryClient = new QueryClient({
+    defaultOptions: { queries: { retry: false, gcTime: Number.POSITIVE_INFINITY } },
+  });
   return render(
     <SafeAreaProvider initialMetrics={initialMetrics}>
       <QueryClientProvider client={queryClient}>

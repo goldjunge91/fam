@@ -2,8 +2,9 @@ import { router } from 'expo-router';
 import { Pressable, StyleSheet, View } from 'react-native';
 
 import { ThemedText } from '@/components/themed-text';
-import { Radius } from '@/constants/theme';
+import { Radius, withAlpha } from '@/constants/theme';
 import { usePremium } from '@/features/premium/premium-provider';
+import { useTheme } from '@/hooks/use-theme';
 
 /**
  * Premium-Anstoss auf der Einstellungen-Uebersicht (Figma "00.05 ·
@@ -14,24 +15,35 @@ import { usePremium } from '@/features/premium/premium-provider';
  * (`.fsp-premium` / `.fsp-premium:after` / `strong` / `small` / `span`).
  */
 export function PremiumPromoCard() {
+  const theme = useTheme();
   const { isPremium, isForced } = usePremium();
 
   return (
     <Pressable
       onPress={() => router.push('/settings/premium')}
       accessibilityRole="button"
-      style={({ pressed }) => [styles.card, pressed && styles.pressed]}>
-      <ThemedText style={styles.watermark}>✦</ThemedText>
-      <ThemedText type="subtitle" style={styles.title}>
+      style={({ pressed }) => [
+        styles.card,
+        {
+          backgroundColor: theme.premiumGradientMid,
+          experimental_backgroundImage: `linear-gradient(135deg, ${theme.premiumGradientStart} 0%, ${theme.premiumGradientMid} 57%, ${theme.premiumGradientEnd} 100%)`,
+          boxShadow: `0 13px 28px ${withAlpha(theme.shadowCard, 0.2)}`,
+        },
+        pressed && styles.pressed,
+      ]}>
+      <ThemedText style={[styles.watermark, { color: withAlpha(theme.premiumOnSurface, 0.24) }]}>
+        ✦
+      </ThemedText>
+      <ThemedText type="subtitle" style={{ color: theme.premiumOnSurface }}>
         {isPremium ? 'Premium ist aktiv' : 'Premium für den ganzen Haushalt'}
       </ThemedText>
-      <ThemedText type="default" style={styles.subtitle}>
+      <ThemedText type="default" style={{ color: withAlpha(theme.premiumOnSurface, 0.82) }}>
         {isPremium
           ? 'Alle Mitglieder profitieren von den Premium-Funktionen.'
           : 'Kochmodus, intelligente Einkaufslisten und weitere Automationen.'}
       </ThemedText>
-      <View style={styles.pill}>
-        <ThemedText type="default" style={styles.pillText}>
+      <View style={[styles.pill, { backgroundColor: theme.premiumActionBackground }]}>
+        <ThemedText type="default" style={[styles.pillText, { color: theme.premiumActionText }]}>
           {isPremium
             ? isForced
               ? 'Abo verwalten (erzwungen)'
@@ -49,26 +61,12 @@ const styles = StyleSheet.create({
     borderRadius: Radius.sheet,
     borderCurve: 'continuous',
     padding: 14,
-    backgroundColor: '#a36e72',
-    experimental_backgroundImage: 'linear-gradient(135deg, #715574 0%, #a36e72 57%, #c59677 100%)',
-    boxShadow: '0 13px 28px rgba(103,74,106,.2)',
   },
   watermark: {
     position: 'absolute',
     right: 16,
     top: 9,
-    color: 'rgba(255,255,255,0.24)',
     fontSize: 58,
-  },
-  title: {
-    color: '#fff',
-  },
-  subtitle: {
-    // width: '78%',
-    // marginTop: 4,
-    color: 'rgba(255,255,255,0.82)',
-    // ...FontSize[8],
-    // lineHeight: 10.8,
   },
   pill: {
     alignSelf: 'flex-start',
@@ -76,12 +74,8 @@ const styles = StyleSheet.create({
     paddingHorizontal: 9,
     paddingVertical: 6,
     borderRadius: Radius.control,
-    backgroundColor: 'rgba(255,255,255,0.9)',
   },
   pillText: {
-    color: '#604765',
-    // ...FontSize[8],
-    // lineHeight: 10,
     fontWeight: '600',
   },
   pressed: {

@@ -64,16 +64,17 @@ die auch im Dark Mode läuft.
 **Schattenfarben — erledigt (2026-08-16).** `Colors.light`/`Colors.dark`
 haben jetzt `shadowCard` (`#594059`) und `shadowSheet` (`#2A1F2C`), aus dem
 Mittelwert der beiden im Audit gefundenen Cluster, plus einen `withAlpha(hex,
-alpha)`-Helper für `boxShadow`-Strings. 13 der 15 Fundstellen sind
-migriert. **Bewusst nicht migriert:** `premium-promo-card.tsx` und
-`navigation-drawer.tsx` — beide fast vollständig hartcodiert (nicht nur der
-Schatten), ein isolierter Schatten-Fix wäre dort eine inkonsistente
-Teilkorrektur. Details:
+alpha)`-Helper für `boxShadow`-Strings. Alle 15 Fundstellen sind migriert.
+`premium-promo-card.tsx` und `navigation-drawer.tsx` sind vollständig an
+`useTheme()` angebunden; ihre Hintergründe, Verläufe, Textfarben, Linien und
+Schatten enthalten keine lokalen Farbwerte mehr. Details:
 [`docs/design-system/gradient-background-audit.md`](./design-system/gradient-background-audit.md).
 
-**Gradient-Hintergrund — erledigt (2026-08-16).** `Gradients.hub` haelt
-Farben und Stop-Positionen des einzigen Hub-Verlaufs zentral. Alle 17
-Render-Fundstellen in 12 Screen-Komponenten verwenden diesen Token.
+**Gradient-Hintergrund — erledigt (2026-08-16).** `Gradients.hub` hält die
+Light- und Dark-Farben sowie gemeinsame Stop-Positionen des Hub-Verlaufs
+zentral. `useHubGradient()` wählt die zum Farbschema passende Variante für
+alle regulären Verbraucher. Nur Original und V2 des bewusst zurückgestellten
+Essensplaners bleiben während des Vergleichs auf `Gradients.hub.light`.
 **Noch offen:** die 10 Screens, die
 `<GradientBackground>` weiterhin manuell statt über `Screen`s
 `backgroundGradient`-Prop einbinden, bauen ihre Struktur (Safe Area,
@@ -174,11 +175,13 @@ werden ignoriert, selbst wenn sie zusätzlich übergeben würden:
   Einkauf, Rezepte, Einstellungen).
 
   ```tsx
+  const hubGradient = useHubGradient();
+
   <Screen
     title="Vorrat"
     subtitle="Für alle im Haushalt sichtbar"
     chrome={{ onMenuPress: openDrawer, onAvatarPress: openProfile, initials }}
-    backgroundGradient={Gradients.hub}>
+    backgroundGradient={hubGradient}>
     {/* Inhalt */}
   </Screen>
   ```
@@ -242,8 +245,9 @@ werden ignoriert, selbst wenn sie zusätzlich übergeben würden:
    (Feature-First, siehe `docs/DEVELOPER_GUIDE.md`).
 2. **`<Screen>` als Root.** Entscheide zuerst: Hub-Screen (`chrome`) oder
    Detail-Screen (`back`)? Nie beides, nie keins.
-3. **Farbverlauf nur für Hub-Screens**, und dann immer über den semantischen
-   Token (`backgroundGradient={Gradients.hub}`, Variante B aus dem
+3. **Farbverlauf nur für Hub-Screens**, und dann immer über eine am
+   Komponentenanfang gelesene `const hubGradient = useHubGradient()`-Variable
+   (`backgroundGradient={hubGradient}`, Light-/Dark-Variante B aus dem
    [Gradient-Audit](./design-system/gradient-background-audit.md)).
    Alle anderen Screens bleiben bei der flachen `background`-Fläche.
 4. **Inhalte aus dem Katalog zusammensetzen** (Abschnitt 4), bevor du eine
@@ -298,48 +302,44 @@ Einordnung in die Reihenfolge.
    geprüft. Ein temporärer Versionsumschalter ist in Original und V2 sichtbar;
    abgesehen davon bleibt die Struktur des Originals unangetastet. Die V2 ist
    damit die Vorlage für die strukturelle Migration der übrigen 9 Screens.
-2. **Button-Konsolidierung — teilweise erledigt.** Die früheren
+2. **Button-Konsolidierung — Rollenprüfung abgeschlossen.** Die früheren
    `back-arrow-button`/`back-icon-button` sind in `back-button` mit Varianten
-   aufgegangen. Es bleiben sieben Button-Komponenten (`button`, `back-button`,
-   `header-icon-button`, `menu-button`, `profile-button`,
-   `compact-action-button`, `floating-action-button`). Weitere Zusammenlegung
-   erst nach einem Rollenvergleich; getrennte Dateien sind kein Problem, wenn
-   Interaktion und Layout tatsächlich verschieden sind.
+   aufgegangen. Die sieben verbleibenden Komponenten haben eigenständige
+   Rollen: Formularaktion, Navigation zurück, kompakte Header-Aktion,
+   Navigation öffnen, Profil öffnen, aufklappbare Sheet-Aktion und globale
+   schwebende Primäraktion. Größen, Inhalt und Zustände unterscheiden sich;
+   eine weitere Zusammenlegung würde nur Varianten-Komplexität erzeugen.
 3. **`Radius`-Token — Migration abgeschlossen.** `Radius.*` steht in
    `theme.ts` (34 → 8 konsolidierte Werte), 228 von 233 Fundstellen sind
    migriert. Die übrigen vier Radien sind größenabhängig berechnet; der
    40px-Hintergrund von `AnimatedIcon` ist eine dokumentierte lokale
    Illustrations-Ausnahme. Details stehen im
    [`Radius-Audit`](./design-system/radius-audit.md#aktueller-migrationsstand).
-4. **Zwei Wege für Textstile — `ThemedText` erledigt, Screens noch offen.**
+4. **Zwei Wege für Textstile — sichere Migration abgeschlossen.**
    `ThemedText`s `type`-Union deckt jetzt die volle `Typography`-Skala ab
-   (s. Abschnitt 2). Die *bestehenden* manuellen `Typography`-Spreads in den
-   Referenz-Screens (Dashboard, PageHeader, Essensplaner, …) sind dadurch
-   noch nicht automatisch umgezogen — das ist ein eigener, kleinerer
-   Aufräum-Durchgang, der auf `type`-Werte umstellt, wo eine passende
-   `fontWeight`-Kombination bereits exakt einem `Typography`-Eintrag
-   entspricht. Aktueller Bestand: 313 `FontSize[...]`- und 38
-   `Typography.*`-Spreads; viele davon sind bewusste lokale Kombinationen und
-   dürfen nicht mechanisch ersetzt werden.
-5. **Dashboard-"Glass Cards" sind Screen-lokal gestylt** (`glassCard`,
+   (s. Abschnitt 2). Alle redundanten `Typography.*`-Spreads auf
+   `ThemedText` wurden durch passende `type`-Werte ersetzt. Aktueller Bestand:
+   315 `FontSize[...]`-Spreads und 23 `Typography.*`-Spreads. Davon definieren
+   acht intern die `ThemedText`-Rollen; die übrigen 15 stylen native
+   `Text`-/`TextInput`-Controls und können nicht über `ThemedText.type` laufen.
+5. **Dashboard-"Glass Cards" bleiben bewusst Screen-lokal** (`glassCard`,
    `calorieCard`, `plannedCard`, `widget` in `dashboard-screen.tsx`) statt
    als wiederverwendbare Primitive — auf der Übersicht mehrfach fast
    identisch wiederholt (`boxShadow`, `borderRadius`, `borderCurve:
-   'continuous'`, `backgroundColor: theme.backgroundElement`). Kandidat für
-   eine `GlassCard`/`HubTile`-Komponente in `src/components/`. Noch nicht
-   eingeordnet.
+   'continuous'`, `backgroundColor: theme.backgroundElement`). Außerhalb des
+   Dashboards gibt es keinen zweiten Verbraucher mit derselben Rolle. Eine
+   globale `GlassCard`/`HubTile`-API wäre daher spekulativ und wird erst bei
+   einem zweiten echten Screen-Anwendungsfall extrahiert.
 6. **`recipe-detail-screen.tsx`s Inline-SVG — geprüft, kein Fund.** Der
    vermeintliche Inline-Fortschrittsring ist keiner: `HeroArtwork` baut eine
    dekorative Verlaufs-/Kreis-Illustration als Platzhalter, wenn ein Rezept
    kein Titelbild hat — ein anderer Zweck als `ProgressRing`, keine
    Dopplung. Erledigt, kein Handlungsbedarf.
 7. **`AGENTS.md` Pillar 3 ("True Black") — erledigt** (s. Abschnitt 1).
-8. **Schattenfarben (`shadowColor`/`boxShadow`) — erledigt bis auf zwei
-   bewusste Ausnahmen.** `Colors.shadowCard`/`Colors.shadowSheet` plus
-   `withAlpha()`-Helper existieren, 13 von 15 Fundstellen migriert (s.
-   Abschnitt 2). `premium-promo-card.tsx` und `navigation-drawer.tsx` bleiben
-   bewusst hartcodiert — beide brauchen eine vollständige Theme-Anbindung,
-   kein isolierter Schatten-Fix.
+8. **Schattenfarben und Theme-Anbindung — abgeschlossen.**
+   `Colors.shadowCard`/`Colors.shadowSheet` plus `withAlpha()` decken alle 15
+   Fundstellen ab. `premium-promo-card.tsx` und `navigation-drawer.tsx`
+   verwenden vollständig `useTheme()`.
 
 ---
 
@@ -351,16 +351,24 @@ Bereichen.
 
 **Bereits umgesetzt (2026-08-16):**
 
-- `Gradients.hub` ist die einzige Quelle für Farben und Stop-Positionen aller
-  17 Hub-Gradient-Verwendungen in 12 Screen-Komponenten (Struktur noch offen).
+- `Gradients.hub` ist die einzige Quelle für Light-/Dark-Farben und
+  Stop-Positionen aller Hub-Gradient-Verwendungen. `useHubGradient()` bindet
+  alle regulären Verbraucher ans aktuelle Farbschema; die zwei
+  Essensplaner-Vergleichsansichten bleiben vorläufig explizit hell.
 - Schatten-Tokens (`shadowCard`/`shadowSheet`) plus `withAlpha()`-Helper
-  existieren; 13 von 15 Fundstellen migriert, 2 bewusst zurückgestellt.
+  decken alle 15 Fundstellen ab; Premium-Promo und Drawer sind vollständig
+  themefähig.
 - `ThemedText` deckt die volle `Typography`-Skala ab.
 - `Radius.*` steht final in `theme.ts` (8 konsolidierte Werte).
 - 228 von 233 Radius-Fundstellen verwenden `Radius.*`; vier sind bewusst
   dynamisch und eine lokale Illustrations-Ausnahme bleibt bei 40px.
 - Die drei früheren Zurück-Button-Implementierungen sind in einer Komponente
   mit Varianten konsolidiert.
+- Die sieben verbleibenden Button-Komponenten sind als unterschiedliche
+  Rollen bestätigt; es gibt keine weitere sinnvolle Zusammenlegung.
+- Alle redundanten `Typography.*`-Spreads auf `ThemedText` sind migriert.
+- Die Dashboard-Karten bleiben bis zu einem zweiten Screen-Anwendungsfall
+  bewusst lokal.
 - `AGENTS.md` widerspricht der Palette nirgends mehr.
 - `recipe-detail-screen.tsx`s vermeintlicher Inline-Ring geprüft — kein
   Fund, war eine dekorative Illustration, keine Dopplung.
@@ -372,9 +380,3 @@ Bereichen.
    bisherige Route und Originalstruktur bleiben ansonsten unverändert. Offen
    sind die Auswahl der regulären Version und danach die strukturelle
    Migration der übrigen 9 Screens (Punkt 1).
-2. Rollenvergleich der sieben verbleibenden Button-Komponenten (Punkt 2).
-4. Manuelle `Typography`-Spreads in bestehenden Screens auf `ThemedText`-
-   `type`-Werte umstellen (Punkt 4).
-5. Noch nicht eingeordnet: Dashboard-"Glass Cards"-Extraktion (Punkt 5),
-   volle Theme-Anbindung von `premium-promo-card.tsx`/`navigation-drawer.tsx`
-   (Punkt 8).

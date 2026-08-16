@@ -15,8 +15,9 @@ import { GradientBackground } from '@/components/gradient-background';
 import { PageHeader } from '@/components/page-header';
 import { FontSize, ThemedText } from '@/components/themed-text';
 import { HeaderIconButton } from '@/components/ui/buttons';
-import { Gradients, Radius } from '@/constants/theme';
+import { Radius } from '@/constants/theme';
 import type { MealType } from '@/features/calorie-tracking/api';
+import { useHubGradient } from '@/hooks/use-hub-gradient';
 import { useTheme } from '@/hooks/use-theme';
 import { calculateAdjustedServingNutrition } from './nutrition';
 import { useRecipeDetail, useUpdateComponentMutation } from './use-recipes';
@@ -45,6 +46,7 @@ function BackGlyph() {
 
 export function RecipeLogScreen() {
   const theme = useTheme();
+  const hubGradient = useHubGradient();
   const { id, mode } = useLocalSearchParams<{ id: string; mode?: string }>();
   const isWeighMode = mode === 'weigh';
   const { data, isLoading } = useRecipeDetail(id);
@@ -131,7 +133,7 @@ export function RecipeLogScreen() {
 
   return (
     <View style={styles.root}>
-      <GradientBackground {...Gradients.hub} />
+      <GradientBackground {...hubGradient} />
       <SafeAreaView style={styles.safeArea} edges={['top', 'left', 'right']}>
         <PageHeader
           title="Fertig"

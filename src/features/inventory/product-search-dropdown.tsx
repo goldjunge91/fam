@@ -14,7 +14,7 @@ import {
 } from 'react-native';
 
 import { TextField } from '@/components/text-field';
-import { ThemedText, Typography } from '@/components/themed-text';
+import { ThemedText } from '@/components/themed-text';
 import { Radius, Spacing } from '@/constants/theme';
 import { useTheme } from '@/hooks/use-theme';
 import { getDatabase } from '@/lib/db/client';
@@ -402,13 +402,15 @@ export const ProductSearchDropdown = forwardRef<
               }}
               style={[styles.itemRow, { borderBottomColor: theme.border }]}>
               <View style={styles.itemText}>
-                <ThemedText type="smallBold" style={size === 'large' && styles.largeSuggestionText}>
+                <ThemedText
+                  type={size === 'large' ? 'body' : 'smallBold'}
+                  style={size === 'large' && styles.largeSuggestionTitle}>
                   + &quot;{value.trim()}&quot; manuell anlegen
                 </ThemedText>
                 <ThemedText
-                  type="small"
+                  type={size === 'large' ? 'body' : 'small'}
                   themeColor="textSecondary"
-                  style={size === 'large' && styles.largeSuggestionText}>
+                  style={size === 'large' && styles.largeSuggestionMeta}>
                   Kein Treffer bei Open Food Facts gefunden
                 </ThemedText>
               </View>
@@ -427,26 +429,22 @@ export const ProductSearchDropdown = forwardRef<
                 <Image source={{ uri: item.imageUrl }} style={styles.img} />
               ) : (
                 <View style={[styles.imgPlaceholder, { backgroundColor: theme.backgroundElement }]}>
-                  <ThemedText
-                    type="body"
-                    style={size === 'large' ? styles.largeEmoji : styles.defaultEmoji}>
-                    🥫
-                  </ThemedText>
+                  <ThemedText type={size === 'large' ? 'body' : 'bodySmall'}>🥫</ThemedText>
                 </View>
               )}
 
               <View style={styles.itemText}>
                 <ThemedText
-                  type="smallBold"
+                  type={size === 'large' ? 'body' : 'smallBold'}
                   numberOfLines={1}
-                  style={size === 'large' && styles.largeSuggestionText}>
+                  style={size === 'large' && styles.largeSuggestionTitle}>
                   {item.name}
                 </ThemedText>
                 <ThemedText
-                  type="small"
+                  type={size === 'large' ? 'body' : 'small'}
                   themeColor="textSecondary"
                   numberOfLines={1}
-                  style={size === 'large' && styles.largeSuggestionText}>
+                  style={size === 'large' && styles.largeSuggestionMeta}>
                   {item.brand ? `${item.brand} · ` : ''}
                   {item.quantity} {item.unit}
                   {item.caloriesPer100g ? ` · ${item.caloriesPer100g} kcal/100g` : ''}
@@ -516,13 +514,10 @@ const styles = StyleSheet.create({
   itemText: {
     flex: 1,
   },
-  defaultEmoji: {
-    ...Typography.bodySmall,
+  largeSuggestionTitle: {
+    fontWeight: 700,
   },
-  largeEmoji: {
-    ...Typography.body,
-  },
-  largeSuggestionText: {
-    ...Typography.body,
+  largeSuggestionMeta: {
+    fontWeight: 500,
   },
 });

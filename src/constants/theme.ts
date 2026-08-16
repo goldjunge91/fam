@@ -21,6 +21,13 @@ export const Colors = {
     textSecondary: '#786F79', // fam/color/text-secondary
     border: '#E4DDE3',
     accent: '#705773', // fam/color/bg-accent
+    onAccent: '#FFFFFF',
+    premiumGradientStart: '#715574',
+    premiumGradientMid: '#A36E72',
+    premiumGradientEnd: '#C59677',
+    premiumOnSurface: '#FFFFFF',
+    premiumActionBackground: '#F8F1ED',
+    premiumActionText: '#604765',
     // Ampel fuer Mindesthaltbarkeitsdaten (#71) und Zielerreichung.
     // Farbe ist nie der einzige Traeger der Information — daneben steht immer
     // ein Text oder ein Symbol, sonst ist die Anzeige fuer Farbfehlsichtige wertlos.
@@ -44,6 +51,13 @@ export const Colors = {
     textSecondary: '#B7ADB3',
     border: '#3E3640',
     accent: '#B79CBA',
+    onAccent: '#211D23',
+    premiumGradientStart: '#4F3D52',
+    premiumGradientMid: '#765158',
+    premiumGradientEnd: '#8B6755',
+    premiumOnSurface: '#FFF9F6',
+    premiumActionBackground: '#F0E6E1',
+    premiumActionText: '#4B384F',
     success: '#8FAE86',
     warning: '#D9A86C',
     danger: '#D9776A',
@@ -62,10 +76,16 @@ export type GradientSpec = {
 /** Semantische Verläufe des Design-Systems statt wiederholter Hex-Arrays. */
 export const Gradients = {
   hub: {
-    colors: ['#FFCCB2', '#F9F2EB', '#E8DEF2'],
-    locations: [0, 0.40385, 0.96154],
+    light: {
+      colors: ['#FFCCB2', '#F9F2EB', '#E8DEF2'],
+      locations: [0, 0.40385, 0.96154],
+    },
+    dark: {
+      colors: ['#3B2B2B', '#211D23', '#2E2638'],
+      locations: [0, 0.40385, 0.96154],
+    },
   },
-} as const satisfies Record<string, GradientSpec>;
+} as const satisfies Record<string, Record<'light' | 'dark', GradientSpec>>;
 
 /**
  * Wandelt einen 6-stelligen Hex-Farbwert in einen `rgba()`-String mit

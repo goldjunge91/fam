@@ -252,7 +252,7 @@ export function MealPlannerScreenV2() {
           </HeaderIconButton>
         ),
       }}
-      backgroundGradient={Gradients.hub}>
+      backgroundGradient={Gradients.hub.light}>
       <View style={styles.content}>
         <MealPlannerVersionSwitcher selected="v2" />
 

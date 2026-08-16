@@ -1,6 +1,6 @@
 import { Pressable, StyleSheet, View } from 'react-native';
 
-import { ThemedText, Typography } from '@/components/themed-text';
+import { ThemedText } from '@/components/themed-text';
 import { Radius, Spacing } from '@/constants/theme';
 import { useTheme } from '@/hooks/use-theme';
 import { formatAmount, formatPackageHint } from '@/lib/package-size';
@@ -39,7 +39,7 @@ export function ShoppingItemRow({ item, onToggle, onDelete, onEdit }: ShoppingIt
             },
           ]}>
           {isChecked ? (
-            <ThemedText type="detail" style={[styles.checkmark, { color: '#fff' }]}>
+            <ThemedText type="detail" style={{ color: theme.onAccent }}>
               ✓
             </ThemedText>
           ) : null}
@@ -126,10 +126,6 @@ const styles = StyleSheet.create({
     padding: Spacing.one,
   },
   editIcon: {
-    ...Typography.controlValue,
     opacity: 0.6,
-  },
-  checkmark: {
-    ...Typography.detail,
   },
 });

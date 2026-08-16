@@ -2,7 +2,7 @@ import { Image } from 'expo-image';
 import { Modal, ScrollView, StyleSheet, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
-import { ThemedText, Typography } from '@/components/themed-text';
+import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
 import { HeaderIconButton } from '@/components/ui/buttons';
 import { Radius, Spacing } from '@/constants/theme';
@@ -90,7 +90,6 @@ const styles = StyleSheet.create({
     paddingTop: Spacing.two,
   },
   title: {
-    ...Typography.headingSmall,
     fontWeight: 600,
   },
   closeButton: {

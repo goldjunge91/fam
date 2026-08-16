@@ -11,6 +11,7 @@ import {
 import { NavigationDrawer } from '@/features/navigation/navigation-drawer';
 import { ProfileSheet } from '@/features/navigation/profile-sheet';
 import { QuickAddSheet } from '@/features/navigation/quick-add-sheet';
+import { useTheme } from '@/hooks/use-theme';
 
 /**
  * Ersetzt die frueheren `NativeTabs` (#150, Figma "00 · Screens — Übersicht &
@@ -37,6 +38,7 @@ export default function AppShell() {
 }
 
 function GlobalAddButton() {
+  const theme = useTheme();
   const insets = useSafeAreaInsets();
   const { openQuickAdd } = useNavigationChrome();
 
@@ -51,7 +53,7 @@ function GlobalAddButton() {
         },
       ]}>
       <FloatingActionButton label="Neu hinzufügen" onPress={openQuickAdd}>
-        <PlusIcon />
+        <PlusIcon color={theme.onAccent} />
       </FloatingActionButton>
     </View>
   );

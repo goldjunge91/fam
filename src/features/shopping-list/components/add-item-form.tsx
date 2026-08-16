@@ -184,7 +184,7 @@ export function AddItemForm({ householdId, initialStoreId = null, onDismiss }: A
       />
 
       {nameError ? (
-        <ThemedText type="small" themeColor="danger" style={styles.largeSmallText}>
+        <ThemedText type="body" themeColor="danger" style={styles.mediumWeight}>
           {nameError}
         </ThemedText>
       ) : null}
@@ -201,11 +201,11 @@ export function AddItemForm({ householdId, initialStoreId = null, onDismiss }: A
       {name.trim() ? (
         <View style={[styles.productSummary, { backgroundColor: theme.backgroundSelected }]}>
           <View style={styles.productCopy}>
-            <ThemedText type="smallBold" numberOfLines={1} style={styles.summaryPrimary}>
+            <ThemedText type="body" numberOfLines={1} style={styles.summaryPrimary}>
               {name.trim()}
             </ThemedText>
             <ThemedText
-              type="small"
+              type="detail"
               themeColor="textSecondary"
               numberOfLines={1}
               style={styles.summaryMeta}>
@@ -225,7 +225,7 @@ export function AddItemForm({ householdId, initialStoreId = null, onDismiss }: A
 
       <View style={styles.purchaseRow}>
         <View style={styles.quantityField}>
-          <ThemedText type="small" themeColor="textSecondary" style={styles.fieldLabel}>
+          <ThemedText type="label" themeColor="textSecondary" style={styles.mediumWeight}>
             Einkaufsmenge
           </ThemedText>
           <QuantityStepper
@@ -246,7 +246,7 @@ export function AddItemForm({ householdId, initialStoreId = null, onDismiss }: A
         </View>
       </View>
 
-      <ThemedText type="default" themeColor="textSecondary" style={styles.listHint}>
+      <ThemedText type="default" themeColor="textSecondary">
         Auf der Liste: {purchaseAmount}
         {packageHint ? ` · ${packageHint}` : ''}
         {selectedStore ? ` · ${selectedStore.name} vorgeschlagen` : ' · ohne Liste'}
@@ -259,10 +259,10 @@ export function AddItemForm({ householdId, initialStoreId = null, onDismiss }: A
           accessibilityState={{ expanded: detailsOpen }}
           accessibilityLabel="Weitere Angaben"
           style={({ pressed }) => [styles.detailsSummary, pressed && styles.pressed]}>
-          <ThemedText type="small" style={[styles.detailsLabel, { color: theme.accent }]}>
+          <ThemedText type="body" style={[styles.mediumWeight, { color: theme.accent }]}>
             {detailsOpen ? '▾' : '›'}
           </ThemedText>
-          <ThemedText type="small" style={[styles.detailsLabel, { color: theme.accent }]}>
+          <ThemedText type="body" style={[styles.mediumWeight, { color: theme.accent }]}>
             Weitere Angaben
           </ThemedText>
         </Pressable>
@@ -342,8 +342,8 @@ const styles = StyleSheet.create({
     height: 40,
     borderRadius: Radius.control,
   },
-  largeSmallText: {
-    ...Typography.body,
+  mediumWeight: {
+    fontWeight: 500,
   },
   productSummary: {
     minHeight: 49,
@@ -363,10 +363,10 @@ const styles = StyleSheet.create({
     alignItems: 'flex-end',
   },
   summaryMeta: {
-    ...Typography.detail,
+    fontWeight: 500,
   },
   summaryPrimary: {
-    ...Typography.body,
+    fontWeight: 700,
   },
   purchaseRow: {
     flexDirection: 'row',
@@ -379,12 +379,6 @@ const styles = StyleSheet.create({
   },
   storeField: {
     flex: 1,
-  },
-  fieldLabel: {
-    ...Typography.label,
-  },
-  listHint: {
-    ...Typography.bodyRelaxed,
   },
   details: {
     borderTopWidth: StyleSheet.hairlineWidth,
@@ -409,9 +403,6 @@ const styles = StyleSheet.create({
   },
   packageSizeUnit: {
     flex: 1,
-  },
-  detailsLabel: {
-    ...Typography.body,
   },
   pressed: {
     opacity: 0.72,

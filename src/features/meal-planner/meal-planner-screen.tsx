@@ -233,7 +233,7 @@ export function MealPlannerScreen() {
 
   return (
     <View style={styles.root}>
-      <GradientBackground {...Gradients.hub} />
+      <GradientBackground {...Gradients.hub.light} />
       <SafeAreaView style={styles.safeArea} edges={['top', 'left', 'right']}>
         <PageHeader
           title="Essensplan"

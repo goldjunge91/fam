@@ -9,7 +9,7 @@ import { GradientBackground } from '@/components/gradient-background';
 import { PageHeader } from '@/components/page-header';
 import { FontSize, ThemedText } from '@/components/themed-text';
 import { Button, MenuButton, ProfileButton } from '@/components/ui/buttons';
-import { Gradients, Radius, Spacing } from '@/constants/theme';
+import { Radius, Spacing } from '@/constants/theme';
 import { useProfile } from '@/features/auth/api';
 import { useSession } from '@/features/auth/session-provider';
 import { signOutAndClearLocalData } from '@/features/auth/sign-out';
@@ -19,6 +19,7 @@ import { useProfileInitials } from '@/features/navigation/use-profile-initials';
 import { classifySupabaseTarget } from '@/features/settings/dev/dev-info';
 import { PremiumPromoCard } from '@/features/settings/premium-promo-card';
 import { SettingsGroup, SettingsRow } from '@/features/settings/settings-menu';
+import { useHubGradient } from '@/hooks/use-hub-gradient';
 import { useTheme } from '@/hooks/use-theme';
 import { env } from '@/lib/env';
 
@@ -33,6 +34,7 @@ import { env } from '@/lib/env';
  */
 export function SettingsScreen() {
   const theme = useTheme();
+  const hubGradient = useHubGradient();
   const { session } = useSession();
   const { openDrawer } = useNavigationChrome();
   const queryClient = useQueryClient();
@@ -71,7 +73,7 @@ export function SettingsScreen() {
 
   return (
     <View style={styles.root}>
-      <GradientBackground {...Gradients.hub} />
+      <GradientBackground {...hubGradient} />
       <SafeAreaView style={styles.safeArea} edges={['top', 'left', 'right']}>
         <PageHeader
           title="Einstellungen"

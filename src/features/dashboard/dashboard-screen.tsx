@@ -7,7 +7,7 @@ import { FamIcon } from '@/components/fam-icon';
 import { ProgressRing } from '@/components/progress-ring';
 import { Screen } from '@/components/screen';
 import { FontSize, ThemedText } from '@/components/themed-text';
-import { Gradients, Radius, Spacing, withAlpha } from '@/constants/theme';
+import { Radius, Spacing, withAlpha } from '@/constants/theme';
 import { useSession } from '@/features/auth/session-provider';
 import { useCurrentGoal, useFoodEntries } from '@/features/calorie-tracking/api';
 import { calculateDailyTotals } from '@/features/calorie-tracking/daily-totals';
@@ -20,6 +20,7 @@ import { MEAL_SLOT_LABELS, MEAL_SLOTS } from '@/features/meal-planner/week';
 import { useNavigationChrome } from '@/features/navigation/navigation-chrome-provider';
 import { useProfileInitials } from '@/features/navigation/use-profile-initials';
 import { useShoppingList } from '@/features/shopping-list/use-shopping-list';
+import { useHubGradient } from '@/hooks/use-hub-gradient';
 import { useTheme } from '@/hooks/use-theme';
 import { triggerHouseholdSync } from '@/lib/sync/sync-runner';
 
@@ -32,6 +33,7 @@ function toIsoDate(date: Date): string {
 
 export function DashboardScreen() {
   const theme = useTheme();
+  const hubGradient = useHubGradient();
   const insets = useSafeAreaInsets();
   const queryClient = useQueryClient();
   const [refreshing, setRefreshing] = useState(false);
@@ -121,7 +123,7 @@ export function DashboardScreen() {
       subtitle={heute}
       scroll={false}
       chrome={{ onMenuPress: openDrawer, onAvatarPress: openProfile, initials }}
-      backgroundGradient={Gradients.hub}>
+      backgroundGradient={hubGradient}>
       <ScrollView
         testID="dashboard-scroll-view"
         contentContainerStyle={{ paddingBottom: bottomPadding }}

@@ -67,7 +67,9 @@ jest.mock('@/hooks/use-theme', () => ({
 }));
 
 function renderScreen() {
-  const queryClient = new QueryClient({ defaultOptions: { queries: { retry: false } } });
+  const queryClient = new QueryClient({
+    defaultOptions: { queries: { retry: false, gcTime: Number.POSITIVE_INFINITY } },
+  });
   return render(
     <SafeAreaProvider
       initialMetrics={{

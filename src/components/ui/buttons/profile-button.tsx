@@ -18,7 +18,9 @@ export function ProfileButton({ initials, onPress }: ProfileButtonProps) {
       accessibilityRole="button"
       accessibilityLabel="Profil öffnen"
       style={[styles.button, { backgroundColor: theme.accent }]}>
-      <ThemedText type="bodySmall" style={styles.initials}>{initials}</ThemedText>
+      <ThemedText type="bodySmall" style={[styles.initials, { color: theme.onAccent }]}>
+        {initials}
+      </ThemedText>
     </Pressable>
   );
 }
@@ -32,7 +34,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   initials: {
-    color: '#fff',
     ...FontSize[14],
     lineHeight: 20,
     fontWeight: '500',

@@ -15,7 +15,7 @@ import { PageHeader } from '@/components/page-header';
 import { SectionHeading } from '@/components/section-heading';
 import { FontSize, ThemedText } from '@/components/themed-text';
 import { HeaderIconButton, MenuButton } from '@/components/ui/buttons';
-import { Gradients, Radius } from '@/constants/theme';
+import { Radius } from '@/constants/theme';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { useNavigationChrome } from '@/features/navigation/navigation-chrome-provider';
 import {
@@ -24,6 +24,7 @@ import {
   type RecipeTemplateWithNutrition,
   useRecipeTemplatesWithNutrition,
 } from '@/features/recipe-templates/use-recipe-templates';
+import { useHubGradient } from '@/hooks/use-hub-gradient';
 import { useTheme } from '@/hooks/use-theme';
 import { CalorieCarousel } from './components/calorie-carousel';
 import { CATEGORY_TILES, CategoryCarousel } from './components/category-carousel';
@@ -184,6 +185,7 @@ function EmptyPanel({ children }: { children: string }) {
 
 export function RecipesScreen() {
   const theme = useTheme();
+  const hubGradient = useHubGradient();
   const { openDrawer } = useNavigationChrome();
   const [view, setView] = useState<RecipeView>('discover');
   const [searchQuery, setSearchQuery] = useState('');
@@ -286,7 +288,7 @@ export function RecipesScreen() {
 
   return (
     <View style={styles.root}>
-      <GradientBackground {...Gradients.hub} />
+      <GradientBackground {...hubGradient} />
       <SafeAreaView style={styles.safeArea} edges={['top', 'left', 'right']}>
         <PageHeader
           title={screenTitle}

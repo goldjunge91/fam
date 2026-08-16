@@ -9,7 +9,7 @@ import { GradientBackground } from '@/components/gradient-background';
 import { PageHeader } from '@/components/page-header';
 import { FontSize, ThemedText } from '@/components/themed-text';
 import { HeaderIconButton } from '@/components/ui/buttons';
-import { Gradients, Radius } from '@/constants/theme';
+import { Radius } from '@/constants/theme';
 import { useSession } from '@/features/auth/session-provider';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { useRecipeCoverUrl } from '@/features/recipes/recipe-cover';
@@ -19,6 +19,7 @@ import {
   DIFFICULTIES,
   DISH_TYPES,
 } from '@/features/recipes/wizard/recipe-metadata-options';
+import { useHubGradient } from '@/hooks/use-hub-gradient';
 import { useTheme } from '@/hooks/use-theme';
 import { useApplyRecipeTemplateMutation, useRecipeTemplateDetail } from './use-recipe-templates';
 
@@ -80,6 +81,7 @@ function HeroArtwork({ coverUrl, title }: { coverUrl?: string | null; title: str
 
 export function RecipeTemplateDetailScreen() {
   const theme = useTheme();
+  const hubGradient = useHubGradient();
   const { id } = useLocalSearchParams<{ id: string }>();
   const { activeHouseholdId } = useActiveHousehold();
   const { session } = useSession();
@@ -114,7 +116,7 @@ export function RecipeTemplateDetailScreen() {
   if (isLoading || !template) {
     return (
       <View style={styles.root}>
-        <GradientBackground {...Gradients.hub} />
+        <GradientBackground {...hubGradient} />
         <SafeAreaView style={styles.safeArea} edges={['top', 'left', 'right']}>
           <PageHeader
             title="Rezept"
@@ -136,7 +138,7 @@ export function RecipeTemplateDetailScreen() {
 
   return (
     <View style={styles.root}>
-      <GradientBackground {...Gradients.hub} />
+      <GradientBackground {...hubGradient} />
       <SafeAreaView style={styles.safeArea} edges={['top', 'left', 'right']}>
         <PageHeader
           title="Rezept"

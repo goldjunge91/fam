@@ -71,7 +71,9 @@ jest.mock('expo-router', () => ({
 }));
 
 function renderScreen() {
-  const queryClient = new QueryClient({ defaultOptions: { queries: { retry: false } } });
+  const queryClient = new QueryClient({
+    defaultOptions: { queries: { retry: false, gcTime: Number.POSITIVE_INFINITY } },
+  });
   // `Screen` liest die Safe-Area-Insets; ohne Provider und ohne gemessene
   // Rahmenwerte wirft der Hook.
   return render(

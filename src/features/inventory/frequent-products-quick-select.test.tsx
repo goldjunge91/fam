@@ -36,7 +36,11 @@ function row(overrides: Partial<ProductUsageRow>): ProductUsageRow {
 }
 
 async function renderWithClient(ui: React.ReactElement) {
-  const queryClient = new QueryClient({ defaultOptions: { queries: { retry: false } } });
+  const queryClient = new QueryClient({
+    // Der produktive Standard-GC-Timer lebt nach dem Unmount weiter und haelt
+    // dadurch den Jest-Prozess offen. Im isolierten Test-Client ist GC unnoetig.
+    defaultOptions: { queries: { retry: false, gcTime: Number.POSITIVE_INFINITY } },
+  });
   return render(<QueryClientProvider client={queryClient}>{ui}</QueryClientProvider>);
 }
 
