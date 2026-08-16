@@ -12,18 +12,7 @@ import { NavigationDrawer } from '@/features/navigation/navigation-drawer';
 import { ProfileSheet } from '@/features/navigation/profile-sheet';
 import { QuickAddSheet } from '@/features/navigation/quick-add-sheet';
 import { useTheme } from '@/hooks/use-theme';
-/**
- * Ersetzt die frueheren `NativeTabs` (#150, Figma "00 · Screens — Übersicht &
- * Navigation"): Stack-Navigation ohne eigenes Chrome, Hamburger-Drawer +
- * Profil-Sheet je Hub-Screen (siehe `Screen`-Prop `chrome`), globaler
- * Plus-Button unten mittig statt sieben einzelner Tab-Icons.
- *
- * Die sechs frueheren Tab-Routen (index, fridge, shopping-list, diary,
- * recipes, meal-planner) bleiben als Stack-Screens bestehen — nur die
- * Navigations-Chrome drumherum ist neu. `settings` ist weiterhin erreichbar,
- * aber nur noch ueber den Drawer-Fussbereich, nicht als gleichrangiger
- * Eintrag.
- */
+
 export default function AppShell() {
   return (
     <NavigationChromeProvider>
