@@ -10,8 +10,7 @@
 
 1. **Strikte Datentrennung & RLS-Autorität:** Geteilte Haushaltsdaten (Kühlschrank, Vorrat, Einkaufszettel) und private Nutzerdaten (Kalorien, Gewicht, Tagebuch) sind auf Datenbankebene per Supabase RLS strikt isoliert.
 2. **Ausschließlich Declaratives Datenbankschema:** Die Schemadefinitionen in `supabase/schemas/*.sql` sind die einzige Wahrheit. Migrationsdateien werden niemals manuell verfasst, sondern ausschließlich über `bun run db:diff` mit `pg-delta` generiert.
-3. **High-Density Dark-Mode UI:** True Black (`#000`) Hintergrund, weiße Primärschrift, informationsdicht, kein dekorativer Card/Pill-Ballast und keine dauerhaft GPU-belastenden CSS-Repaint-Animationen (Pulse, Shimmer, Blur).
-4. **Local-First & Offline-Belastbarkeit:** Lokale SQLite-Datenbank (`expo-sqlite`) mit Outbox-Sync für reibungslose Bedienung auch ohne stabile Netzverbindung.
+3. **Local-First & Offline-Belastbarkeit:** Lokale SQLite-Datenbank (`expo-sqlite`) mit Outbox-Sync für reibungslose Bedienung auch ohne stabile Netzverbindung.
 
 ---
 
@@ -124,7 +123,7 @@ I want to share some of my preferences here so we can be more aligned as we work
 ## Visual and design work
 
 - Do not edit real components first. For any non-trivial Ul, layout, or copy change, build several distinct static mocks, publish them with the html-communication skill, report the URL, and stop. Wait for a pick before implementing.
-- Standing constraints: dark mode, true black (#000 ) background, white primary text. Information-dense, no decorative card/pill chrome, no light-gray subtitle lines above sections. Minimal copy. No em dashes.
+- Standing constraints: the warm fam mauve/cream palette (`src/constants/theme.ts`, light and dark). Information-dense, no decorative card/pill chrome, no light-gray subtitle lines above sections. Minimal copy. No em dashes.
 - Avoid continuously repainting CSS animations (pulse, shimmer, blur, spinners); they peg the GPU on high-refresh displays.
 
 # Expo HAS CHANGED
@@ -136,7 +135,7 @@ Read the exact versioned docs at <https://docs.expo.dev/versions/v57.0.0/> befor
 - **Simplicity & YAGNI:** Halte Lösungen schlank. Vermeide unnötige Abstraktionsschichten oder Wrapper-Funktionen.
 - **Typesicherheit ohne `any`:** Inferenz nutzen. Typsysteme sollen sich an Änderungen anpassen. Code soll modernen TypeScript-Standards entsprechen.
 - **Feature-First Struktur:** `src/app/` dient ausschließlich dem Routing (Expo Router). Fachlogik gehört nach `src/features/<domain>/` (mit `components/`, `hooks/`, `api.ts`, `types.ts`), geteilte UI nach `src/components/`.
-- **UI & Layout:** Striktes Dark Theme (`#000`), semantisches Styling via `src/constants/theme.ts`, kein Em-Dash in Copy, Informationsdichte vor Deko.
+- **UI & Layout:** Warme Mauve-/Creme-Palette (`src/constants/theme.ts`, Light & Dark, siehe `docs/DESIGN_SYSTEM.md`), semantisches Styling ausschließlich über Theme-Tokens, kein Em-Dash in Copy, Informationsdichte vor Deko.
 - **Expo SDK 57:** Vor dem Schreiben nativer Expo-Features stets die versionierte Dokumentation (<https://docs.expo.dev/versions/v57.0.0/>) konsultieren.
 - **Testing Library:** Vor Änderungen an Komponententests die Regeln in `.agents/rules/react-native-testing-library.md` beachten.
 

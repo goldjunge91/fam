@@ -8,7 +8,7 @@ import ReorderableList, {
 } from 'react-native-reorderable-list';
 import Svg, { Path } from 'react-native-svg';
 import { FontSize } from '@/components/themed-text';
-
+import { Radius } from '@/constants/theme';
 import { pickRecipeStepImage } from '@/features/recipes/recipe-step-image';
 import type { IngredientComponentGroup, WizardStepItem } from './types';
 
@@ -271,7 +271,7 @@ const styles = StyleSheet.create({
   },
   stepCard: {
     backgroundColor: 'rgba(255,255,255,0.70)',
-    borderRadius: 19,
+    borderRadius: Radius.sheet,
     borderCurve: 'continuous',
     padding: 11,
     marginBottom: 12,
@@ -298,7 +298,7 @@ const styles = StyleSheet.create({
   trashCircleButton: {
     width: 36,
     height: 36,
-    borderRadius: 18,
+    borderRadius: Radius.sheet,
     backgroundColor: '#EEE5EC',
     alignItems: 'center',
     justifyContent: 'center',
@@ -311,7 +311,7 @@ const styles = StyleSheet.create({
   chip: {
     paddingHorizontal: 12,
     paddingVertical: 6,
-    borderRadius: 14,
+    borderRadius: Radius.controlLarge,
     backgroundColor: '#EEE5EC',
   },
   chipActive: {
@@ -327,7 +327,7 @@ const styles = StyleSheet.create({
   },
   stepInput: {
     backgroundColor: '#FFFFFF',
-    borderRadius: 16,
+    borderRadius: Radius.card,
     minHeight: 72,
     paddingHorizontal: 16,
     paddingVertical: 12,
@@ -341,7 +341,7 @@ const styles = StyleSheet.create({
   imagePreview: {
     width: '100%',
     height: 140,
-    borderRadius: 14,
+    borderRadius: Radius.controlLarge,
   },
   removeImageBtn: {
     alignSelf: 'flex-start',
@@ -363,7 +363,7 @@ const styles = StyleSheet.create({
     width: '100%',
     height: 42,
     backgroundColor: '#EEE5EC',
-    borderRadius: 14,
+    borderRadius: Radius.controlLarge,
     borderCurve: 'continuous',
     alignItems: 'center',
     justifyContent: 'center',
@@ -383,7 +383,7 @@ const styles = StyleSheet.create({
   navButton: {
     flex: 1,
     minHeight: 48,
-    borderRadius: 16,
+    borderRadius: Radius.card,
     borderCurve: 'continuous',
     alignItems: 'center',
     justifyContent: 'center',

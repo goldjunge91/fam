@@ -9,10 +9,10 @@ import { GradientBackground } from '@/components/gradient-background';
 import { PageHeader } from '@/components/page-header';
 import { FontSize, ThemedText } from '@/components/themed-text';
 import { HeaderIconButton } from '@/components/ui/buttons';
+import { Radius } from '@/constants/theme';
 import { presentPaywallIfNeeded } from '@/features/premium/paywall';
 import { usePremium } from '@/features/premium/premium-provider';
 import { useTheme } from '@/hooks/use-theme';
-
 import { RecipeRatingSheet } from './components/recipe-rating-sheet';
 import { useRecipeStepImageUrl } from './recipe-step-image';
 import { type RecipeDetail, type RecipeStep, useRecipeDetail } from './use-recipes';
@@ -122,7 +122,7 @@ function FreeCookingMode({ data }: { data: RecipeDetail }) {
 
   return (
     <View style={styles.root}>
-      <GradientBackground colors={['#FFD2B9', '#F8F4EF', '#EEE7F4']} />
+      <GradientBackground colors={['#FFCCB2', '#F9F2EB', '#E8DEF2']} />
       <SafeAreaView style={styles.safeArea} edges={['top', 'left', 'right']}>
         <PageHeader
           title="Kochmodus"
@@ -227,7 +227,7 @@ export function CookingModeScreen() {
   if (isLoading || !data) {
     return (
       <View style={styles.root}>
-        <GradientBackground colors={['#FFD2B9', '#F8F4EF', '#EEE7F4']} />
+        <GradientBackground colors={['#FFCCB2', '#F9F2EB', '#E8DEF2']} />
         <SafeAreaView style={styles.safeArea} edges={['top', 'left', 'right']}>
           <PageHeader
             title="Kochmodus"
@@ -264,7 +264,7 @@ export function CookingModeScreen() {
   if (finished) {
     return (
       <View style={styles.root}>
-        <GradientBackground colors={['#FFD2B9', '#F8F4EF', '#EEE7F4']} />
+        <GradientBackground colors={['#FFCCB2', '#F9F2EB', '#E8DEF2']} />
         <SafeAreaView style={styles.safeArea} edges={['top', 'left', 'right']}>
           <PageHeader
             title="Fertig"
@@ -326,7 +326,7 @@ export function CookingModeScreen() {
 
   return (
     <View style={styles.root}>
-      <GradientBackground colors={['#FFD2B9', '#F8F4EF', '#EEE7F4']} />
+      <GradientBackground colors={['#FFCCB2', '#F9F2EB', '#E8DEF2']} />
       <SafeAreaView style={styles.safeArea} edges={['top', 'left', 'right']}>
         <PageHeader
           title="Kochmodus"
@@ -460,7 +460,7 @@ const styles = StyleSheet.create({
   backGlyph: { ...FontSize[27], lineHeight: 29, fontWeight: 400 },
   cookContent: { flex: 1, paddingHorizontal: 16, paddingBottom: 16 },
   progressRow: { height: 21, flexDirection: 'row', gap: 5, paddingTop: 2, paddingBottom: 15 },
-  progressSegment: { flex: 1, height: 4, borderRadius: 3 },
+  progressSegment: { flex: 1, height: 4, borderRadius: Radius.hairline },
   stepEyebrow: { ...FontSize[9], lineHeight: 11, fontWeight: 500, letterSpacing: 0.67 },
   stepTitle: {
     paddingTop: 6,
@@ -472,7 +472,7 @@ const styles = StyleSheet.create({
   stepArtwork: {
     height: 184,
     marginTop: 13,
-    borderRadius: 23,
+    borderRadius: Radius.large,
     borderCurve: 'continuous',
     overflow: 'hidden',
   },
@@ -480,7 +480,7 @@ const styles = StyleSheet.create({
   timerCard: {
     minHeight: 58,
     marginTop: 14,
-    borderRadius: 17,
+    borderRadius: Radius.sheet,
     borderCurve: 'continuous',
     paddingHorizontal: 13,
     paddingVertical: 12,
@@ -494,7 +494,7 @@ const styles = StyleSheet.create({
   timerButton: {
     width: 34,
     height: 34,
-    borderRadius: 11,
+    borderRadius: Radius.control,
     borderCurve: 'continuous',
     alignItems: 'center',
     justifyContent: 'center',
@@ -504,7 +504,7 @@ const styles = StyleSheet.create({
   previousButton: {
     width: 48,
     height: 48,
-    borderRadius: 15,
+    borderRadius: Radius.card,
     borderCurve: 'continuous',
     alignItems: 'center',
     justifyContent: 'center',
@@ -513,7 +513,7 @@ const styles = StyleSheet.create({
   nextButton: {
     flex: 1,
     minHeight: 48,
-    borderRadius: 16,
+    borderRadius: Radius.card,
     borderCurve: 'continuous',
     alignItems: 'center',
     justifyContent: 'center',
@@ -531,7 +531,7 @@ const styles = StyleSheet.create({
   fallbackContent: { flexGrow: 1, paddingHorizontal: 16, paddingBottom: 16 },
   fallbackButton: { flex: 0, marginTop: 'auto' },
   freeContent: { flexGrow: 1, paddingHorizontal: 16, paddingBottom: 16, gap: 14 },
-  freeCard: { borderRadius: 17, borderCurve: 'continuous', padding: 13, gap: 8 },
+  freeCard: { borderRadius: Radius.sheet, borderCurve: 'continuous', padding: 13, gap: 8 },
   freeIngredientRow: { flexDirection: 'row', justifyContent: 'space-between' },
   freeStepsList: { gap: 12 },
   freeStepRow: { flexDirection: 'row', gap: 8 },
@@ -544,7 +544,7 @@ const styles = StyleSheet.create({
     paddingTop: 38,
     paddingBottom: 24,
   },
-  finishArtwork: { width: 82, height: 82, borderRadius: 27, borderCurve: 'continuous' },
+  finishArtwork: { width: 82, height: 82, borderRadius: Radius.large, borderCurve: 'continuous' },
   finishTitle: { paddingTop: 18, ...FontSize[23], lineHeight: 28, fontWeight: 700 },
   finishSubtitle: {
     paddingTop: 6,
@@ -556,7 +556,7 @@ const styles = StyleSheet.create({
   finishActions: { width: '100%', gap: 8, paddingTop: 24 },
   finishAction: {
     minHeight: 62,
-    borderRadius: 17,
+    borderRadius: Radius.sheet,
     borderCurve: 'continuous',
     paddingHorizontal: 11,
     paddingVertical: 9,
@@ -564,7 +564,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     gap: 10,
   },
-  finishActionIcon: { width: 38, height: 38, borderRadius: 12, borderCurve: 'continuous' },
+  finishActionIcon: {
+    width: 38,
+    height: 38,
+    borderRadius: Radius.control,
+    borderCurve: 'continuous',
+  },
   finishActionCopy: { flex: 1, minWidth: 0 },
   finishActionTitle: { ...FontSize[10], lineHeight: 12, fontWeight: 700 },
   finishActionSubtitle: { paddingTop: 2, ...FontSize[8], lineHeight: 10, fontWeight: 500 },

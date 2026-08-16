@@ -15,7 +15,7 @@ import {
 
 import { TextField } from '@/components/text-field';
 import { ThemedText, Typography } from '@/components/themed-text';
-import { Spacing } from '@/constants/theme';
+import { Radius, Spacing } from '@/constants/theme';
 import { useTheme } from '@/hooks/use-theme';
 import { getDatabase } from '@/lib/db/client';
 import { isOffDumpAttached } from '@/lib/off-dump/off-dump';
@@ -376,7 +376,11 @@ export const ProductSearchDropdown = forwardRef<
         <ScrollView
           style={[
             styles.dropdown,
-            { backgroundColor: theme.background, borderColor: theme.border },
+            {
+              backgroundColor: theme.background,
+              borderColor: theme.border,
+              shadowColor: theme.shadowSheet,
+            },
           ]}
           keyboardShouldPersistTaps="handled"
           showsVerticalScrollIndicator
@@ -423,7 +427,9 @@ export const ProductSearchDropdown = forwardRef<
                 <Image source={{ uri: item.imageUrl }} style={styles.img} />
               ) : (
                 <View style={[styles.imgPlaceholder, { backgroundColor: theme.backgroundElement }]}>
-                  <ThemedText style={size === 'large' ? styles.largeEmoji : styles.defaultEmoji}>
+                  <ThemedText
+                    type="body"
+                    style={size === 'large' ? styles.largeEmoji : styles.defaultEmoji}>
                     🥫
                   </ThemedText>
                 </View>
@@ -479,12 +485,11 @@ const styles = StyleSheet.create({
     left: 0,
     right: 0,
     zIndex: 20,
-    borderRadius: 12,
+    borderRadius: Radius.control,
     borderWidth: 1,
     marginTop: 4,
     maxHeight: 220,
     elevation: 4,
-    shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.15,
     shadowRadius: 6,
@@ -499,12 +504,12 @@ const styles = StyleSheet.create({
   img: {
     width: 32,
     height: 32,
-    borderRadius: 6,
+    borderRadius: Radius.sm,
   },
   imgPlaceholder: {
     width: 32,
     height: 32,
-    borderRadius: 6,
+    borderRadius: Radius.sm,
     alignItems: 'center',
     justifyContent: 'center',
   },

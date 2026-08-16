@@ -2,7 +2,7 @@ import { Pressable, StyleSheet, View } from 'react-native';
 
 import { ProgressBar } from '@/components/progress-bar';
 import { FontSize, ThemedText } from '@/components/themed-text';
-import { Spacing } from '@/constants/theme';
+import { Radius, Spacing } from '@/constants/theme';
 import { useTheme } from '@/hooks/use-theme';
 import { formatEuro } from '@/lib/format-currency';
 
@@ -69,7 +69,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     gap: Spacing.three,
     // Gleicher Radius wie components/card.tsx — beides "surface-elevated"-Flaechen.
-    borderRadius: 28,
+    borderRadius: Radius.large,
     paddingVertical: Spacing.three,
     paddingLeft: Spacing.two,
     paddingRight: Spacing.three,
@@ -78,7 +78,7 @@ const styles = StyleSheet.create({
   stripe: {
     width: 5,
     alignSelf: 'stretch',
-    borderRadius: 3,
+    borderRadius: Radius.hairline,
   },
   info: {
     flex: 1,

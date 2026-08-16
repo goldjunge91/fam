@@ -6,9 +6,7 @@ import { GradientBackground } from '@/components/gradient-background';
 import { FontSize, ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
 import {
-  AutoBackArrowButton,
   AutoBackButton,
-  BackArrowButton,
   BackButton,
   type BackTarget,
   MenuButton,
@@ -102,16 +100,14 @@ export function Screen({
         style={[styles.safeArea, chrome && styles.chromeSafeArea]}
         edges={['top', 'left', 'right']}>
         {chrome ? null : back ? (
-          backStyle === 'icon' ? (
-            back.href ? (
-              <BackArrowButton label={back.label} href={back.href} />
-            ) : (
-              <AutoBackArrowButton label={back.label} />
-            )
-          ) : back.href ? (
-            <BackButton label={back.label} href={back.href} />
+          back.href ? (
+            <BackButton
+              label={back.label}
+              href={back.href}
+              variant={backStyle === 'icon' ? 'arrow' : 'text'}
+            />
           ) : (
-            <AutoBackButton label={back.label} />
+            <AutoBackButton label={back.label} variant={backStyle === 'icon' ? 'arrow' : 'text'} />
           )
         ) : null}
 

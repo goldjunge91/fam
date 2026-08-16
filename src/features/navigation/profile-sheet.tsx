@@ -4,6 +4,7 @@ import { Modal, Pressable, StyleSheet, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { FamIcon, type FamIconName } from '@/components/fam-icon';
 import { FontSize, ThemedText } from '@/components/themed-text';
+import { Radius, withAlpha } from '@/constants/theme';
 import { useProfile } from '@/features/auth/api';
 import { useSession } from '@/features/auth/session-provider';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
@@ -11,14 +12,8 @@ import { HouseholdSwitcherModal } from '@/features/household/household-switcher-
 import { usePremium } from '@/features/premium/premium-provider';
 import { useTheme } from '@/hooks/use-theme';
 import { getInitials } from '@/lib/initials';
-
 import { useNavigationChrome } from './navigation-chrome-provider';
 
-/**
- * Profil-Sheet unter dem Avatar (#150, Figma "00.03 · Profil — Avatar
- * geöffnet"). Buendelt, was vorher ueber den Einstellungen-Tab verstreut war:
- * eigenes Profil, aktiver Haushalt (mit Wechsel), Haushaltsverwaltung, Premium.
- */
 export function ProfileSheet() {
   const theme = useTheme();
   const insets = useSafeAreaInsets();
@@ -56,6 +51,7 @@ export function ProfileSheet() {
               styles.sheet,
               {
                 bottom: Math.max(insets.bottom / 2, 16),
+                boxShadow: `0 -8px 28px ${withAlpha(theme.shadowSheet, 0.18)}`,
               },
             ]}>
             <Pressable
@@ -69,7 +65,7 @@ export function ProfileSheet() {
 
             <View style={[styles.profileCard, { borderBottomColor: theme.border }]}>
               <View style={[styles.avatar, { backgroundColor: theme.accent }]}>
-                <ThemedText style={[styles.avatarText, { color: '#fff' }]}>
+                <ThemedText type="bodySmall" style={[styles.avatarText, { color: '#fff' }]}>
                   {getInitials(displayName)}
                 </ThemedText>
               </View>
@@ -185,12 +181,11 @@ const styles = StyleSheet.create({
     left: 16,
     right: 16,
     height: 390,
-    borderRadius: 28,
+    borderRadius: Radius.large,
     paddingHorizontal: 20,
     paddingTop: 12,
     paddingBottom: 20,
     backgroundColor: 'rgba(255,255,255,0.94)',
-    boxShadow: '0 -8px 28px rgba(41, 28, 46, 0.18)',
     borderCurve: 'continuous',
   },
   handleArea: {
@@ -201,7 +196,7 @@ const styles = StyleSheet.create({
   handle: {
     width: 44,
     height: 5,
-    borderRadius: 3,
+    borderRadius: Radius.hairline,
   },
   profileCard: {
     flexDirection: 'row',
@@ -215,7 +210,7 @@ const styles = StyleSheet.create({
   avatar: {
     width: 58,
     height: 58,
-    borderRadius: 29,
+    borderRadius: Radius.large,
     alignItems: 'center',
     justifyContent: 'center',
   },

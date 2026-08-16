@@ -2,6 +2,7 @@ import { router } from 'expo-router';
 import { Pressable, StyleSheet, View } from 'react-native';
 
 import { ThemedText } from '@/components/themed-text';
+import { Radius } from '@/constants/theme';
 import { usePremium } from '@/features/premium/premium-provider';
 
 /**
@@ -45,7 +46,7 @@ export function PremiumPromoCard() {
 const styles = StyleSheet.create({
   card: {
     overflow: 'hidden',
-    borderRadius: 21,
+    borderRadius: Radius.sheet,
     borderCurve: 'continuous',
     padding: 14,
     backgroundColor: '#a36e72',
@@ -74,7 +75,7 @@ const styles = StyleSheet.create({
     marginTop: 9,
     paddingHorizontal: 9,
     paddingVertical: 6,
-    borderRadius: 10,
+    borderRadius: Radius.control,
     backgroundColor: 'rgba(255,255,255,0.9)',
   },
   pillText: {

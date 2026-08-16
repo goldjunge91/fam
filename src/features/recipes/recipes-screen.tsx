@@ -15,6 +15,7 @@ import { PageHeader } from '@/components/page-header';
 import { SectionHeading } from '@/components/section-heading';
 import { FontSize, ThemedText } from '@/components/themed-text';
 import { HeaderIconButton, MenuButton } from '@/components/ui/buttons';
+import { Radius } from '@/constants/theme';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { useNavigationChrome } from '@/features/navigation/navigation-chrome-provider';
 import {
@@ -24,7 +25,6 @@ import {
   useRecipeTemplatesWithNutrition,
 } from '@/features/recipe-templates/use-recipe-templates';
 import { useTheme } from '@/hooks/use-theme';
-
 import { CalorieCarousel } from './components/calorie-carousel';
 import { CATEGORY_TILES, CategoryCarousel } from './components/category-carousel';
 import { RecipeHeroCard, RecipePreviewCard } from './components/recipe-preview-card';
@@ -175,7 +175,7 @@ function EmptyPanel({ children }: { children: string }) {
   return (
     <View style={[styles.emptyPanel, { backgroundColor: `${theme.backgroundElement}C7` }]}>
       <ThemedText style={styles.emptyTitle}>{children}</ThemedText>
-      <ThemedText themeColor="textSecondary" style={styles.emptyCopy}>
+      <ThemedText type="caption" themeColor="textSecondary" style={styles.emptyCopy}>
         Über den Plus-Button kannst du jederzeit ein neues Rezept anlegen.
       </ThemedText>
     </View>
@@ -286,7 +286,7 @@ export function RecipesScreen() {
 
   return (
     <View style={styles.root}>
-      <GradientBackground colors={['#FFD2B9', '#F8F4EF', '#EEE7F4']} />
+      <GradientBackground colors={['#FFCCB2', '#F9F2EB', '#E8DEF2']} />
       <SafeAreaView style={styles.safeArea} edges={['top', 'left', 'right']}>
         <PageHeader
           title={screenTitle}
@@ -497,7 +497,7 @@ const styles = StyleSheet.create({
   modeButton: {
     flex: 1,
     height: 40,
-    borderRadius: 10,
+    borderRadius: Radius.control,
     borderCurve: 'continuous',
     borderWidth: 1,
     alignItems: 'center',
@@ -512,7 +512,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     gap: 9,
-    borderRadius: 14,
+    borderRadius: Radius.controlLarge,
     borderCurve: 'continuous',
     paddingHorizontal: 13,
     marginBottom: 10,
@@ -541,7 +541,7 @@ const styles = StyleSheet.create({
   },
   emptyPanel: {
     minHeight: 124,
-    borderRadius: 20,
+    borderRadius: Radius.sheet,
     borderCurve: 'continuous',
     alignItems: 'center',
     justifyContent: 'center',

@@ -2,7 +2,7 @@ import { Pressable, StyleSheet, View } from 'react-native';
 
 import { SegmentedControl } from '@/components/segmented-control';
 import { ThemedText, Typography } from '@/components/themed-text';
-import { Spacing } from '@/constants/theme';
+import { Radius, Spacing } from '@/constants/theme';
 import { useTheme } from '@/hooks/use-theme';
 import type { OpenFoodFactsProduct } from '@/lib/open-food-facts';
 
@@ -136,7 +136,7 @@ const styles = StyleSheet.create({
     minHeight: 75,
     justifyContent: 'center',
     borderWidth: 1,
-    borderRadius: 13,
+    borderRadius: Radius.control,
     borderCurve: 'continuous',
     padding: Spacing.two,
   },

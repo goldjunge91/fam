@@ -10,8 +10,8 @@ import {
 } from 'react-native';
 
 import { FontSize, ThemedText } from '@/components/themed-text';
+import { Radius } from '@/constants/theme';
 import { useTheme } from '@/hooks/use-theme';
-
 import { getRecipeRating, saveRecipeRating } from '../recipe-ratings';
 
 type Props = {
@@ -144,7 +144,9 @@ export function RecipeRatingSheet({ recipeId, visible, onClose }: Props) {
               {saving ? (
                 <ActivityIndicator color="#FFFFFF" />
               ) : (
-                <ThemedText style={styles.submitText}>Bewertung speichern</ThemedText>
+                <ThemedText type="captionCompact" style={styles.submitText}>
+                  Bewertung speichern
+                </ThemedText>
               )}
             </Pressable>
           </Pressable>
@@ -158,14 +160,14 @@ const styles = StyleSheet.create({
   keyboardView: { flex: 1 },
   backdrop: { flex: 1, justifyContent: 'flex-end', backgroundColor: 'rgba(38,31,39,0.30)' },
   sheet: {
-    borderTopLeftRadius: 28,
-    borderTopRightRadius: 28,
+    borderTopLeftRadius: Radius.large,
+    borderTopRightRadius: Radius.large,
     borderCurve: 'continuous',
     paddingHorizontal: 16,
     paddingTop: 10,
     paddingBottom: 19,
   },
-  handle: { width: 38, height: 4, borderRadius: 3, alignSelf: 'center' },
+  handle: { width: 38, height: 4, borderRadius: Radius.hairline, alignSelf: 'center' },
   header: {
     minHeight: 58,
     paddingTop: 13,
@@ -178,7 +180,7 @@ const styles = StyleSheet.create({
   close: {
     width: 32,
     height: 32,
-    borderRadius: 11,
+    borderRadius: Radius.control,
     borderCurve: 'continuous',
     alignItems: 'center',
     justifyContent: 'center',
@@ -191,7 +193,7 @@ const styles = StyleSheet.create({
     minWidth: 52,
     flexGrow: 1,
     height: 50,
-    borderRadius: 14,
+    borderRadius: Radius.controlLarge,
     borderCurve: 'continuous',
     flexDirection: 'row',
     alignItems: 'center',
@@ -207,7 +209,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 12,
     paddingVertical: 11,
     borderWidth: StyleSheet.hairlineWidth,
-    borderRadius: 16,
+    borderRadius: Radius.card,
     borderCurve: 'continuous',
     ...FontSize[11],
     lineHeight: 16,
@@ -215,7 +217,7 @@ const styles = StyleSheet.create({
   submit: {
     height: 48,
     marginTop: 14,
-    borderRadius: 16,
+    borderRadius: Radius.card,
     borderCurve: 'continuous',
     alignItems: 'center',
     justifyContent: 'center',

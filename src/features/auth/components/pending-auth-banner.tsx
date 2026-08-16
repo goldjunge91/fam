@@ -3,7 +3,7 @@ import { Animated, Easing, StyleSheet, View } from 'react-native';
 import { TextField } from '@/components/text-field';
 import { FontSize, ThemedText } from '@/components/themed-text';
 import { Button } from '@/components/ui/buttons';
-import { Spacing } from '@/constants/theme';
+import { Radius, Spacing } from '@/constants/theme';
 import {
   authErrorMessage,
   confirmSignUpWithCode,
@@ -354,7 +354,11 @@ export function PendingAuthBanner({
             },
           ]}
         />
-        <View style={[styles.iconCircle, { backgroundColor: theme.accent }]}>
+        <View
+          style={[
+            styles.iconCircle,
+            { backgroundColor: theme.accent, shadowColor: theme.shadowCard },
+          ]}>
           <ThemedText style={styles.iconSymbol}>✉️</ThemedText>
         </View>
       </View>
@@ -457,7 +461,7 @@ export function PendingAuthBanner({
 
 const styles = StyleSheet.create({
   glassCard: {
-    borderRadius: 20,
+    borderRadius: Radius.sheet,
     borderWidth: 1,
     padding: Spacing.four,
     gap: Spacing.three,
@@ -479,11 +483,10 @@ const styles = StyleSheet.create({
   iconCircle: {
     width: 48,
     height: 48,
-    borderRadius: 24,
+    borderRadius: Radius.large,
     justifyContent: 'center',
     alignItems: 'center',
     elevation: 3,
-    shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.25,
     shadowRadius: 4,
@@ -499,7 +502,7 @@ const styles = StyleSheet.create({
   liveDot: {
     width: 8,
     height: 8,
-    borderRadius: 4,
+    borderRadius: Radius.xs,
   },
   titleText: {
     ...FontSize[18],
@@ -508,7 +511,7 @@ const styles = StyleSheet.create({
   emailCapsule: {
     paddingHorizontal: Spacing.three,
     paddingVertical: Spacing.one,
-    borderRadius: 16,
+    borderRadius: Radius.card,
   },
   descriptionText: {
     textAlign: 'center',

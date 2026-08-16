@@ -11,6 +11,7 @@ import { ProgressBar } from '@/components/progress-bar';
 import { ProgressRing } from '@/components/progress-ring';
 import { FontSize, ThemedText } from '@/components/themed-text';
 import { HeaderIconButton, MenuButton } from '@/components/ui/buttons';
+import { Radius } from '@/constants/theme';
 import { useSession } from '@/features/auth/session-provider';
 import { useActiveProfile } from '@/features/calorie-tracking/active-profile-store';
 import {
@@ -135,7 +136,6 @@ function MealSection({ meal, entries, isLast, onAdd, onEntry }: MealSectionProps
           <PlusIcon size={18} />
         </Pressable>
       </View>
-
       {entries.map((entry) => (
         <Pressable
           key={entry.id}
@@ -246,7 +246,7 @@ export function DiaryScreen() {
 
   return (
     <View style={styles.root}>
-      <GradientBackground colors={['#FFD2B9', '#F8F4EF', '#EEE7F4']} />
+      <GradientBackground colors={['#FFCCB2', '#F9F2EB', '#E8DEF2']} />
       <SafeAreaView style={styles.safeArea} edges={['top', 'left', 'right']}>
         <PageHeader
           title="Tagebuch"
@@ -363,7 +363,10 @@ export function DiaryScreen() {
 
           <View style={[styles.mealsCard, { backgroundColor: `${theme.backgroundElement}D6` }]}>
             {isLoading ? (
-              <ThemedText themeColor="textSecondary" style={styles.loadingText}>
+              <ThemedText
+                type="captionCompact"
+                themeColor="textSecondary"
+                style={styles.loadingText}>
                 Lade Tagebuch...
               </ThemedText>
             ) : (
@@ -397,7 +400,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     gap: 2,
   },
-  goalBar: { width: 4, borderRadius: 2 },
+  goalBar: { width: 4, borderRadius: Radius.hairline },
   goalBarShort: { height: 7 },
   goalBarTall: { height: 17 },
   goalBarMid: { height: 12 },
@@ -409,7 +412,7 @@ const styles = StyleSheet.create({
   fullDate: { marginTop: 1, ...FontSize[10], lineHeight: 12, fontWeight: 500 },
   summaryCard: {
     minHeight: 160,
-    borderRadius: 24,
+    borderRadius: Radius.large,
     borderCurve: 'continuous',
     padding: 16,
     flexDirection: 'row',
@@ -431,7 +434,7 @@ const styles = StyleSheet.create({
     flex: 1,
     minWidth: 0,
     height: 58,
-    borderRadius: 16,
+    borderRadius: Radius.card,
     borderCurve: 'continuous',
     paddingHorizontal: 10,
     paddingVertical: 9,
@@ -440,7 +443,7 @@ const styles = StyleSheet.create({
   macroLabels: { gap: 1 },
   macroLabel: { ...FontSize[10], lineHeight: 12, fontWeight: 700 },
   macroValue: { ...FontSize[8], lineHeight: 10, fontWeight: 500 },
-  mealsCard: { borderRadius: 20, borderCurve: 'continuous', overflow: 'hidden' },
+  mealsCard: { borderRadius: Radius.sheet, borderCurve: 'continuous', overflow: 'hidden' },
   mealSection: { borderBottomWidth: StyleSheet.hairlineWidth },
   mealHeader: {
     minHeight: 48,
@@ -456,7 +459,7 @@ const styles = StyleSheet.create({
   addButton: {
     width: 32,
     height: 32,
-    borderRadius: 11,
+    borderRadius: Radius.control,
     borderCurve: 'continuous',
     alignItems: 'center',
     justifyContent: 'center',
@@ -465,7 +468,7 @@ const styles = StyleSheet.create({
     minHeight: 42,
     marginHorizontal: 8,
     marginBottom: 6,
-    borderRadius: 11,
+    borderRadius: Radius.control,
     borderCurve: 'continuous',
     paddingHorizontal: 10,
     paddingVertical: 6,

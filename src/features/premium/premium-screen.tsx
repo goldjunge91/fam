@@ -5,8 +5,8 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { GradientBackground } from '@/components/gradient-background';
 import { PageHeader } from '@/components/page-header';
 import { FontSize, ThemedText } from '@/components/themed-text';
-import { BackArrowButton, Button } from '@/components/ui/buttons';
-import { Spacing } from '@/constants/theme';
+import { BackButton, Button } from '@/components/ui/buttons';
+import { Radius, Spacing } from '@/constants/theme';
 import { presentCustomerCenter, presentPaywall } from '@/features/premium/paywall';
 import { usePremium } from '@/features/premium/premium-provider';
 import { SettingsGroup, SettingsRow } from '@/features/settings/settings-menu';
@@ -88,12 +88,12 @@ export function PremiumScreen() {
 
   return (
     <View style={styles.root}>
-      <GradientBackground colors={['#FFD2B9', '#F8F4EF', '#EEE7F4']} />
+      <GradientBackground colors={['#FFCCB2', '#F9F2EB', '#E8DEF2']} />
       <SafeAreaView style={styles.safeArea} edges={['top', 'left', 'right']}>
         <PageHeader
           title="fam Premium"
           align="center"
-          leading={<BackArrowButton label="Einstellungen" href="/settings" />}
+          leading={<BackButton label="Einstellungen" href="/settings" variant="arrow" />}
         />
 
         <ScrollView contentContainerStyle={styles.scroll} showsVerticalScrollIndicator={false}>
@@ -188,7 +188,7 @@ const styles = StyleSheet.create({
     width: 66,
     height: 66,
     marginBottom: 11,
-    borderRadius: 22,
+    borderRadius: Radius.sheet,
     overflow: 'hidden',
     alignItems: 'center',
     justifyContent: 'center',
@@ -211,7 +211,7 @@ const styles = StyleSheet.create({
   },
   activeBox: {
     padding: 13,
-    borderRadius: 18,
+    borderRadius: Radius.sheet,
   },
   activeTitle: {
     ...FontSize[10],
@@ -225,7 +225,7 @@ const styles = StyleSheet.create({
     paddingVertical: 11,
     paddingHorizontal: 12,
     borderWidth: 2,
-    borderRadius: 17,
+    borderRadius: Radius.sheet,
   },
   planTitle: {
     ...FontSize[10],

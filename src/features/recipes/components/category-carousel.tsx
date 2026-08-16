@@ -1,6 +1,7 @@
 import { Pressable, ScrollView, StyleSheet } from 'react-native';
 
 import { FontSize, ThemedText } from '@/components/themed-text';
+import { Radius } from '@/constants/theme';
 import type { RecipeTemplateWithNutrition } from '@/features/recipe-templates/use-recipe-templates';
 import {
   isHighProteinTemplate,
@@ -116,7 +117,7 @@ const styles = StyleSheet.create({
   tile: {
     width: 78,
     minHeight: 68,
-    borderRadius: 16,
+    borderRadius: Radius.card,
     borderCurve: 'continuous',
     borderWidth: 1,
     alignItems: 'center',

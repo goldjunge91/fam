@@ -3,7 +3,7 @@ import { useRef, useState } from 'react';
 import { ActivityIndicator, Modal, Pressable, StyleSheet, View } from 'react-native';
 import { FontSize, ThemedText } from '@/components/themed-text';
 import { Button } from '@/components/ui/buttons';
-import { Spacing } from '@/constants/theme';
+import { Radius, Spacing } from '@/constants/theme';
 import { useTheme } from '@/hooks/use-theme';
 import { fetchProductByBarcode, type OpenFoodFactsProduct } from '@/lib/open-food-facts';
 
@@ -136,8 +136,8 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-end',
   },
   modalBox: {
-    borderTopLeftRadius: 24,
-    borderTopRightRadius: 24,
+    borderTopLeftRadius: Radius.large,
+    borderTopRightRadius: Radius.large,
     padding: Spacing.four,
     gap: Spacing.three,
     height: '80%',
@@ -156,7 +156,7 @@ const styles = StyleSheet.create({
   },
   cameraContainer: {
     flex: 1,
-    borderRadius: 16,
+    borderRadius: Radius.card,
     overflow: 'hidden',
     justifyContent: 'center',
     alignItems: 'center',
@@ -166,7 +166,7 @@ const styles = StyleSheet.create({
     height: 140,
     borderWidth: 2,
     borderColor: '#10B981',
-    borderRadius: 12,
+    borderRadius: Radius.control,
     backgroundColor: 'transparent',
   },
   statusBox: {

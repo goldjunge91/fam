@@ -3,7 +3,7 @@ import { Pressable, StyleSheet, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { ThemedText } from '@/components/themed-text';
-import { Spacing } from '@/constants/theme';
+import { Radius, Spacing } from '@/constants/theme';
 import { useTheme } from '@/hooks/use-theme';
 
 export type ShowUndoSnackbarInput = {
@@ -107,7 +107,7 @@ const styles = StyleSheet.create({
     marginBottom: Spacing.three,
     paddingHorizontal: Spacing.three,
     paddingVertical: Spacing.two,
-    borderRadius: 12,
+    borderRadius: Radius.control,
     gap: Spacing.three,
   },
   message: {

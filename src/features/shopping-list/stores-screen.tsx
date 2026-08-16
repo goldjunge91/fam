@@ -5,7 +5,7 @@ import { Screen } from '@/components/screen';
 import { TextField } from '@/components/text-field';
 import { FontSize, ThemedText } from '@/components/themed-text';
 import { Button } from '@/components/ui/buttons';
-import { Spacing } from '@/constants/theme';
+import { Radius, Spacing } from '@/constants/theme';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { useTheme } from '@/hooks/use-theme';
 import { STORE_COLOR_PALETTE, STORE_PRESETS } from './store-presets';
@@ -273,18 +273,18 @@ const styles = StyleSheet.create({
     gap: Spacing.one,
     paddingHorizontal: Spacing.three,
     paddingVertical: Spacing.one + 2,
-    borderRadius: 20,
+    borderRadius: Radius.sheet,
     borderWidth: 1,
   },
   presetDot: {
     width: 8,
     height: 8,
-    borderRadius: 4,
+    borderRadius: Radius.xs,
   },
   colorSwatch: {
     width: 32,
     height: 32,
-    borderRadius: 16,
+    borderRadius: Radius.card,
     borderWidth: 2,
   },
   list: {
@@ -303,7 +303,7 @@ const styles = StyleSheet.create({
   colorDot: {
     width: 14,
     height: 14,
-    borderRadius: 7,
+    borderRadius: Radius.sm,
   },
   nameText: {
     fontWeight: 'bold',

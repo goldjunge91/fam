@@ -4,6 +4,7 @@ import Svg, { Path } from 'react-native-svg';
 import { FontSize } from '@/components/themed-text';
 
 import { WheelPickerField } from '@/components/wheel-picker-field';
+import { Radius } from '@/constants/theme';
 import { ProductSearchDropdown } from '@/features/inventory/product-search-dropdown';
 import type { DietaryTag, Difficulty, DishType } from '@/features/recipes/use-recipes';
 import type { OpenFoodFactsProduct } from '@/lib/open-food-facts';
@@ -361,7 +362,7 @@ const styles = StyleSheet.create({
     width: '100%',
     height: 200,
     backgroundColor: '#EEE5EC',
-    borderRadius: 19,
+    borderRadius: Radius.sheet,
     borderCurve: 'continuous',
     overflow: 'hidden',
     marginBottom: 16,
@@ -404,7 +405,7 @@ const styles = StyleSheet.create({
   },
   input: {
     backgroundColor: '#EEE5EC',
-    borderRadius: 12,
+    borderRadius: Radius.control,
     borderCurve: 'continuous',
     minHeight: 44,
     paddingHorizontal: 12,
@@ -422,7 +423,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
     backgroundColor: '#EEE5EC',
-    borderRadius: 12,
+    borderRadius: Radius.control,
     borderCurve: 'continuous',
     height: 44,
     paddingHorizontal: 12,
@@ -446,7 +447,7 @@ const styles = StyleSheet.create({
   chip: {
     paddingHorizontal: 12,
     paddingVertical: 7,
-    borderRadius: 12,
+    borderRadius: Radius.control,
     borderCurve: 'continuous',
     backgroundColor: '#EEE5EC',
   },
@@ -464,7 +465,7 @@ const styles = StyleSheet.create({
   componentSection: {
     marginBottom: 12,
     padding: 11,
-    borderRadius: 19,
+    borderRadius: Radius.sheet,
     borderCurve: 'continuous',
     backgroundColor: 'rgba(255,255,255,0.70)',
   },
@@ -490,7 +491,7 @@ const styles = StyleSheet.create({
   trashCircleButton: {
     width: 44,
     height: 44,
-    borderRadius: 12,
+    borderRadius: Radius.control,
     borderCurve: 'continuous',
     backgroundColor: '#EEE5EC',
     alignItems: 'center',
@@ -509,7 +510,7 @@ const styles = StyleSheet.create({
     width: '100%',
     height: 42,
     backgroundColor: '#EEE5EC',
-    borderRadius: 14,
+    borderRadius: Radius.controlLarge,
     borderCurve: 'continuous',
     alignItems: 'center',
     justifyContent: 'center',
@@ -529,7 +530,7 @@ const styles = StyleSheet.create({
   navButton: {
     flex: 1,
     minHeight: 48,
-    borderRadius: 16,
+    borderRadius: Radius.card,
     borderCurve: 'continuous',
     alignItems: 'center',
     justifyContent: 'center',

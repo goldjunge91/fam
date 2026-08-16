@@ -1,6 +1,7 @@
 import { Pressable, StyleSheet } from 'react-native';
 
 import { MenuIcon } from '@/components/fam-icon';
+import { Radius } from '@/constants/theme';
 
 type MenuButtonProps = {
   onPress: () => void;
@@ -23,7 +24,7 @@ const styles = StyleSheet.create({
   button: {
     width: 58,
     height: 58,
-    borderRadius: 18,
+    borderRadius: Radius.sheet,
     borderCurve: 'continuous',
     alignItems: 'center',
     justifyContent: 'center',

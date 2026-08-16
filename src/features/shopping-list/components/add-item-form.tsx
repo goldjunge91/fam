@@ -9,7 +9,7 @@ import { TextField } from '@/components/text-field';
 import { ThemedText, Typography } from '@/components/themed-text';
 import { Button, HeaderIconButton } from '@/components/ui/buttons';
 import { WheelPickerField } from '@/components/wheel-picker-field';
-import { Spacing } from '@/constants/theme';
+import { Radius, Spacing } from '@/constants/theme';
 import { useSession } from '@/features/auth/session-provider';
 import { BarcodeScannerModal } from '@/features/inventory/barcode-scanner-modal';
 import { persistOffProductIfNeeded } from '@/features/inventory/persist-off-product';
@@ -340,7 +340,7 @@ const styles = StyleSheet.create({
   scanButton: {
     width: 40,
     height: 40,
-    borderRadius: 12,
+    borderRadius: Radius.control,
   },
   largeSmallText: {
     ...Typography.body,
@@ -350,7 +350,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     gap: Spacing.two,
-    borderRadius: 14,
+    borderRadius: Radius.controlLarge,
     borderCurve: 'continuous',
     paddingHorizontal: 11,
     paddingVertical: 9,

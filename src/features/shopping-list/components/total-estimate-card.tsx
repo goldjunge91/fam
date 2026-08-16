@@ -1,7 +1,7 @@
 import { StyleSheet, View } from 'react-native';
 
 import { ThemedText } from '@/components/themed-text';
-import { Spacing } from '@/constants/theme';
+import { Radius, Spacing } from '@/constants/theme';
 import { useTheme } from '@/hooks/use-theme';
 import { formatEuro } from '@/lib/format-currency';
 
@@ -35,7 +35,7 @@ export function TotalEstimateCard({
 const styles = StyleSheet.create({
   card: {
     // Gleicher Radius wie components/card.tsx — beides "surface-elevated"-Flaechen.
-    borderRadius: 28,
+    borderRadius: Radius.large,
     padding: Spacing.four,
     alignItems: 'center',
     gap: Spacing.half,

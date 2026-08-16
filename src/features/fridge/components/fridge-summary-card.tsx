@@ -2,6 +2,7 @@ import { StyleSheet, View } from 'react-native';
 import Svg, { Circle } from 'react-native-svg';
 
 import { FontSize, ThemedText } from '@/components/themed-text';
+import { Radius, withAlpha } from '@/constants/theme';
 import { useTheme } from '@/hooks/use-theme';
 
 type FridgeSummaryCardProps = {
@@ -44,7 +45,13 @@ export function FridgeSummaryCard({
     <View
       accessible
       aria-label={`${totalCount} Artikel im Vorrat, ${criticalCount} kritisch, ${soonCount} bald fällig`}
-      style={[styles.card, { backgroundColor: `${theme.backgroundElement}E8` }]}>
+      style={[
+        styles.card,
+        {
+          backgroundColor: `${theme.backgroundElement}E8`,
+          boxShadow: `0 12px 30px ${withAlpha(theme.shadowCard, 0.12)}`,
+        },
+      ]}>
       <View style={styles.ringWrap}>
         <Svg width={RING_SIZE} height={RING_SIZE}>
           <Circle
@@ -100,14 +107,13 @@ const styles = StyleSheet.create({
   card: {
     minHeight: 178,
     // Gleicher Radius wie components/card.tsx — beides "surface-elevated"-Flaechen.
-    borderRadius: 28,
+    borderRadius: Radius.large,
     borderCurve: 'continuous',
     paddingHorizontal: 18,
     paddingVertical: 24,
     flexDirection: 'row',
     alignItems: 'center',
     gap: 22,
-    boxShadow: '0 12px 30px rgba(84, 59, 88, 0.12)',
   },
   ringWrap: {
     width: RING_SIZE,

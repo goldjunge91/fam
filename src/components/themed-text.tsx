@@ -1,4 +1,4 @@
-import { Platform, StyleSheet, Text, type TextProps } from 'react-native';
+import { Platform, StyleSheet, Text, type TextProps, type TextStyle } from 'react-native';
 
 import { Fonts, type ThemeColor } from '@/constants/theme';
 import { useTheme } from '@/hooks/use-theme';
@@ -58,63 +58,74 @@ export const Typography = {
   code: { ...FontSize[12] },
 } as const;
 
+/**
+ * Benannte Text-Rollen: Groesse **und** Gewicht liegen fest, unabhaengig
+ * davon, ob ein gleichnamiger `Typography`-Schluessel existiert. `title` ist
+ * z. B. immer "grosse Ueberschrift" (`display`-Groesse + Gewicht 600) und
+ * beansprucht den Namen `title` fuer sich — der rohe `Typography.title`-Wert
+ * (32/44, ohne Gewicht) ist ueber `type` deshalb nicht separat erreichbar,
+ * sondern nur direkt per `import { Typography } from '@/components/themed-text'`.
+ * Praktisch betrifft das nur `title`: `link` und `code` als Rolle liefern
+ * ohnehin exakt `Typography.link`/`Typography.code` (kein Unterschied), nur
+ * `title` (Rolle) und `Typography.title` (Rohgroesse) sind zwei
+ * verschiedene Werte hinter demselben Namen.
+ */
+const TEXT_ROLE_STYLES = StyleSheet.create({
+  small: { ...Typography.bodySmall, fontWeight: 500 },
+  smallBold: { ...Typography.bodySmall, fontWeight: 700 },
+  default: { ...Typography.bodyRelaxed, fontWeight: 500 },
+  title: { ...Typography.display, fontWeight: 600 },
+  subtitle: { ...Typography.title, fontWeight: 600 },
+  link: { ...Typography.link },
+  linkPrimary: { ...Typography.link },
+  code: {
+    fontFamily: Fonts.mono,
+    fontWeight: Platform.select({ android: 700 }) ?? 500,
+    ...Typography.code,
+  },
+}) satisfies Record<string, TextStyle>;
+
+type TextRole = keyof typeof TEXT_ROLE_STYLES;
+
+/**
+ * Jeder `Typography`-Token ist automatisch als `type`-Wert nutzbar (#122) —
+ * ein Screen muss `Typography.*` nicht mehr manuell in ein `style`-Objekt
+ * spreaden, um z. B. `type="label"` oder `type="bodyLarge"` zu bekommen. Ein
+ * neuer `Typography`-Eintrag steht dadurch ohne weitere Aenderung hier zur
+ * Verfuegung.
+ *
+ * `fontWeight` ist bewusst nicht Teil dieses Mappings, weil Groesse und
+ * Gewicht zwei unabhaengige Achsen sind: dieselbe Groesse taucht in den
+ * Referenz-Screens mit unterschiedlichem Gewicht auf (z. B. Dashboard-Label
+ * 400 vs. PageHeader-Untertitel 600 — beide `label`-grosse Schrift). Wuerde
+ * jede Groesse ein festes Gewicht bekommen, muesste jede Kombination aus
+ * Groesse × Gewicht einen eigenen `type`-Namen haben (`label`, `labelBold`,
+ * `caption`, `captionBold`, …) — eine Vervielfachung der Varianten fuer
+ * denselben Zweck, den ein einfacher `style={{ fontWeight: ... }}`-Override
+ * bereits abdeckt (RN mergt Style-Arrays, der Override gewinnt).
+ */
+const TYPOGRAPHY_STYLES = StyleSheet.create(Typography) satisfies Record<string, TextStyle>;
+
 export type ThemedTextProps = TextProps & {
-  type?: 'default' | 'title' | 'small' | 'smallBold' | 'subtitle' | 'link' | 'linkPrimary' | 'code';
+  type?: TextRole | Exclude<keyof typeof Typography, TextRole>;
   themeColor?: ThemeColor;
 };
 
 export function ThemedText({ style, type = 'default', themeColor, ...rest }: ThemedTextProps) {
   const theme = useTheme();
+  const typeStyle =
+    type in TEXT_ROLE_STYLES
+      ? TEXT_ROLE_STYLES[type as TextRole]
+      : TYPOGRAPHY_STYLES[type as keyof typeof Typography];
 
   return (
     <Text
       style={[
         { color: theme[themeColor ?? (type === 'linkPrimary' ? 'accent' : 'text')] },
-        type === 'default' && styles.default,
-        type === 'title' && styles.title,
-        type === 'small' && styles.small,
-        type === 'smallBold' && styles.smallBold,
-        type === 'subtitle' && styles.subtitle,
-        type === 'link' && styles.link,
-        type === 'linkPrimary' && styles.linkPrimary,
-        type === 'code' && styles.code,
+        typeStyle,
         style,
       ]}
       {...rest}
     />
   );
 }
-
-const styles = StyleSheet.create({
-  small: {
-    ...Typography.bodySmall,
-    fontWeight: 500,
-  },
-  smallBold: {
-    ...Typography.bodySmall,
-    fontWeight: 700,
-  },
-  default: {
-    ...Typography.bodyRelaxed,
-    fontWeight: 500,
-  },
-  title: {
-    ...Typography.display,
-    fontWeight: 600,
-  },
-  subtitle: {
-    ...Typography.title,
-    fontWeight: 600,
-  },
-  link: {
-    ...Typography.link,
-  },
-  linkPrimary: {
-    ...Typography.link,
-  },
-  code: {
-    fontFamily: Fonts.mono,
-    fontWeight: Platform.select({ android: 700 }) ?? 500,
-    ...Typography.code,
-  },
-});

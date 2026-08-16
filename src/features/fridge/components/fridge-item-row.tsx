@@ -4,7 +4,7 @@ import ReanimatedSwipeable, {
 } from 'react-native-gesture-handler/ReanimatedSwipeable';
 
 import { ThemedText } from '@/components/themed-text';
-import { Spacing, type ThemeColor } from '@/constants/theme';
+import { Radius, Spacing, type ThemeColor } from '@/constants/theme';
 import { useTheme } from '@/hooks/use-theme';
 import { formatAmount, formatPackageHint } from '@/lib/package-size';
 
@@ -126,7 +126,7 @@ const styles = StyleSheet.create({
     width: 5,
     height: '100%',
     minHeight: 48,
-    borderRadius: 5,
+    borderRadius: Radius.xs,
   },
   itemMain: {
     flex: 1,

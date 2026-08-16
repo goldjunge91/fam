@@ -3,9 +3,11 @@ import { useState } from 'react';
 import { Modal, Platform, Pressable, StyleSheet, View } from 'react-native';
 
 import { ThemedText, Typography } from '@/components/themed-text';
-import { Button } from '@/components/ui/buttons';
-import { Spacing } from '@/constants/theme';
+
+import { Radius, Spacing } from '@/constants/theme';
+
 import { useTheme } from '@/hooks/use-theme';
+import { Button } from './ui/buttons';
 
 export type WheelPickerOption = {
   value: string;
@@ -93,7 +95,9 @@ export function WheelPickerField({
           styles.field,
           { backgroundColor: theme.backgroundElement, borderColor: theme.border },
         ]}>
-        <ThemedText style={[{ color: theme.text }, size === 'large' && styles.largeSelectedLabel]}>
+        <ThemedText
+          type="bodyLarge"
+          style={[{ color: theme.text }, size === 'large' && styles.largeSelectedLabel]}>
           {selectedLabel}
         </ThemedText>
       </Pressable>
@@ -145,7 +149,7 @@ const styles = StyleSheet.create({
     padding: Spacing.four,
   },
   modalBox: {
-    borderRadius: 20,
+    borderRadius: Radius.sheet,
     padding: Spacing.four,
     gap: Spacing.three,
   },

@@ -6,7 +6,7 @@ import { Screen } from '@/components/screen';
 import { SegmentedControl } from '@/components/segmented-control';
 import { TextField } from '@/components/text-field';
 import { FontSize, ThemedText } from '@/components/themed-text';
-import { Spacing } from '@/constants/theme';
+import { Radius, Spacing } from '@/constants/theme';
 import { useSession } from '@/features/auth/session-provider';
 import type { MealType } from '@/features/calorie-tracking/api';
 import {
@@ -365,7 +365,7 @@ const styles = StyleSheet.create({
   scanBtn: {
     width: 48,
     height: 48,
-    borderRadius: 12,
+    borderRadius: Radius.control,
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -394,12 +394,12 @@ const styles = StyleSheet.create({
   rowImg: {
     width: 36,
     height: 36,
-    borderRadius: 8,
+    borderRadius: Radius.sm,
   },
   rowImgPlaceholder: {
     width: 36,
     height: 36,
-    borderRadius: 8,
+    borderRadius: Radius.sm,
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -413,7 +413,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     gap: Spacing.two,
     paddingVertical: Spacing.three,
-    borderRadius: 14,
+    borderRadius: Radius.controlLarge,
     marginTop: Spacing.three,
     marginBottom: Spacing.four,
   },

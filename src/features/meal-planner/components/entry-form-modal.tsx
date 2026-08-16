@@ -5,7 +5,7 @@ import { TextField } from '@/components/text-field';
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
 import { Button } from '@/components/ui/buttons';
-import { Spacing } from '@/constants/theme';
+import { Radius, Spacing } from '@/constants/theme';
 import { useTheme } from '@/hooks/use-theme';
 import { DEFAULT_PORTIONS_PER_PERSON, type ResolvedServings, resolveServings } from '../servings';
 import { MEAL_SLOT_LABELS, type MealSlot } from '../week';
@@ -212,7 +212,7 @@ const styles = StyleSheet.create({
   closeButton: {
     width: 32,
     height: 32,
-    borderRadius: 16,
+    borderRadius: Radius.card,
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -221,7 +221,7 @@ const styles = StyleSheet.create({
   modeButton: {
     flex: 1,
     paddingVertical: Spacing.two,
-    borderRadius: 10,
+    borderRadius: Radius.control,
     alignItems: 'center',
   },
   wholeHouseholdButton: { alignSelf: 'flex-start' },

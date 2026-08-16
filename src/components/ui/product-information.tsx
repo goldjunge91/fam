@@ -3,7 +3,7 @@ import { ActivityIndicator, Modal, Pressable, ScrollView, StyleSheet, View } fro
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { FontSize, ThemedText } from '@/components/themed-text';
-import { Spacing } from '@/constants/theme';
+import { Radius, Spacing, withAlpha } from '@/constants/theme';
 import { useProduct } from '@/features/inventory/use-product';
 import { useTheme } from '@/hooks/use-theme';
 import { fetchProductByBarcode } from '@/lib/open-food-facts';
@@ -104,6 +104,7 @@ export function ProductInformation({ visible, item, onClose }: ProductInformatio
             {
               backgroundColor: theme.backgroundElement,
               paddingBottom: Math.max(insets.bottom, Spacing.three),
+              boxShadow: `0 -16px 48px ${withAlpha(theme.shadowSheet, 0.2)}`,
             },
           ]}>
           <View style={[styles.handle, { backgroundColor: theme.border }]} />
@@ -211,15 +212,14 @@ const styles = StyleSheet.create({
     right: 12,
     bottom: 10,
     maxHeight: '82%',
-    borderRadius: 28,
+    borderRadius: Radius.large,
     borderCurve: 'continuous',
-    boxShadow: '0 -16px 48px rgba(42, 32, 44, 0.2)',
     overflow: 'hidden',
   },
   handle: {
     width: 42,
     height: 4,
-    borderRadius: 2,
+    borderRadius: Radius.hairline,
     alignSelf: 'center',
     marginTop: 11,
   },
@@ -239,13 +239,13 @@ const styles = StyleSheet.create({
   closeButton: {
     width: 34,
     height: 34,
-    borderRadius: 17,
+    borderRadius: Radius.sheet,
     alignItems: 'center',
     justifyContent: 'center',
   },
   nutriCard: {
     minHeight: 88,
-    borderRadius: 20,
+    borderRadius: Radius.sheet,
     borderCurve: 'continuous',
     padding: 12,
     flexDirection: 'row',
@@ -255,7 +255,7 @@ const styles = StyleSheet.create({
   score: {
     width: 62,
     height: 62,
-    borderRadius: 16,
+    borderRadius: Radius.card,
     borderCurve: 'continuous',
     alignItems: 'center',
     justifyContent: 'center',
@@ -271,7 +271,7 @@ const styles = StyleSheet.create({
   },
   detailsCard: {
     borderWidth: StyleSheet.hairlineWidth,
-    borderRadius: 18,
+    borderRadius: Radius.sheet,
     borderCurve: 'continuous',
     overflow: 'hidden',
   },
@@ -285,7 +285,7 @@ const styles = StyleSheet.create({
     borderBottomWidth: StyleSheet.hairlineWidth,
   },
   copyCard: {
-    borderRadius: 18,
+    borderRadius: Radius.sheet,
     borderCurve: 'continuous',
     padding: 14,
     gap: 6,
@@ -298,7 +298,7 @@ const styles = StyleSheet.create({
   nutrientCard: {
     width: '31.6%',
     minHeight: 62,
-    borderRadius: 16,
+    borderRadius: Radius.card,
     borderCurve: 'continuous',
     padding: 10,
     gap: 5,

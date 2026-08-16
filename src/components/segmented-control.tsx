@@ -8,6 +8,7 @@ import {
   View,
 } from 'react-native';
 import { Typography } from '@/components/themed-text';
+import { Radius, withAlpha } from '@/constants/theme';
 
 import { useTheme } from '@/hooks/use-theme';
 
@@ -72,7 +73,10 @@ export function SegmentedControl<T extends string>({
               active && {
                 backgroundColor: appearance === 'surface' ? theme.backgroundElement : theme.accent,
               },
-              active && appearance === 'surface' && styles.surfaceSelected,
+              active &&
+                appearance === 'surface' && {
+                  boxShadow: `0 3px 10px ${withAlpha(theme.shadowCard, 0.09)}`,
+                },
               pressed && styles.pressed,
             ]}>
             <Text
@@ -114,19 +118,19 @@ const styles = StyleSheet.create({
     height: 40,
     flexDirection: 'row',
     gap: 4,
-    borderRadius: 14,
+    borderRadius: Radius.controlLarge,
     borderCurve: 'continuous',
     padding: 3,
   },
   surfaceRoot: {
     height: 48,
     gap: 8,
-    borderRadius: 16,
+    borderRadius: Radius.card,
     padding: 4,
   },
   compactRoot: {
     height: 38,
-    borderRadius: 12,
+    borderRadius: Radius.control,
     padding: 3,
   },
   scrollRoot: {
@@ -141,23 +145,20 @@ const styles = StyleSheet.create({
     minHeight: 34,
     alignItems: 'center',
     justifyContent: 'center',
-    borderRadius: 11,
+    borderRadius: Radius.control,
     borderCurve: 'continuous',
   },
   surfaceSegment: {
     minHeight: 40,
-    borderRadius: 12,
+    borderRadius: Radius.control,
   },
   compactSegment: {
     minHeight: 32,
-    borderRadius: 10,
+    borderRadius: Radius.control,
   },
   scrollSegment: {
     flex: 0,
     minWidth: 104,
-  },
-  surfaceSelected: {
-    boxShadow: '0 3px 10px rgba(55, 41, 57, 0.09)',
   },
   label: {
     ...Typography.captionCompact,

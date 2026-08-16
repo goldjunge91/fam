@@ -4,7 +4,7 @@ import { Alert, FlatList, Image, Pressable, StyleSheet, View } from 'react-nativ
 import { Screen } from '@/components/screen';
 import { FontSize, ThemedText } from '@/components/themed-text';
 import { Button } from '@/components/ui/buttons';
-import { Spacing } from '@/constants/theme';
+import { Radius, Spacing } from '@/constants/theme';
 import { useSession } from '@/features/auth/session-provider';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import {
@@ -327,7 +327,7 @@ const styles = StyleSheet.create({
   avatar: {
     width: 40,
     height: 40,
-    borderRadius: 20,
+    borderRadius: Radius.sheet,
     alignItems: 'center',
     justifyContent: 'center',
     overflow: 'hidden',
@@ -335,7 +335,7 @@ const styles = StyleSheet.create({
   avatarImage: {
     width: 40,
     height: 40,
-    borderRadius: 20,
+    borderRadius: Radius.sheet,
   },
   avatarText: {
     fontWeight: 'bold',
@@ -352,13 +352,13 @@ const styles = StyleSheet.create({
   roleTag: {
     paddingHorizontal: 8,
     paddingVertical: 4,
-    borderRadius: 8,
+    borderRadius: Radius.sm,
     backgroundColor: 'rgba(16,185,129,0.1)',
   },
   removeTag: {
     paddingHorizontal: 8,
     paddingVertical: 4,
-    borderRadius: 8,
+    borderRadius: Radius.sm,
     backgroundColor: 'rgba(239,68,68,0.1)',
   },
   actions: {

@@ -3,7 +3,7 @@ import { router } from 'expo-router';
 import { Modal, Pressable, StyleSheet, View } from 'react-native';
 import { FontSize, ThemedText } from '@/components/themed-text';
 import { Button } from '@/components/ui/buttons';
-import { Spacing } from '@/constants/theme';
+import { Radius, Spacing } from '@/constants/theme';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { useTheme } from '@/hooks/use-theme';
 
@@ -104,7 +104,7 @@ const styles = StyleSheet.create({
     padding: Spacing.four,
   },
   modalBox: {
-    borderRadius: 20,
+    borderRadius: Radius.sheet,
     padding: Spacing.four,
     gap: Spacing.three,
   },
@@ -121,7 +121,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingVertical: Spacing.three,
     paddingHorizontal: Spacing.two,
-    borderRadius: 12,
+    borderRadius: Radius.control,
     borderBottomWidth: StyleSheet.hairlineWidth,
   },
   actionButtons: {

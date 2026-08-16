@@ -5,7 +5,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { CalendarDayIcon } from '@/components/calendar-day-icon';
 import { FamIcon, type FamIconName } from '@/components/fam-icon';
 import { FontSize, ThemedText } from '@/components/themed-text';
-
+import { Radius } from '@/constants/theme';
 import { useNavigationChrome } from './navigation-chrome-provider';
 
 // 'calendarDay' ist kein statisches FamIcon, sondern das Kalenderblatt mit
@@ -208,7 +208,7 @@ const styles = StyleSheet.create({
     gap: 11,
     height: 55,
     paddingHorizontal: 14,
-    borderRadius: 17,
+    borderRadius: Radius.sheet,
     borderCurve: 'continuous',
   },
   navRowActive: {
@@ -233,7 +233,7 @@ const styles = StyleSheet.create({
     gap: 11,
     height: 65,
     padding: 15,
-    borderRadius: 21,
+    borderRadius: Radius.sheet,
     backgroundColor: '#EEE8EE',
     borderCurve: 'continuous',
   },
