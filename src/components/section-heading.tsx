@@ -10,7 +10,12 @@ type SectionHeadingProps = {
 };
 
 /** Kleine Abschnittszeile fuer Kartenraster und horizontale Sammlungen. */
-export function SectionHeading({ title, eyebrow, actionLabel, onActionPress }: SectionHeadingProps) {
+export function SectionHeading({
+  title,
+  eyebrow,
+  actionLabel,
+  onActionPress,
+}: SectionHeadingProps) {
   return (
     <View style={styles.row}>
       <View style={styles.titleWrap}>
