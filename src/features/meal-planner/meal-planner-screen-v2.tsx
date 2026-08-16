@@ -7,13 +7,14 @@ import { Screen } from '@/components/screen';
 import { SegmentedControl } from '@/components/segmented-control';
 import { FontSize, ThemedText } from '@/components/themed-text';
 import { HeaderIconButton } from '@/components/ui/buttons';
-import { Gradients, Radius } from '@/constants/theme';
+import { Radius, withAlpha } from '@/constants/theme';
 import { useSession } from '@/features/auth/session-provider';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { useHouseholdMembers } from '@/features/household/api';
 import { useNavigationChrome } from '@/features/navigation/navigation-chrome-provider';
 import { useProfileInitials } from '@/features/navigation/use-profile-initials';
 import { useRecipes } from '@/features/recipes/use-recipes';
+import { useHubGradient } from '@/hooks/use-hub-gradient';
 import { useTheme } from '@/hooks/use-theme';
 import { type EntryFormInitial, EntryFormModal } from './components/entry-form-modal';
 import { MealPlannerVersionSwitcher } from './components/meal-planner-version-switcher';
@@ -34,43 +35,14 @@ import {
 } from './use-meal-plans';
 import {
   getWeekStart,
+  periodLabel,
   rangeDates,
   shiftAnchor,
+  todayIso,
   VIEW_MODE_LABELS,
   VIEW_MODES,
   type ViewMode,
 } from './week';
-
-function todayIso(): string {
-  const now = new Date();
-  const pad = (n: number) => String(n).padStart(2, '0');
-  return `${now.getFullYear()}-${pad(now.getMonth() + 1)}-${pad(now.getDate())}`;
-}
-
-const MONTH_LABELS = [
-  'Januar',
-  'Februar',
-  'März',
-  'April',
-  'Mai',
-  'Juni',
-  'Juli',
-  'August',
-  'September',
-  'Oktober',
-  'November',
-  'Dezember',
-];
-
-function periodLabel(dates: readonly string[]) {
-  const start = dates[0].split('-').map(Number);
-  const end = dates[dates.length - 1].split('-').map(Number);
-  const sameMonth = start[0] === end[0] && start[1] === end[1];
-
-  if (dates.length === 1) return `${start[2]}. ${MONTH_LABELS[start[1] - 1]}`;
-  if (sameMonth) return `${start[2]}.–${end[2]}. ${MONTH_LABELS[end[1] - 1]}`;
-  return `${start[2]}. ${MONTH_LABELS[start[1] - 1]}–${end[2]}. ${MONTH_LABELS[end[1] - 1]}`;
-}
 
 type PendingDrop = { date: string; slot: MealSlot; recipe: DraggableRecipe };
 type PendingCell = { date: string; slot: MealSlot };
@@ -85,6 +57,7 @@ type PendingCell = { date: string; slot: MealSlot };
  */
 export function MealPlannerScreenV2() {
   const theme = useTheme();
+  const hubGradient = useHubGradient();
   const { openDrawer, openProfile } = useNavigationChrome();
   const initials = useProfileInitials();
   const { session } = useSession();
@@ -252,7 +225,7 @@ export function MealPlannerScreenV2() {
           </HeaderIconButton>
         ),
       }}
-      backgroundGradient={Gradients.hub.light}>
+      backgroundGradient={hubGradient}>
       <View style={styles.content}>
         <MealPlannerVersionSwitcher selected="v2" />
 
@@ -300,7 +273,7 @@ export function MealPlannerScreenV2() {
               onPress={handleReuseLastWeek}
               style={({ pressed }) => [
                 styles.actionButton,
-                { backgroundColor: `${theme.backgroundElement}C7` },
+                { backgroundColor: withAlpha(theme.backgroundElement, 0.78) },
                 pressed && styles.pressed,
               ]}>
               <ThemedText themeColor="accent" style={styles.actionLabel}>
@@ -320,7 +293,7 @@ export function MealPlannerScreenV2() {
               }}
               style={({ pressed }) => [
                 styles.actionButton,
-                { backgroundColor: `${theme.backgroundElement}C7` },
+                { backgroundColor: withAlpha(theme.backgroundElement, 0.78) },
                 !plan && styles.disabled,
                 pressed && styles.pressed,
               ]}>
