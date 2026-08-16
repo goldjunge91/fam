@@ -51,6 +51,7 @@ export const Typography = {
   bodyLarge: { ...FontSize[18], lineHeight: 24 },
   controlAction: { ...FontSize[20], lineHeight: 22 },
   headingSmall: { ...FontSize[20], lineHeight: 26 },
+  subheading: { ...FontSize[20], lineHeight: 26 },
   controlActionLarge: { ...FontSize[22], lineHeight: 24 },
   title: { ...FontSize[32], lineHeight: 44 },
   display: { ...FontSize[48], lineHeight: 52 },
