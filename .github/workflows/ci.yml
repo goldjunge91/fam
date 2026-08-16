@@ -59,8 +59,16 @@ jobs:
       - name: Dependencies installieren
         run: bun install --frozen-lockfile
 
+      - uses: denoland/setup-deno@v2
+        with:
+          deno-version: v2.x
+
       - name: ${{ matrix.task.name }}
         run: ${{ matrix.task.command }}
+
+      - name: Edge-Function-Tests
+        if: matrix.task.name == 'Unit-Tests'
+        run: bun run test:functions
 
   # Braucht eine echte lokale Supabase-Instanz (Docker) — RLS-Policies lassen
   # sich nicht sinnvoll mocken (CLAUDE.md, #43: "Ein Fehler hier ist ein
@@ -148,4 +156,3 @@ jobs:
 
       - name: Performance-Advisors (informativ)
         run: supabase db advisors --local --type performance --fail-on none
-

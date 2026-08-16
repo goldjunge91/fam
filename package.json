@@ -86,6 +86,7 @@
     "check:fix": "biome check --write .",
     "typecheck": "tsc --noEmit",
     "test": "jest",
+    "test:functions": "deno test supabase/functions --allow-env",
     "test:watch": "jest --watchAll",
     "test:coverage": "jest --coverage",
     "db:diff": "supabase db diff --use-pg-delta",
