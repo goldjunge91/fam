@@ -1,13 +1,12 @@
 import { Image } from 'expo-image';
-import { Modal, ScrollView, StyleSheet, View } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { StyleSheet, View } from 'react-native';
 
 import { ThemedText } from '@/components/themed-text';
-import { ThemedView } from '@/components/themed-view';
 import { HeaderIconButton } from '@/components/ui/buttons';
 import { Radius, Spacing } from '@/constants/theme';
 import { useTheme } from '@/hooks/use-theme';
 import { AddItemForm } from './add-item-form';
+import { ItemSheet } from './item-sheet';
 
 interface AddItemModalProps {
   visible: boolean;
@@ -26,53 +25,41 @@ export function AddItemModal({
   const theme = useTheme();
 
   return (
-    <Modal
+    <ItemSheet
       visible={visible}
-      animationType="slide"
-      presentationStyle={process.env.EXPO_OS === 'ios' ? 'pageSheet' : undefined}
-      onRequestClose={onDismiss}>
-      <ThemedView style={[styles.root, { backgroundColor: theme.background }]}>
-        <SafeAreaView style={styles.safeArea} edges={['top', 'left', 'right', 'bottom']}>
-          <View style={[styles.handle, { backgroundColor: theme.border }]} />
-          <View style={styles.header}>
-            <ThemedText type="headingSmall" style={styles.title}>
-              Artikel hinzufügen
-            </ThemedText>
-            <HeaderIconButton label="Schließen" onPress={onDismiss} style={styles.closeButton}>
-              <Image
-                source="sf:xmark"
-                contentFit="contain"
-                tintColor={theme.textSecondary}
-                style={styles.closeIcon}
-              />
-            </HeaderIconButton>
-          </View>
-
-          <ScrollView
-            style={styles.scroll}
-            contentContainerStyle={styles.scrollContent}
-            contentInsetAdjustmentBehavior="automatic"
-            keyboardShouldPersistTaps="handled">
-            {visible ? (
-              <AddItemForm
-                householdId={householdId}
-                initialStoreId={initialStoreId}
-                onDismiss={onDismiss}
-              />
-            ) : null}
-          </ScrollView>
-        </SafeAreaView>
-      </ThemedView>
-    </Modal>
+      onDismiss={onDismiss}
+      safeAreaStyle={styles.safeArea}
+      scrollContentStyle={styles.scrollContent}
+      contentInsetAdjustmentBehavior="automatic"
+      handle={<View style={[styles.handle, { backgroundColor: theme.border }]} />}
+      header={
+        <View style={styles.header}>
+          <ThemedText type="headingSmall" style={styles.title}>
+            Artikel hinzufügen
+          </ThemedText>
+          <HeaderIconButton label="Schließen" onPress={onDismiss} style={styles.closeButton}>
+            <Image
+              source="sf:xmark"
+              contentFit="contain"
+              tintColor={theme.textSecondary}
+              style={styles.closeIcon}
+            />
+          </HeaderIconButton>
+        </View>
+      }>
+      {visible ? (
+        <AddItemForm
+          householdId={householdId}
+          initialStoreId={initialStoreId}
+          onDismiss={onDismiss}
+        />
+      ) : null}
+    </ItemSheet>
   );
 }
 
 const styles = StyleSheet.create({
-  root: {
-    flex: 1,
-  },
   safeArea: {
-    flex: 1,
     paddingHorizontal: 15,
   },
   handle: {
@@ -100,9 +87,6 @@ const styles = StyleSheet.create({
   closeIcon: {
     width: 14,
     height: 14,
-  },
-  scroll: {
-    flex: 1,
   },
   scrollContent: {
     paddingBottom: Spacing.four,
