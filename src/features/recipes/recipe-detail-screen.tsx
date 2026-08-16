@@ -16,10 +16,9 @@ import { useTheme } from '@/hooks/use-theme';
 import { RecipeRatingSheet } from './components/recipe-rating-sheet';
 import { RecipeShoppingSheet } from './components/recipe-shopping-sheet';
 import { calculateServingNutrition, scaleServing } from './nutrition';
-import { useRecipeCoverUrl } from './recipe-cover';
 import { useRecipeFavorites } from './recipe-favorites';
+import { useRecipeCoverUrl, useRecipeStepImageUrl } from './recipe-image-uploader';
 import { useRecipeRating } from './recipe-ratings';
-import { useRecipeStepImageUrl } from './recipe-step-image';
 import {
   type DishType,
   type RecipeDetail,

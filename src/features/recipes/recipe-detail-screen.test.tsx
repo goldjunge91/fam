@@ -77,11 +77,8 @@ jest.mock('./use-recipes', () => ({
   useDeleteRecipeMutation: () => ({ mutate: jest.fn() }),
 }));
 
-jest.mock('./recipe-cover', () => ({
+jest.mock('./recipe-image-uploader', () => ({
   useRecipeCoverUrl: () => ({ data: null }),
-}));
-
-jest.mock('./recipe-step-image', () => ({
   useRecipeStepImageUrl: (path: string | null) => ({
     data: path ? `https://example.com/${path}` : null,
   }),

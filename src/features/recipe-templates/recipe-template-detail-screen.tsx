@@ -12,8 +12,8 @@ import { HeaderIconButton } from '@/components/ui/buttons';
 import { Radius } from '@/constants/theme';
 import { useSession } from '@/features/auth/session-provider';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
-import { useRecipeCoverUrl } from '@/features/recipes/recipe-cover';
 import { useRecipeFavorites } from '@/features/recipes/recipe-favorites';
+import { useRecipeCoverUrl } from '@/features/recipes/recipe-image-uploader';
 import {
   DIETARY_TAGS,
   DIFFICULTIES,

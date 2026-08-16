@@ -15,7 +15,7 @@ import { usePremium } from '@/features/premium/premium-provider';
 import { useHubGradient } from '@/hooks/use-hub-gradient';
 import { useTheme } from '@/hooks/use-theme';
 import { RecipeRatingSheet } from './components/recipe-rating-sheet';
-import { useRecipeStepImageUrl } from './recipe-step-image';
+import { useRecipeStepImageUrl } from './recipe-image-uploader';
 import { type RecipeDetail, type RecipeStep, useRecipeDetail } from './use-recipes';
 
 function BackGlyph() {
