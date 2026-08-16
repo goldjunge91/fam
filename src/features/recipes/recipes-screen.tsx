@@ -28,7 +28,7 @@ import { useHubGradient } from '@/hooks/use-hub-gradient';
 import { useTheme } from '@/hooks/use-theme';
 import { CalorieCarousel } from './components/calorie-carousel';
 import { CATEGORY_TILES, CategoryCarousel } from './components/category-carousel';
-import { RecipeHeroCard, RecipePreviewCard } from './components/recipe-preview-card';
+import { RecipePreviewCard } from './components/recipe-preview-card';
 import { type RecipeFavoriteKey, useRecipeFavorites } from './recipe-favorites';
 import { type DishType, type RecipeListItem, useRecipes } from './use-recipes';
 
@@ -46,7 +46,7 @@ const MEAL_SECTIONS: { key: string; title: string; dishTypes: DishType[] }[] = [
   { key: 'snackDessert', title: 'Snacks & Dessert', dishTypes: ['snack', 'dessert'] },
 ];
 
-type RecipeView = 'discover' | 'favorites' | 'household' | 'templates';
+type RecipeView = 'discover' | 'favorites' | 'household' | 'templates' | 'trending';
 
 type RecipeEntry = {
   key: string;
@@ -109,6 +109,14 @@ function SearchIcon({ color }: { color: string }) {
   );
 }
 
+function FilterIcon({ color }: { color: string }) {
+  return (
+    <Svg width={18} height={18} viewBox="0 0 24 24" fill="none">
+      <Path d="M4 6h16M7 12h10M10 18h4" stroke={color} strokeWidth={2} strokeLinecap="round" />
+    </Svg>
+  );
+}
+
 function RecipeList({ entries }: { entries: RecipeEntry[] }) {
   return (
     <View style={styles.grid}>
@@ -131,7 +139,7 @@ function RecipeList({ entries }: { entries: RecipeEntry[] }) {
 /** Horizontal scrollende Foto-Karten fuer eine Mahlzeitenkategorie. */
 function MealSection({ title, entries }: { title: string; entries: RecipeEntry[] }) {
   return (
-    <View style={styles.section}>
+    <View style={styles.mealSection}>
       <SectionHeading title={title} />
       <ScrollView
         horizontal
@@ -176,6 +184,7 @@ export function RecipesScreen() {
   const [view, setView] = useState<RecipeView>('discover');
   const [searchQuery, setSearchQuery] = useState('');
   const [showSearch, setShowSearch] = useState(false);
+  const [showViewFilter, setShowViewFilter] = useState(false);
   const [templateCategoryFilter, setTemplateCategoryFilter] = useState<string | null>(null);
   const [templateCalorieFilter, setTemplateCalorieFilter] = useState<number | null>(null);
 
@@ -228,7 +237,6 @@ export function RecipesScreen() {
     [searchedTemplates],
   );
 
-  const featured = templateEntries[0] ?? householdEntries[0];
   const favoriteEntries = [...householdEntries, ...templateEntries].filter((entry) =>
     favorites.has(favoriteKey(entry)),
   );
@@ -237,7 +245,20 @@ export function RecipesScreen() {
   function openTemplates() {
     setTemplateCategoryFilter(null);
     setTemplateCalorieFilter(null);
+    setShowViewFilter(false);
     setView('templates');
+  }
+
+  function openTrending() {
+    setTemplateCategoryFilter(null);
+    setTemplateCalorieFilter(null);
+    setShowViewFilter(false);
+    setView('trending');
+  }
+
+  function openFavorites() {
+    setShowViewFilter(false);
+    setView('favorites');
   }
 
   function selectCategoryTile(key: string | null) {
@@ -255,6 +276,7 @@ export function RecipesScreen() {
   function goBackToDiscover() {
     setTemplateCategoryFilter(null);
     setTemplateCalorieFilter(null);
+    setShowViewFilter(false);
     setView('discover');
   }
 
@@ -268,9 +290,11 @@ export function RecipesScreen() {
       ? 'Meine Favoriten'
       : view === 'household'
         ? 'Unsere Rezepte'
-        : view === 'templates'
-          ? (activeCategoryTile?.label ?? activeCalorieBucket?.label ?? 'Vorlagen')
-          : 'Rezepte';
+        : view === 'trending'
+          ? 'Trending'
+          : view === 'templates'
+            ? (activeCategoryTile?.label ?? activeCalorieBucket?.label ?? 'Vorlagen')
+            : 'Rezepte';
 
   return (
     <View style={styles.root}>
@@ -279,18 +303,25 @@ export function RecipesScreen() {
         <PageHeader
           title={screenTitle}
           leading={
-            view === 'discover' || view === 'favorites' ? (
+            view === 'discover' || view === 'trending' ? (
               <MenuButton onPress={openDrawer} />
             ) : (
               <BackButton label="Zurück zu Rezepte" variant="header" onPress={goBackToDiscover} />
             )
           }
           trailing={
-            <HeaderIconButton
-              label="Rezepte durchsuchen"
-              onPress={() => setShowSearch((visible) => !visible)}>
-              <SearchIcon color={theme.text} />
-            </HeaderIconButton>
+            <View style={styles.headerActions}>
+              <HeaderIconButton
+                label="Rezepte durchsuchen"
+                onPress={() => setShowSearch((visible) => !visible)}>
+                <SearchIcon color={theme.text} />
+              </HeaderIconButton>
+              <HeaderIconButton
+                label="Rezepte filtern"
+                onPress={() => setShowViewFilter((visible) => !visible)}>
+                <FilterIcon color={theme.text} />
+              </HeaderIconButton>
+            </View>
           }
         />
 
@@ -315,10 +346,13 @@ export function RecipesScreen() {
             </View>
           ) : null}
 
-          {view === 'discover' || view === 'favorites' ? (
+          {showViewFilter ? (
             <View style={styles.modeToggle}>
               <Pressable
-                onPress={() => setView('discover')}
+                onPress={() => {
+                  setShowViewFilter(false);
+                  setView('discover');
+                }}
                 role="button"
                 aria-label="Entdecken"
                 aria-selected={view === 'discover'}
@@ -339,7 +373,10 @@ export function RecipesScreen() {
                 </ThemedText>
               </Pressable>
               <Pressable
-                onPress={() => setView('favorites')}
+                onPress={() => {
+                  setShowViewFilter(false);
+                  setView('favorites');
+                }}
                 role="button"
                 aria-label="Meine Favoriten"
                 aria-selected={view === 'favorites'}
@@ -359,6 +396,51 @@ export function RecipesScreen() {
                   Meine Favoriten
                 </ThemedText>
               </Pressable>
+              <Pressable
+                onPress={() => {
+                  setShowViewFilter(false);
+                  setView('household');
+                }}
+                role="button"
+                aria-label="Unsere Rezepte"
+                aria-selected={view === 'household'}
+                style={[
+                  styles.modeButton,
+                  {
+                    backgroundColor:
+                      view === 'household' ? theme.text : `${theme.backgroundElement}D9`,
+                    borderColor: view === 'household' ? theme.text : theme.border,
+                  },
+                ]}>
+                <ThemedText
+                  style={[
+                    styles.modeButtonLabel,
+                    { color: view === 'household' ? theme.background : theme.textSecondary },
+                  ]}>
+                  Haushalt
+                </ThemedText>
+              </Pressable>
+              <Pressable
+                onPress={openTemplates}
+                role="button"
+                aria-label="Alle Vorlagen"
+                aria-selected={view === 'templates'}
+                style={[
+                  styles.modeButton,
+                  {
+                    backgroundColor:
+                      view === 'templates' ? theme.text : `${theme.backgroundElement}D9`,
+                    borderColor: view === 'templates' ? theme.text : theme.border,
+                  },
+                ]}>
+                <ThemedText
+                  style={[
+                    styles.modeButtonLabel,
+                    { color: view === 'templates' ? theme.background : theme.textSecondary },
+                  ]}>
+                  Vorlagen
+                </ThemedText>
+              </Pressable>
             </View>
           ) : null}
 
@@ -374,6 +456,12 @@ export function RecipesScreen() {
             ) : (
               <EmptyPanel>Noch keine Favoriten gespeichert.</EmptyPanel>
             )
+          ) : view === 'trending' ? (
+            templateEntries.length > 0 ? (
+              <RecipeList entries={templateEntries} />
+            ) : (
+              <EmptyPanel>Noch keine Vorlagen verfügbar.</EmptyPanel>
+            )
           ) : view === 'household' ? (
             householdEntries.length > 0 ? (
               <RecipeList entries={householdEntries} />
@@ -386,33 +474,40 @@ export function RecipesScreen() {
             ) : (
               <EmptyPanel>Keine Vorlagen für diesen Filter.</EmptyPanel>
             )
-          ) : featured || householdEntries.length > 0 || templates.length > 0 ? (
+          ) : householdEntries.length > 0 || templates.length > 0 ? (
             <>
-              {featured ? (
-                <View style={styles.section}>
-                  <SectionHeading title="Trending" eyebrow="Community" />
-                  <RecipeHeroCard
-                    title={featured.title}
-                    coverImagePath={featured.coverImagePath}
-                    cookTimeMinutes={featured.cookTimeMinutes}
-                    difficultyLabel={featured.difficultyLabel}
-                    servings={featured.servings}
-                    onPress={() => openEntry(featured)}
-                  />
-                </View>
-              ) : null}
-
               <View style={styles.section}>
-                <SectionHeading
-                  title="Unsere Rezepte"
-                  actionLabel="Alle ansehen"
-                  onActionPress={() => setView('household')}
-                />
-                {householdEntries.length > 0 ? (
-                  <RecipeList entries={householdEntries.slice(0, 4)} />
-                ) : (
-                  <EmptyPanel>Noch keine Rezepte im Haushalt.</EmptyPanel>
-                )}
+                <View style={styles.recipeShortcuts}>
+                  <Pressable
+                    onPress={openTrending}
+                    role="button"
+                    aria-label="Trending"
+                    style={({ pressed }) => [
+                      styles.recipeShortcut,
+                      { backgroundColor: theme.text, borderColor: theme.text },
+                      pressed && styles.pressed,
+                    ]}>
+                    <ThemedText style={[styles.trendingLabel, { color: theme.background }]}>
+                      Trending
+                    </ThemedText>
+                  </Pressable>
+                  <Pressable
+                    onPress={openFavorites}
+                    role="button"
+                    aria-label="Favoriten"
+                    style={({ pressed }) => [
+                      styles.recipeShortcut,
+                      {
+                        backgroundColor: `${theme.backgroundElement}D9`,
+                        borderColor: theme.border,
+                      },
+                      pressed && styles.pressed,
+                    ]}>
+                    <ThemedText style={[styles.trendingLabel, { color: theme.text }]}>
+                      Favoriten
+                    </ThemedText>
+                  </Pressable>
+                </View>
               </View>
 
               <View style={styles.section}>
@@ -431,22 +526,15 @@ export function RecipesScreen() {
                 />
               </View>
 
-              {mealSections.length > 0 ? (
-                <View style={styles.section}>
-                  <SectionHeading
-                    title="Nach Mahlzeiten"
-                    actionLabel="Alle Vorlagen ansehen"
-                    onActionPress={openTemplates}
-                  />
-                  {mealSections.map((section) => (
+              {mealSections.length > 0
+                ? mealSections.map((section) => (
                     <MealSection
                       key={section.key}
                       title={section.title}
                       entries={section.entries}
                     />
-                  ))}
-                </View>
-              ) : null}
+                  ))
+                : null}
             </>
           ) : (
             <EmptyPanel>Noch keine Rezepte im Haushalt.</EmptyPanel>
@@ -480,6 +568,10 @@ const styles = StyleSheet.create({
     gap: 8,
     marginBottom: 18,
   },
+  headerActions: {
+    flexDirection: 'row',
+    gap: 6,
+  },
   modeButton: {
     flex: 1,
     height: 40,
@@ -492,6 +584,26 @@ const styles = StyleSheet.create({
   modeButtonLabel: {
     ...FontSize[13],
     fontWeight: 700,
+  },
+  recipeShortcuts: {
+    flexDirection: 'row',
+    gap: 8,
+  },
+  recipeShortcut: {
+    flex: 1,
+    height: 44,
+    borderRadius: Radius.controlLarge,
+    borderCurve: 'continuous',
+    borderWidth: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  trendingLabel: {
+    ...FontSize[14],
+    fontWeight: 700,
+  },
+  pressed: {
+    opacity: 0.8,
   },
   searchBar: {
     height: 42,
@@ -515,6 +627,9 @@ const styles = StyleSheet.create({
   },
   section: {
     marginBottom: 20,
+  },
+  mealSection: {
+    marginBottom: 32,
   },
   grid: {
     gap: 10,
