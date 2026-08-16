@@ -107,14 +107,14 @@ describe('RecipesScreen — Entdecken', () => {
     ];
   });
 
-  it('zeigt die Figma-Abschnitte und das erste Rezept als Trending-Karte', async () => {
+  it('zeigt den Trending-Button vor Kategorien, Kalorien und Mahlzeiten', async () => {
     await render(<RecipesScreen />);
 
-    expect(screen.getByText('Trending')).toBeOnTheScreen();
-    expect(screen.getAllByRole('button', { name: 'Salat Overview' })).toHaveLength(2);
-    expect(screen.getByText('Unsere Rezepte')).toBeOnTheScreen();
+    expect(screen.getByRole('button', { name: 'Trending' })).toBeOnTheScreen();
+    expect(screen.getByRole('button', { name: 'Favoriten' })).toBeOnTheScreen();
     expect(screen.getByText('Kategorien')).toBeOnTheScreen();
     expect(screen.getByText('Rezepte nach Kalorien')).toBeOnTheScreen();
+    expect(screen.queryByText('Unsere Rezepte')).not.toBeOnTheScreen();
   });
 
   it('öffnet das Navigationsmenü über den Header', async () => {
@@ -130,6 +130,8 @@ describe('RecipesScreen — Entdecken', () => {
     const user = userEvent.setup();
     await render(<RecipesScreen />);
 
+    await user.press(screen.getByRole('button', { name: 'Rezepte filtern' }));
+    await user.press(screen.getByRole('button', { name: 'Unsere Rezepte' }));
     await user.press(screen.getAllByRole('button', { name: 'Pizza Home' })[0]);
 
     expect(router.push).toHaveBeenCalledWith({
@@ -138,21 +140,36 @@ describe('RecipesScreen — Entdecken', () => {
     });
   });
 
-  it('öffnet über "Alle ansehen" das gemeinsame Raster aller Haushaltsrezepte', async () => {
+  it('öffnet die Ansichtsauswahl über den Filter im Header', async () => {
     const user = userEvent.setup();
     await render(<RecipesScreen />);
 
-    await user.press(screen.getByRole('button', { name: 'Alle ansehen' }));
+    await user.press(screen.getByRole('button', { name: 'Rezepte filtern' }));
+    await user.press(screen.getByRole('button', { name: 'Alle Vorlagen' }));
 
-    expect(screen.getByText('Unsere Rezepte')).toBeOnTheScreen();
-    expect(screen.getByRole('button', { name: 'Suppe Fremd' })).toBeOnTheScreen();
+    expect(screen.getByText('Vorlagen')).toBeOnTheScreen();
     expect(screen.getByRole('button', { name: 'Zurück zu Rezepte' })).toBeOnTheScreen();
+  });
+
+  it('öffnet über Trending die öffentlichen Rezeptvorlagen', async () => {
+    const user = userEvent.setup();
+    mockTemplates = [makeTemplate({ id: 't1', title: 'Trend-Rezept' })];
+    await render(<RecipesScreen />);
+
+    await user.press(screen.getByRole('button', { name: 'Trending' }));
+
+    expect(screen.getByText('Trending')).toBeOnTheScreen();
+    expect(screen.getByRole('button', { name: 'Trend-Rezept' })).toBeOnTheScreen();
+    expect(screen.getByRole('button', { name: 'Menü öffnen' })).toBeOnTheScreen();
+    expect(screen.queryByRole('button', { name: 'Zurück zu Rezepte' })).not.toBeOnTheScreen();
   });
 
   it('filtert über das zugängliche Suchfeld', async () => {
     const user = userEvent.setup();
     await render(<RecipesScreen />);
 
+    await user.press(screen.getByRole('button', { name: 'Rezepte filtern' }));
+    await user.press(screen.getByRole('button', { name: 'Unsere Rezepte' }));
     await user.press(screen.getByRole('button', { name: 'Rezepte durchsuchen' }));
     await user.type(screen.getByRole('searchbox', { name: 'Rezepte durchsuchen' }), 'Pizza');
 
@@ -164,9 +181,11 @@ describe('RecipesScreen — Entdecken', () => {
     const user = userEvent.setup();
     await render(<RecipesScreen />);
 
+    await user.press(screen.getByRole('button', { name: 'Rezepte filtern' }));
     await user.press(screen.getByRole('button', { name: 'Meine Favoriten' }));
 
     expect(screen.getByText('Noch keine Favoriten gespeichert.')).toBeOnTheScreen();
+    expect(screen.getByRole('button', { name: 'Zurück zu Rezepte' })).toBeOnTheScreen();
   });
 });
 
@@ -203,7 +222,7 @@ describe('RecipesScreen — Vorlagen', () => {
     });
   });
 
-  it('öffnet über "Alle Vorlagen ansehen" das gemeinsame Raster aller Vorlagen (#136)', async () => {
+  it('öffnet über den Header-Filter das gemeinsame Raster aller Vorlagen (#136)', async () => {
     const user = userEvent.setup();
     mockTemplates = [
       makeTemplate({ id: 't1', title: 'Fam Ofengemüse' }),
@@ -214,7 +233,8 @@ describe('RecipesScreen — Vorlagen', () => {
     ];
     await render(<RecipesScreen />);
 
-    await user.press(screen.getByRole('button', { name: 'Alle Vorlagen ansehen' }));
+    await user.press(screen.getByRole('button', { name: 'Rezepte filtern' }));
+    await user.press(screen.getByRole('button', { name: 'Alle Vorlagen' }));
 
     expect(screen.getByText('Vorlagen')).toBeOnTheScreen();
     expect(screen.getByRole('button', { name: 'Fam Kürbissuppe' })).toBeOnTheScreen();
