@@ -14,7 +14,7 @@ import { FilterChipBar } from '@/components/filter-chip-bar';
 import { GradientBackground } from '@/components/gradient-background';
 import { PageHeader } from '@/components/page-header';
 import { FontSize, ThemedText } from '@/components/themed-text';
-import { HeaderIconButton } from '@/components/ui/buttons';
+import { BackButton } from '@/components/ui/buttons';
 import { Radius } from '@/constants/theme';
 import type { MealType } from '@/features/calorie-tracking/api';
 import { useHubGradient } from '@/hooks/use-hub-gradient';
@@ -38,10 +38,6 @@ function toIsoDate(date: Date): string {
   const month = String(date.getMonth() + 1).padStart(2, '0');
   const day = String(date.getDate()).padStart(2, '0');
   return `${year}-${month}-${day}`;
-}
-
-function BackGlyph() {
-  return <ThemedText style={styles.backGlyph}>‹</ThemedText>;
 }
 
 export function RecipeLogScreen() {
@@ -131,14 +127,7 @@ export function RecipeLogScreen() {
     <View style={styles.root}>
       <GradientBackground {...hubGradient} />
       <SafeAreaView style={styles.safeArea} edges={['top', 'left', 'right']}>
-        <PageHeader
-          title="Fertig"
-          leading={
-            <HeaderIconButton label="Zurück" onPress={() => router.back()}>
-              <BackGlyph />
-            </HeaderIconButton>
-          }
-        />
+        <PageHeader title="Fertig" leading={<BackButton label="Zurück" variant="header" />} />
 
         <KeyboardAvoidingView
           style={styles.keyboardAvoider}
@@ -252,7 +241,6 @@ const styles = StyleSheet.create({
   root: { flex: 1 },
   safeArea: { flex: 1, width: '100%', maxWidth: 800, alignSelf: 'center' },
   keyboardAvoider: { flex: 1, justifyContent: 'flex-end' },
-  backGlyph: { ...FontSize[27], lineHeight: 29, fontWeight: 400 },
   finishBackdrop: { flex: 1, minHeight: 150, alignItems: 'center', paddingTop: 30, opacity: 0.55 },
   finishArtwork: { width: 82, height: 82, borderRadius: Radius.large, borderCurve: 'continuous' },
   finishTitle: { paddingTop: 18, ...FontSize[23], lineHeight: 28, fontWeight: 700 },
