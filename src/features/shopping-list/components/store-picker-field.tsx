@@ -3,7 +3,7 @@ import { Alert, Pressable, StyleSheet, View } from 'react-native';
 import { TextField } from '@/components/text-field';
 import { ThemedText } from '@/components/themed-text';
 import { Button } from '@/components/ui/buttons';
-import { Spacing } from '@/constants/theme';
+import { Radius, Spacing } from '@/constants/theme';
 import { useTheme } from '@/hooks/use-theme';
 import { STORE_COLOR_PALETTE, STORE_PRESETS } from '../store-presets';
 import { findStoreByName, useAddStoreMutation, useStores } from '../use-stores';
@@ -212,13 +212,13 @@ const styles = StyleSheet.create({
   storeChip: {
     paddingHorizontal: Spacing.three,
     paddingVertical: Spacing.one + 2,
-    borderRadius: 20,
+    borderRadius: Radius.sheet,
     borderWidth: 1.5,
   },
   addStoreBox: {
     gap: Spacing.three,
     padding: Spacing.three,
-    borderRadius: Spacing.two,
+    borderRadius: Radius.sm,
     borderWidth: 1,
     borderColor: '#ccc',
     marginTop: Spacing.two,
@@ -234,18 +234,18 @@ const styles = StyleSheet.create({
     gap: Spacing.one,
     paddingHorizontal: Spacing.three,
     paddingVertical: Spacing.one + 2,
-    borderRadius: 20,
+    borderRadius: Radius.sheet,
     borderWidth: 1,
   },
   presetDot: {
     width: 8,
     height: 8,
-    borderRadius: 4,
+    borderRadius: Radius.xs,
   },
   colorSwatch: {
     width: 32,
     height: 32,
-    borderRadius: 16,
+    borderRadius: Radius.card,
     borderWidth: 2,
   },
 });

@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { ActivityIndicator, Alert, Modal, Pressable, StyleSheet, View } from 'react-native';
 
 import { FontSize, ThemedText } from '@/components/themed-text';
+import { Radius } from '@/constants/theme';
 import { presentPaywallIfNeeded } from '@/features/premium/paywall';
 import { usePremium } from '@/features/premium/premium-provider';
 import { useAddShoppingItem } from '@/features/shopping-list/use-shopping-list-mutations';
@@ -40,6 +41,7 @@ export function RecipeShoppingSheet({ visible, detail, servings, onClose }: Prop
     setSelected(new Set(missing.map((item) => item.productId)));
   }, [missing]);
 
+  // async function unlockPremiumbuttonText: { color: '#FFFFFF',   fontWeight: 700 }fNeeded();
   async function unlockPremium() {
     setUnlocking(true);
     try {
@@ -221,7 +223,9 @@ function SheetButton({
       {loading ? (
         <ActivityIndicator color="#FFFFFF" />
       ) : (
-        <ThemedText style={styles.buttonText}>{label}</ThemedText>
+        <ThemedText type="captionCompact" style={styles.buttonText}>
+          {label}
+        </ThemedText>
       )}
     </Pressable>
   );
@@ -231,14 +235,14 @@ const styles = StyleSheet.create({
   backdrop: { flex: 1, justifyContent: 'flex-end', backgroundColor: 'rgba(38,31,39,0.30)' },
   sheet: {
     maxHeight: '82%',
-    borderTopLeftRadius: 28,
-    borderTopRightRadius: 28,
+    borderTopLeftRadius: Radius.large,
+    borderTopRightRadius: Radius.large,
     borderCurve: 'continuous',
     paddingHorizontal: 16,
     paddingTop: 10,
     paddingBottom: 19,
   },
-  handle: { width: 38, height: 4, borderRadius: 3, alignSelf: 'center' },
+  handle: { width: 38, height: 4, borderRadius: Radius.hairline, alignSelf: 'center' },
   header: {
     minHeight: 58,
     paddingTop: 13,
@@ -251,7 +255,7 @@ const styles = StyleSheet.create({
   close: {
     width: 32,
     height: 32,
-    borderRadius: 11,
+    borderRadius: Radius.control,
     borderCurve: 'continuous',
     alignItems: 'center',
     justifyContent: 'center',
@@ -259,7 +263,12 @@ const styles = StyleSheet.create({
   closeText: { ...FontSize[18], lineHeight: 20, fontWeight: 500 },
   description: { ...FontSize[10], lineHeight: 15, fontWeight: 500 },
   loader: { height: 76 },
-  list: { marginTop: 14, borderRadius: 18, borderCurve: 'continuous', overflow: 'hidden' },
+  list: {
+    marginTop: 14,
+    borderRadius: Radius.sheet,
+    borderCurve: 'continuous',
+    overflow: 'hidden',
+  },
   row: {
     minHeight: 45,
     paddingHorizontal: 12,
@@ -270,7 +279,7 @@ const styles = StyleSheet.create({
   checkbox: {
     width: 22,
     height: 22,
-    borderRadius: 7,
+    borderRadius: Radius.sm,
     borderCurve: 'continuous',
     borderWidth: 1.5,
     alignItems: 'center',
@@ -282,7 +291,7 @@ const styles = StyleSheet.create({
   button: {
     height: 48,
     marginTop: 14,
-    borderRadius: 16,
+    borderRadius: Radius.card,
     borderCurve: 'continuous',
     alignItems: 'center',
     justifyContent: 'center',

@@ -16,7 +16,7 @@ import { TextField } from '@/components/text-field';
 import { ThemedText } from '@/components/themed-text';
 import { Button } from '@/components/ui/buttons';
 import { WheelPickerField } from '@/components/wheel-picker-field';
-import { Spacing } from '@/constants/theme';
+import { Radius, Spacing, withAlpha } from '@/constants/theme';
 import type { StorageLocation } from '@/features/inventory/use-storage-locations';
 import { useTheme } from '@/hooks/use-theme';
 import { UNIT_OPTIONS } from '@/lib/units';
@@ -110,6 +110,7 @@ export function EditFridgeItemSheet({
             {
               backgroundColor: theme.backgroundElement,
               paddingBottom: Math.max(insets.bottom, Spacing.three),
+              boxShadow: `0 -16px 48px ${withAlpha(theme.shadowSheet, 0.2)}`,
             },
           ]}>
           <View style={[styles.handle, { backgroundColor: theme.border }]} />
@@ -230,16 +231,15 @@ const styles = StyleSheet.create({
   },
   sheet: {
     maxHeight: '91%',
-    borderTopLeftRadius: 30,
-    borderTopRightRadius: 30,
+    borderTopLeftRadius: Radius.large,
+    borderTopRightRadius: Radius.large,
     borderCurve: 'continuous',
     paddingTop: 10,
-    boxShadow: '0 -16px 48px rgba(42, 32, 44, 0.2)',
   },
   handle: {
     width: 42,
     height: 4,
-    borderRadius: 2,
+    borderRadius: Radius.hairline,
     alignSelf: 'center',
   },
   content: {
@@ -255,13 +255,13 @@ const styles = StyleSheet.create({
   closeButton: {
     width: 36,
     height: 36,
-    borderRadius: 18,
+    borderRadius: Radius.sheet,
     alignItems: 'center',
     justifyContent: 'center',
   },
   productCard: {
     minHeight: 62,
-    borderRadius: 16,
+    borderRadius: Radius.card,
     borderCurve: 'continuous',
     paddingHorizontal: Spacing.three,
     paddingVertical: Spacing.two,

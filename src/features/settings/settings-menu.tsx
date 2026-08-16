@@ -3,7 +3,7 @@ import { Pressable, StyleSheet, View } from 'react-native';
 
 import { FontSize, ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
-import { Spacing } from '@/constants/theme';
+import { Radius, Spacing } from '@/constants/theme';
 import { useTheme } from '@/hooks/use-theme';
 
 /**
@@ -122,7 +122,7 @@ const styles = StyleSheet.create({
     letterSpacing: 0.5,
   },
   groupBody: {
-    borderRadius: Spacing.four,
+    borderRadius: Radius.large,
     paddingHorizontal: Spacing.three,
   },
   row: {
@@ -134,7 +134,7 @@ const styles = StyleSheet.create({
   iconTile: {
     width: 34,
     height: 34,
-    borderRadius: Spacing.three,
+    borderRadius: Radius.card,
     alignItems: 'center',
     justifyContent: 'center',
   },

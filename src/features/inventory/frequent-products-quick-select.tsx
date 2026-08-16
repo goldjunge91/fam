@@ -2,7 +2,7 @@ import { useQuery } from '@tanstack/react-query';
 import { Pressable, ScrollView, StyleSheet, View } from 'react-native';
 
 import { ThemedText } from '@/components/themed-text';
-import { Spacing } from '@/constants/theme';
+import { Radius, Spacing } from '@/constants/theme';
 import { useTheme } from '@/hooks/use-theme';
 import { getDatabase } from '@/lib/db/client';
 import {
@@ -107,7 +107,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
   },
   chip: {
-    borderRadius: 16,
+    borderRadius: Radius.card,
     borderWidth: 1,
     paddingHorizontal: Spacing.two,
     paddingVertical: Spacing.one,

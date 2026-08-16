@@ -1,6 +1,6 @@
 import { Pressable, ScrollView, StyleSheet, Text } from 'react-native';
 import { FontSize } from '@/components/themed-text';
-
+import { Radius } from '@/constants/theme';
 import { useTheme } from '@/hooks/use-theme';
 
 export type FilterChipOption<T extends string> = {
@@ -65,7 +65,7 @@ const styles = StyleSheet.create({
     minHeight: 28,
     justifyContent: 'center',
     paddingHorizontal: 13,
-    borderRadius: 12,
+    borderRadius: Radius.control,
     borderCurve: 'continuous',
   },
   label: {

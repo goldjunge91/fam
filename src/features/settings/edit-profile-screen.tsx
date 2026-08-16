@@ -7,7 +7,7 @@ import { Screen } from '@/components/screen';
 import { TextField } from '@/components/text-field';
 import { ThemedText } from '@/components/themed-text';
 import { Button } from '@/components/ui/buttons';
-import { Spacing } from '@/constants/theme';
+import { Radius, Spacing } from '@/constants/theme';
 import { updateProfile, useProfile } from '@/features/auth/api';
 import { fieldErrors, getDeviceDateFormat, profileSchema } from '@/features/auth/auth-schemas';
 import { useSession } from '@/features/auth/session-provider';
@@ -218,7 +218,7 @@ const styles = StyleSheet.create({
   },
   choice: {
     borderWidth: 1,
-    borderRadius: Spacing.three,
+    borderRadius: Radius.card,
     paddingVertical: Spacing.two,
     paddingHorizontal: Spacing.three,
   },

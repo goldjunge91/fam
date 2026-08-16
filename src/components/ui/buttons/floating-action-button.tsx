@@ -1,6 +1,7 @@
 import type { ReactNode } from 'react';
 import { Pressable, StyleSheet } from 'react-native';
 
+import { Radius, withAlpha } from '@/constants/theme';
 import { useTheme } from '@/hooks/use-theme';
 
 type FloatingActionButtonProps = {
@@ -18,7 +19,10 @@ export function FloatingActionButton({ label, onPress, children }: FloatingActio
       onPress={onPress}
       accessibilityRole="button"
       accessibilityLabel={label}
-      style={[styles.button, { backgroundColor: theme.accent }]}>
+      style={[
+        styles.button,
+        { backgroundColor: theme.accent, boxShadow: `0 10px 22px ${withAlpha(theme.shadowSheet, 0.22)}` },
+      ]}>
       {children}
     </Pressable>
   );
@@ -28,11 +32,10 @@ const styles = StyleSheet.create({
   button: {
     width: 78,
     height: 78,
-    borderRadius: 39,
+    borderRadius: Radius.pill,
     borderCurve: 'continuous',
     alignItems: 'center',
     justifyContent: 'center',
     transform: [{ translateY: -27 }],
-    boxShadow: '0 10px 22px rgba(51, 36, 61, 0.22)',
   },
 });

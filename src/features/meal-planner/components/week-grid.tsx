@@ -4,10 +4,10 @@ import { Gesture, GestureDetector } from 'react-native-gesture-handler';
 import Animated, { runOnJS, useAnimatedStyle, useSharedValue } from 'react-native-reanimated';
 
 import { FontSize, ThemedText } from '@/components/themed-text';
+import { Radius } from '@/constants/theme';
 import { RecipeArtwork } from '@/features/recipes/components/recipe-preview-card';
 import { useRecipeCoverUrl } from '@/features/recipes/recipe-cover';
 import { useTheme } from '@/hooks/use-theme';
-
 import type { MealPlanEntry, MealSlot } from '../use-meal-plans';
 import { MEAL_SLOTS, weekdayLabel } from '../week';
 
@@ -48,7 +48,6 @@ const MONTH_LABELS = [
   'Nov.',
   'Dez.',
 ];
-
 function dateLabel(date: string) {
   const [, month, day] = date.split('-').map(Number);
   return `${day}. ${MONTH_LABELS[month - 1]}`;
@@ -301,7 +300,9 @@ export function WeekGrid({
                 borderColor: theme.border,
               },
             ]}>
-            <ThemedText style={styles.trayTitle}>Rezepte zum Ziehen</ThemedText>
+            <ThemedText type="captionCompact" style={styles.trayTitle}>
+              Rezepte zum Ziehen
+            </ThemedText>
             <ThemedText themeColor="textSecondary" style={styles.trayLabel}>
               Karte halten und auf eine Mahlzeit ziehen
             </ThemedText>
@@ -395,6 +396,7 @@ function DragPreviewCard({ recipe }: { recipe: DraggableRecipe }) {
         {
           backgroundColor: theme.backgroundSelected,
           borderColor: theme.accent,
+          shadowColor: theme.shadowCard,
         },
       ]}>
       <View style={styles.dragPreviewArtwork}>
@@ -422,7 +424,7 @@ const styles = StyleSheet.create({
   dayCard: {
     overflow: 'hidden',
     borderWidth: 1,
-    borderRadius: 20,
+    borderRadius: Radius.sheet,
     borderCurve: 'continuous',
   },
   dayHeader: {
@@ -482,7 +484,7 @@ const styles = StyleSheet.create({
   tray: {
     overflow: 'hidden',
     borderWidth: 1,
-    borderRadius: 18,
+    borderRadius: Radius.sheet,
     borderCurve: 'continuous',
     paddingVertical: 12,
   },
@@ -513,7 +515,7 @@ const styles = StyleSheet.create({
   // das Bild macht das Gericht auf den ersten Blick erkennbar.
   recipeCard: {
     width: '47%',
-    borderRadius: 16,
+    borderRadius: Radius.card,
     borderCurve: 'continuous',
     padding: 8,
     gap: 6,
@@ -521,7 +523,7 @@ const styles = StyleSheet.create({
   recipeCardArtwork: {
     height: 118,
     overflow: 'hidden',
-    borderRadius: 12,
+    borderRadius: Radius.control,
     borderCurve: 'continuous',
   },
   recipeCardText: {
@@ -536,13 +538,12 @@ const styles = StyleSheet.create({
   },
   dragPreviewCard: {
     width: 112,
-    borderRadius: 15,
+    borderRadius: Radius.card,
     borderCurve: 'continuous',
     borderWidth: 2,
     padding: 6,
     gap: 4,
     opacity: 0.94,
-    shadowColor: '#000',
     shadowOpacity: 0.22,
     shadowRadius: 12,
     shadowOffset: { width: 0, height: 6 },
@@ -550,7 +551,7 @@ const styles = StyleSheet.create({
   dragPreviewArtwork: {
     height: 68,
     overflow: 'hidden',
-    borderRadius: 10,
+    borderRadius: Radius.control,
     borderCurve: 'continuous',
   },
   dragPreviewText: {

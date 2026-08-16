@@ -9,6 +9,7 @@ import { GradientBackground } from '@/components/gradient-background';
 import { PageHeader } from '@/components/page-header';
 import { FontSize, ThemedText } from '@/components/themed-text';
 import { HeaderIconButton } from '@/components/ui/buttons';
+import { Radius } from '@/constants/theme';
 import { useSession } from '@/features/auth/session-provider';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { useRecipeCoverUrl } from '@/features/recipes/recipe-cover';
@@ -18,8 +19,8 @@ import {
   DIFFICULTIES,
   DISH_TYPES,
 } from '@/features/recipes/wizard/recipe-metadata-options';
+import { useHubGradient } from '@/hooks/use-hub-gradient';
 import { useTheme } from '@/hooks/use-theme';
-
 import { useApplyRecipeTemplateMutation, useRecipeTemplateDetail } from './use-recipe-templates';
 
 const DIFFICULTY_LABELS = Object.fromEntries(DIFFICULTIES.map((item) => [item.value, item.label]));
@@ -80,6 +81,7 @@ function HeroArtwork({ coverUrl, title }: { coverUrl?: string | null; title: str
 
 export function RecipeTemplateDetailScreen() {
   const theme = useTheme();
+  const hubGradient = useHubGradient();
   const { id } = useLocalSearchParams<{ id: string }>();
   const { activeHouseholdId } = useActiveHousehold();
   const { session } = useSession();
@@ -114,7 +116,7 @@ export function RecipeTemplateDetailScreen() {
   if (isLoading || !template) {
     return (
       <View style={styles.root}>
-        <GradientBackground colors={['#FFD2B9', '#F8F4EF', '#EEE7F4']} />
+        <GradientBackground {...hubGradient} />
         <SafeAreaView style={styles.safeArea} edges={['top', 'left', 'right']}>
           <PageHeader
             title="Rezept"
@@ -136,7 +138,7 @@ export function RecipeTemplateDetailScreen() {
 
   return (
     <View style={styles.root}>
-      <GradientBackground colors={['#FFD2B9', '#F8F4EF', '#EEE7F4']} />
+      <GradientBackground {...hubGradient} />
       <SafeAreaView style={styles.safeArea} edges={['top', 'left', 'right']}>
         <PageHeader
           title="Rezept"
@@ -293,7 +295,9 @@ export function RecipeTemplateDetailScreen() {
             {isApplying ? (
               <ActivityIndicator color="#FFFFFF" />
             ) : (
-              <ThemedText style={styles.primaryButtonText}>In meine Rezepte übernehmen</ThemedText>
+              <ThemedText type="captionCompact" style={styles.primaryButtonText}>
+                In meine Rezepte übernehmen
+              </ThemedText>
             )}
           </Pressable>
         </View>
@@ -317,7 +321,7 @@ const styles = StyleSheet.create({
     left: 15,
     paddingHorizontal: 9,
     paddingVertical: 6,
-    borderRadius: 10,
+    borderRadius: Radius.control,
     borderCurve: 'continuous',
   },
   heroBadgeText: { ...FontSize[8], lineHeight: 10, fontWeight: 500 },
@@ -330,7 +334,7 @@ const styles = StyleSheet.create({
   },
   metaRow: { flexDirection: 'row', flexWrap: 'wrap', gap: 6, paddingTop: 5 },
   metaPill: {
-    borderRadius: 10,
+    borderRadius: Radius.control,
     borderCurve: 'continuous',
     paddingHorizontal: 8,
     paddingVertical: 6,
@@ -350,7 +354,7 @@ const styles = StyleSheet.create({
   portionControl: {
     width: 138,
     height: 35,
-    borderRadius: 13,
+    borderRadius: Radius.control,
     borderCurve: 'continuous',
     flexDirection: 'row',
     alignItems: 'center',
@@ -365,7 +369,7 @@ const styles = StyleSheet.create({
     fontWeight: 500,
   },
   groupList: { gap: 9 },
-  ingredientGroup: { borderRadius: 18, borderCurve: 'continuous', overflow: 'hidden' },
+  ingredientGroup: { borderRadius: Radius.sheet, borderCurve: 'continuous', overflow: 'hidden' },
   groupHeader: {
     minHeight: 33,
     paddingHorizontal: 12,
@@ -387,19 +391,19 @@ const styles = StyleSheet.create({
   },
   ingredientName: { flex: 1, ...FontSize[9], lineHeight: 11, fontWeight: 500 },
   ingredientAmount: { ...FontSize[9], lineHeight: 11, fontWeight: 500 },
-  stepsCard: { borderRadius: 18, borderCurve: 'continuous', overflow: 'hidden' },
+  stepsCard: { borderRadius: Radius.sheet, borderCurve: 'continuous', overflow: 'hidden' },
   stepRow: { minHeight: 28, paddingHorizontal: 12, paddingVertical: 8, justifyContent: 'center' },
   stepText: { ...FontSize[9], lineHeight: 13, fontWeight: 500 },
   stickyAction: { position: 'absolute', left: 15, right: 15, bottom: 12 },
   primaryButton: {
     minHeight: 48,
-    borderRadius: 16,
+    borderRadius: Radius.card,
     borderCurve: 'continuous',
     alignItems: 'center',
     justifyContent: 'center',
     paddingHorizontal: 16,
   },
-  primaryButtonText: { color: '#FFFFFF', ...FontSize[11], lineHeight: 14, fontWeight: 700 },
+  primaryButtonText: { color: '#FFFFFF', fontWeight: 700 },
   disabled: { opacity: 0.45 },
   pressed: { opacity: 0.75, transform: [{ scale: 0.99 }] },
 });

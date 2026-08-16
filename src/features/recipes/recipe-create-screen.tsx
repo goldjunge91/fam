@@ -7,14 +7,15 @@ import { GradientBackground } from '@/components/gradient-background';
 import { PageHeader } from '@/components/page-header';
 import { FontSize, ThemedText } from '@/components/themed-text';
 import { HeaderIconButton } from '@/components/ui/buttons';
+import { Radius } from '@/constants/theme';
 import { useSession } from '@/features/auth/session-provider';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { persistOffProductIfNeeded } from '@/features/inventory/persist-off-product';
 import { useAddProductMutation } from '@/features/inventory/use-product-mutations';
+import { useHubGradient } from '@/hooks/use-hub-gradient';
 import { getDatabase } from '@/lib/db/client';
 import type { OpenFoodFactsProduct } from '@/lib/open-food-facts';
 import { toGramsEquivalent } from '@/lib/units';
-
 import { pickRecipeCoverImage, uploadRecipeCoverImage, useRecipeCoverUrl } from './recipe-cover';
 import { uploadRecipeStepImage } from './recipe-step-image';
 import {
@@ -47,6 +48,7 @@ import {
 } from './wizard/types';
 
 export function RecipeCreateScreen() {
+  const hubGradient = useHubGradient();
   const { id } = useLocalSearchParams<{ id?: string }>();
   const { session } = useSession();
   const userId = session?.user.id;
@@ -605,7 +607,7 @@ export function RecipeCreateScreen() {
 
   return (
     <View style={styles.root}>
-      <GradientBackground colors={['#FFD2B9', '#F8F4EF', '#EEE7F4']} />
+      <GradientBackground {...hubGradient} />
       <SafeAreaView style={styles.safeArea} edges={['top', 'left', 'right']}>
         <PageHeader
           title={isEditing ? 'Rezept bearbeiten' : 'Rezept erstellen'}
@@ -758,7 +760,12 @@ const styles = StyleSheet.create({
     paddingTop: 2,
     paddingBottom: 10,
   },
-  progressSegment: { flex: 1, height: 4, borderRadius: 3, backgroundColor: '#DFD6DD' },
+  progressSegment: {
+    flex: 1,
+    height: 4,
+    borderRadius: Radius.hairline,
+    backgroundColor: '#DFD6DD',
+  },
   progressSegmentActive: { backgroundColor: '#755B79' },
   keyboardAvoider: {
     flex: 1,

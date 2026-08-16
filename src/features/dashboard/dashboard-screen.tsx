@@ -7,7 +7,7 @@ import { FamIcon } from '@/components/fam-icon';
 import { ProgressRing } from '@/components/progress-ring';
 import { Screen } from '@/components/screen';
 import { FontSize, ThemedText } from '@/components/themed-text';
-import { Spacing } from '@/constants/theme';
+import { Radius, Spacing, withAlpha } from '@/constants/theme';
 import { useSession } from '@/features/auth/session-provider';
 import { useCurrentGoal, useFoodEntries } from '@/features/calorie-tracking/api';
 import { calculateDailyTotals } from '@/features/calorie-tracking/daily-totals';
@@ -20,6 +20,7 @@ import { MEAL_SLOT_LABELS, MEAL_SLOTS } from '@/features/meal-planner/week';
 import { useNavigationChrome } from '@/features/navigation/navigation-chrome-provider';
 import { useProfileInitials } from '@/features/navigation/use-profile-initials';
 import { useShoppingList } from '@/features/shopping-list/use-shopping-list';
+import { useHubGradient } from '@/hooks/use-hub-gradient';
 import { useTheme } from '@/hooks/use-theme';
 import { triggerHouseholdSync } from '@/lib/sync/sync-runner';
 
@@ -32,6 +33,7 @@ function toIsoDate(date: Date): string {
 
 export function DashboardScreen() {
   const theme = useTheme();
+  const hubGradient = useHubGradient();
   const insets = useSafeAreaInsets();
   const queryClient = useQueryClient();
   const [refreshing, setRefreshing] = useState(false);
@@ -121,7 +123,7 @@ export function DashboardScreen() {
       subtitle={heute}
       scroll={false}
       chrome={{ onMenuPress: openDrawer, onAvatarPress: openProfile, initials }}
-      backgroundGradient={['#FFCCB2', '#F9F2EB', '#E8DEF2']}>
+      backgroundGradient={hubGradient}>
       <ScrollView
         testID="dashboard-scroll-view"
         contentContainerStyle={{ paddingBottom: bottomPadding }}
@@ -139,7 +141,10 @@ export function DashboardScreen() {
           style={[
             styles.glassCard,
             styles.calorieCard,
-            { backgroundColor: theme.backgroundElement },
+            {
+              backgroundColor: theme.backgroundElement,
+              boxShadow: `0 8px 22px ${withAlpha(theme.shadowCard, 0.1)}`,
+            },
           ]}>
           <View style={styles.ringWrap}>
             <ProgressRing
@@ -181,7 +186,10 @@ export function DashboardScreen() {
           style={[
             styles.glassCard,
             styles.plannedCard,
-            { backgroundColor: theme.backgroundElement },
+            {
+              backgroundColor: theme.backgroundElement,
+              boxShadow: `0 8px 22px ${withAlpha(theme.shadowCard, 0.1)}`,
+            },
           ]}>
           <FamIcon name="mealArtwork" size={79} />
           <View style={styles.plannedCopy}>
@@ -206,7 +214,14 @@ export function DashboardScreen() {
             onPress={() => router.push({ pathname: '/fridge', params: { filter: 'expiring' } })}
             accessibilityRole="button"
             accessibilityLabel="Alle bald ablaufenden Artikel im Vorrat anzeigen"
-            style={[styles.glassCard, styles.widget, { backgroundColor: theme.backgroundElement }]}>
+            style={[
+              styles.glassCard,
+              styles.widget,
+              {
+                backgroundColor: theme.backgroundElement,
+                boxShadow: `0 8px 20px ${withAlpha(theme.shadowCard, 0.08)}`,
+              },
+            ]}>
             <View style={[styles.widgetBadge, { backgroundColor: `${theme.warning}33` }]}>
               <ThemedText type="smallBold" themeColor="warning">
                 {expiringCount}
@@ -225,7 +240,14 @@ export function DashboardScreen() {
             onPress={() => router.push('/shopping-list')}
             accessibilityRole="button"
             accessibilityLabel="Einkaufsliste öffnen"
-            style={[styles.glassCard, styles.widget, { backgroundColor: theme.backgroundElement }]}>
+            style={[
+              styles.glassCard,
+              styles.widget,
+              {
+                backgroundColor: theme.backgroundElement,
+                boxShadow: `0 8px 20px ${withAlpha(theme.shadowCard, 0.08)}`,
+              },
+            ]}>
             <View style={[styles.widgetBadge, { backgroundColor: `${theme.accent}26` }]}>
               <ThemedText type="smallBold" themeColor="accent">
                 {openShoppingCount}
@@ -248,11 +270,10 @@ export function DashboardScreen() {
 const styles = StyleSheet.create({
   glassCard: {
     borderCurve: 'continuous',
-    boxShadow: '0 8px 22px rgba(89, 64, 89, 0.1)',
   },
   calorieCard: {
     height: 176,
-    borderRadius: 36,
+    borderRadius: Radius.large,
     flexDirection: 'row',
     alignItems: 'center',
     gap: 24,
@@ -287,7 +308,7 @@ const styles = StyleSheet.create({
   },
   plannedCard: {
     height: 140,
-    borderRadius: 33,
+    borderRadius: Radius.large,
     flexDirection: 'row',
     alignItems: 'center',
     gap: 16,
@@ -323,16 +344,15 @@ const styles = StyleSheet.create({
   widget: {
     flex: 1,
     height: 138,
-    borderRadius: 30,
+    borderRadius: Radius.large,
     padding: 16,
     gap: 8,
-    boxShadow: '0 8px 20px rgba(46, 31, 51, 0.08)',
   },
   widgetBadge: {
     alignSelf: 'flex-start',
     minWidth: 36,
     height: 28,
-    borderRadius: 12,
+    borderRadius: Radius.control,
     alignItems: 'center',
     justifyContent: 'center',
     paddingHorizontal: Spacing.one,

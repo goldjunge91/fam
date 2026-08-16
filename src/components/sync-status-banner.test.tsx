@@ -1,6 +1,5 @@
 import { onlineManager, QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { act, fireEvent, render, screen, waitFor } from '@testing-library/react-native';
-import type { ReactElement } from 'react';
 
 import { SyncStatusBanner, type SyncStatusBannerProps } from '@/components/sync-status-banner';
 import { Colors } from '@/constants/theme';
@@ -24,16 +23,22 @@ import { createTestDatabase, type TestDatabase } from '../../test/node-sqlite-ad
  * verlangsamt.
  */
 
-let activeQueryClients: QueryClient[] = [];
+let activeTestTrees: (() => Promise<void>)[] = [];
 
-function renderBanner(props: SyncStatusBannerProps): ReactElement {
-  const queryClient = new QueryClient({ defaultOptions: { queries: { retry: false } } });
-  activeQueryClients.push(queryClient);
-  return (
+async function renderBanner(props: SyncStatusBannerProps) {
+  const queryClient = new QueryClient({
+    defaultOptions: { queries: { retry: false, gcTime: Number.POSITIVE_INFINITY } },
+  });
+  const result = await render(
     <QueryClientProvider client={queryClient}>
       <SyncStatusBanner {...props} />
-    </QueryClientProvider>
+    </QueryClientProvider>,
   );
+  activeTestTrees.push(async () => {
+    await result.unmount();
+    queryClient.clear();
+  });
+  return result;
 }
 
 async function createDb(): Promise<TestDatabase> {
@@ -57,27 +62,21 @@ describe('SyncStatusBanner', () => {
   });
 
   afterEach(async () => {
+    // Erst den Observer unmounten, dann den Query-Cache leeren. Andersherum
+    // kann der noch aktive Observer seinen Refetch-Timer sofort neu anlegen.
+    for (const dispose of activeTestTrees) {
+      await dispose();
+    }
+    activeTestTrees = [];
+
     db.close();
-    // Aeussert einen echten Listener-Callback auf `onlineManager` — muss in
-    // act() laufen, da `cleanup()` (RNTL-Auto-afterEach) an dieser Stelle
-    // noch nicht gelaufen ist und die Komponente ggf. noch gemountet ist.
     await act(() => {
       onlineManager.setOnline(true);
     });
-
-    // `unmount()` allein stoppt TanStacks `refetchInterval`-Timer nicht
-    // zuverlaessig, solange der QueryClient selbst noch referenziert ist —
-    // `clear()` raeumt Caches und offene Timer explizit ab. Ohne das meldet
-    // Jest "worker process has failed to exit gracefully" wegen des
-    // 3s-Polling-Intervalls aus `use-sync-status.ts`.
-    for (const queryClient of activeQueryClients) {
-      queryClient.clear();
-    }
-    activeQueryClients = [];
   });
 
   it('rendert nichts, wenn online und nichts aussteht', async () => {
-    await render(renderBanner({ getDb: async () => db }));
+    await renderBanner({ getDb: async () => db });
 
     expect(screen.queryByText(/Offline/)).toBeNull();
     expect(screen.queryByText(/ausstehend/)).toBeNull();
@@ -88,7 +87,7 @@ describe('SyncStatusBanner', () => {
       onlineManager.setOnline(false);
     });
 
-    await render(renderBanner({ getDb: async () => db }));
+    await renderBanner({ getDb: async () => db });
 
     expect(await screen.findByText('Offline')).toBeTruthy();
   });
@@ -98,7 +97,7 @@ describe('SyncStatusBanner', () => {
     // haengt bereits am Root, bevor je eine Mutation passiert. `enqueueMutation`
     // vor dem Mount aufzurufen wuerde die Benachrichtigung verpassen, die
     // `useSyncStatus` erst ab seinem `useEffect` abonniert.
-    await render(renderBanner({ getDb: async () => db }));
+    await renderBanner({ getDb: async () => db });
 
     await act(async () => {
       await enqueueMutation(db, {
@@ -119,7 +118,7 @@ describe('SyncStatusBanner', () => {
     // eine kurze, feste Rueckmeldung auf den lokalen Schreibvorgang. Die
     // Outbox-Zeile bleibt hier absichtlich bestehen (kein Push simuliert) —
     // die Anzeige muss trotzdem verschwinden.
-    await render(renderBanner({ getDb: async () => db }));
+    await renderBanner({ getDb: async () => db });
 
     await act(async () => {
       await enqueueMutation(db, {
@@ -154,7 +153,7 @@ describe('SyncStatusBanner', () => {
     });
 
     const onRetry = jest.fn().mockResolvedValue(undefined);
-    await render(renderBanner({ getDb: async () => db, onRetry }));
+    await renderBanner({ getDb: async () => db, onRetry });
 
     const button = await screen.findByRole('button');
     expect(screen.getByText(/1 Änderungen konnten nicht synchronisiert werden/)).toBeTruthy();

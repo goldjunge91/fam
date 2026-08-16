@@ -129,7 +129,9 @@ describe('triggerHouseholdSync — Query-Invalidierung (#115-Befund)', () => {
 
 describe('useSyncEngine — Sync-Ausloeser bei lokalem Schreibvorgang', () => {
   function wrapper({ children }: { children: ReactNode }) {
-    const queryClient = new QueryClient({ defaultOptions: { queries: { retry: false } } });
+    const queryClient = new QueryClient({
+      defaultOptions: { queries: { retry: false, gcTime: Number.POSITIVE_INFINITY } },
+    });
     return createElement(QueryClientProvider, { client: queryClient }, children);
   }
 

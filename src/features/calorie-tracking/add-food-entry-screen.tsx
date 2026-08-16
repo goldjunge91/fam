@@ -10,7 +10,7 @@ import { useSnackbar } from '@/components/snackbar';
 import { TextField } from '@/components/text-field';
 import { FontSize, ThemedText } from '@/components/themed-text';
 import { Button } from '@/components/ui/buttons';
-import { Spacing } from '@/constants/theme';
+import { Radius, Spacing } from '@/constants/theme';
 import { useSession } from '@/features/auth/session-provider';
 import { useActiveProfile } from '@/features/calorie-tracking/active-profile-store';
 import {
@@ -469,12 +469,12 @@ const styles = StyleSheet.create({
   heroImage: {
     width: 56,
     height: 56,
-    borderRadius: 14,
+    borderRadius: Radius.controlLarge,
   },
   heroImagePlaceholder: {
     width: 56,
     height: 56,
-    borderRadius: 14,
+    borderRadius: Radius.controlLarge,
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -485,7 +485,7 @@ const styles = StyleSheet.create({
   nutriBadge: {
     width: 34,
     height: 34,
-    borderRadius: 10,
+    borderRadius: Radius.control,
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -502,7 +502,7 @@ const styles = StyleSheet.create({
   badge: {
     paddingHorizontal: 10,
     paddingVertical: 4,
-    borderRadius: 10,
+    borderRadius: Radius.control,
   },
   row: {
     flexDirection: 'row',

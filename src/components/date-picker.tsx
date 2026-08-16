@@ -3,7 +3,7 @@ import { Modal, Pressable, StyleSheet, View } from 'react-native';
 import { TextField } from '@/components/text-field';
 import { FontSize, ThemedText } from '@/components/themed-text';
 import { Button } from '@/components/ui/buttons';
-import { Spacing } from '@/constants/theme';
+import { Radius, Spacing } from '@/constants/theme';
 import { useTheme } from '@/hooks/use-theme';
 
 interface DatePickerProps {
@@ -183,7 +183,7 @@ const styles = StyleSheet.create({
   pickerBtn: {
     height: 48,
     paddingHorizontal: Spacing.three,
-    borderRadius: 12,
+    borderRadius: Radius.control,
     borderWidth: StyleSheet.hairlineWidth,
     alignItems: 'center',
     justifyContent: 'center',
@@ -199,7 +199,7 @@ const styles = StyleSheet.create({
     padding: Spacing.four,
   },
   modalBox: {
-    borderRadius: 20,
+    borderRadius: Radius.sheet,
     padding: Spacing.four,
     gap: Spacing.three,
   },
@@ -219,7 +219,7 @@ const styles = StyleSheet.create({
   stepBtn: {
     width: 40,
     height: 40,
-    borderRadius: 20,
+    borderRadius: Radius.sheet,
     alignItems: 'center',
     justifyContent: 'center',
   },

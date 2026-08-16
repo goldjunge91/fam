@@ -4,7 +4,7 @@ import { Pressable, StyleSheet, View } from 'react-native';
 import Svg, { Circle, Defs, LinearGradient, Rect, Stop } from 'react-native-svg';
 
 import { FontSize, ThemedText } from '@/components/themed-text';
-
+import { Radius } from '@/constants/theme';
 import { useRecipeCoverUrl } from '../recipe-cover';
 
 type RecipePreview = {
@@ -175,7 +175,7 @@ export function RecipePreviewCard({
         <ThemedText style={styles.cardTitle} numberOfLines={1}>
           {title}
         </ThemedText>
-        <ThemedText style={styles.cardMeta} numberOfLines={1}>
+        <ThemedText type="captionCompact" style={styles.cardMeta} numberOfLines={1}>
           {[meta.left, meta.right].filter(Boolean).join(' · ') || 'Rezept'}
         </ThemedText>
       </View>
@@ -231,7 +231,7 @@ const styles = StyleSheet.create({
   card: {
     width: '100%',
     height: 200,
-    borderRadius: 22,
+    borderRadius: Radius.sheet,
     borderCurve: 'continuous',
     overflow: 'hidden',
   },
@@ -262,7 +262,7 @@ const styles = StyleSheet.create({
   hero: {
     height: 170,
     overflow: 'hidden',
-    borderRadius: 23,
+    borderRadius: Radius.large,
     borderCurve: 'continuous',
   },
   heroShade: {

@@ -6,15 +6,13 @@ import { GradientBackground } from '@/components/gradient-background';
 import { FontSize, ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
 import {
-  AutoBackArrowButton,
   AutoBackButton,
-  BackArrowButton,
   BackButton,
   type BackTarget,
   MenuButton,
   ProfileButton,
 } from '@/components/ui/buttons';
-import { MaxContentWidth, Spacing } from '@/constants/theme';
+import { type GradientSpec, MaxContentWidth, Spacing } from '@/constants/theme';
 
 export type { BackTarget } from '@/components/ui/buttons';
 
@@ -34,12 +32,13 @@ type ScreenProps = {
     onMenuPress: () => void;
     onAvatarPress: () => void;
     initials: string;
+    /** Optionale Hub-Aktion links neben dem Profil, z. B. ein Kalender. */
+    trailing?: ReactNode;
   };
   /**
-   * Verlauf statt der flachen Theme-Hintergrundfarbe — bislang nur die
-   * Übersicht nutzt das (#150, Figma "00.01 · Übersicht — Normal").
+   * Verlauf statt der flachen Theme-Hintergrundfarbe fuer Hub-Screens.
    */
-  backgroundGradient?: string[];
+  backgroundGradient?: GradientSpec;
   scroll?: boolean;
   /**
    * Wohin diese Seite zurueckfuehrt. Ohne Angabe gibt es keinen Knopf.
@@ -97,21 +96,19 @@ export function Screen({
 
   return (
     <ThemedView style={styles.root}>
-      {backgroundGradient ? <GradientBackground colors={backgroundGradient} /> : null}
+      {backgroundGradient ? <GradientBackground {...backgroundGradient} /> : null}
       <SafeAreaView
         style={[styles.safeArea, chrome && styles.chromeSafeArea]}
         edges={['top', 'left', 'right']}>
         {chrome ? null : back ? (
-          backStyle === 'icon' ? (
-            back.href ? (
-              <BackArrowButton label={back.label} href={back.href} />
-            ) : (
-              <AutoBackArrowButton label={back.label} />
-            )
-          ) : back.href ? (
-            <BackButton label={back.label} href={back.href} />
+          back.href ? (
+            <BackButton
+              label={back.label}
+              href={back.href}
+              variant={backStyle === 'icon' ? 'arrow' : 'text'}
+            />
           ) : (
-            <AutoBackButton label={back.label} />
+            <AutoBackButton label={back.label} variant={backStyle === 'icon' ? 'arrow' : 'text'} />
           )
         ) : null}
 
@@ -130,7 +127,10 @@ export function Screen({
               </ThemedText>
             </View>
 
-            <ProfileButton initials={chrome.initials} onPress={chrome.onAvatarPress} />
+            <View style={styles.chromeActions}>
+              {chrome.trailing}
+              <ProfileButton initials={chrome.initials} onPress={chrome.onAvatarPress} />
+            </View>
           </View>
         ) : (
           <View style={styles.header}>
@@ -206,6 +206,11 @@ const styles = StyleSheet.create({
     lineHeight: 28,
     fontWeight: '500',
     letterSpacing: -0.5,
+  },
+  chromeActions: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: Spacing.one,
   },
   chromeSubtitle: {
     textAlign: 'center',

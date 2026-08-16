@@ -2,10 +2,10 @@ import { Image } from 'expo-image';
 import { Modal, ScrollView, StyleSheet, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
-import { ThemedText, Typography } from '@/components/themed-text';
+import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
 import { HeaderIconButton } from '@/components/ui/buttons';
-import { Spacing } from '@/constants/theme';
+import { Radius, Spacing } from '@/constants/theme';
 import { useTheme } from '@/hooks/use-theme';
 import { AddItemForm } from './add-item-form';
 
@@ -35,7 +35,9 @@ export function AddItemModal({
         <SafeAreaView style={styles.safeArea} edges={['top', 'left', 'right', 'bottom']}>
           <View style={[styles.handle, { backgroundColor: theme.border }]} />
           <View style={styles.header}>
-            <ThemedText style={styles.title}>Artikel hinzufügen</ThemedText>
+            <ThemedText type="headingSmall" style={styles.title}>
+              Artikel hinzufügen
+            </ThemedText>
             <HeaderIconButton label="Schließen" onPress={onDismiss} style={styles.closeButton}>
               <Image
                 source="sf:xmark"
@@ -77,7 +79,7 @@ const styles = StyleSheet.create({
     width: 36,
     height: 4,
     alignSelf: 'center',
-    borderRadius: 2,
+    borderRadius: Radius.hairline,
     marginTop: 10,
   },
   header: {
@@ -88,13 +90,12 @@ const styles = StyleSheet.create({
     paddingTop: Spacing.two,
   },
   title: {
-    ...Typography.headingSmall,
     fontWeight: 600,
   },
   closeButton: {
     width: 32,
     height: 32,
-    borderRadius: 16,
+    borderRadius: Radius.card,
   },
   closeIcon: {
     width: 14,

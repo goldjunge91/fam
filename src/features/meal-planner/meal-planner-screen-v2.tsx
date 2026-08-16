@@ -2,18 +2,17 @@ import { Image } from 'expo-image';
 import { router } from 'expo-router';
 import { useState } from 'react';
 import { Alert, Pressable, StyleSheet, View } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
 
-import { GradientBackground } from '@/components/gradient-background';
-import { PageHeader } from '@/components/page-header';
+import { Screen } from '@/components/screen';
 import { SegmentedControl } from '@/components/segmented-control';
 import { FontSize, ThemedText } from '@/components/themed-text';
-import { HeaderIconButton, MenuButton } from '@/components/ui/buttons';
+import { HeaderIconButton } from '@/components/ui/buttons';
 import { Gradients, Radius } from '@/constants/theme';
 import { useSession } from '@/features/auth/session-provider';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { useHouseholdMembers } from '@/features/household/api';
 import { useNavigationChrome } from '@/features/navigation/navigation-chrome-provider';
+import { useProfileInitials } from '@/features/navigation/use-profile-initials';
 import { useRecipes } from '@/features/recipes/use-recipes';
 import { useTheme } from '@/hooks/use-theme';
 import { type EntryFormInitial, EntryFormModal } from './components/entry-form-modal';
@@ -84,9 +83,10 @@ type PendingCell = { date: string; slot: MealSlot };
  * Eigene Seite, nicht Teil von Rezepte — erreichbar von der Uebersicht
  * (Dashboard-Karte) und zusaetzlich als Shortcut aus dem Rezepte-Screen.
  */
-export function MealPlannerScreen() {
+export function MealPlannerScreenV2() {
   const theme = useTheme();
-  const { openDrawer } = useNavigationChrome();
+  const { openDrawer, openProfile } = useNavigationChrome();
+  const initials = useProfileInitials();
   const { session } = useSession();
   const userId = session?.user.id;
   const { activeHouseholdId } = useActiveHousehold();
@@ -232,115 +232,114 @@ export function MealPlannerScreen() {
     : undefined;
 
   return (
-    <View style={styles.root}>
-      <GradientBackground {...Gradients.hub.light} />
-      <SafeAreaView style={styles.safeArea} edges={['top', 'left', 'right']}>
-        <PageHeader
-          title="Essensplan"
-          align="center"
-          leading={<MenuButton onPress={openDrawer} />}
-          trailing={
-            <HeaderIconButton
-              label="Aktuelle Woche anzeigen"
-              onPress={() => setAnchorDate(todayIso())}>
-              <Image
-                source="sf:calendar"
-                contentFit="contain"
-                tintColor={theme.accent}
-                style={styles.calendarIcon}
-              />
-            </HeaderIconButton>
-          }
+    <Screen
+      title="Essensplan V2"
+      scroll={false}
+      chrome={{
+        onMenuPress: openDrawer,
+        onAvatarPress: openProfile,
+        initials,
+        trailing: (
+          <HeaderIconButton
+            label="Aktuelle Woche anzeigen"
+            onPress={() => setAnchorDate(todayIso())}>
+            <Image
+              source="sf:calendar"
+              contentFit="contain"
+              tintColor={theme.accent}
+              style={styles.calendarIcon}
+            />
+          </HeaderIconButton>
+        ),
+      }}
+      backgroundGradient={Gradients.hub.light}>
+      <View style={styles.content}>
+        <MealPlannerVersionSwitcher selected="v2" />
+
+        <SegmentedControl
+          label="Zeitraum"
+          options={VIEW_MODES.map((mode) => ({
+            value: mode,
+            label: VIEW_MODE_LABELS[mode],
+            accessibilityLabel: `${VIEW_MODE_LABELS[mode]}-Ansicht`,
+          }))}
+          selected={viewMode}
+          onSelect={setViewMode}
+          labelStyle={styles.viewModeLabel}
         />
 
-        <View style={styles.content}>
-          <MealPlannerVersionSwitcher selected="original" />
+        <View style={styles.periodRow}>
+          <Pressable
+            role="button"
+            aria-label="Vorheriger Zeitraum"
+            onPress={() => setAnchorDate((date) => shiftAnchor(date, viewMode, -1))}
+            style={({ pressed }) => [styles.periodButton, pressed && styles.pressed]}>
+            <ThemedText themeColor="accent" style={styles.chevron}>
+              ‹
+            </ThemedText>
+          </Pressable>
+          <View style={styles.periodCopy}>
+            <ThemedText style={styles.periodTitle}>{periodLabel(dates)}</ThemedText>
+          </View>
+          <Pressable
+            role="button"
+            aria-label="Nächster Zeitraum"
+            onPress={() => setAnchorDate((date) => shiftAnchor(date, viewMode, 1))}
+            style={({ pressed }) => [styles.periodButton, pressed && styles.pressed]}>
+            <ThemedText themeColor="accent" style={styles.chevron}>
+              ›
+            </ThemedText>
+          </Pressable>
+        </View>
 
-          <SegmentedControl
-            label="Zeitraum"
-            options={VIEW_MODES.map((mode) => ({
-              value: mode,
-              label: VIEW_MODE_LABELS[mode],
-              accessibilityLabel: `${VIEW_MODE_LABELS[mode]}-Ansicht`,
-            }))}
-            selected={viewMode}
-            onSelect={setViewMode}
-            labelStyle={styles.viewModeLabel}
-          />
-
-          <View style={styles.periodRow}>
+        {viewMode === 'week' ? (
+          <View style={styles.actionsRow}>
             <Pressable
               role="button"
-              aria-label="Vorheriger Zeitraum"
-              onPress={() => setAnchorDate((date) => shiftAnchor(date, viewMode, -1))}
-              style={({ pressed }) => [styles.periodButton, pressed && styles.pressed]}>
-              <ThemedText themeColor="accent" style={styles.chevron}>
-                ‹
+              aria-label="Vorwoche übernehmen"
+              onPress={handleReuseLastWeek}
+              style={({ pressed }) => [
+                styles.actionButton,
+                { backgroundColor: `${theme.backgroundElement}C7` },
+                pressed && styles.pressed,
+              ]}>
+              <ThemedText themeColor="accent" style={styles.actionLabel}>
+                Vorwoche übernehmen
               </ThemedText>
             </Pressable>
-            <View style={styles.periodCopy}>
-              <ThemedText style={styles.periodTitle}>{periodLabel(dates)}</ThemedText>
-            </View>
             <Pressable
               role="button"
-              aria-label="Nächster Zeitraum"
-              onPress={() => setAnchorDate((date) => shiftAnchor(date, viewMode, 1))}
-              style={({ pressed }) => [styles.periodButton, pressed && styles.pressed]}>
-              <ThemedText themeColor="accent" style={styles.chevron}>
-                ›
+              aria-label="Einkauf vorbereiten"
+              disabled={!plan}
+              onPress={() => {
+                if (!plan) return;
+                router.push({
+                  pathname: '/meal-planner/shopping-needs',
+                  params: { mealPlanId: plan.id },
+                });
+              }}
+              style={({ pressed }) => [
+                styles.actionButton,
+                { backgroundColor: `${theme.backgroundElement}C7` },
+                !plan && styles.disabled,
+                pressed && styles.pressed,
+              ]}>
+              <ThemedText themeColor="accent" style={styles.actionLabel}>
+                Einkauf vorbereiten
               </ThemedText>
             </Pressable>
           </View>
+        ) : null}
 
-          {viewMode === 'week' ? (
-            <View style={styles.actionsRow}>
-              <Pressable
-                role="button"
-                aria-label="Vorwoche übernehmen"
-                onPress={handleReuseLastWeek}
-                style={({ pressed }) => [
-                  styles.actionButton,
-                  { backgroundColor: `${theme.backgroundElement}C7` },
-                  pressed && styles.pressed,
-                ]}>
-                <ThemedText themeColor="accent" style={styles.actionLabel}>
-                  Vorwoche übernehmen
-                </ThemedText>
-              </Pressable>
-              <Pressable
-                role="button"
-                aria-label="Einkauf vorbereiten"
-                disabled={!plan}
-                onPress={() => {
-                  if (!plan) return;
-                  router.push({
-                    pathname: '/meal-planner/shopping-needs',
-                    params: { mealPlanId: plan.id },
-                  });
-                }}
-                style={({ pressed }) => [
-                  styles.actionButton,
-                  { backgroundColor: `${theme.backgroundElement}C7` },
-                  !plan && styles.disabled,
-                  pressed && styles.pressed,
-                ]}>
-                <ThemedText themeColor="accent" style={styles.actionLabel}>
-                  Einkauf vorbereiten
-                </ThemedText>
-              </Pressable>
-            </View>
-          ) : null}
-
-          <WeekGrid
-            dates={dates}
-            entries={entries}
-            recipes={draggableRecipes}
-            onDropRecipe={handleDropRecipe}
-            onTapEntry={handleTapEntry}
-            onTapEmptyCell={handleTapEmptyCell}
-          />
-        </View>
-      </SafeAreaView>
+        <WeekGrid
+          dates={dates}
+          entries={entries}
+          recipes={draggableRecipes}
+          onDropRecipe={handleDropRecipe}
+          onTapEntry={handleTapEntry}
+          onTapEmptyCell={handleTapEmptyCell}
+        />
+      </View>
 
       <RecipePickerModal
         visible={pendingCell !== null}
@@ -376,27 +375,17 @@ export function MealPlannerScreen() {
           onDelete={handleDeleteEntry}
         />
       ) : null}
-    </View>
+    </Screen>
   );
 }
 
 const styles = StyleSheet.create({
-  root: {
-    flex: 1,
-  },
-  safeArea: {
-    flex: 1,
-    width: '100%',
-    maxWidth: 800,
-    alignSelf: 'center',
-  },
   calendarIcon: {
     width: 19,
     height: 19,
   },
   content: {
     flex: 1,
-    paddingHorizontal: 14,
   },
   viewModeLabel: {
     ...FontSize[18],

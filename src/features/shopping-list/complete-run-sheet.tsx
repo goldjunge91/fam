@@ -4,7 +4,7 @@ import { Pressable, ScrollView, StyleSheet, View } from 'react-native';
 
 import { DateWheelField } from '@/components/date-wheel-field';
 import { FontSize, ThemedText } from '@/components/themed-text';
-import { Spacing } from '@/constants/theme';
+import { Radius, Spacing } from '@/constants/theme';
 import { useTheme } from '@/hooks/use-theme';
 import { formatAmount, formatPackageHint } from '@/lib/package-size';
 
@@ -283,7 +283,7 @@ const styles = StyleSheet.create({
   closeButton: {
     width: 32,
     height: 32,
-    borderRadius: 16,
+    borderRadius: Radius.card,
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -304,7 +304,7 @@ const styles = StyleSheet.create({
   quantityBadge: {
     paddingHorizontal: Spacing.two,
     paddingVertical: Spacing.half,
-    borderRadius: 20,
+    borderRadius: Radius.sheet,
   },
   quantityBadgeText: {
     color: '#fff',
@@ -326,7 +326,7 @@ const styles = StyleSheet.create({
     gap: Spacing.one,
     paddingVertical: Spacing.two,
     paddingHorizontal: Spacing.one,
-    borderRadius: 20,
+    borderRadius: Radius.sheet,
     borderWidth: 1.5,
   },
   kindIcon: {
@@ -353,7 +353,7 @@ const styles = StyleSheet.create({
   confirmButton: {
     width: '100%',
     paddingVertical: Spacing.three,
-    borderRadius: Spacing.three,
+    borderRadius: Radius.card,
     alignItems: 'center',
     justifyContent: 'center',
   },

@@ -7,12 +7,13 @@ import { EmptyState } from '@/components/empty-state';
 import { Screen } from '@/components/screen';
 import { ThemedText } from '@/components/themed-text';
 import { Button } from '@/components/ui/buttons';
-import { Spacing } from '@/constants/theme';
+import { Radius, Spacing, withAlpha } from '@/constants/theme';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { ProductDetailModal } from '@/features/inventory/product-detail-modal';
 import { useStorageLocations } from '@/features/inventory/use-storage-locations';
 import { useNavigationChrome } from '@/features/navigation/navigation-chrome-provider';
 import { useProfileInitials } from '@/features/navigation/use-profile-initials';
+import { useHubGradient } from '@/hooks/use-hub-gradient';
 import { useTheme } from '@/hooks/use-theme';
 import { EditFridgeItemSheet } from './components/edit-fridge-item-sheet';
 import { FridgeItemActionsSheet } from './components/fridge-item-actions-sheet';
@@ -36,6 +37,7 @@ type SortMode = 'expiry' | 'name';
 
 export function FridgeScreen() {
   const theme = useTheme();
+  const hubGradient = useHubGradient();
   const { openDrawer, openProfile } = useNavigationChrome();
   const initials = useProfileInitials();
   const params = useLocalSearchParams<{ filter?: string }>();
@@ -125,7 +127,7 @@ export function FridgeScreen() {
 
   if (!householdId) {
     return (
-      <Screen title="Vorrat" subtitle="Für alle im Haushalt sichtbar" chrome={chrome}>
+      <Screen title="Vorrat" chrome={chrome}>
         <Card>
           <EmptyState
             symbol="archivebox"
@@ -143,11 +145,7 @@ export function FridgeScreen() {
       : (locations.find((location) => location.id === selectedLocationId)?.name ?? 'Vorrat');
 
   return (
-    <Screen
-      title="Vorrat"
-      subtitle="Für alle im Haushalt sichtbar"
-      chrome={chrome}
-      backgroundGradient={['#FFD8C5', '#F8F4F0', '#EEE8F4']}>
+    <Screen title="Vorrat" chrome={chrome} backgroundGradient={hubGradient}>
       <FridgeSummaryCard
         totalCount={allItems.length}
         criticalCount={expiryCounts.critical}
@@ -193,7 +191,11 @@ export function FridgeScreen() {
         <View
           style={[
             styles.listCard,
-            { backgroundColor: theme.backgroundElement, marginTop: Spacing.two },
+            {
+              backgroundColor: theme.backgroundElement,
+              marginTop: Spacing.two,
+              boxShadow: `0 8px 24px ${withAlpha(theme.shadowCard, 0.08)}`,
+            },
           ]}>
           <FlatList
             data={visibleItems}
@@ -252,9 +254,8 @@ const styles = StyleSheet.create({
     paddingLeft: Spacing.one,
   },
   listCard: {
-    borderRadius: 22,
+    borderRadius: Radius.sheet,
     borderCurve: 'continuous',
     overflow: 'hidden',
-    boxShadow: '0 8px 24px rgba(84, 59, 88, 0.08)',
   },
 });

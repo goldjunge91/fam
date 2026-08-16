@@ -3,7 +3,8 @@ import { Pressable, StyleSheet, type ViewStyle } from 'react-native';
 
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
-import { Spacing } from '@/constants/theme';
+import { Radius, Spacing } from '@/constants/theme';
+import { useTheme } from '@/hooks/use-theme';
 
 type CardProps = {
   children: ReactNode;
@@ -15,8 +16,11 @@ type CardProps = {
 
 /** Flaeche fuer zusammengehoerende Inhalte. Antippbar, sobald `onPress` gesetzt ist. */
 export function Card({ children, title, footer, onPress, style }: CardProps) {
+  const theme = useTheme();
   const content = (
-    <ThemedView type="backgroundElement" style={[styles.card, style]}>
+    <ThemedView
+      type="backgroundElement"
+      style={[styles.card, { shadowColor: theme.shadowCard }, style]}>
       {title ? <ThemedText type="smallBold">{title}</ThemedText> : null}
       {children}
       {footer}
@@ -38,11 +42,12 @@ export function Card({ children, title, footer, onPress, style }: CardProps) {
 const styles = StyleSheet.create({
   card: {
     padding: Spacing.three,
-    borderRadius: 28,
+    borderRadius: Radius.large,
     gap: Spacing.two,
     // Weicher, warmer Schatten statt harter Kante — passend zum
     // "surface-elevated"-Look des fam-Design-Systems (Figma, #150).
-    shadowColor: '#594059',
+    // shadowColor kommt inline aus Colors.shadowCard (theme.ts), da
+    // StyleSheet.create hier keinen Hook-Zugriff hat.
     shadowOffset: { width: 0, height: 8 },
     shadowOpacity: 0.09,
     shadowRadius: 20,

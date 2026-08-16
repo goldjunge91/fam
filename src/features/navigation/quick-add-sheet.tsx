@@ -3,6 +3,7 @@ import { Modal, Pressable, StyleSheet, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { FontSize, ThemedText } from '@/components/themed-text';
+import { Radius, withAlpha } from '@/constants/theme';
 import type { MealType } from '@/features/calorie-tracking/api';
 import { useTheme } from '@/hooks/use-theme';
 
@@ -96,6 +97,7 @@ export function QuickAddSheet() {
             {
               backgroundColor: theme.backgroundElement,
               bottom: Math.max(insets.bottom / 3, 10),
+              boxShadow: `0 -8px 28px ${withAlpha(theme.shadowSheet, 0.18)}`,
             },
           ]}>
           <View style={styles.handleArea}>
@@ -142,9 +144,8 @@ const styles = StyleSheet.create({
     left: 10,
     right: 10,
     height: 310,
-    borderRadius: 28,
+    borderRadius: Radius.large,
     paddingHorizontal: 15,
-    boxShadow: '0 -8px 28px rgba(41, 28, 46, 0.18)',
     borderCurve: 'continuous',
   },
   handleArea: {
@@ -155,7 +156,7 @@ const styles = StyleSheet.create({
   handle: {
     width: 44,
     height: 4,
-    borderRadius: 2,
+    borderRadius: Radius.hairline,
   },
   title: {
     ...FontSize[20],
@@ -177,7 +178,7 @@ const styles = StyleSheet.create({
   tile: {
     width: '48.6%',
     height: 103,
-    borderRadius: 19,
+    borderRadius: Radius.sheet,
     padding: 13,
     justifyContent: 'space-between',
     borderCurve: 'continuous',
@@ -185,7 +186,7 @@ const styles = StyleSheet.create({
   tileIcon: {
     width: 32,
     height: 32,
-    borderRadius: 11,
+    borderRadius: Radius.control,
     backgroundColor: 'rgba(255,255,255,0.59)',
     borderCurve: 'continuous',
   },

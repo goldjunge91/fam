@@ -104,7 +104,9 @@ jest.mock('./components/recipe-rating-sheet', () => ({
 }));
 
 async function renderScreen() {
-  const queryClient = new QueryClient({ defaultOptions: { queries: { retry: false } } });
+  const queryClient = new QueryClient({
+    defaultOptions: { queries: { retry: false, gcTime: Number.POSITIVE_INFINITY } },
+  });
   return render(
     <QueryClientProvider client={queryClient}>
       <SafeAreaProvider

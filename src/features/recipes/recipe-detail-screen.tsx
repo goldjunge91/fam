@@ -1,16 +1,18 @@
+// import { FontSize } from '@expo/ui/swift-ui/modifiers';
 import { Image } from 'expo-image';
 import { router, useLocalSearchParams } from 'expo-router';
 import { useMemo, useState } from 'react';
 import { Alert, Modal, Pressable, ScrollView, Share, StyleSheet, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Svg, { Circle, Defs, LinearGradient, Rect, Stop } from 'react-native-svg';
-
+// import styles from 'react-native-qrcode-svg/Example/src/styles';
 import { GradientBackground } from '@/components/gradient-background';
 import { PageHeader } from '@/components/page-header';
 import { FontSize, ThemedText } from '@/components/themed-text';
 import { HeaderIconButton } from '@/components/ui/buttons';
+import { Radius } from '@/constants/theme';
+import { useHubGradient } from '@/hooks/use-hub-gradient';
 import { useTheme } from '@/hooks/use-theme';
-
 import { RecipeRatingSheet } from './components/recipe-rating-sheet';
 import { RecipeShoppingSheet } from './components/recipe-shopping-sheet';
 import { calculateServingNutrition, scaleServing } from './nutrition';
@@ -164,8 +166,10 @@ function RecipeStepItem({
 function NutritionStat({ value, label }: { value: string; label: string }) {
   return (
     <View style={styles.nutritionStat}>
-      <ThemedText style={styles.nutritionValue}>{value}</ThemedText>
-      <ThemedText themeColor="textSecondary" style={styles.nutritionLabel}>
+      <ThemedText type="controlValue" style={styles.nutritionValue}>
+        {value}
+      </ThemedText>
+      <ThemedText type="caption" themeColor="textSecondary" style={styles.nutritionLabel}>
         {label}
       </ThemedText>
     </View>
@@ -221,7 +225,9 @@ function IngredientGroups({ data, servings }: { data: RecipeDetail; servings: nu
         return (
           <View key={component.id} style={styles.ingredientGroup}>
             <View style={[styles.groupHeader, { borderBottomColor: theme.border }]}>
-              <ThemedText style={styles.groupTitle}>{component.name}</ThemedText>
+              <ThemedText type="controlValue" style={styles.groupTitle}>
+                {component.name}
+              </ThemedText>
               <ThemedText themeColor="textSecondary" style={styles.groupMeta}>
                 {round(preparedGrams)} g zubereitet
               </ThemedText>
@@ -241,10 +247,13 @@ function IngredientGroups({ data, servings }: { data: RecipeDetail; servings: nu
                       borderBottomWidth: StyleSheet.hairlineWidth,
                     },
                   ]}>
-                  <ThemedText style={styles.ingredientName} numberOfLines={1}>
+                  <ThemedText type="body" style={styles.ingredientName} numberOfLines={1}>
                     {product?.name ?? 'Zutat'}
                   </ThemedText>
-                  <ThemedText themeColor="textSecondary" style={styles.ingredientAmount}>
+                  <ThemedText
+                    type="body"
+                    themeColor="textSecondary"
+                    style={styles.ingredientAmount}>
                     {round(quantity)} {unit}
                   </ThemedText>
                 </View>
@@ -264,6 +273,7 @@ function IngredientGroups({ data, servings }: { data: RecipeDetail; servings: nu
 
 export function RecipeDetailScreen() {
   const theme = useTheme();
+  const hubGradient = useHubGradient();
   const { id } = useLocalSearchParams<{ id: string }>();
   const [servings, setServings] = useState(1);
   const [activeTab, setActiveTab] = useState<'details' | 'ratings'>('details');
@@ -304,7 +314,7 @@ export function RecipeDetailScreen() {
   if (isLoading || !data) {
     return (
       <View style={styles.root}>
-        <GradientBackground colors={['#FFD2B9', '#F8F4EF', '#EEE7F4']} />
+        <GradientBackground {...hubGradient} />
         <SafeAreaView style={styles.safeArea} edges={['top', 'left', 'right']}>
           <PageHeader
             title="Rezept"
@@ -334,7 +344,7 @@ export function RecipeDetailScreen() {
 
   return (
     <View style={styles.root}>
-      <GradientBackground colors={['#FFD2B9', '#F8F4EF', '#EEE7F4']} />
+      <GradientBackground {...hubGradient} />
       <SafeAreaView style={styles.safeArea} edges={['top', 'left', 'right']}>
         <PageHeader
           title="Rezept"
@@ -409,7 +419,9 @@ export function RecipeDetailScreen() {
               </View>
 
               {recipe.instructions ? (
-                <ThemedText style={styles.description}>{recipe.instructions}</ThemedText>
+                <ThemedText type="bodyRelaxed" style={styles.description}>
+                  {recipe.instructions}
+                </ThemedText>
               ) : null}
 
               {tags.length > 0 ? (
@@ -470,7 +482,10 @@ export function RecipeDetailScreen() {
                   { borderColor: theme.border },
                   pressed && styles.pressed,
                 ]}>
-                <ThemedText themeColor="accent" style={styles.shoppingButtonText}>
+                <ThemedText
+                  type="controlValue"
+                  themeColor="accent"
+                  style={styles.shoppingButtonText}>
                   Fehlende Zutaten zur Einkaufsliste
                 </ThemedText>
               </Pressable>
@@ -525,7 +540,9 @@ export function RecipeDetailScreen() {
                   {rating.note ? (
                     <>
                       <ThemedText style={styles.ratingHeading}>Deine Notiz</ThemedText>
-                      <ThemedText style={styles.ratingNote}>{rating.note}</ThemedText>
+                      <ThemedText type="bodyRelaxed" style={styles.ratingNote}>
+                        {rating.note}
+                      </ThemedText>
                     </>
                   ) : null}
                 </>
@@ -564,7 +581,9 @@ export function RecipeDetailScreen() {
               { backgroundColor: theme.accent },
               pressed && styles.pressed,
             ]}>
-            <ThemedText style={styles.primaryButtonText}>Kochmodus starten</ThemedText>
+            <ThemedText type="controlValue" style={styles.primaryButtonText}>
+              Kochmodus starten
+            </ThemedText>
           </Pressable>
         </View>
 
@@ -727,7 +746,7 @@ const styles = StyleSheet.create({
   portionControl: {
     width: 156,
     height: 44,
-    borderRadius: 12,
+    borderRadius: Radius.control,
     borderCurve: 'continuous',
     flexDirection: 'row',
     alignItems: 'center',
@@ -772,7 +791,7 @@ const styles = StyleSheet.create({
     minHeight: 48,
     marginTop: 16,
     borderWidth: StyleSheet.hairlineWidth,
-    borderRadius: 12,
+    borderRadius: Radius.control,
     borderCurve: 'continuous',
     alignItems: 'center',
     justifyContent: 'center',
@@ -801,7 +820,7 @@ const styles = StyleSheet.create({
   nutritionValue: { ...FontSize[15], lineHeight: 20, fontWeight: 700 },
   nutritionLabel: { paddingTop: 3, ...FontSize[11], lineHeight: 15, fontWeight: 500 },
   stepItem: { gap: 12, paddingVertical: 14 },
-  stepImage: { width: '100%', height: 180, borderRadius: 16, borderCurve: 'continuous' },
+  stepImage: { width: '100%', height: 180, borderRadius: Radius.card, borderCurve: 'continuous' },
   stepCopy: { flexDirection: 'row', gap: 10 },
   stepNumber: { width: 30, ...FontSize[16], lineHeight: 24, fontWeight: 700 },
   stepText: { flex: 1, ...FontSize[16], lineHeight: 24, fontWeight: 500 },
@@ -830,7 +849,7 @@ const styles = StyleSheet.create({
   ratingButton: {
     minHeight: 48,
     marginTop: 20,
-    borderRadius: 12,
+    borderRadius: Radius.control,
     borderCurve: 'continuous',
     alignItems: 'center',
     justifyContent: 'center',
@@ -841,7 +860,7 @@ const styles = StyleSheet.create({
   primaryButton: {
     minHeight: 48,
     alignSelf: 'center',
-    borderRadius: 12,
+    borderRadius: Radius.control,
     borderCurve: 'continuous',
     alignItems: 'center',
     justifyContent: 'center',
@@ -851,14 +870,14 @@ const styles = StyleSheet.create({
   pressed: { opacity: 0.75, transform: [{ scale: 0.99 }] },
   modalBackdrop: { flex: 1, justifyContent: 'flex-end', backgroundColor: 'rgba(38,31,39,0.30)' },
   manageSheet: {
-    borderTopLeftRadius: 28,
-    borderTopRightRadius: 28,
+    borderTopLeftRadius: Radius.large,
+    borderTopRightRadius: Radius.large,
     borderCurve: 'continuous',
     paddingHorizontal: 16,
     paddingTop: 10,
     paddingBottom: 19,
   },
-  sheetHandle: { width: 38, height: 4, borderRadius: 3, alignSelf: 'center' },
+  sheetHandle: { width: 38, height: 4, borderRadius: Radius.hairline, alignSelf: 'center' },
   manageHeader: {
     minHeight: 58,
     paddingTop: 13,
@@ -871,7 +890,7 @@ const styles = StyleSheet.create({
   sheetClose: {
     width: 32,
     height: 32,
-    borderRadius: 11,
+    borderRadius: Radius.control,
     borderCurve: 'continuous',
     alignItems: 'center',
     justifyContent: 'center',

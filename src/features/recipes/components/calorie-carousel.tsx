@@ -1,6 +1,7 @@
 import { Pressable, ScrollView, StyleSheet } from 'react-native';
 
 import { FontSize, ThemedText } from '@/components/themed-text';
+import { Radius } from '@/constants/theme';
 import { CALORIE_BUCKETS } from '@/features/recipe-templates/use-recipe-templates';
 import { useTheme } from '@/hooks/use-theme';
 
@@ -43,6 +44,7 @@ export function CalorieCarousel({ selectedIndex, onSelect }: CalorieCarouselProp
             ]}>
             <ThemedText style={styles.emoji}>{BUCKET_EMOJI[index]}</ThemedText>
             <ThemedText
+              type="captionCompact"
               style={[styles.range, selected && { color: theme.background }]}
               numberOfLines={1}>
               {bucket.label}
@@ -70,7 +72,7 @@ const styles = StyleSheet.create({
   tile: {
     width: 92,
     height: TILE_HEIGHT,
-    borderRadius: 16,
+    borderRadius: Radius.card,
     borderCurve: 'continuous',
     borderWidth: 1,
     alignItems: 'center',

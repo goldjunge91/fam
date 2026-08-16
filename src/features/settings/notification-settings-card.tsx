@@ -3,7 +3,7 @@ import { Pressable, type StyleProp, StyleSheet, Switch, View, type ViewStyle } f
 
 import { Card } from '@/components/card';
 import { ThemedText } from '@/components/themed-text';
-import { Spacing } from '@/constants/theme';
+import { Radius, Spacing } from '@/constants/theme';
 import { useTheme } from '@/hooks/use-theme';
 import {
   DEFAULT_NOTIFICATION_SETTINGS,
@@ -162,7 +162,7 @@ const styles = StyleSheet.create({
   chip: {
     paddingHorizontal: Spacing.three,
     paddingVertical: Spacing.one + 2,
-    borderRadius: 20,
+    borderRadius: Radius.sheet,
     borderWidth: 1,
   },
 });

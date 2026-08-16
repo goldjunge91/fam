@@ -3,7 +3,7 @@ import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { TextField } from '@/components/text-field';
 import { FontSize } from '@/components/themed-text';
 import { Button } from '@/components/ui/buttons';
-import { Spacing } from '@/constants/theme';
+import { Radius, Spacing } from '@/constants/theme';
 import { authErrorMessage, signIn, signUp } from '@/features/auth/api';
 import { PendingAuthBanner } from '@/features/auth/components/pending-auth-banner';
 import { useSession } from '@/features/auth/session-provider';
@@ -173,7 +173,7 @@ const styles = StyleSheet.create({
   },
   activeBanner: {
     padding: Spacing.three,
-    borderRadius: Spacing.two,
+    borderRadius: Radius.sm,
     borderWidth: 1,
     gap: Spacing.one,
   },
@@ -191,7 +191,7 @@ const styles = StyleSheet.create({
   },
   tabToggle: {
     flexDirection: 'row',
-    borderRadius: Spacing.two,
+    borderRadius: Radius.sm,
     overflow: 'hidden',
     borderWidth: 1,
     marginBottom: Spacing.one,

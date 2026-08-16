@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Pressable, StyleSheet, TextInput, View } from 'react-native';
 
 import { ThemedText, Typography } from '@/components/themed-text';
+import { Radius } from '@/constants/theme';
 import { useTheme } from '@/hooks/use-theme';
 
 type QuantityStepperProps = {
@@ -133,7 +134,7 @@ const styles = StyleSheet.create({
     alignItems: 'stretch',
     overflow: 'hidden',
     borderWidth: 1,
-    borderRadius: 13,
+    borderRadius: Radius.control,
     borderCurve: 'continuous',
   },
   action: {

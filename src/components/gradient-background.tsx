@@ -1,11 +1,9 @@
 import { StyleSheet } from 'react-native';
 import Svg, { Defs, LinearGradient, Rect, Stop } from 'react-native-svg';
 
-type GradientBackgroundProps = {
-  /** Farbstopps in Reihenfolge, z. B. ['#ffccb2', '#f9f2eb', '#e8def2']. */
-  colors: string[];
-  locations?: number[];
-};
+import type { GradientSpec } from '@/constants/theme';
+
+type GradientBackgroundProps = GradientSpec;
 
 /**
  * Flaechiger Verlauf als Bildschirmhintergrund fuer die warmen fam-Hub-Screens

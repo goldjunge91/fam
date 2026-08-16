@@ -1,7 +1,7 @@
 import { Pressable, StyleSheet, View } from 'react-native';
 
 import { ThemedText } from '@/components/themed-text';
-import { ControlSize, Spacing } from '@/constants/theme';
+import { ControlSize, Radius, Spacing } from '@/constants/theme';
 import { useTheme } from '@/hooks/use-theme';
 
 type CompactActionButtonProps = {
@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
     width: '100%',
     height: ControlSize.compactHeight,
     borderWidth: StyleSheet.hairlineWidth,
-    borderRadius: 11,
+    borderRadius: Radius.control,
     borderCurve: 'continuous',
     paddingHorizontal: Spacing.three,
     flexDirection: 'row',
@@ -68,7 +68,7 @@ const styles = StyleSheet.create({
     top: 2,
     width: 7,
     height: 1.5,
-    borderRadius: 1,
+    borderRadius: Radius.hairline,
   },
   chevronLeft: {
     left: 0,

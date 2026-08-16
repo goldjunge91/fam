@@ -2,6 +2,7 @@ import type { ReactNode } from 'react';
 import { Pressable, StyleSheet, type StyleProp, type ViewStyle } from 'react-native';
 
 import { useTheme } from '@/hooks/use-theme';
+import { Radius } from '@/constants/theme';
 
 type HeaderIconButtonProps = {
   label: string;
@@ -34,7 +35,7 @@ const styles = StyleSheet.create({
   button: {
     width: 39,
     height: 39,
-    borderRadius: 13,
+    borderRadius: Radius.control,
     borderCurve: 'continuous',
     alignItems: 'center',
     justifyContent: 'center',

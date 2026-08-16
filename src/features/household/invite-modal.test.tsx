@@ -1,4 +1,4 @@
-import { fireEvent, render, screen } from '@testing-library/react-native';
+import { act, fireEvent, render, screen } from '@testing-library/react-native';
 import * as Clipboard from 'expo-clipboard';
 
 import { InviteModal } from './invite-modal';
@@ -41,7 +41,17 @@ jest.mock('@/hooks/use-theme', () => ({
 
 describe('InviteModal & QR Code Component', () => {
   beforeEach(() => {
+    jest.useFakeTimers();
     jest.clearAllMocks();
+  });
+
+  afterEach(async () => {
+    // `handleCopyCode` und `handleCopyLink` setzen Feedback-Timer. Wie in der
+    // Timer-Referenzdemo werden sie vor dem Wechsel zur echten Uhr abgearbeitet.
+    await act(async () => {
+      jest.runOnlyPendingTimers();
+    });
+    jest.useRealTimers();
   });
 
   it('sollte Einladungs-Modal und aktive Einladungen rendern', async () => {

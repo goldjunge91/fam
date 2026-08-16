@@ -10,15 +10,15 @@ import {
   View,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-
 import { FilterChipBar } from '@/components/filter-chip-bar';
 import { GradientBackground } from '@/components/gradient-background';
 import { PageHeader } from '@/components/page-header';
 import { FontSize, ThemedText } from '@/components/themed-text';
 import { HeaderIconButton } from '@/components/ui/buttons';
+import { Radius } from '@/constants/theme';
 import type { MealType } from '@/features/calorie-tracking/api';
+import { useHubGradient } from '@/hooks/use-hub-gradient';
 import { useTheme } from '@/hooks/use-theme';
-
 import { calculateAdjustedServingNutrition } from './nutrition';
 import { useRecipeDetail, useUpdateComponentMutation } from './use-recipes';
 
@@ -46,6 +46,7 @@ function BackGlyph() {
 
 export function RecipeLogScreen() {
   const theme = useTheme();
+  const hubGradient = useHubGradient();
   const { id, mode } = useLocalSearchParams<{ id: string; mode?: string }>();
   const isWeighMode = mode === 'weigh';
   const { data, isLoading } = useRecipeDetail(id);
@@ -82,6 +83,10 @@ export function RecipeLogScreen() {
     [data, gramsMap],
   );
 
+  // function updateGrams(componentIsubmitText: { color: '#FFFFFF',   fontWeight: 700 }lace(',', '.'));
+  //   if (Number.isNaN(value) || value < 0) return;
+  //   setGramsById((previous) => ({ ...(previous ?? {}), [componentId]: value }));
+  // }
   function updateGrams(componentId: string, raw: string) {
     const value = raw.trim() === '' ? 0 : Number(raw.replace(',', '.'));
     if (Number.isNaN(value) || value < 0) return;
@@ -128,7 +133,7 @@ export function RecipeLogScreen() {
 
   return (
     <View style={styles.root}>
-      <GradientBackground colors={['#FFD2B9', '#F8F4EF', '#EEE7F4']} />
+      <GradientBackground {...hubGradient} />
       <SafeAreaView style={styles.safeArea} edges={['top', 'left', 'right']}>
         <PageHeader
           title="Fertig"
@@ -234,7 +239,7 @@ export function RecipeLogScreen() {
                     (!total || updateComponent.isPending) && styles.disabled,
                     pressed && styles.pressed,
                   ]}>
-                  <ThemedText style={styles.submitText}>
+                  <ThemedText type="captionCompact" style={styles.submitText}>
                     {isWeighMode ? 'Gewichte speichern' : 'Ins Tagebuch übernehmen'}
                   </ThemedText>
                 </Pressable>
@@ -253,7 +258,7 @@ const styles = StyleSheet.create({
   keyboardAvoider: { flex: 1, justifyContent: 'flex-end' },
   backGlyph: { ...FontSize[27], lineHeight: 29, fontWeight: 400 },
   finishBackdrop: { flex: 1, minHeight: 150, alignItems: 'center', paddingTop: 30, opacity: 0.55 },
-  finishArtwork: { width: 82, height: 82, borderRadius: 27, borderCurve: 'continuous' },
+  finishArtwork: { width: 82, height: 82, borderRadius: Radius.large, borderCurve: 'continuous' },
   finishTitle: { paddingTop: 18, ...FontSize[23], lineHeight: 28, fontWeight: 700 },
   finishSubtitle: {
     paddingTop: 5,
@@ -265,14 +270,14 @@ const styles = StyleSheet.create({
   sheet: {
     maxHeight: '72%',
     minHeight: 360,
-    borderTopLeftRadius: 28,
-    borderTopRightRadius: 28,
+    borderTopLeftRadius: Radius.large,
+    borderTopRightRadius: Radius.large,
     borderCurve: 'continuous',
     paddingHorizontal: 16,
     paddingTop: 10,
     paddingBottom: 19,
   },
-  sheetHandle: { width: 38, height: 4, borderRadius: 3, alignSelf: 'center' },
+  sheetHandle: { width: 38, height: 4, borderRadius: Radius.hairline, alignSelf: 'center' },
   sheetHeader: {
     minHeight: 65,
     paddingTop: 13,
@@ -286,7 +291,7 @@ const styles = StyleSheet.create({
   closeButton: {
     width: 32,
     height: 32,
-    borderRadius: 11,
+    borderRadius: Radius.control,
     borderCurve: 'continuous',
     alignItems: 'center',
     justifyContent: 'center',
@@ -301,7 +306,7 @@ const styles = StyleSheet.create({
     width: 90,
     height: 40,
     borderWidth: 1,
-    borderRadius: 12,
+    borderRadius: Radius.control,
     borderCurve: 'continuous',
     flexDirection: 'row',
     alignItems: 'center',
@@ -318,7 +323,7 @@ const styles = StyleSheet.create({
   gramsUnit: { paddingLeft: 4, ...FontSize[10], lineHeight: 12, fontWeight: 500 },
   totalCard: {
     minHeight: 53,
-    borderRadius: 15,
+    borderRadius: Radius.card,
     borderCurve: 'continuous',
     alignItems: 'center',
     justifyContent: 'center',
@@ -334,7 +339,7 @@ const styles = StyleSheet.create({
   },
   submitButton: {
     minHeight: 48,
-    borderRadius: 16,
+    borderRadius: Radius.card,
     borderCurve: 'continuous',
     alignItems: 'center',
     justifyContent: 'center',

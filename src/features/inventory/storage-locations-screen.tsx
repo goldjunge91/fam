@@ -82,7 +82,8 @@ export function StorageLocationsScreen() {
     <Screen
       title="Lagerorte verwalten"
       subtitle={currentHousehold?.name}
-      back={{ label: 'Einstellungen', href: '/settings' }}>
+      back={{ label: 'Einstellungen', href: '/settings' }}
+      backStyle="icon">
       <Card title="Neuen Lagerort hinzufügen">
         <View style={styles.addBox}>
           <TextField

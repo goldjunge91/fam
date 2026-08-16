@@ -5,7 +5,7 @@ import QRCode from 'react-native-qrcode-svg';
 import { Card } from '@/components/card';
 import { FontSize, ThemedText } from '@/components/themed-text';
 import { Button } from '@/components/ui/buttons';
-import { Spacing } from '@/constants/theme';
+import { Radius, Spacing } from '@/constants/theme';
 import { useSession } from '@/features/auth/session-provider';
 import {
   useCreateInviteMutation,
@@ -189,7 +189,10 @@ export function InviteModal({ visible, householdId, householdName, onClose }: In
                     style={[
                       styles.inviteRow,
                       { borderBottomColor: theme.border },
-                      isSelected && { backgroundColor: `${theme.accent}15`, borderRadius: 8 },
+                      isSelected && {
+                        backgroundColor: `${theme.accent}15`,
+                        borderRadius: Radius.sm,
+                      },
                     ]}>
                     <Pressable
                       style={{ flex: 1 }}
@@ -248,8 +251,8 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-end',
   },
   modalBox: {
-    borderTopLeftRadius: 24,
-    borderTopRightRadius: 24,
+    borderTopLeftRadius: Radius.large,
+    borderTopRightRadius: Radius.large,
     padding: Spacing.four,
     maxHeight: '85%',
   },
@@ -277,7 +280,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     padding: Spacing.three,
     backgroundColor: '#FFFFFF',
-    borderRadius: 16,
+    borderRadius: Radius.card,
     alignSelf: 'center',
     marginVertical: Spacing.two,
   },

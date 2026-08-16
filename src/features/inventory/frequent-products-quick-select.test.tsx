@@ -5,6 +5,7 @@ import { FrequentProductsQuickSelect } from '@/features/inventory/frequent-produ
 import type { ProductUsageRow } from '@/lib/db/product-usage';
 
 const mockGetFrequentProductUsage = jest.fn<Promise<ProductUsageRow[]>, unknown[]>();
+let activeTestTrees: (() => Promise<void>)[] = [];
 
 jest.mock('@/lib/db/client', () => ({
   getDatabase: async () => ({}),
@@ -36,12 +37,27 @@ function row(overrides: Partial<ProductUsageRow>): ProductUsageRow {
 }
 
 async function renderWithClient(ui: React.ReactElement) {
-  const queryClient = new QueryClient({ defaultOptions: { queries: { retry: false } } });
-  return render(<QueryClientProvider client={queryClient}>{ui}</QueryClientProvider>);
+  const queryClient = new QueryClient({
+    // Der produktive Standard-GC-Timer lebt nach dem Unmount weiter und haelt
+    // dadurch den Jest-Prozess offen. Im isolierten Test-Client ist GC unnoetig.
+    defaultOptions: { queries: { retry: false, gcTime: Number.POSITIVE_INFINITY } },
+  });
+  const result = await render(<QueryClientProvider client={queryClient}>{ui}</QueryClientProvider>);
+  activeTestTrees.push(async () => {
+    await result.unmount();
+    queryClient.clear();
+  });
 }
 
 beforeEach(() => {
   mockGetFrequentProductUsage.mockReset();
+});
+
+afterEach(async () => {
+  for (const dispose of activeTestTrees) {
+    await dispose();
+  }
+  activeTestTrees = [];
 });
 
 test('rendert nichts, solange kein Nutzer bekannt ist', async () => {

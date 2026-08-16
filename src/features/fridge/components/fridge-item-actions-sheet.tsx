@@ -2,7 +2,7 @@ import { Modal, Pressable, StyleSheet, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { QuantityStepper } from '@/components/quantity-stepper';
 import { ThemedText } from '@/components/themed-text';
-import { Spacing } from '@/constants/theme';
+import { Radius, Spacing, withAlpha } from '@/constants/theme';
 import { useTheme } from '@/hooks/use-theme';
 import { formatAmount, formatPackageHint } from '@/lib/package-size';
 
@@ -54,6 +54,7 @@ export function FridgeItemActionsSheet({
             {
               backgroundColor: theme.backgroundElement,
               paddingBottom: Math.max(insets.bottom, Spacing.three),
+              boxShadow: `0 -16px 48px ${withAlpha(theme.shadowSheet, 0.2)}`,
             },
           ]}>
           <View style={[styles.handle, { backgroundColor: theme.border }]} />
@@ -160,17 +161,16 @@ const styles = StyleSheet.create({
     left: 10,
     right: 10,
     bottom: 10,
-    borderRadius: 28,
+    borderRadius: Radius.large,
     borderCurve: 'continuous',
     paddingHorizontal: 14,
     paddingTop: 11,
     gap: 14,
-    boxShadow: '0 -16px 48px rgba(42, 32, 44, 0.2)',
   },
   handle: {
     width: 42,
     height: 4,
-    borderRadius: 2,
+    borderRadius: Radius.hairline,
     alignSelf: 'center',
   },
   itemHeader: {
@@ -184,7 +184,7 @@ const styles = StyleSheet.create({
   expiryBar: {
     width: 6,
     height: 52,
-    borderRadius: 4,
+    borderRadius: Radius.xs,
   },
   itemCopy: {
     flex: 1,
@@ -211,7 +211,7 @@ const styles = StyleSheet.create({
   action: {
     flex: 1,
     height: 62,
-    borderRadius: 16,
+    borderRadius: Radius.card,
     borderCurve: 'continuous',
     alignItems: 'center',
     justifyContent: 'center',
@@ -227,7 +227,7 @@ const styles = StyleSheet.create({
   informationIcon: {
     width: 28,
     height: 28,
-    borderRadius: 14,
+    borderRadius: Radius.controlLarge,
     borderWidth: StyleSheet.hairlineWidth,
     alignItems: 'center',
     justifyContent: 'center',

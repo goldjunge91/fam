@@ -1,7 +1,7 @@
 import { Pressable, StyleSheet, View } from 'react-native';
 
-import { ThemedText, Typography } from '@/components/themed-text';
-import { Spacing } from '@/constants/theme';
+import { ThemedText } from '@/components/themed-text';
+import { Radius, Spacing } from '@/constants/theme';
 import { useTheme } from '@/hooks/use-theme';
 import { formatAmount, formatPackageHint } from '@/lib/package-size';
 
@@ -39,7 +39,9 @@ export function ShoppingItemRow({ item, onToggle, onDelete, onEdit }: ShoppingIt
             },
           ]}>
           {isChecked ? (
-            <ThemedText style={[styles.checkmark, { color: '#fff' }]}>✓</ThemedText>
+            <ThemedText type="detail" style={{ color: theme.onAccent }}>
+              ✓
+            </ThemedText>
           ) : null}
         </View>
 
@@ -77,7 +79,9 @@ export function ShoppingItemRow({ item, onToggle, onDelete, onEdit }: ShoppingIt
         accessibilityLabel={`${item.name} bearbeiten`}
         hitSlop={8}
         style={styles.editButton}>
-        <ThemedText style={styles.editIcon}>✏️</ThemedText>
+        <ThemedText type="controlValue" style={styles.editIcon}>
+          ✏️
+        </ThemedText>
       </Pressable>
     </View>
   );
@@ -101,7 +105,7 @@ const styles = StyleSheet.create({
   checkbox: {
     width: 22,
     height: 22,
-    borderRadius: 11,
+    borderRadius: Radius.control,
     borderWidth: 2,
     alignItems: 'center',
     justifyContent: 'center',
@@ -122,10 +126,6 @@ const styles = StyleSheet.create({
     padding: Spacing.one,
   },
   editIcon: {
-    ...Typography.controlValue,
     opacity: 0.6,
-  },
-  checkmark: {
-    ...Typography.detail,
   },
 });

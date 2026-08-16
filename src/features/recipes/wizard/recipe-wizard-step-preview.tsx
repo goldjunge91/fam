@@ -2,7 +2,7 @@ import { Image } from 'expo-image';
 import { useState } from 'react';
 import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { FontSize } from '@/components/themed-text';
-
+import { Radius } from '@/constants/theme';
 import type { DietaryTag, Difficulty, DishType } from '@/features/recipes/use-recipes';
 import { UNIT_OPTIONS } from '@/lib/units';
 import { DIETARY_TAGS, DIFFICULTIES, DISH_TYPES } from './recipe-metadata-options';
@@ -231,7 +231,7 @@ const styles = StyleSheet.create({
     width: '100%',
     height: 200,
     backgroundColor: '#EEE5EC',
-    borderRadius: 19,
+    borderRadius: Radius.sheet,
     borderCurve: 'continuous',
     overflow: 'hidden',
     marginBottom: 16,
@@ -251,7 +251,7 @@ const styles = StyleSheet.create({
   tabBar: {
     flexDirection: 'row',
     backgroundColor: '#EEE5EC',
-    borderRadius: 14,
+    borderRadius: Radius.controlLarge,
     borderCurve: 'continuous',
     padding: 4,
     marginBottom: 16,
@@ -259,7 +259,7 @@ const styles = StyleSheet.create({
   tab: {
     flex: 1,
     paddingVertical: 10,
-    borderRadius: 14,
+    borderRadius: Radius.controlLarge,
     alignItems: 'center',
   },
   tabActive: {
@@ -292,7 +292,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#EEE5EC',
     paddingHorizontal: 12,
     paddingVertical: 6,
-    borderRadius: 14,
+    borderRadius: Radius.controlLarge,
   },
   tagRow: {
     flexDirection: 'row',
@@ -306,7 +306,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#F2EBF1',
     paddingHorizontal: 10,
     paddingVertical: 5,
-    borderRadius: 12,
+    borderRadius: Radius.control,
   },
   hashtags: {
     ...FontSize[13],
@@ -326,7 +326,7 @@ const styles = StyleSheet.create({
   },
   stepCard: {
     backgroundColor: 'rgba(255,255,255,0.70)',
-    borderRadius: 19,
+    borderRadius: Radius.sheet,
     borderCurve: 'continuous',
     padding: 12,
     gap: 8,
@@ -339,7 +339,7 @@ const styles = StyleSheet.create({
   stepImage: {
     width: '100%',
     height: 140,
-    borderRadius: 14,
+    borderRadius: Radius.controlLarge,
   },
   stepText: {
     ...FontSize[14],
@@ -357,7 +357,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#EEE5EC',
     paddingHorizontal: 10,
     paddingVertical: 4,
-    borderRadius: 12,
+    borderRadius: Radius.control,
   },
   navRow: {
     flexDirection: 'row',
@@ -368,7 +368,7 @@ const styles = StyleSheet.create({
   navButton: {
     flex: 1,
     minHeight: 48,
-    borderRadius: 16,
+    borderRadius: Radius.card,
     borderCurve: 'continuous',
     alignItems: 'center',
     justifyContent: 'center',

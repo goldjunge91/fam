@@ -14,8 +14,8 @@ import {
 } from 'react-native';
 
 import { TextField } from '@/components/text-field';
-import { ThemedText, Typography } from '@/components/themed-text';
-import { Spacing } from '@/constants/theme';
+import { ThemedText } from '@/components/themed-text';
+import { Radius, Spacing } from '@/constants/theme';
 import { useTheme } from '@/hooks/use-theme';
 import { getDatabase } from '@/lib/db/client';
 import { isOffDumpAttached } from '@/lib/off-dump/off-dump';
@@ -376,7 +376,11 @@ export const ProductSearchDropdown = forwardRef<
         <ScrollView
           style={[
             styles.dropdown,
-            { backgroundColor: theme.background, borderColor: theme.border },
+            {
+              backgroundColor: theme.background,
+              borderColor: theme.border,
+              shadowColor: theme.shadowSheet,
+            },
           ]}
           keyboardShouldPersistTaps="handled"
           showsVerticalScrollIndicator
@@ -398,13 +402,15 @@ export const ProductSearchDropdown = forwardRef<
               }}
               style={[styles.itemRow, { borderBottomColor: theme.border }]}>
               <View style={styles.itemText}>
-                <ThemedText type="smallBold" style={size === 'large' && styles.largeSuggestionText}>
+                <ThemedText
+                  type={size === 'large' ? 'body' : 'smallBold'}
+                  style={size === 'large' && styles.largeSuggestionTitle}>
                   + &quot;{value.trim()}&quot; manuell anlegen
                 </ThemedText>
                 <ThemedText
-                  type="small"
+                  type={size === 'large' ? 'body' : 'small'}
                   themeColor="textSecondary"
-                  style={size === 'large' && styles.largeSuggestionText}>
+                  style={size === 'large' && styles.largeSuggestionMeta}>
                   Kein Treffer bei Open Food Facts gefunden
                 </ThemedText>
               </View>
@@ -423,24 +429,22 @@ export const ProductSearchDropdown = forwardRef<
                 <Image source={{ uri: item.imageUrl }} style={styles.img} />
               ) : (
                 <View style={[styles.imgPlaceholder, { backgroundColor: theme.backgroundElement }]}>
-                  <ThemedText style={size === 'large' ? styles.largeEmoji : styles.defaultEmoji}>
-                    🥫
-                  </ThemedText>
+                  <ThemedText type={size === 'large' ? 'body' : 'bodySmall'}>🥫</ThemedText>
                 </View>
               )}
 
               <View style={styles.itemText}>
                 <ThemedText
-                  type="smallBold"
+                  type={size === 'large' ? 'body' : 'smallBold'}
                   numberOfLines={1}
-                  style={size === 'large' && styles.largeSuggestionText}>
+                  style={size === 'large' && styles.largeSuggestionTitle}>
                   {item.name}
                 </ThemedText>
                 <ThemedText
-                  type="small"
+                  type={size === 'large' ? 'body' : 'small'}
                   themeColor="textSecondary"
                   numberOfLines={1}
-                  style={size === 'large' && styles.largeSuggestionText}>
+                  style={size === 'large' && styles.largeSuggestionMeta}>
                   {item.brand ? `${item.brand} · ` : ''}
                   {item.quantity} {item.unit}
                   {item.caloriesPer100g ? ` · ${item.caloriesPer100g} kcal/100g` : ''}
@@ -479,12 +483,11 @@ const styles = StyleSheet.create({
     left: 0,
     right: 0,
     zIndex: 20,
-    borderRadius: 12,
+    borderRadius: Radius.control,
     borderWidth: 1,
     marginTop: 4,
     maxHeight: 220,
     elevation: 4,
-    shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.15,
     shadowRadius: 6,
@@ -499,25 +502,22 @@ const styles = StyleSheet.create({
   img: {
     width: 32,
     height: 32,
-    borderRadius: 6,
+    borderRadius: Radius.sm,
   },
   imgPlaceholder: {
     width: 32,
     height: 32,
-    borderRadius: 6,
+    borderRadius: Radius.sm,
     alignItems: 'center',
     justifyContent: 'center',
   },
   itemText: {
     flex: 1,
   },
-  defaultEmoji: {
-    ...Typography.bodySmall,
+  largeSuggestionTitle: {
+    fontWeight: 700,
   },
-  largeEmoji: {
-    ...Typography.body,
-  },
-  largeSuggestionText: {
-    ...Typography.body,
+  largeSuggestionMeta: {
+    fontWeight: 500,
   },
 });

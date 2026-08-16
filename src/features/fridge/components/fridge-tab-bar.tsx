@@ -3,7 +3,7 @@ import { Pressable, StyleSheet, View } from 'react-native';
 
 import { ThemedText } from '@/components/themed-text';
 import { CompactActionButton } from '@/components/ui/buttons/compact-action-button';
-import { Spacing } from '@/constants/theme';
+import { Radius, Spacing, withAlpha } from '@/constants/theme';
 import type { StorageLocation } from '@/features/inventory/use-storage-locations';
 import { useTheme } from '@/hooks/use-theme';
 
@@ -38,7 +38,11 @@ export function FridgeTabBar({ activeTab, onTabChange, locations }: FridgeTabBar
           accessibilityRole="menu"
           style={[
             styles.menu,
-            { backgroundColor: theme.backgroundElement, borderColor: theme.border },
+            {
+              backgroundColor: theme.backgroundElement,
+              borderColor: theme.border,
+              boxShadow: `0 10px 28px ${withAlpha(theme.shadowSheet, 0.18)}`,
+            },
           ]}>
           {options.map((location, index) => {
             const selected = location.id === activeTab;
@@ -82,10 +86,9 @@ const styles = StyleSheet.create({
     left: 0,
     right: 0,
     borderWidth: StyleSheet.hairlineWidth,
-    borderRadius: 14,
+    borderRadius: Radius.controlLarge,
     borderCurve: 'continuous',
     overflow: 'hidden',
-    boxShadow: '0 10px 28px rgba(42, 32, 44, 0.18)',
     elevation: 8,
   },
   option: {
