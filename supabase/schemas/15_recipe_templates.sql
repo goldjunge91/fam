@@ -24,16 +24,15 @@ create table if not exists public.recipe_templates (
   title text not null check (length(trim(title)) between 1 and 200),
   instructions text,
 
-  -- Bleibt vorerst leer (kein Bild-Beschaffungsprozess vorhanden) — die
-  -- Spalte existiert trotzdem schon, damit spaeteres Nachpflegen keine
-  -- Schemaaenderung braucht.
+  -- Kuratierte Cover verwenden `templates/<template_id>.jpg` im privaten
+  -- Storage-Bucket `recipe-covers` (siehe 12_recipe_storage.sql).
   cover_image_path text,
   cook_time_minutes integer check (cook_time_minutes > 0),
   difficulty text check (difficulty in ('easy', 'medium', 'hard')),
   dish_types text[] not null default '{}'
     check (dish_types <@ array['breakfast', 'lunch', 'dinner', 'snack', 'dessert', 'appetizer', 'brunch']),
   dietary_tags text[] not null default '{}'
-    check (dietary_tags <@ array['vegetarian', 'high_fat', 'low_fat', 'lactose_free', 'sugar_free', 'gluten_free']),
+    check (dietary_tags <@ array['vegetarian', 'vegan', 'high_fat', 'low_fat', 'lactose_free', 'sugar_free', 'gluten_free']),
   hashtags text[] not null default '{}',
   default_servings integer not null default 1 check (default_servings > 0),
 

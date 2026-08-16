@@ -56,10 +56,28 @@ export function useRecipeCoverUrl(path: string | null | undefined) {
     queryKey: ['recipe-cover-url', path],
     queryFn: async () => {
       if (!path) return null;
-      const { data, error } = await getSupabase()
-        .storage.from(BUCKET)
+      if (__DEV__) console.log('[RecipeCover] signed-url:start', { path });
+
+      const supabase = getSupabase();
+      const { data, error } = await supabase.storage
+        .from(BUCKET)
         .createSignedUrl(path, SIGNED_URL_TTL_SECONDS);
-      if (error) return null;
+
+      if (error) {
+        if (__DEV__) {
+          const {
+            data: { session },
+          } = await supabase.auth.getSession();
+          console.log('[RecipeCover] signed-url:error', {
+            path,
+            authenticated: session !== null,
+            message: error.message,
+          });
+        }
+        throw new Error(error.message);
+      }
+
+      if (__DEV__) console.log('[RecipeCover] signed-url:success', { path });
       return data.signedUrl;
     },
     enabled: !!path,

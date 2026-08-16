@@ -4,7 +4,7 @@
 begin;
 \ir helpers.sql
 
-select plan(8);
+select plan(9);
 
 select tests.create_user('11111111-1111-1111-1111-111111111111', 'alice@example.com');
 
@@ -57,6 +57,16 @@ select is(
   (select text from public.recipe_template_steps where template_id = :'template_id'),
   'Test-Schritt.',
   'authentifizierter Nutzer kann Vorlagen-Schritte lesen'
+);
+
+select is(
+  (
+    select count(*)::int
+    from public.recipe_templates
+    where cover_image_path = format('templates/%s.jpg', id)
+  ),
+  29,
+  'alle Seed-Vorlagen referenzieren ihr Cover ueber die stabile Template-ID'
 );
 
 -- --------------------------------------------------------------- read-only

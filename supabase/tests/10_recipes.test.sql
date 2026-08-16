@@ -3,7 +3,7 @@
 begin;
 \ir helpers.sql
 
-select plan(15);
+select plan(16);
 
 select tests.create_user('11111111-1111-1111-1111-111111111111', 'alice@example.com');
 select tests.create_user('22222222-2222-2222-2222-222222222222', 'bob@example.com');
@@ -216,6 +216,17 @@ select set_eq(
   $$ select policyname from pg_policies where tablename = 'objects' and policyname like 'recipe_covers_%' $$,
   $$ values ('recipe_covers_select'), ('recipe_covers_insert'), ('recipe_covers_update'), ('recipe_covers_delete') $$,
   'RLS-Policies fuer den recipe-covers-Bucket sind vorhanden (siehe 12_recipe_storage.sql)'
+);
+
+select ok(
+  (
+    select qual
+    from pg_policies
+    where schemaname = 'storage'
+      and tablename = 'objects'
+      and policyname = 'recipe_covers_select'
+  ) like '%templates%',
+  'Template-Cover sind fuer authentifizierte Nutzer lesbar'
 );
 
 select set_eq(

@@ -31,25 +31,49 @@ const PALETTES = [
 /** Bild-Kachel mit Farbverlauf-Fallback ohne Cover — auch fuer den Drag-Tray des Essensplans. */
 export function RecipeArtwork({
   coverUrl,
+  coverPath,
   title,
   paletteIndex = 0,
 }: {
   coverUrl?: string | null;
+  coverPath?: string | null;
   title: string;
   paletteIndex?: number;
 }) {
   const rawId = useId();
   const gradientId = `recipe-art-${rawId.replace(/[^a-zA-Z0-9_-]/g, '')}`;
   const palette = PALETTES[Math.abs(paletteIndex) % PALETTES.length];
+  const source = coverUrl ? { uri: coverUrl } : null;
 
-  if (coverUrl) {
+  if (source) {
     return (
       <Image
-        source={{ uri: coverUrl }}
+        source={source}
         contentFit="cover"
         transition={180}
         style={StyleSheet.absoluteFill}
         accessibilityLabel={`Bild von ${title}`}
+        onLoad={({ cacheType, source: loadedSource }) => {
+          if (__DEV__) {
+            console.log('[RecipeCover] image:success', {
+              title,
+              path: coverPath ?? null,
+              cacheType,
+              width: loadedSource.width,
+              height: loadedSource.height,
+              mediaType: loadedSource.mediaType,
+            });
+          }
+        }}
+        onError={({ error }) => {
+          if (__DEV__) {
+            console.log('[RecipeCover] image:error', {
+              title,
+              path: coverPath ?? null,
+              message: error,
+            });
+          }
+        }}
       />
     );
   }
@@ -143,6 +167,7 @@ export function RecipePreviewCard({
       <RecipeArtwork
         title={title}
         coverUrl={coverUrl}
+        coverPath={coverImagePath}
         paletteIndex={paletteIndex ?? title.length}
       />
       <FadeShade height="62%" />
@@ -185,6 +210,7 @@ export function RecipeHeroCard({
       <RecipeArtwork
         title={title}
         coverUrl={coverUrl}
+        coverPath={coverImagePath}
         paletteIndex={paletteIndex ?? title.length}
       />
       <View style={styles.heroShade} />
