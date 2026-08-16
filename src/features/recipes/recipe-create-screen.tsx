@@ -13,6 +13,7 @@ import { useActiveHousehold } from '@/features/household/active-household-provid
 import { persistOffProductIfNeeded } from '@/features/inventory/persist-off-product';
 import { useAddProductMutation } from '@/features/inventory/use-product-mutations';
 import { useHubGradient } from '@/hooks/use-hub-gradient';
+import { useTheme } from '@/hooks/use-theme';
 import { getDatabase } from '@/lib/db/client';
 import type { OpenFoodFactsProduct } from '@/lib/open-food-facts';
 import { toGramsEquivalent } from '@/lib/units';
@@ -48,6 +49,7 @@ import {
 } from './wizard/types';
 
 export function RecipeCreateScreen() {
+  const theme = useTheme();
   const hubGradient = useHubGradient();
   const { id } = useLocalSearchParams<{ id?: string }>();
   const { session } = useSession();
@@ -622,7 +624,12 @@ export function RecipeCreateScreen() {
           {[1, 2, 3, 4].map((step) => (
             <View
               key={step}
-              style={[styles.progressSegment, step <= wizardStep && styles.progressSegmentActive]}
+              style={[
+                styles.progressSegment,
+                {
+                  backgroundColor: step <= wizardStep ? theme.accent : theme.backgroundSelected,
+                },
+              ]}
             />
           ))}
         </View>
@@ -764,9 +771,7 @@ const styles = StyleSheet.create({
     flex: 1,
     height: 4,
     borderRadius: Radius.hairline,
-    backgroundColor: '#DFD6DD',
   },
-  progressSegmentActive: { backgroundColor: '#755B79' },
   keyboardAvoider: {
     flex: 1,
   },

@@ -68,6 +68,11 @@ export const Colors = {
 
 export type ThemeColor = keyof typeof Colors.light & keyof typeof Colors.dark;
 
+/** Normalisiert native/web Zwischenwerte wie `unspecified` auf das helle Theme. */
+export function normalizeThemeMode(scheme: string | null | undefined): keyof typeof Colors {
+  return scheme === 'dark' ? 'dark' : 'light';
+}
+
 export type GradientSpec = {
   readonly colors: readonly string[];
   readonly locations?: readonly number[];

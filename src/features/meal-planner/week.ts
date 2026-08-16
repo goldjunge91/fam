@@ -32,6 +32,12 @@ function pad(n: number): string {
   return String(n).padStart(2, '0');
 }
 
+/** Heutiges lokales Kalenderdatum als `YYYY-MM-DD`. */
+export function todayIso(): string {
+  const now = new Date();
+  return `${now.getFullYear()}-${pad(now.getMonth() + 1)}-${pad(now.getDate())}`;
+}
+
 function toDateOnlyString(date: Date): string {
   return `${date.getUTCFullYear()}-${pad(date.getUTCMonth() + 1)}-${pad(date.getUTCDate())}`;
 }
@@ -70,7 +76,7 @@ export function nextWeekStart(weekStart: string): string {
   return addDays(weekStart, 7);
 }
 
-const MONTH_LABELS = [
+const SHORT_MONTH_LABELS = [
   'Jan.',
   'Feb.',
   'März',
@@ -85,13 +91,28 @@ const MONTH_LABELS = [
   'Dez.',
 ];
 
+const MONTH_LABELS = [
+  'Januar',
+  'Februar',
+  'März',
+  'April',
+  'Mai',
+  'Juni',
+  'Juli',
+  'August',
+  'September',
+  'Oktober',
+  'November',
+  'Dezember',
+];
+
 /** Standard-Name eines neu angelegten Wochenplans, z. B. "Woche 17.–23. Aug.". */
 export function defaultWeekPlanName(weekStart: string): string {
   const start = parseDateOnly(weekStart);
   const end = parseDateOnly(addDays(weekStart, 6));
   const startDay = start.getUTCDate();
   const endDay = end.getUTCDate();
-  const endMonth = MONTH_LABELS[end.getUTCMonth()];
+  const endMonth = SHORT_MONTH_LABELS[end.getUTCMonth()];
   return `Woche ${startDay}.–${endDay}. ${endMonth}`;
 }
 
@@ -100,6 +121,23 @@ export function weekdayLabel(dateStr: string): string {
   const day = date.getUTCDay();
   const index = day === 0 ? 6 : day - 1;
   return WEEKDAY_LABELS[index];
+}
+
+/** Kompaktes Datum fuer eine Tageskarte, z. B. "17. Aug.". */
+export function dateLabel(dateStr: string): string {
+  const date = parseDateOnly(dateStr);
+  return `${date.getUTCDate()}. ${SHORT_MONTH_LABELS[date.getUTCMonth()]}`;
+}
+
+/** Ueberschrift fuer einen bereits berechneten sichtbaren Datumsbereich. */
+export function periodLabel(dates: readonly string[]): string {
+  const start = dates[0].split('-').map(Number);
+  const end = dates[dates.length - 1].split('-').map(Number);
+  const sameMonth = start[0] === end[0] && start[1] === end[1];
+
+  if (dates.length === 1) return `${start[2]}. ${MONTH_LABELS[start[1] - 1]}`;
+  if (sameMonth) return `${start[2]}.–${end[2]}. ${MONTH_LABELS[end[1] - 1]}`;
+  return `${start[2]}. ${MONTH_LABELS[start[1] - 1]}–${end[2]}. ${MONTH_LABELS[end[1] - 1]}`;
 }
 
 // ------------------------------------------------------------- Ansichts-Modi
@@ -148,7 +186,7 @@ export function rangeLabel(anchor: string, mode: ViewMode): string {
   const end = parseDateOnly(dates[dates.length - 1]);
   const startDay = start.getUTCDate();
   const endDay = end.getUTCDate();
-  const endMonth = MONTH_LABELS[end.getUTCMonth()];
+  const endMonth = SHORT_MONTH_LABELS[end.getUTCMonth()];
 
   if (dates.length === 1) return `${startDay}. ${endMonth}`;
   return `${startDay}.–${endDay}. ${endMonth}`;

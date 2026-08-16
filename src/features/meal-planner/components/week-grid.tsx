@@ -4,12 +4,12 @@ import { Gesture, GestureDetector } from 'react-native-gesture-handler';
 import Animated, { runOnJS, useAnimatedStyle, useSharedValue } from 'react-native-reanimated';
 
 import { FontSize, ThemedText } from '@/components/themed-text';
-import { Radius } from '@/constants/theme';
+import { Radius, withAlpha } from '@/constants/theme';
 import { RecipeArtwork } from '@/features/recipes/components/recipe-preview-card';
 import { useRecipeCoverUrl } from '@/features/recipes/recipe-cover';
 import { useTheme } from '@/hooks/use-theme';
 import type { MealPlanEntry, MealSlot } from '../use-meal-plans';
-import { MEAL_SLOTS, weekdayLabel } from '../week';
+import { dateLabel, MEAL_SLOTS, weekdayLabel } from '../week';
 
 export type DraggableRecipe = {
   id: string;
@@ -33,25 +33,6 @@ const SLOT_LABELS: Record<MealSlot, string> = {
   lunch: 'Mittag',
   dinner: 'Abendessen',
 };
-
-const MONTH_LABELS = [
-  'Jan.',
-  'Feb.',
-  'März',
-  'Apr.',
-  'Mai',
-  'Juni',
-  'Juli',
-  'Aug.',
-  'Sep.',
-  'Okt.',
-  'Nov.',
-  'Dez.',
-];
-function dateLabel(date: string) {
-  const [, month, day] = date.split('-').map(Number);
-  return `${day}. ${MONTH_LABELS[month - 1]}`;
-}
 
 function portionLabel(portions: number) {
   return `${portions} ${portions === 1 ? 'Portion' : 'Portionen'}`;
@@ -296,7 +277,7 @@ export function WeekGrid({
             style={[
               styles.tray,
               {
-                backgroundColor: `${theme.backgroundElement}C7`,
+                backgroundColor: withAlpha(theme.backgroundElement, 0.78),
                 borderColor: theme.border,
               },
             ]}>
