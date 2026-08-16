@@ -1,3 +1,4 @@
+import { parseJsonArray } from '@/lib/db/json-array';
 import { enqueueMutation } from '@/lib/db/outbox';
 import type { SqlDatabase } from '@/lib/db/types';
 import { normalizeUnit } from '@/lib/units';
@@ -30,16 +31,6 @@ export type AddShoppingItemInput = {
   /** Titel der Gerichte, aus denen dieser Artikel stammt (leer bei manuellem Eintrag). */
   recipe_names?: readonly string[];
 };
-
-function parseJsonArray(raw: string | null | undefined): string[] {
-  if (!raw) return [];
-  try {
-    const parsed = JSON.parse(raw);
-    return Array.isArray(parsed) ? (parsed as string[]) : [];
-  } catch {
-    return [];
-  }
-}
 
 /** Vereinigt bestehende und neue Rezeptnamen, Reihenfolge erhalten, ohne Duplikate. */
 function mergeRecipeNames(existing: readonly string[], incoming: readonly string[]): string[] {
@@ -101,7 +92,11 @@ async function findMergeableShoppingItem(
         ],
       );
   if (!row) return null;
-  return { id: row.id, quantity: row.quantity, recipeNames: parseJsonArray(row.recipe_names) };
+  return {
+    id: row.id,
+    quantity: row.quantity,
+    recipeNames: parseJsonArray<string>(row.recipe_names),
+  };
 }
 
 /**

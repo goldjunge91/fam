@@ -1,6 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 
 import { getDatabase } from '@/lib/db/client';
+import { parseJsonArray } from '@/lib/db/json-array';
 import { effectiveSortOrder, UNCATEGORIZED_LABEL } from './shopping-categories';
 
 export type LocalShoppingItem = {
@@ -26,16 +27,6 @@ export type LocalShoppingItem = {
 
 /** Rohzeile aus SQLite: `recipe_names` (Server-`text[]`) kommt lokal als JSON-Text an. */
 type LocalShoppingItemRow = Omit<LocalShoppingItem, 'recipe_names'> & { recipe_names: string };
-
-function parseRecipeNames(raw: string | null | undefined): string[] {
-  if (!raw) return [];
-  try {
-    const parsed = JSON.parse(raw);
-    return Array.isArray(parsed) ? (parsed as string[]) : [];
-  } catch {
-    return [];
-  }
-}
 
 export type GroupedShoppingItems = {
   category: string;
@@ -104,7 +95,7 @@ export function useShoppingList(householdId: string | undefined) {
       );
       const items = rows.map((row) => ({
         ...row,
-        recipe_names: parseRecipeNames(row.recipe_names),
+        recipe_names: parseJsonArray<string>(row.recipe_names),
       }));
 
       return groupByCategory(items);
@@ -131,7 +122,10 @@ export function useCheckedShoppingItems(householdId: string | undefined) {
          order by name asc`,
         [householdId],
       );
-      return rows.map((row) => ({ ...row, recipe_names: parseRecipeNames(row.recipe_names) }));
+      return rows.map((row) => ({
+        ...row,
+        recipe_names: parseJsonArray<string>(row.recipe_names),
+      }));
     },
     enabled: !!householdId,
   });

@@ -6,6 +6,7 @@ import type {
   RecipeComponentRow,
 } from '@/features/recipes/nutrition';
 import { getDatabase } from '@/lib/db/client';
+import { parseJsonArray } from '@/lib/db/json-array';
 import { enqueueMutation } from '@/lib/db/outbox';
 
 export type Difficulty = 'easy' | 'medium' | 'hard';
@@ -48,16 +49,6 @@ type RecipeRow = Omit<RecipeListItem, 'dish_types' | 'dietary_tags' | 'hashtags'
   dietary_tags: string;
   hashtags: string;
 };
-
-function parseJsonArray<T>(raw: string | null | undefined): T[] {
-  if (!raw) return [];
-  try {
-    const parsed = JSON.parse(raw);
-    return Array.isArray(parsed) ? (parsed as T[]) : [];
-  } catch {
-    return [];
-  }
-}
 
 function toRecipeListItem(row: RecipeRow): RecipeListItem {
   return {
