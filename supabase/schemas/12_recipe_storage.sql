@@ -14,22 +14,24 @@
 -- globals"), landen aber in KEINER generierten Migration.
 --
 -- Verbindlich angewendet werden diese Policies deshalb ueber die
--- handgeschriebene Ausnahme-Migration
--- `supabase/migrations/20260812204337_recipe_storage_policies.sql` (siehe
--- Kommentar dort). Aendert sich diese Datei, muss die Migration von Hand
--- nachgezogen werden. `supabase/tests/10_recipes.test.sql` prueft das
--- Ergebnis und schlaegt an, wenn die Policies fehlen.
+-- dokumentierten Ausnahme-Migrationen unter `supabase/migrations/`.
+-- Aendert sich eine Policy, braucht sie dort eine explizite Folgemigration.
+-- `supabase/tests/10_recipes.test.sql` prueft das Ergebnis und schlaegt an,
+-- wenn die Policies fehlen.
 --
--- Pfadkonvention: `<household_id>/<recipe_id>.<ext>` — der erste Pfad-
--- Abschnitt traegt die Haushalts-Id, damit RLS ohne Zusatztabelle pruefen
--- kann, wer ein Bild lesen/schreiben darf. `storage.foldername(name)` liefert
--- die Pfad-Abschnitte als Array, Index 1 ist der erste.
+-- Pfadkonvention: Nutzer-Cover liegen unter
+-- `<household_id>/<recipe_id>.<ext>`. Kuratierte Template-Cover liegen unter
+-- `templates/<template_id>.jpg` und sind fuer alle angemeldeten Nutzer lesbar.
+-- Schreiben duerfen Clients weiterhin ausschliesslich in Haushalts-Pfade.
 
 create policy recipe_covers_select on storage.objects
   for select to authenticated
   using (
     bucket_id = 'recipe-covers'
-    and (select private.is_household_member(((storage.foldername(name))[1])::uuid))
+    and case
+      when (storage.foldername(name))[1] = 'templates' then true
+      else (select private.is_household_member(((storage.foldername(name))[1])::uuid))
+    end
   );
 
 create policy recipe_covers_insert on storage.objects

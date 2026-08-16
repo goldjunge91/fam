@@ -19,6 +19,7 @@ export type DishType =
   | 'brunch';
 export type DietaryTag =
   | 'vegetarian'
+  | 'vegan'
   | 'high_fat'
   | 'low_fat'
   | 'lactose_free'
