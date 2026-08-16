@@ -14,7 +14,7 @@ import { GradientBackground } from '@/components/gradient-background';
 import { PageHeader } from '@/components/page-header';
 import { SectionHeading } from '@/components/section-heading';
 import { FontSize, ThemedText } from '@/components/themed-text';
-import { HeaderIconButton, MenuButton } from '@/components/ui/buttons';
+import { BackButton, HeaderIconButton, MenuButton } from '@/components/ui/buttons';
 import { Radius } from '@/constants/theme';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { useNavigationChrome } from '@/features/navigation/navigation-chrome-provider';
@@ -105,20 +105,6 @@ function SearchIcon({ color }: { color: string }) {
     <Svg width={18} height={18} viewBox="0 0 24 24" fill="none">
       <Circle cx={10.5} cy={10.5} r={6.5} stroke={color} strokeWidth={2} />
       <Path d="m15.5 15.5 5 5" stroke={color} strokeWidth={2} strokeLinecap="round" />
-    </Svg>
-  );
-}
-
-function BackIcon({ color }: { color: string }) {
-  return (
-    <Svg width={19} height={19} viewBox="0 0 24 24" fill="none">
-      <Path
-        d="m15 18-6-6 6-6"
-        stroke={color}
-        strokeWidth={2.2}
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
     </Svg>
   );
 }
@@ -296,9 +282,7 @@ export function RecipesScreen() {
             view === 'discover' || view === 'favorites' ? (
               <MenuButton onPress={openDrawer} />
             ) : (
-              <HeaderIconButton label="Zurück zu Rezepte" onPress={goBackToDiscover}>
-                <BackIcon color={theme.text} />
-              </HeaderIconButton>
+              <BackButton label="Zurück zu Rezepte" variant="header" onPress={goBackToDiscover} />
             )
           }
           trailing={

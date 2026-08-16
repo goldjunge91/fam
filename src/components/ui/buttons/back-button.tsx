@@ -4,7 +4,9 @@ import { Pressable, StyleSheet } from 'react-native';
 
 import { FamIcon } from '@/components/fam-icon';
 import { ThemedText } from '@/components/themed-text';
-import { Spacing } from '@/constants/theme';
+import { Radius, Spacing } from '@/constants/theme';
+
+const ARROW_BUTTON_SIZE = 45;
 
 export type BackTarget = {
   /** Das Ziel beim Namen, z. B. `Einstellungen`. Erscheint als `‹ Einstellungen` bzw. als Accessibility-Label. */
@@ -24,31 +26,33 @@ export function goBackTo(href: Href | undefined) {
 type BackButtonProps = BackTarget & {
   /**
    * 'text' (Default): "‹ Ziel"-Link fuer Screens ohne zentrierten Titel.
-   * 'arrow': runder Pfeil-Button im `MenuButton`-Look, fuer alle von den
-   * Einstellungen aus erreichbaren Screens (#122, zusammengefuehrt aus den
-   * frueher separaten `BackArrowButton`/`BackIconButton`-Dateien — Letzterer
-   * war ungenutzt).
+   * 'arrow': runder Pfeil-Button fuer Settings-Screens.
+   * 'header': Pfeil-Button in der Standardgroesse fuer zentrierte PageHeader.
    */
-  variant?: 'text' | 'arrow';
+  variant?: 'text' | 'arrow' | 'header';
+  /** Eigene Rueck-Aktion, etwa um einen Entwurf vor dem Verlassen zu verwerfen. */
+  onPress?: () => void;
 };
 
-/** Zurueckbutton mit optionalem sicheren Ausweichziel, in zwei Varianten. */
-export function BackButton({ label, href, variant = 'text' }: BackButtonProps) {
-  if (variant === 'arrow') {
+/** Zentraler Zurueckbutton mit optionalem sicheren Ausweichziel. */
+export function BackButton({ label, href, variant = 'text', onPress }: BackButtonProps) {
+  const handlePress = onPress ?? (() => goBackTo(href));
+
+  if (variant === 'arrow' || variant === 'header') {
     return (
       <Pressable
-        onPress={() => goBackTo(href)}
+        onPress={handlePress}
         accessibilityRole="button"
-        accessibilityLabel={`Zurück zu ${label}`}
+        accessibilityLabel={variant === 'header' ? label : `Zurück zu ${label}`}
         style={styles.arrowButton}>
-        <FamIcon name="arrow" size={54} />
+        <FamIcon name="arrow" size={ARROW_BUTTON_SIZE} />
       </Pressable>
     );
   }
 
   return (
     <Pressable
-      onPress={() => goBackTo(href)}
+      onPress={handlePress}
       accessibilityRole="button"
       accessibilityLabel={`Zurück zu ${label}`}
       style={styles.textButton}>
@@ -88,8 +92,10 @@ const styles = StyleSheet.create({
     paddingRight: Spacing.three,
   },
   arrowButton: {
-    width: 58,
-    height: 58,
+    width: ARROW_BUTTON_SIZE,
+    height: ARROW_BUTTON_SIZE,
+    borderRadius: Radius.sheet,
+    borderCurve: 'continuous',
     alignItems: 'center',
     justifyContent: 'center',
   },

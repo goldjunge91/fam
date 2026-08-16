@@ -9,7 +9,7 @@ import Svg, { Circle, Defs, LinearGradient, Rect, Stop } from 'react-native-svg'
 import { GradientBackground } from '@/components/gradient-background';
 import { PageHeader } from '@/components/page-header';
 import { FontSize, ThemedText } from '@/components/themed-text';
-import { HeaderIconButton } from '@/components/ui/buttons';
+import { BackButton, HeaderIconButton } from '@/components/ui/buttons';
 import { Radius } from '@/constants/theme';
 import { useHubGradient } from '@/hooks/use-hub-gradient';
 import { useTheme } from '@/hooks/use-theme';
@@ -55,10 +55,6 @@ const DIETARY_TAG_LABELS: Record<string, string> = {
 
 function round(value: number): number {
   return Math.round(value);
-}
-
-function BackGlyph() {
-  return <ThemedText style={styles.backGlyph}>‹</ThemedText>;
 }
 
 function HeartGlyph({ filled }: { filled: boolean }) {
@@ -315,14 +311,7 @@ export function RecipeDetailScreen() {
       <View style={styles.root}>
         <GradientBackground {...hubGradient} />
         <SafeAreaView style={styles.safeArea} edges={['top', 'left', 'right']}>
-          <PageHeader
-            title="Rezept"
-            leading={
-              <HeaderIconButton label="Zurück" onPress={() => router.back()}>
-                <BackGlyph />
-              </HeaderIconButton>
-            }
-          />
+          <PageHeader title="Rezept" leading={<BackButton label="Zurück" variant="header" />} />
           <ThemedText themeColor="textSecondary" style={styles.loadingText}>
             Rezept wird geladen…
           </ThemedText>
@@ -347,11 +336,7 @@ export function RecipeDetailScreen() {
       <SafeAreaView style={styles.safeArea} edges={['top', 'left', 'right']}>
         <PageHeader
           title="Rezept"
-          leading={
-            <HeaderIconButton label="Zurück" onPress={() => router.back()}>
-              <BackGlyph />
-            </HeaderIconButton>
-          }
+          leading={<BackButton label="Zurück" variant="header" />}
           trailing={
             <>
               <HeaderIconButton
@@ -682,7 +667,6 @@ const styles = StyleSheet.create({
   scroll: { flex: 1 },
   content: { paddingHorizontal: 16, paddingBottom: 108 },
   loadingText: { padding: 24, textAlign: 'center', ...FontSize[14] },
-  backGlyph: { ...FontSize[27], lineHeight: 29, fontWeight: 400 },
   heartGlyph: { ...FontSize[24], lineHeight: 27, fontWeight: 500 },
   moreGlyph: { ...FontSize[13], lineHeight: 16, fontWeight: 800, letterSpacing: 1 },
   hero: { height: 178, marginHorizontal: -16, overflow: 'hidden' },

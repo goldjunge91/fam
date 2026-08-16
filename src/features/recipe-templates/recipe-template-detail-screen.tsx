@@ -8,7 +8,7 @@ import Svg, { Circle, Defs, LinearGradient, Rect, Stop } from 'react-native-svg'
 import { GradientBackground } from '@/components/gradient-background';
 import { PageHeader } from '@/components/page-header';
 import { FontSize, ThemedText } from '@/components/themed-text';
-import { HeaderIconButton } from '@/components/ui/buttons';
+import { BackButton, HeaderIconButton } from '@/components/ui/buttons';
 import { Radius } from '@/constants/theme';
 import { useSession } from '@/features/auth/session-provider';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
@@ -26,10 +26,6 @@ import { useApplyRecipeTemplateMutation, useRecipeTemplateDetail } from './use-r
 const DIFFICULTY_LABELS = Object.fromEntries(DIFFICULTIES.map((item) => [item.value, item.label]));
 const DISH_TYPE_LABELS = Object.fromEntries(DISH_TYPES.map((item) => [item.value, item.label]));
 const DIETARY_TAG_LABELS = Object.fromEntries(DIETARY_TAGS.map((item) => [item.value, item.label]));
-
-function BackGlyph() {
-  return <ThemedText style={styles.backGlyph}>‹</ThemedText>;
-}
 
 function HeartGlyph({ filled }: { filled: boolean }) {
   const theme = useTheme();
@@ -118,14 +114,7 @@ export function RecipeTemplateDetailScreen() {
       <View style={styles.root}>
         <GradientBackground {...hubGradient} />
         <SafeAreaView style={styles.safeArea} edges={['top', 'left', 'right']}>
-          <PageHeader
-            title="Rezept"
-            leading={
-              <HeaderIconButton label="Zurück" onPress={() => router.back()}>
-                <BackGlyph />
-              </HeaderIconButton>
-            }
-          />
+          <PageHeader title="Rezept" leading={<BackButton label="Zurück" variant="header" />} />
           <ActivityIndicator style={styles.loading} color={theme.accent} />
         </SafeAreaView>
       </View>
@@ -142,11 +131,7 @@ export function RecipeTemplateDetailScreen() {
       <SafeAreaView style={styles.safeArea} edges={['top', 'left', 'right']}>
         <PageHeader
           title="Rezept"
-          leading={
-            <HeaderIconButton label="Zurück" onPress={() => router.back()}>
-              <BackGlyph />
-            </HeaderIconButton>
-          }
+          leading={<BackButton label="Zurück" variant="header" />}
           trailing={
             <HeaderIconButton
               label={favorite ? 'Aus Favoriten entfernen' : 'Zu Favoriten hinzufügen'}
@@ -310,7 +295,6 @@ const styles = StyleSheet.create({
   root: { flex: 1 },
   safeArea: { flex: 1, width: '100%', maxWidth: 800, alignSelf: 'center' },
   loading: { marginTop: 60 },
-  backGlyph: { ...FontSize[27], lineHeight: 29, fontWeight: 400 },
   heartGlyph: { ...FontSize[24], lineHeight: 27, fontWeight: 500 },
   scroll: { flex: 1 },
   content: { paddingHorizontal: 15, paddingBottom: 96 },

@@ -5,8 +5,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { GradientBackground } from '@/components/gradient-background';
 import { PageHeader } from '@/components/page-header';
-import { FontSize, ThemedText } from '@/components/themed-text';
-import { HeaderIconButton } from '@/components/ui/buttons';
+import { BackButton } from '@/components/ui/buttons';
 import { Radius } from '@/constants/theme';
 import { useSession } from '@/features/auth/session-provider';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
@@ -617,11 +616,7 @@ export function RecipeCreateScreen() {
       <SafeAreaView style={styles.safeArea} edges={['top', 'left', 'right']}>
         <PageHeader
           title={isEditing ? 'Rezept bearbeiten' : 'Rezept erstellen'}
-          leading={
-            <HeaderIconButton label="Zurück" onPress={handleCancel}>
-              <ThemedText style={styles.backGlyph}>‹</ThemedText>
-            </HeaderIconButton>
-          }
+          leading={<BackButton label="Zurück" variant="header" onPress={handleCancel} />}
         />
 
         <View style={styles.progressRow}>
@@ -762,7 +757,6 @@ const styles = StyleSheet.create({
     maxWidth: 800,
     alignSelf: 'center',
   },
-  backGlyph: { ...FontSize[27], lineHeight: 29, fontWeight: 400 },
   progressRow: {
     height: 16,
     flexDirection: 'row',

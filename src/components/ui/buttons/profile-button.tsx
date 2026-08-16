@@ -1,6 +1,6 @@
 import { Pressable, StyleSheet } from 'react-native';
 
-import { FontSize, ThemedText } from '@/components/themed-text';
+import { ThemedText } from '@/components/themed-text';
 import { Radius } from '@/constants/theme';
 import { useTheme } from '@/hooks/use-theme';
 type ProfileButtonProps = {
@@ -18,7 +18,7 @@ export function ProfileButton({ initials, onPress }: ProfileButtonProps) {
       accessibilityRole="button"
       accessibilityLabel="Profil öffnen"
       style={[styles.button, { backgroundColor: theme.accent }]}>
-      <ThemedText type="bodySmall" style={[styles.initials, { color: theme.onAccent }]}>
+      <ThemedText type="small" style={{ color: theme.onAccent }}>
         {initials}
       </ThemedText>
     </Pressable>
@@ -32,10 +32,5 @@ const styles = StyleSheet.create({
     borderRadius: Radius.large,
     alignItems: 'center',
     justifyContent: 'center',
-  },
-  initials: {
-    ...FontSize[14],
-    lineHeight: 20,
-    fontWeight: '500',
   },
 });

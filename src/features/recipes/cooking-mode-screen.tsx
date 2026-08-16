@@ -8,7 +8,7 @@ import Svg, { Circle, Defs, LinearGradient, Rect, Stop } from 'react-native-svg'
 import { GradientBackground } from '@/components/gradient-background';
 import { PageHeader } from '@/components/page-header';
 import { FontSize, ThemedText } from '@/components/themed-text';
-import { HeaderIconButton } from '@/components/ui/buttons';
+import { BackButton } from '@/components/ui/buttons';
 import { Radius } from '@/constants/theme';
 import { presentPaywallIfNeeded } from '@/features/premium/paywall';
 import { usePremium } from '@/features/premium/premium-provider';
@@ -17,10 +17,6 @@ import { useTheme } from '@/hooks/use-theme';
 import { RecipeRatingSheet } from './components/recipe-rating-sheet';
 import { useRecipeStepImageUrl } from './recipe-image-uploader';
 import { type RecipeDetail, type RecipeStep, useRecipeDetail } from './use-recipes';
-
-function BackGlyph() {
-  return <ThemedText style={styles.backGlyph}>‹</ThemedText>;
-}
 
 function parseStepDurationSeconds(text: string | undefined): number | null {
   if (!text) return null;
@@ -128,11 +124,7 @@ function FreeCookingMode({ data }: { data: RecipeDetail }) {
       <SafeAreaView style={styles.safeArea} edges={['top', 'left', 'right']}>
         <PageHeader
           title="Kochmodus"
-          leading={
-            <HeaderIconButton label="Kochmodus schließen" onPress={() => router.back()}>
-              <BackGlyph />
-            </HeaderIconButton>
-          }
+          leading={<BackButton label="Kochmodus schließen" variant="header" />}
         />
         <ScrollView contentContainerStyle={styles.freeContent} showsVerticalScrollIndicator={false}>
           <ThemedText style={styles.stepTitle}>{recipe.title}</ThemedText>
@@ -232,14 +224,7 @@ export function CookingModeScreen() {
       <View style={styles.root}>
         <GradientBackground {...hubGradient} />
         <SafeAreaView style={styles.safeArea} edges={['top', 'left', 'right']}>
-          <PageHeader
-            title="Kochmodus"
-            leading={
-              <HeaderIconButton label="Zurück" onPress={() => router.back()}>
-                <BackGlyph />
-              </HeaderIconButton>
-            }
-          />
+          <PageHeader title="Kochmodus" leading={<BackButton label="Zurück" variant="header" />} />
           <ThemedText themeColor="textSecondary" style={styles.loadingText}>
             Kochmodus wird geladen…
           </ThemedText>
@@ -272,11 +257,11 @@ export function CookingModeScreen() {
           <PageHeader
             title="Fertig"
             leading={
-              <HeaderIconButton
+              <BackButton
                 label="Zurück zum letzten Schritt"
-                onPress={() => setFinished(false)}>
-                <BackGlyph />
-              </HeaderIconButton>
+                variant="header"
+                onPress={() => setFinished(false)}
+              />
             }
           />
           <ScrollView
@@ -333,11 +318,7 @@ export function CookingModeScreen() {
       <SafeAreaView style={styles.safeArea} edges={['top', 'left', 'right']}>
         <PageHeader
           title="Kochmodus"
-          leading={
-            <HeaderIconButton label="Kochmodus schließen" onPress={() => router.back()}>
-              <BackGlyph />
-            </HeaderIconButton>
-          }
+          leading={<BackButton label="Kochmodus schließen" variant="header" />}
         />
 
         {hasSteps && currentStep ? (
@@ -460,7 +441,6 @@ const styles = StyleSheet.create({
   root: { flex: 1 },
   safeArea: { flex: 1, width: '100%', maxWidth: 800, alignSelf: 'center' },
   loadingText: { padding: 24, textAlign: 'center', ...FontSize[12] },
-  backGlyph: { ...FontSize[27], lineHeight: 29, fontWeight: 400 },
   cookContent: { flex: 1, paddingHorizontal: 16, paddingBottom: 16 },
   progressRow: { height: 21, flexDirection: 'row', gap: 5, paddingTop: 2, paddingBottom: 15 },
   progressSegment: { flex: 1, height: 4, borderRadius: Radius.hairline },
