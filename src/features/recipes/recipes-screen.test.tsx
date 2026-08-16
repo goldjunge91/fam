@@ -30,7 +30,7 @@ jest.mock('@/features/recipe-templates/use-recipe-templates', () => {
   };
 });
 
-jest.mock('./recipe-cover', () => ({
+jest.mock('./recipe-image-uploader', () => ({
   useRecipeCoverUrl: () => ({ data: null }),
 }));
 

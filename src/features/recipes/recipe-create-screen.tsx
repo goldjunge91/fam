@@ -17,8 +17,12 @@ import { useTheme } from '@/hooks/use-theme';
 import { getDatabase } from '@/lib/db/client';
 import type { OpenFoodFactsProduct } from '@/lib/open-food-facts';
 import { toGramsEquivalent } from '@/lib/units';
-import { pickRecipeCoverImage, uploadRecipeCoverImage, useRecipeCoverUrl } from './recipe-cover';
-import { uploadRecipeStepImage } from './recipe-step-image';
+import {
+  pickRecipeImage,
+  uploadRecipeCoverImage,
+  uploadRecipeStepImage,
+  useRecipeCoverUrl,
+} from './recipe-image-uploader';
 import {
   type DietaryTag,
   type Difficulty,
@@ -161,7 +165,7 @@ export function RecipeCreateScreen() {
   }, [data]);
 
   async function handlePickCover() {
-    const uri = await pickRecipeCoverImage();
+    const uri = await pickRecipeImage();
     if (uri) setLocalCoverUri(uri);
   }
 

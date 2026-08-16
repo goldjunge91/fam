@@ -9,7 +9,7 @@ import ReorderableList, {
 import Svg, { Path } from 'react-native-svg';
 import { FontSize } from '@/components/themed-text';
 import { Radius } from '@/constants/theme';
-import { pickRecipeStepImage } from '@/features/recipes/recipe-step-image';
+import { pickRecipeImage } from '@/features/recipes/recipe-image-uploader';
 import type { IngredientComponentGroup, WizardStepItem } from './types';
 
 interface AvailableIngredient {
@@ -186,7 +186,7 @@ export function RecipeWizardStepSteps({
   }
 
   async function pickImageFor(stepId: string) {
-    const uri = await pickRecipeStepImage();
+    const uri = await pickRecipeImage();
     if (uri) updateStep(stepId, { localImageUri: uri });
   }
 

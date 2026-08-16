@@ -56,7 +56,7 @@ jest.mock('@/features/recipes/use-recipes', () => ({
 // Die Drag-Card im Tray zeigt das Rezeptbild ueber `useRecipeCoverUrl` (echtes
 // `useQuery`) — ohne QueryClientProvider in diesem Test-Setup wuerde das
 // werfen, siehe react-query-Fehlermeldung "No QueryClient set".
-jest.mock('@/features/recipes/recipe-cover', () => ({
+jest.mock('@/features/recipes/recipe-image-uploader', () => ({
   useRecipeCoverUrl: () => ({ data: null }),
 }));
 
