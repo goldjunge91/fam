@@ -15,7 +15,7 @@ import { getDatabase } from '@/lib/db/client';
 import type { OpenFoodFactsProduct } from '@/lib/open-food-facts';
 import { toGramsEquivalent } from '@/lib/units';
 
-import { pickRecipeCoverImage, uploadRecipeCoverImage } from './recipe-cover';
+import { pickRecipeCoverImage, uploadRecipeCoverImage, useRecipeCoverUrl } from './recipe-cover';
 import { uploadRecipeStepImage } from './recipe-step-image';
 import {
   type DietaryTag,
@@ -84,6 +84,7 @@ export function RecipeCreateScreen() {
   const [hashtagsInput, setHashtagsInput] = useState('');
   const [localCoverUri, setLocalCoverUri] = useState<string | null>(null);
   const [existingCoverPath, setExistingCoverPath] = useState<string | null>(null);
+  const { data: existingCoverUrl } = useRecipeCoverUrl(existingCoverPath);
 
   const [components, setComponents] = useState<IngredientComponentGroup[]>([
     { id: 'comp-1', title: 'Zutaten', items: [newIngredient()], existingComponentId: null },
@@ -600,7 +601,7 @@ export function RecipeCreateScreen() {
     }
   }
 
-  const coverPreviewUri = localCoverUri;
+  const coverPreviewUri = localCoverUri ?? existingCoverUrl ?? null;
 
   return (
     <View style={styles.root}>

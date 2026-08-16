@@ -1,6 +1,6 @@
 import { Image } from 'expo-image';
 import { router, useLocalSearchParams } from 'expo-router';
-import { type ReactNode, useMemo, useState } from 'react';
+import { useMemo, useState } from 'react';
 import { Alert, Modal, Pressable, ScrollView, Share, StyleSheet, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Svg, { Circle, Defs, LinearGradient, Rect, Stop } from 'react-native-svg';
@@ -11,14 +11,17 @@ import { FontSize, ThemedText } from '@/components/themed-text';
 import { HeaderIconButton } from '@/components/ui/buttons';
 import { useTheme } from '@/hooks/use-theme';
 
+import { RecipeRatingSheet } from './components/recipe-rating-sheet';
 import { RecipeShoppingSheet } from './components/recipe-shopping-sheet';
 import { calculateServingNutrition, scaleServing } from './nutrition';
 import { useRecipeCoverUrl } from './recipe-cover';
 import { useRecipeFavorites } from './recipe-favorites';
 import { useRecipeRating } from './recipe-ratings';
+import { useRecipeStepImageUrl } from './recipe-step-image';
 import {
   type DishType,
   type RecipeDetail,
+  type RecipeStep,
   useDeleteRecipeMutation,
   useRecipeDetail,
 } from './use-recipes';
@@ -41,6 +44,7 @@ const DISH_TYPE_LABELS: Record<DishType, string> = {
 
 const DIETARY_TAG_LABELS: Record<string, string> = {
   vegetarian: 'Vegetarisch',
+  vegan: 'Vegan',
   high_fat: 'Fettreich',
   low_fat: 'Fettarm',
   lactose_free: 'Laktosefrei',
@@ -97,21 +101,69 @@ function HeroArtwork({ coverUrl, title }: { coverUrl?: string | null; title: str
   );
 }
 
-function MetaPill({ children }: { children: ReactNode }) {
+function DetailFact({
+  value,
+  label,
+  withDivider = false,
+}: {
+  value: string;
+  label: string;
+  withDivider?: boolean;
+}) {
   const theme = useTheme();
   return (
-    <View style={[styles.metaPill, { backgroundColor: `${theme.backgroundElement}D6` }]}>
-      <ThemedText themeColor="textSecondary" style={styles.metaPillText}>
-        {children}
+    <View
+      style={[
+        styles.detailFact,
+        withDivider && { borderLeftColor: theme.border, borderLeftWidth: StyleSheet.hairlineWidth },
+      ]}>
+      <ThemedText style={styles.detailFactValue}>{value}</ThemedText>
+      <ThemedText themeColor="textSecondary" style={styles.detailFactLabel}>
+        {label}
       </ThemedText>
     </View>
   );
 }
 
-function NutritionStat({ value, label }: { value: string; label: string }) {
+function RecipeStepItem({
+  step,
+  index,
+  isLast,
+}: {
+  step: RecipeStep;
+  index: number;
+  isLast: boolean;
+}) {
   const theme = useTheme();
+  const { data: imageUrl } = useRecipeStepImageUrl(step.image_path);
+
   return (
-    <View style={[styles.nutritionStat, { backgroundColor: `${theme.backgroundElement}D6` }]}>
+    <View
+      style={[
+        styles.stepItem,
+        !isLast && { borderBottomColor: theme.border, borderBottomWidth: StyleSheet.hairlineWidth },
+      ]}>
+      {imageUrl ? (
+        <Image
+          source={{ uri: imageUrl }}
+          contentFit="cover"
+          accessibilityLabel={`Bild für Schritt ${index + 1}`}
+          style={styles.stepImage}
+        />
+      ) : null}
+      <View style={styles.stepCopy}>
+        <ThemedText themeColor="accent" style={styles.stepNumber}>
+          {index + 1}
+        </ThemedText>
+        <ThemedText style={styles.stepText}>{step.text}</ThemedText>
+      </View>
+    </View>
+  );
+}
+
+function NutritionStat({ value, label }: { value: string; label: string }) {
+  return (
+    <View style={styles.nutritionStat}>
       <ThemedText style={styles.nutritionValue}>{value}</ThemedText>
       <ThemedText themeColor="textSecondary" style={styles.nutritionLabel}>
         {label}
@@ -167,9 +219,7 @@ function IngredientGroups({ data, servings }: { data: RecipeDetail; servings: nu
         const preparedGrams = (component.serving_grams ?? 0) * servings;
 
         return (
-          <View
-            key={component.id}
-            style={[styles.ingredientGroup, { backgroundColor: `${theme.backgroundElement}D6` }]}>
+          <View key={component.id} style={styles.ingredientGroup}>
             <View style={[styles.groupHeader, { borderBottomColor: theme.border }]}>
               <ThemedText style={styles.groupTitle}>{component.name}</ThemedText>
               <ThemedText themeColor="textSecondary" style={styles.groupMeta}>
@@ -216,8 +266,11 @@ export function RecipeDetailScreen() {
   const theme = useTheme();
   const { id } = useLocalSearchParams<{ id: string }>();
   const [servings, setServings] = useState(1);
+  const [activeTab, setActiveTab] = useState<'details' | 'ratings'>('details');
+  const [showAllTags, setShowAllTags] = useState(false);
   const [manageOpen, setManageOpen] = useState(false);
   const [shoppingOpen, setShoppingOpen] = useState(false);
+  const [ratingOpen, setRatingOpen] = useState(false);
   const { data, isLoading } = useRecipeDetail(id);
   const { data: coverUrl } = useRecipeCoverUrl(data?.recipe.cover_image_path);
   const deleteMutation = useDeleteRecipeMutation();
@@ -270,7 +323,14 @@ export function RecipeDetailScreen() {
   }
 
   const { recipe } = data;
-  const tags = [...recipe.dish_types, ...recipe.dietary_tags];
+  const tags = Array.from(
+    new Set([
+      ...recipe.dish_types.map((tag) => DISH_TYPE_LABELS[tag]),
+      ...recipe.dietary_tags.map((tag) => DIETARY_TAG_LABELS[tag] ?? tag),
+      ...recipe.hashtags.map((tag) => `#${tag}`),
+    ]),
+  );
+  const visibleTags = showAllTags ? tags : tags.slice(0, 3);
 
   return (
     <View style={styles.root}>
@@ -303,124 +363,194 @@ export function RecipeDetailScreen() {
           showsVerticalScrollIndicator={false}>
           <View style={styles.hero}>
             <HeroArtwork coverUrl={coverUrl} title={recipe.title} />
-            <View style={[styles.heroBadge, { backgroundColor: `${theme.backgroundElement}E8` }]}>
-              <ThemedText themeColor="accent" style={styles.heroBadgeText}>
-                Unser Rezept
-              </ThemedText>
-            </View>
           </View>
 
           <ThemedText style={styles.title}>{recipe.title}</ThemedText>
-          <View style={styles.metaRow}>
-            {recipe.cook_time_minutes ? (
-              <MetaPill>{recipe.cook_time_minutes} Minuten</MetaPill>
-            ) : null}
-            {recipe.difficulty ? <MetaPill>{DIFFICULTY_LABELS[recipe.difficulty]}</MetaPill> : null}
-            {rating ? <MetaPill>★ {rating.score}/10</MetaPill> : null}
-            {scaledServing ? <MetaPill>{round(scaledServing.kcal)} kcal / Portion</MetaPill> : null}
-          </View>
 
-          {tags.length > 0 || recipe.hashtags.length > 0 ? (
-            <ScrollView
-              horizontal
-              showsHorizontalScrollIndicator={false}
-              contentContainerStyle={styles.tagRow}>
-              {tags.map((tag) => (
-                <MetaPill key={tag}>
-                  {DISH_TYPE_LABELS[tag as DishType] ?? DIETARY_TAG_LABELS[tag] ?? tag}
-                </MetaPill>
-              ))}
-              {recipe.hashtags.map((tag) => (
-                <MetaPill key={tag}>#{tag}</MetaPill>
-              ))}
-            </ScrollView>
-          ) : null}
-
-          <View style={styles.sectionHeading}>
-            <ThemedText style={styles.sectionTitle}>Zutaten</ThemedText>
-            <View
-              style={[styles.portionControl, { backgroundColor: `${theme.backgroundElement}D6` }]}>
-              <Pressable
-                onPress={() => setServings((value) => Math.max(1, value - 1))}
-                role="button"
-                aria-label="Weniger Portionen"
-                style={styles.portionButton}>
-                <ThemedText themeColor="accent" style={styles.portionSign}>
-                  −
-                </ThemedText>
-              </Pressable>
-              <ThemedText style={styles.portionValue}>{servings} Portionen</ThemedText>
-              <Pressable
-                onPress={() => setServings((value) => value + 1)}
-                role="button"
-                aria-label="Mehr Portionen"
-                style={styles.portionButton}>
-                <ThemedText themeColor="accent" style={styles.portionSign}>
-                  +
-                </ThemedText>
-              </Pressable>
-            </View>
-          </View>
-
-          <IngredientGroups data={data} servings={servings} />
-
-          <Pressable
-            role="button"
-            aria-label="Fehlende Zutaten zur Einkaufsliste hinzufügen"
-            onPress={() => setShoppingOpen(true)}
-            style={({ pressed }) => [
-              styles.shoppingButton,
-              { backgroundColor: theme.backgroundSelected },
-              pressed && styles.pressed,
-            ]}>
-            <ThemedText themeColor="accent" style={styles.shoppingButtonText}>
-              Fehlende Zutaten zur Einkaufsliste
-            </ThemedText>
-          </Pressable>
-
-          {scaledServing ? (
-            <View style={styles.nutritionRow}>
-              <NutritionStat value={String(round(scaledServing.kcal))} label="kcal" />
-              <NutritionStat value={`${round(scaledServing.protein_g)} g`} label="Protein" />
-              <NutritionStat value={`${round(scaledServing.carbs_g)} g`} label="Kohlenhydrate" />
-              <NutritionStat value={`${round(scaledServing.fat_g)} g`} label="Fett" />
-            </View>
-          ) : null}
-
-          {recipe.instructions ? (
-            <ThemedText themeColor="textSecondary" style={styles.description}>
-              {recipe.instructions}
-            </ThemedText>
-          ) : null}
-
-          <View style={styles.sectionHeading}>
-            <ThemedText style={styles.sectionTitle}>Zubereitung</ThemedText>
-            <ThemedText themeColor="textSecondary" style={styles.sectionCount}>
-              {data.steps.length} {data.steps.length === 1 ? 'Schritt' : 'Schritte'}
-            </ThemedText>
-          </View>
-          {data.steps.length > 0 ? (
-            <View style={[styles.stepsCard, { backgroundColor: `${theme.backgroundElement}D6` }]}>
-              {data.steps.map((step, index) => (
-                <View
-                  key={step.id}
-                  style={[
-                    styles.stepRow,
-                    index < data.steps.length - 1 && {
-                      borderBottomColor: theme.border,
-                      borderBottomWidth: StyleSheet.hairlineWidth,
-                    },
-                  ]}>
-                  <ThemedText style={styles.stepText} numberOfLines={2}>
-                    {index + 1}. {step.text}
+          <View style={[styles.tabs, { borderBottomColor: theme.border }]}>
+            {(['details', 'ratings'] as const).map((tab) => {
+              const selected = activeTab === tab;
+              const label = tab === 'details' ? 'Details' : 'Bewertungen';
+              return (
+                <Pressable
+                  key={tab}
+                  onPress={() => setActiveTab(tab)}
+                  role="tab"
+                  aria-label={label}
+                  aria-selected={selected}
+                  style={[styles.tabButton, selected && { borderBottomColor: theme.accent }]}>
+                  <ThemedText
+                    themeColor={selected ? 'text' : 'textSecondary'}
+                    style={styles.tabLabel}>
+                    {label}
                   </ThemedText>
+                </Pressable>
+              );
+            })}
+          </View>
+
+          {activeTab === 'details' ? (
+            <View>
+              <View style={[styles.detailFacts, { borderBottomColor: theme.border }]}>
+                <DetailFact
+                  value={scaledServing ? `${round(scaledServing.kcal)} kcal` : '–'}
+                  label="pro Portion"
+                />
+                <DetailFact
+                  value={recipe.cook_time_minutes ? `${recipe.cook_time_minutes} Min` : '–'}
+                  label="Zeit"
+                  withDivider
+                />
+                <DetailFact
+                  value={recipe.difficulty ? DIFFICULTY_LABELS[recipe.difficulty] : '–'}
+                  label="Schwierigkeit"
+                  withDivider
+                />
+              </View>
+
+              {recipe.instructions ? (
+                <ThemedText style={styles.description}>{recipe.instructions}</ThemedText>
+              ) : null}
+
+              {tags.length > 0 ? (
+                <View style={styles.tagRow}>
+                  {visibleTags.map((tag) => (
+                    <ThemedText key={tag} themeColor="textSecondary" style={styles.tagText}>
+                      {tag.startsWith('#') ? tag : `#${tag}`}
+                    </ThemedText>
+                  ))}
+                  {tags.length > 3 ? (
+                    <Pressable
+                      onPress={() => setShowAllTags((visible) => !visible)}
+                      role="button"
+                      aria-label={showAllTags ? 'Weniger Tags anzeigen' : 'Alle Tags anzeigen'}
+                      aria-expanded={showAllTags}
+                      hitSlop={8}>
+                      <ThemedText themeColor="textSecondary" style={styles.moreTagsText}>
+                        {showAllTags ? 'Weniger' : `+${tags.length - 3} mehr`}
+                      </ThemedText>
+                    </Pressable>
+                  ) : null}
                 </View>
-              ))}
+              ) : null}
+
+              <View style={[styles.sectionHeading, { borderBottomColor: theme.border }]}>
+                <ThemedText style={styles.sectionTitle}>Zutaten</ThemedText>
+                <View style={[styles.portionControl, { backgroundColor: theme.backgroundElement }]}>
+                  <Pressable
+                    onPress={() => setServings((value) => Math.max(1, value - 1))}
+                    role="button"
+                    aria-label="Weniger Portionen"
+                    style={styles.portionButton}>
+                    <ThemedText themeColor="accent" style={styles.portionSign}>
+                      −
+                    </ThemedText>
+                  </Pressable>
+                  <ThemedText style={styles.portionValue}>{servings} Portionen</ThemedText>
+                  <Pressable
+                    onPress={() => setServings((value) => value + 1)}
+                    role="button"
+                    aria-label="Mehr Portionen"
+                    style={styles.portionButton}>
+                    <ThemedText themeColor="accent" style={styles.portionSign}>
+                      +
+                    </ThemedText>
+                  </Pressable>
+                </View>
+              </View>
+
+              <IngredientGroups data={data} servings={servings} />
+
+              <Pressable
+                role="button"
+                aria-label="Fehlende Zutaten zur Einkaufsliste hinzufügen"
+                onPress={() => setShoppingOpen(true)}
+                style={({ pressed }) => [
+                  styles.shoppingButton,
+                  { borderColor: theme.border },
+                  pressed && styles.pressed,
+                ]}>
+                <ThemedText themeColor="accent" style={styles.shoppingButtonText}>
+                  Fehlende Zutaten zur Einkaufsliste
+                </ThemedText>
+              </Pressable>
+
+              {scaledServing ? (
+                <View style={[styles.nutritionRow, { borderColor: theme.border }]}>
+                  <NutritionStat value={String(round(scaledServing.kcal))} label="kcal" />
+                  <NutritionStat value={`${round(scaledServing.protein_g)} g`} label="Protein" />
+                  <NutritionStat
+                    value={`${round(scaledServing.carbs_g)} g`}
+                    label="Kohlenhydrate"
+                  />
+                  <NutritionStat value={`${round(scaledServing.fat_g)} g`} label="Fett" />
+                </View>
+              ) : null}
+
+              <View style={[styles.sectionHeading, { borderBottomColor: theme.border }]}>
+                <ThemedText style={styles.sectionTitle}>Zubereitung</ThemedText>
+                <ThemedText themeColor="textSecondary" style={styles.sectionCount}>
+                  {data.steps.length} {data.steps.length === 1 ? 'Schritt' : 'Schritte'}
+                </ThemedText>
+              </View>
+              {data.steps.length > 0 ? (
+                <View>
+                  {data.steps.map((step, index) => (
+                    <RecipeStepItem
+                      key={step.id}
+                      step={step}
+                      index={index}
+                      isLast={index === data.steps.length - 1}
+                    />
+                  ))}
+                </View>
+              ) : (
+                <ThemedText themeColor="textSecondary" style={styles.emptyText}>
+                  Noch keine Zubereitungsschritte hinterlegt.
+                </ThemedText>
+              )}
             </View>
           ) : (
-            <ThemedText themeColor="textSecondary" style={styles.emptyText}>
-              Noch keine Zubereitungsschritte hinterlegt.
-            </ThemedText>
+            <View style={styles.ratingsPanel}>
+              {rating ? (
+                <>
+                  <View style={[styles.ratingSummary, { borderBottomColor: theme.border }]}>
+                    <ThemedText style={styles.ratingScore}>
+                      ★ {rating.score} <ThemedText themeColor="textSecondary">/ 10</ThemedText>
+                    </ThemedText>
+                    <ThemedText themeColor="textSecondary" style={styles.ratingStatus}>
+                      Deine Bewertung
+                    </ThemedText>
+                  </View>
+                  {rating.note ? (
+                    <>
+                      <ThemedText style={styles.ratingHeading}>Deine Notiz</ThemedText>
+                      <ThemedText style={styles.ratingNote}>{rating.note}</ThemedText>
+                    </>
+                  ) : null}
+                </>
+              ) : (
+                <View style={styles.ratingEmpty}>
+                  <ThemedText style={styles.ratingHeading}>Noch keine Bewertung</ThemedText>
+                  <ThemedText themeColor="textSecondary" style={styles.ratingEmptyText}>
+                    Halte fest, wie dir dieses Rezept gefallen hat.
+                  </ThemedText>
+                </View>
+              )}
+              <Pressable
+                onPress={() => setRatingOpen(true)}
+                role="button"
+                aria-label={rating ? 'Bewertung bearbeiten' : 'Rezept bewerten'}
+                style={({ pressed }) => [
+                  styles.ratingButton,
+                  { backgroundColor: theme.accent },
+                  pressed && styles.pressed,
+                ]}>
+                <ThemedText style={styles.ratingButtonText}>
+                  {rating ? 'Bewertung bearbeiten' : 'Rezept bewerten'}
+                </ThemedText>
+              </Pressable>
+            </View>
           )}
         </ScrollView>
 
@@ -518,6 +648,11 @@ export function RecipeDetailScreen() {
           servings={servings}
           onClose={() => setShoppingOpen(false)}
         />
+        <RecipeRatingSheet
+          recipeId={recipe.id}
+          visible={ratingOpen}
+          onClose={() => setRatingOpen(false)}
+        />
       </SafeAreaView>
     </View>
   );
@@ -527,136 +662,192 @@ const styles = StyleSheet.create({
   root: { flex: 1 },
   safeArea: { flex: 1, width: '100%', maxWidth: 800, alignSelf: 'center' },
   scroll: { flex: 1 },
-  content: { paddingHorizontal: 15, paddingBottom: 96 },
-  loadingText: { padding: 24, textAlign: 'center', ...FontSize[12] },
+  content: { paddingHorizontal: 16, paddingBottom: 108 },
+  loadingText: { padding: 24, textAlign: 'center', ...FontSize[14] },
   backGlyph: { ...FontSize[27], lineHeight: 29, fontWeight: 400 },
   heartGlyph: { ...FontSize[24], lineHeight: 27, fontWeight: 500 },
   moreGlyph: { ...FontSize[13], lineHeight: 16, fontWeight: 800, letterSpacing: 1 },
-  hero: { height: 205, marginHorizontal: -15, overflow: 'hidden' },
-  heroBadge: {
-    position: 'absolute',
-    top: 14,
-    left: 15,
-    paddingHorizontal: 9,
-    paddingVertical: 6,
-    borderRadius: 10,
-    borderCurve: 'continuous',
-  },
-  heroBadgeText: { ...FontSize[8], lineHeight: 10, fontWeight: 500 },
+  hero: { height: 178, marginHorizontal: -16, overflow: 'hidden' },
   title: {
-    paddingTop: 15,
-    ...FontSize[22],
-    lineHeight: 26,
+    paddingTop: 18,
+    ...FontSize[28],
+    lineHeight: 32,
     fontWeight: 700,
     letterSpacing: -0.7,
   },
-  metaRow: { flexDirection: 'row', flexWrap: 'wrap', gap: 6, paddingTop: 5 },
-  metaPill: {
-    borderRadius: 10,
-    borderCurve: 'continuous',
-    paddingHorizontal: 8,
-    paddingVertical: 6,
+  tabs: {
+    flexDirection: 'row',
+    marginTop: 20,
+    borderBottomWidth: StyleSheet.hairlineWidth,
   },
-  metaPillText: { ...FontSize[8], lineHeight: 10, fontWeight: 500 },
-  tagRow: { gap: 6, paddingTop: 7, paddingRight: 15 },
+  tabButton: {
+    flex: 1,
+    minHeight: 48,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderBottomWidth: 3,
+    borderBottomColor: 'transparent',
+  },
+  tabLabel: { ...FontSize[16], lineHeight: 20, fontWeight: 700 },
+  detailFacts: {
+    flexDirection: 'row',
+    paddingVertical: 16,
+    borderBottomWidth: StyleSheet.hairlineWidth,
+  },
+  detailFact: { flex: 1, minWidth: 0, alignItems: 'center', paddingHorizontal: 4 },
+  detailFactValue: { ...FontSize[16], lineHeight: 20, fontWeight: 700, textAlign: 'center' },
+  detailFactLabel: { paddingTop: 3, ...FontSize[12], lineHeight: 16, textAlign: 'center' },
+  description: { paddingTop: 16, ...FontSize[16], lineHeight: 24, fontWeight: 500 },
+  tagRow: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    alignItems: 'center',
+    columnGap: 12,
+    rowGap: 8,
+    paddingTop: 12,
+  },
+  tagText: { ...FontSize[13], lineHeight: 18, fontWeight: 500 },
+  moreTagsText: {
+    ...FontSize[13],
+    lineHeight: 18,
+    fontWeight: 500,
+    textDecorationLine: 'underline',
+  },
   sectionHeading: {
-    minHeight: 52,
+    minHeight: 58,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
     gap: 12,
-    paddingTop: 9,
+    marginTop: 18,
+    borderBottomWidth: StyleSheet.hairlineWidth,
   },
-  sectionTitle: { ...FontSize[13], lineHeight: 16, fontWeight: 700 },
-  sectionCount: { ...FontSize[8], lineHeight: 10, fontWeight: 500 },
+  sectionTitle: { ...FontSize[20], lineHeight: 26, fontWeight: 700 },
+  sectionCount: { ...FontSize[13], lineHeight: 18, fontWeight: 500 },
   portionControl: {
-    width: 138,
-    height: 35,
-    borderRadius: 13,
+    width: 156,
+    height: 44,
+    borderRadius: 12,
     borderCurve: 'continuous',
     flexDirection: 'row',
     alignItems: 'center',
   },
-  portionButton: { width: 34, height: 35, alignItems: 'center', justifyContent: 'center' },
-  portionSign: { ...FontSize[15], lineHeight: 18, fontWeight: 500 },
+  portionButton: { width: 44, height: 44, alignItems: 'center', justifyContent: 'center' },
+  portionSign: { ...FontSize[22], lineHeight: 26, fontWeight: 500 },
   portionValue: {
     flex: 1,
     textAlign: 'center',
-    ...FontSize[9],
-    lineHeight: 11,
-    fontWeight: 500,
+    ...FontSize[14],
+    lineHeight: 18,
+    fontWeight: 700,
   },
-  groupList: { gap: 9 },
-  ingredientGroup: { borderRadius: 18, borderCurve: 'continuous', overflow: 'hidden' },
+  groupList: { gap: 18 },
+  ingredientGroup: { paddingTop: 14 },
   groupHeader: {
-    minHeight: 33,
-    paddingHorizontal: 12,
+    minHeight: 40,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
     gap: 10,
     borderBottomWidth: StyleSheet.hairlineWidth,
   },
-  groupTitle: { flex: 1, ...FontSize[10], lineHeight: 12, fontWeight: 700 },
-  groupMeta: { ...FontSize[8], lineHeight: 10, fontWeight: 500 },
+  groupTitle: { flex: 1, ...FontSize[15], lineHeight: 20, fontWeight: 700 },
+  groupMeta: { ...FontSize[13], lineHeight: 18, fontWeight: 500 },
   ingredientRow: {
-    minHeight: 27,
-    paddingHorizontal: 12,
+    minHeight: 44,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
     gap: 12,
   },
-  ingredientName: { flex: 1, ...FontSize[9], lineHeight: 11, fontWeight: 500 },
-  ingredientAmount: { ...FontSize[9], lineHeight: 11, fontWeight: 500 },
+  ingredientName: { flex: 1, ...FontSize[16], lineHeight: 22, fontWeight: 500 },
+  ingredientAmount: { ...FontSize[16], lineHeight: 22, fontWeight: 500 },
   emptyGroupText: {
-    paddingHorizontal: 12,
-    paddingVertical: 9,
-    ...FontSize[9],
-    lineHeight: 11,
+    paddingVertical: 12,
+    ...FontSize[15],
+    lineHeight: 22,
   },
-  emptyText: { ...FontSize[10], lineHeight: 14 },
+  emptyText: { paddingVertical: 14, ...FontSize[15], lineHeight: 22 },
   shoppingButton: {
-    minHeight: 44,
-    marginTop: 11,
-    borderRadius: 15,
+    minHeight: 48,
+    marginTop: 16,
+    borderWidth: StyleSheet.hairlineWidth,
+    borderRadius: 12,
     borderCurve: 'continuous',
     alignItems: 'center',
     justifyContent: 'center',
     paddingHorizontal: 12,
   },
   shoppingButtonText: {
-    ...FontSize[10],
-    lineHeight: 13,
+    ...FontSize[15],
+    lineHeight: 20,
     fontWeight: 700,
     textAlign: 'center',
   },
-  nutritionRow: { flexDirection: 'row', gap: 5, paddingTop: 10 },
+  nutritionRow: {
+    flexDirection: 'row',
+    marginTop: 16,
+    borderTopWidth: StyleSheet.hairlineWidth,
+    borderBottomWidth: StyleSheet.hairlineWidth,
+  },
   nutritionStat: {
     flex: 1,
-    height: 40,
+    minHeight: 58,
     minWidth: 0,
-    borderRadius: 13,
-    borderCurve: 'continuous',
     alignItems: 'center',
     justifyContent: 'center',
+    paddingHorizontal: 2,
   },
-  nutritionValue: { ...FontSize[10], lineHeight: 12, fontWeight: 700 },
-  nutritionLabel: { marginTop: 2, ...FontSize[7], lineHeight: 9, fontWeight: 500 },
-  description: { paddingTop: 14, ...FontSize[10], lineHeight: 15, fontWeight: 500 },
-  stepsCard: { borderRadius: 18, borderCurve: 'continuous', overflow: 'hidden' },
-  stepRow: { minHeight: 28, paddingHorizontal: 12, paddingVertical: 8, justifyContent: 'center' },
-  stepText: { ...FontSize[9], lineHeight: 12, fontWeight: 500 },
-  stickyAction: { position: 'absolute', left: 15, right: 15, bottom: 12 },
-  primaryButton: {
+  nutritionValue: { ...FontSize[15], lineHeight: 20, fontWeight: 700 },
+  nutritionLabel: { paddingTop: 3, ...FontSize[11], lineHeight: 15, fontWeight: 500 },
+  stepItem: { gap: 12, paddingVertical: 14 },
+  stepImage: { width: '100%', height: 180, borderRadius: 16, borderCurve: 'continuous' },
+  stepCopy: { flexDirection: 'row', gap: 10 },
+  stepNumber: { width: 30, ...FontSize[16], lineHeight: 24, fontWeight: 700 },
+  stepText: { flex: 1, ...FontSize[16], lineHeight: 24, fontWeight: 500 },
+  ratingsPanel: { paddingTop: 22 },
+  ratingSummary: {
+    minHeight: 58,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    gap: 16,
+    paddingBottom: 16,
+    borderBottomWidth: StyleSheet.hairlineWidth,
+  },
+  ratingScore: { ...FontSize[28], lineHeight: 34, fontWeight: 700 },
+  ratingStatus: { ...FontSize[13], lineHeight: 18, fontWeight: 500 },
+  ratingHeading: { paddingTop: 20, ...FontSize[20], lineHeight: 26, fontWeight: 700 },
+  ratingNote: { paddingTop: 8, ...FontSize[16], lineHeight: 24, fontWeight: 500 },
+  ratingEmpty: { alignItems: 'center', paddingVertical: 24 },
+  ratingEmptyText: {
+    paddingTop: 6,
+    ...FontSize[15],
+    lineHeight: 22,
+    fontWeight: 500,
+    textAlign: 'center',
+  },
+  ratingButton: {
     minHeight: 48,
-    borderRadius: 16,
+    marginTop: 20,
+    borderRadius: 12,
     borderCurve: 'continuous',
     alignItems: 'center',
     justifyContent: 'center',
     paddingHorizontal: 16,
   },
-  primaryButtonText: { color: '#FFFFFF', ...FontSize[11], lineHeight: 14, fontWeight: 700 },
+  ratingButtonText: { color: '#FFFFFF', ...FontSize[16], lineHeight: 20, fontWeight: 700 },
+  stickyAction: { position: 'absolute', left: 15, right: 15, bottom: 12 },
+  primaryButton: {
+    minHeight: 48,
+    alignSelf: 'center',
+    borderRadius: 12,
+    borderCurve: 'continuous',
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingHorizontal: 24,
+  },
+  primaryButtonText: { color: '#FFFFFF', ...FontSize[15], lineHeight: 20, fontWeight: 700 },
   pressed: { opacity: 0.75, transform: [{ scale: 0.99 }] },
   modalBackdrop: { flex: 1, justifyContent: 'flex-end', backgroundColor: 'rgba(38,31,39,0.30)' },
   manageSheet: {
