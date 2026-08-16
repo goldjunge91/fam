@@ -1,9 +1,10 @@
 import { Pressable, StyleSheet, View } from 'react-native';
 
-import { FontSize, ThemedText } from '@/components/themed-text';
+import { FontSize, ThemedText, type ThemedTextProps } from '@/components/themed-text';
 
 type SectionHeadingProps = {
   title: string;
+  titleType?: ThemedTextProps['type'];
   eyebrow?: string;
   actionLabel?: string;
   onActionPress?: () => void;
@@ -12,6 +13,7 @@ type SectionHeadingProps = {
 /** Kleine Abschnittszeile fuer Kartenraster und horizontale Sammlungen. */
 export function SectionHeading({
   title,
+  titleType,
   eyebrow,
   actionLabel,
   onActionPress,
@@ -24,7 +26,10 @@ export function SectionHeading({
             {eyebrow}
           </ThemedText>
         ) : null}
-        <ThemedText style={styles.title}>{title}</ThemedText>
+        {/* <ThemedText type={titleType} style={titleType ? undefined : styles.title}>
+          {title}
+        </ThemedText> */}
+        <ThemedText type="subheading">{title}</ThemedText>
       </View>
       {actionLabel && onActionPress ? (
         <Pressable
@@ -61,11 +66,11 @@ const styles = StyleSheet.create({
     textTransform: 'uppercase',
     letterSpacing: 0.7,
   },
-  title: {
-    ...FontSize[14],
-    lineHeight: 18,
-    fontWeight: 700,
-  },
+  // title: {
+  //   ...FontSize[14],
+  //   lineHeight: 18,
+  //   fontWeight: 700,
+  // },
   action: {
     ...FontSize[11],
     lineHeight: 16,
