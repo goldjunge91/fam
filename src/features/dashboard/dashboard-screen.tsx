@@ -7,7 +7,7 @@ import { FamIcon } from '@/components/fam-icon';
 import { ProgressRing } from '@/components/progress-ring';
 import { Screen } from '@/components/screen';
 import { FontSize, ThemedText } from '@/components/themed-text';
-import { Radius, Spacing, withAlpha } from '@/constants/theme';
+import { Layout, Radius, Spacing, withAlpha } from '@/constants/theme';
 import { useSession } from '@/features/auth/session-provider';
 import { useCurrentGoal, useFoodEntries } from '@/features/calorie-tracking/api';
 import { calculateDailyTotals } from '@/features/calorie-tracking/daily-totals';
@@ -113,19 +113,19 @@ export function DashboardScreen() {
     }
   }
 
-  // Kein natives Tab-Bar-Polster mehr noetig (#150) — nur noch Puffer fuer
-  // den schwebenden Plus-Button.
-  const bottomPadding = insets.bottom + Spacing.four + Spacing.six;
+  const bottomPadding = insets.bottom + Spacing.four + Layout.floatingActionClearance;
 
   return (
     <Screen
       title="Übersicht"
       subtitle={heute}
       scroll={false}
+      applyBottomPadding={false}
       chrome={{ onMenuPress: openDrawer, onAvatarPress: openProfile, initials }}
       backgroundGradient={hubGradient}>
       <ScrollView
         testID="dashboard-scroll-view"
+        style={styles.scroll}
         contentContainerStyle={{ paddingBottom: bottomPadding }}
         showsVerticalScrollIndicator={false}
         refreshControl={
@@ -268,6 +268,9 @@ export function DashboardScreen() {
 }
 
 const styles = StyleSheet.create({
+  scroll: {
+    flex: 1,
+  },
   glassCard: {
     borderCurve: 'continuous',
   },

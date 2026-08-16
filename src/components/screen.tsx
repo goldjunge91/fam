@@ -39,6 +39,8 @@ type ScreenProps = {
    */
   backgroundGradient?: GradientSpec;
   scroll?: boolean;
+  /** Deaktivieren, wenn ein eigener ScrollView den unteren Inhaltsabstand übernimmt. */
+  applyBottomPadding?: boolean;
   /**
    * Wohin diese Seite zurueckfuehrt. Ohne Angabe gibt es keinen Knopf.
    *
@@ -81,6 +83,7 @@ export function Screen({
   children,
   action,
   scroll = true,
+  applyBottomPadding = true,
   back,
   backStyle = 'text',
   chrome,
@@ -148,12 +151,21 @@ export function Screen({
 
         {scroll ? (
           <ScrollView
-            contentContainerStyle={{ paddingBottom: bottomPadding }}
+            contentContainerStyle={
+              applyBottomPadding ? { paddingBottom: bottomPadding } : undefined
+            }
             showsVerticalScrollIndicator={false}>
             {body}
           </ScrollView>
         ) : (
-          <View style={[styles.body, { flex: 1, paddingBottom: bottomPadding }]}>{children}</View>
+          <View
+            style={[
+              styles.body,
+              { flex: 1 },
+              applyBottomPadding && { paddingBottom: bottomPadding },
+            ]}>
+            {children}
+          </View>
         )}
       </SafeAreaView>
     </ThemedView>
