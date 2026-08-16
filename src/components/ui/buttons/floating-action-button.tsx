@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react';
 import { Pressable, StyleSheet } from 'react-native';
 
-import { withAlpha } from '@/constants/theme';
+import { Radius, withAlpha } from '@/constants/theme';
 import { useTheme } from '@/hooks/use-theme';
 
 type FloatingActionButtonProps = {
@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
   button: {
     width: 78,
     height: 78,
-    borderRadius: 39,
+    borderRadius: Radius.pill,
     borderCurve: 'continuous',
     alignItems: 'center',
     justifyContent: 'center',

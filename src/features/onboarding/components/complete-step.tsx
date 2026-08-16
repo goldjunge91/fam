@@ -2,7 +2,7 @@ import { router } from 'expo-router';
 import { StyleSheet, Text, View } from 'react-native';
 import { FontSize } from '@/components/themed-text';
 import { Button } from '@/components/ui/buttons';
-import { Spacing } from '@/constants/theme';
+import { Radius, Spacing } from '@/constants/theme';
 import { useHouseholds } from '@/features/household/api';
 import { useTheme } from '@/hooks/use-theme';
 import { useOnboarding } from '../context/onboarding-context';
@@ -64,7 +64,7 @@ const styles = StyleSheet.create({
   iconContainer: {
     width: 96,
     height: 96,
-    borderRadius: 48,
+    borderRadius: Radius.pill,
     alignItems: 'center',
     justifyContent: 'center',
     marginVertical: Spacing.two,

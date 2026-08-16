@@ -15,7 +15,7 @@ import { PageHeader } from '@/components/page-header';
 import { SectionHeading } from '@/components/section-heading';
 import { FontSize, ThemedText } from '@/components/themed-text';
 import { HeaderIconButton, MenuButton } from '@/components/ui/buttons';
-import { Radius } from '@/constants/theme';
+import { Gradients, Radius } from '@/constants/theme';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { useNavigationChrome } from '@/features/navigation/navigation-chrome-provider';
 import {
@@ -286,7 +286,7 @@ export function RecipesScreen() {
 
   return (
     <View style={styles.root}>
-      <GradientBackground colors={['#FFCCB2', '#F9F2EB', '#E8DEF2']} />
+      <GradientBackground {...Gradients.hub} />
       <SafeAreaView style={styles.safeArea} edges={['top', 'left', 'right']}>
         <PageHeader
           title={screenTitle}

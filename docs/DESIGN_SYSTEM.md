@@ -1,11 +1,11 @@
 # Design-System (fam)
 
-> Entwurf, Stand 2026-08-16 — Ausgangspunkt für Issue [#122](https://github.com/goldjunge91/fam/issues/122).
+> Arbeitsstandard, Stand 2026-08-16 — entstanden aus Issue [#122](https://github.com/goldjunge91/fam/issues/122).
 > Abgeleitet **top-down** aus den Screens, die bereits als Referenz gelten:
 > Übersicht (`dashboard-screen.tsx`), Vorrat (`fridge-screen.tsx`), Essensplan
 > (`meal-planner-screen.tsx`) und größtenteils Rezept-Detail
-> (`recipe-detail-screen.tsx`). Noch **kein finaler Stand** — Basis für die
-> gemeinsame Abstimmung, bevor daraus Umsetzung wird.
+> (`recipe-detail-screen.tsx`). Token-Grundlage und Radius-Migration sind
+> abgeschlossen; die übrigen Backlog-Punkte sind unten dokumentiert.
 
 Quelle der Wahrheit ist der **Code**, nicht Figma. Das Figma-File
 ["fam – App-Mockup"](https://www.figma.com/design/6RkH2npU7OF3B62Fa9SvoY/fam-–-App-Mockup)
@@ -71,9 +71,10 @@ Schatten), ein isolierter Schatten-Fix wäre dort eine inkonsistente
 Teilkorrektur. Details:
 [`docs/design-system/gradient-background-audit.md`](./design-system/gradient-background-audit.md).
 
-**Gradient-Hintergrund — erledigt (2026-08-16).** Variante B
-(`['#FFCCB2', '#F9F2EB', '#E8DEF2']`) ist jetzt der einzige Verlauf für alle
-13 Hub-Screens, reiner Farbwert-Tausch. **Noch offen:** die 11 Screens, die
+**Gradient-Hintergrund — erledigt (2026-08-16).** `Gradients.hub` haelt
+Farben und Stop-Positionen des einzigen Hub-Verlaufs zentral. Alle 17
+Render-Fundstellen in 12 Screen-Komponenten verwenden diesen Token.
+**Noch offen:** die 10 Screens, die
 `<GradientBackground>` weiterhin manuell statt über `Screen`s
 `backgroundGradient`-Prop einbinden, bauen ihre Struktur (Safe Area,
 `PageHeader`, Breite) unverändert selbst nach — das ist bewusst nicht Teil
@@ -151,7 +152,13 @@ Werte hinter demselben Namen.
   jetzt in `src/constants/theme.ts`, nach Komponenten-Rolle statt reiner
   Größenskala. Details in
   [`docs/design-system/radius-audit.md`](./design-system/radius-audit.md).
-  **Noch offen:** die Migration bestehender Fundstellen auf `Radius.*`.
+  **Aktueller Stand:** 228 von 233 Fundstellen verwenden `Radius.*`. Vier
+  dynamische Radien bleiben bewusst berechnet. Der 40px-Hintergrund von
+  `AnimatedIcon` bleibt als einzelne Illustrations-Ausnahme lokal, da weder
+  `Radius.large` noch `Radius.pill` seine Form erhalten würden. Exakte
+  Altwerte wurden semantisch zugeordnet; ungeklärte Zwischenwerte verwenden
+  den nächstgrößeren Token. Die Dashboard-Karten und `SettingsGroup`
+  verwenden damit `Radius.large` (28px).
 
 ---
 
@@ -171,7 +178,7 @@ werden ignoriert, selbst wenn sie zusätzlich übergeben würden:
     title="Vorrat"
     subtitle="Für alle im Haushalt sichtbar"
     chrome={{ onMenuPress: openDrawer, onAvatarPress: openProfile, initials }}
-    backgroundGradient={['#FFCCB2', '#F9F2EB', '#E8DEF2']}>
+    backgroundGradient={Gradients.hub}>
     {/* Inhalt */}
   </Screen>
   ```
@@ -182,7 +189,7 @@ werden ignoriert, selbst wenn sie zusätzlich übergeben würden:
   Entscheidung, kein Bug: ein einmal gelesener `canGoBack()`-Wert kann nach
   Navigationsänderungen veraltet sein und zu einem toten Button führen).
   Ohne `href` fällt der Button auf `router.back()` zurück
-  (`AutoBackButton`/`AutoBackArrowButton`), mit `href` navigiert er gezielt
+  (`AutoBackButton`), mit `href` navigiert er gezielt
   dorthin — unabhängig vom tatsächlichen Navigationsverlauf.
 
   ```tsx
@@ -203,7 +210,7 @@ werden ignoriert, selbst wenn sie zusätzlich übergeben würden:
 | `subtitle` | `string?` | Kleiner Text über/unter dem Titel. |
 | `chrome` | `{ onMenuPress, onAvatarPress, initials }?` | Hub-Header, s. o. Schließt `back`/`action` aus. |
 | `back` | `{ label: string; href?: Href }?` | Detail-Header mit explizitem Rücksprungziel. `backStyle: 'text' \| 'icon'` steuert Text-Link ("‹ Rezepte") vs. runden Icon-Button. |
-| `backgroundGradient` | `string[]?` | Verlauf statt der flachen `background`-Fläche. Farbstopps sind reine Props — siehe [Gradient-Audit](./design-system/gradient-background-audit.md) für die aktuell verwendeten Sets. Aktuell nur an `Screen` selbst nutzbar; die 11 Screens, die `<GradientBackground>` manuell statt darüber aufrufen, sind Teil des Migrations-Backlogs (Abschnitt 6). |
+| `backgroundGradient` | `GradientSpec?` | Verlauf statt der flachen `background`-Fläche. Hub-Screens verwenden `Gradients.hub`; die 10 Screens, die `<GradientBackground>` manuell statt darüber aufrufen, sind Teil des strukturellen Migrations-Backlogs (Abschnitt 6). |
 | `scroll` | `boolean` (Default `true`) | `false` für Screens mit eigenem `ScrollView`/`FlatList` im Inhalt (z. B. Dashboard, das selbst pull-to-refresh braucht). |
 | `action` | `ReactNode?` | Kopfzeilen-Aktion **nur im Detail-Header** (`chrome` nicht gesetzt), rechts neben dem Titel. Für Hub-Header gibt es aktuell keinen äquivalenten Slot — siehe Migrations-Backlog Punkt 1 (fehlender `trailing`-Slot). |
 
@@ -235,18 +242,18 @@ werden ignoriert, selbst wenn sie zusätzlich übergeben würden:
    (Feature-First, siehe `docs/DEVELOPER_GUIDE.md`).
 2. **`<Screen>` als Root.** Entscheide zuerst: Hub-Screen (`chrome`) oder
    Detail-Screen (`back`)? Nie beides, nie keins.
-3. **Farbverlauf nur für Hub-Screens**, und dann immer dieselben drei
-   Farbstopps (`backgroundGradient={['#FFCCB2', '#F9F2EB', '#E8DEF2']}`,
-   Variante B aus dem [Gradient-Audit](./design-system/gradient-background-audit.md)).
+3. **Farbverlauf nur für Hub-Screens**, und dann immer über den semantischen
+   Token (`backgroundGradient={Gradients.hub}`, Variante B aus dem
+   [Gradient-Audit](./design-system/gradient-background-audit.md)).
    Alle anderen Screens bleiben bei der flachen `background`-Fläche.
 4. **Inhalte aus dem Katalog zusammensetzen** (Abschnitt 4), bevor du eine
    neue Primitive baust. Fehlt etwas Wiederverwendbares, geht es nach
    `src/components/`, nicht als lokaler Screen-Baustein — es sei denn, es ist
    wirklich nur für dieses eine Feature relevant (`src/features/<domain>/
    components/`).
-5. **Keine rohen Hex-Farben/Pixelwerte**, außer für Screen-spezifische
-   Verlaufsfarben, solange die Gradient-/Schatten-Tokens aus Abschnitt 2
-   noch nicht feststehen (Audit läuft, siehe dort).
+5. **Keine rohen Hex-Farben/Pixelwerte.** Bewusste, komponentenspezifische
+   Sonderverläufe wie die innere Premium-Karte müssen im Audit dokumentiert
+   sein und dürfen nicht mit `Gradients.hub` vermischt werden.
 6. **Barrierefreiheit nicht vergessen:** `accessibilityRole`,
    `accessibilityLabel` an Pressables, Farbe nie alleiniger Informationsträger.
 7. **Reverse-States mitdenken** (`AGENTS.md` §7): jede neue Aktion braucht
@@ -266,7 +273,7 @@ Einordnung in die Reihenfolge.
 
 1. **`<Screen>` wird umgangen — breiter als gedacht.** Nicht nur
    `meal-planner-screen.tsx`: der [Gradient-Audit](./design-system/gradient-background-audit.md)
-   zeigt, dass **11 von 13 Screens mit Verlaufs-Hintergrund** `<GradientBackground>`
+   zeigt, dass **10 von 12 Screens mit Verlaufs-Hintergrund** `<GradientBackground>`
    von Hand aufrufen und Safe Area/`PageHeader`/Breitenbegrenzung manuell
    nachbauen, statt `Screen`s `backgroundGradient`-Prop zu nutzen — nur
    Dashboard und Vorrat tun das bereits richtig. Beim Essensplaner kommt
@@ -278,22 +285,32 @@ Einordnung in die Reihenfolge.
    vereinheitlicht** (Variante B, s. Abschnitt 2) — hier geht es nur noch um
    die Struktur.
 
-   **Vorgehen:** *Bevor* an bestehenden Screens etwas geändert wird, entsteht
-   zuerst eine **separate V2-Variante des Essensplaners** (eigene Datei,
-   Original bleibt unangetastet) — der Essensplaner gilt als besonders
-   eigene/spezielle Ansicht und wird separat geprüft, bevor daraus ein
-   Muster für die übrigen 10 Screens abgeleitet wird. **Noch nicht gebaut.**
-2. **Acht separate Button-Komponenten in `ui/buttons/`**
-   (`button`, `back-button`, `back-arrow-button`, `back-icon-button`,
+   App-weit verwenden aktuell 11 von 40 `*-screen.tsx`-Dateien direkt
+   `<Screen>`. Nicht jede der übrigen Dateien ist automatisch ein einfacher
+   Migrationskandidat (Modals und Spezialansichten brauchen eine eigene
+   Prüfung), aber die Grundregel ist noch nicht flächendeckend umgesetzt.
+
+   **Vorgehen umgesetzt:** Die **separate V2-Variante des Essensplaners** in
+   `meal-planner-screen-v2.tsx` verwendet jetzt `Screen` mit
+   `backgroundGradient={Gradients.hub}`. `Screen` besitzt dafür den fehlenden
+   optionalen Hub-`trailing`-Slot; Kalender und Profil stehen gemeinsam
+   rechts im Header. Die eigene Route `/meal-planner-v2` wurde im Simulator
+   geprüft. Ein temporärer Versionsumschalter ist in Original und V2 sichtbar;
+   abgesehen davon bleibt die Struktur des Originals unangetastet. Die V2 ist
+   damit die Vorlage für die strukturelle Migration der übrigen 9 Screens.
+2. **Button-Konsolidierung — teilweise erledigt.** Die früheren
+   `back-arrow-button`/`back-icon-button` sind in `back-button` mit Varianten
+   aufgegangen. Es bleiben sieben Button-Komponenten (`button`, `back-button`,
    `header-icon-button`, `menu-button`, `profile-button`,
-   `compact-action-button`, `floating-action-button`) — davon drei
-   verschiedene "Zurück"-Varianten. Kandidat für Konsolidierung auf ein
-   kleineres Set mit klaren Varianten/Props statt eigener Dateien pro
-   Anwendungsfall. **Als drittes dran, nach 3 und 4.**
-3. **`Radius`-Token — erledigt.** `Radius.*` steht in `theme.ts` (34 → 8
-   konsolidierte Werte, s. Abschnitt 2 und
-   [`docs/design-system/radius-audit.md`](./design-system/radius-audit.md)).
-   Noch offen: bestehende Fundstellen auf `Radius.*` migrieren.
+   `compact-action-button`, `floating-action-button`). Weitere Zusammenlegung
+   erst nach einem Rollenvergleich; getrennte Dateien sind kein Problem, wenn
+   Interaktion und Layout tatsächlich verschieden sind.
+3. **`Radius`-Token — Migration abgeschlossen.** `Radius.*` steht in
+   `theme.ts` (34 → 8 konsolidierte Werte), 228 von 233 Fundstellen sind
+   migriert. Die übrigen vier Radien sind größenabhängig berechnet; der
+   40px-Hintergrund von `AnimatedIcon` ist eine dokumentierte lokale
+   Illustrations-Ausnahme. Details stehen im
+   [`Radius-Audit`](./design-system/radius-audit.md#aktueller-migrationsstand).
 4. **Zwei Wege für Textstile — `ThemedText` erledigt, Screens noch offen.**
    `ThemedText`s `type`-Union deckt jetzt die volle `Typography`-Skala ab
    (s. Abschnitt 2). Die *bestehenden* manuellen `Typography`-Spreads in den
@@ -301,7 +318,9 @@ Einordnung in die Reihenfolge.
    noch nicht automatisch umgezogen — das ist ein eigener, kleinerer
    Aufräum-Durchgang, der auf `type`-Werte umstellt, wo eine passende
    `fontWeight`-Kombination bereits exakt einem `Typography`-Eintrag
-   entspricht.
+   entspricht. Aktueller Bestand: 313 `FontSize[...]`- und 38
+   `Typography.*`-Spreads; viele davon sind bewusste lokale Kombinationen und
+   dürfen nicht mechanisch ersetzt werden.
 5. **Dashboard-"Glass Cards" sind Screen-lokal gestylt** (`glassCard`,
    `calorieCard`, `plannedCard`, `widget` in `dashboard-screen.tsx`) statt
    als wiederverwendbare Primitive — auf der Übersicht mehrfach fast
@@ -326,28 +345,34 @@ Einordnung in die Reihenfolge.
 
 ## 7. Umsetzungsstand
 
-Alle Grundsatzfragen sind entschieden. Keine offenen Fragen mehr — nur noch
-Ausführung.
+Die Token-Grundlage und Radius-Migration sind abgeschlossen. Offen bleibt die
+schrittweise Migration bestehender Screens in den anderen Design-System-
+Bereichen.
 
 **Bereits umgesetzt (2026-08-16):**
 
-- Gradient-Variante B ist Standard für alle 13 Hub-Screens (reiner
-  Farbwert-Tausch, Struktur noch offen — s. u.).
+- `Gradients.hub` ist die einzige Quelle für Farben und Stop-Positionen aller
+  17 Hub-Gradient-Verwendungen in 12 Screen-Komponenten (Struktur noch offen).
 - Schatten-Tokens (`shadowCard`/`shadowSheet`) plus `withAlpha()`-Helper
   existieren; 13 von 15 Fundstellen migriert, 2 bewusst zurückgestellt.
 - `ThemedText` deckt die volle `Typography`-Skala ab.
 - `Radius.*` steht final in `theme.ts` (8 konsolidierte Werte).
+- 228 von 233 Radius-Fundstellen verwenden `Radius.*`; vier sind bewusst
+  dynamisch und eine lokale Illustrations-Ausnahme bleibt bei 40px.
+- Die drei früheren Zurück-Button-Implementierungen sind in einer Komponente
+  mit Varianten konsolidiert.
 - `AGENTS.md` widerspricht der Palette nirgends mehr.
 - `recipe-detail-screen.tsx`s vermeintlicher Inline-Ring geprüft — kein
   Fund, war eine dekorative Illustration, keine Dopplung.
 
 **Noch offen** (Backlog aus Abschnitt 6):
 
-1. Essensplaner-V2 (separate Datei, Original unangetastet) — noch nicht
-   gebaut, danach Vorlage für die strukturelle `Screen`-Migration der
-   übrigen 10 Screens (Punkt 1).
-2. Button-Konsolidierung (8 Komponenten → kleineres Set, Punkt 2).
-3. Radius-Migration bestehender Fundstellen auf `Radius.*` (Punkt 3).
+1. Essensplaner-V2 ist auf `Screen` umgestellt und im Simulator geprüft. Ein
+   temporärer Umschalter wechselt direkt zwischen Original und V2; die
+   bisherige Route und Originalstruktur bleiben ansonsten unverändert. Offen
+   sind die Auswahl der regulären Version und danach die strukturelle
+   Migration der übrigen 9 Screens (Punkt 1).
+2. Rollenvergleich der sieben verbleibenden Button-Komponenten (Punkt 2).
 4. Manuelle `Typography`-Spreads in bestehenden Screens auf `ThemedText`-
    `type`-Werte umstellen (Punkt 4).
 5. Noch nicht eingeordnet: Dashboard-"Glass Cards"-Extraktion (Punkt 5),

@@ -54,6 +54,19 @@ export const Colors = {
 
 export type ThemeColor = keyof typeof Colors.light & keyof typeof Colors.dark;
 
+export type GradientSpec = {
+  readonly colors: readonly string[];
+  readonly locations?: readonly number[];
+};
+
+/** Semantische Verläufe des Design-Systems statt wiederholter Hex-Arrays. */
+export const Gradients = {
+  hub: {
+    colors: ['#FFCCB2', '#F9F2EB', '#E8DEF2'],
+    locations: [0, 0.40385, 0.96154],
+  },
+} as const satisfies Record<string, GradientSpec>;
+
 /**
  * Wandelt einen 6-stelligen Hex-Farbwert in einen `rgba()`-String mit
  * gegebener Opazitaet um. Natives `shadowColor` + `shadowOpacity` kommen

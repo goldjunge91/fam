@@ -417,7 +417,7 @@ const styles = StyleSheet.create({
   },
   preview: {
     borderWidth: StyleSheet.hairlineWidth,
-    borderRadius: Spacing.three,
+    borderRadius: Radius.card,
     padding: Spacing.three,
     gap: Spacing.one,
   },

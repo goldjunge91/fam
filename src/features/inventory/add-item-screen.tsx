@@ -11,7 +11,7 @@ import { Screen } from '@/components/screen';
 import { TextField } from '@/components/text-field';
 import { ThemedText } from '@/components/themed-text';
 import { Button } from '@/components/ui/buttons';
-import { Spacing } from '@/constants/theme';
+import { Radius, Spacing } from '@/constants/theme';
 import { useSession } from '@/features/auth/session-provider';
 import { useAddFridgeItemMutation } from '@/features/fridge/use-fridge-mutations';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
@@ -350,7 +350,7 @@ const styles = StyleSheet.create({
   addLocationBox: {
     gap: Spacing.three,
     padding: Spacing.three,
-    borderRadius: Spacing.two,
+    borderRadius: Radius.sm,
     borderWidth: 1,
     borderColor: '#ccc',
   },

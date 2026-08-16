@@ -375,7 +375,7 @@ const styles = StyleSheet.create({
   playIconCircle: {
     width: 64,
     height: 64,
-    borderRadius: 32,
+    borderRadius: Radius.pill,
     backgroundColor: '#705773',
     alignItems: 'center',
     justifyContent: 'center',

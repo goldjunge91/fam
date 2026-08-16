@@ -2,7 +2,7 @@ import type { ReactNode } from 'react';
 import { StyleSheet, TextInput, type TextInputProps, View } from 'react-native';
 
 import { ThemedText, Typography } from '@/components/themed-text';
-import { Spacing } from '@/constants/theme';
+import { Radius, Spacing } from '@/constants/theme';
 import { useTheme } from '@/hooks/use-theme';
 
 type TextFieldProps = TextInputProps & {
@@ -82,7 +82,7 @@ const styles = StyleSheet.create({
   input: {
     width: '100%',
     borderWidth: 1,
-    borderRadius: Spacing.three,
+    borderRadius: Radius.card,
     paddingHorizontal: Spacing.three,
     paddingVertical: Spacing.two + 2,
     ...Typography.bodyRelaxed,

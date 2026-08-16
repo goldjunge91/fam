@@ -1,7 +1,7 @@
 import { ActivityIndicator, type ColorValue, Pressable, StyleSheet, View } from 'react-native';
 
 import { Typography, ThemedText } from '@/components/themed-text';
-import { Spacing } from '@/constants/theme';
+import { Radius, Spacing } from '@/constants/theme';
 import { useTheme } from '@/hooks/use-theme';
 
 type ButtonProps = {
@@ -75,7 +75,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   filledButton: {
-    borderRadius: Spacing.three,
+    borderRadius: Radius.card,
     borderCurve: 'continuous',
     paddingVertical: Spacing.three,
     paddingHorizontal: Spacing.four,

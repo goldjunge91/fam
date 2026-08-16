@@ -7,7 +7,7 @@ import { FamIcon } from '@/components/fam-icon';
 import { ProgressRing } from '@/components/progress-ring';
 import { Screen } from '@/components/screen';
 import { FontSize, ThemedText } from '@/components/themed-text';
-import { Radius, Spacing, withAlpha } from '@/constants/theme';
+import { Gradients, Radius, Spacing, withAlpha } from '@/constants/theme';
 import { useSession } from '@/features/auth/session-provider';
 import { useCurrentGoal, useFoodEntries } from '@/features/calorie-tracking/api';
 import { calculateDailyTotals } from '@/features/calorie-tracking/daily-totals';
@@ -121,7 +121,7 @@ export function DashboardScreen() {
       subtitle={heute}
       scroll={false}
       chrome={{ onMenuPress: openDrawer, onAvatarPress: openProfile, initials }}
-      backgroundGradient={['#FFCCB2', '#F9F2EB', '#E8DEF2']}>
+      backgroundGradient={Gradients.hub}>
       <ScrollView
         testID="dashboard-scroll-view"
         contentContainerStyle={{ paddingBottom: bottomPadding }}
@@ -271,7 +271,7 @@ const styles = StyleSheet.create({
   },
   calorieCard: {
     height: 176,
-    borderRadius: 36,
+    borderRadius: Radius.large,
     flexDirection: 'row',
     alignItems: 'center',
     gap: 24,
@@ -306,7 +306,7 @@ const styles = StyleSheet.create({
   },
   plannedCard: {
     height: 140,
-    borderRadius: 33,
+    borderRadius: Radius.large,
     flexDirection: 'row',
     alignItems: 'center',
     gap: 16,

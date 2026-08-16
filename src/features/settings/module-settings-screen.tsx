@@ -3,7 +3,7 @@ import { Pressable, StyleSheet, Switch, View } from 'react-native';
 import { Card } from '@/components/card';
 import { Screen } from '@/components/screen';
 import { ThemedText } from '@/components/themed-text';
-import { Spacing } from '@/constants/theme';
+import { Radius, Spacing } from '@/constants/theme';
 import { useSession } from '@/features/auth/session-provider';
 import {
   type ModulePreferences,
@@ -116,7 +116,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     gap: Spacing.three,
     padding: Spacing.three,
-    borderRadius: Spacing.three,
+    borderRadius: Radius.card,
     borderWidth: StyleSheet.hairlineWidth,
   },
   moduleTextCol: {

@@ -132,7 +132,7 @@ const styles = StyleSheet.create({
   },
   field: {
     borderWidth: 1,
-    borderRadius: Spacing.three,
+    borderRadius: Radius.card,
     paddingHorizontal: Spacing.three,
     paddingVertical: Spacing.two + 2,
   },

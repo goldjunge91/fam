@@ -353,7 +353,7 @@ const styles = StyleSheet.create({
   confirmButton: {
     width: '100%',
     paddingVertical: Spacing.three,
-    borderRadius: Spacing.three,
+    borderRadius: Radius.card,
     alignItems: 'center',
     justifyContent: 'center',
   },

@@ -1,7 +1,7 @@
 import { Pressable, StyleSheet, Switch, Text, View } from 'react-native';
 import { FontSize } from '@/components/themed-text';
 import { Button } from '@/components/ui/buttons';
-import { Spacing } from '@/constants/theme';
+import { Radius, Spacing } from '@/constants/theme';
 import { useTheme } from '@/hooks/use-theme';
 import { useOnboarding } from '../context/onboarding-context';
 
@@ -152,7 +152,7 @@ const styles = StyleSheet.create({
   moduleRow: {
     flexDirection: 'row',
     padding: Spacing.three,
-    borderRadius: Spacing.two,
+    borderRadius: Radius.sm,
     borderWidth: 1,
     alignItems: 'center',
     justifyContent: 'space-between',

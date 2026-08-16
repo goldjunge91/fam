@@ -132,6 +132,7 @@ const styles = StyleSheet.create({
     height: 71,
   },
   background: {
+    // Brand illustration: 28 changes its silhouette, while pill makes it circular.
     borderRadius: 40,
     experimental_backgroundImage: `linear-gradient(180deg, #3C9FFE, #0274DF)`,
     width: 128,

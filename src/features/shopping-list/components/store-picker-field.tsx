@@ -218,7 +218,7 @@ const styles = StyleSheet.create({
   addStoreBox: {
     gap: Spacing.three,
     padding: Spacing.three,
-    borderRadius: Spacing.two,
+    borderRadius: Radius.sm,
     borderWidth: 1,
     borderColor: '#ccc',
     marginTop: Spacing.two,

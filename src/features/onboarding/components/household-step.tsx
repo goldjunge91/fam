@@ -3,7 +3,7 @@ import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { TextField } from '@/components/text-field';
 import { FontSize } from '@/components/themed-text';
 import { Button } from '@/components/ui/buttons';
-import { Spacing } from '@/constants/theme';
+import { Radius, Spacing } from '@/constants/theme';
 import {
   useCreateHouseholdMutation,
   useHouseholds,
@@ -218,7 +218,7 @@ const styles = StyleSheet.create({
   },
   activeCard: {
     padding: Spacing.three,
-    borderRadius: Spacing.two,
+    borderRadius: Radius.sm,
     borderWidth: 1,
     gap: 4,
     marginVertical: Spacing.one,
@@ -240,7 +240,7 @@ const styles = StyleSheet.create({
   },
   choiceCard: {
     padding: Spacing.three,
-    borderRadius: Spacing.two,
+    borderRadius: Radius.sm,
     borderWidth: 1,
     gap: 4,
   },

@@ -153,7 +153,8 @@ export function MembersScreen() {
       title="Mitglieder"
       subtitle={currentHousehold?.name}
       scroll={false}
-      back={{ label: 'Einstellungen', href: '/settings' }}>
+      back={{ label: 'Einstellungen', href: '/settings' }}
+      backStyle="icon">
       <View style={{ marginBottom: Spacing.two }}>
         <Button
           label={

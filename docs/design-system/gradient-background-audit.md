@@ -1,19 +1,21 @@
 # Audit: `GradientBackground`-Farbstopps
 
 > Bestandsaufnahme für Issue [#122](https://github.com/goldjunge91/fam/issues/122)
-> (Design-System). **Umgesetzt (2026-08-16): alle 13 Hub-Screens nutzen
-> jetzt Variante B** (`['#FFCCB2', '#F9F2EB', '#E8DEF2']`). A und C sind
-> Geschichte, D bleibt bewusster Sonderfall. Details unten. **Weiterhin
-> offen:** die 11 Screens mit manuellem `<GradientBackground>` bauen ihre
+> (Design-System). **Umgesetzt (2026-08-16): alle 17 Render-Fundstellen in
+> 12 Screen-Komponenten nutzen jetzt `Gradients.hub`.** Der Token hält Farben
+> und Stop-Positionen der Variante B zentral. A und C sind Geschichte, D
+> bleibt bewusster Sonderfall. Details unten. **Weiterhin offen:** die 10
+> Screens mit manuellem `<GradientBackground>` bauen ihre
 > Struktur (Safe Area, `PageHeader`, Breite) noch selbst statt `<Screen>`
 > zu nutzen — nur die Farbe ist vereinheitlicht, s. `docs/DESIGN_SYSTEM.md`
 > Abschnitt 6, Punkt 1.
 
-Alle Fundstellen von `<GradientBackground colors={[...]}>` bzw.
-`<Screen backgroundGradient={[...]}>`, Stand dieses Audits (`git grep`, keine
-Testdateien).
+Historische und aktuelle Fundstellen von `<GradientBackground>` bzw.
+`<Screen backgroundGradient>`, Stand dieses Audits (`git grep`, keine
+Testdateien). Die früher duplizierten Arrays sind inzwischen durch
+`Gradients.hub` ersetzt.
 
-## Variante A — bisher meistverwendet, jetzt auf B umgestellt (war 12 Fundstellen)
+## Variante A — bisher meistverwendet, jetzt auf B umgestellt (war 15 Fundstellen)
 
 ```
 ['#FFD2B9', '#F8F4EF', '#EEE7F4']
@@ -33,9 +35,9 @@ Testdateien).
 | `src/features/premium/premium-screen.tsx` | 91 | Premium (äußerer Verlauf) |
 
 → War bislang die am häufigsten verwendete Kombination — jetzt Geschichte:
-alle 12 Fundstellen sind auf Variante B migriert.
+alle 15 Fundstellen sind auf Variante B migriert.
 
-## Variante B — Standard für alle Hub-Screens (jetzt 13 Fundstellen)
+## Variante B — Standard für alle Hub-Screens (jetzt 17 Fundstellen)
 
 ```
 ['#FFCCB2', '#F9F2EB', '#E8DEF2']
@@ -45,9 +47,11 @@ alle 12 Fundstellen sind auf Variante B migriert.
 | --- | --- | --- |
 | `src/features/dashboard/dashboard-screen.tsx` | 124 | Übersicht |
 | `src/features/fridge/fridge-screen.tsx` | 150 | Vorrat (war Variante C) |
-| alle 12 A-Fundstellen (oben) | — | Rezepte, Kochmodus, Tagebuch, Einstellungen, Essensplan, Premium, … |
+| alle 15 A-Fundstellen (oben) | — | Rezepte, Kochmodus, Tagebuch, Einstellungen, Essensplan, Premium, … |
 
-**Umgesetzt:** der eine Verlauf für alle Hub-Screens — 13 von 13.
+**Umgesetzt:** der eine Verlauf für alle Hub-Screens — 17 von 17. Das Array
+steht nur noch einmal in `Gradients.hub`; die 17 Verbraucher referenzieren
+den Token.
 
 ## Variante C — Vorrat, jetzt auf B umgestellt (war 1 Fundstelle)
 
@@ -74,15 +78,16 @@ Premium-Badge-Optik aus, nicht nach Drift.
 
 ## Zusammenfassung
 
-- **B ist der einzige Hub-Verlauf** (`['#FFCCB2', '#F9F2EB', '#E8DEF2']`) —
-  alle 13 Fundstellen sind umgestellt, reiner Farbwert-Tausch, keine
-  strukturellen Änderungen an den Screens.
-- **Noch offen, bewusst nicht Teil dieser Migration:** die 11 Screens, die
+- **B ist der einzige Hub-Verlauf.** Farben und Stop-Positionen liegen in
+  `Gradients.hub`; alle 17 Fundstellen in 12 Screen-Komponenten verwenden
+  den Token. Es gab keine strukturellen Änderungen an den Screens.
+- **Noch offen, bewusst nicht Teil dieser Migration:** die 10 Screens, die
   `<GradientBackground>` manuell statt über `Screen`s
   `backgroundGradient`-Prop einbinden, bauen ihre Struktur (Safe Area,
   `PageHeader`, Breite) weiterhin selbst nach — Migrations-Backlog-Punkt 1
-  aus `docs/DESIGN_SYSTEM.md`, wartet auf die Essensplaner-V2-Durchsicht als
-  Vorlage.
+  aus `docs/DESIGN_SYSTEM.md`. Die Essensplaner-V2 ist strukturell auf
+  `Screen` umgestellt und im Simulator geprüft; sie dient jetzt als Vorlage
+  für die übrigen Screens.
 - **D bleibt ein eigenständiger Fall** (Innenkarte, andere Farbfamilie, nur 2
   Stopps) — kein Kandidat für Konsolidierung mit B.
 
@@ -122,7 +127,8 @@ Schatten-Fix. Vorgemerkt als eigener, größerer Posten.
 
 ## Nächster Schritt
 
-Gradient- und Schattenfarben-Migration sind abgeschlossen. Offen bleibt die
-strukturelle `Screen`-Migration der 11 betroffenen Screens (s.
-Zusammenfassung oben) sowie die volle Theme-Anbindung von
+Gradient- und Schattenfarben-Migration sind abgeschlossen. Die separate
+Essensplaner-V2 belegt das Zielmuster. Offen bleiben ihre Übernahme als
+regulärer Essensplaner, die anschließende strukturelle `Screen`-Migration der
+übrigen betroffenen Screens sowie die volle Theme-Anbindung von
 `premium-promo-card.tsx`/`navigation-drawer.tsx`.

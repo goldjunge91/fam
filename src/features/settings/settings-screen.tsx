@@ -9,7 +9,7 @@ import { GradientBackground } from '@/components/gradient-background';
 import { PageHeader } from '@/components/page-header';
 import { FontSize, ThemedText } from '@/components/themed-text';
 import { Button, MenuButton, ProfileButton } from '@/components/ui/buttons';
-import { Radius, Spacing } from '@/constants/theme';
+import { Gradients, Radius, Spacing } from '@/constants/theme';
 import { useProfile } from '@/features/auth/api';
 import { useSession } from '@/features/auth/session-provider';
 import { signOutAndClearLocalData } from '@/features/auth/sign-out';
@@ -71,7 +71,7 @@ export function SettingsScreen() {
 
   return (
     <View style={styles.root}>
-      <GradientBackground colors={['#FFCCB2', '#F9F2EB', '#E8DEF2']} />
+      <GradientBackground {...Gradients.hub} />
       <SafeAreaView style={styles.safeArea} edges={['top', 'left', 'right']}>
         <PageHeader
           title="Einstellungen"

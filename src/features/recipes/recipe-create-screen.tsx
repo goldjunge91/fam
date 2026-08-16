@@ -7,7 +7,7 @@ import { GradientBackground } from '@/components/gradient-background';
 import { PageHeader } from '@/components/page-header';
 import { FontSize, ThemedText } from '@/components/themed-text';
 import { HeaderIconButton } from '@/components/ui/buttons';
-import { Radius } from '@/constants/theme';
+import { Gradients, Radius } from '@/constants/theme';
 import { useSession } from '@/features/auth/session-provider';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { persistOffProductIfNeeded } from '@/features/inventory/persist-off-product';
@@ -605,7 +605,7 @@ export function RecipeCreateScreen() {
 
   return (
     <View style={styles.root}>
-      <GradientBackground colors={['#FFCCB2', '#F9F2EB', '#E8DEF2']} />
+      <GradientBackground {...Gradients.hub} />
       <SafeAreaView style={styles.safeArea} edges={['top', 'left', 'right']}>
         <PageHeader
           title={isEditing ? 'Rezept bearbeiten' : 'Rezept erstellen'}

@@ -107,7 +107,8 @@ export function StoresScreen() {
     <Screen
       title="Märkte verwalten"
       subtitle={currentHousehold?.name}
-      back={{ label: 'Einstellungen', href: '/settings' }}>
+      back={{ label: 'Einstellungen', href: '/settings' }}
+      backStyle="icon">
       <Card title="Neuen Markt hinzufügen">
         <View style={styles.addBox}>
           <TextField

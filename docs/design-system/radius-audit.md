@@ -2,8 +2,9 @@
 
 > Bestandsaufnahme für Issue [#122](https://github.com/goldjunge91/fam/issues/122)
 > (Design-System). **Entschieden und umgesetzt (2026-08-16):** `Radius` in
-> `src/constants/theme.ts` mit 8 konsolidierten Werten. Migration der
-> bestehenden Fundstellen auf die Tokens steht noch aus.
+> `src/constants/theme.ts` mit 8 konsolidierten Werten. 228 von 233 aktuellen
+> Fundstellen verwenden die Tokens; vier weitere bleiben bewusst dynamisch
+> und eine Illustrations-Ausnahme bleibt lokal dokumentiert.
 
 ## Häufigkeit aller vorkommenden Werte
 
@@ -89,11 +90,13 @@ ist stark verstreut.
 
 ## Zusammenführung krummer Werte (zweiter Durchgang)
 
-Leitfrage: welche Werte liegen so dicht beieinander (≤ 2px), dass sie am
+Primäre Leitfrage: welche Werte liegen so dicht beieinander (≤ 2px), dass sie am
 Bildschirm nicht unterscheidbar sind und vermutlich nur Abtipp-Drift
 desselben Figma-Werts sind — im Gegensatz zu Werten, die trotz Nachbarschaft
 einen eigenen, deutlich gewichtigen Fundstellen-Block haben und daher
-vermutlich *bewusst* anders sind?
+vermutlich *bewusst* anders sind? Der breite Block `23–30 → 28` ist eine
+explizite Ausnahme von dieser Leitfrage und muss deshalb visuell geprüft
+werden; dort beträgt die größte Änderung 5px.
 
 **Klare Zusammenführungen** (kleiner/vereinzelter Wert kollabiert auf den
 dominanten Nachbarn):
@@ -106,7 +109,7 @@ dominanten Nachbarn):
 | **12** | 10, 11, 13 (+12) | wie vorgeschlagen: 10/11 nicht von 12 unterscheidbar, 13 liegt näher an 12 als an 14 | 11+11+4+25 = **51** |
 | **16** | 15 (+16) | 15 liegt näher an 16 (1px) als an 14 (1px) — aber 16 ist mit 31 Treffern der dominante Nachbar, 15 hat nur 3 | 3+31 = **34** |
 | **20** | 17, 18, 19, 21, 22 (+20) | erst 17/19 in 18 zusammengeführt, dann **18 selbst zusätzlich in 20 aufgelöst** (nur 2px auseinander, keine zwei eigenständigen Stufen nötig) — macht 20 zum alleinigen Wert für den ganzen 17–22-Bereich | 6+10+6+2+3+20 = **47** |
-| **28** | 23, 24, 25, 27, 29, 30 | breiterer, aber schwach besetzter Rand um 28 — einziger Wert im Bereich 21–30 mit echtem Gewicht (8 Treffer, u. a. `card.tsx`) | 2+2+1+2+2+1+8 = **18** |
+| **28** | 23, 24, 25, 27, 29, 30 | vorläufige Konsolidierung für große Karten; 23–25 ändern sich um 3–5px und brauchen eine visuelle Abnahme | 2+2+1+2+2+1+8 = **18** |
 
 **Entschieden (2026-08-16) — 14px bleibt eigene Stufe.** Lag exakt zwischen
 12 (51 nach Zusammenführung) und 16 (34 nach Zusammenführung), war aber mit
@@ -114,11 +117,14 @@ dominanten Nachbarn):
 kollabieren — bleibt eine vierte, eigenständige Stufe zwischen 12 und 16
 (u. a. `segmented-control.tsx`, `meal-planner-screen.tsx` nutzen 14 gezielt).
 
-**Nicht zusammengeführt — echter Sondertail (32, 33, 36, 39, 40, 48):**
-6 Werte, je 1–2 Treffer, weit gestreut (kein enges Band). Sieht nach
-einzelnen großen/Hero-Elementen aus (große Illustrationskarten, runde
-Avatare), nicht nach einer eigenen Stufe. Vorschlag: kein Token dafür, diese
-Stellen bleiben bewusste Einzelfälle mit eigenem `borderRadius`-Wert.
+**Sondertail aufgeteilt:** `32`, `39` und `48` beschreiben an fünf Stellen
+echte Kreise (64×64, 78×78 oder 96×96) und werden deshalb ohne sichtbare
+Änderung `Radius.pill`. Die Dashboard-Werte `33` und `36` wurden visuell mit
+2, 28, 32 und dem Ausgangszustand verglichen; entschieden wurde
+`Radius.large` (28px) für beide Karten. `40` gehört zu einem
+128×128-Illustrationshintergrund und bleibt bewusst lokal: `Radius.large`
+würde die bestehende Form sichtbar verändern, `Radius.pill` sie zum Kreis
+machen, und eine einzelne Verwendung rechtfertigt keinen globalen Token.
 
 ## Ergebnis: konsolidierte Skala — final, umgesetzt
 
@@ -150,6 +156,24 @@ Zwischenschritt aus dem Figma-File.
 - `Radius.large` = **28** (große Karten, z. B. `Card`-Komponente)
 - `Radius.pill` = **999** (voll gerundet, unabhängig von der Elementhöhe)
 
-Skala und Tokens sind final. **Noch offen:** die eigentliche Migration der
-bestehenden Fundstellen von rohen `borderRadius`-Zahlen auf `Radius.*` —
-noch nicht umgesetzt, eigener Durchgang.
+## Aktueller Migrationsstand
+
+| Gruppe | Anzahl | Entscheidung |
+| --- | ---: | --- |
+| `Radius.*` | 228 | migriert |
+| Dynamisch (`height / 2`, responsive Week-Grid-Werte) | 4 | bewusst unverändert |
+| Lokale Illustrations-Ausnahme | 1 | `animated-icon.tsx` bleibt bei 40px |
+
+**Abschlussregel (2026-08-16):** Sichere exakte Zuordnungen wurden direkt
+migriert. Ungeklärte Zwischenwerte gehen auf den jeweils nächstgrößeren
+Token. Dadurch verwendet `settings-menu.tsx` für `groupBody` jetzt
+`Radius.large` (24 → 28px). Echte Kreise verwenden unabhängig von ihrer
+Größe `Radius.pill`.
+
+**Entschieden:** `dashboard-screen.tsx` verwendet für `plannedCard` und
+`calorieCard` einheitlich `Radius.large` (28px).
+
+Damit ist die statische Radius-Migration abgeschlossen: Es gibt keine
+verbleibenden Radius-Werte aus `Spacing.*` und keine numerischen Kreisradien.
+Die vier berechneten Radien sind Teil ihrer Größenlogik. Für den einzelnen
+`AnimatedIcon` rechtfertigt 40px keinen globalen Token.

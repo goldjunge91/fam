@@ -15,7 +15,7 @@ import { GradientBackground } from '@/components/gradient-background';
 import { PageHeader } from '@/components/page-header';
 import { FontSize, ThemedText } from '@/components/themed-text';
 import { HeaderIconButton } from '@/components/ui/buttons';
-import { Radius } from '@/constants/theme';
+import { Gradients, Radius } from '@/constants/theme';
 import type { MealType } from '@/features/calorie-tracking/api';
 import { useTheme } from '@/hooks/use-theme';
 import { calculateAdjustedServingNutrition } from './nutrition';
@@ -131,7 +131,7 @@ export function RecipeLogScreen() {
 
   return (
     <View style={styles.root}>
-      <GradientBackground colors={['#FFCCB2', '#F9F2EB', '#E8DEF2']} />
+      <GradientBackground {...Gradients.hub} />
       <SafeAreaView style={styles.safeArea} edges={['top', 'left', 'right']}>
         <PageHeader
           title="Fertig"

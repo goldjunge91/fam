@@ -6,7 +6,7 @@ import { GradientBackground } from '@/components/gradient-background';
 import { PageHeader } from '@/components/page-header';
 import { FontSize, ThemedText } from '@/components/themed-text';
 import { BackButton, Button } from '@/components/ui/buttons';
-import { Radius, Spacing } from '@/constants/theme';
+import { Gradients, Radius, Spacing } from '@/constants/theme';
 import { presentCustomerCenter, presentPaywall } from '@/features/premium/paywall';
 import { usePremium } from '@/features/premium/premium-provider';
 import { SettingsGroup, SettingsRow } from '@/features/settings/settings-menu';
@@ -88,7 +88,7 @@ export function PremiumScreen() {
 
   return (
     <View style={styles.root}>
-      <GradientBackground colors={['#FFCCB2', '#F9F2EB', '#E8DEF2']} />
+      <GradientBackground {...Gradients.hub} />
       <SafeAreaView style={styles.safeArea} edges={['top', 'left', 'right']}>
         <PageHeader
           title="fam Premium"

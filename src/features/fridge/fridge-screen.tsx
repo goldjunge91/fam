@@ -7,7 +7,7 @@ import { EmptyState } from '@/components/empty-state';
 import { Screen } from '@/components/screen';
 import { ThemedText } from '@/components/themed-text';
 import { Button } from '@/components/ui/buttons';
-import { Radius, Spacing, withAlpha } from '@/constants/theme';
+import { Gradients, Radius, Spacing, withAlpha } from '@/constants/theme';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { ProductDetailModal } from '@/features/inventory/product-detail-modal';
 import { useStorageLocations } from '@/features/inventory/use-storage-locations';
@@ -125,7 +125,7 @@ export function FridgeScreen() {
 
   if (!householdId) {
     return (
-      <Screen title="Vorrat" subtitle="Für alle im Haushalt sichtbar" chrome={chrome}>
+      <Screen title="Vorrat" chrome={chrome}>
         <Card>
           <EmptyState
             symbol="archivebox"
@@ -143,11 +143,7 @@ export function FridgeScreen() {
       : (locations.find((location) => location.id === selectedLocationId)?.name ?? 'Vorrat');
 
   return (
-    <Screen
-      title="Vorrat"
-      subtitle="Für alle im Haushalt sichtbar"
-      chrome={chrome}
-      backgroundGradient={['#FFCCB2', '#F9F2EB', '#E8DEF2']}>
+    <Screen title="Vorrat" chrome={chrome} backgroundGradient={Gradients.hub}>
       <FridgeSummaryCard
         totalCount={allItems.length}
         criticalCount={expiryCounts.critical}

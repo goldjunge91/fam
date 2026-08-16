@@ -478,7 +478,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     width: 64,
     height: 64,
-    borderRadius: 32,
+    borderRadius: Radius.pill,
   },
   iconCircle: {
     width: 48,

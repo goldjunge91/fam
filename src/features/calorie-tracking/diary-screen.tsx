@@ -11,7 +11,7 @@ import { ProgressBar } from '@/components/progress-bar';
 import { ProgressRing } from '@/components/progress-ring';
 import { FontSize, ThemedText } from '@/components/themed-text';
 import { HeaderIconButton, MenuButton } from '@/components/ui/buttons';
-import { Radius } from '@/constants/theme';
+import { Gradients, Radius } from '@/constants/theme';
 import { useSession } from '@/features/auth/session-provider';
 import { useActiveProfile } from '@/features/calorie-tracking/active-profile-store';
 import {
@@ -246,7 +246,7 @@ export function DiaryScreen() {
 
   return (
     <View style={styles.root}>
-      <GradientBackground colors={['#FFCCB2', '#F9F2EB', '#E8DEF2']} />
+      <GradientBackground {...Gradients.hub} />
       <SafeAreaView style={styles.safeArea} edges={['top', 'left', 'right']}>
         <PageHeader
           title="Tagebuch"

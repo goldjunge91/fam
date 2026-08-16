@@ -10,7 +10,7 @@ import { GradientBackground } from '@/components/gradient-background';
 import { PageHeader } from '@/components/page-header';
 import { FontSize, ThemedText } from '@/components/themed-text';
 import { HeaderIconButton } from '@/components/ui/buttons';
-import { Radius } from '@/constants/theme';
+import { Gradients, Radius } from '@/constants/theme';
 import { useTheme } from '@/hooks/use-theme';
 import { RecipeRatingSheet } from './components/recipe-rating-sheet';
 import { RecipeShoppingSheet } from './components/recipe-shopping-sheet';
@@ -312,7 +312,7 @@ export function RecipeDetailScreen() {
   if (isLoading || !data) {
     return (
       <View style={styles.root}>
-        <GradientBackground colors={['#FFCCB2', '#F9F2EB', '#E8DEF2']} />
+        <GradientBackground {...Gradients.hub} />
         <SafeAreaView style={styles.safeArea} edges={['top', 'left', 'right']}>
           <PageHeader
             title="Rezept"
@@ -342,7 +342,7 @@ export function RecipeDetailScreen() {
 
   return (
     <View style={styles.root}>
-      <GradientBackground colors={['#FFCCB2', '#F9F2EB', '#E8DEF2']} />
+      <GradientBackground {...Gradients.hub} />
       <SafeAreaView style={styles.safeArea} edges={['top', 'left', 'right']}>
         <PageHeader
           title="Rezept"
