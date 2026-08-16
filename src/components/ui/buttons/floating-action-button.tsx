@@ -30,12 +30,12 @@ export function FloatingActionButton({ label, onPress, children }: FloatingActio
 
 const styles = StyleSheet.create({
   button: {
-    width: 78,
-    height: 78,
+    width: 75,
+    height: 75,
     borderRadius: Radius.pill,
     borderCurve: 'continuous',
     alignItems: 'center',
     justifyContent: 'center',
-    transform: [{ translateY: -20 }],
+    transform: [{ translateY: 0 }],
   },
 });

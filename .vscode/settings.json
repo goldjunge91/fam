@@ -1,13 +1,23 @@
 {
   "editor.codeActionsOnSave": {
-    "source.fixAll": "explicit",
-    "source.organizeImports": "explicit",
-    "source.sortMembers": "explicit"
+    "source.fixAll": "explicit"
   },
-  "testExplorer.addToEditorContextMenu": true,
-  "testExplorer.hideEmptyLog": true,
-  "testExplorer.mergeSuites": true,
-  "testExplorer.showOnRun": true,
+  "[typescript]": {
+    "editor.defaultFormatter": "biomejs.biome",
+    "editor.codeActionsOnSave": {
+      "source.fixAll.biome": "explicit",
+      "source.organizeImports": "never",
+      "source.sortMembers": "never"
+    }
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "biomejs.biome",
+    "editor.codeActionsOnSave": {
+      "source.fixAll.biome": "explicit",
+      "source.organizeImports": "never",
+      "source.sortMembers": "never"
+    }
+  },
   "telemetry.feedback.enabled": false,
   "chat.mcp.serverSampling": {
     "fam/.vscode/mcp.json: expo": {
@@ -28,5 +38,5 @@
         }
       }
     ]
-  }
+  },
 }
