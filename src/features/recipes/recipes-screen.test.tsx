@@ -1,4 +1,4 @@
-import { render, screen, userEvent } from '@testing-library/react-native';
+import { render, screen, userEvent, within } from '@testing-library/react-native';
 import { router } from 'expo-router';
 
 import type { RecipeTemplateWithNutrition } from '@/features/recipe-templates/use-recipe-templates';
@@ -171,6 +171,25 @@ describe('RecipesScreen — Entdecken', () => {
 });
 
 describe('RecipesScreen — Vorlagen', () => {
+  it('zeigt fuer jede Mahlzeit einen eigenen horizontalen Rezept-Carousel', async () => {
+    mockTemplates = [
+      makeTemplate({ id: 'breakfast-1', title: 'Porridge', dish_types: ['breakfast'] }),
+      makeTemplate({ id: 'breakfast-2', title: 'Omelett', dish_types: ['breakfast'] }),
+      makeTemplate({ id: 'dinner-1', title: 'Curry', dish_types: ['dinner'] }),
+    ];
+    await render(<RecipesScreen />);
+
+    const breakfastCarousel = screen.getByLabelText('Frühstück Rezepte');
+    const dinnerCarousel = screen.getByLabelText('Abendessen Rezepte');
+
+    expect(breakfastCarousel).toHaveProp('role', 'list');
+    expect(breakfastCarousel).toHaveProp('horizontal', true);
+    expect(dinnerCarousel).toHaveProp('role', 'list');
+    expect(dinnerCarousel).toHaveProp('horizontal', true);
+    expect(within(breakfastCarousel).getByRole('button', { name: 'Porridge' })).toBeOnTheScreen();
+    expect(within(dinnerCarousel).getByRole('button', { name: 'Curry' })).toBeOnTheScreen();
+  });
+
   it('öffnet fam-Vorlagen in der Vorlagen-Detailansicht', async () => {
     const user = userEvent.setup();
     mockTemplates = [makeTemplate({ id: 't1', title: 'Fam Ofengemüse' })];
