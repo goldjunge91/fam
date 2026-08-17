@@ -19,12 +19,8 @@ export function SectionHeading({
   return (
     <View style={styles.row}>
       <View style={styles.titleWrap}>
-        {eyebrow ? (
-          <ThemedText themeColor="textSecondary" style={styles.eyebrow}>
-            {eyebrow}
-          </ThemedText>
-        ) : null}
-        <ThemedText style={styles.title}>{title}</ThemedText>
+        {eyebrow ? <ThemedText type="title">{eyebrow}</ThemedText> : null}
+        <ThemedText type="subheading">{title}</ThemedText>
       </View>
       {actionLabel && onActionPress ? (
         <Pressable
@@ -53,18 +49,6 @@ const styles = StyleSheet.create({
   },
   titleWrap: {
     flexShrink: 1,
-  },
-  eyebrow: {
-    ...FontSize[9],
-    lineHeight: 11,
-    fontWeight: 600,
-    textTransform: 'uppercase',
-    letterSpacing: 0.7,
-  },
-  title: {
-    ...FontSize[14],
-    lineHeight: 18,
-    fontWeight: 700,
   },
   action: {
     ...FontSize[11],

@@ -112,12 +112,30 @@ beforeEach(() => {
   mockAddMutate.mockClear();
 });
 
+afterEach(() => {
+  jest.useRealTimers();
+});
+
 describe('MealPlannerScreen', () => {
   it('zeigt den Titel und den zugeordneten Wochenplan-Eintrag', async () => {
+    // `MealPlannerScreen` waehlt die Standardwoche ueber `todayIso()` (reale
+    // Wanduhr). Ohne fixierte Systemzeit ist der Test an Zeitzonen-/
+    // Datumsgrenzen flaky: faellt "heute" auf einen anderen Tag als den
+    // gemockten Eintrag (2026-08-17), rendert der Screen eine andere Woche
+    // und der Eintrag fehlt. Kein `userEvent` in diesem Test, daher kein
+    // Konflikt mit dessen internen Timern (siehe food-search-screen.test.tsx).
+    jest.useFakeTimers();
+    jest.setSystemTime(new Date('2026-08-17T12:00:00Z'));
+
     await renderScreen();
 
     expect(screen.getByText('Essensplan')).toBeOnTheScreen();
-    expect(screen.getByText('Spaghetti Bolognese')).toBeOnTheScreen();
+    // `getByText` waere hier mehrdeutig: das Zieh-Tray listet denselben
+    // Rezeptnamen zusaetzlich als Vorschlag. Der Kalendereintrag selbst hat
+    // ein eigenes `aria-label`, darueber ist er eindeutig zu finden.
+    expect(
+      screen.getByRole('button', { name: 'Spaghetti Bolognese, 4 Portionen' }),
+    ).toBeOnTheScreen();
   });
 
   it('zeigt die Ansichts-Umschalter Tag/3 Tage/Woche, Woche als Standard', async () => {

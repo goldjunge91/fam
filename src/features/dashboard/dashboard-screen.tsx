@@ -248,7 +248,7 @@ export function DashboardScreen() {
                 boxShadow: `0 8px 20px ${withAlpha(theme.shadowCard, 0.08)}`,
               },
             ]}>
-            <View style={[styles.widgetBadge, { backgroundColor: `${theme.accent}26` }]}>
+            <View style={[styles.widgetBadge, { backgroundColor: withAlpha(theme.accent, 0.15) }]}>
               <ThemedText type="smallBold" themeColor="accent">
                 {openShoppingCount}
               </ThemedText>

@@ -30,6 +30,12 @@ module.exports = {
   // `bun run test` unter Last, nicht bei isolierten Laeufen.
   testTimeout: 15000,
 
+  // Default (numCPUs - 1, hier 7) laesst Suiten mit echten Timern/Intervallen
+  // (z. B. PendingAuthBanner) unter voller CPU-Konkurrenz an testTimeout
+  // reissen. Weniger parallele Worker halten die Wall-Clock-Zeit pro Test
+  // naeher an der isolierten Laufzeit, auf Kosten der Gesamtlaufzeit.
+  maxWorkers: '50%',
+
   // Spiegelt die Pfad-Aliase aus tsconfig.json. Die spezifischere
   // `@/assets/`-Regel muss vor `@/` stehen, sonst greift sie nie.
   moduleNameMapper: {

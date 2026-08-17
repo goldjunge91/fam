@@ -122,7 +122,7 @@ const styles = StyleSheet.create({
     letterSpacing: 0.5,
   },
   groupBody: {
-    borderRadius: Radius.large,
+    borderRadius: Spacing.four,
     paddingHorizontal: Spacing.three,
   },
   row: {

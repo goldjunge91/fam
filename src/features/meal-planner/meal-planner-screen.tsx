@@ -36,43 +36,14 @@ import {
 } from './use-meal-plans';
 import {
   getWeekStart,
+  periodLabel,
   rangeDates,
   shiftAnchor,
+  todayIso,
   VIEW_MODE_LABELS,
   VIEW_MODES,
   type ViewMode,
 } from './week';
-
-function todayIso(): string {
-  const now = new Date();
-  const pad = (n: number) => String(n).padStart(2, '0');
-  return `${now.getFullYear()}-${pad(now.getMonth() + 1)}-${pad(now.getDate())}`;
-}
-
-const MONTH_LABELS = [
-  'Januar',
-  'Februar',
-  'März',
-  'April',
-  'Mai',
-  'Juni',
-  'Juli',
-  'August',
-  'September',
-  'Oktober',
-  'November',
-  'Dezember',
-];
-
-function periodLabel(dates: readonly string[]) {
-  const start = dates[0].split('-').map(Number);
-  const end = dates[dates.length - 1].split('-').map(Number);
-  const sameMonth = start[0] === end[0] && start[1] === end[1];
-
-  if (dates.length === 1) return `${start[2]}. ${MONTH_LABELS[start[1] - 1]}`;
-  if (sameMonth) return `${start[2]}.–${end[2]}. ${MONTH_LABELS[end[1] - 1]}`;
-  return `${start[2]}. ${MONTH_LABELS[start[1] - 1]}–${end[2]}. ${MONTH_LABELS[end[1] - 1]}`;
-}
 
 type PendingDrop = { date: string; slot: MealSlot; recipe: DraggableRecipe };
 type PendingCell = { date: string; slot: MealSlot };
