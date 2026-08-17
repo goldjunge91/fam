@@ -1,11 +1,11 @@
 import { memo } from 'react';
-import { Pressable, StyleSheet, View } from 'react-native';
+import { Pressable, View } from 'react-native';
 import ReanimatedSwipeable, {
   type SwipeableMethods,
 } from 'react-native-gesture-handler/ReanimatedSwipeable';
 
 import { ThemedText } from '@/components/themed-text';
-import { Radius, Spacing, type ThemeColor } from '@/constants/theme';
+import type { ThemeColor } from '@/constants/theme';
 import { useTheme } from '@/hooks/use-theme';
 import { formatAmount, formatPackageHint } from '@/lib/package-size';
 
@@ -66,12 +66,8 @@ export const FridgeItemRow = memo(function FridgeItemRow({
           swipeable.close();
           onRemove();
         }}
-        style={({ pressed }) => [
-          styles.removeAction,
-          { backgroundColor: theme.danger },
-          pressed && styles.pressed,
-        ]}>
-        <ThemedText type="smallBold" style={styles.removeLabel}>
+        className="fridge-item-remove-action">
+        <ThemedText type="smallBold" className="text-white">
           Entfernen
         </ThemedText>
       </Pressable>
@@ -85,7 +81,9 @@ export const FridgeItemRow = memo(function FridgeItemRow({
       rightThreshold={48}
       overshootRight={false}
       renderRightActions={renderRemoveAction}
-      containerStyle={styles.swipeContainer}
+      // ReanimatedSwipeable (react-native-gesture-handler) ist nicht
+      // NativeWind-registriert — className wird ignoriert, style bleibt.
+      containerStyle={{ overflow: 'hidden' }}
       childrenContainerStyle={{ backgroundColor: theme.backgroundElement }}>
       <Pressable
         onPress={onPress}
@@ -93,12 +91,12 @@ export const FridgeItemRow = memo(function FridgeItemRow({
         accessibilityRole="button"
         accessibilityLabel={`${item.name}, ${amount}${packageHint ? `, ${packageHint}` : ''}`}
         accessibilityHint="Tippen für Aktionen, lang drücken für Produktinformationen, nach links wischen zum Entfernen"
-        style={[styles.itemRow, { borderBottomColor: theme.border }]}>
-        {/* MHD-Ampel — linker farbiger Streifen */}
-        <View style={[styles.expiryBar, { backgroundColor: borderColor }]} />
+        className="fridge-item-row">
+        {/* MHD-Ampel — linker farbiger Streifen, Farbe pro Item dynamisch. */}
+        <View className="fridge-item-expiry-bar" style={{ backgroundColor: borderColor }} />
 
         {/* Inhalt */}
-        <View style={styles.itemMain}>
+        <View className="fridge-item-main">
           <ThemedText type="smallBold">{item.name}</ThemedText>
           {meta ? (
             <ThemedText type="small" themeColor="textSecondary" numberOfLines={1}>
@@ -107,51 +105,14 @@ export const FridgeItemRow = memo(function FridgeItemRow({
           ) : null}
         </View>
 
-        <ThemedText type="smallBold" style={styles.quantity}>
+        {/* fontVariant hat keine Tailwind-Entsprechung. */}
+        <ThemedText
+          type="smallBold"
+          className="fridge-item-quantity"
+          style={{ fontVariant: ['tabular-nums'] }}>
           {amount}
         </ThemedText>
       </Pressable>
     </ReanimatedSwipeable>
   );
-});
-
-const styles = StyleSheet.create({
-  swipeContainer: {
-    overflow: 'hidden',
-  },
-  itemRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    paddingLeft: Spacing.two,
-    paddingRight: Spacing.three,
-    paddingVertical: 13,
-    borderBottomWidth: StyleSheet.hairlineWidth,
-    gap: 14,
-  },
-  expiryBar: {
-    width: 5,
-    height: '100%',
-    minHeight: 48,
-    borderRadius: Radius.xs,
-  },
-  itemMain: {
-    flex: 1,
-    gap: Spacing.half,
-  },
-  quantity: {
-    minWidth: 58,
-    textAlign: 'right',
-    fontVariant: ['tabular-nums'],
-  },
-  removeAction: {
-    width: 96,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  removeLabel: {
-    color: '#ffffff',
-  },
-  pressed: {
-    opacity: 0.78,
-  },
 });

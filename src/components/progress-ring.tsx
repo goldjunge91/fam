@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { View } from 'react-native';
 import Animated, {
   useAnimatedProps,
   useReducedMotion,
@@ -8,8 +8,7 @@ import Animated, {
 } from 'react-native-reanimated';
 import Svg, { Circle } from 'react-native-svg';
 
-import { FontSize, ThemedText } from '@/components/themed-text';
-import { Spacing } from '@/constants/theme';
+import { ThemedText } from '@/components/themed-text';
 import { useTheme } from '@/hooks/use-theme';
 
 const AnimatedCircle = Animated.createAnimatedComponent(Circle);
@@ -85,7 +84,7 @@ export function ProgressRing({
 
   return (
     <View
-      style={styles.container}
+      className="items-center justify-center self-center"
       accessible
       accessibilityRole="progressbar"
       accessibilityLabel={accessibilityLabel}>
@@ -113,19 +112,19 @@ export function ProgressRing({
         />
       </Svg>
 
-      <View style={styles.center}>
+      <View className="absolute inset-0 items-center justify-center gap-half [pointer-events:none]">
         {displayMode === 'percent' ? (
-          <ThemedText type="smallBold" style={styles.percentText}>
+          <ThemedText type="smallBold" className="text-body-lg">
             {Math.round(clamped * 100)}%
           </ThemedText>
         ) : displayMode === 'remaining' ? (
           <>
-            <ThemedText style={styles.remainingValue}>
+            <ThemedText className="text-[24px] leading-[28px] font-bold tracking-[-0.5px]">
               {target > 0 ? Math.abs(remaining) : Math.round(value)}
             </ThemedText>
             <ThemedText
               themeColor={exceeded ? 'warning' : 'textSecondary'}
-              style={styles.remainingLabel}>
+              className="text-micro leading-[12px] font-semibold">
               {target > 0 ? `${unit} ${exceeded ? 'darüber' : 'übrig'}` : unit}
             </ThemedText>
           </>
@@ -139,7 +138,7 @@ export function ProgressRing({
               <ThemedText
                 type="small"
                 themeColor={exceeded ? 'warning' : 'textSecondary'}
-                style={styles.remaining}>
+                className="mt-half">
                 {exceeded ? `${Math.abs(remaining)} darüber` : `${remaining} übrig`}
               </ThemedText>
             ) : null}
@@ -149,41 +148,3 @@ export function ProgressRing({
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    alignSelf: 'center',
-  },
-  center: {
-    // Nicht StyleSheet.absoluteFillObject: das Feld fehlt in den RN-0.86-Typen.
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
-    alignItems: 'center',
-    justifyContent: 'center',
-    gap: Spacing.half,
-    // Als Prop ist pointerEvents seit RN 0.76 deprecated, im Style ist es korrekt.
-    pointerEvents: 'none',
-  },
-  remaining: {
-    marginTop: Spacing.half,
-  },
-  percentText: {
-    ...FontSize[18],
-  },
-  remainingValue: {
-    ...FontSize[24],
-    lineHeight: 28,
-    fontWeight: 700,
-    letterSpacing: -0.5,
-  },
-  remainingLabel: {
-    ...FontSize[9],
-    lineHeight: 12,
-    fontWeight: 600,
-  },
-});

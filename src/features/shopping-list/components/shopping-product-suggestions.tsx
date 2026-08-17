@@ -1,9 +1,7 @@
-import { Pressable, StyleSheet, View } from 'react-native';
+import { Pressable, View } from 'react-native';
 
 import { SegmentedControl } from '@/components/segmented-control';
-import { ThemedText, Typography } from '@/components/themed-text';
-import { Radius, Spacing } from '@/constants/theme';
-import { useTheme } from '@/hooks/use-theme';
+import { ThemedText } from '@/components/themed-text';
 import type { OpenFoodFactsProduct } from '@/lib/open-food-facts';
 
 import {
@@ -58,11 +56,10 @@ export function ShoppingProductSuggestions({
   selectedName,
   onSelect,
 }: ShoppingProductSuggestionsProps) {
-  const theme = useTheme();
   const { data: suggestions = [] } = useShoppingProductSuggestions({ userId, householdId, mode });
 
   return (
-    <View style={styles.root}>
+    <View className="col-gap">
       <SegmentedControl
         label="Produktvorschläge"
         options={[
@@ -74,11 +71,10 @@ export function ShoppingProductSuggestions({
         appearance="surface"
         size="compact"
         gap={3}
-        labelStyle={styles.tabLabel}
       />
 
       {suggestions.length > 0 ? (
-        <View style={styles.cards}>
+        <View className="input-row">
           {suggestions.map((suggestion) => {
             const selected = selectedName.trim().toLowerCase() === suggestion.name.toLowerCase();
             return (
@@ -91,24 +87,16 @@ export function ShoppingProductSuggestions({
                   suggestion.quantity,
                   suggestion.unit,
                 )}`}
-                style={({ pressed }) => [
-                  styles.card,
-                  {
-                    backgroundColor: selected ? `${theme.accent}0D` : theme.backgroundElement,
-                    borderColor: selected ? theme.accent : theme.border,
-                  },
-                  pressed && styles.pressed,
-                ]}>
-                <ThemedText type="label" numberOfLines={1} style={styles.name}>
+                className={`suggestion-card ${
+                  selected ? 'selectable-selected' : 'selectable-idle'
+                }`}>
+                <ThemedText type="labelBold" numberOfLines={1}>
                   {suggestion.name}
                 </ThemedText>
-                <ThemedText type="caption" themeColor="textSecondary" style={styles.meta}>
+                <ThemedText type="captionMuted">
                   {formatPackageSize(suggestion.quantity, suggestion.unit)}
                 </ThemedText>
-                <ThemedText
-                  type="caption"
-                  style={[styles.store, { color: theme.accent }]}
-                  numberOfLines={1}>
+                <ThemedText type="caption" themeColor="accent" numberOfLines={1}>
                   {suggestion.last_store_name
                     ? `Zuletzt: ${suggestion.last_store_name}`
                     : 'Ohne Liste'}
@@ -121,38 +109,3 @@ export function ShoppingProductSuggestions({
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  root: {
-    gap: Spacing.two,
-  },
-  cards: {
-    flexDirection: 'row',
-    gap: Spacing.two,
-  },
-  card: {
-    flex: 1,
-    minWidth: 0,
-    minHeight: 75,
-    justifyContent: 'center',
-    borderWidth: 1,
-    borderRadius: Radius.control,
-    borderCurve: 'continuous',
-    padding: Spacing.two,
-  },
-  name: {
-    fontWeight: 700,
-  },
-  meta: {
-    fontWeight: 500,
-  },
-  store: {
-    fontWeight: 500,
-  },
-  tabLabel: {
-    ...Typography.label,
-  },
-  pressed: {
-    opacity: 0.72,
-  },
-});

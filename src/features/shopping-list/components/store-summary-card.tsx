@@ -1,9 +1,7 @@
-import { Pressable, StyleSheet, View } from 'react-native';
+import { Pressable, View } from 'react-native';
 
 import { ProgressBar } from '@/components/progress-bar';
-import { FontSize, ThemedText } from '@/components/themed-text';
-import { Radius, Spacing } from '@/constants/theme';
-import { useTheme } from '@/hooks/use-theme';
+import { ThemedText } from '@/components/themed-text';
 import { formatEuro } from '@/lib/format-currency';
 
 interface StoreSummaryCardProps {
@@ -28,7 +26,6 @@ export function StoreSummaryCard({
   totalEstimate,
   onPress,
 }: StoreSummaryCardProps) {
-  const theme = useTheme();
   const progress = totalCount > 0 ? checkedCount / totalCount : 0;
 
   return (
@@ -36,62 +33,28 @@ export function StoreSummaryCard({
       onPress={onPress}
       accessibilityRole="button"
       accessibilityLabel={`${name}, ${checkedCount} von ${totalCount} Artikeln, ${formatEuro(totalEstimate)} geschätzt`}
-      style={[styles.card, { backgroundColor: theme.backgroundElement }]}>
-      <View style={[styles.stripe, { backgroundColor: color }]} />
+      className="store-summary-card">
+      {/* Dynamische Markt-Farbe aus der Datenbank */}
+      <View className="store-summary-stripe" style={{ backgroundColor: color }} />
 
-      <View style={styles.info}>
+      <View className="flex-1 gap-1">
         <ThemedText type="smallBold">{name}</ThemedText>
-        <ThemedText type="small" themeColor="textSecondary">
+        <ThemedText type="smallMuted">
           {checkedCount} von {totalCount} Artikeln erledigt
         </ThemedText>
-        <View style={styles.progressWrap}>
+        <View className="mt-[5px]">
           <ProgressBar value={progress} color={color} />
         </View>
       </View>
 
-      <View style={styles.priceBlock}>
+      <View className="items-end gap-[2px]">
         <ThemedText type="smallBold">{formatEuro(totalEstimate)}</ThemedText>
-        <ThemedText type="small" themeColor="textSecondary">
-          geschätzt
-        </ThemedText>
+        <ThemedText type="smallMuted">geschätzt</ThemedText>
       </View>
 
-      <ThemedText themeColor="textSecondary" style={styles.chevron}>
+      <ThemedText type="subtitle" themeColor="textSecondary">
         ›
       </ThemedText>
     </Pressable>
   );
 }
-
-const styles = StyleSheet.create({
-  card: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: Spacing.three,
-    // Gleicher Radius wie components/card.tsx — beides "surface-elevated"-Flaechen.
-    borderRadius: Radius.large,
-    paddingVertical: Spacing.three,
-    paddingLeft: Spacing.two,
-    paddingRight: Spacing.three,
-    overflow: 'hidden',
-  },
-  stripe: {
-    width: 5,
-    alignSelf: 'stretch',
-    borderRadius: Radius.hairline,
-  },
-  info: {
-    flex: 1,
-    gap: 4,
-  },
-  progressWrap: {
-    marginTop: 5,
-  },
-  priceBlock: {
-    alignItems: 'flex-end',
-    gap: 2,
-  },
-  chevron: {
-    ...FontSize[20],
-  },
-});

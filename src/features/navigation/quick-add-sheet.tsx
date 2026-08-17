@@ -2,8 +2,8 @@ import { router } from 'expo-router';
 import { Modal, Pressable, StyleSheet, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
-import { FontSize, ThemedText } from '@/components/themed-text';
-import { Radius, withAlpha } from '@/constants/theme';
+import { ThemedText } from '@/components/themed-text';
+import { withAlpha } from '@/constants/theme';
 import type { MealType } from '@/features/calorie-tracking/api';
 import { useDeferredMount } from '@/hooks/use-deferred-mount';
 import { useTheme } from '@/hooks/use-theme';
@@ -95,43 +95,50 @@ function QuickAddSheetContent() {
       onRequestClose={closeQuickAdd}>
       <View style={StyleSheet.absoluteFill}>
         <Pressable
-          style={styles.dim}
+          className="sheet-dim"
           onPress={closeQuickAdd}
           accessibilityRole="button"
           accessibilityLabel="Schließen"
         />
         <View
-          style={[
-            styles.sheet,
-            {
-              backgroundColor: theme.backgroundElement,
-              bottom: Math.max(insets.bottom / 3, 10),
-              boxShadow: `0 -8px 28px ${withAlpha(theme.shadowSheet, 0.18)}`,
-            },
-          ]}>
-          <View style={styles.handleArea}>
-            <View style={[styles.handle, { backgroundColor: theme.border }]} />
+          className="quick-add-sheet bg-background-element"
+          // bottom (Safe-Area-Insets) und boxShadow (dynamische Opazitaet)
+          // sind echte Laufzeitwerte. borderCurve hat keine Tailwind-
+          // Entsprechung (natives iOS-"Squircle"-Rendering).
+          style={{
+            bottom: Math.max(insets.bottom / 3, 10),
+            boxShadow: `0 -8px 28px ${withAlpha(theme.shadowSheet, 0.18)}`,
+            borderCurve: 'continuous',
+          }}>
+          <View className="quick-add-handle-area">
+            <View className="quick-add-handle" />
           </View>
 
-          <ThemedText type="smallBold" style={styles.title}>
+          <ThemedText type="smallBold" className="quick-add-title">
             Neu hinzufügen
           </ThemedText>
-          <ThemedText type="small" themeColor="textSecondary" style={styles.subtitle}>
+          <ThemedText type="small" themeColor="textSecondary" className="quick-add-subtitle">
             Wähle, wo dein neuer Eintrag hingehört.
           </ThemedText>
 
-          <View style={styles.grid}>
+          <View className="quick-add-grid">
             {OPTIONS.map((option) => (
               <Pressable
                 key={option.title}
                 onPress={() => go(typeof option.href === 'function' ? option.href() : option.href)}
                 accessibilityRole="button"
-                style={[styles.tile, { backgroundColor: option.backgroundColor }]}>
-                <View style={styles.tileIcon} />
-                <ThemedText type="smallBold" style={styles.tileTitle}>
+                className="quick-add-tile"
+                // backgroundColor variiert pro Kachel (Datenobjekt), kein
+                // fester Token; borderCurve wie oben.
+                style={{ backgroundColor: option.backgroundColor, borderCurve: 'continuous' }}>
+                <View className="quick-add-tile-icon" style={{ borderCurve: 'continuous' }} />
+                <ThemedText type="smallBold" className="quick-add-tile-title">
                   {option.title}
                 </ThemedText>
-                <ThemedText type="small" themeColor="textSecondary" style={styles.tileSubtitle}>
+                <ThemedText
+                  type="small"
+                  themeColor="textSecondary"
+                  className="quick-add-tile-subtitle">
                   {option.subtitle}
                 </ThemedText>
               </Pressable>
@@ -142,71 +149,3 @@ function QuickAddSheetContent() {
     </Modal>
   );
 }
-
-const styles = StyleSheet.create({
-  dim: {
-    ...StyleSheet.absoluteFill,
-    backgroundColor: 'rgba(31,26,33,0.3)',
-  },
-  sheet: {
-    position: 'absolute',
-    left: 10,
-    right: 10,
-    height: 310,
-    borderRadius: Radius.large,
-    paddingHorizontal: 15,
-    borderCurve: 'continuous',
-  },
-  handleArea: {
-    alignItems: 'center',
-    height: 29,
-    justifyContent: 'center',
-  },
-  handle: {
-    width: 44,
-    height: 4,
-    borderRadius: Radius.hairline,
-  },
-  title: {
-    ...FontSize[20],
-    lineHeight: 24,
-    fontWeight: '500',
-  },
-  subtitle: {
-    marginTop: 4,
-    marginBottom: 13,
-    ...FontSize[12],
-    lineHeight: 16,
-    fontWeight: '400',
-  },
-  grid: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    gap: 9,
-  },
-  tile: {
-    width: '48.6%',
-    height: 103,
-    borderRadius: Radius.sheet,
-    padding: 13,
-    justifyContent: 'space-between',
-    borderCurve: 'continuous',
-  },
-  tileIcon: {
-    width: 32,
-    height: 32,
-    borderRadius: Radius.control,
-    backgroundColor: 'rgba(255,255,255,0.59)',
-    borderCurve: 'continuous',
-  },
-  tileTitle: {
-    ...FontSize[11],
-    lineHeight: 13,
-    fontWeight: '500',
-  },
-  tileSubtitle: {
-    ...FontSize[9],
-    lineHeight: 12,
-    fontWeight: '400',
-  },
-});

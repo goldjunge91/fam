@@ -1,6 +1,6 @@
 import { useLocalSearchParams } from 'expo-router';
 import { useState } from 'react';
-import { Alert, FlatList, StyleSheet, View } from 'react-native';
+import { Alert, FlatList, View } from 'react-native';
 
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
@@ -9,7 +9,7 @@ import { EmptyState } from '@/components/empty-state';
 import { Screen } from '@/components/screen';
 import { ThemedText } from '@/components/themed-text';
 import { Button } from '@/components/ui/buttons';
-import { Layout, Radius, Spacing, withAlpha } from '@/constants/theme';
+import { Layout, Spacing, withAlpha } from '@/constants/theme';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { ProductDetailModal } from '@/features/inventory/product-detail-modal';
 import { useStorageLocations } from '@/features/inventory/use-storage-locations';
@@ -34,6 +34,9 @@ import { useUpdateFridgeItemQuantityMutation } from './use-fridge-mutations';
  * - Grosszuegige Zusammenfassung mit kompakter Arbeitsliste
  * - Vertikaler MHD-Indikator ohne dekorative Produktkacheln
  * - Kurzer Tap = Aktionen, langer Tap = Produktinformationen
+ * - Eine einzige virtualisierte FlatList (Summary/Tabs/Sortierzeile als
+ *   ListHeaderComponent) statt verschachtelter Listen, damit lange
+ *   Bestände nicht komplett gerendert werden.
  */
 type SortMode = 'expiry' | 'name';
 
@@ -159,15 +162,13 @@ export function FridgeScreen() {
       <FlatList
         data={visibleItems}
         keyExtractor={(item) => item.id}
-        style={[
-          styles.listCard,
-          {
-            flex: 1,
-            backgroundColor: theme.backgroundElement,
-            marginTop: Spacing.two,
-            boxShadow: `0 8px 24px ${withAlpha(theme.shadowCard, 0.08)}`,
-          },
-        ]}
+        className="fridge-list-card"
+        // boxShadow ist eine dynamische Opazitaet, hat keine
+        // Tailwind-Entsprechung.
+        style={{
+          flex: 1,
+          boxShadow: `0 8px 24px ${withAlpha(theme.shadowCard, 0.08)}`,
+        }}
         contentContainerStyle={{ paddingBottom }}
         ListHeaderComponent={
           <>
@@ -188,7 +189,7 @@ export function FridgeScreen() {
 
             {/* Kompakter Arbeitslisten-Kopf, #71 */}
             {allItems.length > 0 ? (
-              <View style={styles.sortRow}>
+              <View className="fridge-sort-row">
                 <ThemedText type="small" themeColor="textSecondary">
                   {sortMode === 'expiry' ? 'Nach Haltbarkeit' : 'Alphabetisch'}
                 </ThemedText>
@@ -208,7 +209,7 @@ export function FridgeScreen() {
         }
         ListEmptyComponent={
           isLoading ? null : visibleItems.length === 0 ? (
-            <Card style={{ marginTop: Spacing.two }}>
+            <Card className="mt-two">
               <EmptyState
                 symbol="archivebox"
                 title={`${activeLocationName} ist leer`}
@@ -258,18 +259,3 @@ export function FridgeScreen() {
     </Screen>
   );
 }
-
-const styles = StyleSheet.create({
-  sortRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    minHeight: 40,
-    paddingLeft: Spacing.one,
-  },
-  listCard: {
-    borderRadius: Radius.sheet,
-    borderCurve: 'continuous',
-    overflow: 'hidden',
-  },
-});

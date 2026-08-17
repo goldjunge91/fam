@@ -1,12 +1,11 @@
 import { router } from 'expo-router';
 import { useEffect, useMemo, useState } from 'react';
-import { Alert, Pressable, StyleSheet, View } from 'react-native';
+import { Alert, Pressable, View } from 'react-native';
 import { Card } from '@/components/card';
 import { Screen } from '@/components/screen';
 import { TextField } from '@/components/text-field';
 import { ThemedText } from '@/components/themed-text';
 import { Button } from '@/components/ui/buttons';
-import { Radius, Spacing } from '@/constants/theme';
 import { useProfile } from '@/features/auth/api';
 import { useSession } from '@/features/auth/session-provider';
 import {
@@ -27,7 +26,6 @@ import {
   calculateTdee,
   type GoalType,
 } from '@/features/calorie-tracking/tdee';
-import { useTheme } from '@/hooks/use-theme';
 
 const GOAL_LABELS: Record<GoalType, string> = {
   lose: 'Abnehmen',
@@ -63,7 +61,6 @@ function parsePercent(input: string): number {
  * clientseitig, ohne zusaetzliche Requests, bevor irgendetwas gespeichert wird.
  */
 export function GoalSetupScreen() {
-  const theme = useTheme();
   const { session } = useSession();
   const userId = session?.user.id;
 
@@ -234,21 +231,15 @@ export function GoalSetupScreen() {
 
           {formVisible ? (
             <Card title="Neues Ziel">
-              <View style={styles.form}>
+              <View className="gap-three">
                 <ThemedText type="smallBold">Ziel-Art</ThemedText>
-                <View style={styles.segmentedRow}>
+                <View className="gs-segmented-row">
                   {(Object.keys(GOAL_LABELS) as GoalType[]).map((type) => (
                     <Pressable
                       key={type}
                       onPress={() => setGoalType(type)}
-                      style={[
-                        styles.segmentBtn,
-                        {
-                          backgroundColor:
-                            goalType === type ? theme.accent : theme.backgroundElement,
-                        },
-                      ]}>
-                      <ThemedText style={{ color: goalType === type ? '#fff' : theme.text }}>
+                      className={`gs-segment-btn ${goalType === type ? 'bg-accent' : 'bg-background-element'}`}>
+                      <ThemedText themeColor={goalType === type ? 'onAccent' : 'text'}>
                         {GOAL_LABELS[type]}
                       </ThemedText>
                     </Pressable>
@@ -264,19 +255,16 @@ export function GoalSetupScreen() {
                   />
                 ) : null}
 
-                <ThemedText type="smallBold" style={{ marginTop: Spacing.one }}>
+                <ThemedText type="smallBold" className="mt-one">
                   Makro-Verteilung
                 </ThemedText>
-                <View style={styles.segmentedRow}>
+                <View className="gs-segmented-row">
                   {(Object.keys(SEGMENT_LABELS) as PresetSelection[]).map((p) => (
                     <Pressable
                       key={p}
                       onPress={() => setPreset(p)}
-                      style={[
-                        styles.segmentBtn,
-                        { backgroundColor: preset === p ? theme.accent : theme.backgroundElement },
-                      ]}>
-                      <ThemedText style={{ color: preset === p ? '#fff' : theme.text }}>
+                      className={`gs-segment-btn ${preset === p ? 'bg-accent' : 'bg-background-element'}`}>
+                      <ThemedText themeColor={preset === p ? 'onAccent' : 'text'}>
                         {SEGMENT_LABELS[p]}
                       </ThemedText>
                     </Pressable>
@@ -284,9 +272,9 @@ export function GoalSetupScreen() {
                 </View>
 
                 {preset === 'custom' ? (
-                  <View style={styles.form}>
-                    <View style={styles.row}>
-                      <View style={styles.flex}>
+                  <View className="gap-three">
+                    <View className="flex-row gap-two">
+                      <View className="flex-1">
                         <TextField
                           label="Eiweiß %"
                           value={customProteinPct}
@@ -294,7 +282,7 @@ export function GoalSetupScreen() {
                           keyboardType="numeric"
                         />
                       </View>
-                      <View style={styles.flex}>
+                      <View className="flex-1">
                         <TextField
                           label="Kohlenhydrate %"
                           value={customCarbsPct}
@@ -302,7 +290,7 @@ export function GoalSetupScreen() {
                           keyboardType="numeric"
                         />
                       </View>
-                      <View style={styles.flex}>
+                      <View className="flex-1">
                         <TextField
                           label="Fett %"
                           value={customFatPct}
@@ -330,7 +318,7 @@ export function GoalSetupScreen() {
                 ) : null}
 
                 {targetPreview ? (
-                  <View style={[styles.preview, { borderColor: theme.border }]}>
+                  <View className="gs-preview">
                     <TextField
                       label="Ziel-Kalorien (kcal/Tag)"
                       value={manualKcalInput}
@@ -368,8 +356,8 @@ export function GoalSetupScreen() {
                   </ThemedText>
                 )}
 
-                <View style={styles.buttonRow}>
-                  <View style={styles.flex}>
+                <View className="gs-save-row">
+                  <View className="flex-1">
                     <Button
                       label="Ziel speichern"
                       onPress={handleSave}
@@ -378,7 +366,7 @@ export function GoalSetupScreen() {
                     />
                   </View>
                   {currentGoal ? (
-                    <View style={styles.flex}>
+                    <View className="flex-1">
                       <Button
                         label="Abbrechen"
                         variant="secondary"
@@ -395,38 +383,3 @@ export function GoalSetupScreen() {
     </Screen>
   );
 }
-
-const styles = StyleSheet.create({
-  form: {
-    gap: Spacing.three,
-  },
-  segmentedRow: {
-    flexDirection: 'row',
-    gap: Spacing.two,
-  },
-  row: {
-    flexDirection: 'row',
-    gap: Spacing.two,
-  },
-  segmentBtn: {
-    flex: 1,
-    paddingVertical: 10,
-    borderRadius: Radius.control,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  preview: {
-    borderWidth: StyleSheet.hairlineWidth,
-    borderRadius: Radius.card,
-    padding: Spacing.three,
-    gap: Spacing.one,
-  },
-  buttonRow: {
-    flexDirection: 'row',
-    gap: Spacing.two,
-    marginTop: Spacing.one,
-  },
-  flex: {
-    flex: 1,
-  },
-});

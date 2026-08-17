@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react';
-import { Pressable, type StyleProp, StyleSheet, Switch, View, type ViewStyle } from 'react-native';
+import { Pressable, type StyleProp, Switch, View, type ViewStyle } from 'react-native';
 
 import { Card } from '@/components/card';
 import { ThemedText } from '@/components/themed-text';
-import { Radius, Spacing } from '@/constants/theme';
+// Switch akzeptiert nur echte Farbwerte in trackColor, keine CSS-Variable/
+// Tailwind-Klasse (s. docs/design-system/nativewind-liquid-glass-migration.md).
 import { useTheme } from '@/hooks/use-theme';
 import {
   DEFAULT_NOTIFICATION_SETTINGS,
@@ -44,10 +45,10 @@ export function NotificationSettingsCard({ style }: NotificationSettingsCardProp
   return (
     <View style={style}>
       <Card title="Benachrichtigungen">
-        <View style={styles.content}>
-          <View style={styles.settingRow}>
-            <View style={styles.settingText}>
-              <ThemedText style={{ fontWeight: 'bold' }}>Erinnerung aktivieren</ThemedText>
+        <View className="gap-three">
+          <View className="row-between">
+            <View className="row-text">
+              <ThemedText type="bodyBold">Erinnerung aktivieren</ThemedText>
               <ThemedText type="small" themeColor="textSecondary">
                 Push-Mitteilung für bald ablaufende Vorräte erhalten.
               </ThemedText>
@@ -61,28 +62,17 @@ export function NotificationSettingsCard({ style }: NotificationSettingsCardProp
 
           {settings.enabled && (
             <>
-              <View style={styles.section}>
+              <View className="gap-two mt-one">
                 <ThemedText type="smallBold">Erinnern ab (Tage im Voraus):</ThemedText>
-                <View style={styles.chipRow}>
+                <View className="row-wrap">
                   {THRESHOLD_OPTIONS.map((days) => {
                     const isSelected = settings.daysThreshold === days;
                     return (
                       <Pressable
                         key={days}
                         onPress={() => updateSettings({ ...settings, daysThreshold: days })}
-                        style={[
-                          styles.chip,
-                          {
-                            borderColor: isSelected ? theme.accent : theme.border,
-                            backgroundColor: isSelected ? `${theme.accent}18` : 'transparent',
-                          },
-                        ]}>
-                        <ThemedText
-                          type="small"
-                          style={{
-                            color: isSelected ? theme.accent : theme.text,
-                            fontWeight: isSelected ? 'bold' : 'normal',
-                          }}>
+                        className={`chip ${isSelected ? 'chip-selected' : 'chip-idle'}`}>
+                        <ThemedText type={isSelected ? 'smallSelected' : 'small'}>
                           {days} {days === 1 ? 'Tag' : 'Tage'}
                         </ThemedText>
                       </Pressable>
@@ -91,9 +81,9 @@ export function NotificationSettingsCard({ style }: NotificationSettingsCardProp
                 </View>
               </View>
 
-              <View style={styles.section}>
+              <View className="gap-two mt-one">
                 <ThemedText type="smallBold">Uhrzeit der Erinnerung:</ThemedText>
-                <View style={styles.chipRow}>
+                <View className="row-wrap">
                   {TIME_OPTIONS.map((time) => {
                     const isSelected =
                       settings.reminderHour === time.hour &&
@@ -108,19 +98,8 @@ export function NotificationSettingsCard({ style }: NotificationSettingsCardProp
                             reminderMinute: time.minute,
                           })
                         }
-                        style={[
-                          styles.chip,
-                          {
-                            borderColor: isSelected ? theme.accent : theme.border,
-                            backgroundColor: isSelected ? `${theme.accent}18` : 'transparent',
-                          },
-                        ]}>
-                        <ThemedText
-                          type="small"
-                          style={{
-                            color: isSelected ? theme.accent : theme.text,
-                            fontWeight: isSelected ? 'bold' : 'normal',
-                          }}>
+                        className={`chip ${isSelected ? 'chip-selected' : 'chip-idle'}`}>
+                        <ThemedText type={isSelected ? 'smallSelected' : 'small'}>
                           {time.label}
                         </ThemedText>
                       </Pressable>
@@ -135,34 +114,3 @@ export function NotificationSettingsCard({ style }: NotificationSettingsCardProp
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  content: {
-    gap: Spacing.three,
-  },
-  settingRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    gap: Spacing.two,
-  },
-  settingText: {
-    flex: 1,
-    gap: 2,
-  },
-  section: {
-    gap: Spacing.two,
-    marginTop: Spacing.one,
-  },
-  chipRow: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    gap: Spacing.two,
-  },
-  chip: {
-    paddingHorizontal: Spacing.three,
-    paddingVertical: Spacing.one + 2,
-    borderRadius: Radius.sheet,
-    borderWidth: 1,
-  },
-});

@@ -1,8 +1,6 @@
-import { Pressable, StyleSheet, View } from 'react-native';
+import { Pressable, View } from 'react-native';
 
 import { ThemedText } from '@/components/themed-text';
-import { ControlSize, Radius, Spacing } from '@/constants/theme';
-import { useTheme } from '@/hooks/use-theme';
 
 type CompactActionButtonProps = {
   label: string;
@@ -18,67 +16,19 @@ export function CompactActionButton({
   accessibilityLabel,
   expanded = false,
 }: CompactActionButtonProps) {
-  const theme = useTheme();
-
   return (
     <Pressable
       onPress={onPress}
       accessibilityRole="button"
       accessibilityLabel={accessibilityLabel ?? label}
       accessibilityState={{ expanded }}
-      style={({ pressed }) => [
-        styles.button,
-        { backgroundColor: theme.backgroundElement, borderColor: theme.border },
-        pressed && styles.pressed,
-      ]}>
+      className="btn-compact-action">
       <ThemedText type="default">{label}</ThemedText>
-      <View style={[styles.chevron, expanded && styles.chevronExpanded]}>
-        <View
-          style={[styles.chevronLine, styles.chevronLeft, { backgroundColor: theme.textSecondary }]}
-        />
-        <View
-          style={[styles.chevronLine, styles.chevronRight, { backgroundColor: theme.textSecondary }]}
-        />
+      <View className={`w-[12px] h-[7px] ${expanded ? 'rotate-180' : ''}`}>
+        <View className="absolute top-[2px] left-0 w-[7px] h-[1.5px] rounded-hairline bg-text-secondary rotate-[38deg]" />
+        <View className="absolute top-[2px] right-0 w-[7px] h-[1.5px] rounded-hairline bg-text-secondary -rotate-[38deg]" />
       </View>
     </Pressable>
   );
 }
 
-const styles = StyleSheet.create({
-  button: {
-    width: '100%',
-    height: ControlSize.compactHeight,
-    borderWidth: StyleSheet.hairlineWidth,
-    borderRadius: Radius.control,
-    borderCurve: 'continuous',
-    paddingHorizontal: Spacing.three,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-  },
-  chevron: {
-    width: 12,
-    height: 7,
-  },
-  chevronExpanded: {
-    transform: [{ rotate: '180deg' }],
-  },
-  chevronLine: {
-    position: 'absolute',
-    top: 2,
-    width: 7,
-    height: 1.5,
-    borderRadius: Radius.hairline,
-  },
-  chevronLeft: {
-    left: 0,
-    transform: [{ rotate: '38deg' }],
-  },
-  chevronRight: {
-    right: 0,
-    transform: [{ rotate: '-38deg' }],
-  },
-  pressed: {
-    opacity: 0.72,
-  },
-});

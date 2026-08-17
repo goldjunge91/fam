@@ -12,23 +12,19 @@ let mockItems: unknown[] = [];
 let mockParams: Record<string, string> = {};
 
 jest.mock('react-native-gesture-handler/ReanimatedSwipeable', () => {
-  const React = require('react');
-  const { View } = require('react-native');
   return {
     __esModule: true,
-    default: ({ children, renderRightActions }: Record<string, unknown>) =>
-      React.createElement(
-        View,
-        null,
-        children,
+    default: ({ children, renderRightActions }: Record<string, unknown>) => {
+      const actions =
         typeof renderRightActions === 'function'
           ? renderRightActions(
               { value: 0 },
               { value: 0 },
               { close: jest.fn(), openLeft: jest.fn(), openRight: jest.fn(), reset: jest.fn() },
             )
-          : null,
-      ),
+          : null;
+      return [children, actions];
+    },
   };
 });
 

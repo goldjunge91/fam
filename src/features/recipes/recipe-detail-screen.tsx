@@ -1,18 +1,14 @@
-// import { FontSize } from '@expo/ui/swift-ui/modifiers';
 import { Image } from 'expo-image';
 import { router, useLocalSearchParams } from 'expo-router';
 import { useMemo, useState } from 'react';
-import { Alert, Modal, Pressable, ScrollView, Share, StyleSheet, View } from 'react-native';
+import { Alert, Modal, Pressable, ScrollView, Share, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Svg, { Circle, Defs, LinearGradient, Rect, Stop } from 'react-native-svg';
-// import styles from 'react-native-qrcode-svg/Example/src/styles';
 import { GradientBackground } from '@/components/gradient-background';
 import { PageHeader } from '@/components/page-header';
-import { FontSize, ThemedText } from '@/components/themed-text';
+import { ThemedText } from '@/components/themed-text';
 import { BackButton, HeaderIconButton } from '@/components/ui/buttons';
-import { Radius } from '@/constants/theme';
 import { useHubGradient } from '@/hooks/use-hub-gradient';
-import { useTheme } from '@/hooks/use-theme';
 import { RecipeRatingSheet } from './components/recipe-rating-sheet';
 import { RecipeShoppingSheet } from './components/recipe-shopping-sheet';
 import { calculateServingNutrition, scaleServing } from './nutrition';
@@ -58,16 +54,19 @@ function round(value: number): number {
 }
 
 function HeartGlyph({ filled }: { filled: boolean }) {
-  const theme = useTheme();
   return (
-    <ThemedText style={[styles.heartGlyph, { color: theme.accent }]}>
+    <ThemedText themeColor="accent" className="text-[24px] leading-[27px] font-medium">
       {filled ? '♥' : '♡'}
     </ThemedText>
   );
 }
 
 function MoreGlyph() {
-  return <ThemedText style={styles.moreGlyph}>•••</ThemedText>;
+  return (
+    <ThemedText className="text-[13px] leading-[16px] font-extrabold tracking-widest">
+      •••
+    </ThemedText>
+  );
 }
 
 function HeroArtwork({ coverUrl, title }: { coverUrl?: string | null; title: string }) {
@@ -75,7 +74,8 @@ function HeroArtwork({ coverUrl, title }: { coverUrl?: string | null; title: str
     return (
       <Image
         source={{ uri: coverUrl }}
-        style={StyleSheet.absoluteFill}
+        // expo-image benötigt absoluteFill inline
+        style={{ position: 'absolute', top: 0, right: 0, bottom: 0, left: 0 }}
         contentFit="cover"
         accessibilityLabel={`Bild von ${title}`}
       />
@@ -107,15 +107,13 @@ function DetailFact({
   label: string;
   withDivider?: boolean;
 }) {
-  const theme = useTheme();
   return (
     <View
-      style={[
-        styles.detailFact,
-        withDivider && { borderLeftColor: theme.border, borderLeftWidth: StyleSheet.hairlineWidth },
-      ]}>
-      <ThemedText style={styles.detailFactValue}>{value}</ThemedText>
-      <ThemedText themeColor="textSecondary" style={styles.detailFactLabel}>
+      className={`flex-1 min-w-0 items-center px-one ${withDivider ? 'border-l border-border' : ''}`}>
+      <ThemedText type="headingSmall" className="text-center">
+        {value}
+      </ThemedText>
+      <ThemedText type="caption" themeColor="textSecondary" className="pt-[3px] text-center">
         {label}
       </ThemedText>
     </View>
@@ -131,28 +129,26 @@ function RecipeStepItem({
   index: number;
   isLast: boolean;
 }) {
-  const theme = useTheme();
   const { data: imageUrl } = useRecipeStepImageUrl(step.image_path);
 
   return (
-    <View
-      style={[
-        styles.stepItem,
-        !isLast && { borderBottomColor: theme.border, borderBottomWidth: StyleSheet.hairlineWidth },
-      ]}>
+    <View className={`gap-three py-four ${!isLast ? 'border-b border-border' : ''}`}>
       {imageUrl ? (
         <Image
           source={{ uri: imageUrl }}
           contentFit="cover"
           accessibilityLabel={`Bild für Schritt ${index + 1}`}
-          style={styles.stepImage}
+          // expo-image benötigt inline Dimensionen
+          style={{ width: '100%', height: 180, borderRadius: 16 }}
         />
       ) : null}
-      <View style={styles.stepCopy}>
-        <ThemedText themeColor="accent" style={styles.stepNumber}>
+      <View className="flex-row gap-[10px]">
+        <ThemedText type="headingSmall" themeColor="accent" className="w-[30px]">
           {index + 1}
         </ThemedText>
-        <ThemedText style={styles.stepText}>{step.text}</ThemedText>
+        <ThemedText type="body" className="flex-1 font-medium">
+          {step.text}
+        </ThemedText>
       </View>
     </View>
   );
@@ -160,11 +156,12 @@ function RecipeStepItem({
 
 function NutritionStat({ value, label }: { value: string; label: string }) {
   return (
-    <View style={styles.nutritionStat}>
-      <ThemedText type="controlValue" style={styles.nutritionValue}>
-        {value}
-      </ThemedText>
-      <ThemedText type="caption" themeColor="textSecondary" style={styles.nutritionLabel}>
+    <View className="flex-1 min-h-[58px] min-w-0 items-center justify-center px-half">
+      <ThemedText type="headingSmall">{value}</ThemedText>
+      <ThemedText
+        type="detail"
+        themeColor="textSecondary"
+        className="pt-[3px] text-[11px] leading-[15px] font-medium">
         {label}
       </ThemedText>
     </View>
@@ -182,17 +179,15 @@ function ManageRow({
   danger?: boolean;
   isLast?: boolean;
 }) {
-  const theme = useTheme();
   return (
     <Pressable
       onPress={onPress}
       role="button"
-      style={({ pressed }) => [
-        styles.manageRow,
-        !isLast && { borderBottomColor: theme.border, borderBottomWidth: StyleSheet.hairlineWidth },
-        pressed && styles.pressed,
-      ]}>
-      <ThemedText themeColor={danger ? 'danger' : 'text'} style={styles.manageRowText}>
+      className={`min-h-[45px] justify-center px-[6px] active:opacity-75 ${!isLast ? 'border-b border-border' : ''}`}>
+      <ThemedText
+        type="detail"
+        themeColor={danger ? 'danger' : 'text'}
+        className="text-[10px] leading-[13px] font-medium">
         {label}
       </ThemedText>
     </Pressable>
@@ -200,30 +195,29 @@ function ManageRow({
 }
 
 function IngredientGroups({ data, servings }: { data: RecipeDetail; servings: number }) {
-  const theme = useTheme();
   const groups = data.components.filter((component) => component.serving_grams !== null);
 
   if (groups.length === 0) {
     return (
-      <ThemedText themeColor="textSecondary" style={styles.emptyText}>
+      <ThemedText type="body" themeColor="textSecondary" className="py-four">
         Noch keine Zutaten hinterlegt.
       </ThemedText>
     );
   }
 
   return (
-    <View style={styles.groupList}>
+    <View className="gap-[18px]">
       {groups.map((component) => {
         const items = data.items.filter((item) => item.component_id === component.id);
         const preparedGrams = (component.serving_grams ?? 0) * servings;
 
         return (
-          <View key={component.id} style={styles.ingredientGroup}>
-            <View style={[styles.groupHeader, { borderBottomColor: theme.border }]}>
-              <ThemedText type="controlValue" style={styles.groupTitle}>
+          <View key={component.id} className="pt-[14px]">
+            <View className="min-h-[40px] row-between gap-[10px] border-b border-border">
+              <ThemedText type="headingSmall" className="flex-1">
                 {component.name}
               </ThemedText>
-              <ThemedText themeColor="textSecondary" style={styles.groupMeta}>
+              <ThemedText type="caption" themeColor="textSecondary">
                 {round(preparedGrams)} g zubereitet
               </ThemedText>
             </View>
@@ -235,27 +229,20 @@ function IngredientGroups({ data, servings }: { data: RecipeDetail; servings: nu
               return (
                 <View
                   key={item.id}
-                  style={[
-                    styles.ingredientRow,
-                    index < items.length - 1 && {
-                      borderBottomColor: theme.border,
-                      borderBottomWidth: StyleSheet.hairlineWidth,
-                    },
-                  ]}>
-                  <ThemedText type="body" style={styles.ingredientName} numberOfLines={1}>
+                  className={`min-h-[44px] row-between gap-three ${
+                    index < items.length - 1 ? 'border-b border-border' : ''
+                  }`}>
+                  <ThemedText type="body" className="flex-1 font-medium" numberOfLines={1}>
                     {product?.name ?? 'Zutat'}
                   </ThemedText>
-                  <ThemedText
-                    type="body"
-                    themeColor="textSecondary"
-                    style={styles.ingredientAmount}>
+                  <ThemedText type="body" themeColor="textSecondary" className="font-medium">
                     {round(quantity)} {unit}
                   </ThemedText>
                 </View>
               );
             })}
             {items.length === 0 ? (
-              <ThemedText themeColor="textSecondary" style={styles.emptyGroupText}>
+              <ThemedText type="body" themeColor="textSecondary" className="py-three">
                 Noch keine Zutaten in dieser Gruppe.
               </ThemedText>
             ) : null}
@@ -267,7 +254,6 @@ function IngredientGroups({ data, servings }: { data: RecipeDetail; servings: nu
 }
 
 export function RecipeDetailScreen() {
-  const theme = useTheme();
   const hubGradient = useHubGradient();
   const { id } = useLocalSearchParams<{ id: string }>();
   const [servings, setServings] = useState(1);
@@ -308,11 +294,13 @@ export function RecipeDetailScreen() {
 
   if (isLoading || !data) {
     return (
-      <View style={styles.root}>
+      <View className="flex-1">
         <GradientBackground {...hubGradient} />
-        <SafeAreaView style={styles.safeArea} edges={['top', 'left', 'right']}>
+        <SafeAreaView
+          className="flex-1 w-full max-w-[800px] self-center"
+          edges={['top', 'left', 'right']}>
           <PageHeader title="Rezept" leading={<BackButton label="Zurück" variant="header" />} />
-          <ThemedText themeColor="textSecondary" style={styles.loadingText}>
+          <ThemedText type="body" themeColor="textSecondary" className="p-six text-center">
             Rezept wird geladen…
           </ThemedText>
         </SafeAreaView>
@@ -331,9 +319,11 @@ export function RecipeDetailScreen() {
   const visibleTags = showAllTags ? tags : tags.slice(0, 3);
 
   return (
-    <View style={styles.root}>
+    <View className="flex-1">
       <GradientBackground {...hubGradient} />
-      <SafeAreaView style={styles.safeArea} edges={['top', 'left', 'right']}>
+      <SafeAreaView
+        className="flex-1 w-full max-w-[800px] self-center"
+        edges={['top', 'left', 'right']}>
         <PageHeader
           title="Rezept"
           leading={<BackButton label="Zurück" variant="header" />}
@@ -352,16 +342,20 @@ export function RecipeDetailScreen() {
         />
 
         <ScrollView
-          style={styles.scroll}
-          contentContainerStyle={styles.content}
+          className="flex-1"
+          contentContainerClassName="px-four pb-[108px]"
           showsVerticalScrollIndicator={false}>
-          <View style={styles.hero}>
+          <View className="h-[178px] -mx-four overflow-hidden">
             <HeroArtwork coverUrl={coverUrl} title={recipe.title} />
           </View>
 
-          <ThemedText style={styles.title}>{recipe.title}</ThemedText>
+          <ThemedText
+            type="subtitle"
+            className="pt-[18px] text-[28px] leading-[32px] font-bold tracking-tight">
+            {recipe.title}
+          </ThemedText>
 
-          <View style={[styles.tabs, { borderBottomColor: theme.border }]}>
+          <View className="flex-row mt-five border-b border-border">
             {(['details', 'ratings'] as const).map((tab) => {
               const selected = activeTab === tab;
               const label = tab === 'details' ? 'Details' : 'Bewertungen';
@@ -372,10 +366,10 @@ export function RecipeDetailScreen() {
                   role="tab"
                   aria-label={label}
                   aria-selected={selected}
-                  style={[styles.tabButton, selected && { borderBottomColor: theme.accent }]}>
-                  <ThemedText
-                    themeColor={selected ? 'text' : 'textSecondary'}
-                    style={styles.tabLabel}>
+                  className={`flex-1 min-h-[48px] items-center justify-center border-b-[3px] ${
+                    selected ? 'border-accent' : 'border-transparent'
+                  }`}>
+                  <ThemedText type="headingSmall" themeColor={selected ? 'text' : 'textSecondary'}>
                     {label}
                   </ThemedText>
                 </Pressable>
@@ -385,7 +379,7 @@ export function RecipeDetailScreen() {
 
           {activeTab === 'details' ? (
             <View>
-              <View style={[styles.detailFacts, { borderBottomColor: theme.border }]}>
+              <View className="flex-row py-four border-b border-border">
                 <DetailFact
                   value={scaledServing ? `${round(scaledServing.kcal)} kcal` : '–'}
                   label="pro Portion"
@@ -403,15 +397,19 @@ export function RecipeDetailScreen() {
               </View>
 
               {recipe.instructions ? (
-                <ThemedText type="bodyRelaxed" style={styles.description}>
+                <ThemedText type="body" className="pt-four text-[16px] leading-[24px] font-medium">
                   {recipe.instructions}
                 </ThemedText>
               ) : null}
 
               {tags.length > 0 ? (
-                <View style={styles.tagRow}>
+                <View className="flex-row flex-wrap items-center gap-x-three gap-y-two pt-three">
                   {visibleTags.map((tag) => (
-                    <ThemedText key={tag} themeColor="textSecondary" style={styles.tagText}>
+                    <ThemedText
+                      key={tag}
+                      type="caption"
+                      themeColor="textSecondary"
+                      className="font-medium">
                       {tag.startsWith('#') ? tag : `#${tag}`}
                     </ThemedText>
                   ))}
@@ -422,7 +420,10 @@ export function RecipeDetailScreen() {
                       aria-label={showAllTags ? 'Weniger Tags anzeigen' : 'Alle Tags anzeigen'}
                       aria-expanded={showAllTags}
                       hitSlop={8}>
-                      <ThemedText themeColor="textSecondary" style={styles.moreTagsText}>
+                      <ThemedText
+                        type="caption"
+                        themeColor="textSecondary"
+                        className="font-medium underline">
                         {showAllTags ? 'Weniger' : `+${tags.length - 3} mehr`}
                       </ThemedText>
                     </Pressable>
@@ -430,25 +431,27 @@ export function RecipeDetailScreen() {
                 </View>
               ) : null}
 
-              <View style={[styles.sectionHeading, { borderBottomColor: theme.border }]}>
-                <ThemedText style={styles.sectionTitle}>Zutaten</ThemedText>
-                <View style={[styles.portionControl, { backgroundColor: theme.backgroundElement }]}>
+              <View className="min-h-[58px] row-between gap-three mt-[18px] border-b border-border">
+                <ThemedText type="headingSmall">Zutaten</ThemedText>
+                <View className="w-[156px] h-[44px] rounded-control flex-row items-center bg-background-element">
                   <Pressable
                     onPress={() => setServings((value) => Math.max(1, value - 1))}
                     role="button"
                     aria-label="Weniger Portionen"
-                    style={styles.portionButton}>
-                    <ThemedText themeColor="accent" style={styles.portionSign}>
+                    className="w-[44px] h-[44px] items-center justify-center">
+                    <ThemedText type="headingSmall" themeColor="accent" className="font-medium">
                       −
                     </ThemedText>
                   </Pressable>
-                  <ThemedText style={styles.portionValue}>{servings} Portionen</ThemedText>
+                  <ThemedText type="body" className="flex-1 text-center font-bold">
+                    {servings} Portionen
+                  </ThemedText>
                   <Pressable
                     onPress={() => setServings((value) => value + 1)}
                     role="button"
                     aria-label="Mehr Portionen"
-                    style={styles.portionButton}>
-                    <ThemedText themeColor="accent" style={styles.portionSign}>
+                    className="w-[44px] h-[44px] items-center justify-center">
+                    <ThemedText type="headingSmall" themeColor="accent" className="font-medium">
                       +
                     </ThemedText>
                   </Pressable>
@@ -461,21 +464,14 @@ export function RecipeDetailScreen() {
                 role="button"
                 aria-label="Fehlende Zutaten zur Einkaufsliste hinzufügen"
                 onPress={() => setShoppingOpen(true)}
-                style={({ pressed }) => [
-                  styles.shoppingButton,
-                  { borderColor: theme.border },
-                  pressed && styles.pressed,
-                ]}>
-                <ThemedText
-                  type="controlValue"
-                  themeColor="accent"
-                  style={styles.shoppingButtonText}>
+                className="min-h-[48px] mt-four border border-border rounded-control items-center justify-center px-three active:opacity-75">
+                <ThemedText type="headingSmall" themeColor="accent" className="text-center">
                   Fehlende Zutaten zur Einkaufsliste
                 </ThemedText>
               </Pressable>
 
               {scaledServing ? (
-                <View style={[styles.nutritionRow, { borderColor: theme.border }]}>
+                <View className="flex-row mt-four border-t border-b border-border">
                   <NutritionStat value={String(round(scaledServing.kcal))} label="kcal" />
                   <NutritionStat value={`${round(scaledServing.protein_g)} g`} label="Protein" />
                   <NutritionStat
@@ -486,9 +482,9 @@ export function RecipeDetailScreen() {
                 </View>
               ) : null}
 
-              <View style={[styles.sectionHeading, { borderBottomColor: theme.border }]}>
-                <ThemedText style={styles.sectionTitle}>Zubereitung</ThemedText>
-                <ThemedText themeColor="textSecondary" style={styles.sectionCount}>
+              <View className="min-h-[58px] row-between gap-three mt-[18px] border-b border-border">
+                <ThemedText type="headingSmall">Zubereitung</ThemedText>
+                <ThemedText type="caption" themeColor="textSecondary" className="font-medium">
                   {data.steps.length} {data.steps.length === 1 ? 'Schritt' : 'Schritte'}
                 </ThemedText>
               </View>
@@ -504,36 +500,46 @@ export function RecipeDetailScreen() {
                   ))}
                 </View>
               ) : (
-                <ThemedText themeColor="textSecondary" style={styles.emptyText}>
+                <ThemedText type="body" themeColor="textSecondary" className="py-four">
                   Noch keine Zubereitungsschritte hinterlegt.
                 </ThemedText>
               )}
             </View>
           ) : (
-            <View style={styles.ratingsPanel}>
+            <View className="pt-[22px]">
               {rating ? (
                 <>
-                  <View style={[styles.ratingSummary, { borderBottomColor: theme.border }]}>
-                    <ThemedText style={styles.ratingScore}>
-                      ★ {rating.score} <ThemedText themeColor="textSecondary">/ 10</ThemedText>
+                  <View className="min-h-[58px] row-between gap-four pb-four border-b border-border">
+                    <ThemedText type="subtitle" className="text-[28px] leading-[34px] font-bold">
+                      ★ {rating.score}{' '}
+                      <ThemedText type="headingSmall" themeColor="textSecondary">
+                        / 10
+                      </ThemedText>
                     </ThemedText>
-                    <ThemedText themeColor="textSecondary" style={styles.ratingStatus}>
+                    <ThemedText type="caption" themeColor="textSecondary" className="font-medium">
                       Deine Bewertung
                     </ThemedText>
                   </View>
                   {rating.note ? (
                     <>
-                      <ThemedText style={styles.ratingHeading}>Deine Notiz</ThemedText>
-                      <ThemedText type="bodyRelaxed" style={styles.ratingNote}>
+                      <ThemedText type="headingSmall" className="pt-five">
+                        Deine Notiz
+                      </ThemedText>
+                      <ThemedText
+                        type="body"
+                        className="pt-two text-[16px] leading-[24px] font-medium">
                         {rating.note}
                       </ThemedText>
                     </>
                   ) : null}
                 </>
               ) : (
-                <View style={styles.ratingEmpty}>
-                  <ThemedText style={styles.ratingHeading}>Noch keine Bewertung</ThemedText>
-                  <ThemedText themeColor="textSecondary" style={styles.ratingEmptyText}>
+                <View className="items-center py-six">
+                  <ThemedText type="headingSmall">Noch keine Bewertung</ThemedText>
+                  <ThemedText
+                    type="body"
+                    themeColor="textSecondary"
+                    className="pt-[6px] text-[15px] leading-[22px] font-medium text-center">
                     Halte fest, wie dir dieses Rezept gefallen hat.
                   </ThemedText>
                 </View>
@@ -542,12 +548,8 @@ export function RecipeDetailScreen() {
                 onPress={() => setRatingOpen(true)}
                 role="button"
                 aria-label={rating ? 'Bewertung bearbeiten' : 'Rezept bewerten'}
-                style={({ pressed }) => [
-                  styles.ratingButton,
-                  { backgroundColor: theme.accent },
-                  pressed && styles.pressed,
-                ]}>
-                <ThemedText style={styles.ratingButtonText}>
+                className="min-h-[48px] mt-five rounded-control items-center justify-center px-four bg-accent active:opacity-75">
+                <ThemedText type="headingSmall" className="text-white">
                   {rating ? 'Bewertung bearbeiten' : 'Rezept bewerten'}
                 </ThemedText>
               </Pressable>
@@ -555,17 +557,13 @@ export function RecipeDetailScreen() {
           )}
         </ScrollView>
 
-        <View style={styles.stickyAction}>
+        <View className="absolute left-[15px] right-[15px] bottom-three">
           <Pressable
             onPress={() => router.push({ pathname: '/recipe/cook', params: { id: recipe.id } })}
             role="button"
             aria-label="Kochmodus starten"
-            style={({ pressed }) => [
-              styles.primaryButton,
-              { backgroundColor: theme.accent },
-              pressed && styles.pressed,
-            ]}>
-            <ThemedText type="controlValue" style={styles.primaryButtonText}>
+            className="min-h-[48px] self-center rounded-control items-center justify-center px-six bg-accent active:opacity-75">
+            <ThemedText type="headingSmall" className="text-white">
               Kochmodus starten
             </ThemedText>
           </Pressable>
@@ -577,19 +575,23 @@ export function RecipeDetailScreen() {
           statusBarTranslucent
           animationType="slide"
           onRequestClose={() => setManageOpen(false)}>
-          <Pressable style={styles.modalBackdrop} onPress={() => setManageOpen(false)}>
+          <Pressable
+            className="flex-1 justify-end bg-[#261F27]/30"
+            onPress={() => setManageOpen(false)}>
             <Pressable
-              style={[styles.manageSheet, { backgroundColor: theme.backgroundElement }]}
+              className="rounded-t-fam-large px-four pt-[10px] pb-[19px] bg-background-element"
               onPress={() => {}}>
-              <View style={[styles.sheetHandle, { backgroundColor: theme.border }]} />
-              <View style={styles.manageHeader}>
-                <ThemedText style={styles.manageTitle}>Rezept verwalten</ThemedText>
+              <View className="w-[38px] h-1 rounded-sm self-center bg-border" />
+              <View className="min-h-[58px] pt-[13px] row-between gap-three">
+                <ThemedText type="headingSmall" className="font-bold">
+                  Rezept verwalten
+                </ThemedText>
                 <Pressable
                   onPress={() => setManageOpen(false)}
                   role="button"
                   aria-label="Schließen"
-                  style={[styles.sheetClose, { backgroundColor: theme.backgroundSelected }]}>
-                  <ThemedText themeColor="accent" style={styles.sheetCloseText}>
+                  className="w-8 h-8 rounded-control items-center justify-center bg-background-selected">
+                  <ThemedText type="headingSmall" themeColor="accent">
                     ×
                   </ThemedText>
                 </Pressable>
@@ -660,225 +662,3 @@ export function RecipeDetailScreen() {
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  root: { flex: 1 },
-  safeArea: { flex: 1, width: '100%', maxWidth: 800, alignSelf: 'center' },
-  scroll: { flex: 1 },
-  content: { paddingHorizontal: 16, paddingBottom: 108 },
-  loadingText: { padding: 24, textAlign: 'center', ...FontSize[14] },
-  heartGlyph: { ...FontSize[24], lineHeight: 27, fontWeight: 500 },
-  moreGlyph: { ...FontSize[13], lineHeight: 16, fontWeight: 800, letterSpacing: 1 },
-  hero: { height: 178, marginHorizontal: -16, overflow: 'hidden' },
-  title: {
-    paddingTop: 18,
-    ...FontSize[28],
-    lineHeight: 32,
-    fontWeight: 700,
-    letterSpacing: -0.7,
-  },
-  tabs: {
-    flexDirection: 'row',
-    marginTop: 20,
-    borderBottomWidth: StyleSheet.hairlineWidth,
-  },
-  tabButton: {
-    flex: 1,
-    minHeight: 48,
-    alignItems: 'center',
-    justifyContent: 'center',
-    borderBottomWidth: 3,
-    borderBottomColor: 'transparent',
-  },
-  tabLabel: { ...FontSize[16], lineHeight: 20, fontWeight: 700 },
-  detailFacts: {
-    flexDirection: 'row',
-    paddingVertical: 16,
-    borderBottomWidth: StyleSheet.hairlineWidth,
-  },
-  detailFact: { flex: 1, minWidth: 0, alignItems: 'center', paddingHorizontal: 4 },
-  detailFactValue: { ...FontSize[16], lineHeight: 20, fontWeight: 700, textAlign: 'center' },
-  detailFactLabel: { paddingTop: 3, ...FontSize[12], lineHeight: 16, textAlign: 'center' },
-  description: { paddingTop: 16, ...FontSize[16], lineHeight: 24, fontWeight: 500 },
-  tagRow: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    alignItems: 'center',
-    columnGap: 12,
-    rowGap: 8,
-    paddingTop: 12,
-  },
-  tagText: { ...FontSize[13], lineHeight: 18, fontWeight: 500 },
-  moreTagsText: {
-    ...FontSize[13],
-    lineHeight: 18,
-    fontWeight: 500,
-    textDecorationLine: 'underline',
-  },
-  sectionHeading: {
-    minHeight: 58,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    gap: 12,
-    marginTop: 18,
-    borderBottomWidth: StyleSheet.hairlineWidth,
-  },
-  sectionTitle: { ...FontSize[20], lineHeight: 26, fontWeight: 700 },
-  sectionCount: { ...FontSize[13], lineHeight: 18, fontWeight: 500 },
-  portionControl: {
-    width: 156,
-    height: 44,
-    borderRadius: Radius.control,
-    borderCurve: 'continuous',
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  portionButton: { width: 44, height: 44, alignItems: 'center', justifyContent: 'center' },
-  portionSign: { ...FontSize[22], lineHeight: 26, fontWeight: 500 },
-  portionValue: {
-    flex: 1,
-    textAlign: 'center',
-    ...FontSize[14],
-    lineHeight: 18,
-    fontWeight: 700,
-  },
-  groupList: { gap: 18 },
-  ingredientGroup: { paddingTop: 14 },
-  groupHeader: {
-    minHeight: 40,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    gap: 10,
-    borderBottomWidth: StyleSheet.hairlineWidth,
-  },
-  groupTitle: { flex: 1, ...FontSize[15], lineHeight: 20, fontWeight: 700 },
-  groupMeta: { ...FontSize[13], lineHeight: 18, fontWeight: 500 },
-  ingredientRow: {
-    minHeight: 44,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    gap: 12,
-  },
-  ingredientName: { flex: 1, ...FontSize[16], lineHeight: 22, fontWeight: 500 },
-  ingredientAmount: { ...FontSize[16], lineHeight: 22, fontWeight: 500 },
-  emptyGroupText: {
-    paddingVertical: 12,
-    ...FontSize[15],
-    lineHeight: 22,
-  },
-  emptyText: { paddingVertical: 14, ...FontSize[15], lineHeight: 22 },
-  shoppingButton: {
-    minHeight: 48,
-    marginTop: 16,
-    borderWidth: StyleSheet.hairlineWidth,
-    borderRadius: Radius.control,
-    borderCurve: 'continuous',
-    alignItems: 'center',
-    justifyContent: 'center',
-    paddingHorizontal: 12,
-  },
-  shoppingButtonText: {
-    ...FontSize[15],
-    lineHeight: 20,
-    fontWeight: 700,
-    textAlign: 'center',
-  },
-  nutritionRow: {
-    flexDirection: 'row',
-    marginTop: 16,
-    borderTopWidth: StyleSheet.hairlineWidth,
-    borderBottomWidth: StyleSheet.hairlineWidth,
-  },
-  nutritionStat: {
-    flex: 1,
-    minHeight: 58,
-    minWidth: 0,
-    alignItems: 'center',
-    justifyContent: 'center',
-    paddingHorizontal: 2,
-  },
-  nutritionValue: { ...FontSize[15], lineHeight: 20, fontWeight: 700 },
-  nutritionLabel: { paddingTop: 3, ...FontSize[11], lineHeight: 15, fontWeight: 500 },
-  stepItem: { gap: 12, paddingVertical: 14 },
-  stepImage: { width: '100%', height: 180, borderRadius: Radius.card, borderCurve: 'continuous' },
-  stepCopy: { flexDirection: 'row', gap: 10 },
-  stepNumber: { width: 30, ...FontSize[16], lineHeight: 24, fontWeight: 700 },
-  stepText: { flex: 1, ...FontSize[16], lineHeight: 24, fontWeight: 500 },
-  ratingsPanel: { paddingTop: 22 },
-  ratingSummary: {
-    minHeight: 58,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    gap: 16,
-    paddingBottom: 16,
-    borderBottomWidth: StyleSheet.hairlineWidth,
-  },
-  ratingScore: { ...FontSize[28], lineHeight: 34, fontWeight: 700 },
-  ratingStatus: { ...FontSize[13], lineHeight: 18, fontWeight: 500 },
-  ratingHeading: { paddingTop: 20, ...FontSize[20], lineHeight: 26, fontWeight: 700 },
-  ratingNote: { paddingTop: 8, ...FontSize[16], lineHeight: 24, fontWeight: 500 },
-  ratingEmpty: { alignItems: 'center', paddingVertical: 24 },
-  ratingEmptyText: {
-    paddingTop: 6,
-    ...FontSize[15],
-    lineHeight: 22,
-    fontWeight: 500,
-    textAlign: 'center',
-  },
-  ratingButton: {
-    minHeight: 48,
-    marginTop: 20,
-    borderRadius: Radius.control,
-    borderCurve: 'continuous',
-    alignItems: 'center',
-    justifyContent: 'center',
-    paddingHorizontal: 16,
-  },
-  ratingButtonText: { color: '#FFFFFF', ...FontSize[16], lineHeight: 20, fontWeight: 700 },
-  stickyAction: { position: 'absolute', left: 15, right: 15, bottom: 12 },
-  primaryButton: {
-    minHeight: 48,
-    alignSelf: 'center',
-    borderRadius: Radius.control,
-    borderCurve: 'continuous',
-    alignItems: 'center',
-    justifyContent: 'center',
-    paddingHorizontal: 24,
-  },
-  primaryButtonText: { color: '#FFFFFF', ...FontSize[15], lineHeight: 20, fontWeight: 700 },
-  pressed: { opacity: 0.75, transform: [{ scale: 0.99 }] },
-  modalBackdrop: { flex: 1, justifyContent: 'flex-end', backgroundColor: 'rgba(38,31,39,0.30)' },
-  manageSheet: {
-    borderTopLeftRadius: Radius.large,
-    borderTopRightRadius: Radius.large,
-    borderCurve: 'continuous',
-    paddingHorizontal: 16,
-    paddingTop: 10,
-    paddingBottom: 19,
-  },
-  sheetHandle: { width: 38, height: 4, borderRadius: Radius.hairline, alignSelf: 'center' },
-  manageHeader: {
-    minHeight: 58,
-    paddingTop: 13,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    gap: 12,
-  },
-  manageTitle: { ...FontSize[18], lineHeight: 22, fontWeight: 700, letterSpacing: -0.4 },
-  sheetClose: {
-    width: 32,
-    height: 32,
-    borderRadius: Radius.control,
-    borderCurve: 'continuous',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  sheetCloseText: { ...FontSize[18], lineHeight: 20, fontWeight: 500 },
-  manageRow: { minHeight: 45, justifyContent: 'center', paddingHorizontal: 6 },
-  manageRowText: { ...FontSize[10], lineHeight: 13, fontWeight: 500 },
-});

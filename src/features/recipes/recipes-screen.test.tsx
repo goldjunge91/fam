@@ -107,11 +107,11 @@ describe('RecipesScreen — Entdecken', () => {
     ];
   });
 
-  it('zeigt die Figma-Abschnitte und das erste Rezept als Trending-Karte', async () => {
+  it('zeigt Kategorien, Kalorien und Mahlzeiten ohne Trending-Bereich', async () => {
     await render(<RecipesScreen />);
 
-    expect(screen.getByText('Trending')).toBeOnTheScreen();
-    expect(screen.getAllByRole('button', { name: 'Salat Overview' })).toHaveLength(2);
+    expect(screen.queryByText('Trending')).not.toBeOnTheScreen();
+    expect(screen.getByRole('button', { name: 'Salat Overview' })).toBeOnTheScreen();
     expect(screen.getByText('Unsere Rezepte')).toBeOnTheScreen();
     expect(screen.getByText('Kategorien')).toBeOnTheScreen();
     expect(screen.getByText('Rezepte nach Kalorien')).toBeOnTheScreen();
@@ -167,6 +167,54 @@ describe('RecipesScreen — Entdecken', () => {
     await user.press(screen.getByRole('button', { name: 'Meine Favoriten' }));
 
     expect(screen.getByText('Noch keine Favoriten gespeichert.')).toBeOnTheScreen();
+  });
+
+  it('öffnet den Vollbildfilter mit Kategorien, Kalorien, Mahlzeiten und Rezept-Tags', async () => {
+    const user = userEvent.setup();
+    mockRecipes = [makeRecipe({ id: 'r1', title: 'Schneller Salat', hashtags: ['schnell'] })];
+    await render(<RecipesScreen />);
+
+    await user.press(screen.getByRole('button', { name: 'Rezepte filtern' }));
+
+    const filterSelection = screen.getByLabelText('Filterauswahl');
+    expect(within(filterSelection).getByText('Kategorien')).toBeOnTheScreen();
+    expect(within(filterSelection).getByText('Rezepte nach Kalorien')).toBeOnTheScreen();
+    expect(within(filterSelection).getByText('Nach Mahlzeiten')).toBeOnTheScreen();
+    expect(within(filterSelection).getByRole('button', { name: 'Tag schnell' })).toBeOnTheScreen();
+  });
+
+  it('filtert eigene Rezepte über ihre Tags', async () => {
+    const user = userEvent.setup();
+    mockRecipes = [
+      makeRecipe({ id: 'r1', title: 'Schneller Salat', hashtags: ['schnell'] }),
+      makeRecipe({ id: 'r2', title: 'Sonntagsbraten', hashtags: ['sonntag'] }),
+    ];
+    await render(<RecipesScreen />);
+
+    await user.press(screen.getByRole('button', { name: 'Rezepte filtern' }));
+    const filterSelection = screen.getByLabelText('Filterauswahl');
+    await user.press(within(filterSelection).getByRole('button', { name: 'Tag schnell' }));
+    await user.press(screen.getByRole('button', { name: '1 Rezept anzeigen' }));
+
+    expect(screen.getByRole('button', { name: 'Schneller Salat' })).toBeOnTheScreen();
+    expect(screen.queryByRole('button', { name: 'Sonntagsbraten' })).not.toBeOnTheScreen();
+  });
+
+  it('filtert eigene Rezepte über die vorhandenen Kaloriengruppen', async () => {
+    const user = userEvent.setup();
+    mockRecipes = [
+      makeRecipe({ id: 'r1', title: 'Leichter Salat', kcalPerServing: 150 }),
+      makeRecipe({ id: 'r2', title: 'Deftiger Auflauf', kcalPerServing: 850 }),
+    ];
+    await render(<RecipesScreen />);
+
+    await user.press(screen.getByRole('button', { name: 'Rezepte filtern' }));
+    const filterSelection = screen.getByLabelText('Filterauswahl');
+    await user.press(within(filterSelection).getByRole('button', { name: '100–200 Kilokalorien' }));
+    await user.press(screen.getByRole('button', { name: '1 Rezept anzeigen' }));
+
+    expect(screen.getByRole('button', { name: 'Leichter Salat' })).toBeOnTheScreen();
+    expect(screen.queryByRole('button', { name: 'Deftiger Auflauf' })).not.toBeOnTheScreen();
   });
 });
 

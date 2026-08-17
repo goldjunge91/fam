@@ -10,6 +10,11 @@
       "source.sortMembers": "never"
     }
   },
+  "tailwindCSS.classAttributes": [
+    "class",
+    "className",
+    "headerClassName"
+  ],
   "[typescriptreact]": {
     "editor.defaultFormatter": "biomejs.biome",
     "editor.codeActionsOnSave": {
@@ -38,5 +43,10 @@
         }
       }
     ]
+  },
+  "files.exclude": {
+    "**/.git": false,
+    "**/.svn": false,
+    "**/.hg": false
   },
 }

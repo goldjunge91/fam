@@ -1,12 +1,8 @@
 import { Picker } from '@expo/ui/community/picker';
 import { useState } from 'react';
-import { Modal, Platform, Pressable, StyleSheet, View } from 'react-native';
+import { Modal, Platform, Pressable, View } from 'react-native';
 
-import { ThemedText, Typography } from '@/components/themed-text';
-
-import { Radius, Spacing } from '@/constants/theme';
-
-import { useTheme } from '@/hooks/use-theme';
+import { ThemedText } from '@/components/themed-text';
 import { Button } from './ui/buttons';
 
 export type WheelPickerOption = {
@@ -37,7 +33,6 @@ export function WheelPickerField({
   onChange,
   size = 'default',
 }: WheelPickerFieldProps) {
-  const theme = useTheme();
   const [isOpen, setIsOpen] = useState(false);
   const [pendingValue, setPendingValue] = useState(value);
 
@@ -59,12 +54,12 @@ export function WheelPickerField({
 
   if (Platform.OS === 'android') {
     return (
-      <View style={styles.container}>
+      <View className="gap-one">
         {label && (
           <ThemedText
             type="small"
             themeColor="textSecondary"
-            style={size === 'large' && styles.largeLabel}>
+            className={size === 'large' ? 'text-body' : ''}>
             {label}
           </ThemedText>
         )}
@@ -78,12 +73,12 @@ export function WheelPickerField({
   }
 
   return (
-    <View style={styles.container}>
+    <View className="gap-one">
       {label && (
         <ThemedText
           type="small"
           themeColor="textSecondary"
-          style={size === 'large' && styles.largeLabel}>
+          className={size === 'large' ? 'text-body' : ''}>
           {label}
         </ThemedText>
       )}
@@ -91,29 +86,26 @@ export function WheelPickerField({
         onPress={open}
         accessibilityRole="button"
         accessibilityLabel={label ? `${label} ${selectedLabel} ändern` : `${selectedLabel} ändern`}
-        style={[
-          styles.field,
-          { backgroundColor: theme.backgroundElement, borderColor: theme.border },
-        ]}>
-        <ThemedText style={[{ color: theme.text }, size === 'large' && styles.largeSelectedLabel]}>
+        className="input-field active:opacity-75">
+        <ThemedText themeColor="text" className={size === 'large' ? 'text-body-lg' : ''}>
           {selectedLabel}
         </ThemedText>
       </Pressable>
 
       <Modal visible={isOpen} transparent animationType="fade" onRequestClose={cancel}>
-        <View style={styles.backdrop}>
-          <View style={[styles.modalBox, { backgroundColor: theme.background }]}>
+        <View className="modal-backdrop">
+          <View className="modal-sheet">
             {label && <ThemedText type="subtitle">{label}</ThemedText>}
             <Picker selectedValue={pendingValue} onValueChange={setPendingValue}>
               {options.map((option) => (
                 <Picker.Item key={option.value} label={option.label} value={option.value} />
               ))}
             </Picker>
-            <View style={styles.modalActions}>
-              <View style={styles.flex}>
+            <View className="flex-row gap-two mt-two">
+              <View className="flex-1">
                 <Button label="Übernehmen" onPress={confirm} />
               </View>
-              <View style={styles.flex}>
+              <View className="flex-1">
                 <Button label="Abbrechen" variant="secondary" onPress={cancel} />
               </View>
             </View>
@@ -123,39 +115,3 @@ export function WheelPickerField({
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    gap: Spacing.one,
-  },
-  field: {
-    borderWidth: 1,
-    borderRadius: Radius.card,
-    paddingHorizontal: Spacing.three,
-    paddingVertical: Spacing.two + 2,
-  },
-  largeLabel: {
-    ...Typography.body,
-  },
-  largeSelectedLabel: {
-    ...Typography.bodyLarge,
-  },
-  backdrop: {
-    flex: 1,
-    backgroundColor: 'rgba(0,0,0,0.5)',
-    justifyContent: 'center',
-    padding: Spacing.four,
-  },
-  modalBox: {
-    borderRadius: Radius.sheet,
-    padding: Spacing.four,
-    gap: Spacing.three,
-  },
-  modalActions: {
-    flexDirection: 'row',
-    gap: Spacing.two,
-  },
-  flex: {
-    flex: 1,
-  },
-});

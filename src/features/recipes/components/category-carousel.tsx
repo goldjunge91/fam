@@ -1,13 +1,11 @@
-import { Pressable, ScrollView, StyleSheet } from 'react-native';
+import { Pressable, ScrollView } from 'react-native';
 
-import { FontSize, ThemedText } from '@/components/themed-text';
-import { Radius } from '@/constants/theme';
+import { ThemedText } from '@/components/themed-text';
 import type { RecipeTemplateWithNutrition } from '@/features/recipe-templates/use-recipe-templates';
 import {
   isHighProteinTemplate,
   isLowCarbTemplate,
 } from '@/features/recipe-templates/use-recipe-templates';
-import { useTheme } from '@/hooks/use-theme';
 
 export type CategoryTile = {
   key: string;
@@ -72,13 +70,11 @@ type CategoryCarouselProps = {
 
 /** Horizontal scrollende Kategorie-Kacheln — Icon und Label in derselben Karte, kein Text darunter. */
 export function CategoryCarousel({ selectedKey, onSelect }: CategoryCarouselProps) {
-  const theme = useTheme();
-
   return (
     <ScrollView
       horizontal
       showsHorizontalScrollIndicator={false}
-      contentContainerStyle={styles.row}>
+      contentContainerClassName="flex-row gap-two">
       {CATEGORY_TILES.map((tile) => {
         const selected = tile.key === selectedKey;
         return (
@@ -88,17 +84,12 @@ export function CategoryCarousel({ selectedKey, onSelect }: CategoryCarouselProp
             role="button"
             aria-label={tile.label}
             aria-selected={selected}
-            style={({ pressed }) => [
-              styles.tile,
-              {
-                backgroundColor: selected ? theme.accent : `${theme.backgroundElement}D9`,
-                borderColor: selected ? theme.accent : theme.border,
-              },
-              pressed && styles.pressed,
-            ]}>
-            <ThemedText style={styles.emoji}>{tile.emoji}</ThemedText>
+            className={`category-tile ${selected ? 'selectable-selected' : 'selectable-idle'}`}>
+            <ThemedText className="text-[22px] leading-[26px]">{tile.emoji}</ThemedText>
             <ThemedText
-              style={[styles.label, selected && { color: theme.background }]}
+              type="detail"
+              themeColor={selected ? 'onAccent' : 'text'}
+              className="text-[9px] leading-[11px] font-semibold text-center"
               numberOfLines={1}>
               {tile.label}
             </ThemedText>
@@ -108,35 +99,3 @@ export function CategoryCarousel({ selectedKey, onSelect }: CategoryCarouselProp
     </ScrollView>
   );
 }
-
-const styles = StyleSheet.create({
-  row: {
-    flexDirection: 'row',
-    gap: 8,
-  },
-  tile: {
-    width: 78,
-    minHeight: 68,
-    borderRadius: Radius.card,
-    borderCurve: 'continuous',
-    borderWidth: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    gap: 4,
-    paddingHorizontal: 6,
-    paddingVertical: 8,
-  },
-  pressed: {
-    opacity: 0.8,
-  },
-  emoji: {
-    ...FontSize[22],
-    lineHeight: 26,
-  },
-  label: {
-    ...FontSize[9],
-    lineHeight: 11,
-    fontWeight: 600,
-    textAlign: 'center',
-  },
-});

@@ -1,3 +1,4 @@
+import '../global.css';
 import { PersistQueryClientProvider } from '@tanstack/react-query-persist-client';
 import * as Linking from 'expo-linking';
 import { DarkTheme, DefaultTheme, Stack, ThemeProvider } from 'expo-router';

@@ -1,12 +1,11 @@
 import { router } from 'expo-router';
 import { useState } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { View } from 'react-native';
 import { Card } from '@/components/card';
 import { Screen } from '@/components/screen';
 import { TextField } from '@/components/text-field';
 import { ThemedText } from '@/components/themed-text';
 import { Button } from '@/components/ui/buttons';
-import { Spacing } from '@/constants/theme';
 import { useCreateHouseholdMutation } from '@/features/household/api';
 
 export function CreateHouseholdScreen() {
@@ -46,7 +45,7 @@ export function CreateHouseholdScreen() {
       subtitle="Lade später deine Familie oder WG ein"
       back={{ label: 'Haushalte' }}>
       <Card>
-        <View style={styles.form}>
+        <View className="gap-three">
           <TextField
             label="Name deines Haushalts"
             value={householdName}
@@ -55,11 +54,7 @@ export function CreateHouseholdScreen() {
             autoCapitalize="words"
           />
 
-          {errorMsg ? (
-            <ThemedText type="small" themeColor="danger">
-              {errorMsg}
-            </ThemedText>
-          ) : null}
+          {errorMsg ? <ThemedText type="smallDanger">{errorMsg}</ThemedText> : null}
 
           <Button label="Erstellen" onPress={handleSubmit} loading={mutation.isPending} />
         </View>
@@ -77,9 +72,3 @@ export function CreateHouseholdScreen() {
     </Screen>
   );
 }
-
-const styles = StyleSheet.create({
-  form: {
-    gap: Spacing.three,
-  },
-});

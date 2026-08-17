@@ -1,12 +1,11 @@
 import { router } from 'expo-router';
 import { useState } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { View } from 'react-native';
 import { Card } from '@/components/card';
 import { Screen } from '@/components/screen';
 import { TextField } from '@/components/text-field';
 import { ThemedText } from '@/components/themed-text';
 import { Button } from '@/components/ui/buttons';
-import { Spacing } from '@/constants/theme';
 import { authErrorMessage, updatePassword } from '@/features/auth/api';
 import { fieldErrors, newPasswordSchema } from '@/features/auth/auth-schemas';
 
@@ -52,7 +51,7 @@ export function ResetPasswordScreen() {
   return (
     <Screen title="Neues Passwort" subtitle="Danach bist du direkt angemeldet">
       <Card>
-        <View style={styles.form}>
+        <View className="gap-three">
           <TextField
             label="Neues Passwort"
             value={password}
@@ -76,11 +75,7 @@ export function ResetPasswordScreen() {
             returnKeyType="go"
           />
 
-          {formError ? (
-            <ThemedText type="small" themeColor="danger">
-              {formError}
-            </ThemedText>
-          ) : null}
+          {formError ? <ThemedText type="smallDanger">{formError}</ThemedText> : null}
 
           <Button label="Passwort speichern" onPress={handleSubmit} loading={loading} />
         </View>
@@ -88,7 +83,3 @@ export function ResetPasswordScreen() {
     </Screen>
   );
 }
-
-const styles = StyleSheet.create({
-  form: { gap: Spacing.three },
-});

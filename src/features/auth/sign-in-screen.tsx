@@ -1,12 +1,11 @@
 import { Link } from 'expo-router';
 import { useState } from 'react';
-import { KeyboardAvoidingView, Platform, StyleSheet, View } from 'react-native';
+import { KeyboardAvoidingView, Platform, View } from 'react-native';
 import { Card } from '@/components/card';
 import { Screen } from '@/components/screen';
 import { TextField } from '@/components/text-field';
 import { ThemedText } from '@/components/themed-text';
 import { Button } from '@/components/ui/buttons';
-import { Spacing } from '@/constants/theme';
 import { authErrorMessage, signIn, signInWithOAuthProvider } from '@/features/auth/api';
 import { fieldErrors, signInSchema } from '@/features/auth/auth-schemas';
 
@@ -45,7 +44,7 @@ export function SignInScreen() {
     <Screen title="Anmelden" subtitle="Schön, dass du wieder da bist">
       <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : undefined}>
         <Card>
-          <View style={styles.form}>
+          <View className="gap-three">
             <TextField
               testID="sign-in-email"
               label="E-Mail"
@@ -73,18 +72,12 @@ export function SignInScreen() {
               returnKeyType="go"
             />
 
-            {formError ? (
-              <ThemedText type="small" themeColor="danger">
-                {formError}
-              </ThemedText>
-            ) : null}
+            {formError ? <ThemedText type="smallDanger">{formError}</ThemedText> : null}
 
             <Button label="Anmelden" onPress={handleSubmit} loading={loading} />
 
-            <View style={styles.divider}>
-              <ThemedText type="small" themeColor="textSecondary">
-                oder anmelden mit
-              </ThemedText>
+            <View className="divider">
+              <ThemedText type="smallMuted">oder anmelden mit</ThemedText>
             </View>
 
             <Button
@@ -107,11 +100,9 @@ export function SignInScreen() {
           </View>
         </Card>
 
-        <View style={styles.links}>
+        <View className="link-stack">
           <Link href="/sign-up" asChild>
-            <ThemedText type="link" themeColor="accent">
-              Noch kein Konto? Registrieren
-            </ThemedText>
+            <ThemedText type="link">Noch kein Konto? Registrieren</ThemedText>
           </Link>
 
           <Link href="/forgot-password" asChild>
@@ -124,18 +115,3 @@ export function SignInScreen() {
     </Screen>
   );
 }
-
-const styles = StyleSheet.create({
-  form: {
-    gap: Spacing.three,
-  },
-  divider: {
-    alignItems: 'center',
-    marginVertical: Spacing.one,
-  },
-  links: {
-    alignItems: 'center',
-    gap: Spacing.two,
-    marginTop: Spacing.four,
-  },
-});

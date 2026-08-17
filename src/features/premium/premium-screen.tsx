@@ -1,17 +1,15 @@
 import { useState } from 'react';
-import { Alert, ScrollView, StyleSheet, View } from 'react-native';
+import { Alert, ScrollView, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { GradientBackground } from '@/components/gradient-background';
 import { PageHeader } from '@/components/page-header';
-import { FontSize, ThemedText } from '@/components/themed-text';
+import { ThemedText } from '@/components/themed-text';
 import { BackButton, Button } from '@/components/ui/buttons';
-import { Radius, Spacing } from '@/constants/theme';
 import { presentCustomerCenter, presentPaywall } from '@/features/premium/paywall';
 import { usePremium } from '@/features/premium/premium-provider';
 import { SettingsGroup, SettingsRow } from '@/features/settings/settings-menu';
 import { useHubGradient } from '@/hooks/use-hub-gradient';
-import { useTheme } from '@/hooks/use-theme';
 import { restorePurchases } from '@/lib/purchases';
 
 const BENEFITS: { icon: string; title: string; hint: string }[] = [
@@ -38,7 +36,6 @@ const BENEFITS: { icon: string; title: string; hint: string }[] = [
  * Produktname kommen von dort, nicht aus diesem Screen.
  */
 export function PremiumScreen() {
-  const theme = useTheme();
   const hubGradient = useHubGradient();
   const { isPremium, isForced, refresh } = usePremium();
   const [busy, setBusy] = useState(false);
@@ -89,25 +86,25 @@ export function PremiumScreen() {
   }
 
   return (
-    <View style={styles.root}>
+    <View className="flex-1">
       <GradientBackground {...hubGradient} />
-      <SafeAreaView style={styles.safeArea} edges={['top', 'left', 'right']}>
+      <SafeAreaView className="flex-1" edges={['top', 'left', 'right']}>
         <PageHeader
           title="fam Premium"
           align="center"
           leading={<BackButton label="Einstellungen" href="/settings" variant="arrow" />}
         />
 
-        <ScrollView contentContainerStyle={styles.scroll} showsVerticalScrollIndicator={false}>
-          <View style={styles.hero}>
-            <View style={styles.crown}>
+        <ScrollView contentContainerClassName="premium-scroll" showsVerticalScrollIndicator={false}>
+          <View className="premium-hero">
+            <View className="premium-crown">
               <GradientBackground colors={['#705573', '#c38b75']} />
-              <ThemedText style={styles.crownGlyph}>✦</ThemedText>
+              <ThemedText className="premium-crown-glyph">✦</ThemedText>
             </View>
-            <ThemedText style={styles.heroTitle}>
+            <ThemedText className="premium-hero-title">
               {isPremium ? 'Premium ist aktiv' : 'Mehr für euren Haushalt'}
             </ThemedText>
-            <ThemedText themeColor="textSecondary" style={styles.heroSubtitle}>
+            <ThemedText themeColor="textSecondary" className="premium-hero-subtitle">
               {isPremium
                 ? 'Euer Haushalt nutzt alle Premium-Funktionen.'
                 : 'Ein Abo schaltet Premium für alle Mitglieder des aktuellen Haushalts frei.'}
@@ -128,11 +125,11 @@ export function PremiumScreen() {
 
           {isPremium ? (
             <>
-              <View style={[styles.activeBox, { backgroundColor: `${theme.success}1F` }]}>
-                <ThemedText themeColor="success" style={styles.activeTitle}>
+              <View className="premium-active-box">
+                <ThemedText themeColor="success" className="premium-active-title">
                   ✓ Premium aktiv
                 </ThemedText>
-                <ThemedText themeColor="textSecondary" style={styles.activeHint}>
+                <ThemedText themeColor="textSecondary" className="premium-active-hint">
                   {isForced
                     ? 'Für diesen Build erzwungen (Entwicklermodus).'
                     : 'Gilt für alle aktuellen Haushaltsmitglieder.'}
@@ -142,13 +139,9 @@ export function PremiumScreen() {
             </>
           ) : (
             <>
-              <View
-                style={[
-                  styles.planBox,
-                  { borderColor: theme.accent, backgroundColor: theme.background },
-                ]}>
-                <ThemedText style={styles.planTitle}>Jahresabo</ThemedText>
-                <ThemedText themeColor="textSecondary" style={styles.planHint}>
+              <View className="premium-plan-box">
+                <ThemedText className="premium-plan-title">Jahresabo</ThemedText>
+                <ThemedText themeColor="textSecondary" className="premium-plan-hint">
                   Der genaue Preis wird vor dem Kauf im App Store angezeigt.
                 </ThemedText>
               </View>
@@ -166,75 +159,3 @@ export function PremiumScreen() {
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  root: {
-    flex: 1,
-  },
-  safeArea: {
-    flex: 1,
-  },
-  scroll: {
-    paddingHorizontal: Spacing.three,
-    paddingBottom: Spacing.six,
-    gap: Spacing.three,
-  },
-  // Masse 1:1 aus dem fam-settings-premium-flow-Mockup (.fsp-crown,
-  // .fsp-paywall, .fsp-plan, .fsp-active) uebernommen.
-  hero: {
-    alignItems: 'center',
-    paddingTop: 4,
-    gap: 4,
-  },
-  crown: {
-    width: 66,
-    height: 66,
-    marginBottom: 11,
-    borderRadius: Radius.sheet,
-    overflow: 'hidden',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  crownGlyph: {
-    color: '#fff',
-    ...FontSize[28],
-  },
-  heroTitle: {
-    ...FontSize[21],
-    fontWeight: '600',
-    letterSpacing: -0.45,
-  },
-  heroSubtitle: {
-    ...FontSize[9],
-    maxWidth: 270,
-    textAlign: 'center',
-    lineHeight: 13,
-    marginTop: 6,
-  },
-  activeBox: {
-    padding: 13,
-    borderRadius: Radius.sheet,
-  },
-  activeTitle: {
-    ...FontSize[10],
-    fontWeight: '600',
-  },
-  activeHint: {
-    ...FontSize[8],
-    marginTop: 3,
-  },
-  planBox: {
-    paddingVertical: 11,
-    paddingHorizontal: 12,
-    borderWidth: 2,
-    borderRadius: Radius.sheet,
-  },
-  planTitle: {
-    ...FontSize[10],
-    fontWeight: '600',
-  },
-  planHint: {
-    ...FontSize[7],
-    marginTop: 3,
-  },
-});

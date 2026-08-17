@@ -1,12 +1,9 @@
 import { useEffect, useState } from 'react';
-import { Pressable, StyleSheet, Text, View } from 'react-native';
+import { Pressable, Text, View } from 'react-native';
 import { TextField } from '@/components/text-field';
-import { FontSize } from '@/components/themed-text';
 import { Button } from '@/components/ui/buttons';
-import { Radius, Spacing } from '@/constants/theme';
 import { useProfile } from '@/features/auth/api';
 import { useSession } from '@/features/auth/session-provider';
-import { useTheme } from '@/hooks/use-theme';
 import { useOnboarding } from '../context/onboarding-context';
 import { validateOnboardingProfile } from '../onboarding-helpers';
 import type { ActivityLevel, SexOption, WeightGoal } from '../types';
@@ -35,7 +32,6 @@ interface ProfileStepFormProps {
 }
 
 export function ProfileStepForm({ onNext, onSkip }: ProfileStepFormProps) {
-  const theme = useTheme();
   const { state, updateProfileData } = useOnboarding();
   const { session } = useSession();
   const { data: userProfile } = useProfile(session?.user.id);
@@ -108,13 +104,13 @@ export function ProfileStepForm({ onNext, onSkip }: ProfileStepFormProps) {
   };
 
   return (
-    <View style={styles.container}>
-      <Text style={[styles.heading, { color: theme.text }]}>Dein Profil & Körperwerte</Text>
-      <Text style={[styles.subheading, { color: theme.textSecondary }]}>
+    <View className="gap-three">
+      <Text className="perm-heading">Dein Profil & Körperwerte</Text>
+      <Text className="perm-subheading">
         Alle Angaben sind freiwillig und dienen der genauen Kalorienberechnung.
       </Text>
 
-      <View style={styles.formSection}>
+      <View className="profile-form-section">
         <TextField
           label="Rufname / Anzeigename"
           value={displayName}
@@ -130,8 +126,8 @@ export function ProfileStepForm({ onNext, onSkip }: ProfileStepFormProps) {
           inputMode="numeric"
         />
 
-        <View style={styles.inputRow}>
-          <View style={styles.halfInput}>
+        <View className="input-row">
+          <View className="flex-1">
             <TextField
               label="Größe (cm)"
               value={heightCm}
@@ -142,7 +138,7 @@ export function ProfileStepForm({ onNext, onSkip }: ProfileStepFormProps) {
               error={errors.heightCm}
             />
           </View>
-          <View style={styles.halfInput}>
+          <View className="flex-1">
             <TextField
               label="Gewicht (kg)"
               value={weightKg}
@@ -155,24 +151,16 @@ export function ProfileStepForm({ onNext, onSkip }: ProfileStepFormProps) {
           </View>
         </View>
 
-        <Text style={[styles.sectionLabel, { color: theme.text }]}>
-          Berechnungsbasis (Geschlecht)
-        </Text>
-        <View style={styles.sexRow}>
+        <Text className="section-label">Berechnungsbasis (Geschlecht)</Text>
+        <View className="sex-row">
           {SEX_OPTIONS.map((opt) => {
             const selected = sex === opt.value;
             return (
               <Pressable
                 key={opt.value}
                 onPress={() => setSex(selected ? undefined : opt.value)}
-                style={[
-                  styles.optionButton,
-                  {
-                    backgroundColor: selected ? theme.accent : theme.backgroundElement,
-                    borderColor: selected ? theme.accent : theme.border,
-                  },
-                ]}>
-                <Text style={[styles.optionText, { color: selected ? '#ffffff' : theme.text }]}>
+                className={`option-button ${selected ? 'selectable-selected' : 'selectable-idle'}`}>
+                <Text className={`option-text ${selected ? 'text-on-accent' : 'text-text'}`}>
                   {opt.label}
                 </Text>
               </Pressable>
@@ -180,22 +168,17 @@ export function ProfileStepForm({ onNext, onSkip }: ProfileStepFormProps) {
           })}
         </View>
 
-        <Text style={[styles.sectionLabel, { color: theme.text }]}>Ernährungsziel</Text>
-        <View style={styles.goalStack}>
+        <Text className="section-label">Ernährungsziel</Text>
+        <View className="gap-two">
           {GOAL_OPTIONS.map((opt) => {
             const selected = weightGoal === opt.value;
             return (
               <Pressable
                 key={opt.value}
                 onPress={() => setWeightGoal(selected ? undefined : opt.value)}
-                style={[
-                  styles.choiceCard,
-                  {
-                    backgroundColor: selected ? theme.accent : theme.backgroundElement,
-                    borderColor: selected ? theme.accent : theme.border,
-                  },
-                ]}>
-                <Text style={[styles.choiceText, { color: selected ? '#ffffff' : theme.text }]}>
+                className={`profile-choice-card ${selected ? 'selectable-selected' : 'selectable-idle'}`}>
+                <Text
+                  className={`profile-choice-text ${selected ? 'text-on-accent' : 'text-text'}`}>
                   {opt.label}
                 </Text>
               </Pressable>
@@ -203,22 +186,17 @@ export function ProfileStepForm({ onNext, onSkip }: ProfileStepFormProps) {
           })}
         </View>
 
-        <Text style={[styles.sectionLabel, { color: theme.text }]}>Aktivitätslevel im Alltag</Text>
-        <View style={styles.activityStack}>
+        <Text className="section-label">Aktivitätslevel im Alltag</Text>
+        <View className="gap-two">
           {ACTIVITY_OPTIONS.map((opt) => {
             const selected = activityLevel === opt.value;
             return (
               <Pressable
                 key={opt.value}
                 onPress={() => setActivityLevel(selected ? undefined : opt.value)}
-                style={[
-                  styles.choiceCard,
-                  {
-                    backgroundColor: selected ? theme.accent : theme.backgroundElement,
-                    borderColor: selected ? theme.accent : theme.border,
-                  },
-                ]}>
-                <Text style={[styles.choiceText, { color: selected ? '#ffffff' : theme.text }]}>
+                className={`profile-choice-card ${selected ? 'selectable-selected' : 'selectable-idle'}`}>
+                <Text
+                  className={`profile-choice-text ${selected ? 'text-on-accent' : 'text-text'}`}>
                   {opt.label}
                 </Text>
               </Pressable>
@@ -227,85 +205,14 @@ export function ProfileStepForm({ onNext, onSkip }: ProfileStepFormProps) {
         </View>
       </View>
 
-      <View style={styles.buttonRow}>
-        <View style={styles.buttonCol}>
+      <View className="perm-button-row">
+        <View className="flex-1">
           <Button label="Weiter" onPress={handleSubmit} />
         </View>
-        <View style={styles.buttonCol}>
+        <View className="flex-1">
           <Button label="Später ausfüllen" variant="secondary" onPress={onSkip} />
         </View>
       </View>
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    gap: Spacing.three,
-  },
-  heading: {
-    ...FontSize[22],
-    fontWeight: '700',
-  },
-  subheading: {
-    ...FontSize[14],
-    lineHeight: 20,
-  },
-  formSection: {
-    gap: Spacing.three,
-    marginTop: Spacing.one,
-  },
-  inputRow: {
-    flexDirection: 'row',
-    gap: Spacing.two,
-  },
-  halfInput: {
-    flex: 1,
-  },
-  sectionLabel: {
-    ...FontSize[14],
-    fontWeight: '600',
-    marginTop: Spacing.two,
-  },
-  sexRow: {
-    flexDirection: 'row',
-    gap: Spacing.two,
-  },
-  optionButton: {
-    flex: 1,
-    paddingVertical: Spacing.two + 2,
-    paddingHorizontal: Spacing.three,
-    borderRadius: Radius.sm,
-    borderWidth: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  optionText: {
-    ...FontSize[14],
-    fontWeight: '600',
-  },
-  goalStack: {
-    gap: Spacing.two,
-  },
-  activityStack: {
-    gap: Spacing.two,
-  },
-  choiceCard: {
-    paddingVertical: Spacing.two + 2,
-    paddingHorizontal: Spacing.three,
-    borderRadius: Radius.sm,
-    borderWidth: 1,
-  },
-  choiceText: {
-    ...FontSize[14],
-    fontWeight: '500',
-  },
-  buttonRow: {
-    flexDirection: 'row',
-    gap: Spacing.two,
-    marginTop: Spacing.three,
-  },
-  buttonCol: {
-    flex: 1,
-  },
-});

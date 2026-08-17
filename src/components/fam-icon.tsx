@@ -1,5 +1,5 @@
 import { Image } from 'expo-image';
-import { StyleSheet, View } from 'react-native';
+import { View } from 'react-native';
 
 const ICONS = {
   overview: require('@/assets/images/figma/nav-overview.svg'),
@@ -22,6 +22,12 @@ const ICONS = {
 
 export type FamIconName = keyof typeof ICONS;
 
+/**
+ * Image (expo-image) ist bei NativeWind nicht registriert (kein
+ * cssInterop) — className wird auf Image-Elementen stillschweigend
+ * ignoriert statt einen Fehler zu werfen. Groesse/Position laufen hier
+ * deshalb ausschliesslich ueber style.
+ */
 export function FamIcon({
   name,
   size,
@@ -41,62 +47,46 @@ export function FamIcon({
   );
 }
 
-export function MenuIcon({ size = 26, color }: { size?: number; color?: string }) {
-  const lineWidth = size * (2 / 3);
-
+export function MenuIcon({ color }: { size?: number; color?: string }) {
   return (
-    <View style={{ width: size, height: size }}>
-      {[0.25, 0.5, 0.75].map((position) => (
-        <Image
-          key={position}
-          source={require('@/assets/images/figma/menu-line.svg')}
-          contentFit="fill"
-          tintColor={color}
-          style={[
-            styles.iconPart,
-            {
-              left: (size - lineWidth) / 2,
-              top: size * position - 1,
-              width: lineWidth,
-              height: 2,
-            },
-          ]}
-        />
-      ))}
+    <View className="w-[26px] h-[26px] items-center justify-center gap-[4px]">
+      <Image
+        source={require('@/assets/images/figma/menu-line.svg')}
+        contentFit="fill"
+        tintColor={color}
+        style={{ width: 17, height: 2 }}
+      />
+      <Image
+        source={require('@/assets/images/figma/menu-line.svg')}
+        contentFit="fill"
+        tintColor={color}
+        style={{ width: 17, height: 2 }}
+      />
+      <Image
+        source={require('@/assets/images/figma/menu-line.svg')}
+        contentFit="fill"
+        tintColor={color}
+        style={{ width: 17, height: 2 }}
+      />
     </View>
   );
 }
 
-export function PlusIcon({ size = 28, color }: { size?: number; color?: string }) {
-  const strokeLength = size * (7 / 12);
-  const offset = (size - strokeLength) / 2;
-
+export function PlusIcon({ color }: { size?: number; color?: string }) {
   return (
-    <View style={{ width: size, height: size }}>
+    <View className="w-[28px] h-[28px] items-center justify-center relative">
       <Image
         source={require('@/assets/images/figma/plus-horizontal.svg')}
         contentFit="fill"
         tintColor={color}
-        style={[
-          styles.iconPart,
-          { left: offset, top: size / 2 - 1, width: strokeLength, height: 2 },
-        ]}
+        style={{ width: 16, height: 2, position: 'absolute' }}
       />
       <Image
         source={require('@/assets/images/figma/plus-vertical.svg')}
         contentFit="fill"
         tintColor={color}
-        style={[
-          styles.iconPart,
-          { left: size / 2 - 1, top: offset, width: 2, height: strokeLength },
-        ]}
+        style={{ width: 2, height: 16, position: 'absolute' }}
       />
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  iconPart: {
-    position: 'absolute',
-  },
-});

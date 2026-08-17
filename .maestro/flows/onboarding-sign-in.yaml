@@ -24,32 +24,7 @@ env:
 #   maestro test .maestro/flows/onboarding-sign-in.yaml \
 #     -e TEST_EMAIL=other@example.com -e TEST_PASSWORD='Other123!'
 
-- launchApp:
-      clearState: true
-
-# clearState wipes the Expo dev-client's remembered Metro connection, so a
-# fresh install always opens the dev-client launcher first instead of our
-# JS bundle. It finds the server via network auto-discovery, which can take
-# a few seconds - extendedWaitUntil covers that instead of the default tap
-# timeout. Regex avoids hardcoding the machine's LAN IP/port.
-- extendedWaitUntil:
-      visible: "http://.*"
-      timeout: 50000
-- tapOn: "http://.*"
-
-# expo-dev-client shows a one-time "Dev Tools" info popup after the JS bundle
-# loads on a fresh install; clearState wipes the flag that suppresses it, so
-# it can reappear on any clearState run. optional:true skips this step
-# without failing the flow if it doesn't show up.
-- tapOn:
-      text: "Continue"
-      optional: true
-
-# Dismissing the info card above reveals the underlying dev-client menu
-# sheet (Reload/Go home/Tools) rather than closing it - close it too.
-- tapOn:
-      text: "Close"
-      optional: true
+- runFlow: ../subflows/launch-local-dev-client.yaml
 
 # Welcome-carousel: 3 slides, "Weiter" until the last one shows "Jetzt starten".
 - tapOn: "Weiter"

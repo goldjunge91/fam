@@ -2,15 +2,14 @@ import { useQueryClient } from '@tanstack/react-query';
 import * as Crypto from 'expo-crypto';
 import { router, useLocalSearchParams } from 'expo-router';
 import { useEffect, useState } from 'react';
-import { Alert, Image, StyleSheet, View } from 'react-native';
+import { Alert, Image, View } from 'react-native';
 import { FilterChipBar } from '@/components/filter-chip-bar';
 import { QuantityStepper } from '@/components/quantity-stepper';
 import { Screen } from '@/components/screen';
 import { useSnackbar } from '@/components/snackbar';
 import { TextField } from '@/components/text-field';
-import { FontSize, ThemedText } from '@/components/themed-text';
+import { ThemedText } from '@/components/themed-text';
 import { Button } from '@/components/ui/buttons';
-import { Radius, Spacing } from '@/constants/theme';
 import { useSession } from '@/features/auth/session-provider';
 import { useActiveProfile } from '@/features/calorie-tracking/active-profile-store';
 import {
@@ -24,7 +23,6 @@ import {
 import { MEAL_LABELS } from '@/features/calorie-tracking/diary-screen';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { useChildProfiles } from '@/features/household/api';
-import { useTheme } from '@/hooks/use-theme';
 import { getDatabase } from '@/lib/db/client';
 import { recordProductUsage } from '@/lib/db/product-usage';
 import {
@@ -89,7 +87,6 @@ function buildNutritionBadges(
  *   manuell.
  */
 export function AddFoodEntryScreen() {
-  const theme = useTheme();
   const params = useLocalSearchParams<{
     date: string;
     mealType: MealType;
@@ -304,7 +301,7 @@ export function AddFoodEntryScreen() {
 
   return (
     <Screen title={title} back={{ label: 'Abbrechen' }}>
-      <View style={styles.form}>
+      <View className="afe-form">
         {!isEditing && childProfiles.length > 0 ? (
           <View>
             <ThemedText type="smallBold">Für wen?</ThemedText>
@@ -332,16 +329,15 @@ export function AddFoodEntryScreen() {
           </View>
         ) : null}
 
-        <View style={styles.hero}>
+        <View className="afe-hero">
           {imageUrl ? (
-            <Image source={{ uri: imageUrl }} style={styles.heroImage} />
+            <Image source={{ uri: imageUrl }} className="afe-hero-image" />
           ) : (
-            <View
-              style={[styles.heroImagePlaceholder, { backgroundColor: theme.backgroundElement }]}>
-              <ThemedText style={{ ...FontSize[28] }}>🍽️</ThemedText>
+            <View className="afe-hero-image-placeholder">
+              <ThemedText className="text-[28px]">🍽️</ThemedText>
             </View>
           )}
-          <View style={styles.heroText}>
+          <View className="afe-hero-text">
             <TextField placeholder="Name des Lebensmittels" value={name} onChangeText={setName} />
             {brand ? (
               <ThemedText type="small" themeColor="textSecondary">
@@ -350,24 +346,19 @@ export function AddFoodEntryScreen() {
             ) : null}
           </View>
           {nutriScore ? (
-            <View style={[styles.nutriBadge, { backgroundColor: theme.accent }]}>
-              <ThemedText style={styles.nutriBadgeText}>{nutriScore.toUpperCase()}</ThemedText>
+            <View className="afe-nutri-badge">
+              <ThemedText className="afe-nutri-badge-text">{nutriScore.toUpperCase()}</ThemedText>
             </View>
           ) : null}
         </View>
 
         {badges.length > 0 ? (
-          <View style={styles.badgeRow}>
+          <View className="afe-badge-row">
             {badges.map((badge) => (
               <View
                 key={badge.label}
-                style={[
-                  styles.badge,
-                  { backgroundColor: `${theme[badge.tone === 'good' ? 'success' : 'warning']}22` },
-                ]}>
-                <ThemedText
-                  type="small"
-                  style={{ color: theme[badge.tone === 'good' ? 'success' : 'warning'] }}>
+                className={`afe-badge ${badge.tone === 'good' ? 'bg-success/[13%]' : 'bg-warning/[13%]'}`}>
+                <ThemedText type="small" themeColor={badge.tone === 'good' ? 'success' : 'warning'}>
                   {badge.tone === 'good' ? '🟢' : '⚠️'} {badge.label}
                 </ThemedText>
               </View>
@@ -375,8 +366,8 @@ export function AddFoodEntryScreen() {
           </View>
         ) : null}
 
-        <View style={styles.row}>
-          <View style={styles.flex}>
+        <View className="flex-row gap-four">
+          <View className="flex-1">
             <TextField
               label="kcal"
               value={kcalInput}
@@ -384,7 +375,7 @@ export function AddFoodEntryScreen() {
               keyboardType="numeric"
             />
           </View>
-          <View style={styles.flex}>
+          <View className="flex-1">
             <TextField
               label="Kohlenhydrate (g)"
               value={carbsInput}
@@ -393,8 +384,8 @@ export function AddFoodEntryScreen() {
             />
           </View>
         </View>
-        <View style={styles.row}>
-          <View style={styles.flex}>
+        <View className="flex-row gap-four">
+          <View className="flex-1">
             <TextField
               label="Eiweiß (g)"
               value={proteinInput}
@@ -402,7 +393,7 @@ export function AddFoodEntryScreen() {
               keyboardType="numeric"
             />
           </View>
-          <View style={styles.flex}>
+          <View className="flex-1">
             <TextField
               label="Fett (g)"
               value={fatInput}
@@ -412,7 +403,7 @@ export function AddFoodEntryScreen() {
           </View>
         </View>
 
-        <ThemedText type="smallBold" style={{ marginTop: Spacing.one }}>
+        <ThemedText type="smallBold" className="mt-one">
           Menge
         </ThemedText>
         <QuantityStepper
@@ -434,7 +425,7 @@ export function AddFoodEntryScreen() {
           </ThemedText>
         ) : null}
 
-        <View style={styles.saveButton}>
+        <View className="mt-two">
           <Button
             label="Speichern"
             onPress={handleSave}
@@ -455,63 +446,3 @@ export function AddFoodEntryScreen() {
     </Screen>
   );
 }
-
-const styles = StyleSheet.create({
-  form: {
-    gap: Spacing.three,
-    marginTop: Spacing.two,
-  },
-  hero: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: Spacing.three,
-  },
-  heroImage: {
-    width: 56,
-    height: 56,
-    borderRadius: Radius.controlLarge,
-  },
-  heroImagePlaceholder: {
-    width: 56,
-    height: 56,
-    borderRadius: Radius.controlLarge,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  heroText: {
-    flex: 1,
-    gap: 2,
-  },
-  nutriBadge: {
-    width: 34,
-    height: 34,
-    borderRadius: Radius.control,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  nutriBadgeText: {
-    color: '#fff',
-    fontWeight: '900',
-    ...FontSize[15],
-  },
-  badgeRow: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    gap: Spacing.one,
-  },
-  badge: {
-    paddingHorizontal: 10,
-    paddingVertical: 4,
-    borderRadius: Radius.control,
-  },
-  row: {
-    flexDirection: 'row',
-    gap: Spacing.four,
-  },
-  flex: {
-    flex: 1,
-  },
-  saveButton: {
-    marginTop: Spacing.two,
-  },
-});

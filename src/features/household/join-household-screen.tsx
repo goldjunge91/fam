@@ -1,12 +1,11 @@
 import { router, useLocalSearchParams } from 'expo-router';
 import { useEffect, useState } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { View } from 'react-native';
 import { Card } from '@/components/card';
 import { Screen } from '@/components/screen';
 import { TextField } from '@/components/text-field';
 import { ThemedText } from '@/components/themed-text';
 import { Button } from '@/components/ui/buttons';
-import { Spacing } from '@/constants/theme';
 import { useRedeemInviteMutation } from '@/features/household/api';
 import { clearPendingInviteToken, peekPendingInviteToken } from '@/lib/pending-invite';
 
@@ -57,7 +56,7 @@ export function JoinHouseholdScreen() {
       subtitle="Mit Einladungs-Code oder Link"
       back={{ label: 'Einstellungen', href: '/settings' }}>
       <Card title="Einlösung">
-        <View style={styles.form}>
+        <View className="gap-three">
           <TextField
             label="Einladungs-Code / Token"
             placeholder="z. B. 123e4567-e89b-12d3-a456-426614174000"
@@ -67,11 +66,7 @@ export function JoinHouseholdScreen() {
             autoCorrect={false}
           />
 
-          {errorMsg ? (
-            <ThemedText type="small" themeColor="danger">
-              {errorMsg}
-            </ThemedText>
-          ) : null}
+          {errorMsg ? <ThemedText type="smallDanger">{errorMsg}</ThemedText> : null}
 
           <Button
             label="Haushalt beitreten"
@@ -82,15 +77,9 @@ export function JoinHouseholdScreen() {
         </View>
       </Card>
 
-      <View style={{ marginTop: Spacing.four }}>
+      <View className="mt-four">
         <Button label="Abbrechen" variant="secondary" onPress={() => router.back()} />
       </View>
     </Screen>
   );
 }
-
-const styles = StyleSheet.create({
-  form: {
-    gap: Spacing.three,
-  },
-});

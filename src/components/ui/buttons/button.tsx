@@ -1,7 +1,13 @@
-import { ActivityIndicator, type ColorValue, Pressable, StyleSheet, View } from 'react-native';
+import {
+  ActivityIndicator,
+  type ColorValue,
+  Pressable,
+  type StyleProp,
+  View,
+  type ViewStyle,
+} from 'react-native';
 
-import { Typography, ThemedText } from '@/components/themed-text';
-import { Radius, Spacing } from '@/constants/theme';
+import { ThemedText } from '@/components/themed-text';
 import { useTheme } from '@/hooks/use-theme';
 
 type ButtonProps = {
@@ -11,9 +17,18 @@ type ButtonProps = {
   size?: 'default' | 'large';
   accessibilityLabel?: string;
   backgroundColor?: ColorValue;
+  style?: StyleProp<ViewStyle>;
   /** Zeigt einen Spinner und sperrt den Knopf — verhindert Doppel-Submits. */
   loading?: boolean;
   disabled?: boolean;
+  className?: string;
+};
+
+const VARIANT_CLASSES: Record<NonNullable<ButtonProps['variant']>, string> = {
+  primary: 'btn-primary',
+  secondary: 'btn-secondary',
+  danger: 'btn-danger',
+  link: 'btn-link',
 };
 
 /** Beschrifteter Standardbutton fuer Formulare und bestaetigende Aktionen. */
@@ -24,24 +39,20 @@ export function Button({
   size = 'default',
   accessibilityLabel,
   backgroundColor,
+  style,
   loading = false,
   disabled = false,
+  className = '',
 }: ButtonProps) {
   const theme = useTheme();
   const isBlocked = loading || disabled;
-
-  const background = backgroundColor
-    ? backgroundColor
-    : variant === 'primary'
-      ? theme.accent
-      : variant === 'danger'
-        ? theme.danger
-        : variant === 'secondary'
-          ? theme.backgroundElement
-          : undefined;
+  const variantClass = VARIANT_CLASSES[variant] ?? 'btn-primary';
 
   const foreground =
     variant === 'secondary' ? theme.text : variant === 'link' ? theme.accent : '#ffffff';
+
+  const labelThemeColor =
+    variant === 'secondary' ? 'text' : variant === 'link' ? 'accent' : 'onAccent';
 
   return (
     <Pressable
@@ -50,18 +61,14 @@ export function Button({
       accessibilityRole="button"
       accessibilityLabel={accessibilityLabel ?? label}
       accessibilityState={{ disabled: isBlocked, busy: loading }}
-      style={({ pressed }) => [
-        styles.button,
-        variant === 'link' ? styles.linkButton : styles.filledButton,
-        background ? { backgroundColor: background } : null,
-        isBlocked && styles.blocked,
-        pressed && !isBlocked && styles.pressed,
-      ]}>
-      <View style={styles.content}>
+      className={`${variantClass} ${isBlocked ? 'opacity-50' : ''} ${className}`.trim()}
+      style={backgroundColor ? [{ backgroundColor }, style] : style}>
+      <View className="flex-row items-center gap-two">
         {loading ? <ActivityIndicator size="small" color={foreground} /> : null}
         <ThemedText
           type={variant === 'link' ? 'small' : 'smallBold'}
-          style={[{ color: foreground }, size === 'large' && styles.largeLabel]}>
+          themeColor={variant === 'danger' ? undefined : labelThemeColor}
+          className={`${variant === 'danger' ? 'text-white' : ''} ${size === 'large' ? 'text-body' : ''}`.trim()}>
           {label}
         </ThemedText>
       </View>
@@ -69,34 +76,4 @@ export function Button({
   );
 }
 
-const styles = StyleSheet.create({
-  button: {
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  filledButton: {
-    borderRadius: Radius.card,
-    borderCurve: 'continuous',
-    paddingVertical: Spacing.three,
-    paddingHorizontal: Spacing.four,
-  },
-  linkButton: {
-    alignSelf: 'flex-end',
-    paddingHorizontal: Spacing.three,
-    paddingVertical: Spacing.two,
-  },
-  content: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: Spacing.two,
-  },
-  blocked: {
-    opacity: 0.5,
-  },
-  pressed: {
-    opacity: 0.8,
-  },
-  largeLabel: {
-    ...Typography.body,
-  },
-});
+

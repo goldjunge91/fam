@@ -1,16 +1,14 @@
-import { Pressable, StyleSheet, Switch, View } from 'react-native';
+import { Pressable, Switch, View } from 'react-native';
 
 import { Card } from '@/components/card';
 import { Screen } from '@/components/screen';
 import { ThemedText } from '@/components/themed-text';
-import { Radius, Spacing } from '@/constants/theme';
 import { useSession } from '@/features/auth/session-provider';
 import {
   type ModulePreferences,
   useModulePreferences,
   useUpdateModulePreferencesMutation,
 } from '@/features/settings/module-preferences';
-import { useTheme } from '@/hooks/use-theme';
 
 const MODULE_ROWS: { key: keyof ModulePreferences; icon: string; title: string; desc: string }[] = [
   {
@@ -52,7 +50,6 @@ const MODULE_ROWS: { key: keyof ModulePreferences; icon: string; title: string; 
  * siehe `docs/VISION.md`, und tauchen deshalb hier nicht auf.
  */
 export function ModuleSettingsScreen() {
-  const theme = useTheme();
   const { session } = useSession();
   const userId = session?.user.id;
 
@@ -77,19 +74,13 @@ export function ModuleSettingsScreen() {
           Lade Einstellungen...
         </ThemedText>
       ) : (
-        <View style={styles.moduleList}>
+        <View className="gap-two">
           {MODULE_ROWS.map((row) => (
             <Pressable
               key={row.key}
               onPress={() => toggle(row.key)}
-              style={[
-                styles.moduleRow,
-                {
-                  backgroundColor: theme.backgroundElement,
-                  borderColor: modules[row.key] ? theme.accent : theme.border,
-                },
-              ]}>
-              <View style={styles.moduleTextCol}>
+              className={`module-row ${modules[row.key] ? 'module-row-selected' : 'module-row-idle'}`}>
+              <View className="row-text">
                 <ThemedText type="smallBold">
                   {row.icon} {row.title}
                 </ThemedText>
@@ -105,22 +96,3 @@ export function ModuleSettingsScreen() {
     </Screen>
   );
 }
-
-const styles = StyleSheet.create({
-  moduleList: {
-    gap: Spacing.two,
-  },
-  moduleRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    gap: Spacing.three,
-    padding: Spacing.three,
-    borderRadius: Radius.card,
-    borderWidth: StyleSheet.hairlineWidth,
-  },
-  moduleTextCol: {
-    flex: 1,
-    gap: 2,
-  },
-});

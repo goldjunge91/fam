@@ -1,11 +1,10 @@
 import * as Clipboard from 'expo-clipboard';
 import { useState } from 'react';
-import { Alert, Modal, Pressable, ScrollView, Share, StyleSheet, View } from 'react-native';
+import { Alert, Modal, Pressable, ScrollView, Share, View } from 'react-native';
 import QRCode from 'react-native-qrcode-svg';
 import { Card } from '@/components/card';
-import { FontSize, ThemedText } from '@/components/themed-text';
+import { ThemedText } from '@/components/themed-text';
 import { Button } from '@/components/ui/buttons';
-import { Radius, Spacing } from '@/constants/theme';
 import { useSession } from '@/features/auth/session-provider';
 import {
   useCreateInviteMutation,
@@ -13,7 +12,6 @@ import {
   useRevokeInviteMutation,
 } from '@/features/household/api';
 import { formatInviteUrl } from '@/features/household/household-helpers';
-import { useTheme } from '@/hooks/use-theme';
 
 interface InviteModalProps {
   visible: boolean;
@@ -23,7 +21,6 @@ interface InviteModalProps {
 }
 
 export function InviteModal({ visible, householdId, householdName, onClose }: InviteModalProps) {
-  const theme = useTheme();
   const { session } = useSession();
   const userId = session?.user.id ?? '';
 
@@ -108,13 +105,15 @@ export function InviteModal({ visible, householdId, householdName, onClose }: In
 
   return (
     <Modal visible={visible} animationType="slide" transparent onRequestClose={onClose}>
-      <View style={styles.backdrop}>
-        <View style={[styles.modalBox, { backgroundColor: theme.background }]}>
-          <ScrollView contentContainerStyle={styles.content}>
-            <View style={styles.headerRow}>
+      <View className="modal-backdrop-bottom">
+        <View className="invite-modal-box">
+          <ScrollView contentContainerClassName="invite-modal-content">
+            <View className="modal-header-row">
               <ThemedText type="subtitle">Mitglied einladen</ThemedText>
               <Pressable onPress={onClose} hitSlop={10}>
-                <ThemedText style={{ ...FontSize[18], color: theme.textSecondary }}>✕</ThemedText>
+                <ThemedText themeColor="textSecondary" className="text-[18px]">
+                  ✕
+                </ThemedText>
               </Pressable>
             </View>
 
@@ -125,23 +124,23 @@ export function InviteModal({ visible, householdId, householdName, onClose }: In
 
             {selectedToken ? (
               <Card title="Einladungs-Code & QR-Code">
-                <View style={styles.createdBox}>
-                  <ThemedText style={styles.tokenText}>{selectedToken}</ThemedText>
+                <View className="gap-two">
+                  <ThemedText className="invite-token-text">{selectedToken}</ThemedText>
 
                   {showQrCode && (
-                    <View style={styles.qrContainer}>
+                    <View className="invite-qr-container">
                       <QRCode value={formatInviteUrl(selectedToken)} size={180} />
                     </View>
                   )}
 
-                  <View style={styles.buttonRow}>
-                    <View style={{ flex: 1 }}>
+                  <View className="flex-row gap-two">
+                    <View className="flex-1">
                       <Button
                         label={copyFeedback === 'code' ? '✓ Code kopiert!' : 'Code kopieren'}
                         onPress={() => handleCopyCode(selectedToken)}
                       />
                     </View>
-                    <View style={{ flex: 1 }}>
+                    <View className="flex-1">
                       <Button
                         label={copyFeedback === 'link' ? '✓ Link kopiert!' : 'Link kopieren'}
                         onPress={() => handleCopyLink(selectedToken)}
@@ -175,7 +174,7 @@ export function InviteModal({ visible, householdId, householdName, onClose }: In
               />
             )}
 
-            <ThemedText style={styles.sectionTitle}>Aktive Einladungen</ThemedText>
+            <ThemedText className="font-bold mt-two">Aktive Einladungen</ThemedText>
             {invites.length === 0 ? (
               <ThemedText type="small" themeColor="textSecondary">
                 Keine aktiven Einladungen vorhanden.
@@ -186,16 +185,9 @@ export function InviteModal({ visible, householdId, householdName, onClose }: In
                 return (
                   <View
                     key={inv.id}
-                    style={[
-                      styles.inviteRow,
-                      { borderBottomColor: theme.border },
-                      isSelected && {
-                        backgroundColor: `${theme.accent}15`,
-                        borderRadius: Radius.sm,
-                      },
-                    ]}>
+                    className={`invite-row ${isSelected ? 'invite-row-selected' : ''}`}>
                     <Pressable
-                      style={{ flex: 1 }}
+                      className="flex-1"
                       onPress={() => {
                         setSelectedToken(inv.token);
                         setShowQrCode(true);
@@ -208,27 +200,27 @@ export function InviteModal({ visible, householdId, householdName, onClose }: In
                         {inv.uses}/{inv.max_uses} genutzt
                       </ThemedText>
                     </Pressable>
-                    <View style={styles.inviteButtons}>
+                    <View className="invite-row-buttons">
                       <Pressable
                         onPress={() => {
                           setSelectedToken(inv.token);
                           setShowQrCode(true);
                         }}
                         accessibilityLabel="QR-Code anzeigen"
-                        style={styles.actionIconButton}>
-                        <ThemedText style={{ ...FontSize[16] }}>📱</ThemedText>
+                        className="invite-action-icon-button">
+                        <ThemedText className="invite-action-icon-text">📱</ThemedText>
                       </Pressable>
                       <Pressable
                         onPress={() => handleShare(inv.token)}
                         accessibilityLabel="Teilen"
-                        style={styles.actionIconButton}>
-                        <ThemedText style={{ ...FontSize[16] }}>📤</ThemedText>
+                        className="invite-action-icon-button">
+                        <ThemedText className="invite-action-icon-text">📤</ThemedText>
                       </Pressable>
                       <Pressable
                         onPress={() => handleRevoke(inv.id)}
                         accessibilityLabel="Zurückziehen"
-                        style={styles.actionIconButton}>
-                        <ThemedText style={{ ...FontSize[16] }}>🗑</ThemedText>
+                        className="invite-action-icon-button">
+                        <ThemedText className="invite-action-icon-text">🗑</ThemedText>
                       </Pressable>
                     </View>
                   </View>
@@ -243,68 +235,3 @@ export function InviteModal({ visible, householdId, householdName, onClose }: In
     </Modal>
   );
 }
-
-const styles = StyleSheet.create({
-  backdrop: {
-    flex: 1,
-    backgroundColor: 'rgba(0,0,0,0.5)',
-    justifyContent: 'flex-end',
-  },
-  modalBox: {
-    borderTopLeftRadius: Radius.large,
-    borderTopRightRadius: Radius.large,
-    padding: Spacing.four,
-    maxHeight: '85%',
-  },
-  content: {
-    gap: Spacing.three,
-    paddingBottom: Spacing.four,
-  },
-  headerRow: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-  },
-  createdBox: {
-    gap: Spacing.two,
-  },
-  tokenText: {
-    fontWeight: 'bold',
-    ...FontSize[15],
-    color: '#10B981',
-    textAlign: 'center',
-    paddingVertical: 8,
-  },
-  qrContainer: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    padding: Spacing.three,
-    backgroundColor: '#FFFFFF',
-    borderRadius: Radius.card,
-    alignSelf: 'center',
-    marginVertical: Spacing.two,
-  },
-  buttonRow: {
-    flexDirection: 'row',
-    gap: Spacing.two,
-  },
-  sectionTitle: {
-    fontWeight: 'bold',
-    marginTop: Spacing.two,
-  },
-  inviteRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    paddingVertical: Spacing.two,
-    paddingHorizontal: Spacing.one,
-    borderBottomWidth: StyleSheet.hairlineWidth,
-    gap: Spacing.two,
-  },
-  inviteButtons: {
-    flexDirection: 'row',
-    gap: 8,
-  },
-  actionIconButton: {
-    padding: 6,
-  },
-});

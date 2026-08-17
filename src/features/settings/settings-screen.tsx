@@ -2,14 +2,13 @@ import { useQueryClient } from '@tanstack/react-query';
 import Constants from 'expo-constants';
 import { router } from 'expo-router';
 import { useState } from 'react';
-import { Alert, Pressable, ScrollView, StyleSheet, View } from 'react-native';
+import { Alert, Pressable, ScrollView, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { GradientBackground } from '@/components/gradient-background';
 import { PageHeader } from '@/components/page-header';
-import { FontSize, ThemedText } from '@/components/themed-text';
+import { ThemedText } from '@/components/themed-text';
 import { Button, MenuButton, ProfileButton } from '@/components/ui/buttons';
-import { Radius, Spacing } from '@/constants/theme';
 import { useProfile } from '@/features/auth/api';
 import { useSession } from '@/features/auth/session-provider';
 import { signOutAndClearLocalData } from '@/features/auth/sign-out';
@@ -20,7 +19,6 @@ import { classifySupabaseTarget } from '@/features/settings/dev/dev-info';
 import { PremiumPromoCard } from '@/features/settings/premium-promo-card';
 import { SettingsGroup, SettingsRow } from '@/features/settings/settings-menu';
 import { useHubGradient } from '@/hooks/use-hub-gradient';
-import { useTheme } from '@/hooks/use-theme';
 import { env } from '@/lib/env';
 
 /**
@@ -33,7 +31,6 @@ import { env } from '@/lib/env';
  * die Paywall direkt zu praesentieren.
  */
 export function SettingsScreen() {
-  const theme = useTheme();
   const hubGradient = useHubGradient();
   const { session } = useSession();
   const { openDrawer } = useNavigationChrome();
@@ -72,9 +69,9 @@ export function SettingsScreen() {
   const appVersion = Constants.expoConfig?.version ?? '1.0.0';
 
   return (
-    <View style={styles.root}>
+    <View className="flex-1">
       <GradientBackground {...hubGradient} />
-      <SafeAreaView style={styles.safeArea} edges={['top', 'left', 'right']}>
+      <SafeAreaView className="flex-1" edges={['top', 'left', 'right']}>
         <PageHeader
           title="Einstellungen"
           align="center"
@@ -84,20 +81,21 @@ export function SettingsScreen() {
           }
         />
 
-        <ScrollView contentContainerStyle={styles.scroll} showsVerticalScrollIndicator={false}>
-          <View style={styles.topCards}>
+        <ScrollView contentContainerClassName="screen-scroll" showsVerticalScrollIndicator={false}>
+          <View className="gap-[10px]">
             <Pressable
               onPress={() => router.push('/settings/profile')}
               accessibilityRole="button"
-              style={({ pressed }) => [
-                styles.profileRow,
-                { backgroundColor: `${theme.backgroundElement}B8`, borderColor: theme.border },
-                pressed && styles.pressed,
-              ]}>
-              <View style={[styles.profileAvatar, { backgroundColor: theme.accent }]}>
-                <ThemedText style={styles.profileAvatarText}>{initials}</ThemedText>
+              className="profile-row">
+              <View className="profile-avatar">
+                {/* smallBold (14px/700) statt der fruehren 13px/600-Sonderrolle
+                    — naechstliegende bestehende Rolle, onAccent statt fest
+                    verdrahtetem Weiss (exakter Zweck des Tokens). */}
+                <ThemedText type="smallBold" themeColor="onAccent">
+                  {initials}
+                </ThemedText>
               </View>
-              <View style={styles.profileTextWrap}>
+              <View className="row-text">
                 <ThemedText type="smallBold" numberOfLines={1}>
                   {displayName}
                 </ThemedText>
@@ -105,7 +103,9 @@ export function SettingsScreen() {
                   {session?.user.email ?? '—'}
                 </ThemedText>
               </View>
-              <ThemedText themeColor="textSecondary" style={styles.chevron}>
+              {/* bodyLarge (18px) statt der fruehren 19px-Sonderroute —
+                  naechstliegende bestehende Rolle fuer ein Chevron-Glyph. */}
+              <ThemedText type="bodyLarge" themeColor="textSecondary">
                 ›
               </ThemedText>
             </Pressable>
@@ -113,7 +113,7 @@ export function SettingsScreen() {
             <PremiumPromoCard />
           </View>
 
-          <View style={styles.groups}>
+          <View className="gap-four">
             <SettingsGroup title="Haushalt">
               <SettingsRow
                 icon="🏠"
@@ -192,7 +192,7 @@ export function SettingsScreen() {
             ) : null}
           </View>
 
-          <View style={styles.abmelden}>
+          <View className="mt-two">
             <Button
               label="Abmelden"
               variant="danger"
@@ -201,7 +201,7 @@ export function SettingsScreen() {
             />
           </View>
 
-          <ThemedText type="small" style={styles.versionText}>
+          <ThemedText type="small" className="text-center opacity-60">
             {`fam v${appVersion}`}
           </ThemedText>
         </ScrollView>
@@ -209,61 +209,3 @@ export function SettingsScreen() {
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  root: {
-    flex: 1,
-  },
-  safeArea: {
-    flex: 1,
-  },
-  scroll: {
-    paddingHorizontal: Spacing.three,
-    paddingBottom: Spacing.six,
-    gap: Spacing.four,
-  },
-  topCards: {
-    gap: 10,
-  },
-  profileRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: Spacing.two,
-    padding: Spacing.two,
-    borderWidth: StyleSheet.hairlineWidth,
-    borderRadius: Radius.sheet,
-  },
-  profileAvatar: {
-    width: 50,
-    height: 50,
-    borderRadius: Radius.large,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  profileAvatarText: {
-    color: '#fff',
-    ...FontSize[13],
-    fontWeight: '600',
-  },
-  profileTextWrap: {
-    flex: 1,
-    gap: 2,
-  },
-  chevron: {
-    ...FontSize[19],
-    lineHeight: 19,
-  },
-  groups: {
-    gap: Spacing.four,
-  },
-  abmelden: {
-    marginTop: Spacing.two,
-  },
-  versionText: {
-    textAlign: 'center',
-    opacity: 0.6,
-  },
-  pressed: {
-    opacity: 0.85,
-  },
-});

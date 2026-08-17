@@ -1,8 +1,5 @@
 import type { ReactNode } from 'react';
-import { Pressable, StyleSheet } from 'react-native';
-
-import { Radius, withAlpha } from '@/constants/theme';
-import { useTheme } from '@/hooks/use-theme';
+import { Pressable } from 'react-native';
 
 type FloatingActionButtonProps = {
   label: string;
@@ -12,30 +9,15 @@ type FloatingActionButtonProps = {
 
 /** Grosse, schwebende Primaeraktion am unteren Bildschirmrand. */
 export function FloatingActionButton({ label, onPress, children }: FloatingActionButtonProps) {
-  const theme = useTheme();
-
   return (
     <Pressable
       onPress={onPress}
       accessibilityRole="button"
       accessibilityLabel={label}
-      style={[
-        styles.button,
-        { backgroundColor: theme.accent, boxShadow: `0 10px 22px ${withAlpha(theme.shadowSheet, 0.22)}` },
-      ]}>
+      className="btn-fab">
       {children}
     </Pressable>
   );
 }
 
-const styles = StyleSheet.create({
-  button: {
-    width: 75,
-    height: 75,
-    borderRadius: Radius.pill,
-    borderCurve: 'continuous',
-    alignItems: 'center',
-    justifyContent: 'center',
-    transform: [{ translateY: 0 }],
-  },
-});
+

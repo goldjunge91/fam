@@ -1,6 +1,6 @@
 import { useLocalSearchParams } from 'expo-router';
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { Alert, ScrollView, SectionList, StyleSheet, View } from 'react-native';
+import { Alert, ScrollView, SectionList, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { Card } from '@/components/card';
@@ -8,7 +8,7 @@ import { EmptyState } from '@/components/empty-state';
 import { Screen } from '@/components/screen';
 import { ThemedText } from '@/components/themed-text';
 import { Button } from '@/components/ui/buttons';
-import { Layout, Spacing } from '@/constants/theme';
+import { Layout } from '@/constants/theme';
 import { useSession } from '@/features/auth/session-provider';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { useHouseholdMembers } from '@/features/household/api';
@@ -39,6 +39,10 @@ const UNASSIGNED_COLOR = '#8E8E93';
  * "Alle Listen": eine Karte je Markt mit Fortschritt + geschätzter Summe.
  * Markt antippen (Karte oder Chip) filtert auf die bekannte kategorisierte
  * Checkliste dieses Markts, mit markt-farbigem "Einkauf abschließen"-Button.
+ *
+ * Die Marktansicht rendert als eigene, wirklich virtualisierte SectionList
+ * statt einer nicht-scrollenden Liste innerhalb eines ScrollView — sonst
+ * werden bei langen Listen alle Zeilen sofort gemountet.
  */
 export function ShoppingListScreen() {
   const params = useLocalSearchParams<{ action?: string }>();
@@ -190,13 +194,10 @@ export function ShoppingListScreen() {
     ? `Einkauf bei ${activeStore.name} abschließen`
     : 'Einkauf abschließen';
 
-  const listContentStyle = [
-    styles.scrollContent,
-    { paddingBottom: insets.bottom + Layout.floatingActionClearance },
-  ];
+  const listContentPadding = { paddingBottom: insets.bottom + Layout.floatingActionClearance };
 
   const renderHeader = () => (
-    <View style={styles.overviewHeader}>
+    <View className="row-between">
       <ThemedText type="small" themeColor="textSecondary">
         {isAllFilter
           ? 'Deine Einkaufslisten'
@@ -222,7 +223,7 @@ export function ShoppingListScreen() {
   const renderCompleteButton = () => {
     if (!hasCheckedItems) return null;
     return (
-      <View style={styles.completeAction}>
+      <View className="mt-two">
         <Button
           size="large"
           label={`🛒 ${completeActionLabel} (${checkedItems.length})`}
@@ -237,7 +238,10 @@ export function ShoppingListScreen() {
   return (
     <Screen title="Einkauf" subtitle={subtitleParts.join(' · ')} scroll={false} chrome={chrome}>
       {isLoading ? null : allItems.length === 0 ? (
-        <ScrollView style={styles.scroll} contentContainerStyle={listContentStyle}>
+        <ScrollView
+          className="flex-1"
+          contentContainerClassName="gap-three"
+          contentContainerStyle={listContentPadding}>
           {renderHeader()}
           <Card>
             <EmptyState
@@ -250,12 +254,13 @@ export function ShoppingListScreen() {
       ) : isAllFilter ? (
         <ScrollView
           ref={scrollRef}
-          style={styles.scroll}
+          className="flex-1"
           showsVerticalScrollIndicator={false}
-          contentContainerStyle={listContentStyle}>
+          contentContainerClassName="gap-three"
+          contentContainerStyle={listContentPadding}>
           {renderHeader()}
           {renderFilterBar()}
-          <View style={styles.overview}>
+          <View className="gap-three pt-two">
             {storeAggregates.map(
               ({ store, totalCount, checkedCount, totalEstimate: storeTotal }) => (
                 <StoreSummaryCard
@@ -292,8 +297,8 @@ export function ShoppingListScreen() {
       ) : (
         <SectionList
           ref={sectionListRef}
-          style={styles.scroll}
-          contentContainerStyle={listContentStyle}
+          className="flex-1"
+          contentContainerStyle={listContentPadding}
           showsVerticalScrollIndicator={false}
           sections={sections}
           keyExtractor={(item) => item.id}
@@ -313,7 +318,7 @@ export function ShoppingListScreen() {
           }
           ListFooterComponent={renderCompleteButton()}
           renderSectionHeader={({ section }) => (
-            <ThemedText type="small" themeColor="textSecondary" style={styles.sectionHeader}>
+            <ThemedText type="small" className="shopping-section-header">
               {section.title}
             </ThemedText>
           )}
@@ -353,33 +358,3 @@ export function ShoppingListScreen() {
     </Screen>
   );
 }
-
-const styles = StyleSheet.create({
-  scroll: {
-    flex: 1,
-  },
-  scrollContent: {
-    gap: Spacing.three,
-    paddingBottom: Spacing.four,
-  },
-  sectionHeader: {
-    paddingHorizontal: Spacing.three,
-    paddingTop: Spacing.three,
-    paddingBottom: Spacing.one,
-    textTransform: 'uppercase',
-    letterSpacing: 0.5,
-  },
-  overview: {
-    gap: Spacing.three,
-    paddingTop: Spacing.two,
-  },
-  overviewHeader: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    gap: Spacing.two,
-  },
-  completeAction: {
-    marginTop: Spacing.two,
-  },
-});

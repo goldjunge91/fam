@@ -16,23 +16,7 @@ tags:
 # ("6-stelliger Einladungscode") ist ungenau, aendert aber nichts daran, dass
 # das Feld den kompletten Token entgegennimmt.
 
-- launchApp:
-    clearState: true
-
-- extendedWaitUntil:
-    visible: "http://.*"
-    timeout: 30000
-- tapOn: "http://.*"
-
-# expo-dev-client zeigt nach dem Bundle-Laden ggf. einmalig ein "Dev Tools"-
-# Info-Popup (siehe onboarding-sign-in.yaml) - optional, damit es den Flow
-# nicht scheitern laesst, wenn es nicht auftaucht.
-- tapOn:
-    text: "Continue"
-    optional: true
-- tapOn:
-    text: "Close"
-    optional: true
+- runFlow: ../subflows/launch-local-dev-client.yaml
 
 - tapOn: "Weiter"
 - tapOn: "Weiter"

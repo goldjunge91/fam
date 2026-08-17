@@ -1,10 +1,8 @@
-import { Pressable, StyleSheet, View } from 'react-native';
+import { Pressable, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { ThemedText } from '@/components/themed-text';
-import { Spacing } from '@/constants/theme';
 import { useSyncStatus } from '@/hooks/use-sync-status';
-import { useTheme } from '@/hooks/use-theme';
 import { getDatabase } from '@/lib/db/client';
 import { retryFailedOutboxEntries } from '@/lib/db/outbox-retry';
 import type { SqlDatabase } from '@/lib/db/types';
@@ -42,12 +40,11 @@ export function SyncStatusBanner({
   getDb = getDatabase,
 }: SyncStatusBannerProps) {
   const status = useSyncStatus(getDb);
-  const theme = useTheme();
 
   if (status.kind === 'hidden') return null;
 
   const isFailed = status.kind === 'failed';
-  const background = isFailed ? theme.danger : theme.warning;
+  const bgClass = isFailed ? 'bg-danger' : 'bg-warning';
 
   const label =
     status.kind === 'offline'
@@ -59,38 +56,24 @@ export function SyncStatusBanner({
         : `${status.failedCount} Änderungen konnten nicht synchronisiert werden. Erneut versuchen.`;
 
   const content = (
-    <ThemedText type="smallBold" style={styles.text}>
+    <ThemedText type="smallBold" className="text-white text-center">
       {label}
     </ThemedText>
   );
 
   return (
-    <SafeAreaView edges={['top']} style={[styles.container, { backgroundColor: background }]}>
+    <SafeAreaView edges={['top']} className={`w-full ${bgClass}`}>
       {isFailed ? (
         <Pressable
           onPress={onRetry}
           accessibilityRole="button"
           accessibilityLabel="Fehlgeschlagene Änderungen erneut versuchen"
-          style={styles.row}>
+          className="px-three py-two">
           {content}
         </Pressable>
       ) : (
-        <View style={styles.row}>{content}</View>
+        <View className="px-three py-two">{content}</View>
       )}
     </SafeAreaView>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    width: '100%',
-  },
-  row: {
-    paddingHorizontal: Spacing.three,
-    paddingVertical: Spacing.two,
-  },
-  text: {
-    color: '#ffffff',
-    textAlign: 'center',
-  },
-});

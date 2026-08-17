@@ -21,6 +21,8 @@
 - **Backend & Auth:** Supabase (Postgres, GoTrue Auth, Realtime, Storage) via Docker (`supabase start`); RevenueCat für In-App-Käufe und Abonnements.
 - wir haben noch kein Devoloper account für den Apple App Store, daher ist die iOS-Distribution derzeit nicht am funktionieren und wir können nur lokale Builds auf iOS testen.
 
+for CSS styling nativewind docs  @`.claude/nativewind.dev:llms.txt`.
+
 ---
 
 ## A Note from Marco

@@ -1,7 +1,7 @@
 import { Image } from 'expo-image';
 import * as SplashScreen from 'expo-splash-screen';
 import { useState } from 'react';
-import { Dimensions, StyleSheet, View } from 'react-native';
+import { Dimensions, View } from 'react-native';
 import Animated, { Easing, Keyframe } from 'react-native-reanimated';
 import { scheduleOnRN } from 'react-native-worklets';
 
@@ -33,7 +33,12 @@ export function AnimatedSplashOverlay() {
     },
   });
 
-  const image = <Image style={styles.image} source={require('@/assets/images/expo-logo.png')} />;
+  // Image (expo-image) ist bei NativeWind nicht registriert (kein
+  // cssInterop) — className wird stillschweigend ignoriert, style bleibt
+  // hier zwingend.
+  const image = (
+    <Image style={{ width: 76, height: 71 }} source={require('@/assets/images/expo-logo.png')} />
+  );
 
   return animate ? (
     <Animated.View
@@ -43,7 +48,7 @@ export function AnimatedSplashOverlay() {
           scheduleOnRN(setVisible, false);
         }
       })}
-      style={styles.splashOverlay}>
+      className="absolute inset-0 bg-[#208AEF] items-center justify-center z-[1000]">
       {image}
     </Animated.View>
   ) : (
@@ -53,7 +58,7 @@ export function AnimatedSplashOverlay() {
           setAnimate(true);
         });
       }}
-      style={styles.splashOverlay}>
+      className="absolute inset-0 bg-[#208AEF] items-center justify-center z-[1000]">
       {image}
     </View>
   );
@@ -97,53 +102,30 @@ const glowKeyframe = new Keyframe({
 
 export function AnimatedIcon() {
   return (
-    <View style={styles.iconContainer}>
-      <Animated.View entering={glowKeyframe.duration(60 * 1000 * 4)} style={styles.glow}>
-        <Image style={styles.glow} source={require('@/assets/images/logo-glow.png')} />
+    <View className="justify-center items-center w-[128px] h-[128px] z-[100]">
+      <Animated.View
+        entering={glowKeyframe.duration(60 * 1000 * 4)}
+        className="w-[201px] h-[201px] absolute">
+        {/* Image (expo-image) ist bei NativeWind nicht registriert. */}
+        <Image
+          style={{ width: 201, height: 201, position: 'absolute' }}
+          source={require('@/assets/images/logo-glow.png')}
+        />
       </Animated.View>
 
-      <Animated.View entering={keyframe.duration(DURATION)} style={styles.background} />
-      <Animated.View style={styles.imageContainer} entering={logoKeyframe.duration(DURATION)}>
-        <Image style={styles.image} source={require('@/assets/images/expo-logo.png')} />
+      <Animated.View
+        entering={keyframe.duration(DURATION)}
+        className="w-[128px] h-[128px] rounded-[40px] absolute bg-[#208AEF]"
+      />
+      <Animated.View
+        className="justify-center items-center"
+        entering={logoKeyframe.duration(DURATION)}>
+        {/* Image (expo-image) ist bei NativeWind nicht registriert. */}
+        <Image
+          style={{ width: 76, height: 71 }}
+          source={require('@/assets/images/expo-logo.png')}
+        />
       </Animated.View>
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  imageContainer: {
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  glow: {
-    width: 201,
-    height: 201,
-    position: 'absolute',
-  },
-  iconContainer: {
-    justifyContent: 'center',
-    alignItems: 'center',
-    width: 128,
-    height: 128,
-    zIndex: 100,
-  },
-  image: {
-    width: 76,
-    height: 71,
-  },
-  background: {
-    // Brand illustration: 28 changes its silhouette, while pill makes it circular.
-    borderRadius: 40,
-    experimental_backgroundImage: `linear-gradient(180deg, #3C9FFE, #0274DF)`,
-    width: 128,
-    height: 128,
-    position: 'absolute',
-  },
-  splashOverlay: {
-    ...StyleSheet.absoluteFill,
-    backgroundColor: '#208AEF',
-    alignItems: 'center',
-    justifyContent: 'center',
-    zIndex: 1000,
-  },
-});

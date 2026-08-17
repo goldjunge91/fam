@@ -1,12 +1,11 @@
 import { useQueryClient } from '@tanstack/react-query';
 import { router } from 'expo-router';
 import { useEffect, useState } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { View } from 'react-native';
 import { Card } from '@/components/card';
 import { Screen } from '@/components/screen';
 import { ThemedText } from '@/components/themed-text';
 import { Button } from '@/components/ui/buttons';
-import { Spacing } from '@/constants/theme';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { describeSyncStatus } from '@/features/settings/sync-status-text';
 import { useSyncStatus } from '@/hooks/use-sync-status';
@@ -66,16 +65,18 @@ export function SyncSettingsScreen() {
         <ThemedText type="small" themeColor="textSecondary">
           Daten werden im Hintergrund automatisch synchronisiert.
         </ThemedText>
-        <ThemedText type="smallBold" themeColor={tone} style={styles.status}>
+        {/* Kein separates marginTop mehr: card-fam liefert bereits gap-two
+            zwischen allen Kindern (Card-Komponente). */}
+        <ThemedText type="smallBold" themeColor={tone}>
           {text}
         </ThemedText>
         {lastErrorMsg ? (
-          <ThemedText type="small" themeColor="danger" style={styles.ursache}>
+          <ThemedText type="small" themeColor="danger">
             Ursache: {lastErrorMsg}
           </ThemedText>
         ) : null}
 
-        <View style={styles.aktionStack}>
+        <View className="action-stack">
           <Button
             label={
               syncStatus.kind === 'failed'
@@ -96,16 +97,3 @@ export function SyncSettingsScreen() {
     </Screen>
   );
 }
-
-const styles = StyleSheet.create({
-  status: {
-    marginTop: Spacing.two,
-  },
-  ursache: {
-    marginTop: Spacing.one,
-  },
-  aktionStack: {
-    marginTop: Spacing.three,
-    gap: Spacing.two,
-  },
-});

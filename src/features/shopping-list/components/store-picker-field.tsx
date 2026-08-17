@@ -1,9 +1,8 @@
 import { useState } from 'react';
-import { Alert, Pressable, StyleSheet, View } from 'react-native';
+import { Alert, Pressable, View } from 'react-native';
 import { TextField } from '@/components/text-field';
 import { ThemedText } from '@/components/themed-text';
 import { Button } from '@/components/ui/buttons';
-import { Radius, Spacing } from '@/constants/theme';
 import { useTheme } from '@/hooks/use-theme';
 import { STORE_COLOR_PALETTE, STORE_PRESETS } from '../store-presets';
 import { findStoreByName, useAddStoreMutation, useStores } from '../use-stores';
@@ -64,7 +63,7 @@ export function StorePickerField({ householdId, storeId, onChange }: StorePicker
 
   return (
     <View>
-      <View style={styles.storeHeaderRow}>
+      <View className="row-between mt-two">
         <ThemedText type="smallBold">Markt (optional)</ThemedText>
         {!showAddStore && (
           <Pressable
@@ -78,21 +77,15 @@ export function StorePickerField({ householdId, storeId, onChange }: StorePicker
         )}
       </View>
 
-      <View style={styles.storeChips}>
+      <View className="row-wrap">
         <Pressable
           onPress={() => onChange(null)}
           accessibilityRole="radio"
           accessibilityState={{ selected: storeId === null }}
-          style={[
-            styles.storeChip,
-            {
-              borderColor: storeId === null ? theme.accent : theme.border,
-              backgroundColor: storeId === null ? `${theme.accent}18` : 'transparent',
-            },
-          ]}>
-          <ThemedText
-            type="small"
-            style={{ color: storeId === null ? theme.accent : theme.textSecondary }}>
+          className={`store-chip ${
+            storeId === null ? 'border-accent bg-accent/10' : 'border-border bg-transparent'
+          }`}>
+          <ThemedText type="small" themeColor={storeId === null ? 'accent' : 'textSecondary'}>
             Kein Markt
           </ThemedText>
         </Pressable>
@@ -104,16 +97,18 @@ export function StorePickerField({ householdId, storeId, onChange }: StorePicker
               onPress={() => onChange(store.id)}
               accessibilityRole="radio"
               accessibilityState={{ selected: isActive }}
-              style={[
-                styles.storeChip,
-                {
-                  borderColor: isActive ? store.color : theme.border,
-                  backgroundColor: isActive ? `${store.color}22` : 'transparent',
-                },
-              ]}>
+              className={`store-chip ${isActive ? '' : 'border-border bg-transparent'}`}
+              // Dynamische Markt-Farbe aus der Datenbank
+              style={
+                isActive
+                  ? { borderColor: store.color, backgroundColor: `${store.color}22` }
+                  : undefined
+              }>
               <ThemedText
                 type="small"
-                style={{ color: isActive ? store.color : theme.textSecondary }}>
+                themeColor={isActive ? undefined : 'textSecondary'}
+                // Dynamische Markt-Farbe
+                style={isActive ? { color: store.color } : undefined}>
                 {store.name}
               </ThemedText>
             </Pressable>
@@ -122,38 +117,38 @@ export function StorePickerField({ householdId, storeId, onChange }: StorePicker
       </View>
 
       {showAddStore && (
-        <View style={styles.addStoreBox}>
+        <View className="store-add-box">
           <TextField
             label="Name des Markts"
             placeholder="z.B. REWE"
             value={newStoreName}
             onChangeText={setNewStoreName}
           />
-          <ThemedText type="small" themeColor="textSecondary">
-            Vorschläge
-          </ThemedText>
-          <View style={styles.presetRow}>
+          <ThemedText type="smallMuted">Vorschläge</ThemedText>
+          <View className="row-wrap">
             {STORE_PRESETS.map((preset) => (
               <Pressable
                 key={preset.name}
                 onPress={() => setNewStoreName(preset.name)}
                 accessibilityRole="button"
-                style={[
-                  styles.presetChip,
-                  { backgroundColor: `${preset.color}18`, borderColor: preset.color },
-                ]}>
-                <View style={[styles.presetDot, { backgroundColor: preset.color }]} />
-                <ThemedText type="small" style={{ color: preset.color, fontWeight: '600' }}>
+                className="store-preset-chip"
+                // Dynamische Preset-Farbe
+                style={{ backgroundColor: `${preset.color}18`, borderColor: preset.color }}>
+                {/* Dynamische Preset-Farbe */}
+                <View className="store-preset-dot" style={{ backgroundColor: preset.color }} />
+                <ThemedText
+                  type="small"
+                  className="font-semibold"
+                  // Dynamische Preset-Farbe
+                  style={{ color: preset.color }}>
                   {preset.name}
                 </ThemedText>
               </Pressable>
             ))}
           </View>
 
-          <ThemedText type="small" themeColor="textSecondary">
-            Farbe
-          </ThemedText>
-          <View style={styles.presetRow}>
+          <ThemedText type="smallMuted">Farbe</ThemedText>
+          <View className="row-wrap">
             {STORE_COLOR_PALETTE.map((color) => (
               <Pressable
                 key={color}
@@ -161,17 +156,16 @@ export function StorePickerField({ householdId, storeId, onChange }: StorePicker
                 accessibilityRole="button"
                 accessibilityLabel={`Farbe ${color}`}
                 accessibilityState={{ selected: newStoreColor === color }}
-                style={[
-                  styles.colorSwatch,
-                  {
-                    backgroundColor: color,
-                    borderColor: newStoreColor === color ? theme.text : 'transparent',
-                  },
-                ]}
+                className="store-color-swatch"
+                // Dynamische Palettenfarbe & Auswahlrand
+                style={{
+                  backgroundColor: color,
+                  borderColor: newStoreColor === color ? theme.text : 'transparent',
+                }}
               />
             ))}
           </View>
-          <View style={styles.row}>
+          <View className="input-row">
             <Button
               label="Erstellen"
               onPress={handleAddStore}
@@ -192,60 +186,3 @@ export function StorePickerField({ householdId, storeId, onChange }: StorePicker
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  row: {
-    flexDirection: 'row',
-    gap: Spacing.two,
-  },
-  storeHeaderRow: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    marginTop: Spacing.two,
-  },
-  storeChips: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    gap: Spacing.two,
-  },
-  storeChip: {
-    paddingHorizontal: Spacing.three,
-    paddingVertical: Spacing.one + 2,
-    borderRadius: Radius.sheet,
-    borderWidth: 1.5,
-  },
-  addStoreBox: {
-    gap: Spacing.three,
-    padding: Spacing.three,
-    borderRadius: Radius.sm,
-    borderWidth: 1,
-    borderColor: '#ccc',
-    marginTop: Spacing.two,
-  },
-  presetRow: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    gap: Spacing.two,
-  },
-  presetChip: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: Spacing.one,
-    paddingHorizontal: Spacing.three,
-    paddingVertical: Spacing.one + 2,
-    borderRadius: Radius.sheet,
-    borderWidth: 1,
-  },
-  presetDot: {
-    width: 8,
-    height: 8,
-    borderRadius: Radius.xs,
-  },
-  colorSwatch: {
-    width: 32,
-    height: 32,
-    borderRadius: Radius.card,
-    borderWidth: 2,
-  },
-});

@@ -8,14 +8,12 @@ import {
   Pressable,
   ScrollView,
   type StyleProp,
-  StyleSheet,
   type TextStyle,
   View,
 } from 'react-native';
 
 import { TextField } from '@/components/text-field';
 import { ThemedText } from '@/components/themed-text';
-import { Radius, Spacing } from '@/constants/theme';
 import { useTheme } from '@/hooks/use-theme';
 import { getDatabase } from '@/lib/db/client';
 import { isOffDumpAttached } from '@/lib/off-dump/off-dump';
@@ -347,7 +345,7 @@ export const ProductSearchDropdown = forwardRef<
   const showEmptyState = searched && !searching && suggestions.length === 0;
 
   return (
-    <View style={styles.container} onTouchStart={(event) => event.stopPropagation()}>
+    <View className="relative z-10" onTouchStart={(event) => event.stopPropagation()}>
       <TextField
         label={label}
         placeholder={placeholder}
@@ -367,21 +365,17 @@ export const ProductSearchDropdown = forwardRef<
       />
 
       {searching && (
-        <View style={styles.loader}>
+        <View className="psd-spinner">
           <ActivityIndicator size="small" color={theme.accent} />
         </View>
       )}
 
       {showDropdown && (suggestions.length > 0 || showEmptyState) && (
         <ScrollView
-          style={[
-            styles.dropdown,
-            {
-              backgroundColor: theme.background,
-              borderColor: theme.border,
-              shadowColor: theme.shadowSheet,
-            },
-          ]}
+          className="psd-panel"
+          // elevation ist ein Android-only-Wert ohne Tailwind-Aequivalent
+          // (boxShadow deckt nur den iOS/Web-Schatten ab).
+          style={{ elevation: 4 }}
           keyboardShouldPersistTaps="handled"
           showsVerticalScrollIndicator
           onScroll={({ nativeEvent }) => {
@@ -400,17 +394,17 @@ export const ProductSearchDropdown = forwardRef<
                   params: { prefillName: value.trim() },
                 });
               }}
-              style={[styles.itemRow, { borderBottomColor: theme.border }]}>
-              <View style={styles.itemText}>
+              className="psd-row">
+              <View className="flex-1">
                 <ThemedText
                   type={size === 'large' ? 'body' : 'smallBold'}
-                  style={size === 'large' && styles.largeSuggestionTitle}>
+                  className={size === 'large' ? 'font-bold' : undefined}>
                   + &quot;{value.trim()}&quot; manuell anlegen
                 </ThemedText>
                 <ThemedText
                   type={size === 'large' ? 'body' : 'small'}
                   themeColor="textSecondary"
-                  style={size === 'large' && styles.largeSuggestionMeta}>
+                  className={size === 'large' ? 'font-medium' : undefined}>
                   Kein Treffer bei Open Food Facts gefunden
                 </ThemedText>
               </View>
@@ -424,27 +418,27 @@ export const ProductSearchDropdown = forwardRef<
                 onSelectProduct(item);
                 setShowDropdown(false);
               }}
-              style={[styles.itemRow, { borderBottomColor: theme.border }]}>
+              className="psd-row">
               {item.imageUrl ? (
-                <Image source={{ uri: item.imageUrl }} style={styles.img} />
+                <Image source={{ uri: item.imageUrl }} className="psd-thumb" />
               ) : (
-                <View style={[styles.imgPlaceholder, { backgroundColor: theme.backgroundElement }]}>
+                <View className="psd-thumb-fallback">
                   <ThemedText type={size === 'large' ? 'body' : 'bodySmall'}>🥫</ThemedText>
                 </View>
               )}
 
-              <View style={styles.itemText}>
+              <View className="flex-1">
                 <ThemedText
                   type={size === 'large' ? 'body' : 'smallBold'}
                   numberOfLines={1}
-                  style={size === 'large' && styles.largeSuggestionTitle}>
+                  className={size === 'large' ? 'font-bold' : undefined}>
                   {item.name}
                 </ThemedText>
                 <ThemedText
                   type={size === 'large' ? 'body' : 'small'}
                   themeColor="textSecondary"
                   numberOfLines={1}
-                  style={size === 'large' && styles.largeSuggestionMeta}>
+                  className={size === 'large' ? 'font-medium' : undefined}>
                   {item.brand ? `${item.brand} · ` : ''}
                   {item.quantity} {item.unit}
                   {item.caloriesPer100g ? ` · ${item.caloriesPer100g} kcal/100g` : ''}
@@ -453,7 +447,7 @@ export const ProductSearchDropdown = forwardRef<
             </Pressable>
           ))}
           {loadingMoreOff && (
-            <View style={styles.loadingMore}>
+            <View className="py-two items-center">
               <ActivityIndicator size="small" color={theme.accent} />
             </View>
           )}
@@ -461,63 +455,4 @@ export const ProductSearchDropdown = forwardRef<
       )}
     </View>
   );
-});
-
-const styles = StyleSheet.create({
-  container: {
-    position: 'relative',
-    zIndex: 10,
-  },
-  loader: {
-    position: 'absolute',
-    right: 12,
-    top: 36,
-  },
-  loadingMore: {
-    paddingVertical: Spacing.two,
-    alignItems: 'center',
-  },
-  dropdown: {
-    position: 'absolute',
-    top: '100%',
-    left: 0,
-    right: 0,
-    zIndex: 20,
-    borderRadius: Radius.control,
-    borderWidth: 1,
-    marginTop: 4,
-    maxHeight: 220,
-    elevation: 4,
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.15,
-    shadowRadius: 6,
-  },
-  itemRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    padding: Spacing.two,
-    borderBottomWidth: StyleSheet.hairlineWidth,
-    gap: Spacing.two,
-  },
-  img: {
-    width: 32,
-    height: 32,
-    borderRadius: Radius.sm,
-  },
-  imgPlaceholder: {
-    width: 32,
-    height: 32,
-    borderRadius: Radius.sm,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  itemText: {
-    flex: 1,
-  },
-  largeSuggestionTitle: {
-    fontWeight: 700,
-  },
-  largeSuggestionMeta: {
-    fontWeight: 500,
-  },
 });

@@ -1,10 +1,8 @@
 import { useState } from 'react';
-import { Modal, Pressable, StyleSheet, View } from 'react-native';
+import { Modal, Pressable, View } from 'react-native';
 import { TextField } from '@/components/text-field';
-import { FontSize, ThemedText } from '@/components/themed-text';
+import { ThemedText } from '@/components/themed-text';
 import { Button } from '@/components/ui/buttons';
-import { Radius, Spacing } from '@/constants/theme';
-import { useTheme } from '@/hooks/use-theme';
 
 interface DatePickerProps {
   label?: string;
@@ -21,7 +19,6 @@ export function DatePicker({
   placeholder = 'JJJJ-MM-TT (z.B. 2020-05-14)',
   error,
 }: DatePickerProps) {
-  const theme = useTheme();
   const [showModal, setShowModal] = useState(false);
 
   // Default year/month/day selection state in modal
@@ -59,9 +56,9 @@ export function DatePicker({
   }
 
   return (
-    <View style={styles.container}>
-      <View style={styles.inputRow}>
-        <View style={styles.flex}>
+    <View className="gap-one">
+      <View className="flex-row items-end gap-two">
+        <View className="flex-1">
           <TextField
             label={label}
             placeholder={placeholder}
@@ -73,16 +70,15 @@ export function DatePicker({
         </View>
         <Pressable
           onPress={() => setShowModal(true)}
-          style={[
-            styles.pickerBtn,
-            { backgroundColor: theme.backgroundElement, borderColor: theme.border },
-          ]}>
-          <ThemedText style={{ ...FontSize[18] }}>📅</ThemedText>
+          accessibilityRole="button"
+          accessibilityLabel="Datum auswählen"
+          className="h-[48px] px-three rounded-control border-hairline items-center justify-center bg-background-element border-border">
+          <ThemedText className="text-[18px]">📅</ThemedText>
         </Pressable>
       </View>
 
       {formattedDisplay && (
-        <ThemedText type="small" themeColor="textSecondary" style={styles.hint}>
+        <ThemedText type="small" themeColor="textSecondary" className="ml-one -mt-[2px]">
           📅 {formattedDisplay}
         </ThemedText>
       )}
@@ -93,71 +89,71 @@ export function DatePicker({
         transparent
         animationType="fade"
         onRequestClose={() => setShowModal(false)}>
-        <View style={styles.backdrop}>
-          <View style={[styles.modalBox, { backgroundColor: theme.background }]}>
+        <View className="modal-backdrop">
+          <View className="modal-sheet">
             <ThemedText type="subtitle">Datum auswählen</ThemedText>
 
-            <View style={styles.pickerGrid}>
+            <View className="flex-row justify-around my-two">
               {/* Year Adjust */}
-              <View style={styles.column}>
+              <View className="items-center gap-two">
                 <ThemedText type="smallBold">Jahr</ThemedText>
-                <View style={styles.stepper}>
+                <View className="items-center gap-[6px]">
                   <Pressable
                     onPress={() => setSelYear((y) => Math.max(1900, y - 1))}
-                    style={[styles.stepBtn, { backgroundColor: theme.backgroundElement }]}>
-                    <ThemedText style={styles.btnText}>-</ThemedText>
+                    className="w-[40px] h-[40px] rounded-sheet items-center justify-center bg-background-element">
+                    <ThemedText className="text-body-lg font-bold">-</ThemedText>
                   </Pressable>
                   <ThemedText type="smallBold">{selYear}</ThemedText>
                   <Pressable
                     onPress={() => setSelYear((y) => Math.min(2100, y + 1))}
-                    style={[styles.stepBtn, { backgroundColor: theme.backgroundElement }]}>
-                    <ThemedText style={styles.btnText}>+</ThemedText>
+                    className="w-[40px] h-[40px] rounded-sheet items-center justify-center bg-background-element">
+                    <ThemedText className="text-body-lg font-bold">+</ThemedText>
                   </Pressable>
                 </View>
               </View>
 
               {/* Month Adjust */}
-              <View style={styles.column}>
+              <View className="items-center gap-two">
                 <ThemedText type="smallBold">Monat</ThemedText>
-                <View style={styles.stepper}>
+                <View className="items-center gap-[6px]">
                   <Pressable
                     onPress={() => setSelMonth((m) => (m <= 1 ? 12 : m - 1))}
-                    style={[styles.stepBtn, { backgroundColor: theme.backgroundElement }]}>
-                    <ThemedText style={styles.btnText}>-</ThemedText>
+                    className="w-[40px] h-[40px] rounded-sheet items-center justify-center bg-background-element">
+                    <ThemedText className="text-body-lg font-bold">-</ThemedText>
                   </Pressable>
                   <ThemedText type="smallBold">{String(selMonth).padStart(2, '0')}</ThemedText>
                   <Pressable
                     onPress={() => setSelMonth((m) => (m >= 12 ? 1 : m + 1))}
-                    style={[styles.stepBtn, { backgroundColor: theme.backgroundElement }]}>
-                    <ThemedText style={styles.btnText}>+</ThemedText>
+                    className="w-[40px] h-[40px] rounded-sheet items-center justify-center bg-background-element">
+                    <ThemedText className="text-body-lg font-bold">+</ThemedText>
                   </Pressable>
                 </View>
               </View>
 
               {/* Day Adjust */}
-              <View style={styles.column}>
+              <View className="items-center gap-two">
                 <ThemedText type="smallBold">Tag</ThemedText>
-                <View style={styles.stepper}>
+                <View className="items-center gap-[6px]">
                   <Pressable
                     onPress={() => setSelDay((d) => (d <= 1 ? 31 : d - 1))}
-                    style={[styles.stepBtn, { backgroundColor: theme.backgroundElement }]}>
-                    <ThemedText style={styles.btnText}>-</ThemedText>
+                    className="w-[40px] h-[40px] rounded-sheet items-center justify-center bg-background-element">
+                    <ThemedText className="text-body-lg font-bold">-</ThemedText>
                   </Pressable>
                   <ThemedText type="smallBold">{String(selDay).padStart(2, '0')}</ThemedText>
                   <Pressable
                     onPress={() => setSelDay((d) => (d >= 31 ? 1 : d + 1))}
-                    style={[styles.stepBtn, { backgroundColor: theme.backgroundElement }]}>
-                    <ThemedText style={styles.btnText}>+</ThemedText>
+                    className="w-[40px] h-[40px] rounded-sheet items-center justify-center bg-background-element">
+                    <ThemedText className="text-body-lg font-bold">+</ThemedText>
                   </Pressable>
                 </View>
               </View>
             </View>
 
-            <View style={styles.modalActions}>
-              <View style={styles.flex}>
+            <View className="flex-row gap-two mt-two">
+              <View className="flex-1">
                 <Button label="Übernehmen" onPress={handleApplyModal} />
               </View>
-              <View style={styles.flex}>
+              <View className="flex-1">
                 <Button label="Abbrechen" variant="secondary" onPress={() => setShowModal(false)} />
               </View>
             </View>
@@ -167,69 +163,3 @@ export function DatePicker({
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    gap: Spacing.one,
-  },
-  inputRow: {
-    flexDirection: 'row',
-    alignItems: 'flex-end',
-    gap: Spacing.two,
-  },
-  flex: {
-    flex: 1,
-  },
-  pickerBtn: {
-    height: 48,
-    paddingHorizontal: Spacing.three,
-    borderRadius: Radius.control,
-    borderWidth: StyleSheet.hairlineWidth,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  hint: {
-    marginLeft: 4,
-    marginTop: -2,
-  },
-  backdrop: {
-    flex: 1,
-    backgroundColor: 'rgba(0,0,0,0.5)',
-    justifyContent: 'center',
-    padding: Spacing.four,
-  },
-  modalBox: {
-    borderRadius: Radius.sheet,
-    padding: Spacing.four,
-    gap: Spacing.three,
-  },
-  pickerGrid: {
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    marginVertical: Spacing.two,
-  },
-  column: {
-    alignItems: 'center',
-    gap: 8,
-  },
-  stepper: {
-    alignItems: 'center',
-    gap: 6,
-  },
-  stepBtn: {
-    width: 40,
-    height: 40,
-    borderRadius: Radius.sheet,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  btnText: {
-    ...FontSize[18],
-    fontWeight: 'bold',
-  },
-  modalActions: {
-    flexDirection: 'row',
-    gap: Spacing.two,
-    marginTop: Spacing.two,
-  },
-});

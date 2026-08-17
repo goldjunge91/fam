@@ -1,10 +1,9 @@
 import BottomSheet, { BottomSheetView } from '@expo/ui/community/bottom-sheet';
 import { useEffect, useRef, useState } from 'react';
-import { Pressable, ScrollView, StyleSheet, View } from 'react-native';
+import { Pressable, ScrollView, View } from 'react-native';
 
 import { DateWheelField } from '@/components/date-wheel-field';
-import { FontSize, ThemedText } from '@/components/themed-text';
-import { Radius, Spacing } from '@/constants/theme';
+import { ThemedText } from '@/components/themed-text';
 import { useTheme } from '@/hooks/use-theme';
 import { formatAmount, formatPackageHint } from '@/lib/package-size';
 
@@ -49,31 +48,26 @@ interface TransferRowProps {
 }
 
 function TransferRow({ item, transfer, onUpdateKind, onUpdateExpiry }: TransferRowProps) {
-  const theme = useTheme();
   const packageHint = formatPackageHint(item.package_size, item.package_size_unit);
 
   return (
-    <View style={[styles.transferRow, { borderBottomColor: theme.border }]}>
+    <View className="transfer-row">
       {/* Artikel-Header */}
-      <View style={styles.itemHeader}>
+      <View className="row-between">
         <ThemedText type="smallBold">{item.name}</ThemedText>
 
-        {/* Menge — grüner Pill-Badge wie im Screenshot */}
-        <View style={[styles.quantityBadge, { backgroundColor: theme.success }]}>
-          <ThemedText style={styles.quantityBadgeText}>
+        {/* Menge — grüner Pill-Badge */}
+        <View className="quantity-badge">
+          <ThemedText type="label" className="text-white font-semibold">
             {formatAmount(item.quantity, item.unit)}
           </ThemedText>
         </View>
       </View>
-      {packageHint ? (
-        <ThemedText type="small" themeColor="textSecondary">
-          {packageHint}
-        </ThemedText>
-      ) : null}
+      {packageHint ? <ThemedText type="smallMuted">{packageHint}</ThemedText> : null}
 
       {/* Location-Picker + MHD */}
-      <View style={styles.controls}>
-        <View style={styles.kindPicker}>
+      <View className="col-gap">
+        <View className="input-row">
           {KINDS.map((kind) => {
             const cfg = KIND_CONFIG[kind];
             const isActive = transfer.locationKind === kind;
@@ -84,17 +78,11 @@ function TransferRow({ item, transfer, onUpdateKind, onUpdateExpiry }: TransferR
                 accessibilityRole="radio"
                 accessibilityState={{ selected: isActive }}
                 accessibilityLabel={cfg.label}
-                style={[
-                  styles.kindButton,
-                  {
-                    borderColor: isActive ? theme.accent : theme.border,
-                    backgroundColor: isActive ? `${theme.accent}18` : 'transparent',
-                  },
-                ]}>
-                <ThemedText style={styles.kindIcon}>{cfg.icon}</ThemedText>
-                <ThemedText
-                  type="small"
-                  style={{ color: isActive ? theme.accent : theme.textSecondary }}>
+                className={`kind-button ${
+                  isActive ? 'border-accent bg-accent/10' : 'border-border bg-transparent'
+                }`}>
+                <ThemedText type="label">{cfg.icon}</ThemedText>
+                <ThemedText type="small" themeColor={isActive ? 'accent' : 'textSecondary'}>
                   {cfg.label}
                 </ThemedText>
               </Pressable>
@@ -103,11 +91,11 @@ function TransferRow({ item, transfer, onUpdateKind, onUpdateExpiry }: TransferR
         </View>
 
         {/* MHD */}
-        <View style={styles.mhdRow}>
-          <ThemedText type="small" themeColor="textSecondary" style={styles.mhdLabel}>
+        <View className="row-center">
+          <ThemedText type="smallMuted" className="w-8">
             MHD
           </ThemedText>
-          <View style={styles.mhdField}>
+          <View className="flex-1">
             <DateWheelField value={transfer.expiryDate ?? ''} onChange={onUpdateExpiry} />
           </View>
         </View>
@@ -206,163 +194,61 @@ export function CompleteRunSheet({ isOpen, checkedItems, onConfirm, onClose }: P
       onClose={onClose}
       backgroundStyle={{ backgroundColor: theme.background }}
       handleIndicatorStyle={{ backgroundColor: theme.border }}>
-      <BottomSheetView style={styles.sheetContent}>
-        {/* Header */}
-        <View style={styles.sheetHeader}>
-          <View>
-            <ThemedText type="title">In Vorrat übernehmen</ThemedText>
-            <ThemedText type="small" themeColor="textSecondary">
-              {count} {count === 1 ? 'Artikel' : 'Artikel'} abgehakt
-            </ThemedText>
+      <BottomSheetView>
+        <View className="flex-1">
+          {/* Header */}
+          <View className="row-between items-start px-four pt-two pb-three">
+            <View>
+              <ThemedText type="title">In Vorrat übernehmen</ThemedText>
+              <ThemedText type="smallMuted">
+                {count} {count === 1 ? 'Artikel' : 'Artikel'} abgehakt
+              </ThemedText>
+            </View>
+            <Pressable
+              onPress={onClose}
+              accessibilityRole="button"
+              accessibilityLabel="Schließen"
+              className="modal-close-btn">
+              <ThemedText>✕</ThemedText>
+            </Pressable>
           </View>
-          <Pressable
-            onPress={onClose}
-            accessibilityRole="button"
-            accessibilityLabel="Schließen"
-            style={[styles.closeButton, { backgroundColor: theme.backgroundElement }]}>
-            <ThemedText>✕</ThemedText>
-          </Pressable>
-        </View>
 
-        {/* Artikel-Liste */}
-        <ScrollView style={styles.list} showsVerticalScrollIndicator={false}>
-          {checkedItems.map((item) => {
-            const transfer = transfers.get(item.id);
-            if (!transfer) return null;
-            return (
-              <TransferRow
-                key={item.id}
-                item={item}
-                transfer={transfer}
-                onUpdateKind={(kind) => updateKind(item.id, kind)}
-                onUpdateExpiry={(isoDate) => setExpiryDate(item.id, isoDate)}
-              />
-            );
-          })}
-        </ScrollView>
+          {/* Artikel-Liste */}
+          <ScrollView className="flex-1" showsVerticalScrollIndicator={false}>
+            {checkedItems.map((item) => {
+              const transfer = transfers.get(item.id);
+              if (!transfer) return null;
+              return (
+                <TransferRow
+                  key={item.id}
+                  item={item}
+                  transfer={transfer}
+                  onUpdateKind={(kind) => updateKind(item.id, kind)}
+                  onUpdateExpiry={(isoDate) => setExpiryDate(item.id, isoDate)}
+                />
+              );
+            })}
+          </ScrollView>
 
-        {/* Confirm-Button — volle Breite, grün, wie im Screenshot */}
-        <View style={styles.actions}>
-          <Pressable
-            onPress={handleConfirm}
-            disabled={count === 0}
-            accessibilityRole="button"
-            accessibilityLabel={`${count} Artikel in Vorrat übernehmen`}
-            style={[
-              styles.confirmButton,
-              { backgroundColor: theme.success, opacity: count === 0 ? 0.5 : 1 },
-            ]}>
-            <ThemedText style={styles.confirmButtonText}>
-              ✓ {count} {count === 1 ? 'Artikel' : 'Artikel'} in Vorrat übernehmen
-            </ThemedText>
-          </Pressable>
+          {/* Confirm-Button — volle Breite, grün, wie im Screenshot */}
+          <View className="px-four pt-three pb-four gap-two items-center">
+            <Pressable
+              onPress={handleConfirm}
+              disabled={count === 0}
+              accessibilityRole="button"
+              accessibilityLabel={`${count} Artikel in Vorrat übernehmen`}
+              className={`btn-success ${count === 0 ? 'opacity-50' : 'opacity-100'}`}>
+              <ThemedText type="bodyBold" className="text-white">
+                ✓ {count} {count === 1 ? 'Artikel' : 'Artikel'} in Vorrat übernehmen
+              </ThemedText>
+            </Pressable>
 
-          <Pressable onPress={onClose} accessibilityRole="button" style={styles.cancelLink}>
-            <ThemedText type="small" themeColor="textSecondary">
-              Abbrechen
-            </ThemedText>
-          </Pressable>
+            <Pressable onPress={onClose} accessibilityRole="button" className="py-two">
+              <ThemedText type="smallMuted">Abbrechen</ThemedText>
+            </Pressable>
+          </View>
         </View>
       </BottomSheetView>
     </BottomSheet>
   );
 }
-
-const styles = StyleSheet.create({
-  sheetContent: {
-    flex: 1,
-  },
-  sheetHeader: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'flex-start',
-    paddingHorizontal: Spacing.four,
-    paddingTop: Spacing.two,
-    paddingBottom: Spacing.three,
-  },
-  closeButton: {
-    width: 32,
-    height: 32,
-    borderRadius: Radius.card,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  list: {
-    flex: 1,
-  },
-  transferRow: {
-    paddingHorizontal: Spacing.four,
-    paddingVertical: Spacing.three,
-    borderBottomWidth: StyleSheet.hairlineWidth,
-    gap: Spacing.two,
-  },
-  itemHeader: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-  },
-  quantityBadge: {
-    paddingHorizontal: Spacing.two,
-    paddingVertical: Spacing.half,
-    borderRadius: Radius.sheet,
-  },
-  quantityBadgeText: {
-    color: '#fff',
-    ...FontSize[13],
-    fontWeight: '600',
-  },
-  controls: {
-    gap: Spacing.two,
-  },
-  kindPicker: {
-    flexDirection: 'row',
-    gap: Spacing.two,
-  },
-  kindButton: {
-    flex: 1,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    gap: Spacing.one,
-    paddingVertical: Spacing.two,
-    paddingHorizontal: Spacing.one,
-    borderRadius: Radius.sheet,
-    borderWidth: 1.5,
-  },
-  kindIcon: {
-    ...FontSize[14],
-  },
-  mhdRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: Spacing.two,
-  },
-  mhdLabel: {
-    width: 32,
-  },
-  mhdField: {
-    flex: 1,
-  },
-  actions: {
-    paddingHorizontal: Spacing.four,
-    paddingTop: Spacing.three,
-    paddingBottom: Spacing.four,
-    gap: Spacing.two,
-    alignItems: 'center',
-  },
-  confirmButton: {
-    width: '100%',
-    paddingVertical: Spacing.three,
-    borderRadius: Radius.card,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  confirmButtonText: {
-    color: '#fff',
-    fontWeight: '700',
-    ...FontSize[16],
-  },
-  cancelLink: {
-    paddingVertical: Spacing.two,
-  },
-});

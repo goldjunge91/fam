@@ -1,11 +1,10 @@
 import { Image } from 'expo-image';
-import { Modal, ScrollView, StyleSheet, View } from 'react-native';
+import { Modal, ScrollView, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
 import { HeaderIconButton } from '@/components/ui/buttons';
-import { Radius, Spacing } from '@/constants/theme';
 import { useTheme } from '@/hooks/use-theme';
 import { AddItemForm } from './add-item-form';
 
@@ -31,26 +30,28 @@ export function AddItemModal({
       animationType="slide"
       presentationStyle={process.env.EXPO_OS === 'ios' ? 'pageSheet' : undefined}
       onRequestClose={onDismiss}>
-      <ThemedView style={[styles.root, { backgroundColor: theme.background }]}>
-        <SafeAreaView style={styles.safeArea} edges={['top', 'left', 'right', 'bottom']}>
-          <View style={[styles.handle, { backgroundColor: theme.border }]} />
-          <View style={styles.header}>
-            <ThemedText type="headingSmall" style={styles.title}>
-              Artikel hinzufügen
-            </ThemedText>
-            <HeaderIconButton label="Schließen" onPress={onDismiss} style={styles.closeButton}>
+      <ThemedView className="flex-1 bg-background">
+        <SafeAreaView className="modal-safe-area" edges={['top', 'left', 'right', 'bottom']}>
+          <View className="modal-handle" />
+          <View className="modal-header min-h-[54px]">
+            <ThemedText type="headingSmall">Artikel hinzufügen</ThemedText>
+            <HeaderIconButton
+              label="Schließen"
+              onPress={onDismiss}
+              className="w-8 h-8 rounded-card">
               <Image
                 source="sf:xmark"
                 contentFit="contain"
                 tintColor={theme.textSecondary}
-                style={styles.closeIcon}
+                // expo-image unterstützt kein cssInterop; statische Abmessungen als style
+                style={{ width: 14, height: 14 }}
               />
             </HeaderIconButton>
           </View>
 
           <ScrollView
-            style={styles.scroll}
-            contentContainerStyle={styles.scrollContent}
+            className="flex-1"
+            contentContainerClassName="pb-four"
             contentInsetAdjustmentBehavior="automatic"
             keyboardShouldPersistTaps="handled">
             {visible ? (
@@ -66,45 +67,3 @@ export function AddItemModal({
     </Modal>
   );
 }
-
-const styles = StyleSheet.create({
-  root: {
-    flex: 1,
-  },
-  safeArea: {
-    flex: 1,
-    paddingHorizontal: 15,
-  },
-  handle: {
-    width: 36,
-    height: 4,
-    alignSelf: 'center',
-    borderRadius: Radius.hairline,
-    marginTop: 10,
-  },
-  header: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    minHeight: 54,
-    paddingTop: Spacing.two,
-  },
-  title: {
-    fontWeight: 600,
-  },
-  closeButton: {
-    width: 32,
-    height: 32,
-    borderRadius: Radius.card,
-  },
-  closeIcon: {
-    width: 14,
-    height: 14,
-  },
-  scroll: {
-    flex: 1,
-  },
-  scrollContent: {
-    paddingBottom: Spacing.four,
-  },
-});

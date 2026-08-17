@@ -1,18 +1,16 @@
 import { router, useLocalSearchParams } from 'expo-router';
 import { useEffect, useState } from 'react';
-import { Alert, KeyboardAvoidingView, ScrollView, StyleSheet, View } from 'react-native';
+import { Alert, KeyboardAvoidingView, ScrollView, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { GradientBackground } from '@/components/gradient-background';
 import { PageHeader } from '@/components/page-header';
 import { BackButton } from '@/components/ui/buttons';
-import { Radius } from '@/constants/theme';
 import { useSession } from '@/features/auth/session-provider';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { persistOffProductIfNeeded } from '@/features/inventory/persist-off-product';
 import { useAddProductMutation } from '@/features/inventory/use-product-mutations';
 import { useHubGradient } from '@/hooks/use-hub-gradient';
-import { useTheme } from '@/hooks/use-theme';
 import { getDatabase } from '@/lib/db/client';
 import type { OpenFoodFactsProduct } from '@/lib/open-food-facts';
 import { toGramsEquivalent } from '@/lib/units';
@@ -52,7 +50,6 @@ import {
 } from './wizard/types';
 
 export function RecipeCreateScreen() {
-  const theme = useTheme();
   const hubGradient = useHubGradient();
   const { id } = useLocalSearchParams<{ id?: string }>();
   const { session } = useSession();
@@ -111,14 +108,6 @@ export function RecipeCreateScreen() {
     setHashtagsInput(data.recipe.hashtags.join(' '));
     setExistingCoverPath(data.recipe.cover_image_path);
 
-    // Zutaten-Komponenten aus den vorhandenen recipe_components/-items
-    // rekonstruieren, damit sie beim Bearbeiten nicht verschwinden. Nur der
-    // Flachfall (Positionen zeigen auf ein product_id) wird abgebildet — eine
-    // Position, die stattdessen auf eine Unterkomponente zeigt
-    // (sub_component_id, Baukasten-Verschachtelung), wird uebersprungen: das
-    // Wizard-Formular kennt kein Editieren verschachtelter Komponenten, eine
-    // grobe Rekonstruktion wuerde beim Speichern eher Daten verfaelschen als
-    // helfen.
     const hydrated: IngredientComponentGroup[] = data.components.map((component) => ({
       id: component.id,
       title: component.name,
@@ -141,10 +130,6 @@ export function RecipeCreateScreen() {
     }));
     if (hydrated.length > 0) setComponents(hydrated);
 
-    // Zubereitungsschritte aus recipe_steps rekonstruieren — dieselbe Luecke
-    // wie bei den Zutaten: ohne diese Hydration blieb beim Bearbeiten nur ein
-    // leeres Schrittfeld sichtbar, und ein Speichern haette einen doppelten
-    // Schritt mit falscher position angelegt statt die bestehenden zu zeigen.
     const hydratedSteps: WizardStepItem[] = data.steps
       .slice()
       .sort((a, b) => a.position - b.position)
@@ -154,10 +139,6 @@ export function RecipeCreateScreen() {
         text: step.text,
         localImageUri: null,
         existingImagePath: step.image_path,
-        // ingredientIds bei recipe_steps sind bereits echte
-        // recipe_component_items.id-Werte — decken sich mit den oben
-        // hydrierten IngredientItem.id (dort ebenfalls die echte ID), daher
-        // ohne Umweg direkt uebernehmbar.
         ingredientIds: step.ingredientIds,
       }));
     if (hydratedSteps.length > 0) setWizardSteps(hydratedSteps);
@@ -269,25 +250,11 @@ export function RecipeCreateScreen() {
     ]);
   }
 
-  /**
-   * Seite 1 "Weiter": reine Navigation, keine Persistenz. Das Rezept bleibt
-   * bis zum finalen Speichern (Seite 3) ausschliesslich im Formular-State —
-   * so entsteht waehrend des Bearbeitens kein einziger Schreibzugriff auf
-   * SQLite/Outbox und damit kein Sync-Traffic, bevor der Nutzer wirklich
-   * fertig ist.
-   */
   function handleNextFromBasics() {
     if (!title.trim()) return;
     setWizardStep(2);
   }
 
-  /**
-   * Seite 3 "Speichern": persistiert das komplette Rezept — Basisdaten,
-   * Titelbild, Zutaten und Schritte — in einem Zug. Vorher wurde bewusst
-   * nichts geschrieben (siehe `handleNextFromBasics`); dieser eine Schwung
-   * geht durch die normale Outbox (#46) und wird von deren Debounce als ein
-   * einzelner Push behandelt, statt vieler kleiner waehrend des Bearbeitens.
-   */
   async function handleFinalSave() {
     if (!title.trim() || !householdId || !userId) return;
     setSaving(true);
@@ -334,24 +301,12 @@ export function RecipeCreateScreen() {
         });
       }
 
-      // Wizard-Seiten 2/3 referenzieren Zutaten ueber die lokale
-      // IngredientItem.id (siehe recipe-wizard-step-steps.tsx) — diese Map
-      // uebersetzt sie nach dem Persistieren auf die echten
-      // recipe_component_items.id fuer die Schritt-Zutaten-Verknuepfung unten.
       const localToRealItemId = new Map<string, string>();
 
       {
         const db = await getDatabase();
-        // Nur zur UI-Rueckmeldung ("nicht umrechenbar"), falls beim Speichern
-        // ein Stueckgewicht fehlt — der Nutzer sieht die Markierung erst
-        // wieder, wenn er auf Seite 1 zurueckgeht, deshalb wird sie trotzdem
-        // gepflegt statt stillschweigend verworfen.
         const updatedComponents: IngredientComponentGroup[] = [];
 
-        // Bestehende Komponenten/Positionen (Bearbeiten-Fall) fuer den
-        // Abgleich am Ende: alles, was hier nicht mehr auftaucht, wurde vom
-        // Nutzer entfernt und muss geloescht werden — ohne diesen Abgleich
-        // blieben geloeschte Zutaten in der DB stehen ("Geisterzutaten").
         const originalComponentIds = new Set(data ? data.components.map((c) => c.id) : []);
         const originalItemByComponent = new Map<string, string>();
         if (data) {
@@ -378,11 +333,6 @@ export function RecipeCreateScreen() {
             const quantity = Number.parseFloat(item.quantity);
             if (!(quantity > 0)) continue;
 
-            // item.product gesetzt = Nutzer hat (neu) eine OFF-Suche
-            // abgeschlossen — gilt auch, wenn dieselbe Zeile vorher schon
-            // eine andere Zutat war (Produkt-Ersetzung: alte Position wird
-            // unten ueber den originalItemByComponent-Abgleich geloescht,
-            // hier entsteht eine neue).
             let productId: string | null = null;
             if (item.product) {
               productId = await persistOffProductIfNeeded(item.product, userId, addProduct);
@@ -493,9 +443,6 @@ export function RecipeCreateScreen() {
             }
           }
           for (const [itemId, componentId] of originalItemByComponent) {
-            // Nur explizit loeschen, wenn die Komponente selbst erhalten
-            // blieb — sonst hat deleteComponent die Position bereits
-            // kaskadierend entfernt.
             if (!keptItemIds.has(itemId) && keptComponentIds.has(componentId)) {
               await deleteItem.mutateAsync({
                 id: itemId,
@@ -517,8 +464,6 @@ export function RecipeCreateScreen() {
 
         let stepId: string;
         if (step.serverId) {
-          // Bestehender Schritt: aktualisieren statt einen zweiten mit
-          // derselben position anzulegen.
           keptStepIds.add(step.serverId);
           stepId = step.serverId;
           const imagePath = step.localImageUri
@@ -533,9 +478,6 @@ export function RecipeCreateScreen() {
             image_path: imagePath,
           });
 
-          // Bestehende Zutaten-Verknuepfungen dieses Schritts komplett
-          // ersetzen statt einzeln zu diffen — bei wenigen Zutaten je Schritt
-          // kein spuerbarer Mehraufwand, aber deutlich weniger Fehlerflaeche.
           const existingLinks = await stepsDb.getAllAsync<{ id: string }>(
             'select id from recipe_step_ingredients where step_id = ? and deleted_at is null',
             [stepId],
@@ -571,10 +513,6 @@ export function RecipeCreateScreen() {
 
         for (const localItemId of step.ingredientIds) {
           const realItemId = localToRealItemId.get(localItemId);
-          // Zutat wurde nicht persistiert (kein Produkt gewaehlt, nicht
-          // umrechenbar, oder in diesem Bearbeiten-Durchgang entfernt) —
-          // Referenz verwerfen statt auf eine nie existente/geloeschte Zeile
-          // zu verweisen.
           if (!realItemId) continue;
           await addStepIngredient.mutateAsync({
             step_id: stepId,
@@ -587,9 +525,6 @@ export function RecipeCreateScreen() {
         position += 1;
       }
 
-      // Schritte, die urspruenglich existierten aber jetzt aus dem Formular
-      // entfernt wurden, loeschen — sonst blieben sie unsichtbar in der DB
-      // stehen (dieselbe "Geisterzutaten"-Logik wie bei den Komponenten oben).
       for (const stepId of originalStepIds) {
         if (!keptStepIds.has(stepId)) {
           await deleteStep.mutateAsync({
@@ -611,36 +546,35 @@ export function RecipeCreateScreen() {
   const coverPreviewUri = localCoverUri ?? existingCoverUrl ?? null;
 
   return (
-    <View style={styles.root}>
+    <View className="flex-1">
       <GradientBackground {...hubGradient} />
-      <SafeAreaView style={styles.safeArea} edges={['top', 'left', 'right']}>
+      <SafeAreaView
+        className="flex-1 w-full max-w-[800px] self-center"
+        edges={['top', 'left', 'right']}>
         <PageHeader
           title={isEditing ? 'Rezept bearbeiten' : 'Rezept erstellen'}
           leading={<BackButton label="Zurück" variant="header" onPress={handleCancel} />}
         />
 
-        <View style={styles.progressRow}>
+        <View className="h-4 flex-row gap-[5px] px-4 pt-0.5 pb-[10px]">
           {[1, 2, 3, 4].map((step) => (
             <View
               key={step}
-              style={[
-                styles.progressSegment,
-                {
-                  backgroundColor: step <= wizardStep ? theme.accent : theme.backgroundSelected,
-                },
-              ]}
+              className={`flex-1 h-1 rounded-sm ${
+                step <= wizardStep ? 'bg-accent' : 'bg-background-selected'
+              }`}
             />
           ))}
         </View>
 
         <KeyboardAvoidingView
-          style={styles.keyboardAvoider}
+          className="flex-1"
           behavior={process.env.EXPO_OS === 'ios' ? 'padding' : undefined}
           keyboardVerticalOffset={12}>
           {wizardStep === 1 ? (
             <ScrollView
-              style={styles.scrollView}
-              contentContainerStyle={styles.scrollContent}
+              className="flex-1"
+              contentContainerClassName="px-4 pb-6"
               showsVerticalScrollIndicator={false}
               keyboardShouldPersistTaps="handled">
               <RecipeWizardStepBasics
@@ -678,8 +612,8 @@ export function RecipeCreateScreen() {
             </ScrollView>
           ) : wizardStep === 2 ? (
             <ScrollView
-              style={styles.scrollView}
-              contentContainerStyle={styles.scrollContent}
+              className="flex-1"
+              contentContainerClassName="px-4 pb-6"
               showsVerticalScrollIndicator={false}
               keyboardShouldPersistTaps="handled">
               <RecipeWizardStepBasics
@@ -746,38 +680,3 @@ export function RecipeCreateScreen() {
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  root: {
-    flex: 1,
-  },
-  safeArea: {
-    flex: 1,
-    width: '100%',
-    maxWidth: 800,
-    alignSelf: 'center',
-  },
-  progressRow: {
-    height: 16,
-    flexDirection: 'row',
-    gap: 5,
-    paddingHorizontal: 16,
-    paddingTop: 2,
-    paddingBottom: 10,
-  },
-  progressSegment: {
-    flex: 1,
-    height: 4,
-    borderRadius: Radius.hairline,
-  },
-  keyboardAvoider: {
-    flex: 1,
-  },
-  scrollView: {
-    flex: 1,
-  },
-  scrollContent: {
-    paddingHorizontal: 16,
-    paddingBottom: 24,
-  },
-});

@@ -1,12 +1,11 @@
 import { router } from 'expo-router';
 import { useState } from 'react';
-import { KeyboardAvoidingView, Platform, StyleSheet, View } from 'react-native';
+import { KeyboardAvoidingView, Platform, View } from 'react-native';
 import { Card } from '@/components/card';
 import { Screen } from '@/components/screen';
 import { TextField } from '@/components/text-field';
 import { ThemedText } from '@/components/themed-text';
 import { Button } from '@/components/ui/buttons';
-import { Spacing } from '@/constants/theme';
 import { authErrorMessage, signInWithOAuthProvider, signUp } from '@/features/auth/api';
 import { fieldErrors, signUpSchema } from '@/features/auth/auth-schemas';
 import { PendingAuthBanner } from '@/features/auth/components/pending-auth-banner';
@@ -74,7 +73,7 @@ export function SignUpScreen() {
       back={{ label: 'Anmelden', href: '/sign-in' }}>
       <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : undefined}>
         <Card>
-          <View style={styles.form}>
+          <View className="gap-three">
             <TextField
               label="E-Mail"
               value={email}
@@ -111,18 +110,12 @@ export function SignUpScreen() {
               returnKeyType="go"
             />
 
-            {formError ? (
-              <ThemedText type="small" themeColor="danger">
-                {formError}
-              </ThemedText>
-            ) : null}
+            {formError ? <ThemedText type="smallDanger">{formError}</ThemedText> : null}
 
             <Button label="Konto erstellen" onPress={handleSubmit} loading={loading} />
 
-            <View style={styles.divider}>
-              <ThemedText type="small" themeColor="textSecondary">
-                oder weiter mit
-              </ThemedText>
+            <View className="divider">
+              <ThemedText type="smallMuted">oder weiter mit</ThemedText>
             </View>
 
             <Button
@@ -143,7 +136,7 @@ export function SignUpScreen() {
               }}
             />
 
-            <ThemedText type="small" themeColor="textSecondary">
+            <ThemedText type="smallMuted">
               Vorrat und Einkaufsliste teilst du später mit deinem Haushalt. Kalorien, Gewicht und
               Ziele bleiben privat.
             </ThemedText>
@@ -159,13 +152,3 @@ export function SignUpScreen() {
     </Screen>
   );
 }
-
-const styles = StyleSheet.create({
-  form: {
-    gap: Spacing.three,
-  },
-  divider: {
-    alignItems: 'center',
-    marginVertical: Spacing.one,
-  },
-});

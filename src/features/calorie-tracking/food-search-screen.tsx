@@ -1,12 +1,11 @@
 import { router, useLocalSearchParams } from 'expo-router';
 import { useEffect, useRef, useState } from 'react';
-import { ActivityIndicator, FlatList, Image, Pressable, StyleSheet, View } from 'react-native';
+import { ActivityIndicator, FlatList, Image, Pressable, View } from 'react-native';
 
 import { Screen } from '@/components/screen';
 import { SegmentedControl } from '@/components/segmented-control';
 import { TextField } from '@/components/text-field';
-import { FontSize, ThemedText } from '@/components/themed-text';
-import { Radius, Spacing } from '@/constants/theme';
+import { ThemedText } from '@/components/themed-text';
 import { useSession } from '@/features/auth/session-provider';
 import type { MealType } from '@/features/calorie-tracking/api';
 import {
@@ -202,9 +201,9 @@ export function FoodSearchScreen() {
       title={MEAL_LABELS[params.mealType] ?? 'Lebensmittel'}
       back={{ label: 'Abbrechen' }}
       scroll={false}>
-      <View style={styles.header}>
-        <View style={styles.searchRow}>
-          <View style={styles.flex}>
+      <View className="fss-header">
+        <View className="fss-search-row">
+          <View className="flex-1">
             <TextField
               placeholder="Wonach suchst du?"
               value={query}
@@ -216,8 +215,8 @@ export function FoodSearchScreen() {
             onPress={() => setShowScanner(true)}
             accessibilityRole="button"
             accessibilityLabel="Barcode scannen"
-            style={[styles.scanBtn, { backgroundColor: theme.backgroundElement }]}>
-            <ThemedText style={{ ...FontSize[20] }}>📷</ThemedText>
+            className="fss-scan-btn">
+            <ThemedText className="text-[20px]">📷</ThemedText>
           </Pressable>
         </View>
 
@@ -236,10 +235,10 @@ export function FoodSearchScreen() {
 
       {isSearchMode ? (
         searching ? (
-          <ActivityIndicator color={theme.accent} style={styles.centerLoader} />
+          <ActivityIndicator color={theme.accent} className="fss-center-loader" />
         ) : results.length === 0 && searchFailed ? (
-          <View style={styles.failedBox}>
-            <ThemedText type="small" themeColor="warning" style={{ textAlign: 'center' }}>
+          <View className="fss-failed-box">
+            <ThemedText type="small" themeColor="warning" className="text-center">
               Open Food Facts ist gerade nicht erreichbar. Versuch's gleich nochmal.
             </ThemedText>
             <Pressable onPress={retrySearch} accessibilityRole="button">
@@ -249,12 +248,12 @@ export function FoodSearchScreen() {
             </Pressable>
           </View>
         ) : results.length === 0 ? (
-          <ThemedText type="small" themeColor="textSecondary" style={styles.centered}>
+          <ThemedText type="small" themeColor="textSecondary" className="fss-centered">
             Keine Treffer für „{query}".
           </ThemedText>
         ) : (
           <FlatList
-            style={styles.flex}
+            className="flex-1"
             data={results}
             keyExtractor={(item, index) => item.barcode || `${item.name}-${index}`}
             renderItem={({ item }) => (
@@ -265,20 +264,20 @@ export function FoodSearchScreen() {
             keyboardShouldPersistTaps="handled"
             ListFooterComponent={
               loadingMore ? (
-                <ActivityIndicator color={theme.accent} style={styles.footerLoader} />
+                <ActivityIndicator color={theme.accent} className="fss-footer-loader" />
               ) : null
             }
           />
         )
       ) : historyLoading ? (
-        <ActivityIndicator color={theme.accent} style={styles.centerLoader} />
+        <ActivityIndicator color={theme.accent} className="fss-center-loader" />
       ) : historyList.length === 0 ? (
-        <ThemedText type="small" themeColor="textSecondary" style={styles.centered}>
+        <ThemedText type="small" themeColor="textSecondary" className="fss-centered">
           Noch keine Einträge — fang mit der Suche oder „Schneller Eintrag" an.
         </ThemedText>
       ) : (
         <FlatList
-          style={styles.flex}
+          className="flex-1"
           data={historyList}
           keyExtractor={(item) => item.name}
           renderItem={({ item }) => (
@@ -288,10 +287,8 @@ export function FoodSearchScreen() {
         />
       )}
 
-      <Pressable
-        onPress={selectManualEntry}
-        style={[styles.quickEntryBtn, { backgroundColor: theme.backgroundElement }]}>
-        <ThemedText style={{ ...FontSize[18] }}>🍽️</ThemedText>
+      <Pressable onPress={selectManualEntry} className="fss-quick-entry-btn">
+        <ThemedText className="text-[18px]">🍽️</ThemedText>
         <ThemedText type="smallBold">Schneller Eintrag</ThemedText>
       </Pressable>
 
@@ -305,17 +302,16 @@ export function FoodSearchScreen() {
 }
 
 function ProductRow({ product, onPress }: { product: OpenFoodFactsProduct; onPress: () => void }) {
-  const theme = useTheme();
   return (
-    <Pressable onPress={onPress} style={[styles.row, { borderBottomColor: theme.border }]}>
+    <Pressable onPress={onPress} className="fss-row">
       {product.imageUrl ? (
-        <Image source={{ uri: product.imageUrl }} style={styles.rowImg} />
+        <Image source={{ uri: product.imageUrl }} className="fss-row-img" />
       ) : (
-        <View style={[styles.rowImgPlaceholder, { backgroundColor: theme.backgroundElement }]}>
-          <ThemedText style={{ ...FontSize[16] }}>🥫</ThemedText>
+        <View className="fss-row-img-placeholder">
+          <ThemedText className="text-[16px]">🥫</ThemedText>
         </View>
       )}
-      <View style={styles.rowText}>
+      <View className="fss-row-text">
         <ThemedText type="smallBold" numberOfLines={1}>
           {product.name}
         </ThemedText>
@@ -331,13 +327,12 @@ function ProductRow({ product, onPress }: { product: OpenFoodFactsProduct; onPre
 }
 
 function HistoryRow({ entry, onPress }: { entry: FoodHistoryEntry; onPress: () => void }) {
-  const theme = useTheme();
   return (
-    <Pressable onPress={onPress} style={[styles.row, { borderBottomColor: theme.border }]}>
-      <View style={[styles.rowImgPlaceholder, { backgroundColor: theme.backgroundElement }]}>
-        <ThemedText style={{ ...FontSize[16] }}>🥫</ThemedText>
+    <Pressable onPress={onPress} className="fss-row">
+      <View className="fss-row-img-placeholder">
+        <ThemedText className="text-[16px]">🥫</ThemedText>
       </View>
-      <View style={styles.rowText}>
+      <View className="fss-row-text">
         <ThemedText type="smallBold" numberOfLines={1}>
           {entry.name}
         </ThemedText>
@@ -349,72 +344,3 @@ function HistoryRow({ entry, onPress }: { entry: FoodHistoryEntry; onPress: () =
     </Pressable>
   );
 }
-
-const styles = StyleSheet.create({
-  header: {
-    gap: Spacing.two,
-  },
-  searchRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: Spacing.two,
-  },
-  flex: {
-    flex: 1,
-  },
-  scanBtn: {
-    width: 48,
-    height: 48,
-    borderRadius: Radius.control,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  centered: {
-    textAlign: 'center',
-    marginTop: Spacing.four,
-  },
-  centerLoader: {
-    marginTop: Spacing.four,
-  },
-  failedBox: {
-    alignItems: 'center',
-    gap: Spacing.two,
-    marginTop: Spacing.four,
-  },
-  footerLoader: {
-    marginVertical: Spacing.three,
-  },
-  row: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: Spacing.two,
-    paddingVertical: Spacing.two,
-    borderBottomWidth: StyleSheet.hairlineWidth,
-  },
-  rowImg: {
-    width: 36,
-    height: 36,
-    borderRadius: Radius.sm,
-  },
-  rowImgPlaceholder: {
-    width: 36,
-    height: 36,
-    borderRadius: Radius.sm,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  rowText: {
-    flex: 1,
-    gap: 2,
-  },
-  quickEntryBtn: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    gap: Spacing.two,
-    paddingVertical: Spacing.three,
-    borderRadius: Radius.controlLarge,
-    marginTop: Spacing.three,
-    marginBottom: Spacing.four,
-  },
-});

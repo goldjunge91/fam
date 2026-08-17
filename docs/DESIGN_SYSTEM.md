@@ -73,8 +73,8 @@ Schatten enthalten keine lokalen Farbwerte mehr. Details:
 **Gradient-Hintergrund — erledigt (2026-08-16).** `Gradients.hub` hält die
 Light- und Dark-Farben sowie gemeinsame Stop-Positionen des Hub-Verlaufs
 zentral. `useHubGradient()` wählt die zum Farbschema passende Variante für
-alle regulären Verbraucher. Nur Original und V2 des bewusst zurückgestellten
-Essensplaners bleiben während des Vergleichs auf `Gradients.hub.light`.
+alle regulären Verbraucher. Der Essensplaner bleibt vorerst auf
+`Gradients.hub.light`.
 **Noch offen:** die 10 Screens, die
 `<GradientBackground>` weiterhin manuell statt über `Screen`s
 `backgroundGradient`-Prop einbinden, bauen ihre Struktur (Safe Area,
@@ -294,14 +294,12 @@ Einordnung in die Reihenfolge.
    Migrationskandidat (Modals und Spezialansichten brauchen eine eigene
    Prüfung), aber die Grundregel ist noch nicht flächendeckend umgesetzt.
 
-   **Vorgehen umgesetzt:** Die **separate V2-Variante des Essensplaners** in
-   `meal-planner-screen-v2.tsx` verwendet jetzt `Screen` mit
-   `backgroundGradient={Gradients.hub}`. `Screen` besitzt dafür den fehlenden
-   optionalen Hub-`trailing`-Slot; Kalender und Profil stehen gemeinsam
-   rechts im Header. Die eigene Route `/meal-planner-v2` wurde im Simulator
-   geprüft. Ein temporärer Versionsumschalter ist in Original und V2 sichtbar;
-   abgesehen davon bleibt die Struktur des Originals unangetastet. Die V2 ist
-   damit die Vorlage für die strukturelle Migration der übrigen 9 Screens.
+   **Entscheidung (2026-08-17):** Der Essensplaner bleibt bei der
+   Original-Struktur; die Vergleichs-Variante (`meal-planner-screen-v2.tsx`,
+   Route `/meal-planner-v2`, Versionsumschalter) wurde entfernt, ohne
+   Ergebnis für die strukturelle Migration der übrigen 9 Screens.
+   `Screen` besitzt weiterhin den optionalen Hub-`trailing`-Slot
+   (Kalender/Profil rechts im Header) für eine künftige Migration.
 2. **Button-Konsolidierung — Rollenprüfung abgeschlossen.** Die früheren
    `back-arrow-button`/`back-icon-button` sind in `back-button` mit Varianten
    aufgegangen. Die sieben verbleibenden Komponenten haben eigenständige
@@ -322,14 +320,16 @@ Einordnung in die Reihenfolge.
    315 `FontSize[...]`-Spreads und 23 `Typography.*`-Spreads. Davon definieren
    acht intern die `ThemedText`-Rollen; die übrigen 15 stylen native
    `Text`-/`TextInput`-Controls und können nicht über `ThemedText.type` laufen.
-5. **Dashboard-"Glass Cards" bleiben bewusst Screen-lokal** (`glassCard`,
-   `calorieCard`, `plannedCard`, `widget` in `dashboard-screen.tsx`) statt
-   als wiederverwendbare Primitive — auf der Übersicht mehrfach fast
-   identisch wiederholt (`boxShadow`, `borderRadius`, `borderCurve:
-   'continuous'`, `backgroundColor: theme.backgroundElement`). Außerhalb des
-   Dashboards gibt es keinen zweiten Verbraucher mit derselben Rolle. Eine
-   globale `GlassCard`/`HubTile`-API wäre daher spekulativ und wird erst bei
-   einem zweiten echten Screen-Anwendungsfall extrahiert.
+5. **Dashboard-"Glass Cards" — Phase C erledigt (Stand 2026-08-17).**
+   `src/components/glass-card.tsx` (`GlassCard`) rendert echtes Liquid Glass
+   (`expo-glass-effect`) auf iOS 26+ für die Essensplan-Karte und die beiden
+   Vorrat/Einkauf-Kacheln, sonst die bisherige solide Karte. Die
+   Kalorien-Karte bleibt bewusst außen vor (Content-Fläche, kein
+   Steuerelement, s. `docs/design-system/nativewind-liquid-glass-migration.md`
+   Phase C für Details/Mock-Varianten). `GlassCard` ist trotzdem weiterhin
+   **kein** app-weites Primitive — einziger Verbraucher ist das Dashboard;
+   eine generischere API wird erst bei einem zweiten echten
+   Screen-Anwendungsfall extrahiert (YAGNI).
 6. **`recipe-detail-screen.tsx`s Inline-SVG — geprüft, kein Fund.** Der
    vermeintliche Inline-Fortschrittsring ist keiner: `HeroArtwork` baut eine
    dekorative Verlaufs-/Kreis-Illustration als Platzhalter, wenn ein Rezept
@@ -375,8 +375,6 @@ Bereichen.
 
 **Noch offen** (Backlog aus Abschnitt 6):
 
-1. Essensplaner-V2 ist auf `Screen` umgestellt und im Simulator geprüft. Ein
-   temporärer Umschalter wechselt direkt zwischen Original und V2; die
-   bisherige Route und Originalstruktur bleiben ansonsten unverändert. Offen
-   sind die Auswahl der regulären Version und danach die strukturelle
-   Migration der übrigen 9 Screens (Punkt 1).
+1. Essensplaner bleibt bei der Original-Struktur (V2-Vergleichsvariante
+   entfernt, s. Abschnitt 6 Punkt 1). Die strukturelle Migration der 9
+   verbleibenden Screens auf `Screen` steht weiterhin aus.

@@ -1,12 +1,11 @@
 import { router } from 'expo-router';
 import { useState } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { View } from 'react-native';
 import { Card } from '@/components/card';
 import { Screen } from '@/components/screen';
 import { TextField } from '@/components/text-field';
 import { ThemedText } from '@/components/themed-text';
 import { Button } from '@/components/ui/buttons';
-import { Spacing } from '@/constants/theme';
 import { authErrorMessage, requestPasswordReset } from '@/features/auth/api';
 import { fieldErrors, resetRequestSchema } from '@/features/auth/auth-schemas';
 
@@ -66,7 +65,7 @@ export function ForgotPasswordScreen() {
       subtitle="Wir schicken dir einen Link"
       back={{ label: 'Anmelden', href: '/sign-in' }}>
       <Card>
-        <View style={styles.form}>
+        <View className="gap-three">
           <TextField
             testID="forgot-password-email"
             label="E-Mail"
@@ -82,11 +81,7 @@ export function ForgotPasswordScreen() {
             returnKeyType="go"
           />
 
-          {formError ? (
-            <ThemedText type="small" themeColor="danger">
-              {formError}
-            </ThemedText>
-          ) : null}
+          {formError ? <ThemedText type="smallDanger">{formError}</ThemedText> : null}
 
           <Button label="Link anfordern" onPress={handleSubmit} loading={loading} />
         </View>
@@ -96,7 +91,3 @@ export function ForgotPasswordScreen() {
     </Screen>
   );
 }
-
-const styles = StyleSheet.create({
-  form: { gap: Spacing.three },
-});

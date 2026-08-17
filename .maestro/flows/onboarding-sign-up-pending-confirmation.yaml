@@ -13,23 +13,7 @@ appId: com.goldjunge91.fam
 #
 # Voraussetzungen: siehe onboarding-sign-in.yaml (Dev-Build, lokales Supabase).
 
-- launchApp:
-    clearState: true
-
-- extendedWaitUntil:
-    visible: "http://.*"
-    timeout: 30000
-- tapOn: "http://.*"
-
-# expo-dev-client zeigt nach dem Bundle-Laden ggf. einmalig ein "Dev Tools"-
-# Info-Popup (siehe onboarding-sign-in.yaml) - optional, damit es den Flow
-# nicht scheitern laesst, wenn es nicht auftaucht.
-- tapOn:
-    text: "Continue"
-    optional: true
-- tapOn:
-    text: "Close"
-    optional: true
+- runFlow: ../subflows/launch-local-dev-client.yaml
 
 - tapOn: "Weiter"
 - tapOn: "Weiter"

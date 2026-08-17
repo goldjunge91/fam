@@ -1,19 +1,17 @@
 import { Image } from 'expo-image';
 import { router, useLocalSearchParams } from 'expo-router';
 import { useEffect, useState } from 'react';
-import { Pressable, ScrollView, StyleSheet, View } from 'react-native';
+import { Pressable, ScrollView, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Svg, { Circle, Defs, LinearGradient, Rect, Stop } from 'react-native-svg';
 
 import { GradientBackground } from '@/components/gradient-background';
 import { PageHeader } from '@/components/page-header';
-import { FontSize, ThemedText } from '@/components/themed-text';
+import { ThemedText } from '@/components/themed-text';
 import { BackButton } from '@/components/ui/buttons';
-import { Radius } from '@/constants/theme';
 import { presentPaywallIfNeeded } from '@/features/premium/paywall';
 import { usePremium } from '@/features/premium/premium-provider';
 import { useHubGradient } from '@/hooks/use-hub-gradient';
-import { useTheme } from '@/hooks/use-theme';
 import { RecipeRatingSheet } from './components/recipe-rating-sheet';
 import { useRecipeStepImageUrl } from './recipe-image-uploader';
 import { type RecipeDetail, type RecipeStep, useRecipeDetail } from './use-recipes';
@@ -35,7 +33,14 @@ function StepArtwork({ step }: { step: RecipeStep }) {
   const { data: imageUrl } = useRecipeStepImageUrl(step.image_path);
 
   if (imageUrl) {
-    return <Image source={{ uri: imageUrl }} style={StyleSheet.absoluteFill} contentFit="cover" />;
+    return (
+      <Image
+        source={{ uri: imageUrl }}
+        // expo-image benötigt absoluteFill inline
+        style={{ position: 'absolute', top: 0, right: 0, bottom: 0, left: 0 }}
+        contentFit="cover"
+      />
+    );
   }
 
   return (
@@ -71,24 +76,24 @@ function FinishAction({
   subtitle: string;
   onPress: () => void;
 }) {
-  const theme = useTheme();
   return (
     <Pressable
       onPress={onPress}
       role="button"
-      style={({ pressed }) => [
-        styles.finishAction,
-        { backgroundColor: `${theme.backgroundElement}D6` },
-        pressed && styles.pressed,
-      ]}>
-      <View style={[styles.finishActionIcon, { backgroundColor: theme.backgroundSelected }]} />
-      <View style={styles.finishActionCopy}>
-        <ThemedText style={styles.finishActionTitle}>{title}</ThemedText>
-        <ThemedText themeColor="textSecondary" style={styles.finishActionSubtitle}>
+      className="min-h-[62px] rounded-sheet px-[11px] py-[9px] flex-row items-center gap-[10px] bg-background-element/85 active:opacity-75">
+      <View className="w-[38px] h-[38px] rounded-control bg-background-selected" />
+      <View className="flex-1 min-w-0">
+        <ThemedText type="detail" className="text-[10px] leading-[12px] font-bold">
+          {title}
+        </ThemedText>
+        <ThemedText
+          type="detail"
+          themeColor="textSecondary"
+          className="pt-half text-[8px] leading-[10px] font-medium">
           {subtitle}
         </ThemedText>
       </View>
-      <ThemedText themeColor="textSecondary" style={styles.finishChevron}>
+      <ThemedText type="detail" themeColor="textSecondary" className="text-[18px] leading-[20px]">
         ›
       </ThemedText>
     </Pressable>
@@ -103,7 +108,6 @@ function FinishAction({
  * `premium-screen.tsx`.
  */
 function FreeCookingMode({ data }: { data: RecipeDetail }) {
-  const theme = useTheme();
   const hubGradient = useHubGradient();
   const { recipe, items, steps, productsById } = data;
   const ingredients = items.filter((item) => item.product_id !== null);
@@ -119,24 +123,30 @@ function FreeCookingMode({ data }: { data: RecipeDetail }) {
   }
 
   return (
-    <View style={styles.root}>
+    <View className="flex-1">
       <GradientBackground {...hubGradient} />
-      <SafeAreaView style={styles.safeArea} edges={['top', 'left', 'right']}>
+      <SafeAreaView
+        className="flex-1 w-full max-w-[800px] self-center"
+        edges={['top', 'left', 'right']}>
         <PageHeader
           title="Kochmodus"
           leading={<BackButton label="Kochmodus schließen" variant="header" />}
         />
-        <ScrollView contentContainerStyle={styles.freeContent} showsVerticalScrollIndicator={false}>
-          <ThemedText style={styles.stepTitle}>{recipe.title}</ThemedText>
+        <ScrollView
+          contentContainerClassName="flex-grow px-four pb-four gap-[14px]"
+          showsVerticalScrollIndicator={false}>
+          <ThemedText type="headingSmall" className="pt-[6px]">
+            {recipe.title}
+          </ThemedText>
 
           {ingredients.length > 0 ? (
-            <View style={[styles.freeCard, { backgroundColor: `${theme.backgroundElement}D6` }]}>
+            <View className="rounded-sheet p-[13px] gap-two bg-background-element/85">
               {ingredients.map((item) => {
                 const product = item.product_id ? productsById.get(item.product_id) : undefined;
                 return (
-                  <View key={item.id} style={styles.freeIngredientRow}>
-                    <ThemedText>{product?.name ?? 'Zutat'}</ThemedText>
-                    <ThemedText themeColor="textSecondary">
+                  <View key={item.id} className="row-between">
+                    <ThemedText type="body">{product?.name ?? 'Zutat'}</ThemedText>
+                    <ThemedText type="body" themeColor="textSecondary">
                       {item.quantity ?? item.grams} {item.quantity ? item.unit : 'g'}
                     </ThemedText>
                   </View>
@@ -146,19 +156,26 @@ function FreeCookingMode({ data }: { data: RecipeDetail }) {
           ) : null}
 
           {recipe.instructions ? (
-            <ThemedText themeColor="textSecondary" style={styles.stepDescription}>
+            <ThemedText
+              type="detail"
+              themeColor="textSecondary"
+              className="pt-three text-[12px] leading-[18px] font-medium">
               {recipe.instructions}
             </ThemedText>
           ) : null}
 
           {steps.length > 0 ? (
-            <View style={styles.freeStepsList}>
+            <View className="gap-three">
               {steps.map((step) => (
-                <View key={step.id} style={styles.freeStepRow}>
-                  <ThemedText themeColor="accent" style={styles.freeStepNumber}>
+                <View key={step.id} className="flex-row gap-two">
+                  <ThemedText type="captionCompact" themeColor="accent" className="font-bold">
                     {step.position + 1}.
                   </ThemedText>
-                  <ThemedText style={styles.freeStepText}>{step.text}</ThemedText>
+                  <ThemedText
+                    type="detail"
+                    className="flex-1 text-[11px] leading-[18px] font-medium">
+                    {step.text}
+                  </ThemedText>
                 </View>
               ))}
             </View>
@@ -167,13 +184,8 @@ function FreeCookingMode({ data }: { data: RecipeDetail }) {
           <Pressable
             onPress={unlockPremium}
             role="button"
-            style={({ pressed }) => [
-              styles.nextButton,
-              styles.fallbackButton,
-              { backgroundColor: theme.accent },
-              pressed && styles.pressed,
-            ]}>
-            <ThemedText style={styles.nextButtonText}>
+            className="min-h-[48px] rounded-card items-center justify-center px-three bg-accent active:opacity-75 mt-auto">
+            <ThemedText type="captionCompact" className="text-white font-bold text-center">
               {unlocking ? 'Öffnet…' : 'Geführten Kochmodus freischalten'}
             </ThemedText>
           </Pressable>
@@ -184,7 +196,6 @@ function FreeCookingMode({ data }: { data: RecipeDetail }) {
 }
 
 export function CookingModeScreen() {
-  const theme = useTheme();
   const hubGradient = useHubGradient();
   const { id } = useLocalSearchParams<{ id: string }>();
   const { data, isLoading } = useRecipeDetail(id);
@@ -221,11 +232,13 @@ export function CookingModeScreen() {
 
   if (isLoading || !data) {
     return (
-      <View style={styles.root}>
+      <View className="flex-1">
         <GradientBackground {...hubGradient} />
-        <SafeAreaView style={styles.safeArea} edges={['top', 'left', 'right']}>
+        <SafeAreaView
+          className="flex-1 w-full max-w-[800px] self-center"
+          edges={['top', 'left', 'right']}>
           <PageHeader title="Kochmodus" leading={<BackButton label="Zurück" variant="header" />} />
-          <ThemedText themeColor="textSecondary" style={styles.loadingText}>
+          <ThemedText type="caption" themeColor="textSecondary" className="p-six text-center">
             Kochmodus wird geladen…
           </ThemedText>
         </SafeAreaView>
@@ -251,9 +264,11 @@ export function CookingModeScreen() {
 
   if (finished) {
     return (
-      <View style={styles.root}>
+      <View className="flex-1">
         <GradientBackground {...hubGradient} />
-        <SafeAreaView style={styles.safeArea} edges={['top', 'left', 'right']}>
+        <SafeAreaView
+          className="flex-1 w-full max-w-[800px] self-center"
+          edges={['top', 'left', 'right']}>
           <PageHeader
             title="Fertig"
             leading={
@@ -265,15 +280,20 @@ export function CookingModeScreen() {
             }
           />
           <ScrollView
-            contentContainerStyle={styles.finishContent}
+            contentContainerClassName="flex-grow items-center px-four pt-[38px] pb-six"
             showsVerticalScrollIndicator={false}>
-            <View style={[styles.finishArtwork, { backgroundColor: theme.backgroundSelected }]} />
-            <ThemedText style={styles.finishTitle}>Guten Appetit!</ThemedText>
-            <ThemedText themeColor="textSecondary" style={styles.finishSubtitle}>
+            <View className="w-[82px] h-[82px] rounded-fam-large bg-background-selected" />
+            <ThemedText type="headingSmall" className="pt-[18px]">
+              Guten Appetit!
+            </ThemedText>
+            <ThemedText
+              type="detail"
+              themeColor="textSecondary"
+              className="pt-[6px] text-[10px] leading-[13px] font-medium text-center">
               Alles Weitere ist freiwillig und kann übersprungen werden.
             </ThemedText>
 
-            <View style={styles.finishActions}>
+            <View className="w-full gap-two pt-six">
               <FinishAction
                 title="Zubereitete Gruppen wiegen"
                 subtitle="Werte im eigenen Rezept verbessern"
@@ -296,8 +316,14 @@ export function CookingModeScreen() {
               />
             </View>
 
-            <Pressable onPress={() => router.back()} role="button" style={styles.closeLink}>
-              <ThemedText themeColor="textSecondary" style={styles.closeLinkText}>
+            <Pressable
+              onPress={() => router.back()}
+              role="button"
+              className="mt-auto px-[10px] py-three">
+              <ThemedText
+                type="detail"
+                themeColor="textSecondary"
+                className="text-[10px] leading-[13px] font-medium">
                 Ohne Angaben schließen
               </ThemedText>
             </Pressable>
@@ -313,53 +339,61 @@ export function CookingModeScreen() {
   }
 
   return (
-    <View style={styles.root}>
+    <View className="flex-1">
       <GradientBackground {...hubGradient} />
-      <SafeAreaView style={styles.safeArea} edges={['top', 'left', 'right']}>
+      <SafeAreaView
+        className="flex-1 w-full max-w-[800px] self-center"
+        edges={['top', 'left', 'right']}>
         <PageHeader
           title="Kochmodus"
           leading={<BackButton label="Kochmodus schließen" variant="header" />}
         />
 
         {hasSteps && currentStep ? (
-          <View style={styles.cookContent}>
-            <View style={styles.progressRow}>
+          <View className="flex-1 px-four pb-four">
+            <View className="h-[21px] flex-row gap-[5px] pt-half pb-[15px]">
               {steps.map((step, index) => (
                 <View
                   key={step.id}
-                  style={[
-                    styles.progressSegment,
-                    {
-                      backgroundColor: index <= stepIndex ? theme.accent : theme.backgroundSelected,
-                    },
-                  ]}
+                  className={`flex-1 h-1 rounded-sm ${
+                    index <= stepIndex ? 'bg-accent' : 'bg-background-selected'
+                  }`}
                 />
               ))}
             </View>
 
-            <ThemedText themeColor="textSecondary" style={styles.stepEyebrow}>
+            <ThemedText
+              type="detail"
+              themeColor="textSecondary"
+              className="text-[9px] leading-[11px] font-medium tracking-wider">
               SCHRITT {stepIndex + 1} VON {steps.length}
             </ThemedText>
-            <ThemedText style={styles.stepTitle} numberOfLines={2}>
+            <ThemedText type="headingSmall" className="pt-[6px]" numberOfLines={2}>
               {currentStep.text.length > 42
                 ? `Schritt ${stepIndex + 1}`
                 : currentStep.text.replace(/[.!?]+$/, '')}
             </ThemedText>
 
-            <View style={styles.stepArtwork}>
+            <View className="h-[184px] mt-[13px] rounded-fam-large overflow-hidden">
               <StepArtwork step={currentStep} />
             </View>
-            <ThemedText themeColor="textSecondary" style={styles.stepDescription}>
+            <ThemedText
+              type="detail"
+              themeColor="textSecondary"
+              className="pt-three text-[12px] leading-[18px] font-medium">
               {currentStep.text}
             </ThemedText>
 
             {parsedDuration ? (
-              <View style={[styles.timerCard, { backgroundColor: `${theme.backgroundElement}D6` }]}>
-                <View style={styles.timerCopy}>
-                  <ThemedText style={styles.timerValue}>
+              <View className="min-h-[58px] mt-[14px] rounded-sheet px-[13px] py-three flex-row items-center gap-[5px] bg-background-element/85">
+                <View className="flex-1 min-w-0">
+                  <ThemedText type="headingSmall">
                     {formatTimer(timerStepId === currentStep.id ? timerSeconds : parsedDuration)}
                   </ThemedText>
-                  <ThemedText themeColor="textSecondary" style={styles.timerStatus}>
+                  <ThemedText
+                    type="detail"
+                    themeColor="textSecondary"
+                    className="pt-half text-[8px] leading-[10px] font-medium">
                     {timerSeconds === 0 ? 'Abgelaufen' : timerRunning ? 'Läuft' : 'Pausiert'}
                   </ThemedText>
                 </View>
@@ -368,8 +402,8 @@ export function CookingModeScreen() {
                   disabled={timerSeconds === 0}
                   role="button"
                   aria-label={timerRunning ? 'Timer pausieren' : 'Timer fortsetzen'}
-                  style={[styles.timerButton, { backgroundColor: theme.backgroundSelected }]}>
-                  <ThemedText themeColor="accent" style={styles.timerButtonText}>
+                  className="w-[34px] h-[34px] rounded-control items-center justify-center bg-background-selected">
+                  <ThemedText type="captionCompact" themeColor="accent" className="font-bold">
                     {timerRunning ? 'Ⅱ' : '▶'}
                   </ThemedText>
                 </Pressable>
@@ -380,55 +414,55 @@ export function CookingModeScreen() {
                   }}
                   role="button"
                   aria-label="Timer zurücksetzen"
-                  style={[styles.timerButton, { backgroundColor: theme.backgroundSelected }]}>
-                  <ThemedText themeColor="accent" style={styles.timerButtonText}>
+                  className="w-[34px] h-[34px] rounded-control items-center justify-center bg-background-selected">
+                  <ThemedText type="captionCompact" themeColor="accent" className="font-bold">
                     ↺
                   </ThemedText>
                 </Pressable>
               </View>
             ) : null}
 
-            <View style={styles.footerActions}>
+            <View className="mt-auto pt-[13px] flex-row gap-two">
               <Pressable
                 onPress={() => setStepIndex((value) => Math.max(0, value - 1))}
                 disabled={stepIndex === 0}
                 role="button"
                 aria-label="Vorheriger Schritt"
-                style={({ pressed }) => [
-                  styles.previousButton,
-                  { backgroundColor: theme.backgroundSelected },
-                  stepIndex === 0 && styles.disabled,
-                  pressed && styles.pressed,
-                ]}>
-                <ThemedText themeColor="accent" style={styles.previousGlyph}>
+                className={`w-12 h-12 rounded-card items-center justify-center bg-background-selected active:opacity-75 ${
+                  stepIndex === 0 ? 'opacity-35' : ''
+                }`}>
+                <ThemedText type="headingSmall" themeColor="accent" className="font-medium">
                   ‹
                 </ThemedText>
               </Pressable>
               <Pressable
                 onPress={nextStep}
                 role="button"
-                style={({ pressed }) => [
-                  styles.nextButton,
-                  { backgroundColor: theme.accent },
-                  pressed && styles.pressed,
-                ]}>
-                <ThemedText style={styles.nextButtonText}>
+                className="flex-1 min-h-[48px] rounded-card items-center justify-center px-three bg-accent active:opacity-75">
+                <ThemedText type="captionCompact" className="text-white font-bold text-center">
                   {stepIndex === steps.length - 1 ? 'Zubereitung abschließen' : 'Nächster Schritt'}
                 </ThemedText>
               </Pressable>
             </View>
           </View>
         ) : (
-          <ScrollView contentContainerStyle={styles.fallbackContent}>
-            <ThemedText style={styles.stepTitle}>{recipe.title}</ThemedText>
-            <ThemedText themeColor="textSecondary" style={styles.stepDescription}>
+          <ScrollView contentContainerClassName="flex-grow px-four pb-four">
+            <ThemedText type="headingSmall" className="pt-[6px]">
+              {recipe.title}
+            </ThemedText>
+            <ThemedText
+              type="detail"
+              themeColor="textSecondary"
+              className="pt-three text-[12px] leading-[18px] font-medium">
               {recipe.instructions ?? 'Für dieses Rezept sind noch keine Schritte hinterlegt.'}
             </ThemedText>
             <Pressable
               onPress={() => setFinished(true)}
               role="button"
-              style={[styles.nextButton, styles.fallbackButton, { backgroundColor: theme.accent }]}>
-              <ThemedText style={styles.nextButtonText}>Zubereitung abschließen</ThemedText>
+              className="min-h-[48px] rounded-card items-center justify-center px-three bg-accent active:opacity-75 mt-auto">
+              <ThemedText type="captionCompact" className="text-white font-bold text-center">
+                Zubereitung abschließen
+              </ThemedText>
             </Pressable>
           </ScrollView>
         )}
@@ -436,127 +470,3 @@ export function CookingModeScreen() {
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  root: { flex: 1 },
-  safeArea: { flex: 1, width: '100%', maxWidth: 800, alignSelf: 'center' },
-  loadingText: { padding: 24, textAlign: 'center', ...FontSize[12] },
-  cookContent: { flex: 1, paddingHorizontal: 16, paddingBottom: 16 },
-  progressRow: { height: 21, flexDirection: 'row', gap: 5, paddingTop: 2, paddingBottom: 15 },
-  progressSegment: { flex: 1, height: 4, borderRadius: Radius.hairline },
-  stepEyebrow: { ...FontSize[9], lineHeight: 11, fontWeight: 500, letterSpacing: 0.67 },
-  stepTitle: {
-    paddingTop: 6,
-    ...FontSize[23],
-    lineHeight: 28,
-    fontWeight: 700,
-    letterSpacing: -0.5,
-  },
-  stepArtwork: {
-    height: 184,
-    marginTop: 13,
-    borderRadius: Radius.large,
-    borderCurve: 'continuous',
-    overflow: 'hidden',
-  },
-  stepDescription: { paddingTop: 14, ...FontSize[12], lineHeight: 18, fontWeight: 500 },
-  timerCard: {
-    minHeight: 58,
-    marginTop: 14,
-    borderRadius: Radius.sheet,
-    borderCurve: 'continuous',
-    paddingHorizontal: 13,
-    paddingVertical: 12,
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 5,
-  },
-  timerCopy: { flex: 1, minWidth: 0 },
-  timerValue: { ...FontSize[19], lineHeight: 22, fontWeight: 700, letterSpacing: -0.45 },
-  timerStatus: { paddingTop: 2, ...FontSize[8], lineHeight: 10, fontWeight: 500 },
-  timerButton: {
-    width: 34,
-    height: 34,
-    borderRadius: Radius.control,
-    borderCurve: 'continuous',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  timerButtonText: { ...FontSize[12], lineHeight: 15, fontWeight: 700 },
-  footerActions: { marginTop: 'auto', paddingTop: 13, flexDirection: 'row', gap: 8 },
-  previousButton: {
-    width: 48,
-    height: 48,
-    borderRadius: Radius.card,
-    borderCurve: 'continuous',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  previousGlyph: { ...FontSize[24], lineHeight: 27, fontWeight: 500 },
-  nextButton: {
-    flex: 1,
-    minHeight: 48,
-    borderRadius: Radius.card,
-    borderCurve: 'continuous',
-    alignItems: 'center',
-    justifyContent: 'center',
-    paddingHorizontal: 14,
-  },
-  nextButtonText: {
-    color: '#FFFFFF',
-    ...FontSize[11],
-    lineHeight: 14,
-    fontWeight: 700,
-    textAlign: 'center',
-  },
-  disabled: { opacity: 0.35 },
-  pressed: { opacity: 0.75, transform: [{ scale: 0.99 }] },
-  fallbackContent: { flexGrow: 1, paddingHorizontal: 16, paddingBottom: 16 },
-  fallbackButton: { flex: 0, marginTop: 'auto' },
-  freeContent: { flexGrow: 1, paddingHorizontal: 16, paddingBottom: 16, gap: 14 },
-  freeCard: { borderRadius: Radius.sheet, borderCurve: 'continuous', padding: 13, gap: 8 },
-  freeIngredientRow: { flexDirection: 'row', justifyContent: 'space-between' },
-  freeStepsList: { gap: 12 },
-  freeStepRow: { flexDirection: 'row', gap: 8 },
-  freeStepNumber: { ...FontSize[11], fontWeight: 700 },
-  freeStepText: { flex: 1, ...FontSize[11], lineHeight: 18, fontWeight: 500 },
-  finishContent: {
-    flexGrow: 1,
-    alignItems: 'center',
-    paddingHorizontal: 16,
-    paddingTop: 38,
-    paddingBottom: 24,
-  },
-  finishArtwork: { width: 82, height: 82, borderRadius: Radius.large, borderCurve: 'continuous' },
-  finishTitle: { paddingTop: 18, ...FontSize[23], lineHeight: 28, fontWeight: 700 },
-  finishSubtitle: {
-    paddingTop: 6,
-    ...FontSize[10],
-    lineHeight: 13,
-    fontWeight: 500,
-    textAlign: 'center',
-  },
-  finishActions: { width: '100%', gap: 8, paddingTop: 24 },
-  finishAction: {
-    minHeight: 62,
-    borderRadius: Radius.sheet,
-    borderCurve: 'continuous',
-    paddingHorizontal: 11,
-    paddingVertical: 9,
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 10,
-  },
-  finishActionIcon: {
-    width: 38,
-    height: 38,
-    borderRadius: Radius.control,
-    borderCurve: 'continuous',
-  },
-  finishActionCopy: { flex: 1, minWidth: 0 },
-  finishActionTitle: { ...FontSize[10], lineHeight: 12, fontWeight: 700 },
-  finishActionSubtitle: { paddingTop: 2, ...FontSize[8], lineHeight: 10, fontWeight: 500 },
-  finishChevron: { ...FontSize[18], lineHeight: 20 },
-  closeLink: { marginTop: 'auto', paddingHorizontal: 10, paddingVertical: 12 },
-  closeLinkText: { ...FontSize[10], lineHeight: 13, fontWeight: 500 },
-});

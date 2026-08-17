@@ -1,7 +1,6 @@
 import { Platform, StyleSheet, Text, type TextProps, type TextStyle } from 'react-native';
 
 import { Fonts, type ThemeColor } from '@/constants/theme';
-import { useTheme } from '@/hooks/use-theme';
 
 /**
  * Einzige Quelle fuer feste Schriftgroessen in der App.
@@ -73,9 +72,21 @@ export const Typography = {
 const TEXT_ROLE_STYLES = StyleSheet.create({
   small: { ...Typography.bodySmall, fontWeight: 500 },
   smallBold: { ...Typography.bodySmall, fontWeight: 700 },
+  smallSelected: { ...Typography.bodySmall, fontWeight: 600 },
+  smallMuted: { ...Typography.bodySmall, fontWeight: 500 },
+  smallDanger: { ...Typography.bodySmall, fontWeight: 500 },
   default: { ...Typography.bodyRelaxed, fontWeight: 500 },
+  bodyBold: { ...Typography.bodyRelaxed, fontWeight: 700 },
+  bodyMuted: { ...Typography.bodyRelaxed, fontWeight: 500 },
   title: { ...Typography.display, fontWeight: 600 },
   subtitle: { ...Typography.title, fontWeight: 600 },
+  subtitleMuted: { ...Typography.title, fontWeight: 600 },
+  caption: { ...Typography.caption, fontWeight: 500 },
+  captionMuted: { ...Typography.caption, fontWeight: 500 },
+  captionCompact: { ...Typography.captionCompact, fontWeight: 500 },
+  label: { ...Typography.label, fontWeight: 500 },
+  labelBold: { ...Typography.label, fontWeight: 700 },
+  labelMuted: { ...Typography.label, fontWeight: 500 },
   link: { ...Typography.link },
   linkPrimary: { ...Typography.link },
   code: {
@@ -85,46 +96,80 @@ const TEXT_ROLE_STYLES = StyleSheet.create({
   },
 }) satisfies Record<string, TextStyle>;
 
-type TextRole = keyof typeof TEXT_ROLE_STYLES;
+export type TextRole = keyof typeof TEXT_ROLE_STYLES;
 
-/**
- * Jeder `Typography`-Token ist automatisch als `type`-Wert nutzbar (#122) —
- * ein Screen muss `Typography.*` nicht mehr manuell in ein `style`-Objekt
- * spreaden, um z. B. `type="label"` oder `type="bodyLarge"` zu bekommen. Ein
- * neuer `Typography`-Eintrag steht dadurch ohne weitere Aenderung hier zur
- * Verfuegung.
- *
- * `fontWeight` ist bewusst nicht Teil dieses Mappings, weil Groesse und
- * Gewicht zwei unabhaengige Achsen sind: dieselbe Groesse taucht in den
- * Referenz-Screens mit unterschiedlichem Gewicht auf (z. B. Dashboard-Label
- * 400 vs. PageHeader-Untertitel 600 — beide `label`-grosse Schrift). Wuerde
- * jede Groesse ein festes Gewicht bekommen, muesste jede Kombination aus
- * Groesse × Gewicht einen eigenen `type`-Namen haben (`label`, `labelBold`,
- * `caption`, `captionBold`, …) — eine Vervielfachung der Varianten fuer
- * denselben Zweck, den ein einfacher `style={{ fontWeight: ... }}`-Override
- * bereits abdeckt (RN mergt Style-Arrays, der Override gewinnt).
- */
-const TYPOGRAPHY_STYLES = StyleSheet.create(Typography) satisfies Record<string, TextStyle>;
+const TEXT_ROLE_CLASSES: Record<string, string> = {
+  small: 'text-body-small font-medium text-text',
+  smallBold: 'text-body-small font-bold text-text',
+  smallSelected: 'text-body-small font-semibold text-accent',
+  smallMuted: 'text-body-small font-medium text-text-secondary',
+  smallDanger: 'text-body-small font-medium text-danger',
+  default: 'text-body-relaxed font-medium text-text',
+  bodyBold: 'text-body-relaxed font-bold text-text',
+  bodyMuted: 'text-body-relaxed font-medium text-text-secondary',
+  title: 'text-display font-semibold text-text',
+  subtitle: 'text-title font-semibold text-text',
+  subtitleMuted: 'text-title font-semibold text-text-secondary',
+  caption: 'text-caption font-medium text-text',
+  captionMuted: 'text-caption font-medium text-text-secondary',
+  captionCompact: 'text-caption-compact font-medium text-text',
+  label: 'text-label font-medium text-text',
+  labelBold: 'text-label font-bold text-text',
+  labelMuted: 'text-label font-medium text-text-secondary',
+  micro: 'text-micro text-text',
+  detail: 'text-detail text-text',
+  controlValue: 'text-control-value text-text',
+  body: 'text-body text-text',
+  bodyRelaxed: 'text-body-relaxed text-text',
+  controlValueLarge: 'text-control-value-lg text-text',
+  bodyLarge: 'text-body-lg text-text',
+  controlAction: 'text-control-action text-text',
+  headingSmall: 'text-heading-small text-text',
+  controlActionLarge: 'text-control-action-lg text-text',
+  display: 'text-display text-text',
+  link: 'text-link text-accent',
+  linkPrimary: 'text-link text-accent',
+  code: 'text-code font-mono text-text',
+};
+
+const THEME_COLOR_CLASSES: Partial<Record<ThemeColor, string>> = {
+  text: 'text-text',
+  textSecondary: 'text-text-secondary',
+  accent: 'text-accent',
+  onAccent: 'text-on-accent',
+  background: 'text-background',
+  backgroundElement: 'text-background-element',
+  backgroundSelected: 'text-background-selected',
+  border: 'text-border',
+  danger: 'text-danger',
+  warning: 'text-warning',
+  success: 'text-success',
+};
+
+export const TYPOGRAPHY_STYLES = StyleSheet.create(Typography) satisfies Record<string, TextStyle>;
 
 export type ThemedTextProps = TextProps & {
   type?: TextRole | Exclude<keyof typeof Typography, TextRole>;
   themeColor?: ThemeColor;
+  className?: string;
 };
 
-export function ThemedText({ style, type = 'default', themeColor, ...rest }: ThemedTextProps) {
-  const theme = useTheme();
-  const typeStyle =
-    type in TEXT_ROLE_STYLES
-      ? TEXT_ROLE_STYLES[type as TextRole]
-      : TYPOGRAPHY_STYLES[type as keyof typeof Typography];
+export function ThemedText({
+  style,
+  type = 'default',
+  themeColor,
+  className = '',
+  ...rest
+}: ThemedTextProps) {
+  const roleClass = TEXT_ROLE_CLASSES[type] ?? 'text-body-relaxed font-medium text-text';
+  const colorClass = themeColor ? (THEME_COLOR_CLASSES[themeColor] ?? '') : '';
+
+  const mergedClassName = `${roleClass} ${colorClass} ${className}`.trim();
 
   return (
     <Text
-      style={[
-        { color: theme[themeColor ?? (type === 'linkPrimary' ? 'accent' : 'text')] },
-        typeStyle,
-        style,
-      ]}
+      className={mergedClassName}
+      style={[type === 'code' ? { fontFamily: Fonts.mono } : null, style]}
       {...rest}
     />
   );

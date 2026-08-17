@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { View } from 'react-native';
 
-import { FontSize, ThemedText } from '@/components/themed-text';
+import { ThemedText } from '@/components/themed-text';
 
 type PageHeaderProps = {
   title: string;
@@ -20,59 +20,26 @@ export function PageHeader({
   align = 'start',
 }: PageHeaderProps) {
   return (
-    <View style={styles.header}>
-      <View style={styles.slot}>{leading}</View>
-      <View style={[styles.titleWrap, align === 'center' && styles.titleCentered]}>
+    <View className="min-h-[57px] flex-row items-center gap-[7px] px-[14px] py-two">
+      <View className="min-w-[39px] min-h-[39px] flex-row items-center gap-[6px]">{leading}</View>
+      <View className={`flex-1 min-w-0 ${align === 'center' ? 'items-center' : ''}`}>
         {subtitle ? (
-          <ThemedText themeColor="textSecondary" style={styles.subtitle} numberOfLines={1}>
+          <ThemedText
+            themeColor="textSecondary"
+            className="text-[10px] leading-[12px] font-semibold mb-[1px]"
+            numberOfLines={1}>
             {subtitle}
           </ThemedText>
         ) : null}
-        <ThemedText style={styles.title} numberOfLines={1}>
+        <ThemedText
+          className="text-[19px] leading-[23px] font-semibold tracking-[-0.5px]"
+          numberOfLines={1}>
           {title}
         </ThemedText>
       </View>
-      <View style={[styles.slot, styles.trailing]}>{trailing}</View>
+      <View className="min-w-[39px] min-h-[39px] flex-row items-center gap-[6px] justify-end">
+        {trailing}
+      </View>
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  header: {
-    minHeight: 57,
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 7,
-    paddingHorizontal: 14,
-    paddingVertical: 8,
-  },
-  slot: {
-    minWidth: 39,
-    minHeight: 39,
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 6,
-  },
-  trailing: {
-    justifyContent: 'flex-end',
-  },
-  titleWrap: {
-    flex: 1,
-    minWidth: 0,
-  },
-  titleCentered: {
-    alignItems: 'center',
-  },
-  title: {
-    ...FontSize[19],
-    lineHeight: 23,
-    fontWeight: 600,
-    letterSpacing: -0.5,
-  },
-  subtitle: {
-    ...FontSize[10],
-    lineHeight: 12,
-    fontWeight: 600,
-    marginBottom: 1,
-  },
-});

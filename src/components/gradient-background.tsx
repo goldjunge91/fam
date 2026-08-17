@@ -22,6 +22,10 @@ export function GradientBackground({ colors, locations }: GradientBackgroundProp
   }));
 
   return (
+    // Svg (react-native-svg) ist bei NativeWind nicht registriert (kein
+    // cssInterop) — className wird stillschweigend ignoriert, statt einen
+    // Fehler zu werfen. style bleibt hier zwingend, sonst verliert der
+    // Hintergrund sein position:absolute und verdraengt den Screen-Inhalt.
     <Svg style={StyleSheet.absoluteFill} width="100%" height="100%">
       <Defs>
         <LinearGradient id="screenGradient" x1="0%" y1="44%" x2="100%" y2="56%">

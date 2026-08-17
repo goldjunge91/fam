@@ -1,8 +1,6 @@
-import { StyleSheet, View } from 'react-native';
+import { View } from 'react-native';
 
 import { ThemedText } from '@/components/themed-text';
-import { Radius, Spacing } from '@/constants/theme';
-import { useTheme } from '@/hooks/use-theme';
 import { formatEuro } from '@/lib/format-currency';
 
 interface TotalEstimateCardProps {
@@ -17,27 +15,13 @@ export function TotalEstimateCard({
   itemCount,
   storeCount,
 }: TotalEstimateCardProps) {
-  const theme = useTheme();
-
   return (
-    <View style={[styles.card, { backgroundColor: `${theme.accent}14` }]}>
-      <ThemedText type="smallBold" style={{ color: theme.accent }}>
-        Gesamtschätzung
-      </ThemedText>
+    <View className="total-estimate-card">
+      <ThemedText type="smallSelected">Gesamtschätzung</ThemedText>
       <ThemedText type="title">{formatEuro(totalEstimate)}</ThemedText>
-      <ThemedText type="small" themeColor="textSecondary">
+      <ThemedText type="smallMuted">
         {itemCount} Artikel in {storeCount} {storeCount === 1 ? 'Geschäft' : 'Geschäften'}
       </ThemedText>
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  card: {
-    // Gleicher Radius wie components/card.tsx — beides "surface-elevated"-Flaechen.
-    borderRadius: Radius.large,
-    padding: Spacing.four,
-    alignItems: 'center',
-    gap: Spacing.half,
-  },
-});

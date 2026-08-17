@@ -1,6 +1,6 @@
-import { Pressable, StyleSheet, View } from 'react-native';
+import { Pressable, View } from 'react-native';
 
-import { FontSize, ThemedText } from '@/components/themed-text';
+import { ThemedText } from '@/components/themed-text';
 
 type SectionHeadingProps = {
   title: string;
@@ -17,14 +17,16 @@ export function SectionHeading({
   onActionPress,
 }: SectionHeadingProps) {
   return (
-    <View style={styles.row}>
-      <View style={styles.titleWrap}>
+    <View className="min-h-[24px] flex-row items-end justify-between gap-[12px] mb-two">
+      <View className="shrink">
         {eyebrow ? (
-          <ThemedText themeColor="textSecondary" style={styles.eyebrow}>
+          <ThemedText
+            themeColor="textSecondary"
+            className="text-micro leading-[11px] font-semibold uppercase tracking-[0.7px]">
             {eyebrow}
           </ThemedText>
         ) : null}
-        <ThemedText style={styles.title}>{title}</ThemedText>
+        <ThemedText className="text-body-small leading-[18px] font-bold">{title}</ThemedText>
       </View>
       {actionLabel && onActionPress ? (
         <Pressable
@@ -32,8 +34,8 @@ export function SectionHeading({
           role="button"
           aria-label={actionLabel}
           hitSlop={8}
-          style={({ pressed }) => pressed && styles.pressed}>
-          <ThemedText themeColor="accent" style={styles.action}>
+          className="active:opacity-65">
+          <ThemedText themeColor="accent" className="text-caption leading-[16px] font-bold">
             {actionLabel}
           </ThemedText>
         </Pressable>
@@ -41,37 +43,3 @@ export function SectionHeading({
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  row: {
-    minHeight: 24,
-    flexDirection: 'row',
-    alignItems: 'flex-end',
-    justifyContent: 'space-between',
-    gap: 12,
-    marginBottom: 8,
-  },
-  titleWrap: {
-    flexShrink: 1,
-  },
-  eyebrow: {
-    ...FontSize[9],
-    lineHeight: 11,
-    fontWeight: 600,
-    textTransform: 'uppercase',
-    letterSpacing: 0.7,
-  },
-  title: {
-    ...FontSize[14],
-    lineHeight: 18,
-    fontWeight: 700,
-  },
-  action: {
-    ...FontSize[11],
-    lineHeight: 16,
-    fontWeight: 700,
-  },
-  pressed: {
-    opacity: 0.65,
-  },
-});

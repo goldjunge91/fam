@@ -1,12 +1,11 @@
 import { useQueryClient } from '@tanstack/react-query';
 import { router } from 'expo-router';
 import { useState } from 'react';
-import { Alert, StyleSheet, View } from 'react-native';
+import { Alert, View } from 'react-native';
 import { Card } from '@/components/card';
 import { Screen } from '@/components/screen';
 import { ThemedText } from '@/components/themed-text';
 import { Button } from '@/components/ui/buttons';
-import { Spacing } from '@/constants/theme';
 import { deleteLocalDatabase } from '@/lib/db/client';
 import { getSupabase } from '@/lib/supabase';
 
@@ -100,7 +99,7 @@ export function DeleteAccountScreen() {
           mit weiteren Mitgliedern, musst du das vorher in den Haushalts-Einstellungen auflösen.
         </ThemedText>
       </Card>
-      <View style={styles.action}>
+      <View className="mt-four">
         <Button
           label="Account löschen"
           variant="danger"
@@ -111,9 +110,3 @@ export function DeleteAccountScreen() {
     </Screen>
   );
 }
-
-const styles = StyleSheet.create({
-  action: {
-    marginTop: Spacing.four,
-  },
-});

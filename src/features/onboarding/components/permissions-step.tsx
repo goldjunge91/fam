@@ -1,9 +1,6 @@
 import { useState } from 'react';
-import { Pressable, StyleSheet, Switch, Text, View } from 'react-native';
-import { FontSize } from '@/components/themed-text';
+import { Pressable, Switch, Text, View } from 'react-native';
 import { Button } from '@/components/ui/buttons';
-import { Radius, Spacing } from '@/constants/theme';
-import { useTheme } from '@/hooks/use-theme';
 import { requestNotificationPermissions } from '@/lib/notifications';
 import { useOnboarding } from '../context/onboarding-context';
 
@@ -25,7 +22,6 @@ interface PermissionsStepFormProps {
 }
 
 export function PermissionsStepForm({ onNext, onSkip }: PermissionsStepFormProps) {
-  const theme = useTheme();
   const { state, updatePermissionsData } = useOnboarding();
 
   const [notifications, setNotifications] = useState(
@@ -60,26 +56,20 @@ export function PermissionsStepForm({ onNext, onSkip }: PermissionsStepFormProps
   };
 
   return (
-    <View style={styles.container}>
-      <Text style={[styles.heading, { color: theme.text }]}>Erlaubnisse & Funktionen</Text>
-      <Text style={[styles.subheading, { color: theme.textSecondary }]}>
+    <View className="gap-three">
+      <Text className="perm-heading">Erlaubnisse & Funktionen</Text>
+      <Text className="perm-subheading">
         Damit die App optimal funktioniert, empfehlen wir folgende Berechtigungen:
       </Text>
 
-      <View style={styles.permissionList}>
+      <View className="perm-list">
         <Pressable
           onPress={() => setNotifications((prev) => !prev)}
-          style={[
-            styles.permCard,
-            {
-              backgroundColor: theme.backgroundElement,
-              borderColor: notifications ? theme.accent : theme.border,
-            },
-          ]}>
-          <View style={styles.permRow}>
-            <View style={styles.permTextCol}>
-              <Text style={[styles.permTitle, { color: theme.text }]}>🔔 Benachrichtigungen</Text>
-              <Text style={[styles.permDesc, { color: theme.textSecondary }]}>
+          className={`perm-card ${notifications ? 'perm-card-selected' : 'perm-card-idle'}`}>
+          <View className="perm-row">
+            <View className="perm-text-col">
+              <Text className="perm-title">🔔 Benachrichtigungen</Text>
+              <Text className="perm-desc">
                 Erhalte rechtzeitige Erinnerungen, bevor Lebensmittel im Kühlschrank ablaufen.
               </Text>
             </View>
@@ -89,17 +79,11 @@ export function PermissionsStepForm({ onNext, onSkip }: PermissionsStepFormProps
 
         <Pressable
           onPress={() => setCamera((prev) => !prev)}
-          style={[
-            styles.permCard,
-            {
-              backgroundColor: theme.backgroundElement,
-              borderColor: camera ? theme.accent : theme.border,
-            },
-          ]}>
-          <View style={styles.permRow}>
-            <View style={styles.permTextCol}>
-              <Text style={[styles.permTitle, { color: theme.text }]}>📷 Kamera-Zugriff</Text>
-              <Text style={[styles.permDesc, { color: theme.textSecondary }]}>
+          className={`perm-card ${camera ? 'perm-card-selected' : 'perm-card-idle'}`}>
+          <View className="perm-row">
+            <View className="perm-text-col">
+              <Text className="perm-title">📷 Kamera-Zugriff</Text>
+              <Text className="perm-desc">
                 Scanne Barcodes von Lebensmitteln oder QR-Codes für den Haushaltsbeitritt.
               </Text>
             </View>
@@ -108,63 +92,14 @@ export function PermissionsStepForm({ onNext, onSkip }: PermissionsStepFormProps
         </Pressable>
       </View>
 
-      <View style={styles.buttonRow}>
-        <View style={styles.buttonCol}>
+      <View className="perm-button-row">
+        <View className="flex-1">
           <Button label="Festlegen & Weiter" onPress={handlePermissions} />
         </View>
-        <View style={styles.buttonCol}>
+        <View className="flex-1">
           <Button label="Jetzt nicht" variant="secondary" onPress={onSkip} />
         </View>
       </View>
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    gap: Spacing.three,
-  },
-  heading: {
-    ...FontSize[22],
-    fontWeight: '700',
-  },
-  subheading: {
-    ...FontSize[14],
-    lineHeight: 20,
-  },
-  permissionList: {
-    gap: Spacing.two,
-    marginTop: Spacing.one,
-  },
-  permCard: {
-    padding: Spacing.three,
-    borderRadius: Radius.sm,
-    borderWidth: 1,
-  },
-  permRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-  },
-  permTextCol: {
-    flex: 1,
-    paddingRight: Spacing.two,
-  },
-  permTitle: {
-    ...FontSize[15],
-    fontWeight: '700',
-    marginBottom: 4,
-  },
-  permDesc: {
-    ...FontSize[13],
-    lineHeight: 18,
-  },
-  buttonRow: {
-    flexDirection: 'row',
-    gap: Spacing.two,
-    marginTop: Spacing.three,
-  },
-  buttonCol: {
-    flex: 1,
-  },
-});

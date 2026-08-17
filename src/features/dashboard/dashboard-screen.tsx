@@ -1,13 +1,14 @@
 import { useQueryClient } from '@tanstack/react-query';
 import { router } from 'expo-router';
 import { useState } from 'react';
-import { Pressable, RefreshControl, ScrollView, StyleSheet, View } from 'react-native';
+import { RefreshControl, ScrollView, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { FamIcon } from '@/components/fam-icon';
+import { GlassCard } from '@/components/glass-card';
 import { ProgressRing } from '@/components/progress-ring';
 import { Screen } from '@/components/screen';
-import { FontSize, ThemedText } from '@/components/themed-text';
-import { Layout, Radius, Spacing, withAlpha } from '@/constants/theme';
+import { ThemedText } from '@/components/themed-text';
+import { Layout, Spacing, withAlpha } from '@/constants/theme';
 import { useSession } from '@/features/auth/session-provider';
 import { useCurrentGoal, useFoodEntries } from '@/features/calorie-tracking/api';
 import { calculateDailyTotals } from '@/features/calorie-tracking/daily-totals';
@@ -30,6 +31,26 @@ function toIsoDate(date: Date): string {
   const d = String(date.getDate()).padStart(2, '0');
   return `${y}-${m}-${d}`;
 }
+
+// `GlassView` hat kein cssInterop (s. glass-card.tsx), deshalb hier als
+// RN-Style statt Tailwind-Klasse — muss in Radius/Padding/Gap mit
+// `.dashboard-planned-card`/`.dashboard-widget` in global.css in Sync
+// bleiben. `borderRadius` steht bewusst auch im jeweiligen `outerStyle`
+// weiter unten, damit der Fallback-Schatten dieselbe Rundung bekommt.
+const PLANNED_GLASS_STYLE = {
+  borderRadius: 28,
+  flexDirection: 'row' as const,
+  alignItems: 'center' as const,
+  gap: 16,
+  paddingLeft: 16,
+  paddingRight: 18,
+  paddingVertical: 16,
+};
+const WIDGET_GLASS_STYLE = {
+  borderRadius: 28,
+  padding: 16,
+  gap: 8,
+};
 
 export function DashboardScreen() {
   const theme = useTheme();
@@ -125,7 +146,8 @@ export function DashboardScreen() {
       backgroundGradient={hubGradient}>
       <ScrollView
         testID="dashboard-scroll-view"
-        style={styles.scroll}
+        className="flex-1"
+        // bottomPadding kombiniert Safe-Area-Insets — echter Laufzeitwert.
         contentContainerStyle={{ paddingBottom: bottomPadding }}
         showsVerticalScrollIndicator={false}
         refreshControl={
@@ -138,15 +160,14 @@ export function DashboardScreen() {
         }>
         {/* Kalorien heute — kompakter Ring + Copy nebeneinander (#150, Figma "Kalorien heute") */}
         <View
-          style={[
-            styles.glassCard,
-            styles.calorieCard,
-            {
-              backgroundColor: theme.backgroundElement,
-              boxShadow: `0 8px 22px ${withAlpha(theme.shadowCard, 0.1)}`,
-            },
-          ]}>
-          <View style={styles.ringWrap}>
+          className="dashboard-calorie-card"
+          // borderCurve/boxShadow: kein Tailwind-Aequivalent bzw. dynamische
+          // Opazitaet (withAlpha).
+          style={{
+            borderCurve: 'continuous',
+            boxShadow: `0 8px 22px ${withAlpha(theme.shadowCard, 0.1)}`,
+          }}>
+          <View className="dashboard-ring-wrap">
             <ProgressRing
               value={aufgenommen}
               target={ziel}
@@ -158,17 +179,17 @@ export function DashboardScreen() {
               trackColor="#DAD3DB"
             />
           </View>
-          <View style={styles.calorieCopy}>
-            <ThemedText type="small" themeColor="textSecondary" style={styles.calorieLabel}>
+          <View className="dashboard-calorie-copy">
+            <ThemedText type="small" themeColor="textSecondary" className="dashboard-calorie-label">
               Kalorien heute
             </ThemedText>
-            <ThemedText type="title" style={styles.calorieValue}>
+            <ThemedText type="title" className="dashboard-calorie-value">
               {Math.round(aufgenommen).toLocaleString('de-DE')}
             </ThemedText>
             <ThemedText
               type="small"
               themeColor={ziel === 0 ? 'textSecondary' : 'accent'}
-              style={styles.calorieRemaining}>
+              className="dashboard-calorie-remaining">
               {ziel === 0
                 ? 'Noch kein Ziel gesetzt'
                 : verbleibend >= 0
@@ -178,199 +199,96 @@ export function DashboardScreen() {
           </View>
         </View>
 
-        {/* Heute geplant (#150, Figma "Heute geplant") */}
-        <Pressable
+        {/* Heute geplant (#150, Figma "Heute geplant") — echtes Liquid Glass
+        auf iOS 26+, sonst solide Karte wie zuvor (Variante B aus dem
+        Glass-Mock: nur Navigations-Kacheln bekommen Glas, s. glass-card.tsx). */}
+        <GlassCard
           onPress={() => router.push('/meal-planner')}
           accessibilityRole="button"
           accessibilityLabel="Essensplan öffnen"
-          style={[
-            styles.glassCard,
-            styles.plannedCard,
-            {
-              backgroundColor: theme.backgroundElement,
-              boxShadow: `0 8px 22px ${withAlpha(theme.shadowCard, 0.1)}`,
-            },
-          ]}>
+          fallbackClassName="dashboard-planned-card"
+          glassStyle={PLANNED_GLASS_STYLE}
+          outerStyle={{
+            height: 140,
+            marginBottom: 15,
+            borderRadius: 28,
+            borderCurve: 'continuous',
+            boxShadow: `0 8px 22px ${withAlpha(theme.shadowCard, 0.1)}`,
+          }}>
           <FamIcon name="mealArtwork" size={79} />
-          <View style={styles.plannedCopy}>
-            <ThemedText type="small" themeColor="danger" style={styles.plannedKicker}>
+          <View className="dashboard-planned-copy">
+            <ThemedText type="small" themeColor="danger" className="dashboard-planned-kicker">
               HEUTE GEPLANT
             </ThemedText>
-            <ThemedText type="smallBold" numberOfLines={1} style={styles.plannedTitle}>
+            <ThemedText type="smallBold" numberOfLines={1} className="dashboard-planned-title">
               {nextMeal?.recipe_title ?? 'Noch nichts geplant'}
             </ThemedText>
-            <ThemedText type="small" themeColor="textSecondary" style={styles.plannedMeta}>
+            <ThemedText type="small" themeColor="textSecondary" className="dashboard-planned-meta">
               {nextMeal
                 ? `${MEAL_SLOT_LABELS[nextMeal.meal_slot]} · ${nextMeal.portions} Portionen`
                 : 'Wochenplan öffnen'}
             </ThemedText>
           </View>
           <FamIcon name="chevron" size={20} />
-        </Pressable>
+        </GlassCard>
 
         {/* Vorrat / Einkauf — kompakte Navigations-Kacheln statt Inline-Liste (#150) */}
-        <View style={styles.widgetRow}>
-          <Pressable
+        <View className="dashboard-widget-row">
+          <GlassCard
             onPress={() => router.push({ pathname: '/fridge', params: { filter: 'expiring' } })}
             accessibilityRole="button"
             accessibilityLabel="Alle bald ablaufenden Artikel im Vorrat anzeigen"
-            style={[
-              styles.glassCard,
-              styles.widget,
-              {
-                backgroundColor: theme.backgroundElement,
-                boxShadow: `0 8px 20px ${withAlpha(theme.shadowCard, 0.08)}`,
-              },
-            ]}>
-            <View style={[styles.widgetBadge, { backgroundColor: withAlpha(theme.warning, 0.2) }]}>
+            fallbackClassName="dashboard-widget"
+            glassStyle={WIDGET_GLASS_STYLE}
+            outerStyle={{
+              flex: 1,
+              height: 138,
+              borderRadius: 28,
+              borderCurve: 'continuous',
+              boxShadow: `0 8px 20px ${withAlpha(theme.shadowCard, 0.08)}`,
+            }}>
+            <View className="dashboard-widget-badge bg-warning/20">
               <ThemedText type="smallBold" themeColor="warning">
                 {expiringCount}
               </ThemedText>
             </View>
-            <View style={styles.widgetSpacer} />
-            <ThemedText type="small" themeColor="textSecondary" style={styles.widgetLabel}>
+            <View className="flex-1" />
+            <ThemedText type="small" themeColor="textSecondary" className="dashboard-widget-label">
               Läuft bald ab
             </ThemedText>
-            <ThemedText type="smallBold" style={styles.widgetAction}>
+            <ThemedText type="smallBold" className="dashboard-widget-action">
               Vorrat prüfen
             </ThemedText>
-          </Pressable>
+          </GlassCard>
 
-          <Pressable
+          <GlassCard
             onPress={() => router.push('/shopping-list')}
             accessibilityRole="button"
             accessibilityLabel="Einkaufsliste öffnen"
-            style={[
-              styles.glassCard,
-              styles.widget,
-              {
-                backgroundColor: theme.backgroundElement,
-                boxShadow: `0 8px 20px ${withAlpha(theme.shadowCard, 0.08)}`,
-              },
-            ]}>
-            <View style={[styles.widgetBadge, { backgroundColor: `${theme.accent}26` }]}>
+            fallbackClassName="dashboard-widget"
+            glassStyle={WIDGET_GLASS_STYLE}
+            outerStyle={{
+              flex: 1,
+              height: 138,
+              borderRadius: 28,
+              borderCurve: 'continuous',
+              boxShadow: `0 8px 20px ${withAlpha(theme.shadowCard, 0.08)}`,
+            }}>
+            <View className="dashboard-widget-badge bg-accent/[15%]">
               <ThemedText type="smallBold" themeColor="accent">
                 {openShoppingCount}
               </ThemedText>
             </View>
-            <View style={styles.widgetSpacer} />
-            <ThemedText type="small" themeColor="textSecondary" style={styles.widgetLabel}>
+            <View className="flex-1" />
+            <ThemedText type="small" themeColor="textSecondary" className="dashboard-widget-label">
               Einkauf
             </ThemedText>
-            <ThemedText type="smallBold" style={styles.widgetAction}>
+            <ThemedText type="smallBold" className="dashboard-widget-action">
               {openShoppingCount > 0 ? 'Noch offen' : 'Erledigt'}
             </ThemedText>
-          </Pressable>
+          </GlassCard>
         </View>
       </ScrollView>
     </Screen>
   );
 }
-
-const styles = StyleSheet.create({
-  scroll: {
-    flex: 1,
-  },
-  glassCard: {
-    borderCurve: 'continuous',
-  },
-  calorieCard: {
-    height: 176,
-    borderRadius: Radius.large,
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 24,
-    paddingHorizontal: 22,
-    paddingVertical: 20,
-    marginBottom: 15,
-  },
-  ringWrap: {
-    width: 113,
-    height: 113,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  calorieCopy: {
-    flex: 1,
-    gap: 4,
-  },
-  calorieLabel: {
-    ...FontSize[13],
-    lineHeight: 18,
-    fontWeight: '400',
-  },
-  calorieValue: {
-    ...FontSize[27],
-    lineHeight: 34,
-    fontWeight: '500',
-  },
-  calorieRemaining: {
-    ...FontSize[13],
-    lineHeight: 18,
-    fontWeight: '400',
-  },
-  plannedCard: {
-    height: 140,
-    borderRadius: Radius.large,
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 16,
-    paddingLeft: 16,
-    paddingRight: 18,
-    paddingVertical: 16,
-    marginBottom: 15,
-  },
-  plannedCopy: {
-    flex: 1,
-    gap: 5,
-  },
-  plannedKicker: {
-    ...FontSize[11],
-    lineHeight: 16,
-    letterSpacing: 0.1,
-    fontWeight: '500',
-  },
-  plannedTitle: {
-    ...FontSize[17],
-    lineHeight: 22,
-    fontWeight: '500',
-  },
-  plannedMeta: {
-    ...FontSize[12],
-    lineHeight: 16,
-    fontWeight: '400',
-  },
-  widgetRow: {
-    flexDirection: 'row',
-    gap: 12,
-  },
-  widget: {
-    flex: 1,
-    height: 138,
-    borderRadius: Radius.large,
-    padding: 16,
-    gap: 8,
-  },
-  widgetBadge: {
-    alignSelf: 'flex-start',
-    minWidth: 36,
-    height: 28,
-    borderRadius: Radius.control,
-    alignItems: 'center',
-    justifyContent: 'center',
-    paddingHorizontal: Spacing.one,
-  },
-  widgetSpacer: {
-    flex: 1,
-  },
-  widgetLabel: {
-    ...FontSize[14],
-    lineHeight: 20,
-    fontWeight: '400',
-  },
-  widgetAction: {
-    ...FontSize[17],
-    lineHeight: 22,
-    fontWeight: '500',
-  },
-});

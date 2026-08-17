@@ -1,11 +1,9 @@
 import { useQueryClient } from '@tanstack/react-query';
 import { router } from 'expo-router';
-import { Modal, Pressable, StyleSheet, View } from 'react-native';
-import { FontSize, ThemedText } from '@/components/themed-text';
+import { Modal, Pressable, View } from 'react-native';
+import { ThemedText } from '@/components/themed-text';
 import { Button } from '@/components/ui/buttons';
-import { Radius, Spacing } from '@/constants/theme';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
-import { useTheme } from '@/hooks/use-theme';
 
 interface HouseholdSwitcherModalProps {
   visible: boolean;
@@ -20,7 +18,6 @@ export function HouseholdSwitcherModal({
   onSelectHousehold,
   onClose,
 }: HouseholdSwitcherModalProps) {
-  const theme = useTheme();
   const queryClient = useQueryClient();
   const { activeHouseholdId, households, setActiveHouseholdId } = useActiveHousehold();
 
@@ -37,43 +34,39 @@ export function HouseholdSwitcherModal({
 
   return (
     <Modal visible={visible} animationType="fade" transparent onRequestClose={onClose}>
-      <View style={styles.backdrop}>
-        <View style={[styles.modalBox, { backgroundColor: theme.background }]}>
-          <View style={styles.headerRow}>
+      <View className="modal-backdrop">
+        <View className="modal-sheet">
+          <View className="modal-header-row">
             <ThemedText type="subtitle">Haushalt wechseln</ThemedText>
             <Pressable onPress={onClose} hitSlop={10}>
-              <ThemedText style={{ ...FontSize[18], color: theme.textSecondary }}>✕</ThemedText>
+              <ThemedText themeColor="textSecondary" className="text-[18px]">
+                ✕
+              </ThemedText>
             </Pressable>
           </View>
 
-          <View style={styles.list}>
+          <View className="gap-one">
             {households.map((hh) => {
               const isSelected = hh.id === currentSelectedId;
               return (
                 <Pressable
                   key={hh.id}
                   onPress={() => handleSelect(hh.id)}
-                  style={[
-                    styles.hhRow,
-                    { borderBottomColor: theme.border },
-                    isSelected && { backgroundColor: theme.backgroundElement },
-                  ]}>
-                  <View style={{ flex: 1 }}>
-                    <ThemedText style={{ fontWeight: isSelected ? 'bold' : 'normal' }}>
+                  className={`hh-row ${isSelected ? 'bg-background-element' : ''}`}>
+                  <View className="flex-1">
+                    <ThemedText className={isSelected ? 'font-bold' : 'font-normal'}>
                       🏠 {hh.name}
                     </ThemedText>
                   </View>
                   {isSelected && (
-                    <ThemedText style={{ color: '#10B981', fontWeight: 'bold' }}>
-                      ✓ Aktiv
-                    </ThemedText>
+                    <ThemedText className="text-[#10B981] font-bold">✓ Aktiv</ThemedText>
                   )}
                 </Pressable>
               );
             })}
           </View>
 
-          <View style={styles.actionButtons}>
+          <View className="hh-actions">
             <Button
               label="+ Neuen Haushalt erstellen"
               onPress={() => {
@@ -95,37 +88,3 @@ export function HouseholdSwitcherModal({
     </Modal>
   );
 }
-
-const styles = StyleSheet.create({
-  backdrop: {
-    flex: 1,
-    backgroundColor: 'rgba(0,0,0,0.5)',
-    justifyContent: 'center',
-    padding: Spacing.four,
-  },
-  modalBox: {
-    borderRadius: Radius.sheet,
-    padding: Spacing.four,
-    gap: Spacing.three,
-  },
-  headerRow: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-  },
-  list: {
-    gap: Spacing.one,
-  },
-  hhRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    paddingVertical: Spacing.three,
-    paddingHorizontal: Spacing.two,
-    borderRadius: Radius.control,
-    borderBottomWidth: StyleSheet.hairlineWidth,
-  },
-  actionButtons: {
-    gap: Spacing.two,
-    marginTop: Spacing.two,
-  },
-});

@@ -1,15 +1,15 @@
 import { Image } from 'expo-image';
 import { memo } from 'react';
-import { Pressable, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { Pressable, TextInput, TouchableOpacity, View } from 'react-native';
 import ReorderableList, {
   type ReorderableListReorderEvent,
   reorderItems,
   useReorderableDrag,
 } from 'react-native-reorderable-list';
 import Svg, { Path } from 'react-native-svg';
-import { FontSize } from '@/components/themed-text';
-import { Radius } from '@/constants/theme';
+import { ThemedText } from '@/components/themed-text';
 import { pickRecipeImage } from '@/features/recipes/recipe-image-uploader';
+import { useTheme } from '@/hooks/use-theme';
 import type { IngredientComponentGroup, WizardStepItem } from './types';
 
 interface AvailableIngredient {
@@ -68,26 +68,31 @@ const StepCard = memo(function StepCard({
   onPickImage,
 }: StepCardProps) {
   const drag = useReorderableDrag();
+  const theme = useTheme();
 
   return (
-    <View style={styles.stepCard}>
-      <View style={styles.stepHeader}>
+    <View className="bg-white/70 rounded-sheet p-[11px] mb-three gap-[10px]">
+      <View className="row-center gap-[10px]">
         <TouchableOpacity
           onLongPress={drag}
-          style={styles.dragHandle}
+          className="p-one"
           accessibilityLabel="Schritt verschieben">
-          <Text style={styles.dragHandleText}>≡</Text>
+          <ThemedText type="headingSmall" themeColor="textSecondary">
+            ≡
+          </ThemedText>
         </TouchableOpacity>
-        <Text style={styles.stepIndex}>Schritt {index + 1}</Text>
+        <ThemedText type="label" themeColor="accent" className="flex-1 font-bold">
+          Schritt {index + 1}
+        </ThemedText>
         <TouchableOpacity
           onPress={() => onRemoveStep(step.id)}
-          style={styles.trashCircleButton}
+          className="w-9 h-9 rounded-sheet bg-background-element items-center justify-center"
           accessibilityRole="button"
           accessibilityLabel="Delete step">
           <Svg width={16} height={16} viewBox="0 0 24 24" fill="none">
             <Path
               d="M3 6h18M19 6v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6m3 0V4a2 2 0 012-2h4a2 2 0 012 2v2"
-              stroke="#705773"
+              stroke={theme.accent}
               strokeWidth={2}
               strokeLinecap="round"
               strokeLinejoin="round"
@@ -97,17 +102,22 @@ const StepCard = memo(function StepCard({
       </View>
 
       {ingredients.length > 0 ? (
-        <View style={styles.chipRow}>
+        <View className="row-wrap gap-two">
           {ingredients.map((ing) => {
             const selected = step.ingredientIds.includes(ing.itemId);
             return (
               <Pressable
                 key={ing.itemId}
-                style={[styles.chip, selected && styles.chipActive]}
+                className={`px-three py-[6px] rounded-fam-large ${
+                  selected ? 'bg-accent' : 'bg-background-element'
+                }`}
                 onPress={() => onToggleIngredient(step.id, ing.itemId)}>
-                <Text style={[styles.chipText, selected && styles.chipTextActive]}>
+                <ThemedText
+                  type="caption"
+                  themeColor={selected ? 'onAccent' : 'accent'}
+                  className="font-semibold">
                   {ing.label}
-                </Text>
+                </ThemedText>
               </Pressable>
             );
           })}
@@ -115,30 +125,36 @@ const StepCard = memo(function StepCard({
       ) : null}
 
       <TextInput
-        style={styles.stepInput}
+        className="bg-white rounded-card min-h-[72px] px-four py-three text-[15px] text-text"
         value={step.text}
         onChangeText={(val) => onUpdateStep(step.id, { text: val })}
         placeholder={`Was ist in Schritt ${index + 1} zu tun?`}
-        placeholderTextColor="#A89FA8"
+        placeholderTextColor={theme.textSecondary}
         multiline
+        textAlignVertical="top"
       />
 
       {step.localImageUri ? (
-        <View style={styles.imagePreviewWrap}>
+        <View className="gap-[6px]">
           <Image
             source={{ uri: step.localImageUri }}
-            style={styles.imagePreview}
+            // expo-image benötigt inline Dimensionen
+            style={{ width: '100%', height: 140, borderRadius: 12 }}
             contentFit="cover"
           />
           <TouchableOpacity
-            style={styles.removeImageBtn}
+            className="self-start"
             onPress={() => onUpdateStep(step.id, { localImageUri: null, existingImagePath: null })}>
-            <Text style={styles.removeImageBtnText}>Bild entfernen</Text>
+            <ThemedText type="label" themeColor="accent" className="font-semibold">
+              Bild entfernen
+            </ThemedText>
           </TouchableOpacity>
         </View>
       ) : (
-        <TouchableOpacity style={styles.addImageBtn} onPress={() => onPickImage(step.id)}>
-          <Text style={styles.addImageBtnText}>+ Bild hinzufügen</Text>
+        <TouchableOpacity className="self-start" onPress={() => onPickImage(step.id)}>
+          <ThemedText type="label" themeColor="accent" className="font-semibold">
+            + Bild hinzufügen
+          </ThemedText>
         </TouchableOpacity>
       )}
     </View>
@@ -196,8 +212,8 @@ export function RecipeWizardStepSteps({
 
   return (
     <ReorderableList
-      style={styles.scrollView}
-      contentContainerStyle={styles.scrollContent}
+      className="flex-1"
+      contentContainerClassName="px-four pb-six"
       showsVerticalScrollIndicator={false}
       data={steps}
       onReorder={handleReorder}
@@ -215,23 +231,44 @@ export function RecipeWizardStepSteps({
       )}
       ListHeaderComponent={
         <>
-          <Text style={styles.eyebrow}>SCHRITT 3 VON 4</Text>
-          <Text style={styles.sectionLabel}>Zubereitungsschritte</Text>
-          <Text style={styles.hint}>Zum Umsortieren einen Schritt gedrückt halten und ziehen.</Text>
+          <ThemedText
+            type="detail"
+            themeColor="textSecondary"
+            className="pt-two pb-[6px] text-[8px] leading-[10px] font-medium tracking-widest">
+            SCHRITT 3 VON 4
+          </ThemedText>
+          <ThemedText type="headingSmall" className="mb-one">
+            Zubereitungsschritte
+          </ThemedText>
+          <ThemedText type="label" themeColor="textSecondary" className="mb-four">
+            Zum Umsortieren einen Schritt gedrückt halten und ziehen.
+          </ThemedText>
         </>
       }
       ListFooterComponent={
         <>
-          <TouchableOpacity style={styles.addStepBtn} onPress={addStep}>
-            <Text style={styles.addStepBtnText}>+ Schritt hinzufügen</Text>
+          <TouchableOpacity
+            className="w-full h-[42px] bg-background-element rounded-fam-large items-center justify-center mt-one mb-seven active:opacity-75"
+            onPress={addStep}>
+            <ThemedText type="detail" themeColor="accent" className="font-semibold">
+              + Schritt hinzufügen
+            </ThemedText>
           </TouchableOpacity>
 
-          <View style={styles.navRow}>
-            <Pressable style={[styles.navButton, styles.navButtonSecondary]} onPress={onBack}>
-              <Text style={styles.navButtonSecondaryText}>Zurück</Text>
+          <View className="flex-row gap-[14px] mb-three">
+            <Pressable
+              className="flex-1 min-h-[48px] rounded-card items-center justify-center bg-background-element active:opacity-75"
+              onPress={onBack}>
+              <ThemedText type="captionCompact" themeColor="accent" className="font-semibold">
+                Zurück
+              </ThemedText>
             </Pressable>
-            <Pressable style={[styles.navButton, styles.navButtonPrimary]} onPress={onNext}>
-              <Text style={styles.navButtonPrimaryText}>Weiter</Text>
+            <Pressable
+              className="flex-1 min-h-[48px] rounded-card items-center justify-center bg-accent active:opacity-75"
+              onPress={onNext}>
+              <ThemedText type="captionCompact" className="text-white font-semibold">
+                Weiter
+              </ThemedText>
             </Pressable>
           </View>
         </>
@@ -239,169 +276,3 @@ export function RecipeWizardStepSteps({
     />
   );
 }
-
-const styles = StyleSheet.create({
-  scrollView: {
-    flex: 1,
-  },
-  scrollContent: {
-    paddingHorizontal: 16,
-    paddingBottom: 24,
-  },
-  eyebrow: {
-    paddingTop: 8,
-    paddingBottom: 6,
-    ...FontSize[8],
-    lineHeight: 10,
-    fontWeight: '500',
-    color: '#766E78',
-    letterSpacing: 0.7,
-  },
-  sectionLabel: {
-    ...FontSize[21],
-    lineHeight: 25,
-    fontWeight: '700',
-    color: '#302A31',
-    marginBottom: 4,
-  },
-  hint: {
-    ...FontSize[13],
-    color: '#786F79',
-    marginBottom: 16,
-  },
-  stepCard: {
-    backgroundColor: 'rgba(255,255,255,0.70)',
-    borderRadius: Radius.sheet,
-    borderCurve: 'continuous',
-    padding: 11,
-    marginBottom: 12,
-    gap: 10,
-  },
-  stepHeader: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 10,
-  },
-  dragHandle: {
-    padding: 4,
-  },
-  dragHandleText: {
-    ...FontSize[20],
-    color: '#A89FA8',
-  },
-  stepIndex: {
-    flex: 1,
-    ...FontSize[14],
-    fontWeight: '700',
-    color: '#705773',
-  },
-  trashCircleButton: {
-    width: 36,
-    height: 36,
-    borderRadius: Radius.sheet,
-    backgroundColor: '#EEE5EC',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  chipRow: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    gap: 8,
-  },
-  chip: {
-    paddingHorizontal: 12,
-    paddingVertical: 6,
-    borderRadius: Radius.controlLarge,
-    backgroundColor: '#EEE5EC',
-  },
-  chipActive: {
-    backgroundColor: '#705773',
-  },
-  chipText: {
-    color: '#705773',
-    ...FontSize[12],
-    fontWeight: '600',
-  },
-  chipTextActive: {
-    color: '#FFFFFF',
-  },
-  stepInput: {
-    backgroundColor: '#FFFFFF',
-    borderRadius: Radius.card,
-    minHeight: 72,
-    paddingHorizontal: 16,
-    paddingVertical: 12,
-    ...FontSize[15],
-    color: '#302A31',
-    textAlignVertical: 'top',
-  },
-  imagePreviewWrap: {
-    gap: 6,
-  },
-  imagePreview: {
-    width: '100%',
-    height: 140,
-    borderRadius: Radius.controlLarge,
-  },
-  removeImageBtn: {
-    alignSelf: 'flex-start',
-  },
-  removeImageBtnText: {
-    color: '#705773',
-    ...FontSize[13],
-    fontWeight: '600',
-  },
-  addImageBtn: {
-    alignSelf: 'flex-start',
-  },
-  addImageBtnText: {
-    color: '#705773',
-    ...FontSize[13],
-    fontWeight: '600',
-  },
-  addStepBtn: {
-    width: '100%',
-    height: 42,
-    backgroundColor: '#EEE5EC',
-    borderRadius: Radius.controlLarge,
-    borderCurve: 'continuous',
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginTop: 4,
-    marginBottom: 28,
-  },
-  addStepBtnText: {
-    color: '#705773',
-    ...FontSize[10],
-    fontWeight: '600',
-  },
-  navRow: {
-    flexDirection: 'row',
-    gap: 14,
-    marginBottom: 12,
-  },
-  navButton: {
-    flex: 1,
-    minHeight: 48,
-    borderRadius: Radius.card,
-    borderCurve: 'continuous',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  navButtonPrimary: {
-    backgroundColor: '#705773',
-  },
-  navButtonPrimaryText: {
-    color: '#FFFFFF',
-    ...FontSize[11],
-    fontWeight: '600',
-  },
-  navButtonSecondary: {
-    backgroundColor: '#EEE5EC',
-  },
-  navButtonSecondaryText: {
-    color: '#705773',
-    ...FontSize[11],
-    fontWeight: '600',
-  },
-});
