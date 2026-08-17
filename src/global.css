@@ -1522,21 +1522,25 @@
      Komponente), die Indirektion ueber ein Konstanten-Objekt war unnoetig. */
   .wg-root {
     @apply flex-1;
+    /* @apply flex-1 bg-background; */
   }
   .wg-scroll {
     @apply flex-1;
   }
   .wg-content {
-    @apply gap-two pt-[10px] pb-[126px];
+    @apply gap-10 pt-[10px] pb-[126px];
   }
   .wg-day-card {
-    @apply overflow-hidden border rounded-sheet bg-background-element/[89%] border-background-element/[96%];
+    /* @apply overflow-hidden border rounded-sheet bg-background-element/[89%] border-background-element/[96%]; */
+    /* @apply overflow-hidden border rounded-sheet bg-background-element border-background-element/[96%]; */
+    @apply overflow-hidden border-hairline rounded-sheet bg-background-element border-background-element/[96%];
   }
   .wg-day-header {
     @apply h-[38px] flex-row items-center justify-between px-three;
   }
   .wg-day-name {
-    @apply text-[17px] leading-[21px] font-bold;
+    /* @apply text-[17px] leading-[21px] font-bold; */
+    @apply text-[20px] leading-[24px] font-bold;
   }
   .wg-day-date {
     @apply text-[9px] leading-[12px] font-medium;
@@ -1548,7 +1552,8 @@
     @apply min-w-0 min-h-[116px] gap-two px-three py-three;
   }
   .wg-slot-divider {
-    @apply border-t border-text/[7%];
+    /* @apply border-t border-text/[7%]; */
+    @apply border-text/[7%];
   }
   .wg-slot-label {
     @apply font-bold tracking-[0.55px] uppercase text-[11px] leading-[14px];
@@ -1569,7 +1574,8 @@
     @apply font-semibold text-[13px] leading-[16px];
   }
   .wg-tray {
-    @apply overflow-hidden border rounded-sheet py-three bg-background-element/[78%] border-border;
+    /* @apply overflow-hidden border rounded-sheet py-three bg-background-element/[78%] border-border; */
+    @apply overflow-hidden border rounded-sheet py-three bg-background-element border-border;
   }
   .wg-tray-title {
     @apply px-three text-[11px] leading-[14px] font-bold;
@@ -1613,12 +1619,14 @@
     @apply flex-1 h-[46px] rounded-control-lg border items-center justify-center;
   }
   .tab-btn-active {
+    /* @apply bg-accent border-accent; */
     @apply bg-accent border-accent;
   }
   .tab-btn-idle {
-    @apply bg-background-element/85 border-border;
+    /* @apply bg-background-element/85 border-border; */
+    @apply bg-background-selected border-border;
   }
   .tab-btn-label {
-    @apply text-[14px] leading-[18px] font-bold;
+    @apply text-[42px]! leading-[24px]! font-bold!;
   }
 }

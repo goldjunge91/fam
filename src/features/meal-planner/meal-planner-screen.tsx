@@ -265,7 +265,8 @@ export function MealPlannerScreen() {
                 aria-selected={viewMode === mode}
                 className={`tab-btn ${viewMode === mode ? 'tab-btn-active' : 'tab-btn-idle'}`}>
                 <ThemedText
-                  type="detail"
+                  // type="detail"
+                  type="controlActionLarge"
                   themeColor={viewMode === mode ? 'onAccent' : 'textSecondary'}
                   className="tab-btn-label">
                   {VIEW_MODE_LABELS[mode]}

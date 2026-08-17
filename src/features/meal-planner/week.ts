@@ -142,19 +142,17 @@ export function periodLabel(dates: readonly string[]): string {
 // ------------------------------------------------------------- Ansichts-Modi
 // (#129-Nachtrag: Wochen-, 3-Tage- und Tagesansicht statt nur Woche.)
 
-export const VIEW_MODES = ['day', 'threeDay', 'week'] as const;
+export const VIEW_MODES = ['day', 'week'] as const;
 export type ViewMode = (typeof VIEW_MODES)[number];
 
 export const VIEW_MODE_LABELS: Record<ViewMode, string> = {
   day: 'Tag',
-  threeDay: '3 Tage',
   week: 'Woche',
 };
 
 /** Anzahl der Kalendertage, die eine Ansicht auf einmal zeigt. */
 const VIEW_MODE_DAY_COUNT: Record<ViewMode, number> = {
   day: 1,
-  threeDay: 3,
   week: 7,
 };
 

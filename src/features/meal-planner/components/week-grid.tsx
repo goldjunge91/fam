@@ -124,7 +124,9 @@ export function WeekGrid({
             // borderCurve ist ein echter Laufzeitwert ohne Tailwind-Aequivalent.
             style={{ borderCurve: 'continuous' }}>
             <View className="wg-day-header">
-              <ThemedText className="wg-day-name">{weekdayLabel(date)}</ThemedText>
+              <ThemedText type="headingSmall" className="wg-day-name">
+                {weekdayLabel(date)}
+              </ThemedText>
               <ThemedText themeColor="textSecondary" className="wg-day-date">
                 {dateLabel(date)}
               </ThemedText>
