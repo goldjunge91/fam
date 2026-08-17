@@ -1,4 +1,4 @@
-import { Platform, StyleSheet, Text, type TextProps, type TextStyle } from 'react-native';
+import { Text, type TextProps, type TextStyle } from 'react-native';
 
 import { Fonts, type ThemeColor } from '@/constants/theme';
 
@@ -69,36 +69,7 @@ export const Typography = {
  * `title` (Rolle) und `Typography.title` (Rohgroesse) sind zwei
  * verschiedene Werte hinter demselben Namen.
  */
-const TEXT_ROLE_STYLES = StyleSheet.create({
-  small: { ...Typography.bodySmall, fontWeight: 500 },
-  smallBold: { ...Typography.bodySmall, fontWeight: 700 },
-  smallSelected: { ...Typography.bodySmall, fontWeight: 600 },
-  smallMuted: { ...Typography.bodySmall, fontWeight: 500 },
-  smallDanger: { ...Typography.bodySmall, fontWeight: 500 },
-  default: { ...Typography.bodyRelaxed, fontWeight: 500 },
-  bodyBold: { ...Typography.bodyRelaxed, fontWeight: 700 },
-  bodyMuted: { ...Typography.bodyRelaxed, fontWeight: 500 },
-  title: { ...Typography.display, fontWeight: 600 },
-  subtitle: { ...Typography.title, fontWeight: 600 },
-  subtitleMuted: { ...Typography.title, fontWeight: 600 },
-  caption: { ...Typography.caption, fontWeight: 500 },
-  captionMuted: { ...Typography.caption, fontWeight: 500 },
-  captionCompact: { ...Typography.captionCompact, fontWeight: 500 },
-  label: { ...Typography.label, fontWeight: 500 },
-  labelBold: { ...Typography.label, fontWeight: 700 },
-  labelMuted: { ...Typography.label, fontWeight: 500 },
-  link: { ...Typography.link },
-  linkPrimary: { ...Typography.link },
-  code: {
-    fontFamily: Fonts.mono,
-    fontWeight: Platform.select({ android: 700 }) ?? 500,
-    ...Typography.code,
-  },
-}) satisfies Record<string, TextStyle>;
-
-export type TextRole = keyof typeof TEXT_ROLE_STYLES;
-
-const TEXT_ROLE_CLASSES: Record<string, string> = {
+const TEXT_ROLE_CLASS_MAP = {
   small: 'text-body-small font-medium text-text',
   smallBold: 'text-body-small font-bold text-text',
   smallSelected: 'text-body-small font-semibold text-accent',
@@ -130,7 +101,11 @@ const TEXT_ROLE_CLASSES: Record<string, string> = {
   link: 'text-link text-accent',
   linkPrimary: 'text-link text-accent',
   code: 'text-code font-mono text-text',
-};
+} as const;
+
+export type TextRole = keyof typeof TEXT_ROLE_CLASS_MAP;
+
+const TEXT_ROLE_CLASSES: Record<string, string> = TEXT_ROLE_CLASS_MAP;
 
 const THEME_COLOR_CLASSES: Partial<Record<ThemeColor, string>> = {
   text: 'text-text',
@@ -146,7 +121,7 @@ const THEME_COLOR_CLASSES: Partial<Record<ThemeColor, string>> = {
   success: 'text-success',
 };
 
-export const TYPOGRAPHY_STYLES = StyleSheet.create(Typography) satisfies Record<string, TextStyle>;
+export const TYPOGRAPHY_STYLES = Typography satisfies Record<string, TextStyle>;
 
 export type ThemedTextProps = TextProps & {
   type?: TextRole | Exclude<keyof typeof Typography, TextRole>;

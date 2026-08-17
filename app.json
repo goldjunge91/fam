@@ -65,7 +65,8 @@
           "photosPermission": "Die App $(PRODUCT_NAME) benötigt Zugriff auf deine Fotos, um ein Titelbild für ein Rezept auszuwählen."
         }
       ],
-      "./plugins/withoutPushEntitlement"
+      "./plugins/withoutPushEntitlement",
+      "expo-image"
     ],
     "experiments": {
       "typedRoutes": true,

@@ -1,7 +1,7 @@
 import { useQueryClient } from '@tanstack/react-query';
 import { Redirect, router } from 'expo-router';
 import { useEffect } from 'react';
-import { ActivityIndicator, StyleSheet, View } from 'react-native';
+import { ActivityIndicator, View } from 'react-native';
 
 import AppShell from '@/components/app-shell';
 import { useProfile } from '@/features/auth/api';
@@ -96,7 +96,7 @@ function AppLayoutContent() {
     <>
       <AppShell />
       {decision.kind === 'warten' ? (
-        <View style={styles.loadingOverlay}>
+        <View className="absolute inset-0 items-center justify-center bg-black/5">
           <ActivityIndicator size="large" />
         </View>
       ) : null}
@@ -108,12 +108,3 @@ function AppLayoutContent() {
 export default function AppLayout() {
   return <AppLayoutContent />;
 }
-
-const styles = StyleSheet.create({
-  loadingOverlay: {
-    ...StyleSheet.absoluteFill,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: 'rgba(0, 0, 0, 0.05)',
-  },
-});
