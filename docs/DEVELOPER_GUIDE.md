@@ -1,19 +1,29 @@
-# Developer Guide & Anfänger-Anleitung
+# Developer Guide
 
-Dieses Dokument erklärt die Architektur der **Family App (NutriTrack)**, wie du als Anfänger neue Elemente (UI-Komponenten, Screens, Hooks, Datenbank-Tabellen) hinzufügst und wie du die offenen Punkte der Roadmap schrittweise umsetzt.
+NutriTrack ist eine Expo-/React-Native-App für gemeinsame Haushaltsdaten und
+private Ernährungsdaten. Die App läuft auf iOS und Android mit einem Dev Build;
+Expo Go reicht wegen SQLite, Kamera, SecureStore und Notifications nicht aus.
 
----
+Die vollständige Dokumentationslandkarte steht in [docs/README.md](README.md).
 
-# 1. Wie der Code funktioniert (Architektur-Übersicht)
+## Schnellstart
 
-Die App ist nach einer modernen **Feature-First-Architektur** mit React Native, Expo Router und Supabase aufgebaut.
+```bash
+bun install
+supabase start
+bash scripts/ios-dev.sh
+```
 
-### 📁 Die wichtigsten Ordner auf einen Blick
+Für einen vorhandenen iOS-Build genügt `bash scripts/ios-dev.sh --reuse-last`.
+Weitere Befehle, Umgebungsvariablen und Test-Accounts stehen im
+[Projekt-README](../README.md).
+
+## Architektur
 
 ```text
 fam/
 ├── src/
-│   ├── app/            # 🚦 NUR Routing & Navigation (Expo Router)
+│   ├── app/            # 🚦 NUR Routing & Navigation Expo-Routen und Navigation, 
 │   ├── features/       # 🧱 Fachlogik nach Themen sortiert (Feature-First)
 │   ├── components/     # 🎨 Wiederverwendbare allgemeine UI-Elemente
 │   ├── constants/      # 🎨 Theme, Farben, Schriftarten, Abstände
@@ -44,241 +54,54 @@ fam/
    - Die lokale SQLite-Datenbank sorgt dafür, dass die App auch ohne Internetverbindung funktioniert. Eine Outbox-Sync-Engine synchronisiert Änderungen im Hintergrund mit Supabase.
 
 ---
+Shared household data (Bestand, Einkaufsliste) und private Daten (Tagebuch,
+Gewicht, Ziele) sind auf Datenbankebene durch RLS getrennt. Der lokale
+SQLite-Mirror mit Outbox ist der normale Schreibweg für synchronisierte Daten.
 
-# 2. Schritt-für-Schritt: Wie füge ich als Anfänger neue Elemente ein?
+## Arbeitsabläufe
 
-### Fall A: Eine neue UI-Komponente erstellen
+### Feature oder UI ändern
 
-Nehmen wir an, du möchtest eine **Badge-Komponente** erstellen, die das Ablaufdatum eines Kühlschrank-Artikels farbig anzeigt.
+1. Route möglichst dünn halten und Fachlogik im passenden `src/features/`-Modul
+   umsetzen.
+2. Nur semantische Theme-Tokens und bestehende UI-Komponenten verwenden. Details:
+   [Design-System](DESIGN_SYSTEM.md).
+3. Gegenläufige Nutzeraktion mitdenken, etwa Wiederherstellen zu Löschen.
+4. Prüfen:
 
-1. Erstelle die Datei `src/features/fridge/components/ExpirationBadge.tsx`:
-```tsx
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import { Colors, Spacing } from '@/constants/theme';
-
-interface ExpirationBadgeProps {
-  daysLeft: number;
-}
-
-export function ExpirationBadge({ daysLeft }: ExpirationBadgeProps) {
-  // Bestimme die Farbe nach MHD-Ampel
-  const isExpired = daysLeft <= 0;
-  const isWarning = daysLeft > 0 && daysLeft <= 3;
-  
-  const backgroundColor = isExpired 
-    ? Colors.light.danger 
-    : isWarning 
-    ? Colors.light.warning 
-    : Colors.light.success;
-
-  return (
-    <View style={[styles.badge, { backgroundColor }]}>
-      <Text style={styles.text}>
-        {isExpired ? 'Abgelaufen' : `${daysLeft} Tage`}
-      </Text>
-    </View>
-  );
-}
-
-const styles = StyleSheet.create({
-  badge: {
-    paddingHorizontal: Spacing.two,
-    paddingVertical: Spacing.half,
-    borderRadius: 8,
-  },
-  text: {
-    color: '#ffffff',
-    fontSize: 12,
-    fontWeight: 'bold',
-  },
-});
-```
-
----
-
-### Fall B: Einen neuen Screen / eine neue Seite hinzufügen
-
-Möchtest du eine neue Seite anlegen (z.B. "Rezept erstellen" unter `(app)/recipes/create.tsx`):
-
-1. Erstelle die Datei `src/app/(app)/recipes/create.tsx`:
-```tsx
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import { Colors, Spacing } from '@/constants/theme';
-
-export default function CreateRecipeScreen() {
-  return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Neues Rezept erstellen</Text>
-    </View>
-  );
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    padding: Spacing.three,
-    backgroundColor: Colors.light.background,
-  },
-  title: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    color: Colors.light.text,
-  },
-});
-```
-*Expo Router registriert den Pfad `/recipes/create` automatisch!*
-
----
-
-### Fall C: Einen Daten-Hook (TanStack Query) anlegen
-
-Wenn du Daten aus der Datenbank laden willst:
-
-1. Erstelle `src/features/fridge/hooks/useFridgeItems.ts`:
-```ts
-import { useQuery } from '@tanstack/react-query';
-import { fetchFridgeItems } from '../api';
-
-export function useFridgeItems(householdId: string) {
-  return useQuery({
-    queryKey: ['fridgeItems', householdId],
-    queryFn: () => fetchFridgeItems(householdId),
-    enabled: Boolean(householdId),
-  });
-}
-```
-
----
-
-### Fall D: Ein neues Feld oder eine neue Tabelle in der Datenbank anlegen
-
-> [!IMPORTANT]
-> Beachte die goldene Regel aus [`AGENTS.md`](file:///Users/marco/Github.tmp/family_app/fam/AGENTS.md): Ändere **niemals** direkt Migrationsdateien per Hand!
-
-1. Öffne die passende Schemadatei unter `supabase/schemas/` (z.B. `08_inventory.sql`) und füge die neue Tabelle oder Spalte im SQL-Endzustand ein.
-2. Generiere die Migration automatisch über das Terminal:
    ```bash
-   bun run db:diff -- -f spalte_hinzugefuegt
-   ```
-3. Wende die Änderungen lokal an:
-   ```bash
-   bun run db:reset
-   ```
-4. Prüfe, ob Schema und Migrationen identisch sind (Diff muss danach leer sein):
-   ```bash
-   bun run db:diff
+   bun run check
+   bun run typecheck
+   bun run test
    ```
 
----
+### Datenbank ändern
 
-# 3. Anleitung: Wie setze ich die noch offenen Punkte selber um?
+`supabase/schemas/*.sql` beschreibt ausschließlich den gewünschten Endzustand.
+Migrationsdateien werden nie direkt bearbeitet.
 
-Im Dokument [`docs/projekt_status.md`](file:///Users/marco/Github.tmp/family_app/fam/docs/projekt_status.md) findest du die genaue Aufschlüsselung aller offenen Punkte.
-
-### Die nächsten Kern-Aufgaben (Meilensteine):
-
-1. **Epic 4 — Haushalt & Familie**:
-   - Issue `#59`: Haushalt erstellen (die DB-Funktion `create_household` existiert bereits in `03_households.sql`).
-   - Issue `#61/#62`: Einladung per QR-Code / Link generieren & beitreten.
-2. **Epic 5 — Kühlschrank-Tracker**:
-   - Issue `#68`: Artikel manuell hinzufügen.
-   - Issue `#69`: Artikel bearbeiten / als verbraucht markieren.
-   - Issue `#71`: Ablauf-Ampel nach MHD sortieren.
-3. **Epic 7 — Kalorienziele & Tagebuch**:
-   - Formeln für Grundumsatz/TDEE (`#81`, `#82`).
-   - Tagebuch-Screen nach Mahlzeiten (`#85`).
-
----
-
-### Standard-Rezept zur Umsetzung eines neuen Features
-
-Wenn du dir eine Aufgabe (z.B. **Issue #68 — Artikel manuell hinzufügen**) vornimmst, gehst du in folgenden 5 Schritten vor:
-
-```mermaid
-graph TD
-    A[1. Typen & API in src/features/...] --> B[2. Custom Hook für Datenänderung]
-    B --> C[3. UI-Formular/Modal bauen]
-    C --> D[4. Screen / Navigation verknüpfen]
-    E[5. Quality-Check: bun run check & test] --> D
-    D --> E
-```
-
-#### Schritt 1: Typen definieren (`types.ts`)
-Definiere die Eingabedaten für deine Komponente in `src/features/inventory/types.ts`:
-```ts
-export interface AddFridgeItemInput {
-  householdId: string;
-  name: string;
-  quantity: number;
-  unit: string;
-  expiresAt?: string;
-  storageLocationId: string;
-}
-```
-
-#### Schritt 2: API & Hook schreiben (`api.ts` & `hooks/useAddFridgeItem.ts`)
-In `src/features/inventory/api.ts` rufst du Supabase/SQLite auf:
-```ts
-import { supabase } from '@/lib/supabase';
-import { AddFridgeItemInput } from './types';
-
-export async function addFridgeItem(input: AddFridgeItemInput) {
-  const { data, error } = await supabase
-    .from('fridge_items')
-    .insert(input)
-    .select()
-    .single();
-
-  if (error) throw error;
-  return data;
-}
-```
-
-In `src/features/inventory/hooks/useAddFridgeItem.ts`:
-```ts
-import { useMutation, useQueryClient } from '@tanstack/react-query';
-import { addFridgeItem } from '../api';
-
-export function useAddFridgeItem() {
-  const queryClient = useQueryClient();
-
-  return useMutation({
-    mutationFn: addFridgeItem,
-    onSuccess: () => {
-      // Invalidiere den Cache, damit der Kühlschrank sich automatisch neu lädt
-      queryClient.invalidateQueries({ queryKey: ['fridgeItems'] });
-    },
-  });
-}
-```
-
-#### Schritt 3: UI-Formular erstellen
-Baue das Formular unter `src/features/inventory/components/AddItemForm.tsx` unter Verwendung von TextInput, Buttons und deinen Styles aus `theme.ts`.
-
-#### Schritt 4: Screen / Modal verknüpfen
-Binde deine Komponente in `src/app/add-item.tsx` ein.
-
-#### Schritt 5: Testen & Prüfen
-Führe vor jedem Commit folgende Befehle im Terminal aus:
 ```bash
-bun run check:fix   # Code-Formatierung und Linter
-bun run typecheck   # TypeScript Typ-Prüfung
-bun run test        # Unit Tests
+# Schema ändern, dann:
+bun run db:diff -- -f beschreibender_name
+bun run db:reset
+bun run test:db
+bun run db:advisors
+bun run db:diff
+bun run db:types
 ```
 
----
+Für neue Tabellen gehören RLS-Policies und passende pgTAP-Tests dazu. Änderungen
+an synchronisierten Entitäten brauchen zusätzlich SQLite-Schema und Sync-Handler.
 
-# Nützliche Terminal-Befehle für deinen Entwickler-Alltag
+### Qualität und Tests
 
-| Befehl | Zweck |
-|---|---|
-| `bun start` | Startet den Metro-Bundler für Entwicklung |
-| `bash scripts/ios-dev.sh` | Vorbereiten & Starten des nativeren iOS Dev-Builds |
-| `bun run check:fix` | Formatierer (Biome) automatisch ausführen |
-| `bun run typecheck` | Prüft, ob Fehler in Typen vorliegen |
-| `bun run test` | Jest Tests ausführen |
-| `supabase status` | Status deiner lokalen Supabase-Datenbank |
-| `bun run db:diff -- -f name` | Neue Datenbank-Migration aus Schemas erzeugen |
-| `bun run db:reset` | Lokale Datenbank zurücksetzen und Migrationen neu anwenden |
+```bash
+bun run check       # Biome: Lint und Format
+bun run typecheck   # TypeScript
+bun run test        # Jest, nicht: bun test
+bun run test:db     # pgTAP, falls das Schema betroffen ist
+```
+
+Vor Änderungen an React-Native-Komponententests zuerst
+`.agents/rules/react-native-testing-library.md` und die lokale Dokumentation
+von `@testing-library/react-native` lesen.
