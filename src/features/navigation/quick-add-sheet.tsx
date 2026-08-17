@@ -5,8 +5,8 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { FontSize, ThemedText } from '@/components/themed-text';
 import { Radius, withAlpha } from '@/constants/theme';
 import type { MealType } from '@/features/calorie-tracking/api';
+import { useDeferredMount } from '@/hooks/use-deferred-mount';
 import { useTheme } from '@/hooks/use-theme';
-
 import { useNavigationChrome } from './navigation-chrome-provider';
 
 type QuickAddOption = {
@@ -69,6 +69,15 @@ const OPTIONS: QuickAddOption[] = [
  * Hinzufuegen (Kopfzeilen-Button je Screen).
  */
 export function QuickAddSheet() {
+  const { isQuickAddOpen } = useNavigationChrome();
+  const mounted = useDeferredMount(isQuickAddOpen);
+
+  if (!mounted) return null;
+
+  return <QuickAddSheetContent />;
+}
+
+function QuickAddSheetContent() {
   const theme = useTheme();
   const insets = useSafeAreaInsets();
   const { isQuickAddOpen, closeQuickAdd } = useNavigationChrome();

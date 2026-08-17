@@ -2,12 +2,14 @@ import { useLocalSearchParams } from 'expo-router';
 import { useState } from 'react';
 import { Alert, FlatList, StyleSheet, View } from 'react-native';
 
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
+
 import { Card } from '@/components/card';
 import { EmptyState } from '@/components/empty-state';
 import { Screen } from '@/components/screen';
 import { ThemedText } from '@/components/themed-text';
 import { Button } from '@/components/ui/buttons';
-import { Radius, Spacing, withAlpha } from '@/constants/theme';
+import { Layout, Radius, Spacing, withAlpha } from '@/constants/theme';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { ProductDetailModal } from '@/features/inventory/product-detail-modal';
 import { useStorageLocations } from '@/features/inventory/use-storage-locations';
@@ -65,6 +67,9 @@ export function FridgeScreen() {
     },
     { critical: 0, soon: 0 },
   );
+
+  const { bottom } = useSafeAreaInsets();
+  const paddingBottom = Math.max(bottom, Spacing.four) + Layout.floatingActionClearance;
 
   // filter=expiring (#73, vom Dashboard-Widget) ueberschreibt den
   // Lagerort-Tab-Filter, statt ihn zu kombinieren — einfacher, und die
@@ -145,73 +150,82 @@ export function FridgeScreen() {
       : (locations.find((location) => location.id === selectedLocationId)?.name ?? 'Vorrat');
 
   return (
-    <Screen title="Vorrat" chrome={chrome} backgroundGradient={hubGradient}>
-      <FridgeSummaryCard
-        totalCount={allItems.length}
-        criticalCount={expiryCounts.critical}
-        soonCount={expiryCounts.soon}
-      />
+    <Screen
+      title="Vorrat"
+      chrome={chrome}
+      backgroundGradient={hubGradient}
+      scroll={false}
+      applyBottomPadding={false}>
+      <FlatList
+        data={visibleItems}
+        keyExtractor={(item) => item.id}
+        style={[
+          styles.listCard,
+          {
+            flex: 1,
+            backgroundColor: theme.backgroundElement,
+            marginTop: Spacing.two,
+            boxShadow: `0 8px 24px ${withAlpha(theme.shadowCard, 0.08)}`,
+          },
+        ]}
+        contentContainerStyle={{ paddingBottom }}
+        ListHeaderComponent={
+          <>
+            <FridgeSummaryCard
+              totalCount={allItems.length}
+              criticalCount={expiryCounts.critical}
+              soonCount={expiryCounts.soon}
+            />
 
-      {/* Dynamische Lagerort-Auswahl aus den Haushaltseinstellungen. */}
-      {locationsLoading || locations.length === 0 ? null : (
-        <FridgeTabBar
-          activeTab={selectedLocationId}
-          onTabChange={setActiveLocationId}
-          locations={locations}
-        />
-      )}
-
-      {/* Kompakter Arbeitslisten-Kopf, #71 */}
-      {allItems.length > 0 ? (
-        <View style={styles.sortRow}>
-          <ThemedText type="small" themeColor="textSecondary">
-            {sortMode === 'expiry' ? 'Nach Haltbarkeit' : 'Alphabetisch'}
-          </ThemedText>
-          <Button
-            variant="link"
-            label="Sortieren"
-            accessibilityLabel={`Sortierung ändern, aktuell ${
-              sortMode === 'expiry' ? 'nach Haltbarkeit' : 'alphabetisch'
-            }`}
-            onPress={() => setSortMode((current) => (current === 'expiry' ? 'name' : 'expiry'))}
-          />
-        </View>
-      ) : null}
-
-      {/* Artikel-Liste des aktiven Tabs */}
-      {isLoading ? null : visibleItems.length === 0 ? (
-        <Card style={{ marginTop: Spacing.two }}>
-          <EmptyState
-            symbol="archivebox"
-            title={`${activeLocationName} ist leer`}
-            hint="Schließe einen Einkauf ab oder füge Artikel manuell hinzu."
-          />
-        </Card>
-      ) : (
-        <View
-          style={[
-            styles.listCard,
-            {
-              backgroundColor: theme.backgroundElement,
-              marginTop: Spacing.two,
-              boxShadow: `0 8px 24px ${withAlpha(theme.shadowCard, 0.08)}`,
-            },
-          ]}>
-          <FlatList
-            data={visibleItems}
-            keyExtractor={(item) => item.id}
-            scrollEnabled={false}
-            renderItem={({ item }) => (
-              <FridgeItemRow
-                item={item}
-                onPress={() => setActionItem(item)}
-                onLongPress={() => setInformationItem(item)}
-                onRemove={() => handleDeletePress(item)}
+            {/* Dynamische Lagerort-Auswahl aus den Haushaltseinstellungen. */}
+            {locationsLoading || locations.length === 0 ? null : (
+              <FridgeTabBar
+                activeTab={selectedLocationId}
+                onTabChange={setActiveLocationId}
+                locations={locations}
               />
             )}
+
+            {/* Kompakter Arbeitslisten-Kopf, #71 */}
+            {allItems.length > 0 ? (
+              <View style={styles.sortRow}>
+                <ThemedText type="small" themeColor="textSecondary">
+                  {sortMode === 'expiry' ? 'Nach Haltbarkeit' : 'Alphabetisch'}
+                </ThemedText>
+                <Button
+                  variant="link"
+                  label="Sortieren"
+                  accessibilityLabel={`Sortierung ändern, aktuell ${
+                    sortMode === 'expiry' ? 'nach Haltbarkeit' : 'alphabetisch'
+                  }`}
+                  onPress={() =>
+                    setSortMode((current) => (current === 'expiry' ? 'name' : 'expiry'))
+                  }
+                />
+              </View>
+            ) : null}
+          </>
+        }
+        ListEmptyComponent={
+          isLoading ? null : visibleItems.length === 0 ? (
+            <Card style={{ marginTop: Spacing.two }}>
+              <EmptyState
+                symbol="archivebox"
+                title={`${activeLocationName} ist leer`}
+                hint="Schließe einen Einkauf ab oder füge Artikel manuell hinzu."
+              />
+            </Card>
+          ) : null
+        }
+        renderItem={({ item }) => (
+          <FridgeItemRow
+            item={item}
+            onPress={() => setActionItem(item)}
+            onLongPress={() => setInformationItem(item)}
+            onRemove={() => handleDeletePress(item)}
           />
-        </View>
-      )}
+        )}
+      />
 
       <FridgeItemActionsSheet
         visible={!!currentActionItem}

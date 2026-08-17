@@ -10,11 +10,21 @@ import { useSession } from '@/features/auth/session-provider';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { HouseholdSwitcherModal } from '@/features/household/household-switcher-modal';
 import { usePremium } from '@/features/premium/premium-provider';
+import { useDeferredMount } from '@/hooks/use-deferred-mount';
 import { useTheme } from '@/hooks/use-theme';
 import { getInitials } from '@/lib/initials';
 import { useNavigationChrome } from './navigation-chrome-provider';
 
 export function ProfileSheet() {
+  const { isProfileOpen } = useNavigationChrome();
+  const mounted = useDeferredMount(isProfileOpen);
+
+  if (!mounted) return null;
+
+  return <ProfileSheetContent />;
+}
+
+function ProfileSheetContent() {
   const theme = useTheme();
   const insets = useSafeAreaInsets();
   const { isProfileOpen, closeProfile } = useNavigationChrome();

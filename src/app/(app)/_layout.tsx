@@ -1,7 +1,7 @@
 import { useQueryClient } from '@tanstack/react-query';
 import { Redirect, router } from 'expo-router';
 import { useEffect } from 'react';
-import { ActivityIndicator, View } from 'react-native';
+import { ActivityIndicator, StyleSheet, View } from 'react-native';
 
 import AppShell from '@/components/app-shell';
 import { useProfile } from '@/features/auth/api';
@@ -84,22 +84,36 @@ function AppLayoutContent() {
     }
   }, [istEingerichtet, seenOnboarding]);
 
-  if (decision.kind === 'warten') {
-    return (
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <ActivityIndicator size="large" />
-      </View>
-    );
-  }
-
   if (decision.kind === 'umleiten') {
     return <Redirect href={decision.to} />;
   }
 
-  return <AppShell />;
+  // AppShell bleibt immer gemountet, damit der Screen-Stack (Scroll-
+  // Positionen, Modal-State, Component-Mounts) nicht bei kurzen Loading-
+  // Fluktuationen zerstoert wird. Der Ladeindikator liegt als Overlay
+  // darueber, statt AppShell zu ersetzen.
+  return (
+    <>
+      <AppShell />
+      {decision.kind === 'warten' ? (
+        <View style={styles.loadingOverlay}>
+          <ActivityIndicator size="large" />
+        </View>
+      ) : null}
+    </>
+  );
 }
 
 /** Angemeldeter Bereich. Der Guard sitzt im Root-Layout. */
 export default function AppLayout() {
   return <AppLayoutContent />;
 }
+
+const styles = StyleSheet.create({
+  loadingOverlay: {
+    ...StyleSheet.absoluteFill,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'rgba(0, 0, 0, 0.05)',
+  },
+});

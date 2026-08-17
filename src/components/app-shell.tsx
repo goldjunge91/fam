@@ -2,6 +2,7 @@ import { Stack } from 'expo-router';
 import { StyleSheet, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { PlusIcon } from '@/components/fam-icon';
+import { SyncStatusBanner } from '@/components/sync-status-banner';
 import { FloatingActionButton } from '@/components/ui/buttons';
 import { Layout } from '@/constants/theme';
 import {
@@ -16,6 +17,7 @@ import { useTheme } from '@/hooks/use-theme';
 export default function AppShell() {
   return (
     <NavigationChromeProvider>
+      <SyncStatusBanner />
       <Stack screenOptions={{ headerShown: false }} />
       <NavigationDrawer />
       <ProfileSheet />

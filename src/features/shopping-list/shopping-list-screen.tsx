@@ -1,13 +1,14 @@
 import { useLocalSearchParams } from 'expo-router';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { Alert, ScrollView, SectionList, StyleSheet, View } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { Card } from '@/components/card';
 import { EmptyState } from '@/components/empty-state';
 import { Screen } from '@/components/screen';
 import { ThemedText } from '@/components/themed-text';
 import { Button } from '@/components/ui/buttons';
-import { Spacing } from '@/constants/theme';
+import { Layout, Spacing } from '@/constants/theme';
 import { useSession } from '@/features/auth/session-provider';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { useHouseholdMembers } from '@/features/household/api';
@@ -48,17 +49,23 @@ export function ShoppingListScreen() {
   const [storeFilter, setStoreFilter] = useState<string>(ALL_FILTER);
   const theme = useTheme();
   const scrollRef = useRef<ScrollView>(null);
+  const sectionListRef =
+    useRef<SectionList<LocalShoppingItem, { title: string; data: LocalShoppingItem[] }>>(null);
   const { session } = useSession();
   const userId = session?.user.id;
   const { openDrawer, openProfile } = useNavigationChrome();
   const initials = useProfileInitials();
+  const insets = useSafeAreaInsets();
 
   // Beim Wechsel des Markt-Filters (Karte oder Chip antippen) an den Anfang
   // scrollen, damit die Tab-Leiste und der Anfang der gefilterten Liste
   // sofort sichtbar sind, statt an der bisherigen Scroll-Position zu bleiben.
-  // biome-ignore lint/correctness/useExhaustiveDependencies: storeFilter ist der Trigger, wird im Body nicht gelesen.
   useEffect(() => {
-    scrollRef.current?.scrollTo({ y: 0, animated: true });
+    if (storeFilter === ALL_FILTER) {
+      scrollRef.current?.scrollTo({ y: 0, animated: true });
+    } else {
+      sectionListRef.current?.getScrollResponder()?.scrollTo({ y: 0, animated: true });
+    }
   }, [storeFilter]);
 
   // ?action=add (#150, globaler Plus-Button -> Schnellauswahl "Einkaufsartikel").
@@ -183,25 +190,55 @@ export function ShoppingListScreen() {
     ? `Einkauf bei ${activeStore.name} abschließen`
     : 'Einkauf abschließen';
 
+  const listContentStyle = [
+    styles.scrollContent,
+    { paddingBottom: insets.bottom + Layout.floatingActionClearance },
+  ];
+
+  const renderHeader = () => (
+    <View style={styles.overviewHeader}>
+      <ThemedText type="small" themeColor="textSecondary">
+        {isAllFilter
+          ? 'Deine Einkaufslisten'
+          : isUnassignedFilter
+            ? 'Ohne Markt'
+            : (activeStore?.name ?? 'Einkaufsliste')}
+      </ThemedText>
+      <Button label="+ Artikel hinzufügen" onPress={() => setAddModalOpen(true)} />
+    </View>
+  );
+
+  const renderFilterBar = () => (
+    <StoreFilterBar
+      activeFilter={storeFilter}
+      onFilterChange={setStoreFilter}
+      stores={stores}
+      totalCount={allItems.length}
+      unassignedCount={unassignedItems.length}
+      countForStore={(storeId) => allItems.filter((i) => i.store_id === storeId).length}
+    />
+  );
+
+  const renderCompleteButton = () => {
+    if (!hasCheckedItems) return null;
+    return (
+      <View style={styles.completeAction}>
+        <Button
+          size="large"
+          label={`🛒 ${completeActionLabel} (${checkedItems.length})`}
+          onPress={() => setSheetOpen(true)}
+          accessibilityLabel={`${completeActionLabel}, ${checkedItems.length} Artikel abgehakt`}
+          backgroundColor={completeActionColor}
+        />
+      </View>
+    );
+  };
+
   return (
     <Screen title="Einkauf" subtitle={subtitleParts.join(' · ')} scroll={false} chrome={chrome}>
-      <ScrollView
-        ref={scrollRef}
-        style={styles.scroll}
-        showsVerticalScrollIndicator={false}
-        contentContainerStyle={styles.scrollContent}>
-        <View style={styles.overviewHeader}>
-          <ThemedText type="small" themeColor="textSecondary">
-            {isAllFilter
-              ? 'Deine Einkaufslisten'
-              : isUnassignedFilter
-                ? 'Ohne Markt'
-                : (activeStore?.name ?? 'Einkaufsliste')}
-          </ThemedText>
-          <Button label="+ Artikel hinzufügen" onPress={() => setAddModalOpen(true)} />
-        </View>
-
-        {isLoading ? null : allItems.length === 0 ? (
+      {isLoading ? null : allItems.length === 0 ? (
+        <ScrollView style={styles.scroll} contentContainerStyle={listContentStyle}>
+          {renderHeader()}
           <Card>
             <EmptyState
               symbol="cart"
@@ -209,102 +246,88 @@ export function ShoppingListScreen() {
               hint="Tippe auf '+' um zu starten."
             />
           </Card>
-        ) : (
-          <>
-            <StoreFilterBar
-              activeFilter={storeFilter}
-              onFilterChange={setStoreFilter}
-              stores={stores}
-              totalCount={allItems.length}
-              unassignedCount={unassignedItems.length}
-              countForStore={(storeId) => allItems.filter((i) => i.store_id === storeId).length}
-            />
-
-            {isAllFilter ? (
-              <View style={styles.overview}>
-                {storeAggregates.map(
-                  ({ store, totalCount, checkedCount, totalEstimate: storeTotal }) => (
-                    <StoreSummaryCard
-                      key={store.id}
-                      name={store.name}
-                      color={store.color}
-                      totalCount={totalCount}
-                      checkedCount={checkedCount}
-                      totalEstimate={storeTotal}
-                      onPress={() => setStoreFilter(store.id)}
-                    />
-                  ),
-                )}
-
-                {unassignedItems.length > 0 && (
-                  <StoreSummaryCard
-                    name="Ohne Markt"
-                    color={UNASSIGNED_COLOR}
-                    totalCount={unassignedItems.length}
-                    checkedCount={unassignedItems.filter((i) => i.checked_at !== null).length}
-                    totalEstimate={unassignedItems.reduce(
-                      (sum, i) => sum + (i.price_estimate ?? 0),
-                      0,
-                    )}
-                    onPress={() => setStoreFilter(UNASSIGNED_FILTER)}
-                  />
-                )}
-
-                <TotalEstimateCard
-                  totalEstimate={totalEstimate}
-                  itemCount={allItems.length}
-                  storeCount={storeAggregates.length}
+        </ScrollView>
+      ) : isAllFilter ? (
+        <ScrollView
+          ref={scrollRef}
+          style={styles.scroll}
+          showsVerticalScrollIndicator={false}
+          contentContainerStyle={listContentStyle}>
+          {renderHeader()}
+          {renderFilterBar()}
+          <View style={styles.overview}>
+            {storeAggregates.map(
+              ({ store, totalCount, checkedCount, totalEstimate: storeTotal }) => (
+                <StoreSummaryCard
+                  key={store.id}
+                  name={store.name}
+                  color={store.color}
+                  totalCount={totalCount}
+                  checkedCount={checkedCount}
+                  totalEstimate={storeTotal}
+                  onPress={() => setStoreFilter(store.id)}
                 />
-              </View>
-            ) : (
-              <>
-                {activeStore && (
-                  <Button
-                    variant="link"
-                    label="⠿ Reihenfolge bearbeiten"
-                    onPress={() => setOrderSheetOpen(true)}
-                    accessibilityLabel="Reihenfolge für diesen Markt bearbeiten"
-                  />
-                )}
-                <SectionList
-                  sections={sections}
-                  keyExtractor={(item) => item.id}
-                  scrollEnabled={false}
-                  renderSectionHeader={({ section }) => (
-                    <ThemedText
-                      type="small"
-                      themeColor="textSecondary"
-                      style={styles.sectionHeader}>
-                      {section.title}
-                    </ThemedText>
-                  )}
-                  renderItem={({ item }) => (
-                    <ShoppingItemRow
-                      item={item}
-                      onToggle={() => handleToggle(item)}
-                      onDelete={() => handleDeletePress(item)}
-                      onEdit={() => setEditingItem(item)}
-                    />
-                  )}
-                  stickySectionHeadersEnabled={false}
-                />
-              </>
+              ),
             )}
-          </>
-        )}
 
-        {hasCheckedItems ? (
-          <View style={styles.completeAction}>
-            <Button
-              size="large"
-              label={`🛒 ${completeActionLabel} (${checkedItems.length})`}
-              onPress={() => setSheetOpen(true)}
-              accessibilityLabel={`${completeActionLabel}, ${checkedItems.length} Artikel abgehakt`}
-              backgroundColor={completeActionColor}
+            {unassignedItems.length > 0 && (
+              <StoreSummaryCard
+                name="Ohne Markt"
+                color={UNASSIGNED_COLOR}
+                totalCount={unassignedItems.length}
+                checkedCount={unassignedItems.filter((i) => i.checked_at !== null).length}
+                totalEstimate={unassignedItems.reduce((sum, i) => sum + (i.price_estimate ?? 0), 0)}
+                onPress={() => setStoreFilter(UNASSIGNED_FILTER)}
+              />
+            )}
+
+            <TotalEstimateCard
+              totalEstimate={totalEstimate}
+              itemCount={allItems.length}
+              storeCount={storeAggregates.length}
             />
           </View>
-        ) : null}
-      </ScrollView>
+          {renderCompleteButton()}
+        </ScrollView>
+      ) : (
+        <SectionList
+          ref={sectionListRef}
+          style={styles.scroll}
+          contentContainerStyle={listContentStyle}
+          showsVerticalScrollIndicator={false}
+          sections={sections}
+          keyExtractor={(item) => item.id}
+          ListHeaderComponent={
+            <>
+              {renderHeader()}
+              {renderFilterBar()}
+              {activeStore && (
+                <Button
+                  variant="link"
+                  label="⠿ Reihenfolge bearbeiten"
+                  onPress={() => setOrderSheetOpen(true)}
+                  accessibilityLabel="Reihenfolge für diesen Markt bearbeiten"
+                />
+              )}
+            </>
+          }
+          ListFooterComponent={renderCompleteButton()}
+          renderSectionHeader={({ section }) => (
+            <ThemedText type="small" themeColor="textSecondary" style={styles.sectionHeader}>
+              {section.title}
+            </ThemedText>
+          )}
+          renderItem={({ item }) => (
+            <ShoppingItemRow
+              item={item}
+              onToggle={() => handleToggle(item)}
+              onDelete={() => handleDeletePress(item)}
+              onEdit={() => setEditingItem(item)}
+            />
+          )}
+          stickySectionHeadersEnabled={false}
+        />
+      )}
 
       <AddItemModal
         visible={addModalOpen}

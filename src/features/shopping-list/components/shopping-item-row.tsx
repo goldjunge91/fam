@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import { Pressable, StyleSheet, View } from 'react-native';
 
 import { ThemedText } from '@/components/themed-text';
@@ -14,7 +15,12 @@ interface ShoppingItemRowProps {
   onEdit: () => void;
 }
 
-export function ShoppingItemRow({ item, onToggle, onDelete, onEdit }: ShoppingItemRowProps) {
+export const ShoppingItemRow = memo(function ShoppingItemRow({
+  item,
+  onToggle,
+  onDelete,
+  onEdit,
+}: ShoppingItemRowProps) {
   const theme = useTheme();
   const isChecked = item.checked_at !== null;
   const packageHint = formatPackageHint(item.package_size, item.package_size_unit);
@@ -85,7 +91,7 @@ export function ShoppingItemRow({ item, onToggle, onDelete, onEdit }: ShoppingIt
       </Pressable>
     </View>
   );
-}
+});
 
 const styles = StyleSheet.create({
   itemRow: {

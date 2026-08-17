@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import { Pressable, StyleSheet, View } from 'react-native';
 import ReanimatedSwipeable, {
   type SwipeableMethods,
@@ -28,7 +29,12 @@ interface FridgeItemRowProps {
   onRemove: () => void;
 }
 
-export function FridgeItemRow({ item, onPress, onLongPress, onRemove }: FridgeItemRowProps) {
+export const FridgeItemRow = memo(function FridgeItemRow({
+  item,
+  onPress,
+  onLongPress,
+  onRemove,
+}: FridgeItemRowProps) {
   const theme = useTheme();
   const expiry = getExpiryInfo(item.expiry_date, new Date());
   const borderColorKey = EXPIRY_LEFT_BORDER_KEY[expiry.bucket];
@@ -107,7 +113,7 @@ export function FridgeItemRow({ item, onPress, onLongPress, onRemove }: FridgeIt
       </Pressable>
     </ReanimatedSwipeable>
   );
-}
+});
 
 const styles = StyleSheet.create({
   swipeContainer: {
