@@ -1,10 +1,8 @@
 import { createContext, useCallback, useContext, useRef, useState } from 'react';
-import { Pressable, StyleSheet, View } from 'react-native';
+import { Pressable, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { ThemedText } from '@/components/themed-text';
-import { Radius, Spacing } from '@/constants/theme';
-import { useTheme } from '@/hooks/use-theme';
 
 export type ShowUndoSnackbarInput = {
   message: string;
@@ -31,7 +29,6 @@ type SnackbarState = { message: string; onUndo: () => void } | null;
  * kein Ueberlappen zweier Snackbars).
  */
 export function SnackbarProvider({ children }: { children: React.ReactNode }) {
-  const theme = useTheme();
   const [snackbar, setSnackbar] = useState<SnackbarState>(null);
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
@@ -59,9 +56,12 @@ export function SnackbarProvider({ children }: { children: React.ReactNode }) {
     <SnackbarContext.Provider value={{ showUndoSnackbar }}>
       {children}
       {snackbar ? (
-        <SafeAreaView edges={['bottom']} style={styles.wrapper} pointerEvents="box-none">
-          <View style={[styles.bar, { backgroundColor: theme.text }]}>
-            <ThemedText type="small" style={[styles.message, { color: theme.background }]}>
+        <SafeAreaView
+          edges={['bottom']}
+          className="absolute left-0 right-0 bottom-0"
+          pointerEvents="box-none">
+          <View className="snackbar-bar">
+            <ThemedText type="small" themeColor="background" className="flex-1">
               {snackbar.message}
             </ThemedText>
             <Pressable
@@ -73,7 +73,7 @@ export function SnackbarProvider({ children }: { children: React.ReactNode }) {
               accessibilityRole="button"
               accessibilityLabel="Rückgängig"
               hitSlop={10}>
-              <ThemedText type="smallBold" style={{ color: theme.accent }}>
+              <ThemedText type="smallBold" themeColor="accent">
                 Rückgängig
               </ThemedText>
             </Pressable>
@@ -91,26 +91,3 @@ export function useSnackbar(): SnackbarContextValue {
   }
   return context;
 }
-
-const styles = StyleSheet.create({
-  wrapper: {
-    position: 'absolute',
-    left: 0,
-    right: 0,
-    bottom: 0,
-  },
-  bar: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    marginHorizontal: Spacing.three,
-    marginBottom: Spacing.three,
-    paddingHorizontal: Spacing.three,
-    paddingVertical: Spacing.two,
-    borderRadius: Radius.control,
-    gap: Spacing.three,
-  },
-  message: {
-    flex: 1,
-  },
-});

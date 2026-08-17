@@ -1,10 +1,11 @@
 {
-  "enabledPlugins": {
-    "expo@claude-plugins-official": true
-  },
   "permissions": {
     "allow": [
       "mcp__argent"
     ]
+  },
+  "enabledPlugins": {
+    "expo@claude-plugins-official": false,
+    "cwb-ship@cwb-plugins": true
   }
 }

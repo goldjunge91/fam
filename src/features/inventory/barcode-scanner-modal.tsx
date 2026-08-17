@@ -1,9 +1,8 @@
 import * as Haptics from 'expo-haptics';
 import { useRef, useState } from 'react';
 import { ActivityIndicator, Modal, Pressable, StyleSheet, View } from 'react-native';
-import { FontSize, ThemedText } from '@/components/themed-text';
+import { ThemedText } from '@/components/themed-text';
 import { Button } from '@/components/ui/buttons';
-import { Radius, Spacing } from '@/constants/theme';
 import { useTheme } from '@/hooks/use-theme';
 import { fetchProductByBarcode, type OpenFoodFactsProduct } from '@/lib/open-food-facts';
 
@@ -72,32 +71,35 @@ export function BarcodeScannerModal({
 
   return (
     <Modal visible={visible} animationType="slide" transparent onRequestClose={onClose}>
-      <View style={styles.backdrop}>
-        <View style={[styles.modalBox, { backgroundColor: theme.background }]}>
-          <View style={styles.headerRow}>
+      <View className="scanner-backdrop">
+        <View className="scanner-modal-box bg-background">
+          <View className="modal-header-row">
             <ThemedText type="subtitle">📷 Barcode scannen</ThemedText>
             <Pressable onPress={onClose} hitSlop={10}>
-              <ThemedText style={{ ...FontSize[18], color: theme.textSecondary }}>✕</ThemedText>
+              <ThemedText themeColor="textSecondary" className="text-[18px]">
+                ✕
+              </ThemedText>
             </Pressable>
           </View>
 
           {!isCameraSupported ? (
-            <View style={styles.permissionBox}>
-              <ThemedText style={{ textAlign: 'center' }} themeColor="textSecondary">
+            <View className="scanner-permission-box">
+              <ThemedText className="text-center" themeColor="textSecondary">
                 Der Kamera-Barcode-Scanner benötigt ein natives Build (`bun run ios` oder `bun run
                 android`). Im Simulator (kein Kamerazugriff) oder ohne Kamera gib den Barcode
                 stattdessen direkt in die Suche ein.
               </ThemedText>
             </View>
           ) : !permission?.granted ? (
-            <View style={styles.permissionBox}>
-              <ThemedText style={{ textAlign: 'center' }}>
+            <View className="scanner-permission-box">
+              <ThemedText className="text-center">
                 Kamera-Berechtigung ist erforderlich, um Produkt-Barcodes zu scannen.
               </ThemedText>
               <Button label="Kamera erlauben" onPress={requestPermission} />
             </View>
           ) : (
-            <View style={styles.cameraContainer}>
+            <View className="scanner-camera-container">
+              {/* CameraViewComp (expo-camera) ist nicht NativeWind-registriert. */}
               <CameraViewComp
                 style={StyleSheet.absoluteFill}
                 barcodeScannerSettings={{
@@ -105,19 +107,19 @@ export function BarcodeScannerModal({
                 }}
                 onBarcodeScanned={handleBarcodeScanned}
               />
-              <View style={styles.targetFrame} />
+              <View className="scanner-target-frame" />
             </View>
           )}
 
           {scanning && (
-            <View style={styles.statusBox}>
+            <View className="scanner-status-box">
               <ActivityIndicator color={theme.accent} />
               <ThemedText type="small">Suche Produktdaten...</ThemedText>
             </View>
           )}
 
           {errorMsg && (
-            <ThemedText type="small" themeColor="danger" style={{ textAlign: 'center' }}>
+            <ThemedText type="smallDanger" className="text-center">
               {errorMsg}
             </ThemedText>
           )}
@@ -128,51 +130,3 @@ export function BarcodeScannerModal({
     </Modal>
   );
 }
-
-const styles = StyleSheet.create({
-  backdrop: {
-    flex: 1,
-    backgroundColor: 'rgba(0,0,0,0.6)',
-    justifyContent: 'flex-end',
-  },
-  modalBox: {
-    borderTopLeftRadius: Radius.large,
-    borderTopRightRadius: Radius.large,
-    padding: Spacing.four,
-    gap: Spacing.three,
-    height: '80%',
-  },
-  headerRow: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-  },
-  permissionBox: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    gap: Spacing.three,
-    paddingHorizontal: Spacing.three,
-  },
-  cameraContainer: {
-    flex: 1,
-    borderRadius: Radius.card,
-    overflow: 'hidden',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  targetFrame: {
-    width: 220,
-    height: 140,
-    borderWidth: 2,
-    borderColor: '#10B981',
-    borderRadius: Radius.control,
-    backgroundColor: 'transparent',
-  },
-  statusBox: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    gap: Spacing.two,
-  },
-});

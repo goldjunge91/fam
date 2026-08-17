@@ -1,10 +1,8 @@
 import DateTimePicker from '@expo/ui/community/datetime-picker';
 import { useState } from 'react';
-import { Modal, Platform, Pressable, StyleSheet, View } from 'react-native';
+import { Modal, Platform, Pressable, View } from 'react-native';
 import { ThemedText } from '@/components/themed-text';
 import { Button } from '@/components/ui/buttons';
-import { Radius, Spacing } from '@/constants/theme';
-import { useTheme } from '@/hooks/use-theme';
 
 function toIsoDate(date: Date): string {
   const y = date.getFullYear();
@@ -38,7 +36,6 @@ export function DateWheelField({
   onChange,
   placeholder = 'TT.MM.JJJJ',
 }: DateWheelFieldProps) {
-  const theme = useTheme();
   const [isOpen, setIsOpen] = useState(false);
   const [pendingDate, setPendingDate] = useState(() => (value ? new Date(value) : new Date()));
 
@@ -57,7 +54,7 @@ export function DateWheelField({
   }
 
   return (
-    <View style={styles.container}>
+    <View className="gap-one">
       {label && (
         <ThemedText type="small" themeColor="textSecondary">
           {label}
@@ -71,11 +68,8 @@ export function DateWheelField({
             ? `${label ?? 'Datum'} ${formatIsoDate(value)} ändern`
             : `${label ?? 'Datum'} auswählen`
         }
-        style={[
-          styles.field,
-          { backgroundColor: theme.backgroundElement, borderColor: theme.border },
-        ]}>
-        <ThemedText style={{ color: value ? theme.text : theme.textSecondary }}>
+        className="input-field active:opacity-75">
+        <ThemedText themeColor={value ? 'text' : 'textSecondary'}>
           {value ? formatIsoDate(value) : placeholder}
         </ThemedText>
       </Pressable>
@@ -96,8 +90,8 @@ export function DateWheelField({
 
       {Platform.OS === 'ios' && (
         <Modal visible={isOpen} transparent animationType="fade" onRequestClose={cancel}>
-          <View style={styles.backdrop}>
-            <View style={[styles.modalBox, { backgroundColor: theme.background }]}>
+          <View className="modal-backdrop">
+            <View className="modal-sheet">
               <ThemedText type="subtitle">{label ?? 'Datum auswählen'}</ThemedText>
               <DateTimePicker
                 value={pendingDate}
@@ -105,11 +99,11 @@ export function DateWheelField({
                 display="spinner"
                 onValueChange={(_event, date) => setPendingDate(date)}
               />
-              <View style={styles.modalActions}>
-                <View style={styles.flex}>
+              <View className="flex-row gap-two mt-two">
+                <View className="flex-1">
                   <Button label="Übernehmen" onPress={confirm} />
                 </View>
-                <View style={styles.flex}>
+                <View className="flex-1">
                   <Button label="Abbrechen" variant="secondary" onPress={cancel} />
                 </View>
               </View>
@@ -120,33 +114,3 @@ export function DateWheelField({
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    gap: Spacing.one,
-  },
-  field: {
-    borderWidth: 1,
-    borderRadius: Radius.card,
-    paddingHorizontal: Spacing.three,
-    paddingVertical: Spacing.two + 2,
-  },
-  backdrop: {
-    flex: 1,
-    backgroundColor: 'rgba(0,0,0,0.5)',
-    justifyContent: 'center',
-    padding: Spacing.four,
-  },
-  modalBox: {
-    borderRadius: Radius.sheet,
-    padding: Spacing.four,
-    gap: Spacing.three,
-  },
-  modalActions: {
-    flexDirection: 'row',
-    gap: Spacing.two,
-  },
-  flex: {
-    flex: 1,
-  },
-});

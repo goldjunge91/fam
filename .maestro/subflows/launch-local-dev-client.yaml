@@ -1,0 +1,36 @@
+appId: com.goldjunge91.fam
+env:
+  # Start Metro in its default LAN mode (`bun start`). The iOS Simulator reaches
+  # the host Mac directly via IPv4 loopback; mDNS discovery is not involved.
+  # The value is URL-encoded because Expo Dev Client receives it as `url`.
+  METRO_MANIFEST_URL: http%3A%2F%2F127.0.0.1%3A8081
+---
+# Maestro clears the Dev Client's remembered server with clearState:true. Local
+# network discovery (mDNS) is not reliable in automated simulator runs, so load
+# Metro through Expo Dev Client's documented deep-link entry point instead.
+#
+# Override for another target, for example:
+# maestro test .maestro/flows -e METRO_MANIFEST_URL=http%3A%2F%2F192.168.1.23%3A8081
+- launchApp:
+    clearState: true
+
+- openLink: "fam://expo-development-client/?url=${METRO_MANIFEST_URL}"
+
+# iOS can show this system confirmation on the first custom-scheme launch.
+- runFlow:
+    when:
+      visible: 'Open in "fam"'
+    commands:
+      - tapOn: Open
+
+# expo-dev-client shows this one-time informational popup after opening Metro.
+- tapOn:
+    text: "Continue"
+    optional: true
+- tapOn:
+    text: "Close"
+    optional: true
+
+- extendedWaitUntil:
+    visible: "Weiter"
+    timeout: 50000

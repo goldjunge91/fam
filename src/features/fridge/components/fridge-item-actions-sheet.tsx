@@ -2,7 +2,7 @@ import { Modal, Pressable, StyleSheet, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { QuantityStepper } from '@/components/quantity-stepper';
 import { ThemedText } from '@/components/themed-text';
-import { Radius, Spacing, withAlpha } from '@/constants/theme';
+import { Spacing, withAlpha } from '@/constants/theme';
 import { useTheme } from '@/hooks/use-theme';
 import { formatAmount, formatPackageHint } from '@/lib/package-size';
 
@@ -43,37 +43,42 @@ export function FridgeItemActionsSheet({
     <Modal visible={visible} transparent animationType="slide" onRequestClose={onClose}>
       <View style={StyleSheet.absoluteFill}>
         <Pressable
-          style={styles.backdrop}
+          className="fridge-actions-backdrop"
           onPress={onClose}
           accessibilityRole="button"
           accessibilityLabel="Artikelaktionen schließen"
         />
         <View
-          style={[
-            styles.sheet,
-            {
-              backgroundColor: theme.backgroundElement,
-              paddingBottom: Math.max(insets.bottom, Spacing.three),
-              boxShadow: `0 -16px 48px ${withAlpha(theme.shadowSheet, 0.2)}`,
-            },
-          ]}>
-          <View style={[styles.handle, { backgroundColor: theme.border }]} />
+          className="fridge-actions-sheet"
+          // paddingBottom (Safe-Area-Insets), boxShadow (dynamische
+          // Opazitaet) und borderCurve sind echte Laufzeit-/Sonderwerte.
+          style={{
+            paddingBottom: Math.max(insets.bottom, Spacing.three),
+            boxShadow: `0 -16px 48px ${withAlpha(theme.shadowSheet, 0.2)}`,
+            borderCurve: 'continuous',
+          }}>
+          <View className="fridge-actions-handle" />
 
-          <View style={[styles.itemHeader, { borderBottomColor: theme.border }]}>
-            <View style={[styles.expiryBar, { backgroundColor: theme[expiry.themeColor] }]} />
-            <View style={styles.itemCopy}>
+          <View className="fridge-actions-item-header">
+            {/* Farbe pro Item dynamisch (Ablaufstatus). */}
+            <View
+              className="fridge-actions-expiry-bar"
+              style={{ backgroundColor: theme[expiry.themeColor] }}
+            />
+            <View className="fridge-actions-item-copy">
               <ThemedText type="subtitle">{item.name}</ThemedText>
               <ThemedText type="small" style={{ color: theme[expiry.themeColor] }}>
                 {expiry.label}
               </ThemedText>
             </View>
-            <ThemedText type="smallBold" style={styles.quantityInline}>
+            {/* fontVariant hat keine Tailwind-Entsprechung. */}
+            <ThemedText type="smallBold" style={{ fontVariant: ['tabular-nums'] }}>
               {amount}
             </ThemedText>
           </View>
 
-          <View style={styles.quantityRow}>
-            <View style={styles.quantityCopy}>
+          <View className="fridge-actions-quantity-row">
+            <View className="fridge-actions-quantity-copy">
               <QuantityStepper
                 value={item.quantity}
                 onChange={onQuantityChange}
@@ -86,37 +91,18 @@ export function FridgeItemActionsSheet({
             </View>
           </View>
 
-          <View style={styles.actionRow}>
-            <SheetAction
-              label="Bearbeiten"
-              onPress={onEdit}
-              backgroundColor={theme.backgroundSelected}
-              color={theme.text}
-            />
-            <SheetAction
-              label="Verbraucht"
-              onPress={onConsume}
-              backgroundColor={`${theme.success}24`}
-              color={theme.success}
-            />
-            <SheetAction
-              label="Entfernen"
-              onPress={onRemove}
-              backgroundColor={`${theme.danger}20`}
-              color={theme.danger}
-            />
+          <View className="fridge-actions-row">
+            <SheetAction label="Bearbeiten" onPress={onEdit} variant="neutral" />
+            <SheetAction label="Verbraucht" onPress={onConsume} variant="success" />
+            <SheetAction label="Entfernen" onPress={onRemove} variant="danger" />
           </View>
 
           <Pressable
             onPress={onProductInformation}
             accessibilityRole="button"
             accessibilityLabel="Produktinformationen"
-            style={({ pressed }) => [styles.informationAction, pressed && styles.pressed]}>
-            <View
-              style={[
-                styles.informationIcon,
-                { backgroundColor: theme.backgroundSelected, borderColor: theme.border },
-              ]}>
+            className="fridge-actions-info-action">
+            <View className="fridge-actions-info-icon">
               <ThemedText type="smallBold">i</ThemedText>
             </View>
             <ThemedText type="small">Produktinformationen</ThemedText>
@@ -127,112 +113,36 @@ export function FridgeItemActionsSheet({
   );
 }
 
+const ACTION_VARIANT_CLASSES = {
+  neutral: 'fridge-action-btn-neutral',
+  success: 'fridge-action-btn-success',
+  danger: 'fridge-action-btn-danger',
+} as const;
+
+const ACTION_VARIANT_TEXT_COLOR = {
+  neutral: 'text',
+  success: 'success',
+  danger: 'danger',
+} as const;
+
 function SheetAction({
   label,
   onPress,
-  backgroundColor,
-  color,
+  variant,
 }: {
   label: string;
   onPress: () => void;
-  backgroundColor: string;
-  color: string;
+  variant: keyof typeof ACTION_VARIANT_CLASSES;
 }) {
   return (
     <Pressable
       onPress={onPress}
       accessibilityRole="button"
       accessibilityLabel={label}
-      style={({ pressed }) => [styles.action, { backgroundColor }, pressed && styles.pressed]}>
-      <ThemedText type="small" style={{ color }}>
+      className={`fridge-action-btn ${ACTION_VARIANT_CLASSES[variant]}`}>
+      <ThemedText type="small" themeColor={ACTION_VARIANT_TEXT_COLOR[variant]}>
         {label}
       </ThemedText>
     </Pressable>
   );
 }
-
-const styles = StyleSheet.create({
-  backdrop: {
-    ...StyleSheet.absoluteFill,
-    backgroundColor: 'rgba(31, 26, 33, 0.32)',
-  },
-  sheet: {
-    position: 'absolute',
-    left: 10,
-    right: 10,
-    bottom: 10,
-    borderRadius: Radius.large,
-    borderCurve: 'continuous',
-    paddingHorizontal: 14,
-    paddingTop: 11,
-    gap: 14,
-  },
-  handle: {
-    width: 42,
-    height: 4,
-    borderRadius: Radius.hairline,
-    alignSelf: 'center',
-  },
-  itemHeader: {
-    minHeight: 76,
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 12,
-    paddingBottom: 14,
-    borderBottomWidth: StyleSheet.hairlineWidth,
-  },
-  expiryBar: {
-    width: 6,
-    height: 52,
-    borderRadius: Radius.xs,
-  },
-  itemCopy: {
-    flex: 1,
-    gap: 3,
-  },
-  quantityInline: {
-    fontVariant: ['tabular-nums'],
-  },
-  quantityRow: {
-    minHeight: 56,
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 10,
-  },
-  quantityCopy: {
-    flex: 1,
-    alignItems: 'stretch',
-    gap: 2,
-  },
-  actionRow: {
-    flexDirection: 'row',
-    gap: 8,
-  },
-  action: {
-    flex: 1,
-    height: 62,
-    borderRadius: Radius.card,
-    borderCurve: 'continuous',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  informationAction: {
-    minHeight: 36,
-    alignSelf: 'flex-start',
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: Spacing.two,
-    paddingRight: Spacing.two,
-  },
-  informationIcon: {
-    width: 28,
-    height: 28,
-    borderRadius: Radius.controlLarge,
-    borderWidth: StyleSheet.hairlineWidth,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  pressed: {
-    opacity: 0.72,
-  },
-});

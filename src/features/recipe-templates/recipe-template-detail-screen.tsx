@@ -7,9 +7,8 @@ import Svg, { Circle, Defs, LinearGradient, Rect, Stop } from 'react-native-svg'
 
 import { GradientBackground } from '@/components/gradient-background';
 import { PageHeader } from '@/components/page-header';
-import { FontSize, ThemedText } from '@/components/themed-text';
+import { ThemedText } from '@/components/themed-text';
 import { BackButton, HeaderIconButton } from '@/components/ui/buttons';
-import { Radius } from '@/constants/theme';
 import { useSession } from '@/features/auth/session-provider';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { useRecipeFavorites } from '@/features/recipes/recipe-favorites';
@@ -28,19 +27,13 @@ const DISH_TYPE_LABELS = Object.fromEntries(DISH_TYPES.map((item) => [item.value
 const DIETARY_TAG_LABELS = Object.fromEntries(DIETARY_TAGS.map((item) => [item.value, item.label]));
 
 function HeartGlyph({ filled }: { filled: boolean }) {
-  const theme = useTheme();
-  return (
-    <ThemedText style={[styles.heartGlyph, { color: theme.accent }]}>
-      {filled ? '♥' : '♡'}
-    </ThemedText>
-  );
+  return <ThemedText className="rtd-heart-glyph">{filled ? '♥' : '♡'}</ThemedText>;
 }
 
 function MetaPill({ children }: { children: ReactNode }) {
-  const theme = useTheme();
   return (
-    <View style={[styles.metaPill, { backgroundColor: `${theme.backgroundElement}D6` }]}>
-      <ThemedText themeColor="textSecondary" style={styles.metaPillText}>
+    <View className="rtd-meta-pill">
+      <ThemedText themeColor="textSecondary" className="rtd-meta-pill-text">
         {children}
       </ThemedText>
     </View>
@@ -111,11 +104,11 @@ export function RecipeTemplateDetailScreen() {
 
   if (isLoading || !template) {
     return (
-      <View style={styles.root}>
+      <View className="flex-1">
         <GradientBackground {...hubGradient} />
-        <SafeAreaView style={styles.safeArea} edges={['top', 'left', 'right']}>
+        <SafeAreaView className="rtd-safe-area" edges={['top', 'left', 'right']}>
           <PageHeader title="Rezept" leading={<BackButton label="Zurück" variant="header" />} />
-          <ActivityIndicator style={styles.loading} color={theme.accent} />
+          <ActivityIndicator className="rtd-loading" color={theme.accent} />
         </SafeAreaView>
       </View>
     );
@@ -124,11 +117,12 @@ export function RecipeTemplateDetailScreen() {
   const currentServings = servings ?? template.default_servings;
   const scale = currentServings / Math.max(1, template.default_servings);
   const tags = [...template.dish_types, ...template.dietary_tags];
+  const buttonDisabled = isApplying || !activeHouseholdId || !session;
 
   return (
-    <View style={styles.root}>
+    <View className="flex-1">
       <GradientBackground {...hubGradient} />
-      <SafeAreaView style={styles.safeArea} edges={['top', 'left', 'right']}>
+      <SafeAreaView className="rtd-safe-area" edges={['top', 'left', 'right']}>
         <PageHeader
           title="Rezept"
           leading={<BackButton label="Zurück" variant="header" />}
@@ -142,20 +136,20 @@ export function RecipeTemplateDetailScreen() {
         />
 
         <ScrollView
-          style={styles.scroll}
-          contentContainerStyle={styles.content}
+          className="flex-1"
+          contentContainerClassName="rtd-content"
           showsVerticalScrollIndicator={false}>
-          <View style={styles.hero}>
+          <View className="rtd-hero">
             <HeroArtwork coverUrl={coverUrl} title={template.title} />
-            <View style={[styles.heroBadge, { backgroundColor: `${theme.backgroundElement}E8` }]}>
-              <ThemedText themeColor="accent" style={styles.heroBadgeText}>
+            <View className="rtd-hero-badge">
+              <ThemedText themeColor="accent" className="rtd-hero-badge-text">
                 Entdecken
               </ThemedText>
             </View>
           </View>
 
-          <ThemedText style={styles.title}>{template.title}</ThemedText>
-          <View style={styles.metaRow}>
+          <ThemedText className="rtd-title">{template.title}</ThemedText>
+          <View className="rtd-meta-row">
             {template.cook_time_minutes ? (
               <MetaPill>{template.cook_time_minutes} Minuten</MetaPill>
             ) : null}
@@ -170,49 +164,39 @@ export function RecipeTemplateDetailScreen() {
           </View>
 
           {template.instructions ? (
-            <ThemedText themeColor="textSecondary" style={styles.description}>
+            <ThemedText themeColor="textSecondary" className="rtd-description">
               {template.instructions}
             </ThemedText>
           ) : null}
 
-          <View style={styles.sectionHeading}>
-            <ThemedText style={styles.sectionTitle}>Zutaten</ThemedText>
-            <View
-              style={[styles.portionControl, { backgroundColor: `${theme.backgroundElement}D6` }]}>
+          <View className="rtd-section-heading">
+            <ThemedText className="rtd-section-title">Zutaten</ThemedText>
+            <View className="rtd-portion-control">
               <Pressable
                 onPress={() => setServings(Math.max(1, currentServings - 1))}
                 role="button"
                 aria-label="Weniger Portionen"
-                style={styles.portionButton}>
-                <ThemedText themeColor="accent" style={styles.portionSign}>
-                  −
-                </ThemedText>
+                className="rtd-portion-button">
+                <ThemedText className="rtd-portion-sign">−</ThemedText>
               </Pressable>
-              <ThemedText style={styles.portionValue}>{currentServings} Portionen</ThemedText>
+              <ThemedText className="rtd-portion-value">{currentServings} Portionen</ThemedText>
               <Pressable
                 onPress={() => setServings(currentServings + 1)}
                 role="button"
                 aria-label="Mehr Portionen"
-                style={styles.portionButton}>
-                <ThemedText themeColor="accent" style={styles.portionSign}>
-                  +
-                </ThemedText>
+                className="rtd-portion-button">
+                <ThemedText className="rtd-portion-sign">+</ThemedText>
               </Pressable>
             </View>
           </View>
 
-          <View style={styles.groupList}>
+          <View className="rtd-group-list">
             {template.components.map((component) => (
-              <View
-                key={component.id}
-                style={[
-                  styles.ingredientGroup,
-                  { backgroundColor: `${theme.backgroundElement}D6` },
-                ]}>
-                <View style={[styles.groupHeader, { borderBottomColor: theme.border }]}>
-                  <ThemedText style={styles.groupTitle}>{component.name}</ThemedText>
+              <View key={component.id} className="rtd-ingredient-group">
+                <View className="rtd-group-header">
+                  <ThemedText className="rtd-group-title">{component.name}</ThemedText>
                   {component.serving_grams !== null ? (
-                    <ThemedText themeColor="textSecondary" style={styles.groupMeta}>
+                    <ThemedText themeColor="textSecondary" className="rtd-group-meta">
                       {Math.round(component.serving_grams * scale)} g
                     </ThemedText>
                   ) : null}
@@ -220,17 +204,13 @@ export function RecipeTemplateDetailScreen() {
                 {component.items.map((item, index) => (
                   <View
                     key={item.id}
-                    style={[
-                      styles.ingredientRow,
-                      index < component.items.length - 1 && {
-                        borderBottomColor: theme.border,
-                        borderBottomWidth: StyleSheet.hairlineWidth,
-                      },
-                    ]}>
-                    <ThemedText style={styles.ingredientName} numberOfLines={1}>
+                    className={`rtd-ingredient-row ${
+                      index < component.items.length - 1 ? 'rtd-ingredient-row-bordered' : ''
+                    }`}>
+                    <ThemedText className="rtd-ingredient-name" numberOfLines={1}>
                       {item.product_name ?? 'Zutat'}
                     </ThemedText>
-                    <ThemedText themeColor="textSecondary" style={styles.ingredientAmount}>
+                    <ThemedText themeColor="textSecondary" className="rtd-ingredient-amount">
                       {Math.round((item.quantity ?? item.grams) * scale)} {item.unit}
                     </ThemedText>
                   </View>
@@ -239,25 +219,21 @@ export function RecipeTemplateDetailScreen() {
             ))}
           </View>
 
-          <View style={styles.sectionHeading}>
-            <ThemedText style={styles.sectionTitle}>Zubereitung</ThemedText>
-            <ThemedText themeColor="textSecondary" style={styles.sectionCount}>
+          <View className="rtd-section-heading">
+            <ThemedText className="rtd-section-title">Zubereitung</ThemedText>
+            <ThemedText themeColor="textSecondary" className="rtd-section-count">
               {template.steps.length} {template.steps.length === 1 ? 'Schritt' : 'Schritte'}
             </ThemedText>
           </View>
           {template.steps.length > 0 ? (
-            <View style={[styles.stepsCard, { backgroundColor: `${theme.backgroundElement}D6` }]}>
+            <View className="rtd-steps-card">
               {template.steps.map((step, index) => (
                 <View
                   key={step.id}
-                  style={[
-                    styles.stepRow,
-                    index < template.steps.length - 1 && {
-                      borderBottomColor: theme.border,
-                      borderBottomWidth: StyleSheet.hairlineWidth,
-                    },
-                  ]}>
-                  <ThemedText style={styles.stepText}>
+                  className={`rtd-step-row ${
+                    index < template.steps.length - 1 ? 'rtd-ingredient-row-bordered' : ''
+                  }`}>
+                  <ThemedText className="rtd-step-text">
                     {step.position + 1}. {step.text}
                   </ThemedText>
                 </View>
@@ -266,21 +242,16 @@ export function RecipeTemplateDetailScreen() {
           ) : null}
         </ScrollView>
 
-        <View style={styles.stickyAction}>
+        <View className="rtd-sticky-action">
           <Pressable
             onPress={copyTemplate}
-            disabled={isApplying || !activeHouseholdId || !session}
+            disabled={buttonDisabled}
             role="button"
-            style={({ pressed }) => [
-              styles.primaryButton,
-              { backgroundColor: theme.accent },
-              (isApplying || !activeHouseholdId || !session) && styles.disabled,
-              pressed && styles.pressed,
-            ]}>
+            className={`rtd-primary-button ${buttonDisabled ? 'rtd-primary-button-disabled' : ''}`}>
             {isApplying ? (
               <ActivityIndicator color="#FFFFFF" />
             ) : (
-              <ThemedText type="captionCompact" style={styles.primaryButtonText}>
+              <ThemedText type="captionCompact" className="rtd-primary-button-text">
                 In meine Rezepte übernehmen
               </ThemedText>
             )}
@@ -290,104 +261,3 @@ export function RecipeTemplateDetailScreen() {
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  root: { flex: 1 },
-  safeArea: { flex: 1, width: '100%', maxWidth: 800, alignSelf: 'center' },
-  loading: { marginTop: 60 },
-  heartGlyph: { ...FontSize[24], lineHeight: 27, fontWeight: 500 },
-  scroll: { flex: 1 },
-  content: { paddingHorizontal: 15, paddingBottom: 96 },
-  hero: { height: 205, marginHorizontal: -15, overflow: 'hidden' },
-  heroBadge: {
-    position: 'absolute',
-    top: 14,
-    left: 15,
-    paddingHorizontal: 9,
-    paddingVertical: 6,
-    borderRadius: Radius.control,
-    borderCurve: 'continuous',
-  },
-  heroBadgeText: { ...FontSize[8], lineHeight: 10, fontWeight: 500 },
-  title: {
-    paddingTop: 15,
-    ...FontSize[22],
-    lineHeight: 26,
-    fontWeight: 700,
-    letterSpacing: -0.7,
-  },
-  metaRow: { flexDirection: 'row', flexWrap: 'wrap', gap: 6, paddingTop: 5 },
-  metaPill: {
-    borderRadius: Radius.control,
-    borderCurve: 'continuous',
-    paddingHorizontal: 8,
-    paddingVertical: 6,
-  },
-  metaPillText: { ...FontSize[8], lineHeight: 10, fontWeight: 500 },
-  description: { paddingTop: 12, ...FontSize[10], lineHeight: 15, fontWeight: 500 },
-  sectionHeading: {
-    minHeight: 52,
-    paddingTop: 9,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    gap: 12,
-  },
-  sectionTitle: { ...FontSize[13], lineHeight: 16, fontWeight: 700 },
-  sectionCount: { ...FontSize[8], lineHeight: 10, fontWeight: 500 },
-  portionControl: {
-    width: 138,
-    height: 35,
-    borderRadius: Radius.control,
-    borderCurve: 'continuous',
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  portionButton: { width: 34, height: 35, alignItems: 'center', justifyContent: 'center' },
-  portionSign: { ...FontSize[15], lineHeight: 18, fontWeight: 500 },
-  portionValue: {
-    flex: 1,
-    textAlign: 'center',
-    ...FontSize[9],
-    lineHeight: 11,
-    fontWeight: 500,
-  },
-  groupList: { gap: 9 },
-  ingredientGroup: { borderRadius: Radius.sheet, borderCurve: 'continuous', overflow: 'hidden' },
-  groupHeader: {
-    minHeight: 33,
-    paddingHorizontal: 12,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    gap: 10,
-    borderBottomWidth: StyleSheet.hairlineWidth,
-  },
-  groupTitle: { flex: 1, ...FontSize[10], lineHeight: 12, fontWeight: 700 },
-  groupMeta: { ...FontSize[8], lineHeight: 10, fontWeight: 500 },
-  ingredientRow: {
-    minHeight: 28,
-    paddingHorizontal: 12,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    gap: 12,
-  },
-  ingredientName: { flex: 1, ...FontSize[9], lineHeight: 11, fontWeight: 500 },
-  ingredientAmount: { ...FontSize[9], lineHeight: 11, fontWeight: 500 },
-  stepsCard: { borderRadius: Radius.sheet, borderCurve: 'continuous', overflow: 'hidden' },
-  stepRow: { minHeight: 28, paddingHorizontal: 12, paddingVertical: 8, justifyContent: 'center' },
-  stepText: { ...FontSize[9], lineHeight: 13, fontWeight: 500 },
-  stickyAction: { position: 'absolute', left: 15, right: 15, bottom: 12 },
-  primaryButton: {
-    minHeight: 48,
-    borderRadius: Radius.card,
-    borderCurve: 'continuous',
-    alignItems: 'center',
-    justifyContent: 'center',
-    paddingHorizontal: 16,
-  },
-  primaryButtonText: { color: '#FFFFFF', fontWeight: 700 },
-  disabled: { opacity: 0.45 },
-  pressed: { opacity: 0.75, transform: [{ scale: 0.99 }] },
-});

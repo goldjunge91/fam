@@ -1,10 +1,8 @@
 import type { ReactNode } from 'react';
-import { Pressable, StyleSheet, View } from 'react-native';
+import { Pressable, View } from 'react-native';
 
-import { FontSize, ThemedText } from '@/components/themed-text';
+import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
-import { Radius, Spacing } from '@/constants/theme';
-import { useTheme } from '@/hooks/use-theme';
 
 /**
  * Menuezeilen fuer die Einstellungen.
@@ -23,13 +21,13 @@ type SettingsGroupProps = {
 
 export function SettingsGroup({ title, children }: SettingsGroupProps) {
   return (
-    <View style={styles.group}>
+    <View className="gap-one">
       {title ? (
-        <ThemedText type="smallBold" themeColor="textSecondary" style={styles.groupTitle}>
+        <ThemedText type="smallBold" themeColor="textSecondary" className="settings-group-title">
           {title.toUpperCase()}
         </ThemedText>
       ) : null}
-      <ThemedView type="backgroundElement" style={styles.groupBody}>
+      <ThemedView type="backgroundElement" className="settings-group-body">
         {children}
       </ThemedView>
     </View>
@@ -61,23 +59,18 @@ export function SettingsRow({
   last = false,
   disabled = false,
 }: SettingsRowProps) {
-  const theme = useTheme();
   const isNavigable = Boolean(onPress) && !disabled;
 
   const content = (
     <View
-      style={[
-        styles.row,
-        !last && { borderBottomWidth: StyleSheet.hairlineWidth, borderBottomColor: theme.border },
-        disabled && styles.disabled,
-      ]}>
+      className={`settings-row ${!last ? 'settings-row-bordered' : ''} ${disabled ? 'settings-row-disabled' : ''}`}>
       {icon ? (
-        <View style={[styles.iconTile, { backgroundColor: theme.backgroundSelected }]}>
-          <ThemedText style={styles.icon}>{icon}</ThemedText>
+        <View className="settings-icon-tile">
+          <ThemedText className="text-[14px] text-center">{icon}</ThemedText>
         </View>
       ) : null}
 
-      <View style={styles.labelBlock}>
+      <View className="settings-label-block">
         <ThemedText themeColor={tone === 'danger' ? 'danger' : 'text'}>{label}</ThemedText>
         {hint ? (
           <ThemedText type="small" themeColor="textSecondary">
@@ -87,13 +80,17 @@ export function SettingsRow({
       </View>
 
       {value ? (
-        <ThemedText type="small" themeColor="textSecondary" numberOfLines={1} style={styles.value}>
+        <ThemedText
+          type="small"
+          themeColor="textSecondary"
+          numberOfLines={1}
+          className="flex-shrink text-right max-w-[45%]">
           {value}
         </ThemedText>
       ) : null}
 
       {isNavigable ? (
-        <ThemedText type="small" themeColor="textSecondary" style={styles.chevron}>
+        <ThemedText type="small" themeColor="textSecondary" className="text-[20px] leading-[20px]">
           ›
         </ThemedText>
       ) : null}
@@ -107,58 +104,8 @@ export function SettingsRow({
       onPress={onPress}
       accessibilityRole="button"
       accessibilityLabel={value ? `${label}: ${value}` : label}
-      style={({ pressed }) => (pressed ? styles.pressed : undefined)}>
+      className="active:opacity-60">
       {content}
     </Pressable>
   );
 }
-
-const styles = StyleSheet.create({
-  group: {
-    gap: Spacing.one,
-  },
-  groupTitle: {
-    paddingHorizontal: Spacing.two,
-    letterSpacing: 0.5,
-  },
-  groupBody: {
-    borderRadius: Radius.large,
-    paddingHorizontal: Spacing.three,
-  },
-  row: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: Spacing.two,
-    paddingVertical: Spacing.three,
-  },
-  iconTile: {
-    width: 34,
-    height: 34,
-    borderRadius: Radius.card,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  icon: {
-    ...FontSize[14],
-    textAlign: 'center',
-  },
-  labelBlock: {
-    flex: 1,
-    gap: 2,
-  },
-  value: {
-    flexShrink: 1,
-    maxWidth: '45%',
-    textAlign: 'right',
-  },
-  chevron: {
-    ...FontSize[20],
-    lineHeight: 20,
-  },
-  pressed: {
-    opacity: 0.6,
-  },
-  disabled: {
-    opacity: 0.5,
-  },
-});

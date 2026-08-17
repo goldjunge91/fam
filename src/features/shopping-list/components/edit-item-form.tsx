@@ -1,9 +1,8 @@
 import { useState } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { View } from 'react-native';
 import { TextField } from '@/components/text-field';
 import { Button } from '@/components/ui/buttons';
 import { WheelPickerField } from '@/components/wheel-picker-field';
-import { Spacing } from '@/constants/theme';
 import { UNIT_OPTIONS } from '@/lib/units';
 import { guessCategory } from '../shopping-categories';
 import type { LocalShoppingItem } from '../use-shopping-list';
@@ -58,7 +57,7 @@ export function EditItemForm({ item, onDismiss }: EditItemFormProps) {
   }
 
   return (
-    <View style={styles.form}>
+    <View className="stack">
       <TextField
         label="Name"
         value={name}
@@ -67,8 +66,8 @@ export function EditItemForm({ item, onDismiss }: EditItemFormProps) {
         autoFocus
         error={nameError ?? undefined}
       />
-      <View style={styles.row}>
-        <View style={{ flex: 1 }}>
+      <View className="input-row">
+        <View className="flex-1">
           <TextField
             label="Menge"
             value={quantity}
@@ -77,7 +76,7 @@ export function EditItemForm({ item, onDismiss }: EditItemFormProps) {
             placeholder="1"
           />
         </View>
-        <View style={{ flex: 1 }}>
+        <View className="flex-1">
           <WheelPickerField
             label="Einheit"
             value={unit}
@@ -97,20 +96,10 @@ export function EditItemForm({ item, onDismiss }: EditItemFormProps) {
 
       <StorePickerField householdId={item.household_id} storeId={storeId} onChange={setStoreId} />
 
-      <View style={styles.row}>
+      <View className="input-row">
         <Button label="Abbrechen" variant="secondary" onPress={onDismiss} />
         <Button label="Speichern" onPress={handleSave} loading={updateItem.isPending} />
       </View>
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  form: {
-    gap: Spacing.three,
-  },
-  row: {
-    flexDirection: 'row',
-    gap: Spacing.two,
-  },
-});

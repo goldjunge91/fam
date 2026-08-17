@@ -4,13 +4,11 @@ import {
   KeyboardAvoidingView,
   Modal,
   Pressable,
-  StyleSheet,
   TextInput,
   View,
 } from 'react-native';
 
-import { FontSize, ThemedText } from '@/components/themed-text';
-import { Radius } from '@/constants/theme';
+import { ThemedText } from '@/components/themed-text';
 import { useTheme } from '@/hooks/use-theme';
 import { getRecipeRating, saveRecipeRating } from '../recipe-ratings';
 
@@ -59,57 +57,59 @@ export function RecipeRatingSheet({ recipeId, visible, onClose }: Props) {
       onRequestClose={onClose}>
       <KeyboardAvoidingView
         behavior={process.env.EXPO_OS === 'ios' ? 'padding' : undefined}
-        style={styles.keyboardView}>
-        <Pressable style={styles.backdrop} onPress={onClose}>
-          <Pressable
-            style={[styles.sheet, { backgroundColor: theme.backgroundElement }]}
-            onPress={(event) => event.stopPropagation()}>
-            <View style={[styles.handle, { backgroundColor: theme.border }]} />
-            <View style={styles.header}>
-              <ThemedText style={styles.title}>Rezept bewerten</ThemedText>
+        className="flex-1">
+        <Pressable className="flex-1 justify-end bg-[#261f27]/30" onPress={onClose}>
+          <Pressable className="recipe-rating-sheet" onPress={(event) => event.stopPropagation()}>
+            <View className="modal-handle" />
+            <View className="min-h-[58px] pt-[13px] flex-row items-center justify-between gap-three">
+              <ThemedText type="headingSmall" className="flex-1">
+                Rezept bewerten
+              </ThemedText>
               <Pressable
                 onPress={onClose}
                 role="button"
                 aria-label="Schließen"
-                style={[styles.close, { backgroundColor: theme.backgroundSelected }]}>
-                <ThemedText themeColor="accent" style={styles.closeText}>
+                className="w-8 h-8 rounded-control items-center justify-center bg-background-selected">
+                <ThemedText themeColor="accent" className="text-[18px] leading-[20px] font-medium">
                   ×
                 </ThemedText>
               </Pressable>
             </View>
-            <ThemedText themeColor="textSecondary" style={styles.description}>
+            <ThemedText type="detail" themeColor="textSecondary" className="font-medium">
               Wie hat dir das Rezept gefallen?
             </ThemedText>
 
-            <View style={styles.scoreGrid}>
-              {Array.from({ length: 10 }, (_, index) => index + 1).map((value) => (
-                <Pressable
-                  key={value}
-                  onPress={() => setScore(value)}
-                  role="button"
-                  aria-label={`${value} von 10 Sternen`}
-                  accessibilityState={{ selected: score === value }}
-                  style={[
-                    styles.scoreButton,
-                    {
-                      backgroundColor: score === value ? theme.accent : theme.backgroundSelected,
-                    },
-                  ]}>
-                  <ThemedText
-                    style={[styles.star, { color: score === value ? '#FFFFFF' : theme.accent }]}>
-                    ★
-                  </ThemedText>
-                  <ThemedText
-                    style={[
-                      styles.scoreNumber,
-                      { color: score === value ? '#FFFFFF' : theme.textSecondary },
-                    ]}>
-                    {value}
-                  </ThemedText>
-                </Pressable>
-              ))}
+            <View className="flex-row flex-wrap gap-[7px] pt-[14px]">
+              {Array.from({ length: 10 }, (_, index) => index + 1).map((value) => {
+                const isSelected = score === value;
+                return (
+                  <Pressable
+                    key={value}
+                    onPress={() => setScore(value)}
+                    role="button"
+                    aria-label={`${value} von 10 Sternen`}
+                    accessibilityState={{ selected: isSelected }}
+                    className={`recipe-score-btn ${
+                      isSelected ? 'bg-accent' : 'bg-background-selected'
+                    }`}>
+                    <ThemedText
+                      className={`text-[14px] leading-[17px] ${
+                        isSelected ? 'text-white' : 'text-accent'
+                      }`}>
+                      ★
+                    </ThemedText>
+                    <ThemedText
+                      type="detail"
+                      className={`text-[9px] leading-[11px] font-bold ${
+                        isSelected ? 'text-white' : 'text-text-secondary'
+                      }`}>
+                      {value}
+                    </ThemedText>
+                  </Pressable>
+                );
+              })}
             </View>
-            <ThemedText themeColor="accent" style={styles.scoreLabel}>
+            <ThemedText type="detail" themeColor="accent" className="pt-[10px] font-bold">
               {score > 0 ? `${score} / 10` : 'Noch keine Bewertung gewählt'}
             </ThemedText>
 
@@ -121,30 +121,20 @@ export function RecipeRatingSheet({ recipeId, visible, onClose }: Props) {
               multiline
               maxLength={500}
               textAlignVertical="top"
-              style={[
-                styles.input,
-                {
-                  color: theme.text,
-                  backgroundColor: theme.backgroundSelected,
-                  borderColor: theme.border,
-                },
-              ]}
+              className="recipe-rating-input"
             />
 
             <Pressable
               onPress={submit}
               disabled={score === 0 || saving}
               role="button"
-              style={({ pressed }) => [
-                styles.submit,
-                { backgroundColor: theme.accent },
-                (score === 0 || saving) && styles.disabled,
-                pressed && styles.pressed,
-              ]}>
+              className={`h-12 mt-[14px] rounded-card items-center justify-center bg-accent active:opacity-75 ${
+                score === 0 || saving ? 'opacity-45' : ''
+              }`}>
               {saving ? (
                 <ActivityIndicator color="#FFFFFF" />
               ) : (
-                <ThemedText type="captionCompact" style={styles.submitText}>
+                <ThemedText type="captionCompact" className="text-white font-bold">
                   Bewertung speichern
                 </ThemedText>
               )}
@@ -155,74 +145,3 @@ export function RecipeRatingSheet({ recipeId, visible, onClose }: Props) {
     </Modal>
   );
 }
-
-const styles = StyleSheet.create({
-  keyboardView: { flex: 1 },
-  backdrop: { flex: 1, justifyContent: 'flex-end', backgroundColor: 'rgba(38,31,39,0.30)' },
-  sheet: {
-    borderTopLeftRadius: Radius.large,
-    borderTopRightRadius: Radius.large,
-    borderCurve: 'continuous',
-    paddingHorizontal: 16,
-    paddingTop: 10,
-    paddingBottom: 19,
-  },
-  handle: { width: 38, height: 4, borderRadius: Radius.hairline, alignSelf: 'center' },
-  header: {
-    minHeight: 58,
-    paddingTop: 13,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    gap: 12,
-  },
-  title: { flex: 1, ...FontSize[18], lineHeight: 22, fontWeight: 700, letterSpacing: -0.4 },
-  close: {
-    width: 32,
-    height: 32,
-    borderRadius: Radius.control,
-    borderCurve: 'continuous',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  closeText: { ...FontSize[18], lineHeight: 20, fontWeight: 500 },
-  description: { ...FontSize[10], lineHeight: 14, fontWeight: 500 },
-  scoreGrid: { flexDirection: 'row', flexWrap: 'wrap', gap: 7, paddingTop: 14 },
-  scoreButton: {
-    width: '18%',
-    minWidth: 52,
-    flexGrow: 1,
-    height: 50,
-    borderRadius: Radius.controlLarge,
-    borderCurve: 'continuous',
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    gap: 4,
-  },
-  star: { ...FontSize[14], lineHeight: 17 },
-  scoreNumber: { ...FontSize[9], lineHeight: 11, fontWeight: 700 },
-  scoreLabel: { paddingTop: 10, ...FontSize[10], lineHeight: 13, fontWeight: 700 },
-  input: {
-    minHeight: 92,
-    marginTop: 12,
-    paddingHorizontal: 12,
-    paddingVertical: 11,
-    borderWidth: StyleSheet.hairlineWidth,
-    borderRadius: Radius.card,
-    borderCurve: 'continuous',
-    ...FontSize[11],
-    lineHeight: 16,
-  },
-  submit: {
-    height: 48,
-    marginTop: 14,
-    borderRadius: Radius.card,
-    borderCurve: 'continuous',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  submitText: { color: '#FFFFFF', ...FontSize[11], lineHeight: 14, fontWeight: 700 },
-  disabled: { opacity: 0.45 },
-  pressed: { opacity: 0.75, transform: [{ scale: 0.99 }] },
-});

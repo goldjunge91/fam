@@ -1,12 +1,10 @@
 import { useMemo, useState } from 'react';
-import { FlatList, Modal, Platform, Pressable, StyleSheet, View } from 'react-native';
+import { FlatList, Modal, Platform, Pressable, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { TextField } from '@/components/text-field';
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
-import { Radius, Spacing } from '@/constants/theme';
-import { useTheme } from '@/hooks/use-theme';
 import type { DraggableRecipe } from './week-grid';
 
 type RecipePickerModalProps = {
@@ -29,7 +27,6 @@ export function RecipePickerModal({
   onDismiss,
   onSelect,
 }: RecipePickerModalProps) {
-  const theme = useTheme();
   const [query, setQuery] = useState('');
 
   const filtered = useMemo(() => {
@@ -44,15 +41,15 @@ export function RecipePickerModal({
       animationType="slide"
       presentationStyle={Platform.OS === 'ios' ? 'pageSheet' : undefined}
       onRequestClose={onDismiss}>
-      <ThemedView style={styles.root}>
-        <SafeAreaView style={styles.safeArea} edges={['top', 'left', 'right', 'bottom']}>
-          <View style={styles.header}>
+      <ThemedView className="rpm-root">
+        <SafeAreaView className="rpm-safe-area" edges={['top', 'left', 'right', 'bottom']}>
+          <View className="rpm-header">
             <ThemedText type="subtitle">Rezept auswählen</ThemedText>
             <Pressable
               onPress={onDismiss}
               accessibilityRole="button"
               accessibilityLabel="Schließen"
-              style={[styles.closeButton, { backgroundColor: theme.backgroundElement }]}>
+              className="rpm-close-button">
               <ThemedText>✕</ThemedText>
             </Pressable>
           </View>
@@ -65,7 +62,7 @@ export function RecipePickerModal({
           />
 
           {filtered.length === 0 ? (
-            <ThemedText type="small" themeColor="textSecondary" style={styles.empty}>
+            <ThemedText type="small" themeColor="textSecondary" className="rpm-empty">
               {recipes.length === 0
                 ? 'Noch keine Rezepte vorhanden. Lege zuerst ein Rezept an.'
                 : 'Kein Rezept gefunden.'}
@@ -74,13 +71,13 @@ export function RecipePickerModal({
             <FlatList
               data={filtered}
               keyExtractor={(item) => item.id}
-              contentContainerStyle={styles.list}
+              contentContainerClassName="rpm-list"
               renderItem={({ item }) => (
                 <Pressable
                   accessibilityRole="button"
                   accessibilityLabel={`${item.title} eintragen`}
                   onPress={() => onSelect(item)}
-                  style={[styles.recipeRow, { borderBottomColor: theme.border }]}>
+                  className="rpm-recipe-row">
                   <ThemedText>{item.title}</ThemedText>
                 </Pressable>
               )}
@@ -91,27 +88,3 @@ export function RecipePickerModal({
     </Modal>
   );
 }
-
-const styles = StyleSheet.create({
-  root: { flex: 1 },
-  safeArea: { flex: 1, paddingHorizontal: Spacing.four },
-  header: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    paddingVertical: Spacing.three,
-  },
-  closeButton: {
-    width: 32,
-    height: 32,
-    borderRadius: Radius.card,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  empty: { textAlign: 'center', marginTop: Spacing.five },
-  list: { paddingVertical: Spacing.two },
-  recipeRow: {
-    paddingVertical: Spacing.three,
-    borderBottomWidth: StyleSheet.hairlineWidth,
-  },
-});

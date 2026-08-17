@@ -1,9 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
-import { Pressable, ScrollView, StyleSheet, View } from 'react-native';
+import { Pressable, ScrollView, View } from 'react-native';
 
 import { ThemedText } from '@/components/themed-text';
-import { Radius, Spacing } from '@/constants/theme';
-import { useTheme } from '@/hooks/use-theme';
 import { getDatabase } from '@/lib/db/client';
 import {
   getFrequentProductUsage,
@@ -58,8 +56,6 @@ export function FrequentProductsQuickSelect({
   userId,
   onSelectProduct,
 }: FrequentProductsQuickSelectProps) {
-  const theme = useTheme();
-
   const { data: rows = [] } = useQuery({
     queryKey: ['product_usage', 'frequent', feature, userId],
     queryFn: async () => {
@@ -73,19 +69,16 @@ export function FrequentProductsQuickSelect({
   if (ranked.length === 0) return null;
 
   return (
-    <View style={styles.container}>
-      <ThemedText type="small" themeColor="textSecondary" style={styles.label}>
+    <View className="gap-one">
+      <ThemedText type="small" themeColor="textSecondary" className="ml-[2px]">
         Häufig verwendet
       </ThemedText>
-      <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.row}>
+      <ScrollView horizontal showsHorizontalScrollIndicator={false} className="flex-row">
         {ranked.map((row) => (
           <Pressable
             key={row.name.toLowerCase()}
             onPress={() => onSelectProduct(toOpenFoodFactsProduct(row))}
-            style={[
-              styles.chip,
-              { backgroundColor: theme.backgroundElement, borderColor: theme.border },
-            ]}>
+            className="frequent-products-chip">
             <ThemedText type="small" numberOfLines={1}>
               {row.name}
             </ThemedText>
@@ -95,23 +88,3 @@ export function FrequentProductsQuickSelect({
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    gap: Spacing.one,
-  },
-  label: {
-    marginLeft: 2,
-  },
-  row: {
-    flexDirection: 'row',
-  },
-  chip: {
-    borderRadius: Radius.card,
-    borderWidth: 1,
-    paddingHorizontal: Spacing.two,
-    paddingVertical: Spacing.one,
-    marginRight: Spacing.one,
-    maxWidth: 160,
-  },
-});

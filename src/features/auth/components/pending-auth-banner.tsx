@@ -1,9 +1,8 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
-import { Animated, Easing, StyleSheet, View } from 'react-native';
+import { Animated, Easing, View } from 'react-native';
 import { TextField } from '@/components/text-field';
-import { FontSize, ThemedText } from '@/components/themed-text';
+import { ThemedText } from '@/components/themed-text';
 import { Button } from '@/components/ui/buttons';
-import { Radius, Spacing } from '@/constants/theme';
 import {
   authErrorMessage,
   confirmSignUpWithCode,
@@ -12,7 +11,6 @@ import {
   signOut,
 } from '@/features/auth/api';
 import { confirmationCodeSchema } from '@/features/auth/auth-schemas';
-import { useTheme } from '@/hooks/use-theme';
 import { clearAuthDeepLinkError, subscribeAuthDeepLinkError } from '@/lib/auth-deep-link-state';
 import { getSupabase } from '@/lib/supabase';
 
@@ -34,7 +32,6 @@ export function PendingAuthBanner({
   onChangeEmail,
   password,
 }: PendingAuthBannerProps) {
-  const theme = useTheme();
   const [resending, setResending] = useState(false);
   const [resendStatus, setResendStatus] = useState<string | null>(null);
   const [resendFailed, setResendFailed] = useState(false);
@@ -334,60 +331,42 @@ export function PendingAuthBanner({
   }
 
   return (
-    <View
-      style={[
-        styles.glassCard,
-        {
-          backgroundColor: theme.backgroundElement,
-          borderColor: theme.border,
-        },
-      ]}>
+    <View className="pending-card">
       {/* Liquid Pulse Hero Badge */}
-      <View style={styles.heroContainer}>
+      <View className="hero-container">
+        {/* transform/opacity sind Animated.Value — echte Laufzeitwerte,
+            koennen nicht als className ausgedrueckt werden. */}
         <Animated.View
-          style={[
-            styles.pulseRing,
-            {
-              backgroundColor: theme.accent,
-              transform: [{ scale: pulseAnim }],
-              opacity: pulseOpacity,
-            },
-          ]}
+          className="pulse-ring"
+          style={{ transform: [{ scale: pulseAnim }], opacity: pulseOpacity }}
         />
-        <View
-          style={[
-            styles.iconCircle,
-            { backgroundColor: theme.accent, shadowColor: theme.shadowCard },
-          ]}>
-          <ThemedText style={styles.iconSymbol}>✉️</ThemedText>
+        <View className="icon-circle">
+          <ThemedText type="controlActionLarge">✉️</ThemedText>
         </View>
       </View>
 
       {/* Live Status Header */}
-      <View style={styles.headerRow}>
-        <Animated.View
-          style={[styles.liveDot, { backgroundColor: '#F59E0B', opacity: liveDotAnim }]}
-        />
-        <ThemedText type="subtitle" style={styles.titleText}>
-          Bestätigung ausstehend
-        </ThemedText>
+      <View className="row-center">
+        {/* opacity ist Animated.Value — echter Laufzeitwert. */}
+        <Animated.View className="live-dot" style={{ opacity: liveDotAnim }} />
+        <ThemedText className="pending-title">Bestätigung ausstehend</ThemedText>
       </View>
 
       {/* Email Capsule Badge */}
-      <View style={[styles.emailCapsule, { backgroundColor: theme.backgroundSelected }]}>
-        <ThemedText type="smallBold" style={{ color: theme.accent }}>
+      <View className="email-capsule">
+        <ThemedText type="smallBold" themeColor="accent">
           {email}
         </ThemedText>
       </View>
 
       {/* Description */}
-      <ThemedText type="small" themeColor="textSecondary" style={styles.descriptionText}>
+      <ThemedText type="smallMuted" className="pending-description">
         Wir haben dir eine E-Mail geschickt. Klick den Link darin — egal auf welchem Gerät, die App
         merkt das von selbst und geht weiter. Oder gib den 6-stelligen Code aus der E-Mail hier ein.
       </ThemedText>
 
       {/* Code-Eingabe: der verlaessliche Bestaetigungsweg */}
-      <View style={styles.codeBlock}>
+      <View className="code-block">
         <TextField
           testID="pending-auth-code"
           label="Code aus der E-Mail"
@@ -406,7 +385,7 @@ export function PendingAuthBanner({
           textContentType="oneTimeCode"
           returnKeyType="go"
           onSubmitEditing={handleConfirmCode}
-          style={styles.codeInput}
+          className="code-input"
         />
 
         <Button
@@ -418,16 +397,13 @@ export function PendingAuthBanner({
       </View>
 
       {resendStatus && (
-        <ThemedText
-          type="small"
-          themeColor={resendFailed ? 'danger' : 'textSecondary'}
-          style={{ textAlign: 'center' }}>
+        <ThemedText type={resendFailed ? 'smallDanger' : 'smallMuted'} className="text-center">
           {resendStatus}
         </ThemedText>
       )}
 
       {/* Liquid Action Buttons */}
-      <View style={styles.actions}>
+      <View className="action-list">
         <Button
           label={
             cooldown > 0 ? `Erneut senden (${cooldown}s)` : 'Bestätigungs-E-Mail erneut senden'
@@ -458,78 +434,3 @@ export function PendingAuthBanner({
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  glassCard: {
-    borderRadius: Radius.sheet,
-    borderWidth: 1,
-    padding: Spacing.four,
-    gap: Spacing.three,
-    alignItems: 'center',
-  },
-  heroContainer: {
-    width: 64,
-    height: 64,
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginVertical: Spacing.one,
-  },
-  pulseRing: {
-    position: 'absolute',
-    width: 64,
-    height: 64,
-    borderRadius: Radius.pill,
-  },
-  iconCircle: {
-    width: 48,
-    height: 48,
-    borderRadius: Radius.large,
-    justifyContent: 'center',
-    alignItems: 'center',
-    elevation: 3,
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.25,
-    shadowRadius: 4,
-  },
-  iconSymbol: {
-    ...FontSize[22],
-  },
-  headerRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: Spacing.two,
-  },
-  liveDot: {
-    width: 8,
-    height: 8,
-    borderRadius: Radius.xs,
-  },
-  titleText: {
-    ...FontSize[18],
-    fontWeight: '700',
-  },
-  emailCapsule: {
-    paddingHorizontal: Spacing.three,
-    paddingVertical: Spacing.one,
-    borderRadius: Radius.card,
-  },
-  descriptionText: {
-    textAlign: 'center',
-    lineHeight: 20,
-    paddingHorizontal: Spacing.two,
-  },
-  codeBlock: {
-    width: '100%',
-    gap: Spacing.two,
-  },
-  codeInput: {
-    textAlign: 'center',
-    ...FontSize[24],
-    letterSpacing: 8,
-  },
-  actions: {
-    width: '100%',
-    gap: Spacing.two,
-    marginTop: Spacing.one,
-  },
-});

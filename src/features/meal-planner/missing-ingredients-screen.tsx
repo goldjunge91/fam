@@ -1,16 +1,14 @@
 import { useLocalSearchParams } from 'expo-router';
 import { useEffect, useState } from 'react';
-import { ActivityIndicator, Alert, Pressable, StyleSheet, View } from 'react-native';
+import { ActivityIndicator, Alert, Pressable, View } from 'react-native';
 import { Screen } from '@/components/screen';
 import { ThemedText } from '@/components/themed-text';
 import { Button } from '@/components/ui/buttons';
-import { Radius, Spacing } from '@/constants/theme';
 import { useSession } from '@/features/auth/session-provider';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { presentPaywallIfNeeded } from '@/features/premium/paywall';
 import { usePremium } from '@/features/premium/premium-provider';
 import { useAddShoppingItem } from '@/features/shopping-list/use-shopping-list-mutations';
-import { useTheme } from '@/hooks/use-theme';
 import { type MissingIngredientView, useMealPlanShoppingNeeds } from './use-shopping-needs';
 
 // Stabile Referenz statt Inline-`= []`: `EMPTY_MISSING` bleibt beim naechsten
@@ -102,7 +100,7 @@ export function MissingIngredientsScreen() {
       subtitle="Bedarf dieser Woche minus Vorrat"
       back={{ label: 'Wochenplan' }}>
       {!isPremium ? (
-        <View style={styles.list}>
+        <View className="mis-list">
           <ThemedText themeColor="textSecondary">
             fam vergleicht den Bedarf des ganzen Wochenplans mit eurem Vorrat und übernimmt nur
             Fehlendes in die Einkaufsliste.
@@ -110,13 +108,13 @@ export function MissingIngredientsScreen() {
           <Button label="Premium ansehen" onPress={unlockPremium} loading={unlocking} />
         </View>
       ) : isLoading ? (
-        <ActivityIndicator style={styles.loading} />
+        <ActivityIndicator className="mis-loading" />
       ) : missing.length === 0 ? (
         <ThemedText themeColor="textSecondary">
           Für die geplanten Rezepte fehlt nichts – der Vorrat reicht.
         </ThemedText>
       ) : (
-        <View style={styles.list}>
+        <View className="mis-list">
           {missing.map((item) => (
             <IngredientRow
               key={item.productId}
@@ -153,23 +151,17 @@ function IngredientRow({
   selected: boolean;
   onToggle: () => void;
 }) {
-  const theme = useTheme();
-
   return (
     <Pressable
       accessibilityRole="checkbox"
       accessibilityState={{ checked: selected }}
       accessibilityLabel={item.name}
       onPress={onToggle}
-      style={[styles.row, { backgroundColor: theme.backgroundElement }]}>
-      <View
-        style={[
-          styles.checkbox,
-          { borderColor: theme.accent, backgroundColor: selected ? theme.accent : 'transparent' },
-        ]}>
-        {selected ? <ThemedText style={{ color: '#ffffff' }}>✓</ThemedText> : null}
+      className="mis-row">
+      <View className={`mis-checkbox ${selected ? 'bg-accent' : 'bg-transparent'}`}>
+        {selected ? <ThemedText themeColor="onAccent">✓</ThemedText> : null}
       </View>
-      <View style={styles.rowText}>
+      <View className="mis-row-text">
         <ThemedText type="smallBold">{item.name}</ThemedText>
         <ThemedText type="small" themeColor="textSecondary">
           {item.missingGrams} g fehlen
@@ -184,24 +176,3 @@ function IngredientRow({
     </Pressable>
   );
 }
-
-const styles = StyleSheet.create({
-  loading: { marginTop: Spacing.five },
-  list: { gap: Spacing.two },
-  row: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: Spacing.two,
-    padding: Spacing.two,
-    borderRadius: Radius.control,
-  },
-  checkbox: {
-    width: 24,
-    height: 24,
-    borderRadius: Radius.sm,
-    borderWidth: 2,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  rowText: { flex: 1, gap: 2 },
-});

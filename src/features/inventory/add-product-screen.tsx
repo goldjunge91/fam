@@ -1,10 +1,9 @@
 import { router, useLocalSearchParams } from 'expo-router';
 import { useState } from 'react';
-import { Alert, StyleSheet, View } from 'react-native';
+import { Alert, View } from 'react-native';
 import { Screen } from '@/components/screen';
 import { TextField } from '@/components/text-field';
 import { Button } from '@/components/ui/buttons';
-import { Spacing } from '@/constants/theme';
 import { useSession } from '@/features/auth/session-provider';
 import { setPendingProductSelection } from '@/features/inventory/pending-product-selection';
 import { useAddProductMutation } from '@/features/inventory/use-product-mutations';
@@ -69,7 +68,7 @@ export function AddProductScreen() {
 
   return (
     <Screen title="Produkt anlegen" back={{ label: 'Abbrechen' }}>
-      <View style={styles.form}>
+      <View className="gap-three mt-three">
         <TextField
           label="Name"
           placeholder="z. B. Tomaten (lose)"
@@ -78,8 +77,8 @@ export function AddProductScreen() {
         />
         <TextField label="Marke (optional)" value={brand} onChangeText={setBrand} />
 
-        <View style={styles.row}>
-          <View style={styles.flex}>
+        <View className="flex-row gap-four">
+          <View className="flex-1">
             <TextField
               label="kcal pro 100g"
               value={kcalInput}
@@ -87,7 +86,7 @@ export function AddProductScreen() {
               keyboardType="numeric"
             />
           </View>
-          <View style={styles.flex}>
+          <View className="flex-1">
             <TextField
               label="Kohlenhydrate pro 100g"
               value={carbsInput}
@@ -96,8 +95,8 @@ export function AddProductScreen() {
             />
           </View>
         </View>
-        <View style={styles.row}>
-          <View style={styles.flex}>
+        <View className="flex-row gap-four">
+          <View className="flex-1">
             <TextField
               label="Eiweiß pro 100g"
               value={proteinInput}
@@ -105,7 +104,7 @@ export function AddProductScreen() {
               keyboardType="numeric"
             />
           </View>
-          <View style={styles.flex}>
+          <View className="flex-1">
             <TextField
               label="Fett pro 100g"
               value={fatInput}
@@ -123,7 +122,7 @@ export function AddProductScreen() {
           keyboardType="numeric"
         />
 
-        <View style={styles.saveButton}>
+        <View className="mt-three">
           <Button
             label="Speichern"
             onPress={handleSave}
@@ -136,20 +135,3 @@ export function AddProductScreen() {
     </Screen>
   );
 }
-
-const styles = StyleSheet.create({
-  form: {
-    gap: Spacing.three,
-    marginTop: Spacing.three,
-  },
-  row: {
-    flexDirection: 'row',
-    gap: Spacing.four,
-  },
-  flex: {
-    flex: 1,
-  },
-  saveButton: {
-    marginTop: Spacing.three,
-  },
-});

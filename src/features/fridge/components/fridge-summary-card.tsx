@@ -1,8 +1,8 @@
-import { StyleSheet, View } from 'react-native';
+import { View } from 'react-native';
 import Svg, { Circle } from 'react-native-svg';
 
-import { FontSize, ThemedText } from '@/components/themed-text';
-import { Radius, withAlpha } from '@/constants/theme';
+import { ThemedText } from '@/components/themed-text';
+import { withAlpha } from '@/constants/theme';
 import { useTheme } from '@/hooks/use-theme';
 
 type FridgeSummaryCardProps = {
@@ -45,14 +45,14 @@ export function FridgeSummaryCard({
     <View
       accessible
       aria-label={`${totalCount} Artikel im Vorrat, ${criticalCount} kritisch, ${soonCount} bald fällig`}
-      style={[
-        styles.card,
-        {
-          backgroundColor: `${theme.backgroundElement}E8`,
-          boxShadow: `0 12px 30px ${withAlpha(theme.shadowCard, 0.12)}`,
-        },
-      ]}>
-      <View style={styles.ringWrap}>
+      className="fridge-summary-card"
+      // boxShadow (dynamische Opazitaet) und borderCurve (kein Tailwind-
+      // Aequivalent) sind Ausnahmen.
+      style={{
+        boxShadow: `0 12px 30px ${withAlpha(theme.shadowCard, 0.12)}`,
+        borderCurve: 'continuous',
+      }}>
+      <View className="fridge-summary-ring-wrap">
         <Svg width={RING_SIZE} height={RING_SIZE}>
           <Circle
             cx={RING_SIZE / 2}
@@ -82,19 +82,24 @@ export function FridgeSummaryCard({
           })}
         </Svg>
 
-        <View style={styles.ringCenter} pointerEvents="none">
-          <ThemedText style={styles.totalCount}>{totalCount}</ThemedText>
+        <View className="fridge-summary-ring-center" pointerEvents="none">
+          {/* fontVariant hat keine Tailwind-Entsprechung. */}
+          <ThemedText
+            className="fridge-summary-total-count"
+            style={{ fontVariant: ['tabular-nums'] }}>
+            {totalCount}
+          </ThemedText>
           <ThemedText type="small" themeColor="textSecondary">
             Artikel
           </ThemedText>
         </View>
       </View>
 
-      <View style={styles.copy}>
+      <View className="fridge-summary-copy">
         <ThemedText type="small" themeColor="textSecondary">
           Dein Vorrat heute
         </ThemedText>
-        <ThemedText style={styles.headline}>{headline}</ThemedText>
+        <ThemedText className="fridge-summary-headline">{headline}</ThemedText>
         <ThemedText type="small" themeColor={criticalCount > 0 ? 'danger' : 'success'}>
           {criticalCount > 0 ? 'Zuerst verbrauchen' : 'Vorrat gut verteilt'}
         </ThemedText>
@@ -102,48 +107,3 @@ export function FridgeSummaryCard({
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  card: {
-    minHeight: 178,
-    // Gleicher Radius wie components/card.tsx — beides "surface-elevated"-Flaechen.
-    borderRadius: Radius.large,
-    borderCurve: 'continuous',
-    paddingHorizontal: 18,
-    paddingVertical: 24,
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 22,
-  },
-  ringWrap: {
-    width: RING_SIZE,
-    height: RING_SIZE,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  ringCenter: {
-    position: 'absolute',
-    top: 0,
-    right: 0,
-    bottom: 0,
-    left: 0,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  totalCount: {
-    ...FontSize[24],
-    lineHeight: 28,
-    fontWeight: '500',
-    fontVariant: ['tabular-nums'],
-  },
-  copy: {
-    flex: 1,
-    gap: 6,
-  },
-  headline: {
-    ...FontSize[24],
-    lineHeight: 29,
-    fontWeight: '500',
-    letterSpacing: -0.5,
-  },
-});

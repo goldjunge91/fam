@@ -1,8 +1,8 @@
 import type { ReactNode } from 'react';
-import { ScrollView, StyleSheet, View } from 'react-native';
-import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
+import { ScrollView, View } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { GradientBackground } from '@/components/gradient-background';
-import { FontSize, ThemedText } from '@/components/themed-text';
+import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
 import {
   AutoBackButton,
@@ -11,7 +11,7 @@ import {
   MenuButton,
   ProfileButton,
 } from '@/components/ui/buttons';
-import { type GradientSpec, Layout, MaxContentWidth, Spacing } from '@/constants/theme';
+import type { GradientSpec } from '@/constants/theme';
 
 export type { BackTarget } from '@/components/ui/buttons';
 
@@ -89,19 +89,13 @@ export function Screen({
   chrome,
   backgroundGradient,
 }: ScreenProps) {
-  const insets = useSafeAreaInsets();
-  const body = <View style={styles.body}>{children}</View>;
-
-  // Nur Hub-Screens (chrome gesetzt) haben den schwebenden Plus-Button unten
-  // im Weg — alle anderen Screens brauchen nur noch die normale Safe Area.
-  const bottomPadding =
-    insets.bottom + Spacing.four + (chrome ? Layout.floatingActionClearance : 0);
+  const body = <View className="gap-three">{children}</View>;
 
   return (
-    <ThemedView style={styles.root}>
+    <ThemedView className="flex-1">
       {backgroundGradient ? <GradientBackground {...backgroundGradient} /> : null}
       <SafeAreaView
-        style={[styles.safeArea, chrome && styles.chromeSafeArea]}
+        className={`screen-body ${chrome ? 'px-[21px]' : 'px-three'}`}
         edges={['top', 'left', 'right']}>
         {chrome ? null : back ? (
           back.href ? (
@@ -116,28 +110,33 @@ export function Screen({
         ) : null}
 
         {chrome ? (
-          <View style={styles.chromeHeader}>
+          <View className="flex-row items-center justify-between gap-two h-[94px] pt-[13px] pb-[23px]">
             <MenuButton onPress={chrome.onMenuPress} />
 
-            <View style={styles.chromeTitleWrap}>
+            <View className="flex-1 items-center gap-[2px]">
               {subtitle ? (
-                <ThemedText type="small" themeColor="textSecondary" style={styles.chromeSubtitle}>
+                <ThemedText
+                  type="small"
+                  themeColor="textSecondary"
+                  className="text-center text-detail leading-[16px] font-normal">
                   {subtitle}
                 </ThemedText>
               ) : null}
-              <ThemedText type="subtitle" style={styles.chromeTitle}>
+              <ThemedText
+                type="subtitle"
+                className="text-center text-[23px] leading-[28px] font-medium tracking-[-0.5px]">
                 {title}
               </ThemedText>
             </View>
 
-            <View style={styles.chromeActions}>
+            <View className="flex-row items-center gap-one">
               {chrome.trailing}
               <ProfileButton initials={chrome.initials} onPress={chrome.onAvatarPress} />
             </View>
           </View>
         ) : (
-          <View style={styles.header}>
-            <View style={styles.headerText}>
+          <View className="flex-row items-center justify-between gap-three pt-three pb-four">
+            <View className="shrink gap-half">
               <ThemedText type="subtitle">{title}</ThemedText>
               {subtitle ? (
                 <ThemedText type="small" themeColor="textSecondary">
@@ -151,19 +150,17 @@ export function Screen({
 
         {scroll ? (
           <ScrollView
-            contentContainerStyle={
-              applyBottomPadding ? { paddingBottom: bottomPadding } : undefined
+            contentContainerClassName={
+              applyBottomPadding ? (chrome ? 'pb-action-area' : 'pb-six') : undefined
             }
             showsVerticalScrollIndicator={false}>
             {body}
           </ScrollView>
         ) : (
           <View
-            style={[
-              styles.body,
-              { flex: 1 },
-              applyBottomPadding && { paddingBottom: bottomPadding },
-            ]}>
+            className={`gap-three flex-1 ${
+              applyBottomPadding ? (chrome ? 'pb-action-area' : 'pb-six') : ''
+            }`.trim()}>
             {children}
           </View>
         )}
@@ -171,66 +168,3 @@ export function Screen({
     </ThemedView>
   );
 }
-
-const styles = StyleSheet.create({
-  root: {
-    flex: 1,
-  },
-  safeArea: {
-    flex: 1,
-    width: '100%',
-    maxWidth: MaxContentWidth,
-    alignSelf: 'center',
-    paddingHorizontal: Spacing.three,
-  },
-  chromeSafeArea: {
-    paddingHorizontal: 21,
-  },
-  header: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    gap: Spacing.three,
-    paddingTop: Spacing.three,
-    paddingBottom: Spacing.four,
-  },
-  headerText: {
-    flexShrink: 1,
-    gap: Spacing.half,
-  },
-  chromeHeader: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    gap: Spacing.two,
-    height: 94,
-    paddingTop: 13,
-    paddingBottom: 23,
-  },
-  chromeTitleWrap: {
-    flex: 1,
-    alignItems: 'center',
-    gap: 2,
-  },
-  chromeTitle: {
-    textAlign: 'center',
-    ...FontSize[23],
-    lineHeight: 28,
-    fontWeight: '500',
-    letterSpacing: -0.5,
-  },
-  chromeActions: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: Spacing.one,
-  },
-  chromeSubtitle: {
-    textAlign: 'center',
-    ...FontSize[12],
-    lineHeight: 16,
-    fontWeight: '400',
-  },
-  body: {
-    gap: Spacing.three,
-  },
-});

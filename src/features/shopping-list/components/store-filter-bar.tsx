@@ -1,7 +1,6 @@
-import { Pressable, ScrollView, StyleSheet, View } from 'react-native';
+import { Pressable, ScrollView, View } from 'react-native';
 
-import { FontSize, ThemedText } from '@/components/themed-text';
-import { Radius, Spacing } from '@/constants/theme';
+import { ThemedText } from '@/components/themed-text';
 import { useTheme } from '@/hooks/use-theme';
 import type { Store } from '../use-stores';
 
@@ -25,25 +24,25 @@ function FilterChip({ label, count, isActive, tint, activeTextColor, onPress }: 
       onPress={onPress}
       accessibilityRole="tab"
       accessibilityState={{ selected: isActive }}
-      style={[styles.chip, { backgroundColor: isActive ? tint : `${tint}22` }]}>
+      className="store-filter-chip"
+      // Dynamische Markt-Farbe aus der Datenbank
+      style={{ backgroundColor: isActive ? tint : `${tint}22` }}>
       <ThemedText
-        type="small"
-        style={{ color: isActive ? activeTextColor : tint, fontWeight: isActive ? '700' : '500' }}>
+        type={isActive ? 'smallBold' : 'small'}
+        // Dynamische Textfarbe passend zur Markt-Farbe
+        style={{ color: isActive ? activeTextColor : tint }}>
         {label}
       </ThemedText>
       {count > 0 && (
         <View
-          style={[
-            styles.badge,
-            { backgroundColor: isActive ? `${activeTextColor}33` : `${tint}33` },
-          ]}>
+          className="store-filter-badge"
+          // Dynamische Badge-Farbe passend zur Markt-Farbe
+          style={{ backgroundColor: isActive ? `${activeTextColor}33` : `${tint}33` }}>
           <ThemedText
-            type="small"
-            style={{
-              color: isActive ? activeTextColor : tint,
-              fontWeight: '700',
-              ...FontSize[11],
-            }}>
+            type="captionCompact"
+            className="font-bold"
+            // Dynamische Textfarbe passend zur Markt-Farbe
+            style={{ color: isActive ? activeTextColor : tint }}>
             {count}
           </ThemedText>
         </View>
@@ -81,7 +80,7 @@ export function StoreFilterBar({
     <ScrollView
       horizontal
       showsHorizontalScrollIndicator={false}
-      contentContainerStyle={styles.tabBar}>
+      contentContainerClassName="flex-row gap-two py-one">
       <FilterChip
         label="Alle Listen"
         count={totalCount}
@@ -116,27 +115,3 @@ export function StoreFilterBar({
     </ScrollView>
   );
 }
-
-const styles = StyleSheet.create({
-  tabBar: {
-    flexDirection: 'row',
-    gap: Spacing.two,
-    paddingVertical: Spacing.one,
-  },
-  chip: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: Spacing.one,
-    paddingHorizontal: Spacing.three,
-    paddingVertical: Spacing.two,
-    borderRadius: Radius.sheet,
-  },
-  badge: {
-    minWidth: 18,
-    height: 18,
-    borderRadius: Radius.sm,
-    alignItems: 'center',
-    justifyContent: 'center',
-    paddingHorizontal: 4,
-  },
-});

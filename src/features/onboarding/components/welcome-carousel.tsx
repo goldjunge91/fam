@@ -1,9 +1,6 @@
 import { useState } from 'react';
-import { Pressable, StyleSheet, Text, View } from 'react-native';
-import { FontSize } from '@/components/themed-text';
+import { Pressable, Text, View } from 'react-native';
 import { Button } from '@/components/ui/buttons';
-import { Radius, Spacing } from '@/constants/theme';
-import { useTheme } from '@/hooks/use-theme';
 
 const SLIDES = [
   {
@@ -35,40 +32,31 @@ interface WelcomeCarouselProps {
 
 export function WelcomeCarousel({ onStart }: WelcomeCarouselProps) {
   const [slideIndex, setSlideIndex] = useState(0);
-  const theme = useTheme();
 
   const isLast = slideIndex === SLIDES.length - 1;
   const current = SLIDES[slideIndex];
 
   return (
-    <View style={styles.container}>
-      <View style={[styles.iconContainer, { backgroundColor: theme.backgroundElement }]}>
-        <Text style={styles.iconText}>{current.icon}</Text>
+    <View className="complete-container">
+      <View className="complete-icon-circle">
+        <Text className="complete-icon">{current.icon}</Text>
       </View>
 
-      <Text style={[styles.title, { color: theme.text }]}>{current.title}</Text>
+      <Text className="carousel-title">{current.title}</Text>
 
-      <Text style={[styles.description, { color: theme.textSecondary }]}>
-        {current.description}
-      </Text>
+      <Text className="complete-subheading">{current.description}</Text>
 
-      <View style={styles.paginationRow}>
+      <View className="pagination-row">
         {SLIDES.map((slide, idx) => (
           <Pressable
             key={slide.id}
             onPress={() => setSlideIndex(idx)}
-            style={[
-              styles.dot,
-              {
-                backgroundColor: idx === slideIndex ? theme.accent : theme.border,
-                width: idx === slideIndex ? 24 : 8,
-              },
-            ]}
+            className={`pagination-dot ${idx === slideIndex ? 'pagination-dot-active' : 'pagination-dot-idle'}`}
           />
         ))}
       </View>
 
-      <View style={styles.buttonContainer}>
+      <View className="complete-button-container">
         {isLast ? (
           <Button label="Jetzt starten" onPress={onStart} />
         ) : (
@@ -81,49 +69,3 @@ export function WelcomeCarousel({ onStart }: WelcomeCarouselProps) {
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    paddingVertical: Spacing.two,
-    alignItems: 'center',
-    gap: Spacing.three,
-  },
-  iconContainer: {
-    width: 96,
-    height: 96,
-    borderRadius: Radius.pill,
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginVertical: Spacing.two,
-  },
-  iconText: {
-    ...FontSize[52],
-    textAlign: 'center',
-  },
-  title: {
-    ...FontSize[22],
-    fontWeight: '700',
-    textAlign: 'center',
-  },
-  description: {
-    ...FontSize[15],
-    textAlign: 'center',
-    lineHeight: 22,
-    paddingHorizontal: Spacing.two,
-  },
-  paginationRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    paddingVertical: Spacing.two,
-  },
-  dot: {
-    height: 8,
-    borderRadius: Radius.xs,
-    marginHorizontal: 4,
-  },
-  buttonContainer: {
-    width: '100%',
-    marginTop: Spacing.two,
-  },
-});

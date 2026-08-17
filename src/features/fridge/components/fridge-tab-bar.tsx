@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import { Pressable, StyleSheet, View } from 'react-native';
+import { Pressable, View } from 'react-native';
 
 import { ThemedText } from '@/components/themed-text';
 import { CompactActionButton } from '@/components/ui/buttons/compact-action-button';
-import { Radius, Spacing, withAlpha } from '@/constants/theme';
+import { withAlpha } from '@/constants/theme';
 import type { StorageLocation } from '@/features/inventory/use-storage-locations';
 import { useTheme } from '@/hooks/use-theme';
 
@@ -25,7 +25,7 @@ export function FridgeTabBar({ activeTab, onTabChange, locations }: FridgeTabBar
   }
 
   return (
-    <View style={styles.container}>
+    <View className="fridge-tab-bar-container">
       <CompactActionButton
         label={activeLocation?.name ?? 'Lagerort auswählen'}
         accessibilityLabel={`Lagerort auswählen, aktuell ${activeLocation?.name ?? 'keiner'}`}
@@ -36,14 +36,15 @@ export function FridgeTabBar({ activeTab, onTabChange, locations }: FridgeTabBar
       {isOpen ? (
         <View
           accessibilityRole="menu"
-          style={[
-            styles.menu,
-            {
-              backgroundColor: theme.backgroundElement,
-              borderColor: theme.border,
-              boxShadow: `0 10px 28px ${withAlpha(theme.shadowSheet, 0.18)}`,
-            },
-          ]}>
+          className="fridge-tab-bar-menu"
+          // boxShadow (dynamische Opazitaet), borderCurve (kein Tailwind-
+          // Aequivalent) und elevation (Android-Schatten) sind echte
+          // Laufzeit-/Plattform-Werte.
+          style={{
+            boxShadow: `0 10px 28px ${withAlpha(theme.shadowSheet, 0.18)}`,
+            borderCurve: 'continuous',
+            elevation: 8,
+          }}>
           {options.map((location, index) => {
             const selected = location.id === activeTab;
             return (
@@ -53,16 +54,10 @@ export function FridgeTabBar({ activeTab, onTabChange, locations }: FridgeTabBar
                 accessibilityLabel={location.name}
                 accessibilityState={{ selected }}
                 onPress={() => selectLocation(location.id)}
-                style={({ pressed }) => [
-                  styles.option,
-                  index > 0 && {
-                    borderTopColor: theme.border,
-                    borderTopWidth: StyleSheet.hairlineWidth,
-                  },
-                  selected && { backgroundColor: theme.backgroundSelected },
-                  pressed && styles.pressed,
-                ]}>
-                <ThemedText type="default" style={selected ? styles.selectedLabel : undefined}>
+                className={`fridge-tab-bar-option ${index > 0 ? 'fridge-tab-bar-option-bordered' : ''} ${
+                  selected ? 'bg-background-selected' : ''
+                }`}>
+                <ThemedText type="default" className={selected ? 'font-bold' : ''}>
                   {location.name}
                 </ThemedText>
                 {selected ? <ThemedText themeColor="accent">✓</ThemedText> : null}
@@ -74,34 +69,3 @@ export function FridgeTabBar({ activeTab, onTabChange, locations }: FridgeTabBar
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    position: 'relative',
-    zIndex: 30,
-  },
-  menu: {
-    position: 'absolute',
-    top: 40,
-    left: 0,
-    right: 0,
-    borderWidth: StyleSheet.hairlineWidth,
-    borderRadius: Radius.controlLarge,
-    borderCurve: 'continuous',
-    overflow: 'hidden',
-    elevation: 8,
-  },
-  option: {
-    minHeight: 42,
-    paddingHorizontal: Spacing.three,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-  },
-  pressed: {
-    opacity: 0.72,
-  },
-  selectedLabel: {
-    fontWeight: 700,
-  },
-});

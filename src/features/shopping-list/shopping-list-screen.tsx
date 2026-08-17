@@ -1,13 +1,12 @@
 import { useLocalSearchParams } from 'expo-router';
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { Alert, ScrollView, SectionList, StyleSheet, View } from 'react-native';
+import { Alert, ScrollView, SectionList, View } from 'react-native';
 
 import { Card } from '@/components/card';
 import { EmptyState } from '@/components/empty-state';
 import { Screen } from '@/components/screen';
 import { ThemedText } from '@/components/themed-text';
 import { Button } from '@/components/ui/buttons';
-import { Spacing } from '@/constants/theme';
 import { useSession } from '@/features/auth/session-provider';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { useHouseholdMembers } from '@/features/household/api';
@@ -187,11 +186,11 @@ export function ShoppingListScreen() {
     <Screen title="Einkauf" subtitle={subtitleParts.join(' · ')} scroll={false} chrome={chrome}>
       <ScrollView
         ref={scrollRef}
-        style={styles.scroll}
+        className="flex-1"
         showsVerticalScrollIndicator={false}
-        contentContainerStyle={styles.scrollContent}>
-        <View style={styles.overviewHeader}>
-          <ThemedText type="small" themeColor="textSecondary">
+        contentContainerClassName="gap-three pb-four">
+        <View className="row-between">
+          <ThemedText type="smallMuted">
             {isAllFilter
               ? 'Deine Einkaufslisten'
               : isUnassignedFilter
@@ -221,7 +220,7 @@ export function ShoppingListScreen() {
             />
 
             {isAllFilter ? (
-              <View style={styles.overview}>
+              <View className="gap-three pt-two">
                 {storeAggregates.map(
                   ({ store, totalCount, checkedCount, totalEstimate: storeTotal }) => (
                     <StoreSummaryCard
@@ -271,10 +270,7 @@ export function ShoppingListScreen() {
                   keyExtractor={(item) => item.id}
                   scrollEnabled={false}
                   renderSectionHeader={({ section }) => (
-                    <ThemedText
-                      type="small"
-                      themeColor="textSecondary"
-                      style={styles.sectionHeader}>
+                    <ThemedText type="small" className="shopping-section-header">
                       {section.title}
                     </ThemedText>
                   )}
@@ -294,7 +290,7 @@ export function ShoppingListScreen() {
         )}
 
         {hasCheckedItems ? (
-          <View style={styles.completeAction}>
+          <View className="mt-two">
             <Button
               size="large"
               label={`🛒 ${completeActionLabel} (${checkedItems.length})`}
@@ -330,33 +326,3 @@ export function ShoppingListScreen() {
     </Screen>
   );
 }
-
-const styles = StyleSheet.create({
-  scroll: {
-    flex: 1,
-  },
-  scrollContent: {
-    gap: Spacing.three,
-    paddingBottom: Spacing.four,
-  },
-  sectionHeader: {
-    paddingHorizontal: Spacing.three,
-    paddingTop: Spacing.three,
-    paddingBottom: Spacing.one,
-    textTransform: 'uppercase',
-    letterSpacing: 0.5,
-  },
-  overview: {
-    gap: Spacing.three,
-    paddingTop: Spacing.two,
-  },
-  overviewHeader: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    gap: Spacing.two,
-  },
-  completeAction: {
-    marginTop: Spacing.two,
-  },
-});

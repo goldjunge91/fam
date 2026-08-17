@@ -1,13 +1,13 @@
 import { useLocalSearchParams } from 'expo-router';
 import { useState } from 'react';
-import { Alert, FlatList, StyleSheet, View } from 'react-native';
+import { Alert, FlatList, View } from 'react-native';
 
 import { Card } from '@/components/card';
 import { EmptyState } from '@/components/empty-state';
 import { Screen } from '@/components/screen';
 import { ThemedText } from '@/components/themed-text';
 import { Button } from '@/components/ui/buttons';
-import { Radius, Spacing, withAlpha } from '@/constants/theme';
+import { withAlpha } from '@/constants/theme';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { ProductDetailModal } from '@/features/inventory/product-detail-modal';
 import { useStorageLocations } from '@/features/inventory/use-storage-locations';
@@ -163,7 +163,7 @@ export function FridgeScreen() {
 
       {/* Kompakter Arbeitslisten-Kopf, #71 */}
       {allItems.length > 0 ? (
-        <View style={styles.sortRow}>
+        <View className="fridge-sort-row">
           <ThemedText type="small" themeColor="textSecondary">
             {sortMode === 'expiry' ? 'Nach Haltbarkeit' : 'Alphabetisch'}
           </ThemedText>
@@ -180,7 +180,7 @@ export function FridgeScreen() {
 
       {/* Artikel-Liste des aktiven Tabs */}
       {isLoading ? null : visibleItems.length === 0 ? (
-        <Card style={{ marginTop: Spacing.two }}>
+        <Card className="mt-two">
           <EmptyState
             symbol="archivebox"
             title={`${activeLocationName} ist leer`}
@@ -189,14 +189,13 @@ export function FridgeScreen() {
         </Card>
       ) : (
         <View
-          style={[
-            styles.listCard,
-            {
-              backgroundColor: theme.backgroundElement,
-              marginTop: Spacing.two,
-              boxShadow: `0 8px 24px ${withAlpha(theme.shadowCard, 0.08)}`,
-            },
-          ]}>
+          className="fridge-list-card"
+          // boxShadow ist eine dynamische Opazitaet, borderCurve hat keine
+          // Tailwind-Entsprechung.
+          style={{
+            boxShadow: `0 8px 24px ${withAlpha(theme.shadowCard, 0.08)}`,
+            borderCurve: 'continuous',
+          }}>
           <FlatList
             data={visibleItems}
             keyExtractor={(item) => item.id}
@@ -244,18 +243,3 @@ export function FridgeScreen() {
     </Screen>
   );
 }
-
-const styles = StyleSheet.create({
-  sortRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    minHeight: 40,
-    paddingLeft: Spacing.one,
-  },
-  listCard: {
-    borderRadius: Radius.sheet,
-    borderCurve: 'continuous',
-    overflow: 'hidden',
-  },
-});

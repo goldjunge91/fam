@@ -1,8 +1,7 @@
 import { SymbolView, type SymbolViewProps } from 'expo-symbols';
-import { StyleSheet, View } from 'react-native';
+import { View } from 'react-native';
 
 import { ThemedText } from '@/components/themed-text';
-import { Spacing } from '@/constants/theme';
 import { useTheme } from '@/hooks/use-theme';
 
 type EmptyStateProps = {
@@ -21,27 +20,14 @@ export function EmptyState({ symbol, title, hint }: EmptyStateProps) {
   const theme = useTheme();
 
   return (
-    <View style={styles.container}>
+    <View className="items-center justify-center gap-two py-six px-four">
       <SymbolView name={symbol} size={40} tintColor={theme.textSecondary} />
-      <ThemedText type="smallBold" style={styles.centered}>
+      <ThemedText type="smallBold" className="text-center">
         {title}
       </ThemedText>
-      <ThemedText type="small" themeColor="textSecondary" style={styles.centered}>
+      <ThemedText type="small" themeColor="textSecondary" className="text-center">
         {hint}
       </ThemedText>
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    gap: Spacing.two,
-    paddingVertical: Spacing.six,
-    paddingHorizontal: Spacing.four,
-  },
-  centered: {
-    textAlign: 'center',
-  },
-});

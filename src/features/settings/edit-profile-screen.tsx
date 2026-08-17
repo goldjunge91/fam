@@ -1,18 +1,16 @@
 import { useQueryClient } from '@tanstack/react-query';
 import { router } from 'expo-router';
 import { useEffect, useState } from 'react';
-import { Alert, Pressable, StyleSheet, View } from 'react-native';
+import { Alert, Pressable, View } from 'react-native';
 import { Card } from '@/components/card';
 import { Screen } from '@/components/screen';
 import { TextField } from '@/components/text-field';
 import { ThemedText } from '@/components/themed-text';
 import { Button } from '@/components/ui/buttons';
-import { Radius, Spacing } from '@/constants/theme';
 import { updateProfile, useProfile } from '@/features/auth/api';
 import { fieldErrors, getDeviceDateFormat, profileSchema } from '@/features/auth/auth-schemas';
 import { useSession } from '@/features/auth/session-provider';
 import type { ActivityLevel } from '@/features/onboarding/types';
-import { useTheme } from '@/hooks/use-theme';
 
 const ACTIVITY_LEVELS = [
   { value: 'sedentary', label: 'Kaum Bewegung' },
@@ -36,10 +34,8 @@ function ChoiceRow<T extends string>({
   value: T | undefined;
   onChange: (value: T | undefined) => void;
 }) {
-  const theme = useTheme();
-
   return (
-    <View style={styles.choices}>
+    <View className="choice-row">
       {options.map((option) => {
         const selected = value === option.value;
         return (
@@ -48,14 +44,10 @@ function ChoiceRow<T extends string>({
             onPress={() => onChange(selected ? undefined : option.value)}
             accessibilityRole="radio"
             accessibilityState={{ selected }}
-            style={[
-              styles.choice,
-              {
-                backgroundColor: selected ? theme.accent : theme.backgroundElement,
-                borderColor: selected ? theme.accent : theme.border,
-              },
-            ]}>
-            <ThemedText type="small" style={selected ? styles.choiceSelected : undefined}>
+            className={`choice-chip ${selected ? 'choice-chip-selected' : 'choice-chip-idle'}`}>
+            {/* onAccent statt fest verdrahtetem Weiss: Text auf Accent-
+                Hintergrund, exakt der definierte Zweck dieses Tokens. */}
+            <ThemedText type="small" themeColor={selected ? 'onAccent' : 'text'}>
               {option.label}
             </ThemedText>
           </Pressable>
@@ -139,7 +131,7 @@ export function EditProfileScreen() {
       back={{ label: 'Einstellungen', href: '/settings' }}
       backStyle="icon">
       <Card title="Persönliche Angaben">
-        <View style={styles.form}>
+        <View className="gap-three">
           <TextField
             label="Name"
             value={displayName}
@@ -181,7 +173,7 @@ export function EditProfileScreen() {
       </Card>
 
       <Card title="Ziele & Wochenplan">
-        <View style={styles.form}>
+        <View className="gap-three">
           <Button
             label="Ziele & Fortschritt"
             variant="secondary"
@@ -205,24 +197,3 @@ export function EditProfileScreen() {
     </Screen>
   );
 }
-
-const styles = StyleSheet.create({
-  form: {
-    gap: Spacing.three,
-  },
-  choices: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    gap: Spacing.two,
-    marginTop: Spacing.two,
-  },
-  choice: {
-    borderWidth: 1,
-    borderRadius: Radius.card,
-    paddingVertical: Spacing.two,
-    paddingHorizontal: Spacing.three,
-  },
-  choiceSelected: {
-    color: '#ffffff',
-  },
-});

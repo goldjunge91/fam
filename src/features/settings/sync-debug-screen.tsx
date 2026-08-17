@@ -1,15 +1,13 @@
 import { useQueryClient } from '@tanstack/react-query';
 import { useCallback, useEffect, useMemo, useState } from 'react';
-import { Alert, StyleSheet, View } from 'react-native';
+import { Alert, View } from 'react-native';
 import { Card } from '@/components/card';
 import { Screen } from '@/components/screen';
-import { FontSize, ThemedText } from '@/components/themed-text';
+import { ThemedText } from '@/components/themed-text';
 import { Button } from '@/components/ui/buttons';
-import { Spacing } from '@/constants/theme';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { BarcodeScannerModal } from '@/features/inventory/barcode-scanner-modal';
 import { useSyncStatus } from '@/hooks/use-sync-status';
-import { useTheme } from '@/hooks/use-theme';
 import { getDatabase } from '@/lib/db/client';
 import { deleteOutboxEntries } from '@/lib/db/outbox';
 import { sendTestNotification } from '@/lib/notifications';
@@ -52,7 +50,6 @@ type ItemRow = {
 };
 
 export function SyncDebugScreen() {
-  const theme = useTheme();
   const queryClient = useQueryClient();
   const { activeHousehold } = useActiveHousehold();
   const currentHousehold = activeHousehold;
@@ -192,27 +189,27 @@ export function SyncDebugScreen() {
       back={{ label: 'Synchronisation', href: '/settings/sync' }}
       backStyle="icon">
       <Card title="Letzter Synchronisations-Lauf">
-        <View style={styles.zeile}>
+        <View className="debug-row">
           <ThemedText type="small">Uhrzeit:</ThemedText>
           <ThemedText type="smallBold">{formattedLastSync}</ThemedText>
         </View>
         {lastSyncInfo && (
           <>
-            <View style={styles.zeile}>
+            <View className="debug-row">
               <ThemedText type="small">Hochgeladen (Pushed):</ThemedText>
               <ThemedText type="smallBold">{lastSyncInfo.pushedCount} Einträge</ThemedText>
             </View>
-            <View style={styles.zeile}>
+            <View className="debug-row">
               <ThemedText type="small">Empfangen (Pulled):</ThemedText>
               <ThemedText type="smallBold">{lastSyncInfo.pulledCount} Zeilen</ThemedText>
             </View>
           </>
         )}
-        <View style={styles.zeile}>
+        <View className="debug-row">
           <ThemedText type="small">Aktueller Sync-Status:</ThemedText>
           <ThemedText type="smallBold">{syncStatus.kind.toUpperCase()}</ThemedText>
         </View>
-        <View style={styles.zeile}>
+        <View className="debug-row">
           <ThemedText type="small">Realtime-Verbindung:</ThemedText>
           <ThemedText
             type="smallBold"
@@ -220,18 +217,18 @@ export function SyncDebugScreen() {
             {realtimeStatus ?? 'nie verbunden'}
           </ThemedText>
         </View>
-        <View style={styles.zeile}>
+        <View className="debug-row">
           <ThemedText type="small">Aktive Poll-Intervalle:</ThemedText>
           <ThemedText type="smallBold" themeColor={activeIntervalCount > 1 ? 'danger' : 'success'}>
             {activeIntervalCount}
             {activeIntervalCount > 1 ? ' — sollte 1 sein!' : ''}
           </ThemedText>
         </View>
-        <View style={styles.zeile}>
+        <View className="debug-row">
           <ThemedText type="small">Realtime Status-Wechsel gesamt:</ThemedText>
           <ThemedText type="smallBold">{realtimeDiagnostics.statusChangeCount}</ThemedText>
         </View>
-        <View style={styles.zeile}>
+        <View className="debug-row">
           <ThemedText type="small">Realtime Reconnects gesamt:</ThemedText>
           <ThemedText
             type="smallBold"
@@ -239,7 +236,7 @@ export function SyncDebugScreen() {
             {realtimeDiagnostics.reconnectCount}
           </ThemedText>
         </View>
-        <View style={styles.actionRow}>
+        <View className="mt-three">
           <Button
             label="Jetzt synchronisieren & prüfen"
             onPress={handleSyncNow}
@@ -256,7 +253,7 @@ export function SyncDebugScreen() {
           </ThemedText>
         ) : (
           <>
-            <View style={styles.zeile}>
+            <View className="debug-row">
               <ThemedText type="small">Letzte Latenz:</ThemedText>
               <ThemedText
                 type="smallBold"
@@ -268,7 +265,7 @@ export function SyncDebugScreen() {
                 {latencySamples[latencySamples.length - 1].latencyMs ?? '—'} ms
               </ThemedText>
             </View>
-            <View style={styles.zeile}>
+            <View className="debug-row">
               <ThemedText type="small">Durchschnitt:</ThemedText>
               <ThemedText type="smallBold">
                 {averageLatencyMs === null ? '—' : `${averageLatencyMs} ms`}
@@ -279,7 +276,7 @@ export function SyncDebugScreen() {
               .reverse()
               .map((sample, i) => (
                 // biome-ignore lint/suspicious/noArrayIndexKey: Ringpuffer ohne stabile Id, Reihenfolge aendert sich nicht rueckwirkend
-                <View key={i} style={[styles.boxItem, { borderBottomColor: theme.border }]}>
+                <View key={i} className="debug-item">
                   <ThemedText type="small" themeColor="textSecondary">
                     {new Date(sample.timestamp).toLocaleTimeString('de-DE')} —{' '}
                     {sample.op.toUpperCase()} {sample.entity}: {sample.latencyMs ?? '—'} ms
@@ -295,7 +292,7 @@ export function SyncDebugScreen() {
           Test-Aktionen für lokale Mitteilungen und die Kamera-Barcode-Erkennung.
         </ThemedText>
 
-        <View style={styles.actionStack}>
+        <View className="action-stack">
           <Button label="🔔 Test-Benachrichtigung senden" onPress={handleTestNotification} />
           <Button
             label="📷 Barcode-Scanner testen"
@@ -306,13 +303,13 @@ export function SyncDebugScreen() {
       </Card>
 
       <Card title="Aktueller Haushalt in DB">
-        <View style={styles.zeile}>
+        <View className="debug-row">
           <ThemedText type="small">Haushalts-Name:</ThemedText>
           <ThemedText type="smallBold">
             {currentHousehold?.name ?? 'Kein Haushalt geladen'}
           </ThemedText>
         </View>
-        <View style={styles.zeile}>
+        <View className="debug-row">
           <ThemedText type="small">Haushalts-ID:</ThemedText>
           <ThemedText type="small" themeColor="textSecondary">
             {currentHousehold?.id ?? '—'}
@@ -327,7 +324,7 @@ export function SyncDebugScreen() {
           </ThemedText>
         ) : (
           outboxRows.map((row) => (
-            <View key={row.id} style={[styles.boxItem, { borderBottomColor: theme.border }]}>
+            <View key={row.id} className="debug-item">
               <ThemedText type="smallBold">
                 #{row.id} {row.op.toUpperCase()} {row.entity}
               </ThemedText>
@@ -339,10 +336,13 @@ export function SyncDebugScreen() {
                   Fehler: {row.last_error}
                 </ThemedText>
               )}
-              <ThemedText type="small" style={styles.payloadCode}>
+              {/* type="code" (Fonts.mono, 12px) statt der frueheren
+                  Sonderroute mit fest verdrahtetem 'Courier' — jetzt eine
+                  echte ThemedText-Rolle. */}
+              <ThemedText type="code" className="mt-half">
                 Payload: {row.payload}
               </ThemedText>
-              <View style={styles.rowDeleteButton}>
+              <View className="mt-one">
                 <Button
                   label="Eintrag löschen"
                   variant="secondary"
@@ -354,7 +354,7 @@ export function SyncDebugScreen() {
         )}
 
         {outboxRows.length > 0 && (
-          <View style={styles.actionRow}>
+          <View className="mt-three">
             <Button label="Outbox leeren (Notfall)" variant="danger" onPress={handleClearOutbox} />
           </View>
         )}
@@ -367,7 +367,7 @@ export function SyncDebugScreen() {
           </ThemedText>
         ) : (
           locationRows.map((loc) => (
-            <View key={loc.id} style={[styles.boxItem, { borderBottomColor: theme.border }]}>
+            <View key={loc.id} className="debug-item">
               <ThemedText type="smallBold">{loc.name}</ThemedText>
               <ThemedText type="small" themeColor="textSecondary">
                 Typ: {loc.kind} | ID: {loc.id}
@@ -384,7 +384,7 @@ export function SyncDebugScreen() {
           </ThemedText>
         ) : (
           itemRows.map((item) => (
-            <View key={item.id} style={[styles.boxItem, { borderBottomColor: theme.border }]}>
+            <View key={item.id} className="debug-item">
               <ThemedText type="smallBold">
                 {item.name} ({item.quantity} {item.unit})
               </ThemedText>
@@ -404,32 +404,3 @@ export function SyncDebugScreen() {
     </Screen>
   );
 }
-
-const styles = StyleSheet.create({
-  zeile: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    paddingVertical: Spacing.one,
-  },
-  actionRow: {
-    marginTop: Spacing.three,
-  },
-  actionStack: {
-    marginTop: Spacing.three,
-    gap: Spacing.two,
-  },
-  boxItem: {
-    paddingVertical: Spacing.two,
-    borderBottomWidth: StyleSheet.hairlineWidth,
-    gap: Spacing.one,
-  },
-  payloadCode: {
-    fontFamily: 'Courier',
-    ...FontSize[11],
-    marginTop: 2,
-  },
-  rowDeleteButton: {
-    marginTop: Spacing.one,
-  },
-});

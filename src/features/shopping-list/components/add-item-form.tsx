@@ -1,15 +1,14 @@
 import { useQueryClient } from '@tanstack/react-query';
 import * as Crypto from 'expo-crypto';
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { Pressable, StyleSheet, View } from 'react-native';
+import { Pressable, View } from 'react-native';
 
 import { FamIcon } from '@/components/fam-icon';
 import { QuantityStepper } from '@/components/quantity-stepper';
 import { TextField } from '@/components/text-field';
-import { ThemedText, Typography } from '@/components/themed-text';
+import { ThemedText } from '@/components/themed-text';
 import { Button, HeaderIconButton } from '@/components/ui/buttons';
 import { WheelPickerField } from '@/components/wheel-picker-field';
-import { Radius, Spacing } from '@/constants/theme';
 import { useSession } from '@/features/auth/session-provider';
 import { BarcodeScannerModal } from '@/features/inventory/barcode-scanner-modal';
 import { persistOffProductIfNeeded } from '@/features/inventory/persist-off-product';
@@ -157,7 +156,7 @@ export function AddItemForm({ householdId, initialStoreId = null, onDismiss }: A
   }
 
   return (
-    <View style={styles.form} onTouchStart={() => productSearchRef.current?.dismiss()}>
+    <View className="gap-[10px]" onTouchStart={() => productSearchRef.current?.dismiss()}>
       <ProductSearchDropdown
         ref={productSearchRef}
         label=""
@@ -177,14 +176,14 @@ export function AddItemForm({ householdId, initialStoreId = null, onDismiss }: A
               productSearchRef.current?.dismiss();
               setShowScanner(true);
             }}
-            style={[styles.scanButton, { backgroundColor: theme.backgroundSelected }]}>
+            className="w-10 h-10 rounded-control bg-background-selected">
             <FamIcon name="camera" size={18} color={theme.accent} />
           </HeaderIconButton>
         }
       />
 
       {nameError ? (
-        <ThemedText type="body" themeColor="danger" style={styles.mediumWeight}>
+        <ThemedText type="body" themeColor="danger" className="font-medium">
           {nameError}
         </ThemedText>
       ) : null}
@@ -199,35 +198,31 @@ export function AddItemForm({ householdId, initialStoreId = null, onDismiss }: A
       />
 
       {name.trim() ? (
-        <View style={[styles.productSummary, { backgroundColor: theme.backgroundSelected }]}>
-          <View style={styles.productCopy}>
-            <ThemedText type="body" numberOfLines={1} style={styles.summaryPrimary}>
+        <View className="product-summary">
+          <View className="flex-1 min-w-0">
+            <ThemedText type="bodyBold" numberOfLines={1}>
               {name.trim()}
             </ThemedText>
             <ThemedText
               type="detail"
               themeColor="textSecondary"
               numberOfLines={1}
-              style={styles.summaryMeta}>
+              className="font-medium">
               {selectedProduct?.brand
                 ? `${selectedProduct.brand} · aus Produktdaten`
                 : 'Manueller Eintrag'}
             </ThemedText>
           </View>
-          <View style={styles.packageCopy}>
+          <View className="items-end">
             <ThemedText type="default">{packageHint ?? purchaseAmount}</ThemedText>
-            <ThemedText type="small" themeColor="textSecondary">
-              {packageHint ? 'Packungsinhalt' : 'Menge'}
-            </ThemedText>
+            <ThemedText type="smallMuted">{packageHint ? 'Packungsinhalt' : 'Menge'}</ThemedText>
           </View>
         </View>
       ) : null}
 
-      <View style={styles.purchaseRow}>
-        <View style={styles.quantityField}>
-          <ThemedText type="label" themeColor="textSecondary" style={styles.mediumWeight}>
-            Einkaufsmenge
-          </ThemedText>
+      <View className="flex-row items-end gap-[9px]">
+        <View className="flex-[1.15] gap-one">
+          <ThemedText type="labelMuted">Einkaufsmenge</ThemedText>
           <QuantityStepper
             value={purchaseCount}
             onChange={setPurchaseCount}
@@ -235,7 +230,7 @@ export function AddItemForm({ householdId, initialStoreId = null, onDismiss }: A
             size="large"
           />
         </View>
-        <View style={styles.storeField}>
+        <View className="flex-1">
           <WheelPickerField
             label="Liste"
             value={storeId ?? NO_STORE}
@@ -252,23 +247,23 @@ export function AddItemForm({ householdId, initialStoreId = null, onDismiss }: A
         {selectedStore ? ` · ${selectedStore.name} vorgeschlagen` : ' · ohne Liste'}
       </ThemedText>
 
-      <View style={[styles.details, { borderTopColor: theme.border }]}>
+      <View className="border-t-hairline border-border">
         <Pressable
           onPress={() => setDetailsOpen((open) => !open)}
           accessibilityRole="button"
           accessibilityState={{ expanded: detailsOpen }}
           accessibilityLabel="Weitere Angaben"
-          style={({ pressed }) => [styles.detailsSummary, pressed && styles.pressed]}>
-          <ThemedText type="body" style={[styles.mediumWeight, { color: theme.accent }]}>
+          className="details-summary">
+          <ThemedText type="body" themeColor="accent" className="font-medium">
             {detailsOpen ? '▾' : '›'}
           </ThemedText>
-          <ThemedText type="body" style={[styles.mediumWeight, { color: theme.accent }]}>
+          <ThemedText type="body" themeColor="accent" className="font-medium">
             Weitere Angaben
           </ThemedText>
         </Pressable>
 
         {detailsOpen ? (
-          <View style={styles.detailsFields}>
+          <View className="gap-[10px] pb-one">
             <WheelPickerField
               label="Einheit"
               value={unit}
@@ -277,18 +272,17 @@ export function AddItemForm({ householdId, initialStoreId = null, onDismiss }: A
               size="large"
             />
             {unit === 'package' ? (
-              <View style={styles.packageSizeRow}>
-                <View style={styles.packageSizeValue}>
+              <View className="flex-row items-end gap-two">
+                <View className="flex-[1.3]">
                   <TextField
                     label="Inhalt je Packung"
                     value={packageSizeInput}
                     onChangeText={setPackageSizeInput}
                     keyboardType="decimal-pad"
                     placeholder="z. B. 500"
-                    style={styles.largeInput}
                   />
                 </View>
-                <View style={styles.packageSizeUnit}>
+                <View className="flex-1">
                   <WheelPickerField
                     label="Einheit"
                     value={packageSizeUnit}
@@ -329,82 +323,3 @@ export function AddItemForm({ householdId, initialStoreId = null, onDismiss }: A
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  largeInput: {
-    ...Typography.bodyLarge,
-  },
-  form: {
-    gap: 10,
-  },
-  scanButton: {
-    width: 40,
-    height: 40,
-    borderRadius: Radius.control,
-  },
-  mediumWeight: {
-    fontWeight: 500,
-  },
-  productSummary: {
-    minHeight: 49,
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: Spacing.two,
-    borderRadius: Radius.controlLarge,
-    borderCurve: 'continuous',
-    paddingHorizontal: 11,
-    paddingVertical: 9,
-  },
-  productCopy: {
-    flex: 1,
-    minWidth: 0,
-  },
-  packageCopy: {
-    alignItems: 'flex-end',
-  },
-  summaryMeta: {
-    fontWeight: 500,
-  },
-  summaryPrimary: {
-    fontWeight: 700,
-  },
-  purchaseRow: {
-    flexDirection: 'row',
-    alignItems: 'flex-end',
-    gap: 9,
-  },
-  quantityField: {
-    flex: 1.15,
-    gap: Spacing.one,
-  },
-  storeField: {
-    flex: 1,
-  },
-  details: {
-    borderTopWidth: StyleSheet.hairlineWidth,
-  },
-  detailsSummary: {
-    minHeight: 34,
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: Spacing.two,
-  },
-  detailsFields: {
-    gap: 10,
-    paddingBottom: Spacing.one,
-  },
-  packageSizeRow: {
-    flexDirection: 'row',
-    alignItems: 'flex-end',
-    gap: Spacing.two,
-  },
-  packageSizeValue: {
-    flex: 1.3,
-  },
-  packageSizeUnit: {
-    flex: 1,
-  },
-  pressed: {
-    opacity: 0.72,
-  },
-});

@@ -73,8 +73,8 @@ Schatten enthalten keine lokalen Farbwerte mehr. Details:
 **Gradient-Hintergrund — erledigt (2026-08-16).** `Gradients.hub` hält die
 Light- und Dark-Farben sowie gemeinsame Stop-Positionen des Hub-Verlaufs
 zentral. `useHubGradient()` wählt die zum Farbschema passende Variante für
-alle regulären Verbraucher. Nur Original und V2 des bewusst zurückgestellten
-Essensplaners bleiben während des Vergleichs auf `Gradients.hub.light`.
+alle regulären Verbraucher. Der Essensplaner bleibt vorerst auf
+`Gradients.hub.light`.
 **Noch offen:** die 10 Screens, die
 `<GradientBackground>` weiterhin manuell statt über `Screen`s
 `backgroundGradient`-Prop einbinden, bauen ihre Struktur (Safe Area,
@@ -294,14 +294,12 @@ Einordnung in die Reihenfolge.
    Migrationskandidat (Modals und Spezialansichten brauchen eine eigene
    Prüfung), aber die Grundregel ist noch nicht flächendeckend umgesetzt.
 
-   **Vorgehen umgesetzt:** Die **separate V2-Variante des Essensplaners** in
-   `meal-planner-screen-v2.tsx` verwendet jetzt `Screen` mit
-   `backgroundGradient={Gradients.hub}`. `Screen` besitzt dafür den fehlenden
-   optionalen Hub-`trailing`-Slot; Kalender und Profil stehen gemeinsam
-   rechts im Header. Die eigene Route `/meal-planner-v2` wurde im Simulator
-   geprüft. Ein temporärer Versionsumschalter ist in Original und V2 sichtbar;
-   abgesehen davon bleibt die Struktur des Originals unangetastet. Die V2 ist
-   damit die Vorlage für die strukturelle Migration der übrigen 9 Screens.
+   **Entscheidung (2026-08-17):** Der Essensplaner bleibt bei der
+   Original-Struktur; die Vergleichs-Variante (`meal-planner-screen-v2.tsx`,
+   Route `/meal-planner-v2`, Versionsumschalter) wurde entfernt, ohne
+   Ergebnis für die strukturelle Migration der übrigen 9 Screens.
+   `Screen` besitzt weiterhin den optionalen Hub-`trailing`-Slot
+   (Kalender/Profil rechts im Header) für eine künftige Migration.
 2. **Button-Konsolidierung — Rollenprüfung abgeschlossen.** Die früheren
    `back-arrow-button`/`back-icon-button` sind in `back-button` mit Varianten
    aufgegangen. Die sieben verbleibenden Komponenten haben eigenständige
@@ -375,8 +373,6 @@ Bereichen.
 
 **Noch offen** (Backlog aus Abschnitt 6):
 
-1. Essensplaner-V2 ist auf `Screen` umgestellt und im Simulator geprüft. Ein
-   temporärer Umschalter wechselt direkt zwischen Original und V2; die
-   bisherige Route und Originalstruktur bleiben ansonsten unverändert. Offen
-   sind die Auswahl der regulären Version und danach die strukturelle
-   Migration der übrigen 9 Screens (Punkt 1).
+1. Essensplaner bleibt bei der Original-Struktur (V2-Vergleichsvariante
+   entfernt, s. Abschnitt 6 Punkt 1). Die strukturelle Migration der 9
+   verbleibenden Screens auf `Screen` steht weiterhin aus.

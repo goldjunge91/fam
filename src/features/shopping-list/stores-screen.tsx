@@ -1,11 +1,10 @@
 import { useState } from 'react';
-import { Alert, Pressable, StyleSheet, View } from 'react-native';
+import { Alert, Pressable, View } from 'react-native';
 import { Card } from '@/components/card';
 import { Screen } from '@/components/screen';
 import { TextField } from '@/components/text-field';
-import { FontSize, ThemedText } from '@/components/themed-text';
+import { ThemedText } from '@/components/themed-text';
 import { Button } from '@/components/ui/buttons';
-import { Radius, Spacing } from '@/constants/theme';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { useTheme } from '@/hooks/use-theme';
 import { STORE_COLOR_PALETTE, STORE_PRESETS } from './store-presets';
@@ -110,37 +109,37 @@ export function StoresScreen() {
       back={{ label: 'Einstellungen', href: '/settings' }}
       backStyle="icon">
       <Card title="Neuen Markt hinzufügen">
-        <View style={styles.addBox}>
+        <View className="gap-three mt-two">
           <TextField
             placeholder="z.B. REWE, Aldi, Lidl..."
             value={newStoreName}
             onChangeText={setNewStoreName}
           />
-          <ThemedText type="small" themeColor="textSecondary">
-            Vorschläge
-          </ThemedText>
-          <View style={styles.presetRow}>
+          <ThemedText type="smallMuted">Vorschläge</ThemedText>
+          <View className="row-wrap">
             {STORE_PRESETS.map((preset) => (
               <Pressable
                 key={preset.name}
                 onPress={() => setNewStoreName(preset.name)}
                 accessibilityRole="button"
-                style={[
-                  styles.presetChip,
-                  { backgroundColor: `${preset.color}18`, borderColor: preset.color },
-                ]}>
-                <View style={[styles.presetDot, { backgroundColor: preset.color }]} />
-                <ThemedText type="small" style={{ color: preset.color, fontWeight: '600' }}>
+                className="store-preset-chip"
+                // Dynamische Preset-Farbe
+                style={{ backgroundColor: `${preset.color}18`, borderColor: preset.color }}>
+                {/* Dynamische Preset-Farbe */}
+                <View className="store-preset-dot" style={{ backgroundColor: preset.color }} />
+                <ThemedText
+                  type="small"
+                  className="font-semibold"
+                  // Dynamische Preset-Farbe
+                  style={{ color: preset.color }}>
                   {preset.name}
                 </ThemedText>
               </Pressable>
             ))}
           </View>
 
-          <ThemedText type="small" themeColor="textSecondary">
-            Farbe
-          </ThemedText>
-          <View style={styles.presetRow}>
+          <ThemedText type="smallMuted">Farbe</ThemedText>
+          <View className="row-wrap">
             {STORE_COLOR_PALETTE.map((color) => (
               <Pressable
                 key={color}
@@ -148,13 +147,12 @@ export function StoresScreen() {
                 accessibilityRole="button"
                 accessibilityLabel={`Farbe ${color}`}
                 accessibilityState={{ selected: newStoreColor === color }}
-                style={[
-                  styles.colorSwatch,
-                  {
-                    backgroundColor: color,
-                    borderColor: newStoreColor === color ? theme.text : 'transparent',
-                  },
-                ]}
+                className="store-color-swatch"
+                // Dynamische Palettenfarbe & Auswahlrand
+                style={{
+                  backgroundColor: color,
+                  borderColor: newStoreColor === color ? theme.text : 'transparent',
+                }}
               />
             ))}
           </View>
@@ -171,21 +169,19 @@ export function StoresScreen() {
         {isLoading ? (
           <ThemedText>Lädt...</ThemedText>
         ) : stores?.length === 0 ? (
-          <ThemedText themeColor="textSecondary">Keine Märkte vorhanden.</ThemedText>
+          <ThemedText type="bodyMuted">Keine Märkte vorhanden.</ThemedText>
         ) : (
-          <View style={styles.list}>
+          <View className="col-gap">
             {stores?.map((store) => {
               const isEditing = editingId === store.id;
 
               return (
-                <View key={store.id} style={[styles.row, { borderBottomColor: theme.border }]}>
+                <View key={store.id} className="store-manage-row">
                   {isEditing ? (
-                    <View style={styles.editBox}>
+                    <View className="col-gap">
                       <TextField value={editingName} onChangeText={setEditingName} autoFocus />
-                      <ThemedText type="small" themeColor="textSecondary">
-                        Farbe
-                      </ThemedText>
-                      <View style={styles.presetRow}>
+                      <ThemedText type="smallMuted">Farbe</ThemedText>
+                      <View className="row-wrap">
                         {STORE_COLOR_PALETTE.map((color) => (
                           <Pressable
                             key={color}
@@ -193,18 +189,17 @@ export function StoresScreen() {
                             accessibilityRole="button"
                             accessibilityLabel={`Farbe ${color}`}
                             accessibilityState={{ selected: editingColor === color }}
-                            style={[
-                              styles.colorSwatch,
-                              {
-                                backgroundColor: color,
-                                borderColor: editingColor === color ? theme.text : 'transparent',
-                              },
-                            ]}
+                            className="store-color-swatch"
+                            // Dynamische Palettenfarbe & Auswahlrand
+                            style={{
+                              backgroundColor: color,
+                              borderColor: editingColor === color ? theme.text : 'transparent',
+                            }}
                           />
                         ))}
                       </View>
-                      <View style={styles.buttonRow}>
-                        <View style={styles.flex}>
+                      <View className="input-row mt-one">
+                        <View className="flex-1">
                           <Button
                             label="Speichern"
                             onPress={() => handleUpdate(store.id)}
@@ -212,7 +207,7 @@ export function StoresScreen() {
                             disabled={!editingName.trim()}
                           />
                         </View>
-                        <View style={styles.flex}>
+                        <View className="flex-1">
                           <Button
                             label="Abbrechen"
                             variant="secondary"
@@ -226,11 +221,15 @@ export function StoresScreen() {
                     </View>
                   ) : (
                     <>
-                      <View style={styles.nameRow}>
-                        <View style={[styles.colorDot, { backgroundColor: store.color }]} />
-                        <ThemedText style={styles.nameText}>{store.name}</ThemedText>
+                      <View className="row-center">
+                        {/* Dynamische Markt-Farbe */}
+                        <View
+                          className="store-color-dot"
+                          style={{ backgroundColor: store.color }}
+                        />
+                        <ThemedText type="bodyBold">{store.name}</ThemedText>
                       </View>
-                      <View style={styles.actionButtons}>
+                      <View className="input-row mt-one">
                         <Button
                           label="Bearbeiten"
                           variant="secondary"
@@ -257,73 +256,3 @@ export function StoresScreen() {
     </Screen>
   );
 }
-
-const styles = StyleSheet.create({
-  addBox: {
-    gap: Spacing.three,
-    marginTop: Spacing.two,
-  },
-  presetRow: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    gap: Spacing.two,
-  },
-  presetChip: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: Spacing.one,
-    paddingHorizontal: Spacing.three,
-    paddingVertical: Spacing.one + 2,
-    borderRadius: Radius.sheet,
-    borderWidth: 1,
-  },
-  presetDot: {
-    width: 8,
-    height: 8,
-    borderRadius: Radius.xs,
-  },
-  colorSwatch: {
-    width: 32,
-    height: 32,
-    borderRadius: Radius.card,
-    borderWidth: 2,
-  },
-  list: {
-    gap: Spacing.two,
-  },
-  row: {
-    paddingVertical: Spacing.three,
-    borderBottomWidth: StyleSheet.hairlineWidth,
-    gap: Spacing.two,
-  },
-  nameRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: Spacing.two,
-  },
-  colorDot: {
-    width: 14,
-    height: 14,
-    borderRadius: Radius.sm,
-  },
-  nameText: {
-    fontWeight: 'bold',
-    ...FontSize[16],
-  },
-  actionButtons: {
-    flexDirection: 'row',
-    gap: Spacing.two,
-    marginTop: Spacing.one,
-  },
-  editBox: {
-    gap: Spacing.two,
-  },
-  buttonRow: {
-    flexDirection: 'row',
-    gap: Spacing.two,
-    marginTop: Spacing.one,
-  },
-  flex: {
-    flex: 1,
-  },
-});

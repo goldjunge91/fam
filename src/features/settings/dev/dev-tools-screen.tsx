@@ -2,12 +2,11 @@ import { useQueryClient } from '@tanstack/react-query';
 import Constants from 'expo-constants';
 import { router } from 'expo-router';
 import { useCallback, useEffect, useState } from 'react';
-import { Alert, Platform, StyleSheet, View } from 'react-native';
+import { Alert, Platform, View } from 'react-native';
 import { Card } from '@/components/card';
 import { Screen } from '@/components/screen';
 import { ThemedText } from '@/components/themed-text';
 import { Button } from '@/components/ui/buttons';
-import { Spacing } from '@/constants/theme';
 import { useSession } from '@/features/auth/session-provider';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { presentPaywall } from '@/features/premium/paywall';
@@ -18,7 +17,6 @@ import {
   formatTokenExpiry,
   maskSecret,
 } from '@/features/settings/dev/dev-info';
-import { useTheme } from '@/hooks/use-theme';
 import { deleteLocalDatabase, getDatabase } from '@/lib/db/client';
 import { env } from '@/lib/env';
 import { sendTestNotification } from '@/lib/notifications';
@@ -74,14 +72,12 @@ function Zeile({
   wert: string;
   tone?: 'accent' | 'warning' | 'danger';
 }) {
-  const theme = useTheme();
-
   return (
-    <View style={[styles.zeile, { borderBottomColor: theme.border }]}>
+    <View className="dev-zeile">
       <ThemedText type="small" themeColor="textSecondary">
         {label}
       </ThemedText>
-      <ThemedText type="smallBold" themeColor={tone} numberOfLines={2} style={styles.wert}>
+      <ThemedText type="smallBold" themeColor={tone} numberOfLines={2} className="dev-zeile-value">
         {wert}
       </ThemedText>
     </View>
@@ -234,7 +230,7 @@ export function DevToolsScreen() {
           </>
         )}
 
-        <View style={styles.aktionStack}>
+        <View className="action-stack">
           <Button label="Neu einlesen" variant="secondary" onPress={ladeSnapshot} />
         </View>
       </Card>
@@ -252,7 +248,7 @@ export function DevToolsScreen() {
           tone={offDump?.attached ? undefined : 'warning'}
         />
 
-        <View style={styles.aktionStack}>
+        <View className="action-stack">
           <Button
             label="Neueste Dump-Datei laden"
             variant="secondary"
@@ -270,7 +266,7 @@ export function DevToolsScreen() {
       </Card>
 
       <Card title="Aktionen">
-        <View style={styles.aktionStack}>
+        <View className="action-stack">
           <Button
             label="Test-Benachrichtigung senden"
             variant="secondary"
@@ -309,22 +305,3 @@ export function DevToolsScreen() {
     </Screen>
   );
 }
-
-const styles = StyleSheet.create({
-  zeile: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'flex-start',
-    gap: Spacing.three,
-    paddingVertical: Spacing.two,
-    borderBottomWidth: StyleSheet.hairlineWidth,
-  },
-  wert: {
-    flexShrink: 1,
-    textAlign: 'right',
-  },
-  aktionStack: {
-    marginTop: Spacing.three,
-    gap: Spacing.two,
-  },
-});

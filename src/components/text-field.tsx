@@ -1,8 +1,7 @@
 import type { ReactNode } from 'react';
-import { StyleSheet, TextInput, type TextInputProps, View } from 'react-native';
+import { TextInput, type TextInputProps, View } from 'react-native';
 
-import { ThemedText, Typography } from '@/components/themed-text';
-import { Radius, Spacing } from '@/constants/theme';
+import { ThemedText } from '@/components/themed-text';
 import { useTheme } from '@/hooks/use-theme';
 
 type TextFieldProps = TextInputProps & {
@@ -12,6 +11,7 @@ type TextFieldProps = TextInputProps & {
   error?: string;
   /** Interaktive Aktion innerhalb des Felds, z. B. Scanner oder Löschen. */
   trailing?: ReactNode;
+  className?: string;
 };
 
 export function TextField({
@@ -20,22 +20,23 @@ export function TextField({
   error,
   trailing,
   style,
+  className = '',
   ...rest
 }: TextFieldProps) {
   const theme = useTheme();
 
   return (
-    <View style={styles.container}>
+    <View className="gap-one">
       {label ? (
         <ThemedText
           type="small"
           themeColor="textSecondary"
-          style={size === 'large' && styles.largeSupportingText}>
+          className={size === 'large' ? 'text-body' : ''}>
           {label}
         </ThemedText>
       ) : null}
 
-      <View style={styles.field}>
+      <View className="relative">
         <TextInput
           {...rest}
           placeholderTextColor={theme.textSecondary}
@@ -45,64 +46,26 @@ export function TextField({
           // Bei einem Fehler wird die Meldung mit vorgelesen, statt sie nur
           // farblich zu markieren.
           accessibilityHint={error}
-          style={[
-            styles.input,
-            size === 'large' && styles.largeInput,
-            trailing ? styles.inputWithTrailing : undefined,
-            {
-              color: theme.text,
-              backgroundColor: theme.backgroundElement,
-              borderColor: error ? theme.danger : theme.border,
-            },
-            style,
-          ]}
+          className={`input-field ${
+            error ? 'input-field-error' : ''
+          } ${size === 'large' ? 'text-body-lg' : ''} ${trailing ? 'pr-[52px]' : ''} ${className}`.trim()}
+          style={style}
         />
-        {trailing ? <View style={styles.trailing}>{trailing}</View> : null}
+        {trailing ? (
+          <View className="absolute z-10 right-[2px] top-[2px] bottom-[2px] items-center justify-center">
+            {trailing}
+          </View>
+        ) : null}
       </View>
 
       {error ? (
         <ThemedText
           type="small"
           themeColor="danger"
-          style={size === 'large' && styles.largeSupportingText}>
+          className={size === 'large' ? 'text-body' : ''}>
           {error}
         </ThemedText>
       ) : null}
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    gap: Spacing.one,
-  },
-  field: {
-    position: 'relative',
-  },
-  input: {
-    width: '100%',
-    borderWidth: 1,
-    borderRadius: Radius.card,
-    paddingHorizontal: Spacing.three,
-    paddingVertical: Spacing.two + 2,
-    ...Typography.bodyRelaxed,
-  },
-  inputWithTrailing: {
-    paddingRight: 52,
-  },
-  largeInput: {
-    ...Typography.bodyLarge,
-  },
-  largeSupportingText: {
-    ...Typography.body,
-  },
-  trailing: {
-    position: 'absolute',
-    zIndex: 1,
-    right: 2,
-    top: 2,
-    bottom: 2,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});

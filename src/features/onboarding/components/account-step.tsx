@@ -1,13 +1,10 @@
 import { useState } from 'react';
-import { Pressable, StyleSheet, Text, View } from 'react-native';
+import { Pressable, Text, View } from 'react-native';
 import { TextField } from '@/components/text-field';
-import { FontSize } from '@/components/themed-text';
 import { Button } from '@/components/ui/buttons';
-import { Radius, Spacing } from '@/constants/theme';
 import { authErrorMessage, signIn, signUp } from '@/features/auth/api';
 import { PendingAuthBanner } from '@/features/auth/components/pending-auth-banner';
 import { useSession } from '@/features/auth/session-provider';
-import { useTheme } from '@/hooks/use-theme';
 
 interface AccountStepFormProps {
   onNext: () => void;
@@ -15,7 +12,6 @@ interface AccountStepFormProps {
 
 export function AccountStepForm({ onNext }: AccountStepFormProps) {
   const { session } = useSession();
-  const theme = useTheme();
 
   const [authMode, setAuthMode] = useState<'sign_up' | 'sign_in'>('sign_up');
   const [authEmail, setAuthEmail] = useState('');
@@ -56,7 +52,7 @@ export function AccountStepForm({ onNext }: AccountStepFormProps) {
 
   if (pendingEmail) {
     return (
-      <View style={styles.container}>
+      <View className="gap-three">
         <PendingAuthBanner
           email={pendingEmail}
           password={authPassword}
@@ -68,23 +64,17 @@ export function AccountStepForm({ onNext }: AccountStepFormProps) {
   }
 
   return (
-    <View style={styles.container}>
-      <Text style={[styles.heading, { color: theme.text }]}>Dein Account</Text>
-      <Text style={[styles.subheading, { color: theme.textSecondary }]}>
+    <View className="gap-three">
+      <Text className="perm-heading">Dein Account</Text>
+      <Text className="perm-subheading">
         Erstelle ein Konto oder melde dich an, um deine Daten zu synchronisieren.
       </Text>
 
       {session ? (
-        <View style={styles.activeContainer}>
-          <View
-            style={[
-              styles.activeBanner,
-              { backgroundColor: theme.backgroundElement, borderColor: theme.border },
-            ]}>
-            <Text style={[styles.activeTitle, { color: theme.accent }]}>
-              ✓ Angemeldet als: {session.user.email}
-            </Text>
-            <Text style={[styles.activeDesc, { color: theme.textSecondary }]}>
+        <View className="account-active-container">
+          <View className="account-active-banner">
+            <Text className="account-active-title">✓ Angemeldet als: {session.user.email}</Text>
+            <Text className="perm-desc">
               Dein Account ist aktiv. Du kannst jetzt direkt zum nächsten Schritt wechseln.
             </Text>
           </View>
@@ -92,33 +82,21 @@ export function AccountStepForm({ onNext }: AccountStepFormProps) {
           <Button label="Weiter" onPress={onNext} />
         </View>
       ) : (
-        <View style={styles.form}>
-          <View style={[styles.tabToggle, { borderColor: theme.border }]}>
+        <View className="account-form">
+          <View className="account-tab-toggle">
             <Pressable
               onPress={() => setAuthMode('sign_up')}
-              style={[
-                styles.tabButton,
-                authMode === 'sign_up' && { backgroundColor: theme.accent },
-              ]}>
+              className={`account-tab-button ${authMode === 'sign_up' ? 'account-tab-button-active' : ''}`}>
               <Text
-                style={[
-                  styles.tabText,
-                  { color: authMode === 'sign_up' ? '#ffffff' : theme.text },
-                ]}>
+                className={`account-tab-text ${authMode === 'sign_up' ? 'text-on-accent' : 'text-text'}`}>
                 Registrieren
               </Text>
             </Pressable>
             <Pressable
               onPress={() => setAuthMode('sign_in')}
-              style={[
-                styles.tabButton,
-                authMode === 'sign_in' && { backgroundColor: theme.accent },
-              ]}>
+              className={`account-tab-button ${authMode === 'sign_in' ? 'account-tab-button-active' : ''}`}>
               <Text
-                style={[
-                  styles.tabText,
-                  { color: authMode === 'sign_in' ? '#ffffff' : theme.text },
-                ]}>
+                className={`account-tab-text ${authMode === 'sign_in' ? 'text-on-accent' : 'text-text'}`}>
                 Anmelden
               </Text>
             </Pressable>
@@ -142,7 +120,7 @@ export function AccountStepForm({ onNext }: AccountStepFormProps) {
             secureTextEntry
           />
 
-          {authError && <Text style={{ color: theme.danger, ...FontSize[13] }}>{authError}</Text>}
+          {authError && <Text className="account-error-text">{authError}</Text>}
 
           <Button
             label={authMode === 'sign_up' ? 'Konto erstellen & weiter' : 'Anmelden & weiter'}
@@ -154,55 +132,3 @@ export function AccountStepForm({ onNext }: AccountStepFormProps) {
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    gap: Spacing.three,
-  },
-  heading: {
-    ...FontSize[22],
-    fontWeight: '700',
-  },
-  subheading: {
-    ...FontSize[14],
-    lineHeight: 20,
-  },
-  activeContainer: {
-    gap: Spacing.four,
-    marginTop: Spacing.two,
-  },
-  activeBanner: {
-    padding: Spacing.three,
-    borderRadius: Radius.sm,
-    borderWidth: 1,
-    gap: Spacing.one,
-  },
-  activeTitle: {
-    ...FontSize[15],
-    fontWeight: '700',
-  },
-  activeDesc: {
-    ...FontSize[13],
-    lineHeight: 18,
-  },
-  form: {
-    gap: Spacing.three,
-    marginTop: Spacing.two,
-  },
-  tabToggle: {
-    flexDirection: 'row',
-    borderRadius: Radius.sm,
-    overflow: 'hidden',
-    borderWidth: 1,
-    marginBottom: Spacing.one,
-  },
-  tabButton: {
-    flex: 1,
-    paddingVertical: Spacing.two,
-    alignItems: 'center',
-  },
-  tabText: {
-    ...FontSize[14],
-    fontWeight: '600',
-  },
-});

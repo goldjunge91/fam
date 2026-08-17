@@ -2,7 +2,7 @@ import { useQueryClient } from '@tanstack/react-query';
 import * as Crypto from 'expo-crypto';
 import { router, useFocusEffect } from 'expo-router';
 import { useCallback, useState } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { View } from 'react-native';
 
 import { DateWheelField } from '@/components/date-wheel-field';
 import { FilterChipBar } from '@/components/filter-chip-bar';
@@ -11,7 +11,6 @@ import { Screen } from '@/components/screen';
 import { TextField } from '@/components/text-field';
 import { ThemedText } from '@/components/themed-text';
 import { Button } from '@/components/ui/buttons';
-import { Radius, Spacing } from '@/constants/theme';
 import { useSession } from '@/features/auth/session-provider';
 import { useAddFridgeItemMutation } from '@/features/fridge/use-fridge-mutations';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
@@ -190,7 +189,7 @@ export function AddItemScreen() {
 
   return (
     <Screen title="Artikel hinzufügen" back={{ label: 'Abbrechen' }}>
-      <View style={styles.form}>
+      <View className="gap-four mt-four">
         <Button
           label="📷 Barcode scannen"
           variant="secondary"
@@ -211,9 +210,9 @@ export function AddItemScreen() {
           onSelectProduct={handleSelectProduct}
         />
 
-        <View style={styles.row}>
-          <View style={styles.flex}>
-            <ThemedText type="small" themeColor="textSecondary" style={styles.fieldLabel}>
+        <View className="flex-row gap-four">
+          <View className="flex-1">
+            <ThemedText type="small" themeColor="textSecondary" className="mb-one">
               Menge
             </ThemedText>
             <QuantityStepper
@@ -223,7 +222,7 @@ export function AddItemScreen() {
               label="Menge"
             />
           </View>
-          <View style={styles.flex}>
+          <View className="flex-1">
             <TextField
               label="Einheit"
               placeholder="piece, l, kg..."
@@ -233,7 +232,7 @@ export function AddItemScreen() {
           </View>
         </View>
 
-        <View style={{ marginTop: Spacing.two }}>
+        <View className="mt-two">
           <DateWheelField
             label="Mindesthaltbarkeitsdatum (MHD)"
             value={expiryDate}
@@ -247,8 +246,8 @@ export function AddItemScreen() {
           onSelect={(value) => setExpiryDate(quickDateOffset(value))}
         />
 
-        <View style={styles.locationHeaderRow}>
-          <ThemedText style={{ fontWeight: 'bold' }}>Lagerort</ThemedText>
+        <View className="flex-row justify-between items-center mt-two">
+          <ThemedText className="font-bold">Lagerort</ThemedText>
           {!showAddLocation && (
             <Button
               label="+ Neuer Lagerort"
@@ -259,15 +258,15 @@ export function AddItemScreen() {
         </View>
 
         {showAddLocation && (
-          <View style={styles.addLocationBox}>
+          <View className="gap-three p-three rounded-sm border border-border">
             <TextField
               label="Name des Lagerorts"
               placeholder="z.B. Keller, Regalfach, Gefrierfach"
               value={newLocationName}
               onChangeText={setNewLocationName}
             />
-            <View style={styles.row}>
-              <View style={styles.flex}>
+            <View className="flex-row gap-four">
+              <View className="flex-1">
                 <Button
                   label="Erstellen"
                   onPress={handleAddLocation}
@@ -275,7 +274,7 @@ export function AddItemScreen() {
                   disabled={!newLocationName.trim()}
                 />
               </View>
-              <View style={styles.flex}>
+              <View className="flex-1">
                 <Button
                   label="Abbrechen"
                   variant="secondary"
@@ -306,7 +305,7 @@ export function AddItemScreen() {
           )
         )}
 
-        <View style={styles.saveButton}>
+        <View className="mt-four">
           <Button
             label="Speichern"
             onPress={handleSave}
@@ -325,36 +324,3 @@ export function AddItemScreen() {
     </Screen>
   );
 }
-
-const styles = StyleSheet.create({
-  form: {
-    gap: Spacing.four,
-    marginTop: Spacing.four,
-  },
-  row: {
-    flexDirection: 'row',
-    gap: Spacing.four,
-  },
-  flex: {
-    flex: 1,
-  },
-  fieldLabel: {
-    marginBottom: Spacing.one,
-  },
-  locationHeaderRow: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    marginTop: Spacing.two,
-  },
-  addLocationBox: {
-    gap: Spacing.three,
-    padding: Spacing.three,
-    borderRadius: Radius.sm,
-    borderWidth: 1,
-    borderColor: '#ccc',
-  },
-  saveButton: {
-    marginTop: Spacing.four,
-  },
-});

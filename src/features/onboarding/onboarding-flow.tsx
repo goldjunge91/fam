@@ -1,9 +1,7 @@
 import { useQueryClient } from '@tanstack/react-query';
-import { Pressable, StyleSheet, Text, View } from 'react-native';
+import { Pressable, Text, View } from 'react-native';
 import { ProgressBar } from '@/components/progress-bar';
 import { Screen } from '@/components/screen';
-import { FontSize } from '@/components/themed-text';
-import { Spacing } from '@/constants/theme';
 import { useSession } from '@/features/auth/session-provider';
 import { signOutAndClearLocalData } from '@/features/auth/sign-out';
 import { useTheme } from '@/hooks/use-theme';
@@ -39,13 +37,12 @@ function OnboardingContent() {
   return (
     <Screen title={currentStep === 1 ? 'Willkommen' : `Schritt ${currentStep} von ${TOTAL_STEPS}`}>
       {currentStep > 1 && currentStep < TOTAL_STEPS && (
-        <View style={styles.progressContainer}>
+        <View className="progress-container">
+          {/* ProgressBar erwartet einen echten Farbwert (kein className-Prop). */}
           <ProgressBar value={currentStep / TOTAL_STEPS} color={theme.accent} />
           {session && (
-            <Pressable onPress={handleEmergencySignOut} style={styles.signOutLink}>
-              <Text style={[styles.signOutText, { color: theme.textSecondary }]}>
-                Nicht du? Abmelden und neu starten
-              </Text>
+            <Pressable onPress={handleEmergencySignOut} className="signout-link">
+              <Text className="signout-text">Nicht du? Abmelden und neu starten</Text>
             </Pressable>
           )}
         </View>
@@ -69,19 +66,3 @@ export function OnboardingFlow() {
     </OnboardingProvider>
   );
 }
-
-const styles = StyleSheet.create({
-  progressContainer: {
-    paddingHorizontal: Spacing.four,
-    marginBottom: Spacing.two,
-  },
-  signOutLink: {
-    alignSelf: 'center',
-    marginTop: Spacing.two,
-    padding: Spacing.one,
-  },
-  signOutText: {
-    ...FontSize[12],
-    textDecorationLine: 'underline',
-  },
-});

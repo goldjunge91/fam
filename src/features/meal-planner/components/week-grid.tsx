@@ -1,10 +1,9 @@
 import { useCallback, useRef, useState } from 'react';
-import { Pressable, ScrollView, StyleSheet, View } from 'react-native';
+import { Pressable, ScrollView, View } from 'react-native';
 import { Gesture, GestureDetector } from 'react-native-gesture-handler';
 import Animated, { runOnJS, useAnimatedStyle, useSharedValue } from 'react-native-reanimated';
 
-import { FontSize, ThemedText } from '@/components/themed-text';
-import { Radius, withAlpha } from '@/constants/theme';
+import { ThemedText } from '@/components/themed-text';
 import { RecipeArtwork } from '@/features/recipes/components/recipe-preview-card';
 import { useRecipeCoverUrl } from '@/features/recipes/recipe-image-uploader';
 import { useTheme } from '@/hooks/use-theme';
@@ -38,33 +37,6 @@ function portionLabel(portions: number) {
   return `${portions} ${portions === 1 ? 'Portion' : 'Portionen'}`;
 }
 
-// Feste Groessen fuer die Mahlzeiten-Slots (#195-Mockup "06.02 · Essensplan
-// — Tag"): alle drei Ansichten (Tag/3 Tage/Woche) sehen gleich aus — die
-// Mahlzeiten stehen untereinander, in derselben Groesse wie in der
-// Tagesansicht. Nur die Anzahl der sichtbaren Tages-Karten unterscheidet
-// sich; deshalb ist SLOT_SIZES nicht von `mode` abhaengig.
-const SLOT_SIZES = {
-  slotMinHeight: 116,
-  slotGap: 8,
-  slotPaddingHorizontal: 12,
-  slotPaddingVertical: 12,
-  labelFontSize: 11,
-  labelLineHeight: 14,
-  chipMinHeight: 46,
-  chipBorderRadius: 13,
-  chipPaddingHorizontal: 12,
-  chipPaddingVertical: 9,
-  titleFontSize: 15,
-  titleLineHeight: 19,
-  metaFontSize: 12,
-  metaLineHeight: 15,
-  addMinHeight: 40,
-  addBorderRadius: 12,
-  addPaddingHorizontal: 8,
-  addFontSize: 13,
-  addLineHeight: 16,
-} as const;
-
 /**
  * Responsive Tageskarten des Essensplans. Tippen bleibt der primaere Weg;
  * die vorhandene Drag-Ablage sitzt weiter unter den sichtbaren Tagen.
@@ -82,8 +54,6 @@ export function WeekGrid({
   onTapEntry,
   onTapEmptyCell,
 }: WeekGridProps) {
-  const theme = useTheme();
-  const sizes = SLOT_SIZES;
   // Knoten statt vormessener Rechtecke: die Woche-/3-Tage-Liste ist vertikal
   // scrollbar, ein einmal beim Mount gemessenes Rechteck waere nach dem
   // Scrollen falsch und der Drop wuerde ins Leere treffen. Stattdessen wird
@@ -142,29 +112,25 @@ export function WeekGrid({
   }));
 
   return (
-    <View style={styles.root}>
+    <View className="wg-root">
       <ScrollView
-        style={styles.scroll}
-        contentContainerStyle={styles.content}
+        className="wg-scroll"
+        contentContainerClassName="wg-content"
         showsVerticalScrollIndicator={false}>
         {dates.map((date) => (
           <View
             key={date}
-            style={[
-              styles.dayCard,
-              {
-                backgroundColor: `${theme.backgroundElement}E3`,
-                borderColor: `${theme.backgroundElement}F5`,
-              },
-            ]}>
-            <View style={styles.dayHeader}>
-              <ThemedText style={styles.dayName}>{weekdayLabel(date)}</ThemedText>
-              <ThemedText themeColor="textSecondary" style={styles.dayDate}>
+            className="wg-day-card"
+            // borderCurve ist ein echter Laufzeitwert ohne Tailwind-Aequivalent.
+            style={{ borderCurve: 'continuous' }}>
+            <View className="wg-day-header">
+              <ThemedText className="wg-day-name">{weekdayLabel(date)}</ThemedText>
+              <ThemedText themeColor="textSecondary" className="wg-day-date">
                 {dateLabel(date)}
               </ThemedText>
             </View>
 
-            <View style={[styles.slotColumn, { borderTopColor: `${theme.text}12` }]}>
+            <View className="wg-slot-column">
               {MEAL_SLOTS.map((slot, slotIndex) => {
                 const key = `${date}|${slot}`;
                 const cellEntries = entriesByCell.get(key) ?? [];
@@ -172,28 +138,8 @@ export function WeekGrid({
                   <View
                     key={slot}
                     ref={(node) => registerCell(key, node)}
-                    style={[
-                      styles.slot,
-                      {
-                        minHeight: sizes.slotMinHeight,
-                        gap: sizes.slotGap,
-                        paddingHorizontal: sizes.slotPaddingHorizontal,
-                        paddingVertical: sizes.slotPaddingVertical,
-                      },
-                      slotIndex > 0 && {
-                        borderTopColor: `${theme.text}12`,
-                        borderTopWidth: 1,
-                      },
-                    ]}>
-                    <ThemedText
-                      themeColor="textSecondary"
-                      style={[
-                        styles.slotLabel,
-                        {
-                          fontSize: sizes.labelFontSize,
-                          lineHeight: sizes.labelLineHeight,
-                        },
-                      ]}>
+                    className={`wg-slot ${slotIndex > 0 ? 'wg-slot-divider' : ''}`}>
+                    <ThemedText themeColor="textSecondary" className="wg-slot-label">
                       {SLOT_LABELS[slot]}
                     </ThemedText>
 
@@ -203,37 +149,13 @@ export function WeekGrid({
                         role="button"
                         aria-label={`${entry.recipe_title}, ${portionLabel(entry.portions)}`}
                         onPress={() => onTapEntry(entry)}
-                        style={({ pressed }) => [
-                          styles.entryChip,
-                          {
-                            minHeight: sizes.chipMinHeight,
-                            borderRadius: sizes.chipBorderRadius,
-                            paddingHorizontal: sizes.chipPaddingHorizontal,
-                            paddingVertical: sizes.chipPaddingVertical,
-                            backgroundColor: theme.backgroundSelected,
-                          },
-                          pressed && styles.pressed,
-                        ]}>
-                        <ThemedText
-                          style={[
-                            styles.entryTitle,
-                            {
-                              fontSize: sizes.titleFontSize,
-                              lineHeight: sizes.titleLineHeight,
-                            },
-                          ]}
-                          numberOfLines={1}>
+                        className="wg-entry-chip"
+                        // borderCurve ist ein echter Laufzeitwert ohne Tailwind-Aequivalent.
+                        style={{ borderCurve: 'continuous' }}>
+                        <ThemedText className="wg-entry-title" numberOfLines={1}>
                           {entry.recipe_title}
                         </ThemedText>
-                        <ThemedText
-                          themeColor="textSecondary"
-                          style={[
-                            styles.entryMeta,
-                            {
-                              fontSize: sizes.metaFontSize,
-                              lineHeight: sizes.metaLineHeight,
-                            },
-                          ]}>
+                        <ThemedText themeColor="textSecondary" className="wg-entry-meta">
                           {portionLabel(entry.portions)}
                         </ThemedText>
                       </Pressable>
@@ -243,25 +165,10 @@ export function WeekGrid({
                       role="button"
                       aria-label={`${SLOT_LABELS[slot]} am ${weekdayLabel(date)}, Gericht hinzufügen`}
                       onPress={() => onTapEmptyCell(date, slot)}
-                      style={({ pressed }) => [
-                        styles.addButton,
-                        {
-                          minHeight: sizes.addMinHeight,
-                          borderRadius: sizes.addBorderRadius,
-                          paddingHorizontal: sizes.addPaddingHorizontal,
-                          borderColor: theme.border,
-                        },
-                        pressed && styles.pressed,
-                      ]}>
-                      <ThemedText
-                        themeColor="accent"
-                        style={[
-                          styles.addText,
-                          {
-                            fontSize: sizes.addFontSize,
-                            lineHeight: sizes.addLineHeight,
-                          },
-                        ]}>
+                      className="wg-add-button"
+                      // borderCurve ist ein echter Laufzeitwert ohne Tailwind-Aequivalent.
+                      style={{ borderCurve: 'continuous' }}>
+                      <ThemedText themeColor="accent" className="wg-add-text">
                         {cellEntries.length > 0 ? '+ Weiteres' : '+ Gericht'}
                       </ThemedText>
                     </Pressable>
@@ -274,20 +181,16 @@ export function WeekGrid({
 
         {recipes.length > 0 ? (
           <View
-            style={[
-              styles.tray,
-              {
-                backgroundColor: withAlpha(theme.backgroundElement, 0.78),
-                borderColor: theme.border,
-              },
-            ]}>
-            <ThemedText type="captionCompact" style={styles.trayTitle}>
+            className="wg-tray"
+            // borderCurve ist ein echter Laufzeitwert ohne Tailwind-Aequivalent.
+            style={{ borderCurve: 'continuous' }}>
+            <ThemedText type="captionCompact" className="wg-tray-title">
               Rezepte zum Ziehen
             </ThemedText>
-            <ThemedText themeColor="textSecondary" style={styles.trayLabel}>
+            <ThemedText themeColor="textSecondary" className="wg-tray-label">
               Karte halten und auf eine Mahlzeit ziehen
             </ThemedText>
-            <View style={styles.trayGrid}>
+            <View className="wg-tray-grid">
               {recipes.map((recipe) => (
                 <DraggableRecipeCard
                   key={recipe.id}
@@ -304,7 +207,7 @@ export function WeekGrid({
       </ScrollView>
 
       {draggingRecipe ? (
-        <Animated.View pointerEvents="none" style={[styles.dragOverlay, overlayStyle]}>
+        <Animated.View pointerEvents="none" className="wg-drag-overlay" style={overlayStyle}>
           <DragPreviewCard recipe={draggingRecipe} />
         </Animated.View>
       ) : null}
@@ -326,7 +229,6 @@ function DraggableRecipeCard({
   onDragStart: (recipe: DraggableRecipe) => void;
   onDragEnd: (absoluteX: number, absoluteY: number, recipe: DraggableRecipe) => Promise<void>;
 }) {
-  const theme = useTheme();
   const { data: coverUrl } = useRecipeCoverUrl(recipe.coverImagePath);
 
   // `activateAfterLongPress` laesst der umgebenden horizontalen ScrollView
@@ -353,11 +255,11 @@ function DraggableRecipeCard({
 
   return (
     <GestureDetector gesture={pan}>
-      <View style={[styles.recipeCard, { backgroundColor: theme.backgroundSelected }]}>
-        <View style={styles.recipeCardArtwork}>
+      <View className="wg-recipe-card" style={{ borderCurve: 'continuous' }}>
+        <View className="wg-recipe-card-artwork" style={{ borderCurve: 'continuous' }}>
           <RecipeArtwork title={recipe.title} coverUrl={coverUrl} paletteIndex={recipe.id.length} />
         </View>
-        <ThemedText style={styles.recipeCardText} numberOfLines={2}>
+        <ThemedText className="wg-recipe-card-text" numberOfLines={2}>
           {recipe.title}
         </ThemedText>
       </View>
@@ -372,172 +274,23 @@ function DragPreviewCard({ recipe }: { recipe: DraggableRecipe }) {
 
   return (
     <View
-      style={[
-        styles.dragPreviewCard,
-        {
-          backgroundColor: theme.backgroundSelected,
-          borderColor: theme.accent,
-          shadowColor: theme.shadowCard,
-        },
-      ]}>
-      <View style={styles.dragPreviewArtwork}>
+      className="wg-drag-preview-card"
+      // borderCurve und der Schatten (individuelle Opazitaet/Radius/Offset,
+      // keine passende boxShadow-Preset-Klasse) sind echte Laufzeitwerte
+      // ohne Tailwind-Aequivalent.
+      style={{
+        borderCurve: 'continuous',
+        shadowColor: theme.shadowCard,
+        shadowOpacity: 0.22,
+        shadowRadius: 12,
+        shadowOffset: { width: 0, height: 6 },
+      }}>
+      <View className="wg-drag-preview-artwork" style={{ borderCurve: 'continuous' }}>
         <RecipeArtwork title={recipe.title} coverUrl={coverUrl} paletteIndex={recipe.id.length} />
       </View>
-      <ThemedText style={styles.dragPreviewText} numberOfLines={1}>
+      <ThemedText className="wg-drag-preview-text" numberOfLines={1}>
         {recipe.title}
       </ThemedText>
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  root: {
-    flex: 1,
-  },
-  scroll: {
-    flex: 1,
-  },
-  content: {
-    gap: 8,
-    paddingTop: 10,
-    paddingBottom: 126,
-  },
-  dayCard: {
-    overflow: 'hidden',
-    borderWidth: 1,
-    borderRadius: Radius.sheet,
-    borderCurve: 'continuous',
-  },
-  dayHeader: {
-    height: 38,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    paddingHorizontal: 12,
-  },
-  dayName: {
-    ...FontSize[17],
-    lineHeight: 21,
-    fontWeight: 700,
-  },
-  dayDate: {
-    ...FontSize[9],
-    lineHeight: 12,
-    fontWeight: 500,
-  },
-  // Die Mahlzeiten stehen in jeder Ansicht untereinander (#195-Mockup
-  // "06.02"); nur die Groessen aus VIEW_SLOT_SIZES unterscheiden sich.
-  slotColumn: {
-    flexDirection: 'column',
-    borderTopWidth: 1,
-  },
-  slot: {
-    minWidth: 0,
-  },
-  slotLabel: {
-    fontWeight: 700,
-    letterSpacing: 0.55,
-    textTransform: 'uppercase',
-  },
-  entryChip: {
-    justifyContent: 'center',
-    borderCurve: 'continuous',
-  },
-  entryTitle: {
-    fontWeight: 700,
-  },
-  entryMeta: {
-    fontWeight: 500,
-  },
-  addButton: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    borderWidth: 1,
-    borderStyle: 'dashed',
-    borderCurve: 'continuous',
-  },
-  addText: {
-    fontWeight: 600,
-  },
-  pressed: {
-    opacity: 0.7,
-  },
-  tray: {
-    overflow: 'hidden',
-    borderWidth: 1,
-    borderRadius: Radius.sheet,
-    borderCurve: 'continuous',
-    paddingVertical: 12,
-  },
-  trayTitle: {
-    paddingHorizontal: 12,
-    ...FontSize[11],
-    lineHeight: 14,
-    fontWeight: 700,
-  },
-  trayLabel: {
-    paddingHorizontal: 12,
-    paddingTop: 1,
-    paddingBottom: 8,
-    ...FontSize[8],
-    lineHeight: 11,
-    fontWeight: 500,
-  },
-  // Zwei-Spalten-Kachelraster statt horizontalem Scrollen: die Karten stehen
-  // untereinander, keine Konkurrenz mehr mit einer zweiten (horizontalen)
-  // ScrollView um die Ziehgeste.
-  trayGrid: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    gap: 10,
-    paddingHorizontal: 12,
-  },
-  // Große Rezeptkarte im Zieh-Tray, statt der frueheren winzigen Text-Chips —
-  // das Bild macht das Gericht auf den ersten Blick erkennbar.
-  recipeCard: {
-    width: '47%',
-    borderRadius: Radius.card,
-    borderCurve: 'continuous',
-    padding: 8,
-    gap: 6,
-  },
-  recipeCardArtwork: {
-    height: 118,
-    overflow: 'hidden',
-    borderRadius: Radius.control,
-    borderCurve: 'continuous',
-  },
-  recipeCardText: {
-    ...FontSize[12],
-    lineHeight: 15,
-    fontWeight: 700,
-  },
-  dragOverlay: {
-    position: 'absolute',
-    left: 0,
-    top: 0,
-  },
-  dragPreviewCard: {
-    width: 112,
-    borderRadius: Radius.card,
-    borderCurve: 'continuous',
-    borderWidth: 2,
-    padding: 6,
-    gap: 4,
-    opacity: 0.94,
-    shadowOpacity: 0.22,
-    shadowRadius: 12,
-    shadowOffset: { width: 0, height: 6 },
-  },
-  dragPreviewArtwork: {
-    height: 68,
-    overflow: 'hidden',
-    borderRadius: Radius.control,
-    borderCurve: 'continuous',
-  },
-  dragPreviewText: {
-    ...FontSize[10],
-    lineHeight: 13,
-    fontWeight: 700,
-  },
-});

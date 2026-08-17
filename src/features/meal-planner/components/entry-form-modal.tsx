@@ -1,12 +1,10 @@
 import { useEffect, useState } from 'react';
-import { Modal, Platform, Pressable, StyleSheet, View } from 'react-native';
+import { Modal, Platform, Pressable, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { TextField } from '@/components/text-field';
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
 import { Button } from '@/components/ui/buttons';
-import { Radius, Spacing } from '@/constants/theme';
-import { useTheme } from '@/hooks/use-theme';
 import { DEFAULT_PORTIONS_PER_PERSON, type ResolvedServings, resolveServings } from '../servings';
 import { MEAL_SLOT_LABELS, type MealSlot } from '../week';
 
@@ -47,7 +45,6 @@ export function EntryFormModal({
   onSave,
   onDelete,
 }: EntryFormModalProps) {
-  const theme = useTheme();
   const [mode, setMode] = useState<'portions' | 'people'>(initial?.servings_mode ?? 'portions');
   const [portionsText, setPortionsText] = useState(String(initial?.portions ?? 1));
   const [peopleText, setPeopleText] = useState(String(initial?.people_count ?? ''));
@@ -95,10 +92,10 @@ export function EntryFormModal({
       animationType="slide"
       presentationStyle={Platform.OS === 'ios' ? 'pageSheet' : undefined}
       onRequestClose={onDismiss}>
-      <ThemedView style={styles.root}>
-        <SafeAreaView style={styles.safeArea} edges={['top', 'left', 'right', 'bottom']}>
-          <View style={styles.header}>
-            <View style={styles.headerText}>
+      <ThemedView className="rpm-root">
+        <SafeAreaView className="rpm-safe-area" edges={['top', 'left', 'right', 'bottom']}>
+          <View className="rpm-header">
+            <View className="efm-header-text">
               <ThemedText type="subtitle" numberOfLines={1}>
                 {recipeTitle}
               </ThemedText>
@@ -110,27 +107,20 @@ export function EntryFormModal({
               onPress={onDismiss}
               accessibilityRole="button"
               accessibilityLabel="Schließen"
-              style={[styles.closeButton, { backgroundColor: theme.backgroundElement }]}>
+              className="rpm-close-button">
               <ThemedText>✕</ThemedText>
             </Pressable>
           </View>
 
-          <View style={styles.content}>
-            <View style={styles.modeRow}>
+          <View className="efm-content">
+            <View className="efm-mode-row">
               <Pressable
                 accessibilityRole="button"
                 accessibilityLabel="Portionen-Modus"
                 accessibilityState={{ selected: mode === 'portions' }}
                 onPress={() => setMode('portions')}
-                style={[
-                  styles.modeButton,
-                  {
-                    backgroundColor: mode === 'portions' ? theme.accent : theme.backgroundElement,
-                  },
-                ]}>
-                <ThemedText
-                  type="smallBold"
-                  style={{ color: mode === 'portions' ? '#ffffff' : theme.text }}>
+                className={`efm-mode-button ${mode === 'portions' ? 'bg-accent' : 'bg-background-element'}`}>
+                <ThemedText type="smallBold" themeColor={mode === 'portions' ? 'onAccent' : 'text'}>
                   Portionen
                 </ThemedText>
               </Pressable>
@@ -139,13 +129,8 @@ export function EntryFormModal({
                 accessibilityLabel="Personen-Modus"
                 accessibilityState={{ selected: mode === 'people' }}
                 onPress={() => setMode('people')}
-                style={[
-                  styles.modeButton,
-                  { backgroundColor: mode === 'people' ? theme.accent : theme.backgroundElement },
-                ]}>
-                <ThemedText
-                  type="smallBold"
-                  style={{ color: mode === 'people' ? '#ffffff' : theme.text }}>
+                className={`efm-mode-button ${mode === 'people' ? 'bg-accent' : 'bg-background-element'}`}>
+                <ThemedText type="smallBold" themeColor={mode === 'people' ? 'onAccent' : 'text'}>
                   Personen
                 </ThemedText>
               </Pressable>
@@ -172,7 +157,7 @@ export function EntryFormModal({
                   accessibilityRole="button"
                   accessibilityLabel="Ganzer Haushalt isst"
                   onPress={handleWholeHousehold}
-                  style={styles.wholeHouseholdButton}>
+                  className="efm-whole-household-button">
                   <ThemedText type="link">
                     Ganzer Haushalt isst ({householdMemberCount}{' '}
                     {householdMemberCount === 1 ? 'Person' : 'Personen'})
@@ -186,7 +171,7 @@ export function EntryFormModal({
               </>
             )}
 
-            <View style={styles.actions}>
+            <View className="efm-actions">
               <Button label="Speichern" onPress={handleSave} disabled={saveDisabled} />
               {onDelete ? (
                 <Button label="Eintrag entfernen" variant="danger" onPress={onDelete} />
@@ -198,32 +183,3 @@ export function EntryFormModal({
     </Modal>
   );
 }
-
-const styles = StyleSheet.create({
-  root: { flex: 1 },
-  safeArea: { flex: 1, paddingHorizontal: Spacing.four },
-  header: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    paddingVertical: Spacing.three,
-  },
-  headerText: { flex: 1, marginRight: Spacing.two, gap: 2 },
-  closeButton: {
-    width: 32,
-    height: 32,
-    borderRadius: Radius.card,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  content: { gap: Spacing.three },
-  modeRow: { flexDirection: 'row', gap: Spacing.two },
-  modeButton: {
-    flex: 1,
-    paddingVertical: Spacing.two,
-    borderRadius: Radius.control,
-    alignItems: 'center',
-  },
-  wholeHouseholdButton: { alignSelf: 'flex-start' },
-  actions: { gap: Spacing.two, marginTop: Spacing.three },
-});

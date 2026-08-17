@@ -1,9 +1,8 @@
 import BottomSheet, { BottomSheetView } from '@expo/ui/community/bottom-sheet';
 import { useEffect, useRef, useState } from 'react';
-import { Animated, PanResponder, Pressable, StyleSheet, View } from 'react-native';
+import { Animated, PanResponder, Pressable, View } from 'react-native';
 
-import { FontSize, ThemedText } from '@/components/themed-text';
-import { Radius, Spacing } from '@/constants/theme';
+import { ThemedText } from '@/components/themed-text';
 import { useTheme } from '@/hooks/use-theme';
 import {
   parseCategoryOrder,
@@ -58,22 +57,21 @@ function Row({
 
   return (
     <Animated.View
+      className="category-order-row"
+      // Animated.Value & Drag-State Z-Index
       style={[
-        styles.row,
-        {
-          borderBottomColor: theme.border,
-          backgroundColor: isDragging ? theme.backgroundElement : 'transparent',
-          transform: [{ translateY: isDragging ? translateY : 0 }],
-          zIndex: isDragging ? 10 : 0,
-        },
+        isDragging ? { backgroundColor: theme.backgroundElement, zIndex: 10 } : undefined,
+        { transform: [{ translateY: isDragging ? translateY : 0 }] },
       ]}>
-      <ThemedText style={styles.rowLabel}>{category.label}</ThemedText>
+      <ThemedText type="default">{category.label}</ThemedText>
       <View
         {...pan.panHandlers}
-        style={styles.handle}
+        className="category-order-handle"
         accessibilityRole="adjustable"
         accessibilityLabel={`${category.label} verschieben`}>
-        <ThemedText style={styles.handleIcon}>⠿</ThemedText>
+        <ThemedText type="subtitle" className="opacity-50">
+          ⠿
+        </ThemedText>
       </View>
     </Animated.View>
   );
@@ -179,96 +177,46 @@ export function CategoryOrderSheet({ isOpen, store, onClose }: Props) {
       onClose={onClose}
       backgroundStyle={{ backgroundColor: theme.background }}
       handleIndicatorStyle={{ backgroundColor: theme.border }}>
-      <BottomSheetView style={styles.sheetContent}>
-        <View style={styles.header}>
-          <ThemedText type="title">Reihenfolge bearbeiten</ThemedText>
-          <ThemedText type="small" themeColor="textSecondary">
-            {store?.name ?? ''} — am Griff ⠿ ziehen
-          </ThemedText>
-        </View>
+      <BottomSheetView>
+        <View className="flex-1 px-four">
+          <View className="pt-two pb-three gap-[2px]">
+            <ThemedText type="title">Reihenfolge bearbeiten</ThemedText>
+            <ThemedText type="smallMuted">{store?.name ?? ''} — am Griff ⠿ ziehen</ThemedText>
+          </View>
 
-        <View style={styles.list}>
-          {order.map((category, index) => (
-            <Row
-              key={category.id}
-              category={category}
-              index={index}
-              isDragging={draggingIndex === index}
-              translateY={translateY}
-              onDragStart={handleDragStart}
-              onDragMove={handleDragMove}
-              onDragEnd={handleDragEnd}
-            />
-          ))}
-        </View>
+          <View>
+            {order.map((category, index) => (
+              <Row
+                key={category.id}
+                category={category}
+                index={index}
+                isDragging={draggingIndex === index}
+                translateY={translateY}
+                onDragStart={handleDragStart}
+                onDragMove={handleDragMove}
+                onDragEnd={handleDragEnd}
+              />
+            ))}
+          </View>
 
-        <View style={styles.actions}>
-          <Pressable onPress={handleReset} accessibilityRole="button" style={styles.resetLink}>
-            <ThemedText type="small" themeColor="textSecondary">
-              Auf Standard zurücksetzen
-            </ThemedText>
-          </Pressable>
-          <Pressable
-            onPress={handleSave}
-            disabled={saveMutation.isPending}
-            accessibilityRole="button"
-            style={[styles.saveButton, { backgroundColor: store?.color ?? theme.accent }]}>
-            <ThemedText style={styles.saveButtonText}>Speichern</ThemedText>
-          </Pressable>
+          <View className="row-between py-four">
+            <Pressable onPress={handleReset} accessibilityRole="button" className="py-two">
+              <ThemedText type="smallMuted">Auf Standard zurücksetzen</ThemedText>
+            </Pressable>
+            <Pressable
+              onPress={handleSave}
+              disabled={saveMutation.isPending}
+              accessibilityRole="button"
+              className="px-four py-three rounded-card"
+              // Dynamische Markt-Farbe aus der Datenbank
+              style={{ backgroundColor: store?.color ?? theme.accent }}>
+              <ThemedText type="default" className="text-white font-bold">
+                Speichern
+              </ThemedText>
+            </Pressable>
+          </View>
         </View>
       </BottomSheetView>
     </BottomSheet>
   );
 }
-
-const styles = StyleSheet.create({
-  sheetContent: {
-    flex: 1,
-    paddingHorizontal: Spacing.four,
-  },
-  header: {
-    paddingTop: Spacing.two,
-    paddingBottom: Spacing.three,
-    gap: 2,
-  },
-  list: {
-    gap: 0,
-  },
-  row: {
-    height: ROW_HEIGHT,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    borderBottomWidth: StyleSheet.hairlineWidth,
-  },
-  rowLabel: {
-    ...FontSize[15],
-  },
-  handle: {
-    paddingHorizontal: Spacing.three,
-    paddingVertical: Spacing.two,
-  },
-  handleIcon: {
-    ...FontSize[20],
-    opacity: 0.5,
-  },
-  actions: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    paddingVertical: Spacing.four,
-  },
-  resetLink: {
-    paddingVertical: Spacing.two,
-  },
-  saveButton: {
-    paddingHorizontal: Spacing.four,
-    paddingVertical: Spacing.three,
-    borderRadius: Radius.card,
-  },
-  saveButtonText: {
-    color: '#fff',
-    fontWeight: '700',
-    ...FontSize[15],
-  },
-});

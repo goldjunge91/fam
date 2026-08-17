@@ -51,7 +51,7 @@ function currentDayOfMonth(): number {
  * wechseln"). Aktualisiert sich beim Ruecksprung aus dem Hintergrund und –
  * falls die App ueber Mitternacht hinweg offen bleibt – per Minutentakt.
  */
-export function CalendarDayIcon({ size = 35 }: { size?: number }) {
+export function CalendarDayIcon({ size: _size }: { size?: number }) {
   const [day, setDay] = useState(currentDayOfMonth);
 
   useEffect(() => {
@@ -74,11 +74,12 @@ export function CalendarDayIcon({ size = 35 }: { size?: number }) {
     CALENDAR_DAY_ICONS[day as keyof typeof CALENDAR_DAY_ICONS] ?? CALENDAR_DAY_ICONS[1];
 
   return (
+    // Image (expo-image) ist bei NativeWind nicht registriert.
     <Image
       source={source}
       contentFit="contain"
       accessibilityLabel={`Essensplan, heute der ${day}.`}
-      style={{ width: size, height: size }}
+      style={{ width: 35, height: 35 }}
     />
   );
 }

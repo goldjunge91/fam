@@ -1,7 +1,4 @@
-import { Pressable, ScrollView, StyleSheet, Text } from 'react-native';
-import { FontSize } from '@/components/themed-text';
-import { Radius } from '@/constants/theme';
-import { useTheme } from '@/hooks/use-theme';
+import { Pressable, ScrollView, Text } from 'react-native';
 
 export type FilterChipOption<T extends string> = {
   value: T;
@@ -22,14 +19,12 @@ export function FilterChipBar<T extends string>({
   selected,
   onSelect,
 }: FilterChipBarProps<T>) {
-  const theme = useTheme();
-
   return (
     <ScrollView
       horizontal
       showsHorizontalScrollIndicator={false}
       aria-label={label}
-      contentContainerStyle={styles.content}>
+      contentContainerClassName="gap-[6px] pr-[15px]">
       {options.map((option) => {
         const active = option.value === selected;
         return (
@@ -39,14 +34,13 @@ export function FilterChipBar<T extends string>({
             role="button"
             aria-label={`${label}: ${option.label}`}
             aria-pressed={active}
-            style={({ pressed }) => [
-              styles.chip,
-              {
-                backgroundColor: active ? theme.accent : `${theme.backgroundElement}B8`,
-              },
-              pressed && styles.pressed,
-            ]}>
-            <Text style={[styles.label, { color: active ? '#FFFFFF' : theme.textSecondary }]}>
+            className={`min-h-[28px] justify-center px-[13px] rounded-control active:opacity-75 ${
+              active ? 'bg-accent' : 'bg-background-element/70'
+            }`}>
+            <Text
+              className={`text-caption-compact font-semibold ${
+                active ? 'text-white' : 'text-text-secondary'
+              }`}>
               {option.label}
             </Text>
           </Pressable>
@@ -55,25 +49,3 @@ export function FilterChipBar<T extends string>({
     </ScrollView>
   );
 }
-
-const styles = StyleSheet.create({
-  content: {
-    gap: 6,
-    paddingRight: 15,
-  },
-  chip: {
-    minHeight: 28,
-    justifyContent: 'center',
-    paddingHorizontal: 13,
-    borderRadius: Radius.control,
-    borderCurve: 'continuous',
-  },
-  label: {
-    ...FontSize[11],
-    lineHeight: 14,
-    fontWeight: 600,
-  },
-  pressed: {
-    opacity: 0.75,
-  },
-});

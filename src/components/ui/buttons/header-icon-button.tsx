@@ -1,47 +1,32 @@
 import type { ReactNode } from 'react';
-import { Pressable, StyleSheet, type StyleProp, type ViewStyle } from 'react-native';
-
-import { useTheme } from '@/hooks/use-theme';
-import { Radius } from '@/constants/theme';
+import { Pressable, type StyleProp, type ViewStyle } from 'react-native';
 
 type HeaderIconButtonProps = {
   label: string;
   onPress: () => void;
   children: ReactNode;
   style?: StyleProp<ViewStyle>;
+  className?: string;
 };
 
 /** Einheitlicher 39-Punkt-Glasbutton fuer kompakte Header-Aktionen. */
-export function HeaderIconButton({ label, onPress, children, style }: HeaderIconButtonProps) {
-  const theme = useTheme();
-
+export function HeaderIconButton({
+  label,
+  onPress,
+  children,
+  style,
+  className = '',
+}: HeaderIconButtonProps) {
   return (
     <Pressable
       onPress={onPress}
       accessibilityRole="button"
       accessibilityLabel={label}
-      style={({ pressed }) => [
-        styles.button,
-        { backgroundColor: `${theme.backgroundElement}D9` },
-        style,
-        pressed && styles.pressed,
-      ]}>
+      className={`btn-header-icon ${className}`.trim()}
+      style={style}>
       {children}
     </Pressable>
   );
 }
 
-const styles = StyleSheet.create({
-  button: {
-    width: 39,
-    height: 39,
-    borderRadius: Radius.control,
-    borderCurve: 'continuous',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  pressed: {
-    opacity: 0.72,
-    transform: [{ scale: 0.97 }],
-  },
-});
+

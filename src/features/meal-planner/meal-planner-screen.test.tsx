@@ -117,7 +117,7 @@ describe('MealPlannerScreen', () => {
     await renderScreen();
 
     expect(screen.getByText('Essensplan')).toBeOnTheScreen();
-    expect(screen.getByText('Spaghetti Bolognese')).toBeOnTheScreen();
+    expect(screen.getAllByText('Spaghetti Bolognese')[0]).toBeOnTheScreen();
   });
 
   it('zeigt die Ansichts-Umschalter Tag/3 Tage/Woche, Woche als Standard', async () => {
