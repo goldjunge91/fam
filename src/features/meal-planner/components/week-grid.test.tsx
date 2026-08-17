@@ -56,7 +56,7 @@ describe('WeekGrid', () => {
     expect(screen.getAllByText('+ Gericht').length).toBe(21); // 7 Tage x 3 Slots
   });
 
-  it('zeigt nur so viele Tagesreihen wie `dates` lang ist (Tages-/3-Tage-Ansicht)', async () => {
+  it('zeigt nur so viele Tagesreihen wie `dates` lang ist', async () => {
     await render(
       <WeekGrid
         dates={['2026-08-17', '2026-08-18', '2026-08-19']}

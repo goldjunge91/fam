@@ -1,9 +1,10 @@
 import { useQueryClient } from '@tanstack/react-query';
 import { router } from 'expo-router';
 import { useState } from 'react';
-import { Pressable, RefreshControl, ScrollView, View } from 'react-native';
+import { RefreshControl, ScrollView, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { FamIcon } from '@/components/fam-icon';
+import { GlassCard } from '@/components/glass-card';
 import { ProgressRing } from '@/components/progress-ring';
 import { Screen } from '@/components/screen';
 import { ThemedText } from '@/components/themed-text';
@@ -30,6 +31,26 @@ function toIsoDate(date: Date): string {
   const d = String(date.getDate()).padStart(2, '0');
   return `${y}-${m}-${d}`;
 }
+
+// `GlassView` hat kein cssInterop (s. glass-card.tsx), deshalb hier als
+// RN-Style statt Tailwind-Klasse — muss in Radius/Padding/Gap mit
+// `.dashboard-planned-card`/`.dashboard-widget` in global.css in Sync
+// bleiben. `borderRadius` steht bewusst auch im jeweiligen `outerStyle`
+// weiter unten, damit der Fallback-Schatten dieselbe Rundung bekommt.
+const PLANNED_GLASS_STYLE = {
+  borderRadius: 28,
+  flexDirection: 'row' as const,
+  alignItems: 'center' as const,
+  gap: 16,
+  paddingLeft: 16,
+  paddingRight: 18,
+  paddingVertical: 16,
+};
+const WIDGET_GLASS_STYLE = {
+  borderRadius: 28,
+  padding: 16,
+  gap: 8,
+};
 
 export function DashboardScreen() {
   const theme = useTheme();
@@ -178,13 +199,19 @@ export function DashboardScreen() {
           </View>
         </View>
 
-        {/* Heute geplant (#150, Figma "Heute geplant") */}
-        <Pressable
+        {/* Heute geplant (#150, Figma "Heute geplant") — echtes Liquid Glass
+        auf iOS 26+, sonst solide Karte wie zuvor (Variante B aus dem
+        Glass-Mock: nur Navigations-Kacheln bekommen Glas, s. glass-card.tsx). */}
+        <GlassCard
           onPress={() => router.push('/meal-planner')}
           accessibilityRole="button"
           accessibilityLabel="Essensplan öffnen"
-          className="dashboard-planned-card"
-          style={{
+          fallbackClassName="dashboard-planned-card"
+          glassStyle={PLANNED_GLASS_STYLE}
+          outerStyle={{
+            height: 140,
+            marginBottom: 15,
+            borderRadius: 28,
             borderCurve: 'continuous',
             boxShadow: `0 8px 22px ${withAlpha(theme.shadowCard, 0.1)}`,
           }}>
@@ -203,16 +230,20 @@ export function DashboardScreen() {
             </ThemedText>
           </View>
           <FamIcon name="chevron" size={20} />
-        </Pressable>
+        </GlassCard>
 
         {/* Vorrat / Einkauf — kompakte Navigations-Kacheln statt Inline-Liste (#150) */}
         <View className="dashboard-widget-row">
-          <Pressable
+          <GlassCard
             onPress={() => router.push({ pathname: '/fridge', params: { filter: 'expiring' } })}
             accessibilityRole="button"
             accessibilityLabel="Alle bald ablaufenden Artikel im Vorrat anzeigen"
-            className="dashboard-widget"
-            style={{
+            fallbackClassName="dashboard-widget"
+            glassStyle={WIDGET_GLASS_STYLE}
+            outerStyle={{
+              flex: 1,
+              height: 138,
+              borderRadius: 28,
               borderCurve: 'continuous',
               boxShadow: `0 8px 20px ${withAlpha(theme.shadowCard, 0.08)}`,
             }}>
@@ -228,14 +259,18 @@ export function DashboardScreen() {
             <ThemedText type="smallBold" className="dashboard-widget-action">
               Vorrat prüfen
             </ThemedText>
-          </Pressable>
+          </GlassCard>
 
-          <Pressable
+          <GlassCard
             onPress={() => router.push('/shopping-list')}
             accessibilityRole="button"
             accessibilityLabel="Einkaufsliste öffnen"
-            className="dashboard-widget"
-            style={{
+            fallbackClassName="dashboard-widget"
+            glassStyle={WIDGET_GLASS_STYLE}
+            outerStyle={{
+              flex: 1,
+              height: 138,
+              borderRadius: 28,
               borderCurve: 'continuous',
               boxShadow: `0 8px 20px ${withAlpha(theme.shadowCard, 0.08)}`,
             }}>
@@ -251,7 +286,7 @@ export function DashboardScreen() {
             <ThemedText type="smallBold" className="dashboard-widget-action">
               {openShoppingCount > 0 ? 'Noch offen' : 'Erledigt'}
             </ThemedText>
-          </Pressable>
+          </GlassCard>
         </View>
       </ScrollView>
     </Screen>

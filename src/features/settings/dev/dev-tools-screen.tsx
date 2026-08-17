@@ -284,6 +284,11 @@ export function DevToolsScreen() {
             onPress={() => router.push('/settings/sync-debug')}
           />
           <Button
+            label="Liquid-Glass-Labor öffnen"
+            variant="secondary"
+            onPress={() => router.push('/settings/glass-lab')}
+          />
+          <Button
             label="Paywall öffnen (Test Store)"
             variant="secondary"
             onPress={() =>

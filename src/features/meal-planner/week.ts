@@ -140,7 +140,7 @@ export function periodLabel(dates: readonly string[]): string {
 }
 
 // ------------------------------------------------------------- Ansichts-Modi
-// (#129-Nachtrag: Wochen-, 3-Tage- und Tagesansicht statt nur Woche.)
+// (#129-Nachtrag: Wochen- und Tagesansicht statt nur Woche.)
 
 export const VIEW_MODES = ['day', 'week'] as const;
 export type ViewMode = (typeof VIEW_MODES)[number];
@@ -160,7 +160,7 @@ const VIEW_MODE_DAY_COUNT: Record<ViewMode, number> = {
  * Sichtbare Tage einer Ansicht, ausgehend von einem Ankerdatum.
  *
  * Nur die Wochenansicht richtet sich am Montag der Kalenderwoche aus (wie
- * `weekDates`) — Tages- und 3-Tage-Ansicht sind ein gleitendes Fenster ab dem
+ * `weekDates`) — die Tagesansicht ist ein gleitendes Fenster ab dem
  * Ankerdatum selbst, damit "vor/zurueck" den Nutzer nicht ueberraschend an
  * einen Wochenanfang zurueckspringen laesst.
  */

@@ -96,6 +96,11 @@ export type ProductUsageRow = {
  * `mealType: null` liefert alle Mahlzeitarten (fuer `fridge`/`shopping_list`,
  * die keine kennen); ein gesetzter Wert schraenkt fuer `diary` ein (#79 AC:
  * "Auf die Mahlzeitart eingeschraenkt").
+ *
+ * `mode: 'recent'` sortiert dieselbe dedupliziert-je-Name-Liste stattdessen
+ * rein nach `used_at` statt nach Haeufigkeit — fuer den "Zuletzt"-Filter in
+ * den Vorrat-/Einkaufen-Vorschlagslisten. Kein zweiter Query noetig, nur ein
+ * anderes `order by` auf denselben `ranked`-Zeilen.
  */
 export async function getFrequentProductUsage(
   db: SqlDatabase,
@@ -104,9 +109,11 @@ export async function getFrequentProductUsage(
     feature: ProductUsageFeature;
     mealType?: MealType | null;
     limit?: number;
+    mode?: 'frequent' | 'recent';
   },
 ): Promise<ProductUsageRow[]> {
-  const { userId, feature, mealType = null, limit = 200 } = params;
+  const { userId, feature, mealType = null, limit = 200, mode = 'frequent' } = params;
+  const orderBy = mode === 'recent' ? 'used_at desc' : 'freq desc, used_at desc';
   return db.getAllAsync<ProductUsageRow>(
     `with ranked as (
        select *,
@@ -118,7 +125,7 @@ export async function getFrequentProductUsage(
      select name, brand, barcode, product_id, unit, quantity, kcal, protein_g, carbs_g, fat_g, used_at
      from ranked
      where rn = 1
-     order by freq desc, used_at desc
+     order by ${orderBy}
      limit ?`,
     [userId, feature, mealType, mealType, limit],
   );

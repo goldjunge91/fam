@@ -120,11 +120,10 @@ describe('MealPlannerScreen', () => {
     expect(screen.getAllByText('Spaghetti Bolognese')[0]).toBeOnTheScreen();
   });
 
-  it('zeigt die Ansichts-Umschalter Tag/3 Tage/Woche, Woche als Standard', async () => {
+  it('zeigt die Ansichts-Umschalter Tag/Woche, Woche als Standard', async () => {
     await renderScreen();
 
     expect(screen.getByRole('tab', { name: 'Tag-Ansicht' })).toBeOnTheScreen();
-    expect(screen.getByRole('tab', { name: '3 Tage-Ansicht' })).toBeOnTheScreen();
     expect(screen.getByRole('tab', { name: 'Woche-Ansicht', selected: true })).toBeOnTheScreen();
   });
 

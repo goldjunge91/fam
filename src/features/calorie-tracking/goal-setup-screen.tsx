@@ -356,7 +356,7 @@ export function GoalSetupScreen() {
                   </ThemedText>
                 )}
 
-                <View className="flex-row gap-two mt-one">
+                <View className="gs-save-row">
                   <View className="flex-1">
                     <Button
                       label="Ziel speichern"

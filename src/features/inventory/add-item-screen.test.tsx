@@ -110,7 +110,7 @@ it('persistiert einen OFF-Treffer in products, wenn er zum Bestand hinzugefuegt 
   await renderScreen();
 
   await fireEvent(screen.getByTestId('name-field'), 'focus');
-  await fireEvent.press(screen.getByText('Speichern'));
+  await fireEvent.press(screen.getByText('Zum Vorrat hinzufügen'));
 
   expect(mockGetFirstAsync).toHaveBeenCalledWith('select id from products where barcode = ?', [
     '4001234567890',
@@ -133,7 +133,7 @@ it('legt kein Produkt an, wenn der Barcode lokal bereits existiert', async () =>
   await renderScreen();
 
   await fireEvent(screen.getByTestId('name-field'), 'focus');
-  await fireEvent.press(screen.getByText('Speichern'));
+  await fireEvent.press(screen.getByText('Zum Vorrat hinzufügen'));
 
   expect(mockAddProductMutateAsync).not.toHaveBeenCalled();
   expect(mockAddFridgeItemMutateAsync).toHaveBeenCalled();

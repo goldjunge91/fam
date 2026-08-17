@@ -365,14 +365,14 @@ export const ProductSearchDropdown = forwardRef<
       />
 
       {searching && (
-        <View className="absolute right-3 top-9">
+        <View className="psd-spinner">
           <ActivityIndicator size="small" color={theme.accent} />
         </View>
       )}
 
       {showDropdown && (suggestions.length > 0 || showEmptyState) && (
         <ScrollView
-          className="absolute top-full left-0 right-0 z-20 mt-1 max-h-[220px] rounded-control border border-border bg-background shadow-sheet"
+          className="psd-panel"
           // elevation ist ein Android-only-Wert ohne Tailwind-Aequivalent
           // (boxShadow deckt nur den iOS/Web-Schatten ab).
           style={{ elevation: 4 }}
@@ -394,7 +394,7 @@ export const ProductSearchDropdown = forwardRef<
                   params: { prefillName: value.trim() },
                 });
               }}
-              className="flex-row items-center p-two border-b-hairline border-border gap-two">
+              className="psd-row">
               <View className="flex-1">
                 <ThemedText
                   type={size === 'large' ? 'body' : 'smallBold'}
@@ -418,11 +418,11 @@ export const ProductSearchDropdown = forwardRef<
                 onSelectProduct(item);
                 setShowDropdown(false);
               }}
-              className="flex-row items-center p-two border-b-hairline border-border gap-two">
+              className="psd-row">
               {item.imageUrl ? (
-                <Image source={{ uri: item.imageUrl }} className="w-8 h-8 rounded-sm" />
+                <Image source={{ uri: item.imageUrl }} className="psd-thumb" />
               ) : (
-                <View className="w-8 h-8 rounded-sm items-center justify-center bg-background-element">
+                <View className="psd-thumb-fallback">
                   <ThemedText type={size === 'large' ? 'body' : 'bodySmall'}>🥫</ThemedText>
                 </View>
               )}

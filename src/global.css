@@ -1188,6 +1188,54 @@
     @apply rounded-card border px-two py-one mr-one max-w-[160px] bg-background-element border-border;
   }
 
+  /* inline-select.tsx — kompaktes Dropdown unter Suchfeldern (Vorrat-
+     Redesign, Filter-/Quelle-Auswahl analog zu den Einkaufen-Vorschlaegen). */
+  .inline-select-btn {
+    @apply h-[42px] rounded-control border border-border bg-background-element flex-row items-center justify-between px-three;
+  }
+  .inline-select-btn-open {
+    @apply border-accent;
+  }
+  .inline-select-panel {
+    @apply absolute top-[46px] left-0 right-0 z-20 rounded-control border border-border bg-background shadow-sheet p-one gap-[2px];
+  }
+  .inline-select-option {
+    @apply rounded-sm px-two py-two flex-row items-center justify-between gap-two;
+  }
+  .inline-select-option-active {
+    @apply bg-accent;
+  }
+
+  /* add-item-screen.tsx (Vorrat) */
+  .ai-scan-btn {
+    @apply w-10 h-10 rounded-control bg-background-selected;
+  }
+  .ai-new-location-box {
+    @apply gap-three p-three rounded-sm border border-border;
+  }
+
+  /* goal-setup-screen.tsx */
+  .gs-save-row {
+    @apply flex-row gap-two mt-one;
+  }
+
+  /* product-search-dropdown.tsx */
+  .psd-spinner {
+    @apply absolute right-3 top-9;
+  }
+  .psd-panel {
+    @apply absolute top-full left-0 right-0 z-20 mt-1 max-h-[220px] rounded-control border border-border bg-background shadow-sheet;
+  }
+  .psd-row {
+    @apply flex-row items-center p-two border-b-hairline border-border gap-two;
+  }
+  .psd-thumb {
+    @apply w-8 h-8 rounded-sm;
+  }
+  .psd-thumb-fallback {
+    @apply w-8 h-8 rounded-sm items-center justify-center bg-background-element;
+  }
+
   /* barcode-scanner-modal.tsx */
   .scanner-backdrop {
     @apply flex-1 bg-black/60 justify-end;
@@ -1619,14 +1667,12 @@
     @apply flex-1 h-[46px] rounded-control-lg border items-center justify-center;
   }
   .tab-btn-active {
-    /* @apply bg-accent border-accent; */
     @apply bg-accent border-accent;
   }
   .tab-btn-idle {
-    /* @apply bg-background-element/85 border-border; */
     @apply bg-background-selected border-border;
   }
   .tab-btn-label {
-    @apply text-[42px]! leading-[24px]! font-bold!;
+    @apply text-[14px] leading-[18px] font-bold;
   }
 }
