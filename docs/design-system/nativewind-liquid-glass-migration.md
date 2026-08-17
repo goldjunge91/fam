@@ -381,13 +381,46 @@ Am Ende von Phase B: `grep -rl "from '@/constants/theme'" src | wc -l` → 0,
 `grep -rc "StyleSheet.create" src --include="*.tsx" | wc -l` → 0 (oder nur
 noch Sonderfälle, siehe unten).
 
-### Phase C — Liquid Glass, Pilot: Dashboard "Glass Cards"
+### Phase C — Liquid Glass, Pilot: Dashboard "Glass Cards" [ERLEDIGT, Stand 2026-08-17]
 
-Siehe `docs/DESIGN_SYSTEM.md` Abschnitt 6, Punkt 5: `dashboard-screen.tsx`
-hat lokale Styles (`glassCard`, `calorieCard`, `plannedCard`, `widget`) mit
-identischem Muster (`boxShadow`, `borderRadius`, `borderCurve: 'continuous'`,
-`backgroundColor: theme.backgroundElement`), aber **bisher kein echtes Glass**
-— nur Schatten+Radius unter falschem Namen.
+`src/components/glass-card.tsx` (`GlassCard`) gebaut und in
+`dashboard-screen.tsx` eingesetzt — nach drei statischen Mock-Varianten
+(Artifact, per html-communication-Skill vorgelegt) hat Marco **Variante B**
+gewählt: nur die navigierbaren Kacheln (Essensplan-Karte, Vorrat-Kachel,
+Einkauf-Kachel) bekommen echtes Glas, die Kalorien-Karte bleibt bewusst solide
+(Apple-HIG: Glas ist für Interaktions-Chrome, nicht für reine
+Content-Flächen — s. Punkt 1 unten).
+
+- `GlassCard` guardet über `isGlassEffectAPIAvailable()` (aus
+  `expo-glass-effect`) + `AccessibilityInfo.isReduceTransparencyEnabled()`
+  und faellt sonst auf die alte solide Karte zurück (`fallbackClassName`,
+  identische Tailwind-Klasse wie vorher). Kein `expo-blur`-Zwischenschritt
+  (Pattern-A-Vorschlag aus dem `expo-liquid-glass`-Skill) — das Paket war gar
+  nicht installiert, ein direkter Fallback auf die bestehende solide Karte
+  ist einfacher und braucht keine zusätzliche native Dependency.
+- `GlassView` hat kein `cssInterop` (s. "KRITISCH"-Abschnitt unten) — die
+  Radius-/Padding-/Gap-Werte der Glas-Fläche stehen deshalb als RN-`style`
+  in `dashboard-screen.tsx` (`PLANNED_GLASS_STYLE`/`WIDGET_GLASS_STYLE`),
+  synchron zu `.dashboard-planned-card`/`.dashboard-widget` in `global.css`
+  gehalten (Kommentar im Code weist darauf hin).
+- Auf dem Gerät verifiziert (Dev-Client-Rebuild nötig, da natives Modul).
+- Zweiter Anwendungsfall für eine generische `GlassCard`-API abwarten, bevor
+  z. B. auch `recipe-detail-screen.tsx` o. Ä. umgestellt wird (YAGNI, wie
+  schon in `docs/DESIGN_SYSTEM.md` Abschnitt 6 Punkt 5 für die alte
+  Screen-lokale Lösung festgehalten).
+
+**Ausblick (noch nicht begonnen, separater Auftrag):** Marco will das
+Dashboard perspektivisch frei editierbar machen — verschiebbare Kacheln in
+drei Größen. Das ist ein groesseres Grid-/Drag-Redesign, kein Teil dieser
+Phase-C-Aufgabe; braucht wieder erst Mocks, bevor irgendetwas Echtes
+angefasst wird.
+
+Ursprünglicher Auftrag (Referenz): Siehe `docs/DESIGN_SYSTEM.md` Abschnitt 6,
+Punkt 5 — `dashboard-screen.tsx` hatte lokale Styles (`glassCard`,
+`calorieCard`, `plannedCard`, `widget`) mit identischem Muster (`boxShadow`,
+`borderRadius`, `borderCurve: 'continuous'`, `backgroundColor:
+theme.backgroundElement`), aber **kein echtes Glass** — nur Schatten+Radius
+unter falschem Namen.
 
 1. Vor dem Umbau: `references/apple-liquid-glass-design.md` (Skill
    `expo-liquid-glass`) lesen — Hierarchie über Layout/Spacing, nicht über

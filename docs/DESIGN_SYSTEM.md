@@ -320,14 +320,16 @@ Einordnung in die Reihenfolge.
    315 `FontSize[...]`-Spreads und 23 `Typography.*`-Spreads. Davon definieren
    acht intern die `ThemedText`-Rollen; die übrigen 15 stylen native
    `Text`-/`TextInput`-Controls und können nicht über `ThemedText.type` laufen.
-5. **Dashboard-"Glass Cards" bleiben bewusst Screen-lokal** (`glassCard`,
-   `calorieCard`, `plannedCard`, `widget` in `dashboard-screen.tsx`) statt
-   als wiederverwendbare Primitive — auf der Übersicht mehrfach fast
-   identisch wiederholt (`boxShadow`, `borderRadius`, `borderCurve:
-   'continuous'`, `backgroundColor: theme.backgroundElement`). Außerhalb des
-   Dashboards gibt es keinen zweiten Verbraucher mit derselben Rolle. Eine
-   globale `GlassCard`/`HubTile`-API wäre daher spekulativ und wird erst bei
-   einem zweiten echten Screen-Anwendungsfall extrahiert.
+5. **Dashboard-"Glass Cards" — Phase C erledigt (Stand 2026-08-17).**
+   `src/components/glass-card.tsx` (`GlassCard`) rendert echtes Liquid Glass
+   (`expo-glass-effect`) auf iOS 26+ für die Essensplan-Karte und die beiden
+   Vorrat/Einkauf-Kacheln, sonst die bisherige solide Karte. Die
+   Kalorien-Karte bleibt bewusst außen vor (Content-Fläche, kein
+   Steuerelement, s. `docs/design-system/nativewind-liquid-glass-migration.md`
+   Phase C für Details/Mock-Varianten). `GlassCard` ist trotzdem weiterhin
+   **kein** app-weites Primitive — einziger Verbraucher ist das Dashboard;
+   eine generischere API wird erst bei einem zweiten echten
+   Screen-Anwendungsfall extrahiert (YAGNI).
 6. **`recipe-detail-screen.tsx`s Inline-SVG — geprüft, kein Fund.** Der
    vermeintliche Inline-Fortschrittsring ist keiner: `HeroArtwork` baut eine
    dekorative Verlaufs-/Kreis-Illustration als Platzhalter, wenn ein Rezept
