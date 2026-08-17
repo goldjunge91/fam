@@ -3,14 +3,9 @@
 Expo-App für Haushalt, Einkauf und Ernährung: geteilter Kühlschrank-Bestand und
 Einkaufsliste für die ganze Familie, privates Kalorien- und Gewichts-Tracking pro Account.
 
-**Status:** MVP komplett — alle Wellen 0–8 aus `docs/ROADMAP.md` sind gebaut
-und getestet (Foundation, Datenmodell/RLS, Offline-Sync, Auth/Onboarding,
-Haushalt, Kühlschrank/Einkaufsliste, Lebensmittel-Datenbank, Kalorien &
-Tagebuch, Dashboard, Datenschutz). Offen bleibt bewusst nur #79 (Liste
-häufig verwendeter Lebensmittel, zurückgestellt) sowie die als Epics
-beschriebenen Phase-2–4-Features (#11–#24). Details und Stand pro Issue in
-[docs/projekt_status.md](docs/projekt_status.md) und
-[docs/ROADMAP.md](docs/ROADMAP.md).
+**Status:** Der MVP (Wellen 0–8) ist abgeschlossen. Die Weiterentwicklung
+konzentriert sich auf die Phase-2–4-Epics wie Rezepte, Meal-Planner und Premium.
+Der verbindliche Überblick steht in [docs/README.md](docs/README.md), der
 
 ## Quick Start
 
@@ -53,7 +48,6 @@ Zum schnellen Testen auf der lokalen Entwicklungsdatenbank (`supabase start`):
   - `bun run user:list` — Listet vorhandene Test-Accounts auf
   - `bun run user:clean` — Löscht alle Test-Accounts (`*@example.com`, `tester_*`)
   - `bun run user:delete <email>` — Löscht einen bestimmten Test-Account
-
 
 ## Umgebungsvariablen
 
@@ -132,7 +126,7 @@ erzeugen.
 **Woher die Werte kommen:**
 
 | | Lokal | Gehostet |
-|---|---|---|
+| --- | --- | --- |
 | URL | `supabase status` → API URL | Dashboard → Project Settings → API |
 | Key | `supabase status` → **Publishable** | Dashboard → Publishable key |
 
@@ -188,12 +182,12 @@ of undefined`. Die eigentliche Ursache steht dann ganz oben im Log.
 ## Stack
 
 | | Installiert |
-|---|---|
+| --- | --- |
 | Runtime | Expo SDK 57, React Native 0.86, React 19.2 |
 | Routing | Expo Router (NativeTabs, typedRoutes) |
 | Styling | StyleSheet + `src/constants/theme.ts` |
 | Backend | Supabase (Postgres, Auth, Realtime, RLS) |
-| Offline | `expo-sqlite` + Outbox-Sync (Pull/Push/LWW), App-seitig per Polling verdrahtet — Realtime-Bridge und Netzwerk-Trigger sind gebaut, aber noch nicht an `_layout.tsx` angeschlossen (siehe [docs/SYNC_ENGINE.md](docs/SYNC_ENGINE.md)) |
+| Offline | `expo-sqlite` + Outbox-Sync (Pull/Push/LWW), mit Realtime-Bridge, Netzwerk-Reconnect, Background-Sync und Poll-Fallback |
 | Server-State | TanStack Query |
 | Tests | jest-expo + Testing Library, pgTAP-RLS-Tests gegen lokales Postgres |
 
@@ -205,6 +199,7 @@ und die SDK-57-Variante gäbe es nur als Preview. Gestylt wird über `theme.ts`.
 `src/app/` ist ausschließlich Routing. Fachlogik liegt feature-first unter
 `src/features/<domain>/` (jeweils `components/`, `hooks/`, `api.ts`, `types.ts`),
 geteilte Bausteine in `src/components/`, Supabase- und DB-Setup in `src/lib/`.
+
 ## Datenbankschema
 
 Das Projekt nutzt ausschließlich Supabases **Declarative Schema Workflow**. Der
@@ -227,14 +222,9 @@ Elterntabellen müssen vor ihren Fremdschlüsseln kommen.
 
 ## Dokumentation
 
-- [Produktvision](docs/VISION.md) — Features, Module, Datenschutz-Konzept
-- [Datenschutzerklärung](docs/DATENSCHUTZ.md) — was verarbeitet wird, welche
-  Berechtigungen die App braucht, keine Ende-zu-Ende-Verschlüsselung (siehe
-  Korrektur in `docs/VISION.md`)
-- [App-Store-Privacy-Labels](docs/PRIVACY_LABELS.md) — Referenz für Apple
-  "App Privacy" und Google "Data Safety"
-- [Roadmap](docs/ROADMAP.md) — in welcher Reihenfolge die Issues abgearbeitet werden
-- [AGENTS.md](AGENTS.md) — Hinweise für KI-Agenten
+Die vollständige, nach Zweck sortierte Dokumentation steht in
+[docs/README.md](docs/README.md). Für Entwicklungsregeln ist
+[AGENTS.md](AGENTS.md) verbindlich.
 
 ## Hinweis zu nativen Modulen
 
