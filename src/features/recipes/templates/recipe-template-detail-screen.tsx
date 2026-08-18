@@ -2,8 +2,8 @@ import { router, useLocalSearchParams } from 'expo-router';
 import { type ReactNode, useState } from 'react';
 import { ActivityIndicator, Alert, Pressable, ScrollView, View } from 'react-native';
 
-import { HubScreen } from '@/components/hub-screen';
-import { ThemedText } from '@/components/themed-text';
+import { HubScreen } from '@/components/layout/hub-screen';
+import { ThemedText } from '@/components/theme/themed-text';
 import { BackButton, HeaderIconButton } from '@/components/ui/buttons';
 import { useSession } from '@/features/auth/session-provider';
 import { useActiveHousehold } from '@/features/household/active-household-provider';

@@ -2,7 +2,7 @@ import { Image } from 'expo-image';
 import { StyleSheet } from 'react-native';
 import Svg, { Circle, Defs, LinearGradient, Rect, Stop } from 'react-native-svg';
 
-import { ThemedText } from '@/components/themed-text';
+import { ThemedText } from '@/components/theme/themed-text';
 
 /**
  * Deckbild fuer Rezept- und Vorlagendetail: echtes Cover-Foto, sonst ein

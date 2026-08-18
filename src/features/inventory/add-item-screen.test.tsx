@@ -3,7 +3,7 @@ import { fireEvent, render, screen } from '@testing-library/react-native';
 import { router } from 'expo-router';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
-import { AddItemScreen } from '@/features/inventory/add-item-screen';
+import { AddItemScreen } from './add-item-screen';
 
 function renderScreen() {
   const queryClient = new QueryClient({

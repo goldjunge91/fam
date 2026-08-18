@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { Alert, ScrollView, View } from 'react-native';
 
-import { GradientBackground } from '@/components/gradient-background';
-import { HubScreen } from '@/components/hub-screen';
-import { ThemedText } from '@/components/themed-text';
+import { GradientBackground } from '@/components/layout/gradient-background';
+import { HubScreen } from '@/components/layout/hub-screen';
+import { ThemedText } from '@/components/theme/themed-text';
 import { BackButton, Button } from '@/components/ui/buttons';
 import { presentCustomerCenter, presentPaywall } from '@/features/premium/paywall';
 import { usePremium } from '@/features/premium/premium-provider';

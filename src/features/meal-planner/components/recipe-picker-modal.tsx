@@ -2,9 +2,9 @@ import { useMemo, useState } from 'react';
 import { FlatList, Modal, Platform, Pressable, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
-import { TextField } from '@/components/text-field';
-import { ThemedText } from '@/components/themed-text';
-import { ThemedView } from '@/components/themed-view';
+import { TextField } from '@/components/forms/text-field';
+import { ThemedText } from '@/components/theme/themed-text';
+import { ThemedView } from '@/components/theme/themed-view';
 import type { DraggableRecipe } from './week-grid';
 
 type RecipePickerModalProps = {

@@ -8,7 +8,7 @@ import { DiaryScreen } from '@/features/calorie-tracking/diary-screen';
 // unter Jest nicht, und selbst `react-native-reanimated/mock` startet ihn in
 // dieser Version erneut. Fuer diesen Test zaehlt nur die Datenverdrahtung,
 // nicht die Animation, daher eine einfache Ersatzkomponente.
-jest.mock('@/components/progress-ring', () => {
+jest.mock('@/components/ui/progress-ring', () => {
   const { Text } = require('react-native');
   return {
     ProgressRing: ({ value, target, label }: { value: number; target: number; label: string }) => (

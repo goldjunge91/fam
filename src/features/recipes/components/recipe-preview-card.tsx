@@ -3,7 +3,7 @@ import { useId } from 'react';
 import { Pressable, View } from 'react-native';
 import Svg, { Circle, Defs, LinearGradient, Rect, Stop } from 'react-native-svg';
 
-import { ThemedText } from '@/components/themed-text';
+import { ThemedText } from '@/components/theme/themed-text';
 import { useRecipeCoverUrl } from '../recipe-image-uploader';
 
 type RecipePreview = {

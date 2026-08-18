@@ -3,7 +3,7 @@ import { act } from 'react';
 import { Pressable, Text } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
-import { SnackbarProvider, useSnackbar } from '@/components/snackbar';
+import { SnackbarProvider, useSnackbar } from '@/components/ui/snackbar';
 
 jest.mock('@/hooks/use-theme', () => ({
   useTheme: () => require('@/constants/theme').Colors.light,

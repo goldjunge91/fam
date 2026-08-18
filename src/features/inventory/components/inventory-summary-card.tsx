@@ -1,7 +1,7 @@
 import { View } from 'react-native';
 import Svg, { Circle } from 'react-native-svg';
 
-import { ThemedText } from '@/components/themed-text';
+import { ThemedText } from '@/components/theme/themed-text';
 import { withAlpha } from '@/constants/theme';
 import { useTheme } from '@/hooks/use-theme';
 

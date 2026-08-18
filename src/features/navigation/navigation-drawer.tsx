@@ -8,9 +8,9 @@ import Animated, {
   withTiming,
 } from 'react-native-reanimated';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { CalendarDayIcon } from '@/components/calendar-day-icon';
-import { FamIcon, type FamIconName } from '@/components/fam-icon';
-import { ThemedText } from '@/components/themed-text';
+import { CalendarDayIcon } from '@/components/icons/calendar-day-icon';
+import { FamIcon, type FamIconName } from '@/components/icons/fam-icon';
+import { ThemedText } from '@/components/theme/themed-text';
 import { withAlpha } from '@/constants/theme';
 import { useDeferredMount } from '@/hooks/use-deferred-mount';
 import { useTheme } from '@/hooks/use-theme';

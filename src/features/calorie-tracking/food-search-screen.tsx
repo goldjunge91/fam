@@ -1,11 +1,10 @@
 import { router, useLocalSearchParams } from 'expo-router';
 import { useEffect, useRef, useState } from 'react';
 import { ActivityIndicator, FlatList, Image, Pressable, View } from 'react-native';
-
-import { Screen } from '@/components/screen';
-import { SegmentedControl } from '@/components/segmented-control';
-import { TextField } from '@/components/text-field';
-import { ThemedText } from '@/components/themed-text';
+import { TextField } from '@/components/forms/text-field';
+import { Screen } from '@/components/layout/screen';
+import { ThemedText } from '@/components/theme/themed-text';
+import { SegmentedControl } from '@/components/ui/segmented-control';
 import { useSession } from '@/features/auth/session-provider';
 import type { MealType } from '@/features/calorie-tracking/api';
 import {

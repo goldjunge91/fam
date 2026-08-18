@@ -1,7 +1,7 @@
 import { memo } from 'react';
 import { Pressable, View } from 'react-native';
 
-import { ThemedText } from '@/components/themed-text';
+import { ThemedText } from '@/components/theme/themed-text';
 import { formatAmount, formatPackageHint } from '@/lib/package-size';
 
 import type { LocalShoppingItem } from '../use-shopping-list';

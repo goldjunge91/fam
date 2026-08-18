@@ -1,14 +1,14 @@
 import { onlineManager, QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { act, fireEvent, render, screen, waitFor } from '@testing-library/react-native';
 
-import { SyncStatusBanner, type SyncStatusBannerProps } from '@/components/sync-status-banner';
+import { SyncStatusBanner, type SyncStatusBannerProps } from '@/components/ui/sync-status-banner';
 import { Colors } from '@/constants/theme';
 import { MIGRATIONS } from '@/lib/db/migrations';
 import { runMigrations } from '@/lib/db/migrator';
 import { enqueueMutation, loadDueOutboxEntries, recordOutboxOutcome } from '@/lib/db/outbox';
 import type { SqlDatabase } from '@/lib/db/types';
 import { MAX_ATTEMPTS } from '@/lib/sync/backoff';
-import { createTestDatabase, type TestDatabase } from '../../test/node-sqlite-adapter';
+import { createTestDatabase, type TestDatabase } from '../../../test/node-sqlite-adapter';
 
 /**
  * `getDb` ist ein regulaerer Prop von `SyncStatusBanner` (DI, kein Mock) —

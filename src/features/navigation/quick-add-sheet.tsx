@@ -2,7 +2,7 @@ import { router } from 'expo-router';
 import { Modal, Pressable, StyleSheet, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
-import { ThemedText } from '@/components/themed-text';
+import { ThemedText } from '@/components/theme/themed-text';
 import { withAlpha } from '@/constants/theme';
 import type { MealType } from '@/features/calorie-tracking/api';
 import { useDeferredMount } from '@/hooks/use-deferred-mount';

@@ -1,10 +1,10 @@
 import { router, useLocalSearchParams } from 'expo-router';
 import { useEffect, useMemo, useState } from 'react';
 import { Alert, KeyboardAvoidingView, Pressable, ScrollView, TextInput, View } from 'react-native';
-import { FilterChipBar } from '@/components/filter-chip-bar';
-import { HubScreen } from '@/components/hub-screen';
-import { ThemedText } from '@/components/themed-text';
+import { HubScreen } from '@/components/layout/hub-screen';
+import { ThemedText } from '@/components/theme/themed-text';
 import { BackButton } from '@/components/ui/buttons';
+import { FilterChipBar } from '@/components/ui/filter-chip-bar';
 import type { MealType } from '@/features/calorie-tracking/api';
 import { useTheme } from '@/hooks/use-theme';
 import { calculateAdjustedServingNutrition } from './nutrition';

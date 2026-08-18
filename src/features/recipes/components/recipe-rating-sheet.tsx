@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { ActivityIndicator, Pressable, TextInput, View } from 'react-native';
 
-import { ThemedText } from '@/components/themed-text';
+import { ThemedText } from '@/components/theme/themed-text';
 import { useTheme } from '@/hooks/use-theme';
 import { getRecipeRating, saveRecipeRating } from '../recipe-ratings';
 import { RecipeBottomSheet } from './recipe-bottom-sheet';

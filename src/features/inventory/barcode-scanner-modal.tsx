@@ -1,7 +1,7 @@
 import * as Haptics from 'expo-haptics';
 import { useRef, useState } from 'react';
 import { ActivityIndicator, Modal, Pressable, StyleSheet, View } from 'react-native';
-import { ThemedText } from '@/components/themed-text';
+import { ThemedText } from '@/components/theme/themed-text';
 import { Button } from '@/components/ui/buttons';
 import { useTheme } from '@/hooks/use-theme';
 import { fetchProductByBarcode, type OpenFoodFactsProduct } from '@/lib/open-food-facts';

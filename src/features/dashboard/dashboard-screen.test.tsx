@@ -6,7 +6,7 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import { DashboardScreen } from '@/features/dashboard/dashboard-screen';
 
-jest.mock('@/components/progress-ring', () => ({ ProgressRing: () => null }));
+jest.mock('@/components/ui/progress-ring', () => ({ ProgressRing: () => null }));
 
 let mockFridgeItems: unknown[] = [];
 

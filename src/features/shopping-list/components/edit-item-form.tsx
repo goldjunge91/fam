@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { View } from 'react-native';
-import { TextField } from '@/components/text-field';
+import { TextField } from '@/components/forms/text-field';
+import { WheelPickerField } from '@/components/forms/wheel-picker-field';
 import { Button } from '@/components/ui/buttons';
-import { WheelPickerField } from '@/components/wheel-picker-field';
 import { UNIT_OPTIONS } from '@/lib/units';
 import { guessCategory } from '../shopping-categories';
 import type { LocalShoppingItem } from '../use-shopping-list';

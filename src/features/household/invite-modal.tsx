@@ -2,9 +2,9 @@ import * as Clipboard from 'expo-clipboard';
 import { useState } from 'react';
 import { Alert, Modal, Pressable, ScrollView, Share, View } from 'react-native';
 import QRCode from 'react-native-qrcode-svg';
-import { Card } from '@/components/card';
-import { ThemedText } from '@/components/themed-text';
+import { ThemedText } from '@/components/theme/themed-text';
 import { Button } from '@/components/ui/buttons';
+import { Card } from '@/components/ui/card';
 import { useSession } from '@/features/auth/session-provider';
 import {
   useCreateInviteMutation,

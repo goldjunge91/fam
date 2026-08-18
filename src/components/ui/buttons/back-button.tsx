@@ -2,8 +2,8 @@ import { type Href, router, useNavigation } from 'expo-router';
 import { useEffect, useState } from 'react';
 import { Pressable } from 'react-native';
 
-import { FamIcon } from '@/components/fam-icon';
-import { ThemedText } from '@/components/themed-text';
+import { FamIcon } from '@/components/icons/fam-icon';
+import { ThemedText } from '@/components/theme/themed-text';
 import { ButtonSize } from '@/constants/layout';
 
 const ARROW_BUTTON_SIZE = ButtonSize.backArrow;

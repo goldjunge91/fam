@@ -1,8 +1,8 @@
 import type { ReactNode } from 'react';
 import { Pressable, View } from 'react-native';
 
-import { ThemedText } from '@/components/themed-text';
-import { ThemedView } from '@/components/themed-view';
+import { ThemedText } from '@/components/theme/themed-text';
+import { ThemedView } from '@/components/theme/themed-view';
 
 /**
  * Menuezeilen fuer die Einstellungen.

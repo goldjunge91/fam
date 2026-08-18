@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react-native';
 
-import { ThemedText } from '@/components/themed-text';
+import { ThemedText } from '@/components/theme/themed-text';
 
 // Wichtig fuer alle weiteren Tests im Projekt: In @testing-library/react-native
 // v14 ist `render` asynchron (React 19 Concurrent Rendering) und MUSS awaited

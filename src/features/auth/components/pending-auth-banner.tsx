@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { Animated, Easing, View } from 'react-native';
-import { TextField } from '@/components/text-field';
-import { ThemedText } from '@/components/themed-text';
+import { TextField } from '@/components/forms/text-field';
+import { ThemedText } from '@/components/theme/themed-text';
 import { Button } from '@/components/ui/buttons';
 import {
   authErrorMessage,

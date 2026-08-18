@@ -1,7 +1,7 @@
 import { router } from 'expo-router';
 import { Pressable, View } from 'react-native';
 
-import { ThemedText } from '@/components/themed-text';
+import { ThemedText } from '@/components/theme/themed-text';
 import { withAlpha } from '@/constants/theme';
 import { usePremium } from '@/features/premium/premium-provider';
 import { useTheme } from '@/hooks/use-theme';

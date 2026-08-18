@@ -1,9 +1,8 @@
 import { Image } from 'expo-image';
 import { Pressable, TextInput, TouchableOpacity, View } from 'react-native';
 import Svg, { Path } from 'react-native-svg';
-import { ThemedText } from '@/components/themed-text';
-
-import { WheelPickerField } from '@/components/wheel-picker-field';
+import { WheelPickerField } from '@/components/forms/wheel-picker-field';
+import { ThemedText } from '@/components/theme/themed-text';
 import { ProductSearchDropdown } from '@/features/inventory/product-search-dropdown';
 import type { DietaryTag, Difficulty, DishType } from '@/features/recipes/use-recipes';
 import { useTheme } from '@/hooks/use-theme';

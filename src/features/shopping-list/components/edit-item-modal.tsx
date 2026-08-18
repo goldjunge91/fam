@@ -1,6 +1,6 @@
 import { Pressable, View } from 'react-native';
 
-import { ThemedText } from '@/components/themed-text';
+import { ThemedText } from '@/components/theme/themed-text';
 import type { LocalShoppingItem } from '../use-shopping-list';
 import { EditItemForm } from './edit-item-form';
 import { ItemModalShell } from './item-modal-shell';

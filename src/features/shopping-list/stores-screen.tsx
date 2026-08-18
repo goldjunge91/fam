@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import { Alert, Pressable, View } from 'react-native';
-import { Card } from '@/components/card';
-import { Screen } from '@/components/screen';
-import { TextField } from '@/components/text-field';
-import { ThemedText } from '@/components/themed-text';
+import { TextField } from '@/components/forms/text-field';
+import { Screen } from '@/components/layout/screen';
+import { ThemedText } from '@/components/theme/themed-text';
 import { Button } from '@/components/ui/buttons';
+import { Card } from '@/components/ui/card';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { useTheme } from '@/hooks/use-theme';
 import { STORE_COLOR_PALETTE, STORE_PRESETS } from './store-presets';

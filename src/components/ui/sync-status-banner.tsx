@@ -2,7 +2,7 @@ import { createContext, type ReactNode, useContext } from 'react';
 import { Pressable, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
-import { ThemedText } from '@/components/themed-text';
+import { ThemedText } from '@/components/theme/themed-text';
 import { useSyncStatus } from '@/hooks/use-sync-status';
 import { getDatabase } from '@/lib/db/client';
 import { retryFailedOutboxEntries } from '@/lib/db/outbox-retry';

@@ -7,8 +7,8 @@ import { useEffect } from 'react';
 import { useColorScheme } from 'react-native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
-import { AnimatedSplashOverlay } from '@/components/animated-icon';
-import { SnackbarProvider } from '@/components/snackbar';
+import { AnimatedSplashOverlay } from '@/components/icons/animated-icon';
+import { SnackbarProvider } from '@/components/ui/snackbar';
 import { SessionProvider, useSession } from '@/features/auth/session-provider';
 import { PremiumProvider } from '@/features/premium/premium-provider';
 import { parseAuthErrorFromUrl, parseAuthTokensFromUrl } from '@/lib/auth-deep-link';

@@ -1,6 +1,6 @@
 import { Pressable, ScrollView } from 'react-native';
 
-import { ThemedText } from '@/components/themed-text';
+import { ThemedText } from '@/components/theme/themed-text';
 import type { RecipeTemplateWithNutrition } from '@/features/recipes/templates/use-recipe-templates';
 import {
   isHighProteinTemplate,

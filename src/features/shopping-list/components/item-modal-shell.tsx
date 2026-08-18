@@ -2,7 +2,7 @@ import type { ReactNode } from 'react';
 import { Modal, ScrollView, type ScrollViewProps, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
-import { ThemedView } from '@/components/themed-view';
+import { ThemedView } from '@/components/theme/themed-view';
 
 type ItemModalShellProps = {
   visible: boolean;

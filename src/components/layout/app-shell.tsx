@@ -1,9 +1,9 @@
 import { Stack } from 'expo-router';
 import { View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { PlusIcon } from '@/components/fam-icon';
-import { SyncBannerVisibilityProvider, SyncStatusBanner } from '@/components/sync-status-banner';
+import { PlusIcon } from '@/components/icons/fam-icon';
 import { FloatingActionButton } from '@/components/ui/buttons';
+import { SyncBannerVisibilityProvider, SyncStatusBanner } from '@/components/ui/sync-status-banner';
 import {
   NavigationChromeProvider,
   useNavigationChrome,

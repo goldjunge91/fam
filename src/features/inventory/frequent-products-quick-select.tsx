@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 import { Pressable, ScrollView } from 'react-native';
 
-import { ThemedText } from '@/components/themed-text';
+import { ThemedText } from '@/components/theme/themed-text';
 import { getDatabase } from '@/lib/db/client';
 import {
   getFrequentProductUsage,

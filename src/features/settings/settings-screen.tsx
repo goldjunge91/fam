@@ -4,8 +4,8 @@ import { router } from 'expo-router';
 import { useState } from 'react';
 import { Alert, Pressable, ScrollView, View } from 'react-native';
 
-import { HubScreen } from '@/components/hub-screen';
-import { ThemedText } from '@/components/themed-text';
+import { HubScreen } from '@/components/layout/hub-screen';
+import { ThemedText } from '@/components/theme/themed-text';
 import { Button, MenuButton, ProfileButton } from '@/components/ui/buttons';
 import { useProfile } from '@/features/auth/api';
 import { useSession } from '@/features/auth/session-provider';

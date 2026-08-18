@@ -1,7 +1,7 @@
 import { Image } from 'expo-image';
 import { View } from 'react-native';
 
-import { ThemedText } from '@/components/themed-text';
+import { ThemedText } from '@/components/theme/themed-text';
 import { HeaderIconButton } from '@/components/ui/buttons';
 import { IconSize } from '@/constants/layout';
 import { useTheme } from '@/hooks/use-theme';

@@ -1,6 +1,6 @@
 import { Pressable } from 'react-native';
 
-import { MenuIcon } from '@/components/fam-icon';
+import { MenuIcon } from '@/components/icons/fam-icon';
 import { useTheme } from '@/hooks/use-theme';
 
 type MenuButtonProps = {

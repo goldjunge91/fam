@@ -2,8 +2,8 @@ import { Picker } from '@expo/ui/community/picker';
 import { useState } from 'react';
 import { Modal, Platform, Pressable, View } from 'react-native';
 
-import { ThemedText } from '@/components/themed-text';
-import { Button } from './ui/buttons';
+import { ThemedText } from '@/components/theme/themed-text';
+import { Button } from '../ui/buttons';
 
 export type WheelPickerOption = {
   value: string;

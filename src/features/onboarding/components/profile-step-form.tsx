@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Pressable, Text, View } from 'react-native';
-import { TextField } from '@/components/text-field';
+import { TextField } from '@/components/forms/text-field';
 import { Button } from '@/components/ui/buttons';
 import { useProfile } from '@/features/auth/api';
 import { useSession } from '@/features/auth/session-provider';

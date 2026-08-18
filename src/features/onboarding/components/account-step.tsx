@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Pressable, Text, View } from 'react-native';
-import { TextField } from '@/components/text-field';
+import { TextField } from '@/components/forms/text-field';
 import { Button } from '@/components/ui/buttons';
 import { authErrorMessage, signIn, signUp } from '@/features/auth/api';
 import { PendingAuthBanner } from '@/features/auth/components/pending-auth-banner';

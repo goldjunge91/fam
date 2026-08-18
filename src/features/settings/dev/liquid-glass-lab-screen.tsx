@@ -14,10 +14,10 @@ import {
 import { GlassContainer, GlassView } from 'expo-glass-effect';
 import { useState } from 'react';
 import { Alert, Pressable, View } from 'react-native';
-import { Card } from '@/components/card';
-import { useGlassAvailable } from '@/components/glass-card';
-import { Screen } from '@/components/screen';
-import { ThemedText } from '@/components/themed-text';
+import { Screen } from '@/components/layout/screen';
+import { ThemedText } from '@/components/theme/themed-text';
+import { Card } from '@/components/ui/card';
+import { useGlassAvailable } from '@/components/ui/glass-card';
 import { useHubGradient } from '@/hooks/use-hub-gradient';
 import { useTheme } from '@/hooks/use-theme';
 

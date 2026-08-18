@@ -2,11 +2,11 @@ import { useLocalSearchParams } from 'expo-router';
 import { useState } from 'react';
 import { Alert, FlatList, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { Card } from '@/components/card';
-import { EmptyState } from '@/components/empty-state';
-import { Screen } from '@/components/screen';
-import { ThemedText } from '@/components/themed-text';
+import { Screen } from '@/components/layout/screen';
+import { ThemedText } from '@/components/theme/themed-text';
 import { Button } from '@/components/ui/buttons';
+import { Card } from '@/components/ui/card';
+import { EmptyState } from '@/components/ui/empty-state';
 import { Layout, Spacing } from '@/constants/layout';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { ProductDetailModal } from '@/features/inventory/product-detail-modal';
@@ -89,9 +89,7 @@ export function InventoryScreen() {
       )
     : locationFiltered;
   const searchedItems = searchQuery.trim()
-    ? baseItems.filter((item) =>
-        item.name.toLowerCase().includes(searchQuery.trim().toLowerCase()),
-      )
+    ? baseItems.filter((item) => item.name.toLowerCase().includes(searchQuery.trim().toLowerCase()))
     : baseItems;
 
   // SQL liefert bereits MHD-sortiert (default) — der Toggle sortiert nur
@@ -217,7 +215,9 @@ export function InventoryScreen() {
               <EmptyState
                 symbol="archivebox"
                 title={
-                  searchQuery.trim() ? `Keine Treffer für "${searchQuery.trim()}"` : `${activeLocationName} ist leer`
+                  searchQuery.trim()
+                    ? `Keine Treffer für "${searchQuery.trim()}"`
+                    : `${activeLocationName} ist leer`
                 }
                 hint={
                   searchQuery.trim()

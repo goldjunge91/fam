@@ -1,8 +1,7 @@
 import { Pressable, Switch, View } from 'react-native';
-
-import { Card } from '@/components/card';
-import { Screen } from '@/components/screen';
-import { ThemedText } from '@/components/themed-text';
+import { Screen } from '@/components/layout/screen';
+import { ThemedText } from '@/components/theme/themed-text';
+import { Card } from '@/components/ui/card';
 import { useSession } from '@/features/auth/session-provider';
 import {
   type ModulePreferences,

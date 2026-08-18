@@ -1,6 +1,6 @@
 import { Pressable, ScrollView } from 'react-native';
 
-import { ThemedText } from '@/components/themed-text';
+import { ThemedText } from '@/components/theme/themed-text';
 import { CALORIE_BUCKETS } from '@/features/recipes/templates/use-recipe-templates';
 
 /** Ein Food-Emoji je Bucket, rein dekorativ zur Wiedererkennung — deckungsgleich mit `CALORIE_BUCKETS`. */

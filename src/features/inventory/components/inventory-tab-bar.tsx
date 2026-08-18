@@ -1,8 +1,7 @@
 import { useRef, useState } from 'react';
 import { Modal, Pressable, View } from 'react-native';
-
-import { GlassCard } from '@/components/glass-card';
-import { ThemedText } from '@/components/themed-text';
+import { ThemedText } from '@/components/theme/themed-text';
+import { GlassCard } from '@/components/ui/glass-card';
 import { withAlpha } from '@/constants/theme';
 import type { StorageLocation } from '@/features/inventory/use-storage-locations';
 import { useTheme } from '@/hooks/use-theme';

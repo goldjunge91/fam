@@ -1,6 +1,6 @@
 import { TextInput, View } from 'react-native';
 
-import { SearchIcon } from '@/components/fam-icon';
+import { SearchIcon } from '@/components/icons/fam-icon';
 import { useTheme } from '@/hooks/use-theme';
 
 interface InventorySearchFieldProps {

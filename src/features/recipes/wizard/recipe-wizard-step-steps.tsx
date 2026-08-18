@@ -7,7 +7,7 @@ import ReorderableList, {
   useReorderableDrag,
 } from 'react-native-reorderable-list';
 import Svg, { Path } from 'react-native-svg';
-import { ThemedText } from '@/components/themed-text';
+import { ThemedText } from '@/components/theme/themed-text';
 import { pickRecipeImage } from '@/features/recipes/recipe-image-uploader';
 import { useTheme } from '@/hooks/use-theme';
 import type { IngredientComponentGroup, WizardStepItem } from './types';

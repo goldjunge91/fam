@@ -1,14 +1,13 @@
 import { router } from 'expo-router';
 import { useState } from 'react';
 import { Pressable, ScrollView, View } from 'react-native';
-
-import { PlusIcon } from '@/components/fam-icon';
-import { FilterChipBar } from '@/components/filter-chip-bar';
-import { HubScreen } from '@/components/hub-screen';
-import { ProgressBar } from '@/components/progress-bar';
-import { ProgressRing } from '@/components/progress-ring';
-import { ThemedText } from '@/components/themed-text';
+import { PlusIcon } from '@/components/icons/fam-icon';
+import { HubScreen } from '@/components/layout/hub-screen';
+import { ThemedText } from '@/components/theme/themed-text';
 import { HeaderIconButton, MenuButton } from '@/components/ui/buttons';
+import { FilterChipBar } from '@/components/ui/filter-chip-bar';
+import { ProgressBar } from '@/components/ui/progress-bar';
+import { ProgressRing } from '@/components/ui/progress-ring';
 import { useSession } from '@/features/auth/session-provider';
 import { useActiveProfile } from '@/features/calorie-tracking/active-profile-store';
 import {

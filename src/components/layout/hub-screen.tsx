@@ -2,9 +2,9 @@ import type { ReactNode } from 'react';
 import { View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
-import { GradientBackground } from '@/components/gradient-background';
-import { PageHeader } from '@/components/page-header';
-import { useSyncBannerVisible } from '@/components/sync-status-banner';
+import { GradientBackground } from '@/components/layout/gradient-background';
+import { PageHeader } from '@/components/layout/page-header';
+import { useSyncBannerVisible } from '@/components/ui/sync-status-banner';
 import { useHubGradient } from '@/hooks/use-hub-gradient';
 
 type HubScreenProps = {

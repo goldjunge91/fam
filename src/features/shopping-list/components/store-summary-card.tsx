@@ -1,7 +1,6 @@
 import { Pressable, View } from 'react-native';
-
-import { ProgressBar } from '@/components/progress-bar';
-import { ThemedText } from '@/components/themed-text';
+import { ThemedText } from '@/components/theme/themed-text';
+import { ProgressBar } from '@/components/ui/progress-bar';
 import { formatEuro } from '@/lib/format-currency';
 
 interface StoreSummaryCardProps {

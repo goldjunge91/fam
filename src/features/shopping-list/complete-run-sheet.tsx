@@ -2,8 +2,8 @@ import BottomSheet, { BottomSheetView } from '@expo/ui/community/bottom-sheet';
 import { useEffect, useRef, useState } from 'react';
 import { Pressable, ScrollView, View } from 'react-native';
 
-import { DateWheelField } from '@/components/date-wheel-field';
-import { ThemedText } from '@/components/themed-text';
+import { DateWheelField } from '@/components/forms/date-wheel-field';
+import { ThemedText } from '@/components/theme/themed-text';
 import { useTheme } from '@/hooks/use-theme';
 import { formatAmount, formatPackageHint } from '@/lib/package-size';
 

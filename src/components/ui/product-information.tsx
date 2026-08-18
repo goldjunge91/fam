@@ -2,7 +2,7 @@ import { useQuery } from '@tanstack/react-query';
 import { ActivityIndicator, Modal, Pressable, ScrollView, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
-import { ThemedText } from '@/components/themed-text';
+import { ThemedText } from '@/components/theme/themed-text';
 import { useProduct } from '@/features/inventory/use-product';
 import { useTheme } from '@/hooks/use-theme';
 import { fetchProductByBarcode, type OpenFoodFactsProduct } from '@/lib/open-food-facts';

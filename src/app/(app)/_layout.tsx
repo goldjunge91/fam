@@ -3,7 +3,7 @@ import { Redirect, router } from 'expo-router';
 import { useEffect } from 'react';
 import { ActivityIndicator, View } from 'react-native';
 
-import AppShell from '@/components/app-shell';
+import AppShell from '@/components/layout/app-shell';
 import { useProfile } from '@/features/auth/api';
 import { resolveAppEntry } from '@/features/auth/app-entry';
 import {

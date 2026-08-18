@@ -12,8 +12,8 @@ import {
   View,
 } from 'react-native';
 
-import { TextField } from '@/components/text-field';
-import { ThemedText } from '@/components/themed-text';
+import { TextField } from '@/components/forms/text-field';
+import { ThemedText } from '@/components/theme/themed-text';
 import { useTheme } from '@/hooks/use-theme';
 import { getDatabase } from '@/lib/db/client';
 import { isOffDumpAttached } from '@/lib/off-dump/off-dump';

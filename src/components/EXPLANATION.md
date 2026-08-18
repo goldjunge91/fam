@@ -7,6 +7,7 @@ Overview of all non-test component files located in `src/components/` (and its s
 ## 1. `animated-icon.module.css`
 
 ### Lines 1–7
+
 ```css
 .expoLogoBackground {
   background-image: linear-gradient(180deg, #3c9ffe, #0274df);
@@ -15,7 +16,9 @@ Overview of all non-test component files located in `src/components/` (and its s
   height: 128px;
 }
 ```
+
 **Explanation:**
+
 - **Lines 1–6:** Defines the CSS class `.expoLogoBackground` used specifically on web (`animated-icon.web.tsx`). It applies a vertical linear gradient from `#3c9ffe` to `#0274df`, a 40px border radius, and fixed dimensions of 128x128px.
 - **Why it's written this way:** CSS modules allow scoped CSS styling on web without style leaks. Web bundlers support CSS modules natively, offering clean linear gradient rendering on the web platform where React Native NativeStyle properties like `experimental_backgroundImage` might not be standard across all browsers.
 
@@ -24,6 +27,7 @@ Overview of all non-test component files located in `src/components/` (and its s
 ## 2. `animated-icon.tsx`
 
 ### Lines 1–6
+
 ```typescript
 import { Image } from 'expo-image';
 import * as SplashScreen from 'expo-splash-screen';
@@ -32,19 +36,25 @@ import { Dimensions, StyleSheet, View } from 'react-native';
 import Animated, { Easing, Keyframe } from 'react-native-reanimated';
 import { scheduleOnRN } from 'react-native-worklets';
 ```
+
 **Explanation:**
+
 - **Lines 1–6:** Imports core dependencies: `expo-image` for optimized image rendering, `expo-splash-screen` to control native splash screen hiding, React's `useState`, React Native layout utilities (`Dimensions`, `StyleSheet`, `View`), `react-native-reanimated` keyframe animation utilities, and `scheduleOnRN` from `react-native-worklets` to safely trigger React state updates from Reanimated worklet callbacks.
 
 ### Lines 8–9
+
 ```typescript
 const INITIAL_SCALE_FACTOR = Dimensions.get('screen').height / 90;
 const DURATION = 600;
 ```
+
 **Explanation:**
+
 - **Line 8:** Dynamically calculates an initial scale factor based on screen height divided by 90 so that the initial background animation scales up to fill the full screen height on any device display.
 - **Line 9:** Defines a baseline animation duration constant of 600 ms for smooth splash transition timing.
 
 ### Lines 11–16
+
 ```typescript
 export function AnimatedSplashOverlay() {
   const [animate, setAnimate] = useState(false);
@@ -52,11 +62,14 @@ export function AnimatedSplashOverlay() {
 
   if (!visible) return null;
 ```
+
 **Explanation:**
+
 - **Lines 11–14:** Declares `AnimatedSplashOverlay`, managing `animate` (whether the transition animation has started) and `visible` (whether the overlay is still mounted).
 - **Line 15:** Returns `null` if `visible` is false to unmount the splash overlay after the hide animation finishes, freeing memory and revealing underlying screens.
 
 ### Lines 17–34
+
 ```typescript
   const splashKeyframe = new Keyframe({
     0: {
@@ -77,10 +90,13 @@ export function AnimatedSplashOverlay() {
     },
   });
 ```
+
 **Explanation:**
+
 - **Lines 17–34:** Creates a Reanimated `Keyframe` sequence for the splash overlay exit transition. It holds full opacity until 20% progress, fades out to 0 opacity with elastic easing by 70%, and holds full transition state until 100%.
 
 ### Lines 36–59
+
 ```typescript
   const image = <Image style={styles.image} source={require('@/assets/images/expo-logo.png')} />;
 
@@ -108,12 +124,15 @@ export function AnimatedSplashOverlay() {
   );
 }
 ```
+
 **Explanation:**
+
 - **Line 36:** Reusable JSX reference for the logo image.
 - **Lines 38–48:** If `animate` is true, renders an `Animated.View` with the entering keyframe. When finished, the worklet uses `scheduleOnRN` to toggle `setVisible(false)` on the main JS thread.
 - **Lines 49–58:** Initial un-animated state. Once laid out (`onLayout`), `SplashScreen.hideAsync()` hides the native OS splash screen, and `.finally()` switches `animate` to true to trigger the seamless React animation transition.
 
 ### Lines 62–96
+
 ```typescript
 const keyframe = new Keyframe({
   0: {
@@ -151,12 +170,15 @@ const glowKeyframe = new Keyframe({
   },
 });
 ```
+
 **Explanation:**
+
 - **Lines 62–70:** `keyframe` animates the icon background from full screen scale down to 1:1 with elastic bounce.
 - **Lines 72–87:** `logoKeyframe` fades in and scales down the foreground logo image.
 - **Lines 89–96:** `glowKeyframe` rotates the glowing background 7200 degrees (20 full rotations) over a long period.
 
 ### Lines 98–111
+
 ```typescript
 export function AnimatedIcon() {
   return (
@@ -173,10 +195,13 @@ export function AnimatedIcon() {
   );
 }
 ```
+
 **Explanation:**
+
 - **Lines 98–111:** Renders `AnimatedIcon`, compositing three animated layers (rotating glow background, scaling gradient background, and fading/scaling logo image).
 
 ### Lines 113–148
+
 ```typescript
 const styles = StyleSheet.create({
   imageContainer: {
@@ -215,7 +240,9 @@ const styles = StyleSheet.create({
   },
 });
 ```
+
 **Explanation:**
+
 - **Lines 113–148:** StyleSheet definitions for container bounds, positioning overlays, experimental background linear gradients for native, and absolute screen fill for the splash screen overlay.
 
 ---
@@ -223,6 +250,7 @@ const styles = StyleSheet.create({
 ## 3. `animated-icon.web.tsx`
 
 ### Lines 1–7
+
 ```typescript
 import { Image } from 'expo-image';
 import { StyleSheet, View } from 'react-native';
@@ -232,19 +260,25 @@ import classes from './animated-icon.module.css';
 
 const DURATION = 300;
 ```
+
 **Explanation:**
+
 - **Lines 1–7:** Web-specific implementation of the animated icon component. Imports `expo-image`, React Native basic views, Reanimated keyframes, and CSS module styles (`classes`). Sets web animation `DURATION` to 300 ms for faster web loading feel.
 
 ### Lines 9–11
+
 ```typescript
 export function AnimatedSplashOverlay() {
   return null;
 }
 ```
+
 **Explanation:**
+
 - **Lines 9–11:** On web, `AnimatedSplashOverlay` simply returns `null` because web browsers rely on standard HTML/CSS splash or shell loading rather than native mobile splash screens.
 
 ### Lines 13–56
+
 ```typescript
 const keyframe = new Keyframe({
   0: {
@@ -291,12 +325,15 @@ const glowKeyframe = new Keyframe({
   },
 });
 ```
+
 **Explanation:**
+
 - **Lines 13–25:** Keyframe for scaling up the container on web with a springy overshoot (`scale: 1.2`).
 - **Lines 27–41:** Keyframe for logo image opacity and scaling transition on web.
 - **Lines 43–56:** Keyframe for continuous glow rotation starting from `-180deg` scale `0.8` up to full rotation.
 
 ### Lines 58–74
+
 ```typescript
 export function AnimatedIcon() {
   return (
@@ -316,10 +353,13 @@ export function AnimatedIcon() {
   );
 }
 ```
+
 **Explanation:**
+
 - **Lines 58–74:** Web implementation of `AnimatedIcon`. Uses a standard HTML `<div className={classes.expoLogoBackground} />` inside `Animated.View` for the background gradient to ensure perfect browser rendering.
 
 ### Lines 76–109
+
 ```typescript
 const styles = StyleSheet.create({
   container: {
@@ -356,323 +396,17 @@ const styles = StyleSheet.create({
   },
 });
 ```
+
 **Explanation:**
+
 - **Lines 76–109:** Style definitions positioning elements relative to 128x128 bounding boxes on web.
-
----
-
-## 4. `app-tabs.tsx`
-
-### Lines 1–15
-```typescript
-import { NativeTabs } from 'expo-router/unstable-native-tabs';
-import { useColorScheme } from 'react-native';
-
-import { Colors } from '@/constants/theme';
-
-/**
- * Tabs sind statisch. Expo Router remountet den Navigator, wenn Trigger zur
- * Laufzeit dazukommen oder verschwinden — der komplette Navigationszustand
- * ginge verloren. Die Modul-Aktivierung (#95) blendet deshalb Inhalte aus,
- * nicht Tabs.
- *
- * Icons kommen als SF Symbols (iOS) und Material Symbols (Android) direkt vom
- * System statt als PNG-Assets. Das spart fuenf mal drei Bitmaps und sieht auf
- * beiden Plattformen nativ aus.
- */
-```
-**Explanation:**
-- **Lines 1–4:** Imports `NativeTabs` from Expo Router's native tabs module, `useColorScheme` hook from React Native, and `Colors` theme palette.
-- **Lines 6–15:** JSDoc documentation explaining that tabs remain static across runtime module activations to prevent navigation remounting/state loss. Highlights using native system icons (SF Symbols on iOS, Material Symbols on Android) instead of bundled bitmap image assets.
-
-### Lines 16–51
-```typescript
-export default function AppTabs() {
-  const scheme = useColorScheme();
-  const colors = Colors[scheme === 'unspecified' ? 'light' : scheme];
-
-  return (
-    <NativeTabs
-      backgroundColor={colors.background}
-      indicatorColor={colors.backgroundElement}
-      labelStyle={{ selected: { color: colors.text } }}>
-      <NativeTabs.Trigger name="index">
-        <NativeTabs.Trigger.Icon sf="chart.pie.fill" md="dashboard" />
-        <NativeTabs.Trigger.Label>Übersicht</NativeTabs.Trigger.Label>
-      </NativeTabs.Trigger>
-
-      <NativeTabs.Trigger name="fridge">
-        <NativeTabs.Trigger.Icon sf="archivebox.fill" md="kitchen" />
-        <NativeTabs.Trigger.Label>Vorrat</NativeTabs.Trigger.Label>
-      </NativeTabs.Trigger>
-
-      <NativeTabs.Trigger name="shopping-list">
-        <NativeTabs.Trigger.Icon sf="cart.fill" md="shopping_cart" />
-        <NativeTabs.Trigger.Label>Einkauf</NativeTabs.Trigger.Label>
-      </NativeTabs.Trigger>
-
-      <NativeTabs.Trigger name="recipes">
-        <NativeTabs.Trigger.Icon sf="book.fill" md="menu_book" />
-        <NativeTabs.Trigger.Label>Rezepte</NativeTabs.Trigger.Label>
-      </NativeTabs.Trigger>
-
-      <NativeTabs.Trigger name="settings">
-        <NativeTabs.Trigger.Icon sf="gearshape.fill" md="settings" />
-        <NativeTabs.Trigger.Label>Einstellungen</NativeTabs.Trigger.Label>
-      </NativeTabs.Trigger>
-    </NativeTabs>
-  );
-}
-```
-**Explanation:**
-- **Lines 16–18:** Reads theme scheme (falling back to `'light'` if unspecified) and picks background and text colors.
-- **Lines 20–50:** Configures `NativeTabs` container with 5 tab triggers:
-  1. `index`: "Übersicht" (`chart.pie.fill` / `dashboard`)
-  2. `fridge`: "Vorrat" (`archivebox.fill` / `kitchen`)
-  3. `shopping-list`: "Einkauf" (`cart.fill` / `shopping_cart`)
-  4. `recipes`: "Rezepte" (`book.fill` / `menu_book`)
-  5. `settings`: "Einstellungen" (`gearshape.fill` / `settings`)
-
----
-
-## 5. `app-tabs.web.tsx`
-
-### Lines 1–18
-```typescript
-import {
-  TabList,
-  type TabListProps,
-  TabSlot,
-  Tabs,
-  TabTrigger,
-  type TabTriggerSlotProps,
-} from 'expo-router/ui';
-import { Pressable, StyleSheet, View } from 'react-native';
-import { MaxContentWidth, Spacing } from '@/constants/theme';
-import { ThemedText } from './themed-text';
-import { ThemedView } from './themed-view';
-
-/**
- * Web-Variante der Tabs. NativeTabs gibt es im Browser nicht, deshalb eine
- * eigene Leiste. Die Routennamen muessen mit denen in app-tabs.tsx
- * uebereinstimmen, sonst laufen die Plattformen auseinander.
- */
-```
-**Explanation:**
-- **Lines 1–13:** Imports Expo Router UI tab primitives for web (`TabList`, `TabSlot`, `Tabs`, `TabTrigger`), React Native elements, theme constants, and local themed components.
-- **Lines 14–18:** Documentation explaining why web tabs use Expo Router web UI tabs (since `NativeTabs` is native-only). Routes align with native tab route definitions.
-
-### Lines 19–44
-```typescript
-export default function AppTabs() {
-  return (
-    <Tabs>
-      <TabSlot style={{ height: '100%' }} />
-      <TabList asChild>
-        <CustomTabList>
-          <TabTrigger name="index" href="/" asChild>
-            <TabButton>Übersicht</TabButton>
-          </TabTrigger>
-          <TabTrigger name="fridge" href="/fridge" asChild>
-            <TabButton>Vorrat</TabButton>
-          </TabTrigger>
-          <TabTrigger name="shopping-list" href="/shopping-list" asChild>
-            <TabButton>Einkauf</TabButton>
-          </TabTrigger>
-          <TabTrigger name="recipes" href="/recipes" asChild>
-            <TabButton>Rezepte</TabButton>
-          </TabTrigger>
-          <TabTrigger name="profile" href="/profile" asChild>
-            <TabButton>Profil</TabButton>
-          </TabTrigger>
-        </CustomTabList>
-      </TabList>
-    </Tabs>
-  );
-}
-```
-**Explanation:**
-- **Lines 19–44:** Renders web tab layout container `<Tabs>`. `<TabSlot>` renders active screen content. `<TabList>` renders top/bottom navigation bar using custom `<CustomTabList>` container and individual `<TabTrigger>` items for each tab route.
-
-### Lines 46–58
-```typescript
-export function TabButton({ children, isFocused, ...props }: TabTriggerSlotProps) {
-  return (
-    <Pressable {...props} style={({ pressed }) => pressed && styles.pressed}>
-      <ThemedView
-        type={isFocused ? 'backgroundSelected' : 'backgroundElement'}
-        style={styles.tabButtonView}>
-        <ThemedText type="small" themeColor={isFocused ? 'text' : 'textSecondary'}>
-          {children}
-        </ThemedText>
-      </ThemedView>
-    </Pressable>
-  );
-}
-```
-**Explanation:**
-- **Lines 46–58:** Renders an individual tab button slot inside `<TabTrigger>`. Checks `isFocused` state to toggle `backgroundSelected` vs `backgroundElement` background and primary vs secondary text color.
-
-### Lines 60–71
-```typescript
-export function CustomTabList(props: TabListProps) {
-  return (
-    <View {...props} style={styles.tabListContainer}>
-      <ThemedView type="backgroundElement" style={styles.innerContainer}>
-        <ThemedText type="smallBold" style={styles.brandText}>
-          NutriTrack
-        </ThemedText>
-        {props.children}
-      </ThemedView>
-    </View>
-  );
-}
-```
-**Explanation:**
-- **Lines 60–71:** Wrapper container for the web tab bar. Includes app brand title "NutriTrack" on the left and tab trigger items on the right inside a floating pill navbar.
-
-### Lines 73–103
-```typescript
-const styles = StyleSheet.create({
-  tabListContainer: {
-    position: 'absolute',
-    width: '100%',
-    padding: Spacing.three,
-    justifyContent: 'center',
-    alignItems: 'center',
-    flexDirection: 'row',
-  },
-  innerContainer: {
-    paddingVertical: Spacing.two,
-    paddingHorizontal: Spacing.four,
-    borderRadius: Spacing.five,
-    flexDirection: 'row',
-    alignItems: 'center',
-    flexGrow: 1,
-    gap: Spacing.two,
-    maxWidth: MaxContentWidth,
-  },
-  brandText: {
-    marginRight: 'auto',
-  },
-  pressed: {
-    opacity: 0.7,
-  },
-  tabButtonView: {
-    paddingVertical: Spacing.one,
-    paddingHorizontal: Spacing.three,
-    borderRadius: Spacing.three,
-  },
-});
-```
-**Explanation:**
-- **Lines 73–103:** Styles for absolute positioning of the tab bar, max-width constraints (`MaxContentWidth`), rounded pill corners, and spacing gaps between tab triggers.
-
----
-
-## 6. `button.tsx`
-
-### Lines 1–14
-```typescript
-import { ActivityIndicator, Pressable, StyleSheet, View } from 'react-native';
-
-import { ThemedText } from '@/components/themed-text';
-import { Spacing } from '@/constants/theme';
-import { useTheme } from '@/hooks/use-theme';
-
-type ButtonProps = {
-  label: string;
-  onPress: () => void;
-  variant?: 'primary' | 'secondary' | 'danger';
-  /** Zeigt einen Spinner und sperrt den Knopf — verhindert Doppel-Submits. */
-  loading?: boolean;
-  disabled?: boolean;
-};
-```
-**Explanation:**
-- **Lines 1–5:** Imports React Native UI components, themed text, theme spacing, and `useTheme` hook.
-- **Lines 7–14:** `ButtonProps` interface defining button label text, `onPress` callback, visual variant (`primary`, `secondary`, `danger`), and state flags (`loading`, `disabled`).
-
-### Lines 16–56
-```typescript
-export function Button({
-  label,
-  onPress,
-  variant = 'primary',
-  loading = false,
-  disabled = false,
-}: ButtonProps) {
-  const theme = useTheme();
-  const isBlocked = loading || disabled;
-
-  const background =
-    variant === 'primary'
-      ? theme.accent
-      : variant === 'danger'
-        ? theme.danger
-        : theme.backgroundElement;
-
-  const foreground = variant === 'secondary' ? theme.text : '#ffffff';
-
-  return (
-    <Pressable
-      onPress={onPress}
-      disabled={isBlocked}
-      accessibilityRole="button"
-      accessibilityState={{ disabled: isBlocked, busy: loading }}
-      style={({ pressed }) => [
-        styles.button,
-        { backgroundColor: background },
-        // Der gesperrte Zustand darf nicht nur am Spinner erkennbar sein.
-        isBlocked && styles.blocked,
-        pressed && !isBlocked && styles.pressed,
-      ]}>
-      <View style={styles.content}>
-        {loading ? <ActivityIndicator size="small" color={foreground} /> : null}
-        <ThemedText type="smallBold" style={{ color: foreground }}>
-          {label}
-        </ThemedText>
-      </View>
-    </Pressable>
-  );
-}
-```
-**Explanation:**
-- **Lines 16–25:** Combines `loading` and `disabled` into `isBlocked`.
-- **Lines 26–34:** Resolves theme background color (`accent`, `danger`, or `backgroundElement`) and text foreground color (`theme.text` for secondary, `#ffffff` for primary/danger).
-- **Lines 36–54:** Renders `<Pressable>` with accessibility props (`accessibilityRole="button"`, `accessibilityState={{ disabled, busy }}`). Displays `<ActivityIndicator>` when `loading` is true to prevent double submissions.
-
-### Lines 58–77
-```typescript
-const styles = StyleSheet.create({
-  button: {
-    borderRadius: Spacing.three,
-    paddingVertical: Spacing.three,
-    paddingHorizontal: Spacing.four,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  content: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: Spacing.two,
-  },
-  blocked: {
-    opacity: 0.5,
-  },
-  pressed: {
-    opacity: 0.8,
-  },
-});
-```
-**Explanation:**
-- **Lines 58–77:** Button styles providing 50% opacity when `blocked`, 80% opacity when `pressed`, and centered layout alignment.
 
 ---
 
 ## 7. `card.tsx`
 
 ### Lines 1–15
+
 ```typescript
 import type { ReactNode } from 'react';
 import { Pressable, StyleSheet, type ViewStyle } from 'react-native';
@@ -689,11 +423,14 @@ type CardProps = {
   style?: ViewStyle;
 };
 ```
+
 **Explanation:**
+
 - **Lines 1–6:** Imports React types and React Native primitives along with theme components and spacing constants.
 - **Lines 8–14:** `CardProps` type defining optional title, child content, optional footer, optional tap handler `onPress`, and custom `style`.
 
 ### Lines 16–36
+
 ```typescript
 /** Flaeche fuer zusammengehoerende Inhalte. Antippbar, sobald `onPress` gesetzt ist. */
 export function Card({ children, title, footer, onPress, style }: CardProps) {
@@ -717,11 +454,14 @@ export function Card({ children, title, footer, onPress, style }: CardProps) {
   );
 }
 ```
+
 **Explanation:**
+
 - **Lines 16–24:** Builds internal content structure wrapped in `<ThemedView type="backgroundElement">` containing optional title, child body, and optional footer.
 - **Lines 26–35:** If `onPress` is provided, wraps the card content in a `<Pressable>` with button accessibility role and visual press feedback (opacity change). Otherwise returns static content.
 
 ### Lines 38–47
+
 ```typescript
 const styles = StyleSheet.create({
   card: {
@@ -734,7 +474,9 @@ const styles = StyleSheet.create({
   },
 });
 ```
+
 **Explanation:**
+
 - **Lines 38–47:** Defines padding, rounded border radius, and child spacing for content cards.
 
 ---
@@ -742,6 +484,7 @@ const styles = StyleSheet.create({
 ## 8. `date-picker.tsx`
 
 ### Lines 1–16
+
 ```typescript
 import { useState } from 'react';
 import { Modal, Pressable, StyleSheet, View } from 'react-native';
@@ -760,11 +503,14 @@ interface DatePickerProps {
   error?: string;
 }
 ```
+
 **Explanation:**
+
 - **Lines 1–9:** Imports React state hook, React Native modal and layout components, local custom components (`Button`, `TextField`, `ThemedText`), theme constants, and `useTheme` hook.
 - **Lines 10–16:** Props interface for `DatePicker`. Expects `value` in `"YYYY-MM-DD"` ISO string format and `onChangeText` callback.
 
 ### Lines 18–35
+
 ```typescript
 export function DatePicker({
   label = 'Geburtsdatum',
@@ -784,11 +530,14 @@ export function DatePicker({
   const [selMonth, setSelMonth] = useState(initialDate.getMonth() + 1);
   const [selDay, setSelDay] = useState(initialDate.getDate());
 ```
+
 **Explanation:**
+
 - **Lines 18–26:** Initializes component state including `showModal` visibility toggle.
 - **Lines 28–35:** Parses `value` string with regex `/^\d{4}-\d{2}-\d{2}$/`. If valid, initializes selection states (`selYear`, `selMonth`, `selDay`) from `value`; otherwise defaults to today's date.
 
 ### Lines 36–60
+
 ```typescript
   function handleChange(text: string) {
     onChangeText(text);
@@ -816,12 +565,15 @@ export function DatePicker({
     }
   }
 ```
+
 **Explanation:**
+
 - **Lines 36–38:** Direct handler delegating manual text input edits to `onChangeText`.
 - **Lines 40–47:** Modal confirm handler (`handleApplyModal`). Zero-pads year/month/day, formats as `"YYYY-MM-DD"`, calls `onChangeText`, and closes modal.
 - **Lines 49–60:** Converts valid ISO date string into human-readable German date format (e.g. "14. Mai 2020") for live feedback below the text input.
 
 ### Lines 62–90
+
 ```typescript
   return (
     <View style={styles.container}>
@@ -852,11 +604,14 @@ export function DatePicker({
         </ThemedText>
       )}
 ```
+
 **Explanation:**
+
 - **Lines 62–83:** Renders text field input side-by-side with a calendar button (`📅`) that opens the picker modal.
 - **Lines 85–89:** Displays formatted German date preview string below the input if valid.
 
 ### Lines 92–170
+
 ```typescript
       {/* Modal Date Selector */}
       <Modal
@@ -939,12 +694,15 @@ export function DatePicker({
   );
 }
 ```
+
 **Explanation:**
+
 - **Lines 92–100:** Modal backdrop dialog with translucent background (`rgba(0,0,0,0.5)`).
 - **Lines 101–155:** 3-column stepper grid for Year (bounded 1900–2100), Month (wraps 1–12), and Day (wraps 1–31) with increment (`+`) and decrement (`-`) buttons.
 - **Lines 157–167:** Modal action buttons: "Übernehmen" (Apply) and "Abbrechen" (Cancel).
 
 ### Lines 172–236
+
 ```typescript
 const styles = StyleSheet.create({
   container: {
@@ -1012,7 +770,9 @@ const styles = StyleSheet.create({
   },
 });
 ```
+
 **Explanation:**
+
 - **Lines 172–236:** Layout styling for rows, rounded modal overlay dialog, grid columns, circular stepper buttons (40x40px), and modal action buttons.
 
 ---
@@ -1020,6 +780,7 @@ const styles = StyleSheet.create({
 ## 9. `empty-state.tsx`
 
 ### Lines 1–18
+
 ```typescript
 import { SymbolView, type SymbolViewProps } from 'expo-symbols';
 import { StyleSheet, View } from 'react-native';
@@ -1040,11 +801,14 @@ type EmptyStateProps = {
   hint: string;
 };
 ```
+
 **Explanation:**
+
 - **Lines 1–6:** Imports `SymbolView` from `expo-symbols`, React Native components, theme text component, spacing constants, and `useTheme`.
 - **Lines 8–18:** `EmptyStateProps` defining type-safe `symbol` name strictly limited to valid SF Symbols by TypeScript, main `title`, and user-actionable `hint` text.
 
 ### Lines 20–34
+
 ```typescript
 export function EmptyState({ symbol, title, hint }: EmptyStateProps) {
   const theme = useTheme();
@@ -1062,10 +826,13 @@ export function EmptyState({ symbol, title, hint }: EmptyStateProps) {
   );
 }
 ```
+
 **Explanation:**
+
 - **Lines 20–34:** Renders centered empty-state view featuring a 40px SF Symbol, bold title, and secondary hint text giving clear next steps so empty screens do not feel like dead ends.
 
 ### Lines 36–47
+
 ```typescript
 const styles = StyleSheet.create({
   container: {
@@ -1080,7 +847,9 @@ const styles = StyleSheet.create({
   },
 });
 ```
+
 **Explanation:**
+
 - **Lines 36–47:** Centers icon and text elements vertically and horizontally with standard vertical padding (`Spacing.six`).
 
 ---
@@ -1088,6 +857,7 @@ const styles = StyleSheet.create({
 ## 10. `external-link.tsx`
 
 ### Lines 1–6
+
 ```typescript
 import { type Href, Link } from 'expo-router';
 import { openBrowserAsync, WebBrowserPresentationStyle } from 'expo-web-browser';
@@ -1095,11 +865,14 @@ import type { ComponentProps } from 'react';
 
 type Props = Omit<ComponentProps<typeof Link>, 'href'> & { href: Href & string };
 ```
+
 **Explanation:**
+
 - **Lines 1–3:** Imports `Link` from `expo-router` and `openBrowserAsync` from `expo-web-browser`.
 - **Line 5:** Defines component props extending Expo Router's `Link` props while restricting `href` to string types compatible with web browsers.
 
 ### Lines 7–25
+
 ```typescript
 export function ExternalLink({ href, ...rest }: Props) {
   return (
@@ -1121,7 +894,9 @@ export function ExternalLink({ href, ...rest }: Props) {
   );
 }
 ```
+
 **Explanation:**
+
 - **Lines 7–12:** Renders `<Link target="_blank" href={href} />` for standard browser tab opening on web.
 - **Lines 13–22:** Intercepts click events on native platforms (`process.env.EXPO_OS !== 'web'`), calls `event.preventDefault()`, and opens the URL in an in-app system browser sheet via `openBrowserAsync` for a seamless mobile experience.
 
@@ -1130,6 +905,7 @@ export function ExternalLink({ href, ...rest }: Props) {
 ## 11. `hint-row.tsx`
 
 ### Lines 1–10
+
 ```typescript
 import type { ReactNode } from 'react';
 import { StyleSheet, View } from 'react-native';
@@ -1142,11 +918,14 @@ type HintRowProps = {
   hint?: ReactNode;
 };
 ```
+
 **Explanation:**
+
 - **Lines 1–6:** Imports React types, React Native components, theme constants, and local themed text/view components.
 - **Lines 7–10:** `HintRowProps` interface allowing optional title string and code/hint content node.
 
 ### Lines 12–21
+
 ```typescript
 export function HintRow({ title = 'Try editing', hint = 'app/index.tsx' }: HintRowProps) {
   return (
@@ -1159,10 +938,13 @@ export function HintRow({ title = 'Try editing', hint = 'app/index.tsx' }: HintR
   );
 }
 ```
+
 **Explanation:**
+
 - **Lines 12–21:** Renders a row displaying a title label alongside a highlighted code snippet box (`backgroundSelected`).
 
 ### Lines 23–33
+
 ```typescript
 const styles = StyleSheet.create({
   stepRow: {
@@ -1176,7 +958,9 @@ const styles = StyleSheet.create({
   },
 });
 ```
+
 **Explanation:**
+
 - **Lines 23–33:** Flexbox space-between layout for side-by-side display and pill padding for the code snippet background.
 
 ---
@@ -1184,6 +968,7 @@ const styles = StyleSheet.create({
 ## 12. `macro-bar.tsx`
 
 ### Lines 1–20
+
 ```typescript
 import { StyleSheet, View } from 'react-native';
 
@@ -1206,12 +991,15 @@ type MacroBarProps = {
  * Farbfehlsichtige und Screenreader wertlos.
  */
 ```
+
 **Explanation:**
+
 - **Lines 1–5:** Imports React Native layout modules, `ThemedText`, spacing theme constants, and `useTheme`.
 - **Lines 7–13:** Defines `MacroBarProps`: nutrient label, current consumed amount in grams (`value`), and target amount in grams (`target`).
 - **Lines 15–20:** Documentation emphasizing accessibility: numerical text values are always rendered alongside progress bars so screen readers and color-blind users get full information.
 
 ### Lines 21–57
+
 ```typescript
 export function MacroBar({ label, value, target }: MacroBarProps) {
   const theme = useTheme();
@@ -1251,13 +1039,16 @@ export function MacroBar({ label, value, target }: MacroBarProps) {
   );
 }
 ```
+
 **Explanation:**
+
 - **Lines 24–25:** Computes fill `ratio` (clamped to 1.0 maximum) and `exceeded` boolean flag.
 - **Lines 28–36:** Configures root container as an accessible progress bar with dynamic voiceover labels.
 - **Lines 37–42:** Renders label and numeric readout, highlighting in `warning` color if exceeded.
 - **Lines 44–54:** Renders outer track and inner dynamic width progress bar (`width: ratio * 100%`). Switches fill background color to warning theme color when target is exceeded.
 
 ### Lines 59–77
+
 ```typescript
 const styles = StyleSheet.create({
   row: {
@@ -1279,7 +1070,9 @@ const styles = StyleSheet.create({
   },
 });
 ```
+
 **Explanation:**
+
 - **Lines 59–77:** Track height (8px), rounded corners (4px overflow hidden), and flexbox row layouts.
 
 ---
@@ -1287,6 +1080,7 @@ const styles = StyleSheet.create({
 ## 13. `progress-ring.tsx`
 
 ### Lines 1–26
+
 ```typescript
 import { useEffect } from 'react';
 import { StyleSheet, View } from 'react-native';
@@ -1315,12 +1109,15 @@ type ProgressRingProps = {
   unit?: string;
 };
 ```
+
 **Explanation:**
+
 - **Lines 1–9:** Imports Reanimated animation hooks (`useAnimatedProps`, `useReducedMotion`, `useSharedValue`, `withTiming`) and SVG elements (`Svg`, `Circle`).
 - **Line 15:** Creates animated SVG circle component `AnimatedCircle`.
 - **Lines 17–26:** `ProgressRingProps` defining consumed value, target goal, ring diameter `size` (default 160), `strokeWidth` (default 14), accessibility label, and `unit` (default `'kcal'`).
 
 ### Lines 28–74
+
 ```typescript
 /**
  * Fortschrittsring fuer Kalorien und andere Tagesziele (#91).
@@ -1369,7 +1166,9 @@ export function ProgressRing({
         }`
       : `${label}: ${Math.round(value)} ${unit}, kein Ziel gesetzt`;
 ```
+
 **Explanation:**
+
 - **Lines 47–48:** Geometry math: `radius = (size - strokeWidth) / 2`, `circumference = 2 * Math.PI * radius`.
 - **Lines 50–52:** Clamps fill progress ratio between 0 and 1. Checks if target is exceeded.
 - **Lines 56–61:** `useEffect` updates Reanimated `progress` shared value. Respects OS accessibility preference `useReducedMotion()`: if reduced motion is enabled, skips timing animation; otherwise animates over 700 ms.
@@ -1377,6 +1176,7 @@ export function ProgressRing({
 - **Lines 67–73:** Calculates remaining/exceeded difference and builds descriptive screen reader label.
 
 ### Lines 75–121
+
 ```typescript
   return (
     <View
@@ -1426,12 +1226,15 @@ export function ProgressRing({
   );
 }
 ```
+
 **Explanation:**
+
 - **Lines 81–89:** Background SVG `<Circle>` track rendered using `theme.backgroundSelected`.
 - **Lines 90–102:** `<AnimatedCircle>` stroke rendered in `warning` color if exceeded or `accent` color normally. `transform="rotate(-90 ...)"` ensures progress starts at top (12 o'clock) instead of right (3 o'clock).
 - **Lines 105–119:** Center overlay showing numeric intake value, target description, and remaining/exceeded badge.
 
 ### Lines 123–145
+
 ```typescript
 const styles = StyleSheet.create({
   container: {
@@ -1457,7 +1260,9 @@ const styles = StyleSheet.create({
   },
 });
 ```
+
 **Explanation:**
+
 - **Lines 123–145:** Center overlay uses absolute positioning (`top: 0, left: 0, right: 0, bottom: 0`) and `pointerEvents: 'none'` in styles (compatible with RN 0.76+ / 0.86 typings).
 
 ---
@@ -1465,6 +1270,7 @@ const styles = StyleSheet.create({
 ## 14. `screen.tsx`
 
 ### Lines 1–20
+
 ```typescript
 import { router } from 'expo-router';
 import type { ReactNode } from 'react';
@@ -1486,11 +1292,14 @@ type ScreenProps = {
   showBackButton?: boolean;
 };
 ```
+
 **Explanation:**
+
 - **Lines 1–8:** Imports Expo Router navigation controller, React types, React Native components, `react-native-safe-area-context` hooks, and layout constants.
 - **Lines 10–19:** `ScreenProps` type definition: screen `title`, `subtitle`, `children` body, optional header `action` component (e.g. Add button), `scroll` toggle (default true), and optional `showBackButton` override.
 
 ### Lines 21–47
+
 ```typescript
 /**
  * Gemeinsames Geruest aller Tab-Screens: Safe Area, Titelzeile, begrenzte
@@ -1519,12 +1328,15 @@ export function Screen({
   // beginnt bei 90,5 % der Bildschirmhoehe, der Text lag bei 93,8 %.
   const bottomPadding = insets.bottom + TabBarHeight + Spacing.four;
 ```
+
 **Explanation:**
+
 - **Lines 21–28:** Explains standard screen shell responsibilities (Safe Area handling, title header, max-width responsive clamping, tab-bar bottom padding).
 - **Line 40:** Evaluates `hasBack`: explicitly uses `showBackButton` boolean if passed, otherwise auto-detects stack navigation depth via `router.canGoBack()`.
 - **Line 46:** Dynamically computes `bottomPadding = insets.bottom + TabBarHeight + Spacing.four` so scroll content is never obscured by translucent floating/native tab bars.
 
 ### Lines 48–87
+
 ```typescript
   return (
     <ThemedView style={styles.root}>
@@ -1567,13 +1379,16 @@ export function Screen({
   );
 }
 ```
+
 **Explanation:**
+
 - **Lines 49–50:** Outer `<ThemedView>` and `<SafeAreaView>` configured for top/left/right inset padding.
 - **Lines 51–61:** Conditional back button rendering (`← Zurück`) invoking `router.back()`.
 - **Lines 63–73:** Header layout displaying title, optional subtitle, and right-aligned header `action` element.
 - **Lines 75–84:** Toggles between `<ScrollView>` (with `bottomPadding`) or fixed non-scrolling `<View>` based on `scroll` prop.
 
 ### Lines 89–121
+
 ```typescript
 const styles = StyleSheet.create({
   root: {
@@ -1609,7 +1424,9 @@ const styles = StyleSheet.create({
   },
 });
 ```
+
 **Explanation:**
+
 - **Lines 89–121:** Screen layout styles ensuring consistent header margins and responsive center alignment (`maxWidth: MaxContentWidth`, `alignSelf: 'center'`).
 
 ---
@@ -1617,6 +1434,7 @@ const styles = StyleSheet.create({
 ## 15. `sync-status-banner.tsx`
 
 ### Lines 1–24
+
 ```typescript
 import { Pressable, StyleSheet, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -1643,21 +1461,27 @@ export type SyncStatusBannerProps = {
   getDb?: () => Promise<SqlDatabase>;
 };
 ```
+
 **Explanation:**
+
 - **Lines 1–10:** Imports components, hooks (`useSyncStatus`, `useTheme`), database helpers (`getDatabase`, `retryFailedOutboxEntries`), and database types.
 - **Lines 12–24:** `SyncStatusBannerProps` defining optional `onRetry` async handler and dependency-injected `getDb` getter (primarily for unit testing).
 
 ### Lines 26–29
+
 ```typescript
 async function defaultRetry(): Promise<void> {
   const db = await getDatabase();
   await retryFailedOutboxEntries(db);
 }
 ```
+
 **Explanation:**
+
 - **Lines 26–29:** Default retry implementation. Acquires database handle and resets failed outbox entries so background sync can re-process them.
 
 ### Lines 31–82
+
 ```typescript
 /**
  * Dezenter Hinweis auf Offline-/Sync-Status (#51).
@@ -1712,7 +1536,9 @@ export function SyncStatusBanner({
   );
 }
 ```
+
 **Explanation:**
+
 - **Lines 31–39:** Explains layout design decision: returning `null` when state is `hidden` allows the banner to act as a normal layout sibling in `_layout.tsx` without needing absolute positioning overlays.
 - **Line 47:** If `status.kind === 'hidden'`, returns `null`.
 - **Lines 49–50:** Picks `theme.danger` for failed sync status and `theme.warning` for offline/syncing statuses.
@@ -1720,6 +1546,7 @@ export function SyncStatusBanner({
 - **Lines 67–81:** Wraps content in `<SafeAreaView edges={['top']}>`. If `isFailed` is true, wraps banner text in `<Pressable>` to trigger `onRetry`.
 
 ### Lines 84–96
+
 ```typescript
 const styles = StyleSheet.create({
   container: {
@@ -1735,7 +1562,9 @@ const styles = StyleSheet.create({
   },
 });
 ```
+
 **Explanation:**
+
 - **Lines 84–96:** Full-width banner styling with centered white bold text.
 
 ---
@@ -1743,6 +1572,7 @@ const styles = StyleSheet.create({
 ## 16. `text-field.tsx`
 
 ### Lines 1–11
+
 ```typescript
 import { StyleSheet, TextInput, type TextInputProps, View } from 'react-native';
 
@@ -1756,11 +1586,14 @@ type TextFieldProps = TextInputProps & {
   error?: string;
 };
 ```
+
 **Explanation:**
+
 - **Lines 1–5:** Imports `TextInput` primitives and local themed components.
 - **Lines 7–11:** `TextFieldProps` extending standard React Native `TextInputProps` with an optional `label` string and field-specific `error` message string.
 
 ### Lines 13–51
+
 ```typescript
 export function TextField({ label, error, style, ...rest }: TextFieldProps) {
   const theme = useTheme();
@@ -1802,12 +1635,15 @@ export function TextField({ label, error, style, ...rest }: TextFieldProps) {
   );
 }
 ```
+
 **Explanation:**
+
 - **Lines 18–22:** Renders optional field label text above the input.
 - **Lines 24–42:** Renders `<TextInput>`. Dynamically applies theme colors (`theme.text`, `theme.backgroundElement`, `theme.border`). If `error` is present, highlights border in `theme.danger` and passes `error` to `accessibilityHint` for screen readers.
 - **Lines 44–48:** Renders error message string in red (`themeColor="danger"`) directly below the text field.
 
 ### Lines 53–64
+
 ```typescript
 const styles = StyleSheet.create({
   container: {
@@ -1822,7 +1658,9 @@ const styles = StyleSheet.create({
   },
 });
 ```
+
 **Explanation:**
+
 - **Lines 53–64:** Defines border width (1px), rounded corner radius (`Spacing.three`), vertical/horizontal padding, and font size (16px to prevent iOS auto-zoom on input focus).
 
 ---
@@ -1830,6 +1668,7 @@ const styles = StyleSheet.create({
 ## 17. `themed-text.tsx`
 
 ### Lines 1–9
+
 ```typescript
 import { Platform, StyleSheet, Text, type TextProps } from 'react-native';
 
@@ -1841,11 +1680,14 @@ export type ThemedTextProps = TextProps & {
   themeColor?: ThemeColor;
 };
 ```
+
 **Explanation:**
+
 - **Lines 1–4:** Imports React Native `Text`, `Platform`, typography constants `Fonts`, theme types, and `useTheme`.
 - **Lines 6–9:** `ThemedTextProps` extending `TextProps`. Supports typography variants (`default`, `title`, `small`, `smallBold`, `subtitle`, `link`, `linkPrimary`, `code`) and customizable `themeColor`.
 
 ### Lines 11–31
+
 ```typescript
 export function ThemedText({ style, type = 'default', themeColor, ...rest }: ThemedTextProps) {
   const theme = useTheme();
@@ -1869,10 +1711,13 @@ export function ThemedText({ style, type = 'default', themeColor, ...rest }: The
   );
 }
 ```
+
 **Explanation:**
+
 - **Lines 11–31:** Resolves color from current theme (`theme[themeColor ?? 'text']`), combines typography style rules based on `type`, and merges incoming `style` overrides.
 
 ### Lines 33–73
+
 ```typescript
 const styles = StyleSheet.create({
   small: {
@@ -1916,7 +1761,9 @@ const styles = StyleSheet.create({
   },
 });
 ```
+
 **Explanation:**
+
 - **Lines 33–73:** Font scale definitions for small (14px), default body (16px), subtitle (32px), title (48px), link (14px), and code/monospace variants (`Fonts.mono`). Platform select adjusts Android monospace font weights.
 
 ---
@@ -1924,6 +1771,7 @@ const styles = StyleSheet.create({
 ## 18. `themed-view.tsx`
 
 ### Lines 1–16
+
 ```typescript
 import { View, type ViewProps } from 'react-native';
 
@@ -1942,7 +1790,9 @@ export function ThemedView({ style, lightColor, darkColor, type, ...otherProps }
   return <View style={[{ backgroundColor: theme[type ?? 'background'] }, style]} {...otherProps} />;
 }
 ```
+
 **Explanation:**
+
 - **Lines 1–10:** Imports React Native `View` and `useTheme` hook. `ThemedViewProps` defines optional theme background color key `type` (defaulting to `'background'`).
 - **Lines 12–16:** `ThemedView` component wrapper that applies current theme background color automatically to any layout container.
 
@@ -1951,6 +1801,7 @@ export function ThemedView({ style, lightColor, darkColor, type, ...otherProps }
 ## 19. `ui/collapsible.tsx`
 
 ### Lines 1–10
+
 ```typescript
 import { SymbolView } from 'expo-symbols';
 import { PropsWithChildren, useState } from 'react';
@@ -1962,10 +1813,13 @@ import { ThemedView } from '@/components/themed-view';
 import { Spacing } from '@/constants/theme';
 import { useTheme } from '@/hooks/use-theme';
 ```
+
 **Explanation:**
+
 - **Lines 1–10:** Imports `SymbolView` from `expo-symbols`, React state hooks, React Native `Pressable`, Reanimated `Animated` view with `FadeIn` transition, theme components, and `useTheme`.
 
 ### Lines 11–41
+
 ```typescript
 export function Collapsible({ children, title }: PropsWithChildren & { title: string }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -1999,12 +1853,15 @@ export function Collapsible({ children, title }: PropsWithChildren & { title: st
   );
 }
 ```
+
 **Explanation:**
+
 - **Lines 11–13:** Maintains `isOpen` boolean state toggled on press.
 - **Lines 17–31:** Heading trigger row featuring a chevron icon (`chevron.right` / `chevron_right`). Rotates icon (`rotate: isOpen ? '-90deg' : '90deg'`) to indicate expanded/collapsed state.
 - **Lines 32–38:** Conditional expansion panel. When `isOpen` is true, animates child content entry with Reanimated `FadeIn.duration(200)`.
 
 ### Lines 43–65
+
 ```typescript
 const styles = StyleSheet.create({
   heading: {
@@ -2030,7 +1887,9 @@ const styles = StyleSheet.create({
   },
 });
 ```
+
 **Explanation:**
+
 - **Lines 43–65:** Layout rules for heading pressable, circular chevron icon button container, and indented content panel (`marginLeft: Spacing.four`).
 
 ---
@@ -2038,6 +1897,7 @@ const styles = StyleSheet.create({
 ## 20. `web-badge.tsx`
 
 ### Lines 1–7
+
 ```typescript
 import { version } from 'expo/package.json';
 import { Image } from 'expo-image';
@@ -2046,10 +1906,13 @@ import { Spacing } from '@/constants/theme';
 import { ThemedText } from './themed-text';
 import { ThemedView } from './themed-view';
 ```
+
 **Explanation:**
+
 - **Lines 1–7:** Imports Expo version string directly from `expo/package.json`, `Image` from `expo-image`, `useColorScheme`, theme constants, and local themed text/view components.
 
 ### Lines 8–26
+
 ```typescript
 export function WebBadge() {
   const scheme = useColorScheme();
@@ -2071,12 +1934,15 @@ export function WebBadge() {
   );
 }
 ```
+
 **Explanation:**
+
 - **Lines 8–10:** Reads system color scheme (`'dark'` vs `'light'`).
 - **Lines 13–15:** Displays current Expo SDK version string (e.g. `v52.0.0`) using monospace font (`type="code"`).
 - **Lines 16–23:** Displays Expo badge image, dynamically switching between `expo-badge-white.png` for dark mode and `expo-badge.png` for light mode.
 
 ### Lines 28–41
+
 ```typescript
 const styles = StyleSheet.create({
   container: {
@@ -2093,5 +1959,7 @@ const styles = StyleSheet.create({
   },
 });
 ```
+
 **Explanation:**
+
 - **Lines 28–41:** Styling for web footer badge: centers elements vertically, defines 123px badge width with 123:24 aspect ratio.

@@ -1,8 +1,8 @@
 import { fireEvent, render } from '@testing-library/react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
-import { Screen } from '@/components/screen';
-import { ThemedText } from '@/components/themed-text';
+import { Screen } from '@/components/layout/screen';
+import { ThemedText } from '@/components/theme/themed-text';
 
 /**
  * Der Zurueck-Knopf hatte zwei Fehler, die zusammen auftraten: Er erschien auf

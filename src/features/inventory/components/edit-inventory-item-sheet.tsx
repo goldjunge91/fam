@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react';
 import { KeyboardAvoidingView, Modal, Platform, Pressable, ScrollView, View } from 'react-native';
 
-import { DateWheelField } from '@/components/date-wheel-field';
-import { QuantityStepper } from '@/components/quantity-stepper';
-import { TextField } from '@/components/text-field';
-import { ThemedText } from '@/components/themed-text';
+import { DateWheelField } from '@/components/forms/date-wheel-field';
+import { TextField } from '@/components/forms/text-field';
+import { WheelPickerField } from '@/components/forms/wheel-picker-field';
+import { ThemedText } from '@/components/theme/themed-text';
 import { Button } from '@/components/ui/buttons';
-import { WheelPickerField } from '@/components/wheel-picker-field';
+import { QuantityStepper } from '@/components/ui/quantity-stepper';
 import type { StorageLocation } from '@/features/inventory/use-storage-locations';
 import { useSheetShadowStyle } from '@/hooks/use-sheet-shadow-style';
 import { UNIT_OPTIONS } from '@/lib/units';

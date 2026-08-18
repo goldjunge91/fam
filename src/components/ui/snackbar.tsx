@@ -2,7 +2,7 @@ import { createContext, useCallback, useContext, useRef, useState } from 'react'
 import { Pressable, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
-import { ThemedText } from '@/components/themed-text';
+import { ThemedText } from '@/components/theme/themed-text';
 
 export type ShowUndoSnackbarInput = {
   message: string;

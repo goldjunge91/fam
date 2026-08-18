@@ -5,9 +5,9 @@ import { Pressable, ScrollView, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Svg, { Circle, Defs, LinearGradient, Rect, Stop } from 'react-native-svg';
 
-import { GradientBackground } from '@/components/gradient-background';
-import { PageHeader } from '@/components/page-header';
-import { ThemedText } from '@/components/themed-text';
+import { GradientBackground } from '@/components/layout/gradient-background';
+import { PageHeader } from '@/components/layout/page-header';
+import { ThemedText } from '@/components/theme/themed-text';
 import { BackButton } from '@/components/ui/buttons';
 import { presentPaywallIfNeeded } from '@/features/premium/paywall';
 import { usePremium } from '@/features/premium/premium-provider';

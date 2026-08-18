@@ -1,7 +1,7 @@
 import { useQueryClient } from '@tanstack/react-query';
 import { Pressable, Text, View } from 'react-native';
-import { ProgressBar } from '@/components/progress-bar';
-import { Screen } from '@/components/screen';
+import { Screen } from '@/components/layout/screen';
+import { ProgressBar } from '@/components/ui/progress-bar';
 import { useSession } from '@/features/auth/session-provider';
 import { signOutAndClearLocalData } from '@/features/auth/sign-out';
 import { useTheme } from '@/hooks/use-theme';

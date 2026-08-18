@@ -1,10 +1,10 @@
 import { router } from 'expo-router';
 import { useMemo, useState } from 'react';
 import { ActivityIndicator, Pressable, ScrollView, TextInput, View } from 'react-native';
-import { FilterIcon, SearchIcon } from '@/components/fam-icon';
-import { HubScreen } from '@/components/hub-screen';
-import { SectionHeading } from '@/components/section-heading';
-import { ThemedText } from '@/components/themed-text';
+import { FilterIcon, SearchIcon } from '@/components/icons/fam-icon';
+import { HubScreen } from '@/components/layout/hub-screen';
+import { SectionHeading } from '@/components/layout/section-heading';
+import { ThemedText } from '@/components/theme/themed-text';
 import { BackButton, HeaderIconButton, MenuButton } from '@/components/ui/buttons';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { useNavigationChrome } from '@/features/navigation/navigation-chrome-provider';

@@ -2,15 +2,14 @@ import { useEffect, useState } from 'react';
 import { Modal, Pressable, ScrollView, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
-import { GradientBackground } from '@/components/gradient-background';
-import { PageHeader } from '@/components/page-header';
-import { SectionHeading } from '@/components/section-heading';
-import { ThemedText } from '@/components/themed-text';
+import { GradientBackground } from '@/components/layout/gradient-background';
+import { PageHeader } from '@/components/layout/page-header';
+import { SectionHeading } from '@/components/layout/section-heading';
+import { ThemedText } from '@/components/theme/themed-text';
 import { BackButton, Button } from '@/components/ui/buttons';
+import { CalorieCarousel } from '@/features/recipes/components/calorie-carousel';
+import { CategoryCarousel } from '@/features/recipes/components/category-carousel';
 import { useHubGradient } from '@/hooks/use-hub-gradient';
-
-import { CalorieCarousel } from './calorie-carousel';
-import { CategoryCarousel } from './category-carousel';
 
 export type RecipeFilters = {
   categoryKey: string | null;

@@ -1,10 +1,9 @@
 import type { ReactNode } from 'react';
 import { ScrollView, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { GradientBackground } from '@/components/gradient-background';
-import { useSyncBannerVisible } from '@/components/sync-status-banner';
-import { ThemedText } from '@/components/themed-text';
-import { ThemedView } from '@/components/themed-view';
+import { GradientBackground } from '@/components/layout/gradient-background';
+import { ThemedText } from '@/components/theme/themed-text';
+import { ThemedView } from '@/components/theme/themed-view';
 import {
   AutoBackButton,
   BackButton,
@@ -12,6 +11,7 @@ import {
   MenuButton,
   ProfileButton,
 } from '@/components/ui/buttons';
+import { useSyncBannerVisible } from '@/components/ui/sync-status-banner';
 import type { GradientSpec } from '@/constants/theme';
 
 export type { BackTarget } from '@/components/ui/buttons';

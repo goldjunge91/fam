@@ -1,6 +1,6 @@
 import { Modal, Pressable, StyleSheet, View } from 'react-native';
-import { QuantityStepper } from '@/components/quantity-stepper';
-import { ThemedText } from '@/components/themed-text';
+import { ThemedText } from '@/components/theme/themed-text';
+import { QuantityStepper } from '@/components/ui/quantity-stepper';
 import { useSheetShadowStyle } from '@/hooks/use-sheet-shadow-style';
 import { useTheme } from '@/hooks/use-theme';
 import { formatAmount, formatPackageHint } from '@/lib/package-size';

@@ -2,13 +2,12 @@ import { useQueryClient } from '@tanstack/react-query';
 import * as Crypto from 'expo-crypto';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { Pressable, View } from 'react-native';
-
-import { FamIcon } from '@/components/fam-icon';
-import { QuantityStepper } from '@/components/quantity-stepper';
-import { TextField } from '@/components/text-field';
-import { ThemedText } from '@/components/themed-text';
+import { TextField } from '@/components/forms/text-field';
+import { WheelPickerField } from '@/components/forms/wheel-picker-field';
+import { FamIcon } from '@/components/icons/fam-icon';
+import { ThemedText } from '@/components/theme/themed-text';
 import { Button, HeaderIconButton } from '@/components/ui/buttons';
-import { WheelPickerField } from '@/components/wheel-picker-field';
+import { QuantityStepper } from '@/components/ui/quantity-stepper';
 import { useSession } from '@/features/auth/session-provider';
 import { BarcodeScannerModal } from '@/features/inventory/barcode-scanner-modal';
 import { persistOffProductIfNeeded } from '@/features/inventory/persist-off-product';

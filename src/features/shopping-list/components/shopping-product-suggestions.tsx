@@ -1,7 +1,6 @@
 import { Pressable, View } from 'react-native';
-
-import { SegmentedControl } from '@/components/segmented-control';
-import { ThemedText } from '@/components/themed-text';
+import { ThemedText } from '@/components/theme/themed-text';
+import { SegmentedControl } from '@/components/ui/segmented-control';
 import type { OpenFoodFactsProduct } from '@/lib/open-food-facts';
 
 import {
