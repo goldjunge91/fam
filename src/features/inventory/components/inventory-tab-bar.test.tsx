@@ -1,6 +1,6 @@
 import { render, screen, userEvent } from '@testing-library/react-native';
 import type { StorageLocation } from '@/features/inventory/use-storage-locations';
-import { FridgeTabBar } from './fridge-tab-bar';
+import { InventoryTabBar } from './inventory-tab-bar';
 
 const mockLocations: StorageLocation[] = [
   { id: 'loc-1', name: 'Kühlschrank', kind: 'fridge', household_id: 'hh-1', sort_order: 0 },
@@ -8,10 +8,10 @@ const mockLocations: StorageLocation[] = [
   { id: 'loc-3', name: 'Abstellkammer', kind: 'pantry', household_id: 'hh-1', sort_order: 2 },
 ];
 
-describe('FridgeTabBar Component', () => {
+describe('InventoryTabBar Component', () => {
   it('zeigt zunächst nur den aktiven Lagerort im kompakten Dropdown-Button', async () => {
     await render(
-      <FridgeTabBar activeTab="loc-1" onTabChange={jest.fn()} locations={mockLocations} />,
+      <InventoryTabBar activeTab="loc-1" onTabChange={jest.fn()} locations={mockLocations} />,
     );
 
     expect(screen.queryByText('Alle')).not.toBeOnTheScreen();
@@ -25,7 +25,7 @@ describe('FridgeTabBar Component', () => {
     const handleTabChange = jest.fn();
     const user = userEvent.setup();
     await render(
-      <FridgeTabBar activeTab="loc-1" onTabChange={handleTabChange} locations={mockLocations} />,
+      <InventoryTabBar activeTab="loc-1" onTabChange={handleTabChange} locations={mockLocations} />,
     );
 
     await user.press(
@@ -41,7 +41,7 @@ describe('FridgeTabBar Component', () => {
 
   it('zeigt keine Icons oder Zähler-Kacheln in den Tabs', async () => {
     await render(
-      <FridgeTabBar activeTab="loc-1" onTabChange={jest.fn()} locations={mockLocations} />,
+      <InventoryTabBar activeTab="loc-1" onTabChange={jest.fn()} locations={mockLocations} />,
     );
 
     expect(screen.queryByText('🫙')).not.toBeOnTheScreen();

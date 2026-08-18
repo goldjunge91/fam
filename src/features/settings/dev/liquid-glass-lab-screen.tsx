@@ -267,8 +267,8 @@ export function LiquidGlassLabScreen() {
 
         <ThemedText type="caption" themeColor="textSecondary" style={{ marginBottom: 12 }}>
           Variante B: selbst gebautes Popover aus `GlassView`, Öffnen/Schließen per eigenem State —
-          das Muster für eigene Action-Sheets (analog `fridge-item-actions-sheet.tsx`), nur mit Glas
-          statt solider Fläche.
+          das Muster für eigene Action-Sheets (analog `inventory-item-actions-sheet.tsx`), nur mit
+          Glas statt solider Fläche.
         </ThemedText>
         <View style={{ position: 'relative', alignItems: 'flex-start' }}>
           <GlassIconButton

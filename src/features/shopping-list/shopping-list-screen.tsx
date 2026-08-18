@@ -8,7 +8,7 @@ import { EmptyState } from '@/components/empty-state';
 import { Screen } from '@/components/screen';
 import { ThemedText } from '@/components/themed-text';
 import { Button } from '@/components/ui/buttons';
-import { Layout } from '@/constants/theme';
+import { Layout } from '@/constants/layout';
 import { useSession } from '@/features/auth/session-provider';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { useHouseholdMembers } from '@/features/household/api';

@@ -3,10 +3,8 @@ import Constants from 'expo-constants';
 import { router } from 'expo-router';
 import { useState } from 'react';
 import { Alert, Pressable, ScrollView, View } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
 
-import { GradientBackground } from '@/components/gradient-background';
-import { PageHeader } from '@/components/page-header';
+import { HubScreen } from '@/components/hub-screen';
 import { ThemedText } from '@/components/themed-text';
 import { Button, MenuButton, ProfileButton } from '@/components/ui/buttons';
 import { useProfile } from '@/features/auth/api';
@@ -18,7 +16,6 @@ import { useProfileInitials } from '@/features/navigation/use-profile-initials';
 import { classifySupabaseTarget } from '@/features/settings/dev/dev-info';
 import { PremiumPromoCard } from '@/features/settings/premium-promo-card';
 import { SettingsGroup, SettingsRow } from '@/features/settings/settings-menu';
-import { useHubGradient } from '@/hooks/use-hub-gradient';
 import { env } from '@/lib/env';
 
 /**
@@ -31,7 +28,6 @@ import { env } from '@/lib/env';
  * die Paywall direkt zu praesentieren.
  */
 export function SettingsScreen() {
-  const hubGradient = useHubGradient();
   const { session } = useSession();
   const { openDrawer } = useNavigationChrome();
   const queryClient = useQueryClient();
@@ -69,143 +65,128 @@ export function SettingsScreen() {
   const appVersion = Constants.expoConfig?.version ?? '1.0.0';
 
   return (
-    <View className="flex-1">
-      <GradientBackground {...hubGradient} />
-      <SafeAreaView className="flex-1" edges={['top', 'left', 'right']}>
-        <PageHeader
-          title="Einstellungen"
-          align="center"
-          leading={<MenuButton onPress={openDrawer} />}
-          trailing={
-            <ProfileButton initials={initials} onPress={() => router.push('/settings/profile')} />
-          }
-        />
-
-        <ScrollView contentContainerClassName="screen-scroll" showsVerticalScrollIndicator={false}>
-          <View className="gap-[10px]">
-            <Pressable
-              onPress={() => router.push('/settings/profile')}
-              accessibilityRole="button"
-              className="profile-row">
-              <View className="profile-avatar">
-                {/* smallBold (14px/700) statt der fruehren 13px/600-Sonderrolle
+    <HubScreen
+      header={{
+        title: 'Einstellungen',
+        align: 'center',
+        leading: <MenuButton onPress={openDrawer} />,
+        trailing: (
+          <ProfileButton initials={initials} onPress={() => router.push('/settings/profile')} />
+        ),
+      }}>
+      <ScrollView contentContainerClassName="screen-scroll" showsVerticalScrollIndicator={false}>
+        <View className="gap-[10px]">
+          <Pressable
+            onPress={() => router.push('/settings/profile')}
+            accessibilityRole="button"
+            className="profile-row">
+            <View className="profile-avatar">
+              {/* smallBold (14px/700) statt der fruehren 13px/600-Sonderrolle
                     — naechstliegende bestehende Rolle, onAccent statt fest
                     verdrahtetem Weiss (exakter Zweck des Tokens). */}
-                <ThemedText type="smallBold" themeColor="onAccent">
-                  {initials}
-                </ThemedText>
-              </View>
-              <View className="row-text">
-                <ThemedText type="smallBold" numberOfLines={1}>
-                  {displayName}
-                </ThemedText>
-                <ThemedText type="small" themeColor="textSecondary" numberOfLines={1}>
-                  {session?.user.email ?? '—'}
-                </ThemedText>
-              </View>
-              {/* bodyLarge (18px) statt der fruehren 19px-Sonderroute —
-                  naechstliegende bestehende Rolle fuer ein Chevron-Glyph. */}
-              <ThemedText type="bodyLarge" themeColor="textSecondary">
-                ›
+              <ThemedText type="smallBold" themeColor="onAccent">
+                {initials}
               </ThemedText>
-            </Pressable>
+            </View>
+            <View className="row-text">
+              <ThemedText type="smallBold" numberOfLines={1}>
+                {displayName}
+              </ThemedText>
+              <ThemedText type="small" themeColor="textSecondary" numberOfLines={1}>
+                {session?.user.email ?? '—'}
+              </ThemedText>
+            </View>
+            {/* bodyLarge (18px) statt der fruehren 19px-Sonderroute —
+                  naechstliegende bestehende Rolle fuer ein Chevron-Glyph. */}
+            <ThemedText type="bodyLarge" themeColor="textSecondary">
+              ›
+            </ThemedText>
+          </Pressable>
 
-            <PremiumPromoCard />
-          </View>
+          <PremiumPromoCard />
+        </View>
 
-          <View className="gap-four">
-            <SettingsGroup title="Haushalt">
-              <SettingsRow
-                icon="🏠"
-                label="Mitglieder"
-                value={activeHousehold?.name ?? 'Kein Haushalt'}
-                hint={hasHousehold ? undefined : 'Haushalt wechseln oder beitreten'}
-                onPress={() => router.push('/household/members')}
-              />
-              <SettingsRow
-                icon="📦"
-                label="Lagerorte"
-                hint="Kühlschrank, Tiefkühler, Vorratskammer"
-                onPress={
-                  hasHousehold ? () => router.push('/household/storage-locations') : undefined
-                }
-                disabled={!hasHousehold}
-              />
-              <SettingsRow
-                icon="🏬"
-                label="Märkte"
-                hint="REWE, Aldi, Lidl, ..."
-                onPress={hasHousehold ? () => router.push('/household/stores') : undefined}
-                disabled={!hasHousehold}
-                last
-              />
-            </SettingsGroup>
+        <View className="gap-four">
+          <SettingsGroup title="Haushalt">
+            <SettingsRow
+              icon="🏠"
+              label="Mitglieder"
+              value={activeHousehold?.name ?? 'Kein Haushalt'}
+              hint={hasHousehold ? undefined : 'Haushalt wechseln oder beitreten'}
+              onPress={() => router.push('/household/members')}
+            />
+            <SettingsRow
+              icon="📦"
+              label="Lagerorte"
+              hint="Kühlschrank, Tiefkühler, Vorratskammer"
+              onPress={hasHousehold ? () => router.push('/household/storage-locations') : undefined}
+              disabled={!hasHousehold}
+            />
+            <SettingsRow
+              icon="🏬"
+              label="Märkte"
+              hint="REWE, Aldi, Lidl, ..."
+              onPress={hasHousehold ? () => router.push('/household/stores') : undefined}
+              disabled={!hasHousehold}
+              last
+            />
+          </SettingsGroup>
 
-            <SettingsGroup title="App">
-              <SettingsRow
-                icon="🔔"
-                label="Benachrichtigungen"
-                onPress={() => router.push('/settings/notifications')}
-              />
-              <SettingsRow
-                icon="🧩"
-                label="Module"
-                hint="Vorrat, Einkauf, Tagebuch, Rezepte"
-                onPress={() => router.push('/settings/modules')}
-                last
-              />
-            </SettingsGroup>
+          <SettingsGroup title="App">
+            <SettingsRow
+              icon="🔔"
+              label="Benachrichtigungen"
+              onPress={() => router.push('/settings/notifications')}
+            />
+            <SettingsRow
+              icon="🧩"
+              label="Module"
+              hint="Vorrat, Einkauf, Tagebuch, Rezepte"
+              onPress={() => router.push('/settings/modules')}
+              last
+            />
+          </SettingsGroup>
 
-            <SettingsGroup title="Daten">
-              <SettingsRow
-                icon="📤"
-                label="Export"
-                onPress={() => router.push('/settings/export')}
-              />
-              <SettingsRow
-                icon="🔒"
-                label="Datenschutz"
-                onPress={() => router.push('/settings/privacy')}
-              />
-              <SettingsRow
-                icon="🗑️"
-                label="Konto löschen"
-                onPress={() => router.push('/settings/delete-account')}
-                last
-              />
-            </SettingsGroup>
+          <SettingsGroup title="Daten">
+            <SettingsRow icon="📤" label="Export" onPress={() => router.push('/settings/export')} />
+            <SettingsRow
+              icon="🔒"
+              label="Datenschutz"
+              onPress={() => router.push('/settings/privacy')}
+            />
+            <SettingsRow
+              icon="🗑️"
+              label="Konto löschen"
+              onPress={() => router.push('/settings/delete-account')}
+              last
+            />
+          </SettingsGroup>
 
-            {/* Nur mit EXPO_PUBLIC_DEV_TOOLS=true. Die Gruppe verschwindet dann
+          {/* Nur mit EXPO_PUBLIC_DEV_TOOLS=true. Die Gruppe verschwindet dann
                 vollstaendig statt nur deaktiviert zu sein — ein ausgegrauter
                 Eintrag "Entwickler" waere fuer Nutzer eine Frage ohne Antwort. */}
-            {env.devTools ? (
-              <SettingsGroup title="Entwickler">
-                <SettingsRow
-                  icon="🛠"
-                  label="Entwickler-Werkzeuge"
-                  hint="Umgebung, Session, lokale Datenbank"
-                  value={supabaseTarget.label}
-                  onPress={() => router.push('/settings/dev')}
-                  last
-                />
-              </SettingsGroup>
-            ) : null}
-          </View>
+          {env.devTools ? (
+            <SettingsGroup title="Entwickler">
+              <SettingsRow
+                icon="🛠"
+                label="Entwickler-Werkzeuge"
+                hint="Umgebung, Session, lokale Datenbank"
+                value={supabaseTarget.label}
+                onPress={() => router.push('/settings/dev')}
+                last
+              />
+            </SettingsGroup>
+          ) : null}
+        </View>
 
-          <View className="mt-two">
-            <Button
-              label="Abmelden"
-              variant="danger"
-              onPress={handleSignOut}
-              loading={signingOut}
-            />
-          </View>
+        <View className="mt-two">
+          <Button label="Abmelden" variant="danger" onPress={handleSignOut} loading={signingOut} />
+        </View>
 
-          <ThemedText type="small" className="text-center opacity-60">
-            {`fam v${appVersion}`}
-          </ThemedText>
-        </ScrollView>
-      </SafeAreaView>
-    </View>
+        <ThemedText type="small" className="text-center opacity-60">
+          {`fam v${appVersion}`}
+        </ThemedText>
+      </ScrollView>
+    </HubScreen>
   );
 }

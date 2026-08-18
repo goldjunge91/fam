@@ -1,14 +1,11 @@
 import { router, useLocalSearchParams } from 'expo-router';
 import { useEffect, useMemo, useState } from 'react';
 import { Alert, KeyboardAvoidingView, Pressable, ScrollView, TextInput, View } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
 import { FilterChipBar } from '@/components/filter-chip-bar';
-import { GradientBackground } from '@/components/gradient-background';
-import { PageHeader } from '@/components/page-header';
+import { HubScreen } from '@/components/hub-screen';
 import { ThemedText } from '@/components/themed-text';
 import { BackButton } from '@/components/ui/buttons';
 import type { MealType } from '@/features/calorie-tracking/api';
-import { useHubGradient } from '@/hooks/use-hub-gradient';
 import { useTheme } from '@/hooks/use-theme';
 import { calculateAdjustedServingNutrition } from './nutrition';
 import { useRecipeDetail, useUpdateComponentMutation } from './use-recipes';
@@ -33,7 +30,6 @@ function toIsoDate(date: Date): string {
 
 export function RecipeLogScreen() {
   const theme = useTheme();
-  const hubGradient = useHubGradient();
   const { id, mode } = useLocalSearchParams<{ id: string; mode?: string }>();
   const isWeighMode = mode === 'weigh';
   const { data, isLoading } = useRecipeDetail(id);
@@ -115,140 +111,130 @@ export function RecipeLogScreen() {
   }
 
   return (
-    <View className="flex-1">
-      <GradientBackground {...hubGradient} />
-      <SafeAreaView
-        className="flex-1 w-full max-w-[800px] self-center"
-        edges={['top', 'left', 'right']}>
-        <PageHeader title="Fertig" leading={<BackButton label="Zurück" variant="header" />} />
+    <HubScreen
+      safeAreaClassName="flex-1 w-full max-w-[800px] self-center"
+      header={{ title: 'Fertig', leading: <BackButton label="Zurück" variant="header" /> }}>
+      <KeyboardAvoidingView
+        className="flex-1 justify-end"
+        behavior={process.env.EXPO_OS === 'ios' ? 'padding' : undefined}>
+        <View className="flex-1 min-h-[150px] items-center pt-[30px] opacity-55">
+          <View className="w-[82px] h-[82px] rounded-fam-large bg-background-selected" />
+          <ThemedText type="headingSmall" className="pt-[18px]">
+            Guten Appetit!
+          </ThemedText>
+          <ThemedText
+            type="detail"
+            themeColor="textSecondary"
+            className="pt-[5px] font-medium text-center">
+            {isWeighMode
+              ? 'Verbessere die Mengen deines Haushaltsrezepts.'
+              : 'Trage deine tatsächliche Portion ins Tagebuch ein.'}
+          </ThemedText>
+        </View>
 
-        <KeyboardAvoidingView
-          className="flex-1 justify-end"
-          behavior={process.env.EXPO_OS === 'ios' ? 'padding' : undefined}>
-          <View className="flex-1 min-h-[150px] items-center pt-[30px] opacity-55">
-            <View className="w-[82px] h-[82px] rounded-fam-large bg-background-selected" />
-            <ThemedText type="headingSmall" className="pt-[18px]">
-              Guten Appetit!
-            </ThemedText>
-            <ThemedText
-              type="detail"
-              themeColor="textSecondary"
-              className="pt-[5px] font-medium text-center">
-              {isWeighMode
-                ? 'Verbessere die Mengen deines Haushaltsrezepts.'
-                : 'Trage deine tatsächliche Portion ins Tagebuch ein.'}
-            </ThemedText>
-          </View>
-
-          <View className="recipe-log-sheet">
-            <View className="modal-handle" />
-            <View className="min-h-[65px] pt-[13px] flex-row items-center justify-between gap-three">
-              <View>
-                <ThemedText type="headingSmall">
-                  {isWeighMode ? 'Zubereitete Gewichte' : 'Ins Tagebuch eintragen'}
-                </ThemedText>
-                <ThemedText
-                  type="detail"
-                  themeColor="textSecondary"
-                  className="pt-[7px] text-[9px] leading-[12px] font-medium">
-                  {isWeighMode
-                    ? 'Diese Werte verbessern die Berechnung in deinem Haushaltsrezept.'
-                    : 'Wie viel davon war auf deinem Teller?'}
-                </ThemedText>
-              </View>
-              <Pressable
-                onPress={() => router.back()}
-                role="button"
-                aria-label="Schließen"
-                className="w-8 h-8 rounded-control items-center justify-center bg-background-selected">
-                <ThemedText themeColor="accent" className="text-[18px] leading-[20px] font-medium">
-                  ×
-                </ThemedText>
-              </Pressable>
-            </View>
-
-            {isLoading || !data ? (
+        <View className="recipe-log-sheet">
+          <View className="modal-handle" />
+          <View className="min-h-[65px] pt-[13px] flex-row items-center justify-between gap-three">
+            <View>
+              <ThemedText type="headingSmall">
+                {isWeighMode ? 'Zubereitete Gewichte' : 'Ins Tagebuch eintragen'}
+              </ThemedText>
               <ThemedText
                 type="detail"
                 themeColor="textSecondary"
-                className="py-[30px] text-center">
-                Rezept wird geladen…
+                className="pt-[7px] text-[9px] leading-[12px] font-medium">
+                {isWeighMode
+                  ? 'Diese Werte verbessern die Berechnung in deinem Haushaltsrezept.'
+                  : 'Wie viel davon war auf deinem Teller?'}
               </ThemedText>
-            ) : (
-              <ScrollView
-                showsVerticalScrollIndicator={false}
-                keyboardShouldPersistTaps="handled"
-                contentContainerClassName="gap-three py-one">
-                {!isWeighMode ? (
-                  <FilterChipBar
-                    label="Mahlzeit"
-                    options={MEAL_OPTIONS}
-                    selected={mealType}
-                    onSelect={setMealType}
-                  />
-                ) : null}
+            </View>
+            <Pressable
+              onPress={() => router.back()}
+              role="button"
+              aria-label="Schließen"
+              className="w-8 h-8 rounded-control items-center justify-center bg-background-selected">
+              <ThemedText themeColor="accent" className="text-[18px] leading-[20px] font-medium">
+                ×
+              </ThemedText>
+            </Pressable>
+          </View>
 
-                <View className="gap-[10px]">
-                  {topLevelComponents.map((component) => (
-                    <View
-                      key={component.id}
-                      className="min-h-[40px] flex-row items-center gap-[9px]">
-                      <ThemedText
-                        type="detail"
-                        className="flex-1 text-[10px] leading-[12px] font-bold">
-                        {component.name}
-                      </ThemedText>
-                      <View className="grams-field">
-                        <TextInput
-                          value={String(gramsById?.[component.id] ?? component.serving_grams ?? 0)}
-                          onChangeText={(value) => updateGrams(component.id, value)}
-                          keyboardType="decimal-pad"
-                          accessibilityLabel={`Grammmenge für ${component.name}`}
-                          className="flex-1 h-full py-0 text-right text-[10px] font-medium text-text"
-                          placeholderTextColor={theme.textSecondary}
-                        />
-                        <ThemedText
-                          type="detail"
-                          themeColor="textSecondary"
-                          className="pl-one text-[10px] leading-[12px] font-medium">
-                          g
-                        </ThemedText>
-                      </View>
-                    </View>
-                  ))}
-                </View>
+          {isLoading || !data ? (
+            <ThemedText type="detail" themeColor="textSecondary" className="py-[30px] text-center">
+              Rezept wird geladen…
+            </ThemedText>
+          ) : (
+            <ScrollView
+              showsVerticalScrollIndicator={false}
+              keyboardShouldPersistTaps="handled"
+              contentContainerClassName="gap-three py-one">
+              {!isWeighMode ? (
+                <FilterChipBar
+                  label="Mahlzeit"
+                  options={MEAL_OPTIONS}
+                  selected={mealType}
+                  onSelect={setMealType}
+                />
+              ) : null}
 
-                {total && !isWeighMode ? (
-                  <View className="min-h-[53px] rounded-card items-center justify-center px-[11px] bg-background-selected">
-                    <ThemedText className="text-[15px] leading-[18px] font-bold">
-                      {round(total.kcal)} kcal
-                    </ThemedText>
+              <View className="gap-[10px]">
+                {topLevelComponents.map((component) => (
+                  <View key={component.id} className="min-h-[40px] flex-row items-center gap-[9px]">
                     <ThemedText
                       type="detail"
-                      themeColor="textSecondary"
-                      className="pt-[3px] text-[8px] leading-[10px] font-medium text-center">
-                      {round(total.protein_g)} g Protein · {round(total.carbs_g)} g Kohlenhydrate ·{' '}
-                      {round(total.fat_g)} g Fett
+                      className="flex-1 text-[10px] leading-[12px] font-bold">
+                      {component.name}
                     </ThemedText>
+                    <View className="grams-field">
+                      <TextInput
+                        value={String(gramsById?.[component.id] ?? component.serving_grams ?? 0)}
+                        onChangeText={(value) => updateGrams(component.id, value)}
+                        keyboardType="decimal-pad"
+                        accessibilityLabel={`Grammmenge für ${component.name}`}
+                        className="flex-1 h-full py-0 text-right text-[10px] font-medium text-text"
+                        placeholderTextColor={theme.textSecondary}
+                      />
+                      <ThemedText
+                        type="detail"
+                        themeColor="textSecondary"
+                        className="pl-one text-[10px] leading-[12px] font-medium">
+                        g
+                      </ThemedText>
+                    </View>
                   </View>
-                ) : null}
+                ))}
+              </View>
 
-                <Pressable
-                  onPress={handleSubmit}
-                  disabled={!total || updateComponent.isPending}
-                  role="button"
-                  className={`min-h-[48px] rounded-card items-center justify-center px-four bg-accent active:opacity-75 active:scale-[0.99] ${
-                    !total || updateComponent.isPending ? 'opacity-40' : ''
-                  }`}>
-                  <ThemedText type="captionCompact" className="text-white font-bold">
-                    {isWeighMode ? 'Gewichte speichern' : 'Ins Tagebuch übernehmen'}
+              {total && !isWeighMode ? (
+                <View className="min-h-[53px] rounded-card items-center justify-center px-[11px] bg-background-selected">
+                  <ThemedText className="text-[15px] leading-[18px] font-bold">
+                    {round(total.kcal)} kcal
                   </ThemedText>
-                </Pressable>
-              </ScrollView>
-            )}
-          </View>
-        </KeyboardAvoidingView>
-      </SafeAreaView>
-    </View>
+                  <ThemedText
+                    type="detail"
+                    themeColor="textSecondary"
+                    className="pt-[3px] text-[8px] leading-[10px] font-medium text-center">
+                    {round(total.protein_g)} g Protein · {round(total.carbs_g)} g Kohlenhydrate ·{' '}
+                    {round(total.fat_g)} g Fett
+                  </ThemedText>
+                </View>
+              ) : null}
+
+              <Pressable
+                onPress={handleSubmit}
+                disabled={!total || updateComponent.isPending}
+                role="button"
+                className={`min-h-[48px] rounded-card items-center justify-center px-four bg-accent active:opacity-75 active:scale-[0.99] ${
+                  !total || updateComponent.isPending ? 'opacity-40' : ''
+                }`}>
+                <ThemedText type="captionCompact" className="text-white font-bold">
+                  {isWeighMode ? 'Gewichte speichern' : 'Ins Tagebuch übernehmen'}
+                </ThemedText>
+              </Pressable>
+            </ScrollView>
+          )}
+        </View>
+      </KeyboardAvoidingView>
+    </HubScreen>
   );
 }

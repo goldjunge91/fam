@@ -16,7 +16,6 @@ import { Button, HeaderIconButton } from '@/components/ui/buttons';
 import { InlineSelect } from '@/components/ui/inline-select';
 import { WheelPickerField } from '@/components/wheel-picker-field';
 import { useSession } from '@/features/auth/session-provider';
-import { useAddFridgeItemMutation } from '@/features/fridge/use-fridge-mutations';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { BarcodeScannerModal } from '@/features/inventory/barcode-scanner-modal';
 import {
@@ -26,6 +25,7 @@ import {
 import { consumePendingProductSelection } from '@/features/inventory/pending-product-selection';
 import { persistOffProductIfNeeded } from '@/features/inventory/persist-off-product';
 import { ProductSearchDropdown } from '@/features/inventory/product-search-dropdown';
+import { useAddFridgeItemMutation } from '@/features/inventory/use-inventory-mutations';
 import { useAddProductMutation } from '@/features/inventory/use-product-mutations';
 import {
   useAddStorageLocationMutation,

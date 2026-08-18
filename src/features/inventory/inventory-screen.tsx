@@ -1,15 +1,14 @@
 import { useLocalSearchParams } from 'expo-router';
 import { useState } from 'react';
 import { Alert, FlatList, View } from 'react-native';
-
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-
 import { Card } from '@/components/card';
 import { EmptyState } from '@/components/empty-state';
 import { Screen } from '@/components/screen';
 import { ThemedText } from '@/components/themed-text';
 import { Button } from '@/components/ui/buttons';
-import { Layout, Spacing, withAlpha } from '@/constants/theme';
+import { Layout, Spacing } from '@/constants/layout';
+import { withAlpha } from '@/constants/theme';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { ProductDetailModal } from '@/features/inventory/product-detail-modal';
 import { useStorageLocations } from '@/features/inventory/use-storage-locations';
@@ -17,14 +16,14 @@ import { useNavigationChrome } from '@/features/navigation/navigation-chrome-pro
 import { useProfileInitials } from '@/features/navigation/use-profile-initials';
 import { useHubGradient } from '@/hooks/use-hub-gradient';
 import { useTheme } from '@/hooks/use-theme';
-import { EditFridgeItemSheet } from './components/edit-fridge-item-sheet';
-import { FridgeItemActionsSheet } from './components/fridge-item-actions-sheet';
-import { FridgeItemRow } from './components/fridge-item-row';
-import { FridgeSummaryCard } from './components/fridge-summary-card';
-import { FridgeTabBar } from './components/fridge-tab-bar';
+import { EditInventoryItemSheet } from './components/edit-inventory-item-sheet';
+import { InventoryItemActionsSheet } from './components/inventory-item-actions-sheet';
+import { InventoryItemRow } from './components/inventory-item-row';
+import { InventorySummaryCard } from './components/inventory-summary-card';
+import { InventoryTabBar } from './components/inventory-tab-bar';
 import { compareByExpiry, getExpiryInfo } from './expiry';
-import { type LocalFridgeItem, useFridgeItems } from './use-fridge-items';
-import { useUpdateFridgeItemQuantityMutation } from './use-fridge-mutations';
+import { type LocalInventoryItem, useInventoryItems } from './use-inventory-items';
+import { useUpdateInventoryItemQuantityMutation } from './use-inventory-mutations';
 
 /**
  * Vorrat-Bestand, dynamisch gefiltert nach Lagerort (#67).
@@ -40,7 +39,7 @@ import { useUpdateFridgeItemQuantityMutation } from './use-fridge-mutations';
  */
 type SortMode = 'expiry' | 'name';
 
-export function FridgeScreen() {
+export function InventoryScreen() {
   const theme = useTheme();
   const hubGradient = useHubGradient();
   const { openDrawer, openProfile } = useNavigationChrome();
@@ -49,16 +48,16 @@ export function FridgeScreen() {
   const showExpiringOnly = params.filter === 'expiring';
   const [activeLocationId, setActiveLocationId] = useState('all');
   const [sortMode, setSortMode] = useState<SortMode>('expiry');
-  const [actionItem, setActionItem] = useState<LocalFridgeItem | null>(null);
-  const [informationItem, setInformationItem] = useState<LocalFridgeItem | null>(null);
-  const [editItem, setEditItem] = useState<LocalFridgeItem | null>(null);
+  const [actionItem, setActionItem] = useState<LocalInventoryItem | null>(null);
+  const [informationItem, setInformationItem] = useState<LocalInventoryItem | null>(null);
+  const [editItem, setEditItem] = useState<LocalInventoryItem | null>(null);
 
   const { activeHouseholdId } = useActiveHousehold();
   const householdId = activeHouseholdId ?? undefined;
 
   const { data: locations = [], isLoading: locationsLoading } = useStorageLocations(householdId);
-  const { data: allItems = [], isLoading } = useFridgeItems(householdId);
-  const updateQty = useUpdateFridgeItemQuantityMutation();
+  const { data: allItems = [], isLoading } = useInventoryItems(householdId);
+  const updateQty = useUpdateInventoryItemQuantityMutation();
 
   const today = new Date();
   const expiryCounts = allItems.reduce(
@@ -102,22 +101,22 @@ export function FridgeScreen() {
     ? (allItems.find((item) => item.id === actionItem.id) ?? actionItem)
     : null;
 
-  function updateQuantity(item: LocalFridgeItem, delta: number) {
+  function updateQuantity(item: LocalInventoryItem, delta: number) {
     if (!householdId) return;
     updateQty.mutate({ id: item.id, household_id: householdId, delta });
   }
 
-  function handleEdit(item: LocalFridgeItem) {
+  function handleEdit(item: LocalInventoryItem) {
     setActionItem(null);
     setEditItem(item);
   }
 
-  function handleConsume(item: LocalFridgeItem) {
+  function handleConsume(item: LocalInventoryItem) {
     updateQuantity(item, -item.quantity);
     setActionItem(null);
   }
 
-  function handleDeletePress(item: LocalFridgeItem) {
+  function handleDeletePress(item: LocalInventoryItem) {
     if (!householdId) return;
     setActionItem(null);
     Alert.alert('Artikel löschen', `"${item.name}" aus dem Vorrat entfernen?`, [
@@ -172,7 +171,7 @@ export function FridgeScreen() {
         contentContainerStyle={{ paddingBottom }}
         ListHeaderComponent={
           <>
-            <FridgeSummaryCard
+            <InventorySummaryCard
               totalCount={allItems.length}
               criticalCount={expiryCounts.critical}
               soonCount={expiryCounts.soon}
@@ -180,7 +179,7 @@ export function FridgeScreen() {
 
             {/* Dynamische Lagerort-Auswahl aus den Haushaltseinstellungen. */}
             {locationsLoading || locations.length === 0 ? null : (
-              <FridgeTabBar
+              <InventoryTabBar
                 activeTab={selectedLocationId}
                 onTabChange={setActiveLocationId}
                 locations={locations}
@@ -219,7 +218,7 @@ export function FridgeScreen() {
           ) : null
         }
         renderItem={({ item }) => (
-          <FridgeItemRow
+          <InventoryItemRow
             item={item}
             onPress={() => setActionItem(item)}
             onLongPress={() => setInformationItem(item)}
@@ -228,7 +227,7 @@ export function FridgeScreen() {
         )}
       />
 
-      <FridgeItemActionsSheet
+      <InventoryItemActionsSheet
         visible={!!currentActionItem}
         item={currentActionItem}
         onClose={() => setActionItem(null)}
@@ -250,7 +249,7 @@ export function FridgeScreen() {
         onClose={() => setInformationItem(null)}
       />
 
-      <EditFridgeItemSheet
+      <EditInventoryItemSheet
         visible={!!editItem}
         item={editItem}
         locations={locations}

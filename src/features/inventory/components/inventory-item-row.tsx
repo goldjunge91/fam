@@ -10,7 +10,7 @@ import { useTheme } from '@/hooks/use-theme';
 import { formatAmount, formatPackageHint } from '@/lib/package-size';
 
 import { type ExpiryBucket, getExpiryInfo } from '../expiry';
-import type { LocalFridgeItem } from '../use-fridge-items';
+import type { LocalInventoryItem } from '../use-inventory-items';
 
 // MHD-Ampel als linker Streifen an der Zeile — Farbe kommt aus dem Theme,
 // damit sie mit dem Rest der Statusfarben (Badge, Dark Mode) mitzieht.
@@ -22,19 +22,19 @@ const EXPIRY_LEFT_BORDER_KEY: Record<ExpiryBucket, ThemeColor | 'transparent'> =
   none: 'transparent',
 };
 
-interface FridgeItemRowProps {
-  item: LocalFridgeItem;
+interface InventoryItemRowProps {
+  item: LocalInventoryItem;
   onPress: () => void;
   onLongPress: () => void;
   onRemove: () => void;
 }
 
-export const FridgeItemRow = memo(function FridgeItemRow({
+export const InventoryItemRow = memo(function InventoryItemRow({
   item,
   onPress,
   onLongPress,
   onRemove,
-}: FridgeItemRowProps) {
+}: InventoryItemRowProps) {
   const theme = useTheme();
   const expiry = getExpiryInfo(item.expiry_date, new Date());
   const borderColorKey = EXPIRY_LEFT_BORDER_KEY[expiry.bucket];
@@ -91,7 +91,7 @@ export const FridgeItemRow = memo(function FridgeItemRow({
         accessibilityRole="button"
         accessibilityLabel={`${item.name}, ${amount}${packageHint ? `, ${packageHint}` : ''}`}
         accessibilityHint="Tippen für Aktionen, lang drücken für Produktinformationen, nach links wischen zum Entfernen"
-        className="fridge-item-row">
+        className="inventory-item-row">
         {/* MHD-Ampel — linker farbiger Streifen, Farbe pro Item dynamisch. */}
         <View className="fridge-item-expiry-bar" style={{ backgroundColor: borderColor }} />
 

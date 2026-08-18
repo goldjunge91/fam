@@ -2,13 +2,10 @@ import { Image } from 'expo-image';
 import { router, useLocalSearchParams } from 'expo-router';
 import { useMemo, useState } from 'react';
 import { Alert, Modal, Pressable, ScrollView, Share, View } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
 import Svg, { Circle, Defs, LinearGradient, Rect, Stop } from 'react-native-svg';
-import { GradientBackground } from '@/components/gradient-background';
-import { PageHeader } from '@/components/page-header';
+import { HubScreen } from '@/components/hub-screen';
 import { ThemedText } from '@/components/themed-text';
 import { BackButton, HeaderIconButton } from '@/components/ui/buttons';
-import { useHubGradient } from '@/hooks/use-hub-gradient';
 import { RecipeRatingSheet } from './components/recipe-rating-sheet';
 import { RecipeShoppingSheet } from './components/recipe-shopping-sheet';
 import { calculateServingNutrition, scaleServing } from './nutrition';
@@ -254,7 +251,6 @@ function IngredientGroups({ data, servings }: { data: RecipeDetail; servings: nu
 }
 
 export function RecipeDetailScreen() {
-  const hubGradient = useHubGradient();
   const { id } = useLocalSearchParams<{ id: string }>();
   const [servings, setServings] = useState(1);
   const [activeTab, setActiveTab] = useState<'details' | 'ratings'>('details');
@@ -294,17 +290,13 @@ export function RecipeDetailScreen() {
 
   if (isLoading || !data) {
     return (
-      <View className="flex-1">
-        <GradientBackground {...hubGradient} />
-        <SafeAreaView
-          className="flex-1 w-full max-w-[800px] self-center"
-          edges={['top', 'left', 'right']}>
-          <PageHeader title="Rezept" leading={<BackButton label="Zurück" variant="header" />} />
-          <ThemedText type="body" themeColor="textSecondary" className="p-six text-center">
-            Rezept wird geladen…
-          </ThemedText>
-        </SafeAreaView>
-      </View>
+      <HubScreen
+        safeAreaClassName="flex-1 w-full max-w-[800px] self-center"
+        header={{ title: 'Rezept', leading: <BackButton label="Zurück" variant="header" /> }}>
+        <ThemedText type="body" themeColor="textSecondary" className="p-six text-center">
+          Rezept wird geladen…
+        </ThemedText>
+      </HubScreen>
     );
   }
 
@@ -319,346 +311,338 @@ export function RecipeDetailScreen() {
   const visibleTags = showAllTags ? tags : tags.slice(0, 3);
 
   return (
-    <View className="flex-1">
-      <GradientBackground {...hubGradient} />
-      <SafeAreaView
-        className="flex-1 w-full max-w-[800px] self-center"
-        edges={['top', 'left', 'right']}>
-        <PageHeader
-          title="Rezept"
-          leading={<BackButton label="Zurück" variant="header" />}
-          trailing={
-            <>
-              <HeaderIconButton
-                label={favorite ? 'Aus Favoriten entfernen' : 'Zu Favoriten hinzufügen'}
-                onPress={() => toggleFavorite(`recipe:${id}`)}>
-                <HeartGlyph filled={favorite} />
-              </HeaderIconButton>
-              <HeaderIconButton label="Rezept verwalten" onPress={() => setManageOpen(true)}>
-                <MoreGlyph />
-              </HeaderIconButton>
-            </>
-          }
-        />
-
-        <ScrollView
-          className="flex-1"
-          contentContainerClassName="px-four pb-[108px]"
-          showsVerticalScrollIndicator={false}>
-          <View className="h-[178px] -mx-four overflow-hidden">
-            <HeroArtwork coverUrl={coverUrl} title={recipe.title} />
-          </View>
-
-          <ThemedText
-            type="subtitle"
-            className="pt-[18px] text-[28px] leading-[32px] font-bold tracking-tight">
-            {recipe.title}
-          </ThemedText>
-
-          <View className="flex-row mt-five border-b border-border">
-            {(['details', 'ratings'] as const).map((tab) => {
-              const selected = activeTab === tab;
-              const label = tab === 'details' ? 'Details' : 'Bewertungen';
-              return (
-                <Pressable
-                  key={tab}
-                  onPress={() => setActiveTab(tab)}
-                  role="tab"
-                  aria-label={label}
-                  aria-selected={selected}
-                  className={`flex-1 min-h-[48px] items-center justify-center border-b-[3px] ${
-                    selected ? 'border-accent' : 'border-transparent'
-                  }`}>
-                  <ThemedText type="headingSmall" themeColor={selected ? 'text' : 'textSecondary'}>
-                    {label}
-                  </ThemedText>
-                </Pressable>
-              );
-            })}
-          </View>
-
-          {activeTab === 'details' ? (
-            <View>
-              <View className="flex-row py-four border-b border-border">
-                <DetailFact
-                  value={scaledServing ? `${round(scaledServing.kcal)} kcal` : '–'}
-                  label="pro Portion"
-                />
-                <DetailFact
-                  value={recipe.cook_time_minutes ? `${recipe.cook_time_minutes} Min` : '–'}
-                  label="Zeit"
-                  withDivider
-                />
-                <DetailFact
-                  value={recipe.difficulty ? DIFFICULTY_LABELS[recipe.difficulty] : '–'}
-                  label="Schwierigkeit"
-                  withDivider
-                />
-              </View>
-
-              {recipe.instructions ? (
-                <ThemedText type="body" className="pt-four text-[16px] leading-[24px] font-medium">
-                  {recipe.instructions}
-                </ThemedText>
-              ) : null}
-
-              {tags.length > 0 ? (
-                <View className="flex-row flex-wrap items-center gap-x-three gap-y-two pt-three">
-                  {visibleTags.map((tag) => (
-                    <ThemedText
-                      key={tag}
-                      type="caption"
-                      themeColor="textSecondary"
-                      className="font-medium">
-                      {tag.startsWith('#') ? tag : `#${tag}`}
-                    </ThemedText>
-                  ))}
-                  {tags.length > 3 ? (
-                    <Pressable
-                      onPress={() => setShowAllTags((visible) => !visible)}
-                      role="button"
-                      aria-label={showAllTags ? 'Weniger Tags anzeigen' : 'Alle Tags anzeigen'}
-                      aria-expanded={showAllTags}
-                      hitSlop={8}>
-                      <ThemedText
-                        type="caption"
-                        themeColor="textSecondary"
-                        className="font-medium underline">
-                        {showAllTags ? 'Weniger' : `+${tags.length - 3} mehr`}
-                      </ThemedText>
-                    </Pressable>
-                  ) : null}
-                </View>
-              ) : null}
-
-              <View className="min-h-[58px] row-between gap-three mt-[18px] border-b border-border">
-                <ThemedText type="headingSmall">Zutaten</ThemedText>
-                <View className="w-[156px] h-[44px] rounded-control flex-row items-center bg-background-element">
-                  <Pressable
-                    onPress={() => setServings((value) => Math.max(1, value - 1))}
-                    role="button"
-                    aria-label="Weniger Portionen"
-                    className="w-[44px] h-[44px] items-center justify-center">
-                    <ThemedText type="headingSmall" themeColor="accent" className="font-medium">
-                      −
-                    </ThemedText>
-                  </Pressable>
-                  <ThemedText type="body" className="flex-1 text-center font-bold">
-                    {servings} Portionen
-                  </ThemedText>
-                  <Pressable
-                    onPress={() => setServings((value) => value + 1)}
-                    role="button"
-                    aria-label="Mehr Portionen"
-                    className="w-[44px] h-[44px] items-center justify-center">
-                    <ThemedText type="headingSmall" themeColor="accent" className="font-medium">
-                      +
-                    </ThemedText>
-                  </Pressable>
-                </View>
-              </View>
-
-              <IngredientGroups data={data} servings={servings} />
-
-              <Pressable
-                role="button"
-                aria-label="Fehlende Zutaten zur Einkaufsliste hinzufügen"
-                onPress={() => setShoppingOpen(true)}
-                className="min-h-[48px] mt-four border border-border rounded-control items-center justify-center px-three active:opacity-75">
-                <ThemedText type="headingSmall" themeColor="accent" className="text-center">
-                  Fehlende Zutaten zur Einkaufsliste
-                </ThemedText>
-              </Pressable>
-
-              {scaledServing ? (
-                <View className="flex-row mt-four border-t border-b border-border">
-                  <NutritionStat value={String(round(scaledServing.kcal))} label="kcal" />
-                  <NutritionStat value={`${round(scaledServing.protein_g)} g`} label="Protein" />
-                  <NutritionStat
-                    value={`${round(scaledServing.carbs_g)} g`}
-                    label="Kohlenhydrate"
-                  />
-                  <NutritionStat value={`${round(scaledServing.fat_g)} g`} label="Fett" />
-                </View>
-              ) : null}
-
-              <View className="min-h-[58px] row-between gap-three mt-[18px] border-b border-border">
-                <ThemedText type="headingSmall">Zubereitung</ThemedText>
-                <ThemedText type="caption" themeColor="textSecondary" className="font-medium">
-                  {data.steps.length} {data.steps.length === 1 ? 'Schritt' : 'Schritte'}
-                </ThemedText>
-              </View>
-              {data.steps.length > 0 ? (
-                <View>
-                  {data.steps.map((step, index) => (
-                    <RecipeStepItem
-                      key={step.id}
-                      step={step}
-                      index={index}
-                      isLast={index === data.steps.length - 1}
-                    />
-                  ))}
-                </View>
-              ) : (
-                <ThemedText type="body" themeColor="textSecondary" className="py-four">
-                  Noch keine Zubereitungsschritte hinterlegt.
-                </ThemedText>
-              )}
-            </View>
-          ) : (
-            <View className="pt-[22px]">
-              {rating ? (
-                <>
-                  <View className="min-h-[58px] row-between gap-four pb-four border-b border-border">
-                    <ThemedText type="subtitle" className="text-[28px] leading-[34px] font-bold">
-                      ★ {rating.score}{' '}
-                      <ThemedText type="headingSmall" themeColor="textSecondary">
-                        / 10
-                      </ThemedText>
-                    </ThemedText>
-                    <ThemedText type="caption" themeColor="textSecondary" className="font-medium">
-                      Deine Bewertung
-                    </ThemedText>
-                  </View>
-                  {rating.note ? (
-                    <>
-                      <ThemedText type="headingSmall" className="pt-five">
-                        Deine Notiz
-                      </ThemedText>
-                      <ThemedText
-                        type="body"
-                        className="pt-two text-[16px] leading-[24px] font-medium">
-                        {rating.note}
-                      </ThemedText>
-                    </>
-                  ) : null}
-                </>
-              ) : (
-                <View className="items-center py-six">
-                  <ThemedText type="headingSmall">Noch keine Bewertung</ThemedText>
-                  <ThemedText
-                    type="body"
-                    themeColor="textSecondary"
-                    className="pt-[6px] text-[15px] leading-[22px] font-medium text-center">
-                    Halte fest, wie dir dieses Rezept gefallen hat.
-                  </ThemedText>
-                </View>
-              )}
-              <Pressable
-                onPress={() => setRatingOpen(true)}
-                role="button"
-                aria-label={rating ? 'Bewertung bearbeiten' : 'Rezept bewerten'}
-                className="min-h-[48px] mt-five rounded-control items-center justify-center px-four bg-accent active:opacity-75">
-                <ThemedText type="headingSmall" className="text-white">
-                  {rating ? 'Bewertung bearbeiten' : 'Rezept bewerten'}
-                </ThemedText>
-              </Pressable>
-            </View>
-          )}
-        </ScrollView>
-
-        <View className="absolute left-[15px] right-[15px] bottom-three">
-          <Pressable
-            onPress={() => router.push({ pathname: '/recipe/cook', params: { id: recipe.id } })}
-            role="button"
-            aria-label="Kochmodus starten"
-            className="min-h-[48px] self-center rounded-control items-center justify-center px-six bg-accent active:opacity-75">
-            <ThemedText type="headingSmall" className="text-white">
-              Kochmodus starten
-            </ThemedText>
-          </Pressable>
+    <HubScreen
+      safeAreaClassName="flex-1 w-full max-w-[800px] self-center"
+      header={{
+        title: 'Rezept',
+        leading: <BackButton label="Zurück" variant="header" />,
+        trailing: (
+          <>
+            <HeaderIconButton
+              label={favorite ? 'Aus Favoriten entfernen' : 'Zu Favoriten hinzufügen'}
+              onPress={() => toggleFavorite(`recipe:${id}`)}>
+              <HeartGlyph filled={favorite} />
+            </HeaderIconButton>
+            <HeaderIconButton label="Rezept verwalten" onPress={() => setManageOpen(true)}>
+              <MoreGlyph />
+            </HeaderIconButton>
+          </>
+        ),
+      }}>
+      <ScrollView
+        className="flex-1"
+        contentContainerClassName="px-four pb-[108px]"
+        showsVerticalScrollIndicator={false}>
+        <View className="h-[178px] -mx-four overflow-hidden">
+          <HeroArtwork coverUrl={coverUrl} title={recipe.title} />
         </View>
 
-        <Modal
-          visible={manageOpen}
-          transparent
-          statusBarTranslucent
-          animationType="slide"
-          onRequestClose={() => setManageOpen(false)}>
-          <Pressable
-            className="flex-1 justify-end bg-[#261F27]/30"
-            onPress={() => setManageOpen(false)}>
-            <Pressable
-              className="rounded-t-fam-large px-four pt-[10px] pb-[19px] bg-background-element"
-              onPress={() => {}}>
-              <View className="w-[38px] h-1 rounded-sm self-center bg-border" />
-              <View className="min-h-[58px] pt-[13px] row-between gap-three">
-                <ThemedText type="headingSmall" className="font-bold">
-                  Rezept verwalten
+        <ThemedText
+          type="subtitle"
+          className="pt-[18px] text-[28px] leading-[32px] font-bold tracking-tight">
+          {recipe.title}
+        </ThemedText>
+
+        <View className="flex-row mt-five border-b border-border">
+          {(['details', 'ratings'] as const).map((tab) => {
+            const selected = activeTab === tab;
+            const label = tab === 'details' ? 'Details' : 'Bewertungen';
+            return (
+              <Pressable
+                key={tab}
+                onPress={() => setActiveTab(tab)}
+                role="tab"
+                aria-label={label}
+                aria-selected={selected}
+                className={`flex-1 min-h-[48px] items-center justify-center border-b-[3px] ${
+                  selected ? 'border-accent' : 'border-transparent'
+                }`}>
+                <ThemedText type="headingSmall" themeColor={selected ? 'text' : 'textSecondary'}>
+                  {label}
+                </ThemedText>
+              </Pressable>
+            );
+          })}
+        </View>
+
+        {activeTab === 'details' ? (
+          <View>
+            <View className="flex-row py-four border-b border-border">
+              <DetailFact
+                value={scaledServing ? `${round(scaledServing.kcal)} kcal` : '–'}
+                label="pro Portion"
+              />
+              <DetailFact
+                value={recipe.cook_time_minutes ? `${recipe.cook_time_minutes} Min` : '–'}
+                label="Zeit"
+                withDivider
+              />
+              <DetailFact
+                value={recipe.difficulty ? DIFFICULTY_LABELS[recipe.difficulty] : '–'}
+                label="Schwierigkeit"
+                withDivider
+              />
+            </View>
+
+            {recipe.instructions ? (
+              <ThemedText type="body" className="pt-four text-[16px] leading-[24px] font-medium">
+                {recipe.instructions}
+              </ThemedText>
+            ) : null}
+
+            {tags.length > 0 ? (
+              <View className="flex-row flex-wrap items-center gap-x-three gap-y-two pt-three">
+                {visibleTags.map((tag) => (
+                  <ThemedText
+                    key={tag}
+                    type="caption"
+                    themeColor="textSecondary"
+                    className="font-medium">
+                    {tag.startsWith('#') ? tag : `#${tag}`}
+                  </ThemedText>
+                ))}
+                {tags.length > 3 ? (
+                  <Pressable
+                    onPress={() => setShowAllTags((visible) => !visible)}
+                    role="button"
+                    aria-label={showAllTags ? 'Weniger Tags anzeigen' : 'Alle Tags anzeigen'}
+                    aria-expanded={showAllTags}
+                    hitSlop={8}>
+                    <ThemedText
+                      type="caption"
+                      themeColor="textSecondary"
+                      className="font-medium underline">
+                      {showAllTags ? 'Weniger' : `+${tags.length - 3} mehr`}
+                    </ThemedText>
+                  </Pressable>
+                ) : null}
+              </View>
+            ) : null}
+
+            <View className="min-h-[58px] row-between gap-three mt-[18px] border-b border-border">
+              <ThemedText type="headingSmall">Zutaten</ThemedText>
+              <View className="w-[156px] h-[44px] rounded-control flex-row items-center bg-background-element">
+                <Pressable
+                  onPress={() => setServings((value) => Math.max(1, value - 1))}
+                  role="button"
+                  aria-label="Weniger Portionen"
+                  className="w-[44px] h-[44px] items-center justify-center">
+                  <ThemedText type="headingSmall" themeColor="accent" className="font-medium">
+                    −
+                  </ThemedText>
+                </Pressable>
+                <ThemedText type="body" className="flex-1 text-center font-bold">
+                  {servings} Portionen
                 </ThemedText>
                 <Pressable
-                  onPress={() => setManageOpen(false)}
+                  onPress={() => setServings((value) => value + 1)}
                   role="button"
-                  aria-label="Schließen"
-                  className="w-8 h-8 rounded-control items-center justify-center bg-background-selected">
-                  <ThemedText type="headingSmall" themeColor="accent">
-                    ×
+                  aria-label="Mehr Portionen"
+                  className="w-[44px] h-[44px] items-center justify-center">
+                  <ThemedText type="headingSmall" themeColor="accent" className="font-medium">
+                    +
                   </ThemedText>
                 </Pressable>
               </View>
-              <ManageRow
-                label="Bearbeiten"
-                onPress={() => {
-                  setManageOpen(false);
-                  router.push({ pathname: '/recipe/create', params: { id: recipe.id } });
-                }}
-              />
-              <ManageRow
-                label="Mit Community teilen"
-                onPress={async () => {
-                  setManageOpen(false);
-                  const ingredientLines = data.items.map((item) => {
-                    const product = item.product_id
-                      ? data.productsById.get(item.product_id)
-                      : undefined;
-                    return `• ${product?.name ?? 'Zutat'}: ${Math.round(item.quantity ?? item.grams)} ${item.quantity !== null ? item.unit : 'g'}`;
-                  });
-                  await Share.share({
-                    title: recipe.title,
-                    message: [
-                      recipe.title,
-                      recipe.instructions,
-                      ingredientLines.length > 0 ? `Zutaten:\n${ingredientLines.join('\n')}` : null,
-                    ]
-                      .filter(Boolean)
-                      .join('\n\n'),
-                  });
-                }}
-              />
-              <ManageRow
-                label="Original-Aktualisierung prüfen"
-                onPress={() => {
-                  setManageOpen(false);
-                  Alert.alert(
-                    'Aktualisierung',
-                    'Dieses eigene Rezept besitzt keine verknüpfte Vorlage.',
-                  );
-                }}
-              />
-              <ManageRow
-                label="Löschen"
-                danger
-                isLast
-                onPress={() => {
-                  setManageOpen(false);
-                  deleteRecipe();
-                }}
-              />
+            </View>
+
+            <IngredientGroups data={data} servings={servings} />
+
+            <Pressable
+              role="button"
+              aria-label="Fehlende Zutaten zur Einkaufsliste hinzufügen"
+              onPress={() => setShoppingOpen(true)}
+              className="min-h-[48px] mt-four border border-border rounded-control items-center justify-center px-three active:opacity-75">
+              <ThemedText type="headingSmall" themeColor="accent" className="text-center">
+                Fehlende Zutaten zur Einkaufsliste
+              </ThemedText>
             </Pressable>
+
+            {scaledServing ? (
+              <View className="flex-row mt-four border-t border-b border-border">
+                <NutritionStat value={String(round(scaledServing.kcal))} label="kcal" />
+                <NutritionStat value={`${round(scaledServing.protein_g)} g`} label="Protein" />
+                <NutritionStat value={`${round(scaledServing.carbs_g)} g`} label="Kohlenhydrate" />
+                <NutritionStat value={`${round(scaledServing.fat_g)} g`} label="Fett" />
+              </View>
+            ) : null}
+
+            <View className="min-h-[58px] row-between gap-three mt-[18px] border-b border-border">
+              <ThemedText type="headingSmall">Zubereitung</ThemedText>
+              <ThemedText type="caption" themeColor="textSecondary" className="font-medium">
+                {data.steps.length} {data.steps.length === 1 ? 'Schritt' : 'Schritte'}
+              </ThemedText>
+            </View>
+            {data.steps.length > 0 ? (
+              <View>
+                {data.steps.map((step, index) => (
+                  <RecipeStepItem
+                    key={step.id}
+                    step={step}
+                    index={index}
+                    isLast={index === data.steps.length - 1}
+                  />
+                ))}
+              </View>
+            ) : (
+              <ThemedText type="body" themeColor="textSecondary" className="py-four">
+                Noch keine Zubereitungsschritte hinterlegt.
+              </ThemedText>
+            )}
+          </View>
+        ) : (
+          <View className="pt-[22px]">
+            {rating ? (
+              <>
+                <View className="min-h-[58px] row-between gap-four pb-four border-b border-border">
+                  <ThemedText type="subtitle" className="text-[28px] leading-[34px] font-bold">
+                    ★ {rating.score}{' '}
+                    <ThemedText type="headingSmall" themeColor="textSecondary">
+                      / 10
+                    </ThemedText>
+                  </ThemedText>
+                  <ThemedText type="caption" themeColor="textSecondary" className="font-medium">
+                    Deine Bewertung
+                  </ThemedText>
+                </View>
+                {rating.note ? (
+                  <>
+                    <ThemedText type="headingSmall" className="pt-five">
+                      Deine Notiz
+                    </ThemedText>
+                    <ThemedText
+                      type="body"
+                      className="pt-two text-[16px] leading-[24px] font-medium">
+                      {rating.note}
+                    </ThemedText>
+                  </>
+                ) : null}
+              </>
+            ) : (
+              <View className="items-center py-six">
+                <ThemedText type="headingSmall">Noch keine Bewertung</ThemedText>
+                <ThemedText
+                  type="body"
+                  themeColor="textSecondary"
+                  className="pt-[6px] text-[15px] leading-[22px] font-medium text-center">
+                  Halte fest, wie dir dieses Rezept gefallen hat.
+                </ThemedText>
+              </View>
+            )}
+            <Pressable
+              onPress={() => setRatingOpen(true)}
+              role="button"
+              aria-label={rating ? 'Bewertung bearbeiten' : 'Rezept bewerten'}
+              className="min-h-[48px] mt-five rounded-control items-center justify-center px-four bg-accent active:opacity-75">
+              <ThemedText type="headingSmall" className="text-white">
+                {rating ? 'Bewertung bearbeiten' : 'Rezept bewerten'}
+              </ThemedText>
+            </Pressable>
+          </View>
+        )}
+      </ScrollView>
+
+      <View className="absolute left-[15px] right-[15px] bottom-three">
+        <Pressable
+          onPress={() => router.push({ pathname: '/recipe/cook', params: { id: recipe.id } })}
+          role="button"
+          aria-label="Kochmodus starten"
+          className="min-h-[48px] self-center rounded-control items-center justify-center px-six bg-accent active:opacity-75">
+          <ThemedText type="headingSmall" className="text-white">
+            Kochmodus starten
+          </ThemedText>
+        </Pressable>
+      </View>
+
+      <Modal
+        visible={manageOpen}
+        transparent
+        statusBarTranslucent
+        animationType="slide"
+        onRequestClose={() => setManageOpen(false)}>
+        <Pressable
+          className="flex-1 justify-end bg-[#261F27]/30"
+          onPress={() => setManageOpen(false)}>
+          <Pressable
+            className="rounded-t-fam-large px-four pt-[10px] pb-[19px] bg-background-element"
+            onPress={() => {}}>
+            <View className="w-[38px] h-1 rounded-sm self-center bg-border" />
+            <View className="min-h-[58px] pt-[13px] row-between gap-three">
+              <ThemedText type="headingSmall" className="font-bold">
+                Rezept verwalten
+              </ThemedText>
+              <Pressable
+                onPress={() => setManageOpen(false)}
+                role="button"
+                aria-label="Schließen"
+                className="w-8 h-8 rounded-control items-center justify-center bg-background-selected">
+                <ThemedText type="headingSmall" themeColor="accent">
+                  ×
+                </ThemedText>
+              </Pressable>
+            </View>
+            <ManageRow
+              label="Bearbeiten"
+              onPress={() => {
+                setManageOpen(false);
+                router.push({ pathname: '/recipe/create', params: { id: recipe.id } });
+              }}
+            />
+            <ManageRow
+              label="Mit Community teilen"
+              onPress={async () => {
+                setManageOpen(false);
+                const ingredientLines = data.items.map((item) => {
+                  const product = item.product_id
+                    ? data.productsById.get(item.product_id)
+                    : undefined;
+                  return `• ${product?.name ?? 'Zutat'}: ${Math.round(item.quantity ?? item.grams)} ${item.quantity !== null ? item.unit : 'g'}`;
+                });
+                await Share.share({
+                  title: recipe.title,
+                  message: [
+                    recipe.title,
+                    recipe.instructions,
+                    ingredientLines.length > 0 ? `Zutaten:\n${ingredientLines.join('\n')}` : null,
+                  ]
+                    .filter(Boolean)
+                    .join('\n\n'),
+                });
+              }}
+            />
+            <ManageRow
+              label="Original-Aktualisierung prüfen"
+              onPress={() => {
+                setManageOpen(false);
+                Alert.alert(
+                  'Aktualisierung',
+                  'Dieses eigene Rezept besitzt keine verknüpfte Vorlage.',
+                );
+              }}
+            />
+            <ManageRow
+              label="Löschen"
+              danger
+              isLast
+              onPress={() => {
+                setManageOpen(false);
+                deleteRecipe();
+              }}
+            />
           </Pressable>
-        </Modal>
-        <RecipeShoppingSheet
-          visible={shoppingOpen}
-          detail={data}
-          servings={servings}
-          onClose={() => setShoppingOpen(false)}
-        />
-        <RecipeRatingSheet
-          recipeId={recipe.id}
-          visible={ratingOpen}
-          onClose={() => setRatingOpen(false)}
-        />
-      </SafeAreaView>
-    </View>
+        </Pressable>
+      </Modal>
+      <RecipeShoppingSheet
+        visible={shoppingOpen}
+        detail={data}
+        servings={servings}
+        onClose={() => setShoppingOpen(false)}
+      />
+      <RecipeRatingSheet
+        recipeId={recipe.id}
+        visible={ratingOpen}
+        onClose={() => setRatingOpen(false)}
+      />
+    </HubScreen>
   );
 }

@@ -7,13 +7,13 @@ import { withAlpha } from '@/constants/theme';
 import type { StorageLocation } from '@/features/inventory/use-storage-locations';
 import { useTheme } from '@/hooks/use-theme';
 
-interface FridgeTabBarProps {
+interface InventoryTabBarProps {
   activeTab: string;
   onTabChange: (id: string) => void;
   locations: StorageLocation[];
 }
 
-export function FridgeTabBar({ activeTab, onTabChange, locations }: FridgeTabBarProps) {
+export function InventoryTabBar({ activeTab, onTabChange, locations }: InventoryTabBarProps) {
   const theme = useTheme();
   const [isOpen, setIsOpen] = useState(false);
   const options = [{ id: 'all', name: 'Alle' }, ...locations];
@@ -25,7 +25,7 @@ export function FridgeTabBar({ activeTab, onTabChange, locations }: FridgeTabBar
   }
 
   return (
-    <View className="fridge-tab-bar-container">
+    <View className="inventory-tab-bar-container">
       <CompactActionButton
         label={activeLocation?.name ?? 'Lagerort auswählen'}
         accessibilityLabel={`Lagerort auswählen, aktuell ${activeLocation?.name ?? 'keiner'}`}
@@ -36,7 +36,7 @@ export function FridgeTabBar({ activeTab, onTabChange, locations }: FridgeTabBar
       {isOpen ? (
         <View
           accessibilityRole="menu"
-          className="fridge-tab-bar-menu"
+          className="inventory-tab-bar-menu"
           // boxShadow (dynamische Opazitaet), borderCurve (kein Tailwind-
           // Aequivalent) und elevation (Android-Schatten) sind echte
           // Laufzeit-/Plattform-Werte.
@@ -54,7 +54,7 @@ export function FridgeTabBar({ activeTab, onTabChange, locations }: FridgeTabBar
                 accessibilityLabel={location.name}
                 accessibilityState={{ selected }}
                 onPress={() => selectLocation(location.id)}
-                className={`fridge-tab-bar-option ${index > 0 ? 'fridge-tab-bar-option-bordered' : ''} ${
+                className={`inventory-tab-bar-option ${index > 0 ? 'inventory-tab-bar-option-bordered' : ''} ${
                   selected ? 'bg-background-selected' : ''
                 }`}>
                 <ThemedText type="default" className={selected ? 'font-bold' : ''}>

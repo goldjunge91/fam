@@ -28,15 +28,15 @@ jest.mock('@/features/household/active-household-provider', () => ({
   useActiveHousehold: () => ({ activeHouseholdId: 'hh-1' }),
 }));
 
-jest.mock('@/features/fridge/use-fridge-items', () => ({
-  useFridgeItems: () => ({ data: mockFridgeItems, isLoading: false }),
+jest.mock('@/features/inventory/use-inventory-items', () => ({
+  useInventoryItems: () => ({ data: mockFridgeItems, isLoading: false }),
 }));
 
-jest.mock('@/features/fridge/use-fridge-mutations', () => ({
-  useUpdateFridgeItemQuantityMutation: () => ({ mutateAsync: jest.fn(), isPending: false }),
+jest.mock('@/features/inventory/use-inventory-mutations', () => ({
+  useUpdateInventoryItemQuantityMutation: () => ({ mutateAsync: jest.fn(), isPending: false }),
 }));
 
-jest.mock('@/features/fridge/use-expiry-notifications', () => ({
+jest.mock('@/features/inventory/use-expiry-notifications', () => ({
   useExpiryNotifications: () => {},
 }));
 

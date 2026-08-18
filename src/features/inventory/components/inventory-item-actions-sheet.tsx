@@ -2,16 +2,17 @@ import { Modal, Pressable, StyleSheet, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { QuantityStepper } from '@/components/quantity-stepper';
 import { ThemedText } from '@/components/themed-text';
-import { Spacing, withAlpha } from '@/constants/theme';
+import { Spacing } from '@/constants/layout';
+import { withAlpha } from '@/constants/theme';
 import { useTheme } from '@/hooks/use-theme';
 import { formatAmount, formatPackageHint } from '@/lib/package-size';
 
 import { getExpiryInfo } from '../expiry';
-import type { LocalFridgeItem } from '../use-fridge-items';
+import type { LocalInventoryItem } from '../use-inventory-items';
 
-type FridgeItemActionsSheetProps = {
+type InventoryItemActionsSheetProps = {
   visible: boolean;
-  item: LocalFridgeItem | null;
+  item: LocalInventoryItem | null;
   onClose: () => void;
   onQuantityChange: (value: number) => void;
   onEdit: () => void;
@@ -20,7 +21,7 @@ type FridgeItemActionsSheetProps = {
   onProductInformation: () => void;
 };
 
-export function FridgeItemActionsSheet({
+export function InventoryItemActionsSheet({
   visible,
   item,
   onClose,
@@ -29,7 +30,7 @@ export function FridgeItemActionsSheet({
   onConsume,
   onRemove,
   onProductInformation,
-}: FridgeItemActionsSheetProps) {
+}: InventoryItemActionsSheetProps) {
   const theme = useTheme();
   const insets = useSafeAreaInsets();
 

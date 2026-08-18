@@ -5,7 +5,7 @@ import { ThemedText } from '@/components/themed-text';
 import { withAlpha } from '@/constants/theme';
 import { useTheme } from '@/hooks/use-theme';
 
-type FridgeSummaryCardProps = {
+type InventorySummaryCardProps = {
   totalCount: number;
   criticalCount: number;
   soonCount: number;
@@ -14,11 +14,11 @@ type FridgeSummaryCardProps = {
 const RING_SIZE = 112;
 const STROKE_WIDTH = 11;
 
-export function FridgeSummaryCard({
+export function InventorySummaryCard({
   totalCount,
   criticalCount,
   soonCount,
-}: FridgeSummaryCardProps) {
+}: InventorySummaryCardProps) {
   const theme = useTheme();
   const stableCount = Math.max(totalCount - criticalCount - soonCount, 0);
   const radius = (RING_SIZE - STROKE_WIDTH) / 2;
@@ -45,7 +45,7 @@ export function FridgeSummaryCard({
     <View
       accessible
       aria-label={`${totalCount} Artikel im Vorrat, ${criticalCount} kritisch, ${soonCount} bald fällig`}
-      className="fridge-summary-card"
+      className="inventory-summary-card"
       // boxShadow (dynamische Opazitaet) und borderCurve (kein Tailwind-
       // Aequivalent) sind Ausnahmen.
       style={{

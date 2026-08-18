@@ -1,7 +1,7 @@
 import { render, screen, userEvent, within } from '@testing-library/react-native';
 import { router } from 'expo-router';
 
-import type { RecipeTemplateWithNutrition } from '@/features/recipe-templates/use-recipe-templates';
+import type { RecipeTemplateWithNutrition } from '@/features/recipes/templates/use-recipe-templates';
 
 import { RecipesScreen } from './recipes-screen';
 import type { RecipeListItem } from './use-recipes';
@@ -22,8 +22,8 @@ jest.mock('./use-recipes', () => ({
   useRecipes: () => ({ data: mockRecipes, isLoading: false }),
 }));
 
-jest.mock('@/features/recipe-templates/use-recipe-templates', () => {
-  const actual = jest.requireActual('@/features/recipe-templates/use-recipe-templates');
+jest.mock('@/features/recipes/templates/use-recipe-templates', () => {
+  const actual = jest.requireActual('@/features/recipes/templates/use-recipe-templates');
   return {
     ...actual,
     useRecipeTemplatesWithNutrition: () => ({ data: mockTemplates, isLoading: false }),

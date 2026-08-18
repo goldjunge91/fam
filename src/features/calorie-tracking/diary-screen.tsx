@@ -1,12 +1,10 @@
 import { router } from 'expo-router';
 import { useState } from 'react';
 import { Pressable, ScrollView, View } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { PlusIcon } from '@/components/fam-icon';
 import { FilterChipBar } from '@/components/filter-chip-bar';
-import { GradientBackground } from '@/components/gradient-background';
-import { PageHeader } from '@/components/page-header';
+import { HubScreen } from '@/components/hub-screen';
 import { ProgressBar } from '@/components/progress-bar';
 import { ProgressRing } from '@/components/progress-ring';
 import { ThemedText } from '@/components/themed-text';
@@ -23,7 +21,6 @@ import { calculateDailyTotals } from '@/features/calorie-tracking/daily-totals';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { useChildProfiles } from '@/features/household/api';
 import { useNavigationChrome } from '@/features/navigation/navigation-chrome-provider';
-import { useHubGradient } from '@/hooks/use-hub-gradient';
 import { useTheme } from '@/hooks/use-theme';
 
 const MEAL_ORDER: MealType[] = ['breakfast', 'lunch', 'dinner', 'snack'];
@@ -189,7 +186,6 @@ function SummaryRow({
 /** Tagebuch nach Figma: Tagesbilanz, Makros und kompakte Mahlzeitenliste. */
 export function DiaryScreen() {
   const theme = useTheme();
-  const hubGradient = useHubGradient();
   const { openDrawer } = useNavigationChrome();
   const { session } = useSession();
   const userId = session?.user.id;
@@ -247,145 +243,140 @@ export function DiaryScreen() {
   }
 
   return (
-    <View className="diary-root">
-      <GradientBackground {...hubGradient} />
-      <SafeAreaView className="diary-safe-area" edges={['top', 'left', 'right']}>
-        <PageHeader
-          title="Tagebuch"
-          align="center"
-          leading={<MenuButton onPress={openDrawer} />}
-          trailing={
-            <HeaderIconButton
-              label="Ziele und Fortschritt öffnen"
-              onPress={() => router.push('/settings/goals')}>
-              <View className="diary-goal-icon">
-                <View className="diary-goal-bar diary-goal-bar-short" />
-                <View className="diary-goal-bar diary-goal-bar-tall" />
-                <View className="diary-goal-bar diary-goal-bar-mid" />
-              </View>
-            </HeaderIconButton>
-          }
-        />
-
-        <ScrollView
-          showsVerticalScrollIndicator={false}
-          contentContainerClassName="diary-content"
-          contentInsetAdjustmentBehavior="never">
-          {childProfiles.length > 0 ? (
-            <FilterChipBar
-              label="Tagebuchprofil"
-              options={profileOptions}
-              selected={childProfileId ?? 'adult'}
-              onSelect={selectProfile}
-            />
-          ) : null}
-
-          <View className="diary-date-row">
-            <Pressable
-              onPress={() => setSelectedDate((date) => addDays(date, -1))}
-              role="button"
-              aria-label="Vorheriger Tag"
-              className="diary-date-arrow">
-              <ThemedText themeColor="accent" className="diary-chevron">
-                ‹
-              </ThemedText>
-            </Pressable>
-            <Pressable
-              onPress={() => setSelectedDate(todayIso)}
-              role="button"
-              aria-label="Heutigen Tag anzeigen"
-              className="diary-date-copy">
-              <ThemedText themeColor="accent" className="diary-relative-date">
-                {relativeDateLabel(selectedDate, todayIso)}
-              </ThemedText>
-              <ThemedText themeColor="textSecondary" className="diary-full-date">
-                {fullDateLabel(selectedDate)}
-              </ThemedText>
-            </Pressable>
-            <Pressable
-              onPress={() => setSelectedDate((date) => addDays(date, 1))}
-              role="button"
-              aria-label="Nächster Tag"
-              className="diary-date-arrow">
-              <ThemedText themeColor="accent" className="diary-chevron">
-                ›
-              </ThemedText>
-            </Pressable>
-          </View>
-
-          <View
-            className="diary-summary-card"
-            // borderCurve ist ein echter Laufzeitwert ohne Tailwind-Aequivalent.
-            style={{ borderCurve: 'continuous' }}>
-            <ProgressRing
-              value={totals.kcal}
-              target={calorieGoal}
-              label="Kalorien"
-              displayMode="remaining"
-              size={128}
-              strokeWidth={3}
-              progressColor={theme.accent}
-              trackColor={theme.backgroundSelected}
-            />
-            <View className="diary-summary-stats">
-              <SummaryRow label="Gegessen" value={formatKcal(totals.kcal)} />
-              <SummaryRow
-                label="Grundziel"
-                value={calorieGoal > 0 ? formatKcal(calorieGoal) : '–'}
-              />
-              <SummaryRow
-                label="Übrig"
-                value={calorieGoal > 0 ? formatKcal(remaining) : 'Kein Ziel'}
-                accent={remaining >= 0}
-              />
-              <ThemedText
-                themeColor={currentGoal ? 'success' : 'textSecondary'}
-                className="diary-goal-status">
-                {currentGoal ? 'Tagesziel ist aktiv' : 'Noch kein Tagesziel hinterlegt'}
-              </ThemedText>
+    <HubScreen
+      rootClassName="diary-root"
+      safeAreaClassName="diary-safe-area"
+      header={{
+        title: 'Tagebuch',
+        align: 'center',
+        leading: <MenuButton onPress={openDrawer} />,
+        trailing: (
+          <HeaderIconButton
+            label="Ziele und Fortschritt öffnen"
+            onPress={() => router.push('/settings/goals')}>
+            <View className="diary-goal-icon">
+              <View className="diary-goal-bar diary-goal-bar-short" />
+              <View className="diary-goal-bar diary-goal-bar-tall" />
+              <View className="diary-goal-bar diary-goal-bar-mid" />
             </View>
-          </View>
+          </HeaderIconButton>
+        ),
+      }}>
+      <ScrollView
+        showsVerticalScrollIndicator={false}
+        contentContainerClassName="diary-content"
+        contentInsetAdjustmentBehavior="never">
+        {childProfiles.length > 0 ? (
+          <FilterChipBar
+            label="Tagebuchprofil"
+            options={profileOptions}
+            selected={childProfileId ?? 'adult'}
+            onSelect={selectProfile}
+          />
+        ) : null}
 
-          <View className="diary-macro-row">
-            <MacroSummary
-              label="Protein"
-              value={totals.proteinG}
-              target={currentGoal?.protein_g ?? 0}
-            />
-            <MacroSummary
-              label="Kohlenhydrate"
-              value={totals.carbsG}
-              target={currentGoal?.carbs_g ?? 0}
-            />
-            <MacroSummary label="Fett" value={totals.fatG} target={currentGoal?.fat_g ?? 0} />
-          </View>
+        <View className="diary-date-row">
+          <Pressable
+            onPress={() => setSelectedDate((date) => addDays(date, -1))}
+            role="button"
+            aria-label="Vorheriger Tag"
+            className="diary-date-arrow">
+            <ThemedText themeColor="accent" className="diary-chevron">
+              ‹
+            </ThemedText>
+          </Pressable>
+          <Pressable
+            onPress={() => setSelectedDate(todayIso)}
+            role="button"
+            aria-label="Heutigen Tag anzeigen"
+            className="diary-date-copy">
+            <ThemedText themeColor="accent" className="diary-relative-date">
+              {relativeDateLabel(selectedDate, todayIso)}
+            </ThemedText>
+            <ThemedText themeColor="textSecondary" className="diary-full-date">
+              {fullDateLabel(selectedDate)}
+            </ThemedText>
+          </Pressable>
+          <Pressable
+            onPress={() => setSelectedDate((date) => addDays(date, 1))}
+            role="button"
+            aria-label="Nächster Tag"
+            className="diary-date-arrow">
+            <ThemedText themeColor="accent" className="diary-chevron">
+              ›
+            </ThemedText>
+          </Pressable>
+        </View>
 
-          <View
-            className="diary-meals-card"
-            // borderCurve ist ein echter Laufzeitwert ohne Tailwind-Aequivalent.
-            style={{ borderCurve: 'continuous' }}>
-            {isLoading ? (
-              <ThemedText
-                type="captionCompact"
-                themeColor="textSecondary"
-                className="diary-loading-text">
-                Lade Tagebuch...
-              </ThemedText>
-            ) : (
-              MEAL_ORDER.map((meal, index) => (
-                <MealSection
-                  key={meal}
-                  meal={meal}
-                  entries={entriesByMeal[meal]}
-                  isLast={index === MEAL_ORDER.length - 1}
-                  onAdd={() => openEntry(meal)}
-                  onEntry={(entryId) => openEntry(meal, entryId)}
-                />
-              ))
-            )}
+        <View
+          className="diary-summary-card"
+          // borderCurve ist ein echter Laufzeitwert ohne Tailwind-Aequivalent.
+          style={{ borderCurve: 'continuous' }}>
+          <ProgressRing
+            value={totals.kcal}
+            target={calorieGoal}
+            label="Kalorien"
+            displayMode="remaining"
+            size={128}
+            strokeWidth={3}
+            progressColor={theme.accent}
+            trackColor={theme.backgroundSelected}
+          />
+          <View className="diary-summary-stats">
+            <SummaryRow label="Gegessen" value={formatKcal(totals.kcal)} />
+            <SummaryRow label="Grundziel" value={calorieGoal > 0 ? formatKcal(calorieGoal) : '–'} />
+            <SummaryRow
+              label="Übrig"
+              value={calorieGoal > 0 ? formatKcal(remaining) : 'Kein Ziel'}
+              accent={remaining >= 0}
+            />
+            <ThemedText
+              themeColor={currentGoal ? 'success' : 'textSecondary'}
+              className="diary-goal-status">
+              {currentGoal ? 'Tagesziel ist aktiv' : 'Noch kein Tagesziel hinterlegt'}
+            </ThemedText>
           </View>
-        </ScrollView>
-      </SafeAreaView>
-    </View>
+        </View>
+
+        <View className="diary-macro-row">
+          <MacroSummary
+            label="Protein"
+            value={totals.proteinG}
+            target={currentGoal?.protein_g ?? 0}
+          />
+          <MacroSummary
+            label="Kohlenhydrate"
+            value={totals.carbsG}
+            target={currentGoal?.carbs_g ?? 0}
+          />
+          <MacroSummary label="Fett" value={totals.fatG} target={currentGoal?.fat_g ?? 0} />
+        </View>
+
+        <View
+          className="diary-meals-card"
+          // borderCurve ist ein echter Laufzeitwert ohne Tailwind-Aequivalent.
+          style={{ borderCurve: 'continuous' }}>
+          {isLoading ? (
+            <ThemedText
+              type="captionCompact"
+              themeColor="textSecondary"
+              className="diary-loading-text">
+              Lade Tagebuch...
+            </ThemedText>
+          ) : (
+            MEAL_ORDER.map((meal, index) => (
+              <MealSection
+                key={meal}
+                meal={meal}
+                entries={entriesByMeal[meal]}
+                isLast={index === MEAL_ORDER.length - 1}
+                onAdd={() => openEntry(meal)}
+                onEntry={(entryId) => openEntry(meal, entryId)}
+              />
+            ))
+          )}
+        </View>
+      </ScrollView>
+    </HubScreen>
   );
 }

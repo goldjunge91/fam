@@ -2,10 +2,8 @@ import { Image } from 'expo-image';
 import { router } from 'expo-router';
 import { useState } from 'react';
 import { Alert, Pressable, View } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
 
-import { GradientBackground } from '@/components/gradient-background';
-import { PageHeader } from '@/components/page-header';
+import { HubScreen } from '@/components/hub-screen';
 import { ThemedText } from '@/components/themed-text';
 import { HeaderIconButton, MenuButton } from '@/components/ui/buttons';
 import { useSession } from '@/features/auth/session-provider';
@@ -13,7 +11,6 @@ import { useActiveHousehold } from '@/features/household/active-household-provid
 import { useHouseholdMembers } from '@/features/household/api';
 import { useNavigationChrome } from '@/features/navigation/navigation-chrome-provider';
 import { useRecipes } from '@/features/recipes/use-recipes';
-import { useHubGradient } from '@/hooks/use-hub-gradient';
 import { useTheme } from '@/hooks/use-theme';
 import { type EntryFormInitial, EntryFormModal } from './components/entry-form-modal';
 import { RecipePickerModal } from './components/recipe-picker-modal';
@@ -84,7 +81,6 @@ type PendingCell = { date: string; slot: MealSlot };
  */
 export function MealPlannerScreen() {
   const theme = useTheme();
-  const hubGradient = useHubGradient();
   const { openDrawer } = useNavigationChrome();
   const { session } = useSession();
   const userId = session?.user.id;
@@ -231,118 +227,116 @@ export function MealPlannerScreen() {
     : undefined;
 
   return (
-    <View className="mp-root">
-      <GradientBackground {...hubGradient} />
-      <SafeAreaView className="mp-safe-area" edges={['top', 'left', 'right']}>
-        <PageHeader
-          title="Essensplan"
-          align="center"
-          leading={<MenuButton onPress={openDrawer} />}
-          trailing={
-            <HeaderIconButton
-              label="Aktuelle Woche anzeigen"
-              onPress={() => setAnchorDate(todayIso())}>
-              <Image
-                source="sf:calendar"
-                contentFit="contain"
-                tintColor={theme.accent}
-                // expo-image ist nicht NativeWind-registriert, className wird
-                // still ignoriert.
-                style={{ width: 19, height: 19 }}
-              />
-            </HeaderIconButton>
-          }
-        />
-
-        <View className="mp-content">
-          <View className="flex-row gap-two" role="tablist" aria-label="Zeitraum">
-            {VIEW_MODES.map((mode) => (
-              <Pressable
-                key={mode}
-                onPress={() => setViewMode(mode)}
-                role="tab"
-                aria-label={`${VIEW_MODE_LABELS[mode]}-Ansicht`}
-                aria-selected={viewMode === mode}
-                className={`tab-btn ${viewMode === mode ? 'tab-btn-active' : 'tab-btn-idle'}`}>
-                <ThemedText
-                  // type="detail"
-                  type="controlActionLarge"
-                  themeColor={viewMode === mode ? 'onAccent' : 'textSecondary'}
-                  className="tab-btn-label">
-                  {VIEW_MODE_LABELS[mode]}
-                </ThemedText>
-              </Pressable>
-            ))}
-          </View>
-
-          <View className="mp-period-row">
+    <HubScreen
+      rootClassName="mp-root"
+      safeAreaClassName="mp-safe-area"
+      header={{
+        title: 'Essensplan',
+        align: 'center',
+        leading: <MenuButton onPress={openDrawer} />,
+        trailing: (
+          <HeaderIconButton
+            label="Aktuelle Woche anzeigen"
+            onPress={() => setAnchorDate(todayIso())}>
+            <Image
+              source="sf:calendar"
+              contentFit="contain"
+              tintColor={theme.accent}
+              // expo-image ist nicht NativeWind-registriert, className wird
+              // still ignoriert.
+              style={{ width: 19, height: 19 }}
+            />
+          </HeaderIconButton>
+        ),
+      }}>
+      <View className="mp-content">
+        <View className="flex-row gap-two" role="tablist" aria-label="Zeitraum">
+          {VIEW_MODES.map((mode) => (
             <Pressable
-              role="button"
-              aria-label="Vorheriger Zeitraum"
-              onPress={() => setAnchorDate((date) => shiftAnchor(date, viewMode, -1))}
-              className="mp-period-button">
-              <ThemedText themeColor="accent" className="mp-chevron">
-                ‹
+              key={mode}
+              onPress={() => setViewMode(mode)}
+              role="tab"
+              aria-label={`${VIEW_MODE_LABELS[mode]}-Ansicht`}
+              aria-selected={viewMode === mode}
+              className={`tab-btn ${viewMode === mode ? 'tab-btn-active' : 'tab-btn-idle'}`}>
+              <ThemedText
+                // type="detail"
+                type="controlActionLarge"
+                themeColor={viewMode === mode ? 'onAccent' : 'textSecondary'}
+                className="tab-btn-label">
+                {VIEW_MODE_LABELS[mode]}
               </ThemedText>
             </Pressable>
-            <View className="mp-period-copy">
-              <ThemedText className="mp-period-title">{periodLabel(dates)}</ThemedText>
-            </View>
-            <Pressable
-              role="button"
-              aria-label="Nächster Zeitraum"
-              onPress={() => setAnchorDate((date) => shiftAnchor(date, viewMode, 1))}
-              className="mp-period-button">
-              <ThemedText themeColor="accent" className="mp-chevron">
-                ›
-              </ThemedText>
-            </Pressable>
-          </View>
-
-          {viewMode === 'week' ? (
-            <View className="mp-actions-row">
-              <Pressable
-                role="button"
-                aria-label="Vorwoche übernehmen"
-                onPress={handleReuseLastWeek}
-                className="mp-action-button"
-                // borderCurve ist ein echter Laufzeitwert ohne Tailwind-Aequivalent.
-                style={{ borderCurve: 'continuous' }}>
-                <ThemedText themeColor="accent" className="mp-action-label">
-                  Vorwoche übernehmen
-                </ThemedText>
-              </Pressable>
-              <Pressable
-                role="button"
-                aria-label="Einkauf vorbereiten"
-                disabled={!plan}
-                onPress={() => {
-                  if (!plan) return;
-                  router.push({
-                    pathname: '/meal-planner/shopping-needs',
-                    params: { mealPlanId: plan.id },
-                  });
-                }}
-                className={`mp-action-button ${!plan ? 'mp-action-button-disabled' : ''}`}
-                // borderCurve ist ein echter Laufzeitwert ohne Tailwind-Aequivalent.
-                style={{ borderCurve: 'continuous' }}>
-                <ThemedText themeColor="accent" className="mp-action-label">
-                  Einkauf vorbereiten
-                </ThemedText>
-              </Pressable>
-            </View>
-          ) : null}
-
-          <WeekGrid
-            dates={dates}
-            entries={entries}
-            recipes={draggableRecipes}
-            onDropRecipe={handleDropRecipe}
-            onTapEntry={handleTapEntry}
-            onTapEmptyCell={handleTapEmptyCell}
-          />
+          ))}
         </View>
-      </SafeAreaView>
+
+        <View className="mp-period-row">
+          <Pressable
+            role="button"
+            aria-label="Vorheriger Zeitraum"
+            onPress={() => setAnchorDate((date) => shiftAnchor(date, viewMode, -1))}
+            className="mp-period-button">
+            <ThemedText themeColor="accent" className="mp-chevron">
+              ‹
+            </ThemedText>
+          </Pressable>
+          <View className="mp-period-copy">
+            <ThemedText className="mp-period-title">{periodLabel(dates)}</ThemedText>
+          </View>
+          <Pressable
+            role="button"
+            aria-label="Nächster Zeitraum"
+            onPress={() => setAnchorDate((date) => shiftAnchor(date, viewMode, 1))}
+            className="mp-period-button">
+            <ThemedText themeColor="accent" className="mp-chevron">
+              ›
+            </ThemedText>
+          </Pressable>
+        </View>
+
+        {viewMode === 'week' ? (
+          <View className="mp-actions-row">
+            <Pressable
+              role="button"
+              aria-label="Vorwoche übernehmen"
+              onPress={handleReuseLastWeek}
+              className="mp-action-button"
+              // borderCurve ist ein echter Laufzeitwert ohne Tailwind-Aequivalent.
+              style={{ borderCurve: 'continuous' }}>
+              <ThemedText themeColor="accent" className="mp-action-label">
+                Vorwoche übernehmen
+              </ThemedText>
+            </Pressable>
+            <Pressable
+              role="button"
+              aria-label="Einkauf vorbereiten"
+              disabled={!plan}
+              onPress={() => {
+                if (!plan) return;
+                router.push({
+                  pathname: '/meal-planner/shopping-needs',
+                  params: { mealPlanId: plan.id },
+                });
+              }}
+              className={`mp-action-button ${!plan ? 'mp-action-button-disabled' : ''}`}
+              // borderCurve ist ein echter Laufzeitwert ohne Tailwind-Aequivalent.
+              style={{ borderCurve: 'continuous' }}>
+              <ThemedText themeColor="accent" className="mp-action-label">
+                Einkauf vorbereiten
+              </ThemedText>
+            </Pressable>
+          </View>
+        ) : null}
+
+        <WeekGrid
+          dates={dates}
+          entries={entries}
+          recipes={draggableRecipes}
+          onDropRecipe={handleDropRecipe}
+          onTapEntry={handleTapEntry}
+          onTapEmptyCell={handleTapEmptyCell}
+        />
+      </View>
 
       <RecipePickerModal
         visible={pendingCell !== null}
@@ -378,6 +372,6 @@ export function MealPlannerScreen() {
           onDelete={handleDeleteEntry}
         />
       ) : null}
-    </View>
+    </HubScreen>
   );
 }

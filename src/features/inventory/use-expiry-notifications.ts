@@ -1,11 +1,11 @@
 import { useEffect } from 'react';
 
-import { getExpiryInfo } from '@/features/fridge/expiry';
-import { useFridgeItems } from '@/features/fridge/use-fridge-items';
+import { getExpiryInfo } from '@/features/inventory/expiry';
+import { useInventoryItems } from '@/features/inventory/use-inventory-items';
 import { getNotificationSettings, scheduleExpiryNotificationReminder } from '@/lib/notifications';
 
 export function useExpiryNotifications(householdId: string | undefined) {
-  const { data: fridgeItems = [] } = useFridgeItems(householdId);
+  const { data: fridgeItems = [] } = useInventoryItems(householdId);
 
   useEffect(() => {
     if (!householdId || fridgeItems.length === 0) return;

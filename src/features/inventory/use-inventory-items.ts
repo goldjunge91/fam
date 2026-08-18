@@ -2,7 +2,7 @@ import { useQuery } from '@tanstack/react-query';
 
 import { getDatabase } from '@/lib/db/client';
 
-export type LocalFridgeItem = {
+export type LocalInventoryItem = {
   id: string;
   household_id: string;
   location_id: string | null;
@@ -27,14 +27,14 @@ export type LocalFridgeItem = {
  * Sortierung: Ablaufdatum aufsteigend, NULL ans Ende — nutzt die
  * Bucket-Logik aus `expiry.ts` implizit (kritische Items stehen oben).
  */
-export function useFridgeItems(householdId: string | undefined) {
+export function useInventoryItems(householdId: string | undefined) {
   return useQuery({
     queryKey: ['fridge_items', householdId],
-    queryFn: async (): Promise<LocalFridgeItem[]> => {
+    queryFn: async (): Promise<LocalInventoryItem[]> => {
       if (!householdId) return [];
 
       const db = await getDatabase();
-      return db.getAllAsync<LocalFridgeItem>(
+      return db.getAllAsync<LocalInventoryItem>(
         `select
            fi.id, fi.household_id, fi.location_id, fi.product_id,
            fi.name, fi.quantity, fi.unit, fi.package_size, fi.package_size_unit,

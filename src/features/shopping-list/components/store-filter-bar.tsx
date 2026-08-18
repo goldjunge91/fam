@@ -63,7 +63,7 @@ interface StoreFilterBarProps {
 /**
  * Markt-Chips ueber der Einkaufsliste — "Alle Listen" + ein farbiger Chip je
  * Markt + optional "Ohne Markt". Nach dem Vorbild von
- * `src/features/fridge/components/fridge-tab-bar.tsx`, aber markt-farbig
+ * `src/features/inventory/components/inventory-tab-bar.tsx`, aber markt-farbig
  * statt emoji-basiert.
  */
 export function StoreFilterBar({

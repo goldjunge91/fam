@@ -8,14 +8,15 @@ import { GlassCard } from '@/components/glass-card';
 import { ProgressRing } from '@/components/progress-ring';
 import { Screen } from '@/components/screen';
 import { ThemedText } from '@/components/themed-text';
-import { Layout, Spacing, withAlpha } from '@/constants/theme';
+import { Layout, Spacing } from '@/constants/layout';
+import { withAlpha } from '@/constants/theme';
 import { useSession } from '@/features/auth/session-provider';
 import { useCurrentGoal, useFoodEntries } from '@/features/calorie-tracking/api';
 import { calculateDailyTotals } from '@/features/calorie-tracking/daily-totals';
-import { getExpiryInfo } from '@/features/fridge/expiry';
-import { useExpiryNotifications } from '@/features/fridge/use-expiry-notifications';
-import { useFridgeItems } from '@/features/fridge/use-fridge-items';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
+import { getExpiryInfo } from '@/features/inventory/expiry';
+import { useExpiryNotifications } from '@/features/inventory/use-expiry-notifications';
+import { useInventoryItems } from '@/features/inventory/use-inventory-items';
 import { useMealPlanEntriesInRange } from '@/features/meal-planner/use-meal-plans';
 import { MEAL_SLOT_LABELS, MEAL_SLOTS } from '@/features/meal-planner/week';
 import { useNavigationChrome } from '@/features/navigation/navigation-chrome-provider';
@@ -70,7 +71,7 @@ export function DashboardScreen() {
   const { activeHouseholdId } = useActiveHousehold();
   const householdId = activeHouseholdId ?? undefined;
 
-  const { data: fridgeItems = [] } = useFridgeItems(householdId);
+  const { data: fridgeItems = [] } = useInventoryItems(householdId);
   const { data: shoppingGroups = [] } = useShoppingList(householdId);
 
   // Hintergrund-Benachrichtigungen aktivieren/synchronisieren

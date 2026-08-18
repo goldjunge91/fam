@@ -8,27 +8,28 @@ import { TextField } from '@/components/text-field';
 import { ThemedText } from '@/components/themed-text';
 import { Button } from '@/components/ui/buttons';
 import { WheelPickerField } from '@/components/wheel-picker-field';
-import { Spacing, withAlpha } from '@/constants/theme';
+import { Spacing } from '@/constants/layout';
+import { withAlpha } from '@/constants/theme';
 import type { StorageLocation } from '@/features/inventory/use-storage-locations';
 import { useTheme } from '@/hooks/use-theme';
 import { UNIT_OPTIONS } from '@/lib/units';
 
-import type { LocalFridgeItem } from '../use-fridge-items';
-import { useUpdateFridgeItemMutation } from '../use-fridge-mutations';
+import type { LocalInventoryItem } from '../use-inventory-items';
+import { useUpdateFridgeItemMutation } from '../use-inventory-mutations';
 
-type EditFridgeItemSheetProps = {
+type EditInventoryItemSheetProps = {
   visible: boolean;
-  item: LocalFridgeItem | null;
+  item: LocalInventoryItem | null;
   locations: StorageLocation[];
   onClose: () => void;
 };
 
-export function EditFridgeItemSheet({
+export function EditInventoryItemSheet({
   visible,
   item,
   locations,
   onClose,
-}: EditFridgeItemSheetProps) {
+}: EditInventoryItemSheetProps) {
   const theme = useTheme();
   const insets = useSafeAreaInsets();
   const updateItem = useUpdateFridgeItemMutation();

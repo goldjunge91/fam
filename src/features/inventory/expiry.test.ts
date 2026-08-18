@@ -1,4 +1,4 @@
-import { compareByExpiry, getExpiryInfo } from '@/features/fridge/expiry';
+import { compareByExpiry, getExpiryInfo } from '@/features/inventory/expiry';
 
 // Fester Bezugstag, damit die Tests unabhaengig vom Ausfuehrungszeitpunkt sind.
 const HEUTE = new Date(2026, 7, 5, 14, 30); // 5. August 2026, 14:30

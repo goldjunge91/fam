@@ -45,7 +45,7 @@ jest.mock('@/features/inventory/use-storage-locations', () => ({
   useAddStorageLocationMutation: () => ({ mutateAsync: jest.fn(), isPending: false }),
 }));
 
-jest.mock('@/features/fridge/use-fridge-mutations', () => ({
+jest.mock('@/features/inventory/use-inventory-mutations', () => ({
   useAddFridgeItemMutation: () => ({
     mutateAsync: mockAddFridgeItemMutateAsync,
     isPending: false,

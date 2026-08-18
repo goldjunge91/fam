@@ -1,11 +1,11 @@
 import { Pressable, ScrollView } from 'react-native';
 
 import { ThemedText } from '@/components/themed-text';
-import type { RecipeTemplateWithNutrition } from '@/features/recipe-templates/use-recipe-templates';
+import type { RecipeTemplateWithNutrition } from '@/features/recipes/templates/use-recipe-templates';
 import {
   isHighProteinTemplate,
   isLowCarbTemplate,
-} from '@/features/recipe-templates/use-recipe-templates';
+} from '@/features/recipes/templates/use-recipe-templates';
 
 export type CategoryTile = {
   key: string;

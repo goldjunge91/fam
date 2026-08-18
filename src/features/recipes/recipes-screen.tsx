@@ -1,10 +1,8 @@
 import { router } from 'expo-router';
 import { useMemo, useState } from 'react';
 import { ActivityIndicator, Pressable, ScrollView, TextInput, View } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
 import Svg, { Circle, Path } from 'react-native-svg';
-import { GradientBackground } from '@/components/gradient-background';
-import { PageHeader } from '@/components/page-header';
+import { HubScreen } from '@/components/hub-screen';
 import { SectionHeading } from '@/components/section-heading';
 import { ThemedText } from '@/components/themed-text';
 import { BackButton, HeaderIconButton, MenuButton } from '@/components/ui/buttons';
@@ -15,8 +13,7 @@ import {
   isInCalorieBucket,
   type RecipeTemplateWithNutrition,
   useRecipeTemplatesWithNutrition,
-} from '@/features/recipe-templates/use-recipe-templates';
-import { useHubGradient } from '@/hooks/use-hub-gradient';
+} from '@/features/recipes/templates/use-recipe-templates';
 import { useTheme } from '@/hooks/use-theme';
 import { CalorieCarousel } from './components/calorie-carousel';
 import { CATEGORY_TILES, CategoryCarousel } from './components/category-carousel';
@@ -251,7 +248,6 @@ function EmptyPanel({ children }: { children: string }) {
 
 export function RecipesScreen() {
   const theme = useTheme();
-  const hubGradient = useHubGradient();
   const { openDrawer } = useNavigationChrome();
   const [view, setView] = useState<RecipeView>('discover');
   const [searchQuery, setSearchQuery] = useState('');
@@ -371,185 +367,172 @@ export function RecipesScreen() {
             : 'Rezepte';
 
   return (
-    <View className="flex-1">
-      <GradientBackground {...hubGradient} />
-      <SafeAreaView
-        className="flex-1 w-full max-w-[800px] self-center"
-        edges={['top', 'left', 'right']}>
-        <PageHeader
-          title={screenTitle}
-          leading={
-            view === 'discover' || view === 'favorites' ? (
-              <MenuButton onPress={openDrawer} />
-            ) : (
-              <BackButton label="Zurück zu Rezepte" variant="header" onPress={goBackToDiscover} />
-            )
-          }
-          trailing={
-            <View className="flex-row gap-[6px]">
-              <HeaderIconButton
-                label="Rezepte durchsuchen"
-                onPress={() => setShowSearch((visible) => !visible)}>
-                <SearchIcon color={theme.text} />
-              </HeaderIconButton>
-              <HeaderIconButton
-                label={
-                  activeFilterCount > 0
-                    ? `Rezepte filtern, ${activeFilterCount} aktiv`
-                    : 'Rezepte filtern'
-                }
-                onPress={() => setShowFilters(true)}
-                className={activeFilterCount > 0 ? 'bg-accent' : undefined}>
-                <FilterIcon color={activeFilterCount > 0 ? theme.background : theme.text} />
-              </HeaderIconButton>
-            </View>
-          }
-        />
+    <HubScreen
+      safeAreaClassName="flex-1 w-full max-w-[800px] self-center"
+      header={{
+        title: screenTitle,
+        leading:
+          view === 'discover' || view === 'favorites' ? (
+            <MenuButton onPress={openDrawer} />
+          ) : (
+            <BackButton label="Zurück zu Rezepte" variant="header" onPress={goBackToDiscover} />
+          ),
+        trailing: (
+          <View className="flex-row gap-[6px]">
+            <HeaderIconButton
+              label="Rezepte durchsuchen"
+              onPress={() => setShowSearch((visible) => !visible)}>
+              <SearchIcon color={theme.text} />
+            </HeaderIconButton>
+            <HeaderIconButton
+              label={
+                activeFilterCount > 0
+                  ? `Rezepte filtern, ${activeFilterCount} aktiv`
+                  : 'Rezepte filtern'
+              }
+              onPress={() => setShowFilters(true)}
+              className={activeFilterCount > 0 ? 'bg-accent' : undefined}>
+              <FilterIcon color={activeFilterCount > 0 ? theme.background : theme.text} />
+            </HeaderIconButton>
+          </View>
+        ),
+      }}>
+      <RecipeFilterModal
+        visible={showFilters}
+        filters={filters}
+        tags={availableTags}
+        getResultCount={(draft) => filterEntries(draft).length}
+        onApply={applyFilters}
+        onClose={() => setShowFilters(false)}
+      />
 
-        <RecipeFilterModal
-          visible={showFilters}
-          filters={filters}
-          tags={availableTags}
-          getResultCount={(draft) => filterEntries(draft).length}
-          onApply={applyFilters}
-          onClose={() => setShowFilters(false)}
-        />
+      <ScrollView
+        className="flex-1"
+        contentContainerClassName="px-[15px] pt-one pb-[126px]"
+        keyboardShouldPersistTaps="handled"
+        showsVerticalScrollIndicator={false}>
+        {showSearch ? (
+          <View className="h-[42px] flex-row items-center gap-[9px] rounded-fam-large px-[13px] mb-[10px] bg-background-element/85">
+            <SearchIcon color={theme.textSecondary} />
+            <TextInput
+              value={searchQuery}
+              onChangeText={setSearchQuery}
+              role="searchbox"
+              aria-label="Rezepte durchsuchen"
+              placeholder="Rezepte durchsuchen…"
+              placeholderTextColor={theme.textSecondary}
+              autoFocus
+              className="flex-1 h-full text-[14px] font-medium py-0 text-text"
+            />
+          </View>
+        ) : null}
 
-        <ScrollView
-          className="flex-1"
-          contentContainerClassName="px-[15px] pt-one pb-[126px]"
-          keyboardShouldPersistTaps="handled"
-          showsVerticalScrollIndicator={false}>
-          {showSearch ? (
-            <View className="h-[42px] flex-row items-center gap-[9px] rounded-fam-large px-[13px] mb-[10px] bg-background-element/85">
-              <SearchIcon color={theme.textSecondary} />
-              <TextInput
-                value={searchQuery}
-                onChangeText={setSearchQuery}
-                role="searchbox"
-                aria-label="Rezepte durchsuchen"
-                placeholder="Rezepte durchsuchen…"
-                placeholderTextColor={theme.textSecondary}
-                autoFocus
-                className="flex-1 h-full text-[14px] font-medium py-0 text-text"
+        {view === 'discover' || view === 'favorites' ? (
+          <View className="flex-row gap-two mb-[18px]">
+            <Pressable
+              onPress={() => setView('discover')}
+              role="button"
+              aria-label="Entdecken"
+              aria-selected={view === 'discover'}
+              className={`tab-btn ${view === 'discover' ? 'tab-btn-active' : 'tab-btn-idle'}`}>
+              <ThemedText
+                type="detail"
+                themeColor={view === 'discover' ? 'onAccent' : 'textSecondary'}
+                className="tab-btn-label">
+                Entdecken
+              </ThemedText>
+            </Pressable>
+            <Pressable
+              onPress={() => setView('favorites')}
+              role="button"
+              aria-label="Meine Favoriten"
+              aria-selected={view === 'favorites'}
+              className={`tab-btn ${view === 'favorites' ? 'tab-btn-active' : 'tab-btn-idle'}`}>
+              <ThemedText
+                type="detail"
+                themeColor={view === 'favorites' ? 'onAccent' : 'textSecondary'}
+                className="tab-btn-label">
+                Meine Favoriten
+              </ThemedText>
+            </Pressable>
+          </View>
+        ) : null}
+
+        {isLoading ? (
+          <ActivityIndicator
+            accessibilityLabel="Rezepte werden geladen"
+            color={theme.accent}
+            className="mt-[42px]"
+          />
+        ) : view === 'favorites' ? (
+          favoriteEntries.length > 0 ? (
+            <RecipeList entries={favoriteEntries} />
+          ) : (
+            <EmptyPanel>Noch keine Favoriten gespeichert.</EmptyPanel>
+          )
+        ) : view === 'filtered' ? (
+          filteredEntries.length > 0 ? (
+            <RecipeList entries={filteredEntries} />
+          ) : (
+            <EmptyPanel>Keine Rezepte für diese Filter.</EmptyPanel>
+          )
+        ) : view === 'household' ? (
+          householdEntries.length > 0 ? (
+            <RecipeList entries={householdEntries} />
+          ) : (
+            <EmptyPanel>Keine Rezepte für diesen Filter.</EmptyPanel>
+          )
+        ) : view === 'templates' ? (
+          filteredTemplateEntries.length > 0 ? (
+            <RecipeList entries={filteredTemplateEntries} />
+          ) : (
+            <EmptyPanel>Keine Vorlagen für diesen Filter.</EmptyPanel>
+          )
+        ) : householdEntries.length > 0 || templates.length > 0 ? (
+          <>
+            <View className="mb-five">
+              <SectionHeading title="Kategorien" />
+              <CategoryCarousel
+                selectedKey={templateCategoryFilter}
+                onSelect={selectCategoryTile}
               />
             </View>
-          ) : null}
 
-          {view === 'discover' || view === 'favorites' ? (
-            <View className="flex-row gap-two mb-[18px]">
-              <Pressable
-                onPress={() => setView('discover')}
-                role="button"
-                aria-label="Entdecken"
-                aria-selected={view === 'discover'}
-                className={`tab-btn ${view === 'discover' ? 'tab-btn-active' : 'tab-btn-idle'}`}>
-                <ThemedText
-                  type="detail"
-                  themeColor={view === 'discover' ? 'onAccent' : 'textSecondary'}
-                  className="tab-btn-label">
-                  Entdecken
-                </ThemedText>
-              </Pressable>
-              <Pressable
-                onPress={() => setView('favorites')}
-                role="button"
-                aria-label="Meine Favoriten"
-                aria-selected={view === 'favorites'}
-                className={`tab-btn ${view === 'favorites' ? 'tab-btn-active' : 'tab-btn-idle'}`}>
-                <ThemedText
-                  type="detail"
-                  themeColor={view === 'favorites' ? 'onAccent' : 'textSecondary'}
-                  className="tab-btn-label">
-                  Meine Favoriten
-                </ThemedText>
-              </Pressable>
+            <View className="mb-five">
+              <SectionHeading title="Rezepte nach Kalorien" />
+              <CalorieCarousel selectedIndex={templateCalorieFilter} onSelect={selectCalorieTile} />
             </View>
-          ) : null}
 
-          {isLoading ? (
-            <ActivityIndicator
-              accessibilityLabel="Rezepte werden geladen"
-              color={theme.accent}
-              className="mt-[42px]"
-            />
-          ) : view === 'favorites' ? (
-            favoriteEntries.length > 0 ? (
-              <RecipeList entries={favoriteEntries} />
-            ) : (
-              <EmptyPanel>Noch keine Favoriten gespeichert.</EmptyPanel>
-            )
-          ) : view === 'filtered' ? (
-            filteredEntries.length > 0 ? (
-              <RecipeList entries={filteredEntries} />
-            ) : (
-              <EmptyPanel>Keine Rezepte für diese Filter.</EmptyPanel>
-            )
-          ) : view === 'household' ? (
-            householdEntries.length > 0 ? (
-              <RecipeList entries={householdEntries} />
-            ) : (
-              <EmptyPanel>Keine Rezepte für diesen Filter.</EmptyPanel>
-            )
-          ) : view === 'templates' ? (
-            filteredTemplateEntries.length > 0 ? (
-              <RecipeList entries={filteredTemplateEntries} />
-            ) : (
-              <EmptyPanel>Keine Vorlagen für diesen Filter.</EmptyPanel>
-            )
-          ) : householdEntries.length > 0 || templates.length > 0 ? (
-            <>
-              <View className="mb-five">
-                <SectionHeading title="Kategorien" />
-                <CategoryCarousel
-                  selectedKey={templateCategoryFilter}
-                  onSelect={selectCategoryTile}
-                />
-              </View>
-
-              <View className="mb-five">
-                <SectionHeading title="Rezepte nach Kalorien" />
-                <CalorieCarousel
-                  selectedIndex={templateCalorieFilter}
-                  onSelect={selectCalorieTile}
-                />
-              </View>
-
-              {mealSections.length > 0 ? (
-                <View className="mb-five">
-                  <SectionHeading
-                    title="Nach Mahlzeiten"
-                    actionLabel="Alle Vorlagen ansehen"
-                    onActionPress={openTemplates}
-                  />
-                  {mealSections.map((section) => (
-                    <MealSection
-                      key={section.key}
-                      title={section.title}
-                      entries={section.entries}
-                    />
-                  ))}
-                </View>
-              ) : null}
-
+            {mealSections.length > 0 ? (
               <View className="mb-five">
                 <SectionHeading
-                  title="Unsere Rezepte"
-                  actionLabel="Alle ansehen"
-                  onActionPress={() => setView('household')}
+                  title="Nach Mahlzeiten"
+                  actionLabel="Alle Vorlagen ansehen"
+                  onActionPress={openTemplates}
                 />
-                {householdEntries.length > 0 ? (
-                  <RecipeList entries={householdEntries.slice(0, 4)} />
-                ) : (
-                  <EmptyPanel>Noch keine Rezepte im Haushalt.</EmptyPanel>
-                )}
+                {mealSections.map((section) => (
+                  <MealSection key={section.key} title={section.title} entries={section.entries} />
+                ))}
               </View>
-            </>
-          ) : (
-            <EmptyPanel>Noch keine Rezepte im Haushalt.</EmptyPanel>
-          )}
-        </ScrollView>
-      </SafeAreaView>
-    </View>
+            ) : null}
+
+            <View className="mb-five">
+              <SectionHeading
+                title="Unsere Rezepte"
+                actionLabel="Alle ansehen"
+                onActionPress={() => setView('household')}
+              />
+              {householdEntries.length > 0 ? (
+                <RecipeList entries={householdEntries.slice(0, 4)} />
+              ) : (
+                <EmptyPanel>Noch keine Rezepte im Haushalt.</EmptyPanel>
+              )}
+            </View>
+          </>
+        ) : (
+          <EmptyPanel>Noch keine Rezepte im Haushalt.</EmptyPanel>
+        )}
+      </ScrollView>
+    </HubScreen>
   );
 }

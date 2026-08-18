@@ -1,6 +1,6 @@
 import { render, screen, userEvent } from '@testing-library/react-native';
-import type { LocalFridgeItem } from '../use-fridge-items';
-import { FridgeItemRow } from './fridge-item-row';
+import type { LocalInventoryItem } from '../use-inventory-items';
+import { InventoryItemRow } from './inventory-item-row';
 
 jest.mock('react-native-gesture-handler/ReanimatedSwipeable', () => {
   return {
@@ -19,8 +19,8 @@ jest.mock('react-native-gesture-handler/ReanimatedSwipeable', () => {
   };
 });
 
-describe('FridgeItemRow', () => {
-  const dummyItem: LocalFridgeItem = {
+describe('InventoryItemRow', () => {
+  const dummyItem: LocalInventoryItem = {
     id: 'f-1',
     household_id: 'hh-1',
     location_id: 'loc-1',
@@ -39,7 +39,7 @@ describe('FridgeItemRow', () => {
 
   it('sollte den Artikelnamen und Lagerort rendern', async () => {
     await render(
-      <FridgeItemRow
+      <InventoryItemRow
         item={dummyItem}
         onPress={jest.fn()}
         onLongPress={jest.fn()}
@@ -54,7 +54,7 @@ describe('FridgeItemRow', () => {
 
   it('zeigt eine kompakte Zeile ohne Mengen-Buttons oder dekorative Kacheln', async () => {
     await render(
-      <FridgeItemRow
+      <InventoryItemRow
         item={dummyItem}
         onPress={jest.fn()}
         onLongPress={jest.fn()}
@@ -72,7 +72,7 @@ describe('FridgeItemRow', () => {
     const user = userEvent.setup();
 
     await render(
-      <FridgeItemRow
+      <InventoryItemRow
         item={dummyItem}
         onPress={onPressMock}
         onLongPress={jest.fn()}
@@ -89,7 +89,7 @@ describe('FridgeItemRow', () => {
     const user = userEvent.setup();
 
     await render(
-      <FridgeItemRow
+      <InventoryItemRow
         item={dummyItem}
         onPress={jest.fn()}
         onLongPress={onLongPress}
@@ -106,7 +106,7 @@ describe('FridgeItemRow', () => {
     const user = userEvent.setup();
 
     await render(
-      <FridgeItemRow
+      <InventoryItemRow
         item={dummyItem}
         onPress={jest.fn()}
         onLongPress={jest.fn()}

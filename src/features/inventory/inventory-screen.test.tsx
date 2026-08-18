@@ -3,7 +3,7 @@ import { fireEvent, render, screen, userEvent } from '@testing-library/react-nat
 import { Alert } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
-import { FridgeScreen } from '@/features/fridge/fridge-screen';
+import { InventoryScreen } from '@/features/inventory/inventory-screen';
 
 const mockUpdateQtyMutate = jest.fn();
 const mockUpdateItemMutateAsync = jest.fn().mockResolvedValue({});
@@ -42,12 +42,12 @@ jest.mock('@/features/inventory/use-storage-locations', () => ({
   useStorageLocations: () => ({ data: [] }),
 }));
 
-jest.mock('@/features/fridge/use-fridge-items', () => ({
-  useFridgeItems: () => ({ data: mockItems, isLoading: false }),
+jest.mock('@/features/inventory/use-inventory-items', () => ({
+  useInventoryItems: () => ({ data: mockItems, isLoading: false }),
 }));
 
-jest.mock('@/features/fridge/use-fridge-mutations', () => ({
-  useUpdateFridgeItemQuantityMutation: () => ({ mutate: mockUpdateQtyMutate, isPending: false }),
+jest.mock('@/features/inventory/use-inventory-mutations', () => ({
+  useUpdateInventoryItemQuantityMutation: () => ({ mutate: mockUpdateQtyMutate, isPending: false }),
   useUpdateFridgeItemMutation: () => ({
     mutateAsync: mockUpdateItemMutateAsync,
     isPending: false,
@@ -81,7 +81,7 @@ function renderScreen() {
           frame: { x: 0, y: 0, width: 390, height: 844 },
           insets: { top: 47, left: 0, right: 0, bottom: 34 },
         }}>
-        <FridgeScreen />
+        <InventoryScreen />
       </SafeAreaProvider>
     </QueryClientProvider>,
   );

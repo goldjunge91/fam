@@ -56,7 +56,7 @@ bun run user:create / user:list / user:clean / user:delete
 
 **Feature-first, drei Schichten:**
 - `src/app/` — ausschließlich Expo-Router-Routing (file-based), keine Fachlogik. `(auth)/` = nicht eingeloggt, `(app)/` = Haupt-Tabs, `household/`, `settings/`, `recipe/` = verschachtelte Stacks.
-- `src/features/<domain>/` — Fachlogik pro Domäne (`fridge`, `inventory`, `shopping-list`, `meal-planner`, `recipes`, `recipe-templates`, `calorie-tracking`, `household`, `auth`, `onboarding`, `premium`, `profile`, `settings`, `dashboard`, `navigation`), jeweils mit `components/`, `hooks/`, `api.ts`, `types.ts`.
+- `src/features/<domain>/` — Fachlogik pro Domäne (`inventory`, `shopping-list`, `meal-planner`, `recipes`, `calorie-tracking`, `household`, `auth`, `onboarding`, `premium`, `settings`, `dashboard`, `navigation`), jeweils mit `components/`, `hooks/`, `api.ts`, `types.ts`.
 - `src/components/` — geteilte, domänenlose UI-Bausteine (`screen.tsx`, `card.tsx`, `text-field.tsx`, etc.).
 - `src/lib/` — Supabase-Client, Env-Handling (`env.ts`, wirft klaren Fehler bei fehlenden `EXPO_PUBLIC_*`-Variablen), lokaler DB-/Sync-Layer.
 
