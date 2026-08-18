@@ -1,7 +1,7 @@
 import { View } from 'react-native';
-import Svg, { Circle } from 'react-native-svg';
 
 import { ThemedText } from '@/components/theme/themed-text';
+import { ProgressRing } from '@/components/ui/progress-ring';
 import { withAlpha } from '@/constants/theme';
 import { useTheme } from '@/hooks/use-theme';
 
@@ -11,63 +11,10 @@ type InventorySummaryCardProps = {
   soonCount: number;
 };
 
-const RING_SIZE = 58;
-const STROKE_WIDTH = 7;
-const RADIUS = (RING_SIZE - STROKE_WIDTH) / 2;
-const CIRCUMFERENCE = 2 * Math.PI * RADIUS;
-
-type ExpiryRingProps = {
-  count: number;
-  fraction: number;
-  color: string;
-  trackColor: string;
-};
-
-// Anteilsring statt reiner Deko: die Faerbung zeigt, welchen Teil des
-// gesamten Vorrats dieser Ablauf-Status ausmacht (kritisch/bald von total).
-function ExpiryRing({ count, fraction, color, trackColor }: ExpiryRingProps) {
-  const filled = Math.min(Math.max(fraction, 0), 1) * CIRCUMFERENCE;
-
-  return (
-    <View className="inventory-summary-ring-wrap">
-      <Svg width={RING_SIZE} height={RING_SIZE}>
-        <Circle
-          cx={RING_SIZE / 2}
-          cy={RING_SIZE / 2}
-          r={RADIUS}
-          stroke={trackColor}
-          strokeWidth={STROKE_WIDTH}
-          fill="none"
-        />
-        {filled > 0 ? (
-          <Circle
-            cx={RING_SIZE / 2}
-            cy={RING_SIZE / 2}
-            r={RADIUS}
-            stroke={color}
-            strokeWidth={STROKE_WIDTH}
-            fill="none"
-            strokeLinecap="round"
-            strokeDasharray={`${filled} ${CIRCUMFERENCE - filled}`}
-            transform={`rotate(-90 ${RING_SIZE / 2} ${RING_SIZE / 2})`}
-          />
-        ) : null}
-      </Svg>
-      {/* fontVariant hat keine Tailwind-Entsprechung. */}
-      <ThemedText
-        className="inventory-summary-ring-count"
-        style={{ fontVariant: ['tabular-nums'] }}>
-        {count}
-      </ThemedText>
-    </View>
-  );
-}
-
 /**
  * Zwei Ablauf-Ringe statt eines einzelnen Bestandsrings: "Läuft bald ab"
- * (kritisch/abgelaufen) und "Bald fällig" (soon). Der reine Artikel-Zähler
- * aus der Vorgaengerversion trug keine Handlungsinformation — beide Ringe
- * zeigen stattdessen direkt, was Aufmerksamkeit braucht.
+ * (kritisch/abgelaufen) und "Bald fällig" (soon). Beide Ringe visualisieren
+ * den Anteil am Gesamtfüllstand über ProgressRing im compact-Preset (#164).
  */
 export function InventorySummaryCard({
   totalCount,
@@ -75,8 +22,6 @@ export function InventorySummaryCard({
   soonCount,
 }: InventorySummaryCardProps) {
   const theme = useTheme();
-  const criticalFraction = totalCount > 0 ? criticalCount / totalCount : 0;
-  const soonFraction = totalCount > 0 ? soonCount / totalCount : 0;
 
   return (
     <View
@@ -91,11 +36,15 @@ export function InventorySummaryCard({
           boxShadow: `0 10px 24px ${withAlpha(theme.shadowCard, 0.14)}`,
           borderCurve: 'continuous',
         }}>
-        <ExpiryRing
-          count={criticalCount}
-          fraction={criticalFraction}
-          color={theme.danger}
+        <ProgressRing
+          preset="compact"
+          value={criticalCount}
+          target={totalCount}
+          displayMode="count"
+          animated={false}
+          progressColor={theme.danger}
           trackColor={withAlpha(theme.danger, 0.16)}
+          label="Läuft bald ab"
         />
         <ThemedText type="small" themeColor="textSecondary" className="text-center">
           Läuft bald ab
@@ -108,11 +57,15 @@ export function InventorySummaryCard({
           boxShadow: `0 10px 24px ${withAlpha(theme.shadowCard, 0.14)}`,
           borderCurve: 'continuous',
         }}>
-        <ExpiryRing
-          count={soonCount}
-          fraction={soonFraction}
-          color={theme.warning}
+        <ProgressRing
+          preset="compact"
+          value={soonCount}
+          target={totalCount}
+          displayMode="count"
+          animated={false}
+          progressColor={theme.warning}
           trackColor={withAlpha(theme.warning, 0.16)}
+          label="Bald fällig"
         />
         <ThemedText type="small" themeColor="textSecondary" className="text-center">
           Bald fällig

@@ -8,7 +8,13 @@ jest.mock('@react-native-async-storage/async-storage', () =>
 // offizielle Mock (`react-native-reanimated/mock`) ersetzt Shared
 // Values/Worklets durch reine JS-Implementierungen — ausreichend fuer Render-
 // und Interaktionstests, die keine echte UI-Thread-Animation pruefen (#129).
-jest.mock('react-native-reanimated', () => require('react-native-reanimated/mock'));
+jest.mock('react-native-reanimated', () => {
+  const reanimated = require('react-native-reanimated/mock');
+  return {
+    ...reanimated,
+    useReducedMotion: jest.fn(() => false),
+  };
+});
 
 jest.mock('expo-notifications', () => ({
   setNotificationHandler: jest.fn(),

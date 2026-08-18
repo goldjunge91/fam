@@ -70,15 +70,23 @@ function formatKcal(value: number): string {
   return `${Math.round(value).toLocaleString('de-DE')} kcal`;
 }
 
-function MacroSummary({ label, value, target }: { label: string; value: number; target: number }) {
+function MacroSummary({
+  label,
+  value,
+  target,
+  isLast = false,
+}: {
+  label: string;
+  value: number;
+  target: number;
+  isLast?: boolean;
+}) {
   const theme = useTheme();
   const exceeded = target > 0 && value > target;
 
   return (
     <View
-      className="diary-macro-card"
-      // borderCurve ist ein echter Laufzeitwert ohne Tailwind-Aequivalent.
-      style={{ borderCurve: 'continuous' }}
+      className={isLast ? 'diary-macro-item-last' : 'diary-macro-item'}
       accessible
       accessibilityRole="progressbar"
       accessibilityLabel={
@@ -138,9 +146,7 @@ function MealSection({ meal, entries, isLast, onAdd, onEntry }: MealSectionProps
           onPress={() => onEntry(entry.id)}
           role="button"
           aria-label={`${entry.name} bearbeiten`}
-          className="diary-entry-row"
-          // borderCurve ist ein echter Laufzeitwert ohne Tailwind-Aequivalent.
-          style={{ borderCurve: 'continuous' }}>
+          className="diary-entry-row">
           <View className="diary-entry-info">
             <ThemedText className="diary-entry-name" numberOfLines={1}>
               {entry.name}
@@ -307,17 +313,13 @@ export function DiaryScreen() {
           </Pressable>
         </View>
 
-        <View
-          className="diary-summary-card"
-          // borderCurve ist ein echter Laufzeitwert ohne Tailwind-Aequivalent.
-          style={{ borderCurve: 'continuous' }}>
+        <View className="diary-summary-card">
           <ProgressRing
             value={totals.kcal}
             target={calorieGoal}
+            preset="medium"
             label="Kalorien"
             displayMode="remaining"
-            size={128}
-            strokeWidth={3}
             progressColor={theme.accent}
             trackColor={theme.backgroundSelected}
           />
@@ -337,7 +339,7 @@ export function DiaryScreen() {
           </View>
         </View>
 
-        <View className="diary-macro-row">
+        <View className="diary-macro-list">
           <MacroSummary
             label="Protein"
             value={totals.proteinG}
@@ -348,33 +350,28 @@ export function DiaryScreen() {
             value={totals.carbsG}
             target={currentGoal?.carbs_g ?? 0}
           />
-          <MacroSummary label="Fett" value={totals.fatG} target={currentGoal?.fat_g ?? 0} />
+          <MacroSummary label="Fett" value={totals.fatG} target={currentGoal?.fat_g ?? 0} isLast />
         </View>
 
-        <View
-          className="diary-meals-card"
-          // borderCurve ist ein echter Laufzeitwert ohne Tailwind-Aequivalent.
-          style={{ borderCurve: 'continuous' }}>
-          {isLoading ? (
-            <ThemedText
-              type="captionCompact"
-              themeColor="textSecondary"
-              className="diary-loading-text">
-              Lade Tagebuch...
-            </ThemedText>
-          ) : (
-            MEAL_ORDER.map((meal, index) => (
-              <MealSection
-                key={meal}
-                meal={meal}
-                entries={entriesByMeal[meal]}
-                isLast={index === MEAL_ORDER.length - 1}
-                onAdd={() => openEntry(meal)}
-                onEntry={(entryId) => openEntry(meal, entryId)}
-              />
-            ))
-          )}
-        </View>
+        {isLoading ? (
+          <ThemedText
+            type="captionCompact"
+            themeColor="textSecondary"
+            className="diary-loading-text">
+            Lade Tagebuch...
+          </ThemedText>
+        ) : (
+          MEAL_ORDER.map((meal, index) => (
+            <MealSection
+              key={meal}
+              meal={meal}
+              entries={entriesByMeal[meal]}
+              isLast={index === MEAL_ORDER.length - 1}
+              onAdd={() => openEntry(meal)}
+              onEntry={(entryId) => openEntry(meal, entryId)}
+            />
+          ))
+        )}
       </ScrollView>
     </HubScreen>
   );

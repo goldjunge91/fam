@@ -172,8 +172,7 @@ export function DashboardScreen() {
             <ProgressRing
               value={aufgenommen}
               target={ziel}
-              size={94}
-              strokeWidth={10}
+              preset="dashboard"
               label="Kalorien"
               displayMode="percent"
               progressColor="#D9785C"
