@@ -1043,8 +1043,27 @@
   .inventory-tab-bar-container {
     @apply relative z-[30];
   }
+  /* Solider Fallback fuer den Glass-Trigger (Android, iOS < 26, Reduce
+     Transparency) — Radius/Padding muss mit TRIGGER_GLASS_STYLE in Sync
+     bleiben. */
+  .inventory-tab-bar-trigger {
+    @apply flex-row items-center justify-between gap-one rounded-full px-three py-[11px] bg-background-element/[91%] border-hairline border-border active:opacity-80;
+  }
   .inventory-tab-bar-menu {
     @apply border-hairline rounded-control-lg overflow-hidden bg-background-element border-border;
+  }
+  .inventory-toolbar-row {
+    @apply flex-row items-center gap-one;
+  }
+
+  /* inventory-search-field.tsx — Kapselform passend zum echten Liquid-Glass-
+     Rendering des "Alle"-Triggers (rundet auf iOS 26+ automatisch zur Kapsel,
+     unabhaengig vom gesetzten borderRadius). */
+  .inventory-search-field {
+    @apply flex-1 flex-row items-center gap-one rounded-full px-three py-[11px] bg-background-element/[91%] border-hairline border-border;
+  }
+  .inventory-search-input {
+    @apply flex-1 text-body-relaxed text-text p-0;
   }
   .inventory-tab-bar-option {
     @apply min-h-[42px] px-three flex-row items-center justify-between active:opacity-[0.72];
@@ -1055,7 +1074,7 @@
 
   /* inventory-item-row.tsx */
   .inventory-item-row {
-    @apply flex-row items-center pl-two pr-three py-[13px] border-b-hairline border-border gap-[14px];
+    @apply flex-row items-center pl-two pr-three py-[11px] border-b-hairline border-border gap-[14px];
   }
   .fridge-item-expiry-bar {
     @apply w-[5px] h-full min-h-[48px] rounded-xs;
@@ -1070,24 +1089,18 @@
     @apply w-[96px] items-center justify-center bg-danger active:opacity-[0.78];
   }
 
-  /* inventory-summary-card.tsx */
-  .inventory-summary-card {
-    @apply min-h-[178px] rounded-fam-large flex-row items-center gap-[22px] px-[18px] py-[24px] bg-background-element/[91%];
+  /* inventory-summary-card.tsx — zwei Ablauf-Ringe statt eines Bestandsrings */
+  .inventory-summary-row {
+    @apply flex-row gap-two;
   }
-  .fridge-summary-ring-wrap {
-    @apply w-[112px] h-[112px] items-center justify-center;
+  .inventory-summary-ring-card {
+    @apply flex-1 rounded-fam-large items-center gap-two px-three py-[18px] bg-background-element/[91%] border-hairline border-border;
   }
-  .fridge-summary-ring-center {
-    @apply absolute inset-0 items-center justify-center;
+  .inventory-summary-ring-wrap {
+    @apply w-[58px] h-[58px] items-center justify-center;
   }
-  .fridge-summary-total-count {
-    @apply font-medium;
-  }
-  .fridge-summary-copy {
-    @apply flex-1 gap-[6px];
-  }
-  .fridge-summary-headline {
-    @apply text-[24px] leading-[29px] font-medium tracking-[-0.5px];
+  .inventory-summary-ring-count {
+    @apply absolute !text-[19px] !leading-[22px] font-bold;
   }
 
   /* fridge-item-actions-sheet.tsx */

@@ -11,102 +11,111 @@ type InventorySummaryCardProps = {
   soonCount: number;
 };
 
-const RING_SIZE = 112;
-const STROKE_WIDTH = 11;
+const RING_SIZE = 58;
+const STROKE_WIDTH = 7;
+const RADIUS = (RING_SIZE - STROKE_WIDTH) / 2;
+const CIRCUMFERENCE = 2 * Math.PI * RADIUS;
 
+type ExpiryRingProps = {
+  count: number;
+  fraction: number;
+  color: string;
+  trackColor: string;
+};
+
+// Anteilsring statt reiner Deko: die Faerbung zeigt, welchen Teil des
+// gesamten Vorrats dieser Ablauf-Status ausmacht (kritisch/bald von total).
+function ExpiryRing({ count, fraction, color, trackColor }: ExpiryRingProps) {
+  const filled = Math.min(Math.max(fraction, 0), 1) * CIRCUMFERENCE;
+
+  return (
+    <View className="inventory-summary-ring-wrap">
+      <Svg width={RING_SIZE} height={RING_SIZE}>
+        <Circle
+          cx={RING_SIZE / 2}
+          cy={RING_SIZE / 2}
+          r={RADIUS}
+          stroke={trackColor}
+          strokeWidth={STROKE_WIDTH}
+          fill="none"
+        />
+        {filled > 0 ? (
+          <Circle
+            cx={RING_SIZE / 2}
+            cy={RING_SIZE / 2}
+            r={RADIUS}
+            stroke={color}
+            strokeWidth={STROKE_WIDTH}
+            fill="none"
+            strokeLinecap="round"
+            strokeDasharray={`${filled} ${CIRCUMFERENCE - filled}`}
+            transform={`rotate(-90 ${RING_SIZE / 2} ${RING_SIZE / 2})`}
+          />
+        ) : null}
+      </Svg>
+      {/* fontVariant hat keine Tailwind-Entsprechung. */}
+      <ThemedText
+        className="inventory-summary-ring-count"
+        style={{ fontVariant: ['tabular-nums'] }}>
+        {count}
+      </ThemedText>
+    </View>
+  );
+}
+
+/**
+ * Zwei Ablauf-Ringe statt eines einzelnen Bestandsrings: "Läuft bald ab"
+ * (kritisch/abgelaufen) und "Bald fällig" (soon). Der reine Artikel-Zähler
+ * aus der Vorgaengerversion trug keine Handlungsinformation — beide Ringe
+ * zeigen stattdessen direkt, was Aufmerksamkeit braucht.
+ */
 export function InventorySummaryCard({
   totalCount,
   criticalCount,
   soonCount,
 }: InventorySummaryCardProps) {
   const theme = useTheme();
-  const stableCount = Math.max(totalCount - criticalCount - soonCount, 0);
-  const radius = (RING_SIZE - STROKE_WIDTH) / 2;
-  const circumference = 2 * Math.PI * radius;
-  const segments = [
-    { count: stableCount, color: theme.success },
-    { count: soonCount, color: theme.warning },
-    { count: criticalCount, color: theme.danger },
-  ].filter((segment) => segment.count > 0);
-
-  const segmentOffsets = segments.map((_, index) =>
-    segments
-      .slice(0, index)
-      .reduce((sum, segment) => sum + (segment.count / Math.max(totalCount, 1)) * circumference, 0),
-  );
-  const headline =
-    criticalCount > 0
-      ? `${criticalCount} ${criticalCount === 1 ? 'läuft' : 'laufen'} bald ab`
-      : soonCount > 0
-        ? `${soonCount} bald fällig`
-        : 'Alles gut im Blick';
+  const criticalFraction = totalCount > 0 ? criticalCount / totalCount : 0;
+  const soonFraction = totalCount > 0 ? soonCount / totalCount : 0;
 
   return (
     <View
       accessible
-      aria-label={`${totalCount} Artikel im Vorrat, ${criticalCount} kritisch, ${soonCount} bald fällig`}
-      className="inventory-summary-card"
-      // boxShadow (dynamische Opazitaet) und borderCurve (kein Tailwind-
-      // Aequivalent) sind Ausnahmen.
-      style={{
-        boxShadow: `0 12px 30px ${withAlpha(theme.shadowCard, 0.12)}`,
-        borderCurve: 'continuous',
-      }}>
-      <View className="fridge-summary-ring-wrap">
-        <Svg width={RING_SIZE} height={RING_SIZE}>
-          <Circle
-            cx={RING_SIZE / 2}
-            cy={RING_SIZE / 2}
-            r={radius}
-            stroke={theme.backgroundSelected}
-            strokeWidth={STROKE_WIDTH}
-            fill="none"
-          />
-          {segments.map((segment, index) => {
-            const length = totalCount > 0 ? (segment.count / totalCount) * circumference : 0;
-
-            return (
-              <Circle
-                key={segment.color}
-                cx={RING_SIZE / 2}
-                cy={RING_SIZE / 2}
-                r={radius}
-                stroke={segment.color}
-                strokeWidth={STROKE_WIDTH}
-                fill="none"
-                strokeDasharray={`${length} ${circumference - length}`}
-                strokeDashoffset={-segmentOffsets[index]}
-                transform={`rotate(-90 ${RING_SIZE / 2} ${RING_SIZE / 2})`}
-              />
-            );
-          })}
-        </Svg>
-
-        <View className="fridge-summary-ring-center" pointerEvents="none">
-          {/* fontSize/lineHeight bewusst inline statt per Klasse: die
-              `default`-Rolle (ThemedText ohne `type`) liefert ebenfalls eine
-              Schriftgroesse, und welche der beiden Quellen in
-              react-native-css-interop gewinnt, war nicht zuverlaessig
-              vorhersagbar. Inline-`style` gewinnt garantiert. fontVariant hat
-              ohnehin keine Tailwind-Entsprechung. */}
-          <ThemedText
-            className="fridge-summary-total-count"
-            style={{ fontSize: 30, lineHeight: 35, fontVariant: ['tabular-nums'] }}>
-            {totalCount}
-          </ThemedText>
-          <ThemedText type="small" themeColor="textSecondary">
-            Artikel
-          </ThemedText>
-        </View>
+      aria-label={`${criticalCount} Artikel laufen bald ab, ${soonCount} bald fällig, ${totalCount} insgesamt im Vorrat`}
+      className="inventory-summary-row">
+      <View
+        className="inventory-summary-ring-card"
+        // boxShadow (dynamische Opazitaet) und borderCurve (kein Tailwind-
+        // Aequivalent) sind Ausnahmen.
+        style={{
+          boxShadow: `0 10px 24px ${withAlpha(theme.shadowCard, 0.14)}`,
+          borderCurve: 'continuous',
+        }}>
+        <ExpiryRing
+          count={criticalCount}
+          fraction={criticalFraction}
+          color={theme.danger}
+          trackColor={withAlpha(theme.danger, 0.16)}
+        />
+        <ThemedText type="small" themeColor="textSecondary" className="text-center">
+          Läuft bald ab
+        </ThemedText>
       </View>
 
-      <View className="fridge-summary-copy">
-        <ThemedText type="small" themeColor="textSecondary">
-          Dein Vorrat heute
-        </ThemedText>
-        <ThemedText className="fridge-summary-headline">{headline}</ThemedText>
-        <ThemedText type="small" themeColor={criticalCount > 0 ? 'danger' : 'success'}>
-          {criticalCount > 0 ? 'Zuerst verbrauchen' : 'Vorrat gut verteilt'}
+      <View
+        className="inventory-summary-ring-card"
+        style={{
+          boxShadow: `0 10px 24px ${withAlpha(theme.shadowCard, 0.14)}`,
+          borderCurve: 'continuous',
+        }}>
+        <ExpiryRing
+          count={soonCount}
+          fraction={soonFraction}
+          color={theme.warning}
+          trackColor={withAlpha(theme.warning, 0.16)}
+        />
+        <ThemedText type="small" themeColor="textSecondary" className="text-center">
+          Bald fällig
         </ThemedText>
       </View>
     </View>

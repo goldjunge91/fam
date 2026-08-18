@@ -17,6 +17,7 @@ import { useHubGradient } from '@/hooks/use-hub-gradient';
 import { EditInventoryItemSheet } from './components/edit-inventory-item-sheet';
 import { InventoryItemActionsSheet } from './components/inventory-item-actions-sheet';
 import { InventoryItemRow } from './components/inventory-item-row';
+import { InventorySearchField } from './components/inventory-search-field';
 import { InventorySummaryCard } from './components/inventory-summary-card';
 import { InventoryTabBar } from './components/inventory-tab-bar';
 import { compareByExpiry, getExpiryInfo } from './expiry';
@@ -44,6 +45,7 @@ export function InventoryScreen() {
   const params = useLocalSearchParams<{ filter?: string }>();
   const showExpiringOnly = params.filter === 'expiring';
   const [activeLocationId, setActiveLocationId] = useState('all');
+  const [searchQuery, setSearchQuery] = useState('');
   const [sortMode, setSortMode] = useState<SortMode>('expiry');
   const [actionItem, setActionItem] = useState<LocalInventoryItem | null>(null);
   const [informationItem, setInformationItem] = useState<LocalInventoryItem | null>(null);
@@ -86,10 +88,15 @@ export function InventoryScreen() {
         ['expired', 'critical'].includes(getExpiryInfo(item.expiry_date, today).bucket),
       )
     : locationFiltered;
+  const searchedItems = searchQuery.trim()
+    ? baseItems.filter((item) =>
+        item.name.toLowerCase().includes(searchQuery.trim().toLowerCase()),
+      )
+    : baseItems;
 
   // SQL liefert bereits MHD-sortiert (default) — der Toggle sortiert nur
   // client-seitig um, keine Requery noetig fuer "Name" (#71).
-  const visibleItems = [...baseItems].sort((a, b) =>
+  const visibleItems = [...searchedItems].sort((a, b) =>
     sortMode === 'name'
       ? a.name.localeCompare(b.name, 'de')
       : compareByExpiry(getExpiryInfo(a.expiry_date, today), getExpiryInfo(b.expiry_date, today)),
@@ -168,19 +175,26 @@ export function InventoryScreen() {
               soonCount={expiryCounts.soon}
             />
 
-            {/* Dynamische Lagerort-Auswahl aus den Haushaltseinstellungen. */}
+            {/* Dynamische Lagerort-Auswahl aus den Haushaltseinstellungen, direkt
+                neben der Artikelsuche. */}
             {locationsLoading || locations.length === 0 ? null : (
-              <InventoryTabBar
-                activeTab={selectedLocationId}
-                onTabChange={setActiveLocationId}
-                locations={locations}
-              />
+              <View className="inventory-toolbar-row">
+                <InventoryTabBar
+                  activeTab={selectedLocationId}
+                  onTabChange={setActiveLocationId}
+                  locations={locations}
+                />
+                <InventorySearchField value={searchQuery} onChangeText={setSearchQuery} />
+              </View>
             )}
 
             {/* Kompakter Arbeitslisten-Kopf, #71 */}
             {allItems.length > 0 ? (
               <View className="fridge-sort-row">
-                <ThemedText type="small" themeColor="textSecondary">
+                <ThemedText
+                  type="captionCompact"
+                  themeColor="textSecondary"
+                  className="uppercase tracking-[0.5px] font-bold">
                   {sortMode === 'expiry' ? 'Nach Haltbarkeit' : 'Alphabetisch'}
                 </ThemedText>
                 <Button
@@ -202,8 +216,14 @@ export function InventoryScreen() {
             <Card className="mt-two">
               <EmptyState
                 symbol="archivebox"
-                title={`${activeLocationName} ist leer`}
-                hint="Schließe einen Einkauf ab oder füge Artikel manuell hinzu."
+                title={
+                  searchQuery.trim() ? `Keine Treffer für "${searchQuery.trim()}"` : `${activeLocationName} ist leer`
+                }
+                hint={
+                  searchQuery.trim()
+                    ? 'Prüfe die Schreibweise oder setze die Suche zurück.'
+                    : 'Schließe einen Einkauf ab oder füge Artikel manuell hinzu.'
+                }
               />
             </Card>
           ) : null

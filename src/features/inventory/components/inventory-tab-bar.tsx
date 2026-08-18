@@ -1,8 +1,8 @@
 import { useRef, useState } from 'react';
 import { Modal, Pressable, View } from 'react-native';
 
+import { GlassCard } from '@/components/glass-card';
 import { ThemedText } from '@/components/themed-text';
-import { CompactActionButton } from '@/components/ui/buttons/compact-action-button';
 import { withAlpha } from '@/constants/theme';
 import type { StorageLocation } from '@/features/inventory/use-storage-locations';
 import { useTheme } from '@/hooks/use-theme';
@@ -16,6 +16,23 @@ interface InventoryTabBarProps {
 type MenuPosition = { top: number; left: number; width: number };
 
 const FALLBACK_MENU_POSITION: MenuPosition = { top: 0, left: 0, width: 220 };
+
+// `GlassView` hat kein cssInterop (s. glass-card.tsx), deshalb hier als
+// RN-Style statt Tailwind-Klasse — muss in Radius/Padding mit
+// `.inventory-tab-bar-trigger` in global.css in Sync bleiben. Kapselform
+// (999px) statt festem Radius: iOS 26+ rundet kompakte Liquid-Glass-Buttons
+// ohnehin automatisch zur Kapsel — damit Fallback und echtes Glas gleich
+// aussehen, uebernimmt der Fallback dieselbe Form (s. .inventory-search-field
+// daneben, die aus demselben Grund ebenfalls rounded-full ist).
+const TRIGGER_GLASS_STYLE = {
+  borderRadius: 999,
+  flexDirection: 'row' as const,
+  alignItems: 'center' as const,
+  justifyContent: 'space-between' as const,
+  gap: 8,
+  paddingHorizontal: 14,
+  paddingVertical: 11,
+};
 
 export function InventoryTabBar({ activeTab, onTabChange, locations }: InventoryTabBarProps) {
   const theme = useTheme();
@@ -51,12 +68,29 @@ export function InventoryTabBar({ activeTab, onTabChange, locations }: Inventory
 
   return (
     <View ref={triggerRef} className="inventory-tab-bar-container">
-      <CompactActionButton
-        label={activeLocation?.name ?? 'Lagerort auswählen'}
-        accessibilityLabel={`Lagerort auswählen, aktuell ${activeLocation?.name ?? 'keiner'}`}
-        expanded={isOpen}
+      {/* Liquid Glass auf iOS 26+ (expo-glass-effect), sonst solide Karte
+          wie vor der Umstellung — s. glass-card.tsx. */}
+      <GlassCard
+        outerStyle={{ borderRadius: 999 }}
+        glassStyle={TRIGGER_GLASS_STYLE}
+        fallbackClassName="inventory-tab-bar-trigger"
         onPress={toggleMenu}
-      />
+        accessibilityRole="button"
+        accessibilityLabel={`Lagerort auswählen, aktuell ${activeLocation?.name ?? 'keiner'}`}>
+        <ThemedText type="small" className="font-semibold">
+          {activeLocation?.name ?? 'Lagerort auswählen'}
+        </ThemedText>
+        {/* Rotation als natives Transform statt dynamischer Klasse: ein
+            Klassenwechsel nach dem ersten Render loest bei NativeWind einen
+            "Upgrade"-Rewrap aus, dessen Dev-Warnung an einem Navigation-
+            Context-Getter abstuerzt (react-native-css-interop-Bug). */}
+        <View
+          className="w-[10px] h-[6px]"
+          style={{ transform: [{ rotate: isOpen ? '180deg' : '0deg' }] }}>
+          <View className="absolute top-[2px] left-0 w-[6px] h-[1.5px] rounded-hairline bg-text-secondary rotate-[38deg]" />
+          <View className="absolute top-[2px] right-0 w-[6px] h-[1.5px] rounded-hairline bg-text-secondary -rotate-[38deg]" />
+        </View>
+      </GlassCard>
 
       <Modal
         visible={isOpen}

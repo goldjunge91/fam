@@ -50,7 +50,9 @@ export const InventoryItemRow = memo(function InventoryItemRow({
             ? 'morgen'
             : `in ${expiry.daysLeft} Tagen`;
   const packageHint = formatPackageHint(item.package_size, item.package_size_unit);
-  const meta = [expiryLabel, item.location_name, packageHint].filter(Boolean).join(' · ');
+  // Lagerort steht nicht mehr in der Zeile — der Filter oben grenzt bereits
+  // auf einen Lagerort ein, die Wiederholung pro Zeile war redundant.
+  const meta = [expiryLabel, packageHint].filter(Boolean).join(' · ');
   const amount = formatAmount(item.quantity, item.unit);
 
   function renderRemoveAction(
@@ -83,8 +85,10 @@ export const InventoryItemRow = memo(function InventoryItemRow({
       renderRightActions={renderRemoveAction}
       // ReanimatedSwipeable (react-native-gesture-handler) ist nicht
       // NativeWind-registriert — className wird ignoriert, style bleibt.
-      containerStyle={{ overflow: 'hidden' }}
-      childrenContainerStyle={{ backgroundColor: theme.backgroundElement }}>
+      // Kein backgroundColor hier: Zeilen liegen direkt auf dem Screen-
+      // Gradient, nicht auf einer durchgehenden Kartenflaeche mit harten
+      // Ecken (die vorher ueber alle Zeilen hinweg sichtbar war).
+      containerStyle={{ overflow: 'hidden' }}>
       <Pressable
         onPress={onPress}
         onLongPress={onLongPress}
@@ -98,8 +102,11 @@ export const InventoryItemRow = memo(function InventoryItemRow({
         {/* Inhalt */}
         <View className="fridge-item-main">
           <ThemedText type="smallBold">{item.name}</ThemedText>
+          {/* Bewusst kleiner als der Name (nicht "small"/16px): sonst haben
+              Meta-Zeile und Titel dieselbe Groesse und die Zeile wirkt
+              schwerer, als das Mockup vorsieht. */}
           {meta ? (
-            <ThemedText type="small" themeColor="textSecondary" numberOfLines={1}>
+            <ThemedText type="captionMuted" numberOfLines={1}>
               {meta}
             </ThemedText>
           ) : null}

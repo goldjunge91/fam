@@ -213,12 +213,14 @@ it('bietet im Vorrat keine Lagerort-Verwaltung an', async () => {
   expect(screen.queryByRole('button', { name: 'Lagerorte verwalten' })).not.toBeOnTheScreen();
 });
 
-it('zeigt die grosszügige Zusammenfassung über der kompakten Arbeitsliste', async () => {
+it('zeigt die Ablauf-Ringe über der kompakten Arbeitsliste', async () => {
   await renderScreen();
 
-  expect(screen.getByLabelText('1 Artikel im Vorrat, 0 kritisch, 0 bald fällig')).toBeTruthy();
-  expect(screen.getByText('Dein Vorrat heute')).toBeTruthy();
-  expect(screen.getByText('Alles gut im Blick')).toBeTruthy();
+  expect(
+    screen.getByLabelText('0 Artikel laufen bald ab, 0 bald fällig, 1 insgesamt im Vorrat'),
+  ).toBeTruthy();
+  expect(screen.getByText('Läuft bald ab')).toBeTruthy();
+  expect(screen.getByText('Bald fällig')).toBeTruthy();
   expect(screen.getByRole('button', { name: 'Milch, 2 L' })).toBeTruthy();
 });
 

@@ -37,7 +37,7 @@ describe('InventoryItemRow', () => {
     location_name: 'Kühlschrank',
   };
 
-  it('sollte den Artikelnamen und Lagerort rendern', async () => {
+  it('sollte den Artikelnamen rendern, aber nicht den Lagerort', async () => {
     await render(
       <InventoryItemRow
         item={dummyItem}
@@ -48,7 +48,7 @@ describe('InventoryItemRow', () => {
     );
 
     expect(screen.getByText('Vollmilch')).toBeTruthy();
-    expect(screen.getByText('Kühlschrank')).toBeTruthy();
+    expect(screen.queryByText('Kühlschrank')).not.toBeOnTheScreen();
     expect(screen.getByText('1 L')).toBeTruthy();
   });
 
