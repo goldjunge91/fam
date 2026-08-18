@@ -50,6 +50,7 @@ type GlassCardProps = {
    * Reduce-Transparency) — traegt Radius/Padding/Gap/Hintergrund/Schatten in einem. */
   fallbackClassName: string;
   onPress: () => void;
+  onLongPress?: () => void;
   accessibilityRole: AccessibilityRole;
   accessibilityLabel: string;
   children: ReactNode;
@@ -67,6 +68,7 @@ export function GlassCard({
   glassStyle,
   fallbackClassName,
   onPress,
+  onLongPress,
   accessibilityRole,
   accessibilityLabel,
   children,
@@ -77,6 +79,7 @@ export function GlassCard({
     return (
       <Pressable
         onPress={onPress}
+        onLongPress={onLongPress}
         accessibilityRole={accessibilityRole}
         accessibilityLabel={accessibilityLabel}
         className={fallbackClassName}
@@ -89,6 +92,7 @@ export function GlassCard({
   return (
     <Pressable
       onPress={onPress}
+      onLongPress={onLongPress}
       accessibilityRole={accessibilityRole}
       accessibilityLabel={accessibilityLabel}
       style={outerStyle}>
