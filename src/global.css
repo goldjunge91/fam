@@ -1334,8 +1334,11 @@
   .diary-full-date {
     @apply mt-[1px] text-[10px] leading-[12px] font-medium;
   }
+  /* Kartenlos (#164-Folgeredesign): Bilanz, Makros und Mahlzeiten liegen
+     direkt auf dem Verlaufshintergrund, nur Haarlinien trennen Abschnitte —
+     kein Karten-Chrome mehr, analog zur Zeilenoptik im Vorrat. */
   .diary-summary-card {
-    @apply min-h-[160px] rounded-fam-large p-four flex-row items-center gap-four bg-background-element/[84%];
+    @apply min-h-[152px] pb-three border-b-hairline border-border flex-row items-center gap-four;
   }
   .diary-summary-stats {
     @apply flex-1 min-w-0 gap-[9px];
@@ -1352,59 +1355,59 @@
   .diary-goal-status {
     @apply mt-[2px] text-[9px] leading-[12px] font-semibold;
   }
-  .diary-macro-row {
-    @apply flex-row gap-[7px];
+  .diary-macro-list {
+    @apply gap-three;
   }
-  .diary-macro-card {
-    @apply flex-1 min-w-0 h-[58px] rounded-card px-[10px] py-[9px] justify-between bg-background-element/[84%];
+  .diary-macro-item {
+    @apply gap-[6px] pb-three border-b-hairline border-border;
+  }
+  .diary-macro-item-last {
+    @apply gap-[6px];
   }
   .diary-macro-labels {
-    @apply gap-[1px];
+    @apply flex-row items-baseline justify-between gap-two;
   }
   .diary-macro-label {
-    @apply text-[10px] leading-[12px] font-bold;
+    @apply text-[13px] leading-[16px] font-bold;
   }
   .diary-macro-value {
-    @apply text-[8px] leading-[10px] font-medium;
-  }
-  .diary-meals-card {
-    @apply rounded-sheet overflow-hidden bg-background-element/[84%];
+    @apply text-[11px] leading-[14px] font-medium;
   }
   .diary-meal-section {
     @apply border-b-hairline border-border;
   }
   .diary-meal-header {
-    @apply min-h-[48px] px-four flex-row items-center justify-between gap-three;
+    @apply min-h-[44px] flex-row items-center justify-between gap-three;
   }
   .diary-meal-heading {
     @apply flex-1 min-w-0;
   }
   .diary-meal-title {
-    @apply text-[12px] leading-[15px] font-bold;
+    @apply text-[13px] leading-[16px] font-bold;
   }
   .diary-meal-kcal {
-    @apply mt-[1px] text-[9px] leading-[11px] font-medium;
+    @apply mt-[1px] text-[10px] leading-[12px] font-medium;
   }
   .diary-add-button {
-    @apply w-[32px] h-[32px] rounded-control items-center justify-center bg-accent active:opacity-[0.72];
+    @apply w-[28px] h-[28px] rounded-control items-center justify-center bg-accent active:opacity-[0.72];
   }
   .diary-entry-row {
-    @apply min-h-[42px] mx-two mb-[6px] rounded-control px-[10px] py-[6px] flex-row items-center justify-between gap-[10px] bg-background-selected/[47%] active:opacity-[0.72];
+    @apply min-h-[36px] mb-[6px] py-[4px] flex-row items-center justify-between gap-[10px] active:opacity-[0.72];
   }
   .diary-entry-info {
     @apply flex-1 min-w-0;
   }
   .diary-entry-name {
-    @apply text-[10px] leading-[12px] font-bold;
+    @apply text-[11px] leading-[14px] font-bold;
   }
   .diary-entry-quantity {
-    @apply mt-[1px] text-[9px] leading-[11px] font-medium;
+    @apply mt-[1px] text-[10px] leading-[12px] font-medium;
   }
   .diary-entry-kcal {
-    @apply text-[9px] leading-[11px] font-semibold;
+    @apply text-[10px] leading-[12px] font-semibold;
   }
   .diary-loading-text {
-    @apply px-four py-[24px] text-[11px] leading-[14px];
+    @apply py-[24px] text-[11px] leading-[14px];
   }
 
   /* food-search-screen.tsx */

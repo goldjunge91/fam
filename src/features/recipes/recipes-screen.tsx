@@ -5,7 +5,7 @@ import { FilterIcon, SearchIcon } from '@/components/icons/fam-icon';
 import { HubScreen } from '@/components/layout/hub-screen';
 import { SectionHeading } from '@/components/layout/section-heading';
 import { ThemedText } from '@/components/theme/themed-text';
-import { BackButton, HeaderIconButton, MenuButton } from '@/components/ui/buttons';
+import { BackButton, Button, HeaderIconButton, MenuButton } from '@/components/ui/buttons';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { useNavigationChrome } from '@/features/navigation/navigation-chrome-provider';
 import {
@@ -220,6 +220,7 @@ function EmptyPanel({ children }: { children: string }) {
         className="text-center mt-[5px] font-medium">
         Über den Plus-Button kannst du jederzeit ein neues Rezept anlegen.
       </ThemedText>
+      <Button label="Rezept hinzufügen" onPress={() => {}} />
     </View>
   );
 }

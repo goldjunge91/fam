@@ -7,6 +7,8 @@ import { FoodSearchScreen } from '@/features/calorie-tracking/food-search-screen
 const mockUseLocalFoodUsage = jest.fn();
 const mockSearchOpenFoodFacts = jest.fn();
 const mockFetchProductByBarcode = jest.fn();
+const mockSearchOffDump = jest.fn();
+const mockFetchProductByBarcodeFromDump = jest.fn();
 
 jest.mock('expo-router', () => ({
   router: { push: jest.fn(), back: jest.fn(), canGoBack: () => false },
@@ -24,6 +26,16 @@ jest.mock('@/features/auth/session-provider', () => ({
 jest.mock('@/features/calorie-tracking/use-local-food-usage', () => ({
   useLocalFoodUsage: (...args: unknown[]) => mockUseLocalFoodUsage(...args),
 }));
+
+jest.mock('@/lib/off-dump/off-dump', () => {
+  const actual = jest.requireActual('@/lib/off-dump/off-dump');
+  return {
+    ...actual,
+    searchOffDump: (...args: unknown[]) => mockSearchOffDump(...args),
+    fetchProductByBarcodeFromDump: (...args: unknown[]) =>
+      mockFetchProductByBarcodeFromDump(...args),
+  };
+});
 
 jest.mock('@/lib/open-food-facts', () => {
   const actual = jest.requireActual('@/lib/open-food-facts');
@@ -98,6 +110,10 @@ beforeEach(() => {
   });
   mockFetchProductByBarcode.mockReset();
   mockFetchProductByBarcode.mockResolvedValue(null);
+  mockSearchOffDump.mockReset();
+  mockSearchOffDump.mockResolvedValue({ products: [], hasMore: false });
+  mockFetchProductByBarcodeFromDump.mockReset();
+  mockFetchProductByBarcodeFromDump.mockResolvedValue(null);
   (router.push as jest.Mock).mockClear();
 });
 
@@ -111,7 +127,8 @@ describe('FoodSearchScreen', () => {
   it('wechselt zu "Haeufig" und zeigt Apfel (2x geloggt) zuerst', async () => {
     const user = userEvent.setup();
     await renderScreen();
-    await user.press(screen.getByText('Häufig'));
+    await user.press(screen.getByLabelText('Verlaufsfilter'));
+    await user.press(screen.getByText(/Häufig/));
     const names = screen.getAllByText(/Apfel|Banane/).map((node) => node.props.children);
     expect(names[0]).toBe('Apfel');
   });
@@ -246,5 +263,43 @@ describe('FoodSearchScreen', () => {
         params: expect.objectContaining({ name: 'Banane', kcal: '89', quantity: '100', unit: 'g' }),
       }),
     );
+  });
+
+  it('zeigt lokale Dump-Ergebnisse sofort an und unterdrückt Fehlermeldung bei 503 der Online-API', async () => {
+    mockSearchOffDump.mockResolvedValueOnce({
+      products: [
+        { barcode: '789', name: 'Haferkleie Bio', brand: 'Alnatura', caloriesPer100g: 350 },
+      ],
+      hasMore: false,
+    });
+    mockSearchOpenFoodFacts.mockResolvedValueOnce({ products: [], hasMore: false, failed: true });
+
+    jest.useFakeTimers();
+    await renderScreen();
+    fireEvent.changeText(screen.getByPlaceholderText('Wonach suchst du?'), 'hafer');
+    await jest.advanceTimersByTimeAsync(800);
+
+    expect(screen.getByText('Haferkleie Bio')).toBeTruthy();
+    expect(screen.queryByText(/Open Food Facts ist gerade nicht erreichbar/)).toBeNull();
+
+    jest.useRealTimers();
+  });
+
+  it('findet Barcodes direkt im lokalen Offline-Dump', async () => {
+    mockFetchProductByBarcodeFromDump.mockResolvedValueOnce({
+      barcode: '4008400404127',
+      name: 'Kinder Riegel',
+      caloriesPer100g: 566,
+    });
+
+    jest.useFakeTimers();
+    await renderScreen();
+    fireEvent.changeText(screen.getByPlaceholderText('Wonach suchst du?'), '4008400404127');
+    await jest.advanceTimersByTimeAsync(800);
+
+    expect(screen.getByText('Kinder Riegel')).toBeTruthy();
+    expect(mockFetchProductByBarcode).not.toHaveBeenCalled();
+
+    jest.useRealTimers();
   });
 });

@@ -12,7 +12,7 @@ import { ThemedText } from '@/components/theme/themed-text';
 import { ThemedView } from '@/components/theme/themed-view';
 import { Button, HeaderIconButton } from '@/components/ui/buttons';
 import { FilterChipBar } from '@/components/ui/filter-chip-bar';
-import { InlineSelect } from '@/components/ui/inline-select';
+import { type ItemSource, ItemSourceFilterRow } from '@/components/ui/item-source-filter';
 import { QuantityStepper } from '@/components/ui/quantity-stepper';
 import { useSession } from '@/features/auth/session-provider';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
@@ -71,14 +71,6 @@ function quickDateOffset(key: QuickDateKey): string {
       return '';
   }
 }
-
-/**
- * Quelle des gesuchten Eintrags. "Gerichte" (Rezepte als Vorrats-Eintrag)
- * ist im Dropdown sichtbar, aber bewusst deaktiviert — der Datenbezug
- * (nur Name uebernehmen vs. echte Rezept-Verknuepfung) ist noch offen,
- * s. Migrations-/Redesign-Absprache. Nicht ohne Rueckfrage aktivieren.
- */
-type ItemSource = 'food' | 'dish';
 
 /**
  * Artikel-hinzufuegen fuer Vorrat, im selben Bottom-Sheet-Stil wie
@@ -250,43 +242,14 @@ export function AddItemScreen() {
             }
           />
 
-          <View className="flex-row gap-two">
-            <InlineSelect
-              value={source}
-              accessibilityLabel="Quelle: Lebensmittel oder Gerichte"
-              options={[
-                { value: 'food', label: 'Lebensmittel', icon: '🥕' },
-                {
-                  value: 'dish',
-                  label: 'Gerichte',
-                  icon: '🍽️',
-                  disabled: true,
-                  disabledHint: 'bald',
-                },
-              ]}
-              onChange={(next) => {
-                if (next === 'food' || next === 'dish') setSource(next);
-              }}
-            />
-            <InlineSelect
-              value={suggestionMode}
-              accessibilityLabel="Vorschlagsfilter"
-              options={[
-                { value: 'frequent', label: 'Häufig', icon: '🕘' },
-                { value: 'recent', label: 'Zuletzt', icon: '🔁' },
-                {
-                  value: 'favorites',
-                  label: 'Favoriten',
-                  icon: '⭐',
-                  disabled: true,
-                  disabledHint: 'bald',
-                },
-              ]}
-              onChange={(next) => {
-                if (next === 'frequent' || next === 'recent') setSuggestionMode(next);
-              }}
-            />
-          </View>
+          <ItemSourceFilterRow
+            source={source}
+            onSourceChange={setSource}
+            sourceAccessibilityLabel="Quelle: Lebensmittel oder Gerichte"
+            suggestionFilter={suggestionMode}
+            onSuggestionFilterChange={setSuggestionMode}
+            suggestionAccessibilityLabel="Vorschlagsfilter"
+          />
 
           <FrequentProductsQuickSelect
             feature="fridge"

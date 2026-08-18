@@ -4,7 +4,7 @@ import { ActivityIndicator, FlatList, Image, Pressable, View } from 'react-nativ
 import { TextField } from '@/components/forms/text-field';
 import { Screen } from '@/components/layout/screen';
 import { ThemedText } from '@/components/theme/themed-text';
-import { SegmentedControl } from '@/components/ui/segmented-control';
+import { type ItemSource, ItemSourceFilterRow } from '@/components/ui/item-source-filter';
 import { useSession } from '@/features/auth/session-provider';
 import type { MealType } from '@/features/calorie-tracking/api';
 import {
@@ -15,6 +15,11 @@ import {
 import { useLocalFoodUsage } from '@/features/calorie-tracking/use-local-food-usage';
 import { BarcodeScannerModal } from '@/features/inventory/barcode-scanner-modal';
 import { useTheme } from '@/hooks/use-theme';
+import {
+  dedupeProductsByBarcode,
+  fetchProductByBarcodeFromDump,
+  searchOffDump,
+} from '@/lib/off-dump/off-dump';
 import {
   fetchProductByBarcode,
   isLikelyBarcode,
@@ -60,6 +65,7 @@ export function FoodSearchScreen() {
   const [searchFailed, setSearchFailed] = useState(false);
   const [loadingMore, setLoadingMore] = useState(false);
   const [historyTab, setHistoryTab] = useState<HistoryTab>('recent');
+  const [source, setSource] = useState<ItemSource>('food');
   const [showScanner, setShowScanner] = useState(false);
 
   // Schuetzt vor veralteten "naechste Seite"-Antworten, wenn die Suche sich
@@ -73,21 +79,29 @@ export function FoodSearchScreen() {
   );
 
   /**
-   * Abgetippter Barcode statt Produktname: exakter Lookup statt unscharfer
-   * Textsuche — deckt den Fall ab, fuer den es vorher ein separates
-   * manuelles Eingabefeld im Scanner-Modal gab.
+   * Zuerst lokaler SQLite-Dump (off_dump.products) für sofortige Offline-Ergebnisse,
+   * parallel/anschließend Ergänzung über die Open Food Facts API.
    *
-   * `failed` (siehe `OpenFoodFactsSearchResult`) haelt "keine Treffer" von
-   * "Open Food Facts kurz nicht erreichbar" auseinander — deren Such-
-   * Endpunkte antworten aktuell auffaellig oft mit einem 503, auch bei
-   * identischen Anfragen kurz hintereinander. Ohne die Unterscheidung sieht
-   * ein Nutzer bei "hafer" oder "toma" faelschlich "keine Treffer".
+   * Bei abgetipptem Barcode: exakter Lookup im lokalen Dump vor dem Netz-Lookup.
+   *
+   * `searchFailed` wird nur aktiv, wenn WEDER lokale noch Online-Treffer
+   * vorhanden sind UND die Online-Anfrage fehlschlug. Liegen lokale Treffer
+   * vor, sieht der Nutzer diese sofort ohne störendes Fehlerbanner.
    */
   async function runSearch(trimmedQuery: string, signal: AbortSignal) {
     setSearching(true);
     setSearchFailed(false);
 
     if (isLikelyBarcode(trimmedQuery)) {
+      const localProduct = await fetchProductByBarcodeFromDump(trimmedQuery);
+      if (localProduct && !signal.aborted) {
+        setResults([localProduct]);
+        setHasMore(false);
+        setPage(1);
+        setSearching(false);
+        return;
+      }
+
       const product = await fetchProductByBarcode(trimmedQuery, signal);
       if (!signal.aborted) {
         setResults(product ? [product] : []);
@@ -98,15 +112,22 @@ export function FoodSearchScreen() {
       return;
     }
 
+    const localResult = await searchOffDump(trimmedQuery, { limit: PAGE_SIZE });
+    if (!signal.aborted && localResult.products.length > 0) {
+      setResults(localResult.products);
+      setHasMore(localResult.hasMore);
+    }
+
     const result = await searchOpenFoodFacts(trimmedQuery, {
       page: 1,
       pageSize: PAGE_SIZE,
       signal,
     });
     if (!signal.aborted) {
-      setResults(result.products);
-      setHasMore(result.hasMore);
-      setSearchFailed(result.failed);
+      const merged = dedupeProductsByBarcode([...localResult.products, ...result.products]);
+      setResults(merged);
+      setHasMore(localResult.hasMore || result.hasMore);
+      setSearchFailed(result.failed && merged.length === 0);
       setPage(1);
       setSearching(false);
     }
@@ -154,11 +175,18 @@ export function FoodSearchScreen() {
     if (!hasMore || loadingMore || searching) return;
     const currentQuery = query;
     const nextPage = page + 1;
+    const offset = page * PAGE_SIZE;
     setLoadingMore(true);
-    const result = await searchOpenFoodFacts(currentQuery, { page: nextPage, pageSize: PAGE_SIZE });
+
+    const [localResult, remoteResult] = await Promise.all([
+      searchOffDump(currentQuery, { offset, limit: PAGE_SIZE }),
+      searchOpenFoodFacts(currentQuery, { page: nextPage, pageSize: PAGE_SIZE }),
+    ]);
+
     if (queryRef.current === currentQuery) {
-      setResults((prev) => [...prev, ...result.products]);
-      setHasMore(result.hasMore);
+      const newItems = dedupeProductsByBarcode([...localResult.products, ...remoteResult.products]);
+      setResults((prev) => dedupeProductsByBarcode([...prev, ...newItems]));
+      setHasMore(localResult.hasMore || remoteResult.hasMore);
       setPage(nextPage);
     }
     setLoadingMore(false);
@@ -220,14 +248,13 @@ export function FoodSearchScreen() {
         </View>
 
         {!isSearchMode ? (
-          <SegmentedControl
-            label="Verlauf"
-            options={[
-              { value: 'recent', label: 'Zuletzt' },
-              { value: 'frequent', label: 'Häufig' },
-            ]}
-            selected={historyTab}
-            onSelect={setHistoryTab}
+          <ItemSourceFilterRow
+            source={source}
+            onSourceChange={setSource}
+            sourceAccessibilityLabel="Quelle: Lebensmittel oder Gerichte"
+            suggestionFilter={historyTab}
+            onSuggestionFilterChange={setHistoryTab}
+            suggestionAccessibilityLabel="Verlaufsfilter"
           />
         ) : null}
       </View>

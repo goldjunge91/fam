@@ -16,12 +16,8 @@ import { TextField } from '@/components/forms/text-field';
 import { ThemedText } from '@/components/theme/themed-text';
 import { useTheme } from '@/hooks/use-theme';
 import { getDatabase } from '@/lib/db/client';
-import { isOffDumpAttached } from '@/lib/off-dump/off-dump';
-import {
-  type OpenFoodFactsProduct,
-  parseQuantityAndUnit,
-  searchOpenFoodFacts,
-} from '@/lib/open-food-facts';
+import { dedupeProductsByBarcode, searchOffDump } from '@/lib/off-dump/off-dump';
+import { type OpenFoodFactsProduct, searchOpenFoodFacts } from '@/lib/open-food-facts';
 
 /** Unter dieser Zahl lokaler Treffer lohnt sich der zusaetzliche OFF-Request noch. */
 const LOCAL_RESULT_THRESHOLD = 5;
@@ -74,88 +70,6 @@ async function searchOwnProducts(query: string): Promise<OpenFoodFactsProduct[]>
   return rows.map(toOpenFoodFactsProduct);
 }
 
-type OffDumpProductRow = {
-  code: string | null;
-  product_name: string;
-  brand: string | null;
-  quantity: string | null;
-  nutriscore: string | null;
-  energy_kcal: number | null;
-  fat: number | null;
-  saturated_fat: number | null;
-  carbohydrates: number | null;
-  sugars: number | null;
-  proteins: number | null;
-  salt: number | null;
-};
-
-function toOpenFoodFactsProductFromDump(row: OffDumpProductRow): OpenFoodFactsProduct {
-  const { quantity, unit } = parseQuantityAndUnit(row.quantity ?? undefined);
-  return {
-    barcode: row.code ?? '',
-    name: row.product_name,
-    brand: row.brand ?? undefined,
-    quantity,
-    unit,
-    caloriesPer100g: row.energy_kcal ?? undefined,
-    proteinsPer100g: row.proteins ?? undefined,
-    carbsPer100g: row.carbohydrates ?? undefined,
-    fatPer100g: row.fat ?? undefined,
-    sugarsPer100g: row.sugars ?? undefined,
-    saturatedFatPer100g: row.saturated_fat ?? undefined,
-    saltPer100g: row.salt ?? undefined,
-    nutriScore: (row.nutriscore || undefined) as OpenFoodFactsProduct['nutriScore'],
-  };
-}
-
-type OffDumpSearchResult = { products: OpenFoodFactsProduct[]; hasMore: boolean };
-
-/**
- * Suche gegen den angehaengten OpenFoodFacts-Dump (#79 + Dump-CI-Workflow,
- * `off-dump.ts`). Laeuft still ins Leere, solange der Dump noch nicht
- * heruntergeladen/angehaengt ist (`no such table: off_dump.products`) — das
- * ist beim App-Start fuer einen Moment der Normalfall, kein Fehler, den die
- * Suche dem Nutzer zeigen muesste.
- *
- * Anders als der gepflegte `products`-Spiegel ist der Dump ein Abzug der
- * kompletten OFF-Datenbank — ein Begriff wie "Milch" hat hier genauso
- * hunderte Treffer wie bei der Netz-Suche, deshalb paginiert (`offset`)
- * statt eines harten Limits.
- */
-async function searchOffDump(query: string, offset = 0): Promise<OffDumpSearchResult> {
-  if (!isOffDumpAttached()) return { products: [], hasMore: false };
-
-  try {
-    const db = await getDatabase();
-    const rows = await db.getAllAsync<OffDumpProductRow>(
-      `select code, product_name, brand, quantity, nutriscore, energy_kcal, fat, saturated_fat, carbohydrates, sugars, proteins, salt
-       from off_dump.products
-       where lower(product_name) like ?
-       order by product_name
-       limit ? offset ?`,
-      [`%${query.trim().toLowerCase()}%`, OFF_PAGE_SIZE, offset],
-    );
-    return {
-      products: rows.map(toOpenFoodFactsProductFromDump),
-      hasMore: rows.length === OFF_PAGE_SIZE,
-    };
-  } catch {
-    return { products: [], hasMore: false };
-  }
-}
-
-/** Barcode-Dedupe ueber mehrere Quellen — Produkte ohne Barcode gelten als eindeutig. */
-function dedupeByBarcode(products: OpenFoodFactsProduct[]): OpenFoodFactsProduct[] {
-  const seen = new Set<string>();
-  const result: OpenFoodFactsProduct[] = [];
-  for (const product of products) {
-    if (product.barcode && seen.has(product.barcode)) continue;
-    if (product.barcode) seen.add(product.barcode);
-    result.push(product);
-  }
-  return result;
-}
-
 /**
  * Lokale Suche insgesamt: erst der eigene, gepflegte `products`-Spiegel,
  * dann — falls das noch nicht reicht — die erste Seite des grossen
@@ -171,8 +85,13 @@ async function searchLocalProducts(
     return { results: ownResults, dumpHasMore: false };
   }
 
-  const { products: dumpResults, hasMore } = await searchOffDump(query);
-  return { results: dedupeByBarcode([...ownResults, ...dumpResults]), dumpHasMore: hasMore };
+  const { products: dumpResults, hasMore } = await searchOffDump(query, {
+    limit: OFF_PAGE_SIZE,
+  });
+  return {
+    results: dedupeProductsByBarcode([...ownResults, ...dumpResults]),
+    dumpHasMore: hasMore,
+  };
 }
 
 interface ProductSearchDropdownProps {
@@ -315,9 +234,12 @@ export const ProductSearchDropdown = forwardRef<
     if (dumpHasMore) {
       const nextOffset = dumpOffset + OFF_PAGE_SIZE;
       setLoadingMoreOff(true);
-      const { products: dumpResults, hasMore } = await searchOffDump(currentQuery, nextOffset);
+      const { products: dumpResults, hasMore } = await searchOffDump(currentQuery, {
+        offset: nextOffset,
+        limit: OFF_PAGE_SIZE,
+      });
       if (queryRef.current === currentQuery) {
-        setSuggestions((prev) => dedupeByBarcode([...prev, ...dumpResults]));
+        setSuggestions((prev) => dedupeProductsByBarcode([...prev, ...dumpResults]));
         setDumpHasMore(hasMore);
         setDumpOffset(nextOffset);
       }
@@ -335,7 +257,7 @@ export const ProductSearchDropdown = forwardRef<
     });
 
     if (queryRef.current === currentQuery) {
-      setSuggestions((prev) => dedupeByBarcode([...prev, ...offResults]));
+      setSuggestions((prev) => dedupeProductsByBarcode([...prev, ...offResults]));
       setOffHasMore(hasMore);
       setOffPage(nextPage);
     }

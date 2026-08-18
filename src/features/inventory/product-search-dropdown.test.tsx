@@ -42,6 +42,7 @@ jest.mock('@/lib/db/client', () => ({
 let mockOffDumpAttached = false;
 
 jest.mock('@/lib/off-dump/off-dump', () => ({
+  ...jest.requireActual('@/lib/off-dump/off-dump'),
   isOffDumpAttached: () => mockOffDumpAttached,
 }));
 
