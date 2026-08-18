@@ -12,6 +12,7 @@ import { useSession } from '@/features/auth/session-provider';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { useNavigationChrome } from '@/features/navigation/navigation-chrome-provider';
 import { useProfileInitials } from '@/features/navigation/use-profile-initials';
+import { useHubGradient } from '@/hooks/use-hub-gradient';
 import { useTheme } from '@/hooks/use-theme';
 import { CompleteRunSheet, type TransferItem } from './complete-run-sheet';
 import { AddItemModal } from './components/add-item-modal';
@@ -46,6 +47,7 @@ export function ShoppingListScreen() {
   const [editingItem, setEditingItem] = useState<LocalShoppingItem | null>(null);
   const [storeFilter, setStoreFilter] = useState<string>(ALL_FILTER);
   const theme = useTheme();
+  const hubGradient = useHubGradient();
   const scrollRef = useRef<ScrollView>(null);
   const sectionListRef =
     useRef<SectionList<LocalShoppingItem, { title: string; data: LocalShoppingItem[] }>>(null);
@@ -212,7 +214,7 @@ export function ShoppingListScreen() {
   };
 
   return (
-    <Screen title="Einkaufsliste" scroll={false} chrome={chrome}>
+    <Screen title="Einkaufsliste" scroll={false} chrome={chrome} backgroundGradient={hubGradient}>
       {isLoading ? null : allItems.length === 0 ? (
         <ScrollView
           className="flex-1"
