@@ -1,6 +1,7 @@
 import { Pressable, View } from 'react-native';
 import { ThemedText } from '@/components/theme/themed-text';
 import { ProgressBar } from '@/components/ui/progress-bar';
+import { useTheme } from '@/hooks/use-theme';
 import { formatEuro } from '@/lib/format-currency';
 
 interface StoreSummaryCardProps {
@@ -16,6 +17,10 @@ interface StoreSummaryCardProps {
  * Karte fuer die "Alle Listen"-Uebersicht: farbiger linker Streifen, Name,
  * Fortschritt und geschaetzte Summe (#150, Figma "02.01 · Einkauf —
  * Märkte"). `onPress` wechselt in die Detailansicht des Marktes.
+ *
+ * Der Fortschrittsbalken laeuft bewusst immer in Accent-Mauve statt in der
+ * Marktfarbe — sonst wirkt jede Karte wie ein eigenes Farbschema. Die
+ * Marktfarbe bleibt als schmaler Streifen die einzige Wiedererkennung.
  */
 export function StoreSummaryCard({
   name,
@@ -25,6 +30,7 @@ export function StoreSummaryCard({
   totalEstimate,
   onPress,
 }: StoreSummaryCardProps) {
+  const theme = useTheme();
   const progress = totalCount > 0 ? checkedCount / totalCount : 0;
 
   return (
@@ -42,7 +48,7 @@ export function StoreSummaryCard({
           {checkedCount} von {totalCount} Artikeln erledigt
         </ThemedText>
         <View className="mt-[5px]">
-          <ProgressBar value={progress} color={color} />
+          <ProgressBar value={progress} color={theme.accent} />
         </View>
       </View>
 

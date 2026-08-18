@@ -27,8 +27,6 @@ import { groupByCategory, type LocalShoppingItem, useShoppingList } from './use-
 import { useDeleteShoppingItem, useToggleShoppingItem } from './use-shopping-list-mutations';
 import { useStores } from './use-stores';
 
-const UNASSIGNED_COLOR = '#8E8E93';
-
 /**
  * Gemeinsame Einkaufsliste (#85/#86), markt-gruppiert.
  *
@@ -175,7 +173,7 @@ export function ShoppingListScreen() {
   }
 
   const completeActionColor = isUnassignedFilter
-    ? UNASSIGNED_COLOR
+    ? theme.textSecondary
     : (activeStore?.color ?? theme.danger);
 
   const completeActionLabel = activeStore
@@ -194,7 +192,7 @@ export function ShoppingListScreen() {
         unassignedCount={unassignedItems.length}
         countForStore={(storeId) => allItems.filter((i) => i.store_id === storeId).length}
       />
-      <Button label="+ Artikel hinzufügen" onPress={() => setAddModalOpen(true)} />
+      <Button size="compact" label="+ Artikel hinzufügen" onPress={() => setAddModalOpen(true)} />
     </View>
   );
 
@@ -203,7 +201,7 @@ export function ShoppingListScreen() {
     return (
       <View className="mt-two">
         <Button
-          size="large"
+          size="compact"
           label={`🛒 ${completeActionLabel} (${checkedItems.length})`}
           onPress={() => setSheetOpen(true)}
           accessibilityLabel={`${completeActionLabel}, ${checkedItems.length} Artikel abgehakt`}
@@ -255,7 +253,7 @@ export function ShoppingListScreen() {
             {unassignedItems.length > 0 && (
               <StoreSummaryCard
                 name="Ohne Markt"
-                color={UNASSIGNED_COLOR}
+                color={theme.textSecondary}
                 totalCount={unassignedItems.length}
                 checkedCount={unassignedItems.filter((i) => i.checked_at !== null).length}
                 totalEstimate={unassignedItems.reduce((sum, i) => sum + (i.price_estimate ?? 0), 0)}

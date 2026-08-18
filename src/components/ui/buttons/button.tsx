@@ -14,7 +14,10 @@ type ButtonProps = {
   label: string;
   onPress: () => void;
   variant?: 'primary' | 'secondary' | 'danger' | 'link';
-  size?: 'default' | 'large';
+  /** `compact` verkleinert nur das Innenpolster (py-two px-three statt
+   * py-three px-four) — fuer Buttons in dichten Zeilen/Leisten, die nicht
+   * die volle Formular-Groesse brauchen. */
+  size?: 'default' | 'large' | 'compact';
   accessibilityLabel?: string;
   backgroundColor?: ColorValue;
   style?: StyleProp<ViewStyle>;
@@ -61,7 +64,7 @@ export function Button({
       accessibilityRole="button"
       accessibilityLabel={accessibilityLabel ?? label}
       accessibilityState={{ disabled: isBlocked, busy: loading }}
-      className={`${variantClass} ${isBlocked ? 'opacity-50' : ''} ${className}`.trim()}
+      className={`${variantClass} ${size === 'compact' ? '!py-two !px-three' : ''} ${isBlocked ? 'opacity-50' : ''} ${className}`.trim()}
       style={backgroundColor ? [{ backgroundColor }, style] : style}>
       <View className="flex-row items-center gap-two">
         {loading ? <ActivityIndicator size="small" color={foreground} /> : null}

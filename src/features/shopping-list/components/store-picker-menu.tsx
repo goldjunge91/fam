@@ -9,15 +9,16 @@ import type { Store } from '../use-stores';
 export const ALL_FILTER = 'all';
 export const UNASSIGNED_FILTER = 'unassigned';
 
-// Gleiche Vertikal-/Horizontal-Skala wie `.btn-primary` (py-three px-four),
-// damit der Button neben "+ Artikel hinzufügen" dieselbe Hoehe hat.
+// Gleiche Vertikal-/Horizontal-Skala wie der kompakte "+ Artikel
+// hinzufügen"-Button (size="compact" -> py-two px-three), damit beide
+// Buttons in der Kopfzeile dieselbe Hoehe haben.
 const GLASS_STYLE = {
   borderRadius: 999,
   flexDirection: 'row' as const,
   alignItems: 'center' as const,
   gap: 8,
-  paddingHorizontal: 24,
-  paddingVertical: 16,
+  paddingHorizontal: 16,
+  paddingVertical: 8,
 };
 
 type Anchor = { x: number; y: number; height: number };
