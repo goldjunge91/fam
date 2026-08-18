@@ -7,11 +7,7 @@ import '@/global.css';
 
 import { Platform } from 'react-native';
 
-// Figma-Design-System "fam" (Mobile Design Library, August 2026):
-// https://www.figma.com/design/6RkH2npU7OF3B62Fa9SvoY/fam-–-App-Mockup
-// Warme, gedeckte Mauve-/Creme-Palette statt des frueheren Blau/Weiss-Themes.
-// Dark Mode ist im Figma-File nicht ausgefuehrt — die Werte hier fuehren
-// dieselben Farbtoene auf einem dunklen Hintergrund weiter.
+// Warme, gedeckte Mauve-/Creme-Palette
 export const Colors = {
   light: {
     text: '#2D2830', // fam/color/text-primary
