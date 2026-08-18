@@ -1,9 +1,7 @@
 import { Modal, Pressable, StyleSheet, View } from 'react-native';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { QuantityStepper } from '@/components/quantity-stepper';
 import { ThemedText } from '@/components/themed-text';
-import { Spacing } from '@/constants/layout';
-import { withAlpha } from '@/constants/theme';
+import { useSheetShadowStyle } from '@/hooks/use-sheet-shadow-style';
 import { useTheme } from '@/hooks/use-theme';
 import { formatAmount, formatPackageHint } from '@/lib/package-size';
 
@@ -32,7 +30,7 @@ export function InventoryItemActionsSheet({
   onProductInformation,
 }: InventoryItemActionsSheetProps) {
   const theme = useTheme();
-  const insets = useSafeAreaInsets();
+  const sheetStyle = useSheetShadowStyle();
 
   if (!item) return null;
 
@@ -49,15 +47,7 @@ export function InventoryItemActionsSheet({
           accessibilityRole="button"
           accessibilityLabel="Artikelaktionen schließen"
         />
-        <View
-          className="fridge-actions-sheet"
-          // paddingBottom (Safe-Area-Insets), boxShadow (dynamische
-          // Opazitaet) und borderCurve sind echte Laufzeit-/Sonderwerte.
-          style={{
-            paddingBottom: Math.max(insets.bottom, Spacing.three),
-            boxShadow: `0 -16px 48px ${withAlpha(theme.shadowSheet, 0.2)}`,
-            borderCurve: 'continuous',
-          }}>
+        <View className="fridge-actions-sheet" style={sheetStyle}>
           <View className="fridge-actions-handle" />
 
           <View className="fridge-actions-item-header">

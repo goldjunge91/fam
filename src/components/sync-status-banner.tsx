@@ -1,3 +1,4 @@
+import { createContext, type ReactNode, useContext } from 'react';
 import { Pressable, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
@@ -6,6 +7,36 @@ import { useSyncStatus } from '@/hooks/use-sync-status';
 import { getDatabase } from '@/lib/db/client';
 import { retryFailedOutboxEntries } from '@/lib/db/outbox-retry';
 import type { SqlDatabase } from '@/lib/db/types';
+
+/**
+ * Ob das Banner gerade sichtbar ist und die obere Safe Area selbst schon
+ * konsumiert (Statusleiste eingefaerbt). Screens lesen das, um ihre eigene
+ * `top`-Safe-Area nicht ein zweites Mal draufzuschlagen — sonst haetten sie
+ * bei Offline-/Sync-/Fehlerzustand einen doppelt so hohen Abstand nach oben.
+ * Default `false`, damit Konsumenten ausserhalb von `AppShell` (Tests,
+ * (auth)/(onboarding) ohne Banner) unveraendert bleiben.
+ */
+const BannerVisibleContext = createContext(false);
+
+export function useSyncBannerVisible(): boolean {
+  return useContext(BannerVisibleContext);
+}
+
+/** Umschliesst `SyncStatusBanner` und den Screen-Stack in `AppShell`. */
+export function SyncBannerVisibilityProvider({
+  getDb = getDatabase,
+  children,
+}: {
+  getDb?: () => Promise<SqlDatabase>;
+  children: ReactNode;
+}) {
+  const status = useSyncStatus(getDb);
+  return (
+    <BannerVisibleContext.Provider value={status.kind !== 'hidden'}>
+      {children}
+    </BannerVisibleContext.Provider>
+  );
+}
 
 export type SyncStatusBannerProps = {
   /**

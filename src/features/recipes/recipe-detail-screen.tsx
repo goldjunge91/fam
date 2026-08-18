@@ -2,10 +2,10 @@ import { Image } from 'expo-image';
 import { router, useLocalSearchParams } from 'expo-router';
 import { useMemo, useState } from 'react';
 import { Alert, Modal, Pressable, ScrollView, Share, View } from 'react-native';
-import Svg, { Circle, Defs, LinearGradient, Rect, Stop } from 'react-native-svg';
 import { HubScreen } from '@/components/hub-screen';
 import { ThemedText } from '@/components/themed-text';
 import { BackButton, HeaderIconButton } from '@/components/ui/buttons';
+import { HeartGlyph, HeroArtwork } from './components/recipe-detail-primitives';
 import { RecipeRatingSheet } from './components/recipe-rating-sheet';
 import { RecipeShoppingSheet } from './components/recipe-shopping-sheet';
 import { calculateServingNutrition, scaleServing } from './nutrition';
@@ -13,49 +13,19 @@ import { useRecipeFavorites } from './recipe-favorites';
 import { useRecipeCoverUrl, useRecipeStepImageUrl } from './recipe-image-uploader';
 import { useRecipeRating } from './recipe-ratings';
 import {
-  type DishType,
   type RecipeDetail,
   type RecipeStep,
   useDeleteRecipeMutation,
   useRecipeDetail,
 } from './use-recipes';
-
-const DIFFICULTY_LABELS: Record<string, string> = {
-  easy: 'Einfach',
-  medium: 'Mittel',
-  hard: 'Anspruchsvoll',
-};
-
-const DISH_TYPE_LABELS: Record<DishType, string> = {
-  breakfast: 'Frühstück',
-  lunch: 'Mittag',
-  dinner: 'Abend',
-  snack: 'Snack',
-  dessert: 'Dessert',
-  appetizer: 'Vorspeise',
-  brunch: 'Brunch',
-};
-
-const DIETARY_TAG_LABELS: Record<string, string> = {
-  vegetarian: 'Vegetarisch',
-  vegan: 'Vegan',
-  high_fat: 'Fettreich',
-  low_fat: 'Fettarm',
-  lactose_free: 'Laktosefrei',
-  sugar_free: 'Zuckerfrei',
-  gluten_free: 'Glutenfrei',
-};
+import {
+  DIETARY_TAG_LABELS,
+  DIFFICULTY_LABELS,
+  DISH_TYPE_LABELS,
+} from './wizard/recipe-metadata-options';
 
 function round(value: number): number {
   return Math.round(value);
-}
-
-function HeartGlyph({ filled }: { filled: boolean }) {
-  return (
-    <ThemedText themeColor="accent" className="text-[24px] leading-[27px] font-medium">
-      {filled ? '♥' : '♡'}
-    </ThemedText>
-  );
 }
 
 function MoreGlyph() {
@@ -63,35 +33,6 @@ function MoreGlyph() {
     <ThemedText className="text-[13px] leading-[16px] font-extrabold tracking-widest">
       •••
     </ThemedText>
-  );
-}
-
-function HeroArtwork({ coverUrl, title }: { coverUrl?: string | null; title: string }) {
-  if (coverUrl) {
-    return (
-      <Image
-        source={{ uri: coverUrl }}
-        // expo-image benötigt absoluteFill inline
-        style={{ position: 'absolute', top: 0, right: 0, bottom: 0, left: 0 }}
-        contentFit="cover"
-        accessibilityLabel={`Bild von ${title}`}
-      />
-    );
-  }
-
-  return (
-    <Svg width="100%" height="100%" accessibilityLabel={`Illustration für ${title}`}>
-      <Defs>
-        <LinearGradient id="recipe-detail-cover" x1="0%" y1="0%" x2="100%" y2="100%">
-          <Stop offset="0%" stopColor="#D3A06F" />
-          <Stop offset="58%" stopColor="#8A696C" />
-          <Stop offset="100%" stopColor="#574458" />
-        </LinearGradient>
-      </Defs>
-      <Rect width="100%" height="100%" fill="url(#recipe-detail-cover)" />
-      <Circle cx="78%" cy="16%" r="30%" fill="rgba(255,226,187,0.30)" />
-      <Circle cx="51%" cy="102%" r="31%" fill="rgba(101,150,111,0.30)" />
-    </Svg>
   );
 }
 

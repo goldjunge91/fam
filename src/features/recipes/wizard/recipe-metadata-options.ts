@@ -1,6 +1,11 @@
 import type { DietaryTag, Difficulty, DishType } from '@/features/recipes/use-recipes';
 
-/** Anzeige-Labels fuer Rezept-Metadaten, geteilt zwischen Seite 1 (Auswahl) und Seite 3 (Vorschau). */
+/**
+ * Anzeige-Labels fuer Rezept-Metadaten — einzige Quelle fuer Wizard-Auswahl,
+ * Rezeptliste sowie Rezept- und Vorlagendetail (#158). Vorher pflegten diese
+ * Ansichten eigene Kopien, die auseinanderlaufen konnten (z. B. "hard" mal als
+ * "Schwer", mal als "Anspruchsvoll").
+ */
 
 export const DIFFICULTIES: { value: Difficulty; label: string }[] = [
   { value: 'easy', label: 'Einfach' },
@@ -27,3 +32,16 @@ export const DIETARY_TAGS: { value: DietaryTag; label: string }[] = [
   { value: 'sugar_free', label: 'Zuckerfrei' },
   { value: 'gluten_free', label: 'Glutenfrei' },
 ];
+
+/** Nachschlag-Maps fuer Anzeigen, die nur das Label zu einem bekannten Wert brauchen. */
+export const DIFFICULTY_LABELS: Record<Difficulty, string> = Object.fromEntries(
+  DIFFICULTIES.map((item) => [item.value, item.label]),
+) as Record<Difficulty, string>;
+
+export const DISH_TYPE_LABELS: Record<DishType, string> = Object.fromEntries(
+  DISH_TYPES.map((item) => [item.value, item.label]),
+) as Record<DishType, string>;
+
+export const DIETARY_TAG_LABELS: Record<DietaryTag, string> = Object.fromEntries(
+  DIETARY_TAGS.map((item) => [item.value, item.label]),
+) as Record<DietaryTag, string>;

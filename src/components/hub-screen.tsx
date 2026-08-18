@@ -4,6 +4,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { GradientBackground } from '@/components/gradient-background';
 import { PageHeader } from '@/components/page-header';
+import { useSyncBannerVisible } from '@/components/sync-status-banner';
 import { useHubGradient } from '@/hooks/use-hub-gradient';
 
 type HubScreenProps = {
@@ -34,11 +35,16 @@ export function HubScreen({
   children,
 }: HubScreenProps) {
   const hubGradient = useHubGradient();
+  // Der Sync-Banner konsumiert die obere Safe Area selbst, solange er
+  // sichtbar ist (Offline/Sync/Fehler) — sonst wuerde der Statusleisten-
+  // Abstand doppelt eingerechnet.
+  const bannerVisible = useSyncBannerVisible();
+  const edges = bannerVisible ? (['left', 'right'] as const) : (['top', 'left', 'right'] as const);
 
   return (
     <View className={rootClassName}>
       <GradientBackground {...hubGradient} />
-      <SafeAreaView className={safeAreaClassName} edges={['top', 'left', 'right']}>
+      <SafeAreaView className={safeAreaClassName} edges={edges}>
         <PageHeader {...header} />
         {children}
       </SafeAreaView>

@@ -1,5 +1,8 @@
 import { Image } from 'expo-image';
 import { View } from 'react-native';
+import Svg, { Circle, Path } from 'react-native-svg';
+
+import { IconSize } from '@/constants/layout';
 
 const ICONS = {
   overview: require('@/assets/images/figma/nav-overview.svg'),
@@ -88,5 +91,22 @@ export function PlusIcon({ color }: { size?: number; color?: string }) {
         style={{ width: 2, height: 16, position: 'absolute' }}
       />
     </View>
+  );
+}
+
+export function SearchIcon({ size = IconSize.header, color }: { size?: number; color?: string }) {
+  return (
+    <Svg width={size} height={size} viewBox="0 0 24 24" fill="none">
+      <Circle cx={10.5} cy={10.5} r={6.5} stroke={color} strokeWidth={2} />
+      <Path d="m15.5 15.5 5 5" stroke={color} strokeWidth={2} strokeLinecap="round" />
+    </Svg>
+  );
+}
+
+export function FilterIcon({ size = IconSize.header, color }: { size?: number; color?: string }) {
+  return (
+    <Svg width={size} height={size} viewBox="0 0 24 24" fill="none">
+      <Path d="M4 7h16M7 12h10M10 17h4" stroke={color} strokeWidth={2} strokeLinecap="round" />
+    </Svg>
   );
 }

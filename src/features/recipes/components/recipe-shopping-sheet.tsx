@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { ActivityIndicator, Alert, Modal, Pressable, View } from 'react-native';
+import { ActivityIndicator, Alert, Pressable, View } from 'react-native';
 
 import { ThemedText } from '@/components/themed-text';
 import { presentPaywallIfNeeded } from '@/features/premium/paywall';
@@ -8,6 +8,7 @@ import { useAddShoppingItem } from '@/features/shopping-list/use-shopping-list-m
 import { useTheme } from '@/hooks/use-theme';
 import { type RecipeShoppingNeed, useRecipeShoppingNeeds } from '../use-recipe-shopping-needs';
 import type { RecipeDetail } from '../use-recipes';
+import { RecipeBottomSheet } from './recipe-bottom-sheet';
 
 type Props = {
   visible: boolean;
@@ -95,109 +96,87 @@ export function RecipeShoppingSheet({ visible, detail, servings, onClose }: Prop
   }
 
   return (
-    <Modal
+    <RecipeBottomSheet
       visible={visible}
-      transparent
-      statusBarTranslucent
-      animationType="slide"
-      onRequestClose={onClose}>
-      <Pressable className="flex-1 justify-end bg-[#261f27]/30" onPress={onClose}>
-        <Pressable className="recipe-shopping-sheet" onPress={(event) => event.stopPropagation()}>
-          <View className="modal-handle" />
-          <View className="min-h-[58px] pt-[13px] flex-row items-center justify-between gap-three">
-            <ThemedText type="headingSmall" className="flex-1">
-              {hasAccess ? 'Fehlende Zutaten' : 'Mit Premium einkaufen'}
-            </ThemedText>
-            <Pressable
-              onPress={onClose}
-              role="button"
-              aria-label="Schließen"
-              className="w-8 h-8 rounded-control items-center justify-center bg-background-selected">
-              <ThemedText themeColor="accent" className="text-[18px] leading-[20px] font-medium">
-                ×
-              </ThemedText>
-            </Pressable>
+      onClose={onClose}
+      title={hasAccess ? 'Fehlende Zutaten' : 'Mit Premium einkaufen'}
+      sheetClassName="max-h-[82%]">
+      {!hasAccess ? (
+        <>
+          <ThemedText
+            type="detail"
+            themeColor="textSecondary"
+            className="leading-[15px] font-medium">
+            fam vergleicht die Rezeptzutaten mit deinem Vorrat und übernimmt nur Fehlendes in die
+            Einkaufsliste.
+          </ThemedText>
+          <SheetButton label="Premium ansehen" loading={unlocking} onPress={unlockPremium} />
+        </>
+      ) : isLoading ? (
+        <ActivityIndicator className="h-[76px]" color={theme.accent} />
+      ) : missing.length === 0 ? (
+        <>
+          <ThemedText
+            type="detail"
+            themeColor="textSecondary"
+            className="leading-[15px] font-medium">
+            Dein Vorrat deckt alle Zutaten für {servings} {servings === 1 ? 'Portion' : 'Portionen'}{' '}
+            ab.
+          </ThemedText>
+          <SheetButton label="Schließen" onPress={onClose} />
+        </>
+      ) : (
+        <>
+          <ThemedText
+            type="detail"
+            themeColor="textSecondary"
+            className="leading-[15px] font-medium">
+            Bereits vorhandene Mengen wurden abgezogen. Wähle aus, was auf die Einkaufsliste soll.
+          </ThemedText>
+          <View className="mt-[14px] rounded-sheet overflow-hidden bg-background-selected">
+            {missing.map((item, index) => {
+              const checked = selected.has(item.productId);
+              return (
+                <Pressable
+                  key={item.productId}
+                  onPress={() => toggle(item.productId)}
+                  role="checkbox"
+                  accessibilityState={{ checked }}
+                  className={`min-h-[45px] px-three flex-row items-center gap-[10px] ${
+                    index < missing.length - 1 ? 'border-b-hairline border-border' : ''
+                  }`}>
+                  <View
+                    className={`w-[22px] h-[22px] rounded-fam-sm border-[1.5px] items-center justify-center border-accent ${
+                      checked ? 'bg-accent' : 'bg-transparent'
+                    }`}>
+                    {checked ? (
+                      <ThemedText className="text-white text-[12px] leading-[14px] font-bold">
+                        ✓
+                      </ThemedText>
+                    ) : null}
+                  </View>
+                  <ThemedText type="detail" className="flex-1 font-semibold" numberOfLines={1}>
+                    {item.name}
+                  </ThemedText>
+                  <ThemedText
+                    type="detail"
+                    themeColor="textSecondary"
+                    className="text-[9px] leading-[11px] font-medium">
+                    {item.missingGrams} g
+                  </ThemedText>
+                </Pressable>
+              );
+            })}
           </View>
-
-          {!hasAccess ? (
-            <>
-              <ThemedText
-                type="detail"
-                themeColor="textSecondary"
-                className="leading-[15px] font-medium">
-                fam vergleicht die Rezeptzutaten mit deinem Vorrat und übernimmt nur Fehlendes in
-                die Einkaufsliste.
-              </ThemedText>
-              <SheetButton label="Premium ansehen" loading={unlocking} onPress={unlockPremium} />
-            </>
-          ) : isLoading ? (
-            <ActivityIndicator className="h-[76px]" color={theme.accent} />
-          ) : missing.length === 0 ? (
-            <>
-              <ThemedText
-                type="detail"
-                themeColor="textSecondary"
-                className="leading-[15px] font-medium">
-                Dein Vorrat deckt alle Zutaten für {servings}{' '}
-                {servings === 1 ? 'Portion' : 'Portionen'} ab.
-              </ThemedText>
-              <SheetButton label="Schließen" onPress={onClose} />
-            </>
-          ) : (
-            <>
-              <ThemedText
-                type="detail"
-                themeColor="textSecondary"
-                className="leading-[15px] font-medium">
-                Bereits vorhandene Mengen wurden abgezogen. Wähle aus, was auf die Einkaufsliste
-                soll.
-              </ThemedText>
-              <View className="mt-[14px] rounded-sheet overflow-hidden bg-background-selected">
-                {missing.map((item, index) => {
-                  const checked = selected.has(item.productId);
-                  return (
-                    <Pressable
-                      key={item.productId}
-                      onPress={() => toggle(item.productId)}
-                      role="checkbox"
-                      accessibilityState={{ checked }}
-                      className={`min-h-[45px] px-three flex-row items-center gap-[10px] ${
-                        index < missing.length - 1 ? 'border-b-hairline border-border' : ''
-                      }`}>
-                      <View
-                        className={`w-[22px] h-[22px] rounded-fam-sm border-[1.5px] items-center justify-center border-accent ${
-                          checked ? 'bg-accent' : 'bg-transparent'
-                        }`}>
-                        {checked ? (
-                          <ThemedText className="text-white text-[12px] leading-[14px] font-bold">
-                            ✓
-                          </ThemedText>
-                        ) : null}
-                      </View>
-                      <ThemedText type="detail" className="flex-1 font-semibold" numberOfLines={1}>
-                        {item.name}
-                      </ThemedText>
-                      <ThemedText
-                        type="detail"
-                        themeColor="textSecondary"
-                        className="text-[9px] leading-[11px] font-medium">
-                        {item.missingGrams} g
-                      </ThemedText>
-                    </Pressable>
-                  );
-                })}
-              </View>
-              <SheetButton
-                label={`${selected.size} ${selected.size === 1 ? 'Zutat' : 'Zutaten'} übernehmen`}
-                loading={addShoppingItem.isPending}
-                disabled={selected.size === 0}
-                onPress={addSelected}
-              />
-            </>
-          )}
-        </Pressable>
-      </Pressable>
-    </Modal>
+          <SheetButton
+            label={`${selected.size} ${selected.size === 1 ? 'Zutat' : 'Zutaten'} übernehmen`}
+            loading={addShoppingItem.isPending}
+            disabled={selected.size === 0}
+            onPress={addSelected}
+          />
+        </>
+      )}
+    </RecipeBottomSheet>
   );
 }
 

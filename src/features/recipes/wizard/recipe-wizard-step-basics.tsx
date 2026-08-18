@@ -117,7 +117,7 @@ export function RecipeWizardStepBasics({
               <View className="items-center">
                 <View className="w-16 h-16 rounded-pill bg-accent items-center justify-center">
                   <Svg width={24} height={24} viewBox="0 0 24 24" fill="none">
-                    <Path d="M8 5v14l11-7z" fill="#FFFFFF" />
+                    <Path d="M8 5v14l11-7z" fill={theme.onAccent} />
                   </Svg>
                 </View>
                 <ThemedText type="body" className="font-medium mt-[14px]">

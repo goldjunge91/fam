@@ -1,7 +1,7 @@
 import { router } from 'expo-router';
 import { useMemo, useState } from 'react';
 import { ActivityIndicator, Pressable, ScrollView, TextInput, View } from 'react-native';
-import Svg, { Circle, Path } from 'react-native-svg';
+import { FilterIcon, SearchIcon } from '@/components/fam-icon';
 import { HubScreen } from '@/components/hub-screen';
 import { SectionHeading } from '@/components/section-heading';
 import { ThemedText } from '@/components/themed-text';
@@ -26,12 +26,7 @@ import {
 import { RecipePreviewCard } from './components/recipe-preview-card';
 import { type RecipeFavoriteKey, useRecipeFavorites } from './recipe-favorites';
 import { type DishType, type RecipeListItem, useRecipes } from './use-recipes';
-
-const DIFFICULTY_LABELS: Record<string, string> = {
-  easy: 'Einfach',
-  medium: 'Mittel',
-  hard: 'Anspruchsvoll',
-};
+import { DIFFICULTY_LABELS } from './wizard/recipe-metadata-options';
 
 /** Reihenfolge der "Nach Mahlzeiten"-Carousels — Snack und Dessert teilen sich eine Reihe. */
 const MEAL_SECTIONS: { key: string; title: string; dishTypes: DishType[] }[] = [
@@ -163,23 +158,6 @@ function openEntry(entry: RecipeEntry) {
 
 function favoriteKey(entry: RecipeEntry): RecipeFavoriteKey {
   return `${entry.kind}:${entry.id}`;
-}
-
-function SearchIcon({ color }: { color: string }) {
-  return (
-    <Svg width={18} height={18} viewBox="0 0 24 24" fill="none">
-      <Circle cx={10.5} cy={10.5} r={6.5} stroke={color} strokeWidth={2} />
-      <Path d="m15.5 15.5 5 5" stroke={color} strokeWidth={2} strokeLinecap="round" />
-    </Svg>
-  );
-}
-
-function FilterIcon({ color }: { color: string }) {
-  return (
-    <Svg width={18} height={18} viewBox="0 0 24 24" fill="none">
-      <Path d="M4 7h16M7 12h10M10 17h4" stroke={color} strokeWidth={2} strokeLinecap="round" />
-    </Svg>
-  );
 }
 
 function RecipeList({ entries }: { entries: RecipeEntry[] }) {

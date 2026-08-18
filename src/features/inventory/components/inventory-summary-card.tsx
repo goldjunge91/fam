@@ -83,10 +83,15 @@ export function InventorySummaryCard({
         </Svg>
 
         <View className="fridge-summary-ring-center" pointerEvents="none">
-          {/* fontVariant hat keine Tailwind-Entsprechung. */}
+          {/* fontSize/lineHeight bewusst inline statt per Klasse: die
+              `default`-Rolle (ThemedText ohne `type`) liefert ebenfalls eine
+              Schriftgroesse, und welche der beiden Quellen in
+              react-native-css-interop gewinnt, war nicht zuverlaessig
+              vorhersagbar. Inline-`style` gewinnt garantiert. fontVariant hat
+              ohnehin keine Tailwind-Entsprechung. */}
           <ThemedText
             className="fridge-summary-total-count"
-            style={{ fontVariant: ['tabular-nums'] }}>
+            style={{ fontSize: 30, lineHeight: 35, fontVariant: ['tabular-nums'] }}>
             {totalCount}
           </ThemedText>
           <ThemedText type="small" themeColor="textSecondary">

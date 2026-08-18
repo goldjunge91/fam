@@ -2,7 +2,7 @@ import { Stack } from 'expo-router';
 import { View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { PlusIcon } from '@/components/fam-icon';
-import { SyncStatusBanner } from '@/components/sync-status-banner';
+import { SyncBannerVisibilityProvider, SyncStatusBanner } from '@/components/sync-status-banner';
 import { FloatingActionButton } from '@/components/ui/buttons';
 import {
   NavigationChromeProvider,
@@ -16,12 +16,14 @@ import { useTheme } from '@/hooks/use-theme';
 export default function AppShell() {
   return (
     <NavigationChromeProvider>
-      <SyncStatusBanner />
-      <Stack screenOptions={{ headerShown: false }} />
-      <NavigationDrawer />
-      <ProfileSheet />
-      <QuickAddSheet />
-      <GlobalAddButton />
+      <SyncBannerVisibilityProvider>
+        <SyncStatusBanner />
+        <Stack screenOptions={{ headerShown: false }} />
+        <NavigationDrawer />
+        <ProfileSheet />
+        <QuickAddSheet />
+        <GlobalAddButton />
+      </SyncBannerVisibilityProvider>
     </NavigationChromeProvider>
   );
 }

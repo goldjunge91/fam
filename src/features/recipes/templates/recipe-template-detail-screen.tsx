@@ -1,31 +1,23 @@
-import { Image } from 'expo-image';
 import { router, useLocalSearchParams } from 'expo-router';
 import { type ReactNode, useState } from 'react';
-import { ActivityIndicator, Alert, Pressable, ScrollView, StyleSheet, View } from 'react-native';
-import Svg, { Circle, Defs, LinearGradient, Rect, Stop } from 'react-native-svg';
+import { ActivityIndicator, Alert, Pressable, ScrollView, View } from 'react-native';
 
 import { HubScreen } from '@/components/hub-screen';
 import { ThemedText } from '@/components/themed-text';
 import { BackButton, HeaderIconButton } from '@/components/ui/buttons';
 import { useSession } from '@/features/auth/session-provider';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
+import { HeartGlyph, HeroArtwork } from '@/features/recipes/components/recipe-detail-primitives';
 import { useRecipeFavorites } from '@/features/recipes/recipe-favorites';
 import { useRecipeCoverUrl } from '@/features/recipes/recipe-image-uploader';
+import type { DietaryTag, DishType } from '@/features/recipes/use-recipes';
 import {
-  DIETARY_TAGS,
-  DIFFICULTIES,
-  DISH_TYPES,
+  DIETARY_TAG_LABELS,
+  DIFFICULTY_LABELS,
+  DISH_TYPE_LABELS,
 } from '@/features/recipes/wizard/recipe-metadata-options';
 import { useTheme } from '@/hooks/use-theme';
 import { useApplyRecipeTemplateMutation, useRecipeTemplateDetail } from './use-recipe-templates';
-
-const DIFFICULTY_LABELS = Object.fromEntries(DIFFICULTIES.map((item) => [item.value, item.label]));
-const DISH_TYPE_LABELS = Object.fromEntries(DISH_TYPES.map((item) => [item.value, item.label]));
-const DIETARY_TAG_LABELS = Object.fromEntries(DIETARY_TAGS.map((item) => [item.value, item.label]));
-
-function HeartGlyph({ filled }: { filled: boolean }) {
-  return <ThemedText className="rtd-heart-glyph">{filled ? '♥' : '♡'}</ThemedText>;
-}
 
 function MetaPill({ children }: { children: ReactNode }) {
   return (
@@ -34,34 +26,6 @@ function MetaPill({ children }: { children: ReactNode }) {
         {children}
       </ThemedText>
     </View>
-  );
-}
-
-function HeroArtwork({ coverUrl, title }: { coverUrl?: string | null; title: string }) {
-  if (coverUrl) {
-    return (
-      <Image
-        source={{ uri: coverUrl }}
-        style={StyleSheet.absoluteFill}
-        contentFit="cover"
-        accessibilityLabel={`Bild von ${title}`}
-      />
-    );
-  }
-
-  return (
-    <Svg width="100%" height="100%" accessibilityLabel={`Illustration für ${title}`}>
-      <Defs>
-        <LinearGradient id="template-cover" x1="0%" y1="0%" x2="100%" y2="100%">
-          <Stop offset="0%" stopColor="#D3A06F" />
-          <Stop offset="58%" stopColor="#8A696C" />
-          <Stop offset="100%" stopColor="#574458" />
-        </LinearGradient>
-      </Defs>
-      <Rect width="100%" height="100%" fill="url(#template-cover)" />
-      <Circle cx="78%" cy="16%" r="30%" fill="rgba(255,226,187,0.30)" />
-      <Circle cx="51%" cy="102%" r="31%" fill="rgba(101,150,111,0.30)" />
-    </Svg>
   );
 }
 
@@ -149,7 +113,9 @@ export function RecipeTemplateDetailScreen() {
             <MetaPill>{DIFFICULTY_LABELS[template.difficulty]}</MetaPill>
           ) : null}
           {tags.map((tag) => (
-            <MetaPill key={tag}>{DISH_TYPE_LABELS[tag] ?? DIETARY_TAG_LABELS[tag] ?? tag}</MetaPill>
+            <MetaPill key={tag}>
+              {DISH_TYPE_LABELS[tag as DishType] ?? DIETARY_TAG_LABELS[tag as DietaryTag] ?? tag}
+            </MetaPill>
           ))}
         </View>
 

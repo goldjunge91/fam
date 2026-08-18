@@ -70,11 +70,15 @@ export const Typography = {
  * verschiedene Werte hinter demselben Namen.
  */
 const TEXT_ROLE_CLASS_MAP = {
-  small: 'text-body-small font-medium text-text',
-  smallBold: 'text-body-small font-bold text-text',
-  smallSelected: 'text-body-small font-semibold text-accent',
-  smallMuted: 'text-body-small font-medium text-text-secondary',
-  smallDanger: 'text-body-small font-medium text-danger',
+  // 16px statt der frueheren 14px (text-body-small) — die "small"-Rolle
+  // traegt fast den gesamten Fliesstext der App (Listenzeilen, Metadaten,
+  // Sekundaertexte) und wurde als zu klein empfunden. Deckt sich jetzt mit
+  // "default"/"body-relaxed", kein neuer Groessenwert im System.
+  small: 'text-body-relaxed font-medium text-text',
+  smallBold: 'text-body-relaxed font-bold text-text',
+  smallSelected: 'text-body-relaxed font-semibold text-accent',
+  smallMuted: 'text-body-relaxed font-medium text-text-secondary',
+  smallDanger: 'text-body-relaxed font-medium text-danger',
   default: 'text-body-relaxed font-medium text-text',
   bodyBold: 'text-body-relaxed font-bold text-text',
   bodyMuted: 'text-body-relaxed font-medium text-text-secondary',

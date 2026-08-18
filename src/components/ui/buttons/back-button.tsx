@@ -4,8 +4,9 @@ import { Pressable } from 'react-native';
 
 import { FamIcon } from '@/components/fam-icon';
 import { ThemedText } from '@/components/themed-text';
+import { ButtonSize } from '@/constants/layout';
 
-const ARROW_BUTTON_SIZE = 45;
+const ARROW_BUTTON_SIZE = ButtonSize.backArrow;
 
 export type BackTarget = {
   /** Das Ziel beim Namen, z. B. `Einstellungen`. Erscheint als `‹ Einstellungen` bzw. als Accessibility-Label. */

@@ -2,6 +2,7 @@ import type { ReactNode } from 'react';
 import { ScrollView, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { GradientBackground } from '@/components/gradient-background';
+import { useSyncBannerVisible } from '@/components/sync-status-banner';
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
 import {
@@ -90,13 +91,16 @@ export function Screen({
   backgroundGradient,
 }: ScreenProps) {
   const body = <View className="gap-three">{children}</View>;
+  // Der Sync-Banner konsumiert die obere Safe Area selbst, solange er
+  // sichtbar ist (Offline/Sync/Fehler) — sonst wuerde der Statusleisten-
+  // Abstand doppelt eingerechnet.
+  const bannerVisible = useSyncBannerVisible();
+  const edges = bannerVisible ? (['left', 'right'] as const) : (['top', 'left', 'right'] as const);
 
   return (
     <ThemedView className="flex-1">
       {backgroundGradient ? <GradientBackground {...backgroundGradient} /> : null}
-      <SafeAreaView
-        className={`screen-body ${chrome ? 'px-[21px]' : 'px-three'}`}
-        edges={['top', 'left', 'right']}>
+      <SafeAreaView className={`screen-body ${chrome ? 'px-[21px]' : 'px-three'}`} edges={edges}>
         {chrome ? null : back ? (
           back.href ? (
             <BackButton

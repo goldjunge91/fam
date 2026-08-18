@@ -86,6 +86,9 @@
   .btn-header-icon {
     @apply w-[39px] h-[39px] rounded-control items-center justify-center bg-background-element/85 active:opacity-70 active:scale-95;
   }
+  .btn-modal-close {
+    @apply w-[32px] h-[32px] rounded-control items-center justify-center bg-background-selected active:opacity-75;
+  }
   .btn-menu {
     @apply w-[58px] h-[58px] rounded-sheet items-center justify-center bg-background-element/70 active:opacity-75;
   }
@@ -651,7 +654,7 @@
   .recipe-rating-card {
     @apply p-four rounded-fam-large gap-three bg-background-element;
   }
-  .recipe-rating-sheet {
+  .recipe-sheet-surface {
     @apply rounded-t-fam-large px-four pt-[10px] pb-[19px] bg-background-element;
   }
   .recipe-score-btn {
@@ -668,9 +671,6 @@
   }
   .recipe-modal-footer {
     @apply border-t-hairline border-border px-[15px] pt-three pb-two bg-background;
-  }
-  .recipe-shopping-sheet {
-    @apply max-h-[82%] rounded-t-fam-large px-four pt-[10px] pb-[19px] bg-background-element;
   }
   .recipe-log-sheet {
     @apply max-h-[72%] min-h-[360px] rounded-t-fam-large px-four pt-[10px] pb-[19px] bg-background-element;
@@ -804,9 +804,6 @@
   }
 
   /* recipe-template-detail-screen.tsx */
-  .rtd-heart-glyph {
-    @apply text-[24px] leading-[27px] font-medium text-accent;
-  }
   .rtd-meta-pill {
     @apply rounded-control px-[8px] py-[6px] bg-background-element/[84%];
   }
@@ -1042,22 +1039,22 @@
     @apply flex-row gap-one;
   }
 
-  /* fridge-tab-bar.tsx */
-  .fridge-tab-bar-container {
+  /* inventory-tab-bar.tsx */
+  .inventory-tab-bar-container {
     @apply relative z-[30];
   }
-  .fridge-tab-bar-menu {
-    @apply absolute top-[40px] left-0 right-0 border-hairline rounded-control-lg overflow-hidden bg-background-element border-border;
+  .inventory-tab-bar-menu {
+    @apply border-hairline rounded-control-lg overflow-hidden bg-background-element border-border;
   }
-  .fridge-tab-bar-option {
+  .inventory-tab-bar-option {
     @apply min-h-[42px] px-three flex-row items-center justify-between active:opacity-[0.72];
   }
-  .fridge-tab-bar-option-bordered {
+  .inventory-tab-bar-option-bordered {
     @apply border-t-hairline border-border;
   }
 
-  /* fridge-item-row.tsx */
-  .fridge-item-row {
+  /* inventory-item-row.tsx */
+  .inventory-item-row {
     @apply flex-row items-center pl-two pr-three py-[13px] border-b-hairline border-border gap-[14px];
   }
   .fridge-item-expiry-bar {
@@ -1073,8 +1070,8 @@
     @apply w-[96px] items-center justify-center bg-danger active:opacity-[0.78];
   }
 
-  /* fridge-summary-card.tsx */
-  .fridge-summary-card {
+  /* inventory-summary-card.tsx */
+  .inventory-summary-card {
     @apply min-h-[178px] rounded-fam-large flex-row items-center gap-[22px] px-[18px] py-[24px] bg-background-element/[91%];
   }
   .fridge-summary-ring-wrap {
@@ -1084,7 +1081,7 @@
     @apply absolute inset-0 items-center justify-center;
   }
   .fridge-summary-total-count {
-    @apply text-[24px] leading-[28px] font-medium;
+    @apply font-medium;
   }
   .fridge-summary-copy {
     @apply flex-1 gap-[6px];
@@ -1178,9 +1175,6 @@
   /* fridge-screen.tsx */
   .fridge-sort-row {
     @apply flex-row items-center justify-between min-h-[40px] pl-one;
-  }
-  .fridge-list-card {
-    @apply rounded-sheet overflow-hidden mt-two bg-background-element;
   }
 
   /* frequent-products-quick-select.tsx */

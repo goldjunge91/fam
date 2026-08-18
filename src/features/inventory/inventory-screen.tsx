@@ -8,14 +8,12 @@ import { Screen } from '@/components/screen';
 import { ThemedText } from '@/components/themed-text';
 import { Button } from '@/components/ui/buttons';
 import { Layout, Spacing } from '@/constants/layout';
-import { withAlpha } from '@/constants/theme';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { ProductDetailModal } from '@/features/inventory/product-detail-modal';
 import { useStorageLocations } from '@/features/inventory/use-storage-locations';
 import { useNavigationChrome } from '@/features/navigation/navigation-chrome-provider';
 import { useProfileInitials } from '@/features/navigation/use-profile-initials';
 import { useHubGradient } from '@/hooks/use-hub-gradient';
-import { useTheme } from '@/hooks/use-theme';
 import { EditInventoryItemSheet } from './components/edit-inventory-item-sheet';
 import { InventoryItemActionsSheet } from './components/inventory-item-actions-sheet';
 import { InventoryItemRow } from './components/inventory-item-row';
@@ -40,7 +38,6 @@ import { useUpdateInventoryItemQuantityMutation } from './use-inventory-mutation
 type SortMode = 'expiry' | 'name';
 
 export function InventoryScreen() {
-  const theme = useTheme();
   const hubGradient = useHubGradient();
   const { openDrawer, openProfile } = useNavigationChrome();
   const initials = useProfileInitials();
@@ -161,16 +158,10 @@ export function InventoryScreen() {
       <FlatList
         data={visibleItems}
         keyExtractor={(item) => item.id}
-        className="fridge-list-card"
-        // boxShadow ist eine dynamische Opazitaet, hat keine
-        // Tailwind-Entsprechung.
-        style={{
-          flex: 1,
-          boxShadow: `0 8px 24px ${withAlpha(theme.shadowCard, 0.08)}`,
-        }}
+        style={{ flex: 1 }}
         contentContainerStyle={{ paddingBottom }}
         ListHeaderComponent={
-          <>
+          <View className="gap-three pb-two">
             <InventorySummaryCard
               totalCount={allItems.length}
               criticalCount={expiryCounts.critical}
@@ -204,7 +195,7 @@ export function InventoryScreen() {
                 />
               </View>
             ) : null}
-          </>
+          </View>
         }
         ListEmptyComponent={
           isLoading ? null : visibleItems.length === 0 ? (

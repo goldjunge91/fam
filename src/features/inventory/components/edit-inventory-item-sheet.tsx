@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import { KeyboardAvoidingView, Modal, Platform, Pressable, ScrollView, View } from 'react-native';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { DateWheelField } from '@/components/date-wheel-field';
 import { QuantityStepper } from '@/components/quantity-stepper';
@@ -8,10 +7,8 @@ import { TextField } from '@/components/text-field';
 import { ThemedText } from '@/components/themed-text';
 import { Button } from '@/components/ui/buttons';
 import { WheelPickerField } from '@/components/wheel-picker-field';
-import { Spacing } from '@/constants/layout';
-import { withAlpha } from '@/constants/theme';
 import type { StorageLocation } from '@/features/inventory/use-storage-locations';
-import { useTheme } from '@/hooks/use-theme';
+import { useSheetShadowStyle } from '@/hooks/use-sheet-shadow-style';
 import { UNIT_OPTIONS } from '@/lib/units';
 
 import type { LocalInventoryItem } from '../use-inventory-items';
@@ -30,8 +27,7 @@ export function EditInventoryItemSheet({
   locations,
   onClose,
 }: EditInventoryItemSheetProps) {
-  const theme = useTheme();
-  const insets = useSafeAreaInsets();
+  const sheetStyle = useSheetShadowStyle();
   const updateItem = useUpdateFridgeItemMutation();
   const [name, setName] = useState('');
   const [quantity, setQuantity] = useState(1);
@@ -97,15 +93,7 @@ export function EditInventoryItemSheet({
           accessibilityLabel="Artikel bearbeiten schließen"
         />
 
-        <View
-          className="edit-fridge-sheet"
-          // paddingBottom (Safe-Area-Insets), boxShadow (dynamische
-          // Opazitaet) und borderCurve sind Ausnahmen.
-          style={{
-            paddingBottom: Math.max(insets.bottom, Spacing.three),
-            boxShadow: `0 -16px 48px ${withAlpha(theme.shadowSheet, 0.2)}`,
-            borderCurve: 'continuous',
-          }}>
+        <View className="edit-fridge-sheet" style={sheetStyle}>
           <View className="fridge-actions-handle" />
 
           <ScrollView
