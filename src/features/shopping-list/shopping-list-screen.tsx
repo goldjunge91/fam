@@ -10,18 +10,15 @@ import { EmptyState } from '@/components/ui/empty-state';
 import { Layout } from '@/constants/layout';
 import { useSession } from '@/features/auth/session-provider';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
-import { useHouseholdMembers } from '@/features/household/api';
 import { useNavigationChrome } from '@/features/navigation/navigation-chrome-provider';
 import { useProfileInitials } from '@/features/navigation/use-profile-initials';
 import { useTheme } from '@/hooks/use-theme';
-import { formatRelativeTime } from '@/lib/format-relative-time';
-import { getLastSyncInfo } from '@/lib/sync/sync-runner';
 import { CompleteRunSheet, type TransferItem } from './complete-run-sheet';
 import { AddItemModal } from './components/add-item-modal';
 import { CategoryOrderSheet } from './components/category-order-sheet';
 import { EditItemModal } from './components/edit-item-modal';
 import { ShoppingItemRow } from './components/shopping-item-row';
-import { ALL_FILTER, StoreFilterBar, UNASSIGNED_FILTER } from './components/store-filter-bar';
+import { ALL_FILTER, StorePickerMenu, UNASSIGNED_FILTER } from './components/store-picker-menu';
 import { StoreSummaryCard } from './components/store-summary-card';
 import { TotalEstimateCard } from './components/total-estimate-card';
 import { parseCategoryOrder } from './shopping-categories';
@@ -84,7 +81,6 @@ export function ShoppingListScreen() {
 
   const { data: groups = [], isLoading } = useShoppingList(householdId);
   const { data: stores = [] } = useStores(householdId);
-  const { data: members = [] } = useHouseholdMembers(activeHouseholdId ?? '');
 
   const toggleItem = useToggleShoppingItem();
   const deleteItem = useDeleteShoppingItem();
@@ -124,14 +120,6 @@ export function ShoppingListScreen() {
   const hasCheckedItems = checkedItems.length > 0 && !isAllFilter;
 
   const totalEstimate = allItems.reduce((sum, i) => sum + (i.price_estimate ?? 0), 0);
-  const lastSyncTimestamp = getLastSyncInfo()?.timestamp;
-
-  const subtitleParts = [
-    lastSyncTimestamp
-      ? `Zuletzt aktualisiert: ${formatRelativeTime(lastSyncTimestamp)}`
-      : 'Noch nicht synchronisiert',
-    `${members.length} ${members.length === 1 ? 'Mitglied' : 'Mitglieder'}`,
-  ];
 
   async function handleToggle(item: LocalShoppingItem) {
     await toggleItem.mutateAsync({
@@ -174,7 +162,7 @@ export function ShoppingListScreen() {
 
   if (!householdId) {
     return (
-      <Screen title="Einkauf" subtitle="Gemeinsame Liste" chrome={chrome}>
+      <Screen title="Einkaufsliste" subtitle="Gemeinsame Liste" chrome={chrome}>
         <Card>
           <EmptyState
             symbol="cart"
@@ -189,34 +177,25 @@ export function ShoppingListScreen() {
   const completeActionColor = isUnassignedFilter
     ? UNASSIGNED_COLOR
     : (activeStore?.color ?? theme.danger);
+
   const completeActionLabel = activeStore
-    ? `Einkauf bei ${activeStore.name} abschließen`
-    : 'Einkauf abschließen';
+    ? `Einkaufsliste bei ${activeStore.name} abschließen`
+    : 'Einkaufliste abschließen';
 
   const listContentPadding = { paddingBottom: insets.bottom + Layout.floatingActionClearance };
 
   const renderHeader = () => (
     <View className="row-between">
-      <ThemedText type="small" themeColor="textSecondary">
-        {isAllFilter
-          ? 'Deine Einkaufslisten'
-          : isUnassignedFilter
-            ? 'Ohne Markt'
-            : (activeStore?.name ?? 'Einkaufsliste')}
-      </ThemedText>
+      <StorePickerMenu
+        activeFilter={storeFilter}
+        onFilterChange={setStoreFilter}
+        stores={stores}
+        totalCount={allItems.length}
+        unassignedCount={unassignedItems.length}
+        countForStore={(storeId) => allItems.filter((i) => i.store_id === storeId).length}
+      />
       <Button label="+ Artikel hinzufügen" onPress={() => setAddModalOpen(true)} />
     </View>
-  );
-
-  const renderFilterBar = () => (
-    <StoreFilterBar
-      activeFilter={storeFilter}
-      onFilterChange={setStoreFilter}
-      stores={stores}
-      totalCount={allItems.length}
-      unassignedCount={unassignedItems.length}
-      countForStore={(storeId) => allItems.filter((i) => i.store_id === storeId).length}
-    />
   );
 
   const renderCompleteButton = () => {
@@ -235,7 +214,7 @@ export function ShoppingListScreen() {
   };
 
   return (
-    <Screen title="Einkauf" subtitle={subtitleParts.join(' · ')} scroll={false} chrome={chrome}>
+    <Screen title="Einkaufsliste" scroll={false} chrome={chrome}>
       {isLoading ? null : allItems.length === 0 ? (
         <ScrollView
           className="flex-1"
@@ -258,7 +237,6 @@ export function ShoppingListScreen() {
           contentContainerClassName="gap-three"
           contentContainerStyle={listContentPadding}>
           {renderHeader()}
-          {renderFilterBar()}
           <View className="gap-three pt-two">
             {storeAggregates.map(
               ({ store, totalCount, checkedCount, totalEstimate: storeTotal }) => (
@@ -304,7 +282,6 @@ export function ShoppingListScreen() {
           ListHeaderComponent={
             <>
               {renderHeader()}
-              {renderFilterBar()}
               {activeStore && (
                 <Button
                   variant="link"

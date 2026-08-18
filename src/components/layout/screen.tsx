@@ -122,13 +122,15 @@ export function Screen({
                 <ThemedText
                   type="small"
                   themeColor="textSecondary"
-                  className="text-center text-detail leading-[16px] font-normal">
+                  className="text-center"
+                  style={{ fontSize: 12, lineHeight: 16, fontWeight: '400' }}>
                   {subtitle}
                 </ThemedText>
               ) : null}
               <ThemedText
                 type="subtitle"
-                className="text-center text-[23px] leading-[28px] font-medium tracking-[-0.5px]">
+                className="text-center"
+                style={{ fontSize: 23, lineHeight: 28, fontWeight: '500', letterSpacing: -0.5 }}>
                 {title}
               </ThemedText>
             </View>

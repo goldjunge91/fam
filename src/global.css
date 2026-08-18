@@ -562,11 +562,27 @@
   .checkbox-unchecked {
     @apply border-border bg-transparent;
   }
-  .store-filter-chip {
-    @apply flex-row items-center gap-one px-three py-two rounded-sheet;
+  /* store-picker-menu.tsx — Glas-Button + Menü statt der frueheren
+     Chip-Zeile (Marktauswahl-Mockup Variante B). Menue laeuft ueber ein
+     Modal (eigene native Ebene), Position kommt per measureInWindow als
+     Inline-Style — hier nur die von der Position unabhaengigen Regeln. */
+  .store-picker-btn {
+    @apply flex-row items-center gap-two px-four py-three rounded-pill border border-border bg-background-element;
   }
-  .store-filter-badge {
-    @apply min-w-[18px] h-[18px] rounded-sm items-center justify-center px-1;
+  .store-picker-dot {
+    @apply w-[8px] h-[8px] rounded-full;
+  }
+  .store-picker-backdrop {
+    @apply flex-1;
+  }
+  .store-picker-panel {
+    @apply w-[200px] rounded-control border border-border bg-background shadow-sheet p-one gap-[2px];
+  }
+  .store-picker-row {
+    @apply flex-row items-center gap-two rounded-sm px-two py-two;
+  }
+  .store-picker-row-active {
+    @apply bg-background-selected;
   }
   .suggestion-card {
     @apply flex-1 min-w-0 min-h-[75px] justify-center border rounded-control p-two active:opacity-70;
