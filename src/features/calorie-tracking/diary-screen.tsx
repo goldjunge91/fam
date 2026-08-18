@@ -8,6 +8,7 @@ import { HeaderIconButton, MenuButton } from '@/components/ui/buttons';
 import { FilterChipBar } from '@/components/ui/filter-chip-bar';
 import { ProgressBar } from '@/components/ui/progress-bar';
 import { ProgressRing } from '@/components/ui/progress-ring';
+import { useProfile } from '@/features/auth/api';
 import { useSession } from '@/features/auth/session-provider';
 import { useActiveProfile } from '@/features/calorie-tracking/active-profile-store';
 import {
@@ -16,10 +17,13 @@ import {
   useCurrentGoal,
   useFoodEntries,
 } from '@/features/calorie-tracking/api';
+import { Glp1Card } from '@/features/calorie-tracking/components/glp1-card';
 import { calculateDailyTotals } from '@/features/calorie-tracking/daily-totals';
+import { getLogicalDateForTimestamp } from '@/features/calorie-tracking/day-boundary';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { useChildProfiles } from '@/features/household/api';
 import { useNavigationChrome } from '@/features/navigation/navigation-chrome-provider';
+import { useModulePreferences } from '@/features/settings/module-preferences';
 import { useTheme } from '@/hooks/use-theme';
 
 const MEAL_ORDER: MealType[] = ['breakfast', 'lunch', 'dinner', 'snack'];
@@ -194,8 +198,13 @@ export function DiaryScreen() {
   const { openDrawer } = useNavigationChrome();
   const { session } = useSession();
   const userId = session?.user.id;
+  const { data: userProfile } = useProfile(userId);
+  const { data: modules } = useModulePreferences(userId);
 
-  const todayIso = toIsoDate(new Date());
+  const todayIso = getLogicalDateForTimestamp(
+    new Date(),
+    userProfile?.tracking_day_start_time ?? '00:00',
+  );
   const [selectedDate, setSelectedDate] = useState(todayIso);
 
   const { activeHousehold } = useActiveHousehold();
@@ -352,6 +361,10 @@ export function DiaryScreen() {
           />
           <MacroSummary label="Fett" value={totals.fatG} target={currentGoal?.fat_g ?? 0} isLast />
         </View>
+
+        {modules?.glp1 !== false ? (
+          <Glp1Card userId={userId} childProfileId={childProfileId} />
+        ) : null}
 
         {isLoading ? (
           <ThemedText

@@ -39,6 +39,7 @@ create table if not exists public.food_entries (
   protein_g numeric(7, 2) check (protein_g >= 0),
   carbs_g numeric(7, 2) check (carbs_g >= 0),
   fat_g numeric(7, 2) check (fat_g >= 0),
+  fiber_g numeric(7, 2) check (fiber_g >= 0),
 
   created_at timestamptz not null default now(),
   updated_at timestamptz not null default now(),

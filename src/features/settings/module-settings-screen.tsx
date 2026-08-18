@@ -40,6 +40,42 @@ const MODULE_ROWS: { key: keyof ModulePreferences; icon: string; title: string; 
     title: 'Meal-Planner',
     desc: 'Wochenplanung fuer den Haushalt, Mahlzeiten Mitgliedern zuordnen.',
   },
+  {
+    key: 'glp1',
+    icon: '💉',
+    title: 'GLP-1 & Medikation',
+    desc: 'Injektionsintervalle, Dosierungen und Symptomtagebuch führen.',
+  },
+  {
+    key: 'fasting',
+    icon: '⏱️',
+    title: 'Intervallfasten',
+    desc: 'Fastenfenster (16:8, OMAD) tracken mit Timer und Benachrichtigungen.',
+  },
+  {
+    key: 'workouts',
+    icon: '🏋️',
+    title: 'Kraftsport & Workouts',
+    desc: 'Übungen, Sätze, Wiederholungen und Gewichte dokumentieren.',
+  },
+  {
+    key: 'keto',
+    icon: '🥑',
+    title: 'Low-Carb & Keto',
+    desc: 'Netto-Kohlenhydrate berechnen und Keton-Logs erfassen.',
+  },
+  {
+    key: 'cgm',
+    icon: '🩸',
+    title: 'Blutzucker & CGM',
+    desc: 'Glukosemessungen im Kontext von Mahlzeiten protokollieren.',
+  },
+  {
+    key: 'volumetrics',
+    icon: '🥗',
+    title: 'Volumetrics & Sättigung',
+    desc: 'Energiedichte-Ampel und Sättigungs-Scoring nutzen.',
+  },
 ];
 
 /**

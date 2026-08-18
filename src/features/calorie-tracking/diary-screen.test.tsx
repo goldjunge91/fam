@@ -23,6 +23,21 @@ jest.mock('expo-router', () => ({
   router: { push: jest.fn(), back: jest.fn(), canGoBack: () => false },
 }));
 
+jest.mock('@/features/auth/api', () => ({
+  useProfile: () => ({ data: { tracking_day_start_time: '00:00' }, isLoading: false }),
+}));
+
+jest.mock('@/features/settings/module-preferences', () => ({
+  useModulePreferences: () => ({ data: { glp1: false }, isLoading: false }),
+}));
+
+jest.mock('@/features/calorie-tracking/glp1-api', () => ({
+  useMedicationLogs: () => ({ data: [], isLoading: false }),
+  useSymptomLogs: () => ({ data: [], isLoading: false }),
+  useAddMedicationLogMutation: () => ({ mutate: jest.fn(), isPending: false }),
+  useAddSymptomLogMutation: () => ({ mutate: jest.fn(), isPending: false }),
+}));
+
 jest.mock('@/features/auth/session-provider', () => ({
   useSession: () => ({ session: { user: { id: 'user-1' } } }),
 }));

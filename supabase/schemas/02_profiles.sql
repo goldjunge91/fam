@@ -38,6 +38,15 @@ create table if not exists public.profiles (
   module_calories boolean not null default true,
   module_recipes boolean not null default true,
   module_meal_planner boolean not null default true,
+  module_glp1 boolean not null default true,
+  module_fasting boolean not null default true,
+  module_workouts boolean not null default true,
+  module_keto boolean not null default true,
+  module_cgm boolean not null default true,
+  module_volumetrics boolean not null default true,
+
+  -- Individualisierbare Tages-Zeitfenster (#174): Startzeitpunkt des Nutzertags (Standard 00:00).
+  tracking_day_start_time text not null default '00:00' check (tracking_day_start_time ~ '^([01][0-9]|2[0-3]):[0-5][0-9]$'),
 
   created_at timestamptz not null default now(),
   updated_at timestamptz not null default now()

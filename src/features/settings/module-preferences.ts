@@ -14,6 +14,12 @@ export type ModulePreferences = {
   calories: boolean;
   recipes: boolean;
   mealPlanner: boolean;
+  glp1?: boolean;
+  fasting?: boolean;
+  workouts?: boolean;
+  keto?: boolean;
+  cgm?: boolean;
+  volumetrics?: boolean;
 };
 
 export function modulePreferencesQueryKey(userId: string | undefined) {
@@ -27,7 +33,7 @@ export function useModulePreferences(userId: string | undefined) {
       const { data, error } = await getSupabase()
         .from('profiles')
         .select(
-          'module_fridge, module_shopping_list, module_calories, module_recipes, module_meal_planner',
+          'module_fridge, module_shopping_list, module_calories, module_recipes, module_meal_planner, module_glp1, module_fasting, module_workouts, module_keto, module_cgm, module_volumetrics',
         )
         .eq('id', userId as string)
         .single();
@@ -39,6 +45,12 @@ export function useModulePreferences(userId: string | undefined) {
         calories: data.module_calories,
         recipes: data.module_recipes,
         mealPlanner: data.module_meal_planner,
+        glp1: data.module_glp1,
+        fasting: data.module_fasting,
+        workouts: data.module_workouts,
+        keto: data.module_keto,
+        cgm: data.module_cgm,
+        volumetrics: data.module_volumetrics,
       };
     },
     enabled: !!userId,
@@ -62,6 +74,12 @@ export function useUpdateModulePreferencesMutation() {
       if (modules.calories !== undefined) updates.module_calories = modules.calories;
       if (modules.recipes !== undefined) updates.module_recipes = modules.recipes;
       if (modules.mealPlanner !== undefined) updates.module_meal_planner = modules.mealPlanner;
+      if (modules.glp1 !== undefined) updates.module_glp1 = modules.glp1;
+      if (modules.fasting !== undefined) updates.module_fasting = modules.fasting;
+      if (modules.workouts !== undefined) updates.module_workouts = modules.workouts;
+      if (modules.keto !== undefined) updates.module_keto = modules.keto;
+      if (modules.cgm !== undefined) updates.module_cgm = modules.cgm;
+      if (modules.volumetrics !== undefined) updates.module_volumetrics = modules.volumetrics;
 
       const { error } = await getSupabase().from('profiles').update(updates).eq('id', userId);
       if (error) throw new Error(error.message);
@@ -86,6 +104,12 @@ export async function saveModulePreferences(userId: string, modules: ModulePrefe
       module_calories: modules.calories,
       module_recipes: modules.recipes,
       module_meal_planner: modules.mealPlanner,
+      module_glp1: modules.glp1 ?? true,
+      module_fasting: modules.fasting ?? true,
+      module_workouts: modules.workouts ?? true,
+      module_keto: modules.keto ?? true,
+      module_cgm: modules.cgm ?? true,
+      module_volumetrics: modules.volumetrics ?? true,
     })
     .eq('id', userId);
 
