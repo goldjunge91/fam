@@ -8,8 +8,10 @@
     "scheme": "fam",
     "userInterfaceStyle": "automatic",
     "ios": {
+      "appleTeamId": "SW8RP7PA3W",
       "icon": "./assets/expo.icon",
-      "bundleIdentifier": "com.goldjunge91.fam",
+      "bundleIdentifier": "com.goldjunge91.fam1",
+      "buildNumber": "1",
       "infoPlist": {
         "ITSAppUsesNonExemptEncryption": false
       }
@@ -22,6 +24,7 @@
         "monochromeImage": "./assets/images/android-icon-monochrome.png"
       },
       "predictiveBackGestureEnabled": false,
+      "versionCode": 1,
       "permissions": [
         "android.permission.READ_EXTERNAL_STORAGE",
         "android.permission.WRITE_EXTERNAL_STORAGE",
@@ -37,25 +40,13 @@
       "favicon": "./assets/images/favicon.png"
     },
     "plugins": [
-      "expo-file-system",
       "expo-router",
-      [
-        "expo-splash-screen",
-        {
-          "backgroundColor": "#208AEF",
-          "image": "./assets/images/splash-icon.png",
-          "imageWidth": 76
-        }
-      ],
-      "expo-secure-store",
       "expo-sqlite",
-      "expo-background-task",
+      "expo-secure-store",
       [
         "expo-camera",
         {
-          "cameraPermission": "Die App $(PRODUCT_NAME) benötigt Kamera-Zugriff, um Barcodes von Lebensmitteln und QR-Codes für den Haushaltsbeitritt zu scannen.",
-          "recordAudioAndroid": false,
-          "barcodeScannerEnabled": true
+          "cameraPermission": "Die App $(PRODUCT_NAME) benötigt Kamera-Zugriff, um Barcodes von Lebensmitteln und QR-Codes für den Haushaltsbeitritt zu scannen."
         }
       ],
       "expo-sharing",
@@ -65,6 +56,14 @@
           "photosPermission": "Die App $(PRODUCT_NAME) benötigt Zugriff auf deine Fotos, um ein Titelbild für ein Rezept auszuwählen."
         }
       ],
+      [
+        "expo-notifications",
+        {
+          "mode": "production",
+          "enableBackgroundRemoteNotifications": true
+        }
+      ],
+      "./plugins/withPushCapability",
       "./plugins/withoutPushEntitlement",
       "expo-image",
       [

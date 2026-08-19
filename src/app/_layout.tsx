@@ -1,6 +1,7 @@
 import '../global.css';
 import { PersistQueryClientProvider } from '@tanstack/react-query-persist-client';
 import * as Linking from 'expo-linking';
+import { Observe, ObserveRoot, useObserve } from 'expo-observe';
 import { DarkTheme, DefaultTheme, Stack, ThemeProvider } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 import { useEffect } from 'react';
@@ -30,6 +31,12 @@ import { defineBackgroundSyncTask, registerBackgroundSync } from '@/lib/sync/bac
 SplashScreen.preventAutoHideAsync();
 defineBackgroundSyncTask();
 initSentry();
+
+// Muss vor dem ersten Screen-Mount laufen — configure() nach dem Mount wirft.
+// Aktiviert automatische cold_ttr/warm_ttr pro Route (Expo Router Integration).
+Observe.configure({
+  integrations: { 'expo-router': true },
+});
 
 /**
  * Letzter Auffangnetz fuer Render-Fehler, die `Sentry.wrap()` selbst nicht
@@ -91,11 +98,16 @@ const crashStyles = StyleSheet.create({
  */
 function RootNavigator() {
   const { session, isLoading, seenOnboarding } = useSession();
+  const { markInteractive } = useObserve();
 
   useEffect(() => {
     // Splash erst ausblenden, wenn Session UND Onboarding-Flag gelesen sind.
-    if (!isLoading) SplashScreen.hideAsync();
-  }, [isLoading]);
+    // Ab hier ist der Screen fuer den User tatsaechlich interaktiv (TTI).
+    if (!isLoading) {
+      SplashScreen.hideAsync();
+      markInteractive();
+    }
+  }, [isLoading, markInteractive]);
 
   // biome-ignore lint/correctness/useExhaustiveDependencies: session?.user.id ist absichtlich der Re-Attach-Trigger, obwohl der Effekt-Body sie nicht direkt liest.
   useEffect(() => {
@@ -250,5 +262,6 @@ function RootLayout() {
 // JS-Frame waere sonst nicht mehr meldbar) und automatische
 // Navigations-Breadcrumbs ueber Expo Router. Ohne DSN (initSentry() ist dann
 // ein No-op) macht der Wrapper nichts weiter, als die Komponente
-// durchzureichen.
-export default Sentry.wrap(RootLayout);
+// durchzureichen. ObserveRoot.wrap() darunter misst Time to First Render
+// (TTR) fuer EAS Observe.
+export default Sentry.wrap(ObserveRoot.wrap(RootLayout));

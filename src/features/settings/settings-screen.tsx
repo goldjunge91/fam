@@ -2,7 +2,7 @@ import { useQueryClient } from '@tanstack/react-query';
 import Constants from 'expo-constants';
 import { router } from 'expo-router';
 import { useState } from 'react';
-import { Alert, Pressable, ScrollView, View } from 'react-native';
+import { Alert, Platform, Pressable, ScrollView, View } from 'react-native';
 
 import { HubScreen } from '@/components/layout/hub-screen';
 import { ThemedText } from '@/components/theme/themed-text';
@@ -62,7 +62,15 @@ export function SettingsScreen() {
     ? classifySupabaseTarget(env.supabaseUrl)
     : { label: '', tone: 'accent' as const };
 
-  const appVersion = Constants.expoConfig?.version ?? '1.0.0';
+  const version = Constants.nativeAppVersion ?? Constants.expoConfig?.version ?? '1.0.0';
+  const buildNumber =
+    Constants.nativeBuildVersion ??
+    (Platform.OS === 'ios'
+      ? Constants.expoConfig?.ios?.buildNumber
+      : Constants.expoConfig?.android?.versionCode
+        ? String(Constants.expoConfig.android.versionCode)
+        : undefined);
+  const versionLabel = buildNumber ? `fam v${version} (${buildNumber})` : `fam v${version}`;
 
   return (
     <HubScreen
@@ -187,7 +195,7 @@ export function SettingsScreen() {
         </View>
 
         <ThemedText type="small" className="text-center opacity-60">
-          {`fam v${appVersion}`}
+          {versionLabel}
         </ThemedText>
       </ScrollView>
     </HubScreen>

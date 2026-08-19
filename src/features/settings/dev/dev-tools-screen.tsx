@@ -1,5 +1,6 @@
 import { useQueryClient } from '@tanstack/react-query';
 import Constants from 'expo-constants';
+import { Observe } from 'expo-observe';
 import { router } from 'expo-router';
 import { useCallback, useEffect, useState } from 'react';
 import { Alert, Platform, View } from 'react-native';
@@ -184,7 +185,7 @@ export function DevToolsScreen() {
         <Zeile label="Build" wert={__DEV__ ? 'Development' : 'Production'} />
         <Zeile
           label="App-Version"
-          wert={`${Constants.expoConfig?.version ?? '—'} (${Platform.OS} ${Platform.Version})`}
+          wert={`${Constants.nativeAppVersion ?? Constants.expoConfig?.version ?? '—'} (Build ${Constants.nativeBuildVersion ?? (Platform.OS === 'ios' ? Constants.expoConfig?.ios?.buildNumber : Constants.expoConfig?.android?.versionCode) ?? '—'}, ${Platform.OS} ${Platform.Version})`}
         />
         <Zeile label="Onboarding erzwungen" wert={env.forceOnboarding ? 'ja' : 'nein'} />
         <Zeile
@@ -286,6 +287,19 @@ export function DevToolsScreen() {
               })
             }
             loading={busy === 'notify'}
+          />
+          <Button
+            label="EAS-Observe-Testevent senden"
+            variant="secondary"
+            onPress={() => {
+              Observe.logEvent('dev_tools.test_event', {
+                attributes: { source: 'dev-tools-screen', platform: Platform.OS },
+              });
+              Alert.alert(
+                'EAS Observe',
+                'Testevent ("dev_tools.test_event") wurde geloggt. Erscheint im Observe-Dashboard nach dem naechsten Flush (Debug-Builds dispatchen nur mit dispatchInDebug).',
+              );
+            }}
           />
           <Button
             label="Sync-Diagnose & Outbox öffnen"
