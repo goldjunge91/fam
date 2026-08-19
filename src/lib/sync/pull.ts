@@ -6,6 +6,7 @@ import {
   writeSyncCursor,
 } from '@/lib/db/sync-state';
 import type { Entity, SqlDatabase } from '@/lib/db/types';
+import { Sentry } from '@/lib/sentry';
 import type { TypedSupabaseClient } from '@/lib/supabase';
 import { EPOCH_START } from '@/lib/sync/cursor';
 import { applyRemoteRow } from '@/lib/sync/mirror-write';
@@ -67,7 +68,7 @@ async function pullEntity(
     rowsSkippedAsLocalWins: 0,
   };
 
-  const { cursor: storedCursor } = await readSyncState(db, entity);
+  const { cursor: storedCursor, lastError: previousError } = await readSyncState(db, entity);
   let cursor = storedCursor ?? initialCursor();
 
   for (;;) {
@@ -89,6 +90,15 @@ async function pullEntity(
 
     if (error) {
       await recordSyncError(db, entity, error.message);
+      // Dedupliziert gegen den zuletzt gespeicherten Fehler: ein anhaltendes
+      // Problem (z.B. RLS-Fehlkonfiguration) wuerde sich sonst bei jedem
+      // 20s-Poll erneut melden und das Sentry-Kontingent durchlaufen.
+      if (error.message !== previousError) {
+        Sentry.captureMessage(`Sync-Pull fehlgeschlagen (${entity}): ${error.message}`, {
+          level: 'warning',
+          tags: { sync: 'pull', entity },
+        });
+      }
       break;
     }
 

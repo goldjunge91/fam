@@ -4,7 +4,7 @@ import * as Linking from 'expo-linking';
 import { DarkTheme, DefaultTheme, Stack, ThemeProvider } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 import { useEffect } from 'react';
-import { useColorScheme } from 'react-native';
+import { Pressable, StyleSheet, Text, useColorScheme, View } from 'react-native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
 import { AnimatedSplashOverlay } from '@/components/icons/animated-icon';
@@ -23,11 +23,54 @@ import {
   shouldPersistQuery,
   startQueryEnvironmentSync,
 } from '@/lib/query-client';
+import { initSentry, Sentry } from '@/lib/sentry';
 import { getSupabase } from '@/lib/supabase';
 import { defineBackgroundSyncTask, registerBackgroundSync } from '@/lib/sync/background-sync';
 
 SplashScreen.preventAutoHideAsync();
 defineBackgroundSyncTask();
+initSentry();
+
+/**
+ * Letzter Auffangnetz fuer Render-Fehler, die `Sentry.wrap()` selbst nicht
+ * abfaengt (das legt nur Touch-/Profiling-Boundaries um die App, keinen
+ * React-Error-Boundary — siehe `@sentry/react-native`s `wrap()`). Bewusst
+ * ohne Abhaengigkeit zu Theme/Providern: Der Fehler kann aus jeder Ebene
+ * darunter kommen, dieser Screen darf selbst nicht mitreissen koennen.
+ */
+function CrashFallback({ resetError }: { resetError: () => void }) {
+  return (
+    <View style={crashStyles.container}>
+      <Text style={crashStyles.title}>Etwas ist schiefgelaufen</Text>
+      <Text style={crashStyles.body}>
+        Die App ist auf einen unerwarteten Fehler gestossen. Der Fehler wurde erfasst.
+      </Text>
+      <Pressable onPress={resetError} style={crashStyles.button}>
+        <Text style={crashStyles.buttonText}>Erneut versuchen</Text>
+      </Pressable>
+    </View>
+  );
+}
+
+const crashStyles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: 24,
+    backgroundColor: '#F8F4EF',
+    gap: 12,
+  },
+  title: { fontSize: 17, fontWeight: '600', color: '#2D2830' },
+  body: { fontSize: 14, color: '#2D2830', textAlign: 'center' },
+  button: { marginTop: 12, paddingHorizontal: 20, paddingVertical: 10 },
+  buttonText: {
+    fontSize: 15,
+    fontWeight: '600',
+    color: '#2D2830',
+    textDecorationLine: 'underline',
+  },
+});
 
 /**
  * Wechselt zwischen angemeldetem und nicht angemeldetem Bereich.
@@ -104,7 +147,7 @@ function RootNavigator() {
 
 import { ActiveHouseholdProvider } from '@/features/household/active-household-provider';
 
-export default function RootLayout() {
+function RootLayout() {
   const colorScheme = useColorScheme();
 
   useEffect(() => {
@@ -175,28 +218,37 @@ export default function RootLayout() {
   }, []);
 
   return (
-    // react-native-gesture-handler hat kein cssInterop, className wuerde hier
-    // stillschweigend verworfen — deshalb bleibt style hier bewusst bestehen.
-    <GestureHandlerRootView style={{ flex: 1 }}>
-      <PersistQueryClientProvider
-        client={queryClient}
-        persistOptions={{
-          persister: asyncStoragePersister,
-          dehydrateOptions: { shouldDehydrateQuery: shouldPersistQuery },
-        }}>
-        <SessionProvider>
-          <ActiveHouseholdProvider>
-            <PremiumProvider>
-              <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-                <SnackbarProvider>
-                  <AnimatedSplashOverlay />
-                  <RootNavigator />
-                </SnackbarProvider>
-              </ThemeProvider>
-            </PremiumProvider>
-          </ActiveHouseholdProvider>
-        </SessionProvider>
-      </PersistQueryClientProvider>
-    </GestureHandlerRootView>
+    <Sentry.ErrorBoundary fallback={({ resetError }) => <CrashFallback resetError={resetError} />}>
+      {/* react-native-gesture-handler hat kein cssInterop, className wuerde hier
+      stillschweigend verworfen — deshalb bleibt style hier bewusst bestehen. */}
+      <GestureHandlerRootView style={{ flex: 1 }}>
+        <PersistQueryClientProvider
+          client={queryClient}
+          persistOptions={{
+            persister: asyncStoragePersister,
+            dehydrateOptions: { shouldDehydrateQuery: shouldPersistQuery },
+          }}>
+          <SessionProvider>
+            <ActiveHouseholdProvider>
+              <PremiumProvider>
+                <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
+                  <SnackbarProvider>
+                    <AnimatedSplashOverlay />
+                    <RootNavigator />
+                  </SnackbarProvider>
+                </ThemeProvider>
+              </PremiumProvider>
+            </ActiveHouseholdProvider>
+          </SessionProvider>
+        </PersistQueryClientProvider>
+      </GestureHandlerRootView>
+    </Sentry.ErrorBoundary>
   );
 }
+
+// Sentry.wrap() aktiviert native Crash-Erfassung (Absturz *vor* dem naechsten
+// JS-Frame waere sonst nicht mehr meldbar) und automatische
+// Navigations-Breadcrumbs ueber Expo Router. Ohne DSN (initSentry() ist dann
+// ein No-op) macht der Wrapper nichts weiter, als die Komponente
+// durchzureichen.
+export default Sentry.wrap(RootLayout);

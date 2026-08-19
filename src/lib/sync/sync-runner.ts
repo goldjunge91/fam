@@ -6,6 +6,7 @@ import { getDatabase } from '@/lib/db/client';
 import { onOutboxChanged } from '@/lib/db/outbox';
 import { retryFailedOutboxEntries } from '@/lib/db/outbox-retry';
 import type { Entity } from '@/lib/db/types';
+import { Sentry } from '@/lib/sentry';
 import { getSupabase } from '@/lib/supabase';
 import { setBackgroundSyncHandler } from '@/lib/sync/background-sync';
 import { type SyncRunResult, syncHousehold } from '@/lib/sync/engine';
@@ -140,6 +141,21 @@ export async function triggerHouseholdSync(
     const pushedCount = result.push.outcomes.filter((o) => o.kind === 'pushed').length;
     const pulledCount = result.pull.reduce((acc, p) => acc + (p.rowsWritten || 0), 0);
     const firstErr = result.push.outcomes.find((o) => 'error' in o && o.error);
+
+    // Nur 'failed-permanent' meldet sich hier — die Outbox-Zeile bekommt
+    // `nextAttemptAtMs = MAX_SAFE_INTEGER` und taucht deshalb in keinem
+    // weiteren Lauf erneut in `outcomes` auf (siehe push.ts), also kein Risiko
+    // wiederholter Meldungen fuer denselben Fehler bei jedem 20s-Poll.
+    // 'failed-transient' (Netzwerk-Hickser, automatischer Retry) ist bewusst
+    // ausgenommen, sonst wuerde das Sentry-Kontingent bei laengerer
+    // Offline-Phase durchlaufen.
+    for (const outcome of result.push.outcomes) {
+      if (outcome.kind !== 'failed-permanent') continue;
+      Sentry.captureMessage(
+        `Sync-Push dauerhaft fehlgeschlagen (${outcome.entity ?? 'unbekannt'}): ${outcome.error}`,
+        { level: 'error', tags: { sync: 'push', entity: outcome.entity ?? 'unbekannt' } },
+      );
+    }
 
     lastSyncResultSummary = {
       timestamp: Date.now(),

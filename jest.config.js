@@ -20,8 +20,12 @@ module.exports = {
   // jeder Test, der `expo-router` nicht per `jest.mock()` ersetzt und
   // stattdessen (auch nur transitiv, z. B. ueber `AutoBackButton`) echtes
   // `useNavigation` importiert: "Cannot use import statement outside a module".
+  // `@sentry/.*` statt nur `@sentry/react-native`: das SDK zieht `@sentry/core`
+  // (und weitere `@sentry/*`-Pakete) als unkompiliertes ESM nach, ein zu enges
+  // Muster bricht jeden Test, der (auch nur transitiv, z. B. ueber
+  // `lib/sentry.ts`) `@sentry/react-native` importiert.
   transformIgnorePatterns: [
-    'node_modules/(?!(.bun|(jest-)?react-native|@react-native(-community)?|expo(nent)?|@expo(nent)?/.*|@expo-google-fonts/.*|react-navigation|@react-navigation/.*|@sentry/react-native|native-base|react-native-svg|react-native-purchases-ui|@revenuecat/.*|standard-navigation))',
+    'node_modules/(?!(.bun|(jest-)?react-native|@react-native(-community)?|expo(nent)?|@expo(nent)?/.*|@expo-google-fonts/.*|react-navigation|@react-navigation/.*|@sentry/.*|native-base|react-native-svg|react-native-purchases-ui|@revenuecat/.*|standard-navigation))',
   ],
 
   // Default (5000ms) ist zu knapp fuer Tests mit echten Timern/Intervallen

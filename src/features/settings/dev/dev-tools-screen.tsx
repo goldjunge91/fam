@@ -26,6 +26,7 @@ import {
   getOffDumpStatus,
   type OffDumpStatus,
 } from '@/lib/off-dump/off-dump';
+import { Sentry } from '@/lib/sentry';
 import { MAX_ATTEMPTS } from '@/lib/sync/backoff';
 
 function formatBytes(bytes: number): string {
@@ -267,6 +268,14 @@ export function DevToolsScreen() {
 
       <Card title="Aktionen">
         <View className="action-stack">
+          <Button
+            label="Sentry-Testfehler senden"
+            variant="secondary"
+            onPress={() => {
+              Sentry.captureException(new Error('First error'));
+              Alert.alert('Sentry', 'Test-Event ("First error") wurde an Sentry gesendet.');
+            }}
+          />
           <Button
             label="Test-Benachrichtigung senden"
             variant="secondary"

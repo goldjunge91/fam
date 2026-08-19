@@ -134,6 +134,31 @@ Aktuelle Supabase-Versionen geben **Publishable** und **Secret** aus, nicht mehr
 `anon` und `service_role`. In `EXPO_PUBLIC_SUPABASE_KEY` gehört der
 Publishable Key — der Secret Key darf niemals in die App.
 
+### Fehler-Tracking (Sentry)
+
+JS- und native Crashes sowie dauerhaft gescheiterte Sync-Vorgänge (`@/lib/sync`)
+landen in Sentry (`src/lib/sentry.ts`). Ohne `EXPO_PUBLIC_SENTRY_DSN` bleibt das
+ein No-op — App und Tests laufen auch ohne Sentry-Account.
+
+Einmalige Einrichtung:
+
+1. Sentry-Projekt anlegen (Plattform **React Native**, kostenloser Tarif reicht:
+   5.000 Errors/Monat) → **Project Settings > Client Keys** liefert den DSN.
+2. `EXPO_PUBLIC_SENTRY_DSN` in `.env` eintragen.
+3. In `app.json` unter dem Plugin `@sentry/react-native/expo` die Platzhalter
+   `TODO_SENTRY_ORG_SLUG` / `TODO_SENTRY_PROJECT_SLUG` durch die echten Slugs
+   aus der Sentry-URL ersetzen (`sentry.io/organizations/<org>/projects/<project>/`).
+   Beides sind keine Geheimnisse, dürfen also im Repo stehen.
+4. Für Source-Map-Uploads bei EAS-Builds ein Auth-Token unter
+   **Settings > Auth Tokens** erzeugen (Scope `project:releases`) und als
+   `SENTRY_AUTH_TOKEN` per `eas secret:create --scope project --name SENTRY_AUTH_TOKEN --value <token>`
+   hinterlegen — **nicht** in `.env` committen.
+5. Neuer Dev-Client-Build nötig (`bash scripts/ios-dev.sh` bzw. Android-Äquivalent),
+   da `@sentry/react-native` ein natives Modul mitbringt.
+
+Alarmierung (Slack/E-Mail bei neuen Fehlern) lässt sich im Sentry-Dashboard
+unter **Alerts** einrichten, kostenlos im Free-Tier enthalten.
+
 ## Lokales Backend
 
 ```bash
