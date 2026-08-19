@@ -1,6 +1,6 @@
 import { useQueryClient } from '@tanstack/react-query';
 import { createContext, type ReactNode, useContext, useState } from 'react';
-import { updateProfile } from '@/features/auth/api';
+import { markOnboardingCompleted, updateProfile } from '@/features/auth/api';
 import { persistOnboardingCompleted } from '@/features/auth/onboarding-session';
 import { useSession } from '@/features/auth/session-provider';
 import { saveModulePreferences } from '@/features/settings/module-preferences';
@@ -175,6 +175,19 @@ export function OnboardingProvider({ children }: { children: ReactNode }) {
       // (liest nur den bisherigen lokalen Stand) und schickt den Nutzer
       // direkt wieder ins Anlege-Formular, aus dem er gerade kam.
       await triggerHouseholdsPull(session.user.id, queryClient);
+
+      // Markiert das Konto serverseitig als fertig onboarded (`profiles.onboarding_completed_at`).
+      // Ohne diesen Aufruf blieb die Spalte fuer immer `null` — der Guard in
+      // `(app)/_layout.tsx` erkennt den Nutzer dann nur so lange als fertig
+      // an, wie das In-Memory-Flag aus `persistOnboardingCompleted()` lebt,
+      // und schickt ihn nach jedem Hot Reload/Neustart zurueck ins Onboarding.
+      const { error: markCompletedErr } = await markOnboardingCompleted(session.user.id);
+      if (markCompletedErr) {
+        setError(markCompletedErr.message);
+        setIsLoading(false);
+        return false;
+      }
+      await queryClient.invalidateQueries({ queryKey: ['profile', session.user.id] });
 
       // Onboarding-Flag persistieren
       await persistOnboardingCompleted();
