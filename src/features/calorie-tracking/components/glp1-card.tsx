@@ -8,6 +8,10 @@ import {
   useMedicationLogs,
   useSymptomLogs,
 } from '@/features/calorie-tracking/glp1-api';
+import { useTheme } from '@/hooks/use-theme';
+
+const COMMON_MEDICATIONS = ['Semaglutid', 'Tirzepatid', 'Liraglutid'];
+const COMMON_DOSES = ['0.25', '0.5', '1.0', '1.7', '2.4'];
 
 type Glp1CardProps = {
   userId: string | undefined;
@@ -15,12 +19,16 @@ type Glp1CardProps = {
 };
 
 export function Glp1Card({ userId, childProfileId }: Glp1CardProps) {
+  const theme = useTheme();
   const [showInjectForm, setShowInjectForm] = useState(false);
   const [showSymptomForm, setShowSymptomForm] = useState(false);
+  const [showHistory, setShowHistory] = useState(false);
 
   // Form states
   const [medName, setMedName] = useState('Semaglutid');
+  const [customMed, setCustomMed] = useState('');
   const [dose, setDose] = useState('0.5');
+  const [customDose, setCustomDose] = useState('');
   const [unit, _setUnit] = useState('mg');
 
   const [appetite, setAppetite] = useState<number>(2);
@@ -36,20 +44,25 @@ export function Glp1Card({ userId, childProfileId }: Glp1CardProps) {
   const latestMed = medLogs && medLogs.length > 0 ? medLogs[0] : null;
   const latestSymptom = symptomLogs && symptomLogs.length > 0 ? symptomLogs[0] : null;
 
+  const effectiveMedName = medName === 'Andere' ? customMed : medName;
+  const effectiveDose = dose === 'Andere' ? customDose : dose;
+
   function handleSaveMed() {
-    if (!userId || !medName.trim()) return;
-    const parsedDose = Number.parseFloat(dose.replace(',', '.'));
+    if (!userId || !effectiveMedName.trim()) return;
+    const parsedDose = Number.parseFloat(effectiveDose.replace(',', '.'));
     addMedMutation.mutate(
       {
         userId,
         childProfileId,
-        medicationName: medName.trim(),
+        medicationName: effectiveMedName.trim(),
         dose: Number.isNaN(parsedDose) ? null : parsedDose,
         unit,
       },
       {
         onSuccess: () => {
           setShowInjectForm(false);
+          setCustomMed('');
+          setCustomDose('');
         },
       },
     );
@@ -93,13 +106,13 @@ export function Glp1Card({ userId, childProfileId }: Glp1CardProps) {
       </View>
 
       {/* Status-Übersicht */}
-      <View className="flex-row justify-between bg-surface/50 p-three rounded-xl gap-two">
+      <View className="flex-row justify-between bg-surface p-three rounded-xl border border-border gap-two">
         <View className="flex-1">
           <ThemedText type="caption" themeColor="textSecondary">
             Letzte Injektion
           </ThemedText>
           {latestMed ? (
-            <View>
+            <View className="mt-one">
               <ThemedText type="smallBold">
                 {latestMed.medication_name} ({latestMed.dose} {latestMed.unit})
               </ThemedText>
@@ -108,7 +121,7 @@ export function Glp1Card({ userId, childProfileId }: Glp1CardProps) {
               </ThemedText>
             </View>
           ) : (
-            <ThemedText type="small" themeColor="textSecondary">
+            <ThemedText type="small" themeColor="textSecondary" className="mt-one">
               Keine Injektion erfasst
             </ThemedText>
           )}
@@ -119,7 +132,7 @@ export function Glp1Card({ userId, childProfileId }: Glp1CardProps) {
             Letzter Sättigungs-Status
           </ThemedText>
           {latestSymptom ? (
-            <View>
+            <View className="mt-one">
               <ThemedText type="smallBold">
                 Appetit {latestSymptom.appetite_level}/5 · Sättigung {latestSymptom.satiety_level}/5
               </ThemedText>
@@ -134,7 +147,7 @@ export function Glp1Card({ userId, childProfileId }: Glp1CardProps) {
               )}
             </View>
           ) : (
-            <ThemedText type="small" themeColor="textSecondary">
+            <ThemedText type="small" themeColor="textSecondary" className="mt-one">
               Kein Symptom-Log
             </ThemedText>
           )}
@@ -167,30 +180,100 @@ export function Glp1Card({ userId, childProfileId }: Glp1CardProps) {
 
       {/* Formular Injektion */}
       {showInjectForm && (
-        <View className="p-three bg-surface rounded-xl gap-two border border-border">
+        <View className="p-three bg-surface rounded-xl gap-three border border-border">
           <ThemedText type="labelBold">Injektion erfassen</ThemedText>
-          <View className="flex-row gap-two">
-            <TextInput
-              value={medName}
-              onChangeText={setMedName}
-              placeholder="Medikament (z. B. Semaglutid)"
-              className="flex-1 p-two bg-card rounded-lg border border-border text-foreground text-sm"
-              placeholderTextColor="#888"
-            />
-            <TextInput
-              value={dose}
-              onChangeText={setDose}
-              placeholder="Dosis"
-              keyboardType="decimal-pad"
-              className="w-20 p-two bg-card rounded-lg border border-border text-foreground text-sm text-center"
-              placeholderTextColor="#888"
-            />
+
+          {/* Medikamenten-Auswahl */}
+          <View className="gap-one">
+            <ThemedText type="caption" themeColor="textSecondary">
+              Medikament auswählen:
+            </ThemedText>
+            <View className="flex-row flex-wrap gap-two">
+              {[...COMMON_MEDICATIONS, 'Andere'].map((name) => {
+                const isSelected = medName === name;
+                return (
+                  <Pressable
+                    key={name}
+                    onPress={() => setMedName(name)}
+                    accessibilityRole="radio"
+                    accessibilityState={{ selected: isSelected }}
+                    style={{
+                      backgroundColor: isSelected ? theme.accent : theme.backgroundElement,
+                      borderColor: isSelected ? theme.accent : theme.border,
+                    }}
+                    className="py-one px-three rounded-xl border">
+                    <ThemedText type="smallBold" themeColor={isSelected ? 'onAccent' : 'text'}>
+                      {name}
+                    </ThemedText>
+                  </Pressable>
+                );
+              })}
+            </View>
+            {medName === 'Andere' && (
+              <TextInput
+                value={customMed}
+                onChangeText={setCustomMed}
+                placeholder="Name des Medikaments"
+                className="p-two bg-card rounded-lg border border-border text-sm mt-one"
+                placeholderTextColor="#888"
+              />
+            )}
           </View>
+
+          {/* Dosis-Auswahl */}
+          <View className="gap-one">
+            <ThemedText type="caption" themeColor="textSecondary">
+              Dosis (mg):
+            </ThemedText>
+            <View className="flex-row flex-wrap gap-two">
+              {[...COMMON_DOSES, 'Andere'].map((d) => {
+                const isSelected = dose === d;
+                return (
+                  <Pressable
+                    key={d}
+                    onPress={() => setDose(d)}
+                    accessibilityRole="radio"
+                    accessibilityState={{ selected: isSelected }}
+                    style={{
+                      backgroundColor: isSelected ? theme.accent : theme.backgroundElement,
+                      borderColor: isSelected ? theme.accent : theme.border,
+                    }}
+                    className="py-one px-three rounded-xl border">
+                    <ThemedText type="smallBold" themeColor={isSelected ? 'onAccent' : 'text'}>
+                      {d === 'Andere' ? 'Andere' : `${d} mg`}
+                    </ThemedText>
+                  </Pressable>
+                );
+              })}
+            </View>
+            {dose === 'Andere' && (
+              <TextInput
+                value={customDose}
+                onChangeText={setCustomDose}
+                placeholder="z. B. 0.75"
+                keyboardType="decimal-pad"
+                className="p-two bg-card rounded-lg border border-border text-sm mt-one"
+                placeholderTextColor="#888"
+              />
+            )}
+          </View>
+
+          {/* Gewählt-Zusammenfassung */}
+          <View className="p-two rounded-lg bg-card border border-border flex-row items-center justify-between">
+            <ThemedText type="small" themeColor="textSecondary">
+              Ausgewählt:
+            </ThemedText>
+            <ThemedText type="smallBold">
+              {effectiveMedName || '–'} ({effectiveDose || '–'} mg)
+            </ThemedText>
+          </View>
+
           <Pressable
             onPress={handleSaveMed}
-            disabled={addMedMutation.isPending}
-            className="py-two bg-primary rounded-xl items-center justify-center mt-one">
-            <ThemedText type="labelBold" className="text-white">
+            disabled={addMedMutation.isPending || !effectiveMedName.trim() || !effectiveDose.trim()}
+            style={{ backgroundColor: theme.accent }}
+            className="py-three rounded-xl items-center justify-center mt-one">
+            <ThemedText type="labelBold" themeColor="onAccent">
               {addMedMutation.isPending ? 'Speichern...' : 'Injektion speichern'}
             </ThemedText>
           </Pressable>
@@ -204,80 +287,146 @@ export function Glp1Card({ userId, childProfileId }: Glp1CardProps) {
 
           <View className="gap-one">
             <ThemedText type="caption" themeColor="textSecondary">
-              Appetit (1 = kein Appetit, 5 = starker Heißhunger): {appetite}/5
+              Appetit (1 = kein Appetit, 5 = starker Heißhunger):
             </ThemedText>
             <View className="flex-row gap-two justify-between">
-              {[1, 2, 3, 4, 5].map((lvl) => (
-                <Pressable
-                  key={lvl}
-                  onPress={() => setAppetite(lvl)}
-                  className={`w-10 h-8 rounded-lg items-center justify-center border ${
-                    appetite === lvl ? 'bg-primary border-primary' : 'bg-card border-border'
-                  }`}>
-                  <ThemedText
-                    type="labelBold"
-                    className={appetite === lvl ? 'text-white' : undefined}>
-                    {lvl}
-                  </ThemedText>
-                </Pressable>
-              ))}
+              {[1, 2, 3, 4, 5].map((lvl) => {
+                const isSelected = appetite === lvl;
+                return (
+                  <Pressable
+                    key={lvl}
+                    onPress={() => setAppetite(lvl)}
+                    accessibilityRole="radio"
+                    accessibilityState={{ selected: isSelected }}
+                    style={{
+                      backgroundColor: isSelected ? theme.accent : theme.backgroundElement,
+                      borderColor: isSelected ? theme.accent : theme.border,
+                    }}
+                    className="flex-1 h-9 rounded-xl items-center justify-center border">
+                    <ThemedText type="labelBold" themeColor={isSelected ? 'onAccent' : 'text'}>
+                      {lvl}
+                    </ThemedText>
+                  </Pressable>
+                );
+              })}
             </View>
           </View>
 
           <View className="gap-one">
             <ThemedText type="caption" themeColor="textSecondary">
-              Sättigungsgefühl (1 = kaum satt, 5 = sehr schnell satt): {satiety}/5
+              Sättigungsgefühl (1 = kaum satt, 5 = sehr schnell satt):
             </ThemedText>
             <View className="flex-row gap-two justify-between">
-              {[1, 2, 3, 4, 5].map((lvl) => (
-                <Pressable
-                  key={lvl}
-                  onPress={() => setSatiety(lvl)}
-                  className={`w-10 h-8 rounded-lg items-center justify-center border ${
-                    satiety === lvl ? 'bg-primary border-primary' : 'bg-card border-border'
-                  }`}>
-                  <ThemedText
-                    type="labelBold"
-                    className={satiety === lvl ? 'text-white' : undefined}>
-                    {lvl}
-                  </ThemedText>
-                </Pressable>
-              ))}
+              {[1, 2, 3, 4, 5].map((lvl) => {
+                const isSelected = satiety === lvl;
+                return (
+                  <Pressable
+                    key={lvl}
+                    onPress={() => setSatiety(lvl)}
+                    accessibilityRole="radio"
+                    accessibilityState={{ selected: isSelected }}
+                    style={{
+                      backgroundColor: isSelected ? theme.accent : theme.backgroundElement,
+                      borderColor: isSelected ? theme.accent : theme.border,
+                    }}
+                    className="flex-1 h-9 rounded-xl items-center justify-center border">
+                    <ThemedText type="labelBold" themeColor={isSelected ? 'onAccent' : 'text'}>
+                      {lvl}
+                    </ThemedText>
+                  </Pressable>
+                );
+              })}
             </View>
           </View>
 
           <View className="gap-one">
             <ThemedText type="caption" themeColor="textSecondary">
-              Übelkeit / Nebenwirkung (0 = keine, 5 = stark): {nausea}/5
+              Übelkeit / Nebenwirkung (0 = keine, 5 = stark):
             </ThemedText>
             <View className="flex-row gap-two justify-between">
-              {[0, 1, 2, 3, 4, 5].map((lvl) => (
-                <Pressable
-                  key={lvl}
-                  onPress={() => setNausea(lvl)}
-                  className={`w-8 h-8 rounded-lg items-center justify-center border ${
-                    nausea === lvl ? 'bg-primary border-primary' : 'bg-card border-border'
-                  }`}>
-                  <ThemedText
-                    type="labelBold"
-                    className={nausea === lvl ? 'text-white' : undefined}>
-                    {lvl}
-                  </ThemedText>
-                </Pressable>
-              ))}
+              {[0, 1, 2, 3, 4, 5].map((lvl) => {
+                const isSelected = nausea === lvl;
+                return (
+                  <Pressable
+                    key={lvl}
+                    onPress={() => setNausea(lvl)}
+                    accessibilityRole="radio"
+                    accessibilityState={{ selected: isSelected }}
+                    style={{
+                      backgroundColor: isSelected ? theme.accent : theme.backgroundElement,
+                      borderColor: isSelected ? theme.accent : theme.border,
+                    }}
+                    className="flex-1 h-9 rounded-xl items-center justify-center border">
+                    <ThemedText type="labelBold" themeColor={isSelected ? 'onAccent' : 'text'}>
+                      {lvl}
+                    </ThemedText>
+                  </Pressable>
+                );
+              })}
             </View>
+          </View>
+
+          {/* Gewählt-Zusammenfassung */}
+          <View className="p-two rounded-lg bg-card border border-border flex-row items-center justify-between">
+            <ThemedText type="small" themeColor="textSecondary">
+              Ausgewählt:
+            </ThemedText>
+            <ThemedText type="smallBold">
+              Appetit {appetite}/5 · Sättigung {satiety}/5 · Übelkeit {nausea}/5
+            </ThemedText>
           </View>
 
           <Pressable
             onPress={handleSaveSymptom}
             disabled={addSymptomMutation.isPending}
-            className="py-two bg-primary rounded-xl items-center justify-center mt-one">
-            <ThemedText type="labelBold" className="text-white">
+            style={{ backgroundColor: theme.accent }}
+            className="py-three rounded-xl items-center justify-center mt-one">
+            <ThemedText type="labelBold" themeColor="onAccent">
               {addSymptomMutation.isPending ? 'Speichern...' : 'Status speichern'}
             </ThemedText>
           </Pressable>
         </View>
       )}
+
+      {/* Verlauf ein-/ausblenden */}
+      {(medLogs && medLogs.length > 0) || (symptomLogs && symptomLogs.length > 0) ? (
+        <View className="pt-one border-t border-border">
+          <Pressable
+            onPress={() => setShowHistory(!showHistory)}
+            className="py-one flex-row items-center justify-between">
+            <ThemedText type="small" themeColor="textSecondary">
+              {showHistory ? 'Verlauf ausblenden' : 'Bisherigen Verlauf anzeigen'}
+            </ThemedText>
+            <ThemedText type="small" themeColor="textSecondary">
+              {showHistory ? '▲' : '▼'}
+            </ThemedText>
+          </Pressable>
+
+          {showHistory && (
+            <View className="gap-two pt-two">
+              {medLogs && medLogs.length > 0 && (
+                <View className="gap-one">
+                  <ThemedText type="labelBold" themeColor="textSecondary">
+                    Letzte Injektionen:
+                  </ThemedText>
+                  {medLogs.slice(0, 3).map((log) => (
+                    <View
+                      key={log.id}
+                      className="p-two rounded-lg bg-surface flex-row items-center justify-between border border-border">
+                      <ThemedText type="small">
+                        {log.medication_name} ({log.dose} {log.unit})
+                      </ThemedText>
+                      <ThemedText type="caption" themeColor="textSecondary">
+                        {new Date(log.administered_at).toLocaleDateString('de-DE')}
+                      </ThemedText>
+                    </View>
+                  ))}
+                </View>
+              )}
+            </View>
+          )}
+        </View>
+      ) : null}
     </Card>
   );
 }

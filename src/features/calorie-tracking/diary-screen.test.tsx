@@ -24,11 +24,14 @@ jest.mock('expo-router', () => ({
 }));
 
 jest.mock('@/features/auth/api', () => ({
-  useProfile: () => ({ data: { tracking_day_start_time: '00:00' }, isLoading: false }),
+  useProfile: () => ({
+    data: { tracking_day_start_time: '00:00', tracking_method: 'standard' },
+    isLoading: false,
+  }),
 }));
 
 jest.mock('@/features/settings/module-preferences', () => ({
-  useModulePreferences: () => ({ data: { glp1: false }, isLoading: false }),
+  useModulePreferences: () => ({ data: { glp1: false, fasting: false }, isLoading: false }),
 }));
 
 jest.mock('@/features/calorie-tracking/glp1-api', () => ({
@@ -36,6 +39,12 @@ jest.mock('@/features/calorie-tracking/glp1-api', () => ({
   useSymptomLogs: () => ({ data: [], isLoading: false }),
   useAddMedicationLogMutation: () => ({ mutate: jest.fn(), isPending: false }),
   useAddSymptomLogMutation: () => ({ mutate: jest.fn(), isPending: false }),
+}));
+
+jest.mock('@/features/calorie-tracking/fasting-api', () => ({
+  useActiveFastingSession: () => ({ data: null, isLoading: false }),
+  useStartFastMutation: () => ({ mutate: jest.fn(), isPending: false }),
+  useEndFastMutation: () => ({ mutate: jest.fn(), isPending: false }),
 }));
 
 jest.mock('@/features/auth/session-provider', () => ({

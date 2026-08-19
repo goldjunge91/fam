@@ -4,6 +4,7 @@ import { ThemedText } from '@/components/theme/themed-text';
 import { Card } from '@/components/ui/card';
 import { useSession } from '@/features/auth/session-provider';
 import {
+  DEFAULT_MODULE_PREFERENCES,
   type ModulePreferences,
   useModulePreferences,
   useUpdateModulePreferencesMutation,
@@ -40,42 +41,6 @@ const MODULE_ROWS: { key: keyof ModulePreferences; icon: string; title: string; 
     title: 'Meal-Planner',
     desc: 'Wochenplanung fuer den Haushalt, Mahlzeiten Mitgliedern zuordnen.',
   },
-  {
-    key: 'glp1',
-    icon: '💉',
-    title: 'GLP-1 & Medikation',
-    desc: 'Injektionsintervalle, Dosierungen und Symptomtagebuch führen.',
-  },
-  {
-    key: 'fasting',
-    icon: '⏱️',
-    title: 'Intervallfasten',
-    desc: 'Fastenfenster (16:8, OMAD) tracken mit Timer und Benachrichtigungen.',
-  },
-  {
-    key: 'workouts',
-    icon: '🏋️',
-    title: 'Kraftsport & Workouts',
-    desc: 'Übungen, Sätze, Wiederholungen und Gewichte dokumentieren.',
-  },
-  {
-    key: 'keto',
-    icon: '🥑',
-    title: 'Low-Carb & Keto',
-    desc: 'Netto-Kohlenhydrate berechnen und Keton-Logs erfassen.',
-  },
-  {
-    key: 'cgm',
-    icon: '🩸',
-    title: 'Blutzucker & CGM',
-    desc: 'Glukosemessungen im Kontext von Mahlzeiten protokollieren.',
-  },
-  {
-    key: 'volumetrics',
-    icon: '🥗',
-    title: 'Volumetrics & Sättigung',
-    desc: 'Energiedichte-Ampel und Sättigungs-Scoring nutzen.',
-  },
 ];
 
 /**
@@ -88,11 +53,12 @@ export function ModuleSettingsScreen() {
   const { session } = useSession();
   const userId = session?.user.id;
 
-  const { data: modules, isLoading } = useModulePreferences(userId);
+  const { data: rawModules } = useModulePreferences(userId);
+  const modules = rawModules ?? DEFAULT_MODULE_PREFERENCES;
   const updateMutation = useUpdateModulePreferencesMutation();
 
   function toggle(key: keyof ModulePreferences) {
-    if (!userId || !modules) return;
+    if (!userId) return;
     updateMutation.mutate({ userId, modules: { [key]: !modules[key] } });
   }
 
@@ -104,30 +70,24 @@ export function ModuleSettingsScreen() {
         </ThemedText>
       </Card>
 
-      {isLoading || !modules ? (
-        <ThemedText type="small" themeColor="textSecondary">
-          Lade Einstellungen...
-        </ThemedText>
-      ) : (
-        <View className="gap-two">
-          {MODULE_ROWS.map((row) => (
-            <Pressable
-              key={row.key}
-              onPress={() => toggle(row.key)}
-              className={`module-row ${modules[row.key] ? 'module-row-selected' : 'module-row-idle'}`}>
-              <View className="row-text">
-                <ThemedText type="smallBold">
-                  {row.icon} {row.title}
-                </ThemedText>
-                <ThemedText type="small" themeColor="textSecondary">
-                  {row.desc}
-                </ThemedText>
-              </View>
-              <Switch value={modules[row.key]} onValueChange={() => toggle(row.key)} />
-            </Pressable>
-          ))}
-        </View>
-      )}
+      <View className="gap-two">
+        {MODULE_ROWS.map((row) => (
+          <Pressable
+            key={row.key}
+            onPress={() => toggle(row.key)}
+            className={`module-row ${modules[row.key] ? 'module-row-selected' : 'module-row-idle'}`}>
+            <View className="row-text">
+              <ThemedText type="smallBold">
+                {row.icon} {row.title}
+              </ThemedText>
+              <ThemedText type="small" themeColor="textSecondary">
+                {row.desc}
+              </ThemedText>
+            </View>
+            <Switch value={modules[row.key]} onValueChange={() => toggle(row.key)} />
+          </Pressable>
+        ))}
+      </View>
     </Screen>
   );
 }

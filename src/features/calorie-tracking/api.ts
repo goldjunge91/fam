@@ -365,3 +365,76 @@ export function useRestoreFoodEntryMutation() {
     },
   });
 }
+
+export function useUpdateTrackingDayStartTimeMutation() {
+  const queryClient = useQueryClient();
+
+  return useMutation({
+    mutationFn: async ({ userId, time }: { userId: string; time: string }) => {
+      const { error } = await getSupabase()
+        .from('profiles')
+        .update({ tracking_day_start_time: time })
+        .eq('id', userId);
+
+      if (error) throw new Error(error.message);
+    },
+    onMutate: async ({ userId, time }) => {
+      const queryKey = ['profile', userId];
+      await queryClient.cancelQueries({ queryKey });
+      const previous = queryClient.getQueryData(queryKey);
+      queryClient.setQueryData(queryKey, (old: Record<string, unknown> | undefined) =>
+        old ? { ...old, tracking_day_start_time: time } : old,
+      );
+      return { previous, queryKey };
+    },
+    onError: (_err, _vars, context) => {
+      if (context?.previous) {
+        queryClient.setQueryData(context.queryKey, context.previous);
+      }
+    },
+    onSettled: (_, __, variables) => {
+      queryClient.invalidateQueries({ queryKey: ['profile', variables.userId] });
+    },
+  });
+}
+
+export type TrackingMethod =
+  | 'standard'
+  | 'glp1'
+  | 'fasting'
+  | 'keto'
+  | 'workouts'
+  | 'cgm'
+  | 'volumetrics';
+
+export function useUpdateTrackingMethodMutation() {
+  const queryClient = useQueryClient();
+
+  return useMutation({
+    mutationFn: async ({ userId, method }: { userId: string; method: TrackingMethod }) => {
+      const { error } = await getSupabase()
+        .from('profiles')
+        .update({ tracking_method: method })
+        .eq('id', userId);
+
+      if (error) throw new Error(error.message);
+    },
+    onMutate: async ({ userId, method }) => {
+      const queryKey = ['profile', userId];
+      await queryClient.cancelQueries({ queryKey });
+      const previous = queryClient.getQueryData(queryKey);
+      queryClient.setQueryData(queryKey, (old: Record<string, unknown> | undefined) =>
+        old ? { ...old, tracking_method: method } : old,
+      );
+      return { previous, queryKey };
+    },
+    onError: (_err, _vars, context) => {
+      if (context?.previous) {
+        queryClient.setQueryData(context.queryKey, context.previous);
+      }
+    },
+    onSettled: (_, __, variables) => {
+      queryClient.invalidateQueries({ queryKey: ['profile', variables.userId] });
+    },
+  });
+}

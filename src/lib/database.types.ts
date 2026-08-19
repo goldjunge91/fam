@@ -850,19 +850,14 @@ export type Database = {
           height_cm: number | null
           id: string
           module_calories: boolean
-          module_cgm: boolean
-          module_fasting: boolean
           module_fridge: boolean
-          module_glp1: boolean
-          module_keto: boolean
           module_meal_planner: boolean
           module_recipes: boolean
           module_shopping_list: boolean
-          module_volumetrics: boolean
-          module_workouts: boolean
           onboarding_completed_at: string | null
           sex: string | null
           tracking_day_start_time: string
+          tracking_method: string
           updated_at: string
         }
         Insert: {
@@ -874,19 +869,14 @@ export type Database = {
           height_cm?: number | null
           id: string
           module_calories?: boolean
-          module_cgm?: boolean
-          module_fasting?: boolean
           module_fridge?: boolean
-          module_glp1?: boolean
-          module_keto?: boolean
           module_meal_planner?: boolean
           module_recipes?: boolean
           module_shopping_list?: boolean
-          module_volumetrics?: boolean
-          module_workouts?: boolean
           onboarding_completed_at?: string | null
           sex?: string | null
           tracking_day_start_time?: string
+          tracking_method?: string
           updated_at?: string
         }
         Update: {
@@ -898,19 +888,14 @@ export type Database = {
           height_cm?: number | null
           id?: string
           module_calories?: boolean
-          module_cgm?: boolean
-          module_fasting?: boolean
           module_fridge?: boolean
-          module_glp1?: boolean
-          module_keto?: boolean
           module_meal_planner?: boolean
           module_recipes?: boolean
           module_shopping_list?: boolean
-          module_volumetrics?: boolean
-          module_workouts?: boolean
           onboarding_completed_at?: string | null
           sex?: string | null
           tracking_day_start_time?: string
+          tracking_method?: string
           updated_at?: string
         }
         Relationships: []
