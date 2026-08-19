@@ -4,6 +4,7 @@ import { ThemedText } from '@/components/theme/themed-text';
 import { Card } from '@/components/ui/card';
 import { useSession } from '@/features/auth/session-provider';
 import {
+  DEFAULT_MODULE_PREFERENCES,
   type ModulePreferences,
   useModulePreferences,
   useUpdateModulePreferencesMutation,
@@ -52,11 +53,12 @@ export function ModuleSettingsScreen() {
   const { session } = useSession();
   const userId = session?.user.id;
 
-  const { data: modules, isLoading } = useModulePreferences(userId);
+  const { data: rawModules } = useModulePreferences(userId);
+  const modules = rawModules ?? DEFAULT_MODULE_PREFERENCES;
   const updateMutation = useUpdateModulePreferencesMutation();
 
   function toggle(key: keyof ModulePreferences) {
-    if (!userId || !modules) return;
+    if (!userId) return;
     updateMutation.mutate({ userId, modules: { [key]: !modules[key] } });
   }
 
@@ -68,30 +70,24 @@ export function ModuleSettingsScreen() {
         </ThemedText>
       </Card>
 
-      {isLoading || !modules ? (
-        <ThemedText type="small" themeColor="textSecondary">
-          Lade Einstellungen...
-        </ThemedText>
-      ) : (
-        <View className="gap-two">
-          {MODULE_ROWS.map((row) => (
-            <Pressable
-              key={row.key}
-              onPress={() => toggle(row.key)}
-              className={`module-row ${modules[row.key] ? 'module-row-selected' : 'module-row-idle'}`}>
-              <View className="row-text">
-                <ThemedText type="smallBold">
-                  {row.icon} {row.title}
-                </ThemedText>
-                <ThemedText type="small" themeColor="textSecondary">
-                  {row.desc}
-                </ThemedText>
-              </View>
-              <Switch value={modules[row.key]} onValueChange={() => toggle(row.key)} />
-            </Pressable>
-          ))}
-        </View>
-      )}
+      <View className="gap-two">
+        {MODULE_ROWS.map((row) => (
+          <Pressable
+            key={row.key}
+            onPress={() => toggle(row.key)}
+            className={`module-row ${modules[row.key] ? 'module-row-selected' : 'module-row-idle'}`}>
+            <View className="row-text">
+              <ThemedText type="smallBold">
+                {row.icon} {row.title}
+              </ThemedText>
+              <ThemedText type="small" themeColor="textSecondary">
+                {row.desc}
+              </ThemedText>
+            </View>
+            <Switch value={modules[row.key]} onValueChange={() => toggle(row.key)} />
+          </Pressable>
+        ))}
+      </View>
     </Screen>
   );
 }

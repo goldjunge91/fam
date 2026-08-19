@@ -1,14 +1,14 @@
+import { Image } from 'expo-image';
 import { router } from 'expo-router';
-import { useState } from 'react';
 import { Modal, Pressable, StyleSheet, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+
 import { FamIcon, type FamIconName } from '@/components/icons/fam-icon';
-import { ThemedText } from '@/components/theme/themed-text';
+import { FontSize, ThemedText } from '@/components/theme/themed-text';
+import { Radius } from '@/constants/layout';
 import { withAlpha } from '@/constants/theme';
 import { useProfile } from '@/features/auth/api';
 import { useSession } from '@/features/auth/session-provider';
-import { useActiveHousehold } from '@/features/household/active-household-provider';
-import { HouseholdSwitcherModal } from '@/features/household/household-switcher-modal';
 import { usePremium } from '@/features/premium/premium-provider';
 import { useDeferredMount } from '@/hooks/use-deferred-mount';
 import { useTheme } from '@/hooks/use-theme';
@@ -30,9 +30,7 @@ function ProfileSheetContent() {
   const { isProfileOpen, closeProfile } = useNavigationChrome();
   const { session } = useSession();
   const { data: profile } = useProfile(session?.user.id);
-  const { activeHousehold, households } = useActiveHousehold();
   const { isPremium } = usePremium();
-  const [switcherVisible, setSwitcherVisible] = useState(false);
 
   const displayName = profile?.display_name || 'Ohne Namen';
   const email = session?.user.email ?? '';
@@ -43,104 +41,83 @@ function ProfileSheetContent() {
   }
 
   return (
-    <>
-      <Modal
-        visible={isProfileOpen}
-        transparent
-        animationType="slide"
-        onRequestClose={closeProfile}>
-        <View style={StyleSheet.absoluteFill}>
+    <Modal visible={isProfileOpen} transparent animationType="slide" onRequestClose={closeProfile}>
+      <View style={StyleSheet.absoluteFill}>
+        <Pressable
+          style={styles.dim}
+          onPress={closeProfile}
+          accessibilityRole="button"
+          accessibilityLabel="Profil schließen"
+        />
+        <View
+          style={[
+            styles.sheet,
+            {
+              backgroundColor: theme.backgroundElement,
+              bottom: Math.max(insets.bottom / 2, 16),
+              boxShadow: `0 -8px 28px ${withAlpha(theme.shadowSheet, 0.18)}`,
+            },
+          ]}>
           <Pressable
-            className="sheet-dim"
             onPress={closeProfile}
             accessibilityRole="button"
             accessibilityLabel="Profil schließen"
-          />
-          <View
-            className="profile-sheet"
-            // bottom (Safe-Area-Insets) und boxShadow (dynamische Opazitaet)
-            // sind echte Laufzeitwerte.
-            style={{
-              bottom: Math.max(insets.bottom / 2, 16),
-              boxShadow: `0 -8px 28px ${withAlpha(theme.shadowSheet, 0.18)}`,
-            }}>
-            <Pressable
-              onPress={closeProfile}
-              accessibilityRole="button"
-              accessibilityLabel="Profil schließen"
-              hitSlop={12}
-              className="profile-sheet-handle-area">
-              <View className="profile-sheet-handle" />
-            </Pressable>
+            hitSlop={12}
+            style={styles.handleArea}>
+            <View style={[styles.handle, { backgroundColor: theme.border }]} />
+          </Pressable>
 
-            <View className="profile-sheet-card">
-              <View className="profile-sheet-avatar">
-                <ThemedText
-                  type="bodySmall"
-                  themeColor="onAccent"
-                  className="profile-sheet-avatar-text">
+          <View style={[styles.profileCard, { borderBottomColor: theme.border }]}>
+            <View style={[styles.avatar, { backgroundColor: theme.accent }]}>
+              {profile?.avatar_url ? (
+                <Image
+                  source={{ uri: profile.avatar_url }}
+                  style={styles.avatarImage}
+                  contentFit="cover"
+                />
+              ) : (
+                <ThemedText type="bodySmall" style={[styles.avatarText, { color: '#fff' }]}>
                   {getInitials(displayName)}
                 </ThemedText>
-              </View>
-              <View className="profile-sheet-identity">
-                <ThemedText type="smallBold" className="profile-sheet-name">
-                  {displayName}
-                </ThemedText>
-                {email ? (
-                  <ThemedText
-                    type="small"
-                    themeColor="textSecondary"
-                    className="profile-sheet-email">
-                    {email}
-                  </ThemedText>
-                ) : null}
-              </View>
+              )}
             </View>
-
-            <ProfileRow
-              icon="profile"
-              title="Mein Profil"
-              subtitle="Persönliche Daten und Ziele"
-              onPress={() => go('/settings/profile')}
-            />
-            <ProfileRow
-              icon="household"
-              title={activeHousehold?.name ?? 'Haushalt'}
-              subtitle={households.length > 1 ? 'Aktiver Haushalt · wechseln' : 'Aktiver Haushalt'}
-              onPress={() => {
-                if (households.length > 1) {
-                  setSwitcherVisible(true);
-                } else {
-                  closeProfile();
-                }
-              }}
-            />
-            <ProfileRow
-              icon="members"
-              title="Haushalt verwalten"
-              subtitle="Mitglieder, Kinder und Einladungen"
-              onPress={() => go('/household/members')}
-            />
-            <ProfileRow
-              icon="premium"
-              title="Premium"
-              subtitle={isPremium ? 'Aktiv für den Haushalt' : 'Jetzt freischalten'}
-              onPress={() => go('/settings')}
-              isLast
-            />
+            <View style={styles.identity}>
+              <ThemedText type="smallBold" style={styles.profileName}>
+                {displayName}
+              </ThemedText>
+              {email ? (
+                <ThemedText type="small" themeColor="textSecondary" style={styles.profileEmail}>
+                  {email}
+                </ThemedText>
+              ) : null}
+            </View>
           </View>
-        </View>
-      </Modal>
 
-      <HouseholdSwitcherModal
-        visible={switcherVisible}
-        onClose={() => setSwitcherVisible(false)}
-        onSelectHousehold={() => {
-          setSwitcherVisible(false);
-          closeProfile();
-        }}
-      />
-    </>
+          <ProfileRow
+            icon="profile"
+            title="Mein Profil"
+            subtitle="Persönliche Daten und Einstellungen"
+            onPress={() => go('/profile')}
+            borderColor={theme.border}
+          />
+          <ProfileRow
+            icon="household"
+            title="Familie"
+            subtitle="Haushalt verwalten"
+            onPress={() => go('/household/members')}
+            borderColor={theme.border}
+          />
+          <ProfileRow
+            icon="premium"
+            title="Premium"
+            subtitle={isPremium ? 'Aktiv für den Haushalt' : 'Jetzt freischalten'}
+            onPress={() => go('/settings/premium')}
+            borderColor="transparent"
+            isLast
+          />
+        </View>
+      </View>
+    </Modal>
   );
 }
 
@@ -149,27 +126,32 @@ function ProfileRow({
   title,
   subtitle,
   onPress,
+  borderColor,
   isLast,
 }: {
   icon: FamIconName;
   title: string;
   subtitle: string;
   onPress: () => void;
+  borderColor: string;
   isLast?: boolean;
 }) {
   return (
     <Pressable
       onPress={onPress}
       accessibilityRole="button"
-      className={`profile-sheet-row ${!isLast ? 'profile-sheet-row-bordered' : ''}`}>
-      <View className="profile-sheet-row-icon">
+      style={[
+        styles.profileRow,
+        !isLast && { borderBottomWidth: StyleSheet.hairlineWidth, borderBottomColor: borderColor },
+      ]}>
+      <View style={styles.rowIcon}>
         <FamIcon name={icon} size={24} />
       </View>
-      <View className="profile-sheet-row-copy">
-        <ThemedText type="smallBold" className="profile-sheet-row-title">
+      <View style={styles.rowCopy}>
+        <ThemedText type="smallBold" style={styles.rowTitle}>
           {title}
         </ThemedText>
-        <ThemedText type="small" themeColor="textSecondary" className="profile-sheet-row-subtitle">
+        <ThemedText type="small" themeColor="textSecondary" style={styles.rowSubtitle}>
           {subtitle}
         </ThemedText>
       </View>
@@ -177,3 +159,94 @@ function ProfileRow({
     </Pressable>
   );
 }
+
+const styles = StyleSheet.create({
+  dim: {
+    ...StyleSheet.absoluteFill,
+    backgroundColor: 'rgba(31,26,33,0.3)',
+  },
+  sheet: {
+    position: 'absolute',
+    left: 16,
+    right: 16,
+    borderRadius: Radius.sheet,
+    paddingHorizontal: 20,
+    paddingTop: 12,
+    paddingBottom: 20,
+    borderCurve: 'continuous',
+  },
+  handleArea: {
+    alignItems: 'center',
+    height: 24,
+    justifyContent: 'center',
+  },
+  handle: {
+    width: 44,
+    height: 5,
+    borderRadius: Radius.hairline,
+  },
+  profileCard: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 14,
+    height: 82,
+    paddingTop: 8,
+    paddingBottom: 14,
+    borderBottomWidth: StyleSheet.hairlineWidth,
+  },
+  avatar: {
+    width: 58,
+    height: 58,
+    borderRadius: Radius.sheet,
+    alignItems: 'center',
+    justifyContent: 'center',
+    overflow: 'hidden',
+  },
+  avatarImage: {
+    width: '100%',
+    height: '100%',
+  },
+  avatarText: {
+    ...FontSize[14],
+    lineHeight: 20,
+    fontWeight: '500',
+  },
+  identity: {
+    gap: 6,
+  },
+  profileName: {
+    ...FontSize[17],
+    lineHeight: 22,
+    fontWeight: '500',
+  },
+  profileEmail: {
+    ...FontSize[13],
+    lineHeight: 18,
+    fontWeight: '400',
+  },
+  profileRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 14,
+    height: 61,
+    paddingVertical: 8,
+  },
+  rowIcon: {
+    width: 24,
+    height: 24,
+  },
+  rowCopy: {
+    flex: 1,
+    gap: 4,
+  },
+  rowTitle: {
+    ...FontSize[14],
+    lineHeight: 20,
+    fontWeight: '500',
+  },
+  rowSubtitle: {
+    ...FontSize[12],
+    lineHeight: 16,
+    fontWeight: '400',
+  },
+});

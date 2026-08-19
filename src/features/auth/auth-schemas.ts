@@ -191,6 +191,7 @@ export const profileSchema = z.object({
     .max(299, 'Bitte gib die Größe in Zentimetern an.')
     .optional(),
   activityLevel: z.enum(['sedentary', 'light', 'moderate', 'active', 'very_active']).optional(),
+  avatarUrl: z.string().nullable().optional(),
 });
 
 export type ConfirmationCodeInput = z.infer<typeof confirmationCodeSchema>;

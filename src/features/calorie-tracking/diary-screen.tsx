@@ -4,10 +4,11 @@ import { Pressable, ScrollView, View } from 'react-native';
 import { PlusIcon } from '@/components/icons/fam-icon';
 import { HubScreen } from '@/components/layout/hub-screen';
 import { ThemedText } from '@/components/theme/themed-text';
-import { HeaderIconButton, MenuButton } from '@/components/ui/buttons';
+import { MenuButton } from '@/components/ui/buttons';
 import { FilterChipBar } from '@/components/ui/filter-chip-bar';
 import { ProgressBar } from '@/components/ui/progress-bar';
 import { ProgressRing } from '@/components/ui/progress-ring';
+import { useProfile } from '@/features/auth/api';
 import { useSession } from '@/features/auth/session-provider';
 import { useActiveProfile } from '@/features/calorie-tracking/active-profile-store';
 import {
@@ -16,7 +17,10 @@ import {
   useCurrentGoal,
   useFoodEntries,
 } from '@/features/calorie-tracking/api';
+import { FastingCard } from '@/features/calorie-tracking/components/fasting-card';
+import { Glp1Card } from '@/features/calorie-tracking/components/glp1-card';
 import { calculateDailyTotals } from '@/features/calorie-tracking/daily-totals';
+import { getLogicalDateForTimestamp } from '@/features/calorie-tracking/day-boundary';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { useChildProfiles } from '@/features/household/api';
 import { useNavigationChrome } from '@/features/navigation/navigation-chrome-provider';
@@ -194,8 +198,12 @@ export function DiaryScreen() {
   const { openDrawer } = useNavigationChrome();
   const { session } = useSession();
   const userId = session?.user.id;
+  const { data: userProfile } = useProfile(userId);
 
-  const todayIso = toIsoDate(new Date());
+  const todayIso = getLogicalDateForTimestamp(
+    new Date(),
+    userProfile?.tracking_day_start_time ?? '00:00',
+  );
   const [selectedDate, setSelectedDate] = useState(todayIso);
 
   const { activeHousehold } = useActiveHousehold();
@@ -255,17 +263,6 @@ export function DiaryScreen() {
         title: 'Tagebuch',
         align: 'center',
         leading: <MenuButton onPress={openDrawer} />,
-        trailing: (
-          <HeaderIconButton
-            label="Ziele und Fortschritt öffnen"
-            onPress={() => router.push('/settings/goals')}>
-            <View className="diary-goal-icon">
-              <View className="diary-goal-bar diary-goal-bar-short" />
-              <View className="diary-goal-bar diary-goal-bar-tall" />
-              <View className="diary-goal-bar diary-goal-bar-mid" />
-            </View>
-          </HeaderIconButton>
-        ),
       }}>
       <ScrollView
         showsVerticalScrollIndicator={false}
@@ -352,6 +349,14 @@ export function DiaryScreen() {
           />
           <MacroSummary label="Fett" value={totals.fatG} target={currentGoal?.fat_g ?? 0} isLast />
         </View>
+
+        {userProfile?.tracking_method === 'glp1' ? (
+          <Glp1Card userId={userId} childProfileId={childProfileId} />
+        ) : null}
+
+        {userProfile?.tracking_method === 'fasting' ? (
+          <FastingCard userId={userId} childProfileId={childProfileId} />
+        ) : null}
 
         {isLoading ? (
           <ThemedText

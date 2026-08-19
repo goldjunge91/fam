@@ -208,7 +208,10 @@ export function GoalSetupScreen() {
             Für die Berechnung fehlen noch Angaben zu Geschlecht, Geburtsdatum oder Körpergröße im
             Profil.
           </ThemedText>
-          <Button label="Zum Profil" onPress={() => router.push('/settings/profile')} />
+          <Button
+            label="Zum Tracking & Vitalwerten"
+            onPress={() => router.push('/profile/tracking')}
+          />
         </Card>
       ) : (
         <>

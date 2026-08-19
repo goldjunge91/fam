@@ -39,6 +39,14 @@ create table if not exists public.profiles (
   module_recipes boolean not null default true,
   module_meal_planner boolean not null default true,
 
+  -- Spezifische Abnehm- & Trainingsmethode (#179): Genau eine aktive Methode pro Profil.
+  tracking_method text not null default 'standard' check (
+    tracking_method in ('standard', 'glp1', 'fasting', 'keto', 'workouts', 'cgm', 'volumetrics')
+  ),
+
+  -- Individualisierbare Tages-Zeitfenster (#174): Startzeitpunkt des Nutzertags (Standard 00:00).
+  tracking_day_start_time text not null default '00:00' check (tracking_day_start_time ~ '^([01][0-9]|2[0-3]):[0-5][0-9]$'),
+
   created_at timestamptz not null default now(),
   updated_at timestamptz not null default now()
 );

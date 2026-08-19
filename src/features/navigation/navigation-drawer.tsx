@@ -12,6 +12,12 @@ import { CalendarDayIcon } from '@/components/icons/calendar-day-icon';
 import { FamIcon, type FamIconName } from '@/components/icons/fam-icon';
 import { ThemedText } from '@/components/theme/themed-text';
 import { withAlpha } from '@/constants/theme';
+import { useSession } from '@/features/auth/session-provider';
+import {
+  DEFAULT_MODULE_PREFERENCES,
+  type ModulePreferences,
+  useModulePreferences,
+} from '@/features/settings/module-preferences';
 import { useDeferredMount } from '@/hooks/use-deferred-mount';
 import { useTheme } from '@/hooks/use-theme';
 import { useNavigationChrome } from './navigation-chrome-provider';
@@ -19,22 +25,27 @@ import { useNavigationChrome } from './navigation-chrome-provider';
 // 'calendarDay' ist kein statisches FamIcon, sondern das Kalenderblatt mit
 // dem heutigen Datum (CalendarDayIcon) — eigener Sentinel-Wert statt eines
 // weiteren FamIconName-Eintrags, weil er dynamisch ist.
-type NavRoute = { label: string; href: string; icon: FamIconName | 'calendarDay' };
+type NavRoute = {
+  label: string;
+  href: string;
+  icon: FamIconName | 'calendarDay';
+  moduleKey?: keyof ModulePreferences;
+};
 
 const GROUPS: { title: string; routes: NavRoute[] }[] = [
   { title: 'Heute', routes: [{ label: 'Übersicht', href: '/', icon: 'overview' }] },
   {
     title: 'Haushalt & Planung',
     routes: [
-      { label: 'Vorrat', href: '/fridge', icon: 'fridge' },
-      { label: 'Einkauf', href: '/shopping-list', icon: 'shopping' },
-      { label: 'Rezepte', href: '/recipes', icon: 'recipes' },
-      { label: 'Essensplan', href: '/meal-planner', icon: 'calendarDay' },
+      { label: 'Vorrat', href: '/fridge', icon: 'fridge', moduleKey: 'fridge' },
+      { label: 'Einkauf', href: '/shopping-list', icon: 'shopping', moduleKey: 'shoppingList' },
+      { label: 'Rezepte', href: '/recipes', icon: 'recipes', moduleKey: 'recipes' },
+      { label: 'Essensplan', href: '/meal-planner', icon: 'calendarDay', moduleKey: 'mealPlanner' },
     ],
   },
   {
     title: 'Privat',
-    routes: [{ label: 'Tagebuch', href: '/diary', icon: 'diary' }],
+    routes: [{ label: 'Tagebuch', href: '/diary', icon: 'diary', moduleKey: 'calories' }],
   },
 ];
 
@@ -107,11 +118,19 @@ function DrawerContent() {
   const theme = useTheme();
   const pathname = usePathname();
   const { closeDrawer } = useNavigationChrome();
+  const { session } = useSession();
+  const { data: rawModules } = useModulePreferences(session?.user.id);
+  const modules = rawModules ?? DEFAULT_MODULE_PREFERENCES;
 
   function navigateTo(href: string) {
     closeDrawer();
     setTimeout(() => router.push(href as Parameters<typeof router.push>[0]), 250);
   }
+
+  const visibleGroups = GROUPS.map((group) => ({
+    ...group,
+    routes: group.routes.filter((route) => !route.moduleKey || modules[route.moduleKey] !== false),
+  })).filter((group) => group.routes.length > 0);
 
   return (
     <>
@@ -131,7 +150,7 @@ function DrawerContent() {
       </View>
 
       <ScrollView className="flex-1" showsVerticalScrollIndicator={false}>
-        {GROUPS.map((group) => (
+        {visibleGroups.map((group) => (
           <View key={group.title} className="drawer-group">
             <ThemedText type="small" themeColor="textSecondary" className="drawer-group-title">
               {group.title.toUpperCase()}

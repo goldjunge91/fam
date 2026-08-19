@@ -42,6 +42,14 @@ grant delete, insert, select, update on public.recipe_templates to anon, authent
 grant delete, insert, select, update on public.recipe_template_components to anon, authenticated, service_role;
 grant delete, insert, select, update on public.recipe_template_items to anon, authenticated, service_role;
 grant delete, insert, select, update on public.recipe_template_steps to anon, authenticated, service_role;
+grant delete, insert, select, update on public.medication_logs to anon, authenticated, service_role;
+grant delete, insert, select, update on public.symptom_logs to anon, authenticated, service_role;
+grant delete, insert, select, update on public.fasting_sessions to anon, authenticated, service_role;
+grant delete, insert, select, update on public.glucose_entries to anon, authenticated, service_role;
+grant delete, insert, select, update on public.ketone_entries to anon, authenticated, service_role;
+grant delete, insert, select, update on public.exercises to anon, authenticated, service_role;
+grant delete, insert, select, update on public.workout_sessions to anon, authenticated, service_role;
+grant delete, insert, select, update on public.workout_sets to anon, authenticated, service_role;
 
 -- --------------------------------------------------- Premium-Spalten schuetzen
 -- RLS wirkt auf Zeilen, nicht auf Spalten (siehe Kommentar in 03_households.sql
