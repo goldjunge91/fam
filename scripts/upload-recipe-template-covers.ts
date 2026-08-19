@@ -9,8 +9,8 @@ const EXPECTED_TEMPLATE_COUNT = 29;
 const ASSET_DIRECTORY = new URL('../assets/rezepte/', import.meta.url);
 
 function requireEnv(name: 'EXPO_PUBLIC_SUPABASE_URL' | 'SUPABASE_SECRET_KEY'): string {
-  const value = process.env[name];
-  if (!value) throw new Error(`${name} fehlt.`);
+  const value = process.env[name] || (name === 'SUPABASE_SECRET_KEY' ? process.env.SUPABASE_SERVICE_ROLE_KEY : undefined);
+  if (!value) throw new Error(`${name} fehlt in .env.`);
   return value;
 }
 

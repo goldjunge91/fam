@@ -105,6 +105,7 @@
     "storage:upload-recipe-template-covers": "bun --env-file=.env scripts/upload-recipe-template-covers.ts",
     "db:check": "bash scripts/check-privileges.sh",
     "db:push": "supabase db push && bash scripts/check-privileges.sh --linked",
+    "db:init": "bash scripts/init-database.sh",
     "test:db": "bash scripts/check-clean-db.sh && supabase test db --local supabase/tests/*.test.sql",
     "test:integration": "jest --config jest.integration.config.js --forceExit",
     "e2e": "maestro test .maestro/flows --exclude-tags fixture",
