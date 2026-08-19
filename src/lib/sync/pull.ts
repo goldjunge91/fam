@@ -69,7 +69,18 @@ async function pullEntity(
   };
 
   const { cursor: storedCursor, lastError: previousError } = await readSyncState(db, entity);
-  let cursor = storedCursor ?? initialCursor();
+
+  // 'households' bekommt bewusst nie den gespeicherten Cursor: RLS-
+  // Sichtbarkeit aendert sich hier per `household_members`-Beitritt, nicht
+  // per Zeilen-Update — ein Haushalt, dem man gerade beitritt, kann laengst
+  // existieren und ein `updated_at` haben, das VOR dem eigenen, schon
+  // fortgeschrittenen Cursor liegt (z.B. weil das Geraet vorher schon sein
+  // eigenes, spaeter angelegtes Haushalt gepullt hat). Ein rein inkrementeller
+  // Cursor wuerde so eine gerade neu sichtbar gewordene, aber aeltere Zeile
+  // fuer immer aussortieren (#Beitritt-ohne-lokalen-Haushalt, per Logging
+  // reproduziert). Die Tabelle ist pro Nutzer winzig — ein voller Rescan bei
+  // jedem Pull ist guenstig genug, um das Problem strukturell zu vermeiden.
+  let cursor = entity === 'households' ? initialCursor() : (storedCursor ?? initialCursor());
 
   for (;;) {
     // biome-ignore lint/suspicious/noExplicitAny: generische Tabelle, siehe push.ts

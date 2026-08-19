@@ -7,6 +7,7 @@ import * as SplashScreen from 'expo-splash-screen';
 import { useEffect } from 'react';
 import { Pressable, StyleSheet, Text, useColorScheme, View } from 'react-native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import { KeyboardProvider } from 'react-native-keyboard-controller';
 
 import { AnimatedSplashOverlay } from '@/components/icons/animated-icon';
 import { SnackbarProvider } from '@/components/ui/snackbar';
@@ -234,25 +235,29 @@ function RootLayout() {
       {/* react-native-gesture-handler hat kein cssInterop, className wuerde hier
       stillschweigend verworfen — deshalb bleibt style hier bewusst bestehen. */}
       <GestureHandlerRootView style={{ flex: 1 }}>
-        <PersistQueryClientProvider
-          client={queryClient}
-          persistOptions={{
-            persister: asyncStoragePersister,
-            dehydrateOptions: { shouldDehydrateQuery: shouldPersistQuery },
-          }}>
-          <SessionProvider>
-            <ActiveHouseholdProvider>
-              <PremiumProvider>
-                <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-                  <SnackbarProvider>
-                    <AnimatedSplashOverlay />
-                    <RootNavigator />
-                  </SnackbarProvider>
-                </ThemeProvider>
-              </PremiumProvider>
-            </ActiveHouseholdProvider>
-          </SessionProvider>
-        </PersistQueryClientProvider>
+        {/* Muss die gesamte App umschliessen, damit KeyboardAwareScrollView &
+            Co. (z. B. im Onboarding-Haushalt-Schritt) ueberall funktionieren. */}
+        <KeyboardProvider>
+          <PersistQueryClientProvider
+            client={queryClient}
+            persistOptions={{
+              persister: asyncStoragePersister,
+              dehydrateOptions: { shouldDehydrateQuery: shouldPersistQuery },
+            }}>
+            <SessionProvider>
+              <ActiveHouseholdProvider>
+                <PremiumProvider>
+                  <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
+                    <SnackbarProvider>
+                      <AnimatedSplashOverlay />
+                      <RootNavigator />
+                    </SnackbarProvider>
+                  </ThemeProvider>
+                </PremiumProvider>
+              </ActiveHouseholdProvider>
+            </SessionProvider>
+          </PersistQueryClientProvider>
+        </KeyboardProvider>
       </GestureHandlerRootView>
     </Sentry.ErrorBoundary>
   );

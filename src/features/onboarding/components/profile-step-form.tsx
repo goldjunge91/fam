@@ -5,7 +5,12 @@ import { Button } from '@/components/ui/buttons';
 import { useProfile } from '@/features/auth/api';
 import { useSession } from '@/features/auth/session-provider';
 import { useOnboarding } from '../context/onboarding-context';
-import { validateOnboardingProfile } from '../onboarding-helpers';
+import {
+  formatGermanDateInput,
+  germanDateToIso,
+  isoDateToGerman,
+  validateOnboardingProfile,
+} from '../onboarding-helpers';
 import type { ActivityLevel, SexOption, WeightGoal } from '../types';
 
 const SEX_OPTIONS: { value: SexOption; label: string }[] = [
@@ -37,7 +42,9 @@ export function ProfileStepForm({ onNext, onSkip }: ProfileStepFormProps) {
   const { data: userProfile } = useProfile(session?.user.id);
 
   const [displayName, setDisplayName] = useState(state.profile.displayName ?? '');
-  const [birthDate, setBirthDate] = useState(state.profile.birthDate ?? '');
+  const [birthDate, setBirthDate] = useState(
+    state.profile.birthDate ? isoDateToGerman(state.profile.birthDate) : '',
+  );
   const [heightCm, setHeightCm] = useState(state.profile.heightCm?.toString() ?? '');
   const [weightKg, setWeightKg] = useState(state.profile.weightKg?.toString() ?? '');
   const [sex, setSex] = useState<SexOption | undefined>(state.profile.sex);
@@ -54,7 +61,7 @@ export function ProfileStepForm({ onNext, onSkip }: ProfileStepFormProps) {
         setDisplayName((prev) => prev || userProfile.display_name || '');
       }
       if (userProfile.birth_date) {
-        setBirthDate((prev) => prev || userProfile.birth_date || '');
+        setBirthDate((prev) => prev || isoDateToGerman(userProfile.birth_date || ''));
       }
       if (userProfile.height_cm) {
         setHeightCm((prev) => prev || String(userProfile.height_cm));
@@ -71,14 +78,18 @@ export function ProfileStepForm({ onNext, onSkip }: ProfileStepFormProps) {
   const handleSubmit = () => {
     const parsedHeight = heightCm.trim() ? Number(heightCm.replace(',', '.')) : undefined;
     const parsedWeight = weightKg.trim() ? Number(weightKg.replace(',', '.')) : undefined;
+    const trimmedBirthDate = birthDate.trim();
+    const isoBirthDate = trimmedBirthDate ? germanDateToIso(trimmedBirthDate) : undefined;
 
     const validation = validateOnboardingProfile({
       heightCm: parsedHeight,
       weightKg: parsedWeight,
-      birthDate: birthDate.trim() || undefined,
+      birthDate: isoBirthDate,
     });
 
-    if (!validation.isValid) {
+    const hasInvalidFormat = !!trimmedBirthDate && !isoBirthDate;
+
+    if (!validation.isValid || hasInvalidFormat) {
       const newErrors: Record<string, string> = {};
       if (parsedHeight !== undefined && (parsedHeight < 50 || parsedHeight > 250)) {
         newErrors.heightCm = 'Bitte eine verlässliche Größe (50–250 cm) eingeben';
@@ -86,13 +97,18 @@ export function ProfileStepForm({ onNext, onSkip }: ProfileStepFormProps) {
       if (parsedWeight !== undefined && (parsedWeight < 20 || parsedWeight > 300)) {
         newErrors.weightKg = 'Bitte ein verlässliches Gewicht (20–300 kg) eingeben';
       }
+      if (hasInvalidFormat) {
+        newErrors.birthDate = 'Bitte als TT.MM.JJJJ eingeben';
+      } else if (isoBirthDate && !validation.isValid) {
+        newErrors.birthDate = 'Geburtsdatum darf nicht in der Zukunft liegen';
+      }
       setErrors(newErrors);
       return;
     }
 
     updateProfileData({
       displayName: displayName.trim() || undefined,
-      birthDate: birthDate.trim() || undefined,
+      birthDate: isoBirthDate,
       heightCm: heightCm.trim() ? Number(heightCm.replace(',', '.')) : undefined,
       weightKg: weightKg.trim() ? Number(weightKg.replace(',', '.')) : undefined,
       sex,
@@ -119,11 +135,14 @@ export function ProfileStepForm({ onNext, onSkip }: ProfileStepFormProps) {
         />
 
         <TextField
-          label="Geburtsdatum (JJJJ-MM-TT)"
+          label="Geburtsdatum (TT.MM.JJJJ)"
           value={birthDate}
-          onChangeText={setBirthDate}
-          placeholder="1990-05-15"
+          onChangeText={(text) => setBirthDate(formatGermanDateInput(text))}
+          placeholder="15.05.1990"
           inputMode="numeric"
+          keyboardType="number-pad"
+          maxLength={10}
+          error={errors.birthDate}
         />
 
         <View className="input-row">

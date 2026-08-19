@@ -1,6 +1,7 @@
 import { useQueryClient } from '@tanstack/react-query';
 import { Pressable, Text, View } from 'react-native';
 import { Screen } from '@/components/layout/screen';
+import { BackButton } from '@/components/ui/buttons';
 import { ProgressBar } from '@/components/ui/progress-bar';
 import { useSession } from '@/features/auth/session-provider';
 import { signOutAndClearLocalData } from '@/features/auth/sign-out';
@@ -20,7 +21,7 @@ function OnboardingContent() {
   const theme = useTheme();
   const { session } = useSession();
   const queryClient = useQueryClient();
-  const { state, setStep, nextStep } = useOnboarding();
+  const { state, setStep, nextStep, prevStep } = useOnboarding();
   const currentStep = state.currentStep;
 
   // Notausstieg (#128): Ein Nutzer, dessen Account in einem kaputten Zustand
@@ -35,9 +36,18 @@ function OnboardingContent() {
   }
 
   return (
-    <Screen title={currentStep === 1 ? 'Willkommen' : `Schritt ${currentStep} von ${TOTAL_STEPS}`}>
+    <Screen
+      title={currentStep === 1 ? 'Willkommen' : `Schritt ${currentStep} von ${TOTAL_STEPS}`}
+      // Schritt 4 (Haushalt) bringt seine eigene ScrollView im
+      // KeyboardAvoidingView mit — nur so kann er beim Tippen zuverlässig
+      // zum fokussierten Feld hochscrollen (siehe household-step.tsx).
+      scroll={currentStep !== 4}>
       {currentStep > 1 && currentStep < TOTAL_STEPS && (
         <View className="progress-container">
+          {/* Nutzt bewusst `prevStep` aus dem Context statt Routing — die
+              Schritte sind kein eigener Screen, sondern nur `currentStep`
+              im Onboarding-State. */}
+          <BackButton label="Zurück" onPress={prevStep} />
           {/* ProgressBar erwartet einen echten Farbwert (kein className-Prop). */}
           <ProgressBar value={currentStep / TOTAL_STEPS} color={theme.accent} />
           {session && (

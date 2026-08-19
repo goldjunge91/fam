@@ -41,6 +41,12 @@ module.exports = {
     '\\.css$': '<rootDir>/test/css-module.js',
     '^@/assets/(.*)$': '<rootDir>/assets/$1',
     '^@/(.*)$': '<rootDir>/src/$1',
+    // Offizielles Jest-Mock des Pakets — ohne das schlaegt jeder Test fehl,
+    // der (auch nur transitiv) react-native-keyboard-controller importiert,
+    // mit "doesn't seem to be linked" (das native Modul existiert unter Jest
+    // nicht).
+    '^react-native-keyboard-controller$':
+      '<rootDir>/node_modules/react-native-keyboard-controller/jest',
   },
 
   testMatch: ['**/*.test.ts', '**/*.test.tsx'],
