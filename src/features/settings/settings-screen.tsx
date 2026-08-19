@@ -70,20 +70,15 @@ export function SettingsScreen() {
         title: 'Einstellungen',
         align: 'center',
         leading: <MenuButton onPress={openDrawer} />,
-        trailing: (
-          <ProfileButton initials={initials} onPress={() => router.push('/settings/profile')} />
-        ),
+        trailing: <ProfileButton initials={initials} onPress={() => router.push('/profile')} />,
       }}>
       <ScrollView contentContainerClassName="screen-scroll" showsVerticalScrollIndicator={false}>
         <View className="gap-[10px]">
           <Pressable
-            onPress={() => router.push('/settings/profile')}
+            onPress={() => router.push('/profile')}
             accessibilityRole="button"
             className="profile-row">
             <View className="profile-avatar">
-              {/* smallBold (14px/700) statt der fruehren 13px/600-Sonderrolle
-                    — naechstliegende bestehende Rolle, onAccent statt fest
-                    verdrahtetem Weiss (exakter Zweck des Tokens). */}
               <ThemedText type="smallBold" themeColor="onAccent">
                 {initials}
               </ThemedText>
@@ -96,8 +91,6 @@ export function SettingsScreen() {
                 {session?.user.email ?? '—'}
               </ThemedText>
             </View>
-            {/* bodyLarge (18px) statt der fruehren 19px-Sonderroute —
-                  naechstliegende bestehende Rolle fuer ein Chevron-Glyph. */}
             <ThemedText type="bodyLarge" themeColor="textSecondary">
               ›
             </ThemedText>
@@ -107,6 +100,16 @@ export function SettingsScreen() {
         </View>
 
         <View className="gap-four">
+          <SettingsGroup title="Tracking & Ernährung">
+            <SettingsRow
+              icon="🎯"
+              label="Mein Tracking"
+              hint="Methode, Ziele, Vitalwerte & Rhythmus"
+              onPress={() => router.push('/profile/tracking')}
+              last
+            />
+          </SettingsGroup>
+
           <SettingsGroup title="Haushalt">
             <SettingsRow
               icon="🏠"

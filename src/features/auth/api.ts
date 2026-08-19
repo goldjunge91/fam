@@ -4,6 +4,7 @@ import * as Linking from 'expo-linking';
 
 import type { ProfileInput } from '@/features/auth/auth-schemas';
 import { isOrphanedProfileError } from '@/features/auth/orphaned-profile-error';
+import type { Database } from '@/lib/database.types';
 import { getSupabase } from '@/lib/supabase';
 
 /**
@@ -165,18 +166,16 @@ export function useProfile(userId: string | undefined) {
  * Die Profilzeile existiert bereits — der Trigger `on_auth_user_created` legt
  * sie beim Registrieren an (#34). Deshalb `update` und nicht `upsert`.
  */
-export async function updateProfile(userId: string, input: ProfileInput) {
-  const { error } = await getSupabase()
-    .from('profiles')
-    .update({
-      display_name: input.displayName ?? null,
-      birth_date: input.birthDate ?? null,
-      sex: input.sex ?? null,
-      height_cm: input.heightCm ?? null,
-      activity_level: input.activityLevel ?? null,
-      onboarding_completed_at: new Date().toISOString(),
-    })
-    .eq('id', userId);
+export async function updateProfile(userId: string, input: Partial<ProfileInput>) {
+  const payload: Database['public']['Tables']['profiles']['Update'] = {};
+  if (input.displayName !== undefined) payload.display_name = input.displayName;
+  if (input.birthDate !== undefined) payload.birth_date = input.birthDate;
+  if (input.sex !== undefined) payload.sex = input.sex;
+  if (input.heightCm !== undefined) payload.height_cm = input.heightCm;
+  if (input.activityLevel !== undefined) payload.activity_level = input.activityLevel;
+  if (input.avatarUrl !== undefined) payload.avatar_url = input.avatarUrl;
+
+  const { error } = await getSupabase().from('profiles').update(payload).eq('id', userId);
 
   return { error };
 }
