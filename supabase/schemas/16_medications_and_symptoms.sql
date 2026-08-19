@@ -15,6 +15,7 @@ create table if not exists public.medication_logs (
   dose numeric(7, 2) check (dose > 0),
   unit text not null default 'mg'
     check (unit in ('mg', 'ml', 'units', 'mcg', 'pills')),
+  injection_site text check (injection_site in ('abdomen', 'thigh', 'upper_arm', 'other')),
 
   administered_at timestamptz not null default now(),
   notes text,

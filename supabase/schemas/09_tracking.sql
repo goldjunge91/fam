@@ -25,6 +25,7 @@ create table if not exists public.food_entries (
   -- Wer das als timestamptz fuehrt, sortiert abends geloggte Mahlzeiten in den
   -- Folgetag (#88).
   logged_on date not null default current_date,
+  logged_at timestamptz not null default now(),
   meal_type text not null check (meal_type in ('breakfast', 'lunch', 'dinner', 'snack')),
 
   quantity numeric(10, 3) not null check (quantity > 0),
@@ -116,6 +117,7 @@ create table if not exists public.user_goals (
   protein_g integer check (protein_g >= 0),
   carbs_g integer check (carbs_g >= 0),
   fat_g integer check (fat_g >= 0),
+  net_carbs_g integer check (net_carbs_g >= 0),
 
   -- Historisiert statt ueberschrieben: Aendert jemand sein Ziel, sollen
   -- vergangene Auswertungen weiter gegen das damalige Ziel laufen.

@@ -17,6 +17,7 @@ create table if not exists public.glucose_entries (
   context text check (
     context in ('fasting', 'morning_fasting', 'pre_meal', 'post_meal_1h', 'post_meal_2h', 'bedtime', 'other')
   ),
+  food_entry_id uuid references public.food_entries (id) on delete set null,
   notes text,
 
   created_at timestamptz not null default now(),
@@ -32,6 +33,8 @@ create index if not exists glucose_entries_user_measured_idx
   where deleted_at is null;
 create index if not exists glucose_entries_child_id_idx
   on public.glucose_entries (child_profile_id);
+create index if not exists glucose_entries_food_entry_id_idx
+  on public.glucose_entries (food_entry_id);
 
 create or replace trigger glucose_entries_set_updated_at
   before update on public.glucose_entries

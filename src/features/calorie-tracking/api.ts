@@ -70,6 +70,7 @@ export function useSetGoalMutation() {
       proteinG: number;
       carbsG: number;
       fatG: number;
+      netCarbsG?: number | null;
       targetWeightKg?: number | null;
       childProfileId?: string | null;
     }) => {
@@ -83,6 +84,7 @@ export function useSetGoalMutation() {
           protein_g: input.proteinG,
           carbs_g: input.carbsG,
           fat_g: input.fatG,
+          net_carbs_g: input.netCarbsG ?? null,
           target_weight_kg: input.targetWeightKg ?? null,
           child_profile_id: input.childProfileId ?? null,
         })
@@ -212,6 +214,7 @@ export function useFoodEntries(
 export type FoodEntryInput = {
   userId: string;
   loggedOn: string;
+  loggedAt?: string;
   mealType: MealType;
   name: string;
   quantity: number;
@@ -220,6 +223,7 @@ export type FoodEntryInput = {
   proteinG: number | null;
   carbsG: number | null;
   fatG: number | null;
+  fiberG?: number | null;
   productId?: string | null;
   childProfileId?: string | null;
 };
@@ -234,6 +238,7 @@ export function useAddFoodEntryMutation() {
         .insert({
           user_id: input.userId,
           logged_on: input.loggedOn,
+          logged_at: input.loggedAt ?? new Date().toISOString(),
           meal_type: input.mealType,
           name: input.name,
           quantity: input.quantity,
@@ -242,6 +247,7 @@ export function useAddFoodEntryMutation() {
           protein_g: input.proteinG,
           carbs_g: input.carbsG,
           fat_g: input.fatG,
+          fiber_g: input.fiberG ?? null,
           product_id: input.productId ?? null,
           child_profile_id: input.childProfileId ?? null,
         })
@@ -285,6 +291,7 @@ export function useUpdateFoodEntryMutation() {
       if (input.proteinG !== undefined) updates.protein_g = input.proteinG;
       if (input.carbsG !== undefined) updates.carbs_g = input.carbsG;
       if (input.fatG !== undefined) updates.fat_g = input.fatG;
+      if (input.fiberG !== undefined) updates.fiber_g = input.fiberG;
       if (input.productId !== undefined) updates.product_id = input.productId;
 
       const { data, error } = await getSupabase()

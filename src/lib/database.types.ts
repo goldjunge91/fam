@@ -193,6 +193,7 @@ export type Database = {
           fiber_g: number | null
           id: string
           kcal: number | null
+          logged_at: string
           logged_on: string
           meal_type: string
           name: string
@@ -212,6 +213,7 @@ export type Database = {
           fiber_g?: number | null
           id?: string
           kcal?: number | null
+          logged_at?: string
           logged_on?: string
           meal_type: string
           name: string
@@ -231,6 +233,7 @@ export type Database = {
           fiber_g?: number | null
           id?: string
           kcal?: number | null
+          logged_at?: string
           logged_on?: string
           meal_type?: string
           name?: string
@@ -351,6 +354,7 @@ export type Database = {
           context: string | null
           created_at: string
           deleted_at: string | null
+          food_entry_id: string | null
           glucose_value: number
           id: string
           measured_at: string
@@ -364,6 +368,7 @@ export type Database = {
           context?: string | null
           created_at?: string
           deleted_at?: string | null
+          food_entry_id?: string | null
           glucose_value: number
           id?: string
           measured_at?: string
@@ -377,6 +382,7 @@ export type Database = {
           context?: string | null
           created_at?: string
           deleted_at?: string | null
+          food_entry_id?: string | null
           glucose_value?: number
           id?: string
           measured_at?: string
@@ -391,6 +397,13 @@ export type Database = {
             columns: ["child_profile_id"]
             isOneToOne: false
             referencedRelation: "child_profiles"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "glucose_entries_food_entry_id_fkey"
+            columns: ["food_entry_id"]
+            isOneToOne: false
+            referencedRelation: "food_entries"
             referencedColumns: ["id"]
           },
           {
@@ -726,6 +739,7 @@ export type Database = {
           deleted_at: string | null
           dose: number | null
           id: string
+          injection_site: string | null
           medication_name: string
           notes: string | null
           unit: string
@@ -739,6 +753,7 @@ export type Database = {
           deleted_at?: string | null
           dose?: number | null
           id?: string
+          injection_site?: string | null
           medication_name: string
           notes?: string | null
           unit?: string
@@ -752,6 +767,7 @@ export type Database = {
           deleted_at?: string | null
           dose?: number | null
           id?: string
+          injection_site?: string | null
           medication_name?: string
           notes?: string | null
           unit?: string
@@ -1717,6 +1733,7 @@ export type Database = {
           fat_g: number | null
           goal_type: string
           id: string
+          net_carbs_g: number | null
           protein_g: number | null
           rate_kg_per_week: number | null
           target_weight_kg: number | null
@@ -1733,6 +1750,7 @@ export type Database = {
           fat_g?: number | null
           goal_type: string
           id?: string
+          net_carbs_g?: number | null
           protein_g?: number | null
           rate_kg_per_week?: number | null
           target_weight_kg?: number | null
@@ -1749,6 +1767,7 @@ export type Database = {
           fat_g?: number | null
           goal_type?: string
           id?: string
+          net_carbs_g?: number | null
           protein_g?: number | null
           rate_kg_per_week?: number | null
           target_weight_kg?: number | null

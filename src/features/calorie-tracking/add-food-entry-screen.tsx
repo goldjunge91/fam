@@ -230,6 +230,7 @@ export function AddFoodEntryScreen() {
     const payload = {
       userId,
       loggedOn: params.date,
+      loggedAt: new Date().toISOString(),
       mealType: params.mealType,
       name: name.trim(),
       quantity: parseFloat(quantity) || 1,
