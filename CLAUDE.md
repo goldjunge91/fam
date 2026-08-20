@@ -74,3 +74,13 @@ bun run user:create / user:list / user:clean / user:delete
 
 - `docs/VISION.md`, `docs/ROADMAP.md`
 - `.agents/rules/react-native-testing-library.md` — RNTL-Konventionen für diesen Codebase (vor Komponententests lesen)
+
+## Agent skills
+
+### Issue tracker
+
+GitHub Issues (`gh`-CLI) gegen `goldjunge91/fam`. Siehe `docs/agents/issue-tracker.md`.
+
+### Domain docs
+
+Single-Context (`CONTEXT.md` + `docs/adr/` im Root). Siehe `docs/agents/domain.md`.
