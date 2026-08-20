@@ -2,7 +2,13 @@ import '../global.css';
 import { PersistQueryClientProvider } from '@tanstack/react-query-persist-client';
 import * as Linking from 'expo-linking';
 import { Observe, ObserveRoot, useObserve } from 'expo-observe';
-import { DarkTheme, DefaultTheme, Stack, ThemeProvider } from 'expo-router';
+import {
+  DarkTheme,
+  DefaultTheme,
+  Stack,
+  ThemeProvider,
+  useNavigationContainerRef,
+} from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 import { useEffect } from 'react';
 import { Pressable, StyleSheet, Text, useColorScheme, View } from 'react-native';
@@ -25,7 +31,7 @@ import {
   shouldPersistQuery,
   startQueryEnvironmentSync,
 } from '@/lib/query-client';
-import { initSentry, Sentry } from '@/lib/sentry';
+import { initSentry, navigationIntegration, Sentry } from '@/lib/sentry';
 import { getSupabase } from '@/lib/supabase';
 import { defineBackgroundSyncTask, registerBackgroundSync } from '@/lib/sync/background-sync';
 
@@ -162,6 +168,14 @@ import { ActiveHouseholdProvider } from '@/features/household/active-household-p
 
 function RootLayout() {
   const colorScheme = useColorScheme();
+  const navigationRef = useNavigationContainerRef();
+
+  useEffect(() => {
+    // Verbindet die in `@/lib/sentry` erzeugte Integration einmalig mit dem
+    // tatsaechlichen Router-Container — erst ab hier liefert Sentry
+    // Navigations-Breadcrumbs und -Spans.
+    navigationIntegration.registerNavigationContainer(navigationRef);
+  }, [navigationRef]);
 
   useEffect(() => {
     function handleUrl(url: string | null) {
@@ -263,10 +277,10 @@ function RootLayout() {
   );
 }
 
-// Sentry.wrap() aktiviert native Crash-Erfassung (Absturz *vor* dem naechsten
-// JS-Frame waere sonst nicht mehr meldbar) und automatische
-// Navigations-Breadcrumbs ueber Expo Router. Ohne DSN (initSentry() ist dann
-// ein No-op) macht der Wrapper nichts weiter, als die Komponente
-// durchzureichen. ObserveRoot.wrap() darunter misst Time to First Render
-// (TTR) fuer EAS Observe.
+// Sentry.wrap() haengt nur Touch-/Profiling-Boundaries um die App (kein
+// automatisches Navigations-Tracking trotz des Namens — dafuer sorgt die
+// `navigationIntegration` oben, registriert im RootLayout-Body). Ohne DSN
+// (initSentry() ist dann ein No-op) macht der Wrapper nichts weiter, als die
+// Komponente durchzureichen. ObserveRoot.wrap() darunter misst Time to First
+// Render (TTR) fuer EAS Observe.
 export default Sentry.wrap(ObserveRoot.wrap(RootLayout));
