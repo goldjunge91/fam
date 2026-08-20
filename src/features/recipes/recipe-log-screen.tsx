@@ -117,6 +117,7 @@ export function RecipeLogScreen() {
       <KeyboardAvoidingView
         className="flex-1 justify-end"
         behavior={process.env.EXPO_OS === 'ios' ? 'padding' : undefined}>
+        {/* Hintergrund-Header (Erfolgs-Icon & Glückwunsch-Text) */}
         <View className="flex-1 min-h-[150px] items-center pt-[30px] opacity-55">
           <View className="w-[82px] h-[82px] rounded-fam-large bg-background-selected" />
           <ThemedText type="headingSmall" className="pt-[18px]">
@@ -132,6 +133,7 @@ export function RecipeLogScreen() {
           </ThemedText>
         </View>
 
+        {/* Unteres Eingabe-Sheet für Mengen & Tagebucheintrag / Gewichte */}
         <View className="recipe-log-sheet">
           <View className="modal-handle" />
           <View className="min-h-[65px] pt-[13px] flex-row items-center justify-between gap-three">
@@ -160,6 +162,7 @@ export function RecipeLogScreen() {
           </View>
 
           {isLoading || !data ? (
+            /* Ladezustand */
             <ThemedText type="detail" themeColor="textSecondary" className="py-[30px] text-center">
               Rezept wird geladen…
             </ThemedText>
@@ -168,6 +171,7 @@ export function RecipeLogScreen() {
               showsVerticalScrollIndicator={false}
               keyboardShouldPersistTaps="handled"
               contentContainerClassName="gap-three py-one">
+              {/* Mahlzeitenfilter (Frühstück, Mittag, Abend, Snacks) im Tagebuch-Modus */}
               {!isWeighMode ? (
                 <FilterChipBar
                   label="Mahlzeit"
@@ -177,6 +181,7 @@ export function RecipeLogScreen() {
                 />
               ) : null}
 
+              {/* Liste aller Rezept-Komponenten mit Gramm-Eingabefeldern */}
               <View className="gap-[10px]">
                 {topLevelComponents.map((component) => (
                   <View key={component.id} className="min-h-[40px] flex-row items-center gap-[9px]">
@@ -205,6 +210,7 @@ export function RecipeLogScreen() {
                 ))}
               </View>
 
+              {/* Berechnete Nährwert-Zusammenfassung (kcal & Makros) basierend auf Eingabegewichten */}
               {total && !isWeighMode ? (
                 <View className="min-h-[53px] rounded-card items-center justify-center px-[11px] bg-background-selected">
                   <ThemedText className="text-[15px] leading-[18px] font-bold">
@@ -220,6 +226,7 @@ export function RecipeLogScreen() {
                 </View>
               ) : null}
 
+              {/* Übernehmen-/Speichern-Aktionsbutton */}
               <Pressable
                 onPress={handleSubmit}
                 disabled={!total || updateComponent.isPending}

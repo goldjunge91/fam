@@ -95,6 +95,7 @@ export function RecipeTemplateDetailScreen() {
         className="flex-1"
         contentContainerClassName="rtd-content"
         showsVerticalScrollIndicator={false}>
+        {/* Vorlagen-Hero-Bild mit "Entdecken"-Badge */}
         <View className="rtd-hero">
           <HeroArtwork coverUrl={coverUrl} title={template.title} />
           <View className="rtd-hero-badge">
@@ -104,7 +105,10 @@ export function RecipeTemplateDetailScreen() {
           </View>
         </View>
 
+        {/* Rezepttitel */}
         <ThemedText className="rtd-title">{template.title}</ThemedText>
+
+        {/* Metadaten-Pills (Zubereitungszeit, Schwierigkeit, Tags) */}
         <View className="rtd-meta-row">
           {template.cook_time_minutes ? (
             <MetaPill>{template.cook_time_minutes} Minuten</MetaPill>
@@ -119,12 +123,14 @@ export function RecipeTemplateDetailScreen() {
           ))}
         </View>
 
+        {/* Kochanleitung / Beschreibung */}
         {template.instructions ? (
           <ThemedText themeColor="textSecondary" className="rtd-description">
             {template.instructions}
           </ThemedText>
         ) : null}
 
+        {/* Zutaten-Kopfbereich mit Portionsgrößen-Stepper (+ / -) */}
         <View className="rtd-section-heading">
           <ThemedText className="rtd-section-title">Zutaten</ThemedText>
           <View className="rtd-portion-control">
@@ -146,6 +152,7 @@ export function RecipeTemplateDetailScreen() {
           </View>
         </View>
 
+        {/* Zutatenliste gruppiert nach Komponenten */}
         <View className="rtd-group-list">
           {template.components.map((component) => (
             <View key={component.id} className="rtd-ingredient-group">
@@ -175,6 +182,7 @@ export function RecipeTemplateDetailScreen() {
           ))}
         </View>
 
+        {/* Zubereitungsschritte */}
         <View className="rtd-section-heading">
           <ThemedText className="rtd-section-title">Zubereitung</ThemedText>
           <ThemedText themeColor="textSecondary" className="rtd-section-count">
@@ -198,6 +206,7 @@ export function RecipeTemplateDetailScreen() {
         ) : null}
       </ScrollView>
 
+      {/* Fixierter Button zum Kopieren der Vorlage in eigene Haushaltsrezepte */}
       <View className="rtd-sticky-action">
         <Pressable
           onPress={copyTemplate}

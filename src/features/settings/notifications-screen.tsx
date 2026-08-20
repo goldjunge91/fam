@@ -15,6 +15,7 @@ export function NotificationsScreen() {
       title="Benachrichtigungen"
       back={{ label: 'Einstellungen', href: '/settings' }}
       backStyle="icon">
+      {/* Einstellungen für Ablauf-Warnungen, Schwellenwerte und Erinnerungs-Uhrzeiten */}
       <NotificationSettingsCard />
     </Screen>
   );

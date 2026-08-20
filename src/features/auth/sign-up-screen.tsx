@@ -56,6 +56,7 @@ export function SignUpScreen() {
         title="Konto aktivieren"
         subtitle="E-Mail-Bestätigung ausstehend"
         back={{ label: 'Anmelden', href: '/sign-in' }}>
+        {/* Banner/Hinweis für ausstehende E-Mail-Bestätigung */}
         <PendingAuthBanner
           email={pendingEmail}
           password={password}
@@ -72,8 +73,10 @@ export function SignUpScreen() {
       subtitle="Für dich und deinen Haushalt"
       back={{ label: 'Anmelden', href: '/sign-in' }}>
       <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : undefined}>
+        {/* Haupt-Registrierungsformular */}
         <Card>
           <View className="gap-three">
+            {/* E-Mail Eingabefeld */}
             <TextField
               label="E-Mail"
               value={email}
@@ -86,6 +89,7 @@ export function SignUpScreen() {
               inputMode="email"
             />
 
+            {/* Passwort Eingabefeld */}
             <TextField
               label="Passwort"
               value={password}
@@ -97,6 +101,7 @@ export function SignUpScreen() {
               textContentType="newPassword"
             />
 
+            {/* Passwort-Bestätigung Eingabefeld */}
             <TextField
               label="Passwort wiederholen"
               value={passwordConfirmation}
@@ -110,14 +115,18 @@ export function SignUpScreen() {
               returnKeyType="go"
             />
 
+            {/* Fehlermeldung */}
             {formError ? <ThemedText type="smallDanger">{formError}</ThemedText> : null}
 
+            {/* Registrierungs-Button */}
             <Button label="Konto erstellen" onPress={handleSubmit} loading={loading} />
 
+            {/* Trennlinie für Drittanbieter-Logins */}
             <View className="divider">
               <ThemedText type="smallMuted">oder weiter mit</ThemedText>
             </View>
 
+            {/* OAuth Buttons (Apple & Google) */}
             <Button
               label="  Mit Apple anmelden"
               variant="secondary"
@@ -136,6 +145,7 @@ export function SignUpScreen() {
               }}
             />
 
+            {/* Datenschutz- & Haushalts-Hinweis */}
             <ThemedText type="smallMuted">
               Vorrat und Einkaufsliste teilst du später mit deinem Haushalt. Kalorien, Gewicht und
               Ziele bleiben privat.
@@ -143,6 +153,7 @@ export function SignUpScreen() {
           </View>
         </Card>
 
+        {/* Wechsel zur Anmeldung */}
         <Button
           label="Ich habe schon ein Konto"
           variant="secondary"

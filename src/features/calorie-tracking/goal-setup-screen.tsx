@@ -37,6 +37,7 @@ const PRESET_LABELS: Record<MacroPreset, string> = {
   balanced: 'Ausgewogen',
   high_protein: 'Eiweißreich',
   low_carb: 'Low-Carb',
+  keto: 'Keto',
 };
 
 type PresetSelection = MacroPreset | 'custom';
@@ -202,6 +203,7 @@ export function GoalSetupScreen() {
       title="Kalorienziel"
       back={{ label: 'Einstellungen', href: '/settings' }}
       backStyle="icon">
+      {/* Hinweis bei unvollständigen Profildaten (Geschlecht, Geburtsdatum, Größe) */}
       {!hasProfileFields ? (
         <Card title="Profil vervollständigen">
           <ThemedText themeColor="textSecondary">
@@ -215,6 +217,7 @@ export function GoalSetupScreen() {
         </Card>
       ) : (
         <>
+          {/* Karte mit aktuellem Kalorien- und Makroziel */}
           {currentGoal ? (
             <Card title="Aktuelles Ziel">
               <ThemedText type="subtitle">{currentGoal.daily_kcal ?? '–'} kcal / Tag</ThemedText>
@@ -232,9 +235,11 @@ export function GoalSetupScreen() {
             </Card>
           ) : null}
 
+          {/* Formular zur Zieldefinition (Art, Tempo, Makros, Kalorien-Override) */}
           {formVisible ? (
             <Card title="Neues Ziel">
               <View className="gap-three">
+                {/* Zielart: Abnehmen / Halten / Zunehmen */}
                 <ThemedText type="smallBold">Ziel-Art</ThemedText>
                 <View className="gs-segmented-row">
                   {(Object.keys(GOAL_LABELS) as GoalType[]).map((type) => (
@@ -249,6 +254,7 @@ export function GoalSetupScreen() {
                   ))}
                 </View>
 
+                {/* Gewichtsverlust-/-zunahmerate in kg/Woche */}
                 {goalType !== 'maintain' ? (
                   <TextField
                     label="Tempo (kg pro Woche)"
@@ -258,6 +264,7 @@ export function GoalSetupScreen() {
                   />
                 ) : null}
 
+                {/* Auswahl des Makro-Presets (Ausgewogen, High-Protein, Low-Carb, Keto, Custom) */}
                 <ThemedText type="smallBold" className="mt-one">
                   Makro-Verteilung
                 </ThemedText>
@@ -274,6 +281,7 @@ export function GoalSetupScreen() {
                   ))}
                 </View>
 
+                {/* Benutzerdefinierte Prozentaufteilung (Eiweiß, Kohlenhydrate, Fett) */}
                 {preset === 'custom' ? (
                   <View className="gap-three">
                     <View className="flex-row gap-two">
@@ -310,6 +318,7 @@ export function GoalSetupScreen() {
                   </View>
                 ) : null}
 
+                {/* Gewichtseingabe falls noch kein Gewichtseintrag vorhanden */}
                 {needsWeightInput ? (
                   <TextField
                     label="Aktuelles Gewicht in kg"
@@ -320,6 +329,7 @@ export function GoalSetupScreen() {
                   />
                 ) : null}
 
+                {/* Berechnete Zielkalorien-Vorschau mit manuellem Override & Hinweisen */}
                 {targetPreview ? (
                   <View className="gs-preview">
                     <TextField
@@ -359,6 +369,7 @@ export function GoalSetupScreen() {
                   </ThemedText>
                 )}
 
+                {/* Aktions-Buttons (Ziel speichern / Abbrechen) */}
                 <View className="gs-save-row">
                   <View className="flex-1">
                     <Button

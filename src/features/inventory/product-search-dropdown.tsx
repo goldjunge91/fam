@@ -5,10 +5,12 @@ import { forwardRef, useEffect, useImperativeHandle, useRef, useState } from 're
 import {
   ActivityIndicator,
   Image,
+  Keyboard,
   Pressable,
   ScrollView,
   type StyleProp,
   type TextStyle,
+  useWindowDimensions,
   View,
 } from 'react-native';
 
@@ -27,6 +29,15 @@ const OFF_PAGE_SIZE = 100;
 
 /** Wie nah am unteren Rand (px) das Nachladen beim Scrollen ausloest. */
 const LOAD_MORE_THRESHOLD_PX = 70;
+
+/** Abstand zum unteren Bildschirm-/Tastaturrand, den das Dropdown frei laesst. */
+const PANEL_BOTTOM_MARGIN = 12;
+
+/** Nie kleiner als das, selbst wenn oberhalb kaum Platz gemessen wird. */
+const PANEL_MIN_HEIGHT = 140;
+
+/** Bis die erste Messung vorliegt (Layout noch nicht bekannt), z.B. beim allerersten Render. */
+const PANEL_FALLBACK_HEIGHT = 220;
 
 type LocalProductRow = {
   barcode: string | null;
@@ -141,6 +152,13 @@ export const ProductSearchDropdown = forwardRef<
   const [dumpOffset, setDumpOffset] = useState(0);
   const [dumpHasMore, setDumpHasMore] = useState(false);
   const [loadingMoreOff, setLoadingMoreOff] = useState(false);
+  // Dynamische Panel-Hoehe (#Performance-Feedback: "Dropdown soll bis zum
+  // Bildschirmrand gehen, nicht bei 3 Treffern abschneiden"), siehe
+  // `updatePanelMaxHeight` weiter unten.
+  const [panelMaxHeight, setPanelMaxHeight] = useState<number | null>(null);
+  const wrapperRef = useRef<View>(null);
+  const { height: windowHeight } = useWindowDimensions();
+  const [keyboardHeight, setKeyboardHeight] = useState(0);
   const blurTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   // `value` beim Ausloesen der aktuellen Suche — schuetzt vor veralteten
   // Nachlade-Antworten, wenn der Nutzer inzwischen weitergetippt hat.
@@ -168,6 +186,29 @@ export const ProductSearchDropdown = forwardRef<
   useEffect(() => () => {
     cancelScheduledDismiss();
   });
+
+  // Tastaturhoehe mitverfolgen, damit das Dropdown nicht dahinter verschwindet.
+  useEffect(() => {
+    const showSub = Keyboard.addListener('keyboardDidShow', (event) => {
+      setKeyboardHeight(event.endCoordinates.height);
+    });
+    const hideSub = Keyboard.addListener('keyboardDidHide', () => setKeyboardHeight(0));
+    return () => {
+      showSub.remove();
+      hideSub.remove();
+    };
+  }, []);
+
+  // Misst, wie viel Platz zwischen Suchfeld und unterem Rand (Tastatur oder
+  // Bildschirmende) tatsaechlich frei ist, statt das Dropdown pauschal bei
+  // 220px zu kappen. Laeuft beim Oeffnen sowie bei Rotation/Tastaturwechsel.
+  useEffect(() => {
+    if (!showDropdown) return;
+    wrapperRef.current?.measureInWindow((_x, y, _width, height) => {
+      const available = windowHeight - keyboardHeight - (y + height) - PANEL_BOTTOM_MARGIN;
+      setPanelMaxHeight(Math.max(available, PANEL_MIN_HEIGHT));
+    });
+  }, [showDropdown, windowHeight, keyboardHeight]);
 
   useEffect(() => {
     if (justSelectedValueRef.current !== null) {
@@ -267,7 +308,10 @@ export const ProductSearchDropdown = forwardRef<
   const showEmptyState = searched && !searching && suggestions.length === 0;
 
   return (
-    <View className="relative z-10" onTouchStart={(event) => event.stopPropagation()}>
+    <View
+      ref={wrapperRef}
+      className="relative z-10"
+      onTouchStart={(event) => event.stopPropagation()}>
       <TextField
         label={label}
         placeholder={placeholder}
@@ -296,8 +340,10 @@ export const ProductSearchDropdown = forwardRef<
         <ScrollView
           className="psd-panel"
           // elevation ist ein Android-only-Wert ohne Tailwind-Aequivalent
-          // (boxShadow deckt nur den iOS/Web-Schatten ab).
-          style={{ elevation: 4 }}
+          // (boxShadow deckt nur den iOS/Web-Schatten ab). maxHeight kommt aus
+          // der Live-Messung oben statt einer festen Klasse — die Liste soll
+          // bis zum unteren Rand reichen, nicht pauschal bei 220px kappen.
+          style={{ elevation: 4, maxHeight: panelMaxHeight ?? PANEL_FALLBACK_HEIGHT }}
           keyboardShouldPersistTaps="handled"
           showsVerticalScrollIndicator
           onScroll={({ nativeEvent }) => {

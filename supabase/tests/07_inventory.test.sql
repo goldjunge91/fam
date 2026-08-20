@@ -3,7 +3,7 @@
 begin;
 \ir helpers.sql
 
-select plan(13);
+select plan(18);
 
 select tests.create_user('11111111-1111-1111-1111-111111111111', 'alice@example.com');
 select tests.create_user('22222222-2222-2222-2222-222222222222', 'bob@example.com');
@@ -25,6 +25,37 @@ select set_eq(
   $$ select kind from public.storage_locations $$,
   $$ values ('fridge'),('freezer'),('pantry') $$,
   'die drei Standard-Lagerorte haben die erwarteten Typen'
+);
+
+-- ------------------------------------------------------- Standard-Supermärkte
+select is(
+  (select count(*)::int from public.stores),
+  3,
+  'create_household legt REWE, Edeka und Aldi als Standard-Supermaerkte an'
+);
+
+select set_eq(
+  $$ select name from public.stores $$,
+  $$ values ('REWE'),('Edeka'),('Aldi') $$,
+  'die drei Standard-Supermaerkte haben die erwarteten Namen'
+);
+
+select set_eq(
+  $$ select color from public.stores $$,
+  $$ values ('#B5623F'),('#748C5B'),('#5C7396') $$,
+  'die drei Standard-Supermaerkte haben die erwarteten Farben'
+);
+
+-- ------------------------------------------------------- Duplikate verhindern
+select throws_ok(
+  format(
+    $$ insert into public.stores (household_id, name, color)
+       values (%L, 'rewe', '#B5623F') $$,
+    :'hid'
+  ),
+  '23505',
+  null,
+  'Duplikate von Supermarkt-Namen im selben Haushalt werden abgelehnt'
 );
 
 select tests.as_postgres();
@@ -67,6 +98,12 @@ select is(
   (select count(*)::int from public.storage_locations),
   0,
   'Aussenstehende sehen fremde Lagerorte nicht'
+);
+
+select is(
+  (select count(*)::int from public.stores),
+  0,
+  'Aussenstehende sehen fremde Supermaerkte nicht'
 );
 
 -- Bei INSERT wirft RLS einen Fehler, statt still zu filtern — anders als bei

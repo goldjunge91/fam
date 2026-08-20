@@ -216,6 +216,7 @@ export function ShoppingListScreen() {
   return (
     <Screen title="Einkaufsliste" scroll={false} chrome={chrome} backgroundGradient={hubGradient}>
       {isLoading ? null : allItems.length === 0 ? (
+        /* Leerzustand wenn keine Artikel auf der Einkaufsliste stehen */
         <ScrollView
           className="flex-1"
           contentContainerClassName="gap-three"
@@ -230,6 +231,7 @@ export function ShoppingListScreen() {
           </Card>
         </ScrollView>
       ) : isAllFilter ? (
+        /* Gesamtübersicht: Zusammenfassung aller Märkte & Gesamtschätzung */
         <ScrollView
           ref={scrollRef}
           className="flex-1"
@@ -238,6 +240,7 @@ export function ShoppingListScreen() {
           contentContainerStyle={listContentPadding}>
           {renderHeader()}
           <View className="gap-three pt-two">
+            {/* Übersichtskarten pro Markt (Anzahl, abgehakt, Preisschätzung) */}
             {storeAggregates.map(
               ({ store, totalCount, checkedCount, totalEstimate: storeTotal }) => (
                 <StoreSummaryCard
@@ -252,6 +255,7 @@ export function ShoppingListScreen() {
               ),
             )}
 
+            {/* Übersichtskarte für Artikel ohne Marktzuordnung */}
             {unassignedItems.length > 0 && (
               <StoreSummaryCard
                 name="Ohne Markt"
@@ -263,6 +267,7 @@ export function ShoppingListScreen() {
               />
             )}
 
+            {/* Gesamtkosten-Schätzung über alle Märkte */}
             <TotalEstimateCard
               totalEstimate={totalEstimate}
               itemCount={allItems.length}
@@ -272,6 +277,7 @@ export function ShoppingListScreen() {
           {renderCompleteButton()}
         </ScrollView>
       ) : (
+        /* Marktspezifische Checkliste, nach Kategorien sortiert */
         <SectionList
           ref={sectionListRef}
           className="flex-1"
@@ -282,6 +288,7 @@ export function ShoppingListScreen() {
           ListHeaderComponent={
             <>
               {renderHeader()}
+              {/* Option zum Anpassen der Laufweg- / Kategorienreihenfolge */}
               {activeStore && (
                 <Button
                   variant="link"
@@ -294,11 +301,13 @@ export function ShoppingListScreen() {
           }
           ListFooterComponent={renderCompleteButton()}
           renderSectionHeader={({ section }) => (
+            /* Kategorie-Titel (z. B. Obst & Gemüse, Kühlung) */
             <ThemedText type="small" className="shopping-section-header">
               {section.title}
             </ThemedText>
           )}
           renderItem={({ item }) => (
+            /* Einzelne Einkaufsartikel-Zeile mit Checkbox, Mengenangaben und Löschoption */
             <ShoppingItemRow
               item={item}
               onToggle={() => handleToggle(item)}
@@ -310,6 +319,7 @@ export function ShoppingListScreen() {
         />
       )}
 
+      {/* Modal zum Hinzufügen neuer Einkaufsartikel */}
       <AddItemModal
         visible={addModalOpen}
         householdId={householdId}
@@ -317,6 +327,7 @@ export function ShoppingListScreen() {
         onDismiss={() => setAddModalOpen(false)}
       />
 
+      {/* Bottom Sheet zum Abschließen des Einkaufs (Übertrag in Vorrat) */}
       <CompleteRunSheet
         isOpen={sheetOpen}
         checkedItems={checkedItems}
@@ -324,12 +335,14 @@ export function ShoppingListScreen() {
         onClose={() => setSheetOpen(false)}
       />
 
+      {/* Bottom Sheet zum Konfigurieren der Kategorien-Reihenfolge */}
       <CategoryOrderSheet
         isOpen={orderSheetOpen}
         store={activeStore}
         onClose={() => setOrderSheetOpen(false)}
       />
 
+      {/* Modal zum Bearbeiten eines bestehenden Einkaufsartikels */}
       <EditItemModal item={editingItem} onDismiss={() => setEditingItem(null)} />
     </Screen>
   );

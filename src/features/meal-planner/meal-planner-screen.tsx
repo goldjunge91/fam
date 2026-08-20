@@ -250,6 +250,7 @@ export function MealPlannerScreen() {
         ),
       }}>
       <View className="mp-content">
+        {/* Ansichtsmodus-Tabs (Tag / 3 Tage / Woche) */}
         <View className="flex-row gap-two" role="tablist" aria-label="Zeitraum">
           {VIEW_MODES.map((mode) => (
             <Pressable
@@ -270,6 +271,7 @@ export function MealPlannerScreen() {
           ))}
         </View>
 
+        {/* Zeitraum-Navigation mit Pfeilen & Monats-/Datumsangabe */}
         <View className="mp-period-row">
           <Pressable
             role="button"
@@ -294,6 +296,7 @@ export function MealPlannerScreen() {
           </Pressable>
         </View>
 
+        {/* Schnellaktionen für die Wochenansicht (Vorwoche übernehmen, Einkauf vorbereiten) */}
         {viewMode === 'week' ? (
           <View className="mp-actions-row">
             <Pressable
@@ -328,6 +331,7 @@ export function MealPlannerScreen() {
           </View>
         ) : null}
 
+        {/* Haupt-Planungsraster für Tage und Mahlzeitenslots (Frühstück, Mittag, Abend) */}
         <WeekGrid
           dates={dates}
           entries={entries}
@@ -338,6 +342,7 @@ export function MealPlannerScreen() {
         />
       </View>
 
+      {/* Rezept-Auswahlmodal beim Tippen auf einen leeren Slot */}
       <RecipePickerModal
         visible={pendingCell !== null}
         recipes={draggableRecipes}
@@ -345,6 +350,7 @@ export function MealPlannerScreen() {
         onSelect={handlePickRecipe}
       />
 
+      {/* Portions- & Slot-Formular für neu hinzugefügte Mahlzeiten */}
       {pendingDrop ? (
         <EntryFormModal
           visible
@@ -358,6 +364,7 @@ export function MealPlannerScreen() {
         />
       ) : null}
 
+      {/* Bearbeitungs-Modal für bestehenden Mahlzeiteneintrag (Portionen / Löschen) */}
       {editingEntry ? (
         <EntryFormModal
           visible

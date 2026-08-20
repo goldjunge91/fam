@@ -34,7 +34,9 @@ export function initSentry(): void {
 
   Sentry.init({
     dsn,
-    debug: __DEV__,
+    // Debug-Logging nur bei explizitem EXPO_PUBLIC_SENTRY_DEBUG=true aktivieren,
+    // um das Metro-/Terminal-Log im Dev-Modus sauber zu halten.
+    debug: env.sentryDebug,
     // Traces sind im Sentry-Free-Tier kontingentiert — 20% Sampling reicht,
     // um Performance-Regressionen zu sehen, ohne das Kontingent in wenigen
     // Testlaeufen zu verbrauchen. In Entwicklungs-Builds ganz aus, damit

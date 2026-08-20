@@ -54,9 +54,12 @@ export function JoinHouseholdScreen() {
     <Screen
       title="Haushalt beitreten"
       subtitle="Mit Einladungs-Code oder Link"
-      back={{ label: 'Einstellungen', href: '/settings' }}>
+      back={{ label: 'Haushalte' }}
+      backStyle="icon">
+      {/* Eingabe-Formular für den Einladungs-Code / Token */}
       <Card title="Einlösung">
         <View className="gap-three">
+          {/* Eingabefeld für Einladungs-Token */}
           <TextField
             label="Einladungs-Code / Token"
             placeholder="z. B. 123e4567-e89b-12d3-a456-426614174000"
@@ -66,8 +69,10 @@ export function JoinHouseholdScreen() {
             autoCorrect={false}
           />
 
+          {/* Fehleranzeige bei ungültigem / abgelaufenem Code */}
           {errorMsg ? <ThemedText type="smallDanger">{errorMsg}</ThemedText> : null}
 
+          {/* Beitreten-Aktionsbutton */}
           <Button
             label="Haushalt beitreten"
             onPress={handleJoin}
@@ -77,9 +82,10 @@ export function JoinHouseholdScreen() {
         </View>
       </Card>
 
-      <View className="mt-four">
+      {/* Abbrechen-Button (sofern Historie vorhanden) */}
+      {router.canGoBack() && (
         <Button label="Abbrechen" variant="secondary" onPress={() => router.back()} />
-      </View>
+      )}
     </Screen>
   );
 }

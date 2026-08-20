@@ -64,6 +64,7 @@ export function PrivacyScreen() {
       title="Datenschutz"
       back={{ label: 'Einstellungen', href: '/settings' }}
       backStyle="icon">
+      {/* Übersicht aller Datenschutz-Abschnitte (Verschlüsselung, Datenarten, Drittdienste, Rechte) */}
       <View className="gap-three">
         {SECTIONS.map((section) => (
           <Card key={section.title}>

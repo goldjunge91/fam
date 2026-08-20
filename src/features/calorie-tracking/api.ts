@@ -410,6 +410,7 @@ export type TrackingMethod =
   | 'glp1'
   | 'fasting'
   | 'keto'
+  | 'low_carb'
   | 'workouts'
   | 'cgm'
   | 'volumetrics';

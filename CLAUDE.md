@@ -17,7 +17,7 @@ bash scripts/ios-dev.sh         # voller Dev-Client-Build+Install+Metro-Flow (si
 Quality gate vor jedem Commit (siehe auch AGENTS.md "Verification"):
 
 ```bash
-bun run check        # Biome lint+format, bun run check:fix zum Beheben
+bun run check        # Biome lint+format + Tailwind-CSS-Validierung (src/global.css), bun run check:fix zum Beheben
 bun run typecheck    # tsc --noEmit
 bun run test         # Jest unit tests — NIEMALS `bun test` (nutzt Buns Runner, ignoriert jest.config.js)
 bun run test:db      # pgTAP gegen lokales Postgres (nur bei Supabase-Schema-Änderungen)
@@ -62,11 +62,9 @@ bun run user:create / user:list / user:clean / user:delete
 
 **Lokaler DB-Layer (`src/lib/db/`):** SQLite via `expo-sqlite`. `client.ts` ist bewusst **nicht** im Barrel `index.ts` re-exportiert — es ist die einzige Datei, die das native Modul lädt; würde sie mit-exportiert, zöge jeder Unit-Test, der irgendetwas aus `@/lib/db` importiert, das native Modul mit und schlüge fehl. App-Code importiert `@/lib/db/client` direkt, reine Logik nie. Migrationen laufen über `migrator.ts` + `migrations.ts` (App-interne SQLite-Schemaversion, unabhängig von den Supabase-Migrationen).
 
-**Sync-Engine (`src/lib/sync/`):** Outbox-Pattern — lokale Mutationen landen zuerst in einer SQLite-Outbox, werden dann gepusht (`push.ts`), Server-Änderungen per Pull (`pull.ts`) und Realtime-Bridge (`realtime.ts`) zurückgespiegelt (`mirror-write.ts`), Konfliktauflösung per Last-Write-Wins (`resolve.ts`, `server-clock.ts`). Aktuell App-seitig per Polling verdrahtet; Realtime-Bridge und Netzwerk-Trigger existieren, sind aber noch nicht an `_layout.tsx` angeschlossen — Details in `docs/SYNC_ENGINE.md`.
 
 **Datenbank-Trennung (RLS):** `supabase/schemas/` ist nummeriert und lädt in dieser Reihenfolge: `01_private` → `02_profiles` → `03_households` → `04_privileges` → `05_products` → `06_household_invites` → `07_child_profiles` → `08_inventory` → `09_tracking` → `10_realtime` → `11_recipes` → `12_recipe_storage` → `13_recipe_step_storage` → `14_meal_plans` → `15_recipe_templates`. Geteilte Haushaltsdaten (Inventar, Einkaufsliste) und private Nutzerdaten (Tracking/Tagebuch) sind strikt per RLS getrennt — jede neue Tabelle braucht eigene Policies + pgTAP-Tests unter `supabase/tests/`.
 
-**Styling:** kein NativeWind (Version passt nicht zu RN 0.86 / React 19). Reines `StyleSheet.create` mit Tokens aus `src/constants/theme.ts` (Light/Dark, warme Mauve-/Creme-Palette, siehe `docs/DESIGN_SYSTEM.md`).
 
 **Umgebungsvariablen:** `.env` im Root, gitignored. Nur `EXPO_PUBLIC_*`-Variablen landen im Client-Bundle. Lokale Werte via `supabase status`; für Produktion ist ein eigener SMTP-Server zwingend (Supabase-Default-Mailversand ist auf 2 Mails/Stunde begrenzt und liefert seit 2026-06-03 bei neuen Free-Projekten keine anpassbaren Auth-Templates mehr). Details in `README.md`.
 
@@ -74,7 +72,5 @@ bun run user:create / user:list / user:clean / user:delete
 
 ## Weiterführende Docs
 
-- `docs/DEVELOPER_GUIDE.md` — Schritt-für-Schritt-Anleitung für neue Komponenten/Screens/Hooks/Tabellen
-- `docs/DESIGN_SYSTEM.md`, `docs/VISION.md`, `docs/ROADMAP.md`, `docs/projekt_status.md`
-- `docs/SYNC_ENGINE.md` — Details zur Outbox-/Sync-Architektur
+- `docs/VISION.md`, `docs/ROADMAP.md`
 - `.agents/rules/react-native-testing-library.md` — RNTL-Konventionen für diesen Codebase (vor Komponententests lesen)

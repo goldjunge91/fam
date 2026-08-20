@@ -54,10 +54,16 @@ const TRACKING_METHODS: { id: TrackingMethod; label: string; icon: string; desc:
     desc: 'Fastenphasen-Timer & individuelle Essensfenster',
   },
   {
+    id: 'low_carb',
+    label: 'Low-Carb',
+    icon: '🥗',
+    desc: 'Netto-Kohlenhydrate & Ballaststoffe fokussieren',
+  },
+  {
     id: 'keto',
-    label: 'Low-Carb & Keto',
+    label: 'Keto (Ketogen)',
     icon: '🥑',
-    desc: 'Netto-Kohlenhydrate & Ketonwerte protokollieren',
+    desc: 'Ketose-Ernährung (<20–50g Carbs) & Keton-Logs',
   },
   {
     id: 'workouts',
@@ -369,7 +375,7 @@ export function TrackingScreen() {
       back={{ label: 'Mein Profil', href: '/profile' }}
       backStyle="icon">
       <ScrollView contentContainerClassName="screen-scroll" showsVerticalScrollIndicator={false}>
-        {/* 1. Deine Tracking-Methode (Ganz oben, da zentral fuer alle Berechnungen) */}
+        {/* 1. Tracking-Methode (CICO, GLP-1, Fasten, Low-Carb, Keto, Kraftsport, CGM, Volumetrics) */}
         <SettingsGroup title="Deine Tracking-Methode">
           <View className="p-three gap-two">
             <ThemedText type="small" themeColor="textSecondary" className="mb-one">
@@ -414,10 +420,10 @@ export function TrackingScreen() {
           </View>
         </SettingsGroup>
 
-        {/* 2. Ernährung & Tagesziele (Mobile Kachel-Layout) */}
+        {/* 2. Ernährung & Tagesziele (Kalorienziel & Makros) */}
         <SettingsGroup title="Ernährung & Tagesziele">
           <View className="p-three gap-three">
-            {/* Grosse Tagesziel Kachel */}
+            {/* Große Tagesziel-Kachel für Kalorien */}
             <View
               style={{ backgroundColor: theme.backgroundElement, borderColor: theme.border }}
               className="p-four rounded-2xl border items-center">
@@ -429,7 +435,7 @@ export function TrackingScreen() {
               </ThemedText>
             </View>
 
-            {/* 3 Makro-Kacheln */}
+            {/* 3 Makronährstoff-Kacheln (Protein, Carbs, Fett) */}
             <View className="flex-row gap-two">
               <View
                 style={{ backgroundColor: theme.backgroundElement, borderColor: theme.border }}
@@ -465,6 +471,7 @@ export function TrackingScreen() {
               </View>
             </View>
 
+            {/* Button zum Bearbeiten der Ziele */}
             <Button
               label="Ziele & Makros bearbeiten"
               variant="secondary"
@@ -473,7 +480,7 @@ export function TrackingScreen() {
           </View>
         </SettingsGroup>
 
-        {/* 3. Vitalwerte & Biometrie Kacheln */}
+        {/* 3. Vitalwerte & Biometrie Kacheln (Größe, Gewicht, Alter, Aktivität, BMR & TDEE) */}
         <SettingsGroup title="Vitalwerte & Biometrie">
           <View className="p-three gap-three">
             {/* 2x2 Grid für Kern-Messwerte */}
@@ -555,6 +562,7 @@ export function TrackingScreen() {
               </View>
             </View>
 
+            {/* Button zum Bearbeiten der Biometrie */}
             <Button
               label="Biometrie bearbeiten"
               variant="secondary"
@@ -563,7 +571,7 @@ export function TrackingScreen() {
           </View>
         </SettingsGroup>
 
-        {/* 4. Tracking-Rhythmus & Zeitfenster */}
+        {/* 4. Tracking-Rhythmus & Zeitfenster (Tagesstart-Uhrzeit) */}
         <SettingsGroup title="Tracking-Rhythmus & Zeitfenster">
           <View className="p-three">
             <TimePicker
@@ -575,7 +583,7 @@ export function TrackingScreen() {
         </SettingsGroup>
       </ScrollView>
 
-      {/* Modal zur Bearbeitung der Biometrie */}
+      {/* Modal zur Bearbeitung der Biometrie (Größe, Geschlecht, Geburtsdatum, Aktivität) */}
       <Modal
         visible={biometricsModalVisible}
         transparent

@@ -48,6 +48,7 @@ export function LiquidGlassLabScreen() {
       back={{ label: 'Entwickler', href: '/settings/dev' }}
       backStyle="icon"
       backgroundGradient={hubGradient}>
+      {/* Statuskarte: Verfügbarkeit von expo-glass-effect auf dem aktuellen OS/Gerät */}
       <Card title="Status">
         <View
           style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
@@ -64,7 +65,7 @@ export function LiquidGlassLabScreen() {
         </ThemedText>
       </Card>
 
-      {/* ---------------------------------------------------------------- */}
+      {/* Buttons & Segment-Controls auf Basis von expo-glass-effect */}
       <Card title="Buttons — expo-glass-effect">
         <ThemedText type="caption" themeColor="textSecondary" style={{ marginBottom: 12 }}>
           `GlassView` mit verschiedenen Tints/Styles, dieselbe Komponente wie im Dashboard.
@@ -125,7 +126,7 @@ export function LiquidGlassLabScreen() {
         </GlassContainer>
       </Card>
 
-      {/* ---------------------------------------------------------------- */}
+      {/* Native SwiftUI Glass-Buttons via @expo/ui */}
       <Card title="Buttons — @expo/ui (natives SwiftUI-Glass)">
         <ThemedText type="caption" themeColor="textSecondary" style={{ marginBottom: 12 }}>
           `buttonStyle('glass' | 'glassProminent')` — Apples eigener, system-nativer
@@ -161,7 +162,7 @@ export function LiquidGlassLabScreen() {
         </Host>
       </Card>
 
-      {/* ---------------------------------------------------------------- */}
+      {/* SwiftUI ContextMenu mit Long-Press Trigger und Preview */}
       <Card title="Kontextmenü (Long-Press)">
         <ThemedText type="caption" themeColor="textSecondary" style={{ marginBottom: 12 }}>
           Systemeigenes `ContextMenu` aus `@expo/ui` — auf iOS 26 rendert das Menü selbst bereits
@@ -230,7 +231,7 @@ export function LiquidGlassLabScreen() {
         </Host>
       </Card>
 
-      {/* ---------------------------------------------------------------- */}
+      {/* Menü-Varianten (Natives SwiftUI Menu vs. GlassView Popover) */}
       <Card title="Bearbeiten-Menü — zwei Varianten">
         <ThemedText type="caption" themeColor="textSecondary" style={{ marginBottom: 12 }}>
           Variante A: natives `Menu` aus `@expo/ui`, öffnet/schließt komplett system-gesteuert
@@ -328,7 +329,7 @@ export function LiquidGlassLabScreen() {
         </View>
       </Card>
 
-      {/* ---------------------------------------------------------------- */}
+      {/* Typografie-Vergleich: Glasoberfläche vs. Solider Hintergrund */}
       <Card title="Schriften auf Glas vs. solide">
         <ThemedText type="caption" themeColor="textSecondary" style={{ marginBottom: 12 }}>
           Lesbarkeits-Vergleich derselben `ThemedText`-Rollen auf Glas- und solider Fläche, über dem

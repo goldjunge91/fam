@@ -32,6 +32,7 @@ export function MealPlannerSettingsScreen() {
 
   return (
     <Screen title="Portionen pro Person" back={{ label: 'Einstellungen' }} backStyle="icon">
+      {/* Portions-Faktor Formular (Erklärung, Eingabefeld und Speichern-Aktion) */}
       <View className="gap-three">
         <ThemedText themeColor="textSecondary">
           Im Personen-Modus des Wochenplans wird die Personenzahl mit diesem Faktor in Portionen

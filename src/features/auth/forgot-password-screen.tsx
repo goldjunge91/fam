@@ -42,6 +42,7 @@ export function ForgotPasswordScreen() {
   if (sent) {
     return (
       <Screen title="E-Mail unterwegs" back={{ label: 'Anmelden', href: '/sign-in' }}>
+        {/* Bestätigungskarte nach E-Mail-Versand */}
         <Card>
           {/* Bewusst neutral formuliert: Eine Bestaetigung, dass genau diese
               Adresse ein Konto hat, waere eine Auskunft ueber fremde Nutzer. */}
@@ -50,6 +51,7 @@ export function ForgotPasswordScreen() {
             unterwegs.
           </ThemedText>
         </Card>
+        {/* Zurück-Aktion */}
         <Button
           label="Zurück zur Anmeldung"
           variant="secondary"
@@ -64,8 +66,10 @@ export function ForgotPasswordScreen() {
       title="Passwort zurücksetzen"
       subtitle="Wir schicken dir einen Link"
       back={{ label: 'Anmelden', href: '/sign-in' }}>
+      {/* Formular zur Passworteingabe / Reset-Anfrage */}
       <Card>
         <View className="gap-three">
+          {/* E-Mail-Eingabefeld */}
           <TextField
             testID="forgot-password-email"
             label="E-Mail"
@@ -81,12 +85,15 @@ export function ForgotPasswordScreen() {
             returnKeyType="go"
           />
 
+          {/* Fehlermeldung */}
           {formError ? <ThemedText type="smallDanger">{formError}</ThemedText> : null}
 
+          {/* Absende-Button */}
           <Button label="Link anfordern" onPress={handleSubmit} loading={loading} />
         </View>
       </Card>
 
+      {/* Navigation zurück */}
       <Button label="Zurück" variant="secondary" onPress={() => router.back()} />
     </Screen>
   );

@@ -142,7 +142,7 @@ export function EditProfileScreen() {
       title="Profil & Account"
       back={{ label: 'Mein Profil', href: '/profile' }}
       backStyle="icon">
-      {/* Profilbild Karte */}
+      {/* Profilbild-Karte mit Upload- & Löschen-Optionen */}
       <Card title="Profilbild">
         <View className="flex-row items-center gap-four">
           <View
@@ -177,6 +177,7 @@ export function EditProfileScreen() {
         </View>
       </Card>
 
+      {/* Persönliche Angaben (Name & E-Mail-Adresse) */}
       <Card title="Persönliche Angaben">
         <View className="gap-three">
           <TextField
@@ -198,6 +199,7 @@ export function EditProfileScreen() {
         </View>
       </Card>
 
+      {/* Formular zum Ändern des Passworts */}
       <Card title="Passwort ändern">
         <ThemedText type="caption" themeColor="textSecondary" className="mb-two">
           Lass diese Felder leer, wenn du dein aktuelles Passwort behalten möchtest.
@@ -222,12 +224,14 @@ export function EditProfileScreen() {
         </View>
       </Card>
 
+      {/* Fehlermeldungs-Anzeige */}
       {formError ? (
         <ThemedText type="small" themeColor="danger" className="px-one">
           {formError}
         </ThemedText>
       ) : null}
 
+      {/* Speichern-Button */}
       <Button
         label="Änderungen speichern"
         onPress={handleSubmit}

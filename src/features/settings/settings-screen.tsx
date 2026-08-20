@@ -81,6 +81,7 @@ export function SettingsScreen() {
         trailing: <ProfileButton initials={initials} onPress={() => router.push('/profile')} />,
       }}>
       <ScrollView contentContainerClassName="screen-scroll" showsVerticalScrollIndicator={false}>
+        {/* Schnellzugriff-Header (Eigenes Profil & Premium-Aktionskarte) */}
         <View className="gap-[10px]">
           <Pressable
             onPress={() => router.push('/profile')}
@@ -107,7 +108,9 @@ export function SettingsScreen() {
           <PremiumPromoCard />
         </View>
 
+        {/* Einstellungs-Menügruppen */}
         <View className="gap-four">
+          {/* Tracking & Ernährung (Ziele, Vitalwerte, Methoden) */}
           <SettingsGroup title="Tracking & Ernährung">
             <SettingsRow
               icon="🎯"
@@ -118,6 +121,7 @@ export function SettingsScreen() {
             />
           </SettingsGroup>
 
+          {/* Haushalt (Mitglieder, Lagerorte, Märkte) */}
           <SettingsGroup title="Haushalt">
             <SettingsRow
               icon="🏠"
@@ -143,6 +147,7 @@ export function SettingsScreen() {
             />
           </SettingsGroup>
 
+          {/* App-Einstellungen (Benachrichtigungen & Modulauswahl) */}
           <SettingsGroup title="App">
             <SettingsRow
               icon="🔔"
@@ -158,6 +163,7 @@ export function SettingsScreen() {
             />
           </SettingsGroup>
 
+          {/* Datenverwaltung & Datenschutz (Export, DSGVO, Löschen) */}
           <SettingsGroup title="Daten">
             <SettingsRow icon="📤" label="Export" onPress={() => router.push('/settings/export')} />
             <SettingsRow
@@ -190,10 +196,12 @@ export function SettingsScreen() {
           ) : null}
         </View>
 
+        {/* Abmelden-Aktion */}
         <View className="mt-two">
           <Button label="Abmelden" variant="danger" onPress={handleSignOut} loading={signingOut} />
         </View>
 
+        {/* App-Versionsangabe & Build-Nummer */}
         <ThemedText type="small" className="text-center opacity-60">
           {versionLabel}
         </ThemedText>

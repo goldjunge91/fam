@@ -41,7 +41,7 @@ create table if not exists public.profiles (
 
   -- Spezifische Abnehm- & Trainingsmethode (#179): Genau eine aktive Methode pro Profil.
   tracking_method text not null default 'standard' check (
-    tracking_method in ('standard', 'glp1', 'fasting', 'keto', 'workouts', 'cgm', 'volumetrics')
+    tracking_method in ('standard', 'glp1', 'fasting', 'keto', 'low_carb', 'workouts', 'cgm', 'volumetrics')
   ),
 
   -- Individualisierbare Tages-Zeitfenster (#174): Startzeitpunkt des Nutzertags (Standard 00:00).

@@ -208,6 +208,7 @@ export function AddItemScreen() {
   return (
     <ThemedView className="flex-1 bg-background">
       <SafeAreaView className="modal-safe-area" edges={['top', 'left', 'right', 'bottom']}>
+        {/* Modal-Handle und Header mit Schließen-Button */}
         <View className="modal-handle" />
         <View className="modal-header min-h-[54px]">
           <ThemedText type="headingSmall">Artikel hinzufügen</ThemedText>
@@ -225,6 +226,7 @@ export function AddItemScreen() {
           contentContainerClassName="gap-three pb-four"
           keyboardShouldPersistTaps="handled"
           showsVerticalScrollIndicator={false}>
+          {/* Produktsuche mit integriertem Barcode-Scan-Button */}
           <ProductSearchDropdown
             label=""
             placeholder={source === 'dish' ? 'Gericht suchen…' : 'z. B. Milch oder Barcode-Name'}
@@ -242,6 +244,7 @@ export function AddItemScreen() {
             }
           />
 
+          {/* Quell- und Vorschlagsfilter (Lebensmittel/Gerichte, Häufig/Zuletzt) */}
           <ItemSourceFilterRow
             source={source}
             onSourceChange={setSource}
@@ -251,6 +254,7 @@ export function AddItemScreen() {
             suggestionAccessibilityLabel="Vorschlagsfilter"
           />
 
+          {/* Schnellauswahl häufig oder zuletzt verwendeter Artikel */}
           <FrequentProductsQuickSelect
             feature="fridge"
             userId={userId}
@@ -258,6 +262,7 @@ export function AddItemScreen() {
             onSelectProduct={handleSelectProduct}
           />
 
+          {/* Zusammenfassungskarte des ausgewählten Produkts */}
           {name.trim() ? (
             <View className="edit-fridge-product-card">
               <View className="edit-fridge-product-copy">
@@ -281,6 +286,7 @@ export function AddItemScreen() {
             </View>
           ) : null}
 
+          {/* Eingabefelder für Menge und Lagerort */}
           <View className="edit-fridge-controls-row">
             <View className="edit-fridge-control-column">
               <ThemedText type="small" themeColor="textSecondary">
@@ -315,6 +321,7 @@ export function AddItemScreen() {
             </View>
           </View>
 
+          {/* Formularbereich zum Anlegen eines neuen Lagerorts */}
           {!showAddLocation ? (
             <Pressable
               onPress={() => setShowAddLocation(true)}
@@ -355,6 +362,7 @@ export function AddItemScreen() {
             </View>
           )}
 
+          {/* Aufklappbereich: Weitere Angaben (Einheit, Mindesthaltbarkeitsdatum) */}
           <Pressable
             onPress={() => setDetailsOpen((current) => !current)}
             accessibilityRole="button"
@@ -369,6 +377,7 @@ export function AddItemScreen() {
 
           {detailsOpen ? (
             <View className="gap-three">
+              {/* Einheitenauswahl */}
               <WheelPickerField
                 label="Einheit"
                 value={unit}
@@ -376,6 +385,7 @@ export function AddItemScreen() {
                 onChange={setUnit}
                 size="large"
               />
+              {/* Datumsauswahl & Schnellbuttons für MHD */}
               <DateWheelField
                 label="Mindesthaltbarkeitsdatum (MHD)"
                 value={expiryDate}
@@ -390,6 +400,7 @@ export function AddItemScreen() {
             </View>
           ) : null}
 
+          {/* Haupt-Speicher-Button */}
           <Button
             label="Zum Vorrat hinzufügen"
             onPress={handleSave}
@@ -400,6 +411,7 @@ export function AddItemScreen() {
         </ScrollView>
       </SafeAreaView>
 
+      {/* Barcode-Scanner-Modal */}
       <BarcodeScannerModal
         visible={showScanner}
         onClose={() => setShowScanner(false)}

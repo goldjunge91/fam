@@ -91,6 +91,7 @@ export function DeleteAccountScreen() {
       title="Konto löschen"
       back={{ label: 'Einstellungen', href: '/settings' }}
       backStyle="icon">
+      {/* Warnhinweis-Karte zu den Auswirkungen der Account-Löschung */}
       <Card>
         <ThemedText type="small" themeColor="textSecondary">
           Löscht deinen Account und alle privaten Daten dauerhaft — Profil, Ernährungstagebuch,
@@ -99,6 +100,7 @@ export function DeleteAccountScreen() {
           mit weiteren Mitgliedern, musst du das vorher in den Haushalts-Einstellungen auflösen.
         </ThemedText>
       </Card>
+      {/* Gefahren-Aktionsbutton zum Einleiten der Kontolöschung */}
       <View className="mt-four">
         <Button
           label="Account löschen"

@@ -116,3 +116,53 @@ describe('env.offFactsOffline', () => {
     expect(env.offFactsOffline).toBe(true);
   });
 });
+
+describe('env.sentryDebug', () => {
+  const original = process.env.EXPO_PUBLIC_SENTRY_DEBUG;
+
+  afterEach(() => {
+    if (original === undefined) {
+      delete process.env.EXPO_PUBLIC_SENTRY_DEBUG;
+    } else {
+      process.env.EXPO_PUBLIC_SENTRY_DEBUG = original;
+    }
+  });
+
+  it('ist ohne gesetzte Variable standardmaessig aus (false)', () => {
+    delete process.env.EXPO_PUBLIC_SENTRY_DEBUG;
+    expect(env.sentryDebug).toBe(false);
+  });
+
+  it('wird bei true oder 1 eingeschaltet', () => {
+    process.env.EXPO_PUBLIC_SENTRY_DEBUG = 'true';
+    expect(env.sentryDebug).toBe(true);
+
+    process.env.EXPO_PUBLIC_SENTRY_DEBUG = '1';
+    expect(env.sentryDebug).toBe(true);
+  });
+});
+
+describe('env.sentryDsn', () => {
+  const original = process.env.EXPO_PUBLIC_SENTRY_DSN;
+
+  afterEach(() => {
+    if (original === undefined) {
+      delete process.env.EXPO_PUBLIC_SENTRY_DSN;
+    } else {
+      process.env.EXPO_PUBLIC_SENTRY_DSN = original;
+    }
+  });
+
+  it('gibt undefined zurueck wenn nicht gesetzt oder leer', () => {
+    delete process.env.EXPO_PUBLIC_SENTRY_DSN;
+    expect(env.sentryDsn).toBeUndefined();
+
+    process.env.EXPO_PUBLIC_SENTRY_DSN = '   ';
+    expect(env.sentryDsn).toBeUndefined();
+  });
+
+  it('gibt getrimmten DSN zurueck wenn gesetzt', () => {
+    process.env.EXPO_PUBLIC_SENTRY_DSN = '  https://examplePublicKey@o0.ingest.sentry.io/0  ';
+    expect(env.sentryDsn).toBe('https://examplePublicKey@o0.ingest.sentry.io/0');
+  });
+});

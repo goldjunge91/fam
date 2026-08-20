@@ -27,7 +27,7 @@ export function ProfileHubScreen() {
       back={{ label: 'Einstellungen', href: '/settings' }}
       backStyle="icon">
       <ScrollView contentContainerClassName="screen-scroll" showsVerticalScrollIndicator={false}>
-        {/* Grosser Profil-Header */}
+        {/* Großer Profil-Header (Avatar, Display-Name, E-Mail) */}
         <View
           style={{ backgroundColor: theme.backgroundElement, borderColor: theme.border }}
           className="p-five rounded-3xl border items-center gap-three">
@@ -53,10 +53,10 @@ export function ProfileHubScreen() {
           </View>
         </View>
 
-        {/* Zentrale Navigationsbereiche */}
+        {/* Zentrale Navigationsbereiche (Account, Tracking, Haushalt) */}
         <SettingsGroup title="Bereiche">
           <View className="p-three gap-three">
-            {/* 1. Profil & Account-Daten */}
+            {/* 1. Profil & Account-Daten (Profilbild, Name, E-Mail, Passwort) */}
             <Pressable
               onPress={() => router.push('/profile/edit')}
               accessibilityRole="button"
@@ -83,7 +83,7 @@ export function ProfileHubScreen() {
               </ThemedText>
             </Pressable>
 
-            {/* 2. Mein Tracking */}
+            {/* 2. Mein Tracking (Methode, Tagesbedarf, Vitalwerte & Rhythmus) */}
             <Pressable
               onPress={() => router.push('/profile/tracking')}
               accessibilityRole="button"

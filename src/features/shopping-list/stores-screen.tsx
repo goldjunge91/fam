@@ -108,13 +108,16 @@ export function StoresScreen() {
       subtitle={currentHousehold?.name}
       back={{ label: 'Einstellungen', href: '/settings' }}
       backStyle="icon">
+      {/* Formular zum Anlegen eines neuen Supermarkts/Geschäfts */}
       <Card title="Neuen Markt hinzufügen">
         <View className="gap-three mt-two">
+          {/* Eingabefeld für den Marktnamen */}
           <TextField
             placeholder="z.B. REWE, Aldi, Lidl..."
             value={newStoreName}
             onChangeText={setNewStoreName}
           />
+          {/* Schnellauswahl beliebter Supermarktketten (Presets) */}
           <ThemedText type="smallMuted">Vorschläge</ThemedText>
           <View className="row-wrap">
             {STORE_PRESETS.map((preset) => (
@@ -138,6 +141,7 @@ export function StoresScreen() {
             ))}
           </View>
 
+          {/* Farbauswahl-Palette für den Markt */}
           <ThemedText type="smallMuted">Farbe</ThemedText>
           <View className="row-wrap">
             {STORE_COLOR_PALETTE.map((color) => (
@@ -156,6 +160,7 @@ export function StoresScreen() {
               />
             ))}
           </View>
+          {/* Hinzufügen-Button */}
           <Button
             label="Hinzufügen"
             onPress={handleAdd}
@@ -165,6 +170,7 @@ export function StoresScreen() {
         </View>
       </Card>
 
+      {/* Liste aller angelegten Märkte mit Bearbeiten- und Löschen-Aktionen */}
       <Card title="Vorhandene Märkte">
         {isLoading ? (
           <ThemedText>Lädt...</ThemedText>
@@ -178,6 +184,7 @@ export function StoresScreen() {
               return (
                 <View key={store.id} className="store-manage-row">
                   {isEditing ? (
+                    /* Inline-Bearbeitung für Markt (Name & Farbe) */
                     <View className="col-gap">
                       <TextField value={editingName} onChangeText={setEditingName} autoFocus />
                       <ThemedText type="smallMuted">Farbe</ThemedText>
@@ -220,6 +227,7 @@ export function StoresScreen() {
                       </View>
                     </View>
                   ) : (
+                    /* Markt-Zeile mit Farbindikator, Name und Aktionen */
                     <>
                       <View className="row-center">
                         {/* Dynamische Markt-Farbe */}

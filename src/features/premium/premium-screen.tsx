@@ -90,6 +90,7 @@ export function PremiumScreen() {
         leading: <BackButton label="Einstellungen" href="/settings" variant="arrow" />,
       }}>
       <ScrollView contentContainerClassName="premium-scroll" showsVerticalScrollIndicator={false}>
+        {/* Premium-Hero-Banner (Krone-Icon, Überschrift, Haushalts-Erklärung) */}
         <View className="premium-hero">
           <View className="premium-crown">
             <GradientBackground colors={['#705573', '#c38b75']} />
@@ -105,6 +106,7 @@ export function PremiumScreen() {
           </ThemedText>
         </View>
 
+        {/* Feature-Vorteile (Geführter Kochmodus, Fehlendes direkt einkaufen, Auto-Bestände) */}
         <SettingsGroup>
           {BENEFITS.map((benefit, index) => (
             <SettingsRow
@@ -118,6 +120,7 @@ export function PremiumScreen() {
         </SettingsGroup>
 
         {isPremium ? (
+          /* Aktiver Premium-Status & Abo-Verwaltungs-Button */
           <>
             <View className="premium-active-box">
               <ThemedText themeColor="success" className="premium-active-title">
@@ -132,6 +135,7 @@ export function PremiumScreen() {
             <Button label="Abo verwalten" onPress={handleManage} loading={busy} />
           </>
         ) : (
+          /* Abo-Optionen, Paywall-Trigger & Wiederherstellen-Buttons */
           <>
             <View className="premium-plan-box">
               <ThemedText className="premium-plan-title">Jahresabo</ThemedText>

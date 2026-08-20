@@ -99,6 +99,7 @@ export function MissingIngredientsScreen() {
       title="Fehlende Zutaten"
       subtitle="Bedarf dieser Woche minus Vorrat"
       back={{ label: 'Wochenplan' }}>
+      {/* Paywall-Hinweis falls kein aktives Premium-Abo vorhanden ist */}
       {!isPremium ? (
         <View className="mis-list">
           <ThemedText themeColor="textSecondary">
@@ -108,12 +109,15 @@ export function MissingIngredientsScreen() {
           <Button label="Premium ansehen" onPress={unlockPremium} loading={unlocking} />
         </View>
       ) : isLoading ? (
+        /* Ladeindikator beim Berechnen der Vorratsabgleiche */
         <ActivityIndicator className="mis-loading" />
       ) : missing.length === 0 ? (
+        /* Statusanzeige wenn alle Zutaten im Vorrat vorhanden sind */
         <ThemedText themeColor="textSecondary">
           Für die geplanten Rezepte fehlt nichts – der Vorrat reicht.
         </ThemedText>
       ) : (
+        /* Auswahlliste aller fehlenden Zutaten mit Mengenangaben und Übertrags-Button */
         <View className="mis-list">
           {missing.map((item) => (
             <IngredientRow
@@ -124,6 +128,7 @@ export function MissingIngredientsScreen() {
             />
           ))}
 
+          {/* Button zum Hinzufügen der ausgewählten Zutaten auf die Einkaufsliste */}
           <Button
             label={`${selected.size} Artikel zur Einkaufsliste hinzufügen`}
             onPress={handleAddSelected}
@@ -131,6 +136,7 @@ export function MissingIngredientsScreen() {
             loading={addShoppingItem.isPending}
           />
 
+          {/* Erfolgs-Bestätigung nach Übertrag */}
           {addedCount !== null ? (
             <ThemedText type="small" themeColor="accent">
               {addedCount} Artikel zur Einkaufsliste hinzugefügt.

@@ -178,6 +178,7 @@ export function DevToolsScreen() {
       subtitle="Nur sichtbar mit EXPO_PUBLIC_DEV_TOOLS"
       back={{ label: 'Einstellungen', href: '/settings' }}
       backStyle="icon">
+      {/* Umgebungsinformationen (Supabase-URL, API-Key, Build-Typ, App-Version, Premium-Status) */}
       <Card title="Umgebung">
         <Zeile label="Supabase" wert={ziel.label} tone={ziel.tone} />
         <Zeile label="URL" wert={env.supabaseUrl} />
@@ -195,6 +196,7 @@ export function DevToolsScreen() {
         />
       </Card>
 
+      {/* Session-Details (Nutzer-ID, Token-Gültigkeit, aktiver Haushalt) */}
       <Card title="Session">
         <Zeile label="Nutzer-ID" wert={session?.user.id ?? '—'} />
         <Zeile label="E-Mail" wert={session?.user.email ?? '—'} />
@@ -207,6 +209,7 @@ export function DevToolsScreen() {
         <Zeile label="Haushalts-ID" wert={activeHousehold?.id ?? '—'} />
       </Card>
 
+      {/* Lokale SQLite-Datenbank (Schema-Version, Tabellenzähler, Outbox) */}
       <Card title="Lokale Datenbank">
         {dbError ? (
           <ThemedText type="small" themeColor="danger">
@@ -237,6 +240,7 @@ export function DevToolsScreen() {
         </View>
       </Card>
 
+      {/* Lokaler OpenFoodFacts-Offline-Dump Status */}
       <Card title="OpenFoodFacts-Dump">
         <Zeile
           label="Heruntergeladen"
@@ -267,6 +271,7 @@ export function DevToolsScreen() {
         </View>
       </Card>
 
+      {/* Diagnose- & Test-Aktionen (Sentry, Push, EAS Observe, Paywall, DB-Wipe) */}
       <Card title="Aktionen">
         <View className="action-stack">
           <Button

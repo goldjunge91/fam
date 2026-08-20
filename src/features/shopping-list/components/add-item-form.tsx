@@ -7,6 +7,7 @@ import { WheelPickerField } from '@/components/forms/wheel-picker-field';
 import { FamIcon } from '@/components/icons/fam-icon';
 import { ThemedText } from '@/components/theme/themed-text';
 import { Button, HeaderIconButton } from '@/components/ui/buttons';
+import { type ItemSource, ItemSourceFilterRow } from '@/components/ui/item-source-filter';
 import { QuantityStepper } from '@/components/ui/quantity-stepper';
 import { useSession } from '@/features/auth/session-provider';
 import { BarcodeScannerModal } from '@/features/inventory/barcode-scanner-modal';
@@ -52,6 +53,7 @@ export function AddItemForm({ householdId, initialStoreId = null, onDismiss }: A
   const [storeId, setStoreId] = useState<string | null>(initialStoreId);
   const [nameError, setNameError] = useState<string | null>(null);
   const [selectedProduct, setSelectedProduct] = useState<OpenFoodFactsProduct | null>(null);
+  const [source, setSource] = useState<ItemSource>('food');
   const [suggestionMode, setSuggestionMode] = useState<ShoppingSuggestionMode>('recent');
   const [detailsOpen, setDetailsOpen] = useState(false);
   const [showScanner, setShowScanner] = useState(false);
@@ -159,7 +161,7 @@ export function AddItemForm({ householdId, initialStoreId = null, onDismiss }: A
       <ProductSearchDropdown
         ref={productSearchRef}
         label=""
-        placeholder="Artikel suchen"
+        placeholder={source === 'dish' ? 'Gericht suchen…' : 'Artikel suchen'}
         value={name}
         onChangeText={(text) => {
           setName(text);
@@ -187,11 +189,21 @@ export function AddItemForm({ householdId, initialStoreId = null, onDismiss }: A
         </ThemedText>
       ) : null}
 
+      {/* Quell- und Vorschlagsfilter (Lebensmittel/Gerichte, Zuletzt/Häufig) —
+          dieselbe geteilte UI wie bei Vorrat (add-item-screen.tsx, #164). */}
+      <ItemSourceFilterRow
+        source={source}
+        onSourceChange={setSource}
+        sourceAccessibilityLabel="Quelle: Lebensmittel oder Gerichte"
+        suggestionFilter={suggestionMode}
+        onSuggestionFilterChange={setSuggestionMode}
+        suggestionAccessibilityLabel="Vorschlagsfilter"
+      />
+
       <ShoppingProductSuggestions
         userId={userId}
         householdId={householdId}
         mode={suggestionMode}
-        onModeChange={setSuggestionMode}
         selectedName={name}
         onSelect={handleSelectSuggestion}
       />

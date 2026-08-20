@@ -126,4 +126,11 @@ export const env = {
   get sentryDsn(): string | undefined {
     return process.env.EXPO_PUBLIC_SENTRY_DSN?.trim() || undefined;
   },
+  /**
+   * Aktiviert Sentry-Debug-Logging im Terminal/Console.
+   * Standardmäßig `false`, um das Terminal nicht mit internen SDK-Logs zu fluten.
+   */
+  get sentryDebug(): boolean {
+    return isFlagEnabled(process.env.EXPO_PUBLIC_SENTRY_DEBUG);
+  },
 };

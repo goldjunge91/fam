@@ -161,12 +161,12 @@ export function ProgressRing({
           </ThemedText>
         ) : displayMode === 'remaining' ? (
           <>
-            <ThemedText className="text-[24px] leading-[28px] font-bold tracking-[-0.5px]">
+            <ThemedText style={{ fontSize: 32, lineHeight: 36, fontWeight: '700', letterSpacing: -0.5 }}>
               {target > 0 ? Math.abs(remaining) : Math.round(value)}
             </ThemedText>
             <ThemedText
               themeColor={exceeded ? 'warning' : 'textSecondary'}
-              className="text-micro leading-[12px] font-semibold">
+              style={{ fontSize: 13, lineHeight: 16, fontWeight: '600' }}>
               {target > 0 ? `${unit} ${exceeded ? 'darüber' : 'übrig'}` : unit}
             </ThemedText>
           </>

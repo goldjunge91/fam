@@ -376,6 +376,7 @@ export function RecipesScreen() {
           </View>
         ),
       }}>
+      {/* Filter-Modal für Kategorien, Mahlzeitentypen, Kalorienbereiche und Tags */}
       <RecipeFilterModal
         visible={showFilters}
         filters={filters}
@@ -390,6 +391,7 @@ export function RecipesScreen() {
         contentContainerClassName="px-[15px] pt-one pb-[126px]"
         keyboardShouldPersistTaps="handled"
         showsVerticalScrollIndicator={false}>
+        {/* Aufklappbare Textsuche für Rezepttitel */}
         {showSearch ? (
           <View className="h-[42px] flex-row items-center gap-[9px] rounded-fam-large px-[13px] mb-[10px] bg-background-element/85">
             <SearchIcon color={theme.textSecondary} />
@@ -406,6 +408,7 @@ export function RecipesScreen() {
           </View>
         ) : null}
 
+        {/* Tab-Leiste (Entdecken vs. Meine Favoriten) */}
         {view === 'discover' || view === 'favorites' ? (
           <View className="flex-row gap-two mb-[18px]">
             <Pressable
@@ -437,6 +440,7 @@ export function RecipesScreen() {
           </View>
         ) : null}
 
+        {/* Ladezustand */}
         {isLoading ? (
           <ActivityIndicator
             accessibilityLabel="Rezepte werden geladen"
@@ -444,31 +448,37 @@ export function RecipesScreen() {
             className="mt-[42px]"
           />
         ) : view === 'favorites' ? (
+          /* Favoriten-Ansicht */
           favoriteEntries.length > 0 ? (
             <RecipeList entries={favoriteEntries} />
           ) : (
             <EmptyPanel>Noch keine Favoriten gespeichert.</EmptyPanel>
           )
         ) : view === 'filtered' ? (
+          /* Gefilterte Ergebnisse aus dem Filter-Modal */
           filteredEntries.length > 0 ? (
             <RecipeList entries={filteredEntries} />
           ) : (
             <EmptyPanel>Keine Rezepte für diese Filter.</EmptyPanel>
           )
         ) : view === 'household' ? (
+          /* Liste aller eigenen Haushaltsrezepte */
           householdEntries.length > 0 ? (
             <RecipeList entries={householdEntries} />
           ) : (
             <EmptyPanel>Keine Rezepte für diesen Filter.</EmptyPanel>
           )
         ) : view === 'templates' ? (
+          /* Gefilterte Rezeptvorlagen */
           filteredTemplateEntries.length > 0 ? (
             <RecipeList entries={filteredTemplateEntries} />
           ) : (
             <EmptyPanel>Keine Vorlagen für diesen Filter.</EmptyPanel>
           )
         ) : householdEntries.length > 0 || templates.length > 0 ? (
+          /* Standard Entdecken-Ansicht mit Karussells und Mahlzeitenbereichen */
           <>
+            {/* Karussell: Themenkategorien (z. B. Vegan, Schnell, High-Protein) */}
             <View className="mb-five">
               <SectionHeading title="Kategorien" />
               <CategoryCarousel
@@ -477,11 +487,13 @@ export function RecipesScreen() {
               />
             </View>
 
+            {/* Karussell: Kalorien-Buckets (<400 kcal, 400-600 kcal, etc.) */}
             <View className="mb-five">
               <SectionHeading title="Rezepte nach Kalorien" />
               <CalorieCarousel selectedIndex={templateCalorieFilter} onSelect={selectCalorieTile} />
             </View>
 
+            {/* Horizontale Abschnitte nach Mahlzeitentyp (Frühstück, Mittag, Abend, Snacks) */}
             {mealSections.length > 0 ? (
               <View className="mb-five">
                 <SectionHeading
@@ -495,6 +507,7 @@ export function RecipesScreen() {
               </View>
             ) : null}
 
+            {/* Eigene Haushaltsrezepte */}
             <View className="mb-five">
               <SectionHeading
                 title="Unsere Rezepte"
@@ -509,6 +522,7 @@ export function RecipesScreen() {
             </View>
           </>
         ) : (
+          /* Leerzustand wenn keine Rezepte/Vorlagen vorhanden sind */
           <EmptyPanel>Noch keine Rezepte im Haushalt.</EmptyPanel>
         )}
       </ScrollView>

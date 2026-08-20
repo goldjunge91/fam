@@ -137,6 +137,7 @@ export function InventoryScreen() {
   if (!householdId) {
     return (
       <Screen title="Vorrat" chrome={chrome}>
+        {/* Leerer Zustand wenn noch kein Haushalt aktiv/ausgewählt ist */}
         <Card>
           <EmptyState
             symbol="archivebox"
@@ -160,6 +161,7 @@ export function InventoryScreen() {
       backgroundGradient={hubGradient}
       scroll={false}
       applyBottomPadding={false}>
+      {/* Virtuelle Vorratsliste mit Header, Filtern und MHD-Einträgen */}
       <FlatList
         data={visibleItems}
         keyExtractor={(item) => item.id}
@@ -167,14 +169,14 @@ export function InventoryScreen() {
         contentContainerStyle={{ paddingBottom }}
         ListHeaderComponent={
           <View className="gap-three pb-two">
+            {/* Vorrats-Statistik: Gesamtanzahl & kritische/bald ablaufende Artikel */}
             <InventorySummaryCard
               totalCount={allItems.length}
               criticalCount={expiryCounts.critical}
               soonCount={expiryCounts.soon}
             />
 
-            {/* Dynamische Lagerort-Auswahl aus den Haushaltseinstellungen, direkt
-                neben der Artikelsuche. */}
+            {/* Toolbar mit dynamischen Lagerort-Tabs und Artikelsuchfeld */}
             {locationsLoading || locations.length === 0 ? null : (
               <View className="inventory-toolbar-row">
                 <InventoryTabBar
@@ -186,7 +188,7 @@ export function InventoryScreen() {
               </View>
             )}
 
-            {/* Kompakter Arbeitslisten-Kopf, #71 */}
+            {/* Sortierleiste (nach Haltbarkeit / alphabetisch) */}
             {allItems.length > 0 ? (
               <View className="fridge-sort-row">
                 <ThemedText
@@ -210,6 +212,7 @@ export function InventoryScreen() {
           </View>
         }
         ListEmptyComponent={
+          /* Leerzustand bei leerem Lagerort oder erfolgloser Suche */
           isLoading ? null : visibleItems.length === 0 ? (
             <Card className="mt-two">
               <EmptyState
@@ -229,6 +232,7 @@ export function InventoryScreen() {
           ) : null
         }
         renderItem={({ item }) => (
+          /* Einzelne Artikelzeile mit MHD-Status und Mengensteuerung */
           <InventoryItemRow
             item={item}
             onPress={() => setActionItem(item)}
@@ -238,6 +242,7 @@ export function InventoryScreen() {
         )}
       />
 
+      {/* Aktions-Bottom-Sheet für schnelles Verbrauchen, Ändern und Löschen */}
       <InventoryItemActionsSheet
         visible={!!currentActionItem}
         item={currentActionItem}
@@ -254,12 +259,14 @@ export function InventoryScreen() {
         }}
       />
 
+      {/* Detail-Modal für Produktinformationen & Nährwerte */}
       <ProductDetailModal
         visible={!!informationItem}
         item={informationItem}
         onClose={() => setInformationItem(null)}
       />
 
+      {/* Bearbeitungs-Sheet für Name, Lagerort, Menge und Mindesthaltbarkeitsdatum */}
       <EditInventoryItemSheet
         visible={!!editItem}
         item={editItem}

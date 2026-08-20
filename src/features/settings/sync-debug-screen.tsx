@@ -188,6 +188,7 @@ export function SyncDebugScreen() {
       title="Sync-Diagnose"
       back={{ label: 'Synchronisation', href: '/settings/sync' }}
       backStyle="icon">
+      {/* Übersicht zum letzten Sync-Lauf (Zeitpunkt, Pushed/Pulled, Realtime-Status & Reconnects) */}
       <Card title="Letzter Synchronisations-Lauf">
         <View className="debug-row">
           <ThemedText type="small">Uhrzeit:</ThemedText>
@@ -245,6 +246,7 @@ export function SyncDebugScreen() {
         </View>
       </Card>
 
+      {/* Realtime-Latenzmessungen & Samples */}
       <Card title={`Realtime-Latenz (letzte ${latencySamples.length} Zeilen)`}>
         {latencySamples.length === 0 ? (
           <ThemedText type="small" themeColor="textSecondary">
@@ -287,6 +289,7 @@ export function SyncDebugScreen() {
         )}
       </Card>
 
+      {/* Live-Tests für Push-Mitteilungen und Barcode-Scanner */}
       <Card title="Live-Test (Hardware & Push)">
         <ThemedText type="small" themeColor="textSecondary">
           Test-Aktionen für lokale Mitteilungen und die Kamera-Barcode-Erkennung.
@@ -302,6 +305,7 @@ export function SyncDebugScreen() {
         </View>
       </Card>
 
+      {/* Aktiver Haushalt in der lokalen SQLite-DB */}
       <Card title="Aktueller Haushalt in DB">
         <View className="debug-row">
           <ThemedText type="small">Haushalts-Name:</ThemedText>
@@ -317,6 +321,7 @@ export function SyncDebugScreen() {
         </View>
       </Card>
 
+      {/* Lokale Outbox-Warteschlange mit Mutations-Payloads und Fehlern */}
       <Card title={`Lokale Outbox (${outboxRows.length} Einträge)`}>
         {outboxRows.length === 0 ? (
           <ThemedText type="small" themeColor="textSecondary">
@@ -360,6 +365,7 @@ export function SyncDebugScreen() {
         )}
       </Card>
 
+      {/* Lokale Lagerorte aus SQLite */}
       <Card title={`Lokale Lagerorte (${locationRows.length} Orte)`}>
         {locationRows.length === 0 ? (
           <ThemedText type="small" themeColor="textSecondary">
@@ -377,6 +383,7 @@ export function SyncDebugScreen() {
         )}
       </Card>
 
+      {/* Lokale Lebensmittel aus SQLite */}
       <Card title={`Lokale Lebensmittel (${itemRows.length} Artikel)`}>
         {itemRows.length === 0 ? (
           <ThemedText type="small" themeColor="textSecondary">
@@ -396,6 +403,7 @@ export function SyncDebugScreen() {
         )}
       </Card>
 
+      {/* Barcode-Scanner Testmodal */}
       <BarcodeScannerModal
         visible={showScannerTest}
         onClose={() => setShowScannerTest(false)}

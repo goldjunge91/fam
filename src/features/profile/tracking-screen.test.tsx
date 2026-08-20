@@ -144,16 +144,24 @@ describe('TrackingScreen', () => {
     });
   });
 
-  it('wechselt die aktive Tracking-Methode im Profil', async () => {
+  it('wechselt die aktive Tracking-Methode im Profil auf Low-Carb und Keto', async () => {
     const user = userEvent.setup();
     await renderScreen();
 
-    const glp1Btn = screen.getByText('GLP-1 & Medikation');
-    await user.press(glp1Btn);
+    const lowCarbBtn = screen.getByText('Low-Carb');
+    await user.press(lowCarbBtn);
 
     expect(mockMutateMethod).toHaveBeenCalledWith({
       userId: 'user-1',
-      method: 'glp1',
+      method: 'low_carb',
+    });
+
+    const ketoBtn = screen.getByText('Keto (Ketogen)');
+    await user.press(ketoBtn);
+
+    expect(mockMutateMethod).toHaveBeenCalledWith({
+      userId: 'user-1',
+      method: 'keto',
     });
   });
 });

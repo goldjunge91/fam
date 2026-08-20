@@ -116,6 +116,7 @@ export function ChildProfilesScreen() {
       title="Kinder-Profile"
       subtitle={currentHousehold?.name}
       back={{ label: 'Mitglieder', href: '/household/members' }}>
+      {/* Formular zum Anlegen eines neuen Kinder-Profils (ausklappbar) */}
       {showAddForm ? (
         <Card title="Kinder-Profil hinzufügen">
           <View className="gap-three">
@@ -179,11 +180,13 @@ export function ChildProfilesScreen() {
           </View>
         </Card>
       ) : (
+        /* Button zum Öffnen des Anlege-Formulars */
         <View className="mb-four">
           <Button label="+ Kinder-Profil anlegen" onPress={() => setShowAddForm(true)} />
         </View>
       )}
 
+      {/* Liste aller erfassten Kinder-Profile mit Bearbeiten & Löschen */}
       <Card title="Erfasste Kinder-Profile">
         {isLoading ? (
           <ThemedText>Lädt Kinder-Profile...</ThemedText>
@@ -200,6 +203,7 @@ export function ChildProfilesScreen() {
               const isEditing = editingId === item.id;
               if (isEditing) {
                 return (
+                  /* Inline-Bearbeitungsformular für ein Kind */
                   <View className="child-edit-card">
                     <TextField
                       label="Name des Kindes"
@@ -261,6 +265,7 @@ export function ChildProfilesScreen() {
               }
 
               return (
+                /* Zeile mit Profil-Stammdaten und Aktions-Buttons */
                 <View className="child-row">
                   <View className="flex-1">
                     <ThemedText className="font-bold text-[16px]">

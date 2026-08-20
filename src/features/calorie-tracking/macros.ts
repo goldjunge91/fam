@@ -1,4 +1,4 @@
-export type MacroPreset = 'balanced' | 'high_protein' | 'low_carb';
+export type MacroPreset = 'balanced' | 'high_protein' | 'low_carb' | 'keto';
 
 export type MacroRatio = { protein: number; carbs: number; fat: number };
 
@@ -7,6 +7,7 @@ const PRESET_RATIOS: Record<MacroPreset, MacroRatio> = {
   balanced: { protein: 0.3, carbs: 0.4, fat: 0.3 },
   high_protein: { protein: 0.4, carbs: 0.3, fat: 0.3 },
   low_carb: { protein: 0.4, carbs: 0.2, fat: 0.4 },
+  keto: { protein: 0.25, carbs: 0.05, fat: 0.7 },
 };
 
 /** kcal pro Gramm, physiologische Brennwerte. */

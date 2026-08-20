@@ -128,6 +128,7 @@ function FreeCookingMode({ data }: { data: RecipeDetail }) {
       <SafeAreaView
         className="flex-1 w-full max-w-[800px] self-center"
         edges={['top', 'left', 'right']}>
+        {/* Header mit Zurück-Button */}
         <PageHeader
           title="Kochmodus"
           leading={<BackButton label="Kochmodus schließen" variant="header" />}
@@ -135,10 +136,12 @@ function FreeCookingMode({ data }: { data: RecipeDetail }) {
         <ScrollView
           contentContainerClassName="flex-grow px-four pb-four gap-[14px]"
           showsVerticalScrollIndicator={false}>
+          {/* Rezepttitel */}
           <ThemedText type="headingSmall" className="pt-[6px]">
             {recipe.title}
           </ThemedText>
 
+          {/* Übersicht aller Zutaten (Basis-Ansicht) */}
           {ingredients.length > 0 ? (
             <View className="rounded-sheet p-[13px] gap-two bg-background-element/85">
               {ingredients.map((item) => {
@@ -155,6 +158,7 @@ function FreeCookingMode({ data }: { data: RecipeDetail }) {
             </View>
           ) : null}
 
+          {/* Allgemeine Kochanleitung */}
           {recipe.instructions ? (
             <ThemedText
               type="detail"
@@ -164,6 +168,7 @@ function FreeCookingMode({ data }: { data: RecipeDetail }) {
             </ThemedText>
           ) : null}
 
+          {/* Statische Liste aller Zubereitungsschritte */}
           {steps.length > 0 ? (
             <View className="gap-three">
               {steps.map((step) => (
@@ -181,6 +186,7 @@ function FreeCookingMode({ data }: { data: RecipeDetail }) {
             </View>
           ) : null}
 
+          {/* Paywall-Button zum Freischalten des geführten Schritt-für-Schritt-Kochmodus */}
           <Pressable
             onPress={unlockPremium}
             role="button"
@@ -269,6 +275,7 @@ export function CookingModeScreen() {
         <SafeAreaView
           className="flex-1 w-full max-w-[800px] self-center"
           edges={['top', 'left', 'right']}>
+          {/* Header der Abschlussansicht */}
           <PageHeader
             title="Fertig"
             leading={
@@ -282,6 +289,7 @@ export function CookingModeScreen() {
           <ScrollView
             contentContainerClassName="flex-grow items-center px-four pt-[38px] pb-six"
             showsVerticalScrollIndicator={false}>
+            {/* Erfolgs-Header & Glückwünsche */}
             <View className="w-[82px] h-[82px] rounded-fam-large bg-background-selected" />
             <ThemedText type="headingSmall" className="pt-[18px]">
               Guten Appetit!
@@ -293,6 +301,7 @@ export function CookingModeScreen() {
               Alles Weitere ist freiwillig und kann übersprungen werden.
             </ThemedText>
 
+            {/* Nachbereitung-Aktionen: Gruppen wiegen, Tagebucheintrag, Bewertung */}
             <View className="w-full gap-two pt-six">
               <FinishAction
                 title="Zubereitete Gruppen wiegen"
@@ -316,6 +325,7 @@ export function CookingModeScreen() {
               />
             </View>
 
+            {/* Ohne Angaben schließen */}
             <Pressable
               onPress={() => router.back()}
               role="button"
@@ -328,6 +338,8 @@ export function CookingModeScreen() {
               </ThemedText>
             </Pressable>
           </ScrollView>
+
+          {/* Bewertungs-Sheet */}
           <RecipeRatingSheet
             recipeId={recipe.id}
             visible={ratingOpen}
@@ -344,6 +356,7 @@ export function CookingModeScreen() {
       <SafeAreaView
         className="flex-1 w-full max-w-[800px] self-center"
         edges={['top', 'left', 'right']}>
+        {/* Header des Kochmodus */}
         <PageHeader
           title="Kochmodus"
           leading={<BackButton label="Kochmodus schließen" variant="header" />}
@@ -351,6 +364,7 @@ export function CookingModeScreen() {
 
         {hasSteps && currentStep ? (
           <View className="flex-1 px-four pb-four">
+            {/* Schritt-Fortschrittsbalken */}
             <View className="h-[21px] flex-row gap-[5px] pt-half pb-[15px]">
               {steps.map((step, index) => (
                 <View
@@ -362,6 +376,7 @@ export function CookingModeScreen() {
               ))}
             </View>
 
+            {/* Schrittzähler & Titel */}
             <ThemedText
               type="detail"
               themeColor="textSecondary"
@@ -374,6 +389,7 @@ export function CookingModeScreen() {
                 : currentStep.text.replace(/[.!?]+$/, '')}
             </ThemedText>
 
+            {/* Schritt-Grafik / Foto */}
             <View className="h-[184px] mt-[13px] rounded-fam-large overflow-hidden">
               <StepArtwork step={currentStep} />
             </View>
@@ -384,6 +400,7 @@ export function CookingModeScreen() {
               {currentStep.text}
             </ThemedText>
 
+            {/* Integrierter Timer bei Zeitangaben im Schritt-Text */}
             {parsedDuration ? (
               <View className="min-h-[58px] mt-[14px] rounded-sheet px-[13px] py-three flex-row items-center gap-[5px] bg-background-element/85">
                 <View className="flex-1 min-w-0">
@@ -422,6 +439,7 @@ export function CookingModeScreen() {
               </View>
             ) : null}
 
+            {/* Navigations-Buttons (Vorheriger Schritt / Nächster Schritt / Fertig) */}
             <View className="mt-auto pt-[13px] flex-row gap-two">
               <Pressable
                 onPress={() => setStepIndex((value) => Math.max(0, value - 1))}
@@ -446,6 +464,7 @@ export function CookingModeScreen() {
             </View>
           </View>
         ) : (
+          /* Fallback-Ansicht ohne strukturierte Schritte */
           <ScrollView contentContainerClassName="flex-grow px-four pb-four">
             <ThemedText type="headingSmall" className="pt-[6px]">
               {recipe.title}

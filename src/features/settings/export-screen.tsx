@@ -51,6 +51,7 @@ export function ExportScreen() {
 
   return (
     <Screen title="Export" back={{ label: 'Einstellungen', href: '/settings' }} backStyle="icon">
+      {/* Hinweiskarte zum DSGVO-Datenexportumfang */}
       <Card>
         <ThemedText type="small" themeColor="textSecondary">
           Exportiert dein Profil, deine Ziele, das Ernährungstagebuch, deinen Gewichtsverlauf und
@@ -58,6 +59,7 @@ export function ExportScreen() {
           Die Datei ist auch ohne die App lesbar.
         </ThemedText>
       </Card>
+      {/* Export-Aktionsbutton */}
       <View className="mt-four">
         <Button label="Daten exportieren" onPress={handleExport} loading={exporting} />
       </View>

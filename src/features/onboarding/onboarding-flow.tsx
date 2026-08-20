@@ -42,6 +42,7 @@ function OnboardingContent() {
       // KeyboardAvoidingView mit — nur so kann er beim Tippen zuverlässig
       // zum fokussierten Feld hochscrollen (siehe household-step.tsx).
       scroll={currentStep !== 4}>
+      {/* Onboarding-Navigationsleiste (Zurück-Button, Fortschrittsbalken, Abmelden-Notausstieg) */}
       {currentStep > 1 && currentStep < TOTAL_STEPS && (
         <View className="progress-container">
           {/* Nutzt bewusst `prevStep` aus dem Context statt Routing — die
@@ -58,12 +59,19 @@ function OnboardingContent() {
         </View>
       )}
 
+      {/* Schritt 1: Willkommens-Karussell / Feature-Überblick */}
       {currentStep === 1 && <WelcomeCarousel onStart={() => setStep(2)} />}
+      {/* Schritt 2: Account anlegen / Anmelden */}
       {currentStep === 2 && <AccountStepForm onNext={() => setStep(3)} />}
+      {/* Schritt 3: Persönliches Profil (Körperdaten, Aktivitätslevel, Ziele) */}
       {currentStep === 3 && <ProfileStepForm onNext={nextStep} onSkip={nextStep} />}
+      {/* Schritt 4: Haushalt erstellen oder beitreten */}
       {currentStep === 4 && <HouseholdStepForm onNext={nextStep} onSkip={nextStep} />}
+      {/* Schritt 5: Modulauswahl (Vorrat, Kalorien, Einkaufsliste, Essensplaner) */}
       {currentStep === 5 && <ModuleSelectorForm onNext={nextStep} onSkip={nextStep} />}
+      {/* Schritt 6: System-Berechtigungen (Benachrichtigungen, Kamera) */}
       {currentStep === 6 && <PermissionsStepForm onNext={nextStep} onSkip={nextStep} />}
+      {/* Schritt 7: Abschluss & Starten der App */}
       {currentStep === 7 && <CompleteStepForm />}
     </Screen>
   );

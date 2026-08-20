@@ -228,6 +228,7 @@ export function FoodSearchScreen() {
       title={MEAL_LABELS[params.mealType] ?? 'Lebensmittel'}
       back={{ label: 'Abbrechen' }}
       scroll={false}>
+      {/* Suchkopf: Textsuche, Barcode-Scanner-Button und Verlaufsfilter */}
       <View className="fss-header">
         <View className="fss-search-row">
           <View className="flex-1">
@@ -247,6 +248,7 @@ export function FoodSearchScreen() {
           </Pressable>
         </View>
 
+        {/* Quell- und Verlaufs-Filterleiste (Zuletzt vs. Häufig) */}
         {!isSearchMode ? (
           <ItemSourceFilterRow
             source={source}
@@ -259,6 +261,7 @@ export function FoodSearchScreen() {
         ) : null}
       </View>
 
+      {/* Ergebnisliste: Entweder Live-Suchergebnisse (OFF/Lokal) oder Verlauf */}
       {isSearchMode ? (
         searching ? (
           <ActivityIndicator color={theme.accent} className="fss-center-loader" />
@@ -313,11 +316,13 @@ export function FoodSearchScreen() {
         />
       )}
 
+      {/* Button für Schnelleintrag (manuelle Eingabe ohne Produktsuche) */}
       <Pressable onPress={selectManualEntry} className="fss-quick-entry-btn">
         <ThemedText className="text-[18px]">🍽️</ThemedText>
         <ThemedText type="smallBold">Schneller Eintrag</ThemedText>
       </Pressable>
 
+      {/* Modal für Kamera-Barcode-Scanner */}
       <BarcodeScannerModal
         visible={showScanner}
         onClose={() => setShowScanner(false)}

@@ -44,8 +44,10 @@ export function CreateHouseholdScreen() {
       title="Haushalt erstellen"
       subtitle="Lade später deine Familie oder WG ein"
       back={{ label: 'Haushalte' }}>
+      {/* Formular zur Erstellung eines neuen Haushalts */}
       <Card>
         <View className="gap-three">
+          {/* Eingabefeld für Haushaltsname */}
           <TextField
             label="Name deines Haushalts"
             value={householdName}
@@ -54,18 +56,22 @@ export function CreateHouseholdScreen() {
             autoCapitalize="words"
           />
 
+          {/* Validierungs- und Serverfehler */}
           {errorMsg ? <ThemedText type="smallDanger">{errorMsg}</ThemedText> : null}
 
+          {/* Erstellen-Button */}
           <Button label="Erstellen" onPress={handleSubmit} loading={mutation.isPending} />
         </View>
       </Card>
 
+      {/* Alternative Aktion: Haushalts-Beitritt via Code */}
       <Button
         label="Ich habe einen Einladungs-Code"
         variant="secondary"
         onPress={() => router.push('/household/join')}
       />
 
+      {/* Abbrechen-Button (sofern Historie vorhanden) */}
       {router.canGoBack() && (
         <Button label="Abbrechen" variant="secondary" onPress={() => router.back()} />
       )}

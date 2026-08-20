@@ -50,8 +50,10 @@ export function ResetPasswordScreen() {
 
   return (
     <Screen title="Neues Passwort" subtitle="Danach bist du direkt angemeldet">
+      {/* Formular für neues Passwort */}
       <Card>
         <View className="gap-three">
+          {/* Eingabe neues Passwort */}
           <TextField
             label="Neues Passwort"
             value={password}
@@ -62,6 +64,7 @@ export function ResetPasswordScreen() {
             autoComplete="new-password"
             textContentType="newPassword"
           />
+          {/* Eingabe Passwort-Bestätigung */}
           <TextField
             label="Passwort wiederholen"
             value={passwordConfirmation}
@@ -75,8 +78,10 @@ export function ResetPasswordScreen() {
             returnKeyType="go"
           />
 
+          {/* Formularfehler */}
           {formError ? <ThemedText type="smallDanger">{formError}</ThemedText> : null}
 
+          {/* Absende-Button */}
           <Button label="Passwort speichern" onPress={handleSubmit} loading={loading} />
         </View>
       </Card>

@@ -64,12 +64,14 @@ export function ModuleSettingsScreen() {
 
   return (
     <Screen title="Module" back={{ label: 'Einstellungen', href: '/settings' }} backStyle="icon">
+      {/* Hinweistext zur Ausblendung von Modulen */}
       <Card>
         <ThemedText type="small" themeColor="textSecondary">
           Deaktivierte Module verschwinden aus der Navigation, deine Daten bleiben erhalten.
         </ThemedText>
       </Card>
 
+      {/* Liste aller App-Module mit Toggle-Schaltern (Vorrat, Einkauf, Tagebuch, Rezepte, Meal-Planner) */}
       <View className="gap-two">
         {MODULE_ROWS.map((row) => (
           <Pressable

@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 #
 # init-database.sh — Richtet eine neue oder gewechselte Supabase-Datenbank (linked)
-# komplett ein, haertet die Berechtigungen, erstellt Storage-Buckets,
-# fuehrt Sicherheitspruefungen durch und laedt Standard-Storage-Assets hoch.
+# komplett ein, haertet die Berechtigungen, spielt Seed-Daten ein (Rezept-Templates,
+# Basis-Produkte, Storage-Buckets), fuehrt Sicherheitspruefungen durch,
+# laedt Standard-Storage-Assets hoch und deployt alle Edge Functions.
 #
 # Aufruf:
 #   bun run db:init
@@ -11,18 +12,21 @@
 
 set -euo pipefail
 
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+ROOT_DIR="$(cd "$SCRIPT_DIR/.." && pwd)"
+
 echo "============================================================"
-echo "🚀 NutriTrack: Initialisiere Supabase Datenbank"
+echo "🚀 NutriTrack: Initialisiere Supabase Projekt & Datenbank"
 echo "============================================================"
 
 # 1. Migrationen auf das verlinkte Projekt pushen
 echo ""
-echo "==> 1/5: Wende alle Migrationen an (supabase db push)..."
+echo "==> 1/6: Wende alle Migrationen an (supabase db push)..."
 supabase db push
 
 # 2. Rechte haerten (Supabase Remote Default Privileges fuer SECURITY DEFINER Funktionen entziehen)
 echo ""
-echo "==> 2/5: Haerte Rechte fuer sensible SECURITY DEFINER Funktionen..."
+echo "==> 2/6: Haerte Rechte fuer sensible SECURITY DEFINER Funktionen..."
 supabase db query --linked "
 revoke execute on function public.create_household(text) from anon;
 revoke execute on function public.redeem_invite(uuid) from anon;
@@ -30,41 +34,33 @@ revoke execute on function public.prepare_account_deletion() from anon;
 revoke execute on function public.household_member_profiles(uuid) from anon;
 "
 
-# 3. Storage-Buckets anlegen (falls noch nicht vorhanden)
+# 3. Seed-Daten einspielen (Storage-Buckets, Basis-Produkte, 29 Rezept-Templates)
 echo ""
-echo "==> 3/5: Lege Storage-Buckets an (recipe-covers, recipe-step-images)..."
-supabase db query --linked "
-insert into storage.buckets (id, name, public, file_size_limit)
-values
-  ('recipe-covers', 'recipe-covers', false, 5242880),
-  ('recipe-step-images', 'recipe-step-images', false, 5242880)
-on conflict (id) do update set
-  public = excluded.public,
-  file_size_limit = excluded.file_size_limit;
-"
+echo "==> 3/6: Spiele Seed-Daten ein (Buckets, Basis-Produkte, 29 Rezept-Templates)..."
+supabase db query --linked < "$ROOT_DIR/supabase/seeds/recipe_templates.sql"
 
 # 4. Rechte-Zusicherungen ueberpruefen
 echo ""
-echo "==> 4/5: Fuehre Rechte-Zusicherungs-Check aus..."
-bash "$(dirname "$0")/check-privileges.sh" --linked
+echo "==> 4/6: Fuehre Rechte-Zusicherungs-Check aus..."
+bash "$SCRIPT_DIR/check-privileges.sh" --linked
 
 # 5. Storage-Assets hochladen (Recipe Template Covers)
 echo ""
-echo "==> 5/5: Lade Rezeptvorlagen-Cover in Storage hoch..."
-if [ -f "$(dirname "$0")/upload-recipe-template-covers.ts" ]; then
-  bun --env-file=.env "$(dirname "$0")/upload-recipe-template-covers.ts" || {
+echo "==> 5/6: Lade Rezeptvorlagen-Cover in Storage hoch..."
+if [ -f "$SCRIPT_DIR/upload-recipe-template-covers.ts" ]; then
+  bun --env-file=.env "$SCRIPT_DIR/upload-recipe-template-covers.ts" || {
     echo "⚠️  Warnung: Cover-Upload fehlgeschlagen. Bitte pruefe, ob SUPABASE_SECRET_KEY in deiner .env gueltig ist."
   }
 else
   echo "Uebersprungen: Skript upload-recipe-template-covers.ts nicht gefunden."
 fi
 
+# 6. Edge Functions deployen
+echo ""
+echo "==> 6/6: Deploye Supabase Edge Functions..."
+supabase functions deploy
+
 echo ""
 echo "============================================================"
-echo "✅ Datenbank-Initialisierung erfolgreich abgeschlossen!"
+echo "✅ Projekt-Initialisierung erfolgreich abgeschlossen!"
 echo "============================================================"
-echo "Hinweis: Stelle sicher, dass deine .env die neuen Zugangsdaten enthaelt:"
-echo "  EXPO_PUBLIC_SUPABASE_URL=..."
-echo "  EXPO_PUBLIC_SUPABASE_KEY=..."
-echo "  SUPABASE_SECRET_KEY=..."
-echo ""

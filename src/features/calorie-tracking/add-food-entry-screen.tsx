@@ -303,6 +303,7 @@ export function AddFoodEntryScreen() {
   return (
     <Screen title={title} back={{ label: 'Abbrechen' }}>
       <View className="afe-form">
+        {/* Profil-Auswahl (Erwachsener / Kind-Profil) */}
         {!isEditing && childProfiles.length > 0 ? (
           <View>
             <ThemedText type="smallBold">Für wen?</ThemedText>
@@ -330,6 +331,7 @@ export function AddFoodEntryScreen() {
           </View>
         ) : null}
 
+        {/* Lebensmittel-Header mit Bild, Name, Marke und Nutri-Score */}
         <View className="afe-hero">
           {imageUrl ? (
             <Image source={{ uri: imageUrl }} className="afe-hero-image" />
@@ -353,6 +355,7 @@ export function AddFoodEntryScreen() {
           ) : null}
         </View>
 
+        {/* Nährwert- & Verarbeitungs-Badges (z. B. Fettarm, Nova 4) */}
         {badges.length > 0 ? (
           <View className="afe-badge-row">
             {badges.map((badge) => (
@@ -367,6 +370,7 @@ export function AddFoodEntryScreen() {
           </View>
         ) : null}
 
+        {/* Nährwert-Eingabefelder (Kalorien, Kohlenhydrate, Eiweiß, Fett) */}
         <View className="flex-row gap-four">
           <View className="flex-1">
             <TextField
@@ -404,6 +408,7 @@ export function AddFoodEntryScreen() {
           </View>
         </View>
 
+        {/* Mengen- und Einheitenauswahl */}
         <ThemedText type="smallBold" className="mt-one">
           Menge
         </ThemedText>
@@ -426,6 +431,7 @@ export function AddFoodEntryScreen() {
           </ThemedText>
         ) : null}
 
+        {/* Aktions-Buttons (Speichern, Löschen, Abbrechen) */}
         <View className="mt-two">
           <Button
             label="Speichern"

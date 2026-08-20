@@ -61,6 +61,7 @@ export function SyncSettingsScreen() {
       title="Synchronisation"
       back={{ label: 'Einstellungen', href: '/settings' }}
       backStyle="icon">
+      {/* Statuskarte mit aktuellem Sync-Zustand, Fehlermeldungen und manuellen Sync-Aktionen */}
       <Card title="Status">
         <ThemedText type="small" themeColor="textSecondary">
           Daten werden im Hintergrund automatisch synchronisiert.

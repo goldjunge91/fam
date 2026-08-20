@@ -182,17 +182,21 @@ function SummaryRow({
 }) {
   return (
     <View className="diary-summary-row">
-      <ThemedText themeColor="textSecondary" className="diary-summary-label">
+      <ThemedText
+        themeColor="textSecondary"
+        style={{ fontSize: 16, lineHeight: 22, fontWeight: '500' }}>
         {label}
       </ThemedText>
-      <ThemedText themeColor={accent ? 'accent' : 'text'} className="diary-summary-value">
+      <ThemedText
+        themeColor={accent ? 'accent' : 'text'}
+        style={{ fontSize: 22, lineHeight: 26, fontWeight: '700' }}>
         {value}
       </ThemedText>
     </View>
   );
 }
 
-/** Tagebuch nach Figma: Tagesbilanz, Makros und kompakte Mahlzeitenliste. */
+/** Tagebuch: Tagesbilanz, Makros und kompakte Mahlzeitenliste. */
 export function DiaryScreen() {
   const theme = useTheme();
   const { openDrawer } = useNavigationChrome();
@@ -268,6 +272,7 @@ export function DiaryScreen() {
         showsVerticalScrollIndicator={false}
         contentContainerClassName="diary-content"
         contentInsetAdjustmentBehavior="never">
+        {/* Profil-Auswahl (Erwachsener vs. Kind-Profile) */}
         {childProfiles.length > 0 ? (
           <FilterChipBar
             label="Tagebuchprofil"
@@ -277,6 +282,7 @@ export function DiaryScreen() {
           />
         ) : null}
 
+        {/* Datumsnavigation (Gestern, Heute, Morgen, Datumswahl) */}
         <View className="diary-date-row">
           <Pressable
             onPress={() => setSelectedDate((date) => addDays(date, -1))}
@@ -310,6 +316,7 @@ export function DiaryScreen() {
           </Pressable>
         </View>
 
+        {/* Kalorien-Zusammenfassung mit Ring-Diagramm & Bilanz */}
         <View className="diary-summary-card">
           <ProgressRing
             value={totals.kcal}
@@ -336,6 +343,7 @@ export function DiaryScreen() {
           </View>
         </View>
 
+        {/* Makronährstoff-Balken (Protein, Kohlenhydrate, Fett) */}
         <View className="diary-macro-list">
           <MacroSummary
             label="Protein"
@@ -350,14 +358,17 @@ export function DiaryScreen() {
           <MacroSummary label="Fett" value={totals.fatG} target={currentGoal?.fat_g ?? 0} isLast />
         </View>
 
+        {/* GLP-1 Tracking-Karte (optional) */}
         {userProfile?.tracking_method === 'glp1' ? (
           <Glp1Card userId={userId} childProfileId={childProfileId} />
         ) : null}
 
+        {/* Intervallfasten-Karte (optional) */}
         {userProfile?.tracking_method === 'fasting' ? (
           <FastingCard userId={userId} childProfileId={childProfileId} />
         ) : null}
 
+        {/* Mahlzeiten-Abschnitte (Frühstück, Mittagessen, Abendessen, Snacks) */}
         {isLoading ? (
           <ThemedText
             type="captionCompact"

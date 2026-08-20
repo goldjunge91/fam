@@ -1,6 +1,5 @@
 import { Pressable, View } from 'react-native';
 import { ThemedText } from '@/components/theme/themed-text';
-import { SegmentedControl } from '@/components/ui/segmented-control';
 import type { OpenFoodFactsProduct } from '@/lib/open-food-facts';
 
 import {
@@ -13,7 +12,6 @@ type ShoppingProductSuggestionsProps = {
   userId: string | undefined;
   householdId: string;
   mode: ShoppingSuggestionMode;
-  onModeChange: (mode: ShoppingSuggestionMode) => void;
   selectedName: string;
   onSelect: (product: OpenFoodFactsProduct, suggestion: ShoppingProductSuggestion) => void;
 };
@@ -51,60 +49,40 @@ export function ShoppingProductSuggestions({
   userId,
   householdId,
   mode,
-  onModeChange,
   selectedName,
   onSelect,
 }: ShoppingProductSuggestionsProps) {
   const { data: suggestions = [] } = useShoppingProductSuggestions({ userId, householdId, mode });
 
-  return (
-    <View className="col-gap">
-      <SegmentedControl
-        label="Produktvorschläge"
-        options={[
-          { value: 'recent', label: 'Zuletzt' },
-          { value: 'frequent', label: 'Häufig' },
-        ]}
-        selected={mode}
-        onSelect={onModeChange}
-        appearance="surface"
-        size="compact"
-        gap={3}
-      />
+  if (suggestions.length === 0) return null;
 
-      {suggestions.length > 0 ? (
-        <View className="input-row">
-          {suggestions.map((suggestion) => {
-            const selected = selectedName.trim().toLowerCase() === suggestion.name.toLowerCase();
-            return (
-              <Pressable
-                key={suggestion.name.toLowerCase()}
-                onPress={() => onSelect(toProduct(suggestion), suggestion)}
-                accessibilityRole="button"
-                accessibilityState={{ selected }}
-                accessibilityLabel={`${suggestion.name}, ${formatPackageSize(
-                  suggestion.quantity,
-                  suggestion.unit,
-                )}`}
-                className={`suggestion-card ${
-                  selected ? 'selectable-selected' : 'selectable-idle'
-                }`}>
-                <ThemedText type="labelBold" numberOfLines={1}>
-                  {suggestion.name}
-                </ThemedText>
-                <ThemedText type="captionMuted">
-                  {formatPackageSize(suggestion.quantity, suggestion.unit)}
-                </ThemedText>
-                <ThemedText type="caption" themeColor="accent" numberOfLines={1}>
-                  {suggestion.last_store_name
-                    ? `Zuletzt: ${suggestion.last_store_name}`
-                    : 'Ohne Liste'}
-                </ThemedText>
-              </Pressable>
-            );
-          })}
-        </View>
-      ) : null}
+  return (
+    <View className="input-row">
+      {suggestions.map((suggestion) => {
+        const selected = selectedName.trim().toLowerCase() === suggestion.name.toLowerCase();
+        return (
+          <Pressable
+            key={suggestion.name.toLowerCase()}
+            onPress={() => onSelect(toProduct(suggestion), suggestion)}
+            accessibilityRole="button"
+            accessibilityState={{ selected }}
+            accessibilityLabel={`${suggestion.name}, ${formatPackageSize(
+              suggestion.quantity,
+              suggestion.unit,
+            )}`}
+            className={`suggestion-card ${selected ? 'selectable-selected' : 'selectable-idle'}`}>
+            <ThemedText type="labelBold" numberOfLines={1}>
+              {suggestion.name}
+            </ThemedText>
+            <ThemedText type="captionMuted">
+              {formatPackageSize(suggestion.quantity, suggestion.unit)}
+            </ThemedText>
+            <ThemedText type="caption" themeColor="accent" numberOfLines={1}>
+              {suggestion.last_store_name ? `Zuletzt: ${suggestion.last_store_name}` : 'Ohne Liste'}
+            </ThemedText>
+          </Pressable>
+        );
+      })}
     </View>
   );
 }
