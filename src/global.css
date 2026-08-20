@@ -1576,6 +1576,14 @@
     @apply absolute top-full left-0 right-0 z-20 mt-1 rounded-control border border-border bg-background shadow-sheet;
   }
 
+  /* Einziger expliziter Weg, die Trefferliste ohne Artikel-Auswahl zu
+     schliessen (#UI-Feedback: "Suchliste lässt sich nicht schliessen"),
+     seit Tastatur- und Listen-Dismiss bewusst entkoppelt sind. z-30 haelt
+     ihn ueber dem Panel (z-20) und dessen scrollbarem Inhalt. */
+  .psd-panel-close {
+    @apply absolute top-1 right-1 z-30 w-6 h-6 rounded-full items-center justify-center bg-background-selected active:opacity-70;
+  }
+
   .psd-row {
     @apply flex-row items-center p-two border-b-hairline border-border gap-two;
   }

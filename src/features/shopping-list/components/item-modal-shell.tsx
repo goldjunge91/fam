@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react';
-import { Modal, ScrollView, type ScrollViewProps, View } from 'react-native';
+import { Keyboard, Modal, Pressable, type ScrollViewProps, View } from 'react-native';
+import { KeyboardAwareScrollView, KeyboardToolbar } from 'react-native-keyboard-controller';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { ThemedView } from '@/components/theme/themed-view';
@@ -13,6 +14,13 @@ type ItemModalShellProps = {
    * Schließen-Control zwischen den Sheets bereits unterscheiden.
    */
   header: ReactNode;
+  /**
+   * Tap auf Ziehgriff/Kopfzeile — Default schliesst nur die Tastatur. Sheets
+   * mit eigener Suche (add-item-modal.tsx) uebergeben stattdessen eine
+   * Funktion, die zusaetzlich eine offene Trefferliste schliesst; die Suche
+   * lebt im Kind-Formular, nicht in diesem geteilten Geruest.
+   */
+  onHeaderPress?: () => void;
   /** Ziehgriff oberhalb der Kopfzeile, aktuell nur im Add-Sheet sichtbar. */
   showHandle?: boolean;
   rootClassName?: string;
@@ -28,11 +36,24 @@ type ItemModalShellProps = {
  * Props statt erzwungener Angleichung — die beiden Sheets sahen vorher schon
  * unterschiedlich aus (#155), das ist eine Design-Entscheidung und keine, die
  * ein Refactor stillschweigend treffen sollte.
+ *
+ * `KeyboardAwareScrollView` statt einer normalen `ScrollView` (#UI-Feedback:
+ * "Artikel halb von der Tastatur verdeckt", "kein Button zum Zuklappen") —
+ * offizieller Expo-Doku-Weg fuer mehrfeldrige Formulare in einer ScrollView,
+ * haelt das fokussierte Feld automatisch ueber der Tastatur sichtbar, statt
+ * dass jede Stelle die Tastaturhoehe selbst gegen `measureInWindow` rechnet.
+ * `KeyboardToolbar` gibt einen echten "Fertig"-Button oberhalb der Tastatur —
+ * schliesst bewusst nur die Tastatur, nie automatisch eine offene
+ * Trefferliste (die schliesst primaer die tatsaechliche Auswahl, siehe
+ * `product-search-dropdown.tsx`). Ziehgriff + Kopfzeile schliessen per Tap
+ * per Default ebenfalls nur die Tastatur, siehe `onHeaderPress` fuer den
+ * Ausnahmefall (#UI-Feedback).
  */
 export function ItemModalShell({
   visible,
   onDismiss,
   header,
+  onHeaderPress,
   showHandle = false,
   rootClassName = 'flex-1',
   scrollContentClassName,
@@ -47,18 +68,26 @@ export function ItemModalShell({
       onRequestClose={onDismiss}>
       <ThemedView className={rootClassName}>
         <SafeAreaView className="modal-safe-area" edges={['top', 'left', 'right', 'bottom']}>
-          {showHandle ? <View className="modal-handle" /> : null}
-          {header}
+          {/* Schliesst per Default nur die Tastatur; Sheets mit eigener Suche
+              schliessen darueber zusaetzlich eine offene Trefferliste (siehe
+              `onHeaderPress`-Kommentar, #UI-Feedback: "oberhalb der Suche
+              klicken schliesst auch die Liste"). */}
+          <Pressable onPress={onHeaderPress ?? (() => Keyboard.dismiss())} accessible={false}>
+            {showHandle ? <View className="modal-handle" /> : null}
+            {header}
+          </Pressable>
 
-          <ScrollView
+          <KeyboardAwareScrollView
             className="flex-1"
+            bottomOffset={24}
             contentContainerClassName={scrollContentClassName}
             contentInsetAdjustmentBehavior={contentInsetAdjustmentBehavior}
             keyboardShouldPersistTaps="handled">
             {children}
-          </ScrollView>
+          </KeyboardAwareScrollView>
         </SafeAreaView>
       </ThemedView>
+      <KeyboardToolbar />
     </Modal>
   );
 }

@@ -4,6 +4,13 @@ import { getDatabase } from '@/lib/db/client';
 
 export type ShoppingSuggestionMode = 'recent' | 'frequent';
 
+/**
+ * Vorrat fuer die aufklappbare Vorschlagsliste (#UI-Feedback: "Ansicht
+ * erweitern, History soll aufklappbar sein") — `ShoppingProductSuggestions`
+ * zeigt standardmaessig nur die ersten 3, der Rest kommt erst nach Aufklappen.
+ */
+export const SUGGESTION_QUERY_LIMIT = 9;
+
 export type ShoppingProductSuggestion = {
   name: string;
   brand: string | null;
@@ -76,7 +83,7 @@ export function useShoppingProductSuggestions({
          from ranked
          where rank = 1
          order by ${orderBy}
-         limit 3`,
+         limit ${SUGGESTION_QUERY_LIMIT}`,
         [userId, householdId, householdId, householdId],
       );
     },

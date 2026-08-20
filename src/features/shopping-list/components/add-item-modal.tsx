@@ -1,11 +1,12 @@
 import { Image } from 'expo-image';
+import { useRef } from 'react';
 import { View } from 'react-native';
 
 import { ThemedText } from '@/components/theme/themed-text';
 import { HeaderIconButton } from '@/components/ui/buttons';
 import { IconSize } from '@/constants/layout';
 import { useTheme } from '@/hooks/use-theme';
-import { AddItemForm } from './add-item-form';
+import { AddItemForm, type AddItemFormHandle } from './add-item-form';
 import { ItemModalShell } from './item-modal-shell';
 
 interface AddItemModalProps {
@@ -23,6 +24,7 @@ export function AddItemModal({
   onDismiss,
 }: AddItemModalProps) {
   const theme = useTheme();
+  const formRef = useRef<AddItemFormHandle>(null);
 
   return (
     <ItemModalShell
@@ -32,6 +34,9 @@ export function AddItemModal({
       scrollContentClassName="pb-four"
       contentInsetAdjustmentBehavior="automatic"
       showHandle
+      // Tap auf den Header schliesst Tastatur UND eine offene Trefferliste
+      // (#UI-Feedback) — die Suche lebt in AddItemForm, nicht hier.
+      onHeaderPress={() => formRef.current?.closeSearch()}
       header={
         <View className="modal-header min-h-[54px]">
           <ThemedText type="headingSmall">Artikel hinzufügen</ThemedText>
@@ -48,6 +53,7 @@ export function AddItemModal({
       }>
       {visible ? (
         <AddItemForm
+          ref={formRef}
           householdId={householdId}
           initialStoreId={initialStoreId}
           onDismiss={onDismiss}

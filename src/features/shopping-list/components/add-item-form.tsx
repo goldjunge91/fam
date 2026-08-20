@@ -1,7 +1,7 @@
 import { useQueryClient } from '@tanstack/react-query';
 import * as Crypto from 'expo-crypto';
-import { useEffect, useMemo, useRef, useState } from 'react';
-import { Pressable, View } from 'react-native';
+import { forwardRef, useEffect, useImperativeHandle, useMemo, useRef, useState } from 'react';
+import { Keyboard, Pressable, View } from 'react-native';
 import { TextField } from '@/components/forms/text-field';
 import { WheelPickerField } from '@/components/forms/wheel-picker-field';
 import { FamIcon } from '@/components/icons/fam-icon';
@@ -41,7 +41,15 @@ interface AddItemFormProps {
   onDismiss: () => void;
 }
 
-export function AddItemForm({ householdId, initialStoreId = null, onDismiss }: AddItemFormProps) {
+/** Fuer den Modal-Header (add-item-modal.tsx): schliesst die Suche von aussen. */
+export type AddItemFormHandle = {
+  closeSearch: () => void;
+};
+
+export const AddItemForm = forwardRef<AddItemFormHandle, AddItemFormProps>(function AddItemForm(
+  { householdId, initialStoreId = null, onDismiss },
+  ref,
+) {
   const theme = useTheme();
   const [name, setName] = useState('');
   const [purchaseCount, setPurchaseCount] = useState(1);
@@ -53,6 +61,15 @@ export function AddItemForm({ householdId, initialStoreId = null, onDismiss }: A
   const [storeId, setStoreId] = useState<string | null>(initialStoreId);
   const [nameError, setNameError] = useState<string | null>(null);
   const [selectedProduct, setSelectedProduct] = useState<OpenFoodFactsProduct | null>(null);
+  // Bekannte `product_id` aus einem Häufig/Zuletzt-Vorschlag (#UI-Feedback:
+  // "2 Einträge auf der Liste, addiert nicht") — die Vorschläge kennen ihre
+  // echte `product_id` bereits aus `product_usage`, aber `toProduct()` wandelt
+  // sie in ein `OpenFoodFactsProduct` (nur Barcode) um; ist der Barcode dort
+  // leer, findet `persistOffProductIfNeeded` keine/eine andere `product_id`
+  // als beim selben Artikel aus der Live-Suche — der Merge-Check in
+  // `shopping-list-merge.ts` verlangt exakte `product_id`-Übereinstimmung und
+  // legt sonst eine zweite Zeile an, statt die Menge zu addieren.
+  const [selectedProductId, setSelectedProductId] = useState<string | null>(null);
   const [source, setSource] = useState<ItemSource>('food');
   const [suggestionMode, setSuggestionMode] = useState<ShoppingSuggestionMode>('recent');
   const [detailsOpen, setDetailsOpen] = useState(false);
@@ -77,7 +94,6 @@ export function AddItemForm({ householdId, initialStoreId = null, onDismiss }: A
     ],
     [stores],
   );
-  const selectedStore = stores.find((store) => store.id === storeId) ?? null;
   const parsedPackageSize = Number(packageSizeInput.replace(',', '.'));
   const packageSize =
     unit === 'package' && Number.isFinite(parsedPackageSize) && parsedPackageSize > 0
@@ -87,6 +103,14 @@ export function AddItemForm({ householdId, initialStoreId = null, onDismiss }: A
   const purchaseAmount = formatAmount(purchaseCount, unit);
 
   function handleSelectProduct(product: OpenFoodFactsProduct) {
+    // Muss VOR `setName` passieren — sonst haelt der Such-Effekt in
+    // `product-search-dropdown.tsx` diesen Namenswechsel fuer neue Eingabe
+    // und oeffnet die Trefferliste erneut (#UI-Feedback: "Auswaehlen eines
+    // History-Artikels soll die Suchliste nicht ausloesen"). Deckt alle
+    // Aufrufer ab, die den Namen von aussen setzen (Häufig/Zuletzt,
+    // Barcode-Scan) — bei Auswahl direkt in der Dropdown-Zeile selbst ist der
+    // Wert schon (redundant, aber harmlos) markiert.
+    productSearchRef.current?.markSelected(product.name);
     setName(product.name);
     const productUnit = normalizeUnit(product.unit);
     const hasKnownPackageSize =
@@ -95,6 +119,7 @@ export function AddItemForm({ householdId, initialStoreId = null, onDismiss }: A
     setPackageSizeInput(hasKnownPackageSize ? String(product.quantity) : '');
     setPackageSizeUnit(hasKnownPackageSize ? productUnit : 'g');
     setSelectedProduct(product);
+    setSelectedProductId(null);
     setNameError(null);
   }
 
@@ -103,8 +128,37 @@ export function AddItemForm({ householdId, initialStoreId = null, onDismiss }: A
     suggestion: ShoppingProductSuggestion,
   ) {
     handleSelectProduct(product);
+    // Bekannte `product_id` direkt übernehmen statt sie ueber den (evtl.
+    // leeren) Barcode neu aufzuloesen, siehe Kommentar bei `selectedProductId`.
+    setSelectedProductId(suggestion.product_id ?? null);
     if (suggestion.last_store_id) setStoreId(suggestion.last_store_id);
   }
+
+  /**
+   * Schliesst nur die Tastatur, wenn woanders im Formular interagiert wird
+   * (#UI-Feedback: "Keyboard verschwindet nicht" — aber die Trefferliste soll
+   * dabei explizit offen bleiben, bis wirklich ein Artikel ausgewaehlt wird,
+   * siehe `closeSearch` unten). `keyboardShouldPersistTaps="handled"` auf der
+   * umschliessenden ScrollView (item-modal-shell.tsx) unterdrueckt das
+   * automatische Zuklappen bei Taps auf andere Bedienelemente absichtlich
+   * (sonst braeuchte jeder Button-Press zwei Taps) — deshalb hier explizit an
+   * jeder Stelle aufgerufen, an der tatsaechlich etwas anderes bedient wird.
+   */
+  function dismissKeyboard() {
+    Keyboard.dismiss();
+  }
+
+  /** Beendet die Suche vollstaendig (Trefferliste + Tastatur) — nur wenn
+   * tatsaechlich ein Artikel/Vorschlag uebernommen wurde. */
+  function closeSearch() {
+    productSearchRef.current?.dismiss();
+    Keyboard.dismiss();
+  }
+
+  // Erlaubt add-item-modal.tsx, die Suche beim Tap auf den Header zu
+  // schliessen (#UI-Feedback: "Trefferliste laesst sich sonst nicht
+  // schliessen ohne Auswahl") — der Ref lebt hier, nicht im Modal selbst.
+  useImperativeHandle(ref, () => ({ closeSearch }));
 
   async function handleAdd() {
     const trimmed = name.trim();
@@ -116,9 +170,11 @@ export function AddItemForm({ householdId, initialStoreId = null, onDismiss }: A
 
     const normalizedPrice = price.trim().replace('€', '').replace(',', '.').trim();
     const parsedPrice = normalizedPrice ? Number(normalizedPrice) : null;
-    const productId = selectedProduct
-      ? await persistOffProductIfNeeded(selectedProduct, userId, addProductMutation)
-      : null;
+    const productId =
+      selectedProductId ??
+      (selectedProduct
+        ? await persistOffProductIfNeeded(selectedProduct, userId, addProductMutation)
+        : null);
 
     await addItem.mutateAsync({
       household_id: householdId,
@@ -157,7 +213,7 @@ export function AddItemForm({ householdId, initialStoreId = null, onDismiss }: A
   }
 
   return (
-    <View className="gap-[10px]" onTouchStart={() => productSearchRef.current?.dismiss()}>
+    <View className="gap-[10px]">
       <ProductSearchDropdown
         ref={productSearchRef}
         label=""
@@ -166,6 +222,7 @@ export function AddItemForm({ householdId, initialStoreId = null, onDismiss }: A
         onChangeText={(text) => {
           setName(text);
           setSelectedProduct(null);
+          setSelectedProductId(null);
           setPackageSizeInput('');
         }}
         onSelectProduct={handleSelectProduct}
@@ -183,154 +240,193 @@ export function AddItemForm({ householdId, initialStoreId = null, onDismiss }: A
         }
       />
 
-      {nameError ? (
-        <ThemedText type="body" themeColor="danger" className="font-medium">
-          {nameError}
-        </ThemedText>
-      ) : null}
-
-      {/* Quell- und Vorschlagsfilter (Lebensmittel/Gerichte, Zuletzt/Häufig) —
-          dieselbe geteilte UI wie bei Vorrat (add-item-screen.tsx, #164). */}
-      <ItemSourceFilterRow
-        source={source}
-        onSourceChange={setSource}
-        sourceAccessibilityLabel="Quelle: Lebensmittel oder Gerichte"
-        suggestionFilter={suggestionMode}
-        onSuggestionFilterChange={setSuggestionMode}
-        suggestionAccessibilityLabel="Vorschlagsfilter"
-      />
-
-      <ShoppingProductSuggestions
-        userId={userId}
-        householdId={householdId}
-        mode={suggestionMode}
-        selectedName={name}
-        onSelect={handleSelectSuggestion}
-      />
-
-      {name.trim() ? (
-        <View className="product-summary">
-          <View className="flex-1 min-w-0">
-            <ThemedText type="bodyBold" numberOfLines={1}>
-              {name.trim()}
-            </ThemedText>
-            <ThemedText
-              type="detail"
-              themeColor="textSecondary"
-              numberOfLines={1}
-              className="font-medium">
-              {selectedProduct?.brand
-                ? `${selectedProduct.brand} · aus Produktdaten`
-                : 'Manueller Eintrag'}
-            </ThemedText>
-          </View>
-          <View className="items-end">
-            <ThemedText type="default">{packageHint ?? purchaseAmount}</ThemedText>
-            <ThemedText type="smallMuted">{packageHint ? 'Packungsinhalt' : 'Menge'}</ThemedText>
-          </View>
-        </View>
-      ) : null}
-
-      <View className="flex-row items-end gap-[9px]">
-        <View className="flex-[1.15] gap-one">
-          <ThemedText type="labelMuted">Einkaufsmenge</ThemedText>
-          <QuantityStepper
-            value={purchaseCount}
-            onChange={setPurchaseCount}
-            label="Einkaufsmenge"
-            size="large"
-          />
-        </View>
-        <View className="flex-1">
-          <WheelPickerField
-            label="Liste"
-            value={storeId ?? NO_STORE}
-            options={storeOptions}
-            onChange={(value) => setStoreId(value === NO_STORE ? null : value)}
-            size="large"
-          />
-        </View>
-      </View>
-
-      <ThemedText type="default" themeColor="textSecondary">
-        Auf der Liste: {purchaseAmount}
-        {packageHint ? ` · ${packageHint}` : ''}
-        {selectedStore ? ` · ${selectedStore.name} vorgeschlagen` : ' · ohne Liste'}
-      </ThemedText>
-
-      <View className="border-t-hairline border-border">
-        <Pressable
-          onPress={() => setDetailsOpen((open) => !open)}
-          accessibilityRole="button"
-          accessibilityState={{ expanded: detailsOpen }}
-          accessibilityLabel="Weitere Angaben"
-          className="details-summary">
-          <ThemedText type="body" themeColor="accent" className="font-medium">
-            {detailsOpen ? '▾' : '›'}
+      {/* Die Produktsuche selbst liegt bewusst ausserhalb dieses Wrappers,
+          damit Scrollen/Antippen im Dropdown-Panel nicht mit-dismissed wird.
+          `Pressable` ist laut React-Native-Doku die aktuelle, empfohlene
+          Touch-Komponente (TouchableWithoutFeedback gilt als veraltet) — ein
+          eigener Handler direkt auf dem Responder-System (Capture/Bubble)
+          erwies sich zuvor als unzuverlaessig (#UI-Feedback). `accessible=
+          {false}`, damit VoiceOver weiterhin jedes Kind einzeln liest statt
+          den ganzen Wrapper zu einem Knoten zu verschmelzen. Schliesst nur
+          die Tastatur, nicht die Trefferliste — echte Bedienelemente rufen
+          `dismissKeyboard()` zusaetzlich explizit auf, `KeyboardToolbar`
+          (item-modal-shell.tsx) gibt einen "Fertig"-Button. */}
+      <Pressable className="gap-[10px]" onPress={dismissKeyboard} accessible={false}>
+        {nameError ? (
+          <ThemedText type="body" themeColor="danger" className="font-medium">
+            {nameError}
           </ThemedText>
-          <ThemedText type="body" themeColor="accent" className="font-medium">
-            Weitere Angaben
-          </ThemedText>
-        </Pressable>
+        ) : null}
 
-        {detailsOpen ? (
-          <View className="gap-[10px] pb-one">
+        {/* Quell- und Vorschlagsfilter (Lebensmittel/Gerichte, Zuletzt/Häufig) —
+            dieselbe geteilte UI wie bei Vorrat (add-item-screen.tsx, #164). */}
+        <ItemSourceFilterRow
+          source={source}
+          onSourceChange={(next) => {
+            dismissKeyboard();
+            setSource(next);
+          }}
+          sourceAccessibilityLabel="Quelle: Lebensmittel oder Gerichte"
+          suggestionFilter={suggestionMode}
+          onSuggestionFilterChange={(next) => {
+            dismissKeyboard();
+            setSuggestionMode(next);
+          }}
+          suggestionAccessibilityLabel="Vorschlagsfilter"
+        />
+
+        <ShoppingProductSuggestions
+          userId={userId}
+          householdId={householdId}
+          mode={suggestionMode}
+          selectedName={name}
+          onSelect={(product, suggestion) => {
+            // Auswahl eines Vorschlags uebernimmt den Artikel — beendet die
+            // Suche komplett, anders als die reinen Nebeninteraktionen oben.
+            closeSearch();
+            handleSelectSuggestion(product, suggestion);
+          }}
+        />
+
+        <View className="flex-row items-end gap-[9px]">
+          <View className="flex-[1.15] gap-one">
+            <ThemedText type="labelMuted">Einkaufsmenge</ThemedText>
+            <QuantityStepper
+              value={purchaseCount}
+              onChange={(next) => {
+                dismissKeyboard();
+                setPurchaseCount(next);
+              }}
+              label="Einkaufsmenge"
+              size="large"
+            />
+          </View>
+          <View className="flex-1">
             <WheelPickerField
-              label="Einheit"
-              value={unit}
-              options={UNIT_OPTIONS}
-              onChange={setUnit}
+              label="Liste"
+              value={storeId ?? NO_STORE}
+              options={storeOptions}
+              onChange={(value) => {
+                dismissKeyboard();
+                setStoreId(value === NO_STORE ? null : value);
+              }}
               size="large"
             />
-            {unit === 'package' ? (
-              <View className="flex-row items-end gap-two">
-                <View className="flex-[1.3]">
-                  <TextField
-                    label="Inhalt je Packung"
-                    value={packageSizeInput}
-                    onChangeText={setPackageSizeInput}
-                    keyboardType="decimal-pad"
-                    placeholder="z. B. 500"
-                  />
+          </View>
+        </View>
+
+        <View className="border-t-hairline border-border">
+          <Pressable
+            onPress={() => {
+              dismissKeyboard();
+              setDetailsOpen((open) => !open);
+            }}
+            accessibilityRole="button"
+            accessibilityState={{ expanded: detailsOpen }}
+            accessibilityLabel="Weitere Angaben"
+            className="details-summary">
+            <ThemedText type="body" themeColor="accent" className="font-medium">
+              {detailsOpen ? '▾' : '›'}
+            </ThemedText>
+            <ThemedText type="body" themeColor="accent" className="font-medium">
+              Weitere Angaben
+            </ThemedText>
+          </Pressable>
+
+          {detailsOpen ? (
+            <View className="gap-[10px] pb-one">
+              <WheelPickerField
+                label="Einheit"
+                value={unit}
+                options={UNIT_OPTIONS}
+                onChange={(next) => {
+                  dismissKeyboard();
+                  setUnit(next);
+                }}
+                size="large"
+              />
+              {unit === 'package' ? (
+                <View className="flex-row items-end gap-two">
+                  <View className="flex-[1.3]">
+                    <TextField
+                      label="Inhalt je Packung"
+                      value={packageSizeInput}
+                      onChangeText={setPackageSizeInput}
+                      keyboardType="decimal-pad"
+                      placeholder="z. B. 500"
+                    />
+                  </View>
+                  <View className="flex-1">
+                    <WheelPickerField
+                      label="Einheit"
+                      value={packageSizeUnit}
+                      options={UNIT_OPTIONS.filter((option) =>
+                        ['g', 'kg', 'ml', 'l', 'piece', 'portion'].includes(option.value),
+                      )}
+                      onChange={(next) => {
+                        dismissKeyboard();
+                        setPackageSizeUnit(next);
+                      }}
+                      size="large"
+                    />
+                  </View>
                 </View>
-                <View className="flex-1">
-                  <WheelPickerField
-                    label="Einheit"
-                    value={packageSizeUnit}
-                    options={UNIT_OPTIONS.filter((option) =>
-                      ['g', 'kg', 'ml', 'l', 'piece', 'portion'].includes(option.value),
-                    )}
-                    onChange={setPackageSizeUnit}
-                    size="large"
-                  />
-                </View>
-              </View>
-            ) : null}
-            <TextField
-              label="Geschätzter Preis (optional)"
-              value={price}
-              onChangeText={setPrice}
-              keyboardType="decimal-pad"
-              placeholder="z. B. 2,49 €"
-              size="large"
-            />
+              ) : null}
+              <TextField
+                label="Geschätzter Preis (optional)"
+                value={price}
+                onChangeText={setPrice}
+                keyboardType="decimal-pad"
+                placeholder="z. B. 2,49 €"
+                size="large"
+              />
+            </View>
+          ) : null}
+        </View>
+
+        {/* Übersicht bewusst direkt über dem Hinzufügen-Button statt oben bei
+            der Suche (#UI-Feedback) — letzter Check vor dem eigentlichen
+            Abschluss, nicht mitten im Formular. */}
+        {name.trim() ? (
+          <View className="product-summary">
+            <View className="flex-1 min-w-0">
+              <ThemedText type="bodyBold" numberOfLines={1}>
+                {name.trim()}
+              </ThemedText>
+              <ThemedText
+                type="detail"
+                themeColor="textSecondary"
+                numberOfLines={1}
+                className="font-medium">
+                {selectedProduct?.brand ?? 'Manueller Eintrag'}
+              </ThemedText>
+              {selectedProduct?.barcode ? (
+                <ThemedText type="captionMuted" numberOfLines={1}>
+                  EAN {selectedProduct.barcode}
+                </ThemedText>
+              ) : null}
+            </View>
+            <View className="items-end">
+              <ThemedText type="default">{packageHint ?? purchaseAmount}</ThemedText>
+              <ThemedText type="smallMuted">{packageHint ? 'Packungsinhalt' : 'Menge'}</ThemedText>
+            </View>
           </View>
         ) : null}
-      </View>
 
-      <Button
-        label="Zur Einkaufsliste hinzufügen"
-        onPress={handleAdd}
-        loading={addItem.isPending}
-        disabled={!name.trim()}
-        size="large"
-      />
+        <Button
+          label="Zur Einkaufsliste hinzufügen"
+          onPress={handleAdd}
+          loading={addItem.isPending}
+          disabled={!name.trim()}
+          size="large"
+        />
 
-      <BarcodeScannerModal
-        visible={showScanner}
-        onClose={() => setShowScanner(false)}
-        onProductFound={handleSelectProduct}
-      />
+        <BarcodeScannerModal
+          visible={showScanner}
+          onClose={() => setShowScanner(false)}
+          onProductFound={handleSelectProduct}
+        />
+      </Pressable>
     </View>
   );
-}
+});

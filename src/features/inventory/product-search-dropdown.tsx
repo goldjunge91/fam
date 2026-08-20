@@ -30,8 +30,14 @@ const OFF_PAGE_SIZE = 100;
 /** Wie nah am unteren Rand (px) das Nachladen beim Scrollen ausloest. */
 const LOAD_MORE_THRESHOLD_PX = 70;
 
-/** Abstand zum unteren Bildschirm-/Tastaturrand, den das Dropdown frei laesst. */
-const PANEL_BOTTOM_MARGIN = 12;
+/**
+ * Abstand zum unteren Bildschirm-/Tastaturrand, den das Dropdown frei laesst.
+ * War vorher 12px — bei laengeren, nachladenden Ergebnislisten (z.B. "Milch")
+ * wird das echte Listenende praktisch nie erreicht, das Panel wird also fast
+ * immer exakt hier abgeschnitten. 12px wirkte dadurch wie "bis zum Rand"
+ * (#UI-Feedback: "immer noch bis zum Rand unten, das ist zu tief").
+ */
+const PANEL_BOTTOM_MARGIN = 24;
 
 /** Nie kleiner als das, selbst wenn oberhalb kaum Platz gemessen wird. */
 const PANEL_MIN_HEIGHT = 140;
@@ -118,6 +124,16 @@ interface ProductSearchDropdownProps {
 
 export type ProductSearchDropdownHandle = {
   dismiss: () => void;
+  /**
+   * Markiert einen bevorstehenden `value`-Wechsel als bereits erledigte
+   * Auswahl (#UI-Feedback: "Auswaehlen eines History-Artikels soll die
+   * Suchliste nicht ausloesen") — fuer Aufrufer, die den Namen von AUSSEN
+   * setzen (z.B. ein Häufig/Zuletzt-Vorschlag), statt eine Zeile in dieser
+   * Komponente selbst anzutippen. Ohne das haelt der Such-Effekt unten den
+   * Wertwechsel fuer neue Eingabe und oeffnet die Liste erneut. Vor dem
+   * eigentlichen `setName(...)` des Aufrufers aufrufen.
+   */
+  markSelected: (name: string) => void;
 };
 
 export const ProductSearchDropdown = forwardRef<
@@ -158,8 +174,14 @@ export const ProductSearchDropdown = forwardRef<
   const [panelMaxHeight, setPanelMaxHeight] = useState<number | null>(null);
   const wrapperRef = useRef<View>(null);
   const { height: windowHeight } = useWindowDimensions();
-  const [keyboardHeight, setKeyboardHeight] = useState(0);
-  const blurTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  // Y-Koordinate (im selben Fenster-Koordinatensystem wie `measureInWindow`),
+  // an der die Tastatur beginnt — `null` heisst keine Tastatur eingeblendet.
+  // Bewusst `screenY` statt `endCoordinates.height`: Bei mancher iOS-Version
+  // zaehlt die QuickType-/Vorschlagsleiste ueber der eigentlichen Tastatur
+  // nicht in `.height` mit, `screenY` markiert dagegen zuverlaessig die
+  // oberste sichtbare Kante (#UI-Feedback: "ein Artikel halb von der Tastatur
+  // verdeckt" — trat trotz erhoehtem PANEL_BOTTOM_MARGIN weiter auf).
+  const [keyboardTopY, setKeyboardTopY] = useState<number | null>(null);
   // `value` beim Ausloesen der aktuellen Suche — schuetzt vor veralteten
   // Nachlade-Antworten, wenn der Nutzer inzwischen weitergetippt hat.
   const queryRef = useRef(value);
@@ -170,29 +192,31 @@ export const ProductSearchDropdown = forwardRef<
   // Dropdown eine Suche spaeter erneut — Auswahl wirkte dann wie 2x noetig.
   const justSelectedValueRef = useRef<string | null>(null);
 
-  function cancelScheduledDismiss() {
-    if (blurTimerRef.current === null) return;
-    clearTimeout(blurTimerRef.current);
-    blurTimerRef.current = null;
-  }
-
+  /**
+   * Schliesst nur die Trefferliste, nicht die Tastatur — Gegenstueck ist
+   * `Keyboard.dismiss()`, das gezielt nur die Tastatur schliesst. Die beiden
+   * sind bewusst entkoppelt (#UI-Feedback): "Fertig" auf der Tastatur oder ein
+   * Tap daneben/darueber soll nur die Tastatur wegnehmen, die Liste bleibt
+   * sichtbar, bis tatsaechlich ein Artikel ausgewaehlt wird.
+   */
   function dismiss() {
-    cancelScheduledDismiss();
     setShowDropdown(false);
   }
 
-  useImperativeHandle(ref, () => ({ dismiss }));
+  useImperativeHandle(ref, () => ({
+    dismiss,
+    markSelected: (name: string) => {
+      justSelectedValueRef.current = name;
+    },
+  }));
 
-  useEffect(() => () => {
-    cancelScheduledDismiss();
-  });
-
-  // Tastaturhoehe mitverfolgen, damit das Dropdown nicht dahinter verschwindet.
+  // Tastaturposition mitverfolgen, damit das Dropdown nicht dahinter
+  // verschwindet oder von ihr verdeckt wird.
   useEffect(() => {
     const showSub = Keyboard.addListener('keyboardDidShow', (event) => {
-      setKeyboardHeight(event.endCoordinates.height);
+      setKeyboardTopY(event.endCoordinates.screenY);
     });
-    const hideSub = Keyboard.addListener('keyboardDidHide', () => setKeyboardHeight(0));
+    const hideSub = Keyboard.addListener('keyboardDidHide', () => setKeyboardTopY(null));
     return () => {
       showSub.remove();
       hideSub.remove();
@@ -205,10 +229,11 @@ export const ProductSearchDropdown = forwardRef<
   useEffect(() => {
     if (!showDropdown) return;
     wrapperRef.current?.measureInWindow((_x, y, _width, height) => {
-      const available = windowHeight - keyboardHeight - (y + height) - PANEL_BOTTOM_MARGIN;
+      const bottomLimit = keyboardTopY ?? windowHeight;
+      const available = bottomLimit - (y + height) - PANEL_BOTTOM_MARGIN;
       setPanelMaxHeight(Math.max(available, PANEL_MIN_HEIGHT));
     });
-  }, [showDropdown, windowHeight, keyboardHeight]);
+  }, [showDropdown, windowHeight, keyboardTopY]);
 
   useEffect(() => {
     if (justSelectedValueRef.current !== null) {
@@ -319,11 +344,11 @@ export const ProductSearchDropdown = forwardRef<
         style={inputStyle}
         trailing={trailing}
         size={size}
-        onFocus={cancelScheduledDismiss}
-        onBlur={() => {
-          cancelScheduledDismiss();
-          blurTimerRef.current = setTimeout(() => setShowDropdown(false), 120);
-        }}
+        // Return-Taste schliesst nur die Tastatur, die Trefferliste bleibt
+        // offen (#UI-Feedback: Liste soll erst bei tatsaechlicher Auswahl
+        // zugehen, nicht schon beim blossen Wegnehmen der Tastatur).
+        returnKeyType="search"
+        onSubmitEditing={() => Keyboard.dismiss()}
         onChangeText={(text) => {
           onChangeText(text);
           setShowDropdown(true);
@@ -337,89 +362,126 @@ export const ProductSearchDropdown = forwardRef<
       )}
 
       {showDropdown && (suggestions.length > 0 || showEmptyState) && (
-        <ScrollView
-          className="psd-panel"
-          // elevation ist ein Android-only-Wert ohne Tailwind-Aequivalent
-          // (boxShadow deckt nur den iOS/Web-Schatten ab). maxHeight kommt aus
-          // der Live-Messung oben statt einer festen Klasse — die Liste soll
-          // bis zum unteren Rand reichen, nicht pauschal bei 220px kappen.
-          style={{ elevation: 4, maxHeight: panelMaxHeight ?? PANEL_FALLBACK_HEIGHT }}
-          keyboardShouldPersistTaps="handled"
-          showsVerticalScrollIndicator
-          onScroll={({ nativeEvent }) => {
-            const { contentOffset, contentSize, layoutMeasurement } = nativeEvent;
-            const distanceToBottom =
-              contentSize.height - contentOffset.y - layoutMeasurement.height;
-            if (distanceToBottom < LOAD_MORE_THRESHOLD_PX) loadMoreOffResults();
-          }}
-          scrollEventThrottle={100}>
-          {showEmptyState ? (
-            <Pressable
-              onPress={() => {
-                setShowDropdown(false);
-                router.push({
-                  pathname: '/add-product',
-                  params: { prefillName: value.trim() },
-                });
-              }}
-              className="psd-row">
-              <View className="flex-1">
-                <ThemedText
-                  type={size === 'large' ? 'body' : 'smallBold'}
-                  className={size === 'large' ? 'font-bold' : undefined}>
-                  + &quot;{value.trim()}&quot; manuell anlegen
-                </ThemedText>
-                <ThemedText
-                  type={size === 'large' ? 'body' : 'small'}
-                  themeColor="textSecondary"
-                  className={size === 'large' ? 'font-medium' : undefined}>
-                  Kein Treffer bei Open Food Facts gefunden
-                </ThemedText>
-              </View>
-            </Pressable>
-          ) : null}
-          {suggestions.map((item) => (
-            <Pressable
-              key={item.barcode || item.name}
-              onPress={() => {
-                justSelectedValueRef.current = item.name;
-                onSelectProduct(item);
-                setShowDropdown(false);
-              }}
-              className="psd-row">
-              {item.imageUrl ? (
-                <Image source={{ uri: item.imageUrl }} className="psd-thumb" />
-              ) : (
-                <View className="psd-thumb-fallback">
-                  <ThemedText type={size === 'large' ? 'body' : 'bodySmall'}>🥫</ThemedText>
+        <View className="relative">
+          {/* Schliesst nur die Trefferliste (kein Auswahl-Ersatz) — der einzige
+              explizite Weg, die Liste ohne Artikel-Auswahl zuzumachen
+              (#UI-Feedback: "Suchliste lässt sich nicht schliessen", seit
+              Tastatur/Liste bewusst entkoppelt sind). */}
+          <Pressable
+            onPress={dismiss}
+            accessibilityRole="button"
+            accessibilityLabel="Trefferliste schließen"
+            className="psd-panel-close">
+            <ThemedText themeColor="textSecondary" className="text-[13px] font-bold">
+              ✕
+            </ThemedText>
+          </Pressable>
+          <ScrollView
+            className="psd-panel"
+            // elevation ist ein Android-only-Wert ohne Tailwind-Aequivalent
+            // (boxShadow deckt nur den iOS/Web-Schatten ab). maxHeight kommt aus
+            // der Live-Messung oben statt einer festen Klasse — die Liste soll
+            // bis zum unteren Rand reichen, nicht pauschal bei 220px kappen.
+            style={{ elevation: 4, maxHeight: panelMaxHeight ?? PANEL_FALLBACK_HEIGHT }}
+            // Ohne das stoesst die letzte Zeile direkt an den unteren, abgerundeten
+            // Panel-Rand — sieht abgeschnitten aus (#UI-Feedback: "Liste ist zu tief").
+            contentContainerClassName="pb-two"
+            // `flexGrow: 1` sorgt dafuer, dass bei wenigen Treffern echte
+            // Leerflaeche im Content-Container entsteht (statt shrink-wrap auf
+            // die paar Zeilen) — die faengt der Pressable am Ende des Contents
+            // unten ab, damit Tippen dort die Tastatur schliesst (#UI-Feedback:
+            // "Leerflaeche neben dem Suchfeld schliesst Tastatur nicht"; das
+            // randfuellende Panel bedeckt bei offener Suche fast den ganzen
+            // Bildschirm, ein Formular-weiter Blank-Tap-Handler erreicht es nicht).
+            contentContainerStyle={{ flexGrow: 1 }}
+            keyboardShouldPersistTaps="handled"
+            showsVerticalScrollIndicator
+            onScroll={({ nativeEvent }) => {
+              const { contentOffset, contentSize, layoutMeasurement } = nativeEvent;
+              const distanceToBottom =
+                contentSize.height - contentOffset.y - layoutMeasurement.height;
+              if (distanceToBottom < LOAD_MORE_THRESHOLD_PX) loadMoreOffResults();
+            }}
+            scrollEventThrottle={100}>
+            {showEmptyState ? (
+              <Pressable
+                onPress={() => {
+                  setShowDropdown(false);
+                  Keyboard.dismiss();
+                  router.push({
+                    pathname: '/add-product',
+                    params: { prefillName: value.trim() },
+                  });
+                }}
+                className="psd-row">
+                <View className="flex-1">
+                  <ThemedText
+                    type={size === 'large' ? 'body' : 'smallBold'}
+                    className={size === 'large' ? 'font-bold' : undefined}>
+                    + &quot;{value.trim()}&quot; manuell anlegen
+                  </ThemedText>
+                  <ThemedText
+                    type={size === 'large' ? 'body' : 'small'}
+                    themeColor="textSecondary"
+                    className={size === 'large' ? 'font-medium' : undefined}>
+                    Kein Treffer bei Open Food Facts gefunden
+                  </ThemedText>
                 </View>
-              )}
+              </Pressable>
+            ) : null}
+            {suggestions.map((item) => (
+              <Pressable
+                key={item.barcode || item.name}
+                onPress={() => {
+                  justSelectedValueRef.current = item.name;
+                  onSelectProduct(item);
+                  setShowDropdown(false);
+                  // Auswahl beendet die Sucheingabe — Tastatur soll mitgehen
+                  // (#UI-Feedback: "Artikel auswählen schließt die Tastatur
+                  // nicht"), sonst bleibt sie ohne erkennbaren Grund offen.
+                  Keyboard.dismiss();
+                }}
+                className="psd-row">
+                {item.imageUrl ? (
+                  <Image source={{ uri: item.imageUrl }} className="psd-thumb" />
+                ) : (
+                  <View className="psd-thumb-fallback">
+                    <ThemedText type={size === 'large' ? 'body' : 'bodySmall'}>🥫</ThemedText>
+                  </View>
+                )}
 
-              <View className="flex-1">
-                <ThemedText
-                  type={size === 'large' ? 'body' : 'smallBold'}
-                  numberOfLines={1}
-                  className={size === 'large' ? 'font-bold' : undefined}>
-                  {item.name}
-                </ThemedText>
-                <ThemedText
-                  type={size === 'large' ? 'body' : 'small'}
-                  themeColor="textSecondary"
-                  numberOfLines={1}
-                  className={size === 'large' ? 'font-medium' : undefined}>
-                  {item.brand ? `${item.brand} · ` : ''}
-                  {item.quantity} {item.unit}
-                  {item.caloriesPer100g ? ` · ${item.caloriesPer100g} kcal/100g` : ''}
-                </ThemedText>
+                <View className="flex-1">
+                  <ThemedText
+                    type={size === 'large' ? 'body' : 'smallBold'}
+                    numberOfLines={1}
+                    className={size === 'large' ? 'font-bold' : undefined}>
+                    {item.name}
+                  </ThemedText>
+                  <ThemedText
+                    type={size === 'large' ? 'body' : 'small'}
+                    themeColor="textSecondary"
+                    numberOfLines={1}
+                    className={size === 'large' ? 'font-medium' : undefined}>
+                    {item.brand ? `${item.brand} · ` : ''}
+                    {item.quantity} {item.unit}
+                    {item.caloriesPer100g ? ` · ${item.caloriesPer100g} kcal/100g` : ''}
+                  </ThemedText>
+                </View>
+              </Pressable>
+            ))}
+            {loadingMoreOff && (
+              <View className="py-two items-center">
+                <ActivityIndicator size="small" color={theme.accent} />
               </View>
-            </Pressable>
-          ))}
-          {loadingMoreOff && (
-            <View className="py-two items-center">
-              <ActivityIndicator size="small" color={theme.accent} />
-            </View>
-          )}
-        </ScrollView>
+            )}
+            {/* Faengt Taps auf die restliche Leerflaeche unterhalb der Treffer
+              ab (siehe `flexGrow: 1` oben) — ohne das ist bei offener, fast
+              bildschirmfuellender Suche kein Blank-Tap-Ziel mehr erreichbar.
+              Schliesst nur die Tastatur, nicht die Liste (#UI-Feedback: Liste
+              bleibt offen, bis tatsaechlich ein Artikel ausgewaehlt wird). */}
+            <Pressable className="flex-1" accessible={false} onPress={() => Keyboard.dismiss()} />
+          </ScrollView>
+        </View>
       )}
     </View>
   );

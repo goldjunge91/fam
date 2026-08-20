@@ -1,8 +1,9 @@
 import { useQueryClient } from '@tanstack/react-query';
 import * as Crypto from 'expo-crypto';
 import { router, useFocusEffect } from 'expo-router';
-import { useCallback, useState } from 'react';
-import { Pressable, ScrollView, View } from 'react-native';
+import { useCallback, useRef, useState } from 'react';
+import { Keyboard, Pressable, View } from 'react-native';
+import { KeyboardAwareScrollView, KeyboardToolbar } from 'react-native-keyboard-controller';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { DateWheelField } from '@/components/forms/date-wheel-field';
 import { TextField } from '@/components/forms/text-field';
@@ -23,7 +24,10 @@ import {
 } from '@/features/inventory/frequent-products-quick-select';
 import { consumePendingProductSelection } from '@/features/inventory/pending-product-selection';
 import { persistOffProductIfNeeded } from '@/features/inventory/persist-off-product';
-import { ProductSearchDropdown } from '@/features/inventory/product-search-dropdown';
+import {
+  ProductSearchDropdown,
+  type ProductSearchDropdownHandle,
+} from '@/features/inventory/product-search-dropdown';
 import { useAddFridgeItemMutation } from '@/features/inventory/use-inventory-mutations';
 import { useAddProductMutation } from '@/features/inventory/use-product-mutations';
 import {
@@ -109,6 +113,7 @@ export function AddItemScreen() {
   const [showScanner, setShowScanner] = useState(false);
   const [showAddLocation, setShowAddLocation] = useState(false);
   const [newLocationName, setNewLocationName] = useState('');
+  const productSearchRef = useRef<ProductSearchDropdownHandle>(null);
 
   const activeLocationId = locationId ?? locations?.[0]?.id ?? null;
   const locationOptions = (locations ?? []).map((loc) => ({ value: loc.id, label: loc.name }));
@@ -117,6 +122,14 @@ export function AddItemScreen() {
     'none';
 
   function handleSelectProduct(product: OpenFoodFactsProduct) {
+    // Muss VOR `setName` passieren — sonst haelt der Such-Effekt in
+    // `product-search-dropdown.tsx` diesen Namenswechsel fuer neue Eingabe
+    // und oeffnet die Trefferliste erneut (#UI-Feedback: "Auswaehlen eines
+    // History-Artikels soll die Suchliste nicht ausloesen"). Deckt alle
+    // Aufrufer ab, die den Namen von aussen setzen (Häufig/Zuletzt,
+    // Barcode-Scan) — bei Auswahl direkt in der Dropdown-Zeile selbst ist der
+    // Wert schon (redundant, aber harmlos) markiert.
+    productSearchRef.current?.markSelected(product.name);
     setName(product.name);
     const productUnit = normalizeUnit(product.unit);
     const productQuantity = product.quantity ?? null;
@@ -208,26 +221,42 @@ export function AddItemScreen() {
   return (
     <ThemedView className="flex-1 bg-background">
       <SafeAreaView className="modal-safe-area" edges={['top', 'left', 'right', 'bottom']}>
-        {/* Modal-Handle und Header mit Schließen-Button */}
-        <View className="modal-handle" />
-        <View className="modal-header min-h-[54px]">
-          <ThemedText type="headingSmall">Artikel hinzufügen</ThemedText>
-          <Pressable
-            onPress={() => router.back()}
-            accessibilityRole="button"
-            accessibilityLabel="Schließen"
-            className="modal-close-btn">
-            <ThemedText themeColor="textSecondary">✕</ThemedText>
-          </Pressable>
-        </View>
+        {/* Modal-Handle und Header mit Schließen-Button — Tap darauf schliesst
+            Tastatur UND eine offene Trefferliste (#UI-Feedback: revidiert
+            gegenueber der ersten Fassung, die nur die Tastatur schloss — die
+            Liste liess sich sonst ohne Auswahl gar nicht mehr zumachen). */}
+        <Pressable
+          onPress={() => {
+            productSearchRef.current?.dismiss();
+            Keyboard.dismiss();
+          }}
+          accessible={false}>
+          <View className="modal-handle" />
+          <View className="modal-header min-h-[54px]">
+            <ThemedText type="headingSmall">Artikel hinzufügen</ThemedText>
+            <Pressable
+              onPress={() => router.back()}
+              accessibilityRole="button"
+              accessibilityLabel="Schließen"
+              className="modal-close-btn">
+              <ThemedText themeColor="textSecondary">✕</ThemedText>
+            </Pressable>
+          </View>
+        </Pressable>
 
-        <ScrollView
+        {/* `KeyboardAwareScrollView` statt `ScrollView` (#UI-Feedback: "Artikel
+            halb von der Tastatur verdeckt", "kein Button zum Zuklappen") —
+            haelt das fokussierte Feld automatisch ueber der Tastatur sichtbar,
+            siehe item-modal-shell.tsx fuer denselben Fix im Einkaufslisten-Sheet. */}
+        <KeyboardAwareScrollView
           className="flex-1"
+          bottomOffset={24}
           contentContainerClassName="gap-three pb-four"
           keyboardShouldPersistTaps="handled"
           showsVerticalScrollIndicator={false}>
           {/* Produktsuche mit integriertem Barcode-Scan-Button */}
           <ProductSearchDropdown
+            ref={productSearchRef}
             label=""
             placeholder={source === 'dish' ? 'Gericht suchen…' : 'z. B. Milch oder Barcode-Name'}
             value={name}
@@ -270,9 +299,7 @@ export function AddItemScreen() {
                   {name.trim()}
                 </ThemedText>
                 <ThemedText type="small" themeColor="textSecondary" numberOfLines={1}>
-                  {selectedProduct?.brand
-                    ? `${selectedProduct.brand} · aus Produktdaten`
-                    : 'Manueller Eintrag'}
+                  {selectedProduct?.brand ?? 'Manueller Eintrag'}
                 </ThemedText>
               </View>
               <View className="edit-fridge-product-quantity">
@@ -408,7 +435,7 @@ export function AddItemScreen() {
             disabled={!name.trim()}
             size="large"
           />
-        </ScrollView>
+        </KeyboardAwareScrollView>
       </SafeAreaView>
 
       {/* Barcode-Scanner-Modal */}
@@ -417,6 +444,7 @@ export function AddItemScreen() {
         onClose={() => setShowScanner(false)}
         onProductFound={handleSelectProduct}
       />
+      <KeyboardToolbar />
     </ThemedView>
   );
 }
