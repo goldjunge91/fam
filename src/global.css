@@ -84,8 +84,8 @@
     @apply self-end px-three py-two items-center justify-center active:opacity-75;
   }
 
-  .btn-fab {
-    @apply w-[75px] h-[75px] rounded-pill items-center justify-center bg-accent shadow-sheet active:opacity-90;
+  .btn-fab-corner {
+    @apply w-[58px] h-[58px] rounded-pill items-center justify-center bg-accent shadow-sheet active:opacity-90;
   }
 
   .btn-header-icon {
@@ -127,7 +127,7 @@
      zerschossen (App zeigte nichts mehr an). Padding kommt jetzt per
      style-Prop in app-shell.tsx. */
   .app-shell-wrap {
-    @apply absolute left-0 right-0 bottom-0 items-center justify-start h-action-area;
+    @apply absolute left-0 right-0 bottom-0 justify-start px-four h-action-area;
   }
 
   /* Formulareingaben */
@@ -373,51 +373,25 @@
     @apply flex-shrink text-right;
   }
 
-  /* Geteilt von allen Bottom-Sheet-Modals (quick-add-sheet.tsx,
-     profile-sheet.tsx, ...) */
-  .sheet-dim {
-    @apply absolute inset-0 bg-[rgba(31,_26,_33,_0.3)];
+  /* speed-dial-menu.tsx */
+  .speed-dial-backdrop {
+    @apply absolute inset-0;
   }
 
-  /* quick-add-sheet.tsx */
-  .quick-add-sheet {
-    @apply absolute left-[10px] right-[10px] h-[310px] rounded-fam-large px-[15px];
+  .speed-dial-column {
+    @apply absolute gap-three;
   }
 
-  .quick-add-handle-area {
-    @apply items-center h-[29px] justify-center;
+  .speed-dial-row {
+    @apply flex-row items-center gap-two;
   }
 
-  .quick-add-handle {
-    @apply w-[44px] h-[4px] rounded-hairline bg-border;
+  .speed-dial-chip {
+    @apply w-[46px] h-[46px] rounded-pill items-center justify-center shadow-card;
   }
 
-  .quick-add-title {
-    @apply text-[20px] leading-[24px] font-medium;
-  }
-
-  .quick-add-subtitle {
-    @apply text-[12px] leading-[16px] font-normal mt-[4px] mb-[13px];
-  }
-
-  .quick-add-grid {
-    @apply flex-row flex-wrap gap-[9px];
-  }
-
-  .quick-add-tile {
-    @apply w-[48.6%] h-[103px] rounded-sheet p-[13px] justify-between;
-  }
-
-  .quick-add-tile-icon {
-    @apply w-[32px] h-[32px] rounded-control bg-[rgba(255,_255,_255,_0.59)];
-  }
-
-  .quick-add-tile-title {
-    @apply text-[11px] leading-[13px] font-medium;
-  }
-
-  .quick-add-tile-subtitle {
-    @apply text-[9px] leading-[12px] font-normal;
+  .speed-dial-label {
+    @apply px-three py-[9px] rounded-control bg-background-element border border-border;
   }
 
   /* Onboarding (src/features/onboarding) */
@@ -1609,6 +1583,19 @@
 
   .psd-thumb-fallback {
     @apply w-8 h-8 rounded-sm items-center justify-center bg-background-element;
+  }
+
+  /* recipe-wizard-step-steps.tsx: Autovervollstaendigung fuer @-Zutaten-Erwaehnungen */
+  .mention-panel {
+    @apply absolute top-full left-0 right-0 z-20 mt-1 rounded-control border border-border bg-background shadow-sheet;
+  }
+
+  .mention-row {
+    @apply px-three py-two border-b-hairline border-border;
+  }
+
+  .mention-hint {
+    @apply px-three py-two;
   }
 
   /* barcode-scanner-modal.tsx */

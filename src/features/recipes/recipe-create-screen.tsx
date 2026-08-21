@@ -139,6 +139,7 @@ export function RecipeCreateScreen() {
         text: step.text,
         localImageUri: null,
         existingImagePath: step.image_path,
+        timerMinutes: step.timer_minutes,
         ingredientIds: step.ingredientIds,
       }));
     if (hydratedSteps.length > 0) setWizardSteps(hydratedSteps);
@@ -235,6 +236,19 @@ export function RecipeCreateScreen() {
         existingComponentId: null,
       },
     ]);
+  }
+
+  function handleUpdateComponentTitle(componentId: string, componentTitle: string) {
+    setComponents((prev) =>
+      prev.map((comp) => (comp.id === componentId ? { ...comp, title: componentTitle } : comp)),
+    );
+  }
+
+  // Letzte verbleibende Gruppe darf nicht entfernt werden, sonst gaebe es keinen Ort mehr fuer Zutaten.
+  function handleRemoveComponentGroup(componentId: string) {
+    setComponents((prev) =>
+      prev.length <= 1 ? prev : prev.filter((comp) => comp.id !== componentId),
+    );
   }
 
   function handleCancel() {
@@ -476,6 +490,7 @@ export function RecipeCreateScreen() {
             position,
             text: step.text.trim(),
             image_path: imagePath,
+            timer_minutes: step.timerMinutes,
           });
 
           const existingLinks = await stepsDb.getAllAsync<{ id: string }>(
@@ -495,6 +510,7 @@ export function RecipeCreateScreen() {
             household_id: householdId,
             position,
             text: step.text.trim(),
+            timer_minutes: step.timerMinutes,
           });
           stepId = created.id;
 
@@ -507,6 +523,7 @@ export function RecipeCreateScreen() {
               position,
               text: step.text.trim(),
               image_path: imagePath,
+              timer_minutes: step.timerMinutes,
             });
           }
         }
@@ -608,6 +625,8 @@ export function RecipeCreateScreen() {
                 onUpdateQuantity={handleUpdateQuantity}
                 onUpdateUnit={handleUpdateUnit}
                 onAddComponentGroup={handleAddComponentGroup}
+                onUpdateComponentTitle={handleUpdateComponentTitle}
+                onRemoveComponentGroup={handleRemoveComponentGroup}
                 saving={saving}
                 onCancel={handleCancel}
                 onNext={handleNextFromBasics}
@@ -648,6 +667,8 @@ export function RecipeCreateScreen() {
                 onUpdateQuantity={handleUpdateQuantity}
                 onUpdateUnit={handleUpdateUnit}
                 onAddComponentGroup={handleAddComponentGroup}
+                onUpdateComponentTitle={handleUpdateComponentTitle}
+                onRemoveComponentGroup={handleRemoveComponentGroup}
                 saving={saving}
                 onCancel={() => setWizardStep(1)}
                 onNext={() => setWizardStep(3)}

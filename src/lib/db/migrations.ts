@@ -449,6 +449,12 @@ alter table households add column premium_expires_at text;
 alter table households add column premium_updated_at text;
 `;
 
+// Expliziter, vom Nutzer gesetzter Timer pro Zubereitungsschritt (statt der
+// bisherigen Text-basierten Minutenerkennung im Kochmodus als einziger Quelle).
+const V16_RECIPE_STEP_TIMER = `
+alter table recipe_steps add column timer_minutes integer;
+`;
+
 export const MIGRATIONS: readonly Migration[] = [
   {
     version: 1,
@@ -524,5 +530,10 @@ export const MIGRATIONS: readonly Migration[] = [
     version: 15,
     name: 'household_premium',
     statements: [V15_HOUSEHOLD_PREMIUM],
+  },
+  {
+    version: 16,
+    name: 'recipe_step_timer',
+    statements: [V16_RECIPE_STEP_TIMER],
   },
 ];

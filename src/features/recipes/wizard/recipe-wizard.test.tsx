@@ -39,6 +39,7 @@ describe('Recipe Wizard Steps', () => {
       text: 'Zwiebeln schneiden',
       localImageUri: null,
       existingImagePath: null,
+      timerMinutes: null,
       ingredientIds: ['ing-1'],
     },
   ];
@@ -89,6 +90,8 @@ describe('Recipe Wizard Steps', () => {
           onUpdateQuantity={jest.fn()}
           onUpdateUnit={jest.fn()}
           onAddComponentGroup={jest.fn()}
+          onUpdateComponentTitle={jest.fn()}
+          onRemoveComponentGroup={jest.fn()}
           saving={false}
           onNext={onNext}
           onCancel={onCancel}

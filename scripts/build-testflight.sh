@@ -64,6 +64,60 @@ for cmd in node xcodebuild pod; do
   command -v "$cmd" >/dev/null || die "Benötigtes Tool '$cmd' nicht gefunden."
 done
 
+# ------------------------------------------------------------- .env Validierung
+say "Prüfe Umgebungsvariablen in .env für TestFlight..."
+DOTENV="$PROJECT_ROOT/.env"
+[ -f "$DOTENV" ] || die ".env-Datei nicht gefunden unter $DOTENV"
+
+node -e '
+  const fs = require("fs");
+  const content = fs.readFileSync(".env", "utf8");
+  const env = {};
+  for (const line of content.split("\n")) {
+    const trimmed = line.trim();
+    if (!trimmed || trimmed.startsWith("#")) continue;
+    const eqIdx = trimmed.indexOf("=");
+    if (eqIdx !== -1) {
+      env[trimmed.slice(0, eqIdx).trim()] = trimmed.slice(eqIdx + 1).trim();
+    }
+  }
+
+  // 1. Supabase Check
+  if (!env.EXPO_PUBLIC_SUPABASE_URL || !env.EXPO_PUBLIC_SUPABASE_KEY) {
+    console.error("Fehler: EXPO_PUBLIC_SUPABASE_URL oder EXPO_PUBLIC_SUPABASE_KEY fehlt in .env!");
+    process.exit(1);
+  }
+
+  // 2. RevenueCat iOS Key Check
+  const iosKey = env.EXPO_PUBLIC_REVENUECAT_IOS_API_KEY;
+  if (!iosKey) {
+    console.error("Fehler: EXPO_PUBLIC_REVENUECAT_IOS_API_KEY fehlt in .env!");
+    process.exit(1);
+  }
+
+  if (iosKey.startsWith("test_") || iosKey === "test_sOmtZGpMGOBcPfZEwruvJTHcgCQ") {
+    console.error("Fehler: Unzulässiger Test-API-Key für iOS gefunden (" + iosKey + ")!");
+    console.error("In TestFlight-Release-Builds darf kein test_... Key verwendet werden.");
+    console.error("Bitte einen echten Apple StoreKit Key (appl_...) in .env für EXPO_PUBLIC_REVENUECAT_IOS_API_KEY eintragen.");
+    process.exit(1);
+  }
+
+  if (!iosKey.startsWith("appl_")) {
+    console.error("Fehler: EXPO_PUBLIC_REVENUECAT_IOS_API_KEY muss mit appl_ beginnen (aktuell: " + iosKey.slice(0, 8) + "...).");
+    process.exit(1);
+  }
+
+  // 3. Force Premium Check
+  const forcePremium = (env.EXPO_PUBLIC_FORCE_PREMIUM || "").toLowerCase();
+  if (forcePremium === "true" || forcePremium === "1") {
+    console.error("Fehler: EXPO_PUBLIC_FORCE_PREMIUM ist auf true/1 gesetzt!");
+    console.error("Im TestFlight-Build muss dieser Wert deaktiviert (false) sein, damit In-App-Käufe echt getestet werden.");
+    process.exit(1);
+  }
+' || die ".env-Validierung für TestFlight fehlgeschlagen. Build abgebrochen."
+
+ok "Umgebungsvariablen für TestFlight sind gültig (appl_... Key aktiv, Force-Premium aus)"
+
 # ------------------------------------------------------------- Version Management
 CURRENT_VERSION="$(node -e 'console.log(require("./app.json").expo.version || "1.0.0")')"
 CURRENT_BUILD="$(node -e 'console.log(require("./app.json").expo.ios?.buildNumber || "1")')"

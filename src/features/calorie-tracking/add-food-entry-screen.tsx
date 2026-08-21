@@ -97,6 +97,7 @@ export function AddFoodEntryScreen() {
     proteinG?: string;
     carbsG?: string;
     fatG?: string;
+    closeStackCount?: string;
   }>();
   const { session } = useSession();
   const userId = session?.user.id;
@@ -268,7 +269,15 @@ export function AddFoodEntryScreen() {
           .then(() => queryClient.invalidateQueries({ queryKey: ['product_usage'] }))
           .catch((err) => console.error('Fehler beim Protokollieren der Nutzung:', err));
       }
-      router.back();
+      // Kommt der Eintrag aus einem vorgelagerten Sheet (z.B. "Rezept fertig
+      // gekocht"), muss dieses beim Speichern mitgeschlossen werden, statt
+      // nur zu ihm zurueckzukehren.
+      const closeStackCount = Number(params.closeStackCount);
+      if (Number.isInteger(closeStackCount) && closeStackCount > 1) {
+        router.dismiss(closeStackCount);
+      } else {
+        router.back();
+      }
     } catch (err) {
       Alert.alert('Fehler', err instanceof Error ? err.message : 'Fehler beim Speichern');
     }

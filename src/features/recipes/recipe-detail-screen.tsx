@@ -8,6 +8,8 @@ import { BackButton, HeaderIconButton } from '@/components/ui/buttons';
 import { HeartGlyph, HeroArtwork } from './components/recipe-detail-primitives';
 import { RecipeRatingSheet } from './components/recipe-rating-sheet';
 import { RecipeShoppingSheet } from './components/recipe-shopping-sheet';
+import { StepMentionText } from './components/step-mention-text';
+import { flattenRecipeItems, type MentionableIngredient } from './ingredient-mentions';
 import { calculateServingNutrition, scaleServing } from './nutrition';
 import { useRecipeFavorites } from './recipe-favorites';
 import { useRecipeCoverUrl, useRecipeStepImageUrl } from './recipe-image-uploader';
@@ -62,10 +64,12 @@ function RecipeStepItem({
   step,
   index,
   isLast,
+  ingredients,
 }: {
   step: RecipeStep;
   index: number;
   isLast: boolean;
+  ingredients: MentionableIngredient[];
 }) {
   const { data: imageUrl } = useRecipeStepImageUrl(step.image_path);
 
@@ -84,9 +88,19 @@ function RecipeStepItem({
         <ThemedText type="headingSmall" themeColor="accent" className="w-[30px]">
           {index + 1}
         </ThemedText>
-        <ThemedText type="body" className="flex-1 font-medium">
-          {step.text}
-        </ThemedText>
+        <View className="flex-1 gap-one">
+          <StepMentionText
+            text={step.text}
+            ingredients={ingredients}
+            type="body"
+            className="font-medium"
+          />
+          {step.timer_minutes !== null ? (
+            <ThemedText type="caption" themeColor="textSecondary">
+              ⏱ {step.timer_minutes} Min. Timer
+            </ThemedText>
+          ) : null}
+        </View>
       </View>
     </View>
   );
@@ -208,6 +222,10 @@ export function RecipeDetailScreen() {
 
   const baseServing = useMemo(
     () => (data ? calculateServingNutrition(data.components, data.items, data.productsById) : null),
+    [data],
+  );
+  const mentionIngredients = useMemo(
+    () => (data ? flattenRecipeItems(data.items, data.productsById) : []),
     [data],
   );
   const scaledServing =
@@ -433,6 +451,7 @@ export function RecipeDetailScreen() {
                     step={step}
                     index={index}
                     isLast={index === data.steps.length - 1}
+                    ingredients={mentionIngredients}
                   />
                 ))}
               </View>

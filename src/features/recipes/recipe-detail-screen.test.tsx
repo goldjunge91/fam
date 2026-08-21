@@ -54,6 +54,7 @@ const mockDetail: RecipeDetail = {
       position: 0,
       text: 'Gemüse schneiden und auf dem Blech verteilen.',
       image_path: 'household-1/step-1.jpg',
+      timer_minutes: null,
       ingredientIds: [],
     },
   ],

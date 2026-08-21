@@ -80,6 +80,8 @@ export type RecipeStep = {
   position: number;
   text: string;
   image_path: string | null;
+  /** Optionaler, explizit gesetzter Kochmodus-Timer. */
+  timer_minutes: number | null;
   /** IDs der referenzierten recipe_component_items (recipe_step_ingredients). */
   ingredientIds: string[];
 };
@@ -215,7 +217,7 @@ export function useRecipeDetail(recipeId: string | undefined) {
       );
 
       const stepRows = await db.getAllAsync<Omit<RecipeStep, 'ingredientIds'>>(
-        `select id, recipe_id, position, text, image_path
+        `select id, recipe_id, position, text, image_path, timer_minutes
          from recipe_steps
          where recipe_id = ? and deleted_at is null
          order by position`,
@@ -883,11 +885,13 @@ export function useAddStepMutation() {
       position: number;
       text: string;
       image_path?: string | null;
+      timer_minutes?: number | null;
     }) => {
       const db = await getDatabase();
       const id = Crypto.randomUUID();
       const { iso, ms } = nowStamp();
       const imagePath = input.image_path ?? null;
+      const timerMinutes = input.timer_minutes ?? null;
 
       await enqueueMutation(db, {
         entity: 'recipe_steps',
@@ -900,14 +904,15 @@ export function useAddStepMutation() {
           position: input.position,
           text: input.text,
           image_path: imagePath,
+          timer_minutes: timerMinutes,
           created_at: iso,
           updated_at: iso,
         },
         applyLocally: async (txn) => {
           await txn.runAsync(
             `insert into recipe_steps
-               (id, recipe_id, household_id, position, text, image_path, created_at, updated_at, _dirty)
-             values (?, ?, ?, ?, ?, ?, ?, ?, 1)`,
+               (id, recipe_id, household_id, position, text, image_path, timer_minutes, created_at, updated_at, _dirty)
+             values (?, ?, ?, ?, ?, ?, ?, ?, ?, 1)`,
             [
               id,
               input.recipe_id,
@@ -915,6 +920,7 @@ export function useAddStepMutation() {
               input.position,
               input.text,
               imagePath,
+              timerMinutes,
               iso,
               ms,
             ],
@@ -922,7 +928,7 @@ export function useAddStepMutation() {
         },
       });
 
-      return { id, ...input, image_path: imagePath };
+      return { id, ...input, image_path: imagePath, timer_minutes: timerMinutes };
     },
     onSuccess: (_, variables) => {
       queryClient.invalidateQueries({ queryKey: ['recipe-detail', variables.recipe_id] });
@@ -942,10 +948,12 @@ export function useUpdateStepMutation() {
       position: number;
       text: string;
       image_path?: string | null;
+      timer_minutes?: number | null;
     }) => {
       const db = await getDatabase();
       const { iso, ms } = nowStamp();
       const imagePath = input.image_path ?? null;
+      const timerMinutes = input.timer_minutes ?? null;
 
       await enqueueMutation(db, {
         entity: 'recipe_steps',
@@ -957,12 +965,13 @@ export function useUpdateStepMutation() {
           position: input.position,
           text: input.text,
           image_path: imagePath,
+          timer_minutes: timerMinutes,
           updated_at: iso,
         },
         applyLocally: async (txn) => {
           await txn.runAsync(
-            'update recipe_steps set position = ?, text = ?, image_path = ?, updated_at = ?, _dirty = 1 where id = ?',
-            [input.position, input.text, imagePath, ms, input.id],
+            'update recipe_steps set position = ?, text = ?, image_path = ?, timer_minutes = ?, updated_at = ?, _dirty = 1 where id = ?',
+            [input.position, input.text, imagePath, timerMinutes, ms, input.id],
           );
         },
       });

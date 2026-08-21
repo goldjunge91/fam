@@ -7,14 +7,18 @@ type FloatingActionButtonProps = {
   children: ReactNode;
 };
 
-/** Grosse, schwebende Primaeraktion am unteren Bildschirmrand. */
+/**
+ * Primaeraktion in der unteren Bildschirmecke (links/rechts konfigurierbar,
+ * siehe `fab-position-settings.ts`) — bewusst kleiner und randnah statt
+ * mittig schwebend, damit sie den Inhalt nicht verdeckt.
+ */
 export function FloatingActionButton({ label, onPress, children }: FloatingActionButtonProps) {
   return (
     <Pressable
       onPress={onPress}
       accessibilityRole="button"
       accessibilityLabel={label}
-      className="btn-fab">
+      className="btn-fab-corner">
       {children}
     </Pressable>
   );

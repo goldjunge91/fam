@@ -33,6 +33,10 @@ bun install && bun start
 - `bun run user:create` / `bun run user:list` / `bun run user:clean` / `bun run user:delete` — Verwaltung lokaler Test-Accounts (`scripts/test-users.ts`)
 - `bash scripts/create-user-with-household.sh` — Erstellt Test-User mit Haushalt und befüllter Einkaufsliste
 - `bun run reset-project` — auf ein leeres Template zurücksetzen
+- `bun run ios:testflight -- --app-version 1.1.0` (App-Versionsnummer anpassen)
+- `bun run ios:testflight -- --build-number 10` (feste Build-Nummer vergeben)
+- `bun run ios:testflight -- --no-bump` (ohne Hochzählen der Build-Nummer bauen)
+- `bun run ios:testflight -- --skip-pods` (Pod-Installation überspringen für schnellen Rebuild)
 
 ### Test-Accounts & Skripte
 

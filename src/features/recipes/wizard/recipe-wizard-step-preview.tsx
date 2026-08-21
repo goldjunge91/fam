@@ -217,6 +217,11 @@ export function RecipeWizardStepPreview({
                   />
                 ) : null}
                 <ThemedText type="body">{step.text}</ThemedText>
+                {step.timerMinutes !== null ? (
+                  <ThemedText type="caption" themeColor="textSecondary">
+                    ⏱ {step.timerMinutes} Min. Timer
+                  </ThemedText>
+                ) : null}
                 {step.ingredientIds.length > 0 ? (
                   <View className="row-wrap gap-[6px]">
                     {step.ingredientIds.map((id) => (
