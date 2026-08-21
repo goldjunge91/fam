@@ -1,15 +1,11 @@
 import { useEffect, useState } from 'react';
-import { Pressable, type StyleProp, Switch, View, type ViewStyle } from 'react-native';
+import { Pressable, type StyleProp, View, type ViewStyle } from 'react-native';
 import { ThemedText } from '@/components/theme/themed-text';
 import { Card } from '@/components/ui/card';
-// Switch akzeptiert nur echte Farbwerte in trackColor, keine CSS-Variable/
-// Tailwind-Klasse (s. docs/design-system/nativewind-liquid-glass-migration.md).
-import { useTheme } from '@/hooks/use-theme';
 import {
   DEFAULT_NOTIFICATION_SETTINGS,
   getNotificationSettings,
   type NotificationSettings,
-  requestNotificationPermissions,
   saveNotificationSettings,
 } from '@/lib/notifications';
 
@@ -24,8 +20,15 @@ type NotificationSettingsCardProps = {
   style?: StyleProp<ViewStyle>;
 };
 
+/**
+ * Legt nur noch fest, WANN erinnert wird (Schwellenwert, Uhrzeit) — OB die
+ * App überhaupt Benachrichtigungen anzeigen darf, ist eine reine
+ * OS-Berechtigung und lebt in `NotificationPermissionCard` unter
+ * /settings/permissions. `settings.enabled` bleibt intern immer `true`;
+ * `scheduleExpiryNotificationReminder` prüft die echte OS-Berechtigung
+ * ohnehin selbst, bevor etwas geplant wird.
+ */
 export function NotificationSettingsCard({ style }: NotificationSettingsCardProps) {
-  const theme = useTheme();
   const [settings, setSettings] = useState<NotificationSettings>(DEFAULT_NOTIFICATION_SETTINGS);
 
   useEffect(() => {
@@ -35,79 +38,56 @@ export function NotificationSettingsCard({ style }: NotificationSettingsCardProp
   async function updateSettings(newSettings: NotificationSettings) {
     setSettings(newSettings);
     await saveNotificationSettings(newSettings);
-
-    if (newSettings.enabled) {
-      await requestNotificationPermissions();
-    }
   }
 
   return (
     <View style={style}>
       <Card title="Benachrichtigungen">
         <View className="gap-three">
-          <View className="row-between">
-            <View className="row-text">
-              <ThemedText type="bodyBold">Erinnerung aktivieren</ThemedText>
-              <ThemedText type="small" themeColor="textSecondary">
-                Push-Mitteilung für bald ablaufende Vorräte erhalten.
-              </ThemedText>
+          <View className="gap-two">
+            <ThemedText type="smallBold">Erinnern ab (Tage im Voraus):</ThemedText>
+            <View className="row-wrap">
+              {THRESHOLD_OPTIONS.map((days) => {
+                const isSelected = settings.daysThreshold === days;
+                return (
+                  <Pressable
+                    key={days}
+                    onPress={() => updateSettings({ ...settings, daysThreshold: days })}
+                    className={`chip ${isSelected ? 'chip-selected' : 'chip-idle'}`}>
+                    <ThemedText type={isSelected ? 'smallSelected' : 'small'}>
+                      {days} {days === 1 ? 'Tag' : 'Tage'}
+                    </ThemedText>
+                  </Pressable>
+                );
+              })}
             </View>
-            <Switch
-              value={settings.enabled}
-              onValueChange={(val) => updateSettings({ ...settings, enabled: val })}
-              trackColor={{ false: theme.border, true: theme.accent }}
-            />
           </View>
 
-          {settings.enabled && (
-            <>
-              <View className="gap-two mt-one">
-                <ThemedText type="smallBold">Erinnern ab (Tage im Voraus):</ThemedText>
-                <View className="row-wrap">
-                  {THRESHOLD_OPTIONS.map((days) => {
-                    const isSelected = settings.daysThreshold === days;
-                    return (
-                      <Pressable
-                        key={days}
-                        onPress={() => updateSettings({ ...settings, daysThreshold: days })}
-                        className={`chip ${isSelected ? 'chip-selected' : 'chip-idle'}`}>
-                        <ThemedText type={isSelected ? 'smallSelected' : 'small'}>
-                          {days} {days === 1 ? 'Tag' : 'Tage'}
-                        </ThemedText>
-                      </Pressable>
-                    );
-                  })}
-                </View>
-              </View>
-
-              <View className="gap-two mt-one">
-                <ThemedText type="smallBold">Uhrzeit der Erinnerung:</ThemedText>
-                <View className="row-wrap">
-                  {TIME_OPTIONS.map((time) => {
-                    const isSelected =
-                      settings.reminderHour === time.hour &&
-                      settings.reminderMinute === time.minute;
-                    return (
-                      <Pressable
-                        key={time.label}
-                        onPress={() =>
-                          updateSettings({
-                            ...settings,
-                            reminderHour: time.hour,
-                            reminderMinute: time.minute,
-                          })
-                        }
-                        className={`chip ${isSelected ? 'chip-selected' : 'chip-idle'}`}>
-                        <ThemedText type={isSelected ? 'smallSelected' : 'small'}>
-                          {time.label}
-                        </ThemedText>
-                      </Pressable>
-                    );
-                  })}
-                </View>
-              </View>
-            </>
-          )}
+          <View className="gap-two">
+            <ThemedText type="smallBold">Uhrzeit der Erinnerung:</ThemedText>
+            <View className="row-wrap">
+              {TIME_OPTIONS.map((time) => {
+                const isSelected =
+                  settings.reminderHour === time.hour && settings.reminderMinute === time.minute;
+                return (
+                  <Pressable
+                    key={time.label}
+                    onPress={() =>
+                      updateSettings({
+                        ...settings,
+                        reminderHour: time.hour,
+                        reminderMinute: time.minute,
+                      })
+                    }
+                    className={`chip ${isSelected ? 'chip-selected' : 'chip-idle'}`}>
+                    <ThemedText type={isSelected ? 'smallSelected' : 'small'}>
+                      {time.label}
+                    </ThemedText>
+                  </Pressable>
+                );
+              })}
+            </View>
+          </View>
         </View>
       </Card>
     </View>

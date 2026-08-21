@@ -1,15 +1,17 @@
+import { View } from 'react-native';
 import { Screen } from '@/components/layout/screen';
 import { CameraPermissionCard } from '@/features/settings/camera-permission-card';
+import { NotificationPermissionCard } from '@/features/settings/notification-permission-card';
 
 /**
- * Systemberechtigungen (aktuell: Kamera), getrennt von den
+ * Systemberechtigungen (Kamera, Benachrichtigungen), getrennt von den
  * Benachrichtigungs-*Einstellungen* (Schwellenwert, Uhrzeit) unter
  * `/settings/notifications` — eine Berechtigung ist ein OS-Status
  * (gewährt/verweigert), keine App-Konfiguration.
  *
- * Kamera-Berechtigung wurde vorher nur im Onboarding abgefragt und ließ sich
- * danach nirgends mehr ansehen oder erneut anfragen, obwohl sie über die
- * iOS/Android-Systemeinstellungen jederzeit entzogen werden kann.
+ * Beide Berechtigungen wurden vorher nur im Onboarding abgefragt und ließen
+ * sich danach nirgends mehr ansehen oder erneut anfragen, obwohl sie über
+ * die iOS/Android-Systemeinstellungen jederzeit entzogen werden können.
  */
 export function PermissionsScreen() {
   return (
@@ -17,7 +19,10 @@ export function PermissionsScreen() {
       title="Berechtigungen"
       back={{ label: 'Einstellungen', href: '/settings' }}
       backStyle="icon">
-      <CameraPermissionCard />
+      <View className="gap-three">
+        <CameraPermissionCard />
+        <NotificationPermissionCard />
+      </View>
     </Screen>
   );
 }

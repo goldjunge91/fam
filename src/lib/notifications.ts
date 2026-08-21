@@ -94,6 +94,27 @@ export async function saveNotificationSettings(settings: NotificationSettings): 
   }
 }
 
+export type NotificationPermissionStatus = {
+  granted: boolean;
+  /** false = iOS hat den System-Dialog schon einmal verweigert bekommen und fragt nie wieder selbst — nur noch über die Systemeinstellungen änderbar. */
+  canAskAgain: boolean;
+};
+
+/**
+ * Liest den aktuellen Berechtigungsstatus, ohne einen Dialog auszulösen.
+ * Für den Berechtigungen-Screen, der den Systemstatus nur anzeigen soll.
+ */
+export async function getNotificationPermissionStatus(): Promise<NotificationPermissionStatus> {
+  if (Platform.OS === 'web' || !NotificationsModule) return { granted: false, canAskAgain: false };
+  try {
+    const { status, canAskAgain } = await NotificationsModule.getPermissionsAsync();
+    return { granted: status === 'granted', canAskAgain: canAskAgain ?? true };
+  } catch (err) {
+    console.error('Fehler bei getNotificationPermissionStatus:', err);
+    return { granted: false, canAskAgain: true };
+  }
+}
+
 /**
  * Fragt Push-Berechtigungen ab (auf iOS/Android).
  */
