@@ -212,7 +212,7 @@
   }
 
   .module-row {
-    @apply flex-row items-center justify-between gap-three p-three rounded-card border-hairline bg-background-element;
+    @apply relative flex-row items-center justify-between gap-three p-three rounded-card border-hairline bg-background-element overflow-hidden;
   }
 
   .module-row-selected {
@@ -221,6 +221,32 @@
 
   .module-row-idle {
     @apply border-border;
+  }
+
+  /* Gesperrtes Modul (#183, Feature-Flag aus): Inhalt gedimmt, zentrierter
+     Hinweis-Pill deckt den Switch ab. Karte bleibt sichtbar, nur unbedienbar.
+     Der Wash-Hintergrund (Transparenz) kommt bewusst per Inline-Style
+     (`withAlpha()`) statt Tailwind-Arbitrary-Alpha auf einer CSS-Custom-
+     Property-Farbe — Letzteres rendert nicht zuverlaessig, siehe `theme.ts`. */
+  .module-row-locked-content {
+    @apply opacity-30;
+  }
+
+  .module-row-locked-overlay {
+    @apply absolute inset-0 flex-row items-center justify-center;
+  }
+
+  /* Hintergrund- und Textfarbe bewusst per Inline-Style (`theme.text`/
+     `theme.background`) statt Tailwind-Klasse gesetzt — `className`-Farben
+     auf `ThemedText` koennen von dessen eigener `type`-Farbklasse
+     ueberschrieben werden (beide im selben Tailwind-Layer, Reihenfolge nicht
+     garantiert). Inline-`style` gewinnt bei NativeWind immer. */
+  .module-row-locked-pill {
+    @apply flex-row items-center gap-one px-three py-[7px] rounded-pill;
+  }
+
+  .module-row-locked-pill-dot {
+    @apply w-[5px] h-[5px] rounded-full bg-warning;
   }
 
   .chip {
@@ -500,7 +526,7 @@
   }
 
   .onboard-module-row {
-    @apply flex-row items-center justify-between p-three rounded-sm border bg-background-element;
+    @apply relative flex-row items-center justify-between p-three rounded-sm border bg-background-element overflow-hidden;
   }
 
   .onboard-module-title {

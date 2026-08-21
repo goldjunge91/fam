@@ -27,6 +27,7 @@ import {
   getOffDumpStatus,
   type OffDumpStatus,
 } from '@/lib/off-dump/off-dump';
+import { getPostHogClient, isPostHogConfigured, useFeatureFlag } from '@/lib/posthog';
 import { Sentry } from '@/lib/sentry';
 import { MAX_ATTEMPTS } from '@/lib/sync/backoff';
 
@@ -91,6 +92,11 @@ export function DevToolsScreen() {
   const queryClient = useQueryClient();
   const { activeHousehold } = useActiveHousehold();
   const { isPremium, isForced } = usePremium();
+  // Boolean-Flag "test-feature" im PostHog-Dashboard anlegen und umschalten,
+  // um die Integration End-to-End zu testen — siehe README "Feature Flags
+  // (PostHog)". defaultValue=false greift ohne Key oder ohne je geladenen
+  // Wert.
+  const testFeatureFlag = useFeatureFlag('test-feature', false);
 
   const [snapshot, setSnapshot] = useState<DbSnapshot | null>(null);
   const [offDump, setOffDump] = useState<OffDumpStatus | null>(null);
@@ -193,6 +199,16 @@ export function DevToolsScreen() {
           label="Premium"
           wert={isPremium ? (isForced ? 'ja (erzwungen)' : 'ja') : 'nein'}
           tone={isForced ? 'warning' : undefined}
+        />
+        <Zeile
+          label="PostHog"
+          wert={isPostHogConfigured() ? 'konfiguriert' : 'kein API-Key'}
+          tone={isPostHogConfigured() ? undefined : 'warning'}
+        />
+        <Zeile
+          label="Flag „test-feature“"
+          wert={testFeatureFlag ? 'an' : 'aus'}
+          tone={testFeatureFlag ? undefined : 'warning'}
         />
       </Card>
 
@@ -305,6 +321,27 @@ export function DevToolsScreen() {
                 'Testevent ("dev_tools.test_event") wurde geloggt. Erscheint im Observe-Dashboard nach dem naechsten Flush (Debug-Builds dispatchen nur mit dispatchInDebug).',
               );
             }}
+          />
+          <Button
+            label="PostHog-Flags neu laden"
+            variant="secondary"
+            onPress={() =>
+              mitBusy('posthog-reload', async () => {
+                const client = getPostHogClient();
+                if (!client) {
+                  Alert.alert('PostHog', 'Kein API-Key konfiguriert.');
+                  return;
+                }
+                const flags = await client.reloadFeatureFlagsAsync();
+                Alert.alert(
+                  'PostHog',
+                  `distinctId: ${client.getDistinctId()}\n` +
+                    `test-feature: ${String(client.getFeatureFlag('test-feature'))}\n` +
+                    `Alle Flags: ${JSON.stringify(flags ?? {})}`,
+                );
+              })
+            }
+            loading={busy === 'posthog-reload'}
           />
           <Button
             label="Sync-Diagnose & Outbox öffnen"

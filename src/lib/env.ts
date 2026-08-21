@@ -133,4 +133,22 @@ export const env = {
   get sentryDebug(): boolean {
     return isFlagEnabled(process.env.EXPO_PUBLIC_SENTRY_DEBUG);
   },
+  /**
+   * PostHog-Projekt-API-Key (PostHog-Dashboard: Project Settings > Project API Key).
+   * Bewusst optional (`string | undefined`, kein `requireEnv`): Ohne Key bleibt
+   * `initPostHog()` (`@/lib/posthog`) ein No-op, damit lokale Entwicklung ohne
+   * PostHog-Account moeglich ist und `useFeatureFlag()` auf `defaultValue`
+   * zurueckfaellt.
+   */
+  get posthogApiKey(): string | undefined {
+    return process.env.EXPO_PUBLIC_POSTHOG_API_KEY?.trim() || undefined;
+  },
+  /**
+   * Host des PostHog-Projekts (PostHog Cloud US/EU oder self-hosted). Ohne
+   * gesetzte Variable faellt das auf den PostHog-Cloud-US-Standardhost zurueck,
+   * dem Default aus der `posthog-react-native`-Doku.
+   */
+  get posthogHost(): string {
+    return process.env.EXPO_PUBLIC_POSTHOG_HOST?.trim() || 'https://us.i.posthog.com';
+  },
 };

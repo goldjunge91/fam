@@ -25,6 +25,17 @@ jest.mock('@/hooks/use-theme', () => ({
   useTheme: () => require('@/constants/theme').Colors.light,
 }));
 
+let mockFeatureFlags: Record<string, boolean> = {
+  'module-recipes': true,
+  'module-meal-planner': true,
+  'module-calories': true,
+};
+
+jest.mock('@/lib/posthog', () => ({
+  useFeatureFlag: (key: string | undefined, defaultValue: boolean) =>
+    key ? (mockFeatureFlags[key] ?? defaultValue) : defaultValue,
+}));
+
 function renderScreen() {
   return render(
     <SafeAreaProvider
@@ -39,6 +50,11 @@ function renderScreen() {
 
 beforeEach(() => {
   mockMutate.mockClear();
+  mockFeatureFlags = {
+    'module-recipes': true,
+    'module-meal-planner': true,
+    'module-calories': true,
+  };
 });
 
 describe('ModuleSettingsScreen', () => {
@@ -68,6 +84,31 @@ describe('ModuleSettingsScreen', () => {
     expect(mockMutate).toHaveBeenCalledWith({
       userId: 'user-1',
       modules: { calories: true },
+    });
+  });
+
+  it('zeigt "Demnächst verfügbar" und ignoriert Taps, wenn der Feature-Flag eines Moduls aus ist', async () => {
+    mockFeatureFlags['module-calories'] = false;
+    await renderScreen();
+
+    expect(screen.getByText('Demnächst verfügbar')).toBeTruthy();
+
+    await fireEvent.press(screen.getByText(/Kalorienzähler & Tagebuch/));
+    expect(mockMutate).not.toHaveBeenCalled();
+  });
+
+  it('laesst Vorrat und Einkauf unberuehrt vom Feature-Flag-Zustand', async () => {
+    mockFeatureFlags = {
+      'module-recipes': false,
+      'module-meal-planner': false,
+      'module-calories': false,
+    };
+    await renderScreen();
+
+    await fireEvent.press(screen.getByText(/Geteilte Einkaufsliste/));
+    expect(mockMutate).toHaveBeenCalledWith({
+      userId: 'user-1',
+      modules: { shoppingList: false },
     });
   });
 });

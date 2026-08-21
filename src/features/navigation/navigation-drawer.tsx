@@ -20,6 +20,7 @@ import {
 } from '@/features/settings/module-preferences';
 import { useDeferredMount } from '@/hooks/use-deferred-mount';
 import { useTheme } from '@/hooks/use-theme';
+import { type FeatureFlagKey, useFeatureFlag } from '@/lib/posthog';
 import { useNavigationChrome } from './navigation-chrome-provider';
 
 // 'calendarDay' ist kein statisches FamIcon, sondern das Kalenderblatt mit
@@ -30,6 +31,14 @@ type NavRoute = {
   href: string;
   icon: FamIconName | 'calendarDay';
   moduleKey?: keyof ModulePreferences;
+  /**
+   * Remote-Gate zusaetzlich zu `moduleKey` (#183) — nur fuer Rezepte/
+   * Essensplan/Tagebuch, NICHT fuer Vorrat/Einkauf. Muss zum `featureFlag`
+   * auf der zugehoerigen Route (`src/app/(app)/*.tsx`, `ModuleGate`) passen,
+   * sonst zeigt der Drawer einen Eintrag, der auf einen "Noch nicht
+   * verfuegbar"-Screen fuehrt (oder umgekehrt).
+   */
+  featureFlag?: FeatureFlagKey;
 };
 
 const GROUPS: { title: string; routes: NavRoute[] }[] = [
@@ -39,13 +48,33 @@ const GROUPS: { title: string; routes: NavRoute[] }[] = [
     routes: [
       { label: 'Vorrat', href: '/fridge', icon: 'fridge', moduleKey: 'fridge' },
       { label: 'Einkauf', href: '/shopping-list', icon: 'shopping', moduleKey: 'shoppingList' },
-      { label: 'Rezepte', href: '/recipes', icon: 'recipes', moduleKey: 'recipes' },
-      { label: 'Essensplan', href: '/meal-planner', icon: 'calendarDay', moduleKey: 'mealPlanner' },
+      {
+        label: 'Rezepte',
+        href: '/recipes',
+        icon: 'recipes',
+        moduleKey: 'recipes',
+        featureFlag: 'module-recipes',
+      },
+      {
+        label: 'Essensplan',
+        href: '/meal-planner',
+        icon: 'calendarDay',
+        moduleKey: 'mealPlanner',
+        featureFlag: 'module-meal-planner',
+      },
     ],
   },
   {
     title: 'Privat',
-    routes: [{ label: 'Tagebuch', href: '/diary', icon: 'diary', moduleKey: 'calories' }],
+    routes: [
+      {
+        label: 'Tagebuch',
+        href: '/diary',
+        icon: 'diary',
+        moduleKey: 'calories',
+        featureFlag: 'module-calories',
+      },
+    ],
   },
 ];
 
@@ -122,6 +151,14 @@ function DrawerContent() {
   const { data: rawModules } = useModulePreferences(session?.user.id);
   const modules = rawModules ?? DEFAULT_MODULE_PREFERENCES;
 
+  // Feste, bekannte Flags — kein dynamischer Lookup pro Route, damit die
+  // Anzahl der Hook-Aufrufe zwischen Renders stabil bleibt (Rules of Hooks).
+  const featureFlags: Partial<Record<FeatureFlagKey, boolean>> = {
+    'module-recipes': useFeatureFlag('module-recipes', false),
+    'module-meal-planner': useFeatureFlag('module-meal-planner', false),
+    'module-calories': useFeatureFlag('module-calories', false),
+  };
+
   function navigateTo(href: string) {
     closeDrawer();
     setTimeout(() => router.push(href as Parameters<typeof router.push>[0]), 250);
@@ -129,7 +166,11 @@ function DrawerContent() {
 
   const visibleGroups = GROUPS.map((group) => ({
     ...group,
-    routes: group.routes.filter((route) => !route.moduleKey || modules[route.moduleKey] !== false),
+    routes: group.routes.filter((route) => {
+      const moduleAllowed = !route.moduleKey || modules[route.moduleKey] !== false;
+      const flagAllowed = !route.featureFlag || featureFlags[route.featureFlag];
+      return moduleAllowed && flagAllowed;
+    }),
   })).filter((group) => group.routes.length > 0);
 
   return (

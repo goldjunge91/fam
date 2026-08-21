@@ -64,6 +64,8 @@ EXPO_PUBLIC_SUPABASE_KEY=sb_publishable_...
 EXPO_PUBLIC_FORCE_ONBOARDING=false  # optional: bei true wird beim App-Start das Profil-Onboarding geöffnet
 EXPO_PUBLIC_DEV_TOOLS=false         # optional: bei true erscheint der Entwickler-Bereich in den Einstellungen
 EXPO_PUBLIC_OFF_OFFLINE=false       # optional: bei true werden alle Open-Food-Facts-Anfragen unterbunden (Offline-Test)
+EXPO_PUBLIC_POSTHOG_API_KEY=phc_... # optional: PostHog-Projekt-API-Key, siehe "Feature Flags (PostHog)"
+EXPO_PUBLIC_POSTHOG_HOST=https://us.i.posthog.com # optional, Default siehe unten
 ```
 
 `127.0.0.1` funktioniert nur im iOS-Simulator (localhost = der Mac selbst).
@@ -162,6 +164,50 @@ Einmalige Einrichtung:
 
 Alarmierung (Slack/E-Mail bei neuen Fehlern) lässt sich im Sentry-Dashboard
 unter **Alerts** einrichten, kostenlos im Free-Tier enthalten.
+
+### Feature Flags (PostHog)
+
+PostHog (`posthog-react-native`) ist ausschließlich für **Feature Flags**
+integriert (`src/lib/posthog.ts`) — kein Event-Capture, kein Session Replay.
+Damit lässt sich ein Feature hinter einem Remote-Schalter mergen und im
+PostHog-Dashboard an-/ausschalten, ohne neuen App-Build. Ohne
+`EXPO_PUBLIC_POSTHOG_API_KEY` bleibt das ein No-op — `useFeatureFlag()` liefert
+dann immer den übergebenen `defaultValue`, App und Tests laufen auch ohne
+PostHog-Account.
+
+Einmalige Einrichtung:
+
+1. PostHog-Projekt anlegen ([posthog.com](https://posthog.com), kostenloser
+   Tarif reicht) → **Project Settings > Project API Key** liefert den Key.
+2. `EXPO_PUBLIC_POSTHOG_API_KEY` in `.env` eintragen. Bei einem EU-Projekt
+   zusätzlich `EXPO_PUBLIC_POSTHOG_HOST=https://eu.i.posthog.com` setzen —
+   ohne gesetzten Host wird der US-Cloud-Standardhost verwendet.
+3. Neuer Dev-Client-Build nötig (`bash scripts/ios-dev.sh` bzw.
+   Android-Äquivalent), da `posthog-react-native` native Peer-Dependencies
+   mitbringt (`expo-file-system`, `expo-application`, `expo-device`,
+   `expo-localization`).
+
+**Integration testen:** Im Dashboard ein Boolean-Flag `test-feature` anlegen
+und an/aus schalten — der Live-Wert steht im Entwickler-Bereich der
+Einstellungen (`EXPO_PUBLIC_DEV_TOOLS=true`) unter „Umgebung" > „PostHog".
+Kann danach wieder gelöscht werden.
+
+Ein neues Flag anlegen:
+
+1. Im PostHog-Dashboard unter **Feature Flags** ein neues Flag erstellen,
+   z. B. `new-onboarding-flow` (Rollout: Prozentsatz oder Zielgruppe).
+2. Den Key in `FeatureFlagKey` in `src/lib/posthog.ts` ergänzen.
+3. In der Komponente abfragen — nie das SDK direkt importieren:
+
+   ```tsx
+   import { useFeatureFlag } from '@/lib/posthog';
+
+   const showNewFlow = useFeatureFlag('new-onboarding-flow', false);
+   ```
+
+Flags sind an die Supabase-User-ID gebunden (nicht an die Haushalt-ID) —
+PostHog ist personen-zentriert, Prozent-Rollouts und Zielgruppen-Targeting
+laufen über diese ID (`src/features/auth/posthog-identity-sync.tsx`).
 
 ## Lokales Backend
 
