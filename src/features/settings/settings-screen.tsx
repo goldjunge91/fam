@@ -160,7 +160,6 @@ export function SettingsScreen() {
             <SettingsRow
               icon="🔐"
               label="Berechtigungen"
-              hint="Kamera-Zugriff"
               onPress={() => router.push('/settings/permissions')}
             />
             <SettingsRow
