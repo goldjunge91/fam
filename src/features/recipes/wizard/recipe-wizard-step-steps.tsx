@@ -174,7 +174,7 @@ const StepCard = memo(function StepCard({
     const pending = matchPendingMention(step.text);
     if (!pending) return;
     const triggerPos = step.text.length - 1 - pending.query.length;
-    handleChangeText(step.text.slice(0, triggerPos) + '@' + ingredient.name);
+    handleChangeText(`${step.text.slice(0, triggerPos)}@${ingredient.name}`);
   }
 
   return (
