@@ -158,9 +158,10 @@ export function SettingsScreen() {
           {/* App-Einstellungen (Benachrichtigungen, Modulauswahl, Plus-Button) */}
           <SettingsGroup title="App">
             <SettingsRow
-              icon="🔔"
-              label="Benachrichtigungen"
-              onPress={() => router.push('/settings/notifications')}
+              icon="🔐"
+              label="Berechtigungen"
+              hint="Kamera & Benachrichtigungen"
+              onPress={() => router.push('/settings/permissions')}
             />
             <SettingsRow
               icon="🧩"
@@ -172,7 +173,7 @@ export function SettingsScreen() {
               icon="➕"
               label="Plus-Button"
               value={fabPosition === 'left' ? 'Links' : 'Rechts'}
-              hint="Ecke, in der die Schnellauswahl sitzt"
+              hint="Ecke, in der das + sitzt"
               onPress={() => setFabPosition(fabPosition === 'left' ? 'right' : 'left')}
               last
             />
