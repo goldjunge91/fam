@@ -142,6 +142,53 @@ describe('env.sentryDebug', () => {
   });
 });
 
+describe('env.posthogApiKey', () => {
+  const original = process.env.EXPO_PUBLIC_POSTHOG_API_KEY;
+
+  afterEach(() => {
+    if (original === undefined) {
+      delete process.env.EXPO_PUBLIC_POSTHOG_API_KEY;
+    } else {
+      process.env.EXPO_PUBLIC_POSTHOG_API_KEY = original;
+    }
+  });
+
+  it('gibt undefined zurueck wenn nicht gesetzt oder leer', () => {
+    delete process.env.EXPO_PUBLIC_POSTHOG_API_KEY;
+    expect(env.posthogApiKey).toBeUndefined();
+
+    process.env.EXPO_PUBLIC_POSTHOG_API_KEY = '   ';
+    expect(env.posthogApiKey).toBeUndefined();
+  });
+
+  it('gibt getrimmten Key zurueck wenn gesetzt', () => {
+    process.env.EXPO_PUBLIC_POSTHOG_API_KEY = '  phc_examplekey123  ';
+    expect(env.posthogApiKey).toBe('phc_examplekey123');
+  });
+});
+
+describe('env.posthogHost', () => {
+  const original = process.env.EXPO_PUBLIC_POSTHOG_HOST;
+
+  afterEach(() => {
+    if (original === undefined) {
+      delete process.env.EXPO_PUBLIC_POSTHOG_HOST;
+    } else {
+      process.env.EXPO_PUBLIC_POSTHOG_HOST = original;
+    }
+  });
+
+  it('faellt ohne gesetzte Variable auf den PostHog-Cloud-Standardhost zurueck', () => {
+    delete process.env.EXPO_PUBLIC_POSTHOG_HOST;
+    expect(env.posthogHost).toBe('https://us.i.posthog.com');
+  });
+
+  it('gibt getrimmten Host zurueck wenn gesetzt', () => {
+    process.env.EXPO_PUBLIC_POSTHOG_HOST = '  https://eu.i.posthog.com  ';
+    expect(env.posthogHost).toBe('https://eu.i.posthog.com');
+  });
+});
+
 describe('env.sentryDsn', () => {
   const original = process.env.EXPO_PUBLIC_SENTRY_DSN;
 

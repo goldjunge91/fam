@@ -9,11 +9,21 @@ import {
   type ModulePreferences,
   useModulePreferences,
 } from '@/features/settings/module-preferences';
+import { type FeatureFlagKey, useFeatureFlag } from '@/lib/posthog';
 
 type ModuleGateProps = {
   module: keyof ModulePreferences;
   /** Titel des Ersatz-Screens, wenn das Modul deaktiviert ist (z. B. "Vorrat"). */
   title: string;
+  /**
+   * Zusaetzliches Remote-Gate ueber PostHog (#183) — nur fuer Module, die
+   * gestaffelt ausgerollt werden sollen (aktuell recipes/mealPlanner/
+   * calories), NICHT fuer die Kern-Module Vorrat/Einkauf. `defaultValue` ist
+   * bewusst `false`: ohne im Dashboard angelegten Flag bleibt das Modul fuer
+   * echte Nutzer verborgen, auch wenn `ModulePreferences` es erlaubt — die
+   * Freischaltung passiert ausschliesslich ueber PostHog, nie automatisch.
+   */
+  featureFlag?: FeatureFlagKey;
   children: ReactNode;
 };
 
@@ -30,9 +40,12 @@ type ModuleGateProps = {
  * gerendert (Default in der DB ist ueberall `true`) statt eines
  * Ladezustands — sonst blitzt bei jedem Tab-Wechsel kurz der Gate-Hinweis auf.
  */
-export function ModuleGate({ module, title, children }: ModuleGateProps) {
+export function ModuleGate({ module, title, featureFlag, children }: ModuleGateProps) {
   const { session } = useSession();
   const { data: modules } = useModulePreferences(session?.user.id);
+  // defaultValue haengt vom Aufrufer ab (kein featureFlag-Prop -> immer
+  // erlaubt), der Hook-Aufruf selbst bleibt unconditional (Rules of Hooks).
+  const featureFlagAllowed = useFeatureFlag(featureFlag, !featureFlag);
 
   if (modules && !modules[module]) {
     return (
@@ -46,6 +59,20 @@ export function ModuleGate({ module, title, children }: ModuleGateProps) {
           <Button
             label="In den Einstellungen aktivieren"
             onPress={() => router.push('/settings/modules')}
+          />
+        </Card>
+      </Screen>
+    );
+  }
+
+  if (!featureFlagAllowed) {
+    return (
+      <Screen title={title}>
+        <Card>
+          <EmptyState
+            symbol="hourglass"
+            title="Noch nicht verfügbar"
+            hint="Dieser Bereich wird gerade schrittweise ausgerollt und ist für dich noch nicht freigeschaltet."
           />
         </Card>
       </Screen>

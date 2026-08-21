@@ -18,6 +18,7 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import { AnimatedSplashOverlay } from '@/components/icons/animated-icon';
 import { SnackbarProvider } from '@/components/ui/snackbar';
+import { PostHogIdentitySync } from '@/features/auth/posthog-identity-sync';
 import { SessionProvider, useSession } from '@/features/auth/session-provider';
 import { PremiumProvider } from '@/features/premium/premium-provider';
 import { parseAuthErrorFromUrl, parseAuthTokensFromUrl } from '@/lib/auth-deep-link';
@@ -26,6 +27,7 @@ import { getDatabase } from '@/lib/db/client';
 import { env } from '@/lib/env';
 import { initOffDump } from '@/lib/off-dump/off-dump';
 import { savePendingInviteToken } from '@/lib/pending-invite';
+import { initPostHog, PostHogAppProvider } from '@/lib/posthog';
 import {
   asyncStoragePersister,
   queryClient,
@@ -39,6 +41,7 @@ import { defineBackgroundSyncTask, registerBackgroundSync } from '@/lib/sync/bac
 SplashScreen.preventAutoHideAsync();
 defineBackgroundSyncTask();
 initSentry();
+initPostHog();
 
 // Muss vor dem ersten Screen-Mount laufen — configure() nach dem Mount wirft.
 // Aktiviert automatische cold_ttr/warm_ttr pro Route (Expo Router Integration).
@@ -268,16 +271,19 @@ function RootLayout() {
                 dehydrateOptions: { shouldDehydrateQuery: shouldPersistQuery },
               }}>
               <SessionProvider>
-                <ActiveHouseholdProvider>
-                  <PremiumProvider>
-                    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-                      <SnackbarProvider>
-                        <AnimatedSplashOverlay />
-                        <RootNavigator />
-                      </SnackbarProvider>
-                    </ThemeProvider>
-                  </PremiumProvider>
-                </ActiveHouseholdProvider>
+                <PostHogAppProvider>
+                  <PostHogIdentitySync />
+                  <ActiveHouseholdProvider>
+                    <PremiumProvider>
+                      <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
+                        <SnackbarProvider>
+                          <AnimatedSplashOverlay />
+                          <RootNavigator />
+                        </SnackbarProvider>
+                      </ThemeProvider>
+                    </PremiumProvider>
+                  </ActiveHouseholdProvider>
+                </PostHogAppProvider>
               </SessionProvider>
             </PersistQueryClientProvider>
           </KeyboardProvider>

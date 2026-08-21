@@ -49,9 +49,25 @@ jest.mock('@/features/navigation/navigation-chrome-provider', () => ({
   }),
 }));
 
+let mockFeatureFlags: Record<string, boolean> = {
+  'module-recipes': true,
+  'module-meal-planner': true,
+  'module-calories': true,
+};
+
+jest.mock('@/lib/posthog', () => ({
+  useFeatureFlag: (key: string | undefined, defaultValue: boolean) =>
+    key ? (mockFeatureFlags[key] ?? defaultValue) : defaultValue,
+}));
+
 describe('NavigationDrawer', () => {
   beforeEach(() => {
     jest.clearAllMocks();
+    mockFeatureFlags = {
+      'module-recipes': true,
+      'module-meal-planner': true,
+      'module-calories': true,
+    };
   });
 
   it('rendert alle aktiven Navigationsziele', async () => {
@@ -89,5 +105,26 @@ describe('NavigationDrawer', () => {
     fireEvent.press(vorratBtn);
 
     expect(mockCloseDrawer).toHaveBeenCalled();
+  });
+
+  it('blendet ein Ziel aus, dessen Feature-Flag aus ist, obwohl die Nutzer-Praeferenz an ist', async () => {
+    mockFeatureFlags['module-recipes'] = false;
+
+    await render(
+      <SafeAreaProvider
+        initialMetrics={{
+          frame: { x: 0, y: 0, width: 390, height: 844 },
+          insets: { top: 47, left: 0, right: 0, bottom: 34 },
+        }}>
+        <NavigationDrawer />
+      </SafeAreaProvider>,
+    );
+
+    expect(screen.queryByText('Rezepte')).toBeNull();
+    // Vorrat/Einkauf sind vom Feature-Flag-Gate ausgenommen, bleiben sichtbar.
+    expect(screen.getByText('Vorrat')).toBeTruthy();
+    expect(screen.getByText('Einkauf')).toBeTruthy();
+    expect(screen.getByText('Essensplan')).toBeTruthy();
+    expect(screen.getByText('Tagebuch')).toBeTruthy();
   });
 });
