@@ -8,6 +8,7 @@
 #   bun run ios:testflight -- --build-number 10  Spezifische Build-Nummer setzen
 #   bun run ios:testflight -- --app-version 1.1.0 App-Version (CFBundleShortVersionString) anpassen
 #   bun run ios:testflight -- --skip-pods        Pod install überspringen (schnellerer Rebuild)
+#   bun run ios:testflight -- --clean            DerivedData und Build-Cache vorab löschen
 #
 set -euo pipefail
 
@@ -29,6 +30,7 @@ BUMP_BUILD=true
 EXPLICIT_BUILD_NUMBER=""
 EXPLICIT_APP_VERSION=""
 SKIP_PODS=false
+CLEAN=false
 
 while [ $# -gt 0 ]; do
   case "$1" in
@@ -49,8 +51,12 @@ while [ $# -gt 0 ]; do
       SKIP_PODS=true
       shift
       ;;
+    --clean)
+      CLEAN=true
+      shift
+      ;;
     -h | --help)
-      sed -n '2,13p' "$0" | sed 's/^# \{0,1\}//'
+      sed -n '2,14p' "$0" | sed 's/^# \{0,1\}//'
       exit 0
       ;;
     *)
@@ -117,6 +123,22 @@ node -e '
 ' || die ".env-Validierung für TestFlight fehlgeschlagen. Build abgebrochen."
 
 ok "Umgebungsvariablen für TestFlight sind gültig (appl_... Key aktiv, Force-Premium aus)"
+
+# Exportiere Umgebungsvariablen für nachfolgende Build-Schritte & Xcode
+set -a
+# shellcheck disable=SC1090
+[ -f "$DOTENV" ] && . "$DOTENV"
+set +a
+
+# Verhindert, dass optionale Sourcemap-Upload-Fehler den gesamten Xcode-Archivierungsprozess abbrechen
+export SENTRY_ALLOW_FAILURE=true
+
+# ------------------------------------------------------------- Optional: Cache-Bereinigung
+if [ "$CLEAN" = true ]; then
+  say "Bereinige DerivedData und Build-Cache..."
+  rm -rf /Volumes/Programme/Xcode/DerivedData/fam-* "$PROJECT_ROOT/ios/build" "$HOME/Library/Developer/Xcode/DerivedData/fam-*" 2>/dev/null || true
+  ok "Build-Cache bereinigt"
+fi
 
 # ------------------------------------------------------------- Version Management
 CURRENT_VERSION="$(node -e 'console.log(require("./app.json").expo.version || "1.0.0")')"
