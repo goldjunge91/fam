@@ -1,6 +1,6 @@
 import DateTimePicker from '@expo/ui/community/datetime-picker';
 import { useState } from 'react';
-import { Modal, Platform, Pressable, View } from 'react-native';
+import { Modal, Pressable, View } from 'react-native';
 import { ThemedText } from '@/components/theme/themed-text';
 import { Button } from '@/components/ui/buttons';
 
@@ -25,10 +25,10 @@ interface DateWheelFieldProps {
 }
 
 /**
- * Datumsfeld ohne Texteingabe — öffnet ein natives Rad (iOS: SwiftUI-Wheel im
- * eigenen Modal mit Übernehmen/Abbrechen; Android: Material-Dialog, da Material 3
- * kein Wheel kennt). Verhindert ungültige Datumsangaben, weil nur der Picker
- * gültige Daten liefern kann — anders als ein Freitextfeld.
+ * iOS-Datumsfeld ohne Texteingabe — öffnet ein natives Rad (iOS: SwiftUI-Wheel im
+ * eigenen Modal mit Übernehmen/Abbrechen). Verhindert ungültige Datumsangaben,
+ * weil nur der Picker gültige Daten liefern kann — anders als ein Freitextfeld.
+ * Für Android existiert eine .android.tsx Variante mit dem Material-Dialog.
  */
 export function DateWheelField({
   label,
@@ -74,43 +74,27 @@ export function DateWheelField({
         </ThemedText>
       </Pressable>
 
-      {Platform.OS === 'android' && isOpen && (
-        <DateTimePicker
-          value={pendingDate}
-          mode="date"
-          display="spinner"
-          presentation="dialog"
-          onValueChange={(_event, date) => {
-            onChange(toIsoDate(date));
-            setIsOpen(false);
-          }}
-          onDismiss={cancel}
-        />
-      )}
-
-      {Platform.OS === 'ios' && (
-        <Modal visible={isOpen} transparent animationType="fade" onRequestClose={cancel}>
-          <View className="modal-backdrop">
-            <View className="modal-sheet">
-              <ThemedText type="subtitle">{label ?? 'Datum auswählen'}</ThemedText>
-              <DateTimePicker
-                value={pendingDate}
-                mode="date"
-                display="spinner"
-                onValueChange={(_event, date) => setPendingDate(date)}
-              />
-              <View className="flex-row gap-two mt-two">
-                <View className="flex-1">
-                  <Button label="Übernehmen" onPress={confirm} />
-                </View>
-                <View className="flex-1">
-                  <Button label="Abbrechen" variant="secondary" onPress={cancel} />
-                </View>
+      <Modal visible={isOpen} transparent animationType="fade" onRequestClose={cancel}>
+        <View className="modal-backdrop">
+          <View className="modal-sheet">
+            <ThemedText type="subtitle">{label ?? 'Datum auswählen'}</ThemedText>
+            <DateTimePicker
+              value={pendingDate}
+              mode="date"
+              display="spinner"
+              onValueChange={(_event, date) => setPendingDate(date)}
+            />
+            <View className="flex-row gap-two mt-two">
+              <View className="flex-1">
+                <Button label="Übernehmen" onPress={confirm} />
+              </View>
+              <View className="flex-1">
+                <Button label="Abbrechen" variant="secondary" onPress={cancel} />
               </View>
             </View>
           </View>
-        </Modal>
-      )}
+        </View>
+      </Modal>
     </View>
   );
 }

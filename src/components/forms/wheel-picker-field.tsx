@@ -1,6 +1,6 @@
 import { Picker } from '@expo/ui/community/picker';
 import { useState } from 'react';
-import { Modal, Platform, Pressable, View } from 'react-native';
+import { Modal, Pressable, View } from 'react-native';
 
 import { ThemedText } from '@/components/theme/themed-text';
 import { Button } from '../ui/buttons';
@@ -19,12 +19,11 @@ interface WheelPickerFieldProps {
 }
 
 /**
- * Auswahlfeld aus einer festen Optionsliste — zeigt nur den aktuellen Wert,
- * das Rad erscheint erst beim Antippen. Auf iOS ist die SwiftUI-Wheel sonst
+ * iOS-Auswahlfeld aus einer festen Optionsliste — zeigt nur den aktuellen Wert,
+ * das Rad erscheint erst beim Antippen. Auf iOS ist das SwiftUI-Wheel sonst
  * dauerhaft ausgeklappt sichtbar, deshalb hier in ein eigenes Modal mit
- * Übernehmen/Abbrechen verpackt. Android zeigt `@expo/ui/community/picker`
- * bereits nativ als Dropdown (Material 3 `ExposedDropdownMenuBox`), das erst
- * beim Antippen aufklappt — dort reicht die Komponente direkt.
+ * Übernehmen/Abbrechen verpackt.
+ * Für Android existiert eine .android.tsx mit nativer Dropdown-Logik.
  */
 export function WheelPickerField({
   label,
@@ -50,26 +49,6 @@ export function WheelPickerField({
 
   function cancel() {
     setIsOpen(false);
-  }
-
-  if (Platform.OS === 'android') {
-    return (
-      <View className="gap-one">
-        {label && (
-          <ThemedText
-            type="small"
-            themeColor="textSecondary"
-            className={size === 'large' ? 'text-body' : ''}>
-            {label}
-          </ThemedText>
-        )}
-        <Picker selectedValue={value} onValueChange={onChange}>
-          {options.map((option) => (
-            <Picker.Item key={option.value} label={option.label} value={option.value} />
-          ))}
-        </Picker>
-      </View>
-    );
   }
 
   return (
