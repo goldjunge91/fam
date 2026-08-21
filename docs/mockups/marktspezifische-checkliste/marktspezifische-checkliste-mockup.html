@@ -1,0 +1,573 @@
+<title>Marktspezifische Checkliste</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=Inter:wght@400;500;600;700;800&display=swap');
+
+  :root {
+    --ink: #2d2830;
+    --ink-soft: #55505a;
+    --muted: #786f79;
+    --page-bg: #efe6e6;
+    --page-panel: #fbf5ef;
+    --line: #e4dde3;
+    --accent: #705773;
+    --shadow: rgba(45, 40, 48, 0.1);
+
+    /* App-Tokens 1:1 aus src/constants/theme.ts (light) */
+    --app-text: #2D2830;
+    --app-bg: #F8F4EF;
+    --app-surface: #FBF7F2;
+    --app-selected: #E9E1E7;
+    --app-text-secondary: #786F79;
+    --app-border: #E4DDE3;
+    --app-accent: #705773;
+    --app-on-accent: #FFFFFF;
+    --app-success: #78906F;
+    --app-danger: #C65F50;
+
+    /* Gradients.hub (light) — src/constants/theme.ts, gerendert von
+       gradient-background.tsx als fast horizontaler Verlauf (x1 0%/y1 44%
+       -> x2 100%/y2 56%). Die Marktliste ist derselbe Screen wie "Alle
+       Listen" (nur nach Markt gefiltert) und traegt denselben Hintergrund. */
+    --hub-1: #FFCCB2;
+    --hub-2: #F9F2EB;
+    --hub-3: #E8DEF2;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ink: #f2ece7;
+      --ink-soft: #d8d0d5;
+      --muted: #b7adb3;
+      --page-bg: #16131a;
+      --page-panel: #1c181f;
+      --line: #3e3640;
+      --accent: #b79cba;
+      --shadow: rgba(0, 0, 0, 0.4);
+
+      --app-text: #F2ECE7;
+      --app-bg: #211D23;
+      --app-surface: #2B262E;
+      --app-selected: #382F3B;
+      --app-text-secondary: #B7ADB3;
+      --app-border: #3E3640;
+      --app-accent: #B79CBA;
+      --app-on-accent: #211D23;
+      --app-success: #8FAE86;
+      --app-danger: #D9776A;
+
+      /* Gradients.hub (dark) */
+      --hub-1: #3B2B2B;
+      --hub-2: #211D23;
+      --hub-3: #2E2638;
+    }
+  }
+  :root[data-theme="dark"] {
+    --ink: #f2ece7;
+    --ink-soft: #d8d0d5;
+    --muted: #b7adb3;
+    --page-bg: #16131a;
+    --page-panel: #1c181f;
+    --line: #3e3640;
+    --accent: #b79cba;
+    --shadow: rgba(0, 0, 0, 0.4);
+
+    --app-text: #F2ECE7;
+    --app-bg: #211D23;
+    --app-surface: #2B262E;
+    --app-selected: #382F3B;
+    --app-text-secondary: #B7ADB3;
+    --app-border: #3E3640;
+    --app-accent: #B79CBA;
+    --app-on-accent: #211D23;
+    --app-success: #8FAE86;
+    --app-danger: #D9776A;
+
+    --hub-1: #3B2B2B;
+    --hub-2: #211D23;
+    --hub-3: #2E2638;
+  }
+
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0;
+    background: var(--page-bg);
+    color: var(--ink);
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  body { padding: clamp(20px, 5vw, 56px) clamp(16px, 5vw, 64px) 80px; }
+
+  .intro { max-width: 700px; margin: 0 auto 40px; }
+  .eyebrow {
+    font-size: 12px; font-weight: 700; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--accent);
+  }
+  h1 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 600;
+    font-size: clamp(26px, 3.6vw, 34px);
+    line-height: 1.18;
+    margin: 8px 0 12px;
+    text-wrap: balance;
+    letter-spacing: -0.01em;
+  }
+  .intro p { font-size: 14.5px; line-height: 1.6; color: var(--ink-soft); max-width: 62ch; margin: 0; }
+  .intro code { font-size: 13px; }
+
+  .section { max-width: 900px; margin: 0 auto 64px; }
+  .section-head { text-align: center; margin-bottom: 22px; }
+  .section-head .name { font-family: 'Fraunces', Georgia, serif; font-weight: 600; font-size: 19px; letter-spacing: -0.01em; }
+  .section-head .desc { font-size: 13px; color: var(--muted); margin-top: 5px; line-height: 1.55; max-width: 56ch; margin-left: auto; margin-right: auto; }
+
+  .filmstrip { display: flex; align-items: flex-start; gap: 6px; justify-content: center; flex-wrap: wrap; }
+  .phone-slot { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+  .phone-slot-label {
+    font-size: 11px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted);
+  }
+  .strip-arrow {
+    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 5px;
+    padding: 0 4px; margin-top: 340px; flex-shrink: 0;
+  }
+  .strip-arrow .glyph { font-size: 18px; color: var(--muted); }
+  .strip-arrow .cap { font-size: 10px; color: var(--muted); text-align: center; white-space: nowrap; }
+
+  .phone {
+    width: 375px; height: 780px; border-radius: 46px; background: #0f0d11; padding: 10px;
+    box-shadow: 0 24px 60px -18px var(--shadow), 0 2px 8px var(--shadow);
+  }
+  .screen {
+    width: 100%; height: 100%; border-radius: 38px; overflow: hidden;
+    background: var(--app-bg); display: flex; flex-direction: column; position: relative;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui, sans-serif;
+    color: var(--app-text);
+  }
+  /* Screen mit chrome-Header (Hamburger/Avatar) traegt den Hub-Verlauf statt
+     der flachen Screen-Hintergrundfarbe (backgroundGradient={hubGradient} in
+     shopping-list-screen.tsx) — Modals/Sheets (Produktinformationen,
+     Bearbeitungsmenue-Overlay) bleiben bei der flachen Farbe. */
+  .screen.hub { background: linear-gradient(97deg, var(--hub-1) 0%, var(--hub-2) 40.385%, var(--hub-3) 96.154%); }
+  .statusbar { height: 30px; flex-shrink: 0; }
+  .num { font-feature-settings: "tnum"; font-variant-numeric: tabular-nums; }
+
+  .app-header {
+    display: flex; align-items: center; justify-content: space-between; padding: 4px 20px 10px; flex-shrink: 0;
+  }
+  .icon-btn {
+    width: 58px; height: 58px; border-radius: 20px;
+    background: color-mix(in srgb, var(--app-surface) 70%, transparent);
+    display: flex; align-items: center; justify-content: center; font-size: 18px; color: var(--app-text);
+  }
+  .app-title { font-size: 19px; font-weight: 700; letter-spacing: -0.01em; }
+  .avatar {
+    width: 58px; height: 58px; border-radius: 28px; background: var(--app-accent); color: var(--app-on-accent);
+    font-size: 14px; font-weight: 700; display: flex; align-items: center; justify-content: center;
+  }
+
+  .toolbar-row {
+    display: flex; align-items: center; justify-content: space-between; gap: 8px;
+    padding: 0 20px 12px; flex-shrink: 0;
+  }
+  .glass-pill {
+    display: flex; align-items: center; gap: 8px; padding: 8px 16px; border-radius: 999px;
+    background: color-mix(in srgb, var(--app-surface) 88%, transparent);
+    border: 1px solid color-mix(in srgb, var(--app-border) 70%, transparent);
+    font-size: 13px; font-weight: 700;
+  }
+  .glass-pill .dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+  .add-btn {
+    padding: 8px 16px; border-radius: 16px; background: var(--app-accent); color: var(--app-on-accent);
+    font-size: 13px; font-weight: 700;
+  }
+  .reorder-link {
+    align-self: flex-end; padding: 8px 20px; font-size: 12.5px; font-weight: 700; color: var(--app-accent);
+  }
+
+  .app-scroll { flex: 1; overflow: hidden; padding: 0 0 20px; display: flex; flex-direction: column; }
+
+  .cat-head { display: flex; align-items: center; gap: 6px; padding: 16px 16px 4px; }
+  .cat-dot { width: 6px; height: 6px; border-radius: 50%; }
+  .cat-label {
+    font-size: 11px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: var(--app-text-secondary);
+  }
+
+  /* Kategorien als Karten statt loser Abschnitte auf dem Verlauf. */
+  /* Leichte Kategoriefarbe in der Karte statt vollem Farbband (das gab es
+     schon einmal im echten Screen und wurde als zu bunt wieder zurückgebaut,
+     s. Kommentar in shopping-list-screen.tsx) — hier nur eine sehr blasse
+     Tönung, kein Farbband, und insgesamt weniger Kontrast zum Verlauf
+     dahinter (Karte halbtransparent statt voll deckend). */
+  .category-card {
+    background: color-mix(in srgb, color-mix(in srgb, var(--cat) 9%, var(--app-surface)) 78%, transparent);
+    border-radius: 22px; overflow: hidden; margin: 0 20px 12px;
+  }
+  .category-card .cat-head { padding: 14px 16px 6px; }
+  .category-card .cat-label { color: color-mix(in srgb, var(--cat) 55%, var(--app-text-secondary)); }
+  .category-card .row-clip.last .item-row { border-bottom: none; }
+  .category-card .item-row { border-bottom-color: color-mix(in srgb, var(--cat) 14%, var(--app-border)); }
+
+  /* ---- Zeile ohne Checkbox + Swipe-Reveal ---- */
+  .row-clip { overflow: hidden; position: relative; }
+  /* Kein Zeilenhintergrund — Zeilen liegen direkt auf dem Screen-Gradient,
+     genau wie bei inventory-item-row.tsx ("keine durchgehende Kartenflaeche
+     mit harten Ecken"). Nur beim Wischen deckt die Zeile die Aktionsflaeche
+     dahinter ab, dafuer bekommt sie dann kurzzeitig eine feste Farbe. */
+  .item-row {
+    display: flex; align-items: center; gap: 10px; padding: 12px 16px; border-bottom: 1px solid var(--app-border);
+    position: relative; z-index: 1;
+  }
+  /* Kategorie-Karte hat selbst schon einen Hintergrund — die Zeile deckt beim
+     Wischen also mit der Kartenfarbe ab, nicht mit der Screen-Hintergrundfarbe. */
+  .item-row.shift-short, .item-row.shift-far { background: var(--app-surface); }
+  .item-name { flex: 1; font-size: 13.5px; font-weight: 500; min-width: 0; }
+  .item-qty { width: 84px; text-align: right; font-size: 12px; color: var(--app-text-secondary); flex-shrink: 0; }
+  .item-price { width: 52px; text-align: right; font-size: 11px; color: var(--app-text-secondary); flex-shrink: 0; }
+
+  /* Reveal-Flaeche liegt hinter der Zeile; die Zeile selbst verschiebt sich
+     per translateX nach links (ReanimatedSwipeable-Verhalten). */
+  .swipe-reveal {
+    position: absolute; inset: 0; display: flex; justify-content: flex-end; align-items: stretch; z-index: 0;
+  }
+  .swipe-action {
+    width: 96px; display: flex; align-items: center; justify-content: center;
+    font-size: 13px; font-weight: 700; color: #fff;
+  }
+  .swipe-action.edit { background: var(--app-accent); }
+  .swipe-action.delete { background: var(--app-danger); }
+  .item-row.shift-short { transform: translateX(-96px); }
+  .item-row.shift-far { transform: translateX(-96px); }
+
+  .footer-stack { padding: 12px 20px 0; display: flex; flex-direction: column; gap: 8px; margin-top: auto; }
+  .mode-btn { text-align: center; padding: 8px; border-radius: 16px; font-size: 13px; font-weight: 700; background: var(--app-selected); color: var(--app-text); }
+  .complete-btn { text-align: center; padding: 8px; border-radius: 16px; font-size: 13px; font-weight: 700; color: #fff; }
+
+  /* ---- Bearbeitungsmenue: 1:1 an inventory-item-actions-sheet.tsx angelehnt
+     (fridge-actions-*-Klassen in global.css) — Handle, Kopfzeile mit
+     Farbstreifen, zwei Aktions-Pillen, Info-Zeile unten. ---- */
+  .sheet-scrim { position: absolute; inset: 0; background: rgba(31, 26, 33, 0.32); display: flex; align-items: flex-end; }
+  .action-sheet {
+    width: 100%; margin: 0 10px 10px; border-radius: 28px; padding: 11px 14px 16px;
+    background: var(--app-surface); box-shadow: 0 -8px 30px -12px var(--shadow);
+  }
+  .sheet-handle { width: 42px; height: 4px; border-radius: 2px; background: var(--app-border); margin: 0 auto 14px; }
+  .sheet-item-header {
+    min-height: 76px; display: flex; align-items: center; gap: 12px; padding-bottom: 14px;
+    border-bottom: 1px solid var(--app-border); margin-bottom: 14px;
+  }
+  .sheet-bar { width: 6px; height: 52px; border-radius: 3px; flex-shrink: 0; }
+  .sheet-copy { flex: 1; min-width: 0; }
+  .sheet-copy .name { font-size: 16px; font-weight: 700; }
+  .sheet-copy .meta { font-size: 12.5px; color: var(--app-text-secondary); margin-top: 2px; }
+  .sheet-amount { font-size: 14px; font-weight: 700; }
+
+  .sheet-action-row { display: flex; gap: 8px; margin-bottom: 12px; }
+  .sheet-action-btn {
+    flex: 1; height: 62px; border-radius: 16px; display: flex; align-items: center; justify-content: center;
+    font-size: 13.5px; font-weight: 700;
+  }
+  .sheet-action-btn.neutral { background: var(--app-selected); color: var(--app-text); }
+  .sheet-action-btn.danger { background: color-mix(in srgb, var(--app-danger) 13%, transparent); color: var(--app-danger); }
+
+  .sheet-info-row {
+    min-height: 36px; align-self: flex-start; display: flex; align-items: center; gap: 8px;
+  }
+  .sheet-info-icon {
+    width: 28px; height: 28px; border-radius: 10px; border: 1px solid var(--app-border);
+    background: var(--app-selected); display: flex; align-items: center; justify-content: center;
+    font-size: 12px; font-weight: 700; font-style: italic; color: var(--app-text-secondary);
+  }
+  .sheet-info-row .label { font-size: 13px; font-weight: 600; color: var(--app-text); }
+  .sheet-info-chev { margin-left: auto; font-size: 13px; color: var(--app-text-secondary); opacity: 0.6; }
+
+  /* ---- Produktinformationen: gleiche Karten-Sprache wie card-fam
+     (bg-background-element, rounded-fam-large, shadow-card). ---- */
+  .info-header-row { display: flex; align-items: center; justify-content: space-between; padding: 14px 20px 4px; flex-shrink: 0; }
+  .info-title { font-size: 17px; font-weight: 700; }
+  .info-close { width: 32px; height: 32px; border-radius: 16px; background: var(--app-selected); display: flex; align-items: center; justify-content: center; font-size: 13px; color: var(--app-text-secondary); }
+  .info-scroll { flex: 1; overflow: hidden; padding: 8px 20px 16px; display: flex; flex-direction: column; gap: 12px; }
+
+  .fact-card { background: var(--app-surface); border-radius: 28px; padding: 16px; box-shadow: 0 1px 0 var(--app-border); }
+  .fact-card-heading { font-size: 11px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: var(--app-text-secondary); margin-bottom: 10px; }
+  .fact-row { display: flex; align-items: baseline; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid var(--app-border); }
+  .fact-row:last-child { border-bottom: none; }
+  .fact-row.sub { padding-left: 14px; }
+  .fact-row.sub .fl { color: var(--app-text-secondary); font-weight: 500; font-size: 12.5px; }
+  .fact-row.sub .fv { color: var(--app-text-secondary); font-weight: 600; font-size: 12.5px; }
+  .fl { font-size: 13.5px; font-weight: 600; color: var(--app-text); }
+  .fv { font-size: 13.5px; font-weight: 700; color: var(--app-text); }
+  .fact-basis { font-size: 10.5px; color: var(--app-text-secondary); margin-top: 10px; line-height: 1.5; }
+
+  footer {
+    max-width: 700px; margin: 40px auto 0; font-size: 12px; color: var(--muted);
+    text-align: center; border-top: 1px solid var(--line); padding-top: 18px; line-height: 1.6;
+  }
+</style>
+
+<div class="intro">
+  <div class="eyebrow">Einkauf · Marktspezifische Checkliste</div>
+  <h1>Wisch statt Zeile, Sheet statt Seite</h1>
+  <p>
+    Neu aufgesetzt am realen Vorbild: <code>inventory-item-actions-sheet.tsx</code> (Kühlschrank)
+    hat schon ein fertiges Aktions-Menü — Farbstreifen-Kopf, zwei Aktions-Pillen, eine
+    Info-Zeile unten. Unten dieselbe Sprache für die Einkaufsliste: Wischen ersetzt die
+    Checkbox, das Menü ersetzt die frühere Modal-Vollseite.
+  </p>
+</div>
+
+<div class="section">
+  <div class="section-head">
+    <div class="name">1 · Wischgeste an der Zeile</div>
+    <div class="desc">Kurz nach links: "Bearbeiten" erscheint. Weiter geschoben: dieselbe Fläche wechselt zu "Löschen" — ein Fortsetzen der Geste, kein zweiter Button daneben.</div>
+  </div>
+  <div class="filmstrip">
+    <div class="phone-slot">
+      <div class="phone-slot-label">Ruhezustand</div>
+      <div class="phone">
+        <div class="screen hub">
+          <div class="statusbar"></div>
+          <div class="app-header">
+            <div class="icon-btn">☰</div>
+            <div class="app-title">Einkauf</div>
+            <div class="avatar">MK</div>
+          </div>
+          <div class="toolbar-row">
+            <div class="glass-pill"><span class="dot" style="background:#B5623F"></span>REWE</div>
+            <div class="add-btn">+ Artikel</div>
+          </div>
+          <div class="reorder-link">⠿ Reihenfolge bearbeiten</div>
+          <div class="app-scroll">
+            <div class="category-card" style="--cat:#748C5B">
+              <div class="cat-head"><span class="cat-dot" style="background:#748C5B"></span><span class="cat-label">Obst &amp; Gemüse</span></div>
+              <div class="row-clip"><div class="item-row"><div class="item-name">Bananen</div><div class="item-qty num">6 Stk.</div><div class="item-price num">1,80 €</div></div></div>
+              <div class="row-clip last"><div class="item-row"><div class="item-name">Tomaten</div><div class="item-qty num">500 g</div><div class="item-price num">2,10 €</div></div></div>
+            </div>
+            <div class="category-card" style="--cat:#5C7396">
+              <div class="cat-head"><span class="cat-dot" style="background:#5C7396"></span><span class="cat-label">Molkerei</span></div>
+              <div class="row-clip"><div class="item-row"><div class="item-name">Bio-Eier, Freiland</div><div class="item-qty num">10 Stk.</div><div class="item-price num">3,80 €</div></div></div>
+              <div class="row-clip last"><div class="item-row"><div class="item-name">Milch, 3,5 %</div><div class="item-qty num">1 l</div><div class="item-price num">1,10 €</div></div></div>
+            </div>
+
+            <div class="footer-stack">
+              <div class="mode-btn">🛒 Einkaufsmodus starten</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="strip-arrow"><div class="glyph">→</div><div class="cap">kurz<br>wischen</div></div>
+
+    <div class="phone-slot">
+      <div class="phone-slot-label">Kurz gewischt · Bearbeiten</div>
+      <div class="phone">
+        <div class="screen hub">
+          <div class="statusbar"></div>
+          <div class="app-header">
+            <div class="icon-btn">☰</div>
+            <div class="app-title">Einkauf</div>
+            <div class="avatar">MK</div>
+          </div>
+          <div class="toolbar-row">
+            <div class="glass-pill"><span class="dot" style="background:#B5623F"></span>REWE</div>
+            <div class="add-btn">+ Artikel</div>
+          </div>
+          <div class="reorder-link">⠿ Reihenfolge bearbeiten</div>
+          <div class="app-scroll">
+            <div class="category-card" style="--cat:#748C5B">
+              <div class="cat-head"><span class="cat-dot" style="background:#748C5B"></span><span class="cat-label">Obst &amp; Gemüse</span></div>
+              <div class="row-clip"><div class="item-row"><div class="item-name">Bananen</div><div class="item-qty num">6 Stk.</div><div class="item-price num">1,80 €</div></div></div>
+              <div class="row-clip last">
+                <div class="swipe-reveal"><div class="swipe-action edit">Bearbeiten</div></div>
+                <div class="item-row shift-short"><div class="item-name">Tomaten</div><div class="item-qty num">500 g</div><div class="item-price num">2,10 €</div></div>
+              </div>
+            </div>
+            <div class="category-card" style="--cat:#5C7396">
+              <div class="cat-head"><span class="cat-dot" style="background:#5C7396"></span><span class="cat-label">Molkerei</span></div>
+              <div class="row-clip"><div class="item-row"><div class="item-name">Bio-Eier, Freiland</div><div class="item-qty num">10 Stk.</div><div class="item-price num">3,80 €</div></div></div>
+              <div class="row-clip last"><div class="item-row"><div class="item-name">Milch, 3,5 %</div><div class="item-qty num">1 l</div><div class="item-price num">1,10 €</div></div></div>
+            </div>
+
+            <div class="footer-stack">
+              <div class="mode-btn">🛒 Einkaufsmodus starten</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="strip-arrow"><div class="glyph">→</div><div class="cap">weiter<br>wischen</div></div>
+
+    <div class="phone-slot">
+      <div class="phone-slot-label">Weiter gewischt · Löschen</div>
+      <div class="phone">
+        <div class="screen hub">
+          <div class="statusbar"></div>
+          <div class="app-header">
+            <div class="icon-btn">☰</div>
+            <div class="app-title">Einkauf</div>
+            <div class="avatar">MK</div>
+          </div>
+          <div class="toolbar-row">
+            <div class="glass-pill"><span class="dot" style="background:#B5623F"></span>REWE</div>
+            <div class="add-btn">+ Artikel</div>
+          </div>
+          <div class="reorder-link">⠿ Reihenfolge bearbeiten</div>
+          <div class="app-scroll">
+            <div class="category-card" style="--cat:#748C5B">
+              <div class="cat-head"><span class="cat-dot" style="background:#748C5B"></span><span class="cat-label">Obst &amp; Gemüse</span></div>
+              <div class="row-clip"><div class="item-row"><div class="item-name">Bananen</div><div class="item-qty num">6 Stk.</div><div class="item-price num">1,80 €</div></div></div>
+              <div class="row-clip last">
+                <div class="swipe-reveal"><div class="swipe-action delete">Löschen</div></div>
+                <div class="item-row shift-far"><div class="item-name">Tomaten</div><div class="item-qty num">500 g</div><div class="item-price num">2,10 €</div></div>
+              </div>
+            </div>
+            <div class="category-card" style="--cat:#5C7396">
+              <div class="cat-head"><span class="cat-dot" style="background:#5C7396"></span><span class="cat-label">Molkerei</span></div>
+              <div class="row-clip"><div class="item-row"><div class="item-name">Bio-Eier, Freiland</div><div class="item-qty num">10 Stk.</div><div class="item-price num">3,80 €</div></div></div>
+              <div class="row-clip last"><div class="item-row"><div class="item-name">Milch, 3,5 %</div><div class="item-qty num">1 l</div><div class="item-price num">1,10 €</div></div></div>
+            </div>
+
+            <div class="footer-stack">
+              <div class="mode-btn">🛒 Einkaufsmodus starten</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-head">
+    <div class="name">2 · Bearbeitungsmenü</div>
+    <div class="desc">Antippen der Zeile (statt Loslassen mitten in der Wischgeste) öffnet dasselbe Menü — 1:1 die Struktur von <code>inventory-item-actions-sheet.tsx</code>: Farbstreifen-Kopf, zwei Aktions-Pillen, Info-Zeile unten.</div>
+  </div>
+  <div class="filmstrip">
+    <div class="phone-slot">
+      <div class="phone-slot-label">Hauptscreen</div>
+      <div class="phone">
+        <div class="screen hub">
+          <div class="statusbar"></div>
+          <div class="app-header">
+            <div class="icon-btn">☰</div>
+            <div class="app-title">Einkauf</div>
+            <div class="avatar">MK</div>
+          </div>
+          <div class="toolbar-row">
+            <div class="glass-pill"><span class="dot" style="background:#B5623F"></span>REWE</div>
+            <div class="add-btn">+ Artikel</div>
+          </div>
+          <div class="reorder-link">⠿ Reihenfolge bearbeiten</div>
+          <div class="app-scroll">
+            <div class="category-card" style="--cat:#748C5B">
+              <div class="cat-head"><span class="cat-dot" style="background:#748C5B"></span><span class="cat-label">Obst &amp; Gemüse</span></div>
+              <div class="row-clip"><div class="item-row"><div class="item-name">Bananen</div><div class="item-qty num">6 Stk.</div><div class="item-price num">1,80 €</div></div></div>
+              <div class="row-clip last"><div class="item-row"><div class="item-name">Tomaten</div><div class="item-qty num">500 g</div><div class="item-price num">2,10 €</div></div></div>
+            </div>
+            <div class="category-card" style="--cat:#5C7396">
+              <div class="cat-head"><span class="cat-dot" style="background:#5C7396"></span><span class="cat-label">Molkerei</span></div>
+              <div class="row-clip" style="background:var(--app-selected)"><div class="item-row" style="background:transparent"><div class="item-name">Bio-Eier, Freiland</div><div class="item-qty num">10 Stk.</div><div class="item-price num">3,80 €</div></div></div>
+              <div class="row-clip last"><div class="item-row"><div class="item-name">Milch, 3,5 %</div><div class="item-qty num">1 l</div><div class="item-price num">1,10 €</div></div></div>
+            </div>
+
+            <div class="footer-stack">
+              <div class="mode-btn">🛒 Einkaufsmodus starten</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="strip-arrow"><div class="glyph">→</div><div class="cap">Zeile<br>antippen</div></div>
+
+    <div class="phone-slot">
+      <div class="phone-slot-label">Bearbeitungsmenü</div>
+      <div class="phone">
+        <div class="screen hub">
+          <div class="statusbar"></div>
+          <div class="app-header">
+            <div class="icon-btn">☰</div>
+            <div class="app-title">Einkauf</div>
+            <div class="avatar">MK</div>
+          </div>
+          <div class="toolbar-row">
+            <div class="glass-pill"><span class="dot" style="background:#B5623F"></span>REWE</div>
+            <div class="add-btn">+ Artikel</div>
+          </div>
+          <div class="reorder-link">⠿ Reihenfolge bearbeiten</div>
+          <div class="app-scroll">
+            <div class="category-card" style="--cat:#748C5B">
+              <div class="cat-head"><span class="cat-dot" style="background:#748C5B"></span><span class="cat-label">Obst &amp; Gemüse</span></div>
+              <div class="row-clip"><div class="item-row"><div class="item-name">Bananen</div><div class="item-qty num">6 Stk.</div><div class="item-price num">1,80 €</div></div></div>
+              <div class="row-clip last"><div class="item-row"><div class="item-name">Tomaten</div><div class="item-qty num">500 g</div><div class="item-price num">2,10 €</div></div></div>
+            </div>
+          </div>
+
+          <div class="sheet-scrim">
+            <div class="action-sheet">
+              <div class="sheet-handle"></div>
+              <div class="sheet-item-header">
+                <div class="sheet-bar" style="background:#5C7396"></div>
+                <div class="sheet-copy">
+                  <div class="name">Bio-Eier, Freiland</div>
+                  <div class="meta">Molkerei · 3,80 € geschätzt</div>
+                </div>
+                <div class="sheet-amount num">10 Stk.</div>
+              </div>
+              <div class="sheet-action-row">
+                <div class="sheet-action-btn neutral">Bearbeiten</div>
+                <div class="sheet-action-btn danger">Löschen</div>
+              </div>
+              <div class="sheet-info-row">
+                <div class="sheet-info-icon">i</div>
+                <div class="label">Produktinformationen</div>
+                <div class="sheet-info-chev">›</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-head">
+    <div class="name">3 · Produktinformationen</div>
+    <div class="desc">"Produktinformationen" im Menü öffnet die Nährwerte — dieselbe Karten-Sprache wie <code>card-fam</code> (Card-Komponente), keine Extra-Chrome. Alle sieben echten Felder aus <code>products</code>, nichts erfunden.</div>
+  </div>
+  <div class="filmstrip">
+    <div class="phone-slot">
+      <div class="phone-slot-label">Nährwerte</div>
+      <div class="phone">
+        <div class="screen">
+          <div class="statusbar"></div>
+          <div class="info-header-row">
+            <div class="info-title">Bio-Eier, Freiland</div>
+            <div class="info-close">✕</div>
+          </div>
+          <div class="info-scroll">
+            <div class="fact-card">
+              <div class="fact-card-heading">Nährwerte je 100 g</div>
+              <div class="fact-row"><span class="fl">Energie</span><span class="fv num">648 kJ / 155 kcal</span></div>
+              <div class="fact-row"><span class="fl">Fett</span><span class="fv num">11 g</span></div>
+              <div class="fact-row"><span class="fl">Kohlenhydrate</span><span class="fv num">1,1 g</span></div>
+              <div class="fact-row sub"><span class="fl">davon Zucker</span><span class="fv num">0,7 g</span></div>
+              <div class="fact-row"><span class="fl">Ballaststoffe</span><span class="fv num">0 g</span></div>
+              <div class="fact-row"><span class="fl">Eiweiß</span><span class="fv num">13 g</span></div>
+              <div class="fact-row"><span class="fl">Salz</span><span class="fv num">0,37 g</span></div>
+              <div class="fact-basis">Marke: Wiesenhof Bio · EAN 4104420127025</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  Bearbeitungsmenü 1:1 aus <code>inventory-item-actions-sheet.tsx</code> /
+  <code>fridge-actions-*</code>-Klassen (<code>global.css</code>). Wischgeste nach dem Muster von
+  <code>inventory-item-row.tsx</code> (<code>ReanimatedSwipeable</code>), hier um eine zweite
+  Schwelle erweitert. Nährwerte aus <code>products.kcal_per_100</code> etc. Unverbindlicher
+  Mockup — nichts an echten Komponenten wurde geändert.
+</footer>

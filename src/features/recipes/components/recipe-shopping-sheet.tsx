@@ -4,7 +4,7 @@ import { ActivityIndicator, Alert, Pressable, View } from 'react-native';
 import { ThemedText } from '@/components/theme/themed-text';
 import { presentPaywallIfNeeded } from '@/features/premium/paywall';
 import { usePremium } from '@/features/premium/premium-provider';
-import { useAddShoppingItem } from '@/features/shopping-list/use-shopping-list-mutations';
+import { useAddShoppingItem } from '@/features/shopping-list/hooks/use-shopping-list-mutations';
 import { useTheme } from '@/hooks/use-theme';
 import { type RecipeShoppingNeed, useRecipeShoppingNeeds } from '../use-recipe-shopping-needs';
 import type { RecipeDetail } from '../use-recipes';

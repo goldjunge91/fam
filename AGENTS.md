@@ -8,7 +8,7 @@
 
 ## What Makes NutriTrack Special (1–4 Non-Negotiable Pillars)
 
-1. **Strikte Datentrennung & RLS-Autorität:** Geteilte Haushaltsdaten (Kühlschrank, Vorrat, Einkaufszettel) und private Nutzerdaten (Kalorien, Gewicht, Tagebuch) sind auf Datenbankebene per Supabase RLS strikt isoliert.
+1. **Strikte Datentrennung & RLS-Autorität:** Geteilte Haushaltsdaten (Kühlschrank, Vorrat, Einkaufszettel) und private Nutzerdaten (Tracking: Kalorien, Gewicht, Medikamente, Fasten, Vitalwerte, Workouts) sind auf Datenbankebene per Supabase RLS strikt isoliert.
 2. **Ausschließlich Declaratives Datenbankschema:** Die Schemadefinitionen in `supabase/schemas/*.sql` sind die einzige Wahrheit. Migrationsdateien werden niemals manuell verfasst, sondern ausschließlich über `bun run db:diff` mit `pg-delta` generiert.
 3. **Local-First & Offline-Belastbarkeit:** Lokale SQLite-Datenbank (`expo-sqlite`) mit Outbox-Sync für reibungslose Bedienung auch ohne stabile Netzverbindung.
 
@@ -52,8 +52,10 @@ I want to share some of my preferences here so we can be more aligned as we work
 | **`We / Maintainers`** | Marco und die Maintainer des Projekts (deine Gesprächspartner). |
 | **`User`** | Der Endnutzer der NutriTrack-App bzw. die Person, die App später verwenden wird. |
 | **`Household (Haushalt)`** | Die geteilte Entität für gemeinsame Bestände, Einkaufslisten und Einladungen. |
-| **`Inventory / Fridge`** | Geteilter Lebensmittelbestand mit Lagerorten (Kühlschrank, Vorrat, Tiefkühler). |
-| **`Diary / Log`** | Privates, nutzerspezifisches Ernährungstagebuch (Mahlzeiten, Kalorien, Makronährstoffe). |
+| **`Inventory / Fridge`** | Geteilter Lebensmittelbestand mit Lagerorten (Kühlschrank, Vorrat, Tiefkühler). Eigenständiger Bestandseintrag, optional angereichert durch ein Product. Siehe `CONTEXT.md`. |
+| **`Product`** | Globaler, nicht haushaltsgebundener Katalogeintrag (Barcode/Nährwerte). Keine Identität mit Inventory/Shopping-List-Items, nur optionale Anreicherung. Siehe `CONTEXT.md`. |
+| **`Tracking`** | Oberbegriff für alle privaten, per RLS isolierten Nutzerdaten (Nutrition Tracking, Medications & Symptoms, Fasting, Vital Logs, Workouts). Siehe `CONTEXT.md`. |
+| **`Nutrition Tracking`** | Ernährungs- und Gewichtsteil von Tracking: Mahlzeiten, Gewicht, Ziele. Eine Tracking-Domäne unter mehreren, kein Oberbegriff. |
 | **`Declarative Schema`** | Der deklarative Schemazustand unter `supabase/schemas/*.sql`. |
 | **`Outbox`** | Lokale SQLite-Warteschlange für Offline-Mutationen vor dem Push an Supabase. |
 | **`Dev Build`** | Natives Binary (`scripts/ios-dev.sh`), das für native Expo-Module zwingend nötig ist. |
@@ -136,7 +138,7 @@ Read the exact versioned docs at <https://docs.expo.dev/versions/v57.0.0/> befor
 
 - **Simplicity & YAGNI:** Halte Lösungen schlank. Vermeide unnötige Abstraktionsschichten oder Wrapper-Funktionen.
 - **Typesicherheit ohne `any`:** Inferenz nutzen. Typsysteme sollen sich an Änderungen anpassen. Code soll modernen TypeScript-Standards entsprechen.
-- **Feature-First Struktur:** `src/app/` dient ausschließlich dem Routing (Expo Router). Fachlogik gehört nach `src/features/<domain>/` (mit `components/`, `hooks/`, `api.ts`, `types.ts`), geteilte UI nach `src/components/`.
+- **Feature-First Struktur:** `src/app/` dient ausschließlich dem Routing (Expo Router). Fachlogik gehört nach `src/features/<domain>/`, geteilte UI nach `src/components/`. Kleine Features bleiben flach (`components/`, `hooks/`, `api.ts`, `types.ts`); sobald ein Feature spürbar wächst, wird nach Verantwortungsschicht getrennt statt alles in `components/` zu sammeln — `screens/` (Screens/Routen-Ziele), `sheets/` (Modals/Bottom-Sheets), `forms/` (Formulare & Eingabe-Bausteine), `components/` (reine Anzeige-Komponenten), `hooks/` (React-Query-/Datenzugriffs-Hooks), `domain/` (Domänen-Logik & Konfiguration ohne React). Referenz: `src/features/shopping-list/`.
 - **UI & Layout:** Warme Mauve-/Creme-Palette (`src/constants/theme.ts`, Light & Dark, siehe `docs/DESIGN_SYSTEM.md`), semantisches Styling ausschließlich über Theme-Tokens, kein Em-Dash in Copy, Informationsdichte vor Deko.
 - **Expo SDK 57:** Vor dem Schreiben nativer Expo-Features stets die versionierte Dokumentation (<https://docs.expo.dev/versions/v57.0.0/>) konsultieren.
 - **Testing Library:** Vor Änderungen an Komponententests die Regeln in `.agents/rules/react-native-testing-library.md` beachten.

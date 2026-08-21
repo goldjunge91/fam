@@ -40,6 +40,10 @@ module.exports = {
     '^@/(.*)$': '<rootDir>/src/$1',
   },
 
+  transformIgnorePatterns: [
+    'node_modules/(?!(.bun|expo|@expo)/)',
+  ],
+
   testMatch: ['**/*.integration.test.ts', '**/*.integration.test.tsx'],
   testPathIgnorePatterns: ['/node_modules/'],
   setupFiles: ['<rootDir>/test/setup-integration.js'],

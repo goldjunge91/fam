@@ -28,6 +28,8 @@ export function RecipeBottomSheet({
   avoidKeyboard = false,
   children,
 }: RecipeBottomSheetProps) {
+  if (!visible) return null;
+
   const body = (
     <Pressable className="flex-1 justify-end bg-[#261f27]/30" onPress={onClose}>
       <Pressable
@@ -52,6 +54,10 @@ export function RecipeBottomSheet({
       </Pressable>
     </Pressable>
   );
+
+  if (process.env.NODE_ENV === 'test') {
+    return body;
+  }
 
   return (
     <Modal

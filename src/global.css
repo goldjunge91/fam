@@ -731,8 +731,11 @@
     @apply flex-1 min-w-0 min-h-[75px] justify-center border rounded-control p-two active:opacity-70;
   }
 
-  .store-summary-card {
-    @apply flex-row items-center gap-three rounded-fam-large py-three pl-two pr-three overflow-hidden bg-background-element;
+  /* Kompakte Zeile fuer "Alle Listen" (Mockup "Einkauf Uebersicht",
+     Variante 2) — Karte ist einer dichten Zeile gewichen, damit mehrere
+     Maerkte ohne Scrollen sichtbar bleiben. */
+  .store-summary-row {
+    @apply flex-row items-center gap-three rounded-card py-two pl-two pr-three overflow-hidden bg-background-element;
   }
 
   .store-summary-stripe {
@@ -775,8 +778,14 @@
     @apply w-[14px] h-[14px] rounded-sm;
   }
 
-  .shopping-section-header {
-    @apply px-three pt-three pb-one uppercase tracking-wider text-text-secondary text-body-small font-semibold;
+  /* shopping-mode-screen.tsx — Kategorie-Farbe kommt als Inline-Style
+     (dynamischer Hex-Wert je Kategorie), hier nur das Layout. */
+  .shopping-mode-cat-head {
+    @apply flex-row items-center gap-two px-three py-two;
+  }
+
+  .shopping-mode-row {
+    @apply flex-row items-center gap-two px-three py-[10px] pl-[19px] border-b-hairline border-border;
   }
 
   .transfer-row {
@@ -784,11 +793,17 @@
   }
 
   .quantity-badge {
-    @apply px-two py-half rounded-sheet bg-success;
+    @apply px-three py-one rounded-sheet bg-success;
   }
 
   .kind-button {
-    @apply flex-1 flex-row items-center justify-center gap-one py-two px-one rounded-sheet border-[1.5px];
+    @apply flex-1 flex-row items-center justify-center gap-one py-one px-one rounded-sheet border-[1.5px];
+  }
+
+  /* complete-run-sheet.tsx — MHD-Feld bewusst schmal statt volle Zeilenbreite,
+     ein Datum braucht keine so grosse Tapp-Flaeche wie die Lagerort-Buttons. */
+  .mhd-field-width {
+    @apply w-[140px];
   }
 
   .btn-success {

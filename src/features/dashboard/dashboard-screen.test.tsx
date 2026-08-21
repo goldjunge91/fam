@@ -41,7 +41,7 @@ jest.mock('@/features/inventory/use-expiry-notifications', () => ({
   useExpiryNotifications: () => {},
 }));
 
-jest.mock('@/features/shopping-list/use-shopping-list', () => ({
+jest.mock('@/features/shopping-list/hooks/use-shopping-list', () => ({
   useShoppingList: () => ({ data: [] }),
 }));
 

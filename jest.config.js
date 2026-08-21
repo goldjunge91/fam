@@ -2,6 +2,7 @@
 module.exports = {
   preset: 'jest-expo',
   setupFiles: ['<rootDir>/test/setup.js'],
+  maxWorkers: '50%',
 
   // Ohne diesen Resolver landet `react-native-reanimated/mock` (ueber
   // `react-native-worklets`) trotzdem bei den `.native.ts`-Dateien und damit
@@ -58,13 +59,6 @@ module.exports = {
   testPathIgnorePatterns: ['/node_modules/', '\\.integration\\.test\\.tsx?$'],
 
   // Bewusst nicht standardmaessig an: Instrumentierung kostet auf jedem Lauf
-  // Zeit (Default-`test`, Pre-Commit-Hook, CI-Checks-Job). Wer den Bericht
-  // braucht, ruft `bun run test:coverage` auf.
-  collectCoverageFrom: [
-    'src/**/*.{ts,tsx}',
-    '!src/**/*.test.{ts,tsx}',
-    '!src/components/ui/**',
-    // Generiert aus dem DB-Schema, nicht von Hand gepflegt.
-    '!src/lib/database.types.ts',
-  ],
+  // ~2x Laufzeit. Fuer gezielte Coverage-Reports gibt es `bun run test:coverage`.
+  collectCoverage: false,
 };

@@ -1,0 +1,1764 @@
+<title>Supermarkt-Modus</title>
+<style>
+  :root {
+    --text: #2D2830;
+    --bg: #F8F4EF;
+    --surface: #FBF7F2;
+    --selected: #E9E1E7;
+    --text-secondary: #786F79;
+    --border: #E4DDE3;
+    --accent: #705773;
+    --on-accent: #FFFFFF;
+    --success: #78906F;
+    --warning: #C69059;
+    --danger: #C65F50;
+    --shadow: #594059;
+
+    --page-bg: #EFE9E2;
+    --page-text: #2D2830;
+    --page-text-secondary: #786F79;
+    --page-surface: #FFFFFF;
+    --page-border: #DED5CB;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --text: #F2ECE7;
+      --bg: #211D23;
+      --surface: #2B262E;
+      --selected: #382F3B;
+      --text-secondary: #B7ADB3;
+      --border: #3E3640;
+      --accent: #B79CBA;
+      --on-accent: #211D23;
+      --success: #8FAE86;
+      --warning: #D9A86C;
+      --danger: #D9776A;
+      --shadow: #594059;
+
+      --page-bg: #17141A;
+      --page-text: #F2ECE7;
+      --page-text-secondary: #B7ADB3;
+      --page-surface: #1E1A20;
+      --page-border: #332C36;
+    }
+  }
+  :root[data-theme="dark"] {
+    --text: #F2ECE7;
+    --bg: #211D23;
+    --surface: #2B262E;
+    --selected: #382F3B;
+    --text-secondary: #B7ADB3;
+    --border: #3E3640;
+    --accent: #B79CBA;
+    --on-accent: #211D23;
+    --success: #8FAE86;
+    --warning: #D9A86C;
+    --danger: #D9776A;
+    --shadow: #594059;
+
+    --page-bg: #17141A;
+    --page-text: #F2ECE7;
+    --page-text-secondary: #B7ADB3;
+    --page-surface: #1E1A20;
+    --page-border: #332C36;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--page-bg);
+    color: var(--page-text);
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui, "Segoe UI", Roboto, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    padding: 40px 20px 80px;
+  }
+
+  .wrap {
+    max-width: 1180px;
+    margin: 0 auto;
+  }
+
+  header.page-head {
+    margin-bottom: 32px;
+  }
+
+  .eyebrow {
+    font-size: 12px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--page-text-secondary);
+    font-weight: 600;
+  }
+
+  h1 {
+    font-size: 26px;
+    font-weight: 650;
+    letter-spacing: -0.01em;
+    margin: 6px 0 8px;
+    text-wrap: balance;
+  }
+
+  .lede {
+    font-size: 15px;
+    line-height: 1.55;
+    color: var(--page-text-secondary);
+    max-width: 62ch;
+  }
+
+  .tabs {
+    display: flex;
+    gap: 8px;
+    margin: 28px 0 24px;
+    border-bottom: 1px solid var(--page-border);
+    flex-wrap: wrap;
+  }
+
+  .tab {
+    appearance: none;
+    border: none;
+    background: none;
+    font: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--page-text-secondary);
+    padding: 10px 4px 12px;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    margin-right: 22px;
+  }
+
+  .tab:hover { color: var(--page-text); }
+
+  .tab[aria-selected="true"] {
+    color: var(--page-text);
+    border-bottom-color: #B5623F;
+  }
+
+  .tab:focus-visible {
+    outline: 2px solid #B5623F;
+    outline-offset: 3px;
+  }
+
+  .layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 340px;
+    gap: 40px;
+    align-items: start;
+  }
+
+  @media (max-width: 860px) {
+    .layout { grid-template-columns: 1fr; }
+  }
+
+  .panel {
+    display: none;
+  }
+  .panel.active { display: grid; grid-template-columns: minmax(0,1fr) 340px; gap: 40px; align-items: start; }
+  @media (max-width: 860px) {
+    .panel.active { grid-template-columns: 1fr; }
+  }
+
+  /* --- phone frame --- */
+  .phone-stage {
+    display: flex;
+    justify-content: center;
+  }
+
+  .phone {
+    width: 375px;
+    height: 780px;
+    background: var(--bg);
+    border-radius: 46px;
+    border: 10px solid #0d0b0e;
+    box-shadow: 0 24px 60px -18px rgba(20, 14, 20, 0.45);
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui, sans-serif;
+    color: var(--text);
+  }
+
+  .notch {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 26px;
+    background: #0d0b0e;
+    border-radius: 0 0 16px 16px;
+    z-index: 5;
+  }
+
+  .statusbar {
+    height: 46px;
+    flex-shrink: 0;
+  }
+
+  .screen {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    position: relative;
+  }
+
+  .home-indicator {
+    position: absolute;
+    bottom: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 4px;
+    border-radius: 3px;
+    background: var(--text);
+    opacity: 0.25;
+  }
+
+  tt, .num { font-variant-numeric: tabular-nums; }
+
+  /* --- notes column --- */
+  .notes {
+    padding-top: 8px;
+  }
+
+  .notes h2 {
+    font-size: 18px;
+    font-weight: 650;
+    margin: 0 0 6px;
+    letter-spacing: -0.01em;
+  }
+
+  .notes .tagline {
+    font-size: 13px;
+    color: var(--page-text-secondary);
+    margin: 0 0 20px;
+    line-height: 1.5;
+  }
+
+  .notes ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .notes li {
+    font-size: 13.5px;
+    line-height: 1.5;
+    color: var(--page-text);
+    padding-left: 16px;
+    position: relative;
+  }
+
+  .notes li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 7px;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #B5623F;
+  }
+
+  .notes li b { font-weight: 600; }
+
+  .fit-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    font-weight: 650;
+    letter-spacing: 0.02em;
+    color: #B5623F;
+    background: rgba(181, 98, 63, 0.1);
+    border: 1px solid rgba(181, 98, 63, 0.25);
+    padding: 5px 10px;
+    border-radius: 999px;
+    margin-bottom: 16px;
+  }
+
+  /* =========================================================
+     CONCEPT A — Fokus-Checkliste
+     ========================================================= */
+  .a-topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 4px 18px 12px;
+  }
+  .a-store {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .a-dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: #B5623F;
+  }
+  .a-store-name {
+    font-size: 15px;
+    font-weight: 650;
+  }
+  .a-close {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: var(--selected);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    color: var(--text-secondary);
+  }
+  .a-progress-row {
+    padding: 0 18px 14px;
+  }
+  .a-progress-track {
+    height: 5px;
+    border-radius: 3px;
+    background: var(--selected);
+    overflow: hidden;
+  }
+  .a-progress-fill {
+    height: 100%;
+    width: 42%;
+    background: #B5623F;
+    border-radius: 3px;
+  }
+  .a-progress-label {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 7px;
+    font-size: 12px;
+    color: var(--text-secondary);
+  }
+  .a-list {
+    flex: 1;
+    overflow-y: auto;
+    padding-bottom: 90px;
+  }
+  .a-section-head {
+    position: sticky;
+    top: 0;
+    background: var(--bg);
+    padding: 14px 18px 6px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    z-index: 2;
+  }
+  .a-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 13px 18px;
+  }
+  .a-check {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    border: 2px solid var(--border);
+    flex-shrink: 0;
+  }
+  .a-check.done {
+    background: var(--accent);
+    border-color: var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 14px;
+  }
+  .a-row-text { flex: 1; min-width: 0; }
+  .a-row-name {
+    font-size: 15.5px;
+    font-weight: 500;
+  }
+  .a-row.done .a-row-name {
+    color: var(--text-secondary);
+    text-decoration: line-through;
+    text-decoration-color: var(--border);
+  }
+  .a-row-qty {
+    font-size: 12.5px;
+    color: var(--text-secondary);
+    margin-top: 1px;
+  }
+
+  .a-topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .a-img-toggle {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11.5px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    cursor: pointer;
+  }
+  .a-img-toggle input { display: none; }
+  .a-img-switch {
+    width: 30px;
+    height: 18px;
+    border-radius: 10px;
+    background: var(--selected);
+    position: relative;
+    transition: background 0.15s ease;
+    flex-shrink: 0;
+  }
+  .a-img-switch::after {
+    content: "";
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: var(--surface);
+    box-shadow: 0 1px 2px rgba(0,0,0,0.25);
+    transition: transform 0.15s ease;
+  }
+  .a-img-toggle input:checked + .a-img-switch { background: #B5623F; }
+  .a-img-toggle input:checked + .a-img-switch::after { transform: translateX(12px); }
+
+  /* --- Kategorien: farbcodiert, auf-/zuklappbar --- */
+  .a-cat {
+    border-bottom: 1px solid var(--border);
+  }
+  .a-cat:first-child { border-top: 1px solid var(--border); }
+
+  .a-cat-head {
+    all: unset;
+    box-sizing: border-box;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 13px 18px 13px 15px;
+    cursor: pointer;
+    border-left: 6px solid var(--cat);
+    background: color-mix(in srgb, var(--cat) 13%, var(--bg));
+  }
+  .a-cat-dot {
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    background: var(--cat);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--cat) 25%, transparent);
+    flex-shrink: 0;
+  }
+  .a-cat-name {
+    font-size: 13px;
+    font-weight: 750;
+    letter-spacing: 0.01em;
+    flex: 1;
+    color: color-mix(in srgb, var(--cat) 75%, var(--text));
+  }
+  .a-cat-count {
+    font-size: 12px;
+    font-weight: 650;
+    color: color-mix(in srgb, var(--cat) 65%, var(--text-secondary));
+  }
+  .a-cat.is-complete .a-cat-count { color: var(--success); font-weight: 650; }
+  .a-cat-chevron {
+    font-size: 13px;
+    color: color-mix(in srgb, var(--cat) 65%, var(--text-secondary));
+    transition: transform 0.18s ease;
+    line-height: 1;
+  }
+  .a-cat.is-collapsed .a-cat-chevron { transform: rotate(-90deg); }
+  .a-cat.is-collapsed .a-cat-head { opacity: 0.92; }
+  .a-thumb {
+    box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--cat) 30%, transparent);
+  }
+
+  .a-cat-body {
+    display: grid;
+    grid-template-rows: 1fr;
+    transition: grid-template-rows 0.22s ease;
+  }
+  .a-cat.is-collapsed .a-cat-body {
+    grid-template-rows: 0fr;
+  }
+  .a-cat-body-inner {
+    overflow: hidden;
+  }
+
+  .a-row {
+    display: grid;
+    grid-template-columns: 24px 1fr 56px 60px;
+    align-items: center;
+    column-gap: 10px;
+    padding: 10px 18px 10px 15px;
+  }
+  #cat-list.show-images .a-row {
+    grid-template-columns: 24px 30px 1fr 56px 60px;
+  }
+  .a-thumb {
+    display: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 8px;
+    background: color-mix(in srgb, var(--cat) 22%, var(--surface));
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+  }
+  .a-thumb::before { content: attr(data-emoji); }
+  #cat-list.show-images .a-thumb { display: flex; }
+
+  .a-col-name {
+    font-size: 14.5px;
+    font-weight: 500;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .a-col-qty {
+    font-size: 12.5px;
+    color: var(--text-secondary);
+    text-align: right;
+  }
+  .a-col-price {
+    font-size: 12.5px;
+    color: var(--text-secondary);
+    text-align: right;
+  }
+  .a-row.done .a-col-name {
+    color: var(--text-secondary);
+    text-decoration: line-through;
+    text-decoration-color: var(--border);
+  }
+  .a-row.done .a-col-qty,
+  .a-row.done .a-col-price {
+    opacity: 0.55;
+  }
+
+  .a-cta {
+    position: absolute;
+    left: 18px;
+    right: 18px;
+    bottom: 22px;
+    background: #B5623F;
+    color: #fff;
+    text-align: center;
+    padding: 13px;
+    border-radius: 14px;
+    font-size: 14.5px;
+    font-weight: 650;
+    box-shadow: 0 10px 24px -8px rgba(181, 98, 63, 0.55);
+  }
+
+  /* =========================================================
+     CONCEPT B — Ein Gang nach dem anderen
+     ========================================================= */
+  .b-topbar {
+    padding: 6px 18px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .b-exit {
+    font-size: 13px;
+    color: var(--text-secondary);
+    font-weight: 600;
+  }
+  .b-counter {
+    font-size: 12px;
+    color: var(--text-secondary);
+    font-weight: 600;
+  }
+  .b-steps {
+    display: flex;
+    gap: 5px;
+    padding: 2px 18px 20px;
+  }
+  .b-step {
+    flex: 1;
+    height: 4px;
+    border-radius: 3px;
+    background: var(--selected);
+  }
+  .b-step.done { background: var(--success); }
+  .b-step.now { background: #B5623F; }
+  .b-aisle-head {
+    padding: 0 18px 18px;
+  }
+  .b-aisle-eyebrow {
+    font-size: 11.5px;
+    font-weight: 650;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: #B5623F;
+    margin-bottom: 4px;
+  }
+  .b-aisle-name {
+    font-size: 25px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+  .b-list {
+    flex: 1;
+    padding: 4px 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    overflow-y: auto;
+  }
+  .b-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 16px 16px;
+    background: var(--surface);
+    border-radius: 16px;
+  }
+  .b-check {
+    width: 28px;
+    height: 28px;
+    border-radius: 8px;
+    border: 2px solid var(--border);
+    flex-shrink: 0;
+  }
+  .b-check.done {
+    background: var(--success);
+    border-color: var(--success);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 15px;
+  }
+  .b-row-name { font-size: 16px; font-weight: 550; }
+  .b-row.done .b-row-name {
+    color: var(--text-secondary);
+    text-decoration: line-through;
+    text-decoration-color: var(--border);
+  }
+  .b-row-qty {
+    font-size: 12.5px;
+    color: var(--text-secondary);
+    margin-top: 2px;
+  }
+  .b-footer {
+    padding: 14px 18px 26px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .b-prev {
+    font-size: 13px;
+    color: var(--text-secondary);
+    font-weight: 600;
+    flex: 1;
+  }
+  .b-next {
+    background: #B5623F;
+    color: #fff;
+    padding: 13px 20px;
+    border-radius: 14px;
+    font-size: 14.5px;
+    font-weight: 650;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  /* =========================================================
+     CONCEPT C — Kompakte Sammelliste
+     ========================================================= */
+  .c-topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 4px 18px 6px;
+  }
+  .c-store-name { font-size: 15px; font-weight: 650; }
+  .c-close {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: var(--selected);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    color: var(--text-secondary);
+  }
+  .c-list {
+    flex: 1;
+    overflow-y: auto;
+    padding: 10px 18px 0;
+  }
+  .c-divider {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 16px 0 4px;
+  }
+  .c-divider span {
+    font-size: 11px;
+    font-weight: 650;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    white-space: nowrap;
+  }
+  .c-divider::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+  .c-divider:first-child { margin-top: 2px; }
+  .c-row {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .c-row:last-child { border-bottom: none; }
+  .c-check-mini {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid var(--border);
+    flex-shrink: 0;
+    align-self: center;
+  }
+  .c-row-name { font-size: 15px; font-weight: 500; flex: 1; }
+  .c-row-qty { font-size: 12.5px; color: var(--text-secondary); }
+  .c-fold {
+    margin: 14px 0 6px;
+    padding: 12px 14px;
+    background: var(--surface);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .c-fold-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-secondary);
+  }
+  .c-fold-caret {
+    font-size: 11px;
+    color: var(--text-secondary);
+  }
+  .c-bottom {
+    padding: 10px 18px 22px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid var(--border);
+  }
+  .c-total {
+    font-size: 13px;
+    color: var(--text-secondary);
+  }
+  .c-total b { color: var(--text); font-weight: 650; }
+  .c-finish {
+    background: #B5623F;
+    color: #fff;
+    padding: 10px 16px;
+    border-radius: 12px;
+    font-size: 13.5px;
+    font-weight: 650;
+  }
+
+  /* =========================================================
+     Screens aller Schritte — kompakte Filmstreifen-Ansicht
+     ========================================================= */
+  .steps-section {
+    margin-top: 48px;
+    padding-top: 32px;
+    border-top: 1px solid var(--page-border);
+  }
+  .steps-section h2 {
+    font-size: 19px;
+    font-weight: 650;
+    letter-spacing: -0.01em;
+    margin: 0 0 6px;
+  }
+  .steps-section > p {
+    font-size: 14px;
+    color: var(--page-text-secondary);
+    max-width: 62ch;
+    line-height: 1.55;
+    margin: 0 0 26px;
+  }
+  .steps-strip {
+    display: flex;
+    align-items: flex-start;
+    gap: 0;
+    overflow-x: auto;
+    padding: 4px 4px 16px;
+  }
+  .step {
+    flex: 0 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+  .step-cap {
+    font-size: 12px;
+    color: var(--page-text-secondary);
+    text-align: center;
+    max-width: 220px;
+    line-height: 1.4;
+  }
+  .step-cap b {
+    color: var(--page-text);
+    display: block;
+    font-size: 13px;
+    margin-bottom: 2px;
+  }
+  .step-arrow {
+    flex: 0 0 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    padding: 0 8px;
+    margin-top: 208px;
+  }
+  .step-arrow .glyph { font-size: 18px; color: var(--page-text-secondary); }
+  .step-arrow .cap {
+    font-size: 10px;
+    color: var(--page-text-secondary);
+    text-align: center;
+    white-space: nowrap;
+  }
+
+  .mini-phone {
+    width: 220px;
+    height: 462px;
+    border-radius: 26px;
+    border: 2px solid #0d0b0e;
+    background: var(--bg);
+    color: var(--text);
+    overflow: hidden;
+    box-shadow: 0 16px 40px -14px rgba(20, 14, 20, 0.4);
+    display: flex;
+    flex-direction: column;
+    font-size: 12px;
+    position: relative;
+  }
+  .mini-status { height: 18px; flex-shrink: 0; }
+
+  /* Kopfzeile — echter Marktfilter-Pillenbutton + "+ Artikel hinzufügen"
+     (store-picker-menu.tsx / btn-primary), auf allen Marktliste-Screens gleich. */
+  .ml-head {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 2px 12px 10px;
+  }
+  .ml-pill {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 11px;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    background: var(--surface);
+  }
+  .ml-pill-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+  .ml-pill span { font-size: 10.5px; font-weight: 700; }
+  .ml-add {
+    margin-left: auto;
+    font-size: 10px;
+    font-weight: 700;
+    color: #fff;
+    background: var(--accent);
+    padding: 6px 10px;
+    border-radius: 9px;
+  }
+  .ml-link {
+    padding: 0 12px 10px;
+    font-size: 9.5px;
+    color: var(--accent);
+    font-weight: 650;
+  }
+  /* Kategorie-Header — dieselbe Farbzuordnung wie im Einkaufsmodus, hier
+     als schmaler Punkt statt vollem Klapp-Header (dichte Editier-Liste). */
+  .ml-section {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 9px 12px 3px;
+  }
+  .ml-section-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--cat);
+    flex-shrink: 0;
+  }
+  .ml-section span {
+    font-size: 8.5px;
+    font-weight: 750;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: color-mix(in srgb, var(--cat) 70%, var(--text-secondary));
+  }
+  .ml-row {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 7px 12px;
+    border-bottom: 0.75px solid var(--border);
+  }
+  .ml-row-box {
+    width: 15px;
+    height: 15px;
+    border-radius: 5px;
+    border: 1.5px solid var(--border);
+    flex-shrink: 0;
+  }
+  .ml-row-box.done {
+    background: var(--accent);
+    border-color: var(--accent);
+  }
+  .ml-row-name {
+    flex: 1; font-size: 10.5px; font-weight: 500; min-width: 0;
+    overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  }
+  .ml-row.done .ml-row-name {
+    color: var(--text-secondary);
+    text-decoration: line-through;
+    text-decoration-color: var(--border);
+    opacity: 0.7;
+  }
+  .ml-row-qty { font-size: 9px; color: var(--text-secondary); width: 32px; text-align: right; flex-shrink: 0; }
+  .ml-row-price { font-size: 9px; color: var(--text-secondary); width: 34px; text-align: right; flex-shrink: 0; }
+  .ml-row-edit { font-size: 9.5px; color: var(--text-secondary); opacity: 0.55; flex-shrink: 0; }
+
+  /* Bottom-Stack: Einkaufsmodus-Einstieg jetzt unten statt oben, primäre
+     Abschließen-Aktion (falls Artikel abgehakt sind) darunter/darüber. */
+  .ml-list { padding-bottom: 112px; }
+  .ml-bottom-stack {
+    position: absolute;
+    left: 12px;
+    right: 12px;
+    bottom: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+  }
+  .ml-start-btn {
+    text-align: center;
+    padding: 8px;
+    border-radius: 10px;
+    font-size: 10.5px;
+    font-weight: 650;
+    border: 1.3px solid var(--border);
+    color: var(--text-secondary);
+    background: var(--surface);
+  }
+  .ml-finish {
+    position: static;
+    background: #B5623F;
+    color: #fff;
+    text-align: center;
+    padding: 9px;
+    border-radius: 11px;
+    font-size: 11px;
+    font-weight: 650;
+    box-shadow: 0 8px 18px -6px rgba(181, 98, 63, 0.5);
+  }
+
+  /* Schritt 1 — echte "Alle Listen"-Übersicht (store-summary-card.tsx) */
+  .ov-store-card {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    margin: 0 12px 8px;
+    padding: 9px 10px 9px 0;
+    border-radius: 16px;
+    background: var(--surface);
+    overflow: hidden;
+  }
+  .ov-stripe { width: 4px; align-self: stretch; border-radius: 2px; flex-shrink: 0; }
+  .ov-store-body { flex: 1; min-width: 0; }
+  .ov-store-name { font-size: 11.5px; font-weight: 700; }
+  .ov-store-sub { font-size: 9px; color: var(--text-secondary); margin: 2px 0 4px; }
+  .ov-track { height: 3px; border-radius: 2px; background: var(--selected); overflow: hidden; }
+  .ov-fill { height: 100%; background: var(--accent); }
+  .ov-store-price { text-align: right; flex-shrink: 0; }
+  .ov-store-price b { display: block; font-size: 11px; font-weight: 700; }
+  .ov-store-price span { font-size: 8px; color: var(--text-secondary); }
+  .ov-total {
+    margin: 6px 12px 0;
+    padding: 12px 14px;
+    border-radius: 16px;
+    background: var(--surface);
+  }
+  .ov-total-label { font-size: 9px; font-weight: 650; color: var(--text-secondary); }
+  .ov-total-sum { font-size: 18px; font-weight: 700; margin: 2px 0; }
+  .ov-total-sub { font-size: 9px; color: var(--text-secondary); }
+
+  /* step 2: mini-einkaufsmodus */
+  .em-topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2px 12px 6px;
+  }
+  .em-store { display: flex; align-items: center; gap: 5px; font-size: 11px; font-weight: 650; }
+  .em-dot { width: 6px; height: 6px; border-radius: 50%; background: #B5623F; }
+  .em-close {
+    width: 18px; height: 18px; border-radius: 50%;
+    background: var(--selected); display: flex; align-items: center; justify-content: center;
+    font-size: 9px; color: var(--text-secondary);
+  }
+  .em-progress { padding: 0 12px 8px; }
+  .em-track { height: 3px; border-radius: 2px; background: var(--selected); overflow: hidden; }
+  .em-fill { height: 100%; width: 44%; background: #B5623F; }
+  .em-cat-head {
+    display: flex; align-items: center; gap: 6px;
+    padding: 7px 12px; border-left: 4px solid var(--cat);
+    background: color-mix(in srgb, var(--cat) 13%, var(--bg));
+  }
+  .em-cat-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--cat); flex-shrink: 0; }
+  .em-cat-name { font-size: 9.5px; font-weight: 750; color: color-mix(in srgb, var(--cat) 75%, var(--text)); flex: 1; }
+  .em-cat-count { font-size: 9px; font-weight: 650; color: color-mix(in srgb, var(--cat) 65%, var(--text-secondary)); }
+  .em-row { display: flex; align-items: center; gap: 8px; padding: 6px 12px 6px 15px; }
+  .em-check { width: 14px; height: 14px; border-radius: 50%; border: 1.5px solid var(--border); flex-shrink: 0; }
+  .em-check.done { background: var(--accent); border-color: var(--accent); }
+  .em-name { flex: 1; font-size: 10.5px; font-weight: 500; }
+  .em-row.done .em-name { color: var(--text-secondary); text-decoration: line-through; text-decoration-color: var(--border); }
+  .em-qty, .em-price { font-size: 9px; color: var(--text-secondary); }
+
+  /* Schritt 5: Abschluss-Sheet — echte complete-run-sheet.tsx-Struktur:
+     Menge-Badge, Kühl/Frost/Kammer-Picker, MHD-Datumsfeld pro Artikel. */
+  .sheet-backdrop {
+    flex: 1;
+    background: color-mix(in srgb, var(--shadow) 45%, transparent);
+    display: flex;
+    align-items: flex-end;
+    position: relative;
+  }
+  .sheet {
+    width: 100%;
+    max-height: 92%;
+    background: var(--bg);
+    border-radius: 20px 20px 0 0;
+    padding: 12px 14px 14px;
+    display: flex;
+    flex-direction: column;
+  }
+  .sheet-handle {
+    width: 32px; height: 4px; border-radius: 2px;
+    background: var(--border); margin: 0 auto 8px;
+  }
+  .sheet-topbar {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 8px;
+  }
+  .sheet-title { font-size: 13px; font-weight: 700; margin-bottom: 1px; }
+  .sheet-sub { font-size: 9px; color: var(--text-secondary); }
+  .sheet-close {
+    width: 20px; height: 20px; border-radius: 7px;
+    background: var(--selected); display: flex; align-items: center; justify-content: center;
+    font-size: 9px; color: var(--text-secondary); flex-shrink: 0;
+  }
+  .sheet-items { overflow-y: auto; flex: 1; }
+  .sheet-row {
+    padding: 8px 0;
+    border-bottom: 0.75px solid var(--border);
+  }
+  .sheet-row:last-of-type { border-bottom: none; }
+  .sheet-row-head {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-bottom: 6px;
+  }
+  .sheet-item { font-size: 11px; font-weight: 650; }
+  /* Menge antippbar: Zahl per einfacher Zifferneingabe korrigierbar, wenn
+     im Laden weniger mitgenommen wurde als geplant. */
+  .sheet-qty {
+    display: flex; align-items: center; gap: 4px;
+    font-size: 8.5px; font-weight: 700; color: #fff;
+    background: var(--success); padding: 2px 6px 2px 9px; border-radius: 999px;
+  }
+  .sheet-qty .pencil { font-size: 7px; opacity: 0.8; }
+  .sheet-qty.editing {
+    background: var(--surface);
+    color: var(--text);
+    border: 1.3px solid var(--accent);
+    padding: 1px 8px;
+  }
+  .sheet-qty.editing input {
+    all: unset;
+    width: 16px;
+    font-size: 9px;
+    font-weight: 700;
+    color: var(--accent);
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+  }
+  .sheet-qty.editing .caret {
+    display: inline-block;
+    width: 1px;
+    height: 9px;
+    background: var(--accent);
+  }
+  .sheet-orig-qty {
+    font-size: 8px;
+    color: var(--text-secondary);
+    margin-top: 2px;
+  }
+  .sheet-orig-qty s { text-decoration-color: var(--border); }
+  .sheet-kinds { display: flex; gap: 5px; margin-bottom: 6px; }
+  .sheet-kind {
+    flex: 1;
+    display: flex; align-items: center; justify-content: center; gap: 3px;
+    padding: 5px 2px;
+    border-radius: 8px;
+    border: 1.3px solid var(--border);
+    font-size: 8.5px; font-weight: 650;
+    color: var(--text-secondary);
+  }
+  .sheet-kind.active {
+    border-color: var(--accent);
+    background: color-mix(in srgb, var(--accent) 12%, transparent);
+    color: var(--accent);
+  }
+  .sheet-mhd { display: flex; align-items: center; gap: 8px; }
+  .sheet-mhd-label { font-size: 9px; color: var(--text-secondary); font-weight: 600; flex-shrink: 0; }
+  .sheet-mhd-field {
+    flex: 1;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 6px 9px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    font-size: 9.5px;
+  }
+  .sheet-mhd-field.set { color: var(--text); font-weight: 600; }
+  .sheet-mhd-field.unset { color: var(--text-secondary); }
+  .sheet-mhd-field .cal { font-size: 10px; opacity: 0.6; }
+  .sheet-confirm {
+    margin-top: 10px;
+    background: var(--success); color: #fff; text-align: center;
+    padding: 10px; border-radius: 14px; font-size: 11px; font-weight: 700;
+  }
+  .sheet-cancel {
+    text-align: center; padding: 7px; font-size: 9.5px; color: var(--text-secondary); font-weight: 600;
+  }
+
+  .flow-section {
+    margin-top: 48px;
+    padding-top: 32px;
+    border-top: 1px solid var(--page-border);
+  }
+  .flow-section h2 {
+    font-size: 19px;
+    font-weight: 650;
+    letter-spacing: -0.01em;
+    margin: 0 0 6px;
+  }
+  .flow-section > p {
+    font-size: 14px;
+    color: var(--page-text-secondary);
+    max-width: 62ch;
+    line-height: 1.55;
+    margin: 0 0 26px;
+  }
+  .flow-diagram {
+    display: flex;
+    align-items: stretch;
+    gap: 0;
+    overflow-x: auto;
+    padding-bottom: 4px;
+  }
+  .flow-box {
+    flex: 0 0 220px;
+    background: var(--page-surface);
+    border: 1px solid var(--page-border);
+    border-radius: 14px;
+    padding: 16px 18px;
+  }
+  .flow-box.is-mode {
+    border-color: #B5623F;
+    box-shadow: 0 0 0 1px rgba(181, 98, 63, 0.25);
+  }
+  .flow-box-label {
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--page-text-secondary);
+    margin-bottom: 6px;
+  }
+  .flow-box.is-mode .flow-box-label { color: #B5623F; }
+  .flow-box-title {
+    font-size: 15px;
+    font-weight: 650;
+    margin-bottom: 8px;
+  }
+  .flow-box ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .flow-box li {
+    font-size: 12.5px;
+    color: var(--page-text-secondary);
+    line-height: 1.4;
+  }
+  .flow-arrow {
+    flex: 0 0 64px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    padding: 0 6px;
+  }
+  .flow-arrow .glyph {
+    font-size: 20px;
+    color: var(--page-text-secondary);
+  }
+  .flow-arrow .cap {
+    font-size: 10.5px;
+    color: var(--page-text-secondary);
+    text-align: center;
+    white-space: nowrap;
+  }
+
+  footer.page-foot {
+    margin-top: 56px;
+    padding-top: 20px;
+    border-top: 1px solid var(--page-border);
+    font-size: 12.5px;
+    color: var(--page-text-secondary);
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+</style>
+
+<div class="wrap">
+  <header class="page-head">
+    <div class="eyebrow">Einkaufsliste · Supermarkt-Ansicht</div>
+    <h1>Einkaufsmodus im Laden</h1>
+    <p class="lede">
+      Eine dedizierte Ansicht für unterwegs im Markt, ohne Bearbeiten-Chrome: nur abhaken,
+      Fortschritt sehen, weitergehen. Drei Ansätze für den Aufruf ab der bestehenden
+      marktgefilterten Liste. Bitte einen auswählen, bevor implementiert wird.
+    </p>
+  </header>
+
+  <div class="tabs" role="tablist" aria-label="Konzepte">
+    <button class="tab" role="tab" aria-selected="true" data-panel="a">A · Aufklappbare Kategorien</button>
+    <button class="tab" role="tab" aria-selected="false" data-panel="c">C · Kompakte Sammelliste</button>
+  </div>
+
+  <!-- ============ PANEL A (überarbeitet) ============ -->
+  <div class="panel active" id="panel-a">
+    <div class="phone-stage">
+      <div class="phone">
+        <div class="notch"></div>
+        <div class="statusbar"></div>
+        <div class="screen">
+          <div class="a-topbar">
+            <div class="a-store">
+              <span class="a-dot"></span>
+              <span class="a-store-name">REWE</span>
+            </div>
+            <div class="a-topbar-right">
+              <label class="a-img-toggle">
+                <span>Bilder</span>
+                <input type="checkbox" id="img-toggle" />
+                <span class="a-img-switch"></span>
+              </label>
+              <div class="a-close">✕</div>
+            </div>
+          </div>
+          <div class="a-progress-row">
+            <div class="a-progress-track"><div class="a-progress-fill"></div></div>
+            <div class="a-progress-label">
+              <span class="num">4 / 9 abgehakt</span>
+              <span class="num">≈ 23,50 €</span>
+            </div>
+          </div>
+
+          <div class="a-list" id="cat-list">
+            <!-- Obst & Gemüse — offen, teilweise abgehakt -->
+            <div class="a-cat" style="--cat: #78906F;">
+              <button class="a-cat-head" data-target="cat-1">
+                <span class="a-cat-dot"></span>
+                <span class="a-cat-name">Obst &amp; Gemüse</span>
+                <span class="a-cat-count num">1/3</span>
+                <span class="a-cat-chevron">⌄</span>
+              </button>
+              <div class="a-cat-body" id="cat-1">
+                <div class="a-cat-body-inner">
+                  <div class="a-row done">
+                    <div class="a-check done">✓</div>
+                    <div class="a-thumb" data-emoji="🍌"></div>
+                    <div class="a-col-name">Bananen</div>
+                    <div class="a-col-qty num">6 Stk.</div>
+                    <div class="a-col-price num">1,80 €</div>
+                  </div>
+                  <div class="a-row">
+                    <div class="a-check"></div>
+                    <div class="a-thumb" data-emoji="🍅"></div>
+                    <div class="a-col-name">Tomaten</div>
+                    <div class="a-col-qty num">500 g</div>
+                    <div class="a-col-price num">2,10 €</div>
+                  </div>
+                  <div class="a-row">
+                    <div class="a-check"></div>
+                    <div class="a-thumb" data-emoji="🥬"></div>
+                    <div class="a-col-name">Salat</div>
+                    <div class="a-col-qty num">1 Kopf</div>
+                    <div class="a-col-price num">1,50 €</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Backwaren — komplett, automatisch eingeklappt -->
+            <div class="a-cat is-collapsed is-complete" style="--cat: #C69059;">
+              <button class="a-cat-head" data-target="cat-2">
+                <span class="a-cat-dot"></span>
+                <span class="a-cat-name">Backwaren &amp; Brot</span>
+                <span class="a-cat-count num">1/1 ✓</span>
+                <span class="a-cat-chevron">⌄</span>
+              </button>
+              <div class="a-cat-body" id="cat-2">
+                <div class="a-cat-body-inner">
+                  <div class="a-row done">
+                    <div class="a-check done">✓</div>
+                    <div class="a-thumb" data-emoji="🥖"></div>
+                    <div class="a-col-name">Brötchen</div>
+                    <div class="a-col-qty num">6 Stk.</div>
+                    <div class="a-col-price num">2,40 €</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Wurst & Fleisch — offen -->
+            <div class="a-cat" style="--cat: #C65F50;">
+              <button class="a-cat-head" data-target="cat-3">
+                <span class="a-cat-dot"></span>
+                <span class="a-cat-name">Wurst &amp; Fleisch</span>
+                <span class="a-cat-count num">0/1</span>
+                <span class="a-cat-chevron">⌄</span>
+              </button>
+              <div class="a-cat-body" id="cat-3">
+                <div class="a-cat-body-inner">
+                  <div class="a-row">
+                    <div class="a-check"></div>
+                    <div class="a-thumb" data-emoji="🍗"></div>
+                    <div class="a-col-name">Hähnchenbrust</div>
+                    <div class="a-col-qty num">400 g</div>
+                    <div class="a-col-price num">4,20 €</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Molkerei — offen, teilweise abgehakt -->
+            <div class="a-cat" style="--cat: #5C7396;">
+              <button class="a-cat-head" data-target="cat-4">
+                <span class="a-cat-dot"></span>
+                <span class="a-cat-name">Molkerei</span>
+                <span class="a-cat-count num">2/4</span>
+                <span class="a-cat-chevron">⌄</span>
+              </button>
+              <div class="a-cat-body" id="cat-4">
+                <div class="a-cat-body-inner">
+                  <div class="a-row done">
+                    <div class="a-check done">✓</div>
+                    <div class="a-thumb" data-emoji="🥛"></div>
+                    <div class="a-col-name">Milch</div>
+                    <div class="a-col-qty num">1 l</div>
+                    <div class="a-col-price num">1,10 €</div>
+                  </div>
+                  <div class="a-row done">
+                    <div class="a-check done">✓</div>
+                    <div class="a-thumb" data-emoji="🍦"></div>
+                    <div class="a-col-name">Joghurt</div>
+                    <div class="a-col-qty num">4×</div>
+                    <div class="a-col-price num">2,20 €</div>
+                  </div>
+                  <div class="a-row">
+                    <div class="a-check"></div>
+                    <div class="a-thumb" data-emoji="🧈"></div>
+                    <div class="a-col-name">Butter</div>
+                    <div class="a-col-qty num">250 g</div>
+                    <div class="a-col-price num">1,90 €</div>
+                  </div>
+                  <div class="a-row">
+                    <div class="a-check"></div>
+                    <div class="a-thumb" data-emoji="🧀"></div>
+                    <div class="a-col-name">Feta</div>
+                    <div class="a-col-qty num">200 g</div>
+                    <div class="a-col-price num">2,60 €</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Getränke — manuell eingeklappt -->
+            <div class="a-cat is-collapsed" style="--cat: #4F8580;">
+              <button class="a-cat-head" data-target="cat-5">
+                <span class="a-cat-dot"></span>
+                <span class="a-cat-name">Getränke</span>
+                <span class="a-cat-count num">0/1</span>
+                <span class="a-cat-chevron">⌄</span>
+              </button>
+              <div class="a-cat-body" id="cat-5">
+                <div class="a-cat-body-inner">
+                  <div class="a-row">
+                    <div class="a-check"></div>
+                    <div class="a-thumb" data-emoji="💧"></div>
+                    <div class="a-col-name">Mineralwasser</div>
+                    <div class="a-col-qty num">6×1 l</div>
+                    <div class="a-col-price num">3,60 €</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="a-cta">Einkauf abschließen (4)</div>
+          <div class="home-indicator"></div>
+        </div>
+      </div>
+    </div>
+    <aside class="notes">
+      <div class="fit-badge">Überarbeitet nach Feedback</div>
+      <h2>Aufklappbare Kategorien</h2>
+      <p class="tagline">Fokus-Checkliste, aber Kategorien lassen sich ein- und ausklappen statt als lange Scroll-Liste durchzuhängen — praxistauglicher als "Gang für Gang", ohne den erzwungenen Vor-/Zurück-Flow.</p>
+      <ul>
+        <li><b>Farbcodierung:</b> jede Kategorie bekommt einen festen Farbpunkt + linke Akzentlinie (aus der vorhandenen <tt>STORE_COLOR_PALETTE</tt>-Tonalität, aber eigene Zuordnung je Kategorie statt Markt) — auf einen Blick erkennbar, auch wenn eingeklappt.</li>
+        <li><b>Zwei Klapp-Automatismen:</b> eine Kategorie klappt <b>automatisch</b> ein, sobald sie komplett abgehakt ist (Backwaren, mit ✓) — und lässt sich zusätzlich <b>manuell</b> einklappen (Getränke), z. B. wenn der Gang gerade nicht dran ist.</li>
+        <li><b>Drei Spalten:</b> Produkt · Menge · Preis, rechtsbündig mit Tabellenziffern — schneller scanbar als Name+Menge auf zwei Zeilen, besonders bei vielen Artikeln.</li>
+        <li><b>Bilder-Schalter oben rechts</b> (im Mockup live umschaltbar) zeigt, wie ein schmales Produktbild links vom Namen reinpasst, ohne die Spalten zu verschieben — für später, wenn Produktfotos angebunden sind.</li>
+        <li><b>Weiterhin kein Bearbeiten:</b> kein Löschen/Umbenennen/Reihenfolge in diesem Modus, nur Abhaken und Klappen.</li>
+      </ul>
+    </aside>
+  </div>
+
+  <!-- ============ PANEL C ============ -->
+  <div class="panel" id="panel-c">
+    <div class="phone-stage">
+      <div class="phone">
+        <div class="notch"></div>
+        <div class="statusbar"></div>
+        <div class="screen">
+          <div class="c-topbar">
+            <div class="c-store-name">REWE</div>
+            <div class="c-close">✕</div>
+          </div>
+          <div class="c-list">
+            <div class="c-divider"><span>Obst &amp; Gemüse</span></div>
+            <div class="c-row">
+              <div class="c-check-mini"></div>
+              <div class="c-row-name">Tomaten</div>
+              <div class="c-row-qty">500 g</div>
+            </div>
+            <div class="c-row">
+              <div class="c-check-mini"></div>
+              <div class="c-row-name">Salat</div>
+              <div class="c-row-qty">1 Kopf</div>
+            </div>
+
+            <div class="c-divider"><span>Wurst &amp; Fleisch</span></div>
+            <div class="c-row">
+              <div class="c-check-mini"></div>
+              <div class="c-row-name">Hähnchenbrust</div>
+              <div class="c-row-qty">400 g</div>
+            </div>
+
+            <div class="c-divider"><span>Molkerei</span></div>
+            <div class="c-row">
+              <div class="c-check-mini"></div>
+              <div class="c-row-name">Butter</div>
+              <div class="c-row-qty"></div>
+            </div>
+
+            <div class="c-divider"><span>Getränke</span></div>
+            <div class="c-row">
+              <div class="c-check-mini"></div>
+              <div class="c-row-name">Mineralwasser</div>
+              <div class="c-row-qty">6×1 l</div>
+            </div>
+
+            <div class="c-fold">
+              <span class="c-fold-label num">Erledigt · 5</span>
+              <span class="c-fold-caret">▾ einblenden</span>
+            </div>
+          </div>
+          <div class="c-bottom">
+            <div class="c-total">≈ <b class="num">24,50 €</b> · <span class="num">5/12</span></div>
+            <div class="c-finish">Fertig</div>
+          </div>
+          <div class="home-indicator"></div>
+        </div>
+      </div>
+    </div>
+    <aside class="notes">
+      <div class="fit-badge">Am dichtesten</div>
+      <h2>Kompakte Sammelliste</h2>
+      <p class="tagline">Erledigtes verschwindet sofort in eine eingeklappte Zeile — übrig bleibt nur, was noch zu holen ist. Kategorien sind dünne Trenner statt eigener Blöcke.</p>
+      <ul>
+        <li><b>Offene Artikel dominieren:</b> die Liste wird mit jedem Abhaken kürzer statt nur durchgestrichen — spürbarer Fortschritt.</li>
+        <li><b>"Erledigt"-Zeile</b> bleibt aufklappbar für Versehen-Korrekturen, ohne dauerhaft Platz zu belegen.</li>
+        <li><b>Trenner statt Header:</b> informationsdichter, passt zur Vorgabe "keine dekorative Chrome" am konsequentesten.</li>
+        <li><b>Summe + Zähler unten fest,</b> sehr klein — informativ, nicht werblich.</li>
+        <li><b>Risiko:</b> Auf-/Zuklappen der "Erledigt"-Zeile ist ein zusätzlicher Interaktionsschritt, den A und B nicht brauchen.</li>
+      </ul>
+    </aside>
+  </div>
+
+  <section class="steps-section">
+    <h2>Screens aller Schritte</h2>
+    <p>
+      Der komplette Weg von der heutigen "Alle Listen"-Übersicht durch die Marktliste und den
+      Einkaufsmodus bis zum Übertrag in den Vorrat. Löschen, Umbenennen, Reihenfolge und
+      Hinzufügen bleiben ausschließlich in der Marktliste (Schritt 2 und 4) — der
+      Einkaufsmodus (Schritt 3) bekommt keine eigenen Bearbeiten-Funktionen.
+    </p>
+    <div class="steps-strip">
+
+      <!-- Schritt 1: echte "Alle Listen"-Übersicht -->
+      <div class="step">
+        <div class="mini-phone">
+          <div class="mini-status"></div>
+          <div class="ml-head">
+            <div class="ml-pill"><span class="ml-pill-dot" style="background:var(--text);"></span><span>Alle Listen</span></div>
+            <div class="ml-add">+ Artikel</div>
+          </div>
+          <div class="ov-store-card">
+            <div class="ov-stripe" style="background:#B5623F;"></div>
+            <div class="ov-store-body">
+              <div class="ov-store-name">REWE</div>
+              <div class="ov-store-sub">1 von 5 Artikeln erledigt</div>
+              <div class="ov-track"><div class="ov-fill" style="width:20%;"></div></div>
+            </div>
+            <div class="ov-store-price"><b>11,60 €</b><span>geschätzt</span></div>
+          </div>
+          <div class="ov-store-card">
+            <div class="ov-stripe" style="background:#5C7396;"></div>
+            <div class="ov-store-body">
+              <div class="ov-store-name">Aldi</div>
+              <div class="ov-store-sub">0 von 4 Artikeln erledigt</div>
+              <div class="ov-track"><div class="ov-fill" style="width:0%;"></div></div>
+            </div>
+            <div class="ov-store-price"><b>8,90 €</b><span>geschätzt</span></div>
+          </div>
+          <div class="ov-total">
+            <div class="ov-total-label">GESAMTSCHÄTZUNG</div>
+            <div class="ov-total-sum">20,50 €</div>
+            <div class="ov-total-sub">9 Artikel in 2 Geschäften</div>
+          </div>
+        </div>
+        <div class="step-cap"><b>1 · Alle Listen</b>Heutige Übersicht, unverändert — Markt-Karte antippen führt in die Marktliste.</div>
+      </div>
+
+      <div class="step-arrow"><span class="glyph">→</span><span class="cap">REWE<br />antippen</span></div>
+
+      <!-- Schritt 2: Marktliste, bearbeitbar -->
+      <div class="step">
+        <div class="mini-phone">
+          <div class="mini-status"></div>
+          <div class="ml-head">
+            <div class="ml-pill"><span class="ml-pill-dot" style="background:#B5623F;"></span><span>REWE</span></div>
+            <div class="ml-add">+ Artikel</div>
+          </div>
+          <div class="ml-link">⠿ Reihenfolge bearbeiten</div>
+          <div class="ml-list">
+            <div class="ml-section" style="--cat:#78906F;"><span class="ml-section-dot"></span><span>Obst &amp; Gemüse</span></div>
+            <div class="ml-row"><div class="ml-row-box"></div><div class="ml-row-name">Bananen</div><div class="ml-row-qty">6 Stk.</div><div class="ml-row-price">1,80 €</div><div class="ml-row-edit">✎</div></div>
+            <div class="ml-row"><div class="ml-row-box"></div><div class="ml-row-name">Tomaten</div><div class="ml-row-qty">500 g</div><div class="ml-row-price">2,10 €</div><div class="ml-row-edit">✎</div></div>
+            <div class="ml-row"><div class="ml-row-box"></div><div class="ml-row-name">Salat</div><div class="ml-row-qty">1 Kopf</div><div class="ml-row-price">1,50 €</div><div class="ml-row-edit">✎</div></div>
+            <div class="ml-section" style="--cat:#C69059;"><span class="ml-section-dot"></span><span>Backwaren &amp; Brot</span></div>
+            <div class="ml-row"><div class="ml-row-box"></div><div class="ml-row-name">Brötchen</div><div class="ml-row-qty">6 Stk.</div><div class="ml-row-price">2,40 €</div><div class="ml-row-edit">✎</div></div>
+            <div class="ml-section" style="--cat:#C65F50;"><span class="ml-section-dot"></span><span>Wurst &amp; Fleisch</span></div>
+            <div class="ml-row"><div class="ml-row-box"></div><div class="ml-row-name">Hähnchenbrust</div><div class="ml-row-qty">400 g</div><div class="ml-row-price">4,20 €</div><div class="ml-row-edit">✎</div></div>
+          </div>
+          <div class="ml-bottom-stack">
+            <div class="ml-start-btn">🛒 Einkaufsmodus starten</div>
+          </div>
+        </div>
+        <div class="step-cap"><b>2 · Marktliste (REWE)</b>Bearbeitbar wie heute — hinzufügen, umbenennen, löschen, Reihenfolge, jetzt mit Preis pro Zeile. Einstieg in den Einkaufsmodus sitzt unten, nicht mehr oben im Weg.</div>
+      </div>
+
+      <div class="step-arrow"><span class="glyph">→</span><span class="cap">🛒 antippen</span></div>
+
+      <!-- Schritt 3: Einkaufsmodus -->
+      <div class="step">
+        <div class="mini-phone">
+          <div class="mini-status"></div>
+          <div class="em-topbar">
+            <div class="em-store"><span class="em-dot"></span>REWE</div>
+            <div class="em-close">✕</div>
+          </div>
+          <div class="em-progress"><div class="em-track"><div class="em-fill"></div></div></div>
+          <div class="em-cat-head" style="--cat:#78906F;"><span class="em-cat-dot"></span><span class="em-cat-name">Obst &amp; Gemüse</span><span class="em-cat-count">1/3</span></div>
+          <div class="em-row done"><div class="em-check done"></div><div class="em-name">Bananen</div><div class="em-qty">6 Stk.</div><div class="em-price">1,80 €</div></div>
+          <div class="em-row"><div class="em-check"></div><div class="em-name">Tomaten</div><div class="em-qty">500 g</div><div class="em-price">2,10 €</div></div>
+          <div class="em-row"><div class="em-check"></div><div class="em-name">Salat</div><div class="em-qty">1 Kopf</div><div class="em-price">1,50 €</div></div>
+          <div class="em-cat-head" style="--cat:#C69059;"><span class="em-cat-dot"></span><span class="em-cat-name">Backwaren</span><span class="em-cat-count">1/1 ✓</span></div>
+          <div class="em-cat-head" style="--cat:#C65F50;"><span class="em-cat-dot"></span><span class="em-cat-name">Wurst &amp; Fleisch</span><span class="em-cat-count">0/1</span></div>
+          <div class="em-row"><div class="em-check"></div><div class="em-name">Hähnchenbrust</div><div class="em-qty">400 g</div><div class="em-price">4,20 €</div></div>
+        </div>
+        <div class="step-cap"><b>3 · Einkaufsmodus</b>Nur Abhaken und Klappen — keine Bearbeiten-Aktionen sichtbar.</div>
+      </div>
+
+      <div class="step-arrow"><span class="glyph">→</span><span class="cap">✕ oder<br />alles abgehakt</span></div>
+
+      <!-- Schritt 4: zurück in Marktliste, mit Fortschritt -->
+      <div class="step">
+        <div class="mini-phone">
+          <div class="mini-status"></div>
+          <div class="ml-head">
+            <div class="ml-pill"><span class="ml-pill-dot" style="background:#B5623F;"></span><span>REWE</span></div>
+            <div class="ml-add">+ Artikel</div>
+          </div>
+          <div class="ml-list">
+            <div class="ml-section" style="--cat:#78906F;"><span class="ml-section-dot"></span><span>Obst &amp; Gemüse</span></div>
+            <div class="ml-row done"><div class="ml-row-box done"></div><div class="ml-row-name">Bananen</div><div class="ml-row-qty">6 Stk.</div><div class="ml-row-price">1,80 €</div><div class="ml-row-edit">✎</div></div>
+            <div class="ml-row"><div class="ml-row-box"></div><div class="ml-row-name">Tomaten</div><div class="ml-row-qty">500 g</div><div class="ml-row-price">2,10 €</div><div class="ml-row-edit">✎</div></div>
+            <div class="ml-row"><div class="ml-row-box"></div><div class="ml-row-name">Salat</div><div class="ml-row-qty">1 Kopf</div><div class="ml-row-price">1,50 €</div><div class="ml-row-edit">✎</div></div>
+            <div class="ml-section" style="--cat:#C69059;"><span class="ml-section-dot"></span><span>Backwaren &amp; Brot</span></div>
+            <div class="ml-row done"><div class="ml-row-box done"></div><div class="ml-row-name">Brötchen</div><div class="ml-row-qty">6 Stk.</div><div class="ml-row-price">2,40 €</div><div class="ml-row-edit">✎</div></div>
+          </div>
+          <div class="ml-bottom-stack">
+            <div class="ml-start-btn">🛒 Einkaufsmodus fortsetzen</div>
+            <div class="ml-finish">Einkaufsliste abschließen (4)</div>
+          </div>
+        </div>
+        <div class="step-cap"><b>4 · Marktliste, zurück</b>Abgehakte Artikel übernommen, Preis pro Zeile sichtbar. Unten jetzt zwei Aktionen gestapelt: zurück in den Einkaufsmodus, oder abschließen (Marktfarbe).</div>
+      </div>
+
+      <div class="step-arrow"><span class="glyph">→</span><span class="cap">Abschließen<br />antippen</span></div>
+
+      <!-- Schritt 5: Abschluss-Sheet -->
+      <div class="step">
+        <div class="mini-phone">
+          <div class="mini-status"></div>
+          <div class="sheet-backdrop">
+            <div class="sheet">
+              <div class="sheet-handle"></div>
+              <div class="sheet-topbar">
+                <div>
+                  <div class="sheet-title">In Vorrat übernehmen</div>
+                  <div class="sheet-sub">4 Artikel abgehakt</div>
+                </div>
+                <div class="sheet-close">✕</div>
+              </div>
+              <div class="sheet-items">
+                <div class="sheet-row">
+                  <div class="sheet-row-head"><span class="sheet-item">Bananen</span><span class="sheet-qty">6 Stk. <span class="pencil">✎</span></span></div>
+                  <div class="sheet-kinds">
+                    <div class="sheet-kind">🧊 Kühl</div>
+                    <div class="sheet-kind">❄️ Frost</div>
+                    <div class="sheet-kind active">🗄 Kammer</div>
+                  </div>
+                  <div class="sheet-mhd">
+                    <span class="sheet-mhd-label">MHD</span>
+                    <div class="sheet-mhd-field unset"><span>Datum wählen</span><span class="cal">📅</span></div>
+                  </div>
+                </div>
+                <div class="sheet-row">
+                  <div class="sheet-row-head">
+                    <span class="sheet-item">Brötchen</span>
+                    <span class="sheet-qty editing"><input type="text" inputmode="numeric" value="5" /><span class="caret"></span> Stk.</span>
+                  </div>
+                  <div class="sheet-orig-qty">geplant: <s>6 Stk.</s> — 5 mitgenommen</div>
+                  <div class="sheet-kinds">
+                    <div class="sheet-kind">🧊 Kühl</div>
+                    <div class="sheet-kind">❄️ Frost</div>
+                    <div class="sheet-kind active">🗄 Kammer</div>
+                  </div>
+                  <div class="sheet-mhd">
+                    <span class="sheet-mhd-label">MHD</span>
+                    <div class="sheet-mhd-field set"><span>23. Aug. 2026</span><span class="cal">📅</span></div>
+                  </div>
+                </div>
+                <div class="sheet-row">
+                  <div class="sheet-row-head"><span class="sheet-item">Milch</span><span class="sheet-qty">1 l <span class="pencil">✎</span></span></div>
+                  <div class="sheet-kinds">
+                    <div class="sheet-kind active">🧊 Kühl</div>
+                    <div class="sheet-kind">❄️ Frost</div>
+                    <div class="sheet-kind">🗄 Kammer</div>
+                  </div>
+                  <div class="sheet-mhd">
+                    <span class="sheet-mhd-label">MHD</span>
+                    <div class="sheet-mhd-field set"><span>28. Aug. 2026</span><span class="cal">📅</span></div>
+                  </div>
+                </div>
+              </div>
+              <div class="sheet-confirm">✓ 4 Artikel in Vorrat übernehmen</div>
+              <div class="sheet-cancel">Abbrechen</div>
+            </div>
+          </div>
+        </div>
+        <div class="step-cap"><b>5 · Übertrag bestätigen</b>Lagerort (Kühl/Frost/Kammer) und MHD werden pro Artikel schon heute abgefragt. Neu: Menge antippen öffnet eine einfache Zifferneingabe — Brötchen hier von 6 auf 5 korrigiert, weil im Laden nur 5 übrig waren.</div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="page-foot">
+    <span>Alle drei nutzen die bestehende Laufstrecken-Kategorisierung (<tt>shopping-categories.ts</tt>) und Marktfarbe — kein neues Datenmodell nötig.</span>
+    <span>Aufruf denkbar über einen Button in der markt­gefilterten Liste, z. B. neben "Reihenfolge bearbeiten".</span>
+  </footer>
+</div>
+
+<script>
+  const tabs = document.querySelectorAll('.tab');
+  const panels = { a: document.getElementById('panel-a'), c: document.getElementById('panel-c') };
+  tabs.forEach((tab) => {
+    tab.addEventListener('click', () => {
+      tabs.forEach((t) => t.setAttribute('aria-selected', 'false'));
+      tab.setAttribute('aria-selected', 'true');
+      Object.values(panels).forEach((p) => p.classList.remove('active'));
+      panels[tab.dataset.panel].classList.add('active');
+    });
+  });
+
+  document.querySelectorAll('.a-cat-head').forEach((head) => {
+    head.addEventListener('click', () => {
+      head.closest('.a-cat').classList.toggle('is-collapsed');
+    });
+  });
+
+  const imgToggle = document.getElementById('img-toggle');
+  const catList = document.getElementById('cat-list');
+  imgToggle.addEventListener('change', () => {
+    catList.classList.toggle('show-images', imgToggle.checked);
+  });
+</script>

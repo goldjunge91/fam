@@ -17,7 +17,7 @@ import { WidgetRow } from './widget-row';
 import '@/features/calorie-tracking/components/dashboard-card';
 import '@/features/meal-planner/components/dashboard-card';
 import '@/features/inventory/components/dashboard-card';
-import '@/features/shopping-list/components/dashboard-card';
+import '@/features/shopping-list/components/ui/dashboard-card';
 
 const TOGGLE: Record<CardSize, CardSize> = { large: 'small', small: 'large' };
 

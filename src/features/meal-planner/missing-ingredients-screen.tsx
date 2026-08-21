@@ -8,7 +8,7 @@ import { useSession } from '@/features/auth/session-provider';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { presentPaywallIfNeeded } from '@/features/premium/paywall';
 import { usePremium } from '@/features/premium/premium-provider';
-import { useAddShoppingItem } from '@/features/shopping-list/use-shopping-list-mutations';
+import { useAddShoppingItem } from '@/features/shopping-list/hooks/use-shopping-list-mutations';
 import { type MissingIngredientView, useMealPlanShoppingNeeds } from './use-shopping-needs';
 
 // Stabile Referenz statt Inline-`= []`: `EMPTY_MISSING` bleibt beim naechsten
