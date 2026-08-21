@@ -111,7 +111,13 @@ describe('SettingsScreen', () => {
     // "Profil" ist keine eigene Zeile mehr, sondern die grosse Profil-Karte
     // oben (Name + E-Mail statt Label) — geprueft in
     // "beantwortet die haeufigsten Fragen ohne Antippen".
-    for (const eintrag of ['Mitglieder', 'Lagerorte', 'Berechtigungen', 'Abmelden']) {
+    for (const eintrag of [
+      'Mitglieder',
+      'Lagerorte',
+      'Berechtigungen',
+      'Benachrichtigungen',
+      'Abmelden',
+    ]) {
       expect(getByText(eintrag)).toBeTruthy();
     }
 

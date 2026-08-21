@@ -155,13 +155,18 @@ export function SettingsScreen() {
             />
           </SettingsGroup>
 
-          {/* App-Einstellungen (Benachrichtigungen, Modulauswahl, Plus-Button) */}
+          {/* App-Einstellungen (Berechtigungen, Benachrichtigungen, Modulauswahl, Plus-Button) */}
           <SettingsGroup title="App">
             <SettingsRow
               icon="🔐"
               label="Berechtigungen"
-              hint="Kamera & Benachrichtigungen"
+              hint="Kamera-Zugriff"
               onPress={() => router.push('/settings/permissions')}
+            />
+            <SettingsRow
+              icon="🔔"
+              label="Benachrichtigungen"
+              onPress={() => router.push('/settings/notifications')}
             />
             <SettingsRow
               icon="🧩"
