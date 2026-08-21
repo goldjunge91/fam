@@ -1,14 +1,14 @@
 import { useEffect, useState } from 'react';
-import { ActivityIndicator, Alert, Modal, Pressable, StyleSheet, View } from 'react-native';
+import { ActivityIndicator, Alert, Pressable, View } from 'react-native';
 
-import { FontSize, ThemedText } from '@/components/themed-text';
-import { Radius } from '@/constants/theme';
+import { ThemedText } from '@/components/theme/themed-text';
 import { presentPaywallIfNeeded } from '@/features/premium/paywall';
 import { usePremium } from '@/features/premium/premium-provider';
-import { useAddShoppingItem } from '@/features/shopping-list/use-shopping-list-mutations';
+import { useAddShoppingItem } from '@/features/shopping-list/hooks/use-shopping-list-mutations';
 import { useTheme } from '@/hooks/use-theme';
 import { type RecipeShoppingNeed, useRecipeShoppingNeeds } from '../use-recipe-shopping-needs';
 import type { RecipeDetail } from '../use-recipes';
+import { RecipeBottomSheet } from './recipe-bottom-sheet';
 
 type Props = {
   visible: boolean;
@@ -96,103 +96,87 @@ export function RecipeShoppingSheet({ visible, detail, servings, onClose }: Prop
   }
 
   return (
-    <Modal
+    <RecipeBottomSheet
       visible={visible}
-      transparent
-      statusBarTranslucent
-      animationType="slide"
-      onRequestClose={onClose}>
-      <Pressable style={styles.backdrop} onPress={onClose}>
-        <Pressable
-          style={[styles.sheet, { backgroundColor: theme.backgroundElement }]}
-          onPress={(event) => event.stopPropagation()}>
-          <View style={[styles.handle, { backgroundColor: theme.border }]} />
-          <View style={styles.header}>
-            <ThemedText style={styles.title}>
-              {hasAccess ? 'Fehlende Zutaten' : 'Mit Premium einkaufen'}
-            </ThemedText>
-            <Pressable
-              onPress={onClose}
-              role="button"
-              aria-label="Schließen"
-              style={[styles.close, { backgroundColor: theme.backgroundSelected }]}>
-              <ThemedText themeColor="accent" style={styles.closeText}>
-                ×
-              </ThemedText>
-            </Pressable>
+      onClose={onClose}
+      title={hasAccess ? 'Fehlende Zutaten' : 'Mit Premium einkaufen'}
+      sheetClassName="max-h-[82%]">
+      {!hasAccess ? (
+        <>
+          <ThemedText
+            type="detail"
+            themeColor="textSecondary"
+            className="leading-[15px] font-medium">
+            fam vergleicht die Rezeptzutaten mit deinem Vorrat und übernimmt nur Fehlendes in die
+            Einkaufsliste.
+          </ThemedText>
+          <SheetButton label="Premium ansehen" loading={unlocking} onPress={unlockPremium} />
+        </>
+      ) : isLoading ? (
+        <ActivityIndicator className="h-[76px]" color={theme.accent} />
+      ) : missing.length === 0 ? (
+        <>
+          <ThemedText
+            type="detail"
+            themeColor="textSecondary"
+            className="leading-[15px] font-medium">
+            Dein Vorrat deckt alle Zutaten für {servings} {servings === 1 ? 'Portion' : 'Portionen'}{' '}
+            ab.
+          </ThemedText>
+          <SheetButton label="Schließen" onPress={onClose} />
+        </>
+      ) : (
+        <>
+          <ThemedText
+            type="detail"
+            themeColor="textSecondary"
+            className="leading-[15px] font-medium">
+            Bereits vorhandene Mengen wurden abgezogen. Wähle aus, was auf die Einkaufsliste soll.
+          </ThemedText>
+          <View className="mt-[14px] rounded-sheet overflow-hidden bg-background-selected">
+            {missing.map((item, index) => {
+              const checked = selected.has(item.productId);
+              return (
+                <Pressable
+                  key={item.productId}
+                  onPress={() => toggle(item.productId)}
+                  role="checkbox"
+                  accessibilityState={{ checked }}
+                  className={`min-h-[45px] px-three flex-row items-center gap-[10px] ${
+                    index < missing.length - 1 ? 'border-b-hairline border-border' : ''
+                  }`}>
+                  <View
+                    className={`w-[22px] h-[22px] rounded-fam-sm border-[1.5px] items-center justify-center border-accent ${
+                      checked ? 'bg-accent' : 'bg-transparent'
+                    }`}>
+                    {checked ? (
+                      <ThemedText className="text-white text-[12px] leading-[14px] font-bold">
+                        ✓
+                      </ThemedText>
+                    ) : null}
+                  </View>
+                  <ThemedText type="detail" className="flex-1 font-semibold" numberOfLines={1}>
+                    {item.name}
+                  </ThemedText>
+                  <ThemedText
+                    type="detail"
+                    themeColor="textSecondary"
+                    className="text-[9px] leading-[11px] font-medium">
+                    {item.missingGrams} g
+                  </ThemedText>
+                </Pressable>
+              );
+            })}
           </View>
-
-          {!hasAccess ? (
-            <>
-              <ThemedText themeColor="textSecondary" style={styles.description}>
-                fam vergleicht die Rezeptzutaten mit deinem Vorrat und übernimmt nur Fehlendes in
-                die Einkaufsliste.
-              </ThemedText>
-              <SheetButton label="Premium ansehen" loading={unlocking} onPress={unlockPremium} />
-            </>
-          ) : isLoading ? (
-            <ActivityIndicator style={styles.loader} color={theme.accent} />
-          ) : missing.length === 0 ? (
-            <>
-              <ThemedText themeColor="textSecondary" style={styles.description}>
-                Dein Vorrat deckt alle Zutaten für {servings}{' '}
-                {servings === 1 ? 'Portion' : 'Portionen'} ab.
-              </ThemedText>
-              <SheetButton label="Schließen" onPress={onClose} />
-            </>
-          ) : (
-            <>
-              <ThemedText themeColor="textSecondary" style={styles.description}>
-                Bereits vorhandene Mengen wurden abgezogen. Wähle aus, was auf die Einkaufsliste
-                soll.
-              </ThemedText>
-              <View style={[styles.list, { backgroundColor: theme.backgroundSelected }]}>
-                {missing.map((item, index) => {
-                  const checked = selected.has(item.productId);
-                  return (
-                    <Pressable
-                      key={item.productId}
-                      onPress={() => toggle(item.productId)}
-                      role="checkbox"
-                      accessibilityState={{ checked }}
-                      style={[
-                        styles.row,
-                        index < missing.length - 1 && {
-                          borderBottomColor: theme.border,
-                          borderBottomWidth: StyleSheet.hairlineWidth,
-                        },
-                      ]}>
-                      <View
-                        style={[
-                          styles.checkbox,
-                          {
-                            borderColor: theme.accent,
-                            backgroundColor: checked ? theme.accent : 'transparent',
-                          },
-                        ]}>
-                        {checked ? <ThemedText style={styles.checkmark}>✓</ThemedText> : null}
-                      </View>
-                      <ThemedText style={styles.itemName} numberOfLines={1}>
-                        {item.name}
-                      </ThemedText>
-                      <ThemedText themeColor="textSecondary" style={styles.amount}>
-                        {item.missingGrams} g
-                      </ThemedText>
-                    </Pressable>
-                  );
-                })}
-              </View>
-              <SheetButton
-                label={`${selected.size} ${selected.size === 1 ? 'Zutat' : 'Zutaten'} übernehmen`}
-                loading={addShoppingItem.isPending}
-                disabled={selected.size === 0}
-                onPress={addSelected}
-              />
-            </>
-          )}
-        </Pressable>
-      </Pressable>
-    </Modal>
+          <SheetButton
+            label={`${selected.size} ${selected.size === 1 ? 'Zutat' : 'Zutaten'} übernehmen`}
+            loading={addShoppingItem.isPending}
+            disabled={selected.size === 0}
+            onPress={addSelected}
+          />
+        </>
+      )}
+    </RecipeBottomSheet>
   );
 }
 
@@ -207,96 +191,21 @@ function SheetButton({
   loading?: boolean;
   disabled?: boolean;
 }) {
-  const theme = useTheme();
   return (
     <Pressable
       onPress={onPress}
       disabled={disabled || loading}
       role="button"
-      style={({ pressed }) => [
-        styles.button,
-        { backgroundColor: theme.accent },
-        (disabled || loading) && styles.disabled,
-        pressed && styles.pressed,
-      ]}>
+      className={`h-12 mt-[14px] rounded-card items-center justify-center px-[14px] bg-accent active:opacity-75 ${
+        disabled || loading ? 'opacity-45' : ''
+      }`}>
       {loading ? (
         <ActivityIndicator color="#FFFFFF" />
       ) : (
-        <ThemedText type="captionCompact" style={styles.buttonText}>
+        <ThemedText type="captionCompact" className="text-white font-bold">
           {label}
         </ThemedText>
       )}
     </Pressable>
   );
 }
-
-const styles = StyleSheet.create({
-  backdrop: { flex: 1, justifyContent: 'flex-end', backgroundColor: 'rgba(38,31,39,0.30)' },
-  sheet: {
-    maxHeight: '82%',
-    borderTopLeftRadius: Radius.large,
-    borderTopRightRadius: Radius.large,
-    borderCurve: 'continuous',
-    paddingHorizontal: 16,
-    paddingTop: 10,
-    paddingBottom: 19,
-  },
-  handle: { width: 38, height: 4, borderRadius: Radius.hairline, alignSelf: 'center' },
-  header: {
-    minHeight: 58,
-    paddingTop: 13,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    gap: 12,
-  },
-  title: { flex: 1, ...FontSize[18], lineHeight: 22, fontWeight: 700, letterSpacing: -0.4 },
-  close: {
-    width: 32,
-    height: 32,
-    borderRadius: Radius.control,
-    borderCurve: 'continuous',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  closeText: { ...FontSize[18], lineHeight: 20, fontWeight: 500 },
-  description: { ...FontSize[10], lineHeight: 15, fontWeight: 500 },
-  loader: { height: 76 },
-  list: {
-    marginTop: 14,
-    borderRadius: Radius.sheet,
-    borderCurve: 'continuous',
-    overflow: 'hidden',
-  },
-  row: {
-    minHeight: 45,
-    paddingHorizontal: 12,
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 10,
-  },
-  checkbox: {
-    width: 22,
-    height: 22,
-    borderRadius: Radius.sm,
-    borderCurve: 'continuous',
-    borderWidth: 1.5,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  checkmark: { color: '#FFFFFF', ...FontSize[12], lineHeight: 14, fontWeight: 700 },
-  itemName: { flex: 1, ...FontSize[10], lineHeight: 13, fontWeight: 600 },
-  amount: { ...FontSize[9], lineHeight: 11, fontWeight: 500 },
-  button: {
-    height: 48,
-    marginTop: 14,
-    borderRadius: Radius.card,
-    borderCurve: 'continuous',
-    alignItems: 'center',
-    justifyContent: 'center',
-    paddingHorizontal: 14,
-  },
-  buttonText: { color: '#FFFFFF', ...FontSize[11], lineHeight: 14, fontWeight: 700 },
-  disabled: { opacity: 0.45 },
-  pressed: { opacity: 0.75, transform: [{ scale: 0.99 }] },
-});

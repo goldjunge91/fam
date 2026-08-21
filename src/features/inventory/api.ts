@@ -1,1 +1,1 @@
-export { useFridgeItems } from '@/features/fridge/use-fridge-items';
+export { useInventoryItems } from '@/features/inventory/use-inventory-items';

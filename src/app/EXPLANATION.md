@@ -341,15 +341,15 @@ This directory contains the route components and layouts for the Expo Router app
 ### Line-by-Line Breakdown
 
 ```tsx
-1: import { FridgeScreen } from '@/features/fridge/fridge-screen';
+1: import { InventoryScreen } from '@/features/inventory/inventory-screen';
 2: 
 3: export default function FridgeRoute() {
-4:   return <FridgeScreen />;
+4:   return <InventoryScreen />;
 5: }
 6: 
 ```
-- **Line 1:** Imports `FridgeScreen` from `@/features/fridge/fridge-screen`.
-- **Lines 3–5:** Exports default `FridgeRoute` component rendering `<FridgeScreen />`.
+- **Line 1:** Imports `InventoryScreen` from `@/features/inventory/inventory-screen`.
+- **Lines 3–5:** Exports default `FridgeRoute` component rendering `<InventoryScreen />`.
 - **Why:** Connects tab route `/(app)/fridge` to the fridge feature module.
 
 ---

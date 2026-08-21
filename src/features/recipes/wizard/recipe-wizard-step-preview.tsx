@@ -1,8 +1,7 @@
 import { Image } from 'expo-image';
 import { useState } from 'react';
-import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
-import { FontSize } from '@/components/themed-text';
-import { Radius } from '@/constants/theme';
+import { Pressable, ScrollView, View } from 'react-native';
+import { ThemedText } from '@/components/theme/themed-text';
 import type { DietaryTag, Difficulty, DishType } from '@/features/recipes/use-recipes';
 import { UNIT_OPTIONS } from '@/lib/units';
 import { DIETARY_TAGS, DIFFICULTIES, DISH_TYPES } from './recipe-metadata-options';
@@ -73,112 +72,166 @@ export function RecipeWizardStepPreview({
 
   return (
     <ScrollView
-      style={styles.scrollView}
-      contentContainerStyle={styles.scrollContent}
+      className="flex-1"
+      contentContainerClassName="px-four pb-six"
       showsVerticalScrollIndicator={false}>
-      <Text style={styles.eyebrow}>SCHRITT 4 VON 4</Text>
-      <Text style={styles.pageTitle}>Vorschau</Text>
-      <View style={styles.coverCard}>
+      <ThemedText
+        type="detail"
+        themeColor="textSecondary"
+        className="pt-two text-[8px] leading-[10px] font-medium tracking-widest">
+        SCHRITT 4 VON 4
+      </ThemedText>
+      <ThemedText type="headingSmall" className="pt-[6px] pb-three">
+        Vorschau
+      </ThemedText>
+      <View className="w-full h-[200px] bg-background-element rounded-sheet overflow-hidden mb-four justify-center items-center">
         {coverPreviewUri ? (
           <Image
             source={{ uri: coverPreviewUri }}
-            style={StyleSheet.absoluteFill}
+            // expo-image unterstützt kein NativeWind absoluteFill
+            style={{ position: 'absolute', top: 0, right: 0, bottom: 0, left: 0 }}
             contentFit="cover"
           />
         ) : (
-          <Text style={styles.coverPlaceholderText}>Kein Titelbild</Text>
+          <ThemedText type="body" themeColor="textSecondary">
+            Kein Titelbild
+          </ThemedText>
         )}
       </View>
 
-      <Text style={styles.title}>{title || 'Ohne Titel'}</Text>
+      <ThemedText type="headingSmall" className="mb-four">
+        {title || 'Ohne Titel'}
+      </ThemedText>
 
-      <View style={styles.tabBar}>
+      <View className="flex-row bg-background-element rounded-fam-large p-one mb-four">
         <Pressable
           onPress={() => setTab('ingredients')}
           accessibilityRole="tab"
           accessibilityState={{ selected: tab === 'ingredients' }}
-          style={[styles.tab, tab === 'ingredients' && styles.tabActive]}>
-          <Text style={[styles.tabText, tab === 'ingredients' && styles.tabTextActive]}>
+          className={`flex-1 py-[10px] rounded-fam-large items-center ${
+            tab === 'ingredients' ? 'bg-accent' : ''
+          }`}>
+          <ThemedText
+            type="body"
+            themeColor={tab === 'ingredients' ? 'onAccent' : 'accent'}
+            className="font-semibold">
             Zutaten
-          </Text>
+          </ThemedText>
         </Pressable>
         <Pressable
           onPress={() => setTab('instructions')}
           accessibilityRole="tab"
           accessibilityState={{ selected: tab === 'instructions' }}
-          style={[styles.tab, tab === 'instructions' && styles.tabActive]}>
-          <Text style={[styles.tabText, tab === 'instructions' && styles.tabTextActive]}>
+          className={`flex-1 py-[10px] rounded-fam-large items-center ${
+            tab === 'instructions' ? 'bg-accent' : ''
+          }`}>
+          <ThemedText
+            type="body"
+            themeColor={tab === 'instructions' ? 'onAccent' : 'accent'}
+            className="font-semibold">
             Anleitung
-          </Text>
+          </ThemedText>
         </Pressable>
       </View>
 
       {tab === 'ingredients' ? (
-        <View style={styles.tabContent}>
-          {description ? <Text style={styles.description}>{description}</Text> : null}
+        <View className="gap-three">
+          {description ? <ThemedText type="body">{description}</ThemedText> : null}
 
-          <View style={styles.metaRow}>
+          <View className="row-wrap gap-two">
             {cookTimeMinutes ? (
-              <Text style={styles.metaBadge}>⏱ {cookTimeMinutes} Min.</Text>
+              <View className="bg-background-element px-three py-[6px] rounded-fam-large">
+                <ThemedText type="label" className="font-semibold">
+                  ⏱ {cookTimeMinutes} Min.
+                </ThemedText>
+              </View>
             ) : null}
-            <Text style={styles.metaBadge}>🍽 {defaultServings} Portionen</Text>
+            <View className="bg-background-element px-three py-[6px] rounded-fam-large">
+              <ThemedText type="label" className="font-semibold">
+                🍽 {defaultServings} Portionen
+              </ThemedText>
+            </View>
             {difficulty ? (
-              <Text style={styles.metaBadge}>{labelFor(DIFFICULTIES, difficulty)}</Text>
+              <View className="bg-background-element px-three py-[6px] rounded-fam-large">
+                <ThemedText type="label" className="font-semibold">
+                  {labelFor(DIFFICULTIES, difficulty)}
+                </ThemedText>
+              </View>
             ) : null}
           </View>
 
           {dishTypes.length > 0 || dietaryTags.length > 0 ? (
-            <View style={styles.tagRow}>
+            <View className="row-wrap gap-two">
               {dishTypes.map((d) => (
-                <Text key={d} style={styles.tag}>
-                  {labelFor(DISH_TYPES, d)}
-                </Text>
+                <View key={d} className="bg-background-selected px-[10px] py-[5px] rounded-control">
+                  <ThemedText type="caption" themeColor="accent" className="font-semibold">
+                    {labelFor(DISH_TYPES, d)}
+                  </ThemedText>
+                </View>
               ))}
               {dietaryTags.map((d) => (
-                <Text key={d} style={styles.tag}>
-                  {labelFor(DIETARY_TAGS, d)}
-                </Text>
+                <View key={d} className="bg-background-selected px-[10px] py-[5px] rounded-control">
+                  <ThemedText type="caption" themeColor="accent" className="font-semibold">
+                    {labelFor(DIETARY_TAGS, d)}
+                  </ThemedText>
+                </View>
               ))}
             </View>
           ) : null}
 
-          {hashtagsInput.trim() ? <Text style={styles.hashtags}>{hashtagsInput}</Text> : null}
+          {hashtagsInput.trim() ? (
+            <ThemedText type="label" themeColor="textSecondary">
+              {hashtagsInput}
+            </ThemedText>
+          ) : null}
 
           {components.map((comp) => (
-            <View key={comp.id} style={styles.componentSection}>
-              <Text style={styles.sectionLabel}>{comp.title}</Text>
+            <View key={comp.id} className="gap-one">
+              <ThemedText type="bodyBold">{comp.title}</ThemedText>
               {comp.items
                 .filter((item) => item.product || item.existingProductId)
                 .map((item) => (
-                  <Text key={item.id} style={styles.ingredientLine}>
+                  <ThemedText key={item.id} type="body">
                     • {item.product?.name ?? item.productQuery} — {item.quantity}{' '}
                     {unitLabel(item.unit)}
-                  </Text>
+                  </ThemedText>
                 ))}
             </View>
           ))}
         </View>
       ) : (
-        <View style={styles.tabContent}>
+        <View className="gap-three">
           {steps
             .filter((step) => step.text.trim())
             .map((step, index) => (
-              <View key={step.id} style={styles.stepCard}>
-                <Text style={styles.stepIndex}>Schritt {index + 1}</Text>
+              <View key={step.id} className="bg-white/70 rounded-sheet p-three gap-two">
+                <ThemedText type="label" themeColor="accent" className="font-bold">
+                  Schritt {index + 1}
+                </ThemedText>
                 {step.localImageUri ? (
                   <Image
                     source={{ uri: step.localImageUri }}
-                    style={styles.stepImage}
+                    // expo-image benötigt inline styles
+                    style={{ width: '100%', height: 140, borderRadius: 12 }}
                     contentFit="cover"
                   />
                 ) : null}
-                <Text style={styles.stepText}>{step.text}</Text>
+                <ThemedText type="body">{step.text}</ThemedText>
+                {step.timerMinutes !== null ? (
+                  <ThemedText type="caption" themeColor="textSecondary">
+                    ⏱ {step.timerMinutes} Min. Timer
+                  </ThemedText>
+                ) : null}
                 {step.ingredientIds.length > 0 ? (
-                  <View style={styles.chipRow}>
+                  <View className="row-wrap gap-[6px]">
                     {step.ingredientIds.map((id) => (
-                      <Text key={id} style={styles.chip}>
-                        {ingredientLabelById.get(id) ?? id}
-                      </Text>
+                      <View
+                        key={id}
+                        className="bg-background-element px-[10px] py-one rounded-control">
+                        <ThemedText type="caption" themeColor="accent" className="font-semibold">
+                          {ingredientLabelById.get(id) ?? id}
+                        </ThemedText>
+                      </View>
                     ))}
                   </View>
                 ) : null}
@@ -187,209 +240,25 @@ export function RecipeWizardStepPreview({
         </View>
       )}
 
-      <View style={styles.navRow}>
-        <Pressable style={[styles.navButton, styles.navButtonSecondary]} onPress={onBack}>
-          <Text style={styles.navButtonSecondaryText}>Zurück</Text>
+      <View className="flex-row gap-[14px] mt-five mb-three">
+        <Pressable
+          className="flex-1 min-h-[48px] rounded-card items-center justify-center bg-background-element active:opacity-75"
+          onPress={onBack}>
+          <ThemedText type="captionCompact" themeColor="accent" className="font-semibold">
+            Zurück
+          </ThemedText>
         </Pressable>
         <Pressable
-          style={[styles.navButton, styles.navButtonPrimary, saving && styles.navButtonDisabled]}
+          className={`flex-1 min-h-[48px] rounded-card items-center justify-center bg-accent active:opacity-75 ${
+            saving ? 'opacity-50' : ''
+          }`}
           onPress={onSave}
           disabled={saving}>
-          <Text style={styles.navButtonPrimaryText}>{saving ? 'Speichert…' : 'Speichern'}</Text>
+          <ThemedText type="captionCompact" className="text-white font-semibold">
+            {saving ? 'Speichert…' : 'Speichern'}
+          </ThemedText>
         </Pressable>
       </View>
     </ScrollView>
   );
 }
-
-const styles = StyleSheet.create({
-  scrollView: {
-    flex: 1,
-  },
-  scrollContent: {
-    paddingHorizontal: 16,
-    paddingBottom: 24,
-  },
-  eyebrow: {
-    paddingTop: 8,
-    ...FontSize[8],
-    lineHeight: 10,
-    fontWeight: '500',
-    color: '#766E78',
-    letterSpacing: 0.7,
-  },
-  pageTitle: {
-    paddingTop: 6,
-    paddingBottom: 12,
-    ...FontSize[21],
-    lineHeight: 25,
-    fontWeight: '700',
-    color: '#302A31',
-    letterSpacing: -0.35,
-  },
-  coverCard: {
-    width: '100%',
-    height: 200,
-    backgroundColor: '#EEE5EC',
-    borderRadius: Radius.sheet,
-    borderCurve: 'continuous',
-    overflow: 'hidden',
-    marginBottom: 16,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  coverPlaceholderText: {
-    color: '#786F79',
-    ...FontSize[14],
-  },
-  title: {
-    ...FontSize[22],
-    fontWeight: '700',
-    color: '#302A31',
-    marginBottom: 16,
-  },
-  tabBar: {
-    flexDirection: 'row',
-    backgroundColor: '#EEE5EC',
-    borderRadius: Radius.controlLarge,
-    borderCurve: 'continuous',
-    padding: 4,
-    marginBottom: 16,
-  },
-  tab: {
-    flex: 1,
-    paddingVertical: 10,
-    borderRadius: Radius.controlLarge,
-    alignItems: 'center',
-  },
-  tabActive: {
-    backgroundColor: '#705773',
-  },
-  tabText: {
-    ...FontSize[14],
-    fontWeight: '600',
-    color: '#705773',
-  },
-  tabTextActive: {
-    color: '#FFFFFF',
-  },
-  tabContent: {
-    gap: 12,
-  },
-  description: {
-    ...FontSize[15],
-    color: '#302A31',
-  },
-  metaRow: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    gap: 8,
-  },
-  metaBadge: {
-    ...FontSize[13],
-    fontWeight: '600',
-    color: '#302A31',
-    backgroundColor: '#EEE5EC',
-    paddingHorizontal: 12,
-    paddingVertical: 6,
-    borderRadius: Radius.controlLarge,
-  },
-  tagRow: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    gap: 8,
-  },
-  tag: {
-    ...FontSize[12],
-    fontWeight: '600',
-    color: '#705773',
-    backgroundColor: '#F2EBF1',
-    paddingHorizontal: 10,
-    paddingVertical: 5,
-    borderRadius: Radius.control,
-  },
-  hashtags: {
-    ...FontSize[13],
-    color: '#786F79',
-  },
-  componentSection: {
-    gap: 4,
-  },
-  sectionLabel: {
-    ...FontSize[15],
-    fontWeight: '700',
-    color: '#302A31',
-  },
-  ingredientLine: {
-    ...FontSize[14],
-    color: '#302A31',
-  },
-  stepCard: {
-    backgroundColor: 'rgba(255,255,255,0.70)',
-    borderRadius: Radius.sheet,
-    borderCurve: 'continuous',
-    padding: 12,
-    gap: 8,
-  },
-  stepIndex: {
-    ...FontSize[13],
-    fontWeight: '700',
-    color: '#705773',
-  },
-  stepImage: {
-    width: '100%',
-    height: 140,
-    borderRadius: Radius.controlLarge,
-  },
-  stepText: {
-    ...FontSize[14],
-    color: '#302A31',
-  },
-  chipRow: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    gap: 6,
-  },
-  chip: {
-    ...FontSize[12],
-    fontWeight: '600',
-    color: '#705773',
-    backgroundColor: '#EEE5EC',
-    paddingHorizontal: 10,
-    paddingVertical: 4,
-    borderRadius: Radius.control,
-  },
-  navRow: {
-    flexDirection: 'row',
-    gap: 14,
-    marginTop: 20,
-    marginBottom: 12,
-  },
-  navButton: {
-    flex: 1,
-    minHeight: 48,
-    borderRadius: Radius.card,
-    borderCurve: 'continuous',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  navButtonPrimary: {
-    backgroundColor: '#705773',
-  },
-  navButtonPrimaryText: {
-    color: '#FFFFFF',
-    ...FontSize[11],
-    fontWeight: '600',
-  },
-  navButtonSecondary: {
-    backgroundColor: '#EEE5EC',
-  },
-  navButtonSecondaryText: {
-    color: '#705773',
-    ...FontSize[11],
-    fontWeight: '600',
-  },
-  navButtonDisabled: {
-    opacity: 0.5,
-  },
-});

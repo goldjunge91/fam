@@ -1,12 +1,12 @@
 import { type Href, router, useNavigation } from 'expo-router';
 import { useEffect, useState } from 'react';
-import { Pressable, StyleSheet } from 'react-native';
+import { Pressable } from 'react-native';
 
-import { FamIcon } from '@/components/fam-icon';
-import { ThemedText } from '@/components/themed-text';
-import { Radius, Spacing } from '@/constants/theme';
+import { FamIcon } from '@/components/icons/fam-icon';
+import { ThemedText } from '@/components/theme/themed-text';
+import { ButtonSize } from '@/constants/layout';
 
-const ARROW_BUTTON_SIZE = 45;
+const ARROW_BUTTON_SIZE = ButtonSize.backArrow;
 
 export type BackTarget = {
   /** Das Ziel beim Namen, z. B. `Einstellungen`. Erscheint als `‹ Einstellungen` bzw. als Accessibility-Label. */
@@ -44,7 +44,7 @@ export function BackButton({ label, href, variant = 'text', onPress }: BackButto
         onPress={handlePress}
         accessibilityRole="button"
         accessibilityLabel={variant === 'header' ? label : `Zurück zu ${label}`}
-        style={styles.arrowButton}>
+        className="btn-back-arrow">
         <FamIcon name="arrow" size={ARROW_BUTTON_SIZE} />
       </Pressable>
     );
@@ -55,7 +55,7 @@ export function BackButton({ label, href, variant = 'text', onPress }: BackButto
       onPress={handlePress}
       accessibilityRole="button"
       accessibilityLabel={`Zurück zu ${label}`}
-      style={styles.textButton}>
+      className="self-start pt-two pb-one pr-three">
       <ThemedText type="smallBold" themeColor="accent">
         {`‹ ${label}`}
       </ThemedText>
@@ -84,19 +84,3 @@ export function AutoBackButton({ label, variant }: Pick<BackButtonProps, 'label'
   return canGoBack ? <BackButton label={label} variant={variant} /> : null;
 }
 
-const styles = StyleSheet.create({
-  textButton: {
-    alignSelf: 'flex-start',
-    paddingTop: Spacing.two,
-    paddingBottom: Spacing.one,
-    paddingRight: Spacing.three,
-  },
-  arrowButton: {
-    width: ARROW_BUTTON_SIZE,
-    height: ARROW_BUTTON_SIZE,
-    borderRadius: Radius.sheet,
-    borderCurve: 'continuous',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});

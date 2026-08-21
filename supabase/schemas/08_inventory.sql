@@ -133,6 +133,9 @@ create index if not exists stores_household_id_idx
   on public.stores (household_id);
 create index if not exists stores_household_updated_idx
   on public.stores (household_id, updated_at);
+create unique index if not exists stores_household_name_lower_idx
+  on public.stores (household_id, lower(trim(name)))
+  where deleted_at is null;
 
 create or replace trigger stores_set_updated_at
   before update on public.stores
@@ -208,10 +211,9 @@ create or replace trigger shopping_list_items_set_updated_at
   for each row
   execute function private.set_updated_at();
 
--- ----------------------------------------- Standard-Lagerorte beim Anlegen
--- create_household() wird erweitert: Ein Haushalt ohne Lagerorte waere eine
--- Sackgasse — der Nutzer koennte nichts erfassen und muesste erst selbst
--- verstehen, dass ihm etwas fehlt.
+-- ------------------------ Standard-Lagerorte & Standard-Märkte beim Anlegen
+-- create_household() wird erweitert: Ein Haushalt ohne Lagerorte oder Märkte
+-- wäre eine Sackgasse — der Nutzer müsste sonst erst alles selbst anlegen.
 create or replace function public.create_household(household_name text)
 returns uuid
 language plpgsql
@@ -238,6 +240,12 @@ begin
     (new_id, 'Kühlschrank', 'fridge', 0),
     (new_id, 'Tiefkühltruhe', 'freezer', 1),
     (new_id, 'Abstellkammer', 'pantry', 2);
+
+  insert into public.stores (household_id, name, color, sort_order)
+  values
+    (new_id, 'REWE', '#B5623F', 0),
+    (new_id, 'Edeka', '#748C5B', 1),
+    (new_id, 'Aldi', '#5C7396', 2);
 
   return new_id;
 end;

@@ -116,4 +116,21 @@ export const env = {
   get revenueCatTestStoreApiKey(): string | undefined {
     return process.env.EXPO_PUBLIC_REVENUECAT_TEST_STORE_API_KEY?.trim() || undefined;
   },
+  /**
+   * DSN des Sentry-Projekts (Sentry-Dashboard: Project Settings > Client Keys).
+   * Ein DSN ist kein Geheimnis (er landet im Client-Bundle jeder Sentry-SDK-
+   * Integration), daher `EXPO_PUBLIC_`. Bewusst optional: Ohne DSN bleibt
+   * `initSentry()` (`@/lib/sentry`) ein No-op, damit lokale Entwicklung ohne
+   * Sentry-Account moeglich ist.
+   */
+  get sentryDsn(): string | undefined {
+    return process.env.EXPO_PUBLIC_SENTRY_DSN?.trim() || undefined;
+  },
+  /**
+   * Aktiviert Sentry-Debug-Logging im Terminal/Console.
+   * Standardmäßig `false`, um das Terminal nicht mit internen SDK-Logs zu fluten.
+   */
+  get sentryDebug(): boolean {
+    return isFlagEnabled(process.env.EXPO_PUBLIC_SENTRY_DEBUG);
+  },
 };

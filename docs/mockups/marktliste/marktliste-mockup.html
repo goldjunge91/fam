@@ -1,0 +1,444 @@
+<title>Marktliste</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Inter:wght@400;500;600;700;800&display=swap');
+
+  :root {
+    --ink: #2d2830;
+    --ink-soft: #55505a;
+    --muted: #786f79;
+    --page-bg: #efe6e6;
+    --page-panel: #fbf5ef;
+    --line: #e4dde3;
+    --accent: #705773;
+    --accent-soft: #ece3ec;
+    --shadow: rgba(45, 40, 48, 0.1);
+
+    /* App-Tokens 1:1 aus src/constants/theme.ts (light) */
+    --app-text: #2D2830;
+    --app-bg: #F8F4EF;
+    --app-surface: #FBF7F2;
+    --app-selected: #E9E1E7;
+    --app-text-secondary: #786F79;
+    --app-border: #E4DDE3;
+    --app-accent: #705773;
+    --app-on-accent: #FFFFFF;
+    --app-success: #78906F;
+    --app-warning: #C69059;
+    --app-danger: #C65F50;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ink: #f2ece7;
+      --ink-soft: #d8d0d5;
+      --muted: #b7adb3;
+      --page-bg: #16131a;
+      --page-panel: #1c181f;
+      --line: #3e3640;
+      --accent: #b79cba;
+      --accent-soft: #362f3a;
+      --shadow: rgba(0, 0, 0, 0.4);
+
+      --app-text: #F2ECE7;
+      --app-bg: #211D23;
+      --app-surface: #2B262E;
+      --app-selected: #382F3B;
+      --app-text-secondary: #B7ADB3;
+      --app-border: #3E3640;
+      --app-accent: #B79CBA;
+      --app-on-accent: #211D23;
+      --app-success: #8FAE86;
+      --app-warning: #D9A86C;
+      --app-danger: #D9776A;
+    }
+  }
+  :root[data-theme="dark"] {
+    --ink: #f2ece7;
+    --ink-soft: #d8d0d5;
+    --muted: #b7adb3;
+    --page-bg: #16131a;
+    --page-panel: #1c181f;
+    --line: #3e3640;
+    --accent: #b79cba;
+    --accent-soft: #362f3a;
+    --shadow: rgba(0, 0, 0, 0.4);
+
+    --app-text: #F2ECE7;
+    --app-bg: #211D23;
+    --app-surface: #2B262E;
+    --app-selected: #382F3B;
+    --app-text-secondary: #B7ADB3;
+    --app-border: #3E3640;
+    --app-accent: #B79CBA;
+    --app-on-accent: #211D23;
+    --app-success: #8FAE86;
+    --app-warning: #D9A86C;
+    --app-danger: #D9776A;
+  }
+
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0;
+    background: var(--page-bg);
+    color: var(--ink);
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  body { padding: clamp(20px, 5vw, 56px) clamp(16px, 5vw, 64px) 80px; }
+
+  .intro { max-width: 760px; margin: 0 auto 36px; }
+  .eyebrow {
+    font-size: 12px; font-weight: 700; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--accent);
+  }
+  h1 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 600;
+    font-size: clamp(28px, 4vw, 38px);
+    line-height: 1.15;
+    margin: 8px 0 12px;
+    text-wrap: balance;
+    letter-spacing: -0.01em;
+  }
+  .intro p { font-size: 15px; line-height: 1.6; color: var(--ink-soft); max-width: 66ch; margin: 0 0 10px; }
+  .intro code { background: var(--accent-soft); padding: 1px 5px; border-radius: 5px; font-size: 13px; }
+
+  .findings {
+    max-width: 760px; margin: 28px auto 48px; display: grid; gap: 10px;
+  }
+  .finding {
+    background: var(--page-panel); border: 1px solid var(--line); border-radius: 14px;
+    padding: 14px 16px; display: grid; grid-template-columns: 26px 1fr; gap: 10px;
+  }
+  .finding .n { font-family: 'Fraunces', serif; font-weight: 600; font-size: 15px; color: var(--accent); }
+  .finding b { display: block; font-size: 13.5px; margin-bottom: 3px; }
+  .finding span { font-size: 12.5px; line-height: 1.55; color: var(--muted); }
+
+  .variants {
+    display: flex; gap: clamp(24px, 4vw, 56px); justify-content: center;
+    flex-wrap: wrap; align-items: flex-start;
+  }
+  .variant-block { width: 375px; }
+  .variant-label { text-align: center; margin-bottom: 18px; }
+  .variant-label .name {
+    font-family: 'Fraunces', Georgia, serif; font-weight: 600; font-size: 21px; letter-spacing: -0.01em;
+  }
+  .variant-label .desc { font-size: 12.5px; color: var(--muted); margin-top: 3px; line-height: 1.5; padding: 0 8px; }
+
+  .phone {
+    width: 375px; height: 800px; border-radius: 46px; background: #0f0d11; padding: 10px;
+    box-shadow: 0 24px 60px -18px var(--shadow), 0 2px 8px var(--shadow);
+  }
+  .screen {
+    width: 100%; height: 100%; border-radius: 38px; overflow: hidden;
+    background: var(--app-bg); display: flex; flex-direction: column; position: relative;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui, sans-serif;
+    color: var(--app-text);
+  }
+  .statusbar { height: 30px; flex-shrink: 0; }
+  .num { font-feature-settings: "tnum"; font-variant-numeric: tabular-nums; }
+
+  /* Screen-Header ohne chrome: eigene Zurueck-Zeile (btn-back-arrow, 45x45,
+     rounded-sheet), darunter Titelzeile. Keine Subtitle-Zeile mehr (Marco
+     entfernt Screen-Subtitles app-weit, s. Notiz zum Header-Platz). */
+  .back-row { padding: 10px 20px 4px; flex-shrink: 0; }
+  .back-arrow {
+    width: 45px; height: 45px; border-radius: 20px;
+    background: color-mix(in srgb, var(--app-surface) 70%, transparent);
+    display: flex; align-items: center; justify-content: center; font-size: 17px; color: var(--app-text);
+  }
+  .title-row {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 12px 20px 16px; flex-shrink: 0;
+  }
+  .screen-title { font-size: 21px; font-weight: 700; letter-spacing: -0.01em; }
+
+  .app-scroll {
+    flex: 1; overflow: hidden; padding: 0 20px 20px; display: flex; flex-direction: column; gap: 14px;
+  }
+
+  /* ---- "Neuen Markt hinzufuegen" — card-fam: p-three, rounded-fam-large(28) ---- */
+  .form-card {
+    background: var(--app-surface); border-radius: 28px; padding: 16px; display: flex;
+    flex-direction: column; gap: 10px;
+  }
+  .form-card .card-title { font-size: 13.5px; font-weight: 700; }
+  .field {
+    height: 44px; border-radius: 16px; border: 1px solid var(--app-border);
+    background: var(--app-bg); display: flex; align-items: center; padding: 0 14px;
+    font-size: 13.5px; color: var(--app-text-secondary);
+  }
+  .field-label { font-size: 11px; font-weight: 600; color: var(--app-text-secondary); margin-top: 2px; }
+  .chip-row { display: flex; flex-wrap: wrap; gap: 8px; }
+  /* store-preset-chip: px-three py-[6px], rounded-sheet(20), border */
+  .preset-chip {
+    display: flex; align-items: center; gap: 6px; padding: 6px 12px; border-radius: 20px;
+    border: 1px solid; font-size: 12px; font-weight: 700;
+  }
+  .preset-chip .dot { width: 8px; height: 8px; border-radius: 3px; flex-shrink: 0; }
+  /* store-color-swatch: w-8 h-8 (32px), rounded-card(16), border-2 */
+  .swatch-row { display: flex; flex-wrap: wrap; gap: 8px; }
+  .swatch {
+    width: 32px; height: 32px; border-radius: 16px; border: 2px solid transparent; flex-shrink: 0;
+  }
+  .swatch.selected { border-color: var(--app-text); }
+  .form-add-btn {
+    margin-top: 4px; padding: 12px; border-radius: 16px; background: var(--app-accent);
+    color: var(--app-on-accent); text-align: center; font-size: 13.5px; font-weight: 700;
+  }
+
+  .section-label {
+    font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
+    color: var(--app-text-secondary); padding: 2px 2px 0;
+  }
+
+  /* ---- store-manage-row heute: py-three, border-b-hairline ---- */
+  .store-row {
+    display: flex; align-items: center; gap: 12px; padding: 13px 4px;
+    border-bottom: 1px solid var(--app-border);
+  }
+  .store-row:last-child { border-bottom: none; }
+  .store-dot { width: 14px; height: 14px; border-radius: 4px; flex-shrink: 0; }
+  .store-name { flex: 1; font-size: 14.5px; font-weight: 600; min-width: 0; }
+  .row-actions { display: flex; align-items: center; gap: 4px; flex-shrink: 0; }
+  .icon-action {
+    width: 32px; height: 32px; border-radius: 12px; background: var(--app-selected);
+    display: flex; align-items: center; justify-content: center; font-size: 13px; color: var(--app-text-secondary);
+  }
+  .icon-action.danger { color: var(--app-danger); }
+
+  /* ---- Variant 1: Inline-Edit erweitert die Zeile ---- */
+  .store-row.editing { flex-direction: column; align-items: stretch; gap: 10px; padding: 14px 4px; }
+  .edit-head { display: flex; align-items: center; gap: 10px; }
+  .edit-actions { display: flex; gap: 8px; margin-top: 2px; }
+  .edit-btn {
+    flex: 1; text-align: center; padding: 10px; border-radius: 14px; font-size: 12.5px; font-weight: 700;
+  }
+  .edit-btn.save { background: var(--app-accent); color: var(--app-on-accent); }
+  .edit-btn.cancel { background: var(--app-selected); color: var(--app-text); }
+
+  /* ---- Variant 2: Bearbeiten-Sheet ---- */
+  .sheet-backdrop {
+    position: absolute; inset: 0; background: color-mix(in srgb, #000 45%, transparent);
+    display: flex; align-items: flex-end;
+  }
+  .sheet {
+    width: 100%; background: var(--app-bg); border-radius: 24px 24px 0 0; padding: 10px 20px 24px;
+  }
+  .sheet-handle { width: 34px; height: 4px; border-radius: 2px; background: var(--app-border); margin: 0 auto 14px; }
+  .sheet-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; }
+  .sheet-title { font-size: 16px; font-weight: 700; }
+  .sheet-close {
+    width: 30px; height: 30px; border-radius: 12px; background: var(--app-selected);
+    display: flex; align-items: center; justify-content: center; font-size: 13px; color: var(--app-text-secondary);
+  }
+  .sheet-delete {
+    margin-top: 6px; padding: 12px; border-radius: 16px; text-align: center; font-size: 13px;
+    font-weight: 700; color: var(--app-danger); background: color-mix(in srgb, var(--app-danger) 12%, transparent);
+  }
+
+  footer {
+    max-width: 760px; margin: 56px auto 0; font-size: 12px; color: var(--muted);
+    text-align: center; border-top: 1px solid var(--line); padding-top: 18px; line-height: 1.6;
+  }
+</style>
+
+<div class="intro">
+  <div class="eyebrow">Einkauf · Marktliste ("Märkte verwalten")</div>
+  <h1>Verwaltung so kompakt wie die neue Übersicht</h1>
+  <p>
+    Abgleich mit <code>stores-screen.tsx</code>: Formular und Marktliste stehen aktuell in zwei
+    <code>Card</code>-Blöcken, jede Zeile trägt zwei volle Buttons ("Bearbeiten" / "Löschen")
+    untereinander plus beim Bearbeiten ein komplett neues Farbraster. Das ist der auffälligste
+    Bruch zur jetzt gewählten kompakten Einkaufsübersicht — hier zwei Wege, die Zeilen genauso
+    dicht zu machen, ohne Funktionen zu verlieren.
+  </p>
+</div>
+
+<div class="findings">
+  <div class="finding">
+    <div class="n">01</div>
+    <div><b>Zwei volle Buttons pro Marktzeile</b><span>"Bearbeiten" und "Löschen" stehen aktuell als eigene <code>Button</code>-Zeile unter jedem Markt — bei 5+ Märkten dominieren Buttons die Liste stärker als die Märkte selbst. Beide Varianten unten ersetzen das durch zwei kleine Icon-Aktionen neben dem Namen.</span></div>
+  </div>
+  <div class="finding">
+    <div class="n">02</div>
+    <div><b>Bearbeiten baut die ganze Zeile um</b><span>Inline-Editing ersetzt aktuell Name+Farbe+Buttons komplett durch ein neues Formular in derselben Zeile — kein Bezug mehr zur Ausgangszeile. Variante 1 behält das Prinzip, aber kompakter; Variante 2 verlagert das Bearbeiten in ein Sheet (gleiches Muster wie <code>complete-run-sheet.tsx</code> / <code>category-order-sheet.tsx</code>), die Liste bleibt währenddessen unverändert lesbar.</span></div>
+  </div>
+  <div class="finding">
+    <div class="n">03</div>
+    <div><b>Formular und Liste sind zwei gleich große Karten</b><span>Das "+ Hinzufügen"-Formular ist aktuell so hoch wie die halbe Liste. Unten bleibt es als eine Karte oben, aber mit kompakteren Presets/Swatches — die Liste bekommt den Raum, den sie bei mehreren Märkten braucht.</span></div>
+  </div>
+</div>
+
+<div class="variants">
+
+  <div class="variant-block">
+    <div class="variant-label">
+      <div class="name">1 · Inline-Edit, kompakt</div>
+      <div class="desc">Icon-Aktionen (Stift/Papierkorb) statt Button-Paar. Bearbeiten klappt dieselbe Zeile auf, Speichern/Abbrechen bleiben dort — kein Sheet, kein Screenwechsel.</div>
+    </div>
+    <div class="phone">
+      <div class="screen">
+        <div class="statusbar"></div>
+        <div class="back-row"><div class="back-arrow">‹</div></div>
+        <div class="title-row"><div class="screen-title">Märkte verwalten</div></div>
+
+        <div class="app-scroll">
+          <div class="form-card">
+            <div class="card-title">Neuen Markt hinzufügen</div>
+            <div class="field">z. B. REWE, Aldi, Lidl …</div>
+            <div class="field-label">Vorschläge</div>
+            <div class="chip-row">
+              <div class="preset-chip" style="border-color:#B5623F;color:#B5623F"><span class="dot" style="background:#B5623F"></span>REWE</div>
+              <div class="preset-chip" style="border-color:#5C7396;color:#5C7396"><span class="dot" style="background:#5C7396"></span>Aldi</div>
+              <div class="preset-chip" style="border-color:#C6A24A;color:#C6A24A"><span class="dot" style="background:#C6A24A"></span>Lidl</div>
+              <div class="preset-chip" style="border-color:#8B6F72;color:#8B6F72"><span class="dot" style="background:#8B6F72"></span>dm</div>
+            </div>
+            <div class="field-label">Farbe</div>
+            <div class="swatch-row">
+              <div class="swatch selected" style="background:#B5623F"></div>
+              <div class="swatch" style="background:#C08A4E"></div>
+              <div class="swatch" style="background:#748C5B"></div>
+              <div class="swatch" style="background:#4F8580"></div>
+              <div class="swatch" style="background:#5C7396"></div>
+              <div class="swatch" style="background:#8B6F72"></div>
+            </div>
+            <div class="form-add-btn">Hinzufügen</div>
+          </div>
+
+          <div class="section-label">Vorhandene Märkte</div>
+          <div>
+            <div class="store-row">
+              <div class="store-dot" style="background:#B5623F"></div>
+              <div class="store-name">REWE</div>
+              <div class="row-actions">
+                <div class="icon-action">✎</div>
+                <div class="icon-action danger">🗑</div>
+              </div>
+            </div>
+
+            <!-- Bearbeiten-Zustand: dieselbe Zeile, aufgeklappt -->
+            <div class="store-row editing">
+              <div class="edit-head">
+                <div class="store-dot" style="background:#748C5B"></div>
+                <div class="field" style="flex:1; height:38px">Bio-Markt</div>
+              </div>
+              <div class="swatch-row">
+                <div class="swatch" style="width:24px;height:24px;border-radius:10px;background:#B5623F"></div>
+                <div class="swatch selected" style="width:24px;height:24px;border-radius:10px;background:#748C5B"></div>
+                <div class="swatch" style="width:24px;height:24px;border-radius:10px;background:#4F8580"></div>
+                <div class="swatch" style="width:24px;height:24px;border-radius:10px;background:#5C7396"></div>
+                <div class="swatch" style="width:24px;height:24px;border-radius:10px;background:#8B6F72"></div>
+              </div>
+              <div class="edit-actions">
+                <div class="edit-btn save">Speichern</div>
+                <div class="edit-btn cancel">Abbrechen</div>
+              </div>
+            </div>
+
+            <div class="store-row">
+              <div class="store-dot" style="background:#8B6F72"></div>
+              <div class="store-name">dm</div>
+              <div class="row-actions">
+                <div class="icon-action">✎</div>
+                <div class="icon-action danger">🗑</div>
+              </div>
+            </div>
+            <div class="store-row">
+              <div class="store-dot" style="background:#5C7396"></div>
+              <div class="store-name">Aldi</div>
+              <div class="row-actions">
+                <div class="icon-action">✎</div>
+                <div class="icon-action danger">🗑</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="variant-block">
+    <div class="variant-label">
+      <div class="name">2 · Bearbeiten-Sheet</div>
+      <div class="desc">Liste bleibt beim Bearbeiten unveraendert lesbar. Antippen der Zeile oeffnet ein Sheet — gleiches Muster wie andernorts in der App (Abschluss/Reihenfolge). Löschen wandert als eigene Aktion ins Sheet.</div>
+    </div>
+    <div class="phone">
+      <div class="screen">
+        <div class="statusbar"></div>
+        <div class="back-row"><div class="back-arrow">‹</div></div>
+        <div class="title-row"><div class="screen-title">Märkte verwalten</div></div>
+
+        <div class="app-scroll">
+          <div class="form-card">
+            <div class="card-title">Neuen Markt hinzufügen</div>
+            <div class="field">z. B. REWE, Aldi, Lidl …</div>
+            <div class="field-label">Vorschläge</div>
+            <div class="chip-row">
+              <div class="preset-chip" style="border-color:#B5623F;color:#B5623F"><span class="dot" style="background:#B5623F"></span>REWE</div>
+              <div class="preset-chip" style="border-color:#5C7396;color:#5C7396"><span class="dot" style="background:#5C7396"></span>Aldi</div>
+              <div class="preset-chip" style="border-color:#C6A24A;color:#C6A24A"><span class="dot" style="background:#C6A24A"></span>Lidl</div>
+            </div>
+            <div class="form-add-btn">Hinzufügen</div>
+          </div>
+
+          <div class="section-label">Vorhandene Märkte</div>
+          <div>
+            <div class="store-row">
+              <div class="store-dot" style="background:#B5623F"></div>
+              <div class="store-name">REWE</div>
+              <div class="chev" style="color:var(--app-text-secondary);font-size:14px">›</div>
+            </div>
+            <div class="store-row">
+              <div class="store-dot" style="background:#748C5B"></div>
+              <div class="store-name">Bio-Markt</div>
+              <div class="chev" style="color:var(--app-text-secondary);font-size:14px">›</div>
+            </div>
+            <div class="store-row">
+              <div class="store-dot" style="background:#8B6F72"></div>
+              <div class="store-name">dm</div>
+              <div class="chev" style="color:var(--app-text-secondary);font-size:14px">›</div>
+            </div>
+            <div class="store-row">
+              <div class="store-dot" style="background:#5C7396"></div>
+              <div class="store-name">Aldi</div>
+              <div class="chev" style="color:var(--app-text-secondary);font-size:14px">›</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bearbeiten-Sheet für "Bio-Markt", zur Veranschaulichung eingeblendet -->
+        <div class="sheet-backdrop">
+          <div class="sheet">
+            <div class="sheet-handle"></div>
+            <div class="sheet-top">
+              <div class="sheet-title">Bio-Markt bearbeiten</div>
+              <div class="sheet-close">✕</div>
+            </div>
+            <div class="field" style="margin-bottom:10px">Bio-Markt</div>
+            <div class="field-label">Farbe</div>
+            <div class="swatch-row" style="margin-top:6px">
+              <div class="swatch" style="background:#B5623F"></div>
+              <div class="swatch selected" style="background:#748C5B"></div>
+              <div class="swatch" style="background:#4F8580"></div>
+              <div class="swatch" style="background:#5C7396"></div>
+              <div class="swatch" style="background:#8B6F72"></div>
+              <div class="swatch" style="background:#A6483D"></div>
+            </div>
+            <div class="form-add-btn">Speichern</div>
+            <div class="sheet-delete">Markt löschen</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  Farb-Tokens 1:1 aus <code>src/constants/theme.ts</code> (Light), Marktfarben 1:1 aus
+  <code>store-presets.ts</code>, Button-/Radius-Maße 1:1 aus <code>global.css</code> /
+  <code>constants/layout.ts</code> (<code>btn-back-arrow</code> 45px, <code>card-fam</code>
+  28px-Radius, <code>store-color-swatch</code> 32px). Unverbindlicher Mockup — nichts an echten
+  Komponenten wurde geändert.
+</footer>

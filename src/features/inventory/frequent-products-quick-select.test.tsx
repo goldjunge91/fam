@@ -63,7 +63,12 @@ afterEach(async () => {
 test('rendert nichts, solange kein Nutzer bekannt ist', async () => {
   mockGetFrequentProductUsage.mockResolvedValue([]);
   await renderWithClient(
-    <FrequentProductsQuickSelect feature="fridge" userId={undefined} onSelectProduct={jest.fn()} />,
+    <FrequentProductsQuickSelect
+      feature="fridge"
+      userId={undefined}
+      mode="frequent"
+      onSelectProduct={jest.fn()}
+    />,
   );
   expect(mockGetFrequentProductUsage).not.toHaveBeenCalled();
 });
@@ -71,25 +76,41 @@ test('rendert nichts, solange kein Nutzer bekannt ist', async () => {
 test('rendert nichts, wenn es keine Nutzungshistorie gibt', async () => {
   mockGetFrequentProductUsage.mockResolvedValue([]);
   await renderWithClient(
-    <FrequentProductsQuickSelect feature="fridge" userId="user-1" onSelectProduct={jest.fn()} />,
+    <FrequentProductsQuickSelect
+      feature="fridge"
+      userId="user-1"
+      mode="frequent"
+      onSelectProduct={jest.fn()}
+    />,
   );
   await waitFor(() => expect(mockGetFrequentProductUsage).toHaveBeenCalled());
-  expect(screen.queryByText('Häufig verwendet')).not.toBeOnTheScreen();
+  expect(screen.queryByText('Milch')).not.toBeOnTheScreen();
 });
 
-test('sortiert nach Haeufigkeit — mehrfach verwendetes Produkt vor einmalig verwendetem', async () => {
+test('gibt den mode an die Abfrage weiter und zeigt die Zeilen in der gelieferten Reihenfolge', async () => {
+  // Sortierung/Dedupe passiert seit dem Sheet-Redesign in SQL
+  // (getFrequentProductUsage), die Komponente reicht nur noch durch — hier
+  // liefert der Mock bereits "Milch vor Butter" wie es die echte SQL-Query
+  // fuer mode: 'frequent' taete.
   mockGetFrequentProductUsage.mockResolvedValue([
-    row({ name: 'Butter', used_at: '2026-01-03T10:00:00.000Z' }),
     row({ name: 'Milch', used_at: '2026-01-02T10:00:00.000Z' }),
-    row({ name: 'Milch', used_at: '2026-01-01T10:00:00.000Z' }),
+    row({ name: 'Butter', used_at: '2026-01-03T10:00:00.000Z' }),
   ]);
   await renderWithClient(
-    <FrequentProductsQuickSelect feature="fridge" userId="user-1" onSelectProduct={jest.fn()} />,
+    <FrequentProductsQuickSelect
+      feature="fridge"
+      userId="user-1"
+      mode="frequent"
+      onSelectProduct={jest.fn()}
+    />,
   );
 
-  await screen.findByText('Häufig verwendet');
   const chips = await screen.findAllByText(/Milch|Butter/);
   expect(chips.map((c) => c.props.children)).toEqual(['Milch', 'Butter']);
+  expect(mockGetFrequentProductUsage).toHaveBeenCalledWith(
+    expect.anything(),
+    expect.objectContaining({ mode: 'frequent' }),
+  );
 });
 
 test('ein Tap auf einen Chip liefert das Produkt an onSelectProduct', async () => {
@@ -101,6 +122,7 @@ test('ein Tap auf einen Chip liefert das Produkt an onSelectProduct', async () =
     <FrequentProductsQuickSelect
       feature="fridge"
       userId="user-1"
+      mode="frequent"
       onSelectProduct={onSelectProduct}
     />,
   );

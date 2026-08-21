@@ -1,9 +1,9 @@
 import { router } from 'expo-router';
 import type { ReactNode } from 'react';
-import { Card } from '@/components/card';
-import { EmptyState } from '@/components/empty-state';
-import { Screen } from '@/components/screen';
+import { Screen } from '@/components/layout/screen';
 import { Button } from '@/components/ui/buttons';
+import { Card } from '@/components/ui/card';
+import { EmptyState } from '@/components/ui/empty-state';
 import { useSession } from '@/features/auth/session-provider';
 import {
   type ModulePreferences,

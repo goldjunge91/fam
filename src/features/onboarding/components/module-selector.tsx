@@ -1,8 +1,5 @@
-import { Pressable, StyleSheet, Switch, Text, View } from 'react-native';
-import { FontSize } from '@/components/themed-text';
+import { Pressable, Switch, Text, View } from 'react-native';
 import { Button } from '@/components/ui/buttons';
-import { Radius, Spacing } from '@/constants/theme';
-import { useTheme } from '@/hooks/use-theme';
 import { useOnboarding } from '../context/onboarding-context';
 
 interface ModuleSelectorFormProps {
@@ -11,7 +8,6 @@ interface ModuleSelectorFormProps {
 }
 
 export function ModuleSelectorForm({ onNext, onSkip }: ModuleSelectorFormProps) {
-  const theme = useTheme();
   const { state, updateModulesData } = useOnboarding();
 
   const toggle = (key: keyof typeof state.modules) => {
@@ -19,25 +15,19 @@ export function ModuleSelectorForm({ onNext, onSkip }: ModuleSelectorFormProps) 
   };
 
   return (
-    <View style={styles.container}>
-      <Text style={[styles.heading, { color: theme.text }]}>Welche Module möchtest du nutzen?</Text>
-      <Text style={[styles.subheading, { color: theme.textSecondary }]}>
+    <View className="gap-three">
+      <Text className="perm-heading">Welche Module möchtest du nutzen?</Text>
+      <Text className="perm-subheading">
         Du kannst ungenutzte Module jederzeit später in den Einstellungen anpassen.
       </Text>
 
-      <View style={styles.moduleList}>
+      <View className="perm-list">
         <Pressable
           onPress={() => toggle('fridge')}
-          style={[
-            styles.moduleRow,
-            {
-              backgroundColor: theme.backgroundElement,
-              borderColor: state.modules.fridge ? theme.accent : theme.border,
-            },
-          ]}>
-          <View style={styles.moduleTextCol}>
-            <Text style={[styles.moduleTitle, { color: theme.text }]}>🧊 Kühlschrank & Vorrat</Text>
-            <Text style={[styles.moduleDesc, { color: theme.textSecondary }]}>
+          className={`onboard-module-row ${state.modules.fridge ? 'module-row-selected' : 'module-row-idle'}`}>
+          <View className="perm-text-col">
+            <Text className="onboard-module-title">🧊 Kühlschrank & Vorrat</Text>
+            <Text className="onboard-module-desc">
               Bestand verwalten, MHD-Ampel und Benachrichtigungen vor Ablauf.
             </Text>
           </View>
@@ -46,18 +36,10 @@ export function ModuleSelectorForm({ onNext, onSkip }: ModuleSelectorFormProps) 
 
         <Pressable
           onPress={() => toggle('shoppingList')}
-          style={[
-            styles.moduleRow,
-            {
-              backgroundColor: theme.backgroundElement,
-              borderColor: state.modules.shoppingList ? theme.accent : theme.border,
-            },
-          ]}>
-          <View style={styles.moduleTextCol}>
-            <Text style={[styles.moduleTitle, { color: theme.text }]}>
-              🛒 Geteilte Einkaufsliste
-            </Text>
-            <Text style={[styles.moduleDesc, { color: theme.textSecondary }]}>
+          className={`onboard-module-row ${state.modules.shoppingList ? 'module-row-selected' : 'module-row-idle'}`}>
+          <View className="perm-text-col">
+            <Text className="onboard-module-title">🛒 Geteilte Einkaufsliste</Text>
+            <Text className="onboard-module-desc">
               Gemeinsam einkaufen und nach dem Abkassieren direkt im Kühlschrank speichern.
             </Text>
           </View>
@@ -66,18 +48,10 @@ export function ModuleSelectorForm({ onNext, onSkip }: ModuleSelectorFormProps) 
 
         <Pressable
           onPress={() => toggle('calories')}
-          style={[
-            styles.moduleRow,
-            {
-              backgroundColor: theme.backgroundElement,
-              borderColor: state.modules.calories ? theme.accent : theme.border,
-            },
-          ]}>
-          <View style={styles.moduleTextCol}>
-            <Text style={[styles.moduleTitle, { color: theme.text }]}>
-              🍎 Kalorienzähler & Tagebuch
-            </Text>
-            <Text style={[styles.moduleDesc, { color: theme.textSecondary }]}>
+          className={`onboard-module-row ${state.modules.calories ? 'module-row-selected' : 'module-row-idle'}`}>
+          <View className="perm-text-col">
+            <Text className="onboard-module-title">🍎 Kalorienzähler & Tagebuch</Text>
+            <Text className="onboard-module-desc">
               Privat Nährwerte erfassen, Makros tracken und Grundumsatz berechnen.
             </Text>
           </View>
@@ -86,16 +60,10 @@ export function ModuleSelectorForm({ onNext, onSkip }: ModuleSelectorFormProps) 
 
         <Pressable
           onPress={() => toggle('recipes')}
-          style={[
-            styles.moduleRow,
-            {
-              backgroundColor: theme.backgroundElement,
-              borderColor: state.modules.recipes ? theme.accent : theme.border,
-            },
-          ]}>
-          <View style={styles.moduleTextCol}>
-            <Text style={[styles.moduleTitle, { color: theme.text }]}>📖 Rezept-Manager</Text>
-            <Text style={[styles.moduleDesc, { color: theme.textSecondary }]}>
+          className={`onboard-module-row ${state.modules.recipes ? 'module-row-selected' : 'module-row-idle'}`}>
+          <View className="perm-text-col">
+            <Text className="onboard-module-title">📖 Rezept-Manager</Text>
+            <Text className="onboard-module-desc">
               Rezepte anlegen und Portionsmengen berechnen.
             </Text>
           </View>
@@ -104,16 +72,10 @@ export function ModuleSelectorForm({ onNext, onSkip }: ModuleSelectorFormProps) 
 
         <Pressable
           onPress={() => toggle('mealPlanner')}
-          style={[
-            styles.moduleRow,
-            {
-              backgroundColor: theme.backgroundElement,
-              borderColor: state.modules.mealPlanner ? theme.accent : theme.border,
-            },
-          ]}>
-          <View style={styles.moduleTextCol}>
-            <Text style={[styles.moduleTitle, { color: theme.text }]}>🗓️ Meal-Planner</Text>
-            <Text style={[styles.moduleDesc, { color: theme.textSecondary }]}>
+          className={`onboard-module-row ${state.modules.mealPlanner ? 'module-row-selected' : 'module-row-idle'}`}>
+          <View className="perm-text-col">
+            <Text className="onboard-module-title">🗓️ Meal-Planner</Text>
+            <Text className="onboard-module-desc">
               Die Woche vorausplanen und Mahlzeiten Mitgliedern zuordnen.
             </Text>
           </View>
@@ -121,61 +83,14 @@ export function ModuleSelectorForm({ onNext, onSkip }: ModuleSelectorFormProps) 
         </Pressable>
       </View>
 
-      <View style={styles.buttonRow}>
-        <View style={styles.buttonCol}>
+      <View className="perm-button-row">
+        <View className="flex-1">
           <Button label="Weiter" onPress={onNext} />
         </View>
-        <View style={styles.buttonCol}>
+        <View className="flex-1">
           <Button label="Überspringen" variant="secondary" onPress={onSkip} />
         </View>
       </View>
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    gap: Spacing.three,
-  },
-  heading: {
-    ...FontSize[22],
-    fontWeight: '700',
-  },
-  subheading: {
-    ...FontSize[14],
-    lineHeight: 20,
-  },
-  moduleList: {
-    gap: Spacing.two,
-    marginTop: Spacing.one,
-  },
-  moduleRow: {
-    flexDirection: 'row',
-    padding: Spacing.three,
-    borderRadius: Radius.sm,
-    borderWidth: 1,
-    alignItems: 'center',
-    justifyContent: 'space-between',
-  },
-  moduleTextCol: {
-    flex: 1,
-    paddingRight: Spacing.two,
-  },
-  moduleTitle: {
-    ...FontSize[15],
-    fontWeight: '700',
-  },
-  moduleDesc: {
-    ...FontSize[13],
-    marginTop: 2,
-    lineHeight: 18,
-  },
-  buttonRow: {
-    flexDirection: 'row',
-    gap: Spacing.two,
-    marginTop: Spacing.three,
-  },
-  buttonCol: {
-    flex: 1,
-  },
-});

@@ -1,9 +1,8 @@
 import { useQueryClient } from '@tanstack/react-query';
-import { Pressable, StyleSheet, Text, View } from 'react-native';
-import { ProgressBar } from '@/components/progress-bar';
-import { Screen } from '@/components/screen';
-import { FontSize } from '@/components/themed-text';
-import { Spacing } from '@/constants/theme';
+import { Pressable, Text, View } from 'react-native';
+import { Screen } from '@/components/layout/screen';
+import { BackButton } from '@/components/ui/buttons';
+import { ProgressBar } from '@/components/ui/progress-bar';
 import { useSession } from '@/features/auth/session-provider';
 import { signOutAndClearLocalData } from '@/features/auth/sign-out';
 import { useTheme } from '@/hooks/use-theme';
@@ -22,7 +21,7 @@ function OnboardingContent() {
   const theme = useTheme();
   const { session } = useSession();
   const queryClient = useQueryClient();
-  const { state, setStep, nextStep } = useOnboarding();
+  const { state, setStep, nextStep, prevStep } = useOnboarding();
   const currentStep = state.currentStep;
 
   // Notausstieg (#128): Ein Nutzer, dessen Account in einem kaputten Zustand
@@ -37,26 +36,42 @@ function OnboardingContent() {
   }
 
   return (
-    <Screen title={currentStep === 1 ? 'Willkommen' : `Schritt ${currentStep} von ${TOTAL_STEPS}`}>
+    <Screen
+      title={currentStep === 1 ? 'Willkommen' : `Schritt ${currentStep} von ${TOTAL_STEPS}`}
+      // Schritt 4 (Haushalt) bringt seine eigene ScrollView im
+      // KeyboardAvoidingView mit — nur so kann er beim Tippen zuverlässig
+      // zum fokussierten Feld hochscrollen (siehe household-step.tsx).
+      scroll={currentStep !== 4}>
+      {/* Onboarding-Navigationsleiste (Zurück-Button, Fortschrittsbalken, Abmelden-Notausstieg) */}
       {currentStep > 1 && currentStep < TOTAL_STEPS && (
-        <View style={styles.progressContainer}>
+        <View className="progress-container">
+          {/* Nutzt bewusst `prevStep` aus dem Context statt Routing — die
+              Schritte sind kein eigener Screen, sondern nur `currentStep`
+              im Onboarding-State. */}
+          <BackButton label="Zurück" onPress={prevStep} />
+          {/* ProgressBar erwartet einen echten Farbwert (kein className-Prop). */}
           <ProgressBar value={currentStep / TOTAL_STEPS} color={theme.accent} />
           {session && (
-            <Pressable onPress={handleEmergencySignOut} style={styles.signOutLink}>
-              <Text style={[styles.signOutText, { color: theme.textSecondary }]}>
-                Nicht du? Abmelden und neu starten
-              </Text>
+            <Pressable onPress={handleEmergencySignOut} className="signout-link">
+              <Text className="signout-text">Nicht du? Abmelden und neu starten</Text>
             </Pressable>
           )}
         </View>
       )}
 
+      {/* Schritt 1: Willkommens-Karussell / Feature-Überblick */}
       {currentStep === 1 && <WelcomeCarousel onStart={() => setStep(2)} />}
+      {/* Schritt 2: Account anlegen / Anmelden */}
       {currentStep === 2 && <AccountStepForm onNext={() => setStep(3)} />}
+      {/* Schritt 3: Persönliches Profil (Körperdaten, Aktivitätslevel, Ziele) */}
       {currentStep === 3 && <ProfileStepForm onNext={nextStep} onSkip={nextStep} />}
+      {/* Schritt 4: Haushalt erstellen oder beitreten */}
       {currentStep === 4 && <HouseholdStepForm onNext={nextStep} onSkip={nextStep} />}
+      {/* Schritt 5: Modulauswahl (Vorrat, Kalorien, Einkaufsliste, Essensplaner) */}
       {currentStep === 5 && <ModuleSelectorForm onNext={nextStep} onSkip={nextStep} />}
+      {/* Schritt 6: System-Berechtigungen (Benachrichtigungen, Kamera) */}
       {currentStep === 6 && <PermissionsStepForm onNext={nextStep} onSkip={nextStep} />}
+      {/* Schritt 7: Abschluss & Starten der App */}
       {currentStep === 7 && <CompleteStepForm />}
     </Screen>
   );
@@ -69,19 +84,3 @@ export function OnboardingFlow() {
     </OnboardingProvider>
   );
 }
-
-const styles = StyleSheet.create({
-  progressContainer: {
-    paddingHorizontal: Spacing.four,
-    marginBottom: Spacing.two,
-  },
-  signOutLink: {
-    alignSelf: 'center',
-    marginTop: Spacing.two,
-    padding: Spacing.one,
-  },
-  signOutText: {
-    ...FontSize[12],
-    textDecorationLine: 'underline',
-  },
-});

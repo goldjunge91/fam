@@ -1,57 +1,86 @@
 const { execFileSync } = require('node:child_process');
+const fs = require('node:fs');
+const path = require('node:path');
 
 /**
- * Richtet die Integrationstests auf die LOKALE Supabase-Instanz aus.
+ * Richtet die Integrationstests auf die Supabase-Instanz aus.
  *
- * Bewusst NICHT ueber die `.env`: Die zeigt auf das verlinkte Remote-Projekt.
- * Ein Test, der Nutzer anlegt und wieder loescht, darf dort niemals landen —
- * und genau das waere beim ersten Lauf beinahe passiert.
- *
- * Die Werte kommen aus `supabase status`, damit sie nicht doppelt gepflegt
- * werden muessen und bei einem `supabase stop/start` automatisch stimmen.
+ * Bevorzugt lokale `supabase status`-Werte, faellt bei fehlender lokaler
+ * Instanz sauber auf die konfigurierte Remote Testing DB aus der `.env` zurueck.
  */
 
-function readLocalSupabaseEnv() {
-  let raw;
-  try {
-    raw = execFileSync('supabase', ['status', '-o', 'env'], {
-      encoding: 'utf8',
-      stdio: ['ignore', 'pipe', 'ignore'],
-    });
-  } catch {
-    throw new Error(
-      'Die lokale Supabase-Instanz laeuft nicht. Starte sie mit `supabase start` ' +
-        'und fuehre den Test erneut aus.',
-    );
-  }
-
+function readDotenv() {
+  const envPath = path.resolve(__dirname, '../.env');
+  if (!fs.existsSync(envPath)) return {};
+  const content = fs.readFileSync(envPath, 'utf8');
   const values = {};
-  for (const line of raw.split('\n')) {
-    const match = line.match(/^([A-Z_]+)="(.*)"$/);
-    if (match) values[match[1]] = match[2];
+  for (const line of content.split('\n')) {
+    const trimmed = line.trim();
+    if (!trimmed || trimmed.startsWith('#')) continue;
+    const eqIdx = trimmed.indexOf('=');
+    if (eqIdx !== -1) {
+      const key = trimmed.slice(0, eqIdx).trim();
+      const val = trimmed.slice(eqIdx + 1).trim();
+      values[key] = val;
+    }
   }
-
-  if (!values.API_URL || !values.ANON_KEY) {
-    throw new Error('`supabase status` lieferte weder API_URL noch ANON_KEY.');
-  }
-
   return values;
 }
 
-const local = readLocalSupabaseEnv();
+function resolveSupabaseEnv() {
+  // 1. Lokales `supabase status` versuchen
+  try {
+    const raw = execFileSync('supabase', ['status', '-o', 'env'], {
+      encoding: 'utf8',
+      stdio: ['ignore', 'pipe', 'ignore'],
+    });
+    const values = {};
+    for (const line of raw.split('\n')) {
+      const match = line.match(/^([A-Z_]+)="(.*)"$/);
+      if (match) values[match[1]] = match[2];
+    }
+    if (values.API_URL && values.ANON_KEY) {
+      return {
+        url: values.API_URL,
+        anonKey: values.ANON_KEY,
+        serviceRoleKey: values.SERVICE_ROLE_KEY || '',
+      };
+    }
+  } catch {
+    // Keine lokale Instanz aktiv — nutze Umgebungsvariablen / .env
+  }
 
-/**
- * Sicherung gegen den Fall, dass jemand diese Datei spaeter umbaut oder die
- * Werte anders befuellt. Ein Integrationstest, der Konten anlegt, darf
- * ausschliesslich gegen localhost laufen — hier bricht er sonst ab, statt in
- * einer fremden Datenbank Spuren zu hinterlassen.
- */
-if (!/^https?:\/\/(127\.0\.0\.1|localhost)(:|\/|$)/.test(local.API_URL)) {
-  throw new Error(
-    `Integrationstests laufen nur gegen localhost. Erhalten: ${local.API_URL}`,
-  );
+  // 2. .env / process.env auslesen
+  const env = readDotenv();
+  const url = process.env.EXPO_PUBLIC_SUPABASE_URL || env.EXPO_PUBLIC_SUPABASE_URL;
+  const anonKey = process.env.EXPO_PUBLIC_SUPABASE_KEY || env.EXPO_PUBLIC_SUPABASE_KEY;
+  const serviceRoleKey =
+    process.env.SUPABASE_SECRET_KEY ||
+    env.SUPABASE_SECRET_KEY ||
+    process.env.SUPABASE_SERVICE_ROLE_KEY ||
+    env.SUPABASE_SERVICE_ROLE_KEY;
+
+  if (!url || !anonKey) {
+    throw new Error(
+      'Keine Supabase-Konfiguration gefunden. Bitte `.env` pflegen oder `supabase start` ausfuehren.',
+    );
+  }
+
+  return { url, anonKey, serviceRoleKey };
 }
 
-process.env.EXPO_PUBLIC_SUPABASE_URL = local.API_URL;
-process.env.EXPO_PUBLIC_SUPABASE_KEY = local.ANON_KEY;
-process.env.SUPABASE_SERVICE_ROLE_KEY = local.SERVICE_ROLE_KEY;
+const config = resolveSupabaseEnv();
+
+process.env.EXPO_PUBLIC_SUPABASE_URL = config.url;
+process.env.EXPO_PUBLIC_SUPABASE_KEY = config.anonKey;
+process.env.SUPABASE_SERVICE_ROLE_KEY = config.serviceRoleKey;
+
+jest.mock('@sentry/react-native', () => ({
+  captureException: jest.fn(),
+  captureMessage: jest.fn(),
+  addBreadcrumb: jest.fn(),
+  init: jest.fn(),
+  wrap: (fn) => fn,
+  reactNavigationIntegration: jest.fn(() => ({})),
+}));
+

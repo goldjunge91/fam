@@ -1,9 +1,7 @@
-import { StyleSheet, View } from 'react-native';
-
-import { Card } from '@/components/card';
-import { Screen } from '@/components/screen';
-import { ThemedText } from '@/components/themed-text';
-import { Spacing } from '@/constants/theme';
+import { View } from 'react-native';
+import { Screen } from '@/components/layout/screen';
+import { ThemedText } from '@/components/theme/themed-text';
+import { Card } from '@/components/ui/card';
 
 type Section = {
   title: string;
@@ -66,12 +64,13 @@ export function PrivacyScreen() {
       title="Datenschutz"
       back={{ label: 'Einstellungen', href: '/settings' }}
       backStyle="icon">
-      <View style={styles.sections}>
+      {/* Übersicht aller Datenschutz-Abschnitte (Verschlüsselung, Datenarten, Drittdienste, Rechte) */}
+      <View className="gap-three">
         {SECTIONS.map((section) => (
           <Card key={section.title}>
-            <ThemedText type="smallBold" style={styles.sectionTitle}>
-              {section.title}
-            </ThemedText>
+            {/* Kein separates marginBottom mehr: card-fam liefert bereits
+                gap-two zwischen Titel und Text (Card-Komponente). */}
+            <ThemedText type="smallBold">{section.title}</ThemedText>
             <ThemedText type="small" themeColor="textSecondary">
               {section.body}
             </ThemedText>
@@ -81,12 +80,3 @@ export function PrivacyScreen() {
     </Screen>
   );
 }
-
-const styles = StyleSheet.create({
-  sections: {
-    gap: Spacing.three,
-  },
-  sectionTitle: {
-    marginBottom: Spacing.one,
-  },
-});

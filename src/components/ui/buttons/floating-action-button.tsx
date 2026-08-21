@@ -1,8 +1,5 @@
 import type { ReactNode } from 'react';
-import { Pressable, StyleSheet } from 'react-native';
-
-import { Radius, withAlpha } from '@/constants/theme';
-import { useTheme } from '@/hooks/use-theme';
+import { Pressable } from 'react-native';
 
 type FloatingActionButtonProps = {
   label: string;
@@ -10,32 +7,21 @@ type FloatingActionButtonProps = {
   children: ReactNode;
 };
 
-/** Grosse, schwebende Primaeraktion am unteren Bildschirmrand. */
+/**
+ * Primaeraktion in der unteren Bildschirmecke (links/rechts konfigurierbar,
+ * siehe `fab-position-settings.ts`) — bewusst kleiner und randnah statt
+ * mittig schwebend, damit sie den Inhalt nicht verdeckt.
+ */
 export function FloatingActionButton({ label, onPress, children }: FloatingActionButtonProps) {
-  const theme = useTheme();
-
   return (
     <Pressable
       onPress={onPress}
       accessibilityRole="button"
       accessibilityLabel={label}
-      style={[
-        styles.button,
-        { backgroundColor: theme.accent, boxShadow: `0 10px 22px ${withAlpha(theme.shadowSheet, 0.22)}` },
-      ]}>
+      className="btn-fab-corner">
       {children}
     </Pressable>
   );
 }
 
-const styles = StyleSheet.create({
-  button: {
-    width: 75,
-    height: 75,
-    borderRadius: Radius.pill,
-    borderCurve: 'continuous',
-    alignItems: 'center',
-    justifyContent: 'center',
-    transform: [{ translateY: 0 }],
-  },
-});
+

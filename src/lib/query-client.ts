@@ -1,8 +1,30 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { createAsyncStoragePersister } from '@tanstack/query-async-storage-persister';
-import { focusManager, onlineManager, type Query, QueryClient } from '@tanstack/react-query';
+import {
+  focusManager,
+  MutationCache,
+  onlineManager,
+  type Query,
+  QueryCache,
+  QueryClient,
+} from '@tanstack/react-query';
 import * as Network from 'expo-network';
 import { AppState, type AppStateStatus, Platform } from 'react-native';
+
+import { Sentry } from '@/lib/sentry';
+
+/**
+ * Meldet einen Query-/Mutation-Fehler an Sentry — aber nur, wenn das Geraet
+ * tatsaechlich online ist. Offline pausiert Query Requests ohnehin (siehe
+ * `onlineManager` unten); ein Fehler, der trotzdem hier ankommt, ist kein
+ * erwarteter Offline-Zustand, sondern ein echtes Problem (RLS, Bug, Timeout,
+ * kaputte Response). `initSentry()`s No-op ohne DSN macht diesen Aufruf in
+ * lokaler Entwicklung folgenlos.
+ */
+function reportQueryError(error: unknown, queryKey: readonly unknown[]): void {
+  if (!onlineManager.isOnline()) return;
+  Sentry.captureException(error, { tags: { source: 'react-query' }, extra: { queryKey } });
+}
 
 /**
  * TanStack Query fuer React Native.
@@ -21,6 +43,13 @@ import { AppState, type AppStateStatus, Platform } from 'react-native';
  */
 
 export const queryClient = new QueryClient({
+  queryCache: new QueryCache({
+    onError: (error, query) => reportQueryError(error, query.queryKey),
+  }),
+  mutationCache: new MutationCache({
+    onError: (error, _variables, _context, mutation) =>
+      reportQueryError(error, mutation.options.mutationKey ?? []),
+  }),
   defaultOptions: {
     queries: {
       // Ab Epic 2 liest die UI aus SQLite, nicht aus dem Netz. Dann ist der

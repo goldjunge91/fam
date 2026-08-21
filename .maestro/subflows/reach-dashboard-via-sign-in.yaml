@@ -15,34 +15,7 @@ env:
 #
 # Voraussetzungen: siehe ../flows/onboarding-sign-in.yaml.
 
-- launchApp:
-    clearState: true
-
-# clearState wischt die gemerkte Metro-Verbindung des Expo-Dev-Clients, daher
-# oeffnet eine frische Install immer erst den Dev-Client-Launcher statt
-# direkt unseren JS-Bundle. Die Server-Zeile kommt per Netzwerk-Discovery,
-# das kann ein paar Sekunden dauern - extendedWaitUntil statt des kuerzeren
-# Standard-Tap-Timeouts.
-- extendedWaitUntil:
-    visible: "http://.*"
-    timeout: 30000
-- tapOn: "http://.*"
-
-# expo-dev-client zeigt nach dem ersten Laden des JS-Bundles einmalig ein
-# "Dev Tools"-Info-Popup - clearState wischt das Flag, das es unterdrueckt,
-# also kann es bei jedem clearState-Lauf erneut erscheinen. optional:true
-# ueberspringt den Schritt ohne den Flow scheitern zu lassen, falls es nicht
-# auftaucht.
-- tapOn:
-    text: "Continue"
-    optional: true
-
-# Das Schliessen der Info-Karte oben legt darunter das eigentliche
-# Dev-Client-Menu (Reload/Go home/Tools) frei statt es zu schliessen - auch
-# das noch schliessen.
-- tapOn:
-    text: "Close"
-    optional: true
+- runFlow: launch-local-dev-client.yaml
 
 # Welcome-Carousel: 3 Slides, "Weiter" bis zum letzten mit "Jetzt starten".
 - tapOn: "Weiter"

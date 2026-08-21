@@ -1,5 +1,5 @@
-import { EditProfileScreen } from '@/features/settings/edit-profile-screen';
+import { ProfileHubScreen } from '@/features/profile/profile-hub-screen';
 
 export default function ProfileRoute() {
-  return <EditProfileScreen />;
+  return <ProfileHubScreen />;
 }

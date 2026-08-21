@@ -1,12 +1,11 @@
 import { router } from 'expo-router';
 import { useState } from 'react';
-import { StyleSheet, View } from 'react-native';
-import { Card } from '@/components/card';
-import { Screen } from '@/components/screen';
-import { TextField } from '@/components/text-field';
-import { ThemedText } from '@/components/themed-text';
+import { View } from 'react-native';
+import { TextField } from '@/components/forms/text-field';
+import { Screen } from '@/components/layout/screen';
+import { ThemedText } from '@/components/theme/themed-text';
 import { Button } from '@/components/ui/buttons';
-import { Spacing } from '@/constants/theme';
+import { Card } from '@/components/ui/card';
 import { useCreateHouseholdMutation } from '@/features/household/api';
 
 export function CreateHouseholdScreen() {
@@ -45,8 +44,10 @@ export function CreateHouseholdScreen() {
       title="Haushalt erstellen"
       subtitle="Lade später deine Familie oder WG ein"
       back={{ label: 'Haushalte' }}>
+      {/* Formular zur Erstellung eines neuen Haushalts */}
       <Card>
-        <View style={styles.form}>
+        <View className="gap-three">
+          {/* Eingabefeld für Haushaltsname */}
           <TextField
             label="Name deines Haushalts"
             value={householdName}
@@ -55,31 +56,25 @@ export function CreateHouseholdScreen() {
             autoCapitalize="words"
           />
 
-          {errorMsg ? (
-            <ThemedText type="small" themeColor="danger">
-              {errorMsg}
-            </ThemedText>
-          ) : null}
+          {/* Validierungs- und Serverfehler */}
+          {errorMsg ? <ThemedText type="smallDanger">{errorMsg}</ThemedText> : null}
 
+          {/* Erstellen-Button */}
           <Button label="Erstellen" onPress={handleSubmit} loading={mutation.isPending} />
         </View>
       </Card>
 
+      {/* Alternative Aktion: Haushalts-Beitritt via Code */}
       <Button
         label="Ich habe einen Einladungs-Code"
         variant="secondary"
         onPress={() => router.push('/household/join')}
       />
 
+      {/* Abbrechen-Button (sofern Historie vorhanden) */}
       {router.canGoBack() && (
         <Button label="Abbrechen" variant="secondary" onPress={() => router.back()} />
       )}
     </Screen>
   );
 }
-
-const styles = StyleSheet.create({
-  form: {
-    gap: Spacing.three,
-  },
-});

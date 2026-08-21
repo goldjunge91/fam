@@ -15,6 +15,7 @@ bei Widersprüchen die maßgebliche Quelle.
 ## Entwicklung und Betrieb
 
 - [Developer Guide](DEVELOPER_GUIDE.md) — lokales Setup, Architektur und Standardabläufe.
+- [Funktionsdiagramme](FUNKTIONSDIAGRAMME.md) — Systemarchitektur, Datenmodelle und Feature-Workflows (Mermaid).
 - [Design-System](DESIGN_SYSTEM.md) — verbindliche Tokens und Komponentenregeln.
 - [RevenueCat-Webhook](revenuecat-webhook.md) — Deployment und Prüfung des Premium-Webhooks.
 

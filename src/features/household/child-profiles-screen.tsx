@@ -1,12 +1,11 @@
 import { useState } from 'react';
-import { Alert, FlatList, Pressable, StyleSheet, View } from 'react-native';
-import { Card } from '@/components/card';
-import { DatePicker } from '@/components/date-picker';
-import { Screen } from '@/components/screen';
-import { TextField } from '@/components/text-field';
-import { FontSize, ThemedText } from '@/components/themed-text';
+import { Alert, FlatList, Pressable, View } from 'react-native';
+import { DatePicker } from '@/components/forms/date-picker';
+import { TextField } from '@/components/forms/text-field';
+import { Screen } from '@/components/layout/screen';
+import { ThemedText } from '@/components/theme/themed-text';
 import { Button } from '@/components/ui/buttons';
-import { Radius, Spacing } from '@/constants/theme';
+import { Card } from '@/components/ui/card';
 import { useSession } from '@/features/auth/session-provider';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import {
@@ -16,10 +15,8 @@ import {
   useUpdateChildProfileMutation,
 } from '@/features/household/api';
 import { parseChildHeight } from '@/features/household/household-helpers';
-import { useTheme } from '@/hooks/use-theme';
 
 export function ChildProfilesScreen() {
-  const theme = useTheme();
   const { session } = useSession();
   const userId = session?.user.id;
   const { activeHousehold } = useActiveHousehold();
@@ -119,9 +116,10 @@ export function ChildProfilesScreen() {
       title="Kinder-Profile"
       subtitle={currentHousehold?.name}
       back={{ label: 'Mitglieder', href: '/household/members' }}>
+      {/* Formular zum Anlegen eines neuen Kinder-Profils (ausklappbar) */}
       {showAddForm ? (
         <Card title="Kinder-Profil hinzufügen">
-          <View style={styles.form}>
+          <View className="gap-three">
             <TextField
               label="Name des Kindes"
               placeholder="z. B. Paul"
@@ -134,27 +132,21 @@ export function ChildProfilesScreen() {
               onChangeText={setBirthDate}
             />
 
-            <ThemedText type="smallBold" style={{ marginTop: Spacing.one }}>
+            <ThemedText type="smallBold" className="mt-one">
               Geschlecht (optional)
             </ThemedText>
-            <View style={styles.segmentedRow}>
+            <View className="sex-row">
               <Pressable
                 onPress={() => setSex(sex === 'male' ? null : 'male')}
-                style={[
-                  styles.segmentBtn,
-                  { backgroundColor: sex === 'male' ? theme.accent : theme.backgroundElement },
-                ]}>
-                <ThemedText style={{ color: sex === 'male' ? '#fff' : theme.text }}>
+                className={`child-segment-btn ${sex === 'male' ? 'bg-accent' : 'bg-background-element'}`}>
+                <ThemedText themeColor={sex === 'male' ? 'onAccent' : 'text'}>
                   👦 Männlich
                 </ThemedText>
               </Pressable>
               <Pressable
                 onPress={() => setSex(sex === 'female' ? null : 'female')}
-                style={[
-                  styles.segmentBtn,
-                  { backgroundColor: sex === 'female' ? theme.accent : theme.backgroundElement },
-                ]}>
-                <ThemedText style={{ color: sex === 'female' ? '#fff' : theme.text }}>
+                className={`child-segment-btn ${sex === 'female' ? 'bg-accent' : 'bg-background-element'}`}>
+                <ThemedText themeColor={sex === 'female' ? 'onAccent' : 'text'}>
                   👧 Weiblich
                 </ThemedText>
               </Pressable>
@@ -168,8 +160,8 @@ export function ChildProfilesScreen() {
               keyboardType="numeric"
             />
 
-            <View style={styles.buttonRow}>
-              <View style={styles.flex}>
+            <View className="flex-row gap-two mt-one">
+              <View className="flex-1">
                 <Button
                   label="Speichern"
                   onPress={handleAdd}
@@ -177,7 +169,7 @@ export function ChildProfilesScreen() {
                   disabled={!name.trim()}
                 />
               </View>
-              <View style={styles.flex}>
+              <View className="flex-1">
                 <Button
                   label="Abbrechen"
                   variant="secondary"
@@ -188,11 +180,13 @@ export function ChildProfilesScreen() {
           </View>
         </Card>
       ) : (
-        <View style={{ marginBottom: Spacing.four }}>
+        /* Button zum Öffnen des Anlege-Formulars */
+        <View className="mb-four">
           <Button label="+ Kinder-Profil anlegen" onPress={() => setShowAddForm(true)} />
         </View>
       )}
 
+      {/* Liste aller erfassten Kinder-Profile mit Bearbeiten & Löschen */}
       <Card title="Erfasste Kinder-Profile">
         {isLoading ? (
           <ThemedText>Lädt Kinder-Profile...</ThemedText>
@@ -209,7 +203,8 @@ export function ChildProfilesScreen() {
               const isEditing = editingId === item.id;
               if (isEditing) {
                 return (
-                  <View style={[styles.editCard, { borderBottomColor: theme.border }]}>
+                  /* Inline-Bearbeitungsformular für ein Kind */
+                  <View className="child-edit-card">
                     <TextField
                       label="Name des Kindes"
                       value={editName}
@@ -221,33 +216,21 @@ export function ChildProfilesScreen() {
                       onChangeText={setEditBirthDate}
                     />
 
-                    <ThemedText type="smallBold" style={{ marginTop: Spacing.one }}>
+                    <ThemedText type="smallBold" className="mt-one">
                       Geschlecht
                     </ThemedText>
-                    <View style={styles.segmentedRow}>
+                    <View className="sex-row">
                       <Pressable
                         onPress={() => setEditSex(editSex === 'male' ? null : 'male')}
-                        style={[
-                          styles.segmentBtn,
-                          {
-                            backgroundColor:
-                              editSex === 'male' ? theme.accent : theme.backgroundElement,
-                          },
-                        ]}>
-                        <ThemedText style={{ color: editSex === 'male' ? '#fff' : theme.text }}>
+                        className={`child-segment-btn ${editSex === 'male' ? 'bg-accent' : 'bg-background-element'}`}>
+                        <ThemedText themeColor={editSex === 'male' ? 'onAccent' : 'text'}>
                           👦 Männlich
                         </ThemedText>
                       </Pressable>
                       <Pressable
                         onPress={() => setEditSex(editSex === 'female' ? null : 'female')}
-                        style={[
-                          styles.segmentBtn,
-                          {
-                            backgroundColor:
-                              editSex === 'female' ? theme.accent : theme.backgroundElement,
-                          },
-                        ]}>
-                        <ThemedText style={{ color: editSex === 'female' ? '#fff' : theme.text }}>
+                        className={`child-segment-btn ${editSex === 'female' ? 'bg-accent' : 'bg-background-element'}`}>
+                        <ThemedText themeColor={editSex === 'female' ? 'onAccent' : 'text'}>
                           👧 Weiblich
                         </ThemedText>
                       </Pressable>
@@ -260,8 +243,8 @@ export function ChildProfilesScreen() {
                       keyboardType="numeric"
                     />
 
-                    <View style={styles.buttonRow}>
-                      <View style={styles.flex}>
+                    <View className="flex-row gap-two mt-one">
+                      <View className="flex-1">
                         <Button
                           label="Übernehmen"
                           onPress={() => handleUpdate(item.id)}
@@ -269,7 +252,7 @@ export function ChildProfilesScreen() {
                           disabled={!editName.trim()}
                         />
                       </View>
-                      <View style={styles.flex}>
+                      <View className="flex-1">
                         <Button
                           label="Abbrechen"
                           variant="secondary"
@@ -282,9 +265,10 @@ export function ChildProfilesScreen() {
               }
 
               return (
-                <View style={[styles.childRow, { borderBottomColor: theme.border }]}>
-                  <View style={{ flex: 1 }}>
-                    <ThemedText style={{ fontWeight: 'bold', ...FontSize[16] }}>
+                /* Zeile mit Profil-Stammdaten und Aktions-Buttons */
+                <View className="child-row">
+                  <View className="flex-1">
+                    <ThemedText className="font-bold text-[16px]">
                       {item.sex === 'female' ? '👧' : item.sex === 'male' ? '👦' : '👶'}{' '}
                       {item.display_name}
                     </ThemedText>
@@ -305,7 +289,7 @@ export function ChildProfilesScreen() {
                     </ThemedText>
                   </View>
 
-                  <View style={styles.actionButtons}>
+                  <View className="child-action-buttons">
                     <Button
                       label="Bearbeiten"
                       variant="secondary"
@@ -326,44 +310,3 @@ export function ChildProfilesScreen() {
     </Screen>
   );
 }
-
-const styles = StyleSheet.create({
-  form: {
-    gap: Spacing.three,
-  },
-  buttonRow: {
-    flexDirection: 'row',
-    gap: Spacing.two,
-    marginTop: Spacing.one,
-  },
-  flex: {
-    flex: 1,
-  },
-  segmentedRow: {
-    flexDirection: 'row',
-    gap: Spacing.two,
-  },
-  segmentBtn: {
-    flex: 1,
-    paddingVertical: 10,
-    borderRadius: Radius.control,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  childRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    paddingVertical: Spacing.three,
-    borderBottomWidth: StyleSheet.hairlineWidth,
-    gap: Spacing.two,
-  },
-  editCard: {
-    paddingVertical: Spacing.three,
-    borderBottomWidth: StyleSheet.hairlineWidth,
-    gap: Spacing.three,
-  },
-  actionButtons: {
-    flexDirection: 'row',
-    gap: Spacing.one,
-  },
-});

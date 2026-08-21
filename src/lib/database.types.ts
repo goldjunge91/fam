@@ -85,6 +85,104 @@ export type Database = {
           },
         ]
       }
+      exercises: {
+        Row: {
+          category: string
+          created_at: string
+          id: string
+          is_custom: boolean
+          muscle_group: string | null
+          name: string
+          updated_at: string
+          user_id: string | null
+        }
+        Insert: {
+          category?: string
+          created_at?: string
+          id?: string
+          is_custom?: boolean
+          muscle_group?: string | null
+          name: string
+          updated_at?: string
+          user_id?: string | null
+        }
+        Update: {
+          category?: string
+          created_at?: string
+          id?: string
+          is_custom?: boolean
+          muscle_group?: string | null
+          name?: string
+          updated_at?: string
+          user_id?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "exercises_user_id_fkey"
+            columns: ["user_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      fasting_sessions: {
+        Row: {
+          child_profile_id: string | null
+          created_at: string
+          deleted_at: string | null
+          ended_at: string | null
+          id: string
+          notes: string | null
+          protocol: string
+          started_at: string
+          target_duration_minutes: number
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          child_profile_id?: string | null
+          created_at?: string
+          deleted_at?: string | null
+          ended_at?: string | null
+          id?: string
+          notes?: string | null
+          protocol?: string
+          started_at?: string
+          target_duration_minutes: number
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          child_profile_id?: string | null
+          created_at?: string
+          deleted_at?: string | null
+          ended_at?: string | null
+          id?: string
+          notes?: string | null
+          protocol?: string
+          started_at?: string
+          target_duration_minutes?: number
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "fasting_sessions_child_profile_id_fkey"
+            columns: ["child_profile_id"]
+            isOneToOne: false
+            referencedRelation: "child_profiles"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "fasting_sessions_user_id_fkey"
+            columns: ["user_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       food_entries: {
         Row: {
           carbs_g: number | null
@@ -92,8 +190,10 @@ export type Database = {
           created_at: string
           deleted_at: string | null
           fat_g: number | null
+          fiber_g: number | null
           id: string
           kcal: number | null
+          logged_at: string
           logged_on: string
           meal_type: string
           name: string
@@ -110,8 +210,10 @@ export type Database = {
           created_at?: string
           deleted_at?: string | null
           fat_g?: number | null
+          fiber_g?: number | null
           id?: string
           kcal?: number | null
+          logged_at?: string
           logged_on?: string
           meal_type: string
           name: string
@@ -128,8 +230,10 @@ export type Database = {
           created_at?: string
           deleted_at?: string | null
           fat_g?: number | null
+          fiber_g?: number | null
           id?: string
           kcal?: number | null
+          logged_at?: string
           logged_on?: string
           meal_type?: string
           name?: string
@@ -240,6 +344,73 @@ export type Database = {
             columns: ["product_id"]
             isOneToOne: false
             referencedRelation: "products"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      glucose_entries: {
+        Row: {
+          child_profile_id: string | null
+          context: string | null
+          created_at: string
+          deleted_at: string | null
+          food_entry_id: string | null
+          glucose_value: number
+          id: string
+          measured_at: string
+          notes: string | null
+          unit: string
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          child_profile_id?: string | null
+          context?: string | null
+          created_at?: string
+          deleted_at?: string | null
+          food_entry_id?: string | null
+          glucose_value: number
+          id?: string
+          measured_at?: string
+          notes?: string | null
+          unit?: string
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          child_profile_id?: string | null
+          context?: string | null
+          created_at?: string
+          deleted_at?: string | null
+          food_entry_id?: string | null
+          glucose_value?: number
+          id?: string
+          measured_at?: string
+          notes?: string | null
+          unit?: string
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "glucose_entries_child_profile_id_fkey"
+            columns: ["child_profile_id"]
+            isOneToOne: false
+            referencedRelation: "child_profiles"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "glucose_entries_food_entry_id_fkey"
+            columns: ["food_entry_id"]
+            isOneToOne: false
+            referencedRelation: "food_entries"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "glucose_entries_user_id_fkey"
+            columns: ["user_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
             referencedColumns: ["id"]
           },
         ]
@@ -378,6 +549,63 @@ export type Database = {
           },
         ]
       }
+      ketone_entries: {
+        Row: {
+          child_profile_id: string | null
+          created_at: string
+          deleted_at: string | null
+          id: string
+          ketone_value: number
+          measured_at: string
+          notes: string | null
+          source: string
+          unit: string
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          child_profile_id?: string | null
+          created_at?: string
+          deleted_at?: string | null
+          id?: string
+          ketone_value: number
+          measured_at?: string
+          notes?: string | null
+          source?: string
+          unit?: string
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          child_profile_id?: string | null
+          created_at?: string
+          deleted_at?: string | null
+          id?: string
+          ketone_value?: number
+          measured_at?: string
+          notes?: string | null
+          source?: string
+          unit?: string
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "ketone_entries_child_profile_id_fkey"
+            columns: ["child_profile_id"]
+            isOneToOne: false
+            referencedRelation: "child_profiles"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "ketone_entries_user_id_fkey"
+            columns: ["user_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       meal_plan_entries: {
         Row: {
           created_at: string
@@ -503,6 +731,66 @@ export type Database = {
           },
         ]
       }
+      medication_logs: {
+        Row: {
+          administered_at: string
+          child_profile_id: string | null
+          created_at: string
+          deleted_at: string | null
+          dose: number | null
+          id: string
+          injection_site: string | null
+          medication_name: string
+          notes: string | null
+          unit: string
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          administered_at?: string
+          child_profile_id?: string | null
+          created_at?: string
+          deleted_at?: string | null
+          dose?: number | null
+          id?: string
+          injection_site?: string | null
+          medication_name: string
+          notes?: string | null
+          unit?: string
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          administered_at?: string
+          child_profile_id?: string | null
+          created_at?: string
+          deleted_at?: string | null
+          dose?: number | null
+          id?: string
+          injection_site?: string | null
+          medication_name?: string
+          notes?: string | null
+          unit?: string
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "medication_logs_child_profile_id_fkey"
+            columns: ["child_profile_id"]
+            isOneToOne: false
+            referencedRelation: "child_profiles"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "medication_logs_user_id_fkey"
+            columns: ["user_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       products: {
         Row: {
           barcode: string | null
@@ -584,6 +872,8 @@ export type Database = {
           module_shopping_list: boolean
           onboarding_completed_at: string | null
           sex: string | null
+          tracking_day_start_time: string
+          tracking_method: string
           updated_at: string
         }
         Insert: {
@@ -601,6 +891,8 @@ export type Database = {
           module_shopping_list?: boolean
           onboarding_completed_at?: string | null
           sex?: string | null
+          tracking_day_start_time?: string
+          tracking_method?: string
           updated_at?: string
         }
         Update: {
@@ -618,6 +910,8 @@ export type Database = {
           module_shopping_list?: boolean
           onboarding_completed_at?: string | null
           sex?: string | null
+          tracking_day_start_time?: string
+          tracking_method?: string
           updated_at?: string
         }
         Relationships: []
@@ -813,6 +1107,7 @@ export type Database = {
           position: number
           recipe_id: string
           text: string
+          timer_minutes: number | null
           updated_at: string
         }
         Insert: {
@@ -824,6 +1119,7 @@ export type Database = {
           position: number
           recipe_id: string
           text: string
+          timer_minutes?: number | null
           updated_at?: string
         }
         Update: {
@@ -835,6 +1131,7 @@ export type Database = {
           position?: number
           recipe_id?: string
           text?: string
+          timer_minutes?: number | null
           updated_at?: string
         }
         Relationships: [
@@ -1369,6 +1666,66 @@ export type Database = {
           },
         ]
       }
+      symptom_logs: {
+        Row: {
+          appetite_level: number | null
+          child_profile_id: string | null
+          created_at: string
+          deleted_at: string | null
+          id: string
+          logged_at: string
+          nausea_level: number | null
+          notes: string | null
+          satiety_level: number | null
+          side_effects: string[]
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          appetite_level?: number | null
+          child_profile_id?: string | null
+          created_at?: string
+          deleted_at?: string | null
+          id?: string
+          logged_at?: string
+          nausea_level?: number | null
+          notes?: string | null
+          satiety_level?: number | null
+          side_effects?: string[]
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          appetite_level?: number | null
+          child_profile_id?: string | null
+          created_at?: string
+          deleted_at?: string | null
+          id?: string
+          logged_at?: string
+          nausea_level?: number | null
+          notes?: string | null
+          satiety_level?: number | null
+          side_effects?: string[]
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "symptom_logs_child_profile_id_fkey"
+            columns: ["child_profile_id"]
+            isOneToOne: false
+            referencedRelation: "child_profiles"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "symptom_logs_user_id_fkey"
+            columns: ["user_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       user_goals: {
         Row: {
           carbs_g: number | null
@@ -1379,6 +1736,7 @@ export type Database = {
           fat_g: number | null
           goal_type: string
           id: string
+          net_carbs_g: number | null
           protein_g: number | null
           rate_kg_per_week: number | null
           target_weight_kg: number | null
@@ -1395,6 +1753,7 @@ export type Database = {
           fat_g?: number | null
           goal_type: string
           id?: string
+          net_carbs_g?: number | null
           protein_g?: number | null
           rate_kg_per_week?: number | null
           target_weight_kg?: number | null
@@ -1411,6 +1770,7 @@ export type Database = {
           fat_g?: number | null
           goal_type?: string
           id?: string
+          net_carbs_g?: number | null
           protein_g?: number | null
           rate_kg_per_week?: number | null
           target_weight_kg?: number | null
@@ -1488,6 +1848,120 @@ export type Database = {
             columns: ["user_id"]
             isOneToOne: false
             referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      workout_sessions: {
+        Row: {
+          child_profile_id: string | null
+          created_at: string
+          deleted_at: string | null
+          ended_at: string | null
+          id: string
+          name: string
+          notes: string | null
+          started_at: string
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          child_profile_id?: string | null
+          created_at?: string
+          deleted_at?: string | null
+          ended_at?: string | null
+          id?: string
+          name?: string
+          notes?: string | null
+          started_at?: string
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          child_profile_id?: string | null
+          created_at?: string
+          deleted_at?: string | null
+          ended_at?: string | null
+          id?: string
+          name?: string
+          notes?: string | null
+          started_at?: string
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "workout_sessions_child_profile_id_fkey"
+            columns: ["child_profile_id"]
+            isOneToOne: false
+            referencedRelation: "child_profiles"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "workout_sessions_user_id_fkey"
+            columns: ["user_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      workout_sets: {
+        Row: {
+          created_at: string
+          deleted_at: string | null
+          exercise_id: string
+          id: string
+          notes: string | null
+          reps: number | null
+          rpe: number | null
+          set_order: number
+          set_type: string
+          updated_at: string
+          weight_kg: number | null
+          workout_session_id: string
+        }
+        Insert: {
+          created_at?: string
+          deleted_at?: string | null
+          exercise_id: string
+          id?: string
+          notes?: string | null
+          reps?: number | null
+          rpe?: number | null
+          set_order: number
+          set_type?: string
+          updated_at?: string
+          weight_kg?: number | null
+          workout_session_id: string
+        }
+        Update: {
+          created_at?: string
+          deleted_at?: string | null
+          exercise_id?: string
+          id?: string
+          notes?: string | null
+          reps?: number | null
+          rpe?: number | null
+          set_order?: number
+          set_type?: string
+          updated_at?: string
+          weight_kg?: number | null
+          workout_session_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "workout_sets_exercise_id_fkey"
+            columns: ["exercise_id"]
+            isOneToOne: false
+            referencedRelation: "exercises"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "workout_sets_workout_session_id_fkey"
+            columns: ["workout_session_id"]
+            isOneToOne: false
+            referencedRelation: "workout_sessions"
             referencedColumns: ["id"]
           },
         ]

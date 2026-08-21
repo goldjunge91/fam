@@ -1,12 +1,11 @@
 import { router } from 'expo-router';
 import { useState } from 'react';
-import { KeyboardAvoidingView, Platform, StyleSheet, View } from 'react-native';
-import { Card } from '@/components/card';
-import { Screen } from '@/components/screen';
-import { TextField } from '@/components/text-field';
-import { ThemedText } from '@/components/themed-text';
+import { KeyboardAvoidingView, Platform, View } from 'react-native';
+import { TextField } from '@/components/forms/text-field';
+import { Screen } from '@/components/layout/screen';
+import { ThemedText } from '@/components/theme/themed-text';
 import { Button } from '@/components/ui/buttons';
-import { Spacing } from '@/constants/theme';
+import { Card } from '@/components/ui/card';
 import { authErrorMessage, signInWithOAuthProvider, signUp } from '@/features/auth/api';
 import { fieldErrors, signUpSchema } from '@/features/auth/auth-schemas';
 import { PendingAuthBanner } from '@/features/auth/components/pending-auth-banner';
@@ -57,6 +56,7 @@ export function SignUpScreen() {
         title="Konto aktivieren"
         subtitle="E-Mail-Bestätigung ausstehend"
         back={{ label: 'Anmelden', href: '/sign-in' }}>
+        {/* Banner/Hinweis für ausstehende E-Mail-Bestätigung */}
         <PendingAuthBanner
           email={pendingEmail}
           password={password}
@@ -73,8 +73,10 @@ export function SignUpScreen() {
       subtitle="Für dich und deinen Haushalt"
       back={{ label: 'Anmelden', href: '/sign-in' }}>
       <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : undefined}>
+        {/* Haupt-Registrierungsformular */}
         <Card>
-          <View style={styles.form}>
+          <View className="gap-three">
+            {/* E-Mail Eingabefeld */}
             <TextField
               label="E-Mail"
               value={email}
@@ -87,6 +89,7 @@ export function SignUpScreen() {
               inputMode="email"
             />
 
+            {/* Passwort Eingabefeld */}
             <TextField
               label="Passwort"
               value={password}
@@ -98,6 +101,7 @@ export function SignUpScreen() {
               textContentType="newPassword"
             />
 
+            {/* Passwort-Bestätigung Eingabefeld */}
             <TextField
               label="Passwort wiederholen"
               value={passwordConfirmation}
@@ -111,20 +115,18 @@ export function SignUpScreen() {
               returnKeyType="go"
             />
 
-            {formError ? (
-              <ThemedText type="small" themeColor="danger">
-                {formError}
-              </ThemedText>
-            ) : null}
+            {/* Fehlermeldung */}
+            {formError ? <ThemedText type="smallDanger">{formError}</ThemedText> : null}
 
+            {/* Registrierungs-Button */}
             <Button label="Konto erstellen" onPress={handleSubmit} loading={loading} />
 
-            <View style={styles.divider}>
-              <ThemedText type="small" themeColor="textSecondary">
-                oder weiter mit
-              </ThemedText>
+            {/* Trennlinie für Drittanbieter-Logins */}
+            <View className="divider">
+              <ThemedText type="smallMuted">oder weiter mit</ThemedText>
             </View>
 
+            {/* OAuth Buttons (Apple & Google) */}
             <Button
               label="  Mit Apple anmelden"
               variant="secondary"
@@ -143,13 +145,15 @@ export function SignUpScreen() {
               }}
             />
 
-            <ThemedText type="small" themeColor="textSecondary">
+            {/* Datenschutz- & Haushalts-Hinweis */}
+            <ThemedText type="smallMuted">
               Vorrat und Einkaufsliste teilst du später mit deinem Haushalt. Kalorien, Gewicht und
               Ziele bleiben privat.
             </ThemedText>
           </View>
         </Card>
 
+        {/* Wechsel zur Anmeldung */}
         <Button
           label="Ich habe schon ein Konto"
           variant="secondary"
@@ -159,13 +163,3 @@ export function SignUpScreen() {
     </Screen>
   );
 }
-
-const styles = StyleSheet.create({
-  form: {
-    gap: Spacing.three,
-  },
-  divider: {
-    alignItems: 'center',
-    marginVertical: Spacing.one,
-  },
-});

@@ -1,24 +1,18 @@
 import { Image } from 'expo-image';
 import { router } from 'expo-router';
 import { useState } from 'react';
-import { Alert, Pressable, StyleSheet, View } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { Alert, Pressable, View } from 'react-native';
 
-import { GradientBackground } from '@/components/gradient-background';
-import { PageHeader } from '@/components/page-header';
-import { SegmentedControl } from '@/components/segmented-control';
-import { FontSize, ThemedText } from '@/components/themed-text';
+import { HubScreen } from '@/components/layout/hub-screen';
+import { ThemedText } from '@/components/theme/themed-text';
 import { HeaderIconButton, MenuButton } from '@/components/ui/buttons';
-import { Radius, withAlpha } from '@/constants/theme';
 import { useSession } from '@/features/auth/session-provider';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { useHouseholdMembers } from '@/features/household/api';
 import { useNavigationChrome } from '@/features/navigation/navigation-chrome-provider';
 import { useRecipes } from '@/features/recipes/use-recipes';
-import { useHubGradient } from '@/hooks/use-hub-gradient';
 import { useTheme } from '@/hooks/use-theme';
 import { type EntryFormInitial, EntryFormModal } from './components/entry-form-modal';
-import { MealPlannerVersionSwitcher } from './components/meal-planner-version-switcher';
 import { RecipePickerModal } from './components/recipe-picker-modal';
 import { type DraggableRecipe, WeekGrid } from './components/week-grid';
 import type { ResolvedServings } from './servings';
@@ -58,7 +52,6 @@ type PendingCell = { date: string; slot: MealSlot };
  */
 export function MealPlannerScreen() {
   const theme = useTheme();
-  const hubGradient = useHubGradient();
   const { openDrawer } = useNavigationChrome();
   const { session } = useSession();
   const userId = session?.user.id;
@@ -205,116 +198,122 @@ export function MealPlannerScreen() {
     : undefined;
 
   return (
-    <View style={styles.root}>
-      <GradientBackground {...hubGradient} />
-      <SafeAreaView style={styles.safeArea} edges={['top', 'left', 'right']}>
-        <PageHeader
-          title="Essensplan"
-          align="center"
-          leading={<MenuButton onPress={openDrawer} />}
-          trailing={
-            <HeaderIconButton
-              label="Aktuelle Woche anzeigen"
-              onPress={() => setAnchorDate(todayIso())}>
-              <Image
-                source="sf:calendar"
-                contentFit="contain"
-                tintColor={theme.accent}
-                style={styles.calendarIcon}
-              />
-            </HeaderIconButton>
-          }
-        />
-
-        <View style={styles.content}>
-          <MealPlannerVersionSwitcher selected="original" />
-
-          <SegmentedControl
-            label="Zeitraum"
-            options={VIEW_MODES.map((mode) => ({
-              value: mode,
-              label: VIEW_MODE_LABELS[mode],
-              accessibilityLabel: `${VIEW_MODE_LABELS[mode]}-Ansicht`,
-            }))}
-            selected={viewMode}
-            onSelect={setViewMode}
-            labelStyle={styles.viewModeLabel}
-          />
-
-          <View style={styles.periodRow}>
+    <HubScreen
+      rootClassName="mp-root"
+      safeAreaClassName="mp-safe-area"
+      header={{
+        title: 'Essensplan',
+        align: 'center',
+        leading: <MenuButton onPress={openDrawer} />,
+        trailing: (
+          <HeaderIconButton
+            label="Aktuelle Woche anzeigen"
+            onPress={() => setAnchorDate(todayIso())}>
+            <Image
+              source="sf:calendar"
+              contentFit="contain"
+              tintColor={theme.accent}
+              // expo-image ist nicht NativeWind-registriert, className wird
+              // still ignoriert.
+              style={{ width: 19, height: 19 }}
+            />
+          </HeaderIconButton>
+        ),
+      }}>
+      <View className="mp-content">
+        {/* Ansichtsmodus-Tabs (Tag / 3 Tage / Woche) */}
+        <View className="flex-row gap-two" role="tablist" aria-label="Zeitraum">
+          {VIEW_MODES.map((mode) => (
             <Pressable
-              role="button"
-              aria-label="Vorheriger Zeitraum"
-              onPress={() => setAnchorDate((date) => shiftAnchor(date, viewMode, -1))}
-              style={({ pressed }) => [styles.periodButton, pressed && styles.pressed]}>
-              <ThemedText themeColor="accent" style={styles.chevron}>
-                ‹
+              key={mode}
+              onPress={() => setViewMode(mode)}
+              role="tab"
+              aria-label={`${VIEW_MODE_LABELS[mode]}-Ansicht`}
+              aria-selected={viewMode === mode}
+              className={`tab-btn ${viewMode === mode ? 'tab-btn-active' : 'tab-btn-idle'}`}>
+              <ThemedText
+                // type="detail"
+                type="controlActionLarge"
+                themeColor={viewMode === mode ? 'onAccent' : 'textSecondary'}
+                className="tab-btn-label">
+                {VIEW_MODE_LABELS[mode]}
               </ThemedText>
             </Pressable>
-            <View style={styles.periodCopy}>
-              <ThemedText style={styles.periodTitle}>{periodLabel(dates)}</ThemedText>
-            </View>
+          ))}
+        </View>
+
+        {/* Zeitraum-Navigation mit Pfeilen & Monats-/Datumsangabe */}
+        <View className="mp-period-row">
+          <Pressable
+            role="button"
+            aria-label="Vorheriger Zeitraum"
+            onPress={() => setAnchorDate((date) => shiftAnchor(date, viewMode, -1))}
+            className="mp-period-button">
+            <ThemedText themeColor="accent" className="mp-chevron">
+              ‹
+            </ThemedText>
+          </Pressable>
+          <View className="mp-period-copy">
+            <ThemedText className="mp-period-title">{periodLabel(dates)}</ThemedText>
+          </View>
+          <Pressable
+            role="button"
+            aria-label="Nächster Zeitraum"
+            onPress={() => setAnchorDate((date) => shiftAnchor(date, viewMode, 1))}
+            className="mp-period-button">
+            <ThemedText themeColor="accent" className="mp-chevron">
+              ›
+            </ThemedText>
+          </Pressable>
+        </View>
+
+        {/* Schnellaktionen für die Wochenansicht (Vorwoche übernehmen, Einkauf vorbereiten) */}
+        {viewMode === 'week' ? (
+          <View className="mp-actions-row">
             <Pressable
               role="button"
-              aria-label="Nächster Zeitraum"
-              onPress={() => setAnchorDate((date) => shiftAnchor(date, viewMode, 1))}
-              style={({ pressed }) => [styles.periodButton, pressed && styles.pressed]}>
-              <ThemedText themeColor="accent" style={styles.chevron}>
-                ›
+              aria-label="Vorwoche übernehmen"
+              onPress={handleReuseLastWeek}
+              className="mp-action-button"
+              // borderCurve ist ein echter Laufzeitwert ohne Tailwind-Aequivalent.
+              style={{ borderCurve: 'continuous' }}>
+              <ThemedText themeColor="accent" className="mp-action-label">
+                Vorwoche übernehmen
+              </ThemedText>
+            </Pressable>
+            <Pressable
+              role="button"
+              aria-label="Einkauf vorbereiten"
+              disabled={!plan}
+              onPress={() => {
+                if (!plan) return;
+                router.push({
+                  pathname: '/meal-planner/shopping-needs',
+                  params: { mealPlanId: plan.id },
+                });
+              }}
+              className={`mp-action-button ${!plan ? 'mp-action-button-disabled' : ''}`}
+              // borderCurve ist ein echter Laufzeitwert ohne Tailwind-Aequivalent.
+              style={{ borderCurve: 'continuous' }}>
+              <ThemedText themeColor="accent" className="mp-action-label">
+                Einkauf vorbereiten
               </ThemedText>
             </Pressable>
           </View>
+        ) : null}
 
-          {viewMode === 'week' ? (
-            <View style={styles.actionsRow}>
-              <Pressable
-                role="button"
-                aria-label="Vorwoche übernehmen"
-                onPress={handleReuseLastWeek}
-                style={({ pressed }) => [
-                  styles.actionButton,
-                  { backgroundColor: withAlpha(theme.backgroundElement, 0.78) },
-                  pressed && styles.pressed,
-                ]}>
-                <ThemedText themeColor="accent" style={styles.actionLabel}>
-                  Vorwoche übernehmen
-                </ThemedText>
-              </Pressable>
-              <Pressable
-                role="button"
-                aria-label="Einkauf vorbereiten"
-                disabled={!plan}
-                onPress={() => {
-                  if (!plan) return;
-                  router.push({
-                    pathname: '/meal-planner/shopping-needs',
-                    params: { mealPlanId: plan.id },
-                  });
-                }}
-                style={({ pressed }) => [
-                  styles.actionButton,
-                  { backgroundColor: withAlpha(theme.backgroundElement, 0.78) },
-                  !plan && styles.disabled,
-                  pressed && styles.pressed,
-                ]}>
-                <ThemedText themeColor="accent" style={styles.actionLabel}>
-                  Einkauf vorbereiten
-                </ThemedText>
-              </Pressable>
-            </View>
-          ) : null}
+        {/* Haupt-Planungsraster für Tage und Mahlzeitenslots (Frühstück, Mittag, Abend) */}
+        <WeekGrid
+          dates={dates}
+          entries={entries}
+          recipes={draggableRecipes}
+          onDropRecipe={handleDropRecipe}
+          onTapEntry={handleTapEntry}
+          onTapEmptyCell={handleTapEmptyCell}
+        />
+      </View>
 
-          <WeekGrid
-            dates={dates}
-            entries={entries}
-            recipes={draggableRecipes}
-            onDropRecipe={handleDropRecipe}
-            onTapEntry={handleTapEntry}
-            onTapEmptyCell={handleTapEmptyCell}
-          />
-        </View>
-      </SafeAreaView>
-
+      {/* Rezept-Auswahlmodal beim Tippen auf einen leeren Slot */}
       <RecipePickerModal
         visible={pendingCell !== null}
         recipes={draggableRecipes}
@@ -322,6 +321,7 @@ export function MealPlannerScreen() {
         onSelect={handlePickRecipe}
       />
 
+      {/* Portions- & Slot-Formular für neu hinzugefügte Mahlzeiten */}
       {pendingDrop ? (
         <EntryFormModal
           visible
@@ -335,6 +335,7 @@ export function MealPlannerScreen() {
         />
       ) : null}
 
+      {/* Bearbeitungs-Modal für bestehenden Mahlzeiteneintrag (Portionen / Löschen) */}
       {editingEntry ? (
         <EntryFormModal
           visible
@@ -349,82 +350,6 @@ export function MealPlannerScreen() {
           onDelete={handleDeleteEntry}
         />
       ) : null}
-    </View>
+    </HubScreen>
   );
 }
-
-const styles = StyleSheet.create({
-  root: {
-    flex: 1,
-  },
-  safeArea: {
-    flex: 1,
-    width: '100%',
-    maxWidth: 800,
-    alignSelf: 'center',
-  },
-  calendarIcon: {
-    width: 19,
-    height: 19,
-  },
-  content: {
-    flex: 1,
-    paddingHorizontal: 14,
-  },
-  viewModeLabel: {
-    ...FontSize[18],
-    lineHeight: 22,
-  },
-  periodRow: {
-    height: 43,
-    flexDirection: 'row',
-    alignItems: 'center',
-    paddingTop: 9,
-  },
-  periodButton: {
-    width: 36,
-    height: 34,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  chevron: {
-    ...FontSize[19],
-    lineHeight: 22,
-    fontWeight: 500,
-  },
-  periodCopy: {
-    flex: 1,
-    alignItems: 'center',
-  },
-  periodTitle: {
-    ...FontSize[17],
-    lineHeight: 21,
-    fontWeight: 700,
-  },
-  actionsRow: {
-    flexDirection: 'row',
-    gap: 7,
-    paddingTop: 9,
-  },
-  actionButton: {
-    flex: 1,
-    minHeight: 42,
-    alignItems: 'center',
-    justifyContent: 'center',
-    borderRadius: Radius.controlLarge,
-    borderCurve: 'continuous',
-    paddingHorizontal: 8,
-  },
-  actionLabel: {
-    ...FontSize[10],
-    lineHeight: 13,
-    fontWeight: 700,
-    textAlign: 'center',
-  },
-  pressed: {
-    opacity: 0.7,
-  },
-  disabled: {
-    opacity: 0.45,
-  },
-});

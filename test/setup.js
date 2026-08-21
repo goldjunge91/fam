@@ -8,7 +8,14 @@ jest.mock('@react-native-async-storage/async-storage', () =>
 // offizielle Mock (`react-native-reanimated/mock`) ersetzt Shared
 // Values/Worklets durch reine JS-Implementierungen — ausreichend fuer Render-
 // und Interaktionstests, die keine echte UI-Thread-Animation pruefen (#129).
-jest.mock('react-native-reanimated', () => require('react-native-reanimated/mock'));
+jest.mock('react-native-reanimated', () => {
+  const reanimated = require('react-native-reanimated/mock');
+  return {
+    ...reanimated,
+    useReducedMotion: jest.fn(() => false),
+    useComposedEventHandler: jest.fn(() => jest.fn()),
+  };
+});
 
 jest.mock('expo-notifications', () => ({
   setNotificationHandler: jest.fn(),
@@ -20,3 +27,18 @@ jest.mock('expo-notifications', () => ({
     DAILY: 'daily',
   },
 }));
+
+jest.mock('react-native-reorderable-list', () => {
+  const React = require('react');
+  const { FlatList } = require('react-native');
+  return {
+    __esModule: true,
+    default: FlatList,
+    ReorderableList: FlatList,
+    useReorderableDrag: () => jest.fn(),
+    useIsActive: () => false,
+    useReorderableDragStart: () => jest.fn(),
+    useReorderableDragEnd: () => jest.fn(),
+    reorderItems: (items) => items,
+  };
+});

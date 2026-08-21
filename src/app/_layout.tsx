@@ -1,14 +1,23 @@
+import '../global.css';
 import { PersistQueryClientProvider } from '@tanstack/react-query-persist-client';
 import * as Linking from 'expo-linking';
-import { DarkTheme, DefaultTheme, Stack, ThemeProvider } from 'expo-router';
+import { Observe, ObserveRoot, useObserve } from 'expo-observe';
+import {
+  DarkTheme,
+  DefaultTheme,
+  Stack,
+  ThemeProvider,
+  useNavigationContainerRef,
+} from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 import { useEffect } from 'react';
-import { StyleSheet, useColorScheme } from 'react-native';
+import { Pressable, StyleSheet, Text, useColorScheme, View } from 'react-native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import { KeyboardProvider } from 'react-native-keyboard-controller';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 
-import { AnimatedSplashOverlay } from '@/components/animated-icon';
-import { SnackbarProvider } from '@/components/snackbar';
-import { SyncStatusBanner } from '@/components/sync-status-banner';
+import { AnimatedSplashOverlay } from '@/components/icons/animated-icon';
+import { SnackbarProvider } from '@/components/ui/snackbar';
 import { SessionProvider, useSession } from '@/features/auth/session-provider';
 import { PremiumProvider } from '@/features/premium/premium-provider';
 import { parseAuthErrorFromUrl, parseAuthTokensFromUrl } from '@/lib/auth-deep-link';
@@ -23,11 +32,60 @@ import {
   shouldPersistQuery,
   startQueryEnvironmentSync,
 } from '@/lib/query-client';
+import { initSentry, navigationIntegration, Sentry } from '@/lib/sentry';
 import { getSupabase } from '@/lib/supabase';
 import { defineBackgroundSyncTask, registerBackgroundSync } from '@/lib/sync/background-sync';
 
 SplashScreen.preventAutoHideAsync();
 defineBackgroundSyncTask();
+initSentry();
+
+// Muss vor dem ersten Screen-Mount laufen — configure() nach dem Mount wirft.
+// Aktiviert automatische cold_ttr/warm_ttr pro Route (Expo Router Integration).
+Observe.configure({
+  integrations: { 'expo-router': true },
+});
+
+/**
+ * Letzter Auffangnetz fuer Render-Fehler, die `Sentry.wrap()` selbst nicht
+ * abfaengt (das legt nur Touch-/Profiling-Boundaries um die App, keinen
+ * React-Error-Boundary — siehe `@sentry/react-native`s `wrap()`). Bewusst
+ * ohne Abhaengigkeit zu Theme/Providern: Der Fehler kann aus jeder Ebene
+ * darunter kommen, dieser Screen darf selbst nicht mitreissen koennen.
+ */
+function CrashFallback({ resetError }: { resetError: () => void }) {
+  return (
+    <View style={crashStyles.container}>
+      <Text style={crashStyles.title}>Etwas ist schiefgelaufen</Text>
+      <Text style={crashStyles.body}>
+        Die App ist auf einen unerwarteten Fehler gestossen. Der Fehler wurde erfasst.
+      </Text>
+      <Pressable onPress={resetError} style={crashStyles.button}>
+        <Text style={crashStyles.buttonText}>Erneut versuchen</Text>
+      </Pressable>
+    </View>
+  );
+}
+
+const crashStyles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: 24,
+    backgroundColor: '#F8F4EF',
+    gap: 12,
+  },
+  title: { fontSize: 17, fontWeight: '600', color: '#2D2830' },
+  body: { fontSize: 14, color: '#2D2830', textAlign: 'center' },
+  button: { marginTop: 12, paddingHorizontal: 20, paddingVertical: 10 },
+  buttonText: {
+    fontSize: 15,
+    fontWeight: '600',
+    color: '#2D2830',
+    textDecorationLine: 'underline',
+  },
+});
 
 /**
  * Wechselt zwischen angemeldetem und nicht angemeldetem Bereich.
@@ -48,11 +106,16 @@ defineBackgroundSyncTask();
  */
 function RootNavigator() {
   const { session, isLoading, seenOnboarding } = useSession();
+  const { markInteractive } = useObserve();
 
   useEffect(() => {
     // Splash erst ausblenden, wenn Session UND Onboarding-Flag gelesen sind.
-    if (!isLoading) SplashScreen.hideAsync();
-  }, [isLoading]);
+    // Ab hier ist der Screen fuer den User tatsaechlich interaktiv (TTI).
+    if (!isLoading) {
+      SplashScreen.hideAsync();
+      markInteractive();
+    }
+  }, [isLoading, markInteractive]);
 
   // biome-ignore lint/correctness/useExhaustiveDependencies: session?.user.id ist absichtlich der Re-Attach-Trigger, obwohl der Effekt-Body sie nicht direkt liest.
   useEffect(() => {
@@ -104,8 +167,16 @@ function RootNavigator() {
 
 import { ActiveHouseholdProvider } from '@/features/household/active-household-provider';
 
-export default function RootLayout() {
+function RootLayout() {
   const colorScheme = useColorScheme();
+  const navigationRef = useNavigationContainerRef();
+
+  useEffect(() => {
+    // Verbindet die in `@/lib/sentry` erzeugte Integration einmalig mit dem
+    // tatsaechlichen Router-Container — erst ab hier liefert Sentry
+    // Navigations-Breadcrumbs und -Spans.
+    navigationIntegration.registerNavigationContainer(navigationRef);
+  }, [navigationRef]);
 
   useEffect(() => {
     function handleUrl(url: string | null) {
@@ -175,33 +246,51 @@ export default function RootLayout() {
   }, []);
 
   return (
-    <GestureHandlerRootView style={styles.root}>
-      <PersistQueryClientProvider
-        client={queryClient}
-        persistOptions={{
-          persister: asyncStoragePersister,
-          dehydrateOptions: { shouldDehydrateQuery: shouldPersistQuery },
-        }}>
-        <SessionProvider>
-          <ActiveHouseholdProvider>
-            <PremiumProvider>
-              <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-                <SnackbarProvider>
-                  <AnimatedSplashOverlay />
-                  <SyncStatusBanner />
-                  <RootNavigator />
-                </SnackbarProvider>
-              </ThemeProvider>
-            </PremiumProvider>
-          </ActiveHouseholdProvider>
-        </SessionProvider>
-      </PersistQueryClientProvider>
-    </GestureHandlerRootView>
+    // App-weiter Provider fuer useSafeAreaInsets()/SafeAreaView — ohne ihn
+    // faellt die Library auf einmalig beim Start gemessene Insets zurueck
+    // (initialWindowMetrics), was fuer den Hauptbildschirm meist reicht,
+    // aber fuer eigene native Flaechen (z.B. presentationStyle="fullScreen"
+    // Modals, siehe shopping-mode-screen.tsx) nicht mehr zur tatsaechlichen
+    // Flaeche passt.
+    <SafeAreaProvider>
+      <Sentry.ErrorBoundary
+        fallback={({ resetError }) => <CrashFallback resetError={resetError} />}>
+        {/* react-native-gesture-handler hat kein cssInterop, className wuerde hier
+        stillschweigend verworfen — deshalb bleibt style hier bewusst bestehen. */}
+        <GestureHandlerRootView style={{ flex: 1 }}>
+          {/* Muss die gesamte App umschliessen, damit KeyboardAwareScrollView &
+            Co. (z. B. im Onboarding-Haushalt-Schritt) ueberall funktionieren. */}
+          <KeyboardProvider>
+            <PersistQueryClientProvider
+              client={queryClient}
+              persistOptions={{
+                persister: asyncStoragePersister,
+                dehydrateOptions: { shouldDehydrateQuery: shouldPersistQuery },
+              }}>
+              <SessionProvider>
+                <ActiveHouseholdProvider>
+                  <PremiumProvider>
+                    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
+                      <SnackbarProvider>
+                        <AnimatedSplashOverlay />
+                        <RootNavigator />
+                      </SnackbarProvider>
+                    </ThemeProvider>
+                  </PremiumProvider>
+                </ActiveHouseholdProvider>
+              </SessionProvider>
+            </PersistQueryClientProvider>
+          </KeyboardProvider>
+        </GestureHandlerRootView>
+      </Sentry.ErrorBoundary>
+    </SafeAreaProvider>
   );
 }
 
-const styles = StyleSheet.create({
-  root: {
-    flex: 1,
-  },
-});
+// Sentry.wrap() haengt nur Touch-/Profiling-Boundaries um die App (kein
+// automatisches Navigations-Tracking trotz des Namens — dafuer sorgt die
+// `navigationIntegration` oben, registriert im RootLayout-Body). Ohne DSN
+// (initSentry() ist dann ein No-op) macht der Wrapper nichts weiter, als die
+// Komponente durchzureichen. ObserveRoot.wrap() darunter misst Time to First
+// Render (TTR) fuer EAS Observe.
+export default Sentry.wrap(ObserveRoot.wrap(RootLayout));

@@ -1,11 +1,10 @@
 import { useState } from 'react';
-import { Alert, StyleSheet, View } from 'react-native';
-import { Card } from '@/components/card';
-import { Screen } from '@/components/screen';
-import { TextField } from '@/components/text-field';
-import { FontSize, ThemedText } from '@/components/themed-text';
+import { Alert, View } from 'react-native';
+import { TextField } from '@/components/forms/text-field';
+import { Screen } from '@/components/layout/screen';
+import { ThemedText } from '@/components/theme/themed-text';
 import { Button } from '@/components/ui/buttons';
-import { Spacing } from '@/constants/theme';
+import { Card } from '@/components/ui/card';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import {
   useAddStorageLocationMutation,
@@ -13,10 +12,8 @@ import {
   useStorageLocations,
   useUpdateStorageLocationMutation,
 } from '@/features/inventory/use-storage-locations';
-import { useTheme } from '@/hooks/use-theme';
 
 export function StorageLocationsScreen() {
-  const theme = useTheme();
   const { activeHousehold } = useActiveHousehold();
   const currentHousehold = activeHousehold;
 
@@ -84,8 +81,9 @@ export function StorageLocationsScreen() {
       subtitle={currentHousehold?.name}
       back={{ label: 'Einstellungen', href: '/settings' }}
       backStyle="icon">
+      {/* Formular zum Anlegen eines neuen Lagerorts */}
       <Card title="Neuen Lagerort hinzufügen">
-        <View style={styles.addBox}>
+        <View className="gap-three mt-two">
           <TextField
             placeholder="z.B. Abstellkammer, Keller, Vorratsschrank..."
             value={newLocationName}
@@ -100,23 +98,25 @@ export function StorageLocationsScreen() {
         </View>
       </Card>
 
+      {/* Liste aller vorhandenen Lagerorte mit Umbenennen- & Löschen-Optionen */}
       <Card title="Vorhandene Lagerorte">
         {isLoading ? (
           <ThemedText>Lädt...</ThemedText>
         ) : locations?.length === 0 ? (
           <ThemedText themeColor="textSecondary">Keine Lagerorte vorhanden.</ThemedText>
         ) : (
-          <View style={styles.list}>
+          <View className="gap-two">
             {locations?.map((loc) => {
               const isEditing = editingId === loc.id;
 
               return (
-                <View key={loc.id} style={[styles.row, { borderBottomColor: theme.border }]}>
+                <View key={loc.id} className="storage-location-row">
                   {isEditing ? (
-                    <View style={styles.editBox}>
+                    /* Inline-Bearbeitung für Lagerort-Namen */
+                    <View className="gap-two">
                       <TextField value={editingName} onChangeText={setEditingName} autoFocus />
-                      <View style={styles.buttonRow}>
-                        <View style={styles.flex}>
+                      <View className="storage-location-btn-row">
+                        <View className="flex-1">
                           <Button
                             label="Speichern"
                             onPress={() => handleUpdate(loc.id)}
@@ -124,7 +124,7 @@ export function StorageLocationsScreen() {
                             disabled={!editingName.trim()}
                           />
                         </View>
-                        <View style={styles.flex}>
+                        <View className="flex-1">
                           <Button
                             label="Abbrechen"
                             variant="secondary"
@@ -137,9 +137,10 @@ export function StorageLocationsScreen() {
                       </View>
                     </View>
                   ) : (
+                    /* Anzeigezeile für Lagerort mit Umbenennen und Löschen */
                     <>
-                      <ThemedText style={styles.nameText}>{loc.name}</ThemedText>
-                      <View style={styles.actionButtons}>
+                      <ThemedText className="storage-location-name">{loc.name}</ThemedText>
+                      <View className="storage-location-btn-row">
                         <Button
                           label="Umbenennen"
                           variant="secondary"
@@ -165,38 +166,3 @@ export function StorageLocationsScreen() {
     </Screen>
   );
 }
-
-const styles = StyleSheet.create({
-  addBox: {
-    gap: Spacing.three,
-    marginTop: Spacing.two,
-  },
-  list: {
-    gap: Spacing.two,
-  },
-  row: {
-    paddingVertical: Spacing.three,
-    borderBottomWidth: StyleSheet.hairlineWidth,
-    gap: Spacing.two,
-  },
-  nameText: {
-    fontWeight: 'bold',
-    ...FontSize[16],
-  },
-  actionButtons: {
-    flexDirection: 'row',
-    gap: Spacing.two,
-    marginTop: Spacing.one,
-  },
-  editBox: {
-    gap: Spacing.two,
-  },
-  buttonRow: {
-    flexDirection: 'row',
-    gap: Spacing.two,
-    marginTop: Spacing.one,
-  },
-  flex: {
-    flex: 1,
-  },
-});

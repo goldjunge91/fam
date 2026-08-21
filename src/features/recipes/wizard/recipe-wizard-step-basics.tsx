@@ -1,12 +1,11 @@
 import { Image } from 'expo-image';
-import { Pressable, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { Pressable, TextInput, TouchableOpacity, View } from 'react-native';
 import Svg, { Path } from 'react-native-svg';
-import { FontSize } from '@/components/themed-text';
-
-import { WheelPickerField } from '@/components/wheel-picker-field';
-import { Radius } from '@/constants/theme';
+import { WheelPickerField } from '@/components/forms/wheel-picker-field';
+import { ThemedText } from '@/components/theme/themed-text';
 import { ProductSearchDropdown } from '@/features/inventory/product-search-dropdown';
 import type { DietaryTag, Difficulty, DishType } from '@/features/recipes/use-recipes';
+import { useTheme } from '@/hooks/use-theme';
 import type { OpenFoodFactsProduct } from '@/lib/open-food-facts';
 import { UNIT_OPTIONS } from '@/lib/units';
 import { DIETARY_TAGS, DIFFICULTIES, DISH_TYPES } from './recipe-metadata-options';
@@ -48,6 +47,8 @@ interface RecipeWizardStepBasicsProps {
   onUpdateQuantity: (componentId: string, ingredientId: string, quantity: string) => void;
   onUpdateUnit: (componentId: string, ingredientId: string, unit: string) => void;
   onAddComponentGroup: () => void;
+  onUpdateComponentTitle: (componentId: string, title: string) => void;
+  onRemoveComponentGroup: (componentId: string) => void;
   saving: boolean;
   onCancel: () => void;
   onNext: () => void;
@@ -81,105 +82,142 @@ export function RecipeWizardStepBasics({
   onUpdateQuantity,
   onUpdateUnit,
   onAddComponentGroup,
+  onUpdateComponentTitle,
+  onRemoveComponentGroup,
   saving,
   onCancel,
   onNext,
 }: RecipeWizardStepBasicsProps) {
+  const theme = useTheme();
+
   return (
     <>
-      <Text style={styles.eyebrow}>SCHRITT {mode === 'details' ? '1' : '2'} VON 4</Text>
-      <Text style={styles.pageTitle}>
+      <ThemedText
+        type="detail"
+        themeColor="textSecondary"
+        className="pt-two text-[8px] leading-[10px] font-medium tracking-widest">
+        SCHRITT {mode === 'details' ? '1' : '2'} VON 4
+      </ThemedText>
+      <ThemedText type="headingSmall" className="pt-[6px] pb-three">
         {mode === 'details' ? 'Rezeptdetails' : 'Gruppen und Zutaten'}
-      </Text>
+      </ThemedText>
 
       {mode === 'details' ? (
         <>
           {/* Titelbild */}
-          <TouchableOpacity style={styles.videoCard} activeOpacity={0.85} onPress={onPickCover}>
+          <TouchableOpacity
+            className="w-full h-[200px] bg-background-element rounded-sheet overflow-hidden mb-four justify-center items-center"
+            activeOpacity={0.85}
+            onPress={onPickCover}>
             {coverPreviewUri ? (
               <Image
                 source={{ uri: coverPreviewUri }}
-                style={StyleSheet.absoluteFill}
+                // expo-image benötigt absoluteFill inline
+                style={{ position: 'absolute', top: 0, right: 0, bottom: 0, left: 0 }}
                 contentFit="cover"
               />
             ) : (
-              <View style={styles.videoPlaceholderContent}>
-                <View style={styles.playIconCircle}>
+              <View className="items-center">
+                <View className="w-16 h-16 rounded-pill bg-accent items-center justify-center">
                   <Svg width={24} height={24} viewBox="0 0 24 24" fill="none">
-                    <Path d="M8 5v14l11-7z" fill="#FFFFFF" />
+                    <Path d="M8 5v14l11-7z" fill={theme.onAccent} />
                   </Svg>
                 </View>
-                <Text style={styles.videoPlaceholderText}>Titelbild hinzufügen</Text>
+                <ThemedText type="body" className="font-medium mt-[14px]">
+                  Titelbild hinzufügen
+                </ThemedText>
               </View>
             )}
           </TouchableOpacity>
 
-          <View style={styles.inputGroup}>
-            <Text style={styles.label}>Titel</Text>
+          <View className="mb-[14px]">
+            <ThemedText type="detail" className="text-[10px] leading-[12px] font-bold mb-[6px]">
+              Titel
+            </ThemedText>
             <TextInput
-              style={styles.input}
+              className="bg-background-element rounded-control min-h-[44px] px-three text-body-small text-text"
               value={title}
               onChangeText={onTitleChange}
               placeholder="Rezepttitel"
-              placeholderTextColor="#A89FA8"
+              placeholderTextColor={theme.textSecondary}
             />
           </View>
 
-          <View style={styles.inputGroup}>
-            <Text style={styles.label}>Beschreibung</Text>
+          <View className="mb-[14px]">
+            <ThemedText type="detail" className="text-[10px] leading-[12px] font-bold mb-[6px]">
+              Beschreibung
+            </ThemedText>
             <TextInput
-              style={[styles.input, styles.multilineInput]}
+              className="bg-background-element rounded-control h-[76px] px-three py-three text-body-small text-text"
               value={description}
               onChangeText={onDescriptionChange}
               placeholder="Kurze Beschreibung des Rezepts"
-              placeholderTextColor="#A89FA8"
+              placeholderTextColor={theme.textSecondary}
               multiline
               numberOfLines={3}
+              textAlignVertical="top"
             />
           </View>
 
-          <View style={styles.inputRow}>
-            <View style={[styles.inputGroup, styles.flexInput]}>
-              <Text style={styles.label}>Kochzeit (Minuten)</Text>
+          <View className="flex-row gap-[14px]">
+            <View className="flex-1 mb-[14px]">
+              <ThemedText type="detail" className="text-[10px] leading-[12px] font-bold mb-[6px]">
+                Kochzeit (Minuten)
+              </ThemedText>
               <TextInput
-                style={styles.input}
+                className="bg-background-element rounded-control min-h-[44px] px-three text-body-small text-text"
                 value={cookTimeMinutes}
                 onChangeText={onCookTimeMinutesChange}
                 placeholder="30"
-                placeholderTextColor="#A89FA8"
+                placeholderTextColor={theme.textSecondary}
                 keyboardType="numeric"
               />
             </View>
 
-            <View style={styles.inputGroup}>
-              <Text style={styles.label}>Portionen</Text>
-              <View style={styles.stepperPill}>
+            <View className="mb-[14px]">
+              <ThemedText type="detail" className="text-[10px] leading-[12px] font-bold mb-[6px]">
+                Portionen
+              </ThemedText>
+              <View className="flex-row items-center justify-between bg-background-element rounded-control h-[44px] px-three min-w-[100px]">
                 <Pressable
                   onPress={() => onDefaultServingsChange(Math.max(1, defaultServings - 1))}>
-                  <Text style={styles.stepperSign}>−</Text>
+                  <ThemedText type="headingSmall" themeColor="accent" className="font-bold">
+                    −
+                  </ThemedText>
                 </Pressable>
-                <Text style={styles.stepperValue}>{defaultServings}</Text>
+                <ThemedText type="body" className="font-semibold">
+                  {defaultServings}
+                </ThemedText>
                 <Pressable onPress={() => onDefaultServingsChange(defaultServings + 1)}>
-                  <Text style={styles.stepperSign}>+</Text>
+                  <ThemedText type="headingSmall" themeColor="accent" className="font-bold">
+                    +
+                  </ThemedText>
                 </Pressable>
               </View>
             </View>
           </View>
 
           {/* Schwierigkeit */}
-          <View style={styles.inputGroup}>
-            <Text style={styles.label}>Schwierigkeit</Text>
-            <View style={styles.chipRow}>
+          <View className="mb-[14px]">
+            <ThemedText type="detail" className="text-[10px] leading-[12px] font-bold mb-[6px]">
+              Schwierigkeit
+            </ThemedText>
+            <View className="row-wrap gap-[10px]">
               {DIFFICULTIES.map((d) => {
                 const selected = difficulty === d.value;
                 return (
                   <Pressable
                     key={d.value}
-                    style={[styles.chip, selected && styles.chipActive]}
+                    className={`px-three py-[7px] rounded-control ${
+                      selected ? 'bg-accent' : 'bg-background-element'
+                    }`}
                     onPress={() => onDifficultyChange(selected ? null : d.value)}>
-                    <Text style={[styles.chipText, selected && styles.chipTextActive]}>
+                    <ThemedText
+                      type="caption"
+                      themeColor={selected ? 'onAccent' : 'accent'}
+                      className="font-semibold">
                       {d.label}
-                    </Text>
+                    </ThemedText>
                   </Pressable>
                 );
               })}
@@ -187,19 +225,26 @@ export function RecipeWizardStepBasics({
           </View>
 
           {/* Rezepttyp */}
-          <View style={styles.inputGroup}>
-            <Text style={styles.label}>Art des Gerichts</Text>
-            <View style={styles.chipRow}>
+          <View className="mb-[14px]">
+            <ThemedText type="detail" className="text-[10px] leading-[12px] font-bold mb-[6px]">
+              Art des Gerichts
+            </ThemedText>
+            <View className="row-wrap gap-[10px]">
               {DISH_TYPES.map((d) => {
                 const selected = dishTypes.includes(d.value);
                 return (
                   <Pressable
                     key={d.value}
-                    style={[styles.chip, selected && styles.chipActive]}
+                    className={`px-three py-[7px] rounded-control ${
+                      selected ? 'bg-accent' : 'bg-background-element'
+                    }`}
                     onPress={() => onDishTypesChange(toggle(dishTypes, d.value))}>
-                    <Text style={[styles.chipText, selected && styles.chipTextActive]}>
+                    <ThemedText
+                      type="caption"
+                      themeColor={selected ? 'onAccent' : 'accent'}
+                      className="font-semibold">
                       {d.label}
-                    </Text>
+                    </ThemedText>
                   </Pressable>
                 );
               })}
@@ -207,19 +252,26 @@ export function RecipeWizardStepBasics({
           </View>
 
           {/* Ernaehrung */}
-          <View style={styles.inputGroup}>
-            <Text style={styles.label}>Ernährung</Text>
-            <View style={styles.chipRow}>
+          <View className="mb-[14px]">
+            <ThemedText type="detail" className="text-[10px] leading-[12px] font-bold mb-[6px]">
+              Ernährung
+            </ThemedText>
+            <View className="row-wrap gap-[10px]">
               {DIETARY_TAGS.map((d) => {
                 const selected = dietaryTags.includes(d.value);
                 return (
                   <Pressable
                     key={d.value}
-                    style={[styles.chip, selected && styles.chipActive]}
+                    className={`px-three py-[7px] rounded-control ${
+                      selected ? 'bg-accent' : 'bg-background-element'
+                    }`}
                     onPress={() => onDietaryTagsChange(toggle(dietaryTags, d.value))}>
-                    <Text style={[styles.chipText, selected && styles.chipTextActive]}>
+                    <ThemedText
+                      type="caption"
+                      themeColor={selected ? 'onAccent' : 'accent'}
+                      className="font-semibold">
                       {d.label}
-                    </Text>
+                    </ThemedText>
                   </Pressable>
                 );
               })}
@@ -227,14 +279,16 @@ export function RecipeWizardStepBasics({
           </View>
 
           {/* Hashtags */}
-          <View style={styles.inputGroup}>
-            <Text style={styles.label}>Hashtags</Text>
+          <View className="mb-[14px]">
+            <ThemedText type="detail" className="text-[10px] leading-[12px] font-bold mb-[6px]">
+              Hashtags
+            </ThemedText>
             <TextInput
-              style={styles.input}
+              className="bg-background-element rounded-control min-h-[44px] px-three text-body-small text-text"
               value={hashtagsInput}
               onChangeText={onHashtagsInputChange}
               placeholder="#vegan #schnell"
-              placeholderTextColor="#A89FA8"
+              placeholderTextColor={theme.textSecondary}
             />
           </View>
         </>
@@ -242,11 +296,32 @@ export function RecipeWizardStepBasics({
         <>
           {/* Zutaten-Gruppen */}
           {components.map((comp) => (
-            <View key={comp.id} style={styles.componentSection}>
-              <Text style={styles.label}>{comp.title}</Text>
+            <View key={comp.id} className="mb-three p-[11px] rounded-sheet bg-white/70">
+              <View className="flex-row items-center gap-two mb-two">
+                <TextInput
+                  className="flex-1 bg-background-element rounded-control min-h-[44px] px-three text-body-small font-bold text-text"
+                  value={comp.title}
+                  onChangeText={(val) => onUpdateComponentTitle(comp.id, val)}
+                  placeholder="Gruppenname, z. B. Für den Teig"
+                  placeholderTextColor={theme.textSecondary}
+                />
+                {components.length > 1 ? (
+                  <TouchableOpacity
+                    className="w-11 h-11 rounded-control bg-background-element items-center justify-center"
+                    onPress={() => onRemoveComponentGroup(comp.id)}
+                    accessibilityRole="button"
+                    accessibilityLabel="Zutaten-Gruppe entfernen">
+                    <ThemedText
+                      themeColor="accent"
+                      className="text-[18px] leading-[20px] font-medium">
+                      ×
+                    </ThemedText>
+                  </TouchableOpacity>
+                ) : null}
+              </View>
 
               {comp.items.map((item) => (
-                <View key={item.id} style={styles.ingredientBlock}>
+                <View key={item.id} className="mb-[14px] gap-two">
                   <ProductSearchDropdown
                     label="Zutat"
                     placeholder="Zutat suchen…"
@@ -254,16 +329,16 @@ export function RecipeWizardStepBasics({
                     onChangeText={(val) => onUpdateIngredientQuery(comp.id, item.id, val)}
                     onSelectProduct={(product) => onSelectProduct(comp.id, item.id, product)}
                   />
-                  <View style={styles.ingredientQuantityRow}>
+                  <View className="flex-row items-center gap-two">
                     <TextInput
-                      style={[styles.input, styles.amountInput]}
+                      className="flex-1 bg-background-element rounded-control min-h-[44px] px-three text-body-small text-text"
                       value={item.quantity}
                       onChangeText={(val) => onUpdateQuantity(comp.id, item.id, val)}
                       placeholder="Menge"
-                      placeholderTextColor="#A89FA8"
+                      placeholderTextColor={theme.textSecondary}
                       keyboardType="numeric"
                     />
-                    <View style={styles.unitPicker}>
+                    <View className="flex-1">
                       <WheelPickerField
                         value={item.unit}
                         options={UNIT_OPTIONS}
@@ -271,14 +346,14 @@ export function RecipeWizardStepBasics({
                       />
                     </View>
                     <TouchableOpacity
-                      style={styles.trashCircleButton}
+                      className="w-11 h-11 rounded-control bg-background-element items-center justify-center"
                       onPress={() => onRemoveIngredient(comp.id, item.id)}
                       accessibilityRole="button"
                       accessibilityLabel="Delete ingredient">
                       <Svg width={18} height={18} viewBox="0 0 24 24" fill="none">
                         <Path
                           d="M3 6h18M19 6v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6m3 0V4a2 2 0 012-2h4a2 2 0 012 2v2"
-                          stroke="#705773"
+                          stroke={theme.accent}
                           strokeWidth={2}
                           strokeLinecap="round"
                           strokeLinejoin="round"
@@ -287,271 +362,62 @@ export function RecipeWizardStepBasics({
                     </TouchableOpacity>
                   </View>
                   {item.notConvertible ? (
-                    <Text style={styles.warningText}>
+                    <ThemedText type="caption" themeColor="danger">
                       Automatische Umrechnung in Gramm für diese Einheit nicht möglich (Produkt hat
                       kein bekanntes Stückgewicht) — diese Zutat wurde beim Speichern übersprungen.
-                    </Text>
+                    </ThemedText>
                   ) : null}
                 </View>
               ))}
 
               <TouchableOpacity
-                style={styles.addIngredientSmallBtn}
+                className="py-[6px] self-start"
                 onPress={() => onAddIngredient(comp.id)}>
-                <Text style={styles.addIngredientSmallText}>+ Zutat hinzufügen</Text>
+                <ThemedText
+                  type="detail"
+                  themeColor="accent"
+                  className="text-[9px] leading-[11px] font-semibold">
+                  + Zutat hinzufügen
+                </ThemedText>
               </TouchableOpacity>
             </View>
           ))}
 
           <Pressable
-            style={styles.addComponentButton}
+            className="w-full h-[42px] bg-background-element rounded-fam-large items-center justify-center mt-two mb-four active:opacity-75"
             onPress={onAddComponentGroup}
             accessibilityRole="button"
             accessibilityLabel="Add Componente">
-            <Text style={styles.addComponentText}>+ Zutaten-Gruppe hinzufügen</Text>
+            <ThemedText type="detail" themeColor="accent" className="font-semibold">
+              + Zutaten-Gruppe hinzufügen
+            </ThemedText>
           </Pressable>
         </>
       )}
 
-      <View style={styles.navRow}>
-        <Pressable style={[styles.navButton, styles.navButtonSecondary]} onPress={onCancel}>
-          <Text style={styles.navButtonSecondaryText}>
+      <View className="flex-row gap-[14px] mb-three">
+        <Pressable
+          className="flex-1 min-h-[48px] rounded-card items-center justify-center bg-background-element active:opacity-75"
+          onPress={onCancel}>
+          <ThemedText type="captionCompact" themeColor="accent" className="font-semibold">
             {mode === 'details' ? 'Abbrechen' : 'Zurück'}
-          </Text>
+          </ThemedText>
         </Pressable>
         <Pressable
-          style={[
-            styles.navButton,
-            styles.navButtonPrimary,
-            (!title.trim() || saving) && styles.navButtonDisabled,
-          ]}
+          className={`flex-1 min-h-[48px] rounded-card items-center justify-center bg-accent active:opacity-75 ${
+            !title.trim() || saving ? 'opacity-50' : ''
+          }`}
           onPress={onNext}
           disabled={!title.trim() || saving}>
-          <Text style={styles.navButtonPrimaryText}>
+          <ThemedText type="captionCompact" className="text-white font-semibold">
             {saving
               ? 'Speichert…'
               : mode === 'details'
                 ? 'Weiter zu den Zutaten'
                 : 'Weiter zu den Schritten'}
-          </Text>
+          </ThemedText>
         </Pressable>
       </View>
     </>
   );
 }
-
-const styles = StyleSheet.create({
-  eyebrow: {
-    paddingTop: 8,
-    ...FontSize[8],
-    lineHeight: 10,
-    fontWeight: '500',
-    color: '#766E78',
-    letterSpacing: 0.7,
-  },
-  pageTitle: {
-    paddingTop: 6,
-    paddingBottom: 12,
-    ...FontSize[21],
-    lineHeight: 25,
-    fontWeight: '700',
-    color: '#302A31',
-    letterSpacing: -0.35,
-  },
-  videoCard: {
-    width: '100%',
-    height: 200,
-    backgroundColor: '#EEE5EC',
-    borderRadius: Radius.sheet,
-    borderCurve: 'continuous',
-    overflow: 'hidden',
-    marginBottom: 16,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  videoPlaceholderContent: {
-    alignItems: 'center',
-  },
-  playIconCircle: {
-    width: 64,
-    height: 64,
-    borderRadius: Radius.pill,
-    backgroundColor: '#705773',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  videoPlaceholderText: {
-    ...FontSize[15],
-    fontWeight: '500',
-    color: '#302A31',
-    marginTop: 14,
-  },
-  inputGroup: {
-    marginBottom: 14,
-  },
-  inputRow: {
-    flexDirection: 'row',
-    gap: 14,
-  },
-  flexInput: {
-    flex: 1,
-  },
-  label: {
-    ...FontSize[10],
-    lineHeight: 12,
-    fontWeight: '700',
-    color: '#302A31',
-    marginBottom: 6,
-  },
-  input: {
-    backgroundColor: '#EEE5EC',
-    borderRadius: Radius.control,
-    borderCurve: 'continuous',
-    minHeight: 44,
-    paddingHorizontal: 12,
-    ...FontSize[11],
-    color: '#302A31',
-  },
-  multilineInput: {
-    height: 76,
-    paddingTop: 12,
-    paddingBottom: 12,
-    textAlignVertical: 'top',
-  },
-  stepperPill: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    backgroundColor: '#EEE5EC',
-    borderRadius: Radius.control,
-    borderCurve: 'continuous',
-    height: 44,
-    paddingHorizontal: 12,
-    minWidth: 100,
-  },
-  stepperSign: {
-    ...FontSize[18],
-    fontWeight: '700',
-    color: '#705773',
-  },
-  stepperValue: {
-    ...FontSize[15],
-    fontWeight: '600',
-    color: '#302A31',
-  },
-  chipRow: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    gap: 10,
-  },
-  chip: {
-    paddingHorizontal: 12,
-    paddingVertical: 7,
-    borderRadius: Radius.control,
-    borderCurve: 'continuous',
-    backgroundColor: '#EEE5EC',
-  },
-  chipActive: {
-    backgroundColor: '#705773',
-  },
-  chipText: {
-    color: '#705773',
-    ...FontSize[10],
-    fontWeight: '600',
-  },
-  chipTextActive: {
-    color: '#FFFFFF',
-  },
-  componentSection: {
-    marginBottom: 12,
-    padding: 11,
-    borderRadius: Radius.sheet,
-    borderCurve: 'continuous',
-    backgroundColor: 'rgba(255,255,255,0.70)',
-  },
-  ingredientBlock: {
-    marginBottom: 14,
-    gap: 8,
-  },
-  ingredientQuantityRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 8,
-  },
-  amountInput: {
-    flex: 1,
-  },
-  unitPicker: {
-    flex: 1,
-  },
-  warningText: {
-    ...FontSize[12],
-    color: '#B45309',
-  },
-  trashCircleButton: {
-    width: 44,
-    height: 44,
-    borderRadius: Radius.control,
-    borderCurve: 'continuous',
-    backgroundColor: '#EEE5EC',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  addIngredientSmallBtn: {
-    paddingVertical: 6,
-    alignSelf: 'flex-start',
-  },
-  addIngredientSmallText: {
-    color: '#705773',
-    ...FontSize[9],
-    fontWeight: '600',
-  },
-  addComponentButton: {
-    width: '100%',
-    height: 42,
-    backgroundColor: '#EEE5EC',
-    borderRadius: Radius.controlLarge,
-    borderCurve: 'continuous',
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginTop: 8,
-    marginBottom: 16,
-  },
-  addComponentText: {
-    color: '#705773',
-    ...FontSize[10],
-    fontWeight: '600',
-  },
-  navRow: {
-    flexDirection: 'row',
-    gap: 14,
-    marginBottom: 12,
-  },
-  navButton: {
-    flex: 1,
-    minHeight: 48,
-    borderRadius: Radius.card,
-    borderCurve: 'continuous',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  navButtonPrimary: {
-    backgroundColor: '#705773',
-  },
-  navButtonPrimaryText: {
-    color: '#FFFFFF',
-    ...FontSize[11],
-    fontWeight: '600',
-  },
-  navButtonSecondary: {
-    backgroundColor: '#EEE5EC',
-  },
-  navButtonSecondaryText: {
-    color: '#705773',
-    ...FontSize[11],
-    fontWeight: '600',
-  },
-  navButtonDisabled: {
-    opacity: 0.5,
-  },
-});

@@ -8,7 +8,7 @@
 
 ## What Makes NutriTrack Special (1–4 Non-Negotiable Pillars)
 
-1. **Strikte Datentrennung & RLS-Autorität:** Geteilte Haushaltsdaten (Kühlschrank, Vorrat, Einkaufszettel) und private Nutzerdaten (Kalorien, Gewicht, Tagebuch) sind auf Datenbankebene per Supabase RLS strikt isoliert.
+1. **Strikte Datentrennung & RLS-Autorität:** Geteilte Haushaltsdaten (Kühlschrank, Vorrat, Einkaufszettel) und private Nutzerdaten (Tracking: Kalorien, Gewicht, Medikamente, Fasten, Vitalwerte, Workouts) sind auf Datenbankebene per Supabase RLS strikt isoliert.
 2. **Ausschließlich Declaratives Datenbankschema:** Die Schemadefinitionen in `supabase/schemas/*.sql` sind die einzige Wahrheit. Migrationsdateien werden niemals manuell verfasst, sondern ausschließlich über `bun run db:diff` mit `pg-delta` generiert.
 3. **Local-First & Offline-Belastbarkeit:** Lokale SQLite-Datenbank (`expo-sqlite`) mit Outbox-Sync für reibungslose Bedienung auch ohne stabile Netzverbindung.
 
@@ -19,7 +19,9 @@
 - **Mobile (iOS & Android):** Hauptzielplattform mit Expo SDK 57, React Native 0.86 und React 19.2. Erfordert für native Module (Kamera, Barcode-Scanner, SQLite, SecureStore, Notifications) einen Dev Client (`scripts/ios-dev.sh`); läuft nicht in Standard Expo Go.
 - **Web / Edge Functions / Services:** Supabase Edge Functions (z. B. `auth-confirmed`), Web-Vorschau via `expo start --web`, Supabase Studio (`localhost:54323`) für lokale Inspektion.
 - **Backend & Auth:** Supabase (Postgres, GoTrue Auth, Realtime, Storage) via Docker (`supabase start`); RevenueCat für In-App-Käufe und Abonnements.
-- wir haben noch kein Devoloper account für den Apple App Store, daher ist die iOS-Distribution derzeit nicht am funktionieren und wir können nur lokale Builds auf iOS testen.
+- Wir haben jetzt einen Apple-Developer-Account. iOS-Distribution über EAS (TestFlight, App Store) ist damit möglich — `eas submit` und Store-Builds (`preview-testflight`, `production`) können genutzt werden.
+
+for CSS styling nativewind docs  @`.claude/nativewind.dev:llms.txt`.
 
 ---
 
@@ -50,8 +52,10 @@ I want to share some of my preferences here so we can be more aligned as we work
 | **`We / Maintainers`** | Marco und die Maintainer des Projekts (deine Gesprächspartner). |
 | **`User`** | Der Endnutzer der NutriTrack-App bzw. die Person, die App später verwenden wird. |
 | **`Household (Haushalt)`** | Die geteilte Entität für gemeinsame Bestände, Einkaufslisten und Einladungen. |
-| **`Inventory / Fridge`** | Geteilter Lebensmittelbestand mit Lagerorten (Kühlschrank, Vorrat, Tiefkühler). |
-| **`Diary / Log`** | Privates, nutzerspezifisches Ernährungstagebuch (Mahlzeiten, Kalorien, Makronährstoffe). |
+| **`Inventory / Fridge`** | Geteilter Lebensmittelbestand mit Lagerorten (Kühlschrank, Vorrat, Tiefkühler). Eigenständiger Bestandseintrag, optional angereichert durch ein Product. Siehe `CONTEXT.md`. |
+| **`Product`** | Globaler, nicht haushaltsgebundener Katalogeintrag (Barcode/Nährwerte). Keine Identität mit Inventory/Shopping-List-Items, nur optionale Anreicherung. Siehe `CONTEXT.md`. |
+| **`Tracking`** | Oberbegriff für alle privaten, per RLS isolierten Nutzerdaten (Nutrition Tracking, Medications & Symptoms, Fasting, Vital Logs, Workouts). Siehe `CONTEXT.md`. |
+| **`Nutrition Tracking`** | Ernährungs- und Gewichtsteil von Tracking: Mahlzeiten, Gewicht, Ziele. Eine Tracking-Domäne unter mehreren, kein Oberbegriff. |
 | **`Declarative Schema`** | Der deklarative Schemazustand unter `supabase/schemas/*.sql`. |
 | **`Outbox`** | Lokale SQLite-Warteschlange für Offline-Mutationen vor dem Push an Supabase. |
 | **`Dev Build`** | Natives Binary (`scripts/ios-dev.sh`), das für native Expo-Module zwingend nötig ist. |
@@ -81,7 +85,7 @@ I want to share some of my preferences here so we can be more aligned as we work
 ## Tooling, Commands & CLI Quirks
 
 - **Paketmanager:** `bun` für alle Paketoperationen und Skripte (`bun run <cmd>`).
-- **Linter & Formatter:** Biome (`bun run check` zum Prüfen, `bun run check:fix` zum Beheben). Kein ESLint / Prettier.
+- **Linter & Formatter:** Biome (`bun run check` zum Prüfen, `bun run check:fix` zum Beheben). Kein ESLint / Prettier. `bun run check` validiert zusätzlich `src/global.css` gegen die Tailwind-CLI (`bun run check:css`) — fängt kaputte Arbitrary-Value-Syntax (z. B. Leerzeichen in `bg-[rgba(31, 26, 33, 0.3)]`), die sonst erst als Metro-Hänger bei 99% auffällt.
 - **Typecheck:** `bun run typecheck` (`tsc --noEmit`).
 - **Tests:** `bun run test` (Jest Unit-Tests) und `bun run test:db` (pgTAP DB-Tests).
 - **Datenbank-Workflow:**
@@ -134,7 +138,7 @@ Read the exact versioned docs at <https://docs.expo.dev/versions/v57.0.0/> befor
 
 - **Simplicity & YAGNI:** Halte Lösungen schlank. Vermeide unnötige Abstraktionsschichten oder Wrapper-Funktionen.
 - **Typesicherheit ohne `any`:** Inferenz nutzen. Typsysteme sollen sich an Änderungen anpassen. Code soll modernen TypeScript-Standards entsprechen.
-- **Feature-First Struktur:** `src/app/` dient ausschließlich dem Routing (Expo Router). Fachlogik gehört nach `src/features/<domain>/` (mit `components/`, `hooks/`, `api.ts`, `types.ts`), geteilte UI nach `src/components/`.
+- **Feature-First Struktur:** `src/app/` dient ausschließlich dem Routing (Expo Router). Fachlogik gehört nach `src/features/<domain>/`, geteilte UI nach `src/components/`. Kleine Features bleiben flach (`components/`, `hooks/`, `api.ts`, `types.ts`); sobald ein Feature spürbar wächst, wird nach Verantwortungsschicht getrennt statt alles in `components/` zu sammeln — `screens/` (Screens/Routen-Ziele), `sheets/` (Modals/Bottom-Sheets), `forms/` (Formulare & Eingabe-Bausteine), `components/` (reine Anzeige-Komponenten), `hooks/` (React-Query-/Datenzugriffs-Hooks), `domain/` (Domänen-Logik & Konfiguration ohne React). Referenz: `src/features/shopping-list/`.
 - **UI & Layout:** Warme Mauve-/Creme-Palette (`src/constants/theme.ts`, Light & Dark, siehe `docs/DESIGN_SYSTEM.md`), semantisches Styling ausschließlich über Theme-Tokens, kein Em-Dash in Copy, Informationsdichte vor Deko.
 - **Expo SDK 57:** Vor dem Schreiben nativer Expo-Features stets die versionierte Dokumentation (<https://docs.expo.dev/versions/v57.0.0/>) konsultieren.
 - **Testing Library:** Vor Änderungen an Komponententests die Regeln in `.agents/rules/react-native-testing-library.md` beachten.
@@ -161,7 +165,23 @@ also make sure to read `.agents/rules/react-native-testing-library.md` for react
 ## Verification & Pull Request Instructions
 
 - **Lokale Verifikation vor Fertigstellung:**
-  1. `bun run check` (Biome Lint/Format)
+  1. `bun run check` (Biome Lint/Format + Tailwind-CSS-Validierung)
   2. `bun run typecheck` (TypeScript)
   3. `bun run test` (Jest Unit Tests)
   4. `bun run test:db` (sofern DB-Schemas betroffen sind)
+
+# agent-device
+
+Use agent-device only for app/device automation tasks.
+For a normal app-driving task, start immediately. Do not probe first with `--help`, `--version`, `devices`, `appstate`, `snapshot`, or `screenshot`; open the requested app in the foreground and continue from its initial interactive snapshot.
+For TV, Fire TV, or Vega OS tasks, read `agent-device help tv`.
+For exploratory QA, read `agent-device help dogfood`.
+For logs, network, audio, traces, or runtime failures, read `agent-device help debugging`.
+For React Native component trees, props/state/hooks, slow renders, or rerenders, read `agent-device help react-devtools`.
+For React Native JavaScript heap growth, heap snapshots, or retained-object leaks, read `agent-device help cdp`.
+For React Native apps, overlays, Metro/Fast Refresh blockers, and routing to React DevTools or debugging evidence, read `agent-device help react-native`.
+
+Use the CLI in the integrated terminal.
+If `agent-device` is not on PATH but the user installed it globally in another shell, resolve the absolute binary path instead of using `npx -y agent-device@latest`.
+Prefer `open -> snapshot -i -> act -> re-snapshot -> verify -> close` where supported; otherwise follow target-specific help.
+Keep mutating commands against one session serial.

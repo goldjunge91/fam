@@ -103,6 +103,17 @@ create_single_user() {
       { "household_id": "'"${household_id}"'", "name": "Abstellkammer", "kind": "pantry", "sort_order": 2 }
     ]' > /dev/null
 
+  # 5b. Standard-Supermärkte anlegen
+  curl -s -X POST "${SUPABASE_URL}/rest/v1/stores" \
+    -H "apikey: ${SERVICE_ROLE_KEY}" \
+    -H "Authorization: Bearer ${SERVICE_ROLE_KEY}" \
+    -H "Content-Type: application/json" \
+    -d '[
+      { "household_id": "'"${household_id}"'", "name": "REWE", "color": "#B5623F", "sort_order": 0 },
+      { "household_id": "'"${household_id}"'", "name": "Edeka", "color": "#748C5B", "sort_order": 1 },
+      { "household_id": "'"${household_id}"'", "name": "Aldi", "color": "#5C7396", "sort_order": 2 }
+    ]' > /dev/null
+
   # 6. Beispiels-Produkte anlegen und zur Einkaufsliste hinzufügen
   local products_json='[
     {

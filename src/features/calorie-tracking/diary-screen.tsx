@@ -1,17 +1,14 @@
 import { router } from 'expo-router';
 import { useState } from 'react';
-import { Pressable, ScrollView, StyleSheet, View } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
-
-import { PlusIcon } from '@/components/fam-icon';
-import { FilterChipBar } from '@/components/filter-chip-bar';
-import { GradientBackground } from '@/components/gradient-background';
-import { PageHeader } from '@/components/page-header';
-import { ProgressBar } from '@/components/progress-bar';
-import { ProgressRing } from '@/components/progress-ring';
-import { FontSize, ThemedText } from '@/components/themed-text';
-import { HeaderIconButton, MenuButton } from '@/components/ui/buttons';
-import { Radius } from '@/constants/theme';
+import { Pressable, ScrollView, View } from 'react-native';
+import { PlusIcon } from '@/components/icons/fam-icon';
+import { HubScreen } from '@/components/layout/hub-screen';
+import { ThemedText } from '@/components/theme/themed-text';
+import { MenuButton } from '@/components/ui/buttons';
+import { FilterChipBar } from '@/components/ui/filter-chip-bar';
+import { ProgressBar } from '@/components/ui/progress-bar';
+import { ProgressRing } from '@/components/ui/progress-ring';
+import { useProfile } from '@/features/auth/api';
 import { useSession } from '@/features/auth/session-provider';
 import { useActiveProfile } from '@/features/calorie-tracking/active-profile-store';
 import {
@@ -20,11 +17,13 @@ import {
   useCurrentGoal,
   useFoodEntries,
 } from '@/features/calorie-tracking/api';
+import { FastingCard } from '@/features/calorie-tracking/components/fasting-card';
+import { Glp1Card } from '@/features/calorie-tracking/components/glp1-card';
 import { calculateDailyTotals } from '@/features/calorie-tracking/daily-totals';
+import { getLogicalDateForTimestamp } from '@/features/calorie-tracking/day-boundary';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { useChildProfiles } from '@/features/household/api';
 import { useNavigationChrome } from '@/features/navigation/navigation-chrome-provider';
-import { useHubGradient } from '@/hooks/use-hub-gradient';
 import { useTheme } from '@/hooks/use-theme';
 
 const MEAL_ORDER: MealType[] = ['breakfast', 'lunch', 'dinner', 'snack'];
@@ -75,13 +74,23 @@ function formatKcal(value: number): string {
   return `${Math.round(value).toLocaleString('de-DE')} kcal`;
 }
 
-function MacroSummary({ label, value, target }: { label: string; value: number; target: number }) {
+function MacroSummary({
+  label,
+  value,
+  target,
+  isLast = false,
+}: {
+  label: string;
+  value: number;
+  target: number;
+  isLast?: boolean;
+}) {
   const theme = useTheme();
   const exceeded = target > 0 && value > target;
 
   return (
     <View
-      style={[styles.macroCard, { backgroundColor: `${theme.backgroundElement}D6` }]}
+      className={isLast ? 'diary-macro-item-last' : 'diary-macro-item'}
       accessible
       accessibilityRole="progressbar"
       accessibilityLabel={
@@ -89,9 +98,9 @@ function MacroSummary({ label, value, target }: { label: string; value: number; 
           ? `${label}: ${Math.round(value)} von ${Math.round(target)} Gramm`
           : `${label}: ${Math.round(value)} Gramm, kein Ziel gesetzt`
       }>
-      <View style={styles.macroLabels}>
-        <ThemedText style={styles.macroLabel}>{label}</ThemedText>
-        <ThemedText themeColor="textSecondary" style={styles.macroValue}>
+      <View className="diary-macro-labels">
+        <ThemedText className="diary-macro-label">{label}</ThemedText>
+        <ThemedText themeColor="textSecondary" className="diary-macro-value">
           {Math.round(value)} / {target > 0 ? Math.round(target) : '–'} g
         </ThemedText>
       </View>
@@ -117,11 +126,11 @@ function MealSection({ meal, entries, isLast, onAdd, onEntry }: MealSectionProps
   const mealKcal = entries.reduce((sum, entry) => sum + (entry.kcal ?? 0), 0);
 
   return (
-    <View style={!isLast ? [styles.mealSection, { borderBottomColor: theme.border }] : undefined}>
-      <View style={styles.mealHeader}>
-        <View style={styles.mealHeading}>
-          <ThemedText style={styles.mealTitle}>{MEAL_LABELS[meal]}</ThemedText>
-          <ThemedText themeColor="textSecondary" style={styles.mealKcal}>
+    <View className={!isLast ? 'diary-meal-section' : undefined}>
+      <View className="diary-meal-header">
+        <View className="diary-meal-heading">
+          <ThemedText className="diary-meal-title">{MEAL_LABELS[meal]}</ThemedText>
+          <ThemedText themeColor="textSecondary" className="diary-meal-kcal">
             {formatKcal(mealKcal)}
           </ThemedText>
         </View>
@@ -129,11 +138,9 @@ function MealSection({ meal, entries, isLast, onAdd, onEntry }: MealSectionProps
           onPress={onAdd}
           role="button"
           aria-label={`Zu ${MEAL_LABELS[meal]} hinzufügen`}
-          style={({ pressed }) => [
-            styles.addButton,
-            { backgroundColor: theme.accent },
-            pressed && styles.pressed,
-          ]}>
+          className="diary-add-button"
+          // borderCurve ist ein echter Laufzeitwert ohne Tailwind-Aequivalent.
+          style={{ borderCurve: 'continuous' }}>
           <PlusIcon size={18} color={theme.onAccent} />
         </Pressable>
       </View>
@@ -143,20 +150,19 @@ function MealSection({ meal, entries, isLast, onAdd, onEntry }: MealSectionProps
           onPress={() => onEntry(entry.id)}
           role="button"
           aria-label={`${entry.name} bearbeiten`}
-          style={({ pressed }) => [
-            styles.entryRow,
-            { backgroundColor: `${theme.backgroundSelected}78` },
-            pressed && styles.pressed,
-          ]}>
-          <View style={styles.entryInfo}>
-            <ThemedText style={styles.entryName} numberOfLines={1}>
+          className="diary-entry-row">
+          <View className="diary-entry-info">
+            <ThemedText className="diary-entry-name" numberOfLines={1}>
               {entry.name}
             </ThemedText>
-            <ThemedText themeColor="textSecondary" style={styles.entryQuantity} numberOfLines={1}>
+            <ThemedText
+              themeColor="textSecondary"
+              className="diary-entry-quantity"
+              numberOfLines={1}>
               {entry.quantity} {entry.unit}
             </ThemedText>
           </View>
-          <ThemedText themeColor="textSecondary" style={styles.entryKcal}>
+          <ThemedText themeColor="textSecondary" className="diary-entry-kcal">
             {entry.kcal !== null ? formatKcal(entry.kcal) : '–'}
           </ThemedText>
         </Pressable>
@@ -175,26 +181,33 @@ function SummaryRow({
   accent?: boolean;
 }) {
   return (
-    <View style={styles.summaryRow}>
-      <ThemedText themeColor="textSecondary" style={styles.summaryLabel}>
+    <View className="diary-summary-row">
+      <ThemedText
+        themeColor="textSecondary"
+        style={{ fontSize: 16, lineHeight: 22, fontWeight: '500' }}>
         {label}
       </ThemedText>
-      <ThemedText themeColor={accent ? 'accent' : 'text'} style={styles.summaryValue}>
+      <ThemedText
+        themeColor={accent ? 'accent' : 'text'}
+        style={{ fontSize: 22, lineHeight: 26, fontWeight: '700' }}>
         {value}
       </ThemedText>
     </View>
   );
 }
 
-/** Tagebuch nach Figma: Tagesbilanz, Makros und kompakte Mahlzeitenliste. */
+/** Tagebuch: Tagesbilanz, Makros und kompakte Mahlzeitenliste. */
 export function DiaryScreen() {
   const theme = useTheme();
-  const hubGradient = useHubGradient();
   const { openDrawer } = useNavigationChrome();
   const { session } = useSession();
   const userId = session?.user.id;
+  const { data: userProfile } = useProfile(userId);
 
-  const todayIso = toIsoDate(new Date());
+  const todayIso = getLogicalDateForTimestamp(
+    new Date(),
+    userProfile?.tracking_day_start_time ?? '00:00',
+  );
   const [selectedDate, setSelectedDate] = useState(todayIso);
 
   const { activeHousehold } = useActiveHousehold();
@@ -247,247 +260,135 @@ export function DiaryScreen() {
   }
 
   return (
-    <View style={styles.root}>
-      <GradientBackground {...hubGradient} />
-      <SafeAreaView style={styles.safeArea} edges={['top', 'left', 'right']}>
-        <PageHeader
-          title="Tagebuch"
-          align="center"
-          leading={<MenuButton onPress={openDrawer} />}
-          trailing={
-            <HeaderIconButton
-              label="Ziele und Fortschritt öffnen"
-              onPress={() => router.push('/settings/goals')}>
-              <View style={styles.goalIcon}>
-                <View
-                  style={[styles.goalBar, styles.goalBarShort, { backgroundColor: theme.accent }]}
-                />
-                <View
-                  style={[styles.goalBar, styles.goalBarTall, { backgroundColor: theme.accent }]}
-                />
-                <View
-                  style={[styles.goalBar, styles.goalBarMid, { backgroundColor: theme.accent }]}
-                />
-              </View>
-            </HeaderIconButton>
-          }
-        />
+    <HubScreen
+      rootClassName="diary-root"
+      safeAreaClassName="diary-safe-area"
+      header={{
+        title: 'Tagebuch',
+        align: 'center',
+        leading: <MenuButton onPress={openDrawer} />,
+      }}>
+      <ScrollView
+        showsVerticalScrollIndicator={false}
+        contentContainerClassName="diary-content"
+        contentInsetAdjustmentBehavior="never">
+        {/* Profil-Auswahl (Erwachsener vs. Kind-Profile) */}
+        {childProfiles.length > 0 ? (
+          <FilterChipBar
+            label="Tagebuchprofil"
+            options={profileOptions}
+            selected={childProfileId ?? 'adult'}
+            onSelect={selectProfile}
+          />
+        ) : null}
 
-        <ScrollView
-          showsVerticalScrollIndicator={false}
-          contentContainerStyle={styles.content}
-          contentInsetAdjustmentBehavior="never">
-          {childProfiles.length > 0 ? (
-            <FilterChipBar
-              label="Tagebuchprofil"
-              options={profileOptions}
-              selected={childProfileId ?? 'adult'}
-              onSelect={selectProfile}
+        {/* Datumsnavigation (Gestern, Heute, Morgen, Datumswahl) */}
+        <View className="diary-date-row">
+          <Pressable
+            onPress={() => setSelectedDate((date) => addDays(date, -1))}
+            role="button"
+            aria-label="Vorheriger Tag"
+            className="diary-date-arrow">
+            <ThemedText themeColor="accent" className="diary-chevron">
+              ‹
+            </ThemedText>
+          </Pressable>
+          <Pressable
+            onPress={() => setSelectedDate(todayIso)}
+            role="button"
+            aria-label="Heutigen Tag anzeigen"
+            className="diary-date-copy">
+            <ThemedText themeColor="accent" className="diary-relative-date">
+              {relativeDateLabel(selectedDate, todayIso)}
+            </ThemedText>
+            <ThemedText themeColor="textSecondary" className="diary-full-date">
+              {fullDateLabel(selectedDate)}
+            </ThemedText>
+          </Pressable>
+          <Pressable
+            onPress={() => setSelectedDate((date) => addDays(date, 1))}
+            role="button"
+            aria-label="Nächster Tag"
+            className="diary-date-arrow">
+            <ThemedText themeColor="accent" className="diary-chevron">
+              ›
+            </ThemedText>
+          </Pressable>
+        </View>
+
+        {/* Kalorien-Zusammenfassung mit Ring-Diagramm & Bilanz */}
+        <View className="diary-summary-card">
+          <ProgressRing
+            value={totals.kcal}
+            target={calorieGoal}
+            preset="medium"
+            label="Kalorien"
+            displayMode="remaining"
+            progressColor={theme.accent}
+            trackColor={theme.backgroundSelected}
+          />
+          <View className="diary-summary-stats">
+            <SummaryRow label="Gegessen" value={formatKcal(totals.kcal)} />
+            <SummaryRow label="Grundziel" value={calorieGoal > 0 ? formatKcal(calorieGoal) : '–'} />
+            <SummaryRow
+              label="Übrig"
+              value={calorieGoal > 0 ? formatKcal(remaining) : 'Kein Ziel'}
+              accent={remaining >= 0}
             />
-          ) : null}
-
-          <View style={styles.dateRow}>
-            <Pressable
-              onPress={() => setSelectedDate((date) => addDays(date, -1))}
-              role="button"
-              aria-label="Vorheriger Tag"
-              style={({ pressed }) => [styles.dateArrow, pressed && styles.pressed]}>
-              <ThemedText themeColor="accent" style={styles.chevron}>
-                ‹
-              </ThemedText>
-            </Pressable>
-            <Pressable
-              onPress={() => setSelectedDate(todayIso)}
-              role="button"
-              aria-label="Heutigen Tag anzeigen"
-              style={styles.dateCopy}>
-              <ThemedText themeColor="accent" style={styles.relativeDate}>
-                {relativeDateLabel(selectedDate, todayIso)}
-              </ThemedText>
-              <ThemedText themeColor="textSecondary" style={styles.fullDate}>
-                {fullDateLabel(selectedDate)}
-              </ThemedText>
-            </Pressable>
-            <Pressable
-              onPress={() => setSelectedDate((date) => addDays(date, 1))}
-              role="button"
-              aria-label="Nächster Tag"
-              style={({ pressed }) => [styles.dateArrow, pressed && styles.pressed]}>
-              <ThemedText themeColor="accent" style={styles.chevron}>
-                ›
-              </ThemedText>
-            </Pressable>
+            <ThemedText
+              themeColor={currentGoal ? 'success' : 'textSecondary'}
+              className="diary-goal-status">
+              {currentGoal ? 'Tagesziel ist aktiv' : 'Noch kein Tagesziel hinterlegt'}
+            </ThemedText>
           </View>
+        </View>
 
-          <View style={[styles.summaryCard, { backgroundColor: `${theme.backgroundElement}D6` }]}>
-            <ProgressRing
-              value={totals.kcal}
-              target={calorieGoal}
-              label="Kalorien"
-              displayMode="remaining"
-              size={128}
-              strokeWidth={3}
-              progressColor={theme.accent}
-              trackColor={theme.backgroundSelected}
+        {/* Makronährstoff-Balken (Protein, Kohlenhydrate, Fett) */}
+        <View className="diary-macro-list">
+          <MacroSummary
+            label="Protein"
+            value={totals.proteinG}
+            target={currentGoal?.protein_g ?? 0}
+          />
+          <MacroSummary
+            label="Kohlenhydrate"
+            value={totals.carbsG}
+            target={currentGoal?.carbs_g ?? 0}
+          />
+          <MacroSummary label="Fett" value={totals.fatG} target={currentGoal?.fat_g ?? 0} isLast />
+        </View>
+
+        {/* GLP-1 Tracking-Karte (optional) */}
+        {userProfile?.tracking_method === 'glp1' ? (
+          <Glp1Card userId={userId} childProfileId={childProfileId} />
+        ) : null}
+
+        {/* Intervallfasten-Karte (optional) */}
+        {userProfile?.tracking_method === 'fasting' ? (
+          <FastingCard userId={userId} childProfileId={childProfileId} />
+        ) : null}
+
+        {/* Mahlzeiten-Abschnitte (Frühstück, Mittagessen, Abendessen, Snacks) */}
+        {isLoading ? (
+          <ThemedText
+            type="captionCompact"
+            themeColor="textSecondary"
+            className="diary-loading-text">
+            Lade Tagebuch...
+          </ThemedText>
+        ) : (
+          MEAL_ORDER.map((meal, index) => (
+            <MealSection
+              key={meal}
+              meal={meal}
+              entries={entriesByMeal[meal]}
+              isLast={index === MEAL_ORDER.length - 1}
+              onAdd={() => openEntry(meal)}
+              onEntry={(entryId) => openEntry(meal, entryId)}
             />
-            <View style={styles.summaryStats}>
-              <SummaryRow label="Gegessen" value={formatKcal(totals.kcal)} />
-              <SummaryRow
-                label="Grundziel"
-                value={calorieGoal > 0 ? formatKcal(calorieGoal) : '–'}
-              />
-              <SummaryRow
-                label="Übrig"
-                value={calorieGoal > 0 ? formatKcal(remaining) : 'Kein Ziel'}
-                accent={remaining >= 0}
-              />
-              <ThemedText
-                themeColor={currentGoal ? 'success' : 'textSecondary'}
-                style={styles.goalStatus}>
-                {currentGoal ? 'Tagesziel ist aktiv' : 'Noch kein Tagesziel hinterlegt'}
-              </ThemedText>
-            </View>
-          </View>
-
-          <View style={styles.macroRow}>
-            <MacroSummary
-              label="Protein"
-              value={totals.proteinG}
-              target={currentGoal?.protein_g ?? 0}
-            />
-            <MacroSummary
-              label="Kohlenhydrate"
-              value={totals.carbsG}
-              target={currentGoal?.carbs_g ?? 0}
-            />
-            <MacroSummary label="Fett" value={totals.fatG} target={currentGoal?.fat_g ?? 0} />
-          </View>
-
-          <View style={[styles.mealsCard, { backgroundColor: `${theme.backgroundElement}D6` }]}>
-            {isLoading ? (
-              <ThemedText
-                type="captionCompact"
-                themeColor="textSecondary"
-                style={styles.loadingText}>
-                Lade Tagebuch...
-              </ThemedText>
-            ) : (
-              MEAL_ORDER.map((meal, index) => (
-                <MealSection
-                  key={meal}
-                  meal={meal}
-                  entries={entriesByMeal[meal]}
-                  isLast={index === MEAL_ORDER.length - 1}
-                  onAdd={() => openEntry(meal)}
-                  onEntry={(entryId) => openEntry(meal, entryId)}
-                />
-              ))
-            )}
-          </View>
-        </ScrollView>
-      </SafeAreaView>
-    </View>
+          ))
+        )}
+      </ScrollView>
+    </HubScreen>
   );
 }
-
-const styles = StyleSheet.create({
-  root: { flex: 1 },
-  safeArea: { flex: 1, width: '100%', maxWidth: 800, alignSelf: 'center' },
-  content: { paddingHorizontal: 16, paddingTop: 2, paddingBottom: 126, gap: 8 },
-  goalIcon: {
-    width: 20,
-    height: 20,
-    flexDirection: 'row',
-    alignItems: 'flex-end',
-    justifyContent: 'center',
-    gap: 2,
-  },
-  goalBar: { width: 4, borderRadius: Radius.hairline },
-  goalBarShort: { height: 7 },
-  goalBarTall: { height: 17 },
-  goalBarMid: { height: 12 },
-  dateRow: { height: 42, flexDirection: 'row', alignItems: 'center' },
-  dateArrow: { width: 40, height: 38, alignItems: 'center', justifyContent: 'center' },
-  chevron: { ...FontSize[21], lineHeight: 23, fontWeight: 500 },
-  dateCopy: { flex: 1, alignItems: 'center', justifyContent: 'center' },
-  relativeDate: { ...FontSize[14], lineHeight: 17, fontWeight: 700 },
-  fullDate: { marginTop: 1, ...FontSize[10], lineHeight: 12, fontWeight: 500 },
-  summaryCard: {
-    minHeight: 160,
-    borderRadius: Radius.large,
-    borderCurve: 'continuous',
-    padding: 16,
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 16,
-  },
-  summaryStats: { flex: 1, minWidth: 0, gap: 9 },
-  summaryRow: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'baseline',
-    gap: 8,
-  },
-  summaryLabel: { ...FontSize[10], lineHeight: 12, fontWeight: 500 },
-  summaryValue: { ...FontSize[10], lineHeight: 12, fontWeight: 700, textAlign: 'right' },
-  goalStatus: { marginTop: 2, ...FontSize[9], lineHeight: 12, fontWeight: 600 },
-  macroRow: { flexDirection: 'row', gap: 7 },
-  macroCard: {
-    flex: 1,
-    minWidth: 0,
-    height: 58,
-    borderRadius: Radius.card,
-    borderCurve: 'continuous',
-    paddingHorizontal: 10,
-    paddingVertical: 9,
-    justifyContent: 'space-between',
-  },
-  macroLabels: { gap: 1 },
-  macroLabel: { ...FontSize[10], lineHeight: 12, fontWeight: 700 },
-  macroValue: { ...FontSize[8], lineHeight: 10, fontWeight: 500 },
-  mealsCard: { borderRadius: Radius.sheet, borderCurve: 'continuous', overflow: 'hidden' },
-  mealSection: { borderBottomWidth: StyleSheet.hairlineWidth },
-  mealHeader: {
-    minHeight: 48,
-    paddingHorizontal: 16,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    gap: 12,
-  },
-  mealHeading: { flex: 1, minWidth: 0 },
-  mealTitle: { ...FontSize[12], lineHeight: 15, fontWeight: 700 },
-  mealKcal: { marginTop: 1, ...FontSize[9], lineHeight: 11, fontWeight: 500 },
-  addButton: {
-    width: 32,
-    height: 32,
-    borderRadius: Radius.control,
-    borderCurve: 'continuous',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  entryRow: {
-    minHeight: 42,
-    marginHorizontal: 8,
-    marginBottom: 6,
-    borderRadius: Radius.control,
-    borderCurve: 'continuous',
-    paddingHorizontal: 10,
-    paddingVertical: 6,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    gap: 10,
-  },
-  entryInfo: { flex: 1, minWidth: 0 },
-  entryName: { ...FontSize[10], lineHeight: 12, fontWeight: 700 },
-  entryQuantity: { marginTop: 1, ...FontSize[9], lineHeight: 11, fontWeight: 500 },
-  entryKcal: { ...FontSize[9], lineHeight: 11, fontWeight: 600 },
-  loadingText: {
-    paddingHorizontal: 16,
-    paddingVertical: 24,
-    ...FontSize[11],
-    lineHeight: 14,
-  },
-  pressed: { opacity: 0.72 },
-});

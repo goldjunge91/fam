@@ -1,28 +1,36 @@
+import { Image } from 'expo-image';
 import { router } from 'expo-router';
-import { useState } from 'react';
 import { Modal, Pressable, StyleSheet, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { FamIcon, type FamIconName } from '@/components/fam-icon';
-import { FontSize, ThemedText } from '@/components/themed-text';
-import { Radius, withAlpha } from '@/constants/theme';
+
+import { FamIcon, type FamIconName } from '@/components/icons/fam-icon';
+import { FontSize, ThemedText } from '@/components/theme/themed-text';
+import { Radius } from '@/constants/layout';
+import { withAlpha } from '@/constants/theme';
 import { useProfile } from '@/features/auth/api';
 import { useSession } from '@/features/auth/session-provider';
-import { useActiveHousehold } from '@/features/household/active-household-provider';
-import { HouseholdSwitcherModal } from '@/features/household/household-switcher-modal';
 import { usePremium } from '@/features/premium/premium-provider';
+import { useDeferredMount } from '@/hooks/use-deferred-mount';
 import { useTheme } from '@/hooks/use-theme';
 import { getInitials } from '@/lib/initials';
 import { useNavigationChrome } from './navigation-chrome-provider';
 
 export function ProfileSheet() {
+  const { isProfileOpen } = useNavigationChrome();
+  const mounted = useDeferredMount(isProfileOpen);
+
+  if (!mounted) return null;
+
+  return <ProfileSheetContent />;
+}
+
+function ProfileSheetContent() {
   const theme = useTheme();
   const insets = useSafeAreaInsets();
   const { isProfileOpen, closeProfile } = useNavigationChrome();
   const { session } = useSession();
   const { data: profile } = useProfile(session?.user.id);
-  const { activeHousehold, households } = useActiveHousehold();
   const { isPremium } = usePremium();
-  const [switcherVisible, setSwitcherVisible] = useState(false);
 
   const displayName = profile?.display_name || 'Ohne Namen';
   const email = session?.user.email ?? '';
@@ -33,102 +41,83 @@ export function ProfileSheet() {
   }
 
   return (
-    <>
-      <Modal
-        visible={isProfileOpen}
-        transparent
-        animationType="slide"
-        onRequestClose={closeProfile}>
-        <View style={StyleSheet.absoluteFill}>
+    <Modal visible={isProfileOpen} transparent animationType="slide" onRequestClose={closeProfile}>
+      <View style={StyleSheet.absoluteFill}>
+        <Pressable
+          style={styles.dim}
+          onPress={closeProfile}
+          accessibilityRole="button"
+          accessibilityLabel="Profil schließen"
+        />
+        <View
+          style={[
+            styles.sheet,
+            {
+              backgroundColor: theme.backgroundElement,
+              bottom: Math.max(insets.bottom / 2, 16),
+              boxShadow: `0 -8px 28px ${withAlpha(theme.shadowSheet, 0.18)}`,
+            },
+          ]}>
           <Pressable
-            style={styles.dim}
             onPress={closeProfile}
             accessibilityRole="button"
             accessibilityLabel="Profil schließen"
-          />
-          <View
-            style={[
-              styles.sheet,
-              {
-                bottom: Math.max(insets.bottom / 2, 16),
-                boxShadow: `0 -8px 28px ${withAlpha(theme.shadowSheet, 0.18)}`,
-              },
-            ]}>
-            <Pressable
-              onPress={closeProfile}
-              accessibilityRole="button"
-              accessibilityLabel="Profil schließen"
-              hitSlop={12}
-              style={styles.handleArea}>
-              <View style={[styles.handle, { backgroundColor: theme.border }]} />
-            </Pressable>
+            hitSlop={12}
+            style={styles.handleArea}>
+            <View style={[styles.handle, { backgroundColor: theme.border }]} />
+          </Pressable>
 
-            <View style={[styles.profileCard, { borderBottomColor: theme.border }]}>
-              <View style={[styles.avatar, { backgroundColor: theme.accent }]}>
+          <View style={[styles.profileCard, { borderBottomColor: theme.border }]}>
+            <View style={[styles.avatar, { backgroundColor: theme.accent }]}>
+              {profile?.avatar_url ? (
+                <Image
+                  source={{ uri: profile.avatar_url }}
+                  style={styles.avatarImage}
+                  contentFit="cover"
+                />
+              ) : (
                 <ThemedText type="bodySmall" style={[styles.avatarText, { color: '#fff' }]}>
                   {getInitials(displayName)}
                 </ThemedText>
-              </View>
-              <View style={styles.identity}>
-                <ThemedText type="smallBold" style={styles.profileName}>
-                  {displayName}
-                </ThemedText>
-                {email ? (
-                  <ThemedText type="small" themeColor="textSecondary" style={styles.profileEmail}>
-                    {email}
-                  </ThemedText>
-                ) : null}
-              </View>
+              )}
             </View>
-
-            <ProfileRow
-              icon="profile"
-              title="Mein Profil"
-              subtitle="Persönliche Daten und Ziele"
-              onPress={() => go('/settings/profile')}
-              borderColor={theme.border}
-            />
-            <ProfileRow
-              icon="household"
-              title={activeHousehold?.name ?? 'Haushalt'}
-              subtitle={households.length > 1 ? 'Aktiver Haushalt · wechseln' : 'Aktiver Haushalt'}
-              onPress={() => {
-                if (households.length > 1) {
-                  setSwitcherVisible(true);
-                } else {
-                  closeProfile();
-                }
-              }}
-              borderColor={theme.border}
-            />
-            <ProfileRow
-              icon="members"
-              title="Haushalt verwalten"
-              subtitle="Mitglieder, Kinder und Einladungen"
-              onPress={() => go('/household/members')}
-              borderColor={theme.border}
-            />
-            <ProfileRow
-              icon="premium"
-              title="Premium"
-              subtitle={isPremium ? 'Aktiv für den Haushalt' : 'Jetzt freischalten'}
-              onPress={() => go('/settings')}
-              borderColor="transparent"
-              isLast
-            />
+            <View style={styles.identity}>
+              <ThemedText type="smallBold" style={styles.profileName}>
+                {displayName}
+              </ThemedText>
+              {email ? (
+                <ThemedText type="small" themeColor="textSecondary" style={styles.profileEmail}>
+                  {email}
+                </ThemedText>
+              ) : null}
+            </View>
           </View>
-        </View>
-      </Modal>
 
-      <HouseholdSwitcherModal
-        visible={switcherVisible}
-        onClose={() => setSwitcherVisible(false)}
-        onSelectHousehold={() => {
-          setSwitcherVisible(false);
-          closeProfile();
-        }}
-      />
-    </>
+          <ProfileRow
+            icon="profile"
+            title="Mein Profil"
+            subtitle="Persönliche Daten und Einstellungen"
+            onPress={() => go('/profile')}
+            borderColor={theme.border}
+          />
+          <ProfileRow
+            icon="household"
+            title="Familie"
+            subtitle="Haushalt verwalten"
+            onPress={() => go('/household/members')}
+            borderColor={theme.border}
+          />
+          <ProfileRow
+            icon="premium"
+            title="Premium"
+            subtitle={isPremium ? 'Aktiv für den Haushalt' : 'Jetzt freischalten'}
+            onPress={() => go('/settings/premium')}
+            borderColor="transparent"
+            isLast
+          />
+        </View>
+      </View>
+    </Modal>
   );
 }
 
@@ -180,12 +169,10 @@ const styles = StyleSheet.create({
     position: 'absolute',
     left: 16,
     right: 16,
-    height: 390,
-    borderRadius: Radius.large,
+    borderRadius: Radius.sheet,
     paddingHorizontal: 20,
     paddingTop: 12,
     paddingBottom: 20,
-    backgroundColor: 'rgba(255,255,255,0.94)',
     borderCurve: 'continuous',
   },
   handleArea: {
@@ -210,9 +197,14 @@ const styles = StyleSheet.create({
   avatar: {
     width: 58,
     height: 58,
-    borderRadius: Radius.large,
+    borderRadius: Radius.sheet,
     alignItems: 'center',
     justifyContent: 'center',
+    overflow: 'hidden',
+  },
+  avatarImage: {
+    width: '100%',
+    height: '100%',
   },
   avatarText: {
     ...FontSize[14],

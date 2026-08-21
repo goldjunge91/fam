@@ -5,6 +5,7 @@ describe('calculateMacroTargets', () => {
     ['balanced', 2000, { proteinG: 150, carbsG: 200, fatG: 67 }],
     ['high_protein', 2000, { proteinG: 200, carbsG: 150, fatG: 67 }],
     ['low_carb', 2000, { proteinG: 200, carbsG: 100, fatG: 89 }],
+    ['keto', 2000, { proteinG: 125, carbsG: 25, fatG: 156 }],
   ] satisfies [MacroPreset, number, { proteinG: number; carbsG: number; fatG: number }][])(
     'teilt %s bei %i kcal in %o auf',
     (preset, targetKcal, erwartet) => {

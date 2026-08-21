@@ -1,10 +1,9 @@
 import { useState } from 'react';
-import { Alert, StyleSheet, View } from 'react-native';
-import { Card } from '@/components/card';
-import { Screen } from '@/components/screen';
-import { ThemedText } from '@/components/themed-text';
+import { Alert, View } from 'react-native';
+import { Screen } from '@/components/layout/screen';
+import { ThemedText } from '@/components/theme/themed-text';
 import { Button } from '@/components/ui/buttons';
-import { Spacing } from '@/constants/theme';
+import { Card } from '@/components/ui/card';
 import { useSession } from '@/features/auth/session-provider';
 import { buildUserDataExport } from '@/features/settings/data-export';
 
@@ -52,6 +51,7 @@ export function ExportScreen() {
 
   return (
     <Screen title="Export" back={{ label: 'Einstellungen', href: '/settings' }} backStyle="icon">
+      {/* Hinweiskarte zum DSGVO-Datenexportumfang */}
       <Card>
         <ThemedText type="small" themeColor="textSecondary">
           Exportiert dein Profil, deine Ziele, das Ernährungstagebuch, deinen Gewichtsverlauf und
@@ -59,15 +59,10 @@ export function ExportScreen() {
           Die Datei ist auch ohne die App lesbar.
         </ThemedText>
       </Card>
-      <View style={styles.action}>
+      {/* Export-Aktionsbutton */}
+      <View className="mt-four">
         <Button label="Daten exportieren" onPress={handleExport} loading={exporting} />
       </View>
     </Screen>
   );
 }
-
-const styles = StyleSheet.create({
-  action: {
-    marginTop: Spacing.four,
-  },
-});

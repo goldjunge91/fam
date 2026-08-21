@@ -5,25 +5,21 @@ import { forwardRef, useEffect, useImperativeHandle, useRef, useState } from 're
 import {
   ActivityIndicator,
   Image,
+  Keyboard,
   Pressable,
   ScrollView,
   type StyleProp,
-  StyleSheet,
   type TextStyle,
+  useWindowDimensions,
   View,
 } from 'react-native';
 
-import { TextField } from '@/components/text-field';
-import { ThemedText } from '@/components/themed-text';
-import { Radius, Spacing } from '@/constants/theme';
+import { TextField } from '@/components/forms/text-field';
+import { ThemedText } from '@/components/theme/themed-text';
 import { useTheme } from '@/hooks/use-theme';
 import { getDatabase } from '@/lib/db/client';
-import { isOffDumpAttached } from '@/lib/off-dump/off-dump';
-import {
-  type OpenFoodFactsProduct,
-  parseQuantityAndUnit,
-  searchOpenFoodFacts,
-} from '@/lib/open-food-facts';
+import { dedupeProductsByBarcode, searchOffDump } from '@/lib/off-dump/off-dump';
+import { type OpenFoodFactsProduct, searchOpenFoodFacts } from '@/lib/open-food-facts';
 
 /** Unter dieser Zahl lokaler Treffer lohnt sich der zusaetzliche OFF-Request noch. */
 const LOCAL_RESULT_THRESHOLD = 5;
@@ -33,6 +29,21 @@ const OFF_PAGE_SIZE = 100;
 
 /** Wie nah am unteren Rand (px) das Nachladen beim Scrollen ausloest. */
 const LOAD_MORE_THRESHOLD_PX = 70;
+
+/**
+ * Abstand zum unteren Bildschirm-/Tastaturrand, den das Dropdown frei laesst.
+ * War vorher 12px — bei laengeren, nachladenden Ergebnislisten (z.B. "Milch")
+ * wird das echte Listenende praktisch nie erreicht, das Panel wird also fast
+ * immer exakt hier abgeschnitten. 12px wirkte dadurch wie "bis zum Rand"
+ * (#UI-Feedback: "immer noch bis zum Rand unten, das ist zu tief").
+ */
+const PANEL_BOTTOM_MARGIN = 24;
+
+/** Nie kleiner als das, selbst wenn oberhalb kaum Platz gemessen wird. */
+const PANEL_MIN_HEIGHT = 140;
+
+/** Bis die erste Messung vorliegt (Layout noch nicht bekannt), z.B. beim allerersten Render. */
+const PANEL_FALLBACK_HEIGHT = 220;
 
 type LocalProductRow = {
   barcode: string | null;
@@ -76,88 +87,6 @@ async function searchOwnProducts(query: string): Promise<OpenFoodFactsProduct[]>
   return rows.map(toOpenFoodFactsProduct);
 }
 
-type OffDumpProductRow = {
-  code: string | null;
-  product_name: string;
-  brand: string | null;
-  quantity: string | null;
-  nutriscore: string | null;
-  energy_kcal: number | null;
-  fat: number | null;
-  saturated_fat: number | null;
-  carbohydrates: number | null;
-  sugars: number | null;
-  proteins: number | null;
-  salt: number | null;
-};
-
-function toOpenFoodFactsProductFromDump(row: OffDumpProductRow): OpenFoodFactsProduct {
-  const { quantity, unit } = parseQuantityAndUnit(row.quantity ?? undefined);
-  return {
-    barcode: row.code ?? '',
-    name: row.product_name,
-    brand: row.brand ?? undefined,
-    quantity,
-    unit,
-    caloriesPer100g: row.energy_kcal ?? undefined,
-    proteinsPer100g: row.proteins ?? undefined,
-    carbsPer100g: row.carbohydrates ?? undefined,
-    fatPer100g: row.fat ?? undefined,
-    sugarsPer100g: row.sugars ?? undefined,
-    saturatedFatPer100g: row.saturated_fat ?? undefined,
-    saltPer100g: row.salt ?? undefined,
-    nutriScore: (row.nutriscore || undefined) as OpenFoodFactsProduct['nutriScore'],
-  };
-}
-
-type OffDumpSearchResult = { products: OpenFoodFactsProduct[]; hasMore: boolean };
-
-/**
- * Suche gegen den angehaengten OpenFoodFacts-Dump (#79 + Dump-CI-Workflow,
- * `off-dump.ts`). Laeuft still ins Leere, solange der Dump noch nicht
- * heruntergeladen/angehaengt ist (`no such table: off_dump.products`) — das
- * ist beim App-Start fuer einen Moment der Normalfall, kein Fehler, den die
- * Suche dem Nutzer zeigen muesste.
- *
- * Anders als der gepflegte `products`-Spiegel ist der Dump ein Abzug der
- * kompletten OFF-Datenbank — ein Begriff wie "Milch" hat hier genauso
- * hunderte Treffer wie bei der Netz-Suche, deshalb paginiert (`offset`)
- * statt eines harten Limits.
- */
-async function searchOffDump(query: string, offset = 0): Promise<OffDumpSearchResult> {
-  if (!isOffDumpAttached()) return { products: [], hasMore: false };
-
-  try {
-    const db = await getDatabase();
-    const rows = await db.getAllAsync<OffDumpProductRow>(
-      `select code, product_name, brand, quantity, nutriscore, energy_kcal, fat, saturated_fat, carbohydrates, sugars, proteins, salt
-       from off_dump.products
-       where lower(product_name) like ?
-       order by product_name
-       limit ? offset ?`,
-      [`%${query.trim().toLowerCase()}%`, OFF_PAGE_SIZE, offset],
-    );
-    return {
-      products: rows.map(toOpenFoodFactsProductFromDump),
-      hasMore: rows.length === OFF_PAGE_SIZE,
-    };
-  } catch {
-    return { products: [], hasMore: false };
-  }
-}
-
-/** Barcode-Dedupe ueber mehrere Quellen — Produkte ohne Barcode gelten als eindeutig. */
-function dedupeByBarcode(products: OpenFoodFactsProduct[]): OpenFoodFactsProduct[] {
-  const seen = new Set<string>();
-  const result: OpenFoodFactsProduct[] = [];
-  for (const product of products) {
-    if (product.barcode && seen.has(product.barcode)) continue;
-    if (product.barcode) seen.add(product.barcode);
-    result.push(product);
-  }
-  return result;
-}
-
 /**
  * Lokale Suche insgesamt: erst der eigene, gepflegte `products`-Spiegel,
  * dann — falls das noch nicht reicht — die erste Seite des grossen
@@ -173,8 +102,13 @@ async function searchLocalProducts(
     return { results: ownResults, dumpHasMore: false };
   }
 
-  const { products: dumpResults, hasMore } = await searchOffDump(query);
-  return { results: dedupeByBarcode([...ownResults, ...dumpResults]), dumpHasMore: hasMore };
+  const { products: dumpResults, hasMore } = await searchOffDump(query, {
+    limit: OFF_PAGE_SIZE,
+  });
+  return {
+    results: dedupeProductsByBarcode([...ownResults, ...dumpResults]),
+    dumpHasMore: hasMore,
+  };
 }
 
 interface ProductSearchDropdownProps {
@@ -190,6 +124,16 @@ interface ProductSearchDropdownProps {
 
 export type ProductSearchDropdownHandle = {
   dismiss: () => void;
+  /**
+   * Markiert einen bevorstehenden `value`-Wechsel als bereits erledigte
+   * Auswahl (#UI-Feedback: "Auswaehlen eines History-Artikels soll die
+   * Suchliste nicht ausloesen") — fuer Aufrufer, die den Namen von AUSSEN
+   * setzen (z.B. ein Häufig/Zuletzt-Vorschlag), statt eine Zeile in dieser
+   * Komponente selbst anzutippen. Ohne das haelt der Such-Effekt unten den
+   * Wertwechsel fuer neue Eingabe und oeffnet die Liste erneut. Vor dem
+   * eigentlichen `setName(...)` des Aufrufers aufrufen.
+   */
+  markSelected: (name: string) => void;
 };
 
 export const ProductSearchDropdown = forwardRef<
@@ -224,7 +168,20 @@ export const ProductSearchDropdown = forwardRef<
   const [dumpOffset, setDumpOffset] = useState(0);
   const [dumpHasMore, setDumpHasMore] = useState(false);
   const [loadingMoreOff, setLoadingMoreOff] = useState(false);
-  const blurTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  // Dynamische Panel-Hoehe (#Performance-Feedback: "Dropdown soll bis zum
+  // Bildschirmrand gehen, nicht bei 3 Treffern abschneiden"), siehe
+  // `updatePanelMaxHeight` weiter unten.
+  const [panelMaxHeight, setPanelMaxHeight] = useState<number | null>(null);
+  const wrapperRef = useRef<View>(null);
+  const { height: windowHeight } = useWindowDimensions();
+  // Y-Koordinate (im selben Fenster-Koordinatensystem wie `measureInWindow`),
+  // an der die Tastatur beginnt — `null` heisst keine Tastatur eingeblendet.
+  // Bewusst `screenY` statt `endCoordinates.height`: Bei mancher iOS-Version
+  // zaehlt die QuickType-/Vorschlagsleiste ueber der eigentlichen Tastatur
+  // nicht in `.height` mit, `screenY` markiert dagegen zuverlaessig die
+  // oberste sichtbare Kante (#UI-Feedback: "ein Artikel halb von der Tastatur
+  // verdeckt" — trat trotz erhoehtem PANEL_BOTTOM_MARGIN weiter auf).
+  const [keyboardTopY, setKeyboardTopY] = useState<number | null>(null);
   // `value` beim Ausloesen der aktuellen Suche — schuetzt vor veralteten
   // Nachlade-Antworten, wenn der Nutzer inzwischen weitergetippt hat.
   const queryRef = useRef(value);
@@ -233,36 +190,58 @@ export const ProductSearchDropdown = forwardRef<
   // gewaehlten Produktnamen setzt (siehe recipe-create-screen.tsx). Ohne diese
   // Markierung faengt der Such-Effekt unten diese Aenderung ab und oeffnet das
   // Dropdown eine Suche spaeter erneut — Auswahl wirkte dann wie 2x noetig.
-  const justSelectedValueRef = useRef<string | null>(null);
-  // Beim Bearbeiten eines bestehenden Rezepts kommt `value` bereits mit dem
-  // gespeicherten Produktnamen gemountet (Hydration in recipe-create-screen.tsx).
-  // Ohne diese Markierung wuerde der Such-Effekt unten das auch als
-  // "getippt" werten und fuer jede Zutat gleichzeitig ihr Dropdown aufklappen.
-  const hasMountedRef = useRef(false);
+  // Initialisiert mit `value` (statt `null`), damit ein bereits befuellter
+  // Anfangswert beim (Re-)Mount nicht als neue Eingabe zaehlt — sonst oeffnet
+  // sich beim Zurueckblaettern im Rezept-Wizard (Schritt wechseln und zurueck
+  // entfernt/erzeugt diesen Baum neu) die Trefferliste erneut fuer jede bereits
+  // ausgewaehlte Zutat (#UI-Feedback: "oeffnet sich fuer alle Zutaten das
+  // Modal der Suche").
+  const justSelectedValueRef = useRef<string | null>(value);
 
-  function cancelScheduledDismiss() {
-    if (blurTimerRef.current === null) return;
-    clearTimeout(blurTimerRef.current);
-    blurTimerRef.current = null;
-  }
-
+  /**
+   * Schliesst nur die Trefferliste, nicht die Tastatur — Gegenstueck ist
+   * `Keyboard.dismiss()`, das gezielt nur die Tastatur schliesst. Die beiden
+   * sind bewusst entkoppelt (#UI-Feedback): "Fertig" auf der Tastatur oder ein
+   * Tap daneben/darueber soll nur die Tastatur wegnehmen, die Liste bleibt
+   * sichtbar, bis tatsaechlich ein Artikel ausgewaehlt wird.
+   */
   function dismiss() {
-    cancelScheduledDismiss();
     setShowDropdown(false);
   }
 
-  useImperativeHandle(ref, () => ({ dismiss }));
+  useImperativeHandle(ref, () => ({
+    dismiss,
+    markSelected: (name: string) => {
+      justSelectedValueRef.current = name;
+    },
+  }));
 
-  useEffect(() => () => {
-    cancelScheduledDismiss();
-  });
+  // Tastaturposition mitverfolgen, damit das Dropdown nicht dahinter
+  // verschwindet oder von ihr verdeckt wird.
+  useEffect(() => {
+    const showSub = Keyboard.addListener('keyboardDidShow', (event) => {
+      setKeyboardTopY(event.endCoordinates.screenY);
+    });
+    const hideSub = Keyboard.addListener('keyboardDidHide', () => setKeyboardTopY(null));
+    return () => {
+      showSub.remove();
+      hideSub.remove();
+    };
+  }, []);
+
+  // Misst, wie viel Platz zwischen Suchfeld und unterem Rand (Tastatur oder
+  // Bildschirmende) tatsaechlich frei ist, statt das Dropdown pauschal bei
+  // 220px zu kappen. Laeuft beim Oeffnen sowie bei Rotation/Tastaturwechsel.
+  useEffect(() => {
+    if (!showDropdown) return;
+    wrapperRef.current?.measureInWindow((_x, y, _width, height) => {
+      const bottomLimit = keyboardTopY ?? windowHeight;
+      const available = bottomLimit - (y + height) - PANEL_BOTTOM_MARGIN;
+      setPanelMaxHeight(Math.max(available, PANEL_MIN_HEIGHT));
+    });
+  }, [showDropdown, windowHeight, keyboardTopY]);
 
   useEffect(() => {
-    if (!hasMountedRef.current) {
-      hasMountedRef.current = true;
-      return;
-    }
-
     if (justSelectedValueRef.current !== null) {
       const wasSelection = justSelectedValueRef.current === value;
       justSelectedValueRef.current = null;
@@ -327,9 +306,12 @@ export const ProductSearchDropdown = forwardRef<
     if (dumpHasMore) {
       const nextOffset = dumpOffset + OFF_PAGE_SIZE;
       setLoadingMoreOff(true);
-      const { products: dumpResults, hasMore } = await searchOffDump(currentQuery, nextOffset);
+      const { products: dumpResults, hasMore } = await searchOffDump(currentQuery, {
+        offset: nextOffset,
+        limit: OFF_PAGE_SIZE,
+      });
       if (queryRef.current === currentQuery) {
-        setSuggestions((prev) => dedupeByBarcode([...prev, ...dumpResults]));
+        setSuggestions((prev) => dedupeProductsByBarcode([...prev, ...dumpResults]));
         setDumpHasMore(hasMore);
         setDumpOffset(nextOffset);
       }
@@ -347,7 +329,7 @@ export const ProductSearchDropdown = forwardRef<
     });
 
     if (queryRef.current === currentQuery) {
-      setSuggestions((prev) => dedupeByBarcode([...prev, ...offResults]));
+      setSuggestions((prev) => dedupeProductsByBarcode([...prev, ...offResults]));
       setOffHasMore(hasMore);
       setOffPage(nextPage);
     }
@@ -357,7 +339,10 @@ export const ProductSearchDropdown = forwardRef<
   const showEmptyState = searched && !searching && suggestions.length === 0;
 
   return (
-    <View style={styles.container} onTouchStart={(event) => event.stopPropagation()}>
+    <View
+      ref={wrapperRef}
+      className="relative z-10"
+      onTouchStart={(event) => event.stopPropagation()}>
       <TextField
         label={label}
         placeholder={placeholder}
@@ -365,11 +350,11 @@ export const ProductSearchDropdown = forwardRef<
         style={inputStyle}
         trailing={trailing}
         size={size}
-        onFocus={cancelScheduledDismiss}
-        onBlur={() => {
-          cancelScheduledDismiss();
-          blurTimerRef.current = setTimeout(() => setShowDropdown(false), 120);
-        }}
+        // Return-Taste schliesst nur die Tastatur, die Trefferliste bleibt
+        // offen (#UI-Feedback: Liste soll erst bei tatsaechlicher Auswahl
+        // zugehen, nicht schon beim blossen Wegnehmen der Tastatur).
+        returnKeyType="search"
+        onSubmitEditing={() => Keyboard.dismiss()}
         onChangeText={(text) => {
           onChangeText(text);
           setShowDropdown(true);
@@ -377,157 +362,133 @@ export const ProductSearchDropdown = forwardRef<
       />
 
       {searching && (
-        <View style={styles.loader}>
+        <View className="psd-spinner">
           <ActivityIndicator size="small" color={theme.accent} />
         </View>
       )}
 
       {showDropdown && (suggestions.length > 0 || showEmptyState) && (
-        <ScrollView
-          style={[
-            styles.dropdown,
-            {
-              backgroundColor: theme.background,
-              borderColor: theme.border,
-              shadowColor: theme.shadowSheet,
-            },
-          ]}
-          keyboardShouldPersistTaps="handled"
-          showsVerticalScrollIndicator
-          onScroll={({ nativeEvent }) => {
-            const { contentOffset, contentSize, layoutMeasurement } = nativeEvent;
-            const distanceToBottom =
-              contentSize.height - contentOffset.y - layoutMeasurement.height;
-            if (distanceToBottom < LOAD_MORE_THRESHOLD_PX) loadMoreOffResults();
-          }}
-          scrollEventThrottle={100}>
-          {showEmptyState ? (
-            <Pressable
-              onPress={() => {
-                setShowDropdown(false);
-                router.push({
-                  pathname: '/add-product',
-                  params: { prefillName: value.trim() },
-                });
-              }}
-              style={[styles.itemRow, { borderBottomColor: theme.border }]}>
-              <View style={styles.itemText}>
-                <ThemedText
-                  type={size === 'large' ? 'body' : 'smallBold'}
-                  style={size === 'large' && styles.largeSuggestionTitle}>
-                  + &quot;{value.trim()}&quot; manuell anlegen
-                </ThemedText>
-                <ThemedText
-                  type={size === 'large' ? 'body' : 'small'}
-                  themeColor="textSecondary"
-                  style={size === 'large' && styles.largeSuggestionMeta}>
-                  Kein Treffer bei Open Food Facts gefunden
-                </ThemedText>
-              </View>
-            </Pressable>
-          ) : null}
-          {suggestions.map((item) => (
-            <Pressable
-              key={item.barcode || item.name}
-              onPress={() => {
-                justSelectedValueRef.current = item.name;
-                onSelectProduct(item);
-                setShowDropdown(false);
-              }}
-              style={[styles.itemRow, { borderBottomColor: theme.border }]}>
-              {item.imageUrl ? (
-                <Image source={{ uri: item.imageUrl }} style={styles.img} />
-              ) : (
-                <View style={[styles.imgPlaceholder, { backgroundColor: theme.backgroundElement }]}>
-                  <ThemedText type={size === 'large' ? 'body' : 'bodySmall'}>🥫</ThemedText>
+        <View className="relative">
+          {/* Schliesst nur die Trefferliste (kein Auswahl-Ersatz) — der einzige
+              explizite Weg, die Liste ohne Artikel-Auswahl zuzumachen
+              (#UI-Feedback: "Suchliste lässt sich nicht schliessen", seit
+              Tastatur/Liste bewusst entkoppelt sind). */}
+          <Pressable
+            onPress={dismiss}
+            accessibilityRole="button"
+            accessibilityLabel="Trefferliste schließen"
+            className="psd-panel-close">
+            <ThemedText themeColor="textSecondary" className="text-[13px] font-bold">
+              ✕
+            </ThemedText>
+          </Pressable>
+          <ScrollView
+            className="psd-panel"
+            // elevation ist ein Android-only-Wert ohne Tailwind-Aequivalent
+            // (boxShadow deckt nur den iOS/Web-Schatten ab). maxHeight kommt aus
+            // der Live-Messung oben statt einer festen Klasse — die Liste soll
+            // bis zum unteren Rand reichen, nicht pauschal bei 220px kappen.
+            style={{ elevation: 4, maxHeight: panelMaxHeight ?? PANEL_FALLBACK_HEIGHT }}
+            // Ohne das stoesst die letzte Zeile direkt an den unteren, abgerundeten
+            // Panel-Rand — sieht abgeschnitten aus (#UI-Feedback: "Liste ist zu tief").
+            contentContainerClassName="pb-two"
+            // `flexGrow: 1` sorgt dafuer, dass bei wenigen Treffern echte
+            // Leerflaeche im Content-Container entsteht (statt shrink-wrap auf
+            // die paar Zeilen) — die faengt der Pressable am Ende des Contents
+            // unten ab, damit Tippen dort die Tastatur schliesst (#UI-Feedback:
+            // "Leerflaeche neben dem Suchfeld schliesst Tastatur nicht"; das
+            // randfuellende Panel bedeckt bei offener Suche fast den ganzen
+            // Bildschirm, ein Formular-weiter Blank-Tap-Handler erreicht es nicht).
+            contentContainerStyle={{ flexGrow: 1 }}
+            keyboardShouldPersistTaps="handled"
+            showsVerticalScrollIndicator
+            onScroll={({ nativeEvent }) => {
+              const { contentOffset, contentSize, layoutMeasurement } = nativeEvent;
+              const distanceToBottom =
+                contentSize.height - contentOffset.y - layoutMeasurement.height;
+              if (distanceToBottom < LOAD_MORE_THRESHOLD_PX) loadMoreOffResults();
+            }}
+            scrollEventThrottle={100}>
+            {showEmptyState ? (
+              <Pressable
+                onPress={() => {
+                  setShowDropdown(false);
+                  Keyboard.dismiss();
+                  router.push({
+                    pathname: '/add-product',
+                    params: { prefillName: value.trim() },
+                  });
+                }}
+                className="psd-row">
+                <View className="flex-1">
+                  <ThemedText
+                    type={size === 'large' ? 'body' : 'smallBold'}
+                    className={size === 'large' ? 'font-bold' : undefined}>
+                    + &quot;{value.trim()}&quot; manuell anlegen
+                  </ThemedText>
+                  <ThemedText
+                    type={size === 'large' ? 'body' : 'small'}
+                    themeColor="textSecondary"
+                    className={size === 'large' ? 'font-medium' : undefined}>
+                    Kein Treffer bei Open Food Facts gefunden
+                  </ThemedText>
                 </View>
-              )}
+              </Pressable>
+            ) : null}
+            {suggestions.map((item) => (
+              <Pressable
+                key={item.barcode || item.name}
+                onPress={() => {
+                  justSelectedValueRef.current = item.name;
+                  onSelectProduct(item);
+                  setShowDropdown(false);
+                  // Auswahl beendet die Sucheingabe — Tastatur soll mitgehen
+                  // (#UI-Feedback: "Artikel auswählen schließt die Tastatur
+                  // nicht"), sonst bleibt sie ohne erkennbaren Grund offen.
+                  Keyboard.dismiss();
+                }}
+                className="psd-row">
+                {item.imageUrl ? (
+                  <Image source={{ uri: item.imageUrl }} className="psd-thumb" />
+                ) : (
+                  <View className="psd-thumb-fallback">
+                    <ThemedText type={size === 'large' ? 'body' : 'bodySmall'}>🥫</ThemedText>
+                  </View>
+                )}
 
-              <View style={styles.itemText}>
-                <ThemedText
-                  type={size === 'large' ? 'body' : 'smallBold'}
-                  numberOfLines={1}
-                  style={size === 'large' && styles.largeSuggestionTitle}>
-                  {item.name}
-                </ThemedText>
-                <ThemedText
-                  type={size === 'large' ? 'body' : 'small'}
-                  themeColor="textSecondary"
-                  numberOfLines={1}
-                  style={size === 'large' && styles.largeSuggestionMeta}>
-                  {item.brand ? `${item.brand} · ` : ''}
-                  {item.quantity} {item.unit}
-                  {item.caloriesPer100g ? ` · ${item.caloriesPer100g} kcal/100g` : ''}
-                </ThemedText>
+                <View className="flex-1">
+                  <ThemedText
+                    type={size === 'large' ? 'body' : 'smallBold'}
+                    numberOfLines={1}
+                    className={size === 'large' ? 'font-bold' : undefined}>
+                    {item.name}
+                  </ThemedText>
+                  <ThemedText
+                    type={size === 'large' ? 'body' : 'small'}
+                    themeColor="textSecondary"
+                    numberOfLines={1}
+                    className={size === 'large' ? 'font-medium' : undefined}>
+                    {item.brand ? `${item.brand} · ` : ''}
+                    {item.quantity} {item.unit}
+                    {item.caloriesPer100g ? ` · ${item.caloriesPer100g} kcal/100g` : ''}
+                  </ThemedText>
+                </View>
+              </Pressable>
+            ))}
+            {loadingMoreOff && (
+              <View className="py-two items-center">
+                <ActivityIndicator size="small" color={theme.accent} />
               </View>
-            </Pressable>
-          ))}
-          {loadingMoreOff && (
-            <View style={styles.loadingMore}>
-              <ActivityIndicator size="small" color={theme.accent} />
-            </View>
-          )}
-        </ScrollView>
+            )}
+            {/* Faengt Taps auf die restliche Leerflaeche unterhalb der Treffer
+              ab (siehe `flexGrow: 1` oben) — ohne das ist bei offener, fast
+              bildschirmfuellender Suche kein Blank-Tap-Ziel mehr erreichbar.
+              Schliesst nur die Tastatur, nicht die Liste (#UI-Feedback: Liste
+              bleibt offen, bis tatsaechlich ein Artikel ausgewaehlt wird). */}
+            <Pressable className="flex-1" accessible={false} onPress={() => Keyboard.dismiss()} />
+          </ScrollView>
+        </View>
       )}
     </View>
   );
-});
-
-const styles = StyleSheet.create({
-  container: {
-    position: 'relative',
-    zIndex: 10,
-  },
-  loader: {
-    position: 'absolute',
-    right: 12,
-    top: 36,
-  },
-  loadingMore: {
-    paddingVertical: Spacing.two,
-    alignItems: 'center',
-  },
-  dropdown: {
-    position: 'absolute',
-    top: '100%',
-    left: 0,
-    right: 0,
-    zIndex: 20,
-    borderRadius: Radius.control,
-    borderWidth: 1,
-    marginTop: 4,
-    maxHeight: 220,
-    elevation: 4,
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.15,
-    shadowRadius: 6,
-  },
-  itemRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    padding: Spacing.two,
-    borderBottomWidth: StyleSheet.hairlineWidth,
-    gap: Spacing.two,
-  },
-  img: {
-    width: 32,
-    height: 32,
-    borderRadius: Radius.sm,
-  },
-  imgPlaceholder: {
-    width: 32,
-    height: 32,
-    borderRadius: Radius.sm,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  itemText: {
-    flex: 1,
-  },
-  largeSuggestionTitle: {
-    fontWeight: 700,
-  },
-  largeSuggestionMeta: {
-    fontWeight: 500,
-  },
 });

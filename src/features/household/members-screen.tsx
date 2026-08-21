@@ -1,10 +1,9 @@
 import { router } from 'expo-router';
 import { useState } from 'react';
-import { Alert, FlatList, Image, Pressable, StyleSheet, View } from 'react-native';
-import { Screen } from '@/components/screen';
-import { FontSize, ThemedText } from '@/components/themed-text';
+import { Alert, FlatList, Image, Pressable, View } from 'react-native';
+import { Screen } from '@/components/layout/screen';
+import { ThemedText } from '@/components/theme/themed-text';
 import { Button } from '@/components/ui/buttons';
-import { Radius, Spacing } from '@/constants/theme';
 import { useSession } from '@/features/auth/session-provider';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import {
@@ -17,12 +16,10 @@ import {
 import { isHouseholdAdmin } from '@/features/household/household-helpers';
 import { HouseholdSwitcherModal } from '@/features/household/household-switcher-modal';
 import { InviteModal } from '@/features/household/invite-modal';
-import { useTheme } from '@/hooks/use-theme';
 
 export function MembersScreen() {
   const { session } = useSession();
   const currentUserId = session?.user.id;
-  const theme = useTheme();
 
   const { activeHousehold, activeHouseholdId, households } = useActiveHousehold();
   const currentHousehold = activeHousehold;
@@ -155,7 +152,8 @@ export function MembersScreen() {
       scroll={false}
       back={{ label: 'Einstellungen', href: '/settings' }}
       backStyle="icon">
-      <View style={{ marginBottom: Spacing.two }}>
+      {/* Button zum Wechseln oder Beitreten eines anderen Haushalts */}
+      <View className="mb-two">
         <Button
           label={
             households.length > 1
@@ -167,9 +165,10 @@ export function MembersScreen() {
         />
       </View>
 
+      {/* Admin-Aktionen: Einladen neuer Mitglieder & Kinder-Profile */}
       {isAdmin && currentHousehold && (
-        <View style={styles.topActionRow}>
-          <View style={{ flex: 1 }}>
+        <View className="flex-row gap-two mb-three">
+          <View className="flex-1">
             <Button label="+ Mitglied einladen" onPress={() => setShowInviteModal(true)} />
           </View>
           <Button
@@ -180,33 +179,30 @@ export function MembersScreen() {
         </View>
       )}
 
+      {/* Liste aller Haushaltsmitglieder mit Rollenanzeige & Verwaltungsoptionen */}
       <FlatList
-        style={{ flex: 1 }}
+        className="flex-1"
         data={members}
         keyExtractor={(item) => item.user_id}
-        contentContainerStyle={styles.list}
+        contentContainerClassName="py-two gap-two"
         renderItem={({ item }) => {
           const isMe = item.user_id === currentUserId;
           const displayName = item.display_name || 'Unbekanntes Mitglied';
           const initials = displayName.substring(0, 2).toUpperCase();
 
           return (
-            <View style={[styles.memberRow, { borderBottomColor: theme.border }]}>
-              <View
-                style={[
-                  styles.avatar,
-                  { backgroundColor: theme.backgroundElement },
-                  isMe && { borderColor: theme.accent, borderWidth: 2 },
-                ]}>
+            /* Mitglieder-Zeile mit Avatar, Name, Rolle und Admin-Aktionen */
+            <View className="member-row">
+              <View className={`member-avatar ${isMe ? 'member-avatar-selected' : ''}`}>
                 {item.avatar_url ? (
-                  <Image source={{ uri: item.avatar_url }} style={styles.avatarImage} />
+                  <Image source={{ uri: item.avatar_url }} className="member-avatar-image" />
                 ) : (
-                  <ThemedText style={styles.avatarText}>{initials}</ThemedText>
+                  <ThemedText className="font-bold text-[14px]">{initials}</ThemedText>
                 )}
               </View>
 
-              <View style={styles.memberInfo}>
-                <ThemedText style={{ fontWeight: isMe ? 'bold' : 'normal' }}>
+              <View className="flex-1">
+                <ThemedText className={isMe ? 'font-bold' : 'font-normal'}>
                   {displayName} {isMe ? '(Du)' : ''}
                 </ThemedText>
                 <ThemedText type="small" themeColor="textSecondary">
@@ -215,18 +211,18 @@ export function MembersScreen() {
               </View>
 
               {isAdmin && !isMe && (
-                <View style={styles.memberActions}>
+                <View className="member-actions">
                   <Pressable
                     onPress={() => handleToggleRole(item.user_id, item.role, displayName)}
-                    style={styles.roleTag}>
-                    <ThemedText type="small" style={{ color: theme.accent, ...FontSize[12] }}>
+                    className="member-role-tag">
+                    <ThemedText type="small" themeColor="accent" className="text-[12px]">
                       {item.role === 'admin' ? 'Admin ▾' : 'Mitglied ▾'}
                     </ThemedText>
                   </Pressable>
                   <Pressable
                     onPress={() => handleRemoveMember(item.user_id, displayName)}
-                    style={styles.removeTag}>
-                    <ThemedText type="small" style={{ color: theme.danger, ...FontSize[12] }}>
+                    className="member-remove-tag">
+                    <ThemedText type="small" themeColor="danger" className="text-[12px]">
                       Entfernen
                     </ThemedText>
                   </Pressable>
@@ -237,9 +233,10 @@ export function MembersScreen() {
         }}
         ListFooterComponent={
           !isLoading ? (
-            <View style={styles.actions}>
+            /* Footer-Bereich: Kinder-Profile (Nicht-Admins), Verlassen & Löschen */
+            <View className="mt-six">
               {!isAdmin && (
-                <View style={{ marginBottom: Spacing.three }}>
+                <View className="mb-three">
                   <Button
                     label="👶 Kinder-Profile verwalten"
                     variant="secondary"
@@ -249,7 +246,7 @@ export function MembersScreen() {
               )}
 
               {isAdmin ? (
-                <View style={{ gap: Spacing.two }}>
+                <View className="gap-two">
                   <Button
                     label="Haushalt verlassen"
                     variant="danger"
@@ -263,7 +260,7 @@ export function MembersScreen() {
                     <ThemedText
                       type="small"
                       themeColor="textSecondary"
-                      style={{ textAlign: 'center', ...FontSize[12] }}>
+                      className="text-center text-[12px]">
                       Ernenne zuerst einen weiteren Admin, um den Haushalt zu verlassen.
                     </ThemedText>
                   )}
@@ -289,6 +286,7 @@ export function MembersScreen() {
         }
       />
 
+      {/* Modal zur Generierung von Einladungslinks / Codes */}
       {currentHousehold && (
         <InviteModal
           visible={showInviteModal}
@@ -298,6 +296,7 @@ export function MembersScreen() {
         />
       )}
 
+      {/* Modal zum Wechseln des aktiven Haushalts */}
       <HouseholdSwitcherModal
         visible={showSwitcherModal}
         selectedHouseholdId={currentHousehold?.id}
@@ -306,63 +305,3 @@ export function MembersScreen() {
     </Screen>
   );
 }
-
-const styles = StyleSheet.create({
-  topActionRow: {
-    flexDirection: 'row',
-    gap: Spacing.two,
-    marginBottom: Spacing.three,
-  },
-  list: {
-    paddingVertical: Spacing.two,
-    gap: Spacing.two,
-  },
-  memberRow: {
-    paddingVertical: Spacing.three,
-    borderBottomWidth: StyleSheet.hairlineWidth,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    gap: Spacing.two,
-  },
-  avatar: {
-    width: 40,
-    height: 40,
-    borderRadius: Radius.sheet,
-    alignItems: 'center',
-    justifyContent: 'center',
-    overflow: 'hidden',
-  },
-  avatarImage: {
-    width: 40,
-    height: 40,
-    borderRadius: Radius.sheet,
-  },
-  avatarText: {
-    fontWeight: 'bold',
-    ...FontSize[14],
-  },
-  memberInfo: {
-    flex: 1,
-  },
-  memberActions: {
-    flexDirection: 'row',
-    gap: 8,
-    alignItems: 'center',
-  },
-  roleTag: {
-    paddingHorizontal: 8,
-    paddingVertical: 4,
-    borderRadius: Radius.sm,
-    backgroundColor: 'rgba(16,185,129,0.1)',
-  },
-  removeTag: {
-    paddingHorizontal: 8,
-    paddingVertical: 4,
-    borderRadius: Radius.sm,
-    backgroundColor: 'rgba(239,68,68,0.1)',
-  },
-  actions: {
-    marginTop: Spacing.six,
-  },
-});

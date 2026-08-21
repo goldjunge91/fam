@@ -1,12 +1,10 @@
 import { router, useLocalSearchParams } from 'expo-router';
 import { useEffect, useRef, useState } from 'react';
-import { ActivityIndicator, FlatList, Image, Pressable, StyleSheet, View } from 'react-native';
-
-import { Screen } from '@/components/screen';
-import { SegmentedControl } from '@/components/segmented-control';
-import { TextField } from '@/components/text-field';
-import { FontSize, ThemedText } from '@/components/themed-text';
-import { Radius, Spacing } from '@/constants/theme';
+import { ActivityIndicator, FlatList, Image, Pressable, View } from 'react-native';
+import { TextField } from '@/components/forms/text-field';
+import { Screen } from '@/components/layout/screen';
+import { ThemedText } from '@/components/theme/themed-text';
+import { type ItemSource, ItemSourceFilterRow } from '@/components/ui/item-source-filter';
 import { useSession } from '@/features/auth/session-provider';
 import type { MealType } from '@/features/calorie-tracking/api';
 import {
@@ -17,6 +15,11 @@ import {
 import { useLocalFoodUsage } from '@/features/calorie-tracking/use-local-food-usage';
 import { BarcodeScannerModal } from '@/features/inventory/barcode-scanner-modal';
 import { useTheme } from '@/hooks/use-theme';
+import {
+  dedupeProductsByBarcode,
+  fetchProductByBarcodeFromDump,
+  searchOffDump,
+} from '@/lib/off-dump/off-dump';
 import {
   fetchProductByBarcode,
   isLikelyBarcode,
@@ -62,6 +65,7 @@ export function FoodSearchScreen() {
   const [searchFailed, setSearchFailed] = useState(false);
   const [loadingMore, setLoadingMore] = useState(false);
   const [historyTab, setHistoryTab] = useState<HistoryTab>('recent');
+  const [source, setSource] = useState<ItemSource>('food');
   const [showScanner, setShowScanner] = useState(false);
 
   // Schuetzt vor veralteten "naechste Seite"-Antworten, wenn die Suche sich
@@ -75,21 +79,29 @@ export function FoodSearchScreen() {
   );
 
   /**
-   * Abgetippter Barcode statt Produktname: exakter Lookup statt unscharfer
-   * Textsuche — deckt den Fall ab, fuer den es vorher ein separates
-   * manuelles Eingabefeld im Scanner-Modal gab.
+   * Zuerst lokaler SQLite-Dump (off_dump.products) für sofortige Offline-Ergebnisse,
+   * parallel/anschließend Ergänzung über die Open Food Facts API.
    *
-   * `failed` (siehe `OpenFoodFactsSearchResult`) haelt "keine Treffer" von
-   * "Open Food Facts kurz nicht erreichbar" auseinander — deren Such-
-   * Endpunkte antworten aktuell auffaellig oft mit einem 503, auch bei
-   * identischen Anfragen kurz hintereinander. Ohne die Unterscheidung sieht
-   * ein Nutzer bei "hafer" oder "toma" faelschlich "keine Treffer".
+   * Bei abgetipptem Barcode: exakter Lookup im lokalen Dump vor dem Netz-Lookup.
+   *
+   * `searchFailed` wird nur aktiv, wenn WEDER lokale noch Online-Treffer
+   * vorhanden sind UND die Online-Anfrage fehlschlug. Liegen lokale Treffer
+   * vor, sieht der Nutzer diese sofort ohne störendes Fehlerbanner.
    */
   async function runSearch(trimmedQuery: string, signal: AbortSignal) {
     setSearching(true);
     setSearchFailed(false);
 
     if (isLikelyBarcode(trimmedQuery)) {
+      const localProduct = await fetchProductByBarcodeFromDump(trimmedQuery);
+      if (localProduct && !signal.aborted) {
+        setResults([localProduct]);
+        setHasMore(false);
+        setPage(1);
+        setSearching(false);
+        return;
+      }
+
       const product = await fetchProductByBarcode(trimmedQuery, signal);
       if (!signal.aborted) {
         setResults(product ? [product] : []);
@@ -100,15 +112,22 @@ export function FoodSearchScreen() {
       return;
     }
 
+    const localResult = await searchOffDump(trimmedQuery, { limit: PAGE_SIZE });
+    if (!signal.aborted && localResult.products.length > 0) {
+      setResults(localResult.products);
+      setHasMore(localResult.hasMore);
+    }
+
     const result = await searchOpenFoodFacts(trimmedQuery, {
       page: 1,
       pageSize: PAGE_SIZE,
       signal,
     });
     if (!signal.aborted) {
-      setResults(result.products);
-      setHasMore(result.hasMore);
-      setSearchFailed(result.failed);
+      const merged = dedupeProductsByBarcode([...localResult.products, ...result.products]);
+      setResults(merged);
+      setHasMore(localResult.hasMore || result.hasMore);
+      setSearchFailed(result.failed && merged.length === 0);
       setPage(1);
       setSearching(false);
     }
@@ -156,11 +175,18 @@ export function FoodSearchScreen() {
     if (!hasMore || loadingMore || searching) return;
     const currentQuery = query;
     const nextPage = page + 1;
+    const offset = page * PAGE_SIZE;
     setLoadingMore(true);
-    const result = await searchOpenFoodFacts(currentQuery, { page: nextPage, pageSize: PAGE_SIZE });
+
+    const [localResult, remoteResult] = await Promise.all([
+      searchOffDump(currentQuery, { offset, limit: PAGE_SIZE }),
+      searchOpenFoodFacts(currentQuery, { page: nextPage, pageSize: PAGE_SIZE }),
+    ]);
+
     if (queryRef.current === currentQuery) {
-      setResults((prev) => [...prev, ...result.products]);
-      setHasMore(result.hasMore);
+      const newItems = dedupeProductsByBarcode([...localResult.products, ...remoteResult.products]);
+      setResults((prev) => dedupeProductsByBarcode([...prev, ...newItems]));
+      setHasMore(localResult.hasMore || remoteResult.hasMore);
       setPage(nextPage);
     }
     setLoadingMore(false);
@@ -202,9 +228,10 @@ export function FoodSearchScreen() {
       title={MEAL_LABELS[params.mealType] ?? 'Lebensmittel'}
       back={{ label: 'Abbrechen' }}
       scroll={false}>
-      <View style={styles.header}>
-        <View style={styles.searchRow}>
-          <View style={styles.flex}>
+      {/* Suchkopf: Textsuche, Barcode-Scanner-Button und Verlaufsfilter */}
+      <View className="fss-header">
+        <View className="fss-search-row">
+          <View className="flex-1">
             <TextField
               placeholder="Wonach suchst du?"
               value={query}
@@ -216,30 +243,31 @@ export function FoodSearchScreen() {
             onPress={() => setShowScanner(true)}
             accessibilityRole="button"
             accessibilityLabel="Barcode scannen"
-            style={[styles.scanBtn, { backgroundColor: theme.backgroundElement }]}>
-            <ThemedText style={{ ...FontSize[20] }}>📷</ThemedText>
+            className="fss-scan-btn">
+            <ThemedText className="text-[20px]">📷</ThemedText>
           </Pressable>
         </View>
 
+        {/* Quell- und Verlaufs-Filterleiste (Zuletzt vs. Häufig) */}
         {!isSearchMode ? (
-          <SegmentedControl
-            label="Verlauf"
-            options={[
-              { value: 'recent', label: 'Zuletzt' },
-              { value: 'frequent', label: 'Häufig' },
-            ]}
-            selected={historyTab}
-            onSelect={setHistoryTab}
+          <ItemSourceFilterRow
+            source={source}
+            onSourceChange={setSource}
+            sourceAccessibilityLabel="Quelle: Lebensmittel oder Gerichte"
+            suggestionFilter={historyTab}
+            onSuggestionFilterChange={setHistoryTab}
+            suggestionAccessibilityLabel="Verlaufsfilter"
           />
         ) : null}
       </View>
 
+      {/* Ergebnisliste: Entweder Live-Suchergebnisse (OFF/Lokal) oder Verlauf */}
       {isSearchMode ? (
         searching ? (
-          <ActivityIndicator color={theme.accent} style={styles.centerLoader} />
+          <ActivityIndicator color={theme.accent} className="fss-center-loader" />
         ) : results.length === 0 && searchFailed ? (
-          <View style={styles.failedBox}>
-            <ThemedText type="small" themeColor="warning" style={{ textAlign: 'center' }}>
+          <View className="fss-failed-box">
+            <ThemedText type="small" themeColor="warning" className="text-center">
               Open Food Facts ist gerade nicht erreichbar. Versuch's gleich nochmal.
             </ThemedText>
             <Pressable onPress={retrySearch} accessibilityRole="button">
@@ -249,12 +277,12 @@ export function FoodSearchScreen() {
             </Pressable>
           </View>
         ) : results.length === 0 ? (
-          <ThemedText type="small" themeColor="textSecondary" style={styles.centered}>
+          <ThemedText type="small" themeColor="textSecondary" className="fss-centered">
             Keine Treffer für „{query}".
           </ThemedText>
         ) : (
           <FlatList
-            style={styles.flex}
+            className="flex-1"
             data={results}
             keyExtractor={(item, index) => item.barcode || `${item.name}-${index}`}
             renderItem={({ item }) => (
@@ -265,20 +293,20 @@ export function FoodSearchScreen() {
             keyboardShouldPersistTaps="handled"
             ListFooterComponent={
               loadingMore ? (
-                <ActivityIndicator color={theme.accent} style={styles.footerLoader} />
+                <ActivityIndicator color={theme.accent} className="fss-footer-loader" />
               ) : null
             }
           />
         )
       ) : historyLoading ? (
-        <ActivityIndicator color={theme.accent} style={styles.centerLoader} />
+        <ActivityIndicator color={theme.accent} className="fss-center-loader" />
       ) : historyList.length === 0 ? (
-        <ThemedText type="small" themeColor="textSecondary" style={styles.centered}>
+        <ThemedText type="small" themeColor="textSecondary" className="fss-centered">
           Noch keine Einträge — fang mit der Suche oder „Schneller Eintrag" an.
         </ThemedText>
       ) : (
         <FlatList
-          style={styles.flex}
+          className="flex-1"
           data={historyList}
           keyExtractor={(item) => item.name}
           renderItem={({ item }) => (
@@ -288,13 +316,13 @@ export function FoodSearchScreen() {
         />
       )}
 
-      <Pressable
-        onPress={selectManualEntry}
-        style={[styles.quickEntryBtn, { backgroundColor: theme.backgroundElement }]}>
-        <ThemedText style={{ ...FontSize[18] }}>🍽️</ThemedText>
+      {/* Button für Schnelleintrag (manuelle Eingabe ohne Produktsuche) */}
+      <Pressable onPress={selectManualEntry} className="fss-quick-entry-btn">
+        <ThemedText className="text-[18px]">🍽️</ThemedText>
         <ThemedText type="smallBold">Schneller Eintrag</ThemedText>
       </Pressable>
 
+      {/* Modal für Kamera-Barcode-Scanner */}
       <BarcodeScannerModal
         visible={showScanner}
         onClose={() => setShowScanner(false)}
@@ -305,17 +333,16 @@ export function FoodSearchScreen() {
 }
 
 function ProductRow({ product, onPress }: { product: OpenFoodFactsProduct; onPress: () => void }) {
-  const theme = useTheme();
   return (
-    <Pressable onPress={onPress} style={[styles.row, { borderBottomColor: theme.border }]}>
+    <Pressable onPress={onPress} className="fss-row">
       {product.imageUrl ? (
-        <Image source={{ uri: product.imageUrl }} style={styles.rowImg} />
+        <Image source={{ uri: product.imageUrl }} className="fss-row-img" />
       ) : (
-        <View style={[styles.rowImgPlaceholder, { backgroundColor: theme.backgroundElement }]}>
-          <ThemedText style={{ ...FontSize[16] }}>🥫</ThemedText>
+        <View className="fss-row-img-placeholder">
+          <ThemedText className="text-[16px]">🥫</ThemedText>
         </View>
       )}
-      <View style={styles.rowText}>
+      <View className="fss-row-text">
         <ThemedText type="smallBold" numberOfLines={1}>
           {product.name}
         </ThemedText>
@@ -331,13 +358,12 @@ function ProductRow({ product, onPress }: { product: OpenFoodFactsProduct; onPre
 }
 
 function HistoryRow({ entry, onPress }: { entry: FoodHistoryEntry; onPress: () => void }) {
-  const theme = useTheme();
   return (
-    <Pressable onPress={onPress} style={[styles.row, { borderBottomColor: theme.border }]}>
-      <View style={[styles.rowImgPlaceholder, { backgroundColor: theme.backgroundElement }]}>
-        <ThemedText style={{ ...FontSize[16] }}>🥫</ThemedText>
+    <Pressable onPress={onPress} className="fss-row">
+      <View className="fss-row-img-placeholder">
+        <ThemedText className="text-[16px]">🥫</ThemedText>
       </View>
-      <View style={styles.rowText}>
+      <View className="fss-row-text">
         <ThemedText type="smallBold" numberOfLines={1}>
           {entry.name}
         </ThemedText>
@@ -349,72 +375,3 @@ function HistoryRow({ entry, onPress }: { entry: FoodHistoryEntry; onPress: () =
     </Pressable>
   );
 }
-
-const styles = StyleSheet.create({
-  header: {
-    gap: Spacing.two,
-  },
-  searchRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: Spacing.two,
-  },
-  flex: {
-    flex: 1,
-  },
-  scanBtn: {
-    width: 48,
-    height: 48,
-    borderRadius: Radius.control,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  centered: {
-    textAlign: 'center',
-    marginTop: Spacing.four,
-  },
-  centerLoader: {
-    marginTop: Spacing.four,
-  },
-  failedBox: {
-    alignItems: 'center',
-    gap: Spacing.two,
-    marginTop: Spacing.four,
-  },
-  footerLoader: {
-    marginVertical: Spacing.three,
-  },
-  row: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: Spacing.two,
-    paddingVertical: Spacing.two,
-    borderBottomWidth: StyleSheet.hairlineWidth,
-  },
-  rowImg: {
-    width: 36,
-    height: 36,
-    borderRadius: Radius.sm,
-  },
-  rowImgPlaceholder: {
-    width: 36,
-    height: 36,
-    borderRadius: Radius.sm,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  rowText: {
-    flex: 1,
-    gap: 2,
-  },
-  quickEntryBtn: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    gap: Spacing.two,
-    paddingVertical: Spacing.three,
-    borderRadius: Radius.controlLarge,
-    marginTop: Spacing.three,
-    marginBottom: Spacing.four,
-  },
-});

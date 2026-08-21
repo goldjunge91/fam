@@ -103,6 +103,18 @@ export async function createInviteFixture(householdName: string): Promise<Invite
     );
   }
 
+  const { error: storesErr } = await supabase.from('stores').insert([
+    { household_id: household.id, name: 'REWE', color: '#B5623F', sort_order: 0 },
+    { household_id: household.id, name: 'Edeka', color: '#748C5B', sort_order: 1 },
+    { household_id: household.id, name: 'Aldi', color: '#5C7396', sort_order: 2 },
+  ]);
+
+  if (storesErr) {
+    throw new Error(
+      `Standard-Supermärkte fuer den Fixture-Haushalt schlugen fehl: ${storesErr.message}`,
+    );
+  }
+
   const { data: invite, error: inviteErr } = await supabase
     .from('household_invites')
     .insert({

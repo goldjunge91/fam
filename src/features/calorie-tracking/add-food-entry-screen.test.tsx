@@ -8,7 +8,7 @@ import { AddFoodEntryScreen } from '@/features/calorie-tracking/add-food-entry-s
 // add-food-entry-screen importiert MEAL_LABELS aus diary-screen, das wiederum
 // ProgressRing (Reanimated) laedt — dessen Worklets-Bootstrap laeuft unter
 // Jest nicht. Fuer diesen Test zaehlt nur das Label-Mapping, nicht der Ring.
-jest.mock('@/components/progress-ring', () => ({ ProgressRing: () => null }));
+jest.mock('@/components/ui/progress-ring', () => ({ ProgressRing: () => null }));
 
 let mockParams: Record<string, string> = {};
 let mockFoodEntries: unknown[] = [];
@@ -45,7 +45,7 @@ jest.mock('@/lib/db/product-usage', () => ({
   recordProductUsage: jest.fn().mockResolvedValue(undefined),
 }));
 
-jest.mock('@/components/snackbar', () => ({
+jest.mock('@/components/ui/snackbar', () => ({
   useSnackbar: () => ({ showUndoSnackbar: mockShowUndoSnackbar }),
 }));
 

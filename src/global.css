@@ -1,3 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+ * fam Farb-Tokens als CSS-Variablen — 1:1 aus src/constants/theme.ts
+ * (Colors.light/Colors.dark). Bei Token-Änderungen beide Stellen pflegen,
+ * bis theme.ts vollständig durch NativeWind-Klassen abgelöst ist.
+ *
+ * Werte als "R G B"-Kanal-Tripel (nicht Hex): tailwind.config.js baut daraus
+ * `rgb(var(--color-x) / <alpha-value>)`, damit Tailwinds Opazitäts-Modifier
+ * (`bg-accent/10`, `border-accent/20`, …) funktionieren — Ersatz für das
+ * bisherige `${theme.accent}18`-Hex-Suffix-Muster, das an mehreren Stellen
+ * (Auswahl-Chips, Badges) wiederkehrt.
+ */
 :root {
   --font-display:
     Spline Sans, Inter, ui-sans-serif, system-ui, sans-serif, Apple Color Emoji, Segoe UI Emoji,
@@ -6,4 +21,2147 @@
     ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace;
   --font-rounded: 'SF Pro Rounded', 'Hiragino Maru Gothic ProN', Meiryo, 'MS PGothic', sans-serif;
   --font-serif: Georgia, 'Times New Roman', serif;
+
+  --color-text: 45 40 48;
+  --color-background: 248 244 239;
+  --color-background-element: 251 247 242;
+  --color-background-selected: 233 225 231;
+  --color-text-secondary: 120 111 121;
+  --color-border: 228 221 227;
+  --color-accent: 112 87 115;
+  --color-on-accent: 255 255 255;
+  --color-premium-gradient-start: 113 85 116;
+  --color-premium-gradient-mid: 163 110 114;
+  --color-premium-gradient-end: 197 150 119;
+  --color-premium-on-surface: 255 255 255;
+  --color-premium-action-background: 248 241 237;
+  --color-premium-action-text: 96 71 101;
+  --color-success: 120 144 111;
+  --color-warning: 198 144 89;
+  --color-danger: 198 95 80;
+  --color-shadow-card: 89 64 89;
+  --color-shadow-sheet: 42 31 44;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-text: 242 236 231;
+    --color-background: 33 29 35;
+    --color-background-element: 43 38 46;
+    --color-background-selected: 56 47 59;
+    --color-text-secondary: 183 173 179;
+    --color-border: 62 54 64;
+    --color-accent: 183 156 186;
+    --color-on-accent: 33 29 35;
+    --color-premium-gradient-start: 79 61 82;
+    --color-premium-gradient-mid: 118 81 88;
+    --color-premium-gradient-end: 139 103 85;
+    --color-premium-on-surface: 255 249 246;
+    --color-premium-action-background: 240 230 225;
+    --color-premium-action-text: 75 56 79;
+    --color-success: 143 174 134;
+    --color-warning: 217 168 108;
+    --color-danger: 217 119 106;
+    /* shadowCard/shadowSheet bleiben identisch für Light/Dark (s. theme.ts) */
+  }
+}
+
+@layer components {
+  /* Buttons */
+  .btn-primary {
+    @apply rounded-card py-three px-four items-center justify-center bg-accent active:opacity-80;
+  }
+
+  .btn-secondary {
+    @apply rounded-card py-three px-four items-center justify-center bg-background-element active:opacity-80;
+  }
+
+  .btn-danger {
+    @apply rounded-card py-three px-four items-center justify-center bg-danger active:opacity-80;
+  }
+
+  .btn-link {
+    @apply self-end px-three py-two items-center justify-center active:opacity-75;
+  }
+
+  .btn-fab-corner {
+    @apply w-[58px] h-[58px] rounded-pill items-center justify-center bg-accent shadow-sheet active:opacity-90;
+  }
+
+  .btn-header-icon {
+    @apply w-[39px] h-[39px] rounded-control items-center justify-center bg-background-element/85 active:opacity-70 active:scale-95;
+  }
+
+  .btn-modal-close {
+    @apply w-[32px] h-[32px] rounded-control items-center justify-center bg-background-selected active:opacity-75;
+  }
+
+  .btn-menu {
+    @apply w-[58px] h-[58px] rounded-sheet items-center justify-center bg-background-element/70 active:opacity-75;
+  }
+
+  .btn-profile {
+    @apply w-[58px] h-[58px] rounded-fam-large items-center justify-center bg-accent active:opacity-85;
+  }
+
+  .btn-back-arrow {
+    @apply w-[45px] h-[45px] rounded-sheet items-center justify-center bg-background-element/70 active:opacity-75;
+  }
+
+  .btn-compact-action {
+    @apply w-full h-control border-hairline rounded-control px-three flex-row items-center justify-between bg-background-element border-border active:opacity-70;
+  }
+
+  /* Karten & Container */
+  .card-fam {
+    @apply p-three rounded-fam-large gap-two bg-background-element shadow-card;
+  }
+
+  .screen-body {
+    @apply flex-1 w-full max-w-content self-center px-three;
+  }
+
+  /* Kein pb-safe: Bottom-Safe-Area ist ein echter Laufzeitwert
+     (useSafeAreaInsets), kann nicht statisch in Tailwind stehen — die
+     Klasse hier existierte nicht und hat den kompletten CSS-Build
+     zerschossen (App zeigte nichts mehr an). Padding kommt jetzt per
+     style-Prop in app-shell.tsx. */
+  .app-shell-wrap {
+    @apply absolute left-0 right-0 bottom-0 justify-start px-four h-action-area;
+  }
+
+  /* Formulareingaben */
+  .input-field {
+    @apply w-full border border-border rounded-card px-three py-[10px] text-body-relaxed bg-background-element text-text;
+  }
+
+  .input-field-error {
+    @apply border-danger;
+  }
+
+  /* Stepper */
+  .stepper-container {
+    @apply h-[44px] flex-row items-stretch overflow-hidden border border-border rounded-control bg-background-element;
+  }
+
+  .stepper-btn {
+    @apply w-[42px] items-center justify-center bg-background-selected active:opacity-70;
+  }
+
+  /* Nutri-Score Badges */
+  .badge-nutri-a {
+    @apply bg-[#038141];
+  }
+
+  .badge-nutri-b {
+    @apply bg-[#85BB2F];
+  }
+
+  .badge-nutri-c {
+    @apply bg-[#FECB02];
+  }
+
+  .badge-nutri-d {
+    @apply bg-[#EE8100];
+  }
+
+  .badge-nutri-e {
+    @apply bg-[#E63E11];
+  }
+
+  /* Banners & Dialoge */
+  .snackbar-bar {
+    @apply flex-row items-center justify-between mx-three mb-three px-three py-two rounded-control gap-three bg-text;
+  }
+
+  .modal-sheet {
+    @apply rounded-sheet p-four gap-three bg-background;
+  }
+
+  .modal-backdrop {
+    @apply flex-1 bg-black/50 justify-center p-four;
+  }
+
+  /* Screens (Phase B, src/features) */
+  .stack {
+    @apply gap-three;
+  }
+
+  .row-between {
+    @apply flex-row items-center justify-between gap-two;
+  }
+
+  .row-center {
+    @apply flex-row items-center gap-two;
+  }
+
+  .row-start {
+    @apply flex-row items-start gap-two;
+  }
+
+  .col-gap {
+    @apply flex-col gap-two;
+  }
+
+  .col-center {
+    @apply flex-col items-center justify-center;
+  }
+
+  .row-wrap {
+    @apply flex-row flex-wrap gap-two;
+  }
+
+  .module-row {
+    @apply flex-row items-center justify-between gap-three p-three rounded-card border-hairline bg-background-element;
+  }
+
+  .module-row-selected {
+    @apply border-accent;
+  }
+
+  .module-row-idle {
+    @apply border-border;
+  }
+
+  .chip {
+    @apply px-three py-[6px] rounded-sheet border;
+  }
+
+  .chip-selected {
+    @apply border-accent bg-accent/10;
+  }
+
+  .chip-idle {
+    @apply border-border bg-transparent;
+  }
+
+  .choice-chip {
+    @apply border rounded-card py-two px-three;
+  }
+
+  .choice-chip-selected {
+    @apply bg-accent border-accent;
+  }
+
+  .choice-chip-idle {
+    @apply bg-background-element border-border;
+  }
+
+  .choice-row {
+    @apply flex-row flex-wrap gap-two mt-two;
+  }
+
+  .profile-row {
+    /* Opazitaets-Suffix B8 (Hex) = 72% */
+    @apply flex-row items-center gap-two p-two border-hairline rounded-sheet bg-background-element/[72%] border-border active:opacity-85;
+  }
+
+  .profile-avatar {
+    @apply w-[50px] h-[50px] rounded-fam-large items-center justify-center bg-accent;
+  }
+
+  .debug-row {
+    @apply flex-row justify-between items-center py-one;
+  }
+
+  .debug-item {
+    @apply py-two border-b-hairline border-border gap-one;
+  }
+
+  .action-stack {
+    @apply mt-three gap-two;
+  }
+
+  .row-text {
+    @apply flex-1 gap-half;
+  }
+
+  .screen-scroll {
+    @apply px-three pb-six gap-four;
+  }
+
+  .divider {
+    @apply items-center my-one;
+  }
+
+  .link-stack {
+    @apply items-center gap-two mt-four;
+  }
+
+  /* PendingAuthBanner (src/features/auth/components/pending-auth-banner.tsx) */
+  .pending-card {
+    @apply rounded-sheet border p-four gap-three items-center bg-background-element border-border;
+  }
+
+  .hero-container {
+    @apply w-[64px] h-[64px] justify-center items-center my-one;
+  }
+
+  .pulse-ring {
+    @apply absolute w-[64px] h-[64px] rounded-pill bg-accent;
+  }
+
+  .icon-circle {
+    @apply w-[48px] h-[48px] rounded-fam-large items-center justify-center bg-accent shadow-card;
+  }
+
+  .live-dot {
+    @apply w-[8px] h-[8px] rounded-xs bg-[#F59E0B];
+  }
+
+  .email-capsule {
+    @apply px-three py-one rounded-card bg-background-selected;
+  }
+
+  /* fontSize 18 / lineHeight 44 ist der 1:1 uebernommene Originalwert —
+     ungewoehnlich grosse Zeilenhoehe fuer die Schriftgroesse, moeglicherweise
+     nie beabsichtigt. Nicht stillschweigend "korrigiert", nur migriert. */
+  .pending-title {
+    @apply text-[18px] leading-[44px] font-bold;
+  }
+
+  .pending-description {
+    @apply text-center px-two;
+  }
+
+  .code-block {
+    @apply w-full gap-two;
+  }
+
+  .code-input {
+    @apply text-center text-[24px] tracking-[8px];
+  }
+
+  .action-list {
+    @apply w-full gap-two mt-one;
+  }
+
+  /* settings-menu.tsx (SettingsGroup/SettingsRow) */
+  .settings-group-title {
+    @apply px-two tracking-[0.5px];
+  }
+
+  .settings-group-body {
+    @apply rounded-fam-large px-three;
+  }
+
+  .settings-row {
+    @apply flex-row items-center gap-two py-three;
+  }
+
+  .settings-row-bordered {
+    @apply border-b-hairline border-border;
+  }
+
+  .settings-row-disabled {
+    @apply opacity-50;
+  }
+
+  .settings-icon-tile {
+    @apply w-[34px] h-[34px] rounded-card items-center justify-center bg-background-selected;
+  }
+
+  .settings-label-block {
+    @apply flex-1 gap-half;
+  }
+
+  .dev-zeile {
+    @apply flex-row justify-between items-start gap-three py-two border-b-hairline border-border;
+  }
+
+  .dev-zeile-value {
+    @apply flex-shrink text-right;
+  }
+
+  /* speed-dial-menu.tsx */
+  .speed-dial-backdrop {
+    @apply absolute inset-0;
+  }
+
+  .speed-dial-column {
+    @apply absolute gap-three;
+  }
+
+  .speed-dial-row {
+    @apply flex-row items-center gap-two;
+  }
+
+  .speed-dial-chip {
+    @apply w-[46px] h-[46px] rounded-pill items-center justify-center shadow-card;
+  }
+
+  .speed-dial-label {
+    @apply px-three py-[9px] rounded-control bg-background-element border border-border;
+  }
+
+  /* Onboarding (src/features/onboarding) */
+  .progress-container {
+    @apply px-four mb-two;
+  }
+
+  .signout-link {
+    @apply self-center mt-two p-one;
+  }
+
+  .signout-text {
+    @apply text-detail underline text-text-secondary;
+  }
+
+  .complete-container {
+    @apply py-two items-center gap-three;
+  }
+
+  .complete-icon-circle {
+    @apply w-[96px] h-[96px] rounded-pill items-center justify-center my-two bg-background-element;
+  }
+
+  .complete-icon {
+    @apply text-[52px] text-center;
+  }
+
+  .complete-heading {
+    @apply text-[24px] font-bold text-center text-text;
+  }
+
+  .complete-subheading {
+    @apply text-[15px] leading-[22px] text-center px-two text-text-secondary;
+  }
+
+  .complete-error {
+    @apply text-[13px] text-center text-danger;
+  }
+
+  .complete-button-container {
+    @apply w-full mt-two;
+  }
+
+  .carousel-title {
+    @apply text-[22px] font-bold text-center text-text;
+  }
+
+  .pagination-row {
+    @apply flex-row items-center justify-center py-two;
+  }
+
+  .pagination-dot {
+    @apply h-[8px] rounded-xs mx-[4px];
+  }
+
+  .pagination-dot-active {
+    @apply w-[24px] bg-accent;
+  }
+
+  .pagination-dot-idle {
+    @apply w-[8px] bg-border;
+  }
+
+  .perm-heading {
+    @apply text-[22px] font-bold text-text;
+  }
+
+  .perm-subheading {
+    @apply text-body-small text-text-secondary;
+  }
+
+  .perm-list {
+    @apply gap-two mt-one;
+  }
+
+  .perm-card {
+    @apply p-three rounded-sm border bg-background-element;
+  }
+
+  .perm-card-selected {
+    @apply border-accent;
+  }
+
+  .perm-card-idle {
+    @apply border-border;
+  }
+
+  .perm-row {
+    @apply flex-row items-center justify-between;
+  }
+
+  .perm-text-col {
+    @apply flex-1 pr-two;
+  }
+
+  .perm-title {
+    @apply text-[15px] font-bold mb-one text-text;
+  }
+
+  .perm-desc {
+    @apply text-[13px] leading-[18px] text-text-secondary;
+  }
+
+  .perm-button-row {
+    @apply flex-row gap-two mt-three;
+  }
+
+  .onboard-module-row {
+    @apply flex-row items-center justify-between p-three rounded-sm border bg-background-element;
+  }
+
+  .onboard-module-title {
+    @apply text-[15px] font-bold text-text;
+  }
+
+  .onboard-module-desc {
+    @apply text-[13px] leading-[18px] mt-half text-text-secondary;
+  }
+
+  .account-active-container {
+    @apply gap-four mt-two;
+  }
+
+  .account-active-banner {
+    @apply p-three rounded-sm border gap-one bg-background-element border-border;
+  }
+
+  .account-active-title {
+    @apply text-[15px] font-bold text-accent;
+  }
+
+  .account-form {
+    @apply gap-three mt-two;
+  }
+
+  .account-tab-toggle {
+    @apply flex-row rounded-sm overflow-hidden border mb-one border-border;
+  }
+
+  .account-tab-button {
+    @apply flex-1 py-two items-center;
+  }
+
+  .account-tab-button-active {
+    @apply bg-accent;
+  }
+
+  .account-tab-text {
+    @apply text-[14px] font-semibold;
+  }
+
+  .account-error-text {
+    @apply text-danger text-[13px];
+  }
+
+  /* Bewusst fest verdrahtete Gruen-/Weiss-Werte statt Tokens: 1:1 aus dem
+     Original uebernommen (kein success-Token dort verwendet). */
+  .household-active-card {
+    @apply p-three rounded-sm border gap-[4px] my-one bg-[rgba(52,_199,_89,_0.1)] border-[#34c759];
+  }
+
+  .household-active-badge {
+    @apply text-[12px] font-bold text-[#2e7d32] uppercase tracking-[0.5px];
+  }
+
+  .household-active-title {
+    @apply text-[16px] font-bold text-text;
+  }
+
+  .household-choice-card {
+    @apply p-three rounded-sm border gap-[4px];
+  }
+
+  .household-choice-card-selected {
+    @apply bg-accent border-accent;
+  }
+
+  .household-choice-card-idle {
+    @apply bg-background-element border-border;
+  }
+
+  .household-choice-title {
+    @apply text-[15px] font-bold;
+  }
+
+  .household-choice-desc {
+    @apply text-[13px] leading-[18px];
+  }
+
+  .household-error-text {
+    @apply text-danger text-[13px] mt-one;
+  }
+
+  .profile-form-section {
+    @apply gap-three mt-one;
+  }
+
+  .input-row {
+    @apply flex-row gap-two;
+  }
+
+  .section-label {
+    @apply text-[14px] font-semibold mt-two text-text;
+  }
+
+  .sex-row {
+    @apply flex-row gap-two;
+  }
+
+  .option-button {
+    @apply flex-1 py-[10px] px-three rounded-sm border items-center justify-center;
+  }
+
+  .option-text {
+    @apply text-[14px] font-semibold;
+  }
+
+  .profile-choice-card {
+    @apply py-[10px] px-three rounded-sm border;
+  }
+
+  .profile-choice-text {
+    @apply text-[14px] font-medium;
+  }
+
+  /*
+   * Generisches Auswahl-Paar (bg+border), wiederkehrend bei Auswahl-Karten,
+   * Optionsknoepfen etc. Bitte hier verwenden statt eines neuen *-selected/
+   * *-idle-Paars — vermeidet die Duplikate, die vor dieser Klasse entstanden
+   * sind (household-choice-card-selected/idle machen dasselbe, noch nicht
+   * konsolidiert).
+   */
+  .selectable-selected {
+    @apply bg-accent border-accent;
+  }
+
+  .selectable-idle {
+    @apply bg-background-element border-border;
+  }
+
+  /* Shopping List (Phase B, src/features/shopping-list) */
+  .total-estimate-card {
+    @apply p-four rounded-fam-large items-center gap-half bg-accent/10;
+  }
+
+  .modal-safe-area {
+    @apply flex-1 px-four;
+  }
+
+  .modal-header {
+    @apply flex-row justify-between items-center pt-two pb-three;
+  }
+
+  .modal-close-btn {
+    @apply w-8 h-8 rounded-card items-center justify-center bg-background-element;
+  }
+
+  .modal-handle {
+    @apply w-[36px] h-1 self-center rounded-hairline mt-[10px] bg-border;
+  }
+
+  .shopping-item-row {
+    @apply flex-row items-center px-three py-[10px] border-b-hairline border-border gap-two;
+  }
+
+  .shopping-item-main {
+    @apply flex-1 flex-row items-center gap-two;
+  }
+
+  .checkbox-base {
+    @apply w-[22px] h-[22px] rounded-control border-2 items-center justify-center;
+  }
+
+  .checkbox-checked {
+    @apply border-accent bg-accent;
+  }
+
+  .checkbox-unchecked {
+    @apply border-border bg-transparent;
+  }
+
+  /* store-picker-menu.tsx — Glas-Button + Menü statt der frueheren
+     Chip-Zeile (Marktauswahl-Mockup Variante B). Menue laeuft ueber ein
+     Modal (eigene native Ebene), Position kommt per measureInWindow als
+     Inline-Style — hier nur die von der Position unabhaengigen Regeln. */
+  .store-picker-btn {
+    @apply flex-row items-center gap-two px-four py-three rounded-pill border border-border bg-background-element;
+  }
+
+  .store-picker-dot {
+    @apply w-[8px] h-[8px] rounded-full;
+  }
+
+  .store-picker-backdrop {
+    @apply flex-1;
+  }
+
+  .store-picker-panel {
+    @apply w-[200px] rounded-control border border-border bg-background shadow-sheet p-one gap-[2px];
+  }
+
+  .store-picker-row {
+    @apply flex-row items-center gap-two rounded-sm px-two py-two;
+  }
+
+  .store-picker-row-active {
+    @apply bg-background-selected;
+  }
+
+  .suggestion-card {
+    @apply flex-1 min-w-0 min-h-[75px] justify-center border rounded-control p-two active:opacity-70;
+  }
+
+  /* Kompakte Zeile fuer "Alle Listen" (Mockup "Einkauf Uebersicht",
+     Variante 2) — Karte ist einer dichten Zeile gewichen, damit mehrere
+     Maerkte ohne Scrollen sichtbar bleiben. */
+  .store-summary-row {
+    @apply flex-row items-center gap-three rounded-card py-two pl-two pr-three overflow-hidden bg-background-element;
+  }
+
+  .store-summary-stripe {
+    @apply w-[5px] self-stretch rounded-hairline;
+  }
+
+  .category-order-row {
+    @apply h-[52px] flex-row items-center justify-between border-b-hairline border-border;
+  }
+
+  .category-order-handle {
+    @apply px-three py-two;
+  }
+
+  .store-chip {
+    @apply px-three py-[6px] rounded-sheet border-[1.5px];
+  }
+
+  .store-add-box {
+    @apply gap-three p-three rounded-sm border border-border mt-two;
+  }
+
+  .store-preset-chip {
+    @apply flex-row items-center gap-one px-three py-[6px] rounded-sheet border;
+  }
+
+  .store-preset-dot {
+    @apply w-2 h-2 rounded-xs;
+  }
+
+  .store-color-swatch {
+    @apply w-8 h-8 rounded-card border-2;
+  }
+
+  .store-manage-row {
+    @apply py-three border-b-hairline border-border gap-two;
+  }
+
+  .store-color-dot {
+    @apply w-[14px] h-[14px] rounded-sm;
+  }
+
+  /* shopping-mode-screen.tsx — Kategorie-Farbe kommt als Inline-Style
+     (dynamischer Hex-Wert je Kategorie), hier nur das Layout. */
+  .shopping-mode-cat-head {
+    @apply flex-row items-center gap-two px-three py-two;
+  }
+
+  .shopping-mode-row {
+    @apply flex-row items-center gap-two px-three py-[10px] pl-[19px] border-b-hairline border-border;
+  }
+
+  .transfer-row {
+    @apply px-four py-three border-b-hairline border-border gap-two;
+  }
+
+  .quantity-badge {
+    @apply px-three py-one rounded-sheet bg-success;
+  }
+
+  .kind-button {
+    @apply flex-1 flex-row items-center justify-center gap-one py-one px-one rounded-sheet border-[1.5px];
+  }
+
+  /* complete-run-sheet.tsx — MHD-Feld bewusst schmal statt volle Zeilenbreite,
+     ein Datum braucht keine so grosse Tapp-Flaeche wie die Lagerort-Buttons. */
+  .mhd-field-width {
+    @apply w-[140px];
+  }
+
+  .btn-success {
+    @apply w-full py-three rounded-card items-center justify-center bg-success;
+  }
+
+  .product-summary {
+    @apply min-h-[49px] flex-row items-center gap-two rounded-fam-large px-[11px] py-[9px] bg-background-selected;
+  }
+
+  .details-summary {
+    @apply min-h-[34px] flex-row items-center gap-two active:opacity-70;
+  }
+
+  /* Recipes (Phase B, src/features/recipes) */
+  .calorie-carousel-content {
+    @apply flex-col flex-wrap content-start h-[156px] gap-two;
+  }
+
+  .calorie-tile {
+    @apply w-[92px] h-[74px] rounded-card border items-center justify-center mr-two active:opacity-80;
+  }
+
+  .category-carousel-content {
+    @apply flex-row gap-two;
+  }
+
+  .category-tile {
+    @apply w-[78px] min-h-[68px] rounded-card border items-center justify-center gap-1 px-[6px] py-two active:opacity-80;
+  }
+
+  .recipe-preview-card {
+    @apply w-full h-[200px] rounded-sheet overflow-hidden active:opacity-80;
+  }
+
+  .recipe-hero-card {
+    @apply h-[170px] overflow-hidden rounded-fam-large active:opacity-80;
+  }
+
+  .card-copy-bottom {
+    @apply absolute left-four right-four bottom-[14px];
+  }
+
+  .recipe-preview-badge {
+    @apply px-two py-half rounded-sheet bg-background-selected;
+  }
+
+  .recipe-rating-card {
+    @apply p-four rounded-fam-large gap-three bg-background-element;
+  }
+
+  .recipe-sheet-surface {
+    @apply rounded-t-fam-large px-four pt-[10px] pb-[19px] bg-background-element;
+  }
+
+  .recipe-score-btn {
+    @apply w-[18%] min-w-[52px] flex-grow h-[50px] rounded-fam-large flex-row items-center justify-center gap-1;
+  }
+
+  .recipe-rating-input {
+    @apply min-h-[92px] mt-three px-three py-[11px] border-hairline border-border rounded-card text-body-small bg-background-selected text-text;
+  }
+
+  .meal-tile {
+    @apply w-[104px] min-h-[68px] rounded-card border items-center justify-center gap-one p-two active:opacity-75;
+  }
+
+  .tag-pill {
+    @apply min-h-[36px] rounded-control border justify-center px-three py-two active:opacity-75;
+  }
+
+  .recipe-modal-footer {
+    @apply border-t-hairline border-border px-[15px] pt-three pb-two bg-background;
+  }
+
+  .recipe-log-sheet {
+    @apply max-h-[72%] min-h-[360px] rounded-t-fam-large px-four pt-[10px] pb-[19px] bg-background-element;
+  }
+
+  .grams-field {
+    @apply w-[90px] h-[40px] border border-border rounded-control flex-row items-center px-[10px];
+  }
+
+  /* profile-sheet.tsx */
+  .profile-sheet {
+    @apply absolute left-[16px] right-[16px] h-[390px] rounded-fam-large px-[20px] pt-[12px] pb-[20px] bg-[rgba(255,_255,_255,_0.94)];
+  }
+
+  .profile-sheet-handle-area {
+    @apply items-center h-[24px] justify-center;
+  }
+
+  .profile-sheet-handle {
+    @apply w-[44px] h-[5px] rounded-hairline bg-border;
+  }
+
+  .profile-sheet-card {
+    @apply flex-row items-center gap-[14px] h-[82px] pt-[8px] pb-[14px] border-b-hairline border-border;
+  }
+
+  .profile-sheet-avatar {
+    @apply w-[58px] h-[58px] rounded-fam-large items-center justify-center bg-accent;
+  }
+
+  .profile-sheet-avatar-text {
+    @apply text-[14px] leading-[20px] font-medium;
+  }
+
+  .profile-sheet-identity {
+    @apply gap-[6px];
+  }
+
+  .profile-sheet-name {
+    @apply text-[17px] leading-[22px] font-medium;
+  }
+
+  .profile-sheet-email {
+    @apply text-[13px] leading-[18px] font-normal;
+  }
+
+  .profile-sheet-row {
+    @apply flex-row items-center gap-[14px] h-[61px] py-[8px];
+  }
+
+  .profile-sheet-row-bordered {
+    @apply border-b-hairline border-border;
+  }
+
+  .profile-sheet-row-icon {
+    @apply w-[24px] h-[24px];
+  }
+
+  .profile-sheet-row-copy {
+    @apply flex-1 gap-[4px];
+  }
+
+  .profile-sheet-row-title {
+    @apply text-[14px] leading-[20px] font-medium;
+  }
+
+  .profile-sheet-row-subtitle {
+    @apply text-[12px] leading-[16px] font-normal;
+  }
+
+  /* navigation-drawer.tsx */
+  .drawer {
+    @apply absolute left-0 top-0 bottom-0 max-w-[340px] px-[20px];
+  }
+
+  .drawer-header {
+    @apply flex-row items-center justify-between h-[67px] px-[11px] pt-[11px] pb-[21px] border-b-hairline border-text/15;
+  }
+
+  .drawer-brand {
+    @apply text-[27px] leading-[34px] font-semibold;
+  }
+
+  .drawer-close-glyph {
+    @apply text-[27px] leading-[34px] font-normal;
+  }
+
+  .drawer-group {
+    @apply pt-[14px];
+  }
+
+  .drawer-group-title {
+    @apply px-[14px] pb-[5px] text-[12px] leading-[15px] font-normal tracking-[0.76px];
+  }
+
+  .drawer-nav-row {
+    @apply flex-row items-center gap-[11px] h-[55px] px-[14px] rounded-sheet;
+  }
+
+  .drawer-nav-icon {
+    @apply w-[35px] h-[35px];
+  }
+
+  .drawer-nav-label {
+    @apply flex-1 text-[17px] leading-[21px] font-normal;
+  }
+
+  .drawer-nav-label-active {
+    @apply font-semibold;
+  }
+
+  .drawer-manage-row {
+    @apply flex-row items-center gap-[11px] h-[65px] p-[15px] rounded-sheet bg-background-selected;
+  }
+
+  .drawer-settings-icon {
+    @apply w-[37px] h-[35px];
+  }
+
+  /* premium-screen.tsx — Masse 1:1 aus fam-settings-premium-flow-Mockup
+     (.fsp-crown, .fsp-paywall, .fsp-plan, .fsp-active) */
+  .premium-scroll {
+    @apply px-three pb-six gap-three;
+  }
+
+  .premium-hero {
+    @apply items-center pt-[4px] gap-[4px];
+  }
+
+  .premium-crown {
+    @apply w-[66px] h-[66px] mb-[11px] rounded-sheet overflow-hidden items-center justify-center;
+  }
+
+  .premium-crown-glyph {
+    @apply text-white text-[28px];
+  }
+
+  .premium-hero-title {
+    @apply text-[21px] font-semibold tracking-[-0.45px];
+  }
+
+  .premium-hero-subtitle {
+    @apply text-[9px] max-w-[270px] text-center leading-[13px] mt-[6px];
+  }
+
+  .premium-active-box {
+    @apply p-[13px] rounded-sheet bg-success/[12%];
+  }
+
+  .premium-active-title {
+    @apply text-[10px] font-semibold;
+  }
+
+  .premium-active-hint {
+    @apply text-[8px] mt-[3px];
+  }
+
+  .premium-plan-box {
+    @apply py-[11px] px-[12px] border-2 rounded-sheet border-accent bg-background;
+  }
+
+  .premium-plan-title {
+    @apply text-[10px] font-semibold;
+  }
+
+  .premium-plan-hint {
+    @apply text-[7px] mt-[3px];
+  }
+
+  /* recipe-template-detail-screen.tsx */
+  .rtd-meta-pill {
+    @apply rounded-control px-[8px] py-[6px] bg-background-element/[84%];
+  }
+
+  .rtd-meta-pill-text {
+    @apply text-[8px] leading-[10px] font-medium;
+  }
+
+  .rtd-safe-area {
+    @apply flex-1 w-full max-w-content self-center;
+  }
+
+  .rtd-loading {
+    @apply mt-[60px];
+  }
+
+  .rtd-content {
+    @apply px-[15px] pb-[96px];
+  }
+
+  .rtd-hero {
+    @apply h-[205px] -mx-[15px] overflow-hidden;
+  }
+
+  .rtd-hero-badge {
+    @apply absolute top-[14px] left-[15px] px-[9px] py-[6px] rounded-control bg-background-element/[91%];
+  }
+
+  .rtd-hero-badge-text {
+    @apply text-[8px] leading-[10px] font-medium;
+  }
+
+  .rtd-title {
+    @apply pt-[15px] text-[22px] leading-[26px] font-bold tracking-[-0.7px];
+  }
+
+  .rtd-meta-row {
+    @apply flex-row flex-wrap gap-[6px] pt-[5px];
+  }
+
+  .rtd-description {
+    @apply pt-[12px] text-[10px] leading-[15px] font-medium;
+  }
+
+  .rtd-section-heading {
+    @apply min-h-[52px] pt-[9px] flex-row items-center justify-between gap-[12px];
+  }
+
+  .rtd-section-title {
+    @apply text-[13px] leading-[16px] font-bold;
+  }
+
+  .rtd-section-count {
+    @apply text-[8px] leading-[10px] font-medium;
+  }
+
+  .rtd-portion-control {
+    @apply w-[138px] h-[35px] rounded-control flex-row items-center bg-background-element/[84%];
+  }
+
+  .rtd-portion-button {
+    @apply w-[34px] h-[35px] items-center justify-center;
+  }
+
+  .rtd-portion-sign {
+    @apply text-[15px] leading-[18px] font-medium text-accent;
+  }
+
+  .rtd-portion-value {
+    @apply flex-1 text-center text-[9px] leading-[11px] font-medium;
+  }
+
+  .rtd-group-list {
+    @apply gap-[9px];
+  }
+
+  .rtd-ingredient-group {
+    @apply rounded-sheet overflow-hidden bg-background-element/[84%];
+  }
+
+  .rtd-group-header {
+    @apply min-h-[33px] px-[12px] flex-row items-center justify-between gap-[10px] border-b-hairline border-border;
+  }
+
+  .rtd-group-title {
+    @apply flex-1 text-[10px] leading-[12px] font-bold;
+  }
+
+  .rtd-group-meta {
+    @apply text-[8px] leading-[10px] font-medium;
+  }
+
+  .rtd-ingredient-row {
+    @apply min-h-[28px] px-[12px] flex-row items-center justify-between gap-[12px];
+  }
+
+  .rtd-ingredient-row-bordered {
+    @apply border-b-hairline border-border;
+  }
+
+  .rtd-ingredient-name {
+    @apply flex-1 text-[9px] leading-[11px] font-medium;
+  }
+
+  .rtd-ingredient-amount {
+    @apply text-[9px] leading-[11px] font-medium;
+  }
+
+  .rtd-steps-card {
+    @apply rounded-sheet overflow-hidden bg-background-element/[84%];
+  }
+
+  .rtd-step-row {
+    @apply min-h-[28px] px-[12px] py-[8px] justify-center;
+  }
+
+  .rtd-step-text {
+    @apply text-[9px] leading-[13px] font-medium;
+  }
+
+  .rtd-sticky-action {
+    @apply absolute left-[15px] right-[15px] bottom-[12px];
+  }
+
+  .rtd-primary-button {
+    @apply min-h-[48px] rounded-card items-center justify-center px-[16px] bg-accent active:opacity-75 active:scale-[0.99];
+  }
+
+  .rtd-primary-button-disabled {
+    @apply opacity-45;
+  }
+
+  .rtd-primary-button-text {
+    @apply text-white font-bold;
+  }
+
+  /* dashboard-screen.tsx — "Glass Cards" sind noch kein echtes Glass, nur
+     Schatten+Radius unter dem Namen (s. DESIGN_SYSTEM.md Backlog Punkt 5,
+     Phase C). borderCurve bleibt style (kein Tailwind-Aequivalent). */
+  .dashboard-calorie-card {
+    @apply h-[176px] rounded-fam-large flex-row items-center gap-[24px] px-[22px] py-[20px] mb-[15px] bg-background-element;
+  }
+
+  .dashboard-ring-wrap {
+    @apply w-[113px] h-[113px] items-center justify-center;
+  }
+
+  .dashboard-calorie-copy {
+    @apply flex-1 gap-[4px];
+  }
+
+  .dashboard-calorie-label {
+    @apply text-[13px] leading-[18px] font-normal;
+  }
+
+  .dashboard-calorie-value {
+    @apply text-[27px] leading-[34px] font-medium;
+  }
+
+  .dashboard-calorie-remaining {
+    @apply text-[13px] leading-[18px] font-normal;
+  }
+
+  .dashboard-planned-card {
+    @apply h-[140px] rounded-fam-large flex-row items-center gap-[16px] pl-[16px] pr-[18px] py-[16px] mb-[15px] bg-background-element;
+  }
+
+  .dashboard-planned-copy {
+    @apply flex-1 gap-[5px];
+  }
+
+  .dashboard-planned-kicker {
+    @apply text-[11px] leading-[16px] tracking-[0.1px] font-medium;
+  }
+
+  .dashboard-planned-title {
+    @apply text-[17px] leading-[22px] font-medium;
+  }
+
+  .dashboard-planned-meta {
+    @apply text-[12px] leading-[16px] font-normal;
+  }
+
+  .dashboard-widget-row {
+    @apply flex-row gap-[12px];
+  }
+
+  .dashboard-widget {
+    @apply flex-1 h-[138px] rounded-fam-large p-[16px] gap-[8px] bg-background-element;
+  }
+
+  .dashboard-widget-badge {
+    @apply self-start min-w-[36px] h-[28px] rounded-control items-center justify-center px-one;
+  }
+
+  .dashboard-widget-label {
+    @apply text-[14px] leading-[20px] font-normal;
+  }
+
+  .dashboard-widget-action {
+    @apply text-[17px] leading-[22px] font-medium;
+  }
+
+  /* household-switcher-modal.tsx */
+  .modal-header-row {
+    @apply flex-row justify-between items-center;
+  }
+
+  .hh-row {
+    @apply flex-row items-center py-three px-two rounded-control border-b-hairline border-border;
+  }
+
+  .hh-actions {
+    @apply gap-two mt-two;
+  }
+
+  /* invite-modal.tsx */
+  .modal-backdrop-bottom {
+    @apply flex-1 bg-black/50 justify-end;
+  }
+
+  .invite-modal-box {
+    @apply rounded-t-fam-large p-four max-h-[85%] bg-background;
+  }
+
+  .invite-modal-content {
+    @apply gap-three pb-four;
+  }
+
+  .invite-token-text {
+    @apply text-[#10B981] font-bold text-[15px] text-center py-[8px];
+  }
+
+  .invite-qr-container {
+    @apply items-center justify-center p-three bg-white rounded-card self-center my-two;
+  }
+
+  .invite-row {
+    @apply flex-row items-center py-two px-one border-b-hairline border-border gap-two;
+  }
+
+  .invite-row-selected {
+    @apply bg-accent/[8%] rounded-sm;
+  }
+
+  .invite-row-buttons {
+    @apply flex-row gap-[8px];
+  }
+
+  .invite-action-icon-button {
+    @apply p-[6px];
+  }
+
+  .invite-action-icon-text {
+    @apply text-[16px];
+  }
+
+  /* members-screen.tsx */
+  .member-row {
+    @apply py-three border-b-hairline border-border flex-row items-center justify-between gap-two;
+  }
+
+  .member-avatar {
+    @apply w-[40px] h-[40px] rounded-sheet items-center justify-center overflow-hidden bg-background-element;
+  }
+
+  .member-avatar-selected {
+    @apply border-2 border-accent;
+  }
+
+  .member-avatar-image {
+    @apply w-[40px] h-[40px] rounded-sheet;
+  }
+
+  .member-actions {
+    @apply flex-row gap-[8px] items-center;
+  }
+
+  .member-role-tag {
+    @apply px-[8px] py-[4px] rounded-sm bg-[rgba(16,_185,_129,_0.1)];
+  }
+
+  .member-remove-tag {
+    @apply px-[8px] py-[4px] rounded-sm bg-[rgba(239,_68,_68,_0.1)];
+  }
+
+  /* child-profiles-screen.tsx */
+  .child-segment-btn {
+    @apply flex-1 py-[10px] rounded-control items-center justify-center;
+  }
+
+  .child-row {
+    @apply flex-row items-center py-three border-b-hairline border-border gap-two;
+  }
+
+  .child-edit-card {
+    @apply py-three border-b-hairline border-border gap-three;
+  }
+
+  .child-action-buttons {
+    @apply flex-row gap-one;
+  }
+
+  /* inventory-tab-bar.tsx */
+  .inventory-tab-bar-container {
+    @apply relative z-[30];
+  }
+
+  /* Solider Fallback fuer den Glass-Trigger (Android, iOS < 26, Reduce
+     Transparency) — Radius/Padding muss mit TRIGGER_GLASS_STYLE in Sync
+     bleiben. */
+  .inventory-tab-bar-trigger {
+    @apply flex-row items-center justify-between gap-one rounded-full px-three py-[11px] bg-background-element/[91%] border-hairline border-border active:opacity-80;
+  }
+
+  .inventory-tab-bar-menu {
+    @apply border-hairline rounded-control-lg overflow-hidden bg-background-element border-border;
+  }
+
+  .inventory-toolbar-row {
+    @apply flex-row items-center gap-one;
+  }
+
+  /* inventory-search-field.tsx — Kapselform passend zum echten Liquid-Glass-
+     Rendering des "Alle"-Triggers (rundet auf iOS 26+ automatisch zur Kapsel,
+     unabhaengig vom gesetzten borderRadius). */
+  .inventory-search-field {
+    @apply flex-1 flex-row items-center gap-one rounded-full px-three py-[11px] bg-background-element/[91%] border-hairline border-border;
+  }
+
+  .inventory-search-input {
+    @apply flex-1 text-body-relaxed text-text p-0;
+  }
+
+  .inventory-tab-bar-option {
+    @apply min-h-[42px] px-three flex-row items-center justify-between active:opacity-[0.72];
+  }
+
+  .inventory-tab-bar-option-bordered {
+    @apply border-t-hairline border-border;
+  }
+
+  /* inventory-item-row.tsx */
+  .inventory-item-row {
+    @apply flex-row items-center pl-two pr-three py-[11px] border-b-hairline border-border gap-[14px];
+  }
+
+  .fridge-item-expiry-bar {
+    @apply w-[5px] h-full min-h-[48px] rounded-xs;
+  }
+
+  .fridge-item-main {
+    @apply flex-1 gap-half;
+  }
+
+  .fridge-item-quantity {
+    @apply min-w-[58px] text-right;
+  }
+
+  .fridge-item-remove-action {
+    @apply w-[96px] items-center justify-center bg-danger active:opacity-[0.78];
+  }
+
+  /* inventory-summary-card.tsx — zwei Ablauf-Ringe statt eines Bestandsrings */
+  .inventory-summary-row {
+    @apply flex-row gap-two;
+  }
+
+  .inventory-summary-ring-card {
+    @apply flex-1 rounded-fam-large items-center gap-two px-three py-[18px] bg-background-element/[91%] border-hairline border-border;
+  }
+
+  .inventory-summary-ring-wrap {
+    @apply w-[58px] h-[58px] items-center justify-center;
+  }
+
+  .inventory-summary-ring-count {
+    @apply absolute !text-[19px] !leading-[22px] font-bold;
+  }
+
+  /* fridge-item-actions-sheet.tsx */
+  .fridge-actions-backdrop {
+    @apply absolute inset-0 bg-[rgba(31,_26,_33,_0.32)];
+  }
+
+  .fridge-actions-sheet {
+    @apply absolute left-[10px] right-[10px] bottom-[10px] rounded-fam-large px-[14px] pt-[11px] gap-[14px] bg-background-element;
+  }
+
+  .fridge-actions-handle {
+    @apply w-[42px] h-[4px] rounded-hairline self-center bg-border;
+  }
+
+  .fridge-actions-item-header {
+    @apply min-h-[76px] flex-row items-center gap-[12px] pb-[14px] border-b-hairline border-border;
+  }
+
+  .fridge-actions-expiry-bar {
+    @apply w-[6px] h-[52px] rounded-xs;
+  }
+
+  .fridge-actions-item-copy {
+    @apply flex-1 gap-[3px];
+  }
+
+  .fridge-actions-quantity-row {
+    @apply min-h-[56px] flex-row items-center gap-[10px];
+  }
+
+  .fridge-actions-quantity-copy {
+    @apply flex-1 items-stretch gap-[2px];
+  }
+
+  .fridge-actions-row {
+    @apply flex-row gap-[8px];
+  }
+
+  .fridge-action-btn {
+    @apply flex-1 h-[62px] rounded-card items-center justify-center active:opacity-[0.72];
+  }
+
+  .fridge-action-btn-neutral {
+    @apply bg-background-selected;
+  }
+
+  .fridge-action-btn-success {
+    @apply bg-success/[14%];
+  }
+
+  .fridge-action-btn-danger {
+    @apply bg-danger/[13%];
+  }
+
+  .fridge-actions-info-action {
+    @apply min-h-[36px] self-start flex-row items-center gap-two pr-two active:opacity-[0.72];
+  }
+
+  .fridge-actions-info-icon {
+    @apply w-[28px] h-[28px] rounded-control-lg border-hairline items-center justify-center bg-background-selected border-border;
+  }
+
+  /* edit-fridge-item-sheet.tsx */
+  .edit-fridge-modal-root {
+    @apply flex-1 justify-end;
+  }
+
+  .edit-fridge-sheet {
+    @apply max-h-[91%] rounded-t-fam-large pt-[10px] bg-background-element;
+  }
+
+  .edit-fridge-content {
+    @apply p-three gap-three;
+  }
+
+  .edit-fridge-header {
+    @apply min-h-[38px] flex-row items-center justify-between;
+  }
+
+  .edit-fridge-close-button {
+    @apply w-[36px] h-[36px] rounded-sheet items-center justify-center bg-background-selected;
+  }
+
+  .edit-fridge-product-card {
+    @apply min-h-[62px] rounded-card px-three py-two flex-row items-center justify-between gap-two bg-background-selected;
+  }
+
+  .edit-fridge-product-copy {
+    @apply flex-1 gap-half;
+  }
+
+  .edit-fridge-product-quantity {
+    @apply items-end gap-half;
+  }
+
+  .edit-fridge-controls-row {
+    @apply flex-row items-end gap-two;
+  }
+
+  .edit-fridge-control-column {
+    @apply flex-1 gap-one;
+  }
+
+  .edit-fridge-details-toggle {
+    @apply min-h-[36px] flex-row items-center gap-two border-b-hairline border-border;
+  }
+
+  /* fridge-screen.tsx */
+  .fridge-sort-row {
+    @apply flex-row items-center justify-between min-h-[40px] pl-one;
+  }
+
+  /* frequent-products-quick-select.tsx */
+  .frequent-products-chip {
+    @apply rounded-card border px-two py-one mr-one max-w-[160px] bg-background-element border-border;
+  }
+
+  /* inline-select.tsx — kompaktes Dropdown unter Suchfeldern (Vorrat-
+     Redesign, Filter-/Quelle-Auswahl analog zu den Einkaufen-Vorschlaegen). */
+  .inline-select-btn {
+    @apply h-[42px] rounded-control border border-border bg-background-element flex-row items-center justify-between px-three;
+  }
+
+  .inline-select-btn-open {
+    @apply border-accent;
+  }
+
+  .inline-select-panel {
+    @apply absolute top-[46px] left-0 right-0 z-20 rounded-control border border-border bg-background shadow-sheet p-one gap-[2px];
+  }
+
+  .inline-select-option {
+    @apply rounded-sm px-two py-two flex-row items-center justify-between gap-two;
+  }
+
+  .inline-select-option-active {
+    @apply bg-accent;
+  }
+
+  /* add-item-screen.tsx (Vorrat) */
+  .ai-scan-btn {
+    @apply w-10 h-10 rounded-control bg-background-selected;
+  }
+
+  .ai-new-location-box {
+    @apply gap-three p-three rounded-sm border border-border;
+  }
+
+  /* goal-setup-screen.tsx */
+  .gs-save-row {
+    @apply flex-row gap-two mt-one;
+  }
+
+  /* product-search-dropdown.tsx */
+  .psd-spinner {
+    @apply absolute right-3 top-9;
+  }
+
+  .psd-panel {
+    /* max-height kommt dynamisch aus product-search-dropdown.tsx (Messung
+       gegen den unteren Bildschirm-/Tastaturrand), nicht mehr fest von hier. */
+    @apply absolute top-full left-0 right-0 z-20 mt-1 rounded-control border border-border bg-background shadow-sheet;
+  }
+
+  /* Einziger expliziter Weg, die Trefferliste ohne Artikel-Auswahl zu
+     schliessen (#UI-Feedback: "Suchliste lässt sich nicht schliessen"),
+     seit Tastatur- und Listen-Dismiss bewusst entkoppelt sind. z-30 haelt
+     ihn ueber dem Panel (z-20) und dessen scrollbarem Inhalt. */
+  .psd-panel-close {
+    @apply absolute top-1 right-1 z-30 w-6 h-6 rounded-full items-center justify-center bg-background-selected active:opacity-70;
+  }
+
+  .psd-row {
+    @apply flex-row items-center p-two border-b-hairline border-border gap-two;
+  }
+
+  .psd-thumb {
+    @apply w-8 h-8 rounded-sm;
+  }
+
+  .psd-thumb-fallback {
+    @apply w-8 h-8 rounded-sm items-center justify-center bg-background-element;
+  }
+
+  /* recipe-wizard-step-steps.tsx: Autovervollstaendigung fuer @-Zutaten-Erwaehnungen */
+  .mention-panel {
+    @apply absolute top-full left-0 right-0 z-20 mt-1 rounded-control border border-border bg-background shadow-sheet;
+  }
+
+  .mention-row {
+    @apply px-three py-two border-b-hairline border-border;
+  }
+
+  .mention-hint {
+    @apply px-three py-two;
+  }
+
+  /* barcode-scanner-modal.tsx */
+  .scanner-backdrop {
+    @apply flex-1 bg-black/60 justify-end;
+  }
+
+  .scanner-modal-box {
+    @apply rounded-t-fam-large p-four gap-three h-[80%];
+  }
+
+  .scanner-permission-box {
+    @apply flex-1 justify-center items-center gap-three px-three;
+  }
+
+  .scanner-camera-container {
+    @apply flex-1 rounded-card overflow-hidden justify-center items-center;
+  }
+
+  .scanner-target-frame {
+    @apply w-[220px] h-[140px] border-2 rounded-control bg-transparent border-[#10B981];
+  }
+
+  .scanner-status-box {
+    @apply flex-row items-center justify-center gap-two;
+  }
+
+  /* storage-locations-screen.tsx */
+  .storage-location-row {
+    @apply py-three border-b-hairline border-border gap-two;
+  }
+
+  .storage-location-name {
+    @apply font-bold text-[16px];
+  }
+
+  .storage-location-btn-row {
+    @apply flex-row gap-two mt-one;
+  }
+
+  /* diary-screen.tsx — borderCurve bleibt an den betroffenen Views als
+     `style` (kein Tailwind-Aequivalent), analog zu dashboard-screen.tsx. */
+  .diary-root {
+    @apply flex-1;
+  }
+
+  .diary-safe-area {
+    @apply flex-1 w-full max-w-content self-center;
+  }
+
+  .diary-content {
+    @apply px-four pt-[2px] pb-[126px] gap-two;
+  }
+
+  .diary-goal-icon {
+    @apply w-[20px] h-[20px] flex-row items-end justify-center gap-[2px];
+  }
+
+  .diary-goal-bar {
+    @apply w-[4px] rounded-hairline bg-accent;
+  }
+
+  .diary-goal-bar-short {
+    @apply h-[7px];
+  }
+
+  .diary-goal-bar-tall {
+    @apply h-[17px];
+  }
+
+  .diary-goal-bar-mid {
+    @apply h-[12px];
+  }
+
+  .diary-date-row {
+    @apply h-[42px] flex-row items-center;
+  }
+
+  .diary-date-arrow {
+    @apply w-[40px] h-[38px] items-center justify-center active:opacity-[0.72];
+  }
+
+  .diary-chevron {
+    @apply text-[21px] leading-[23px] font-medium;
+  }
+
+  .diary-date-copy {
+    @apply flex-1 items-center justify-center;
+  }
+
+  .diary-relative-date {
+    @apply text-[14px] leading-[17px] font-bold;
+  }
+
+  .diary-full-date {
+    @apply mt-[1px] text-[10px] leading-[12px] font-medium;
+  }
+
+  /* Kartenlos (#164-Folgeredesign): Bilanz, Makros und Mahlzeiten liegen
+     direkt auf dem Verlaufshintergrund, nur Haarlinien trennen Abschnitte —
+     kein Karten-Chrome mehr, analog zur Zeilenoptik im Vorrat. */
+  .diary-summary-card {
+    @apply min-h-[152px] pb-three border-b-hairline border-border flex-row items-center gap-four;
+  }
+
+  .diary-summary-stats {
+    @apply flex-1 min-w-0 gap-[100px];
+  }
+
+  .diary-summary-row {
+    @apply flex-row justify-between items-baseline gap-two;
+  }
+
+  /* Beschriftung: "Gegessen", "Grundziel", "Übrig" */
+  .diary-summary-label {
+    @apply text-[14px] leading-[18px] font-medium;
+    /* <- ztext-[12px] leading-[15px] oder text-[13px] */
+  }
+
+  .diary-summary-value {
+    @apply text-[20px] leading-[22px] font-bold text-right;
+    /* <- z. B. auf text-[12px] leading-[15px] oder text-[13px] */
+  }
+
+  .diary-goal-status {
+    @apply mt-[2px] text-[9px] leading-[12px] font-semibold;
+  }
+
+  .diary-macro-list {
+    @apply gap-three;
+  }
+
+  .diary-macro-item {
+    @apply gap-[6px] pb-three border-b-hairline border-border;
+  }
+
+  .diary-macro-item-last {
+    @apply gap-[6px];
+  }
+
+  .diary-macro-labels {
+    @apply flex-row items-baseline justify-between gap-two;
+  }
+
+  /* Name des Makros: "Protein", "Kohlenhydrate", "Fett" */
+  .diary-macro-label {
+    @apply text-[13px] leading-[16px] font-bold;
+  }
+
+  .diary-macro-value {
+    @apply text-[11px] leading-[14px] font-medium;
+  }
+
+  .diary-meal-section {
+    @apply border-b-hairline border-border;
+  }
+
+  .diary-meal-header {
+    @apply min-h-[44px] flex-row items-center justify-between gap-three;
+  }
+
+  .diary-meal-heading {
+    @apply flex-1 min-w-0;
+  }
+
+  .diary-meal-title {
+    @apply text-[13px] leading-[16px] font-bold;
+  }
+
+  .diary-meal-kcal {
+    @apply mt-[1px] text-[10px] leading-[12px] font-medium;
+  }
+
+  .diary-add-button {
+    @apply w-[28px] h-[28px] rounded-control items-center justify-center bg-accent active:opacity-[0.72];
+  }
+
+  .diary-entry-row {
+    @apply min-h-[36px] mb-[6px] py-[4px] flex-row items-center justify-between gap-[10px] active:opacity-[0.72];
+  }
+
+  .diary-entry-info {
+    @apply flex-1 min-w-0;
+  }
+
+  .diary-entry-name {
+    @apply text-[11px] leading-[14px] font-bold;
+  }
+
+  .diary-entry-quantity {
+    @apply mt-[1px] text-[10px] leading-[12px] font-medium;
+  }
+
+  .diary-entry-kcal {
+    @apply text-[10px] leading-[12px] font-semibold;
+  }
+
+  .diary-loading-text {
+    @apply py-[24px] text-[11px] leading-[14px];
+  }
+
+  /* food-search-screen.tsx */
+  .fss-header {
+    @apply gap-two;
+  }
+
+  .fss-search-row {
+    @apply flex-row items-center gap-two;
+  }
+
+  .fss-scan-btn {
+    @apply w-[48px] h-[48px] rounded-control items-center justify-center bg-background-element;
+  }
+
+  .fss-centered {
+    @apply text-center mt-four;
+  }
+
+  .fss-center-loader {
+    @apply mt-four;
+  }
+
+  .fss-failed-box {
+    @apply items-center gap-two mt-four;
+  }
+
+  .fss-footer-loader {
+    @apply my-three;
+  }
+
+  .fss-row {
+    @apply flex-row items-center gap-two py-two border-b-hairline border-border;
+  }
+
+  .fss-row-img {
+    @apply w-9 h-9 rounded-sm;
+  }
+
+  .fss-row-img-placeholder {
+    @apply w-9 h-9 rounded-sm items-center justify-center bg-background-element;
+  }
+
+  .fss-row-text {
+    @apply flex-1 gap-[2px];
+  }
+
+  .fss-quick-entry-btn {
+    @apply flex-row items-center justify-center gap-two py-three rounded-control-lg mt-three mb-four bg-background-element;
+  }
+
+  /* add-food-entry-screen.tsx */
+  .afe-form {
+    @apply gap-three mt-two;
+  }
+
+  .afe-hero {
+    @apply flex-row items-center gap-three;
+  }
+
+  .afe-hero-image {
+    @apply w-[56px] h-[56px] rounded-control-lg;
+  }
+
+  .afe-hero-image-placeholder {
+    @apply w-[56px] h-[56px] rounded-control-lg items-center justify-center bg-background-element;
+  }
+
+  .afe-hero-text {
+    @apply flex-1 gap-[2px];
+  }
+
+  .afe-nutri-badge {
+    @apply w-[34px] h-[34px] rounded-control items-center justify-center bg-accent;
+  }
+
+  .afe-nutri-badge-text {
+    @apply text-on-accent font-black text-[15px];
+  }
+
+  .afe-badge-row {
+    @apply flex-row flex-wrap gap-one;
+  }
+
+  .afe-badge {
+    @apply px-[10px] py-[4px] rounded-control;
+  }
+
+  /* goal-setup-screen.tsx */
+  .gs-segmented-row {
+    @apply flex-row gap-two;
+  }
+
+  .gs-segment-btn {
+    @apply flex-1 py-[10px] rounded-control items-center justify-center;
+  }
+
+  .gs-preview {
+    @apply border-hairline border-border rounded-card p-three gap-one;
+  }
+
+  /* recipe-picker-modal.tsx (meal-planner) */
+  .rpm-root {
+    @apply flex-1;
+  }
+
+  .rpm-safe-area {
+    @apply flex-1 px-four;
+  }
+
+  .rpm-header {
+    @apply flex-row items-center justify-between py-three;
+  }
+
+  .rpm-close-button {
+    @apply w-[32px] h-[32px] rounded-card items-center justify-center bg-background-element;
+  }
+
+  .rpm-empty {
+    @apply text-center mt-five;
+  }
+
+  .rpm-list {
+    @apply py-two;
+  }
+
+  .rpm-recipe-row {
+    @apply py-three border-b-hairline border-border;
+  }
+
+  /* entry-form-modal.tsx (meal-planner) — root/safeArea/header/closeButton
+     teilen sich die rpm-*-Klassen von recipe-picker-modal.tsx (identisches
+     Modal-Grundgeruest). */
+  .efm-header-text {
+    @apply flex-1 mr-two gap-[2px];
+  }
+
+  .efm-content {
+    @apply gap-three;
+  }
+
+  .efm-mode-row {
+    @apply flex-row gap-two;
+  }
+
+  .efm-mode-button {
+    @apply flex-1 py-two rounded-control items-center;
+  }
+
+  .efm-whole-household-button {
+    @apply self-start;
+  }
+
+  .efm-actions {
+    @apply gap-two mt-three;
+  }
+
+  /* missing-ingredients-screen.tsx */
+  .mis-loading {
+    @apply mt-five;
+  }
+
+  .mis-list {
+    @apply gap-two;
+  }
+
+  .mis-row {
+    @apply flex-row items-center gap-two p-two rounded-control bg-background-element;
+  }
+
+  .mis-checkbox {
+    @apply w-6 h-6 rounded-sm border-2 border-accent items-center justify-center;
+  }
+
+  .mis-row-text {
+    @apply flex-1 gap-[2px];
+  }
+
+  /* meal-planner-screen.tsx — borderCurve bleibt an actionButton als `style`
+     (kein Tailwind-Aequivalent, analog zu dashboard-screen.tsx). */
+  .mp-root {
+    @apply flex-1;
+  }
+
+  .mp-safe-area {
+    @apply flex-1 w-full max-w-content self-center;
+  }
+
+  .mp-content {
+    @apply flex-1 px-[14px];
+  }
+
+  .mp-period-row {
+    @apply h-[43px] flex-row items-center pt-[9px];
+  }
+
+  .mp-period-button {
+    @apply w-9 h-[34px] items-center justify-center active:opacity-70;
+  }
+
+  .mp-chevron {
+    @apply text-[19px] leading-[22px] font-medium;
+  }
+
+  .mp-period-copy {
+    @apply flex-1 items-center;
+  }
+
+  .mp-period-title {
+    @apply text-[17px] leading-[21px] font-bold;
+  }
+
+  .mp-actions-row {
+    @apply flex-row gap-[7px] pt-[9px];
+  }
+
+  .mp-action-button {
+    @apply flex-1 min-h-[42px] items-center justify-center rounded-control-lg px-two bg-background-element/[78%] active:opacity-70;
+  }
+
+  .mp-action-button-disabled {
+    @apply opacity-45;
+  }
+
+  .mp-action-label {
+    @apply text-[10px] leading-[13px] font-bold text-center;
+  }
+
+  /* week-grid.tsx — borderCurve bleibt an mehreren Karten als `style`
+     (kein Tailwind-Aequivalent). SLOT_SIZES (ehemals ein separates JS-Objekt)
+     ist direkt in die Klassen uebernommen: die Groessen waren bereits fuer
+     Tag-/3-Tage-/Wochenansicht identisch (siehe Kommentar oben in der
+     Komponente), die Indirektion ueber ein Konstanten-Objekt war unnoetig. */
+  .wg-root {
+    @apply flex-1;
+    /* @apply flex-1 bg-background; */
+  }
+
+  .wg-scroll {
+    @apply flex-1;
+  }
+
+  .wg-content {
+    @apply gap-10 pt-[10px] pb-[126px];
+  }
+
+  .wg-day-card {
+    /* @apply overflow-hidden border rounded-sheet bg-background-element/[89%] border-background-element/[96%]; */
+    /* @apply overflow-hidden border rounded-sheet bg-background-element border-background-element/[96%]; */
+    @apply overflow-hidden border-hairline rounded-sheet bg-background-element border-background-element/[96%];
+  }
+
+  .wg-day-header {
+    @apply h-[38px] flex-row items-center justify-between px-three;
+  }
+
+  .wg-day-name {
+    /* @apply text-[17px] leading-[21px] font-bold; */
+    @apply text-[20px] leading-[24px] font-bold;
+  }
+
+  .wg-day-date {
+    @apply text-[9px] leading-[12px] font-medium;
+  }
+
+  .wg-slot-column {
+    @apply flex-col border-t border-text/[7%];
+  }
+
+  .wg-slot {
+    @apply min-w-0 min-h-[116px] gap-two px-three py-three;
+  }
+
+  .wg-slot-divider {
+    /* @apply border-t border-text/[7%]; */
+    @apply border-text/[7%];
+  }
+
+  .wg-slot-label {
+    @apply font-bold tracking-[0.55px] uppercase text-[11px] leading-[14px];
+  }
+
+  .wg-entry-chip {
+    @apply justify-center min-h-[46px] rounded-[13px] px-three py-[9px] bg-background-selected active:opacity-70;
+  }
+
+  .wg-entry-title {
+    @apply font-bold text-[15px] leading-[19px];
+  }
+
+  .wg-entry-meta {
+    @apply font-medium text-[12px] leading-[15px];
+  }
+
+  .wg-add-button {
+    @apply items-center justify-center min-h-[40px] rounded-control px-two border border-dashed border-border active:opacity-70;
+  }
+
+  .wg-add-text {
+    @apply font-semibold text-[13px] leading-[16px];
+  }
+
+  .wg-tray {
+    /* @apply overflow-hidden border rounded-sheet py-three bg-background-element/[78%] border-border; */
+    @apply overflow-hidden border rounded-sheet py-three bg-background-element border-border;
+  }
+
+  .wg-tray-title {
+    @apply px-three text-[11px] leading-[14px] font-bold;
+  }
+
+  .wg-tray-label {
+    @apply px-three pt-[1px] pb-two text-[8px] leading-[11px] font-medium;
+  }
+
+  .wg-tray-grid {
+    @apply flex-row flex-wrap gap-[10px] px-three;
+  }
+
+  .wg-recipe-card {
+    @apply w-[47%] rounded-card p-two gap-[6px] bg-background-selected;
+  }
+
+  .wg-recipe-card-artwork {
+    @apply h-[118px] overflow-hidden rounded-control;
+  }
+
+  .wg-recipe-card-text {
+    @apply text-[12px] leading-[15px] font-bold;
+  }
+
+  .wg-drag-overlay {
+    @apply absolute left-0 top-0;
+  }
+
+  .wg-drag-preview-card {
+    @apply w-[112px] rounded-card border-2 border-accent p-[6px] gap-[4px] opacity-[0.94] bg-background-selected;
+  }
+
+  .wg-drag-preview-artwork {
+    @apply h-[68px] overflow-hidden rounded-control;
+  }
+
+  .wg-drag-preview-text {
+    @apply text-[10px] leading-[13px] font-bold;
+  }
+
+  /*
+   * Geteilte Tab-Button-Klasse fuer die 5 gleichartigen Umschalt-Buttons:
+   * "Entdecken"/"Meine Favoriten" (recipes-screen.tsx) und
+   * "Tag"/"3 Tage"/"Woche" (meal-planner-screen.tsx). Farbe, Groesse und
+   * Rundung leben ausschliesslich hier — bei Aenderungen an einer Stelle
+   * bitte nicht pro Screen einzeln nachziehen.
+   */
+  .tab-btn {
+    @apply flex-1 h-[46px] rounded-control-lg border items-center justify-center;
+  }
+
+  .tab-btn-active {
+    @apply bg-accent border-accent;
+  }
+
+  .tab-btn-idle {
+    @apply bg-background-selected border-border;
+  }
+
+  .tab-btn-label {
+    @apply text-[14px] leading-[18px] font-bold;
+  }
 }

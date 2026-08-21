@@ -1,12 +1,11 @@
 import { useQuery } from '@tanstack/react-query';
-import { ActivityIndicator, Modal, Pressable, ScrollView, StyleSheet, View } from 'react-native';
+import { ActivityIndicator, Modal, Pressable, ScrollView, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
-import { FontSize, ThemedText } from '@/components/themed-text';
-import { Radius, Spacing, withAlpha } from '@/constants/theme';
+import { ThemedText } from '@/components/theme/themed-text';
 import { useProduct } from '@/features/inventory/use-product';
 import { useTheme } from '@/hooks/use-theme';
-import { fetchProductByBarcode } from '@/lib/open-food-facts';
+import { fetchProductByBarcode, type OpenFoodFactsProduct } from '@/lib/open-food-facts';
 
 export type ProductInformationItem = {
   product_id: string | null;
@@ -16,19 +15,21 @@ export type ProductInformationItem = {
   expiry_date?: string | null;
 };
 
+type NutriScoreGrade = NonNullable<OpenFoodFactsProduct['nutriScore']>;
+
 type ProductInformationProps = {
   visible: boolean;
   item: ProductInformationItem | null;
   onClose: () => void;
 };
 
-const NUTRI_COLORS = {
-  a: '#5D9E55',
-  b: '#78A866',
-  c: '#D0A44B',
-  d: '#D58545',
-  e: '#C65F50',
-} as const;
+const NUTRI_BADGE_CLASSES: Record<NutriScoreGrade, string> = {
+  a: 'badge-nutri-a',
+  b: 'badge-nutri-b',
+  c: 'badge-nutri-c',
+  d: 'badge-nutri-d',
+  e: 'badge-nutri-e',
+};
 
 function formatNumber(value: number | null | undefined, digits = 1): string {
   if (value === null || value === undefined || Number.isNaN(value)) return '–';
@@ -90,27 +91,23 @@ export function ProductInformation({ visible, item, onClose }: ProductInformatio
 
   return (
     <Modal visible={visible} transparent animationType="slide" onRequestClose={onClose}>
-      <View style={StyleSheet.absoluteFill}>
+      <View className="absolute inset-0">
         <Pressable
-          style={styles.backdrop}
+          className="absolute inset-0 bg-[#1F1A21]/30"
           onPress={onClose}
           accessibilityRole="button"
           accessibilityLabel="Produktinformationen schließen"
         />
 
         <View
-          style={[
-            styles.sheet,
-            {
-              backgroundColor: theme.backgroundElement,
-              paddingBottom: Math.max(insets.bottom, Spacing.three),
-              boxShadow: `0 -16px 48px ${withAlpha(theme.shadowSheet, 0.2)}`,
-            },
-          ]}>
-          <View style={[styles.handle, { backgroundColor: theme.border }]} />
-          <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={styles.content}>
-            <View style={styles.header}>
-              <View style={styles.headerCopy}>
+          className="absolute left-3 right-3 bottom-[10px] max-h-[82%] rounded-fam-large overflow-hidden bg-background-element shadow-sheet"
+          // Bottom-Safe-Area ist ein echter Laufzeitwert (Geraet-abhaengig),
+          // kann nicht als Tailwind-Klasse ausgedrueckt werden. 24px = pb-four.
+          style={{ paddingBottom: insets.bottom + 24 }}>
+          <View className="w-[42px] h-[4px] rounded-hairline self-center mt-[11px] bg-border" />
+          <ScrollView showsVerticalScrollIndicator={false} contentContainerClassName="p-[20px] gap-[14px]">
+            <View className="flex-row items-start gap-three">
+              <View className="flex-1 gap-[3px]">
                 <ThemedText type="subtitle" selectable>
                   {item.name}
                 </ThemedText>
@@ -122,22 +119,23 @@ export function ProductInformation({ visible, item, onClose }: ProductInformatio
                 onPress={onClose}
                 accessibilityRole="button"
                 accessibilityLabel="Schließen"
-                style={[styles.closeButton, { backgroundColor: theme.backgroundSelected }]}>
+                className="w-[34px] h-[34px] rounded-sheet items-center justify-center bg-background-selected active:opacity-75">
                 <ThemedText>×</ThemedText>
               </Pressable>
             </View>
 
-            <View style={[styles.nutriCard, { backgroundColor: theme.background }]}>
+            <View className="min-h-[88px] rounded-sheet p-[12px] flex-row items-center gap-[12px] bg-background">
               <View
-                style={[
-                  styles.score,
-                  { backgroundColor: score ? NUTRI_COLORS[score] : theme.backgroundSelected },
-                ]}>
-                <ThemedText style={[styles.scoreText, { color: score ? '#fff' : theme.text }]}>
+                className={`w-[62px] h-[62px] rounded-card items-center justify-center ${
+                  score ? NUTRI_BADGE_CLASSES[score] : 'bg-background-selected'
+                }`}>
+                <ThemedText
+                  className={`text-[24px] leading-[28px] font-bold ${score ? 'text-white' : ''}`}
+                  themeColor={score ? undefined : 'text'}>
                   {score?.toUpperCase() ?? '–'}
                 </ThemedText>
               </View>
-              <View style={styles.flex}>
+              <View className="flex-1 gap-[3px]">
                 <ThemedText type="smallBold">Nutri-Score {score?.toUpperCase() ?? '–'}</ThemedText>
                 <ThemedText type="small" themeColor="textSecondary">
                   Produktdaten von Open Food Facts
@@ -146,8 +144,8 @@ export function ProductInformation({ visible, item, onClose }: ProductInformatio
               {isFetching ? <ActivityIndicator size="small" color={theme.accent} /> : null}
             </View>
 
-            <View style={[styles.detailsCard, { borderColor: theme.border }]}>
-              <View style={[styles.detailRow, { borderBottomColor: theme.border }]}>
+            <View className="border-hairline rounded-sheet overflow-hidden border-border">
+              <View className="min-h-[50px] px-[14px] flex-row items-center justify-between gap-three border-b-hairline border-border">
                 <ThemedText type="small" themeColor="textSecondary">
                   Menge und Einheit
                 </ThemedText>
@@ -155,7 +153,7 @@ export function ProductInformation({ visible, item, onClose }: ProductInformatio
                   {item.quantity} {item.unit}
                 </ThemedText>
               </View>
-              <View style={styles.detailRow}>
+              <View className="min-h-[50px] px-[14px] flex-row items-center justify-between gap-three">
                 <ThemedText type="small" themeColor="textSecondary">
                   Mindesthaltbarkeitsdatum
                 </ThemedText>
@@ -165,14 +163,14 @@ export function ProductInformation({ visible, item, onClose }: ProductInformatio
               </View>
             </View>
 
-            <View style={[styles.copyCard, { backgroundColor: theme.background }]}>
+            <View className="rounded-sheet p-[14px] gap-[6px] bg-background">
               <ThemedText type="smallBold">Zutaten</ThemedText>
               <ThemedText type="small" themeColor="textSecondary" selectable>
                 {openFoodFactsProduct?.ingredients ?? 'Keine Zutaten angegeben.'}
               </ThemedText>
             </View>
 
-            <View style={[styles.copyCard, { backgroundColor: theme.background }]}>
+            <View className="rounded-sheet p-[14px] gap-[6px] bg-background">
               <ThemedText type="smallBold">Allergene</ThemedText>
               <ThemedText type="small" themeColor="textSecondary" selectable>
                 {openFoodFactsProduct?.allergens?.join(', ') ?? 'Keine Allergene angegeben.'}
@@ -180,11 +178,11 @@ export function ProductInformation({ visible, item, onClose }: ProductInformatio
             </View>
 
             <ThemedText type="smallBold">Nährwerte pro {referenceUnit}</ThemedText>
-            <View style={styles.nutrientGrid}>
+            <View className="flex-row flex-wrap gap-[8px]">
               {nutrients.map((nutrient) => (
                 <View
                   key={nutrient.label}
-                  style={[styles.nutrientCard, { backgroundColor: theme.backgroundSelected }]}>
+                  className="w-[31.6%] min-h-[62px] rounded-card p-[10px] gap-[5px] bg-background-selected">
                   <ThemedText type="smallBold" selectable>
                     {nutrient.value}
                   </ThemedText>
@@ -201,106 +199,3 @@ export function ProductInformation({ visible, item, onClose }: ProductInformatio
   );
 }
 
-const styles = StyleSheet.create({
-  backdrop: {
-    ...StyleSheet.absoluteFill,
-    backgroundColor: 'rgba(31, 26, 33, 0.32)',
-  },
-  sheet: {
-    position: 'absolute',
-    left: 12,
-    right: 12,
-    bottom: 10,
-    maxHeight: '82%',
-    borderRadius: Radius.large,
-    borderCurve: 'continuous',
-    overflow: 'hidden',
-  },
-  handle: {
-    width: 42,
-    height: 4,
-    borderRadius: Radius.hairline,
-    alignSelf: 'center',
-    marginTop: 11,
-  },
-  content: {
-    padding: 20,
-    gap: 14,
-  },
-  header: {
-    flexDirection: 'row',
-    alignItems: 'flex-start',
-    gap: Spacing.three,
-  },
-  headerCopy: {
-    flex: 1,
-    gap: 3,
-  },
-  closeButton: {
-    width: 34,
-    height: 34,
-    borderRadius: Radius.sheet,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  nutriCard: {
-    minHeight: 88,
-    borderRadius: Radius.sheet,
-    borderCurve: 'continuous',
-    padding: 12,
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 12,
-  },
-  score: {
-    width: 62,
-    height: 62,
-    borderRadius: Radius.card,
-    borderCurve: 'continuous',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  scoreText: {
-    ...FontSize[24],
-    lineHeight: 28,
-    fontWeight: '700',
-  },
-  flex: {
-    flex: 1,
-    gap: 3,
-  },
-  detailsCard: {
-    borderWidth: StyleSheet.hairlineWidth,
-    borderRadius: Radius.sheet,
-    borderCurve: 'continuous',
-    overflow: 'hidden',
-  },
-  detailRow: {
-    minHeight: 50,
-    paddingHorizontal: 14,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    gap: Spacing.three,
-    borderBottomWidth: StyleSheet.hairlineWidth,
-  },
-  copyCard: {
-    borderRadius: Radius.sheet,
-    borderCurve: 'continuous',
-    padding: 14,
-    gap: 6,
-  },
-  nutrientGrid: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    gap: 8,
-  },
-  nutrientCard: {
-    width: '31.6%',
-    minHeight: 62,
-    borderRadius: Radius.card,
-    borderCurve: 'continuous',
-    padding: 10,
-    gap: 5,
-  },
-});

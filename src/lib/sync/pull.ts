@@ -6,6 +6,7 @@ import {
   writeSyncCursor,
 } from '@/lib/db/sync-state';
 import type { Entity, SqlDatabase } from '@/lib/db/types';
+import { Sentry } from '@/lib/sentry';
 import type { TypedSupabaseClient } from '@/lib/supabase';
 import { EPOCH_START } from '@/lib/sync/cursor';
 import { applyRemoteRow } from '@/lib/sync/mirror-write';
@@ -67,8 +68,19 @@ async function pullEntity(
     rowsSkippedAsLocalWins: 0,
   };
 
-  const { cursor: storedCursor } = await readSyncState(db, entity);
-  let cursor = storedCursor ?? initialCursor();
+  const { cursor: storedCursor, lastError: previousError } = await readSyncState(db, entity);
+
+  // 'households' bekommt bewusst nie den gespeicherten Cursor: RLS-
+  // Sichtbarkeit aendert sich hier per `household_members`-Beitritt, nicht
+  // per Zeilen-Update — ein Haushalt, dem man gerade beitritt, kann laengst
+  // existieren und ein `updated_at` haben, das VOR dem eigenen, schon
+  // fortgeschrittenen Cursor liegt (z.B. weil das Geraet vorher schon sein
+  // eigenes, spaeter angelegtes Haushalt gepullt hat). Ein rein inkrementeller
+  // Cursor wuerde so eine gerade neu sichtbar gewordene, aber aeltere Zeile
+  // fuer immer aussortieren (#Beitritt-ohne-lokalen-Haushalt, per Logging
+  // reproduziert). Die Tabelle ist pro Nutzer winzig — ein voller Rescan bei
+  // jedem Pull ist guenstig genug, um das Problem strukturell zu vermeiden.
+  let cursor = entity === 'households' ? initialCursor() : (storedCursor ?? initialCursor());
 
   for (;;) {
     // biome-ignore lint/suspicious/noExplicitAny: generische Tabelle, siehe push.ts
@@ -89,6 +101,15 @@ async function pullEntity(
 
     if (error) {
       await recordSyncError(db, entity, error.message);
+      // Dedupliziert gegen den zuletzt gespeicherten Fehler: ein anhaltendes
+      // Problem (z.B. RLS-Fehlkonfiguration) wuerde sich sonst bei jedem
+      // 20s-Poll erneut melden und das Sentry-Kontingent durchlaufen.
+      if (error.message !== previousError) {
+        Sentry.captureMessage(`Sync-Pull fehlgeschlagen (${entity}): ${error.message}`, {
+          level: 'warning',
+          tags: { sync: 'pull', entity },
+        });
+      }
       break;
     }
 

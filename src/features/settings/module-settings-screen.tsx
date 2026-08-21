@@ -1,16 +1,14 @@
-import { Pressable, StyleSheet, Switch, View } from 'react-native';
-
-import { Card } from '@/components/card';
-import { Screen } from '@/components/screen';
-import { ThemedText } from '@/components/themed-text';
-import { Radius, Spacing } from '@/constants/theme';
+import { Pressable, Switch, View } from 'react-native';
+import { Screen } from '@/components/layout/screen';
+import { ThemedText } from '@/components/theme/themed-text';
+import { Card } from '@/components/ui/card';
 import { useSession } from '@/features/auth/session-provider';
 import {
+  DEFAULT_MODULE_PREFERENCES,
   type ModulePreferences,
   useModulePreferences,
   useUpdateModulePreferencesMutation,
 } from '@/features/settings/module-preferences';
-import { useTheme } from '@/hooks/use-theme';
 
 const MODULE_ROWS: { key: keyof ModulePreferences; icon: string; title: string; desc: string }[] = [
   {
@@ -52,75 +50,46 @@ const MODULE_ROWS: { key: keyof ModulePreferences; icon: string; title: string; 
  * siehe `docs/VISION.md`, und tauchen deshalb hier nicht auf.
  */
 export function ModuleSettingsScreen() {
-  const theme = useTheme();
   const { session } = useSession();
   const userId = session?.user.id;
 
-  const { data: modules, isLoading } = useModulePreferences(userId);
+  const { data: rawModules } = useModulePreferences(userId);
+  const modules = rawModules ?? DEFAULT_MODULE_PREFERENCES;
   const updateMutation = useUpdateModulePreferencesMutation();
 
   function toggle(key: keyof ModulePreferences) {
-    if (!userId || !modules) return;
+    if (!userId) return;
     updateMutation.mutate({ userId, modules: { [key]: !modules[key] } });
   }
 
   return (
     <Screen title="Module" back={{ label: 'Einstellungen', href: '/settings' }} backStyle="icon">
+      {/* Hinweistext zur Ausblendung von Modulen */}
       <Card>
         <ThemedText type="small" themeColor="textSecondary">
           Deaktivierte Module verschwinden aus der Navigation, deine Daten bleiben erhalten.
         </ThemedText>
       </Card>
 
-      {isLoading || !modules ? (
-        <ThemedText type="small" themeColor="textSecondary">
-          Lade Einstellungen...
-        </ThemedText>
-      ) : (
-        <View style={styles.moduleList}>
-          {MODULE_ROWS.map((row) => (
-            <Pressable
-              key={row.key}
-              onPress={() => toggle(row.key)}
-              style={[
-                styles.moduleRow,
-                {
-                  backgroundColor: theme.backgroundElement,
-                  borderColor: modules[row.key] ? theme.accent : theme.border,
-                },
-              ]}>
-              <View style={styles.moduleTextCol}>
-                <ThemedText type="smallBold">
-                  {row.icon} {row.title}
-                </ThemedText>
-                <ThemedText type="small" themeColor="textSecondary">
-                  {row.desc}
-                </ThemedText>
-              </View>
-              <Switch value={modules[row.key]} onValueChange={() => toggle(row.key)} />
-            </Pressable>
-          ))}
-        </View>
-      )}
+      {/* Liste aller App-Module mit Toggle-Schaltern (Vorrat, Einkauf, Tagebuch, Rezepte, Meal-Planner) */}
+      <View className="gap-two">
+        {MODULE_ROWS.map((row) => (
+          <Pressable
+            key={row.key}
+            onPress={() => toggle(row.key)}
+            className={`module-row ${modules[row.key] ? 'module-row-selected' : 'module-row-idle'}`}>
+            <View className="row-text">
+              <ThemedText type="smallBold">
+                {row.icon} {row.title}
+              </ThemedText>
+              <ThemedText type="small" themeColor="textSecondary">
+                {row.desc}
+              </ThemedText>
+            </View>
+            <Switch value={modules[row.key]} onValueChange={() => toggle(row.key)} />
+          </Pressable>
+        ))}
+      </View>
     </Screen>
   );
 }
-
-const styles = StyleSheet.create({
-  moduleList: {
-    gap: Spacing.two,
-  },
-  moduleRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    gap: Spacing.three,
-    padding: Spacing.three,
-    borderRadius: Radius.card,
-    borderWidth: StyleSheet.hairlineWidth,
-  },
-  moduleTextCol: {
-    flex: 1,
-    gap: 2,
-  },
-});

@@ -1,7 +1,7 @@
 import { render, screen, userEvent, within } from '@testing-library/react-native';
 import { router } from 'expo-router';
 
-import type { RecipeTemplateWithNutrition } from '@/features/recipe-templates/use-recipe-templates';
+import type { RecipeTemplateWithNutrition } from '@/features/recipes/templates/use-recipe-templates';
 
 import { RecipesScreen } from './recipes-screen';
 import type { RecipeListItem } from './use-recipes';
@@ -22,8 +22,8 @@ jest.mock('./use-recipes', () => ({
   useRecipes: () => ({ data: mockRecipes, isLoading: false }),
 }));
 
-jest.mock('@/features/recipe-templates/use-recipe-templates', () => {
-  const actual = jest.requireActual('@/features/recipe-templates/use-recipe-templates');
+jest.mock('@/features/recipes/templates/use-recipe-templates', () => {
+  const actual = jest.requireActual('@/features/recipes/templates/use-recipe-templates');
   return {
     ...actual,
     useRecipeTemplatesWithNutrition: () => ({ data: mockTemplates, isLoading: false }),
@@ -107,14 +107,14 @@ describe('RecipesScreen — Entdecken', () => {
     ];
   });
 
-  it('zeigt den Trending-Button vor Kategorien, Kalorien und Mahlzeiten', async () => {
+  it('zeigt Kategorien, Kalorien und Mahlzeiten ohne Trending-Bereich', async () => {
     await render(<RecipesScreen />);
 
-    expect(screen.getByRole('button', { name: 'Trending' })).toBeOnTheScreen();
-    expect(screen.getByRole('button', { name: 'Favoriten' })).toBeOnTheScreen();
+    expect(screen.queryByText('Trending')).not.toBeOnTheScreen();
+    expect(screen.getByRole('button', { name: 'Salat Overview' })).toBeOnTheScreen();
+    expect(screen.getByText('Unsere Rezepte')).toBeOnTheScreen();
     expect(screen.getByText('Kategorien')).toBeOnTheScreen();
     expect(screen.getByText('Rezepte nach Kalorien')).toBeOnTheScreen();
-    expect(screen.queryByText('Unsere Rezepte')).not.toBeOnTheScreen();
   });
 
   it('öffnet das Navigationsmenü über den Header', async () => {
@@ -130,8 +130,6 @@ describe('RecipesScreen — Entdecken', () => {
     const user = userEvent.setup();
     await render(<RecipesScreen />);
 
-    await user.press(screen.getByRole('button', { name: 'Rezepte filtern' }));
-    await user.press(screen.getByRole('button', { name: 'Unsere Rezepte' }));
     await user.press(screen.getAllByRole('button', { name: 'Pizza Home' })[0]);
 
     expect(router.push).toHaveBeenCalledWith({
@@ -140,36 +138,21 @@ describe('RecipesScreen — Entdecken', () => {
     });
   });
 
-  it('öffnet die Ansichtsauswahl über den Filter im Header', async () => {
+  it('öffnet über "Alle ansehen" das gemeinsame Raster aller Haushaltsrezepte', async () => {
     const user = userEvent.setup();
     await render(<RecipesScreen />);
 
-    await user.press(screen.getByRole('button', { name: 'Rezepte filtern' }));
-    await user.press(screen.getByRole('button', { name: 'Alle Vorlagen' }));
+    await user.press(screen.getByRole('button', { name: 'Alle ansehen' }));
 
-    expect(screen.getByText('Vorlagen')).toBeOnTheScreen();
-    expect(screen.getByRole('button', { name: 'Zurück zu Rezepte' })).toBeOnTheScreen();
-  });
-
-  it('öffnet über Trending die öffentlichen Rezeptvorlagen', async () => {
-    const user = userEvent.setup();
-    mockTemplates = [makeTemplate({ id: 't1', title: 'Trend-Rezept' })];
-    await render(<RecipesScreen />);
-
-    await user.press(screen.getByRole('button', { name: 'Trending' }));
-
-    expect(screen.getByText('Trending')).toBeOnTheScreen();
-    expect(screen.getByRole('button', { name: 'Trend-Rezept' })).toBeOnTheScreen();
+    expect(screen.getAllByText('Eigene Rezepte').length).toBeGreaterThan(0);
+    expect(screen.getByRole('button', { name: 'Suppe Fremd' })).toBeOnTheScreen();
     expect(screen.getByRole('button', { name: 'Menü öffnen' })).toBeOnTheScreen();
-    expect(screen.queryByRole('button', { name: 'Zurück zu Rezepte' })).not.toBeOnTheScreen();
   });
 
   it('filtert über das zugängliche Suchfeld', async () => {
     const user = userEvent.setup();
     await render(<RecipesScreen />);
 
-    await user.press(screen.getByRole('button', { name: 'Rezepte filtern' }));
-    await user.press(screen.getByRole('button', { name: 'Unsere Rezepte' }));
     await user.press(screen.getByRole('button', { name: 'Rezepte durchsuchen' }));
     await user.type(screen.getByRole('searchbox', { name: 'Rezepte durchsuchen' }), 'Pizza');
 
@@ -181,11 +164,57 @@ describe('RecipesScreen — Entdecken', () => {
     const user = userEvent.setup();
     await render(<RecipesScreen />);
 
-    await user.press(screen.getByRole('button', { name: 'Rezepte filtern' }));
     await user.press(screen.getByRole('button', { name: 'Meine Favoriten' }));
 
     expect(screen.getByText('Noch keine Favoriten gespeichert.')).toBeOnTheScreen();
-    expect(screen.getByRole('button', { name: 'Zurück zu Rezepte' })).toBeOnTheScreen();
+  });
+
+  it('öffnet den Vollbildfilter mit Kategorien, Kalorien, Mahlzeiten und Rezept-Tags', async () => {
+    const user = userEvent.setup();
+    mockRecipes = [makeRecipe({ id: 'r1', title: 'Schneller Salat', hashtags: ['schnell'] })];
+    await render(<RecipesScreen />);
+
+    await user.press(screen.getByRole('button', { name: 'Rezepte filtern' }));
+
+    const filterSelection = screen.getByLabelText('Filterauswahl');
+    expect(within(filterSelection).getByText('Kategorien')).toBeOnTheScreen();
+    expect(within(filterSelection).getByText('Rezepte nach Kalorien')).toBeOnTheScreen();
+    expect(within(filterSelection).getByText('Nach Mahlzeiten')).toBeOnTheScreen();
+    expect(within(filterSelection).getByRole('button', { name: 'Tag schnell' })).toBeOnTheScreen();
+  });
+
+  it('filtert eigene Rezepte über ihre Tags', async () => {
+    const user = userEvent.setup();
+    mockRecipes = [
+      makeRecipe({ id: 'r1', title: 'Schneller Salat', hashtags: ['schnell'] }),
+      makeRecipe({ id: 'r2', title: 'Sonntagsbraten', hashtags: ['sonntag'] }),
+    ];
+    await render(<RecipesScreen />);
+
+    await user.press(screen.getByRole('button', { name: 'Rezepte filtern' }));
+    const filterSelection = screen.getByLabelText('Filterauswahl');
+    await user.press(within(filterSelection).getByRole('button', { name: 'Tag schnell' }));
+    await user.press(screen.getByRole('button', { name: '1 Rezept anzeigen' }));
+
+    expect(screen.getByRole('button', { name: 'Schneller Salat' })).toBeOnTheScreen();
+    expect(screen.queryByRole('button', { name: 'Sonntagsbraten' })).not.toBeOnTheScreen();
+  });
+
+  it('filtert eigene Rezepte über die vorhandenen Kaloriengruppen', async () => {
+    const user = userEvent.setup();
+    mockRecipes = [
+      makeRecipe({ id: 'r1', title: 'Leichter Salat', kcalPerServing: 150 }),
+      makeRecipe({ id: 'r2', title: 'Deftiger Auflauf', kcalPerServing: 850 }),
+    ];
+    await render(<RecipesScreen />);
+
+    await user.press(screen.getByRole('button', { name: 'Rezepte filtern' }));
+    const filterSelection = screen.getByLabelText('Filterauswahl');
+    await user.press(within(filterSelection).getByRole('button', { name: '100–200 Kilokalorien' }));
+    await user.press(screen.getByRole('button', { name: '1 Rezept anzeigen' }));
+
+    expect(screen.getByRole('button', { name: 'Leichter Salat' })).toBeOnTheScreen();
+    expect(screen.queryByRole('button', { name: 'Deftiger Auflauf' })).not.toBeOnTheScreen();
   });
 });
 
@@ -222,7 +251,7 @@ describe('RecipesScreen — Vorlagen', () => {
     });
   });
 
-  it('öffnet über den Header-Filter das gemeinsame Raster aller Vorlagen (#136)', async () => {
+  it('öffnet über "Alle Vorlagen ansehen" das gemeinsame Raster aller Vorlagen (#136)', async () => {
     const user = userEvent.setup();
     mockTemplates = [
       makeTemplate({ id: 't1', title: 'Fam Ofengemüse' }),
@@ -233,8 +262,7 @@ describe('RecipesScreen — Vorlagen', () => {
     ];
     await render(<RecipesScreen />);
 
-    await user.press(screen.getByRole('button', { name: 'Rezepte filtern' }));
-    await user.press(screen.getByRole('button', { name: 'Alle Vorlagen' }));
+    await user.press(screen.getByRole('button', { name: 'Alle Vorlagen ansehen' }));
 
     expect(screen.getByText('Vorlagen')).toBeOnTheScreen();
     expect(screen.getByRole('button', { name: 'Fam Kürbissuppe' })).toBeOnTheScreen();

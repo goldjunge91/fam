@@ -89,7 +89,7 @@ export function useSyncStatus(getDb: () => Promise<SqlDatabase> = getDatabase): 
   const { data } = useQuery({
     queryKey: outboxCountsQueryKey,
     queryFn: async () => fetchOutboxCounts(await getDb()),
-    refetchInterval: 3_000,
+    refetchInterval: 10_000,
     // Kein `_dirty`/`household_id`-Filter: die Outbox ist geraetelokal, nicht
     // haushaltsgebunden — der Zaehler braucht keinen "aktiver Haushalt"-Context.
     initialData: { pending: 0, failed: 0 },

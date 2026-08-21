@@ -8,7 +8,7 @@ import { DiaryScreen } from '@/features/calorie-tracking/diary-screen';
 // unter Jest nicht, und selbst `react-native-reanimated/mock` startet ihn in
 // dieser Version erneut. Fuer diesen Test zaehlt nur die Datenverdrahtung,
 // nicht die Animation, daher eine einfache Ersatzkomponente.
-jest.mock('@/components/progress-ring', () => {
+jest.mock('@/components/ui/progress-ring', () => {
   const { Text } = require('react-native');
   return {
     ProgressRing: ({ value, target, label }: { value: number; target: number; label: string }) => (
@@ -21,6 +21,30 @@ const mockUseFoodEntries = jest.fn();
 
 jest.mock('expo-router', () => ({
   router: { push: jest.fn(), back: jest.fn(), canGoBack: () => false },
+}));
+
+jest.mock('@/features/auth/api', () => ({
+  useProfile: () => ({
+    data: { tracking_day_start_time: '00:00', tracking_method: 'standard' },
+    isLoading: false,
+  }),
+}));
+
+jest.mock('@/features/settings/module-preferences', () => ({
+  useModulePreferences: () => ({ data: { glp1: false, fasting: false }, isLoading: false }),
+}));
+
+jest.mock('@/features/calorie-tracking/glp1-api', () => ({
+  useMedicationLogs: () => ({ data: [], isLoading: false }),
+  useSymptomLogs: () => ({ data: [], isLoading: false }),
+  useAddMedicationLogMutation: () => ({ mutate: jest.fn(), isPending: false }),
+  useAddSymptomLogMutation: () => ({ mutate: jest.fn(), isPending: false }),
+}));
+
+jest.mock('@/features/calorie-tracking/fasting-api', () => ({
+  useActiveFastingSession: () => ({ data: null, isLoading: false }),
+  useStartFastMutation: () => ({ mutate: jest.fn(), isPending: false }),
+  useEndFastMutation: () => ({ mutate: jest.fn(), isPending: false }),
 }));
 
 jest.mock('@/features/auth/session-provider', () => ({

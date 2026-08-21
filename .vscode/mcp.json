@@ -1,17 +1,21 @@
 {
-	"servers": {
-		"argent": {
-			"type": "stdio",
-			"command": "node",
-			"args": [
-				"node_modules/@swmansion/argent/dist/cli.js",
-				"mcp"
-			]
-		},
-		"expo": {
-			"url": "https://mcp.expo.dev/mcp",
-			"type": "http"
-		}
-	},
-	"inputs": []
+  "servers": {
+    "argent": {
+      "type": "stdio",
+      "command": "node",
+      "args": [
+        "node_modules/@swmansion/argent/dist/cli.js",
+        "mcp"
+      ]
+    },
+    "expo": {
+      "url": "https://mcp.expo.dev/mcp",
+      "type": "http"
+    },
+    "Sentry": {
+      "url": "https://mcp.sentry.dev/mcp/tozzi/mobil-app",
+      "type": "http"
+    }
+  },
+  "inputs": []
 }

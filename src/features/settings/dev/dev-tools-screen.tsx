@@ -1,13 +1,13 @@
 import { useQueryClient } from '@tanstack/react-query';
 import Constants from 'expo-constants';
+import { Observe } from 'expo-observe';
 import { router } from 'expo-router';
 import { useCallback, useEffect, useState } from 'react';
-import { Alert, Platform, StyleSheet, View } from 'react-native';
-import { Card } from '@/components/card';
-import { Screen } from '@/components/screen';
-import { ThemedText } from '@/components/themed-text';
+import { Alert, Platform, View } from 'react-native';
+import { Screen } from '@/components/layout/screen';
+import { ThemedText } from '@/components/theme/themed-text';
 import { Button } from '@/components/ui/buttons';
-import { Spacing } from '@/constants/theme';
+import { Card } from '@/components/ui/card';
 import { useSession } from '@/features/auth/session-provider';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { presentPaywall } from '@/features/premium/paywall';
@@ -18,7 +18,6 @@ import {
   formatTokenExpiry,
   maskSecret,
 } from '@/features/settings/dev/dev-info';
-import { useTheme } from '@/hooks/use-theme';
 import { deleteLocalDatabase, getDatabase } from '@/lib/db/client';
 import { env } from '@/lib/env';
 import { sendTestNotification } from '@/lib/notifications';
@@ -28,6 +27,7 @@ import {
   getOffDumpStatus,
   type OffDumpStatus,
 } from '@/lib/off-dump/off-dump';
+import { Sentry } from '@/lib/sentry';
 import { MAX_ATTEMPTS } from '@/lib/sync/backoff';
 
 function formatBytes(bytes: number): string {
@@ -74,14 +74,12 @@ function Zeile({
   wert: string;
   tone?: 'accent' | 'warning' | 'danger';
 }) {
-  const theme = useTheme();
-
   return (
-    <View style={[styles.zeile, { borderBottomColor: theme.border }]}>
+    <View className="dev-zeile">
       <ThemedText type="small" themeColor="textSecondary">
         {label}
       </ThemedText>
-      <ThemedText type="smallBold" themeColor={tone} numberOfLines={2} style={styles.wert}>
+      <ThemedText type="smallBold" themeColor={tone} numberOfLines={2} className="dev-zeile-value">
         {wert}
       </ThemedText>
     </View>
@@ -180,6 +178,7 @@ export function DevToolsScreen() {
       subtitle="Nur sichtbar mit EXPO_PUBLIC_DEV_TOOLS"
       back={{ label: 'Einstellungen', href: '/settings' }}
       backStyle="icon">
+      {/* Umgebungsinformationen (Supabase-URL, API-Key, Build-Typ, App-Version, Premium-Status) */}
       <Card title="Umgebung">
         <Zeile label="Supabase" wert={ziel.label} tone={ziel.tone} />
         <Zeile label="URL" wert={env.supabaseUrl} />
@@ -187,7 +186,7 @@ export function DevToolsScreen() {
         <Zeile label="Build" wert={__DEV__ ? 'Development' : 'Production'} />
         <Zeile
           label="App-Version"
-          wert={`${Constants.expoConfig?.version ?? '—'} (${Platform.OS} ${Platform.Version})`}
+          wert={`${Constants.nativeAppVersion ?? Constants.expoConfig?.version ?? '—'} (Build ${Constants.nativeBuildVersion ?? (Platform.OS === 'ios' ? Constants.expoConfig?.ios?.buildNumber : Constants.expoConfig?.android?.versionCode) ?? '—'}, ${Platform.OS} ${Platform.Version})`}
         />
         <Zeile label="Onboarding erzwungen" wert={env.forceOnboarding ? 'ja' : 'nein'} />
         <Zeile
@@ -197,6 +196,7 @@ export function DevToolsScreen() {
         />
       </Card>
 
+      {/* Session-Details (Nutzer-ID, Token-Gültigkeit, aktiver Haushalt) */}
       <Card title="Session">
         <Zeile label="Nutzer-ID" wert={session?.user.id ?? '—'} />
         <Zeile label="E-Mail" wert={session?.user.email ?? '—'} />
@@ -209,6 +209,7 @@ export function DevToolsScreen() {
         <Zeile label="Haushalts-ID" wert={activeHousehold?.id ?? '—'} />
       </Card>
 
+      {/* Lokale SQLite-Datenbank (Schema-Version, Tabellenzähler, Outbox) */}
       <Card title="Lokale Datenbank">
         {dbError ? (
           <ThemedText type="small" themeColor="danger">
@@ -234,11 +235,12 @@ export function DevToolsScreen() {
           </>
         )}
 
-        <View style={styles.aktionStack}>
+        <View className="action-stack">
           <Button label="Neu einlesen" variant="secondary" onPress={ladeSnapshot} />
         </View>
       </Card>
 
+      {/* Lokaler OpenFoodFacts-Offline-Dump Status */}
       <Card title="OpenFoodFacts-Dump">
         <Zeile
           label="Heruntergeladen"
@@ -252,7 +254,7 @@ export function DevToolsScreen() {
           tone={offDump?.attached ? undefined : 'warning'}
         />
 
-        <View style={styles.aktionStack}>
+        <View className="action-stack">
           <Button
             label="Neueste Dump-Datei laden"
             variant="secondary"
@@ -269,8 +271,17 @@ export function DevToolsScreen() {
         </View>
       </Card>
 
+      {/* Diagnose- & Test-Aktionen (Sentry, Push, EAS Observe, Paywall, DB-Wipe) */}
       <Card title="Aktionen">
-        <View style={styles.aktionStack}>
+        <View className="action-stack">
+          <Button
+            label="Sentry-Testfehler senden"
+            variant="secondary"
+            onPress={() => {
+              Sentry.captureException(new Error('First error'));
+              Alert.alert('Sentry', 'Test-Event ("First error") wurde an Sentry gesendet.');
+            }}
+          />
           <Button
             label="Test-Benachrichtigung senden"
             variant="secondary"
@@ -283,9 +294,27 @@ export function DevToolsScreen() {
             loading={busy === 'notify'}
           />
           <Button
+            label="EAS-Observe-Testevent senden"
+            variant="secondary"
+            onPress={() => {
+              Observe.logEvent('dev_tools.test_event', {
+                attributes: { source: 'dev-tools-screen', platform: Platform.OS },
+              });
+              Alert.alert(
+                'EAS Observe',
+                'Testevent ("dev_tools.test_event") wurde geloggt. Erscheint im Observe-Dashboard nach dem naechsten Flush (Debug-Builds dispatchen nur mit dispatchInDebug).',
+              );
+            }}
+          />
+          <Button
             label="Sync-Diagnose & Outbox öffnen"
             variant="secondary"
             onPress={() => router.push('/settings/sync-debug')}
+          />
+          <Button
+            label="Liquid-Glass-Labor öffnen"
+            variant="secondary"
+            onPress={() => router.push('/settings/glass-lab')}
           />
           <Button
             label="Paywall öffnen (Test Store)"
@@ -309,22 +338,3 @@ export function DevToolsScreen() {
     </Screen>
   );
 }
-
-const styles = StyleSheet.create({
-  zeile: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'flex-start',
-    gap: Spacing.three,
-    paddingVertical: Spacing.two,
-    borderBottomWidth: StyleSheet.hairlineWidth,
-  },
-  wert: {
-    flexShrink: 1,
-    textAlign: 'right',
-  },
-  aktionStack: {
-    marginTop: Spacing.three,
-    gap: Spacing.two,
-  },
-});

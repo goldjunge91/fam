@@ -1,34 +1,44 @@
 import { useQueryClient } from '@tanstack/react-query';
 import * as Crypto from 'expo-crypto';
 import { router, useFocusEffect } from 'expo-router';
-import { useCallback, useState } from 'react';
-import { StyleSheet, View } from 'react-native';
-
-import { DateWheelField } from '@/components/date-wheel-field';
-import { FilterChipBar } from '@/components/filter-chip-bar';
-import { QuantityStepper } from '@/components/quantity-stepper';
-import { Screen } from '@/components/screen';
-import { TextField } from '@/components/text-field';
-import { ThemedText } from '@/components/themed-text';
-import { Button } from '@/components/ui/buttons';
-import { Radius, Spacing } from '@/constants/theme';
+import { useCallback, useRef, useState } from 'react';
+import { Keyboard, Pressable, View } from 'react-native';
+import { KeyboardAwareScrollView, KeyboardToolbar } from 'react-native-keyboard-controller';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { DateWheelField } from '@/components/forms/date-wheel-field';
+import { TextField } from '@/components/forms/text-field';
+import { WheelPickerField } from '@/components/forms/wheel-picker-field';
+import { FamIcon } from '@/components/icons/fam-icon';
+import { ThemedText } from '@/components/theme/themed-text';
+import { ThemedView } from '@/components/theme/themed-view';
+import { Button, HeaderIconButton } from '@/components/ui/buttons';
+import { FilterChipBar } from '@/components/ui/filter-chip-bar';
+import { type ItemSource, ItemSourceFilterRow } from '@/components/ui/item-source-filter';
+import { QuantityStepper } from '@/components/ui/quantity-stepper';
 import { useSession } from '@/features/auth/session-provider';
-import { useAddFridgeItemMutation } from '@/features/fridge/use-fridge-mutations';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { BarcodeScannerModal } from '@/features/inventory/barcode-scanner-modal';
-import { FrequentProductsQuickSelect } from '@/features/inventory/frequent-products-quick-select';
+import {
+  FrequentProductsQuickSelect,
+  type SuggestionMode,
+} from '@/features/inventory/frequent-products-quick-select';
 import { consumePendingProductSelection } from '@/features/inventory/pending-product-selection';
 import { persistOffProductIfNeeded } from '@/features/inventory/persist-off-product';
-import { ProductSearchDropdown } from '@/features/inventory/product-search-dropdown';
+import {
+  ProductSearchDropdown,
+  type ProductSearchDropdownHandle,
+} from '@/features/inventory/product-search-dropdown';
+import { useAddFridgeItemMutation } from '@/features/inventory/use-inventory-mutations';
 import { useAddProductMutation } from '@/features/inventory/use-product-mutations';
 import {
   useAddStorageLocationMutation,
   useStorageLocations,
 } from '@/features/inventory/use-storage-locations';
+import { useTheme } from '@/hooks/use-theme';
 import { getDatabase } from '@/lib/db/client';
 import { recordProductUsage } from '@/lib/db/product-usage';
 import type { OpenFoodFactsProduct } from '@/lib/open-food-facts';
-import { normalizeUnit } from '@/lib/units';
+import { normalizeUnit, UNIT_OPTIONS } from '@/lib/units';
 
 function formatOffsetDate(days: number): string {
   const d = new Date();
@@ -66,7 +76,14 @@ function quickDateOffset(key: QuickDateKey): string {
   }
 }
 
+/**
+ * Artikel-hinzufuegen fuer Vorrat, im selben Bottom-Sheet-Stil wie
+ * `add-item-form.tsx` bei der Einkaufsliste: Suche mit Scan-Button,
+ * Quelle-/Vorschlagsfilter-Dropdowns, Produktkarte, Menge+Lagerort
+ * nebeneinander, "Weitere Angaben" eingeklappt (Einheit + MHD).
+ */
 export function AddItemScreen() {
+  const theme = useTheme();
   const { activeHousehold } = useActiveHousehold();
   const currentHousehold = activeHousehold;
 
@@ -89,17 +106,30 @@ export function AddItemScreen() {
   const [expiryDate, setExpiryDate] = useState('');
   const [selectedProduct, setSelectedProduct] = useState<OpenFoodFactsProduct | null>(null);
 
-  // Scanner & Modal State
+  const [source, setSource] = useState<ItemSource>('food');
+  const [suggestionMode, setSuggestionMode] = useState<SuggestionMode>('frequent');
+  const [detailsOpen, setDetailsOpen] = useState(false);
+
   const [showScanner, setShowScanner] = useState(false);
   const [showAddLocation, setShowAddLocation] = useState(false);
   const [newLocationName, setNewLocationName] = useState('');
+  const productSearchRef = useRef<ProductSearchDropdownHandle>(null);
 
   const activeLocationId = locationId ?? locations?.[0]?.id ?? null;
+  const locationOptions = (locations ?? []).map((loc) => ({ value: loc.id, label: loc.name }));
   const selectedQuickDate =
     QUICK_DATE_OPTIONS.find((option) => quickDateOffset(option.value) === expiryDate)?.value ??
     'none';
 
   function handleSelectProduct(product: OpenFoodFactsProduct) {
+    // Muss VOR `setName` passieren — sonst haelt der Such-Effekt in
+    // `product-search-dropdown.tsx` diesen Namenswechsel fuer neue Eingabe
+    // und oeffnet die Trefferliste erneut (#UI-Feedback: "Auswaehlen eines
+    // History-Artikels soll die Suchliste nicht ausloesen"). Deckt alle
+    // Aufrufer ab, die den Namen von aussen setzen (Häufig/Zuletzt,
+    // Barcode-Scan) — bei Auswahl direkt in der Dropdown-Zeile selbst ist der
+    // Wert schon (redundant, aber harmlos) markiert.
+    productSearchRef.current?.markSelected(product.name);
     setName(product.name);
     const productUnit = normalizeUnit(product.unit);
     const productQuantity = product.quantity ?? null;
@@ -189,172 +219,232 @@ export function AddItemScreen() {
   }
 
   return (
-    <Screen title="Artikel hinzufügen" back={{ label: 'Abbrechen' }}>
-      <View style={styles.form}>
-        <Button
-          label="📷 Barcode scannen"
-          variant="secondary"
-          onPress={() => setShowScanner(true)}
-        />
-
-        <FrequentProductsQuickSelect
-          feature="fridge"
-          userId={userId}
-          onSelectProduct={handleSelectProduct}
-        />
-
-        <ProductSearchDropdown
-          label="Name"
-          placeholder="z. B. Milch oder Barcode-Name"
-          value={name}
-          onChangeText={setName}
-          onSelectProduct={handleSelectProduct}
-        />
-
-        <View style={styles.row}>
-          <View style={styles.flex}>
-            <ThemedText type="small" themeColor="textSecondary" style={styles.fieldLabel}>
-              Menge
-            </ThemedText>
-            <QuantityStepper
-              value={Number.parseInt(quantity, 10) || 1}
-              onChange={(value) => setQuantity(String(value))}
-              max={999}
-              label="Menge"
-            />
+    <ThemedView className="flex-1 bg-background">
+      <SafeAreaView className="modal-safe-area" edges={['top', 'left', 'right', 'bottom']}>
+        {/* Modal-Handle und Header mit Schließen-Button — Tap darauf schliesst
+            Tastatur UND eine offene Trefferliste (#UI-Feedback: revidiert
+            gegenueber der ersten Fassung, die nur die Tastatur schloss — die
+            Liste liess sich sonst ohne Auswahl gar nicht mehr zumachen). */}
+        <Pressable
+          onPress={() => {
+            productSearchRef.current?.dismiss();
+            Keyboard.dismiss();
+          }}
+          accessible={false}>
+          <View className="modal-handle" />
+          <View className="modal-header min-h-[54px]">
+            <ThemedText type="headingSmall">Artikel hinzufügen</ThemedText>
+            <Pressable
+              onPress={() => router.back()}
+              accessibilityRole="button"
+              accessibilityLabel="Schließen"
+              className="modal-close-btn">
+              <ThemedText themeColor="textSecondary">✕</ThemedText>
+            </Pressable>
           </View>
-          <View style={styles.flex}>
-            <TextField
-              label="Einheit"
-              placeholder="piece, l, kg..."
-              value={unit}
-              onChangeText={setUnit}
-            />
-          </View>
-        </View>
+        </Pressable>
 
-        <View style={{ marginTop: Spacing.two }}>
-          <DateWheelField
-            label="Mindesthaltbarkeitsdatum (MHD)"
-            value={expiryDate}
-            onChange={setExpiryDate}
+        {/* `KeyboardAwareScrollView` statt `ScrollView` (#UI-Feedback: "Artikel
+            halb von der Tastatur verdeckt", "kein Button zum Zuklappen") —
+            haelt das fokussierte Feld automatisch ueber der Tastatur sichtbar,
+            siehe item-modal-shell.tsx fuer denselben Fix im Einkaufslisten-Sheet. */}
+        <KeyboardAwareScrollView
+          className="flex-1"
+          bottomOffset={24}
+          contentContainerClassName="gap-three pb-four"
+          keyboardShouldPersistTaps="handled"
+          showsVerticalScrollIndicator={false}>
+          {/* Produktsuche mit integriertem Barcode-Scan-Button */}
+          <ProductSearchDropdown
+            ref={productSearchRef}
+            label=""
+            placeholder={source === 'dish' ? 'Gericht suchen…' : 'z. B. Milch oder Barcode-Name'}
+            value={name}
+            onChangeText={setName}
+            onSelectProduct={handleSelectProduct}
+            size="large"
+            trailing={
+              <HeaderIconButton
+                label="Barcode scannen"
+                onPress={() => setShowScanner(true)}
+                className="ai-scan-btn">
+                <FamIcon name="camera" size={18} color={theme.accent} />
+              </HeaderIconButton>
+            }
           />
-        </View>
-        <FilterChipBar
-          label="Schnellauswahl MHD"
-          options={QUICK_DATE_OPTIONS}
-          selected={selectedQuickDate}
-          onSelect={(value) => setExpiryDate(quickDateOffset(value))}
-        />
 
-        <View style={styles.locationHeaderRow}>
-          <ThemedText style={{ fontWeight: 'bold' }}>Lagerort</ThemedText>
-          {!showAddLocation && (
-            <Button
-              label="+ Neuer Lagerort"
-              variant="secondary"
-              onPress={() => setShowAddLocation(true)}
-            />
-          )}
-        </View>
+          {/* Quell- und Vorschlagsfilter (Lebensmittel/Gerichte, Häufig/Zuletzt) */}
+          <ItemSourceFilterRow
+            source={source}
+            onSourceChange={setSource}
+            sourceAccessibilityLabel="Quelle: Lebensmittel oder Gerichte"
+            suggestionFilter={suggestionMode}
+            onSuggestionFilterChange={setSuggestionMode}
+            suggestionAccessibilityLabel="Vorschlagsfilter"
+          />
 
-        {showAddLocation && (
-          <View style={styles.addLocationBox}>
-            <TextField
-              label="Name des Lagerorts"
-              placeholder="z.B. Keller, Regalfach, Gefrierfach"
-              value={newLocationName}
-              onChangeText={setNewLocationName}
-            />
-            <View style={styles.row}>
-              <View style={styles.flex}>
-                <Button
-                  label="Erstellen"
-                  onPress={handleAddLocation}
-                  loading={addLocationMutation.isPending}
-                  disabled={!newLocationName.trim()}
-                />
+          {/* Schnellauswahl häufig oder zuletzt verwendeter Artikel */}
+          <FrequentProductsQuickSelect
+            feature="fridge"
+            userId={userId}
+            mode={suggestionMode}
+            onSelectProduct={handleSelectProduct}
+          />
+
+          {/* Zusammenfassungskarte des ausgewählten Produkts */}
+          {name.trim() ? (
+            <View className="edit-fridge-product-card">
+              <View className="edit-fridge-product-copy">
+                <ThemedText type="smallBold" numberOfLines={1}>
+                  {name.trim()}
+                </ThemedText>
+                <ThemedText type="small" themeColor="textSecondary" numberOfLines={1}>
+                  {selectedProduct?.brand ?? 'Manueller Eintrag'}
+                </ThemedText>
               </View>
-              <View style={styles.flex}>
-                <Button
-                  label="Abbrechen"
-                  variant="secondary"
-                  onPress={() => {
-                    setShowAddLocation(false);
-                    setNewLocationName('');
-                  }}
-                />
+              <View className="edit-fridge-product-quantity">
+                <ThemedText type="smallBold">
+                  {packageSize ? `${packageSize} ${packageSizeUnit}` : `${quantity} ${unit}`}
+                </ThemedText>
+                <ThemedText type="small" themeColor="textSecondary">
+                  {packageSize ? 'Packungsinhalt' : 'Menge'}
+                </ThemedText>
               </View>
             </View>
+          ) : null}
+
+          {/* Eingabefelder für Menge und Lagerort */}
+          <View className="edit-fridge-controls-row">
+            <View className="edit-fridge-control-column">
+              <ThemedText type="small" themeColor="textSecondary">
+                Menge
+              </ThemedText>
+              <QuantityStepper
+                value={Number.parseInt(quantity, 10) || 1}
+                onChange={(value) => setQuantity(String(value))}
+                max={999}
+                label="Menge"
+                size="large"
+              />
+            </View>
+            <View className="edit-fridge-control-column">
+              {locationsLoading ? (
+                <ThemedText type="small" themeColor="textSecondary">
+                  Lädt Lagerorte…
+                </ThemedText>
+              ) : locationOptions.length > 0 ? (
+                <WheelPickerField
+                  label="Lagerort"
+                  value={activeLocationId ?? ''}
+                  options={locationOptions}
+                  onChange={setLocationId}
+                  size="large"
+                />
+              ) : (
+                <ThemedText type="small" themeColor="textSecondary">
+                  Kein Lagerort
+                </ThemedText>
+              )}
+            </View>
           </View>
-        )}
 
-        {locationsLoading ? (
-          <ThemedText>Lade Lagerorte...</ThemedText>
-        ) : locations?.length ? (
-          <FilterChipBar
-            label="Lagerort"
-            options={locations.map((loc) => ({ value: loc.id, label: loc.name }))}
-            selected={activeLocationId ?? ''}
-            onSelect={setLocationId}
-          />
-        ) : (
-          !showAddLocation && (
-            <ThemedText type="small" themeColor="textSecondary">
-              Keine Lagerorte vorhanden. Tippe auf &quot;+ Neuer Lagerort&quot; um einen anzulegen.
+          {/* Formularbereich zum Anlegen eines neuen Lagerorts */}
+          {!showAddLocation ? (
+            <Pressable
+              onPress={() => setShowAddLocation(true)}
+              accessibilityRole="button"
+              className="self-start">
+              <ThemedText type="small" themeColor="accent" className="font-bold">
+                + Neuer Lagerort
+              </ThemedText>
+            </Pressable>
+          ) : (
+            <View className="ai-new-location-box">
+              <TextField
+                label="Name des Lagerorts"
+                placeholder="z.B. Keller, Regalfach, Gefrierfach"
+                value={newLocationName}
+                onChangeText={setNewLocationName}
+              />
+              <View className="flex-row gap-two">
+                <View className="flex-1">
+                  <Button
+                    label="Erstellen"
+                    onPress={handleAddLocation}
+                    loading={addLocationMutation.isPending}
+                    disabled={!newLocationName.trim()}
+                  />
+                </View>
+                <View className="flex-1">
+                  <Button
+                    label="Abbrechen"
+                    variant="secondary"
+                    onPress={() => {
+                      setShowAddLocation(false);
+                      setNewLocationName('');
+                    }}
+                  />
+                </View>
+              </View>
+            </View>
+          )}
+
+          {/* Aufklappbereich: Weitere Angaben (Einheit, Mindesthaltbarkeitsdatum) */}
+          <Pressable
+            onPress={() => setDetailsOpen((current) => !current)}
+            accessibilityRole="button"
+            accessibilityLabel={`${detailsOpen ? 'Weitere Angaben schließen' : 'Weitere Angaben öffnen'}`}
+            accessibilityState={{ expanded: detailsOpen }}
+            className="edit-fridge-details-toggle">
+            <ThemedText themeColor="accent">{detailsOpen ? '⌄' : '›'}</ThemedText>
+            <ThemedText type="small" themeColor="accent">
+              Weitere Angaben
             </ThemedText>
-          )
-        )}
+          </Pressable>
 
-        <View style={styles.saveButton}>
+          {detailsOpen ? (
+            <View className="gap-three">
+              {/* Einheitenauswahl */}
+              <WheelPickerField
+                label="Einheit"
+                value={unit}
+                options={UNIT_OPTIONS}
+                onChange={setUnit}
+                size="large"
+              />
+              {/* Datumsauswahl & Schnellbuttons für MHD */}
+              <DateWheelField
+                label="Mindesthaltbarkeitsdatum (MHD)"
+                value={expiryDate}
+                onChange={setExpiryDate}
+              />
+              <FilterChipBar
+                label="Schnellauswahl MHD"
+                options={QUICK_DATE_OPTIONS}
+                selected={selectedQuickDate}
+                onSelect={(value) => setExpiryDate(quickDateOffset(value))}
+              />
+            </View>
+          ) : null}
+
+          {/* Haupt-Speicher-Button */}
           <Button
-            label="Speichern"
+            label="Zum Vorrat hinzufügen"
             onPress={handleSave}
             loading={mutation.isPending}
             disabled={!name.trim()}
+            size="large"
           />
-        </View>
-        <Button label="Abbrechen" variant="secondary" onPress={() => router.back()} />
-      </View>
+        </KeyboardAwareScrollView>
+      </SafeAreaView>
 
+      {/* Barcode-Scanner-Modal */}
       <BarcodeScannerModal
         visible={showScanner}
         onClose={() => setShowScanner(false)}
         onProductFound={handleSelectProduct}
       />
-    </Screen>
+      <KeyboardToolbar />
+    </ThemedView>
   );
 }
-
-const styles = StyleSheet.create({
-  form: {
-    gap: Spacing.four,
-    marginTop: Spacing.four,
-  },
-  row: {
-    flexDirection: 'row',
-    gap: Spacing.four,
-  },
-  flex: {
-    flex: 1,
-  },
-  fieldLabel: {
-    marginBottom: Spacing.one,
-  },
-  locationHeaderRow: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    marginTop: Spacing.two,
-  },
-  addLocationBox: {
-    gap: Spacing.three,
-    padding: Spacing.three,
-    borderRadius: Radius.sm,
-    borderWidth: 1,
-    borderColor: '#ccc',
-  },
-  saveButton: {
-    marginTop: Spacing.four,
-  },
-});

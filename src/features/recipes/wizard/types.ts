@@ -46,6 +46,8 @@ export interface WizardStepItem {
   text: string;
   localImageUri: string | null;
   existingImagePath: string | null;
+  /** Optionaler, explizit gesetzter Kochmodus-Timer in Minuten. */
+  timerMinutes: number | null;
   /**
    * IngredientItem.id-Werte (lokale Client-IDs, nicht recipe_component_items.id)
    * der in diesem Schritt referenzierten Zutaten — solange nicht final
@@ -75,6 +77,7 @@ export function newWizardStep(): WizardStepItem {
     text: '',
     localImageUri: null,
     existingImagePath: null,
+    timerMinutes: null,
     ingredientIds: [],
   };
 }

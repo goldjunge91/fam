@@ -1,4 +1,6 @@
 import { readdir, readFile } from 'node:fs/promises';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 import { createClient } from '@supabase/supabase-js';
 
@@ -6,11 +8,16 @@ import type { Database } from '../src/lib/database.types';
 
 const BUCKET = 'recipe-covers';
 const EXPECTED_TEMPLATE_COUNT = 29;
-const ASSET_DIRECTORY = new URL('../assets/rezepte/', import.meta.url);
+const ASSET_DIRECTORY = path.resolve(
+  path.dirname(fileURLToPath(import.meta.url)),
+  '../assets/rezepte',
+);
 
 function requireEnv(name: 'EXPO_PUBLIC_SUPABASE_URL' | 'SUPABASE_SECRET_KEY'): string {
-  const value = process.env[name];
-  if (!value) throw new Error(`${name} fehlt.`);
+  const value =
+    process.env[name] ||
+    (name === 'SUPABASE_SECRET_KEY' ? process.env.SUPABASE_SERVICE_ROLE_KEY : undefined);
+  if (!value) throw new Error(`${name} fehlt in .env.`);
   return value;
 }
 
@@ -60,7 +67,7 @@ if (missingFiles.length > 0 || unusedFiles.length > 0) {
 
 for (const template of templateRows) {
   const expectedPath = `templates/${template.id}.jpg`;
-  const bytes = await readFile(new URL(titleToFilename(template.title), ASSET_DIRECTORY));
+  const bytes = await readFile(path.join(ASSET_DIRECTORY, titleToFilename(template.title)));
   const { error: uploadError } = await supabase.storage
     .from(BUCKET)
     .upload(expectedPath, bytes, { contentType: 'image/jpeg', upsert: true });

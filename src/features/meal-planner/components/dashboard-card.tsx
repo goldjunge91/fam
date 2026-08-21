@@ -1,0 +1,139 @@
+import { router } from 'expo-router';
+import { View } from 'react-native';
+import { FamIcon } from '@/components/icons/fam-icon';
+import { ThemedText } from '@/components/theme/themed-text';
+import { GlassCard } from '@/components/ui/glass-card';
+import { withAlpha } from '@/constants/theme';
+import { type DashboardCardProps, registerCard } from '@/features/dashboard/registry';
+import { useActiveHousehold } from '@/features/household/active-household-provider';
+import { useMealPlanEntriesInRange } from '@/features/meal-planner/use-meal-plans';
+import { MEAL_SLOT_LABELS, MEAL_SLOTS } from '@/features/meal-planner/week';
+import { useTheme } from '@/hooks/use-theme';
+
+function toIsoDate(date: Date): string {
+  const y = date.getFullYear();
+  const m = String(date.getMonth() + 1).padStart(2, '0');
+  const d = String(date.getDate()).padStart(2, '0');
+  return `${y}-${m}-${d}`;
+}
+
+// GlassView hat kein cssInterop, deshalb RN-Styles statt Tailwind.
+const PLANNED_GLASS_STYLE = {
+  borderRadius: 28,
+  flexDirection: 'row' as const,
+  alignItems: 'center' as const,
+  gap: 16,
+  paddingLeft: 16,
+  paddingRight: 18,
+  paddingVertical: 16,
+};
+
+const PLANNED_GLASS_STYLE_SMALL = {
+  borderRadius: 28,
+  flexDirection: 'row' as const,
+  alignItems: 'center' as const,
+  gap: 12,
+  paddingHorizontal: 16,
+  paddingVertical: 14,
+};
+
+/**
+ * Essensplan-Dashboard-Card: zeigt den naechsten geplanten Eintrag von heute.
+ * Large = Artwork + Rezeptname + Slot + Portionen + Chevron.
+ * Small = Kicker + Rezeptname (gekuerzt), kein Artwork.
+ */
+function MealPlanDashboardCard({ size, onLongPress }: DashboardCardProps) {
+  const theme = useTheme();
+  const { activeHouseholdId } = useActiveHousehold();
+  const householdId = activeHouseholdId ?? undefined;
+  const todayIso = toIsoDate(new Date());
+
+  const { data: todayMealEntries = [] } = useMealPlanEntriesInRange(
+    householdId,
+    todayIso,
+    todayIso,
+  );
+
+  const nextMeal = [...todayMealEntries].sort(
+    (a, b) => MEAL_SLOTS.indexOf(a.meal_slot) - MEAL_SLOTS.indexOf(b.meal_slot),
+  )[0];
+
+  if (size === 'small') {
+    return (
+      <GlassCard
+        onPress={() => router.push('/meal-planner')}
+        onLongPress={onLongPress}
+        accessibilityRole="button"
+        accessibilityLabel="Essensplan öffnen"
+        fallbackClassName="dashboard-widget"
+        glassStyle={PLANNED_GLASS_STYLE_SMALL}
+        outerStyle={{
+          width: '100%',
+          height: 138,
+          borderRadius: 28,
+          borderCurve: 'continuous',
+          boxShadow: `0 8px 20px ${withAlpha(theme.shadowCard, 0.08)}`,
+        }}>
+        <View className="flex-1 justify-between">
+          <View className="flex-row items-center justify-between">
+            <ThemedText
+              type="small"
+              themeColor="danger"
+              style={{ fontSize: 10, lineHeight: 12, fontWeight: '700', letterSpacing: 0.5 }}>
+              GEPLANT
+            </ThemedText>
+            <ThemedText type="small" themeColor="textSecondary" style={{ fontSize: 11 }}>
+              {nextMeal ? MEAL_SLOT_LABELS[nextMeal.meal_slot] : 'Heute'}
+            </ThemedText>
+          </View>
+          <View className="items-center justify-center my-one">
+            <FamIcon name="mealArtwork" size={44} />
+          </View>
+          <ThemedText type="smallBold" numberOfLines={1} style={{ fontSize: 12, lineHeight: 16 }}>
+            {nextMeal?.recipe_title ?? 'Nichts geplant'}
+          </ThemedText>
+        </View>
+      </GlassCard>
+    );
+  }
+
+  return (
+    <GlassCard
+      onPress={() => router.push('/meal-planner')}
+      onLongPress={onLongPress}
+      accessibilityRole="button"
+      accessibilityLabel="Essensplan öffnen"
+      fallbackClassName="dashboard-planned-card"
+      glassStyle={PLANNED_GLASS_STYLE}
+      outerStyle={{
+        height: 140,
+        borderRadius: 28,
+        borderCurve: 'continuous',
+        boxShadow: `0 8px 22px ${withAlpha(theme.shadowCard, 0.1)}`,
+      }}>
+      <FamIcon name="mealArtwork" size={79} />
+      <View className="dashboard-planned-copy">
+        <ThemedText type="small" themeColor="danger" className="dashboard-planned-kicker">
+          HEUTE GEPLANT
+        </ThemedText>
+        <ThemedText type="smallBold" numberOfLines={1} className="dashboard-planned-title">
+          {nextMeal?.recipe_title ?? 'Noch nichts geplant'}
+        </ThemedText>
+        <ThemedText type="small" themeColor="textSecondary" className="dashboard-planned-meta">
+          {nextMeal
+            ? `${MEAL_SLOT_LABELS[nextMeal.meal_slot]} · ${nextMeal.portions} Portionen`
+            : 'Wochenplan öffnen'}
+        </ThemedText>
+      </View>
+      <FamIcon name="chevron" size={20} />
+    </GlassCard>
+  );
+}
+
+registerCard({
+  id: 'mealPlanner',
+  moduleKey: 'mealPlanner',
+  order: 20,
+  defaultSize: 'large',
+  component: MealPlanDashboardCard,
+});

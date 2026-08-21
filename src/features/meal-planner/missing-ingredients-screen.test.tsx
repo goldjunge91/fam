@@ -25,7 +25,7 @@ jest.mock('@/features/household/active-household-provider', () => ({
   useActiveHousehold: () => ({ activeHouseholdId: 'hh-1' }),
 }));
 
-jest.mock('@/features/shopping-list/use-shopping-list-mutations', () => ({
+jest.mock('@/features/shopping-list/hooks/use-shopping-list-mutations', () => ({
   useAddShoppingItem: () => ({ mutateAsync: mockAddMutateAsync, isPending: false }),
 }));
 

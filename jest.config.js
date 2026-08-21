@@ -2,6 +2,7 @@
 module.exports = {
   preset: 'jest-expo',
   setupFiles: ['<rootDir>/test/setup.js'],
+  maxWorkers: '50%',
 
   // Ohne diesen Resolver landet `react-native-reanimated/mock` (ueber
   // `react-native-worklets`) trotzdem bei den `.native.ts`-Dateien und damit
@@ -20,8 +21,12 @@ module.exports = {
   // jeder Test, der `expo-router` nicht per `jest.mock()` ersetzt und
   // stattdessen (auch nur transitiv, z. B. ueber `AutoBackButton`) echtes
   // `useNavigation` importiert: "Cannot use import statement outside a module".
+  // `@sentry/.*` statt nur `@sentry/react-native`: das SDK zieht `@sentry/core`
+  // (und weitere `@sentry/*`-Pakete) als unkompiliertes ESM nach, ein zu enges
+  // Muster bricht jeden Test, der (auch nur transitiv, z. B. ueber
+  // `lib/sentry.ts`) `@sentry/react-native` importiert.
   transformIgnorePatterns: [
-    'node_modules/(?!(.bun|(jest-)?react-native|@react-native(-community)?|expo(nent)?|@expo(nent)?/.*|@expo-google-fonts/.*|react-navigation|@react-navigation/.*|@sentry/react-native|native-base|react-native-svg|react-native-purchases-ui|@revenuecat/.*|standard-navigation))',
+    'node_modules/(?!(.bun|(jest-)?react-native|@react-native(-community)?|expo(nent)?|@expo(nent)?/.*|@expo-google-fonts/.*|react-navigation|@react-navigation/.*|@sentry/.*|native-base|react-native-svg|react-native-purchases-ui|@revenuecat/.*|standard-navigation))',
   ],
 
   // Default (5000ms) ist zu knapp fuer Tests mit echten Timern/Intervallen
@@ -43,6 +48,12 @@ module.exports = {
     '\\.css$': '<rootDir>/test/css-module.js',
     '^@/assets/(.*)$': '<rootDir>/assets/$1',
     '^@/(.*)$': '<rootDir>/src/$1',
+    // Offizielles Jest-Mock des Pakets — ohne das schlaegt jeder Test fehl,
+    // der (auch nur transitiv) react-native-keyboard-controller importiert,
+    // mit "doesn't seem to be linked" (das native Modul existiert unter Jest
+    // nicht).
+    '^react-native-keyboard-controller$':
+      '<rootDir>/node_modules/react-native-keyboard-controller/jest',
   },
 
   testMatch: ['**/*.test.ts', '**/*.test.tsx'],
@@ -54,13 +65,6 @@ module.exports = {
   testPathIgnorePatterns: ['/node_modules/', '\\.integration\\.test\\.tsx?$'],
 
   // Bewusst nicht standardmaessig an: Instrumentierung kostet auf jedem Lauf
-  // Zeit (Default-`test`, Pre-Commit-Hook, CI-Checks-Job). Wer den Bericht
-  // braucht, ruft `bun run test:coverage` auf.
-  collectCoverageFrom: [
-    'src/**/*.{ts,tsx}',
-    '!src/**/*.test.{ts,tsx}',
-    '!src/components/ui/**',
-    // Generiert aus dem DB-Schema, nicht von Hand gepflegt.
-    '!src/lib/database.types.ts',
-  ],
+  // ~2x Laufzeit. Fuer gezielte Coverage-Reports gibt es `bun run test:coverage`.
+  collectCoverage: false,
 };

@@ -1,12 +1,11 @@
 import { Link } from 'expo-router';
 import { useState } from 'react';
-import { KeyboardAvoidingView, Platform, StyleSheet, View } from 'react-native';
-import { Card } from '@/components/card';
-import { Screen } from '@/components/screen';
-import { TextField } from '@/components/text-field';
-import { ThemedText } from '@/components/themed-text';
+import { KeyboardAvoidingView, Platform, View } from 'react-native';
+import { TextField } from '@/components/forms/text-field';
+import { Screen } from '@/components/layout/screen';
+import { ThemedText } from '@/components/theme/themed-text';
 import { Button } from '@/components/ui/buttons';
-import { Spacing } from '@/constants/theme';
+import { Card } from '@/components/ui/card';
 import { authErrorMessage, signIn, signInWithOAuthProvider } from '@/features/auth/api';
 import { fieldErrors, signInSchema } from '@/features/auth/auth-schemas';
 
@@ -44,8 +43,10 @@ export function SignInScreen() {
   return (
     <Screen title="Anmelden" subtitle="Schön, dass du wieder da bist">
       <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : undefined}>
+        {/* Haupt-Anmeldeformular */}
         <Card>
-          <View style={styles.form}>
+          <View className="gap-three">
+            {/* E-Mail Eingabefeld */}
             <TextField
               testID="sign-in-email"
               label="E-Mail"
@@ -59,6 +60,7 @@ export function SignInScreen() {
               inputMode="email"
             />
 
+            {/* Passwort Eingabefeld */}
             <TextField
               testID="sign-in-password"
               label="Passwort"
@@ -73,20 +75,18 @@ export function SignInScreen() {
               returnKeyType="go"
             />
 
-            {formError ? (
-              <ThemedText type="small" themeColor="danger">
-                {formError}
-              </ThemedText>
-            ) : null}
+            {/* Fehlermeldung */}
+            {formError ? <ThemedText type="smallDanger">{formError}</ThemedText> : null}
 
+            {/* Anmelde-Button */}
             <Button label="Anmelden" onPress={handleSubmit} loading={loading} />
 
-            <View style={styles.divider}>
-              <ThemedText type="small" themeColor="textSecondary">
-                oder anmelden mit
-              </ThemedText>
+            {/* Trennlinie für Drittanbieter-Logins */}
+            <View className="divider">
+              <ThemedText type="smallMuted">oder anmelden mit</ThemedText>
             </View>
 
+            {/* OAuth Buttons (Apple & Google) */}
             <Button
               label="  Mit Apple anmelden"
               variant="secondary"
@@ -107,11 +107,10 @@ export function SignInScreen() {
           </View>
         </Card>
 
-        <View style={styles.links}>
+        {/* Links zu Registrierung & Passwort vergessen */}
+        <View className="link-stack">
           <Link href="/sign-up" asChild>
-            <ThemedText type="link" themeColor="accent">
-              Noch kein Konto? Registrieren
-            </ThemedText>
+            <ThemedText type="link">Noch kein Konto? Registrieren</ThemedText>
           </Link>
 
           <Link href="/forgot-password" asChild>
@@ -124,18 +123,3 @@ export function SignInScreen() {
     </Screen>
   );
 }
-
-const styles = StyleSheet.create({
-  form: {
-    gap: Spacing.three,
-  },
-  divider: {
-    alignItems: 'center',
-    marginVertical: Spacing.one,
-  },
-  links: {
-    alignItems: 'center',
-    gap: Spacing.two,
-    marginTop: Spacing.four,
-  },
-});

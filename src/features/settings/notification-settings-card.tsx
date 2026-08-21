@@ -1,15 +1,11 @@
 import { useEffect, useState } from 'react';
-import { Pressable, type StyleProp, StyleSheet, Switch, View, type ViewStyle } from 'react-native';
-
-import { Card } from '@/components/card';
-import { ThemedText } from '@/components/themed-text';
-import { Radius, Spacing } from '@/constants/theme';
-import { useTheme } from '@/hooks/use-theme';
+import { Pressable, type StyleProp, View, type ViewStyle } from 'react-native';
+import { ThemedText } from '@/components/theme/themed-text';
+import { Card } from '@/components/ui/card';
 import {
   DEFAULT_NOTIFICATION_SETTINGS,
   getNotificationSettings,
   type NotificationSettings,
-  requestNotificationPermissions,
   saveNotificationSettings,
 } from '@/lib/notifications';
 
@@ -24,8 +20,15 @@ type NotificationSettingsCardProps = {
   style?: StyleProp<ViewStyle>;
 };
 
+/**
+ * Legt nur noch fest, WANN erinnert wird (Schwellenwert, Uhrzeit) — OB die
+ * App überhaupt Benachrichtigungen anzeigen darf, ist eine reine
+ * OS-Berechtigung und lebt in `NotificationPermissionCard` unter
+ * /settings/permissions. `settings.enabled` bleibt intern immer `true`;
+ * `scheduleExpiryNotificationReminder` prüft die echte OS-Berechtigung
+ * ohnehin selbst, bevor etwas geplant wird.
+ */
 export function NotificationSettingsCard({ style }: NotificationSettingsCardProps) {
-  const theme = useTheme();
   const [settings, setSettings] = useState<NotificationSettings>(DEFAULT_NOTIFICATION_SETTINGS);
 
   useEffect(() => {
@@ -35,134 +38,58 @@ export function NotificationSettingsCard({ style }: NotificationSettingsCardProp
   async function updateSettings(newSettings: NotificationSettings) {
     setSettings(newSettings);
     await saveNotificationSettings(newSettings);
-
-    if (newSettings.enabled) {
-      await requestNotificationPermissions();
-    }
   }
 
   return (
     <View style={style}>
       <Card title="Benachrichtigungen">
-        <View style={styles.content}>
-          <View style={styles.settingRow}>
-            <View style={styles.settingText}>
-              <ThemedText style={{ fontWeight: 'bold' }}>Erinnerung aktivieren</ThemedText>
-              <ThemedText type="small" themeColor="textSecondary">
-                Push-Mitteilung für bald ablaufende Vorräte erhalten.
-              </ThemedText>
+        <View className="gap-three">
+          <View className="gap-two">
+            <ThemedText type="smallBold">Erinnern ab (Tage im Voraus):</ThemedText>
+            <View className="row-wrap">
+              {THRESHOLD_OPTIONS.map((days) => {
+                const isSelected = settings.daysThreshold === days;
+                return (
+                  <Pressable
+                    key={days}
+                    onPress={() => updateSettings({ ...settings, daysThreshold: days })}
+                    className={`chip ${isSelected ? 'chip-selected' : 'chip-idle'}`}>
+                    <ThemedText type={isSelected ? 'smallSelected' : 'small'}>
+                      {days} {days === 1 ? 'Tag' : 'Tage'}
+                    </ThemedText>
+                  </Pressable>
+                );
+              })}
             </View>
-            <Switch
-              value={settings.enabled}
-              onValueChange={(val) => updateSettings({ ...settings, enabled: val })}
-              trackColor={{ false: theme.border, true: theme.accent }}
-            />
           </View>
 
-          {settings.enabled && (
-            <>
-              <View style={styles.section}>
-                <ThemedText type="smallBold">Erinnern ab (Tage im Voraus):</ThemedText>
-                <View style={styles.chipRow}>
-                  {THRESHOLD_OPTIONS.map((days) => {
-                    const isSelected = settings.daysThreshold === days;
-                    return (
-                      <Pressable
-                        key={days}
-                        onPress={() => updateSettings({ ...settings, daysThreshold: days })}
-                        style={[
-                          styles.chip,
-                          {
-                            borderColor: isSelected ? theme.accent : theme.border,
-                            backgroundColor: isSelected ? `${theme.accent}18` : 'transparent',
-                          },
-                        ]}>
-                        <ThemedText
-                          type="small"
-                          style={{
-                            color: isSelected ? theme.accent : theme.text,
-                            fontWeight: isSelected ? 'bold' : 'normal',
-                          }}>
-                          {days} {days === 1 ? 'Tag' : 'Tage'}
-                        </ThemedText>
-                      </Pressable>
-                    );
-                  })}
-                </View>
-              </View>
-
-              <View style={styles.section}>
-                <ThemedText type="smallBold">Uhrzeit der Erinnerung:</ThemedText>
-                <View style={styles.chipRow}>
-                  {TIME_OPTIONS.map((time) => {
-                    const isSelected =
-                      settings.reminderHour === time.hour &&
-                      settings.reminderMinute === time.minute;
-                    return (
-                      <Pressable
-                        key={time.label}
-                        onPress={() =>
-                          updateSettings({
-                            ...settings,
-                            reminderHour: time.hour,
-                            reminderMinute: time.minute,
-                          })
-                        }
-                        style={[
-                          styles.chip,
-                          {
-                            borderColor: isSelected ? theme.accent : theme.border,
-                            backgroundColor: isSelected ? `${theme.accent}18` : 'transparent',
-                          },
-                        ]}>
-                        <ThemedText
-                          type="small"
-                          style={{
-                            color: isSelected ? theme.accent : theme.text,
-                            fontWeight: isSelected ? 'bold' : 'normal',
-                          }}>
-                          {time.label}
-                        </ThemedText>
-                      </Pressable>
-                    );
-                  })}
-                </View>
-              </View>
-            </>
-          )}
+          <View className="gap-two">
+            <ThemedText type="smallBold">Uhrzeit der Erinnerung:</ThemedText>
+            <View className="row-wrap">
+              {TIME_OPTIONS.map((time) => {
+                const isSelected =
+                  settings.reminderHour === time.hour && settings.reminderMinute === time.minute;
+                return (
+                  <Pressable
+                    key={time.label}
+                    onPress={() =>
+                      updateSettings({
+                        ...settings,
+                        reminderHour: time.hour,
+                        reminderMinute: time.minute,
+                      })
+                    }
+                    className={`chip ${isSelected ? 'chip-selected' : 'chip-idle'}`}>
+                    <ThemedText type={isSelected ? 'smallSelected' : 'small'}>
+                      {time.label}
+                    </ThemedText>
+                  </Pressable>
+                );
+              })}
+            </View>
+          </View>
         </View>
       </Card>
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  content: {
-    gap: Spacing.three,
-  },
-  settingRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    gap: Spacing.two,
-  },
-  settingText: {
-    flex: 1,
-    gap: 2,
-  },
-  section: {
-    gap: Spacing.two,
-    marginTop: Spacing.one,
-  },
-  chipRow: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    gap: Spacing.two,
-  },
-  chip: {
-    paddingHorizontal: Spacing.three,
-    paddingVertical: Spacing.one + 2,
-    borderRadius: Radius.sheet,
-    borderWidth: 1,
-  },
-});

@@ -1,30 +1,26 @@
 import { Image } from 'expo-image';
-import { memo } from 'react';
-import { Pressable, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { memo, useState } from 'react';
+import { Pressable, TextInput, TouchableOpacity, View } from 'react-native';
 import ReorderableList, {
   type ReorderableListReorderEvent,
   reorderItems,
   useReorderableDrag,
 } from 'react-native-reorderable-list';
 import Svg, { Path } from 'react-native-svg';
-import { FontSize } from '@/components/themed-text';
-import { Radius } from '@/constants/theme';
+import { ThemedText } from '@/components/theme/themed-text';
+import { StepMentionText } from '@/features/recipes/components/step-mention-text';
+import {
+  computeMentionUsage,
+  type MentionableIngredient,
+  matchPendingMention,
+  mentionedIngredientIds,
+} from '@/features/recipes/ingredient-mentions';
 import { pickRecipeImage } from '@/features/recipes/recipe-image-uploader';
+import { useTheme } from '@/hooks/use-theme';
 import type { IngredientComponentGroup, WizardStepItem } from './types';
 
-interface AvailableIngredient {
-  /**
-   * Die lokale `IngredientItem.id` — nicht `itemId` (recipe_component_items.id).
-   * Solange das Rezept nicht final gespeichert ist, existiert noch keine
-   * DB-Zeile; der Wizard referenziert Zutaten deshalb ueber ihre stabile
-   * Client-ID und uebersetzt erst beim Speichern in echte item-IDs.
-   */
-  itemId: string;
-  label: string;
-}
-
-function availableIngredients(components: IngredientComponentGroup[]): AvailableIngredient[] {
-  const result: AvailableIngredient[] = [];
+function flattenIngredients(components: IngredientComponentGroup[]): MentionableIngredient[] {
+  const result: MentionableIngredient[] = [];
   for (const comp of components) {
     for (const item of comp.items) {
       // item.product ist nur bei einer frisch abgeschlossenen OFF-Suche
@@ -32,12 +28,113 @@ function availableIngredients(components: IngredientComponentGroup[]): Available
       // productQuery/existingProductId (siehe recipe-create-screen.tsx-
       // Hydration) — ohne diesen Fallback wuerden sie hier fehlen.
       const name = item.product?.name ?? (item.existingProductId ? item.productQuery : null);
-      if (name) {
-        result.push({ itemId: item.id, label: `${name} (${comp.title})` });
-      }
+      if (!name) continue;
+      const quantity = Number.parseFloat(item.quantity);
+      result.push({
+        itemId: item.id,
+        name,
+        unit: item.unit,
+        quantity: Number.isNaN(quantity) ? 0 : quantity,
+      });
     }
   }
   return result;
+}
+
+/**
+ * Filtert die Autovervollstaendigungs-Treffer fuer eine gerade getippte
+ * Erwaehnung — und unterdrueckt sie, sobald der einzige Treffer exakt dem
+ * bereits eingefuegten Namen entspricht (sonst bliebe das Menue nach der
+ * Auswahl sichtbar, siehe justSelectedValueRef-Muster in
+ * product-search-dropdown.tsx, hier ohne Extra-State geloest).
+ */
+function pendingAutocomplete(text: string, ingredients: MentionableIngredient[]) {
+  const pending = matchPendingMention(text);
+  if (!pending) return null;
+  const matches = ingredients.filter((i) =>
+    i.name.toLowerCase().startsWith(pending.query.toLowerCase()),
+  );
+  if (matches.length === 0) return null;
+  if (matches.length === 1 && matches[0].name.toLowerCase() === pending.query.toLowerCase()) {
+    return null;
+  }
+  return { ...pending, matches };
+}
+
+interface IngredientLedgerProps {
+  ingredients: MentionableIngredient[];
+  used: Map<string, number>;
+}
+
+/**
+ * Immer sichtbare (nicht mitscrollende), einklappbare Zutatenuebersicht
+ * oberhalb der Zubereitungsschritte — zeigt live, wie viel jeder Zutat schon
+ * per @-Erwaehnung in den Schritten zugeordnet ist.
+ */
+function IngredientLedger({ ingredients, used }: IngredientLedgerProps) {
+  const [expanded, setExpanded] = useState(true);
+  if (ingredients.length === 0) return null;
+
+  const doneCount = ingredients.filter((i) => (used.get(i.itemId) ?? 0) >= i.quantity).length;
+
+  return (
+    <View className="mb-two pb-two border-b-hairline border-border">
+      <Pressable
+        className="flex-row items-center justify-between py-one"
+        onPress={() => setExpanded((prev) => !prev)}
+        accessibilityRole="button"
+        accessibilityLabel={expanded ? 'Zutatenliste einklappen' : 'Zutatenliste ausklappen'}>
+        <ThemedText
+          type="detail"
+          themeColor="textSecondary"
+          className="text-[9px] leading-[11px] font-bold tracking-widest">
+          ZUTATEN
+        </ThemedText>
+        <View className="flex-row items-center gap-two">
+          {!expanded ? (
+            <ThemedText type="caption" themeColor="textSecondary">
+              {doneCount}/{ingredients.length} aufgebraucht
+            </ThemedText>
+          ) : null}
+          <ThemedText themeColor="textSecondary" className="text-[11px]">
+            {expanded ? '▾' : '▸'}
+          </ThemedText>
+        </View>
+      </Pressable>
+
+      {expanded ? (
+        <View className="gap-[6px] pt-one">
+          {ingredients.map((ing) => {
+            const usedAmount = used.get(ing.itemId) ?? 0;
+            const pct =
+              ing.quantity > 0 ? Math.min(100, Math.round((usedAmount / ing.quantity) * 100)) : 0;
+            const full = ing.quantity > 0 && usedAmount >= ing.quantity;
+            const remaining = Math.max(0, ing.quantity - usedAmount);
+            return (
+              <View key={ing.itemId}>
+                <View className="flex-row items-baseline justify-between gap-two">
+                  <ThemedText
+                    type="detail"
+                    className={`font-bold ${full ? 'line-through text-text-secondary' : ''}`}>
+                    {ing.name}
+                  </ThemedText>
+                  <ThemedText
+                    type="caption"
+                    themeColor={full ? 'success' : 'textSecondary'}
+                    className={full ? 'font-semibold' : undefined}>
+                    {full ? 'aufgebraucht' : `${remaining}${ing.unit} übrig`}
+                  </ThemedText>
+                </View>
+                <View className="h-[2px] rounded-hairline bg-border overflow-hidden">
+                  <View className="h-full bg-accent" style={{ width: `${pct}%` }} />
+                </View>
+              </View>
+            );
+          })}
+        </View>
+      ) : null}
+    </View>
+  );
 }
 
 interface RecipeWizardStepStepsProps {
@@ -51,10 +148,9 @@ interface RecipeWizardStepStepsProps {
 interface StepCardProps {
   step: WizardStepItem;
   index: number;
-  ingredients: AvailableIngredient[];
+  ingredients: MentionableIngredient[];
   onUpdateStep: (id: string, patch: Partial<WizardStepItem>) => void;
   onRemoveStep: (id: string) => void;
-  onToggleIngredient: (stepId: string, itemId: string) => void;
   onPickImage: (stepId: string) => void;
 }
 
@@ -64,30 +160,46 @@ const StepCard = memo(function StepCard({
   ingredients,
   onUpdateStep,
   onRemoveStep,
-  onToggleIngredient,
   onPickImage,
 }: StepCardProps) {
   const drag = useReorderableDrag();
+  const theme = useTheme();
+  const autocomplete = pendingAutocomplete(step.text, ingredients);
+
+  function handleChangeText(text: string) {
+    onUpdateStep(step.id, { text, ingredientIds: mentionedIngredientIds(text, ingredients) });
+  }
+
+  function insertMention(ingredient: MentionableIngredient) {
+    const pending = matchPendingMention(step.text);
+    if (!pending) return;
+    const triggerPos = step.text.length - 1 - pending.query.length;
+    handleChangeText(step.text.slice(0, triggerPos) + '@' + ingredient.name);
+  }
 
   return (
-    <View style={styles.stepCard}>
-      <View style={styles.stepHeader}>
+    <View className="bg-white/70 rounded-sheet p-[11px] mb-three gap-[10px]">
+      <View className="row-center gap-[10px]">
         <TouchableOpacity
           onLongPress={drag}
-          style={styles.dragHandle}
+          className="p-one"
           accessibilityLabel="Schritt verschieben">
-          <Text style={styles.dragHandleText}>≡</Text>
+          <ThemedText type="headingSmall" themeColor="textSecondary">
+            ≡
+          </ThemedText>
         </TouchableOpacity>
-        <Text style={styles.stepIndex}>Schritt {index + 1}</Text>
+        <ThemedText type="label" themeColor="accent" className="flex-1 font-bold">
+          Schritt {index + 1}
+        </ThemedText>
         <TouchableOpacity
           onPress={() => onRemoveStep(step.id)}
-          style={styles.trashCircleButton}
+          className="w-9 h-9 rounded-sheet bg-background-element items-center justify-center"
           accessibilityRole="button"
           accessibilityLabel="Delete step">
           <Svg width={16} height={16} viewBox="0 0 24 24" fill="none">
             <Path
               d="M3 6h18M19 6v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6m3 0V4a2 2 0 012-2h4a2 2 0 012 2v2"
-              stroke="#705773"
+              stroke={theme.accent}
               strokeWidth={2}
               strokeLinecap="round"
               strokeLinejoin="round"
@@ -96,54 +208,164 @@ const StepCard = memo(function StepCard({
         </TouchableOpacity>
       </View>
 
-      {ingredients.length > 0 ? (
-        <View style={styles.chipRow}>
-          {ingredients.map((ing) => {
-            const selected = step.ingredientIds.includes(ing.itemId);
-            return (
-              <Pressable
+      <View className="relative">
+        <TextInput
+          className="bg-white rounded-card min-h-[132px] px-four py-three text-[15px] text-text"
+          value={step.text}
+          onChangeText={handleChangeText}
+          placeholder={`Was ist in Schritt ${index + 1} zu tun? Zutat mit @ einfügen, z. B. @Wurst50`}
+          placeholderTextColor={theme.textSecondary}
+          multiline
+          textAlignVertical="top"
+        />
+        {autocomplete ? (
+          <View className="mention-panel">
+            {autocomplete.matches.slice(0, 6).map((ing) => (
+              <TouchableOpacity
                 key={ing.itemId}
-                style={[styles.chip, selected && styles.chipActive]}
-                onPress={() => onToggleIngredient(step.id, ing.itemId)}>
-                <Text style={[styles.chipText, selected && styles.chipTextActive]}>
-                  {ing.label}
-                </Text>
-              </Pressable>
-            );
-          })}
-        </View>
+                className="mention-row"
+                onPress={() => insertMention(ing)}>
+                <ThemedText type="detail" className="font-semibold">
+                  {ing.name}{' '}
+                  <ThemedText type="detail" themeColor="textSecondary">
+                    · {ing.quantity}
+                    {ing.unit}
+                  </ThemedText>
+                </ThemedText>
+              </TouchableOpacity>
+            ))}
+            <View className="mention-hint">
+              <ThemedText type="caption" themeColor="textSecondary">
+                Danach direkt eine Zahl tippen, z. B. „{autocomplete.matches[0].name}50“
+              </ThemedText>
+            </View>
+          </View>
+        ) : null}
+      </View>
+
+      {step.text.trim() ? (
+        <StepMentionText
+          text={step.text}
+          ingredients={ingredients}
+          type="detail"
+          themeColor="textSecondary"
+          className="px-one"
+        />
       ) : null}
 
-      <TextInput
-        style={styles.stepInput}
-        value={step.text}
-        onChangeText={(val) => onUpdateStep(step.id, { text: val })}
-        placeholder={`Was ist in Schritt ${index + 1} zu tun?`}
-        placeholderTextColor="#A89FA8"
-        multiline
-      />
-
       {step.localImageUri ? (
-        <View style={styles.imagePreviewWrap}>
+        <View className="gap-[6px]">
           <Image
             source={{ uri: step.localImageUri }}
-            style={styles.imagePreview}
+            // expo-image benötigt inline Dimensionen
+            style={{ width: '100%', height: 140, borderRadius: 12 }}
             contentFit="cover"
           />
           <TouchableOpacity
-            style={styles.removeImageBtn}
+            className="self-start"
             onPress={() => onUpdateStep(step.id, { localImageUri: null, existingImagePath: null })}>
-            <Text style={styles.removeImageBtnText}>Bild entfernen</Text>
+            <ThemedText type="label" themeColor="accent" className="font-semibold">
+              Bild entfernen
+            </ThemedText>
           </TouchableOpacity>
         </View>
       ) : (
-        <TouchableOpacity style={styles.addImageBtn} onPress={() => onPickImage(step.id)}>
-          <Text style={styles.addImageBtnText}>+ Bild hinzufügen</Text>
+        <TouchableOpacity className="self-start" onPress={() => onPickImage(step.id)}>
+          <ThemedText type="label" themeColor="accent" className="font-semibold">
+            + Bild hinzufügen
+          </ThemedText>
         </TouchableOpacity>
       )}
+
+      <StepTimerField
+        minutes={step.timerMinutes}
+        onChange={(minutes) => onUpdateStep(step.id, { timerMinutes: minutes })}
+      />
     </View>
   );
 });
+
+interface StepTimerFieldProps {
+  minutes: number | null;
+  onChange: (minutes: number | null) => void;
+}
+
+/**
+ * Expliziter Timer pro Schritt, unabhaengig von der Text-basierten
+ * Minutenerkennung im Kochmodus (parseStepDurationSeconds in
+ * cooking-mode-screen.tsx) — dort greift die Texterkennung nur als Fallback,
+ * wenn hier nichts gesetzt ist.
+ */
+function StepTimerField({ minutes, onChange }: StepTimerFieldProps) {
+  const theme = useTheme();
+  const [draft, setDraft] = useState('');
+  const [editing, setEditing] = useState(false);
+
+  if (minutes !== null) {
+    return (
+      <View className="row-center gap-two">
+        <ThemedText type="label" themeColor="text" className="font-semibold">
+          ⏱ {minutes} Min. Timer
+        </ThemedText>
+        <TouchableOpacity onPress={() => onChange(null)}>
+          <ThemedText type="label" themeColor="accent" className="font-semibold">
+            Entfernen
+          </ThemedText>
+        </TouchableOpacity>
+      </View>
+    );
+  }
+
+  if (editing) {
+    return (
+      <View className="row-center gap-two">
+        <TextInput
+          className="bg-white rounded-card px-three py-two text-[15px] text-text w-[70px]"
+          value={draft}
+          onChangeText={setDraft}
+          placeholder="Min."
+          placeholderTextColor={theme.textSecondary}
+          keyboardType="number-pad"
+          autoFocus
+          onSubmitEditing={() => {
+            const parsed = Number.parseInt(draft, 10);
+            if (parsed > 0) onChange(parsed);
+            setDraft('');
+            setEditing(false);
+          }}
+        />
+        <TouchableOpacity
+          onPress={() => {
+            const parsed = Number.parseInt(draft, 10);
+            if (parsed > 0) onChange(parsed);
+            setDraft('');
+            setEditing(false);
+          }}>
+          <ThemedText type="label" themeColor="accent" className="font-semibold">
+            Übernehmen
+          </ThemedText>
+        </TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => {
+            setDraft('');
+            setEditing(false);
+          }}>
+          <ThemedText type="label" themeColor="textSecondary" className="font-semibold">
+            Abbrechen
+          </ThemedText>
+        </TouchableOpacity>
+      </View>
+    );
+  }
+
+  return (
+    <TouchableOpacity className="self-start" onPress={() => setEditing(true)}>
+      <ThemedText type="label" themeColor="accent" className="font-semibold">
+        + Timer hinzufügen
+      </ThemedText>
+    </TouchableOpacity>
+  );
+}
 
 export function RecipeWizardStepSteps({
   steps,
@@ -152,7 +374,11 @@ export function RecipeWizardStepSteps({
   onBack,
   onNext,
 }: RecipeWizardStepStepsProps) {
-  const ingredients = availableIngredients(components);
+  const ingredients = flattenIngredients(components);
+  const used = computeMentionUsage(
+    steps.map((s) => s.text),
+    ingredients,
+  );
 
   function updateStep(id: string, patch: Partial<WizardStepItem>) {
     onStepsChange(steps.map((s) => (s.id === id ? { ...s, ...patch } : s)));
@@ -171,18 +397,10 @@ export function RecipeWizardStepSteps({
         text: '',
         localImageUri: null,
         existingImagePath: null,
+        timerMinutes: null,
         ingredientIds: [],
       },
     ]);
-  }
-
-  function toggleIngredient(stepId: string, itemId: string) {
-    const step = steps.find((s) => s.id === stepId);
-    if (!step) return;
-    const ingredientIds = step.ingredientIds.includes(itemId)
-      ? step.ingredientIds.filter((id) => id !== itemId)
-      : [...step.ingredientIds, itemId];
-    updateStep(stepId, { ingredientIds });
   }
 
   async function pickImageFor(stepId: string) {
@@ -195,213 +413,69 @@ export function RecipeWizardStepSteps({
   }
 
   return (
-    <ReorderableList
-      style={styles.scrollView}
-      contentContainerStyle={styles.scrollContent}
-      showsVerticalScrollIndicator={false}
-      data={steps}
-      onReorder={handleReorder}
-      keyExtractor={(item) => item.id}
-      renderItem={({ item, index }) => (
-        <StepCard
-          step={item}
-          index={index ?? 0}
-          ingredients={ingredients}
-          onUpdateStep={updateStep}
-          onRemoveStep={removeStep}
-          onToggleIngredient={toggleIngredient}
-          onPickImage={pickImageFor}
-        />
-      )}
-      ListHeaderComponent={
-        <>
-          <Text style={styles.eyebrow}>SCHRITT 3 VON 4</Text>
-          <Text style={styles.sectionLabel}>Zubereitungsschritte</Text>
-          <Text style={styles.hint}>Zum Umsortieren einen Schritt gedrückt halten und ziehen.</Text>
-        </>
-      }
-      ListFooterComponent={
-        <>
-          <TouchableOpacity style={styles.addStepBtn} onPress={addStep}>
-            <Text style={styles.addStepBtnText}>+ Schritt hinzufügen</Text>
-          </TouchableOpacity>
+    <View className="flex-1 px-four">
+      <ThemedText
+        type="detail"
+        themeColor="textSecondary"
+        className="pt-two pb-[6px] text-[8px] leading-[10px] font-medium tracking-widest">
+        SCHRITT 3 VON 4
+      </ThemedText>
+      <ThemedText type="headingSmall" className="mb-one">
+        Zubereitungsschritte
+      </ThemedText>
+      <ThemedText type="label" themeColor="textSecondary" className="mb-two">
+        Zutat mit @ einfügen (z. B. @Wurst50 = 50 g Wurst). Zum Umsortieren einen Schritt gedrückt
+        halten und ziehen.
+      </ThemedText>
 
-          <View style={styles.navRow}>
-            <Pressable style={[styles.navButton, styles.navButtonSecondary]} onPress={onBack}>
-              <Text style={styles.navButtonSecondaryText}>Zurück</Text>
-            </Pressable>
-            <Pressable style={[styles.navButton, styles.navButtonPrimary]} onPress={onNext}>
-              <Text style={styles.navButtonPrimaryText}>Weiter</Text>
-            </Pressable>
-          </View>
-        </>
-      }
-    />
+      <IngredientLedger ingredients={ingredients} used={used} />
+
+      <ReorderableList
+        className="flex-1"
+        contentContainerClassName="pb-six"
+        showsVerticalScrollIndicator={false}
+        data={steps}
+        onReorder={handleReorder}
+        keyExtractor={(item) => item.id}
+        renderItem={({ item, index }) => (
+          <StepCard
+            step={item}
+            index={index ?? 0}
+            ingredients={ingredients}
+            onUpdateStep={updateStep}
+            onRemoveStep={removeStep}
+            onPickImage={pickImageFor}
+          />
+        )}
+        ListFooterComponent={
+          <>
+            <TouchableOpacity
+              className="w-full h-[42px] bg-background-element rounded-fam-large items-center justify-center mt-one mb-seven active:opacity-75"
+              onPress={addStep}>
+              <ThemedText type="detail" themeColor="accent" className="font-semibold">
+                + Schritt hinzufügen
+              </ThemedText>
+            </TouchableOpacity>
+
+            <View className="flex-row gap-[14px] mb-three">
+              <Pressable
+                className="flex-1 min-h-[48px] rounded-card items-center justify-center bg-background-element active:opacity-75"
+                onPress={onBack}>
+                <ThemedText type="captionCompact" themeColor="accent" className="font-semibold">
+                  Zurück
+                </ThemedText>
+              </Pressable>
+              <Pressable
+                className="flex-1 min-h-[48px] rounded-card items-center justify-center bg-accent active:opacity-75"
+                onPress={onNext}>
+                <ThemedText type="captionCompact" className="text-white font-semibold">
+                  Weiter
+                </ThemedText>
+              </Pressable>
+            </View>
+          </>
+        }
+      />
+    </View>
   );
 }
-
-const styles = StyleSheet.create({
-  scrollView: {
-    flex: 1,
-  },
-  scrollContent: {
-    paddingHorizontal: 16,
-    paddingBottom: 24,
-  },
-  eyebrow: {
-    paddingTop: 8,
-    paddingBottom: 6,
-    ...FontSize[8],
-    lineHeight: 10,
-    fontWeight: '500',
-    color: '#766E78',
-    letterSpacing: 0.7,
-  },
-  sectionLabel: {
-    ...FontSize[21],
-    lineHeight: 25,
-    fontWeight: '700',
-    color: '#302A31',
-    marginBottom: 4,
-  },
-  hint: {
-    ...FontSize[13],
-    color: '#786F79',
-    marginBottom: 16,
-  },
-  stepCard: {
-    backgroundColor: 'rgba(255,255,255,0.70)',
-    borderRadius: Radius.sheet,
-    borderCurve: 'continuous',
-    padding: 11,
-    marginBottom: 12,
-    gap: 10,
-  },
-  stepHeader: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 10,
-  },
-  dragHandle: {
-    padding: 4,
-  },
-  dragHandleText: {
-    ...FontSize[20],
-    color: '#A89FA8',
-  },
-  stepIndex: {
-    flex: 1,
-    ...FontSize[14],
-    fontWeight: '700',
-    color: '#705773',
-  },
-  trashCircleButton: {
-    width: 36,
-    height: 36,
-    borderRadius: Radius.sheet,
-    backgroundColor: '#EEE5EC',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  chipRow: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    gap: 8,
-  },
-  chip: {
-    paddingHorizontal: 12,
-    paddingVertical: 6,
-    borderRadius: Radius.controlLarge,
-    backgroundColor: '#EEE5EC',
-  },
-  chipActive: {
-    backgroundColor: '#705773',
-  },
-  chipText: {
-    color: '#705773',
-    ...FontSize[12],
-    fontWeight: '600',
-  },
-  chipTextActive: {
-    color: '#FFFFFF',
-  },
-  stepInput: {
-    backgroundColor: '#FFFFFF',
-    borderRadius: Radius.card,
-    minHeight: 72,
-    paddingHorizontal: 16,
-    paddingVertical: 12,
-    ...FontSize[15],
-    color: '#302A31',
-    textAlignVertical: 'top',
-  },
-  imagePreviewWrap: {
-    gap: 6,
-  },
-  imagePreview: {
-    width: '100%',
-    height: 140,
-    borderRadius: Radius.controlLarge,
-  },
-  removeImageBtn: {
-    alignSelf: 'flex-start',
-  },
-  removeImageBtnText: {
-    color: '#705773',
-    ...FontSize[13],
-    fontWeight: '600',
-  },
-  addImageBtn: {
-    alignSelf: 'flex-start',
-  },
-  addImageBtnText: {
-    color: '#705773',
-    ...FontSize[13],
-    fontWeight: '600',
-  },
-  addStepBtn: {
-    width: '100%',
-    height: 42,
-    backgroundColor: '#EEE5EC',
-    borderRadius: Radius.controlLarge,
-    borderCurve: 'continuous',
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginTop: 4,
-    marginBottom: 28,
-  },
-  addStepBtnText: {
-    color: '#705773',
-    ...FontSize[10],
-    fontWeight: '600',
-  },
-  navRow: {
-    flexDirection: 'row',
-    gap: 14,
-    marginBottom: 12,
-  },
-  navButton: {
-    flex: 1,
-    minHeight: 48,
-    borderRadius: Radius.card,
-    borderCurve: 'continuous',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  navButtonPrimary: {
-    backgroundColor: '#705773',
-  },
-  navButtonPrimaryText: {
-    color: '#FFFFFF',
-    ...FontSize[11],
-    fontWeight: '600',
-  },
-  navButtonSecondary: {
-    backgroundColor: '#EEE5EC',
-  },
-  navButtonSecondaryText: {
-    color: '#705773',
-    ...FontSize[11],
-    fontWeight: '600',
-  },
-});

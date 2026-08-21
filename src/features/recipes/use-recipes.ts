@@ -1,9 +1,10 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import * as Crypto from 'expo-crypto';
-import type {
-  ProductNutritionRow,
-  RecipeComponentItemRow,
-  RecipeComponentRow,
+import {
+  calculateServingNutrition,
+  type ProductNutritionRow,
+  type RecipeComponentItemRow,
+  type RecipeComponentRow,
 } from '@/features/recipes/nutrition';
 import { getDatabase } from '@/lib/db/client';
 import { parseJsonArray } from '@/lib/db/json-array';
@@ -41,6 +42,9 @@ export type RecipeListItem = {
   default_servings: number;
   created_by: string | null;
   created_at: string | null;
+  kcalPerServing?: number | null;
+  proteinGPerServing?: number | null;
+  carbsGPerServing?: number | null;
 };
 
 /** Rohzeile aus SQLite: die `text[]`-Server-Spalten kommen lokal als JSON-Text an. */
@@ -76,6 +80,8 @@ export type RecipeStep = {
   position: number;
   text: string;
   image_path: string | null;
+  /** Optionaler, explizit gesetzter Kochmodus-Timer. */
+  timer_minutes: number | null;
   /** IDs der referenzierten recipe_component_items (recipe_step_ingredients). */
   ingredientIds: string[];
 };
@@ -114,7 +120,69 @@ export function useRecipes(householdId: string | undefined) {
          order by title collate nocase`,
         [householdId],
       );
-      return rows.map(toRecipeListItem);
+      const recipes = rows.map(toRecipeListItem);
+      if (recipes.length === 0) return recipes;
+
+      const recipeIds = recipes.map((recipe) => recipe.id);
+      const placeholders = recipeIds.map(() => '?').join(', ');
+      type NutritionComponentRow = RecipeComponentRow & { recipe_id: string };
+      type NutritionItemRow = RecipeComponentItemRow & { recipe_id: string };
+      const [components, items] = await Promise.all([
+        db.getAllAsync<NutritionComponentRow>(
+          `select id, recipe_id, serving_grams
+           from recipe_components
+           where recipe_id in (${placeholders}) and deleted_at is null`,
+          recipeIds,
+        ),
+        db.getAllAsync<NutritionItemRow>(
+          `select component_id, recipe_id, product_id, sub_component_id, grams
+           from recipe_component_items
+           where recipe_id in (${placeholders}) and deleted_at is null`,
+          recipeIds,
+        ),
+      ]);
+
+      const productIds = [
+        ...new Set(items.map((item) => item.product_id).filter((id): id is string => !!id)),
+      ];
+      const productsById = new Map<string, ProductNutritionRow>();
+      if (productIds.length > 0) {
+        const productPlaceholders = productIds.map(() => '?').join(', ');
+        const products = await db.getAllAsync<ProductNutritionRow>(
+          `select id, kcal_per_100, protein_g_per_100, carbs_g_per_100, fat_g_per_100
+           from products where id in (${productPlaceholders})`,
+          productIds,
+        );
+        for (const product of products) productsById.set(product.id, product);
+      }
+
+      const componentsByRecipe = new Map<string, RecipeComponentRow[]>();
+      for (const component of components) {
+        const list = componentsByRecipe.get(component.recipe_id) ?? [];
+        list.push(component);
+        componentsByRecipe.set(component.recipe_id, list);
+      }
+      const itemsByRecipe = new Map<string, RecipeComponentItemRow[]>();
+      for (const item of items) {
+        const list = itemsByRecipe.get(item.recipe_id) ?? [];
+        list.push(item);
+        itemsByRecipe.set(item.recipe_id, list);
+      }
+
+      return recipes.map((recipe) => {
+        const nutrition = calculateServingNutrition(
+          componentsByRecipe.get(recipe.id) ?? [],
+          itemsByRecipe.get(recipe.id) ?? [],
+          productsById,
+        );
+        const hasNutrition = nutrition.kcal > 0;
+        return {
+          ...recipe,
+          kcalPerServing: hasNutrition ? Math.round(nutrition.kcal) : null,
+          proteinGPerServing: hasNutrition ? Math.round(nutrition.protein_g) : null,
+          carbsGPerServing: hasNutrition ? Math.round(nutrition.carbs_g) : null,
+        };
+      });
     },
     enabled: !!householdId,
   });
@@ -149,7 +217,7 @@ export function useRecipeDetail(recipeId: string | undefined) {
       );
 
       const stepRows = await db.getAllAsync<Omit<RecipeStep, 'ingredientIds'>>(
-        `select id, recipe_id, position, text, image_path
+        `select id, recipe_id, position, text, image_path, timer_minutes
          from recipe_steps
          where recipe_id = ? and deleted_at is null
          order by position`,
@@ -817,11 +885,13 @@ export function useAddStepMutation() {
       position: number;
       text: string;
       image_path?: string | null;
+      timer_minutes?: number | null;
     }) => {
       const db = await getDatabase();
       const id = Crypto.randomUUID();
       const { iso, ms } = nowStamp();
       const imagePath = input.image_path ?? null;
+      const timerMinutes = input.timer_minutes ?? null;
 
       await enqueueMutation(db, {
         entity: 'recipe_steps',
@@ -834,14 +904,15 @@ export function useAddStepMutation() {
           position: input.position,
           text: input.text,
           image_path: imagePath,
+          timer_minutes: timerMinutes,
           created_at: iso,
           updated_at: iso,
         },
         applyLocally: async (txn) => {
           await txn.runAsync(
             `insert into recipe_steps
-               (id, recipe_id, household_id, position, text, image_path, created_at, updated_at, _dirty)
-             values (?, ?, ?, ?, ?, ?, ?, ?, 1)`,
+               (id, recipe_id, household_id, position, text, image_path, timer_minutes, created_at, updated_at, _dirty)
+             values (?, ?, ?, ?, ?, ?, ?, ?, ?, 1)`,
             [
               id,
               input.recipe_id,
@@ -849,6 +920,7 @@ export function useAddStepMutation() {
               input.position,
               input.text,
               imagePath,
+              timerMinutes,
               iso,
               ms,
             ],
@@ -856,7 +928,7 @@ export function useAddStepMutation() {
         },
       });
 
-      return { id, ...input, image_path: imagePath };
+      return { id, ...input, image_path: imagePath, timer_minutes: timerMinutes };
     },
     onSuccess: (_, variables) => {
       queryClient.invalidateQueries({ queryKey: ['recipe-detail', variables.recipe_id] });
@@ -876,10 +948,12 @@ export function useUpdateStepMutation() {
       position: number;
       text: string;
       image_path?: string | null;
+      timer_minutes?: number | null;
     }) => {
       const db = await getDatabase();
       const { iso, ms } = nowStamp();
       const imagePath = input.image_path ?? null;
+      const timerMinutes = input.timer_minutes ?? null;
 
       await enqueueMutation(db, {
         entity: 'recipe_steps',
@@ -891,12 +965,13 @@ export function useUpdateStepMutation() {
           position: input.position,
           text: input.text,
           image_path: imagePath,
+          timer_minutes: timerMinutes,
           updated_at: iso,
         },
         applyLocally: async (txn) => {
           await txn.runAsync(
-            'update recipe_steps set position = ?, text = ?, image_path = ?, updated_at = ?, _dirty = 1 where id = ?',
-            [input.position, input.text, imagePath, ms, input.id],
+            'update recipe_steps set position = ?, text = ?, image_path = ?, timer_minutes = ?, updated_at = ?, _dirty = 1 where id = ?',
+            [input.position, input.text, imagePath, timerMinutes, ms, input.id],
           );
         },
       });

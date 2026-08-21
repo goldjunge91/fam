@@ -1,12 +1,11 @@
 import { router } from 'expo-router';
 import { useState } from 'react';
-import { StyleSheet, View } from 'react-native';
-import { Card } from '@/components/card';
-import { Screen } from '@/components/screen';
-import { TextField } from '@/components/text-field';
-import { ThemedText } from '@/components/themed-text';
+import { View } from 'react-native';
+import { TextField } from '@/components/forms/text-field';
+import { Screen } from '@/components/layout/screen';
+import { ThemedText } from '@/components/theme/themed-text';
 import { Button } from '@/components/ui/buttons';
-import { Spacing } from '@/constants/theme';
+import { Card } from '@/components/ui/card';
 import { authErrorMessage, requestPasswordReset } from '@/features/auth/api';
 import { fieldErrors, resetRequestSchema } from '@/features/auth/auth-schemas';
 
@@ -43,6 +42,7 @@ export function ForgotPasswordScreen() {
   if (sent) {
     return (
       <Screen title="E-Mail unterwegs" back={{ label: 'Anmelden', href: '/sign-in' }}>
+        {/* Bestätigungskarte nach E-Mail-Versand */}
         <Card>
           {/* Bewusst neutral formuliert: Eine Bestaetigung, dass genau diese
               Adresse ein Konto hat, waere eine Auskunft ueber fremde Nutzer. */}
@@ -51,6 +51,7 @@ export function ForgotPasswordScreen() {
             unterwegs.
           </ThemedText>
         </Card>
+        {/* Zurück-Aktion */}
         <Button
           label="Zurück zur Anmeldung"
           variant="secondary"
@@ -65,8 +66,10 @@ export function ForgotPasswordScreen() {
       title="Passwort zurücksetzen"
       subtitle="Wir schicken dir einen Link"
       back={{ label: 'Anmelden', href: '/sign-in' }}>
+      {/* Formular zur Passworteingabe / Reset-Anfrage */}
       <Card>
-        <View style={styles.form}>
+        <View className="gap-three">
+          {/* E-Mail-Eingabefeld */}
           <TextField
             testID="forgot-password-email"
             label="E-Mail"
@@ -82,21 +85,16 @@ export function ForgotPasswordScreen() {
             returnKeyType="go"
           />
 
-          {formError ? (
-            <ThemedText type="small" themeColor="danger">
-              {formError}
-            </ThemedText>
-          ) : null}
+          {/* Fehlermeldung */}
+          {formError ? <ThemedText type="smallDanger">{formError}</ThemedText> : null}
 
+          {/* Absende-Button */}
           <Button label="Link anfordern" onPress={handleSubmit} loading={loading} />
         </View>
       </Card>
 
+      {/* Navigation zurück */}
       <Button label="Zurück" variant="secondary" onPress={() => router.back()} />
     </Screen>
   );
 }
-
-const styles = StyleSheet.create({
-  form: { gap: Spacing.three },
-});

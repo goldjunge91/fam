@@ -2,25 +2,25 @@ import { useQueryClient } from '@tanstack/react-query';
 import Constants from 'expo-constants';
 import { router } from 'expo-router';
 import { useState } from 'react';
-import { Alert, Pressable, ScrollView, StyleSheet, View } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { Alert, Platform, Pressable, ScrollView, View } from 'react-native';
 
-import { GradientBackground } from '@/components/gradient-background';
-import { PageHeader } from '@/components/page-header';
-import { FontSize, ThemedText } from '@/components/themed-text';
+import { HubScreen } from '@/components/layout/hub-screen';
+import { ThemedText } from '@/components/theme/themed-text';
 import { Button, MenuButton, ProfileButton } from '@/components/ui/buttons';
-import { Radius, Spacing } from '@/constants/theme';
 import { useProfile } from '@/features/auth/api';
 import { useSession } from '@/features/auth/session-provider';
 import { signOutAndClearLocalData } from '@/features/auth/sign-out';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
+import {
+  DEFAULT_FAB_POSITION,
+  useFabPosition,
+  useSetFabPosition,
+} from '@/features/navigation/fab-position-settings';
 import { useNavigationChrome } from '@/features/navigation/navigation-chrome-provider';
 import { useProfileInitials } from '@/features/navigation/use-profile-initials';
 import { classifySupabaseTarget } from '@/features/settings/dev/dev-info';
 import { PremiumPromoCard } from '@/features/settings/premium-promo-card';
 import { SettingsGroup, SettingsRow } from '@/features/settings/settings-menu';
-import { useHubGradient } from '@/hooks/use-hub-gradient';
-import { useTheme } from '@/hooks/use-theme';
 import { env } from '@/lib/env';
 
 /**
@@ -33,8 +33,6 @@ import { env } from '@/lib/env';
  * die Paywall direkt zu praesentieren.
  */
 export function SettingsScreen() {
-  const theme = useTheme();
-  const hubGradient = useHubGradient();
   const { session } = useSession();
   const { openDrawer } = useNavigationChrome();
   const queryClient = useQueryClient();
@@ -43,6 +41,9 @@ export function SettingsScreen() {
   const { data: profile } = useProfile(session?.user.id);
   const initials = useProfileInitials();
   const { activeHousehold } = useActiveHousehold();
+
+  const { data: fabPosition = DEFAULT_FAB_POSITION } = useFabPosition();
+  const setFabPosition = useSetFabPosition();
 
   async function handleSignOut() {
     if (signingOut) return;
@@ -69,201 +70,162 @@ export function SettingsScreen() {
     ? classifySupabaseTarget(env.supabaseUrl)
     : { label: '', tone: 'accent' as const };
 
-  const appVersion = Constants.expoConfig?.version ?? '1.0.0';
+  const version = Constants.nativeAppVersion ?? Constants.expoConfig?.version ?? '1.0.0';
+  const buildNumber =
+    Constants.nativeBuildVersion ??
+    (Platform.OS === 'ios'
+      ? Constants.expoConfig?.ios?.buildNumber
+      : Constants.expoConfig?.android?.versionCode
+        ? String(Constants.expoConfig.android.versionCode)
+        : undefined);
+  const versionLabel = buildNumber ? `fam v${version} (${buildNumber})` : `fam v${version}`;
 
   return (
-    <View style={styles.root}>
-      <GradientBackground {...hubGradient} />
-      <SafeAreaView style={styles.safeArea} edges={['top', 'left', 'right']}>
-        <PageHeader
-          title="Einstellungen"
-          align="center"
-          leading={<MenuButton onPress={openDrawer} />}
-          trailing={
-            <ProfileButton initials={initials} onPress={() => router.push('/settings/profile')} />
-          }
-        />
-
-        <ScrollView contentContainerStyle={styles.scroll} showsVerticalScrollIndicator={false}>
-          <View style={styles.topCards}>
-            <Pressable
-              onPress={() => router.push('/settings/profile')}
-              accessibilityRole="button"
-              style={({ pressed }) => [
-                styles.profileRow,
-                { backgroundColor: `${theme.backgroundElement}B8`, borderColor: theme.border },
-                pressed && styles.pressed,
-              ]}>
-              <View style={[styles.profileAvatar, { backgroundColor: theme.accent }]}>
-                <ThemedText style={styles.profileAvatarText}>{initials}</ThemedText>
-              </View>
-              <View style={styles.profileTextWrap}>
-                <ThemedText type="smallBold" numberOfLines={1}>
-                  {displayName}
-                </ThemedText>
-                <ThemedText type="small" themeColor="textSecondary" numberOfLines={1}>
-                  {session?.user.email ?? '—'}
-                </ThemedText>
-              </View>
-              <ThemedText themeColor="textSecondary" style={styles.chevron}>
-                ›
+    <HubScreen
+      header={{
+        title: 'Einstellungen',
+        align: 'center',
+        leading: <MenuButton onPress={openDrawer} />,
+        trailing: <ProfileButton initials={initials} onPress={() => router.push('/profile')} />,
+      }}>
+      <ScrollView contentContainerClassName="screen-scroll" showsVerticalScrollIndicator={false}>
+        {/* Schnellzugriff-Header (Eigenes Profil & Premium-Aktionskarte) */}
+        <View className="gap-[10px]">
+          <Pressable
+            onPress={() => router.push('/profile')}
+            accessibilityRole="button"
+            className="profile-row">
+            <View className="profile-avatar">
+              <ThemedText type="smallBold" themeColor="onAccent">
+                {initials}
               </ThemedText>
-            </Pressable>
+            </View>
+            <View className="row-text">
+              <ThemedText type="smallBold" numberOfLines={1}>
+                {displayName}
+              </ThemedText>
+              <ThemedText type="small" themeColor="textSecondary" numberOfLines={1}>
+                {session?.user.email ?? '—'}
+              </ThemedText>
+            </View>
+            <ThemedText type="bodyLarge" themeColor="textSecondary">
+              ›
+            </ThemedText>
+          </Pressable>
 
-            <PremiumPromoCard />
-          </View>
+          <PremiumPromoCard />
+        </View>
 
-          <View style={styles.groups}>
-            <SettingsGroup title="Haushalt">
-              <SettingsRow
-                icon="🏠"
-                label="Mitglieder"
-                value={activeHousehold?.name ?? 'Kein Haushalt'}
-                hint={hasHousehold ? undefined : 'Haushalt wechseln oder beitreten'}
-                onPress={() => router.push('/household/members')}
-              />
-              <SettingsRow
-                icon="📦"
-                label="Lagerorte"
-                hint="Kühlschrank, Tiefkühler, Vorratskammer"
-                onPress={
-                  hasHousehold ? () => router.push('/household/storage-locations') : undefined
-                }
-                disabled={!hasHousehold}
-              />
-              <SettingsRow
-                icon="🏬"
-                label="Märkte"
-                hint="REWE, Aldi, Lidl, ..."
-                onPress={hasHousehold ? () => router.push('/household/stores') : undefined}
-                disabled={!hasHousehold}
-                last
-              />
-            </SettingsGroup>
+        {/* Einstellungs-Menügruppen */}
+        <View className="gap-four">
+          {/* Tracking & Ernährung (Ziele, Vitalwerte, Methoden) */}
+          <SettingsGroup title="Tracking & Ernährung">
+            <SettingsRow
+              icon="🎯"
+              label="Mein Tracking"
+              hint="Methode, Ziele, Vitalwerte & Rhythmus"
+              onPress={() => router.push('/profile/tracking')}
+              last
+            />
+          </SettingsGroup>
 
-            <SettingsGroup title="App">
-              <SettingsRow
-                icon="🔔"
-                label="Benachrichtigungen"
-                onPress={() => router.push('/settings/notifications')}
-              />
-              <SettingsRow
-                icon="🧩"
-                label="Module"
-                hint="Vorrat, Einkauf, Tagebuch, Rezepte"
-                onPress={() => router.push('/settings/modules')}
-                last
-              />
-            </SettingsGroup>
+          {/* Haushalt (Mitglieder, Lagerorte, Märkte) */}
+          <SettingsGroup title="Haushalt">
+            <SettingsRow
+              icon="🏠"
+              label="Mitglieder"
+              value={activeHousehold?.name ?? 'Kein Haushalt'}
+              hint={hasHousehold ? undefined : 'Haushalt wechseln oder beitreten'}
+              onPress={() => router.push('/household/members')}
+            />
+            <SettingsRow
+              icon="📦"
+              label="Lagerorte"
+              hint="Kühlschrank, Tiefkühler, Vorratskammer"
+              onPress={hasHousehold ? () => router.push('/household/storage-locations') : undefined}
+              disabled={!hasHousehold}
+            />
+            <SettingsRow
+              icon="🏬"
+              label="Märkte"
+              hint="REWE, Aldi, Lidl, ..."
+              onPress={hasHousehold ? () => router.push('/household/stores') : undefined}
+              disabled={!hasHousehold}
+              last
+            />
+          </SettingsGroup>
 
-            <SettingsGroup title="Daten">
-              <SettingsRow
-                icon="📤"
-                label="Export"
-                onPress={() => router.push('/settings/export')}
-              />
-              <SettingsRow
-                icon="🔒"
-                label="Datenschutz"
-                onPress={() => router.push('/settings/privacy')}
-              />
-              <SettingsRow
-                icon="🗑️"
-                label="Konto löschen"
-                onPress={() => router.push('/settings/delete-account')}
-                last
-              />
-            </SettingsGroup>
+          {/* App-Einstellungen (Berechtigungen, Benachrichtigungen, Modulauswahl, Plus-Button) */}
+          <SettingsGroup title="App">
+            <SettingsRow
+              icon="🔐"
+              label="Berechtigungen"
+              onPress={() => router.push('/settings/permissions')}
+            />
+            <SettingsRow
+              icon="🔔"
+              label="Benachrichtigungen"
+              onPress={() => router.push('/settings/notifications')}
+            />
+            <SettingsRow
+              icon="🧩"
+              label="Module"
+              hint="Vorrat, Einkauf, Tagebuch, Rezepte"
+              onPress={() => router.push('/settings/modules')}
+            />
+            <SettingsRow
+              icon="➕"
+              label="Plus-Button"
+              value={fabPosition === 'left' ? 'Links' : 'Rechts'}
+              hint="Ecke, in der das + sitzt"
+              onPress={() => setFabPosition(fabPosition === 'left' ? 'right' : 'left')}
+              last
+            />
+          </SettingsGroup>
 
-            {/* Nur mit EXPO_PUBLIC_DEV_TOOLS=true. Die Gruppe verschwindet dann
+          {/* Datenverwaltung & Datenschutz (Export, DSGVO, Löschen) */}
+          <SettingsGroup title="Daten">
+            <SettingsRow icon="📤" label="Export" onPress={() => router.push('/settings/export')} />
+            <SettingsRow
+              icon="🔒"
+              label="Datenschutz"
+              onPress={() => router.push('/settings/privacy')}
+            />
+            <SettingsRow
+              icon="🗑️"
+              label="Konto löschen"
+              onPress={() => router.push('/settings/delete-account')}
+              last
+            />
+          </SettingsGroup>
+
+          {/* Nur mit EXPO_PUBLIC_DEV_TOOLS=true. Die Gruppe verschwindet dann
                 vollstaendig statt nur deaktiviert zu sein — ein ausgegrauter
                 Eintrag "Entwickler" waere fuer Nutzer eine Frage ohne Antwort. */}
-            {env.devTools ? (
-              <SettingsGroup title="Entwickler">
-                <SettingsRow
-                  icon="🛠"
-                  label="Entwickler-Werkzeuge"
-                  hint="Umgebung, Session, lokale Datenbank"
-                  value={supabaseTarget.label}
-                  onPress={() => router.push('/settings/dev')}
-                  last
-                />
-              </SettingsGroup>
-            ) : null}
-          </View>
+          {env.devTools ? (
+            <SettingsGroup title="Entwickler">
+              <SettingsRow
+                icon="🛠"
+                label="Entwickler-Werkzeuge"
+                hint="Umgebung, Session, lokale Datenbank"
+                value={supabaseTarget.label}
+                onPress={() => router.push('/settings/dev')}
+                last
+              />
+            </SettingsGroup>
+          ) : null}
+        </View>
 
-          <View style={styles.abmelden}>
-            <Button
-              label="Abmelden"
-              variant="danger"
-              onPress={handleSignOut}
-              loading={signingOut}
-            />
-          </View>
+        {/* Abmelden-Aktion */}
+        <View className="mt-two">
+          <Button label="Abmelden" variant="danger" onPress={handleSignOut} loading={signingOut} />
+        </View>
 
-          <ThemedText type="small" style={styles.versionText}>
-            {`fam v${appVersion}`}
-          </ThemedText>
-        </ScrollView>
-      </SafeAreaView>
-    </View>
+        {/* App-Versionsangabe & Build-Nummer */}
+        <ThemedText type="small" className="text-center opacity-60">
+          {versionLabel}
+        </ThemedText>
+      </ScrollView>
+    </HubScreen>
   );
 }
-
-const styles = StyleSheet.create({
-  root: {
-    flex: 1,
-  },
-  safeArea: {
-    flex: 1,
-  },
-  scroll: {
-    paddingHorizontal: Spacing.three,
-    paddingBottom: Spacing.six,
-    gap: Spacing.four,
-  },
-  topCards: {
-    gap: 10,
-  },
-  profileRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: Spacing.two,
-    padding: Spacing.two,
-    borderWidth: StyleSheet.hairlineWidth,
-    borderRadius: Radius.sheet,
-  },
-  profileAvatar: {
-    width: 50,
-    height: 50,
-    borderRadius: Radius.large,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  profileAvatarText: {
-    color: '#fff',
-    ...FontSize[13],
-    fontWeight: '600',
-  },
-  profileTextWrap: {
-    flex: 1,
-    gap: 2,
-  },
-  chevron: {
-    ...FontSize[19],
-    lineHeight: 19,
-  },
-  groups: {
-    gap: Spacing.four,
-  },
-  abmelden: {
-    marginTop: Spacing.two,
-  },
-  versionText: {
-    textAlign: 'center',
-    opacity: 0.6,
-  },
-  pressed: {
-    opacity: 0.85,
-  },
-});
