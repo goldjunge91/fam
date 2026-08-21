@@ -237,6 +237,19 @@ export function RecipeCreateScreen() {
     ]);
   }
 
+  function handleUpdateComponentTitle(componentId: string, componentTitle: string) {
+    setComponents((prev) =>
+      prev.map((comp) => (comp.id === componentId ? { ...comp, title: componentTitle } : comp)),
+    );
+  }
+
+  // Letzte verbleibende Gruppe darf nicht entfernt werden, sonst gaebe es keinen Ort mehr fuer Zutaten.
+  function handleRemoveComponentGroup(componentId: string) {
+    setComponents((prev) =>
+      prev.length <= 1 ? prev : prev.filter((comp) => comp.id !== componentId),
+    );
+  }
+
   function handleCancel() {
     const hasInput =
       title.trim() || components.some((c) => c.items.some((i) => i.product || i.existingProductId));
@@ -608,6 +621,8 @@ export function RecipeCreateScreen() {
                 onUpdateQuantity={handleUpdateQuantity}
                 onUpdateUnit={handleUpdateUnit}
                 onAddComponentGroup={handleAddComponentGroup}
+                onUpdateComponentTitle={handleUpdateComponentTitle}
+                onRemoveComponentGroup={handleRemoveComponentGroup}
                 saving={saving}
                 onCancel={handleCancel}
                 onNext={handleNextFromBasics}
@@ -648,6 +663,8 @@ export function RecipeCreateScreen() {
                 onUpdateQuantity={handleUpdateQuantity}
                 onUpdateUnit={handleUpdateUnit}
                 onAddComponentGroup={handleAddComponentGroup}
+                onUpdateComponentTitle={handleUpdateComponentTitle}
+                onRemoveComponentGroup={handleRemoveComponentGroup}
                 saving={saving}
                 onCancel={() => setWizardStep(1)}
                 onNext={() => setWizardStep(3)}

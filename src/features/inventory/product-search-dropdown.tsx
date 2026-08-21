@@ -190,7 +190,13 @@ export const ProductSearchDropdown = forwardRef<
   // gewaehlten Produktnamen setzt (siehe recipe-create-screen.tsx). Ohne diese
   // Markierung faengt der Such-Effekt unten diese Aenderung ab und oeffnet das
   // Dropdown eine Suche spaeter erneut — Auswahl wirkte dann wie 2x noetig.
-  const justSelectedValueRef = useRef<string | null>(null);
+  // Initialisiert mit `value` (statt `null`), damit ein bereits befuellter
+  // Anfangswert beim (Re-)Mount nicht als neue Eingabe zaehlt — sonst oeffnet
+  // sich beim Zurueckblaettern im Rezept-Wizard (Schritt wechseln und zurueck
+  // entfernt/erzeugt diesen Baum neu) die Trefferliste erneut fuer jede bereits
+  // ausgewaehlte Zutat (#UI-Feedback: "oeffnet sich fuer alle Zutaten das
+  // Modal der Suche").
+  const justSelectedValueRef = useRef<string | null>(value);
 
   /**
    * Schliesst nur die Trefferliste, nicht die Tastatur — Gegenstueck ist

@@ -13,6 +13,8 @@ import { presentPaywallIfNeeded } from '@/features/premium/paywall';
 import { usePremium } from '@/features/premium/premium-provider';
 import { useHubGradient } from '@/hooks/use-hub-gradient';
 import { RecipeRatingSheet } from './components/recipe-rating-sheet';
+import { StepMentionText } from './components/step-mention-text';
+import { flattenRecipeItems, renderMentionPlainText } from './ingredient-mentions';
 import { useRecipeStepImageUrl } from './recipe-image-uploader';
 import { type RecipeDetail, type RecipeStep, useRecipeDetail } from './use-recipes';
 
@@ -111,6 +113,7 @@ function FreeCookingMode({ data }: { data: RecipeDetail }) {
   const hubGradient = useHubGradient();
   const { recipe, items, steps, productsById } = data;
   const ingredients = items.filter((item) => item.product_id !== null);
+  const mentionIngredients = flattenRecipeItems(data.items, data.productsById);
   const [unlocking, setUnlocking] = useState(false);
 
   async function unlockPremium() {
@@ -176,11 +179,12 @@ function FreeCookingMode({ data }: { data: RecipeDetail }) {
                   <ThemedText type="captionCompact" themeColor="accent" className="font-bold">
                     {step.position + 1}.
                   </ThemedText>
-                  <ThemedText
+                  <StepMentionText
+                    text={step.text}
+                    ingredients={mentionIngredients}
                     type="detail"
-                    className="flex-1 text-[11px] leading-[18px] font-medium">
-                    {step.text}
-                  </ThemedText>
+                    className="flex-1 text-[11px] leading-[18px] font-medium"
+                  />
                 </View>
               ))}
             </View>
@@ -259,6 +263,10 @@ export function CookingModeScreen() {
   const { recipe, steps } = data;
   const hasSteps = steps.length > 0;
   const currentStep = steps[Math.min(stepIndex, Math.max(steps.length - 1, 0))];
+  const mentionIngredients = flattenRecipeItems(data.items, data.productsById);
+  const currentStepPlainText = currentStep
+    ? renderMentionPlainText(currentStep.text, mentionIngredients)
+    : '';
 
   function nextStep() {
     if (stepIndex >= steps.length - 1) {
@@ -384,21 +392,22 @@ export function CookingModeScreen() {
               SCHRITT {stepIndex + 1} VON {steps.length}
             </ThemedText>
             <ThemedText type="headingSmall" className="pt-[6px]" numberOfLines={2}>
-              {currentStep.text.length > 42
+              {currentStepPlainText.length > 42
                 ? `Schritt ${stepIndex + 1}`
-                : currentStep.text.replace(/[.!?]+$/, '')}
+                : currentStepPlainText.replace(/[.!?]+$/, '')}
             </ThemedText>
 
             {/* Schritt-Grafik / Foto */}
             <View className="h-[184px] mt-[13px] rounded-fam-large overflow-hidden">
               <StepArtwork step={currentStep} />
             </View>
-            <ThemedText
+            <StepMentionText
+              text={currentStep.text}
+              ingredients={mentionIngredients}
               type="detail"
               themeColor="textSecondary"
-              className="pt-three text-[12px] leading-[18px] font-medium">
-              {currentStep.text}
-            </ThemedText>
+              className="pt-three text-[12px] leading-[18px] font-medium"
+            />
 
             {/* Integrierter Timer bei Zeitangaben im Schritt-Text */}
             {parsedDuration ? (

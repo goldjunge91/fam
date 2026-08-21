@@ -47,6 +47,8 @@ interface RecipeWizardStepBasicsProps {
   onUpdateQuantity: (componentId: string, ingredientId: string, quantity: string) => void;
   onUpdateUnit: (componentId: string, ingredientId: string, unit: string) => void;
   onAddComponentGroup: () => void;
+  onUpdateComponentTitle: (componentId: string, title: string) => void;
+  onRemoveComponentGroup: (componentId: string) => void;
   saving: boolean;
   onCancel: () => void;
   onNext: () => void;
@@ -80,6 +82,8 @@ export function RecipeWizardStepBasics({
   onUpdateQuantity,
   onUpdateUnit,
   onAddComponentGroup,
+  onUpdateComponentTitle,
+  onRemoveComponentGroup,
   saving,
   onCancel,
   onNext,
@@ -293,9 +297,28 @@ export function RecipeWizardStepBasics({
           {/* Zutaten-Gruppen */}
           {components.map((comp) => (
             <View key={comp.id} className="mb-three p-[11px] rounded-sheet bg-white/70">
-              <ThemedText type="detail" className="text-[10px] leading-[12px] font-bold mb-[6px]">
-                {comp.title}
-              </ThemedText>
+              <View className="flex-row items-center gap-two mb-two">
+                <TextInput
+                  className="flex-1 bg-background-element rounded-control min-h-[44px] px-three text-body-small font-bold text-text"
+                  value={comp.title}
+                  onChangeText={(val) => onUpdateComponentTitle(comp.id, val)}
+                  placeholder="Gruppenname, z. B. Für den Teig"
+                  placeholderTextColor={theme.textSecondary}
+                />
+                {components.length > 1 ? (
+                  <TouchableOpacity
+                    className="w-11 h-11 rounded-control bg-background-element items-center justify-center"
+                    onPress={() => onRemoveComponentGroup(comp.id)}
+                    accessibilityRole="button"
+                    accessibilityLabel="Zutaten-Gruppe entfernen">
+                    <ThemedText
+                      themeColor="accent"
+                      className="text-[18px] leading-[20px] font-medium">
+                      ×
+                    </ThemedText>
+                  </TouchableOpacity>
+                ) : null}
+              </View>
 
               {comp.items.map((item) => (
                 <View key={item.id} className="mb-[14px] gap-two">

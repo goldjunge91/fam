@@ -99,6 +99,7 @@ export function RecipeLogScreen() {
       params: {
         date: toIsoDate(new Date()),
         mealType,
+        closeStackCount: '2',
         name: data.recipe.title,
         quantity: '1',
         unit: 'portion',
