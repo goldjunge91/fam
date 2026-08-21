@@ -217,7 +217,11 @@ export function CookingModeScreen() {
   const [timerSeconds, setTimerSeconds] = useState(0);
   const [timerRunning, setTimerRunning] = useState(false);
   const timerStep = data?.steps[Math.min(stepIndex, Math.max((data?.steps.length ?? 0) - 1, 0))];
-  const parsedDuration = parseStepDurationSeconds(timerStep?.text);
+  // Der explizit im Wizard gesetzte Timer hat Vorrang vor der Text-basierten
+  // Minutenerkennung, die nur als Fallback fuer alte Rezepte ohne timer_minutes greift.
+  const parsedDuration = timerStep?.timer_minutes
+    ? timerStep.timer_minutes * 60
+    : parseStepDurationSeconds(timerStep?.text);
 
   useEffect(() => {
     if (!timerStep || timerStep.id === timerStepId) return;

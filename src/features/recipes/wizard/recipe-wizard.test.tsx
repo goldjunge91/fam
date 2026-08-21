@@ -39,6 +39,7 @@ describe('Recipe Wizard Steps', () => {
       text: 'Zwiebeln schneiden',
       localImageUri: null,
       existingImagePath: null,
+      timerMinutes: null,
       ingredientIds: ['ing-1'],
     },
   ];

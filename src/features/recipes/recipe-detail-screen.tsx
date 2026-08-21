@@ -88,12 +88,19 @@ function RecipeStepItem({
         <ThemedText type="headingSmall" themeColor="accent" className="w-[30px]">
           {index + 1}
         </ThemedText>
-        <StepMentionText
-          text={step.text}
-          ingredients={ingredients}
-          type="body"
-          className="flex-1 font-medium"
-        />
+        <View className="flex-1 gap-one">
+          <StepMentionText
+            text={step.text}
+            ingredients={ingredients}
+            type="body"
+            className="font-medium"
+          />
+          {step.timer_minutes !== null ? (
+            <ThemedText type="caption" themeColor="textSecondary">
+              ⏱ {step.timer_minutes} Min. Timer
+            </ThemedText>
+          ) : null}
+        </View>
       </View>
     </View>
   );

@@ -165,6 +165,11 @@ create table if not exists public.recipe_steps (
   position integer not null check (position >= 0),
   text text not null check (length(trim(text)) between 1 and 2000),
   image_path text,
+  -- Optionaler, vom Nutzer explizit gesetzter Timer (z. B. "10 Minuten koecheln
+  -- lassen"). Unabhaengig von der Text-basierten Minutenerkennung im Kochmodus
+  -- (siehe parseStepDurationSeconds in cooking-mode-screen.tsx), die als
+  -- Fallback greift, wenn hier nichts gesetzt ist.
+  timer_minutes integer check (timer_minutes > 0),
 
   created_at timestamptz not null default now(),
   updated_at timestamptz not null default now(),
@@ -172,7 +177,7 @@ create table if not exists public.recipe_steps (
 );
 
 comment on table public.recipe_steps is
-  'Ein Zubereitungsschritt eines Rezepts, in Reihenfolge ueber position. image_path zeigt in den recipe-step-images-Bucket (13_recipe_step_storage.sql).';
+  'Ein Zubereitungsschritt eines Rezepts, in Reihenfolge ueber position. image_path zeigt in den recipe-step-images-Bucket (13_recipe_step_storage.sql). timer_minutes ist ein optionaler, explizit gesetzter Kochmodus-Timer.';
 
 create index if not exists recipe_steps_recipe_id_idx
   on public.recipe_steps (recipe_id);

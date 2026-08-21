@@ -276,9 +276,96 @@ const StepCard = memo(function StepCard({
           </ThemedText>
         </TouchableOpacity>
       )}
+
+      <StepTimerField
+        minutes={step.timerMinutes}
+        onChange={(minutes) => onUpdateStep(step.id, { timerMinutes: minutes })}
+      />
     </View>
   );
 });
+
+interface StepTimerFieldProps {
+  minutes: number | null;
+  onChange: (minutes: number | null) => void;
+}
+
+/**
+ * Expliziter Timer pro Schritt, unabhaengig von der Text-basierten
+ * Minutenerkennung im Kochmodus (parseStepDurationSeconds in
+ * cooking-mode-screen.tsx) — dort greift die Texterkennung nur als Fallback,
+ * wenn hier nichts gesetzt ist.
+ */
+function StepTimerField({ minutes, onChange }: StepTimerFieldProps) {
+  const theme = useTheme();
+  const [draft, setDraft] = useState('');
+  const [editing, setEditing] = useState(false);
+
+  if (minutes !== null) {
+    return (
+      <View className="row-center gap-two">
+        <ThemedText type="label" themeColor="text" className="font-semibold">
+          ⏱ {minutes} Min. Timer
+        </ThemedText>
+        <TouchableOpacity onPress={() => onChange(null)}>
+          <ThemedText type="label" themeColor="accent" className="font-semibold">
+            Entfernen
+          </ThemedText>
+        </TouchableOpacity>
+      </View>
+    );
+  }
+
+  if (editing) {
+    return (
+      <View className="row-center gap-two">
+        <TextInput
+          className="bg-white rounded-card px-three py-two text-[15px] text-text w-[70px]"
+          value={draft}
+          onChangeText={setDraft}
+          placeholder="Min."
+          placeholderTextColor={theme.textSecondary}
+          keyboardType="number-pad"
+          autoFocus
+          onSubmitEditing={() => {
+            const parsed = Number.parseInt(draft, 10);
+            if (parsed > 0) onChange(parsed);
+            setDraft('');
+            setEditing(false);
+          }}
+        />
+        <TouchableOpacity
+          onPress={() => {
+            const parsed = Number.parseInt(draft, 10);
+            if (parsed > 0) onChange(parsed);
+            setDraft('');
+            setEditing(false);
+          }}>
+          <ThemedText type="label" themeColor="accent" className="font-semibold">
+            Übernehmen
+          </ThemedText>
+        </TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => {
+            setDraft('');
+            setEditing(false);
+          }}>
+          <ThemedText type="label" themeColor="textSecondary" className="font-semibold">
+            Abbrechen
+          </ThemedText>
+        </TouchableOpacity>
+      </View>
+    );
+  }
+
+  return (
+    <TouchableOpacity className="self-start" onPress={() => setEditing(true)}>
+      <ThemedText type="label" themeColor="accent" className="font-semibold">
+        + Timer hinzufügen
+      </ThemedText>
+    </TouchableOpacity>
+  );
+}
 
 export function RecipeWizardStepSteps({
   steps,
@@ -310,6 +397,7 @@ export function RecipeWizardStepSteps({
         text: '',
         localImageUri: null,
         existingImagePath: null,
+        timerMinutes: null,
         ingredientIds: [],
       },
     ]);

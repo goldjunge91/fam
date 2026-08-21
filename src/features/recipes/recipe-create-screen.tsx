@@ -139,6 +139,7 @@ export function RecipeCreateScreen() {
         text: step.text,
         localImageUri: null,
         existingImagePath: step.image_path,
+        timerMinutes: step.timer_minutes,
         ingredientIds: step.ingredientIds,
       }));
     if (hydratedSteps.length > 0) setWizardSteps(hydratedSteps);
@@ -489,6 +490,7 @@ export function RecipeCreateScreen() {
             position,
             text: step.text.trim(),
             image_path: imagePath,
+            timer_minutes: step.timerMinutes,
           });
 
           const existingLinks = await stepsDb.getAllAsync<{ id: string }>(
@@ -508,6 +510,7 @@ export function RecipeCreateScreen() {
             household_id: householdId,
             position,
             text: step.text.trim(),
+            timer_minutes: step.timerMinutes,
           });
           stepId = created.id;
 
@@ -520,6 +523,7 @@ export function RecipeCreateScreen() {
               position,
               text: step.text.trim(),
               image_path: imagePath,
+              timer_minutes: step.timerMinutes,
             });
           }
         }

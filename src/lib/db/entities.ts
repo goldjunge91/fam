@@ -169,7 +169,16 @@ export const ENTITIES: Readonly<Record<Entity, EntityMeta>> = {
     table: 'recipe_steps',
     hasServerTombstone: true,
     householdScoped: true,
-    columns: ['id', 'recipe_id', 'household_id', 'position', 'text', 'image_path', 'created_at'],
+    columns: [
+      'id',
+      'recipe_id',
+      'household_id',
+      'position',
+      'text',
+      'image_path',
+      'timer_minutes',
+      'created_at',
+    ],
   },
   recipe_step_ingredients: {
     entity: 'recipe_step_ingredients',

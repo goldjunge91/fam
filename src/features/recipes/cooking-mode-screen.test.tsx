@@ -92,6 +92,7 @@ function makeDetail(): RecipeDetail {
         position: 0,
         text: 'Wasser aufsetzen',
         image_path: null,
+        timer_minutes: null,
         ingredientIds: [],
       },
       {
@@ -100,6 +101,7 @@ function makeDetail(): RecipeDetail {
         position: 1,
         text: 'Zwiebeln anbraten',
         image_path: null,
+        timer_minutes: null,
         ingredientIds: [],
       },
     ],
