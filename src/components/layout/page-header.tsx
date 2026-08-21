@@ -9,7 +9,14 @@ type PageHeaderProps = {
   leading?: ReactNode;
   trailing?: ReactNode;
   align?: 'start' | 'center';
+  /** 'large' fuer Screens, die den Titel als eigentlichen Blickfang wollen (z. B. Rezepte). */
+  titleSize?: 'default' | 'large';
 };
+
+const TITLE_CLASSES = {
+  default: 'text-[19px] leading-[23px] font-semibold tracking-[-0.5px]',
+  large: 'text-[26px] leading-[30px] font-bold tracking-[-0.6px]',
+} as const;
 
 /** Kompakter Header fuer die zentralen App-Bereiche aus dem fam-Designsystem. */
 export function PageHeader({
@@ -18,6 +25,7 @@ export function PageHeader({
   leading,
   trailing,
   align = 'start',
+  titleSize = 'default',
 }: PageHeaderProps) {
   return (
     <View className="min-h-[57px] flex-row items-center gap-[7px] px-[14px] py-two">
@@ -31,9 +39,7 @@ export function PageHeader({
             {subtitle}
           </ThemedText>
         ) : null}
-        <ThemedText
-          className="text-[19px] leading-[23px] font-semibold tracking-[-0.5px]"
-          numberOfLines={1}>
+        <ThemedText className={TITLE_CLASSES[titleSize]} numberOfLines={1}>
           {title}
         </ThemedText>
       </View>

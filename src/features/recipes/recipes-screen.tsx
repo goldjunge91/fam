@@ -6,6 +6,7 @@ import { HubScreen } from '@/components/layout/hub-screen';
 import { SectionHeading } from '@/components/layout/section-heading';
 import { ThemedText } from '@/components/theme/themed-text';
 import { BackButton, Button, HeaderIconButton, MenuButton } from '@/components/ui/buttons';
+import { IconSize } from '@/constants/layout';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { useNavigationChrome } from '@/features/navigation/navigation-chrome-provider';
 import {
@@ -340,7 +341,7 @@ export function RecipesScreen() {
       : view === 'filtered'
         ? 'Gefilterte Rezepte'
         : view === 'household'
-          ? 'Unsere Rezepte'
+          ? 'Eigene Rezepte'
           : view === 'templates'
             ? (activeCategoryTile?.label ?? activeCalorieBucket?.label ?? 'Vorlagen')
             : 'Rezepte';
@@ -350,8 +351,10 @@ export function RecipesScreen() {
       safeAreaClassName="flex-1 w-full max-w-[800px] self-center"
       header={{
         title: screenTitle,
+        align: 'center',
+        titleSize: 'large',
         leading:
-          view === 'discover' || view === 'favorites' ? (
+          view === 'discover' || view === 'favorites' || view === 'household' ? (
             <MenuButton onPress={openDrawer} />
           ) : (
             <BackButton label="Zurück zu Rezepte" variant="header" onPress={goBackToDiscover} />
@@ -361,7 +364,7 @@ export function RecipesScreen() {
             <HeaderIconButton
               label="Rezepte durchsuchen"
               onPress={() => setShowSearch((visible) => !visible)}>
-              <SearchIcon color={theme.text} />
+              <SearchIcon size={IconSize.nav} color={theme.text} />
             </HeaderIconButton>
             <HeaderIconButton
               label={
@@ -371,7 +374,10 @@ export function RecipesScreen() {
               }
               onPress={() => setShowFilters(true)}
               className={activeFilterCount > 0 ? 'bg-accent' : undefined}>
-              <FilterIcon color={activeFilterCount > 0 ? theme.background : theme.text} />
+              <FilterIcon
+                size={IconSize.nav}
+                color={activeFilterCount > 0 ? theme.background : theme.text}
+              />
             </HeaderIconButton>
           </View>
         ),
@@ -408,8 +414,8 @@ export function RecipesScreen() {
           </View>
         ) : null}
 
-        {/* Tab-Leiste (Entdecken vs. Meine Favoriten) */}
-        {view === 'discover' || view === 'favorites' ? (
+        {/* Tab-Leiste (Entdecken vs. Eigene Rezepte vs. Meine Favoriten) */}
+        {view === 'discover' || view === 'favorites' || view === 'household' ? (
           <View className="flex-row gap-two mb-[18px]">
             <Pressable
               onPress={() => setView('discover')}
@@ -422,6 +428,19 @@ export function RecipesScreen() {
                 themeColor={view === 'discover' ? 'onAccent' : 'textSecondary'}
                 className="tab-btn-label">
                 Entdecken
+              </ThemedText>
+            </Pressable>
+            <Pressable
+              onPress={() => setView('household')}
+              role="button"
+              aria-label="Eigene Rezepte"
+              aria-selected={view === 'household'}
+              className={`tab-btn ${view === 'household' ? 'tab-btn-active' : 'tab-btn-idle'}`}>
+              <ThemedText
+                type="detail"
+                themeColor={view === 'household' ? 'onAccent' : 'textSecondary'}
+                className="tab-btn-label">
+                Eigene Rezepte
               </ThemedText>
             </Pressable>
             <Pressable
@@ -466,7 +485,7 @@ export function RecipesScreen() {
           householdEntries.length > 0 ? (
             <RecipeList entries={householdEntries} />
           ) : (
-            <EmptyPanel>Keine Rezepte für diesen Filter.</EmptyPanel>
+            <EmptyPanel>Noch keine eigenen Rezepte.</EmptyPanel>
           )
         ) : view === 'templates' ? (
           /* Gefilterte Rezeptvorlagen */

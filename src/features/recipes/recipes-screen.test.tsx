@@ -144,9 +144,9 @@ describe('RecipesScreen — Entdecken', () => {
 
     await user.press(screen.getByRole('button', { name: 'Alle ansehen' }));
 
-    expect(screen.getByText('Unsere Rezepte')).toBeOnTheScreen();
+    expect(screen.getAllByText('Eigene Rezepte').length).toBeGreaterThan(0);
     expect(screen.getByRole('button', { name: 'Suppe Fremd' })).toBeOnTheScreen();
-    expect(screen.getByRole('button', { name: 'Zurück zu Rezepte' })).toBeOnTheScreen();
+    expect(screen.getByRole('button', { name: 'Menü öffnen' })).toBeOnTheScreen();
   });
 
   it('filtert über das zugängliche Suchfeld', async () => {
