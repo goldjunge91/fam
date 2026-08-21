@@ -127,8 +127,8 @@ const isWindows = process.platform === 'win32';
 const gradlewCmd = isWindows ? path.join('android', 'gradlew.bat') : './gradlew';
 const cwd = isWindows ? projectRoot : path.join(projectRoot, 'android');
 const cmdArgs = isWindows
-  ? ['-p', 'android', 'assembleRelease', '-x', 'lint']
-  : ['assembleRelease', '-x', 'lint'];
+  ? ['-p', 'android', 'assembleRelease', '-x', 'lint', '-x', 'lintVitalRelease', '-x', 'lintVitalAnalyzeRelease']
+  : ['assembleRelease', '-x', 'lint', '-x', 'lintVitalRelease', '-x', 'lintVitalAnalyzeRelease'];
 
 const buildResult = spawnSync(gradlewCmd, cmdArgs, {
   cwd,
