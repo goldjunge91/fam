@@ -32,7 +32,16 @@ export function initPostHog(): void {
     return;
   }
 
-  client = new PostHog(apiKey, { host: env.posthogHost });
+  // `preloadFeatureFlags: false` unterbindet den Flag-Fetch beim Client-Init.
+  // Zu diesem Zeitpunkt ist die Supabase-Session noch nicht aufgeloest, ein
+  // Preload wuerde daher fuer eine anonyme `distinctId` laden — und `identify()`
+  // in `PostHogIdentitySync` wuerde direkt danach ein zweites Mal fetchen.
+  // `identify()` laedt die Flags bei jedem Identitaetswechsel ohnehin neu
+  // (siehe posthog-core), also traegt schon der erste und einzige Netzwerk-
+  // Roundtrip die echte User-ID. Persistierte Flags aus dem lokalen Speicher
+  // bleiben davon unberuehrt — Gates rendern gegen den letzten bekannten Wert,
+  // nicht gegen `defaultValue`.
+  client = new PostHog(apiKey, { host: env.posthogHost, preloadFeatureFlags: false });
 }
 
 /** Ob `initPostHog()` erfolgreich einen API-Key konfiguriert hat. */

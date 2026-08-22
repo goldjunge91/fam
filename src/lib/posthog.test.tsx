@@ -53,6 +53,18 @@ describe('initPostHog / isPostHogConfigured', () => {
       expect.objectContaining({ host: 'https://eu.i.posthog.com' }),
     );
   });
+
+  it('unterbindet den anonymen Flag-Fetch beim Init (preloadFeatureFlags: false)', () => {
+    process.env.EXPO_PUBLIC_POSTHOG_API_KEY = 'phc_testkey';
+    const { initPostHog } = require('@/lib/posthog');
+
+    initPostHog();
+
+    expect(mockPostHogConstructor).toHaveBeenCalledWith(
+      'phc_testkey',
+      expect.objectContaining({ preloadFeatureFlags: false }),
+    );
+  });
 });
 
 describe('PostHogAppProvider', () => {
