@@ -12,6 +12,11 @@ Die neue Lösung ersetzt das bestehende System vollständig.
 - `guessCategory()` und `SUBSTRING_MIN_LENGTH` werden am Ende vollständig entfernt.
 - Bestehende Entwicklungsdaten dürfen durch `db:reset` und einen lokalen Datenbank-Neustart verloren gehen.
 - Die erste App-Version mit dieser Änderung benötigt zwingend den neuen Dump mit `schema_version = 2`.
+- Die lokale Hauptdatenbank wird als neue Datei `fam-v2.db` angelegt. Die öffentliche OFF-Produktdatenbank bleibt davon als `off-dump-v2.db` getrennt und wird nur bei Bedarf attached.
+- Es wird keine eigene SQLite-Datei pro Haushalt angelegt. Haushalts- und Privatdaten bleiben in `fam-v2.db` und werden dort weiterhin über ihre fachlichen IDs getrennt; der OFF-Dump enthält ausschließlich öffentliche Produktdaten.
+- Der installierte OFF-Dump ist die sofort verfügbare Offline-Produktquelle. Online darf ausschließlich ein vertrauenswürdiger Backend-Prozess globale OFF-Metadaten aktualisieren.
+- Jede Änderung an Normalisierung, Regeln oder Prioritäten erhöht eine explizite `classifier_version`.
+- Quellenparität bedeutet deterministisches Verhalten für identische normalisierte Eingaben und dieselbe `classifier_version`, nicht identische Ergebnisse für zeitlich unterschiedliche OFF-Datenstände.
 
 Die Architektur gilt anschließend als neue Baseline.
 
@@ -74,6 +79,7 @@ Dabei müssen zwei Fälle unterscheidbar bleiben:
 type CategoryClassification = {
   categoryId: ShoppingCategoryId | null;
   source: Exclude<CategorySource, 'user'> | null;
+  classifierVersion: string;
   evidence?: {
     kind: 'preference' | 'off_tag' | 'name_rule';
     value: string;
@@ -81,7 +87,25 @@ type CategoryClassification = {
 };
 ```
 
-`evidence` dient Tests und Debugging, wird zunächst nicht synchronisiert.
+`evidence` ist die kompakte Produktionsausgabe. Für Tests, Debugger und CLI gibt es zusätzlich einen vollständigen Trace:
+
+```ts
+type CategoryTrace = {
+  classifierVersion: string;
+  input: {
+    source: 'live' | 'barcode' | 'dump' | 'local_mirror' | 'free_text';
+    dataVersion: string | null;
+    categoryTags: readonly string[];
+    normalizedName: string | null;
+  };
+  candidates: readonly CategoryCandidate[];
+  rejectedCandidates: readonly RejectedCategoryCandidate[];
+  winner: CategoryClassification;
+  conflictReason: string | null;
+};
+```
+
+Der Trace enthält alle gematchten und verworfenen Regeln einschließlich Priorität, Score und Begründung. Er wird nicht synchronisiert und nicht an Einkaufslisten- oder Historieneinträgen gespeichert.
 
 ---
 
@@ -97,6 +121,8 @@ Die Kategorie wird immer in dieser Reihenfolge bestimmt:
 6. `null` beziehungsweise „Sonstiges“
 
 Produkte mit OFF-Metadaten verwenden den Namen nur, wenn aus den Tags kein eindeutiges Ergebnis entsteht.
+
+Das Ergebnis wird beim Erstellen eines Einkaufslisten-, Historien- oder Bestandseintrags als Snapshot gespeichert. Spätere OFF- oder Dump-Updates kategorisieren bestehende Einträge nicht automatisch neu. Eine neue Auflösung findet nur bei einer dafür vorgesehenen Nutzeraktion oder bei der Erstellung eines neuen Eintrags statt.
 
 ---
 
@@ -121,10 +147,11 @@ Das bisherige freie `category`-Feld im TypeScript-Produktmodell entfällt.
 
 ```sql
 category_id text,
-category_source text
+category_source text,
+category_classifier_version text
 ```
 
-Beide Spalten erhalten Checks für die bekannten IDs beziehungsweise Quellen.
+Die Kategorie und ihre Quelle sind ein stabiler Snapshot. `category_classifier_version` wird für automatisch ermittelte Kategorien gesetzt und bleibt für manuelle Entscheidungen `null`. Die Spalten erhalten Checks für die bekannten IDs beziehungsweise Quellen.
 
 ### `shopping_history`
 
@@ -132,18 +159,19 @@ Ebenfalls ersetzen:
 
 ```sql
 category_id text,
-category_source text
+category_source text,
+category_classifier_version text
 ```
 
 ### Neue Tabelle `shopping_category_preferences`
 
-Neue Schemadatei `supabase/schemas/21_shopping_category_preferences.sql` (nummeriert nach `08_inventory.sql` wegen der Fremdschlüssel auf `households` und `products`):
+Neue Schemadatei `supabase/schemas/21_shopping_category_preferences.sql` (nummeriert nach `08_inventory.sql` wegen des Fremdschlüssels auf `households`):
 
 ```text
 id uuid primary key
 household_id uuid not null
-product_id uuid nullable
-normalized_name text nullable
+key_type text not null             -- product | name
+normalized_key_value text not null
 category_id text nullable
 created_by uuid nullable
 created_at timestamptz
@@ -153,11 +181,30 @@ deleted_at timestamptz
 
 Regeln:
 
-- Genau eines von `product_id` oder `normalized_name` muss gesetzt sein.
-- Eindeutige aktive Präferenz pro Haushalt und Produkt.
-- Eindeutige aktive Präferenz pro Haushalt und normalisiertem Namen.
+- Die natürliche Identität ist `(household_id, key_type, normalized_key_value)`.
+- `key_type = 'product'` verwendet die kanonische, kleingeschriebene UUID des `product_id` als `normalized_key_value`.
+- `key_type = 'name'` verwendet ausschließlich das Ergebnis der gemeinsamen Namensnormalisierung.
+- Ein Unique Constraint über die vollständige natürliche Identität gilt auch für soft-deletete Zeilen. Eine erneut gewählte Präferenz stellt denselben Datensatz wieder her, statt eine zweite Zeile anzulegen.
 - `category_id = null` ist erlaubt und bedeutet eine bewusste „Sonstiges“-Präferenz.
 - Soft Delete unterstützt „Auf automatisch zurücksetzen“.
+
+### Abgeleitete technische Sync-Identität
+
+`id` ist kein unabhängiger fachlicher Schlüssel, sondern eine deterministische UUIDv5, die ausschließlich aus der natürlichen Identität abgeleitet wird:
+
+```text
+natural identity:
+  (household_id, key_type, normalized_key_value)
+
+technical sync identity:
+  UUIDv5(PREFERENCE_NAMESPACE_UUID, canonical_preference_key)
+```
+
+`PREFERENCE_NAMESPACE_UUID` ist eine einmalig festgelegte und eingecheckte Konstante. `canonical_preference_key` besitzt ein versioniertes, bytegenau definiertes Format. UUIDs werden kleingeschrieben, Namen vor der ID-Erzeugung normalisiert und die Bestandteile mit einem nicht mehrdeutigen Format serialisiert. Es darf keine plattformspezifische Vorverarbeitung geben.
+
+Damit erzeugen zwei Geräte für dieselbe Haushaltspräferenz dieselbe Zeilen-ID. Das bestehende Last-Write-Wins kann dann über dieselbe Entität arbeiten, während der Unique Constraint auf der natürlichen Identität als zusätzliche Datenbankabsicherung bestehen bleibt.
+
+Eine gemeinsame TypeScript-Funktion erzeugt Schlüssel und UUID. Ein eingechecktes Set fester Testvektoren enthält Eingabe, normalisierten Schlüssel und erwartete UUID. Dieselben Vektoren werden im App-Code, in Node-/Bun-Skripten und bei einer späteren Backend-Implementierung verwendet, damit iOS, Android, Backend und Tests garantiert identische IDs erzeugen.
 
 ### RLS und API-Zugriff
 
@@ -170,6 +217,20 @@ Policies:
 - `USING` und `WITH CHECK` müssen beide vorhanden sein.
 
 Für die neue Tabelle werden explizite Grants an `authenticated` gesetzt. Supabase stellt neue Tabellen seit 2026 nicht mehr zwingend automatisch über die Data API bereit; Grants und RLS sind getrennte Schutzebenen. [Supabase-Hinweis](https://supabase.com/changelog/45329-breaking-change-tables-not-exposed-to-data-and-graphql-api-automatically).
+
+### Vertrauenswürdige Aktualisierung globaler OFF-Produkte
+
+Die bestehende RLS-Regel, nach der Clients `source = 'off'` nicht direkt aktualisieren dürfen, bleibt bestehen. Der Client darf insbesondere keine selbst gelieferten `off_category_tags` als globale Wahrheit speichern.
+
+Stattdessen:
+
+1. Die App klassifiziert ein Live- oder Dump-Produkt sofort mit den lokal vorhandenen Tags.
+2. Online stößt sie für die EAN eine serverseitige Anreicherung an.
+3. Eine Supabase Edge Function oder ein interner Worker lädt die OFF-Daten selbst von Open Food Facts und validiert sie.
+4. Der Backend-Prozess aktualisiert ausschließlich die erlaubten OFF-Metadaten und nur, wenn `off_last_modified_at` neuer ist.
+5. Service-Role-Zugangsdaten bleiben ausschließlich im Backend; der Endpunkt erhält Rate-Limits und akzeptiert die EAN, aber keine vom Client als autoritativ behaupteten Tags.
+
+Der globale `products`-Datensatz ist damit ein verifizierter Online-Cache. Für den Offline-Betrieb bleibt der installierte Dump die Produktdaten-Autorität.
 
 ### Datenbankworkflow
 
@@ -189,19 +250,40 @@ Es gibt bewusst kein Backfill alter Labels.
 
 ## 5. Neue lokale SQLite-Baseline
 
-Da keine Rückwärtskompatibilität benötigt wird, wird keine komplexe lokale Migration geschrieben.
+Da keine Rückwärtskompatibilität benötigt wird, wird keine komplexe lokale Migration geschrieben. Der Cutover verwendet verbindlich einen neuen Dateinamen und keine alternative Schema-Epoch-Strategie.
 
 Stattdessen:
 
-- lokale Hauptdatenbank erhält eine neue Schema-Epoche beziehungsweise einen neuen Dateinamen;
+- die lokale Hauptdatenbank wird als `fam-v2.db` neu angelegt;
 - alter Mirror, alte Outbox und alter Sync-Cursor werden nicht übernommen;
 - nach Anmeldung wird der Zustand vollständig von Supabase gebootstrapped;
-- der alte OFF-Dump wird verworfen;
+- der alte OFF-Dump wird verworfen und durch `off-dump-v2.db` ersetzt;
 - Dump-Schema 1 wird grundsätzlich abgelehnt.
+
+### Verbindliche Trennung der lokalen Datenbanken
+
+```text
+fam-v2.db
+  private Nutzerdaten
+  synchronisierte Haushaltsdaten
+  Einkaufslisten- und Bestandssnapshots
+  shopping_category_preferences
+  lokaler Products-Mirror
+  Outbox und Sync-Cursor
+
+off-dump-v2.db
+  öffentlicher, geräteweiter OFF-Produktkatalog
+  Dump-Metadaten und data_version
+  unabhängig aktualisierbar
+  keine Haushalts-, Nutzer- oder Outbox-Daten
+```
+
+`off-dump-v2.db` wird für Produktsuchen an die benötigten SQLite-Verbindungen attached. Es wird nicht pro Haushalt dupliziert. Haushaltswechsel betreffen nur gefilterte Daten in `fam-v2.db`; Dump-Patches können unabhängig davon installiert werden. Kategoriepräferenzen und gespeicherte Kategorie-Snapshots dürfen niemals in den OFF-Dump geschrieben werden.
 
 Lokale Tabellen erhalten:
 
 - neue Kategorie-ID-/Quellspalten;
+- `category_classifier_version` an Einträgen und Historie;
 - `products.off_category_tags` als JSON-Text;
 - `products.off_last_modified_at`;
 - Spiegel für `shopping_category_preferences`;
@@ -256,31 +338,48 @@ Produktabfragen werden auf die aktuelle OFF-Produkt-API v3.6 umgestellt. Die Leg
 
 ### Produktspeicherung
 
-`persistOffProductIfNeeded()` reicht Tags und OFF-Zeitstempel bis zum lokalen und entfernten Produktspiegel durch.
+`persistOffProductIfNeeded()` übernimmt Tags und OFF-Zeitstempel für die unmittelbare lokale Klassifikation und den lokalen Cache. Es schreibt diese Daten nicht direkt als autoritative globale OFF-Metadaten nach Supabase, sondern stößt online die vertrauenswürdige serverseitige Anreicherung anhand der EAN an.
 
 Lokale Produktsuche und Vorschläge müssen diese Felder ebenfalls wieder in `OpenFoodFactsProduct` einsetzen.
+
+Die Quellen haben damit klar getrennte Rollen:
+
+| Quelle | Rolle |
+| :--- | :--- |
+| Live-Suche / Barcode-API | Aktuellste Eingabe für die unmittelbare Online-Klassifikation |
+| `off-dump-v2.db` | Sofortige und autoritative Produktquelle im Offline-Betrieb |
+| lokaler `products`-Mirror | Cache bereits verwendeter und serverseitig synchronisierter Produkte |
+| Supabase `products` | Vertrauenswürdig angereicherter globaler Online-Cache |
+
+Unterschiedliche Datenstände dürfen unterschiedliche Empfehlungen ergeben. Identische normalisierte Tags und dieselbe `classifier_version` müssen dagegen unabhängig von der Quelle dasselbe Ergebnis liefern.
 
 ---
 
 ## 7. Deterministischer OFF-Taxonomie-Mapper
 
-Neues Domain-Modul:
+Neuer, bewusst eigenständiger und sprechend benannter Feature-Bereich:
 
 ```text
-src/features/shopping-list/domain/
+src/features/shopping-list/classification/
+  classifier-version.ts
+  types.ts
   shopping-category-classifier.ts
   off-category-rules.ts
   name-category-rules.ts
   normalize-shopping-name.ts
 ```
 
-Zentrale Funktion:
+`classification/` enthält ausschließlich die pure, automatische Klassifikationspipeline, ihre Regeln, Normalisierung und Trace-Typen. Haushaltslernen und Sync bleiben unter `preferences/`; Darstellungsdaten der Kategorien bleiben in der bestehenden Kategorie-Domäne. Es darf keine zweite Kopie von Regeln oder Matching-Logik im Debugger, in Skripten oder in UI-Komponenten geben.
+
+Zentrale Funktionen:
 
 ```ts
-classifyOffCategory(
-  tags: readonly string[],
-): CategoryClassification;
+classifyCategory(input: CategoryClassifierInput): CategoryClassification;
+
+explainCategory(input: CategoryClassifierInput): CategoryTrace;
 ```
+
+Beide Funktionen verwenden dieselbe interne Auswertung. `classifyCategory()` projiziert nur das kompakte Ergebnis, während `explainCategory()` die vollständige Entscheidungskette liefert. Jede semantische Änderung an Normalisierung, Tag-Regeln, Namensregeln, Prioritäten oder Konfliktauflösung erhöht `CLASSIFIER_VERSION`.
 
 ### Regelmodell
 
@@ -314,15 +413,19 @@ Die tatsächliche Tagliste wird anhand des erweiterten deutschen Dumps aufgebaut
 
 ### Dump-Kalibrierung vor dem Cutover
 
-Ein dediziertes Skript (`scripts/dump_data/evaluate_categories.py`) lässt den Classifier gegen alle rund 405.000 Dump-Produkte laufen und ermittelt:
+Ein dediziertes Bun-/TypeScript-Skript (`scripts/dump_data/evaluate-categories.ts`) importiert direkt `classifyCategory()` und `explainCategory()` und lässt exakt den produktiven Classifier gegen den vollständigen deutschen Dump laufen. Python darf weiterhin Download und Transformation des OFF-Exports übernehmen, enthält aber keine zweite Klassifikationsimplementierung.
+
+Der Evaluator ermittelt:
 
 - Klassifikationsabdeckung gesamt und je Kategorie
 - Anteil mehrdeutiger Produkte (`null` wegen Konflikt)
 - Konfliktmatrix zwischen Kategoriepaaren
-- 50 Zufallsstichproben pro Kategorie für manuelle Sichtprüfung
+- 100 deterministische, hashbasierte Stichproben pro Kategorie für manuelle Sichtprüfung
 - Bekannte Problemfälle (z. B. `Schwein`/`wein`, `Apfelsaft`)
 
-Der generierte Evaluierungsreport wird als Nachweis-Artefakt im PR von Paket 1 mit eingecheckt, damit jede Regelanpassung messbar und nachvollziehbar bleibt.
+Zusätzlich existiert ein kleiner kuratierter Golden-Korpus mit erwarteter Kategorie und Begründung für bekannte Grenzfälle. Die Hash-Stichprobe verwendet einen stabil definierten Produktschlüssel, sodass unveränderte Regeln und Dump-Daten bytegleich dieselbe Auswahl erzeugen.
+
+Der generierte kompakte Evaluierungsreport wird als Nachweis-Artefakt im PR von Paket 1 eingecheckt, damit jede Regelanpassung messbar und nachvollziehbar bleibt.
 
 ---
 
@@ -374,6 +477,16 @@ Pro Kategorie zählt das stärkste Signal. Gewonnen hat nur die eindeutig höchs
 
 Damit kann mehrfacher Marken- oder Keyword-Text eine Kategorie nicht durch bloße Wiederholung hochscoren.
 
+### Präzisionsregel für Erweiterungen
+
+Eine niedrige OFF-Tag-Abdeckung führt nicht automatisch zu zusätzlichen Namensregeln. Neue Fallback-Regeln werden nur aufgenommen, wenn:
+
+1. überprüfte False Negatives einen wiederkehrenden, fachlich eindeutigen Fall belegen;
+2. der Golden-Korpus und die deterministischen Dump-Stichproben keine relevante Präzisionsverschlechterung zeigen;
+3. die Regel im visuellen Category-Debugger mit Trace nachvollziehbar geprüft wurde.
+
+Abdeckung und `Sonstiges`-Quote bleiben Beobachtungsmetriken. Releaseentscheidend ist die Qualität der Zuordnungen. Haushaltspräferenzen schließen individuelle Lücken, ohne riskante globale Heuristiken zu erzwingen.
+
 ---
 
 ## 9. Haushaltspräferenzen
@@ -420,6 +533,8 @@ Das ist das logische Gegenstück zur manuellen Korrektur.
 ### Konflikte
 
 - Last-Write-Wins über `updated_at`, entsprechend dem bestehenden Sync-Modell.
+- Die deterministische UUIDv5 stellt sicher, dass parallele Offline-Anlagen derselben natürlichen Präferenz dieselbe Sync-Entität adressieren.
+- Ein `23505` auf der natürlichen Identität darf im normalen Syncpfad nicht als Konfliktstrategie benötigt werden; der Unique Constraint ist nur die letzte Absicherung gegen fehlerhaft normalisierte Clients.
 - Präferenzen sind haushaltsweit, nicht privat.
 - `product_usage` wird dafür nicht verwendet.
 - Store-spezifische Präferenzen werden nicht eingeführt.
@@ -509,6 +624,20 @@ Danach wird eine Variante ausgewählt. Erst dann werden Add- und Edit-Formular v
 
 Die wahrscheinlich kleinste gute UI ist ein Kategorie-Picker unter „Weitere Angaben“ mit den zwölf Kategorien, „Sonstiges“ und „Automatisch“.
 
+### Visueller Qualitäts-Checkpoint für die Klassifikation
+
+Unabhängig von den Formular-Mocks muss jede Änderung an OFF- oder Namensregeln im `tools/category-debugger` visuell überprüfbar sein. Der Debugger zeigt dafür:
+
+- die deterministischen 100 Produktbeispiele je Kategorie;
+- Golden-Korpus-Fälle mit Soll-/Ist-Ergebnis;
+- Filter für Kategorie, `Sonstiges`, Konflikt und Namens-Fallback;
+- Produktname, EAN, OFF-Tags, Kandidaten, Prioritäten und Scores;
+- verworfene Kandidaten mit Begründung;
+- vorherige und neue Klassifikation bei einem Regelvergleich;
+- `classifier_version` und Dump-`data_version`.
+
+Der PR enthält einen generierten HTML-/JSON-Report und gezielte Screenshots der auffälligen Fälle. Eine Regeländerung wird erst übernommen, wenn die Fehlzuordnungen visuell geprüft wurden. Eine höhere Abdeckung allein ist kein Qualitätsnachweis.
+
 ---
 
 ## 12. Offline-Dump Schema 2
@@ -573,6 +702,22 @@ Der bisherige vollständige Neubau in `.github/workflows/update_dump.yml` wird d
 12. Manifest, Patch und gegebenenfalls Baseline veröffentlichen.
 
 Der vollständige OFF-Export wird auf CI weiterhin regelmäßig ausgewertet, weil es keinen verlässlich dokumentierten öffentlichen Lösch-Tombstone-/Delta-Feed gibt. Nur das Gerät erhält kleine Deltas.
+
+### Dauerhafte kanonische CI-Datenbank
+
+Der Zustand des Vortags darf nicht ausschließlich in einem GitHub-Actions-Cache oder einem kurzlebigen Workflow-Artefakt liegen.
+
+Verbindliches Modell:
+
+- Ein dediziertes rollendes GitHub Release mit festem Tag `off-dump-current` enthält `canonical.db`, `manifest.json` und deren SHA-256-Prüfsummen.
+- Die Manifest-URL zeigt auf das feste Asset dieses Tags und ist unabhängig von normalen App-Releases. `releases/latest` wird nicht verwendet.
+- Baselines und Patches werden als unveränderliche, versionierte Assets veröffentlicht.
+- Jeder CI-Lauf lädt zuerst `canonical.db`, verifiziert sie und erzeugt daraus den nächsten Stand.
+- Fehlt oder scheitert die kanonische DB, rekonstruiert der Workflow sie deterministisch aus der aktuellen Monats-Baseline und der vollständigen Patchkette.
+- Der rekonstruierte Stand wird gegen die erwartete `data_version`, Prüfsumme und `PRAGMA quick_check` geprüft.
+- Neue Datenassets werden vor dem Manifest veröffentlicht; das Manifest wird zuletzt ersetzt, damit Clients niemals auf noch fehlende Dateien verwiesen werden.
+
+GitHub-Actions-Caches dürfen zusätzlich zur Beschleunigung verwendet werden, sind aber niemals Quelle der Wahrheit.
 
 ### Patch-Datenbank
 
@@ -688,14 +833,14 @@ Als Startwert kann eine Grenze von 70 % der Baselinegröße verwendet und späte
 
 Die aktive Datei wird niemals direkt überschrieben.
 
-1. Download nach `off-dump.next.db`
+1. Download nach `off-dump-v2.next.db`
 2. Prüfsumme prüfen
 3. Schema und `data_version` prüfen
 4. `PRAGMA quick_check`
 5. Datenbankzugriffe serialisieren
 6. alten Dump detachen
-7. aktive Datei in Recovery-Datei umbenennen
-8. neue Datei atomar aktivieren
+7. aktive `off-dump-v2.db` in `off-dump-v2.recovery.db` umbenennen
+8. neue Datei atomar als `off-dump-v2.db` aktivieren
 9. neue Datei attachen
 10. Recovery-Datei erst nach erfolgreichem Attach entfernen
 
@@ -727,9 +872,9 @@ Aktionen:
 
 Das bestehende eigenständige Vite/React-Tool `tools/category-debugger` (Kategorie-Radar) wird direkt an die neue V2-Domänenlogik angebunden:
 
-- **Direkter Import der neuen Domain:** Importiert `classifyOffCategory()` und den morphologischen Classifier direkt aus `src/features/shopping-list/domain/`.
-- **WASM-SQLite im Browser:** Öffnet `off-dump.db` (Schema 2 mit `categories_tags`) lokal via `sql.js` im Browser – kein Metro, kein Simulator, kein Backend nötig.
-- **Trace-Visualisierung:** Zeigt pro Produkt die exakte Entscheidungskette (welches OFF-Tag hat gematcht, welche Priorität, oder welche Namens-Tokens mit welchen Scores).
+- **Direkter Import der Klassifikation:** Importiert `classifyCategory()` und `explainCategory()` direkt aus `src/features/shopping-list/classification/`.
+- **WASM-SQLite im Browser:** Öffnet `off-dump-v2.db` (Schema 2 mit `categories_tags`) lokal via `sql.js` im Browser – kein Metro, kein Simulator, kein Backend nötig.
+- **Trace-Visualisierung:** Rendert den vollständigen `CategoryTrace` statt die Entscheidungskette selbst nachzubauen: Eingabequelle und Datenversion, normalisierte Tags, sämtliche Kandidaten, Matches, Prioritäten, Namens-Tokens, Scores, verworfene Regeln, Gewinner und Konfliktgrund.
 - **Ad-hoc Freitext- & Barcode-Tester:** Eingabefeld zum sofortigen Ausprobieren beliebiger Begriffe (z. B. `2 Schnitzel vom Schwein Spar Fein Küche`) mit detailliertem Token- und Score-Breakdown.
 - **Schnelles CLI-Skript:** Ergänzend ein Terminal-Befehl `bun run scripts/classify.ts "<Text/EAN>"` für sekundenschnelle Ad-hoc-Checks.
 
@@ -750,6 +895,9 @@ Das bestehende eigenständige Vite/React-Tool `tools/category-debugger` (Kategor
 - `Vollkornbrot`;
 - `Hähnchenbrust`;
 - `Tiefkühlpizza`.
+- feste UUIDv5-Testvektoren für Produkt- und Namenspräferenzen;
+- äquivalente normalisierte Schlüssel erzeugen dieselbe Präferenz-ID;
+- verschiedene Haushalte, Schlüsseltypen oder normalisierte Werte erzeugen verschiedene IDs.
 
 ### Dump-Evaluation
 
@@ -760,8 +908,9 @@ Classifier über den gesamten deutschen Dump laufen lassen und ausgeben:
 - Anteil `Sonstiges`;
 - Tag-Konflikte;
 - Namens-Fallback-Quote;
-- mindestens 100 zufällige Stichproben je Kategorie;
-- Vergleich Live-/Dump-Klassifikation derselben EAN.
+- exakt 100 deterministische, hashbasierte Stichproben je Kategorie;
+- Golden-Korpus mit Soll-/Ist-Vergleich;
+- Vergleich Live-/Dump-Klassifikation derselben EAN unter Angabe von Eingabe-, Daten- und Klassifikatorversion.
 
 Vor dem Cutover werden Fehlzuordnungen korrigiert. Lieber mehr `Sonstiges` als systematisch falsche Kategorien.
 
@@ -798,7 +947,8 @@ Mit `node:sqlite`:
 
 - Array-Spiegelung der OFF-Tags;
 - Preference Insert/Update/Delete/Restore;
-- LWW-Konflikt;
+- LWW-Konflikt zweier paralleler Offline-Änderungen an derselben deterministischen ID;
+- parallele Offline-Anlage derselben natürlichen Präferenz ohne `23505`;
 - Household-Isolation;
 - Offline-Outbox;
 - Bootstrap auf zweitem Gerät.
@@ -809,8 +959,17 @@ Mit `node:sqlite`:
 - Nichtmitglied darf weder lesen noch schreiben;
 - fremde `household_id` kann nicht eingeschleust werden;
 - genau ein Preference-Key ist erforderlich;
-- eindeutige aktive Präferenz;
+- Eindeutigkeit der natürlichen Identität auch nach Soft Delete und Restore;
 - `category_id = null` als explizites „Sonstiges“.
+
+### Backend-Anreicherungstests
+
+- direkte Client-Updates an globalen OFF-Feldern bleiben durch RLS verboten;
+- der Backend-Prozess lädt OFF-Daten selbst und ignoriert vom Client behauptete Tags;
+- ein neuerer `off_last_modified_at`-Stand wird übernommen;
+- ein älterer oder identischer Stand überschreibt keine neueren Daten;
+- ungültige EANs und fehlerhafte OFF-Antworten verändern den Produktdatensatz nicht;
+- Rate-Limit- und Wiederholungsfälle bleiben idempotent.
 
 ### UI-Tests
 
@@ -851,22 +1010,22 @@ Kein Feature-Flag und kein paralleler Produktionspfad.
 ## 17. Reviewbare Arbeitspakete
 
 1. **Kategorie-Domäne und OFF-Parser**
-   - IDs, Typen, Parser, Taxonomie-Mapper, Namens-Classifier, Evaluation
+   - IDs, Typen, Parser, `classification/`, Taxonomie-Mapper, Namens-Classifier, vollständiger Trace und TypeScript-Evaluation
    - `tools/category-debugger` auf neuen Classifier und Ad-hoc-Trace umstellen
    - CLI-Testskript `scripts/classify.ts`
 
 2. **Breaking Datenmodell**
-   - Supabase-Schema, SQLite-Baseline, Sync, RLS, pgTAP, generierte Typen
+   - Supabase-Schema, `fam-v2.db`, getrennte `off-dump-v2.db`, Sync, RLS, pgTAP, generierte Typen
 
 3. **Haushaltspräferenzen und Resolver**
-   - lokale/remote Mutationen, Outbox, Auflösungsreihenfolge, Merge-Regeln
+   - natürliche Schlüssel, deterministische UUIDv5 samt Testvektoren, lokale/remote Mutationen, Outbox, Auflösungsreihenfolge, Merge-Regeln
 
 4. **Offline-Dump Schema 2**
    - erweiterter Generator, Baseline, Kategorien und Metadaten
    - `tools/category-debugger` auf Dump Schema 2 (`categories_tags`) aktualisieren
 
 5. **Delta-Pipeline**
-   - kanonische CI-Datenbank, Patchgenerator, Manifest, Release-Workflow
+   - rollende kanonische CI-Datenbank, rekonstruierbarer Recovery-Pfad, Patchgenerator, feste Manifest-URL, versionierte Assets und Release-Workflow
 
 6. **Client-Updater**
    - Updateplanung, Patchanwendung, atomarer Baseline-Wechsel, Recovery
@@ -880,6 +1039,10 @@ Kein Feature-Flag und kein paralleler Produktionspfad.
 9. **Entfernung des Altsystems**
    - alte Matcher, Label-Speicherung, alte Dump-Logik und Dokumentation
 
+10. **Vertrauenswürdige OFF-Anreicherung**
+
+- serverseitiger OFF-Fetch anhand der EAN, validierte zeitbasierte Upserts, Rate-Limits und unveränderte Client-RLS für globale OFF-Felder
+
 Die Pakete können getrennt reviewed werden, aber der Runtime-Cutover erfolgt erst, wenn alle benötigten Teile fertig sind.
 
 ---
@@ -890,14 +1053,19 @@ Die Pakete können getrennt reviewed werden, aber der Runtime-Cutover erfolgt er
 
 Die Gesamtlösung gilt als abgenommen, wenn:
 
-- **4-Quellen-Parität:** Dieselbe EAN aus Live-Suche, Barcode-Scan, Offline-Dump und lokalem SQLite-Spiegel liefert exakt dieselbe Kategorie-Empfehlung.
+- **Versionsgebundene 4-Quellen-Parität:** Identische normalisierte Tags und derselbe Name liefern mit derselben `classifier_version` aus Live-Suche, Barcode-Scan, Offline-Dump und lokalem SQLite-Spiegel exakt dieselbe Kategorie-Empfehlung. Abweichende OFF-Datenstände werden im Trace sichtbar gemacht und gelten nicht als Determinismusfehler.
+- **Stabile Snapshots:** Ein gespeicherter Einkaufslisten-, Historien- oder Bestandseintrag verändert seine Kategorie nicht allein durch ein späteres OFF-, Dump- oder Klassifikatorupdate.
 - **Original-Issue behoben:** `2 Schnitzel vom Schwein Spar Fein Küche` wird online und offline zuverlässig als `deli_meat` klassifiziert.
 - **Keine Komposita-Fehlmatches:** `Schwein` wird unter keinen Umständen wegen `wein` zu `beverages`; `Apfelsaft` landet bei `beverages` statt `produce`.
 - **Freitext- & Produkt-Lernfähigkeit:** Manuelle Korrekturen für Barcodes (`product_id`) und Freitexteingaben (`normalized_name`) werden als Haushaltspräferenz persistiert und bei Folgeeingaben auf allen Haushaltsgeräten verwendet.
+- **Deterministische Präferenzidentität:** Zwei offline arbeitende Geräte erzeugen für dieselbe natürliche Präferenz dieselbe UUIDv5. Die gemeinsamen Testvektoren sind auf allen Laufzeitpfaden grün.
 - **Reverse States:** Nutzer können jede Kategorie auf „Automatisch“ zurücksetzen; die Haushaltspräferenz wird dabei sauber soft-deleted.
 - **Merge-Sicherheit:** Merge, Umbenennen und Bearbeiten überschreiben bestehende manuelle Nutzerkategorien niemals.
 - **Ehrliches Sonstiges:** Unvollständige oder widersprüchliche Metadaten enden ehrlich in `null` („Sonstiges“) statt geraten zu werden.
 - **Atomare Offline-Updates:** Dump-Updates per Patch laufen transaktional; ein simulierter Abbruch lässt den vorherigen Zustand vollständig intakt.
+- **Getrennte lokale Verantwortlichkeiten:** `fam-v2.db` enthält Haushalts-, Privat- und Sync-Daten; `off-dump-v2.db` enthält ausschließlich den öffentlichen Produktkatalog und kann unabhängig aktualisiert oder ersetzt werden.
+- **Vertrauenswürdige OFF-Aktualisierung:** Clients können globale OFF-Metadaten nicht direkt verändern. Der Backend-Prozess übernimmt nur selbst geladene und neuere OFF-Daten.
+- **Visuelle Regelabnahme:** Golden-Korpus, deterministische Hash-Stichproben und auffällige Trace-Differenzen wurden im Category-Debugger geprüft und als Report im PR dokumentiert.
 
 ### Tooling- & Verifikationsbefehle
 
@@ -913,11 +1081,15 @@ bun run db:diff
 Zusätzlich:
 
 - Dump-Generator gegen einen echten OFF-Export;
+- TypeScript-Evaluator gegen denselben vollständigen Dump;
+- deterministischer Wiederholungslauf des Evaluators mit identischem Report;
 - Patch von Baseline N auf N+1;
+- Rekonstruktion der kanonischen DB aus Monats-Baseline und Patchkette;
 - Integritätsprüfung der resultierenden SQLite-Datei;
 - Klassifikation des Issue-Produkts online und offline;
 - zweites Gerät beziehungsweise frische lokale Datenbank;
 - Offline-Hinzufügen, spätere Synchronisation und Präferenzübernahme;
+- parallele Offline-Erstellung derselben Haushaltspräferenz auf zwei Geräten;
 - iOS- und Android-Test im Dev Client.
 
 `bun run db:diff` muss am Ende leer sein.
@@ -928,8 +1100,10 @@ Zusätzlich:
 
 | Risiko | Auswirkung | Gegenmaßnahme |
 | :--- | :--- | :--- |
-| **OFF-Tag-Abdeckung im deutschen Dump < 60 %** | Namens-Fallback trägt mehr Last als erwartet. | Das Evaluierungsskript aus Paket 1 misst die Abdeckung vor dem Cutover. Liegt sie unter 60 %, werden die Token-Regeln des Fallbacks erweitert. |
-| **Regeldrift / Widersprüchliche OFF-Tags** | Falsche Zuordnungen bei neuen Produkten. | Ausschließlich kanonische Tags verwenden. Der Kalibrierungsreport wird bei jeder Regelanpassung neu generiert und im PR verglichen. |
+| **Niedrige OFF-Tag-Abdeckung im deutschen Dump** | Mehr Produkte enden in `Sonstiges` oder benötigen Haushaltspräferenzen. | Abdeckung beobachten, aber Regeln nur aus überprüften False Negatives erweitern. Golden-Korpus, deterministische Hash-Stichproben, visueller Trace-Review und Präzision entscheiden über die Freigabe. |
+| **Regeldrift / Widersprüchliche OFF-Tags** | Falsche Zuordnungen bei neuen Produkten. | Ausschließlich kanonische Tags verwenden. Der TypeScript-Kalibrierungsreport wird bei jeder Regelanpassung reproduzierbar neu generiert und im PR visuell verglichen. |
 | **Kein nativer OFF-Delta-Export** | Erschwerte inkrementelle Updates. | CI verwaltet eine kanonische SQLite-Baseline und erzeugt die SQLite-Patches (Upserts + Deletes) deterministisch selbst. |
+| **Verlust des rollenden CI-Zustands** | Der nächste Patch könnte nicht korrekt erzeugt werden. | Kanonische DB in `off-dump-current` dauerhaft veröffentlichen und jederzeit deterministisch aus Monats-Baseline plus Patchkette rekonstruieren. Actions-Cache nur als Beschleunigung verwenden. |
+| **Parallele Offline-Anlage derselben Präferenz** | Unique-Verletzung oder zwei widersprüchliche Sync-Entitäten. | Natürliche Identität streng normalisieren, deterministische UUIDv5 verwenden, Unique Constraint beibehalten und gemeinsame Testvektoren ausführen. |
+| **Manipulierte globale OFF-Metadaten durch Clients** | Falsche Kategorien betreffen alle Haushalte. | OFF-Produkte für Clients schreibgeschützt lassen; Backend lädt OFF selbst und übernimmt ausschließlich validierte, neuere Felder. |
 | **Absturz während SQLite-Baseline-Tausch** | Beschädigte lokale Offline-Datenbank. | Dreistufiges Dateihandling (`active`, `next`, `recovery`) mit `PRAGMA quick_check` vor dem Detach/Rename. |
-
