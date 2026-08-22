@@ -1,0 +1,26 @@
+{
+  "name": "category-debugger",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "description": "Eigenständiges Debug-Tool: durchsucht den echten lokalen OFF-Dump und zeigt, wie guessCategory() aus der App jeden Treffer einordnet.",
+  "scripts": {
+    "download-dump": "bun scripts/download-dump.ts",
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "sql.js": "^1.13.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.0",
+    "@types/react-dom": "^19.2.0",
+    "@types/sql.js": "^1.4.9",
+    "@vitejs/plugin-react": "^4.3.4",
+    "typescript": "~5.9.0",
+    "vite": "^6.3.0"
+  }
+}
