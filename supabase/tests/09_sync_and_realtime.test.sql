@@ -7,7 +7,7 @@
 begin;
 \ir helpers.sql
 
-select plan(14);
+select plan(17);
 
 -- ------------------------------------------------- Sync-Spalten auf allen Tabellen
 -- `updated_at` treibt den inkrementellen Pull, `deleted_at` die Tombstones.
@@ -16,6 +16,12 @@ select has_column('public', 'fridge_items', 'updated_at', 'fridge_items hat upda
 select has_column('public', 'fridge_items', 'deleted_at', 'fridge_items hat deleted_at');
 select has_column('public', 'shopping_list_items', 'deleted_at', 'shopping_list_items hat deleted_at');
 select has_column('public', 'food_entries', 'deleted_at', 'food_entries hat deleted_at');
+select has_column(
+  'public',
+  'shopping_category_preferences',
+  'deleted_at',
+  'shopping_category_preferences hat deleted_at'
+);
 
 -- storage_locations ist Spiegeltabelle der Offline-Engine (#45). Ohne
 -- deleted_at haette ein offline geloeschter Lagerort keinen Tombstone-Pfad und
@@ -98,6 +104,15 @@ select ok(
   'shopping_list_items liegt in der Realtime-Publication'
 );
 
+select ok(
+  exists (
+    select 1 from pg_publication_tables
+    where pubname = 'supabase_realtime'
+      and schemaname = 'public' and tablename = 'shopping_category_preferences'
+  ),
+  'shopping_category_preferences liegt in der Realtime-Publication'
+);
+
 -- Die privaten Tabellen duerfen NICHT drin sein. Realtime waere ein zweiter
 -- Kanal an RLS vorbei, wenn die Konfiguration jemals nachlaesst.
 select is_empty(
@@ -120,6 +135,13 @@ select is(
   (select relreplident from pg_class where oid = 'public.shopping_list_items'::regclass),
   'f'::"char",
   'shopping_list_items hat REPLICA IDENTITY FULL'
+);
+
+select is(
+  (select relreplident from pg_class
+   where oid = 'public.shopping_category_preferences'::regclass),
+  'f'::"char",
+  'shopping_category_preferences hat REPLICA IDENTITY FULL'
 );
 
 select * from finish();

@@ -2,7 +2,11 @@ import { useQuery } from '@tanstack/react-query';
 
 import { getDatabase } from '@/lib/db/client';
 import { parseJsonArray } from '@/lib/db/json-array';
-import { effectiveSortOrder, UNCATEGORIZED_LABEL } from '../domain-logik/shopping-categories';
+import {
+  categoryLabelForId,
+  effectiveSortOrder,
+  UNCATEGORIZED_LABEL,
+} from '../domain-logik/shopping-categories';
 
 export type LocalShoppingItem = {
   id: string;
@@ -13,6 +17,10 @@ export type LocalShoppingItem = {
   unit: string;
   package_size: number | null;
   package_size_unit: string | null;
+  category_id: string | null;
+  category_source: 'user' | 'household_preference' | 'off_taxonomy' | 'name_fallback' | null;
+  category_classifier_version: string | null;
+  /** Abgeleitetes Anzeige-Label, nie in SQLite/Supabase gespeichert. */
   category: string | null;
   store_id: string | null;
   price_estimate: number | null;
@@ -26,7 +34,17 @@ export type LocalShoppingItem = {
 };
 
 /** Rohzeile aus SQLite: `recipe_names` (Server-`text[]`) kommt lokal als JSON-Text an. */
-type LocalShoppingItemRow = Omit<LocalShoppingItem, 'recipe_names'> & { recipe_names: string };
+type LocalShoppingItemRow = Omit<LocalShoppingItem, 'category' | 'recipe_names'> & {
+  recipe_names: string;
+};
+
+function toShoppingItem(row: LocalShoppingItemRow): LocalShoppingItem {
+  return {
+    ...row,
+    category: categoryLabelForId(row.category_id),
+    recipe_names: parseJsonArray<string>(row.recipe_names),
+  };
+}
 
 export type GroupedShoppingItems = {
   category: string;
@@ -82,7 +100,8 @@ export function useShoppingList(householdId: string | undefined) {
       const db = await getDatabase();
       const rows = await db.getAllAsync<LocalShoppingItemRow>(
         `select id, household_id, product_id, name, quantity, unit,
-                package_size, package_size_unit, category,
+                package_size, package_size_unit,
+                category_id, category_source, category_classifier_version,
                 store_id, price_estimate, recipe_names,
                 checked_at, checked_by, sort_index, created_at, updated_at
          from shopping_list_items
@@ -93,10 +112,7 @@ export function useShoppingList(householdId: string | undefined) {
            name asc`,
         [householdId],
       );
-      const items = rows.map((row) => ({
-        ...row,
-        recipe_names: parseJsonArray<string>(row.recipe_names),
-      }));
+      const items = rows.map(toShoppingItem);
 
       return groupByCategory(items);
     },
@@ -114,7 +130,8 @@ export function useCheckedShoppingItems(householdId: string | undefined) {
       const db = await getDatabase();
       const rows = await db.getAllAsync<LocalShoppingItemRow>(
         `select id, household_id, product_id, name, quantity, unit,
-                package_size, package_size_unit, category,
+                package_size, package_size_unit,
+                category_id, category_source, category_classifier_version,
                 store_id, price_estimate, recipe_names,
                 checked_at, checked_by, sort_index, created_at, updated_at
          from shopping_list_items
@@ -122,10 +139,7 @@ export function useCheckedShoppingItems(householdId: string | undefined) {
          order by name asc`,
         [householdId],
       );
-      return rows.map((row) => ({
-        ...row,
-        recipe_names: parseJsonArray<string>(row.recipe_names),
-      }));
+      return rows.map(toShoppingItem);
     },
     enabled: !!householdId,
   });

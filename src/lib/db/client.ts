@@ -1,3 +1,4 @@
+import { DATABASE_FILE_NAMES } from '@/lib/db/database-files';
 import { MIGRATIONS } from '@/lib/db/migrations';
 import { runMigrations } from '@/lib/db/migrator';
 import { ensureDatabaseBelongsTo } from '@/lib/db/ownership';
@@ -37,8 +38,6 @@ function loadSQLite(): typeof import('expo-sqlite') {
     throw new Error(REBUILD_HINT);
   }
 }
-
-const DATABASE_NAME = 'fam.db';
 
 /**
  * Uebersetzt eine `SQLiteDatabase` in die rohe Statement-Schicht.
@@ -101,7 +100,7 @@ function isVerifiedForActiveUser(): boolean {
 
 async function open(): Promise<SqlDatabase> {
   const SQLite = loadSQLite();
-  rawDatabase = await SQLite.openDatabaseAsync(DATABASE_NAME);
+  rawDatabase = await SQLite.openDatabaseAsync(DATABASE_FILE_NAMES.main);
   const db = serializeDatabase(toDriver(rawDatabase));
 
   // WAL muss ausserhalb jeder Transaktion gesetzt werden — innerhalb lehnt
@@ -207,7 +206,7 @@ async function closeAndDeleteFile(): Promise<void> {
   resetOffDumpAttachment();
 
   try {
-    await SQLite.deleteDatabaseAsync(DATABASE_NAME);
+    await SQLite.deleteDatabaseAsync(DATABASE_FILE_NAMES.main);
   } catch (e) {
     console.warn('[db] Fehler beim Löschen der Datenbank:', e);
   }

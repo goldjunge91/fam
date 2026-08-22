@@ -1,4 +1,5 @@
 import { getDatabase } from '@/lib/db/client';
+import { DATABASE_FILE_NAMES } from '@/lib/db/database-files';
 import type { SqlDatabase } from '@/lib/db/types';
 import { type OpenFoodFactsProduct, parseQuantityAndUnit } from '@/lib/open-food-facts';
 
@@ -31,7 +32,7 @@ function loadFileSystem(): typeof import('expo-file-system') {
 }
 
 const REPO = 'goldjunge91/fam';
-const DUMP_FILE_NAME = 'off-dump.db';
+const DUMP_FILE_NAME = DATABASE_FILE_NAMES.offDump;
 const RELEASE_TAG_KEY = 'off_dump_release_tag';
 const LAST_CHECK_KEY = 'off_dump_last_check_at';
 /** Der Dump-CI-Workflow (`update_dump.yml`) veroeffentlicht hoechstens monatlich. */

@@ -89,7 +89,9 @@ describe('use-shopping-list-mutations', () => {
         unit: 'g',
         package_size: null,
         package_size_unit: null,
-        category: null,
+        category_id: null,
+        category_source: null,
+        category_classifier_version: null,
         store_id: null,
         price_estimate: null,
       });

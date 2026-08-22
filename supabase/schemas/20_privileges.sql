@@ -28,6 +28,10 @@ grant delete, insert, select, update on public.stores to anon, authenticated, se
 grant delete, insert, select, update on public.fridge_items to anon, authenticated, service_role;
 grant delete, insert, select, update on public.shopping_list_items to anon, authenticated, service_role;
 grant delete, insert, select, update on public.shopping_history to anon, authenticated, service_role;
+revoke all on public.shopping_category_preferences from authenticated;
+grant insert, select, update on public.shopping_category_preferences to authenticated;
+grant delete, insert, select, update on public.shopping_category_preferences to service_role;
+revoke all on public.shopping_category_preferences from anon;
 grant delete, insert, select, update on public.food_entries to anon, authenticated, service_role;
 grant delete, insert, select, update on public.weight_entries to anon, authenticated, service_role;
 grant delete, insert, select, update on public.user_goals to anon, authenticated, service_role;

@@ -6,9 +6,10 @@ import type { Migration } from '@/lib/db/types';
  * Reine Daten, keine I/O. Der Runner in `migrator.ts` wendet sie an, die
  * Auswahl trifft `planMigrations()`; beides ist dadurch ohne Datenbank pruefbar.
  *
- * Eine einmal veroeffentlichte Migration wird nie wieder geaendert. Wer eine
- * Spalte braucht, haengt eine neue Version an — auf den Geraeten draussen ist
- * die alte laengst gelaufen und `PRAGMA user_version` steht entsprechend hoch.
+ * Issue #223 ist die bewusst einzige Ausnahme von der sonst unveraenderlichen
+ * Historie: Die App oeffnet ab diesem Cutover ausschliesslich `fam-v2.db`.
+ * Deshalb beschreibt die bestehende Kette direkt die neue Baseline, statt eine
+ * nie auszufuehrende Migration aus `fam.db` samt Daten-Backfill anzubauen.
  *
  * Bewusste Abweichungen vom Serverschema:
  *
@@ -64,7 +65,17 @@ create table if not exists shopping_list_items (
   name         text not null,
   quantity     real not null default 1,
   unit         text not null default 'piece',
-  category     text,
+  category_id  text check (category_id in (
+    'produce','bakery','deli_meat','pantry_canned','pantry_dry','breakfast',
+    'snacks','beverages','dairy','frozen','drugstore','checkout'
+  )),
+  category_source text check (category_source in (
+    'user','household_preference','off_taxonomy','name_fallback'
+  )),
+  category_classifier_version text check (
+    category_classifier_version is null
+    or length(trim(category_classifier_version)) between 1 and 100
+  ),
   sort_index   integer not null default 0,
   checked_at   text,
   checked_by   text,
@@ -90,6 +101,8 @@ create table if not exists products (
   sugar_g_per_100   real,
   salt_g_per_100    real,
   serving_size_g    real,
+  off_category_tags text not null default '[]',
+  off_last_modified_at text,
   source            text not null default 'manual',
   created_by        text,
   created_at        text,
@@ -98,6 +111,30 @@ create table if not exists products (
   _dirty            integer not null default 0
 );
 create index if not exists products_barcode_idx on products (barcode);
+
+create table if not exists shopping_category_preferences (
+  id                   text primary key not null,
+  household_id         text not null,
+  key_type              text not null check (key_type in ('product','name')),
+  normalized_key_value text not null check (
+    length(normalized_key_value) between 1 and 500
+    and normalized_key_value = lower(trim(normalized_key_value))
+  ),
+  category_id           text check (category_id in (
+    'produce','bakery','deli_meat','pantry_canned','pantry_dry','breakfast',
+    'snacks','beverages','dairy','frozen','drugstore','checkout'
+  )),
+  created_by            text,
+  created_at            text,
+  updated_at            integer not null,
+  deleted_at            integer,
+  _dirty                integer not null default 0,
+  unique (household_id, key_type, normalized_key_value)
+);
+create index if not exists shopping_category_preferences_hh_idx
+  on shopping_category_preferences (household_id, updated_at, id);
+create index if not exists shopping_category_preferences_dirty_idx
+  on shopping_category_preferences (_dirty) where _dirty = 1;
 `;
 
 // `products.deleted_at` existiert serverseitig NICHT und bleibt hier immer
@@ -161,7 +198,17 @@ create table if not exists shopping_history (
   item_name     text not null,
   quantity      real not null,
   unit          text not null,
-  category      text,
+  category_id   text check (category_id in (
+    'produce','bakery','deli_meat','pantry_canned','pantry_dry','breakfast',
+    'snacks','beverages','dairy','frozen','drugstore','checkout'
+  )),
+  category_source text check (category_source in (
+    'user','household_preference','off_taxonomy','name_fallback'
+  )),
+  category_classifier_version text check (
+    category_classifier_version is null
+    or length(trim(category_classifier_version)) between 1 and 100
+  ),
   product_id    text,
   location_kind text,
   expiry_date   text,

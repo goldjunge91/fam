@@ -4,4 +4,15 @@
 
 `PREFERENCE_NAMESPACE_UUID` ist ein einziger, global fest eingecheckter Namespace-Wert (`bd168b04-a426-4fe0-a30d-ea926d0b2700`) — nicht pro Haushalt bei der Haushaltserstellung generiert. Die Eindeutigkeit zwischen Haushalten kommt bereits aus `household_id` als Bestandteil des `name`-Parameters, nicht aus dem Namespace. Ein pro-Haushalt generierter Namespace müsste selbst erst synchronisiert werden, bevor ein zweites Gerät offline eine Präferenz-ID berechnen könnte — ein Henne-Ei-Problem, das der globale Namespace vermeidet. Der Namespace muss nicht geheim sein (UUIDv5 ist kein kryptografisches Verfahren), nur stabil.
 
+Der kanonische Name ist UTF-8-kodiert und hat exakt diese Form:
+
+```text
+shopping-category-preference/v1
+<household UUID in lowercase>
+<product|name>
+<UTF-8 byte length>:<normalized key value>
+```
+
+Die Versionsmarke erlaubt eine spätere bewusste Formatänderung. Die Byte-Länge macht auch Werte mit Zeilenumbrüchen oder Nicht-ASCII-Zeichen eindeutig. `normalized_key_value` muss vor der ID-Berechnung bereits getrimmt und kleingeschrieben sein; Product-Schlüssel sind UUIDs.
+
 Die UUIDv5-Bitlogik ist als reine Funktion implementiert, die einen fertigen SHA-1-Digest entgegennimmt, dahinter zwei austauschbare SHA-1-Quellen je Laufzeitumgebung: `expo-crypto` in der App (nativ, aber nicht in Node/Bun verfügbar) und `node:crypto` in Node-/Bun-Skripten, Tests und einem späteren Backend (kein natives Modul verfügbar). SHA-1 ist ein fester Standard, beide Quellen liefern für dieselbe Eingabe denselben Digest; eingecheckte Testvektoren verifizieren das. Damit lässt sich `expo-crypto` nutzen, ohne die App-freie Ausführbarkeit in `scripts/dump_data/evaluate-categories.ts` und Jest-Tests (die `node:sqlite` statt `expo-sqlite` verwenden, siehe `src/lib/db/outbox.ts`/`product-usage.ts`) zu verlieren.

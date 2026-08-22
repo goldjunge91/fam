@@ -7,6 +7,11 @@
 	"settings": {
 		"js/ts.server.goMemLimit": "4GiB",
 		"js/ts.referencesCodeLens.enabled": true,
-		"js/ts.referencesCodeLens.showOnAllFunctions": true
+		"js/ts.referencesCodeLens.showOnAllFunctions": true,
+		"files.exclude": {
+			"**/.git": true,
+			"**/.svn": true,
+			"**/.hg": true
+		}
 	}
 }

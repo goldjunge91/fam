@@ -13,14 +13,18 @@ import { clockCeiling, type ServerClock } from '@/lib/sync/server-clock';
 /**
  * Realtime → SQLite Bridge (#48).
  *
- * Nur `fridge_items` und `shopping_list_items` sind in der
+ * Nur `fridge_items`, `shopping_list_items` und die Haushalts-Praeferenzen sind in der
  * `supabase_realtime`-Publication (`supabase/schemas/10_realtime.sql`) —
  * `storage_locations` und `products` liefern keine Events. Diese Liste ist
  * bewusst hier lokal definiert, nicht in `entities.ts`: sie ist eine
  * Realtime-spezifische Tatsache, keine generische Pro-Entity-Eigenschaft wie
  * `hasServerTombstone`/`householdScoped`.
  */
-const REALTIME_TABLES: readonly Entity[] = ['fridge_items', 'shopping_list_items'];
+const REALTIME_TABLES: readonly Entity[] = [
+  'fridge_items',
+  'shopping_list_items',
+  'shopping_category_preferences',
+];
 
 export type RealtimeRowEvent = {
   entity: Entity;

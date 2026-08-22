@@ -3,7 +3,7 @@
 begin;
 \ir helpers.sql
 
-select plan(7);
+select plan(9);
 
 select tests.create_user('11111111-1111-1111-1111-111111111111', 'alice@example.com');
 select tests.create_user('22222222-2222-2222-2222-222222222222', 'bob@example.com');
@@ -64,9 +64,37 @@ select is(
   'auch der Anleger kann ein importiertes Produkt nicht aendern'
 );
 
+-- --------------------------------------- OFF-Metadaten nur vom Backend pflegen
+-- Ein Client darf einen OFF-Platzhalter anlegen, aber weder Taxonomie-Tags
+-- noch deren Versionszeitpunkt als globale Wahrheit behaupten.
+select tests.authenticate_as('11111111-1111-1111-1111-111111111111');
+
+select throws_ok(
+  $$ insert into public.products
+       (barcode, name, source, created_by, off_category_tags)
+     values
+       ('4000000000001', 'Manipuliert', 'off',
+        '11111111-1111-1111-1111-111111111111', array['en:beverages']) $$,
+  '42501',
+  'new row violates row-level security policy for table "products"',
+  'Clients koennen keine selbst gelieferten OFF-Tags speichern'
+);
+
+select throws_ok(
+  $$ insert into public.products
+       (barcode, name, source, created_by, off_last_modified_at)
+     values
+       ('4000000000002', 'Manipuliert', 'off',
+        '11111111-1111-1111-1111-111111111111', now()) $$,
+  '42501',
+  'new row violates row-level security policy for table "products"',
+  'Clients koennen keinen selbst gelieferten OFF-Zeitpunkt speichern'
+);
+
 -- ------------------------------------------------------ Plausibilitaetsgrenzen
 -- Open Food Facts ist crowdsourced. Werte wie 3200 kcal/100 g kommen dort real
 -- vor und landeten ohne Schranke in der Kalorienbilanz des Nutzers.
+select tests.as_postgres();
 select throws_ok(
   $$ insert into public.products (name, kcal_per_100, created_by)
      values ('Unfug', 3200, '11111111-1111-1111-1111-111111111111') $$,

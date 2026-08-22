@@ -36,6 +36,12 @@ create table if not exists public.products (
   -- "nicht umrechenbar" gemeldet werden, statt geraten zu werden.
   serving_size_g numeric(7, 2) check (serving_size_g > 0),
 
+  -- Kanonische Open-Food-Facts-Taxonomie als unveraenderte Tag-IDs. Der
+  -- lokale Spiegel serialisiert dieses text[] als JSON-Text, damit Live,
+  -- Barcode und Offline-Dump dieselbe Klassifikator-Eingabe liefern (#223).
+  off_category_tags text[] not null default '{}',
+  off_last_modified_at timestamptz,
+
   source text not null default 'manual' check (source in ('off', 'manual')),
 
   -- on delete set null statt cascade: Loescht ein Nutzer seinen Account, bleibt
@@ -80,7 +86,11 @@ create policy products_select_all on public.products
 
 create policy products_insert_own on public.products
   for insert to authenticated
-  with check ((select auth.uid()) = created_by);
+  with check (
+    (select auth.uid()) = created_by
+    and off_category_tags = '{}'::text[]
+    and off_last_modified_at is null
+  );
 
 -- Nur selbst angelegte Produkte sind aenderbar, und nur manuelle. Ein aus Open
 -- Food Facts importierter Datensatz wird von allen Haushalten geteilt und darf

@@ -4,7 +4,7 @@ import { TextField } from '@/components/forms/text-field';
 import { WheelPickerField } from '@/components/forms/wheel-picker-field';
 import { Button } from '@/components/ui/buttons';
 import { UNIT_OPTIONS } from '@/lib/units';
-import { guessCategory } from '../domain-logik/shopping-categories';
+import { categoryIdForLabel, guessCategory } from '../domain-logik/shopping-categories';
 import type { LocalShoppingItem } from '../hooks/use-shopping-list';
 import { useUpdateShoppingItem } from '../hooks/use-shopping-list-mutations';
 import { StorePickerField } from './store-picker-field';
@@ -48,7 +48,9 @@ export function EditItemForm({ item, onDismiss }: EditItemFormProps) {
       name: trimmed,
       quantity: Number(quantity) || 1,
       unit,
-      category: guessCategory(trimmed),
+      category_id: categoryIdForLabel(guessCategory(trimmed)),
+      category_source: guessCategory(trimmed) ? 'name_fallback' : null,
+      category_classifier_version: null,
       store_id: storeId,
       price_estimate: parsedPrice != null && !Number.isNaN(parsedPrice) ? parsedPrice : null,
     });

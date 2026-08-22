@@ -803,6 +803,8 @@ export type Database = {
           id: string
           kcal_per_100: number | null
           name: string
+          off_category_tags: string[]
+          off_last_modified_at: string | null
           protein_g_per_100: number | null
           salt_g_per_100: number | null
           serving_size_g: number | null
@@ -821,6 +823,8 @@ export type Database = {
           id?: string
           kcal_per_100?: number | null
           name: string
+          off_category_tags?: string[]
+          off_last_modified_at?: string | null
           protein_g_per_100?: number | null
           salt_g_per_100?: number | null
           serving_size_g?: number | null
@@ -839,6 +843,8 @@ export type Database = {
           id?: string
           kcal_per_100?: number | null
           name?: string
+          off_category_tags?: string[]
+          off_last_modified_at?: string | null
           protein_g_per_100?: number | null
           salt_g_per_100?: number | null
           serving_size_g?: number | null
@@ -1406,9 +1412,62 @@ export type Database = {
           },
         ]
       }
+      shopping_category_preferences: {
+        Row: {
+          category_id: string | null
+          created_at: string
+          created_by: string | null
+          deleted_at: string | null
+          household_id: string
+          id: string
+          key_type: string
+          normalized_key_value: string
+          updated_at: string
+        }
+        Insert: {
+          category_id?: string | null
+          created_at?: string
+          created_by?: string | null
+          deleted_at?: string | null
+          household_id: string
+          id: string
+          key_type: string
+          normalized_key_value: string
+          updated_at?: string
+        }
+        Update: {
+          category_id?: string | null
+          created_at?: string
+          created_by?: string | null
+          deleted_at?: string | null
+          household_id?: string
+          id?: string
+          key_type?: string
+          normalized_key_value?: string
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "shopping_category_preferences_created_by_fkey"
+            columns: ["created_by"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "shopping_category_preferences_household_id_fkey"
+            columns: ["household_id"]
+            isOneToOne: false
+            referencedRelation: "households"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       shopping_history: {
         Row: {
-          category: string | null
+          category_classifier_version: string | null
+          category_id: string | null
+          category_source: string | null
           completed_at: string
           completed_by: string | null
           created_at: string
@@ -1422,7 +1481,9 @@ export type Database = {
           unit: string
         }
         Insert: {
-          category?: string | null
+          category_classifier_version?: string | null
+          category_id?: string | null
+          category_source?: string | null
           completed_at: string
           completed_by?: string | null
           created_at?: string
@@ -1436,7 +1497,9 @@ export type Database = {
           unit: string
         }
         Update: {
-          category?: string | null
+          category_classifier_version?: string | null
+          category_id?: string | null
+          category_source?: string | null
           completed_at?: string
           completed_by?: string | null
           created_at?: string
@@ -1476,7 +1539,9 @@ export type Database = {
       shopping_list_items: {
         Row: {
           added_by: string | null
-          category: string | null
+          category_classifier_version: string | null
+          category_id: string | null
+          category_source: string | null
           checked_at: string | null
           checked_by: string | null
           created_at: string
@@ -1497,7 +1562,9 @@ export type Database = {
         }
         Insert: {
           added_by?: string | null
-          category?: string | null
+          category_classifier_version?: string | null
+          category_id?: string | null
+          category_source?: string | null
           checked_at?: string | null
           checked_by?: string | null
           created_at?: string
@@ -1518,7 +1585,9 @@ export type Database = {
         }
         Update: {
           added_by?: string | null
-          category?: string | null
+          category_classifier_version?: string | null
+          category_id?: string | null
+          category_source?: string | null
           checked_at?: string | null
           checked_by?: string | null
           created_at?: string

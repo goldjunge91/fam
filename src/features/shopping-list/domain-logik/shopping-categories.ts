@@ -2,7 +2,7 @@ export type StorageKind = 'fridge' | 'freezer' | 'pantry';
 
 export type ShoppingCategory = {
   id: string;
-  /** Der Wert, der 1:1 in `shopping_list_items.category` gespeichert wird. */
+  /** Reines Anzeige-Label. Gespeichert wird ausschliesslich `id`. */
   label: string;
   /** Rang auf der typischen Supermarkt-Laufstrecke, 10er-Schritte. */
   sortOrder: number;
@@ -317,6 +317,21 @@ export const SHOPPING_CATEGORIES: readonly ShoppingCategory[] = [
 const CATEGORY_BY_LABEL = new Map<string, ShoppingCategory>(
   SHOPPING_CATEGORIES.map((category) => [category.label, category]),
 );
+const CATEGORY_BY_ID = new Map<string, ShoppingCategory>(
+  SHOPPING_CATEGORIES.map((category) => [category.id, category]),
+);
+
+/** Mechanische Bruecke fuer den Datenmodell-Cutover; Labels bleiben reine Darstellung. */
+export function categoryIdForLabel(categoryLabel: string | null): string | null {
+  if (!categoryLabel) return null;
+  return CATEGORY_BY_LABEL.get(categoryLabel)?.id ?? null;
+}
+
+/** Loest ein gespeichertes Kategorie-ID-Snapshot in das aktuelle Anzeige-Label auf. */
+export function categoryLabelForId(categoryId: string | null): string | null {
+  if (!categoryId) return null;
+  return CATEGORY_BY_ID.get(categoryId)?.label ?? null;
+}
 
 /** Unkategorisierte Artikel (category null) sinken ans Ende der Liste. */
 export function sortOrderForCategory(categoryLabel: string | null): number {
