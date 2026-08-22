@@ -41,8 +41,19 @@ type NavRoute = {
   featureFlag?: FeatureFlagKey;
 };
 
-const GROUPS: { title: string; routes: NavRoute[] }[] = [
-  { title: 'Heute', routes: [{ label: 'Übersicht', href: '/', icon: 'overview' }] },
+type NavGroup = {
+  title: string;
+  routes: NavRoute[];
+  /** Gruppentitel nicht anzeigen, Abstand nach oben aber beibehalten (nur "Heute" — eine einzelne Zeile braucht keine Ueberschrift). */
+  hideTitle?: boolean;
+};
+
+const GROUPS: NavGroup[] = [
+  {
+    title: 'Heute',
+    hideTitle: true,
+    routes: [{ label: 'Übersicht', href: '/', icon: 'overview' }],
+  },
   {
     title: 'Haushalt & Planung',
     routes: [
@@ -128,7 +139,10 @@ export function NavigationDrawer() {
               paddingTop: Math.max(insets.top - 20, 27),
               paddingBottom: Math.max(insets.bottom, 26),
               width: `${DRAWER_WIDTH_RATIO * 100}%`,
-              backgroundColor: withAlpha(theme.backgroundElement, 0.97),
+              // Deckend statt 0.97 Alpha — bei leicht transparentem
+              // Hintergrund schien der Screen dahinter (Titel, Avatar) durch
+              // den Drawer-Header hindurch.
+              backgroundColor: theme.backgroundElement,
               boxShadow: `24px 0 64px ${withAlpha(theme.shadowSheet, 0.18)}`,
             },
             animatedStyle,
@@ -183,8 +197,19 @@ function DrawerContent() {
           onPress={closeDrawer}
           accessibilityRole="button"
           accessibilityLabel="Menü schließen"
-          hitSlop={12}>
-          <ThemedText type="title" themeColor="textSecondary" className="drawer-close-glyph">
+          className="drawer-close-btn"
+          hitSlop={8}>
+          <ThemedText
+            type="default"
+            themeColor="textSecondary"
+            className="drawer-close-glyph"
+            // `type="title"` (48px/52 Zeilenhoehe) konkurrierte mit der
+            // 22px/26px-Klasse um dieselben Eigenschaften — je nachdem, wie
+            // NativeWind die beiden Klassenquellen kaskadiert, gewann mal die
+            // eine, mal die andere Zeilenhoehe, und das "×" sass zu tief im
+            // Kreis (untere Spitzen fast am Rand). Expliziter `style` gewinnt
+            // immer, unabhaengig von der Klassen-Reihenfolge.
+            style={{ fontSize: 20, lineHeight: 20, fontWeight: '400' }}>
             ×
           </ThemedText>
         </Pressable>
@@ -193,9 +218,11 @@ function DrawerContent() {
       <ScrollView className="flex-1" showsVerticalScrollIndicator={false}>
         {visibleGroups.map((group) => (
           <View key={group.title} className="drawer-group">
-            <ThemedText type="small" themeColor="textSecondary" className="drawer-group-title">
-              {group.title.toUpperCase()}
-            </ThemedText>
+            {group.hideTitle ? null : (
+              <ThemedText type="small" themeColor="textSecondary" className="drawer-group-title">
+                {group.title.toUpperCase()}
+              </ThemedText>
+            )}
             {group.routes.map((route) => {
               const isActive =
                 route.href === '/' ? pathname === '/' : pathname.startsWith(route.href);
