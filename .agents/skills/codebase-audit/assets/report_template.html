@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>__TITLE__</title>
+<style>
+  :root {
+    --bg: #f7f5f3;
+    --panel: #ffffff;
+    --border: #e4dfda;
+    --text: #2a2420;
+    --text-dim: #6b6259;
+    --accent: #8a5a44;
+    --green-bg: #e7f3ea; --green-fg: #1e6b3a; --green-dot: #2fa356;
+    --yellow-bg: #fbf1df; --yellow-fg: #8a5a10; --yellow-dot: #d99a2b;
+    --red-bg: #fbe9e7; --red-fg: #a3311e; --red-dot: #d94a35;
+    --crit-bg: #f4d9d5;
+    --high-bg: #fbe9e7;
+    --med-bg: #fbf1df;
+    --low-bg: #eef0ea;
+    --row-hover: #f1ede9;
+    --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #1c1a18; --panel: #262320; --border: #3a3530; --text: #ece7e2; --text-dim: #a89e93;
+      --accent: #d3a184;
+      --green-bg: #163524; --green-fg: #7fd99a; --green-dot: #3ecb6c;
+      --yellow-bg: #3a2c12; --yellow-fg: #e8c477; --yellow-dot: #e3ac3a;
+      --red-bg: #3a1c17; --red-fg: #f0917d; --red-dot: #e3624a;
+      --crit-bg: #4a201a; --high-bg: #3a1c17; --med-bg: #3a2c12; --low-bg: #2c2f28;
+      --row-hover: #2f2b27;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #1c1a18; --panel: #262320; --border: #3a3530; --text: #ece7e2; --text-dim: #a89e93;
+    --accent: #d3a184;
+    --green-bg: #163524; --green-fg: #7fd99a; --green-dot: #3ecb6c;
+    --yellow-bg: #3a2c12; --yellow-fg: #e8c477; --yellow-dot: #e3ac3a;
+    --red-bg: #3a1c17; --red-fg: #f0917d; --red-dot: #e3624a;
+    --crit-bg: #4a201a; --high-bg: #3a1c17; --med-bg: #3a2c12; --low-bg: #2c2f28;
+    --row-hover: #2f2b27;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--text); font-family: var(--sans);
+    line-height: 1.45;
+  }
+  .wrap { max-width: 1100px; margin: 0 auto; padding: 32px 20px 80px; }
+  h1 { font-size: 1.5rem; margin: 0 0 4px; }
+  .meta { color: var(--text-dim); font-size: 0.85rem; margin-bottom: 28px; }
+  .meta span { margin-right: 14px; }
+  .scores {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 12px; margin-bottom: 28px;
+  }
+  .score-card {
+    background: var(--panel); border: 1px solid var(--border); border-radius: 10px;
+    padding: 14px 16px;
+  }
+  .score-card .head { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
+  .dot { width: 10px; height: 10px; border-radius: 50%; flex: none; }
+  .dot.green { background: var(--green-dot); }
+  .dot.yellow { background: var(--yellow-dot); }
+  .dot.red { background: var(--red-dot); }
+  .score-card .name { font-weight: 600; font-size: 0.95rem; }
+  .score-card .summary { color: var(--text-dim); font-size: 0.85rem; }
+  .score-card .count { font-size: 0.78rem; color: var(--text-dim); margin-top: 6px; }
+  .controls {
+    display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-bottom: 14px;
+  }
+  .controls select, .controls input {
+    background: var(--panel); color: var(--text); border: 1px solid var(--border);
+    border-radius: 8px; padding: 7px 10px; font-size: 0.85rem; font-family: var(--sans);
+  }
+  .controls input[type="search"] { flex: 1; min-width: 180px; }
+  .count-line { color: var(--text-dim); font-size: 0.82rem; margin-bottom: 10px; }
+  table { width: 100%; border-collapse: collapse; background: var(--panel); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
+  thead th {
+    text-align: left; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.03em;
+    color: var(--text-dim); padding: 10px 12px; border-bottom: 1px solid var(--border);
+  }
+  tbody tr { border-bottom: 1px solid var(--border); cursor: pointer; }
+  tbody tr:last-child { border-bottom: none; }
+  tbody tr:hover { background: var(--row-hover); }
+  tbody td { padding: 10px 12px; vertical-align: top; font-size: 0.88rem; }
+  .sev-pill {
+    display: inline-block; padding: 2px 8px; border-radius: 999px; font-size: 0.72rem;
+    font-weight: 600; text-transform: uppercase; letter-spacing: 0.02em; white-space: nowrap;
+  }
+  .sev-critical { background: var(--crit-bg); color: var(--red-fg); }
+  .sev-high { background: var(--high-bg); color: var(--red-fg); }
+  .sev-medium { background: var(--med-bg); color: var(--yellow-fg); }
+  .sev-low { background: var(--low-bg); color: var(--text-dim); }
+  .file { font-family: var(--mono); font-size: 0.8rem; color: var(--text-dim); white-space: nowrap; }
+  .title-cell { font-weight: 500; }
+  .aspect-tag { font-size: 0.75rem; color: var(--accent); }
+  .principle-tag {
+    display: inline-block; margin-top: 4px; padding: 1px 7px; border-radius: 6px;
+    font-size: 0.7rem; font-weight: 600; background: var(--yellow-bg); color: var(--yellow-fg);
+  }
+  .detail-row td { padding: 0 12px 14px; background: var(--panel); }
+  .detail-row .box { border-top: 1px dashed var(--border); padding-top: 10px; font-size: 0.85rem; color: var(--text); }
+  .detail-row .box b { color: var(--text-dim); font-weight: 600; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.02em; }
+  .empty { text-align: center; color: var(--text-dim); padding: 40px 0; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>__TITLE__</h1>
+  <div class="meta" id="meta"></div>
+  <div class="scores" id="scores"></div>
+  <div class="controls">
+    <select id="filter-aspect"><option value="">Alle Aspekte</option></select>
+    <select id="filter-severity">
+      <option value="">Alle Schweregrade</option>
+      <option value="critical">Critical</option>
+      <option value="high">High</option>
+      <option value="medium">Medium</option>
+      <option value="low">Low</option>
+    </select>
+    <input type="search" id="search" placeholder="Suche in Datei, Titel, Beschreibung...">
+  </div>
+  <div class="count-line" id="count-line"></div>
+  <table>
+    <thead>
+      <tr><th>Schwere</th><th>Aspekt</th><th>Datei</th><th>Finding</th></tr>
+    </thead>
+    <tbody id="tbody"></tbody>
+  </table>
+</div>
+<script id="report-data" type="application/json">__REPORT_JSON__</script>
+<script>
+(function () {
+  const data = JSON.parse(document.getElementById('report-data').textContent);
+  const meta = data.meta || {};
+  const aspects = data.aspects || [];
+  const findings = data.findings || [];
+  const aspectById = Object.fromEntries(aspects.map(a => [a.id, a]));
+  const sevOrder = { critical: 0, high: 1, medium: 2, low: 3 };
+
+  document.getElementById('meta').innerHTML =
+    ['scope', 'mode', 'repo', 'generated_at']
+      .filter(k => meta[k])
+      .map(k => `<span><b>${k}</b>: ${meta[k]}</span>`)
+      .join('');
+
+  const scoresEl = document.getElementById('scores');
+  aspects.forEach(a => {
+    const own = findings.filter(f => f.aspect === a.id);
+    const card = document.createElement('div');
+    card.className = 'score-card';
+    card.innerHTML = `
+      <div class="head"><span class="dot ${a.score}"></span><span class="name">${a.name}</span></div>
+      <div class="summary">${a.summary || ''}</div>
+      <div class="count">${own.length} Finding${own.length === 1 ? '' : 's'}</div>
+    `;
+    scoresEl.appendChild(card);
+  });
+
+  const aspectSelect = document.getElementById('filter-aspect');
+  aspects.forEach(a => {
+    const opt = document.createElement('option');
+    opt.value = a.id; opt.textContent = a.name;
+    aspectSelect.appendChild(opt);
+  });
+
+  const tbody = document.getElementById('tbody');
+  const countLine = document.getElementById('count-line');
+  const searchInput = document.getElementById('search');
+  const sevSelect = document.getElementById('filter-severity');
+
+  function render() {
+    const aspectFilter = aspectSelect.value;
+    const sevFilter = sevSelect.value;
+    const q = searchInput.value.trim().toLowerCase();
+
+    const rows = findings
+      .filter(f => !aspectFilter || f.aspect === aspectFilter)
+      .filter(f => !sevFilter || f.severity === sevFilter)
+      .filter(f => !q || [f.file, f.title, f.description, f.recommendation]
+        .filter(Boolean).some(s => s.toLowerCase().includes(q)))
+      .sort((a, b) => (sevOrder[a.severity] ?? 9) - (sevOrder[b.severity] ?? 9));
+
+    countLine.textContent = `${rows.length} von ${findings.length} Findings`;
+    tbody.innerHTML = '';
+
+    if (!rows.length) {
+      const tr = document.createElement('tr');
+      tr.innerHTML = `<td colspan="4" class="empty">Keine Findings für diesen Filter.</td>`;
+      tbody.appendChild(tr);
+      return;
+    }
+
+    rows.forEach((f, i) => {
+      const aspectName = (aspectById[f.aspect] || {}).name || f.aspect;
+      const tr = document.createElement('tr');
+      tr.innerHTML = `
+        <td><span class="sev-pill sev-${f.severity}">${f.severity}</span></td>
+        <td class="aspect-tag">${aspectName}</td>
+        <td class="file">${f.file || ''}${f.line ? ':' + f.line : ''}</td>
+        <td class="title-cell">${f.title || ''}</td>
+      `;
+      const detail = document.createElement('tr');
+      detail.className = 'detail-row';
+      detail.style.display = 'none';
+      detail.innerHTML = `<td colspan="4"><div class="box">
+        <b>Beschreibung</b><p>${f.description || ''}</p>
+        <b>Empfehlung</b><p>${f.recommendation || ''}</p>
+      </div></td>`;
+      tr.addEventListener('click', () => {
+        detail.style.display = detail.style.display === 'none' ? 'table-row' : 'none';
+      });
+      tbody.appendChild(tr);
+      tbody.appendChild(detail);
+    });
+  }
+
+  aspectSelect.addEventListener('change', render);
+  sevSelect.addEventListener('change', render);
+  searchInput.addEventListener('input', render);
+  render();
+})();
+</script>
+</body>
+</html>
