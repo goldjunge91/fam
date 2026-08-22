@@ -9,7 +9,7 @@ import {
   type ModulePreferences,
   useModulePreferences,
 } from '@/features/settings/module-preferences';
-import { type FeatureFlagKey, useFeatureFlag } from '@/lib/posthog';
+import { type FeatureFlagKey, useFeatureFlagState } from '@/lib/posthog';
 
 type ModuleGateProps = {
   module: keyof ModulePreferences;
@@ -18,10 +18,11 @@ type ModuleGateProps = {
   /**
    * Zusaetzliches Remote-Gate ueber PostHog (#183) — nur fuer Module, die
    * gestaffelt ausgerollt werden sollen (aktuell recipes/mealPlanner/
-   * calories), NICHT fuer die Kern-Module Vorrat/Einkauf. `defaultValue` ist
-   * bewusst `false`: ohne im Dashboard angelegten Flag bleibt das Modul fuer
-   * echte Nutzer verborgen, auch wenn `ModulePreferences` es erlaubt — die
-   * Freischaltung passiert ausschliesslich ueber PostHog, nie automatisch.
+   * calories), NICHT fuer die Kern-Module Vorrat/Einkauf. Nur ein bestaetigtes
+   * `false` vom Server blendet das Modul aus, auch wenn `ModulePreferences` es
+   * erlaubt — die Freischaltung passiert ausschliesslich ueber PostHog, nie
+   * automatisch. Solange der Flag noch nicht bestaetigt ist (Cold Start,
+   * offline), wird optimistisch gerendert statt der Hold-Screen gezeigt.
    */
   featureFlag?: FeatureFlagKey;
   children: ReactNode;
@@ -43,9 +44,11 @@ type ModuleGateProps = {
 export function ModuleGate({ module, title, featureFlag, children }: ModuleGateProps) {
   const { session } = useSession();
   const { data: modules } = useModulePreferences(session?.user.id);
-  // defaultValue haengt vom Aufrufer ab (kein featureFlag-Prop -> immer
-  // erlaubt), der Hook-Aufruf selbst bleibt unconditional (Rules of Hooks).
-  const featureFlagAllowed = useFeatureFlag(featureFlag, !featureFlag);
+  // Tri-State: `undefined` (Cold Start/offline, noch nicht hydriert, oder kein
+  // featureFlag-Prop) wird wie die Praeferenz optimistisch behandelt und
+  // rendert die Kinder. Nur ein bestaetigtes `false` blockt — sonst blitzt der
+  // Gate-Hinweis auf, bevor der Flag geladen ist.
+  const featureFlagState = useFeatureFlagState(featureFlag);
 
   if (modules && !modules[module]) {
     return (
@@ -65,7 +68,7 @@ export function ModuleGate({ module, title, featureFlag, children }: ModuleGateP
     );
   }
 
-  if (!featureFlagAllowed) {
+  if (featureFlagState === false) {
     return (
       <Screen title={title}>
         <Card>

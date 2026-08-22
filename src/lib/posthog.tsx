@@ -100,26 +100,40 @@ export type FeatureFlagKey =
   | 'module-calories';
 
 /**
- * Fragt ein Feature-Flag typsicher ab. Kapselt `useFeatureFlag()` aus
- * `posthog-react-native` — Komponenten importieren ausschliesslich diesen
- * Hook, nie das SDK direkt.
+ * Fragt den rohen Zustand eines Feature-Flags ab: `true`/`false` sobald ein
+ * Wert bestaetigt ist, `undefined` solange noch keiner vorliegt. Kapselt
+ * `useFeatureFlag()` aus `posthog-react-native` — Komponenten importieren
+ * ausschliesslich diese Hooks, nie das SDK direkt.
  *
- * `defaultValue` greift in zwei Faellen: ohne konfigurierten API-Key
+ * `undefined` greift in zwei Faellen: ohne konfigurierten API-Key
  * (`initPostHog()` war ein No-op) und beim allerersten App-Start, bevor
  * jemals ein Wert vom Server bestaetigt wurde. Danach liefert das SDK immer
  * sofort einen (ggf. leicht veralteten) gecachten Wert zurueck, nie ein
  * blockierendes Warten auf das Netzwerk — siehe "Offline-Verhalten" im
  * zugehoerigen Issue.
  *
+ * Aufrufer, die den offenen Zustand von einem echten `false` unterscheiden
+ * muessen (z. B. `ModuleGate`, das waehrend des Ladens optimistisch rendert),
+ * nutzen diesen Hook. Wer nur einen Boolean will, nimmt `useFeatureFlag()`.
+ *
  * `key` darf `undefined` sein (z. B. optionale Flag-Props wie in
  * `ModuleGate`) — der Hook wird trotzdem unconditional aufgerufen (Rules of
  * Hooks), das Ergebnis der SDK-Abfrage wird in dem Fall aber verworfen und
- * `defaultValue` direkt zurueckgegeben.
+ * `undefined` zurueckgegeben.
+ */
+export function useFeatureFlagState(key: FeatureFlagKey | undefined): boolean | undefined {
+  const value = usePostHogFeatureFlagSdk(key ?? '__no_flag_key__');
+  if (key === undefined || value === undefined) return undefined;
+  return value === true;
+}
+
+/**
+ * Fragt ein Feature-Flag als Boolean ab. `defaultValue` greift, solange kein
+ * Wert bestaetigt ist (siehe `useFeatureFlagState`). Fuer Aufrufer, die den
+ * noch nicht geladenen Zustand nicht gesondert behandeln muessen.
  */
 export function useFeatureFlag(key: FeatureFlagKey | undefined, defaultValue: boolean): boolean {
-  const value = usePostHogFeatureFlagSdk(key ?? '__no_flag_key__');
-  if (key === undefined || value === undefined) return defaultValue;
-  return value === true;
+  return useFeatureFlagState(key) ?? defaultValue;
 }
 
 export { PostHog };

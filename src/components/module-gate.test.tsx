@@ -21,11 +21,11 @@ jest.mock('@/features/settings/module-preferences', () => ({
   useModulePreferences: () => ({ data: mockModules }),
 }));
 
-let mockFeatureFlagValue = true;
-const mockUseFeatureFlag = jest.fn((_key: string, _defaultValue: boolean) => mockFeatureFlagValue);
+let mockFeatureFlagState: boolean | undefined = true;
+const mockUseFeatureFlagState = jest.fn((_key: string | undefined) => mockFeatureFlagState);
 
 jest.mock('@/lib/posthog', () => ({
-  useFeatureFlag: (key: string, defaultValue: boolean) => mockUseFeatureFlag(key, defaultValue),
+  useFeatureFlagState: (key: string | undefined) => mockUseFeatureFlagState(key),
 }));
 
 function renderScreen(featureFlag?: 'module-recipes') {
@@ -44,9 +44,9 @@ function renderScreen(featureFlag?: 'module-recipes') {
 
 beforeEach(() => {
   mockModules = { fridge: true, shoppingList: true, calories: true, recipes: true };
-  mockFeatureFlagValue = true;
+  mockFeatureFlagState = true;
   (router.push as jest.Mock).mockClear();
-  mockUseFeatureFlag.mockClear();
+  mockUseFeatureFlagState.mockClear();
 });
 
 describe('ModuleGate', () => {
@@ -76,21 +76,29 @@ describe('ModuleGate', () => {
     await renderScreen();
     expect(screen.getByText('Echter Inhalt')).toBeTruthy();
     // Der Hook wird laut Rules of Hooks immer aufgerufen (kein Prop -> kein
-    // Key, defaultValue true -> wirkt wie kein Gate).
-    expect(mockUseFeatureFlag).toHaveBeenCalledWith(undefined, true);
+    // Key -> Zustand undefined -> kein Gate).
+    expect(mockUseFeatureFlagState).toHaveBeenCalledWith(undefined);
   });
 
   it('rendert die Kinder wenn Nutzer-Praeferenz UND Feature-Flag beide zustimmen', async () => {
-    mockFeatureFlagValue = true;
+    mockFeatureFlagState = true;
     await renderScreen('module-recipes');
 
     expect(screen.getByText('Echter Inhalt')).toBeTruthy();
-    expect(mockUseFeatureFlag).toHaveBeenCalledWith('module-recipes', false);
+    expect(mockUseFeatureFlagState).toHaveBeenCalledWith('module-recipes');
+  });
+
+  it('rendert die Kinder optimistisch, solange der Feature-Flag noch nicht bestaetigt ist', async () => {
+    mockFeatureFlagState = undefined;
+    await renderScreen('module-recipes');
+
+    expect(screen.getByText('Echter Inhalt')).toBeTruthy();
+    expect(screen.queryByText('Noch nicht verfügbar')).toBeNull();
   });
 
   it('zeigt einen "noch nicht verfuegbar"-Hinweis ohne Einstellungen-Knopf, wenn nur der Feature-Flag aus ist', async () => {
     mockModules = { fridge: true, shoppingList: true, calories: true, recipes: true };
-    mockFeatureFlagValue = false;
+    mockFeatureFlagState = false;
     await renderScreen('module-recipes');
 
     expect(screen.queryByText('Echter Inhalt')).toBeNull();
@@ -100,7 +108,7 @@ describe('ModuleGate', () => {
 
   it('zeigt den Einstellungen-Hinweis (nicht den Flag-Hinweis), wenn der Nutzer das Modul selbst deaktiviert hat', async () => {
     mockModules = { fridge: false, shoppingList: true, calories: true, recipes: true };
-    mockFeatureFlagValue = true;
+    mockFeatureFlagState = true;
     await renderScreen('module-recipes');
 
     expect(screen.getByText('Modul nicht aktiviert')).toBeTruthy();
