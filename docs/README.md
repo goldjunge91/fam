@@ -6,23 +6,21 @@ bei Widersprüchen die maßgebliche Quelle.
 
 ## Produkt und aktueller Stand
 
-- [Produktvision](VISION.md) — Produktgrenzen, Datenschutzprinzipien und langfristige Module.
-- [Roadmap](ROADMAP.md) — abgeschlossener MVP und geplante Phase-2–4-Epics.
-- [Projektstatus](projekt_status.md) — Umsetzung der Epics und nächster inhaltlicher Schritt.
-- [Changelog](CHANGELOG.md) — veröffentlichungsrelevante Historie.
-- [Supermarkt-Laufstrecke](Supermarkt%20Laufstrecke%20-%20Einkaufslisten%20Sortierung.md) — Kategorie-Reihenfolge der Einkaufsliste.
+- [Produktvision](features/VISION.md) — Produktgrenzen, Datenschutzprinzipien und langfristige Module.
+- [Roadmap](features/ROADMAP.md) — abgeschlossener MVP und geplante Phase-2–4-Epics.
+- [Supermarkt-Laufstrecke](features/Supermarkt%20Laufstrecke%20-%20Einkaufslisten%20Sortierung.md) — Kategorie-Reihenfolge der Einkaufsliste.
 
 ## Entwicklung und Betrieb
 
-- [Developer Guide](DEVELOPER_GUIDE.md) — lokales Setup, Architektur und Standardabläufe.
-- [Funktionsdiagramme](FUNKTIONSDIAGRAMME.md) — Systemarchitektur, Datenmodelle und Feature-Workflows (Mermaid).
-- [Design-System](DESIGN_SYSTEM.md) — verbindliche Tokens und Komponentenregeln.
-- [RevenueCat-Webhook](revenuecat-webhook.md) — Deployment und Prüfung des Premium-Webhooks.
+- [Developer Guide](architecture/DEVELOPER_GUIDE.md) — lokales Setup, Architektur und Standardabläufe.
+- [Funktionsdiagramme](features/FUNKTIONSDIAGRAMME.md) — Systemarchitektur, Datenmodelle und Feature-Workflows (Mermaid).
+- [Design-System](design-system/DESIGN_SYSTEM.md) — verbindliche Tokens und Komponentenregeln.
+- [RevenueCat-Webhook](revenuecat/revenuecat-webhook.md) — Deployment und Prüfung des Premium-Webhooks.
 
 ## Datenschutz und Store-Release
 
-- [Datenschutzerklärung](DATENSCHUTZ.md)
-- [Privacy Labels](PRIVACY_LABELS.md)
+- [Datenschutzerklärung](architecture/DATENSCHUTZ.md)
+- [Privacy Labels](architecture/PRIVACY_LABELS.md)
 
 ## Arbeitsunterlagen und Audits
 
