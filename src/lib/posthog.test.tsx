@@ -143,3 +143,45 @@ describe('useFeatureFlag', () => {
     expect(result.current).toBe(true);
   });
 });
+
+describe('useFeatureFlagState', () => {
+  beforeEach(() => {
+    jest.clearAllMocks();
+  });
+
+  it('liefert undefined solange kein Wert vom Server bestaetigt wurde', async () => {
+    mockUseFeatureFlagSdk.mockReturnValue(undefined);
+    const { useFeatureFlagState } = require('@/lib/posthog');
+
+    const { result } = await renderHook(() => useFeatureFlagState('test-feature'));
+
+    expect(result.current).toBeUndefined();
+  });
+
+  it('liefert true wenn das Flag serverseitig aktiv ist', async () => {
+    mockUseFeatureFlagSdk.mockReturnValue(true);
+    const { useFeatureFlagState } = require('@/lib/posthog');
+
+    const { result } = await renderHook(() => useFeatureFlagState('test-feature'));
+
+    expect(result.current).toBe(true);
+  });
+
+  it('liefert false wenn das Flag serverseitig inaktiv ist', async () => {
+    mockUseFeatureFlagSdk.mockReturnValue(false);
+    const { useFeatureFlagState } = require('@/lib/posthog');
+
+    const { result } = await renderHook(() => useFeatureFlagState('test-feature'));
+
+    expect(result.current).toBe(false);
+  });
+
+  it('liefert undefined ohne Key, unabhaengig vom SDK-Rueckgabewert', async () => {
+    mockUseFeatureFlagSdk.mockReturnValue(false);
+    const { useFeatureFlagState } = require('@/lib/posthog');
+
+    const { result } = await renderHook(() => useFeatureFlagState(undefined));
+
+    expect(result.current).toBeUndefined();
+  });
+});
