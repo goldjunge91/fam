@@ -2,8 +2,10 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import initSqlJs, { type Database } from 'sql.js';
 import sqlWasmUrl from 'sql.js/dist/sql-wasm.wasm?url';
 // Echte App-Logik, keine Kopie — importiert direkt aus dem Hauptprojekt, damit
-// dieses Tool nie von guessCategory() abweichen kann.
-import { guessCategory, SHOPPING_CATEGORIES } from '../../../src/features/shopping-list/domain-logik/shopping-categories';
+// dieses Tool nie vom echten Classifier abweichen kann.
+import { explainCategory } from '../../../src/features/shopping-list/classification/shopping-category-classifier';
+import type { CategoryTrace } from '../../../src/features/shopping-list/classification/types';
+import { SHOPPING_CATEGORIES } from '../../../src/features/shopping-list/domain-logik/shopping-categories';
 
 type ProductRow = {
   code: string | null;
@@ -23,76 +25,20 @@ type ProductRow = {
 
 type DbStatus = { kind: 'loading' } | { kind: 'ready'; count: number } | { kind: 'error'; message: string };
 
-// --- Lokale Nachbildung der privaten Matching-Details aus shopping-categories.ts
-// (SUBSTRING_MIN_LENGTH/containsWholeWord sind dort nicht exportiert). Der
-// Gewinner wird nach jeder Analyse gegen das echte guessCategory() geprüft —
-// weicht er ab, zeigt die UI eine Warnung statt eine falsche Erklärung.
-
-const SUBSTRING_MIN_LENGTH = 4;
-const WORD_CHAR = /[a-z0-9äöüß]/i;
-
-function isWordChar(ch: string | undefined): boolean {
-  return ch !== undefined && WORD_CHAR.test(ch);
+function categoryDisplay(categoryId: string | null) {
+  if (!categoryId) return { label: 'Sonstiges', color: '#a89fa4' };
+  const category = SHOPPING_CATEGORIES.find((c) => c.id === categoryId);
+  return category ? { label: category.label, color: category.color } : { label: categoryId, color: '#a89fa4' };
 }
 
-function containsWholeWord(haystack: string, keyword: string): boolean {
-  let fromIndex = 0;
-  while (true) {
-    const index = haystack.indexOf(keyword, fromIndex);
-    if (index === -1) return false;
-    if (!isWordChar(haystack[index - 1]) && !isWordChar(haystack[index + keyword.length])) {
-      return true;
-    }
-    fromIndex = index + 1;
-  }
-}
-
-const MATCHERS = SHOPPING_CATEGORIES.map((c) => ({
-  ...c,
-  longKeywords: c.keywords.filter((k) => k.length >= SUBSTRING_MIN_LENGTH),
-  shortKeywords: c.keywords.filter((k) => k.length < SUBSTRING_MIN_LENGTH),
-}));
-
-type TraceRow = {
-  category: (typeof SHOPPING_CATEGORIES)[number];
-  keyword: string | null;
-  type: 'substring' | 'wholeword' | null;
-  reached: boolean;
-};
-
-function analyze(name: string) {
-  const normalized = name.trim().toLowerCase();
-  if (!normalized) return null;
-
-  const rows: TraceRow[] = [];
-  let winnerIndex = -1;
-
-  MATCHERS.forEach((m, i) => {
-    const substringKw = m.longKeywords.find((k) => normalized.includes(k));
-    const wholeKw = !substringKw && m.shortKeywords.find((k) => containsWholeWord(normalized, k));
-    const keyword = substringKw || wholeKw || null;
-    const type: TraceRow['type'] = substringKw ? 'substring' : wholeKw ? 'wholeword' : null;
-    rows.push({ category: m, keyword, type, reached: winnerIndex === -1 });
-    if (keyword && winnerIndex === -1) winnerIndex = i;
-  });
-
-  const winner = winnerIndex === -1 ? null : rows[winnerIndex];
-  const shadowed = rows.filter((r, i) => i > winnerIndex && r.keyword);
-  const realAnswer = guessCategory(name);
-  const mismatch = (winner?.category.label ?? null) !== realAnswer;
-
-  return { name, normalized, rows, winner, winnerIndex, shadowed, realAnswer, mismatch };
-}
-
-function highlight(name: string, keyword: string | null | undefined, type: string | null | undefined) {
-  if (!keyword) return escapeHtml(name);
-  const idx = name.toLowerCase().indexOf(keyword.toLowerCase());
+function highlight(name: string, value: string | undefined) {
+  if (!value) return escapeHtml(name);
+  const idx = name.toLowerCase().indexOf(value.toLowerCase());
   if (idx === -1) return escapeHtml(name);
   const before = name.slice(0, idx);
-  const match = name.slice(idx, idx + keyword.length);
-  const after = name.slice(idx + keyword.length);
-  const cls = type === 'wholeword' ? 'safe' : '';
-  return `${escapeHtml(before)}<mark class="${cls}">${escapeHtml(match)}</mark>${escapeHtml(after)}`;
+  const match = name.slice(idx, idx + value.length);
+  const after = name.slice(idx + value.length);
+  return `${escapeHtml(before)}<mark>${escapeHtml(match)}</mark>${escapeHtml(after)}`;
 }
 
 function escapeHtml(s: string) {
@@ -103,6 +49,82 @@ function fmt(n: number | null, digits = 1): string {
   return n == null ? '—' : n.toFixed(digits);
 }
 
+/** Vollständiger Trace-Ablauf, gemeinsam für Dump-Treffer und Freitext-Tester genutzt. */
+function TraceView({ trace }: { trace: CategoryTrace }) {
+  const winnerDisplay = categoryDisplay(trace.winner.categoryId);
+  const winnerValue = trace.winner.evidence?.value;
+
+  return (
+    <>
+      <div className="result-chip-row">
+        <span className="cat-pill" style={{ background: `${winnerDisplay.color}22`, color: winnerDisplay.color }}>
+          <span className="cat-dot" style={{ background: winnerDisplay.color }} />
+          {winnerDisplay.label}
+        </span>
+        <span className={`match-badge ${trace.winner.source ?? 'none'}`}>
+          {trace.winner.source === 'off_taxonomy'
+            ? 'OFF-Taxonomie'
+            : trace.winner.source === 'name_fallback'
+              ? 'Namens-Fallback'
+              : 'kein Signal'}
+        </span>
+      </div>
+
+      {trace.conflictReason && <div className="mismatch-note">⚠ {trace.conflictReason}</div>}
+
+      <div className="data-grid" style={{ gridTemplateColumns: 'repeat(2, minmax(0, 1fr))' }}>
+        <div className="data-cell">
+          <div className="k">Classifier-Version</div>
+          <div className="v">{trace.classifierVersion}</div>
+        </div>
+        <div className="data-cell">
+          <div className="k">Eingabequelle</div>
+          <div className="v">{trace.input.source ?? '—'}</div>
+        </div>
+        <div className="data-cell">
+          <div className="k">Normalisierter Name</div>
+          <div className="v">{trace.input.normalizedName ?? '—'}</div>
+        </div>
+        <div className="data-cell">
+          <div className="k">OFF-Tags</div>
+          <div className="v">{trace.input.categoryTags.length > 0 ? trace.input.categoryTags.join(', ') : '—'}</div>
+        </div>
+      </div>
+
+      <div className="trace-list">
+        {trace.candidates.length === 0 && trace.rejectedCandidates.length === 0 ? (
+          <div className="trace-row unreached">
+            <span className="trace-cat">Kein Kandidat gefunden — ehrliches „Sonstiges".</span>
+          </div>
+        ) : (
+          trace.candidates.map((candidate, i) => {
+            const isWinner = candidate.categoryId === trace.winner.categoryId && candidate.value === winnerValue;
+            const rejected = trace.rejectedCandidates.find(
+              (r) => r.categoryId === candidate.categoryId && r.value === candidate.value && r.kind === candidate.kind,
+            );
+            const display = categoryDisplay(candidate.categoryId);
+            return (
+              <div key={`${candidate.kind}-${candidate.value}-${i}`} className={`trace-row ${isWinner ? 'hit safe' : 'checked'}`}>
+                <span className="trace-idx">{candidate.weight}</span>
+                <span className="trace-dot" style={{ background: display.color }} />
+                <span className="trace-cat">
+                  {display.label}
+                  <span className="trace-detail">
+                    via {candidate.kind === 'off_tag' ? 'OFF-Tag' : 'Namensregel'} „{candidate.value}"
+                  </span>
+                </span>
+                <span className="trace-status">
+                  {isWinner ? '✓ Gewinner' : rejected ? `verworfen (${rejected.reason})` : ''}
+                </span>
+              </div>
+            );
+          })
+        )}
+      </div>
+    </>
+  );
+}
+
 export function App() {
   const [status, setStatus] = useState<DbStatus>({ kind: 'loading' });
   const dbRef = useRef<Database | null>(null);
@@ -110,6 +132,9 @@ export function App() {
   const [query, setQuery] = useState('Schwein');
   const [results, setResults] = useState<ProductRow[]>([]);
   const [selected, setSelected] = useState<ProductRow | null>(null);
+
+  const [freeText, setFreeText] = useState('2 Schnitzel vom Schwein Spar Fein Küche');
+  const [freeTextTags, setFreeTextTags] = useState('');
 
   useEffect(() => {
     let cancelled = false;
@@ -174,17 +199,31 @@ export function App() {
     setSelected((prev) => (prev && rows.some((r) => r.code === prev.code) ? prev : (rows[0] ?? null)));
   }, [query, status]);
 
-  const analysis = useMemo(() => (selected ? analyze(selected.product_name) : null), [selected]);
+  // Der aktuelle Dump ist noch Schema 1 (kein `categories_tags`) — der
+  // Dump-Pfad läuft deshalb bis Paket 4 zwangsläufig nur über den
+  // Namens-Fallback. Der Freitext-Tester unten deckt OFF-Tags per Hand ab.
+  const dumpTrace = useMemo(
+    () => (selected ? explainCategory({ name: selected.product_name, categoryTags: [], source: 'dump' }) : null),
+    [selected],
+  );
+
+  const freeTextTrace = useMemo(() => {
+    const tags = freeTextTags
+      .split(',')
+      .map((t) => t.trim())
+      .filter(Boolean);
+    return explainCategory({ name: freeText, categoryTags: tags, source: 'free_text' });
+  }, [freeText, freeTextTags]);
 
   return (
     <div className="shell">
       <header className="top">
-        <div className="eyebrow">shopping-list · guessCategory() gegen den echten Dump</div>
+        <div className="eyebrow">shopping-list · classifyCategory()/explainCategory() gegen den echten Dump</div>
         <h1>Kategorie-Radar</h1>
         <p className="lede">
           Durchsucht die tatsächlich heruntergeladene <code>off-dump.db</code> (derselbe Release wie{' '}
-          <code>ensureOffDumpDownloaded()</code> in der App) und zeigt zu jedem echten Treffer alle
-          Felder aus dem Dump sowie den vollen Ablauf von <code>guessCategory()</code>.
+          <code>ensureOffDumpDownloaded()</code> in der App) und zeigt zu jedem echten Treffer den vollen
+          Entscheidungs-Trace von <code>explainCategory()</code>.
         </p>
         <div className="status-line">
           {status.kind === 'loading' && (
@@ -205,22 +244,47 @@ export function App() {
         </div>
       </header>
 
-      <div className="search-row">
-        <div>
-          <label className="field-label" htmlFor="q">
-            Suche (Name oder EAN)
-          </label>
-          <input
-            id="q"
-            className="text-input"
-            type="text"
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-            placeholder="z. B. Schwein oder 4000417025005"
-            spellCheck={false}
-          />
+      <section className="panel">
+        <div className="panel-head">
+          <span className="panel-title">Freitext- & Barcode-Tester</span>
         </div>
-      </div>
+        <div className="search-row">
+          <div>
+            <label className="field-label" htmlFor="free-text">
+              Artikelname
+            </label>
+            <input
+              id="free-text"
+              className="text-input"
+              type="text"
+              value={freeText}
+              onChange={(e) => setFreeText(e.target.value)}
+              placeholder="z. B. Apfelsaft"
+              spellCheck={false}
+            />
+          </div>
+          <div>
+            <label className="field-label" htmlFor="free-text-tags">
+              OFF-Tags (kommagetrennt, optional)
+            </label>
+            <input
+              id="free-text-tags"
+              className="text-input"
+              type="text"
+              value={freeTextTags}
+              onChange={(e) => setFreeTextTags(e.target.value)}
+              placeholder="en:porks, en:meats"
+              spellCheck={false}
+            />
+          </div>
+        </div>
+        <div
+          className="article-name"
+          // biome-ignore lint/security/noDangerouslySetInnerHtml: escapeHtml() laeuft ueber jeden Teil davor
+          dangerouslySetInnerHTML={{ __html: highlight(freeText, freeTextTrace.winner.evidence?.value) }}
+        />
+        <TraceView trace={freeTextTrace} />
+      </section>
 
       <div className="workspace">
         <div className="panel">
@@ -246,14 +310,30 @@ export function App() {
               ))
             )}
           </div>
+          <div className="search-row" style={{ marginTop: 12 }}>
+            <div>
+              <label className="field-label" htmlFor="q">
+                Suche im Dump (Name oder EAN)
+              </label>
+              <input
+                id="q"
+                className="text-input"
+                type="text"
+                value={query}
+                onChange={(e) => setQuery(e.target.value)}
+                placeholder="z. B. Schwein oder 4000417025005"
+                spellCheck={false}
+              />
+            </div>
+          </div>
         </div>
 
         <div className="panel">
           <div className="panel-head">
-            <span className="panel-title">Artikeldetails & Kategorie-Ablauf</span>
+            <span className="panel-title">Artikeldetails & Kategorie-Trace</span>
           </div>
 
-          {!selected || !analysis ? (
+          {!selected || !dumpTrace ? (
             <div className="detail-empty">Links einen Artikel auswählen.</div>
           ) : (
             <>
@@ -262,40 +342,11 @@ export function App() {
                   className="article-name"
                   // biome-ignore lint/security/noDangerouslySetInnerHtml: escapeHtml() laeuft ueber jeden Teil davor
                   dangerouslySetInnerHTML={{
-                    __html: highlight(selected.product_name, analysis.winner?.keyword, analysis.winner?.type),
+                    __html: highlight(selected.product_name, dumpTrace.winner.evidence?.value),
                   }}
                 />
-                <div className="result-chip-row">
-                  <span
-                    className="cat-pill"
-                    style={{
-                      background: `${analysis.winner ? analysis.winner.category.color : '#a89fa4'}22`,
-                      color: analysis.winner ? analysis.winner.category.color : 'var(--ink-muted)',
-                    }}>
-                    <span
-                      className="cat-dot"
-                      style={{ background: analysis.winner ? analysis.winner.category.color : '#a89fa4' }}
-                    />
-                    {analysis.realAnswer ?? 'Sonstiges'}
-                  </span>
-                  <span className={`match-badge ${analysis.winner ? analysis.winner.type : 'none'}`}>
-                    {analysis.winner
-                      ? analysis.winner.type === 'substring'
-                        ? 'Substring-Treffer'
-                        : 'Ganzwort-Treffer'
-                      : 'kein Treffer'}
-                  </span>
-                </div>
+                <TraceView trace={dumpTrace} />
               </div>
-
-              {analysis.mismatch && (
-                <div className="mismatch-note">
-                  ⚠ Trace-Nachbildung weicht vom echten guessCategory() ab (
-                  {selected.product_name} → real: {analysis.realAnswer ?? 'Sonstiges'}) — die
-                  Matching-Logik in shopping-categories.ts hat sich vermutlich geändert, dieses Tool
-                  muss nachgezogen werden.
-                </div>
-              )}
 
               <div className="data-grid">
                 <div className="data-cell">
@@ -347,36 +398,6 @@ export function App() {
                   <div className="v">{selected.stores || '—'}</div>
                 </div>
               </div>
-
-              <div className="trace-list">
-                {analysis.rows.map((row, i) => {
-                  const isWinner = analysis.winnerIndex === i;
-                  const cls = ['trace-row'];
-                  if (isWinner) cls.push('hit', row.type === 'wholeword' ? 'safe' : '');
-                  else if (row.reached) cls.push('checked');
-                  else cls.push('unreached');
-
-                  const status = isWinner
-                    ? row.type === 'substring'
-                      ? '✓ Treffer (Substring)'
-                      : '✓ Treffer (Ganzwort)'
-                    : row.reached
-                      ? 'kein Treffer'
-                      : 'nicht erreicht';
-
-                  return (
-                    <div key={row.category.id} className={cls.join(' ').trim()}>
-                      <span className="trace-idx">{i + 1}</span>
-                      <span className="trace-dot" style={{ background: row.category.color }} />
-                      <span className="trace-cat">
-                        {row.category.label}
-                        {isWinner && <span className="trace-detail">via „{row.keyword}"</span>}
-                      </span>
-                      <span className="trace-status">{status}</span>
-                    </div>
-                  );
-                })}
-              </div>
             </>
           )}
         </div>
@@ -384,10 +405,11 @@ export function App() {
 
       <footer className="note">
         Datenquelle: <code>public/off-dump.db</code>, per <code>bun run download-dump</code> vom neuesten
-        GitHub-Release ({/* siehe scripts/download-dump.ts */}
-        <code>goldjunge91/fam</code>) geladen — derselbe Release, den <code>off-dump.ts</code> in der App
-        anhängt. Kategorie-Logik importiert direkt aus{' '}
-        <code>src/features/shopping-list/domain-logik/shopping-categories.ts</code>, keine Kopie.
+        GitHub-Release (<code>goldjunge91/fam</code>) geladen — derselbe Release, den <code>off-dump.ts</code>{' '}
+        in der App anhängt. Dieser Dump ist noch Schema 1 (kein <code>categories_tags</code>), der Dump-Trace
+        läuft deshalb bis Paket 4 nur über den Namens-Fallback — für OFF-Tag-Tests den Freitext-Tester oben
+        nutzen. Kategorie-Logik importiert direkt aus{' '}
+        <code>src/features/shopping-list/classification/shopping-category-classifier.ts</code>, keine Kopie.
       </footer>
     </div>
   );

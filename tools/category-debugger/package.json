@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "description": "Eigenständiges Debug-Tool: durchsucht den echten lokalen OFF-Dump und zeigt, wie guessCategory() aus der App jeden Treffer einordnet.",
+  "description": "Eigenständiges Debug-Tool: durchsucht den echten lokalen OFF-Dump und zeigt, wie explainCategory() aus der App jeden Treffer einordnet.",
   "scripts": {
     "download-dump": "bun scripts/download-dump.ts",
     "dev": "vite",
