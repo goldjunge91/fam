@@ -34,7 +34,13 @@
   // `@/*`. Ohne diesen Ausschluss scheitert `tsc --noEmit` an
   // "Cannot find name 'Deno'" — an Code, der nie ins Bundle gelangt.
   // Geprueft werden sie stattdessen von `deno check`/`supabase functions deploy`.
+  //
+  // tools/* sind eigenstaendige Vite-Mini-Projekte mit eigener tsconfig.json
+  // und eigenen node_modules (z.B. Vite-spezifische `?url`-Imports, die die
+  // Root-`types`-Liste nicht kennt) — werden ueber ihr eigenes `tsc`/`vite
+  // build` geprueft, nicht ueber den App-weiten `bun run typecheck`.
   "exclude": [
-    "supabase/functions"
+    "supabase/functions",
+    "tools"
   ]
 }
