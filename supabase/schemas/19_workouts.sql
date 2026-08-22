@@ -93,6 +93,15 @@ create or replace trigger workout_sets_set_updated_at
   for each row
   execute function private.set_updated_at();
 
+-- ----------------------------------------------- Kind-Zuordnung absichern (#190)
+-- Ein gesetztes child_profile_id muss zu einem Haushalt des user_id gehoeren.
+-- Funktion siehe supabase/schemas/09_tracking.sql. exercises traegt kein
+-- child_profile_id und braucht den Trigger daher nicht.
+create or replace trigger workout_sessions_check_child_household
+  before insert or update on public.workout_sessions
+  for each row
+  execute function private.check_tracking_child_household();
+
 -- ------------------------------------------------------------------------- RLS
 alter table public.exercises enable row level security;
 alter table public.workout_sessions enable row level security;

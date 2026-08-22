@@ -31,6 +31,10 @@ Append-only-Protokoll abgeschlossener Shopping Runs (`shopping_history`), kein O
 **Child Profile**:
 Auth-loses Profil für ein Kind, gehört zum Household (nicht zu `auth.users`), verwaltet von einem Household Member. Verlässt der verwaltende Elternteil den Haushalt, bleibt das Profil erhalten — ein Admin kann es parallel verwalten (RLS erlaubt `managed_by`-Match ODER Admin-Rolle). `managed_by` selbst wird beim Verlassen aktuell **nicht** zurückgesetzt (bekannte Lücke, #188), zeigt danach also auf ein Nicht-Mitglied.
 
+**Child Tracking**:
+Ein Household Member kann einen privaten Tracking-Eintrag für ein Child Profile führen. Der Erwachsene bleibt Eigentümer: `user_id` (der loggende Erwachsene) ist auf allen Tracking-Tabellen immer gesetzt, `child_profile_id` ist ein optionales Zusatz-Tag — keine XOR-Beziehung zwischen beiden. Es gibt keinen eigenen Kind-Login und keine kindspezifische RLS; die Sichtbarkeit läuft komplett über `user_id`. Ein gesetztes `child_profile_id` muss zu einem Household gehören, in dem `user_id` Mitglied ist (Trigger `check_tracking_child_household`, #190) — sonst könnte ein Client einen Eintrag mit einem Kind aus einem fremden Haushalt taggen.
+_Avoid_: Kind-Account, Child Login (existiert nicht)
+
 **Role**:
 Autorisierungsstufe eines Household Members: `admin` oder `member`. Bestimmt Rechte innerhalb eines Haushalts (z. B. Mitglieder entfernen). Jeder Haushalt **mit Mitgliedern** braucht mindestens einen Admin (`guard_last_admin`-Trigger). Ausnahme: der letzte Admin darf gehen, wenn dadurch keine Mitglieder mehr übrig bleiben — der Haushalt wird dann komplett mitgliederlos (verwaist), aber nicht gelöscht; Inventory/Shopping-List/Recipes bleiben als unerreichbare Daten bestehen (kein Cleanup, #189).
 _Avoid_: Privileges (das ist ein Postgres-GRANT-Infra-Detail, kein Domänenbegriff)

@@ -72,6 +72,19 @@ create or replace trigger symptom_logs_set_updated_at
   for each row
   execute function private.set_updated_at();
 
+-- ----------------------------------------------- Kind-Zuordnung absichern (#190)
+-- Ein gesetztes child_profile_id muss zu einem Haushalt des user_id gehoeren.
+-- Funktion siehe supabase/schemas/09_tracking.sql.
+create or replace trigger medication_logs_check_child_household
+  before insert or update on public.medication_logs
+  for each row
+  execute function private.check_tracking_child_household();
+
+create or replace trigger symptom_logs_check_child_household
+  before insert or update on public.symptom_logs
+  for each row
+  execute function private.check_tracking_child_household();
+
 -- ------------------------------------------------------------------------- RLS
 alter table public.medication_logs enable row level security;
 alter table public.symptom_logs enable row level security;

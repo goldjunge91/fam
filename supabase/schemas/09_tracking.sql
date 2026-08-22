@@ -13,9 +13,12 @@
 create table if not exists public.food_entries (
   id uuid primary key default gen_random_uuid(),
 
-  -- Genau eine der beiden Zuordnungen: entweder ein eigener Account oder ein
-  -- verwaltetes Kinder-Profil (#37). Der Check verhindert Eintraege, die zu
-  -- beidem oder zu nichts gehoeren.
+  -- `user_id` ist immer der loggende Erwachsene und `not null`.
+  -- `child_profile_id` ist ein optionales Zusatz-Tag: gesetzt, wenn der Eintrag
+  -- zu einem verwalteten Kinder-Profil gehoert, sonst null fuer den Erwachsenen
+  -- selbst (#37/#65/#85). Es gibt keine XOR-Constraint. Der Trigger
+  -- food_entries_check_child_household stellt sicher, dass ein gesetztes
+  -- child_profile_id zu einem Haushalt gehoert, in dem user_id Mitglied ist (#190).
   user_id uuid not null references public.profiles (id) on delete cascade,
   child_profile_id uuid references public.child_profiles (id) on delete cascade,
 
@@ -141,6 +144,59 @@ create or replace trigger user_goals_set_updated_at
   before update on public.user_goals
   for each row
   execute function private.set_updated_at();
+
+-- ----------------------------------------------- Kind-Zuordnung absichern (#190)
+-- Der FK auf child_profiles garantiert nur, DASS ein Kinder-Profil existiert —
+-- nicht, dass es zum Haushalt des loggenden user_id gehoert. Ohne diese Pruefung
+-- koennte ein Client einen privaten Tracking-Eintrag mit einem Kind aus einem
+-- fremden Haushalt taggen, denn die RLS-Policies pruefen nur auth.uid() =
+-- user_id. Ein Trigger schliesst die Luecke fuer alle Tracking-Tabellen.
+--
+-- security definer, weil child_profiles und household_members selbst unter RLS
+-- stehen. Der Trigger braucht keinen EXECUTE-Grant an authenticated: Postgres
+-- feuert Trigger unabhaengig von den Rechten der aufrufenden Rolle.
+create or replace function private.check_tracking_child_household()
+returns trigger
+language plpgsql
+security definer
+set search_path = ''
+as $$
+begin
+  if new.child_profile_id is null then
+    return new;
+  end if;
+
+  if not exists (
+    select 1
+    from public.child_profiles c
+    join public.household_members m on m.household_id = c.household_id
+    where c.id = new.child_profile_id
+      and m.user_id = new.user_id
+  ) then
+    raise exception
+      'child_profile_id % gehoert zu keinem Haushalt von user_id %',
+      new.child_profile_id, new.user_id
+      using errcode = 'check_violation';
+  end if;
+
+  return new;
+end;
+$$;
+
+create or replace trigger food_entries_check_child_household
+  before insert or update on public.food_entries
+  for each row
+  execute function private.check_tracking_child_household();
+
+create or replace trigger weight_entries_check_child_household
+  before insert or update on public.weight_entries
+  for each row
+  execute function private.check_tracking_child_household();
+
+create or replace trigger user_goals_check_child_household
+  before insert or update on public.user_goals
+  for each row
+  execute function private.check_tracking_child_household();
 
 -- ------------------------------------------------------------------------- RLS
 alter table public.food_entries enable row level security;
