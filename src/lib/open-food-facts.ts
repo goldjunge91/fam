@@ -6,7 +6,6 @@ export type OpenFoodFactsProduct = {
   barcode: string;
   name: string;
   brand?: string;
-  category?: string;
   quantity?: number;
   unit?: string;
   imageUrl?: string;
@@ -99,7 +98,6 @@ export function formatOFFProduct(raw: any): OpenFoodFactsProduct | null {
     barcode: raw.code || raw._id || '',
     name: name.trim(),
     brand: raw.brands ? raw.brands.split(',')[0].trim() : undefined,
-    category: raw.categories ? raw.categories.split(',')[0].trim() : undefined,
     quantity,
     unit,
     imageUrl: raw.image_front_small_url || raw.image_front_url || undefined,
@@ -132,7 +130,6 @@ const SEARCH_FIELDS = [
   'generic_name',
   'generic_name_de',
   'brands',
-  'categories',
   'quantity',
   'image_front_small_url',
   'image_front_url',

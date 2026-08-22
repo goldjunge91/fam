@@ -16,7 +16,9 @@ type UpdateItemInput = {
   unit: string;
   package_size?: number | null;
   package_size_unit?: string | null;
-  category: string | null;
+  category_id: string | null;
+  category_source: 'user' | 'household_preference' | 'off_taxonomy' | 'name_fallback' | null;
+  category_classifier_version: string | null;
   store_id: string | null;
   price_estimate: number | null;
 };
@@ -92,7 +94,9 @@ export function useUpdateShoppingItem() {
           unit: normUnit,
           package_size: input.package_size ?? null,
           package_size_unit: normPackageUnit,
-          category: input.category,
+          category_id: input.category_id,
+          category_source: input.category_source,
+          category_classifier_version: input.category_classifier_version,
           store_id: input.store_id,
           price_estimate: input.price_estimate,
           updated_at: now,
@@ -101,7 +105,8 @@ export function useUpdateShoppingItem() {
           await txn.runAsync(
             `update shopping_list_items
              set name = ?, quantity = ?, unit = ?, package_size = ?, package_size_unit = ?,
-                 category = ?, store_id = ?, price_estimate = ?, updated_at = ?, _dirty = 1
+                 category_id = ?, category_source = ?, category_classifier_version = ?,
+                 store_id = ?, price_estimate = ?, updated_at = ?, _dirty = 1
              where id = ?`,
             [
               input.name,
@@ -109,7 +114,9 @@ export function useUpdateShoppingItem() {
               normUnit,
               input.package_size ?? null,
               normPackageUnit,
-              input.category,
+              input.category_id,
+              input.category_source,
+              input.category_classifier_version,
               input.store_id,
               input.price_estimate,
               nowMs,

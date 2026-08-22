@@ -37,6 +37,9 @@ describe('ShoppingModeScreen', () => {
       unit: 'piece',
       package_size: null,
       package_size_unit: null,
+      category_id: 'produce',
+      category_source: 'name_fallback',
+      category_classifier_version: null,
       category: 'Obst & Gemüse',
       store_id: 'store-1',
       price_estimate: 1.8,
@@ -56,6 +59,7 @@ describe('ShoppingModeScreen', () => {
       makeItem({
         id: 'item-2',
         name: 'Milch',
+        category_id: 'dairy',
         category: 'Molkerei',
         unit: 'l',
         quantity: 1,

@@ -152,7 +152,22 @@ create table if not exists public.shopping_list_items (
   quantity numeric(10, 3) not null default 1 check (quantity >= 0),
   unit text not null default 'piece'
     check (unit in ('g', 'kg', 'ml', 'l', 'piece', 'package', 'portion')),
-  category text,
+  -- Stabile IDs statt lokalisierter Labels. Die drei Werte sind ein Snapshot:
+  -- spaetere Regel-/OFF-Aenderungen kategorisieren bestehende Eintraege nicht
+  -- automatisch neu (#223).
+  category_id text check (
+    category_id in (
+      'produce', 'bakery', 'deli_meat', 'pantry_canned', 'pantry_dry', 'breakfast',
+      'snacks', 'beverages', 'dairy', 'frozen', 'drugstore', 'checkout'
+    )
+  ),
+  category_source text check (
+    category_source in ('user', 'household_preference', 'off_taxonomy', 'name_fallback')
+  ),
+  category_classifier_version text check (
+    category_classifier_version is null
+    or length(trim(category_classifier_version)) between 1 and 100
+  ),
   sort_index integer not null default 0,
 
   -- Optional: ohne Marktzuordnung landet der Artikel in der "Ohne Markt"-
@@ -261,7 +276,19 @@ create table if not exists public.shopping_history (
   item_name text not null,
   quantity numeric(10, 3) not null,
   unit text not null,
-  category text,
+  category_id text check (
+    category_id in (
+      'produce', 'bakery', 'deli_meat', 'pantry_canned', 'pantry_dry', 'breakfast',
+      'snacks', 'beverages', 'dairy', 'frozen', 'drugstore', 'checkout'
+    )
+  ),
+  category_source text check (
+    category_source in ('user', 'household_preference', 'off_taxonomy', 'name_fallback')
+  ),
+  category_classifier_version text check (
+    category_classifier_version is null
+    or length(trim(category_classifier_version)) between 1 and 100
+  ),
   product_id uuid references public.products (id) on delete set null,
 
   location_kind text check (location_kind in ('fridge', 'freezer', 'pantry')),

@@ -23,7 +23,9 @@ export type AddShoppingItemInput = {
   unit: string;
   package_size?: number | null;
   package_size_unit?: string | null;
-  category?: string | null;
+  category_id?: string | null;
+  category_source?: 'user' | 'household_preference' | 'off_taxonomy' | 'name_fallback' | null;
+  category_classifier_version?: string | null;
   product_id?: string | null;
   sort_index?: number;
   store_id?: string | null;
@@ -183,7 +185,9 @@ export async function addOrMergeShoppingItem(
       unit: normUnit,
       package_size: input.package_size ?? null,
       package_size_unit: normPackageUnit,
-      category: input.category ?? null,
+      category_id: input.category_id ?? null,
+      category_source: input.category_source ?? null,
+      category_classifier_version: input.category_classifier_version ?? null,
       sort_index: sortIndex,
       store_id: input.store_id ?? null,
       price_estimate: input.price_estimate ?? null,
@@ -195,8 +199,9 @@ export async function addOrMergeShoppingItem(
       await txn.runAsync(
         `insert into shopping_list_items
            (id, household_id, product_id, name, quantity, unit, package_size, package_size_unit,
-            category, sort_index, store_id, price_estimate, recipe_names, created_at, updated_at, _dirty)
-         values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 1)`,
+            category_id, category_source, category_classifier_version,
+            sort_index, store_id, price_estimate, recipe_names, created_at, updated_at, _dirty)
+         values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 1)`,
         [
           newId,
           input.household_id,
@@ -206,7 +211,9 @@ export async function addOrMergeShoppingItem(
           normUnit,
           input.package_size ?? null,
           normPackageUnit,
-          input.category ?? null,
+          input.category_id ?? null,
+          input.category_source ?? null,
+          input.category_classifier_version ?? null,
           sortIndex,
           input.store_id ?? null,
           input.price_estimate ?? null,

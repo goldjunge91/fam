@@ -105,8 +105,10 @@ export function useCompleteShoppingRun(householdId: string | undefined) {
 
         await db.runAsync(
           `insert into shopping_history
-             (id, household_id, completed_by, completed_at, item_name, quantity, unit, category, product_id, location_kind, expiry_date, created_at)
-           values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+             (id, household_id, completed_by, completed_at, item_name, quantity, unit,
+              category_id, category_source, category_classifier_version,
+              product_id, location_kind, expiry_date, created_at)
+           values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
           [
             historyId,
             input.householdId,
@@ -115,7 +117,9 @@ export function useCompleteShoppingRun(householdId: string | undefined) {
             item.name,
             item.quantity,
             normalizeUnit(item.unit),
-            item.category ?? null,
+            item.category_id,
+            item.category_source,
+            item.category_classifier_version,
             item.product_id ?? null,
             transfer?.locationKind ?? null,
             transfer?.expiryDate ?? null,

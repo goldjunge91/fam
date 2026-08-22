@@ -83,6 +83,8 @@ describe('upsertMirrorRow', () => {
         id: 'prod-1',
         barcode: '123',
         name: 'Testprodukt',
+        off_category_tags: ['en:plant-based-foods', 'en:beverages'],
+        off_last_modified_at: '2024-01-14T09:00:00Z',
         source: 'manual',
         created_at: '2024-01-01T00:00:00Z',
         updated_at: '2024-01-15T10:30:00Z',
@@ -93,11 +95,47 @@ describe('upsertMirrorRow', () => {
       { dirty: 0 },
     );
 
-    const row = await db.getFirstAsync<{ deleted_at: number | null }>(
-      'select deleted_at from products where id = ?',
-      ['prod-1'],
-    );
+    const row = await db.getFirstAsync<{
+      deleted_at: number | null;
+      off_category_tags: string;
+      off_last_modified_at: string | null;
+    }>('select deleted_at, off_category_tags, off_last_modified_at from products where id = ?', [
+      'prod-1',
+    ]);
     expect(row?.deleted_at).toBeNull();
+    expect(JSON.parse(row?.off_category_tags ?? '[]')).toEqual([
+      'en:plant-based-foods',
+      'en:beverages',
+    ]);
+    expect(row?.off_last_modified_at).toBe('2024-01-14T09:00:00Z');
+  });
+
+  it('spiegelt Preference-Tombstones und nullable category_id', async () => {
+    await upsertMirrorRow(
+      db,
+      'shopping_category_preferences',
+      {
+        id: 'pref-1',
+        household_id: 'hh-1',
+        key_type: 'name',
+        normalized_key_value: 'hafermilch',
+        category_id: null,
+        created_by: 'user-1',
+        created_at: '2024-01-01T00:00:00Z',
+        updated_at: '2024-01-15T10:30:00Z',
+        deleted_at: '2024-01-16T00:00:00Z',
+      },
+      { dirty: 0 },
+    );
+
+    const row = await db.getFirstAsync<{
+      category_id: string | null;
+      deleted_at: number | null;
+    }>('select category_id, deleted_at from shopping_category_preferences where id = ?', [
+      'pref-1',
+    ]);
+    expect(row?.category_id).toBeNull();
+    expect(row?.deleted_at).toBe(toEpochMs('2024-01-16T00:00:00Z'));
   });
 
   it('ist ein upsert: ein zweiter Aufruf mit derselben id aktualisiert die Zeile', async () => {

@@ -2,12 +2,13 @@ import { ALL_ENTITIES, ENTITIES, hasServerTombstone, metaOf } from '@/lib/db/ent
 import type { Entity } from '@/lib/db/types';
 
 describe('entities', () => {
-  it('kennt genau die zwoelf Spiegeltabellen aus #45/#123/Wizard-Redesign/#128', () => {
+  it('kennt alle synchronisierten Spiegeltabellen inklusive Kategoriepraeferenzen', () => {
     expect(ALL_ENTITIES).toEqual([
       'storage_locations',
       'stores',
       'fridge_items',
       'shopping_list_items',
+      'shopping_category_preferences',
       'products',
       'recipes',
       'recipe_components',
@@ -30,6 +31,7 @@ describe('entities', () => {
       stores: true,
       fridge_items: true,
       shopping_list_items: true,
+      shopping_category_preferences: true,
       products: false,
       households: false,
       recipes: true,
@@ -52,6 +54,7 @@ describe('entities', () => {
       stores: true,
       fridge_items: true,
       shopping_list_items: true,
+      shopping_category_preferences: true,
       products: false,
       households: false,
       recipes: true,

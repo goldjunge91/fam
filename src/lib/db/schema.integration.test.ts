@@ -23,6 +23,7 @@ const MIRROR_TABLES = [
   'storage_locations',
   'fridge_items',
   'shopping_list_items',
+  'shopping_category_preferences',
   'products',
   'households',
 ] as const;
@@ -45,7 +46,7 @@ describe('lokales Schema', () => {
     db.close();
   });
 
-  it('legt die vier Spiegeltabellen aus #45 an', async () => {
+  it('legt die Spiegeltabellen der neuen fam-v2-Baseline an', async () => {
     const tables = await db.getAllAsync<{ name: string }>(
       "select name from sqlite_master where type = 'table' order by name",
     );
@@ -114,6 +115,49 @@ describe('lokales Schema', () => {
         'next_attempt_at',
       ]),
     );
+  });
+
+  it('verwendet fuer Kategorie-Snapshots nur stabile IDs, Quelle und Klassifikatorversion', async () => {
+    const itemColumns = (await columnsOf(db, 'shopping_list_items')).map((column) => column.name);
+    const historyColumns = (await columnsOf(db, 'shopping_history')).map((column) => column.name);
+
+    for (const columns of [itemColumns, historyColumns]) {
+      expect(columns).not.toContain('category');
+      expect(columns).toEqual(
+        expect.arrayContaining(['category_id', 'category_source', 'category_classifier_version']),
+      );
+    }
+  });
+
+  it('spiegelt OFF-Tags als JSON-Text und den OFF-Zeitstempel im lokalen Products-Cache', async () => {
+    const productColumns = (await columnsOf(db, 'products')).map((column) => column.name);
+
+    expect(productColumns).toEqual(
+      expect.arrayContaining(['off_category_tags', 'off_last_modified_at']),
+    );
+
+    await db.runAsync(
+      `insert into products (id, name, updated_at)
+       values ('product-1', 'Vollmilch', 1)`,
+    );
+    const row = await db.getFirstAsync<{ off_category_tags: string }>(
+      `select off_category_tags from products where id = 'product-1'`,
+    );
+    expect(row?.off_category_tags).toBe('[]');
+  });
+
+  it('reserviert die natuerliche Preference-Identitaet auch fuer lokale Tombstones', async () => {
+    const insert = (id: string, deletedAt: number | null) =>
+      db.runAsync(
+        `insert into shopping_category_preferences
+           (id, household_id, key_type, normalized_key_value, category_id,
+            created_at, updated_at, deleted_at, _dirty)
+         values (?, 'household-1', 'name', 'vollmilch', null, '2026-08-22', 1, ?, 1)`,
+        [id, deletedAt],
+      );
+
+    await insert('preference-1', 1);
+    await expect(insert('preference-2', null)).rejects.toThrow();
   });
 
   it('erzwingt in der Outbox die drei erlaubten Operationen', async () => {

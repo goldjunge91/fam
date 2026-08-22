@@ -85,7 +85,6 @@ describe('Open Food Facts Helper', () => {
       barcode: '4008400401027',
       name: 'Hafermilch Barista',
       brand: 'Oatly',
-      category: 'Pflanzliche Lebensmittel',
       quantity: 1,
       unit: 'l',
       imageUrl: 'https://images.openfoodfacts.org/1.jpg',

@@ -23,7 +23,7 @@ import { recordProductUsage } from '@/lib/db/product-usage';
 import type { OpenFoodFactsProduct } from '@/lib/open-food-facts';
 import { formatAmount, formatPackageHint } from '@/lib/package-size';
 import { normalizeUnit, UNIT_OPTIONS } from '@/lib/units';
-import { guessCategory } from '../domain-logik/shopping-categories';
+import { categoryIdForLabel, guessCategory } from '../domain-logik/shopping-categories';
 import { useAddShoppingItem } from '../hooks/use-shopping-list-mutations';
 import type {
   ShoppingProductSuggestion,
@@ -183,7 +183,9 @@ export const AddItemForm = forwardRef<AddItemFormHandle, AddItemFormProps>(funct
       unit,
       package_size: packageSize,
       package_size_unit: packageSize ? packageSizeUnit : null,
-      category,
+      category_id: categoryIdForLabel(category),
+      category_source: category ? 'name_fallback' : null,
+      category_classifier_version: null,
       store_id: storeId,
       price_estimate: parsedPrice != null && !Number.isNaN(parsedPrice) ? parsedPrice : null,
     });

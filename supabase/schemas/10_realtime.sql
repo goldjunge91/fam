@@ -2,9 +2,9 @@
 --
 -- Realtime-Publication fuer die geteilten Haushaltstabellen.
 --
--- Bewusst NUR fridge_items und shopping_list_items. Die privaten Tabellen aus
--- #41 bleiben draussen: Sie werden nie geteilt, und jede zusaetzliche
--- Publication ist unnoetige Last und Angriffsflaeche.
+-- Bewusst NUR die gemeinsam live veraenderten Haushaltstabellen. Die privaten
+-- Tabellen aus #41 bleiben draussen: Sie werden nie geteilt, und jede
+-- zusaetzliche Publication ist unnoetige Last und Angriffsflaeche.
 --
 -- ACHTUNG: `alter publication ... add table` wird vom Schema-Diff NICHT erfasst
 -- (bekannter Caveat, supabase/cli#883). Die Statements hier landen deshalb
@@ -18,6 +18,7 @@
 -- Zeile gar nicht sehen duerften.
 alter table public.fridge_items replica identity full;
 alter table public.shopping_list_items replica identity full;
+alter table public.shopping_category_preferences replica identity full;
 
 do $$
 begin
@@ -37,6 +38,15 @@ begin
       and tablename = 'shopping_list_items'
   ) then
     alter publication supabase_realtime add table public.shopping_list_items;
+  end if;
+
+  if not exists (
+    select 1 from pg_publication_tables
+    where pubname = 'supabase_realtime'
+      and schemaname = 'public'
+      and tablename = 'shopping_category_preferences'
+  ) then
+    alter publication supabase_realtime add table public.shopping_category_preferences;
   end if;
 end;
 $$;
