@@ -1,0 +1,464 @@
+<title>Drawer-Header Fix</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700;800&display=swap">
+
+<style>
+  :root {
+    --page-bg: #EFEAE3;
+    --page-ink: #2D2830;
+    --page-ink-soft: #6E6570;
+    --page-accent: #705773;
+    --page-card-bg: #FBF7F2;
+    --page-card-border: #DED4D8;
+    --page-mono-bg: #E3DBDD;
+
+    /* fam app tokens (light) — src/constants/theme.ts */
+    --app-text: #2D2830;
+    --app-text-secondary: #786F79;
+    --app-bg: #F8F4EF;
+    --app-bg-element: #FBF7F2;
+    --app-bg-selected: #E9E1E7;
+    --app-border: #E4DDE3;
+    --app-accent: #705773;
+    --app-on-accent: #FFFFFF;
+    --app-shadow-sheet: #2A1F2C;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --page-bg: #1C1820;
+      --page-ink: #F2ECE7;
+      --page-ink-soft: #A99EA6;
+      --page-accent: #C7ADC9;
+      --page-card-bg: #241F27;
+      --page-card-border: #3A323C;
+      --page-mono-bg: #2C262F;
+    }
+  }
+  :root[data-theme="dark"] {
+    --page-bg: #1C1820;
+    --page-ink: #F2ECE7;
+    --page-ink-soft: #A99EA6;
+    --page-accent: #C7ADC9;
+    --page-card-bg: #241F27;
+    --page-card-border: #3A323C;
+    --page-mono-bg: #2C262F;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--page-bg);
+    color: var(--page-ink);
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 56px 32px 96px;
+  }
+
+  .intro {
+    max-width: 640px;
+    margin-bottom: 48px;
+  }
+
+  .eyebrow {
+    font-family: "Manrope", sans-serif;
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--page-accent);
+    margin: 0 0 12px;
+  }
+
+  h1 {
+    font-family: "Manrope", sans-serif;
+    font-weight: 800;
+    font-size: 32px;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    margin: 0 0 14px;
+    text-wrap: balance;
+  }
+
+  .intro p {
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--page-ink-soft);
+    margin: 0 0 10px;
+  }
+
+  .problem {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    background: var(--page-card-bg);
+    border: 1px solid var(--page-card-border);
+    border-radius: 12px;
+    padding: 14px 16px;
+    margin-top: 20px;
+    font-size: 14px;
+    line-height: 1.55;
+  }
+  .problem b { color: var(--page-ink); }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+  }
+  @media (max-width: 920px) {
+    .grid { grid-template-columns: 1fr; max-width: 340px; margin: 0 auto; }
+  }
+
+  .option {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .option-head {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+  }
+
+  .option-letter {
+    font-family: "Manrope", sans-serif;
+    font-weight: 800;
+    font-size: 13px;
+    color: var(--page-accent);
+  }
+
+  .option-title {
+    font-family: "Manrope", sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+  }
+
+  .option-desc {
+    font-size: 13px;
+    line-height: 1.55;
+    color: var(--page-ink-soft);
+    margin: 0;
+  }
+
+  /* --- phone frame --- */
+  .phone {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 320 / 640;
+    border-radius: 34px;
+    background: #0e0c10;
+    padding: 10px;
+    box-shadow: 0 18px 40px rgba(24, 16, 26, 0.22);
+  }
+  .screen {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 26px;
+    overflow: hidden;
+    background: var(--app-bg);
+  }
+
+  /* underlying "Einkaufsliste" screen, dimmed by scrim */
+  .base-screen {
+    position: absolute;
+    inset: 0;
+    background: var(--app-bg);
+  }
+  .base-topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 16px 8px;
+  }
+  .base-title {
+    font-size: 19px;
+    font-weight: 700;
+    color: var(--app-text);
+  }
+  .avatar {
+    width: 30px;
+    height: 30px;
+    border-radius: 999px;
+    background: var(--app-accent);
+    color: var(--app-on-accent);
+    font-size: 10px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    letter-spacing: 0.02em;
+  }
+  .base-section {
+    margin-top: 10px;
+    padding: 0 16px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    color: var(--app-text-secondary);
+  }
+  .base-row {
+    margin: 8px 16px 0;
+    height: 30px;
+    border-radius: 8px;
+    background: var(--app-bg-element);
+    border: 1px solid var(--app-border);
+  }
+
+  .scrim {
+    position: absolute;
+    inset: 0;
+    background: rgba(42, 31, 44, 0.3);
+  }
+
+  /* drawer */
+  .drawer {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 76%;
+    padding: 22px 16px 16px;
+    box-shadow: 10px 0 24px rgba(42, 31, 44, 0.16);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .drawer-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 40px;
+    padding: 0 3px 14px;
+    border-bottom: 1px solid rgba(45, 40, 48, 0.15);
+    flex-shrink: 0;
+  }
+  .drawer-brand {
+    font-size: 19px;
+    font-weight: 700;
+    color: var(--app-text);
+  }
+  .drawer-close {
+    font-size: 19px;
+    color: var(--app-text-secondary);
+    line-height: 1;
+  }
+
+  .drawer-groups {
+    margin-top: 10px;
+  }
+  .drawer-group-title {
+    font-size: 8px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    color: var(--app-text-secondary);
+    padding: 0 6px 4px;
+  }
+  .drawer-nav-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    height: 30px;
+    padding: 0 6px;
+  }
+  .drawer-dot {
+    width: 14px;
+    height: 14px;
+    border-radius: 4px;
+    background: var(--app-bg-selected);
+    flex-shrink: 0;
+  }
+  .drawer-label {
+    font-size: 11px;
+    color: var(--app-text);
+  }
+  .drawer-label.active { font-weight: 700; color: var(--app-accent); }
+  .drawer-nav-row.active-row { background: var(--app-bg-selected); border-radius: 8px; }
+
+  /* A: solid drawer background */
+  .variant-solid .drawer {
+    background: var(--app-bg-element);
+  }
+
+  /* B: translucent body, solid header plate */
+  .variant-plate .drawer {
+    background: rgba(251, 247, 242, 0.86);
+    backdrop-filter: blur(6px);
+  }
+  .variant-plate .drawer-header {
+    background: var(--app-bg-element);
+    margin: -22px -16px 14px;
+    padding: 22px 19px 14px;
+    border-bottom: 1px solid var(--app-border);
+  }
+
+  /* C: solid + avatar retreats behind drawer, close target widened */
+  .variant-clear .drawer {
+    background: var(--app-bg-element);
+    width: 80%;
+  }
+  .variant-clear .avatar {
+    opacity: 0;
+  }
+  .variant-clear .drawer-close-hit {
+    width: 32px;
+    height: 32px;
+    border-radius: 999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--app-bg-selected);
+  }
+</style>
+
+<div class="wrap">
+  <div class="intro">
+    <p class="eyebrow">Navigation &middot; Drawer-Header</p>
+    <h1>Der Drawer-Header lässt den Screen dahinter durchscheinen</h1>
+    <p>Im Screenshot ist der Kopfbereich des Menüs (&bdquo;fam&ldquo; + Schließen-X) teilweise vom darunterliegenden Screen überlagert: der Drawer-Hintergrund ist nur 97&nbsp;% deckend, dazu ragt die Avatar-Bubble rechts in die Fläche hinein.</p>
+    <div class="problem">
+      <span>&#9888;&#65039;</span>
+      <span><b>Betroffene Datei:</b> src/features/navigation/navigation-drawer.tsx (Zeilen 131 &amp; 178&ndash;191) &mdash; drei Varianten, die das Überlagern beheben.</span>
+    </div>
+  </div>
+
+  <div class="grid">
+    <div class="option variant-solid">
+      <div class="option-head">
+        <span class="option-letter">A</span>
+        <span class="option-title">Ganz deckend</span>
+      </div>
+      <p class="option-desc">Drawer-Hintergrund von 97&nbsp;% auf 100&nbsp;% Deckkraft. Einfachste Änderung, ein Wert.</p>
+      <div class="phone">
+        <div class="screen">
+          <div class="base-screen">
+            <div class="base-topbar">
+              <span class="base-title">Einkaufsliste</span>
+              <span class="avatar">ME</span>
+            </div>
+            <div class="base-section">HEUTE</div>
+            <div class="base-row"></div>
+            <div class="base-row"></div>
+          </div>
+          <div class="scrim"></div>
+          <div class="drawer">
+            <div class="drawer-header">
+              <span class="drawer-brand">fam</span>
+              <span class="drawer-close">&times;</span>
+            </div>
+            <div class="drawer-groups">
+              <div class="drawer-group-title">HEUTE</div>
+              <div class="drawer-nav-row active-row">
+                <div class="drawer-dot"></div>
+                <span class="drawer-label active">Übersicht</span>
+              </div>
+              <div class="drawer-group-title" style="margin-top:8px;">HAUSHALT &amp; PLANUNG</div>
+              <div class="drawer-nav-row">
+                <div class="drawer-dot"></div>
+                <span class="drawer-label">Vorrat</span>
+              </div>
+              <div class="drawer-nav-row">
+                <div class="drawer-dot"></div>
+                <span class="drawer-label">Einkauf</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="option variant-plate">
+      <div class="option-head">
+        <span class="option-letter">B</span>
+        <span class="option-title">Deckende Kopfzeile</span>
+      </div>
+      <p class="option-desc">Drawer-Körper bleibt leicht transparent (aktueller Look bewusst erhalten), nur die Kopfzeile bekommt eine eigene deckende Fläche als Plakette.</p>
+      <div class="phone">
+        <div class="screen">
+          <div class="base-screen">
+            <div class="base-topbar">
+              <span class="base-title">Einkaufsliste</span>
+              <span class="avatar">ME</span>
+            </div>
+            <div class="base-section">HEUTE</div>
+            <div class="base-row"></div>
+            <div class="base-row"></div>
+          </div>
+          <div class="scrim"></div>
+          <div class="drawer">
+            <div class="drawer-header">
+              <span class="drawer-brand">fam</span>
+              <span class="drawer-close">&times;</span>
+            </div>
+            <div class="drawer-groups">
+              <div class="drawer-group-title">HEUTE</div>
+              <div class="drawer-nav-row active-row">
+                <div class="drawer-dot"></div>
+                <span class="drawer-label active">Übersicht</span>
+              </div>
+              <div class="drawer-group-title" style="margin-top:8px;">HAUSHALT &amp; PLANUNG</div>
+              <div class="drawer-nav-row">
+                <div class="drawer-dot"></div>
+                <span class="drawer-label">Vorrat</span>
+              </div>
+              <div class="drawer-nav-row">
+                <div class="drawer-dot"></div>
+                <span class="drawer-label">Einkauf</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="option variant-clear">
+      <div class="option-head">
+        <span class="option-letter">C</span>
+        <span class="option-title">Deckend + Avatar weicht</span>
+      </div>
+      <p class="option-desc">Wie A, zusätzlich blendet der Screen dahinter seine Avatar-Bubble aus, solange der Drawer offen ist, und das Schließen-X bekommt eine größere, klar erkennbare Trefferfläche.</p>
+      <div class="phone">
+        <div class="screen">
+          <div class="base-screen">
+            <div class="base-topbar">
+              <span class="base-title">Einkaufsliste</span>
+              <span class="avatar">ME</span>
+            </div>
+            <div class="base-section">HEUTE</div>
+            <div class="base-row"></div>
+            <div class="base-row"></div>
+          </div>
+          <div class="scrim"></div>
+          <div class="drawer">
+            <div class="drawer-header">
+              <span class="drawer-brand">fam</span>
+              <span class="drawer-close-hit"><span class="drawer-close">&times;</span></span>
+            </div>
+            <div class="drawer-groups">
+              <div class="drawer-group-title">HEUTE</div>
+              <div class="drawer-nav-row active-row">
+                <div class="drawer-dot"></div>
+                <span class="drawer-label active">Übersicht</span>
+              </div>
+              <div class="drawer-group-title" style="margin-top:8px;">HAUSHALT &amp; PLANUNG</div>
+              <div class="drawer-nav-row">
+                <div class="drawer-dot"></div>
+                <span class="drawer-label">Vorrat</span>
+              </div>
+              <div class="drawer-nav-row">
+                <div class="drawer-dot"></div>
+                <span class="drawer-label">Einkauf</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

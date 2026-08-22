@@ -954,15 +954,25 @@
   }
 
   .drawer-header {
-    @apply flex-row items-center justify-between h-[67px] px-[11px] pt-[11px] pb-[21px] border-b-hairline border-text/15;
+    /* Keine feste Hoehe (frueher h-[67px]) — der 34px-Schliessen-Kreis plus
+       Titeltext brauchten mehr Platz als die damals uebrigen 35px
+       (h abzueglich pt/pb). RN clippt Kinder nicht automatisch, dadurch
+       liefen "fam" und das X ueber die feste Box hinaus, genau auf die
+       Trennlinie darunter. Jetzt bestimmt der Inhalt die Hoehe, die Linie
+       sitzt garantiert erst nach pb-[21px] darunter. */
+    @apply flex-row items-center justify-between px-[11px] pt-[11px] pb-[21px] border-b-hairline border-text/15;
   }
 
   .drawer-brand {
     @apply text-[27px] leading-[34px] font-semibold;
   }
 
+  .drawer-close-btn {
+    @apply w-[34px] h-[34px] rounded-full items-center justify-center bg-background-selected;
+  }
+
   .drawer-close-glyph {
-    @apply text-[27px] leading-[34px] font-normal;
+    @apply text-[22px] leading-[26px] font-normal;
   }
 
   .drawer-group {
