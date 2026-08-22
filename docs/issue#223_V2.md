@@ -723,6 +723,16 @@ Aktionen:
 
 ## 15. Tests und Evaluation
 
+### Interaktives Testen & Debuggen ohne App (`tools/category-debugger`)
+
+Das bestehende eigenständige Vite/React-Tool `tools/category-debugger` (Kategorie-Radar) wird direkt an die neue V2-Domänenlogik angebunden:
+
+- **Direkter Import der neuen Domain:** Importiert `classifyOffCategory()` und den morphologischen Classifier direkt aus `src/features/shopping-list/domain/`.
+- **WASM-SQLite im Browser:** Öffnet `off-dump.db` (Schema 2 mit `categories_tags`) lokal via `sql.js` im Browser – kein Metro, kein Simulator, kein Backend nötig.
+- **Trace-Visualisierung:** Zeigt pro Produkt die exakte Entscheidungskette (welches OFF-Tag hat gematcht, welche Priorität, oder welche Namens-Tokens mit welchen Scores).
+- **Ad-hoc Freitext- & Barcode-Tester:** Eingabefeld zum sofortigen Ausprobieren beliebiger Begriffe (z. B. `2 Schnitzel vom Schwein Spar Fein Küche`) mit detailliertem Token- und Score-Breakdown.
+- **Schnelles CLI-Skript:** Ergänzend ein Terminal-Befehl `bun run scripts/classify.ts "<Text/EAN>"` für sekundenschnelle Ad-hoc-Checks.
+
 ### Domain-Unit-Tests
 
 - alle zwölf Kategorie-IDs;
@@ -842,6 +852,8 @@ Kein Feature-Flag und kein paralleler Produktionspfad.
 
 1. **Kategorie-Domäne und OFF-Parser**
    - IDs, Typen, Parser, Taxonomie-Mapper, Namens-Classifier, Evaluation
+   - `tools/category-debugger` auf neuen Classifier und Ad-hoc-Trace umstellen
+   - CLI-Testskript `scripts/classify.ts`
 
 2. **Breaking Datenmodell**
    - Supabase-Schema, SQLite-Baseline, Sync, RLS, pgTAP, generierte Typen
@@ -851,6 +863,7 @@ Kein Feature-Flag und kein paralleler Produktionspfad.
 
 4. **Offline-Dump Schema 2**
    - erweiterter Generator, Baseline, Kategorien und Metadaten
+   - `tools/category-debugger` auf Dump Schema 2 (`categories_tags`) aktualisieren
 
 5. **Delta-Pipeline**
    - kanonische CI-Datenbank, Patchgenerator, Manifest, Release-Workflow
