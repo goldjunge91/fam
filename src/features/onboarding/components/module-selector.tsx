@@ -1,8 +1,6 @@
 import { Pressable, Switch, Text, View } from 'react-native';
-import { ThemedText } from '@/components/theme/themed-text';
+import { ModuleLockedOverlay } from '@/components/module-locked-overlay';
 import { Button } from '@/components/ui/buttons';
-import { withAlpha } from '@/constants/theme';
-import { useTheme } from '@/hooks/use-theme';
 import { type FeatureFlagKey, useFeatureFlag } from '@/lib/posthog';
 import { useOnboarding } from '../context/onboarding-context';
 
@@ -55,7 +53,6 @@ const MODULE_ROWS: {
 ];
 
 export function ModuleSelectorForm({ onNext, onSkip }: ModuleSelectorFormProps) {
-  const theme = useTheme();
   const { state, updateModulesData } = useOnboarding();
 
   // Feste, bekannte Flags — kein dynamischer Lookup pro Zeile, damit die
@@ -103,18 +100,7 @@ export function ModuleSelectorForm({ onNext, onSkip }: ModuleSelectorFormProps) 
                   disabled={locked}
                 />
               </View>
-              {locked && (
-                <View
-                  className="module-row-locked-overlay"
-                  style={{ backgroundColor: withAlpha(theme.backgroundElement, 0.4) }}>
-                  <View className="module-row-locked-pill" style={{ backgroundColor: theme.text }}>
-                    <View className="module-row-locked-pill-dot" />
-                    <ThemedText type="smallBold" style={{ color: theme.background }}>
-                      Demnächst verfügbar
-                    </ThemedText>
-                  </View>
-                </View>
-              )}
+              {locked && <ModuleLockedOverlay />}
             </Pressable>
           );
         })}
