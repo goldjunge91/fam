@@ -1,0 +1,880 @@
+<title>Glass-Konzept Einkaufsliste</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<style>
+  :root {
+    --wrap-bg: #f1ebe6;
+    --wrap-surface: #ffffff;
+    --wrap-text: #2d2830;
+    --wrap-text-secondary: #786f79;
+    --wrap-accent: #705773;
+    --wrap-border: #e4dde3;
+    --wrap-code-bg: #f8f4ef;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme='light']) {
+      --wrap-bg: #1c191e;
+      --wrap-surface: #252129;
+      --wrap-text: #f2ece7;
+      --wrap-text-secondary: #b7adb3;
+      --wrap-accent: #b79cba;
+      --wrap-border: #3e3640;
+      --wrap-code-bg: #211d23;
+    }
+  }
+  :root[data-theme='dark'] {
+    --wrap-bg: #1c191e;
+    --wrap-surface: #252129;
+    --wrap-text: #f2ece7;
+    --wrap-text-secondary: #b7adb3;
+    --wrap-accent: #b79cba;
+    --wrap-border: #3e3640;
+    --wrap-code-bg: #211d23;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+  html,
+  body {
+    margin: 0;
+  }
+  body {
+    background: var(--wrap-bg);
+    color: var(--wrap-text);
+    font-family:
+      -apple-system, BlinkMacSystemFont, 'SF Pro Text', system-ui, 'Segoe UI', Roboto, sans-serif;
+    padding: 48px 24px 96px;
+  }
+
+  .page {
+    max-width: 1180px;
+    margin: 0 auto;
+  }
+
+  header.intro {
+    max-width: 640px;
+    margin-bottom: 44px;
+  }
+  header.intro .eyebrow {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--wrap-accent);
+    margin: 0 0 10px;
+  }
+  header.intro h1 {
+    font-size: 30px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    margin: 0 0 12px;
+    text-wrap: balance;
+  }
+  header.intro p {
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--wrap-text-secondary);
+    margin: 0;
+  }
+
+  /* ---- Info panels: Design intent / material map / etc ---- */
+  .panels {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 14px;
+    margin-bottom: 56px;
+  }
+  .panel {
+    background: var(--wrap-surface);
+    border: 1px solid var(--wrap-border);
+    border-radius: 14px;
+    padding: 18px 20px;
+  }
+  .panel h2 {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--wrap-text-secondary);
+    margin: 0 0 10px;
+  }
+  .panel p,
+  .panel li {
+    font-size: 13.5px;
+    line-height: 1.55;
+    margin: 0;
+    color: var(--wrap-text);
+  }
+  .panel ul {
+    margin: 0;
+    padding-left: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .panel code {
+    font-family: ui-monospace, 'SF Mono', Menlo, monospace;
+    font-size: 12px;
+    background: var(--wrap-code-bg);
+    border-radius: 4px;
+    padding: 1px 5px;
+  }
+
+  /* ---- Frame gallery ---- */
+  .gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    align-items: flex-start;
+  }
+  .frame-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+  }
+  .frame-label {
+    text-align: center;
+  }
+  .frame-label .name {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--wrap-text);
+  }
+  .frame-label .state {
+    font-size: 12px;
+    color: var(--wrap-text-secondary);
+    margin-top: 2px;
+  }
+
+  /* ================= iPhone shell ================= */
+  .phone {
+    width: 320px;
+    height: 660px;
+    border-radius: 46px;
+    padding: 12px;
+    background: #0b0b0d;
+    box-shadow:
+      0 30px 60px -20px rgba(0, 0, 0, 0.35),
+      0 0 0 1px rgba(0, 0, 0, 0.2);
+    position: relative;
+  }
+  .phone .screen {
+    width: 100%;
+    height: 100%;
+    border-radius: 36px;
+    overflow: hidden;
+    position: relative;
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', system-ui, sans-serif;
+  }
+  .notch {
+    position: absolute;
+    top: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 26px;
+    background: #0b0b0d;
+    border-radius: 16px;
+    z-index: 50;
+  }
+  .home-indicator {
+    position: absolute;
+    bottom: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 110px;
+    height: 4px;
+    border-radius: 3px;
+    z-index: 60;
+  }
+
+  /* ---- App theme tokens (mirrors src/constants/theme.ts) ---- */
+  .app-light {
+    --bg: #f8f4ef;
+    --surface: #fbf7f2;
+    --text: #2d2830;
+    --text-secondary: #786f79;
+    --border: #e4dde3;
+    --accent: #705773;
+    --on-accent: #ffffff;
+    --success: #78906f;
+    --glass-tint: 248, 244, 239;
+    --glass-border: rgba(45, 40, 48, 0.08);
+    --status-bar: #2d2830;
+  }
+  .app-dark {
+    --bg: #211d23;
+    --surface: #2b262e;
+    --text: #f2ece7;
+    --text-secondary: #b7adb3;
+    --border: #3e3640;
+    --accent: #b79cba;
+    --on-accent: #211d23;
+    --success: #8fae86;
+    --glass-tint: 33, 29, 35;
+    --glass-border: rgba(255, 255, 255, 0.09);
+    --status-bar: #f2ece7;
+  }
+
+  .app-root {
+    height: 100%;
+    background: var(--bg);
+    color: var(--text);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+
+  .status-bar {
+    height: 47px;
+    flex: 0 0 auto;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    padding: 0 22px 6px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--status-bar);
+    position: relative;
+    z-index: 40;
+  }
+
+  /* ---- Nav bar: ultra-thin glass, large title collapses on scroll ---- */
+  .nav {
+    position: relative;
+    z-index: 30;
+    flex: 0 0 auto;
+    padding: 2px 20px 10px;
+    background: rgba(var(--glass-tint), 0.72);
+    -webkit-backdrop-filter: blur(20px) saturate(1.8);
+    backdrop-filter: blur(20px) saturate(1.8);
+    border-bottom: 1px solid transparent;
+  }
+  .nav.condensed {
+    padding: 10px 20px;
+    border-bottom: 1px solid var(--glass-border);
+  }
+  .nav-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .nav .icon-btn {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: rgba(120, 111, 121, 0.14);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+  }
+  .nav .avatar {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: var(--accent);
+    color: var(--on-accent);
+    font-size: 12px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .large-title {
+    font-size: 30px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    margin-top: 8px;
+  }
+  .condensed-title {
+    font-size: 17px;
+    font-weight: 600;
+    text-align: center;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 12px;
+  }
+
+  /* ---- Floating glass store-filter segment ---- */
+  .filter-bar {
+    position: relative;
+    z-index: 25;
+    margin: 10px 16px 0;
+    padding: 4px;
+    border-radius: 14px;
+    display: flex;
+    gap: 2px;
+    background: rgba(var(--glass-tint), 0.55);
+    -webkit-backdrop-filter: blur(16px) saturate(1.6);
+    backdrop-filter: blur(16px) saturate(1.6);
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 8px 20px -12px rgba(0, 0, 0, 0.25);
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .filter-bar::-webkit-scrollbar {
+    display: none;
+  }
+  .filter-chip {
+    flex: 0 0 auto;
+    font-size: 12.5px;
+    font-weight: 600;
+    padding: 7px 12px;
+    border-radius: 10px;
+    color: var(--text-secondary);
+    white-space: nowrap;
+  }
+  .filter-chip.active {
+    background: var(--surface);
+    color: var(--text);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+  }
+
+  /* ---- Scroll content ---- */
+  .content {
+    flex: 1 1 auto;
+    overflow: hidden;
+    padding: 14px 16px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .content.scrolled-clip {
+    margin-top: -34px;
+    padding-top: 48px;
+  }
+
+  .add-row {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 2px;
+  }
+  .add-btn {
+    font-size: 12.5px;
+    font-weight: 600;
+    color: var(--on-accent);
+    background: var(--accent);
+    padding: 7px 12px;
+    border-radius: 10px;
+  }
+
+  /* Store summary rows — solid surface, no glass (list content stays flat) */
+  .store-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--surface);
+    border-radius: 12px;
+    padding: 12px 12px 12px 0;
+    overflow: hidden;
+  }
+  .stripe {
+    width: 4px;
+    align-self: stretch;
+    border-radius: 2px;
+    margin-left: 0;
+  }
+  .store-row .stripe {
+    margin-left: 0;
+  }
+  .store-main {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  .store-top {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 8px;
+  }
+  .store-top .name {
+    font-size: 14.5px;
+    font-weight: 600;
+  }
+  .store-top .count {
+    font-size: 12px;
+    color: var(--text-secondary);
+    font-variant-numeric: tabular-nums;
+  }
+  .progress-track {
+    height: 3px;
+    border-radius: 2px;
+    background: var(--border);
+    overflow: hidden;
+  }
+  .progress-fill {
+    height: 100%;
+    border-radius: 2px;
+    background: var(--accent);
+  }
+  .progress-fill.success {
+    background: var(--success);
+  }
+  .store-meta {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 11.5px;
+    color: var(--text-secondary);
+  }
+  .dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+  }
+  .store-price {
+    text-align: right;
+    padding-right: 12px;
+    flex: 0 0 auto;
+  }
+  .store-price .amount {
+    font-size: 14.5px;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+  }
+  .store-price .label {
+    font-size: 10.5px;
+    color: var(--text-secondary);
+  }
+
+  .total-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 4px 2px;
+  }
+  .total-row .name {
+    font-size: 13px;
+    color: var(--text-secondary);
+  }
+  .total-row .amount {
+    font-size: 15px;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* ---- Checklist (market view) ---- */
+  .section-title {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    padding: 6px 4px 2px;
+  }
+  .item-row {
+    padding: 9px 2px;
+    border-bottom: 1px solid var(--border);
+  }
+  .item-row:last-child {
+    border-bottom: none;
+  }
+  .item-line {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+  }
+  .item-line .item-name {
+    flex: 1;
+    font-size: 13.5px;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .item-row.checked .item-name {
+    text-decoration: line-through;
+    opacity: 0.45;
+  }
+  .item-line .item-qty {
+    font-size: 12px;
+    color: var(--text-secondary);
+    width: 60px;
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+  }
+  .item-line .item-price {
+    font-size: 11.5px;
+    color: var(--text-secondary);
+    opacity: 0.8;
+    width: 44px;
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* ---- Floating glass FAB ---- */
+  .fab {
+    position: absolute;
+    right: 18px;
+    bottom: 96px;
+    z-index: 35;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    font-weight: 400;
+    color: var(--text);
+    background: rgba(var(--glass-tint), 0.55);
+    -webkit-backdrop-filter: blur(18px) saturate(1.7);
+    backdrop-filter: blur(18px) saturate(1.7);
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 10px 24px -10px rgba(0, 0, 0, 0.35);
+  }
+
+  /* ---- Bottom glass action bar (thick material) ---- */
+  .bottom-bar {
+    position: absolute;
+    left: 12px;
+    right: 12px;
+    bottom: 30px;
+    z-index: 35;
+    border-radius: 18px;
+    padding: 12px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    background: rgba(var(--glass-tint), 0.86);
+    -webkit-backdrop-filter: blur(26px) saturate(1.9);
+    backdrop-filter: blur(26px) saturate(1.9);
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 14px 30px -14px rgba(0, 0, 0, 0.4);
+  }
+  .bottom-bar .secondary-link {
+    font-size: 12.5px;
+    font-weight: 600;
+    text-align: center;
+    color: var(--text-secondary);
+  }
+  .bottom-bar .primary-btn {
+    font-size: 14px;
+    font-weight: 700;
+    text-align: center;
+    padding: 12px;
+    border-radius: 12px;
+    color: #fff;
+  }
+
+  footer.credits {
+    max-width: 640px;
+    margin: 64px auto 0;
+    font-size: 12.5px;
+    color: var(--wrap-text-secondary);
+    text-align: center;
+  }
+</style>
+
+<div class="page">
+  <header class="intro">
+    <p class="eyebrow">iOS Glass UI &middot; Vorschlag, nicht implementiert</p>
+    <h1>Glas nur an der Chrome-Ebene, nicht im Inhalt</h1>
+    <p>
+      Drei Zustände der "Einkaufsliste" (<code>shopping-list-screen.tsx</code>) mit iOS-Materialien
+      an den Stellen, wo iOS sie selbst einsetzt: Navigationsleiste, ein schwebender
+      Markt-Filter, der Hinzufügen-Button und die Abschließen-Leiste. Markt-Zeilen und
+      Kategorie-Listen bleiben flach und deckend &mdash; die aktuelle, dichte
+      Zeilen-Darstellung aus <code>store-summary-card.tsx</code> ist unverändert
+      übernommen.
+    </p>
+  </header>
+
+  <section class="panels">
+    <div class="panel">
+      <h2>Material-Map</h2>
+      <ul>
+        <li><strong>Ultra-thin:</strong> Navigationsleiste beim Scrollen</li>
+        <li><strong>Regular:</strong> schwebender Markt-Filter, Hinzufügen-Button</li>
+        <li><strong>Thick:</strong> untere Abschließen-Leiste</li>
+        <li><strong>Kein Glas:</strong> Markt-Zeilen, Kategorie-Listen, Karten</li>
+      </ul>
+    </div>
+    <div class="panel">
+      <h2>Typografie</h2>
+      <ul>
+        <li>SF Pro (<code>system-ui</code>), Hierarchie über Größe &amp; Gewicht</li>
+        <li>Large Title 30&#8239;pt &rarr; kondensiert 17&#8239;pt beim Scroll</li>
+        <li>Preise &amp; Mengen mit <code>tabular-nums</code> rechtsbündig</li>
+      </ul>
+    </div>
+    <div class="panel">
+      <h2>Interaktion</h2>
+      <ul>
+        <li>Nav-Blur blendet erst beim Scrollen ein, kein Dauerzustand</li>
+        <li>Markt-Filter bleibt oben fixiert, Inhalt läuft sichtbar darunter durch</li>
+        <li>Abschließen-Leiste erscheint nur mit abgehakten Artikeln</li>
+      </ul>
+    </div>
+    <div class="panel">
+      <h2>Warum iOS-nativ</h2>
+      <p>
+        Deckt sich mit den bestehenden Vorgaben: kein deko­ratives Karten-/Pillen-Chrome
+        im Inhalt (AGENTS.md), Glas bleibt Werkzeug für Kontext &amp; Fokus &ndash; nicht
+        Thema.
+      </p>
+    </div>
+  </section>
+
+  <section class="gallery">
+    <!-- ================= FRAME 1: Light, oben, "Alle Listen" ================= -->
+    <div class="frame-block">
+      <div class="phone">
+        <div class="notch"></div>
+        <div class="screen">
+          <div class="app-root app-light">
+            <div class="status-bar">
+              <span>9:41</span>
+              <span>&#9679;&#9679;&#9679; &#128225; &#128267;</span>
+            </div>
+
+            <div class="nav">
+              <div class="nav-row">
+                <div class="icon-btn">&#9776;</div>
+                <div class="avatar">MB</div>
+              </div>
+              <div class="large-title">Einkaufsliste</div>
+            </div>
+
+            <div class="filter-bar">
+              <div class="filter-chip active">Alle</div>
+              <div class="filter-chip">REWE</div>
+              <div class="filter-chip">Bio-Markt</div>
+              <div class="filter-chip">dm</div>
+            </div>
+
+            <div class="content">
+              <div class="add-row"><div class="add-btn">+ Artikel</div></div>
+
+              <div class="store-row">
+                <div class="stripe" style="background: #b5623f"></div>
+                <div class="store-main">
+                  <div class="store-top">
+                    <span class="name">REWE</span>
+                    <span class="count">7 / 12</span>
+                  </div>
+                  <div class="progress-track"><div class="progress-fill" style="width: 58%"></div></div>
+                  <div class="store-meta">
+                    <span class="dot" style="background: #748c5b"></span>
+                    <span class="dot" style="background: #5c7396"></span>
+                    <span>offen</span>
+                  </div>
+                </div>
+                <div class="store-price"><div class="amount">34,80&nbsp;&euro;</div><div class="label">geschätzt</div></div>
+              </div>
+
+              <div class="store-row">
+                <div class="stripe" style="background: #748c5b"></div>
+                <div class="store-main">
+                  <div class="store-top">
+                    <span class="name">Bio-Markt</span>
+                    <span class="count">5 / 5</span>
+                  </div>
+                  <div class="progress-track"><div class="progress-fill success" style="width: 100%"></div></div>
+                  <div class="store-meta" style="color: var(--success); font-weight: 600">alles erledigt</div>
+                </div>
+                <div class="store-price"><div class="amount">18,20&nbsp;&euro;</div><div class="label">geschätzt</div></div>
+              </div>
+
+              <div class="store-row">
+                <div class="stripe" style="background: #8b6f72"></div>
+                <div class="store-main">
+                  <div class="store-top">
+                    <span class="name">dm</span>
+                    <span class="count">0 / 3</span>
+                  </div>
+                  <div class="progress-track"><div class="progress-fill" style="width: 0%"></div></div>
+                  <div class="store-meta">
+                    <span class="dot" style="background: #705773"></span>
+                    <span>offen</span>
+                  </div>
+                </div>
+                <div class="store-price"><div class="amount">11,50&nbsp;&euro;</div><div class="label">geschätzt</div></div>
+              </div>
+
+              <div class="store-row">
+                <div class="stripe" style="background: #786f79"></div>
+                <div class="store-main">
+                  <div class="store-top">
+                    <span class="name">Ohne Markt</span>
+                    <span class="count">0 / 2</span>
+                  </div>
+                  <div class="progress-track"><div class="progress-fill" style="width: 0%"></div></div>
+                  <div class="store-meta">
+                    <span class="dot" style="background: #c6a24a"></span>
+                    <span>offen</span>
+                  </div>
+                </div>
+                <div class="store-price"><div class="amount">6,00&nbsp;&euro;</div><div class="label">geschätzt</div></div>
+              </div>
+
+              <div class="total-row">
+                <span class="name">22 Artikel &middot; 3 Märkte</span>
+                <span class="amount">70,50&nbsp;&euro;</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="frame-label">
+        <div class="name">Alle Listen &middot; Light</div>
+        <div class="state">oben &mdash; Large Title, Nav noch ohne Blur</div>
+      </div>
+    </div>
+
+    <!-- ================= FRAME 2: Light, gescrollt, "Alle Listen" ================= -->
+    <div class="frame-block">
+      <div class="phone">
+        <div class="notch"></div>
+        <div class="screen">
+          <div class="app-root app-light">
+            <div class="status-bar">
+              <span>9:41</span>
+              <span>&#9679;&#9679;&#9679; &#128225; &#128267;</span>
+            </div>
+
+            <div class="nav condensed">
+              <div class="nav-row">
+                <div class="icon-btn">&#9776;</div>
+                <div class="condensed-title">Einkaufsliste</div>
+                <div class="avatar">MB</div>
+              </div>
+            </div>
+
+            <div class="filter-bar">
+              <div class="filter-chip active">Alle</div>
+              <div class="filter-chip">REWE</div>
+              <div class="filter-chip">Bio-Markt</div>
+              <div class="filter-chip">dm</div>
+            </div>
+
+            <div class="content scrolled-clip">
+              <div class="store-row" style="opacity: 0.55">
+                <div class="stripe" style="background: #b5623f"></div>
+                <div class="store-main">
+                  <div class="store-top"><span class="name">REWE</span><span class="count">7 / 12</span></div>
+                  <div class="progress-track"><div class="progress-fill" style="width: 58%"></div></div>
+                </div>
+              </div>
+
+              <div class="store-row">
+                <div class="stripe" style="background: #748c5b"></div>
+                <div class="store-main">
+                  <div class="store-top"><span class="name">Bio-Markt</span><span class="count">5 / 5</span></div>
+                  <div class="progress-track"><div class="progress-fill success" style="width: 100%"></div></div>
+                  <div class="store-meta" style="color: var(--success); font-weight: 600">alles erledigt</div>
+                </div>
+                <div class="store-price"><div class="amount">18,20&nbsp;&euro;</div><div class="label">geschätzt</div></div>
+              </div>
+
+              <div class="store-row">
+                <div class="stripe" style="background: #8b6f72"></div>
+                <div class="store-main">
+                  <div class="store-top"><span class="name">dm</span><span class="count">0 / 3</span></div>
+                  <div class="progress-track"><div class="progress-fill" style="width: 0%"></div></div>
+                  <div class="store-meta"><span class="dot" style="background: #705773"></span><span>offen</span></div>
+                </div>
+                <div class="store-price"><div class="amount">11,50&nbsp;&euro;</div><div class="label">geschätzt</div></div>
+              </div>
+
+              <div class="store-row">
+                <div class="stripe" style="background: #786f79"></div>
+                <div class="store-main">
+                  <div class="store-top"><span class="name">Ohne Markt</span><span class="count">0 / 2</span></div>
+                  <div class="progress-track"><div class="progress-fill" style="width: 0%"></div></div>
+                  <div class="store-meta"><span class="dot" style="background: #c6a24a"></span><span>offen</span></div>
+                </div>
+                <div class="store-price"><div class="amount">6,00&nbsp;&euro;</div><div class="label">geschätzt</div></div>
+              </div>
+            </div>
+
+            <div class="fab">+</div>
+          </div>
+        </div>
+      </div>
+      <div class="frame-label">
+        <div class="name">Alle Listen &middot; Light</div>
+        <div class="state">gescrollt &mdash; Nav &amp; Filter jetzt Glas, FAB schwebt</div>
+      </div>
+    </div>
+
+    <!-- ================= FRAME 3: Dark, Marktansicht REWE ================= -->
+    <div class="frame-block">
+      <div class="phone">
+        <div class="notch"></div>
+        <div class="screen">
+          <div class="app-root app-dark">
+            <div class="status-bar">
+              <span>9:41</span>
+              <span>&#9679;&#9679;&#9679; &#128225; &#128267;</span>
+            </div>
+
+            <div class="nav condensed">
+              <div class="nav-row">
+                <div class="icon-btn">&#9776;</div>
+                <div class="condensed-title">REWE</div>
+                <div class="avatar">MB</div>
+              </div>
+            </div>
+
+            <div class="filter-bar">
+              <div class="filter-chip">Alle</div>
+              <div class="filter-chip active">REWE</div>
+              <div class="filter-chip">Bio-Markt</div>
+              <div class="filter-chip">dm</div>
+            </div>
+
+            <div class="content scrolled-clip">
+              <div class="section-title"><span class="dot" style="background: #748c5b"></span>Obst &amp; Gemüse</div>
+              <div class="item-row checked">
+                <div class="item-line"><span class="item-name">Bananen</span><span class="item-qty">1&nbsp;kg</span><span class="item-price">1,80&#8239;&euro;</span></div>
+              </div>
+              <div class="item-row checked">
+                <div class="item-line"><span class="item-name">Tomaten</span><span class="item-qty">500&nbsp;g</span><span class="item-price">2,20&#8239;&euro;</span></div>
+              </div>
+              <div class="item-row">
+                <div class="item-line"><span class="item-name">Avocado</span><span class="item-qty">2&nbsp;Stk.</span><span class="item-price">2,60&#8239;&euro;</span></div>
+              </div>
+
+              <div class="section-title"><span class="dot" style="background: #5c7396"></span>Molkerei</div>
+              <div class="item-row checked">
+                <div class="item-line"><span class="item-name">Vollmilch</span><span class="item-qty">1&nbsp;l</span><span class="item-price">1,15&#8239;&euro;</span></div>
+              </div>
+              <div class="item-row">
+                <div class="item-line"><span class="item-name">Naturjoghurt</span><span class="item-qty">500&nbsp;g</span><span class="item-price">1,30&#8239;&euro;</span></div>
+              </div>
+              <div class="item-row">
+                <div class="item-line"><span class="item-name">Butter</span><span class="item-qty">250&nbsp;g</span><span class="item-price">2,10&#8239;&euro;</span></div>
+              </div>
+            </div>
+
+            <div class="bottom-bar">
+              <div class="secondary-link">&#128722; Einkaufsmodus starten</div>
+              <div class="primary-btn" style="background: #b5623f">&#128722; Einkauf bei REWE abschließen (7)</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="frame-label">
+        <div class="name">Marktansicht REWE &middot; Dark</div>
+        <div class="state">Thick-Glass-Leiste ersetzt den festen Bottom-Button</div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="credits">
+    Vorschlag für <code>src/features/shopping-list/screens/shopping-list-screen.tsx</code> &mdash;
+    keine echten Komponenten geändert. Siehe README im selben Ordner.
+  </footer>
+</div>
