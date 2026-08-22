@@ -15,12 +15,20 @@ _Avoid_: Diary, Ernährungstagebuch, Food Diary
 **Product**:
 Globaler, nicht haushaltsgebundener Katalogeintrag (z. B. aus Open Food Facts) mit Barcode/Nährwertdaten. Existiert unabhängig von jedem Haushalt.
 
+**Product Usage**:
+Append-only, rein lokales Protokoll (`product_usage`, keine Sync/Outbox, kein Server-Gegenstück) jeder Verwendung eines Produkts über Kühlschrank, Einkaufsliste und Tagebuch hinweg. Pro einzelnem Nutzer (`user_id`), nicht pro Haushalt. Grundlage für „Häufig"/„Zuletzt"-Vorschläge, keine Entscheidung — reine Verhaltensdaten.
+_Avoid_: Nutzungshistorie (als Synonym für Category Preference — unterschiedliche Konzepte, siehe dort)
+
 **Inventory Item**:
 Haushaltsgebundener Bestandseintrag (`fridge_items`) mit eigenem, eigenständigem Namen. Kann optional ein Product referenzieren, um Katalogdaten (Barcode, Nährwerte) zu übernehmen — die Referenz ist eine Anreicherung, keine Identität. Existiert auch ohne Product-Bezug (Freitext-Eintrag).
 _Avoid_: Product (als Synonym), Fridge Item (als eigenständiger Begriff — ist dasselbe wie Inventory Item)
 
 **Shopping List Item**:
 Haushaltsgebundener Einkaufszettel-Eintrag (`shopping_list_items`). Gleiche Beziehung zu Product wie Inventory Item: eigener Name, optionale Product-Referenz zur Anreicherung.
+
+**Category Preference** (Haushaltspräferenz):
+Haushaltsweit geteilte, synchronisierte Entscheidung (`shopping_category_preferences`), welche Kategorie einem Product oder einem normalisierten Freitextnamen zugeordnet ist. Genau ein aktueller Wert pro `(household_id, key_type, normalized_key_value)`, überschreibbar und soft-deletebar — kein Log wie Product Usage, sondern ein Zustand, der die automatische Kategorisierung überstimmt.
+_Avoid_: Product Usage (als Synonym — Category Preference ist eine bewusste, haushaltsweite Entscheidung, kein per-Nutzer-Verhaltensprotokoll)
 
 **Shopping Run**:
 Der Vorgang, einen Einkauf abzuschließen: mehrere abgehakte Shopping List Items werden in einem Schritt zu neuen Inventory Items transferiert. Keine geteilte Identität zwischen Quelle und Ziel — je ein neuer Inventory-Item-Datensatz pro Transfer, das Shopping List Item wird nur soft-deleted.
