@@ -7,6 +7,7 @@ import type { ReactNode } from 'react';
 import { env } from '@/lib/env';
 
 let client: PostHog | undefined;
+let attempted = false;
 
 /**
  * Konfiguriert den PostHog-Client einmalig pro App-Leben. Muss vor dem ersten
@@ -17,9 +18,16 @@ let client: PostHog | undefined;
  * ein lokaler Dev-Build ohne eigenes Tracking) bleibt das bewusst ein No-op
  * statt eines Absturzes — dasselbe Muster wie `initSentry()`/`initPurchases()`.
  * `useFeatureFlag()` faellt in dem Fall immer auf `defaultValue` zurueck.
+ *
+ * Wirft der Konstruktor (z. B. fehlerhafte Env-Variable, fehlendes natives
+ * Storage-Modul), faengt der try/catch den Fehler ab und die App laeuft ohne
+ * PostHog weiter, statt beim Modul-Eval in `src/app/_layout.tsx` abzustuerzen.
+ * Der `attempted`-Flag verhindert, dass ein erneuter Aufruf denselben Fehler
+ * noch einmal wirft — analog zum `configured`-Flag in `initSentry()`.
  */
 export function initPostHog(): void {
-  if (client) return;
+  if (attempted) return;
+  attempted = true;
 
   const apiKey = env.posthogApiKey;
   if (!apiKey) {
@@ -32,7 +40,11 @@ export function initPostHog(): void {
     return;
   }
 
-  client = new PostHog(apiKey, { host: env.posthogHost });
+  try {
+    client = new PostHog(apiKey, { host: env.posthogHost });
+  } catch (err) {
+    console.error('[posthog] Client-Konstruktion fehlgeschlagen — Tracking bleibt aus:', err);
+  }
 }
 
 /** Ob `initPostHog()` erfolgreich einen API-Key konfiguriert hat. */
