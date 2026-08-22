@@ -53,6 +53,24 @@ describe('initPostHog / isPostHogConfigured', () => {
       expect.objectContaining({ host: 'https://eu.i.posthog.com' }),
     );
   });
+
+  it('stuerzt nicht ab, wenn der Konstruktor wirft, und wiederholt den Fehler nicht', () => {
+    process.env.EXPO_PUBLIC_POSTHOG_API_KEY = 'phc_testkey';
+    mockPostHogConstructor.mockImplementationOnce(() => {
+      throw new Error('natives Storage-Modul fehlt');
+    });
+    const consoleError = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const { initPostHog, isPostHogConfigured } = require('@/lib/posthog');
+
+    expect(() => initPostHog()).not.toThrow();
+    expect(isPostHogConfigured()).toBe(false);
+
+    // Zweiter Aufruf darf den Fehler nicht erneut werfen (attempted-Flag).
+    expect(() => initPostHog()).not.toThrow();
+    expect(mockPostHogConstructor).toHaveBeenCalledTimes(1);
+
+    consoleError.mockRestore();
+  });
 });
 
 describe('PostHogAppProvider', () => {
