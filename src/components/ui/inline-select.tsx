@@ -74,9 +74,7 @@ export function InlineSelect({ value, options, onChange, accessibilityLabel }: I
                   {option.label}
                 </ThemedText>
                 {option.disabled && option.disabledHint ? (
-                  <ThemedText
-                    type="caption"
-                    themeColor={active ? 'onAccent' : 'textSecondary'}>
+                  <ThemedText type="caption" themeColor={active ? 'onAccent' : 'textSecondary'}>
                     {option.disabledHint}
                   </ThemedText>
                 ) : null}

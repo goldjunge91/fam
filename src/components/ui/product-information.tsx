@@ -105,7 +105,9 @@ export function ProductInformation({ visible, item, onClose }: ProductInformatio
           // kann nicht als Tailwind-Klasse ausgedrueckt werden. 24px = pb-four.
           style={{ paddingBottom: insets.bottom + 24 }}>
           <View className="w-[42px] h-[4px] rounded-hairline self-center mt-[11px] bg-border" />
-          <ScrollView showsVerticalScrollIndicator={false} contentContainerClassName="p-[20px] gap-[14px]">
+          <ScrollView
+            showsVerticalScrollIndicator={false}
+            contentContainerClassName="p-[20px] gap-[14px]">
             <View className="flex-row items-start gap-three">
               <View className="flex-1 gap-[3px]">
                 <ThemedText type="subtitle" selectable>
@@ -198,4 +200,3 @@ export function ProductInformation({ visible, item, onClose }: ProductInformatio
     </Modal>
   );
 }
-

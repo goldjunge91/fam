@@ -23,5 +23,3 @@ export function FloatingActionButton({ label, onPress, children }: FloatingActio
     </Pressable>
   );
 }
-
-

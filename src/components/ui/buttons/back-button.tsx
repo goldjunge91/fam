@@ -83,4 +83,3 @@ export function AutoBackButton({ label, variant }: Pick<BackButtonProps, 'label'
 
   return canGoBack ? <BackButton label={label} variant={variant} /> : null;
 }
-

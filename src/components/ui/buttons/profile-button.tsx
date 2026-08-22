@@ -21,5 +21,3 @@ export function ProfileButton({ initials, onPress }: ProfileButtonProps) {
     </Pressable>
   );
 }
-
-

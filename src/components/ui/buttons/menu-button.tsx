@@ -21,5 +21,3 @@ export function MenuButton({ onPress }: MenuButtonProps) {
     </Pressable>
   );
 }
-
-

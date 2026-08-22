@@ -9,7 +9,7 @@ import Animated, {
 import Svg, { Circle } from 'react-native-svg';
 
 import { ThemedText } from '@/components/theme/themed-text';
-import { type RingPreset, RingPresetSize, computeRingMetrics } from '@/constants/rings';
+import { computeRingMetrics, type RingPreset, RingPresetSize } from '@/constants/rings';
 import { useTheme } from '@/hooks/use-theme';
 
 const AnimatedCircle = Animated.createAnimatedComponent(Circle);
@@ -62,7 +62,7 @@ export function ProgressRing({
   children,
 }: ProgressRingProps) {
   const theme = useTheme();
-  const reducedMotion = typeof useReducedMotion === 'function' ? useReducedMotion() : false;
+  const reducedMotion = useReducedMotion();
 
   const presetDimensions = preset ? RingPresetSize[preset] : RingPresetSize.large;
   const size = customSize ?? presetDimensions.size;
@@ -161,7 +161,8 @@ export function ProgressRing({
           </ThemedText>
         ) : displayMode === 'remaining' ? (
           <>
-            <ThemedText style={{ fontSize: 32, lineHeight: 36, fontWeight: '700', letterSpacing: -0.5 }}>
+            <ThemedText
+              style={{ fontSize: 32, lineHeight: 36, fontWeight: '700', letterSpacing: -0.5 }}>
               {target > 0 ? Math.abs(remaining) : Math.round(value)}
             </ThemedText>
             <ThemedText
@@ -190,4 +191,3 @@ export function ProgressRing({
     </View>
   );
 }
-
