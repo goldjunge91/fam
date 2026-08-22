@@ -180,7 +180,7 @@
     const rows = findings
       .filter(f => !aspectFilter || f.aspect === aspectFilter)
       .filter(f => !sevFilter || f.severity === sevFilter)
-      .filter(f => !q || [f.file, f.title, f.description, f.recommendation]
+      .filter(f => !q || [f.file, f.title, f.description, f.recommendation, f.principle]
         .filter(Boolean).some(s => s.toLowerCase().includes(q)))
       .sort((a, b) => (sevOrder[a.severity] ?? 9) - (sevOrder[b.severity] ?? 9));
 
@@ -201,7 +201,7 @@
         <td><span class="sev-pill sev-${f.severity}">${f.severity}</span></td>
         <td class="aspect-tag">${aspectName}</td>
         <td class="file">${f.file || ''}${f.line ? ':' + f.line : ''}</td>
-        <td class="title-cell">${f.title || ''}</td>
+        <td class="title-cell">${f.title || ''}${f.principle ? `<br><span class="principle-tag">${f.principle}</span>` : ''}</td>
       `;
       const detail = document.createElement('tr');
       detail.className = 'detail-row';

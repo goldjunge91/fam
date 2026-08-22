@@ -86,6 +86,13 @@ Be honest about severity — see the calibration guide in `references/schema.md`
 A report where everything is `critical` or everything is `low` isn't useful;
 aim for something a sharp senior engineer would actually say in review.
 
+Every `best-practices` finding must also carry a `principle` tag (YAGNI, KISS,
+Magic Numbers, or one of Hoare's/Weinberg's software-quality criteria) — the
+table in `references/aspects.md` §4 has the full catalog. This turns "this
+feels off" into a claim grounded in a named, arguable standard rather than
+personal taste; `render_report.py` rejects `best-practices` findings missing
+it.
+
 ## Step 3 — Render the report
 
 Once `findings.json` is assembled and validated against the schema, render it:
