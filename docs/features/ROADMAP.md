@@ -2,8 +2,7 @@
 
 Der MVP ist abgeschlossen: Foundation, RLS, Offline-Sync, Auth, Haushalt,
 Bestand, Einkaufsliste, Lebensmitteldatenbank, Tracking, Dashboard und
-Datenschutz sind umgesetzt. Die Abschlussdokumentation steht im
-[Projektstatus](projekt_status.md).
+Datenschutz sind umgesetzt.
 
 Die nachfolgenden Epics sind Produktoptionen, keine fest zugesagten Releases.
 Vor einer Umsetzung wird das konkrete Problem, der Datenbedarf und die
@@ -44,5 +43,4 @@ nicht der ursprünglichen Issue-Nummer.
 - Vor dem Abschluss laufen mindestens `bun run check`, `bun run typecheck` und
   `bun run test`; bei Schemaänderungen zusätzlich `bun run test:db`.
 
-Historische Ideen und Vorüberlegungen befinden sich in
-[`plans/phase-2-4-brainstorm.md`](plans/phase-2-4-brainstorm.md).
+Historische Ideen und Vorüberlegungen wurden entfernt oder archiviert.
