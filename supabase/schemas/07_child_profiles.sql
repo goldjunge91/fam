@@ -11,9 +11,15 @@ create table if not exists public.child_profiles (
   id uuid primary key default gen_random_uuid(),
   household_id uuid not null references public.households (id) on delete cascade,
 
-  -- Wer das Profil verwaltet. Verlaesst dieser Elternteil den Haushalt, faellt
-  -- die Verwaltung an einen Admin zurueck (set null), statt das Profil und
-  -- damit die Ernaehrungshistorie des Kindes zu loeschen.
+  -- Wer das Profil verwaltet. "set null" feuert nur, wenn die profiles-Zeile
+  -- selbst geloescht wird (Account-Loeschung) -- so bleibt das Profil und
+  -- damit die Ernaehrungshistorie des Kindes erhalten statt zu kaskadieren.
+  --
+  -- Verlaesst der Verwalter nur den Haushalt (household_members-Zeile weg,
+  -- profiles-Zeile bleibt), feuert "set null" NICHT: managed_by zeigt dann auf
+  -- ein Nicht-Mitglied. Admins koennen das Profil trotzdem verwalten (RLS
+  -- erlaubt managed_by-Match ODER Admin-Rolle), aber managed_by selbst wird
+  -- nicht automatisch zurueckgesetzt -- bekannte Luecke, siehe #188.
   managed_by uuid references public.profiles (id) on delete set null,
 
   display_name text not null check (length(trim(display_name)) between 1 and 80),
