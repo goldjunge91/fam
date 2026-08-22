@@ -90,6 +90,7 @@ revoke execute on function private.is_household_admin(uuid) from public, anon;
 revoke execute on function private.set_updated_at() from public, anon, authenticated;
 revoke execute on function private.handle_new_user() from public, anon, authenticated;
 revoke execute on function private.guard_last_admin() from public, anon, authenticated;
+revoke execute on function private.delete_orphaned_household() from public, anon, authenticated;
 
 -- --------------------------------------------------------------------- public
 -- Diese beiden RPCs SOLLEN vom Client aufrufbar sein — anders als die Helfer.

@@ -186,6 +186,45 @@ create or replace trigger household_members_set_updated_at
   for each row
   execute function private.set_updated_at();
 
+-- ------------------------------------------------- verwaisten Haushalt loeschen
+-- `guard_last_admin` laesst den letzten Admin gehen, wenn danach kein Mitglied
+-- mehr bleibt. Ohne diesen Trigger bliebe dann die households-Zeile mitsamt
+-- ihren geteilten Daten (Vorrat, Einkaufsliste, Rezepte, Essensplaene,
+-- Kinderprofile) fuer immer stehen: jede RLS-Policy ist mitgliederbezogen, also
+-- kaeme niemand mehr an diese Daten und niemand koennte sie loeschen (#189).
+--
+-- Der AFTER-DELETE-Trigger raeumt genau diesen Fall auf: ist der Haushalt nach
+-- dem Entfernen des Mitglieds leer, wird er geloescht. `on delete cascade`
+-- entfernt den Rest — dieselbe Kaskade, auf die sich `prepare_account_deletion`
+-- bereits stuetzt.
+--
+-- SECURITY DEFINER, weil das Aufrufer-Recht auf households an eine
+-- Admin-Mitgliedschaft gebunden ist, die es beim Verlassen gerade nicht mehr
+-- gibt. Kein Rekursionsrisiko: die Kaskade der households-Loeschung feuert
+-- diesen Trigger nur fuer noch vorhandene Mitglieder — hier gibt es keine mehr.
+create or replace function private.delete_orphaned_household()
+returns trigger
+language plpgsql
+security definer
+set search_path = ''
+as $$
+begin
+  if not exists (
+    select 1 from public.household_members
+    where household_id = old.household_id
+  ) then
+    delete from public.households where id = old.household_id;
+  end if;
+
+  return old;
+end;
+$$;
+
+create or replace trigger household_members_delete_orphaned_household
+  after delete on public.household_members
+  for each row
+  execute function private.delete_orphaned_household();
+
 -- ------------------------------------------------------- Kontoloeschung vorbereiten
 -- `public.prepare_account_deletion()` (#98): raeumt Haushaltsbezuege des
 -- aufrufenden Nutzers auf, BEVOR die Edge Function `delete-account` per
