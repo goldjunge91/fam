@@ -1,8 +1,8 @@
 import { Pressable, Switch, View } from 'react-native';
 import { Screen } from '@/components/layout/screen';
+import { ModuleLockedOverlay } from '@/components/module-locked-overlay';
 import { ThemedText } from '@/components/theme/themed-text';
 import { Card } from '@/components/ui/card';
-import { withAlpha } from '@/constants/theme';
 import { useSession } from '@/features/auth/session-provider';
 import {
   DEFAULT_MODULE_PREFERENCES,
@@ -10,7 +10,6 @@ import {
   useModulePreferences,
   useUpdateModulePreferencesMutation,
 } from '@/features/settings/module-preferences';
-import { useTheme } from '@/hooks/use-theme';
 import { type FeatureFlagKey, useFeatureFlag } from '@/lib/posthog';
 
 const MODULE_ROWS: {
@@ -63,7 +62,6 @@ const MODULE_ROWS: {
  * siehe `docs/VISION.md`, und tauchen deshalb hier nicht auf.
  */
 export function ModuleSettingsScreen() {
-  const theme = useTheme();
   const { session } = useSession();
   const userId = session?.user.id;
 
@@ -123,18 +121,7 @@ export function ModuleSettingsScreen() {
                   disabled={locked}
                 />
               </View>
-              {locked && (
-                <View
-                  className="module-row-locked-overlay"
-                  style={{ backgroundColor: withAlpha(theme.backgroundElement, 0.4) }}>
-                  <View className="module-row-locked-pill" style={{ backgroundColor: theme.text }}>
-                    <View className="module-row-locked-pill-dot" />
-                    <ThemedText type="smallBold" style={{ color: theme.background }}>
-                      Demnächst verfügbar
-                    </ThemedText>
-                  </View>
-                </View>
-              )}
+              {locked && <ModuleLockedOverlay />}
             </Pressable>
           );
         })}
