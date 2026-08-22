@@ -1,0 +1,59 @@
+/**
+ * Reine Wort-Tokens eines Artikelnamens für den morphologischen
+ * Namens-Fallback (`name-category-rules.ts`). Kein sprachabhängiges
+ * `\b`-Regex — Umlaute zählen in JavaScripts `\w` nicht als Wortzeichen,
+ * siehe Begründung in `../domain-logik/shopping-categories.ts`.
+ */
+const WORD_CHAR = /[a-z0-9äöüß]/;
+
+/**
+ * Reine Mengen-/Einheitentokens, die vor dem Regelmatching entfernt werden
+ * (z. B. "500g", "2", "stück") — sie tragen kein Kategoriesignal und dürfen
+ * keine Regel versehentlich matchen oder verwässern.
+ */
+const UNIT_TOKENS = new Set([
+  'g',
+  'kg',
+  'mg',
+  'ml',
+  'l',
+  'cl',
+  'stk',
+  'stück',
+  'stueck',
+  'packung',
+  'pkg',
+  'pck',
+  'dose',
+  'flasche',
+  'beutel',
+  'bund',
+  'paar',
+]);
+
+/** `"500g"`, `"2"`, `"1,5l"` — Zahl, optional gefolgt von einer Einheit. */
+const QUANTITY_TOKEN = /^\d+([.,]\d+)?[a-zäöüß]*$/;
+
+/**
+ * Zerlegt einen rohen Artikelnamen in normalisierte Wort-Tokens: NFC-Form,
+ * Kleinschreibung, Trennung an Leerzeichen/Bindestrichen/Satzzeichen,
+ * Entfernung reiner Mengen-/Einheitentokens. Markennamen bleiben als Token
+ * erhalten (Gewichtung ist Sache der Namensregeln, nicht der Normalisierung).
+ */
+export function normalizeShoppingName(name: string): string[] {
+  const normalized = name.normalize('NFC').toLowerCase();
+
+  const tokens: string[] = [];
+  let current = '';
+  for (const char of normalized) {
+    if (WORD_CHAR.test(char)) {
+      current += char;
+    } else if (current) {
+      tokens.push(current);
+      current = '';
+    }
+  }
+  if (current) tokens.push(current);
+
+  return tokens.filter((token) => !UNIT_TOKENS.has(token) && !QUANTITY_TOKEN.test(token));
+}

@@ -17,5 +17,15 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src", "../../src/features/shopping-list/domain-logik/shopping-categories.ts"]
+  "include": [
+    "src",
+    "../../src/features/shopping-list/domain-logik/shopping-categories.ts",
+    "../../src/features/shopping-list/classification/classifier-version.ts",
+    "../../src/features/shopping-list/classification/name-category-rules.ts",
+    "../../src/features/shopping-list/classification/normalize-shopping-name.ts",
+    "../../src/features/shopping-list/classification/off-category-rules.ts",
+    "../../src/features/shopping-list/classification/shopping-category-classifier.ts",
+    "../../src/features/shopping-list/classification/shopping-category-id.ts",
+    "../../src/features/shopping-list/classification/types.ts"
+  ]
 }
