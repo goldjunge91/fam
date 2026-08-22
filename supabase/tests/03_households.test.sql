@@ -3,7 +3,7 @@
 begin;
 \ir helpers.sql
 
-select plan(22);
+select plan(24);
 
 select tests.create_user('11111111-1111-1111-1111-111111111111', 'alice@example.com');
 select tests.create_user('22222222-2222-2222-2222-222222222222', 'bob@example.com');
@@ -193,6 +193,33 @@ select public.create_household('Solo Frank') as hid_frank \gset
 select lives_ok(
   format($$ delete from public.households where id = %L $$, :'hid_frank'),
   'ein alleiniger Admin kann seinen Solo-Haushalt loeschen'
+);
+
+-- --------------------------------- verwaisten Haushalt aufraeumen (#189)
+-- Verlaesst das letzte Mitglied einen Haushalt, feuert der AFTER-DELETE-Trigger
+-- und loescht die verwaiste households-Zeile. Ohne ihn bliebe sie mitsamt allen
+-- geteilten Daten fuer immer stehen — per RLS fuer niemanden mehr erreichbar.
+select tests.as_postgres();
+select tests.create_user('cccccccc-3333-3333-3333-333333333333', 'liam@example.com');
+select tests.authenticate_as('cccccccc-3333-3333-3333-333333333333');
+select public.create_household('Solo Liam') as hid_liam \gset
+
+-- Der alleinige Admin verlaesst den Haushalt; die Sperre laesst das zu, weil
+-- danach niemand ohne Admin zurueckbliebe.
+delete from public.household_members
+where user_id = 'cccccccc-3333-3333-3333-333333333333';
+
+select tests.as_postgres();
+select is(
+  (select count(*)::int from public.households where id = :'hid_liam'),
+  0,
+  'verlaesst das letzte Mitglied den Haushalt, wird die verwaiste households-Zeile geloescht'
+);
+
+select is(
+  (select count(*)::int from public.storage_locations where household_id = :'hid_liam'),
+  0,
+  'die Cascade raeumt die geteilten Daten des verwaisten Haushalts mit ab'
 );
 
 -- ------------------------------------------- prepare_account_deletion() (#98)
