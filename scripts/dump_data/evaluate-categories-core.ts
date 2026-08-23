@@ -34,7 +34,7 @@ export type CalibrationReport = {
   sonstigesShare: number;
   sourceCounts: { off_taxonomy: number; name_fallback: number; none: number };
   categoryDistribution: Record<ShoppingCategoryId, number>;
-  /** Bis zu 100 deterministisch gewählte Beispiele je Kategorie. */
+  /** Bis zu 1.000 deterministisch gewählte Beispiele je Kategorie. */
   samples: Record<ShoppingCategoryId, CategorySample[]>;
   golden: {
     total: number;
@@ -43,20 +43,29 @@ export type CalibrationReport = {
   };
 };
 
-const SAMPLE_SIZE_PER_CATEGORY = 100;
+export const DEFAULT_SAMPLE_SIZE_PER_CATEGORY = 1000;
 
 export const ALL_SHOPPING_CATEGORY_IDS: readonly ShoppingCategoryId[] = [
   'produce',
   'bakery',
-  'deli_meat',
-  'pantry_canned',
-  'pantry_dry',
+  'convenience',
   'breakfast',
+  'hot_beverages',
+  'pantry_staples',
+  'cooking_baking',
+  'canned_sauces',
   'snacks',
   'beverages',
-  'dairy',
-  'frozen',
   'drugstore',
+  'baby_kids',
+  'household',
+  'pet_supplies',
+  'meat_poultry',
+  'fish_seafood',
+  'deli_cold_cuts',
+  'plant_based',
+  'dairy_eggs',
+  'frozen',
   'checkout',
 ];
 
@@ -85,6 +94,7 @@ function emptyCategoryRecord<T>(fill: () => T): Record<ShoppingCategoryId, T> {
 export function evaluateDump(
   products: readonly DumpProductInput[],
   golden: readonly GoldenCorpusEntry[],
+  sampleSizePerCategory = DEFAULT_SAMPLE_SIZE_PER_CATEGORY,
 ): CalibrationReport {
   const categoryDistribution = emptyCategoryRecord(() => 0);
   const sampleBuckets = emptyCategoryRecord(() => [] as { hash: number; sample: CategorySample }[]);
@@ -118,7 +128,7 @@ export function evaluateDump(
     samples[categoryId] = sampleBuckets[categoryId]
       .slice()
       .sort((a, b) => a.hash - b.hash)
-      .slice(0, SAMPLE_SIZE_PER_CATEGORY)
+      .slice(0, sampleSizePerCategory)
       .map((entry) => entry.sample);
   }
 

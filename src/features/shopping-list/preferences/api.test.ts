@@ -166,7 +166,7 @@ describe('preferences/api', () => {
         name: '2 Schnitzel vom Schwein Spar Fein Küche',
       });
 
-      expect(result.categoryId).toBe('deli_meat');
+      expect(result.categoryId).toBe('meat_poultry');
       expect(result.source).not.toBe('household_preference');
     });
   });
