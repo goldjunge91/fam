@@ -4,6 +4,7 @@ import json
 import sqlite3
 import sys
 import time
+import urllib.error
 import urllib.request
 import os
 from datetime import datetime, timezone
@@ -183,15 +184,80 @@ def _download_progress_hook(start_time):
     return hook
 
 
+MAX_DOWNLOAD_ATTEMPTS = 3
+
+
+def _expected_content_length(url):
+    """HEAD-Request fuer die erwartete Groesse — ohne echten Download.
+    `urlopen` folgt dem 302-Redirect (static.openfoodfacts.org -> S3)
+    automatisch. `None`, wenn der Server keine Content-Length liefert
+    (dann bleibt nur die Gzip-Pruefung als Absicherung)."""
+    req = urllib.request.Request(url, method="HEAD")
+    try:
+        with urllib.request.urlopen(req) as response:
+            length = response.headers.get("Content-Length")
+            return int(length) if length else None
+    except (urllib.error.URLError, ValueError):
+        return None
+
+
 def download_dump():
-    if not os.path.exists(LOCAL_GZ_FILE):
-        print("Lade Open Food Facts Dump herunter (voller Export, ~12-13 GB komprimiert)...")
-        urllib.request.urlretrieve(
-            OFF_DUMP_URL, LOCAL_GZ_FILE, reporthook=_download_progress_hook(time.time())
+    """Laedt den vollen OFF-Export mit expliziter Vollstaendigkeitspruefung.
+
+    `urlretrieve()` allein reicht nicht: Es soll zwar bei einer zu kurzen
+    Antwort `ContentTooShortError` werfen, tat das hier aber nicht — der
+    erste Lauf brach bei 8,73 von 11,85 GB fehlerfrei "erfolgreich" ab und
+    crashte erst zwei Minuten spaeter beim Parsen mit einem rohen
+    `EOFError` ("Compressed file ended before the end-of-stream marker").
+    Deshalb hier eine eigene, explizite Groessenpruefung nach dem Download
+    (und beim Wiederverwenden einer schon vorhandenen Datei) statt uns auf
+    urlretrieve()s interne Pruefung zu verlassen — mit automatischem Retry.
+    """
+    expected_size = _expected_content_length(OFF_DUMP_URL)
+
+    if os.path.exists(LOCAL_GZ_FILE):
+        actual_size = os.path.getsize(LOCAL_GZ_FILE)
+        if expected_size is not None and actual_size != expected_size:
+            print(
+                f"Vorhandene Datei ist unvollstaendig ({_format_bytes(actual_size)} von "
+                f"{_format_bytes(expected_size)}) — wird geloescht und neu geladen."
+            )
+            os.remove(LOCAL_GZ_FILE)
+        else:
+            print("Lokaler Dump bereits vorhanden, überspringe Download.")
+            return
+
+    for attempt in range(1, MAX_DOWNLOAD_ATTEMPTS + 1):
+        print(
+            f"Lade Open Food Facts Dump herunter (Versuch {attempt}/{MAX_DOWNLOAD_ATTEMPTS}, "
+            "voller Export, ~12-13 GB komprimiert)..."
         )
-        print("\nDownload abgeschlossen!")
-    else:
-        print("Lokaler Dump bereits vorhanden, überspringe Download.")
+        try:
+            urllib.request.urlretrieve(
+                OFF_DUMP_URL, LOCAL_GZ_FILE, reporthook=_download_progress_hook(time.time())
+            )
+        except Exception as err:
+            print(f"\nDownload-Fehler: {err}")
+            if os.path.exists(LOCAL_GZ_FILE):
+                os.remove(LOCAL_GZ_FILE)
+            continue
+
+        actual_size = os.path.getsize(LOCAL_GZ_FILE)
+        if expected_size is not None and actual_size != expected_size:
+            print(
+                f"\nDownload unvollstaendig: {_format_bytes(actual_size)} von "
+                f"{_format_bytes(expected_size)} erhalten."
+            )
+            os.remove(LOCAL_GZ_FILE)
+            continue
+
+        print("\nDownload abgeschlossen und Größe verifiziert!")
+        return
+
+    raise RuntimeError(
+        f"Download nach {MAX_DOWNLOAD_ATTEMPTS} Versuchen weiterhin unvollstaendig. Abbruch — "
+        "bitte Netzverbindung pruefen und das Skript erneut starten."
+    )
 
 
 def quick_check(db_path):
@@ -263,101 +329,120 @@ def process_and_create_sqlite():
     # die Verarbeitungsphase schätzen (Kompressionsrate ist über den Stream
     # hinweg näherungsweise konstant, also ist der Bytes-Anteil ein guter
     # Näherungswert für den Zeilen-Anteil).
-    with open(LOCAL_GZ_FILE, 'rb') as raw_file:
-        with gzip.GzipFile(fileobj=raw_file) as gz:
-            f = io.TextIOWrapper(gz, encoding='utf-8')
-            for line in f:
-                count += 1
-                if count % 100000 == 0:
-                    elapsed = time.time() - parse_start
-                    rate = count / elapsed if elapsed > 0 else 0
-                    bytes_read = raw_file.tell()
-                    pct = bytes_read / total_gz_size * 100 if total_gz_size > 0 else 0
-                    eta = (elapsed / pct * (100 - pct)) if pct > 0 else 0
-                    print(
-                        f"{count:>10,} Zeilen ({rate:,.0f}/s) — {pct:5.1f}% des Downloads verarbeitet"
-                        f", {_format_seconds(elapsed)} verstrichen, ETA {_format_seconds(eta)}"
-                        f" — {inserted:,} DE-Produkte gespeichert"
-                    )
+    try:
+        with open(LOCAL_GZ_FILE, 'rb') as raw_file:
+            with gzip.GzipFile(fileobj=raw_file) as gz:
+                f = io.TextIOWrapper(gz, encoding='utf-8')
+                for line in f:
+                    count += 1
+                    if count % 100000 == 0:
+                        elapsed = time.time() - parse_start
+                        rate = count / elapsed if elapsed > 0 else 0
+                        bytes_read = raw_file.tell()
+                        pct = bytes_read / total_gz_size * 100 if total_gz_size > 0 else 0
+                        eta = (elapsed / pct * (100 - pct)) if pct > 0 else 0
+                        print(
+                            f"{count:>10,} Zeilen ({rate:,.0f}/s) — {pct:5.1f}% des Downloads verarbeitet"
+                            f", {_format_seconds(elapsed)} verstrichen, ETA {_format_seconds(eta)}"
+                            f" — {inserted:,} DE-Produkte gespeichert"
+                        )
 
-                # 0. Billiger Vorfilter OHNE JSON-Parsing: taucht der Ländermarker
-                #    nicht mal als Roh-Substring in der Zeile auf, kann
-                #    countries_tags ihn erst recht nicht enthalten — die
-                #    allermeisten Zeilen (nicht-deutsche Produkte) werden so
-                #    verworfen, ohne je geparst zu werden. Reiner
-                #    Fast-Reject: ein (seltener) falscher Treffer landet
-                #    einfach normal im echten Check unten, keine
-                #    Korrektheitsauswirkung.
-                if GERMANY_MARKER not in line:
-                    continue
+                    # 0. Billiger Vorfilter OHNE JSON-Parsing: taucht der Ländermarker
+                    #    nicht mal als Roh-Substring in der Zeile auf, kann
+                    #    countries_tags ihn erst recht nicht enthalten — die
+                    #    allermeisten Zeilen (nicht-deutsche Produkte) werden so
+                    #    verworfen, ohne je geparst zu werden. Reiner
+                    #    Fast-Reject: ein (seltener) falscher Treffer landet
+                    #    einfach normal im echten Check unten, keine
+                    #    Korrektheitsauswirkung.
+                    if GERMANY_MARKER not in line:
+                        continue
 
-                try:
-                    item = _json_backend.loads(line)
-                except ValueError:
-                    continue
+                    try:
+                        item = _json_backend.loads(line)
+                    except ValueError:
+                        continue
 
-                # 1. Länder-Filter: Nur Produkte, die in Deutschland verkauft werden
-                countries = item.get("countries_tags", [])
-                if TARGET_COUNTRY_TAG not in countries:
-                    continue
+                    # 1. Länder-Filter: Nur Produkte, die in Deutschland verkauft werden
+                    countries = item.get("countries_tags", [])
+                    if TARGET_COUNTRY_TAG not in countries:
+                        continue
 
-                # 2. Relevante Felder extrahieren
-                code = item.get("code")
-                if not code:
-                    continue
+                    # 2. Relevante Felder extrahieren
+                    code = item.get("code")
+                    if not code:
+                        continue
 
-                # Produktname (bevorzugt Deutsch, sonst Standard)
-                product_name = item.get("product_name_de") or item.get("product_name") or ""
-                if not product_name.strip():
-                    continue # Ohne Namen macht ein Eintrag auf der Einkaufsliste keinen Sinn
+                    # Produktname (bevorzugt Deutsch, sonst Standard)
+                    product_name = item.get("product_name_de") or item.get("product_name") or ""
+                    if not product_name.strip():
+                        continue # Ohne Namen macht ein Eintrag auf der Einkaufsliste keinen Sinn
 
-                brand = item.get("brands", "")
-                quantity = item.get("quantity", "")
+                    brand = item.get("brands", "")
+                    quantity = item.get("quantity", "")
 
-                # Läden (Stores)
-                stores = item.get("stores", "")
+                    # Läden (Stores)
+                    stores = item.get("stores", "")
 
-                # Nutriscore
-                nutriscore = item.get("nutriscore_grade", "").lower()
+                    # Nutriscore
+                    nutriscore = item.get("nutriscore_grade", "").lower()
 
-                # OFF-Kategorie-Taxonomie (#223 Paket 4)
-                categories_tags_json = extract_category_tags(item)
-                off_last_modified_at = extract_last_modified_at(item)
-                if categories_tags_json != "[]":
-                    with_categories += 1
+                    # OFF-Kategorie-Taxonomie (#223 Paket 4)
+                    categories_tags_json = extract_category_tags(item)
+                    off_last_modified_at = extract_last_modified_at(item)
+                    if categories_tags_json != "[]":
+                        with_categories += 1
 
-                # Nährwerte (per 100g/100ml), mit Fallback-Kette (siehe extract_nutrient)
-                energy_kcal = extract_nutrient(item, "energy-kcal")
-                fat = extract_nutrient(item, "fat")
-                saturated_fat = extract_nutrient(item, "saturated-fat")
-                carbohydrates = extract_nutrient(item, "carbohydrates")
-                sugars = extract_nutrient(item, "sugars")
-                proteins = extract_nutrient(item, "proteins")
-                salt = extract_nutrient(item, "salt")
+                    # Nährwerte (per 100g/100ml), mit Fallback-Kette (siehe extract_nutrient)
+                    energy_kcal = extract_nutrient(item, "energy-kcal")
+                    fat = extract_nutrient(item, "fat")
+                    saturated_fat = extract_nutrient(item, "saturated-fat")
+                    carbohydrates = extract_nutrient(item, "carbohydrates")
+                    sugars = extract_nutrient(item, "sugars")
+                    proteins = extract_nutrient(item, "proteins")
+                    salt = extract_nutrient(item, "salt")
 
-                if None not in (energy_kcal, proteins, carbohydrates, fat):
-                    complete_nutrition += 1
+                    if None not in (energy_kcal, proteins, carbohydrates, fat):
+                        complete_nutrition += 1
 
-                batch.append((
-                    str(code), product_name, brand, quantity, stores, nutriscore,
-                    categories_tags_json, off_last_modified_at,
-                    energy_kcal, fat, saturated_fat, carbohydrates, sugars, proteins, salt
-                ))
+                    batch.append((
+                        str(code), product_name, brand, quantity, stores, nutriscore,
+                        categories_tags_json, off_last_modified_at,
+                        energy_kcal, fat, saturated_fat, carbohydrates, sugars, proteins, salt
+                    ))
 
-                # In Tausender-Blöcken in SQLite schreiben (Batching für maximale Geschwindigkeit)
-                if len(batch) >= 5000:
+                    # In Tausender-Blöcken in SQLite schreiben (Batching für maximale Geschwindigkeit)
+                    if len(batch) >= 5000:
+                        cursor.executemany("""
+                            INSERT OR REPLACE INTO products VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                        """, batch)
+                        batch = []
+                        inserted += 5000
+                        # Zwischen-Commit statt nur ganz am Ende: bei einem Absturz
+                        # (z.B. beschädigter Download, siehe except EOFError unten)
+                        # geht so nur der letzte angefangene Batch verloren, nicht
+                        # die komplette bisherige Arbeit.
+                        conn.commit()
+
+                # Restliche Daten schreiben
+                if batch:
                     cursor.executemany("""
                         INSERT OR REPLACE INTO products VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
                     """, batch)
-                    batch = []
-                    inserted += 5000
-
-            # Restliche Daten schreiben
-            if batch:
-                cursor.executemany("""
-                    INSERT OR REPLACE INTO products VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-                """, batch)
-                inserted += len(batch)
+                    inserted += len(batch)
+                    conn.commit()
+    # except EOFError as err:
+    except (EOFError, gzip.BadGzipFile, OSError) as err:
+        conn.commit()
+        conn.close()
+        print(
+            f"\nFEHLER: Gzip-Datei ist beschädigt/unvollständig ({err}).\n"
+            f"Bereits verarbeitete Produkte sind committet und in '{OUTPUT_DB}' vorhanden "
+            f"({inserted:,} Stück) — aber die Datei ist unvollständig, NICHT verwenden.\n"
+            f"Bitte '{LOCAL_GZ_FILE}' löschen und das Skript erneut starten "
+            "(lädt den Export automatisch neu)."
+        )
+        sys.exit(1)
 
     generated_at = to_iso_millis(datetime.now(timezone.utc))
     cursor.execute(
