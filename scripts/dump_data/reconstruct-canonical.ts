@@ -21,25 +21,14 @@
 import { Database } from 'bun:sqlite';
 import { existsSync } from 'node:fs';
 import { reconstructCanonical } from './dump-patch-core';
-import { quickCheck, readDumpMeta, readPatchDb, readProducts } from './dump-sqlite-io';
-
-const PRODUCT_COLUMNS = [
-  'code',
-  'product_name',
-  'brand',
-  'quantity',
-  'stores',
-  'nutriscore',
-  'categories_tags',
-  'off_last_modified_at',
-  'energy_kcal',
-  'fat',
-  'saturated_fat',
-  'carbohydrates',
-  'sugars',
-  'proteins',
-  'salt',
-] as const;
+import {
+  PRODUCT_COLUMNS,
+  productColumnDefsSql,
+  quickCheck,
+  readDumpMeta,
+  readPatchDb,
+  readProducts,
+} from './dump-sqlite-io';
 
 function parseArgs(argv: string[]): {
   baseline?: string;
@@ -77,7 +66,7 @@ function writeCanonicalDb(
   try {
     db.exec('PRAGMA journal_mode = MEMORY;');
     db.exec(`
-      create table products (${PRODUCT_COLUMNS.join(' text, ')} text);
+      create table products (${productColumnDefsSql()});
       create table dump_meta (
         schema_version integer not null,
         data_version text not null,

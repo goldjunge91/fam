@@ -8,7 +8,7 @@
 import { Database } from 'bun:sqlite';
 import type { DumpPatch, PatchProductRecord } from './dump-patch-core';
 
-const PRODUCT_COLUMNS = [
+const PRODUCT_TEXT_COLUMNS = [
   'code',
   'product_name',
   'brand',
@@ -17,6 +17,10 @@ const PRODUCT_COLUMNS = [
   'nutriscore',
   'categories_tags',
   'off_last_modified_at',
+] as const;
+
+/** Nährwerte pro 100g/100ml — müssen `real` sein, sonst vergleicht `computePatch()` (strikte `===`) Zahl gegen String falsch. */
+const PRODUCT_REAL_COLUMNS = [
   'energy_kcal',
   'fat',
   'saturated_fat',
@@ -25,6 +29,18 @@ const PRODUCT_COLUMNS = [
   'proteins',
   'salt',
 ] as const;
+
+export const PRODUCT_COLUMNS: readonly (keyof PatchProductRecord)[] = [
+  ...PRODUCT_TEXT_COLUMNS,
+  ...PRODUCT_REAL_COLUMNS,
+];
+
+export function productColumnDefsSql(): string {
+  return [
+    ...PRODUCT_TEXT_COLUMNS.map((c) => `${c} text`),
+    ...PRODUCT_REAL_COLUMNS.map((c) => `${c} real`),
+  ].join(', ');
+}
 
 export type DumpMeta = {
   schemaVersion: number;
@@ -103,7 +119,7 @@ export function writePatchDb(
         upsert_count integer not null,
         delete_count integer not null
       );
-      create table product_upserts (${PRODUCT_COLUMNS.join(' text, ')} text);
+      create table product_upserts (${productColumnDefsSql()});
       create table product_deletes (code text primary key);
     `);
 
@@ -123,7 +139,7 @@ export function writePatchDb(
       `insert into product_upserts (${PRODUCT_COLUMNS.join(', ')}) values (${PRODUCT_COLUMNS.map(() => '?').join(', ')})`,
     );
     for (const product of patch.upserts) {
-      insertUpsert.run(...PRODUCT_COLUMNS.map((col) => product[col]));
+      insertUpsert.run(...PRODUCT_COLUMNS.map((col) => product[col as keyof PatchProductRecord]));
     }
 
     const insertDelete = db.query('insert into product_deletes (code) values (?)');
