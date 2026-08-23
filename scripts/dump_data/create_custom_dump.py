@@ -1,4 +1,5 @@
 import gzip
+import io
 import json
 import sqlite3
 import sys
@@ -16,8 +17,22 @@ DATA_DIR = os.environ.get("DUMP_DATA_DIR", SCRIPT_DIR)
 LOCAL_GZ_FILE = os.path.join(DATA_DIR, "off_dump.jsonl.gz")
 OUTPUT_DB = os.path.join(DATA_DIR, "products_de.db")
 
+# Schnellerer JSON-Parser fuer die Hauptschleife (2-5x ggue. json.loads bei
+# diesem Datenvolumen). Faellt sauber auf die Standardbibliothek zurueck,
+# wenn orjson nicht installiert ist — funktional identisch (orjson.loads()
+# hat dieselbe Signatur, beide Fehlerklassen sind ValueError-Subklassen).
+try:
+    import orjson as _json_backend
+    _JSON_BACKEND_NAME = "orjson"
+except ImportError:
+    _json_backend = json
+    _JSON_BACKEND_NAME = "json (Standardbibliothek — 'pip install orjson' fuer 2-5x schnelleres Parsen)"
+
 OFF_DUMP_URL = "https://static.openfoodfacts.org/data/openfoodfacts-products.jsonl.gz"
 TARGET_COUNTRY_TAG = "en:germany"
+# Roh-Substring, wie der Tag als JSON-String in der Zeile auftaucht — fuer
+# den Vorfilter vor dem eigentlichen JSON-Parsing (siehe Hauptschleife).
+GERMANY_MARKER = f'"{TARGET_COUNTRY_TAG}"'
 
 # Schema 2 (#223 Paket 4) — alte Schema-1-Dumps werden gelöscht, nicht
 # migriert. Siehe openfoodfacts.sql für die dokumentierte Referenz.
@@ -240,86 +255,109 @@ def process_and_create_sqlite():
 
     print("Verarbeite Daten und filtere für Deutschland...")
     parse_start = time.time()
+    total_gz_size = os.path.getsize(LOCAL_GZ_FILE)
 
-    # Stream-Verarbeitung zeilenweise
-    with gzip.open(LOCAL_GZ_FILE, 'rt', encoding='utf-8') as f:
-        for line in f:
-            count += 1
-            if count % 100000 == 0:
-                elapsed = time.time() - parse_start
-                rate = count / elapsed if elapsed > 0 else 0
-                print(
-                    f"{count:>10,} Zeilen geparst ({rate:,.0f}/s, {_format_seconds(elapsed)}) — "
-                    f"{inserted:,} DE-Produkte gespeichert"
-                )
+    # Rohdatei selbst offen halten (statt gzip.open() direkt), damit wir per
+    # raw_file.tell() wissen, wie viele komprimierte Bytes schon gelesen
+    # wurden — daraus lässt sich ein echter Fortschritt (%) und eine ETA für
+    # die Verarbeitungsphase schätzen (Kompressionsrate ist über den Stream
+    # hinweg näherungsweise konstant, also ist der Bytes-Anteil ein guter
+    # Näherungswert für den Zeilen-Anteil).
+    with open(LOCAL_GZ_FILE, 'rb') as raw_file:
+        with gzip.GzipFile(fileobj=raw_file) as gz:
+            f = io.TextIOWrapper(gz, encoding='utf-8')
+            for line in f:
+                count += 1
+                if count % 100000 == 0:
+                    elapsed = time.time() - parse_start
+                    rate = count / elapsed if elapsed > 0 else 0
+                    bytes_read = raw_file.tell()
+                    pct = bytes_read / total_gz_size * 100 if total_gz_size > 0 else 0
+                    eta = (elapsed / pct * (100 - pct)) if pct > 0 else 0
+                    print(
+                        f"{count:>10,} Zeilen ({rate:,.0f}/s) — {pct:5.1f}% des Downloads verarbeitet"
+                        f", {_format_seconds(elapsed)} verstrichen, ETA {_format_seconds(eta)}"
+                        f" — {inserted:,} DE-Produkte gespeichert"
+                    )
 
-            try:
-                item = json.loads(line)
-            except json.JSONDecodeError:
-                continue
+                # 0. Billiger Vorfilter OHNE JSON-Parsing: taucht der Ländermarker
+                #    nicht mal als Roh-Substring in der Zeile auf, kann
+                #    countries_tags ihn erst recht nicht enthalten — die
+                #    allermeisten Zeilen (nicht-deutsche Produkte) werden so
+                #    verworfen, ohne je geparst zu werden. Reiner
+                #    Fast-Reject: ein (seltener) falscher Treffer landet
+                #    einfach normal im echten Check unten, keine
+                #    Korrektheitsauswirkung.
+                if GERMANY_MARKER not in line:
+                    continue
 
-            # 1. Länder-Filter: Nur Produkte, die in Deutschland verkauft werden
-            countries = item.get("countries_tags", [])
-            if TARGET_COUNTRY_TAG not in countries:
-                continue
+                try:
+                    item = _json_backend.loads(line)
+                except ValueError:
+                    continue
 
-            # 2. Relevante Felder extrahieren
-            code = item.get("code")
-            if not code:
-                continue
+                # 1. Länder-Filter: Nur Produkte, die in Deutschland verkauft werden
+                countries = item.get("countries_tags", [])
+                if TARGET_COUNTRY_TAG not in countries:
+                    continue
 
-            # Produktname (bevorzugt Deutsch, sonst Standard)
-            product_name = item.get("product_name_de") or item.get("product_name") or ""
-            if not product_name.strip():
-                continue # Ohne Namen macht ein Eintrag auf der Einkaufsliste keinen Sinn
+                # 2. Relevante Felder extrahieren
+                code = item.get("code")
+                if not code:
+                    continue
 
-            brand = item.get("brands", "")
-            quantity = item.get("quantity", "")
+                # Produktname (bevorzugt Deutsch, sonst Standard)
+                product_name = item.get("product_name_de") or item.get("product_name") or ""
+                if not product_name.strip():
+                    continue # Ohne Namen macht ein Eintrag auf der Einkaufsliste keinen Sinn
 
-            # Läden (Stores)
-            stores = item.get("stores", "")
+                brand = item.get("brands", "")
+                quantity = item.get("quantity", "")
 
-            # Nutriscore
-            nutriscore = item.get("nutriscore_grade", "").lower()
+                # Läden (Stores)
+                stores = item.get("stores", "")
 
-            # OFF-Kategorie-Taxonomie (#223 Paket 4)
-            categories_tags_json = extract_category_tags(item)
-            off_last_modified_at = extract_last_modified_at(item)
-            if categories_tags_json != "[]":
-                with_categories += 1
+                # Nutriscore
+                nutriscore = item.get("nutriscore_grade", "").lower()
 
-            # Nährwerte (per 100g/100ml), mit Fallback-Kette (siehe extract_nutrient)
-            energy_kcal = extract_nutrient(item, "energy-kcal")
-            fat = extract_nutrient(item, "fat")
-            saturated_fat = extract_nutrient(item, "saturated-fat")
-            carbohydrates = extract_nutrient(item, "carbohydrates")
-            sugars = extract_nutrient(item, "sugars")
-            proteins = extract_nutrient(item, "proteins")
-            salt = extract_nutrient(item, "salt")
+                # OFF-Kategorie-Taxonomie (#223 Paket 4)
+                categories_tags_json = extract_category_tags(item)
+                off_last_modified_at = extract_last_modified_at(item)
+                if categories_tags_json != "[]":
+                    with_categories += 1
 
-            if None not in (energy_kcal, proteins, carbohydrates, fat):
-                complete_nutrition += 1
+                # Nährwerte (per 100g/100ml), mit Fallback-Kette (siehe extract_nutrient)
+                energy_kcal = extract_nutrient(item, "energy-kcal")
+                fat = extract_nutrient(item, "fat")
+                saturated_fat = extract_nutrient(item, "saturated-fat")
+                carbohydrates = extract_nutrient(item, "carbohydrates")
+                sugars = extract_nutrient(item, "sugars")
+                proteins = extract_nutrient(item, "proteins")
+                salt = extract_nutrient(item, "salt")
 
-            batch.append((
-                str(code), product_name, brand, quantity, stores, nutriscore,
-                categories_tags_json, off_last_modified_at,
-                energy_kcal, fat, saturated_fat, carbohydrates, sugars, proteins, salt
-            ))
+                if None not in (energy_kcal, proteins, carbohydrates, fat):
+                    complete_nutrition += 1
 
-            # In Tausender-Blöcken in SQLite schreiben (Batching für maximale Geschwindigkeit)
-            if len(batch) >= 5000:
+                batch.append((
+                    str(code), product_name, brand, quantity, stores, nutriscore,
+                    categories_tags_json, off_last_modified_at,
+                    energy_kcal, fat, saturated_fat, carbohydrates, sugars, proteins, salt
+                ))
+
+                # In Tausender-Blöcken in SQLite schreiben (Batching für maximale Geschwindigkeit)
+                if len(batch) >= 5000:
+                    cursor.executemany("""
+                        INSERT OR REPLACE INTO products VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                    """, batch)
+                    batch = []
+                    inserted += 5000
+
+            # Restliche Daten schreiben
+            if batch:
                 cursor.executemany("""
                     INSERT OR REPLACE INTO products VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
                 """, batch)
-                batch = []
-                inserted += 5000
-
-        # Restliche Daten schreiben
-        if batch:
-            cursor.executemany("""
-                INSERT OR REPLACE INTO products VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-            """, batch)
-            inserted += len(batch)
+                inserted += len(batch)
 
     generated_at = to_iso_millis(datetime.now(timezone.utc))
     cursor.execute(
@@ -352,6 +390,7 @@ def process_and_create_sqlite():
 
 
 if __name__ == "__main__":
+    print(f"JSON-Parser: {_JSON_BACKEND_NAME}")
     download_dump()
     process_and_create_sqlite()
 
