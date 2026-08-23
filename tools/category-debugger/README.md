@@ -21,13 +21,21 @@ aktualisiert sich live — unabhängig vom geladenen Dump.
 
 ## Bekannte Lücke
 
-Der heruntergeladene Dump ist noch **Schema 1** (kein `categories_tags`).
-Der Dump-Treffer-Pfad läuft deshalb bis Paket 4 (Offline-Dump Schema 2)
-zwangsläufig nur über den Namens-Fallback — für OFF-Tag-Tests den
-Freitext-Tester oben nutzen. Die deterministischen 100-Stichproben-je-
-Kategorie- und Golden-Korpus-Ansichten aus dem Plan folgen mit dem
-Kalibrierungs-Skript (`scripts/dump_data/evaluate-categories.ts`, Paket 5),
-sobald ein Schema-2-Dump vorliegt.
+Der Generator (`scripts/dump_data/create_custom_dump.py`) erzeugt seit #223
+Paket 4 **Schema 2** mit `categories_tags`/`off_last_modified_at`. Bis eine
+neue Baseline tatsächlich veröffentlicht wurde (voller OFF-Export, ~12 GB,
+läuft nicht in CI-Sandboxes — siehe Kommentar im Skript), liegt der
+heruntergeladene Dump-Release aber noch im alten **Schema 1** vor. Fehlt die
+Spalte, liefert `parseCategoryTagsJson()` einfach `[]` (kein Crash), der
+Dump-Trace fällt dann automatisch auf den Namens-Fallback zurück — für
+OFF-Tag-Tests unabhängig davon jederzeit den Freitext-Tester oben nutzen.
+
+Die deterministischen 100-Stichproben-je-Kategorie- und
+Golden-Korpus-Auswertung aus dem Plan liefert
+`bun run evaluate-categories` (`scripts/dump_data/evaluate-categories.ts`,
+bereits seit Paket 1 vorhanden) — läuft schon jetzt gegen den lokalen Dump,
+die OFF-Tag-Metriken darin füllen sich automatisch, sobald ein
+Schema-2-Release vorliegt.
 
 ## Nutzung
 

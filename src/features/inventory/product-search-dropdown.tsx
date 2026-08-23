@@ -19,7 +19,11 @@ import { ThemedText } from '@/components/theme/themed-text';
 import { useTheme } from '@/hooks/use-theme';
 import { getDatabase } from '@/lib/db/client';
 import { dedupeProductsByBarcode, searchOffDump } from '@/lib/off-dump/off-dump';
-import { type OpenFoodFactsProduct, searchOpenFoodFacts } from '@/lib/open-food-facts';
+import {
+  type OpenFoodFactsProduct,
+  parseCategoryTagsJson,
+  searchOpenFoodFacts,
+} from '@/lib/open-food-facts';
 
 /** Unter dieser Zahl lokaler Treffer lohnt sich der zusaetzliche OFF-Request noch. */
 const LOCAL_RESULT_THRESHOLD = 5;
@@ -58,19 +62,6 @@ type LocalProductRow = {
   off_last_modified_at?: string | null;
 };
 
-/** Robust gegen fehlendes/kaputtes JSON — ein Parse-Fehler darf die Suche nicht abbrechen. */
-function parseCategoryTags(raw: string | null | undefined): string[] {
-  if (!raw) return [];
-  try {
-    const parsed = JSON.parse(raw);
-    return Array.isArray(parsed)
-      ? parsed.filter((tag): tag is string => typeof tag === 'string')
-      : [];
-  } catch {
-    return [];
-  }
-}
-
 function toOpenFoodFactsProduct(row: LocalProductRow): OpenFoodFactsProduct {
   return {
     barcode: row.barcode ?? '',
@@ -80,7 +71,7 @@ function toOpenFoodFactsProduct(row: LocalProductRow): OpenFoodFactsProduct {
     proteinsPer100g: row.protein_g_per_100 ?? undefined,
     carbsPer100g: row.carbs_g_per_100 ?? undefined,
     fatPer100g: row.fat_g_per_100 ?? undefined,
-    categoryTags: parseCategoryTags(row.off_category_tags),
+    categoryTags: parseCategoryTagsJson(row.off_category_tags),
     offLastModifiedAt: row.off_last_modified_at ?? undefined,
   };
 }

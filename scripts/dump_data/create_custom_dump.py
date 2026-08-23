@@ -1,8 +1,10 @@
 import gzip
 import json
 import sqlite3
+import sys
 import urllib.request
 import os
+from datetime import datetime, timezone
 
 # Dynamische Pfade: Speichert alles immer im selben Ordner wie das Skript selbst
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -11,6 +13,10 @@ OUTPUT_DB = os.path.join(SCRIPT_DIR, "products_de.db")
 
 OFF_DUMP_URL = "https://static.openfoodfacts.org/data/openfoodfacts-products.jsonl.gz"
 TARGET_COUNTRY_TAG = "en:germany"
+
+# Schema 2 (#223 Paket 4) — alte Schema-1-Dumps werden gelöscht, nicht
+# migriert. Siehe openfoodfacts.sql für die dokumentierte Referenz.
+SCHEMA_VERSION = 2
 
 
 def extract_nutrient(item, key):
@@ -61,6 +67,49 @@ def extract_nutrient(item, key):
     return None
 
 
+def extract_category_tags(item):
+    """Kanonische `categories_tags` unveraendert uebernehmen (#223 Paket 4).
+
+    Nur String-Eintraege (OFF liefert vereinzelt kaputte/nicht-String-Werte),
+    als JSON-Array-Text fuer SQLite serialisiert. Deckt sich mit dem
+    TS-seitigen Parser in formatOFFProduct() (src/lib/open-food-facts.ts) —
+    "jeder Mapperpfad liefert dieselben Daten wie die Live-Suche".
+    """
+    raw_tags = item.get("categories_tags") or []
+    tags = [tag for tag in raw_tags if isinstance(tag, str)]
+    return json.dumps(tags)
+
+
+def to_iso_millis(dt):
+    """Formatiert `dt` byte-identisch zu JS' `toISOString()` — siehe
+    `extract_last_modified_at` fuer die Begruendung."""
+    return dt.strftime("%Y-%m-%dT%H:%M:%S.") + f"{dt.microsecond // 1000:03d}Z"
+
+
+def extract_last_modified_at(item):
+    """`last_modified_t` (Unix-Sekunden) in einen ISO-8601-Zeitstempel
+    umwandeln, deckungsgleich mit dem TS-seitigen Parser (`new
+    Date(t * 1000).toISOString()` in src/lib/open-food-facts.ts).
+
+    Format muss BYTE-IDENTISCH zu JS' toISOString() sein (Millisekunden immer
+    dreistellig, z.B. "...20.000Z") — sonst sortieren Live- (JS) und
+    Dump-Werte (Python) fuer denselben Zeitpunkt lexikografisch
+    unterschiedlich, und die "nur bei neuerem off_last_modified_at
+    aktualisieren"-Logik der vertrauenswuerdigen Anreicherung (#223 Paket 10)
+    faellt falsch aus.
+    """
+    raw = item.get("last_modified_t")
+    if raw is None:
+        return None
+    try:
+        seconds = float(raw)
+        if seconds <= 0:
+            return None
+        return to_iso_millis(datetime.fromtimestamp(seconds, tz=timezone.utc))
+    except (TypeError, ValueError, OSError, OverflowError):
+        return None
+
+
 def download_dump():
     if not os.path.exists(LOCAL_GZ_FILE):
         print("Lade Open Food Facts Dump herunter (kann ein paar Minuten dauern)...")
@@ -68,6 +117,18 @@ def download_dump():
         print("Download abgeschlossen!")
     else:
         print("Lokaler Dump bereits vorhanden, überspringe Download.")
+
+
+def quick_check(db_path):
+    """`PRAGMA quick_check` vor Veröffentlichung (#223 Paket 4) — eine
+    beschädigte Datei darf nie als Release-Asset landen."""
+    conn = sqlite3.connect(db_path)
+    try:
+        result = conn.execute("PRAGMA quick_check;").fetchone()
+        return result is not None and result[0] == "ok"
+    finally:
+        conn.close()
+
 
 def process_and_create_sqlite():
     # Falls alte DB existiert, vorher löschen für sauberen Neuaufbau
@@ -82,7 +143,7 @@ def process_and_create_sqlite():
     cursor.execute("PRAGMA synchronous = OFF;")
     cursor.execute("PRAGMA journal_mode = MEMORY;")
 
-    # Tabelle anlegen (Indexe erstellen wir erst GANZ AM ENDE!)
+    # Tabellen anlegen (Indexe erstellen wir erst GANZ AM ENDE!)
     cursor.execute("""
         CREATE TABLE products (
             code TEXT PRIMARY KEY,
@@ -91,6 +152,8 @@ def process_and_create_sqlite():
             quantity TEXT,
             stores TEXT,
             nutriscore TEXT,
+            categories_tags TEXT,
+            off_last_modified_at TEXT,
             energy_kcal REAL,
             fat REAL,
             saturated_fat REAL,
@@ -100,14 +163,23 @@ def process_and_create_sqlite():
             salt REAL
         );
     """)
+    cursor.execute("""
+        CREATE TABLE dump_meta (
+            schema_version INTEGER NOT NULL,
+            data_version TEXT NOT NULL,
+            generated_at TEXT NOT NULL,
+            source_cursor TEXT
+        );
+    """)
 
     count = 0
     inserted = 0
     complete_nutrition = 0
+    with_categories = 0
     batch = []
 
     print("Verarbeite Daten und filtere für Deutschland...")
-    
+
     # Stream-Verarbeitung zeilenweise
     with gzip.open(LOCAL_GZ_FILE, 'rt', encoding='utf-8') as f:
         for line in f:
@@ -137,12 +209,18 @@ def process_and_create_sqlite():
 
             brand = item.get("brands", "")
             quantity = item.get("quantity", "")
-            
+
             # Läden (Stores)
             stores = item.get("stores", "")
-            
+
             # Nutriscore
             nutriscore = item.get("nutriscore_grade", "").lower()
+
+            # OFF-Kategorie-Taxonomie (#223 Paket 4)
+            categories_tags_json = extract_category_tags(item)
+            off_last_modified_at = extract_last_modified_at(item)
+            if categories_tags_json != "[]":
+                with_categories += 1
 
             # Nährwerte (per 100g/100ml), mit Fallback-Kette (siehe extract_nutrient)
             energy_kcal = extract_nutrient(item, "energy-kcal")
@@ -158,13 +236,14 @@ def process_and_create_sqlite():
 
             batch.append((
                 str(code), product_name, brand, quantity, stores, nutriscore,
+                categories_tags_json, off_last_modified_at,
                 energy_kcal, fat, saturated_fat, carbohydrates, sugars, proteins, salt
             ))
 
             # In Tausender-Blöcken in SQLite schreiben (Batching für maximale Geschwindigkeit)
             if len(batch) >= 5000:
                 cursor.executemany("""
-                    INSERT OR REPLACE INTO products VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                    INSERT OR REPLACE INTO products VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
                 """, batch)
                 batch = []
                 inserted += 5000
@@ -172,10 +251,15 @@ def process_and_create_sqlite():
         # Restliche Daten schreiben
         if batch:
             cursor.executemany("""
-                INSERT OR REPLACE INTO products VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                INSERT OR REPLACE INTO products VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
             """, batch)
             inserted += len(batch)
 
+    generated_at = to_iso_millis(datetime.now(timezone.utc))
+    cursor.execute(
+        "INSERT INTO dump_meta (schema_version, data_version, generated_at, source_cursor) VALUES (?, ?, ?, ?)",
+        (SCHEMA_VERSION, generated_at, generated_at, None),
+    )
     conn.commit()
 
     # Indexe ERST JETZT erstellen (spart extrem viel Zeit!)
@@ -183,20 +267,28 @@ def process_and_create_sqlite():
     cursor.execute("CREATE INDEX idx_product_name ON products(product_name);")
     cursor.execute("CREATE INDEX idx_brand ON products(brand);")
     conn.commit()
-
     conn.close()
 
     quote = (complete_nutrition / inserted * 100) if inserted else 0
-    print(f"FERTIG! Insgesamt {inserted} deutsche Produkte in '{OUTPUT_DB}' gespeichert.")
+    category_quote = (with_categories / inserted * 100) if inserted else 0
+    print(f"FERTIG! Insgesamt {inserted} deutsche Produkte in '{OUTPUT_DB}' gespeichert (Schema {SCHEMA_VERSION}).")
     print(
         f"Davon mit vollstaendigen Kern-Naehrwerten (kcal/Protein/Kohlenhydrate/Fett): "
         f"{complete_nutrition} ({quote:.1f} %)."
     )
+    print(f"Davon mit mindestens einem OFF-Kategorie-Tag: {with_categories} ({category_quote:.1f} %).")
+
+    print("Prüfe Integrität (quick_check)...")
+    if not quick_check(OUTPUT_DB):
+        print("FEHLER: quick_check ist fehlgeschlagen — Datei wird NICHT veröffentlicht.")
+        sys.exit(1)
+    print("quick_check: ok.")
+
 
 if __name__ == "__main__":
     download_dump()
     process_and_create_sqlite()
-    
+
     # Aufräumen: Temporären Dump nach der Verarbeitung löschen
     if os.path.exists(LOCAL_GZ_FILE):
         print("Lösche temporären Dump...")

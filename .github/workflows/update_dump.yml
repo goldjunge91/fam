@@ -34,7 +34,9 @@ jobs:
           python -m pip install --upgrade pip
           pip install orjson requests
 
-      # 4. Dein Skript ausführen
+      # 4. Dein Skript ausführen (Schema 2 seit #223 Paket 4 — categories_tags,
+      #    off_last_modified_at, dump_meta; bricht selbst mit exit 1 ab, wenn
+      #    PRAGMA quick_check vor der Veröffentlichung fehlschlägt)
       - name: Run Dump Script
         run: |
           python scripts/dump_data/create_custom_dump.py
