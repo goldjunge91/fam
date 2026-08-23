@@ -6,14 +6,19 @@ import {
   parseCategoryTagsJson,
   parseQuantityAndUnit,
 } from '@/lib/open-food-facts';
+import { installBaseline } from './baseline-installer';
+import { createExpoFileOps } from './expo-file-ops';
+import { fetchManifest } from './manifest';
+import type { DumpPaths } from './repository';
+import { checkForUpdate, reconcileOnStart, type UpdateOutcome } from './repository';
 
 /**
- * Lokaler OpenFoodFacts-Dump (#79 zusammen mit dem Dump-CI-Workflow,
- * `.github/workflows/update_dump.yml`): laedt das neueste `products_de_*.db`
- * GitHub-Release-Asset herunter und haengt es als `off_dump`-Schema an die
- * lokale SQLite-Verbindung an, damit die Produktsuche auch ohne Netz gegen
- * den gesamten DE-Bestand laufen kann (nicht nur gegen den kleinen,
- * selbst gepflegten `products`-Spiegel).
+ * Lokaler OpenFoodFacts-Dump (#223 Paket 6, Abschnitt 14): haengt die lokal
+ * vorhandene Datei sofort an ("Offline-Suche verfuegbar machen"), bevor im
+ * Hintergrund ueber `repository.ts` (Manifest, Patch-Kette oder Baseline)
+ * geprueft wird, ob eine neuere Version vorliegt. Das rollierende
+ * `off-dump-current`-Release (fester Tag, nicht `latest` — siehe
+ * `.github/workflows/update_dump.yml`) ist die Quelle.
  *
  * `expo-file-system` wird bewusst per `require()` erst innerhalb der
  * Funktionen geladen statt per Top-Level-`import` — dasselbe Muster wie
@@ -37,134 +42,50 @@ function loadFileSystem(): typeof import('expo-file-system') {
 
 const REPO = 'goldjunge91/fam';
 const DUMP_FILE_NAME = DATABASE_FILE_NAMES.offDump;
-const RELEASE_TAG_KEY = 'off_dump_release_tag';
-const LAST_CHECK_KEY = 'off_dump_last_check_at';
-/** Der Dump-CI-Workflow (`update_dump.yml`) veroeffentlicht hoechstens monatlich. */
-const CHECK_TTL_MS = 24 * 60 * 60 * 1000;
+const MANIFEST_URL = `https://github.com/${REPO}/releases/download/off-dump-current/manifest.json`;
 
-export type GitHubReleaseAsset = {
-  name: string;
-  browser_download_url: string;
-};
+const LAST_CHECK_KEY = 'off_dump_last_check_at';
+const LAST_SUCCESSFUL_UPDATE_KEY = 'off_dump_last_successful_update_at';
+const LAST_ERROR_KEY = 'off_dump_last_error';
 
 /**
- * Waehlt aus den Release-Assets das unkomprimierte SQLite-Dump-Asset
- * (`products_de_<datum>.db`, nicht `.db.gz`) — bewusst unkomprimiert, um
- * keine Gunzip-Abhaengigkeit fuer den Client einzufuehren. Pure Funktion,
- * unabhaengig von Netz/nativen Modulen testbar.
+ * Anders als beim alten monatlichen Vollneubau liegt die Manifest-URL nicht
+ * hinter `api.github.com` (60 anonyme Anfragen/Stunde), sondern ist ein
+ * normaler Release-Asset-Download — kein GitHub-API-Rate-Limit einschlaegig.
+ * Patches erscheinen laut `update_dump.yml` taeglich, ein kuerzeres Intervall
+ * als beim alten System ist deshalb sowohl moeglich als auch sinnvoll.
  */
-export function pickDbAsset(assets: readonly GitHubReleaseAsset[]): GitHubReleaseAsset | undefined {
-  return assets.find((asset) => asset.name.toLowerCase().endsWith('.db'));
-}
+const CHECK_TTL_MS = 6 * 60 * 60 * 1000;
 
-export type DumpRelease = { tag: string; downloadUrl: string };
-
-/** Fragt den neuesten Dump-Release ab. `null` bei fehlendem Netz/Fehler — kein Wurf. */
-export async function checkForNewDumpRelease(): Promise<DumpRelease | null> {
-  try {
-    const res = await fetch(`https://api.github.com/repos/${REPO}/releases/latest`);
-    if (!res.ok) return null;
-
-    const release = (await res.json()) as { tag_name?: string; assets?: GitHubReleaseAsset[] };
-    const asset = pickDbAsset(release.assets ?? []);
-    if (!asset || !release.tag_name) return null;
-
-    return { tag: release.tag_name, downloadUrl: asset.browser_download_url };
-  } catch {
-    return null;
-  }
-}
-
-async function getStoredReleaseTag(db: SqlDatabase): Promise<string | null> {
+async function getMetaValue(db: SqlDatabase, key: string): Promise<string | null> {
   const row = await db.getFirstAsync<{ value: string | null }>(
     'select value from app_meta where key = ?',
-    [RELEASE_TAG_KEY],
+    [key],
   );
   return row?.value ?? null;
 }
 
-async function setStoredReleaseTag(db: SqlDatabase, tag: string): Promise<void> {
+async function setMetaValue(db: SqlDatabase, key: string, value: string): Promise<void> {
   await db.runAsync(
     'insert into app_meta (key, value) values (?, ?) on conflict(key) do update set value = excluded.value',
-    [RELEASE_TAG_KEY, tag],
+    [key, value],
   );
-}
-
-async function getLastCheckAt(db: SqlDatabase): Promise<number | null> {
-  const row = await db.getFirstAsync<{ value: string | null }>(
-    'select value from app_meta where key = ?',
-    [LAST_CHECK_KEY],
-  );
-  return row?.value ? Number(row.value) : null;
-}
-
-async function setLastCheckAt(db: SqlDatabase, timestamp: number): Promise<void> {
-  await db.runAsync(
-    'insert into app_meta (key, value) values (?, ?) on conflict(key) do update set value = excluded.value',
-    [LAST_CHECK_KEY, String(timestamp)],
-  );
-}
-
-/**
- * Laedt den Dump herunter, wenn eine neuere Version verfuegbar ist (oder noch
- * keine lokale Datei existiert) — sonst ein No-Op. Wirft nie: bei fehlendem
- * Netz bleibt eine schon vorhandene lokale Datei einfach stehen, das ist
- * kein Fehlerfall. Gedacht fuers Feuern-und-Vergessen beim App-Start
- * (`.catch()` beim Aufrufer reicht als Absicherung).
- *
- * Fragt `checkForNewDumpRelease()` hoechstens einmal pro `CHECK_TTL_MS` an,
- * solange schon eine lokale Datei vorliegt — sonst schlaegt jeder App-Start
- * gegen die anonyme GitHub-Rate-Limit-Grenze auf, obwohl der Dump laut
- * `update_dump.yml` nur monatlich neu erscheint.
- *
- * Liefert den lokalen Datei-URI, sobald irgendeine Version vorliegt.
- */
-export async function ensureOffDumpDownloaded(db: SqlDatabase): Promise<string | null> {
-  const { File, Paths } = loadFileSystem();
-  const target = new File(Paths.document, DUMP_FILE_NAME);
-
-  const lastCheckAt = await getLastCheckAt(db);
-  if (target.exists && lastCheckAt !== null && Date.now() - lastCheckAt < CHECK_TTL_MS) {
-    return target.uri;
-  }
-
-  const release = await checkForNewDumpRelease();
-  if (!release) return target.exists ? target.uri : null;
-  await setLastCheckAt(db, Date.now());
-
-  const storedTag = await getStoredReleaseTag(db);
-  if (release.tag === storedTag && target.exists) return target.uri;
-
-  await File.downloadFileAsync(release.downloadUrl, target, { idempotent: true });
-  await setStoredReleaseTag(db, release.tag);
-  return target.uri;
-}
-
-/**
- * Erzwingt einen sofortigen Release-Check und Download, unabhaengig vom
- * `CHECK_TTL_MS`-Gate und selbst wenn Tag und Datei bereits uebereinstimmen —
- * fuer den manuellen "Dump neu laden"-Knopf im Entwickler-Bereich, wo genau
- * dieses Warten/Ueberspringen den Sinn der Aktion untergraeben wuerde. Wirft
- * (statt `null` zurueckzugeben) bei fehlendem Netz/Release, damit der
- * aufrufende Button den Fehler in einem `Alert` anzeigen kann.
- */
-export async function forceRefreshOffDump(db: SqlDatabase): Promise<string> {
-  const { File, Paths } = loadFileSystem();
-  const target = new File(Paths.document, DUMP_FILE_NAME);
-
-  const release = await checkForNewDumpRelease();
-  if (!release) {
-    throw new Error('Kein Release gefunden (kein Netz oder GitHub nicht erreichbar).');
-  }
-
-  await setLastCheckAt(db, Date.now());
-  await File.downloadFileAsync(release.downloadUrl, target, { idempotent: true });
-  await setStoredReleaseTag(db, release.tag);
-  return target.uri;
 }
 
 function toFsPath(uri: string): string {
   return uri.startsWith('file://') ? uri.slice('file://'.length) : uri;
+}
+
+/** Pfade fuer active/next/recovery — siehe Abschnitt 14 "Sicherer Baseline-Wechsel". */
+function dumpPaths(): DumpPaths {
+  const { File, Paths } = loadFileSystem();
+  return {
+    activePath: toFsPath(new File(Paths.document, DUMP_FILE_NAME).uri),
+    nextPath: toFsPath(new File(Paths.document, DUMP_FILE_NAME.replace('.db', '.next.db')).uri),
+    recoveryPath: toFsPath(
+      new File(Paths.document, DUMP_FILE_NAME.replace('.db', '.recovery.db')).uri,
+    ),
+  };
 }
 
 let attachedThisSession = false;
@@ -187,26 +108,37 @@ export function resetOffDumpAttachment(): void {
 
 export type OffDumpStatus = {
   attached: boolean;
-  /** Release-Tag der zuletzt heruntergeladenen Version, `null` wenn noch nie geladen. */
-  storedReleaseTag: string | null;
   fileExists: boolean;
   fileSizeBytes: number;
+  schemaVersion: number | null;
+  dataVersion: string | null;
+  lastCheckAt: string | null;
+  lastSuccessfulUpdateAt: string | null;
+  lastError: string | null;
 };
 
 /**
- * Fuers Entwickler-Bereich (#79-Nachfrage "woher weiss ich, ob wir den
- * Release runtergeladen haben"): fasst zusammen, ob der Dump lokal liegt,
- * welche Version, und ob er an die aktuelle Connection angehaengt ist.
+ * Fuers Entwickler-Bereich (Abschnitt 14): fasst zusammen, ob der Dump lokal
+ * liegt, welche Schema-/Daten-Version, wann zuletzt geprueft/erfolgreich
+ * aktualisiert wurde und ob ein Fehler vorliegt.
  */
 export async function getOffDumpStatus(db: SqlDatabase): Promise<OffDumpStatus> {
   const { File, Paths } = loadFileSystem();
   const target = new File(Paths.document, DUMP_FILE_NAME);
+  const inspected = target.exists
+    ? await createExpoFileOps(db).inspectDump(dumpPaths().activePath)
+    : null;
+  const lastError = await getMetaValue(db, LAST_ERROR_KEY);
 
   return {
     attached: attachedThisSession,
-    storedReleaseTag: await getStoredReleaseTag(db),
     fileExists: target.exists,
     fileSizeBytes: target.exists ? target.size : 0,
+    schemaVersion: inspected?.schemaVersion ?? null,
+    dataVersion: inspected?.dataVersion ?? null,
+    lastCheckAt: await getMetaValue(db, LAST_CHECK_KEY),
+    lastSuccessfulUpdateAt: await getMetaValue(db, LAST_SUCCESSFUL_UPDATE_KEY),
+    lastError: lastError || null,
   };
 }
 
@@ -248,17 +180,122 @@ export async function attachOffDump(db: SqlDatabase): Promise<boolean> {
 }
 
 /**
- * Einstiegspunkt fuer App-Start/Nutzerwechsel: haengt zuerst an, was schon
- * lokal liegt (schnell, kein Netz noetig), bevor `ensureOffDumpDownloaded`
- * — TTL-gated, siehe dort — im Hintergrund auf eine neue Version prueft. Der
- * zweite `attachOffDump`-Aufruf ist kein Duplikat: Lag noch keine Datei vor,
- * war der erste ein No-Op (`return false`), und erst nach dem Download gibt
- * es etwas anzuhaengen.
+ * Fuehrt den Update-Check aus (Manifest -> Patch-Kette oder Baseline via
+ * `repository.ts`) und persistiert Zeitpunkt/Ergebnis fuer den Entwickler-
+ * Bereich. Wirft nie.
+ *
+ * Nach einer erfolgreichen Baseline-Installation ist `off_dump` auf der
+ * Connection bereits angehaengt (`baseline-installer.ts` haengt beim
+ * Datei-Swap direkt an, ausserhalb des `attachedThisSession`-Flags) — der
+ * erneute `attachOffDump`-Aufruf hier gleicht nur das Flag ab: entweder war
+ * es der allererste Attach (Datei kam gerade erst dazu), oder er laeuft
+ * gegen eine bereits angehaengte Connection und der "already in use"-Fehler
+ * wird geschluckt (siehe `attachOffDump`).
+ */
+async function runUpdateCheck(db: SqlDatabase): Promise<UpdateOutcome> {
+  const fileOps = createExpoFileOps(db);
+  const paths = dumpPaths();
+
+  await setMetaValue(db, LAST_CHECK_KEY, new Date().toISOString());
+  try {
+    const outcome = await checkForUpdate({ db, fileOps, manifestUrl: MANIFEST_URL, paths });
+    if (outcome.kind === 'patched' || outcome.kind === 'baseline-installed') {
+      await setMetaValue(db, LAST_SUCCESSFUL_UPDATE_KEY, new Date().toISOString());
+      await setMetaValue(db, LAST_ERROR_KEY, '');
+      await attachOffDump(db);
+    } else if (outcome.kind === 'baseline-failed') {
+      await setMetaValue(db, LAST_ERROR_KEY, 'Baseline-Installation fehlgeschlagen.');
+    }
+    return outcome;
+  } catch (err) {
+    const message = err instanceof Error ? err.message : String(err);
+    await setMetaValue(db, LAST_ERROR_KEY, message);
+    return { kind: 'manifest-unavailable' };
+  }
+}
+
+async function checkForUpdateIfDue(db: SqlDatabase): Promise<void> {
+  const lastCheckAt = await getMetaValue(db, LAST_CHECK_KEY);
+  if (lastCheckAt && Date.now() - Date.parse(lastCheckAt) < CHECK_TTL_MS) return;
+  await runUpdateCheck(db);
+}
+
+/**
+ * Erzwingt einen sofortigen Update-Check, unabhaengig vom `CHECK_TTL_MS`-
+ * Gate — fuer den "Jetzt aktualisieren"-Knopf im Entwickler-Bereich. Wirft
+ * bei Fehlschlag (statt nur den Outcome zurueckzugeben), damit der Button
+ * den Fehler in einem `Alert` anzeigen kann.
+ */
+export async function forceRefreshOffDump(db: SqlDatabase): Promise<UpdateOutcome> {
+  const outcome = await runUpdateCheck(db);
+  if (outcome.kind === 'manifest-unavailable') {
+    throw new Error('Kein Manifest gefunden (kein Netz oder GitHub nicht erreichbar).');
+  }
+  if (outcome.kind === 'baseline-failed') {
+    throw new Error('Baseline-Installation fehlgeschlagen (Pruefsumme/Schema ungueltig).');
+  }
+  return outcome;
+}
+
+/**
+ * Erzwingt eine frische Baseline unabhaengig von einer moeglichen
+ * Patch-Kette — fuer den "Baseline neu installieren"-Knopf im
+ * Entwickler-Bereich, gedacht als Reparaturweg bei einem als beschaedigt
+ * vermuteten lokalen Dump.
+ */
+export async function reinstallOffDumpBaseline(db: SqlDatabase): Promise<UpdateOutcome> {
+  const manifest = await fetchManifest(MANIFEST_URL);
+  if (!manifest) {
+    throw new Error('Kein Manifest gefunden (kein Netz oder GitHub nicht erreichbar).');
+  }
+
+  const fileOps = createExpoFileOps(db);
+  const paths = dumpPaths();
+  const result = await installBaseline(db, fileOps, {
+    downloadUrl: manifest.baseline.url,
+    expectedSha256: manifest.baseline.sha256,
+    expectedSchemaVersion: manifest.schemaVersion,
+    activePath: paths.activePath,
+    nextPath: paths.nextPath,
+    recoveryPath: paths.recoveryPath,
+  });
+  if (!result.ok) {
+    await setMetaValue(db, LAST_ERROR_KEY, 'Baseline-Installation fehlgeschlagen.');
+    throw new Error('Baseline-Installation fehlgeschlagen (Pruefsumme/Schema ungueltig).');
+  }
+
+  await setMetaValue(db, LAST_SUCCESSFUL_UPDATE_KEY, new Date().toISOString());
+  await setMetaValue(db, LAST_ERROR_KEY, '');
+  await attachOffDump(db);
+  return { kind: 'baseline-installed', dataVersion: result.dataVersion };
+}
+
+/**
+ * Prueft die Integritaet der lokal angehaengten Dump-Datei (`quick_check`)
+ * — fuer den "Integritaet pruefen"-Knopf im Entwickler-Bereich.
+ */
+export async function checkOffDumpIntegrity(db: SqlDatabase): Promise<boolean> {
+  const inspected = await createExpoFileOps(db).inspectDump(dumpPaths().activePath);
+  return inspected?.integrityOk ?? false;
+}
+
+/**
+ * Einstiegspunkt fuer App-Start/Nutzerwechsel: bereinigt zuerst einen
+ * ggf. inkonsistenten Dateizustand vom letzten Absturz
+ * (`reconcileOnStart`), haengt dann an, was lokal liegt (schnell, kein
+ * Netz noetig — "Offline-Suche verfuegbar machen"), und prueft erst danach
+ * im Hintergrund (TTL-gated) auf eine neue Version. Wirft nie: ein
+ * fehlgeschlagener Update-Check ist kein Grund, den App-Start zu blockieren
+ * oder abzubrechen.
  */
 export async function initOffDump(db: SqlDatabase): Promise<void> {
+  const fileOps = createExpoFileOps(db);
+  await reconcileOnStart(fileOps, dumpPaths());
   await attachOffDump(db);
-  await ensureOffDumpDownloaded(db);
-  await attachOffDump(db);
+
+  checkForUpdateIfDue(db).catch((err) => {
+    console.warn('[OffDump] Update-Check fehlgeschlagen:', err);
+  });
 }
 
 export type OffDumpProductRow = {

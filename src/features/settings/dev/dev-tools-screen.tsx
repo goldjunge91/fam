@@ -22,10 +22,11 @@ import { deleteLocalDatabase, getDatabase } from '@/lib/db/client';
 import { env } from '@/lib/env';
 import { sendTestNotification } from '@/lib/notifications';
 import {
-  attachOffDump,
+  checkOffDumpIntegrity,
   forceRefreshOffDump,
   getOffDumpStatus,
   type OffDumpStatus,
+  reinstallOffDumpBaseline,
 } from '@/lib/off-dump/off-dump';
 import { getPostHogClient, isPostHogConfigured, useFeatureFlag } from '@/lib/posthog';
 import { Sentry } from '@/lib/sentry';
@@ -34,6 +35,12 @@ import { MAX_ATTEMPTS } from '@/lib/sync/backoff';
 function formatBytes(bytes: number): string {
   if (bytes <= 0) return '0 MB';
   return `${(bytes / 1024 / 1024).toFixed(1)} MB`;
+}
+
+function formatZeitpunkt(iso: string | null): string {
+  if (!iso) return '—';
+  const datum = new Date(iso);
+  return Number.isNaN(datum.getTime()) ? iso : datum.toLocaleString('de-DE');
 }
 
 /**
@@ -256,33 +263,78 @@ export function DevToolsScreen() {
         </View>
       </Card>
 
-      {/* Lokaler OpenFoodFacts-Offline-Dump Status */}
+      {/* Lokaler OpenFoodFacts-Offline-Dump Status (#223 Paket 6) */}
       <Card title="OpenFoodFacts-Dump">
         <Zeile
           label="Heruntergeladen"
           wert={offDump?.fileExists ? `ja · ${formatBytes(offDump.fileSizeBytes)}` : 'nein'}
           tone={offDump?.fileExists ? undefined : 'warning'}
         />
-        <Zeile label="Release" wert={offDump?.storedReleaseTag ?? '—'} />
+        <Zeile label="Schema-Version" wert={String(offDump?.schemaVersion ?? '—')} />
+        <Zeile label="Daten-Version" wert={formatZeitpunkt(offDump?.dataVersion ?? null)} />
         <Zeile
           label="Angehängt"
           wert={offDump?.attached ? 'ja' : 'nein'}
           tone={offDump?.attached ? undefined : 'warning'}
         />
+        <Zeile label="Letzter Check" wert={formatZeitpunkt(offDump?.lastCheckAt ?? null)} />
+        <Zeile
+          label="Letztes Update"
+          wert={formatZeitpunkt(offDump?.lastSuccessfulUpdateAt ?? null)}
+        />
+        <Zeile
+          label="Letzter Fehler"
+          wert={offDump?.lastError ?? '—'}
+          tone={offDump?.lastError ? 'danger' : undefined}
+        />
 
         <View className="action-stack">
           <Button
-            label="Neueste Dump-Datei laden"
+            label="Jetzt aktualisieren"
             variant="secondary"
             onPress={() =>
-              mitBusy('off-dump', async () => {
+              mitBusy('off-dump-update', async () => {
                 const db = await getDatabase();
                 await forceRefreshOffDump(db);
-                await attachOffDump(db);
                 setOffDump(await getOffDumpStatus(db));
               })
             }
-            loading={busy === 'off-dump'}
+            loading={busy === 'off-dump-update'}
+          />
+          <Button
+            label="Baseline neu installieren"
+            variant="secondary"
+            onPress={() =>
+              Alert.alert(
+                'Baseline neu installieren?',
+                'Läd den vollständigen Dump neu herunter und ersetzt die lokale Datei. Bei großem Dateiumfang kann das dauern.',
+                [
+                  { text: 'Abbrechen', style: 'cancel' },
+                  {
+                    text: 'Neu installieren',
+                    onPress: () =>
+                      mitBusy('off-dump-baseline', async () => {
+                        const db = await getDatabase();
+                        await reinstallOffDumpBaseline(db);
+                        setOffDump(await getOffDumpStatus(db));
+                      }),
+                  },
+                ],
+              )
+            }
+            loading={busy === 'off-dump-baseline'}
+          />
+          <Button
+            label="Integrität prüfen"
+            variant="secondary"
+            onPress={() =>
+              mitBusy('off-dump-integrity', async () => {
+                const db = await getDatabase();
+                const ok = await checkOffDumpIntegrity(db);
+                Alert.alert('Integrität', ok ? 'Dump ist unbeschädigt.' : 'Dump ist beschädigt.');
+              })
+            }
+            loading={busy === 'off-dump-integrity'}
           />
         </View>
       </Card>
