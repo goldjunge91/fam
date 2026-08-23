@@ -1,72 +1,148 @@
 name: Open Food Facts Dump Update
 
-on:
-  # 1. Manuell über die GitHub-Weboberfläche ausführen
-  workflow_dispatch:
+# CI-Delta-Pipeline (#223 Paket 5, Abschnitt 13 in docs/issue#223_V2.md).
+# Ersetzt den frueheren vollstaendigen Neubau: die kanonische DB liegt jetzt
+# dauerhaft im rollierenden Release "off-dump-current" (fester Tag, nicht
+# "latest"), taegliche/regelmaessige Laeufe erzeugen nur noch kleine Patches,
+# eine neue Baseline wird automatisch einmal im Monat geschnitten
+# (build-canonical-update.ts, siehe isNewBaselineDue()).
+#
+# WICHTIG: Bis Paket 6 (#229, Client-Updater) landet, liest die App
+# (src/lib/off-dump/off-dump.ts) noch ueber `releases/latest` +
+# "irgendein .db-Asset" (pickDbAsset()) — das off-dump-current-Release traegt
+# ab diesem Workflow mehrere .db-Dateien mit UNTERSCHIEDLICHEM Schema
+# (canonical.db vs. patch-*.db). Diesen Workflow vor Paket 6 NICHT manuell
+# ausloesen, sonst kann der Client versehentlich eine Patch- statt eine
+# Produkt-Datenbank anhaengen.
 
-  # 2. Automatisch am 1. Tag jedes Monats um 02:00 Uhr nachts
-  # (Für wöchentlich jeden Sonntag: "0 2 * * 0")
+on:
+  workflow_dispatch:
   schedule:
-    - cron: "0 2 1 * *"
+    # Taeglich pruefen/patchen; ob daraus eine neue Baseline wird, entscheidet
+    # build-canonical-update.ts selbst (Kalendermonat-Wechsel).
+    - cron: "0 2 * * *"
+
+env:
+  CANONICAL_TAG: off-dump-current
 
 jobs:
   build-and-release:
     runs-on: ubuntu-latest
-
-    # Berechtigungen zum Erstellen von Releases setzen
     permissions:
       contents: write
 
     steps:
-      # 1. Repository auschecken
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      # 2. Python 3.11 auf der GitHub-Maschine einrichten
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.11"
 
-      # 3. Benötigte Pakete installieren (z. B. orjson für Speed)
-      - name: Install dependencies
+      - name: Set up Bun
+        uses: oven-sh/setup-bun@v2
+
+      - name: Install Python dependencies
         run: |
           python -m pip install --upgrade pip
           pip install orjson requests
 
-      # 4. Dein Skript ausführen (Schema 2 seit #223 Paket 4 — categories_tags,
-      #    off_last_modified_at, dump_meta; bricht selbst mit exit 1 ab, wenn
-      #    PRAGMA quick_check vor der Veröffentlichung fehlschlägt)
-      - name: Run Dump Script
+      # 1. Letzte kanonische DB + Manifest laden (falls vorhanden — beim
+      #    allerersten Lauf existiert das Release noch nicht).
+      - name: Download previous canonical state
+        id: previous
         run: |
-          python scripts/dump_data/create_custom_dump.py
-
-      # 5. Datumsstempel erzeugen & Datei nummerieren/umbenennen
-      - name: Prepare Versioned Database
-        run: |
-          # Aktuelles Datum im Format YYYY-MM-DD erzeugen (z. B. 2026-08-10)
-          DATE_TAG=$(date +'%Y-%m-%d')
-          echo "RELEASE_TAG=$DATE_TAG" >> $GITHUB_ENV
-
-          # Pfad zur erzeugten DB (Passe den Pfad an, falls das Skript woanders ausgibt)
-          ORIGINAL_DB="scripts/dump_data/products_de.db"
-          NEW_NAME="scripts/dump_data/products_de_${DATE_TAG}.db"
-
-          # Datei umbenennen mit Datum/Nummerierung
-          mv "$ORIGINAL_DB" "$NEW_NAME"
-
-          # Komprimieren
-          gzip -k "$NEW_NAME"
-
-          # Dateipfade für nächsten Schritt speichern
-          echo "DB_PATH=$NEW_NAME" >> $GITHUB_ENV
-          echo "GZ_PATH=${NEW_NAME}.gz" >> $GITHUB_ENV
-
-      # 6. Automatisches GitHub Release erstellen und .db + .gz anhängen
-      - name: Create GitHub Release
+          mkdir -p previous out
+          if gh release view "$CANONICAL_TAG" >/dev/null 2>&1; then
+            gh release download "$CANONICAL_TAG" --dir previous --pattern 'canonical.db' --pattern 'manifest.json' --clobber || true
+          fi
+          if [ -f previous/canonical.db ] && [ -f previous/manifest.json ]; then
+            echo "has_previous=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "has_previous=false" >> "$GITHUB_OUTPUT"
+          fi
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # 2. quick_check der heruntergeladenen kanonischen DB — schlaegt sie
+      #    fehl (oder fehlt sie), deterministisch aus Baseline + Patchkette
+      #    rekonstruieren statt mit einer beschaedigten/fehlenden Datei
+      #    weiterzuarbeiten (Abschnitt 13, "Dauerhafte kanonische CI-Datenbank").
+      - name: Verify or reconstruct previous canonical state
+        if: steps.previous.outputs.has_previous == 'true'
         run: |
-          gh release create "dump-${RELEASE_TAG}" "${{ env.GZ_PATH }}" "${{ env.DB_PATH }}" \
-            --title "Open Food Facts Dump ${RELEASE_TAG}" \
-            --notes "Automatisches monatliches Update der Produktdatenbank für Deutschland vom ${RELEASE_TAG}."
+          set -euo pipefail
+          if sqlite3 previous/canonical.db 'PRAGMA quick_check;' | grep -qx ok; then
+            echo "previous/canonical.db: quick_check ok, keine Rekonstruktion noetig."
+            exit 0
+          fi
+
+          echo "previous/canonical.db: quick_check fehlgeschlagen — rekonstruiere aus Baseline + Patchkette."
+          baseline_url=$(jq -r '.baseline.url' previous/manifest.json)
+          curl -fsSL -o previous/baseline.db "$baseline_url"
+
+          patch_files=()
+          while IFS= read -r url; do
+            fname="patch-$(basename "$url")"
+            curl -fsSL -o "previous/$fname" "$url"
+            patch_files+=("previous/$fname")
+          done < <(jq -r '.patches[].url' previous/manifest.json)
+
+          bun run scripts/dump_data/reconstruct-canonical.ts \
+            --baseline previous/baseline.db \
+            --patches "${patch_files[@]}" \
+            --out previous/canonical.db \
+            --expect-data-version "$(jq -r '.latestVersion' previous/manifest.json)"
+
+      # 3. Aktuellen OFF-Export streamen, nach Deutschland filtern, Schema-2-DB
+      #    erzeugen (categories_tags, off_last_modified_at, dump_meta,
+      #    quick_check — siehe create_custom_dump.py, bricht selbst mit
+      #    exit 1 ab, wenn quick_check fehlschlaegt).
+      - name: Run Dump Generator
+        run: python scripts/dump_data/create_custom_dump.py
+
+      # 4. Diff berechnen, kanonische DB aktualisieren, ggf. neue Baseline
+      #    schneiden (monatlich), Manifest fortschreiben.
+      - name: Build canonical update
+        run: |
+          args=(
+            --new-extract scripts/dump_data/products_de.db
+            --out-dir out
+            --base-url "https://github.com/${{ github.repository }}/releases/download/${CANONICAL_TAG}"
+          )
+          if [ -f previous/canonical.db ] && [ -f previous/manifest.json ]; then
+            args+=(--old-canonical previous/canonical.db --previous-manifest previous/manifest.json)
+          fi
+          bun run scripts/dump_data/build-canonical-update.ts "${args[@]}"
+
+      # 5. Release-Objekt sicherstellen (idempotent — existiert nach dem
+      #    allerersten Lauf dauerhaft).
+      - name: Ensure canonical release exists
+        run: |
+          gh release view "$CANONICAL_TAG" >/dev/null 2>&1 || \
+            gh release create "$CANONICAL_TAG" \
+              --title "Offline-Produktkatalog (aktuell)" \
+              --notes "Rollierender kanonischer Dump + Patchkette fuer den Offline-Produktkatalog (#223). Nicht als normales App-Release verwenden." \
+              --latest=false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # 6. Datenassets ZUERST veroeffentlichen (kanonische DB, neue Baseline
+      #    und/oder Patch) — das Manifest erst danach, damit ein Client nie
+      #    auf eine im Manifest referenzierte, aber noch fehlende Datei
+      #    verweisen kann (Abschnitt 13).
+      - name: Publish data assets
+        run: |
+          gh release upload "$CANONICAL_TAG" out/canonical.db --clobber
+          shopt -s nullglob
+          for f in out/baseline-*.db out/patch-*.db; do
+            gh release upload "$CANONICAL_TAG" "$f" --clobber
+          done
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Publish manifest
+        run: gh release upload "$CANONICAL_TAG" out/manifest.json --clobber
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
