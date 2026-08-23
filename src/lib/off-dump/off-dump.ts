@@ -214,9 +214,24 @@ async function runUpdateCheck(db: SqlDatabase): Promise<UpdateOutcome> {
   }
 }
 
+/**
+ * Fail-Safe: die TTL-Sperre gilt nur, solange bereits ein lokaler Dump
+ * existiert (Routine-Check auf eine neuere Version). Ohne lokalen Dump —
+ * etwa weil der allererste Check auf ein zu diesem Zeitpunkt noch nicht
+ * existentes Release traf (`manifest-unavailable`, siehe `runUpdateCheck`) —
+ * wuerde die Sperre sonst bis zu 6h lang jeden weiteren App-Start blockieren,
+ * selbst wenn das Manifest laengst verfuegbar ist. Ein simpler Neustart soll
+ * in diesem Zustand immer einen neuen Versuch anstossen.
+ */
 async function checkForUpdateIfDue(db: SqlDatabase): Promise<void> {
-  const lastCheckAt = await getMetaValue(db, LAST_CHECK_KEY);
-  if (lastCheckAt && Date.now() - Date.parse(lastCheckAt) < CHECK_TTL_MS) return;
+  const { File, Paths } = loadFileSystem();
+  const hasLocalDump = new File(Paths.document, DUMP_FILE_NAME).exists;
+
+  if (hasLocalDump) {
+    const lastCheckAt = await getMetaValue(db, LAST_CHECK_KEY);
+    if (lastCheckAt && Date.now() - Date.parse(lastCheckAt) < CHECK_TTL_MS) return;
+  }
+
   await runUpdateCheck(db);
 }
 
