@@ -23,13 +23,20 @@ import { recordProductUsage } from '@/lib/db/product-usage';
 import type { OpenFoodFactsProduct } from '@/lib/open-food-facts';
 import { formatAmount, formatPackageHint } from '@/lib/package-size';
 import { normalizeUnit, UNIT_OPTIONS } from '@/lib/units';
-import { categoryIdForLabel, guessCategory } from '../domain-logik/shopping-categories';
+import type { ShoppingCategoryId } from '../classification/shopping-category-id';
 import { useAddShoppingItem } from '../hooks/use-shopping-list-mutations';
 import type {
   ShoppingProductSuggestion,
   ShoppingSuggestionMode,
 } from '../hooks/use-shopping-product-suggestions';
 import { useStores } from '../hooks/use-stores';
+import { resolveCategoryForItem } from '../preferences/api';
+import {
+  useResetCategoryPreferenceMutation,
+  useSetCategoryPreferenceMutation,
+} from '../preferences/hooks';
+import { CategoryField } from './category-field';
+import { EMPTY_CATEGORY_STATE } from './category-form-state';
 import { ShoppingProductSuggestions } from './shopping-product-suggestions';
 
 const NO_STORE = '__none__';
@@ -56,7 +63,7 @@ export const AddItemForm = forwardRef<AddItemFormHandle, AddItemFormProps>(funct
   const [packageSizeInput, setPackageSizeInput] = useState('');
   const [packageSizeUnit, setPackageSizeUnit] = useState('g');
   const [price, setPrice] = useState('');
-  const [category, setCategory] = useState<string | null>(null);
+  const [categoryState, setCategoryState] = useState(EMPTY_CATEGORY_STATE);
   const [storeId, setStoreId] = useState<string | null>(initialStoreId);
   const [nameError, setNameError] = useState<string | null>(null);
   const [selectedProduct, setSelectedProduct] = useState<OpenFoodFactsProduct | null>(null);
@@ -77,14 +84,67 @@ export const AddItemForm = forwardRef<AddItemFormHandle, AddItemFormProps>(funct
 
   const addItem = useAddShoppingItem();
   const addProductMutation = useAddProductMutation();
+  const setCategoryPreference = useSetCategoryPreferenceMutation();
+  const resetCategoryPreference = useResetCategoryPreferenceMutation();
   const { data: stores = [] } = useStores(householdId);
   const { session } = useSession();
   const userId = session?.user.id;
   const queryClient = useQueryClient();
 
+  // Gelesen statt in den Deps unten, damit ein manueller Pick
+  // (`categoryState.source === 'user'`) diesen Effekt nicht bei jeder
+  // eigenen State-Aenderung erneut ausloest (stale-closure-sicher per Ref,
+  // kein Re-Run-Loop wie bei einem State-Wert in den Deps).
+  const categorySourceRef = useRef(categoryState.source);
+  categorySourceRef.current = categoryState.source;
+
+  // Automatischer Modus (Abschnitt 10 "Hinzufügen"): klassifiziert bei jeder
+  // Namens-/Produktänderung neu, solange keine manuelle Auswahl aktiv ist.
+  // Eine manuelle Auswahl (`source === 'user'`) bleibt bei Namensänderungen
+  // bewusst unangetastet — nur ein Produktwechsel (`handleSelectProduct`)
+  // verwirft sie explizit wieder.
   useEffect(() => {
-    setCategory(guessCategory(name));
-  }, [name]);
+    if (categorySourceRef.current === 'user') return;
+
+    const trimmed = name.trim();
+    if (!trimmed) {
+      setCategoryState(EMPTY_CATEGORY_STATE);
+      return;
+    }
+
+    let cancelled = false;
+    resolveCategoryForItem({
+      householdId,
+      productId: selectedProductId ?? undefined,
+      name: trimmed,
+      categoryTags: selectedProduct?.categoryTags,
+    }).then((result) => {
+      if (cancelled) return;
+      setCategoryState(result);
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, [name, selectedProductId, selectedProduct, householdId]);
+
+  function handleSelectCategory(categoryId: ShoppingCategoryId | null) {
+    setCategoryState({ categoryId, source: 'user', classifierVersion: null });
+  }
+
+  /** "Auf automatisch zurücksetzen" — löscht eine ggf. gespeicherte Präferenz
+   * und übernimmt sofort das frische automatische Ergebnis. */
+  async function handleResetCategory() {
+    const trimmed = name.trim();
+    const result = await resetCategoryPreference.mutateAsync({
+      householdId,
+      keyType: selectedProductId ? 'product' : 'name',
+      keyValue: selectedProductId ?? trimmed,
+      name: trimmed,
+      productId: selectedProductId ?? undefined,
+      categoryTags: selectedProduct?.categoryTags,
+    });
+    setCategoryState(result);
+  }
 
   const storeOptions = useMemo(
     () => [
@@ -120,6 +180,12 @@ export const AddItemForm = forwardRef<AddItemFormHandle, AddItemFormProps>(funct
     setSelectedProduct(product);
     setSelectedProductId(null);
     setNameError(null);
+    // Produktwechsel darf eine manuelle Kategorie nicht unbemerkt uebernehmen
+    // (Abschnitt 10) — zurueck in den automatischen Modus, der
+    // Klassifikations-Effekt oben klassifiziert fuer das neue Produkt sofort neu.
+    if (categoryState.source === 'user') {
+      setCategoryState(EMPTY_CATEGORY_STATE);
+    }
   }
 
   function handleSelectSuggestion(
@@ -183,12 +249,26 @@ export const AddItemForm = forwardRef<AddItemFormHandle, AddItemFormProps>(funct
       unit,
       package_size: packageSize,
       package_size_unit: packageSize ? packageSizeUnit : null,
-      category_id: categoryIdForLabel(category),
-      category_source: category ? 'name_fallback' : null,
-      category_classifier_version: null,
+      category_id: categoryState.categoryId,
+      category_source: categoryState.source,
+      category_classifier_version: categoryState.classifierVersion,
       store_id: storeId,
       price_estimate: parsedPrice != null && !Number.isNaN(parsedPrice) ? parsedPrice : null,
     });
+
+    // Nur eine echte manuelle Entscheidung (inkl. bewusstes "Sonstiges") wird
+    // als Haushaltspraeferenz gespeichert (Abschnitt 9 "Schreiben") — eine
+    // automatisch aufgeloeste Kategorie (auch `household_preference`, die ist
+    // ja schon gespeichert) schreibt hier nichts neu.
+    if (categoryState.source === 'user') {
+      await setCategoryPreference.mutateAsync({
+        householdId,
+        keyType: productId ? 'product' : 'name',
+        keyValue: productId ?? trimmed,
+        categoryId: categoryState.categoryId,
+        createdBy: userId ?? null,
+      });
+    }
 
     if (userId) {
       void getDatabase()
@@ -336,6 +416,12 @@ export const AddItemForm = forwardRef<AddItemFormHandle, AddItemFormProps>(funct
 
           {detailsOpen ? (
             <View className="gap-[10px] pb-one">
+              <CategoryField
+                categoryId={categoryState.categoryId}
+                source={categoryState.source}
+                onSelectCategory={handleSelectCategory}
+                onReset={handleResetCategory}
+              />
               <WheelPickerField
                 label="Einheit"
                 value={unit}

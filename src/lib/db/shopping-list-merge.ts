@@ -44,6 +44,22 @@ function mergeRecipeNames(existing: readonly string[], incoming: readonly string
 }
 
 /**
+ * Vertrauensrang einer Kategorie-Herkunft (`docs/issue#223_V2.md` Abschnitt
+ * 10 "Merge") — hoeher gewinnt beim Zusammenfuehren. `null`/unbekannt zaehlt
+ * als niedrigster Rang, nicht als Sonderfall.
+ */
+const CATEGORY_SOURCE_RANK: Record<string, number> = {
+  user: 4,
+  household_preference: 3,
+  off_taxonomy: 2,
+  name_fallback: 1,
+};
+
+function categorySourceRank(source: string | null | undefined): number {
+  return source ? (CATEGORY_SOURCE_RANK[source] ?? 0) : 0;
+}
+
+/**
  * Sucht einen bereits vorhandenen, noch offenen (nicht abgehakten, nicht
  * geloeschten) Artikel derselben Einheit. Matching bevorzugt `product_id`
  * (eindeutig), faellt ohne Produktverknuepfung auf den normalisierten Namen
@@ -61,10 +77,28 @@ async function findMergeableShoppingItem(
     package_size?: number | null;
     package_size_unit?: string | null;
   },
-): Promise<{ id: string; quantity: number; recipeNames: string[] } | null> {
+): Promise<{
+  id: string;
+  quantity: number;
+  recipeNames: string[];
+  categoryId: string | null;
+  categorySource: string | null;
+  categoryClassifierVersion: string | null;
+} | null> {
+  type Row = {
+    id: string;
+    quantity: number;
+    recipe_names: string;
+    category_id: string | null;
+    category_source: string | null;
+    category_classifier_version: string | null;
+  };
+  const SELECT_COLUMNS =
+    'id, quantity, recipe_names, category_id, category_source, category_classifier_version';
+
   const row = input.product_id
-    ? await db.getFirstAsync<{ id: string; quantity: number; recipe_names: string }>(
-        `select id, quantity, recipe_names from shopping_list_items
+    ? await db.getFirstAsync<Row>(
+        `select ${SELECT_COLUMNS} from shopping_list_items
          where household_id = ? and deleted_at is null and checked_at is null
            and product_id = ? and unit = ?
            and coalesce(package_size, -1) = coalesce(?, -1)
@@ -78,8 +112,8 @@ async function findMergeableShoppingItem(
           input.package_size_unit ?? null,
         ],
       )
-    : await db.getFirstAsync<{ id: string; quantity: number; recipe_names: string }>(
-        `select id, quantity, recipe_names from shopping_list_items
+    : await db.getFirstAsync<Row>(
+        `select ${SELECT_COLUMNS} from shopping_list_items
          where household_id = ? and deleted_at is null and checked_at is null
            and product_id is null and lower(trim(name)) = lower(trim(?)) and unit = ?
            and coalesce(package_size, -1) = coalesce(?, -1)
@@ -98,6 +132,9 @@ async function findMergeableShoppingItem(
     id: row.id,
     quantity: row.quantity,
     recipeNames: parseJsonArray<string>(row.recipe_names),
+    categoryId: row.category_id,
+    categorySource: row.category_source,
+    categoryClassifierVersion: row.category_classifier_version,
   };
 }
 
@@ -132,6 +169,24 @@ export async function addOrMergeShoppingItem(
   if (existing) {
     const mergedQuantity = existing.quantity + input.quantity;
     const mergedRecipeNames = mergeRecipeNames(existing.recipeNames, input.recipe_names ?? []);
+
+    // Vertrauensrang statt "bestehende Kategorie bleibt immer stehen": ein
+    // eingehender Wert ersetzt die bestehende Kategorie nur, wenn er einen
+    // echt hoeheren Rang hat (Abschnitt 10 "Merge") — z.B. darf eine gerade
+    // manuell gewaehlte Kategorie (`user`) einen automatischen
+    // Namens-Fallback ueberschreiben, aber nicht umgekehrt.
+    const useIncomingCategory =
+      categorySourceRank(input.category_source) > categorySourceRank(existing.categorySource);
+    const mergedCategoryId = useIncomingCategory
+      ? (input.category_id ?? null)
+      : existing.categoryId;
+    const mergedCategorySource = useIncomingCategory
+      ? (input.category_source ?? null)
+      : existing.categorySource;
+    const mergedCategoryClassifierVersion = useIncomingCategory
+      ? (input.category_classifier_version ?? null)
+      : existing.categoryClassifierVersion;
+
     await enqueueMutation(db, {
       entity: 'shopping_list_items',
       entityId: existing.id,
@@ -143,12 +198,16 @@ export async function addOrMergeShoppingItem(
         package_size: input.package_size ?? null,
         package_size_unit: normPackageUnit,
         recipe_names: mergedRecipeNames,
+        category_id: mergedCategoryId,
+        category_source: mergedCategorySource,
+        category_classifier_version: mergedCategoryClassifierVersion,
         updated_at: now,
       },
       applyLocally: async (txn) => {
         await txn.runAsync(
           `update shopping_list_items
            set quantity = ?, package_size = ?, package_size_unit = ?, recipe_names = ?,
+               category_id = ?, category_source = ?, category_classifier_version = ?,
                updated_at = ?, _dirty = 1
            where id = ?`,
           [
@@ -156,6 +215,9 @@ export async function addOrMergeShoppingItem(
             input.package_size ?? null,
             normPackageUnit,
             JSON.stringify(mergedRecipeNames),
+            mergedCategoryId,
+            mergedCategorySource,
+            mergedCategoryClassifierVersion,
             nowMs,
             existing.id,
           ],

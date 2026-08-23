@@ -5,6 +5,7 @@ import { ThemedText } from '@/components/theme/themed-text';
 import { presentPaywallIfNeeded } from '@/features/premium/paywall';
 import { usePremium } from '@/features/premium/premium-provider';
 import { useAddShoppingItem } from '@/features/shopping-list/hooks/use-shopping-list-mutations';
+import { resolveCategoryForItem } from '@/features/shopping-list/preferences/api';
 import { useTheme } from '@/hooks/use-theme';
 import { type RecipeShoppingNeed, useRecipeShoppingNeeds } from '../use-recipe-shopping-needs';
 import type { RecipeDetail } from '../use-recipes';
@@ -72,12 +73,23 @@ export function RecipeShoppingSheet({ visible, detail, servings, onClose }: Prop
     const selectedItems = missing.filter((item) => selected.has(item.productId));
     try {
       for (const item of selectedItems) {
+        // Alle Erzeugungswege nutzen den Resolver (#223 Abschnitt 10) — hier
+        // ohne `categoryTags`, da diese Zutaten nur als Produkt-Id/Name
+        // bekannt sind, nicht als vollstaendiges OFF-Produkt.
+        const classification = await resolveCategoryForItem({
+          householdId: detail.recipe.household_id,
+          productId: item.productId,
+          name: item.name,
+        });
         await addShoppingItem.mutateAsync({
           household_id: detail.recipe.household_id,
           product_id: item.productId,
           name: item.name,
           quantity: item.missingGrams,
           unit: 'g',
+          category_id: classification.categoryId,
+          category_source: classification.source,
+          category_classifier_version: classification.classifierVersion,
           store_id: item.preferredStoreId,
           recipe_names: [detail.recipe.title],
         });

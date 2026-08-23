@@ -21,8 +21,11 @@ async function readItems(db: TestDatabase, householdId: string) {
     quantity: number;
     unit: string;
     checked_at: string | null;
+    category_id: string | null;
+    category_source: string | null;
   }>(
-    'select id, product_id, name, quantity, unit, checked_at from shopping_list_items where household_id = ? and deleted_at is null order by sort_index',
+    `select id, product_id, name, quantity, unit, checked_at, category_id, category_source
+     from shopping_list_items where household_id = ? and deleted_at is null order by sort_index`,
     [householdId],
   );
 }
@@ -155,5 +158,81 @@ describe('addOrMergeShoppingItem', () => {
 
     expect(await readItems(db, 'hh-1')).toHaveLength(1);
     expect(await readItems(db, 'hh-2')).toHaveLength(1);
+  });
+
+  // #223 Paket 8, Abschnitt 10 "Merge": Vertrauensrang
+  // user > household_preference > off_taxonomy > name_fallback > null.
+  describe('Kategorie-Vertrauensrang beim Zusammenfuehren', () => {
+    it('ein hoeherrangiger eingehender Wert ersetzt einen niedrigrangigen bestehenden', async () => {
+      await add({
+        household_id: 'hh-1',
+        name: 'Apfelsaft',
+        quantity: 1,
+        unit: 'l',
+        product_id: 'prod-apfelsaft',
+        category_id: 'produce',
+        category_source: 'name_fallback',
+      });
+      await add({
+        household_id: 'hh-1',
+        name: 'Apfelsaft',
+        quantity: 1,
+        unit: 'l',
+        product_id: 'prod-apfelsaft',
+        category_id: 'beverages',
+        category_source: 'user',
+      });
+
+      const [item] = await readItems(db, 'hh-1');
+      expect(item).toMatchObject({ category_id: 'beverages', category_source: 'user' });
+    });
+
+    it('ein niedrigrangigerer eingehender Wert ueberschreibt die bestehende Nutzerentscheidung nicht', async () => {
+      await add({
+        household_id: 'hh-1',
+        name: 'Apfelsaft',
+        quantity: 1,
+        unit: 'l',
+        product_id: 'prod-apfelsaft',
+        category_id: 'beverages',
+        category_source: 'user',
+      });
+      await add({
+        household_id: 'hh-1',
+        name: 'Apfelsaft',
+        quantity: 1,
+        unit: 'l',
+        product_id: 'prod-apfelsaft',
+        category_id: 'produce',
+        category_source: 'name_fallback',
+      });
+
+      const [item] = await readItems(db, 'hh-1');
+      expect(item).toMatchObject({ category_id: 'beverages', category_source: 'user' });
+    });
+
+    it('gleichrangige widersprüchliche Werte veraendern die bestehende Kategorie nicht', async () => {
+      await add({
+        household_id: 'hh-1',
+        name: 'Apfelsaft',
+        quantity: 1,
+        unit: 'l',
+        product_id: 'prod-apfelsaft',
+        category_id: 'produce',
+        category_source: 'name_fallback',
+      });
+      await add({
+        household_id: 'hh-1',
+        name: 'Apfelsaft',
+        quantity: 1,
+        unit: 'l',
+        product_id: 'prod-apfelsaft',
+        category_id: 'beverages',
+        category_source: 'name_fallback',
+      });
+
+      const [item] = await readItems(db, 'hh-1');
+      expect(item).toMatchObject({ category_id: 'produce', category_source: 'name_fallback' });
+    });
   });
 });

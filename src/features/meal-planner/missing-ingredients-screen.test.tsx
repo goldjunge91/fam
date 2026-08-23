@@ -4,6 +4,11 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { MissingIngredientsScreen } from './missing-ingredients-screen';
 
 const mockAddMutateAsync = jest.fn().mockResolvedValue(undefined);
+const mockResolveCategoryForItem = jest.fn().mockResolvedValue({
+  categoryId: null,
+  source: null,
+  classifierVersion: '1',
+});
 
 // Stabile Objektidentitaet noetig: `AutoBackButton` (Screen) haengt seinen
 // Effekt an `[navigation]` - ein bei jedem Aufruf neu erzeugtes Objekt
@@ -27,6 +32,10 @@ jest.mock('@/features/household/active-household-provider', () => ({
 
 jest.mock('@/features/shopping-list/hooks/use-shopping-list-mutations', () => ({
   useAddShoppingItem: () => ({ mutateAsync: mockAddMutateAsync, isPending: false }),
+}));
+
+jest.mock('@/features/shopping-list/preferences/api', () => ({
+  resolveCategoryForItem: (...args: unknown[]) => mockResolveCategoryForItem(...args),
 }));
 
 let mockIsPremium = true;
@@ -84,6 +93,7 @@ function renderScreen() {
 
 beforeEach(() => {
   mockAddMutateAsync.mockClear();
+  mockResolveCategoryForItem.mockClear();
   mockPresentPaywallIfNeeded.mockClear();
   mockIsPremium = true;
 });
@@ -100,15 +110,31 @@ describe('MissingIngredientsScreen', () => {
 
   it('ist standardmaessig alles vorausgewaehlt und uebernimmt beim Bestaetigen', async () => {
     const user = userEvent.setup();
+    mockResolveCategoryForItem.mockResolvedValueOnce({
+      categoryId: 'produce',
+      source: 'off_taxonomy',
+      classifierVersion: '1',
+    });
     await renderScreen();
 
     expect(screen.getByText('2 Artikel zur Einkaufsliste hinzufügen')).toBeOnTheScreen();
 
     await user.press(screen.getByText('2 Artikel zur Einkaufsliste hinzufügen'));
 
+    // Alle Erzeugungswege nutzen den Resolver (#223 Abschnitt 10).
+    expect(mockResolveCategoryForItem).toHaveBeenCalledWith(
+      expect.objectContaining({ householdId: 'hh-1', productId: 'p1', name: 'Tomaten' }),
+    );
     expect(mockAddMutateAsync).toHaveBeenCalledTimes(2);
     expect(mockAddMutateAsync).toHaveBeenCalledWith(
-      expect.objectContaining({ name: 'Tomaten', quantity: 300, unit: 'g', store_id: 'store-1' }),
+      expect.objectContaining({
+        name: 'Tomaten',
+        quantity: 300,
+        unit: 'g',
+        store_id: 'store-1',
+        category_id: 'produce',
+        category_source: 'off_taxonomy',
+      }),
     );
     expect(mockAddMutateAsync).toHaveBeenCalledWith(
       expect.objectContaining({ name: 'Hackfleisch', quantity: 500, unit: 'g', store_id: null }),

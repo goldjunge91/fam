@@ -1,11 +1,17 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { fireEvent, render, screen } from '@testing-library/react-native';
+import { fireEvent, render, screen, userEvent } from '@testing-library/react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import { EditItemForm } from '@/features/shopping-list/forms/edit-item-form';
 import type { LocalShoppingItem } from '@/features/shopping-list/hooks/use-shopping-list';
 
 const mockUpdateMutateAsync = jest.fn().mockResolvedValue({});
+const mockSetCategoryPreferenceMutateAsync = jest.fn().mockResolvedValue('pref-1');
+const mockResetCategoryPreferenceMutateAsync = jest.fn().mockResolvedValue({
+  categoryId: null,
+  source: null,
+  classifierVersion: '1',
+});
 
 jest.mock('@/features/household/active-household-provider', () => ({
   useActiveHousehold: () => ({ activeHouseholdId: 'hh-1' }),
@@ -35,6 +41,15 @@ jest.mock('@/features/shopping-list/hooks/use-stores', () => ({
   useStores: () => ({ data: [], isLoading: false }),
   useAddStoreMutation: () => ({ mutateAsync: jest.fn() }),
   findStoreByName: () => null,
+}));
+
+jest.mock('../preferences/hooks', () => ({
+  useSetCategoryPreferenceMutation: () => ({
+    mutateAsync: mockSetCategoryPreferenceMutateAsync,
+  }),
+  useResetCategoryPreferenceMutation: () => ({
+    mutateAsync: mockResetCategoryPreferenceMutateAsync,
+  }),
 }));
 
 describe('EditItemForm', () => {
@@ -107,5 +122,52 @@ describe('EditItemForm', () => {
         name: 'Bio Bananen',
       }),
     );
+  });
+
+  it('initialisiert die Kategorie aus dem Eintrag, ohne über den Namen neu zu rechnen', async () => {
+    await renderForm();
+
+    expect(screen.getByText('Obst & Gemüse')).toBeOnTheScreen();
+    expect(screen.getByText('automatisch · Name')).toBeOnTheScreen();
+  });
+
+  it('eine Namensänderung berechnet die Kategorie beim Speichern nicht neu', async () => {
+    await renderForm();
+
+    await fireEvent.changeText(screen.getByDisplayValue('Bananen'), 'Bio Bananen');
+    await fireEvent.press(screen.getByRole('button', { name: 'Speichern' }));
+
+    expect(mockUpdateMutateAsync).toHaveBeenCalledWith(
+      expect.objectContaining({ category_id: 'produce', category_source: 'name_fallback' }),
+    );
+    expect(mockSetCategoryPreferenceMutateAsync).not.toHaveBeenCalled();
+  });
+
+  it('speichert eine Präferenz nur bei einer echten manuellen Kategorieänderung', async () => {
+    const user = userEvent.setup();
+    await renderForm();
+
+    await user.press(screen.getByRole('button', { name: /Kategorie:/ }));
+    await user.press(screen.getByRole('button', { name: 'Getränke' }));
+    await fireEvent.press(screen.getByRole('button', { name: 'Speichern' }));
+
+    expect(mockUpdateMutateAsync).toHaveBeenCalledWith(
+      expect.objectContaining({ category_id: 'beverages', category_source: 'user' }),
+    );
+    expect(mockSetCategoryPreferenceMutateAsync).toHaveBeenCalledWith(
+      expect.objectContaining({ householdId: 'hh-1', categoryId: 'beverages' }),
+    );
+  });
+
+  it('"Automatisch" ruft die Reset-Mutation auf und schreibt beim Speichern keine neue Präferenz', async () => {
+    const user = userEvent.setup();
+    await renderForm();
+
+    await user.press(screen.getByRole('button', { name: /Kategorie:/ }));
+    await user.press(screen.getByRole('button', { name: /^Automatisch/ }));
+    expect(mockResetCategoryPreferenceMutateAsync).toHaveBeenCalled();
+
+    await fireEvent.press(screen.getByRole('button', { name: 'Speichern' }));
+    expect(mockSetCategoryPreferenceMutateAsync).not.toHaveBeenCalled();
   });
 });

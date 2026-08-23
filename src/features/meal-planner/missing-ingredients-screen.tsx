@@ -9,6 +9,7 @@ import { useActiveHousehold } from '@/features/household/active-household-provid
 import { presentPaywallIfNeeded } from '@/features/premium/paywall';
 import { usePremium } from '@/features/premium/premium-provider';
 import { useAddShoppingItem } from '@/features/shopping-list/hooks/use-shopping-list-mutations';
+import { resolveCategoryForItem } from '@/features/shopping-list/preferences/api';
 import { type MissingIngredientView, useMealPlanShoppingNeeds } from './use-shopping-needs';
 
 // Stabile Referenz statt Inline-`= []`: `EMPTY_MISSING` bleibt beim naechsten
@@ -66,12 +67,23 @@ export function MissingIngredientsScreen() {
     if (!householdId) return;
     const toAdd = missing.filter((m) => selected.has(m.productId));
     for (const item of toAdd) {
+      // Alle Erzeugungswege nutzen den Resolver (#223 Abschnitt 10) — hier
+      // ohne `categoryTags`, da diese Zutaten nur als Produkt-Id/Name
+      // bekannt sind, nicht als vollstaendiges OFF-Produkt.
+      const classification = await resolveCategoryForItem({
+        householdId,
+        productId: item.productId,
+        name: item.name,
+      });
       await addShoppingItem.mutateAsync({
         household_id: householdId,
         name: item.name,
         quantity: item.missingGrams,
         unit: 'g',
         product_id: item.productId,
+        category_id: classification.categoryId,
+        category_source: classification.source,
+        category_classifier_version: classification.classifierVersion,
         store_id: item.preferredStoreId,
         recipe_names: item.recipeNames,
       });
