@@ -21,9 +21,34 @@ type ProductRow = {
   sugars: number | null;
   proteins: number | null;
   salt: number | null;
+  /**
+   * Erst ab Dump Schema 2 (#223 Paket 4) — gegen einen alten Schema-1-Dump
+   * fehlt die Spalte in `getAsObject()` einfach (undefined), kein Crash.
+   */
+  categories_tags?: string | null;
+  off_last_modified_at?: string | null;
 };
 
 type DbStatus = { kind: 'loading' } | { kind: 'ready'; count: number } | { kind: 'error'; message: string };
+
+/**
+ * Trivialer, eigenständiger JSON-Array-Parser statt Import von
+ * `parseCategoryTagsJson` aus `src/lib/open-food-facts.ts` — dessen Modul
+ * zieht `src/lib/env.ts` (`process.env.EXPO_PUBLIC_*`) mit, was in diesem
+ * reinen Vite/Browser-Tool ohne Expo-Build-Zeit-Ersetzung nicht sauber
+ * auflöst. Anders als bei `explainCategory()`/`classifyCategory()` (echte,
+ * pflegebedürftige Domänenlogik, siehe Kommentar oben) lohnt sich für dieses
+ * Fünfzeiler-Utility keine Kopplung an den App-Import-Graphen.
+ */
+function parseCategoryTags(raw: string | null | undefined): string[] {
+  if (!raw) return [];
+  try {
+    const parsed = JSON.parse(raw);
+    return Array.isArray(parsed) ? parsed.filter((tag): tag is string => typeof tag === 'string') : [];
+  } catch {
+    return [];
+  }
+}
 
 function categoryDisplay(categoryId: string | null) {
   if (!categoryId) return { label: 'Sonstiges', color: '#a89fa4' };
@@ -199,11 +224,19 @@ export function App() {
     setSelected((prev) => (prev && rows.some((r) => r.code === prev.code) ? prev : (rows[0] ?? null)));
   }, [query, status]);
 
-  // Der aktuelle Dump ist noch Schema 1 (kein `categories_tags`) — der
-  // Dump-Pfad läuft deshalb bis Paket 4 zwangsläufig nur über den
-  // Namens-Fallback. Der Freitext-Tester unten deckt OFF-Tags per Hand ab.
+  // Ab Dump Schema 2 (#223 Paket 4) liefert `categories_tags` echte OFF-Tags;
+  // gegen einen alten Schema-1-Dump ist die Spalte einfach nicht da
+  // (parseCategoryTags(undefined) === []) — der Trace läuft dann wie
+  // bisher nur über den Namens-Fallback.
   const dumpTrace = useMemo(
-    () => (selected ? explainCategory({ name: selected.product_name, categoryTags: [], source: 'dump' }) : null),
+    () =>
+      selected
+        ? explainCategory({
+            name: selected.product_name,
+            categoryTags: parseCategoryTags(selected.categories_tags),
+            source: 'dump',
+          })
+        : null,
     [selected],
   );
 
@@ -397,6 +430,16 @@ export function App() {
                   <div className="k">Läden</div>
                   <div className="v">{selected.stores || '—'}</div>
                 </div>
+                <div className="data-cell">
+                  <div className="k">OFF-Kategorie-Tags</div>
+                  <div className="v">
+                    {parseCategoryTags(selected.categories_tags).join(', ') || '—'}
+                  </div>
+                </div>
+                <div className="data-cell">
+                  <div className="k">OFF zuletzt geändert</div>
+                  <div className="v">{selected.off_last_modified_at || '—'}</div>
+                </div>
               </div>
             </>
           )}
@@ -406,9 +449,9 @@ export function App() {
       <footer className="note">
         Datenquelle: <code>public/off-dump.db</code>, per <code>bun run download-dump</code> vom neuesten
         GitHub-Release (<code>goldjunge91/fam</code>) geladen — derselbe Release, den <code>off-dump.ts</code>{' '}
-        in der App anhängt. Dieser Dump ist noch Schema 1 (kein <code>categories_tags</code>), der Dump-Trace
-        läuft deshalb bis Paket 4 nur über den Namens-Fallback — für OFF-Tag-Tests den Freitext-Tester oben
-        nutzen. Kategorie-Logik importiert direkt aus{' '}
+        in der App anhängt. Ab Dump Schema 2 (#223 Paket 4) läuft der Dump-Trace über echte
+        OFF-Kategorie-Tags; gegen einen älteren Schema-1-Dump fehlt die Spalte einfach (kein Crash), der
+        Trace fällt dann automatisch auf den Namens-Fallback zurück. Kategorie-Logik importiert direkt aus
         <code>src/features/shopping-list/classification/shopping-category-classifier.ts</code>, keine Kopie.
       </footer>
     </div>

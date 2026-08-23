@@ -41,6 +41,26 @@ export type OpenFoodFactsProduct = {
 };
 
 /**
+ * Parst ein als JSON-Text serialisiertes `categoryTags`-Array — so speichern
+ * sowohl der lokale `products`-Spiegel (`off_category_tags`, siehe
+ * `migrations.ts`) als auch der Offline-Dump Schema 2 (`categories_tags`,
+ * siehe `off-dump.ts`) das Feld in SQLite (kein natives `text[]`). Robust
+ * gegen fehlendes/kaputtes JSON — ein Parse-Fehler darf die Suche nie
+ * abbrechen, nur die Tags fuer diese eine Zeile fehlen dann.
+ */
+export function parseCategoryTagsJson(raw: string | null | undefined): string[] {
+  if (!raw) return [];
+  try {
+    const parsed = JSON.parse(raw);
+    return Array.isArray(parsed)
+      ? parsed.filter((tag): tag is string => typeof tag === 'string')
+      : [];
+  } catch {
+    return [];
+  }
+}
+
+/**
  * Erkennt, ob eine Eingabe eher ein abgetippter Barcode als ein Produktname
  * ist (EAN-8 bis GTIN-14: 6-14 Ziffern, nichts anderes). Die normale Suche
  * nutzt das, um bei so einer Eingabe den exakten Barcode-Lookup statt der

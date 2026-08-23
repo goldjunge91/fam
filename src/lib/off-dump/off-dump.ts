@@ -1,7 +1,11 @@
 import { getDatabase } from '@/lib/db/client';
 import { DATABASE_FILE_NAMES } from '@/lib/db/database-files';
 import type { SqlDatabase } from '@/lib/db/types';
-import { type OpenFoodFactsProduct, parseQuantityAndUnit } from '@/lib/open-food-facts';
+import {
+  type OpenFoodFactsProduct,
+  parseCategoryTagsJson,
+  parseQuantityAndUnit,
+} from '@/lib/open-food-facts';
 
 /**
  * Lokaler OpenFoodFacts-Dump (#79 zusammen mit dem Dump-CI-Workflow,
@@ -270,6 +274,13 @@ export type OffDumpProductRow = {
   sugars: number | null;
   proteins: number | null;
   salt: number | null;
+  /**
+   * JSON-serialisiertes `text[]`, erst ab Dump Schema 2 (#223 Paket 4). Ein
+   * gegen einen alten Schema-1-Dump laufendes `select` liefert diese Spalte
+   * gar nicht erst — `undefined`/`null` sind daher gleichwertig zu "keine Tags".
+   */
+  categories_tags?: string | null;
+  off_last_modified_at?: string | null;
 };
 
 export function toOpenFoodFactsProductFromDump(row: OffDumpProductRow): OpenFoodFactsProduct {
@@ -288,8 +299,8 @@ export function toOpenFoodFactsProductFromDump(row: OffDumpProductRow): OpenFood
     saturatedFatPer100g: row.saturated_fat ?? undefined,
     saltPer100g: row.salt ?? undefined,
     nutriScore: (row.nutriscore || undefined) as OpenFoodFactsProduct['nutriScore'],
-    // Dump ist noch Schema 1 ohne categories_tags — kommt erst mit #223 Paket 4.
-    categoryTags: [],
+    categoryTags: parseCategoryTagsJson(row.categories_tags),
+    offLastModifiedAt: row.off_last_modified_at ?? undefined,
   };
 }
 
@@ -312,7 +323,7 @@ export async function searchOffDump(
   try {
     const db = await getDatabase();
     const rows = await db.getAllAsync<OffDumpProductRow>(
-      `select code, product_name, brand, quantity, nutriscore, energy_kcal, fat, saturated_fat, carbohydrates, sugars, proteins, salt
+      `select code, product_name, brand, quantity, nutriscore, energy_kcal, fat, saturated_fat, carbohydrates, sugars, proteins, salt, categories_tags, off_last_modified_at
        from off_dump.products
        where lower(product_name) like ?
        order by product_name
@@ -338,7 +349,7 @@ export async function fetchProductByBarcodeFromDump(
   try {
     const db = await getDatabase();
     const row = await db.getFirstAsync<OffDumpProductRow>(
-      `select code, product_name, brand, quantity, nutriscore, energy_kcal, fat, saturated_fat, carbohydrates, sugars, proteins, salt
+      `select code, product_name, brand, quantity, nutriscore, energy_kcal, fat, saturated_fat, carbohydrates, sugars, proteins, salt, categories_tags, off_last_modified_at
        from off_dump.products
        where code = ?
        limit 1`,

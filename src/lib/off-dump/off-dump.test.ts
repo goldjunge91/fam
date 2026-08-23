@@ -96,6 +96,71 @@ describe('toOpenFoodFactsProductFromDump', () => {
       categoryTags: [],
     });
   });
+
+  it('parst categories_tags/off_last_modified_at aus Dump Schema 2 (#223 Paket 4)', () => {
+    const { toOpenFoodFactsProductFromDump } = require('@/lib/off-dump/off-dump');
+    const product = toOpenFoodFactsProductFromDump({
+      code: '4008400404127',
+      product_name: 'Kinder Riegel',
+      brand: null,
+      quantity: null,
+      nutriscore: null,
+      energy_kcal: null,
+      fat: null,
+      saturated_fat: null,
+      carbohydrates: null,
+      sugars: null,
+      proteins: null,
+      salt: null,
+      categories_tags: '["en:snacks","en:chocolates"]',
+      off_last_modified_at: '2026-01-01T00:00:00.000Z',
+    });
+
+    expect(product.categoryTags).toEqual(['en:snacks', 'en:chocolates']);
+    expect(product.offLastModifiedAt).toBe('2026-01-01T00:00:00.000Z');
+  });
+
+  it('liefert categoryTags: [] bei Dump Schema 1 (Spalte fehlt/ist null)', () => {
+    const { toOpenFoodFactsProductFromDump } = require('@/lib/off-dump/off-dump');
+    const product = toOpenFoodFactsProductFromDump({
+      code: '1',
+      product_name: 'Test',
+      brand: null,
+      quantity: null,
+      nutriscore: null,
+      energy_kcal: null,
+      fat: null,
+      saturated_fat: null,
+      carbohydrates: null,
+      sugars: null,
+      proteins: null,
+      salt: null,
+    });
+
+    expect(product.categoryTags).toEqual([]);
+    expect(product.offLastModifiedAt).toBeUndefined();
+  });
+
+  it('ignoriert kaputtes JSON in categories_tags statt zu werfen', () => {
+    const { toOpenFoodFactsProductFromDump } = require('@/lib/off-dump/off-dump');
+    const product = toOpenFoodFactsProductFromDump({
+      code: '1',
+      product_name: 'Test',
+      brand: null,
+      quantity: null,
+      nutriscore: null,
+      energy_kcal: null,
+      fat: null,
+      saturated_fat: null,
+      carbohydrates: null,
+      sugars: null,
+      proteins: null,
+      salt: null,
+      categories_tags: 'kaputt{',
+    });
+
+    expect(product.categoryTags).toEqual([]);
+  });
 });
 
 describe('dedupeProductsByBarcode', () => {
