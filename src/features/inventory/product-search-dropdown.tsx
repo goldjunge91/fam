@@ -53,7 +53,23 @@ type LocalProductRow = {
   protein_g_per_100: number | null;
   carbs_g_per_100: number | null;
   fat_g_per_100: number | null;
+  /** JSON-serialisiertes `text[]` (#223), siehe `off_category_tags` in `migrations.ts`. */
+  off_category_tags?: string | null;
+  off_last_modified_at?: string | null;
 };
+
+/** Robust gegen fehlendes/kaputtes JSON — ein Parse-Fehler darf die Suche nicht abbrechen. */
+function parseCategoryTags(raw: string | null | undefined): string[] {
+  if (!raw) return [];
+  try {
+    const parsed = JSON.parse(raw);
+    return Array.isArray(parsed)
+      ? parsed.filter((tag): tag is string => typeof tag === 'string')
+      : [];
+  } catch {
+    return [];
+  }
+}
 
 function toOpenFoodFactsProduct(row: LocalProductRow): OpenFoodFactsProduct {
   return {
@@ -64,6 +80,8 @@ function toOpenFoodFactsProduct(row: LocalProductRow): OpenFoodFactsProduct {
     proteinsPer100g: row.protein_g_per_100 ?? undefined,
     carbsPer100g: row.carbs_g_per_100 ?? undefined,
     fatPer100g: row.fat_g_per_100 ?? undefined,
+    categoryTags: parseCategoryTags(row.off_category_tags),
+    offLastModifiedAt: row.off_last_modified_at ?? undefined,
   };
 }
 
@@ -77,7 +95,8 @@ function toOpenFoodFactsProduct(row: LocalProductRow): OpenFoodFactsProduct {
 async function searchOwnProducts(query: string): Promise<OpenFoodFactsProduct[]> {
   const db = await getDatabase();
   const rows = await db.getAllAsync<LocalProductRow>(
-    `select barcode, name, brand, kcal_per_100, protein_g_per_100, carbs_g_per_100, fat_g_per_100
+    `select barcode, name, brand, kcal_per_100, protein_g_per_100, carbs_g_per_100, fat_g_per_100,
+            off_category_tags, off_last_modified_at
      from products
      where deleted_at is null and lower(name) like ?
      order by name

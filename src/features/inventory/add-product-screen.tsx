@@ -58,6 +58,7 @@ export function AddProductScreen() {
         proteinsPer100g: created.protein_g_per_100 ?? undefined,
         carbsPer100g: created.carbs_g_per_100 ?? undefined,
         fatPer100g: created.fat_g_per_100 ?? undefined,
+        categoryTags: [],
       });
 
       router.back();

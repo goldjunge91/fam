@@ -125,7 +125,8 @@
     "user:clean": "bun scripts/test-users.ts clean",
     "user:delete": "bun scripts/test-users.ts delete",
     "test:env": "EXPO_NO_DOTENV=1 dotenv -o -e .env -- bun -e \"console.log(process.env.EXPO_PUBLIC_SUPABASE_URL)\"",
-    "classify": "bun scripts/classify.ts"
+    "classify": "bun scripts/classify.ts",
+    "evaluate-categories": "bun scripts/dump_data/evaluate-categories.ts"
   },
   "resolutions": {
     "lightningcss": "1.30.1"

@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<title>Kategorie-Kalibrierung #223</title>
+<style>
+  body { font-family: system-ui, sans-serif; margin: 2rem; color: #1a1a1a; }
+  table { border-collapse: collapse; margin: 1rem 0; width: 100%; max-width: 800px; }
+  th, td { border: 1px solid #ccc; padding: 0.4rem 0.6rem; text-align: left; font-size: 0.9rem; }
+  th { background: #f0f0f0; }
+  .warn { color: #a15c00; background: #fff6e5; padding: 0.75rem 1rem; border-radius: 4px; }
+  .ok { color: #0a6b2f; }
+  .fail { color: #b3261e; }
+</style>
+</head>
+<body>
+<h1>Kategorie-Kalibrierung (#223)</h1>
+<p>Classifier-Version: <strong>1</strong> · Produkte insgesamt: <strong>404983</strong></p>
+
+<p class="warn">Dump ist noch Schema 1 (kein <code>categories_tags</code>) — nur der
+       Namens-Fallback wurde geprüft. OFF-Tag-Konflikte und der Live-/Dump-Vergleich
+       derselben EAN sind erst ab #223 Paket 4 (Dump Schema 2) auswertbar.</p>
+
+<h2>Abdeckung</h2>
+<ul>
+  <li>Sonstiges (kein Signal): 300982 (74.3%)</li>
+  <li>Quelle OFF-Taxonomie: 0</li>
+  <li>Quelle Namens-Fallback: 104001</li>
+  <li>Ohne Treffer: 300982</li>
+</ul>
+
+<h2>Verteilung je Kategorie</h2>
+<table>
+<tr><th>Kategorie</th><th>Anzahl</th><th>Anteil</th></tr>
+<tr><td>produce</td><td>23495</td><td>5.8%</td></tr>
+<tr><td>bakery</td><td>4460</td><td>1.1%</td></tr>
+<tr><td>deli_meat</td><td>14279</td><td>3.5%</td></tr>
+<tr><td>pantry_canned</td><td>4484</td><td>1.1%</td></tr>
+<tr><td>pantry_dry</td><td>17851</td><td>4.4%</td></tr>
+<tr><td>breakfast</td><td>7758</td><td>1.9%</td></tr>
+<tr><td>snacks</td><td>5826</td><td>1.4%</td></tr>
+<tr><td>beverages</td><td>7439</td><td>1.8%</td></tr>
+<tr><td>dairy</td><td>16220</td><td>4.0%</td></tr>
+<tr><td>frozen</td><td>1233</td><td>0.3%</td></tr>
+<tr><td>drugstore</td><td>794</td><td>0.2%</td></tr>
+<tr><td>checkout</td><td>162</td><td>0.0%</td></tr>
+</table>
+
+<h2>Golden-Korpus</h2>
+<p class="ok">
+  37 / 37 bestanden
+</p>
+<p class="ok">Keine Abweichungen.</p>
+
+<h2>Stichproben je Kategorie</h2>
+<p>Bis zu 100 deterministisch (Hash-basiert) gewählte Beispiele je Kategorie — siehe
+<code>category-calibration-report.json</code> für die vollständige Liste.</p>
+
+</body>
+</html>

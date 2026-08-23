@@ -93,6 +93,7 @@ describe('toOpenFoodFactsProductFromDump', () => {
       sugarsPer100g: 53.3,
       proteinsPer100g: 8.7,
       saltPer100g: 0.313,
+      categoryTags: [],
     });
   });
 });

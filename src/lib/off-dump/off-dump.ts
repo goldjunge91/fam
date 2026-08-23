@@ -288,6 +288,8 @@ export function toOpenFoodFactsProductFromDump(row: OffDumpProductRow): OpenFood
     saturatedFatPer100g: row.saturated_fat ?? undefined,
     saltPer100g: row.salt ?? undefined,
     nutriScore: (row.nutriscore || undefined) as OpenFoodFactsProduct['nutriScore'],
+    // Dump ist noch Schema 1 ohne categories_tags — kommt erst mit #223 Paket 4.
+    categoryTags: [],
   };
 }
 

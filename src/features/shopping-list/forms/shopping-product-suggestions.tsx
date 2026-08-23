@@ -46,6 +46,8 @@ function toProduct(suggestion: ShoppingProductSuggestion): OpenFoodFactsProduct 
     brand: suggestion.brand ?? undefined,
     quantity: suggestion.quantity ?? 1,
     unit: suggestion.unit ?? 'piece',
+    // Vorschlagsverlauf (#79) fuehrt keine OFF-Tags mit.
+    categoryTags: [],
   };
 }
 
