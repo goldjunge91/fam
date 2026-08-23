@@ -63,7 +63,15 @@ module.exports = {
   // (scripts/dump_data/*.bun.test.ts) laufen stattdessen ueber
   // `bun run test:dump-pipeline` (Buns eigener Testrunner, siehe
   // scripts/dump_data/README.md).
-  testPathIgnorePatterns: ['/node_modules/', '\\.integration\\.test\\.tsx?$', '\\.bun\\.test\\.ts$'],
+  // Das eigenstaendige Category Lab ist eine Vite/Vitest-Anwendung mit
+  // eigenem `bun run test`. Jest Expo darf seine ESM/Vitest-Suiten nicht als
+  // React-Native-Tests einsammeln.
+  testPathIgnorePatterns: [
+    '/node_modules/',
+    '/tools/category-debugger/',
+    '\\.integration\\.test\\.tsx?$',
+    '\\.bun\\.test\\.ts$',
+  ],
 
   // Bewusst nicht standardmaessig an: Instrumentierung kostet auf jedem Lauf
   // ~2x Laufzeit. Fuer gezielte Coverage-Reports gibt es `bun run test:coverage`.

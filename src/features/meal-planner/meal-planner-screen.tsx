@@ -11,7 +11,12 @@ import { useActiveHousehold } from '@/features/household/active-household-provid
 import { useHouseholdMembers } from '@/features/household/api';
 import { useNavigationChrome } from '@/features/navigation/navigation-chrome-provider';
 import { useRecipes } from '@/features/recipes/use-recipes';
+import {
+  DEFAULT_MODULE_PREFERENCES,
+  useModulePreferences,
+} from '@/features/settings/module-preferences';
 import { useTheme } from '@/hooks/use-theme';
+import { useFeatureFlag } from '@/lib/posthog';
 import { type EntryFormInitial, EntryFormModal } from './components/entry-form-modal';
 import { RecipePickerModal } from './components/recipe-picker-modal';
 import { type DraggableRecipe, WeekGrid } from './components/week-grid';
@@ -57,6 +62,10 @@ export function MealPlannerScreen() {
   const userId = session?.user.id;
   const { activeHouseholdId } = useActiveHousehold();
   const householdId = activeHouseholdId ?? undefined;
+  const { data: rawModules } = useModulePreferences(userId);
+  const recipesFeatureEnabled = useFeatureFlag('module-recipes', false);
+  const recipesEnabled =
+    (rawModules ?? DEFAULT_MODULE_PREFERENCES).recipes && recipesFeatureEnabled;
 
   const [viewMode, setViewMode] = useState<ViewMode>('week');
   const [anchorDate, setAnchorDate] = useState(() => todayIso());
@@ -77,7 +86,7 @@ export function MealPlannerScreen() {
     dates[0],
     dates[dates.length - 1],
   );
-  const { data: recipes = [] } = useRecipes(householdId);
+  const { data: recipes = [] } = useRecipes(recipesEnabled ? householdId : undefined);
   const { data: members = [] } = useHouseholdMembers(householdId ?? '');
   const { data: portionsPerPerson } = usePortionsPerPerson();
 
@@ -87,17 +96,20 @@ export function MealPlannerScreen() {
   const deleteEntry = useDeleteEntryMutation();
   const reuseLastWeek = useReuseLastWeekMutation();
 
-  const draggableRecipes: DraggableRecipe[] = recipes.map((r) => ({
-    id: r.id,
-    title: r.title,
-    coverImagePath: r.cover_image_path,
-  }));
+  const draggableRecipes: DraggableRecipe[] = recipesEnabled
+    ? recipes.map((r) => ({
+        id: r.id,
+        title: r.title,
+        coverImagePath: r.cover_image_path,
+      }))
+    : [];
 
   function handleDropRecipe(date: string, slot: MealSlot, recipe: DraggableRecipe) {
     setPendingDrop({ date, slot, recipe });
   }
 
   function handleTapEmptyCell(date: string, slot: MealSlot) {
+    if (!recipesEnabled) return;
     setPendingCell({ date, slot });
   }
 
@@ -307,6 +319,7 @@ export function MealPlannerScreen() {
           dates={dates}
           entries={entries}
           recipes={draggableRecipes}
+          canAddRecipes={recipesEnabled}
           onDropRecipe={handleDropRecipe}
           onTapEntry={handleTapEntry}
           onTapEmptyCell={handleTapEmptyCell}

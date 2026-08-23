@@ -5,9 +5,15 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { FamIcon, type FamIconName } from '@/components/icons/fam-icon';
 import { ThemedText } from '@/components/theme/themed-text';
 import { IconSize, Layout, Spacing } from '@/constants/layout';
+import { useSession } from '@/features/auth/session-provider';
 import type { MealType } from '@/features/calorie-tracking/api';
 import { DEFAULT_FAB_POSITION, useFabPosition } from '@/features/navigation/fab-position-settings';
+import {
+  DEFAULT_MODULE_PREFERENCES,
+  useModulePreferences,
+} from '@/features/settings/module-preferences';
 import { useDeferredMount } from '@/hooks/use-deferred-mount';
+import { useFeatureFlag } from '@/lib/posthog';
 import { useNavigationChrome } from './navigation-chrome-provider';
 
 type SpeedDialOption = {
@@ -15,6 +21,7 @@ type SpeedDialOption = {
   icon: FamIconName;
   href: string | (() => string);
   backgroundColor: string;
+  requiresRecipes?: boolean;
 };
 
 /** Lokales Datum, nicht UTC — sonst rutscht das Datum kurz nach Mitternacht. */
@@ -51,7 +58,14 @@ const OPTIONS: SpeedDialOption[] = [
     href: () => `/add-food-entry?date=${todayIso()}&mealType=${defaultMealType()}`,
     backgroundColor: '#F3E9D7',
   },
-  { title: 'Rezept', icon: 'recipes', href: '/recipe/create', backgroundColor: '#E4EDE3' },
+  // { title: 'Rezept', icon: 'recipes', href: '/recipe/create', backgroundColor: '#E4EDE3' },
+  {
+    title: 'Rezept',
+    icon: 'recipes',
+    href: '/recipe/create',
+    backgroundColor: '#E4EDE3',
+    requiresRecipes: true,
+  },
 ];
 
 /**
@@ -73,7 +87,12 @@ export function SpeedDialMenu() {
 function SpeedDialMenuContent() {
   const insets = useSafeAreaInsets();
   const { isQuickAddOpen, closeQuickAdd } = useNavigationChrome();
+  const { session } = useSession();
   const { data: position = DEFAULT_FAB_POSITION } = useFabPosition();
+  const { data: rawModules } = useModulePreferences(session?.user.id);
+  const recipesFeatureEnabled = useFeatureFlag('module-recipes', false);
+  const recipesEnabled =
+    (rawModules ?? DEFAULT_MODULE_PREFERENCES).recipes && recipesFeatureEnabled;
   const isRight = position !== 'left';
 
   function go(href: string) {
@@ -99,7 +118,7 @@ function SpeedDialMenuContent() {
             [isRight ? 'right' : 'left']: Spacing.four,
             bottom: insets.bottom + Layout.floatingActionAreaHeight,
           }}>
-          {OPTIONS.map((option) => (
+          {OPTIONS.filter((option) => !option.requiresRecipes || recipesEnabled).map((option) => (
             <Pressable
               key={option.title}
               onPress={() => go(typeof option.href === 'function' ? option.href() : option.href)}

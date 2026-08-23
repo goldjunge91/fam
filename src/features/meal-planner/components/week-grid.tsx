@@ -22,6 +22,7 @@ type WeekGridProps = {
   dates: readonly string[];
   entries: readonly MealPlanEntry[];
   recipes: readonly DraggableRecipe[];
+  canAddRecipes?: boolean;
   onDropRecipe: (date: string, slot: MealSlot, recipe: DraggableRecipe) => void;
   onTapEntry: (entry: MealPlanEntry) => void;
   onTapEmptyCell: (date: string, slot: MealSlot) => void;
@@ -50,6 +51,7 @@ export function WeekGrid({
   dates,
   entries,
   recipes,
+  canAddRecipes = true,
   onDropRecipe,
   onTapEntry,
   onTapEmptyCell,
@@ -166,6 +168,7 @@ export function WeekGrid({
                     <Pressable
                       role="button"
                       aria-label={`${SLOT_LABELS[slot]} am ${weekdayLabel(date)}, Gericht hinzufügen`}
+                      disabled={!canAddRecipes}
                       onPress={() => onTapEmptyCell(date, slot)}
                       className="wg-add-button"
                       // borderCurve ist ein echter Laufzeitwert ohne Tailwind-Aequivalent.

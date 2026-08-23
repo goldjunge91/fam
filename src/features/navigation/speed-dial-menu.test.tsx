@@ -4,6 +4,8 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { SpeedDialMenu } from '@/features/navigation/speed-dial-menu';
 
 const mockCloseQuickAdd = jest.fn();
+let mockRecipesPreference = true;
+let mockRecipesFeatureFlag = true;
 
 jest.mock('expo-router', () => ({
   router: { push: jest.fn() },
@@ -21,25 +23,79 @@ jest.mock('@/features/navigation/fab-position-settings', () => ({
   useFabPosition: () => ({ data: 'right' }),
 }));
 
+jest.mock('@/features/auth/session-provider', () => ({
+  useSession: () => ({ session: { user: { id: 'user-1' } } }),
+}));
+
+jest.mock('@/features/settings/module-preferences', () => ({
+  DEFAULT_MODULE_PREFERENCES: {
+    fridge: true,
+    shoppingList: true,
+    calories: true,
+    recipes: true,
+    mealPlanner: true,
+  },
+  useModulePreferences: () => ({
+    data: {
+      fridge: true,
+      shoppingList: true,
+      calories: true,
+      recipes: mockRecipesPreference,
+      mealPlanner: true,
+    },
+  }),
+}));
+
+jest.mock('@/lib/posthog', () => ({
+  useFeatureFlag: () => mockRecipesFeatureFlag,
+}));
+
 jest.mock('@/hooks/use-deferred-mount', () => ({
   useDeferredMount: () => true,
 }));
 
-describe('SpeedDialMenu', () => {
-  it('rendert Schnellauswahl-Aktionen', async () => {
-    await render(
-      <SafeAreaProvider
-        initialMetrics={{
-          frame: { x: 0, y: 0, width: 390, height: 844 },
-          insets: { top: 47, left: 0, right: 0, bottom: 34 },
-        }}>
-        <SpeedDialMenu />
-      </SafeAreaProvider>,
-    );
+function renderSpeedDial() {
+  return render(
+    <SafeAreaProvider
+      initialMetrics={{
+        frame: { x: 0, y: 0, width: 390, height: 844 },
+        insets: { top: 47, left: 0, right: 0, bottom: 34 },
+      }}>
+      <SpeedDialMenu />
+    </SafeAreaProvider>,
+  );
+}
 
-    expect(screen.getByText('Vorratsartikel')).toBeTruthy();
-    expect(screen.getByText('Einkaufsartikel')).toBeTruthy();
-    expect(screen.getByText('Tagebucheintrag')).toBeTruthy();
-    expect(screen.getByText('Rezept')).toBeTruthy();
+describe('SpeedDialMenu', () => {
+  beforeEach(() => {
+    mockRecipesPreference = true;
+    mockRecipesFeatureFlag = true;
+  });
+
+  it('rendert Schnellauswahl-Aktionen', async () => {
+    await renderSpeedDial();
+
+    expect(screen.getByText('Vorratsartikel')).toBeOnTheScreen();
+    expect(screen.getByText('Einkaufsartikel')).toBeOnTheScreen();
+    expect(screen.getByText('Tagebucheintrag')).toBeOnTheScreen();
+    expect(screen.getByText('Rezept')).toBeOnTheScreen();
+  });
+
+  it('blendet die Rezept-Aktion aus, wenn das Rezepte-Modul deaktiviert ist', async () => {
+    mockRecipesPreference = false;
+
+    await renderSpeedDial();
+
+    expect(screen.queryByText('Rezept')).not.toBeOnTheScreen();
+    expect(screen.getByText('Vorratsartikel')).toBeOnTheScreen();
+  });
+
+  it('blendet die Rezept-Aktion aus, wenn module-recipes deaktiviert ist', async () => {
+    mockRecipesFeatureFlag = false;
+
+    await renderSpeedDial();
+
+    expect(screen.queryByText('Rezept')).not.toBeOnTheScreen();
+    expect(screen.getByText('Vorratsartikel')).toBeOnTheScreen();
   });
 });
