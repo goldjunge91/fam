@@ -66,8 +66,12 @@ create table if not exists shopping_list_items (
   quantity     real not null default 1,
   unit         text not null default 'piece',
   category_id  text check (category_id in (
-    'produce','bakery','deli_meat','pantry_canned','pantry_dry','breakfast',
-    'snacks','beverages','dairy','frozen','drugstore','checkout'
+    'produce','bakery','convenience','breakfast','hot_beverages',
+    'pantry_staples','cooking_baking','canned_sauces','snacks','beverages',
+    'drugstore','baby_kids','household','pet_supplies',
+    'meat_poultry','fish_seafood','deli_cold_cuts','plant_based','dairy_eggs',
+    'frozen','checkout',
+    'deli_meat','pantry_canned','pantry_dry','dairy'
   )),
   category_source text check (category_source in (
     'user','household_preference','off_taxonomy','name_fallback'
@@ -130,8 +134,12 @@ create table if not exists shopping_category_preferences (
     and normalized_key_value = lower(trim(normalized_key_value))
   ),
   category_id           text check (category_id in (
-    'produce','bakery','deli_meat','pantry_canned','pantry_dry','breakfast',
-    'snacks','beverages','dairy','frozen','drugstore','checkout'
+    'produce','bakery','convenience','breakfast','hot_beverages',
+    'pantry_staples','cooking_baking','canned_sauces','snacks','beverages',
+    'drugstore','baby_kids','household','pet_supplies',
+    'meat_poultry','fish_seafood','deli_cold_cuts','plant_based','dairy_eggs',
+    'frozen','checkout',
+    'deli_meat','pantry_canned','pantry_dry','dairy'
   )),
   created_by            text,
   created_at            text,
@@ -208,8 +216,12 @@ create table if not exists shopping_history (
   quantity      real not null,
   unit          text not null,
   category_id   text check (category_id in (
-    'produce','bakery','deli_meat','pantry_canned','pantry_dry','breakfast',
-    'snacks','beverages','dairy','frozen','drugstore','checkout'
+    'produce','bakery','convenience','breakfast','hot_beverages',
+    'pantry_staples','cooking_baking','canned_sauces','snacks','beverages',
+    'drugstore','baby_kids','household','pet_supplies',
+    'meat_poultry','fish_seafood','deli_cold_cuts','plant_based','dairy_eggs',
+    'frozen','checkout',
+    'deli_meat','pantry_canned','pantry_dry','dairy'
   )),
   category_source text check (category_source in (
     'user','household_preference','off_taxonomy','name_fallback'

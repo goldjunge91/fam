@@ -48,7 +48,7 @@ describe('resolveCategory', () => {
     });
 
     expect(result.source).not.toBe('household_preference');
-    expect(result.categoryId).toBe('deli_meat');
+    expect(result.categoryId).toBe('meat_poultry');
   });
 
   it('faellt bei fehlender Produkt-Praeferenz aber ohne Namens-Praeferenz ebenfalls auf die Klassifikation zurueck', () => {

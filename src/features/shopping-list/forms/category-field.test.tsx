@@ -6,14 +6,14 @@ describe('CategoryField', () => {
   it('zeigt die aktuelle Kategorie mit ihrer automatischen Herkunft', async () => {
     await render(
       <CategoryField
-        categoryId="deli_meat"
+        categoryId="meat_poultry"
         source="name_fallback"
         onSelectCategory={jest.fn()}
         onReset={jest.fn()}
       />,
     );
 
-    expect(screen.getByText('Wurst & Fleisch (Kühl)')).toBeOnTheScreen();
+    expect(screen.getByText('Fleisch & Geflügel')).toBeOnTheScreen();
     expect(screen.getByText('automatisch · Name')).toBeOnTheScreen();
   });
 

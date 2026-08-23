@@ -150,7 +150,10 @@ function TraceView({ trace }: { trace: CategoryTrace }) {
   );
 }
 
+import { DumpBrowserView } from './DumpBrowserView';
+
 export function App() {
+  const [activeTab, setActiveTab] = useState<'radar' | 'browser'>('radar');
   const [status, setStatus] = useState<DbStatus>({ kind: 'loading' });
   const dbRef = useRef<Database | null>(null);
 
@@ -160,6 +163,14 @@ export function App() {
 
   const [freeText, setFreeText] = useState('2 Schnitzel vom Schwein Spar Fein Küche');
   const [freeTextTags, setFreeTextTags] = useState('');
+
+  const handleSelectForRadar = (product: ProductRow) => {
+    setSelected(product);
+    setQuery(product.code || product.product_name);
+    setFreeText(product.product_name);
+    setFreeTextTags(parseCategoryTags(product.categories_tags).join(', '));
+    setActiveTab('radar');
+  };
 
   useEffect(() => {
     let cancelled = false;
@@ -177,6 +188,11 @@ export function App() {
         const buffer = new Uint8Array(await dbRes.arrayBuffer());
         if (cancelled) return;
         const db = new SQL.Database(buffer);
+        db.create_function('classify_category', (name: string, tagsJson: string) => {
+          if (!name) return 'OTHER';
+          const tags = parseCategoryTags(tagsJson);
+          return classifyCategory({ name, categoryTags: tags }).categoryId ?? 'OTHER';
+        });
         dbRef.current = db;
         const countRes = db.exec('select count(*) from products');
         const count = Number(countRes[0]?.values[0]?.[0] ?? 0);
@@ -252,10 +268,9 @@ export function App() {
     <div className="shell">
       <header className="top">
         <div className="eyebrow">shopping-list · classifyCategory()/explainCategory() gegen den echten Dump</div>
-        <h1>Kategorie-Radar</h1>
+        <h1>Kategorie-Radar & Dump-Browser</h1>
         <p className="lede">
-          Durchsucht die tatsächlich heruntergeladene <code>off-dump.db</code> (derselbe Release wie{' '}
-          <code>ensureOffDumpDownloaded()</code> in der App) und zeigt zu jedem echten Treffer den vollen
+          Durchsucht die lokale <code>off-dump.db</code> (406.802 Produkte) und zeigt zu jedem Treffer den vollen
           Entscheidungs-Trace von <code>explainCategory()</code>.
         </p>
         <div className="status-line">
@@ -275,183 +290,201 @@ export function App() {
             </>
           )}
         </div>
+
+        {/* Tab Navigation */}
+        <div className="tab-nav">
+          <button
+            type="button"
+            className={`tab-btn ${activeTab === 'radar' ? 'active' : ''}`}
+            onClick={() => setActiveTab('radar')}>
+            🔍 Kategorie-Radar (Entscheidungs-Trace)
+          </button>
+          <button
+            type="button"
+            className={`tab-btn ${activeTab === 'browser' ? 'active' : ''}`}
+            onClick={() => setActiveTab('browser')}>
+            📋 Voller Dump-Browser (Tabelle & Filter)
+          </button>
+        </div>
       </header>
 
-      <section className="panel">
-        <div className="panel-head">
-          <span className="panel-title">Freitext- & Barcode-Tester</span>
-        </div>
-        <div className="search-row">
-          <div>
-            <label className="field-label" htmlFor="free-text">
-              Artikelname
-            </label>
-            <input
-              id="free-text"
-              className="text-input"
-              type="text"
-              value={freeText}
-              onChange={(e) => setFreeText(e.target.value)}
-              placeholder="z. B. Apfelsaft"
-              spellCheck={false}
+      {activeTab === 'browser' ? (
+        <DumpBrowserView db={dbRef.current} onSelectForRadar={handleSelectForRadar} />
+      ) : (
+        <>
+          <section className="panel">
+            <div className="panel-head">
+              <span className="panel-title">Freitext- & Barcode-Tester</span>
+            </div>
+            <div className="search-row">
+              <div>
+                <label className="field-label" htmlFor="free-text">
+                  Artikelname
+                </label>
+                <input
+                  id="free-text"
+                  className="text-input"
+                  type="text"
+                  value={freeText}
+                  onChange={(e) => setFreeText(e.target.value)}
+                  placeholder="z. B. Apfelsaft"
+                  spellCheck={false}
+                />
+              </div>
+              <div>
+                <label className="field-label" htmlFor="free-text-tags">
+                  OFF-Tags (kommagetrennt, optional)
+                </label>
+                <input
+                  id="free-text-tags"
+                  className="text-input"
+                  type="text"
+                  value={freeTextTags}
+                  onChange={(e) => setFreeTextTags(e.target.value)}
+                  placeholder="en:porks, en:meats"
+                  spellCheck={false}
+                />
+              </div>
+            </div>
+            <div
+              className="article-name"
+              // biome-ignore lint/security/noDangerouslySetInnerHtml: escapeHtml() laeuft ueber jeden Teil davor
+              dangerouslySetInnerHTML={{ __html: highlight(freeText, freeTextTrace.winner.evidence?.value) }}
             />
-          </div>
-          <div>
-            <label className="field-label" htmlFor="free-text-tags">
-              OFF-Tags (kommagetrennt, optional)
-            </label>
-            <input
-              id="free-text-tags"
-              className="text-input"
-              type="text"
-              value={freeTextTags}
-              onChange={(e) => setFreeTextTags(e.target.value)}
-              placeholder="en:porks, en:meats"
-              spellCheck={false}
-            />
-          </div>
-        </div>
-        <div
-          className="article-name"
-          // biome-ignore lint/security/noDangerouslySetInnerHtml: escapeHtml() laeuft ueber jeden Teil davor
-          dangerouslySetInnerHTML={{ __html: highlight(freeText, freeTextTrace.winner.evidence?.value) }}
-        />
-        <TraceView trace={freeTextTrace} />
-      </section>
+            <TraceView trace={freeTextTrace} />
+          </section>
 
-      <div className="workspace">
-        <div className="panel">
-          <div className="panel-head">
-            <span className="panel-title">Treffer im Dump</span>
-            <span className="panel-count">{results.length}</span>
-          </div>
-          <div className="hit-list">
-            {results.length === 0 ? (
-              <div className="empty">Keine Treffer.</div>
-            ) : (
-              results.map((row) => (
-                <button
-                  key={row.code ?? row.product_name}
-                  type="button"
-                  className={`hit-row${selected?.code === row.code ? ' active' : ''}`}
-                  onClick={() => setSelected(row)}>
-                  <span className="hit-name">{row.product_name}</span>
-                  <span className="hit-meta">
-                    {row.brand || 'ohne Marke'} · EAN {row.code || '—'}
-                  </span>
-                </button>
-              ))
-            )}
-          </div>
-          <div className="search-row" style={{ marginTop: 12 }}>
-            <div>
-              <label className="field-label" htmlFor="q">
-                Suche im Dump (Name oder EAN)
-              </label>
-              <input
-                id="q"
-                className="text-input"
-                type="text"
-                value={query}
-                onChange={(e) => setQuery(e.target.value)}
-                placeholder="z. B. Schwein oder 4000417025005"
-                spellCheck={false}
-              />
+          <div className="workspace">
+            <div className="panel">
+              <div className="panel-head">
+                <span className="panel-title">Treffer im Dump</span>
+                <span className="panel-count">{results.length}</span>
+              </div>
+              <div className="hit-list">
+                {results.length === 0 ? (
+                  <div className="empty">Keine Treffer.</div>
+                ) : (
+                  results.map((row) => (
+                    <button
+                      key={row.code ?? row.product_name}
+                      type="button"
+                      className={`hit-row${selected?.code === row.code ? ' active' : ''}`}
+                      onClick={() => setSelected(row)}>
+                      <span className="hit-name">{row.product_name}</span>
+                      <span className="hit-meta">
+                        {row.brand || 'ohne Marke'} · EAN {row.code || '—'}
+                      </span>
+                    </button>
+                  ))
+                )}
+              </div>
+              <div className="search-row" style={{ marginTop: 12 }}>
+                <div>
+                  <label className="field-label" htmlFor="q">
+                    Suche im Dump (Name oder EAN)
+                  </label>
+                  <input
+                    id="q"
+                    className="text-input"
+                    type="text"
+                    value={query}
+                    onChange={(e) => setQuery(e.target.value)}
+                    placeholder="z. B. Schwein oder 4000417025005"
+                    spellCheck={false}
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div className="panel">
+              <div className="panel-head">
+                <span className="panel-title">Artikeldetails & Kategorie-Trace</span>
+              </div>
+
+              {!selected || !dumpTrace ? (
+                <div className="detail-empty">Links einen Artikel auswählen.</div>
+              ) : (
+                <>
+                  <div className="article-head">
+                    <div
+                      className="article-name"
+                      // biome-ignore lint/security/noDangerouslySetInnerHtml: escapeHtml() laeuft ueber jeden Teil davor
+                      dangerouslySetInnerHTML={{
+                        __html: highlight(selected.product_name, dumpTrace.winner.evidence?.value),
+                      }}
+                    />
+                    <TraceView trace={dumpTrace} />
+                  </div>
+
+                  <div className="data-grid">
+                    <div className="data-cell">
+                      <div className="k">EAN</div>
+                      <div className="v">{selected.code || '—'}</div>
+                    </div>
+                    <div className="data-cell">
+                      <div className="k">Marke</div>
+                      <div className="v">{selected.brand || '—'}</div>
+                    </div>
+                    <div className="data-cell">
+                      <div className="k">Menge</div>
+                      <div className="v">{selected.quantity || '—'}</div>
+                    </div>
+                    <div className="data-cell">
+                      <div className="k">Nutri-Score</div>
+                      <div className="v">{selected.nutriscore?.toUpperCase() || '—'}</div>
+                    </div>
+                    <div className="data-cell">
+                      <div className="k">kcal / 100g</div>
+                      <div className="v">{fmt(selected.energy_kcal, 0)}</div>
+                    </div>
+                    <div className="data-cell">
+                      <div className="k">Fett / 100g</div>
+                      <div className="v">{fmt(selected.fat)} g</div>
+                    </div>
+                    <div className="data-cell">
+                      <div className="k">– davon gesättigt</div>
+                      <div className="v">{fmt(selected.saturated_fat)} g</div>
+                    </div>
+                    <div className="data-cell">
+                      <div className="k">Kohlenhydrate</div>
+                      <div className="v">{fmt(selected.carbohydrates)} g</div>
+                    </div>
+                    <div className="data-cell">
+                      <div className="k">– davon Zucker</div>
+                      <div className="v">{fmt(selected.sugars)} g</div>
+                    </div>
+                    <div className="data-cell">
+                      <div className="k">Eiweiß</div>
+                      <div className="v">{fmt(selected.proteins)} g</div>
+                    </div>
+                    <div className="data-cell">
+                      <div className="k">Salz</div>
+                      <div className="v">{fmt(selected.salt)} g</div>
+                    </div>
+                    <div className="data-cell">
+                      <div className="k">Läden</div>
+                      <div className="v">{selected.stores || '—'}</div>
+                    </div>
+                    <div className="data-cell">
+                      <div className="k">OFF-Kategorie-Tags</div>
+                      <div className="v">
+                        {parseCategoryTags(selected.categories_tags).join(', ') || '—'}
+                      </div>
+                    </div>
+                    <div className="data-cell">
+                      <div className="k">OFF zuletzt geändert</div>
+                      <div className="v">{selected.off_last_modified_at || '—'}</div>
+                    </div>
+                  </div>
+                </>
+              )}
             </div>
           </div>
-        </div>
-
-        <div className="panel">
-          <div className="panel-head">
-            <span className="panel-title">Artikeldetails & Kategorie-Trace</span>
-          </div>
-
-          {!selected || !dumpTrace ? (
-            <div className="detail-empty">Links einen Artikel auswählen.</div>
-          ) : (
-            <>
-              <div className="article-head">
-                <div
-                  className="article-name"
-                  // biome-ignore lint/security/noDangerouslySetInnerHtml: escapeHtml() laeuft ueber jeden Teil davor
-                  dangerouslySetInnerHTML={{
-                    __html: highlight(selected.product_name, dumpTrace.winner.evidence?.value),
-                  }}
-                />
-                <TraceView trace={dumpTrace} />
-              </div>
-
-              <div className="data-grid">
-                <div className="data-cell">
-                  <div className="k">EAN</div>
-                  <div className="v">{selected.code || '—'}</div>
-                </div>
-                <div className="data-cell">
-                  <div className="k">Marke</div>
-                  <div className="v">{selected.brand || '—'}</div>
-                </div>
-                <div className="data-cell">
-                  <div className="k">Menge</div>
-                  <div className="v">{selected.quantity || '—'}</div>
-                </div>
-                <div className="data-cell">
-                  <div className="k">Nutri-Score</div>
-                  <div className="v">{selected.nutriscore?.toUpperCase() || '—'}</div>
-                </div>
-                <div className="data-cell">
-                  <div className="k">kcal / 100g</div>
-                  <div className="v">{fmt(selected.energy_kcal, 0)}</div>
-                </div>
-                <div className="data-cell">
-                  <div className="k">Fett / 100g</div>
-                  <div className="v">{fmt(selected.fat)} g</div>
-                </div>
-                <div className="data-cell">
-                  <div className="k">– davon gesättigt</div>
-                  <div className="v">{fmt(selected.saturated_fat)} g</div>
-                </div>
-                <div className="data-cell">
-                  <div className="k">Kohlenhydrate</div>
-                  <div className="v">{fmt(selected.carbohydrates)} g</div>
-                </div>
-                <div className="data-cell">
-                  <div className="k">– davon Zucker</div>
-                  <div className="v">{fmt(selected.sugars)} g</div>
-                </div>
-                <div className="data-cell">
-                  <div className="k">Eiweiß</div>
-                  <div className="v">{fmt(selected.proteins)} g</div>
-                </div>
-                <div className="data-cell">
-                  <div className="k">Salz</div>
-                  <div className="v">{fmt(selected.salt)} g</div>
-                </div>
-                <div className="data-cell">
-                  <div className="k">Läden</div>
-                  <div className="v">{selected.stores || '—'}</div>
-                </div>
-                <div className="data-cell">
-                  <div className="k">OFF-Kategorie-Tags</div>
-                  <div className="v">
-                    {parseCategoryTags(selected.categories_tags).join(', ') || '—'}
-                  </div>
-                </div>
-                <div className="data-cell">
-                  <div className="k">OFF zuletzt geändert</div>
-                  <div className="v">{selected.off_last_modified_at || '—'}</div>
-                </div>
-              </div>
-            </>
-          )}
-        </div>
-      </div>
+        </>
+      )}
 
       <footer className="note">
-        Datenquelle: <code>public/off-dump.db</code>, per <code>bun run download-dump</code> vom neuesten
-        GitHub-Release (<code>goldjunge91/fam</code>) geladen — derselbe Release, den <code>off-dump.ts</code>{' '}
-        in der App anhängt. Ab Dump Schema 2 (#223 Paket 4) läuft der Dump-Trace über echte
-        OFF-Kategorie-Tags; gegen einen älteren Schema-1-Dump fehlt die Spalte einfach (kein Crash), der
-        Trace fällt dann automatisch auf den Namens-Fallback zurück. Kategorie-Logik importiert direkt aus
+        Datenquelle: <code>public/off-dump.db</code> (406.802 Produkte mit OFF-Kategorie-Tags). Kategorie-Logik importiert direkt aus{' '}
         <code>src/features/shopping-list/classification/shopping-category-classifier.ts</code>, keine Kopie.
       </footer>
     </div>

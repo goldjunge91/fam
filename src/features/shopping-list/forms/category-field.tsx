@@ -5,7 +5,11 @@ import { ThemedText } from '@/components/theme/themed-text';
 import { Button } from '@/components/ui/buttons';
 import type { ShoppingCategoryId } from '../classification/shopping-category-id';
 import type { CategorySource } from '../classification/types';
-import { colorForCategory, SHOPPING_CATEGORIES } from '../domain-logik/shopping-categories';
+import {
+  categoryLabelForId,
+  colorForCategory,
+  SHOPPING_CATEGORIES,
+} from '../domain-logik/shopping-categories';
 import { describeCategorySource } from './category-source-copy';
 
 const SONSTIGES_LABEL = 'Sonstiges';
@@ -38,10 +42,7 @@ export function CategoryField({
 }: CategoryFieldProps) {
   const [isOpen, setIsOpen] = useState(false);
 
-  const categoryLabel =
-    categoryId === null
-      ? SONSTIGES_LABEL
-      : (SHOPPING_CATEGORIES.find((c) => c.id === categoryId)?.label ?? SONSTIGES_LABEL);
+  const categoryLabel = categoryLabelForId(categoryId) ?? SONSTIGES_LABEL;
   const dotColor = colorForCategory(categoryLabel === SONSTIGES_LABEL ? null : categoryLabel);
   const caption = describeCategorySource(source, categoryId);
   const isAutomatic = source !== 'user';

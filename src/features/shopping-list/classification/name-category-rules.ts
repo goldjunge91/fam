@@ -75,6 +75,13 @@ export const NAME_CATEGORY_RULES: readonly NameCategoryRule[] = [
     'ingwer',
     'obst',
     'gemüse',
+    'kräuter',
+    'basilikum',
+    'petersilie',
+    'rosmarin',
+    'thymian',
+    'dill',
+    'schnittlauch',
   ].map(
     (value): NameCategoryRule => ({
       value,
@@ -98,6 +105,9 @@ export const NAME_CATEGORY_RULES: readonly NameCategoryRule[] = [
     'waffel',
     'bagel',
     'semmel',
+    'fladenbrot',
+    'pita',
+    'ciabatta',
   ].map(
     (value): NameCategoryRule => ({
       value,
@@ -108,95 +118,26 @@ export const NAME_CATEGORY_RULES: readonly NameCategoryRule[] = [
   ),
   { value: 'brot', categoryId: 'bakery', match: 'word-end', score: WORD_END },
 
-  // deli_meat
+  // convenience
   ...[
-    'hackfleisch',
-    'hähnchen',
-    'huhn',
-    'pute',
-    'rindfleisch',
-    'schweinefleisch',
-    'wurst',
-    'schinken',
-    'salami',
-    'speck',
-    'fleisch',
-    'bacon',
-    'leberkäse',
-    'mett',
-    'bratwurst',
-    'wiener',
-    'lyoner',
-    'mortadella',
-    'gyros',
-    'schwein',
+    'fertigsalat',
+    'sandwich',
+    'wraps',
+    'sushi',
+    'hummus',
+    'guacamole',
+    'tzatziki',
+    'feinkost',
+    'tortellini',
+    'gnocchi',
   ].map(
     (value): NameCategoryRule => ({
       value,
-      categoryId: 'deli_meat',
+      categoryId: 'convenience',
       match: 'word',
       score: WHOLE_WORD,
     }),
   ),
-  { value: 'hähnchen', categoryId: 'deli_meat', match: 'word-start', score: WORD_START },
-  { value: 'schwein', categoryId: 'deli_meat', match: 'word-start', score: WORD_START },
-
-  // pantry_canned
-  ...[
-    'dose',
-    'konserve',
-    'pesto',
-    'ketchup',
-    'mayonnaise',
-    'senf',
-    'suppe',
-    'brühe',
-    'fertiggericht',
-  ].map(
-    (value): NameCategoryRule => ({
-      value,
-      categoryId: 'pantry_canned',
-      match: 'word',
-      score: WHOLE_WORD,
-    }),
-  ),
-
-  // pantry_dry
-  ...[
-    'nudeln',
-    'pasta',
-    'spaghetti',
-    'reis',
-    'mehl',
-    'zucker',
-    'salz',
-    'essig',
-    'gewürz',
-    'pfeffer',
-    'backpulver',
-    'hefe',
-    'linsen',
-    'kichererbsen',
-    'couscous',
-    'bulgur',
-    'quinoa',
-    'olivenöl',
-    'sonnenblumenöl',
-    'rapsöl',
-    'sesamöl',
-    'erdnussöl',
-    'kokosöl',
-    'pflanzenöl',
-    'speiseöl',
-  ].map(
-    (value): NameCategoryRule => ({
-      value,
-      categoryId: 'pantry_dry',
-      match: 'word',
-      score: WHOLE_WORD,
-    }),
-  ),
-  { value: 'essig', categoryId: 'pantry_dry', match: 'word-end', score: WORD_END },
 
   // breakfast
   ...[
@@ -207,9 +148,10 @@ export const NAME_CATEGORY_RULES: readonly NameCategoryRule[] = [
     'honig',
     'nutella',
     'aufstrich',
-    'kaffee',
-    'tee',
-    'kakao',
+    'konfitüre',
+    'erdnussbutter',
+    'agavendicksaft',
+    'ahornsirup',
   ].map(
     (value): NameCategoryRule => ({
       value,
@@ -218,6 +160,149 @@ export const NAME_CATEGORY_RULES: readonly NameCategoryRule[] = [
       score: WHOLE_WORD,
     }),
   ),
+
+  // hot_beverages
+  ...[
+    'kaffee',
+    'kaffeebohnen',
+    'tee',
+    'schwarztee',
+    'grüntee',
+    'kräutertee',
+    'früchtetee',
+    'kamillentee',
+    'pfefferminztee',
+    'moringa',
+    'chai',
+    'matcha',
+    'kakao',
+    'kakaopulver',
+    'filtertüten',
+  ].map(
+    (value): NameCategoryRule => ({
+      value,
+      categoryId: 'hot_beverages',
+      match: 'word',
+      score: WHOLE_WORD,
+    }),
+  ),
+  { value: 'tee', categoryId: 'hot_beverages', match: 'word-end', score: WORD_END },
+
+  // pantry_staples
+  ...[
+    'nudeln',
+    'pasta',
+    'spaghetti',
+    'penne',
+    'reis',
+    'basmatireis',
+    'mehl',
+    'zucker',
+    'puderzucker',
+    'linsen',
+    'kichererbsen',
+    'couscous',
+    'bulgur',
+    'quinoa',
+    'hafer',
+    'grieß',
+  ].map(
+    (value): NameCategoryRule => ({
+      value,
+      categoryId: 'pantry_staples',
+      match: 'word',
+      score: WHOLE_WORD,
+    }),
+  ),
+
+  // cooking_baking
+  ...[
+    'öl',
+    'olivenöl',
+    'rapsöl',
+    'sonnenblumenöl',
+    'speiseöl',
+    'salz',
+    'meersalz',
+    'pfeffer',
+    'gewürz',
+    'paprikapulver',
+    'curry',
+    'oregano',
+    'zimt',
+    'kurkuma',
+    'backpulver',
+    'vanillezucker',
+    'hefe',
+    'trockenhefe',
+    'natron',
+    'gelatine',
+    'speisestärke',
+  ].map(
+    (value): NameCategoryRule => ({
+      value,
+      categoryId: 'cooking_baking',
+      match: 'word',
+      score: WHOLE_WORD,
+    }),
+  ),
+  { value: 'essig', categoryId: 'cooking_baking', match: 'word-end', score: WORD_END },
+
+  // canned_sauces
+  ...[
+    'pesto',
+    'ketchup',
+    'mayonnaise',
+    'senf',
+    'suppe',
+    'brühe',
+    'gemüsebrühe',
+    'fertiggericht',
+    'ravioli',
+    'tomatenmark',
+    'passata',
+    'kokosmilch',
+    'sauerkraut',
+    'gewürzgurke',
+    'gewürzgurken',
+    'sauergurke',
+    'sauergurken',
+    'apfelmus',
+    'apfelmark',
+    'fruchtmark',
+    'kompott',
+    'mus',
+  ].map(
+    (value): NameCategoryRule => ({
+      value,
+      categoryId: 'canned_sauces',
+      match: 'word',
+      score: WHOLE_WORD,
+    }),
+  ),
+  ...[
+    'dose',
+    'dosen',
+    'konserve',
+    'konserven',
+    'eingelegt',
+    'eingelegte',
+    'eingelegter',
+    'eingelegtes',
+  ].map(
+    (value): NameCategoryRule => ({
+      value,
+      categoryId: 'canned_sauces',
+      match: 'word',
+      score: EXPLICIT_MARKER,
+    }),
+  ),
+  { value: 'dosen', categoryId: 'canned_sauces', match: 'word-start', score: EXPLICIT_MARKER },
+  { value: 'eingelegt', categoryId: 'canned_sauces', match: 'word-start', score: EXPLICIT_MARKER },
+  { value: 'konserve', categoryId: 'canned_sauces', match: 'word-end', score: EXPLICIT_MARKER },
+  { value: 'mark', categoryId: 'canned_sauces', match: 'word-end', score: WORD_END },
+  { value: 'mus', categoryId: 'canned_sauces', match: 'word-end', score: WORD_END },
+  { value: 'kompott', categoryId: 'canned_sauces', match: 'word-end', score: WORD_END },
 
   // snacks
   ...[
@@ -228,12 +313,18 @@ export const NAME_CATEGORY_RULES: readonly NameCategoryRule[] = [
     'keks',
     'nüsse',
     'erdnüsse',
+    'cashews',
+    'mandeln',
+    'walnüsse',
     'cracker',
     'popcorn',
     'riegel',
     'bonbon',
     'süßigkeiten',
     'snack',
+    'salzstangen',
+    'flips',
+    'pralinen',
   ].map(
     (value): NameCategoryRule => ({
       value,
@@ -256,6 +347,15 @@ export const NAME_CATEGORY_RULES: readonly NameCategoryRule[] = [
     'softdrink',
     'smoothie',
     'mineralwasser',
+    'tonic',
+    'energy',
+    'sirup',
+    'likör',
+    'schnaps',
+    'gin',
+    'rum',
+    'vodka',
+    'whisky',
   ].map(
     (value): NameCategoryRule => ({
       value,
@@ -266,7 +366,215 @@ export const NAME_CATEGORY_RULES: readonly NameCategoryRule[] = [
   ),
   { value: 'saft', categoryId: 'beverages', match: 'word-end', score: WORD_END },
 
-  // dairy
+  // drugstore
+  ...[
+    'shampoo',
+    'duschgel',
+    'seife',
+    'zahnpasta',
+    'zahnbürste',
+    'deo',
+    'deodorant',
+    'creme',
+    'bodylotion',
+    'gesichtscreme',
+    'rasierer',
+    'rasierklingen',
+    'rasierschaum',
+    'wattepads',
+    'wattestäbchen',
+    'tampons',
+    'binden',
+    'pflaster',
+    'sonnencreme',
+    'lippenbalsam',
+  ].map(
+    (value): NameCategoryRule => ({
+      value,
+      categoryId: 'drugstore',
+      match: 'word',
+      score: WHOLE_WORD,
+    }),
+  ),
+
+  // baby_kids
+  ...[
+    'windeln',
+    'feuchttücher',
+    'babynahrung',
+    'gläschen',
+    'folgemilch',
+    'babybrei',
+    'babyöl',
+    'babycreme',
+    'schnuller',
+  ].map(
+    (value): NameCategoryRule => ({
+      value,
+      categoryId: 'baby_kids',
+      match: 'word',
+      score: WHOLE_WORD,
+    }),
+  ),
+
+  // household
+  ...[
+    'toilettenpapier',
+    'klopapier',
+    'küchenrolle',
+    'taschentücher',
+    'spülmittel',
+    'spülmaschinentabs',
+    'waschmittel',
+    'weichspüler',
+    'putzmittel',
+    'allzweckreiniger',
+    'glasreiniger',
+    'müllbeutel',
+    'alufolie',
+    'backpapier',
+    'frischhaltefolie',
+    'schwamm',
+    'spültuch',
+  ].map(
+    (value): NameCategoryRule => ({
+      value,
+      categoryId: 'household',
+      match: 'word',
+      score: WHOLE_WORD,
+    }),
+  ),
+
+  // pet_supplies
+  ...[
+    'katzenfutter',
+    'hundefutter',
+    'katzenstreu',
+    'vogelfutter',
+    'nassfutter',
+    'trockenfutter',
+    'hundeleckerli',
+    'katzenleckerli',
+    'tiernahrung',
+  ].map(
+    (value): NameCategoryRule => ({
+      value,
+      categoryId: 'pet_supplies',
+      match: 'word',
+      score: WHOLE_WORD,
+    }),
+  ),
+
+  // meat_poultry
+  ...[
+    'hackfleisch',
+    'hähnchen',
+    'huhn',
+    'pute',
+    'rindfleisch',
+    'schweinefleisch',
+    'schnitzel',
+    'steak',
+    'gulasch',
+    'kotelett',
+    'ente',
+    'gans',
+    'lamm',
+    'fleisch',
+    'schwein',
+    'rind',
+  ].map(
+    (value): NameCategoryRule => ({
+      value,
+      categoryId: 'meat_poultry',
+      match: 'word',
+      score: WHOLE_WORD,
+    }),
+  ),
+  { value: 'hähnchen', categoryId: 'meat_poultry', match: 'word-start', score: WORD_START },
+  { value: 'schwein', categoryId: 'meat_poultry', match: 'word-start', score: WORD_START },
+
+  // fish_seafood
+  ...[
+    'lachs',
+    'lachsfilet',
+    'forelle',
+    'garnelen',
+    'shrimps',
+    'thunfisch',
+    'kabeljau',
+    'dorade',
+    'scholle',
+    'fisch',
+    'meeresfrüchte',
+    'muscheln',
+    'tintenfisch',
+    'matjes',
+    'hering',
+    'räucherlachs',
+  ].map(
+    (value): NameCategoryRule => ({
+      value,
+      categoryId: 'fish_seafood',
+      match: 'word',
+      score: WHOLE_WORD,
+    }),
+  ),
+  { value: 'fisch', categoryId: 'fish_seafood', match: 'word-end', score: WORD_END },
+
+  // deli_cold_cuts
+  ...[
+    'wurst',
+    'schinken',
+    'salami',
+    'speck',
+    'bacon',
+    'leberkäse',
+    'mett',
+    'bratwurst',
+    'wiener',
+    'lyoner',
+    'mortadella',
+    'gyros',
+    'aufschnitt',
+    'leberwurst',
+    'teewurst',
+    'chorizo',
+    'prosciutto',
+  ].map(
+    (value): NameCategoryRule => ({
+      value,
+      categoryId: 'deli_cold_cuts',
+      match: 'word',
+      score: WHOLE_WORD,
+    }),
+  ),
+  { value: 'wurst', categoryId: 'deli_cold_cuts', match: 'word-end', score: WORD_END },
+  { value: 'schinken', categoryId: 'deli_cold_cuts', match: 'word-end', score: WORD_END },
+
+  // plant_based
+  ...[
+    'tofu',
+    'tempeh',
+    'seitan',
+    'hafermilch',
+    'sojamilch',
+    'mandelmilch',
+    'haferdrink',
+    'sojadrink',
+    'sojajoghurt',
+    'kokosjoghurt',
+    'veggie',
+  ].map(
+    (value): NameCategoryRule => ({
+      value,
+      categoryId: 'plant_based',
+      match: 'word',
+      score: WHOLE_WORD,
+    }),
+  ),
+
+  // dairy_eggs
   ...[
     'milch',
     'butter',
@@ -283,13 +591,21 @@ export const NAME_CATEGORY_RULES: readonly NameCategoryRule[] = [
     'mozzarella',
     'parmesan',
     'feta',
+    'gouda',
+    'cheddar',
+    'emmentaler',
   ].map(
-    (value): NameCategoryRule => ({ value, categoryId: 'dairy', match: 'word', score: WHOLE_WORD }),
+    (value): NameCategoryRule => ({
+      value,
+      categoryId: 'dairy_eggs',
+      match: 'word',
+      score: WHOLE_WORD,
+    }),
   ),
-  { value: 'milch', categoryId: 'dairy', match: 'word-end', score: WORD_END },
+  { value: 'milch', categoryId: 'dairy_eggs', match: 'word-end', score: WORD_END },
 
   // frozen
-  ...['tiefgekühlt', 'gefroren', 'eiscreme', 'eis', 'speiseeis', 'tk'].map(
+  ...['eiscreme', 'eis', 'speiseeis'].map(
     (value): NameCategoryRule => ({
       value,
       categoryId: 'frozen',
@@ -297,35 +613,21 @@ export const NAME_CATEGORY_RULES: readonly NameCategoryRule[] = [
       score: WHOLE_WORD,
     }),
   ),
-  { value: 'tiefkühl', categoryId: 'frozen', match: 'word-start', score: EXPLICIT_MARKER },
-
-  // drugstore
-  ...[
-    'toilettenpapier',
-    'klopapier',
-    'spülmittel',
-    'shampoo',
-    'duschgel',
-    'seife',
-    'zahnpasta',
-    'waschmittel',
-    'weichspüler',
-    'putzmittel',
-    'müllbeutel',
-    'windeln',
-    'deo',
-    'rasierer',
-  ].map(
+  ...['tiefgekühlt', 'tiefgefroren', 'gefroren', 'tk'].map(
     (value): NameCategoryRule => ({
       value,
-      categoryId: 'drugstore',
+      categoryId: 'frozen',
       match: 'word',
-      score: WHOLE_WORD,
+      score: EXPLICIT_MARKER,
     }),
   ),
+  { value: 'tiefkühl', categoryId: 'frozen', match: 'word-start', score: EXPLICIT_MARKER },
+  { value: 'tiefgefrier', categoryId: 'frozen', match: 'word-start', score: EXPLICIT_MARKER },
+  { value: 'tiefgefroren', categoryId: 'frozen', match: 'word-start', score: EXPLICIT_MARKER },
+  { value: 'gefroren', categoryId: 'frozen', match: 'word-start', score: EXPLICIT_MARKER },
 
   // checkout
-  ...['kaugummi', 'batterie', 'zeitschrift', 'feuerzeug'].map(
+  ...['kaugummi', 'batterie', 'batterien', 'zeitschrift', 'feuerzeug'].map(
     (value): NameCategoryRule => ({
       value,
       categoryId: 'checkout',

@@ -34,17 +34,19 @@ describe('evaluateDump', () => {
     expect(report.sourceCounts).toEqual({ off_taxonomy: 1, name_fallback: 1, none: 1 });
   });
 
-  it('liefert je Kategorie höchstens 100 Stichproben, deterministisch über mehrere Läufe hinweg', () => {
-    const manyApples = Array.from({ length: 150 }, (_, i) => ({
+  it('liefert je Kategorie deterministische Stichproben mit konfigurierbarem Limit', () => {
+    const manyApples = Array.from({ length: 1200 }, (_, i) => ({
       barcode: `apple-${i}`,
       name: 'Apfel',
     }));
 
-    const first = evaluateDump(manyApples, []);
-    const second = evaluateDump(manyApples, []);
+    const defaultRun = evaluateDump(manyApples, []);
+    const secondDefaultRun = evaluateDump(manyApples, []);
+    const customRun = evaluateDump(manyApples, [], 50);
 
-    expect(first.samples.produce).toHaveLength(100);
-    expect(first.samples.produce).toEqual(second.samples.produce);
+    expect(defaultRun.samples.produce).toHaveLength(1000);
+    expect(defaultRun.samples.produce).toEqual(secondDefaultRun.samples.produce);
+    expect(customRun.samples.produce).toHaveLength(50);
   });
 
   it('markiert Golden-Korpus-Einträge, deren tatsächliche Kategorie vom Soll abweicht', () => {

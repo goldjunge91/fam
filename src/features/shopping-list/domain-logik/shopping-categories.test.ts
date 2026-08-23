@@ -2,12 +2,12 @@ import { guessCategory, sortOrderForCategory, storageKindForCategory } from './s
 
 describe('guessCategory', () => {
   it('sollte gängige Artikel korrekt erkennen', () => {
-    expect(guessCategory('Vollmilch')).toBe('Molkerei');
+    expect(guessCategory('Vollmilch')).toBe('Molkerei, Käse & Eier');
     expect(guessCategory('Bio-Äpfel')).toBe('Obst & Gemüse');
-    expect(guessCategory('Hähnchenbrust')).toBe('Wurst & Fleisch (Kühl)');
-    expect(guessCategory('Vollkornbrot')).toBe('Backwaren & Brot');
+    expect(guessCategory('Hähnchenbrust')).toBe('Fleisch & Geflügel');
+    expect(guessCategory('Vollkornbrot')).toBe('Brot & Backwaren');
     expect(guessCategory('Mineralwasser')).toBe('Getränke');
-    expect(guessCategory('Toilettenpapier')).toBe('Drogerie & Haushalt');
+    expect(guessCategory('Toilettenpapier')).toBe('Haushalt & Reinigung');
   });
 
   it('sollte Gross-/Kleinschreibung ignorieren', () => {
@@ -18,15 +18,15 @@ describe('guessCategory', () => {
     // "ei" (Molkerei) als freier Substring wuerde all das faelschlich treffen.
     expect(guessCategory('Eis')).toBe('Tiefkühlkost');
     expect(guessCategory('Teig')).toBeNull();
-    expect(guessCategory('Seife')).toBe('Drogerie & Haushalt');
+    expect(guessCategory('Seife')).toBe('Drogerie & Körperpflege');
     expect(guessCategory('Eimer')).toBeNull();
   });
 
   it('sollte kurze Keywords als eigenstaendiges Wort trotzdem erkennen', () => {
-    expect(guessCategory('Ei')).toBe('Molkerei');
-    expect(guessCategory('6 Eier')).toBe('Molkerei');
-    expect(guessCategory('Sonnenblumenöl')).toBe('Grundnahrungsmittel');
-    expect(guessCategory('Grüner Tee')).toBe('Müsli & Frühstück');
+    expect(guessCategory('Ei')).toBe('Molkerei, Käse & Eier');
+    expect(guessCategory('6 Eier')).toBe('Molkerei, Käse & Eier');
+    expect(guessCategory('Sonnenblumenöl')).toBe('Öle, Essig & Gewürze');
+    expect(guessCategory('Grüner Tee')).toBe('Kaffee, Tee & Kakao');
   });
 
   it('sollte null liefern, wenn kein Stichwort passt', () => {
@@ -48,6 +48,6 @@ describe('storageKindForCategory', () => {
   it('sollte auf pantry zurückfallen, wenn nichts passt', () => {
     expect(storageKindForCategory(null)).toBe('pantry');
     expect(storageKindForCategory('Tiefkühlkost')).toBe('freezer');
-    expect(storageKindForCategory('Molkerei')).toBe('fridge');
+    expect(storageKindForCategory('Molkerei, Käse & Eier')).toBe('fridge');
   });
 });

@@ -126,7 +126,7 @@ describe('AddItemForm', () => {
 
   it('zeigt die automatisch aufgelöste Kategorie im Kategoriefeld an', async () => {
     mockResolveCategoryForItem.mockResolvedValueOnce({
-      categoryId: 'deli_meat',
+      categoryId: 'meat_poultry',
       source: 'name_fallback',
       classifierVersion: '1',
     });
@@ -135,7 +135,7 @@ describe('AddItemForm', () => {
     await fireEvent.changeText(screen.getByPlaceholderText('Artikel suchen'), 'Schnitzel');
     await fireEvent.press(screen.getByRole('button', { name: 'Weitere Angaben' }));
 
-    expect(await screen.findByText('Wurst & Fleisch (Kühl)')).toBeOnTheScreen();
+    expect(await screen.findByText('Fleisch & Geflügel')).toBeOnTheScreen();
     expect(screen.getByText('automatisch · Name')).toBeOnTheScreen();
   });
 
@@ -185,7 +185,7 @@ describe('AddItemForm', () => {
   it('"Automatisch" löst die Präferenz-Reset-Mutation aus und übernimmt das Ergebnis', async () => {
     const user = userEvent.setup();
     mockResetCategoryPreferenceMutateAsync.mockResolvedValueOnce({
-      categoryId: 'dairy',
+      categoryId: 'dairy_eggs',
       source: 'off_taxonomy',
       classifierVersion: '1',
     });
@@ -202,7 +202,7 @@ describe('AddItemForm', () => {
     await user.press(screen.getByRole('button', { name: 'Automatisch' }));
 
     expect(mockResetCategoryPreferenceMutateAsync).toHaveBeenCalled();
-    expect(await screen.findByText('Molkerei')).toBeOnTheScreen();
+    expect(await screen.findByText('Molkerei, Käse & Eier')).toBeOnTheScreen();
     expect(screen.getByText('automatisch · Produktdaten')).toBeOnTheScreen();
   });
 

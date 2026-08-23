@@ -4,7 +4,7 @@
  * `\b`-Regex — Umlaute zählen in JavaScripts `\w` nicht als Wortzeichen,
  * siehe Begründung in `../domain-logik/shopping-categories.ts`.
  */
-const WORD_CHAR = /[a-z0-9äöüß]/;
+const WORD_CHAR = /[\p{L}\p{N}]/u;
 
 /**
  * Reine Mengen-/Einheitentokens, die vor dem Regelmatching entfernt werden
