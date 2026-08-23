@@ -1,0 +1,77 @@
+{
+  "aspects": [
+    {
+      "id": "auth",
+      "name": "Auth & Security Patterns",
+      "summary": "Authentication and authorization are exceptionally well-implemented. RLS policies comprehensively isolate private and household data, SECURITY DEFINER functions correctly scope search paths, and tokens are securely stored using Expo SecureStore rather than AsyncStorage.",
+      "score": "green"
+    },
+    {
+      "id": "naming",
+      "name": "Naming Conventions",
+      "summary": "Boolean and variable namings are consistent, but the codebase has notable violations of its own documented directory and folder layout rules.",
+      "score": "yellow"
+    },
+    {
+      "id": "reuse",
+      "name": "Code Reuse & Duplication",
+      "summary": "The codebase has very good separation of concerns and extracts complex logic properly (like `normalizeUnit`), but there is some duplicated boilerplate logic in UI form components.",
+      "score": "yellow"
+    },
+    {
+      "id": "best-practices",
+      "name": "General Best Practices",
+      "summary": "The codebase adheres well to general best practices and project conventions, with a few isolated type escape hatches in sync logic and a forbidden command mention in seed scripts.",
+      "score": "yellow"
+    }
+  ],
+  "findings": [
+    {
+      "aspect": "naming",
+      "severity": "high",
+      "file": "src/features/",
+      "line": null,
+      "title": "Flat folder structure in large features violates AGENTS.md conventions",
+      "description": "The `inventory` and `calorie-tracking` features contain nearly 30 files each in their root directories, mixing screens, APIs, hooks, and tests. This violates the project's own explicit rule in `AGENTS.md`: \"sobald ein Feature spürbar wächst, wird nach Verantwortungsschicht getrennt (screens/, sheets/, forms/, components/, hooks/, domain/)\".",
+      "recommendation": "Refactor these overgrown flat directories to follow the layered folder structure defined in `AGENTS.md` (as successfully demonstrated by `src/features/shopping-list/`)."
+    },
+    {
+      "aspect": "naming",
+      "severity": "medium",
+      "file": "src/features/shopping-list/domain-logik/",
+      "line": null,
+      "title": "Denglish folder name 'domain-logik' diverges from stated convention",
+      "description": "The folder `domain-logik` mixes English and German and contradicts the explicitly documented layout rule in `AGENTS.md` which dictates `domain/` for domain logic.",
+      "recommendation": "Rename `src/features/shopping-list/domain-logik` to `src/features/shopping-list/domain` to match the documented architecture guidelines and maintain English naming consistency."
+    },
+    {
+      "aspect": "reuse",
+      "severity": "medium",
+      "file": "src/components/forms/date-wheel-field.tsx",
+      "line": 7,
+      "title": "Duplicated date formatting helpers",
+      "description": "The `toIsoDate` and `formatIsoDate` helper functions are duplicated exactly in both `date-wheel-field.tsx` and `date-wheel-field.android.tsx`. Furthermore, `date-picker.tsx` implements nearly identical date string construction inline.",
+      "recommendation": "Extract `toIsoDate` and `formatIsoDate` (or equivalent date formatting logic) into a shared utility file (e.g. `src/lib/date-utils.ts`) and import it in all date picker components."
+    },
+    {
+      "aspect": "best-practices",
+      "severity": "medium",
+      "file": "scripts/seed-issues.sh",
+      "line": 133,
+      "title": "Banned 'bun test' command referenced",
+      "description": "The script instructs users/agents to run 'bun test' as a success criteria (lines 133 and 444). This violates the explicit AGENTS.md rule 'Niemals bun test ausführen', as it uses Bun's native runner which ignores the jest.config.js configuration and will fail.",
+      "recommendation": "Change the mentions of `bun test` to `bun run test` in scripts/seed-issues.sh.",
+      "principle": "Konformität zu Standards (Hoare)"
+    },
+    {
+      "aspect": "best-practices",
+      "severity": "medium",
+      "file": "src/lib/sync/pull.ts",
+      "line": 87,
+      "title": "Type-safety escape hatch for Supabase client",
+      "description": "Uses `supabase.from(meta.table) as any` to bypass TypeScript's strict type checking for the table name string literal. This pattern is repeated multiple times in pull.ts and push.ts. While it circumvents a TypeScript limitation with dynamic table names, it drops type safety for the query builder entirely.",
+      "recommendation": "Define a union type of all valid table names (e.g. `keyof Database['public']['Tables']`) and cast the dynamic variable to it, or create a type-safe generic wrapper to avoid casting the entire query builder to `any`.",
+      "principle": "Robustheit (Hoare)"
+    }
+  ]
+}
