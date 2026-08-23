@@ -511,6 +511,55 @@ const V16_RECIPE_STEP_TIMER = `
 alter table recipe_steps add column timer_minutes integer;
 `;
 
+// Nachziehmigration zum `off_category_tags`-Fix in V1_MIRRORS: SQLite kennt
+// kein `alter table ... alter column drop not null`, deshalb Table-Rebuild.
+// Der reine Textwechsel in V1_MIRRORS reicht nicht — Migration 1 hat auf
+// jedem Geraet, das die App schon einmal gestartet hatte, laengst
+// angewandt, `runMigrations()` fuehrt sie nie erneut aus. Ohne diese
+// Migration bleibt die lokale `products`-Tabelle auf bestehenden
+// Installationen bei `off_category_tags text not null default '[]'`, und ein
+// Sync-Pull mit `off_category_tags: null` (Schema-Drift/veralteter
+// PostgREST-Cache) crasht weiterhin mit "NOT NULL constraint failed".
+const V17_PRODUCTS_OFF_CATEGORY_TAGS_NULLABLE = `
+create table products_new (
+  id                text primary key not null,
+  barcode           text,
+  name              text not null,
+  brand             text,
+  kcal_per_100      real,
+  protein_g_per_100 real,
+  carbs_g_per_100   real,
+  fat_g_per_100     real,
+  fiber_g_per_100   real,
+  sugar_g_per_100   real,
+  salt_g_per_100    real,
+  serving_size_g    real,
+  off_category_tags text default '[]',
+  off_last_modified_at text,
+  source            text not null default 'manual',
+  created_by        text,
+  created_at        text,
+  updated_at        integer not null,
+  deleted_at        integer,
+  _dirty            integer not null default 0
+);
+insert into products_new (
+  id, barcode, name, brand, kcal_per_100, protein_g_per_100, carbs_g_per_100,
+  fat_g_per_100, fiber_g_per_100, sugar_g_per_100, salt_g_per_100, serving_size_g,
+  off_category_tags, off_last_modified_at, source, created_by, created_at,
+  updated_at, deleted_at, _dirty
+)
+select
+  id, barcode, name, brand, kcal_per_100, protein_g_per_100, carbs_g_per_100,
+  fat_g_per_100, fiber_g_per_100, sugar_g_per_100, salt_g_per_100, serving_size_g,
+  off_category_tags, off_last_modified_at, source, created_by, created_at,
+  updated_at, deleted_at, _dirty
+from products;
+drop table products;
+alter table products_new rename to products;
+create index if not exists products_barcode_idx on products (barcode);
+`;
+
 export const MIGRATIONS: readonly Migration[] = [
   {
     version: 1,
@@ -591,5 +640,10 @@ export const MIGRATIONS: readonly Migration[] = [
     version: 16,
     name: 'recipe_step_timer',
     statements: [V16_RECIPE_STEP_TIMER],
+  },
+  {
+    version: 17,
+    name: 'products_off_category_tags_nullable',
+    statements: [V17_PRODUCTS_OFF_CATEGORY_TAGS_NULLABLE],
   },
 ];
