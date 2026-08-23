@@ -2,6 +2,7 @@ import gzip
 import json
 import sqlite3
 import sys
+import time
 import urllib.request
 import os
 from datetime import datetime, timezone
@@ -114,11 +115,66 @@ def extract_last_modified_at(item):
         return None
 
 
+def _format_bytes(num_bytes):
+    value = float(num_bytes)
+    for unit in ("B", "KB", "MB", "GB"):
+        if value < 1024:
+            return f"{value:.1f} {unit}"
+        value /= 1024
+    return f"{value:.1f} TB"
+
+
+def _format_seconds(seconds):
+    seconds = max(int(seconds), 0)
+    return f"{seconds // 60}m{seconds % 60:02d}s"
+
+
+def _download_progress_hook(start_time):
+    """`reporthook` für `urlretrieve` — ohne das gibt es waehrend des
+    ~12-13-GB-Downloads keinerlei Lebenszeichen im Terminal. Aktualisiert
+    hoechstens 2x/Sekunde (sonst spammt das bei kleinen Blockgroessen)."""
+    last_print_at = [0.0]
+
+    def hook(block_num, block_size, total_size):
+        now = time.time()
+        downloaded = block_num * block_size
+        if total_size > 0:
+            downloaded = min(downloaded, total_size)
+
+        is_done = total_size > 0 and downloaded >= total_size
+        if now - last_print_at[0] < 0.5 and not is_done:
+            return
+        last_print_at[0] = now
+
+        elapsed = max(now - start_time, 0.001)
+        speed = downloaded / elapsed
+
+        if total_size > 0:
+            pct = downloaded / total_size * 100
+            eta = (total_size - downloaded) / speed if speed > 0 else 0
+            print(
+                f"\rDownload: {pct:5.1f}%  {_format_bytes(downloaded)} / {_format_bytes(total_size)}"
+                f"  ({_format_bytes(speed)}/s, ETA {_format_seconds(eta)})   ",
+                end="",
+                flush=True,
+            )
+        else:
+            print(
+                f"\rDownload: {_format_bytes(downloaded)} geladen ({_format_bytes(speed)}/s)   ",
+                end="",
+                flush=True,
+            )
+
+    return hook
+
+
 def download_dump():
     if not os.path.exists(LOCAL_GZ_FILE):
-        print("Lade Open Food Facts Dump herunter (kann ein paar Minuten dauern)...")
-        urllib.request.urlretrieve(OFF_DUMP_URL, LOCAL_GZ_FILE)
-        print("Download abgeschlossen!")
+        print("Lade Open Food Facts Dump herunter (voller Export, ~12-13 GB komprimiert)...")
+        urllib.request.urlretrieve(
+            OFF_DUMP_URL, LOCAL_GZ_FILE, reporthook=_download_progress_hook(time.time())
+        )
+        print("\nDownload abgeschlossen!")
     else:
         print("Lokaler Dump bereits vorhanden, überspringe Download.")
 
@@ -183,13 +239,19 @@ def process_and_create_sqlite():
     batch = []
 
     print("Verarbeite Daten und filtere für Deutschland...")
+    parse_start = time.time()
 
     # Stream-Verarbeitung zeilenweise
     with gzip.open(LOCAL_GZ_FILE, 'rt', encoding='utf-8') as f:
         for line in f:
             count += 1
             if count % 100000 == 0:
-                print(f"{count} Zeilen geparst... ({inserted} Produkte gespeichert)")
+                elapsed = time.time() - parse_start
+                rate = count / elapsed if elapsed > 0 else 0
+                print(
+                    f"{count:>10,} Zeilen geparst ({rate:,.0f}/s, {_format_seconds(elapsed)}) — "
+                    f"{inserted:,} DE-Produkte gespeichert"
+                )
 
             try:
                 item = json.loads(line)
