@@ -103,6 +103,7 @@
     "check:css": "tailwindcss -i ./src/global.css -o /dev/null",
     "typecheck": "tsc --noEmit",
     "test": "jest",
+    "test:dump-pipeline": "bun test scripts/dump_data/dump-sqlite-io.bun.test.ts scripts/dump_data/dump-pipeline-cli.bun.test.ts",
     "test:functions": "deno test supabase/functions --allow-env",
     "test:watch": "jest --watchAll",
     "test:coverage": "jest --coverage",

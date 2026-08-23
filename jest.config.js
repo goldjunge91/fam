@@ -56,7 +56,14 @@ module.exports = {
   // lokale Supabase-Instanz. Ein Standard-Testlauf, der ohne externe Dienste
   // nicht durchlaeuft, wird irgendwann uebersprungen statt repariert.
   // Sie laufen ueber `bun run test:integration` (jest.integration.config.js).
-  testPathIgnorePatterns: ['/node_modules/', '\\.integration\\.test\\.tsx?$'],
+  //
+  // `.bun.test.ts` ebenfalls ausgeschlossen: Jest laeuft unter Node, `import
+  // 'bun:sqlite'` schlaegt dort mit "Cannot find module" fehl — das Modul
+  // existiert nur im echten Bun-Runtime-Prozess. Betroffene Dateien
+  // (scripts/dump_data/*.bun.test.ts) laufen stattdessen ueber
+  // `bun run test:dump-pipeline` (Buns eigener Testrunner, siehe
+  // scripts/dump_data/README.md).
+  testPathIgnorePatterns: ['/node_modules/', '\\.integration\\.test\\.tsx?$', '\\.bun\\.test\\.ts$'],
 
   // Bewusst nicht standardmaessig an: Instrumentierung kostet auf jedem Lauf
   // ~2x Laufzeit. Fuer gezielte Coverage-Reports gibt es `bun run test:coverage`.
