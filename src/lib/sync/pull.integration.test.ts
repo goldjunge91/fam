@@ -1,5 +1,6 @@
 import { createClient, type SupabaseClient } from '@supabase/supabase-js';
 
+import { preferenceId } from '@/features/shopping-list/preferences/preference-identity.node';
 import type { Database } from '@/lib/database.types';
 import { MIGRATIONS } from '@/lib/db/migrations';
 import { runMigrations } from '@/lib/db/migrator';
@@ -404,5 +405,45 @@ describe('pullHousehold gegen die lokale Supabase-Instanz', () => {
 
     const rows = await db.getAllAsync<{ id: string }>('select id from households');
     expect(rows).toEqual([{ id: householdId }]);
+  }, 30_000);
+
+  it('Bootstrap auf zweitem Geraet: eine bereits gepushte Praeferenz erscheint auf einem frischen lokalen Spiegel (#223 Paket 3)', async () => {
+    const id = preferenceId({ householdId, keyType: 'name', normalizedKeyValue: 'hafermilch' });
+    const { data: created, error: seedError } = await client
+      .from('shopping_category_preferences')
+      .insert({
+        id,
+        household_id: householdId,
+        key_type: 'name',
+        normalized_key_value: 'hafermilch',
+        category_id: 'dairy',
+      })
+      .select()
+      .single();
+    expect(seedError).toBeNull();
+
+    // "Zweites Geraet": ein komplett frischer lokaler Spiegel fuer denselben Haushalt.
+    const secondDeviceDb = createTestDatabase();
+    await runMigrations(secondDeviceDb, MIGRATIONS);
+
+    const outcomes = await pullHousehold({
+      db: secondDeviceDb,
+      supabase: client,
+      householdIds: [householdId],
+      clockCeilingMs: Date.now(),
+      entities: ['shopping_category_preferences'],
+    });
+
+    const outcome = outcomes.find((o) => o.entity === 'shopping_category_preferences');
+    expect(outcome?.rowsWritten).toBe(1);
+
+    expect(created?.id).toBe(id);
+    const row = await secondDeviceDb.getFirstAsync<{
+      category_id: string | null;
+      deleted_at: number | null;
+    }>('select category_id, deleted_at from shopping_category_preferences where id = ?', [id]);
+    expect(row).toEqual({ category_id: 'dairy', deleted_at: null });
+
+    secondDeviceDb.close();
   }, 30_000);
 });
