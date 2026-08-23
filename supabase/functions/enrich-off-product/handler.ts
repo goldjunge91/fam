@@ -94,21 +94,33 @@ export function createEnrichOffProductHandler({
     }
     recordAttempt();
 
-    const offResult = await fetchOffProduct(ean);
-    if (!offResult.ok) {
-      return json({ updated: false, reason: 'off_lookup_failed' });
+    // Sowohl der OFF-Lookup (Netzwerk zu Open Food Facts) als auch der DB-
+    // Zugriff (Netzwerk zu Supabase) koennen bei einer Infrastruktur-Stoerung
+    // werfen statt ihr dokumentiertes { ok: false }/{ error, count } zu
+    // liefern (z.B. Timeout, Connection Reset) — ohne dieses try/catch wuerde
+    // ein einzelner Netzwerkfehler als unbehandelte Exception aus dem Handler
+    // fallen, statt als strukturierte 500-Antwort wie jeder andere Fehlerpfad
+    // hier.
+    try {
+      const offResult = await fetchOffProduct(ean);
+      if (!offResult.ok) {
+        return json({ updated: false, reason: 'off_lookup_failed' });
+      }
+
+      const result = await updateIfNewer(ean, offResult.categoryTags, offResult.offLastModifiedAt);
+
+      if (result.error) {
+        return json({ error: 'update_failed', message: result.error.message }, 500);
+      }
+
+      if (!result.count) {
+        return json({ updated: false, reason: 'not_newer_or_missing' });
+      }
+
+      return json({ updated: true });
+    } catch (err) {
+      const message = err instanceof Error ? err.message : String(err);
+      return json({ error: 'internal_error', message }, 500);
     }
-
-    const result = await updateIfNewer(ean, offResult.categoryTags, offResult.offLastModifiedAt);
-
-    if (result.error) {
-      return json({ error: 'update_failed', message: result.error.message }, 500);
-    }
-
-    if (!result.count) {
-      return json({ updated: false, reason: 'not_newer_or_missing' });
-    }
-
-    return json({ updated: true });
   };
 }
