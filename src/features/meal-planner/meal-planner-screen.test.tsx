@@ -20,6 +20,8 @@ function renderScreen() {
 const mockEnsureMutate = jest.fn();
 const mockEnsureMutateAsync = jest.fn().mockResolvedValue({ id: 'plan-1' });
 const mockReuseMutate = jest.fn();
+let mockRecipesPreference = true;
+let mockRecipesFeatureFlag = true;
 
 // Stabile Objektidentitaet noetig: `AutoBackButton` (Screen) haengt seinen
 // Effekt an `[navigation]` - ein bei jedem Aufruf neu erzeugtes Objekt
@@ -45,6 +47,29 @@ jest.mock('@/features/household/active-household-provider', () => ({
 
 jest.mock('@/features/household/api', () => ({
   useHouseholdMembers: () => ({ data: [{ id: 'user-1' }, { id: 'user-2' }] }),
+}));
+
+jest.mock('@/features/settings/module-preferences', () => ({
+  DEFAULT_MODULE_PREFERENCES: {
+    fridge: true,
+    shoppingList: true,
+    calories: true,
+    recipes: true,
+    mealPlanner: true,
+  },
+  useModulePreferences: () => ({
+    data: {
+      fridge: true,
+      shoppingList: true,
+      calories: true,
+      recipes: mockRecipesPreference,
+      mealPlanner: true,
+    },
+  }),
+}));
+
+jest.mock('@/lib/posthog', () => ({
+  useFeatureFlag: () => mockRecipesFeatureFlag,
 }));
 
 jest.mock('@/features/recipes/use-recipes', () => ({
@@ -110,6 +135,8 @@ beforeEach(() => {
   mockEnsureMutateAsync.mockClear();
   mockReuseMutate.mockClear();
   mockAddMutate.mockClear();
+  mockRecipesPreference = true;
+  mockRecipesFeatureFlag = true;
 });
 
 describe('MealPlannerScreen', () => {
@@ -165,5 +192,35 @@ describe('MealPlannerScreen', () => {
     // Rezept-Picker schliesst sich, Portionen-/Personen-Formular oeffnet sich fuer die Auswahl.
     expect(screen.queryByText('Rezept auswählen')).not.toBeOnTheScreen();
     expect(screen.getByRole('button', { name: 'Speichern' })).toBeOnTheScreen();
+  });
+
+  it('sperrt Rezept-Picker und Drag-Ablage, wenn module-recipes deaktiviert ist', async () => {
+    mockRecipesFeatureFlag = false;
+    const user = userEvent.setup();
+
+    await renderScreen();
+
+    expect(screen.getAllByText('Spaghetti Bolognese')[0]).toBeOnTheScreen();
+    expect(screen.queryByText('Rezepte zum Ziehen')).not.toBeOnTheScreen();
+
+    const addButton = screen.getByRole('button', {
+      name: 'Frühstück am Montag, Gericht hinzufügen',
+    });
+    expect(addButton).toBeDisabled();
+
+    await user.press(addButton);
+    expect(screen.queryByText('Rezept auswählen')).not.toBeOnTheScreen();
+  });
+
+  it('sperrt neue Rezepte, wenn das Rezepte-Modul in den Einstellungen deaktiviert ist', async () => {
+    mockRecipesPreference = false;
+
+    await renderScreen();
+
+    expect(screen.getAllByText('Spaghetti Bolognese')[0]).toBeOnTheScreen();
+    expect(screen.queryByText('Rezepte zum Ziehen')).not.toBeOnTheScreen();
+    expect(
+      screen.getByRole('button', { name: 'Frühstück am Montag, Gericht hinzufügen' }),
+    ).toBeDisabled();
   });
 });
