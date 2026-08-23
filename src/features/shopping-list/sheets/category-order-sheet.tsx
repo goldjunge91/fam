@@ -58,7 +58,6 @@ function Row({
   return (
     <Animated.View
       className="category-order-row"
-      // Animated.Value & Drag-State Z-Index
       style={[
         isDragging ? { backgroundColor: theme.backgroundElement, zIndex: 10 } : undefined,
         { transform: [{ translateY: isDragging ? translateY : 0 }] },
@@ -83,15 +82,7 @@ interface Props {
   onClose: () => void;
 }
 
-/**
- * Marktspezifische Laufstrecke per Drag&Drop bearbeiten (ersetzt die
- * fruehere binaere "Reihenfolge umkehren"). Gespeichert auf
- * `stores.category_order`, damit die Reihenfolge — wie der Markt selbst —
- * automatisch haushaltsweit synchron ist.
- *
- * Handgebaute Drag-Liste statt einer Zusatz-Library: Nur 12 Zeilen, dafuer
- * reicht react-native's eigener PanResponder + Animated.
- */
+/** Die Laufstrecke liegt am Markt und synchronisiert sich dadurch haushaltsweit. */
 export function CategoryOrderSheet({ isOpen, store, onClose }: Props) {
   const theme = useTheme();
   const sheetRef = useRef<BottomSheet>(null);
@@ -177,11 +168,7 @@ export function CategoryOrderSheet({ isOpen, store, onClose }: Props) {
       onClose={onClose}
       backgroundStyle={{ backgroundColor: theme.background }}
       handleIndicatorStyle={{ backgroundColor: theme.border }}>
-      {/* BottomSheetView gibt `style` nur 1:1 weiter (kein automatisches
-          flex:1 wie bei gorhom) — ohne das hier kollabiert der Inhalt auf
-          seine intrinsische Hoehe, der native Wrapper erwartet aber
-          {flexGrow:1, height:0} fuellenden Inhalt (Snap-Point-Bereich bleibt
-          sonst leer). */}
+      {/* BottomSheetView setzt kein eigenes flex: 1; ohne dieses Style bleibt der Inhalt leer. */}
       <BottomSheetView style={{ flex: 1 }}>
         <View className="flex-1 px-four">
           <View className="pt-two pb-three gap-[2px]">
@@ -213,7 +200,6 @@ export function CategoryOrderSheet({ isOpen, store, onClose }: Props) {
               disabled={saveMutation.isPending}
               accessibilityRole="button"
               className="px-four py-three rounded-card"
-              // Dynamische Markt-Farbe aus der Datenbank
               style={{ backgroundColor: store?.color ?? theme.accent }}>
               <ThemedText type="default" className="text-white font-bold">
                 Speichern

@@ -12,7 +12,6 @@ type FilterChipBarProps<T extends string> = {
   onSelect: (value: T) => void;
 };
 
-/** Horizontal scrollbare Einzelauswahl, wiederverwendbar fuer Filter und Segmente. */
 export function FilterChipBar<T extends string>({
   label,
   options,

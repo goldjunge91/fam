@@ -31,13 +31,7 @@ type JiggleWrapperProps = {
   children: ReactNode;
 };
 
-/**
- * Reanimated & Gesture Handler Wrapper fuer Dashboard-Cards im iOS-Style:
- * - Wackelt im Edit-Modus subtil auf dem UI-Thread.
- * - Drag & Drop: Karte folgt 1:1 dem Finger, setzt beim Loslassen sofort hart die Position.
- * - Saubere Layout-Hierarchie: Small-Cards erhalten explizit 138px Höhe, Large-Cards auto-height.
- * - Deaktiviert alle inneren Klicks/Navigationen auf der Karte waehrend des Edit-Modus.
- */
+/** Kapselt Wackeln, Drag-and-Drop und Edit-Aktionen einer Dashboard-Card. */
 export function JiggleWrapper({
   id: _id,
   isEditing,
@@ -64,7 +58,6 @@ export function JiggleWrapper({
 
   useEffect(() => {
     if (isEditing) {
-      // Leichter Phasenversatz pro Index fuer natuerliches iOS-Wackeln
       const initialDirection = index % 2 === 0 ? 1 : -1;
       const duration = 120 + (index % 3) * 10;
 
@@ -146,7 +139,6 @@ export function JiggleWrapper({
         dragCtx.isDraggingShared.value = false;
       }
 
-      // Sofort hart zurücksetzen ohne Nachbouncen
       dragX.value = 0;
       dragY.value = 0;
       scale.value = 1;
@@ -170,12 +162,10 @@ export function JiggleWrapper({
   return (
     <GestureDetector gesture={panGesture}>
       <Animated.View style={[styles.baseContainer, containerLayout, animatedStyle]}>
-        {/* Waehrend des Edit-Modus sind Taps auf den Karteninhalt deaktiviert */}
         <View pointerEvents={isEditing ? 'none' : 'auto'} style={contentLayout}>
           {children}
         </View>
 
-        {/* Im Edit-Modus: Delete-Badge oben links */}
         {isEditing && onDelete ? (
           <Pressable
             accessibilityRole="button"
@@ -196,7 +186,6 @@ export function JiggleWrapper({
           </Pressable>
         ) : null}
 
-        {/* Im Edit-Modus: Groessen-Toggle-Badge oben rechts */}
         {isEditing ? (
           <Pressable
             accessibilityRole="button"

@@ -9,9 +9,7 @@ import { ButtonSize } from '@/constants/layout';
 const ARROW_BUTTON_SIZE = ButtonSize.backArrow;
 
 export type BackTarget = {
-  /** Das Ziel beim Namen, z. B. `Einstellungen`. Erscheint als `‹ Einstellungen` bzw. als Accessibility-Label. */
   label: string;
-  /** Ausweichziel, falls keine Navigationshistorie vorhanden ist. */
   href?: Href;
 };
 
@@ -24,17 +22,10 @@ export function goBackTo(href: Href | undefined) {
 }
 
 type BackButtonProps = BackTarget & {
-  /**
-   * 'text' (Default): "‹ Ziel"-Link fuer Screens ohne zentrierten Titel.
-   * 'arrow': runder Pfeil-Button fuer Settings-Screens.
-   * 'header': Pfeil-Button in der Standardgroesse fuer zentrierte PageHeader.
-   */
   variant?: 'text' | 'arrow' | 'header';
-  /** Eigene Rueck-Aktion, etwa um einen Entwurf vor dem Verlassen zu verwerfen. */
   onPress?: () => void;
 };
 
-/** Zentraler Zurueckbutton mit optionalem sicheren Ausweichziel. */
 export function BackButton({ label, href, variant = 'text', onPress }: BackButtonProps) {
   const handlePress = onPress ?? (() => goBackTo(href));
 
@@ -63,7 +54,6 @@ export function BackButton({ label, href, variant = 'text', onPress }: BackButto
   );
 }
 
-/** Rendert den Zurueckbutton nur, wenn der Navigator wirklich zurueck kann. */
 export function AutoBackButton({ label, variant }: Pick<BackButtonProps, 'label' | 'variant'>) {
   const navigation = useNavigation();
   const [canGoBack, setCanGoBack] = useState(false);

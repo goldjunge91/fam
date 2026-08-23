@@ -6,8 +6,7 @@ import { Button } from '@/components/ui/buttons';
 import { useTheme } from '@/hooks/use-theme';
 import { fetchProductByBarcode, type OpenFoodFactsProduct } from '@/lib/open-food-facts';
 
-// Defensiver Import: Verhindert App-Crashes ("Cannot find native module ExpoCamera"),
-// wenn der Native Dev Build noch nicht kompiliert wurde oder Expo Go genutzt wird.
+// Verhindert einen App-Crash, wenn das native Kameramodul fehlt.
 // biome-ignore lint/suspicious/noExplicitAny: Dynamic Expo Camera Module
 let CameraViewComp: any = null;
 // biome-ignore lint/suspicious/noExplicitAny: Dynamic Expo Camera Hook
@@ -40,10 +39,7 @@ export function BarcodeScannerModal({
   const [permission, requestPermission] = useCameraPermissionsHook();
   const [scanning, setScanning] = useState(false);
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
-  // Ref statt nur State: die Kamera feuert onBarcodeScanned pro erkanntem Frame,
-  // oft mehrfach bevor der scanning-State-Update im naechsten Render sichtbar
-  // wird. Ohne synchronen Guard rutschen mehrere Aufrufe durch und loesen
-  // mehrfache Navigation (mehrfach gestapeltes Modal) aus.
+  // Der synchrone Guard blockiert Mehrfachtreffer vor dem naechsten Render.
   const scanningRef = useRef(false);
 
   async function handleBarcodeScanned({ data }: { data: string }) {

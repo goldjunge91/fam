@@ -11,14 +11,6 @@ import {
   type TestDatabase,
 } from '../../../test/node-sqlite-adapter';
 
-/**
- * Das lokale Schema gegen eine echte SQLite-Engine (#45).
- *
- * Laeuft ueber `node:sqlite`, nicht ueber `expo-sqlite` — siehe
- * `test/node-sqlite-adapter.ts`. Kein Mock: Die Tabellen entstehen wirklich,
- * Constraints greifen wirklich, ein Rollback dreht wirklich zurueck.
- */
-
 const MIRROR_TABLES = [
   'storage_locations',
   'fridge_items',
@@ -89,9 +81,6 @@ describe('lokales Schema', () => {
   it.each(MIRROR_TABLES)(
     'speichert updated_at von %s als INTEGER (epoch ms), nicht als Text',
     async (table) => {
-      // Zeitstempel als Text zu vergleichen ist unsicher: "+00:00" gegen "Z",
-      // drei gegen sechs Nachkommastellen. Die Ordnung im Pull muss numerisch
-      // sein, sonst sortiert der Cursor falsch.
       const updatedAt = (await columnsOf(db, table)).find((c) => c.name === 'updated_at');
 
       expect(updatedAt?.type.toUpperCase()).toBe('INTEGER');
@@ -161,7 +150,6 @@ describe('lokales Schema', () => {
   });
 
   it('erzwingt in der Outbox die drei erlaubten Operationen', async () => {
-    // Echter CHECK-Constraint, kein nachgebautes Verhalten.
     await expect(
       db.runAsync(
         'insert into outbox (entity, entity_id, op, payload, created_at) values (?, ?, ?, ?, ?)',
@@ -171,10 +159,6 @@ describe('lokales Schema', () => {
   });
 
   it('vergibt Outbox-ids monoton — auch nachdem Eintraege geloescht wurden', async () => {
-    // Ohne AUTOINCREMENT verwendet SQLite geloeschte rowids wieder. Weil ein
-    // erfolgreicher Push seine Zeilen loescht, waeren neue Eintraege dann
-    // kleiner als die noch wartenden — und die Erstellungsreihenfolge aus #46,
-    // an der die Push-Schleife haengt, kehrte sich still um.
     const insert = async (entityId: string) =>
       db.runAsync(
         'insert into outbox (entity, entity_id, op, payload, created_at) values (?, ?, ?, ?, ?)',
@@ -214,7 +198,6 @@ describe('Migrations-Runner', () => {
     await runMigrations(first, MIGRATIONS);
     first.close();
 
-    // Dieselbe Datei erneut oeffnen — wie ein App-Neustart.
     const second = createTestDatabase(path);
     const counted = countingDatabase(second);
     await runMigrations(counted, MIGRATIONS);
@@ -242,10 +225,6 @@ describe('Migrations-Runner', () => {
   });
 
   it('hinterlaesst bei einer fehlerhaften Migration keinen halben Zustand', async () => {
-    // Echtes ungueltiges SQL, kein erzwungener Fehler: Die Transaktion muss
-    // die bereits angelegte Tabelle mit zurueckdrehen und user_version darf
-    // nicht steigen — sonst startet die App beim naechsten Mal mit einem
-    // halben Schema und ueberspringt die Migration fuer immer.
     const broken: readonly Migration[] = [
       {
         version: 1,

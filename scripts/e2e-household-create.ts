@@ -1,12 +1,7 @@
 import { spawnSync } from 'node:child_process';
 import { createFreshConfirmedUser } from './lib/e2e-fixtures';
 
-// Seedet einen frischen, haushaltslosen Testaccount und fuehrt damit gezielt
-// household-create-during-onboarding.yaml aus. Eigenes Script statt Teil der
-// `bun run e2e`-Suite, weil der Flow einen Account ohne bestehenden Haushalt
-// braucht (siehe household-step.tsx: mit Haushalt wird jede Auswahl
-// uebersprungen) - ein fester Testaccount wuerde das nur beim allerersten
-// Lauf erfuellen.
+// Frischer haushaltsloser Account fuer den Maestro-Erstellungsflow.
 const HOUSEHOLD_NAME = 'Maestro E2E Haushalt';
 
 async function main() {

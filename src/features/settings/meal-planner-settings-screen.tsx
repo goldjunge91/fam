@@ -7,10 +7,7 @@ import { Button } from '@/components/ui/buttons';
 import { DEFAULT_PORTIONS_PER_PERSON } from '@/features/meal-planner/servings';
 import { usePortionsPerPerson, useSetPortionsPerPerson } from '@/features/meal-planner/settings';
 
-/**
- * Umrechnungsfaktor Portionen/Person fuer den Meal-Planner (#130-AC:
- * "Standard 1,25 Portionen/Person, in den Einstellungen änderbar").
- */
+/** Konfiguriert den Umrechnungsfaktor von Personen zu Portionen. */
 export function MealPlannerSettingsScreen() {
   const { data: current, isLoading } = usePortionsPerPerson();
   const setPortionsPerPerson = useSetPortionsPerPerson();
@@ -32,7 +29,6 @@ export function MealPlannerSettingsScreen() {
 
   return (
     <Screen title="Portionen pro Person" back={{ label: 'Einstellungen' }} backStyle="icon">
-      {/* Portions-Faktor Formular (Erklärung, Eingabefeld und Speichern-Aktion) */}
       <View className="gap-three">
         <ThemedText themeColor="textSecondary">
           Im Personen-Modus des Wochenplans wird die Personenzahl mit diesem Faktor in Portionen

@@ -23,7 +23,6 @@ function toOpenFoodFactsProduct(row: ProductUsageRow): OpenFoodFactsProduct {
     proteinsPer100g: row.protein_g ?? undefined,
     carbsPer100g: row.carbs_g ?? undefined,
     fatPer100g: row.fat_g ?? undefined,
-    // product_usage ist reine Nutzungshistorie (#79), fuehrt keine OFF-Tags mit.
     categoryTags: [],
   };
 }
@@ -37,15 +36,7 @@ interface FrequentProductsQuickSelectProps {
   onSelectProduct: (product: OpenFoodFactsProduct) => void;
 }
 
-/**
- * Vorschlags-Chips fuer Vorrat und Einkaufsliste (#79), gesteuert ueber den
- * `mode`-Filter-Dropdown des Aufrufers ("Haeufig"/"Zuletzt", s.
- * add-item-screen.tsx). `getFrequentProductUsage` liefert bereits eine je
- * Name deduplizierte, passend sortierte Liste direkt aus SQL — eine
- * zusaetzliche Client-seitige Neusortierung (frueher `rankByName`) wuerde
- * bei `mode: 'recent'` die Reihenfolge nur wieder kaputt machen, deshalb
- * reicht hier ein reines Durchreichen + Slice.
- */
+/** Zeigt die bereits in SQL deduplizierten und sortierten Nutzungsvorschlaege. */
 export function FrequentProductsQuickSelect({
   feature,
   userId,

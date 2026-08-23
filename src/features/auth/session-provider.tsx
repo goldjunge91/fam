@@ -7,19 +7,8 @@ import { hasSeenOnboarding } from './onboarding-session';
 
 type SessionState = {
   session: Session | null;
-  /**
-   * `true`, solange die gespeicherte Session noch gelesen wird UND
-   * der Onboarding-Flag noch nicht aus SecureStore gelesen wurde.
-   *
-   * Der Unterschied zu `session === null` ist wesentlich: "noch nicht geladen"
-   * und "nicht angemeldet" fuehren sonst beide zum Login-Screen, und ein
-   * angemeldeter Nutzer saehe ihn beim Start kurz aufblitzen.
-   */
+  /** Trennt eine noch ungelesene Session von einem abgemeldeten Zustand. */
   isLoading: boolean;
-  /**
-   * `false` = App-Erstinstallation / neuer User → direkt Onboarding zeigen.
-   * `true`  = bekannter User (hat Onboarding schon gesehen, evtl. ausgeloggt).
-   */
   seenOnboarding: boolean;
   /** Fehler beim Initialisieren, z. B. fehlendes natives Modul oder fehlende Env-Variablen. */
   error: Error | null;
@@ -51,21 +40,16 @@ export function SessionProvider({ children }: { children: ReactNode }) {
     try {
       supabase = getSupabase();
     } catch (error) {
-      // Fehlende Env-Variablen oder ein Development Build ohne das native
-      // SecureStore-Modul. Die App bleibt bedienbar und zeigt die Ursache, statt
-      // beim Start mit einem Folgefehler abzubrechen.
+      // Initialisierungsfehler bleiben als erklaerbarer App-Zustand sichtbar.
       setState({ session: null, isLoading: false, seenOnboarding: false, error: error as Error });
       return;
     }
 
-    // Session und Onboarding-Flag parallel lesen — beides wird benoetigt,
-    // bevor die Splash-Screen ausgeblendet wird.
+    // Beide Werte muessen vor dem Ausblenden des Splash-Screens vorliegen.
     Promise.all([supabase.auth.getSession(), hasSeenOnboarding()])
       .then(([{ data, error }, seenOnboarding]) => {
         if (!active) return;
-        // Vor setState: Das Re-Render kann Komponenten mounten, die sofort
-        // `getDatabase()` aufrufen. Stuende dort noch der vorige Nutzer, wuerde
-        // dieser erste Aufruf die Eigentumspruefung ueberspringen.
+        // Vor setState pruefen, bevor neu gemountete Komponenten die DB oeffnen.
         setActiveUserId(data.session?.user.id ?? null);
         setState({
           session: data.session,
@@ -81,9 +65,7 @@ export function SessionProvider({ children }: { children: ReactNode }) {
 
     const { data: subscription } = supabase.auth.onAuthStateChange((_event, session) => {
       if (!active) return;
-      // Ab hier ist der Ladevorgang in jedem Fall abgeschlossen: Das Event
-      // feuert auch bei SIGNED_OUT und TOKEN_REFRESHED.
-      // seenOnboarding bleibt unveraendert (wurde bereits gelesen).
+      // Jedes Auth-Event beendet die initiale Session-Ladephase.
       setActiveUserId(session?.user.id ?? null);
       setState((prev) => ({ ...prev, session, isLoading: false, error: null }));
     });

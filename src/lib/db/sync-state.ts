@@ -1,11 +1,6 @@
 import type { Entity, SqlDatabase } from '@/lib/db/types';
 
-/**
- * Pull-Cursor je Entity (#47).
- *
- * `sync_state.last_synced_at` ist der ROHE, unnormalisierte Server-String —
- * siehe `migrations.ts`. Diese Datei fasst ihn nur an, transformiert ihn nie.
- */
+/** Bewahrt den Pull-Cursor als unveraenderten Server-String. */
 
 const DEFAULT_SCOPE = 'default';
 
@@ -20,7 +15,6 @@ type SyncStateRow = {
   last_error: string | null;
 };
 
-/** Liest den Cursor einer Entity. `cursor` ist `null`, solange noch nie erfolgreich gepullt wurde. */
 export async function readSyncState(
   db: SqlDatabase,
   entity: Entity,
@@ -41,12 +35,7 @@ export async function readSyncState(
   };
 }
 
-/**
- * Schreibt den Cursor nach einer erfolgreich committeten Pull-Seite.
- *
- * Setzt `last_error` auf `null` — ein erfolgreicher Fortschritt loescht einen
- * vorherigen Fehlerstand.
- */
+/** Loescht beim erfolgreichen Cursor-Fortschritt den vorherigen Fehler. */
 export async function writeSyncCursor(
   txn: SqlDatabase,
   entity: Entity,
@@ -66,7 +55,6 @@ export async function writeSyncCursor(
   );
 }
 
-/** Schreibt einen Fehlerstand, ohne den bestehenden Cursor anzutasten. */
 export async function recordSyncError(
   db: SqlDatabase,
   entity: Entity,

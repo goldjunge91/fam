@@ -62,7 +62,6 @@ export function canonicalPreferenceKey(input: ShoppingCategoryPreferenceKey): st
   ].join('\n');
 }
 
-/** Liefert die RFC-9562-UUIDv5-Hash-Eingabe: Namespace-Bytes + Name-Bytes. */
 export function preferenceIdentityHashInput(input: ShoppingCategoryPreferenceKey): ArrayBuffer {
   const namespace = uuidToBytes(PREFERENCE_NAMESPACE_UUID);
   const name = textEncoder.encode(canonicalPreferenceKey(input));
@@ -72,7 +71,6 @@ export function preferenceIdentityHashInput(input: ShoppingCategoryPreferenceKey
   return hashInput.buffer;
 }
 
-/** Setzt Version und Variant auf einem bereits berechneten SHA-1-Digest. */
 export function uuidV5FromSha1Digest(digest: ArrayBuffer | Uint8Array): string {
   const digestBytes = digest instanceof Uint8Array ? digest : new Uint8Array(digest);
   if (digestBytes.byteLength !== 20) {

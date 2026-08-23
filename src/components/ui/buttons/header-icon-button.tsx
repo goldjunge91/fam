@@ -9,7 +9,6 @@ type HeaderIconButtonProps = {
   className?: string;
 };
 
-/** Einheitlicher 39-Punkt-Glasbutton fuer kompakte Header-Aktionen. */
 export function HeaderIconButton({
   label,
   onPress,

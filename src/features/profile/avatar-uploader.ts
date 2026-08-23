@@ -3,9 +3,6 @@ import { getSupabase } from '@/lib/supabase';
 
 const AVATAR_BUCKET = 'avatars';
 
-/**
- * Oeffnet die native Foto-Auswahl mit quadratischem Zuschnitt (1:1).
- */
 export async function pickAvatarImage(): Promise<string | null> {
   const permission = await ImagePicker.requestMediaLibraryPermissionsAsync();
   if (!permission.granted) return null;
@@ -21,10 +18,7 @@ export async function pickAvatarImage(): Promise<string | null> {
   return result.assets[0].uri;
 }
 
-/**
- * Laedt ein lokal ausgewaehltes Profilbild in den `avatars`-Bucket hoch.
- * Falls der Storage-Bucket nicht erreichbar ist (z. B. offline), wird die lokale URI/Base64 verwendet.
- */
+/** Laedt ein Profilbild hoch und faellt offline auf die lokale URI zurueck. */
 export async function uploadAvatarImage(userId: string, localUri: string): Promise<string> {
   try {
     const { File } = require('expo-file-system') as typeof import('expo-file-system');
@@ -39,9 +33,7 @@ export async function uploadAvatarImage(userId: string, localUri: string): Promi
       const { data } = getSupabase().storage.from(AVATAR_BUCKET).getPublicUrl(path);
       if (data?.publicUrl) return data.publicUrl;
     }
-  } catch {
-    // Fallback auf lokale URI fuer Offline-Szenarien
-  }
+  } catch {}
 
   return localUri;
 }

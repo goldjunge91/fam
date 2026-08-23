@@ -1,15 +1,7 @@
 -- Gewuenschter Endzustand — NICHT von Hand migrieren (#39, #40).
---
--- Kuehlschrank-Bestand und Einkaufsliste. Beide sind geteilte Haushaltsdaten
--- und tragen die Sync-Spalten aus #42 von Anfang an: nachtraeglich einzuziehen
--- waere deutlich teurer, weil dann bereits Daten existieren.
---
--- `deleted_at` statt harter Deletes ist keine Vorsicht, sondern Voraussetzung
--- fuer Offline-Sync: Ein Client, der waehrend des Loeschens offline war, kann
--- sonst nicht unterscheiden zwischen "geloescht" und "noch nie gesehen" — und
--- legt den Datensatz beim naechsten Push wieder an.
+-- Bestand und Einkaufsliste sind geteilte, offline synchronisierte Haushaltsdaten.
+-- deleted_at liefert Tombstones, damit Offline-Clients Loeschungen erkennen.
 
--- ------------------------------------------------------------------ Lagerorte
 create table if not exists public.storage_locations (
   id uuid primary key default gen_random_uuid(),
   household_id uuid not null references public.households (id) on delete cascade,
@@ -20,18 +12,12 @@ create table if not exists public.storage_locations (
   created_at timestamptz not null default now(),
   updated_at timestamptz not null default now(),
 
-  -- Wie bei fridge_items: Ein hart geloeschter Lagerort waere fuer einen
-  -- Client, der waehrend des Loeschens offline war, nicht von "noch nie
-  -- gesehen" zu unterscheiden — er legte ihn beim naechsten Push wieder an.
-  -- Die Tabelle ist Spiegeltabelle der Offline-Engine (#45) und braucht den
-  -- Tombstone deshalb genauso.
   deleted_at timestamptz
 );
 
 create index if not exists storage_locations_household_id_idx
   on public.storage_locations (household_id);
 
--- Inkrementeller Pull der Sync-Engine (#47), analog zu fridge_items.
 create index if not exists storage_locations_household_updated_idx
   on public.storage_locations (household_id, updated_at);
 
@@ -40,13 +26,12 @@ create or replace trigger storage_locations_set_updated_at
   for each row
   execute function private.set_updated_at();
 
--- ------------------------------------------------------------------- Bestand
 create table if not exists public.fridge_items (
   id uuid primary key default gen_random_uuid(),
   household_id uuid not null references public.households (id) on delete cascade,
   location_id uuid references public.storage_locations (id) on delete set null,
 
-  -- Nullable: Es muss auch "Reste vom Sonntag" ohne Produktbezug gehen.
+  -- Freie Eintraege brauchen keinen Produktbezug.
   product_id uuid references public.products (id) on delete set null,
   name text not null check (length(trim(name)) between 1 and 200),
 
@@ -61,8 +46,7 @@ create table if not exists public.fridge_items (
   updated_at timestamptz not null default now(),
   deleted_at timestamptz,
 
-  -- Snapshot des Packungsinhalts, z. B. 500 g bei "2 Packungen Haferflocken".
-  -- Nullable fuer lose Ware und bestehende Datensaetze ohne bekannte Groesse.
+  -- Packungsinhalt bleibt getrennt von der Einkaufsmenge und ist optional.
   package_size numeric(10, 3) check (package_size > 0),
   package_size_unit text
     check (package_size_unit in ('g', 'kg', 'ml', 'l', 'piece', 'portion')),
@@ -82,13 +66,10 @@ create index if not exists fridge_items_product_id_idx
 create index if not exists fridge_items_added_by_idx
   on public.fridge_items (added_by);
 
--- Inkrementeller Pull der Sync-Engine: "alles, was sich seit lastSyncedAt
--- geaendert hat" (#47). Ohne diesen Index waere das ein Full Scan pro Sync.
 create index if not exists fridge_items_household_updated_idx
   on public.fridge_items (household_id, updated_at);
 
--- Ablaufende Artikel fuer Dashboard und Erinnerungen (#71, #72, #73).
--- Partiell: geloeschte und undatierte Zeilen liegen nicht im Index.
+-- Der partielle Index schliesst geloeschte und undatierte Artikel aus.
 create index if not exists fridge_items_expiry_idx
   on public.fridge_items (household_id, expiry_date)
   where deleted_at is null and expiry_date is not null;
@@ -98,30 +79,21 @@ create or replace trigger fridge_items_set_updated_at
   for each row
   execute function private.set_updated_at();
 
--- ------------------------------------------------------------------- Maerkte
--- Frei verwaltbar pro Haushalt statt fest auf deutsche Ketten verdrahtet —
--- die App bietet REWE/Aldi/Lidl/... nur als Anlege-Presets in der UI an
--- (siehe store-presets.ts), das Schema kennt sie nicht.
+-- Maerkte sind frei verwaltbar; Ketten-Presets bleiben reine UI-Daten.
 create table if not exists public.stores (
   id uuid primary key default gen_random_uuid(),
   household_id uuid not null references public.households (id) on delete cascade,
   name text not null check (length(trim(name)) between 1 and 60),
   color text not null default '#6B7280' check (color ~* '^#[0-9a-f]{6}$'),
   sort_order integer not null default 0,
-  -- Marktspezifische Laufstrecke: kommagetrennte Liste von Kategorie-IDs aus
-  -- shopping-categories.ts, vom Nutzer per Drag&Drop editierbar. NULL/leer
-  -- bedeutet Standardreihenfolge. Bewusst pro Markt statt global, damit die
-  -- Reihenfolge des einen Supermarkts nicht die eines anderen mitreisst; als
-  -- normale Spalte der bereits synchronisierten `stores`-Zeile automatisch
-  -- haushaltsweit geteilt.
+  -- Kategorie-Reihenfolgen gelten pro Markt; NULL oder leer nutzt den Standard.
   category_order text,
 
   created_at timestamptz not null default now(),
   updated_at timestamptz not null default now(),
   deleted_at timestamptz,
 
-  -- Einkaufsmenge und Packungsinhalt bleiben getrennt:
-  -- quantity=2, unit='package', package_size=500, package_size_unit='g'.
+  -- Einkaufsmenge und Packungsinhalt bleiben getrennt.
   package_size numeric(10, 3) check (package_size > 0),
   package_size_unit text
     check (package_size_unit in ('g', 'kg', 'ml', 'l', 'piece', 'portion')),
@@ -142,7 +114,6 @@ create or replace trigger stores_set_updated_at
   for each row
   execute function private.set_updated_at();
 
--- ------------------------------------------------------------- Einkaufsliste
 create table if not exists public.shopping_list_items (
   id uuid primary key default gen_random_uuid(),
   household_id uuid not null references public.households (id) on delete cascade,
@@ -152,9 +123,7 @@ create table if not exists public.shopping_list_items (
   quantity numeric(10, 3) not null default 1 check (quantity >= 0),
   unit text not null default 'piece'
     check (unit in ('g', 'kg', 'ml', 'l', 'piece', 'package', 'portion')),
-  -- Stabile IDs statt lokalisierter Labels. Die drei Werte sind ein Snapshot:
-  -- spaetere Regel-/OFF-Aenderungen kategorisieren bestehende Eintraege nicht
-  -- automatisch neu (#223).
+  -- Stabile IDs speichern die Klassifikation als Snapshot statt Live-Regel.
   category_id text check (
     category_id in (
       'produce', 'bakery', 'deli_meat', 'pantry_canned', 'pantry_dry', 'breakfast',
@@ -170,24 +139,14 @@ create table if not exists public.shopping_list_items (
   ),
   sort_index integer not null default 0,
 
-  -- Optional: ohne Marktzuordnung landet der Artikel in der "Ohne Markt"-
-  -- Gruppe der UI. on delete set null statt cascade — ein geloeschter Markt
-  -- soll den Artikel nicht mitreissen.
+  -- Geloeschte Maerkte duerfen Artikel nicht mitloeschen.
   store_id uuid references public.stores (id) on delete set null,
-  -- Manuelle Schaetzung, kein automatischer Preisvergleich (siehe #16).
   price_estimate numeric(10, 2) check (price_estimate >= 0),
 
-  -- Denormalisierter Titel-Snapshot statt FK auf recipes: Ein Artikel kann
-  -- aus mehreren Rezepten desselben Wochenplans stammen (derselbe Zutatenbedarf
-  -- wird ueber alle Rezepte aggregiert, bevor er hier landet, siehe
-  -- use-shopping-needs.ts), eine einzelne recipe_id koennte das nicht
-  -- abbilden. Snapshot statt Live-Join, damit ein spaeter umbenanntes oder
-  -- geloeschtes Rezept die Anzeige "fuer welches Gericht" nicht verliert.
+  -- Titel-Snapshots bilden mehrere Quellrezepte ab und ueberleben deren Umbenennung.
   recipe_names text[] not null default '{}',
 
-  -- Zeitstempel statt Boolean: Beim "Einkauf abschliessen" (Phase 2) ist damit
-  -- rekonstruierbar, was zu diesem Einkauf gehoerte. Ausserdem laesst sich ein
-  -- Zeitstempel per Last-Write-Wins mergen, ein Boolean nicht sinnvoll.
+  -- Der Zeitstempel ist historisierbar und per Last-Write-Wins mergebar.
   checked_at timestamptz,
   checked_by uuid references public.profiles (id) on delete set null,
   added_by uuid references public.profiles (id) on delete set null,
@@ -196,8 +155,7 @@ create table if not exists public.shopping_list_items (
   updated_at timestamptz not null default now(),
   deleted_at timestamptz,
 
-  -- Einkaufsmenge und Packungsinhalt bleiben getrennt:
-  -- quantity=2, unit='package', package_size=500, package_size_unit='g'.
+  -- Einkaufsmenge und Packungsinhalt bleiben getrennt.
   package_size numeric(10, 3) check (package_size > 0),
   package_size_unit text
     check (package_size_unit in ('g', 'kg', 'ml', 'l', 'piece', 'portion')),
@@ -226,9 +184,7 @@ create or replace trigger shopping_list_items_set_updated_at
   for each row
   execute function private.set_updated_at();
 
--- ------------------------ Standard-Lagerorte & Standard-Märkte beim Anlegen
--- create_household() wird erweitert: Ein Haushalt ohne Lagerorte oder Märkte
--- wäre eine Sackgasse — der Nutzer müsste sonst erst alles selbst anlegen.
+-- Haushalt, Admin und Standardorte entstehen atomar.
 create or replace function public.create_household(household_name text)
 returns uuid
 language plpgsql
@@ -266,7 +222,6 @@ begin
 end;
 $$;
 
--- ------------------------------------------------------------- Einkaufshistorie
 create table if not exists public.shopping_history (
   id uuid primary key default gen_random_uuid(),
   household_id uuid not null references public.households (id) on delete cascade,
@@ -305,15 +260,13 @@ create index if not exists shopping_history_household_id_idx
 create index if not exists shopping_history_completed_at_idx
   on public.shopping_history (household_id, completed_at);
 
--- ------------------------------------------------------------------------- RLS
 alter table public.storage_locations enable row level security;
 alter table public.stores enable row level security;
 alter table public.fridge_items enable row level security;
 alter table public.shopping_list_items enable row level security;
 alter table public.shopping_history enable row level security;
 
--- Geteilte Haushaltsdaten: Jedes Mitglied darf alles. Die Grenze verlaeuft am
--- Haushalt, nicht an der Person — das ist der ganze Zweck des Features.
+-- Alle Mitglieder duerfen die geteilten Haushaltsdaten verwalten.
 create policy storage_locations_all_member on public.storage_locations
   for all to authenticated
   using ((select private.is_household_member(household_id)))

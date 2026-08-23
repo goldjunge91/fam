@@ -5,18 +5,7 @@ import { createEnrichOffProductHandler } from './handler.ts';
 import { fetchOffProduct } from './off-client.ts';
 import { SlidingWindowRateLimiter } from './rate-limiter.ts';
 
-/**
- * Wird ausschließlich von eingeloggten Nutzern der App aufgerufen (Standard-
- * JWT-Verifikation der Edge Runtime läuft davor bereits — kein Eintrag in
- * config.toml, `verify_jwt` bleibt auf dem Default `true`, wie bei
- * `delete-account`). Welcher Nutzer ruft, spielt keine Rolle: `products` ist
- * global, die Anreicherung ist nicht haushaltsgebunden.
- *
- * Sicherheitsabstand zum dokumentierten OFF-Limit (15 Produktabfragen/Min/IP,
- * https://openfoodfacts.github.io/openfoodfacts-server/api/) — dieselbe
- * Vorsicht wie beim Client (src/lib/open-food-facts.ts): mehrere gleichzeitige
- * Nutzer teilen sich die ausgehende IP dieser Function.
- */
+// JWT-geschuetzte globale Anreicherung mit Abstand zum OFF-Limit von 15/min/IP.
 const rateLimiter = new SlidingWindowRateLimiter(12, 60_000);
 
 const adminClient = createClient(

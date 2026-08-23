@@ -18,18 +18,11 @@ function formatIsoDate(isoDate: string): string {
 
 interface DateWheelFieldProps {
   label?: string;
-  /** ISO-Datum "YYYY-MM-DD", oder '' wenn noch keines gewählt wurde. */
   value: string;
   onChange: (isoDate: string) => void;
   placeholder?: string;
 }
 
-/**
- * iOS-Datumsfeld ohne Texteingabe — öffnet ein natives Rad (iOS: SwiftUI-Wheel im
- * eigenen Modal mit Übernehmen/Abbrechen). Verhindert ungültige Datumsangaben,
- * weil nur der Picker gültige Daten liefern kann — anders als ein Freitextfeld.
- * Für Android existiert eine .android.tsx Variante mit dem Material-Dialog.
- */
 export function DateWheelField({
   label,
   value,

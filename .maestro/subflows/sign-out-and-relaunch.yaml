@@ -1,20 +1,7 @@
 appId: com.goldjunge91.fam
 ---
-# Baut auf reach-dashboard-via-sign-in.yaml auf: meldet danach ab und landet
-# ueber einen echten Kaltstart auf dem (auth)-Sign-in-Screen. Wird von
-# ../flows/sign-out-then-sign-in.yaml und ../flows/forgot-password-request.yaml
-# per `runFlow` wiederverwendet.
-#
-# WICHTIG: "Abmelden" navigiert laut settings-screen.tsx per
-# `router.replace('/onboarding')` - NICHT auf den (auth)-Screen. Der
-# (auth)-Screen wird erst sichtbar, wenn RootNavigator (src/app/_layout.tsx)
-# nach einem echten Kaltstart neu entscheidet: session=null UND
-# seenOnboarding=true -> (auth)-Stack. Ausserdem gilt:
-# `isNewUser = !seenOnboarding || forceOnboarding` - mit
-# EXPO_PUBLIC_FORCE_ONBOARDING=true (siehe .env.development) wuerde JEDER
-# Kaltstart wieder auf /onboarding zeigen, egal ob eine Session besteht.
-# Dieser Flow braucht deshalb EXPO_PUBLIC_FORCE_ONBOARDING=false (siehe
-# README.md "Umgebungsvariablen" - das ist dort auch der dokumentierte Default).
+# Der Kaltstart lässt RootNavigator mit session=null neu auf den Auth-Stack routen.
+# Benötigt EXPO_PUBLIC_FORCE_ONBOARDING=false.
 
 - runFlow: reach-dashboard-via-sign-in.yaml
 

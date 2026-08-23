@@ -15,19 +15,6 @@ afterAll(async () => {
   teardowns = [];
 });
 
-/**
- * Realtime → SQLite Bridge (#48) — kein Mock, echte lokale Supabase-
- * Realtime-Instanz, zwei echte Clients ("Geraete"), zwei echte node:sqlite-DBs.
- *
- * Die WebSocket-Verbindungen der Clients bleiben nach Testende offen —
- * `client.realtime.disconnect()` haengt sich in dieser Umgebung selbst auf
- * (probiert, verworfen), statt zuverlaessig aufzuraeumen. `test:integration`
- * laeuft deshalb mit `--forceExit` (siehe package.json) — Jest meldet erst
- * alle Ergebnisse und beendet den Prozess danach hart, unabhaengig von
- * offenen Handles. Betrifft nur den Prozessabschluss, nicht die
- * Testergebnisse selbst.
- */
-
 async function pollUntil<T>(
   fn: () => Promise<T | undefined | null>,
   { timeoutMs = 5000, intervalMs = 50 }: { timeoutMs?: number; intervalMs?: number } = {},
@@ -41,11 +28,7 @@ async function pollUntil<T>(
   }
 }
 
-/**
- * Wartet auf den ersten `SUBSCRIBED`-Status. Ohne das ist ein Event, das
- * unmittelbar nach `subscribeHouseholdRealtime` ausgeloest wird, ein reines
- * Rennen mit dem WS-Handshake — der braucht real ein paar hundert ms.
- */
+/** Verhindert ein Rennen zwischen Test-Event und WebSocket-Handshake. */
 function waitForSubscribed(householdId: string): {
   onStatusChange: (id: string, status: RealtimeSubscribeState) => void;
   ready: Promise<void>;
@@ -120,10 +103,7 @@ describe('subscribeHouseholdRealtime', () => {
     try {
       await sub.ready;
 
-      // Aufwaermrunde: In CI (direkt nach `supabase start`) geht das ALLERERSTE
-      // Realtime-Event manchmal im Replikations-Setup verloren, egal wie lange
-      // man darauf wartet (deshalb schlugen auch 45s/85s Timeouts fehl).
-      // Loesung: Wir senden alle 3 Sekunden einen Insert, bis einer ankommt.
+      // Nach frischem Supabase-Start kann das erste Realtime-Event verloren gehen.
       let isWarm = false;
       for (let i = 0; i < 20; i++) {
         const warmupId = crypto.randomUUID();
@@ -138,9 +118,7 @@ describe('subscribeHouseholdRealtime', () => {
           });
           isWarm = true;
           break;
-        } catch {
-          // Timeout - naechster Versuch
-        }
+        } catch {}
       }
       if (!isWarm) throw new Error('Realtime warmup failed after 60s');
 
@@ -154,17 +132,10 @@ describe('subscribeHouseholdRealtime', () => {
       const elapsed = Date.now() - start;
 
       expect(await fridgeItemName(deviceA, id)).toBe('Von B via Realtime');
-      // Bewusst 2000ms statt der im Issue genannten 1000ms: eine harte 1s-Grenze
-      // in CI ist ein bekannter Flake-Quell. Die lockerere Grenze beweist immer
-      // noch "nahezu sofort", nicht "im Polling-Takt".
       expect(elapsed).toBeLessThan(2000);
     } finally {
       await unsubscribe();
     }
-    // 60s statt 30s: deckt die 45s-Aufwaermrunde (siehe Kommentar dort) plus
-    // Setup/Netzwerk-Overhead ab. Der aeussere Jest-Timeout schlug vorher zu,
-    // BEVOR das interne 45s-Poll-Timeout ueberhaupt greifen konnte — reiner
-    // Fluechtigkeitsfehler beim ersten Erhoehen, hier korrigiert.
   }, 60_000);
 
   it('kein Echo-Loop: eigener Push kommt als Realtime-Event zurueck, ohne erneuten Outbox-Eintrag oder Duplikat', async () => {
@@ -189,9 +160,6 @@ describe('subscribeHouseholdRealtime', () => {
       const result = await pushOutbox({ db: deviceA.db, supabase: deviceA.client });
       expect(result.outcomes.some((o) => o.kind === 'pushed')).toBe(true);
 
-      // Dem Echo Zeit geben, real einzutreffen (bestaetigt zusaetzlich, dass
-      // die Subscription ueberhaupt etwas empfaengt) — die Assertions danach
-      // pruefen, dass es wirkungslos war.
       await pollUntil(() => fridgeItemName(deviceA, id));
 
       const outboxRows = await deviceA.db.getAllAsync<{ id: number }>(
@@ -241,19 +209,14 @@ describe('subscribeHouseholdRealtime', () => {
     });
     await sub1.ready;
 
-    // Ein Item vor der Luecke, damit die Subscription nachweislich lief.
     await deviceB.client
       .from('fridge_items')
       .insert({ id: idBeforeGap, household_id: householdId, name: 'Vor der Luecke' });
     await pollUntil(() => fridgeItemName(deviceA, idBeforeGap));
 
-    // Echte Abmeldung — kein simuliertes Event, ein echter Teardown.
     await unsubscribe1();
     await new Promise((r) => setTimeout(r, 300));
 
-    // Waehrend A keinen Channel hat, aendert B mehrere Zeilen. Diese Events
-    // werden nachweislich nie zugestellt (keine Subscription), nicht nur
-    // "so getan als ob".
     await deviceB.client
       .from('fridge_items')
       .insert({ id: idDuringGap1, household_id: householdId, name: 'Waehrend der Luecke 1' });
@@ -264,14 +227,6 @@ describe('subscribeHouseholdRealtime', () => {
     expect(await fridgeItemName(deviceA, idDuringGap1)).toBeUndefined();
     expect(await fridgeItemName(deviceA, idDuringGap2)).toBeUndefined();
 
-    // Erneutes Abonnieren. Ein sauberes unsubscribe() setzt hasDisconnected
-    // NICHT (nur CHANNEL_ERROR/TIMED_OUT tun das) — der folgende SUBSCRIBED
-    // zaehlt also als "erster Connect" dieses neuen Aufrufs, nicht als
-    // Reconnect, und loest onReconnectResyncNeeded ueber den Status-Pfad
-    // deshalb bewusst NICHT aus. Der Beweis "verpasste Events werden durch
-    // einen vollen Pull nachgeholt" braucht deshalb den expliziten Aufruf
-    // unten — er prueft denselben Effekt (voller Pull nach einer Luecke)
-    // unabhaengig vom SUBSCRIBED-Timing.
     const sub2 = waitForSubscribed(householdId);
     const unsubscribe2 = subscribeHouseholdRealtime({
       db: deviceA.db,
@@ -333,17 +288,6 @@ describe('subscribeHouseholdRealtime', () => {
   }, 30_000);
 
   it('raeumt einen stehengebliebenen Channel desselben Topics ab, statt daran zu scheitern', async () => {
-    // Regression fuer: "cannot add `postgres_changes` callbacks for
-    // realtime:household:… after `subscribe()`".
-    //
-    // `supabase.channel(topic)` gibt zu einem bereits registrierten Topic die
-    // vorhandene Instanz zurueck. Ist die schon subscribt, wirft `.on()`.
-    // Zurueckbleiben kann so eine Instanz, wenn das Modul mit der
-    // unsubscribe-Closure ersetzt wird, der Client aber weiterlebt — im
-    // Dev-Build bei jedem Fast Refresh.
-    //
-    // Hier wird genau dieser Zustand hergestellt: ein subscribter Channel auf
-    // dem Topic, den niemand mehr abraeumt.
     const { deviceA, deviceB, householdId, teardown } = await setupTwoDevices('rt-stale');
     teardowns.push(teardown);
 
@@ -372,8 +316,6 @@ describe('subscribeHouseholdRealtime', () => {
     try {
       await sub.ready;
 
-      // Und das Abo funktioniert wirklich — der Guard hat nicht bloss den
-      // Fehler unterdrueckt.
       const id = crypto.randomUUID();
       await deviceB.client
         .from('fridge_items')
@@ -387,16 +329,6 @@ describe('subscribeHouseholdRealtime', () => {
   }, 30_000);
 
   it('erneutes Abonnieren desselben Haushalts direkt nach dem Abmelden wirft nicht', async () => {
-    // Regression: `supabase.channel(topic)` liefert zu einem schon
-    // registrierten Topic dieselbe Instanz zurueck, und `removeChannel()`
-    // nimmt sie erst nach einem await aus der Registry. Wer ohne Wartezeit neu
-    // abonnierte, bekam die alte, bereits subscribte Instanz — und
-    // `channel.on('postgres_changes', …)` warf darauf "cannot add
-    // `postgres_changes` callbacks … after `subscribe()`".
-    //
-    // Bewusst OHNE das `setTimeout(300)` der Tests darueber: Genau diese
-    // Gnadenfrist hat den Fehler bisher verdeckt. In der App gibt es sie nicht
-    // — dort remountet der Hook (Fast Refresh, Haushaltswechsel) sofort.
     const { deviceA, deviceB, householdId, teardown } = await setupTwoDevices('rt-resubscribe');
     teardowns.push(teardown);
 
@@ -412,11 +344,6 @@ describe('subscribeHouseholdRealtime', () => {
     await first.ready;
     await unsubscribeFirst();
 
-    // Der Kern der Zusicherung: SOFORT nach dem awaiteten Abmelden ist das
-    // Topic frei — ohne Gnadenfrist. Genau daran haengt, ob das folgende
-    // `subscribe` eine frische Instanz bekommt oder die alte, schon
-    // subscribte. Mit einem nicht abgewarteten `removeChannel` ist der Channel
-    // hier noch registriert.
     expect(
       deviceA.client.getChannels().filter((c) => c.topic === `realtime:household:${householdId}`),
     ).toHaveLength(0);
@@ -434,8 +361,6 @@ describe('subscribeHouseholdRealtime', () => {
     try {
       await second.ready;
 
-      // Und das neue Abo funktioniert auch wirklich, ist also nicht bloss
-      // fehlerfrei aufgebaut worden.
       const id = crypto.randomUUID();
       await deviceB.client
         .from('fridge_items')

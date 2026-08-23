@@ -12,7 +12,6 @@
     --accent: #705773;
     --shadow: rgba(45, 40, 48, 0.1);
 
-    /* App-Tokens 1:1 aus src/constants/theme.ts (light) */
     --app-text: #2D2830;
     --app-bg: #F8F4EF;
     --app-surface: #FBF7F2;
@@ -24,10 +23,7 @@
     --app-success: #78906F;
     --app-danger: #C65F50;
 
-    /* Gradients.hub (light) — src/constants/theme.ts, gerendert von
-       gradient-background.tsx als fast horizontaler Verlauf (x1 0%/y1 44%
-       -> x2 100%/y2 56%). Die Marktliste ist derselbe Screen wie "Alle
-       Listen" (nur nach Markt gefiltert) und traegt denselben Hintergrund. */
+    /* Entspricht dem hellen Hub-Verlauf aus `theme.ts`. */
     --hub-1: #FFCCB2;
     --hub-2: #F9F2EB;
     --hub-3: #E8DEF2;
@@ -55,7 +51,6 @@
       --app-success: #8FAE86;
       --app-danger: #D9776A;
 
-      /* Gradients.hub (dark) */
       --hub-1: #3B2B2B;
       --hub-2: #211D23;
       --hub-3: #2E2638;
@@ -141,10 +136,7 @@
     font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui, sans-serif;
     color: var(--app-text);
   }
-  /* Screen mit chrome-Header (Hamburger/Avatar) traegt den Hub-Verlauf statt
-     der flachen Screen-Hintergrundfarbe (backgroundGradient={hubGradient} in
-     shopping-list-screen.tsx) — Modals/Sheets (Produktinformationen,
-     Bearbeitungsmenue-Overlay) bleiben bei der flachen Farbe. */
+  /* Nur der Screen nutzt den Hub-Verlauf; Sheets bleiben flach. */
   .screen.hub { background: linear-gradient(97deg, var(--hub-1) 0%, var(--hub-2) 40.385%, var(--hub-3) 96.154%); }
   .statusbar { height: 30px; flex-shrink: 0; }
   .num { font-feature-settings: "tnum"; font-variant-numeric: tabular-nums; }
@@ -190,12 +182,7 @@
     font-size: 11px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: var(--app-text-secondary);
   }
 
-  /* Kategorien als Karten statt loser Abschnitte auf dem Verlauf. */
-  /* Leichte Kategoriefarbe in der Karte statt vollem Farbband (das gab es
-     schon einmal im echten Screen und wurde als zu bunt wieder zurückgebaut,
-     s. Kommentar in shopping-list-screen.tsx) — hier nur eine sehr blasse
-     Tönung, kein Farbband, und insgesamt weniger Kontrast zum Verlauf
-     dahinter (Karte halbtransparent statt voll deckend). */
+  /* Dezente Kategorietoene vermeiden ein dominantes Farbband. */
   .category-card {
     background: color-mix(in srgb, color-mix(in srgb, var(--cat) 9%, var(--app-surface)) 78%, transparent);
     border-radius: 22px; overflow: hidden; margin: 0 20px 12px;
@@ -205,25 +192,18 @@
   .category-card .row-clip.last .item-row { border-bottom: none; }
   .category-card .item-row { border-bottom-color: color-mix(in srgb, var(--cat) 14%, var(--app-border)); }
 
-  /* ---- Zeile ohne Checkbox + Swipe-Reveal ---- */
   .row-clip { overflow: hidden; position: relative; }
-  /* Kein Zeilenhintergrund — Zeilen liegen direkt auf dem Screen-Gradient,
-     genau wie bei inventory-item-row.tsx ("keine durchgehende Kartenflaeche
-     mit harten Ecken"). Nur beim Wischen deckt die Zeile die Aktionsflaeche
-     dahinter ab, dafuer bekommt sie dann kurzzeitig eine feste Farbe. */
+  /* Erst beim Wischen deckt die Zeile die Aktionsflaeche ab. */
   .item-row {
     display: flex; align-items: center; gap: 10px; padding: 12px 16px; border-bottom: 1px solid var(--app-border);
     position: relative; z-index: 1;
   }
-  /* Kategorie-Karte hat selbst schon einen Hintergrund — die Zeile deckt beim
-     Wischen also mit der Kartenfarbe ab, nicht mit der Screen-Hintergrundfarbe. */
   .item-row.shift-short, .item-row.shift-far { background: var(--app-surface); }
   .item-name { flex: 1; font-size: 13.5px; font-weight: 500; min-width: 0; }
   .item-qty { width: 84px; text-align: right; font-size: 12px; color: var(--app-text-secondary); flex-shrink: 0; }
   .item-price { width: 52px; text-align: right; font-size: 11px; color: var(--app-text-secondary); flex-shrink: 0; }
 
-  /* Reveal-Flaeche liegt hinter der Zeile; die Zeile selbst verschiebt sich
-     per translateX nach links (ReanimatedSwipeable-Verhalten). */
+  /* Die Reveal-Flaeche bleibt hinter der verschobenen Zeile. */
   .swipe-reveal {
     position: absolute; inset: 0; display: flex; justify-content: flex-end; align-items: stretch; z-index: 0;
   }
@@ -240,9 +220,6 @@
   .mode-btn { text-align: center; padding: 8px; border-radius: 16px; font-size: 13px; font-weight: 700; background: var(--app-selected); color: var(--app-text); }
   .complete-btn { text-align: center; padding: 8px; border-radius: 16px; font-size: 13px; font-weight: 700; color: #fff; }
 
-  /* ---- Bearbeitungsmenue: 1:1 an inventory-item-actions-sheet.tsx angelehnt
-     (fridge-actions-*-Klassen in global.css) — Handle, Kopfzeile mit
-     Farbstreifen, zwei Aktions-Pillen, Info-Zeile unten. ---- */
   .sheet-scrim { position: absolute; inset: 0; background: rgba(31, 26, 33, 0.32); display: flex; align-items: flex-end; }
   .action-sheet {
     width: 100%; margin: 0 10px 10px; border-radius: 28px; padding: 11px 14px 16px;
@@ -278,8 +255,6 @@
   .sheet-info-row .label { font-size: 13px; font-weight: 600; color: var(--app-text); }
   .sheet-info-chev { margin-left: auto; font-size: 13px; color: var(--app-text-secondary); opacity: 0.6; }
 
-  /* ---- Produktinformationen: gleiche Karten-Sprache wie card-fam
-     (bg-background-element, rounded-fam-large, shadow-card). ---- */
   .info-header-row { display: flex; align-items: center; justify-content: space-between; padding: 14px 20px 4px; flex-shrink: 0; }
   .info-title { font-size: 17px; font-weight: 700; }
   .info-close { width: 32px; height: 32px; border-radius: 16px; background: var(--app-selected); display: flex; align-items: center; justify-content: center; font-size: 13px; color: var(--app-text-secondary); }

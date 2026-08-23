@@ -16,10 +16,6 @@ export interface WheelPickerFieldProps {
   size?: 'default' | 'large';
 }
 
-/**
- * Android-Auswahlfeld — nutzt `@expo/ui/community/picker` nativ als Dropdown
- * (Material 3 `ExposedDropdownMenuBox`), das beim Antippen aufklappt.
- */
 export function WheelPickerField({
   label,
   value,

@@ -7,7 +7,6 @@ type ProfileButtonProps = {
   onPress: () => void;
 };
 
-/** Runder Profilbutton im Haupt-Header. */
 export function ProfileButton({ initials, onPress }: ProfileButtonProps) {
   return (
     <Pressable

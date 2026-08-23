@@ -10,7 +10,6 @@ interface EditItemModalProps {
   onDismiss: () => void;
 }
 
-/** Eigene Seite statt Inline-Formular — analog zu AddItemModal. */
 export function EditItemModal({ item, onDismiss }: EditItemModalProps) {
   return (
     <ItemModalShell

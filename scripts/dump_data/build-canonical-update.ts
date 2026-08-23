@@ -1,29 +1,7 @@
 #!/usr/bin/env bun
 /**
- * build-canonical-update.ts — CI-Delta-Pipeline für den Offline-Dump (#223
- * Paket 5, Abschnitt 13 in `docs/issue#223_V2.md`).
- *
- * Nimmt den frisch von `create_custom_dump.py` erzeugten vollständigen
- * Deutschland-Katalog (Schema 2) entgegen, vergleicht ihn mit der zuletzt
- * veröffentlichten kanonischen DB und erzeugt daraus:
- * - eine aktualisierte kanonische DB (`canonical.db`),
- * - bei einem regulären Lauf einen Patch (`patch-<from>-<to>.db`),
- * - bei einem fälligen monatlichen Baseline-Schnitt eine versionierte
- *   Baseline-Datei (`baseline-<version>.db`),
- * - ein aktualisiertes `manifest.json`.
- *
- * Reine Datei-Ein-/Ausgabe + Orchestrierung — die eigentliche Diff-/
- * Manifest-Logik steckt testbar in `dump-patch-core.ts`/`dump-manifest-core.ts`.
- *
- *   bun run scripts/dump_data/build-canonical-update.ts \
- *     --new-extract products_de.db \
- *     --old-canonical canonical.db \
- *     --previous-manifest manifest.json \
- *     --base-url https://github.com/goldjunge91/fam/releases/download/off-dump-current \
- *     --out-dir out/
- *
- * `--old-canonical`/`--previous-manifest` weglassen für den allerersten Lauf
- * (erzeugt automatisch eine neue Baseline).
+ * Erzeugt aus neuem Extrakt und optionaler kanonischer DB den naechsten Patch,
+ * eine faellige Baseline und das Manifest. Ohne alten Stand entsteht die erste Baseline.
  */
 
 import { createHash } from 'node:crypto';
@@ -51,7 +29,6 @@ function parseArgs(argv: string[]): Record<string, string> {
   return args;
 }
 
-/** Dateinamensicherer Ausschnitt einer ISO-Version, z.B. "2026-08-23T05-34-12". */
 function versionSlug(isoVersion: string): string {
   return isoVersion.replace(/[^0-9A-Za-z-]/g, '-').replace(/-+/g, '-');
 }

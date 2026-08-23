@@ -1,11 +1,6 @@
 -- Gewuenschter Endzustand — NICHT von Hand migrieren.
---
--- Medikations- & Symptom-Tracking (#174): Spezifisch fuer GLP-1 Injektionen /
--- Medikamente und deren Begleiterscheinungen (Appetit, Saettigung, Uebelkeit).
---
--- Streng privat: Kein Zugriff durch Haushaltsmitglieder.
+-- Medikations- und Symptom-Tracking bleibt fuer Haushaltsmitglieder unsichtbar.
 
--- ------------------------------------------------------------ Medikations-Log
 create table if not exists public.medication_logs (
   id uuid primary key default gen_random_uuid(),
   user_id uuid not null references public.profiles (id) on delete cascade,
@@ -39,7 +34,6 @@ create or replace trigger medication_logs_set_updated_at
   for each row
   execute function private.set_updated_at();
 
--- ---------------------------------------------------------------- Symptom-Log
 create table if not exists public.symptom_logs (
   id uuid primary key default gen_random_uuid(),
   user_id uuid not null references public.profiles (id) on delete cascade,
@@ -72,7 +66,6 @@ create or replace trigger symptom_logs_set_updated_at
   for each row
   execute function private.set_updated_at();
 
--- ------------------------------------------------------------------------- RLS
 alter table public.medication_logs enable row level security;
 alter table public.symptom_logs enable row level security;
 

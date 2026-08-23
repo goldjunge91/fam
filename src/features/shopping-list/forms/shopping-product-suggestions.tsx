@@ -17,7 +17,6 @@ type ShoppingProductSuggestionsProps = {
   onSelect: (product: OpenFoodFactsProduct, suggestion: ShoppingProductSuggestion) => void;
 };
 
-/** Anzahl Karten in der ersten, immer sichtbaren Reihe. */
 const COLLAPSED_COUNT = 3;
 
 function unitLabel(unit: string | null): string {
@@ -46,7 +45,7 @@ function toProduct(suggestion: ShoppingProductSuggestion): OpenFoodFactsProduct 
     brand: suggestion.brand ?? undefined,
     quantity: suggestion.quantity ?? 1,
     unit: suggestion.unit ?? 'piece',
-    // Vorschlagsverlauf (#79) fuehrt keine OFF-Tags mit.
+    // Der lokale Vorschlagsverlauf speichert keine OFF-Tags.
     categoryTags: [],
   };
 }
@@ -84,12 +83,8 @@ function SuggestionCard({
 }
 
 /**
- * Häufig/Zuletzt-Vorschläge beim Hinzufügen. Zeigt standardmäßig nur die
- * ersten drei Karten (wie bisher); gibt es mehr, klappt ein Toggle den Rest
- * in zusätzlichen Dreier-Reihen auf (#UI-Feedback: "Ansicht erweitern, History
- * soll aufklappbar sein"). Die erste Reihe bleibt bewusst `flex-1`-basiert
- * (füllt die Breite exakt), weitere Reihen nutzen feste Drittel-Breiten, da
- * `flex-wrap` mit `flex-1`-Kindern nicht zuverlässig umbricht.
+ * Die erste Reihe fuellt per `flex-1` die Breite; umgebrochene Reihen brauchen
+ * feste Drittelbreiten, da `flex-wrap` mit `flex-1` unzuverlaessig ist.
  */
 export function ShoppingProductSuggestions({
   userId,

@@ -1,17 +1,6 @@
 appId: com.goldjunge91.fam
 ---
-# Registrierung mit einer neuen Adresse -> lokale E-Mail-Bestaetigung ist
-# aktiv (siehe supabase/config.toml, d0e2bbb), also kommt kein Session
-# zurueck und der PendingAuthBanner muss erscheinen. Prueft den
-# Registrieren-Zweig von account-step.tsx, den onboarding-sign-in.yaml nicht
-# abdeckt (das ist der Anmelden-Zweig mit einem vorbestaetigten Account).
-#
-# Eindeutige E-Mail pro Lauf via ${new Date().getTime()} - Maestro wertet
-# JS-Ausdruecke in ${...} aus. Ohne das wuerde ein zweiter Lauf gegen
-# dieselbe Adresse "Fuer diese Adresse gibt es schon ein Konto" liefern statt
-# den Pending-Zustand zu zeigen.
-#
-# Voraussetzungen: siehe onboarding-sign-in.yaml (Dev-Build, lokales Supabase).
+# Der Zeitstempel erzeugt für jeden Lauf eine neue unbestätigte Adresse.
 
 - runFlow: ../subflows/launch-local-dev-client.yaml
 
@@ -19,7 +8,6 @@ appId: com.goldjunge91.fam
 - tapOn: "Weiter"
 - tapOn: "Jetzt starten"
 
-# "Registrieren" ist der Default-Tab in AccountStepForm - kein Tab-Wechsel noetig.
 - tapOn:
     id: "onboarding-account-email"
 - inputText: "maestro-e2e-signup-${new Date().getTime()}@example.com"
@@ -29,8 +17,6 @@ appId: com.goldjunge91.fam
 - hideKeyboard
 - tapOn: "Konto erstellen & weiter"
 
-# iOS' eigener Keychain-Dialog ("Passwort sichern?") kann nach dem Absenden
-# erscheinen - kein App-UI.
 - tapOn:
     text: "^Später$"
     optional: true

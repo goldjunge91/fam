@@ -15,11 +15,6 @@ function toIsoDate(date: Date): string {
   return `${y}-${m}-${d}`;
 }
 
-/**
- * Kalorien-Dashboard-Card: zeigt den Tagesfortschritt als Ring + Zahlen.
- * Large = voller Ring (94px) + kcal-Wert + verbleibend-Text.
- * Small = kompakter Ring (58px) + nur kcal-Zahl.
- */
 function CalorieDashboardCard({ size, onLongPress }: DashboardCardProps) {
   const theme = useTheme();
   const { session } = useSession();

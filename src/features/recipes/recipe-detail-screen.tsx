@@ -292,19 +292,16 @@ export function RecipeDetailScreen() {
         className="flex-1"
         contentContainerClassName="px-four pb-[108px]"
         showsVerticalScrollIndicator={false}>
-        {/* Rezept-Titelbild / Artwork */}
         <View className="h-[178px] -mx-four overflow-hidden">
           <HeroArtwork coverUrl={coverUrl} title={recipe.title} />
         </View>
 
-        {/* Rezepttitel */}
         <ThemedText
           type="subtitle"
           className="pt-[18px] text-[28px] leading-[32px] font-bold tracking-tight">
           {recipe.title}
         </ThemedText>
 
-        {/* Tab-Leiste (Details vs. Bewertungen) */}
         <View className="flex-row mt-five border-b border-border">
           {(['details', 'ratings'] as const).map((tab) => {
             const selected = activeTab === tab;
@@ -329,7 +326,6 @@ export function RecipeDetailScreen() {
 
         {activeTab === 'details' ? (
           <View>
-            {/* Basis-Fakten (Kalorien, Zubereitungszeit, Schwierigkeitsgrad) */}
             <View className="flex-row py-four border-b border-border">
               <DetailFact
                 value={scaledServing ? `${round(scaledServing.kcal)} kcal` : '–'}
@@ -347,14 +343,12 @@ export function RecipeDetailScreen() {
               />
             </View>
 
-            {/* Beschreibung / Allgemeine Kochanleitung */}
             {recipe.instructions ? (
               <ThemedText type="body" className="pt-four text-[16px] leading-[24px] font-medium">
                 {recipe.instructions}
               </ThemedText>
             ) : null}
 
-            {/* Kategorien- und Hashtags */}
             {tags.length > 0 ? (
               <View className="flex-row flex-wrap items-center gap-x-three gap-y-two pt-three">
                 {visibleTags.map((tag) => (
@@ -384,7 +378,6 @@ export function RecipeDetailScreen() {
               </View>
             ) : null}
 
-            {/* Zutaten-Kopf mit Portionsrechner-Stepper (+ / -) */}
             <View className="min-h-[58px] row-between gap-three mt-[18px] border-b border-border">
               <ThemedText type="headingSmall">Zutaten</ThemedText>
               <View className="w-[156px] h-[44px] rounded-control flex-row items-center bg-background-element">
@@ -412,10 +405,8 @@ export function RecipeDetailScreen() {
               </View>
             </View>
 
-            {/* Zutatenliste nach Komponenten gegliedert */}
             <IngredientGroups data={data} servings={servings} />
 
-            {/* Button zur Übernahme fehlender Zutaten in die Einkaufsliste */}
             <Pressable
               role="button"
               aria-label="Fehlende Zutaten zur Einkaufsliste hinzufügen"
@@ -426,7 +417,6 @@ export function RecipeDetailScreen() {
               </ThemedText>
             </Pressable>
 
-            {/* Nährwerttabelle (kcal, Protein, Kohlenhydrate, Fett) */}
             {scaledServing ? (
               <View className="flex-row mt-four border-t border-b border-border">
                 <NutritionStat value={String(round(scaledServing.kcal))} label="kcal" />
@@ -436,7 +426,6 @@ export function RecipeDetailScreen() {
               </View>
             ) : null}
 
-            {/* Zubereitungsschritte mit Bildern und Text */}
             <View className="min-h-[58px] row-between gap-three mt-[18px] border-b border-border">
               <ThemedText type="headingSmall">Zubereitung</ThemedText>
               <ThemedText type="caption" themeColor="textSecondary" className="font-medium">
@@ -462,11 +451,9 @@ export function RecipeDetailScreen() {
             )}
           </View>
         ) : (
-          /* Bewertungen & Notizen Tab */
           <View className="pt-[22px]">
             {rating ? (
               <>
-                {/* Anzeige der eigenen Punktebewertung */}
                 <View className="min-h-[58px] row-between gap-four pb-four border-b border-border">
                   <ThemedText type="subtitle" className="text-[28px] leading-[34px] font-bold">
                     ★ {rating.score}{' '}
@@ -478,7 +465,6 @@ export function RecipeDetailScreen() {
                     Deine Bewertung
                   </ThemedText>
                 </View>
-                {/* Eigene persönliche Notiz zum Rezept */}
                 {rating.note ? (
                   <>
                     <ThemedText type="headingSmall" className="pt-five">
@@ -493,7 +479,6 @@ export function RecipeDetailScreen() {
                 ) : null}
               </>
             ) : (
-              /* Leerzustand für Bewertungen */
               <View className="items-center py-six">
                 <ThemedText type="headingSmall">Noch keine Bewertung</ThemedText>
                 <ThemedText
@@ -504,7 +489,6 @@ export function RecipeDetailScreen() {
                 </ThemedText>
               </View>
             )}
-            {/* Button zum Erstellen/Bearbeiten der Bewertung */}
             <Pressable
               onPress={() => setRatingOpen(true)}
               role="button"
@@ -518,7 +502,6 @@ export function RecipeDetailScreen() {
         )}
       </ScrollView>
 
-      {/* Fixierter Floating-Button zum Starten des Kochmodus */}
       <View className="absolute left-[15px] right-[15px] bottom-three">
         <Pressable
           onPress={() => router.push({ pathname: '/recipe/cook', params: { id: recipe.id } })}
@@ -531,7 +514,6 @@ export function RecipeDetailScreen() {
         </Pressable>
       </View>
 
-      {/* Aktions-Modal zur Rezeptverwaltung (Bearbeiten, Teilen, Löschen) */}
       <Modal
         visible={manageOpen}
         transparent
@@ -611,7 +593,6 @@ export function RecipeDetailScreen() {
         </Pressable>
       </Modal>
 
-      {/* Einkaufs-Sheet für fehlende Zutaten */}
       <RecipeShoppingSheet
         visible={shoppingOpen}
         detail={data}
@@ -619,7 +600,6 @@ export function RecipeDetailScreen() {
         onClose={() => setShoppingOpen(false)}
       />
 
-      {/* Bewertungs-Sheet */}
       <RecipeRatingSheet
         recipeId={recipe.id}
         visible={ratingOpen}

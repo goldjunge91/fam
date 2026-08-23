@@ -1,30 +1,3 @@
-/**
- * Hintergrund-Synchronisation (#50).
- *
- * Duenner Wrapper um `expo-background-task`/`expo-task-manager`. Beide sind
- * native Module und laden weder unter `jest-expo` noch im Node-Setup der
- * Integrationstests — derselbe Grund, warum `src/lib/db/client.ts` nicht aus
- * `index.ts` re-exportiert wird. Kein automatisierter Test fuer diese Datei.
- *
- * Expo verlangt, dass `TaskManager.defineTask` im globalen Modul-Scope laeuft,
- * nicht in einer Komponente oder einem Effekt. Dieses Projekt laedt native
- * Module dagegen grundsaetzlich erst bei Bedarf (`loadSQLite()` in
- * `client.ts`, `loadSecureStore()` in `supabase.ts`), damit ein fehlendes
- * Modul nicht beim Import der Datei die halbe App mitreisst. Der Ausweg:
- * `defineBackgroundSyncTask()` ist eine EXPORTIERTE FUNKTION, kein
- * Modul-Top-Level-Seiteneffekt — sie macht den lazy-require selbst, aber der
- * Aufrufer muss sie einmal frueh und auf Anweisungsebene aufrufen (z. B. ganz
- * oben in `_layout.tsx`, neben `SplashScreen.preventAutoHideAsync()`), NICHT
- * in einem Hook. Wird das versaeumt, ist die Task zur Laufzeit nie definiert
- * und `registerTaskAsync` schlaegt fehl.
- *
- * Der veraenderliche `handler`-Slot loest ein zweites Problem: die Task kann
- * schon beim Modul-Laden definiert werden, lange bevor es eine echte,
- * haushalts-aufgeloeste Sync-Funktion gibt (die kommt erst mit Epic 4). Wer
- * spaeter echten Sync verdrahten will, ruft `setBackgroundSyncHandler(fn)`
- * auf, ohne die Task neu registrieren zu muessen.
- */
-
 export const BACKGROUND_SYNC_TASK_NAME = 'fam-background-sync';
 
 const REBUILD_HINT =
@@ -51,17 +24,13 @@ function loadTaskManager(): typeof import('expo-task-manager') {
 
 let handler: (() => Promise<void>) | null = null;
 
-/** Setzt/ersetzt den Handler, den die Task bei Ausfuehrung aufruft. `null` = Task tut nichts, gilt als Erfolg. */
 export function setBackgroundSyncHandler(fn: (() => Promise<void>) | null): void {
   handler = fn;
 }
 
 let defined = false;
 
-/**
- * Definiert die Task. Muss frueh und im globalen Modul-Scope aufgerufen
- * werden (siehe Kommentar oben) — idempotent, ein zweiter Aufruf ist ein No-op.
- */
+/** Muss frueh im globalen Modul-Scope statt aus einem Hook aufgerufen werden. */
 export function defineBackgroundSyncTask(): void {
   if (defined) return;
   defined = true;

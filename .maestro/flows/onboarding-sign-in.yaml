@@ -3,35 +3,18 @@ env:
     TEST_EMAIL: maestro-e2e@example.com
     TEST_PASSWORD: Passwort123!
 ---
-# Golden-path E2E flow: fresh app install -> onboarding wizard -> sign in
-# with an existing account -> skip the optional steps -> land on the
-# dashboard. Covers the full session/onboarding routing logic in
-# src/app/_layout.tsx (isNewUser / seenOnboarding), not just the login form.
-#
-# Prerequisites:
-# - A dev build installed on the target simulator/emulator (Barcode-Scanner,
-#   SecureStore etc. don't run in Expo Go - see README.md "Development Build").
-# - Local Supabase running (`supabase start`) and the app pointed at it
-#   (EXPO_PUBLIC_USE_LOCAL_DB=true).
-# - A confirmed test account. Create once with:
+# Benötigt Dev-Build, lokales Supabase und einen bestätigten Testaccount:
 #     bun run user:create maestro-e2e@example.com 'Passwort123!' "Maestro E2E"
-#   (email_confirm:true, so this flow never has to handle the
-#   PendingAuthBanner / email-confirmation branch - that path is exercised
-#   by signing up, not signing in, and now that local confirmations are
-#   enabled it would otherwise block here waiting on a real email.)
-#
-# Override credentials without editing this file:
+# Alternative Zugangsdaten:
 #   maestro test .maestro/flows/onboarding-sign-in.yaml \
 #     -e TEST_EMAIL=other@example.com -e TEST_PASSWORD='Other123!'
 
 - runFlow: ../subflows/launch-local-dev-client.yaml
 
-# Welcome-carousel: 3 slides, "Weiter" until the last one shows "Jetzt starten".
 - tapOn: "Weiter"
 - tapOn: "Weiter"
 - tapOn: "Jetzt starten"
 
-# Account step: default tab is "Registrieren" - switch to "Anmelden".
 - tapOn: "Anmelden"
 - tapOn:
       id: "onboarding-account-email"
@@ -42,14 +25,11 @@ env:
 - hideKeyboard
 - tapOn: "Anmelden & weiter"
 
-# iOS' own Keychain-Dialog ("Passwort sichern?") kann nach dem Absenden
-# erscheinen - kein App-UI, exakter Match damit "Später" nicht versehentlich
-# den spaeteren "Später ausfüllen"-Button trifft.
+# Exakter Match vermeidet den späteren App-Button "Später ausfüllen".
 - tapOn:
       text: "^Später$"
       optional: true
 
-# Remaining steps are all skippable for a returning user.
 - scrollUntilVisible:
     element: "Später ausfüllen"
 - tapOn: "Später ausfüllen" # Profil-Step

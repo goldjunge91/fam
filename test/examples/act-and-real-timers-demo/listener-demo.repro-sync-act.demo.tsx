@@ -15,8 +15,7 @@ test('REPRODUKTION: sync act() flusht das State-Update aus einem rohen Callback 
   await render(<ListenerDemo />);
   const emit = getCapturedListener();
 
-  // Bug-Pattern: der Callback wird direkt aufgerufen (kein fireEvent), aber
-  // in einem SYNCHRONEN act() gewrappt.
+  // Reproduziert den direkten Callback in synchronem act().
   act(() => {
     emit('ready');
   });

@@ -15,11 +15,7 @@ function parseOptionalNumber(value: string): number | undefined {
   return Number.isNaN(parsed) ? undefined : parsed;
 }
 
-/**
- * Produkt manuell anlegen (#80) — fuer Lebensmittel, die Open Food Facts
- * nicht kennt (unverpackte Ware, Eigenmarken ohne Barcode-Eintrag, ...).
- * Schreibt ueber die Sync-Engine in `products` (`source: 'manual'`).
- */
+/** Legt unbekannte Produkte ueber die Sync-Engine manuell an. */
 export function AddProductScreen() {
   const params = useLocalSearchParams<{ prefillName?: string }>();
   const { session } = useSession();
@@ -70,7 +66,6 @@ export function AddProductScreen() {
   return (
     <Screen title="Produkt anlegen" back={{ label: 'Abbrechen' }}>
       <View className="gap-three mt-three">
-        {/* Produkt-Stammdaten: Name und optionale Marke */}
         <TextField
           label="Name"
           placeholder="z. B. Tomaten (lose)"
@@ -79,7 +74,6 @@ export function AddProductScreen() {
         />
         <TextField label="Marke (optional)" value={brand} onChangeText={setBrand} />
 
-        {/* Nährwert-Eingaben bezogen auf 100g (kcal, Kohlenhydrate, Eiweiß, Fett) */}
         <View className="flex-row gap-four">
           <View className="flex-1">
             <TextField
@@ -117,7 +111,6 @@ export function AddProductScreen() {
           </View>
         </View>
 
-        {/* Optionale Angabe einer Portionsgröße */}
         <TextField
           label="Portionsgröße in Gramm (optional)"
           placeholder="z. B. 45"
@@ -126,7 +119,6 @@ export function AddProductScreen() {
           keyboardType="numeric"
         />
 
-        {/* Aktions-Buttons: Produkt anlegen / Abbrechen */}
         <View className="mt-three">
           <Button
             label="Speichern"

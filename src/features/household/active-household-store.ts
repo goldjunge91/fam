@@ -17,7 +17,5 @@ export async function setStoredActiveHouseholdId(id: string | null): Promise<voi
     } else {
       await AsyncStorage.removeItem(STORAGE_KEY);
     }
-  } catch {
-    // Error handling silent fallback
-  }
+  } catch {}
 }

@@ -46,9 +46,6 @@ describe('signInSchema', () => {
   );
 
   it('prueft beim Login nur, dass ein Passwort da ist', () => {
-    // Wer sein altes, kuerzeres Passwort eingibt, soll die Serverantwort
-    // bekommen ("falsche Zugangsdaten") — nicht faelschlich hoeren, sein
-    // Passwort sei zu kurz.
     expect(signInSchema.safeParse({ email: 'a@b.de', password: 'kurz' }).success).toBe(true);
     expect(signInSchema.safeParse({ email: 'a@b.de', password: '' }).success).toBe(false);
   });
@@ -75,7 +72,6 @@ describe('signUpSchema', () => {
   });
 
   it('meldet abweichende Passwoerter am Bestaetigungsfeld, nicht am ersten', () => {
-    // Sonst zeigt die UI den Fehler beim bereits korrekt eingegebenen Passwort.
     const result = signUpSchema.safeParse({ ...gueltig, passwordConfirmation: 'anders12' });
     expect(result.success).toBe(false);
     if (result.success) return;
@@ -86,7 +82,7 @@ describe('signUpSchema', () => {
   });
 
   it('begrenzt die Laenge auf 72 Zeichen', () => {
-    // bcrypt schneidet darueber hinaus ab; ein laengeres Passwort waere trueglich.
+    // bcrypt beruecksichtigt nur die ersten 72 Zeichen.
     const zuLang = 'x'.repeat(73);
     expect(
       signUpSchema.safeParse({
@@ -108,9 +104,6 @@ describe('newPasswordSchema', () => {
 
 describe('profileSchema', () => {
   it('akzeptiert ein vollstaendig leeres Profil', () => {
-    // Das Onboarding ist ueberspringbar; die App muss ohne diese Angaben
-    // funktionieren und das Kalorienziel spaeter ehrlich als nicht berechenbar
-    // melden.
     expect(profileSchema.safeParse({}).success).toBe(true);
   });
 
@@ -137,8 +130,7 @@ describe('profileSchema', () => {
   });
 
   it('laesst nur die Werte zu, die auch die Datenbank kennt', () => {
-    // Die Check-Constraints auf public.profiles erlauben genau diese Werte;
-    // liefen sie auseinander, schluege erst der Insert fehl.
+    // Muss mit den Check-Constraints auf public.profiles uebereinstimmen.
     expect(profileSchema.safeParse({ sex: 'divers' }).success).toBe(false);
     expect(profileSchema.safeParse({ activityLevel: 'extrem' }).success).toBe(false);
     expect(profileSchema.safeParse({ sex: 'female', activityLevel: 'moderate' }).success).toBe(

@@ -11,13 +11,12 @@ function getCapturedListener(): StatusListener {
   return listener;
 }
 
-// Testet die von der RNTL-LLM-Doku bevorzugte Alternative: gar kein
-// manuelles act(), stattdessen findByText (das selbst pollt/wartet).
+// findByText wartet ohne manuelles act().
 test('ALTERNATIVE: findByText ohne jedes manuelle act()', async () => {
   await render(<ListenerDemo />);
   const emit = getCapturedListener();
 
-  emit('ready'); // kein act() drumherum
+  emit('ready');
 
   expect(await screen.findByText('ready')).toBeOnTheScreen();
 });

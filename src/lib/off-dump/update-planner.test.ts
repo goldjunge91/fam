@@ -92,7 +92,7 @@ describe('planUpdate', () => {
   it('verlangt eine neue Baseline, wenn die Patchkette lückenhaft ist (fehlender Zwischenschritt)', () => {
     const brokenManifest: DumpManifest = {
       ...BASE_MANIFEST,
-      patches: [BASE_MANIFEST.patches[1]], // Patch 1 (08-01 -> 08-02) fehlt
+      patches: [BASE_MANIFEST.patches[1]],
     };
     const plan = planUpdate(
       { schemaVersion: 2, dataVersion: '2026-08-01T00:00:00.000Z', integrityOk: true },
@@ -106,7 +106,7 @@ describe('planUpdate', () => {
       ...BASE_MANIFEST,
       patches: [
         { ...BASE_MANIFEST.patches[0], size: 400 },
-        { ...BASE_MANIFEST.patches[1], size: 400 }, // 800 / 1000 = 80% > 70%
+        { ...BASE_MANIFEST.patches[1], size: 400 },
       ],
     };
     const plan = planUpdate(
@@ -120,7 +120,7 @@ describe('planUpdate', () => {
     const plan = planUpdate(
       { schemaVersion: 2, dataVersion: '2026-08-01T00:00:00.000Z', integrityOk: true },
       BASE_MANIFEST,
-      { patchSizeThreshold: 0.05 }, // 100/1000 = 10% > 5%
+      { patchSizeThreshold: 0.05 },
     );
     expect(plan).toEqual({ kind: 'baseline', reason: 'patch_size_exceeds_threshold' });
   });

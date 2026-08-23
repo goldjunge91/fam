@@ -15,7 +15,6 @@ describe('guessCategory', () => {
   });
 
   it('sollte kurze Keywords nicht als Substring in anderen Woertern matchen', () => {
-    // "ei" (Molkerei) als freier Substring wuerde all das faelschlich treffen.
     expect(guessCategory('Eis')).toBe('Tiefkühlkost');
     expect(guessCategory('Teig')).toBeNull();
     expect(guessCategory('Seife')).toBe('Drogerie & Haushalt');

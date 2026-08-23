@@ -3,26 +3,14 @@ env:
   TEST_EMAIL: maestro-e2e@example.com
   TEST_PASSWORD: Passwort123!
 ---
-# Geteilter Praefix: frische Install -> Onboarding -> Anmelden mit einem
-# bestehenden, bestaetigten Account -> restliche Schritte ueberspringen ->
-# Dashboard. Wird per `runFlow` aus anderen Flows wiederverwendet (siehe
-# ../flows/session-persists-after-relaunch.yaml, ../flows/sign-out-and-relaunch.yaml).
-#
-# Liegt bewusst ausserhalb von .maestro/flows/, damit `maestro test
-# .maestro/flows` (= `bun run e2e`) diese Datei nicht zusaetzlich als
-# eigenstaendigen Test aufgreift - inhaltlich waere das nur eine Dopplung von
-# flows/onboarding-sign-in.yaml.
-#
-# Voraussetzungen: siehe ../flows/onboarding-sign-in.yaml.
+# Liegt außerhalb von flows/, damit Maestro den geteilten Präfix nicht separat ausführt.
 
 - runFlow: launch-local-dev-client.yaml
 
-# Welcome-Carousel: 3 Slides, "Weiter" bis zum letzten mit "Jetzt starten".
 - tapOn: "Weiter"
 - tapOn: "Weiter"
 - tapOn: "Jetzt starten"
 
-# Account-Step: Default-Tab ist "Registrieren" - zu "Anmelden" wechseln.
 - tapOn: "Anmelden"
 - tapOn:
     id: "onboarding-account-email"
@@ -33,14 +21,11 @@ env:
 - hideKeyboard
 - tapOn: "Anmelden & weiter"
 
-# iOS' eigener Keychain-Dialog ("Passwort sichern?") kann nach dem Absenden
-# erscheinen - kein App-UI, exakter Match damit "Später" nicht versehentlich
-# den spaeteren "Später ausfüllen"-Button trifft.
+# Exakter Match vermeidet den späteren App-Button "Später ausfüllen".
 - tapOn:
     text: "^Später$"
     optional: true
 
-# Restliche Schritte sind fuer einen wiederkehrenden Nutzer alle ueberspringbar.
 - scrollUntilVisible:
     element: "Später ausfüllen"
 - tapOn: "Später ausfüllen" # Profil-Step

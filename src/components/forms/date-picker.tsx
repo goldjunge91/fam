@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/buttons';
 
 interface DatePickerProps {
   label?: string;
-  value: string; // "YYYY-MM-DD"
+  value: string;
   onChangeText: (text: string) => void;
   placeholder?: string;
   error?: string;
@@ -21,7 +21,6 @@ export function DatePicker({
 }: DatePickerProps) {
   const [showModal, setShowModal] = useState(false);
 
-  // Default year/month/day selection state in modal
   const initialDate = /^\d{4}-\d{2}-\d{2}$/.test(value.trim())
     ? new Date(value.trim())
     : new Date();
@@ -42,7 +41,6 @@ export function DatePicker({
     setShowModal(false);
   }
 
-  // Format valid ISO date into readable German format
   let formattedDisplay: string | null = null;
   if (/^\d{4}-\d{2}-\d{2}$/.test(value.trim())) {
     const dateObj = new Date(value.trim());
@@ -83,7 +81,6 @@ export function DatePicker({
         </ThemedText>
       )}
 
-      {/* Modal Date Selector */}
       <Modal
         visible={showModal}
         transparent
@@ -94,7 +91,6 @@ export function DatePicker({
             <ThemedText type="subtitle">Datum auswählen</ThemedText>
 
             <View className="flex-row justify-around my-two">
-              {/* Year Adjust */}
               <View className="items-center gap-two">
                 <ThemedText type="smallBold">Jahr</ThemedText>
                 <View className="items-center gap-[6px]">
@@ -112,7 +108,6 @@ export function DatePicker({
                 </View>
               </View>
 
-              {/* Month Adjust */}
               <View className="items-center gap-two">
                 <ThemedText type="smallBold">Monat</ThemedText>
                 <View className="items-center gap-[6px]">
@@ -130,7 +125,6 @@ export function DatePicker({
                 </View>
               </View>
 
-              {/* Day Adjust */}
               <View className="items-center gap-two">
                 <ThemedText type="smallBold">Tag</ThemedText>
                 <View className="items-center gap-[6px]">

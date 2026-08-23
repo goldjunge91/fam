@@ -2,19 +2,7 @@ appId: com.goldjunge91.fam
 tags:
   - fixture
 ---
-# Prueft den Haushalts-BEITRITT im Onboarding (household-step.tsx, choice
-# "join") ueber ein echtes redeem_invite()-RPC. Braucht wie die
-# Create-Variante einen Account ohne bestehenden Haushalt, dazu einen
-# gueltigen Invite-Token - beides kommt vom Seed-Script.
-#
-# `tags: [fixture]` haelt diesen Flow aus `bun run e2e` heraus. Nicht direkt
-# ausfuehren, sondern:
-#   bun run e2e:household-join
-#
-# Der Invite-Token ist laut supabase/schemas/06_household_invites.sql ein
-# UUID, keine 6-stellige Zahl - das Placeholder-Label im UI
-# ("6-stelliger Einladungscode") ist ungenau, aendert aber nichts daran, dass
-# das Feld den kompletten Token entgegennimmt.
+# Benötigt Account und UUID-Invite aus `bun run e2e:household-join`.
 
 - runFlow: ../subflows/launch-local-dev-client.yaml
 
@@ -32,9 +20,7 @@ tags:
 - hideKeyboard
 - tapOn: "Anmelden & weiter"
 
-# iOS' eigener Keychain-Dialog ("Passwort sichern?") kann nach dem Absenden
-# erscheinen - kein App-UI, exakter Match damit "Später" nicht versehentlich
-# den folgenden "Später ausfüllen"-Button trifft.
+# Exakter Match vermeidet den späteren App-Button "Später ausfüllen".
 - tapOn:
     text: "^Später$"
     optional: true

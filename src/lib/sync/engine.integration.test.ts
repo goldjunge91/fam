@@ -13,16 +13,6 @@ afterAll(async () => {
   teardowns = [];
 });
 
-/**
- * Zwei-Geraete-Konvergenztest der Sync-Engine (#47) — der eigentliche
- * Nachweis der Akzeptanzkriterien. Zwei echte lokale SQLite-Datenbanken, zwei
- * echte Supabase-Clients (dieselbe Nutzerin, zwei "Geraete"-Sessions),
- * gegen die echte lokale Supabase-Instanz. Kein Mock.
- *
- * `setupTwoDevices` ist nach `test/setup-two-devices.ts` ausgelagert — wird
- * auch von `realtime.integration.test.ts` (#48) gebraucht.
- */
-
 async function sync(device: Device, householdId: string, now: () => number) {
   return syncHousehold({
     db: device.db,
@@ -116,22 +106,16 @@ describe('syncHousehold — Zwei-Geraete-Konvergenz', () => {
     teardowns.push(teardown);
     const id = crypto.randomUUID();
 
-    // Ausgangszustand auf beiden Geraeten herstellen.
     await insertFridgeItemLocally(deviceA, id, householdId, 'Original');
     await sync(deviceA, householdId, () => 1000);
     await sync(deviceB, householdId, () => 1100);
     expect(await nameOf(deviceB, id)).toBe('Original');
 
-    // Beide Geraete bearbeiten offline, unabhaengig voneinander.
     await updateFridgeItemLocally(deviceA, id, 'Von A');
     await updateFridgeItemLocally(deviceB, id, 'Von B');
 
-    // A synct zuerst.
     await sync(deviceA, householdId, () => 2000);
-    // B synct danach — B's push gewinnt serverseitig, da spaeter (LWW ueber
-    // den server-vergebenen updated_at, nicht ueber die Client-Werte 2000/3000).
     await sync(deviceB, householdId, () => 3000);
-    // A synct erneut, um B's spaetere Aenderung zu pullen.
     await sync(deviceA, householdId, () => 4000);
 
     const finalA = await nameOf(deviceA, id);
@@ -150,10 +134,7 @@ describe('syncHousehold — Zwei-Geraete-Konvergenz', () => {
     await sync(deviceA, householdId, () => 1000);
     await sync(deviceB, householdId, () => 1100);
 
-    // A loescht offline.
     await deleteFridgeItemLocally(deviceA, id);
-    // B hat unabhaengig davon eine eigene, noch nicht gesyncte Aenderung an
-    // einem ANDEREN Artikel ausstehen — darf A's Loeschung nicht blockieren.
     await insertFridgeItemLocally(deviceB, unrelatedId, householdId, 'B: unabhaengige Aenderung');
 
     await sync(deviceA, householdId, () => 2000);
@@ -165,7 +146,6 @@ describe('syncHousehold — Zwei-Geraete-Konvergenz', () => {
     );
     expect(rowB?.deleted_at).not.toBeNull();
 
-    // B's unabhaengige Aenderung ist trotzdem angekommen.
     await sync(deviceA, householdId, () => 4000);
     expect(await nameOf(deviceA, unrelatedId)).toBe('B: unabhaengige Aenderung');
   }, 30_000);
@@ -179,7 +159,6 @@ describe('syncHousehold — Zwei-Geraete-Konvergenz', () => {
     await sync(deviceA, householdId, () => 1000);
     await sync(deviceB, householdId, () => 1100);
 
-    // Zweiter Lauf auf beiden Geraeten, ohne dass sich etwas geaendert hat.
     await sync(deviceA, householdId, () => 2000);
     await sync(deviceB, householdId, () => 2100);
 
@@ -191,8 +170,6 @@ describe('syncHousehold — Zwei-Geraete-Konvergenz', () => {
       'select count(*) as c from fridge_items where household_id = ?',
       [householdId],
     );
-    // 3 Standard-Lagerorte sind storage_locations, nicht fridge_items — hier
-    // zaehlt nur der eine angelegte Artikel.
     expect(countA?.c).toBe(1);
     expect(countB?.c).toBe(1);
   }, 30_000);

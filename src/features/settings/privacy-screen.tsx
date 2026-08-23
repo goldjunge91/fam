@@ -8,8 +8,7 @@ type Section = {
   body: string;
 };
 
-// Gekürzte In-App-Fassung von docs/DATENSCHUTZ.md. Volltext dort pflegen und
-// bei inhaltlichen Änderungen hier nachziehen (#96).
+// Gekuerzte In-App-Fassung von docs/DATENSCHUTZ.md; inhaltlich synchron halten.
 const SECTIONS: Section[] = [
   {
     title: 'Wie deine Daten geschützt werden',
@@ -64,12 +63,9 @@ export function PrivacyScreen() {
       title="Datenschutz"
       back={{ label: 'Einstellungen', href: '/settings' }}
       backStyle="icon">
-      {/* Übersicht aller Datenschutz-Abschnitte (Verschlüsselung, Datenarten, Drittdienste, Rechte) */}
       <View className="gap-three">
         {SECTIONS.map((section) => (
           <Card key={section.title}>
-            {/* Kein separates marginBottom mehr: card-fam liefert bereits
-                gap-two zwischen Titel und Text (Card-Komponente). */}
             <ThemedText type="smallBold">{section.title}</ThemedText>
             <ThemedText type="small" themeColor="textSecondary">
               {section.body}

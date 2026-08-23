@@ -6,10 +6,6 @@ import type { SqlDatabase } from '@/lib/db/types';
 import { MAX_ATTEMPTS } from '@/lib/sync/backoff';
 import { createTestDatabase, type TestDatabase } from '../../../test/node-sqlite-adapter';
 
-/**
- * `retryFailedOutboxEntries` (#51) gegen eine echte SQLite-Engine — kein Mock.
- */
-
 async function insertStorageLocation(db: SqlDatabase, id: string) {
   await db.runAsync(
     'insert into storage_locations (id, household_id, name, kind, updated_at) values (?, ?, ?, ?, ?)',
@@ -45,8 +41,6 @@ describe('retryFailedOutboxEntries', () => {
       nextAttemptAtMs: Number.MAX_SAFE_INTEGER,
     });
 
-    // Terminal: taucht in der faelligen Liste nicht mehr auf, egal wie weit
-    // `nowMs` in der Zukunft liegt.
     expect(await loadDueOutboxEntries(db, Date.now() + 1_000_000)).toHaveLength(0);
 
     const changed = await retryFailedOutboxEntries(db, 500);
@@ -56,7 +50,6 @@ describe('retryFailedOutboxEntries', () => {
     expect(due).toHaveLength(1);
     expect(due[0].id).toBe(entry.id);
     expect(due[0].attempts).toBe(0);
-    // last_error bleibt erhalten, bis ein neuer Versuch ihn ersetzt oder loescht.
     expect(due[0].last_error).toBe('RLS-Verstoss');
   });
 

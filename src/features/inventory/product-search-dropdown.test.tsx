@@ -6,9 +6,7 @@ import { useState } from 'react';
 import { ProductSearchDropdown } from '@/features/inventory/product-search-dropdown';
 import { type OpenFoodFactsProduct, searchOpenFoodFacts } from '@/lib/open-food-facts';
 
-// ProductSearchDropdown ist eine kontrollierte Komponente (`value` lebt beim
-// Aufrufer) — der Such-Effekt haengt an der `value`-Prop, nicht am internen
-// TextInput-Text. Der Test braucht deshalb einen echten kontrollierten Loop.
+// Der Wrapper bildet den kontrollierten `value`-Loop des Aufrufers ab.
 function ControlledDropdown({
   onSelectProduct,
   initialValue = '',
@@ -205,7 +203,7 @@ it('liefert ein leeres categoryTags-Array, wenn der lokale Treffer keine OFF-Tag
 });
 
 it('ergaenzt OFF-Treffer, wenn lokale Treffer unter dem Schwellwert liegen', async () => {
-  // Ein DB-Mock bedient zwei Schemas; jedes erwartet ein anderes Zeilenformat.
+  // Ein DB-Mock bedient zwei unterschiedliche Zeilenformen.
   mockGetAllAsync.mockImplementation((sql: string) => {
     if (sql.includes('off_dump.products')) {
       return Promise.resolve([]);
@@ -241,7 +239,6 @@ it('ergaenzt OFF-Treffer, wenn lokale Treffer unter dem Schwellwert liegen', asy
 it('ergaenzt Treffer aus dem angehaengten OFF-Dump auch offline, wenn lokale Treffer unter dem Schwellwert liegen', async () => {
   onlineManager.setOnline(false);
   mockOffDumpAttached = true;
-  // Die eigene Produktsuche bleibt leer; nur der angehaengte Dump liefert einen Treffer.
   mockGetAllAsync.mockImplementation((sql: string) => {
     if (sql.includes('off_dump.products')) {
       return Promise.resolve([
@@ -283,8 +280,7 @@ it('oeffnet das Dropdown nicht, wenn mit bereits gesetztem Wert gemountet wird (
 
   await render(<ControlledDropdown initialValue="Hafermilch" onSelectProduct={() => {}} />);
 
-  // Genug Zeit fuer den 300ms-Debounce der Suche verstreichen lassen, damit
-  // ein faelschlich ausgeloester Effekt sich auch tatsaechlich zeigen wuerde.
+  // Laesst einen faelschlich ausgeloesten Debounce sichtbar werden.
   await new Promise((resolve) => setTimeout(resolve, 400));
 
   expect(screen.queryByText('Hafermilch')).not.toBeOnTheScreen();

@@ -4,14 +4,7 @@ import { useEffect, useState } from 'react';
 import { useSession } from '@/features/auth/session-provider';
 import { getSupabase } from '@/lib/supabase';
 
-/**
- * Aktives Tracking-Profil (#65/#85): der eingeloggte Erwachsene selbst oder
- * eines seiner Kinder. `child_profile_id` ist ein Zusatz-Tag auf
- * `food_entries`/`user_goals` — der `user_id` des loggenden Erwachsenen bleibt
- * immer gesetzt (`user_id not null`, keine XOR-Constraint). Kind-Sichtbarkeit
- * laeuft komplett ueber den Account des Erwachsenen; es gibt keinen eigenen
- * Kind-Login und keine kindspezifische RLS-Policy.
- */
+/** Das Kindprofil ergaenzt die weiterhin erforderliche Erwachsenen-`user_id`. */
 export type ActiveProfile =
   | { type: 'adult'; userId: string }
   | { type: 'child'; childProfileId: string; householdId: string };
@@ -38,19 +31,10 @@ export async function setStoredActiveChildProfileId(
     } else {
       await AsyncStorage.removeItem(storageKey(householdId));
     }
-  } catch {
-    // Stiller Fallback, wie active-household-store.ts.
-  }
+  } catch {}
 }
 
-/**
- * Prueft, ob eine `child_profiles`-Zeile noch existiert und zum Haushalt
- * gehoert. Die in AsyncStorage gemerkte Auswahl ueberlebt geraeteseitig
- * unabhaengig vom DB-Zustand — wird das Kindprofil geloescht (oder stammt
- * die id aus einem anderen/zurueckgesetzten Zustand), muss das erkannt
- * werden, bevor die id in einen Insert wandert (FK-Constraint auf
- * `food_entries`/`user_goals`).
- */
+/** Validiert die gespeicherte Kind-Auswahl vor einem Insert mit Fremdschluessel. */
 async function childProfileExists(householdId: string, childProfileId: string): Promise<boolean> {
   const { data, error } = await getSupabase()
     .from('child_profiles')
@@ -60,24 +44,13 @@ async function childProfileExists(householdId: string, childProfileId: string): 
     .maybeSingle();
 
   if (error) {
-    // Bei einem Netzwerk-/Serverfehler nicht blind auf "ungueltig" schliessen —
-    // sonst wirft ein voruebergehender Fehler den Nutzer staendig aufs
-    // Erwachsenen-Profil zurueck. Im Zweifel die gespeicherte Auswahl behalten.
+    // Voruebergehende Fehler duerfen die gespeicherte Auswahl nicht verwerfen.
     return true;
   }
   return data != null;
 }
 
-/**
- * Liefert das aktive Profil fuer die Kalorien-Tracking-Screens, Default ist
- * immer der eingeloggte Erwachsene. Eine gespeicherte Kind-Auswahl je
- * Haushalt ueberlebt einen Neustart.
- *
- * Die gespeicherte `childProfileId` wird gegen die DB validiert: existiert
- * das Profil nicht mehr, faellt die Auswahl auf den Erwachsenen zurueck und
- * der veraltete AsyncStorage-Eintrag wird geloescht (siehe
- * `childProfileExists`).
- */
+/** Laedt die je Haushalt gespeicherte und gegen die DB validierte Profilauswahl. */
 export function useActiveProfile(householdId: string | undefined): {
   profile: ActiveProfile | null;
   setProfile: (profile: ActiveProfile) => void;

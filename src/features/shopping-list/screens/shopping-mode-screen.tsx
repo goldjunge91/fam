@@ -19,23 +19,12 @@ type ShoppingModeScreenProps = {
   items: LocalShoppingItem[];
   onToggle: (item: LocalShoppingItem) => void;
   onClose: () => void;
-  /** Schliesst den Einkaufsmodus und oeffnet direkt den Abschluss-Dialog. */
   onFinish: () => void;
 };
 
 /**
- * Vollbild-Einkaufsmodus fuer den Laden (Mockup mit Marco abgestimmt,
- * `docs/mockups/einkaufsmodus/`): nur Abhaken und Kategorien auf-/zuklappen,
- * keine Bearbeiten-Aktionen. Loeschen/Umbenennen/Reihenfolge/Hinzufuegen
- * bleiben ausschliesslich in der Marktliste dahinter (shopping-list-screen.tsx).
- *
- * Kategorien klappen automatisch ein, sobald alle ihre Artikel abgehakt
- * sind, lassen sich aber jederzeit manuell auf-/zuklappen — der manuelle
- * Zustand ueberschreibt den automatischen, bis die Kategorie wieder
- * vollstaendig ist.
- *
- * Abschliessen ist ab dem ersten abgehakten Artikel moeglich, nicht erst
- * wenn alles abgehakt ist — im Laden findet man selten wirklich alles.
+ * Vollbildmodus ohne Bearbeiten-Aktionen. Vollstaendige Kategorien klappen
+ * automatisch ein, manuelle Overrides bleiben erhalten. Ein Treffer genuegt zum Abschluss.
  */
 export function ShoppingModeScreen({
   visible,
@@ -69,10 +58,7 @@ export function ShoppingModeScreen({
       animationType="slide"
       onRequestClose={onClose}
       presentationStyle="fullScreen">
-      {/* `Modal` rendert auf iOS in einer eigenen nativen Ebene, die die
-          Insets vom app-weiten SafeAreaProvider nicht automatisch erbt —
-          offiziell dokumentierter Workaround der Library: ein zweiter,
-          verschachtelter Provider innerhalb des Modals. */}
+      {/* Native iOS-Modals erben die Insets des app-weiten Providers nicht. */}
       <SafeAreaProvider initialMetrics={initialWindowMetrics}>
         <SafeAreaView className="flex-1 bg-background" edges={['top', 'bottom']}>
           <View className="row-between px-three pt-two pb-two">
@@ -124,8 +110,6 @@ export function ShoppingModeScreen({
                       collapsed ? ', eingeklappt' : ', aufgeklappt'
                     }`}
                     className="shopping-mode-cat-head">
-                    {/* Kategorie-Farbe an Punkt, Name und Zähler — nur der
-                        getönte Hintergrund/Rand ist raus (passte nicht). */}
                     <View className="w-2 h-2 rounded-full" style={{ backgroundColor: color }} />
                     <ThemedText
                       type="captionCompact"
@@ -187,8 +171,6 @@ export function ShoppingModeScreen({
             })}
           </ScrollView>
 
-          {/* Abschließen geht mit jeder Anzahl abgehakter Artikel — im Laden
-              findet man selten wirklich alles, das darf kein Blocker sein. */}
           {checkedCount > 0 ? (
             <View className="px-three pb-two">
               <Pressable

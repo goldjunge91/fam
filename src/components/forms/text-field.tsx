@@ -7,9 +7,7 @@ import { useTheme } from '@/hooks/use-theme';
 type TextFieldProps = TextInputProps & {
   label?: string;
   size?: 'default' | 'large';
-  /** Fehlermeldung fuer genau dieses Feld — nicht fuer das ganze Formular. */
   error?: string;
-  /** Interaktive Aktion innerhalb des Felds, z. B. Scanner oder Löschen. */
   trailing?: ReactNode;
   className?: string;
 };
@@ -40,11 +38,7 @@ export function TextField({
         <TextInput
           {...rest}
           placeholderTextColor={theme.textSecondary}
-          // accessibilityLabel setzt das Label mit dem Feld in Beziehung; ohne das
-          // liest ein Screenreader nur "Textfeld".
           accessibilityLabel={label || rest.placeholder}
-          // Bei einem Fehler wird die Meldung mit vorgelesen, statt sie nur
-          // farblich zu markieren.
           accessibilityHint={error}
           className={`input-field ${
             error ? 'input-field-error' : ''

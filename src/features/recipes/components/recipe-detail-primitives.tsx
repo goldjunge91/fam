@@ -4,12 +4,7 @@ import Svg, { Circle, Defs, LinearGradient, Rect, Stop } from 'react-native-svg'
 
 import { ThemedText } from '@/components/theme/themed-text';
 
-/**
- * Deckbild fuer Rezept- und Vorlagendetail: echtes Cover-Foto, sonst ein
- * warmer Verlauf mit denselben Farbstopps als Platzhalter. Vorher unabhaengig
- * in `recipe-detail-screen.tsx` und `templates/recipe-template-detail-screen.tsx`
- * dupliziert (#154).
- */
+/** Gemeinsames Deckbild mit Verlauf-Fallback fuer Rezept und Vorlage. */
 export function HeroArtwork({ coverUrl, title }: { coverUrl?: string | null; title: string }) {
   if (coverUrl) {
     return (
@@ -38,7 +33,6 @@ export function HeroArtwork({ coverUrl, title }: { coverUrl?: string | null; tit
   );
 }
 
-/** Favoriten-Herz im Detail-Header, identisch fuer Rezept und Vorlage. */
 export function HeartGlyph({ filled }: { filled: boolean }) {
   return (
     <ThemedText themeColor="accent" className="text-[24px] leading-[27px] font-medium">

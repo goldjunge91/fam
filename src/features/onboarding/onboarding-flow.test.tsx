@@ -11,9 +11,7 @@ const initialMetrics = {
 const mockSignUp = jest.fn();
 const mockSignIn = jest.fn();
 
-// Faengt den Callback ein, den PendingAuthBanner bei onAuthStateChange
-// registriert, statt wie in pending-auth-banner.test.tsx nur ein leeres
-// Unsubscribe-Objekt zurueckzugeben — der Test loest ihn gezielt aus.
+// Der Test loest den registrierten Auth-Callback gezielt aus.
 let capturedAuthStateCallback: ((event: string, session: unknown) => void) | undefined;
 const mockGetSession = jest.fn().mockResolvedValue({ data: { session: null } });
 
@@ -21,16 +19,14 @@ jest.mock('expo-router', () => ({
   router: { replace: jest.fn(), back: jest.fn(), canGoBack: jest.fn(() => false) },
 }));
 
-// Die Regression prueft den Schritt-Zustand im Flow. Die Inhalte der spaeteren
-// Formulare sind dafuer irrelevant und wuerden nur deren Hooks mitladen.
+// Spaetere Formulare liegen ausserhalb dieses Schrittzustand-Tests.
 jest.mock('./components/profile-step-form', () => ({ ProfileStepForm: () => null }));
 jest.mock('./components/household-step', () => ({ HouseholdStepForm: () => null }));
 jest.mock('./components/module-selector', () => ({ ModuleSelectorForm: () => null }));
 jest.mock('./components/permissions-step', () => ({ PermissionsStepForm: () => null }));
 jest.mock('./components/complete-step', () => ({ CompleteStepForm: () => null }));
 
-// `requireActual` behaelt Hilfsfunktionen wie `authErrorMessage`; nur die
-// Netzwerkfunktionen, die dieser Test steuert, werden ersetzt.
+// Nur die gesteuerten Netzwerkfunktionen werden ersetzt.
 jest.mock('@/features/auth/api', () => ({
   ...jest.requireActual('@/features/auth/api'),
   signIn: (...args: unknown[]) => mockSignIn(...args),
@@ -76,7 +72,6 @@ async function renderFlow() {
 async function advanceToPendingConfirmation() {
   await renderFlow();
 
-  // WelcomeCarousel: drei Folien, "Jetzt starten" erst auf der letzten.
   await fireEvent.press(screen.getByRole('button', { name: 'Weiter' }));
   await fireEvent.press(screen.getByRole('button', { name: 'Weiter' }));
   await fireEvent.press(screen.getByRole('button', { name: 'Jetzt starten' }));
@@ -99,10 +94,7 @@ describe('OnboardingFlow — Bestaetigung waehrend Schritt 2 (#Bruchteil-Sekunde
   it('landet bei Schritt 3 (ProfileStepForm), wenn onAuthStateChange zweimal quasi gleichzeitig feuert', async () => {
     await advanceToPendingConfirmation();
 
-    // Reproduziert den Bug-Report direkt: zwei Erkennungswege (hier zwei
-    // onAuthStateChange-Aufrufe, stellvertretend fuer z. B. den Listener und
-    // den 3s-Session-Poll) melden die Bestaetigung im selben Tick. Ohne den
-    // Fix (relatives nextStep) laeuft der Schritt von 2 auf 4 durch.
+    // Zwei Bestaetigungswege melden denselben Zustand im selben Tick.
     expect(capturedAuthStateCallback).toBeDefined();
     const confirmedSession = { user: { id: 'u1', email: 'family@example.com' } };
     await act(async () => {

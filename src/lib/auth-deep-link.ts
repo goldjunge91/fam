@@ -1,16 +1,4 @@
-/**
- * Supabase nutzt fuer signUp/resetPasswordForEmail den impliziten Flow
- * (`flowType: 'implicit'`, der Default von @supabase/auth-js). Bestaetigungs-
- * und Reset-Links landen deshalb mit den Tokens im URL-Fragment
- * (`fam://...#access_token=...&refresh_token=...&type=signup`), nicht als
- * Query-Parameter — Fragmente werden nie an einen Server geschickt, Query-
- * Parameter landen in Logs.
- *
- * `detectSessionInUrl: false` (siehe supabase.ts) ist in React Native
- * zwingend noetig, uebernimmt dieses Parsen also nicht automatisch. Diese
- * reine Funktion holt es manuell nach; der Aufrufer reicht das Ergebnis an
- * `supabase.auth.setSession()`.
- */
+/** Parst die Fragment-Tokens des impliziten Supabase-Flows fuer React Native. */
 export interface AuthDeepLinkTokens {
   accessToken: string;
   refreshToken: string;
@@ -28,10 +16,7 @@ export function parseAuthTokensFromUrl(url: string): AuthDeepLinkTokens | null {
   return { accessToken, refreshToken };
 }
 
-/**
- * Ein abgelaufener oder bereits eingeloester Link liefert statt Tokens
- * `#error=...&error_code=...&error_description=...` im selben Fragment.
- */
+/** Liest den Fehler aus einem abgelaufenen oder bereits eingeloesten Link. */
 export function parseAuthErrorFromUrl(url: string): string | null {
   const hashIndex = url.indexOf('#');
   if (hashIndex === -1) return null;

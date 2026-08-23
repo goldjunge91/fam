@@ -8,11 +8,7 @@ select plan(7);
 select tests.create_user('11111111-1111-1111-1111-111111111111', 'alice@example.com');
 select tests.create_user('22222222-2222-2222-2222-222222222222', 'bob@example.com');
 
--- ------------------------------------------------------------------- Trigger
--- Auf die eigenen Fixtures eingegrenzt statt `count(*)` ueber die ganze
--- Tabelle: Sonst schlaegt der Test fehl, sobald irgendetwas anderes Daten
--- hinterlassen hat (etwa die Integrationstests) — und meldet damit einen
--- Fehler, den es im Code nicht gibt.
+-- Nur eigene Fixtures zaehlen, damit fremde Testdaten das Ergebnis nicht beeinflussen.
 select is(
   (select count(*)::int from public.profiles
    where id in (
@@ -29,7 +25,6 @@ select is(
   'display_name wird aus dem lokalen Teil der E-Mail vorbelegt'
 );
 
--- --------------------------------------------------------------- Isolation
 select tests.authenticate_as('11111111-1111-1111-1111-111111111111');
 
 select is(
@@ -43,9 +38,7 @@ select is_empty(
   'Alice sieht Bobs Profil nicht'
 );
 
--- Ein UPDATE auf eine nicht sichtbare Zeile trifft 0 Zeilen — Postgres wirft
--- dabei keinen Fehler. Genau deshalb wird hier das Ergebnis geprueft und nicht
--- nur, ob das Statement durchlaeuft.
+-- Unsichtbare UPDATE-Ziele liefern 0 Zeilen statt eines Fehlers.
 update public.profiles set display_name = 'gekapert'
 where id = '22222222-2222-2222-2222-222222222222';
 
@@ -57,7 +50,6 @@ select is(
   'Alices UPDATE auf Bobs Profil blieb wirkungslos'
 );
 
--- ------------------------------------------------------------ eigene Aenderung
 select tests.authenticate_as('11111111-1111-1111-1111-111111111111');
 update public.profiles set display_name = 'Alice T.' where id = '11111111-1111-1111-1111-111111111111';
 select tests.as_postgres();
@@ -68,7 +60,6 @@ select is(
   'Alice kann ihr eigenes Profil aendern'
 );
 
--- ----------------------------------------------------------------- anonym
 select tests.authenticate_as_anon();
 
 select is_empty(

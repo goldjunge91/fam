@@ -16,11 +16,6 @@ const WIDGET_GLASS_STYLE = {
   gap: 8,
 };
 
-/**
- * Vorrat-Dashboard-Card: zeigt Anzahl der bald ablaufenden Artikel.
- * Large = Badge + Label + Top-3-Liste ablaufender Artikel + Action.
- * Small = Badge + Label + Action (wie bisher).
- */
 function ExpiryDashboardCard({ size, onLongPress }: DashboardCardProps) {
   const theme = useTheme();
   const { activeHouseholdId } = useActiveHousehold();
@@ -41,7 +36,6 @@ function ExpiryDashboardCard({ size, onLongPress }: DashboardCardProps) {
   const expiringCount = expiringItems.length;
 
   if (size === 'large') {
-    // Top 3 bald ablaufende Artikel anzeigen
     const topItems = expiringItems.slice(0, 3);
 
     return (

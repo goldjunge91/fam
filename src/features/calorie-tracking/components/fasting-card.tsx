@@ -46,7 +46,6 @@ export function FastingCard({ userId, childProfileId }: FastingCardProps) {
   const startFastMutation = useStartFastMutation();
   const endFastMutation = useEndFastMutation();
 
-  // Tick every 30 seconds while fast is active
   useEffect(() => {
     if (!activeSession) return;
     const timer = setInterval(() => setNow(Date.now()), 30000);
@@ -75,7 +74,6 @@ export function FastingCard({ userId, childProfileId }: FastingCardProps) {
     });
   }
 
-  // Active Fast Calculations
   const startedTime = activeSession ? new Date(activeSession.started_at).getTime() : 0;
   const elapsedMinutes = activeSession ? Math.max(0, Math.floor((now - startedTime) / 60000)) : 0;
   const targetMinutes = activeSession?.target_duration_minutes || 960;
@@ -85,7 +83,6 @@ export function FastingCard({ userId, childProfileId }: FastingCardProps) {
 
   return (
     <Card className="p-four gap-three">
-      {/* Header */}
       <View className="flex-row items-center justify-between">
         <View className="flex-row items-center gap-two">
           <ThemedText type="smallBold">
@@ -98,13 +95,11 @@ export function FastingCard({ userId, childProfileId }: FastingCardProps) {
       </View>
 
       {!activeSession ? (
-        // Inaktiver Zustand: Protokollauswahl
         <View className="gap-three">
           <ThemedText type="caption" themeColor="textSecondary">
             Wähle dein Fastenprotokoll und starte dein Fastenfenster:
           </ThemedText>
 
-          {/* Protokoll-Chips */}
           <View className="flex-row gap-two">
             {PROTOCOLS.map((p) => {
               const isSelected = selectedProtocol === p.key;
@@ -144,9 +139,7 @@ export function FastingCard({ userId, childProfileId }: FastingCardProps) {
           </Pressable>
         </View>
       ) : (
-        // Aktiver Zustand: Laufender Timer
         <View className="gap-three">
-          {/* Status-Übersicht */}
           <View className="bg-surface p-three rounded-xl border border-border gap-two">
             <View className="flex-row justify-between items-center">
               <ThemedText type="caption" themeColor="textSecondary">

@@ -1,9 +1,4 @@
-/**
- * SQLite-Ein-/Ausgabe für die CI-Delta-Pipeline (#223 Paket 5) — bewusst von
- * `dump-patch-core.ts`/`dump-manifest-core.ts` getrennt: jene bleiben reine,
- * ohne Dateisystem testbare Funktionen; dieses Modul kapselt den einzigen
- * Kontaktpunkt zu `bun:sqlite`.
- */
+/** Kapselt den `bun:sqlite`-Zugriff der Dump-Delta-Pipeline. */
 
 import { Database } from 'bun:sqlite';
 import type { DumpPatch, PatchProductRecord } from './dump-patch-core';
@@ -33,7 +28,6 @@ export type DumpMeta = {
   sourceCursor: string | null;
 };
 
-/** Liest alle Produkte aus einer Dump-Schema-2-Datenbank (Baseline oder kanonische DB). */
 export function readProducts(dbPath: string): PatchProductRecord[] {
   const db = new Database(dbPath, { readonly: true });
   try {
@@ -66,26 +60,21 @@ export function readDumpMeta(dbPath: string): DumpMeta {
   }
 }
 
-/** `PRAGMA quick_check` — muss vor jeder Veröffentlichung erfolgreich sein (Abschnitt 12/13). */
+/** Integritaetspruefung vor der Veroeffentlichung. */
 export function quickCheck(dbPath: string): boolean {
   const db = new Database(dbPath, { readonly: true });
   try {
     const result = db
       .query<{ integrity_check?: string; quick_check?: string }>('PRAGMA quick_check')
       .all();
-    // SQLite liefert das Ergebnis unter dem Spaltennamen "quick_check" — je
-    // nach Treiberversion manchmal auch generisch. Beide Formen abdecken statt
-    // uns auf einen exakten Spaltennamen zu verlassen.
+    // Treiberversionen benennen die Ergebnisspalte unterschiedlich.
     return result.length === 1 && Object.values(result[0]).some((v) => v === 'ok');
   } finally {
     db.close();
   }
 }
 
-/**
- * Schreibt eine Patch-Datenbank (`patch_meta`, `product_upserts`,
- * `product_deletes`, Abschnitt 13 "Patch-Datenbank").
- */
+/** Schreibt Metadaten, Upserts und Deletes in eine Patch-Datenbank. */
 export function writePatchDb(
   outPath: string,
   params: { fromVersion: string; toVersion: string; schemaVersion: number; patch: DumpPatch },
@@ -135,7 +124,6 @@ export function writePatchDb(
   }
 }
 
-/** Liest eine Patch-Datenbank zurück in ein `DumpPatch` (für Rekonstruktion). */
 export function readPatchDb(
   dbPath: string,
 ): DumpPatch & { fromVersion: string; toVersion: string } {

@@ -75,18 +75,7 @@ export function useAddFridgeItemMutation() {
   });
 }
 
-/**
- * Macht ein geloeschtes fridge_item rueckgaengig (#69) — setzt nur
- * `deleted_at` zurueck, ruehrt `quantity` nicht an. Der
- * Zero-Quantity-Loeschpfad in `useUpdateInventoryItemQuantityMutation` setzt
- * beim Loeschen ebenfalls nur `deleted_at`, die Menge bleibt stehen; Undo
- * spiegelt das exakt.
- *
- * Braucht den `restore`-Outbox-Op: `buildUpdatePayload()` in `push.ts`
- * filtert `deleted_at` aus jedem `update`-Push heraus, ein normales `update`
- * mit `deleted_at: null` im Payload würde also lokal wirken, aber nie zum
- * Server durchdringen.
- */
+/** Stellt ein Soft-Delete ueber den eigenen `restore`-Outbox-Vorgang wieder her. */
 export function useRestoreFridgeItemMutation() {
   const queryClient = useQueryClient();
 

@@ -1,10 +1,6 @@
 import type { Entity, OutboxEntry, OutboxOp } from '@/lib/db/types';
 import { coalesce } from '@/lib/sync/coalesce';
 
-/**
- * Die Outbox-Reduktion aus #49 — rein, ohne Datenbank, ohne Testdoubles.
- */
-
 let nextId = 0;
 
 beforeEach(() => {
@@ -33,7 +29,6 @@ function entry(
 
 describe('coalesce', () => {
   it('fasst drei Updates am selben Feld zu einem einzigen Push zusammen', () => {
-    // Das woertliche Kriterium aus #49.
     const result = coalesce([
       entry('update', { quantity: 1 }),
       entry('update', { quantity: 2 }),
@@ -53,7 +48,6 @@ describe('coalesce', () => {
   });
 
   it('bleibt ein insert, wenn danach noch geaendert wurde', () => {
-    // Der Server hat die Zeile nie gesehen; ein update darauf schluege fehl.
     const result = coalesce([
       entry('insert', { name: 'Milch', quantity: 1 }),
       entry('update', { quantity: 5 }),
@@ -83,7 +77,6 @@ describe('coalesce', () => {
   });
 
   it('macht aus updates gefolgt von delete ein einzelnes delete', () => {
-    // Hier kennt der Server die Zeile — der Tombstone muss raus.
     const result = coalesce([entry('update', { quantity: 3 }), entry('delete', {})]);
 
     expect(result.pushes).toHaveLength(1);
@@ -114,8 +107,6 @@ describe('coalesce', () => {
   });
 
   it('erhaelt die zeilenuebergreifende Erstellungsreihenfolge', () => {
-    // Ein fridge_item zeigt auf einen storage_location. Wird der Lagerort
-    // spaeter gepusht als der Artikel, laeuft der Fremdschluessel ins Leere.
     const result = coalesce([
       entry('insert', { name: 'Kuehlschrank' }, 'loc-1', 'storage_locations'),
       entry('insert', { name: 'Milch' }, 'item-1', 'fridge_items'),
@@ -145,8 +136,6 @@ describe('coalesce', () => {
   });
 
   it('verliert keinen Eintrag — jede id taucht genau einmal auf', () => {
-    // Der Erfolgspfad loescht nach sourceIds. Fehlte eine id, bliebe die Zeile
-    // fuer immer in der Outbox stehen und wuerde endlos erneut versucht.
     const entries = [
       entry('insert', { a: 1 }, 'row-a'),
       entry('update', { a: 2 }, 'row-a'),
@@ -202,9 +191,6 @@ describe('coalesce', () => {
 
   describe('restore (#69)', () => {
     it('macht aus insert, delete, restore einen einzelnen insert mit den urspruenglichen Daten', () => {
-      // insert+delete waeren fuer sich discardable (Server hat nie davon
-      // gewusst) — ein eigenstaendiger restore-Push liefe gegen eine dort nie
-      // existente Zeile. Der Nettozustand ist ein normaler insert.
       const result = coalesce([
         entry('insert', { name: 'Milch', quantity: 1 }),
         entry('delete', {}),

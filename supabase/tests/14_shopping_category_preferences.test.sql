@@ -37,7 +37,6 @@ values (
   '11111111-1111-1111-1111-111111111111'
 );
 
--- -------------------------------------------------------- Haushaltsteilung
 select tests.authenticate_as('22222222-2222-2222-2222-222222222222');
 select is(
   (select category_id from public.shopping_category_preferences
@@ -57,7 +56,6 @@ select is(
   'ein Haushaltsmitglied aktualisiert die gemeinsame Praeferenz'
 );
 
--- ------------------------------------------------------------- Isolation
 select tests.authenticate_as('33333333-3333-3333-3333-333333333333');
 select is(
   (select count(*)::int from public.shopping_category_preferences
@@ -93,7 +91,6 @@ select throws_ok(
   'ein Mitglied kann eine Praeferenz nicht in einen fremden Haushalt verschieben'
 );
 
--- ---------------------------------------------------------- Schluesselmodell
 select tests.authenticate_as('11111111-1111-1111-1111-111111111111');
 select throws_ok(
   format(
@@ -151,7 +148,6 @@ select throws_ok(
   'unbekannte Kategorie-IDs werden abgelehnt'
 );
 
--- ------------------------------------------------------- Soft Delete/Restore
 update public.shopping_category_preferences
 set deleted_at = now()
 where id = 'aaaaaaaa-aaaa-5aaa-8aaa-aaaaaaaaaaaa';
@@ -188,7 +184,6 @@ select isnt(
   'updated_at wird serverseitig gepflegt'
 );
 
--- -------------------------------------------------------------- Privilegien
 select tests.as_postgres();
 select ok(
   has_table_privilege('authenticated', 'public.shopping_category_preferences', 'select,insert,update'),

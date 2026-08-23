@@ -25,7 +25,6 @@ INFO_PLIST="$PROJECT_ROOT/ios/fam/Info.plist"
 [ -f "$APP_JSON" ] || die "app.json nicht gefunden unter $APP_JSON"
 [ -f "$INFO_PLIST" ] || die "Info.plist nicht gefunden unter $INFO_PLIST"
 
-# ------------------------------------------------------------- CLI Arguments
 BUMP_BUILD=true
 EXPLICIT_BUILD_NUMBER=""
 EXPLICIT_APP_VERSION=""
@@ -65,12 +64,10 @@ while [ $# -gt 0 ]; do
   esac
 done
 
-# ------------------------------------------------------------- Voraussetzungen
 for cmd in node xcodebuild pod; do
   command -v "$cmd" >/dev/null || die "Benötigtes Tool '$cmd' nicht gefunden."
 done
 
-# ------------------------------------------------------------- .env Validierung
 say "Prüfe Umgebungsvariablen in .env für TestFlight..."
 DOTENV="$PROJECT_ROOT/.env"
 [ -f "$DOTENV" ] || die ".env-Datei nicht gefunden unter $DOTENV"
@@ -124,23 +121,21 @@ node -e '
 
 ok "Umgebungsvariablen für TestFlight sind gültig (appl_... Key aktiv, Force-Premium aus)"
 
-# Exportiere Umgebungsvariablen für nachfolgende Build-Schritte & Xcode
+# Fuer nachfolgende Build-Schritte und Xcode exportieren.
 set -a
 # shellcheck disable=SC1090
 [ -f "$DOTENV" ] && . "$DOTENV"
 set +a
 
-# Verhindert, dass optionale Sourcemap-Upload-Fehler den gesamten Xcode-Archivierungsprozess abbrechen
+# Optionale Sourcemap-Fehler duerfen das Archiv nicht abbrechen.
 export SENTRY_ALLOW_FAILURE=true
 
-# ------------------------------------------------------------- Optional: Cache-Bereinigung
 if [ "$CLEAN" = true ]; then
   say "Bereinige DerivedData und Build-Cache..."
   rm -rf /Volumes/Programme/Xcode/DerivedData/fam-* "$PROJECT_ROOT/ios/build" "$HOME/Library/Developer/Xcode/DerivedData/fam-*" 2>/dev/null || true
   ok "Build-Cache bereinigt"
 fi
 
-# ------------------------------------------------------------- Version Management
 CURRENT_VERSION="$(node -e 'console.log(require("./app.json").expo.version || "1.0.0")')"
 CURRENT_BUILD="$(node -e 'console.log(require("./app.json").expo.ios?.buildNumber || "1")')"
 
@@ -156,7 +151,6 @@ fi
 
 say "App-Version: $NEW_VERSION | Build-Nummer: $NEW_BUILD (vorher: $CURRENT_VERSION / $CURRENT_BUILD)"
 
-# Aktualisiere app.json
 node -e '
   const fs = require("fs");
   const pkg = require("./app.json");
@@ -166,7 +160,6 @@ node -e '
   fs.writeFileSync("./app.json", JSON.stringify(pkg, null, 2) + "\n");
 ' "$NEW_VERSION" "$NEW_BUILD"
 
-# Aktualisiere Info.plist
 node -e '
   const fs = require("fs");
   let content = fs.readFileSync("./ios/fam/Info.plist", "utf8");
@@ -183,7 +176,6 @@ node -e '
 
 ok "Versionsnummern in app.json und Info.plist aktualisiert"
 
-# ------------------------------------------------------------- CocoaPods
 if [ "$SKIP_PODS" = false ]; then
   say "CocoaPods-Abhängigkeiten synchronisieren..."
   if ! (cd ios && LANG=en_US.UTF-8 LC_ALL=en_US.UTF-8 pod install); then
@@ -195,7 +187,6 @@ else
   say "CocoaPods-Installation übersprungen (--skip-pods)"
 fi
 
-# ------------------------------------------------------------- Archiv-Pfad vorbereiten
 TODAY="$(date +%Y-%m-%d)"
 BASE_ARCHIVE_DIR="/Volumes/Programme/xcode_archive/$TODAY"
 
@@ -210,7 +201,6 @@ ARCHIVE_PATH="$BASE_ARCHIVE_DIR/fam1_b${NEW_BUILD}.xcarchive"
 say "Release-Archiv wird erstellt unter:"
 echo "  $ARCHIVE_PATH"
 
-# ------------------------------------------------------------- xcodebuild Archive
 say "Starte xcodebuild archive (Konfiguration: Release)..."
 START_TIME=$(date +%s)
 
@@ -225,7 +215,6 @@ xcodebuild archive \
 DURATION=$(( $(date +%s) - START_TIME ))
 ok "Archivierung erfolgreich abgeschlossen nach $((DURATION / 60))m $((DURATION % 60))s"
 
-# ------------------------------------------------------------- Organizer öffnen
 say "Öffne Archiv im Xcode Organizer für den TestFlight-Upload..."
 open "$ARCHIVE_PATH"
 

@@ -21,19 +21,7 @@ import { useGlassAvailable } from '@/components/ui/glass-card';
 import { useHubGradient } from '@/hooks/use-hub-gradient';
 import { useTheme } from '@/hooks/use-theme';
 
-/**
- * Entwickler-Testseite fuer Liquid Glass (Phase C, #Nachtrag) — Spielwiese
- * fuer alles, was `expo-glass-effect` und `@expo/ui`s SwiftUI-Glass koennen,
- * bevor es irgendwo im echten Produkt landet. Bewusst mit Inline-Styles statt
- * durchgaengiger NativeWind-Klassen (`GlassView`/`Host` haben ohnehin kein
- * `cssInterop`, s. docs/design-system/nativewind-liquid-glass-migration.md
- * "KRITISCH") und ohne vorherigen Mock — reine Werkstatt, kein
- * Design-Entscheid. Nur sichtbar mit `EXPO_PUBLIC_DEV_TOOLS=true`.
- *
- * Auf Android/iOS < 26 zeigt jeder Abschnitt seinen dokumentierten
- * Fallback-Zustand (solide Flaeche) statt zu crashen — das ist hier
- * ausdruecklich Teil der Vorfuehrung, kein Bug.
- */
+/** Entwickler-Labor mit soliden Fallbacks, wenn Liquid Glass nicht verfuegbar ist. */
 export function LiquidGlassLabScreen() {
   const theme = useTheme();
   const hubGradient = useHubGradient();
@@ -48,7 +36,6 @@ export function LiquidGlassLabScreen() {
       back={{ label: 'Entwickler', href: '/settings/dev' }}
       backStyle="icon"
       backgroundGradient={hubGradient}>
-      {/* Statuskarte: Verfügbarkeit von expo-glass-effect auf dem aktuellen OS/Gerät */}
       <Card title="Status">
         <View
           style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
@@ -65,7 +52,6 @@ export function LiquidGlassLabScreen() {
         </ThemedText>
       </Card>
 
-      {/* Buttons & Segment-Controls auf Basis von expo-glass-effect */}
       <Card title="Buttons — expo-glass-effect">
         <ThemedText type="caption" themeColor="textSecondary" style={{ marginBottom: 12 }}>
           `GlassView` mit verschiedenen Tints/Styles, dieselbe Komponente wie im Dashboard.
@@ -126,7 +112,6 @@ export function LiquidGlassLabScreen() {
         </GlassContainer>
       </Card>
 
-      {/* Native SwiftUI Glass-Buttons via @expo/ui */}
       <Card title="Buttons — @expo/ui (natives SwiftUI-Glass)">
         <ThemedText type="caption" themeColor="textSecondary" style={{ marginBottom: 12 }}>
           `buttonStyle('glass' | 'glassProminent')` — Apples eigener, system-nativer
@@ -162,7 +147,6 @@ export function LiquidGlassLabScreen() {
         </Host>
       </Card>
 
-      {/* SwiftUI ContextMenu mit Long-Press Trigger und Preview */}
       <Card title="Kontextmenü (Long-Press)">
         <ThemedText type="caption" themeColor="textSecondary" style={{ marginBottom: 12 }}>
           Systemeigenes `ContextMenu` aus `@expo/ui` — auf iOS 26 rendert das Menü selbst bereits
@@ -171,12 +155,7 @@ export function LiquidGlassLabScreen() {
         </ThemedText>
         <Host matchContents>
           <ContextMenu>
-            {/* Trigger/Preview bewusst rein aus @expo/ui-Primitiven (VStack +
-            Text + glassEffect-Modifier), nicht aus `GlassView`
-            (expo-glass-effect) — zwei verschiedene native Module in einem
-            SwiftUI-Host verschachtelt haben den Long-Press nicht ausgeloest,
-            vermutlich weil `GlassView`s eigene UIView-Gestenerkennung dem
-            `ContextMenu`s `UIContextMenuInteraction` in die Quere kam. */}
+            {/* Verschachteltes `GlassView` blockiert hier die Long-Press-Geste. */}
             <ContextMenu.Trigger>
               <VStack
                 alignment="leading"
@@ -231,7 +210,6 @@ export function LiquidGlassLabScreen() {
         </Host>
       </Card>
 
-      {/* Menü-Varianten (Natives SwiftUI Menu vs. GlassView Popover) */}
       <Card title="Bearbeiten-Menü — zwei Varianten">
         <ThemedText type="caption" themeColor="textSecondary" style={{ marginBottom: 12 }}>
           Variante A: natives `Menu` aus `@expo/ui`, öffnet/schließt komplett system-gesteuert
@@ -284,10 +262,7 @@ export function LiquidGlassLabScreen() {
           </ThemedText>
 
           {editMenuOpen ? (
-            // Klappt bewusst nach OBEN auf (`bottom: '100%'` statt `top`):
-            // dieser Block ist die letzte Card auf dem Screen, "nach unten"
-            // ragte das Menü ueber den Bildschirmrand hinaus und wurde
-            // abgeschnitten.
+            // Nach oben aufklappen, damit die letzte Karte das Menue nicht abschneidet.
             <GlassView
               glassEffectStyle="regular"
               style={{
@@ -329,7 +304,6 @@ export function LiquidGlassLabScreen() {
         </View>
       </Card>
 
-      {/* Typografie-Vergleich: Glasoberfläche vs. Solider Hintergrund */}
       <Card title="Schriften auf Glas vs. solide">
         <ThemedText type="caption" themeColor="textSecondary" style={{ marginBottom: 12 }}>
           Lesbarkeits-Vergleich derselben `ThemedText`-Rollen auf Glas- und solider Fläche, über dem
@@ -375,8 +349,7 @@ function TypeSample() {
   );
 }
 
-/** Einfacher, beschrifteter Glas-Button für die Buttons-Sektion — bewusst
- * lokal in dieser Datei, kein neues app-weites Primitive (nur Testzweck). */
+/** Lokales Test-Primitive fuer beschriftete Glas-Buttons. */
 function GlassLabButton({
   label,
   onPress,
@@ -403,7 +376,6 @@ function GlassLabButton({
   );
 }
 
-/** Runder Icon-Glas-Button (z. B. FAB-Groesse via `size`). */
 function GlassIconButton({
   glyph,
   accessibilityLabel,

@@ -1,11 +1,4 @@
--- Die Datenschutz-Kernzusage des Projekts (#41, #43).
---
--- Das README verspricht: Kalorien, Gewicht und Ziele bleiben pro Account privat
--- und werden nicht mit dem Haushalt geteilt. Diese Datei ist der Nachweis.
---
--- Der Aufbau ist bewusst der unguenstigste Fall: Alice und Bob sind im SELBEN
--- Haushalt, Bob ist sogar Administrator. Wenn die Trennung irgendwo leckt, dann
--- hier.
+-- Tracking-Daten muessen selbst vor Admins desselben Haushalts privat bleiben.
 
 begin;
 \ir helpers.sql
@@ -18,12 +11,10 @@ select tests.create_user('22222222-2222-2222-2222-222222222222', 'bob@example.co
 select tests.authenticate_as('11111111-1111-1111-1111-111111111111');
 select public.create_household('Familie Tozzi') as hid \gset
 
--- Bob ist Administrator — die maechtigste Rolle im Haushalt.
 select tests.as_postgres();
 insert into public.household_members (household_id, user_id, role)
 values (:'hid', '22222222-2222-2222-2222-222222222222', 'admin');
 
--- Alice traegt private Daten ein.
 select tests.authenticate_as('11111111-1111-1111-1111-111111111111');
 
 insert into public.food_entries (user_id, logged_on, meal_type, quantity, unit, name, kcal)
@@ -51,9 +42,6 @@ select is(
   'Alice sieht ihr eigenes Ziel'
 );
 
--- ============================================================================
--- Der eigentliche Test: Bob ist Administrator DESSELBEN Haushalts.
--- ============================================================================
 select tests.authenticate_as('22222222-2222-2222-2222-222222222222');
 
 select ok(
@@ -79,7 +67,6 @@ select is(
   'ein Haushalts-Administrator sieht fremde Ziele NICHT'
 );
 
--- Schreibversuche muessen ebenso ins Leere laufen.
 update public.food_entries set kcal = 1 where user_id = '11111111-1111-1111-1111-111111111111';
 update public.weight_entries set weight_kg = 99 where user_id = '11111111-1111-1111-1111-111111111111';
 delete from public.user_goals where user_id = '11111111-1111-1111-1111-111111111111';
@@ -102,7 +89,6 @@ select is(
   'der Administrator konnte das fremde Ziel nicht loeschen'
 );
 
--- Bob kann auch keine Eintraege in Alices Namen anlegen.
 select tests.authenticate_as('22222222-2222-2222-2222-222222222222');
 select throws_ok(
   $$ insert into public.weight_entries (user_id, weight_kg)
@@ -112,7 +98,6 @@ select throws_ok(
   'niemand kann Messwerte im Namen eines anderen anlegen'
 );
 
--- ------------------------------------------------------------------- anonym
 select tests.authenticate_as_anon();
 
 select is(

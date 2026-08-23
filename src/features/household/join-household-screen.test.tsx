@@ -68,7 +68,7 @@ describe('JoinHouseholdScreen', () => {
     mockCanGoBack = false;
     await renderScreen();
 
-    expect(screen.getAllByText('Haushalt beitreten')).toHaveLength(2); // Title and Submit button
+    expect(screen.getAllByText('Haushalt beitreten')).toHaveLength(2);
     expect(screen.getByText('Mit Einladungs-Code oder Link')).toBeTruthy();
     expect(screen.queryByText(/^‹/)).toBeNull();
     expect(screen.queryByText('Abbrechen')).toBeNull();

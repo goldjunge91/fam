@@ -1,8 +1,3 @@
-/**
- * Kuerzel fuer Avatare, z. B. "Mia Müller" -> "MM". Bei einem einzelnen Wort
- * werden die ersten zwei Buchstaben genommen ("Mia" -> "MI"), bei leerem
- * Namen bleibt ein neutrales "?" statt eines leeren Kreises.
- */
 export function getInitials(name: string | null | undefined): string {
   const trimmed = (name ?? '').trim();
   if (!trimmed) return '?';

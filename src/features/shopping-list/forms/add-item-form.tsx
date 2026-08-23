@@ -40,7 +40,6 @@ interface AddItemFormProps {
   onDismiss: () => void;
 }
 
-/** Fuer den Modal-Header (add-item-modal.tsx): schliesst die Suche von aussen. */
 export type AddItemFormHandle = {
   closeSearch: () => void;
 };
@@ -60,14 +59,7 @@ export const AddItemForm = forwardRef<AddItemFormHandle, AddItemFormProps>(funct
   const [storeId, setStoreId] = useState<string | null>(initialStoreId);
   const [nameError, setNameError] = useState<string | null>(null);
   const [selectedProduct, setSelectedProduct] = useState<OpenFoodFactsProduct | null>(null);
-  // Bekannte `product_id` aus einem Häufig/Zuletzt-Vorschlag (#UI-Feedback:
-  // "2 Einträge auf der Liste, addiert nicht") — die Vorschläge kennen ihre
-  // echte `product_id` bereits aus `product_usage`, aber `toProduct()` wandelt
-  // sie in ein `OpenFoodFactsProduct` (nur Barcode) um; ist der Barcode dort
-  // leer, findet `persistOffProductIfNeeded` keine/eine andere `product_id`
-  // als beim selben Artikel aus der Live-Suche — der Merge-Check in
-  // `shopping-list-merge.ts` verlangt exakte `product_id`-Übereinstimmung und
-  // legt sonst eine zweite Zeile an, statt die Menge zu addieren.
+  // Die bekannte ID bewahrt bei fehlendem Barcode die Merge-Identitaet des Vorschlags.
   const [selectedProductId, setSelectedProductId] = useState<string | null>(null);
   const [source, setSource] = useState<ItemSource>('food');
   const [suggestionMode, setSuggestionMode] = useState<ShoppingSuggestionMode>('recent');
@@ -102,13 +94,7 @@ export const AddItemForm = forwardRef<AddItemFormHandle, AddItemFormProps>(funct
   const purchaseAmount = formatAmount(purchaseCount, unit);
 
   function handleSelectProduct(product: OpenFoodFactsProduct) {
-    // Muss VOR `setName` passieren — sonst haelt der Such-Effekt in
-    // `product-search-dropdown.tsx` diesen Namenswechsel fuer neue Eingabe
-    // und oeffnet die Trefferliste erneut (#UI-Feedback: "Auswaehlen eines
-    // History-Artikels soll die Suchliste nicht ausloesen"). Deckt alle
-    // Aufrufer ab, die den Namen von aussen setzen (Häufig/Zuletzt,
-    // Barcode-Scan) — bei Auswahl direkt in der Dropdown-Zeile selbst ist der
-    // Wert schon (redundant, aber harmlos) markiert.
+    // Vor `setName` markieren, damit die Suche die Auswahl nicht als neue Eingabe behandelt.
     productSearchRef.current?.markSelected(product.name);
     setName(product.name);
     const productUnit = normalizeUnit(product.unit);
@@ -127,36 +113,21 @@ export const AddItemForm = forwardRef<AddItemFormHandle, AddItemFormProps>(funct
     suggestion: ShoppingProductSuggestion,
   ) {
     handleSelectProduct(product);
-    // Bekannte `product_id` direkt übernehmen statt sie ueber den (evtl.
-    // leeren) Barcode neu aufzuloesen, siehe Kommentar bei `selectedProductId`.
     setSelectedProductId(suggestion.product_id ?? null);
     if (suggestion.last_store_id) setStoreId(suggestion.last_store_id);
   }
 
-  /**
-   * Schliesst nur die Tastatur, wenn woanders im Formular interagiert wird
-   * (#UI-Feedback: "Keyboard verschwindet nicht" — aber die Trefferliste soll
-   * dabei explizit offen bleiben, bis wirklich ein Artikel ausgewaehlt wird,
-   * siehe `closeSearch` unten). `keyboardShouldPersistTaps="handled"` auf der
-   * umschliessenden ScrollView (item-modal-shell.tsx) unterdrueckt das
-   * automatische Zuklappen bei Taps auf andere Bedienelemente absichtlich
-   * (sonst braeuchte jeder Button-Press zwei Taps) — deshalb hier explizit an
-   * jeder Stelle aufgerufen, an der tatsaechlich etwas anderes bedient wird.
-   */
+  /** Schließt nur die Tastatur; die Trefferliste bleibt bis zur Auswahl offen. */
   function dismissKeyboard() {
     Keyboard.dismiss();
   }
 
-  /** Beendet die Suche vollstaendig (Trefferliste + Tastatur) — nur wenn
-   * tatsaechlich ein Artikel/Vorschlag uebernommen wurde. */
+  /** Beendet Trefferliste und Tastatur nach einer Auswahl. */
   function closeSearch() {
     productSearchRef.current?.dismiss();
     Keyboard.dismiss();
   }
 
-  // Erlaubt add-item-modal.tsx, die Suche beim Tap auf den Header zu
-  // schliessen (#UI-Feedback: "Trefferliste laesst sich sonst nicht
-  // schliessen ohne Auswahl") — der Ref lebt hier, nicht im Modal selbst.
   useImperativeHandle(ref, () => ({ closeSearch }));
 
   async function handleAdd() {
@@ -241,17 +212,8 @@ export const AddItemForm = forwardRef<AddItemFormHandle, AddItemFormProps>(funct
         }
       />
 
-      {/* Die Produktsuche selbst liegt bewusst ausserhalb dieses Wrappers,
-          damit Scrollen/Antippen im Dropdown-Panel nicht mit-dismissed wird.
-          `Pressable` ist laut React-Native-Doku die aktuelle, empfohlene
-          Touch-Komponente (TouchableWithoutFeedback gilt als veraltet) — ein
-          eigener Handler direkt auf dem Responder-System (Capture/Bubble)
-          erwies sich zuvor als unzuverlaessig (#UI-Feedback). `accessible=
-          {false}`, damit VoiceOver weiterhin jedes Kind einzeln liest statt
-          den ganzen Wrapper zu einem Knoten zu verschmelzen. Schliesst nur
-          die Tastatur, nicht die Trefferliste — echte Bedienelemente rufen
-          `dismissKeyboard()` zusaetzlich explizit auf, `KeyboardToolbar`
-          (item-modal-shell.tsx) gibt einen "Fertig"-Button. */}
+      {/* Die Suche bleibt ausserhalb, damit ihr Panel nicht mit-dismissed wird.
+          `accessible={false}` laesst VoiceOver die Kinder einzeln lesen. */}
       <Pressable className="gap-[10px]" onPress={dismissKeyboard} accessible={false}>
         {nameError ? (
           <ThemedText type="body" themeColor="danger" className="font-medium">
@@ -259,8 +221,6 @@ export const AddItemForm = forwardRef<AddItemFormHandle, AddItemFormProps>(funct
           </ThemedText>
         ) : null}
 
-        {/* Quell- und Vorschlagsfilter (Lebensmittel/Gerichte, Zuletzt/Häufig) —
-            dieselbe geteilte UI wie bei Vorrat (add-item-screen.tsx, #164). */}
         <ItemSourceFilterRow
           source={source}
           onSourceChange={(next) => {
@@ -282,8 +242,6 @@ export const AddItemForm = forwardRef<AddItemFormHandle, AddItemFormProps>(funct
           mode={suggestionMode}
           selectedName={name}
           onSelect={(product, suggestion) => {
-            // Auswahl eines Vorschlags uebernimmt den Artikel — beendet die
-            // Suche komplett, anders als die reinen Nebeninteraktionen oben.
             closeSearch();
             handleSelectSuggestion(product, suggestion);
           }}
@@ -385,9 +343,6 @@ export const AddItemForm = forwardRef<AddItemFormHandle, AddItemFormProps>(funct
           ) : null}
         </View>
 
-        {/* Übersicht bewusst direkt über dem Hinzufügen-Button statt oben bei
-            der Suche (#UI-Feedback) — letzter Check vor dem eigentlichen
-            Abschluss, nicht mitten im Formular. */}
         {name.trim() ? (
           <View className="product-summary">
             <View className="flex-1 min-w-0">

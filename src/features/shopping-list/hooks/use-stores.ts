@@ -15,11 +15,7 @@ export type Store = {
   category_order: string | null;
 };
 
-/**
- * Sucht einen Markt case-insensitiv und getrimmt nach Namen. Maerkte sollen
- * pro Haushalt nur einmal existieren, egal wie der Name geschrieben wird
- * ("Netto" == "netto" == " Netto ").
- */
+/** Vergleicht Marktnamen getrimmt und ohne Beachtung der Grossschreibung. */
 export function findStoreByName(stores: readonly Store[], name: string): Store | undefined {
   const normalized = name.trim().toLowerCase();
   return stores.find((s) => s.name.trim().toLowerCase() === normalized);
@@ -141,13 +137,7 @@ export function useUpdateStoreMutation() {
   });
 }
 
-/**
- * Speichert die per Drag&Drop editierte Kategorie-Reihenfolge fuer genau
- * einen Markt — bewusst getrennt von `useUpdateStoreMutation` (Name/Farbe),
- * damit der Reorder-Sheet nicht das ganze Umbenennen-Formular braucht. Die
- * Reihenfolge liegt als normale Spalte auf der `stores`-Zeile und ist damit
- * automatisch haushaltsweit synchron (kein Extra-Mechanismus noetig).
- */
+/** Speichert die Laufstrecke separat von den uebrigen Markt-Eigenschaften. */
 export function useSetStoreCategoryOrderMutation() {
   const queryClient = useQueryClient();
 

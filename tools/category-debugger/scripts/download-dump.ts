@@ -1,12 +1,5 @@
 #!/usr/bin/env bun
-/**
- * Lädt den neuesten OFF-Dump-Release herunter, nach demselben Schema wie
- * `ensureOffDumpDownloaded()` in `src/lib/off-dump/off-dump.ts` — nur ohne
- * expo-file-system/SQLite-Attach, weil dieses Tool die .db-Datei direkt per
- * sql.js im Browser öffnet statt sie an eine native Connection anzuhängen.
- *
- *   bun run download-dump
- */
+/** Laedt den neuesten OFF-Dump fuer die direkte Verwendung durch sql.js. */
 
 import fs from 'node:fs';
 import path from 'node:path';

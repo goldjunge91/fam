@@ -25,10 +25,7 @@ type DashboardCardsContextValue = {
 
 const DashboardCardsContext = createContext<DashboardCardsContextValue | null>(null);
 
-/**
- * Gemeinsamer State-Provider fuer Dashboard-Cards (Groessen, Sichtbarkeiten & Reihenfolge via Drag & Drop),
- * mit lokaler Persistierung im AsyncStorage.
- */
+/** Persistiert Groessen, Sichtbarkeit und Reihenfolge der Dashboard-Cards. */
 export function DashboardCardsProvider({ children }: { children: ReactNode }) {
   const [sizeMap, setSizeMap] = useState<SizeMap>({});
   const [hiddenCards, setHiddenCards] = useState<string[]>([]);
@@ -44,23 +41,17 @@ export function DashboardCardsProvider({ children }: { children: ReactNode }) {
       if (rawSizes) {
         try {
           setSizeMap(JSON.parse(rawSizes) as SizeMap);
-        } catch {
-          // Defaults greifen
-        }
+        } catch {}
       }
       if (rawHidden) {
         try {
           setHiddenCards(JSON.parse(rawHidden) as string[]);
-        } catch {
-          // Defaults greifen
-        }
+        } catch {}
       }
       if (rawOrder) {
         try {
           setCardOrder(JSON.parse(rawOrder) as string[]);
-        } catch {
-          // Defaults greifen
-        }
+        } catch {}
       }
       setLoaded(true);
     });
@@ -172,14 +163,10 @@ export function DashboardCardsProvider({ children }: { children: ReactNode }) {
   return <DashboardCardsContext.Provider value={value}>{children}</DashboardCardsContext.Provider>;
 }
 
-/**
- * Liest und manipuliert Groessen, Sichtbarkeiten und Reihenfolge der Dashboard-Cards.
- */
 export function useCardSizes(): DashboardCardsContextValue {
   const context = useContext(DashboardCardsContext);
   if (context) return context;
 
-  // Fallback wenn ausserhalb des Providers gerendert
   return {
     getSize: (card: DashboardCardDef) => card.defaultSize,
     setSize: () => {},

@@ -3,18 +3,7 @@ import { DatabaseSync } from 'node:sqlite';
 import { type SqlStatementDriver, serializeDatabase } from '@/lib/db/serialize';
 import type { SqlParam } from '@/lib/db/types';
 
-/**
- * `serializeDatabase` gegen eine echte SQLite-Engine (#-Fix "database is locked").
- *
- * Kein Testdouble: `node:sqlite` fuehrt die Statements tatsaechlich aus, ein
- * Rollback dreht tatsaechlich zurueck. Der Treiber hier ist nur die rohe,
- * mitschreibende Statement-Schicht darunter — dieselbe Rolle, die in der App
- * `expo-sqlite` spielt.
- *
- * Die Treibermethoden sind echt asynchron (`await Promise.resolve()`). Ohne
- * diese Mikrotask-Grenze koennte sich in diesen Tests gar nichts verschachteln,
- * und die Serialisierung waere nicht pruefbar — sie waere nur zufaellig richtig.
- */
+/** Protokolliert echte SQLite-Aufrufe und erlaubt Verschachtelung an Mikrotask-Grenzen. */
 function createRecordingDriver() {
   const db = new DatabaseSync(':memory:');
   const log: string[] = [];
@@ -77,7 +66,6 @@ describe('serializeDatabase', () => {
   it('verschachtelt zwei gleichzeitige Transaktionen nicht', async () => {
     const db = serializeDatabase(harness.driver);
 
-    // Bewusst NICHT einzeln awaiten: beide starten, bevor die erste fertig ist.
     await Promise.all([
       db.withExclusiveTransactionAsync(async (txn) => {
         await txn.runAsync('insert into t (v) values (?)', ['a1']);
@@ -89,7 +77,6 @@ describe('serializeDatabase', () => {
       }),
     ]);
 
-    // Jede Transaktion muss als geschlossener Block BEGIN…COMMIT erscheinen.
     const blocks = harness.log.filter((s) => s === 'BEGIN IMMEDIATE' || s === 'COMMIT');
     expect(blocks).toEqual(['BEGIN IMMEDIATE', 'COMMIT', 'BEGIN IMMEDIATE', 'COMMIT']);
 
@@ -103,14 +90,12 @@ describe('serializeDatabase', () => {
 
     await db.withExclusiveTransactionAsync(async (txn) => {
       await txn.runAsync('insert into t (v) values (?)', ['x']);
-      // Zugriff auf das AEUSSERE Handle waehrend der Transaktion. Hier bewusst
-      // nicht awaitet — er darf erst nach dem COMMIT drankommen.
+      // Der Zugriff ueber das aeussere Handle darf erst nach COMMIT laufen.
       readDuringTransaction = db.getFirstAsync<{ c: number }>('select count(*) as c from t');
     });
 
     expect(await readDuringTransaction).toEqual({ c: 1 });
 
-    // Die Leseabfrage lief nach COMMIT, nicht dazwischen.
     expect(harness.log.indexOf('select count(*) as c from t')).toBeGreaterThan(
       harness.log.indexOf('COMMIT'),
     );
@@ -136,10 +121,7 @@ describe('serializeDatabase', () => {
   it('verdeckt einen fehlgeschlagenen BEGIN nicht durch einen ROLLBACK-Fehler', async () => {
     const db = serializeDatabase(harness.driver);
 
-    // Am Port vorbei eine Transaktion oeffnen: das BEGIN IMMEDIATE des Ports
-    // scheitert dann zwangslaeufig. Ohne die Sonderbehandlung wuerde der
-    // anschliessende ROLLBACK mit "no transaction is active" die eigentliche
-    // Ursache ueberschreiben — genau der Fehler in `expo-sqlite`.
+    // Erzwingt einen BEGIN-Fehler vor dem Eintritt in die Port-Transaktion.
     await harness.driver.execAsync('BEGIN');
     harness.log.length = 0;
 
@@ -164,7 +146,6 @@ describe('serializeDatabase', () => {
       }),
     ).rejects.toThrow(/nicht verschachtelbar/);
 
-    // Der abgebrochene Versuch darf die Transaktion nicht offen lassen.
     expect(harness.log).toContain('ROLLBACK');
   });
 
@@ -177,8 +158,6 @@ describe('serializeDatabase', () => {
       }),
     ).rejects.toThrow('erster Lauf scheitert');
 
-    // Waere die Warteschlange nach einer Rejection vergiftet, bliebe dieser
-    // Aufruf fuer immer haengen.
     await db.runAsync('insert into t (v) values (?)', ['danach']);
     const row = await db.getFirstAsync<{ v: string }>('select v from t');
     expect(row).toEqual({ v: 'danach' });

@@ -2,11 +2,7 @@ import { Image } from 'expo-image';
 import { useEffect, useState } from 'react';
 import { AppState } from 'react-native';
 
-// Ein Kalenderblatt-Icon je Kalendertag (1.–31.) — fuer den Essensplan-Eintrag
-// im Menue, der jeden Tag das tatsaechliche Datum zeigen soll statt eines
-// statischen Symbols. `require()` braucht statisch auswertbare Pfade
-// (Metro-Bundler), deshalb eine feste Lookup-Tabelle statt einer
-// Template-String-Konstruktion.
+// Metro braucht statische require-Pfade, daher die feste Tagestabelle.
 const CALENDAR_DAY_ICONS = {
   1: require('@/assets/images/figma/calendar/calendar-1.svg'),
   2: require('@/assets/images/figma/calendar/calendar-2.svg'),
@@ -45,12 +41,6 @@ function currentDayOfMonth(): number {
   return new Date().getDate();
 }
 
-/**
- * Essensplan-Icon fuer das Menue: kein statisches Symbol, sondern ein
- * Kalenderblatt mit dem heutigen Datum (#??? , "Icon soll jeden Tag
- * wechseln"). Aktualisiert sich beim Ruecksprung aus dem Hintergrund und –
- * falls die App ueber Mitternacht hinweg offen bleibt – per Minutentakt.
- */
 export function CalendarDayIcon({ size: _size }: { size?: number }) {
   const [day, setDay] = useState(currentDayOfMonth);
 
@@ -60,8 +50,7 @@ export function CalendarDayIcon({ size: _size }: { size?: number }) {
     const subscription = AppState.addEventListener('change', (state) => {
       if (state === 'active') sync();
     });
-    // Faengt den Mitternachts-Wechsel ab, waehrend die App durchgehend im
-    // Vordergrund bleibt — AppState allein wuerde das nicht mitbekommen.
+    // AppState erkennt keinen Tageswechsel bei dauerhaftem Vordergrund.
     const interval = setInterval(sync, 60_000);
 
     return () => {

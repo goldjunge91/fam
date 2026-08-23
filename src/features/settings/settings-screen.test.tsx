@@ -4,12 +4,6 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import { SettingsScreen } from '@/features/settings/settings-screen';
 
-/**
- * Die Einstellungen sind ein Verzeichnis: eine Zeile je Thema, das Thema
- * selbst auf einer eigenen Seite. Geprueft wird genau das — dass die
- * Menuepunkte da sind und dass die Formulare, die frueher hier lagen, es
- * nicht mehr sind.
- */
 let mockHouseholds: { id: string; name: string }[] = [{ id: 'hh-1', name: 'Familie Tozzi' }];
 let mockActiveHousehold: { id: string; name: string } | null = mockHouseholds[0];
 
@@ -60,8 +54,7 @@ jest.mock('@/features/navigation/use-profile-initials', () => ({
   useProfileInitials: () => 'MM',
 }));
 
-// Die lokale FAB-Praeferenz ist fuer diese Menue-Tests nur Darstellungszustand.
-// Der synchrone Mock verhindert eine nach dem Rendern eintreffende Query-Aktualisierung.
+// Synchron halten, damit nach dem Rendern keine Query-Aktualisierung eintrifft.
 jest.mock('@/features/navigation/fab-position-settings', () => ({
   DEFAULT_FAB_POSITION: 'right',
   useFabPosition: () => ({ data: 'right' }),
@@ -72,8 +65,7 @@ jest.mock('@/features/auth/api', () => ({
   useProfile: () => ({ data: { display_name: 'Marco Müller' } }),
 }));
 
-// `Screen` fragt den Router, ob es etwas zum Zurueckgehen gibt; ausserhalb
-// eines Navigators gibt es dafuer keinen Zustand.
+// Ausserhalb eines Navigators hat `Screen` keinen Zurueck-Zustand.
 jest.mock('expo-router', () => ({
   router: { push: jest.fn(), replace: jest.fn(), back: jest.fn(), canGoBack: () => false },
 }));
@@ -82,8 +74,7 @@ function renderScreen() {
   const queryClient = new QueryClient({
     defaultOptions: { queries: { retry: false, gcTime: Number.POSITIVE_INFINITY } },
   });
-  // `Screen` liest die Safe-Area-Insets; ohne Provider und ohne gemessene
-  // Rahmenwerte wirft der Hook.
+  // `Screen` benoetigt gemessene Safe-Area-Werte.
   return render(
     <SafeAreaProvider
       initialMetrics={{
@@ -116,9 +107,6 @@ describe('SettingsScreen', () => {
   it('zeigt die Menuepunkte statt der Formulare', async () => {
     const { getByText, queryByText } = await renderScreen();
 
-    // "Profil" ist keine eigene Zeile mehr, sondern die grosse Profil-Karte
-    // oben (Name + E-Mail statt Label) — geprueft in
-    // "beantwortet die haeufigsten Fragen ohne Antippen".
     for (const eintrag of [
       'Mitglieder',
       'Lagerorte',
@@ -129,18 +117,11 @@ describe('SettingsScreen', () => {
       expect(getByText(eintrag)).toBeTruthy();
     }
 
-    // Kinder-Profile und Haushalt-Beitritt sind jetzt ausschliesslich unter
-    // Mitglieder erreichbar, nicht mehr als eigene Zeile hier.
     expect(queryByText('Kinder-Profile')).toBeNull();
     expect(queryByText('Haushalt beitreten')).toBeNull();
 
-    // Synchronisation ist keine eigene Settings-Zeile mehr: Status kommt vom
-    // app-weiten SyncStatusBanner, manuelles Anstossen ueber Dashboard-Pull-
-    // to-Refresh, die Detailseite bleibt nur ueber Entwickler-Werkzeuge erreichbar.
     expect(queryByText('Synchronisation')).toBeNull();
 
-    // Diese Bedienelemente lagen frueher direkt auf der Uebersicht und gehoeren
-    // jetzt auf die Unterseiten.
     expect(queryByText('Jetzt synchronisieren')).toBeNull();
     expect(queryByText('Sync-Diagnose & Outbox anzeigen')).toBeNull();
   });
@@ -164,7 +145,6 @@ describe('SettingsScreen', () => {
     const { getByText } = await renderScreen();
 
     expect(getByText('Entwickler-Werkzeuge')).toBeTruthy();
-    // Ob der Build gegen die echten Daten laeuft, steht schon in der Uebersicht.
     expect(getByText('Lokal')).toBeTruthy();
   });
 

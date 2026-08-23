@@ -1,46 +1,21 @@
-/**
- * Vertrauenswürdige serverseitige Anreicherung globaler OFF-Produktdaten
- * (#223 Paket 10, Abschnitt 4 in docs/issue#223_V2.md — "Vertrauenswürdige
- * Aktualisierung globaler OFF-Produkte").
- *
- * Die bestehende RLS-Regel (siehe supabase/tests/05_products.test.sql,
- * "OFF-Metadaten nur vom Backend pflegen") verbietet Clients JEDE direkte
- * Änderung an `off_category_tags`/`off_last_modified_at` — auch dem
- * Anleger des Platzhalters. Diese Function ist der einzige Weg, wie diese
- * Felder je aktualisiert werden: sie nimmt vom Client ausschließlich die
- * EAN entgegen, lädt die Taxonomie-Daten SELBST von Open Food Facts (siehe
- * Glossar "Externe Produktdatenbank (OFF / Open Food Facts)" in AGENTS.md)
- * und verwirft alles, was der Client sonst an Produktdaten mitschickt.
- */
+// Nur die EAN kommt vom Client; vertrauenswuerdige OFF-Metadaten werden serverseitig geladen.
 
-/** Ergebnis des eigenen OFF-Lookups — nie aus Client-Eingaben abgeleitet. */
 export type OffFetchResult =
   | { ok: true; categoryTags: string[]; offLastModifiedAt: string }
   | { ok: false };
 
 export type UpdateResult = {
   error: { message: string } | null;
-  /**
-   * `null` bei einem echten DB-Fehler; `0`, wenn die atomare
-   * "nur wenn neuer"-Bedingung nicht griff (kein passendes Produkt oder
-   * vorhandener Stand nicht älter) — beides kein Fehler, nur kein Update.
-   */
+  /** `null` bei DB-Fehler, `0` bei keinem notwendigen Update. */
   count: number | null;
 };
 
 type Dependencies = {
-  /** Geteilter, prozessweiter Zustand (nicht pro EAN) — schützt das eigene
-   * Aufrufbudget gegenüber Open Food Facts, nicht einzelne Nutzer. */
+  /** Prozessweites OFF-Anfragebudget. */
   isRateLimited: () => boolean;
   recordAttempt: () => void;
   fetchOffProduct: (ean: string) => Promise<OffFetchResult>;
-  /**
-   * Atomares `UPDATE ... WHERE barcode = ean AND source = 'off' AND
-   * (off_last_modified_at IS NULL OR off_last_modified_at < offLastModifiedAt)`.
-   * Race-frei per Konstruktion: zwei gleichzeitige Aufrufe für dieselbe EAN
-   * können sich nicht gegenseitig mit einem älteren Stand überschreiben,
-   * ohne dass ein zusätzlicher Read-then-Write nötig wäre.
-   */
+  /** Atomar bedingtes Update verhindert das Ueberschreiben mit aelteren OFF-Daten. */
   updateIfNewer: (
     ean: string,
     categoryTags: string[],
@@ -56,12 +31,7 @@ function json(body: unknown, status = 200) {
   return new Response(JSON.stringify(body), { status, headers: JSON_HEADERS });
 }
 
-/**
- * Baut den HTTP-Handler getrennt vom Deno-Einstiegspunkt (dasselbe Muster
- * wie `revenuecat-webhook/handler.ts`) — Rate-Limiting, OFF-Lookup und
- * DB-Zugriff sind austauschbare Abhängigkeiten, der Handler selbst läuft
- * ohne Netzwerk oder echte Datenbank testbar.
- */
+/** Erstellt den Handler mit austauschbaren OFF- und Datenbankabhaengigkeiten. */
 export function createEnrichOffProductHandler({
   isRateLimited,
   recordAttempt,
@@ -83,9 +53,7 @@ export function createEnrichOffProductHandler({
       }
       ean = candidate;
     } catch {
-      // Absichtlich EINZIGES Feld, das aus dem Request-Body gelesen wird —
-      // alles andere (z.B. vom Client behauptete category_tags) existiert
-      // fuer diese Function schlicht nicht.
+      // Clientseitig behauptete Produktdaten werden bewusst ignoriert.
       return json({ error: 'invalid_ean' }, 400);
     }
 

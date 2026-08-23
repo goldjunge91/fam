@@ -13,7 +13,6 @@ type CardProps = {
   className?: string;
 };
 
-/** Flaeche fuer zusammengehoerende Inhalte. Antippbar, sobald `onPress` gesetzt ist. */
 export function Card({ children, title, footer, onPress, style, className = '' }: CardProps) {
   const content = (
     <ThemedView type="backgroundElement" className={`card-fam ${className}`.trim()} style={style}>

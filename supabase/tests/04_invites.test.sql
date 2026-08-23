@@ -12,7 +12,6 @@ select tests.create_user('33333333-3333-3333-3333-333333333333', 'carol@example.
 select tests.authenticate_as('11111111-1111-1111-1111-111111111111');
 select public.create_household('Familie Tozzi') as hid \gset
 
--- Einladung mit genau einer Nutzung.
 insert into public.household_invites (household_id, created_by, max_uses)
 values (:'hid', '11111111-1111-1111-1111-111111111111', 1);
 
@@ -22,12 +21,10 @@ select is(
   'ein Administrator kann eine Einladung anlegen'
 );
 
--- Den Token holt sich der Test als Superuser. In der App kommt er aus dem
--- Einladungslink — nie aus einer Query, denn genau das verhindert die Policy.
+-- Nur der Test-Superuser liest den sonst ausschliesslich per Link verteilten Token.
 select tests.as_postgres();
 select token as tok from public.household_invites \gset
 
--- ------------------------------------------------- Nichtmitglied sieht nichts
 select tests.authenticate_as('22222222-2222-2222-2222-222222222222');
 
 select is(
@@ -36,7 +33,6 @@ select is(
   'ein Nichtmitglied sieht keine Einladungen'
 );
 
--- ------------------------------------------------------------------ Beitritt
 select isnt(
   public.redeem_invite(:'tok'::uuid),
   null,
@@ -57,10 +53,7 @@ select is(
   'ein Beitretender wird Mitglied, nicht Administrator'
 );
 
--- ------------------------------------------------------------- Doppelklick
--- Ein zweiter Klick auf denselben Link darf weder fehlschlagen noch eine
--- Nutzung verbrauchen — sonst brennt ein Nutzer die Einladung fuer jemand
--- anderen ab.
+-- Wiederholte Einloesung muss idempotent bleiben.
 select tests.authenticate_as('22222222-2222-2222-2222-222222222222');
 select lives_ok(
   format('select public.redeem_invite(%L::uuid)', :'tok'),
@@ -74,7 +67,6 @@ select is(
   'der Doppelklick hat keine zweite Nutzung verbraucht'
 );
 
--- --------------------------------------------------------------- aufgebraucht
 select tests.authenticate_as('33333333-3333-3333-3333-333333333333');
 select throws_ok(
   format('select public.redeem_invite(%L::uuid)', :'tok'),
@@ -83,7 +75,6 @@ select throws_ok(
   'nach max_uses weist die Einladung weitere Beitritte ab'
 );
 
--- ------------------------------------------------------------------ abgelaufen
 select tests.as_postgres();
 update public.household_invites
 set expires_at = now() - interval '1 day', max_uses = 5;

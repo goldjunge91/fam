@@ -3,21 +3,7 @@ import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { DatabaseSync } from 'node:sqlite';
 
-/**
- * Warum `serialize.ts` so aussieht, wie es aussieht — als ausfuehrbarer Beleg.
- *
- * Diese Suite prueft keine Projektlogik, sondern das Verhalten von SQLite
- * selbst. Sie steht hier, weil die urspruengliche Diagnose ("ein `PRAGMA
- * busy_timeout` genuegt") plausibel klang und trotzdem falsch war. Ohne einen
- * Test, der den Unterschied zeigt, wandert dieselbe Annahme beim naechsten
- * Sperrproblem zurueck in den Code.
- *
- * Nachgestellt wird exakt das Muster aus `applyRemoteRow`: innerhalb einer
- * Transaktion erst lesen, dann schreiben — waehrend eine zweite Connection
- * dazwischenschreibt. Zwei Connections gibt es in der App, weil
- * `expo-sqlite.withExclusiveTransactionAsync` fuer jede Transaktion eine neue
- * oeffnet.
- */
+/** Belegt den Unterschied zwischen `busy_timeout` und `BEGIN IMMEDIATE`. */
 function connect(path: string, busyTimeoutMs: number): DatabaseSync {
   const db = new DatabaseSync(path);
   db.exec('PRAGMA journal_mode = WAL');
@@ -30,7 +16,6 @@ describe('SQLite-Sperrverhalten bei zwei Connections', () => {
   let path: string;
   const opened: DatabaseSync[] = [];
 
-  /** Oeffnet eine Connection und merkt sie fuer den Teardown vor. */
   function open(busyTimeoutMs: number): DatabaseSync {
     const db = connect(path, busyTimeoutMs);
     opened.push(db);
@@ -53,23 +38,16 @@ describe('SQLite-Sperrverhalten bei zwei Connections', () => {
   });
 
   it('deferred BEGIN: der Schreibzugriff scheitert MITTEN in der Transaktion — auch mit busy_timeout', () => {
-    // Grosszuegiges busy_timeout auf beiden Seiten. Wenn Warten helfen wuerde,
-    // duerfte hier nichts scheitern.
     const connA = open(5000);
     const connB = open(5000);
 
-    // A liest innerhalb einer deferred Transaktion — ab hier haelt A einen
-    // Lese-Snapshot, aber noch keine Schreibsperre.
+    // A haelt einen Lese-Snapshot, aber noch keine Schreibsperre.
     connA.exec('BEGIN');
     connA.prepare('select count(*) as c from t').get();
 
-    // B schreibt dazwischen und committet (Autocommit).
     connB.prepare('insert into t (v) values (?)').run('von B');
 
-    // A will jetzt schreiben: Der Snapshot ist veraltet, das Hochstufen der
-    // Transaktion ist unmoeglich. SQLite meldet SQLITE_BUSY_SNAPSHOT und ruft
-    // den Busy-Handler bewusst NICHT auf — Warten koennte den Konflikt nicht
-    // aufloesen. Genau deshalb reicht `busy_timeout` allein nicht.
+    // Der veraltete Snapshot kann trotz `busy_timeout` nicht hochgestuft werden.
     expect(() => connA.prepare('insert into t (v) values (?)').run('von A')).toThrow(
       /database is locked/i,
     );
@@ -81,18 +59,14 @@ describe('SQLite-Sperrverhalten bei zwei Connections', () => {
     const connA = open(0);
     const connB = open(0);
 
-    // A nimmt die Schreibsperre sofort.
     connA.exec('BEGIN IMMEDIATE');
     connA.prepare('select count(*) as c from t').get();
 
-    // Jetzt kommt B nicht mehr dazwischen — der Konflikt wird an den
-    // Zweitschreiber ausgelagert, statt A mitten im Schreiben zu treffen.
+    // Der Konflikt trifft den Zweitschreiber statt die laufende Transaktion.
     expect(() => connB.prepare('insert into t (v) values (?)').run('von B')).toThrow(
       /database is locked/i,
     );
 
-    // A laeuft ungestoert bis zum COMMIT durch. Das ist die Zusicherung, auf
-    // die sich `serialize.ts` stuetzt.
     connA.prepare('insert into t (v) values (?)').run('von A');
     connA.exec('COMMIT');
 
@@ -101,9 +75,6 @@ describe('SQLite-Sperrverhalten bei zwei Connections', () => {
   });
 
   it('eine einzige Connection kennt das Problem gar nicht', () => {
-    // Der Zustand nach dem Fix: alle Zugriffe der App laufen serialisiert ueber
-    // dieselbe Connection. Eine Connection kann ihren eigenen Snapshot nicht
-    // entwerten.
     const connA = open(0);
 
     connA.exec('BEGIN IMMEDIATE');

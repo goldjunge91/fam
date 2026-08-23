@@ -1,12 +1,5 @@
 import { resolve, type SyncSide } from '@/lib/sync/resolve';
 
-/**
- * Die Faelle aus #49, eins zu eins.
- *
- * Ohne Datenbank, ohne Netz, ohne Uhr — `resolve` ist rein, deshalb braucht
- * keiner dieser Tests ein Testdouble.
- */
-
 const CEILING = 10_000;
 
 const side = (updatedAt: number, deletedAt: number | null = null, id = 'row-1'): SyncSide => ({
@@ -27,8 +20,6 @@ describe('resolve — Last-Write-Wins', () => {
 
 describe('resolve — Tombstone schlaegt Update', () => {
   it('laesst einen Remote-Tombstone gegen ein neueres lokales Update gewinnen', () => {
-    // Ohne diese Regel taeuchte ein geloeschter Artikel wieder auf, sobald ihn
-    // jemand gleichzeitig bearbeitet hat.
     const local = side(9_000);
     const remote = side(1_000, 1_000);
 
@@ -52,9 +43,6 @@ describe('resolve — Tombstone schlaegt Update', () => {
 
 describe('resolve — Tiebreak bei identischem Zeitstempel', () => {
   it('ist deterministisch und liefert fuer dieselbe Zeile den Server', () => {
-    // local.id === remote.id, weil es dieselbe logische Zeile ist. Der
-    // id-Vergleich degeneriert damit zu "Server gewinnt" — die einzige
-    // Antwort, bei der beide Geraete im selben Zustand landen.
     const local = side(5_000, null, 'row-1');
     const remote = side(5_000, null, 'row-1');
 
@@ -62,9 +50,6 @@ describe('resolve — Tiebreak bei identischem Zeitstempel', () => {
   });
 
   it('ist symmetrisch: beide Geraete kommen zum selben Ergebnis', () => {
-    // Was auf Geraet A "local" ist, ist auf Geraet B "remote". Wuerde die
-    // Funktion in beiden Faellen die jeweils eigene Seite bevorzugen, liefen
-    // die Geraete auseinander — genau das darf nicht passieren.
     const a = side(5_000, null, 'row-1');
     const b = side(5_000, null, 'row-1');
 
@@ -86,17 +71,13 @@ describe('resolve — Tiebreak bei identischem Zeitstempel', () => {
 
 describe('resolve — falsch gestellte Geraeteuhr', () => {
   it('laesst eine lokale Zeile aus der Zukunft nicht dauerhaft gewinnen', () => {
-    // Kern des Deadlock-Falls aus #49: Ohne Klemmung gewaenne eine Zeile mit
-    // Zeitstempel im Jahr 2099 siebzig Jahre lang jeden Vergleich.
-    const local = side(4_102_444_800_000); // 2100-01-01
+    const local = side(4_102_444_800_000);
     const remoteAfterCeiling = side(CEILING + 1);
 
     expect(resolve(local, remoteAfterCeiling, { clockCeiling: CEILING })).toBe('remote');
   });
 
   it('laesst die lokale Aenderung aber gegen aeltere Serverstaende gelten', () => {
-    // Die Bearbeitung des Nutzers ist echt und wartet in der Outbox. Sie soll
-    // nur nicht die Zukunft blockieren, nicht sofort verworfen werden.
     const local = side(4_102_444_800_000);
     const olderRemote = side(CEILING - 1);
 
@@ -104,7 +85,6 @@ describe('resolve — falsch gestellte Geraeteuhr', () => {
   });
 
   it('klemmt nur local, nie remote — der Server ist die Autoritaet', () => {
-    // Ein Remote-Zeitstempel jenseits der Decke bleibt ungeklemmt und gewinnt.
     const local = side(CEILING);
     const remote = side(CEILING + 5_000);
 
@@ -112,8 +92,6 @@ describe('resolve — falsch gestellte Geraeteuhr', () => {
   });
 
   it('behandelt eine Tombstone-Entscheidung unabhaengig von der Uhr', () => {
-    // Regel 1 greift vor der Klemmung: Auch mit absurdem lokalem Zeitstempel
-    // gewinnt der Remote-Tombstone.
     const local = side(4_102_444_800_000);
     const remote = side(1, 1);
 

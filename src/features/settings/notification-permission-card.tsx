@@ -14,12 +14,7 @@ type NotificationPermissionCardProps = {
   style?: StyleProp<ViewStyle>;
 };
 
-/**
- * Zeigt und verwaltet ausschließlich den OS-Berechtigungsstatus (darf die App
- * überhaupt Benachrichtigungen anzeigen). Wann genau erinnert wird
- * (Schwellenwert, Uhrzeit) ist eine App-Einstellung, keine Berechtigung —
- * dafür gibt es `NotificationSettingsCard` unter /settings/notifications.
- */
+/** Verwaltet nur die OS-Berechtigung, nicht Zeitpunkt oder Vorlauf. */
 export function NotificationPermissionCard({ style }: NotificationPermissionCardProps) {
   const theme = useTheme();
   const [status, setStatus] = useState({ granted: false, canAskAgain: true });

@@ -14,13 +14,7 @@ type RecipePickerModalProps = {
   onSelect: (recipe: DraggableRecipe) => void;
 };
 
-/**
- * Rezept-Auswahl beim Tippen auf eine leere Grid-Zelle (#129-Nachtrag).
- *
- * Der zuverlaessige Hauptweg, ein Gericht in den Wochenplan einzutragen —
- * anders als Drag & Drop braucht Tippen keine Koordinatenmessung und
- * funktioniert unabhaengig von Scroll-Position oder Geraet.
- */
+/** Oeffnet die Rezeptauswahl fuer eine leere Grid-Zelle. */
 export function RecipePickerModal({
   visible,
   recipes,

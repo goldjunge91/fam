@@ -39,8 +39,7 @@ function GlobalAddButton() {
     <View
       pointerEvents="box-none"
       className={`app-shell-wrap ${position === 'left' ? 'items-start' : 'items-end'}`}
-      // Bottom-Safe-Area ist ein echter Laufzeitwert (Geraet-abhaengig),
-      // kann nicht als Tailwind-Klasse ausgedrueckt werden.
+      // Die Safe Area ist geraeteabhaengig und muss zur Laufzeit gesetzt werden.
       style={{ paddingBottom: insets.bottom }}>
       <FloatingActionButton label="Neu hinzufügen" onPress={openQuickAdd}>
         <PlusIcon color={theme.onAccent} />

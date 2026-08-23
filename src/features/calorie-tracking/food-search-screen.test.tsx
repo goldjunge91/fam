@@ -46,8 +46,7 @@ jest.mock('@/lib/open-food-facts', () => {
   };
 });
 
-// Kamera-Abhaengigkeit ausserhalb des Tests halten — der Scanner selbst hat
-// keine eigene Logik in diesem Screen, nur der Ergebnis-Callback zaehlt.
+// Der Scanner selbst liegt ausserhalb des Testumfangs.
 jest.mock('@/features/inventory/barcode-scanner-modal', () => ({
   BarcodeScannerModal: () => null,
 }));
@@ -134,25 +133,9 @@ describe('FoodSearchScreen', () => {
   });
 
   it('sucht bei Eingabe live und navigiert bei Auswahl zur Erfassung', async () => {
-    // Debounce ist ein echtes setTimeout (800ms, siehe food-search-screen.tsx)
-    // ausserhalb jeder von RNTL verfolgten act()-Grenze. Mit echten Timern
-    // + waitFor lief das als Wettlauf gegen die Wanduhr — act()-Warnungen
-    // inklusive, sobald die Maschine unter Last war. Fake-Timer + gezieltes
-    // Vorspulen macht daraus einen deterministischen Schritt.
-    // `userEvent` waere hier die RNTL-Empfehlung, aber schon `userEvent.setup()`
-    // aufzurufen — nicht erst `.type()` — bringt das eigene Fake-Timer-Tracking
-    // mit unserem manuellen `advanceTimersByTimeAsync(800)` durcheinander: der
-    // Debounce feuert dann ueber einen rohen sinonjs-Immediate-Callback
-    // ausserhalb von act(), mit genau den act()-Warnungen, die dieser Test
-    // eigentlich vermeiden soll (empirisch geprueft). Deshalb hier bewusst
-    // durchgehend `fireEvent`, wie es die eigene RNTL-Regel fuer diesen Fall
-    // vorsieht ("wenn User Event nicht passt, fireEvent nutzen").
+    // fireEvent bleibt mit den manuell vorgespulten Fake-Timern deterministisch.
     jest.useFakeTimers();
     await renderScreen();
-    // Bewusst NICHT await: await fireEvent.changeText() hier bringt das
-    // nachfolgende advanceTimersByTimeAsync(800) durcheinander, sodass der
-    // Debounce-Timer der Komponente nie feuert (empirisch geprueft — mit
-    // await bleibt der Screen bei "Keine Treffer" haengen).
     fireEvent.changeText(screen.getByPlaceholderText('Wonach suchst du?'), 'Hafermilch');
     await jest.advanceTimersByTimeAsync(800);
 
@@ -189,11 +172,8 @@ describe('FoodSearchScreen', () => {
       caloriesPer100g: 91,
     });
 
-    // fireEvent statt userEvent hier bewusst — siehe Kommentar beim ersten
-    // Debounce-Test oben.
     jest.useFakeTimers();
     await renderScreen();
-    // Bewusst NICHT await — siehe Kommentar beim ersten Debounce-Test oben.
     fireEvent.changeText(screen.getByPlaceholderText('Wonach suchst du?'), '4019300005307');
     await jest.advanceTimersByTimeAsync(800);
 
@@ -218,11 +198,8 @@ describe('FoodSearchScreen', () => {
   it('zeigt bei einem fehlgeschlagenen Request einen Hinweis statt "keine Treffer" und erlaubt Retry', async () => {
     mockSearchOpenFoodFacts.mockResolvedValueOnce({ products: [], hasMore: false, failed: true });
 
-    // fireEvent statt userEvent hier bewusst — siehe Kommentar beim ersten
-    // Debounce-Test oben.
     jest.useFakeTimers();
     await renderScreen();
-    // Bewusst NICHT await — siehe Kommentar beim ersten Debounce-Test oben.
     fireEvent.changeText(screen.getByPlaceholderText('Wonach suchst du?'), 'hafer');
     await jest.advanceTimersByTimeAsync(800);
 

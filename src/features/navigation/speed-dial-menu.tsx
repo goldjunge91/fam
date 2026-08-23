@@ -26,7 +26,7 @@ function todayIso(): string {
   return `${year}-${month}-${day}`;
 }
 
-/** Grobe Tageszeit-Heuristik, damit der Schnellzugriff nicht mit einer leeren Mahlzeit startet. */
+/** Liefert fuer den Schnellzugriff eine passende Mahlzeit zur Tageszeit. */
 function defaultMealType(): MealType {
   const hour = new Date().getHours();
   if (hour < 10) return 'breakfast';
@@ -46,21 +46,13 @@ const OPTIONS: SpeedDialOption[] = [
   {
     title: 'Tagebucheintrag',
     icon: 'diary',
-    // `/add-food-entry` braucht date+mealType (#food-entries-query) — ohne das
-    // laeuft der Tagebuch-Query mit dem String "undefined" gegen Postgres.
+    // Die Zielroute benoetigt beide Query-Parameter.
     href: () => `/add-food-entry?date=${todayIso()}&mealType=${defaultMealType()}`,
     backgroundColor: '#F3E9D7',
   },
   { title: 'Rezept', icon: 'recipes', href: '/recipe/create', backgroundColor: '#E4EDE3' },
 ];
 
-/**
- * Schnellauswahl fuer den globalen Plus-Button (#150, Folgeentscheidung
- * "F2 Speed-Dial") — faechert vom Auslöser in der Bildschirmecke nach oben
- * auf, statt eines Vollflaechen-Sheets. Kein Scrim: die Chips sitzen sichtbar
- * ueber dem Inhalt, ein Tap daneben schliesst genauso wie ein Tap auf eine
- * der Optionen.
- */
 export function SpeedDialMenu() {
   const { isQuickAddOpen } = useNavigationChrome();
   const mounted = useDeferredMount(isQuickAddOpen, 180);
@@ -93,8 +85,7 @@ function SpeedDialMenuContent() {
         <View
           pointerEvents="box-none"
           className={`speed-dial-column ${isRight ? 'items-end' : 'items-start'}`}
-          // Ecke (links/rechts) und Sicherheitsabstand zum Auslöser sind
-          // Laufzeitwerte (Einstellung + Safe-Area-Insets), kein Tailwind-Token.
+          // Ecke und Safe-Area-Abstand sind Laufzeitwerte.
           style={{
             [isRight ? 'right' : 'left']: Spacing.four,
             bottom: insets.bottom + Layout.floatingActionAreaHeight,

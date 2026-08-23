@@ -16,7 +16,6 @@ interface AddItemModalProps {
   onDismiss: () => void;
 }
 
-/** Eigene Seite statt Inline-Formular ueber der Einkaufsliste. */
 export function AddItemModal({
   visible,
   householdId,
@@ -34,8 +33,7 @@ export function AddItemModal({
       scrollContentClassName="pb-four"
       contentInsetAdjustmentBehavior="automatic"
       showHandle
-      // Tap auf den Header schliesst Tastatur UND eine offene Trefferliste
-      // (#UI-Feedback) — die Suche lebt in AddItemForm, nicht hier.
+      // Die Suche lebt im Kind und muss zusammen mit der Tastatur geschlossen werden.
       onHeaderPress={() => formRef.current?.closeSearch()}
       header={
         <View className="modal-header min-h-[54px]">

@@ -5,7 +5,6 @@ import { ThemedText } from '@/components/theme/themed-text';
 
 export interface DateWheelFieldProps {
   label?: string;
-  /** ISO-Datum "YYYY-MM-DD", oder '' wenn noch keines gewählt wurde. */
   value: string;
   onChange: (isoDate: string) => void;
   placeholder?: string;
@@ -23,9 +22,6 @@ function formatIsoDate(isoDate: string): string {
   return `${d}.${m}.${y}`;
 }
 
-/**
- * Android-Datumsfeld — öffnet den nativen Material-Dialog (presentation="dialog").
- */
 export function DateWheelField({
   label,
   value,

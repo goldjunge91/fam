@@ -30,7 +30,6 @@ describe('SlidingWindowRateLimiter', () => {
     limiter.record(t0 + 1_000);
     expect(limiter.isLimited(t0 + 2_000)).toBe(true);
 
-    // Das erste Timestamp ist nach 60s aus dem Fenster raus.
     expect(limiter.isLimited(t0 + 61_000)).toBe(false);
   });
 
@@ -51,13 +50,13 @@ describe('Open Food Facts Helper', () => {
   });
 
   it.each([
-    ['40193000053', true], // EAN-11 artig, im 6-14-Fenster
-    ['4019300005307', true], // EAN-13
-    ['12345678', true], // EAN-8
+    ['40193000053', true],
+    ['4019300005307', true],
+    ['12345678', true],
     ['Haferflocken', false],
-    ['123', false], // zu kurz, eher eine Mengenangabe als ein Barcode
-    ['123456789012345', false], // zu lang
-    ['4019 300 005 307', false], // Leerzeichen -> kein reiner Zifferncode
+    ['123', false],
+    ['123456789012345', false],
+    ['4019 300 005 307', false],
   ])('sollte "%s" korrekt als Barcode einstufen: %s', (value, expected) => {
     expect(isLikelyBarcode(value)).toBe(expected);
   });

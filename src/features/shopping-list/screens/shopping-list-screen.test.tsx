@@ -27,8 +27,6 @@ jest.mock('../hooks/use-shopping-list-mutations', () => ({
   useDeleteShoppingItem: () => ({ mutateAsync: mockDeleteMutateAsync }),
   useCompleteShoppingRun: () => ({ mutateAsync: jest.fn() }),
   useAddShoppingItem: () => ({ mutateAsync: jest.fn() }),
-  // Zeile antippen oeffnet jetzt das Bearbeiten-Formular (statt abzuhaken),
-  // das braucht diesen Hook.
   useUpdateShoppingItem: () => ({ mutateAsync: jest.fn() }),
 }));
 
@@ -161,7 +159,6 @@ describe('ShoppingListScreen', () => {
 
     expect(await screen.findByText('Bananen')).toBeTruthy();
 
-    // Antippen der Zeile oeffnet jetzt das Bearbeiten-Formular statt abzuhaken.
     const row = screen.getByRole('button', { name: 'Bananen bearbeiten' });
     await fireEvent.press(row);
 

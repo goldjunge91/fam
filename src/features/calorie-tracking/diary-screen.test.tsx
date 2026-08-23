@@ -4,10 +4,7 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import { DiaryScreen } from '@/features/calorie-tracking/diary-screen';
 
-// ProgressRing animiert per Reanimated — der Worklets-Native-Bootstrap laeuft
-// unter Jest nicht, und selbst `react-native-reanimated/mock` startet ihn in
-// dieser Version erneut. Fuer diesen Test zaehlt nur die Datenverdrahtung,
-// nicht die Animation, daher eine einfache Ersatzkomponente.
+// Der native ProgressRing liegt ausserhalb dieses Datenverdrahtungstests.
 jest.mock('@/components/ui/progress-ring', () => {
   const { Text } = require('react-native');
   return {
@@ -145,7 +142,7 @@ describe('DiaryScreen', () => {
 
   it('zeigt die Tagessumme aus allen Eintraegen', async () => {
     await renderScreen();
-    expect(screen.getByText('Kalorien: 640/2000')).toBeTruthy(); // 190 + 450
+    expect(screen.getByText('Kalorien: 640/2000')).toBeTruthy();
   });
 
   it('oeffnet die Lebensmittelsuche vorbelegt mit der Mahlzeit', async () => {

@@ -1,20 +1,5 @@
 #!/usr/bin/env bun
-/**
- * evaluate-categories.ts — Dump-Kalibrierung für die Kategorie-Klassifikation
- * (#223 Paket 1, Abschnitt 15 in `docs/issue#223_V2.md`).
- *
- *   bun run evaluate-categories
- *
- * Läuft mit `classifyCategory()` (produktive Engine, keine Zweitimplementierung,
- * siehe `evaluate-categories-core.ts`) über den kompletten lokalen Dump
- * (`products_de.db`) und schreibt einen JSON- und einen HTML-Report daneben.
- *
- * Der Dump ist aktuell noch Schema 1 (kein `categories_tags`, siehe
- * `openfoodfacts.sql`) — nur der Namens-Fallback wird hier geprüft. Sobald
- * `off-dump-v2.db` (#223 Paket 4) existiert, liest dieses Skript dessen
- * `categories_tags`-Spalte automatisch mit (siehe `readDumpProducts` unten)
- * und die OFF-Tag-Metriken füllen sich von selbst.
- */
+/** Erstellt JSON- und HTML-Kalibrierungsreports mit der produktiven Klassifikation. */
 
 import { Database } from 'bun:sqlite';
 import { existsSync, writeFileSync } from 'node:fs';
@@ -38,11 +23,7 @@ function hasColumn(db: Database, table: string, column: string): boolean {
   return columns.some((c) => c.name === column);
 }
 
-/**
- * Liest alle Produkte aus dem angehängten Dump. Erkennt automatisch, ob
- * `categories_tags` existiert (Schema 2, #223 Paket 4) — solange nicht, liefert
- * jedes Produkt ein leeres `categoryTags`-Array statt zu crashen.
- */
+/** Unterstuetzt Dumps mit und ohne `categories_tags`. */
 function readDumpProducts(db: Database): DumpProductInput[] {
   const hasCategoryTags = hasColumn(db, 'products', 'categories_tags');
   const rows = db

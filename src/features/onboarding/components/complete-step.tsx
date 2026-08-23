@@ -9,10 +9,7 @@ export function CompleteStepForm() {
   const { data: households } = useHouseholds();
 
   const handleFinish = async () => {
-    // Nur bei Erfolg weiter: Vorher navigierte diese Funktion auch dann zum
-    // Dashboard, wenn `completeOnboarding()` einen Fehler gesetzt hatte — die
-    // Meldung erschien auf einem Bildschirm, den der Nutzer nie zu sehen
-    // bekam.
+    // Nur nach vollstaendig gespeichertem Onboarding navigieren.
     const erfolgreich = await completeOnboarding();
     if (!erfolgreich) return;
 

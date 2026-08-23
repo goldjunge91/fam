@@ -9,10 +9,10 @@ export const FASTING_PROTOCOL_DURATIONS: Record<
   Exclude<FastingProtocol, 'custom' | '5:2'>,
   number
 > = {
-  '16:8': 16 * 60, // 960 min
-  '18:6': 18 * 60, // 1080 min
-  '20:4': 20 * 60, // 1200 min
-  omad: 23 * 60, // 1380 min
+  '16:8': 16 * 60,
+  '18:6': 18 * 60,
+  '20:4': 20 * 60,
+  omad: 23 * 60,
 };
 
 export function fastingSessionsQueryKey(

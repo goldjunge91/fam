@@ -11,10 +11,7 @@ jest.mock('@/features/auth/session-provider', () => ({
   useSession: () => ({ session: { user: { id: 'adult-1' } } }),
 }));
 
-// Simuliert die `child_profiles`-Tabelle: nur Eintraege, die hier explizit
-// eingetragen werden, gelten als (noch) existierend. Deckt genau den Fall
-// ab, der den FK-Bug ausgeloest hat — eine in AsyncStorage gespeicherte
-// `childProfileId`, deren DB-Zeile nicht mehr existiert.
+// Simuliert die noch existierenden `child_profiles`-Zeilen.
 let mockExistingChildProfiles: Set<string>;
 
 jest.mock('@/lib/supabase', () => ({
@@ -70,7 +67,6 @@ describe('useActiveProfile', () => {
   });
 
   it('faellt auf den Erwachsenen zurueck und bereinigt AsyncStorage, wenn das gespeicherte Kindprofil nicht mehr existiert', async () => {
-    // Kein Eintrag in mockExistingChildProfiles -> Profil gilt als geloescht/veraltet.
     await setStoredActiveChildProfileId('hh-4', 'child-geloescht');
 
     const { result } = await renderHook(() => useActiveProfile('hh-4'));

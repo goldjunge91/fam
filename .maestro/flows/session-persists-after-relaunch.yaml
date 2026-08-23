@@ -1,17 +1,7 @@
 appId: com.goldjunge91.fam
 ---
-# Deckt Fall 3 aus dem Kommentar in src/app/_layout.tsx ab: ein eingeloggter
-# Nutzer landet nach einem Kaltstart direkt im (app)-Bereich, nicht wieder im
-# Onboarding. Das ist mit clearState:true (wie in onboarding-sign-in.yaml)
-# nicht pruefbar, da das die persistierte Session/den seenOnboarding-Flag
-# jedes Mal wegwirft - hier deshalb bewusst clearState:false beim zweiten
-# Start.
-#
-# Voraussetzungen: siehe onboarding-sign-in.yaml, UND
-# EXPO_PUBLIC_FORCE_ONBOARDING=false in .env.development - sonst zwingt
-# `isNewUser = !seenOnboarding || forceOnboarding` jeden Kaltstart auf
-# /onboarding, egal ob eine Session besteht (siehe README.md
-# "Umgebungsvariablen", dort auch der dokumentierte Default).
+# clearState bleibt beim zweiten Start aus, damit Session und Onboarding-Flag erhalten bleiben.
+# Benötigt EXPO_PUBLIC_FORCE_ONBOARDING=false.
 
 - runFlow: ../subflows/reach-dashboard-via-sign-in.yaml
 

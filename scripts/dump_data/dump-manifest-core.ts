@@ -1,9 +1,4 @@
-/**
- * Reine Aufbaulogik für das Release-Manifest der CI-Delta-Pipeline (#223
- * Paket 5, Abschnitt 13 "Release-Manifest"/"Rhythmus"). Getrennt von
- * `dump-patch-core.ts` (Produkt-Diff) und von der eigentlichen
- * Datei-/GitHub-Release-Ein-/Ausgabe (`build-canonical-update.ts`).
- */
+/** Reine Aufbaulogik fuer das Release-Manifest der Dump-Delta-Pipeline. */
 
 export type DumpManifestAsset = { url: string; size: number; sha256: string };
 
@@ -21,12 +16,7 @@ export type DumpManifest = {
   patches: DumpManifestPatchEntry[];
 };
 
-/**
- * Ob dieser Lauf eine neue Baseline schneiden soll (Abschnitt 13 "Rhythmus":
- * monatlich). Vergleicht nur den Kalendermonat (`YYYY-MM`-Präfix der
- * ISO-Version) — robust gegen unterschiedliche Tageszeiten des CI-Laufs,
- * ohne eine willkürliche Tagesanzahl zu zählen.
- */
+/** Schneidet beim ersten Lauf und beim Monatswechsel eine neue Baseline. */
 export function isNewBaselineDue(
   previousBaselineVersion: string | null,
   currentDataVersion: string,
@@ -35,23 +25,13 @@ export function isNewBaselineDue(
   return previousBaselineVersion.slice(0, 7) !== currentDataVersion.slice(0, 7);
 }
 
-/**
- * Baut das nächste Manifest aus dem vorherigen (falls vorhanden) und dem
- * Ergebnis des aktuellen CI-Laufs.
- *
- * - Neue Baseline (monatlich, Abschnitt 13 "Rhythmus"): Patchkette wird
- *   verworfen, `baseline` zeigt auf die neue Baseline-Datei.
- * - Regulärer Patch: Baseline bleibt unverändert, `patchEntry` wird ans Ende
- *   der bestehenden Kette angehängt.
- */
+/** Beginnt bei einer neuen Baseline eine frische Patchkette. */
 export function buildNextManifest(params: {
   previous: DumpManifest | null;
   isNewBaseline: boolean;
   schemaVersion: number;
-  /** Erzeugte `data_version` dieses Laufs (siehe `dump_meta` in Paket 4). */
   dataVersion: string;
   baselineAsset: DumpManifestAsset;
-  /** `null` bei einem neuen Baseline-Lauf — es gibt noch nichts zu patchen. */
   patchEntry: DumpManifestPatchEntry | null;
 }): DumpManifest {
   const { previous, isNewBaseline, schemaVersion, dataVersion, baselineAsset, patchEntry } = params;

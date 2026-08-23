@@ -11,27 +11,13 @@ import type { LocalShoppingItem } from './use-shopping-list';
 
 type CompleteShoppingRunInput = {
   householdId: string;
-  /**
-   * `null` statt eines erzwungenen leeren Strings: `fridge_items.added_by`/
-   * `shopping_list_items.checked_by` sind nullable `uuid`-Spalten — ein
-   * leerer String ist dort kein gueltiger Wert
-   * ("invalid input syntax for type uuid").
-   */
+  /** Die zugehoerigen UUID-Spalten sind nullable; ein leerer String waere ungueltig. */
   userId: string | null;
   checkedItems: LocalShoppingItem[];
   transfers: TransferItem[];
 };
 
-/**
- * Schliesst den Einkauf ab (#85/#86):
- *
- * 1. Fuer jeden Transfer-Eintrag: neues `fridge_items`-Insert via Outbox
- * 2a. History-Eintrag in `shopping_history` (direkter SQLite-Insert, append-only)
- * 2b. Abgehakte Shopping-Items soft-deleten (aus der Liste entfernen via Outbox)
- *
- * Danach werden beide Caches invalidiert, sodass Einkaufsliste und
- * Vorrat-Screen sofort den neuen Zustand zeigen.
- */
+/** Uebertraegt gekaufte Artikel in den Vorrat und entfernt sie per Outbox aus der Liste. */
 export function useCompleteShoppingRun(householdId: string | undefined) {
   const queryClient = useQueryClient();
   const { data: storageLocations } = useStorageLocations(householdId);
@@ -42,13 +28,11 @@ export function useCompleteShoppingRun(householdId: string | undefined) {
       const now = new Date().toISOString();
       const nowMs = Date.now();
 
-      // Lagerort-ID per kind nachschlagen
       function getLocationId(kind: string): string | null {
         const loc = storageLocations?.find((l) => l.kind === kind);
         return loc?.id ?? null;
       }
 
-      // Schritt 1: fridge_items inserten
       for (const transfer of input.transfers) {
         const id = Crypto.randomUUID();
         const locationId = getLocationId(transfer.locationKind);
@@ -98,7 +82,7 @@ export function useCompleteShoppingRun(householdId: string | undefined) {
         });
       }
 
-      // Schritt 2a: History-Eintrag anlegen (direkt via SQLite db.runAsync, da append-only und ohne Offline-Konflikte)
+      // Die append-only Historie kann ohne Offline-Konflikte direkt lokal geschrieben werden.
       for (const item of input.checkedItems) {
         const historyId = Crypto.randomUUID();
         const transfer = input.transfers.find((t) => t.shoppingItemId === item.id);
@@ -128,7 +112,6 @@ export function useCompleteShoppingRun(householdId: string | undefined) {
         );
       }
 
-      // Schritt 2b: Abgehakte Shopping-Items soft-deleten (aus der Liste entfernen)
       for (const item of input.checkedItems) {
         await enqueueMutation(db, {
           entity: 'shopping_list_items',

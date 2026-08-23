@@ -7,16 +7,6 @@ import { type CoalescedEntry, coalesce } from '@/lib/sync/coalesce';
 import { upsertMirrorRow } from '@/lib/sync/mirror-write';
 import { normalizeUnit } from '@/lib/units';
 
-/**
- * Push-Haelfte der Sync-Engine (#47).
- *
- * Arbeitet die Outbox in Erstellungsreihenfolge ab (`coalesce()` reduziert
- * vorher), wendet bei Erfolg die Server-Antwortzeile lokal an und klassifiziert
- * Fehler ueber `backoff.ts`. Kein Aufruf von `resolve()` — Postgres hat kein
- * Compare-and-Swap auf `updated_at`, jeder Push wird angenommen und bekommt
- * einen neuen, autoritativen Zeitstempel.
- */
-
 export type PushOutcome =
   | { kind: 'pushed' | 'discarded'; entity?: Entity; entityId?: string; sourceIds: number[] }
   | {
@@ -34,7 +24,6 @@ export type PushResult = {
 
 const SYNC_COLUMNS = new Set(['updated_at', 'deleted_at', '_dirty']);
 
-/** insert-Payload: volle Zeile minus Sync-Spalten. id und created_at bleiben. */
 function buildInsertPayload(payload: Record<string, unknown>): Record<string, unknown> {
   const result = Object.fromEntries(
     Object.entries(payload).filter(([key]) => !SYNC_COLUMNS.has(key)),
@@ -45,7 +34,6 @@ function buildInsertPayload(payload: Record<string, unknown>): Record<string, un
   return result;
 }
 
-/** update-Payload: geaenderte Felder minus Sync-Spalten und id (id geht in .eq()). */
 function buildUpdatePayload(payload: Record<string, unknown>): Record<string, unknown> {
   const result = Object.fromEntries(
     Object.entries(payload).filter(([key]) => !SYNC_COLUMNS.has(key) && key !== 'id'),
@@ -62,17 +50,6 @@ type AttemptResult = {
   status: number;
 };
 
-/**
- * `Database`s generierte Typen binden `.from()`/`.insert()`/`.update()` an die
- * konkrete Tabelle — richtig fuer handgeschriebenen Feature-Code, aber diese
- * Funktion ist bewusst entity-uebergreifend generisch (dieselbe Logik fuer
- * alle vier Spiegeltabellen). Eine vollstaendig typsichere Version bruechte
- * eine Funktion pro Tabelle und wuerde den Zweck der generischen Push-Engine
- * unterlaufen. Die Korrektheit sichert stattdessen `entities.ts` (Tabellen-
- * und Spaltennamen kommen aus einer einzigen, gegen das echte Schema
- * getesteten Quelle — siehe `entities.integration.test.ts`), nicht der
- * Typchecker an dieser einen Stelle.
- */
 async function attempt(
   supabase: TypedSupabaseClient,
   table: Entity,
@@ -81,7 +58,7 @@ async function attempt(
   payload: Record<string, unknown>,
   nowMs: number,
 ): Promise<AttemptResult> {
-  // biome-ignore lint/suspicious/noExplicitAny: generische Tabelle, siehe Kommentar oben
+  // biome-ignore lint/suspicious/noExplicitAny: entity-uebergreifender Tabellenzugriff
   const query = supabase.from(table) as any;
 
   if (op === 'insert') {
@@ -98,13 +75,7 @@ async function attempt(
   }
 
   if (op === 'restore') {
-    // Nicht nur { deleted_at: null }: coalesce() haelt group.op auf 'restore'
-    // fest, auch wenn danach noch ein 'update' auf dieselbe id gemergt wird
-    // (z. B. Praeferenz reaktivieren + neue category_id in einem Zug, #223
-    // Paket 3) — der zusaetzliche Payload-Inhalt wuerde sonst schweigend
-    // verworfen. Fuer bestehende reine Undo-Restores (#69) aendert das
-    // nichts: deren Payload traegt ausser deleted_at nur unveraenderte
-    // Identitaetsfelder (z. B. household_id), ein Update darauf ist idempotent.
+    // Ein Restore kann nachfolgend gemergte Update-Felder enthalten.
     const response = await query
       .update({ ...buildUpdatePayload(payload), deleted_at: null })
       .eq('id', entityId)
@@ -116,7 +87,6 @@ async function attempt(
   return response as AttemptResult;
 }
 
-/** Wendet einen einzelnen gecoalescten Push an. Gibt das Ergebnis und zurueck, ob die Schleife stoppen muss. */
 async function applyOnePush(
   db: SqlDatabase,
   supabase: TypedSupabaseClient,
@@ -126,8 +96,6 @@ async function applyOnePush(
 ): Promise<{ outcome: PushOutcome; stop: boolean }> {
   const meta = metaOf(entry.entity);
 
-  // products hat kein deleted_at serverseitig — ein delete/restore waere ein
-  // Soft-Delete-Versuch gegen eine nicht existente Spalte. Kein Netzwerkaufruf.
   if ((entry.op === 'delete' || entry.op === 'restore') && !meta.hasServerTombstone) {
     const message = `${entry.entity} unterstuetzt kein Loeschen/Wiederherstellen (kein Server-Tombstone).`;
     await recordOutboxOutcome(db, entry.sourceIds, {
@@ -156,17 +124,12 @@ async function applyOnePush(
     nowMs,
   );
 
-  // Netzwerkaufruf erfolgreich, aber der lokale Commit (Outbox loeschen +
-  // Server-Zeile upserten) kam vorher nicht mehr zustande: ein insert mit
-  // derselben id verletzt den PK und liefert 23505/409. Die Zeile ist laengst
-  // sicher auf dem Server — ein update mit demselben Inhalt ist idempotent.
+  // Ein vorher erfolgreicher Insert kann nach lokalem Commit-Abbruch bereits existieren.
   if (entry.op === 'insert' && response.error?.code === '23505') {
     response = await attempt(supabase, meta.table, 'update', entry.entityId, entry.payload, nowMs);
   }
 
-  // 23503: Foreign Key Violation (z.B. location_id fehlt auf dem Server).
-  // Versucht den lokal vorhandenen Lagerort zuerst zu Supabase zu pushen oder
-  // setzt location_id auf null, damit das Lebensmittel nicht dauerhaft fehlschlaegt.
+  // Fehlende Lagerorte zuerst pushen oder die Referenz entfernen.
   if (
     response.error &&
     (response.error.code === '23503' || response.error.message?.includes('location_id_fkey')) &&
@@ -205,8 +168,7 @@ async function applyOnePush(
 
   if (response.error) {
     const rawStatus = response.status;
-    // postgrest-js liefert bei einem echten Netzwerkfehler status: 0, nicht
-    // null — classifyError() erwartet null fuer "Server nie erreicht".
+    // PostgREST kodiert Netzwerkfehler als Status 0.
     const status = rawStatus === 0 ? null : rawStatus;
     const kind = classifyError(status);
     const message = response.error.message;
@@ -229,8 +191,7 @@ async function applyOnePush(
           sourceIds: entry.sourceIds,
           error: message,
         },
-        // Netz ist verdaechtig — der naechste Eintrag wuerde vermutlich
-        // ebenso scheitern. Abbrechen erhaelt zudem die Erstellungsreihenfolge.
+        // Abbruch bewahrt bei Netzfehlern die Erstellungsreihenfolge.
         stop: true,
       };
     }
@@ -248,17 +209,13 @@ async function applyOnePush(
         sourceIds: entry.sourceIds,
         error: message,
       },
-      // Eine vergiftete Zeile darf die Queue nicht dauerhaft blockieren.
       stop: false,
     };
   }
 
   const returnedRow = response.data?.[0];
 
-  // Kein Fehler, aber auch keine Zeile: RLS hat die Zeile bei einem
-  // update/delete-als-update still herausgefiltert (0 betroffene Zeilen ist
-  // fuer Postgres kein Fehlerfall). Ohne diesen Fall wuerde unten auf eine nie
-  // vorhandene Zeile zugegriffen.
+  // RLS kann Updates ohne Fehler auf null betroffene Zeilen filtern.
   if (returnedRow === undefined) {
     const message = 'Zeile nicht gefunden oder keine Berechtigung (RLS).';
     await recordOutboxOutcome(db, entry.sourceIds, {

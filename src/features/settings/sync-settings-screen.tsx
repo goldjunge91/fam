@@ -12,13 +12,6 @@ import { useSyncStatus } from '@/hooks/use-sync-status';
 import { getDatabase } from '@/lib/db/client';
 import { triggerHouseholdSync } from '@/lib/sync/sync-runner';
 
-/**
- * Synchronisation als eigene Seite.
- *
- * Auf der Uebersicht steht nur noch der Zustand in einer Zeile; alles, was man
- * dazu tun kann — manuell anstossen, Fehlgeschlagene erneut versuchen, in die
- * Diagnose schauen — liegt hier.
- */
 export function SyncSettingsScreen() {
   const queryClient = useQueryClient();
   const { activeHousehold } = useActiveHousehold();
@@ -61,13 +54,10 @@ export function SyncSettingsScreen() {
       title="Synchronisation"
       back={{ label: 'Einstellungen', href: '/settings' }}
       backStyle="icon">
-      {/* Statuskarte mit aktuellem Sync-Zustand, Fehlermeldungen und manuellen Sync-Aktionen */}
       <Card title="Status">
         <ThemedText type="small" themeColor="textSecondary">
           Daten werden im Hintergrund automatisch synchronisiert.
         </ThemedText>
-        {/* Kein separates marginTop mehr: card-fam liefert bereits gap-two
-            zwischen allen Kindern (Card-Komponente). */}
         <ThemedText type="smallBold" themeColor={tone}>
           {text}
         </ThemedText>

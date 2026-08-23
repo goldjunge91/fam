@@ -86,11 +86,7 @@ export type RecipeStep = {
   ingredientIds: string[];
 };
 
-/**
- * Nur um `name` erweitert gegenueber `ProductNutritionRow` — nutrition.ts
- * selbst bleibt bewusst frei von Anzeige-Feldern, `name` wird ausschliesslich
- * fuer Zutaten-Chips (Rezept-Detail/Wizard) gebraucht.
- */
+/** Ergaenzt Naehrwertdaten um den Anzeigenamen. */
 export type ProductRow = ProductNutritionRow & { name: string };
 
 export type RecipeDetail = {
@@ -104,8 +100,6 @@ export type RecipeDetail = {
 function nowStamp() {
   return { iso: new Date().toISOString(), ms: Date.now() };
 }
-
-// ------------------------------------------------------------------- Queries
 
 export function useRecipes(householdId: string | undefined) {
   return useQuery({
@@ -260,8 +254,6 @@ export function useRecipeDetail(recipeId: string | undefined) {
     enabled: !!recipeId,
   });
 }
-
-// ----------------------------------------------------------------- Mutations
 
 export function useAddRecipeMutation() {
   const queryClient = useQueryClient();
@@ -424,10 +416,7 @@ export function useDeleteRecipeMutation() {
       const db = await getDatabase();
       const { iso, ms } = nowStamp();
 
-      // Soft-Delete kaskadiert nicht serverseitig (kein Hard-Delete, siehe
-      // Kommentar in 11_recipes.sql) — Komponenten und Positionen muessen hier
-      // einzeln als geloescht markiert werden, sonst blieben sie im Spiegel
-      // und in der UI eines anderen Mitglieds sichtbar haengen.
+      // Soft-Deletes kaskadieren nicht; Kindzeilen muessen explizit folgen.
       const components = await db.getAllAsync<{ id: string }>(
         'select id from recipe_components where recipe_id = ? and deleted_at is null',
         [input.id],
@@ -653,10 +642,7 @@ export function useDeleteComponentMutation() {
     mutationFn: async (input: { id: string; recipe_id: string; household_id: string }) => {
       const db = await getDatabase();
 
-      // UI-Limit 2 Ebenen (#123-AC): eine Komponente, die als Unterkomponente
-      // einer anderen benutzt wird, darf nicht geloescht werden, ohne diese
-      // Referenz zuerst aufzuloesen — sonst zeigt eine verbleibende Position
-      // ins Leere.
+      // Referenzierte Unterkomponenten duerfen keine verwaisten Positionen hinterlassen.
       const usedAsSubComponent = await db.getFirstAsync<{ id: string }>(
         'select id from recipe_component_items where sub_component_id = ? and deleted_at is null',
         [input.id],
@@ -791,7 +777,6 @@ export function useAddItemMutation() {
   });
 }
 
-/** War frueher `useUpdateItemGramsMutation` — aendert jetzt auch quantity/unit, nicht nur grams. */
 export function useUpdateItemMutation() {
   const queryClient = useQueryClient();
 
@@ -872,8 +857,6 @@ export function useDeleteItemMutation() {
     },
   });
 }
-
-// ------------------------------------------------------------- Schritte (Wizard)
 
 export function useAddStepMutation() {
   const queryClient = useQueryClient();
@@ -993,9 +976,7 @@ export function useDeleteStepMutation() {
       const db = await getDatabase();
       const { iso, ms } = nowStamp();
 
-      // Zutaten-Referenzen dieses Schritts muessen einzeln als geloescht
-      // markiert werden — analog zum Loeschen eines Rezepts oben, kein
-      // serverseitiges Kaskadieren bei Soft-Delete.
+      // Schritt-Zutaten folgen dem Soft-Delete nicht automatisch.
       const stepIngredients = await db.getAllAsync<{ id: string }>(
         'select id from recipe_step_ingredients where step_id = ? and deleted_at is null',
         [input.id],

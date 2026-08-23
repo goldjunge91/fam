@@ -13,21 +13,15 @@ on:
       - 'docs/**'
       - '.gitignore'
 
-# Ein neuer Push auf denselben PR/Branch bricht den vorherigen Lauf ab, statt
-# ihn zu Ende laufen zu lassen — spart Minuten bei schnell aufeinanderfolgenden
-# Commits.
 concurrency:
   group: ci-${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
 env:
-  # Muss mit der lokal verwendeten Version uebereinstimmen (siehe AGENTS.md:
-  # die pg-delta-Engine wurde gegen CLI 2.111 gegengeprueft).
+  # Muss zur lokal geprüften pg-delta-Version passen.
   SUPABASE_CLI_VERSION: 2.111.0
 
 jobs:
-  # Schnelles Feedback ohne Docker: Typecheck, Linter, mock-freie Unit-Tests.
-  # Aufgeteilt in 3 parallele Matrix-Jobs fuer maximalen Durchsatz auf separaten Runners.
   checks:
     name: ${{ matrix.task.name }}
     runs-on: ubuntu-latest
@@ -70,9 +64,6 @@ jobs:
         if: matrix.task.name == 'Unit-Tests'
         run: bun run test:functions
 
-  # Braucht eine echte lokale Supabase-Instanz (Docker) — RLS-Policies lassen
-  # sich nicht sinnvoll mocken (CLAUDE.md, #43: "Ein Fehler hier ist ein
-  # Datenleck, kein Bug").
   database:
     name: DB-Schema, RLS und Integrationstests
     runs-on: ubuntu-latest
@@ -129,10 +120,7 @@ jobs:
 
       - name: Schema-Diff muss leer sein (Declarative-Schema-Workflow, AGENTS.md)
         run: |
-          # --output-format explizit auf text, statt uns auf den Default zu
-          # verlassen: der lieferte in Tests auch ohne Aenderungen ein JSON-
-          # Objekt ({"diff":"",...}) statt leerem stdout — die naive
-          # Leerpruefung waere dadurch immer fehlgeschlagen.
+          # JSON-Ausgabe wäre auch bei leerem Diff nicht leer.
           diff_output="$(supabase db diff --use-pg-delta --output-format text)"
           if [ -n "$diff_output" ]; then
             echo "$diff_output"

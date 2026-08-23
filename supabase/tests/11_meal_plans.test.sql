@@ -32,7 +32,6 @@ values
   (:'plan_id', :'hid', :'recipe_id', '2026-08-17', 'dinner', 'portions', 4)
 returning id as entry_id \gset
 
--- ------------------------------------------------------- geteilt im Haushalt
 select tests.authenticate_as('22222222-2222-2222-2222-222222222222');
 
 select is(
@@ -58,7 +57,6 @@ select is(
   'jedes Mitglied darf Eintraege zu einem geteilten Wochenplan hinzufuegen'
 );
 
--- ------------------------------------------------------------- Aussenstehende
 select tests.authenticate_as('33333333-3333-3333-3333-333333333333');
 
 select is(
@@ -96,7 +94,6 @@ select throws_ok(
   'Aussenstehende koennen keinen Eintrag in einen fremden Wochenplan einschleusen'
 );
 
--- --------------------------------------------------------- Check-Constraints
 select tests.authenticate_as('11111111-1111-1111-1111-111111111111');
 
 select throws_ok(
@@ -123,7 +120,6 @@ select throws_ok(
   'im Personen-Modus muss people_count gesetzt sein'
 );
 
--- Zweiter Plan fuer dieselbe Woche desselben Haushalts ist nicht erlaubt.
 select throws_ok(
   format(
     $$ insert into public.meal_plans (household_id, name, week_start_date, created_by)

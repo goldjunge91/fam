@@ -24,18 +24,7 @@ import { compareByExpiry, getExpiryInfo } from './expiry';
 import { type LocalInventoryItem, useInventoryItems } from './use-inventory-items';
 import { useUpdateInventoryItemQuantityMutation } from './use-inventory-mutations';
 
-/**
- * Vorrat-Bestand, dynamisch gefiltert nach Lagerort (#67).
- *
- * - Dynamische Tab-Filter basierend auf den Lagerorten aus den Einstellungen
- * - Farbiger linker Rand als MHD-Ampel (#71, expiry.ts)
- * - Grosszuegige Zusammenfassung mit kompakter Arbeitsliste
- * - Vertikaler MHD-Indikator ohne dekorative Produktkacheln
- * - Kurzer Tap = Aktionen, langer Tap = Produktinformationen
- * - Eine einzige virtualisierte FlatList (Summary/Tabs/Sortierzeile als
- *   ListHeaderComponent) statt verschachtelter Listen, damit lange
- *   Bestände nicht komplett gerendert werden.
- */
+/** Virtualisierte, nach Lagerort gefilterte Vorratsliste. */
 type SortMode = 'expiry' | 'name';
 
 export function InventoryScreen() {
@@ -72,9 +61,7 @@ export function InventoryScreen() {
   const { bottom } = useSafeAreaInsets();
   const paddingBottom = Math.max(bottom, Spacing.four) + Layout.floatingActionClearance;
 
-  // filter=expiring (#73, vom Dashboard-Widget) ueberschreibt den
-  // Lagerort-Tab-Filter, statt ihn zu kombinieren — einfacher, und die
-  // Tab-Auswahl bleibt fuer den naechsten Besuch ohne den Query-Param erhalten.
+  // Der Ablauf-Deep-Link ueberschreibt den Tab nur fuer diesen Besuch.
   const selectedLocationId =
     activeLocationId === 'all' || locations.some((location) => location.id === activeLocationId)
       ? activeLocationId
@@ -92,8 +79,7 @@ export function InventoryScreen() {
     ? baseItems.filter((item) => item.name.toLowerCase().includes(searchQuery.trim().toLowerCase()))
     : baseItems;
 
-  // SQL liefert bereits MHD-sortiert (default) — der Toggle sortiert nur
-  // client-seitig um, keine Requery noetig fuer "Name" (#71).
+  // Nur die alternative Namenssortierung geschieht clientseitig.
   const visibleItems = [...searchedItems].sort((a, b) =>
     sortMode === 'name'
       ? a.name.localeCompare(b.name, 'de')
@@ -137,7 +123,6 @@ export function InventoryScreen() {
   if (!householdId) {
     return (
       <Screen title="Vorrat" chrome={chrome}>
-        {/* Leerer Zustand wenn noch kein Haushalt aktiv/ausgewählt ist */}
         <Card>
           <EmptyState
             symbol="archivebox"
@@ -161,7 +146,6 @@ export function InventoryScreen() {
       backgroundGradient={hubGradient}
       scroll={false}
       applyBottomPadding={false}>
-      {/* Virtuelle Vorratsliste mit Header, Filtern und MHD-Einträgen */}
       <FlatList
         data={visibleItems}
         keyExtractor={(item) => item.id}
@@ -169,14 +153,12 @@ export function InventoryScreen() {
         contentContainerStyle={{ paddingBottom }}
         ListHeaderComponent={
           <View className="gap-three pb-two">
-            {/* Vorrats-Statistik: Gesamtanzahl & kritische/bald ablaufende Artikel */}
             <InventorySummaryCard
               totalCount={allItems.length}
               criticalCount={expiryCounts.critical}
               soonCount={expiryCounts.soon}
             />
 
-            {/* Toolbar mit dynamischen Lagerort-Tabs und Artikelsuchfeld */}
             {locationsLoading || locations.length === 0 ? null : (
               <View className="inventory-toolbar-row">
                 <InventoryTabBar
@@ -188,7 +170,6 @@ export function InventoryScreen() {
               </View>
             )}
 
-            {/* Sortierleiste (nach Haltbarkeit / alphabetisch) */}
             {allItems.length > 0 ? (
               <View className="fridge-sort-row">
                 <ThemedText
@@ -212,7 +193,6 @@ export function InventoryScreen() {
           </View>
         }
         ListEmptyComponent={
-          /* Leerzustand bei leerem Lagerort oder erfolgloser Suche */
           isLoading ? null : visibleItems.length === 0 ? (
             <Card className="mt-two">
               <EmptyState
@@ -232,7 +212,6 @@ export function InventoryScreen() {
           ) : null
         }
         renderItem={({ item }) => (
-          /* Einzelne Artikelzeile mit MHD-Status und Mengensteuerung */
           <InventoryItemRow
             item={item}
             onPress={() => setActionItem(item)}
@@ -242,7 +221,6 @@ export function InventoryScreen() {
         )}
       />
 
-      {/* Aktions-Bottom-Sheet für schnelles Verbrauchen, Ändern und Löschen */}
       <InventoryItemActionsSheet
         visible={!!currentActionItem}
         item={currentActionItem}
@@ -259,14 +237,12 @@ export function InventoryScreen() {
         }}
       />
 
-      {/* Detail-Modal für Produktinformationen & Nährwerte */}
       <ProductDetailModal
         visible={!!informationItem}
         item={informationItem}
         onClose={() => setInformationItem(null)}
       />
 
-      {/* Bearbeitungs-Sheet für Name, Lagerort, Menge und Mindesthaltbarkeitsdatum */}
       <EditInventoryItemSheet
         visible={!!editItem}
         item={editItem}

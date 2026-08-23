@@ -1,12 +1,4 @@
-/**
- * Reine Aggregationslogik für die Dump-Kalibrierung (#223 Paket 1, Abschnitt
- * 15). Getrennt von `evaluate-categories.ts`, damit der Kern ohne SQLite/
- * Dateisystem testbar ist — die CLI (Datei lesen, JSON/HTML schreiben) bleibt
- * ein dünner Wrapper um `evaluateDump()`.
- *
- * Ruft `classifyCategory()` direkt aus der produktiven Klassifikations-Engine
- * auf (keine Zweitimplementierung), siehe `src/features/shopping-list/classification/`.
- */
+/** Reine Metriklogik auf Basis der produktiven Kategorie-Klassifikation. */
 
 import { CLASSIFIER_VERSION } from '@/features/shopping-list/classification/classifier-version';
 import { classifyCategory } from '@/features/shopping-list/classification/shopping-category-classifier';
@@ -16,7 +8,6 @@ import type { GoldenCorpusEntry } from './category-golden-corpus';
 export type DumpProductInput = {
   barcode: string;
   name: string;
-  /** Leer/undefined solange der Dump noch Schema 1 ist (kein `categories_tags`, siehe #223 Paket 4). */
   categoryTags?: string[];
 };
 
@@ -34,7 +25,6 @@ export type CalibrationReport = {
   sonstigesShare: number;
   sourceCounts: { off_taxonomy: number; name_fallback: number; none: number };
   categoryDistribution: Record<ShoppingCategoryId, number>;
-  /** Bis zu 100 deterministisch gewählte Beispiele je Kategorie. */
   samples: Record<ShoppingCategoryId, CategorySample[]>;
   golden: {
     total: number;
@@ -60,12 +50,7 @@ export const ALL_SHOPPING_CATEGORY_IDS: readonly ShoppingCategoryId[] = [
   'checkout',
 ];
 
-/**
- * Stabiler FNV-1a-Hash für deterministisches, von der Dump-Zeilenreihenfolge
- * unabhängiges Sampling — zwei Läufe über denselben Dump liefern dieselben
- * 100 Stichproben je Kategorie, auch wenn eine künftige Dump-Version Zeilen
- * in anderer Reihenfolge liefert.
- */
+/** Stabiler Hash fuer reihenfolgeunabhaengiges, reproduzierbares Sampling. */
 function stableHash(value: string): number {
   let hash = 0x811c9dc5;
   for (let i = 0; i < value.length; i++) {

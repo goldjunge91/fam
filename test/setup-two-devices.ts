@@ -5,22 +5,13 @@ import { MIGRATIONS } from '@/lib/db/migrations';
 import { runMigrations } from '@/lib/db/migrator';
 import { createTestDatabase, type TestDatabase } from './node-sqlite-adapter';
 
-/**
- * Baut zwei "Geraete" derselben Nutzerin fuer Zwei-Geraete-Tests: eigene
- * lokale DB, eigene Session, gemeinsamer Haushalt. Gemeinsam genutzt von
- * `engine.integration.test.ts` (#47) und `realtime.integration.test.ts`
- * (#48) — kein Mock, echte lokale Supabase-Instanz, echte node:sqlite-DBs.
- */
+/** Zwei echte lokale Datenbanken und Sessions in einem gemeinsamen Haushalt. */
 
 const SUPABASE_URL = process.env.EXPO_PUBLIC_SUPABASE_URL ?? '';
 const SUPABASE_KEY = process.env.EXPO_PUBLIC_SUPABASE_KEY ?? '';
 const SERVICE_ROLE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY ?? '';
 
-/**
- * Service-Role-Client fuer Teardown — loescht Testdaten per SQL, ohne den
- * Household-Admin-Constraint auszuloesen. Lazy initialisiert, damit der
- * Import allein noch keinen Client baut.
- */
+/** Lazy Service-Role-Client fuer den vollstaendigen Test-Teardown. */
 let _admin: SupabaseClient<Database> | null = null;
 function adminClient(): SupabaseClient<Database> {
   if (_admin) return _admin;
@@ -62,7 +53,7 @@ export type TwoDeviceSetup = {
   deviceA: Device;
   deviceB: Device;
   householdId: string;
-  /** Raeumt alle Server-Daten auf (Haushalt, Members, User). Immer aufrufen — in afterEach oder finally. */
+  /** In `afterEach` oder `finally` aufrufen. */
   teardown: () => Promise<void>;
 };
 
@@ -70,12 +61,7 @@ export async function setupTwoDevices(prefix = 'device'): Promise<TwoDeviceSetup
   const email = uniqueEmail(prefix);
   const password = 'langgenug1';
 
-  // Admin-Erstellung mit email_confirm:true statt des oeffentlichen
-  // signUp()-Wegs: seit enable_confirmations=true (lokal jetzt passend zum
-  // Remote-Projekt, siehe config.toml) liefert signUp() keine Session mehr,
-  // solange die Adresse nicht per Klick auf den Bestaetigungslink bestaetigt
-  // wurde. Diese Suite prueft Sync-Konvergenz, nicht den
-  // Bestaetigungs-Flow — der hat eigene Tests (PendingAuthBanner).
+  // Diese Sync-Suite umgeht bewusst den getrennt getesteten Bestaetigungs-Flow.
   const { data: createData, error: createError } = await adminClient().auth.admin.createUser({
     email,
     password,
@@ -104,19 +90,16 @@ export async function setupTwoDevices(prefix = 'device'): Promise<TwoDeviceSetup
   await runMigrations(dbB, MIGRATIONS);
 
   const teardown = async () => {
-    // Reihenfolge: Kind-Tabellen → Elterntabellen → auth.users.
-    // Direkt per service-role RPC, nicht ueber admin.auth.admin.deleteUser —
-    // das scheitert am Household-Admin-Constraint und hinterlaesst Leichen.
+    // Kindtabellen muessen vor Haushalt und Auth-Nutzer verschwinden.
     const admin = adminClient();
     await admin.from('shopping_list_items').delete().eq('household_id', householdId);
     await admin.from('fridge_items').delete().eq('household_id', householdId);
     await admin.from('storage_locations').delete().eq('household_id', householdId);
     await admin.from('household_members').delete().eq('household_id', householdId);
     await admin.from('households').delete().eq('id', householdId);
-    // Jetzt ist der User kein Admin mehr → deleteUser greift.
     await admin.auth.admin.deleteUser(userId);
 
-    // Versuche, offene WebSocket-Handles und SQLite-Verbindungen abzubauen, damit Jest sauber beenden kann
+    // Offene Handles wuerden den Testprozess am Beenden hindern.
     try {
       await clientA.removeAllChannels();
       await clientB.removeAllChannels();
@@ -124,18 +107,12 @@ export async function setupTwoDevices(prefix = 'device'): Promise<TwoDeviceSetup
       await clientB.realtime.disconnect();
       (clientA.realtime as any).conn?.close();
       (clientB.realtime as any).conn?.close();
-    } catch {
-      // Ignoriere Fehler bei bereits geschlossenen Sockets
-    }
+    } catch {}
     dbA.close();
     dbB.close();
   };
 
-  // Workaround fuer "JWT issued at future" in lokalen Docker-Umgebungen:
-  // GoTrue generiert das Token, Realtime / PostgREST verifiziert es. Durch leichte
-  // Clock-Drifts zwischen den Containern oder zur Host-VM wird das Token
-  // abgewiesen, wenn es *zu frisch* ist (iat liegt in der Zukunft). 3s
-  // abwarten behebt das i. d. R. zuverlaessig.
+  // Puffer fuer Clock-Drift zwischen GoTrue, PostgREST und Realtime.
   await new Promise((resolve) => setTimeout(resolve, 3000));
 
   return {
@@ -146,7 +123,6 @@ export async function setupTwoDevices(prefix = 'device'): Promise<TwoDeviceSetup
   };
 }
 
-/** Wirft, wenn die Testsuite versehentlich gegen ein entferntes Projekt liefe. */
 export function assertLocalSupabase(): void {
   if (!/^https?:\/\/(127\.0\.0\.1|localhost)(:|\/|$)/.test(SUPABASE_URL)) {
     throw new Error(`Nur gegen localhost erlaubt. Erhalten: ${SUPABASE_URL || '(leer)'}`);

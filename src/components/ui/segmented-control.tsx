@@ -18,7 +18,6 @@ type SegmentedControlProps<T extends string> = {
   labelStyle?: StyleProp<TextStyle>;
 };
 
-/** Gleichbreite Einzelauswahl fuer kompakte Ansichtsmodi. */
 export function SegmentedControl<T extends string>({
   label,
   options,

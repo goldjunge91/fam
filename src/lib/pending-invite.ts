@@ -34,14 +34,7 @@ export async function peekPendingInviteToken(): Promise<string | null> {
   }
 }
 
-/**
- * Loescht den gemerkten Token explizit, z. B. nachdem er erfolgreich
- * eingeloest wurde. Getrennt von `consumePendingInviteToken`, damit
- * Aufrufer, die nur automatisch *versuchen* einzuloesen, den Token bei
- * einem Fehlschlag NICHT verlieren (siehe #128: mehrere Stellen lasen und
- * loeschten ihn gleichzeitig destruktiv, sodass er verloren ging, bevor der
- * eigentliche Beitritt gegluecht war).
- */
+/** Erst nach erfolgreichem Einloesen loeschen, damit Fehlversuche den Token behalten. */
 export async function clearPendingInviteToken(): Promise<void> {
   try {
     await AsyncStorage.removeItem(PENDING_INVITE_KEY);

@@ -2,13 +2,6 @@ import { Text, type TextProps, type TextStyle } from 'react-native';
 
 import { Fonts, type ThemeColor } from '@/constants/theme';
 
-/**
- * Einzige Quelle fuer feste Schriftgroessen in der App.
- *
- * Die numerischen Schluessel bilden die bisherigen Designwerte ab. Aufrufer
- * referenzieren nur diese Tokens, damit keine Schriftgroesse ausserhalb dieser
- * Datei definiert wird.
- */
 export const FontSize = {
   7: { fontSize: 7 },
   8: { fontSize: 8 },
@@ -35,7 +28,6 @@ export const FontSize = {
   52: { fontSize: 52 },
 } as const;
 
-/** Semantische Textstile des fam Design-Systems. */
 export const Typography = {
   micro: { ...FontSize[9], lineHeight: 14 },
   captionCompact: { ...FontSize[11], lineHeight: 14 },
@@ -57,23 +49,8 @@ export const Typography = {
   code: { ...FontSize[12] },
 } as const;
 
-/**
- * Benannte Text-Rollen: Groesse **und** Gewicht liegen fest, unabhaengig
- * davon, ob ein gleichnamiger `Typography`-Schluessel existiert. `title` ist
- * z. B. immer "grosse Ueberschrift" (`display`-Groesse + Gewicht 600) und
- * beansprucht den Namen `title` fuer sich — der rohe `Typography.title`-Wert
- * (32/44, ohne Gewicht) ist ueber `type` deshalb nicht separat erreichbar,
- * sondern nur direkt per `import { Typography } from '@/components/themed-text'`.
- * Praktisch betrifft das nur `title`: `link` und `code` als Rolle liefern
- * ohnehin exakt `Typography.link`/`Typography.code` (kein Unterschied), nur
- * `title` (Rolle) und `Typography.title` (Rohgroesse) sind zwei
- * verschiedene Werte hinter demselben Namen.
- */
 const TEXT_ROLE_CLASS_MAP = {
-  // 16px statt der frueheren 14px (text-body-small) — die "small"-Rolle
-  // traegt fast den gesamten Fliesstext der App (Listenzeilen, Metadaten,
-  // Sekundaertexte) und wurde als zu klein empfunden. Deckt sich jetzt mit
-  // "default"/"body-relaxed", kein neuer Groessenwert im System.
+  // `small` bleibt fuer Lesbarkeit bei 16 px statt der frueheren 14 px.
   small: 'text-body-relaxed font-medium text-text',
   smallBold: 'text-body-relaxed font-bold text-text',
   smallSelected: 'text-body-relaxed font-semibold text-accent',

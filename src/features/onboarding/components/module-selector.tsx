@@ -14,7 +14,7 @@ const MODULE_ROWS: {
   icon: string;
   title: string;
   desc: string;
-  /** Remote-Gate (#183) — nur fuer gestaffelt ausgerollte Module, siehe ModuleGate. */
+  /** Remote-Gate fuer gestaffelte Rollouts. */
   featureFlag?: FeatureFlagKey;
 }[] = [
   {
@@ -55,8 +55,7 @@ const MODULE_ROWS: {
 export function ModuleSelectorForm({ onNext, onSkip }: ModuleSelectorFormProps) {
   const { state, updateModulesData } = useOnboarding();
 
-  // Feste, bekannte Flags — kein dynamischer Lookup pro Zeile, damit die
-  // Anzahl der Hook-Aufrufe zwischen Renders stabil bleibt (Rules of Hooks).
+  // Feste Hooks halten ihre Anzahl zwischen Renders stabil.
   const featureFlags: Partial<Record<FeatureFlagKey, boolean>> = {
     'module-recipes': useFeatureFlag('module-recipes', false),
     'module-meal-planner': useFeatureFlag('module-meal-planner', false),
@@ -76,9 +75,7 @@ export function ModuleSelectorForm({ onNext, onSkip }: ModuleSelectorFormProps) 
 
       <View className="perm-list">
         {MODULE_ROWS.map((row) => {
-          // Gesperrt = das Modul wird gerade schrittweise ausgerollt und ist
-          // fuer diesen Nutzer noch nicht freigeschaltet (#183) — Karte
-          // bleibt sichtbar, Switch wird per grauer Ueberlagerung unbedienbar.
+          // Gesperrte Rollout-Module bleiben sichtbar, aber unbedienbar.
           const locked = row.featureFlag !== undefined && !featureFlags[row.featureFlag];
 
           return (

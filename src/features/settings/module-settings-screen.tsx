@@ -17,7 +17,7 @@ const MODULE_ROWS: {
   icon: string;
   title: string;
   desc: string;
-  /** Remote-Gate (#183) — nur fuer gestaffelt ausgerollte Module, siehe ModuleGate. */
+  /** Optionales Gate fuer gestaffelt ausgerollte Module. */
   featureFlag?: FeatureFlagKey;
 }[] = [
   {
@@ -55,12 +55,7 @@ const MODULE_ROWS: {
   },
 ];
 
-/**
- * Modul-Aktivierung (#95) ausserhalb des Onboardings — loest das dort
- * gegebene Versprechen ein ("kannst du später in den Einstellungen
- * anpassen"). Dashboard und Einstellungen sind bewusst nicht abwaehlbar,
- * siehe `docs/VISION.md`, und tauchen deshalb hier nicht auf.
- */
+/** Verwaltet die Module, die `ModuleGate` ausblenden kann. */
 export function ModuleSettingsScreen() {
   const { session } = useSession();
   const userId = session?.user.id;
@@ -69,8 +64,7 @@ export function ModuleSettingsScreen() {
   const modules = rawModules ?? DEFAULT_MODULE_PREFERENCES;
   const updateMutation = useUpdateModulePreferencesMutation();
 
-  // Feste, bekannte Flags — kein dynamischer Lookup pro Zeile, damit die
-  // Anzahl der Hook-Aufrufe zwischen Renders stabil bleibt (Rules of Hooks).
+  // Feste Hook-Aufrufe halten ihre Anzahl zwischen Renders stabil.
   const featureFlags: Partial<Record<FeatureFlagKey, boolean>> = {
     'module-recipes': useFeatureFlag('module-recipes', false),
     'module-meal-planner': useFeatureFlag('module-meal-planner', false),
@@ -84,20 +78,15 @@ export function ModuleSettingsScreen() {
 
   return (
     <Screen title="Module" back={{ label: 'Einstellungen', href: '/settings' }} backStyle="icon">
-      {/* Hinweistext zur Ausblendung von Modulen */}
       <Card>
         <ThemedText type="small" themeColor="textSecondary">
           Deaktivierte Module verschwinden aus der Navigation, deine Daten bleiben erhalten.
         </ThemedText>
       </Card>
 
-      {/* Liste aller App-Module mit Toggle-Schaltern (Vorrat, Einkauf, Tagebuch, Rezepte, Meal-Planner) */}
       <View className="gap-two">
         {MODULE_ROWS.map((row) => {
-          // Gesperrt = das Modul wird gerade schrittweise ausgerollt und ist
-          // fuer diesen Nutzer noch nicht freigeschaltet (#183) — unabhaengig
-          // von seiner eigenen Praeferenz. Karte bleibt sichtbar, Switch wird
-          // per grauer Ueberlagerung unbedienbar (Variante A).
+          // Remote-Gates sperren die Karte unabhaengig von der Nutzerpraeferenz.
           const locked = row.featureFlag !== undefined && !featureFlags[row.featureFlag];
 
           return (

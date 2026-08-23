@@ -161,28 +161,22 @@ describe('DashboardScreen — iOS-Style Wackel-Modus & Plus-Button', () => {
   it('aktiviert Edit-Modus bei Long-Press, zeigt Plus- und Fertig-Knopf und öffnet Galerie', async () => {
     await renderScreen();
 
-    // Vor Edit-Modus: Kein Plus- und Fertig-Knopf
     expect(screen.queryByLabelText('Karten anpassen')).toBeNull();
     expect(screen.queryByLabelText('Bearbeitungsmodus beenden')).toBeNull();
 
-    // Long-Press auf eine Karte aktiviert den Edit-Modus
     const plannedCard = screen.getByLabelText('Essensplan öffnen');
     await fireEvent(plannedCard, 'longPress');
 
     expect(Haptics.impactAsync).toHaveBeenCalledWith('medium');
 
-    // Plus-Button und Fertig-Button sind nun im Header sichtbar
     expect(screen.getByLabelText('Karten anpassen')).toBeTruthy();
     expect(screen.getByLabelText('Bearbeitungsmodus beenden')).toBeTruthy();
 
-    // Plus-Button öffnet das Galerie-Sheet
     await fireEvent.press(screen.getByLabelText('Karten anpassen'));
     expect(screen.getByText('Karten anpassen')).toBeTruthy();
 
-    // Fertig-Knopf in Galerie schließt Sheet
     await fireEvent.press(screen.getByLabelText('Galerie schließen'));
 
-    // Fertig-Knopf im Header beendet Edit-Modus
     await fireEvent.press(screen.getByLabelText('Bearbeitungsmodus beenden'));
     expect(screen.queryByLabelText('Karten anpassen')).toBeNull();
   });
@@ -190,33 +184,26 @@ describe('DashboardScreen — iOS-Style Wackel-Modus & Plus-Button', () => {
   it('erlaubt das Löschen einer Karte im Edit-Modus und das Wiederherstellen über die Galerie', async () => {
     await renderScreen();
 
-    // In Edit-Modus wechseln
     const plannedCard = screen.getByLabelText('Essensplan öffnen');
     await fireEvent(plannedCard, 'longPress');
 
-    // Delete-Badges sind sichtbar
     const deleteButtons = screen.getAllByLabelText('Karte entfernen');
     expect(deleteButtons.length).toBeGreaterThan(0);
 
-    // Erste Karte löschen
     await fireEvent.press(deleteButtons[0]);
     expect(Haptics.impactAsync).toHaveBeenCalledWith('medium');
 
-    // Galerie öffnen um Karte wieder hinzuzufügen
     await fireEvent.press(screen.getByLabelText('Karten anpassen'));
 
-    // Die gelöschte Karte hat nun einen Hinzufügen-Knopf
     const addButtons = screen.getAllByText('+ Hinzufügen');
     expect(addButtons.length).toBeGreaterThan(0);
 
-    // Hinzufügen anklicken
     await fireEvent.press(addButtons[0]);
     expect(Haptics.impactAsync).toHaveBeenCalledWith('medium');
   });
 
   it('berücksichtigt eine benutzerdefinierte Drag & Drop Sortierung', async () => {
     await renderScreen();
-    // Alle Standard-Widgets werden in stabiler Reihenfolge gerendert
     expect(screen.getByLabelText('Essensplan öffnen')).toBeTruthy();
     expect(screen.getByText('Läuft bald ab')).toBeTruthy();
   });

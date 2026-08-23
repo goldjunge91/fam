@@ -3,16 +3,6 @@ import { runMigrations } from '@/lib/db/migrator';
 import { addOrMergeShoppingItem } from '@/lib/db/shopping-list-merge';
 import { createTestDatabase, type TestDatabase } from '../../../test/node-sqlite-adapter';
 
-/**
- * `addOrMergeShoppingItem` gegen eine echte SQLite-Engine — kein Mock.
- *
- * Deckt zwei Nutzer-Anforderungen ab: gleiche Artikel duerfen nicht doppelt
- * auf der Einkaufsliste landen (egal ob vom Wochenplaner oder manuell
- * hinzugefuegt), und Mengen sollen sich zusammenfuehren statt nebeneinander
- * zu existieren — auch wenn ein Artikel aus einem Rezept stammt und ein
- * anderer manuell eingetragen wurde.
- */
-
 async function readItems(db: TestDatabase, householdId: string) {
   return db.getAllAsync<{
     id: string;
@@ -41,7 +31,6 @@ describe('addOrMergeShoppingItem', () => {
     db.close();
   });
 
-  /** Erzeugt eine im Test eindeutige id — Produktions-Code liefert `Crypto.randomUUID()`. */
   function add(input: Parameters<typeof addOrMergeShoppingItem>[2]) {
     return addOrMergeShoppingItem(db, `item-${nextId++}`, input);
   }
@@ -61,7 +50,6 @@ describe('addOrMergeShoppingItem', () => {
   });
 
   it('fuehrt zwei Artikel mit demselben Produkt zusammen, statt ein Duplikat anzulegen', async () => {
-    // Simuliert: Rezept A braucht 300g Mehl, Rezept B (Wochenplaner) 200g.
     await add({
       household_id: 'hh-1',
       name: 'Mehl',

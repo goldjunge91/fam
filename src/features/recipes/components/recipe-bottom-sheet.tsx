@@ -14,12 +14,6 @@ type RecipeBottomSheetProps = {
   children: ReactNode;
 };
 
-/**
- * Gemeinsames Chrome der Rezept-Bottom-Sheets (Bewerten, Fehlende Zutaten):
- * abgedunkelter Hintergrund, Ziehgriff und Kopfzeile mit Schließen-Button.
- * Vorher unabhaengig in `recipe-rating-sheet.tsx` und
- * `recipe-shopping-sheet.tsx` dupliziert (#162).
- */
 export function RecipeBottomSheet({
   visible,
   onClose,

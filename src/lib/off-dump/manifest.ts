@@ -1,13 +1,3 @@
-/**
- * Manifest-Vertrag des rollierenden `off-dump-current`-Release (#223 Paket
- * 6, Abschnitt 13/14 in docs/issue#223_V2.md). Spiegelt bewusst
- * `DumpManifest` aus `scripts/dump_data/dump-manifest-core.ts` — dieselbe
- * Grenze wie zwischen den Deno-Edge-Functions und dem App-Client: kein
- * Import über die Laufzeitgrenze (Bun-CLI-Skript vs. React-Native-App),
- * stattdessen ein kleiner, eigenständig gepflegter Typ für den reinen
- * Wire-Format-Vertrag.
- */
-
 export type DumpManifestAsset = { url: string; size: number; sha256: string };
 
 export type DumpManifestPatchEntry = DumpManifestAsset & {
@@ -45,11 +35,6 @@ function isDumpManifestPatchEntry(value: unknown): value is DumpManifestPatchEnt
   );
 }
 
-/**
- * Validiert die grobe Form eines rohen JSON-Werts als `DumpManifest`. Reine
- * Funktion, unabhängig von `fetch()` testbar — dasselbe Muster wie
- * `parseOffResponse()` in der Edge Function.
- */
 export function parseManifest(raw: unknown): DumpManifest | null {
   if (!raw || typeof raw !== 'object') return null;
   const value = raw as Record<string, unknown>;
@@ -67,7 +52,7 @@ export function parseManifest(raw: unknown): DumpManifest | null {
   return value as unknown as DumpManifest;
 }
 
-/** Lädt und validiert das Manifest. `null` bei jedem Fehler — kein Wurf. */
+/** Gibt bei Netzwerk- oder Validierungsfehlern `null` zurueck. */
 export async function fetchManifest(
   url: string,
   signal?: AbortSignal,

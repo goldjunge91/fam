@@ -152,7 +152,6 @@ export function MembersScreen() {
       scroll={false}
       back={{ label: 'Einstellungen', href: '/settings' }}
       backStyle="icon">
-      {/* Button zum Wechseln oder Beitreten eines anderen Haushalts */}
       <View className="mb-two">
         <Button
           label={
@@ -165,7 +164,6 @@ export function MembersScreen() {
         />
       </View>
 
-      {/* Admin-Aktionen: Einladen neuer Mitglieder & Kinder-Profile */}
       {isAdmin && currentHousehold && (
         <View className="flex-row gap-two mb-three">
           <View className="flex-1">
@@ -179,7 +177,6 @@ export function MembersScreen() {
         </View>
       )}
 
-      {/* Liste aller Haushaltsmitglieder mit Rollenanzeige & Verwaltungsoptionen */}
       <FlatList
         className="flex-1"
         data={members}
@@ -191,7 +188,6 @@ export function MembersScreen() {
           const initials = displayName.substring(0, 2).toUpperCase();
 
           return (
-            /* Mitglieder-Zeile mit Avatar, Name, Rolle und Admin-Aktionen */
             <View className="member-row">
               <View className={`member-avatar ${isMe ? 'member-avatar-selected' : ''}`}>
                 {item.avatar_url ? (
@@ -233,7 +229,6 @@ export function MembersScreen() {
         }}
         ListFooterComponent={
           !isLoading ? (
-            /* Footer-Bereich: Kinder-Profile (Nicht-Admins), Verlassen & Löschen */
             <View className="mt-six">
               {!isAdmin && (
                 <View className="mb-three">
@@ -286,7 +281,6 @@ export function MembersScreen() {
         }
       />
 
-      {/* Modal zur Generierung von Einladungslinks / Codes */}
       {currentHousehold && (
         <InviteModal
           visible={showInviteModal}
@@ -296,7 +290,6 @@ export function MembersScreen() {
         />
       )}
 
-      {/* Modal zum Wechseln des aktiven Haushalts */}
       <HouseholdSwitcherModal
         visible={showSwitcherModal}
         selectedHouseholdId={currentHousehold?.id}

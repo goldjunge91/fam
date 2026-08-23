@@ -4,11 +4,6 @@ import { getDatabase } from '@/lib/db/client';
 
 export type ShoppingSuggestionMode = 'recent' | 'frequent';
 
-/**
- * Vorrat fuer die aufklappbare Vorschlagsliste (#UI-Feedback: "Ansicht
- * erweitern, History soll aufklappbar sein") — `ShoppingProductSuggestions`
- * zeigt standardmaessig nur die ersten 3, der Rest kommt erst nach Aufklappen.
- */
 export const SUGGESTION_QUERY_LIMIT = 9;
 
 export type ShoppingProductSuggestion = {
@@ -22,11 +17,7 @@ export type ShoppingProductSuggestion = {
   last_store_name: string | null;
 };
 
-/**
- * Liefert die drei letzten oder haeufigsten Einkaufsprodukte aus der lokalen
- * Nutzungshistorie. Der zuletzt verwendete Markt wird aus bestehenden und
- * bereits erledigten Einkaufslisten-Zeilen ergaenzt, ohne ein neues Schema.
- */
+/** Liefert letzte oder haeufige Produkte samt zuletzt verwendetem Markt. */
 export function useShoppingProductSuggestions({
   userId,
   householdId,

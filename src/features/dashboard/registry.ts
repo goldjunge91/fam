@@ -9,24 +9,17 @@ export type DashboardCardProps = {
 };
 
 export type DashboardCardDef = {
-  /** Eindeutiger Schlüssel, korrespondiert oft mit dem Modul-Key. */
   id: string;
-  /** Welches Modul muss aktiv sein? undefined = immer sichtbar. */
+  /** Ohne Wert immer sichtbar. */
   moduleKey?: keyof ModulePreferences;
-  /** Sortier-Reihenfolge (aufsteigend). */
   order: number;
-  /** Default-Größe beim ersten Laden, bevor der User umschaltet. */
   defaultSize: CardSize;
-  /** Die React-Komponente. Holt sich ihre Daten selbst via Hooks. */
   component: ComponentType<DashboardCardProps>;
 };
 
 const cards: DashboardCardDef[] = [];
 
-/**
- * Registriert eine Dashboard-Card. Wird als Seiteneffekt beim Import der
- * jeweiligen Card-Datei aufgerufen. Duplikate (gleiche `id`) werden ignoriert.
- */
+/** Registriert eine Card einmalig als Import-Seiteneffekt. */
 export function registerCard(def: DashboardCardDef) {
   if (!cards.some((c) => c.id === def.id)) {
     cards.push(def);
@@ -34,15 +27,11 @@ export function registerCard(def: DashboardCardDef) {
   }
 }
 
-/** Gibt alle registrierten Cards zurück, sortiert nach `order`. */
 export function getCards(): readonly DashboardCardDef[] {
   return cards;
 }
 
-/**
- * Entfernt alle registrierten Cards. Nur für Tests gedacht, damit
- * Seiteneffekt-Registrierungen isoliert getestet werden können.
- */
+/** Leert das Registry zwischen isolierten Tests. */
 export function clearCards() {
   cards.length = 0;
 }

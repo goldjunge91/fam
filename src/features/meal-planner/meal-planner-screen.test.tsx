@@ -4,8 +4,7 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { MealPlannerScreen } from './meal-planner-screen';
 
 function renderScreen() {
-  // `Screen` liest die Safe-Area-Insets; ohne Provider und ohne gemessene
-  // Rahmenwerte wirft der Hook (siehe settings-screen.test.tsx).
+  // Screen benoetigt gemessene Safe-Area-Werte.
   return render(
     <SafeAreaProvider
       initialMetrics={{
@@ -21,17 +20,11 @@ const mockEnsureMutate = jest.fn();
 const mockEnsureMutateAsync = jest.fn().mockResolvedValue({ id: 'plan-1' });
 const mockReuseMutate = jest.fn();
 
-// Stabile Objektidentitaet noetig: `AutoBackButton` (Screen) haengt seinen
-// Effekt an `[navigation]` - ein bei jedem Aufruf neu erzeugtes Objekt
-// triggert den Effekt jedes Mal erneut und damit eine Endlosschleife aus
-// setState-Aufrufen.
+// Stabile Navigation verhindert einen Effekt-Loop im AutoBackButton.
 const mockNavigation = { canGoBack: () => true, addListener: () => () => {} };
 
 jest.mock('expo-router', () => ({
   router: { push: jest.fn(), back: jest.fn(), canGoBack: () => true },
-  // `Screen` fragt bei einem `back`-Ziel ohne `href` per `useNavigation()`,
-  // ob es etwas zum Zurueckgehen gibt (AutoBackButton) — ausserhalb eines
-  // Navigators gibt es dafuer keinen echten Kontext.
   useNavigation: () => mockNavigation,
 }));
 
@@ -53,9 +46,7 @@ jest.mock('@/features/recipes/use-recipes', () => ({
   }),
 }));
 
-// Die Drag-Card im Tray zeigt das Rezeptbild ueber `useRecipeCoverUrl` (echtes
-// `useQuery`) — ohne QueryClientProvider in diesem Test-Setup wuerde das
-// werfen, siehe react-query-Fehlermeldung "No QueryClient set".
+// Die Drag-Card nutzt fuer ihr Bild einen echten React-Query-Hook.
 jest.mock('@/features/recipes/recipe-image-uploader', () => ({
   useRecipeCoverUrl: () => ({ data: null }),
 }));
@@ -162,7 +153,6 @@ describe('MealPlannerScreen', () => {
 
     await user.press(screen.getByRole('button', { name: 'Spaghetti Bolognese eintragen' }));
 
-    // Rezept-Picker schliesst sich, Portionen-/Personen-Formular oeffnet sich fuer die Auswahl.
     expect(screen.queryByText('Rezept auswählen')).not.toBeOnTheScreen();
     expect(screen.getByRole('button', { name: 'Speichern' })).toBeOnTheScreen();
   });

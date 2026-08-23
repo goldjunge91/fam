@@ -17,7 +17,6 @@ export function useExpiryNotifications(householdId: string | undefined) {
       if (!isMounted || !settings.enabled) return;
 
       const now = new Date();
-      // Filtere Artikel, die in <= daysThreshold Tagen ablaufen oder bereits abgelaufen sind
       const expiringCount = fridgeItems.filter((item) => {
         if (!item.expiry_date) return false;
         const info = getExpiryInfo(item.expiry_date, now);

@@ -3,11 +3,6 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import { PremiumScreen } from '@/features/premium/premium-screen';
 
-/**
- * Eigener In-App-Premium-Screen (Figma "00.06 · Premium"). Die Kauflogik
- * selbst (`presentPaywall`/`presentCustomerCenter`) ist bereits an anderer
- * Stelle getestet — hier geht es nur um die beiden sichtbaren Zustaende.
- */
 let mockIsPremium = false;
 
 jest.mock('@/features/premium/premium-provider', () => ({

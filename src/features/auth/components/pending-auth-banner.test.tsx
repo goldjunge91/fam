@@ -1,10 +1,7 @@
 import { act, fireEvent, render, screen } from '@testing-library/react-native';
 import { PendingAuthBanner } from './pending-auth-banner';
 
-/**
- * Laesst viele Intervall- und Animations-Timer in einem Schritt ablaufen.
- * Die Mikroaufgabe wartet danach noch die asynchronen Poll-Fortsetzungen ab.
- */
+/** Laesst Timer und ihre asynchronen Fortsetzungen ablaufen. */
 async function advanceFakeTimersByTime(ms: number) {
   await act(async () => {
     jest.advanceTimersByTime(ms);
@@ -105,9 +102,6 @@ describe('PendingAuthBanner (Apple Liquid UI)', () => {
     });
 
     it('sollte weiterlaufen, sobald der Server die Adresse als bestätigt meldet', async () => {
-      // Der Kern des Bug-Reports: Der Link wurde woanders geklickt (Rechner,
-      // zweites Telefon). Die App bekommt davon keinen Deep Link — sie muss
-      // selbst nachfragen, sonst haengt sie fuer immer im Wartezustand.
       const { signIn } = require('@/features/auth/api');
       signIn.mockResolvedValue({
         data: { session: { user: { email_confirmed_at: '2026-08-09T06:07:57Z' } } },
@@ -133,10 +127,6 @@ describe('PendingAuthBanner (Apple Liquid UI)', () => {
     });
 
     it('sollte onConfirmed genau einmal auslösen, auch wenn mehrere Quellen melden', async () => {
-      // Der Poll meldet die Bestaetigung, und weil signIn eine Session anlegt,
-      // feuert zusaetzlich onAuthStateChange — dazu laeuft alle 3s der
-      // getSession-Poll. In account-step.tsx ist onConfirmed das `onNext` des
-      // Wizards: Jeder Aufruf zu viel ueberspringt einen Schritt.
       const { signIn } = require('@/features/auth/api');
       signIn.mockResolvedValue({
         data: { session: { user: { email_confirmed_at: '2026-08-09T06:07:57Z' } } },
@@ -153,7 +143,6 @@ describe('PendingAuthBanner (Apple Liquid UI)', () => {
           onConfirmed={onConfirmedMock}
         />,
       );
-      // Lange genug fuer mehrere Durchlaeufe beider Poll-Intervalle.
       await advanceFakeTimersByTime(90_000);
 
       expect(onConfirmedMock).toHaveBeenCalledTimes(1);
@@ -187,10 +176,6 @@ describe('PendingAuthBanner (Apple Liquid UI)', () => {
     });
 
     it('sollte eine Session ohne email_confirmed_at verwerfen und wieder abmelden (#128)', async () => {
-      // Die Zusicherung, die frueher dadurch gehalten wurde, dass hier gar kein
-      // signIn stattfand: Ein Server mit abgeschaltetem "Confirm email" darf
-      // niemanden mit ungepruefter Adresse durchlassen. Jetzt wird die
-      // Eigenschaft direkt geprueft statt das Verfahren.
       const { signIn, signOut } = require('@/features/auth/api');
       signIn.mockResolvedValue({
         data: { session: { user: { email_confirmed_at: null } } },
@@ -216,18 +201,7 @@ describe('PendingAuthBanner (Apple Liquid UI)', () => {
     });
 
     it('sollte den Server nicht öfter als das Rate-Limit erlaubt befragen', async () => {
-      // sign_in_sign_ups = 30 pro 5 Minuten und IP (supabase/config.toml).
-      // Schnelleres Pollen wuerde das Kontingent aufbrauchen und echte
-      // Anmeldeversuche mit blockieren.
-      //
-      // Simuliert werden 4 Intervall-Ticks (60s) statt der vollen 5 Minuten:
-      // Der Poll laeuft ueber ein festes setInterval ohne Backoff, die Kadenz
-      // ist in dieser Zeitspanne also bereits vollstaendig geprueft — und
-      // schaerfer als vorher (exakte Kadenz statt nur einer Obergrenze).
-      // Die vollen 300s zu simulieren hiesse zusaetzlich ~100 Ticks des
-      // unabhaengigen Session-Polls (alle 3s, #166) und die Ring-/Punkt-
-      // Animation durchlaufen zu lassen — das trieb den Test unter Last
-      // ueber den 15s-testTimeout, ohne die Aussage zu verstaerken.
+      // Vier Ticks reichen, um die feste 15-s-Kadenz zu pruefen.
       const { signIn } = require('@/features/auth/api');
       signIn.mockResolvedValue({
         data: { session: null },
@@ -245,14 +219,9 @@ describe('PendingAuthBanner (Apple Liquid UI)', () => {
       );
       await advanceFakeTimersByTime(4 * 15_000);
 
-      // Bei 15s-Kadenz sind das in 5 Minuten 20 Anfragen, ein Drittel unter
-      // dem Kontingent von 30 (siehe Intervall-Kommentar in
-      // pending-auth-banner.tsx).
       expect(signIn.mock.calls.length).toBe(4);
 
       jest.useRealTimers();
-      // Lokaler Puffer fuer stark belastete CI; die Timer selbst laufen oben
-      // gebuendelt, ohne den globalen Timeout fuer alle Tests zu erhoehen.
     }, 30_000);
   });
 
@@ -285,8 +254,6 @@ describe('PendingAuthBanner (Apple Liquid UI)', () => {
 
       const input = screen.getByTestId('pending-auth-code');
       await fireEvent.changeText(input, '4729');
-      // Der Button ist bei weniger als 6 Ziffern gesperrt; ueber die Tastatur
-      // laesst sich trotzdem absenden — genau dafuer ist das Schema da.
       await fireEvent(input, 'submitEditing');
 
       expect(confirmSignUpWithCode).not.toHaveBeenCalled();
@@ -338,8 +305,6 @@ describe('PendingAuthBanner (Apple Liquid UI)', () => {
     });
 
     it('sollte einen serverseitig bestätigten Account aus dem Wartezustand befreien', async () => {
-      // Der Fall aus dem Bug-Report: /verify war erfolgreich, die Session kam
-      // aber nie in der App an. Vorher gab es hier keinen Ausgang mehr.
       const { signIn } = require('@/features/auth/api');
       signIn.mockResolvedValueOnce({
         data: { session: { user: { email_confirmed_at: '2026-08-09T06:07:57Z' } } },
@@ -362,8 +327,6 @@ describe('PendingAuthBanner (Apple Liquid UI)', () => {
     });
 
     it('sollte eine Session für eine unbestätigte Adresse verwerfen und wieder abmelden', async () => {
-      // Schutz gegen einen Server, der "Confirm email" ausgeschaltet hat: eine
-      // Session allein ist kein Beleg fuer eine gepruefte Adresse.
       const { signIn, signOut } = require('@/features/auth/api');
       signIn.mockResolvedValueOnce({
         data: { session: { user: { email_confirmed_at: null } } },
@@ -388,9 +351,6 @@ describe('PendingAuthBanner (Apple Liquid UI)', () => {
   });
 
   it('sollte nach dem Erneut-Senden nicht behaupten, eine Mail sei verschickt worden', async () => {
-    // Supabase antwortet auch dann mit 200, wenn gar keine Mail rausgeht — etwa
-    // weil der Account laengst bestaetigt ist. Die alte Erfolgsmeldung
-    // ("Bestätigungs-E-Mail erneut gesendet!") war damit nachweislich falsch.
     jest.clearAllMocks();
 
     await render(<PendingAuthBanner email="test@example.com" onConfirmed={jest.fn()} />);

@@ -1,10 +1,6 @@
 import * as Haptics from 'expo-haptics';
 import { useCallback, useState } from 'react';
 
-/**
- * State Management fuer den iOS-Style Dashboard Bearbeitungsmodus
- * (Wackel-Modus / Jiggle Mode und Card-Galerie Sheet).
- */
 export function useDashboardEditMode() {
   const [isEditing, setIsEditing] = useState(false);
   const [isGalleryOpen, setIsGalleryOpen] = useState(false);

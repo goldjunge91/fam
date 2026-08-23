@@ -12,12 +12,7 @@ export type DailyTotals = {
   fatG: number;
 };
 
-/**
- * Summiert die Naehrwerte eines Tages ueber alle Tagebucheintraege (#87).
- *
- * Reine Funktion: fehlende Werte (nicht erfasste Naehrwerte an einem
- * Eintrag) zaehlen als 0, statt die Summe auf `NaN` zu ziehen.
- */
+/** Summiert Tageswerte und behandelt nicht erfasste Naehrwerte als 0. */
 export function calculateDailyTotals(entries: NutritionEntry[]): DailyTotals {
   return entries.reduce<DailyTotals>(
     (totals, entry) => ({

@@ -7,19 +7,13 @@ import { isOrphanedProfileError } from '@/features/auth/orphaned-profile-error';
 import type { Database } from '@/lib/database.types';
 import { getSupabase } from '@/lib/supabase';
 
-/**
- * Uebersetzt Supabase-Fehler in Meldungen, die einem Nutzer weiterhelfen.
- *
- * Die Originalmeldungen sind englisch und technisch ("Invalid login
- * credentials", "AuthApiError"). Unuebersetzt landen sie sonst direkt im UI.
- */
+/** Uebersetzt technische Supabase-Fehler in nutzerfreundliche Meldungen. */
 export function authErrorMessage(error: AuthError | Error | null): string | null {
   if (!error) return null;
 
   const raw = error.message.toLowerCase();
 
-  // Bewusst nicht verraten, ob die Adresse existiert. Eine Meldung wie
-  // "Unbekannte E-Mail" waere eine Auskunft darueber, wer hier ein Konto hat.
+  // Verrät nicht, ob die Adresse registriert ist.
   if (raw.includes('invalid login credentials')) {
     return 'E-Mail oder Passwort stimmt nicht.';
   }
@@ -35,9 +29,7 @@ export function authErrorMessage(error: AuthError | Error | null): string | null
   if (raw.includes('email rate limit') || raw.includes('over_email_send_rate_limit')) {
     return 'Zu viele Versuche. Bitte warte einen Moment.';
   }
-  // Bestaetigungscode und Bestaetigungslink teilen sich denselben One-Time-Token.
-  // Wer den Link geklickt hat, entwertet damit auch den Code — und umgekehrt.
-  // Beide Faelle melden dasselbe, weil sie fuer den Nutzer dasselbe bedeuten.
+  // Code und Link teilen sich denselben One-Time-Token.
   if (
     raw.includes('token has expired or is invalid') ||
     raw.includes('otp_expired') ||
@@ -45,8 +37,6 @@ export function authErrorMessage(error: AuthError | Error | null): string | null
   ) {
     return 'Der Code ist abgelaufen oder wurde schon benutzt. Fordere einen neuen an.';
   }
-  // Netzwerkfehler sind der haeufigste Fall auf dem Handy und verdienen einen
-  // Hinweis auf die Ursache statt eines rohen Fetch-Fehlers.
   if (raw.includes('network request failed') || raw.includes('fetch failed')) {
     return 'Keine Verbindung. Prüfe dein Netz und versuch es noch einmal.';
   }
@@ -65,40 +55,13 @@ export async function signInWithOAuthProvider(provider: 'apple' | 'google') {
   return { data, error };
 }
 
-/**
- * Registrierung. **Bewusst ohne `emailRedirectTo`** — der Bestaetigungslink
- * fuehrt nicht in die App zurueck.
- *
- * Ein `fam://`-Deep-Link als Redirect-Ziel war genau die Ursache des Problems:
- * Er reicht die Session ueber das URL-Fragment eines One-Time-Tokens zurueck.
- * Verpasst die App diesen einen Versuch — Kaltstart-Race, Browser-Preload, oder
- * schlicht weil die Mail auf einem anderen Geraet geoeffnet wurde —, ist der
- * Token verbrannt und jeder weitere Klick meldet "Email link is invalid or has
- * expired". Auf einem Rechner ohne installierte App liess sich das Scheme
- * ohnehin nie aufloesen.
- *
- * Ohne Redirect hat der Link nur noch eine Aufgabe: serverseitig
- * `email_confirmed_at` zu setzen. Das gelingt aus **jedem** Browser und von
- * jedem Geraet aus. Dass die App davon erfaehrt, ist ihre eigene Sache —
- * `PendingAuthBanner` fragt den Server aktiv, und der 6-stellige Code aus
- * derselben Mail (`confirmSignUpWithCode`) ist der direkte Weg.
- */
+/** Ohne Redirect bleibt die Bestaetigung unabhaengig von App und Geraet. */
 export async function signUp(email: string, password: string) {
   const { data, error } = await getSupabase().auth.signUp({ email, password });
   return { data, error };
 }
 
-/**
- * Loest den 6-stelligen Code aus der Bestaetigungsmail ein.
- *
- * Der verlaessliche Bestaetigungsweg: er braucht weder Browser noch Deep Link
- * noch registriertes URL-Scheme und funktioniert damit von jedem Geraet und
- * jedem Mailclient aus. Bei Erfolg liefert `verifyOtp` direkt eine Session —
- * der `onAuthStateChange`-Listener im PendingAuthBanner feuert dadurch von
- * selbst, ein zusaetzliches `setSession` waere doppelt.
- *
- * Der Aufrufer validiert den Code vorher mit `confirmationCodeSchema`.
- */
+/** Loest den vorab validierten Bestaetigungscode ein. */
 export async function confirmSignUpWithCode(email: string, token: string) {
   const { data, error } = await getSupabase().auth.verifyOtp({
     email,
@@ -123,12 +86,7 @@ export async function signOut() {
   return { error };
 }
 
-/**
- * Schickt eine Reset-Mail mit Deep Link zurueck in die App.
- *
- * `fam://` ist das Scheme aus app.json. Der Link muss in der Supabase-Konsole
- * unter "Redirect URLs" freigegeben sein, sonst weist Supabase ihn ab.
- */
+/** Schickt eine Reset-Mail mit freigegebenem Deep Link zur App. */
 export async function requestPasswordReset(email: string) {
   const redirectTo = Linking.createURL('/reset-password');
   const { error } = await getSupabase().auth.resetPasswordForEmail(email, { redirectTo });
@@ -153,19 +111,12 @@ export function useProfile(userId: string | undefined) {
       return data;
     },
     enabled: Boolean(userId),
-    // PGRST116 (verwaiste Session, siehe orphaned-session.ts) ist
-    // deterministisch — ein Retry aendert das Ergebnis nie, verzoegert nur
-    // die automatische Abmeldung.
+    // Eine verwaiste Session wird durch einen Retry nicht gueltig.
     retry: (failureCount, error) => !isOrphanedProfileError(error) && failureCount < 2,
   });
 }
 
-/**
- * Speichert die Onboarding-Angaben im Profil.
- *
- * Die Profilzeile existiert bereits — der Trigger `on_auth_user_created` legt
- * sie beim Registrieren an (#34). Deshalb `update` und nicht `upsert`.
- */
+/** Der Registrierungs-Trigger legt die Profilzeile bereits an. */
 export async function updateProfile(userId: string, input: Partial<ProfileInput>) {
   const payload: Database['public']['Tables']['profiles']['Update'] = {};
   if (input.displayName !== undefined) payload.display_name = input.displayName;

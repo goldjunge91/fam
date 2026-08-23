@@ -9,7 +9,6 @@ interface TotalEstimateCardProps {
   storeCount: number;
 }
 
-/** Abschluss-Karte unter den Markt-Karten: Gesamtsumme aller Maerkte. */
 export function TotalEstimateCard({
   totalEstimate,
   itemCount,

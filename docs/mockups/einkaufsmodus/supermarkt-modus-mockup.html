@@ -160,7 +160,6 @@
     .panel.active { grid-template-columns: 1fr; }
   }
 
-  /* --- phone frame --- */
   .phone-stage {
     display: flex;
     justify-content: center;
@@ -220,7 +219,6 @@
 
   tt, .num { font-variant-numeric: tabular-nums; }
 
-  /* --- notes column --- */
   .notes {
     padding-top: 8px;
   }
@@ -284,9 +282,6 @@
     margin-bottom: 16px;
   }
 
-  /* =========================================================
-     CONCEPT A — Fokus-Checkliste
-     ========================================================= */
   .a-topbar {
     display: flex;
     align-items: center;
@@ -435,7 +430,6 @@
   .a-img-toggle input:checked + .a-img-switch { background: #B5623F; }
   .a-img-toggle input:checked + .a-img-switch::after { transform: translateX(12px); }
 
-  /* --- Kategorien: farbcodiert, auf-/zuklappbar --- */
   .a-cat {
     border-bottom: 1px solid var(--border);
   }
@@ -564,9 +558,6 @@
     box-shadow: 0 10px 24px -8px rgba(181, 98, 63, 0.55);
   }
 
-  /* =========================================================
-     CONCEPT B — Ein Gang nach dem anderen
-     ========================================================= */
   .b-topbar {
     padding: 6px 18px 10px;
     display: flex;
@@ -679,9 +670,6 @@
     gap: 6px;
   }
 
-  /* =========================================================
-     CONCEPT C — Kompakte Sammelliste
-     ========================================================= */
   .c-topbar {
     display: flex;
     align-items: center;
@@ -783,9 +771,6 @@
     font-weight: 650;
   }
 
-  /* =========================================================
-     Screens aller Schritte — kompakte Filmstreifen-Ansicht
-     ========================================================= */
   .steps-section {
     margin-top: 48px;
     padding-top: 32px;
@@ -865,8 +850,7 @@
   }
   .mini-status { height: 18px; flex-shrink: 0; }
 
-  /* Kopfzeile — echter Marktfilter-Pillenbutton + "+ Artikel hinzufügen"
-     (store-picker-menu.tsx / btn-primary), auf allen Marktliste-Screens gleich. */
+  /* Einheitliche Kopfzeile auf allen Marktliste-Screens. */
   .ml-head {
     display: flex;
     align-items: center;
@@ -899,8 +883,7 @@
     color: var(--accent);
     font-weight: 650;
   }
-  /* Kategorie-Header — dieselbe Farbzuordnung wie im Einkaufsmodus, hier
-     als schmaler Punkt statt vollem Klapp-Header (dichte Editier-Liste). */
+  /* Ein Punkt behaelt die Kategoriezuordnung bei kompakter Dichte. */
   .ml-section {
     display: flex;
     align-items: center;
@@ -953,8 +936,6 @@
   .ml-row-price { font-size: 9px; color: var(--text-secondary); width: 34px; text-align: right; flex-shrink: 0; }
   .ml-row-edit { font-size: 9.5px; color: var(--text-secondary); opacity: 0.55; flex-shrink: 0; }
 
-  /* Bottom-Stack: Einkaufsmodus-Einstieg jetzt unten statt oben, primäre
-     Abschließen-Aktion (falls Artikel abgehakt sind) darunter/darüber. */
   .ml-list { padding-bottom: 112px; }
   .ml-bottom-stack {
     position: absolute;
@@ -987,7 +968,6 @@
     box-shadow: 0 8px 18px -6px rgba(181, 98, 63, 0.5);
   }
 
-  /* Schritt 1 — echte "Alle Listen"-Übersicht (store-summary-card.tsx) */
   .ov-store-card {
     display: flex;
     align-items: center;
@@ -1017,7 +997,6 @@
   .ov-total-sum { font-size: 18px; font-weight: 700; margin: 2px 0; }
   .ov-total-sub { font-size: 9px; color: var(--text-secondary); }
 
-  /* step 2: mini-einkaufsmodus */
   .em-topbar {
     display: flex;
     align-items: center;
@@ -1049,8 +1028,6 @@
   .em-row.done .em-name { color: var(--text-secondary); text-decoration: line-through; text-decoration-color: var(--border); }
   .em-qty, .em-price { font-size: 9px; color: var(--text-secondary); }
 
-  /* Schritt 5: Abschluss-Sheet — echte complete-run-sheet.tsx-Struktur:
-     Menge-Badge, Kühl/Frost/Kammer-Picker, MHD-Datumsfeld pro Artikel. */
   .sheet-backdrop {
     flex: 1;
     background: color-mix(in srgb, var(--shadow) 45%, transparent);
@@ -1095,8 +1072,7 @@
     margin-bottom: 6px;
   }
   .sheet-item { font-size: 11px; font-weight: 650; }
-  /* Menge antippbar: Zahl per einfacher Zifferneingabe korrigierbar, wenn
-     im Laden weniger mitgenommen wurde als geplant. */
+  /* Die gekaufte Menge bleibt im Abschluss-Sheet korrigierbar. */
   .sheet-qty {
     display: flex; align-items: center; gap: 4px;
     font-size: 8.5px; font-weight: 700; color: #fff;
@@ -1280,7 +1256,6 @@
     <button class="tab" role="tab" aria-selected="false" data-panel="c">C · Kompakte Sammelliste</button>
   </div>
 
-  <!-- ============ PANEL A (überarbeitet) ============ -->
   <div class="panel active" id="panel-a">
     <div class="phone-stage">
       <div class="phone">
@@ -1310,7 +1285,6 @@
           </div>
 
           <div class="a-list" id="cat-list">
-            <!-- Obst & Gemüse — offen, teilweise abgehakt -->
             <div class="a-cat" style="--cat: #78906F;">
               <button class="a-cat-head" data-target="cat-1">
                 <span class="a-cat-dot"></span>
@@ -1345,7 +1319,6 @@
               </div>
             </div>
 
-            <!-- Backwaren — komplett, automatisch eingeklappt -->
             <div class="a-cat is-collapsed is-complete" style="--cat: #C69059;">
               <button class="a-cat-head" data-target="cat-2">
                 <span class="a-cat-dot"></span>
@@ -1366,7 +1339,6 @@
               </div>
             </div>
 
-            <!-- Wurst & Fleisch — offen -->
             <div class="a-cat" style="--cat: #C65F50;">
               <button class="a-cat-head" data-target="cat-3">
                 <span class="a-cat-dot"></span>
@@ -1387,7 +1359,6 @@
               </div>
             </div>
 
-            <!-- Molkerei — offen, teilweise abgehakt -->
             <div class="a-cat" style="--cat: #5C7396;">
               <button class="a-cat-head" data-target="cat-4">
                 <span class="a-cat-dot"></span>
@@ -1429,7 +1400,6 @@
               </div>
             </div>
 
-            <!-- Getränke — manuell eingeklappt -->
             <div class="a-cat is-collapsed" style="--cat: #4F8580;">
               <button class="a-cat-head" data-target="cat-5">
                 <span class="a-cat-dot"></span>
@@ -1470,7 +1440,6 @@
     </aside>
   </div>
 
-  <!-- ============ PANEL C ============ -->
   <div class="panel" id="panel-c">
     <div class="phone-stage">
       <div class="phone">
@@ -1552,7 +1521,6 @@
     </p>
     <div class="steps-strip">
 
-      <!-- Schritt 1: echte "Alle Listen"-Übersicht -->
       <div class="step">
         <div class="mini-phone">
           <div class="mini-status"></div>
@@ -1589,7 +1557,6 @@
 
       <div class="step-arrow"><span class="glyph">→</span><span class="cap">REWE<br />antippen</span></div>
 
-      <!-- Schritt 2: Marktliste, bearbeitbar -->
       <div class="step">
         <div class="mini-phone">
           <div class="mini-status"></div>
@@ -1617,7 +1584,6 @@
 
       <div class="step-arrow"><span class="glyph">→</span><span class="cap">🛒 antippen</span></div>
 
-      <!-- Schritt 3: Einkaufsmodus -->
       <div class="step">
         <div class="mini-phone">
           <div class="mini-status"></div>
@@ -1639,7 +1605,6 @@
 
       <div class="step-arrow"><span class="glyph">→</span><span class="cap">✕ oder<br />alles abgehakt</span></div>
 
-      <!-- Schritt 4: zurück in Marktliste, mit Fortschritt -->
       <div class="step">
         <div class="mini-phone">
           <div class="mini-status"></div>
@@ -1665,7 +1630,6 @@
 
       <div class="step-arrow"><span class="glyph">→</span><span class="cap">Abschließen<br />antippen</span></div>
 
-      <!-- Schritt 5: Abschluss-Sheet -->
       <div class="step">
         <div class="mini-phone">
           <div class="mini-status"></div>

@@ -91,11 +91,7 @@ async function renderScreen() {
     </QueryClientProvider>,
   );
 
-  // Die FlatList (VirtualizedList) plant beim Mount ein setTimeout(50ms,
-  // updateCellsBatchingPeriod) fuers Cell-Layout. RNTLs user-event wait()
-  // wrapt diesen Schritt selbst NICHT in act() (nur die Event-Dispatches),
-  // daher hier explizit VOR der ersten Interaktion abfliessen lassen, statt
-  // spaeter unkontrolliert waehrend user.press() zu feuern.
+  // FlatLists verzögertes Cell-Layout vor der ersten Interaktion abschliessen.
   await act(() => {
     jest.advanceTimersByTime(60);
   });
@@ -103,19 +99,13 @@ async function renderScreen() {
   return result;
 }
 
-// FlatList/VirtualizedList plant beim Mount intern ein setTimeout(50ms,
-// updateCellsBatchingPeriod), das ausserhalb jeder act()-Kontrolle feuert
-// ("The current testing environment is not configured to support act(...)")
-// und je nach Systemlast mit Interaktionen des Tests kollidiert (siehe
-// test/examples/act-and-real-timers-demo/). Fake Timers machen das
-// deterministisch statt wall-clock-abhaengig.
+// Fake-Timer halten das verzögerte FlatList-Layout deterministisch.
 beforeEach(() => {
   jest.useFakeTimers();
 });
 
 afterEach(async () => {
-  // testing-library.com/docs/using-fake-timers: vor dem Zurueckschalten auf
-  // echte Timer noch ausstehende Tasks innerhalb von act() abarbeiten.
+  // Ausstehende Tasks vor dem Wechsel zur echten Uhr abarbeiten.
   await act(() => {
     jest.runOnlyPendingTimers();
   });
@@ -272,7 +262,7 @@ describe('Sortier-Toggle MHD/Name (#71)', () => {
         name: 'Apfel',
         quantity: 1,
         unit: 'piece',
-        expiry_date: null, // bucket 'none' -> steht bei MHD-Sortierung hinten
+        expiry_date: null,
         added_by: null,
         created_at: '',
         location_kind: null,
@@ -286,7 +276,7 @@ describe('Sortier-Toggle MHD/Name (#71)', () => {
         name: 'Zwiebel',
         quantity: 1,
         unit: 'piece',
-        expiry_date: soon.toISOString().split('T')[0], // bucket 'soon' -> steht bei MHD-Sortierung vorn
+        expiry_date: soon.toISOString().split('T')[0],
         added_by: null,
         created_at: '',
         location_kind: null,

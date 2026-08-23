@@ -3,19 +3,6 @@ import { enqueueMutation } from '@/lib/db/outbox';
 import type { SqlDatabase } from '@/lib/db/types';
 import { normalizeUnit } from '@/lib/units';
 
-/**
- * Zusammenfuehren-Logik fuer `useAddShoppingItem`, ausgelagert wie
- * `product-usage.ts`: nimmt `db` und eine bereits erzeugte `id` entgegen
- * statt sie selbst zu holen (kein `expo-sqlite`/`expo-crypto`-Import), damit
- * sie unter `node:sqlite` im Integrationstest laeuft, ohne native Module zu
- * beruehren.
- *
- * Verhindert Duplikate auf der Einkaufsliste unabhaengig von der Quelle
- * (manueller Eintrag, Wochenplaner-Bedarf, Rezept): landet ein Artikel mit
- * gleichem Produkt (bzw. gleichem Namen ohne Produktverknuepfung) und
- * gleicher Einheit erneut, wird die Menge des bestehenden, noch offenen
- * Eintrags erhoeht statt eine zweite Zeile anzulegen.
- */
 export type AddShoppingItemInput = {
   household_id: string;
   name: string;
@@ -30,11 +17,9 @@ export type AddShoppingItemInput = {
   sort_index?: number;
   store_id?: string | null;
   price_estimate?: number | null;
-  /** Titel der Gerichte, aus denen dieser Artikel stammt (leer bei manuellem Eintrag). */
   recipe_names?: readonly string[];
 };
 
-/** Vereinigt bestehende und neue Rezeptnamen, Reihenfolge erhalten, ohne Duplikate. */
 function mergeRecipeNames(existing: readonly string[], incoming: readonly string[]): string[] {
   const merged = [...existing];
   for (const name of incoming) {
@@ -43,14 +28,7 @@ function mergeRecipeNames(existing: readonly string[], incoming: readonly string
   return merged;
 }
 
-/**
- * Sucht einen bereits vorhandenen, noch offenen (nicht abgehakten, nicht
- * geloeschten) Artikel derselben Einheit. Matching bevorzugt `product_id`
- * (eindeutig), faellt ohne Produktverknuepfung auf den normalisierten Namen
- * zurueck. Ein bereits abgehakter Artikel zaehlt bewusst nicht als Treffer —
- * der vorige Einkauf ist abgeschlossen, ein neuer Bedarf verdient eine neue
- * Zeile statt den Haken zu entfernen.
- */
+/** Abgehakte Artikel werden nicht wiederbelebt; neuer Bedarf erzeugt eine neue Zeile. */
 async function findMergeableShoppingItem(
   db: SqlDatabase,
   input: {
@@ -101,15 +79,6 @@ async function findMergeableShoppingItem(
   };
 }
 
-/**
- * Fuegt einen neuen Artikel zur Einkaufsliste hinzu (#86) — oder erhoeht,
- * falls derselbe Artikel (gleiches Produkt bzw. gleicher Name, gleiche
- * Einheit) bereits offen auf der Liste steht, dessen Menge (#131/#146).
- *
- * `newId` wird vom Aufrufer erzeugt (`Crypto.randomUUID()`), damit dieses
- * Modul frei von `expo-crypto` bleibt — dasselbe Muster wie
- * `product-usage.ts`. Bei einem Merge bleibt `newId` ungenutzt.
- */
 export async function addOrMergeShoppingItem(
   db: SqlDatabase,
   newId: string,
@@ -165,7 +134,6 @@ export async function addOrMergeShoppingItem(
     return existing.id;
   }
 
-  // sort_index: am Ende einfuegen
   const lastRow = await db.getFirstAsync<{ sort_index: number }>(
     'select sort_index from shopping_list_items where household_id = ? and deleted_at is null order by sort_index desc limit 1',
     [input.household_id],

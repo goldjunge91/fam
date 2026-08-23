@@ -1,22 +1,16 @@
-/**
- * Below are the colors that are used in the app. The colors are defined in the light and dark mode.
- * There are many other ways to style your app. For example, [Nativewind](https://www.nativewind.dev/), [Tamagui](https://tamagui.dev/), [unistyles](https://reactnativeunistyles.vercel.app), etc.
- */
-
 import '@/global.css';
 
 import { Platform } from 'react-native';
 
-// Warme, gedeckte Mauve-/Creme-Palette
 export const Colors = {
   light: {
-    text: '#2D2830', // fam/color/text-primary
-    background: '#F8F4EF', // fam/color/bg-app
-    backgroundElement: '#FBF7F2', // fam/color/bg-surface (Karten, Listen)
-    backgroundSelected: '#E9E1E7', // color/selection/segment-bg
-    textSecondary: '#786F79', // fam/color/text-secondary
+    text: '#2D2830',
+    background: '#F8F4EF',
+    backgroundElement: '#FBF7F2',
+    backgroundSelected: '#E9E1E7',
+    textSecondary: '#786F79',
     border: '#E4DDE3',
-    accent: '#705773', // fam/color/bg-accent
+    accent: '#705773',
     onAccent: '#FFFFFF',
     premiumGradientStart: '#715574',
     premiumGradientMid: '#A36E72',
@@ -24,20 +18,12 @@ export const Colors = {
     premiumOnSurface: '#FFFFFF',
     premiumActionBackground: '#F8F1ED',
     premiumActionText: '#604765',
-    // Ampel fuer Mindesthaltbarkeitsdaten (#71) und Zielerreichung.
-    // Farbe ist nie der einzige Traeger der Information — daneben steht immer
-    // ein Text oder ein Symbol, sonst ist die Anzeige fuer Farbfehlsichtige wertlos.
-    success: '#78906F', // fam/color/status-success
-    warning: '#C69059', // fam/color/status-warning
-    danger: '#C65F50', // fam/color/status-danger (Figma: kritische MHD-Zeilen)
-    // Schatten-Grundton, konsolidiert aus dem app-weiten Audit (#122,
-    // docs/design-system/gradient-background-audit.md) statt der bisher pro
-    // Stelle frei erfundenen Hex/RGBA-Literale. Opazitaet, Blur und Offset
-    // bleiben weiterhin Sache des jeweiligen `shadowOpacity`/`boxShadow` —
-    // hier steht nur der Farbton. Noch identisch fuer Light/Dark, da keine
-    // der bisherigen Stellen zwischen den Modi unterschieden hat.
-    shadowCard: '#594059', // helleres Mauve, fuer Karten auf dem Screen-Hintergrund
-    shadowSheet: '#2A1F2C', // dunkles Mauve/Violett, fuer Sheets/Overlays/Dropdowns
+    // Statusfarben nie als alleinigen Informationstraeger verwenden.
+    success: '#78906F',
+    warning: '#C69059',
+    danger: '#C65F50',
+    shadowCard: '#594059',
+    shadowSheet: '#2A1F2C',
   },
   dark: {
     text: '#F2ECE7',
@@ -64,7 +50,6 @@ export const Colors = {
 
 export type ThemeColor = keyof typeof Colors.light & keyof typeof Colors.dark;
 
-/** Normalisiert native/web Zwischenwerte wie `unspecified` auf das helle Theme. */
 export function normalizeThemeMode(scheme: string | null | undefined): keyof typeof Colors {
   return scheme === 'dark' ? 'dark' : 'light';
 }
@@ -74,7 +59,6 @@ export type GradientSpec = {
   readonly locations?: readonly number[];
 };
 
-/** Semantische Verläufe des Design-Systems statt wiederholter Hex-Arrays. */
 export const Gradients = {
   hub: {
     light: {
@@ -88,13 +72,6 @@ export const Gradients = {
   },
 } as const satisfies Record<string, Record<'light' | 'dark', GradientSpec>>;
 
-/**
- * Wandelt einen 6-stelligen Hex-Farbwert in einen `rgba()`-String mit
- * gegebener Opazitaet um. Natives `shadowColor` + `shadowOpacity` kommen
- * ohne das aus, aber `boxShadow`-Strings brauchen Farbe und Transparenz in
- * einem Wert — damit bleibt der Farbton am `Colors`-Token haengen, statt
- * pro Stelle erneut als eigenes RGB-Tripel abgetippt zu werden.
- */
 export function withAlpha(hex: string, alpha: number): string {
   const value = hex.replace('#', '');
   const r = Number.parseInt(value.slice(0, 2), 16);
@@ -105,13 +82,9 @@ export function withAlpha(hex: string, alpha: number): string {
 
 export const Fonts = Platform.select({
   ios: {
-    /** iOS `UIFontDescriptorSystemDesignDefault` */
     sans: 'system-ui',
-    /** iOS `UIFontDescriptorSystemDesignSerif` */
     serif: 'ui-serif',
-    /** iOS `UIFontDescriptorSystemDesignRounded` */
     rounded: 'ui-rounded',
-    /** iOS `UIFontDescriptorSystemDesignMonospaced` */
     mono: 'ui-monospace',
   },
   default: {

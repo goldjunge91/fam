@@ -3,7 +3,6 @@ import * as Clipboard from 'expo-clipboard';
 
 import { InviteModal } from './invite-modal';
 
-// Mock Provider & Hooks
 jest.mock('@/features/auth/session-provider', () => ({
   useSession: () => ({ session: { user: { id: 'user-123' } } }),
 }));
@@ -46,8 +45,7 @@ describe('InviteModal & QR Code Component', () => {
   });
 
   afterEach(async () => {
-    // `handleCopyCode` und `handleCopyLink` setzen Feedback-Timer. Wie in der
-    // Timer-Referenzdemo werden sie vor dem Wechsel zur echten Uhr abgearbeitet.
+    // Feedback-Timer vor dem Wechsel zur echten Uhr abarbeiten.
     await act(async () => {
       jest.runOnlyPendingTimers();
     });
@@ -116,15 +114,12 @@ describe('InviteModal & QR Code Component', () => {
       />,
     );
 
-    // Klick auf eine bestehende Einladung
     await fireEvent.press(screen.getByLabelText('QR-Code anzeigen'));
 
-    // Code kopieren
     const copyCodeBtn = screen.getByText('Code kopieren');
     await fireEvent.press(copyCodeBtn);
     expect(Clipboard.setStringAsync).toHaveBeenCalledWith('token-abc-123');
 
-    // Link kopieren
     const copyLinkBtn = screen.getByText('Link kopieren');
     await fireEvent.press(copyLinkBtn);
     expect(Clipboard.setStringAsync).toHaveBeenCalledWith('fam://join?token=token-abc-123');

@@ -56,11 +56,7 @@ function parsePercent(input: string): number {
   return Number.isNaN(value) ? 0 : value;
 }
 
-/**
- * Ziel-Setup (#84). Baut direkt auf den reinen Funktionen aus #81/#82/#83 auf
- * — die gesamte Vorschau (Grundumsatz → TDEE → Zielkalorien → Makros) laeuft
- * clientseitig, ohne zusaetzliche Requests, bevor irgendetwas gespeichert wird.
- */
+/** Berechnet die Zielvorschau lokal, bevor sie gespeichert wird. */
 export function GoalSetupScreen() {
   const { session } = useSession();
   const userId = session?.user.id;
@@ -124,18 +120,14 @@ export function GoalSetupScreen() {
     return { bmrKcal: bmrResult.bmrKcal, target };
   }, [hasProfileFields, weightKg, sex, birthDate, heightCm, activityLevel, goalType, rate]);
 
-  // Vorbefuellung des Override-Felds mit dem berechneten Wert (#84) — nur
-  // solange der Nutzer es nicht selbst angefasst hat, sonst wuerde jede
-  // Aenderung an Tempo/Gewicht die manuelle Eingabe stillschweigend ueberschreiben.
+  // Manuelle Eingaben duerfen nicht von spaeteren Neuberechnungen ueberschrieben werden.
   const calculatedKcal = targetPreview?.target.targetKcal;
   useEffect(() => {
     if (overrideTouched || calculatedKcal === undefined) return;
     setManualKcalInput(String(Math.round(calculatedKcal)));
   }, [calculatedKcal, overrideTouched]);
 
-  // Kappung wie in calculateTargetCalories: nie unter den Grundumsatz, nie
-  // ausserhalb eines global sicheren Bereichs — der Override darf die
-  // physiologische Untergrenze nicht umgehen.
+  // Der Override bleibt innerhalb der Sicherheitsgrenzen der Berechnung.
   const manualKcal = parseFloat(manualKcalInput.replace(',', '.'));
   const overrideValid =
     targetPreview !== null &&
@@ -145,9 +137,7 @@ export function GoalSetupScreen() {
     manualKcal <= MAX_MANUAL_KCAL;
   const effectiveKcal = overrideValid ? manualKcal : (targetPreview?.target.targetKcal ?? null);
 
-  // Getrennt vom kcal-Ziel: eine ungueltige benutzerdefinierte Verteilung oder
-  // ein ungueltiger Override soll die kcal-Vorschau nicht verstecken, nur das
-  // Speichern blockieren.
+  // Ungueltige Details blockieren das Speichern, nicht die kcal-Vorschau.
   const preview =
     targetPreview && activeRatio && overrideValid
       ? {
@@ -203,7 +193,6 @@ export function GoalSetupScreen() {
       title="Kalorienziel"
       back={{ label: 'Einstellungen', href: '/settings' }}
       backStyle="icon">
-      {/* Hinweis bei unvollständigen Profildaten (Geschlecht, Geburtsdatum, Größe) */}
       {!hasProfileFields ? (
         <Card title="Profil vervollständigen">
           <ThemedText themeColor="textSecondary">
@@ -217,7 +206,6 @@ export function GoalSetupScreen() {
         </Card>
       ) : (
         <>
-          {/* Karte mit aktuellem Kalorien- und Makroziel */}
           {currentGoal ? (
             <Card title="Aktuelles Ziel">
               <ThemedText type="subtitle">{currentGoal.daily_kcal ?? '–'} kcal / Tag</ThemedText>
@@ -235,11 +223,9 @@ export function GoalSetupScreen() {
             </Card>
           ) : null}
 
-          {/* Formular zur Zieldefinition (Art, Tempo, Makros, Kalorien-Override) */}
           {formVisible ? (
             <Card title="Neues Ziel">
               <View className="gap-three">
-                {/* Zielart: Abnehmen / Halten / Zunehmen */}
                 <ThemedText type="smallBold">Ziel-Art</ThemedText>
                 <View className="gs-segmented-row">
                   {(Object.keys(GOAL_LABELS) as GoalType[]).map((type) => (
@@ -254,7 +240,6 @@ export function GoalSetupScreen() {
                   ))}
                 </View>
 
-                {/* Gewichtsverlust-/-zunahmerate in kg/Woche */}
                 {goalType !== 'maintain' ? (
                   <TextField
                     label="Tempo (kg pro Woche)"
@@ -264,7 +249,6 @@ export function GoalSetupScreen() {
                   />
                 ) : null}
 
-                {/* Auswahl des Makro-Presets (Ausgewogen, High-Protein, Low-Carb, Keto, Custom) */}
                 <ThemedText type="smallBold" className="mt-one">
                   Makro-Verteilung
                 </ThemedText>
@@ -281,7 +265,6 @@ export function GoalSetupScreen() {
                   ))}
                 </View>
 
-                {/* Benutzerdefinierte Prozentaufteilung (Eiweiß, Kohlenhydrate, Fett) */}
                 {preset === 'custom' ? (
                   <View className="gap-three">
                     <View className="flex-row gap-two">
@@ -318,7 +301,6 @@ export function GoalSetupScreen() {
                   </View>
                 ) : null}
 
-                {/* Gewichtseingabe falls noch kein Gewichtseintrag vorhanden */}
                 {needsWeightInput ? (
                   <TextField
                     label="Aktuelles Gewicht in kg"
@@ -329,7 +311,6 @@ export function GoalSetupScreen() {
                   />
                 ) : null}
 
-                {/* Berechnete Zielkalorien-Vorschau mit manuellem Override & Hinweisen */}
                 {targetPreview ? (
                   <View className="gs-preview">
                     <TextField
@@ -369,7 +350,6 @@ export function GoalSetupScreen() {
                   </ThemedText>
                 )}
 
-                {/* Aktions-Buttons (Ziel speichern / Abbrechen) */}
                 <View className="gs-save-row">
                   <View className="flex-1">
                     <Button

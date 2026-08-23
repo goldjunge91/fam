@@ -2,16 +2,9 @@ import { View } from 'react-native';
 
 import { InlineSelect } from '@/components/ui/inline-select';
 
-/**
- * Quelle eines gesuchten/hinzuzufuegenden Artikels. "Gerichte" (Rezepte als
- * Vorrats- bzw. Tagebuch-Eintrag) ist im Dropdown sichtbar, aber bewusst
- * deaktiviert — der Datenbezug (nur Name uebernehmen vs. echte Rezept-
- * Verknuepfung) ist noch offen, s. Migrations-/Redesign-Absprache. Nicht
- * ohne Ruecksprache aktivieren.
- */
+// `dish` bleibt deaktiviert, bis Produktsuche und Datenmodell Gerichte unterstuetzen.
 export type ItemSource = 'food' | 'dish';
 
-/** "Favoriten" ist im Dropdown sichtbar, aber app-weit noch nicht gebaut. */
 export type SuggestionFilter = 'frequent' | 'recent' | 'favorites';
 
 type ItemSourceFilterRowProps = {
@@ -23,13 +16,6 @@ type ItemSourceFilterRowProps = {
   suggestionAccessibilityLabel: string;
 };
 
-/**
- * Dropdown-Paar ueber Vorschlagslisten beim Hinzufuegen eines Artikels:
- * links die Quelle (Lebensmittel/Gerichte), rechts der Vorschlagsfilter
- * (Haeufig/Zuletzt/Favoriten). Gemeinsam fuer Vorrat (add-item-screen.tsx)
- * und Tagebuch (food-search-screen.tsx) — beide Filter wirken auf jeweils
- * eigene Datenquellen des Aufrufers, nur die Auswahl-UI ist geteilt (#164).
- */
 export function ItemSourceFilterRow({
   source,
   onSourceChange,

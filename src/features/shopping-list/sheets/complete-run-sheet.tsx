@@ -35,10 +35,6 @@ function defaultKind(item: LocalShoppingItem): StorageKind {
   return storageKindForCategory(item.category);
 }
 
-// ---------------------------------------------------------------------------
-// Einzel-Zeile im Transfer-Sheet
-// ---------------------------------------------------------------------------
-
 interface TransferRowProps {
   item: LocalShoppingItem;
   transfer: TransferItem;
@@ -65,21 +61,18 @@ function TransferRow({
 
   function commitQtyDraft() {
     setIsEditingQty(false);
-    // deutsches Komma zulassen, sonst bleibt "1,5" als NaN haengen
+    // Dezimalkommas muessen vor dem Parsen normalisiert werden.
     const parsed = Number.parseFloat(qtyDraft.replace(',', '.'));
     if (Number.isFinite(parsed) && parsed > 0) onUpdateQuantity(parsed);
   }
 
   return (
     <View className="transfer-row">
-      {/* Artikel-Header */}
       <View className="row-between">
         <ThemedText type="bodyLarge" className="font-bold">
           {item.name}
         </ThemedText>
 
-        {/* Menge — grüner Pill-Badge, per Antippen als Zahl editierbar
-            (Feedback: "im Laden nur 5 statt 6 Brötchen bekommen") */}
         {isEditingQty ? (
           <View className="quantity-badge flex-row items-center gap-half">
             <TextInput
@@ -112,7 +105,6 @@ function TransferRow({
       </View>
       {packageHint ? <ThemedText type="smallMuted">{packageHint}</ThemedText> : null}
 
-      {/* Location-Picker + MHD */}
       <View className="col-gap">
         <View className="input-row">
           {KINDS.map((kind) => {
@@ -137,7 +129,6 @@ function TransferRow({
           })}
         </View>
 
-        {/* MHD */}
         <View className="row-center">
           <ThemedText type="smallMuted" className="w-8">
             MHD
@@ -151,10 +142,6 @@ function TransferRow({
   );
 }
 
-// ---------------------------------------------------------------------------
-// Sheet
-// ---------------------------------------------------------------------------
-
 interface Props {
   isOpen: boolean;
   checkedItems: LocalShoppingItem[];
@@ -162,26 +149,12 @@ interface Props {
   onClose: () => void;
 }
 
-/**
- * Bottom-Sheet zum Abschluss eines Einkaufs (#85/#86).
- *
- * Titel: "In Vorrat übernehmen" — genau wie im Screenshot.
- * Pro Artikel: Pill-Badge Menge + 3 Location-Buttons + MHD-Feld.
- * Confirm: "N Artikel in Vorrat übernehmen".
- *
- * Gecheckte Items werden beim Bestätigen per `onConfirm` übergeben.
- * Der Aufrufer (ShoppingListScreen) ruft useCompleteShoppingRun auf,
- * der die Items soft-deletet und in fridge_items insertet.
- *
- * Implementiert mit @expo/ui/community/bottom-sheet (nativer SwiftUI/Compose Sheet).
- */
 export function CompleteRunSheet({ isOpen, checkedItems, onConfirm, onClose }: Props) {
   const theme = useTheme();
   const sheetRef = useRef<BottomSheet>(null);
 
   const [transfers, setTransfers] = useState<Map<string, TransferItem>>(new Map());
 
-  // Sync transfers wenn checkedItems sich ändern
   useEffect(() => {
     const map = new Map<string, TransferItem>();
     for (const item of checkedItems) {
@@ -200,7 +173,6 @@ export function CompleteRunSheet({ isOpen, checkedItems, onConfirm, onClose }: P
     setTransfers(map);
   }, [checkedItems]);
 
-  // Sheet öffnen/schließen via ref
   useEffect(() => {
     if (isOpen) {
       sheetRef.current?.expand();
@@ -227,7 +199,6 @@ export function CompleteRunSheet({ isOpen, checkedItems, onConfirm, onClose }: P
     });
   }
 
-  /** Korrektur, wenn im Laden mehr/weniger mitgenommen wurde als geplant. */
   function updateQuantity(itemId: string, quantity: number) {
     setTransfers((prev) => {
       const next = new Map(prev);
@@ -251,14 +222,9 @@ export function CompleteRunSheet({ isOpen, checkedItems, onConfirm, onClose }: P
       onClose={onClose}
       backgroundStyle={{ backgroundColor: theme.background }}
       handleIndicatorStyle={{ backgroundColor: theme.border }}>
-      {/* BottomSheetView gibt `style` nur 1:1 weiter (kein automatisches
-          flex:1 wie bei gorhom) — ohne das hier kollabiert der Inhalt auf
-          seine intrinsische Hoehe, die ScrollView mit den Artikeln bekommt
-          nie eine Hoehe zugewiesen und bleibt leer (nur Header/X und der
-          Confirm-Button haben eigene intrinsische Groesse). */}
+      {/* BottomSheetView setzt kein eigenes flex: 1; sonst bleibt die ScrollView leer. */}
       <BottomSheetView style={{ flex: 1 }}>
         <View className="flex-1">
-          {/* Header */}
           <View className="row-between items-start px-four pt-two pb-three">
             <View>
               <ThemedText type="subtitle">In Vorrat übernehmen</ThemedText>
@@ -275,7 +241,6 @@ export function CompleteRunSheet({ isOpen, checkedItems, onConfirm, onClose }: P
             </Pressable>
           </View>
 
-          {/* Artikel-Liste */}
           <ScrollView className="flex-1" showsVerticalScrollIndicator={false}>
             {checkedItems.map((item) => {
               const transfer = transfers.get(item.id);
@@ -293,7 +258,6 @@ export function CompleteRunSheet({ isOpen, checkedItems, onConfirm, onClose }: P
             })}
           </ScrollView>
 
-          {/* Confirm-Button — volle Breite, grün, wie im Screenshot */}
           <View className="px-four pt-three pb-four gap-two items-center">
             <Pressable
               onPress={handleConfirm}

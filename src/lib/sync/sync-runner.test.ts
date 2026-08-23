@@ -19,11 +19,7 @@ jest.mock('@/lib/db/outbox-retry', () => ({
   retryFailedOutboxEntries: (...args: unknown[]) => mockRetryFailedOutboxEntries(...args),
 }));
 
-// Eigenstaendiger Listener-Satz im Mock (nicht die echte Implementierung aus
-// `lib/db/outbox.ts`) — der Test loest Schreibvorgaenge direkt ueber
-// `__triggerOutboxChanged` aus, ohne eine echte SQLite-Transaktion zu
-// brauchen. Im Factory-Scope statt als Modul-Variable, damit babel-jests
-// Hoisting von `jest.mock` keine TDZ-Falle aufmacht.
+// Im Factory-Scope, damit das Hoisting von `jest.mock` keine TDZ erzeugt.
 jest.mock('@/lib/db/outbox', () => {
   const listeners = new Set<() => void>();
   return {
@@ -42,9 +38,7 @@ import { act, renderHook } from '@testing-library/react-native';
 import { createElement, type ReactNode } from 'react';
 import { triggerHouseholdSync, useSyncEngine } from '@/lib/sync/sync-runner';
 
-// `jest.requireMock` statt eines statischen `import`: Der reale
-// `lib/db/outbox`-Typ kennt `__triggerOutboxChanged` nicht (existiert nur im
-// Mock oben) — ein `import` wuerde `tsc` zu Recht als Fehler melden.
+// Der Trigger existiert nur im Mock und damit nicht im realen Modultyp.
 const { __triggerOutboxChanged } = jest.requireMock('@/lib/db/outbox') as {
   __triggerOutboxChanged: () => void;
 };
@@ -75,7 +69,6 @@ describe('triggerHouseholdSync — Query-Invalidierung (#115-Befund)', () => {
     expect(queryClient.invalidateQueries).toHaveBeenCalledWith({
       queryKey: ['shopping_list_items', 'household-1'],
     });
-    // rowsWritten: 0 -> keine Aenderung, keine Invalidierung fuer fridge_items
     expect(queryClient.invalidateQueries).not.toHaveBeenCalledWith({
       queryKey: ['fridge_items', 'household-1'],
     });
@@ -151,15 +144,13 @@ describe('useSyncEngine — Sync-Ausloeser bei lokalem Schreibvorgang', () => {
   it('loest fuer einen einzelnen Schreibvorgang SOFORT einen Sync aus (#70 AC1: unter einer Sekunde)', async () => {
     const { unmount } = await renderHook(() => useSyncEngine('household-1'), { wrapper });
     await jest.advanceTimersByTimeAsync(0);
-    mockSyncHousehold.mockClear(); // Initialer Mount-Sync zaehlt hier nicht.
+    mockSyncHousehold.mockClear();
 
     await act(async () => {
       __triggerOutboxChanged();
       await jest.advanceTimersByTimeAsync(0);
     });
 
-    // Kein Timer-Vorlauf noetig: der erste Schreibvorgang eines Schwungs
-    // loest den Aufruf synchron aus, nicht erst nach OUTBOX_DEBOUNCE_MS.
     expect(mockSyncHousehold).toHaveBeenCalledTimes(1);
 
     await unmount();
@@ -171,23 +162,21 @@ describe('useSyncEngine — Sync-Ausloeser bei lokalem Schreibvorgang', () => {
     mockSyncHousehold.mockClear();
 
     await act(async () => {
-      __triggerOutboxChanged(); // 1. Schreibvorgang: sofortiger Sync
+      __triggerOutboxChanged();
       await jest.advanceTimersByTimeAsync(0);
     });
     expect(mockSyncHousehold).toHaveBeenCalledTimes(1);
 
     await act(async () => {
-      __triggerOutboxChanged(); // 2. und 3. Schreibvorgang kurz danach: gebuendelt
+      __triggerOutboxChanged();
       __triggerOutboxChanged();
       await jest.advanceTimersByTimeAsync(0);
     });
-    // Noch kein weiterer Sync, solange die Ruhezeit nicht abgelaufen ist.
     expect(mockSyncHousehold).toHaveBeenCalledTimes(1);
 
     await act(async () => {
       await jest.advanceTimersByTimeAsync(800);
     });
-    // Genau EIN zusaetzlicher Trailing-Sync fuer den ganzen Rest des Schwungs.
     expect(mockSyncHousehold).toHaveBeenCalledTimes(2);
 
     await unmount();
@@ -199,16 +188,11 @@ describe('useSyncEngine — Sync-Ausloeser bei lokalem Schreibvorgang', () => {
     mockSyncHousehold.mockClear();
 
     await act(async () => {
-      __triggerOutboxChanged(); // 1. Schreibvorgang: sofortiger Sync
+      __triggerOutboxChanged();
       await jest.advanceTimersByTimeAsync(0);
     });
     expect(mockSyncHousehold).toHaveBeenCalledTimes(1);
 
-    // Ununterbrochener Schreibstrom, jeder Schreibvorgang erneuert eigentlich
-    // den Trailing-Timer (500ms < OUTBOX_DEBOUNCE_MS von 800ms) — nach 9
-    // Schreibvorgaengen a 500ms (4000ms seit Schwungbeginn, beim 9. Trigger
-    // selbst erreicht) greift der Deckel WAEHREND des Stroms, nicht erst in
-    // einer nie eintretenden Ruhephase.
     for (let i = 0; i < 9; i++) {
       await act(async () => {
         __triggerOutboxChanged();

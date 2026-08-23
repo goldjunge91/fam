@@ -1,16 +1,7 @@
 export type Sex = 'male' | 'female';
 export type BmrFormula = 'mifflin_st_jeor' | 'harris_benedict';
 
-/**
- * Roh-Eingaben wie aus `profiles` (#81). Bewusst nullable — dort sind alle
- * vier Felder optional, damit das Onboarding niemand zur Angabe zwingt.
- *
- * `sex` ist die Rechenbasis fuer die Formeln, nicht die Geschlechtsidentitaet
- * des Nutzers (siehe Kommentar auf `profiles.sex` im DB-Schema). Ein `null`
- * hier landet wie jedes andere fehlende Feld in `missingFields` — es gibt
- * keinen dritten Formelzweig, da die DB nur `'male' | 'female' | null`
- * zulaesst.
- */
+/** Optionale Profilwerte; `sex` bezeichnet nur die Rechenbasis der Formel. */
 export type BmrProfileInput = {
   sex: Sex | null;
   birthDate: Date | string | null;
@@ -24,14 +15,7 @@ export type BmrResult =
   | { ok: true; bmrKcal: number; formula: BmrFormula; ageYears: number }
   | { ok: false; reason: 'incomplete_profile'; missingFields: BmrMissingField[] };
 
-/**
- * Alter in vollen Jahren zum Stichtag `today` — kein internes `new Date()`,
- * damit die Funktion deterministisch und ohne Testdoubles pruefbar ist
- * (gleiches Prinzip wie `calendarDaysBetween` in `../fridge/expiry.ts`).
- *
- * Zaehlt nur volle, bereits erreichte Geburtstage: Wer seinen Geburtstag
- * dieses Jahr noch vor sich hat, ist noch ein Jahr juenger.
- */
+/** Berechnet volle Lebensjahre zu einem expliziten, deterministischen Stichtag. */
 export function calculateAgeYears(birthDate: Date, today: Date): number {
   let age = today.getFullYear() - birthDate.getFullYear();
   const hasHadBirthdayThisYear =
@@ -65,12 +49,7 @@ export function harrisBenedictBmr(input: {
   return 447.593 + 9.247 * input.weightKg + 3.098 * input.heightCm - 4.33 * input.ageYears;
 }
 
-/**
- * Orchestriert Vollstaendigkeitspruefung + Formelwahl (#81-AC: "Unvollstaendiges
- * Profil -> explizit 'nicht berechenbar', kein Ratewert"). Die Low-Level-
- * Formeln oben bleiben strikt non-null, damit sie einfach gegen publizierte
- * Referenzwerte testbar sind — die Null-Behandlung passiert nur hier, einmal.
- */
+/** Prueft die Vollstaendigkeit und waehlt die gewuenschte BMR-Formel. */
 export function calculateBmr(
   input: BmrProfileInput,
   today: Date,

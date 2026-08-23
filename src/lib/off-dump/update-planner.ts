@@ -1,17 +1,8 @@
-/**
- * Reine Entscheidungslogik: Patch oder Baseline? (#223 Paket 6, Abschnitt
- * 14 "Entscheidung Patch oder Baseline"). Ohne Dateisystem/Netzwerk
- * testbar — dasselbe Muster wie `dump-manifest-core.ts`/`dump-patch-core.ts`
- * auf der CI-Seite.
- */
-
 import type { DumpManifest, DumpManifestPatchEntry } from './manifest';
 
 export type LocalDumpState = {
-  /** `null`, wenn noch kein lokaler Dump existiert. */
   schemaVersion: number | null;
   dataVersion: string | null;
-  /** Ergebnis von `PRAGMA quick_check` — irrelevant, wenn kein Dump existiert. */
   integrityOk: boolean;
 };
 
@@ -28,14 +19,9 @@ export type UpdatePlan =
   | { kind: 'baseline'; reason: BaselineReason }
   | { kind: 'patch'; patches: DumpManifestPatchEntry[] };
 
-/** Als Startwert vorgegeben (Abschnitt 14), später anhand echter Messung justierbar. */
 const DEFAULT_PATCH_SIZE_THRESHOLD = 0.7;
 
-/**
- * Läuft die Patchkette von `fromVersion` bis `manifest.latestVersion`.
- * `null`, wenn die Kette lückenhaft ist (kein Patch mit `from === current`
- * gefunden, bevor `latestVersion` erreicht ist).
- */
+/** Gibt bei einer lueckenhaften Patchkette `null` zurueck. */
 function findPatchChain(
   fromVersion: string,
   manifest: DumpManifest,

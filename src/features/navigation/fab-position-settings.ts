@@ -1,11 +1,7 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useQuery, useQueryClient } from '@tanstack/react-query';
 
-/**
- * Ecke des globalen Plus-Buttons (#150-Folge "F2 Speed-Dial"), geräteweit —
- * analog zu `meal-planner/settings.ts`. Keine Haushalts-/Account-Einstellung,
- * reine Bedienpräferenz (Rechts-/Linkshänder), deshalb lokal statt Supabase.
- */
+/** Speichert die lokale Bedienpraeferenz fuer die Ecke des Plus-Buttons. */
 const STORAGE_KEY = '@fam/fab_position';
 
 export type FabPosition = 'left' | 'right';
@@ -23,10 +19,7 @@ export async function getFabPosition(): Promise<FabPosition> {
 export async function setFabPosition(value: FabPosition): Promise<void> {
   try {
     await AsyncStorage.setItem(STORAGE_KEY, value);
-  } catch {
-    // Bewusst still: ein fehlgeschlagenes Speichern der Einstellung darf den
-    // Rest der App nicht blockieren, siehe active-household-store.ts.
-  }
+  } catch {}
 }
 
 export const fabPositionQueryKey = ['settings', 'fab-position'] as const;

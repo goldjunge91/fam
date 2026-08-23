@@ -14,12 +14,7 @@ export type CategoryTile = {
   matches: (template: RecipeTemplateWithNutrition) => boolean;
 };
 
-/**
- * Die 10 Kacheln fuer den "Kategorien"-Carousel im Entdecken-Screen.
- * `high_protein`/`low_carb`/`quick` sind rein abgeleitet (siehe
- * `isHighProteinTemplate`/`isLowCarbTemplate` in use-recipe-templates.ts),
- * die uebrigen filtern auf `dish_types`/`dietary_tags`.
- */
+/** Abgeleitete Kategorien filtern ohne eigene persistierte Tags. */
 export const CATEGORY_TILES: CategoryTile[] = [
   {
     key: 'breakfast',
@@ -68,7 +63,6 @@ type CategoryCarouselProps = {
   onSelect: (key: string | null) => void;
 };
 
-/** Horizontal scrollende Kategorie-Kacheln — Icon und Label in derselben Karte, kein Text darunter. */
 export function CategoryCarousel({ selectedKey, onSelect }: CategoryCarouselProps) {
   return (
     <ScrollView

@@ -44,8 +44,6 @@ describe('useSignOutOnOrphanedProfile', () => {
     expect(mockSignOutAndClearLocalData).toHaveBeenCalledTimes(1);
     expect(mockSignOutAndClearLocalData).toHaveBeenCalledWith(queryClient);
 
-    // Bleibt der Fehler ueber weitere Re-Renders bestehen (z.B. weil die
-    // Abmeldung noch laeuft), darf kein zweiter Aufruf ausgeloest werden.
     await rerender({ error: { code: 'PGRST116' } });
     expect(mockSignOutAndClearLocalData).toHaveBeenCalledTimes(1);
   });

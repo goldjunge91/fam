@@ -1,8 +1,5 @@
 -- Gewuenschter Endzustand — NICHT von Hand migrieren.
---
--- Intervallfasten (#18): Protokolle, persistierter Timer-Start, Restzeit-Berechnung.
---
--- Streng privat: Kein Zugriff durch Haushaltsmitglieder.
+-- Fastenprotokolle bleiben fuer Haushaltsmitglieder unsichtbar.
 
 create table if not exists public.fasting_sessions (
   id uuid primary key default gen_random_uuid(),
@@ -37,7 +34,6 @@ create or replace trigger fasting_sessions_set_updated_at
   for each row
   execute function private.set_updated_at();
 
--- ------------------------------------------------------------------------- RLS
 alter table public.fasting_sessions enable row level security;
 
 create policy fasting_sessions_own on public.fasting_sessions

@@ -140,7 +140,6 @@ function TimePicker({
 
   return (
     <View className="gap-three">
-      {/* Große digitale Uhr & Stepper */}
       <View
         style={{ backgroundColor: theme.backgroundElement, borderColor: theme.border }}
         className="p-four rounded-2xl border flex-row items-center justify-between">
@@ -158,7 +157,6 @@ function TimePicker({
           </ThemedText>
         </Pressable>
 
-        {/* Stepper Buttons (-1h / +1h) */}
         <View className="flex-row gap-two">
           <Pressable
             onPress={() => step(-1)}
@@ -181,7 +179,6 @@ function TimePicker({
         </View>
       </View>
 
-      {/* Schicht-Presets */}
       <View>
         <ThemedText type="caption" themeColor="textSecondary" className="mb-one">
           Schnellauswahl für Schichtmodelle:
@@ -213,14 +210,12 @@ function TimePicker({
         </ScrollView>
       </View>
 
-      {/* Präzise Erklärung */}
       <ThemedText type="caption" themeColor="textSecondary">
         {value === '00:00'
           ? 'Standard: Dein Tracking-Tag wechselt um 00:00 Uhr (Mitternacht).'
           : `Dein Tracking-Tag läuft jeweils 24 Stunden ab ${value} Uhr. Mahlzeiten vor ${value} Uhr zählen zum vorherigen Tag.`}
       </ThemedText>
 
-      {/* Modal für manuelle Zeiteingabe */}
       <Modal
         visible={modalVisible}
         transparent
@@ -285,7 +280,6 @@ export function TrackingScreen() {
   const [editActivityLevel, setEditActivityLevel] = useState<ActivityLevel | null>(null);
   const [savingBiometrics, setSavingBiometrics] = useState(false);
 
-  // Synchroner lokaler State für Tracking-Methode und Tagesstart
   const [selectedMethod, setSelectedMethod] = useState<TrackingMethod>('standard');
   const [selectedStartTime, setSelectedStartTime] = useState('00:00');
 
@@ -313,7 +307,6 @@ export function TrackingScreen() {
     updateStartTimeMutation.mutate({ userId, time });
   }
 
-  // BMR / TDEE / Alter
   const bmrResult = useMemo(() => {
     if (!profile) return null;
     return calculateBmr(
@@ -375,7 +368,6 @@ export function TrackingScreen() {
       back={{ label: 'Mein Profil', href: '/profile' }}
       backStyle="icon">
       <ScrollView contentContainerClassName="screen-scroll" showsVerticalScrollIndicator={false}>
-        {/* 1. Tracking-Methode (CICO, GLP-1, Fasten, Low-Carb, Keto, Kraftsport, CGM, Volumetrics) */}
         <SettingsGroup title="Deine Tracking-Methode">
           <View className="p-three gap-two">
             <ThemedText type="small" themeColor="textSecondary" className="mb-one">
@@ -420,10 +412,8 @@ export function TrackingScreen() {
           </View>
         </SettingsGroup>
 
-        {/* 2. Ernährung & Tagesziele (Kalorienziel & Makros) */}
         <SettingsGroup title="Ernährung & Tagesziele">
           <View className="p-three gap-three">
-            {/* Große Tagesziel-Kachel für Kalorien */}
             <View
               style={{ backgroundColor: theme.backgroundElement, borderColor: theme.border }}
               className="p-four rounded-2xl border items-center">
@@ -435,7 +425,6 @@ export function TrackingScreen() {
               </ThemedText>
             </View>
 
-            {/* 3 Makronährstoff-Kacheln (Protein, Carbs, Fett) */}
             <View className="flex-row gap-two">
               <View
                 style={{ backgroundColor: theme.backgroundElement, borderColor: theme.border }}
@@ -471,7 +460,6 @@ export function TrackingScreen() {
               </View>
             </View>
 
-            {/* Button zum Bearbeiten der Ziele */}
             <Button
               label="Ziele & Makros bearbeiten"
               variant="secondary"
@@ -480,10 +468,8 @@ export function TrackingScreen() {
           </View>
         </SettingsGroup>
 
-        {/* 3. Vitalwerte & Biometrie Kacheln (Größe, Gewicht, Alter, Aktivität, BMR & TDEE) */}
         <SettingsGroup title="Vitalwerte & Biometrie">
           <View className="p-three gap-three">
-            {/* 2x2 Grid für Kern-Messwerte */}
             <View className="flex-row gap-two">
               <View
                 style={{ backgroundColor: theme.backgroundElement, borderColor: theme.border }}
@@ -539,7 +525,6 @@ export function TrackingScreen() {
               </View>
             </View>
 
-            {/* BMR & TDEE Energie-Banner */}
             <View
               style={{ backgroundColor: theme.backgroundElement, borderColor: theme.border }}
               className="p-three rounded-xl border flex-row items-center justify-around">
@@ -562,7 +547,6 @@ export function TrackingScreen() {
               </View>
             </View>
 
-            {/* Button zum Bearbeiten der Biometrie */}
             <Button
               label="Biometrie bearbeiten"
               variant="secondary"
@@ -571,7 +555,6 @@ export function TrackingScreen() {
           </View>
         </SettingsGroup>
 
-        {/* 4. Tracking-Rhythmus & Zeitfenster (Tagesstart-Uhrzeit) */}
         <SettingsGroup title="Tracking-Rhythmus & Zeitfenster">
           <View className="p-three">
             <TimePicker
@@ -583,7 +566,6 @@ export function TrackingScreen() {
         </SettingsGroup>
       </ScrollView>
 
-      {/* Modal zur Bearbeitung der Biometrie (Größe, Geschlecht, Geburtsdatum, Aktivität) */}
       <Modal
         visible={biometricsModalVisible}
         transparent

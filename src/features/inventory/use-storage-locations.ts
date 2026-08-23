@@ -12,14 +12,7 @@ export type StorageLocation = {
   sort_order: number;
 };
 
-/**
- * `create_household()` legt die 3 Standard-Lagerorte serverseitig an
- * (supabase/schemas/08_inventory.sql). Ein client-seitiger Fallback hier
- * wuerde nach dem Beitritt zu einem bestehenden Haushalt Duplikate erzeugen,
- * weil die lokale SQLite-Kopie direkt nach dem Beitritt leer ist, bis der
- * erste Pull-Sync durchgelaufen ist — das sieht identisch aus wie "wurde nie
- * angelegt".
- */
+/** Standard-Lagerorte kommen nur vom Server, um Offline-Duplikate zu vermeiden. */
 export function useStorageLocations(householdId: string | undefined) {
   return useQuery({
     queryKey: ['storage_locations', householdId],

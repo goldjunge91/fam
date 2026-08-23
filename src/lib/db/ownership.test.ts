@@ -3,15 +3,6 @@ import { runMigrations } from '@/lib/db/migrator';
 import { ensureDatabaseBelongsTo } from '@/lib/db/ownership';
 import { createTestDatabase, type TestDatabase } from '../../../test/node-sqlite-adapter';
 
-/**
- * Die zweite Verteidigungslinie gegen fremde Haushaltsdaten auf demselben
- * Geraet — gegen eine echte SQLite-Engine, mit dem echten Schema.
- *
- * Das Verwerfen selbst ist ein Callback, weil `client.ts` es innerhalb seines
- * Oeffnungs-Mutex ausfuehren muss. Hier steht an seiner Stelle eine zweite
- * echte Datenbank: derselbe Effekt (die alten Zeilen sind weg), ohne
- * `expo-sqlite`.
- */
 async function freshDatabase(): Promise<TestDatabase> {
   const db = createTestDatabase();
   await runMigrations(db, MIGRATIONS);
@@ -60,7 +51,6 @@ describe('ensureDatabaseBelongsTo', () => {
     expect(wipeCount).toBe(1);
     expect(result).toBe(wiped);
 
-    // Die Daten des Vornutzers sind weg, und die neue Datei gehoert user-b.
     const leftovers = await result.getAllAsync('select id from storage_locations');
     expect(leftovers).toHaveLength(0);
     expect(await readOwner(result as TestDatabase)).toBe('user-b');
@@ -81,9 +71,6 @@ describe('ensureDatabaseBelongsTo', () => {
   });
 
   it('uebernimmt eine frische Datenbank ohne Eintrag, statt sie wegzuwerfen', async () => {
-    // Kein `user_id` in app_meta: Erstinstallation, oder eine Datei aus der
-    // Zeit vor dieser Pruefung. Ein Wipe wuerde hier die Daten des
-    // rechtmaessigen Nutzers loeschen.
     await db.runAsync(
       'insert into storage_locations (id, household_id, name, kind, updated_at) values (?, ?, ?, ?, ?)',
       ['loc-a', 'hh-a', 'Kühlschrank', 'fridge', 1000],

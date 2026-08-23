@@ -11,27 +11,10 @@ import { usePremium } from '@/features/premium/premium-provider';
 import { useAddShoppingItem } from '@/features/shopping-list/hooks/use-shopping-list-mutations';
 import { type MissingIngredientView, useMealPlanShoppingNeeds } from './use-shopping-needs';
 
-// Stabile Referenz statt Inline-`= []`: `EMPTY_MISSING` bleibt beim naechsten
-// Render dieselbe Array-Instanz. Ein Inline-Default legt bei jedem Render
-// ein neues Array an — der useEffect unten haengt an `[missing]`, das waere
-// dieselbe Endlosschleife wie in recipe-shopping-sheet.tsx (siehe dortigen
-// Fix): setSelected -> Re-Render -> neues [] -> Effekt feuert erneut.
+// Stabile leere Referenz verhindert einen Effekt-Loop.
 const EMPTY_MISSING: MissingIngredientView[] = [];
 
-/**
- * Kuratierte Uebernahme fehlender Zutaten in die Einkaufsliste (#131),
- * Premium-Feature — dieselbe Funktion wie "Fehlendes direkt einkaufen" aus
- * `recipe-shopping-sheet.tsx`, hier fuer den ganzen Wochenplan statt ein
- * einzelnes Rezept. Ohne Zugriff zeigt der Screen einen Hinweis samt Button
- * zur echten RevenueCat-Paywall statt der Liste.
- *
- * Standard-Fluss (mit Zugriff): alle berechneten fehlenden Zutaten sind
- * vorausgewaehlt, der Nutzer kann einzelne abwaehlen, bevor er uebernimmt —
- * kein Ein-Klick-ohne-Rueckfrage-Automatismus (das ist #132, ausserhalb des
- * Scopes hier). Artikel mit Kaufhistorie zeigen den zuletzt verwendeten
- * Markt als Badge; Artikel ohne Historie zeigen keinen Badge und brauchen
- * keine gesonderte Auswahl, weil es nichts zum Auswaehlen gibt.
- */
+/** Uebernimmt ausgewaehlte fehlende Zutaten eines Wochenplans in die Einkaufsliste. */
 export function MissingIngredientsScreen() {
   const { mealPlanId } = useLocalSearchParams<{ mealPlanId: string }>();
   const { session } = useSession();
@@ -99,7 +82,6 @@ export function MissingIngredientsScreen() {
       title="Fehlende Zutaten"
       subtitle="Bedarf dieser Woche minus Vorrat"
       back={{ label: 'Wochenplan' }}>
-      {/* Paywall-Hinweis falls kein aktives Premium-Abo vorhanden ist */}
       {!isPremium ? (
         <View className="mis-list">
           <ThemedText themeColor="textSecondary">
@@ -109,15 +91,12 @@ export function MissingIngredientsScreen() {
           <Button label="Premium ansehen" onPress={unlockPremium} loading={unlocking} />
         </View>
       ) : isLoading ? (
-        /* Ladeindikator beim Berechnen der Vorratsabgleiche */
         <ActivityIndicator className="mis-loading" />
       ) : missing.length === 0 ? (
-        /* Statusanzeige wenn alle Zutaten im Vorrat vorhanden sind */
         <ThemedText themeColor="textSecondary">
           Für die geplanten Rezepte fehlt nichts – der Vorrat reicht.
         </ThemedText>
       ) : (
-        /* Auswahlliste aller fehlenden Zutaten mit Mengenangaben und Übertrags-Button */
         <View className="mis-list">
           {missing.map((item) => (
             <IngredientRow
@@ -128,7 +107,6 @@ export function MissingIngredientsScreen() {
             />
           ))}
 
-          {/* Button zum Hinzufügen der ausgewählten Zutaten auf die Einkaufsliste */}
           <Button
             label={`${selected.size} Artikel zur Einkaufsliste hinzufügen`}
             onPress={handleAddSelected}
@@ -136,7 +114,6 @@ export function MissingIngredientsScreen() {
             loading={addShoppingItem.isPending}
           />
 
-          {/* Erfolgs-Bestätigung nach Übertrag */}
           {addedCount !== null ? (
             <ThemedText type="small" themeColor="accent">
               {addedCount} Artikel zur Einkaufsliste hinzugefügt.

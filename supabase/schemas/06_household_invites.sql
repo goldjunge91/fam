@@ -1,24 +1,16 @@
 -- Gewuenschter Endzustand — NICHT von Hand migrieren (#36).
---
--- Einladungen in einen Haushalt.
---
--- Der Beitritt laeuft ueber ein RPC und nicht ueber ein INSERT aus dem Client.
--- Grund: Wer beitreten will, ist noch kein Mitglied. Die RLS-Policies auf
--- households und household_members zeigen ihm nichts und lassen ihn nichts
--- schreiben — es gaebe schlicht keinen Weg hinein.
+-- Der Beitritt braucht ein RPC, weil Nichtmitglieder keine Mitgliedschaft einfuegen duerfen.
 
 create table if not exists public.household_invites (
   id uuid primary key default gen_random_uuid(),
   household_id uuid not null references public.households (id) on delete cascade,
 
-  -- Der Token IST das Geheimnis. gen_random_uuid() liefert 122 Bit Zufall aus
-  -- einer kryptografisch sicheren Quelle — nicht erratbar.
+  -- Der kryptografisch zufaellige Token ist das Einladungsgeheimnis.
   token uuid not null unique default gen_random_uuid(),
 
   created_by uuid not null references public.profiles (id) on delete cascade,
 
-  -- Endlichkeit per Default: Eine Einladung, die ewig gilt, ist ein dauerhaft
-  -- offener Zugang zum Haushalt, den irgendwann niemand mehr auf dem Schirm hat.
+  -- Einladungen duerfen keinen dauerhaften Zugang offenlassen.
   expires_at timestamptz not null default (now() + interval '7 days'),
   max_uses integer not null default 1 check (max_uses > 0),
   uses integer not null default 0 check (uses >= 0),
@@ -41,7 +33,6 @@ create or replace trigger household_invites_set_updated_at
   for each row
   execute function private.set_updated_at();
 
--- --------------------------------------------------------------- Einloesung
 create or replace function public.redeem_invite(invite_token uuid)
 returns uuid
 language plpgsql
@@ -56,17 +47,13 @@ begin
     raise exception 'Nicht angemeldet';
   end if;
 
-  -- `for update` sperrt die Zeile bis zum Commit. Ohne das koennten zwei
-  -- gleichzeitige Einloesungen beide den letzten freien Platz sehen und
-  -- belegen — max_uses waere dann nur eine Empfehlung.
+  -- Die Zeilensperre verhindert, dass parallele Einloesungen max_uses ueberschreiten.
   select * into inv
   from public.household_invites
   where token = invite_token
   for update;
 
-  -- Alle Fehlerfaelle melden bewusst nur, was der Aufrufer ohnehin weiss oder
-  -- braucht. Insbesondere wird nie der Haushaltsname genannt, bevor der
-  -- Beitritt erfolgt ist.
+  -- Fehler duerfen vor dem Beitritt keine Haushaltsdaten preisgeben.
   if not found then
     raise exception 'Einladung ungueltig';
   end if;
@@ -79,9 +66,7 @@ begin
     raise exception 'Einladung ist abgelaufen';
   end if;
 
-  -- Bereits Mitglied: still durchwinken, ohne eine Nutzung zu verbrauchen.
-  -- Ein zweiter Klick auf denselben Link darf weder fehlschlagen noch einen
-  -- Platz kosten — sonst brennt ein Nutzer die Einladung fuer jemand anderen ab.
+  -- Wiederholte Einloesungen durch Mitglieder bleiben idempotent und kostenlos.
   if exists (
     select 1 from public.household_members
     where household_id = inv.household_id and user_id = uid
@@ -107,12 +92,9 @@ $$;
 comment on function public.redeem_invite(uuid) is
   'Loest ein Einladungstoken ein und macht den Aufrufer zum Mitglied. Gibt die household_id zurueck.';
 
--- ------------------------------------------------------------------------- RLS
 alter table public.household_invites enable row level security;
 
--- Einladungen sind Admin-Sache. Mitglieder ohne Admin-Rolle sehen sie nicht:
--- Wer den Token sieht, kann ihn weitergeben, und wer ihn weitergeben darf,
--- soll das bewusst als Admin tun.
+-- Nur Admins duerfen Einladungstoken sehen oder verwalten.
 create policy household_invites_select_admin on public.household_invites
   for select to authenticated
   using ((select private.is_household_admin(household_id)));
@@ -124,8 +106,7 @@ create policy household_invites_insert_admin on public.household_invites
     and created_by = (select auth.uid())
   );
 
--- Update nur zum Zurueckziehen (revoked_at setzen). Die Einloesung erhoeht
--- `uses` ueber das SECURITY-DEFINER-RPC und laeuft nicht ueber diese Policy.
+-- redeem_invite erhoeht uses innerhalb des SECURITY-DEFINER-RPC.
 create policy household_invites_update_admin on public.household_invites
   for update to authenticated
   using ((select private.is_household_admin(household_id)))

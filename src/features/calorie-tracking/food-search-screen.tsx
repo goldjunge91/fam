@@ -39,18 +39,7 @@ const PAGE_SIZE = 20;
 
 type HistoryTab = 'recent' | 'frequent';
 
-/**
- * Lebensmittelsuche vor der eigentlichen Erfassung — Freitextsuche (Open Food
- * Facts), Barcode-Scan, oder ein Griff auf zuletzt/häufig geloggte
- * Lebensmittel. Ergebnis geht als Router-Params an `/add-food-entry` weiter,
- * dort passiert die eigentliche Mengenauswahl und das Speichern.
- *
- * Suchergebnisse laden seitenweise nach (#Performance-Feedback: ein Begriff
- * wie "Haferflocken" hat hunderte Treffer bei Open Food Facts — alles auf
- * einmal laden waere langsam, ein hartes Limit wuerde brauchbare Treffer
- * verstecken). `FlatList` + `onEndReached` statt der vorherigen einfachen
- * Liste, damit Scrollen tatsaechlich weitere Seiten nachlaedt.
- */
+/** Sucht paginiert per Freitext, Barcode oder lokalem Verlauf. */
 export function FoodSearchScreen() {
   const theme = useTheme();
   const { session } = useSession();
@@ -68,8 +57,7 @@ export function FoodSearchScreen() {
   const [source, setSource] = useState<ItemSource>('food');
   const [showScanner, setShowScanner] = useState(false);
 
-  // Schuetzt vor veralteten "naechste Seite"-Antworten, wenn die Suche sich
-  // waehrend des Nachladens schon geaendert hat.
+  // Verhindert, dass alte Seiten eine neue Suche ueberschreiben.
   const queryRef = useRef(query);
   queryRef.current = query;
 
@@ -78,16 +66,7 @@ export function FoodSearchScreen() {
     params.mealType as MealType,
   );
 
-  /**
-   * Zuerst lokaler SQLite-Dump (off_dump.products) für sofortige Offline-Ergebnisse,
-   * parallel/anschließend Ergänzung über die Open Food Facts API.
-   *
-   * Bei abgetipptem Barcode: exakter Lookup im lokalen Dump vor dem Netz-Lookup.
-   *
-   * `searchFailed` wird nur aktiv, wenn WEDER lokale noch Online-Treffer
-   * vorhanden sind UND die Online-Anfrage fehlschlug. Liegen lokale Treffer
-   * vor, sieht der Nutzer diese sofort ohne störendes Fehlerbanner.
-   */
+  /** Liefert lokale Treffer zuerst und ergaenzt sie aus dem Netz. */
   async function runSearch(trimmedQuery: string, signal: AbortSignal) {
     setSearching(true);
     setSearchFailed(false);
@@ -133,9 +112,7 @@ export function FoodSearchScreen() {
     }
   }
 
-  // `runSearch` bewusst nicht in den Deps: es liest ausschliesslich Setter
-  // (stabil) und seine eigenen Parameter, kein sich aenderndes Closure-State.
-  // biome-ignore lint/correctness/useExhaustiveDependencies: siehe oben.
+  // biome-ignore lint/correctness/useExhaustiveDependencies: runSearch nutzt nur stabile Setter und Parameter.
   useEffect(() => {
     if (query.trim().length < 2) {
       setResults([]);
@@ -146,15 +123,7 @@ export function FoodSearchScreen() {
       return;
     }
 
-    // Bricht eine noch laufende Anfrage ab, sobald eine neue Eingabe
-    // ueberholt hat — ohne das wartet die UI teils auf eine Antwort, die
-    // gleich verworfen wird, statt sofort die neue Suche zu zeigen.
-    //
-    // 800ms statt der ueblichen 300ms: Open Food Facts limitiert Suchen auf
-    // 10/min/IP und untersagt Search-as-you-type ausdruecklich ("you would
-    // be blocked very quickly") — ein kurzes Debounce waere hier ein
-    // Verstoss gegen die dokumentierten Nutzungsregeln, kein Feinschliff.
-    // `searchOpenFoodFacts` haelt zusaetzlich ein eigenes Anfragelimit ein.
+    // 800 ms respektiert das OFF-Limit von zehn Suchen pro Minute und IP.
     const controller = new AbortController();
     const trimmedQuery = query.trim();
     const timer = setTimeout(() => runSearch(trimmedQuery, controller.signal), 800);
@@ -228,7 +197,6 @@ export function FoodSearchScreen() {
       title={MEAL_LABELS[params.mealType] ?? 'Lebensmittel'}
       back={{ label: 'Abbrechen' }}
       scroll={false}>
-      {/* Suchkopf: Textsuche, Barcode-Scanner-Button und Verlaufsfilter */}
       <View className="fss-header">
         <View className="fss-search-row">
           <View className="flex-1">
@@ -248,7 +216,6 @@ export function FoodSearchScreen() {
           </Pressable>
         </View>
 
-        {/* Quell- und Verlaufs-Filterleiste (Zuletzt vs. Häufig) */}
         {!isSearchMode ? (
           <ItemSourceFilterRow
             source={source}
@@ -261,7 +228,6 @@ export function FoodSearchScreen() {
         ) : null}
       </View>
 
-      {/* Ergebnisliste: Entweder Live-Suchergebnisse (OFF/Lokal) oder Verlauf */}
       {isSearchMode ? (
         searching ? (
           <ActivityIndicator color={theme.accent} className="fss-center-loader" />
@@ -316,13 +282,11 @@ export function FoodSearchScreen() {
         />
       )}
 
-      {/* Button für Schnelleintrag (manuelle Eingabe ohne Produktsuche) */}
       <Pressable onPress={selectManualEntry} className="fss-quick-entry-btn">
         <ThemedText className="text-[18px]">🍽️</ThemedText>
         <ThemedText type="smallBold">Schneller Eintrag</ThemedText>
       </Pressable>
 
-      {/* Modal für Kamera-Barcode-Scanner */}
       <BarcodeScannerModal
         visible={showScanner}
         onClose={() => setShowScanner(false)}

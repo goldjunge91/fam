@@ -51,16 +51,7 @@ export type GroupedShoppingItems = {
   items: LocalShoppingItem[];
 };
 
-/**
- * Gruppiert Artikel nach Kategorie und sortiert die Gruppen nach der
- * Supermarkt-Laufstrecke (`shopping-categories.ts`) statt nach
- * Insertion-Order. Unkategorisierte Artikel ("Sonstiges") sinken ans Ende.
- * `customOrderIds` ist eine per Drag&Drop editierte, marktspezifische
- * Laufstrecke (Kategorie-IDs) — fehlt sie, gilt die Standardreihenfolge.
- *
- * Eigenstaendig exportiert, damit z.B. eine markt-gefilterte Ansicht dieselbe
- * Gruppierung client-seitig auf eine Teilmenge anwenden kann.
- */
+/** Nutzt die marktspezifische Laufstrecke oder faellt auf die Standardreihenfolge zurueck. */
 export function groupByCategory(
   items: LocalShoppingItem[],
   customOrderIds?: readonly string[] | null,
@@ -83,14 +74,7 @@ export function groupByCategory(
     );
 }
 
-/**
- * Liest alle aktiven Einkaufslisten-Artikel fuer den Haushalt aus SQLite (#85).
- *
- * Artikel mit `deleted_at` werden herausgefiltert — Soft-Deletes erscheinen
- * nicht in der UI. Gecheckte Artikel (`checked_at IS NOT NULL`) werden ans
- * Ende der Kategorie-Gruppe sortiert, bleiben aber sichtbar (ausgegraut),
- * damit der Nutzer sieht was er bereits eingepackt hat.
- */
+/** Gecheckte Artikel bleiben sichtbar, werden aber ans Ende der Liste sortiert. */
 export function useShoppingList(householdId: string | undefined) {
   return useQuery({
     queryKey: ['shopping_list_items', householdId],

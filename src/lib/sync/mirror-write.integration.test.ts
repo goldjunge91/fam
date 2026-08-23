@@ -88,8 +88,6 @@ describe('upsertMirrorRow', () => {
         source: 'manual',
         created_at: '2024-01-01T00:00:00Z',
         updated_at: '2024-01-15T10:30:00Z',
-        // products hat serverseitig gar kein deleted_at — dieser Test simuliert
-        // trotzdem den fehlerhaften Fall, dass ein Aufrufer einen Wert liefert.
         deleted_at: '2024-01-16T00:00:00Z',
       },
       { dirty: 0 },
@@ -274,7 +272,6 @@ describe('applyRemoteRow', () => {
   });
 
   it("bei dirty lokal + neuerer Remote-Zeile gewinnt remote via resolve(), gibt 'written' zurueck", async () => {
-    // Lokale, noch nicht gepushte Aenderung — aelter als die eingehende Remote-Zeile.
     await db.runAsync(
       `insert into storage_locations
          (id, household_id, name, kind, sort_order, updated_at, deleted_at, _dirty)

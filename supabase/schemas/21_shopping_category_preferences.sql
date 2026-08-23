@@ -1,8 +1,5 @@
 -- Gewuenschter Endzustand — NICHT von Hand migrieren (#223 Paket 2 / #225).
---
--- Haushaltsweite, offline synchronisierbare Korrekturen der automatischen
--- Einkaufskategorie. Die technische id ist eine deterministische UUIDv5 aus
--- der natuerlichen Identitaet; sie hat deshalb bewusst keinen Default.
+-- Haushaltsweite Offline-Korrekturen nutzen eine deterministische UUIDv5 ohne Default.
 
 create table if not exists public.shopping_category_preferences (
   id uuid primary key,
@@ -11,8 +8,7 @@ create table if not exists public.shopping_category_preferences (
   key_type text not null check (key_type in ('product', 'name')),
   normalized_key_value text not null,
 
-  -- NULL ist eine explizite, gelernte "Sonstiges"-Entscheidung und nicht mit
-  -- "keine Praeferenz gefunden" zu verwechseln.
+  -- NULL bedeutet eine explizit gelernte Sonstiges-Entscheidung.
   category_id text check (
     category_id in (
       'produce', 'bakery', 'deli_meat', 'pantry_canned', 'pantry_dry', 'breakfast',
@@ -25,8 +21,7 @@ create table if not exists public.shopping_category_preferences (
   updated_at timestamptz not null default now(),
   deleted_at timestamptz,
 
-  -- Nicht partiell: auch ein Tombstone reserviert die natuerliche Identitaet.
-  -- Eine erneute Auswahl restored dieselbe deterministische Zeile.
+  -- Auch Tombstones reservieren die natuerliche Identitaet fuer dieselbe UUID.
   constraint shopping_category_preferences_natural_key_key
     unique (household_id, key_type, normalized_key_value)
 );
@@ -38,8 +33,7 @@ alter table public.shopping_category_preferences
 comment on table public.shopping_category_preferences is
   'Haushaltsweite Kategorie-Korrekturen mit deterministischer UUIDv5 und Soft Delete.';
 
--- Der Unique-Index deckt household_id als erstes Feld bereits ab und ist damit
--- zugleich der benoetigte FK-/Membership-Lookup-Index.
+-- Der Unique-Index deckt den household_id-Lookup bereits ab.
 create index if not exists shopping_category_preferences_created_by_idx
   on public.shopping_category_preferences (created_by);
 

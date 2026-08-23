@@ -7,10 +7,6 @@ import {
 } from '@/lib/db/product-usage';
 import { createTestDatabase, type TestDatabase } from '../../../test/node-sqlite-adapter';
 
-/**
- * Nutzungshistorie (#79) gegen eine echte SQLite-Engine — kein Mock.
- */
-
 function usage(overrides: Partial<ProductUsageEntry> = {}): ProductUsageEntry {
   return {
     id: `usage-${Math.random()}`,

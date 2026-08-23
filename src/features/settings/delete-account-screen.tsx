@@ -9,18 +9,7 @@ import { Card } from '@/components/ui/card';
 import { deleteLocalDatabase } from '@/lib/db/client';
 import { getSupabase } from '@/lib/supabase';
 
-/**
- * Account- und Datenloeschung (#98). Zwei-Schritt-Bestaetigung: der Danger-
- * Button oeffnet einen nativen `Alert`, erst dessen destruktive Option loest
- * die eigentliche Loeschung aus.
- *
- * Die Edge Function `delete-account` prueft serverseitig zuerst
- * `prepare_account_deletion()` — ist dieser Nutzer irgendwo der letzte Admin
- * mit weiteren Mitgliedern, kommt ein 409 mit `last_admin_with_members`
- * zurueck, statt irgendetwas zu loeschen. Die Aufloesung (Admin uebertragen
- * oder den betroffenen Haushalt loeschen) passiert auf der bestehenden
- * Mitgliederseite (`/household/members`), nicht hier noch einmal.
- */
+/** Loescht nach nativer Bestaetigung, sofern kein Haushalt den letzten Admin verliert. */
 export function DeleteAccountScreen() {
   const queryClient = useQueryClient();
   const [deleting, setDeleting] = useState(false);
@@ -61,8 +50,7 @@ export function DeleteAccountScreen() {
       try {
         await deleteLocalDatabase();
       } catch {
-        // Session ist zu diesem Zeitpunkt bereits ungueltig (Konto weg) — ein
-        // Fehler beim lokalen Aufraeumen darf den Erfolg nicht verschleiern.
+        // Lokales Aufraeumen darf eine erfolgreiche Kontoloeschung nicht verschleiern.
       }
 
       router.replace('/onboarding');
@@ -91,7 +79,6 @@ export function DeleteAccountScreen() {
       title="Konto löschen"
       back={{ label: 'Einstellungen', href: '/settings' }}
       backStyle="icon">
-      {/* Warnhinweis-Karte zu den Auswirkungen der Account-Löschung */}
       <Card>
         <ThemedText type="small" themeColor="textSecondary">
           Löscht deinen Account und alle privaten Daten dauerhaft — Profil, Ernährungstagebuch,
@@ -100,7 +87,6 @@ export function DeleteAccountScreen() {
           mit weiteren Mitgliedern, musst du das vorher in den Haushalts-Einstellungen auflösen.
         </ThemedText>
       </Card>
-      {/* Gefahren-Aktionsbutton zum Einleiten der Kontolöschung */}
       <View className="mt-four">
         <Button
           label="Account löschen"

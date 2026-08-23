@@ -1,22 +1,5 @@
 #!/usr/bin/env bun
-/**
- * reconstruct-canonical.ts — deterministische Rekonstruktion der kanonischen
- * DB aus einer Baseline und der vollständigen Patchkette (#223 Paket 5,
- * Abschnitt 13 "Dauerhafte kanonische CI-Datenbank": "Fehlt oder scheitert
- * die kanonische DB, rekonstruiert der Workflow sie deterministisch aus der
- * aktuellen Monats-Baseline und der vollständigen Patchkette.").
- *
- *   bun run scripts/dump_data/reconstruct-canonical.ts \
- *     --baseline baseline-2026-08-01.db \
- *     --patches patch-2026-08-01-2026-08-02.db patch-2026-08-02-2026-08-03.db \
- *     --out canonical.db \
- *     [--expect-data-version 2026-08-03]
- *
- * Patches müssen in Reihenfolge übergeben werden (from -> to der Kette).
- * Prüft nach dem Zusammenbau `PRAGMA quick_check` und optional die erwartete
- * `data_version` — beides muss erfolgreich sein, sonst bricht der Prozess
- * mit exit 1 ab statt eine unsichere Datei zu veröffentlichen.
- */
+/** Rekonstruiert eine kanonische DB aus Baseline und geordneter Patchkette. */
 
 import { Database } from 'bun:sqlite';
 import { existsSync } from 'node:fs';
@@ -128,7 +111,7 @@ function main() {
     return readPatchDb(patchPath);
   });
 
-  // Kette validieren: jeder Patch muss lückenlos an den vorherigen anschließen.
+  // Jeder Patch muss lueckenlos an den vorherigen anschliessen.
   let expectedFrom = baselineMeta.dataVersion;
   for (const patch of patchRecords) {
     if (patch.fromVersion !== expectedFrom) {

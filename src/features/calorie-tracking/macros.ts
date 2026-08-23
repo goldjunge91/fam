@@ -19,16 +19,7 @@ export type MacroTargets = {
   fatG: number;
 };
 
-/**
- * Leitet aus einer Ziel-Kalorienzahl (siehe `calculateTargetCalories` in
- * `tdee.ts`) eine Makro-Verteilung in Gramm ab (#83) — entweder ueber eines
- * der festen Presets oder eine benutzerdefinierte Verteilung
- * ({protein,carbs,fat}, Anteile 0-1).
- *
- * Rundet je Makro einzeln — die drei Werte summieren sich deshalb kcal-maessig
- * nicht immer exakt auf `targetKcal`, weichen aber nie um mehr als eine
- * Rundungseinheit pro Makro ab.
- */
+/** Rechnet eine feste oder benutzerdefinierte Kalorienverteilung in Gramm um. */
 export function calculateMacroTargets(
   targetKcal: number,
   preset: MacroPreset | MacroRatio,

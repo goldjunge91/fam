@@ -10,8 +10,6 @@ describe('backoffDelayMs', () => {
   });
 
   it('deckelt die Wartezeit, statt sie unbegrenzt wachsen zu lassen', () => {
-    // Ohne Deckel wuerde ein Eintrag nach genuegend Fehlschlaegen praktisch
-    // nie wieder versucht.
     expect(backoffDelayMs(99)).toBe(backoffDelayMs(4));
   });
 
@@ -32,8 +30,6 @@ describe('backoffDelayMs', () => {
 
 describe('classifyError', () => {
   it('haelt einen Fehler ohne HTTP-Status fuer voruebergehend', () => {
-    // Flugmodus, DNS, abgebrochene Verbindung — die Anfrage hat den Server nie
-    // erreicht.
     expect(classifyError(null)).toBe('transient');
   });
 
@@ -46,8 +42,6 @@ describe('classifyError', () => {
   });
 
   it.each([400, 401, 403, 404, 409, 422])('haelt %i fuer dauerhaft', (status) => {
-    // Besonders 401/403: Ein RLS-Verstoss geht nie durch. Als voruebergehend
-    // behandelt entstuende eine Endlosschleife im Hintergrund.
     expect(classifyError(status)).toBe('permanent');
   });
 });

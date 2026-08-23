@@ -13,11 +13,7 @@ interface StorePickerFieldProps {
   onChange: (storeId: string | null) => void;
 }
 
-/**
- * Markt-Auswahl (Chips) + Inline-"+ Neuer Markt"-Erstellung — geteilt
- * zwischen Artikel-hinzufuegen und Artikel-bearbeiten, damit beide Formulare
- * dieselbe Dedup-/Presets-/Farb-Logik verwenden statt sie zweimal zu pflegen.
- */
+/** Geteilte Markt-Auswahl und Erstellung fuer Hinzufuegen und Bearbeiten. */
 export function StorePickerField({ householdId, storeId, onChange }: StorePickerFieldProps) {
   const theme = useTheme();
   const { data: stores = [] } = useStores(householdId);
@@ -31,8 +27,7 @@ export function StorePickerField({ householdId, storeId, onChange }: StorePicker
     const trimmed = newStoreName.trim();
     if (!trimmed) return;
 
-    // Maerkte existieren pro Haushalt nur einmal, unabhaengig von
-    // Gross-/Kleinschreibung — ein Duplikat-Versuch waehlt den vorhandenen.
+    // Duplikate waehlen den vorhandenen Markt unabhaengig von Gross-/Kleinschreibung.
     const existing = findStoreByName(stores, trimmed);
     if (existing) {
       if (existing.color !== newStoreColor) {
@@ -98,7 +93,6 @@ export function StorePickerField({ householdId, storeId, onChange }: StorePicker
               accessibilityRole="radio"
               accessibilityState={{ selected: isActive }}
               className={`store-chip ${isActive ? '' : 'border-border bg-transparent'}`}
-              // Dynamische Markt-Farbe aus der Datenbank
               style={
                 isActive
                   ? { borderColor: store.color, backgroundColor: `${store.color}22` }
@@ -107,7 +101,6 @@ export function StorePickerField({ householdId, storeId, onChange }: StorePicker
               <ThemedText
                 type="small"
                 themeColor={isActive ? undefined : 'textSecondary'}
-                // Dynamische Markt-Farbe
                 style={isActive ? { color: store.color } : undefined}>
                 {store.name}
               </ThemedText>
@@ -132,15 +125,9 @@ export function StorePickerField({ householdId, storeId, onChange }: StorePicker
                 onPress={() => setNewStoreName(preset.name)}
                 accessibilityRole="button"
                 className="store-preset-chip"
-                // Dynamische Preset-Farbe
                 style={{ backgroundColor: `${preset.color}18`, borderColor: preset.color }}>
-                {/* Dynamische Preset-Farbe */}
                 <View className="store-preset-dot" style={{ backgroundColor: preset.color }} />
-                <ThemedText
-                  type="small"
-                  className="font-semibold"
-                  // Dynamische Preset-Farbe
-                  style={{ color: preset.color }}>
+                <ThemedText type="small" className="font-semibold" style={{ color: preset.color }}>
                   {preset.name}
                 </ThemedText>
               </Pressable>
@@ -157,7 +144,6 @@ export function StorePickerField({ householdId, storeId, onChange }: StorePicker
                 accessibilityLabel={`Farbe ${color}`}
                 accessibilityState={{ selected: newStoreColor === color }}
                 className="store-color-swatch"
-                // Dynamische Palettenfarbe & Auswahlrand
                 style={{
                   backgroundColor: color,
                   borderColor: newStoreColor === color ? theme.text : 'transparent',

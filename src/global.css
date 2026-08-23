@@ -2,17 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/*
- * fam Farb-Tokens als CSS-Variablen — 1:1 aus src/constants/theme.ts
- * (Colors.light/Colors.dark). Bei Token-Änderungen beide Stellen pflegen,
- * bis theme.ts vollständig durch NativeWind-Klassen abgelöst ist.
- *
- * Werte als "R G B"-Kanal-Tripel (nicht Hex): tailwind.config.js baut daraus
- * `rgb(var(--color-x) / <alpha-value>)`, damit Tailwinds Opazitäts-Modifier
- * (`bg-accent/10`, `border-accent/20`, …) funktionieren — Ersatz für das
- * bisherige `${theme.accent}18`-Hex-Suffix-Muster, das an mehreren Stellen
- * (Auswahl-Chips, Badges) wiederkehrt.
- */
+/* RGB-Kanäle ermöglichen Tailwind-Opazitätsmodifikatoren. */
 :root {
   --font-display:
     Spline Sans, Inter, ui-sans-serif, system-ui, sans-serif, Apple Color Emoji, Segoe UI Emoji,
@@ -62,12 +52,10 @@
     --color-success: 143 174 134;
     --color-warning: 217 168 108;
     --color-danger: 217 119 106;
-    /* shadowCard/shadowSheet bleiben identisch für Light/Dark (s. theme.ts) */
   }
 }
 
 @layer components {
-  /* Buttons */
   .btn-primary {
     @apply rounded-card py-three px-four items-center justify-center bg-accent active:opacity-80;
   }
@@ -112,7 +100,6 @@
     @apply w-full h-control border-hairline rounded-control px-three flex-row items-center justify-between bg-background-element border-border active:opacity-70;
   }
 
-  /* Karten & Container */
   .card-fam {
     @apply p-three rounded-fam-large gap-two bg-background-element shadow-card;
   }
@@ -121,16 +108,11 @@
     @apply flex-1 w-full max-w-content self-center px-three;
   }
 
-  /* Kein pb-safe: Bottom-Safe-Area ist ein echter Laufzeitwert
-     (useSafeAreaInsets), kann nicht statisch in Tailwind stehen — die
-     Klasse hier existierte nicht und hat den kompletten CSS-Build
-     zerschossen (App zeigte nichts mehr an). Padding kommt jetzt per
-     style-Prop in app-shell.tsx. */
+  /* Die untere Safe Area kommt zur Laufzeit aus app-shell.tsx. */
   .app-shell-wrap {
     @apply absolute left-0 right-0 bottom-0 justify-start px-four h-action-area;
   }
 
-  /* Formulareingaben */
   .input-field {
     @apply w-full border border-border rounded-card px-three py-[10px] text-body-relaxed bg-background-element text-text;
   }
@@ -139,7 +121,6 @@
     @apply border-danger;
   }
 
-  /* Stepper */
   .stepper-container {
     @apply h-[44px] flex-row items-stretch overflow-hidden border border-border rounded-control bg-background-element;
   }
@@ -148,7 +129,6 @@
     @apply w-[42px] items-center justify-center bg-background-selected active:opacity-70;
   }
 
-  /* Nutri-Score Badges */
   .badge-nutri-a {
     @apply bg-[#038141];
   }
@@ -169,7 +149,6 @@
     @apply bg-[#E63E11];
   }
 
-  /* Banners & Dialoge */
   .snackbar-bar {
     @apply flex-row items-center justify-between mx-three mb-three px-three py-two rounded-control gap-three bg-text;
   }
@@ -182,7 +161,6 @@
     @apply flex-1 bg-black/50 justify-center p-four;
   }
 
-  /* Screens (Phase B, src/features) */
   .stack {
     @apply gap-three;
   }
@@ -223,11 +201,7 @@
     @apply border-border;
   }
 
-  /* Gesperrtes Modul (#183, Feature-Flag aus): Inhalt gedimmt, zentrierter
-     Hinweis-Pill deckt den Switch ab. Karte bleibt sichtbar, nur unbedienbar.
-     Der Wash-Hintergrund (Transparenz) kommt bewusst per Inline-Style
-     (`withAlpha()`) statt Tailwind-Arbitrary-Alpha auf einer CSS-Custom-
-     Property-Farbe — Letzteres rendert nicht zuverlaessig, siehe `theme.ts`. */
+  /* Der transparente Wash wird wegen NativeWind per Inline-Style gesetzt. */
   .module-row-locked-content {
     @apply opacity-30;
   }
@@ -236,11 +210,7 @@
     @apply absolute inset-0 flex-row items-center justify-center;
   }
 
-  /* Hintergrund- und Textfarbe bewusst per Inline-Style (`theme.text`/
-     `theme.background`) statt Tailwind-Klasse gesetzt — `className`-Farben
-     auf `ThemedText` koennen von dessen eigener `type`-Farbklasse
-     ueberschrieben werden (beide im selben Tailwind-Layer, Reihenfolge nicht
-     garantiert). Inline-`style` gewinnt bei NativeWind immer. */
+  /* Inline-Farben gewinnen gegen die Typklasse von ThemedText. */
   .module-row-locked-pill {
     @apply flex-row items-center gap-one px-three py-[7px] rounded-pill;
   }
@@ -278,7 +248,6 @@
   }
 
   .profile-row {
-    /* Opazitaets-Suffix B8 (Hex) = 72% */
     @apply flex-row items-center gap-two p-two border-hairline rounded-sheet bg-background-element/[72%] border-border active:opacity-85;
   }
 
@@ -314,7 +283,6 @@
     @apply items-center gap-two mt-four;
   }
 
-  /* PendingAuthBanner (src/features/auth/components/pending-auth-banner.tsx) */
   .pending-card {
     @apply rounded-sheet border p-four gap-three items-center bg-background-element border-border;
   }
@@ -339,9 +307,6 @@
     @apply px-three py-one rounded-card bg-background-selected;
   }
 
-  /* fontSize 18 / lineHeight 44 ist der 1:1 uebernommene Originalwert —
-     ungewoehnlich grosse Zeilenhoehe fuer die Schriftgroesse, moeglicherweise
-     nie beabsichtigt. Nicht stillschweigend "korrigiert", nur migriert. */
   .pending-title {
     @apply text-[18px] leading-[44px] font-bold;
   }
@@ -362,7 +327,6 @@
     @apply w-full gap-two mt-one;
   }
 
-  /* settings-menu.tsx (SettingsGroup/SettingsRow) */
   .settings-group-title {
     @apply px-two tracking-[0.5px];
   }
@@ -399,7 +363,6 @@
     @apply flex-shrink text-right;
   }
 
-  /* speed-dial-menu.tsx */
   .speed-dial-backdrop {
     @apply absolute inset-0;
   }
@@ -420,7 +383,6 @@
     @apply px-three py-[9px] rounded-control bg-background-element border border-border;
   }
 
-  /* Onboarding (src/features/onboarding) */
   .progress-container {
     @apply px-four mb-two;
   }
@@ -573,8 +535,6 @@
     @apply text-danger text-[13px];
   }
 
-  /* Bewusst fest verdrahtete Gruen-/Weiss-Werte statt Tokens: 1:1 aus dem
-     Original uebernommen (kein success-Token dort verwendet). */
   .household-active-card {
     @apply p-three rounded-sm border gap-[4px] my-one bg-[rgba(52,_199,_89,_0.1)] border-[#34c759];
   }
@@ -643,13 +603,6 @@
     @apply text-[14px] font-medium;
   }
 
-  /*
-   * Generisches Auswahl-Paar (bg+border), wiederkehrend bei Auswahl-Karten,
-   * Optionsknoepfen etc. Bitte hier verwenden statt eines neuen *-selected/
-   * *-idle-Paars — vermeidet die Duplikate, die vor dieser Klasse entstanden
-   * sind (household-choice-card-selected/idle machen dasselbe, noch nicht
-   * konsolidiert).
-   */
   .selectable-selected {
     @apply bg-accent border-accent;
   }
@@ -658,7 +611,6 @@
     @apply bg-background-element border-border;
   }
 
-  /* Shopping List (Phase B, src/features/shopping-list) */
   .total-estimate-card {
     @apply p-four rounded-fam-large items-center gap-half bg-accent/10;
   }
@@ -699,10 +651,7 @@
     @apply border-border bg-transparent;
   }
 
-  /* store-picker-menu.tsx — Glas-Button + Menü statt der frueheren
-     Chip-Zeile (Marktauswahl-Mockup Variante B). Menue laeuft ueber ein
-     Modal (eigene native Ebene), Position kommt per measureInWindow als
-     Inline-Style — hier nur die von der Position unabhaengigen Regeln. */
+  /* Die gemessene Menüposition wird inline gesetzt. */
   .store-picker-btn {
     @apply flex-row items-center gap-two px-four py-three rounded-pill border border-border bg-background-element;
   }
@@ -731,9 +680,6 @@
     @apply flex-1 min-w-0 min-h-[75px] justify-center border rounded-control p-two active:opacity-70;
   }
 
-  /* Kompakte Zeile fuer "Alle Listen" (Mockup "Einkauf Uebersicht",
-     Variante 2) — Karte ist einer dichten Zeile gewichen, damit mehrere
-     Maerkte ohne Scrollen sichtbar bleiben. */
   .store-summary-row {
     @apply flex-row items-center gap-three rounded-card py-two pl-two pr-three overflow-hidden bg-background-element;
   }
@@ -778,8 +724,7 @@
     @apply w-[14px] h-[14px] rounded-sm;
   }
 
-  /* shopping-mode-screen.tsx — Kategorie-Farbe kommt als Inline-Style
-     (dynamischer Hex-Wert je Kategorie), hier nur das Layout. */
+  /* Die dynamische Kategoriefarbe wird inline gesetzt. */
   .shopping-mode-cat-head {
     @apply flex-row items-center gap-two px-three py-two;
   }
@@ -800,8 +745,6 @@
     @apply flex-1 flex-row items-center justify-center gap-one py-one px-one rounded-sheet border-[1.5px];
   }
 
-  /* complete-run-sheet.tsx — MHD-Feld bewusst schmal statt volle Zeilenbreite,
-     ein Datum braucht keine so grosse Tapp-Flaeche wie die Lagerort-Buttons. */
   .mhd-field-width {
     @apply w-[140px];
   }
@@ -818,7 +761,6 @@
     @apply min-h-[34px] flex-row items-center gap-two active:opacity-70;
   }
 
-  /* Recipes (Phase B, src/features/recipes) */
   .calorie-carousel-content {
     @apply flex-col flex-wrap content-start h-[156px] gap-two;
   }
@@ -887,7 +829,6 @@
     @apply w-[90px] h-[40px] border border-border rounded-control flex-row items-center px-[10px];
   }
 
-  /* profile-sheet.tsx */
   .profile-sheet {
     @apply absolute left-[16px] right-[16px] h-[390px] rounded-fam-large px-[20px] pt-[12px] pb-[20px] bg-[rgba(255,_255,_255,_0.94)];
   }
@@ -948,18 +889,12 @@
     @apply text-[12px] leading-[16px] font-normal;
   }
 
-  /* navigation-drawer.tsx */
   .drawer {
     @apply absolute left-0 top-0 bottom-0 max-w-[340px] px-[20px];
   }
 
   .drawer-header {
-    /* Keine feste Hoehe (frueher h-[67px]) — der 34px-Schliessen-Kreis plus
-       Titeltext brauchten mehr Platz als die damals uebrigen 35px
-       (h abzueglich pt/pb). RN clippt Kinder nicht automatisch, dadurch
-       liefen "fam" und das X ueber die feste Box hinaus, genau auf die
-       Trennlinie darunter. Jetzt bestimmt der Inhalt die Hoehe, die Linie
-       sitzt garantiert erst nach pb-[21px] darunter. */
+    /* Der Inhalt bestimmt die Höhe, damit Titel und Schließen-Button nicht überlaufen. */
     @apply flex-row items-center justify-between px-[11px] pt-[11px] pb-[21px] border-b-hairline border-text/15;
   }
 
@@ -1007,8 +942,6 @@
     @apply w-[37px] h-[35px];
   }
 
-  /* premium-screen.tsx — Masse 1:1 aus fam-settings-premium-flow-Mockup
-     (.fsp-crown, .fsp-paywall, .fsp-plan, .fsp-active) */
   .premium-scroll {
     @apply px-three pb-six gap-three;
   }
@@ -1057,7 +990,6 @@
     @apply text-[7px] mt-[3px];
   }
 
-  /* recipe-template-detail-screen.tsx */
   .rtd-meta-pill {
     @apply rounded-control px-[8px] py-[6px] bg-background-element/[84%];
   }
@@ -1194,9 +1126,6 @@
     @apply text-white font-bold;
   }
 
-  /* dashboard-screen.tsx — "Glass Cards" sind noch kein echtes Glass, nur
-     Schatten+Radius unter dem Namen (s. DESIGN_SYSTEM.md Backlog Punkt 5,
-     Phase C). borderCurve bleibt style (kein Tailwind-Aequivalent). */
   .dashboard-calorie-card {
     @apply h-[176px] rounded-fam-large flex-row items-center gap-[24px] px-[22px] py-[20px] mb-[15px] bg-background-element;
   }
@@ -1261,7 +1190,6 @@
     @apply text-[17px] leading-[22px] font-medium;
   }
 
-  /* household-switcher-modal.tsx */
   .modal-header-row {
     @apply flex-row justify-between items-center;
   }
@@ -1274,7 +1202,6 @@
     @apply gap-two mt-two;
   }
 
-  /* invite-modal.tsx */
   .modal-backdrop-bottom {
     @apply flex-1 bg-black/50 justify-end;
   }
@@ -1315,7 +1242,6 @@
     @apply text-[16px];
   }
 
-  /* members-screen.tsx */
   .member-row {
     @apply py-three border-b-hairline border-border flex-row items-center justify-between gap-two;
   }
@@ -1344,7 +1270,6 @@
     @apply px-[8px] py-[4px] rounded-sm bg-[rgba(239,_68,_68,_0.1)];
   }
 
-  /* child-profiles-screen.tsx */
   .child-segment-btn {
     @apply flex-1 py-[10px] rounded-control items-center justify-center;
   }
@@ -1361,14 +1286,11 @@
     @apply flex-row gap-one;
   }
 
-  /* inventory-tab-bar.tsx */
   .inventory-tab-bar-container {
     @apply relative z-[30];
   }
 
-  /* Solider Fallback fuer den Glass-Trigger (Android, iOS < 26, Reduce
-     Transparency) — Radius/Padding muss mit TRIGGER_GLASS_STYLE in Sync
-     bleiben. */
+  /* Radius und Padding müssen mit TRIGGER_GLASS_STYLE übereinstimmen. */
   .inventory-tab-bar-trigger {
     @apply flex-row items-center justify-between gap-one rounded-full px-three py-[11px] bg-background-element/[91%] border-hairline border-border active:opacity-80;
   }
@@ -1381,9 +1303,6 @@
     @apply flex-row items-center gap-one;
   }
 
-  /* inventory-search-field.tsx — Kapselform passend zum echten Liquid-Glass-
-     Rendering des "Alle"-Triggers (rundet auf iOS 26+ automatisch zur Kapsel,
-     unabhaengig vom gesetzten borderRadius). */
   .inventory-search-field {
     @apply flex-1 flex-row items-center gap-one rounded-full px-three py-[11px] bg-background-element/[91%] border-hairline border-border;
   }
@@ -1400,7 +1319,6 @@
     @apply border-t-hairline border-border;
   }
 
-  /* inventory-item-row.tsx */
   .inventory-item-row {
     @apply flex-row items-center pl-two pr-three py-[11px] border-b-hairline border-border gap-[14px];
   }
@@ -1421,7 +1339,6 @@
     @apply w-[96px] items-center justify-center bg-danger active:opacity-[0.78];
   }
 
-  /* inventory-summary-card.tsx — zwei Ablauf-Ringe statt eines Bestandsrings */
   .inventory-summary-row {
     @apply flex-row gap-two;
   }
@@ -1438,7 +1355,6 @@
     @apply absolute !text-[19px] !leading-[22px] font-bold;
   }
 
-  /* fridge-item-actions-sheet.tsx */
   .fridge-actions-backdrop {
     @apply absolute inset-0 bg-[rgba(31,_26,_33,_0.32)];
   }
@@ -1499,7 +1415,6 @@
     @apply w-[28px] h-[28px] rounded-control-lg border-hairline items-center justify-center bg-background-selected border-border;
   }
 
-  /* edit-fridge-item-sheet.tsx */
   .edit-fridge-modal-root {
     @apply flex-1 justify-end;
   }
@@ -1544,18 +1459,14 @@
     @apply min-h-[36px] flex-row items-center gap-two border-b-hairline border-border;
   }
 
-  /* fridge-screen.tsx */
   .fridge-sort-row {
     @apply flex-row items-center justify-between min-h-[40px] pl-one;
   }
 
-  /* frequent-products-quick-select.tsx */
   .frequent-products-chip {
     @apply rounded-card border px-two py-one mr-one max-w-[160px] bg-background-element border-border;
   }
 
-  /* inline-select.tsx — kompaktes Dropdown unter Suchfeldern (Vorrat-
-     Redesign, Filter-/Quelle-Auswahl analog zu den Einkaufen-Vorschlaegen). */
   .inline-select-btn {
     @apply h-[42px] rounded-control border border-border bg-background-element flex-row items-center justify-between px-three;
   }
@@ -1576,7 +1487,6 @@
     @apply bg-accent;
   }
 
-  /* add-item-screen.tsx (Vorrat) */
   .ai-scan-btn {
     @apply w-10 h-10 rounded-control bg-background-selected;
   }
@@ -1585,26 +1495,20 @@
     @apply gap-three p-three rounded-sm border border-border;
   }
 
-  /* goal-setup-screen.tsx */
   .gs-save-row {
     @apply flex-row gap-two mt-one;
   }
 
-  /* product-search-dropdown.tsx */
   .psd-spinner {
     @apply absolute right-3 top-9;
   }
 
   .psd-panel {
-    /* max-height kommt dynamisch aus product-search-dropdown.tsx (Messung
-       gegen den unteren Bildschirm-/Tastaturrand), nicht mehr fest von hier. */
+    /* max-height wird am verfügbaren Bildschirmplatz gemessen. */
     @apply absolute top-full left-0 right-0 z-20 mt-1 rounded-control border border-border bg-background shadow-sheet;
   }
 
-  /* Einziger expliziter Weg, die Trefferliste ohne Artikel-Auswahl zu
-     schliessen (#UI-Feedback: "Suchliste lässt sich nicht schliessen"),
-     seit Tastatur- und Listen-Dismiss bewusst entkoppelt sind. z-30 haelt
-     ihn ueber dem Panel (z-20) und dessen scrollbarem Inhalt. */
+  /* Der Button liegt über dem scrollbaren Panel. */
   .psd-panel-close {
     @apply absolute top-1 right-1 z-30 w-6 h-6 rounded-full items-center justify-center bg-background-selected active:opacity-70;
   }
@@ -1621,7 +1525,6 @@
     @apply w-8 h-8 rounded-sm items-center justify-center bg-background-element;
   }
 
-  /* recipe-wizard-step-steps.tsx: Autovervollstaendigung fuer @-Zutaten-Erwaehnungen */
   .mention-panel {
     @apply absolute top-full left-0 right-0 z-20 mt-1 rounded-control border border-border bg-background shadow-sheet;
   }
@@ -1634,7 +1537,6 @@
     @apply px-three py-two;
   }
 
-  /* barcode-scanner-modal.tsx */
   .scanner-backdrop {
     @apply flex-1 bg-black/60 justify-end;
   }
@@ -1659,7 +1561,6 @@
     @apply flex-row items-center justify-center gap-two;
   }
 
-  /* storage-locations-screen.tsx */
   .storage-location-row {
     @apply py-three border-b-hairline border-border gap-two;
   }
@@ -1672,8 +1573,6 @@
     @apply flex-row gap-two mt-one;
   }
 
-  /* diary-screen.tsx — borderCurve bleibt an den betroffenen Views als
-     `style` (kein Tailwind-Aequivalent), analog zu dashboard-screen.tsx. */
   .diary-root {
     @apply flex-1;
   }
@@ -1730,9 +1629,6 @@
     @apply mt-[1px] text-[10px] leading-[12px] font-medium;
   }
 
-  /* Kartenlos (#164-Folgeredesign): Bilanz, Makros und Mahlzeiten liegen
-     direkt auf dem Verlaufshintergrund, nur Haarlinien trennen Abschnitte —
-     kein Karten-Chrome mehr, analog zur Zeilenoptik im Vorrat. */
   .diary-summary-card {
     @apply min-h-[152px] pb-three border-b-hairline border-border flex-row items-center gap-four;
   }
@@ -1745,15 +1641,12 @@
     @apply flex-row justify-between items-baseline gap-two;
   }
 
-  /* Beschriftung: "Gegessen", "Grundziel", "Übrig" */
   .diary-summary-label {
     @apply text-[14px] leading-[18px] font-medium;
-    /* <- ztext-[12px] leading-[15px] oder text-[13px] */
   }
 
   .diary-summary-value {
     @apply text-[20px] leading-[22px] font-bold text-right;
-    /* <- z. B. auf text-[12px] leading-[15px] oder text-[13px] */
   }
 
   .diary-goal-status {
@@ -1776,7 +1669,6 @@
     @apply flex-row items-baseline justify-between gap-two;
   }
 
-  /* Name des Makros: "Protein", "Kohlenhydrate", "Fett" */
   .diary-macro-label {
     @apply text-[13px] leading-[16px] font-bold;
   }
@@ -1833,7 +1725,6 @@
     @apply py-[24px] text-[11px] leading-[14px];
   }
 
-  /* food-search-screen.tsx */
   .fss-header {
     @apply gap-two;
   }
@@ -1882,7 +1773,6 @@
     @apply flex-row items-center justify-center gap-two py-three rounded-control-lg mt-three mb-four bg-background-element;
   }
 
-  /* add-food-entry-screen.tsx */
   .afe-form {
     @apply gap-three mt-two;
   }
@@ -1919,7 +1809,6 @@
     @apply px-[10px] py-[4px] rounded-control;
   }
 
-  /* goal-setup-screen.tsx */
   .gs-segmented-row {
     @apply flex-row gap-two;
   }
@@ -1932,7 +1821,6 @@
     @apply border-hairline border-border rounded-card p-three gap-one;
   }
 
-  /* recipe-picker-modal.tsx (meal-planner) */
   .rpm-root {
     @apply flex-1;
   }
@@ -1961,9 +1849,7 @@
     @apply py-three border-b-hairline border-border;
   }
 
-  /* entry-form-modal.tsx (meal-planner) — root/safeArea/header/closeButton
-     teilen sich die rpm-*-Klassen von recipe-picker-modal.tsx (identisches
-     Modal-Grundgeruest). */
+  /* Das Modal-Grundgerüst verwendet die rpm-Klassen. */
   .efm-header-text {
     @apply flex-1 mr-two gap-[2px];
   }
@@ -1988,7 +1874,6 @@
     @apply gap-two mt-three;
   }
 
-  /* missing-ingredients-screen.tsx */
   .mis-loading {
     @apply mt-five;
   }
@@ -2009,8 +1894,6 @@
     @apply flex-1 gap-[2px];
   }
 
-  /* meal-planner-screen.tsx — borderCurve bleibt an actionButton als `style`
-     (kein Tailwind-Aequivalent, analog zu dashboard-screen.tsx). */
   .mp-root {
     @apply flex-1;
   }
@@ -2059,14 +1942,8 @@
     @apply text-[10px] leading-[13px] font-bold text-center;
   }
 
-  /* week-grid.tsx — borderCurve bleibt an mehreren Karten als `style`
-     (kein Tailwind-Aequivalent). SLOT_SIZES (ehemals ein separates JS-Objekt)
-     ist direkt in die Klassen uebernommen: die Groessen waren bereits fuer
-     Tag-/3-Tage-/Wochenansicht identisch (siehe Kommentar oben in der
-     Komponente), die Indirektion ueber ein Konstanten-Objekt war unnoetig. */
   .wg-root {
     @apply flex-1;
-    /* @apply flex-1 bg-background; */
   }
 
   .wg-scroll {
@@ -2078,8 +1955,6 @@
   }
 
   .wg-day-card {
-    /* @apply overflow-hidden border rounded-sheet bg-background-element/[89%] border-background-element/[96%]; */
-    /* @apply overflow-hidden border rounded-sheet bg-background-element border-background-element/[96%]; */
     @apply overflow-hidden border-hairline rounded-sheet bg-background-element border-background-element/[96%];
   }
 
@@ -2088,7 +1963,6 @@
   }
 
   .wg-day-name {
-    /* @apply text-[17px] leading-[21px] font-bold; */
     @apply text-[20px] leading-[24px] font-bold;
   }
 
@@ -2105,7 +1979,6 @@
   }
 
   .wg-slot-divider {
-    /* @apply border-t border-text/[7%]; */
     @apply border-text/[7%];
   }
 
@@ -2134,7 +2007,6 @@
   }
 
   .wg-tray {
-    /* @apply overflow-hidden border rounded-sheet py-three bg-background-element/[78%] border-border; */
     @apply overflow-hidden border rounded-sheet py-three bg-background-element border-border;
   }
 
@@ -2178,13 +2050,6 @@
     @apply text-[10px] leading-[13px] font-bold;
   }
 
-  /*
-   * Geteilte Tab-Button-Klasse fuer die 5 gleichartigen Umschalt-Buttons:
-   * "Entdecken"/"Meine Favoriten" (recipes-screen.tsx) und
-   * "Tag"/"3 Tage"/"Woche" (meal-planner-screen.tsx). Farbe, Groesse und
-   * Rundung leben ausschliesslich hier — bei Aenderungen an einer Stelle
-   * bitte nicht pro Screen einzeln nachziehen.
-   */
   .tab-btn {
     @apply flex-1 h-[46px] rounded-control-lg border items-center justify-center;
   }

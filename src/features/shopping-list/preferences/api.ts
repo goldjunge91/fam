@@ -8,7 +8,6 @@ import { resolveCategory } from './resolve-category';
 
 export type CategoryPreferenceKeyType = 'product' | 'name';
 
-/** Lokal gespiegelte Zeile aus `shopping_category_preferences` (aktiv, nicht geloescht). */
 export type CategoryPreference = {
   id: string;
   household_id: string;
@@ -29,7 +28,6 @@ function toPublicRow(row: LocalPreferenceRow): CategoryPreference {
   return rest;
 }
 
-/** Aktive (nicht geloeschte) Produkt-Praeferenz einer `product_id`, falls vorhanden. */
 export async function findProductPreference(
   householdId: string,
   productId: string,
@@ -43,7 +41,6 @@ export async function findProductPreference(
   return row ? toPublicRow(row) : null;
 }
 
-/** Aktive (nicht geloeschte) Namens-Praeferenz eines Freitextnamens, falls vorhanden. */
 export async function findNamePreference(
   householdId: string,
   name: string,
@@ -62,16 +59,9 @@ export async function findNamePreference(
 
 export type ResolveCategoryForItemInput = CategoryClassifierInput & {
   householdId: string;
-  /** `product_id` des aktuell gewaehlten Produkts, falls per Barcode/Suche hinzugefuegt. */
   productId?: string | null;
 };
 
-/**
- * Laedt die lokal bekannten Praeferenzen fuer `householdId`/`productId`/`name`
- * und delegiert die eigentliche Auflösung an das reine `resolveCategory()`.
- * Der Punkt, an dem `preferences/` und `classification/` zusammenlaufen
- * (Schritte 1–6 der Auflösungsreihenfolge, siehe `resolve-category.ts`).
- */
 export async function resolveCategoryForItem(
   input: ResolveCategoryForItemInput,
 ): Promise<CategoryClassification> {
@@ -111,16 +101,8 @@ function canonicalKeyValueOf(
 }
 
 /**
- * Legt eine Haushaltspraeferenz an oder aktualisiert sie — manuelle Korrektur
- * im Formular (Abschnitt 9 "Schreiben"). Die deterministische UUIDv5 macht das
- * zu einem echten Upsert nach natuerlicher Identitaet: derselbe Aufruf
- * adressiert immer dieselbe Zeile, auch bei paralleler Offline-Anlage auf
- * zwei Geraeten (kein `23505` im Normalpfad — und falls doch, faengt
- * `push.ts`s insert→update-Fallback ihn ab).
- *
- * Eine lokal bekannte, soft-deletete Zeile (zuvor auf "Automatisch"
- * zurueckgesetzt) wird reaktiviert: `restore` gefolgt von `update`, siehe
- * Kommentar am `restore`-Zweig in `push.ts`.
+ * Die deterministische UUIDv5 stabilisiert parallele Offline-Upserts.
+ * Bereits soft-geloeschte Praeferenzen werden reaktiviert.
  */
 export async function setCategoryPreference(input: SetCategoryPreferenceInput): Promise<string> {
   const normalizedKeyValue = canonicalKeyValueOf(input);
@@ -217,12 +199,7 @@ export type ResetCategoryPreferenceInput = {
   keyValue: string;
 };
 
-/**
- * Reverse State zu {@link setCategoryPreference}: soft-deleted die Praeferenz,
- * die Resolution faellt bei der naechsten Verwendung dieses Schluessels wieder
- * auf die automatische Klassifikation zurueck (Abschnitt 9 "Auf automatisch
- * zurücksetzen"). Ohne Wirkung, wenn keine aktive Praeferenz existiert.
- */
+/** Soft-Delete laesst die Aufloesung wieder auf die automatische Klassifikation fallen. */
 export async function resetCategoryPreference(input: ResetCategoryPreferenceInput): Promise<void> {
   const normalizedKeyValue = canonicalKeyValueOf(input);
   const id = await preferenceId({

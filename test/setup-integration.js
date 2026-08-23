@@ -2,12 +2,7 @@ const { execFileSync } = require('node:child_process');
 const fs = require('node:fs');
 const path = require('node:path');
 
-/**
- * Richtet die Integrationstests auf die Supabase-Instanz aus.
- *
- * Bevorzugt lokale `supabase status`-Werte, faellt bei fehlender lokaler
- * Instanz sauber auf die konfigurierte Remote Testing DB aus der `.env` zurueck.
- */
+/** Bevorzugt die lokale Supabase-Instanz und faellt auf die konfigurierte Test-DB zurueck. */
 
 function readDotenv() {
   const envPath = path.resolve(__dirname, '../.env');
@@ -28,7 +23,6 @@ function readDotenv() {
 }
 
 function resolveSupabaseEnv() {
-  // 1. Lokales `supabase status` versuchen
   try {
     const raw = execFileSync('supabase', ['status', '-o', 'env'], {
       encoding: 'utf8',
@@ -46,11 +40,8 @@ function resolveSupabaseEnv() {
         serviceRoleKey: values.SERVICE_ROLE_KEY || '',
       };
     }
-  } catch {
-    // Keine lokale Instanz aktiv — nutze Umgebungsvariablen / .env
-  }
+  } catch {}
 
-  // 2. .env / process.env auslesen
   const env = readDotenv();
   const url = process.env.EXPO_PUBLIC_SUPABASE_URL || env.EXPO_PUBLIC_SUPABASE_URL;
   const anonKey = process.env.EXPO_PUBLIC_SUPABASE_KEY || env.EXPO_PUBLIC_SUPABASE_KEY;
@@ -83,4 +74,3 @@ jest.mock('@sentry/react-native', () => ({
   wrap: (fn) => fn,
   reactNavigationIntegration: jest.fn(() => ({})),
 }));
-

@@ -9,7 +9,6 @@ type PageHeaderProps = {
   leading?: ReactNode;
   trailing?: ReactNode;
   align?: 'start' | 'center';
-  /** 'large' fuer Screens, die den Titel als eigentlichen Blickfang wollen (z. B. Rezepte). */
   titleSize?: 'default' | 'large';
 };
 
@@ -18,7 +17,6 @@ const TITLE_CLASSES = {
   large: 'text-[26px] leading-[30px] font-bold tracking-[-0.6px]',
 } as const;
 
-/** Kompakter Header fuer die zentralen App-Bereiche aus dem fam-Designsystem. */
 export function PageHeader({
   title,
   subtitle,

@@ -35,12 +35,7 @@ export function ActiveHouseholdProvider({ children }: { children: React.ReactNod
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [isStoreLoaded, setIsStoreLoaded] = useState(false);
 
-  // Haelt den lokalen `households`-Spiegel frisch (Sofort-Pull, Poll,
-  // Reconnect, Vordergrund-Wechsel) — der fruehere ungedeckelte
-  // `setInterval(refetch, 3000)`-Retry-Loop existierte nur, weil
-  // `useHouseholds()` frueher die einzige (Live-Netzwerk-)Datenquelle war.
-  // Mit lokalem Spiegel ist `isError` praktisch nur noch bei einem echten
-  // SQLite-Lesefehler wahr; dafuer bringt endloses Retry-Alle-3s nichts.
+  // Aktualisiert den lokalen Spiegel bei Start, Poll, Reconnect und Vordergrundwechsel.
   useHouseholdsBootstrapSync(userId ?? undefined, queryClient);
 
   useEffect(() => {
@@ -52,18 +47,7 @@ export function ActiveHouseholdProvider({ children }: { children: React.ReactNod
     });
   }, []);
 
-  /**
-   * Verwirft die Auswahl, sobald ein anderer Nutzer angemeldet ist.
-   *
-   * Dieser Provider haengt im Root-Layout und wird bei An- und Abmeldung nie
-   * neu gemountet — `selectedId` wuerde also den Nutzerwechsel ueberleben. Bis
-   * der Fix an `useHouseholds()` griff, war das eine der Stellen, ueber die der
-   * Haushalt des Vornutzers beim neuen Nutzer wieder auftauchte.
-   *
-   * Bewusst nur bei einem Wechsel *weg von* einer bekannten Nutzer-Id: Der
-   * Uebergang `null → userId` ist der normale Kaltstart, und dort darf die
-   * gerade aus dem Speicher gelesene Auswahl nicht weggeworfen werden.
-   */
+  // Beim echten Nutzerwechsel verwerfen, aber nicht beim Kaltstart von null.
   const previousUserIdRef = useRef<string | null>(null);
   useEffect(() => {
     const previousUserId = previousUserIdRef.current;
@@ -75,7 +59,6 @@ export function ActiveHouseholdProvider({ children }: { children: React.ReactNod
     setStoredActiveHouseholdId(null);
   }, [userId]);
 
-  // Wähle den aktiven Haushalt aus der geladenen Liste (mit Fallback auf den ersten)
   const activeHousehold = useMemo(() => {
     if (!households || households.length === 0) return null;
     if (selectedId) {
@@ -87,7 +70,7 @@ export function ActiveHouseholdProvider({ children }: { children: React.ReactNod
 
   const activeHouseholdId = activeHousehold?.id ?? null;
 
-  // Wenn Fallback eingetreten ist oder die Speicherung nicht mit dem aktiven Haushalt übereinstimmt, aktualisieren
+  // Persistiert auch einen notwendigen Fallback auf den ersten Haushalt.
   useEffect(() => {
     if (isStoreLoaded && activeHouseholdId && activeHouseholdId !== selectedId) {
       setSelectedId(activeHouseholdId);
@@ -105,14 +88,7 @@ export function ActiveHouseholdProvider({ children }: { children: React.ReactNod
       activeHouseholdId,
       activeHousehold,
       households,
-      // Bewusst OHNE `isFetching`: das waere bei jedem Hintergrund-Refetch
-      // wahr (Poll alle 20s, Reconnect, Vordergrund-Wechsel — siehe
-      // household-bootstrap-sync.ts) und liesse `resolveAppEntry()` bei jedem
-      // dieser Refetches kurz `{ kind: 'warten' }` liefern. Das unmountet
-      // `<AppShell/>` und damit den gerade offenen Screen — sichtbar als
-      // "springt zurueck zur Uebersicht". `isLoading` (TanStack Querys
-      // `isPending && isFetching`) ist dagegen nur beim allerersten Laden
-      // wahr, genau das richtige Signal fuer den Vollbild-Ladezustand.
+      // Hintergrund-Refetches duerfen den App-Bereich nicht erneut unmounten.
       isLoading: isLoading || !isStoreLoaded,
       isError,
       setActiveHouseholdId: handleSetActiveHouseholdId,

@@ -34,11 +34,8 @@ describe('useMealPlanShoppingNeeds', () => {
 
   it('berechnet fehlende Zutaten für den Wochenplan', async () => {
     mockDbGetAllAsync
-      // 1. entries
       .mockResolvedValueOnce([{ recipe_id: 'rec-1', portions: 1 }])
-      // 2. components
       .mockResolvedValueOnce([{ id: 'comp-1', recipe_id: 'rec-1', serving_grams: 100 }])
-      // 3. items
       .mockResolvedValueOnce([
         {
           component_id: 'comp-1',
@@ -48,11 +45,8 @@ describe('useMealPlanShoppingNeeds', () => {
           grams: 100,
         },
       ])
-      // 4. recipeTitleRows
       .mockResolvedValueOnce([{ id: 'rec-1', title: 'Kuchen' }])
-      // 5. stockRows (fridge_items)
       .mockResolvedValueOnce([{ product_id: 'prod-zucker', quantity: 20, unit: 'g' }])
-      // 6. products
       .mockResolvedValueOnce([{ id: 'prod-zucker', name: 'Zucker', serving_size_g: 100 }]);
 
     const { result } = await renderHook(() => useMealPlanShoppingNeeds('plan-1', 'hh-1', true), {

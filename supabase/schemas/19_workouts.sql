@@ -1,10 +1,6 @@
 -- Gewuenschter Endzustand — NICHT von Hand migrieren.
---
--- Kraftsport & Workout-Log (#175): Uebungen, Saetze, Wdh., Gewichte, Progressive Overload.
---
--- Streng privat: Kein Zugriff durch Haushaltsmitglieder.
+-- Workout-Daten bleiben fuer Haushaltsmitglieder unsichtbar.
 
--- ------------------------------------------------------------------ Uebungen
 create table if not exists public.exercises (
   id uuid primary key default gen_random_uuid(),
   user_id uuid references public.profiles (id) on delete cascade,
@@ -32,7 +28,6 @@ create or replace trigger exercises_set_updated_at
   for each row
   execute function private.set_updated_at();
 
--- ---------------------------------------------------------- Workout-Sessions
 create table if not exists public.workout_sessions (
   id uuid primary key default gen_random_uuid(),
   user_id uuid not null references public.profiles (id) on delete cascade,
@@ -62,7 +57,6 @@ create or replace trigger workout_sessions_set_updated_at
   for each row
   execute function private.set_updated_at();
 
--- -------------------------------------------------------------- Workout-Sets
 create table if not exists public.workout_sets (
   id uuid primary key default gen_random_uuid(),
   workout_session_id uuid not null references public.workout_sessions (id) on delete cascade,
@@ -93,12 +87,10 @@ create or replace trigger workout_sets_set_updated_at
   for each row
   execute function private.set_updated_at();
 
--- ------------------------------------------------------------------------- RLS
 alter table public.exercises enable row level security;
 alter table public.workout_sessions enable row level security;
 alter table public.workout_sets enable row level security;
 
--- Uebungen: Globale oder eigene
 create policy exercises_select on public.exercises
   for select to authenticated
   using (user_id is null or (select auth.uid()) = user_id);
@@ -116,13 +108,11 @@ create policy exercises_delete_own on public.exercises
   for delete to authenticated
   using ((select auth.uid()) = user_id);
 
--- Workout Sessions: Nur der eigene User
 create policy workout_sessions_own on public.workout_sessions
   for all to authenticated
   using ((select auth.uid()) = user_id)
   with check ((select auth.uid()) = user_id);
 
--- Workout Sets: Nur wenn gehoerig zur eigenen Session
 create policy workout_sets_own on public.workout_sets
   for all to authenticated
   using (

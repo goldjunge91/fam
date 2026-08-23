@@ -4,9 +4,7 @@ import { Button } from '@/components/ui/buttons';
 import { requestNotificationPermissions } from '@/lib/notifications';
 import { useOnboarding } from '../context/onboarding-context';
 
-// Defensiver Import: expo-camera ist nur in einem nativen Dev-Build verfügbar.
-// Gleiches Hook-Pattern wie in barcode-scanner-modal.tsx, damit der Systemdialog
-// wirklich über die native Kamera-API ausgelöst wird.
+// expo-camera ist nur im nativen Dev-Build verfuegbar.
 // biome-ignore lint/suspicious/noExplicitAny: Dynamic Expo Camera Module
 let useCameraPermissionsHook: any = () => [null, async () => ({ granted: false })];
 try {
@@ -14,9 +12,7 @@ try {
   if (ExpoCamera?.useCameraPermissions) {
     useCameraPermissionsHook = ExpoCamera.useCameraPermissions;
   }
-} catch {
-  // Kein natives Modul verfügbar (z. B. Expo Go) — Fallback bleibt aktiv.
-}
+} catch {}
 
 interface PermissionsStepFormProps {
   onNext: () => void;
@@ -31,20 +27,17 @@ export function PermissionsStepForm({ onNext, onSkip }: PermissionsStepFormProps
     state.permissions.notificationsRequested ?? true,
   );
 
-  // Spiegelt den echten Systemstatus wider, sobald einmal abgefragt wurde.
   const camera = cameraPermission?.granted ?? state.permissions.cameraRequested ?? false;
 
   const handleToggleNotifications = async (value: boolean) => {
     setNotifications(value);
     if (!value) return;
-    // Löst den echten System-Dialog sofort beim Umschalten aus, nicht erst bei "Weiter".
     const granted = await requestNotificationPermissions();
     if (!granted) setNotifications(false);
   };
 
   const handleToggleCamera = async (value: boolean) => {
     if (!value) return;
-    // Löst den echten Kamera-Permission-Dialog sofort beim Umschalten aus.
     await requestCameraPermission();
   };
 

@@ -9,7 +9,7 @@ select tests.create_user('11111111-1111-1111-1111-111111111111', 'alice@example.
 select tests.create_user('22222222-2222-2222-2222-222222222222', 'bob@example.com');
 select tests.create_user('33333333-3333-3333-3333-333333333333', 'carol@example.com');
 
--- Alice legt den Haushalt an, Bob wird Mitglied, Carol bleibt draussen.
+-- Alice ist Admin, Bob Mitglied und Carol Aussenstehende.
 select tests.authenticate_as('11111111-1111-1111-1111-111111111111');
 select public.create_household('Familie Tozzi') as hid \gset
 
@@ -17,10 +17,7 @@ select tests.as_postgres();
 insert into public.household_members (household_id, user_id, role)
 values (:'hid', '22222222-2222-2222-2222-222222222222', 'member');
 
--- --------------------------------------------------------- keine Rekursion
--- Ohne die SECURITY-DEFINER-Helfer wuerde diese Query mit
--- "infinite recursion detected in policy for relation household_members"
--- abbrechen: die Policy fragt zur Pruefung einer Zeile wieder dieselbe Tabelle.
+-- Die SECURITY-DEFINER-Helfer verhindern rekursive Membership-RLS.
 select tests.authenticate_as('11111111-1111-1111-1111-111111111111');
 
 select lives_ok(
@@ -47,7 +44,6 @@ select is(
   'Alice sieht ihren Haushalt'
 );
 
--- ------------------------------------------------------------- Aussenstehende
 select tests.authenticate_as('33333333-3333-3333-3333-333333333333');
 
 select is(
@@ -62,7 +58,6 @@ select is(
   'Carol sieht fremde Mitgliederlisten nicht'
 );
 
--- --------------------------------------------------- Mitglied ohne Adminrolle
 select tests.authenticate_as('22222222-2222-2222-2222-222222222222');
 
 delete from public.household_members
@@ -72,8 +67,7 @@ update public.households set name = 'Umbenannt von Bob'
 where id = :'hid';
 
 select tests.as_postgres();
--- Auf den Testhaushalt eingegrenzt: Ein globales count(*) waere von Daten
--- abhaengig, die andere Testlaeufe hinterlassen haben.
+-- Nur den eigenen Testhaushalt zaehlen.
 select is(
   (select count(*)::int from public.household_members
    where household_id = :'hid' and role = 'admin'),
@@ -87,9 +81,7 @@ select is(
   'ein Mitglied ohne Adminrolle kann den Haushaltsnamen nicht ändern'
 );
 
--- ------------------------------------------- Mitgliederliste mit Anzeigenamen
--- Mitglieder muessen sehen, WER sonst im Haushalt ist — ohne dass dabei die
--- privaten Gesundheitsdaten aus profiles mitkommen.
+-- Das RPC gibt Identitaet, aber keine privaten Gesundheitsdaten frei.
 select tests.authenticate_as('22222222-2222-2222-2222-222222222222');
 
 select is(
@@ -105,8 +97,7 @@ select is(
   'Bob sieht den Anzeigenamen der anderen Mitglieder'
 );
 
--- Die Gegenprobe zum Test darueber: Der direkte Weg bleibt zu. Das RPC ist die
--- einzige Tuer, und sie gibt nur Anzeigename und Avatar heraus.
+-- Der direkte Profilzugriff bleibt trotz RPC geschlossen.
 select is_empty(
   $$ select id from public.profiles where id = '11111111-1111-1111-1111-111111111111' $$,
   'der direkte Zugriff auf fremde Profile bleibt gesperrt'
@@ -119,7 +110,6 @@ select is_empty(
   'Aussenstehende bekommen die Mitgliederliste eines fremden Haushalts nicht'
 );
 
--- ------------------------------------------------------- letzter Admin bleibt
 select tests.authenticate_as('11111111-1111-1111-1111-111111111111');
 
 select throws_ok(
@@ -138,7 +128,6 @@ select throws_ok(
   'der letzte Administrator kann sich nicht selbst degradieren'
 );
 
--- Mit einem zweiten Admin ist der Austritt erlaubt.
 select tests.as_postgres();
 update public.household_members set role = 'admin'
 where user_id = '22222222-2222-2222-2222-222222222222';
@@ -154,12 +143,7 @@ select is(
   'mit einem zweiten Administrator gelingt der Austritt'
 );
 
--- --------------------------------------- Haushalt komplett loeschen (#64, #98)
--- Regressionstest fuer einen frueher unentdeckten Bug: `guard_last_admin`
--- feuert auch fuer household_members-Zeilen, die per ON DELETE CASCADE
--- verschwinden, weil der ganze Haushalt geloescht wird — und blockierte damit
--- bislang JEDE Haushaltsloeschung mit mehr als einem Mitglied (der letzte Admin
--- "verliesse" scheinbar einen Haushalt, den es danach gar nicht mehr gibt).
+-- Der Admin-Guard darf kaskadierende Haushaltsloeschungen nicht blockieren.
 select tests.as_postgres();
 select tests.create_user('44444444-4444-4444-4444-444444444444', 'dave@example.com');
 select tests.create_user('55555555-5555-5555-5555-555555555555', 'erin@example.com');
@@ -184,7 +168,6 @@ select is(
   'die Loeschung kaskadiert auf household_members'
 );
 
--- Solo-Haushalt (Admin ist einziges Mitglied) muss ebenfalls loeschbar sein.
 select tests.as_postgres();
 select tests.create_user('66666666-6666-6666-6666-666666666666', 'frank@example.com');
 select tests.authenticate_as('66666666-6666-6666-6666-666666666666');
@@ -195,17 +178,12 @@ select lives_ok(
   'ein alleiniger Admin kann seinen Solo-Haushalt loeschen'
 );
 
--- --------------------------------- verwaisten Haushalt aufraeumen (#189)
--- Verlaesst das letzte Mitglied einen Haushalt, feuert der AFTER-DELETE-Trigger
--- und loescht die verwaiste households-Zeile. Ohne ihn bliebe sie mitsamt allen
--- geteilten Daten fuer immer stehen — per RLS fuer niemanden mehr erreichbar.
+-- Das letzte Mitglied muss den danach unerreichbaren Haushalt mitloeschen.
 select tests.as_postgres();
 select tests.create_user('cccccccc-3333-3333-3333-333333333333', 'liam@example.com');
 select tests.authenticate_as('cccccccc-3333-3333-3333-333333333333');
 select public.create_household('Solo Liam') as hid_liam \gset
 
--- Der alleinige Admin verlaesst den Haushalt; die Sperre laesst das zu, weil
--- danach niemand ohne Admin zurueckbliebe.
 delete from public.household_members
 where user_id = 'cccccccc-3333-3333-3333-333333333333';
 
@@ -222,9 +200,7 @@ select is(
   'die Cascade raeumt die geteilten Daten des verwaisten Haushalts mit ab'
 );
 
--- ------------------------------------------- prepare_account_deletion() (#98)
--- Letzter Admin mit weiteren Mitgliedern: muss abbrechen, nichts darf
--- angewendet werden.
+-- Beim letzten Admin mit Mitgliedern muss die Vorbereitung atomar abbrechen.
 select tests.as_postgres();
 select tests.create_user('77777777-7777-7777-7777-777777777777', 'gina@example.com');
 select tests.create_user('88888888-8888-8888-8888-888888888888', 'hank@example.com');
@@ -243,7 +219,6 @@ select throws_like(
   'prepare_account_deletion bricht ab, wenn andere Mitglieder ohne Admin zurueckblieben'
 );
 
--- Solo-Haushalt: prepare_account_deletion loescht ihn vollstaendig.
 select tests.as_postgres();
 select tests.create_user('99999999-9999-9999-9999-999999999999', 'ivy@example.com');
 select tests.authenticate_as('99999999-9999-9999-9999-999999999999');
@@ -261,9 +236,7 @@ select is(
   'prepare_account_deletion loescht einen Solo-Haushalt vollstaendig'
 );
 
--- created_by wird bei einem verbleibenden Haushalt auf ein anderes Mitglied
--- uebertragen, sonst wuerde die anschliessende Profil-Loeschung an
--- `on delete restrict` scheitern.
+-- created_by muss vor der Profil-Loeschung uebertragen werden.
 select tests.as_postgres();
 select tests.create_user('aaaaaaaa-1111-1111-1111-111111111111', 'jack@example.com');
 select tests.create_user('bbbbbbbb-2222-2222-2222-222222222222', 'kate@example.com');

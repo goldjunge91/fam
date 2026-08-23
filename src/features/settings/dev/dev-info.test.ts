@@ -19,8 +19,6 @@ describe('classifySupabaseTarget', () => {
   });
 
   it('warnt bei einem gehosteten Projekt', () => {
-    // Der eigentliche Zweck der Funktion: Ein Build, der unbemerkt gegen das
-    // verlinkte Projekt laeuft, legt beim Ausprobieren echte Daten an.
     const target = classifySupabaseTarget('https://abcdefgh.supabase.co');
     expect(target.kind).toBe('remote');
     expect(target.tone).toBe('danger');
@@ -34,8 +32,7 @@ describe('classifySupabaseTarget', () => {
   });
 
   it('haelt eine Domain mit 192.168 im Namen nicht fuer lokal', () => {
-    // `192.168.178.25.example.com` waere eine fremde Domain — der Test steht
-    // hier, weil eine Prefix-Pruefung statt des Ankers genau das durchliesse.
+    // Verhindert eine zu breite Prefix-Pruefung auf lokale Hosts.
     expect(classifySupabaseTarget('https://192.168.178.25.example.com').kind).toBe('remote');
   });
 });
@@ -81,7 +78,6 @@ describe('describeDatabaseOwnership', () => {
   });
 
   it('schlaegt Alarm, wenn die lokale DB einem anderen Nutzer gehoert', () => {
-    // Genau diese Abweichung war das Cross-Account-Datenleck.
     const result = describeDatabaseOwnership('11111111-2222-3333', 'user-b');
     expect(result.tone).toBe('danger');
     expect(result.label).toContain('FREMD');

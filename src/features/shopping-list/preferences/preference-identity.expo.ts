@@ -6,7 +6,6 @@ import {
   uuidV5FromSha1Digest,
 } from './preference-identity';
 
-/** UUIDv5-Adapter für die Expo-App. */
 export async function preferenceId(input: ShoppingCategoryPreferenceKey): Promise<string> {
   const digest = await Crypto.digest(
     Crypto.CryptoDigestAlgorithm.SHA1,

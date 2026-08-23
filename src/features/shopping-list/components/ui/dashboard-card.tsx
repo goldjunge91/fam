@@ -16,11 +16,6 @@ const WIDGET_GLASS_STYLE = {
   gap: 8,
 };
 
-/**
- * Einkaufs-Dashboard-Card: zeigt offene Einkaufslisteneintraege.
- * Large = Badge + Label + Fortschrittsbalken + Action.
- * Small = Badge + Label + Action (wie bisher).
- */
 function ShoppingDashboardCard({ size, onLongPress }: DashboardCardProps) {
   const theme = useTheme();
   const { activeHouseholdId } = useActiveHousehold();

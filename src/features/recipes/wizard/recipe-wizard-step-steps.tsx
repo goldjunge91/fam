@@ -23,10 +23,7 @@ function flattenIngredients(components: IngredientComponentGroup[]): Mentionable
   const result: MentionableIngredient[] = [];
   for (const comp of components) {
     for (const item of comp.items) {
-      // item.product ist nur bei einer frisch abgeschlossenen OFF-Suche
-      // gesetzt. Beim Bearbeiten geladene Zutaten haben stattdessen
-      // productQuery/existingProductId (siehe recipe-create-screen.tsx-
-      // Hydration) — ohne diesen Fallback wuerden sie hier fehlen.
+      // Geladene Zutaten brauchen den Fallback auf Query oder bestehende Produkt-ID.
       const name = item.product?.name ?? (item.existingProductId ? item.productQuery : null);
       if (!name) continue;
       const quantity = Number.parseFloat(item.quantity);
@@ -41,13 +38,7 @@ function flattenIngredients(components: IngredientComponentGroup[]): Mentionable
   return result;
 }
 
-/**
- * Filtert die Autovervollstaendigungs-Treffer fuer eine gerade getippte
- * Erwaehnung — und unterdrueckt sie, sobald der einzige Treffer exakt dem
- * bereits eingefuegten Namen entspricht (sonst bliebe das Menue nach der
- * Auswahl sichtbar, siehe justSelectedValueRef-Muster in
- * product-search-dropdown.tsx, hier ohne Extra-State geloest).
- */
+/** Blendet Autocomplete nach einer exakten Erwaehnungsauswahl aus. */
 function pendingAutocomplete(text: string, ingredients: MentionableIngredient[]) {
   const pending = matchPendingMention(text);
   if (!pending) return null;
@@ -66,11 +57,7 @@ interface IngredientLedgerProps {
   used: Map<string, number>;
 }
 
-/**
- * Immer sichtbare (nicht mitscrollende), einklappbare Zutatenuebersicht
- * oberhalb der Zubereitungsschritte — zeigt live, wie viel jeder Zutat schon
- * per @-Erwaehnung in den Schritten zugeordnet ist.
- */
+/** Zeigt live die per `@` zugeordnete Menge jeder Zutat. */
 function IngredientLedger({ ingredients, used }: IngredientLedgerProps) {
   const [expanded, setExpanded] = useState(true);
   if (ingredients.length === 0) return null;
@@ -290,12 +277,7 @@ interface StepTimerFieldProps {
   onChange: (minutes: number | null) => void;
 }
 
-/**
- * Expliziter Timer pro Schritt, unabhaengig von der Text-basierten
- * Minutenerkennung im Kochmodus (parseStepDurationSeconds in
- * cooking-mode-screen.tsx) — dort greift die Texterkennung nur als Fallback,
- * wenn hier nichts gesetzt ist.
- */
+/** Ein expliziter Timer hat im Kochmodus Vorrang vor der Texterkennung. */
 function StepTimerField({ minutes, onChange }: StepTimerFieldProps) {
   const theme = useTheme();
   const [draft, setDraft] = useState('');

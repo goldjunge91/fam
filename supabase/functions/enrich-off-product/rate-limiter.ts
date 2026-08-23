@@ -1,16 +1,4 @@
-/**
- * Gleitendes Zeitfenster-Rate-Limit, identische Logik zu
- * `SlidingWindowRateLimiter` in src/lib/open-food-facts.ts (kein Import
- * zwischen Deno und React Native möglich, siehe off-client.ts).
- *
- * Prozessweiter, geteilter Zustand (eine Instanz pro Edge-Function-Isolate,
- * nicht pro EAN oder Aufrufer) — schützt das eigene Aufrufbudget gegenüber
- * Open Food Facts (dokumentiertes Limit 15 Produktabfragen/Min/IP), nicht
- * einzelne Nutzer voneinander. "Best effort": ein neu gestartetes Isolate
- * beginnt wieder bei null, was fuer den Zweck (OFFs eigenes Limit nicht
- * reissen) ausreicht — anders als ein Nutzer-Kontingent braucht das keine
- * Persistenz ueber Kaltstarts hinweg.
- */
+/** Prozessweites Best-Effort-Limit fuer das gemeinsame OFF-Anfragebudget. */
 export class SlidingWindowRateLimiter {
   private timestamps: number[] = [];
 

@@ -3,14 +3,7 @@ import { createClient } from 'jsr:@supabase/supabase-js@2';
 
 import { createRevenueCatWebhookHandler, type HouseholdPremiumUpdate } from './handler.ts';
 
-/**
- * RevenueCat bindet den Kunden per `Purchases.logIn(activeHouseholdId)` an
- * den Haushalt. `app_user_id` ist deshalb direkt die `households.id`.
- *
- * RevenueCat sendet keinen Supabase-JWT. Die Function ist in config.toml mit
- * `verify_jwt = false` eingetragen und prueft stattdessen den im Dashboard
- * konfigurierten Authorization-Header in `handler.ts`.
- */
+// `app_user_id` ist die Haushalts-ID; der Webhook authentifiziert sich per Shared Secret.
 Deno.serve(
   createRevenueCatWebhookHandler({
     expectedSecret: Deno.env.get('REVENUECAT_WEBHOOK_SECRET'),

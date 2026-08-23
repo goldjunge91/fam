@@ -5,9 +5,7 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import { AddFoodEntryScreen } from '@/features/calorie-tracking/add-food-entry-screen';
 
-// add-food-entry-screen importiert MEAL_LABELS aus diary-screen, das wiederum
-// ProgressRing (Reanimated) laedt — dessen Worklets-Bootstrap laeuft unter
-// Jest nicht. Fuer diesen Test zaehlt nur das Label-Mapping, nicht der Ring.
+// Der Ring liegt ausserhalb dieses Tests und benoetigt native Worklets.
 jest.mock('@/components/ui/progress-ring', () => ({ ProgressRing: () => null }));
 
 let mockParams: Record<string, string> = {};
@@ -184,7 +182,7 @@ describe('AddFoodEntryScreen — Produkt aus der Suche (100g-Referenz)', () => {
     const quantityField = screen.getByLabelText('Menge eingeben');
     await fireEvent.changeText(quantityField, '200');
     await fireEvent(quantityField, 'blur');
-    expect(screen.getByDisplayValue('118')).toBeTruthy(); // 59 kcal/100g * 200g / 100
+    expect(screen.getByDisplayValue('118')).toBeTruthy();
   });
 
   it('zeigt einen Hinweis statt stiller Skalierung bei stueckbasierten Einheiten', async () => {
@@ -193,7 +191,7 @@ describe('AddFoodEntryScreen — Produkt aus der Suche (100g-Referenz)', () => {
     expect(
       screen.getByText(/Automatische Umrechnung für diese Einheit nicht möglich/),
     ).toBeTruthy();
-    expect(screen.getByDisplayValue('59')).toBeTruthy(); // Rohwert bleibt unveraendert stehen
+    expect(screen.getByDisplayValue('59')).toBeTruthy();
   });
 
   it('speichert einen neuen Eintrag mit den berechneten Werten', async () => {

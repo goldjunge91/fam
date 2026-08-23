@@ -1,22 +1,13 @@
 import type { Entity } from '@/lib/db/types';
 
-/**
- * Pro-Entity-Metadaten der Sync-Engine (#47).
- *
- * Rein: eine statische Nachschlagetabelle, kein Grund fuer Datenbank oder
- * Netzwerk. Gemeinsam genutzt von Pull, Push und Outbox-Enqueue-Aufrufern,
- * damit die Spaltenliste je Entity nur an einer Stelle steht.
- */
-
 export type EntityMeta = {
   entity: Entity;
-  /** Lokaler und entfernter Tabellenname sind identisch — deshalb derselbe Typ wie `entity`. */
   table: Entity;
-  /** false bei 'products' und 'households' — dort gibt es serverseitig kein deleted_at (harte Loeschung). */
+  /** `false` fuer Tabellen ohne serverseitigen Tombstone. */
   hasServerTombstone: boolean;
-  /** false bei 'products' und 'households' — beide global, kein household_id-Praefix. */
+  /** `false` fuer globale Tabellen ohne `household_id`. */
   householdScoped: boolean;
-  /** Spalten ohne updated_at/deleted_at/_dirty, id zuerst. 1:1 aus migrations.ts's V1_MIRRORS. */
+  /** Fachspalten ohne Sync-Metadaten, `id` zuerst. */
   columns: readonly string[];
 };
 
@@ -234,15 +225,7 @@ export const ENTITIES: Readonly<Record<Entity, EntityMeta>> = {
   },
 };
 
-/**
- * Default-Entity-Set fuer `pullHousehold()` — bewusst OHNE 'households'.
- *
- * `pullHousehold()` wird immer schon mit einer bekannten Haushalts-Id
- * aufgerufen (`useSyncEngine`). 'households' wird stattdessen exklusiv vom
- * nutzerscoped Bootstrap-Trigger (`household-bootstrap-sync.ts`) per
- * `entities: ['households']`-Override gepullt — sonst gaebe es einen
- * redundanten Voll-Pull bei jedem 20s-Tick jedes aktiven Haushalts.
- */
+/** `households` wird nutzerspezifisch vom Bootstrap-Sync statt je Haushalt gepullt. */
 export const ALL_ENTITIES: readonly Entity[] = [
   'storage_locations',
   'stores',

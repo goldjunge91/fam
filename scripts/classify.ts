@@ -1,14 +1,5 @@
 #!/usr/bin/env bun
-/**
- * classify.ts — Ad-hoc-Trace für die Einkaufslisten-Kategorisierung (Issue #223).
- *
- *   bun run scripts/classify.ts "2 Schnitzel vom Schwein Spar Fein Küche"
- *   bun run scripts/classify.ts "Fruchtsaft" --tags en:vegetables,en:fruit-juices
- *
- * Ruft direkt `explainCategory()` aus `src/features/shopping-list/classification/`
- * auf — keine zweite Implementierung der Klassifikationslogik. EAN-Lookup gegen
- * den Offline-Dump folgt, sobald `off-dump-v2.db` (Paket 4) existiert.
- */
+/** Ad-hoc-Trace mit der produktiven `explainCategory()`-Implementierung. */
 
 import { explainCategory } from '../src/features/shopping-list/classification/shopping-category-classifier';
 

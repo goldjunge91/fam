@@ -12,8 +12,7 @@ import { DashboardDragProvider } from './drag-context';
 import { JiggleWrapper } from './jiggle-wrapper';
 import { WidgetRow } from './widget-row';
 
-// Seiteneffekt-Imports: Registrieren die Cards beim Module-Load.
-// Neue Cards? Hier eine Zeile ergänzen.
+// Card-Module registrieren sich beim Import.
 import '@/features/calorie-tracking/components/dashboard-card';
 import '@/features/meal-planner/components/dashboard-card';
 import '@/features/inventory/components/dashboard-card';
@@ -28,14 +27,7 @@ type CardListProps = {
   onDragStateChange?: (isDragging: boolean) => void;
 };
 
-/**
- * Zentrale Render-Logik fuer Dashboard-Cards.
- * - Filtert nach aktiven Modulen und nicht-ausgeblendeten Karten.
- * - Sortiert nach der benutzerdefinierten Drag & Drop Reihenfolge (`getOrderedCards`).
- * - Gruppiert aufeinanderfolgende Small-Cards in `WidgetRow`-Paare.
- * - Im Edit-Modus (iOS Wackel-Modus) wackeln die Karten via JiggleWrapper,
- *   bieten Drag & Drop mit Hover-Displacement und Drop-Commit und zeigen Badges an.
- */
+/** Filtert, sortiert und gruppiert Dashboard-Cards. */
 export function CardList({
   isEditing = false,
   onEnterEditMode,
@@ -78,12 +70,10 @@ export function CardList({
 
   const allCards = getCards();
 
-  // Filtern: 1. Modul aktiv, 2. Nicht vom Nutzer von der Uebersicht geloescht/ausgeblendet
   const rawVisibleCards = allCards.filter(
     (card) => (!card.moduleKey || modules?.[card.moduleKey]) && !isCardHidden(card.id),
   );
 
-  // Sortieren nach gespeicherter Drag & Drop Reihenfolge
   const visibleCards = getOrderedCards(rawVisibleCards);
   const visibleCardIds = visibleCards.map((c) => c.id);
 
@@ -94,10 +84,8 @@ export function CardList({
     [moveCardByIndex, visibleCardIds],
   );
 
-  // Warten bis Module-Praefereenzen geladen sind
   if (!modules) return null;
 
-  // Leerer Zustand wenn alle Karten geloescht/ausgeblendet wurden
   if (visibleCards.length === 0) {
     return (
       <View
@@ -124,7 +112,7 @@ export function CardList({
     );
   }
 
-  // Gruppieren: aufeinanderfolgende Small-Cards in Paare packen.
+  // Nur aufeinanderfolgende kleine Cards teilen eine Zeile.
   const elements: ReactElement[] = [];
   let i = 0;
   let cardIndex = 0;
@@ -134,7 +122,6 @@ export function CardList({
     const currentSize = getSize(card);
 
     if (currentSize === 'small') {
-      // Sammle aufeinanderfolgende Small-Cards fuer eine WidgetRow
       const smallGroup: DashboardCardDef[] = [card];
       let j = i + 1;
       while (j < visibleCards.length && getSize(visibleCards[j]) === 'small') {
@@ -142,7 +129,6 @@ export function CardList({
         j++;
       }
 
-      // In Zweier-Paare aufteilen
       for (let k = 0; k < smallGroup.length; k += 2) {
         const pair = smallGroup.slice(k, k + 2);
         elements.push(

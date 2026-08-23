@@ -41,7 +41,6 @@ export function DashboardScreen() {
   const { activeHouseholdId } = useActiveHousehold();
   const householdId = activeHouseholdId ?? undefined;
 
-  // Hintergrund-Benachrichtigungen fuer ablaufende Artikel aktivieren/synchronisieren
   useExpiryNotifications(householdId);
 
   async function handleRefresh() {
@@ -87,7 +86,6 @@ export function DashboardScreen() {
           trailing: editChromeTrailing,
         }}
         backgroundGradient={hubGradient}>
-        {/* Scrollbare Dashboard-Kartenliste mit Pull-to-Refresh & Drag-and-Drop */}
         <ScrollView
           testID="dashboard-scroll-view"
           className="flex-1"
@@ -103,7 +101,6 @@ export function DashboardScreen() {
               tintColor={theme.accent}
             />
           }>
-          {/* Dynamische Widgets/Karten (z. B. Vorrat, Einkaufsliste, Kalorien) */}
           <CardList
             isEditing={isEditing}
             onEnterEditMode={enterEditMode}
@@ -112,7 +109,6 @@ export function DashboardScreen() {
           />
         </ScrollView>
 
-        {/* Galerie-Bottom-Sheet zum Hinzufügen/Entfernen von Dashboard-Karten */}
         <CardGallerySheet visible={isGalleryOpen} onClose={closeGallery} />
       </Screen>
     </DashboardCardsProvider>

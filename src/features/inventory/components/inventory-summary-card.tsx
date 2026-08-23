@@ -11,11 +11,6 @@ type InventorySummaryCardProps = {
   soonCount: number;
 };
 
-/**
- * Zwei Ablauf-Ringe statt eines einzelnen Bestandsrings: "Läuft bald ab"
- * (kritisch/abgelaufen) und "Bald fällig" (soon). Beide Ringe visualisieren
- * den Anteil am Gesamtfüllstand über ProgressRing im compact-Preset (#164).
- */
 export function InventorySummaryCard({
   totalCount,
   criticalCount,
@@ -30,8 +25,7 @@ export function InventorySummaryCard({
       className="inventory-summary-row">
       <View
         className="inventory-summary-ring-card"
-        // boxShadow (dynamische Opazitaet) und borderCurve (kein Tailwind-
-        // Aequivalent) sind Ausnahmen.
+        // Dynamischer Schatten und borderCurve haben kein Tailwind-Aequivalent.
         style={{
           boxShadow: `0 10px 24px ${withAlpha(theme.shadowCard, 0.14)}`,
           borderCurve: 'continuous',

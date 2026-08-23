@@ -1,47 +1,23 @@
 -- Gewuenschter Endzustand — NICHT von Hand migrieren (#41, #123).
---
--- Rezept-Manager, "Baukasten-Mahlzeiten" (Epic #12, entschieden in
--- docs/plans/phase-2-4-brainstorm.md, Abschnitt #12).
---
--- Ein Rezept besteht aus Komponenten (z. B. "Nudeln", "Soße"). Eine
--- Komponente wiederum besteht aus Positionen: jede Position ist entweder
--- eine Basis-Zutat (`product_id` + Gramm) oder eine andere Komponente
--- desselben Rezepts (`sub_component_id` + Gramm) — daraus ergibt sich die
--- Rekursion ("Soße" besteht aus 50g Tomaten + 300g Hackfleisch).
---
--- Komponente und Position sind zwei Tabellen statt einer: Eine Komponente
--- braucht einen Namen und (fuer oberste Komponenten) eine Portionsmenge,
--- eine Position braucht eine Menge und genau ein Ziel. Beides in eine
--- Tabelle zu zwingen haette NULL-Spalten je nach Zeilentyp erfordert.
---
--- Nährwerte kommen ausschliesslich aus `products` — keine eigene
--- Naehrwert-Spalte hier, die berechnete Zusammensetzung ist Sache der reinen
--- Funktion in `src/features/recipes/nutrition.ts` (#124), nicht der DB.
+-- Komponenten enthalten Zutaten oder rekursive Unterkomponenten desselben Rezepts.
+-- Naehrwerte werden aus products berechnet und nicht redundant gespeichert.
 
--- -------------------------------------------------------------------- Rezepte
 create table if not exists public.recipes (
   id uuid primary key default gen_random_uuid(),
   household_id uuid not null references public.households (id) on delete cascade,
 
   title text not null check (length(trim(title)) between 1 and 200),
-  -- Kurzer Einfuehrungstext (Wizard-Schritt "Introduction"). Die eigentliche
-  -- Zubereitung steht in `recipe_steps`, nicht hier.
   instructions text,
 
   cover_image_path text,
   cook_time_minutes integer check (cook_time_minutes > 0),
   difficulty text check (difficulty in ('easy', 'medium', 'hard')),
-  -- Mehrfachauswahl im Wizard (z. B. "Snack" + "Brunch" gleichzeitig) — deshalb
-  -- Array, nicht ein einzelner Wert wie bei `difficulty`.
   dish_types text[] not null default '{}'
     check (dish_types <@ array['breakfast', 'lunch', 'dinner', 'snack', 'dessert', 'appetizer', 'brunch']),
   dietary_tags text[] not null default '{}'
     check (dietary_tags <@ array['vegetarian', 'vegan', 'high_fat', 'low_fat', 'lactose_free', 'sugar_free', 'gluten_free']),
-  -- Frei vergeben, kein fester Katalog wie bei dish_types/dietary_tags.
   hashtags text[] not null default '{}',
-  -- Vom Autor angegebene Portionenzahl ("Serving for 4 People") — rein
-  -- informativ, unabhaengig von den Gramm-Portionen der Komponenten
-  -- (`recipe_components.serving_grams`).
+  -- Informative Portionenzahl, unabhaengig von serving_grams der Komponenten.
   default_servings integer not null default 1 check (default_servings > 0),
 
   created_by uuid references public.profiles (id) on delete set null,
@@ -58,7 +34,6 @@ create index if not exists recipes_household_id_idx
   on public.recipes (household_id);
 create index if not exists recipes_created_by_idx
   on public.recipes (created_by);
--- Inkrementeller Pull der Sync-Engine (#47), analog zu fridge_items.
 create index if not exists recipes_household_updated_idx
   on public.recipes (household_id, updated_at);
 
@@ -67,17 +42,12 @@ create or replace trigger recipes_set_updated_at
   for each row
   execute function private.set_updated_at();
 
--- ----------------------------------------------------------------- Komponenten
--- "1 Portion" (siehe Brainstorm-Dokument): oberste Komponenten (die nicht
--- selbst als sub_component_id einer anderen Position vorkommen) tragen ihre
--- Portions-Grammmenge direkt in `serving_grams`. Komponenten, die nur als
--- Unterkomponente einer anderen Komponente verwendet werden, lassen das Feld
--- leer — ihre Menge ergibt sich aus der Position, die auf sie zeigt.
+-- Nur oberste Komponenten tragen serving_grams; Unterkomponenten beziehen ihre
+-- Menge aus der referenzierenden Position.
 create table if not exists public.recipe_components (
   id uuid primary key default gen_random_uuid(),
   recipe_id uuid not null references public.recipes (id) on delete cascade,
-  -- Denormalisiert wie household_id auf Positionen anderer Tabellen: spart
-  -- den Join ueber recipes in der RLS-Policy und im Sync-Index.
+  -- Denormalisiert fuer RLS und Sync-Index.
   household_id uuid not null references public.households (id) on delete cascade,
 
   name text not null check (length(trim(name)) between 1 and 120),
@@ -101,28 +71,19 @@ create or replace trigger recipe_components_set_updated_at
   for each row
   execute function private.set_updated_at();
 
--- ------------------------------------------------------------------- Positionen
 create table if not exists public.recipe_component_items (
   id uuid primary key default gen_random_uuid(),
   component_id uuid not null references public.recipe_components (id) on delete cascade,
-  -- Denormalisiert aus derselben Ueberlegung wie household_id oben.
   recipe_id uuid not null references public.recipes (id) on delete cascade,
   household_id uuid not null references public.households (id) on delete cascade,
 
-  -- Genau eines der beiden: entweder Basis-Zutat oder Unterkomponente
-  -- desselben Rezepts (rekursiv, im Datenmodell unbegrenzt — das UI-Limit
-  -- von 2 Ebenen ist Sache des Screens, nicht der DB, siehe #123-AC).
+  -- Genau eines: Basis-Zutat oder Unterkomponente desselben Rezepts.
   product_id uuid references public.products (id) on delete set null,
   sub_component_id uuid references public.recipe_components (id) on delete cascade,
 
-  -- Kanonische Rechengroesse fuer nutrition.ts, wird aus quantity/unit
-  -- abgeleitet (client-seitig ueber toGramsEquivalent, kein DB-Trigger —
-  -- konsistent mit dem Muster, dass Naehrwertberechnung Sache der reinen
-  -- Funktionen in src/features/recipes/nutrition.ts ist, nicht der DB).
+  -- Kanonische Rechengroesse fuer die clientseitige Naehrwertberechnung.
   grams numeric(8, 2) not null check (grams > 0),
-  -- Rohe Nutzereingabe (z. B. "2" + "piece"), nullable fuer Altdaten ohne
-  -- Roheingabe. Gleiche erlaubte Einheiten wie fridge_items/shopping_list
-  -- (08_inventory.sql), siehe src/lib/units.ts.
+  -- Rohe Nutzereingabe bleibt fuer Anzeige und Altdaten optional erhalten.
   quantity numeric(10, 2) check (quantity > 0),
   unit text not null default 'g'
     check (unit in ('g', 'kg', 'ml', 'l', 'piece', 'package', 'portion')),
@@ -152,11 +113,7 @@ create or replace trigger recipe_component_items_set_updated_at
   for each row
   execute function private.set_updated_at();
 
--- --------------------------------------------------------- Zubereitungsschritte
--- Vormals ein reines text[] auf `recipes` (siehe Git-Historie). Der Wizard
--- (#12-Folgearbeit) braucht pro Schritt jetzt ein optionales Bild und
--- referenzierte Zutaten — beides ist Pro-Schritt-Metadaten, fuer die eine
--- Array-Spalte nicht mehr reicht, deshalb eine eigene Tabelle.
+-- Eigene Zeilen erlauben Bilder und Zutatenreferenzen pro Schritt.
 create table if not exists public.recipe_steps (
   id uuid primary key default gen_random_uuid(),
   recipe_id uuid not null references public.recipes (id) on delete cascade,
@@ -165,10 +122,7 @@ create table if not exists public.recipe_steps (
   position integer not null check (position >= 0),
   text text not null check (length(trim(text)) between 1 and 2000),
   image_path text,
-  -- Optionaler, vom Nutzer explizit gesetzter Timer (z. B. "10 Minuten koecheln
-  -- lassen"). Unabhaengig von der Text-basierten Minutenerkennung im Kochmodus
-  -- (siehe parseStepDurationSeconds in cooking-mode-screen.tsx), die als
-  -- Fallback greift, wenn hier nichts gesetzt ist.
+  -- Explizite Timer haben Vorrang vor der Texterkennung im Kochmodus.
   timer_minutes integer check (timer_minutes > 0),
 
   created_at timestamptz not null default now(),
@@ -189,7 +143,6 @@ create or replace trigger recipe_steps_set_updated_at
   for each row
   execute function private.set_updated_at();
 
--- ---------------------------------------------- Zutaten-Referenzen je Schritt
 create table if not exists public.recipe_step_ingredients (
   id uuid primary key default gen_random_uuid(),
   step_id uuid not null references public.recipe_steps (id) on delete cascade,
@@ -218,11 +171,7 @@ create or replace trigger recipe_step_ingredients_set_updated_at
   for each row
   execute function private.set_updated_at();
 
--- ------------------------------------------------------- Konsistenz-Trigger
--- Ohne diese Pruefung koennte eine Position auf eine Komponente eines
--- fremden Rezepts zeigen, oder eine Komponente koennte sich selbst (direkt
--- oder ueber Umwege) als Unterkomponente enthalten — beides wuerde die
--- rekursive Naehrwert-Berechnung (#124) in eine Endlosschleife laufen lassen.
+-- Verhindert Fremdrezept-Referenzen und Zyklen in der Komponentenstruktur.
 create or replace function private.check_recipe_component_item_consistency()
 returns trigger
 language plpgsql
@@ -249,9 +198,7 @@ begin
     raise exception 'Unterkomponente gehoert zu einem anderen Rezept';
   end if;
 
-  -- Wuerde diese Position eine Zykel erzeugen? Pruefe, ob component_id unter
-  -- den (transitiven) Unterkomponenten von sub_component_id vorkommt — dann
-  -- enthielte component_id am Ende sich selbst.
+  -- Eine transitive Rueckreferenz wuerde einen Zyklus erzeugen.
   with recursive descendants as (
     select new.sub_component_id as comp_id
     union all
@@ -276,7 +223,6 @@ create or replace trigger recipe_component_items_check_consistency
   for each row
   execute function private.check_recipe_component_item_consistency();
 
--- ------------------------------------------------------------------------- RLS
 alter table public.recipes enable row level security;
 alter table public.recipe_components enable row level security;
 alter table public.recipe_component_items enable row level security;

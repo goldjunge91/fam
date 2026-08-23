@@ -1,12 +1,5 @@
--- check-clean-db.sql — siehe check-clean-db.sh fuer das Warum.
---
--- supabase/seed.sql seedet feste Referenzdaten (Produkte, Rezeptvorlagen) bei
--- jedem `supabase db reset` — diese Tabellen sind danach nie leer und muessen
--- von der Pruefung ausgenommen werden (Liste unten synchron zu seed.sql
--- halten). Jede andere public-Tabelle muss direkt nach einem Reset leer sein.
--- query_to_xml/xpath fuehrt dafuer pro Tabelle ein dynamisches `count(*)`
--- aus, ganz ohne PL/pgSQL-Funktion — das Ergebnis ist ein JSON-Objekt
--- {tabelle: anzahl} nur fuer nicht-leere, nicht-geseedete Tabellen, oder NULL.
+-- Nach einem Reset duerfen nur die unten ausgeschlossenen Seed-Tabellen Daten enthalten.
+-- query_to_xml zaehlt dynamisch; das Ergebnis enthaelt nur unerwartet belegte Tabellen.
 select jsonb_object_agg(tablename, cnt)
 from (
   select

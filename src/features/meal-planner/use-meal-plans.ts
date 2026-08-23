@@ -33,8 +33,6 @@ function nowStamp() {
   return { iso: new Date().toISOString(), ms: Date.now() };
 }
 
-// ------------------------------------------------------------------- Queries
-
 export function useMealPlan(householdId: string | undefined, weekStartDate: string) {
   return useQuery({
     queryKey: ['meal-plan', householdId, weekStartDate],
@@ -54,17 +52,7 @@ export function useMealPlan(householdId: string | undefined, weekStartDate: stri
   });
 }
 
-/**
- * Eintraege ueber einen beliebigen Datumsbereich, haushaltsweit — unabhaengig
- * von einem einzelnen `meal_plan_id`.
- *
- * Fuer die Tages-/3-Tage-Ansicht (#129-Nachtrag) reicht `useMealPlanEntries`
- * nicht: ein Fenster kann ueber zwei Kalenderwochen (und damit zwei
- * `meal_plans`-Zeilen) hinweg liegen. `entry_date`/`household_id` liegen
- * bereits denormalisiert auf `meal_plan_entries`, ein Filter direkt darauf
- * ist deshalb genauso billig wie ueber `meal_plan_id` und funktioniert fuer
- * jede Fensterbreite gleich.
- */
+/** Liest einen haushaltsweiten Datumsbereich auch ueber Wochengrenzen hinweg. */
 export function useMealPlanEntriesInRange(
   householdId: string | undefined,
   startDate: string,
@@ -112,13 +100,7 @@ export function useMealPlanEntries(mealPlanId: string | undefined) {
   });
 }
 
-// ----------------------------------------------------------------- Mutations
-
-/**
- * Legt bei Bedarf den Wochenplan fuer `weekStartDate` an (get-or-create) —
- * pro Haushalt und Woche gibt es serverseitig nur einen, siehe
- * `meal_plans_household_week_unique` in 14_meal_plans.sql.
- */
+/** Liefert den eindeutigen Wochenplan oder legt ihn an. */
 export function useEnsureMealPlanMutation() {
   const queryClient = useQueryClient();
 
@@ -317,12 +299,7 @@ export function useDeleteEntryMutation() {
   });
 }
 
-/**
- * "Letzte Woche erneut verwenden" (#129-AC): kopiert alle Eintraege des
- * Vorwochenplans (falls vorhanden) in den (bei Bedarf neu angelegten)
- * aktuellen Wochenplan — neue IDs, gleiche Rezept-Zuordnung/Mengen, Datum um
- * 7 Tage verschoben.
- */
+/** Kopiert die Vorwoche mit neuen IDs und um sieben Tage verschobenen Daten. */
 export function useReuseLastWeekMutation() {
   const queryClient = useQueryClient();
 

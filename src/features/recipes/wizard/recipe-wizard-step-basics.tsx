@@ -104,7 +104,6 @@ export function RecipeWizardStepBasics({
 
       {mode === 'details' ? (
         <>
-          {/* Titelbild */}
           <TouchableOpacity
             className="w-full h-[200px] bg-background-element rounded-sheet overflow-hidden mb-four justify-center items-center"
             activeOpacity={0.85}
@@ -197,7 +196,6 @@ export function RecipeWizardStepBasics({
             </View>
           </View>
 
-          {/* Schwierigkeit */}
           <View className="mb-[14px]">
             <ThemedText type="detail" className="text-[10px] leading-[12px] font-bold mb-[6px]">
               Schwierigkeit
@@ -224,7 +222,6 @@ export function RecipeWizardStepBasics({
             </View>
           </View>
 
-          {/* Rezepttyp */}
           <View className="mb-[14px]">
             <ThemedText type="detail" className="text-[10px] leading-[12px] font-bold mb-[6px]">
               Art des Gerichts
@@ -251,7 +248,6 @@ export function RecipeWizardStepBasics({
             </View>
           </View>
 
-          {/* Ernaehrung */}
           <View className="mb-[14px]">
             <ThemedText type="detail" className="text-[10px] leading-[12px] font-bold mb-[6px]">
               Ernährung
@@ -278,7 +274,6 @@ export function RecipeWizardStepBasics({
             </View>
           </View>
 
-          {/* Hashtags */}
           <View className="mb-[14px]">
             <ThemedText type="detail" className="text-[10px] leading-[12px] font-bold mb-[6px]">
               Hashtags
@@ -294,7 +289,6 @@ export function RecipeWizardStepBasics({
         </>
       ) : (
         <>
-          {/* Zutaten-Gruppen */}
           {components.map((comp) => (
             <View key={comp.id} className="mb-three p-[11px] rounded-sheet bg-white/70">
               <View className="flex-row items-center gap-two mb-two">

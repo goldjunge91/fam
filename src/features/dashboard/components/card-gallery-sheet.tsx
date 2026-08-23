@@ -35,10 +35,6 @@ const CARD_METADATA: Record<string, { title: string; desc: string; icon: string 
   },
 };
 
-/**
- * iOS-Style Widget-/Card-Galerie Sheet.
- * Erlaubt das Hinzufuegen/Entfernen von Karten und die Groessenauswahl.
- */
 export function CardGallerySheet({ visible, onClose }: CardGallerySheetProps) {
   const theme = useTheme();
   const insets = useSafeAreaInsets();
@@ -152,7 +148,6 @@ export function CardGallerySheet({ visible, onClose }: CardGallerySheetProps) {
                     </Pressable>
                   </View>
 
-                  {/* Größen-Auswahl nur sichtbar wenn Karte aktiv ist */}
                   {!isHidden ? (
                     <View style={styles.sizeSegmentWrap}>
                       <Pressable

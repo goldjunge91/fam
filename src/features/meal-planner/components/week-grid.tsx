@@ -37,15 +37,7 @@ function portionLabel(portions: number) {
   return `${portions} ${portions === 1 ? 'Portion' : 'Portionen'}`;
 }
 
-/**
- * Responsive Tageskarten des Essensplans. Tippen bleibt der primaere Weg;
- * die vorhandene Drag-Ablage sitzt weiter unter den sichtbaren Tagen.
- *
- * Die drei Mahlzeiten stehen in jeder Ansicht (Tag/Woche) untereinander
- * und in identischer Groesse (`SLOT_SIZES`) — die Ansichten unterscheiden sich
- * nur durch die Anzahl der sichtbaren Tages-Karten (`dates`), nicht durch
- * deren Aussehen.
- */
+/** Rendert identische Tageskarten fuer alle Ansichtsbreiten. */
 export function WeekGrid({
   dates,
   entries,
@@ -54,10 +46,7 @@ export function WeekGrid({
   onTapEntry,
   onTapEmptyCell,
 }: WeekGridProps) {
-  // Knoten statt vormessener Rechtecke: die Woche-/3-Tage-Liste ist vertikal
-  // scrollbar, ein einmal beim Mount gemessenes Rechteck waere nach dem
-  // Scrollen falsch und der Drop wuerde ins Leere treffen. Stattdessen wird
-  // beim Loslassen live neu gemessen (measureInWindow).
+  // Drop-Ziele werden nach dem Scrollen live neu gemessen.
   const cellNodes = useRef(new Map<string, View>());
   const [draggingRecipe, setDraggingRecipe] = useState<DraggableRecipe | null>(null);
   const translateX = useSharedValue(0);
@@ -105,8 +94,6 @@ export function WeekGrid({
     [measureCell, onDropRecipe],
   );
 
-  // Karte mittig ueber dem Finger, nach oben versetzt: der Finger verdeckt
-  // sonst genau die Zelle, ueber der losgelassen werden soll.
   const overlayStyle = useAnimatedStyle(() => ({
     transform: [{ translateX: translateX.value - 56 }, { translateY: translateY.value - 130 }],
   }));
@@ -217,7 +204,6 @@ export function WeekGrid({
   );
 }
 
-/** Card im horizontalen Tray — groß genug, um das Rezeptbild erkennbar zu zeigen. */
 function DraggableRecipeCard({
   recipe,
   translateX,
@@ -233,10 +219,7 @@ function DraggableRecipeCard({
 }) {
   const { data: coverUrl } = useRecipeCoverUrl(recipe.coverImagePath);
 
-  // `activateAfterLongPress` laesst der umgebenden horizontalen ScrollView
-  // kurze Wischgesten zum Scrollen — erst ein kurzes Halten startet den Drag.
-  // Ohne das gewinnt mal die ScrollView, mal der Pan, je nach Zufall der
-  // ersten Bewegungsrichtung — das war das kaputte Ziehverhalten.
+  // Kurze Wischgesten scrollen; erst langes Druecken startet den Drag.
   const pan = Gesture.Pan()
     .activateAfterLongPress(150)
     .onBegin((event) => {
@@ -269,7 +252,6 @@ function DraggableRecipeCard({
   );
 }
 
-/** Schwebende Vorschau waehrend des Ziehens — dieselbe Bildkachel, etwas kleiner. */
 function DragPreviewCard({ recipe }: { recipe: DraggableRecipe }) {
   const theme = useTheme();
   const { data: coverUrl } = useRecipeCoverUrl(recipe.coverImagePath);
@@ -277,9 +259,7 @@ function DragPreviewCard({ recipe }: { recipe: DraggableRecipe }) {
   return (
     <View
       className="wg-drag-preview-card"
-      // borderCurve und der Schatten (individuelle Opazitaet/Radius/Offset,
-      // keine passende boxShadow-Preset-Klasse) sind echte Laufzeitwerte
-      // ohne Tailwind-Aequivalent.
+      // borderCurve und der individuelle Schatten haben kein Tailwind-Aequivalent.
       style={{
         borderCurve: 'continuous',
         shadowColor: theme.shadowCard,

@@ -11,14 +11,8 @@
 #   bash scripts/ios-dev.sh --device "iPhone von Marco"          physisches Geraet per Name
 #   bash scripts/ios-dev.sh --device 00008030-001C38C41430802E   physisches Geraet per UDID
 #
-# Physische Geraete werden automatisch erkannt (Abgleich gegen
-# `xcrun devicectl list devices`) — dabei wechselt das Standard-Profil
-# automatisch von "development" (Simulator-Build) auf "development-device"
-# (geraete-signiertes Build), ausser --profile wurde explizit gesetzt.
-#
-# Warum ueberhaupt ein neuer Build: Native Module landen beim Build im Binary.
-# Nach `expo install expo-sqlite`, `expo-camera` o. ae. reicht ein Metro-Reload
-# NICHT — die App scheitert mit `Cannot find native module '…'`.
+# Physische Geräte wechseln automatisch auf das signierte Geräteprofil.
+# Neue native Module benötigen einen neuen Build statt nur Metro-Reload.
 
 set -euo pipefail
 
@@ -43,7 +37,6 @@ while [ $# -gt 0 ]; do
   esac
 done
 
-# WORK_DIR="${TMPDIR:-/tmp}/fam-ios-dev"
 PROJECT_ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 WORK_DIR="$PROJECT_ROOT/temp"
 mkdir -p "$WORK_DIR"
@@ -51,16 +44,13 @@ mkdir -p "$WORK_DIR"
 say() { printf '\n\033[1m==> %s\033[0m\n' "$1"; }
 die() { printf '\033[31mFehler: %s\033[0m\n' "$1" >&2; exit 1; }
 
-# ------------------------------------------------------------- Voraussetzungen
 for cmd in eas xcrun curl node file; do
   command -v "$cmd" >/dev/null || die "$cmd nicht gefunden"
 done
 
 eas whoami >/dev/null 2>&1 || die "Nicht bei EAS angemeldet — 'eas login' ausfuehren"
 
-# --------------------------------------------------------- Zielgeraet erkennen
-# Simulator (Default) oder physisches iPhone/iPad — abgeglichen gegen
-# devicectl, das sowohl per Name als auch per klassischer UDID sucht.
+# `devicectl` erkennt physische Geraete per Name oder UDID.
 say "Zielgeraet ermitteln: $DEVICE_NAME"
 
 TARGET_KIND="simulator"
@@ -107,10 +97,8 @@ if [ "$TARGET_KIND" = "device" ] && [ "$PROFILE_SET" = false ]; then
   echo "  Profil automatisch auf development-device umgestellt (physisches Geraet braucht ein geraete-signiertes Build)"
 fi
 
-# --------------------------------------------------------------- Build ermitteln
 build_field() {
-  # $1 = Build-ID, $2 = Pfad im JSON, z. B. "status" oder
-  # "artifacts.applicationArchiveUrl" (die Artefakt-URL liegt verschachtelt).
+  # $1 ist die Build-ID, $2 ein verschachtelter JSON-Pfad.
   eas build:view "$1" --json 2>/dev/null |
     node -e '
       let d = "";
@@ -140,7 +128,6 @@ if [ "$REUSE_LAST" = true ]; then
   echo "  $BUILD_ID"
 else
   say "Neuen Build starten (Profil: $PROFILE)"
-  # --no-wait, damit wir den Fortschritt selbst ausgeben koennen.
   BUILD_OUTPUT="$(eas build --profile "$PROFILE" --platform "$PLATFORM" --non-interactive --no-wait 2>&1)"
   echo "$BUILD_OUTPUT" | tail -3
   BUILD_ID="$(echo "$BUILD_OUTPUT" | grep -oE '[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}' | tail -1)"
@@ -160,7 +147,6 @@ else
   done
 fi
 
-# ------------------------------------------------------------------ Herunterladen
 ARCHIVE_URL="$(build_field "$BUILD_ID" artifacts.applicationArchiveUrl)"
 [ -n "$ARCHIVE_URL" ] || die "Keine Artefakt-URL fuer Build $BUILD_ID"
 
@@ -174,9 +160,7 @@ else
   ARCHIVE_PATH="$APP_DIR/build.archive"
   curl -# -L -o "$ARCHIVE_PATH" "$ARCHIVE_URL"
 
-  # Simulator-Builds liefern ein .tar.gz mit *.app direkt drin, Geraete-Builds
-  # (ios.simulator: false) ein .ipa (= zip) mit Payload/*.app. Am Dateiinhalt
-  # unterscheiden statt an der Dateiendung der URL, die das nicht verraet.
+  # EAS-URLs verraten nicht, ob das Artefakt tar.gz oder IPA/zip ist.
   case "$(file -b --mime-type "$ARCHIVE_PATH")" in
     application/gzip | application/x-gzip) tar -xzf "$ARCHIVE_PATH" -C "$APP_DIR" ;;
     application/zip) unzip -q "$ARCHIVE_PATH" -d "$APP_DIR" ;;
@@ -189,16 +173,12 @@ APP_PATH="$(find "$APP_DIR" -maxdepth 3 -name '*.app' -print -quit)"
 [ -n "$APP_PATH" ] || die "Keine .app im Artefakt gefunden"
 echo "  $APP_PATH ($(du -sh "$APP_PATH" | cut -f1))"
 
-# ------------------------------------------------------------- Simulator/Geraet
 if [ "$TARGET_KIND" = "device" ]; then
   say "Geraet vorbereiten: $PHYSICAL_NAME"
   UDID="$PHYSICAL_ID"
   echo "  $PHYSICAL_UDID (devicectl: $UDID)"
 
-  # ddiServicesAvailable=false heisst meist: Kabel/WLAN-Verbindung fehlt,
-  # Geraet ist gesperrt, oder "Diesem Computer vertrauen" wurde noch nicht
-  # bestaetigt. Kein hartes Abbrechen — devicectl liefert im Fehlerfall
-  # ohnehin eine konkretere Meldung.
+  # Bei fehlenden DDI-Diensten liefert devicectl spaeter die konkrete Ursache.
   READY="$(echo "$DEVICECTL_JSON" | node -e '
     let d = "";
     process.stdin.on("data", (c) => (d += c)).on("end", () => {
@@ -213,8 +193,7 @@ if [ "$TARGET_KIND" = "device" ]; then
   fi
 
   say "App installieren"
-  # Alte Version zuerst entfernen: sonst bleiben Reste eines Builds mit anderen
-  # nativen Modulen liegen.
+  # Verhindert Reste eines Builds mit anderer nativer Modulliste.
   xcrun devicectl device uninstall app --device "$UDID" "$BUNDLE_ID" >/dev/null 2>&1 || true
   xcrun devicectl device install app --device "$UDID" "$APP_PATH"
 
@@ -227,7 +206,7 @@ else
     grep -F "$DEVICE_NAME (" | head -1 | grep -oE '[0-9A-F-]{36}' || true)"
 
   if [ -z "$UDID" ]; then
-    # Kein passendes Geraet — eines fuer die neueste installierte Runtime anlegen.
+    # Fehlende Simulatoren werden gegen die neueste Runtime angelegt.
     RUNTIME="$(xcrun simctl list runtimes | grep -oE 'com\.apple\.CoreSimulator\.SimRuntime\.iOS-[0-9-]+' | tail -1)"
     [ -n "$RUNTIME" ] || die "Keine iOS-Runtime installiert — 'xcodebuild -downloadPlatform iOS' ausfuehren"
     DEVICE_TYPE="com.apple.CoreSimulator.SimDeviceType.$(echo "$DEVICE_NAME" | tr ' ' '-')"
@@ -236,7 +215,7 @@ else
   fi
   echo "  $UDID"
 
-  # Erststart einer frischen Runtime braucht mehrere GB fuer die dyld-Caches.
+  # Frische Runtimes brauchen mehrere GB fuer dyld-Caches.
   FREE_GB="$(df -g /System/Volumes/Data | tail -1 | awk '{print $4}')"
   if [ "${FREE_GB:-99}" -lt 10 ]; then
     echo "  Warnung: nur ${FREE_GB} GB frei. Unter ~10 GB bootet der Simulator haeufig nicht durch." >&2
@@ -246,8 +225,7 @@ else
   xcrun simctl bootstatus "$UDID" -b >/dev/null
 
   say "App installieren"
-  # Alte Version zuerst entfernen: sonst bleiben Reste eines Builds mit anderen
-  # nativen Modulen liegen.
+  # Verhindert Reste eines Builds mit anderer nativer Modulliste.
   xcrun simctl uninstall "$UDID" "$BUNDLE_ID" 2>/dev/null || true
   xcrun simctl install "$UDID" "$APP_PATH"
   open -a Simulator
@@ -264,7 +242,6 @@ launch_app() {
   fi
 }
 
-# ------------------------------------------------------------------------ Metro
 if [ "$START_METRO" = true ]; then
   if [ "$BACKGROUND_METRO" = true ]; then
     say "Metro im Hintergrund starten"

@@ -11,7 +11,6 @@
     --page-card-border: #DED4D8;
     --page-mono-bg: #E3DBDD;
 
-    /* fam app tokens (light) — src/constants/theme.ts */
     --app-text: #2D2830;
     --app-text-secondary: #786F79;
     --app-bg: #F8F4EF;
@@ -146,7 +145,6 @@
     margin: 0;
   }
 
-  /* --- phone frame --- */
   .phone {
     position: relative;
     width: 100%;
@@ -165,7 +163,6 @@
     background: var(--app-bg);
   }
 
-  /* underlying "Einkaufsliste" screen, dimmed by scrim */
   .base-screen {
     position: absolute;
     inset: 0;
@@ -217,7 +214,6 @@
     background: rgba(42, 31, 44, 0.3);
   }
 
-  /* drawer */
   .drawer {
     position: absolute;
     left: 0;
@@ -281,12 +277,10 @@
   .drawer-label.active { font-weight: 700; color: var(--app-accent); }
   .drawer-nav-row.active-row { background: var(--app-bg-selected); border-radius: 8px; }
 
-  /* A: solid drawer background */
   .variant-solid .drawer {
     background: var(--app-bg-element);
   }
 
-  /* B: translucent body, solid header plate */
   .variant-plate .drawer {
     background: rgba(251, 247, 242, 0.86);
     backdrop-filter: blur(6px);
@@ -298,7 +292,6 @@
     border-bottom: 1px solid var(--app-border);
   }
 
-  /* C: solid + avatar retreats behind drawer, close target widened */
   .variant-clear .drawer {
     background: var(--app-bg-element);
     width: 80%;

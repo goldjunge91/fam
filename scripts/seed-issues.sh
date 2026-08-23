@@ -1,17 +1,9 @@
 #!/usr/bin/env bash
-#
-# seed-issues.sh — legt Milestones, Labels und die komplette NutriTrack-Taskliste
-# als GitHub Issues an.
-#
-# Voraussetzungen:  gh auth login  ·  ein konfiguriertes origin-Remote
-# Aufruf:           bash scripts/seed-issues.sh
-#
-# Das Skript ist NICHT idempotent für Issues — ein zweiter Lauf legt Duplikate an.
-# Milestones und Labels werden übersprungen, wenn sie schon existieren.
+# Legt Milestones, Labels und die NutriTrack-Taskliste als GitHub Issues an.
+# Issues sind nicht idempotent; Milestones und Labels schon.
 
 set -euo pipefail
 
-# ---------------------------------------------------------------- key -> number
 MAP="$(mktemp)"
 LATE="$(mktemp)"
 trap 'rm -f "$MAP" "$LATE"' EXIT
@@ -19,8 +11,7 @@ trap 'rm -f "$MAP" "$LATE"' EXIT
 reg() { printf '%s\t%s\n' "$1" "$2" >>"$MAP"; }
 num() { awk -F'\t' -v k="$1" '$1 == k { print $2 }' "$MAP"; }
 
-# deps 1.2 1.9  ->  "Blocked by #12, #19"
-# Ein noch nicht angelegter Key waere still verschwunden — deshalb laut warnen.
+# Warnt bei Vorwaertsreferenzen, statt Abhaengigkeiten still zu verlieren.
 deps() {
   local out="" k n
   for k in "$@"; do
@@ -34,18 +25,15 @@ deps() {
   [ -n "$out" ] && printf 'Blocked by %s' "$out"
 }
 
-# later <key> <dep-key> — Abhaengigkeit auf ein Issue, das erst spaeter
-# angelegt wird. Wird nach dem Durchlauf per 'gh issue edit' nachgetragen.
+# Merkt Abhaengigkeiten auf spaeter angelegte Issues vor.
 later() { printf '%s\t%s\n' "$1" "$2" >>"$LATE"; }
 
-# partof E1  ->  "Part of #3"
 partof() {
   local n
   n="$(num "$1")"
   [ -n "$n" ] && printf 'Part of #%s' "$n"
 }
 
-# mk <key> <milestone> <labels> <title> <body> [trailer...]
 mk() {
   local key="$1" ms="$2" labels="$3" title="$4" body="$5"
   shift 5
@@ -63,7 +51,6 @@ mk() {
   sleep 1 # GitHub secondary rate limit für Content-Erstellung
 }
 
-# ----------------------------------------------------------------- milestones
 echo "==> Milestones"
 for m in \
   "Phase 0 - Foundation|Setup, Datenmodell, RLS und Offline-Sync. Blockiert alle Features." \
@@ -81,7 +68,6 @@ for m in \
   fi
 done
 
-# --------------------------------------------------------------------- labels
 echo "==> Labels"
 for l in \
   "epic|6f42c1|Sammel-Issue fuer einen Themenblock" \
@@ -113,9 +99,7 @@ P2="Phase 2 - Core"
 P3="Phase 3 - Advanced"
 P4="Phase 4 - Community"
 
-# ==========================================================================
 echo "==> Epics"
-# ==========================================================================
 
 mk E0 "$P0" "epic,setup" "Epic 0 — Foundation: Tooling, Supabase, EAS" "$(
   cat <<'EOF'
@@ -240,8 +224,6 @@ serverseitige Queries/RLS schliessen sich gegenseitig aus. Wir formulieren
 ehrlich: RLS + TLS in transit + Verschluesselung at rest.
 EOF
 )"
-
-# ------------------------------------------------ Platzhalter-Epics Phase 2-4
 
 mk E_P2_SHOP "$P2" "epic,feature" "Epic — Einkaufsliste & Uebernahme in den Bestand" "$(
   cat <<'EOF'
@@ -404,9 +386,7 @@ nicht ueber die JS-Runtime.
 EOF
 )"
 
-# ==========================================================================
 echo "==> Epic 0 — Foundation"
-# ==========================================================================
 
 mk 0.1 "$P0" "setup" "Biome als Linter und Formatter einrichten" "$(
   cat <<'EOF'
@@ -586,9 +566,7 @@ mk 0.9 "$P0" "setup,test" "GitHub Actions CI-Pipeline" "$(
 EOF
 )" "$(partof E0)" "$(deps 0.1 0.2 0.7)"
 
-# ==========================================================================
 echo "==> Epic 1 — Datenmodell & RLS"
-# ==========================================================================
 
 mk 1.1 "$P0" "backend,rls" "Migration: profiles + Trigger auf auth.users" "$(
   cat <<'EOF'
@@ -868,9 +846,7 @@ duerften.
 EOF
 )" "$(partof E1)" "$(deps 1.6 1.7 1.9)"
 
-# ==========================================================================
 echo "==> Epic 2 — Offline-Layer & Sync"
-# ==========================================================================
 
 mk 2.1 "$P0" "offline-sync,native" "expo-sqlite einrichten + lokales Schema" "$(
   cat <<'EOF'
@@ -1017,9 +993,7 @@ Der Indikator darf keinen Inhalt verdecken.
 EOF
 )" "$(partof E2)" "$(deps 2.3)"
 
-# ==========================================================================
 echo "==> Epic 3 — Auth & Onboarding"
-# ==========================================================================
 
 mk 3.1 "$P1" "feature,ui" "(auth)-Route-Group und Auth-Guard" "$(
   cat <<'EOF'
@@ -1117,9 +1091,7 @@ Datenleck, das bei lokaler Persistenz leicht uebersehen wird.
 EOF
 )" "$(partof E3)" "$(deps 3.3 2.1)"
 
-# ==========================================================================
 echo "==> Epic 4 — Haushalt"
-# ==========================================================================
 
 mk 4.1 "$P1" "feature,ui" "Haushalt erstellen" "$(
   cat <<'EOF'
@@ -1224,9 +1196,7 @@ der Query-Cache invalidiert und die aktive Haushalts-ID persistiert werden.
 EOF
 )" "$(partof E4)" "$(deps 4.1 2.4)"
 
-# ==========================================================================
 echo "==> Epic 5 — Kuehlschrank-Tracker"
-# ==========================================================================
 
 mk 5.1 "$P1" "feature,ui" "Bestandsliste gruppiert nach Lagerort" "$(
   cat <<'EOF'
@@ -1335,9 +1305,7 @@ EOF
 )" "$(partof E5)" "$(deps 5.5)"
 later 5.7 8.5
 
-# ==========================================================================
 echo "==> Epic 6 — Lebensmittel-DB & Barcode"
-# ==========================================================================
 
 mk 6.1 "$P1" "feature,backend" "Open-Food-Facts-Client und Mapping auf products" "$(
   cat <<'EOF'
@@ -1449,9 +1417,7 @@ Fuer Barcodes ohne Treffer und fuer unverpackte Lebensmittel.
 EOF
 )" "$(partof E6)" "$(deps 6.3 1.5)"
 
-# ==========================================================================
 echo "==> Epic 7 — Kalorien & Tagebuch"
-# ==========================================================================
 
 mk 7.1 "$P1" "feature,test" "Grundumsatz-Formeln als reine Funktionen" "$(
   cat <<'EOF'
@@ -1577,9 +1543,7 @@ abends Eintraege am Folgetag — ein klassischer, spaet auffallender Fehler.
 EOF
 )" "$(partof E7)" "$(deps 7.5)"
 
-# ==========================================================================
 echo "==> Epic 8 — Dashboard & Navigation"
-# ==========================================================================
 
 mk 8.1 "$P1" "ui" "Tab-Struktur erweitern" "$(
   cat <<'EOF'
@@ -1688,9 +1652,7 @@ sie brauchen; nicht aktivierte Module verschwinden aus der Navigation.
 EOF
 )" "$(partof E8)" "$(deps 8.1 8.6)"
 
-# ==========================================================================
 echo "==> Epic 9 — Datenschutz"
-# ==========================================================================
 
 mk 9.1 "$P1" "docs,risk" "Datenschutzerklaerung mit korrekter Verschluesselungsaussage" "$(
   cat <<'EOF'
@@ -1759,7 +1721,6 @@ Apple "App Privacy" und Google "Data Safety" ausfuellen.
 EOF
 )" "$(partof E9)" "$(deps 9.1)"
 
-# ------------------------------------------- Nachtrag: Vorwaertsabhaengigkeiten
 if [ -s "$LATE" ]; then
   echo "==> Vorwaertsabhaengigkeiten nachtragen"
   while IFS=$'\t' read -r k d; do
@@ -1776,7 +1737,6 @@ if [ -s "$LATE" ]; then
   done <"$LATE"
 fi
 
-# ------------------------------------------------------------------- Abschluss
 echo
 echo "Fertig. Angelegte Issues:"
 wc -l <"$MAP" | tr -d ' ' | sed 's/$/ Stueck/'

@@ -23,28 +23,20 @@ import { useTheme } from '@/hooks/use-theme';
 import { type FeatureFlagKey, useFeatureFlag } from '@/lib/posthog';
 import { useNavigationChrome } from './navigation-chrome-provider';
 
-// 'calendarDay' ist kein statisches FamIcon, sondern das Kalenderblatt mit
-// dem heutigen Datum (CalendarDayIcon) — eigener Sentinel-Wert statt eines
-// weiteren FamIconName-Eintrags, weil er dynamisch ist.
+// Sentinel fuer das dynamische Kalenderblatt mit heutigem Datum.
 type NavRoute = {
   label: string;
   href: string;
   icon: FamIconName | 'calendarDay';
   moduleKey?: keyof ModulePreferences;
-  /**
-   * Remote-Gate zusaetzlich zu `moduleKey` (#183) — nur fuer Rezepte/
-   * Essensplan/Tagebuch, NICHT fuer Vorrat/Einkauf. Muss zum `featureFlag`
-   * auf der zugehoerigen Route (`src/app/(app)/*.tsx`, `ModuleGate`) passen,
-   * sonst zeigt der Drawer einen Eintrag, der auf einen "Noch nicht
-   * verfuegbar"-Screen fuehrt (oder umgekehrt).
-   */
+  /** Muss dem Gate der Zielroute entsprechen. */
   featureFlag?: FeatureFlagKey;
 };
 
 type NavGroup = {
   title: string;
   routes: NavRoute[];
-  /** Gruppentitel nicht anzeigen, Abstand nach oben aber beibehalten (nur "Heute" — eine einzelne Zeile braucht keine Ueberschrift). */
+  /** Blendet den Titel aus, behält aber den Abstand für „Heute“. */
   hideTitle?: boolean;
 };
 
@@ -91,11 +83,6 @@ const GROUPS: NavGroup[] = [
 
 const DRAWER_WIDTH_RATIO = 0.84;
 
-/**
- * Hamburger-Drawer als Ersatz der frueheren Bottom-Tab-Leiste (#150, Figma
- * "00.02 · Navigation — Hamburger geöffnet"). Alle Produktbereiche
- * gleichberechtigt in einer Liste statt in sieben Tabs.
- */
 export function NavigationDrawer() {
   const { isDrawerOpen, closeDrawer } = useNavigationChrome();
   const mounted = useDeferredMount(isDrawerOpen);
@@ -123,7 +110,6 @@ export function NavigationDrawer() {
       <View style={StyleSheet.absoluteFill}>
         <Pressable
           className="absolute inset-0"
-          // Dynamische Opazitaet (withAlpha), kein fester Token-Schritt.
           style={{ backgroundColor: withAlpha(theme.shadowSheet, 0.3) }}
           onPress={closeDrawer}
           accessibilityRole="button"
@@ -131,17 +117,12 @@ export function NavigationDrawer() {
         />
         <Animated.View
           className="drawer"
-          // Safe-Area-Insets, Breite (Verhaeltnis), Hintergrund-Opazitaet und
-          // Schatten sind echte Laufzeitwerte; der Animated-Transform kommt
-          // ueber `animatedStyle` (Reanimated, UI-Thread) hinzu.
+          // Insets, proportionale Breite und Schatten sind Laufzeitwerte.
           style={[
             {
               paddingTop: Math.max(insets.top - 20, 27),
               paddingBottom: Math.max(insets.bottom, 26),
               width: `${DRAWER_WIDTH_RATIO * 100}%`,
-              // Deckend statt 0.97 Alpha — bei leicht transparentem
-              // Hintergrund schien der Screen dahinter (Titel, Avatar) durch
-              // den Drawer-Header hindurch.
               backgroundColor: theme.backgroundElement,
               boxShadow: `24px 0 64px ${withAlpha(theme.shadowSheet, 0.18)}`,
             },
@@ -154,9 +135,7 @@ export function NavigationDrawer() {
   );
 }
 
-// Eigene Komponente statt Inline-JSX im Drawer-Body: `{isDrawerOpen &&
-// <DrawerContent />}` unmountet den kompletten Inhalt (inkl. ScrollView der
-// Navigationsgruppen) beim Schliessen, statt ihn nur unsichtbar zu halten.
+// Eigene Komponente hält den Inhalt beim Schliessen gemountet.
 function DrawerContent() {
   const theme = useTheme();
   const pathname = usePathname();
@@ -165,8 +144,7 @@ function DrawerContent() {
   const { data: rawModules } = useModulePreferences(session?.user.id);
   const modules = rawModules ?? DEFAULT_MODULE_PREFERENCES;
 
-  // Feste, bekannte Flags — kein dynamischer Lookup pro Route, damit die
-  // Anzahl der Hook-Aufrufe zwischen Renders stabil bleibt (Rules of Hooks).
+  // Feste Hooks halten ihre Anzahl zwischen Renders stabil.
   const featureFlags: Partial<Record<FeatureFlagKey, boolean>> = {
     'module-recipes': useFeatureFlag('module-recipes', false),
     'module-meal-planner': useFeatureFlag('module-meal-planner', false),
@@ -203,12 +181,7 @@ function DrawerContent() {
             type="default"
             themeColor="textSecondary"
             className="drawer-close-glyph"
-            // `type="title"` (48px/52 Zeilenhoehe) konkurrierte mit der
-            // 22px/26px-Klasse um dieselben Eigenschaften — je nachdem, wie
-            // NativeWind die beiden Klassenquellen kaskadiert, gewann mal die
-            // eine, mal die andere Zeilenhoehe, und das "×" sass zu tief im
-            // Kreis (untere Spitzen fast am Rand). Expliziter `style` gewinnt
-            // immer, unabhaengig von der Klassen-Reihenfolge.
+            // Expliziter Style vermeidet eine widerspruechliche NativeWind-Kaskade.
             style={{ fontSize: 20, lineHeight: 20, fontWeight: '400' }}>
             ×
           </ThemedText>

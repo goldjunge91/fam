@@ -1,30 +1,7 @@
 /**
- * Landeseite des E-Mail-Bestaetigungslinks.
- *
- * Warum eine Edge Function und keine Route in der App: Der Link wird per
- * Definition ausserhalb der App geoeffnet — im Browser auf dem Rechner, im
- * Mailclient auf einem fremden Geraet. Dort gibt es kein React Native, und ein
- * `fam://`-Ziel laesst sich nicht aufloesen. Ein Expo-Web-Build kaeme dafuer
- * ebenfalls in Frage, ist hier aber bewusst nicht im Spiel. Die Function liegt
- * dagegen im selben Supabase-Projekt wie GoTrue und ist lokal wie remote unter
- * derselben Adresse erreichbar.
- *
- * Vorher zeigte der Browser nach dem Klick "Die Website ist nicht erreichbar" —
- * `site_url` war `http://127.0.0.1:3000` und dort lauscht nichts. Die
- * Bestaetigung hatte trotzdem stattgefunden, aber das war der Seite nicht
- * anzusehen.
- *
- * Wichtig: GoTrue haengt das Ergebnis als **Fragment** an (`#access_token=…`
- * bzw. `#error=…`). Ein Fragment wird nie an den Server geschickt — diese
- * Function sieht es also nicht und darf den Ausgang nicht raten. Deshalb
- * entscheidet ein kleines Skript im Browser, was angezeigt wird.
- *
- * Die Tokens werden bewusst NICHT eingeloest: Die App holt sich die Session
- * selbst (Polling in PendingAuthBanner bzw. der 6-stellige Code). Diese Seite
- * informiert nur.
- *
- * Braucht `verify_jwt = false` (supabase/config.toml) — ein Browser, der einem
- * Link aus einer E-Mail folgt, schickt keinen Authorization-Header.
+ * Browser-Landeseite fuer Bestaetigungslinks. Das URL-Fragment wird nur im
+ * Browser ausgewertet; Sessions stellt weiterhin die App her. Benoetigt
+ * `verify_jwt = false`, da E-Mail-Links keinen Authorization-Header senden.
  */
 
 const html = `<!doctype html>
@@ -66,9 +43,7 @@ const html = `<!doctype html>
     <p id="text">Du kannst dieses Fenster schließen und zur App zurückkehren — sie geht von allein weiter.</p>
   </div>
 <script>
-  // Das Fragment erreicht den Server nie, deshalb entscheidet sich hier, was
-  // die Seite zeigt. Ohne diese Unterscheidung meldete sie auch dann Erfolg,
-  // wenn der Link bereits verbraucht war.
+  // Das Fragment erreicht die Edge Function nicht und wird deshalb im Browser ausgewertet.
   (function () {
     var params = new URLSearchParams(location.hash.slice(1));
     var error = params.get('error_description') || params.get('error_code') || params.get('error');
@@ -89,8 +64,7 @@ Deno.serve(() => {
   return new Response(html, {
     headers: {
       'Content-Type': 'text/html; charset=utf-8',
-      // Die Seite ist statisch, aber der Zustand steckt im Fragment. Kein
-      // Caching, damit ein zweiter Aufruf nicht aus dem Cache kommt.
+      // Der Fragmentzustand darf nicht aus einem vorherigen Aufruf gecacht werden.
       'Cache-Control': 'no-store',
     },
   });

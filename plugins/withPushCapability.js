@@ -1,13 +1,6 @@
 const { withXcodeProject } = require('expo/config-plugins');
 
-/**
- * Expo Config Plugin to ensure Xcode project's TargetAttributes explicitly declare
- * the Push Notifications capability (com.apple.Push) and development team.
- *
- * This prevents Xcode from failing with:
- * "Provisioning Profile ... does not support the Push Notifications capability"
- * during local archive / signing steps.
- */
+/** Declares the iOS Push Notifications capability during Expo prebuild. */
 module.exports = function withPushCapability(config) {
   return withXcodeProject(config, (config) => {
     const pbxProject = config.modResults;

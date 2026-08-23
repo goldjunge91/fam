@@ -1,9 +1,6 @@
 const { withEntitlementsPlist } = require("expo/config-plugins");
 
-// Personal Apple dev teams (free accounts) can't sign a profile that
-// requests the Push Notifications capability. Strip aps-environment
-// locally when EXPO_NO_PUSH_ENTITLEMENT=1 is set, so `expo run:ios
-// --device` works without a paid Apple Developer membership.
+// Free Apple teams cannot sign `aps-environment`; the opt-in strips it for local builds.
 module.exports = function withoutPushEntitlement(config) {
   if (process.env.EXPO_NO_PUSH_ENTITLEMENT !== "1") {
     return config;

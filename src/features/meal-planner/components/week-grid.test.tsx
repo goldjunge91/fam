@@ -53,7 +53,7 @@ describe('WeekGrid', () => {
       />,
     );
 
-    expect(screen.getAllByText('+ Gericht').length).toBe(21); // 7 Tage x 3 Slots
+    expect(screen.getAllByText('+ Gericht').length).toBe(21);
   });
 
   it('zeigt nur so viele Tagesreihen wie `dates` lang ist', async () => {
@@ -68,7 +68,7 @@ describe('WeekGrid', () => {
       />,
     );
 
-    expect(screen.getAllByText('+ Gericht').length).toBe(9); // 3 Tage x 3 Slots
+    expect(screen.getAllByText('+ Gericht').length).toBe(9);
   });
 
   it('zeigt einen zugeordneten Wochenplan-Eintrag mit Rezepttitel und Portionen', async () => {

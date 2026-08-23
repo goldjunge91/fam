@@ -4,9 +4,9 @@ const NOTIF_SETTINGS_KEY = 'fam_notification_settings_v1';
 
 export type NotificationSettings = {
   enabled: boolean;
-  daysThreshold: number; // e.g. 3 days before expiry
-  reminderHour: number; // e.g. 9 for 09:00
-  reminderMinute: number; // e.g. 0
+  daysThreshold: number;
+  reminderHour: number;
+  reminderMinute: number;
 };
 
 export const DEFAULT_NOTIFICATION_SETTINGS: NotificationSettings = {
@@ -16,7 +16,7 @@ export const DEFAULT_NOTIFICATION_SETTINGS: NotificationSettings = {
   reminderMinute: 0,
 };
 
-// Defensiver Speicher-Wrapper: Verhindert App-Crashes ("AsyncStorage is null") in Expo Go / Web
+// Native Module fehlen in Expo Go und im Web.
 // biome-ignore lint/suspicious/noExplicitAny: Dynamic AsyncStorage module
 let AsyncStorageModule: any = null;
 try {
@@ -25,7 +25,6 @@ try {
   AsyncStorageModule = null;
 }
 
-// Defensiver Notifications-Wrapper: Verhindert App-Crashes ("Cannot find native module ExpoPushTokenManager") in Expo Go
 // biome-ignore lint/suspicious/noExplicitAny: Dynamic Notifications module
 let NotificationsModule: any = null;
 try {
@@ -34,7 +33,6 @@ try {
     NotificationsModule.setNotificationHandler({
       handleNotification: async () => ({
         shouldShowBanner: true,
-        // shouldShowAlert: true,
         shouldPlaySound: true,
         shouldSetBadge: true,
         shouldShowList: true,
@@ -53,9 +51,7 @@ async function storageGetItem(key: string): Promise<string | null> {
       const res = await AsyncStorageModule.getItem(key);
       if (res !== null) return res;
     }
-  } catch {
-    // In-Memory Fallback nutzen
-  }
+  } catch {}
   return memoryStorage.get(key) ?? null;
 }
 
@@ -65,14 +61,9 @@ async function storageSetItem(key: string, value: string): Promise<void> {
     if (AsyncStorageModule) {
       await AsyncStorageModule.setItem(key, value);
     }
-  } catch {
-    // In-Memory Fallback ist bereits gesetzt
-  }
+  } catch {}
 }
 
-/**
- * Lädt die Benachrichtigungs-Einstellungen des Nutzers aus dem lokalen Speicher.
- */
 export async function getNotificationSettings(): Promise<NotificationSettings> {
   try {
     const json = await storageGetItem(NOTIF_SETTINGS_KEY);
@@ -83,9 +74,6 @@ export async function getNotificationSettings(): Promise<NotificationSettings> {
   }
 }
 
-/**
- * Speichert die Benachrichtigungs-Einstellungen.
- */
 export async function saveNotificationSettings(settings: NotificationSettings): Promise<void> {
   try {
     await storageSetItem(NOTIF_SETTINGS_KEY, JSON.stringify(settings));
@@ -96,14 +84,10 @@ export async function saveNotificationSettings(settings: NotificationSettings): 
 
 export type NotificationPermissionStatus = {
   granted: boolean;
-  /** false = iOS hat den System-Dialog schon einmal verweigert bekommen und fragt nie wieder selbst — nur noch über die Systemeinstellungen änderbar. */
+  /** `false` erfordert eine Aenderung in den Systemeinstellungen. */
   canAskAgain: boolean;
 };
 
-/**
- * Liest den aktuellen Berechtigungsstatus, ohne einen Dialog auszulösen.
- * Für den Berechtigungen-Screen, der den Systemstatus nur anzeigen soll.
- */
 export async function getNotificationPermissionStatus(): Promise<NotificationPermissionStatus> {
   if (Platform.OS === 'web' || !NotificationsModule) return { granted: false, canAskAgain: false };
   try {
@@ -115,9 +99,6 @@ export async function getNotificationPermissionStatus(): Promise<NotificationPer
   }
 }
 
-/**
- * Fragt Push-Berechtigungen ab (auf iOS/Android).
- */
 export async function requestNotificationPermissions(): Promise<boolean> {
   if (Platform.OS === 'web' || !NotificationsModule) return false;
   try {
@@ -142,9 +123,6 @@ export async function requestNotificationPermissions(): Promise<boolean> {
   }
 }
 
-/**
- * Plant die tägliche lokale Erinnerung für ablaufende Vorräte.
- */
 export async function scheduleExpiryNotificationReminder(
   expiringItemsCount: number,
   settings: NotificationSettings,
@@ -152,7 +130,6 @@ export async function scheduleExpiryNotificationReminder(
   if (Platform.OS === 'web' || !NotificationsModule) return;
 
   try {
-    // Bestehende geplante Benachrichtigungen löschen
     await NotificationsModule.cancelAllScheduledNotificationsAsync();
 
     if (!settings.enabled || expiringItemsCount <= 0) return;
@@ -160,7 +137,6 @@ export async function scheduleExpiryNotificationReminder(
     const hasPermission = await requestNotificationPermissions();
     if (!hasPermission) return;
 
-    // Tägliche Benachrichtigung zur eingestellten Uhrzeit planen
     await NotificationsModule.scheduleNotificationAsync({
       content: {
         title: 'Vorräte laufen bald ab! 🫙',
@@ -173,9 +149,7 @@ export async function scheduleExpiryNotificationReminder(
         minute: settings.reminderMinute,
       },
     });
-  } catch {
-    // Graceful Fallback wenn Benachrichtigungen nicht unterstuetzt werden
-  }
+  } catch {}
 }
 
 export type TestNotificationResult = {
@@ -183,9 +157,6 @@ export type TestNotificationResult = {
   message: string;
 };
 
-/**
- * Sendet eine sofortige Test-Benachrichtigung für den Live-Test im Debug-Bereich.
- */
 export async function sendTestNotification(): Promise<TestNotificationResult> {
   if (Platform.OS === 'web') {
     return {
@@ -218,7 +189,7 @@ export async function sendTestNotification(): Promise<TestNotificationResult> {
         body: 'Super! Die lokalen Push-Benachrichtigungen funktionieren einwandfrei.',
         sound: true,
       },
-      trigger: null, // Sofortige Auslösung
+      trigger: null,
     });
     return { success: true, message: 'Test-Benachrichtigung wurde erfolgreich gesendet!' };
   } catch (err) {

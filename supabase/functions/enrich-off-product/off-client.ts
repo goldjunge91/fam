@@ -1,26 +1,10 @@
-/**
- * Eigenständiger OFF-Lookup für die serverseitige Anreicherung (#223 Paket
- * 10). Nutzt bewusst die OFF-Produkt-API v3 (siehe Abschnitt 6,
- * "Barcode-Lookup: ... aktuelle OFF-Produkt-API v3.6") statt der v2-API, die
- * der App-Client noch verwendet — unabhängige Implementierungen, kein
- * gemeinsamer Import zwischen Deno (Edge Function) und React Native möglich.
- *
- * `parseOffResponse()` ist bewusst von `fetch()` getrennt: reine Funktion,
- * ohne Netzwerk testbar (dieselbe Architektur wie `formatOFFProduct()` in
- * src/lib/open-food-facts.ts für den Client).
- */
+/** Eigenstaendiger Deno-kompatibler OFF-v3-Client fuer die Edge Function. */
 
 import type { OffFetchResult } from './handler.ts';
 
 const OFF_USER_AGENT = 'FamApp-Backend/1.0 (contact@fam.app)';
 
-/**
- * Parst eine rohe OFF-v3-Antwort. Verlangt sowohl `status: "success"` als
- * auch einen gültigen `last_modified_t` — ohne echten Zeitstempel lässt
- * sich "neuer als der gespeicherte Stand" nicht beurteilen, also lieber gar
- * nicht aktualisieren als raten (dieselbe Vorsicht wie beim Klassifikator:
- * lieber kein Update als ein falsches).
- */
+/** Verwirft Antworten ohne gueltigen Zeitstempel fuer den Neuheitsvergleich. */
 export function parseOffResponse(httpStatus: number, body: unknown): OffFetchResult {
   if (httpStatus !== 200) return { ok: false };
   if (!body || typeof body !== 'object') return { ok: false };

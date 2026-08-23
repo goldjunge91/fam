@@ -15,10 +15,6 @@ import { useTheme } from '@/hooks/use-theme';
 import { getInitials } from '@/lib/initials';
 import { getSupabase } from '@/lib/supabase';
 
-/**
- * Profil- und Account-Einstellungen:
- * Verwaltet Profilbild (Upload/Löschen), Name, E-Mail-Adresse und Passwort.
- */
 export function EditProfileScreen() {
   const theme = useTheme();
   const { session } = useSession();
@@ -59,7 +55,6 @@ export function EditProfileScreen() {
       const remoteUrl = await uploadAvatarImage(userId, localUri);
       setAvatarUrl(remoteUrl);
 
-      // Direkt im Profil persistieren
       await updateProfile(userId, { avatarUrl: remoteUrl });
       await queryClient.invalidateQueries({ queryKey: ['profile', userId] });
     } catch (err: unknown) {
@@ -76,9 +71,7 @@ export function EditProfileScreen() {
     try {
       await updateProfile(userId, { avatarUrl: null });
       await queryClient.invalidateQueries({ queryKey: ['profile', userId] });
-    } catch {
-      // Ignorieren
-    }
+    } catch {}
   }
 
   async function handleSubmit() {
@@ -142,7 +135,6 @@ export function EditProfileScreen() {
       title="Profil & Account"
       back={{ label: 'Mein Profil', href: '/profile' }}
       backStyle="icon">
-      {/* Profilbild-Karte mit Upload- & Löschen-Optionen */}
       <Card title="Profilbild">
         <View className="flex-row items-center gap-four">
           <View
@@ -177,7 +169,6 @@ export function EditProfileScreen() {
         </View>
       </Card>
 
-      {/* Persönliche Angaben (Name & E-Mail-Adresse) */}
       <Card title="Persönliche Angaben">
         <View className="gap-three">
           <TextField
@@ -199,7 +190,6 @@ export function EditProfileScreen() {
         </View>
       </Card>
 
-      {/* Formular zum Ändern des Passworts */}
       <Card title="Passwort ändern">
         <ThemedText type="caption" themeColor="textSecondary" className="mb-two">
           Lass diese Felder leer, wenn du dein aktuelles Passwort behalten möchtest.
@@ -224,14 +214,12 @@ export function EditProfileScreen() {
         </View>
       </Card>
 
-      {/* Fehlermeldungs-Anzeige */}
       {formError ? (
         <ThemedText type="small" themeColor="danger" className="px-one">
           {formError}
         </ThemedText>
       ) : null}
 
-      {/* Speichern-Button */}
       <Button
         label="Änderungen speichern"
         onPress={handleSubmit}

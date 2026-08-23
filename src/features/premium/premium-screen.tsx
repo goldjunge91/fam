@@ -24,15 +24,7 @@ const BENEFITS: { icon: string; title: string; hint: string }[] = [
   },
 ];
 
-/**
- * Eigener In-App-Premium-Screen (Figma "00.06 · Premium"), erreichbar ueber
- * die Premium-Karte in `settings-screen.tsx`.
- *
- * Zeigt nur die Optik des Redesigns — die Kauflogik bleibt exakt wie vorher:
- * `presentPaywall()`/`presentCustomerCenter()` praesentieren weiterhin
- * RevenueCats im Dashboard konfiguriertes, gehostetes UI. Preis und
- * Produktname kommen von dort, nicht aus diesem Screen.
- */
+/** Einstieg in RevenueCats gehostete Kauf- und Verwaltungsoberflaechen. */
 export function PremiumScreen() {
   const { isPremium, isForced, refresh } = usePremium();
   const [busy, setBusy] = useState(false);
@@ -90,7 +82,6 @@ export function PremiumScreen() {
         leading: <BackButton label="Einstellungen" href="/settings" variant="arrow" />,
       }}>
       <ScrollView contentContainerClassName="premium-scroll" showsVerticalScrollIndicator={false}>
-        {/* Premium-Hero-Banner (Krone-Icon, Überschrift, Haushalts-Erklärung) */}
         <View className="premium-hero">
           <View className="premium-crown">
             <GradientBackground colors={['#705573', '#c38b75']} />
@@ -106,7 +97,6 @@ export function PremiumScreen() {
           </ThemedText>
         </View>
 
-        {/* Feature-Vorteile (Geführter Kochmodus, Fehlendes direkt einkaufen, Auto-Bestände) */}
         <SettingsGroup>
           {BENEFITS.map((benefit, index) => (
             <SettingsRow
@@ -120,7 +110,6 @@ export function PremiumScreen() {
         </SettingsGroup>
 
         {isPremium ? (
-          /* Aktiver Premium-Status & Abo-Verwaltungs-Button */
           <>
             <View className="premium-active-box">
               <ThemedText themeColor="success" className="premium-active-title">
@@ -135,7 +124,6 @@ export function PremiumScreen() {
             <Button label="Abo verwalten" onPress={handleManage} loading={busy} />
           </>
         ) : (
-          /* Abo-Optionen, Paywall-Trigger & Wiederherstellen-Buttons */
           <>
             <View className="premium-plan-box">
               <ThemedText className="premium-plan-title">Jahresabo</ThemedText>

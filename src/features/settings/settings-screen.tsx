@@ -23,15 +23,7 @@ import { PremiumPromoCard } from '@/features/settings/premium-promo-card';
 import { SettingsGroup, SettingsRow } from '@/features/settings/settings-menu';
 import { env } from '@/lib/env';
 
-/**
- * Einstellungen als Verzeichnis, nicht als Sammelseite (siehe `settings-menu.tsx`).
- *
- * Kopfzeile, Verlaufshintergrund und Profil-/Premium-Karten folgen jetzt dem
- * fam-Redesign (Figma "00.05 · Einstellungen") — dasselbe Grundgeruest wie
- * `diary-screen.tsx`. Premium selbst ist ein eigener Screen
- * (`/settings/premium`), diese Uebersicht navigiert nur noch dorthin, statt
- * die Paywall direkt zu praesentieren.
- */
+/** Einstieg in die thematisch gruppierten Einstellungen. */
 export function SettingsScreen() {
   const { session } = useSession();
   const { openDrawer } = useNavigationChrome();
@@ -63,9 +55,7 @@ export function SettingsScreen() {
   const hasHousehold = Boolean(activeHousehold);
   const displayName = profile?.display_name || 'Ohne Namen';
 
-  // Schon in der Uebersicht sichtbar, nicht erst eine Ebene tiefer: Ob dieser
-  // Build gegen die echten Daten laeuft, ist die Information, die man beim
-  // Ausprobieren nicht suchen wollen sollte.
+  // In Entwickler-Builds soll das Ziel bereits in der Uebersicht sichtbar sein.
   const supabaseTarget = env.devTools
     ? classifySupabaseTarget(env.supabaseUrl)
     : { label: '', tone: 'accent' as const };
@@ -89,7 +79,6 @@ export function SettingsScreen() {
         trailing: <ProfileButton initials={initials} onPress={() => router.push('/profile')} />,
       }}>
       <ScrollView contentContainerClassName="screen-scroll" showsVerticalScrollIndicator={false}>
-        {/* Schnellzugriff-Header (Eigenes Profil & Premium-Aktionskarte) */}
         <View className="gap-[10px]">
           <Pressable
             onPress={() => router.push('/profile')}
@@ -116,9 +105,7 @@ export function SettingsScreen() {
           <PremiumPromoCard />
         </View>
 
-        {/* Einstellungs-Menügruppen */}
         <View className="gap-four">
-          {/* Tracking & Ernährung (Ziele, Vitalwerte, Methoden) */}
           <SettingsGroup title="Tracking & Ernährung">
             <SettingsRow
               icon="🎯"
@@ -129,7 +116,6 @@ export function SettingsScreen() {
             />
           </SettingsGroup>
 
-          {/* Haushalt (Mitglieder, Lagerorte, Märkte) */}
           <SettingsGroup title="Haushalt">
             <SettingsRow
               icon="🏠"
@@ -155,7 +141,6 @@ export function SettingsScreen() {
             />
           </SettingsGroup>
 
-          {/* App-Einstellungen (Berechtigungen, Benachrichtigungen, Modulauswahl, Plus-Button) */}
           <SettingsGroup title="App">
             <SettingsRow
               icon="🔐"
@@ -183,7 +168,6 @@ export function SettingsScreen() {
             />
           </SettingsGroup>
 
-          {/* Datenverwaltung & Datenschutz (Export, DSGVO, Löschen) */}
           <SettingsGroup title="Daten">
             <SettingsRow icon="📤" label="Export" onPress={() => router.push('/settings/export')} />
             <SettingsRow
@@ -199,9 +183,6 @@ export function SettingsScreen() {
             />
           </SettingsGroup>
 
-          {/* Nur mit EXPO_PUBLIC_DEV_TOOLS=true. Die Gruppe verschwindet dann
-                vollstaendig statt nur deaktiviert zu sein — ein ausgegrauter
-                Eintrag "Entwickler" waere fuer Nutzer eine Frage ohne Antwort. */}
           {env.devTools ? (
             <SettingsGroup title="Entwickler">
               <SettingsRow
@@ -216,12 +197,10 @@ export function SettingsScreen() {
           ) : null}
         </View>
 
-        {/* Abmelden-Aktion */}
         <View className="mt-two">
           <Button label="Abmelden" variant="danger" onPress={handleSignOut} loading={signingOut} />
         </View>
 
-        {/* App-Versionsangabe & Build-Nummer */}
         <ThemedText type="small" className="text-center opacity-60">
           {versionLabel}
         </ThemedText>

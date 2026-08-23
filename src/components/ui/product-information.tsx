@@ -101,8 +101,7 @@ export function ProductInformation({ visible, item, onClose }: ProductInformatio
 
         <View
           className="absolute left-3 right-3 bottom-[10px] max-h-[82%] rounded-fam-large overflow-hidden bg-background-element shadow-sheet"
-          // Bottom-Safe-Area ist ein echter Laufzeitwert (Geraet-abhaengig),
-          // kann nicht als Tailwind-Klasse ausgedrueckt werden. 24px = pb-four.
+          // Safe Area plus 24 px muss zur Laufzeit berechnet werden.
           style={{ paddingBottom: insets.bottom + 24 }}>
           <View className="w-[42px] h-[4px] rounded-hairline self-center mt-[11px] bg-border" />
           <ScrollView

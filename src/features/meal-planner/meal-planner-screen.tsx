@@ -42,14 +42,6 @@ import {
 type PendingDrop = { date: string; slot: MealSlot; recipe: DraggableRecipe };
 type PendingCell = { date: string; slot: MealSlot };
 
-/**
- * Meal-Planner-Screen (#129, Nachtrag): Tages-/3-Tage-/Wochenraster mit
- * Tippen-zum-Hinzufuegen (Hauptweg) und Drag & Drop (Zusatzweg) +
- * "letzte Woche erneut verwenden".
- *
- * Eigene Seite, nicht Teil von Rezepte — erreichbar von der Uebersicht
- * (Dashboard-Karte) und zusaetzlich als Shortcut aus dem Rezepte-Screen.
- */
 export function MealPlannerScreen() {
   const theme = useTheme();
   const { openDrawer } = useNavigationChrome();
@@ -67,10 +59,7 @@ export function MealPlannerScreen() {
   const dates = rangeDates(anchorDate, viewMode);
   const weekStart = getWeekStart(anchorDate);
 
-  // Wochenplan der sichtbaren Kalenderwoche — nur fuer die wochenweiten
-  // Aktionen ("letzte Woche erneut verwenden", "fehlende Zutaten"), die in
-  // Tages-/3-Tage-Ansicht ausgeblendet bleiben. Eintraege selbst haengen
-  // nicht an einem einzelnen Plan, siehe useMealPlanEntriesInRange.
+  // Der sichtbare Wochenplan wird nur fuer wochenweite Aktionen benoetigt.
   const { data: plan } = useMealPlan(householdId, weekStart);
   const { data: entries = [] } = useMealPlanEntriesInRange(
     householdId,
@@ -111,9 +100,7 @@ export function MealPlannerScreen() {
     setEditingEntry(entry);
   }
 
-  // Legt bei Bedarf den Wochenplan der Kalenderwoche an, in der `date` liegt
-  // — nicht zwingend die aktuell angezeigte Woche, ein 3-Tage-Fenster kann
-  // ueber einen Wochenwechsel hinweg liegen.
+  // Ein 3-Tage-Fenster kann Eintraege in zwei Wochenplaenen anlegen.
   async function ensurePlanForDate(date: string) {
     if (!householdId || !userId) throw new Error('Kein Haushalt/Nutzer');
     return ensurePlan.mutateAsync({
@@ -213,15 +200,13 @@ export function MealPlannerScreen() {
               source="sf:calendar"
               contentFit="contain"
               tintColor={theme.accent}
-              // expo-image ist nicht NativeWind-registriert, className wird
-              // still ignoriert.
+              // expo-image unterstuetzt kein NativeWind-className.
               style={{ width: 19, height: 19 }}
             />
           </HeaderIconButton>
         ),
       }}>
       <View className="mp-content">
-        {/* Ansichtsmodus-Tabs (Tag / 3 Tage / Woche) */}
         <View className="flex-row gap-two" role="tablist" aria-label="Zeitraum">
           {VIEW_MODES.map((mode) => (
             <Pressable
@@ -232,7 +217,6 @@ export function MealPlannerScreen() {
               aria-selected={viewMode === mode}
               className={`tab-btn ${viewMode === mode ? 'tab-btn-active' : 'tab-btn-idle'}`}>
               <ThemedText
-                // type="detail"
                 type="controlActionLarge"
                 themeColor={viewMode === mode ? 'onAccent' : 'textSecondary'}
                 className="tab-btn-label">
@@ -242,7 +226,6 @@ export function MealPlannerScreen() {
           ))}
         </View>
 
-        {/* Zeitraum-Navigation mit Pfeilen & Monats-/Datumsangabe */}
         <View className="mp-period-row">
           <Pressable
             role="button"
@@ -267,7 +250,6 @@ export function MealPlannerScreen() {
           </Pressable>
         </View>
 
-        {/* Schnellaktionen für die Wochenansicht (Vorwoche übernehmen, Einkauf vorbereiten) */}
         {viewMode === 'week' ? (
           <View className="mp-actions-row">
             <Pressable
@@ -302,7 +284,6 @@ export function MealPlannerScreen() {
           </View>
         ) : null}
 
-        {/* Haupt-Planungsraster für Tage und Mahlzeitenslots (Frühstück, Mittag, Abend) */}
         <WeekGrid
           dates={dates}
           entries={entries}
@@ -313,7 +294,6 @@ export function MealPlannerScreen() {
         />
       </View>
 
-      {/* Rezept-Auswahlmodal beim Tippen auf einen leeren Slot */}
       <RecipePickerModal
         visible={pendingCell !== null}
         recipes={draggableRecipes}
@@ -321,7 +301,6 @@ export function MealPlannerScreen() {
         onSelect={handlePickRecipe}
       />
 
-      {/* Portions- & Slot-Formular für neu hinzugefügte Mahlzeiten */}
       {pendingDrop ? (
         <EntryFormModal
           visible
@@ -335,7 +314,6 @@ export function MealPlannerScreen() {
         />
       ) : null}
 
-      {/* Bearbeitungs-Modal für bestehenden Mahlzeiteneintrag (Portionen / Löschen) */}
       {editingEntry ? (
         <EntryFormModal
           visible

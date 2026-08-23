@@ -12,8 +12,6 @@ import { formatAmount, formatPackageHint } from '@/lib/package-size';
 import { type ExpiryBucket, getExpiryInfo } from '../expiry';
 import type { LocalInventoryItem } from '../use-inventory-items';
 
-// MHD-Ampel als linker Streifen an der Zeile — Farbe kommt aus dem Theme,
-// damit sie mit dem Rest der Statusfarben (Badge, Dark Mode) mitzieht.
 const EXPIRY_LEFT_BORDER_KEY: Record<ExpiryBucket, ThemeColor | 'transparent'> = {
   expired: 'danger',
   critical: 'danger',
@@ -50,8 +48,6 @@ export const InventoryItemRow = memo(function InventoryItemRow({
             ? 'morgen'
             : `in ${expiry.daysLeft} Tagen`;
   const packageHint = formatPackageHint(item.package_size, item.package_size_unit);
-  // Lagerort steht nicht mehr in der Zeile — der Filter oben grenzt bereits
-  // auf einen Lagerort ein, die Wiederholung pro Zeile war redundant.
   const meta = [expiryLabel, packageHint].filter(Boolean).join(' · ');
   const amount = formatAmount(item.quantity, item.unit);
 
@@ -83,11 +79,7 @@ export const InventoryItemRow = memo(function InventoryItemRow({
       rightThreshold={48}
       overshootRight={false}
       renderRightActions={renderRemoveAction}
-      // ReanimatedSwipeable (react-native-gesture-handler) ist nicht
-      // NativeWind-registriert — className wird ignoriert, style bleibt.
-      // Kein backgroundColor hier: Zeilen liegen direkt auf dem Screen-
-      // Gradient, nicht auf einer durchgehenden Kartenflaeche mit harten
-      // Ecken (die vorher ueber alle Zeilen hinweg sichtbar war).
+      // ReanimatedSwipeable unterstuetzt kein NativeWind-className.
       containerStyle={{ overflow: 'hidden' }}>
       <Pressable
         onPress={onPress}
@@ -96,15 +88,10 @@ export const InventoryItemRow = memo(function InventoryItemRow({
         accessibilityLabel={`${item.name}, ${amount}${packageHint ? `, ${packageHint}` : ''}`}
         accessibilityHint="Tippen für Aktionen, lang drücken für Produktinformationen, nach links wischen zum Entfernen"
         className="inventory-item-row">
-        {/* MHD-Ampel — linker farbiger Streifen, Farbe pro Item dynamisch. */}
         <View className="fridge-item-expiry-bar" style={{ backgroundColor: borderColor }} />
 
-        {/* Inhalt */}
         <View className="fridge-item-main">
           <ThemedText type="smallBold">{item.name}</ThemedText>
-          {/* Bewusst kleiner als der Name (nicht "small"/16px): sonst haben
-              Meta-Zeile und Titel dieselbe Groesse und die Zeile wirkt
-              schwerer, als das Mockup vorsieht. */}
           {meta ? (
             <ThemedText type="captionMuted" numberOfLines={1}>
               {meta}
@@ -112,7 +99,7 @@ export const InventoryItemRow = memo(function InventoryItemRow({
           ) : null}
         </View>
 
-        {/* fontVariant hat keine Tailwind-Entsprechung. */}
+        {/* fontVariant hat kein Tailwind-Aequivalent. */}
         <ThemedText
           type="smallBold"
           className="fridge-item-quantity"

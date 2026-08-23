@@ -76,9 +76,6 @@ describe('useRecipeShoppingNeeds', () => {
   };
 
   it('berechnet Fehlmengen basierend auf dem Vorratsbestand', async () => {
-    // 1. fridge items: 20g vorhanden
-    // 2. products lookup
-    // 3. history lookup
     mockDbGetAllAsync
       .mockResolvedValueOnce([{ product_id: 'prod-basilikum', quantity: 20, unit: 'g' }])
       .mockResolvedValueOnce([{ id: 'prod-basilikum', name: 'Basilikum', serving_size_g: 50 }])

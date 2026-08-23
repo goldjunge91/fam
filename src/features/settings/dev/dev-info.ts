@@ -1,11 +1,4 @@
-/**
- * Reine Auswertungen fuer den Entwickler-Bereich.
- *
- * Ohne Zugriff auf `process.env`, Uhr oder Datenbank — alles kommt als
- * Argument herein. Damit sind gerade die Faelle pruefbar, die man von Hand nie
- * herstellt: ein abgelaufener Token, eine unbekannte Supabase-URL, eine
- * lokale Datenbank, die noch dem vorigen Nutzer gehoert.
- */
+/** Reine Auswertungen fuer den Entwickler-Bereich. */
 
 export type SupabaseTarget = {
   kind: 'lokal' | 'remote' | 'unbekannt';
@@ -14,14 +7,7 @@ export type SupabaseTarget = {
   tone: 'accent' | 'warning' | 'danger';
 };
 
-/**
- * Lokale Instanz oder gehostetes Projekt?
- *
- * Die wichtigste Zeile des ganzen Bereichs. Ein Build, der unbemerkt gegen das
- * verlinkte Projekt laeuft, legt beim Ausprobieren echte Konten und Haushalte
- * an — genau davor warnt auch `test/setup-integration.js`, dort allerdings nur
- * fuer die Tests.
- */
+/** Warnt, ob ein Build lokale oder echte Daten veraendert. */
 export function classifySupabaseTarget(url: string): SupabaseTarget {
   let host: string;
   try {
@@ -34,9 +20,7 @@ export function classifySupabaseTarget(url: string): SupabaseTarget {
     return { kind: 'lokal', label: 'Lokal', tone: 'accent' };
   }
 
-  // Ein Emulator/Simulator spricht den Host des Entwicklungsrechners ueber
-  // dessen LAN-Adresse oder ueber 10.0.2.2 (Android-Emulator) an — auch das
-  // ist die lokale Instanz, nur nicht ueber localhost erreichbar.
+  // Emulatoren erreichen den lokalen Host auch per LAN-Adresse oder 10.0.2.2.
   if (host === '10.0.2.2' || /^192\.168\.\d{1,3}\.\d{1,3}$/.test(host)) {
     return { kind: 'lokal', label: 'Lokal (über LAN)', tone: 'accent' };
   }
@@ -44,22 +28,13 @@ export function classifySupabaseTarget(url: string): SupabaseTarget {
   return { kind: 'remote', label: 'Remote — echte Daten', tone: 'danger' };
 }
 
-/**
- * Zeigt genug vom Schluessel, um ihn wiederzuerkennen, und wenig genug, um
- * einen Screenshot des Bereichs unbedenklich zu machen.
- */
+/** Maskiert einen Schluessel bis auf wiedererkennbare Randzeichen. */
 export function maskSecret(value: string, visible = 8): string {
   if (value.length <= visible) return '…';
   return `${value.slice(0, visible)}…`;
 }
 
-/**
- * Restlaufzeit des Zugriffstokens.
- *
- * `exp` ist eine Unix-Zeit in SEKUNDEN (JWT-Konvention), `nowMs` in
- * Millisekunden — die Verwechslung der beiden ist der uebliche Fehler an
- * dieser Stelle, deshalb stehen die Einheiten in den Namen.
- */
+/** Berechnet die Restlaufzeit aus JWT-Sekunden und Zeitstempel-Millisekunden. */
 export function formatTokenExpiry(expSeconds: number | undefined, nowMs: number): string {
   if (expSeconds === undefined) return 'unbekannt';
 
@@ -79,14 +54,7 @@ export type DatabaseOwnership = {
   tone: 'accent' | 'warning' | 'danger';
 };
 
-/**
- * Gehoert die lokale Datenbank dem angemeldeten Nutzer?
- *
- * Die Frage ist nicht theoretisch: Genau diese Abweichung war das
- * Cross-Account-Datenleck (siehe `docs/plans/fix-sqlite-locking-und-household-datenleck.md`).
- * Seitdem raeumt `getDatabase()` sie beim Anmelden auf — hier steht, ob das
- * auch tatsaechlich passiert ist.
- */
+/** Erkennt eine lokale Datenbank, die noch einem anderen Nutzer gehoert. */
 export function describeDatabaseOwnership(
   storedUserId: string | null,
   sessionUserId: string | null,

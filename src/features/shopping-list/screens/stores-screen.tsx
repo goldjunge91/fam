@@ -36,8 +36,7 @@ export function StoresScreen() {
     if (!currentHousehold || !newStoreName.trim()) return;
     const trimmed = newStoreName.trim();
 
-    // Maerkte existieren pro Haushalt nur einmal, unabhaengig von
-    // Gross-/Kleinschreibung.
+    // Marktnamen sind pro Haushalt ohne Beachtung der Grossschreibung eindeutig.
     const existing = findStoreByName(stores ?? [], trimmed);
     if (existing) {
       Alert.alert('Markt existiert bereits', `"${existing.name}" ist bereits vorhanden.`);
@@ -108,16 +107,13 @@ export function StoresScreen() {
       subtitle={currentHousehold?.name}
       back={{ label: 'Einstellungen', href: '/settings' }}
       backStyle="icon">
-      {/* Formular zum Anlegen eines neuen Supermarkts/Geschäfts */}
       <Card title="Neuen Markt hinzufügen">
         <View className="gap-three mt-two">
-          {/* Eingabefeld für den Marktnamen */}
           <TextField
             placeholder="z.B. REWE, Aldi, Lidl..."
             value={newStoreName}
             onChangeText={setNewStoreName}
           />
-          {/* Schnellauswahl beliebter Supermarktketten (Presets) */}
           <ThemedText type="smallMuted">Vorschläge</ThemedText>
           <View className="row-wrap">
             {STORE_PRESETS.map((preset) => (
@@ -126,14 +122,11 @@ export function StoresScreen() {
                 onPress={() => setNewStoreName(preset.name)}
                 accessibilityRole="button"
                 className="store-preset-chip"
-                // Dynamische Preset-Farbe
                 style={{ backgroundColor: `${preset.color}18`, borderColor: preset.color }}>
-                {/* Dynamische Preset-Farbe */}
                 <View className="store-preset-dot" style={{ backgroundColor: preset.color }} />
                 <ThemedText
                   type="small"
                   className="font-semibold"
-                  // Dynamische Preset-Farbe
                   style={{ color: preset.color }}>
                   {preset.name}
                 </ThemedText>
@@ -141,7 +134,6 @@ export function StoresScreen() {
             ))}
           </View>
 
-          {/* Farbauswahl-Palette für den Markt */}
           <ThemedText type="smallMuted">Farbe</ThemedText>
           <View className="row-wrap">
             {STORE_COLOR_PALETTE.map((color) => (
@@ -152,7 +144,6 @@ export function StoresScreen() {
                 accessibilityLabel={`Farbe ${color}`}
                 accessibilityState={{ selected: newStoreColor === color }}
                 className="store-color-swatch"
-                // Dynamische Palettenfarbe & Auswahlrand
                 style={{
                   backgroundColor: color,
                   borderColor: newStoreColor === color ? theme.text : 'transparent',
@@ -160,7 +151,6 @@ export function StoresScreen() {
               />
             ))}
           </View>
-          {/* Hinzufügen-Button */}
           <Button
             label="Hinzufügen"
             onPress={handleAdd}
@@ -170,7 +160,6 @@ export function StoresScreen() {
         </View>
       </Card>
 
-      {/* Liste aller angelegten Märkte mit Bearbeiten- und Löschen-Aktionen */}
       <Card title="Vorhandene Märkte">
         {isLoading ? (
           <ThemedText>Lädt...</ThemedText>
@@ -184,7 +173,6 @@ export function StoresScreen() {
               return (
                 <View key={store.id} className="store-manage-row">
                   {isEditing ? (
-                    /* Inline-Bearbeitung für Markt (Name & Farbe) */
                     <View className="col-gap">
                       <TextField value={editingName} onChangeText={setEditingName} autoFocus />
                       <ThemedText type="smallMuted">Farbe</ThemedText>
@@ -197,7 +185,6 @@ export function StoresScreen() {
                             accessibilityLabel={`Farbe ${color}`}
                             accessibilityState={{ selected: editingColor === color }}
                             className="store-color-swatch"
-                            // Dynamische Palettenfarbe & Auswahlrand
                             style={{
                               backgroundColor: color,
                               borderColor: editingColor === color ? theme.text : 'transparent',
@@ -227,13 +214,8 @@ export function StoresScreen() {
                       </View>
                     </View>
                   ) : (
-                    /* Markt-Zeile mit Farbindikator, Name und kompakten
-                       Icon-Aktionen statt zweier voller Buttons — bei
-                       mehreren Märkten dominierten die Buttons sonst staerker
-                       als die Märkte selbst (Mockup "Marktliste", Variante 1). */
                     <View className="row-between">
                       <View className="row-center flex-1">
-                        {/* Dynamische Markt-Farbe */}
                         <View
                           className="store-color-dot"
                           style={{ backgroundColor: store.color }}

@@ -2,12 +2,7 @@
   "extends": "expo/tsconfig.base",
   "compilerOptions": {
     "strict": true,
-    // Explizit statt automatisch: Seit Epic 2 laufen die
-    // Datenbank-Integrationstests ueber `node:sqlite` und brauchen die
-    // Node-Typen. Die automatische Aufnahme aus node_modules/@types greift
-    // dafuer nicht (`Cannot find name 'node:sqlite'`). Wer hier etwas
-    // ergaenzt, muss die anderen Eintraege mitfuehren — die Liste schaltet die
-    // Automatik ab.
+    // Die SQLite-Integrationstests benötigen explizite Node-Typen.
     "types": [
       "node",
       "jest",
@@ -29,16 +24,7 @@
     "expo-env.d.ts",
     "nativewind-env.d.ts"
   ],
-  // Edge Functions laufen auf Deno, nicht auf React Native: Sie kennen globale
-  // Namen wie `Deno`, die es im App-Bundle nicht gibt, und umgekehrt nichts aus
-  // `@/*`. Ohne diesen Ausschluss scheitert `tsc --noEmit` an
-  // "Cannot find name 'Deno'" — an Code, der nie ins Bundle gelangt.
-  // Geprueft werden sie stattdessen von `deno check`/`supabase functions deploy`.
-  //
-  // tools/* sind eigenstaendige Vite-Mini-Projekte mit eigener tsconfig.json
-  // und eigenen node_modules (z.B. Vite-spezifische `?url`-Imports, die die
-  // Root-`types`-Liste nicht kennt) — werden ueber ihr eigenes `tsc`/`vite
-  // build` geprueft, nicht ueber den App-weiten `bun run typecheck`.
+  // Deno-Functions und Vite-Tools werden mit ihren eigenen Toolchains geprüft.
   "exclude": [
     "supabase/functions",
     "tools"

@@ -1,8 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import initSqlJs, { type Database } from 'sql.js';
 import sqlWasmUrl from 'sql.js/dist/sql-wasm.wasm?url';
-// Echte App-Logik, keine Kopie — importiert direkt aus dem Hauptprojekt, damit
-// dieses Tool nie vom echten Classifier abweichen kann.
+// Importiert die echte App-Logik, damit das Tool nicht vom Classifier abweicht.
 import { explainCategory } from '../../../src/features/shopping-list/classification/shopping-category-classifier';
 import type { CategoryTrace } from '../../../src/features/shopping-list/classification/types';
 import { SHOPPING_CATEGORIES } from '../../../src/features/shopping-list/domain-logik/shopping-categories';
@@ -21,25 +20,14 @@ type ProductRow = {
   sugars: number | null;
   proteins: number | null;
   salt: number | null;
-  /**
-   * Erst ab Dump Schema 2 (#223 Paket 4) — gegen einen alten Schema-1-Dump
-   * fehlt die Spalte in `getAsObject()` einfach (undefined), kein Crash.
-   */
+  /** Fehlt in Dumps vor Schema 2. */
   categories_tags?: string | null;
   off_last_modified_at?: string | null;
 };
 
 type DbStatus = { kind: 'loading' } | { kind: 'ready'; count: number } | { kind: 'error'; message: string };
 
-/**
- * Trivialer, eigenständiger JSON-Array-Parser statt Import von
- * `parseCategoryTagsJson` aus `src/lib/open-food-facts.ts` — dessen Modul
- * zieht `src/lib/env.ts` (`process.env.EXPO_PUBLIC_*`) mit, was in diesem
- * reinen Vite/Browser-Tool ohne Expo-Build-Zeit-Ersetzung nicht sauber
- * auflöst. Anders als bei `explainCategory()`/`classifyCategory()` (echte,
- * pflegebedürftige Domänenlogik, siehe Kommentar oben) lohnt sich für dieses
- * Fünfzeiler-Utility keine Kopplung an den App-Import-Graphen.
- */
+/** Bleibt lokal, weil der App-Parser den Expo-Env-Importgraph mitziehen wuerde. */
 function parseCategoryTags(raw: string | null | undefined): string[] {
   if (!raw) return [];
   try {
@@ -74,7 +62,6 @@ function fmt(n: number | null, digits = 1): string {
   return n == null ? '—' : n.toFixed(digits);
 }
 
-/** Vollständiger Trace-Ablauf, gemeinsam für Dump-Treffer und Freitext-Tester genutzt. */
 function TraceView({ trace }: { trace: CategoryTrace }) {
   const winnerDisplay = categoryDisplay(trace.winner.categoryId);
   const winnerValue = trace.winner.evidence?.value;
@@ -203,9 +190,7 @@ export function App() {
       return;
     }
 
-    // Barcode-Suche (rein numerisch) trifft exakt auf `code`, sonst
-    // Substring-Suche im Produktnamen — deckt sich mit `searchOffDump()` /
-    // `fetchProductByBarcodeFromDump()` in src/lib/off-dump/off-dump.ts.
+    // Numerische Eingaben suchen exakt nach Barcode, alle anderen nach Namen.
     const isBarcode = /^\d{6,}$/.test(trimmed);
     const sql = isBarcode
       ? 'select * from products where code = :q limit 50'
@@ -224,10 +209,7 @@ export function App() {
     setSelected((prev) => (prev && rows.some((r) => r.code === prev.code) ? prev : (rows[0] ?? null)));
   }, [query, status]);
 
-  // Ab Dump Schema 2 (#223 Paket 4) liefert `categories_tags` echte OFF-Tags;
-  // gegen einen alten Schema-1-Dump ist die Spalte einfach nicht da
-  // (parseCategoryTags(undefined) === []) — der Trace läuft dann wie
-  // bisher nur über den Namens-Fallback.
+  // Alte Dumps ohne Tags fallen automatisch auf die Namensklassifikation zurueck.
   const dumpTrace = useMemo(
     () =>
       selected

@@ -11,10 +11,6 @@ import type { OutboxEntry } from '@/lib/db/types';
 import { MAX_ATTEMPTS } from '@/lib/sync/backoff';
 import { createTestDatabase, type TestDatabase } from '../../../test/node-sqlite-adapter';
 
-/**
- * Outbox-Primitiven (#46) gegen eine echte SQLite-Engine — kein Mock.
- */
-
 async function insertStorageLocation(
   db: TestDatabase,
   id: string,
@@ -73,8 +69,6 @@ describe('enqueueMutation', () => {
   });
 
   it('die UI-Aenderung ist ohne Netzwerk sofort da — kein await auf irgendeinen Request', async () => {
-    // enqueueMutation nimmt gar keinen Netzwerk-Client entgegen; dieser Test
-    // dokumentiert die Zusicherung strukturell, nicht per Timing-Messung.
     let applyLocallyRanBeforeReturn = false;
 
     await enqueueMutation(db, {

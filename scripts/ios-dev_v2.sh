@@ -26,7 +26,6 @@ mkdir -p "$WORK_DIR"
 say() { printf '\n\033[1m==> %s\033[0m\n' "$1"; }
 die() { printf '\033[31mFehler: %s\033[0m\n' "$1" >&2; exit 1; }
 
-# Reset aller Aktions-Flags vor jedem Menüdurchlauf
 reset_flags() {
   REUSE_LAST=false
   START_METRO=true
@@ -36,7 +35,6 @@ reset_flags() {
   ONLY_ACTIONS=false
 }
 
-# ------------------------------------------------------------- Voraussetzungen
 for cmd in xcrun node; do
   command -v "$cmd" >/dev/null || die "$cmd nicht gefunden"
 done
@@ -63,16 +61,13 @@ start_metro() {
   fi
 }
 
-# ---------------------------------------------------------------- Haupt-Engine
 run_action() {
-  # Stop-Only Fall
   if [ "$STOP_METRO" = true ] && [ "$RESTART_METRO" = false ] && [ "$RESTART_APP" = false ]; then
     stop_metro_if_running
     say "Fertig (Metro gestoppt)"
     return 0
   fi
 
-  # --------------------------------------------------------------- Build & Install
   if [ "$ONLY_ACTIONS" = false ]; then
     eas whoami >/dev/null 2>&1 || die "Nicht bei EAS angemeldet — 'eas login' ausfuehren"
 
@@ -145,7 +140,6 @@ run_action() {
     echo "  $APP_PATH ($(du -sh "$APP_PATH" | cut -f1))"
   fi
 
-  # -------------------------------------------------------------------- Simulator
   say "Simulator vorbereiten: $DEVICE_NAME"
 
   UDID="$(xcrun simctl list devices available |
@@ -171,7 +165,6 @@ run_action() {
 
   open -a Simulator
 
-  # ---------------------------------------------------------------- Metro & App Start
   if [ "$RESTART_METRO" = true ]; then stop_metro_if_running; fi
 
   if [ "$START_METRO" = true ]; then
@@ -188,7 +181,6 @@ run_action() {
   [ "$START_METRO" = true ] && echo "  Metro-Log: $WORK_DIR/metro.log"
 }
 
-# ---------------------------------------------------------- CLI-Arguments vs Menu
 if [ $# -gt 0 ]; then
   while [ $# -gt 0 ]; do
     case "$1" in
@@ -207,7 +199,6 @@ if [ $# -gt 0 ]; then
   exit 0
 fi
 
-# ---------------------------------------------------------- Dauerschleife (Loop)
 while true; do
   reset_flags
   echo ""

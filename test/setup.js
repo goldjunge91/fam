@@ -2,12 +2,7 @@ jest.mock('@react-native-async-storage/async-storage', () =>
   require('@react-native-async-storage/async-storage/jest/async-storage-mock'),
 );
 
-// react-native-reanimated bringt ab v4 ein natives Worklets-Modul mit, das
-// unter Jest (kein echtes Geraet/keine JSI) beim reinen `require` bricht
-// (`Cannot read properties of undefined (reading 'loadUnpackers')`). Der
-// offizielle Mock (`react-native-reanimated/mock`) ersetzt Shared
-// Values/Worklets durch reine JS-Implementierungen — ausreichend fuer Render-
-// und Interaktionstests, die keine echte UI-Thread-Animation pruefen (#129).
+// Der offizielle Mock ersetzt das unter Jest nicht verfuegbare native Worklets-Modul.
 jest.mock('react-native-reanimated', () => {
   const reanimated = require('react-native-reanimated/mock');
   return {

@@ -75,8 +75,6 @@ describe('ModuleGate', () => {
   it('rendert die Kinder ohne featureFlag-Prop unveraendert (kein Flag-Check)', async () => {
     await renderScreen();
     expect(screen.getByText('Echter Inhalt')).toBeTruthy();
-    // Der Hook wird laut Rules of Hooks immer aufgerufen (kein Prop -> kein
-    // Key -> Zustand undefined -> kein Gate).
     expect(mockUseFeatureFlagState).toHaveBeenCalledWith(undefined);
   });
 

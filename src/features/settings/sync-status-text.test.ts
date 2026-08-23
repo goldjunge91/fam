@@ -1,9 +1,5 @@
 import { describeSyncStatus } from '@/features/settings/sync-status-text';
 
-/**
- * Der Text muss in der Menuezeile und auf der Sync-Seite dasselbe aussagen —
- * deshalb kommt er aus einer Funktion und nicht zweimal aus dem JSX.
- */
 describe('describeSyncStatus', () => {
   it('meldet den Normalfall unauffaellig', () => {
     expect(describeSyncStatus({ kind: 'hidden' })).toEqual({
@@ -51,8 +47,7 @@ describe('describeSyncStatus', () => {
       describeSyncStatus({ kind: 'failed', failedCount: 12 }),
     ];
 
-    // Rechts in der Zeile stehen hoechstens 45 % der Breite zur Verfuegung.
-    // Alles darueber wird abgeschnitten und sagt dann nichts mehr aus.
+    // Die Kurzfassung muss in die schmale Wertespalte passen.
     for (const eintrag of alle) {
       expect(eintrag.short.length).toBeLessThanOrEqual(20);
     }

@@ -28,26 +28,13 @@ export type OpenFoodFactsProduct = {
     sugars?: NutrientLevel;
     salt?: NutrientLevel;
   };
-  /**
-   * Kanonische Open-Food-Facts-`categories_tags` (#223) — unveraendert
-   * uebernommene Tag-IDs, roh genug fuer den Klassifikator
-   * (`src/features/shopping-list/classification/`). Immer ein Array, nie
-   * `undefined`, damit Aufrufer nicht zwischen "keine Tags" und "Feld fehlt"
-   * unterscheiden muessen.
-   */
+  /** Unveraenderte Open-Food-Facts-`categories_tags`; immer ein Array. */
   categoryTags: string[];
   /** ISO-Zeitstempel aus OFFs `last_modified_t` (Unix-Sekunden), sofern gueltig. */
   offLastModifiedAt?: string;
 };
 
-/**
- * Parst ein als JSON-Text serialisiertes `categoryTags`-Array — so speichern
- * sowohl der lokale `products`-Spiegel (`off_category_tags`, siehe
- * `migrations.ts`) als auch der Offline-Dump Schema 2 (`categories_tags`,
- * siehe `off-dump.ts`) das Feld in SQLite (kein natives `text[]`). Robust
- * gegen fehlendes/kaputtes JSON — ein Parse-Fehler darf die Suche nie
- * abbrechen, nur die Tags fuer diese eine Zeile fehlen dann.
- */
+/** Liest die in SQLite als JSON gespeicherten Kategorietags fehlertolerant. */
 export function parseCategoryTagsJson(raw: string | null | undefined): string[] {
   if (!raw) return [];
   try {
@@ -60,20 +47,10 @@ export function parseCategoryTagsJson(raw: string | null | undefined): string[] 
   }
 }
 
-/**
- * Erkennt, ob eine Eingabe eher ein abgetippter Barcode als ein Produktname
- * ist (EAN-8 bis GTIN-14: 6-14 Ziffern, nichts anderes). Die normale Suche
- * nutzt das, um bei so einer Eingabe den exakten Barcode-Lookup statt der
- * unscharfen Namenssuche zu verwenden — eigene manuelle Eingabe im
- * Scanner-Modal braucht es dafuer nicht, das Suchfeld deckt es ab.
- */
 export function isLikelyBarcode(value: string): boolean {
   return /^\d{6,14}$/.test(value.trim());
 }
 
-/**
- * Normalisiert rohe Mengenstrings wie "500 g", "1.5 L", "1 kg" in Menge und Einheit.
- */
 export function parseQuantityAndUnit(rawQuantity?: string): { quantity: number; unit: string } {
   if (!rawQuantity) return { quantity: 1, unit: 'piece' };
 
@@ -94,9 +71,6 @@ export function parseQuantityAndUnit(rawQuantity?: string): { quantity: number; 
   return { quantity: Number.isNaN(num) ? 1 : num, unit };
 }
 
-/**
- * Formatiert rohe Open Food Facts Produkt-Objekte in ein sauberes Schema.
- */
 // biome-ignore lint/suspicious/noExplicitAny: External Open Food Facts API payload
 export function formatOFFProduct(raw: any): OpenFoodFactsProduct | null {
   if (!raw) return null;
@@ -157,13 +131,7 @@ export function formatOFFProduct(raw: any): OpenFoodFactsProduct | null {
   };
 }
 
-/**
- * Nur die Felder, die `formatOFFProduct` tatsaechlich liest. Ohne diesen
- * Filter liefert die Suche das volle Produktobjekt je Treffer (Zutatenliste,
- * Verpackungsangaben, Bilder in allen Aufloesungen, Sprachvarianten, ...) —
- * das macht die Anfrage auf Mobilfunk spuerbar langsam, obwohl davon nichts
- * angezeigt wird.
- */
+/** Begrenzt die grossen OFF-Produktobjekte auf tatsaechlich gelesene Felder. */
 const SEARCH_FIELDS = [
   'code',
   'product_name',
@@ -187,15 +155,8 @@ const SEARCH_FIELDS = [
 
 export type OpenFoodFactsSearchResult = {
   products: OpenFoodFactsProduct[];
-  /** true, wenn eine weitere Seite (`page + 1`) vermutlich noch Treffer hat. */
   hasMore: boolean;
-  /**
-   * true, wenn keine Anfrage rausgegangen ist bzw. sie fehlgeschlagen ist —
-   * bewusst getrennt von "keine Treffer". Siehe `SlidingWindowRateLimiter`
-   * fuer den Hintergrund (Open Food Facts' dokumentiertes Anfragelimit).
-   * Ohne dieses Feld sieht ein Nutzer bei "hafer" oder "toma" faelschlich
-   * "keine Treffer".
-   */
+  /** Unterscheidet Anfragefehler von einer erfolgreichen Suche ohne Treffer. */
   failed: boolean;
 };
 
@@ -206,17 +167,7 @@ function delay(ms: number): Promise<void> {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
-/**
- * Client-seitiges Anfragelimit nach den dokumentierten Open-Food-Facts-Regeln
- * (https://openfoodfacts.github.io/openfoodfacts-server/api/): maximal 10
- * Suchanfragen und 15 Produktabfragen pro Minute und IP — mit der
- * ausdruecklichen Warnung, die Suche NICHT als Search-as-you-type zu nutzen,
- * sonst folgt eine IP-Sperre ("wuerdest du sehr schnell geblockt").
- *
- * Ein Sicherheitsabstand zum dokumentierten Wert ist Absicht: mehrere
- * Geraete im selben WLAN teilen sich eine IP, und ohne Abstand loest schon
- * ein einzelner Retry die Sperre aus statt sie zu vermeiden.
- */
+/** Sliding-Window-Limit fuer die IP-basierten OFF-Anfragegrenzen. */
 export class SlidingWindowRateLimiter {
   private timestamps: number[] = [];
 
@@ -242,19 +193,11 @@ export class SlidingWindowRateLimiter {
   }
 }
 
-// Sicherheitsabstand zu den dokumentierten 10/min bzw. 15/min.
+// Abstand zu OFFs Grenzen von 10 Suchen bzw. 15 Produktabfragen pro Minute.
 const searchRateLimiter = new SlidingWindowRateLimiter(8, 60_000);
 const productRateLimiter = new SlidingWindowRateLimiter(12, 60_000);
 
-/**
- * Holt die Produkt-Detail-URL, mit kurzem Retry bei 5xx-Antworten und einem
- * Rate-Limit-Check vor jedem einzelnen Versuch (jeder Versuch verbraucht
- * echtes Budget). Ein Abbruch (`signal`) wird nie erneut versucht.
- *
- * Nur fuer den Produkt-Endpunkt (15/min) — die Suche (10/min, ausdruecklich
- * ohne Search-as-you-type erlaubt) retryt bewusst nicht, siehe
- * `searchOpenFoodFacts`.
- */
+/** Wiederholt nur Produktabfragen nach 5xx; Abbrueche werden nie wiederholt. */
 async function fetchProductWithRetry(
   url: string,
   signal: AbortSignal | undefined,
@@ -285,7 +228,6 @@ async function fetchProductWithRetry(
   return null;
 }
 
-/** Session-Cache identischer Suchanfragen (Begriff+Seite) — v.a. beim Loeschen/erneuten Tippen relevant. */
 const searchCache = new Map<string, OpenFoodFactsSearchResult>();
 const SEARCH_CACHE_LIMIT = 100;
 
@@ -297,28 +239,7 @@ function cacheSearchResult(key: string, result: OpenFoodFactsSearchResult) {
   searchCache.set(key, result);
 }
 
-/**
- * Durchsucht Open Food Facts nach Produktnamen (DE/WW), seitenweise.
- *
- * Bewusst kein festes Gesamt-Limit: ein Begriff wie "Haferflocken" hat
- * hunderte Treffer bei Open Food Facts. Statt eine willkuerliche Teilmenge
- * abzuschneiden, liefert jeder Aufruf eine Seite (`pageSize`, Default 20) —
- * `sort_by=unique_scans_n` sortiert dabei die bekanntesten/meistgescannten
- * Produkte nach vorn, `hasMore` sagt dem Aufrufer, ob Nachladen (naechste
- * Seite) sich lohnt. So laedt die UI beim Scrollen nach, statt entweder
- * alles auf einmal oder nur eine zufaellige Kappung zu zeigen.
- *
- * Bewusst OHNE Retry bei einem Fehlschlag: Open Food Facts limitiert Suchen
- * auf 10/min/IP und untersagt Search-as-you-type ausdruecklich — ein Retry
- * waere hier die falsche Antwort, er verbraucht nur weiteres Budget. Statt
- * dessen ein clientseitiges Limit (`searchRateLimiter`), das gar nicht erst
- * rausfeuert, wenn wir am Limit sind (`failed: true` statt eines Requests,
- * der sowieso abgelehnt wuerde).
- *
- * `signal` erlaubt es Aufrufern, eine ueberholte Anfrage abzubrechen (z. B.
- * bei schnellem Weitertippen) statt auf eine Antwort zu warten, die eh
- * verworfen wird.
- */
+/** Durchsucht Open Food Facts seitenweise und ohne suchbudgetfressende Retries. */
 export async function searchOpenFoodFacts(
   query: string,
   options: { page?: number; pageSize?: number; signal?: AbortSignal } = {},
@@ -340,10 +261,7 @@ export async function searchOpenFoodFacts(
   }
 
   try {
-    // `sort_by=unique_scans_n`: bekannteste/meistgescannte Treffer zuerst.
-    // Ohne das liefert die Suche irgendeine Teilmenge der Treffer in
-    // Datenbank-Reihenfolge — bei einem Begriff wie "Haferflocken" mit
-    // hunderten Treffern faellt sonst zufaellig aus, was die erste Seite zeigt.
+    // Die erste Seite soll die meistgescannten statt zufaellige Produkte zeigen.
     const url =
       `https://world.openfoodfacts.org/cgi/search.pl?search_terms=${encodeURIComponent(trimmed)}` +
       `&search_simple=1&action=process&json=1&page_size=${pageSize}&page=${page}` +
@@ -363,9 +281,6 @@ export async function searchOpenFoodFacts(
       .map(formatOFFProduct)
       .filter((p: OpenFoodFactsProduct | null): p is OpenFoodFactsProduct => p !== null);
 
-    // Eine volle Seite bedeutet nicht zwingend, dass es mehr gibt, aber eine
-    // unvollstaendige Seite bedeutet sicher das Gegenteil — konservativ genug,
-    // ohne uns auf ein bestimmtes `count`-Feld der API zu verlassen.
     const result: OpenFoodFactsSearchResult = {
       products,
       hasMore: rawProducts.length === pageSize,
@@ -374,23 +289,13 @@ export async function searchOpenFoodFacts(
     cacheSearchResult(cacheKey, result);
     return result;
   } catch (err) {
-    // Abgebrochene Anfragen (ueberholt durch die naechste Eingabe) sind
-    // erwartetes Verhalten, kein Fehler — nicht in der Konsole aufschlagen.
-    // Der Signal-Check ist die verlaessliche Quelle: Expos natives Fetch
-    // wirft bei einem Abort keine standardkonforme `AbortError`-DOMException,
-    // sondern einen generischen Error ("FetchRequestCanceledException") -
-    // `err.name` verlaesslich zu pruefen geht hier nicht.
+    // Expo Fetch liefert bei Abbruch nicht verlaesslich eine `AbortError`.
     if (signal?.aborted) return { products: [], hasMore: false, failed: false };
     console.error('Fehler bei Open Food Facts Suche:', err);
     return { products: [], hasMore: false, failed: true };
   }
 }
 
-/**
- * Kodiert ein Produkt als Expo-Router-Params (nur Strings erlaubt), damit die
- * Lebensmittelsuche es an die Detail-/Erfassungsseite weiterreichen kann,
- * ohne einen globalen Zwischenspeicher zu brauchen.
- */
 export function productToRouteParams(product: OpenFoodFactsProduct): Record<string, string> {
   const params: Record<string, string> = { name: product.name };
   if (product.brand) params.brand = product.brand;
@@ -409,8 +314,7 @@ export function productToRouteParams(product: OpenFoodFactsProduct): Record<stri
   if (product.nutriScore) params.nutriScore = product.nutriScore;
   if (product.novaGroup !== undefined) params.novaGroup = String(product.novaGroup);
   if (product.nutrientLevels) params.nutrientLevels = JSON.stringify(product.nutrientLevels);
-  // `?? []`: manche Aufrufer (u.a. Test-Doubles fuer OFF-Suchergebnisse) liefern
-  // aeltere, lose typisierte Produktliterale ohne `categoryTags`.
+  // Aeltere Test-Doubles koennen `categoryTags` noch auslassen.
   if ((product.categoryTags ?? []).length > 0) {
     params.categoryTags = JSON.stringify(product.categoryTags);
   }
@@ -429,7 +333,6 @@ function firstNumber(value: string | string[] | undefined): number | undefined {
   return Number.isNaN(num) ? undefined : num;
 }
 
-/** Kehrt `productToRouteParams` um — liest ein Produkt aus `useLocalSearchParams()`. */
 export function productFromRouteParams(
   params: Record<string, string | string[] | undefined>,
 ): Partial<OpenFoodFactsProduct> | null {
@@ -458,9 +361,6 @@ export function productFromRouteParams(
   };
 }
 
-/**
- * Ruft ein Produkt anhand seines Barcodes (EAN-8, EAN-13) ab.
- */
 export async function fetchProductByBarcode(
   barcode: string,
   signal?: AbortSignal,

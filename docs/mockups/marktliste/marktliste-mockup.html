@@ -13,7 +13,6 @@
     --accent-soft: #ece3ec;
     --shadow: rgba(45, 40, 48, 0.1);
 
-    /* App-Tokens 1:1 aus src/constants/theme.ts (light) */
     --app-text: #2D2830;
     --app-bg: #F8F4EF;
     --app-surface: #FBF7F2;
@@ -138,9 +137,7 @@
   .statusbar { height: 30px; flex-shrink: 0; }
   .num { font-feature-settings: "tnum"; font-variant-numeric: tabular-nums; }
 
-  /* Screen-Header ohne chrome: eigene Zurueck-Zeile (btn-back-arrow, 45x45,
-     rounded-sheet), darunter Titelzeile. Keine Subtitle-Zeile mehr (Marco
-     entfernt Screen-Subtitles app-weit, s. Notiz zum Header-Platz). */
+  /* Eigene Zurueck-Zeile ohne Subtitle. */
   .back-row { padding: 10px 20px 4px; flex-shrink: 0; }
   .back-arrow {
     width: 45px; height: 45px; border-radius: 20px;
@@ -157,7 +154,6 @@
     flex: 1; overflow: hidden; padding: 0 20px 20px; display: flex; flex-direction: column; gap: 14px;
   }
 
-  /* ---- "Neuen Markt hinzufuegen" — card-fam: p-three, rounded-fam-large(28) ---- */
   .form-card {
     background: var(--app-surface); border-radius: 28px; padding: 16px; display: flex;
     flex-direction: column; gap: 10px;
@@ -170,13 +166,11 @@
   }
   .field-label { font-size: 11px; font-weight: 600; color: var(--app-text-secondary); margin-top: 2px; }
   .chip-row { display: flex; flex-wrap: wrap; gap: 8px; }
-  /* store-preset-chip: px-three py-[6px], rounded-sheet(20), border */
   .preset-chip {
     display: flex; align-items: center; gap: 6px; padding: 6px 12px; border-radius: 20px;
     border: 1px solid; font-size: 12px; font-weight: 700;
   }
   .preset-chip .dot { width: 8px; height: 8px; border-radius: 3px; flex-shrink: 0; }
-  /* store-color-swatch: w-8 h-8 (32px), rounded-card(16), border-2 */
   .swatch-row { display: flex; flex-wrap: wrap; gap: 8px; }
   .swatch {
     width: 32px; height: 32px; border-radius: 16px; border: 2px solid transparent; flex-shrink: 0;
@@ -192,7 +186,6 @@
     color: var(--app-text-secondary); padding: 2px 2px 0;
   }
 
-  /* ---- store-manage-row heute: py-three, border-b-hairline ---- */
   .store-row {
     display: flex; align-items: center; gap: 12px; padding: 13px 4px;
     border-bottom: 1px solid var(--app-border);
@@ -207,7 +200,6 @@
   }
   .icon-action.danger { color: var(--app-danger); }
 
-  /* ---- Variant 1: Inline-Edit erweitert die Zeile ---- */
   .store-row.editing { flex-direction: column; align-items: stretch; gap: 10px; padding: 14px 4px; }
   .edit-head { display: flex; align-items: center; gap: 10px; }
   .edit-actions { display: flex; gap: 8px; margin-top: 2px; }
@@ -217,7 +209,6 @@
   .edit-btn.save { background: var(--app-accent); color: var(--app-on-accent); }
   .edit-btn.cancel { background: var(--app-selected); color: var(--app-text); }
 
-  /* ---- Variant 2: Bearbeiten-Sheet ---- */
   .sheet-backdrop {
     position: absolute; inset: 0; background: color-mix(in srgb, #000 45%, transparent);
     display: flex; align-items: flex-end;
@@ -317,7 +308,6 @@
               </div>
             </div>
 
-            <!-- Bearbeiten-Zustand: dieselbe Zeile, aufgeklappt -->
             <div class="store-row editing">
               <div class="edit-head">
                 <div class="store-dot" style="background:#748C5B"></div>
@@ -407,7 +397,6 @@
           </div>
         </div>
 
-        <!-- Bearbeiten-Sheet für "Bio-Markt", zur Veranschaulichung eingeblendet -->
         <div class="sheet-backdrop">
           <div class="sheet">
             <div class="sheet-handle"></div>

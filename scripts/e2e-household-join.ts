@@ -1,11 +1,7 @@
 import { spawnSync } from 'node:child_process';
 import { createFreshConfirmedUser, createInviteFixture } from './lib/e2e-fixtures';
 
-// Seedet einen Host-Account samt Haushalt + Invite-Token sowie einen
-// zweiten, haushaltslosen Testaccount (der beitretende Nutzer) und fuehrt
-// damit gezielt household-join-via-invite.yaml aus. Eigenes Script statt
-// Teil der `bun run e2e`-Suite, weil kein einzelner Maestro-Flow beide
-// Accounts gleichzeitig anlegen kann.
+// Getrennte Host- und Beitrittsaccounts fuer den Maestro-Einladungsflow.
 const HOUSEHOLD_NAME = 'Maestro E2E Einladungs-Haushalt';
 
 async function main() {

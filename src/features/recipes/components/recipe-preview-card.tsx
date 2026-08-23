@@ -27,7 +27,7 @@ const PALETTES = [
   ['#89966E', '#D6C99A'],
 ] as const;
 
-/** Bild-Kachel mit Farbverlauf-Fallback ohne Cover — auch fuer den Drag-Tray des Essensplans. */
+/** Bildkachel mit Verlauf-Fallback. */
 export function RecipeArtwork({
   coverUrl,
   coverPath,
@@ -100,12 +100,7 @@ export function RecipeArtwork({
   );
 }
 
-/**
- * Weicher Verlauf von transparent (oben) zu dunkel (unten) fuer Foto-Karten
- * mit hellem Text-Overlay. Ueber `react-native-svg` statt einer flachen
- * `rgba(...)`-View, weil eine Volltonflaeche eine harte Kante zum Bild
- * erzeugt statt sanft auszublenden — dieselbe Technik wie `GradientBackground`.
- */
+/** Weicher SVG-Verlauf fuer lesbaren Text auf Fotos. */
 function FadeShade({ height }: { height: `${number}%` }) {
   const rawId = useId();
   const gradientId = `card-shade-${rawId.replace(/[^a-zA-Z0-9_-]/g, '')}`;
@@ -139,14 +134,7 @@ function formatMeta({
   return { left, right };
 }
 
-/**
- * Die gemeinsame Karte der Rezept-, Favoriten- und Entdecken-Ansichten.
- *
- * Volle Breite statt Zwei-Spalten-Raster, Foto randlos mit Namen/Meta als
- * heller Text auf einem Verlauf am unteren Bildrand (Mockup-Variante B, vom
- * Maintainer ausgewaehlt) — dieselbe Bildsprache wie `RecipeHeroCard`, nur
- * kompakter fuer Listen statt fuer den einzelnen Trending-Einstieg.
- */
+/** Gemeinsame Listendarstellung fuer Rezepte, Favoriten und Entdecken. */
 export function RecipePreviewCard({
   title,
   coverImagePath,
@@ -189,7 +177,6 @@ type RecipeHeroCardProps = RecipePreviewCardProps & {
   eyebrow?: string;
 };
 
-/** Grosses Einstiegsrezept; verwendet dieselben Daten und Bild-Fallbacks wie die Rasterkarte. */
 export function RecipeHeroCard({
   title,
   coverImagePath,

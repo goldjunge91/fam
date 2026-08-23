@@ -5,23 +5,7 @@ import type { useAddProductMutation } from './use-product-mutations';
 
 type AddProductMutation = ReturnType<typeof useAddProductMutation>;
 
-/**
- * Persistiert einen OFF-Treffer in `products` (#74), wenn er tatsaechlich
- * uebernommen wird — nicht schon bei der Auswahl im Dropdown/Scanner, sonst
- * wuerden auch verworfene Formulare Zeilen anlegen. Dedupe per
- * Barcode-Lookup VOR dem Enqueue: `enqueueMutation` kann kein Upsert, und
- * ein Race mit einem zweiten Client faengt der 23505-Fallback in push.ts.
- *
- * Gemeinsam genutzt von Vorrat- und Einkaufslisten-Formular, damit beide
- * dieselbe Nährwert-Verknüpfung (`product_id`) bekommen.
- *
- * Stoesst bei jeder Uebernahme (neu angelegt oder schon vorhanden) die
- * vertrauenswuerdige serverseitige OFF-Anreicherung an (#223 Paket 10) —
- * fire-and-forget, der Server entscheidet selbst per Rate-Limit und "nur
- * wenn neuer", ob er `off_category_tags`/`off_last_modified_at`
- * aktualisiert. Dieser Client schreibt diese Felder nie selbst (siehe RLS in
- * supabase/schemas/05_products.sql).
- */
+/** Persistiert einen uebernommenen OFF-Treffer dedupliziert und startet die Anreicherung. */
 export async function persistOffProductIfNeeded(
   product: OpenFoodFactsProduct,
   userId: string | undefined,

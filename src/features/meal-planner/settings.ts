@@ -3,14 +3,7 @@ import { useQuery, useQueryClient } from '@tanstack/react-query';
 
 import { DEFAULT_PORTIONS_PER_PERSON } from './servings';
 
-/**
- * Umrechnungsfaktor Portionen/Person (#130), geraeteweit — analog zu
- * `active-household-store.ts`. Bewusst kein Haushalts-/DB-Feld: Der Faktor
- * ist eine reine Anzeige-/Berechnungshilfe fuers Formular, kein Wert, den
- * andere Haushaltsmitglieder synchron sehen muessen (jeder tippt seine
- * Wochenplan-Eintraege ohnehin selbst ein, das Ergebnis — `portions` — ist
- * bereits das, was geteilt wird).
- */
+/** Geraeteweiter Hilfsfaktor; nur das berechnete Portionenergebnis wird geteilt. */
 const STORAGE_KEY = '@fam/meal_planner_portions_per_person';
 
 export async function getPortionsPerPerson(): Promise<number> {
@@ -30,10 +23,7 @@ export async function setPortionsPerPerson(value: number): Promise<void> {
   }
   try {
     await AsyncStorage.setItem(STORAGE_KEY, String(value));
-  } catch {
-    // Bewusst still: ein fehlgeschlagenes Speichern der Einstellung darf den
-    // Rest der App nicht blockieren, siehe active-household-store.ts.
-  }
+  } catch {}
 }
 
 export const portionsPerPersonQueryKey = ['settings', 'meal-planner-portions-per-person'] as const;

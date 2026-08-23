@@ -10,8 +10,7 @@ import {
 
 type OverlayKey = 'none' | 'drawer' | 'profile' | 'quickAdd';
 
-// Minimal pub/sub store so each consumer only re-renders when its
-// specific boolean flips, not on every overlay state change.
+// Selektoren begrenzen Re-Renders auf das jeweils beobachtete Flag.
 function createOverlayStore() {
   let current: OverlayKey = 'none';
   const listeners = new Set<() => void>();
@@ -32,9 +31,7 @@ function createOverlayStore() {
 
 type OverlayStore = ReturnType<typeof createOverlayStore>;
 
-// Stable actions context: callbacks never change, so consumers that only
-// need openDrawer/openProfile/openQuickAdd (= every hub screen header)
-// never re-render when overlay state toggles.
+// Der stabile Actions-Context reagiert nicht auf Overlay-State.
 interface NavigationActions {
   openDrawer: () => void;
   closeDrawer: () => void;
@@ -47,17 +44,7 @@ interface NavigationActions {
 const ActionsContext = createContext<NavigationActions | undefined>(undefined);
 const StoreContext = createContext<OverlayStore | undefined>(undefined);
 
-/**
- * Steuert die drei Overlays der Navigation (#150): Hamburger-Drawer,
- * Profil-Sheet, Schnellauswahl. Bewusst nur je ein Overlay gleichzeitig
- * offen — oeffnet eines ein zweites, schliesst es das erste automatisch.
- *
- * Intern aufgeteilt in einen stabilen Actions-Context (Callbacks aendern
- * sich nie) und einen Store fuer den Overlay-State, der per
- * `useSyncExternalStore` granular subscribed wird. Hub-Screens, die nur
- * die Trigger-Buttons rendern, subskribieren nur den ActionsContext und
- * re-rendern bei keinem einzigen Overlay-Wechsel.
- */
+/** Hält genau ein Navigations-Overlay offen und subskribiert Status granular. */
 export function NavigationChromeProvider({ children }: { children: React.ReactNode }) {
   const storeRef = useRef<OverlayStore | null>(null);
   if (!storeRef.current) {
@@ -97,12 +84,6 @@ function useActions(): NavigationActions {
   return actions;
 }
 
-/**
- * Haupthook fuer alle Consumers. Gibt den vollen Satz an Flags und
- * Actions zurueck. Durch `useSyncExternalStore` mit individuellen
- * Selektoren re-rendert der Consumer nur, wenn sich sein spezifischer
- * boolean-Wert aendert.
- */
 export function useNavigationChrome() {
   const store = useStore();
   const actions = useActions();

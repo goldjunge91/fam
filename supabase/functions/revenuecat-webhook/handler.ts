@@ -63,15 +63,7 @@ function isRevenueCatEvent(value: unknown): value is RevenueCatEvent {
   );
 }
 
-/**
- * Baut den HTTP-Handler getrennt vom Deno-Einstiegspunkt. Dadurch lassen sich
- * Authentifizierung und Eventregeln ohne Netzwerk oder echte Datenbank testen.
- *
- * Wiederholte Zustellung desselben Events ist sicher: Jeder relevante Event
- * schreibt einen absoluten Zustand statt einen Wert inkrementell zu veraendern.
- * CANCELLATION und BILLING_ISSUE aendern bewusst nichts. RevenueCat sendet
- * EXPIRATION, sobald bezahlter Zugriff beziehungsweise die Grace Period endet.
- */
+/** Schreibt pro Event einen absoluten, idempotenten Premiumzustand. */
 export function createRevenueCatWebhookHandler({
   expectedSecret,
   updateHousehold,
@@ -107,8 +99,7 @@ export function createRevenueCatWebhookHandler({
       return json({ ignored: event.type });
     }
 
-    // Das RevenueCat-Projekt kann spaeter weitere Entitlements enthalten.
-    // Ein Kauf davon darf nicht versehentlich Haushalts-Premium freischalten.
+    // Andere Entitlements duerfen Haushalts-Premium nicht freischalten.
     if (!event.entitlement_ids?.includes(PREMIUM_ENTITLEMENT_ID)) {
       return json({ ignored: 'unrelated_entitlement' });
     }
@@ -125,8 +116,7 @@ export function createRevenueCatWebhookHandler({
       return json({ error: 'update_failed', message: result.error.message }, 500);
     }
 
-    // Ein geloeschter oder fuer Dashboard-Tests erfundener Haushalt ist kein
-    // Retry-Fall. Die Anzahl bleibt fuer die RevenueCat-Zustellhistorie sichtbar.
+    // Ein fehlender Haushalt ist kein Retry-Fall.
     return json({ updated: result.count ?? 0 });
   };
 }

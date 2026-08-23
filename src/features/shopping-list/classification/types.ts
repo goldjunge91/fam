@@ -1,13 +1,8 @@
 import type { ShoppingCategoryId } from './shopping-category-id';
 
-/**
- * Herkunft einer Kategorieentscheidung. `'user'` wird ausschließlich außerhalb
- * der reinen Klassifikationspipeline vergeben (siehe `preferences/`) — die
- * hier exportierten Klassifikationsfunktionen liefern ihn nie selbst.
- */
+/** `'user'` wird nur außerhalb der reinen Klassifikationspipeline vergeben. */
 export type CategorySource = 'user' | 'household_preference' | 'off_taxonomy' | 'name_fallback';
 
-/** Kompakte Produktionsausgabe von {@link classifyCategory}. */
 export type CategoryClassification = {
   categoryId: ShoppingCategoryId | null;
   source: Exclude<CategorySource, 'user'> | null;
@@ -18,7 +13,6 @@ export type CategoryClassification = {
   };
 };
 
-/** Herkunft der klassifizierten Rohdaten — nur für den Trace relevant. */
 export type CategoryClassifierInputSource =
   | 'live'
   | 'barcode'
@@ -27,24 +21,18 @@ export type CategoryClassifierInputSource =
   | 'free_text';
 
 export type CategoryClassifierInput = {
-  /** Roher, unnormalisierter Artikel-/Produktname. */
   name: string;
-  /** Kanonische Open-Food-Facts-`categories_tags`, sofern vorhanden. */
   categoryTags?: readonly string[];
   source?: CategoryClassifierInputSource;
-  /** OFF- bzw. Dump-Datenversion, nur zur Nachvollziehbarkeit im Trace. */
   dataVersion?: string | null;
 };
 
 export type CategoryCandidateKind = 'off_tag' | 'name_rule';
 
-/** Ein gematchter, aber noch nicht zwingend gewonnener Kandidat. */
 export type CategoryCandidate = {
   kind: CategoryCandidateKind;
   categoryId: ShoppingCategoryId;
-  /** Der auslösende OFF-Tag bzw. das auslösende Namens-Token. */
   value: string;
-  /** OFF-Regel-Priorität bzw. Namens-Regel-Score — höher gewinnt. */
   weight: number;
 };
 

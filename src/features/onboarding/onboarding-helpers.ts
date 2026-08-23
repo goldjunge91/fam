@@ -1,29 +1,18 @@
 import { normalizeDateInput } from '@/features/auth/auth-schemas';
 import type { HouseholdOnboardingData, OnboardingProfileData } from './types';
 
-/**
- * Formatiert eine laufende Eingabe zu TT.MM.JJJJ, indem Punkte automatisch
- * nach Tag und Monat eingefügt werden. Nicht-Ziffern werden verworfen.
- */
+/** Formatiert Zifferneingaben fortlaufend als TT.MM.JJJJ. */
 export function formatGermanDateInput(raw: string): string {
   const digits = raw.replace(/\D/g, '').slice(0, 8);
   const parts = [digits.slice(0, 2), digits.slice(2, 4), digits.slice(4, 8)].filter(Boolean);
   return parts.join('.');
 }
 
-/**
- * Wandelt TT.MM.JJJJ in ISO (JJJJ-MM-TT) um, oder `undefined` bei ungültigem
- * oder kalendarisch unmöglichem Datum (z. B. 31.02.). `new Date()` würde
- * einen solchen Tag still in den Folgemonat umrollen statt ihn abzulehnen —
- * Postgres' `date`-Spalte tut das nicht und wirft dann erst beim Speichern
- * "date/time field value out of range". `normalizeDateInput` prüft per
- * Rundtrip, dass Jahr/Monat/Tag exakt erhalten bleiben.
- */
+/** Konvertiert gueltige Kalenderdaten von TT.MM.JJJJ nach ISO. */
 export function germanDateToIso(value: string): string | undefined {
   return normalizeDateInput(value) ?? undefined;
 }
 
-/** Wandelt ISO (JJJJ-MM-TT) in TT.MM.JJJJ für die Anzeige um. */
 export function isoDateToGerman(value: string): string {
   const match = /^(\d{4})-(\d{2})-(\d{2})/.exec(value);
   if (!match) return value;
@@ -31,9 +20,6 @@ export function isoDateToGerman(value: string): string {
   return `${day}.${month}.${year}`;
 }
 
-/**
- * Validiert die Eingabedaten für ein Onboarding-Profil auf Plausibilität.
- */
 export function validateOnboardingProfile(profile: OnboardingProfileData): {
   isValid: boolean;
   errors: string[];
@@ -65,9 +51,6 @@ export function validateOnboardingProfile(profile: OnboardingProfileData): {
   };
 }
 
-/**
- * Validiert die Haushalts-Auswahl im Onboarding.
- */
 export function validateHouseholdOnboarding(household: HouseholdOnboardingData): boolean {
   if (household.choice === 'create') {
     return !!household.name && household.name.trim().length > 0;

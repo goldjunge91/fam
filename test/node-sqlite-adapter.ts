@@ -2,30 +2,12 @@ import { DatabaseSync } from 'node:sqlite';
 
 import type { SqlDatabase, SqlParam, SqlRunResult } from '@/lib/db/types';
 
-/**
- * Erfuellt den `SqlDatabase`-Port mit `node:sqlite` — fuer Tests.
- *
- * **Das ist kein Mock.** `node:sqlite` ist eine echte, eingebettete
- * SQLite-Engine; die Statements laufen tatsaechlich, Constraints greifen
- * tatsaechlich, ein Rollback dreht tatsaechlich zurueck. Dasselbe Verhaeltnis
- * wie die echte In-Memory-Map, mit der `chunked-storage.test.ts` den
- * `KeyValueStore` erfuellt. Ein Testdouble waere per CLAUDE.md ausgeschlossen —
- * das hier ist der Ersatz des *Treibers*, nicht der Logik.
- *
- * Noetig, weil `expo-sqlite` ein natives Modul ist und weder unter `jest-expo`
- * noch im Node-Setup der Integrationstests laedt. Ohne diesen Adapter waere
- * das lokale Schema nur auf einem Geraet pruefbar.
- *
- * `node:sqlite` ist ab Node 22.5 vorhanden (hier 22.18) und meldet beim Laden
- * eine ExperimentalWarning. Fuer eine CI (#33) heisst das: Node >= 22.5.
- */
+/** Echter SQLite-Treiber fuer Node-Tests; benoetigt Node 22.5 oder neuer. */
 
-/** `run()` liefert je nach Wert number oder bigint — der Port will number. */
 function toNumber(value: number | bigint): number {
   return typeof value === 'bigint' ? Number(value) : value;
 }
 
-/** Der Port erlaubt `readonly SqlParam[]`, node:sqlite will variadische Werte. */
 function bind(params: readonly SqlParam[] | undefined): SqlParam[] {
   return params === undefined ? [] : [...params];
 }
@@ -54,17 +36,11 @@ function wrap(db: DatabaseSync, insideTransaction: boolean): SqlDatabase {
     },
 
     async withExclusiveTransactionAsync(task: (txn: SqlDatabase) => Promise<void>): Promise<void> {
-      // SQLite kennt keine echten verschachtelten Transaktionen. Ein
-      // verschachtelter Aufruf wuerde mit "cannot start a transaction within a
-      // transaction" scheitern — hier lieber sofort und mit einer Meldung, die
-      // die Ursache nennt.
       if (insideTransaction) {
         throw new Error('withExclusiveTransactionAsync ist nicht verschachtelbar.');
       }
 
-      // BEGIN IMMEDIATE statt BEGIN: nimmt die Schreibsperre sofort, statt bis
-      // zum ersten Schreibzugriff zu warten. Genau das macht die Transaktion
-      // exklusiv — und entspricht dem Verhalten, das der Port zusichert.
+      // Entspricht der Produktionsserialisierung und reserviert den Writer sofort.
       db.exec('BEGIN IMMEDIATE');
       try {
         await task(wrap(db, true));
@@ -81,28 +57,13 @@ function wrap(db: DatabaseSync, insideTransaction: boolean): SqlDatabase {
 
 export type TestDatabase = SqlDatabase & { close(): void };
 
-/**
- * Legt eine echte SQLite-Datenbank an — im Speicher, wenn kein Pfad angegeben
- * ist.
- *
- * Ein Dateipfad ist noetig, um "der zweite App-Start migriert nicht erneut" zu
- * pruefen: Eine In-Memory-Datenbank ist nach dem Schliessen weg und faengt bei
- * `user_version = 0` wieder an.
- */
+/** Verwendet ohne Pfad eine In-Memory-Datenbank. */
 export function createTestDatabase(path = ':memory:'): TestDatabase {
   const db = new DatabaseSync(path);
   return { ...wrap(db, false), close: () => db.close() };
 }
 
-/**
- * Zaehlt ausgefuehrte Statements, indem sie an eine echte Datenbank
- * weitergereicht werden.
- *
- * Ein Dekorator ueber einem echten Treiber, kein Stub: Jedes Statement wird
- * tatsaechlich ausgefuehrt, nur zusaetzlich mitgezaehlt. Damit laesst sich
- * "beim zweiten Start laeuft keine Migration" belegen, statt es aus dem
- * Ergebnis zu erschliessen.
- */
+/** Zaehlt Statements, waehrend sie weiterhin gegen echte SQLite laufen. */
 export function countingDatabase(inner: SqlDatabase): SqlDatabase & { executed: string[] } {
   const executed: string[] = [];
 

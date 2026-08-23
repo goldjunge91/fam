@@ -4,17 +4,7 @@ tags:
 env:
   HOUSEHOLD_NAME: Maestro E2E Haushalt
 ---
-# Prueft die tatsaechliche Haushalts-ERSTELLUNG im Onboarding
-# (household-step.tsx, choice "create") - nicht nur das Ueberspringen wie in
-# onboarding-sign-in.yaml. Braucht dafuer einen Account OHNE bestehenden
-# Haushalt: sobald `activeHousehold` gesetzt ist, kuerzt household-step.tsx
-# jede Auswahl per `onNext()` sofort ab, ohne create_household() aufzurufen.
-#
-# `tags: [fixture]` haelt diesen Flow aus `bun run e2e`
-# (`maestro test .maestro/flows --exclude-tags fixture`) heraus - EMAIL/
-# PASSWORD kommen von einem Seed-Script, nicht aus einem manuell angelegten
-# Testaccount. Nicht direkt ausfuehren, sondern:
-#   bun run e2e:household-create
+# Benötigt den von `bun run e2e:household-create` erzeugten haushaltslosen Account.
 
 - runFlow: ../subflows/launch-local-dev-client.yaml
 
@@ -32,9 +22,7 @@ env:
 - hideKeyboard
 - tapOn: "Anmelden & weiter"
 
-# iOS' eigener Keychain-Dialog ("Passwort sichern?") kann nach dem Absenden
-# erscheinen - kein App-UI, exakter Match damit "Später" nicht versehentlich
-# den folgenden "Später ausfüllen"-Button trifft.
+# Exakter Match vermeidet den späteren App-Button "Später ausfüllen".
 - tapOn:
     text: "^Später$"
     optional: true
@@ -56,10 +44,6 @@ env:
 
 - assertVisible: "Übersicht"
 
-# Der neue Haushaltsname erscheint auf dem Einstellungen-Tab
-# (settings-screen.tsx, Zeile "Aktueller Haushalt") - zuverlaessiger als eine
-# Assertion auf den Complete-Step-Untertitel, dessen Text je nach
-# React-Query-Timing zwischen dem echten Namen und einem generischen
-# Platzhalter wechseln kann.
+# Der Einstellungswert ist unabhängig vom React-Query-Timing des Complete-Schritts.
 - tapOn: "Einstellungen"
 - assertVisible: "${HOUSEHOLD_NAME}"

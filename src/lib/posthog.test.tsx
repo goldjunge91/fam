@@ -68,7 +68,6 @@ describe('initPostHog / isPostHogConfigured', () => {
     expect(() => initPostHog()).not.toThrow();
     expect(isPostHogConfigured()).toBe(false);
 
-    // Zweiter Aufruf darf den Fehler nicht erneut werfen (attempted-Flag).
     expect(() => initPostHog()).not.toThrow();
     expect(mockPostHogConstructor).toHaveBeenCalledTimes(1);
 
@@ -153,9 +152,6 @@ describe('useFeatureFlag', () => {
   });
 
   it('liefert defaultValue wenn kein Key uebergeben wurde, unabhaengig vom SDK-Rueckgabewert', async () => {
-    // SDK-Mock liefert bewusst das Gegenteil von defaultValue: nur wenn der
-    // Wrapper den SDK-Rueckgabewert ignoriert und direkt defaultValue
-    // zurueckgibt, kommt hier `true` heraus statt `false`.
     mockUseFeatureFlagSdk.mockReturnValue(false);
     const { useFeatureFlag } = require('@/lib/posthog');
 

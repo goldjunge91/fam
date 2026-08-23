@@ -76,12 +76,6 @@ function quickDateOffset(key: QuickDateKey): string {
   }
 }
 
-/**
- * Artikel-hinzufuegen fuer Vorrat, im selben Bottom-Sheet-Stil wie
- * `add-item-form.tsx` bei der Einkaufsliste: Suche mit Scan-Button,
- * Quelle-/Vorschlagsfilter-Dropdowns, Produktkarte, Menge+Lagerort
- * nebeneinander, "Weitere Angaben" eingeklappt (Einheit + MHD).
- */
 export function AddItemScreen() {
   const theme = useTheme();
   const { activeHousehold } = useActiveHousehold();
@@ -122,13 +116,7 @@ export function AddItemScreen() {
     'none';
 
   function handleSelectProduct(product: OpenFoodFactsProduct) {
-    // Muss VOR `setName` passieren — sonst haelt der Such-Effekt in
-    // `product-search-dropdown.tsx` diesen Namenswechsel fuer neue Eingabe
-    // und oeffnet die Trefferliste erneut (#UI-Feedback: "Auswaehlen eines
-    // History-Artikels soll die Suchliste nicht ausloesen"). Deckt alle
-    // Aufrufer ab, die den Namen von aussen setzen (Häufig/Zuletzt,
-    // Barcode-Scan) — bei Auswahl direkt in der Dropdown-Zeile selbst ist der
-    // Wert schon (redundant, aber harmlos) markiert.
+    // Vor `setName`, damit die externe Auswahl keine neue Suche ausloest.
     productSearchRef.current?.markSelected(product.name);
     setName(product.name);
     const productUnit = normalizeUnit(product.unit);
@@ -142,9 +130,7 @@ export function AddItemScreen() {
     setSelectedProduct(product);
   }
 
-  // Nimmt ein Produkt entgegen, das ueber "Produkt manuell anlegen" (#80) im
-  // add-product-Screen erstellt wurde und beim Zurueckkommen hier abgeholt
-  // wird — Expo Router kennt keine Rueckgabewerte aus gepushten Routen.
+  // Expo Router hat keine Rueckgabewerte fuer gepushte Routen.
   useFocusEffect(
     useCallback(() => {
       const created = consumePendingProductSelection();
@@ -221,10 +207,7 @@ export function AddItemScreen() {
   return (
     <ThemedView className="flex-1 bg-background">
       <SafeAreaView className="modal-safe-area" edges={['top', 'left', 'right', 'bottom']}>
-        {/* Modal-Handle und Header mit Schließen-Button — Tap darauf schliesst
-            Tastatur UND eine offene Trefferliste (#UI-Feedback: revidiert
-            gegenueber der ersten Fassung, die nur die Tastatur schloss — die
-            Liste liess sich sonst ohne Auswahl gar nicht mehr zumachen). */}
+        {/* Der Header schliesst Tastatur und Trefferliste. */}
         <Pressable
           onPress={() => {
             productSearchRef.current?.dismiss();
@@ -244,17 +227,13 @@ export function AddItemScreen() {
           </View>
         </Pressable>
 
-        {/* `KeyboardAwareScrollView` statt `ScrollView` (#UI-Feedback: "Artikel
-            halb von der Tastatur verdeckt", "kein Button zum Zuklappen") —
-            haelt das fokussierte Feld automatisch ueber der Tastatur sichtbar,
-            siehe item-modal-shell.tsx fuer denselben Fix im Einkaufslisten-Sheet. */}
+        {/* Haelt das fokussierte Feld ueber der Tastatur sichtbar. */}
         <KeyboardAwareScrollView
           className="flex-1"
           bottomOffset={24}
           contentContainerClassName="gap-three pb-four"
           keyboardShouldPersistTaps="handled"
           showsVerticalScrollIndicator={false}>
-          {/* Produktsuche mit integriertem Barcode-Scan-Button */}
           <ProductSearchDropdown
             ref={productSearchRef}
             label=""
@@ -273,7 +252,6 @@ export function AddItemScreen() {
             }
           />
 
-          {/* Quell- und Vorschlagsfilter (Lebensmittel/Gerichte, Häufig/Zuletzt) */}
           <ItemSourceFilterRow
             source={source}
             onSourceChange={setSource}
@@ -283,7 +261,6 @@ export function AddItemScreen() {
             suggestionAccessibilityLabel="Vorschlagsfilter"
           />
 
-          {/* Schnellauswahl häufig oder zuletzt verwendeter Artikel */}
           <FrequentProductsQuickSelect
             feature="fridge"
             userId={userId}
@@ -291,7 +268,6 @@ export function AddItemScreen() {
             onSelectProduct={handleSelectProduct}
           />
 
-          {/* Zusammenfassungskarte des ausgewählten Produkts */}
           {name.trim() ? (
             <View className="edit-fridge-product-card">
               <View className="edit-fridge-product-copy">
@@ -313,7 +289,6 @@ export function AddItemScreen() {
             </View>
           ) : null}
 
-          {/* Eingabefelder für Menge und Lagerort */}
           <View className="edit-fridge-controls-row">
             <View className="edit-fridge-control-column">
               <ThemedText type="small" themeColor="textSecondary">
@@ -348,7 +323,6 @@ export function AddItemScreen() {
             </View>
           </View>
 
-          {/* Formularbereich zum Anlegen eines neuen Lagerorts */}
           {!showAddLocation ? (
             <Pressable
               onPress={() => setShowAddLocation(true)}
@@ -389,7 +363,6 @@ export function AddItemScreen() {
             </View>
           )}
 
-          {/* Aufklappbereich: Weitere Angaben (Einheit, Mindesthaltbarkeitsdatum) */}
           <Pressable
             onPress={() => setDetailsOpen((current) => !current)}
             accessibilityRole="button"
@@ -404,7 +377,6 @@ export function AddItemScreen() {
 
           {detailsOpen ? (
             <View className="gap-three">
-              {/* Einheitenauswahl */}
               <WheelPickerField
                 label="Einheit"
                 value={unit}
@@ -412,7 +384,6 @@ export function AddItemScreen() {
                 onChange={setUnit}
                 size="large"
               />
-              {/* Datumsauswahl & Schnellbuttons für MHD */}
               <DateWheelField
                 label="Mindesthaltbarkeitsdatum (MHD)"
                 value={expiryDate}
@@ -427,7 +398,6 @@ export function AddItemScreen() {
             </View>
           ) : null}
 
-          {/* Haupt-Speicher-Button */}
           <Button
             label="Zum Vorrat hinzufügen"
             onPress={handleSave}
@@ -438,7 +408,6 @@ export function AddItemScreen() {
         </KeyboardAwareScrollView>
       </SafeAreaView>
 
-      {/* Barcode-Scanner-Modal */}
       <BarcodeScannerModal
         visible={showScanner}
         onClose={() => setShowScanner(false)}

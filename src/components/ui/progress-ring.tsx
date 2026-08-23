@@ -15,38 +15,20 @@ import { useTheme } from '@/hooks/use-theme';
 const AnimatedCircle = Animated.createAnimatedComponent(Circle);
 
 type ProgressRingProps = {
-  /** Erreichter Wert, z. B. aufgenommene Kalorien oder ablaufende Artikel. */
   value: number;
-  /** Ziel- oder Maximalwert. Bei 0 oder negativ wird der Ring leer dargestellt. */
   target: number;
-  /** Standardisiertes Größen-Preset ('compact', 'dashboard', 'medium', 'large'). */
   preset?: RingPreset;
-  /** Benutzerdefinierter Durchmesser in pt (überschreibt das Preset). */
   size?: number;
-  /** Benutzerdefinierte Strichstärke in pt (überschreibt das Preset). */
   strokeWidth?: number;
-  /** Beschreibung für Screenreader. */
   label?: string;
   unit?: string;
-  /**
-   * 'value' (Default): Große Zahl + Zielwert im Ring (z. B. Kalorienziel).
-   * 'percent': Nur die Prozentzahl (z. B. Dashboard-Widget).
-   * 'remaining': Restwert + Einheit (z. B. Tagebuch-Bilanz).
-   * 'count': Reine zentrierte Zahl mit Tabular-Nums (z. B. Vorrat-Status).
-   * 'none': Kein zentrierter Text.
-   */
   displayMode?: 'value' | 'percent' | 'remaining' | 'count' | 'none';
-  /** Ob der Füllstand beim Mounten/Ändern animiert werden soll (Default: true). */
   animated?: boolean;
   progressColor?: string;
   trackColor?: string;
-  /** Eigener Inhalt im Ringzentrum (überschreibt displayMode). */
   children?: ReactNode;
 };
 
-/**
- * Universeller Fortschrittsring für Kalorien, Tagesziele und Bestands-Karten (#91, #164).
- */
 export function ProgressRing({
   value,
   target,

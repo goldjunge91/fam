@@ -1,8 +1,4 @@
 #!/bin/bash
-# Laeuft vor jedem Commit und spiegelt exakt die CI-Pipeline (tests.sh, das
-# wiederum .github/workflows/ci.yml spiegelt) — ein Commit, der hier
-# durchkommt, faellt nicht ueberraschend erst in CI durch.
-#
 # Einrichtung (einmalig pro Checkout): bun run prepare
 set -euo pipefail
 

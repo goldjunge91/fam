@@ -10,28 +10,13 @@ interface StoreSummaryCardProps {
   totalCount: number;
   checkedCount: number;
   totalEstimate: number;
-  /** Wiedererkennungsfarben der Kategorien mit noch offenen Artikeln, s. `distinctCategoryColors`. */
+  /** Deduplizierte Farben offener Kategorien. */
   openCategoryColors: string[];
   onPress: () => void;
 }
 
 const MAX_CATEGORY_DOTS = 4;
 
-/**
- * Zeile fuer die "Alle Listen"-Uebersicht: farbiger linker Streifen, Name,
- * Fortschritt, Kategorievorschau und geschaetzte Summe (Mockup "Einkauf
- * Uebersicht", Variante 2 "Kompakt mit Kategorievorschau"). `onPress`
- * wechselt in die Detailansicht des Marktes.
- *
- * Bewusst als dichte Zeile statt Karte: bei mehreren Maerkten dominierten
- * die vorherigen grosszuegigen Karten den Screen, ohne mehr Information zu
- * zeigen. Die Kategoriepunkte darunter geben zusaetzlich einen Hinweis, was
- * fachlich noch fehlt, ohne den Markt erst zu oeffnen.
- *
- * Der Fortschrittsbalken laeuft in Accent-Mauve, bei vollstaendig erledigten
- * Maerkten in Success-Gruen — die Marktfarbe bleibt als schmaler Streifen die
- * einzige Wiedererkennung.
- */
 export function StoreSummaryCard({
   name,
   color,
@@ -52,7 +37,6 @@ export function StoreSummaryCard({
       accessibilityRole="button"
       accessibilityLabel={`${name}, ${checkedCount} von ${totalCount} Artikeln, ${formatEuro(totalEstimate)} geschätzt`}
       className="store-summary-row">
-      {/* Dynamische Markt-Farbe aus der Datenbank */}
       <View className="store-summary-stripe" style={{ backgroundColor: color }} />
 
       <View className="flex-1 gap-1">
@@ -77,7 +61,7 @@ export function StoreSummaryCard({
           ) : (
             <>
               {visibleDots.map((dotColor) => (
-                // Kategoriefarben sind schon dedupliziert (distinctCategoryColors) — eindeutig als Key
+                // `distinctCategoryColors` garantiert eindeutige Werte.
                 <View
                   key={dotColor}
                   className="w-[7px] h-[7px] rounded-full"

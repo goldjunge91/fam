@@ -5,15 +5,6 @@ import type { GradientSpec } from '@/constants/theme';
 
 type GradientBackgroundProps = GradientSpec;
 
-/**
- * Flaechiger Verlauf als Bildschirmhintergrund fuer die warmen fam-Hub-Screens
- * (unter anderem Übersicht und Rezepte). Farben bleiben Props, damit alle
- * Bereiche denselben Renderer verwenden und nur ihre Figma-Stopps festlegen.
- *
- * Ueber `react-native-svg` statt `expo-linear-gradient`, weil Ersteres schon
- * Projektabhaengigkeit ist (siehe `ProgressRing`) — keine neue Dependency
- * fuer eine reine Hintergrunddarstellung.
- */
 export function GradientBackground({ colors, locations }: GradientBackgroundProps) {
   const resolvedLocations = locations ?? (colors.length === 3 ? [0, 0.40385, 0.96154] : undefined);
   const stops = colors.map((color, index) => ({

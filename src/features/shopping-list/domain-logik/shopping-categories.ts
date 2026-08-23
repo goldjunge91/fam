@@ -2,35 +2,22 @@ export type StorageKind = 'fridge' | 'freezer' | 'pantry';
 
 export type ShoppingCategory = {
   id: string;
-  /** Reines Anzeige-Label. Gespeichert wird ausschliesslich `id`. */
+  /** Anzeige-Label; gespeichert wird nur `id`. */
   label: string;
-  /** Rang auf der typischen Supermarkt-Laufstrecke, 10er-Schritte. */
+  /** Rang auf der typischen Supermarkt-Laufstrecke. */
   sortOrder: number;
-  /** Wohin ein abgehakter Artikel dieser Kategorie standardmäßig wandert. */
+  /** Standard-Lagerort fuer abgehakte Artikel. */
   storageKind: StorageKind;
-  /**
-   * Wiedererkennungsfarbe der Kategorie (Kategorie-Header, Einkaufsmodus) —
-   * dieselben gedämpften, erdigen Töne wie `STORE_COLOR_PALETTE` in
-   * `store-presets.ts`, hier aber fest der Kategorie statt frei dem Markt
-   * zugeordnet.
-   */
+  /** Fest zugeordnete Wiedererkennungsfarbe. */
   color: string;
-  /**
-   * Substrings, die im (kleingeschriebenen) Artikelnamen auf diese Kategorie
-   * hindeuten — Grundlage der automatischen Zuordnung in `guessCategory`.
-   * Reihenfolge der Kategorien entscheidet bei Mehrdeutigkeit.
-   */
+  /** Stichwoerter fuer `guessCategory`; bei Mehrdeutigkeit gilt die Kategorienreihenfolge. */
   keywords: readonly string[];
 };
 
 export const UNCATEGORIZED_LABEL = 'Sonstiges';
 export const UNCATEGORIZED_SORT_ORDER = 999;
 
-/**
- * Standard-Laufstrecke in deutschen Supermärkten (REWE, Edeka, ALDI, Lidl) —
- * siehe `docs/Supermarkt Laufstrecke - Einkaufslisten Sortierung.md`.
- * Reihenfolge und Ränge kommen direkt aus dieser Notiz.
- */
+/** Standard-Laufstrecke aus `docs/Supermarkt Laufstrecke - Einkaufslisten Sortierung.md`. */
 export const SHOPPING_CATEGORIES: readonly ShoppingCategory[] = [
   {
     id: 'produce',
@@ -173,10 +160,7 @@ export const SHOPPING_CATEGORIES: readonly ShoppingCategory[] = [
       'couscous',
       'bulgur',
       'quinoa',
-      // "öl" allein ist als kurzes Keyword zu unspezifisch (matcht in
-      // "Röllchen" o.ä.) und kommt praktisch nie einzeln vor — stattdessen
-      // die gängigen Sorten, die als Kompositum ohnehin nur per Substring
-      // erkennbar sind.
+      // "öl" waere als kurzes Keyword zu unspezifisch; konkrete Sorten matchen Komposita.
       'olivenöl',
       'sonnenblumenöl',
       'rapsöl',
@@ -313,7 +297,6 @@ export const SHOPPING_CATEGORIES: readonly ShoppingCategory[] = [
   },
 ];
 
-/** O(1)-Nachschlag statt Array.find() bei jedem Aufruf. */
 const CATEGORY_BY_LABEL = new Map<string, ShoppingCategory>(
   SHOPPING_CATEGORIES.map((category) => [category.label, category]),
 );
@@ -321,19 +304,16 @@ const CATEGORY_BY_ID = new Map<string, ShoppingCategory>(
   SHOPPING_CATEGORIES.map((category) => [category.id, category]),
 );
 
-/** Mechanische Bruecke fuer den Datenmodell-Cutover; Labels bleiben reine Darstellung. */
 export function categoryIdForLabel(categoryLabel: string | null): string | null {
   if (!categoryLabel) return null;
   return CATEGORY_BY_LABEL.get(categoryLabel)?.id ?? null;
 }
 
-/** Loest ein gespeichertes Kategorie-ID-Snapshot in das aktuelle Anzeige-Label auf. */
 export function categoryLabelForId(categoryId: string | null): string | null {
   if (!categoryId) return null;
   return CATEGORY_BY_ID.get(categoryId)?.label ?? null;
 }
 
-/** Unkategorisierte Artikel (category null) sinken ans Ende der Liste. */
 export function sortOrderForCategory(categoryLabel: string | null): number {
   if (!categoryLabel) return UNCATEGORIZED_SORT_ORDER;
   return CATEGORY_BY_LABEL.get(categoryLabel)?.sortOrder ?? UNCATEGORIZED_SORT_ORDER;
@@ -344,18 +324,12 @@ export function storageKindForCategory(categoryLabel: string | null): StorageKin
   return CATEGORY_BY_LABEL.get(categoryLabel)?.storageKind ?? 'pantry';
 }
 
-/** Wiedererkennungsfarbe einer Kategorie, `null` bei "Sonstiges"/unbekannt. */
 export function colorForCategory(categoryLabel: string | null): string | null {
   if (!categoryLabel) return null;
   return CATEGORY_BY_LABEL.get(categoryLabel)?.color ?? null;
 }
 
-/**
- * Eindeutige Wiedererkennungsfarben der übergebenen Kategorien, dedupliziert
- * und nach Laufstrecken-Reihenfolge sortiert (Übersichtskarte "Alle
- * Listen" — Kategorievorschau je Markt, s. `store-summary-card.tsx`).
- * Unkategorisierte Einträge (`null`) tragen keine Farbe und werden ignoriert.
- */
+/** Dedupliziert Farben und sortiert sie nach Laufstrecke; `null` wird ignoriert. */
 export function distinctCategoryColors(categoryLabels: readonly (string | null)[]): string[] {
   const seenIds = new Set<string>();
   const matches: { color: string; sortOrder: number }[] = [];
@@ -370,12 +344,7 @@ export function distinctCategoryColors(categoryLabels: readonly (string | null)[
   return matches.sort((a, b) => a.sortOrder - b.sortOrder).map((m) => m.color);
 }
 
-/**
- * Marktspezifische Laufstrecke — vom Nutzer per Drag&Drop sortierte
- * Kategorie-IDs, kommagetrennt in `stores.category_order` gespeichert (kein
- * Array-/JSON-Spaltentyp noetig, damit Push/Pull die Spalte wie jede andere
- * Textspalte behandeln). Leer/NULL bedeutet: Standardreihenfolge.
- */
+/** Liest kommagetrennte Kategorie-IDs; leer bedeutet Standardreihenfolge. */
 export function parseCategoryOrder(raw: string | null | undefined): string[] {
   if (!raw) return [];
   return raw.split(',').filter(Boolean);
@@ -385,12 +354,7 @@ export function serializeCategoryOrder(ids: readonly string[]): string {
   return ids.join(',');
 }
 
-/**
- * Sortierrang einer Kategorie unter Beruecksichtigung einer optionalen,
- * marktspezifischen Laufstrecke. Kategorien, die der Nutzer nicht
- * einsortiert hat, laufen hinter den custom-sortierten, in ihrer
- * Standardreihenfolge.
- */
+/** Nicht einsortierte Kategorien folgen der marktspezifischen Reihenfolge im Standardrang. */
 export function effectiveSortOrder(
   categoryLabel: string | null,
   customOrderIds: readonly string[] | null | undefined,
@@ -407,16 +371,8 @@ export function effectiveSortOrder(
 }
 
 /**
- * Ab dieser Laenge matcht ein Keyword als freier Substring (erwuenscht fuer
- * deutsche Komposita wie "tiefkühl" in "Tiefkühlpizza"). Kuerzere Keywords
- * wie "ei" oder "öl" matchen sonst faelschlich in "Eis", "Teig", "Seife"
- * oder "Eimer" — die brauchen ein echtes Ganzwort-Match.
- *
- * Kein `\b`/`\w`-Regex dafuer: JavaScripts `\w` kennt nur `[A-Za-z0-9_]`,
- * Umlaute zaehlen NICHT als Wortzeichen. `/\böl\b/` matcht deshalb ueberall
- * dort, wo vor einem "öl" ein Buchstabe steht ("sonnenblumenöl" trifft, weil
- * die Engine "ö" selbst schon als Wortgrenze liest) — das Gegenteil von dem,
- * was Wortgrenzen leisten sollen. Stattdessen eine explizite Zeichenklasse.
+ * Kurze Keywords brauchen ein Ganzwort-Match, lange duerfen deutsche Komposita treffen.
+ * Die explizite Zeichenklasse ist noetig, weil JavaScripts `\w` keine Umlaute kennt.
  */
 const SUBSTRING_MIN_LENGTH = 4;
 const WORD_CHAR = /[a-z0-9äöüß]/i;
@@ -425,7 +381,6 @@ function isWordChar(char: string | undefined): boolean {
   return char !== undefined && WORD_CHAR.test(char);
 }
 
-/** Ob `keyword` in `haystack` als eigenstaendiges Wort vorkommt (nicht als Teil eines anderen Worts). */
 function containsWholeWord(haystack: string, keyword: string): boolean {
   let fromIndex = 0;
   while (true) {
@@ -450,13 +405,7 @@ const CATEGORY_MATCHERS: readonly CategoryMatcher[] = SHOPPING_CATEGORIES.map((c
   shortKeywords: category.keywords.filter((k) => k.length < SUBSTRING_MIN_LENGTH),
 }));
 
-/**
- * Errät die Kategorie aus dem Artikelnamen per Stichwort-Suche (Tipp #3 aus
- * der Laufstrecken-Notiz — dort fuer Open-Food-Facts-Tags gedacht, hier ohne
- * Produkt-Anbindung auf den freien Namen angewendet). Liefert `null`, wenn
- * kein Stichwort passt — der Aufrufer entscheidet dann selbst (z.B.
- * "Sonstiges" belassen), rein informativ, keine Garantie.
- */
+/** Errät eine Kategorie per Stichwortsuche und liefert ohne Treffer `null`. */
 export function guessCategory(name: string): string | null {
   const normalized = name.trim().toLowerCase();
   if (!normalized) return null;

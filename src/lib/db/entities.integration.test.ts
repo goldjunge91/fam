@@ -3,14 +3,6 @@ import { MIGRATIONS } from '@/lib/db/migrations';
 import { runMigrations } from '@/lib/db/migrator';
 import { createTestDatabase, type TestDatabase } from '../../../test/node-sqlite-adapter';
 
-/**
- * Prueft `entities.ts`s Spaltenlisten gegen das echte migrierte Schema.
- *
- * Reine Unit-Tests koennten das nicht pruefen — hier laesst sich Drift
- * zwischen `migrations.ts` und `entities.ts` tatsaechlich beobachten, statt
- * behauptet zu werden.
- */
-
 type ColumnInfo = { name: string };
 
 async function columnNamesOf(db: TestDatabase, table: string): Promise<string[]> {
@@ -51,8 +43,6 @@ describe('entities.ts gegen das echte migrierte Schema', () => {
     },
   );
 
-  // 'households' ist bewusst nicht in ALL_ENTITIES (siehe Kommentar dort) —
-  // deshalb hier ein eigener Test statt eines it.each-Eintrags.
   it('households: jede Spalte aus entities.ts existiert wirklich, keine unbekannte Nicht-Sync-Spalte', async () => {
     const meta = ENTITIES.households;
     const realColumns = await columnNamesOf(db, meta.table);

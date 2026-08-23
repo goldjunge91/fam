@@ -9,7 +9,6 @@ type CompactActionButtonProps = {
   expanded?: boolean;
 };
 
-/** Vollbreite 34-Punkt-Aktion für kompakte Menüs und Bottom Sheets. */
 export function CompactActionButton({
   label,
   onPress,

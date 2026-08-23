@@ -5,10 +5,7 @@ import { MissingIngredientsScreen } from './missing-ingredients-screen';
 
 const mockAddMutateAsync = jest.fn().mockResolvedValue(undefined);
 
-// Stabile Objektidentitaet noetig: `AutoBackButton` (Screen) haengt seinen
-// Effekt an `[navigation]` - ein bei jedem Aufruf neu erzeugtes Objekt
-// (z. B. `() => ({...})`) triggert den Effekt jedes Mal erneut und damit
-// eine Endlosschleife aus setState-Aufrufen.
+// Stabile Navigation verhindert einen Effekt-Loop im AutoBackButton.
 const mockNavigation = { canGoBack: () => true, addListener: () => () => {} };
 
 jest.mock('expo-router', () => ({
@@ -40,10 +37,7 @@ jest.mock('@/features/premium/paywall', () => ({
   presentPaywallIfNeeded: () => mockPresentPaywallIfNeeded(),
 }));
 
-// Modulweite Konstante statt Array-Literal im Mock: die Screen-Komponente
-// haengt einen Effekt an `missing` (praeselektiert alle Artikel). Ein bei
-// jedem Render neu erzeugtes Array-Literal aendert die Referenz staendig und
-// erzeugt dieselbe Endlosschleife wie eine instabile `useNavigation()`.
+// Stabile Mock-Daten verhindern einen Effekt-Loop bei der Vorauswahl.
 const mockMissingIngredients = [
   {
     productId: 'p1',

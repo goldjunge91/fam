@@ -24,9 +24,6 @@ describe('planMigrations', () => {
   });
 
   it('migriert nicht rueckwaerts, wenn die Datenbank neuer ist als der Code', () => {
-    // Kann nach einem Downgrade der App passieren. Wichtig ist, dass nichts
-    // laeuft — eine aeltere Migration erneut anzuwenden waere schlimmer als
-    // eine fehlende Spalte, weil sie Daten ueberschreiben koennte.
     expect(planMigrations(99, all)).toEqual([]);
   });
 

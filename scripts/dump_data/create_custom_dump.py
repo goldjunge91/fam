@@ -9,19 +9,13 @@ import urllib.request
 import os
 from datetime import datetime, timezone
 
-# Dynamische Pfade: standardmaessig im selben Ordner wie das Skript selbst,
-# ueberschreibbar per DUMP_DATA_DIR (z.B. externe Platte statt interner SSD —
-# der volle Export ist komprimiert ~12,7 GB, unkomprimiert beim Streamen
-# entsprechend mehr).
+# DUMP_DATA_DIR kann den großen Export auf eine externe Platte legen.
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 DATA_DIR = os.environ.get("DUMP_DATA_DIR", SCRIPT_DIR)
 LOCAL_GZ_FILE = os.path.join(DATA_DIR, "off_dump.jsonl.gz")
 OUTPUT_DB = os.path.join(DATA_DIR, "products_de.db")
 
-# Schnellerer JSON-Parser fuer die Hauptschleife (2-5x ggue. json.loads bei
-# diesem Datenvolumen). Faellt sauber auf die Standardbibliothek zurueck,
-# wenn orjson nicht installiert ist — funktional identisch (orjson.loads()
-# hat dieselbe Signatur, beide Fehlerklassen sind ValueError-Subklassen).
+# orjson beschleunigt den Export; json bleibt der kompatible Fallback.
 try:
     import orjson as _json_backend
     _JSON_BACKEND_NAME = "orjson"
@@ -31,30 +25,14 @@ except ImportError:
 
 OFF_DUMP_URL = "https://static.openfoodfacts.org/data/openfoodfacts-products.jsonl.gz"
 TARGET_COUNTRY_TAG = "en:germany"
-# Roh-Substring, wie der Tag als JSON-String in der Zeile auftaucht — fuer
-# den Vorfilter vor dem eigentlichen JSON-Parsing (siehe Hauptschleife).
+# Rohmarker für den günstigen Vorfilter vor dem JSON-Parsing.
 GERMANY_MARKER = f'"{TARGET_COUNTRY_TAG}"'
 
-# Schema 2 (#223 Paket 4) — alte Schema-1-Dumps werden gelöscht, nicht
-# migriert. Siehe openfoodfacts.sql für die dokumentierte Referenz.
 SCHEMA_VERSION = 2
 
 
 def extract_nutrient(item, key):
-    """Liest einen Naehrwert je 100g/100ml aus einem OFF-Produkt.
-
-    Bug-Fix (#Rezept-Vorlagen): Der bisherige Code las ausschliesslich den
-    `<feld>_100g`-Schluessel. Viele OFF-Eintraege fuehren denselben Wert aber
-    nur unter dem Basis-Schluessel (`<feld>`, ohne Suffix) oder ausschliesslich
-    als `<feld>_serving` + `serving_quantity` (Gramm/ml pro Portion). Ohne
-    Fallback blieb der Grossteil der Zeilen leer (siehe Recherche-Notiz unten:
-    von rund 405.000 deutschen Zeilen im zuletzt veroeffentlichten Dump hatten
-    nur 88 vollstaendige Kern-Naehrwerte).
-
-    Reihenfolge: `<feld>_100g` -> `<feld>` (viele Beitraege melden implizit
-    pro 100g/ml ohne Suffix) -> aus `<feld>_serving` + `serving_quantity`
-    hochgerechnet.
-    """
+    """Liest 100-g-Werte direkt, implizit oder aus Portionswerten hochgerechnet."""
     nutriments = item.get("nutriments") or {}
 
     for suffix in ("_100g", ""):
@@ -77,9 +55,7 @@ def extract_nutrient(item, key):
         except (TypeError, ValueError):
             pass
 
-    # Sonderfall Energie: sehr viele Eintraege fuehren nur "energy" (kJ) statt
-    # "energy-kcal", weil kJ die EU-Pflichtangabe ist und kcal optional dazu
-    # kommt. 1 kcal = 4.184 kJ.
+    # OFF liefert Energie häufig nur in kJ.
     if key == "energy-kcal":
         kj = extract_nutrient(item, "energy")
         if kj is not None:
@@ -89,36 +65,19 @@ def extract_nutrient(item, key):
 
 
 def extract_category_tags(item):
-    """Kanonische `categories_tags` unveraendert uebernehmen (#223 Paket 4).
-
-    Nur String-Eintraege (OFF liefert vereinzelt kaputte/nicht-String-Werte),
-    als JSON-Array-Text fuer SQLite serialisiert. Deckt sich mit dem
-    TS-seitigen Parser in formatOFFProduct() (src/lib/open-food-facts.ts) —
-    "jeder Mapperpfad liefert dieselben Daten wie die Live-Suche".
-    """
+    """Serialisiert nur gültige kanonische Kategorien als JSON-Array."""
     raw_tags = item.get("categories_tags") or []
     tags = [tag for tag in raw_tags if isinstance(tag, str)]
     return json.dumps(tags)
 
 
 def to_iso_millis(dt):
-    """Formatiert `dt` byte-identisch zu JS' `toISOString()` — siehe
-    `extract_last_modified_at` fuer die Begruendung."""
+    """Formatiert Zeitstempel byte-identisch zu JS `toISOString()`."""
     return dt.strftime("%Y-%m-%dT%H:%M:%S.") + f"{dt.microsecond // 1000:03d}Z"
 
 
 def extract_last_modified_at(item):
-    """`last_modified_t` (Unix-Sekunden) in einen ISO-8601-Zeitstempel
-    umwandeln, deckungsgleich mit dem TS-seitigen Parser (`new
-    Date(t * 1000).toISOString()` in src/lib/open-food-facts.ts).
-
-    Format muss BYTE-IDENTISCH zu JS' toISOString() sein (Millisekunden immer
-    dreistellig, z.B. "...20.000Z") — sonst sortieren Live- (JS) und
-    Dump-Werte (Python) fuer denselben Zeitpunkt lexikografisch
-    unterschiedlich, und die "nur bei neuerem off_last_modified_at
-    aktualisieren"-Logik der vertrauenswuerdigen Anreicherung (#223 Paket 10)
-    faellt falsch aus.
-    """
+    """Konvertiert OFF-Zeitstempel in lexikografisch vergleichbares ISO-Format."""
     raw = item.get("last_modified_t")
     if raw is None:
         return None
@@ -146,9 +105,7 @@ def _format_seconds(seconds):
 
 
 def _download_progress_hook(start_time):
-    """`reporthook` für `urlretrieve` — ohne das gibt es waehrend des
-    ~12-13-GB-Downloads keinerlei Lebenszeichen im Terminal. Aktualisiert
-    hoechstens 2x/Sekunde (sonst spammt das bei kleinen Blockgroessen)."""
+    """Begrenzt die Download-Fortschrittsanzeige auf zwei Updates pro Sekunde."""
     last_print_at = [0.0]
 
     def hook(block_num, block_size, total_size):
@@ -188,10 +145,7 @@ MAX_DOWNLOAD_ATTEMPTS = 3
 
 
 def _expected_content_length(url):
-    """HEAD-Request fuer die erwartete Groesse — ohne echten Download.
-    `urlopen` folgt dem 302-Redirect (static.openfoodfacts.org -> S3)
-    automatisch. `None`, wenn der Server keine Content-Length liefert
-    (dann bleibt nur die Gzip-Pruefung als Absicherung)."""
+    """Liest die erwartete Dateigröße, sofern der Server sie liefert."""
     req = urllib.request.Request(url, method="HEAD")
     try:
         with urllib.request.urlopen(req) as response:
@@ -202,17 +156,7 @@ def _expected_content_length(url):
 
 
 def download_dump():
-    """Laedt den vollen OFF-Export mit expliziter Vollstaendigkeitspruefung.
-
-    `urlretrieve()` allein reicht nicht: Es soll zwar bei einer zu kurzen
-    Antwort `ContentTooShortError` werfen, tat das hier aber nicht — der
-    erste Lauf brach bei 8,73 von 11,85 GB fehlerfrei "erfolgreich" ab und
-    crashte erst zwei Minuten spaeter beim Parsen mit einem rohen
-    `EOFError` ("Compressed file ended before the end-of-stream marker").
-    Deshalb hier eine eigene, explizite Groessenpruefung nach dem Download
-    (und beim Wiederverwenden einer schon vorhandenen Datei) statt uns auf
-    urlretrieve()s interne Pruefung zu verlassen — mit automatischem Retry.
-    """
+    """Lädt den Export mit eigener Größenprüfung und Wiederholungsversuchen."""
     expected_size = _expected_content_length(OFF_DUMP_URL)
 
     if os.path.exists(LOCAL_GZ_FILE):
@@ -261,8 +205,7 @@ def download_dump():
 
 
 def quick_check(db_path):
-    """`PRAGMA quick_check` vor Veröffentlichung (#223 Paket 4) — eine
-    beschädigte Datei darf nie als Release-Asset landen."""
+    """Prüft die SQLite-Datei vor der Veröffentlichung."""
     conn = sqlite3.connect(db_path)
     try:
         result = conn.execute("PRAGMA quick_check;").fetchone()
@@ -272,7 +215,6 @@ def quick_check(db_path):
 
 
 def process_and_create_sqlite():
-    # Falls alte DB existiert, vorher löschen für sauberen Neuaufbau
     if os.path.exists(OUTPUT_DB):
         os.remove(OUTPUT_DB)
 
@@ -280,11 +222,9 @@ def process_and_create_sqlite():
     conn = sqlite3.connect(OUTPUT_DB)
     cursor = conn.cursor()
 
-    # SQLite Performance-Pragmas
     cursor.execute("PRAGMA synchronous = OFF;")
     cursor.execute("PRAGMA journal_mode = MEMORY;")
 
-    # Tabellen anlegen (Indexe erstellen wir erst GANZ AM ENDE!)
     cursor.execute("""
         CREATE TABLE products (
             code TEXT PRIMARY KEY,
@@ -323,12 +263,7 @@ def process_and_create_sqlite():
     parse_start = time.time()
     total_gz_size = os.path.getsize(LOCAL_GZ_FILE)
 
-    # Rohdatei selbst offen halten (statt gzip.open() direkt), damit wir per
-    # raw_file.tell() wissen, wie viele komprimierte Bytes schon gelesen
-    # wurden — daraus lässt sich ein echter Fortschritt (%) und eine ETA für
-    # die Verarbeitungsphase schätzen (Kompressionsrate ist über den Stream
-    # hinweg näherungsweise konstant, also ist der Bytes-Anteil ein guter
-    # Näherungswert für den Zeilen-Anteil).
+    # Der komprimierte Lesefortschritt dient als ETA-Näherung.
     try:
         with open(LOCAL_GZ_FILE, 'rb') as raw_file:
             with gzip.GzipFile(fileobj=raw_file) as gz:
@@ -347,14 +282,7 @@ def process_and_create_sqlite():
                             f" — {inserted:,} DE-Produkte gespeichert"
                         )
 
-                    # 0. Billiger Vorfilter OHNE JSON-Parsing: taucht der Ländermarker
-                    #    nicht mal als Roh-Substring in der Zeile auf, kann
-                    #    countries_tags ihn erst recht nicht enthalten — die
-                    #    allermeisten Zeilen (nicht-deutsche Produkte) werden so
-                    #    verworfen, ohne je geparst zu werden. Reiner
-                    #    Fast-Reject: ein (seltener) falscher Treffer landet
-                    #    einfach normal im echten Check unten, keine
-                    #    Korrektheitsauswirkung.
+                    # Verwirft offensichtliche Nicht-DE-Zeilen vor dem JSON-Parsing.
                     if GERMANY_MARKER not in line:
                         continue
 
@@ -363,37 +291,30 @@ def process_and_create_sqlite():
                     except ValueError:
                         continue
 
-                    # 1. Länder-Filter: Nur Produkte, die in Deutschland verkauft werden
                     countries = item.get("countries_tags", [])
                     if TARGET_COUNTRY_TAG not in countries:
                         continue
 
-                    # 2. Relevante Felder extrahieren
                     code = item.get("code")
                     if not code:
                         continue
 
-                    # Produktname (bevorzugt Deutsch, sonst Standard)
                     product_name = item.get("product_name_de") or item.get("product_name") or ""
                     if not product_name.strip():
-                        continue # Ohne Namen macht ein Eintrag auf der Einkaufsliste keinen Sinn
+                        continue
 
                     brand = item.get("brands", "")
                     quantity = item.get("quantity", "")
 
-                    # Läden (Stores)
                     stores = item.get("stores", "")
 
-                    # Nutriscore
                     nutriscore = item.get("nutriscore_grade", "").lower()
 
-                    # OFF-Kategorie-Taxonomie (#223 Paket 4)
                     categories_tags_json = extract_category_tags(item)
                     off_last_modified_at = extract_last_modified_at(item)
                     if categories_tags_json != "[]":
                         with_categories += 1
 
-                    # Nährwerte (per 100g/100ml), mit Fallback-Kette (siehe extract_nutrient)
                     energy_kcal = extract_nutrient(item, "energy-kcal")
                     fat = extract_nutrient(item, "fat")
                     saturated_fat = extract_nutrient(item, "saturated-fat")
@@ -411,27 +332,21 @@ def process_and_create_sqlite():
                         energy_kcal, fat, saturated_fat, carbohydrates, sugars, proteins, salt
                     ))
 
-                    # In Tausender-Blöcken in SQLite schreiben (Batching für maximale Geschwindigkeit)
                     if len(batch) >= 5000:
                         cursor.executemany("""
                             INSERT OR REPLACE INTO products VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
                         """, batch)
                         batch = []
                         inserted += 5000
-                        # Zwischen-Commit statt nur ganz am Ende: bei einem Absturz
-                        # (z.B. beschädigter Download, siehe except EOFError unten)
-                        # geht so nur der letzte angefangene Batch verloren, nicht
-                        # die komplette bisherige Arbeit.
+                        # Begrenzt den Datenverlust bei einem beschädigten Download.
                         conn.commit()
 
-                # Restliche Daten schreiben
                 if batch:
                     cursor.executemany("""
                         INSERT OR REPLACE INTO products VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
                     """, batch)
                     inserted += len(batch)
                     conn.commit()
-    # except EOFError as err:
     except (EOFError, gzip.BadGzipFile, OSError) as err:
         conn.commit()
         conn.close()
@@ -451,7 +366,7 @@ def process_and_create_sqlite():
     )
     conn.commit()
 
-    # Indexe ERST JETZT erstellen (spart extrem viel Zeit!)
+    # Indexe nach dem Import vermeiden laufende Aktualisierungskosten.
     print("Erstelle Indexe für die Suchfunktion...")
     cursor.execute("CREATE INDEX idx_product_name ON products(product_name);")
     cursor.execute("CREATE INDEX idx_brand ON products(brand);")
@@ -479,7 +394,6 @@ if __name__ == "__main__":
     download_dump()
     process_and_create_sqlite()
 
-    # Aufräumen: Temporären Dump nach der Verarbeitung löschen
     if os.path.exists(LOCAL_GZ_FILE):
         print("Lösche temporären Dump...")
         os.remove(LOCAL_GZ_FILE)

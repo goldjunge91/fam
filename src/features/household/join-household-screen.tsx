@@ -17,9 +17,7 @@ export function JoinHouseholdScreen() {
   const redeemMutation = useRedeemInviteMutation();
 
   useEffect(() => {
-    // Nicht-destruktiv lesen (#128): Bricht der Nutzer hier ab, ohne
-    // "Beitreten" zu tippen, bleibt der Token fuer einen spaeteren Versuch
-    // erhalten statt beim blossen Anzeigen des Screens verloren zu gehen.
+    // Erst nach erfolgreichem Beitritt darf der gespeicherte Token verschwinden.
     if (!params.token) {
       peekPendingInviteToken().then((pending) => {
         if (pending) {
@@ -56,10 +54,8 @@ export function JoinHouseholdScreen() {
       subtitle="Mit Einladungs-Code oder Link"
       back={{ label: 'Haushalte' }}
       backStyle="icon">
-      {/* Eingabe-Formular für den Einladungs-Code / Token */}
       <Card title="Einlösung">
         <View className="gap-three">
-          {/* Eingabefeld für Einladungs-Token */}
           <TextField
             label="Einladungs-Code / Token"
             placeholder="z. B. 123e4567-e89b-12d3-a456-426614174000"
@@ -69,10 +65,8 @@ export function JoinHouseholdScreen() {
             autoCorrect={false}
           />
 
-          {/* Fehleranzeige bei ungültigem / abgelaufenem Code */}
           {errorMsg ? <ThemedText type="smallDanger">{errorMsg}</ThemedText> : null}
 
-          {/* Beitreten-Aktionsbutton */}
           <Button
             label="Haushalt beitreten"
             onPress={handleJoin}
@@ -82,7 +76,6 @@ export function JoinHouseholdScreen() {
         </View>
       </Card>
 
-      {/* Abbrechen-Button (sofern Historie vorhanden) */}
       {router.canGoBack() && (
         <Button label="Abbrechen" variant="secondary" onPress={() => router.back()} />
       )}

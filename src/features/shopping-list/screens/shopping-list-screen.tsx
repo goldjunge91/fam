@@ -37,17 +37,7 @@ import { CategoryOrderSheet } from '../sheets/category-order-sheet';
 import { CompleteRunSheet, type TransferItem } from '../sheets/complete-run-sheet';
 import { ShoppingModeScreen } from './shopping-mode-screen';
 
-/**
- * Gemeinsame Einkaufsliste (#85/#86), markt-gruppiert.
- *
- * "Alle Listen": eine Karte je Markt mit Fortschritt + geschätzter Summe.
- * Markt antippen (Karte oder Chip) filtert auf die bekannte kategorisierte
- * Checkliste dieses Markts, mit markt-farbigem "Einkauf abschließen"-Button.
- *
- * Die Marktansicht rendert als eigene, wirklich virtualisierte SectionList
- * statt einer nicht-scrollenden Liste innerhalb eines ScrollView — sonst
- * werden bei langen Listen alle Zeilen sofort gemountet.
- */
+/** Die Marktansicht bleibt als eigene SectionList auch bei langen Listen virtualisiert. */
 export function ShoppingListScreen() {
   const params = useLocalSearchParams<{ action?: string }>();
   const [addModalOpen, setAddModalOpen] = useState(false);
@@ -67,9 +57,7 @@ export function ShoppingListScreen() {
   const initials = useProfileInitials();
   const insets = useSafeAreaInsets();
 
-  // Beim Wechsel des Markt-Filters (Karte oder Chip antippen) an den Anfang
-  // scrollen, damit die Tab-Leiste und der Anfang der gefilterten Liste
-  // sofort sichtbar sind, statt an der bisherigen Scroll-Position zu bleiben.
+  // Jeder Filter beginnt am Listenanfang statt an der Position des vorherigen Markts.
   useEffect(() => {
     if (storeFilter === ALL_FILTER) {
       scrollRef.current?.scrollTo({ y: 0, animated: true });
@@ -78,10 +66,7 @@ export function ShoppingListScreen() {
     }
   }, [storeFilter]);
 
-  // ?action=add (#150, globaler Plus-Button -> Schnellauswahl "Einkaufsartikel").
-  // Als Effekt statt Initialwert: navigiert man von hier aus erneut auf
-  // /shopping-list?action=add, bleibt der Screen gemountet — nur ein neuer
-  // Parameter-Wert loest das Oeffnen dann zuverlaessig aus.
+  // Der Screen bleibt gemountet; deshalb muss jede neue action den Dialog erneut oeffnen.
   useEffect(() => {
     if (params.action === 'add') setAddModalOpen(true);
   }, [params.action]);
@@ -225,9 +210,7 @@ export function ShoppingListScreen() {
     );
   };
 
-  /* Einstieg in den Einkaufsmodus — bewusst unten im Footer statt oben im
-     Header, damit er dem Nutzer nicht im Weg steht, waehrend er die Liste
-     noch zusammenstellt (Feedback: "einkaufsmodus starten soll nach unten"). */
+  // Im Footer stoert der Einkaufsmodus nicht beim Zusammenstellen der Liste.
   const renderShoppingModeButton = () => {
     if (!activeStore) return null;
     return (
@@ -246,7 +229,6 @@ export function ShoppingListScreen() {
   return (
     <Screen title="Einkaufsliste" scroll={false} chrome={chrome} backgroundGradient={hubGradient}>
       {isLoading ? null : allItems.length === 0 ? (
-        /* Leerzustand wenn keine Artikel auf der Einkaufsliste stehen */
         <ScrollView
           className="flex-1"
           contentContainerClassName="gap-three"
@@ -261,7 +243,6 @@ export function ShoppingListScreen() {
           </Card>
         </ScrollView>
       ) : isAllFilter ? (
-        /* Gesamtübersicht: Zusammenfassung aller Märkte & Gesamtschätzung */
         <ScrollView
           ref={scrollRef}
           className="flex-1"
@@ -270,7 +251,6 @@ export function ShoppingListScreen() {
           contentContainerStyle={listContentPadding}>
           {renderHeader()}
           <View className="gap-three pt-two">
-            {/* Übersichtszeilen pro Markt (Anzahl, abgehakt, offene Kategorien, Preisschätzung) */}
             {storeAggregates.map(
               ({
                 store,
@@ -292,7 +272,6 @@ export function ShoppingListScreen() {
               ),
             )}
 
-            {/* Übersichtszeile für Artikel ohne Marktzuordnung */}
             {unassignedItems.length > 0 && (
               <StoreSummaryCard
                 name="Ohne Markt"
@@ -307,7 +286,6 @@ export function ShoppingListScreen() {
               />
             )}
 
-            {/* Gesamtkosten-Schätzung über alle Märkte */}
             <TotalEstimateCard
               totalEstimate={totalEstimate}
               itemCount={allItems.length}
@@ -317,7 +295,6 @@ export function ShoppingListScreen() {
           {renderCompleteButton()}
         </ScrollView>
       ) : (
-        /* Marktspezifische Checkliste, nach Kategorien sortiert */
         <SectionList
           ref={sectionListRef}
           className="flex-1"
@@ -328,7 +305,6 @@ export function ShoppingListScreen() {
           ListHeaderComponent={
             <>
               {renderHeader()}
-              {/* Option zum Anpassen der Laufweg- / Kategorienreihenfolge */}
               {activeStore && (
                 <Button
                   variant="link"
@@ -346,11 +322,6 @@ export function ShoppingListScreen() {
             </>
           }
           renderSectionHeader={({ section }) => {
-            /* Kategorie-Titel (z. B. Obst & Gemüse, Kühlung) — nur ein
-               kleiner Farbpunkt zur Wiedererkennung, kein farbiges Band.
-               Zurückhaltender als vorher: viele Kategorien nebeneinander
-               mit vollem Farbband wirkten zu bunt und ließen den
-               Abgehakt-Zustand (Accent-Farbe der Checkbox) untergehen. */
             const color = colorForCategory(section.title) ?? theme.textSecondary;
             return (
               <View className="flex-row items-center gap-[6px] px-three pt-three pb-one">
@@ -365,8 +336,6 @@ export function ShoppingListScreen() {
             );
           }}
           renderItem={({ item }) => (
-            /* Einzelne Einkaufsartikel-Zeile — Status-Anzeige, antippen
-               öffnet Bearbeiten. Abhaken passiert nur im Einkaufsmodus. */
             <ShoppingItemRow
               item={item}
               onDelete={() => handleDeletePress(item)}
@@ -377,7 +346,6 @@ export function ShoppingListScreen() {
         />
       )}
 
-      {/* Modal zum Hinzufügen neuer Einkaufsartikel */}
       <AddItemModal
         visible={addModalOpen}
         householdId={householdId}
@@ -385,7 +353,6 @@ export function ShoppingListScreen() {
         onDismiss={() => setAddModalOpen(false)}
       />
 
-      {/* Bottom Sheet zum Abschließen des Einkaufs (Übertrag in Vorrat) */}
       <CompleteRunSheet
         isOpen={sheetOpen}
         checkedItems={checkedItems}
@@ -393,17 +360,14 @@ export function ShoppingListScreen() {
         onClose={() => setSheetOpen(false)}
       />
 
-      {/* Bottom Sheet zum Konfigurieren der Kategorien-Reihenfolge */}
       <CategoryOrderSheet
         isOpen={orderSheetOpen}
         store={activeStore}
         onClose={() => setOrderSheetOpen(false)}
       />
 
-      {/* Modal zum Bearbeiten eines bestehenden Einkaufsartikels */}
       <EditItemModal item={editingItem} onDismiss={() => setEditingItem(null)} />
 
-      {/* Vollbild-Einkaufsmodus fuer diesen Markt (nur Abhaken, kein Bearbeiten) */}
       {activeStore && (
         <ShoppingModeScreen
           visible={shoppingModeOpen}

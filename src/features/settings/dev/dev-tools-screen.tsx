@@ -36,25 +36,7 @@ function formatBytes(bytes: number): string {
   return `${(bytes / 1024 / 1024).toFixed(1)} MB`;
 }
 
-/**
- * Entwickler-Bereich, sichtbar nur mit `EXPO_PUBLIC_DEV_TOOLS=true`.
- *
- * Die Auswahl ist nicht "alles, was geht", sondern das, wonach man beim
- * Nachstellen eines Fehlers zuerst sucht und was die App sonst nirgends
- * verraet:
- *
- * - **gegen welches Supabase-Projekt** dieser Build laeuft (lokal oder echt),
- * - **wie lange die Session noch gilt** — die Erklaerung fuer viele
- *   "auf einmal geht nichts mehr"-Momente,
- * - **ob die lokale Datenbank zum angemeldeten Nutzer gehoert** — die
- *   Abweichung, die das Cross-Account-Datenleck ausgemacht hat,
- * - **Migrationsstand und Zeilenzahlen**, um "kommt gar nichts an" von
- *   "kommt an, wird aber nicht angezeigt" zu unterscheiden.
- *
- * Die rohen Outbox- und Tabelleninhalte stehen weiterhin in der Sync-Diagnose;
- * von hier fuehrt nur ein Verweis dorthin, damit es die Ansicht nicht zweimal
- * gibt.
- */
+/** Zeigt kompakte Laufzeit-, Session-, DB- und Sync-Diagnosen fuer Entwickler. */
 
 type DbSnapshot = {
   userVersion: number;
@@ -92,10 +74,6 @@ export function DevToolsScreen() {
   const queryClient = useQueryClient();
   const { activeHousehold } = useActiveHousehold();
   const { isPremium, isForced } = usePremium();
-  // Boolean-Flag "test-feature" im PostHog-Dashboard anlegen und umschalten,
-  // um die Integration End-to-End zu testen — siehe README "Feature Flags
-  // (PostHog)". defaultValue=false greift ohne Key oder ohne je geladenen
-  // Wert.
   const testFeatureFlag = useFeatureFlag('test-feature', false);
 
   const [snapshot, setSnapshot] = useState<DbSnapshot | null>(null);
@@ -120,8 +98,7 @@ export function DevToolsScreen() {
       setSnapshot({
         userVersion: version?.user_version ?? 0,
         storedUserId: owner?.value ?? null,
-        // Schwelle aus `backoff.ts`, nicht hartcodiert: Sonst zeigt dieser
-        // Bereich irgendwann andere Zahlen als das Sync-Banner.
+        // Teilt die Backoff-Schwelle mit dem Sync-Banner.
         pending: await zahl('select count(*) as c from outbox where attempts < ?', [MAX_ATTEMPTS]),
         failed: await zahl('select count(*) as c from outbox where attempts >= ?', [MAX_ATTEMPTS]),
         fridgeItems: await zahl('select count(*) as c from fridge_items'),
@@ -184,7 +161,6 @@ export function DevToolsScreen() {
       subtitle="Nur sichtbar mit EXPO_PUBLIC_DEV_TOOLS"
       back={{ label: 'Einstellungen', href: '/settings' }}
       backStyle="icon">
-      {/* Umgebungsinformationen (Supabase-URL, API-Key, Build-Typ, App-Version, Premium-Status) */}
       <Card title="Umgebung">
         <Zeile label="Supabase" wert={ziel.label} tone={ziel.tone} />
         <Zeile label="URL" wert={env.supabaseUrl} />
@@ -212,7 +188,6 @@ export function DevToolsScreen() {
         />
       </Card>
 
-      {/* Session-Details (Nutzer-ID, Token-Gültigkeit, aktiver Haushalt) */}
       <Card title="Session">
         <Zeile label="Nutzer-ID" wert={session?.user.id ?? '—'} />
         <Zeile label="E-Mail" wert={session?.user.email ?? '—'} />
@@ -225,7 +200,6 @@ export function DevToolsScreen() {
         <Zeile label="Haushalts-ID" wert={activeHousehold?.id ?? '—'} />
       </Card>
 
-      {/* Lokale SQLite-Datenbank (Schema-Version, Tabellenzähler, Outbox) */}
       <Card title="Lokale Datenbank">
         {dbError ? (
           <ThemedText type="small" themeColor="danger">
@@ -256,7 +230,6 @@ export function DevToolsScreen() {
         </View>
       </Card>
 
-      {/* Lokaler OpenFoodFacts-Offline-Dump Status */}
       <Card title="OpenFoodFacts-Dump">
         <Zeile
           label="Heruntergeladen"
@@ -287,7 +260,6 @@ export function DevToolsScreen() {
         </View>
       </Card>
 
-      {/* Diagnose- & Test-Aktionen (Sentry, Push, EAS Observe, Paywall, DB-Wipe) */}
       <Card title="Aktionen">
         <View className="action-stack">
           <Button

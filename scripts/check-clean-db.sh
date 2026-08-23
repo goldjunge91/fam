@@ -1,20 +1,7 @@
 #!/usr/bin/env bash
 #
-# check-clean-db.sh — schuetzt die pgTAP-Suite vor Datenverschmutzung aus
-# manueller App-Nutzung gegen dieselbe lokale Supabase-Instanz.
-#
-# `begin`/`rollback` in den Testdateien isoliert nur Schreibzugriffe
-# INNERHALB der eigenen Transaktion. Bereits committete Zeilen — etwa aus
-# einer Simulator-Session gegen 127.0.0.1:54321 waehrend der Entwicklung —
-# sehen die Tests trotzdem, und zaehlen sie mit. supabase/seed.sql seedet
-# feste Referenzdaten (Produkte, Rezeptvorlagen); diese Tabellen sind von der
-# Pruefung ausgenommen (siehe check-clean-db.sql). Jede andere Tabelle muss
-# nach einem Reset leer sein; jede Zeile davor ist Symptom statt Fixture.
-#
-# Erstmals aufgefallen im August 2026: 05_products.test.sql zaehlte
-# ploetzlich 7 statt der erwarteten 2 Produkte, eine spaetere Assertion warf
-# sogar "more than one row returned by a subquery" — beides Folgen liegen
-# gebliebener manueller Testdaten, kein Bug im Schema.
+# Schuetzt pgTAP vor committierten Daten aus manueller App-Nutzung.
+# Seed-Tabellen sind in `check-clean-db.sql` ausgenommen.
 #
 #   bash scripts/check-clean-db.sh               meldet + setzt bei Befund zurueck
 #   bash scripts/check-clean-db.sh --check-only   meldet nur, Exit-Code 1 bei Befund
@@ -26,7 +13,6 @@ SQL="$DIR/check-clean-db.sql"
 CHECK_ONLY=false
 [ "${1:-}" = "--check-only" ] && CHECK_ONLY=true
 
-# Container-Name folgt dem Projektnamen aus config.toml (wie check-privileges.sh).
 CONTAINER="$(docker ps --filter "name=supabase_db_" --format '{{.Names}}' | head -1)"
 if [ -z "$CONTAINER" ]; then
   echo "Keine laufende lokale Supabase-Instanz gefunden (supabase start)." >&2

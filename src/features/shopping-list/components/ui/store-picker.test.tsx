@@ -70,8 +70,7 @@ describe('StorePicker Components', () => {
       },
     });
     return (
-      // Ohne initialMetrics rendert SafeAreaProvider seine Children nicht,
-      // solange kein natives Layout-Event eintrifft — passiert in Tests nie.
+      // Tests liefern kein natives Layout-Event fuer den Safe-Area-Provider.
       <SafeAreaProvider
         initialMetrics={{
           frame: { x: 0, y: 0, width: 390, height: 844 },

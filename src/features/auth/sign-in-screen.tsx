@@ -43,10 +43,8 @@ export function SignInScreen() {
   return (
     <Screen title="Anmelden" subtitle="Schön, dass du wieder da bist">
       <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : undefined}>
-        {/* Haupt-Anmeldeformular */}
         <Card>
           <View className="gap-three">
-            {/* E-Mail Eingabefeld */}
             <TextField
               testID="sign-in-email"
               label="E-Mail"
@@ -60,7 +58,6 @@ export function SignInScreen() {
               inputMode="email"
             />
 
-            {/* Passwort Eingabefeld */}
             <TextField
               testID="sign-in-password"
               label="Passwort"
@@ -75,18 +72,14 @@ export function SignInScreen() {
               returnKeyType="go"
             />
 
-            {/* Fehlermeldung */}
             {formError ? <ThemedText type="smallDanger">{formError}</ThemedText> : null}
 
-            {/* Anmelde-Button */}
             <Button label="Anmelden" onPress={handleSubmit} loading={loading} />
 
-            {/* Trennlinie für Drittanbieter-Logins */}
             <View className="divider">
               <ThemedText type="smallMuted">oder anmelden mit</ThemedText>
             </View>
 
-            {/* OAuth Buttons (Apple & Google) */}
             <Button
               label="  Mit Apple anmelden"
               variant="secondary"
@@ -107,7 +100,6 @@ export function SignInScreen() {
           </View>
         </Card>
 
-        {/* Links zu Registrierung & Passwort vergessen */}
         <View className="link-stack">
           <Link href="/sign-up" asChild>
             <ThemedText type="link">Noch kein Konto? Registrieren</ThemedText>

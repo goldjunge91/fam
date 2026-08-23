@@ -20,11 +20,6 @@ describe('entities', () => {
     ]);
   });
 
-  // `households` ist bewusst nicht in ALL_ENTITIES (siehe Kommentar dort) und
-  // taucht deshalb in der Schleife unten nie auf — steht in `expected` trotzdem
-  // mit drin, damit der Typ `Record<Entity, boolean>` vollstaendig bleibt und
-  // die Aussage "products UND households sind global" an einer Stelle sichtbar
-  // ist (die eigentliche Zusicherung dafuer steckt im Test weiter unten).
   it('hasServerTombstone ist nur bei products und households false', () => {
     const expected: Record<Entity, boolean> = {
       storage_locations: true,
@@ -98,8 +93,6 @@ describe('entities', () => {
     }
   });
 
-  // 'households' ist bewusst NICHT in ALL_ENTITIES (siehe Kommentar dort) —
-  // deshalb hier ein eigener, expliziter Test statt eines it.each-Eintrags.
   it('households ist wie products global (kein household_id, kein Tombstone)', () => {
     expect(hasServerTombstone('households')).toBe(false);
     expect(ENTITIES.households.householdScoped).toBe(false);

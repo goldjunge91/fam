@@ -3,11 +3,7 @@ import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import type { Database } from '@/lib/database.types';
 import { getSupabase } from '@/lib/supabase';
 
-/**
- * Modul-Aktivierung (#95). Dashboard und Einstellungen sind laut
- * `docs/VISION.md` bewusst nicht abwaehlbar und haben deshalb keinen Eintrag
- * hier — nur die fuenf Tabs, die `ModuleGate` tatsaechlich ausblenden kann.
- */
+/** Nur Tabs, die `ModuleGate` ausblenden kann; Dashboard und Einstellungen bleiben sichtbar. */
 export type ModulePreferences = {
   fridge: boolean;
   shoppingList: boolean;
@@ -103,11 +99,7 @@ export function useUpdateModulePreferencesMutation() {
   });
 }
 
-/**
- * Plain async statt Hook — fuer den Aufruf aus `completeOnboarding()`
- * (`onboarding-context.tsx`), das kein Component-Render-Kontext ist. Stil
- * wie `updateProfile()` in `src/features/auth/api.ts`.
- */
+/** Kein Hook, da `completeOnboarding()` ausserhalb eines Render-Kontexts aufruft. */
 export async function saveModulePreferences(userId: string, modules: ModulePreferences) {
   const { error } = await getSupabase()
     .from('profiles')

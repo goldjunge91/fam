@@ -32,18 +32,12 @@ function AppLayoutContent() {
   } = useActiveHousehold();
   const redeemInvite = useRedeemInviteMutation();
 
-  // Automatischer Sync für den aktiven Haushalt
   useSyncEngine(activeHouseholdId ?? undefined);
   useRealtimeSync(activeHouseholdId ?? undefined);
 
   useEffect(() => {
-    // Nur lesen, nicht loeschen (#128): Dieser Effekt laeuft auf jedem Mount
-    // von AppLayoutContent, auch wenn der synchrone Redirect weiter unten
-    // gleich danach nach /onboarding oder /household/create schickt. Wuerde
-    // hier destruktiv gelesen, waere der Token weg, bevor die Einloesung
-    // (die asynchron ist) ueberhaupt zu Ende lief. Erst bei Erfolg loeschen —
-    // schlaegt sie fehl, bleibt er liegen, und der manuelle Beitritts-Screen
-    // (/household/join) kann ihn spaeter noch verwenden.
+    // Erst nach erfolgreicher Einloesung loeschen, damit Redirects oder Fehler
+    // den Token nicht vorzeitig verlieren.
     peekPendingInviteToken().then(async (pendingToken) => {
       if (pendingToken) {
         try {
@@ -57,7 +51,6 @@ function AppLayoutContent() {
     });
   }, [redeemInvite]);
 
-  // Onboarding Guard (#104): Wenn EXPO_PUBLIC_FORCE_ONBOARDING=true in .env steht ODER der Account unvollständig ist, starte das Onboarding (einmalig pro App-Start).
   const isUncompleted = profile
     ? (profile as { onboarding_completed_at?: string | null }).onboarding_completed_at == null
     : false;
@@ -72,11 +65,8 @@ function AppLayoutContent() {
     householdsError,
   });
 
-  // Wer angemeldet ist, einen Haushalt hat und an keiner Weiche mehr haengt,
-  // ist erkennbar eingerichtet — auch wenn das Geraete-Flag fehlt, weil das
-  // Konto nicht ueber diesen Flow entstanden ist. Einmal nachtragen, sonst
-  // landet derselbe Nutzer nach dem Abmelden im Onboarding statt beim
-  // Anmelden (`isNewUser` im Root-Layout haengt an genau diesem Flag).
+  // Auch ausserhalb des Onboardings eingerichtete Konten brauchen das lokale Flag,
+  // damit sie nach dem Abmelden nicht wieder im Onboarding landen.
   const istEingerichtet = decision.kind === 'weiter';
   useEffect(() => {
     if (istEingerichtet && !seenOnboarding && !isOnboardingSessionCompleted()) {
@@ -88,10 +78,7 @@ function AppLayoutContent() {
     return <Redirect href={decision.to} />;
   }
 
-  // AppShell bleibt immer gemountet, damit der Screen-Stack (Scroll-
-  // Positionen, Modal-State, Component-Mounts) nicht bei kurzen Loading-
-  // Fluktuationen zerstoert wird. Der Ladeindikator liegt als Overlay
-  // darueber, statt AppShell zu ersetzen.
+  // Das Overlay bewahrt den Screen-Stack bei kurzen Ladefluktuationen.
   return (
     <>
       <AppShell />
@@ -104,7 +91,6 @@ function AppLayoutContent() {
   );
 }
 
-/** Angemeldeter Bereich. Der Guard sitzt im Root-Layout. */
 export default function AppLayout() {
   return <AppLayoutContent />;
 }

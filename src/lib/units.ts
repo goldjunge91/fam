@@ -1,4 +1,3 @@
-/** Die vom Schema zugelassenen Einheiten mit deutscher Anzeige-Beschriftung. */
 export const UNIT_OPTIONS: readonly { value: string; label: string }[] = [
   { value: 'piece', label: 'Stück' },
   { value: 'g', label: 'Gramm (g)' },
@@ -28,16 +27,7 @@ export type GramsEquivalentOptions = { servingWeightG?: number };
 
 export type GramsEquivalentResult = { convertible: true; grams: number } | { convertible: false };
 
-/**
- * Rechnet eine Menge+Einheit in ein Gramm/Milliliter-Aequivalent um, als
- * Grundlage fuer eine Naehrwert-Skalierung "pro 100g/100ml".
- *
- * `g`/`ml` sind bereits das Aequivalent, `kg`/`l` werden mit 1000
- * multipliziert. Stueckbasierte Einheiten (`piece`/`package`/`portion`)
- * brauchen ein bekanntes Stueckgewicht (`servingWeightG`) — ohne das ist die
- * Umrechnung nicht moeglich und wird explizit als `convertible: false`
- * signalisiert statt eines stillen Fallbacks.
- */
+/** Stueckbasierte Einheiten erfordern ein bekanntes `servingWeightG`. */
 export function toGramsEquivalent(
   quantity: number,
   unit: string,
@@ -54,13 +44,6 @@ export function toGramsEquivalent(
   return { convertible: false };
 }
 
-/**
- * Skaliert einen Naehrwert "pro 100g/100ml" auf die eingegebene Menge.
- *
- * Baut auf {@link toGramsEquivalent} auf. Ist die Einheit nicht umrechenbar
- * (stueckbasiert ohne `servingWeightG`), wird das explizit signalisiert statt
- * eines falschen Automatik-Werts.
- */
 export type ScaleToQuantityResult = { convertible: true; value: number } | { convertible: false };
 
 export function scaleToQuantity(

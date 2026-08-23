@@ -3,9 +3,7 @@ import { defineConfig } from 'vite';
 
 export default defineConfig({
   plugins: [react()],
-  // sql.js braucht SharedArrayBuffer-freundliche Isolation nicht zwingend,
-  // aber Cross-Origin-Isolation schadet nicht und macht spätere WASM-Threads
-  // moeglich, falls sql.js das mal nutzt.
+  // Ermoeglicht spaetere WASM-Threads fuer sql.js.
   server: {
     headers: {
       'Cross-Origin-Opener-Policy': 'same-origin',

@@ -14,14 +14,10 @@ type ButtonProps = {
   label: string;
   onPress: () => void;
   variant?: 'primary' | 'secondary' | 'danger' | 'link';
-  /** `compact` verkleinert nur das Innenpolster (py-two px-three statt
-   * py-three px-four) — fuer Buttons in dichten Zeilen/Leisten, die nicht
-   * die volle Formular-Groesse brauchen. */
   size?: 'default' | 'large' | 'compact';
   accessibilityLabel?: string;
   backgroundColor?: ColorValue;
   style?: StyleProp<ViewStyle>;
-  /** Zeigt einen Spinner und sperrt den Knopf — verhindert Doppel-Submits. */
   loading?: boolean;
   disabled?: boolean;
   className?: string;
@@ -34,7 +30,6 @@ const VARIANT_CLASSES: Record<NonNullable<ButtonProps['variant']>, string> = {
   link: 'btn-link',
 };
 
-/** Beschrifteter Standardbutton fuer Formulare und bestaetigende Aktionen. */
 export function Button({
   label,
   onPress,

@@ -53,7 +53,6 @@ describe('initSentry', () => {
 
     expect(() => initSentry()).not.toThrow();
 
-    // Zweiter Aufruf darf den Fehler nicht erneut werfen (configured-Flag).
     expect(() => initSentry()).not.toThrow();
     expect(mockSentryInit).toHaveBeenCalledTimes(1);
 

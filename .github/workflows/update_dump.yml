@@ -1,25 +1,10 @@
 name: Open Food Facts Dump Update
 
-# CI-Delta-Pipeline (#223 Paket 5, Abschnitt 13 in docs/issue#223_V2.md).
-# Ersetzt den frueheren vollstaendigen Neubau: die kanonische DB liegt jetzt
-# dauerhaft im rollierenden Release "off-dump-current" (fester Tag, nicht
-# "latest"), taegliche/regelmaessige Laeufe erzeugen nur noch kleine Patches,
-# eine neue Baseline wird automatisch einmal im Monat geschnitten
-# (build-canonical-update.ts, siehe isNewBaselineDue()).
-#
-# WICHTIG: Bis Paket 6 (#229, Client-Updater) landet, liest die App
-# (src/lib/off-dump/off-dump.ts) noch ueber `releases/latest` +
-# "irgendein .db-Asset" (pickDbAsset()) — das off-dump-current-Release traegt
-# ab diesem Workflow mehrere .db-Dateien mit UNTERSCHIEDLICHEM Schema
-# (canonical.db vs. patch-*.db). Diesen Workflow vor Paket 6 NICHT manuell
-# ausloesen, sonst kann der Client versehentlich eine Patch- statt eine
-# Produkt-Datenbank anhaengen.
+# Nicht manuell starten, solange der Client noch ein beliebiges .db-Asset lädt.
 
 on:
   workflow_dispatch:
   schedule:
-    # Taeglich pruefen/patchen; ob daraus eine neue Baseline wird, entscheidet
-    # build-canonical-update.ts selbst (Kalendermonat-Wechsel).
     - cron: "0 2 * * *"
 
 env:
@@ -48,8 +33,6 @@ jobs:
           python -m pip install --upgrade pip
           pip install orjson requests
 
-      # 1. Letzte kanonische DB + Manifest laden (falls vorhanden — beim
-      #    allerersten Lauf existiert das Release noch nicht).
       - name: Download previous canonical state
         id: previous
         run: |
@@ -65,10 +48,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      # 2. quick_check der heruntergeladenen kanonischen DB — schlaegt sie
-      #    fehl (oder fehlt sie), deterministisch aus Baseline + Patchkette
-      #    rekonstruieren statt mit einer beschaedigten/fehlenden Datei
-      #    weiterzuarbeiten (Abschnitt 13, "Dauerhafte kanonische CI-Datenbank").
       - name: Verify or reconstruct previous canonical state
         if: steps.previous.outputs.has_previous == 'true'
         run: |
@@ -95,15 +74,9 @@ jobs:
             --out previous/canonical.db \
             --expect-data-version "$(jq -r '.latestVersion' previous/manifest.json)"
 
-      # 3. Aktuellen OFF-Export streamen, nach Deutschland filtern, Schema-2-DB
-      #    erzeugen (categories_tags, off_last_modified_at, dump_meta,
-      #    quick_check — siehe create_custom_dump.py, bricht selbst mit
-      #    exit 1 ab, wenn quick_check fehlschlaegt).
       - name: Run Dump Generator
         run: python scripts/dump_data/create_custom_dump.py
 
-      # 4. Diff berechnen, kanonische DB aktualisieren, ggf. neue Baseline
-      #    schneiden (monatlich), Manifest fortschreiben.
       - name: Build canonical update
         run: |
           args=(
@@ -116,8 +89,6 @@ jobs:
           fi
           bun run scripts/dump_data/build-canonical-update.ts "${args[@]}"
 
-      # 5. Release-Objekt sicherstellen (idempotent — existiert nach dem
-      #    allerersten Lauf dauerhaft).
       - name: Ensure canonical release exists
         run: |
           gh release view "$CANONICAL_TAG" >/dev/null 2>&1 || \
@@ -128,10 +99,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      # 6. Datenassets ZUERST veroeffentlichen (kanonische DB, neue Baseline
-      #    und/oder Patch) — das Manifest erst danach, damit ein Client nie
-      #    auf eine im Manifest referenzierte, aber noch fehlende Datei
-      #    verweisen kann (Abschnitt 13).
+      # Datenassets müssen vor dem referenzierenden Manifest online sein.
       - name: Publish data assets
         run: |
           gh release upload "$CANONICAL_TAG" out/canonical.db --clobber

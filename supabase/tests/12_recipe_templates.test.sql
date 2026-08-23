@@ -8,9 +8,7 @@ select plan(9);
 
 select tests.create_user('11111111-1111-1111-1111-111111111111', 'alice@example.com');
 
--- Fixture ausserhalb der authentifizierten Rolle anlegen (als postgres) —
--- Clients koennen ueber RLS ohnehin nicht in diese Tabellen schreiben, siehe
--- unten. Realistisch waeren das die Seed-Daten aus supabase/seed.sql.
+-- Fixtures werden wie produktive Seeds als postgres angelegt.
 select tests.as_postgres();
 
 insert into public.recipe_templates (id, title, dish_types, default_servings)
@@ -32,7 +30,6 @@ returning id as item_id \gset
 insert into public.recipe_template_steps (id, template_id, position, text)
 values ('99999999-9999-9999-9999-999999999905', :'template_id', 0, 'Test-Schritt.');
 
--- ------------------------------------------------------------ global lesbar
 select tests.authenticate_as('11111111-1111-1111-1111-111111111111');
 
 select is(
@@ -69,7 +66,6 @@ select is(
   'alle Seed-Vorlagen referenzieren ihr Cover ueber die stabile Template-ID'
 );
 
--- --------------------------------------------------------------- read-only
 select throws_ok(
   format($$ insert into public.recipe_templates (title) values ('Hack') $$),
   '42501',
@@ -77,8 +73,7 @@ select throws_ok(
   'Client kann keine Vorlage anlegen'
 );
 
--- update/delete ohne passende Policy betreffen unter RLS schlicht null Zeilen
--- (kein Wurf) — anders als insert, das mangels with-check-Policy 42501 wirft.
+-- RLS filtert UPDATE/DELETE auf 0 Zeilen; INSERT ohne WITH CHECK wirft 42501.
 update public.recipe_templates set title = 'Hack' where id = :'template_id';
 delete from public.recipe_templates where id = :'template_id';
 
@@ -89,7 +84,6 @@ select is(
   'Client kann eine Vorlage weder aendern noch loeschen'
 );
 
--- ---------------------------------------------------- Konsistenz-Trigger
 select throws_ok(
   format(
     $$ insert into public.recipe_template_items (component_id, template_id, sub_component_id, grams)
@@ -101,8 +95,7 @@ select throws_ok(
   'Selbstbezug einer Komponente wird abgelehnt'
 );
 
--- Zweite Komponente desselben Templates, um "product_id UND sub_component_id
--- gleichzeitig" ohne den vorrangigen Selbstbezugs-Check zu pruefen.
+-- Eine zweite Komponente isoliert den Exactly-one-Check vom Selbstbezug.
 insert into public.recipe_template_components (id, template_id, name)
 values ('99999999-9999-9999-9999-999999999906', :'template_id', 'Zweite Komponente');
 

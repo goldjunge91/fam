@@ -1,10 +1,6 @@
 -- Gewuenschter Endzustand — NICHT von Hand migrieren.
---
--- Blutzucker/CGM (#177) & Keton-Logs (#176).
---
--- Streng privat: Kein Zugriff durch Haushaltsmitglieder.
+-- Blutzucker- und Keton-Logs bleiben fuer Haushaltsmitglieder unsichtbar.
 
--- ---------------------------------------------------------------- Blutzucker
 create table if not exists public.glucose_entries (
   id uuid primary key default gen_random_uuid(),
   user_id uuid not null references public.profiles (id) on delete cascade,
@@ -41,7 +37,6 @@ create or replace trigger glucose_entries_set_updated_at
   for each row
   execute function private.set_updated_at();
 
--- --------------------------------------------------------------------- Ketone
 create table if not exists public.ketone_entries (
   id uuid primary key default gen_random_uuid(),
   user_id uuid not null references public.profiles (id) on delete cascade,
@@ -72,7 +67,6 @@ create or replace trigger ketone_entries_set_updated_at
   for each row
   execute function private.set_updated_at();
 
--- ------------------------------------------------------------------------- RLS
 alter table public.glucose_entries enable row level security;
 alter table public.ketone_entries enable row level security;
 

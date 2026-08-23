@@ -16,13 +16,7 @@ type MenuPosition = { top: number; left: number; width: number };
 
 const FALLBACK_MENU_POSITION: MenuPosition = { top: 0, left: 0, width: 220 };
 
-// `GlassView` hat kein cssInterop (s. glass-card.tsx), deshalb hier als
-// RN-Style statt Tailwind-Klasse — muss in Radius/Padding mit
-// `.inventory-tab-bar-trigger` in global.css in Sync bleiben. Kapselform
-// (999px) statt festem Radius: iOS 26+ rundet kompakte Liquid-Glass-Buttons
-// ohnehin automatisch zur Kapsel — damit Fallback und echtes Glas gleich
-// aussehen, uebernimmt der Fallback dieselbe Form (s. .inventory-search-field
-// daneben, die aus demselben Grund ebenfalls rounded-full ist).
+// GlassView hat kein cssInterop; der Fallback spiegelt die Kapselform aus global.css.
 const TRIGGER_GLASS_STYLE = {
   borderRadius: 999,
   flexDirection: 'row' as const,
@@ -46,14 +40,7 @@ export function InventoryTabBar({ activeTab, onTabChange, locations }: Inventory
       setIsOpen(false);
       return;
     }
-    // Absolute Fensterkoordinaten statt eines relativ positionierten Panels:
-    // dieses Dropdown steckt seit dem Performance-Umbau (#71) in der
-    // FlatList-Kopfzeile, deren `z-index` nur innerhalb desselben Eltern-
-    // Containers wirkt — gegen die separat gerenderten Listenzeilen darunter
-    // setzt es sich sonst nicht durch. Das Modal rendert unabhaengig davon
-    // immer zuoberst. Sichtbarkeit haengt bewusst nicht an der Messung —
-    // die laeuft asynchron nach und schlaegt in Tests (kein natives Layout)
-    // ganz aus.
+    // Das Modal umgeht den lokalen z-index der FlatList-Kopfzeile.
     triggerRef.current?.measureInWindow((x, y, _width, height) => {
       setMenuPosition({ top: y + height + 4, left: x, width: 220 });
     });
@@ -67,8 +54,6 @@ export function InventoryTabBar({ activeTab, onTabChange, locations }: Inventory
 
   return (
     <View ref={triggerRef} className="inventory-tab-bar-container">
-      {/* Liquid Glass auf iOS 26+ (expo-glass-effect), sonst solide Karte
-          wie vor der Umstellung — s. glass-card.tsx. */}
       <GlassCard
         outerStyle={{ borderRadius: 999 }}
         glassStyle={TRIGGER_GLASS_STYLE}
@@ -79,10 +64,7 @@ export function InventoryTabBar({ activeTab, onTabChange, locations }: Inventory
         <ThemedText type="small" className="font-semibold">
           {activeLocation?.name ?? 'Lagerort auswählen'}
         </ThemedText>
-        {/* Rotation als natives Transform statt dynamischer Klasse: ein
-            Klassenwechsel nach dem ersten Render loest bei NativeWind einen
-            "Upgrade"-Rewrap aus, dessen Dev-Warnung an einem Navigation-
-            Context-Getter abstuerzt (react-native-css-interop-Bug). */}
+        {/* Natives Transform vermeidet NativeWinds dynamischen Rewrap. */}
         <View
           className="w-[10px] h-[6px]"
           style={{ transform: [{ rotate: isOpen ? '180deg' : '0deg' }] }}>
@@ -105,9 +87,7 @@ export function InventoryTabBar({ activeTab, onTabChange, locations }: Inventory
             <View
               accessibilityRole="menu"
               className="inventory-tab-bar-menu"
-              // Position kommt aus der Fenstermessung, boxShadow (dynamische
-              // Opazitaet), borderCurve und elevation sind echte Laufzeit-/
-              // Plattform-Werte — alles ohne Tailwind-Entsprechung.
+              // Messwerte und Plattformschatten haben kein Tailwind-Aequivalent.
               style={{
                 position: 'absolute',
                 top: menuPosition.top,

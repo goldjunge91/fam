@@ -10,19 +10,6 @@ import type { SqlDatabase } from '@/lib/db/types';
 import { MAX_ATTEMPTS } from '@/lib/sync/backoff';
 import { createTestDatabase, type TestDatabase } from '../../../test/node-sqlite-adapter';
 
-/**
- * `getDb` ist ein regulaerer Prop von `SyncStatusBanner` (DI, kein Mock) —
- * jeder Test rendert die echte Komponente gegen eine echte node:sqlite-DB.
- * `expo-sqlite` selbst wird hier nie geladen: `getDatabase` aus
- * `@/lib/db/client` (der einzige Ort, der es laedt) wird per `getDb`-Prop
- * ueberschrieben, bevor er je aufgerufen werden koennte.
- *
- * `useSyncStatus` braucht einen `QueryClientProvider` — jeder Test bekommt
- * einen frischen `QueryClient` ohne Retries, damit ein absichtlich
- * herbeigefuehrter Fehler den Test nicht durch TanStacks Standard-Retries
- * verlangsamt.
- */
-
 let activeTestTrees: (() => Promise<void>)[] = [];
 
 async function renderBanner(props: SyncStatusBannerProps) {
@@ -62,8 +49,7 @@ describe('SyncStatusBanner', () => {
   });
 
   afterEach(async () => {
-    // Erst den Observer unmounten, dann den Query-Cache leeren. Andersherum
-    // kann der noch aktive Observer seinen Refetch-Timer sofort neu anlegen.
+    // Erst unmounten, damit der Observer keinen Refetch-Timer neu anlegt.
     for (const dispose of activeTestTrees) {
       await dispose();
     }
@@ -93,10 +79,7 @@ describe('SyncStatusBanner', () => {
   });
 
   it('zeigt den ausstehenden Zaehler kurz nach einem echten lokalen Schreibvorgang', async () => {
-    // Erst rendern, dann schreiben — wie im echten App-Baum: das Banner
-    // haengt bereits am Root, bevor je eine Mutation passiert. `enqueueMutation`
-    // vor dem Mount aufzurufen wuerde die Benachrichtigung verpassen, die
-    // `useSyncStatus` erst ab seinem `useEffect` abonniert.
+    // Vor dem Schreiben rendern, damit das Outbox-Abonnement aktiv ist.
     await renderBanner({ getDb: async () => db });
 
     await act(async () => {
@@ -113,11 +96,6 @@ describe('SyncStatusBanner', () => {
   });
 
   it('verschwindet von selbst kurz nach dem Schreibvorgang — unabhaengig davon, ob der Push schon durch ist', async () => {
-    // Der Kern der neuen Semantik (#Sync-Diagnose-Session): "synchronisiere"
-    // ist keine Anzeige des tatsaechlichen Push-Fortschritts mehr, sondern
-    // eine kurze, feste Rueckmeldung auf den lokalen Schreibvorgang. Die
-    // Outbox-Zeile bleibt hier absichtlich bestehen (kein Push simuliert) —
-    // die Anzeige muss trotzdem verschwinden.
     await renderBanner({ getDb: async () => db });
 
     await act(async () => {
@@ -163,9 +141,6 @@ describe('SyncStatusBanner', () => {
   });
 
   it('nutzt fuer offline/syncing und failed unterschiedliche Theme-Farben', () => {
-    // Mechanische Pruefung, dass die Komponente Colors aus theme.ts verwendet
-    // (nicht fest verdrahtete Hex-Werte) — kein Screenshot-Vergleich hier,
-    // das uebernimmt die manuelle Simulator-Verifikation.
     expect(Colors.light.warning).not.toBe(Colors.light.danger);
     expect(Colors.dark.warning).not.toBe(Colors.dark.danger);
     expect(Colors.light.warning).not.toBe(Colors.dark.warning);

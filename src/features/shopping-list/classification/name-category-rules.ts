@@ -3,17 +3,7 @@ import type { ShoppingCategoryId } from './shopping-category-id';
 export type NameCategoryRule = {
   value: string;
   categoryId: ShoppingCategoryId;
-  /**
-   * Position innerhalb eines Tokens (deutsche Komposita sind meist EIN
-   * zusammengeschriebenes Wort, kein Leerzeichen):
-   * - `word`: Token ist exakt `value` ("Wein" → Getränke)
-   * - `word-start`: Token beginnt mit `value`, ist aber länger — `value`
-   *   steht als Modifier vor dem eigentlichen Grundwort ("Apfel" in
-   *   "Apfelsaft", "Schwein" in "Schweinefilet")
-   * - `word-end`: Token endet auf `value`, ist aber länger — `value` ist
-   *   das Grundwort/Determinatum, das ein deutsches Kompositum semantisch
-   *   bestimmt ("Milch" in "Vollmilch", "Saft" in "Apfelsaft")
-   */
+  /** Grundwoerter am Wortende werden hoeher gewichtet als Wortanfaenge. */
   match: 'word' | 'word-start' | 'word-end';
   score: number;
 };
@@ -21,18 +11,10 @@ export type NameCategoryRule = {
 const WHOLE_WORD = 100;
 const WORD_END = 80;
 const WORD_START = 20;
-/** Explizite, eindeutige Marker (z. B. Tiefkühl-Präfix) schlagen alles. */
 const EXPLICIT_MARKER = 120;
 
-/**
- * Morphologischer Namens-Fallback, angewendet nur wenn keine OFF-Tags
- * eindeutig klassifizieren (Schritt 5 der Auflösungsreihenfolge, Abschnitt 3
- * des Plans). Neue Regeln werden ausschließlich für belegte, wiederkehrende
- * Fälle ergänzt (Abschnitt 8, "Präzisionsregel für Erweiterungen") — keine
- * spekulative Vollabdeckung aller denkbaren Komposita.
- */
+/** Konservative Namensregeln fuer Faelle ohne eindeutige OFF-Kategorie. */
 export const NAME_CATEGORY_RULES: readonly NameCategoryRule[] = [
-  // produce
   ...[
     'apfel',
     'äpfel',
@@ -85,7 +67,6 @@ export const NAME_CATEGORY_RULES: readonly NameCategoryRule[] = [
   ),
   { value: 'apfel', categoryId: 'produce', match: 'word-start', score: WORD_START },
 
-  // bakery
   ...[
     'brot',
     'brötchen',
@@ -108,7 +89,6 @@ export const NAME_CATEGORY_RULES: readonly NameCategoryRule[] = [
   ),
   { value: 'brot', categoryId: 'bakery', match: 'word-end', score: WORD_END },
 
-  // deli_meat
   ...[
     'hackfleisch',
     'hähnchen',
@@ -141,7 +121,6 @@ export const NAME_CATEGORY_RULES: readonly NameCategoryRule[] = [
   { value: 'hähnchen', categoryId: 'deli_meat', match: 'word-start', score: WORD_START },
   { value: 'schwein', categoryId: 'deli_meat', match: 'word-start', score: WORD_START },
 
-  // pantry_canned
   ...[
     'dose',
     'konserve',
@@ -161,7 +140,6 @@ export const NAME_CATEGORY_RULES: readonly NameCategoryRule[] = [
     }),
   ),
 
-  // pantry_dry
   ...[
     'nudeln',
     'pasta',
@@ -198,7 +176,6 @@ export const NAME_CATEGORY_RULES: readonly NameCategoryRule[] = [
   ),
   { value: 'essig', categoryId: 'pantry_dry', match: 'word-end', score: WORD_END },
 
-  // breakfast
   ...[
     'müsli',
     'haferflocken',
@@ -219,7 +196,6 @@ export const NAME_CATEGORY_RULES: readonly NameCategoryRule[] = [
     }),
   ),
 
-  // snacks
   ...[
     'schokolade',
     'chips',
@@ -243,7 +219,6 @@ export const NAME_CATEGORY_RULES: readonly NameCategoryRule[] = [
     }),
   ),
 
-  // beverages
   ...[
     'wasser',
     'saft',
@@ -266,7 +241,6 @@ export const NAME_CATEGORY_RULES: readonly NameCategoryRule[] = [
   ),
   { value: 'saft', categoryId: 'beverages', match: 'word-end', score: WORD_END },
 
-  // dairy
   ...[
     'milch',
     'butter',
@@ -288,7 +262,6 @@ export const NAME_CATEGORY_RULES: readonly NameCategoryRule[] = [
   ),
   { value: 'milch', categoryId: 'dairy', match: 'word-end', score: WORD_END },
 
-  // frozen
   ...['tiefgekühlt', 'gefroren', 'eiscreme', 'eis', 'speiseeis', 'tk'].map(
     (value): NameCategoryRule => ({
       value,
@@ -299,7 +272,6 @@ export const NAME_CATEGORY_RULES: readonly NameCategoryRule[] = [
   ),
   { value: 'tiefkühl', categoryId: 'frozen', match: 'word-start', score: EXPLICIT_MARKER },
 
-  // drugstore
   ...[
     'toilettenpapier',
     'klopapier',
@@ -324,7 +296,6 @@ export const NAME_CATEGORY_RULES: readonly NameCategoryRule[] = [
     }),
   ),
 
-  // checkout
   ...['kaugummi', 'batterie', 'zeitschrift', 'feuerzeug'].map(
     (value): NameCategoryRule => ({
       value,

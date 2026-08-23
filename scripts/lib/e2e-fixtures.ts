@@ -1,7 +1,6 @@
 import { createClient } from '@supabase/supabase-js';
 
-// Das Modul dient AUSSCHLIESSLICH der lokalen Entwicklung (Maestro-Fixtures).
-// Selbe lokale Service-Role-Konstanten wie scripts/test-users.ts.
+// Ausschliesslich lokale Maestro-Fixtures mit dem lokalen Service-Role-Key.
 const LOCAL_SUPABASE_URL = 'http://127.0.0.1:54321';
 const LOCAL_SERVICE_ROLE_KEY =
   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZS1kZW1vIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImV4cCI6MTk4MzgxMjk5Nn0.EGIM96RAZx35lJzdJsyH-qQwv8Hdp7fsn3W0YpN81IU';
@@ -19,13 +18,7 @@ export interface FreshUser {
   userId: string;
 }
 
-/**
- * Legt einen frisch bestaetigten Account ohne Haushalt an (eindeutige
- * E-Mail pro Aufruf). Bewusst OHNE Haushalt: household-step.tsx ueberspringt
- * die Erstellen/Beitreten-Auswahl sofort, sobald der Nutzer schon in einem
- * Haushalt ist - ein Account mit vorhandenem Haushalt koennte die
- * Household-Create/Join-Flows also gar nicht pruefen.
- */
+/** Legt einen bestaetigten Account ohne Haushalt fuer beide Onboarding-Pfade an. */
 export async function createFreshConfirmedUser(
   prefix: string,
   password = 'Passwort123!',
@@ -60,16 +53,7 @@ export interface InviteFixture {
   host: FreshUser;
 }
 
-/**
- * Legt einen Host-Account samt Haushalt und einem einmal einloesbaren
- * Invite-Token an - direkte Table-Inserts per Service-Role (RLS-Bypass),
- * weil `create_household()`/die Invite-Insert-Policy `auth.uid()` aus dem
- * JWT brauchen und ein Service-Role-Client keine echte User-Session hat.
- * Bildet exakt nach, was `create_household()` in
- * supabase/schemas/08_inventory.sql serverseitig tut (Household +
- * Admin-Mitgliedschaft + drei Standard-Lagerorte), damit der beigetretene
- * Haushalt sich nicht von einem regulaer erstellten unterscheidet.
- */
+/** Legt per lokaler Service Role einen vollstaendigen Host-Haushalt samt Invite an. */
 export async function createInviteFixture(householdName: string): Promise<InviteFixture> {
   const host = await createFreshConfirmedUser('maestro-e2e-host');
 

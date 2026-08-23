@@ -9,9 +9,7 @@ import type { Store } from '../../hooks/use-stores';
 export const ALL_FILTER = 'all';
 export const UNASSIGNED_FILTER = 'unassigned';
 
-// Gleiche Vertikal-/Horizontal-Skala wie der kompakte "+ Artikel
-// hinzufügen"-Button (size="compact" -> py-two px-three), damit beide
-// Buttons in der Kopfzeile dieselbe Hoehe haben.
+// Entspricht der Hoehe des kompakten Hinzufuegen-Buttons im Header.
 const GLASS_STYLE = {
   borderRadius: 999,
   flexDirection: 'row' as const,
@@ -33,18 +31,8 @@ type StorePickerMenuProps = {
 };
 
 /**
- * Markt-Filter im Screen-Header: ein Glas-Button zeigt den aktiven Filter,
- * antippen oeffnet ein Menue direkt darunter mit "Alle Listen", jedem Markt
- * und "Ohne Markt" (Marktauswahl-Mockup Variante B — ersetzt die fruehere
- * Chip-Zeile unter dem Header vollstaendig).
- *
- * Das Menue laeuft ueber ein `Modal` statt eines nur `position: absolute`
- * platzierten `View`: der Button steht als `ListHeaderComponent` vor den
- * Listenzeilen, die als eigene Geschwister-Views danach gemountet werden und
- * je nach Plattform ueber dem Menue liegen koennen — sichtbar als "durchsichtiges"
- * Menue, dessen Zeilen nicht antippbar sind, sobald die Liste Eintraege hat.
- * Ein `Modal` rendert in einer eigenen nativen Ebene ueber allem anderen,
- * die Position wird per `measureInWindow` am Button ausgerichtet.
+ * Das Modal stellt das Menue ueber den Listeneintraegen dar; ein absolut
+ * positioniertes View kann plattformabhaengig darunter liegen.
  */
 export function StorePickerMenu({
   activeFilter,

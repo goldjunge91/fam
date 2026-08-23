@@ -79,7 +79,6 @@
     margin: 0;
   }
 
-  /* ---- Info panels: Design intent / material map / etc ---- */
   .panels {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -122,7 +121,6 @@
     padding: 1px 5px;
   }
 
-  /* ---- Frame gallery ---- */
   .gallery {
     display: flex;
     flex-wrap: wrap;
@@ -149,7 +147,6 @@
     margin-top: 2px;
   }
 
-  /* ================= iPhone shell ================= */
   .phone {
     width: 320px;
     height: 660px;
@@ -191,7 +188,6 @@
     z-index: 60;
   }
 
-  /* ---- App theme tokens (mirrors src/constants/theme.ts) ---- */
   .app-light {
     --bg: #f8f4ef;
     --surface: #fbf7f2;
@@ -242,7 +238,6 @@
     z-index: 40;
   }
 
-  /* ---- Nav bar: ultra-thin glass, large title collapses on scroll ---- */
   .nav {
     position: relative;
     z-index: 30;
@@ -300,7 +295,6 @@
     top: 12px;
   }
 
-  /* ---- Floating glass store-filter segment ---- */
   .filter-bar {
     position: relative;
     z-index: 25;
@@ -335,7 +329,6 @@
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
   }
 
-  /* ---- Scroll content ---- */
   .content {
     flex: 1 1 auto;
     overflow: hidden;
@@ -363,7 +356,7 @@
     border-radius: 10px;
   }
 
-  /* Store summary rows — solid surface, no glass (list content stays flat) */
+  /* Listeninhalt bleibt ohne Glass-Effekt. */
   .store-row {
     display: flex;
     align-items: center;
@@ -461,7 +454,6 @@
     font-variant-numeric: tabular-nums;
   }
 
-  /* ---- Checklist (market view) ---- */
   .section-title {
     display: flex;
     align-items: center;
@@ -513,7 +505,6 @@
     font-variant-numeric: tabular-nums;
   }
 
-  /* ---- Floating glass FAB ---- */
   .fab {
     position: absolute;
     right: 18px;
@@ -535,7 +526,6 @@
     box-shadow: 0 10px 24px -10px rgba(0, 0, 0, 0.35);
   }
 
-  /* ---- Bottom glass action bar (thick material) ---- */
   .bottom-bar {
     position: absolute;
     left: 12px;
@@ -628,7 +618,6 @@
   </section>
 
   <section class="gallery">
-    <!-- ================= FRAME 1: Light, oben, "Alle Listen" ================= -->
     <div class="frame-block">
       <div class="phone">
         <div class="notch"></div>
@@ -733,7 +722,6 @@
       </div>
     </div>
 
-    <!-- ================= FRAME 2: Light, gescrollt, "Alle Listen" ================= -->
     <div class="frame-block">
       <div class="phone">
         <div class="notch"></div>
@@ -809,7 +797,6 @@
       </div>
     </div>
 
-    <!-- ================= FRAME 3: Dark, Marktansicht REWE ================= -->
     <div class="frame-block">
       <div class="phone">
         <div class="notch"></div>

@@ -38,8 +38,7 @@ function row(overrides: Partial<ProductUsageRow>): ProductUsageRow {
 
 async function renderWithClient(ui: React.ReactElement) {
   const queryClient = new QueryClient({
-    // Der produktive Standard-GC-Timer lebt nach dem Unmount weiter und haelt
-    // dadurch den Jest-Prozess offen. Im isolierten Test-Client ist GC unnoetig.
+    // Kein langlebiger Query-GC-Timer im isolierten Test-Client.
     defaultOptions: { queries: { retry: false, gcTime: Number.POSITIVE_INFINITY } },
   });
   const result = await render(<QueryClientProvider client={queryClient}>{ui}</QueryClientProvider>);
@@ -88,10 +87,7 @@ test('rendert nichts, wenn es keine Nutzungshistorie gibt', async () => {
 });
 
 test('gibt den mode an die Abfrage weiter und zeigt die Zeilen in der gelieferten Reihenfolge', async () => {
-  // Sortierung/Dedupe passiert seit dem Sheet-Redesign in SQL
-  // (getFrequentProductUsage), die Komponente reicht nur noch durch — hier
-  // liefert der Mock bereits "Milch vor Butter" wie es die echte SQL-Query
-  // fuer mode: 'frequent' taete.
+  // Der Mock liefert wie SQL bereits deduplizierte, sortierte Daten.
   mockGetFrequentProductUsage.mockResolvedValue([
     row({ name: 'Milch', used_at: '2026-01-02T10:00:00.000Z' }),
     row({ name: 'Butter', used_at: '2026-01-03T10:00:00.000Z' }),

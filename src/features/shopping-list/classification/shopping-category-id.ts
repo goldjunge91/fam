@@ -1,10 +1,4 @@
-/**
- * Stabile Kategorie-IDs der Einkaufslisten-Taxonomie (Issue #223).
- *
- * Diese IDs sind die einzige gespeicherte Form der Kategorie — Labels
- * (`SHOPPING_CATEGORIES` in `../domain-logik/shopping-categories.ts`) werden
- * ausschließlich zur Anzeige aufgelöst, niemals persistiert.
- */
+/** Persistierte Kategorie-IDs; Anzeigenamen bleiben reine Darstellung. */
 export type ShoppingCategoryId =
   | 'produce'
   | 'bakery'

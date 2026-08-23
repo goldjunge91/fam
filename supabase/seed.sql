@@ -1,9 +1,4 @@
--- Seed-Daten fuer `supabase db reset` (lokal). Laeuft NICHT gegen das
--- verlinkte Projekt — Bucket-Anlage auf Remote ist ein einmaliger manueller
--- Schritt (siehe Kommentar in supabase/schemas/12_recipe_storage.sql).
---
--- `insert into storage.buckets` ist DML, kein DDL, und wird deshalb hier
--- statt in einer Schemadatei gepflegt.
+-- Lokale Seed-Daten fuer db reset; Storage-Buckets sind DML und gehoeren nicht ins Schema.
 
 insert into storage.buckets (id, name, public, file_size_limit)
 values ('recipe-covers', 'recipe-covers', false, 5242880)
@@ -13,16 +8,8 @@ insert into storage.buckets (id, name, public, file_size_limit)
 values ('recipe-step-images', 'recipe-step-images', false, 5242880)
 on conflict (id) do nothing;
 
--- ============================================================
 -- Basis-Produkte fuer Rezeptvorlagen (#Recipe-Templates).
---
--- Ueberwiegend echte REWE/EDEKA/Ja!/Gut&Guenstig-Produkte, recherchiert
--- ueber die Open-Food-Facts-Live-API (world.openfoodfacts.org/cgi/search.pl),
--- Nutriments pro 100g/100ml uebernommen. Ein paar unverpackte Grundzutaten
--- (Zwiebeln, Karotten, Knoblauch, Kartoffeln, Bananen, Aepfel, Haehnchenbrust,
--- Zitrone, Honig, Thunfisch, Linsen) haben bei den vier Ketten keine Markenware
--- mit vollstaendigen Naehrwerten in OFF -- dort stehen Standard-Naehrwerte
--- (source = 'manual', kein barcode).
+-- Markenwerte stammen aus OFF; unverpackte Zutaten nutzen manuelle Standardwerte.
 insert into public.products
   (id, barcode, name, brand, kcal_per_100, protein_g_per_100, carbs_g_per_100, fat_g_per_100, sugar_g_per_100, salt_g_per_100, source, created_by)
 values
@@ -75,11 +62,7 @@ on conflict (id) do update set
 
 
 
--- ============================================================
--- Rezeptvorlagen (#Recipe-Templates): admin-kuratierte Bibliothek,
--- global lesbar (siehe supabase/schemas/15_recipe_templates.sql).
--- Jede Vorlage hat genau eine Komponente (kein Baukasten-Nesting in v1)
--- mit 3-8 Positionen, die auf die oben angelegten Basis-Produkte zeigen.
+-- Kuratierte Rezeptvorlagen mit einer Komponente und 3-8 Basis-Produkten.
 
 -- Rührei mit Gouda
 insert into public.recipe_templates
@@ -941,7 +924,6 @@ values
   ('d21e7ca5-b05b-53a6-87d9-52ee89552907', 'c8f0b3c2-c277-55ff-9d3c-04eda747a0a4', 3, 'Mit Sojasauce ablöschen, mit Reis servieren.')
 on conflict (id) do nothing;
 
--- Kuratierte Cover liegen unter der stabilen Template-ID. Die Upload-Quelle
--- sind die gleichnamigen Rezeptbilder in `assets/rezepte`.
+-- Cover verwenden die stabile Template-ID und Bilder aus assets/rezepte.
 update public.recipe_templates
 set cover_image_path = format('templates/%s.jpg', id);

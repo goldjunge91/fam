@@ -7,7 +7,6 @@ type MenuButtonProps = {
   onPress: () => void;
 };
 
-/** Einheitlicher Menuebutton fuer die zentralen App-Bereiche. */
 export function MenuButton({ onPress }: MenuButtonProps) {
   const theme = useTheme();
 

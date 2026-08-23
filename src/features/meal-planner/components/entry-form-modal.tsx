@@ -19,9 +19,8 @@ type EntryFormModalProps = {
   recipeTitle: string;
   entryDate: string;
   mealSlot: MealSlot;
-  /** Portionen/Person-Faktor aus den Einstellungen (#130). */
   portionsPerPerson: number;
-  /** Anzahl aktiver Haushaltsmitglieder, fuer den Shortcut "ganzer Haushalt isst". */
+  /** Fuer den Shortcut "ganzer Haushalt isst". */
   householdMemberCount: number;
   initial?: EntryFormInitial;
   onDismiss: () => void;
@@ -29,10 +28,6 @@ type EntryFormModalProps = {
   onDelete?: () => void;
 };
 
-/**
- * Anlegen/Bearbeiten eines Wochenplan-Eintrags (#130): Umschalter
- * Portionen-Modus vs. Personen-Modus, Shortcut "ganzer Haushalt isst".
- */
 export function EntryFormModal({
   visible,
   recipeTitle,
@@ -76,11 +71,7 @@ export function EntryFormModal({
               portionsPerPerson: factor,
             });
       onSave(resolved);
-    } catch {
-      // Ungueltige Eingabe (<= 0 oder NaN): Button bleibt aktiv, Save schlaegt
-      // still fehl, disabled-Zustand unten verhindert den haeufigsten Fall
-      // bereits vorher.
-    }
+    } catch {}
   }
 
   const saveDisabled =

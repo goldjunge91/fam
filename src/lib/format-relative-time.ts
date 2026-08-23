@@ -1,7 +1,4 @@
-/**
- * Formatiert einen Zeitpunkt relativ zu `nowMs` auf Deutsch, z.B. "vor 2 Min.".
- * `nowMs` ist injizierbar, damit der Test nicht von der Systemzeit abhaengt.
- */
+/** `nowMs` ist fuer deterministische Aufrufer injizierbar. */
 export function formatRelativeTime(timestampMs: number, nowMs: number = Date.now()): string {
   const diffSec = Math.max(0, Math.round((nowMs - timestampMs) / 1000));
 

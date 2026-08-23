@@ -24,7 +24,6 @@ export function Glp1Card({ userId, childProfileId }: Glp1CardProps) {
   const [showSymptomForm, setShowSymptomForm] = useState(false);
   const [showHistory, setShowHistory] = useState(false);
 
-  // Form states
   const [medName, setMedName] = useState('Semaglutid');
   const [customMed, setCustomMed] = useState('');
   const [dose, setDose] = useState('0.5');
@@ -105,7 +104,6 @@ export function Glp1Card({ userId, childProfileId }: Glp1CardProps) {
         </ThemedText>
       </View>
 
-      {/* Status-Übersicht */}
       <View className="flex-row justify-between bg-surface p-three rounded-xl border border-border gap-two">
         <View className="flex-1">
           <ThemedText type="caption" themeColor="textSecondary">
@@ -154,7 +152,6 @@ export function Glp1Card({ userId, childProfileId }: Glp1CardProps) {
         </View>
       </View>
 
-      {/* Aktions-Buttons */}
       <View className="flex-row gap-two">
         <Pressable
           onPress={() => {
@@ -178,12 +175,10 @@ export function Glp1Card({ userId, childProfileId }: Glp1CardProps) {
         </Pressable>
       </View>
 
-      {/* Formular Injektion */}
       {showInjectForm && (
         <View className="p-three bg-surface rounded-xl gap-three border border-border">
           <ThemedText type="labelBold">Injektion erfassen</ThemedText>
 
-          {/* Medikamenten-Auswahl */}
           <View className="gap-one">
             <ThemedText type="caption" themeColor="textSecondary">
               Medikament auswählen:
@@ -220,7 +215,6 @@ export function Glp1Card({ userId, childProfileId }: Glp1CardProps) {
             )}
           </View>
 
-          {/* Dosis-Auswahl */}
           <View className="gap-one">
             <ThemedText type="caption" themeColor="textSecondary">
               Dosis (mg):
@@ -258,7 +252,6 @@ export function Glp1Card({ userId, childProfileId }: Glp1CardProps) {
             )}
           </View>
 
-          {/* Gewählt-Zusammenfassung */}
           <View className="p-two rounded-lg bg-card border border-border flex-row items-center justify-between">
             <ThemedText type="small" themeColor="textSecondary">
               Ausgewählt:
@@ -280,7 +273,6 @@ export function Glp1Card({ userId, childProfileId }: Glp1CardProps) {
         </View>
       )}
 
-      {/* Formular Symptome */}
       {showSymptomForm && (
         <View className="p-three bg-surface rounded-xl gap-three border border-border">
           <ThemedText type="labelBold">Symptom- & Sättigungs-Verlauf</ThemedText>
@@ -366,7 +358,6 @@ export function Glp1Card({ userId, childProfileId }: Glp1CardProps) {
             </View>
           </View>
 
-          {/* Gewählt-Zusammenfassung */}
           <View className="p-two rounded-lg bg-card border border-border flex-row items-center justify-between">
             <ThemedText type="small" themeColor="textSecondary">
               Ausgewählt:
@@ -388,7 +379,6 @@ export function Glp1Card({ userId, childProfileId }: Glp1CardProps) {
         </View>
       )}
 
-      {/* Verlauf ein-/ausblenden */}
       {(medLogs && medLogs.length > 0) || (symptomLogs && symptomLogs.length > 0) ? (
         <View className="pt-one border-t border-border">
           <Pressable

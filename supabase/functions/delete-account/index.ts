@@ -2,24 +2,8 @@
 import { createClient } from 'jsr:@supabase/supabase-js@2';
 
 /**
- * Account- und Datenloeschung (#98). Der Client kann `auth.users` nicht
- * selbst loeschen — nur die Admin-API mit Service-Role kann das
- * (`supabase.auth.admin.deleteUser`). Deshalb eine Edge Function statt eines
- * einfachen RPCs.
- *
- * Ablauf:
- *  1. Anrufer per Authorization-Header identifizieren (Standard-JWT-
- *     Verifikation der Edge Runtime laeuft davor bereits, `verify_jwt` steht
- *     nicht in config.toml auf `false`).
- *  2. `public.prepare_account_deletion()` als der Nutzer selbst aufrufen
- *     (SECURITY DEFINER, arbeitet ausschliesslich auf auth.uid()) — raeumt
- *     Haushaltsbezuege auf oder bricht mit `last_admin_with_members` ab, wenn
- *     der Nutzer irgendwo der letzte Admin mit weiteren Mitgliedern ist.
- *     Client bekommt diesen Fall als 409 zurueck und muss vorher Admin
- *     uebertragen oder den Haushalt loeschen (siehe members-screen.tsx).
- *  3. Erst danach `auth.admin.deleteUser()` mit Service-Role — kaskadiert
- *     ueber `profiles.id references auth.users(id) on delete cascade` auf
- *     Profil, Tagebuch, Gewicht, Ziele und die eigene household_members-Zeile.
+ * Bereinigt Haushaltsbezuege im Nutzerkontext und loescht danach `auth.users`
+ * mit der Service Role. Letzte Admins aktiver Haushalte erhalten 409.
  */
 Deno.serve(async (req: Request) => {
   if (req.method !== 'POST') {
@@ -41,8 +25,7 @@ Deno.serve(async (req: Request) => {
   const anonKey = Deno.env.get('SUPABASE_ANON_KEY')!;
   const serviceRoleKey = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!;
 
-  // Client "als der Nutzer" — respektiert RLS/auth.uid(), fuer den Aufruf des
-  // vorbereitenden RPCs.
+  // Der vorbereitende RPC muss unter RLS als der Nutzer laufen.
   const userClient = createClient(supabaseUrl, anonKey, {
     global: { headers: { Authorization: authHeader } },
   });
@@ -78,8 +61,7 @@ Deno.serve(async (req: Request) => {
     });
   }
 
-  // Erst jetzt Service-Role — nur fuer den einen Schritt, den RLS grundsaetzlich
-  // nicht erlauben kann.
+  // Service Role nur fuer die nicht per RLS erlaubte Auth-Loeschung.
   const adminClient = createClient(supabaseUrl, serviceRoleKey);
   const { error: deleteError } = await adminClient.auth.admin.deleteUser(user.id);
 

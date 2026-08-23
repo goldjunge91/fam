@@ -131,10 +131,10 @@ describe('applyPatch', () => {
       fromVersion: '2026-08-01T00:00:00.000Z',
       toVersion: '2026-08-02T00:00:00.000Z',
       upserts: [
-        { code: '1', name: 'Apfel Bio' }, // geaendert
-        { code: '3', name: 'Käse' }, // neu
+        { code: '1', name: 'Apfel Bio' },
+        { code: '3', name: 'Käse' },
       ],
-      deletes: ['2'], // Wein entfernt
+      deletes: ['2'],
     });
     patchDb.close();
 
@@ -157,7 +157,7 @@ describe('applyPatch', () => {
     const patchPath = join(dir, 'patch-wrong-from.db');
     const patchDb = new DatabaseSync(patchPath);
     seedPatchDb(patchDb, {
-      fromVersion: '2099-01-01T00:00:00.000Z', // stimmt nicht mit dem lokalen Stand ueberein
+      fromVersion: '2099-01-01T00:00:00.000Z',
       toVersion: '2099-01-02T00:00:00.000Z',
       upserts: [{ code: '1', name: 'Sollte nicht ankommen' }],
     });
@@ -219,7 +219,6 @@ describe('applyPatch', () => {
       toVersion: '2026-08-02T00:00:00.000Z',
     });
 
-    // Ein erneutes Attachen unter demselben Namen scheitert, wenn es noch haengt.
     await expect(
       db.execAsync(`ATTACH DATABASE '${patchPath}' AS off_patch`),
     ).resolves.toBeUndefined();
@@ -228,12 +227,7 @@ describe('applyPatch', () => {
   it('rollt bei einem Fehler mitten in der Transaktion vollständig zurück (alter Dump bleibt aktiv)', async () => {
     const patchPath = join(dir, 'patch-broken.db');
     const patchDb = new DatabaseSync(patchPath);
-    // Absichtlich KAPUTT: product_upserts hat eine Spalte weniger als
-    // PRODUCT_COLUMNS — die INSERT...SELECT-Spaltenzahl passt nicht mehr
-    // zusammen, das schlaegt eindeutig fehl (anders als eine fehlende Spalte
-    // in einer WHERE-IN-Subquery: SQLite interpretiert einen dort nicht
-    // gefundenen Spaltennamen als korrelierten Verweis auf die aeussere
-    // Tabelle statt zu werfen — kein verlaesslicher Fehlerausloeser).
+    // Erzwingt einen eindeutigen Spaltenzahlfehler im INSERT...SELECT.
     const brokenColumns = PRODUCT_COLUMNS.slice(0, -1);
     patchDb.exec(`
       create table patch_meta (from_version text not null, to_version text not null, schema_version integer not null, generated_at text not null, upsert_count integer not null, delete_count integer not null);
@@ -282,7 +276,6 @@ describe('applyPatch', () => {
       }),
     ).rejects.toThrow();
 
-    // Rollback: weder der Upsert noch die data_version-Aenderung sind haengengeblieben.
     expect(await readOffDumpProducts()).toEqual([
       { code: '1', product_name: 'Apfel' },
       { code: '2', product_name: 'Wein' },

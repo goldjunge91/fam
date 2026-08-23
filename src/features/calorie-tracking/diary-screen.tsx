@@ -272,7 +272,6 @@ export function DiaryScreen() {
         showsVerticalScrollIndicator={false}
         contentContainerClassName="diary-content"
         contentInsetAdjustmentBehavior="never">
-        {/* Profil-Auswahl (Erwachsener vs. Kind-Profile) */}
         {childProfiles.length > 0 ? (
           <FilterChipBar
             label="Tagebuchprofil"
@@ -282,7 +281,6 @@ export function DiaryScreen() {
           />
         ) : null}
 
-        {/* Datumsnavigation (Gestern, Heute, Morgen, Datumswahl) */}
         <View className="diary-date-row">
           <Pressable
             onPress={() => setSelectedDate((date) => addDays(date, -1))}
@@ -316,7 +314,6 @@ export function DiaryScreen() {
           </Pressable>
         </View>
 
-        {/* Kalorien-Zusammenfassung mit Ring-Diagramm & Bilanz */}
         <View className="diary-summary-card">
           <ProgressRing
             value={totals.kcal}
@@ -343,7 +340,6 @@ export function DiaryScreen() {
           </View>
         </View>
 
-        {/* Makronährstoff-Balken (Protein, Kohlenhydrate, Fett) */}
         <View className="diary-macro-list">
           <MacroSummary
             label="Protein"
@@ -358,17 +354,14 @@ export function DiaryScreen() {
           <MacroSummary label="Fett" value={totals.fatG} target={currentGoal?.fat_g ?? 0} isLast />
         </View>
 
-        {/* GLP-1 Tracking-Karte (optional) */}
         {userProfile?.tracking_method === 'glp1' ? (
           <Glp1Card userId={userId} childProfileId={childProfileId} />
         ) : null}
 
-        {/* Intervallfasten-Karte (optional) */}
         {userProfile?.tracking_method === 'fasting' ? (
           <FastingCard userId={userId} childProfileId={childProfileId} />
         ) : null}
 
-        {/* Mahlzeiten-Abschnitte (Frühstück, Mittagessen, Abendessen, Snacks) */}
         {isLoading ? (
           <ThemedText
             type="captionCompact"

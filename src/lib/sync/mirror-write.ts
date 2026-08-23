@@ -3,46 +3,20 @@ import type { Entity, SqlDatabase, SqlParam } from '@/lib/db/types';
 import { toEpochMs } from '@/lib/sync/cursor';
 import { resolve, type SyncSide } from '@/lib/sync/resolve';
 
-/**
- * Gemeinsamer Remote→Lokal-Zeilenschreiber (#47, #48).
- *
- * Sowohl Pull ("eingehende Remote-Zeile anwenden") als auch Push ("Server-
- * Antwortzeile nach erfolgreichem Push anwenden") als auch die Realtime-Bridge
- * ("eingehendes postgres_changes-Event anwenden") schreiben ueber diese eine
- * Funktion — das uuid/timestamptz→text/epoch-ms-Mapping und die
- * Konfliktentscheidung existieren dadurch an genau einer Stelle.
- */
-
 export type UpsertMirrorRowOptions = {
-  /** 0 nach einem Pull oder einem erfolgreichen Push-Response. 1 nur, wo _dirty explizit erhalten bleiben soll. */
   dirty: 0 | 1;
 };
 
 function toSqlParam(value: unknown): SqlParam {
   if (value === undefined || value === null) return null;
   if (typeof value === 'string' || typeof value === 'number') return value;
-  // Postgres boolean-Spalten (households.premium_active) kommen von
-  // postgrest-js als JS-boolean — SQLite kennt keinen eigenen Bool-Typ,
-  // deshalb als 0/1 gespiegelt, wie auch `_dirty` in diesem Schema.
+  // SQLite spiegelt Postgres-Booleans als 0/1.
   if (typeof value === 'boolean') return value ? 1 : 0;
-  // Postgres text[]-Spalten (recipes.dish_types/dietary_tags/hashtags)
-  // kommen von postgrest-js als JS-Array — SQLite kennt keinen Array-Typ,
-  // deshalb als JSON-Text gespiegelt. Aufrufer, die die Spalte lesen, parsen
-  // selbst zurueck (siehe use-recipes.ts).
+  // SQLite spiegelt Postgres-Arrays als JSON-Text.
   if (Array.isArray(value)) return JSON.stringify(value);
-  // numeric-Spalten kommen von postgrest-js als JS-Number, alles andere in
-  // diesem Schema ist text/uuid/date — als String. Ein anderer Typ waere
-  // Schema-Drift zwischen supabase/schemas/*.sql und entities.ts.
   throw new Error(`Unerwarteter Werttyp fuer Spiegel-Zeile: ${typeof value}`);
 }
 
-/**
- * Schreibt eine Remote-Zeile in die passende Spiegeltabelle (upsert per id).
- *
- * `remoteRow` muss jede Spalte aus `metaOf(entity).columns` sowie
- * `updated_at` (und, wenn `hasServerTombstone`, `deleted_at`) enthalten — die
- * Form, in der `postgrest-js` ein `select('*')`-Ergebnis liefert.
- */
 export async function upsertMirrorRow(
   txn: SqlDatabase,
   entity: Entity,
@@ -88,15 +62,7 @@ type RemoteRow = Record<string, unknown> & {
 
 type LocalRowMeta = { updated_at: number; deleted_at: number | null; _dirty: number };
 
-/**
- * Wendet eine einzelne Remote-Zeile lokal an — von `pull.ts` (Seiten-Zeilen)
- * und von `realtime.ts` (`postgres_changes`-Events) genutzt.
- *
- * `resolve()` laeuft nur, wenn die lokale Zeile `_dirty = 1` traegt — sonst
- * gibt es keinen Konflikt, die Remote-Zeile gewinnt immer kampflos. Gewinnt
- * `resolve()` fuer `'local'`, bleibt die lokale Zeile unangetastet; ihre
- * Absicht liegt weiterhin in der Outbox und wird dort erneut gepusht.
- */
+/** Dirty Zeilen durchlaufen dieselbe Konfliktaufloesung fuer Pull und Realtime. */
 export async function applyRemoteRow(
   txn: SqlDatabase,
   entity: Entity,
@@ -135,13 +101,7 @@ export async function applyRemoteRow(
   return 'written';
 }
 
-/**
- * Loescht eine Spiegelzeile hart — fuer ein echtes `DELETE`-Event, das nicht
- * ueber den ueblichen Soft-Delete-Pfad kommt (App-seitige Loeschungen laufen
- * immer als `update ... set deleted_at = ...` ueber `push.ts`). Ohne diesen
- * Pfad bliebe eine Zeile verwaist, wenn je ausserhalb der App hart geloescht
- * wird (z. B. Haushalts-Kaskadenloeschung).
- */
+/** Entfernt Zeilen fuer echte DELETE-Events ausserhalb des Soft-Delete-Pfads. */
 export async function deleteMirrorRow(txn: SqlDatabase, entity: Entity, id: string): Promise<void> {
   const meta = metaOf(entity);
   await txn.runAsync(`delete from ${meta.table} where id = ?`, [id]);

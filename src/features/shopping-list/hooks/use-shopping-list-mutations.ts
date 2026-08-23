@@ -36,18 +36,7 @@ type DeleteItemInput = {
   household_id: string;
 };
 
-/**
- * Fuegt einen neuen Artikel zur Einkaufsliste hinzu (#86) — oder erhoeht,
- * falls derselbe Artikel (gleiches Produkt bzw. gleicher Name, gleiche
- * Einheit) bereits offen auf der Liste steht, dessen Menge (#131/#146).
- * Verhindert Duplikate unabhaengig von der Quelle: manueller Eintrag,
- * Wochenplaner-Bedarf oder Rezept. Die eigentliche Merge-Logik steckt in
- * `@/lib/db/shopping-list-merge`, damit sie ohne `expo-crypto`/`expo-sqlite`
- * gegen eine echte SQLite-Instanz testbar ist.
- *
- * Kein Server-Round-Trip noetig: UUID wird lokal generiert, Eintrag
- * landet sofort in SQLite und in der Outbox.
- */
+/** Fuegt einen Artikel lokal hinzu oder erhoeht die Menge eines passenden offenen Eintrags. */
 export function useAddShoppingItem() {
   const queryClient = useQueryClient();
 
@@ -63,12 +52,6 @@ export function useAddShoppingItem() {
   });
 }
 
-/**
- * Bearbeitet einen bestehenden Artikel — bislang vor allem fuer die
- * Marktzuordnung gedacht (ein Artikel ohne Markt liess sich bisher gar nicht
- * mehr aendern), deckt aber alle Felder aus dem Formular ab, weil dort noch
- * weitere Punkte dazukommen werden.
- */
 export function useUpdateShoppingItem() {
   const queryClient = useQueryClient();
 
@@ -133,12 +116,6 @@ export function useUpdateShoppingItem() {
   });
 }
 
-/**
- * Checkt / uncheckt einen Artikel (#86).
- *
- * `checked_at` auf null setzen = unchecken.
- * `checked_at` auf ISO-String setzen = checken und `checked_by` mitschreiben.
- */
 export function useToggleShoppingItem() {
   const queryClient = useQueryClient();
 
@@ -173,12 +150,7 @@ export function useToggleShoppingItem() {
   });
 }
 
-/**
- * Soft-deletes einen Einkaufslisten-Artikel (#86).
- *
- * Kein Hard-Delete: `deleted_at` setzen — Outbox-Push schreibt den
- * Tombstone nach Supabase, Realtime-Bridge propagiert zu anderen Geraeten.
- */
+/** Soft-Delete erhaelt einen Tombstone fuer Outbox und Realtime-Synchronisierung. */
 export function useDeleteShoppingItem() {
   const queryClient = useQueryClient();
 

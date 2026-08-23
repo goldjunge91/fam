@@ -18,14 +18,7 @@ import {
 } from '@/features/recipes/use-recipes';
 import { getSupabase } from '@/lib/supabase';
 
-/**
- * Vorgefertigte Rezepte ("Vorlagen"): admin-kuratierte, global lesbare
- * Bibliothek (siehe supabase/schemas/15_recipe_templates.sql). Anders als
- * `recipes` wird diese Tabellenfamilie NICHT in die lokale SQLite-Mirror
- * aufgenommen (kein Eintrag in src/lib/db/entities.ts) — der Vorlagen-Screen
- * fragt live gegen Supabase ab, Templates sind kein Kern-Offline-Datensatz.
- * Browsen erfordert deshalb Netzverbindung.
- */
+/** Kuratierte Vorlagen werden live aus Supabase statt dem Offline-Spiegel gelesen. */
 
 export type RecipeTemplateListItem = {
   id: string;
@@ -69,7 +62,6 @@ export type RecipeTemplateDetail = RecipeTemplateListItem & {
   steps: RecipeTemplateStep[];
 };
 
-/** Liste aller Vorlagen, live von Supabase, sortiert nach Kuratierungs-Reihenfolge. */
 export function useRecipeTemplates() {
   return useQuery({
     queryKey: ['recipe-templates'],
@@ -95,14 +87,7 @@ export type RecipeTemplateWithNutrition = RecipeTemplateListItem & {
   carbsGPerServing: number | null;
 };
 
-/**
- * Wie `useRecipeTemplates`, ergaenzt um die Portions-Naehrwerte — fuer die
- * "Nach Kalorien"-Kacheln und die abgeleiteten High-Protein-/Low-Carb-Filter
- * im Entdecken-Screen. Laedt Komponenten/Positionen aller Vorlagen in zwei
- * Batch-Queries (kein N+1) und rechnet client-seitig mit den reinen
- * Funktionen aus `nutrition.ts` — Naehrwertberechnung ist bewusst Sache des
- * Clients, nicht der DB (siehe Kommentar in 11_recipes.sql).
- */
+/** Ergaenzt alle Vorlagen per Batch-Abfragen um clientseitige Portionswerte. */
 export function useRecipeTemplatesWithNutrition() {
   return useQuery({
     queryKey: ['recipe-templates', 'with-nutrition'],
@@ -186,7 +171,6 @@ export function useRecipeTemplatesWithNutrition() {
 
 export type CalorieBucket = { min: number; max: number; label: string };
 
-/** Die 10 Kacheln fuer "Rezepte nach Kalorien" (Entdecken-Screen), je 100 kcal breit ab 100. */
 export const CALORIE_BUCKETS: CalorieBucket[] = [
   { min: 50, max: 100, label: '50–100' },
   { min: 100, max: 200, label: '100–200' },
@@ -200,18 +184,12 @@ export const CALORIE_BUCKETS: CalorieBucket[] = [
   { min: 900, max: 1000, label: '900–1000' },
 ];
 
-/** Ob `kcal` in den Bucket faellt — obere Grenze inklusive, damit z. B. 1000 noch in den letzten Bucket faellt. */
+/** Die obere Bucket-Grenze ist inklusive. */
 export function isInCalorieBucket(kcal: number, bucket: CalorieBucket): boolean {
   return kcal > bucket.min && kcal <= bucket.max;
 }
 
-/**
- * Grober, rein abgeleiteter Schnellfilter (#131-Vorschlag): High Protein ab
- * 25% Kalorienanteil aus Protein, Low Carb unter 20g Kohlenhydrate/Portion.
- * Bewusst kein eigener dietary_tag dafuer (siehe 15_recipe_templates.sql) —
- * anders als "vegan" laesst sich das direkt aus den ohnehin vorhandenen
- * Naehrwerten ableiten, ein gepflegter Tag waere doppelt haltbare Wahrheit.
- */
+/** Leitet High-Protein und Low-Carb direkt aus Portionswerten statt Tags ab. */
 export function isHighProteinTemplate(template: RecipeTemplateWithNutrition): boolean {
   if (!template.kcalPerServing || !template.proteinGPerServing) return false;
   return (template.proteinGPerServing * 4) / template.kcalPerServing >= 0.25;
@@ -221,7 +199,6 @@ export function isLowCarbTemplate(template: RecipeTemplateWithNutrition): boolea
   return template.carbsGPerServing !== null && template.carbsGPerServing < 20;
 }
 
-/** Ein Template inkl. Komponente(n), Positionen und Zubereitungsschritten. */
 export function useRecipeTemplateDetail(templateId: string | undefined) {
   return useQuery({
     queryKey: ['recipe-template-detail', templateId],
@@ -311,29 +288,7 @@ export function useRecipeTemplateDetail(templateId: string | undefined) {
   });
 }
 
-/**
- * Uebernimmt eine Vorlage als neues Rezept in den Haushalt — ruft dieselbe
- * Sequenz bestehender Mutation-Hooks auf, die auch der Wizard in
- * recipe-create-screen.tsx's handleFinalSave nutzt (useAddRecipeMutation ->
- * useAddComponentMutation -> useAddItemMutation -> useAddStepMutation ->
- * useAddStepIngredientMutation). Läuft vollständig über den lokalen
- * Outbox-Mechanismus, funktioniert also auch offline, sobald das Template
- * einmal geladen wurde.
- *
- * Die "Zutaten"-Sektion in recipe-detail-screen.tsx zeigt nur eine
- * Komponenten-Summe (Name + Gesamtgramm) — die einzelnen Zutaten erscheinen
- * dort ausschliesslich als Chips unter den Zubereitungsschritten
- * (`recipe_step_ingredients`). Ohne diese Verknuepfung wirken kopierte
- * Vorlagen "leer", obwohl recipe_component_items korrekt angelegt sind. Da
- * die Vorlagen-Seed-Daten keine Schritt-Zutaten-Zuordnung kennen (Scope-Cut,
- * siehe 15_recipe_templates.sql), werden hier pragmatisch alle Zutaten des
- * Rezepts an den ersten Schritt gehaengt statt an gar keinen — nicht
- * schrittgenau, aber sichtbar.
- *
- * Das Cover wird nicht dupliziert: Template und Haushaltsrezept referenzieren
- * denselben global lesbaren Storage-Pfad, bis der Nutzer ein eigenes Cover
- * auswaehlt.
- */
+/** Kopiert eine geladene Vorlage ueber die Outbox und haengt Zutaten sichtbar an Schritt eins. */
 export function useApplyRecipeTemplateMutation() {
   const queryClient = useQueryClient();
   const addRecipe = useAddRecipeMutation();
@@ -366,10 +321,7 @@ export function useApplyRecipeTemplateMutation() {
       const newItemIds: string[] = [];
 
       for (const component of template.components) {
-        // Fallback fuer den Fall, dass eine Vorlage (Seed-Fehler oder
-        // zukuenftig manuell gepflegt) kein serving_grams hat: ohne den Wert
-        // blendet recipe-detail-screen.tsx die Komponente komplett aus
-        // (topLevelComponents filtert auf serving_grams !== null).
+        // Komponenten ohne serving_grams waeren im Detail unsichtbar.
         const servingGrams =
           component.serving_grams ?? component.items.reduce((sum, item) => sum + item.grams, 0);
 
@@ -381,7 +333,7 @@ export function useApplyRecipeTemplateMutation() {
         });
 
         for (const item of component.items) {
-          if (!item.product_id) continue; // sub_component_id-Verschachtelung nicht Teil der Vorlagen-Seed-Daten
+          if (!item.product_id) continue;
           const newItem = await addItem.mutateAsync({
             component_id: newComponent.id,
             recipe_id: recipe.id,

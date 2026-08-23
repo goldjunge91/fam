@@ -1,22 +1,7 @@
 -- Gewuenschter Endzustand der Zugriffsrechte — NICHT von Hand migrieren.
---
--- Rechte stehen bewusst in einer eigenen Datei und nicht bei den Tabellen:
--- Sie sind die Stelle, an der ein Fehler direkt zu einem Datenleck wird, und
--- gehoeren an einen Ort, den man am Stueck lesen und reviewen kann.
---
--- WICHTIG: Diese Datei funktioniert nur mit der Diff-Engine `pg-delta`.
--- Die aeltere `migra` erfasst weder Schema-Privilegien noch Funktions-Grants
--- noch Kommentare — mit ihr waeren alle Statements hier wirkungslos. Siehe
--- AGENTS.md.
+-- Zentralisiert sicherheitskritische Grants; nur pg-delta erfasst sie vollstaendig.
 
--- ------------------------------------------------------------- Tabellenrechte
--- Supabase vergibt diese Rechte per Default an alle drei Rollen. Hier stehen
--- sie ausdruecklich, damit der Diff sie nicht als "nicht deklariert, also
--- entziehen" liest und die App aussperrt.
---
--- Tabellenrechte sind bewusst grob: Welche ZEILEN jemand sieht, entscheidet
--- ausschliesslich RLS. Ohne das Tabellenrecht kaeme die Policy gar nicht erst
--- zum Zuge, mit dem Recht allein sieht niemand fremde Daten.
+-- Tabellenrechte ermoeglichen Zugriff; die sichtbaren Zeilen bestimmt weiterhin RLS.
 grant delete, insert, select, update on public.profiles to anon, authenticated, service_role;
 grant delete, insert, select, update on public.households to anon, authenticated, service_role;
 grant delete, insert, select, update on public.household_members to anon, authenticated, service_role;
@@ -55,75 +40,38 @@ grant delete, insert, select, update on public.exercises to anon, authenticated,
 grant delete, insert, select, update on public.workout_sessions to anon, authenticated, service_role;
 grant delete, insert, select, update on public.workout_sets to anon, authenticated, service_role;
 
--- --------------------------------------------------- Premium-Spalten schuetzen
--- RLS wirkt auf Zeilen, nicht auf Spalten (siehe Kommentar in 03_households.sql
--- bei household_member_profiles): `households_update_admin` erlaubt jedem
--- Admin, seine eigene Haushaltszeile zu aendern — ohne diese Einschraenkung
--- koennte er ueber ein normales UPDATE `premium_active` selbst auf `true`
--- setzen und sich Premium gratis freischalten. Ein spaltenscharfes REVOKE
--- allein wuerde nichts bewirken, solange der Tabellen-Grant oben weiter
--- besteht (Postgres prueft Tabellen- UND Spaltenrechte, jedes ausreichend
--- fuer sich) — deshalb erst das Tabellenrecht fuer `authenticated` entziehen
--- und danach nur die Spalte zurueckgeben, die Clients wirklich aendern
--- duerfen. `service_role` bleibt unberuehrt: Der RevenueCat-Webhook
--- (supabase/functions/revenuecat-webhook) laeuft mit Service-Role und
--- umgeht RLS ohnehin.
+-- RLS schuetzt keine Spalten. Authenticated verliert deshalb das Tabellen-UPDATE
+-- und erhaelt nur erlaubte Spalten zurueck; Premium bleibt service_role vorbehalten.
 revoke update on public.households from authenticated;
 grant update (name) on public.households to authenticated;
 
--- ------------------------------------------------------------ Schema `private`
--- `authenticated` braucht USAGE, weil die RLS-Policies auf households und
--- household_members die Helfer in diesem Schema aufrufen.
---
--- `anon` bekommt sie ausdruecklich nicht. Alle Policies sind `to authenticated`;
--- ein anonymer Client wertet sie nie aus.
+-- Nur authenticated braucht private-USAGE fuer die RLS-Helfer.
 grant usage on schema private to authenticated;
 
 grant execute on function private.is_household_member(uuid) to authenticated;
 grant execute on function private.is_household_admin(uuid) to authenticated;
 
--- Postgres vergibt EXECUTE auf neue Funktionen per Default an PUBLIC, und
--- `anon` erbt von PUBLIC. Ohne diesen Entzug haette `anon` das Recht — auch
--- wenn ihm die Schema-USAGE fehlt und der Aufruf daran scheitern wuerde.
--- Zwei Schichten sind hier billiger als die Diskussion, ob eine reicht.
+-- PUBLIC erhaelt standardmaessig EXECUTE; der explizite Entzug schuetzt auch anon.
 revoke execute on function private.is_household_member(uuid) from public, anon;
 revoke execute on function private.is_household_admin(uuid) from public, anon;
 
--- Trigger-Funktionen ruft niemand direkt auf; sie laufen unter den Rechten des
--- Eigentuemers, wenn der Trigger feuert.
+-- Trigger-Funktionen duerfen nicht direkt aufgerufen werden.
 revoke execute on function private.set_updated_at() from public, anon, authenticated;
 revoke execute on function private.handle_new_user() from public, anon, authenticated;
 revoke execute on function private.guard_last_admin() from public, anon, authenticated;
 revoke execute on function private.delete_orphaned_household() from public, anon, authenticated;
 
--- --------------------------------------------------------------------- public
--- Diese beiden RPCs SOLLEN vom Client aufrufbar sein — anders als die Helfer.
---
--- Achtung: Auf Supabase-Remote-Projekten vergeben ALTER DEFAULT PRIVILEGES
--- EXECUTE auf neue public-Funktionen zusaetzlich direkt an `anon`. Der Entzug
--- `from public` erreicht diesen separaten Grant nicht, und der Diff sieht ihn
--- nicht, weil er lokal nicht existiert. Deshalb steht `anon` hier ausdruecklich
--- mit drin — und `bash scripts/check-privileges.sh --linked` prueft es nach
--- jedem Push nach.
+-- Remote kann anon EXECUTE direkt erhalten; deshalb immer PUBLIC und anon entziehen.
 revoke execute on function public.create_household(text) from public, anon;
 grant execute on function public.create_household(text) to authenticated;
 
--- redeem_invite() muss von Nicht-Mitgliedern aufrufbar sein — das ist sein
--- ganzer Zweck. Aber nur von angemeldeten: die Mitgliedschaft braucht eine
--- user_id.
+-- redeem_invite braucht eine authentifizierte user_id, aber keine Mitgliedschaft.
 revoke execute on function public.redeem_invite(uuid) from public, anon;
 grant execute on function public.redeem_invite(uuid) to authenticated;
 
--- prepare_account_deletion() liest ausschliesslich auth.uid() selbst — fuer
--- `anon` gaebe es niemanden, aber der Entzug bleibt trotzdem ausdruecklich
--- stehen (SECURITY DEFINER, siehe Kommentar in 03_households.sql).
 revoke execute on function public.prepare_account_deletion() from public, anon;
 grant execute on function public.prepare_account_deletion() to authenticated;
 
--- household_member_profiles() umgeht die profiles-RLS (SECURITY DEFINER) und
--- prueft die Mitgliedschaft selbst. Fuer `anon` gaebe es nichts zu pruefen —
--- ohne auth.uid() ist niemand Mitglied —, aber der Entzug bleibt trotzdem
--- ausdruecklich stehen: bei einer Funktion, die RLS umgeht, ist die
--- Rechtevergabe kein Ort fuer Implizites.
+-- Der RLS-umgehende Profil-RPC bleibt ausschliesslich authenticated vorbehalten.
 revoke execute on function public.household_member_profiles(uuid) from public, anon;
 grant execute on function public.household_member_profiles(uuid) to authenticated;

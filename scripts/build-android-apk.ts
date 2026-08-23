@@ -1,14 +1,5 @@
 #!/usr/bin/env bun
-/**
- * build-android-apk.ts — Standalone Android Release APK Build Script.
- *
- *   bun run android:apk                        Standard: Zählt versionCode automatisch hoch,
- *                                              baut Release-APK & speichert sie in dist/
- *   bun run android:apk --no-bump              Kein Hochzählen der Build-Nummer (versionCode)
- *   bun run android:apk --version-code 10      Spezifischen versionCode setzen
- *   bun run android:apk --app-version 1.1.0    App-Version anpassen
- *   bun run android:apk --install              APK nach dem Bauen direkt via adb installieren
- */
+/** Baut eine Android-Release-APK nach `dist/`; Optionen stehen unter `--help`. */
 
 import { execSync, spawnSync } from 'node:child_process';
 import fs from 'node:fs';
@@ -33,7 +24,6 @@ function die(msg: string): never {
   process.exit(1);
 }
 
-// ------------------------------------------------------------- 1. Argument Parsing
 const args = process.argv.slice(2);
 let bumpVersionCode = true;
 let explicitVersionCode: number | null = null;
@@ -67,7 +57,6 @@ Optionen:
   }
 }
 
-// ------------------------------------------------------------- 2. .env Validierung
 log('Prüfe Umgebungsvariablen in .env für Android Release...');
 if (!fs.existsSync(envPath)) {
   die(`.env-Datei nicht gefunden unter ${envPath}`);
@@ -90,7 +79,6 @@ if (!env.EXPO_PUBLIC_SUPABASE_URL || !env.EXPO_PUBLIC_SUPABASE_KEY) {
 
 ok('Umgebungsvariablen sind gültig.');
 
-// ------------------------------------------------------------- 3. Version Management (app.json)
 if (!fs.existsSync(appJsonPath)) {
   die(`app.json nicht gefunden unter ${appJsonPath}`);
 }
@@ -119,7 +107,6 @@ appJson.expo.android.versionCode = newVersionCode;
 fs.writeFileSync(appJsonPath, `${JSON.stringify(appJson, null, 2)}\n`);
 ok('app.json erfolgreich aktualisiert.');
 
-// ------------------------------------------------------------- 4. Gradle Release Build
 log('Starte Gradle Release Build (assembleRelease)...');
 const startTime = Date.now();
 
@@ -158,7 +145,6 @@ ok(
   `Gradle Build erfolgreich abgeschlossen in ${Math.floor(durationSec / 60)}m ${durationSec % 60}s`,
 );
 
-// ------------------------------------------------------------- 5. APK-Datei lokalisieren & kopieren
 const rawApkPath = path.join(
   projectRoot,
   'android',
@@ -187,7 +173,6 @@ const sizeMB = (stats.size / (1024 * 1024)).toFixed(2);
 
 ok(`APK erfolgreich nach dist/ kopiert: ${targetApkName} (${sizeMB} MB)`);
 
-// ------------------------------------------------------------- 6. Optional: adb Install
 if (autoInstall) {
   log('Versuche APK auf verbundenem Android-Gerät zu installieren (adb install)...');
   try {
@@ -200,7 +185,6 @@ if (autoInstall) {
   }
 }
 
-// ------------------------------------------------------------- 7. Zusammenfassung
 console.log(
   '\n\x1b[1;32m═══════════════════════════════════════════════════════════════════════\x1b[0m',
 );

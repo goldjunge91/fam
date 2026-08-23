@@ -1,19 +1,8 @@
 /** @type {import('tailwindcss').Config} */
-// fam Design-Tokens 1:1 aus src/constants/theme.ts übernommen — Colors.light/
-// Colors.dark, Spacing, Radius. theme.ts bleibt bis zum Abschluss der
-// NativeWind-Migration die Quelle der Wahrheit für Screens, die noch
-// StyleSheet.create verwenden; bei Token-Änderungen beide Stellen pflegen.
-//
-// Farben zeigen auf CSS-Variablen (definiert in src/global.css), die per
-// `prefers-color-scheme` automatisch zwischen Light/Dark wechseln — kein
-// `dark:`-Präfix an jeder Nutzstelle nötig, entspricht dem bisherigen
-// `useTheme()`-Verhalten ohne manuellen Umschalter.
-//
-// rgb(var(--color-x) / <alpha-value>) statt var(--color-x) direkt: damit
-// funktionieren Tailwinds Opazitäts-Modifier (bg-accent/10, border-danger/20,
-// …) — Ersatz für das bisherige `${theme.accent}18`-Hex-Suffix-Muster.
+// Tokens spiegeln `theme.ts`; CSS-Variablen wechseln automatisch mit dem Farbschema.
+// Das RGB-Format ermoeglicht Tailwind-Opacity-Modifier.
 module.exports = {
-  darkMode: 'media', // kein manueller Umschalter in der App, folgt useColorScheme()
+  darkMode: 'media',
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
   presets: [require('nativewind/preset')],
   theme: {
@@ -59,17 +48,11 @@ module.exports = {
         'fam-large': '28px',
         pill: '9999px',
       },
-      // 0.5px statt StyleSheet.hairlineWidth: Letzteres ist ein zur Laufzeit
-      // ermittelter, geräteabhängiger Wert (1 / PixelRatio) und kann nicht in
-      // eine statische Config einfließen. 0.5px ist die gängige Annäherung
-      // für Trennlinien auf Retina-Displays (react-native rendert
-      // Sub-Pixel-Breiten korrekt).
+      // Statische Annaeherung an das laufzeitabhaengige StyleSheet.hairlineWidth.
       borderWidth: {
         hairline: '0.5px',
       },
-      // fontSize-Tuples [Größe, { lineHeight }] — 1:1 aus
-      // src/components/themed-text.tsx (Typography). Bei neuen Rollen dort
-      // zuerst ergänzen, dann hier nachziehen.
+      // Spiegelt die Typografie-Rollen aus `themed-text.tsx`.
       fontSize: {
         micro: ['9px', { lineHeight: '14px' }],
         'caption-compact': ['11px', { lineHeight: '14px' }],
@@ -88,9 +71,7 @@ module.exports = {
         title: ['32px', { lineHeight: '44px' }],
         display: ['48px', { lineHeight: '52px' }],
         link: ['14px', { lineHeight: '30px' }],
-        // Kein lineHeight: Typography.code in themed-text.tsx spreadet nur
-        // FontSize[12] ohne lineHeight-Override (bewusst anders als
-        // `detail`, das denselben fontSize-Wert hat, aber lineHeight: 16).
+        // Code uebernimmt bewusst keine lineHeight.
         code: '12px',
       },
       boxShadow: {
@@ -99,11 +80,11 @@ module.exports = {
         surface: '0 3px 10px rgba(89, 64, 89, 0.09)',
       },
       maxWidth: {
-        content: '800px', // MaxContentWidth
+        content: '800px',
       },
       height: {
-        control: '34px', // ControlSize.compactHeight
-        'action-area': '88px', // Layout.floatingActionAreaHeight
+        control: '34px',
+        'action-area': '88px',
       },
     },
   },

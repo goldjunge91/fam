@@ -5,14 +5,8 @@ import { ThemedText } from '@/components/theme/themed-text';
 import { useTheme } from '@/hooks/use-theme';
 
 type EmptyStateProps = {
-  /**
-   * SF-Symbol-Name. Der Typ kommt aus expo-symbols und ist auf die tatsaechlich
-   * existierenden Symbole eingeschraenkt — ein Tippfehler faellt beim Typecheck
-   * auf, nicht erst als leere Flaeche auf dem Geraet.
-   */
   symbol: SymbolViewProps['name'];
   title: string;
-  /** Was der Nutzer als Naechstes tun kann — ein leerer Screen ohne Hinweis ist eine Sackgasse. */
   hint: string;
 };
 

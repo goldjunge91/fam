@@ -19,36 +19,7 @@ type PremiumContextValue = {
 
 const PremiumContext = createContext<PremiumContextValue | null>(null);
 
-/**
- * Stellt den Premium-Status app-weit bereit, um einzelne Funktionen hinter
- * eine Paywall stellen zu koennen.
- *
- * Drei Quellen, in dieser Reihenfolge:
- *
- * 1. `EXPO_PUBLIC_FORCE_PREMIUM=true` — schaltet Premium hart frei, egal was
- *    RevenueCat oder die DB sagen. Zum Entwickeln einzelner Premium-
- *    Funktionen ohne Sandbox-Kauf pro Testlauf.
- * 2. `households.premium_active` aus dem lokalen SQLite-Spiegel
- *    (`activeHousehold`) — die serverseitige, vom RevenueCat-Webhook
- *    gepflegte Wahrheit. Offline verfuegbar wie der Rest der App, und der
- *    einzige Weg, wie ein Mitglied den Kauf eines anderen Mitglieds sieht.
- * 3. Das RevenueCat-Entitlement `premium` (`PREMIUM_ENTITLEMENT_ID`) aus dem
- *    live geladenen `CustomerInfo` — greift sofort nach dem eigenen Kauf,
- *    noch bevor der Webhook durchgelaufen ist und die DB-Zeile aktualisiert
- *    hat.
- *
- * Ohne API-Key bleibt `customerInfo` `null` und Punkt 3 traegt nichts bei —
- * die App startet trotzdem, siehe `lib/purchases.ts`.
- *
- * Muss innerhalb von `ActiveHouseholdProvider` stehen: der RevenueCat-User
- * wird an die `household_id` gebunden (`Purchases.logIn`), nicht an die
- * Supabase-User-ID — Premium gilt haushaltsweit, nicht pro Person. Alle
- * Mitglieder eines Haushalts teilen sich dadurch denselben RevenueCat-
- * Kunden; ein Kauf durch irgendein Mitglied macht CustomerInfo fuer alle
- * anderen ebenfalls sichtbar, sobald sie selbst online nachfragen — die
- * DB-Zeile (Punkt 2) ist trotzdem die primaere Quelle, weil sie das auch
- * offline kann.
- */
+/** Kombiniert Dev-Override, Haushaltsspiegel und Live-Entitlement zum Premium-Status. */
 export function PremiumProvider({ children }: { children: ReactNode }) {
   const { activeHouseholdId, activeHousehold } = useActiveHousehold();
   const [customerInfo, setCustomerInfo] = useState<CustomerInfo | null>(null);
@@ -84,9 +55,7 @@ export function PremiumProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     if (!isPurchasesConfigured()) return;
 
-    // Bindet RevenueCat an den Haushalt statt an die Person — siehe
-    // Kommentar am Provider. Ein Haushaltswechsel (HouseholdSwitcherModal)
-    // loggt hier automatisch auf den neuen `activeHouseholdId` um.
+    // Premium ist an den aktiven Haushalt statt die Person gebunden.
     if (activeHouseholdId) {
       Purchases.logIn(activeHouseholdId)
         .then(({ customerInfo: info }) => setCustomerInfo(info))
@@ -94,10 +63,7 @@ export function PremiumProvider({ children }: { children: ReactNode }) {
       return;
     }
 
-    // Purchases.logOut() wirft, wenn der RevenueCat-User schon anonym ist —
-    // und das ist er beim allerersten App-Start immer, bevor je ein Haushalt
-    // ausgewaehlt wurde. Ohne diese Pruefung loggt das bei jedem Start einen
-    // Fehler, der keiner ist.
+    // RevenueCat wirft beim Abmelden eines bereits anonymen Nutzers.
     Purchases.isAnonymous()
       .then((isAnonymous) => {
         if (isAnonymous) return;

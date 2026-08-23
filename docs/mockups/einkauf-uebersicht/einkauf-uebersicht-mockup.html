@@ -13,7 +13,6 @@
     --accent-soft: #ece3ec;
     --shadow: rgba(45, 40, 48, 0.1);
 
-    /* App-Tokens 1:1 aus src/constants/theme.ts (light) */
     --app-text: #2D2830;
     --app-bg: #F8F4EF;
     --app-surface: #FBF7F2;
@@ -39,7 +38,6 @@
       --accent-soft: #362f3a;
       --shadow: rgba(0, 0, 0, 0.4);
 
-      /* App-Tokens 1:1 aus theme.ts (dark) */
       --app-text: #F2ECE7;
       --app-bg: #211D23;
       --app-surface: #2B262E;
@@ -161,14 +159,12 @@
   .app-header {
     display: flex; align-items: center; justify-content: space-between; padding: 4px 20px 10px; flex-shrink: 0;
   }
-  /* MenuButton — btn-menu: w/h 58px, rounded-sheet (20px), bg-background-element/70 */
   .icon-btn {
     width: 58px; height: 58px; border-radius: 20px;
     background: color-mix(in srgb, var(--app-surface) 70%, transparent);
     display: flex; align-items: center; justify-content: center; font-size: 18px; color: var(--app-text);
   }
   .app-title { font-size: 19px; font-weight: 700; letter-spacing: -0.01em; }
-  /* ProfileButton — btn-profile: w/h 58px, rounded-fam-large (28px), bg-accent */
   .avatar {
     width: 58px; height: 58px; border-radius: 28px; background: var(--app-accent); color: var(--app-on-accent);
     font-size: 14px; font-weight: 700; display: flex; align-items: center; justify-content: center;
@@ -178,8 +174,7 @@
     display: flex; align-items: center; justify-content: space-between; gap: 8px;
     padding: 0 20px 12px; flex-shrink: 0;
   }
-  /* StorePickerMenu (glasfaehig) — GLASS_STYLE: py-two px-three, rounded-pill,
-     bewusst gleiche Vertikal-/Horizontal-Skala wie der Compact-Button daneben. */
+  /* Gleiche Innenabstaende wie der benachbarte Compact-Button. */
   .glass-pill {
     display: flex; align-items: center; gap: 8px; padding: 8px 16px; border-radius: 999px;
     background: color-mix(in srgb, var(--app-surface) 88%, transparent);
@@ -187,7 +182,6 @@
     font-size: 13px; font-weight: 700;
   }
   .glass-pill .dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
-  /* Button size="compact" -> btn-primary + !py-two !px-three: rounded-card (16px), nicht Pille */
   .add-btn {
     padding: 8px 16px; border-radius: 16px; background: var(--app-accent); color: var(--app-on-accent);
     font-size: 13px; font-weight: 700;
@@ -197,7 +191,6 @@
     flex: 1; overflow: hidden; padding: 4px 20px 20px; display: flex; flex-direction: column; gap: 10px;
   }
 
-  /* ---- Store card, shared base (heutiges store-summary-card.tsx) ---- */
   .store-card {
     display: flex; align-items: center; gap: 13px; padding: 14px 16px 14px 0;
     border-radius: 18px; background: var(--app-surface); overflow: hidden;
@@ -214,7 +207,6 @@
   .store-total .cur { font-size: 11px; font-weight: 500; color: var(--app-text-secondary); }
   .chev { font-size: 15px; color: var(--app-text-secondary); flex-shrink: 0; }
 
-  /* Neu: Direktstart-Knopf auf der Karte, nur wenn schon etwas abgehakt ist */
   .quick-start {
     width: 34px; height: 34px; border-radius: 12px; flex-shrink: 0;
     display: flex; align-items: center; justify-content: center; font-size: 15px;
@@ -239,7 +231,6 @@
     text-align: center; padding-top: 4px; font-size: 12.5px; font-weight: 650; color: var(--app-accent);
   }
 
-  /* ===================== VARIANT 2 — Kompakte Liste + Kategorievorschau ===================== */
   .b-row {
     display: flex; align-items: center; gap: 12px; padding: 12px 14px;
     border-radius: 14px; background: var(--app-surface);

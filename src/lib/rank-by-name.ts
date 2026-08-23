@@ -1,11 +1,4 @@
-/**
- * Ein Eintrag je Name, absteigend nach Haeufigkeit des Namens sortiert. Bei
- * gleicher Haeufigkeit bleibt die juengste Fundstelle vorn (stabile
- * Sortierung + `itemsNewestFirst`). Gemeinsame Implementierung fuer
- * `rankFrequentFoods` (`calorie-tracking/food-history.ts`) und
- * `frequent-products-quick-select.tsx` — beide zaehlten bisher dieselbe
- * Count-und-Repraesentant-Logik doppelt.
- */
+/** Ein Eintrag je Name; bei gleicher Haeufigkeit bleibt der juengste vorn. */
 export function rankByName<T extends { name: string }>(
   itemsNewestFirst: readonly T[],
   options?: { caseInsensitive?: boolean },

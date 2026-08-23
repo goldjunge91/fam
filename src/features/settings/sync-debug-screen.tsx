@@ -60,10 +60,7 @@ export function SyncDebugScreen() {
   const [outboxRows, setOutboxRows] = useState<OutboxRow[]>([]);
   const [locationRows, setLocationRows] = useState<LocationRow[]>([]);
   const [itemRows, setItemRows] = useState<ItemRow[]>([]);
-  // `getLastSyncInfo`/`getLastRealtimeStatus` lesen Modul-Zustand, keinen
-  // React State — ohne diesen Tick wuerde sich die Anzeige nur nach einer
-  // manuellen Aktion (z.B. "Jetzt synchronisieren") aktualisieren, obwohl
-  // sich der Realtime-Status jederzeit im Hintergrund aendern kann.
+  // Pollt Modul-Zustand, der keine React-Aktualisierung ausloest.
   const [, forceTick] = useState(0);
   useEffect(() => {
     const interval = setInterval(() => forceTick((t) => t + 1), 2000);
@@ -75,12 +72,7 @@ export function SyncDebugScreen() {
   const realtimeDiagnostics = getRealtimeDiagnostics();
   const latencySamples = getRealtimeLatencySamples();
   const latencySampleVersion = getRealtimeLatencySampleVersion();
-  // Nur neu berechnen, wenn tatsaechlich ein neues Sample dazukam (siehe
-  // Kommentar bei `realtimeLatencySampleVersion` in sync-runner.ts), nicht bei
-  // jedem 2s-`forceTick`. `null` = kein Insert/Update-Sample im Ringpuffer
-  // (z.B. wenn bisher nur Deletes ankamen, deren `latencyMs` immer `null`
-  // ist) — ohne diese Unterscheidung zeigte `reduce` faelschlich `0 ms` statt
-  // eines erkennbar leeren Zustands.
+  // Nur bei neuen Samples berechnen; `null` unterscheidet fehlende Messwerte von 0 ms.
   // biome-ignore lint/correctness/useExhaustiveDependencies: latencySamples-Referenz aendert sich nie (in-place mutiert), latencySampleVersion ist das eigentliche Signal
   const averageLatencyMs = useMemo(() => {
     const numericSamples = latencySamples
@@ -188,7 +180,6 @@ export function SyncDebugScreen() {
       title="Sync-Diagnose"
       back={{ label: 'Synchronisation', href: '/settings/sync' }}
       backStyle="icon">
-      {/* Übersicht zum letzten Sync-Lauf (Zeitpunkt, Pushed/Pulled, Realtime-Status & Reconnects) */}
       <Card title="Letzter Synchronisations-Lauf">
         <View className="debug-row">
           <ThemedText type="small">Uhrzeit:</ThemedText>
@@ -246,7 +237,6 @@ export function SyncDebugScreen() {
         </View>
       </Card>
 
-      {/* Realtime-Latenzmessungen & Samples */}
       <Card title={`Realtime-Latenz (letzte ${latencySamples.length} Zeilen)`}>
         {latencySamples.length === 0 ? (
           <ThemedText type="small" themeColor="textSecondary">
@@ -289,7 +279,6 @@ export function SyncDebugScreen() {
         )}
       </Card>
 
-      {/* Live-Tests für Push-Mitteilungen und Barcode-Scanner */}
       <Card title="Live-Test (Hardware & Push)">
         <ThemedText type="small" themeColor="textSecondary">
           Test-Aktionen für lokale Mitteilungen und die Kamera-Barcode-Erkennung.
@@ -305,7 +294,6 @@ export function SyncDebugScreen() {
         </View>
       </Card>
 
-      {/* Aktiver Haushalt in der lokalen SQLite-DB */}
       <Card title="Aktueller Haushalt in DB">
         <View className="debug-row">
           <ThemedText type="small">Haushalts-Name:</ThemedText>
@@ -321,7 +309,6 @@ export function SyncDebugScreen() {
         </View>
       </Card>
 
-      {/* Lokale Outbox-Warteschlange mit Mutations-Payloads und Fehlern */}
       <Card title={`Lokale Outbox (${outboxRows.length} Einträge)`}>
         {outboxRows.length === 0 ? (
           <ThemedText type="small" themeColor="textSecondary">
@@ -341,9 +328,6 @@ export function SyncDebugScreen() {
                   Fehler: {row.last_error}
                 </ThemedText>
               )}
-              {/* type="code" (Fonts.mono, 12px) statt der frueheren
-                  Sonderroute mit fest verdrahtetem 'Courier' — jetzt eine
-                  echte ThemedText-Rolle. */}
               <ThemedText type="code" className="mt-half">
                 Payload: {row.payload}
               </ThemedText>
@@ -365,7 +349,6 @@ export function SyncDebugScreen() {
         )}
       </Card>
 
-      {/* Lokale Lagerorte aus SQLite */}
       <Card title={`Lokale Lagerorte (${locationRows.length} Orte)`}>
         {locationRows.length === 0 ? (
           <ThemedText type="small" themeColor="textSecondary">
@@ -383,7 +366,6 @@ export function SyncDebugScreen() {
         )}
       </Card>
 
-      {/* Lokale Lebensmittel aus SQLite */}
       <Card title={`Lokale Lebensmittel (${itemRows.length} Artikel)`}>
         {itemRows.length === 0 ? (
           <ThemedText type="small" themeColor="textSecondary">
@@ -403,7 +385,6 @@ export function SyncDebugScreen() {
         )}
       </Card>
 
-      {/* Barcode-Scanner Testmodal */}
       <BarcodeScannerModal
         visible={showScannerTest}
         onClose={() => setShowScannerTest(false)}

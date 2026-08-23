@@ -13,13 +13,7 @@ interface ShoppingItemRowProps {
   onEdit: () => void;
 }
 
-/**
- * Abhaken passiert ausschliesslich im Einkaufsmodus (shopping-mode-screen.tsx)
- * — die Marktliste zeigt gar keine Checkbox mehr (Feedback: "sieht immer
- * noch wie ein antippbarer Kreis aus"), bereits gekaufte Artikel erkennt man
- * nur noch am durchgestrichenen Namen. Antippen der Zeile oeffnet das
- * Bearbeiten-Formular, lang druecken loescht weiterhin.
- */
+/** Abhaken erfolgt nur im Einkaufsmodus; hier oeffnet Tippen die Bearbeitung. */
 export const ShoppingItemRow = memo(function ShoppingItemRow({
   item,
   onDelete,
@@ -38,8 +32,6 @@ export const ShoppingItemRow = memo(function ShoppingItemRow({
         accessibilityHint="Antippen zum Bearbeiten, lang drücken zum Löschen"
         className="shopping-item-main">
         <View className="flex-1 gap-[2px]">
-          {/* Produkt · Menge · Preis als drei Spalten (Mockup
-              docs/mockups/einkaufsmodus/), nicht Menge+Preis gestapelt. */}
           <View className="flex-row items-baseline gap-two">
             <ThemedText
               type="small"

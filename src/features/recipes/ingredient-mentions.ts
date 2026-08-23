@@ -1,22 +1,9 @@
-/**
- * Zutaten-Erwähnungen im Zubereitungstext: `@Name`, optional direkt gefolgt
- * von einer Zahl (`@Wurst50`) für die verbrauchte Menge in der Einheit
- * dieser Zutat — nie hart codiert als Gramm, die Einheit kommt immer aus der
- * jeweiligen Zutat. Bewusst nur `@` als Auslöser (kein zusätzliches `#`):
- * `#` ist im Rezept-Wizard schon für Hashtags belegt (siehe
- * recipe-wizard-step-basics.tsx), ein zweiter Auslöser wäre nur zusätzliche
- * Mehrdeutigkeit ohne echten Zusatznutzen. Ersetzt im Rezept-Wizard die
- * manuelle Chip-Auswahl unter den Schritten; Anzeige (Wizard-Vorschau,
- * Rezept-Detail, Kochmodus) zeigt nie die rohe `@`-Syntax, sondern immer den
- * aufgelösten Klartext ("50g Wurst").
- */
+/** `@Name50` referenziert 50 Einheiten einer Zutat; `#` bleibt fuer Hashtags reserviert. */
 
 export interface MentionableIngredient {
-  /** `IngredientItem.id` im Wizard bzw. `recipe_component_items.id` nach dem Speichern. */
   itemId: string;
   name: string;
   unit: string;
-  /** Eingetragene Gesamtmenge dieser Zutat, Nenner für den Verbrauchsfortschritt. */
   quantity: number;
 }
 
@@ -24,29 +11,14 @@ function escapeRegExp(value: string): string {
   return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
 
-/**
- * Baut das Erwähnungs-Muster pro Aufruf aus den bekannten Zutatennamen statt
- * generisch nur "ein Wort" zu erlauben — sonst würde ein mehrteiliger Name
- * wie "Haferflocken kernig" schon an der Leerstelle abreißen. Bekannte Namen
- * (längste zuerst, damit ein kürzerer Name keinen längeren vorzeitig
- * abschneidet) haben Vorrang; ein einzelnes unbekanntes Wort bleibt als
- * Fallback erkennbar, damit Tippfehler weiterhin als "unresolved" markiert
- * werden können. `(?![\p{L}])` verhindert, dass ein bekannter Name nur
- * Präfix eines längeren, unbekannten Worts ist (z. B. "Zwiebel" in
- * "Zwiebeltopf").
- */
+/** Bevorzugt die laengsten bekannten Namen und markiert unbekannte Woerter separat. */
 function buildMentionPattern(ingredients: MentionableIngredient[]): RegExp {
   const known = ingredients.map((i) => escapeRegExp(i.name)).sort((a, b) => b.length - a.length);
   const knownAlternatives = known.length > 0 ? `(?:${known.join('|')})(?![\\p{L}])` : '(?!)';
   return new RegExp(`@(${knownAlternatives}|[\\p{L}]+)(\\d{1,4})?`, 'giu');
 }
 
-/**
- * Baut die erwaehnbaren Zutaten aus geladenen `recipe_component_items` +
- * `productsById` (siehe `RecipeDetail` in use-recipes.ts) — gemeinsame
- * Grundlage fuer Rezept-Detail und Kochmodus, die Erwaehnungen nur lesen statt
- * (wie der Wizard) auch zu bearbeiten.
- */
+/** Verbindet gespeicherte Komponentenpositionen mit ihren Produktnamen. */
 export function flattenRecipeItems(
   items: readonly {
     id: string;
@@ -83,11 +55,10 @@ export type MentionSegmentKind = 'text' | 'resolved' | 'unresolved';
 export interface MentionSegment {
   key: string;
   kind: MentionSegmentKind;
-  /** Anzuzeigender Text — bei `resolved` bereits der Klartext ("50g Wurst"), nie die rohe Syntax. */
+  /** Bei `resolved` bereits aufgeloester Klartext. */
   text: string;
 }
 
-/** Zerlegt einen Schritttext in Klartext- und Erwähnungs-Abschnitte für die Anzeige. */
 export function splitStepMentions(
   text: string,
   ingredients: MentionableIngredient[],
@@ -115,14 +86,14 @@ export function splitStepMentions(
   return segments;
 }
 
-/** Aufgeloester Klartext als reiner String, ohne Segment-Styling — fuer Stellen, die nur Text (keine JSX) brauchen, z. B. eine gekuerzte Kochmodus-Ueberschrift. */
+/** Liefert aufgeloesten Klartext ohne Segment-Styling. */
 export function renderMentionPlainText(text: string, ingredients: MentionableIngredient[]): string {
   return splitStepMentions(text, ingredients)
     .map((segment) => segment.text)
     .join('');
 }
 
-/** Summiert die in allen Schritttexten erwähnten Mengen je Zutat, gedeckelt auf die Gesamtmenge. */
+/** Summiert erwaehnte Mengen, gedeckelt auf die Gesamtmenge. */
 export function computeMentionUsage(
   stepsText: string[],
   ingredients: MentionableIngredient[],
@@ -141,7 +112,7 @@ export function computeMentionUsage(
   return used;
 }
 
-/** IDs der im Text tatsächlich erwähnten Zutaten — hält `WizardStepItem.ingredientIds` mit dem Fließtext synchron. */
+/** Liefert die im Text referenzierten Zutaten-IDs. */
 export function mentionedIngredientIds(
   text: string,
   ingredients: MentionableIngredient[],
@@ -154,17 +125,7 @@ export function mentionedIngredientIds(
   return Array.from(ids);
 }
 
-/**
- * Erkennt eine gerade getippte, noch unvollständige Erwähnung am Textende
- * (z. B. `"...und die @Hafer"` oder mehrteilig `"...die @Haferflocken kern"`)
- * — Grundlage für das Autovervollständigungs-Menü. Erlaubt Leerzeichen in der
- * Abfrage, damit mehrteilige Zutatennamen ("Haferflocken kernig") nicht schon
- * an der ersten Leerstelle abreißen; auf 40 Zeichen gedeckelt, damit keine
- * ganzen nachfolgenden Satzteile ohne Ziffer/Satzzeichen mit erfasst werden.
- * Bewusst nur am Textende statt an der Cursor-Position: `TextInput` in React
- * Native liefert die Cursor-Position nicht zuverlässig plattformübergreifend
- * per `onChangeText`, lineares Tippen am Ende deckt den Regelfall ab.
- */
+/** Erkennt eine bis 40 Zeichen lange, unvollstaendige Erwaehnung am Textende. */
 export function matchPendingMention(text: string): { query: string } | null {
   const match = text.match(/@([\p{L}][\p{L} ]{0,39})?$/u);
   if (!match) return null;

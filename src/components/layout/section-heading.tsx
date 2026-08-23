@@ -9,7 +9,6 @@ type SectionHeadingProps = {
   onActionPress?: () => void;
 };
 
-/** Kleine Abschnittszeile fuer Kartenraster und horizontale Sammlungen. */
 export function SectionHeading({
   title,
   eyebrow,

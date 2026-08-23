@@ -1,17 +1,3 @@
-/**
- * Wendet EINEN Patch transaktional auf den angehängten Offline-Dump an
- * (#223 Paket 6, Abschnitt 14 "Patchanwendung"). Läuft auf der Verbindung,
- * an die `off_dump` bereits angehängt ist (siehe `attachOffDump()` in
- * `off-dump.ts`) — hängt `off_patch` nur für die Dauer dieses einen
- * Patches zusätzlich an.
- *
- * Verteidigung in der Tiefe: prüft `from_version`/`schema_version` aus dem
- * Patch selbst noch einmal nach, statt sich ausschließlich auf die
- * Entscheidung von `update-planner.ts` zu verlassen — ein Patch könnte
- * zwischen Planung und tatsächlicher Anwendung veraltet sein (z.B. durch
- * einen parallelen Update-Versuch).
- */
-
 import type { SqlDatabase } from '@/lib/db/types';
 
 const PRODUCT_COLUMNS = [
@@ -70,11 +56,7 @@ export async function applyPatch(
       .join(', ');
 
     await db.withExclusiveTransactionAsync(async (txn) => {
-      // "where true" ist kein Filter, sondern eine SQLite-Eigenheit: ohne ein
-      // eigenes WHERE ist "INSERT ... SELECT ... ON CONFLICT" fuer den Parser
-      // mehrdeutig ("near 'do': syntax error"), waehrend "INSERT ... VALUES
-      // ... ON CONFLICT" ohne Weiteres funktioniert. Empirisch mit node:sqlite
-      // 3.53.3 verifiziert, siehe patch-applier.test.ts.
+      // WHERE trennt fuer SQLite SELECT und ON CONFLICT syntaktisch eindeutig.
       await txn.execAsync(`
         insert into off_dump.products (${PRODUCT_COLUMNS.join(', ')})
         select ${PRODUCT_COLUMNS.join(', ')} from off_patch.product_upserts where true

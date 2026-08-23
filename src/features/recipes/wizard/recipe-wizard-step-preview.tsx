@@ -52,17 +52,11 @@ export function RecipeWizardStepPreview({
 }: RecipeWizardStepPreviewProps) {
   const [tab, setTab] = useState<PreviewTab>('ingredients');
 
-  // Schluessel ist die lokale IngredientItem.id, nicht die (erst beim
-  // finalen Speichern entstehende) DB-item-ID — siehe Kommentar in
-  // recipe-wizard-step-steps.tsx.
+  // Vor dem Speichern existieren nur lokale IngredientItem-IDs.
   const ingredientLabelById = new Map<string, string>();
   for (const comp of components) {
     for (const item of comp.items) {
-      // item.product ist nur bei einer frisch abgeschlossenen OFF-Suche
-      // gesetzt. Beim Bearbeiten geladene Zutaten haben stattdessen
-      // productQuery/existingProductId (siehe recipe-create-screen.tsx-
-      // Hydration) — ohne diesen Fallback fehlten sie hier komplett bzw.
-      // zeigten nur ihre rohe ID.
+      // Geladene Zutaten brauchen den Fallback auf Query oder bestehende Produkt-ID.
       const name = item.product?.name ?? (item.existingProductId ? item.productQuery : null);
       if (name) {
         ingredientLabelById.set(item.id, `${name} (${comp.title})`);

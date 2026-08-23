@@ -17,10 +17,7 @@ type Props = {
   onClose: () => void;
 };
 
-// Stabile Referenz statt Inline-`= []`: `data` ist `undefined`, solange die
-// Query deaktiviert ist (kein Premium-Zugriff) — ein Inline-Default legt bei
-// jedem Render ein neues Array an, das `useEffect`-Dependency unten wuerde
-// das als Aenderung sehen und in eine Endlosschleife aus setState laufen.
+// Stabile leere Referenz verhindert einen Effekt-Loop ohne Premiumzugriff.
 const EMPTY_MISSING: RecipeShoppingNeed[] = [];
 
 export function RecipeShoppingSheet({ visible, detail, servings, onClose }: Props) {

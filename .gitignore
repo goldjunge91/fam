@@ -1,15 +1,10 @@
-# Learn more https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files
-
-# dependencies
 node_modules/
 
-# Expo
 .expo/
 dist/
 web-build/
 expo-env.d.ts
 
-# Native
 .kotlin/
 *.orig.*
 *.jks
@@ -20,32 +15,24 @@ expo-env.d.ts
 credentials.json
 /credentials/
 
-# Metro
 .metro-health-check*
 
-# debug
 npm-debug.*
 yarn-debug.*
 yarn-error.*
 
-# macOS
 .DS_Store
 *.pem
 
-# local env files
-# Nicht nur *.local: eine schlichte .env enthaelt hier die Supabase-Keys und
-# darf ebenfalls nie im Repo landen. Ohne diese Zeile haengt der Schutz an der
-# globalen ~/.gitignore_global des jeweiligen Entwicklers.
+# Auch die schlichte .env enthält Supabase-Schlüssel.
 .env
 .env.*
 !.env.example
 
-# typescript
 *.tsbuildinfo
 
 example
 
-# generated native folders
 /ios
 /android
 temp/
@@ -54,10 +41,8 @@ temp/
 coverage/**/*
 .env.local
 
-# Claude Code Kommandologs
 logs/
 reports/
 
-# Python (scripts/dump_data)
 __pycache__/
 *.pyc

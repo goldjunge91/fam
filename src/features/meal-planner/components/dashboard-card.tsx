@@ -37,11 +37,6 @@ const PLANNED_GLASS_STYLE_SMALL = {
   paddingVertical: 14,
 };
 
-/**
- * Essensplan-Dashboard-Card: zeigt den naechsten geplanten Eintrag von heute.
- * Large = Artwork + Rezeptname + Slot + Portionen + Chevron.
- * Small = Kicker + Rezeptname (gekuerzt), kein Artwork.
- */
 function MealPlanDashboardCard({ size, onLongPress }: DashboardCardProps) {
   const theme = useTheme();
   const { activeHouseholdId } = useActiveHousehold();

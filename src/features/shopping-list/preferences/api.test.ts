@@ -49,8 +49,7 @@ jest.mock('@/lib/db/outbox', () => ({
   enqueueMutation: jest.fn().mockResolvedValue(undefined),
 }));
 
-// Deterministisch statt echtes UUIDv5/expo-crypto — die Identitaetslogik
-// selbst ist bereits durch preference-identity.test.ts abgedeckt.
+// Die UUIDv5-Identitaet wird separat getestet; hier genuegt ein deterministischer Adapter.
 jest.mock('./preference-identity.expo', () => ({
   preferenceId: jest.fn(
     async ({

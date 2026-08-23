@@ -25,7 +25,6 @@ describe('classifyCategory', () => {
   });
 
   it('bevorzugt den spezifischeren Tag bei konkurrierenden Kategorien', () => {
-    // en:fruit-juices (beverages, spezifisch) vs. en:vegetables (produce, mittel)
     expect(
       classifyCategory({
         name: 'Fruchtsaft mit Gemüseanteil',
@@ -35,8 +34,6 @@ describe('classifyCategory', () => {
   });
 
   it('liefert "Sonstiges", wenn zwei verschiedene Kategorien mit gleich hoher Priorität konkurrieren', () => {
-    // en:porks (deli_meat) und en:milks (dairy) sind beide "spezifisch"
-    // gewichtet, aber unterschiedliche Kategorien — echter Gleichstand.
     const result = classifyCategory({
       name: 'Mysteriöses Mischprodukt',
       categoryTags: ['en:porks', 'en:milks'],

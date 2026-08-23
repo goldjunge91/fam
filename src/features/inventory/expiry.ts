@@ -12,27 +12,14 @@ export type ExpiryInfo = {
 
 const MS_PER_DAY = 86_400_000;
 
-/**
- * Tage zwischen zwei Kalendertagen — bewusst ueber die Datumsanteile, nicht
- * ueber die Millisekunden-Differenz.
- *
- * Sonst waere das Ergebnis von der Uhrzeit abhaengig: "heute 23:00" gegen
- * "morgen 01:00" sind zwei Stunden, aber ein Kalendertag. Bei einem
- * Mindesthaltbarkeitsdatum zaehlt der Tag, nicht der Zeitpunkt.
- */
+/** Zaehlt Kalendertage unabhaengig von Uhrzeit und Zeitumstellung. */
 function calendarDaysBetween(from: Date, to: Date): number {
   const a = Date.UTC(from.getFullYear(), from.getMonth(), from.getDate());
   const b = Date.UTC(to.getFullYear(), to.getMonth(), to.getDate());
   return Math.round((b - a) / MS_PER_DAY);
 }
 
-/**
- * Stuft ein Mindesthaltbarkeitsdatum ein (#71).
- *
- * `today` wird uebergeben statt intern `new Date()` aufzurufen. Nur so ist die
- * Funktion deterministisch und ohne Testdoubles pruefbar — und nur so haengt
- * das Ergebnis nicht davon ab, wann der Test zufaellig laeuft.
- */
+/** Stuft ein MHD relativ zu einem expliziten Stichtag ein. */
 export function getExpiryInfo(
   expiryDate: Date | string | null | undefined,
   today: Date,
@@ -79,7 +66,7 @@ export function getExpiryInfo(
   return { bucket: 'ok', daysLeft, label: `noch ${daysLeft} Tage`, themeColor: 'textSecondary' };
 }
 
-/** Sortierreihenfolge: was zuerst verbraucht werden muss, steht oben. */
+/** Sortiert zuerst nach Dringlichkeit, dann nach Datum. */
 const BUCKET_ORDER: Record<ExpiryBucket, number> = {
   expired: 0,
   critical: 1,
@@ -92,7 +79,6 @@ export function compareByExpiry(a: ExpiryInfo, b: ExpiryInfo): number {
   const byBucket = BUCKET_ORDER[a.bucket] - BUCKET_ORDER[b.bucket];
   if (byBucket !== 0) return byBucket;
 
-  // Innerhalb einer Stufe: das fruehere Datum zuerst. Artikel ohne MHD ans Ende.
   if (a.daysLeft === null) return b.daysLeft === null ? 0 : 1;
   if (b.daysLeft === null) return -1;
   return a.daysLeft - b.daysLeft;

@@ -7,9 +7,7 @@ export type InlineSelectOption = {
   value: string;
   label: string;
   icon?: string;
-  /** Zeigt die Option an, aber deaktiviert sie (z. B. noch nicht gebaute Filter). */
   disabled?: boolean;
-  /** Kurzer Hinweistext neben einer deaktivierten Option, z. B. "bald". */
   disabledHint?: string;
 };
 
@@ -20,13 +18,6 @@ type InlineSelectProps = {
   accessibilityLabel: string;
 };
 
-/**
- * Kompaktes Dropdown fuer 2-4 Optionen direkt unter einem Suchfeld (#Vorrat-
- * Redesign, angelehnt an die Einkaufen-Vorschlaege): ein Button mit
- * aktuellem Wert + Chevron, das Optionsfeld klappt darunter auf statt ein
- * natives Rad zu oeffnen (anders als `WheelPickerField`, das fuer feste,
- * laengere Listen gedacht ist).
- */
 export function InlineSelect({ value, options, onChange, accessibilityLabel }: InlineSelectProps) {
   const [open, setOpen] = useState(false);
   const selected = options.find((option) => option.value === value);

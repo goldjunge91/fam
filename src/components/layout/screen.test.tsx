@@ -4,12 +4,6 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { Screen } from '@/components/layout/screen';
 import { ThemedText } from '@/components/theme/themed-text';
 
-/**
- * Der Zurueck-Knopf hatte zwei Fehler, die zusammen auftraten: Er erschien auf
- * Screens ohne Ziel (unter anderem der Uebersicht, weil Tab-Wechsel bei
- * `NativeTabs` in der Historie landen), und beim Antippen quittierte React
- * Navigation das mit "The action 'GO_BACK' was not handled by any navigator".
- */
 let mockCanGoBack = false;
 const mockBack = jest.fn();
 const mockListeners: Record<string, () => void> = {};
@@ -51,9 +45,6 @@ describe('Screen — Zurueck-Knopf', () => {
   });
 
   it('zeigt ohne Angabe keinen Zurueck-Knopf', async () => {
-    // Tab-Wurzeln wie die Uebersicht: Der frueher automatische
-    // `router.canGoBack()` hat den Knopf auch dort eingeblendet, wo es nichts
-    // gibt, wohin man zurueckkehren koennte.
     mockCanGoBack = true;
 
     const { queryByText } = await renderScreen(
@@ -91,8 +82,6 @@ describe('Screen — Zurueck-Knopf', () => {
   });
 
   it('nimmt das Ausweichziel, wenn es keine Historie gibt — und loest kein GO_BACK aus', async () => {
-    // Der Kern des gemeldeten Fehlers: Ein ungedecktes GO_BACK quittiert React
-    // Navigation mit einer Warnung. Hier passiert stattdessen etwas Sinnvolles.
     const { getByLabelText } = await renderScreen(
       <Screen title="Mitglieder" back={{ label: 'Einstellungen', href: '/settings' }}>
         <ThemedText>Inhalt</ThemedText>
@@ -107,9 +96,6 @@ describe('Screen — Zurueck-Knopf', () => {
   });
 
   it('zeigt ein Ziel ohne Ausweichroute nur bei vorhandener Historie', async () => {
-    // `/household/create` wird per Redirect erreicht, wenn der Nutzer in
-    // keinem Haushalt ist. Ein Ausweg nach /settings wuerde ihn von dort
-    // direkt wieder hierher zurueckwerfen — also lieber kein Knopf.
     mockCanGoBack = false;
     const ohne = await renderScreen(
       <Screen title="Haushalt erstellen" back={{ label: 'Haushalte' }}>

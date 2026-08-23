@@ -81,7 +81,6 @@ export function StorageLocationsScreen() {
       subtitle={currentHousehold?.name}
       back={{ label: 'Einstellungen', href: '/settings' }}
       backStyle="icon">
-      {/* Formular zum Anlegen eines neuen Lagerorts */}
       <Card title="Neuen Lagerort hinzufügen">
         <View className="gap-three mt-two">
           <TextField
@@ -98,7 +97,6 @@ export function StorageLocationsScreen() {
         </View>
       </Card>
 
-      {/* Liste aller vorhandenen Lagerorte mit Umbenennen- & Löschen-Optionen */}
       <Card title="Vorhandene Lagerorte">
         {isLoading ? (
           <ThemedText>Lädt...</ThemedText>
@@ -112,7 +110,6 @@ export function StorageLocationsScreen() {
               return (
                 <View key={loc.id} className="storage-location-row">
                   {isEditing ? (
-                    /* Inline-Bearbeitung für Lagerort-Namen */
                     <View className="gap-two">
                       <TextField value={editingName} onChangeText={setEditingName} autoFocus />
                       <View className="storage-location-btn-row">
@@ -137,7 +134,6 @@ export function StorageLocationsScreen() {
                       </View>
                     </View>
                   ) : (
-                    /* Anzeigezeile für Lagerort mit Umbenennen und Löschen */
                     <>
                       <ThemedText className="storage-location-name">{loc.name}</ThemedText>
                       <View className="storage-location-btn-row">

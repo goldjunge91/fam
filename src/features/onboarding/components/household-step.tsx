@@ -37,8 +37,6 @@ export function HouseholdStepForm({ onNext, onSkip }: HouseholdStepFormProps) {
   const handleNext = async () => {
     setErrorMsg(null);
 
-    // Bei "create" liefert die UI absichtlich einen Fallback-Namen, bevor
-    // validiert wird - ein leerer Name soll die Erstellung nicht blockieren.
     const name = choice === 'create' ? householdName.trim() || 'Mein Haushalt' : undefined;
     const code = choice === 'join' ? inviteCode.trim() : undefined;
 
@@ -73,13 +71,7 @@ export function HouseholdStepForm({ onNext, onSkip }: HouseholdStepFormProps) {
   };
 
   return (
-    // Der äußere `Screen`-Wrapper bekommt für diesen Schritt `scroll={false}`
-    // (siehe onboarding-flow.tsx), damit diese ScrollView die einzige im
-    // Baum ist. Weder `KeyboardAvoidingView` noch `automaticallyAdjustKeyboardInsets`
-    // scrollten hier zuverlässig zum fokussierten Feld — `KeyboardAwareScrollView`
-    // aus react-native-keyboard-controller (offizieller Expo-Doku-Weg für
-    // Formulare in einer ScrollView) übernimmt das nativ und konsistent auf
-    // iOS und Android.
+    // Einzige ScrollView im Schritt; hält fokussierte Felder ueber der Tastatur.
     <KeyboardAwareScrollView
       bottomOffset={24}
       keyboardShouldPersistTaps="handled"
@@ -90,7 +82,6 @@ export function HouseholdStepForm({ onNext, onSkip }: HouseholdStepFormProps) {
         Entscheide, wie du die App für Vorrat & Einkäufe nutzen möchtest.
       </Text>
 
-      {/* Aktiver Haushalt Banner */}
       {activeHousehold ? (
         <View className="household-active-card">
           <Text className="household-active-badge">✓ Aktiver Haushalt erkannt</Text>
@@ -160,8 +151,7 @@ export function HouseholdStepForm({ onNext, onSkip }: HouseholdStepFormProps) {
           label="Einladungs-Code"
           value={inviteCode}
           onChangeText={setInviteCode}
-          // Tokens sind volle UUIDs (siehe household_invites.token,
-          // invite-modal.tsx zeigt sie so an) — kein 6-stelliges Kurzformat.
+          // Einladungen verwenden volle UUIDs statt Kurz-Codes.
           placeholder="z. B. 123e4567-e89b-12d3-a456-426614174000"
           autoCapitalize="none"
           autoCorrect={false}

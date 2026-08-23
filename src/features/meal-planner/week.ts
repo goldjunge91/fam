@@ -1,14 +1,6 @@
-/**
- * Reine Datumsfunktionen fuer den Wochenplan-Grid (#129). Kein I/O.
- *
- * Arbeitet ausschliesslich mit `YYYY-MM-DD`-Strings (wie
- * `meal_plans.week_start_date`/`meal_plan_entries.entry_date`), nicht mit
- * `Date`-Objekten samt Zeitzone — ein Kalenderdatum hat keine Uhrzeit, und
- * ein `Date`-Roundtrip haette an Zeitzonengrenzen den falschen Tag ergeben.
- */
+/** Rechnet mit datumslosen `YYYY-MM-DD`-Werten, um Zeitzonenverschiebungen zu vermeiden. */
 
-// Bewusst ohne 'snack': der Wochenplan bildet nur die drei Hauptmahlzeiten ab
-// (anders als das Kalorien-Tagebuch, das 'snack' als eigene Kategorie kennt).
+// Der Wochenplan umfasst nur die drei Hauptmahlzeiten.
 export const MEAL_SLOTS = ['breakfast', 'lunch', 'dinner'] as const;
 export type MealSlot = (typeof MEAL_SLOTS)[number];
 
@@ -50,7 +42,6 @@ function parseDateOnly(dateStr: string): Date {
 /** Montag der Kalenderwoche, die `dateStr` enthaelt (ISO-Wochenstart). */
 export function getWeekStart(dateStr: string): string {
   const date = parseDateOnly(dateStr);
-  // getUTCDay(): 0 = Sonntag ... 6 = Samstag. Abstand zum Montag dieser Woche.
   const day = date.getUTCDay();
   const diffToMonday = day === 0 ? -6 : 1 - day;
   date.setUTCDate(date.getUTCDate() + diffToMonday);
@@ -139,9 +130,6 @@ export function periodLabel(dates: readonly string[]): string {
   return `${start[2]}. ${MONTH_LABELS[start[1] - 1]}–${end[2]}. ${MONTH_LABELS[end[1] - 1]}`;
 }
 
-// ------------------------------------------------------------- Ansichts-Modi
-// (#129-Nachtrag: Wochen- und Tagesansicht statt nur Woche.)
-
 export const VIEW_MODES = ['day', 'week'] as const;
 export type ViewMode = (typeof VIEW_MODES)[number];
 
@@ -156,14 +144,7 @@ const VIEW_MODE_DAY_COUNT: Record<ViewMode, number> = {
   week: 7,
 };
 
-/**
- * Sichtbare Tage einer Ansicht, ausgehend von einem Ankerdatum.
- *
- * Nur die Wochenansicht richtet sich am Montag der Kalenderwoche aus (wie
- * `weekDates`) — die Tagesansicht ist ein gleitendes Fenster ab dem
- * Ankerdatum selbst, damit "vor/zurueck" den Nutzer nicht ueberraschend an
- * einen Wochenanfang zurueckspringen laesst.
- */
+/** Richtet nur die Wochenansicht am Montag aus; kuerzere Ansichten bleiben gleitend. */
 export function rangeDates(anchor: string, mode: ViewMode): string[] {
   const start = mode === 'week' ? getWeekStart(anchor) : anchor;
   return Array.from({ length: VIEW_MODE_DAY_COUNT[mode] }, (_, i) => addDays(start, i));

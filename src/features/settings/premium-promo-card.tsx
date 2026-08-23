@@ -6,19 +6,7 @@ import { withAlpha } from '@/constants/theme';
 import { usePremium } from '@/features/premium/premium-provider';
 import { useTheme } from '@/hooks/use-theme';
 
-/**
- * Premium-Anstoss auf der Einstellungen-Uebersicht (Figma "00.05 ·
- * Einstellungen"). Navigiert zum eigenen Premium-Screen (`/settings/premium`)
- * statt die Paywall direkt zu praesentieren — siehe `premium-screen.tsx`.
- *
- * Masse 1:1 aus dem fam-settings-premium-flow-Mockup uebernommen
- * (`.fsp-premium` / `.fsp-premium:after` / `strong` / `small` / `span`).
- *
- * `useTheme()` bleibt fuer den Verlauf/Schatten bestehen: `experimental_
- * backgroundImage` (CSS-Gradient-String) und `withAlpha()` (dynamische
- * Opazitaet fuer Wasserzeichen/Schatten) sind echte Laufzeitwerte, die sich
- * nicht als statische Tailwind-Klasse ausdruecken lassen.
- */
+/** Verwendet Laufzeitfarben, da Verlauf und Alpha-Werte nicht statisch sind. */
 export function PremiumPromoCard() {
   const theme = useTheme();
   const { isPremium, isForced } = usePremium();

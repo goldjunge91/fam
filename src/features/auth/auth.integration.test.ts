@@ -3,9 +3,7 @@ import { createClient, type SupabaseClient } from '@supabase/supabase-js';
 import { createChunkedStorage, type KeyValueStore } from '@/lib/chunked-storage';
 import type { Database } from '@/lib/database.types';
 
-/**
- * Auth gegen die Remote/Lokale Supabase-Instanz — keine Testdoubles.
- */
+/** Auth gegen eine echte Supabase-Instanz. */
 
 const SUPABASE_URL = process.env.EXPO_PUBLIC_SUPABASE_URL ?? '';
 const SUPABASE_KEY = process.env.EXPO_PUBLIC_SUPABASE_KEY ?? '';
@@ -23,9 +21,7 @@ function adminClient(): SupabaseClient<Database> {
   return _admin;
 }
 
-/**
- * Admin-Erstellung mit email_confirm:true statt `client.auth.signUp()`.
- */
+/** Erstellt fuer den Test einen bereits bestaetigten Nutzer. */
 async function signUpConfirmed(client: SupabaseClient<Database>, email: string, password: string) {
   const { error: createError } = await adminClient().auth.admin.createUser({
     email,

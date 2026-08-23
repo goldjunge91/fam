@@ -11,7 +11,6 @@ import type {
   RejectedCategoryCandidate,
 } from './types';
 
-/** Gematchte OFF-Tag-Kandidaten für die übergebenen `categoryTags`. */
 function matchOffTagCandidates(categoryTags: readonly string[]): CategoryCandidate[] {
   const candidates: CategoryCandidate[] = [];
   for (const tag of categoryTags) {
@@ -29,11 +28,7 @@ function matchOffTagCandidates(categoryTags: readonly string[]): CategoryCandida
   return candidates;
 }
 
-/**
- * Gematchte Namens-Kandidaten über alle Tokens. `word` verlangt Gleichheit,
- * `word-start`/`word-end` verlangen ein echt längeres Token (sonst würde ein
- * exaktes Token doppelt sowohl als `word` als auch als `word-start` zählen).
- */
+/** Präfix- und Suffixregeln matchen nur echt längere Tokens. */
 function matchNameCandidates(tokens: readonly string[]): CategoryCandidate[] {
   const candidates: CategoryCandidate[] = [];
   for (const token of tokens) {
@@ -59,21 +54,13 @@ function matchNameCandidates(tokens: readonly string[]): CategoryCandidate[] {
 }
 
 type PhaseResult = {
-  /** Pro Kategorie nur das stärkste Signal — Grundlage für Gewinner und Tie-Erkennung. */
   bestByCategory: ReadonlyMap<ShoppingCategoryId, CategoryCandidate>;
   topWeight: number | null;
   winner: CategoryCandidate | null;
-  /** Echter Gleichstand: mehrere Kategorien teilen sich das höchste Gewicht. */
   tied: boolean;
 };
 
-/**
- * Wertet eine Kandidatenliste einer Phase (OFF-Tags oder Namens-Fallback)
- * aus: pro Kategorie zählt nur ihr stärkstes Signal, gewonnen hat die
- * eindeutig höchste Kategorie. Bei Gleichstand des höchsten Gewichts
- * zwischen mehreren Kategorien gibt es keinen Gewinner — siehe Abschnitt
- * 7/8 des Plans.
- */
+/** Bei gleichem Höchstgewicht verschiedener Kategorien gibt es keinen Gewinner. */
 function resolvePhase(candidates: readonly CategoryCandidate[]): PhaseResult {
   const bestByCategory = new Map<ShoppingCategoryId, CategoryCandidate>();
   for (const candidate of candidates) {
@@ -91,7 +78,6 @@ function resolvePhase(candidates: readonly CategoryCandidate[]): PhaseResult {
   return { bestByCategory, topWeight: top.weight, winner: tied ? null : top, tied };
 }
 
-/** Nicht gewonnene Kandidaten einer Phase mit Begründung. */
 function rejectedCandidatesOf(
   candidates: readonly CategoryCandidate[],
   phase: PhaseResult,
@@ -119,13 +105,7 @@ type Resolution = {
   conflictReason: string | null;
 };
 
-/**
- * Zentrale Auswertung, von der sich sowohl {@link classifyCategory} als auch
- * {@link explainCategory} ableiten. Namens-Fallback wird nur ausgeführt, wenn
- * die OFF-Taxonomie kein eindeutiges Ergebnis liefert (Abschnitt 3 des
- * Plans) — der Trace bildet exakt diesen tatsächlichen Auswertungspfad ab,
- * keine hypothetische Zusatzauswertung.
- */
+/** Der Namens-Fallback läuft nur ohne eindeutigen OFF-Gewinner. */
 function resolve(input: CategoryClassifierInput): Resolution {
   const offCandidates = matchOffTagCandidates(input.categoryTags ?? []);
   const offPhase = resolvePhase(offCandidates);
@@ -181,21 +161,11 @@ function resolve(input: CategoryClassifierInput): Resolution {
   };
 }
 
-/**
- * Reine, automatische Klassifikationspipeline (OFF-Taxonomie → Namens-Fallback
- * → „Sonstiges"). Deckt ausschließlich die Schritte 4–6 der Auflösungsreihenfolge
- * aus `docs/issue#223_V2.md` Abschnitt 3 ab — manuelle Auswahl und
- * Haushaltspräferenzen (Schritte 1–3) liegen bewusst in `preferences/`.
- */
 export function classifyCategory(input: CategoryClassifierInput): CategoryClassification {
   return resolve(input).classification;
 }
 
-/**
- * Wie {@link classifyCategory}, liefert aber zusätzlich die vollständige
- * Entscheidungskette (Kandidaten, verworfene Kandidaten, Konfliktgrund) für
- * Tests, Debugger und CLI. Nicht für Sync oder Speicherung gedacht.
- */
+/** Liefert zusätzlich die Entscheidungskette für Diagnosewerkzeuge. */
 export function explainCategory(input: CategoryClassifierInput): CategoryTrace {
   const { classification, candidates, rejectedCandidates, conflictReason } = resolve(input);
   const normalizedTokens = normalizeShoppingName(input.name);

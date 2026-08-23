@@ -8,18 +8,9 @@ import { ThemedView } from '@/components/theme/themed-view';
 type ItemModalShellProps = {
   visible: boolean;
   onDismiss: () => void;
-  /**
-   * Komplette Kopfzeile inkl. `modal-header`-Klasse, Titel und
-   * Schließen-Aktion — bleibt Sache des Aufrufers, da sich Layout und
-   * Schließen-Control zwischen den Sheets bereits unterscheiden.
-   */
+  /** Vollstaendige Kopfzeile, da sich Layout und Schliessen-Control unterscheiden. */
   header: ReactNode;
-  /**
-   * Tap auf Ziehgriff/Kopfzeile — Default schliesst nur die Tastatur. Sheets
-   * mit eigener Suche (add-item-modal.tsx) uebergeben stattdessen eine
-   * Funktion, die zusaetzlich eine offene Trefferliste schliesst; die Suche
-   * lebt im Kind-Formular, nicht in diesem geteilten Geruest.
-   */
+  /** Ueberschreibbar, wenn neben der Tastatur auch Kindzustand geschlossen werden muss. */
   onHeaderPress?: () => void;
   /** Ziehgriff oberhalb der Kopfzeile, aktuell nur im Add-Sheet sichtbar. */
   showHandle?: boolean;
@@ -30,24 +21,8 @@ type ItemModalShellProps = {
 };
 
 /**
- * Gemeinsames Geruest der Einkaufslisten-Sheets (Artikel hinzufuegen /
- * bearbeiten): `Modal` als Page-Sheet auf iOS, Safe Area und Scroll-
- * Container. Kopfzeile, Ziehgriff, Hintergrund und unterer Abstand bleiben
- * Props statt erzwungener Angleichung — die beiden Sheets sahen vorher schon
- * unterschiedlich aus (#155), das ist eine Design-Entscheidung und keine, die
- * ein Refactor stillschweigend treffen sollte.
- *
- * `KeyboardAwareScrollView` statt einer normalen `ScrollView` (#UI-Feedback:
- * "Artikel halb von der Tastatur verdeckt", "kein Button zum Zuklappen") —
- * offizieller Expo-Doku-Weg fuer mehrfeldrige Formulare in einer ScrollView,
- * haelt das fokussierte Feld automatisch ueber der Tastatur sichtbar, statt
- * dass jede Stelle die Tastaturhoehe selbst gegen `measureInWindow` rechnet.
- * `KeyboardToolbar` gibt einen echten "Fertig"-Button oberhalb der Tastatur —
- * schliesst bewusst nur die Tastatur, nie automatisch eine offene
- * Trefferliste (die schliesst primaer die tatsaechliche Auswahl, siehe
- * `product-search-dropdown.tsx`). Ziehgriff + Kopfzeile schliessen per Tap
- * per Default ebenfalls nur die Tastatur, siehe `onHeaderPress` fuer den
- * Ausnahmefall (#UI-Feedback).
+ * Gemeinsames Page-Sheet fuer Artikel-Formulare. Der tastaturbewusste Scroll-
+ * Container haelt fokussierte Felder sichtbar; die Toolbar schliesst nur die Tastatur.
  */
 export function ItemModalShell({
   visible,
@@ -65,10 +40,6 @@ export function ItemModalShell({
   const content = (
     <ThemedView className={rootClassName}>
       <SafeAreaView className="modal-safe-area" edges={['top', 'left', 'right', 'bottom']}>
-        {/* Schliesst per Default nur die Tastatur; Sheets mit eigener Suche
-            schliessen darueber zusaetzlich eine offene Trefferliste (siehe
-            `onHeaderPress`-Kommentar, #UI-Feedback: "oberhalb der Suche
-            klicken schliesst auch die Liste"). */}
         <Pressable onPress={onHeaderPress ?? (() => Keyboard.dismiss())} accessible={false}>
           {showHandle ? <View className="modal-handle" /> : null}
           {header}

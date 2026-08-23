@@ -1,27 +1,9 @@
 import type { Migration } from '@/lib/db/types';
 
 /**
- * Das lokale Schema (#45) — nummeriert und ausschliesslich vorwaerts.
- *
- * Reine Daten, keine I/O. Der Runner in `migrator.ts` wendet sie an, die
- * Auswahl trifft `planMigrations()`; beides ist dadurch ohne Datenbank pruefbar.
- *
- * Issue #223 ist die bewusst einzige Ausnahme von der sonst unveraenderlichen
- * Historie: Die App oeffnet ab diesem Cutover ausschliesslich `fam-v2.db`.
- * Deshalb beschreibt die bestehende Kette direkt die neue Baseline, statt eine
- * nie auszufuehrende Migration aus `fam.db` samt Daten-Backfill anzubauen.
- *
- * Bewusste Abweichungen vom Serverschema:
- *
- * - **`updated_at`/`deleted_at` sind INTEGER (epoch ms)**, nicht TEXT. Ein
- *   Stringvergleich von PostgREST-Zeitstempeln ist unsicher (`+00:00` gegen
- *   `Z`, drei gegen sechs Nachkommastellen) und die Ordnung muss numerisch
- *   sein. Der rohe Server-String ueberlebt nur dort, wo er exakt
- *   zurueckgehen muss: im Pull-Cursor in `sync_state`.
- * - **Keine Fremdschluessel.** Der Pull laeuft Tabelle fuer Tabelle; ein
- *   `fridge_items` mit `location_id` kann vor seinem `storage_locations`
- *   eintreffen. Integritaet erzwingt der Server, der Spiegel ist ein Cache.
- * - **`_dirty`** markiert lokal geaenderte, noch nicht gepushte Zeilen.
+ * Vorwaertsgerichtetes lokales Schema. Zeitstempel sind Epoch-Millisekunden,
+ * `_dirty` markiert ungepushte Zeilen und Fremdschluessel bleiben dem Server
+ * ueberlassen, weil Tabellen unabhaengig gepullt werden.
  */
 
 const V1_MIRRORS = `
@@ -137,9 +119,7 @@ create index if not exists shopping_category_preferences_dirty_idx
   on shopping_category_preferences (_dirty) where _dirty = 1;
 `;
 
-// `products.deleted_at` existiert serverseitig NICHT und bleibt hier immer
-// null. Die Spalte steht nur da, damit alle Spiegeltabellen dieselbe Form
-// haben; `entities.ts` kennt den Unterschied ueber `hasServerTombstone`.
+// `products.deleted_at` vereinheitlicht nur die lokale Spiegelform.
 
 const V1_OUTBOX = `
 create table if not exists outbox (
@@ -157,16 +137,8 @@ create index if not exists outbox_row_idx on outbox (entity, entity_id, id);
 create index if not exists outbox_due_idx on outbox (next_attempt_at, id);
 `;
 
-// AUTOINCREMENT ist hier nicht kosmetisch. Ohne das Schluesselwort vergibt
-// SQLite geloeschte rowids neu — und weil ein erfolgreicher Push seine
-// Outbox-Zeilen loescht, waeren die naechsten Eintraege kleiner als die noch
-// wartenden. Die Erstellungsreihenfolge aus #46, an der die Push-Schleife
-// haengt, kehrte sich damit still um.
-//
-// `next_attempt_at` geht ueber die Spaltenliste in #46 hinaus. Das Issue
-// verlangt Backoff, nennt aber keine Spalte dafuer; ein reiner In-Memory-Timer
-// waere nach jedem App-Start zurueckgesetzt, und ein dauerhaft scheiternder
-// Eintrag haemmerte den Server bei jedem Start erneut an.
+// AUTOINCREMENT bewahrt die Outbox-Reihenfolge auch nach geloeschten Eintraegen.
+// `next_attempt_at` persistiert Retry-Backoff ueber App-Neustarts hinweg.
 
 const V1_STATE = `
 create table if not exists sync_state (
@@ -185,10 +157,7 @@ create table if not exists app_meta (
 );
 `;
 
-// `sync_state.last_synced_at` ist als TEXT der ROHE Server-String, nicht
-// normalisiert: Er geht unveraendert als Filter an PostgREST zurueck, damit
-// keine Mikrosekunde verlorengeht und der Cursor keine Zeile ueberspringt.
-//
+// Der Pull-Cursor bleibt als roher Server-String erhalten, damit keine Praezision verloren geht.
 const V2_SHOPPING_HISTORY = `
 create table if not exists shopping_history (
   id            text primary key not null,
@@ -241,20 +210,12 @@ const V4_STORES_REVERSE_ORDER = `
 alter table stores add column reverse_order integer not null default 0;
 `;
 
-// Das binaere "umkehren" wich einer per Drag&Drop editierbaren Reihenfolge
-// (Kategorie-IDs, kommagetrennt) — siehe category_order in shopping-categories.ts.
 const V5_STORE_CATEGORY_ORDER = `
 alter table stores drop column reverse_order;
 alter table stores add column category_order text;
 `;
 
-// Kein household_id: diese Zeile IST der Haushalt, genau wie bei `products`
-// kein globaler Katalog household-gescoped ist. Pull-only — Haushalte werden
-// nie ueber die Outbox angelegt/geaendert (create_household()/redeem_invite()
-// bleiben direkte Online-RPCs), `_dirty` bleibt deshalb dauerhaft 0. Kein
-// Server-Tombstone (harte Loeschung), `deleted_at` bleibt dauerhaft null —
-// beide Spalten stehen trotzdem da, weil `upsertMirrorRow` sie fuer jede
-// Entity unconditional schreibt (siehe mirror-write.ts).
+// Haushalte sind Pull-only; `_dirty` und `deleted_at` vereinheitlichen nur die Spiegelform.
 const V6_HOUSEHOLDS = `
 create table if not exists households (
   id         text primary key not null,
@@ -267,11 +228,7 @@ create table if not exists households (
 );
 `;
 
-// SQLite kennt kein `ALTER TABLE ... ALTER COLUMN` fuer CHECK-Constraints —
-// die Tabelle muss neu angelegt und die Daten kopiert werden. Bewusst nicht
-// per Pauschal-`delete from outbox` vorher geleert: auf einem Geraet mit
-// wartenden, noch nicht gepushten Eintraegen wuerde das lokale Aenderungen
-// verlieren, die der Server nie gesehen hat.
+// SQLite erfordert fuer den erweiterten CHECK einen Tabellen-Neuaufbau mit Datenerhalt.
 const V7_OUTBOX_RESTORE_OP = `
 create table outbox_v7 (
   id              integer primary key autoincrement,
@@ -292,13 +249,7 @@ create index if not exists outbox_row_idx on outbox (entity, entity_id, id);
 create index if not exists outbox_due_idx on outbox (next_attempt_at, id);
 `;
 
-// Lokale Nutzungshistorie (#79) — genau wie `shopping_history` bewusst ohne
-// `_dirty`/Outbox/Server-Sync: reine Geraetestatistik fuer die
-// Haeufig-genutzt-Anzeige in Vorrat, Einkaufsliste und Tagebuch. Die
-// kcal/macro-Spalten sind nur fuer `feature = 'diary'` befuellt (dort zum
-// Speicherzeitpunkt ohnehin bekannt) und lassen sich damit 1:1 in
-// `FoodHistoryEntry` (food-history.ts) einlesen, ohne eine zweite
-// Rank/Dedupe-Implementierung zu brauchen.
+// Reine Geraetestatistik ohne Outbox oder Server-Sync.
 const V8_PRODUCT_USAGE = `
 create table if not exists product_usage (
   id           text primary key not null,
@@ -322,12 +273,7 @@ create index if not exists product_usage_lookup_idx
   on product_usage (user_id, feature, meal_type, used_at);
 `;
 
-// Baukasten-Mahlzeiten (#123). Wie beim Serverschema keine Fremdschluessel —
-// `recipe_id`/`component_id`/`sub_component_id` sind reine Textspalten, die
-// Pull-Reihenfolge zwischen den drei Tabellen ist nicht garantiert. Die
-// Konsistenzpruefung (Zykel, fremdes Rezept) laeuft ausschliesslich
-// serverseitig beim Push (private.check_recipe_component_item_consistency());
-// der lokale Spiegel ist ein Cache und vertraut dem, was der Server annimmt.
+// Rezeptkonsistenz wird serverseitig geprueft, da die lokale Pull-Reihenfolge offen ist.
 const V9_RECIPES = `
 create table if not exists recipes (
   id           text primary key not null,
@@ -374,9 +320,7 @@ create index if not exists recipe_component_items_component_idx on recipe_compon
 create index if not exists recipe_component_items_dirty_idx on recipe_component_items (_dirty) where _dirty = 1;
 `;
 
-// Rezept-Metadaten aus dem Wizard-Redesign (#125). `text[]`-Spalten
-// (dish_types/dietary_tags/hashtags/steps) haben in SQLite keine Entsprechung
-// — als JSON-Text gespiegelt, siehe `toSqlParam` in mirror-write.ts.
+// Postgres-Arrays werden in SQLite als JSON-Text gespiegelt.
 const V10_RECIPE_METADATA = `
 alter table recipes add column steps text not null default '[]';
 alter table recipes add column cover_image_path text;
@@ -388,11 +332,7 @@ alter table recipes add column hashtags text not null default '[]';
 alter table recipes add column default_servings integer not null default 1;
 `;
 
-// Rezept-Wizard: Schritte bekommen eine eigene Tabelle statt des bisherigen
-// `recipes.steps`-JSON-Arrays (Bild + Zutaten-Referenzen pro Schritt sind
-// Pro-Schritt-Metadaten, dafuer reicht eine Array-Spalte nicht mehr). Zudem
-// quantity/unit auf recipe_component_items fuer die Mengen-Roheingabe
-// (grams bleibt die kanonische, von nutrition.ts genutzte Spalte).
+// `grams` bleibt trotz editierbarer Menge und Einheit der kanonische Naehrwertwert.
 const V11_RECIPE_STEPS = `
 alter table recipes drop column steps;
 
@@ -428,9 +368,7 @@ create index if not exists recipe_step_ingredients_step_idx on recipe_step_ingre
 create index if not exists recipe_step_ingredients_dirty_idx on recipe_step_ingredients (_dirty) where _dirty = 1;
 `;
 
-// Meal-Planner (#128). Wie bei recipes keine Fremdschluessel im lokalen
-// Spiegel — meal_plan_id/recipe_id sind reine Textspalten, Konsistenz
-// (RLS, Wochen-Eindeutigkeit) prueft ausschliesslich der Server.
+// Meal-Plan-Konsistenz und RLS bleiben serverseitig.
 const V12_MEAL_PLANS = `
 create table if not exists meal_plans (
   id              text primary key not null,
@@ -467,16 +405,11 @@ create index if not exists meal_plan_entries_plan_idx on meal_plan_entries (meal
 create index if not exists meal_plan_entries_dirty_idx on meal_plan_entries (_dirty) where _dirty = 1;
 `;
 
-// Zeigt in der Einkaufsliste, aus welchem Gericht ein Artikel stammt.
-// `text[]`-Server-Spalte, lokal als JSON-Text gespiegelt (dasselbe Muster wie
-// `recipes.dish_types`, siehe toSqlParam in mirror-write.ts).
 const V13_SHOPPING_LIST_RECIPE_NAMES = `
 alter table shopping_list_items add column recipe_names text not null default '[]';
 `;
 
-// Packungsanzahl und Packungsinhalt duerfen nicht mehr zu einer Gesamtmenge
-// zusammenfallen: 2 Packungen à 500 g bleiben als 2 + package_size 500 g
-// erhalten und koennen so bis in den Vorrat uebernommen werden.
+// Packungsanzahl und Packungsinhalt bleiben getrennte Werte.
 const V14_ITEM_PACKAGE_SIZE = `
 alter table shopping_list_items add column package_size real;
 alter table shopping_list_items add column package_size_unit text;
@@ -484,20 +417,13 @@ alter table fridge_items add column package_size real;
 alter table fridge_items add column package_size_unit text;
 `;
 
-// Premium gilt haushaltsweit — der lokale Spiegel braucht die Server-Wahrheit
-// aus 03_households.sql (premium_active/premium_expires_at/premium_updated_at),
-// sonst sieht ein Mitglied, das selbst nie eingekauft hat, den Status nicht.
-// SQLite kennt kein boolean, deshalb integer (0/1) wie ueberall sonst in
-// diesem Schema (siehe _dirty) — toSqlParam in mirror-write.ts wandelt den
-// Postgres-boolean beim Pull entsprechend um.
+// Premium gilt haushaltsweit; SQLite spiegelt den Boolean als 0/1.
 const V15_HOUSEHOLD_PREMIUM = `
 alter table households add column premium_active integer not null default 0;
 alter table households add column premium_expires_at text;
 alter table households add column premium_updated_at text;
 `;
 
-// Expliziter, vom Nutzer gesetzter Timer pro Zubereitungsschritt (statt der
-// bisherigen Text-basierten Minutenerkennung im Kochmodus als einziger Quelle).
 const V16_RECIPE_STEP_TIMER = `
 alter table recipe_steps add column timer_minutes integer;
 `;

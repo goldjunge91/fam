@@ -6,15 +6,7 @@ interface StepMentionTextProps extends Omit<ThemedTextProps, 'children'> {
   ingredients: MentionableIngredient[];
 }
 
-/**
- * Rendert Zubereitungstext mit `@`-Zutaten-Erwähnungen als Klartext
- * ("50g Wurst" statt "@Wurst50") — genutzt in der Wizard-Vorschau unter dem
- * Eingabefeld sowie in Rezept-Detail und Kochmodus. Dort ist das die einzige
- * Anzeige; rohe `@`-Syntax darf einer Person, die ein Rezept liest oder
- * nachkocht, nie begegnen. Größe/Gewicht kommen per Vererbung vom
- * `type`/`className` der äußeren `ThemedText` — nur die Zutatenfarbe wird
- * pro Abschnitt überschrieben.
- */
+/** Rendert `@`-Zutaten als Klartext und hebt nur deren Farbe hervor. */
 export function StepMentionText({ text, ingredients, ...rest }: StepMentionTextProps) {
   const segments = splitStepMentions(text, ingredients);
   return (

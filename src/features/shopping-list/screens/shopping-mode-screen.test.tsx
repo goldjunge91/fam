@@ -4,11 +4,7 @@ import type { LocalShoppingItem } from '../hooks/use-shopping-list';
 import type { Store } from '../hooks/use-stores';
 import { ShoppingModeScreen } from './shopping-mode-screen';
 
-// Der verschachtelte `SafeAreaProvider` in shopping-mode-screen.tsx (noetig
-// fuer korrekte Insets innerhalb eines `Modal`) wartet unter Jest auf ein
-// `onInsetsChange`-Event der nie existierenden nativen Ansicht und rendert
-// sonst keine Kinder. `SafeAreaView` bleibt die echte, von NativeWind
-// gewrappte Implementierung — die braucht keinen Provider, um zu rendern.
+// Jest liefert kein natives Insets-Event, daher rendert der Provider sonst keine Kinder.
 jest.mock('react-native-safe-area-context', () => {
   const actual = jest.requireActual('react-native-safe-area-context');
   return {
@@ -139,9 +135,6 @@ describe('ShoppingModeScreen', () => {
 
     expect(screen.queryByText(/Einkauf abschließen/i)).not.toBeOnTheScreen();
 
-    // Nur EIN Artikel abgehakt, nicht beide — der Button muss trotzdem
-    // erscheinen (Feedback: Abschluss darf nicht an "alles abgehakt" hängen,
-    // im Laden findet man selten wirklich alles).
     const oneChecked = [
       makeItem({ id: 'item-1', checked_at: new Date().toISOString() }),
       makeItem({ id: 'item-2', name: 'Milch' }),

@@ -13,11 +13,7 @@ values
   ('4001234567890', 'Haferflocken', 372, 'off', '11111111-1111-1111-1111-111111111111'),
   (null, 'Apfel vom Markt', 52, 'manual', '11111111-1111-1111-1111-111111111111');
 
--- ------------------------------------------------------------ global lesbar
--- Anders als alles andere im Schema: Produktdaten sind nicht personenbezogen.
--- Zaehlt gezielt Alices Produkte, nicht die ganze Tabelle — seit den
--- Rezeptvorlagen (#Recipe-Templates) enthaelt products auch admin-seed-bare
--- Grundzutaten (supabase/seed.sql), die Tabelle ist also nie leer.
+-- Nur Alices Zeile zaehlen, weil Seeds weitere globale Produkte anlegen.
 select tests.authenticate_as('22222222-2222-2222-2222-222222222222');
 
 select is(
@@ -26,7 +22,6 @@ select is(
   'Bob sieht auch Produkte, die Alice angelegt hat'
 );
 
--- ------------------------------------------------------- fremde unveraenderbar
 update public.products set name = 'gekapert' where barcode = '4001234567890';
 update public.products set name = 'gekapert' where created_by = '11111111-1111-1111-1111-111111111111' and source = 'manual';
 
@@ -36,9 +31,7 @@ select is_empty(
   'Bob kann fremde Produkte nicht aendern — weder importierte noch manuelle'
 );
 
--- ------------------------------------------------ eigenes manuelles aenderbar
--- Scoped auf Alices eigene Zeile (created_by), nicht auf source = 'manual'
--- allein — davon gibt es seit den Seed-Grundzutaten jetzt viele.
+-- created_by grenzt Alices manuelles Produkt von Seed-Produkten ab.
 select tests.authenticate_as('11111111-1111-1111-1111-111111111111');
 update public.products set name = 'Apfel, korrigiert'
   where created_by = '11111111-1111-1111-1111-111111111111' and source = 'manual';
@@ -50,10 +43,7 @@ select is(
   'Alice kann ihr eigenes manuelles Produkt korrigieren'
 );
 
--- ------------------------------------------- eigenes importiertes NICHT aenderbar
--- Ein aus Open Food Facts importierter Datensatz wird von allen Haushalten
--- geteilt und darf nicht von einem einzelnen Nutzer veraendert werden — auch
--- nicht von dem, der den Import ausgeloest hat.
+-- Auch der Importeur darf ein global geteiltes OFF-Produkt nicht aendern.
 select tests.authenticate_as('11111111-1111-1111-1111-111111111111');
 update public.products set name = 'OFF veraendert' where barcode = '4001234567890';
 
@@ -64,9 +54,7 @@ select is(
   'auch der Anleger kann ein importiertes Produkt nicht aendern'
 );
 
--- --------------------------------------- OFF-Metadaten nur vom Backend pflegen
--- Ein Client darf einen OFF-Platzhalter anlegen, aber weder Taxonomie-Tags
--- noch deren Versionszeitpunkt als globale Wahrheit behaupten.
+-- Clients duerfen keine OFF-Taxonomie als globale Wahrheit setzen.
 select tests.authenticate_as('11111111-1111-1111-1111-111111111111');
 
 select throws_ok(
@@ -91,9 +79,7 @@ select throws_ok(
   'Clients koennen keinen selbst gelieferten OFF-Zeitpunkt speichern'
 );
 
--- ------------------------------------------------------ Plausibilitaetsgrenzen
--- Open Food Facts ist crowdsourced. Werte wie 3200 kcal/100 g kommen dort real
--- vor und landeten ohne Schranke in der Kalorienbilanz des Nutzers.
+-- Crowdsourcing-Ausreisser duerfen nicht in die Kalorienbilanz gelangen.
 select tests.as_postgres();
 select throws_ok(
   $$ insert into public.products (name, kcal_per_100, created_by)
@@ -111,7 +97,6 @@ select throws_ok(
   'negative Naehrwerte werden abgewiesen'
 );
 
--- ----------------------------------------------------------- Barcode eindeutig
 select throws_ok(
   $$ insert into public.products (barcode, name, created_by)
      values ('4001234567890', 'Doppelt', '11111111-1111-1111-1111-111111111111') $$,

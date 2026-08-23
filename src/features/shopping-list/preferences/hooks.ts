@@ -8,18 +8,11 @@ import {
   setCategoryPreference,
 } from './api';
 
-/** Gemeinsamer Invalidierungs-Key — noch ohne eigenen `useQuery` (#223 Paket 8 baut die UI darauf auf). */
 export function categoryPreferencesQueryKey(householdId: string) {
   return ['category-preferences', householdId] as const;
 }
 
-/**
- * Manuelle Korrektur im Formular (Abschnitt 9 "Schreiben"). Legt die
- * Haushaltspraeferenz an/aktualisiert sie — das Setzen von
- * `category_source = 'user'` bzw. `'household_preference'` am betroffenen
- * Listeneintrag ist Sache des Aufrufers (Paket 8), diese Mutation kennt nur
- * die Praeferenz selbst.
- */
+/** Aktualisiert nur die Praeferenz; der Aufrufer setzt die Quelle am Listeneintrag. */
 export function useSetCategoryPreferenceMutation() {
   const queryClient = useQueryClient();
 
@@ -41,12 +34,7 @@ export type ResetCategoryPreferenceMutationInput = ResetCategoryPreferenceInput 
   categoryTags?: readonly string[];
 };
 
-/**
- * Reverse State zur manuellen Korrektur (Abschnitt 9 "Auf automatisch
- * zurücksetzen"): soft-deleted die Praeferenz und liefert direkt das neue
- * automatische Ergebnis zurueck, damit der Aufrufer es ohne separaten,
- * racy Zweitaufruf auf den aktuellen Eintrag schreiben kann.
- */
+/** Liefert das neue automatische Ergebnis ohne potenziell konkurrierenden Zweitaufruf. */
 export function useResetCategoryPreferenceMutation() {
   const queryClient = useQueryClient();
 

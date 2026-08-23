@@ -2,7 +2,6 @@
 
 set -euo pipefail
 
-# Configuration
 SUPABASE_URL="${EXPO_PUBLIC_SUPABASE_URL:-http://127.0.0.1:54321}"
 SERVICE_ROLE_KEY="${SUPABASE_SERVICE_ROLE_KEY:-eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZS1kZW1vIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImV4cCI6MTk4MzgxMjk5Nn0.EGIM96RAZx35lJzdJsyH-qQwv8Hdp7fsn3W0YpN81IU}"
 
@@ -12,7 +11,6 @@ create_single_user() {
   local custom_name="${3:-}"
   local custom_household="${4:-}"
 
-  # Generate random suffix if email is not provided
   local random_suffix=$((100000 + RANDOM % 900000))
   local email="${custom_email:-tester_${random_suffix}@example.com}"
   local password="${custom_password:-Passwort123!}"
@@ -22,7 +20,6 @@ create_single_user() {
   echo "------------------------------------------------------------"
   echo "⏳ Erstelle Nutzer: ${email}..."
 
-  # 1. User via Supabase Admin Auth API erstellen
   local user_response
   user_response=$(curl -s -X POST "${SUPABASE_URL}/auth/v1/admin/users" \
     -H "apikey: ${SERVICE_ROLE_KEY}" \
@@ -44,7 +41,6 @@ create_single_user() {
     return 1
   fi
 
-  # 2. Profile eintragen
   local now_iso
   now_iso=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
 
@@ -60,7 +56,6 @@ create_single_user() {
       "updated_at": "'"${now_iso}"'"
     }' > /dev/null
 
-  # 3. Haushalt erstellen
   local household_response
   household_response=$(curl -s -X POST "${SUPABASE_URL}/rest/v1/households" \
     -H "apikey: ${SERVICE_ROLE_KEY}" \
@@ -81,7 +76,6 @@ create_single_user() {
     return 1
   fi
 
-  # 4. Nutzer als Admin zum Haushalt hinzufügen
   curl -s -X POST "${SUPABASE_URL}/rest/v1/household_members" \
     -H "apikey: ${SERVICE_ROLE_KEY}" \
     -H "Authorization: Bearer ${SERVICE_ROLE_KEY}" \
@@ -92,7 +86,6 @@ create_single_user() {
       "role": "admin"
     }' > /dev/null
 
-  # 5. Standard-Lagerorte anlegen
   curl -s -X POST "${SUPABASE_URL}/rest/v1/storage_locations" \
     -H "apikey: ${SERVICE_ROLE_KEY}" \
     -H "Authorization: Bearer ${SERVICE_ROLE_KEY}" \
@@ -103,7 +96,6 @@ create_single_user() {
       { "household_id": "'"${household_id}"'", "name": "Abstellkammer", "kind": "pantry", "sort_order": 2 }
     ]' > /dev/null
 
-  # 5b. Standard-Supermärkte anlegen
   curl -s -X POST "${SUPABASE_URL}/rest/v1/stores" \
     -H "apikey: ${SERVICE_ROLE_KEY}" \
     -H "Authorization: Bearer ${SERVICE_ROLE_KEY}" \
@@ -114,7 +106,6 @@ create_single_user() {
       { "household_id": "'"${household_id}"'", "name": "Aldi", "color": "#5C7396", "sort_order": 2 }
     ]' > /dev/null
 
-  # 6. Beispiels-Produkte anlegen und zur Einkaufsliste hinzufügen
   local products_json='[
     {
       "name": "Bio Vollmilch 3.5%",
@@ -201,7 +192,6 @@ create_single_user() {
     p_quantity=$(echo "${products_json}" | jq -r ".[$i].quantity")
     p_price=$(echo "${products_json}" | jq -r ".[$i].price_estimate")
 
-    # Produkt abfragen oder anlegen
     local existing_prod
     existing_prod=$(curl -s -G "${SUPABASE_URL}/rest/v1/products" \
       -H "apikey: ${SERVICE_ROLE_KEY}" \
@@ -233,7 +223,6 @@ create_single_user() {
       product_id=$(echo "${new_prod}" | jq -r '.[0].id // empty')
     fi
 
-    # Zur Einkaufsliste hinzufügen
     local prod_id_field="null"
     if [ -n "${product_id}" ] && [ "${product_id}" != "null" ]; then
       prod_id_field="\"${product_id}\""
@@ -275,7 +264,6 @@ create_single_user() {
   echo "------------------------------------------------------------"
 }
 
-# Main Execution
 count=1
 
 if [ "${1:-}" = "-c" ] || [ "${1:-}" = "--count" ]; then

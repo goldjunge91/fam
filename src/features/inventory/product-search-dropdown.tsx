@@ -25,28 +25,11 @@ import {
   searchOpenFoodFacts,
 } from '@/lib/open-food-facts';
 
-/** Unter dieser Zahl lokaler Treffer lohnt sich der zusaetzliche OFF-Request noch. */
 const LOCAL_RESULT_THRESHOLD = 5;
-
-/** Seitengroesse fuer OFF-Nachladen beim Scrollen, siehe `loadMoreOffResults`. */
 const OFF_PAGE_SIZE = 100;
-
-/** Wie nah am unteren Rand (px) das Nachladen beim Scrollen ausloest. */
 const LOAD_MORE_THRESHOLD_PX = 70;
-
-/**
- * Abstand zum unteren Bildschirm-/Tastaturrand, den das Dropdown frei laesst.
- * War vorher 12px — bei laengeren, nachladenden Ergebnislisten (z.B. "Milch")
- * wird das echte Listenende praktisch nie erreicht, das Panel wird also fast
- * immer exakt hier abgeschnitten. 12px wirkte dadurch wie "bis zum Rand"
- * (#UI-Feedback: "immer noch bis zum Rand unten, das ist zu tief").
- */
 const PANEL_BOTTOM_MARGIN = 24;
-
-/** Nie kleiner als das, selbst wenn oberhalb kaum Platz gemessen wird. */
 const PANEL_MIN_HEIGHT = 140;
-
-/** Bis die erste Messung vorliegt (Layout noch nicht bekannt), z.B. beim allerersten Render. */
 const PANEL_FALLBACK_HEIGHT = 220;
 
 type LocalProductRow = {
@@ -57,7 +40,7 @@ type LocalProductRow = {
   protein_g_per_100: number | null;
   carbs_g_per_100: number | null;
   fat_g_per_100: number | null;
-  /** JSON-serialisiertes `text[]` (#223), siehe `off_category_tags` in `migrations.ts`. */
+  /** JSON-serialisiertes `text[]`. */
   off_category_tags?: string | null;
   off_last_modified_at?: string | null;
 };
@@ -76,13 +59,7 @@ function toOpenFoodFactsProduct(row: LocalProductRow): OpenFoodFactsProduct {
   };
 }
 
-/**
- * Lokale Suche gegen den `products`-Spiegel (#75) — SQLite hat keine
- * FTS/tsvector-Entsprechung wie der Server, ein einfaches `LIKE` reicht fuer
- * den gepflegten, deutlich kleineren lokalen Bestand. Bleibt bewusst ohne
- * Pagination: der selbst angelegte Bestand ist klein, 20 Treffer reichen hier
- * praktisch immer — anders als beim OFF-Dump unten.
- */
+/** Sucht im kleinen, selbst gepflegten Produktspiegel. */
 async function searchOwnProducts(query: string): Promise<OpenFoodFactsProduct[]> {
   const db = await getDatabase();
   const rows = await db.getAllAsync<LocalProductRow>(
@@ -97,13 +74,7 @@ async function searchOwnProducts(query: string): Promise<OpenFoodFactsProduct[]>
   return rows.map(toOpenFoodFactsProduct);
 }
 
-/**
- * Lokale Suche insgesamt: erst der eigene, gepflegte `products`-Spiegel,
- * dann — falls das noch nicht reicht — die erste Seite des grossen
- * angehaengten OFF-Dumps. So liefert die Suche auch ohne Netz brauchbare
- * Treffer statt nur der Handvoll selbst angelegten Produkte. `dumpHasMore`
- * sagt dem Aufrufer, ob beim Scrollen weitere Dump-Seiten sich lohnen.
- */
+/** Ergaenzt wenige eigene Treffer um Ergebnisse aus dem lokalen OFF-Dump. */
 async function searchLocalProducts(
   query: string,
 ): Promise<{ results: OpenFoodFactsProduct[]; dumpHasMore: boolean }> {
@@ -134,15 +105,7 @@ interface ProductSearchDropdownProps {
 
 export type ProductSearchDropdownHandle = {
   dismiss: () => void;
-  /**
-   * Markiert einen bevorstehenden `value`-Wechsel als bereits erledigte
-   * Auswahl (#UI-Feedback: "Auswaehlen eines History-Artikels soll die
-   * Suchliste nicht ausloesen") — fuer Aufrufer, die den Namen von AUSSEN
-   * setzen (z.B. ein Häufig/Zuletzt-Vorschlag), statt eine Zeile in dieser
-   * Komponente selbst anzutippen. Ohne das haelt der Such-Effekt unten den
-   * Wertwechsel fuer neue Eingabe und oeffnet die Liste erneut. Vor dem
-   * eigentlichen `setName(...)` des Aufrufers aufrufen.
-   */
+  /** Vor externem Setzen einer Auswahl aufrufen, damit die Suche geschlossen bleibt. */
   markSelected: (name: string) => void;
 };
 
@@ -167,54 +130,23 @@ export const ProductSearchDropdown = forwardRef<
   const [searching, setSearching] = useState(false);
   const [showDropdown, setShowDropdown] = useState(false);
   const [searched, setSearched] = useState(false);
-  // Paginierungs-Status fuer das Nachladen weiterer OFF-Seiten beim Scrollen
-  // (#Performance-Feedback: "OpenFoodFacts findet 700+, angezeigt werden nur
-  // ~30" — ohne das kappt die erste Seite die Suche hart).
   const [offPage, setOffPage] = useState(1);
   const [offHasMore, setOffHasMore] = useState(false);
-  // Nachlade-Status fuer den lokalen OFF-Dump, unabhaengig vom Netz-OFF-Status
-  // oben — beide Quellen koennen hunderte Treffer haben und werden nacheinander
-  // ausgeschoepft (erst Dump, dann Netz), siehe `loadMoreOffResults`.
   const [dumpOffset, setDumpOffset] = useState(0);
   const [dumpHasMore, setDumpHasMore] = useState(false);
   const [loadingMoreOff, setLoadingMoreOff] = useState(false);
-  // Dynamische Panel-Hoehe (#Performance-Feedback: "Dropdown soll bis zum
-  // Bildschirmrand gehen, nicht bei 3 Treffern abschneiden"), siehe
-  // `updatePanelMaxHeight` weiter unten.
   const [panelMaxHeight, setPanelMaxHeight] = useState<number | null>(null);
   const wrapperRef = useRef<View>(null);
   const { height: windowHeight } = useWindowDimensions();
-  // Y-Koordinate (im selben Fenster-Koordinatensystem wie `measureInWindow`),
-  // an der die Tastatur beginnt — `null` heisst keine Tastatur eingeblendet.
-  // Bewusst `screenY` statt `endCoordinates.height`: Bei mancher iOS-Version
-  // zaehlt die QuickType-/Vorschlagsleiste ueber der eigentlichen Tastatur
-  // nicht in `.height` mit, `screenY` markiert dagegen zuverlaessig die
-  // oberste sichtbare Kante (#UI-Feedback: "ein Artikel halb von der Tastatur
-  // verdeckt" — trat trotz erhoehtem PANEL_BOTTOM_MARGIN weiter auf).
+  // `screenY` beruecksichtigt unter iOS auch QuickType oberhalb der Tastatur.
   const [keyboardTopY, setKeyboardTopY] = useState<number | null>(null);
-  // `value` beim Ausloesen der aktuellen Suche — schuetzt vor veralteten
-  // Nachlade-Antworten, wenn der Nutzer inzwischen weitergetippt hat.
+  // Verhindert, dass veraltete Nachlade-Antworten eine neue Suche ueberschreiben.
   const queryRef = useRef(value);
   queryRef.current = value;
-  // `value` aendert sich auch, wenn `onSelectProduct` den Query-Text auf den
-  // gewaehlten Produktnamen setzt (siehe recipe-create-screen.tsx). Ohne diese
-  // Markierung faengt der Such-Effekt unten diese Aenderung ab und oeffnet das
-  // Dropdown eine Suche spaeter erneut — Auswahl wirkte dann wie 2x noetig.
-  // Initialisiert mit `value` (statt `null`), damit ein bereits befuellter
-  // Anfangswert beim (Re-)Mount nicht als neue Eingabe zaehlt — sonst oeffnet
-  // sich beim Zurueckblaettern im Rezept-Wizard (Schritt wechseln und zurueck
-  // entfernt/erzeugt diesen Baum neu) die Trefferliste erneut fuer jede bereits
-  // ausgewaehlte Zutat (#UI-Feedback: "oeffnet sich fuer alle Zutaten das
-  // Modal der Suche").
+  // Auswahlen und vorausgefuellte Werte duerfen nicht als neue Suche gelten.
   const justSelectedValueRef = useRef<string | null>(value);
 
-  /**
-   * Schliesst nur die Trefferliste, nicht die Tastatur — Gegenstueck ist
-   * `Keyboard.dismiss()`, das gezielt nur die Tastatur schliesst. Die beiden
-   * sind bewusst entkoppelt (#UI-Feedback): "Fertig" auf der Tastatur oder ein
-   * Tap daneben/darueber soll nur die Tastatur wegnehmen, die Liste bleibt
-   * sichtbar, bis tatsaechlich ein Artikel ausgewaehlt wird.
-   */
+  /** Schliesst die Trefferliste unabhaengig von der Tastatur. */
   function dismiss() {
     setShowDropdown(false);
   }
@@ -226,8 +158,6 @@ export const ProductSearchDropdown = forwardRef<
     },
   }));
 
-  // Tastaturposition mitverfolgen, damit das Dropdown nicht dahinter
-  // verschwindet oder von ihr verdeckt wird.
   useEffect(() => {
     const showSub = Keyboard.addListener('keyboardDidShow', (event) => {
       setKeyboardTopY(event.endCoordinates.screenY);
@@ -239,9 +169,7 @@ export const ProductSearchDropdown = forwardRef<
     };
   }, []);
 
-  // Misst, wie viel Platz zwischen Suchfeld und unterem Rand (Tastatur oder
-  // Bildschirmende) tatsaechlich frei ist, statt das Dropdown pauschal bei
-  // 220px zu kappen. Laeuft beim Oeffnen sowie bei Rotation/Tastaturwechsel.
+  // Passt das Panel an den Platz oberhalb von Tastatur oder Bildschirmrand an.
   useEffect(() => {
     if (!showDropdown) return;
     wrapperRef.current?.measureInWindow((_x, y, _width, height) => {
@@ -302,13 +230,7 @@ export const ProductSearchDropdown = forwardRef<
     return () => clearTimeout(timer);
   }, [value]);
 
-  /**
-   * Laedt beim Scrollen ans Ende des Dropdowns nach — erst weitere Seiten des
-   * lokalen OFF-Dumps (guenstig, kein Rate-Limit), erst wenn der ausgeschoepft
-   * ist, weitere Seiten der Netz-Suche. Ohne das war bei Begriffen mit
-   * hunderten Treffern (z. B. "Milch") nach der ersten Seite (20) Schluss,
-   * obwohl sowohl Dump als auch OFF deutlich mehr liefern.
-   */
+  /** Laedt zuerst weitere lokale Dump-Seiten, danach Seiten der Netzsuche. */
   async function loadMoreOffResults() {
     if (loadingMoreOff || searching) return;
     const currentQuery = queryRef.current;
@@ -360,9 +282,6 @@ export const ProductSearchDropdown = forwardRef<
         style={inputStyle}
         trailing={trailing}
         size={size}
-        // Return-Taste schliesst nur die Tastatur, die Trefferliste bleibt
-        // offen (#UI-Feedback: Liste soll erst bei tatsaechlicher Auswahl
-        // zugehen, nicht schon beim blossen Wegnehmen der Tastatur).
         returnKeyType="search"
         onSubmitEditing={() => Keyboard.dismiss()}
         onChangeText={(text) => {
@@ -379,10 +298,6 @@ export const ProductSearchDropdown = forwardRef<
 
       {showDropdown && (suggestions.length > 0 || showEmptyState) && (
         <View className="relative">
-          {/* Schliesst nur die Trefferliste (kein Auswahl-Ersatz) — der einzige
-              explizite Weg, die Liste ohne Artikel-Auswahl zuzumachen
-              (#UI-Feedback: "Suchliste lässt sich nicht schliessen", seit
-              Tastatur/Liste bewusst entkoppelt sind). */}
           <Pressable
             onPress={dismiss}
             accessibilityRole="button"
@@ -394,21 +309,10 @@ export const ProductSearchDropdown = forwardRef<
           </Pressable>
           <ScrollView
             className="psd-panel"
-            // elevation ist ein Android-only-Wert ohne Tailwind-Aequivalent
-            // (boxShadow deckt nur den iOS/Web-Schatten ab). maxHeight kommt aus
-            // der Live-Messung oben statt einer festen Klasse — die Liste soll
-            // bis zum unteren Rand reichen, nicht pauschal bei 220px kappen.
+            // `elevation` bleibt Android-spezifisch; `maxHeight` kommt aus der Live-Messung.
             style={{ elevation: 4, maxHeight: panelMaxHeight ?? PANEL_FALLBACK_HEIGHT }}
-            // Ohne das stoesst die letzte Zeile direkt an den unteren, abgerundeten
-            // Panel-Rand — sieht abgeschnitten aus (#UI-Feedback: "Liste ist zu tief").
             contentContainerClassName="pb-two"
-            // `flexGrow: 1` sorgt dafuer, dass bei wenigen Treffern echte
-            // Leerflaeche im Content-Container entsteht (statt shrink-wrap auf
-            // die paar Zeilen) — die faengt der Pressable am Ende des Contents
-            // unten ab, damit Tippen dort die Tastatur schliesst (#UI-Feedback:
-            // "Leerflaeche neben dem Suchfeld schliesst Tastatur nicht"; das
-            // randfuellende Panel bedeckt bei offener Suche fast den ganzen
-            // Bildschirm, ein Formular-weiter Blank-Tap-Handler erreicht es nicht).
+            // Leerflaeche bleibt tappbar, auch wenn nur wenige Treffer vorliegen.
             contentContainerStyle={{ flexGrow: 1 }}
             keyboardShouldPersistTaps="handled"
             showsVerticalScrollIndicator
@@ -452,9 +356,6 @@ export const ProductSearchDropdown = forwardRef<
                   justSelectedValueRef.current = item.name;
                   onSelectProduct(item);
                   setShowDropdown(false);
-                  // Auswahl beendet die Sucheingabe — Tastatur soll mitgehen
-                  // (#UI-Feedback: "Artikel auswählen schließt die Tastatur
-                  // nicht"), sonst bleibt sie ohne erkennbaren Grund offen.
                   Keyboard.dismiss();
                 }}
                 className="psd-row">
@@ -490,11 +391,7 @@ export const ProductSearchDropdown = forwardRef<
                 <ActivityIndicator size="small" color={theme.accent} />
               </View>
             )}
-            {/* Faengt Taps auf die restliche Leerflaeche unterhalb der Treffer
-              ab (siehe `flexGrow: 1` oben) — ohne das ist bei offener, fast
-              bildschirmfuellender Suche kein Blank-Tap-Ziel mehr erreichbar.
-              Schliesst nur die Tastatur, nicht die Liste (#UI-Feedback: Liste
-              bleibt offen, bis tatsaechlich ein Artikel ausgewaehlt wird). */}
+            {/* Die Leerflaeche schliesst nur die Tastatur, nicht die Liste. */}
             <Pressable className="flex-1" accessible={false} onPress={() => Keyboard.dismiss()} />
           </ScrollView>
         </View>

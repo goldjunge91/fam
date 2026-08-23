@@ -244,7 +244,6 @@ export function RecipeCreateScreen() {
     );
   }
 
-  // Letzte verbleibende Gruppe darf nicht entfernt werden, sonst gaebe es keinen Ort mehr fuer Zutaten.
   function handleRemoveComponentGroup(componentId: string) {
     setComponents((prev) =>
       prev.length <= 1 ? prev : prev.filter((comp) => comp.id !== componentId),
@@ -568,13 +567,11 @@ export function RecipeCreateScreen() {
       <SafeAreaView
         className="flex-1 w-full max-w-[800px] self-center"
         edges={['top', 'left', 'right']}>
-        {/* Header mit Titel (Erstellen/Bearbeiten) und Abbrechen-Button */}
         <PageHeader
           title={isEditing ? 'Rezept bearbeiten' : 'Rezept erstellen'}
           leading={<BackButton label="Zurück" variant="header" onPress={handleCancel} />}
         />
 
-        {/* 4-stufiger Wizard-Fortschrittsbalken */}
         <View className="h-4 flex-row gap-[5px] px-4 pt-0.5 pb-[10px]">
           {[1, 2, 3, 4].map((step) => (
             <View
@@ -591,7 +588,6 @@ export function RecipeCreateScreen() {
           behavior={process.env.EXPO_OS === 'ios' ? 'padding' : undefined}
           keyboardVerticalOffset={12}>
           {wizardStep === 1 ? (
-            /* Schritt 1: Basisdaten (Titel, Foto, Zeit, Portionen, Tags) */
             <ScrollView
               className="flex-1"
               contentContainerClassName="px-4 pb-6"
@@ -633,7 +629,6 @@ export function RecipeCreateScreen() {
               />
             </ScrollView>
           ) : wizardStep === 2 ? (
-            /* Schritt 2: Zutaten & Komponentengruppen */
             <ScrollView
               className="flex-1"
               contentContainerClassName="px-4 pb-6"
@@ -675,7 +670,6 @@ export function RecipeCreateScreen() {
               />
             </ScrollView>
           ) : wizardStep === 3 ? (
-            /* Schritt 3: Zubereitungsschritte mit Schrittbildern & Zutatenverknüpfung */
             <RecipeWizardStepSteps
               steps={wizardSteps}
               onStepsChange={setWizardSteps}
@@ -684,7 +678,6 @@ export function RecipeCreateScreen() {
               onNext={() => setWizardStep(4)}
             />
           ) : (
-            /* Schritt 4: Gesamt-Vorschau & Speichern */
             <RecipeWizardStepPreview
               coverPreviewUri={coverPreviewUri}
               title={title}

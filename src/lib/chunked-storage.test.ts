@@ -1,11 +1,5 @@
 import { createChunkedStorage, type KeyValueStore } from '@/lib/chunked-storage';
 
-/**
- * Echter In-Memory-Speicher, kein Testdouble: Er verhaelt sich wie der
- * plattformseitige Key-Value-Store, nur ohne Keychain. Zusaetzlich erzwingt er
- * das iOS-Limit, damit ein zu grosser Einzelwert im Test genauso auffliegt wie
- * auf dem Geraet.
- */
 function createMemoryStore(maxValueLength = 2048) {
   const data = new Map<string, string>();
 
@@ -41,8 +35,6 @@ describe('createChunkedStorage', () => {
   it('schreibt und liest einen 8-KB-Wert verlustfrei', async () => {
     const { store } = createMemoryStore();
     const storage = createChunkedStorage(store);
-    // Nicht nur 'a' wiederholen — ein variabler Inhalt deckt Fehler beim
-    // Zusammensetzen auf, die bei gleichen Zeichen unsichtbar blieben.
     const gross = Array.from({ length: 8192 }, (_, i) => String.fromCharCode(33 + (i % 90))).join(
       '',
     );
@@ -56,7 +48,6 @@ describe('createChunkedStorage', () => {
     const { store, data } = createMemoryStore(2048);
     const storage = createChunkedStorage(store);
 
-    // Wuerde der Adapter nicht chunken, wuerfe der Speicher hier.
     await expect(storage.setItem('session', 'x'.repeat(20_000))).resolves.toBeUndefined();
 
     for (const wert of data.values()) {
@@ -85,9 +76,6 @@ describe('createChunkedStorage', () => {
     await storage.setItem('session', 'klein');
 
     expect(await storage.getItem('session')).toBe('klein');
-    // Genau ein Schluessel: die Teile des laengeren Werts sind weg. Blieben sie
-    // liegen, wuerde ein spaeterer langer Wert sie teilweise ueberschreiben und
-    // beim Lesen Muell ergeben.
     expect([...data.keys()]).toEqual(['session']);
   });
 
@@ -98,8 +86,6 @@ describe('createChunkedStorage', () => {
     await storage.setItem('session', 'w'.repeat(5000));
     data.delete('session.1');
 
-    // Eine halbe Session ist schlimmer als keine — sie fuehrt zu unerklaerlichen
-    // Auth-Fehlern statt zu einem sauberen Neu-Anmelden.
     expect(await storage.getItem('session')).toBeNull();
   });
 

@@ -52,11 +52,7 @@ type Per100gReference = {
 
 type Badge = { label: string; tone: 'good' | 'warn' };
 
-/**
- * Leitet Bewertungs-Badges aus echten Open-Food-Facts-Signalen ab
- * (`nutrient_levels`, `nova_group`). Bewusst keine erfundenen Badges wie
- * "Kalorienarm" — dafuer liefert OFF kein Standardfeld.
- */
+/** Leitet Badges nur aus vorhandenen OFF-Signalen ab. */
 function buildNutritionBadges(
   nutrientLevels: OpenFoodFactsProduct['nutrientLevels'] | undefined,
   novaGroup: number | undefined,
@@ -74,18 +70,7 @@ function buildNutritionBadges(
   return badges;
 }
 
-/**
- * Eintrag hinzufuegen/bearbeiten/loeschen (#86), als Modal-Route erreicht.
- *
- * Drei Ausgangslagen:
- * - Bearbeiten eines bestehenden Eintrags (`entryId`-Param) — laedt aus
- *   `useFoodEntries`, keine 100g-Referenz, Felder bleiben direkt editierbar.
- * - Aus der Lebensmittelsuche/Barcode-Scan (`kcalPer100g`-Param u.a.) — Menge
- *   startet bei 100g/ml, Makros werden bei Mengen-/Einheitenaenderung live
- *   aus den 100g-Werten neu berechnet.
- * - "Schneller Eintrag" (keine Produkt-Params) — leeres Formular, alles
- *   manuell.
- */
+/** Erfasst neue, gesuchte oder bestehende Tagebucheintraege. */
 export function AddFoodEntryScreen() {
   const params = useLocalSearchParams<{
     date: string;
@@ -133,9 +118,7 @@ export function AddFoodEntryScreen() {
   const [initialized, setInitialized] = useState(false);
   const [unitNotScalable, setUnitNotScalable] = useState(false);
 
-  // Vorbefuellung: bestehender Eintrag > Produkt aus der Suche > leer. Laeuft
-  // bewusst nur einmal (Guard ueber `initialized`) statt bei jeder
-  // Param-/Query-Aenderung neu zu greifen.
+  // Einmalige Prioritaet: bestehender Eintrag, Suchprodukt, leeres Formular.
   // biome-ignore lint/correctness/useExhaustiveDependencies: nur beim ersten Mount vorbefuellen.
   useEffect(() => {
     if (initialized) return;
@@ -152,7 +135,7 @@ export function AddFoodEntryScreen() {
       return;
     }
 
-    if (isEditing) return; // Editier-Modus wartet auf existingEntry aus der Query.
+    if (isEditing) return;
 
     const product = productFromRouteParams(params as Record<string, string | string[] | undefined>);
     if (!product) {
@@ -167,7 +150,6 @@ export function AddFoodEntryScreen() {
     setBadges(buildNutritionBadges(product.nutrientLevels, product.novaGroup));
 
     if (product.caloriesPer100g !== undefined) {
-      // Aus Suche/Barcode: 100g/ml-Referenz, Menge startet bei 100.
       const ref: Per100gReference = {
         kcal: product.caloriesPer100g,
         protein: product.proteinsPer100g,
@@ -182,8 +164,7 @@ export function AddFoodEntryScreen() {
       setCarbsInput(ref.carbs !== undefined ? String(ref.carbs) : '');
       setFatInput(ref.fat !== undefined ? String(ref.fat) : '');
     } else {
-      // Aus "Zuletzt"/"Haeufig": bereits fertige Snapshot-Werte, keine
-      // Live-Skalierung (wie bei manueller Erfassung).
+      // Verlaufswerte sind fertige Snapshots ohne 100-g-Referenz.
       setQuantity(params.quantity ? String(params.quantity) : '1');
       setUnit(params.unit ? String(params.unit) : 'g');
       setKcalInput(params.kcal ? String(params.kcal) : '');
@@ -195,10 +176,7 @@ export function AddFoodEntryScreen() {
     setInitialized(true);
   }, [existingEntry, isEditing, initialized]);
 
-  // Live-Neuberechnung, wenn Menge/Einheit geaendert werden UND eine
-  // 100g-Referenz vorliegt (Produkt aus Suche/Barcode). `per100g` bewusst
-  // nicht in den Deps: es aendert sich nur einmal bei der Vorbefuellung oben,
-  // ein Re-Trigger darueber waere redundant zur Initialisierung.
+  // Skaliert Suchprodukte mit stabiler 100-g-Referenz auf Menge und Einheit.
   // biome-ignore lint/correctness/useExhaustiveDependencies: per100g ist eine stabile Referenz ab der Vorbefuellung.
   useEffect(() => {
     if (!per100g || !initialized) return;
@@ -217,7 +195,7 @@ export function AddFoodEntryScreen() {
       (result) => result !== undefined && !result.convertible,
     );
     setUnitNotScalable(anyNotConvertible);
-    if (anyNotConvertible) return; // Werte bleiben stehen, kein stilles Einfrieren auf falschen Rohwert.
+    if (anyNotConvertible) return;
 
     if (scaled.kcal?.convertible) setKcalInput(String(scaled.kcal.value));
     if (scaled.protein?.convertible) setProteinInput(String(scaled.protein.value));
@@ -269,9 +247,7 @@ export function AddFoodEntryScreen() {
           .then(() => queryClient.invalidateQueries({ queryKey: ['product_usage'] }))
           .catch((err) => console.error('Fehler beim Protokollieren der Nutzung:', err));
       }
-      // Kommt der Eintrag aus einem vorgelagerten Sheet (z.B. "Rezept fertig
-      // gekocht"), muss dieses beim Speichern mitgeschlossen werden, statt
-      // nur zu ihm zurueckzukehren.
+      // Optional das vorgelagerte Sheet gemeinsam mit der Route schliessen.
       const closeStackCount = Number(params.closeStackCount);
       if (Number.isInteger(closeStackCount) && closeStackCount > 1) {
         router.dismiss(closeStackCount);
@@ -283,8 +259,7 @@ export function AddFoodEntryScreen() {
     }
   }
 
-  // Loescht sofort statt eines Bestaetigungs-Dialogs (#86) — die Snackbar mit
-  // "Rueckgaengig" ersetzt die Bestaetigung, statt sie zu ergaenzen.
+  // Rueckgaengig ersetzt hier den Bestaetigungsdialog.
   async function handleDelete() {
     if (!userId || !params.entryId || !params.date) return;
     const entryId = params.entryId;
@@ -312,7 +287,6 @@ export function AddFoodEntryScreen() {
   return (
     <Screen title={title} back={{ label: 'Abbrechen' }}>
       <View className="afe-form">
-        {/* Profil-Auswahl (Erwachsener / Kind-Profil) */}
         {!isEditing && childProfiles.length > 0 ? (
           <View>
             <ThemedText type="smallBold">Für wen?</ThemedText>
@@ -340,7 +314,6 @@ export function AddFoodEntryScreen() {
           </View>
         ) : null}
 
-        {/* Lebensmittel-Header mit Bild, Name, Marke und Nutri-Score */}
         <View className="afe-hero">
           {imageUrl ? (
             <Image source={{ uri: imageUrl }} className="afe-hero-image" />
@@ -364,7 +337,6 @@ export function AddFoodEntryScreen() {
           ) : null}
         </View>
 
-        {/* Nährwert- & Verarbeitungs-Badges (z. B. Fettarm, Nova 4) */}
         {badges.length > 0 ? (
           <View className="afe-badge-row">
             {badges.map((badge) => (
@@ -379,7 +351,6 @@ export function AddFoodEntryScreen() {
           </View>
         ) : null}
 
-        {/* Nährwert-Eingabefelder (Kalorien, Kohlenhydrate, Eiweiß, Fett) */}
         <View className="flex-row gap-four">
           <View className="flex-1">
             <TextField
@@ -417,7 +388,6 @@ export function AddFoodEntryScreen() {
           </View>
         </View>
 
-        {/* Mengen- und Einheitenauswahl */}
         <ThemedText type="smallBold" className="mt-one">
           Menge
         </ThemedText>
@@ -440,7 +410,6 @@ export function AddFoodEntryScreen() {
           </ThemedText>
         ) : null}
 
-        {/* Aktions-Buttons (Speichern, Löschen, Abbrechen) */}
         <View className="mt-two">
           <Button
             label="Speichern"

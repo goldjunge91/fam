@@ -9,11 +9,6 @@ import { MAX_ATTEMPTS } from '@/lib/sync/backoff';
 import { pushOutbox } from '@/lib/sync/push';
 import { createTestDatabase, type TestDatabase } from '../../../test/node-sqlite-adapter';
 
-/**
- * Push-Haelfte der Sync-Engine (#47) gegen die echte lokale Supabase-Instanz —
- * kein Mock, kein Fake-Server. Braucht `supabase start`.
- */
-
 const SUPABASE_URL = process.env.EXPO_PUBLIC_SUPABASE_URL ?? '';
 const SUPABASE_KEY = process.env.EXPO_PUBLIC_SUPABASE_KEY ?? '';
 const SERVICE_ROLE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY ?? '';
@@ -57,10 +52,6 @@ async function signUpAndCreateHousehold(client: SupabaseClient<Database>) {
   const email = uniqueEmail();
   const password = 'langgenug1';
 
-  // Admin-Erstellung mit email_confirm:true statt client.auth.signUp():
-  // seit enable_confirmations=true (config.toml) liefert signUp() erst nach
-  // Klick auf den Bestaetigungslink eine Session. Diese Suite testet Push,
-  // nicht den Bestaetigungs-Flow.
   const { error: createError } = await adminClient().auth.admin.createUser({
     email,
     password,
@@ -144,9 +135,6 @@ describe('pushOutbox gegen die lokale Supabase-Instanz', () => {
         name: 'Camping-Kühlbox',
         kind: 'fridge',
         sort_order: 99,
-        // Absichtlich eine offensichtlich falsche Zeitangabe — buildInsertPayload
-        // muss sie herausfiltern, sonst wuerde die Zeile mit diesem Wert
-        // angelegt (kein BEFORE INSERT-Trigger faengt das serverseitig ab).
         updated_at: 999_999,
         deleted_at: null,
         _dirty: 1,
@@ -172,7 +160,6 @@ describe('pushOutbox gegen die lokale Supabase-Instanz', () => {
       .single();
     expect(remote.error).toBeNull();
     expect(remote.data?.name).toBe('Camping-Kühlbox');
-    // Server-Zeitstempel liegt nahe "jetzt", nicht bei der gesendeten Fantasiezahl.
     const serverUpdatedAtMs = new Date(remote.data?.updated_at ?? 0).getTime();
     expect(Math.abs(Date.now() - serverUpdatedAtMs)).toBeLessThan(60_000);
 
@@ -211,7 +198,6 @@ describe('pushOutbox gegen die lokale Supabase-Instanz', () => {
       .eq('id', remoteId)
       .single();
     expect(remote.data?.name).toBe('Neuer Name');
-    // Nicht mitgeschickte Felder bleiben unveraendert.
     expect(remote.data?.kind).toBe('pantry');
   }, 30_000);
 
@@ -305,9 +291,6 @@ describe('pushOutbox gegen die lokale Supabase-Instanz', () => {
   }, 30_000);
 
   it('ein insert-Konflikt (23505) faellt auf ein update zurueck und gilt als Erfolg', async () => {
-    // Simuliert: Netzwerkaufruf war beim ersten Versuch erfolgreich, der
-    // lokale Commit kam vorher nicht mehr zustande. Zeile existiert also
-    // schon serverseitig unter derselben id.
     const remoteId = crypto.randomUUID();
     const { error: preInsertError } = await client.from('storage_locations').insert({
       id: remoteId,
@@ -351,7 +334,6 @@ describe('pushOutbox gegen die lokale Supabase-Instanz', () => {
       op: 'insert',
       payload: {
         id: localId,
-        // client ist nicht Mitglied von otherHouseholdId -> RLS with check schlaegt fehl.
         household_id: otherHouseholdId,
         name: 'Fremder Haushalt',
         quantity: 1,
@@ -396,8 +378,6 @@ describe('pushOutbox gegen die lokale Supabase-Instanz', () => {
   }, 30_000);
 
   it('ein transienter Netzwerkfehler stoppt den Lauf und wird nach MAX_ATTEMPTS terminal', async () => {
-    // Unerreichbare URL simuliert Flugmodus/DNS-Fehler -> postgrest-js liefert
-    // status: 0. classifyError(null) muss das als transient einordnen.
     const unreachableClient = createClient<Database>('http://127.0.0.1:1', SUPABASE_KEY, {
       auth: { storage: inMemoryStorage(), autoRefreshToken: false, persistSession: false },
     });
@@ -421,8 +401,6 @@ describe('pushOutbox gegen die lokale Supabase-Instanz', () => {
       });
       expect(lastResult.stoppedEarly).toBe(true);
       expect(lastResult.outcomes[0]).toMatchObject({ kind: 'failed-transient' });
-      // Weiter als der maximale Backoff (5 min), damit der naechste Aufruf
-      // den Eintrag garantiert wieder als faellig sieht.
       clock += 301_000;
     }
 
@@ -433,7 +411,6 @@ describe('pushOutbox gegen die lokale Supabase-Instanz', () => {
     expect(raw?.attempts).toBe(MAX_ATTEMPTS);
     expect(raw?.next_attempt_at).toBe(Number.MAX_SAFE_INTEGER);
 
-    // Terminal: taucht in keinem weiteren Lauf mehr auf, selbst mit riesigem now.
     const finalResult = await pushOutbox({ db, supabase: unreachableClient, now: () => clock });
     expect(finalResult.outcomes).toEqual([]);
   }, 60_000);
@@ -521,9 +498,6 @@ describe('pushOutbox gegen die lokale Supabase-Instanz', () => {
       });
       expect(seedError).toBeNull();
 
-      // So sieht der Payload aus, wenn `api.ts`s restore- und update-Eintrag
-      // vor dem naechsten Push zu einer coalesce()-Gruppe verschmelzen:
-      // group.op bleibt 'restore', aber category_id ist bereits eingemischt.
       await insertOutboxRow(db, {
         entity: 'shopping_category_preferences',
         entityId: id,
@@ -545,9 +519,6 @@ describe('pushOutbox gegen die lokale Supabase-Instanz', () => {
     it('parallele Offline-Anlage derselben natuerlichen Praeferenz erzeugt kein fatales 23505, sondern gewinnt per Fallback-Update', async () => {
       const id = preferenceId({ householdId, keyType: 'name', normalizedKeyValue: 'vollmilch' });
 
-      // Simuliert ein zweites Geraet, das denselben natuerlichen Schluessel
-      // offline bereits gepusht hat, bevor dieses Geraet online geht — dank
-      // deterministischer UUIDv5 identische id, siehe preference-identity.ts.
       const { error: otherDeviceError } = await client
         .from('shopping_category_preferences')
         .insert({

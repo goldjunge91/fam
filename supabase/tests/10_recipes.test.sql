@@ -38,7 +38,6 @@ insert into public.recipe_components (recipe_id, household_id, name)
 values (:'recipe_id', :'hid', 'Nudeln-Basis')
 returning id as noodle_base_id \gset
 
--- ------------------------------------------------------- geteilt im Haushalt
 select tests.authenticate_as('22222222-2222-2222-2222-222222222222');
 
 select is(
@@ -60,7 +59,6 @@ select is(
   'jedes Mitglied darf Positionen zu einer geteilten Komponente hinzufuegen'
 );
 
--- Unterkomponente: "Nudeln-Basis" verwendet "Soße" als Position.
 insert into public.recipe_component_items (component_id, recipe_id, household_id, sub_component_id, grams)
 values (:'noodle_base_id', :'recipe_id', :'hid', :'sauce_id', 200);
 
@@ -73,7 +71,6 @@ select is(
   'eine Position kann auf eine Unterkomponente desselben Rezepts verweisen'
 );
 
--- ------------------------------------------------------------- Aussenstehende
 select tests.authenticate_as('33333333-3333-3333-3333-333333333333');
 
 select is(
@@ -93,12 +90,9 @@ select throws_ok(
   'Aussenstehende koennen kein Rezept in einen fremden Haushalt einschleusen'
 );
 
--- --------------------------------------------------------- Check-Constraint
 select tests.authenticate_as('11111111-1111-1111-1111-111111111111');
 
--- component_id/sub_component_id absichtlich so gewaehlt, dass die Kombination
--- keinen Zykel ergibt (noodle_base_id -> sauce_id existiert schon als echte
--- Position) — sonst würde der Konsistenz-Trigger vor dem Check feuern.
+-- Diese Kombination vermeidet einen Zyklus, damit zuerst der Check greift.
 select throws_ok(
   format(
     $$ insert into public.recipe_component_items
@@ -123,7 +117,6 @@ select throws_ok(
   'eine Position braucht mindestens eine Zutat oder Unterkomponente'
 );
 
--- --------------------------------------------------------- Konsistenz-Trigger
 select throws_ok(
   format(
     $$ insert into public.recipe_component_items
@@ -136,9 +129,7 @@ select throws_ok(
   'eine Komponente darf sich nicht selbst als Unterkomponente enthalten'
 );
 
--- Zykel: "Soße" enthaelt bereits "Nudeln-Basis" (ueber die obige Position) NICHT
--- direkt — sondern umgekehrt enthaelt "Nudeln-Basis" "Soße". Ein Versuch, jetzt
--- "Soße" wiederum "Nudeln-Basis" enthalten zu lassen, waere ein 2-Hop-Zykel.
+-- Die Rueckreferenz Soße -> Nudeln-Basis erzeugt einen Zwei-Hop-Zyklus.
 select throws_ok(
   format(
     $$ insert into public.recipe_component_items
@@ -151,7 +142,6 @@ select throws_ok(
   'eine zyklische Komponenten-Verschachtelung wird abgelehnt'
 );
 
--- Ein zweites Rezept, um die Rezept-Grenze der Unterkomponenten-Pruefung zu testen.
 insert into public.recipes (household_id, title, created_by)
 values (:'hid', 'Anderes Rezept', '11111111-1111-1111-1111-111111111111')
 returning id as other_recipe_id \gset
@@ -172,7 +162,6 @@ select throws_ok(
   'eine Unterkomponente aus einem fremden Rezept wird abgelehnt'
 );
 
--- ------------------------------------------------------------ recipe_steps
 select tests.authenticate_as('11111111-1111-1111-1111-111111111111');
 
 insert into public.recipe_steps (recipe_id, household_id, position, text)
@@ -209,9 +198,7 @@ select throws_ok(
   'Aussenstehende koennen keinen Zubereitungsschritt in ein fremdes Rezept einschleusen'
 );
 
--- storage.objects liegt ausserhalb dessen, was `db diff` erfasst (siehe
--- Kommentar in 12_recipe_storage.sql) — dieser Test schlaegt an, wenn die
--- Policies nach einem Reset/Push nicht manuell nachgezogen wurden.
+-- db diff erfasst storage.objects nicht; dieser Test sichert die Policies separat ab.
 select set_eq(
   $$ select policyname from pg_policies where tablename = 'objects' and policyname like 'recipe_covers_%' $$,
   $$ values ('recipe_covers_select'), ('recipe_covers_insert'), ('recipe_covers_update'), ('recipe_covers_delete') $$,
