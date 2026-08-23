@@ -48,7 +48,11 @@ function product(overrides: Partial<PatchProductRecord> & { code: string }): Pat
 }
 
 /** Baut eine Schema-2-Extract-DB direkt über `bun:sqlite` (kein externes `sqlite3`-Binary nötig). */
-function writeSchema2Db(filePath: string, products: PatchProductRecord[], dataVersion: string): void {
+function writeSchema2Db(
+  filePath: string,
+  products: PatchProductRecord[],
+  dataVersion: string,
+): void {
   const db = new Database(filePath, { create: true });
   try {
     db.exec(`create table products (${productColumnDefsSql()});`);
@@ -58,7 +62,8 @@ function writeSchema2Db(filePath: string, products: PatchProductRecord[], dataVe
     const insert = db.query(
       `insert into products (${PRODUCT_COLUMNS.join(', ')}) values (${PRODUCT_COLUMNS.map(() => '?').join(', ')})`,
     );
-    for (const p of products) insert.run(...PRODUCT_COLUMNS.map((col) => p[col as keyof PatchProductRecord]));
+    for (const p of products)
+      insert.run(...PRODUCT_COLUMNS.map((col) => p[col as keyof PatchProductRecord]));
     db.query(
       'insert into dump_meta (schema_version, data_version, generated_at, source_cursor) values (2, ?, ?, NULL)',
     ).run(dataVersion, dataVersion);
@@ -78,10 +83,27 @@ afterEach(() => {
 describe('productColumnDefsSql', () => {
   it('deklariert die sieben Nährwert-Spalten als real, alle anderen als text', () => {
     const sql = productColumnDefsSql();
-    for (const col of ['energy_kcal', 'fat', 'saturated_fat', 'carbohydrates', 'sugars', 'proteins', 'salt']) {
+    for (const col of [
+      'energy_kcal',
+      'fat',
+      'saturated_fat',
+      'carbohydrates',
+      'sugars',
+      'proteins',
+      'salt',
+    ]) {
       expect(sql).toMatch(new RegExp(`\\b${col} real\\b`));
     }
-    for (const col of ['code', 'product_name', 'brand', 'quantity', 'stores', 'nutriscore', 'categories_tags', 'off_last_modified_at']) {
+    for (const col of [
+      'code',
+      'product_name',
+      'brand',
+      'quantity',
+      'stores',
+      'nutriscore',
+      'categories_tags',
+      'off_last_modified_at',
+    ]) {
       expect(sql).toMatch(new RegExp(`\\b${col} text\\b`));
     }
   });
@@ -93,7 +115,10 @@ describe('readProducts / readDumpMeta / quickCheck', () => {
     writeSchema2Db(file, [product({ code: '1' })], '2026-08-01T00-00-00Z');
 
     expect(quickCheck(file)).toBe(true);
-    expect(readDumpMeta(file)).toMatchObject({ schemaVersion: 2, dataVersion: '2026-08-01T00-00-00Z' });
+    expect(readDumpMeta(file)).toMatchObject({
+      schemaVersion: 2,
+      dataVersion: '2026-08-01T00-00-00Z',
+    });
     expect(readProducts(file)).toEqual([product({ code: '1' })]);
   });
 
@@ -134,7 +159,12 @@ describe('writePatchDb / readPatchDb', () => {
 
   it('rundtrippt from/to-Version und einen leeren Patch korrekt', () => {
     const file = path.join(dir, 'empty-patch.db');
-    writePatchDb(file, { fromVersion: 'v1', toVersion: 'v2', schemaVersion: 2, patch: { upserts: [], deletes: [] } });
+    writePatchDb(file, {
+      fromVersion: 'v1',
+      toVersion: 'v2',
+      schemaVersion: 2,
+      patch: { upserts: [], deletes: [] },
+    });
 
     const result = readPatchDb(file);
     expect(result).toEqual({ fromVersion: 'v1', toVersion: 'v2', upserts: [], deletes: [] });
@@ -143,7 +173,12 @@ describe('writePatchDb / readPatchDb', () => {
   it('behandelt NULL-Nährwerte (fehlende OFF-Daten) korrekt über den Roundtrip', () => {
     const file = path.join(dir, 'nulls.db');
     const withNulls = product({ code: '1', energy_kcal: null, fat: null });
-    writePatchDb(file, { fromVersion: 'a', toVersion: 'b', schemaVersion: 2, patch: { upserts: [withNulls], deletes: [] } });
+    writePatchDb(file, {
+      fromVersion: 'a',
+      toVersion: 'b',
+      schemaVersion: 2,
+      patch: { upserts: [withNulls], deletes: [] },
+    });
 
     const result = readPatchDb(file);
     expect(result.upserts[0].energy_kcal).toBeNull();
