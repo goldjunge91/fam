@@ -1,5 +1,6 @@
 import { createClient, type SupabaseClient } from '@supabase/supabase-js';
 
+import { preferenceId } from '@/features/shopping-list/preferences/preference-identity.node';
 import type { Database } from '@/lib/database.types';
 import { MIGRATIONS } from '@/lib/db/migrations';
 import { runMigrations } from '@/lib/db/migrator';
@@ -441,4 +442,152 @@ describe('pushOutbox gegen die lokale Supabase-Instanz', () => {
     const result = await pushOutbox({ db, supabase: client });
     expect(result).toEqual({ outcomes: [], stoppedEarly: false });
   }, 30_000);
+
+  describe('shopping_category_preferences (#223 Paket 3)', () => {
+    it('durchlaeuft insert, update und delete wie jede andere Spiegeltabelle', async () => {
+      const id = preferenceId({ householdId, keyType: 'name', normalizedKeyValue: 'hafermilch' });
+
+      await insertOutboxRow(db, {
+        entity: 'shopping_category_preferences',
+        entityId: id,
+        op: 'insert',
+        payload: {
+          id,
+          household_id: householdId,
+          key_type: 'name',
+          normalized_key_value: 'hafermilch',
+          category_id: 'dairy',
+          created_by: null,
+        },
+      });
+      expect((await pushOutbox({ db, supabase: client })).outcomes[0]).toMatchObject({
+        kind: 'pushed',
+      });
+
+      let remote = await client
+        .from('shopping_category_preferences')
+        .select('category_id, deleted_at')
+        .eq('id', id)
+        .single();
+      expect(remote.data).toMatchObject({ category_id: 'dairy', deleted_at: null });
+
+      await insertOutboxRow(db, {
+        entity: 'shopping_category_preferences',
+        entityId: id,
+        op: 'update',
+        payload: { id, category_id: 'beverages' },
+        createdAt: 2,
+      });
+      expect((await pushOutbox({ db, supabase: client })).outcomes[0]).toMatchObject({
+        kind: 'pushed',
+      });
+
+      remote = await client
+        .from('shopping_category_preferences')
+        .select('category_id, deleted_at')
+        .eq('id', id)
+        .single();
+      expect(remote.data?.category_id).toBe('beverages');
+
+      await insertOutboxRow(db, {
+        entity: 'shopping_category_preferences',
+        entityId: id,
+        op: 'delete',
+        payload: { id, household_id: householdId },
+        createdAt: 3,
+      });
+      expect((await pushOutbox({ db, supabase: client })).outcomes[0]).toMatchObject({
+        kind: 'pushed',
+      });
+
+      remote = await client
+        .from('shopping_category_preferences')
+        .select('category_id, deleted_at')
+        .eq('id', id)
+        .single();
+      expect(remote.data?.deleted_at).not.toBeNull();
+    }, 30_000);
+
+    it('reaktiviert eine soft-deletete Praeferenz UND setzt in einem Push die neue category_id (restore mergt Payload, #223)', async () => {
+      const id = preferenceId({ householdId, keyType: 'name', normalizedKeyValue: 'apfelsaft' });
+
+      const { error: seedError } = await client.from('shopping_category_preferences').insert({
+        id,
+        household_id: householdId,
+        key_type: 'name',
+        normalized_key_value: 'apfelsaft',
+        category_id: 'produce',
+        deleted_at: new Date().toISOString(),
+      });
+      expect(seedError).toBeNull();
+
+      // So sieht der Payload aus, wenn `api.ts`s restore- und update-Eintrag
+      // vor dem naechsten Push zu einer coalesce()-Gruppe verschmelzen:
+      // group.op bleibt 'restore', aber category_id ist bereits eingemischt.
+      await insertOutboxRow(db, {
+        entity: 'shopping_category_preferences',
+        entityId: id,
+        op: 'restore',
+        payload: { id, household_id: householdId, category_id: 'beverages', deleted_at: null },
+      });
+
+      const result = await pushOutbox({ db, supabase: client });
+      expect(result.outcomes[0]).toMatchObject({ kind: 'pushed' });
+
+      const remote = await client
+        .from('shopping_category_preferences')
+        .select('category_id, deleted_at')
+        .eq('id', id)
+        .single();
+      expect(remote.data).toMatchObject({ category_id: 'beverages', deleted_at: null });
+    }, 30_000);
+
+    it('parallele Offline-Anlage derselben natuerlichen Praeferenz erzeugt kein fatales 23505, sondern gewinnt per Fallback-Update', async () => {
+      const id = preferenceId({ householdId, keyType: 'name', normalizedKeyValue: 'vollmilch' });
+
+      // Simuliert ein zweites Geraet, das denselben natuerlichen Schluessel
+      // offline bereits gepusht hat, bevor dieses Geraet online geht — dank
+      // deterministischer UUIDv5 identische id, siehe preference-identity.ts.
+      const { error: otherDeviceError } = await client
+        .from('shopping_category_preferences')
+        .insert({
+          id,
+          household_id: householdId,
+          key_type: 'name',
+          normalized_key_value: 'vollmilch',
+          category_id: 'dairy',
+        });
+      expect(otherDeviceError).toBeNull();
+
+      await insertOutboxRow(db, {
+        entity: 'shopping_category_preferences',
+        entityId: id,
+        op: 'insert',
+        payload: {
+          id,
+          household_id: householdId,
+          key_type: 'name',
+          normalized_key_value: 'vollmilch',
+          category_id: 'breakfast',
+          created_by: null,
+        },
+      });
+
+      const result = await pushOutbox({ db, supabase: client });
+      expect(result.outcomes[0]).toMatchObject({ kind: 'pushed' });
+
+      const remote = await client
+        .from('shopping_category_preferences')
+        .select('category_id')
+        .eq('id', id)
+        .single();
+      expect(remote.data?.category_id).toBe('breakfast');
+
+      const raw = await db.getFirstAsync<{ attempts: number }>(
+        'select attempts from outbox where entity_id = ?',
+        [id],
+      );
+      expect(raw).toBeNull();
+    }, 30_000);
+  });
 });

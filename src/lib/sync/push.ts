@@ -98,7 +98,17 @@ async function attempt(
   }
 
   if (op === 'restore') {
-    const response = await query.update({ deleted_at: null }).eq('id', entityId).select();
+    // Nicht nur { deleted_at: null }: coalesce() haelt group.op auf 'restore'
+    // fest, auch wenn danach noch ein 'update' auf dieselbe id gemergt wird
+    // (z. B. Praeferenz reaktivieren + neue category_id in einem Zug, #223
+    // Paket 3) — der zusaetzliche Payload-Inhalt wuerde sonst schweigend
+    // verworfen. Fuer bestehende reine Undo-Restores (#69) aendert das
+    // nichts: deren Payload traegt ausser deleted_at nur unveraenderte
+    // Identitaetsfelder (z. B. household_id), ein Update darauf ist idempotent.
+    const response = await query
+      .update({ ...buildUpdatePayload(payload), deleted_at: null })
+      .eq('id', entityId)
+      .select();
     return response as AttemptResult;
   }
 
