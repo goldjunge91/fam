@@ -6,10 +6,14 @@ import urllib.request
 import os
 from datetime import datetime, timezone
 
-# Dynamische Pfade: Speichert alles immer im selben Ordner wie das Skript selbst
+# Dynamische Pfade: standardmaessig im selben Ordner wie das Skript selbst,
+# ueberschreibbar per DUMP_DATA_DIR (z.B. externe Platte statt interner SSD —
+# der volle Export ist komprimiert ~12,7 GB, unkomprimiert beim Streamen
+# entsprechend mehr).
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-LOCAL_GZ_FILE = os.path.join(SCRIPT_DIR, "off_dump.jsonl.gz")
-OUTPUT_DB = os.path.join(SCRIPT_DIR, "products_de.db")
+DATA_DIR = os.environ.get("DUMP_DATA_DIR", SCRIPT_DIR)
+LOCAL_GZ_FILE = os.path.join(DATA_DIR, "off_dump.jsonl.gz")
+OUTPUT_DB = os.path.join(DATA_DIR, "products_de.db")
 
 OFF_DUMP_URL = "https://static.openfoodfacts.org/data/openfoodfacts-products.jsonl.gz"
 TARGET_COUNTRY_TAG = "en:germany"
