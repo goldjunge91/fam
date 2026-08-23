@@ -21,9 +21,16 @@ jest.mock('expo-router', () => ({
   router: { replace: jest.fn(), back: jest.fn(), canGoBack: jest.fn(() => false) },
 }));
 
-// `requireActual` statt vollstaendigem Mock: der Flow rendert nach dem Fix
-// echt bis ProfileStepForm, das u. a. den echten `useProfile`-Hook braucht.
-// Nur die Netzwerkfunktionen, die dieser Test steuert, werden ersetzt.
+// Die Regression prueft den Schritt-Zustand im Flow. Die Inhalte der spaeteren
+// Formulare sind dafuer irrelevant und wuerden nur deren Hooks mitladen.
+jest.mock('./components/profile-step-form', () => ({ ProfileStepForm: () => null }));
+jest.mock('./components/household-step', () => ({ HouseholdStepForm: () => null }));
+jest.mock('./components/module-selector', () => ({ ModuleSelectorForm: () => null }));
+jest.mock('./components/permissions-step', () => ({ PermissionsStepForm: () => null }));
+jest.mock('./components/complete-step', () => ({ CompleteStepForm: () => null }));
+
+// `requireActual` behaelt Hilfsfunktionen wie `authErrorMessage`; nur die
+// Netzwerkfunktionen, die dieser Test steuert, werden ersetzt.
 jest.mock('@/features/auth/api', () => ({
   ...jest.requireActual('@/features/auth/api'),
   signIn: (...args: unknown[]) => mockSignIn(...args),

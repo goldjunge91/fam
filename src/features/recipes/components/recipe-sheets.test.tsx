@@ -36,7 +36,10 @@ describe('RecipeRatingSheet', () => {
 
 describe('RecipeShoppingSheet', () => {
   const queryClient = new QueryClient({
-    defaultOptions: { queries: { retry: false }, mutations: { retry: false } },
+    defaultOptions: {
+      queries: { retry: false, gcTime: Number.POSITIVE_INFINITY },
+      mutations: { retry: false, gcTime: Number.POSITIVE_INFINITY },
+    },
   });
 
   const mockRecipeDetail: RecipeDetail = {

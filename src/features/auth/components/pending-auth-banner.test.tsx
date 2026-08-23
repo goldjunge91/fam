@@ -1,5 +1,16 @@
-import { fireEvent, render, screen } from '@testing-library/react-native';
+import { act, fireEvent, render, screen } from '@testing-library/react-native';
 import { PendingAuthBanner } from './pending-auth-banner';
+
+/**
+ * Laesst viele Intervall- und Animations-Timer in einem Schritt ablaufen.
+ * Die Mikroaufgabe wartet danach noch die asynchronen Poll-Fortsetzungen ab.
+ */
+async function advanceFakeTimersByTime(ms: number) {
+  await act(async () => {
+    jest.advanceTimersByTime(ms);
+    await Promise.resolve();
+  });
+}
 
 jest.mock('@/features/auth/api', () => ({
   authErrorMessage: jest.fn((err) => err?.message || 'Fehler'),
@@ -80,7 +91,7 @@ describe('PendingAuthBanner (Apple Liquid UI)', () => {
     jest.useFakeTimers();
 
     await render(<PendingAuthBanner email="test@example.com" onConfirmed={onConfirmedMock} />);
-    await jest.advanceTimersByTimeAsync(30_000);
+    await advanceFakeTimersByTime(30_000);
 
     expect(signIn).not.toHaveBeenCalled();
     expect(onConfirmedMock).not.toHaveBeenCalled();
@@ -113,7 +124,7 @@ describe('PendingAuthBanner (Apple Liquid UI)', () => {
           onConfirmed={onConfirmedMock}
         />,
       );
-      await jest.advanceTimersByTimeAsync(15_000);
+      await advanceFakeTimersByTime(15_000);
 
       expect(signIn).toHaveBeenCalledWith('test@example.com', 'geheim-genug');
       expect(onConfirmedMock).toHaveBeenCalled();
@@ -143,7 +154,7 @@ describe('PendingAuthBanner (Apple Liquid UI)', () => {
         />,
       );
       // Lange genug fuer mehrere Durchlaeufe beider Poll-Intervalle.
-      await jest.advanceTimersByTimeAsync(90_000);
+      await advanceFakeTimersByTime(90_000);
 
       expect(onConfirmedMock).toHaveBeenCalledTimes(1);
 
@@ -167,7 +178,7 @@ describe('PendingAuthBanner (Apple Liquid UI)', () => {
           onConfirmed={onConfirmedMock}
         />,
       );
-      await jest.advanceTimersByTimeAsync(30_000);
+      await advanceFakeTimersByTime(30_000);
 
       expect(signIn).toHaveBeenCalled();
       expect(onConfirmedMock).not.toHaveBeenCalled();
@@ -196,7 +207,7 @@ describe('PendingAuthBanner (Apple Liquid UI)', () => {
           onConfirmed={onConfirmedMock}
         />,
       );
-      await jest.advanceTimersByTimeAsync(15_000);
+      await advanceFakeTimersByTime(15_000);
 
       expect(signOut).toHaveBeenCalled();
       expect(onConfirmedMock).not.toHaveBeenCalled();
@@ -232,7 +243,7 @@ describe('PendingAuthBanner (Apple Liquid UI)', () => {
           onConfirmed={jest.fn()}
         />,
       );
-      await jest.advanceTimersByTimeAsync(4 * 15_000);
+      await advanceFakeTimersByTime(4 * 15_000);
 
       // Bei 15s-Kadenz sind das in 5 Minuten 20 Anfragen, ein Drittel unter
       // dem Kontingent von 30 (siehe Intervall-Kommentar in
@@ -240,11 +251,8 @@ describe('PendingAuthBanner (Apple Liquid UI)', () => {
       expect(signIn.mock.calls.length).toBe(4);
 
       jest.useRealTimers();
-      // Eigener Timeout ueber dem globalen Default (siehe jest.config.js):
-      // selbst 60s simulierte Zeit treibt bei vollem `bun run test` unter
-      // CPU-Last noch reale Sekunden nah an die 15s-Grenze (#... beobachtet
-      // 2026-08-17). Mehr Luft hier statt den globalen Default fuer alle
-      // Tests hochzusetzen.
+      // Lokaler Puffer fuer stark belastete CI; die Timer selbst laufen oben
+      // gebuendelt, ohne den globalen Timeout fuer alle Tests zu erhoehen.
     }, 30_000);
   });
 

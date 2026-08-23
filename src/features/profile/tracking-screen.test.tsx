@@ -40,7 +40,10 @@ const mockMutateStartTime = jest.fn();
 
 async function renderScreen() {
   const queryClient = new QueryClient({
-    defaultOptions: { queries: { retry: false } },
+    defaultOptions: {
+      queries: { retry: false, gcTime: Number.POSITIVE_INFINITY },
+      mutations: { retry: false, gcTime: Number.POSITIVE_INFINITY },
+    },
   });
 
   (useSession as jest.Mock).mockReturnValue({

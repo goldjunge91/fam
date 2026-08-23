@@ -29,7 +29,10 @@ describe('useRecipeShoppingNeeds', () => {
     jest.clearAllMocks();
     mockDbGetFirstAsync.mockResolvedValue(null);
     queryClient = new QueryClient({
-      defaultOptions: { queries: { retry: false } },
+      defaultOptions: {
+        queries: { retry: false, gcTime: Number.POSITIVE_INFINITY },
+        mutations: { retry: false, gcTime: Number.POSITIVE_INFINITY },
+      },
     });
   });
 

@@ -17,16 +17,19 @@ describe('initSentry', () => {
       process.env.EXPO_PUBLIC_SENTRY_DSN = originalDsn;
     }
     jest.resetModules();
+    jest.restoreAllMocks();
     jest.clearAllMocks();
   });
 
   it('bleibt ohne DSN ein No-op', () => {
     delete process.env.EXPO_PUBLIC_SENTRY_DSN;
+    const consoleWarn = jest.spyOn(console, 'warn').mockImplementation(() => {});
     const { initSentry } = require('@/lib/sentry');
 
     initSentry();
 
     expect(mockSentryInit).not.toHaveBeenCalled();
+    expect(consoleWarn).toHaveBeenCalledWith(expect.stringContaining('SENTRY_DSN fehlt'));
   });
 
   it('initialisiert Sentry mit DSN', () => {

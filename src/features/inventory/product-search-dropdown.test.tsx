@@ -54,12 +54,26 @@ jest.mock('@/hooks/use-theme', () => ({
 
 const mockSearch = searchOpenFoodFacts as jest.Mock;
 
+// React-Warnungen sollen den verursachenden Test fehlschlagen lassen.
+let consoleErrorSpy: jest.SpiedFunction<typeof console.error>;
+
 beforeEach(() => {
+  consoleErrorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+
   mockSearch.mockReset();
   mockGetAllAsync.mockReset();
   mockGetAllAsync.mockResolvedValue([]);
   (router.push as jest.Mock).mockReset();
   mockOffDumpAttached = false;
+});
+
+afterEach(() => {
+  const consoleErrors = [...consoleErrorSpy.mock.calls];
+
+  consoleErrorSpy.mockRestore();
+  onlineManager.setOnline(true);
+
+  expect(consoleErrors).toEqual([]);
 });
 
 it('bietet "manuell anlegen" an, wenn Open Food Facts keinen Treffer liefert', async () => {
@@ -122,17 +136,28 @@ it('zeigt lokale Treffer und fragt Open Food Facts nicht an, wenn genug lokale T
 });
 
 it('ergaenzt OFF-Treffer, wenn lokale Treffer unter dem Schwellwert liegen', async () => {
-  mockGetAllAsync.mockResolvedValue([
-    {
-      barcode: 'local-1',
-      name: 'Lokale Milch',
-      brand: null,
-      kcal_per_100: 42,
-      protein_g_per_100: null,
-      carbs_g_per_100: null,
-      fat_g_per_100: null,
-    },
-  ]);
+  // Ein DB-Mock bedient zwei Schemas; jedes erwartet ein anderes Zeilenformat.
+  mockGetAllAsync.mockImplementation((sql: string) => {
+    if (sql.includes('off_dump.products')) {
+      return Promise.resolve([]);
+    }
+
+    if (sql.includes('from products')) {
+      return Promise.resolve([
+        {
+          barcode: 'local-1',
+          name: 'Lokale Milch',
+          brand: null,
+          kcal_per_100: 42,
+          protein_g_per_100: null,
+          carbs_g_per_100: null,
+          fat_g_per_100: null,
+        },
+      ]);
+    }
+
+    return Promise.resolve([]);
+  });
   mockSearch.mockResolvedValue({
     products: [{ barcode: 'off-1', name: 'OFF Milch', quantity: 1, unit: 'l' }],
   });
@@ -140,15 +165,14 @@ it('ergaenzt OFF-Treffer, wenn lokale Treffer unter dem Schwellwert liegen', asy
   await render(<ControlledDropdown onSelectProduct={() => {}} />);
   await fireEvent.changeText(screen.getByPlaceholderText('z. B. Hafermilch'), 'Milch');
 
-  await waitFor(() => {
-    expect(screen.getByText('Lokale Milch')).toBeTruthy();
-    expect(screen.getByText('OFF Milch')).toBeTruthy();
-  });
+  expect(await screen.findByText('Lokale Milch')).toBeOnTheScreen();
+  expect(screen.getByText('OFF Milch')).toBeOnTheScreen();
 });
 
 it('ergaenzt Treffer aus dem angehaengten OFF-Dump auch offline, wenn lokale Treffer unter dem Schwellwert liegen', async () => {
   onlineManager.setOnline(false);
   mockOffDumpAttached = true;
+  // Die eigene Produktsuche bleibt leer; nur der angehaengte Dump liefert einen Treffer.
   mockGetAllAsync.mockImplementation((sql: string) => {
     if (sql.includes('off_dump.products')) {
       return Promise.resolve([
@@ -168,6 +192,7 @@ it('ergaenzt Treffer aus dem angehaengten OFF-Dump auch offline, wenn lokale Tre
         },
       ]);
     }
+
     return Promise.resolve([]);
   });
 

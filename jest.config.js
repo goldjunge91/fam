@@ -2,7 +2,7 @@
 module.exports = {
   preset: 'jest-expo',
   setupFiles: ['<rootDir>/test/setup.js'],
-  maxWorkers: '50%',
+  maxWorkers: '10%',
 
   // Ohne diesen Resolver landet `react-native-reanimated/mock` (ueber
   // `react-native-worklets`) trotzdem bei den `.native.ts`-Dateien und damit
@@ -34,13 +34,7 @@ module.exports = {
   // CPU konkurrieren statt einzeln zu laufen — beobachtet beim vollen
   // `bun run test` unter Last, nicht bei isolierten Laeufen.
   testTimeout: 15000,
-
-  // Default (numCPUs - 1, hier 7) laesst Suiten mit echten Timern/Intervallen
-  // (z. B. PendingAuthBanner) unter voller CPU-Konkurrenz an testTimeout
-  // reissen. Weniger parallele Worker halten die Wall-Clock-Zeit pro Test
-  // naeher an der isolierten Laufzeit, auf Kosten der Gesamtlaufzeit.
-  maxWorkers: '50%',
-
+  
   // Spiegelt die Pfad-Aliase aus tsconfig.json. Die spezifischere
   // `@/assets/`-Regel muss vor `@/` stehen, sonst greift sie nie.
   moduleNameMapper: {

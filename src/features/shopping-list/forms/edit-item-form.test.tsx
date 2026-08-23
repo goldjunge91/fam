@@ -63,7 +63,10 @@ describe('EditItemForm', () => {
 
   async function renderForm() {
     const queryClient = new QueryClient({
-      defaultOptions: { queries: { retry: false } },
+      defaultOptions: {
+        queries: { retry: false, gcTime: Number.POSITIVE_INFINITY },
+        mutations: { retry: false, gcTime: Number.POSITIVE_INFINITY },
+      },
     });
     return render(
       <SafeAreaProvider

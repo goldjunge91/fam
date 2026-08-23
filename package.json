@@ -102,7 +102,7 @@
     "check:fix": "biome check --write .",
     "check:css": "tailwindcss -i ./src/global.css -o /dev/null",
     "typecheck": "tsc --noEmit",
-    "test": "jest --forceExit",
+    "test": "jest",
     "test:functions": "deno test supabase/functions --allow-env",
     "test:watch": "jest --watchAll",
     "test:coverage": "jest --coverage",

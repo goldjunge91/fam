@@ -60,6 +60,14 @@ jest.mock('@/features/navigation/use-profile-initials', () => ({
   useProfileInitials: () => 'MM',
 }));
 
+// Die lokale FAB-Praeferenz ist fuer diese Menue-Tests nur Darstellungszustand.
+// Der synchrone Mock verhindert eine nach dem Rendern eintreffende Query-Aktualisierung.
+jest.mock('@/features/navigation/fab-position-settings', () => ({
+  DEFAULT_FAB_POSITION: 'right',
+  useFabPosition: () => ({ data: 'right' }),
+  useSetFabPosition: () => jest.fn(),
+}));
+
 jest.mock('@/features/auth/api', () => ({
   useProfile: () => ({ data: { display_name: 'Marco Müller' } }),
 }));

@@ -3,6 +3,15 @@ import { fireEvent, render, screen } from '@testing-library/react-native';
 import { ModuleSelectorForm } from '@/features/onboarding/components/module-selector';
 import { WelcomeCarousel } from '@/features/onboarding/components/welcome-carousel';
 
+jest.mock('@/lib/posthog', () => ({
+  useFeatureFlag: (_key: string, defaultValue: boolean) => defaultValue,
+}));
+const mockFeatureFlags: Record<string, boolean> = {
+  'module-recipes': true,
+  'module-meal-planner': true,
+  'module-calories': true,
+};
+
 jest.mock('@/hooks/use-theme', () => ({
   useTheme: () => require('@/constants/theme').Colors.light,
 }));
@@ -20,6 +29,13 @@ jest.mock('@/features/onboarding/context/onboarding-context', () => ({
     },
     updateModulesData: jest.fn(),
   }),
+}));
+
+// Diese Komponententests pruefen die Onboarding-Schritte, nicht die
+// PostHog-Anbindung. Alle optionalen Module sind hier bewusst freigeschaltet.
+jest.mock('@/lib/posthog', () => ({
+  useFeatureFlag: (key: string | undefined, defaultValue: boolean) =>
+    key ? (mockFeatureFlags[key] ?? defaultValue) : defaultValue,
 }));
 
 describe('Onboarding Components', () => {

@@ -1,5 +1,5 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { act, renderHook } from '@testing-library/react-native';
+import { act, renderHook, waitFor } from '@testing-library/react-native';
 import type React from 'react';
 
 import { useAddRecipeMutation, useDeleteRecipeMutation } from '@/features/recipes/use-recipes';
@@ -30,7 +30,10 @@ describe('use-recipes mutations', () => {
     jest.clearAllMocks();
     mockDbGetAllAsync.mockResolvedValue([]);
     queryClient = new QueryClient({
-      defaultOptions: { queries: { retry: false }, mutations: { retry: false } },
+      defaultOptions: {
+        queries: { retry: false, gcTime: Number.POSITIVE_INFINITY },
+        mutations: { retry: false, gcTime: Number.POSITIVE_INFINITY },
+      },
     });
   });
 
@@ -45,6 +48,9 @@ describe('use-recipes mutations', () => {
         created_by: 'user-1',
       });
     });
+
+    // TanStack Query veroeffentlicht den finalen Mutation-Status in einem spaeteren Tick.
+    await waitFor(() => expect(result.current.isSuccess).toBe(true));
 
     expect(enqueueMutation).toHaveBeenCalledWith(
       expect.anything(),
@@ -64,6 +70,9 @@ describe('use-recipes mutations', () => {
     await act(async () => {
       await result.current.mutateAsync({ id: 'rec-1', household_id: 'hh-1' });
     });
+
+    // Erst nach diesem sichtbaren Hook-Zustand ist die Mutation vollstaendig abgeschlossen.
+    await waitFor(() => expect(result.current.isSuccess).toBe(true));
 
     expect(enqueueMutation).toHaveBeenCalledWith(
       expect.anything(),

@@ -1,5 +1,5 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { act, renderHook } from '@testing-library/react-native';
+import { act, renderHook, waitFor } from '@testing-library/react-native';
 import type React from 'react';
 
 import {
@@ -34,7 +34,10 @@ describe('use-meal-plans mutations', () => {
   beforeEach(() => {
     jest.clearAllMocks();
     queryClient = new QueryClient({
-      defaultOptions: { queries: { retry: false }, mutations: { retry: false } },
+      defaultOptions: {
+        queries: { retry: false, gcTime: Number.POSITIVE_INFINITY },
+        mutations: { retry: false, gcTime: Number.POSITIVE_INFINITY },
+      },
     });
   });
 
@@ -50,6 +53,8 @@ describe('use-meal-plans mutations', () => {
         created_by: 'user-1',
       });
     });
+
+    await waitFor(() => expect(result.current.isSuccess).toBe(true));
 
     expect(enqueueMutation).toHaveBeenCalledWith(
       expect.anything(),
@@ -82,6 +87,8 @@ describe('use-meal-plans mutations', () => {
         created_by: 'user-1',
       });
     });
+
+    await waitFor(() => expect(result.current.isSuccess).toBe(true));
 
     expect(enqueueMutation).toHaveBeenCalledWith(
       expect.anything(),

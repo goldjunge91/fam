@@ -27,17 +27,20 @@ describe('initPostHog / isPostHogConfigured', () => {
       process.env.EXPO_PUBLIC_POSTHOG_API_KEY = originalKey;
     }
     jest.resetModules();
+    jest.restoreAllMocks();
     jest.clearAllMocks();
   });
 
   it('bleibt ohne API-Key ein No-op', () => {
     delete process.env.EXPO_PUBLIC_POSTHOG_API_KEY;
+    const consoleWarn = jest.spyOn(console, 'warn').mockImplementation(() => {});
     const { initPostHog, isPostHogConfigured } = require('@/lib/posthog');
 
     initPostHog();
 
     expect(isPostHogConfigured()).toBe(false);
     expect(mockPostHogConstructor).not.toHaveBeenCalled();
+    expect(consoleWarn).toHaveBeenCalledWith(expect.stringContaining('POSTHOG_API_KEY fehlt'));
   });
 
   it('konfiguriert den Client mit API-Key und Host', () => {

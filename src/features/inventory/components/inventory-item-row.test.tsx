@@ -1,4 +1,5 @@
 import { render, screen, userEvent } from '@testing-library/react-native';
+import type { ReactNode } from 'react';
 import type { LocalInventoryItem } from '../use-inventory-items';
 import { InventoryItemRow } from './inventory-item-row';
 
@@ -14,7 +15,12 @@ jest.mock('react-native-gesture-handler/ReanimatedSwipeable', () => {
               { close: jest.fn(), openLeft: jest.fn(), openRight: jest.fn(), reset: jest.fn() },
             )
           : null;
-      return [children, actions];
+      return (
+        <>
+          {children as ReactNode}
+          {actions as ReactNode}
+        </>
+      );
     },
   };
 });

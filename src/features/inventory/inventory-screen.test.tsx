@@ -1,5 +1,5 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { fireEvent, render, screen, userEvent } from '@testing-library/react-native';
+import { act, fireEvent, render, screen, userEvent } from '@testing-library/react-native';
 import { Alert } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
@@ -23,7 +23,12 @@ jest.mock('react-native-gesture-handler/ReanimatedSwipeable', () => {
               { close: jest.fn(), openLeft: jest.fn(), openRight: jest.fn(), reset: jest.fn() },
             )
           : null;
-      return [children, actions];
+      return (
+        <>
+          {children}
+          {actions}
+        </>
+      );
     },
   };
 });
@@ -70,11 +75,11 @@ jest.mock('@/hooks/use-theme', () => ({
   useTheme: () => require('@/constants/theme').Colors.light,
 }));
 
-function renderScreen() {
+async function renderScreen() {
   const queryClient = new QueryClient({
     defaultOptions: { queries: { retry: false, gcTime: Number.POSITIVE_INFINITY } },
   });
-  return render(
+  const result = await render(
     <QueryClientProvider client={queryClient}>
       <SafeAreaProvider
         initialMetrics={{
@@ -85,7 +90,37 @@ function renderScreen() {
       </SafeAreaProvider>
     </QueryClientProvider>,
   );
+
+  // Die FlatList (VirtualizedList) plant beim Mount ein setTimeout(50ms,
+  // updateCellsBatchingPeriod) fuers Cell-Layout. RNTLs user-event wait()
+  // wrapt diesen Schritt selbst NICHT in act() (nur die Event-Dispatches),
+  // daher hier explizit VOR der ersten Interaktion abfliessen lassen, statt
+  // spaeter unkontrolliert waehrend user.press() zu feuern.
+  await act(() => {
+    jest.advanceTimersByTime(60);
+  });
+
+  return result;
 }
+
+// FlatList/VirtualizedList plant beim Mount intern ein setTimeout(50ms,
+// updateCellsBatchingPeriod), das ausserhalb jeder act()-Kontrolle feuert
+// ("The current testing environment is not configured to support act(...)")
+// und je nach Systemlast mit Interaktionen des Tests kollidiert (siehe
+// test/examples/act-and-real-timers-demo/). Fake Timers machen das
+// deterministisch statt wall-clock-abhaengig.
+beforeEach(() => {
+  jest.useFakeTimers();
+});
+
+afterEach(async () => {
+  // testing-library.com/docs/using-fake-timers: vor dem Zurueckschalten auf
+  // echte Timer noch ausstehende Tasks innerhalb von act() abarbeiten.
+  await act(() => {
+    jest.runOnlyPendingTimers();
+  });
+  jest.useRealTimers();
+});
 
 beforeEach(() => {
   mockParams = {};
@@ -194,7 +229,7 @@ it('bearbeitet einen Vorratsartikel im eigenen Bottom Sheet', async () => {
   await user.press(screen.getByRole('button', { name: 'Bearbeiten' }));
 
   expect(screen.getByText('Artikel bearbeiten')).toBeOnTheScreen();
-  fireEvent.changeText(screen.getByLabelText('Artikelname'), 'Haferdrink');
+  await fireEvent.changeText(screen.getByLabelText('Artikelname'), 'Haferdrink');
   await user.press(screen.getByRole('button', { name: 'Menge erhöhen' }));
   await user.press(screen.getByRole('button', { name: 'Änderungen speichern' }));
 

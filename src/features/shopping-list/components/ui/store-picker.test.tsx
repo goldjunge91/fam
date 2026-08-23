@@ -64,7 +64,10 @@ describe('StorePicker Components', () => {
 
   function wrapper({ children }: { children: React.ReactNode }) {
     const queryClient = new QueryClient({
-      defaultOptions: { queries: { retry: false } },
+      defaultOptions: {
+        queries: { retry: false, gcTime: Number.POSITIVE_INFINITY },
+        mutations: { retry: false, gcTime: Number.POSITIVE_INFINITY },
+      },
     });
     return (
       // Ohne initialMetrics rendert SafeAreaProvider seine Children nicht,

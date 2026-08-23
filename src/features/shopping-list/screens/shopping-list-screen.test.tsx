@@ -1,5 +1,5 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { fireEvent, render, screen, waitFor } from '@testing-library/react-native';
+import { act, fireEvent, render, screen } from '@testing-library/react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import { ShoppingListScreen } from './shopping-list-screen';
@@ -108,12 +108,24 @@ jest.mock('@/hooks/use-theme', () => ({
 
 describe('ShoppingListScreen', () => {
   const queryClient = new QueryClient({
-    defaultOptions: { queries: { retry: false }, mutations: { retry: false } },
+    defaultOptions: {
+      queries: { retry: false, gcTime: Number.POSITIVE_INFINITY },
+      mutations: { retry: false, gcTime: Number.POSITIVE_INFINITY },
+    },
   });
 
   beforeEach(() => {
+    jest.useFakeTimers();
     mockParams = {};
     jest.clearAllMocks();
+  });
+
+  afterEach(async () => {
+    // Auch interne React-Native-Timer muessen vor dem Wechsel zurueck abgearbeitet werden.
+    await act(() => {
+      jest.runOnlyPendingTimers();
+    });
+    jest.useRealTimers();
   });
 
   async function renderScreen() {
@@ -140,15 +152,18 @@ describe('ShoppingListScreen', () => {
     await renderScreen();
 
     const storeCard = screen.getByText('Supermarkt');
-    fireEvent.press(storeCard);
+    await fireEvent.press(storeCard);
 
-    await waitFor(() => {
-      expect(screen.getByText('Bananen')).toBeTruthy();
+    // SectionList plant ihr erstes Zellen-Layout nach 50 ms (VirtualizedList).
+    await act(() => {
+      jest.advanceTimersByTime(60);
     });
+
+    expect(await screen.findByText('Bananen')).toBeTruthy();
 
     // Antippen der Zeile oeffnet jetzt das Bearbeiten-Formular statt abzuhaken.
     const row = screen.getByRole('button', { name: 'Bananen bearbeiten' });
-    fireEvent.press(row);
+    await fireEvent.press(row);
 
     expect(mockToggleMutateAsync).not.toHaveBeenCalled();
   });
@@ -157,19 +172,15 @@ describe('ShoppingListScreen', () => {
     await renderScreen();
 
     const addBtn = screen.getByRole('button', { name: '+ Artikel hinzufügen' });
-    fireEvent.press(addBtn);
+    await fireEvent.press(addBtn);
 
-    await waitFor(() => {
-      expect(screen.getAllByText('Artikel hinzufügen').length).toBeGreaterThan(0);
-    });
+    expect((await screen.findAllByText('Artikel hinzufügen')).length).toBeGreaterThan(0);
   });
 
   it('öffnet das AddItemModal automatisch, wenn action=add gesetzt ist', async () => {
     mockParams = { action: 'add' };
     await renderScreen();
 
-    await waitFor(() => {
-      expect(screen.getAllByText('Artikel hinzufügen').length).toBeGreaterThan(0);
-    });
+    expect((await screen.findAllByText('Artikel hinzufügen')).length).toBeGreaterThan(0);
   });
 });

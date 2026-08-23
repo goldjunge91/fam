@@ -18,7 +18,7 @@ describe('NavigationChromeProvider', () => {
     expect(result.current.isProfileOpen).toBe(false);
     expect(result.current.isQuickAddOpen).toBe(false);
 
-    act(() => {
+    await act(() => {
       result.current.openDrawer();
     });
 
@@ -26,7 +26,7 @@ describe('NavigationChromeProvider', () => {
       expect(result.current.isDrawerOpen).toBe(true);
     });
 
-    act(() => {
+    await act(() => {
       result.current.closeDrawer();
     });
 

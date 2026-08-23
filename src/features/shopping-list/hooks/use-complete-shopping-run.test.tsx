@@ -1,12 +1,13 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { act, renderHook } from '@testing-library/react-native';
+import { act, renderHook, waitFor } from '@testing-library/react-native';
 import type React from 'react';
 
 import { useCompleteShoppingRun } from '@/features/shopping-list/hooks/use-complete-shopping-run';
 import type { LocalShoppingItem } from '@/features/shopping-list/hooks/use-shopping-list';
 import { enqueueMutation } from '@/lib/db/outbox';
 
-const mockDbGetAllAsync = jest.fn();
+// `useStorageLocations` erwartet immer eine Liste; `undefined` ist fuer TanStack Query ungueltig.
+const mockDbGetAllAsync = jest.fn().mockResolvedValue([]);
 const mockDbRunAsync = jest.fn().mockResolvedValue({ changes: 1, lastInsertRowId: 1 });
 
 jest.mock('@/lib/db/client', () => ({
@@ -29,8 +30,12 @@ describe('useCompleteShoppingRun', () => {
 
   beforeEach(() => {
     jest.clearAllMocks();
+    mockDbGetAllAsync.mockResolvedValue([]);
     queryClient = new QueryClient({
-      defaultOptions: { queries: { retry: false }, mutations: { retry: false } },
+      defaultOptions: {
+        queries: { retry: false, gcTime: Number.POSITIVE_INFINITY },
+        mutations: { retry: false, gcTime: Number.POSITIVE_INFINITY },
+      },
     });
   });
 
@@ -80,6 +85,9 @@ describe('useCompleteShoppingRun', () => {
         ],
       });
     });
+
+    // Die Mutation ist erst nach dem veroeffentlichten Hook-Status vollstaendig sichtbar.
+    await waitFor(() => expect(result.current.isSuccess).toBe(true));
 
     expect(enqueueMutation).toHaveBeenCalledWith(
       expect.anything(),

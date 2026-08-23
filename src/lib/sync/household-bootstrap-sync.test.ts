@@ -14,6 +14,12 @@ jest.mock('@/lib/supabase', () => ({
   getSupabase: (...args: unknown[]) => mockGetSupabase(...args),
 }));
 
+// Dieser Unit-Test prueft den Haushalts-Pull, nicht das Sentry-SDK. Dessen
+// Modulimport startet sonst einen dauerhaften Cleanup-Timer im Jest-Prozess.
+jest.mock('@/lib/sentry', () => ({
+  Sentry: { captureMessage: jest.fn() },
+}));
+
 jest.mock('@/features/household/query-keys', () => ({
   householdsQueryKey: (userId: string | undefined) => ['households', 'by-user', userId] as const,
 }));
@@ -29,6 +35,10 @@ describe('triggerHouseholdsPull', () => {
     mockPullHousehold.mockReset();
     mockGetDatabase.mockResolvedValue({});
     mockGetSupabase.mockReturnValue({});
+  });
+
+  afterEach(() => {
+    jest.restoreAllMocks();
   });
 
   it('pullt ausschliesslich die Entity households, unabhaengig von einem Haushalt', async () => {
@@ -86,7 +96,12 @@ describe('triggerHouseholdsPull', () => {
 
   it('faengt einen fehlschlagenden Pull ab und gibt null zurueck', async () => {
     mockPullHousehold.mockRejectedValue(new Error('offline'));
+    const consoleWarn = jest.spyOn(console, 'warn').mockImplementation(() => {});
 
     await expect(triggerHouseholdsPull('user-1')).resolves.toBeNull();
+    expect(consoleWarn).toHaveBeenCalledWith(
+      '[HouseholdBootstrapSync] Pull fehlgeschlagen:',
+      expect.objectContaining({ message: 'offline' }),
+    );
   });
 });

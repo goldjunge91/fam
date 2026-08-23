@@ -3,11 +3,12 @@ import { fireEvent, render, screen } from '@testing-library/react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import { RecipeTemplateDetailScreen } from '@/features/recipes/templates/recipe-template-detail-screen';
+import type { RecipeTemplateDetail } from '@/features/recipes/templates/use-recipe-templates';
 
 const mockCreateRecipeMutateAsync = jest.fn().mockResolvedValue({ id: 'new-rec-1' });
 const mockReplace = jest.fn();
 
-const mockTemplate = {
+const mockTemplate: RecipeTemplateDetail = {
   id: 'tpl-curry',
   title: 'Gemüse-Curry',
   instructions: 'Alles anbraten und köcheln lassen.',
@@ -16,32 +17,32 @@ const mockTemplate = {
   difficulty: 'easy' as const,
   dish_types: ['dinner' as const],
   dietary_tags: ['vegan' as const],
-  hashtags: ['curry', 'vegan'],
   default_servings: 4,
+  sort_order: 0,
   components: [
     {
       id: 'comp-1',
-      title: 'Curry',
       name: 'Curry',
       serving_grams: 300,
       items: [
         {
           id: 'item-1',
-          name: 'Kokosmilch',
+          component_id: 'comp-1',
           product_id: 'prod-kokos',
+          sub_component_id: null,
           quantity: 400,
           unit: 'ml',
           grams: 400,
+          product_name: 'Kokosmilch',
         },
       ],
     },
   ],
   steps: [
     {
-      step_order: 1,
-      instruction: 'Gemüse schneiden und anbraten',
-      image_path: null,
-      ingredients: [],
+      id: 'step-1',
+      position: 0,
+      text: 'Gemüse schneiden und anbraten',
     },
   ],
 };
@@ -75,7 +76,8 @@ jest.mock('@/features/recipes/templates/use-recipe-templates', () => ({
 describe('RecipeTemplateDetailScreen', () => {
   async function renderScreen() {
     const queryClient = new QueryClient({
-      defaultOptions: { queries: { retry: false } },
+      // Test-Caches brauchen keinen spaeteren GC-Timer, der den Jest-Worker offen haelt.
+      defaultOptions: { queries: { retry: false, gcTime: Number.POSITIVE_INFINITY } },
     });
     return render(
       <SafeAreaProvider
@@ -104,7 +106,7 @@ describe('RecipeTemplateDetailScreen', () => {
     await renderScreen();
 
     const applyBtn = screen.getByRole('button', { name: 'In meine Rezepte übernehmen' });
-    fireEvent.press(applyBtn);
+    await fireEvent.press(applyBtn);
 
     expect(mockCreateRecipeMutateAsync).toHaveBeenCalledWith(
       expect.objectContaining({
