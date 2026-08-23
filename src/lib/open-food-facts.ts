@@ -271,6 +271,14 @@ async function fetchProductWithRetry(
         headers: { 'User-Agent': 'FamApp/1.0 (contact@fam.app)' },
         signal,
       });
+      if (!res.ok) {
+        // Kein Aufrufer liest je den Body einer nicht-ok Response (siehe
+        // fetchProductByBarcode: `if (!res?.ok) return null`) — ohne dieses
+        // Konsumieren bleibt die zugrundeliegende Connection offen, statt in
+        // den Pool zurueckzukehren. Betrifft sowohl den 4xx-Sofort-Rueckgabe-
+        // pfad als auch jeden verworfenen 5xx-Versuch vor dem naechsten Retry.
+        await res.text().catch(() => {});
+      }
       if (res.ok || res.status < 500) return res;
       lastResponse = res;
     } catch (err) {
