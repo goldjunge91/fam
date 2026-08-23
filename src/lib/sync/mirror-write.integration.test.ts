@@ -110,6 +110,42 @@ describe('upsertMirrorRow', () => {
     expect(row?.off_last_modified_at).toBe('2024-01-14T09:00:00Z');
   });
 
+  // Live-Fund: eine Remote-Zeile mit `off_category_tags: null` (Schema-Drift/
+  // veralteter PostgREST-Cache — der Server-Constraint ist `not null default
+  // '{}'`, garantiert das also eigentlich nicht) liess den kompletten
+  // Products-Sync mit "NOT NULL constraint failed" abstuerzen, weil
+  // `upsertMirrorRow` jede Spalte explizit bindet und der SQLite-DEFAULT nie
+  // greift. Der Spiegel muss das tolerieren statt den Sync zu blockieren.
+  it('crasht nicht, wenn eine Remote-Zeile off_category_tags als null liefert', async () => {
+    await expect(
+      upsertMirrorRow(
+        db,
+        'products',
+        {
+          id: 'prod-2',
+          barcode: '456',
+          name: 'Produkt ohne OFF-Tags',
+          off_category_tags: null,
+          off_last_modified_at: null,
+          source: 'manual',
+          created_at: '2024-01-01T00:00:00Z',
+          updated_at: '2024-01-15T10:30:00Z',
+          deleted_at: null,
+        },
+        { dirty: 0 },
+      ),
+    ).resolves.not.toThrow();
+
+    const row = await db.getFirstAsync<{ off_category_tags: string | null }>(
+      'select off_category_tags from products where id = ?',
+      ['prod-2'],
+    );
+    // Kein Fallback auf '[]' hier — das waere unehrliche Ersatzdaten fuer eine
+    // Remote-Zeile, die tatsaechlich null lieferte. parseCategoryTagsJson()
+    // behandelt null beim Lesen ohnehin bereits wie eine leere Liste.
+    expect(row?.off_category_tags).toBeNull();
+  });
+
   it('spiegelt Preference-Tombstones und nullable category_id', async () => {
     await upsertMirrorRow(
       db,

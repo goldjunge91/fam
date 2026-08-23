@@ -101,7 +101,16 @@ create table if not exists products (
   sugar_g_per_100   real,
   salt_g_per_100    real,
   serving_size_g    real,
-  off_category_tags text not null default '[]',
+  -- Bewusst NICHT not null, obwohl off_category_tags serverseitig
+  -- not null default '{}' ist (supabase/schemas/05_products.sql): dieser
+  -- Spiegel ist nur ein Cache, kein Constraint-Vertrag. upsertMirrorRow()
+  -- (mirror-write.ts) bindet bei jedem Sync-Pull ALLE Spalten explizit, der
+  -- SQLite-DEFAULT greift dort nie. Liefert der Server (Schema-Drift,
+  -- veralteter PostgREST-Cache) einmal doch null, wuerde eine not-null-
+  -- Spalte den kompletten Products-Sync dauerhaft blockieren, statt nur
+  -- diese eine Zeile unvollstaendig zu spiegeln. parseCategoryTagsJson()
+  -- (open-food-facts.ts) behandelt null beim Lesen ohnehin bereits als [].
+  off_category_tags text default '[]',
   off_last_modified_at text,
   source            text not null default 'manual',
   created_by        text,
