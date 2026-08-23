@@ -124,6 +124,18 @@
       "skillPath": "skills/design-audit/SKILL.md",
       "computedHash": "efe95e615a1a0969cb496c46ad8dc6990edf8b05290df676c77bf244c058f9de"
     },
+    "dogfood": {
+      "source": "callstack/agent-device",
+      "sourceType": "github",
+      "skillPath": "skills/dogfood/SKILL.md",
+      "computedHash": "8e6dfbff0633e355210ce7ae109cb39a3e1347946b6e92aaa607271154526b6b"
+    },
+    "eas-app-stores": {
+      "source": "expo/skills",
+      "sourceType": "github",
+      "skillPath": "plugins/expo/skills/eas-app-stores/SKILL.md",
+      "computedHash": "4092e637ac0db1ac728accd9621f0e92d25934dabdc326ea119ec0c7437be519"
+    },
     "eas-hosting": {
       "source": "expo/skills",
       "sourceType": "github",
@@ -140,7 +152,13 @@
       "source": "expo/skills",
       "sourceType": "github",
       "skillPath": "plugins/expo/skills/eas-simulator/SKILL.md",
-      "computedHash": "807f183f41900310d8b1895a24ed62dc2671ba846b920518d21c0bd54c2f5e48"
+      "computedHash": "f50147686ee17ca4ec257563000861c5c4e2de58012e77007e4b22b735e93325"
+    },
+    "eas-workflows": {
+      "source": "expo/skills",
+      "sourceType": "github",
+      "skillPath": "plugins/expo/skills/eas-workflows/SKILL.md",
+      "computedHash": "40c39c7c73597ce263e35f2e6bbc6e534321b5365f70beb772085e9adbc3ec5c"
     },
     "experiment-analysis": {
       "source": "RevenueCat/ai-toolkit",
@@ -165,6 +183,12 @@
       "sourceType": "github",
       "skillPath": "plugins/expo/skills/expo-data-fetching/SKILL.md",
       "computedHash": "422197195d96fd32036f92001cebd1590caf6445ba338aabc0c0b0cff5fa8977"
+    },
+    "expo-design-system": {
+      "source": "expo/skills",
+      "sourceType": "github",
+      "skillPath": "plugins/expo/skills/expo-design-system/SKILL.md",
+      "computedHash": "926d79a5c2246a6dd57400089b4a72d2c67c1dd49c5a1cfe6cab807a49cd1aba"
     },
     "expo-dev-client": {
       "source": "expo/skills",
@@ -206,7 +230,13 @@
       "source": "expo/skills",
       "sourceType": "github",
       "skillPath": "plugins/expo/skills/expo-native-ui/SKILL.md",
-      "computedHash": "938f33e77410dd410b7baa25f2380b5fa104e7b7d67b0f0ca64f7a53ddedcc61"
+      "computedHash": "3bebacbb5882f72f89322391b2b82f643cea15c0e2b3e27c39659969a6addd75"
+    },
+    "expo-overview": {
+      "source": "expo/skills",
+      "sourceType": "github",
+      "skillPath": "plugins/expo/skills/expo-overview/SKILL.md",
+      "computedHash": "266daf319fc497e4f65ec7fc2d03d9f1331b0ca87aff446103cd3f938bdcdc0c"
     },
     "expo-project-structure": {
       "source": "expo/skills",
@@ -242,7 +272,7 @@
       "source": "expo/skills",
       "sourceType": "github",
       "skillPath": "plugins/expo/skills/expo-ui/SKILL.md",
-      "computedHash": "5cbb2f0049e4d3a51cf6450b2d0032684e0881681a8f3dcea21b94164352fe61"
+      "computedHash": "0e3b343c6e60acab6f4fd4ae6364973f3641ee6de609f3e469bf0347302ead9e"
     },
     "expo-upgrade": {
       "source": "expo/skills",
@@ -255,6 +285,12 @@
       "sourceType": "github",
       "skillPath": "plugins/expo/skills/expo-web-to-native/SKILL.md",
       "computedHash": "8b438fca8004ae91514c9ad8e2fd34566cef0866065451a6e89279c52992a966"
+    },
+    "github-actions": {
+      "source": "callstackincubator/agent-skills",
+      "sourceType": "github",
+      "skillPath": "skills/github-actions/SKILL.md",
+      "computedHash": "c90128be4f55bc8b6dbdcba75ba2a540f3fb89ba91be1ccbe487e01ea70be122"
     },
     "integrate-revenuecat": {
       "source": "RevenueCat/ai-toolkit",
@@ -382,6 +418,18 @@
       "skillPath": "revenuecat-play-billing/skills/rc-webhooks/SKILL.md",
       "computedHash": "3fb140659284145c1ff619882edd214caebb63abaf158f29548f378ed479ea23"
     },
+    "react-native-best-practices": {
+      "source": "callstackincubator/agent-skills",
+      "sourceType": "github",
+      "skillPath": "skills/react-native-best-practices/SKILL.md",
+      "computedHash": "4b2b9561ff7b4b9d15ff76d2dd2a6191e3cdc7f36c06d171e377bfefcbcb2bfb"
+    },
+    "react-native-testing": {
+      "source": "callstack/react-native-testing-library",
+      "sourceType": "github",
+      "skillPath": "skills/react-native-testing/SKILL.md",
+      "computedHash": "bb30ad4660a42c71178c91d7a3f2e88556add9dba2213ee26f099dbe352fd649"
+    },
     "revenuecat": {
       "source": "RevenueCat/ai-toolkit",
       "sourceType": "github",
@@ -477,6 +525,12 @@
       "sourceType": "github",
       "skillPath": "plugins/cwb-theming/skills/theming/SKILL.md",
       "computedHash": "d00b7b5707c589d00856a8e9de986f2ef62db6883a19ecd4b501cdfab270f23e"
+    },
+    "validate-skills": {
+      "source": "callstackincubator/agent-skills",
+      "sourceType": "github",
+      "skillPath": ".claude/skills/validate-skills/SKILL.md",
+      "computedHash": "330cb59114b97e7b4727ff838b637682fff8820f752a950de3e7bd703608b56f"
     }
   }
 }
