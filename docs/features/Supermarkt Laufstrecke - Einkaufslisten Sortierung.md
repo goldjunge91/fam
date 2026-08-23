@@ -7,17 +7,20 @@ Eine praxisnahe Kategorie-Reihenfolge zur Sortierung von Einkaufslisten, basiere
 ## Wissenschaftlicher Hintergrund & Studien
 
 ### 1. Wharton-Studie zu Kundenlaufpfaden (Larson, Bradlow & Fader / Sorensen Associates)
+
 - **Studie:** *„An Exploratory Look at Supermarket Shopping Paths“* (2005) & *„Testing Behavioral Hypotheses on In-Store Shopper Traveling Paths“* (Hui, Bradlow, Fader 2009).
 - **Methode:** RFID-Tracking von Einkaufswagen über zehntausende Einkäufe.
 - **Ergebnis:** Widerlegung des Mythos vom systematischen „Schlangenlinien-Ablaufen“ aller Gänge. Kunden bewegen sich primär entlang des **Außenrings (Perimeter)** und machen nur gezielte, kurze Stichfahrten („Up-and-in excursions“) in die Mittelgänge für geplante Artikel.
 - **Umsatzverteilung:** Auf dem Außenring verbringen Kunden ca. 64 % der Zeit; in den Mittelgängen („Center Store“) ca. 36 %, wobei dort über 50 % der geplanten Packungs-/Trockenwarenumsätze erzielt werden.
 
 ### 2. Verkaufspsychologie & Orientierung (Paco Underhill, Herb Sorensen)
+
 - **"Decompression Zone" (Eingangszone):** Die ersten 3 bis 5 Meter nach Betreten dienen dem mentalen Übergang. Kunden orientieren sich und nehmen noch wenig Ware wahr.
 - **Rechtsdrall & Gegen-den-Uhrzeigersinn:** ~90 % der Kunden wenden sich nach dem Betreten unbewusst nach rechts. Supermärkte leiten den Kundenstrom daher fast standardmäßig gegen den Uhrzeigersinn um die Außenwand.
 - **Sensorisches Priming:** Obst, Gemüse und Blumen am Eingang signalisieren Frische, Natürlichkeit und Qualität, heben die Stimmung und steigern die Kaufbereitschaft für den restlichen Einkauf.
 
 ### 3. Handelsforschung DACH-Raum (EHI Retail Institute & GfK)
+
 - **Anker- und Magnetprodukte:** Grundnahrungsmittel des täglichen Bedarfs (Milch, Butter, Eier, Fleisch) werden an der hintersten Wand oder im hinteren Marktdrittel platziert, um Kunden durch das gesamte Sortiment zu leiten.
 - **Kühlketten- und Packergonomie:** Tiefkühlware steht unmittelbar vor den Kassen am Ende des Rundgangs, um das Auftauen auf dem Heimweg zu minimieren und empfindliche Frischeware nicht im Wagen zu zerdrücken.
 - **Checkout / Impulszone:** Wartezeiten an der Kasse werden für margenstarke Spontankäufe (Kaugummi, Snacks, Batterien, Kleinwaren) genutzt.
@@ -26,7 +29,7 @@ Eine praxisnahe Kategorie-Reihenfolge zur Sortierung von Einkaufslisten, basiere
 
 ## Zonenarchitektur im Markt
 
-```
+```text
 EINGANG / DECOMPRESSION
   │
   ▼
