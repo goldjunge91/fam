@@ -41,6 +41,12 @@ const QUANTITY_TOKEN = /^\d+([.,]\d+)?[a-zäöüß]*$/;
  * erhalten (Gewichtung ist Sache der Namensregeln, nicht der Normalisierung).
  */
 export function normalizeShoppingName(name: string): string[] {
+  // `name: string` ist der TS-Vertrag, aber Aufrufer wie der Namens-Fallback
+  // reichen Daten aus externen Quellen durch (z.B. ein kaputter Barcode-
+  // Datensatz) — ein hartes `undefined` hier crasht sonst statt einfach kein
+  // Tokensignal zu liefern (dasselbe Prinzip wie off_category_tags-Handling).
+  if (typeof name !== 'string' || name.length === 0) return [];
+
   const normalized = name.normalize('NFC').toLowerCase();
 
   const tokens: string[] = [];
