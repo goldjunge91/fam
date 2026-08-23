@@ -94,7 +94,51 @@ describe('Open Food Facts Helper', () => {
       fatPer100g: 3.0,
       ingredients: 'Wasser, Hafer, Rapsöl',
       allergens: ['oats', 'gluten'],
+      categoryTags: [],
     });
+  });
+
+  it('sollte categories_tags als kanonische Tag-IDs übernehmen', () => {
+    const formatted = formatOFFProduct({
+      code: '1',
+      product_name: 'Schweineschnitzel',
+      categories_tags: ['en:meats', 'en:porks', 'de:schweinefleisch'],
+    });
+    expect(formatted?.categoryTags).toEqual(['en:meats', 'en:porks', 'de:schweinefleisch']);
+  });
+
+  it('sollte Nicht-String-Werte in categories_tags ignorieren', () => {
+    const formatted = formatOFFProduct({
+      code: '1',
+      product_name: 'Test',
+      // biome-ignore lint/suspicious/noExplicitAny: bewusst kaputte Rohdaten aus der API simuliert
+      categories_tags: ['en:meats', null, 42, undefined] as any,
+    });
+    expect(formatted?.categoryTags).toEqual(['en:meats']);
+  });
+
+  it('sollte ohne categories_tags ein leeres Array liefern', () => {
+    const formatted = formatOFFProduct({ code: '1', product_name: 'Test' });
+    expect(formatted?.categoryTags).toEqual([]);
+  });
+
+  it('sollte last_modified_t (Unix-Sekunden) in einen ISO-Zeitstempel umwandeln', () => {
+    const formatted = formatOFFProduct({
+      code: '1',
+      product_name: 'Test',
+      last_modified_t: 1_700_000_000,
+    });
+    expect(formatted?.offLastModifiedAt).toBe(new Date(1_700_000_000 * 1000).toISOString());
+  });
+
+  it('sollte offLastModifiedAt bei fehlendem oder ungültigem last_modified_t weglassen', () => {
+    expect(
+      formatOFFProduct({ code: '1', product_name: 'Test' })?.offLastModifiedAt,
+    ).toBeUndefined();
+    expect(
+      formatOFFProduct({ code: '1', product_name: 'Test', last_modified_t: 'kaputt' })
+        ?.offLastModifiedAt,
+    ).toBeUndefined();
   });
 
   it('sollte null zurückgeben wenn kein Produktname vorhanden ist', () => {
@@ -179,7 +223,30 @@ describe('productToRouteParams / productFromRouteParams', () => {
       nutriScore: 'b',
       novaGroup: 4,
       nutrientLevels: { fat: 'low', sugars: 'moderate', salt: 'high' },
+      categoryTags: [],
     });
+  });
+
+  it('sollte categoryTags und offLastModifiedAt verlustfrei rundtripen', () => {
+    const product = formatOFFProduct({
+      code: '4019300005307',
+      product_name_de: 'Schweineschnitzel',
+      categories_tags: ['en:meats', 'en:porks'],
+      last_modified_t: 1_700_000_000,
+    });
+    expect(product).not.toBeNull();
+
+    const params = productToRouteParams(product as ReturnType<typeof formatOFFProduct> & object);
+    const roundTripped = productFromRouteParams(params);
+
+    expect(roundTripped?.categoryTags).toEqual(['en:meats', 'en:porks']);
+    expect(roundTripped?.offLastModifiedAt).toBe(new Date(1_700_000_000 * 1000).toISOString());
+  });
+
+  it('sollte ohne categoryTags im Rundtrip ein leeres Array liefern', () => {
+    const product = formatOFFProduct({ code: '1', product_name: 'Test' });
+    const params = productToRouteParams(product as ReturnType<typeof formatOFFProduct> & object);
+    expect(productFromRouteParams(params)?.categoryTags).toEqual([]);
   });
 
   it('sollte ohne Namen null zurueckgeben', () => {

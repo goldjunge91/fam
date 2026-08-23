@@ -23,6 +23,8 @@ function toOpenFoodFactsProduct(row: ProductUsageRow): OpenFoodFactsProduct {
     proteinsPer100g: row.protein_g ?? undefined,
     carbsPer100g: row.carbs_g ?? undefined,
     fatPer100g: row.fat_g ?? undefined,
+    // product_usage ist reine Nutzungshistorie (#79), fuehrt keine OFF-Tags mit.
+    categoryTags: [],
   };
 }
 

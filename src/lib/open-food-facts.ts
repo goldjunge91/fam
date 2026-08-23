@@ -28,6 +28,16 @@ export type OpenFoodFactsProduct = {
     sugars?: NutrientLevel;
     salt?: NutrientLevel;
   };
+  /**
+   * Kanonische Open-Food-Facts-`categories_tags` (#223) — unveraendert
+   * uebernommene Tag-IDs, roh genug fuer den Klassifikator
+   * (`src/features/shopping-list/classification/`). Immer ein Array, nie
+   * `undefined`, damit Aufrufer nicht zwischen "keine Tags" und "Feld fehlt"
+   * unterscheiden muessen.
+   */
+  categoryTags: string[];
+  /** ISO-Zeitstempel aus OFFs `last_modified_t` (Unix-Sekunden), sofern gueltig. */
+  offLastModifiedAt?: string;
 };
 
 /**
@@ -94,6 +104,15 @@ export function formatOFFProduct(raw: any): OpenFoodFactsProduct | null {
     .map((tag) => tag.replace(/^[a-z]{2}:/i, '').replaceAll('-', ' '))
     .filter(Boolean);
 
+  const rawCategoryTags: unknown[] = Array.isArray(raw.categories_tags) ? raw.categories_tags : [];
+  const categoryTags = rawCategoryTags.filter((tag): tag is string => typeof tag === 'string');
+
+  const lastModifiedT = Number(raw.last_modified_t);
+  const offLastModifiedAt =
+    Number.isFinite(lastModifiedT) && lastModifiedT > 0
+      ? new Date(lastModifiedT * 1000).toISOString()
+      : undefined;
+
   return {
     barcode: raw.code || raw._id || '',
     name: name.trim(),
@@ -113,6 +132,8 @@ export function formatOFFProduct(raw: any): OpenFoodFactsProduct | null {
     allergens: allergens.length > 0 ? allergens : undefined,
     novaGroup: raw.nova_group || undefined,
     nutrientLevels: hasNutrientLevels ? nutrientLevels : undefined,
+    categoryTags,
+    offLastModifiedAt,
   };
 }
 
@@ -140,6 +161,8 @@ const SEARCH_FIELDS = [
   'allergens_tags',
   'nova_group',
   'nutrient_levels',
+  'categories_tags',
+  'last_modified_t',
 ].join(',');
 
 export type OpenFoodFactsSearchResult = {
@@ -366,6 +389,12 @@ export function productToRouteParams(product: OpenFoodFactsProduct): Record<stri
   if (product.nutriScore) params.nutriScore = product.nutriScore;
   if (product.novaGroup !== undefined) params.novaGroup = String(product.novaGroup);
   if (product.nutrientLevels) params.nutrientLevels = JSON.stringify(product.nutrientLevels);
+  // `?? []`: manche Aufrufer (u.a. Test-Doubles fuer OFF-Suchergebnisse) liefern
+  // aeltere, lose typisierte Produktliterale ohne `categoryTags`.
+  if ((product.categoryTags ?? []).length > 0) {
+    params.categoryTags = JSON.stringify(product.categoryTags);
+  }
+  if (product.offLastModifiedAt) params.offLastModifiedAt = product.offLastModifiedAt;
   return params;
 }
 
@@ -388,6 +417,7 @@ export function productFromRouteParams(
   if (!name) return null;
 
   const nutrientLevelsRaw = firstString(params.nutrientLevels);
+  const categoryTagsRaw = firstString(params.categoryTags);
 
   return {
     name,
@@ -403,6 +433,8 @@ export function productFromRouteParams(
     nutriScore: firstString(params.nutriScore) as OpenFoodFactsProduct['nutriScore'],
     novaGroup: firstNumber(params.novaGroup) as OpenFoodFactsProduct['novaGroup'],
     nutrientLevels: nutrientLevelsRaw ? JSON.parse(nutrientLevelsRaw) : undefined,
+    categoryTags: categoryTagsRaw ? JSON.parse(categoryTagsRaw) : [],
+    offLastModifiedAt: firstString(params.offLastModifiedAt),
   };
 }
 

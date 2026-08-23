@@ -135,6 +135,75 @@ it('zeigt lokale Treffer und fragt Open Food Facts nicht an, wenn genug lokale T
   expect(mockSearch).not.toHaveBeenCalled();
 });
 
+it('gibt off_category_tags/off_last_modified_at eines lokalen Treffers an onSelectProduct weiter (#223)', async () => {
+  const onSelectProduct = jest.fn();
+  mockGetAllAsync.mockImplementation((sql: string) => {
+    if (sql.includes('off_dump.products')) return Promise.resolve([]);
+    if (sql.includes('from products')) {
+      return Promise.resolve([
+        {
+          barcode: 'local-1',
+          name: 'Schweineschnitzel',
+          brand: null,
+          kcal_per_100: null,
+          protein_g_per_100: null,
+          carbs_g_per_100: null,
+          fat_g_per_100: null,
+          off_category_tags: '["en:meats","en:porks"]',
+          off_last_modified_at: '2026-01-01T00:00:00.000Z',
+        },
+      ]);
+    }
+    return Promise.resolve([]);
+  });
+  mockSearch.mockResolvedValue({ products: [], hasMore: false });
+
+  await render(<ControlledDropdown onSelectProduct={onSelectProduct} />);
+  await fireEvent.changeText(screen.getByPlaceholderText('z. B. Hafermilch'), 'Schwein');
+
+  await fireEvent.press(await screen.findByText('Schweineschnitzel'));
+
+  expect(onSelectProduct).toHaveBeenCalledWith(
+    expect.objectContaining({
+      categoryTags: ['en:meats', 'en:porks'],
+      offLastModifiedAt: '2026-01-01T00:00:00.000Z',
+    }),
+  );
+});
+
+it('liefert ein leeres categoryTags-Array, wenn der lokale Treffer keine OFF-Tags hat', async () => {
+  const onSelectProduct = jest.fn();
+  mockGetAllAsync.mockImplementation((sql: string) => {
+    if (sql.includes('off_dump.products')) return Promise.resolve([]);
+    if (sql.includes('from products')) {
+      return Promise.resolve([
+        {
+          barcode: 'local-2',
+          name: 'Handgemachtes Brot',
+          brand: null,
+          kcal_per_100: null,
+          protein_g_per_100: null,
+          carbs_g_per_100: null,
+          fat_g_per_100: null,
+          off_category_tags: null,
+          off_last_modified_at: null,
+        },
+      ]);
+    }
+    return Promise.resolve([]);
+  });
+  mockSearch.mockResolvedValue({ products: [], hasMore: false });
+
+  await render(<ControlledDropdown onSelectProduct={onSelectProduct} />);
+  await fireEvent.changeText(screen.getByPlaceholderText('z. B. Hafermilch'), 'Brot');
+
+  await fireEvent.press(await screen.findByText('Handgemachtes Brot'));
+
+  expect(onSelectProduct).toHaveBeenCalledWith(
+    expect.objectContaining({ categoryTags: [], offLastModifiedAt: undefined }),
+  );
+});
+
 it('ergaenzt OFF-Treffer, wenn lokale Treffer unter dem Schwellwert liegen', async () => {
   // Ein DB-Mock bedient zwei Schemas; jedes erwartet ein anderes Zeilenformat.
   mockGetAllAsync.mockImplementation((sql: string) => {
