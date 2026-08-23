@@ -105,8 +105,9 @@ test('gibt den mode an die Abfrage weiter und zeigt die Zeilen in der gelieferte
     />,
   );
 
-  const chips = await screen.findAllByText(/Milch|Butter/);
-  expect(chips.map((c) => c.props.children)).toEqual(['Milch', 'Butter']);
+  const chips = await screen.findAllByRole('button', { name: /Milch|Butter/ });
+  expect(chips[0]).toHaveTextContent('Milch');
+  expect(chips[1]).toHaveTextContent('Butter');
   expect(mockGetFrequentProductUsage).toHaveBeenCalledWith(
     expect.anything(),
     expect.objectContaining({ mode: 'frequent' }),
@@ -127,7 +128,7 @@ test('ein Tap auf einen Chip liefert das Produkt an onSelectProduct', async () =
     />,
   );
 
-  const chip = await screen.findByText('Milch');
+  const chip = await screen.findByRole('button', { name: 'Milch' });
   const user = userEvent.setup();
   await user.press(chip);
 

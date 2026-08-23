@@ -70,6 +70,8 @@ export function FrequentProductsQuickSelect({
         <Pressable
           key={row.name.toLowerCase()}
           onPress={() => onSelectProduct(toOpenFoodFactsProduct(row))}
+          role="button"
+          aria-label={row.name}
           className="frequent-products-chip">
           <ThemedText type="small" numberOfLines={1}>
             {row.name}
