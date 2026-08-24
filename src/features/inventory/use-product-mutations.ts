@@ -3,6 +3,7 @@ import * as Crypto from 'expo-crypto';
 
 import { getDatabase } from '@/lib/db/client';
 import { enqueueMutation } from '@/lib/db/outbox';
+import { applyLocalMirrorWrite } from '@/lib/sync/mirror-write';
 
 export type NewProduct = {
   barcode?: string | null;
@@ -34,6 +35,7 @@ export function useAddProductMutation() {
       const db = await getDatabase();
       const id = Crypto.randomUUID();
       const now = new Date().toISOString();
+      const nowMs = Date.now();
 
       const row = {
         id,
@@ -57,34 +59,8 @@ export function useAddProductMutation() {
         entityId: id,
         op: 'insert',
         payload: { ...row, created_at: now, updated_at: now },
-        applyLocally: async (txn) => {
-          await txn.runAsync(
-            `insert into products (
-              id, barcode, name, brand,
-              kcal_per_100, protein_g_per_100, carbs_g_per_100, fat_g_per_100,
-              fiber_g_per_100, sugar_g_per_100, salt_g_per_100, serving_size_g,
-              source, created_by, created_at, updated_at
-            ) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
-            [
-              row.id,
-              row.barcode,
-              row.name,
-              row.brand,
-              row.kcal_per_100,
-              row.protein_g_per_100,
-              row.carbs_g_per_100,
-              row.fat_g_per_100,
-              row.fiber_g_per_100,
-              row.sugar_g_per_100,
-              row.salt_g_per_100,
-              row.serving_size_g,
-              row.source,
-              row.created_by,
-              now,
-              now,
-            ],
-          );
-        },
+        applyLocally: (txn) =>
+          applyLocalMirrorWrite(txn, 'products', 'insert', { ...row, created_at: now }, nowMs),
       });
 
       return row;
