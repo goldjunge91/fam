@@ -112,14 +112,21 @@ function main() {
       ? JSON.parse(readFileSync(previousManifestPath, 'utf-8'))
       : null;
 
-  const oldProducts =
-    oldCanonicalPath && existsSync(oldCanonicalPath) ? readProducts(oldCanonicalPath) : [];
-
   mkdirSync(outDir, { recursive: true });
 
   const isNewBaseline =
     args['force-baseline'] === 'true' ||
     isNewBaselineDue(previousManifest?.baseline.version ?? null, newMeta.dataVersion);
+
+  // Nur fuer den Patch-Pfad noetig — bei einer neuen Baseline wird kein Diff
+  // gerechnet, und die alte kanonische DB kann (z.B. bei --force-baseline
+  // wegen eines Schema-Sprungs) ein aelteres, inkompatibles Spaltenschema
+  // haben. `readProducts()` waere dort ein harter Fehlschlag statt eines
+  // harmlosen, ungenutzten Werts.
+  const oldProducts =
+    !isNewBaseline && oldCanonicalPath && existsSync(oldCanonicalPath)
+      ? readProducts(oldCanonicalPath)
+      : [];
 
   const canonicalOutPath = path.join(outDir, 'canonical.db');
   copyFileSync(newExtractPath, canonicalOutPath);
