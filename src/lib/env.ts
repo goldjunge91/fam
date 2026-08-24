@@ -152,3 +152,14 @@ export const env = {
     return process.env.EXPO_PUBLIC_POSTHOG_HOST?.trim() || 'https://us.i.posthog.com';
   },
 };
+
+// Nur `__DEV__`, einmalig beim Modul-Laden (Metro-Bundle-Start): Welche
+// Supabase-URL tatsaechlich aktiv ist, war zuletzt mehrfach schwer zu
+// erkennen — verschiedene `.env.*`-Dateien, Metro-Cache-Reste,
+// EXPO_NO_DOTENV-Faelle. Direkt aus `process.env` statt ueber `env.supabaseUrl`,
+// damit ein fehlender Wert hier noch keinen Absturz vor der eigentlichen
+// Fehlermeldung auslöst — nur ein sichtbarer Hinweis im Metro-Terminal-Log.
+if (__DEV__) {
+  const url = process.env.EXPO_PUBLIC_SUPABASE_URL;
+  console.log(`[env] EXPO_PUBLIC_SUPABASE_URL = ${url ?? '(nicht gesetzt)'}`);
+}
