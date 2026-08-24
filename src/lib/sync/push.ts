@@ -1,4 +1,3 @@
-import type { TablesInsert } from '@/lib/database.types';
 import { metaOf } from '@/lib/db/entities';
 import { deleteOutboxEntries, loadDueOutboxEntries, recordOutboxOutcome } from '@/lib/db/outbox';
 import type { Entity, SqlDatabase } from '@/lib/db/types';
@@ -216,42 +215,24 @@ async function applyOnePush(
     }
   }
 
-  // 23503: Foreign Key Violation (z.B. location_id fehlt auf dem Server).
-  // Versucht den lokal vorhandenen Lagerort zuerst zu Supabase zu pushen oder
-  // setzt location_id auf null, damit das Lebensmittel nicht dauerhaft fehlschlaegt.
-  if (
-    response.error &&
-    (response.error.code === '23503' || response.error.message?.includes('location_id_fkey')) &&
-    entry.entity === 'fridge_items' &&
-    entry.payload.location_id
-  ) {
-    const locId = String(entry.payload.location_id);
-    const loc = await db.getFirstAsync<Record<string, unknown>>(
-      'select * from storage_locations where id = ?',
-      [locId],
+  // Bei jedem Fehler eines registrierten Resolvers die Chance geben, ihn zu
+  // reparieren und den Push erneut zu versuchen — welcher Fehlercode/welche
+  // Constraint das rechtfertigt, entscheidet ausschliesslich der Resolver
+  // (siehe `entities.ts`, #192). Push.ts kennt weder Tabellennamen wie
+  // `fridge_items` noch Spalten wie `location_id`.
+  if (response.error && meta.onForeignKeyViolation) {
+    const repairedPayload = await meta.onForeignKeyViolation(
+      { db, supabase },
+      entry.payload,
+      response.error,
     );
-
-    if (loc) {
-      await supabase
-        .from('storage_locations')
-        .insert(buildInsertPayload(loc) as TablesInsert<'storage_locations'>)
-        .select();
+    if (repairedPayload) {
       response = await attempt(
         supabase,
         meta.table,
         entry.op,
         entry.entityId,
-        entry.payload,
-        nowMs,
-      );
-    } else {
-      const fallbackPayload = { ...entry.payload, location_id: null };
-      response = await attempt(
-        supabase,
-        meta.table,
-        entry.op,
-        entry.entityId,
-        fallbackPayload,
+        repairedPayload,
         nowMs,
       );
     }
