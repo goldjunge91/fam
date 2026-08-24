@@ -595,15 +595,6 @@ export const AddItemForm = forwardRef<AddItemFormHandle, AddItemFormProps>(funct
 
           {detailsOpen ? (
             <View className="gap-[10px] pb-one">
-              <PlacementZoneField
-                selection={placementSelection}
-                effectiveZoneId={normalizePlacementZoneIdNullable(categoryState.categoryId)}
-                categoryOrder={stores
-                  .find((store) => store.id === storeId)
-                  ?.category_order?.split(',')}
-                onSelectionChange={({ zoneId }) => handleSelectCategory(zoneId)}
-                onSelectAutomatic={handleSelectAutomatic}
-              />
               <WheelPickerField
                 label="Einheit"
                 value={unit}
@@ -613,6 +604,15 @@ export const AddItemForm = forwardRef<AddItemFormHandle, AddItemFormProps>(funct
                   setUnit(next);
                 }}
                 size="large"
+              />
+              <PlacementZoneField
+                selection={placementSelection}
+                effectiveZoneId={normalizePlacementZoneIdNullable(categoryState.categoryId)}
+                categoryOrder={stores
+                  .find((store) => store.id === storeId)
+                  ?.category_order?.split(',')}
+                onSelectionChange={({ zoneId }) => handleSelectCategory(zoneId)}
+                onSelectAutomatic={handleSelectAutomatic}
               />
               {unit === 'package' ? (
                 <View className="flex-row items-end gap-two">

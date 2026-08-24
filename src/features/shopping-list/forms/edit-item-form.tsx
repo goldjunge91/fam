@@ -396,6 +396,13 @@ export function EditItemForm({ item, onDismiss }: EditItemFormProps) {
 
         {detailsOpen ? (
           <View className="gap-[10px] pb-one">
+            <WheelPickerField
+              label="Einheit"
+              value={unit}
+              options={UNIT_OPTIONS}
+              onChange={setUnit}
+              size="large"
+            />
             <PlacementZoneField
               selection={placementSelection}
               effectiveZoneId={normalizePlacementZoneIdNullable(categoryState.categoryId)}
@@ -404,13 +411,6 @@ export function EditItemForm({ item, onDismiss }: EditItemFormProps) {
                 ?.category_order?.split(',')}
               onSelectionChange={({ zoneId }) => handleSelectCategory(zoneId)}
               onSelectAutomatic={handleSelectAutomatic}
-            />
-            <WheelPickerField
-              label="Einheit"
-              value={unit}
-              options={UNIT_OPTIONS}
-              onChange={setUnit}
-              size="large"
             />
             <TextField
               label="Geschätzter Preis (optional)"

@@ -34,6 +34,35 @@ let mockStores: Array<{
   category_order: string | null;
 }> = [];
 
+jest.mock('@/components/forms/wheel-picker-field', () => {
+  const { Pressable, Text, View } =
+    jest.requireActual<typeof import('react-native')>('react-native');
+
+  return {
+    WheelPickerField: ({
+      label,
+      options,
+      onChange,
+    }: {
+      label?: string;
+      options: readonly { value: string; label: string }[];
+      onChange: (value: string) => void;
+    }) => (
+      <View>
+        {options.map((option) => (
+          <Pressable
+            key={option.value}
+            accessibilityRole="button"
+            accessibilityLabel={`${label ?? 'Auswahl'}: ${option.label}`}
+            onPress={() => onChange(option.value)}>
+            <Text>{option.label}</Text>
+          </Pressable>
+        ))}
+      </View>
+    ),
+  };
+});
+
 jest.mock('@/features/household/active-household-provider', () => ({
   useActiveHousehold: () => ({ activeHouseholdId: 'hh-1' }),
 }));
@@ -165,7 +194,9 @@ describe('EditItemForm', () => {
   });
 
   it('initialisiert die Kategorie aus dem Eintrag, ohne über den Namen neu zu rechnen', async () => {
+    const user = userEvent.setup();
     await renderForm();
+    await user.press(screen.getByRole('button', { name: 'Weitere Angaben' }));
 
     expect(screen.getByText('Obst & Gemüse')).toBeOnTheScreen();
     expect(screen.queryByText('automatisch · Name')).not.toBeOnTheScreen();
@@ -189,6 +220,7 @@ describe('EditItemForm', () => {
     const user = userEvent.setup();
     await renderForm();
 
+    await user.press(screen.getByRole('button', { name: 'Weitere Angaben' }));
     await user.press(screen.getByRole('button', { name: /Einkaufsbereich:/ }));
     await user.press(screen.getByRole('button', { name: 'Wasser, Saft & Softdrinks' }));
     await fireEvent.press(screen.getByRole('button', { name: 'Speichern' }));
@@ -236,7 +268,8 @@ describe('EditItemForm', () => {
       category_source: 'store_preference',
     });
 
-    await user.press(screen.getByRole('radio', { name: 'Neuer Markt' }));
+    await user.press(screen.getByRole('button', { name: 'Markt: Neuer Markt' }));
+    await user.press(screen.getByRole('button', { name: 'Weitere Angaben' }));
     await user.press(screen.getByRole('button', { name: /Einkaufsbereich:/ }));
     await user.press(screen.getByRole('button', { name: 'Wasser, Saft & Softdrinks' }));
     await user.press(screen.getByRole('button', { name: 'Speichern' }));
@@ -266,6 +299,7 @@ describe('EditItemForm', () => {
       category_source: 'household_preference',
     });
 
+    await user.press(screen.getByRole('button', { name: 'Weitere Angaben' }));
     await user.press(screen.getByRole('button', { name: /Einkaufsbereich:/ }));
     await user.press(screen.getByRole('button', { name: /^Automatisch/ }));
     expect(mockResetCategoryPreferenceMutateAsync).not.toHaveBeenCalled();
