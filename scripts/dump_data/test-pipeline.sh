@@ -4,7 +4,7 @@
 # Fuehrt build-canonical-update.ts und reconstruct-canonical.ts genau so aus,
 # wie .github/workflows/update_dump.yml es tut — komplett lokal, ohne GitHub-
 # Zugriff (beide Skripte sind reine Datei-I/O, `gh release ...` steht separat
-# im Workflow). Baut dafuer synthetische Schema-2-Extract-DBs und prueft:
+# im Workflow). Baut dafuer synthetische Schema-3-Extract-DBs und prueft:
 #
 #   1. Allererster Lauf (kein --old-canonical) -> neue Baseline
 #   2. Lauf im selben Monat -> Patch mit den erwarteten Upserts/Deletes
@@ -53,10 +53,11 @@ write_extract_db() {
 CREATE TABLE products (
     code TEXT PRIMARY KEY, product_name TEXT, brand TEXT, quantity TEXT, stores TEXT,
     nutriscore TEXT, categories_tags TEXT, off_last_modified_at TEXT,
-    energy_kcal REAL, fat REAL, saturated_fat REAL, carbohydrates REAL, sugars REAL, proteins REAL, salt REAL
+    energy_kcal REAL, fat REAL, saturated_fat REAL, carbohydrates REAL, sugars REAL, proteins REAL, salt REAL,
+    image_url TEXT
 );
 CREATE TABLE dump_meta (schema_version INTEGER NOT NULL, data_version TEXT NOT NULL, generated_at TEXT NOT NULL, source_cursor TEXT);
-INSERT INTO dump_meta VALUES (2, '$data_version', '$data_version', NULL);
+INSERT INTO dump_meta VALUES (3, '$data_version', '$data_version', NULL);
 SQL
   for entry in "$@"; do
     IFS=':' read -r code name kcal <<<"$entry"

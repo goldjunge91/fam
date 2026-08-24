@@ -6,7 +6,7 @@
  * `evaluate-categories-core.ts`.
  */
 
-/** Eine Zeile aus `products` (Dump Schema 2), unverändert für Vergleich/Speicherung. */
+/** Eine Zeile aus `products` (Dump Schema 3), unverändert für Vergleich/Speicherung. */
 export type PatchProductRecord = {
   code: string;
   product_name: string;
@@ -23,6 +23,8 @@ export type PatchProductRecord = {
   sugars: number | null;
   proteins: number | null;
   salt: number | null;
+  /** Front-Produktfoto (Schema 3) — URL bei images.openfoodfacts.org, `null` ohne Bild. */
+  image_url: string | null;
 };
 
 export type DumpPatch = {

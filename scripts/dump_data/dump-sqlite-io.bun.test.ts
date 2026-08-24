@@ -44,6 +44,7 @@ function product(overrides: Partial<PatchProductRecord> & { code: string }): Pat
     sugars: overrides.sugars ?? 10,
     proteins: overrides.proteins ?? 0,
     salt: overrides.salt ?? 0,
+    image_url: overrides.image_url ?? null,
   };
 }
 

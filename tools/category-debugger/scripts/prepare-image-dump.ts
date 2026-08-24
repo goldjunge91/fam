@@ -5,7 +5,7 @@ import { closeSync, createReadStream, existsSync, mkdirSync, openSync, readFileS
 import path from 'node:path';
 import { createInterface } from 'node:readline';
 import { createGunzip } from 'node:zlib';
-import { extractManifestImages, IMAGE_KINDS, type ImageKind } from './image-manifest';
+import { extractManifestImages, IMAGE_KINDS, type ImageKind } from './image-manifest-v2';
 
 const SOURCE_URL = 'https://static.openfoodfacts.org/data/openfoodfacts-products.jsonl.gz';
 const DATA_DIR = process.env.OFF_IMAGE_DATA_DIR ?? process.env.DUMP_DATA_DIR ?? '/Volumes/Programme/off-dump-data';
