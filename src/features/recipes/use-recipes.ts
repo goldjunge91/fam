@@ -9,6 +9,7 @@ import {
 import { getDatabase } from '@/lib/db/client';
 import { parseJsonArray } from '@/lib/db/json-array';
 import { enqueueMutation } from '@/lib/db/outbox';
+import { applyLocalMirrorWrite } from '@/lib/sync/mirror-write';
 
 export type Difficulty = 'easy' | 'medium' | 'hard';
 export type DishType =
@@ -304,31 +305,8 @@ export function useAddRecipeMutation() {
         entityId: id,
         op: 'insert',
         payload: { ...row, created_at: iso, updated_at: iso },
-        applyLocally: async (txn) => {
-          await txn.runAsync(
-            `insert into recipes (
-               id, household_id, title, instructions, cover_image_path,
-               cook_time_minutes, difficulty, dish_types, dietary_tags, hashtags,
-               default_servings, created_by, created_at, updated_at, _dirty
-             ) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 1)`,
-            [
-              row.id,
-              row.household_id,
-              row.title,
-              row.instructions,
-              row.cover_image_path,
-              row.cook_time_minutes,
-              row.difficulty,
-              JSON.stringify(row.dish_types),
-              JSON.stringify(row.dietary_tags),
-              JSON.stringify(row.hashtags),
-              row.default_servings,
-              row.created_by,
-              iso,
-              ms,
-            ],
-          );
-        },
+        applyLocally: (txn) =>
+          applyLocalMirrorWrite(txn, 'recipes', 'insert', { ...row, created_at: iso }, ms),
       });
 
       return row;
@@ -382,28 +360,14 @@ export function useUpdateRecipeMutation() {
           ...patch,
           updated_at: iso,
         },
-        applyLocally: async (txn) => {
-          await txn.runAsync(
-            `update recipes set
-               title = ?, instructions = ?, cover_image_path = ?,
-               cook_time_minutes = ?, difficulty = ?, dish_types = ?, dietary_tags = ?,
-               hashtags = ?, default_servings = ?, updated_at = ?, _dirty = 1
-             where id = ?`,
-            [
-              input.title,
-              patch.instructions,
-              patch.cover_image_path,
-              patch.cook_time_minutes,
-              patch.difficulty,
-              JSON.stringify(patch.dish_types),
-              JSON.stringify(patch.dietary_tags),
-              JSON.stringify(patch.hashtags),
-              patch.default_servings,
-              ms,
-              input.id,
-            ],
-          );
-        },
+        applyLocally: (txn) =>
+          applyLocalMirrorWrite(
+            txn,
+            'recipes',
+            'update',
+            { id: input.id, title: input.title, ...patch },
+            ms,
+          ),
       });
 
       return input.id;
@@ -460,12 +424,14 @@ export function useDeleteRecipeMutation() {
             deleted_at: iso,
             updated_at: iso,
           },
-          applyLocally: async (txn) => {
-            await txn.runAsync(
-              'update recipe_step_ingredients set deleted_at = ?, updated_at = ?, _dirty = 1 where id = ?',
-              [ms, ms, stepIngredient.id],
-            );
-          },
+          applyLocally: (txn) =>
+            applyLocalMirrorWrite(
+              txn,
+              'recipe_step_ingredients',
+              'delete',
+              { id: stepIngredient.id },
+              ms,
+            ),
         });
       }
 
@@ -480,12 +446,8 @@ export function useDeleteRecipeMutation() {
             deleted_at: iso,
             updated_at: iso,
           },
-          applyLocally: async (txn) => {
-            await txn.runAsync(
-              'update recipe_steps set deleted_at = ?, updated_at = ?, _dirty = 1 where id = ?',
-              [ms, ms, step.id],
-            );
-          },
+          applyLocally: (txn) =>
+            applyLocalMirrorWrite(txn, 'recipe_steps', 'delete', { id: step.id }, ms),
         });
       }
 
@@ -500,12 +462,8 @@ export function useDeleteRecipeMutation() {
             deleted_at: iso,
             updated_at: iso,
           },
-          applyLocally: async (txn) => {
-            await txn.runAsync(
-              'update recipe_component_items set deleted_at = ?, updated_at = ?, _dirty = 1 where id = ?',
-              [ms, ms, item.id],
-            );
-          },
+          applyLocally: (txn) =>
+            applyLocalMirrorWrite(txn, 'recipe_component_items', 'delete', { id: item.id }, ms),
         });
       }
 
@@ -520,12 +478,8 @@ export function useDeleteRecipeMutation() {
             deleted_at: iso,
             updated_at: iso,
           },
-          applyLocally: async (txn) => {
-            await txn.runAsync(
-              'update recipe_components set deleted_at = ?, updated_at = ?, _dirty = 1 where id = ?',
-              [ms, ms, component.id],
-            );
-          },
+          applyLocally: (txn) =>
+            applyLocalMirrorWrite(txn, 'recipe_components', 'delete', { id: component.id }, ms),
         });
       }
 
@@ -539,12 +493,8 @@ export function useDeleteRecipeMutation() {
           deleted_at: iso,
           updated_at: iso,
         },
-        applyLocally: async (txn) => {
-          await txn.runAsync(
-            'update recipes set deleted_at = ?, updated_at = ?, _dirty = 1 where id = ?',
-            [ms, ms, input.id],
-          );
-        },
+        applyLocally: (txn) =>
+          applyLocalMirrorWrite(txn, 'recipes', 'delete', { id: input.id }, ms),
       });
 
       return input.id;
@@ -585,13 +535,21 @@ export function useAddComponentMutation() {
           created_at: iso,
           updated_at: iso,
         },
-        applyLocally: async (txn) => {
-          await txn.runAsync(
-            `insert into recipe_components (id, recipe_id, household_id, name, serving_grams, created_at, updated_at, _dirty)
-             values (?, ?, ?, ?, ?, ?, ?, 1)`,
-            [id, input.recipe_id, input.household_id, input.name, servingGrams, iso, ms],
-          );
-        },
+        applyLocally: (txn) =>
+          applyLocalMirrorWrite(
+            txn,
+            'recipe_components',
+            'insert',
+            {
+              id,
+              recipe_id: input.recipe_id,
+              household_id: input.household_id,
+              name: input.name,
+              serving_grams: servingGrams,
+              created_at: iso,
+            },
+            ms,
+          ),
       });
 
       return { id, ...input };
@@ -629,12 +587,14 @@ export function useUpdateComponentMutation() {
           serving_grams: servingGrams,
           updated_at: iso,
         },
-        applyLocally: async (txn) => {
-          await txn.runAsync(
-            'update recipe_components set name = ?, serving_grams = ?, updated_at = ?, _dirty = 1 where id = ?',
-            [input.name, servingGrams, ms, input.id],
-          );
-        },
+        applyLocally: (txn) =>
+          applyLocalMirrorWrite(
+            txn,
+            'recipe_components',
+            'update',
+            { id: input.id, name: input.name, serving_grams: servingGrams },
+            ms,
+          ),
       });
 
       return input.id;
@@ -684,12 +644,8 @@ export function useDeleteComponentMutation() {
             deleted_at: iso,
             updated_at: iso,
           },
-          applyLocally: async (txn) => {
-            await txn.runAsync(
-              'update recipe_component_items set deleted_at = ?, updated_at = ?, _dirty = 1 where id = ?',
-              [ms, ms, item.id],
-            );
-          },
+          applyLocally: (txn) =>
+            applyLocalMirrorWrite(txn, 'recipe_component_items', 'delete', { id: item.id }, ms),
         });
       }
 
@@ -703,12 +659,8 @@ export function useDeleteComponentMutation() {
           deleted_at: iso,
           updated_at: iso,
         },
-        applyLocally: async (txn) => {
-          await txn.runAsync(
-            'update recipe_components set deleted_at = ?, updated_at = ?, _dirty = 1 where id = ?',
-            [ms, ms, input.id],
-          );
-        },
+        applyLocally: (txn) =>
+          applyLocalMirrorWrite(txn, 'recipe_components', 'delete', { id: input.id }, ms),
       });
 
       return input.id;
@@ -760,26 +712,25 @@ export function useAddItemMutation() {
           created_at: iso,
           updated_at: iso,
         },
-        applyLocally: async (txn) => {
-          await txn.runAsync(
-            `insert into recipe_component_items
-               (id, component_id, recipe_id, household_id, product_id, sub_component_id, grams, quantity, unit, created_at, updated_at, _dirty)
-             values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 1)`,
-            [
+        applyLocally: (txn) =>
+          applyLocalMirrorWrite(
+            txn,
+            'recipe_component_items',
+            'insert',
+            {
               id,
-              input.component_id,
-              input.recipe_id,
-              input.household_id,
-              productId,
-              subComponentId,
-              input.grams,
+              component_id: input.component_id,
+              recipe_id: input.recipe_id,
+              household_id: input.household_id,
+              product_id: productId,
+              sub_component_id: subComponentId,
+              grams: input.grams,
               quantity,
               unit,
-              iso,
-              ms,
-            ],
-          );
-        },
+              created_at: iso,
+            },
+            ms,
+          ),
       });
 
       return { id, ...input, quantity, unit };
@@ -821,12 +772,14 @@ export function useUpdateItemMutation() {
           unit,
           updated_at: iso,
         },
-        applyLocally: async (txn) => {
-          await txn.runAsync(
-            'update recipe_component_items set grams = ?, quantity = ?, unit = ?, updated_at = ?, _dirty = 1 where id = ?',
-            [input.grams, quantity, unit, ms, input.id],
-          );
-        },
+        applyLocally: (txn) =>
+          applyLocalMirrorWrite(
+            txn,
+            'recipe_component_items',
+            'update',
+            { id: input.id, grams: input.grams, quantity, unit },
+            ms,
+          ),
       });
 
       return input.id;
@@ -856,12 +809,8 @@ export function useDeleteItemMutation() {
           deleted_at: iso,
           updated_at: iso,
         },
-        applyLocally: async (txn) => {
-          await txn.runAsync(
-            'update recipe_component_items set deleted_at = ?, updated_at = ?, _dirty = 1 where id = ?',
-            [ms, ms, input.id],
-          );
-        },
+        applyLocally: (txn) =>
+          applyLocalMirrorWrite(txn, 'recipe_component_items', 'delete', { id: input.id }, ms),
       });
 
       return input.id;
@@ -908,24 +857,23 @@ export function useAddStepMutation() {
           created_at: iso,
           updated_at: iso,
         },
-        applyLocally: async (txn) => {
-          await txn.runAsync(
-            `insert into recipe_steps
-               (id, recipe_id, household_id, position, text, image_path, timer_minutes, created_at, updated_at, _dirty)
-             values (?, ?, ?, ?, ?, ?, ?, ?, ?, 1)`,
-            [
+        applyLocally: (txn) =>
+          applyLocalMirrorWrite(
+            txn,
+            'recipe_steps',
+            'insert',
+            {
               id,
-              input.recipe_id,
-              input.household_id,
-              input.position,
-              input.text,
-              imagePath,
-              timerMinutes,
-              iso,
-              ms,
-            ],
-          );
-        },
+              recipe_id: input.recipe_id,
+              household_id: input.household_id,
+              position: input.position,
+              text: input.text,
+              image_path: imagePath,
+              timer_minutes: timerMinutes,
+              created_at: iso,
+            },
+            ms,
+          ),
       });
 
       return { id, ...input, image_path: imagePath, timer_minutes: timerMinutes };
@@ -968,12 +916,20 @@ export function useUpdateStepMutation() {
           timer_minutes: timerMinutes,
           updated_at: iso,
         },
-        applyLocally: async (txn) => {
-          await txn.runAsync(
-            'update recipe_steps set position = ?, text = ?, image_path = ?, timer_minutes = ?, updated_at = ?, _dirty = 1 where id = ?',
-            [input.position, input.text, imagePath, timerMinutes, ms, input.id],
-          );
-        },
+        applyLocally: (txn) =>
+          applyLocalMirrorWrite(
+            txn,
+            'recipe_steps',
+            'update',
+            {
+              id: input.id,
+              position: input.position,
+              text: input.text,
+              image_path: imagePath,
+              timer_minutes: timerMinutes,
+            },
+            ms,
+          ),
       });
 
       return input.id;
@@ -1011,12 +967,14 @@ export function useDeleteStepMutation() {
             deleted_at: iso,
             updated_at: iso,
           },
-          applyLocally: async (txn) => {
-            await txn.runAsync(
-              'update recipe_step_ingredients set deleted_at = ?, updated_at = ?, _dirty = 1 where id = ?',
-              [ms, ms, stepIngredient.id],
-            );
-          },
+          applyLocally: (txn) =>
+            applyLocalMirrorWrite(
+              txn,
+              'recipe_step_ingredients',
+              'delete',
+              { id: stepIngredient.id },
+              ms,
+            ),
         });
       }
 
@@ -1030,12 +988,8 @@ export function useDeleteStepMutation() {
           deleted_at: iso,
           updated_at: iso,
         },
-        applyLocally: async (txn) => {
-          await txn.runAsync(
-            'update recipe_steps set deleted_at = ?, updated_at = ?, _dirty = 1 where id = ?',
-            [ms, ms, input.id],
-          );
-        },
+        applyLocally: (txn) =>
+          applyLocalMirrorWrite(txn, 'recipe_steps', 'delete', { id: input.id }, ms),
       });
 
       return input.id;
@@ -1073,14 +1027,20 @@ export function useAddStepIngredientMutation() {
           created_at: iso,
           updated_at: iso,
         },
-        applyLocally: async (txn) => {
-          await txn.runAsync(
-            `insert into recipe_step_ingredients
-               (id, step_id, item_id, household_id, created_at, updated_at, _dirty)
-             values (?, ?, ?, ?, ?, ?, 1)`,
-            [id, input.step_id, input.item_id, input.household_id, iso, ms],
-          );
-        },
+        applyLocally: (txn) =>
+          applyLocalMirrorWrite(
+            txn,
+            'recipe_step_ingredients',
+            'insert',
+            {
+              id,
+              step_id: input.step_id,
+              item_id: input.item_id,
+              household_id: input.household_id,
+              created_at: iso,
+            },
+            ms,
+          ),
       });
 
       return { id, ...input };
@@ -1110,12 +1070,8 @@ export function useRemoveStepIngredientMutation() {
           deleted_at: iso,
           updated_at: iso,
         },
-        applyLocally: async (txn) => {
-          await txn.runAsync(
-            'update recipe_step_ingredients set deleted_at = ?, updated_at = ?, _dirty = 1 where id = ?',
-            [ms, ms, input.id],
-          );
-        },
+        applyLocally: (txn) =>
+          applyLocalMirrorWrite(txn, 'recipe_step_ingredients', 'delete', { id: input.id }, ms),
       });
 
       return input.id;
