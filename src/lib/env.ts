@@ -16,7 +16,7 @@ export class MissingEnvError extends Error {
   constructor(readonly variableName: string) {
     super(
       `Umgebungsvariable ${variableName} fehlt.\n\n` +
-        'Lege eine .env (oder .env.development / .env.local) im Projekt-Root an und trage die Werte ein. ' +
+        'Pflege die passende Datei (.env.local, .env.development, .env.preview oder .env.production) im Projekt-Root. ' +
         'Fuer die lokale Supabase-Instanz liefert `supabase status` die passenden Werte, ' +
         'fuer ein gehostetes Projekt das Supabase-Dashboard unter Project Settings > API.\n' +
         'Details stehen im README unter "Umgebungsvariablen".',

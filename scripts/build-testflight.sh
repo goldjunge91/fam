@@ -71,13 +71,14 @@ for cmd in node xcodebuild pod; do
 done
 
 # ------------------------------------------------------------- .env Validierung
-say "Prüfe Umgebungsvariablen in .env für TestFlight..."
-DOTENV="$PROJECT_ROOT/.env"
-[ -f "$DOTENV" ] || die ".env-Datei nicht gefunden unter $DOTENV"
+say "Prüfe Umgebungsvariablen in .env.preview für TestFlight..."
+DOTENV="$PROJECT_ROOT/.env.preview"
+[ -f "$DOTENV" ] || die ".env.preview-Datei nicht gefunden unter $DOTENV"
 
 node -e '
   const fs = require("fs");
-  const content = fs.readFileSync(".env", "utf8");
+  const envPath = process.argv[1];
+  const content = fs.readFileSync(envPath, "utf8");
   const env = {};
   for (const line of content.split("\n")) {
     const trimmed = line.trim();
@@ -90,21 +91,21 @@ node -e '
 
   // 1. Supabase Check
   if (!env.EXPO_PUBLIC_SUPABASE_URL || !env.EXPO_PUBLIC_SUPABASE_KEY) {
-    console.error("Fehler: EXPO_PUBLIC_SUPABASE_URL oder EXPO_PUBLIC_SUPABASE_KEY fehlt in .env!");
+    console.error("Fehler: EXPO_PUBLIC_SUPABASE_URL oder EXPO_PUBLIC_SUPABASE_KEY fehlt in .env.preview!");
     process.exit(1);
   }
 
   // 2. RevenueCat iOS Key Check
   const iosKey = env.EXPO_PUBLIC_REVENUECAT_IOS_API_KEY;
   if (!iosKey) {
-    console.error("Fehler: EXPO_PUBLIC_REVENUECAT_IOS_API_KEY fehlt in .env!");
+    console.error("Fehler: EXPO_PUBLIC_REVENUECAT_IOS_API_KEY fehlt in .env.preview!");
     process.exit(1);
   }
 
   if (iosKey.startsWith("test_") || iosKey === "test_sOmtZGpMGOBcPfZEwruvJTHcgCQ") {
     console.error("Fehler: Unzulässiger Test-API-Key für iOS gefunden (" + iosKey + ")!");
     console.error("In TestFlight-Release-Builds darf kein test_... Key verwendet werden.");
-    console.error("Bitte einen echten Apple StoreKit Key (appl_...) in .env für EXPO_PUBLIC_REVENUECAT_IOS_API_KEY eintragen.");
+    console.error("Bitte einen echten Apple StoreKit Key (appl_...) in .env.preview für EXPO_PUBLIC_REVENUECAT_IOS_API_KEY eintragen.");
     process.exit(1);
   }
 
@@ -120,7 +121,7 @@ node -e '
     console.error("Im TestFlight-Build muss dieser Wert deaktiviert (false) sein, damit In-App-Käufe echt getestet werden.");
     process.exit(1);
   }
-' || die ".env-Validierung für TestFlight fehlgeschlagen. Build abgebrochen."
+' "$DOTENV" || die ".env.preview-Validierung für TestFlight fehlgeschlagen. Build abgebrochen."
 
 ok "Umgebungsvariablen für TestFlight sind gültig (appl_... Key aktiv, Force-Premium aus)"
 

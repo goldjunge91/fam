@@ -26,9 +26,15 @@ bun install && bun start
 - `bun run e2e` — Maestro-Flows gegen einen laufenden Simulator/Emulator
   (Dev Build + `supabase start` + Testaccount nötig, siehe
   `.maestro/flows/onboarding-sign-in.yaml`)
+- `bun run e2e:signed-in` — schneller Maestro-Start auf der Übersicht; erhält
+  den App-Zustand und setzt eine bereits gespeicherte Anmeldung voraus
 - `bun run e2e:household-create` / `bun run e2e:household-join` — Haushalts-
   Erstellung/-Beitritt im Onboarding; seeden sich ihren Testaccount selbst
-  (siehe `scripts/lib/e2e-fixtures.ts`), `bun run e2e:all` führt alle drei
+  (siehe `scripts/maestro/lib/e2e-fixtures.ts`)
+- `bun run e2e:alpha` — Einkaufsbereiche-Alpha: automatische Einordnung,
+  vollständiger Bereichs-Picker, manuelles Speichern/Abbrechen/Reset und
+  Markt-Scope; jeder Flow erhält einen frischen Fixture-Account
+- `bun run e2e:all` — führt die reguläre Suite und alle Fixture-Suites
   nacheinander aus
 - `bun run user:create` / `bun run user:list` / `bun run user:clean` / `bun run user:delete` — Verwaltung lokaler Test-Accounts (`scripts/test-users.ts`)
 - `bash scripts/create-user-with-household.sh` — Erstellt Test-User mit Haushalt und befüllter Einkaufsliste
@@ -55,8 +61,28 @@ Zum schnellen Testen auf der lokalen Entwicklungsdatenbank (`supabase start`):
 
 ## Umgebungsvariablen
 
-Lege eine `.env` im Projekt-Root an (sie ist gitignored und wird bewusst nicht
-mitgeliefert):
+Die App lädt ihre Umgebung explizit über Bun-Skripte. Alle Dateien sind
+gitignored und werden bewusst nicht mitgeliefert:
+
+| Datei | Verwendung |
+| --- | --- |
+| `.env.local` | Lokale Supabase-Instanz und RevenueCat Test Store |
+| `.env.development` | Gehostete Development-Datenbank und RevenueCat Test Store |
+| `.env.preview` | TestFlight über `bun run ios:testflight` |
+| `.env.production` | Reserviert für den späteren Produktions-Build |
+
+Wichtige Kommandos:
+
+```bash
+bun run start:local        # .env.local
+bun run ios:local          # .env.local
+bun run ios:development    # .env.development
+bun run test:local         # .env.local
+bun run test:development   # .env.development
+bun run ios:testflight     # .env.preview
+```
+
+Beispiel für lokale Entwicklung:
 
 ```bash
 EXPO_PUBLIC_SUPABASE_URL=http://127.0.0.1:54321
@@ -67,6 +93,9 @@ EXPO_PUBLIC_OFF_OFFLINE=false       # optional: bei true werden alle Open-Food-F
 EXPO_PUBLIC_POSTHOG_API_KEY=phc_... # optional: PostHog-Projekt-API-Key, siehe "Feature Flags (PostHog)"
 EXPO_PUBLIC_POSTHOG_HOST=https://us.i.posthog.com # optional, Default siehe unten
 ```
+
+Expo lädt keine weiteren `.env`-Dateien dazu: Die Skripte setzen
+`EXPO_NO_DOTENV=1` und `dotenv-cli` lädt genau die ausgewählte Datei.
 
 `127.0.0.1` funktioniert nur im iOS-Simulator (localhost = der Mac selbst).
 Fuer ein physisches Geraet im selben WLAN die LAN-IP des Mac verwenden, z. B.

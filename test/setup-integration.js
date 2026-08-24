@@ -6,11 +6,12 @@ const path = require('node:path');
  * Richtet die Integrationstests auf die Supabase-Instanz aus.
  *
  * Bevorzugt lokale `supabase status`-Werte, faellt bei fehlender lokaler
- * Instanz sauber auf die konfigurierte Remote Testing DB aus der `.env` zurueck.
+ * Instanz sauber auf die konfigurierte Remote Testing DB aus
+ * `.env.development` zurueck.
  */
 
 function readDotenv() {
-  const envPath = path.resolve(__dirname, '../.env');
+  const envPath = path.resolve(__dirname, '../.env.development');
   if (!fs.existsSync(envPath)) return {};
   const content = fs.readFileSync(envPath, 'utf8');
   const values = {};
@@ -47,10 +48,10 @@ function resolveSupabaseEnv() {
       };
     }
   } catch {
-    // Keine lokale Instanz aktiv — nutze Umgebungsvariablen / .env
+    // Keine lokale Instanz aktiv — nutze Umgebungsvariablen / .env.development
   }
 
-  // 2. .env / process.env auslesen
+  // 2. .env.development / process.env auslesen
   const env = readDotenv();
   const url = process.env.EXPO_PUBLIC_SUPABASE_URL || env.EXPO_PUBLIC_SUPABASE_URL;
   const anonKey = process.env.EXPO_PUBLIC_SUPABASE_KEY || env.EXPO_PUBLIC_SUPABASE_KEY;
@@ -62,7 +63,7 @@ function resolveSupabaseEnv() {
 
   if (!url || !anonKey) {
     throw new Error(
-      'Keine Supabase-Konfiguration gefunden. Bitte `.env` pflegen oder `supabase start` ausfuehren.',
+      'Keine Supabase-Konfiguration gefunden. Bitte `.env.development` pflegen oder `supabase start` ausfuehren.',
     );
   }
 
@@ -83,4 +84,3 @@ jest.mock('@sentry/react-native', () => ({
   wrap: (fn) => fn,
   reactNavigationIntegration: jest.fn(() => ({})),
 }));
-
