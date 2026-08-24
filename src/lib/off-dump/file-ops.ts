@@ -19,7 +19,8 @@ export type FileOps = {
   /** Atomare Umbenennung innerhalb desselben Dateisystems. */
   move(fromPath: string, toPath: string): Promise<void>;
   delete(path: string): Promise<void>;
-  sha256(path: string): Promise<string>;
+  /** MD5-Prüfsumme, nativ berechnet — nie den vollständigen Dateiinhalt in den JS-Heap laden. */
+  checksum(path: string): Promise<string>;
   /**
    * Öffnet die Datei GETRENNT von der App-Hauptverbindung (kein ATTACH),
    * liest `dump_meta` und führt `PRAGMA quick_check` aus. `null`, wenn die

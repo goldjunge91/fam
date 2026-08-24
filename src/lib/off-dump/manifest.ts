@@ -8,7 +8,7 @@
  * Wire-Format-Vertrag.
  */
 
-export type DumpManifestAsset = { url: string; size: number; sha256: string };
+export type DumpManifestAsset = { url: string; size: number; checksum: string };
 
 export type DumpManifestPatchEntry = DumpManifestAsset & {
   from: string;
@@ -30,7 +30,7 @@ function isDumpManifestAsset(value: unknown): value is DumpManifestAsset {
   return (
     typeof asset.url === 'string' &&
     typeof asset.size === 'number' &&
-    typeof asset.sha256 === 'string'
+    typeof asset.checksum === 'string'
   );
 }
 

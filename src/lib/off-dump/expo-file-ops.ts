@@ -1,6 +1,12 @@
 /**
- * Erfüllt den `FileOps`-Port mit `expo-file-system`/`expo-crypto` — die
- * echte App. Gegenstück zu `test/node-file-ops.ts`.
+ * Erfüllt den `FileOps`-Port mit `expo-file-system` — die echte App.
+ * Gegenstück zu `test/node-file-ops.ts`.
+ *
+ * `checksum()` nutzt `expo-file-system`s natives `File.info({ md5: true })`
+ * statt `expo-crypto`s `Crypto.digest()` — Letzteres laedt den gesamten
+ * Dateiinhalt als Bytes in den JS-Heap, was bei einer ~90 MB grossen
+ * Baseline-Datei zu spuerbarem UI-Einfrieren oder OOM fuehren kann (#242).
+ * Die native `File.info()`-Berechnung laeuft ausserhalb des JS-Heaps.
  *
  * `inspectDump()` öffnet KEINE zweite `expo-sqlite`-Verbindung (die Regel
  * "nur client.ts benutzt expo-sqlite" bleibt unangetastet) — stattdessen
@@ -10,22 +16,17 @@
  * kollidiert). `PRAGMA <schema>.quick_check` ist gültiges SQLite-Syntax,
  * gegen `node:sqlite` verifiziert.
  *
- * ACHTUNG: Native Module (`expo-file-system`, `expo-crypto`) laufen nicht
- * unter Jest — dieses Modul ist absichtlich ungetestet hier, die
- * Verifikation muss auf einem echten Dev-Build erfolgen. Die Logik, die
- * diese Datei aufruft (repository.ts etc.), ist bereits vollständig gegen
- * die `FileOps`-Schnittstelle getestet.
+ * ACHTUNG: Native Module (`expo-file-system`) laufen nicht unter Jest —
+ * dieses Modul ist absichtlich ungetestet hier, die Verifikation muss auf
+ * einem echten Dev-Build erfolgen. Die Logik, die diese Datei aufruft
+ * (repository.ts etc.), ist bereits vollständig gegen die
+ * `FileOps`-Schnittstelle getestet.
  */
 
-import * as Crypto from 'expo-crypto';
 import { File } from 'expo-file-system';
 
 import type { SqlDatabase } from '@/lib/db/types';
 import type { DumpInspection, FileOps } from './file-ops';
-
-function bufferToHex(buffer: ArrayBuffer): string {
-  return [...new Uint8Array(buffer)].map((byte) => byte.toString(16).padStart(2, '0')).join('');
-}
 
 function escapePathForSql(path: string): string {
   return path.replace(/'/g, "''");
@@ -54,10 +55,10 @@ export function createExpoFileOps(db: SqlDatabase): FileOps {
       if (file.exists) file.delete();
     },
 
-    async sha256(path: string): Promise<string> {
-      const bytes = await new File(path).bytes();
-      const digest = await Crypto.digest(Crypto.CryptoDigestAlgorithm.SHA256, bytes);
-      return bufferToHex(digest);
+    async checksum(path: string): Promise<string> {
+      const { md5 } = new File(path).info({ md5: true });
+      if (!md5) throw new Error(`Konnte MD5-Prüfsumme für ${path} nicht berechnen.`);
+      return md5;
     },
 
     async inspectDump(path: string): Promise<DumpInspection | null> {

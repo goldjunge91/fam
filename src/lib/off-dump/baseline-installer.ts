@@ -37,22 +37,28 @@ export async function installBaseline(
   fileOps: FileOps,
   params: {
     downloadUrl: string;
-    expectedSha256: string;
+    expectedChecksum: string;
     expectedSchemaVersion: number;
     activePath: string;
     nextPath: string;
     recoveryPath: string;
   },
 ): Promise<InstallBaselineResult> {
-  const { downloadUrl, expectedSha256, expectedSchemaVersion, activePath, nextPath, recoveryPath } =
-    params;
+  const {
+    downloadUrl,
+    expectedChecksum,
+    expectedSchemaVersion,
+    activePath,
+    nextPath,
+    recoveryPath,
+  } = params;
 
   // 1. Download nach `next` (nie direkt in die aktive Datei).
   await fileOps.download(downloadUrl, nextPath);
 
   // 2. Prüfsumme.
-  const actualSha256 = await fileOps.sha256(nextPath);
-  if (actualSha256 !== expectedSha256) {
+  const actualChecksum = await fileOps.checksum(nextPath);
+  if (actualChecksum !== expectedChecksum) {
     await fileOps.delete(nextPath);
     return { ok: false, reason: 'checksum_mismatch' };
   }

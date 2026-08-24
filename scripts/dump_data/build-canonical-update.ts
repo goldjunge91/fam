@@ -56,15 +56,15 @@ function versionSlug(isoVersion: string): string {
   return isoVersion.replace(/[^0-9A-Za-z-]/g, '-').replace(/-+/g, '-');
 }
 
-function sha256File(filePath: string): string {
-  return createHash('sha256').update(readFileSync(filePath)).digest('hex');
+function checksumFile(filePath: string): string {
+  return createHash('md5').update(readFileSync(filePath)).digest('hex');
 }
 
 function assetOf(baseUrl: string, filePath: string) {
   return {
     url: `${baseUrl.replace(/\/$/, '')}/${path.basename(filePath)}`,
     size: statSync(filePath).size,
-    sha256: sha256File(filePath),
+    checksum: checksumFile(filePath),
   };
 }
 

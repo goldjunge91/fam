@@ -32,7 +32,7 @@ type InstallBaselineFn = (
   fileOps: FileOps,
   params: {
     downloadUrl: string;
-    expectedSha256: string;
+    expectedChecksum: string;
     expectedSchemaVersion: number;
     activePath: string;
     nextPath: string;
@@ -142,7 +142,7 @@ export async function checkForUpdate(params: {
   async function runBaselineInstall(): Promise<UpdateOutcome> {
     const result = await installBaselineFn(db, fileOps, {
       downloadUrl: baseline.url,
-      expectedSha256: baseline.sha256,
+      expectedChecksum: baseline.checksum,
       expectedSchemaVersion: schemaVersion,
       activePath: paths.activePath,
       nextPath: paths.nextPath,
