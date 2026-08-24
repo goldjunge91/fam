@@ -3,6 +3,7 @@ import * as Crypto from 'expo-crypto';
 
 import { getDatabase } from '@/lib/db/client';
 import { enqueueMutation } from '@/lib/db/outbox';
+import { applyLocalMirrorWrite } from '@/lib/sync/mirror-write';
 import { addDays, defaultWeekPlanName, previousWeekStart } from './week';
 
 export type MealSlot = 'breakfast' | 'lunch' | 'dinner';
@@ -156,13 +157,21 @@ export function useEnsureMealPlanMutation() {
           created_at: iso,
           updated_at: iso,
         },
-        applyLocally: async (txn) => {
-          await txn.runAsync(
-            `insert into meal_plans (id, household_id, name, week_start_date, created_by, created_at, updated_at, _dirty)
-             values (?, ?, ?, ?, ?, ?, ?, 1)`,
-            [id, input.household_id, name, input.week_start_date, input.created_by, iso, ms],
-          );
-        },
+        applyLocally: (txn) =>
+          applyLocalMirrorWrite(
+            txn,
+            'meal_plans',
+            'insert',
+            {
+              id,
+              household_id: input.household_id,
+              name,
+              week_start_date: input.week_start_date,
+              created_by: input.created_by,
+              created_at: iso,
+            },
+            ms,
+          ),
       });
 
       return { id, household_id: input.household_id, name, week_start_date: input.week_start_date };
@@ -202,28 +211,14 @@ export function useAddEntryMutation() {
         entityId: id,
         op: 'insert',
         payload: { ...input, id, created_at: iso, updated_at: iso },
-        applyLocally: async (txn) => {
-          await txn.runAsync(
-            `insert into meal_plan_entries
-               (id, meal_plan_id, household_id, recipe_id, entry_date, meal_slot,
-                servings_mode, portions, people_count, created_by, created_at, updated_at, _dirty)
-             values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 1)`,
-            [
-              id,
-              input.meal_plan_id,
-              input.household_id,
-              input.recipe_id,
-              input.entry_date,
-              input.meal_slot,
-              input.servings_mode,
-              input.portions,
-              input.people_count,
-              input.created_by,
-              iso,
-              ms,
-            ],
-          );
-        },
+        applyLocally: (txn) =>
+          applyLocalMirrorWrite(
+            txn,
+            'meal_plan_entries',
+            'insert',
+            { ...input, id, created_at: iso },
+            ms,
+          ),
       });
 
       return { id, ...input };
@@ -263,12 +258,19 @@ export function useUpdateEntryMutation() {
           people_count: input.people_count,
           updated_at: iso,
         },
-        applyLocally: async (txn) => {
-          await txn.runAsync(
-            'update meal_plan_entries set servings_mode = ?, portions = ?, people_count = ?, updated_at = ?, _dirty = 1 where id = ?',
-            [input.servings_mode, input.portions, input.people_count, ms, input.id],
-          );
-        },
+        applyLocally: (txn) =>
+          applyLocalMirrorWrite(
+            txn,
+            'meal_plan_entries',
+            'update',
+            {
+              id: input.id,
+              servings_mode: input.servings_mode,
+              portions: input.portions,
+              people_count: input.people_count,
+            },
+            ms,
+          ),
       });
 
       return input.id;
@@ -299,12 +301,8 @@ export function useDeleteEntryMutation() {
           deleted_at: iso,
           updated_at: iso,
         },
-        applyLocally: async (txn) => {
-          await txn.runAsync(
-            'update meal_plan_entries set deleted_at = ?, updated_at = ?, _dirty = 1 where id = ?',
-            [ms, ms, input.id],
-          );
-        },
+        applyLocally: (txn) =>
+          applyLocalMirrorWrite(txn, 'meal_plan_entries', 'delete', { id: input.id }, ms),
       });
 
       return input.id;
@@ -381,28 +379,26 @@ export function useReuseLastWeekMutation() {
             created_at: iso,
             updated_at: iso,
           },
-          applyLocally: async (txn) => {
-            await txn.runAsync(
-              `insert into meal_plan_entries
-                 (id, meal_plan_id, household_id, recipe_id, entry_date, meal_slot,
-                  servings_mode, portions, people_count, created_by, created_at, updated_at, _dirty)
-               values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 1)`,
-              [
+          applyLocally: (txn) =>
+            applyLocalMirrorWrite(
+              txn,
+              'meal_plan_entries',
+              'insert',
+              {
                 id,
-                input.target_meal_plan_id,
-                input.household_id,
-                entry.recipe_id,
-                newDate,
-                entry.meal_slot,
-                entry.servings_mode,
-                entry.portions,
-                entry.people_count,
-                input.created_by,
-                iso,
-                ms,
-              ],
-            );
-          },
+                meal_plan_id: input.target_meal_plan_id,
+                household_id: input.household_id,
+                recipe_id: entry.recipe_id,
+                entry_date: newDate,
+                meal_slot: entry.meal_slot,
+                servings_mode: entry.servings_mode,
+                portions: entry.portions,
+                people_count: entry.people_count,
+                created_by: input.created_by,
+                created_at: iso,
+              },
+              ms,
+            ),
         });
       }
 
