@@ -6,7 +6,6 @@ import {
 } from '../../../src/features/shopping-list/classification/shopping-category-classifier';
 import type { CategoryTrace } from '../../../src/features/shopping-list/classification/types';
 import {
-  type ShoppingCategory,
   SHOPPING_CATEGORIES,
 } from '../../../src/features/shopping-list/domain-logik/shopping-categories';
 

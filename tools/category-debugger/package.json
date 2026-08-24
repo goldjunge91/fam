@@ -6,21 +6,42 @@
   "description": "Eigenständiges Debug-Tool: durchsucht den echten lokalen OFF-Dump und zeigt, wie explainCategory() aus der App jeden Treffer einordnet.",
   "scripts": {
     "download-dump": "bun scripts/download-dump.ts",
-    "dev": "vite",
+    "prepare-dump": "bun scripts/prepare-dump.ts",
+    "images:source": "bun scripts/prepare-image-dump.ts source",
+    "images:manifest": "bun scripts/prepare-image-dump.ts manifest",
+    "images:download": "OFF_IMAGE_KIND=front bun scripts/prepare-image-dump.ts download",
+    "images:download:all-kinds": "for kind in front ingredients nutrition packaging; do OFF_IMAGE_KIND=$kind bun scripts/prepare-image-dump.ts download; done",
+    "images:all": "bun scripts/prepare-image-dump.ts all",
+    "images:status": "bun scripts/prepare-image-dump.ts status",
+    "dev": "bun run --parallel dev:api dev:web",
+    "dev:api": "bun --watch src/server.ts",
+    "dev:web": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "start": "bun src/server.ts",
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "ml:setup": "bun scripts/setup-ml.ts setup",
+    "ml:status": "bun scripts/setup-ml.ts status",
+    "ml:smoke": "bun scripts/smoke-ml.ts",
+    "db:diff": "supabase db diff --use-pg-delta",
+    "db:push": "supabase db push --linked",
+    "db:types": "supabase gen types typescript --project-id pmudmfywcigzeeddnenv --schema public > src/database.types.ts"
   },
   "dependencies": {
+    "@supabase/supabase-js": "2.112.3",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "sql.js": "^1.13.0"
   },
   "devDependencies": {
+    "@types/bun": "1.3.5",
     "@types/react": "^19.2.0",
     "@types/react-dom": "^19.2.0",
     "@types/sql.js": "^1.4.9",
     "@vitejs/plugin-react": "^4.3.4",
     "typescript": "~5.9.0",
-    "vite": "^6.3.0"
+    "vite": "^6.3.0",
+    "vitest": "3.2.4"
   }
 }

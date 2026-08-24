@@ -1,53 +1,198 @@
-# Kategorie-Radar (Dump-Debugger)
+# Category Lab
 
-Eigenständiges Vite/React-Mini-Tool, unabhängig von der App. Durchsucht den
-echten lokalen OpenFoodFacts-Dump (denselben Release, den
-`src/lib/off-dump/off-dump.ts` in der App herunterlädt) und zeigt zu jedem
-Treffer:
+Eigenständiges Vite/React-Evaluationstool für den Einkaufslisten-Classifier.
+Es läuft unabhängig von Expo und der mobilen App, importiert aber deren echte
+`classifyCategory()`- und `explainCategory()`-Implementierung direkt.
 
-- alle Felder aus dem Dump (EAN, Marke, Menge, Nutri-Score, Nährwerte, Läden)
-- den vollständigen Entscheidungs-Trace von `explainCategory()` — welche
-  OFF-Tag- und Namens-Kandidaten gematcht haben, mit welchem Gewicht, wer
-  gewonnen hat und warum die übrigen verworfen wurden
+## Oberflächen
 
-Importiert `explainCategory()`/`classifyCategory()` direkt aus
-`src/features/shopping-list/classification/shopping-category-classifier.ts`
-(keine Kopie) — Kategorielabels/-farben kommen weiterhin aus
-`SHOPPING_CATEGORIES` in `.../domain-logik/shopping-categories.ts`.
+- **Blind Review:** Der Reviewer erfasst Produktfamilie, Produktform und die
+  daraus abgeleitete Standardzone. Die alte Classifier-Vorhersage und der Trace
+  erscheinen weiterhin erst nach dem Speichern.
+- **Rohsignale:** Ungeprüfte Verschiebungen aus der Alpha werden append-only
+  gespeichert. Human Reviews sind separate, ebenfalls append-only geführte
+  Datensätze. Eine Trainingsfreigabe ist eine zusätzliche, standardmäßig
+  ausgeschaltete Entscheidung.
+- **Analyse:** Accuracy, Abdeckung, Macro-F1, Werte je Kategorie,
+  vollständige Confusion Matrix, JSON-Import/Export und
+  Calibration-/Holdout-Auswertung.
+- **LLM Silver:** Blinde, versionierte LLM-Vorschläge mit Evidenz,
+  Enthaltung und manueller Accept/Reject-Queue. Silver-Labels fließen nur
+  nach Annahme ins Training und nie in den Gold-Holdout.
+- **Regel-Miner:** Wiederkehrende Wort-, Bigramm- und OFF-Tag-Signale werden
+  nur aus Calibration-Gold gelernt und getrennt am Holdout validiert. Das
+  Tool schlägt Regeln vor, ändert den App-Classifier aber nie automatisch.
+- **Modell-Baselines:** Lokale lineare N-Gramme, Robotoff, fastText, SetFit
+  sowie eine Text-plus-SigLIP-Baseline mit lokalen Frontbildern.
+- **Versionsvergleich:** Ein Run friert Fingerprints, Metriken, Vorhersagen
+  und vollständige Traces ein. Zwei Runs zeigen Verbesserungen und
+  Regressionen.
+- **Kategorie-Radar und Dump-Browser:** Gezielte Suche, Filter und vollständige
+  Einzelfall-Traces für alle 406.802 Dump-Produkte.
 
-Zusätzlich ein **Freitext- & Barcode-Tester** oben auf der Seite: beliebigen
-Artikelnamen und optional kommagetrennte OFF-Tags eintippen, der Trace
-aktualisiert sich live — unabhängig vom geladenen Dump.
+## Architektur
 
-## Bekannte Lücke
+Der Browser öffnet `public/off-dump.db` über `sql.js`. Ein nur an
+`127.0.0.1` gebundener Bun-Server stellt `/api` bereit und schreibt Labels
+und Runs in die separate Supabase-Instanz. Der Supabase Secret Key bleibt
+damit im Serverprozess und wird nie an Vite oder den Browser ausgeliefert.
 
-Der Generator (`scripts/dump_data/create_custom_dump.py`) erzeugt seit #223
-Paket 4 **Schema 2** mit `categories_tags`/`off_last_modified_at`. Bis eine
-neue Baseline tatsächlich veröffentlicht wurde (voller OFF-Export, ~12 GB,
-läuft nicht in CI-Sandboxes — siehe Kommentar im Skript), liegt der
-heruntergeladene Dump-Release aber noch im alten **Schema 1** vor. Fehlt die
-Spalte, liefert `parseCategoryTagsJson()` einfach `[]` (kein Crash), der
-Dump-Trace fällt dann automatisch auf den Namens-Fallback zurück — für
-OFF-Tag-Tests unabhängig davon jederzeit den Freitext-Tester oben nutzen.
+Die Backend-Tabellen haben RLS aktiviert. `anon` und `authenticated` besitzen
+keine Tabellenrechte; nur der lokale Server greift mit `service_role` zu.
+Für Crowd-Rohsignale und deren Review-Historie besitzt selbst `service_role`
+nur `select` und `insert`, aber weder `update` noch `delete`.
 
-Die deterministischen 100-Stichproben-je-Kategorie- und
-Golden-Korpus-Auswertung aus dem Plan liefert
-`bun run evaluate-categories` (`scripts/dump_data/evaluate-categories.ts`,
-bereits seit Paket 1 vorhanden) — läuft schon jetzt gegen den lokalen Dump,
-die OFF-Tag-Metriken darin füllen sich automatisch, sobald ein
-Schema-2-Release vorliegt.
-
-## Nutzung
+## Einrichtung
 
 ```bash
 cd tools/category-debugger
 bun install
-bun run download-dump   # lädt den neuesten .db-Release nach public/off-dump.db
+cp .env.example .env.local
+```
+
+Danach in `.env.local` die separate Evaluation-Instanz eintragen:
+
+```dotenv
+SUPABASE_URL=https://your-project.supabase.co
+SUPABASE_SECRET_KEY=your-secret-key
+EVALUATION_REVIEWER_SLUG=local-reviewer
+EVALUATION_REVIEWER_NAME=Local reviewer
+EVALUATION_API_PORT=4174
+OFF_IMAGE_DATA_DIR=/Volumes/Programme/off-dump-data
+OPENAI_API_KEY=
+CATEGORY_ML_DATA_DIR=/Volumes/Programme/off-dump-data
+```
+
+`.env.local` ist ignoriert und darf nicht committed werden. Der Publishable
+Key und Expo-Umgebungsvariablen werden für dieses Tool nicht benötigt.
+
+## Nutzung
+
+```bash
+bun run download-dump
 bun run dev
 ```
 
-Läuft komplett lokal — `sql.js` (WASM-SQLite) öffnet die `.db`-Datei direkt
-im Browser, kein Backend, keine Verbindung zur laufenden App nötig.
+`download-dump` kopiert oder lädt den OFF-Dump und erzeugt anschließend den
+lokalen Evaluation-Index. Wenn der Dump bereits vorhanden ist:
 
-Der Dump wird nicht committed (`.gitignore`) — bei Bedarf einfach erneut
-`bun run download-dump` ausführen, um auf den neuesten Release zu aktualisieren.
+```bash
+bun run prepare-dump
+```
+
+Produktionsmodus:
+
+```bash
+bun run build
+bun run start
+```
+
+## Frontbilder
+
+Der Bildworkflow liest die von OFF ausgewählten `selected_images` direkt aus
+dem vollständigen JSONL-Dump und legt Manifest, Bilder und Status auf der
+externen Platte ab. Deutsch wird bevorzugt, mit einem stabilen Sprachfallback:
+
+```bash
+bun run images:manifest
+bun run images:download
+bun run images:status
+```
+
+`images:download` lädt ausschließlich `front`. Die optionalen Ansichten
+`ingredients`, `nutrition` und `packaging` werden nur mit
+`bun run images:download:all-kinds` geladen.
+
+Manifest-Erzeugung und Bilddownload verwenden denselben Lock und dürfen nicht
+parallel gestartet werden. Ein erneuter Manifestlauf erkennt bereits lokal
+vorhandene ausgewählte Bilder und übernimmt sie als `downloaded`.
+
+## LLM-Labels
+
+Ein `OPENAI_API_KEY` im lokalen Serverprozess aktiviert den Tab **LLM
+Silver**. Ein Lauf verarbeitet höchstens zehn Produkte und wird nur durch den
+expliziten Button gestartet. Modell, Promptversion, Promptfingerprint,
+Rohantwort und Reviewstatus werden gespeichert. Ohne Key wird keine Anfrage
+ausgeführt.
+
+## Crowd-Rohsignale
+
+Der Tab **Rohsignale** importiert versionierte JSON-Dateien. Das vollständige
+Ereignis wird unverändert als `raw_payload` gespeichert und zusätzlich mit
+einem SHA-256-Fingerprint versehen. Wiederholte Imports derselben `eventId`
+sind idempotent; vorhandene Ereignisse werden nicht verändert.
+
+```json
+{
+  "schema": "nutritrack-crowd-signals",
+  "version": 1,
+  "events": [
+    {
+      "eventId": "evt_01",
+      "schemaVersion": 1,
+      "source": "alpha_app",
+      "eventType": "product_moved",
+      "occurredAt": "2026-08-24T12:00:00.000Z",
+      "actorKey": "pseudonymous-actor-key",
+      "householdKey": "pseudonymous-household-key",
+      "storeKey": "optional-store-key",
+      "productKey": "barcode:400000000001",
+      "barcode": "400000000001",
+      "productName": "Haferdrink Natur",
+      "fromZoneId": "plant_based",
+      "toZoneId": "ambient_milk_drinks",
+      "classifierVersion": "category-v2",
+      "payload": {
+        "gesture": "drag"
+      }
+    }
+  ]
+}
+```
+
+Die bestehende Modellanalyse bleibt vorerst als Legacy-Classifier-Vergleich
+sichtbar. Regel-Miner und Baselines verwenden als menschliches Gold nur Labels,
+die bereits Familie, Form und Standardzone vollständig enthalten. Crowd-Daten
+werden dort auch nach einem Review nicht automatisch eingespeist.
+
+## ML-Baselines
+
+Die Python-Umgebung und Modellcaches liegen standardmäßig unter
+`/Volumes/Programme/off-dump-data/`:
+
+```bash
+bun run ml:setup
+bun run ml:status
+bun run ml:smoke
+```
+
+fastText ist danach sofort lokal nutzbar. SetFit und SigLIP laden ihre
+konfigurierten Modellgewichte erst beim ersten jeweiligen Baseline-Lauf und
+speichern sie in `category-ml-cache` auf der externen Platte.
+
+## Supabase-Workflow
+
+Das deklarative Schema in `supabase/schemas/` ist die Wahrheit. Migrationen
+werden ausschließlich aus diesem Schema erzeugt:
+
+```bash
+bun run db:diff -- -f <name>
+bun run db:push
+bun run db:types
+```
+
+Sicherheits- und Schematests liegen in `supabase/tests/`.
+
+```bash
+supabase test db --linked
+```
+
+## Verifikation
+
+```bash
+bun run typecheck
+bun run test
+bun run build
+```
+
+Der Dump, Builds, Dependencies und lokale Secrets werden nicht committed.

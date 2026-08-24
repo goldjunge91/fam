@@ -10,6 +10,7 @@
 
 import fs from 'node:fs';
 import path from 'node:path';
+import { prepareDump } from './prepare-dump';
 
 const REPO = 'goldjunge91/fam';
 const OUT_PATH = path.join(import.meta.dirname, '..', 'public', 'off-dump.db');
@@ -31,6 +32,7 @@ async function main() {
         const stat = fs.statSync(OUT_PATH);
         const sizeMB = (stat.size / (1024 * 1024)).toFixed(1);
         console.log(`OK: ${OUT_PATH} (${sizeMB} MB, kopiert von ${candidate})`);
+        prepareDump(OUT_PATH);
         console.log('Jetzt "bun run dev" im Ordner tools/category-debugger starten.');
         return;
       }
@@ -64,6 +66,7 @@ async function main() {
 
   const sizeMB = (buffer.byteLength / (1024 * 1024)).toFixed(1);
   console.log(`OK: ${OUT_PATH} (${sizeMB} MB, Release ${release.tag_name})`);
+  prepareDump(OUT_PATH);
   console.log('Jetzt "bun run dev" starten.');
 }
 

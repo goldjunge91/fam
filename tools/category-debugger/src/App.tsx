@@ -3,7 +3,10 @@ import initSqlJs, { type Database } from 'sql.js';
 import sqlWasmUrl from 'sql.js/dist/sql-wasm.wasm?url';
 // Echte App-Logik, keine Kopie — importiert direkt aus dem Hauptprojekt, damit
 // dieses Tool nie vom echten Classifier abweichen kann.
-import { explainCategory } from '../../../src/features/shopping-list/classification/shopping-category-classifier';
+import {
+  classifyCategory,
+  explainCategory,
+} from '../../../src/features/shopping-list/classification/shopping-category-classifier';
 import type { CategoryTrace } from '../../../src/features/shopping-list/classification/types';
 import { SHOPPING_CATEGORIES } from '../../../src/features/shopping-list/domain-logik/shopping-categories';
 
@@ -151,9 +154,10 @@ function TraceView({ trace }: { trace: CategoryTrace }) {
 }
 
 import { DumpBrowserView } from './DumpBrowserView';
+import { EvaluationView } from './EvaluationView';
 
 export function App() {
-  const [activeTab, setActiveTab] = useState<'radar' | 'browser'>('radar');
+  const [activeTab, setActiveTab] = useState<'evaluation' | 'radar' | 'browser'>('evaluation');
   const [status, setStatus] = useState<DbStatus>({ kind: 'loading' });
   const dbRef = useRef<Database | null>(null);
 
@@ -267,11 +271,11 @@ export function App() {
   return (
     <div className="shell">
       <header className="top">
-        <div className="eyebrow">shopping-list · classifyCategory()/explainCategory() gegen den echten Dump</div>
-        <h1>Kategorie-Radar & Dump-Browser</h1>
+        <div className="eyebrow">shopping-list · menschliche Labels, Metriken und Entscheidungs-Traces</div>
+        <h1>Category Lab</h1>
         <p className="lede">
-          Durchsucht die lokale <code>off-dump.db</code> (406.802 Produkte) und zeigt zu jedem Treffer den vollen
-          Entscheidungs-Trace von <code>explainCategory()</code>.
+          Bewertet Produkte blind gegen den echten OFF-Dump, speichert belastbare Referenzlabels und vergleicht
+          Classifier-Versionen. Radar und Dump-Browser bleiben für gezielte Einzelfallanalyse verfügbar.
         </p>
         <div className="status-line">
           {status.kind === 'loading' && (
@@ -295,20 +299,28 @@ export function App() {
         <div className="tab-nav">
           <button
             type="button"
+            className={`tab-btn ${activeTab === 'evaluation' ? 'active' : ''}`}
+            onClick={() => setActiveTab('evaluation')}>
+            Evaluation
+          </button>
+          <button
+            type="button"
             className={`tab-btn ${activeTab === 'radar' ? 'active' : ''}`}
             onClick={() => setActiveTab('radar')}>
-            🔍 Kategorie-Radar (Entscheidungs-Trace)
+            Kategorie-Radar
           </button>
           <button
             type="button"
             className={`tab-btn ${activeTab === 'browser' ? 'active' : ''}`}
             onClick={() => setActiveTab('browser')}>
-            📋 Voller Dump-Browser (Tabelle & Filter)
+            Dump-Browser
           </button>
         </div>
       </header>
 
-      {activeTab === 'browser' ? (
+      {activeTab === 'evaluation' ? (
+        <EvaluationView db={dbRef.current} dumpCount={status.kind === 'ready' ? status.count : 0} />
+      ) : activeTab === 'browser' ? (
         <DumpBrowserView db={dbRef.current} onSelectForRadar={handleSelectForRadar} />
       ) : (
         <>

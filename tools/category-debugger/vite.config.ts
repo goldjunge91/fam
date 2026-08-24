@@ -7,6 +7,9 @@ export default defineConfig({
   // aber Cross-Origin-Isolation schadet nicht und macht spätere WASM-Threads
   // moeglich, falls sql.js das mal nutzt.
   server: {
+    proxy: {
+      '/api': 'http://127.0.0.1:4174',
+    },
     headers: {
       'Cross-Origin-Opener-Policy': 'same-origin',
       'Cross-Origin-Embedder-Policy': 'require-corp',
