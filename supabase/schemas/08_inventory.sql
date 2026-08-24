@@ -157,17 +157,22 @@ create table if not exists public.shopping_list_items (
   -- automatisch neu (#223).
   category_id text check (
     category_id in (
-      'produce', 'bakery', 'convenience', 'breakfast', 'hot_beverages',
-      'pantry_staples', 'cooking_baking', 'canned_sauces', 'snacks', 'beverages',
-      'drugstore', 'baby_kids', 'household', 'pet_supplies',
-      'meat_poultry', 'fish_seafood', 'deli_cold_cuts', 'plant_based', 'dairy_eggs',
-      'frozen', 'checkout',
+      'fresh_produce', 'bakery', 'chilled_dairy_eggs', 'ambient_milk_drinks',
+      'chilled_plant_based', 'meat_poultry', 'fish_seafood', 'deli',
+      'pasta_tomato', 'rice_world_foods', 'breakfast', 'baking', 'oils_spices',
+      'condiments', 'canned_jars', 'ready_meals', 'snacks', 'sweets',
+      'cold_drinks', 'hot_drinks', 'alcohol', 'frozen', 'baby', 'pets',
+      'household', 'personal_care', 'other',
+      -- Legacy-IDs zur Abwaertskompatibilitaet
+      'produce', 'convenience', 'hot_beverages', 'pantry_staples', 'cooking_baking',
+      'canned_sauces', 'beverages', 'drugstore', 'baby_kids', 'pet_supplies',
+      'deli_cold_cuts', 'plant_based', 'dairy_eggs', 'checkout',
       -- Legacy-IDs zur Abwaertskompatibilitaet
       'deli_meat', 'pantry_canned', 'pantry_dry', 'dairy'
     )
   ),
   category_source text check (
-    category_source in ('user', 'household_preference', 'off_taxonomy', 'name_fallback')
+    category_source in ('user', 'store_preference', 'household_preference', 'off_taxonomy', 'name_fallback')
   ),
   category_classifier_version text check (
     category_classifier_version is null
@@ -283,12 +288,20 @@ create table if not exists public.shopping_history (
   unit text not null,
   category_id text check (
     category_id in (
-      'produce', 'bakery', 'deli_meat', 'pantry_canned', 'pantry_dry', 'breakfast',
-      'snacks', 'beverages', 'dairy', 'frozen', 'drugstore', 'checkout'
+      'fresh_produce', 'bakery', 'chilled_dairy_eggs', 'ambient_milk_drinks',
+      'chilled_plant_based', 'meat_poultry', 'fish_seafood', 'deli',
+      'pasta_tomato', 'rice_world_foods', 'breakfast', 'baking', 'oils_spices',
+      'condiments', 'canned_jars', 'ready_meals', 'snacks', 'sweets',
+      'cold_drinks', 'hot_drinks', 'alcohol', 'frozen', 'baby', 'pets',
+      'household', 'personal_care', 'other',
+      'produce', 'deli_meat', 'pantry_canned', 'pantry_dry', 'convenience',
+      'hot_beverages', 'pantry_staples', 'cooking_baking', 'canned_sauces',
+      'beverages', 'drugstore', 'baby_kids', 'pet_supplies', 'deli_cold_cuts',
+      'plant_based', 'dairy_eggs', 'dairy', 'checkout'
     )
   ),
   category_source text check (
-    category_source in ('user', 'household_preference', 'off_taxonomy', 'name_fallback')
+    category_source in ('user', 'store_preference', 'household_preference', 'off_taxonomy', 'name_fallback')
   ),
   category_classifier_version text check (
     category_classifier_version is null

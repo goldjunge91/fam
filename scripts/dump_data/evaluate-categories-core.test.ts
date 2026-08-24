@@ -15,7 +15,7 @@ describe('evaluateDump', () => {
 
     expect(report.classifierVersion).toBe(CLASSIFIER_VERSION);
     expect(report.totalProducts).toBe(3);
-    expect(report.categoryDistribution.produce).toBe(1);
+    expect(report.categoryDistribution.fresh_produce).toBe(1);
     expect(report.categoryDistribution.bakery).toBe(1);
     expect(report.sonstigesCount).toBe(1);
     expect(report.sonstigesShare).toBeCloseTo(1 / 3);
@@ -44,9 +44,9 @@ describe('evaluateDump', () => {
     const secondDefaultRun = evaluateDump(manyApples, []);
     const customRun = evaluateDump(manyApples, [], 50);
 
-    expect(defaultRun.samples.produce).toHaveLength(1000);
-    expect(defaultRun.samples.produce).toEqual(secondDefaultRun.samples.produce);
-    expect(customRun.samples.produce).toHaveLength(50);
+    expect(defaultRun.samples.fresh_produce).toHaveLength(1000);
+    expect(defaultRun.samples.fresh_produce).toEqual(secondDefaultRun.samples.fresh_produce);
+    expect(customRun.samples.fresh_produce).toHaveLength(50);
   });
 
   it('markiert Golden-Korpus-Einträge, deren tatsächliche Kategorie vom Soll abweicht', () => {
@@ -60,7 +60,7 @@ describe('evaluateDump', () => {
     expect(report.golden.total).toBe(2);
     expect(report.golden.passedCount).toBe(1);
     expect(report.golden.failed).toEqual([
-      expect.objectContaining({ name: 'Wein', expected: 'produce', actual: 'beverages' }),
+      expect.objectContaining({ name: 'Wein', expected: 'produce', actual: 'cold_drinks' }),
     ]);
   });
 });

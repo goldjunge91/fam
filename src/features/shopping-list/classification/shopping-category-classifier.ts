@@ -2,6 +2,7 @@ import { CLASSIFIER_VERSION } from './classifier-version';
 import { NAME_CATEGORY_RULES } from './name-category-rules';
 import { normalizeShoppingName } from './normalize-shopping-name';
 import { OFF_CATEGORY_RULES } from './off-category-rules';
+import { normalizePlacementZoneId } from './placement-taxonomy';
 import type { ShoppingCategoryId } from './shopping-category-id';
 import type {
   CategoryCandidate,
@@ -17,12 +18,15 @@ function matchOffTagCandidates(categoryTags: readonly string[]): CategoryCandida
   for (const tag of categoryTags) {
     for (const rule of OFF_CATEGORY_RULES) {
       if (rule.tag === tag) {
-        candidates.push({
-          kind: 'off_tag',
-          categoryId: rule.categoryId,
-          value: tag,
-          weight: rule.priority,
-        });
+        const categoryId = normalizePlacementZoneId(rule.categoryId);
+        if (categoryId) {
+          candidates.push({
+            kind: 'off_tag',
+            categoryId,
+            value: tag,
+            weight: rule.priority,
+          });
+        }
       }
     }
   }
@@ -46,12 +50,15 @@ function matchNameCandidates(tokens: readonly string[]): CategoryCandidate[] {
             ? isLonger && token.startsWith(rule.value)
             : isLonger && token.endsWith(rule.value);
       if (matches) {
-        candidates.push({
-          kind: 'name_rule',
-          categoryId: rule.categoryId,
-          value: rule.value,
-          weight: rule.score,
-        });
+        const categoryId = normalizePlacementZoneId(rule.categoryId);
+        if (categoryId) {
+          candidates.push({
+            kind: 'name_rule',
+            categoryId,
+            value: rule.value,
+            weight: rule.score,
+          });
+        }
       }
     }
   }

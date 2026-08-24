@@ -9,8 +9,12 @@
  */
 
 import { CLASSIFIER_VERSION } from '@/features/shopping-list/classification/classifier-version';
+import {
+  normalizePlacementZoneId,
+  PLACEMENT_ZONE_IDS,
+  type PlacementZoneId,
+} from '@/features/shopping-list/classification/placement-taxonomy';
 import { classifyCategory } from '@/features/shopping-list/classification/shopping-category-classifier';
-import type { ShoppingCategoryId } from '@/features/shopping-list/classification/shopping-category-id';
 import type { GoldenCorpusEntry } from './category-golden-corpus';
 
 export type DumpProductInput = {
@@ -23,7 +27,7 @@ export type DumpProductInput = {
 export type CategorySample = { barcode: string; name: string };
 
 export type GoldenResult = GoldenCorpusEntry & {
-  actual: ShoppingCategoryId | null;
+  actual: PlacementZoneId | null;
   passed: boolean;
 };
 
@@ -33,9 +37,9 @@ export type CalibrationReport = {
   sonstigesCount: number;
   sonstigesShare: number;
   sourceCounts: { off_taxonomy: number; name_fallback: number; none: number };
-  categoryDistribution: Record<ShoppingCategoryId, number>;
+  categoryDistribution: Record<PlacementZoneId, number>;
   /** Bis zu 1.000 deterministisch gewählte Beispiele je Kategorie. */
-  samples: Record<ShoppingCategoryId, CategorySample[]>;
+  samples: Record<PlacementZoneId, CategorySample[]>;
   golden: {
     total: number;
     passedCount: number;
@@ -45,29 +49,7 @@ export type CalibrationReport = {
 
 export const DEFAULT_SAMPLE_SIZE_PER_CATEGORY = 1000;
 
-export const ALL_SHOPPING_CATEGORY_IDS: readonly ShoppingCategoryId[] = [
-  'produce',
-  'bakery',
-  'convenience',
-  'breakfast',
-  'hot_beverages',
-  'pantry_staples',
-  'cooking_baking',
-  'canned_sauces',
-  'snacks',
-  'beverages',
-  'drugstore',
-  'baby_kids',
-  'household',
-  'pet_supplies',
-  'meat_poultry',
-  'fish_seafood',
-  'deli_cold_cuts',
-  'plant_based',
-  'dairy_eggs',
-  'frozen',
-  'checkout',
-];
+export const ALL_SHOPPING_CATEGORY_IDS: readonly PlacementZoneId[] = PLACEMENT_ZONE_IDS;
 
 /**
  * Stabiler FNV-1a-Hash für deterministisches, von der Dump-Zeilenreihenfolge
@@ -84,9 +66,9 @@ function stableHash(value: string): number {
   return hash >>> 0;
 }
 
-function emptyCategoryRecord<T>(fill: () => T): Record<ShoppingCategoryId, T> {
+function emptyCategoryRecord<T>(fill: () => T): Record<PlacementZoneId, T> {
   return Object.fromEntries(ALL_SHOPPING_CATEGORY_IDS.map((id) => [id, fill()])) as Record<
-    ShoppingCategoryId,
+    PlacementZoneId,
     T
   >;
 }
@@ -137,7 +119,8 @@ export function evaluateDump(
       name: entry.name,
       categoryTags: entry.categoryTags ?? [],
     }).categoryId;
-    return { ...entry, actual, passed: actual === entry.expected };
+    const expected = entry.expected === null ? null : normalizePlacementZoneId(entry.expected);
+    return { ...entry, actual, passed: actual === expected };
   });
 
   return {

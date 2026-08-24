@@ -28,7 +28,14 @@ import {
   type OffDumpStatus,
   reinstallOffDumpBaseline,
 } from '@/lib/off-dump/off-dump';
-import { getPostHogClient, isPostHogConfigured, useFeatureFlag } from '@/lib/posthog';
+import {
+  getPostHogClient,
+  getPostHogInitializationError,
+  isPostHogConfigured,
+  reloadPostHogFeatureFlags,
+  useFeatureFlag,
+  useFeatureFlags,
+} from '@/lib/posthog';
 import { Sentry } from '@/lib/sentry';
 import { MAX_ATTEMPTS } from '@/lib/sync/backoff';
 
@@ -104,11 +111,17 @@ export function DevToolsScreen() {
   // (PostHog)". defaultValue=false greift ohne Key oder ohne je geladenen
   // Wert.
   const testFeatureFlag = useFeatureFlag('test-feature', false);
+  const posthogFlags = useFeatureFlags();
+  const posthogConfigured = isPostHogConfigured();
+  const posthogInitializationError = getPostHogInitializationError();
 
   const [snapshot, setSnapshot] = useState<DbSnapshot | null>(null);
   const [offDump, setOffDump] = useState<OffDumpStatus | null>(null);
   const [dbError, setDbError] = useState<string | null>(null);
   const [busy, setBusy] = useState<string | null>(null);
+  const [posthogCheck, setPosthogCheck] = useState<
+    { label: string; tone?: 'accent' | 'warning' | 'danger' } | undefined
+  >();
 
   const ladeSnapshot = useCallback(async () => {
     try {
@@ -209,8 +222,19 @@ export function DevToolsScreen() {
         />
         <Zeile
           label="PostHog"
-          wert={isPostHogConfigured() ? 'konfiguriert' : 'kein API-Key'}
-          tone={isPostHogConfigured() ? undefined : 'warning'}
+          wert={
+            posthogConfigured
+              ? 'konfiguriert'
+              : posthogInitializationError
+                ? 'Client-Start fehlgeschlagen'
+                : 'kein API-Key'
+          }
+          tone={posthogConfigured ? undefined : posthogInitializationError ? 'danger' : 'warning'}
+        />
+        <Zeile
+          label="PostHog-Verbindung"
+          wert={posthogCheck?.label ?? 'noch nicht geprüft'}
+          tone={posthogCheck?.tone}
         />
         <Zeile
           label="Flag „test-feature“"
@@ -375,25 +399,57 @@ export function DevToolsScreen() {
             }}
           />
           <Button
-            label="PostHog-Flags neu laden"
+            label="PostHog-Verbindung prüfen"
             variant="secondary"
             onPress={() =>
               mitBusy('posthog-reload', async () => {
-                const client = getPostHogClient();
-                if (!client) {
-                  Alert.alert('PostHog', 'Kein API-Key konfiguriert.');
+                if (!posthogConfigured) {
+                  const message = posthogInitializationError
+                    ? `Client konnte nicht gestartet werden: ${posthogInitializationError}`
+                    : 'nicht aktiv: API-Key ist in diesem Build nicht vorhanden';
+                  setPosthogCheck({
+                    label: message,
+                    tone: posthogInitializationError ? 'danger' : 'warning',
+                  });
+                  Alert.alert(
+                    posthogInitializationError ? 'PostHog-Clientfehler' : 'PostHog nicht aktiv',
+                    posthogInitializationError
+                      ? message
+                      : `${message}. Nach einer Änderung von .env muss Metro neu gestartet und der Dev-Build neu erstellt werden.`,
+                  );
                   return;
                 }
-                const flags = await client.reloadFeatureFlagsAsync();
-                Alert.alert(
-                  'PostHog',
-                  `distinctId: ${client.getDistinctId()}\n` +
-                    `test-feature: ${String(client.getFeatureFlag('test-feature'))}\n` +
-                    `Alle Flags: ${JSON.stringify(flags ?? {})}`,
-                );
+                try {
+                  const flags = await reloadPostHogFeatureFlags();
+                  const client = getPostHogClient();
+                  const flagCount = Object.keys(flags ?? {}).length;
+                  const distinctId = client?.getDistinctId() ?? 'unbekannt';
+                  setPosthogCheck({
+                    label: `erreichbar, ${flagCount} Flag(s) geladen`,
+                    tone: 'accent',
+                  });
+                  Alert.alert(
+                    'PostHog funktioniert',
+                    `Host: ${env.posthogHost}\n` +
+                      `Nutzer: ${distinctId}\n` +
+                      `test-feature: ${String(flags?.['test-feature'] ?? 'nicht angelegt')}\n` +
+                      `Flags: ${flagCount}`,
+                  );
+                } catch (error) {
+                  const detail = error instanceof Error ? error.message : String(error);
+                  setPosthogCheck({ label: `Fehler: ${detail}`, tone: 'danger' });
+                  Alert.alert(
+                    'PostHog nicht erreichbar',
+                    `${detail}\n\nHost: ${env.posthogHost}\nPrüfe API-Key, Host und Netzwerk.`,
+                  );
+                }
               })
             }
             loading={busy === 'posthog-reload'}
+          />
+          <Zeile
+            label="Geladene Flags"
+            wert={posthogFlags ? String(Object.keys(posthogFlags).length) : 'noch keine'}
           />
           <Button
             label="Sync-Diagnose & Outbox öffnen"

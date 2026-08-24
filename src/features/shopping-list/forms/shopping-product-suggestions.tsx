@@ -77,7 +77,7 @@ function SuggestionCard({
         {formatPackageSize(suggestion.quantity, suggestion.unit)}
       </ThemedText>
       <ThemedText type="caption" themeColor="accent" numberOfLines={1}>
-        {suggestion.last_store_name ? `Zuletzt: ${suggestion.last_store_name}` : 'Ohne Liste'}
+        {suggestion.last_store_name ? `Zuletzt: ${suggestion.last_store_name}` : 'Ohne Markt'}
       </ThemedText>
     </Pressable>
   );

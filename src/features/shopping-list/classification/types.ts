@@ -1,21 +1,65 @@
-import type { ShoppingCategoryId } from './shopping-category-id';
+import type {
+  PlacementZoneId,
+  ProductFamilyId,
+  ProductFormId,
+  StoredPlacementZoneId,
+} from './placement-taxonomy';
 
 /**
  * Herkunft einer Kategorieentscheidung. `'user'` wird ausschließlich außerhalb
  * der reinen Klassifikationspipeline vergeben (siehe `preferences/`) — die
  * hier exportierten Klassifikationsfunktionen liefern ihn nie selbst.
  */
-export type CategorySource = 'user' | 'household_preference' | 'off_taxonomy' | 'name_fallback';
+export type CategorySource =
+  | 'user'
+  | 'store_preference'
+  | 'household_preference'
+  | 'off_taxonomy'
+  | 'name_fallback';
 
 /** Kompakte Produktionsausgabe von {@link classifyCategory}. */
 export type CategoryClassification = {
-  categoryId: ShoppingCategoryId | null;
+  categoryId: PlacementZoneId | null;
   source: Exclude<CategorySource, 'user'> | null;
   classifierVersion: string;
   evidence?: {
     kind: 'off_tag' | 'name_rule';
     value: string;
   };
+};
+
+/** Kanonischer V2-Snapshot fuer Klassifikation und spaetere Resolver. */
+export type PlacementClassification = {
+  productFamilyId: ProductFamilyId;
+  productFormId: ProductFormId;
+  placementZoneId: PlacementZoneId;
+  classifierVersion: string;
+  confidence: number;
+  trace: PlacementTrace;
+};
+
+export type PlacementEvidence = {
+  kind: 'off_tag' | 'name_rule' | 'legacy_mapping' | 'default';
+  value: string;
+};
+
+export type PlacementTrace = {
+  classifierVersion: string;
+  input: CategoryTrace['input'];
+  categoryTrace: CategoryTrace;
+  legacyCategoryId: StoredPlacementZoneId | null;
+  resolutionSource: 'off_taxonomy' | 'name_fallback' | 'legacy_mapping';
+  productFamilyId: ProductFamilyId;
+  productFormId: ProductFormId;
+  placementZoneId: PlacementZoneId;
+  confidence: number;
+  evidence: PlacementEvidence;
+};
+
+/** Eingaben fuer den reinen Produktfamilie-/Form-Resolver. */
+export type PlacementClassificationInput = CategoryClassifierInput & {
+  productFamilyId?: ProductFamilyId;
+  productFormId?: ProductFormId;
 };
 
 /** Herkunft der klassifizierten Rohdaten — nur für den Trace relevant. */
@@ -41,7 +85,7 @@ export type CategoryCandidateKind = 'off_tag' | 'name_rule';
 /** Ein gematchter, aber noch nicht zwingend gewonnener Kandidat. */
 export type CategoryCandidate = {
   kind: CategoryCandidateKind;
-  categoryId: ShoppingCategoryId;
+  categoryId: PlacementZoneId;
   /** Der auslösende OFF-Tag bzw. das auslösende Namens-Token. */
   value: string;
   /** OFF-Regel-Priorität bzw. Namens-Regel-Score — höher gewinnt. */
@@ -65,3 +109,6 @@ export type CategoryTrace = {
   winner: CategoryClassification;
   conflictReason: string | null;
 };
+
+/** Read-side boundary type for SQLite/Supabase rows during the V2 cutover. */
+export type StoredCategoryId = StoredPlacementZoneId;

@@ -88,20 +88,41 @@ function notifyOutboxChanged(): void {
  * darin (die UI-Aenderung ist sofort da, das Netzwerk passiert spaeter beim
  * Push), ein werfendes `applyLocally` rollt beide Writes zurueck.
  */
-export async function enqueueMutation(db: SqlDatabase, input: EnqueueMutationInput): Promise<void> {
-  const createdAt = input.now ?? Date.now();
-  const payloadJson = JSON.stringify(input.payload);
+/**
+ * Schreibt mehrere lokale Mutationen in genau einer exklusiven Transaktion.
+ * Das ist der Vertrag fuer Item + Praeferenz + optionales Feedback: Ein
+ * Fehler rollt den kompletten lokalen Vorgang zurueck und erzeugt nur eine
+ * Outbox-Changed-Benachrichtigung.
+ */
+export async function enqueueMutations(
+  db: SqlDatabase,
+  inputs: readonly EnqueueMutationInput[],
+): Promise<void> {
+  if (inputs.length === 0) return;
 
   await db.withExclusiveTransactionAsync(async (txn) => {
-    await input.applyLocally(txn);
+    for (const input of inputs) {
+      await input.applyLocally(txn);
 
-    await txn.runAsync(
-      'insert into outbox (entity, entity_id, op, payload, created_at, attempts, next_attempt_at) values (?, ?, ?, ?, ?, 0, 0)',
-      [input.entity, input.entityId, input.op, payloadJson, createdAt],
-    );
+      await txn.runAsync(
+        'insert into outbox (entity, entity_id, op, payload, created_at, attempts, next_attempt_at) values (?, ?, ?, ?, ?, 0, 0)',
+        [
+          input.entity,
+          input.entityId,
+          input.op,
+          JSON.stringify(input.payload),
+          input.now ?? Date.now(),
+        ],
+      );
+    }
   });
 
   notifyOutboxChanged();
+}
+
+/** Kompatibler Einzelmutations-Wrapper fuer bestehende Aufrufer. */
+export async function enqueueMutation(db: SqlDatabase, input: EnqueueMutationInput): Promise<void> {
+  await enqueueMutations(db, [input]);
 }
 
 /**

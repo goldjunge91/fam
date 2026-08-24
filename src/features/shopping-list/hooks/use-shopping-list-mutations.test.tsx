@@ -7,6 +7,7 @@ import {
   useToggleShoppingItem,
   useUpdateShoppingItem,
 } from '@/features/shopping-list/hooks/use-shopping-list-mutations';
+import { saveShoppingItemAtomically } from '@/features/shopping-list/preferences/save-shopping-item';
 import { enqueueMutation } from '@/lib/db/outbox';
 
 const mockDbRunAsync = jest.fn().mockResolvedValue({ changes: 1, lastInsertRowId: 1 });
@@ -19,6 +20,14 @@ jest.mock('@/lib/db/client', () => ({
 
 jest.mock('@/lib/db/outbox', () => ({
   enqueueMutation: jest.fn().mockResolvedValue(undefined),
+}));
+
+jest.mock('@/features/shopping-list/preferences/save-shopping-item', () => ({
+  saveShoppingItemAtomically: jest.fn().mockResolvedValue({
+    preferenceId: null,
+    preferenceChanged: false,
+    mutationCount: 1,
+  }),
 }));
 
 describe('use-shopping-list-mutations', () => {
@@ -98,7 +107,7 @@ describe('use-shopping-list-mutations', () => {
         package_size: null,
         package_size_unit: null,
         category_id: null,
-        category_source: null,
+        category_source: 'store_preference',
         category_classifier_version: null,
         store_id: null,
         price_estimate: null,
@@ -107,12 +116,14 @@ describe('use-shopping-list-mutations', () => {
 
     await waitFor(() => expect(result.current.isSuccess).toBe(true));
 
-    expect(enqueueMutation).toHaveBeenCalledWith(
-      expect.anything(),
+    expect(saveShoppingItemAtomically).toHaveBeenCalledWith(
       expect.objectContaining({
-        entity: 'shopping_list_items',
-        op: 'update',
-        entityId: 'item-1',
+        itemMutation: expect.objectContaining({
+          entity: 'shopping_list_items',
+          op: 'update',
+          entityId: 'item-1',
+          payload: expect.objectContaining({ category_source: 'store_preference' }),
+        }),
       }),
     );
   });

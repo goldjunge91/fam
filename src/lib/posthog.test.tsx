@@ -2,9 +2,15 @@ import { render, renderHook, screen } from '@testing-library/react-native';
 import type { ReactNode } from 'react';
 import { Text } from 'react-native';
 
+// Die Tests laden das Modul nach `jest.resetModules()` erneut. React muss
+// dabei dieselbe Instanz behalten, sonst interpretiert React die Hooks aus
+// dem neu geladenen Modul als Hook-Aufruf aus einer fremden React-Instanz.
+const cachedReact = jest.requireActual<typeof import('react')>('react');
+jest.doMock('react', () => cachedReact);
+
 const mockPostHogConstructor = jest.fn();
-const mockUseFeatureFlagSdk = jest.fn();
-const mockUseFeatureFlagsSdk = jest.fn();
+const mockGetFeatureFlags = jest.fn();
+const mockReloadFeatureFlagsAsync = jest.fn();
 const mockPostHogProvider = jest.fn(({ children }) => children);
 
 jest.mock('posthog-react-native', () => ({
@@ -13,9 +19,23 @@ jest.mock('posthog-react-native', () => ({
     constructor(...args: unknown[]) {
       mockPostHogConstructor(...args);
     }
+
+    getFeatureFlags() {
+      return mockGetFeatureFlags();
+    }
+
+    getDistinctId() {
+      return 'test-user';
+    }
+
+    reloadFeatureFlagsAsync() {
+      return mockReloadFeatureFlagsAsync();
+    }
+
+    onFeatureFlags() {
+      return () => {};
+    }
   },
-  useFeatureFlag: (...args: unknown[]) => mockUseFeatureFlagSdk(...args),
-  useFeatureFlags: (...args: unknown[]) => mockUseFeatureFlagsSdk(...args),
   PostHogProvider: (props: { children: ReactNode; client: unknown }) => mockPostHogProvider(props),
 }));
 
@@ -65,16 +85,60 @@ describe('initPostHog / isPostHogConfigured', () => {
       throw new Error('natives Storage-Modul fehlt');
     });
     const consoleError = jest.spyOn(console, 'error').mockImplementation(() => {});
-    const { initPostHog, isPostHogConfigured } = require('@/lib/posthog');
+    const {
+      getPostHogInitializationError,
+      initPostHog,
+      isPostHogConfigured,
+    } = require('@/lib/posthog');
 
     expect(() => initPostHog()).not.toThrow();
     expect(isPostHogConfigured()).toBe(false);
+    expect(getPostHogInitializationError()).toBe('natives Storage-Modul fehlt');
 
     // Zweiter Aufruf darf den Fehler nicht erneut werfen (attempted-Flag).
     expect(() => initPostHog()).not.toThrow();
     expect(mockPostHogConstructor).toHaveBeenCalledTimes(1);
 
     consoleError.mockRestore();
+  });
+
+  it('gibt Fehler des Flag-Reloads an den Aufrufer weiter', async () => {
+    process.env.EXPO_PUBLIC_POSTHOG_API_KEY = 'phc_testkey';
+    const networkError = new Error('Netzwerk nicht erreichbar');
+    mockReloadFeatureFlagsAsync.mockRejectedValueOnce(networkError);
+    const { initPostHog, reloadPostHogFeatureFlags } = require('@/lib/posthog');
+
+    initPostHog();
+
+    await expect(reloadPostHogFeatureFlags()).rejects.toThrow('Netzwerk nicht erreichbar');
+  });
+
+  it('meldet eine fehlende SDK-Antwort als Konfigurations- oder Netzwerkfehler', async () => {
+    process.env.EXPO_PUBLIC_POSTHOG_API_KEY = 'phc_testkey';
+    mockReloadFeatureFlagsAsync.mockResolvedValueOnce(undefined);
+    const { initPostHog, reloadPostHogFeatureFlags } = require('@/lib/posthog');
+
+    initPostHog();
+
+    await expect(reloadPostHogFeatureFlags()).rejects.toThrow('Project API Key, Host und Netzwerk');
+  });
+
+  it('bricht einen haengenden Flag-Reload nach 15 Sekunden ab', async () => {
+    jest.useFakeTimers();
+    try {
+      process.env.EXPO_PUBLIC_POSTHOG_API_KEY = 'phc_testkey';
+      mockReloadFeatureFlagsAsync.mockReturnValueOnce(new Promise(() => {}));
+      const { initPostHog, reloadPostHogFeatureFlags } = require('@/lib/posthog');
+      initPostHog();
+
+      const reload = reloadPostHogFeatureFlags();
+      const expectedRejection = expect(reload).rejects.toThrow('nach 15 Sekunden');
+      await jest.advanceTimersByTimeAsync(15_000);
+
+      await expectedRejection;
+    } finally {
+      jest.useRealTimers();
+    }
   });
 });
 
@@ -128,7 +192,6 @@ describe('useFeatureFlag', () => {
   });
 
   it('liefert defaultValue wenn noch kein Wert vom Server bestaetigt wurde', async () => {
-    mockUseFeatureFlagSdk.mockReturnValue(undefined);
     const { useFeatureFlag } = require('@/lib/posthog');
 
     const { result } = await renderHook(() => useFeatureFlag('test-feature', true));
@@ -137,19 +200,27 @@ describe('useFeatureFlag', () => {
   });
 
   it('liefert true wenn das Flag serverseitig aktiv ist', async () => {
-    mockUseFeatureFlagSdk.mockReturnValue(true);
-    const { useFeatureFlag } = require('@/lib/posthog');
+    process.env.EXPO_PUBLIC_POSTHOG_API_KEY = 'phc_testkey';
+    mockGetFeatureFlags.mockReturnValue({ 'test-feature': true });
+    const { PostHogAppProvider, initPostHog, useFeatureFlag } = require('@/lib/posthog');
+    initPostHog();
 
-    const { result } = await renderHook(() => useFeatureFlag('test-feature', false));
+    const { result } = await renderHook(() => useFeatureFlag('test-feature', false), {
+      wrapper: ({ children }) => <PostHogAppProvider>{children}</PostHogAppProvider>,
+    });
 
     expect(result.current).toBe(true);
   });
 
   it('liefert false wenn das Flag serverseitig inaktiv ist, unabhaengig vom defaultValue', async () => {
-    mockUseFeatureFlagSdk.mockReturnValue(false);
-    const { useFeatureFlag } = require('@/lib/posthog');
+    process.env.EXPO_PUBLIC_POSTHOG_API_KEY = 'phc_testkey';
+    mockGetFeatureFlags.mockReturnValue({ 'test-feature': false });
+    const { PostHogAppProvider, initPostHog, useFeatureFlag } = require('@/lib/posthog');
+    initPostHog();
 
-    const { result } = await renderHook(() => useFeatureFlag('test-feature', true));
+    const { result } = await renderHook(() => useFeatureFlag('test-feature', true), {
+      wrapper: ({ children }) => <PostHogAppProvider>{children}</PostHogAppProvider>,
+    });
 
     expect(result.current).toBe(false);
   });
@@ -158,7 +229,6 @@ describe('useFeatureFlag', () => {
     // SDK-Mock liefert bewusst das Gegenteil von defaultValue: nur wenn der
     // Wrapper den SDK-Rueckgabewert ignoriert und direkt defaultValue
     // zurueckgibt, kommt hier `true` heraus statt `false`.
-    mockUseFeatureFlagSdk.mockReturnValue(false);
     const { useFeatureFlag } = require('@/lib/posthog');
 
     const { result } = await renderHook(() => useFeatureFlag(undefined, true));
@@ -173,7 +243,6 @@ describe('useFeatureFlagState', () => {
   });
 
   it('liefert undefined solange kein Wert vom Server bestaetigt wurde', async () => {
-    mockUseFeatureFlagSdk.mockReturnValue(undefined);
     const { useFeatureFlagState } = require('@/lib/posthog');
 
     const { result } = await renderHook(() => useFeatureFlagState('test-feature'));
@@ -182,25 +251,32 @@ describe('useFeatureFlagState', () => {
   });
 
   it('liefert true wenn das Flag serverseitig aktiv ist', async () => {
-    mockUseFeatureFlagSdk.mockReturnValue(true);
-    const { useFeatureFlagState } = require('@/lib/posthog');
+    process.env.EXPO_PUBLIC_POSTHOG_API_KEY = 'phc_testkey';
+    mockGetFeatureFlags.mockReturnValue({ 'test-feature': true });
+    const { PostHogAppProvider, initPostHog, useFeatureFlagState } = require('@/lib/posthog');
+    initPostHog();
 
-    const { result } = await renderHook(() => useFeatureFlagState('test-feature'));
+    const { result } = await renderHook(() => useFeatureFlagState('test-feature'), {
+      wrapper: ({ children }) => <PostHogAppProvider>{children}</PostHogAppProvider>,
+    });
 
     expect(result.current).toBe(true);
   });
 
   it('liefert false wenn das Flag serverseitig inaktiv ist', async () => {
-    mockUseFeatureFlagSdk.mockReturnValue(false);
-    const { useFeatureFlagState } = require('@/lib/posthog');
+    process.env.EXPO_PUBLIC_POSTHOG_API_KEY = 'phc_testkey';
+    mockGetFeatureFlags.mockReturnValue({ 'test-feature': false });
+    const { PostHogAppProvider, initPostHog, useFeatureFlagState } = require('@/lib/posthog');
+    initPostHog();
 
-    const { result } = await renderHook(() => useFeatureFlagState('test-feature'));
+    const { result } = await renderHook(() => useFeatureFlagState('test-feature'), {
+      wrapper: ({ children }) => <PostHogAppProvider>{children}</PostHogAppProvider>,
+    });
 
     expect(result.current).toBe(false);
   });
 
   it('liefert undefined ohne Key, unabhaengig vom SDK-Rueckgabewert', async () => {
-    mockUseFeatureFlagSdk.mockReturnValue(false);
     const { useFeatureFlagState } = require('@/lib/posthog');
 
     const { result } = await renderHook(() => useFeatureFlagState(undefined));
@@ -215,16 +291,19 @@ describe('useFeatureFlags', () => {
   });
 
   it('liefert alle aktiven Flags aus dem SDK', async () => {
-    mockUseFeatureFlagsSdk.mockReturnValue({ 'module-recipes': true, 'workout-log': false });
-    const { useFeatureFlags } = require('@/lib/posthog');
+    process.env.EXPO_PUBLIC_POSTHOG_API_KEY = 'phc_testkey';
+    mockGetFeatureFlags.mockReturnValue({ 'module-recipes': true, 'workout-log': false });
+    const { PostHogAppProvider, initPostHog, useFeatureFlags } = require('@/lib/posthog');
+    initPostHog();
 
-    const { result } = await renderHook(() => useFeatureFlags());
+    const { result } = await renderHook(() => useFeatureFlags(), {
+      wrapper: ({ children }) => <PostHogAppProvider>{children}</PostHogAppProvider>,
+    });
 
     expect(result.current).toEqual({ 'module-recipes': true, 'workout-log': false });
   });
 
   it('liefert undefined wenn noch keine Flags geladen sind', async () => {
-    mockUseFeatureFlagsSdk.mockReturnValue(undefined);
     const { useFeatureFlags } = require('@/lib/posthog');
 
     const { result } = await renderHook(() => useFeatureFlags());

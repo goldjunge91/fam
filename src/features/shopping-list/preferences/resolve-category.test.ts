@@ -9,8 +9,9 @@ describe('resolveCategory', () => {
       namePreference: { categoryId: 'beverages' },
     });
 
-    expect(result).toEqual({
-      categoryId: 'deli_meat',
+    expect(result).toMatchObject({
+      categoryId: 'deli',
+      placementZoneId: 'deli',
       source: 'household_preference',
       classifierVersion: CLASSIFIER_VERSION,
     });
@@ -22,8 +23,9 @@ describe('resolveCategory', () => {
       namePreference: { categoryId: 'dairy' },
     });
 
-    expect(result).toEqual({
-      categoryId: 'dairy',
+    expect(result).toMatchObject({
+      categoryId: 'chilled_dairy_eggs',
+      placementZoneId: 'chilled_dairy_eggs',
       source: 'household_preference',
       classifierVersion: CLASSIFIER_VERSION,
     });
@@ -35,8 +37,9 @@ describe('resolveCategory', () => {
       namePreference: { categoryId: null },
     });
 
-    expect(result).toEqual({
-      categoryId: null,
+    expect(result).toMatchObject({
+      categoryId: 'other',
+      placementZoneId: 'other',
       source: 'household_preference',
       classifierVersion: CLASSIFIER_VERSION,
     });

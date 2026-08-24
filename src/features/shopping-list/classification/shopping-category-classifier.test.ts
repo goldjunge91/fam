@@ -31,7 +31,7 @@ describe('classifyCategory', () => {
         name: 'Fruchtsaft mit Gemüseanteil',
         categoryTags: ['en:vegetables', 'en:fruit-juices'],
       }).categoryId,
-    ).toBe('beverages');
+    ).toBe('cold_drinks');
   });
 
   it('liefert "Sonstiges", wenn zwei verschiedene Kategorien mit gleich hoher Priorität konkurrieren', () => {
@@ -47,7 +47,7 @@ describe('classifyCategory', () => {
 
   it('fällt bei fehlenden oder unbekannten OFF-Tags auf den Namens-Fallback zurück', () => {
     expect(classifyCategory({ name: 'Vollmilch' })).toEqual({
-      categoryId: 'dairy_eggs',
+      categoryId: 'chilled_dairy_eggs',
       source: 'name_fallback',
       classifierVersion: CLASSIFIER_VERSION,
       evidence: { kind: 'name_rule', value: 'milch' },
@@ -55,7 +55,7 @@ describe('classifyCategory', () => {
 
     expect(
       classifyCategory({ name: 'Vollmilch', categoryTags: ['en:some-unmapped-tag'] }).categoryId,
-    ).toBe('dairy_eggs');
+    ).toBe('chilled_dairy_eggs');
   });
 
   describe('deutsche Komposita ohne Fehlmatches', () => {
@@ -68,16 +68,16 @@ describe('classifyCategory', () => {
     });
 
     it('"Wein" als Ganzwort ist Getraenke', () => {
-      expect(classifyCategory({ name: 'Wein' }).categoryId).toBe('beverages');
+      expect(classifyCategory({ name: 'Wein' }).categoryId).toBe('cold_drinks');
     });
 
     it('"wein" matcht nicht als Teilstring in "Schwein"', () => {
-      expect(classifyCategory({ name: 'Schwein' }).categoryId).not.toBe('beverages');
+      expect(classifyCategory({ name: 'Schwein' }).categoryId).not.toBe('cold_drinks');
     });
 
     it('"Apfelsaft" ist Getraenke (Grundwort "saft" schlaegt Modifier "apfel")', () => {
       expect(classifyCategory({ name: 'Apfelsaft' })).toEqual({
-        categoryId: 'beverages',
+        categoryId: 'cold_drinks',
         source: 'name_fallback',
         classifierVersion: CLASSIFIER_VERSION,
         evidence: { kind: 'name_rule', value: 'saft' },
@@ -114,38 +114,38 @@ describe('classifyCategory', () => {
     });
 
     it('"Weinessig" ist Öle, Essig & Gewürze, nicht Getraenke', () => {
-      expect(classifyCategory({ name: 'Weinessig' }).categoryId).toBe('cooking_baking');
+      expect(classifyCategory({ name: 'Weinessig' }).categoryId).toBe('oils_spices');
     });
 
     it('"Weinstein-Backpulver" ist Kochzutat trotz "Wein"-Praefix im ersten Token', () => {
-      expect(classifyCategory({ name: 'Weinstein-Backpulver' }).categoryId).toBe('cooking_baking');
+      expect(classifyCategory({ name: 'Weinstein-Backpulver' }).categoryId).toBe('oils_spices');
     });
   });
 });
 
 describe('classifyCategory über alle 21 Kategorien', () => {
   it.each([
-    ['Apfel', 'produce'],
+    ['Apfel', 'fresh_produce'],
     ['Brötchen', 'bakery'],
-    ['Fertigsalat', 'convenience'],
+    ['Fertigsalat', 'deli'],
     ['Müsli', 'breakfast'],
-    ['Kaffee', 'hot_beverages'],
-    ['Nudeln', 'pantry_staples'],
-    ['Olivenöl', 'cooking_baking'],
-    ['Ketchup', 'canned_sauces'],
+    ['Kaffee', 'hot_drinks'],
+    ['Nudeln', 'rice_world_foods'],
+    ['Olivenöl', 'oils_spices'],
+    ['Ketchup', 'canned_jars'],
     ['Schokolade', 'snacks'],
-    ['Mineralwasser', 'beverages'],
-    ['Duschgel', 'drugstore'],
-    ['Windeln', 'baby_kids'],
+    ['Mineralwasser', 'cold_drinks'],
+    ['Duschgel', 'personal_care'],
+    ['Windeln', 'baby'],
     ['Spülmittel', 'household'],
-    ['Katzenfutter', 'pet_supplies'],
+    ['Katzenfutter', 'pets'],
     ['Hackfleisch', 'meat_poultry'],
     ['Lachs', 'fish_seafood'],
-    ['Salami', 'deli_cold_cuts'],
-    ['Tofu', 'plant_based'],
-    ['Joghurt', 'dairy_eggs'],
+    ['Salami', 'deli'],
+    ['Tofu', 'chilled_plant_based'],
+    ['Joghurt', 'chilled_dairy_eggs'],
     ['Eiscreme', 'frozen'],
-    ['Kaugummi', 'checkout'],
+    ['Kaugummi', 'other'],
   ] as const)('erkennt "%s" als %s', (name, expectedCategoryId) => {
     expect(classifyCategory({ name }).categoryId).toBe(expectedCategoryId);
   });
@@ -153,8 +153,8 @@ describe('classifyCategory über alle 21 Kategorien', () => {
 
 describe('Mengen- und Einheitentokens', () => {
   it('ignoriert Zahl und Einheit vor dem eigentlichen Artikelnamen', () => {
-    expect(classifyCategory({ name: '6 Eier' }).categoryId).toBe('dairy_eggs');
-    expect(classifyCategory({ name: '500g Nudeln' }).categoryId).toBe('pantry_staples');
+    expect(classifyCategory({ name: '6 Eier' }).categoryId).toBe('chilled_dairy_eggs');
+    expect(classifyCategory({ name: '500g Nudeln' }).categoryId).toBe('rice_world_foods');
   });
 });
 
@@ -207,7 +207,7 @@ describe('explainCategory', () => {
     });
     expect(trace.rejectedCandidates).toContainEqual({
       kind: 'off_tag',
-      categoryId: 'dairy_eggs',
+      categoryId: 'chilled_dairy_eggs',
       value: 'en:milks',
       weight: 100,
       reason: 'tie',

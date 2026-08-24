@@ -55,7 +55,7 @@ describe('CategoryOrderSheet', () => {
     await render(<CategoryOrderSheet isOpen={true} store={mockStore} onClose={mockClose} />);
 
     const saveBtn = screen.getByRole('button', { name: 'Speichern' });
-    fireEvent.press(saveBtn);
+    await fireEvent.press(saveBtn);
 
     expect(mockMutateAsync).toHaveBeenCalledWith(
       expect.objectContaining({

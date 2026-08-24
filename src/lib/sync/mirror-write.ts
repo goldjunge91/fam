@@ -18,6 +18,14 @@ export type UpsertMirrorRowOptions = {
   dirty: 0 | 1;
 };
 
+function mirrorMetaOf(entity: Entity) {
+  const meta = metaOf(entity);
+  if (meta.pushOnly) {
+    throw new Error(`${entity} ist push-only und darf nicht gespiegelt werden.`);
+  }
+  return meta;
+}
+
 function toSqlParam(value: unknown): SqlParam {
   if (value === undefined || value === null) return null;
   if (typeof value === 'string' || typeof value === 'number') return value;
@@ -49,7 +57,7 @@ export async function upsertMirrorRow(
   remoteRow: Record<string, unknown>,
   options: UpsertMirrorRowOptions,
 ): Promise<void> {
-  const meta = metaOf(entity);
+  const meta = mirrorMetaOf(entity);
 
   const updatedAtRaw = remoteRow.updated_at;
   if (typeof updatedAtRaw !== 'string') {
@@ -103,7 +111,7 @@ export async function applyRemoteRow(
   remoteRow: RemoteRow,
   clockCeilingMs: number,
 ): Promise<'written' | 'local-wins'> {
-  const meta = metaOf(entity);
+  const meta = mirrorMetaOf(entity);
 
   const local = await txn.getFirstAsync<LocalRowMeta>(
     `select updated_at, deleted_at, _dirty from ${meta.table} where id = ?`,
@@ -143,6 +151,6 @@ export async function applyRemoteRow(
  * wird (z. B. Haushalts-Kaskadenloeschung).
  */
 export async function deleteMirrorRow(txn: SqlDatabase, entity: Entity, id: string): Promise<void> {
-  const meta = metaOf(entity);
+  const meta = mirrorMetaOf(entity);
   await txn.runAsync(`delete from ${meta.table} where id = ?`, [id]);
 }

@@ -70,7 +70,11 @@ export function StoreSummaryCard({
           color={isComplete ? theme.success : theme.accent}
         />
         <View className="flex-row items-center gap-1 mt-[1px]">
-          {isComplete ? (
+          {totalCount === 0 ? (
+            <ThemedText type="caption" themeColor="textSecondary">
+              keine Artikel
+            </ThemedText>
+          ) : isComplete ? (
             <ThemedText type="caption" themeColor="success" className="font-semibold">
               alles erledigt
             </ThemedText>

@@ -1,3 +1,4 @@
+import { metaOf } from '@/lib/db/entities';
 import { parseOutboxEntry } from '@/lib/db/outbox';
 import type { Entity, OutboxEntry, OutboxOp } from '@/lib/db/types';
 
@@ -77,6 +78,7 @@ type Group = {
 export function coalesce(entries: readonly OutboxEntry[]): CoalesceResult {
   const open = new Map<string, Group>();
   const closed: Group[] = [];
+  const passthrough: CoalescedEntry[] = [];
   const discardable: number[] = [];
   // Payload einer verworfenen insert+delete-Gruppe, aufgehoben pro entity_id
   // fuer den Fall, dass ein `restore` (#69) danach folgt — siehe Randfall
@@ -98,6 +100,24 @@ export function coalesce(entries: readonly OutboxEntry[]): CoalesceResult {
   for (const entry of [...entries].sort((a, b) => a.id - b.id)) {
     const key = `${entry.entity}:${entry.entity_id}`;
     const payload = parseOutboxEntry(entry);
+
+    // Push-only Ereignisse sind append-only. Auch zwei Eintraege mit
+    // identischer event_id duerfen hier nie in update/delete-Semantik
+    // zusammenfallen; Idempotenz behandelt push.ts ausschliesslich ueber den
+    // INSERT-PK (23505). Ungueltige Ops bleiben einzeln erhalten, damit der
+    // Guard dort sie vor jedem Netzwerkzugriff als Programmierfehler markiert.
+    if (metaOf(entry.entity).pushOnly) {
+      passthrough.push({
+        entity: entry.entity,
+        entityId: entry.entity_id,
+        op: entry.op,
+        payload,
+        sourceIds: [entry.id],
+        sequence: entry.id,
+      });
+      continue;
+    }
+
     const group = open.get(key);
 
     if (group === undefined) {
@@ -147,9 +167,10 @@ export function coalesce(entries: readonly OutboxEntry[]): CoalesceResult {
     finish(group);
   }
 
-  const pushes = closed
-    .sort((a, b) => a.sequence - b.sequence)
-    .map(({ startedWithInsert: _startedWithInsert, ...rest }) => rest);
+  const pushes = [
+    ...closed.map(({ startedWithInsert: _startedWithInsert, ...rest }) => rest),
+    ...passthrough,
+  ].sort((a, b) => a.sequence - b.sequence);
 
   return { pushes, discardable: discardable.sort((a, b) => a - b) };
 }

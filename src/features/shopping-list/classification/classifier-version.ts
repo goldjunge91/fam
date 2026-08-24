@@ -8,4 +8,6 @@
  * nachvollziehbar, auch wenn sich die Regeln später ändern — siehe
  * `docs/issue#223_V2.md` Abschnitt 3 und 18 ("Stabile Snapshots").
  */
-export const CLASSIFIER_VERSION = '1';
+import { PLACEMENT_CLASSIFIER_VERSION } from './placement-taxonomy';
+
+export const CLASSIFIER_VERSION = PLACEMENT_CLASSIFIER_VERSION;

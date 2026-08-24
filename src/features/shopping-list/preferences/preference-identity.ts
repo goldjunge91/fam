@@ -2,6 +2,8 @@ export const PREFERENCE_NAMESPACE_UUID = 'bd168b04-a426-4fe0-a30d-ea926d0b2700';
 
 export type ShoppingCategoryPreferenceKey = {
   householdId: string;
+  /** `null`/undefined adressiert die haushaltsweite Präferenz. */
+  storeId?: string | null;
   keyType: 'product' | 'name';
   normalizedKeyValue: string;
 };
@@ -54,9 +56,26 @@ export function canonicalPreferenceKey(input: ShoppingCategoryPreferenceKey): st
   }
 
   const valueByteLength = textEncoder.encode(input.normalizedKeyValue).byteLength;
+  // Haushaltsweite IDs bleiben bytegenau kompatibel mit der bestehenden
+  // v1-Identität. Nur Store-Präferenzen erhalten den zusätzlichen Scope im
+  // kanonischen Schlüssel und damit eine eigene deterministische UUID.
+  if (input.storeId === undefined || input.storeId === null) {
+    return [
+      'shopping-category-preference/v1',
+      householdId,
+      input.keyType,
+      `${valueByteLength}:${input.normalizedKeyValue}`,
+    ].join('\n');
+  }
+
+  if (!UUID_PATTERN.test(input.storeId)) {
+    throw new Error(`Ungültige storeId: ${input.storeId}`);
+  }
+
   return [
-    'shopping-category-preference/v1',
+    'shopping-category-preference/v2',
     householdId,
+    input.storeId.toLowerCase(),
     input.keyType,
     `${valueByteLength}:${input.normalizedKeyValue}`,
   ].join('\n');

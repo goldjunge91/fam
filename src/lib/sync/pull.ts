@@ -32,6 +32,23 @@ const PAGE_SIZE = 500;
  */
 const MIN_UUID = '00000000-0000-0000-0000-000000000000';
 
+type PullResponse = {
+  data: unknown;
+  error: { message: string } | null;
+};
+
+type GenericQuery<T> = {
+  then<TResult1 = T, TResult2 = never>(
+    onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | null,
+    onrejected?: ((reason: unknown) => TResult2 | PromiseLike<TResult2>) | null,
+  ): PromiseLike<TResult1 | TResult2>;
+  select(columns?: string): GenericQuery<T>;
+  in(column: string, values: readonly string[]): GenericQuery<T>;
+  or(filter: string): GenericQuery<T>;
+  order(column: string, options: { ascending: boolean }): GenericQuery<T>;
+  limit(count: number): GenericQuery<T>;
+};
+
 export type PullOutcome = {
   entity: Entity;
   pagesFetched: number;
@@ -68,6 +85,11 @@ async function pullEntity(
     rowsSkippedAsLocalWins: 0,
   };
 
+  // Push-only-Entities haben weder Pull-Cursor noch Remote-Spiegelzeile.
+  // Dieser Guard bleibt auch dann wirksam, wenn ein interner Aufrufer die
+  // Entity-Liste spaeter direkt an `pullEntity` weiterreicht.
+  if (meta.pushOnly) return outcome;
+
   const { cursor: storedCursor, lastError: previousError } = await readSyncState(db, entity);
 
   // 'households' bekommt bewusst nie den gespeicherten Cursor: RLS-
@@ -83,8 +105,9 @@ async function pullEntity(
   let cursor = entity === 'households' ? initialCursor() : (storedCursor ?? initialCursor());
 
   for (;;) {
-    // biome-ignore lint/suspicious/noExplicitAny: generische Tabelle, siehe push.ts
-    let query = (supabase.from(meta.table) as any).select('*');
+    let query = (
+      supabase.from(meta.table as never) as unknown as GenericQuery<PullResponse>
+    ).select('*');
     if (meta.householdScoped) {
       query = query.in('household_id', householdIds);
     }
@@ -160,8 +183,7 @@ async function pullEntity(
  * `remoteIds` und wird hier lokal entsprechend geloescht.
  */
 async function reconcileHouseholdOrphans(db: SqlDatabase, supabase: TypedSupabaseClient) {
-  // biome-ignore lint/suspicious/noExplicitAny: generisches Select, siehe push.ts
-  const { data, error } = await (supabase.from('households') as any).select('id');
+  const { data, error } = await supabase.from('households').select('id');
   if (error || !data) return;
 
   const remoteIds = new Set<string>((data as { id: string }[]).map((r) => r.id));
@@ -187,11 +209,12 @@ async function reconcileOrphans(
   }
 
   const meta = metaOf(entity);
-  if (!meta.householdScoped) return;
+  if (meta.pushOnly || !meta.householdScoped) return;
 
   // 1. Remote-IDs von Supabase fuer den Haushalt laden
-  // biome-ignore lint/suspicious/noExplicitAny: generisches Select
-  const { data, error } = await (supabase.from(meta.table) as any)
+  const { data, error } = await (
+    supabase.from(meta.table as never) as unknown as GenericQuery<PullResponse>
+  )
     .select('id')
     .in('household_id', householdIds);
 
@@ -231,7 +254,7 @@ export async function pullHousehold(deps: {
   clockCeilingMs: number;
   entities?: readonly Entity[];
 }): Promise<PullOutcome[]> {
-  const entities = deps.entities ?? ALL_ENTITIES;
+  const entities = (deps.entities ?? ALL_ENTITIES).filter((entity) => !metaOf(entity).pushOnly);
   const outcomes: PullOutcome[] = [];
 
   for (const entity of entities) {

@@ -21,10 +21,11 @@ async function readItems(db: TestDatabase, householdId: string) {
     quantity: number;
     unit: string;
     checked_at: string | null;
+    store_id: string | null;
     category_id: string | null;
     category_source: string | null;
   }>(
-    `select id, product_id, name, quantity, unit, checked_at, category_id, category_source
+    `select id, product_id, name, quantity, unit, checked_at, store_id, category_id, category_source
      from shopping_list_items where household_id = ? and deleted_at is null order by sort_index`,
     [householdId],
   );
@@ -160,6 +161,30 @@ describe('addOrMergeShoppingItem', () => {
     expect(await readItems(db, 'hh-2')).toHaveLength(1);
   });
 
+  it('vermischt denselben Artikel aus verschiedenen Maerkten nicht', async () => {
+    await add({
+      household_id: 'hh-1',
+      store_id: 'store-1',
+      name: 'Milch',
+      quantity: 1,
+      unit: 'l',
+      product_id: 'prod-milch',
+    });
+    await add({
+      household_id: 'hh-1',
+      store_id: 'store-2',
+      name: 'Milch',
+      quantity: 1,
+      unit: 'l',
+      product_id: 'prod-milch',
+    });
+
+    expect(await readItems(db, 'hh-1')).toMatchObject([
+      { store_id: 'store-1', quantity: 1 },
+      { store_id: 'store-2', quantity: 1 },
+    ]);
+  });
+
   // #223 Paket 8, Abschnitt 10 "Merge": Vertrauensrang
   // user > household_preference > off_taxonomy > name_fallback > null.
   describe('Kategorie-Vertrauensrang beim Zusammenfuehren', () => {
@@ -233,6 +258,30 @@ describe('addOrMergeShoppingItem', () => {
 
       const [item] = await readItems(db, 'hh-1');
       expect(item).toMatchObject({ category_id: 'produce', category_source: 'name_fallback' });
+    });
+
+    it('eine neue bewusste Nutzerentscheidung ersetzt eine bestehende Nutzerzone', async () => {
+      await add({
+        household_id: 'hh-1',
+        name: 'Apfelsaft',
+        quantity: 1,
+        unit: 'l',
+        product_id: 'prod-apfelsaft',
+        category_id: 'cold_drinks',
+        category_source: 'user',
+      });
+      await add({
+        household_id: 'hh-1',
+        name: 'Apfelsaft',
+        quantity: 1,
+        unit: 'l',
+        product_id: 'prod-apfelsaft',
+        category_id: 'fresh_produce',
+        category_source: 'user',
+      });
+
+      const [item] = await readItems(db, 'hh-1');
+      expect(item).toMatchObject({ category_id: 'fresh_produce', category_source: 'user' });
     });
   });
 });

@@ -22,24 +22,46 @@ import { getDatabase } from '@/lib/db/client';
 import { recordProductUsage } from '@/lib/db/product-usage';
 import type { OpenFoodFactsProduct } from '@/lib/open-food-facts';
 import { formatAmount, formatPackageHint } from '@/lib/package-size';
+import { useFeatureFlag } from '@/lib/posthog';
 import { normalizeUnit, UNIT_OPTIONS } from '@/lib/units';
-import type { ShoppingCategoryId } from '../classification/shopping-category-id';
+import {
+  normalizePlacementZoneIdNullable,
+  PLACEMENT_CLASSIFIER_VERSION,
+  type PlacementZoneId,
+} from '../classification/placement-taxonomy';
+import type { CategorySource } from '../classification/types';
 import { useAddShoppingItem } from '../hooks/use-shopping-list-mutations';
 import type {
   ShoppingProductSuggestion,
   ShoppingSuggestionMode,
 } from '../hooks/use-shopping-product-suggestions';
 import { useStores } from '../hooks/use-stores';
-import { resolveCategoryForItem } from '../preferences/api';
-import {
-  useResetCategoryPreferenceMutation,
-  useSetCategoryPreferenceMutation,
-} from '../preferences/hooks';
-import { CategoryField } from './category-field';
+import type { CategoryPreferenceMutation } from '../preferences/api';
+import { resolvePlacementForItem } from '../preferences/api';
+import type { CategoryFeedbackDraft } from '../preferences/feedback';
+import { categoryFeedbackMetadata } from '../preferences/feedback-metadata';
 import { EMPTY_CATEGORY_STATE } from './category-form-state';
+import { PlacementZoneField, type PlacementZoneSelection } from './placement-zone-field';
 import { ShoppingProductSuggestions } from './shopping-product-suggestions';
 
 const NO_STORE = '__none__';
+type PreferenceScope = 'store' | 'household';
+
+function preferenceScopeForSource(
+  source: CategorySource | null,
+  _storeId: string | null,
+): PreferenceScope | null {
+  if (source === 'store_preference') return 'store';
+  if (source === 'household_preference') return 'household';
+  return null;
+}
+
+async function resolveAutomaticPreview(
+  input: Parameters<typeof resolvePlacementForItem>[0],
+  resetScope: PreferenceScope | null,
+) {
+  return resolvePlacementForItem(input, { omitPreferenceScope: resetScope });
+}
 
 interface AddItemFormProps {
   householdId: string;
@@ -64,7 +86,14 @@ export const AddItemForm = forwardRef<AddItemFormHandle, AddItemFormProps>(funct
   const [packageSizeUnit, setPackageSizeUnit] = useState('g');
   const [price, setPrice] = useState('');
   const [categoryState, setCategoryState] = useState(EMPTY_CATEGORY_STATE);
+  const [placementSelection, setPlacementSelection] = useState<PlacementZoneSelection>({
+    mode: 'automatic',
+  });
+  const [placementSelectionTouched, setPlacementSelectionTouched] = useState(false);
+  const [pendingPreferenceResetScope, setPendingPreferenceResetScope] =
+    useState<PreferenceScope | null>(null);
   const [storeId, setStoreId] = useState<string | null>(initialStoreId);
+  const manualSelectionStoreIdRef = useRef<string | null | undefined>(undefined);
   const [nameError, setNameError] = useState<string | null>(null);
   const [selectedProduct, setSelectedProduct] = useState<OpenFoodFactsProduct | null>(null);
   // Bekannte `product_id` aus einem Häufig/Zuletzt-Vorschlag (#UI-Feedback:
@@ -84,19 +113,13 @@ export const AddItemForm = forwardRef<AddItemFormHandle, AddItemFormProps>(funct
 
   const addItem = useAddShoppingItem();
   const addProductMutation = useAddProductMutation();
-  const setCategoryPreference = useSetCategoryPreferenceMutation();
-  const resetCategoryPreference = useResetCategoryPreferenceMutation();
   const { data: stores = [] } = useStores(householdId);
   const { session } = useSession();
   const userId = session?.user.id;
   const queryClient = useQueryClient();
+  const feedbackEnabled = useFeatureFlag('shopping-category-feedback-alpha', false);
 
-  // Gelesen statt in den Deps unten, damit ein manueller Pick
-  // (`categoryState.source === 'user'`) diesen Effekt nicht bei jeder
-  // eigenen State-Aenderung erneut ausloest (stale-closure-sicher per Ref,
-  // kein Re-Run-Loop wie bei einem State-Wert in den Deps).
-  const categorySourceRef = useRef(categoryState.source);
-  categorySourceRef.current = categoryState.source;
+  const automaticSourceRef = useRef<CategorySource | null>(null);
 
   // Automatischer Modus (Abschnitt 10 "Hinzufügen"): klassifiziert bei jeder
   // Namens-/Produktänderung neu, solange keine manuelle Auswahl aktiv ist.
@@ -104,51 +127,91 @@ export const AddItemForm = forwardRef<AddItemFormHandle, AddItemFormProps>(funct
   // bewusst unangetastet — nur ein Produktwechsel (`handleSelectProduct`)
   // verwirft sie explizit wieder.
   useEffect(() => {
-    if (categorySourceRef.current === 'user') return;
+    if (placementSelection.mode === 'manual') return;
 
     const trimmed = name.trim();
     if (!trimmed) {
+      automaticSourceRef.current = null;
       setCategoryState(EMPTY_CATEGORY_STATE);
       return;
     }
 
     let cancelled = false;
-    resolveCategoryForItem({
-      householdId,
-      productId: selectedProductId ?? undefined,
-      name: trimmed,
-      categoryTags: selectedProduct?.categoryTags,
-    }).then((result) => {
+    resolveAutomaticPreview(
+      {
+        householdId,
+        storeId,
+        productId: selectedProductId ?? undefined,
+        name: trimmed,
+        categoryTags: selectedProduct?.categoryTags,
+      },
+      pendingPreferenceResetScope,
+    ).then((result) => {
       if (cancelled) return;
-      setCategoryState(result);
+      automaticSourceRef.current = result.source;
+      setCategoryState({
+        categoryId: result.placementZoneId,
+        source: result.source,
+        classifierVersion: result.classifierVersion,
+      });
     });
     return () => {
       cancelled = true;
     };
-  }, [name, selectedProductId, selectedProduct, householdId]);
+  }, [
+    name,
+    selectedProductId,
+    selectedProduct,
+    householdId,
+    storeId,
+    placementSelection.mode,
+    pendingPreferenceResetScope,
+  ]);
 
-  function handleSelectCategory(categoryId: ShoppingCategoryId | null) {
-    setCategoryState({ categoryId, source: 'user', classifierVersion: null });
+  function handleSelectCategory(categoryId: PlacementZoneId) {
+    manualSelectionStoreIdRef.current = storeId;
+    setPlacementSelection({ mode: 'manual', zoneId: categoryId });
+    setPlacementSelectionTouched(true);
+    setPendingPreferenceResetScope(null);
+    setCategoryState({
+      categoryId,
+      source: 'user',
+      classifierVersion: PLACEMENT_CLASSIFIER_VERSION,
+    });
   }
 
-  /** "Auf automatisch zurücksetzen" — löscht eine ggf. gespeicherte Präferenz
-   * und übernimmt sofort das frische automatische Ergebnis. */
-  async function handleResetCategory() {
-    const trimmed = name.trim();
-    const result = await resetCategoryPreference.mutateAsync({
-      householdId,
-      keyType: selectedProductId ? 'product' : 'name',
-      keyValue: selectedProductId ?? trimmed,
-      name: trimmed,
-      productId: selectedProductId ?? undefined,
-      categoryTags: selectedProduct?.categoryTags,
-    });
-    setCategoryState(result);
+  /** Nur der Formularzustand ändert sich. Die Reset-Mutation läuft erst beim Speichern. */
+  function handleSelectAutomatic() {
+    setPlacementSelection({ mode: 'automatic' });
+    setPlacementSelectionTouched(true);
+    const knownScope = preferenceScopeForSource(automaticSourceRef.current, storeId);
+    setPendingPreferenceResetScope(knownScope);
+
+    // Legacy-Snapshots mit source=user verraten ihren historischen Scope
+    // nicht. Der lokale Resolver schaut Store vor Haushalt nach und bestimmt
+    // so den wirklich vorhandenen Preference-Scope, ohne ihn schon zu
+    // entfernen. Der Save wiederholt diese Ermittlung synchron zu seiner
+    // Transaktion, falls der Nutzer sehr schnell speichert.
+    if (automaticSourceRef.current === 'user') {
+      void resolvePlacementForItem({
+        householdId,
+        storeId,
+        productId: selectedProductId,
+        name: name.trim(),
+        categoryTags: selectedProduct?.categoryTags,
+      })
+        .then((current) => {
+          setPendingPreferenceResetScope(preferenceScopeForSource(current.source, storeId));
+        })
+        .catch((error) => {
+          console.error('Einkaufsbereich konnte nicht lokal aufgelöst werden:', error);
+        });
+    }
   }
 
   const storeOptions = useMemo(
     () => [
-      { value: NO_STORE, label: 'Ohne Liste' },
+      { value: NO_STORE, label: 'Ohne Markt' },
       ...stores.map((store) => ({ value: store.id, label: store.name })),
     ],
     [stores],
@@ -183,9 +246,25 @@ export const AddItemForm = forwardRef<AddItemFormHandle, AddItemFormProps>(funct
     // Produktwechsel darf eine manuelle Kategorie nicht unbemerkt uebernehmen
     // (Abschnitt 10) — zurueck in den automatischen Modus, der
     // Klassifikations-Effekt oben klassifiziert fuer das neue Produkt sofort neu.
-    if (categoryState.source === 'user') {
-      setCategoryState(EMPTY_CATEGORY_STATE);
-    }
+    setPlacementSelection({ mode: 'automatic' });
+    setPlacementSelectionTouched(false);
+    setPendingPreferenceResetScope(null);
+    setCategoryState(EMPTY_CATEGORY_STATE);
+    manualSelectionStoreIdRef.current = undefined;
+  }
+
+  function handleStoreChange(nextStoreId: string | null) {
+    const manualSelectionBelongsToPreviousStore =
+      placementSelection.mode === 'manual' && manualSelectionStoreIdRef.current !== nextStoreId;
+
+    setStoreId(nextStoreId);
+    setPendingPreferenceResetScope(null);
+    if (!manualSelectionBelongsToPreviousStore) return;
+
+    manualSelectionStoreIdRef.current = undefined;
+    setPlacementSelection({ mode: 'automatic' });
+    setPlacementSelectionTouched(false);
+    setCategoryState(EMPTY_CATEGORY_STATE);
   }
 
   function handleSelectSuggestion(
@@ -235,62 +314,162 @@ export const AddItemForm = forwardRef<AddItemFormHandle, AddItemFormProps>(funct
 
     const normalizedPrice = price.trim().replace('€', '').replace(',', '.').trim();
     const parsedPrice = normalizedPrice ? Number(normalizedPrice) : null;
-    const productId =
-      selectedProductId ??
-      (selectedProduct
-        ? await persistOffProductIfNeeded(selectedProduct, userId, addProductMutation)
-        : null);
+    try {
+      const productId =
+        selectedProductId ??
+        (selectedProduct
+          ? await persistOffProductIfNeeded(selectedProduct, userId, addProductMutation)
+          : null);
 
-    await addItem.mutateAsync({
-      household_id: householdId,
-      product_id: productId,
-      name: trimmed,
-      quantity: purchaseCount,
-      unit,
-      package_size: packageSize,
-      package_size_unit: packageSize ? packageSizeUnit : null,
-      category_id: categoryState.categoryId,
-      category_source: categoryState.source,
-      category_classifier_version: categoryState.classifierVersion,
-      store_id: storeId,
-      price_estimate: parsedPrice != null && !Number.isNaN(parsedPrice) ? parsedPrice : null,
-    });
-
-    // Nur eine echte manuelle Entscheidung (inkl. bewusstes "Sonstiges") wird
-    // als Haushaltspraeferenz gespeichert (Abschnitt 9 "Schreiben") — eine
-    // automatisch aufgeloeste Kategorie (auch `household_preference`, die ist
-    // ja schon gespeichert) schreibt hier nichts neu.
-    if (categoryState.source === 'user') {
-      await setCategoryPreference.mutateAsync({
+      const resolutionInput = {
         householdId,
-        keyType: productId ? 'product' : 'name',
-        keyValue: productId ?? trimmed,
-        categoryId: categoryState.categoryId,
-        createdBy: userId ?? null,
+        storeId,
+        productId,
+        name: trimmed,
+        categoryTags: selectedProduct?.categoryTags,
+      };
+      const effectiveBeforeSelection = await resolvePlacementForItem(resolutionInput);
+      const resetScope =
+        placementSelectionTouched && placementSelection.mode === 'automatic'
+          ? (pendingPreferenceResetScope ??
+            preferenceScopeForSource(effectiveBeforeSelection.source, storeId))
+          : null;
+      const resolution = resetScope
+        ? await resolvePlacementForItem(resolutionInput, { omitPreferenceScope: resetScope })
+        : effectiveBeforeSelection;
+      const globalClassification = resolution.globalClassification;
+      const savedCategory =
+        placementSelection.mode === 'manual'
+          ? {
+              placementZoneId: placementSelection.zoneId,
+              source: 'user' as const,
+              classifierVersion: globalClassification.classifierVersion,
+            }
+          : {
+              placementZoneId: resolution.placementZoneId,
+              source: resolution.source,
+              classifierVersion: resolution.classifierVersion,
+            };
+
+      const preference: CategoryPreferenceMutation | undefined =
+        placementSelectionTouched && placementSelection.mode === 'manual'
+          ? {
+              type: 'set',
+              input: {
+                householdId,
+                keyType: productId ? 'product' : 'name',
+                keyValue: productId ?? trimmed,
+                categoryId: placementSelection.zoneId,
+                storeId,
+                createdBy: userId ?? null,
+              },
+            }
+          : placementSelectionTouched && resetScope
+            ? {
+                type: 'reset',
+                input: {
+                  householdId,
+                  keyType: productId ? 'product' : 'name',
+                  keyValue: productId ?? trimmed,
+                  storeId: resetScope === 'store' ? storeId : null,
+                },
+              }
+            : undefined;
+
+      const feedback: CategoryFeedbackDraft | undefined =
+        feedbackEnabled && userId
+          ? placementSelectionTouched && placementSelection.mode === 'manual'
+            ? savedCategory.placementZoneId !== effectiveBeforeSelection.placementZoneId &&
+              savedCategory.placementZoneId !== globalClassification.placementZoneId
+              ? {
+                  eventId: Crypto.randomUUID(),
+                  eventType: 'manual_reassign',
+                  inputMethod: 'add_form',
+                  householdId,
+                  actorUserId: userId,
+                  productId,
+                  barcode: selectedProduct?.barcode ?? resolution.barcode,
+                  productName: trimmed,
+                  storeId,
+                  preferenceScope: storeId ? 'store' : 'household',
+                  oldPlacementZone: effectiveBeforeSelection.placementZoneId,
+                  newPlacementZone: savedCategory.placementZoneId,
+                  predictedPlacementZone: globalClassification.placementZoneId,
+                  oldCategorySource: effectiveBeforeSelection.source,
+                  newCategorySource: 'user',
+                  predictedProductFamily: globalClassification.productFamilyId,
+                  predictedProductForm: globalClassification.productFormId,
+                  classifierVersion: globalClassification.classifierVersion,
+                  ...categoryFeedbackMetadata(),
+                }
+              : undefined
+            : placementSelectionTouched && placementSelection.mode === 'automatic' && resetScope
+              ? {
+                  eventId: Crypto.randomUUID(),
+                  eventType: 'reset_to_automatic',
+                  inputMethod: 'add_form',
+                  householdId,
+                  actorUserId: userId,
+                  productId,
+                  barcode: selectedProduct?.barcode ?? resolution.barcode,
+                  productName: trimmed,
+                  storeId: resetScope === 'store' ? storeId : null,
+                  preferenceScope: resetScope,
+                  oldPlacementZone: effectiveBeforeSelection.placementZoneId,
+                  newPlacementZone: resolution.placementZoneId,
+                  predictedPlacementZone: globalClassification.placementZoneId,
+                  oldCategorySource: effectiveBeforeSelection.source,
+                  newCategorySource: resolution.source,
+                  predictedProductFamily: globalClassification.productFamilyId,
+                  predictedProductForm: globalClassification.productFormId,
+                  classifierVersion: globalClassification.classifierVersion,
+                  ...categoryFeedbackMetadata(),
+                }
+              : undefined
+          : undefined;
+
+      await addItem.mutateAsync({
+        household_id: householdId,
+        product_id: productId,
+        name: trimmed,
+        quantity: purchaseCount,
+        unit,
+        package_size: packageSize,
+        package_size_unit: packageSize ? packageSizeUnit : null,
+        category_id: savedCategory.placementZoneId,
+        category_source: savedCategory.source,
+        category_classifier_version: savedCategory.classifierVersion,
+        store_id: storeId,
+        price_estimate: parsedPrice != null && !Number.isNaN(parsedPrice) ? parsedPrice : null,
+        preference,
+        feedback,
       });
-    }
 
-    if (userId) {
-      void getDatabase()
-        .then((db) =>
-          recordProductUsage(db, {
-            id: Crypto.randomUUID(),
-            userId,
-            householdId,
-            feature: 'shopping_list',
-            productId,
-            name: trimmed,
-            brand: selectedProduct?.brand ?? null,
-            barcode: selectedProduct?.barcode ?? null,
-            quantity: packageSize ?? purchaseCount,
-            unit: packageSize ? packageSizeUnit : unit,
-          }),
-        )
-        .then(() => queryClient.invalidateQueries({ queryKey: ['product_usage'] }))
-        .catch((err) => console.error('Fehler beim Protokollieren der Nutzung:', err));
-    }
+      if (userId) {
+        void getDatabase()
+          .then((db) =>
+            recordProductUsage(db, {
+              id: Crypto.randomUUID(),
+              userId,
+              householdId,
+              feature: 'shopping_list',
+              productId,
+              name: trimmed,
+              brand: selectedProduct?.brand ?? null,
+              barcode: selectedProduct?.barcode ?? null,
+              quantity: packageSize ?? purchaseCount,
+              unit: packageSize ? packageSizeUnit : unit,
+            }),
+          )
+          .then(() => queryClient.invalidateQueries({ queryKey: ['product_usage'] }))
+          .catch((err) => console.error('Fehler beim Protokollieren der Nutzung:', err));
+      }
 
-    onDismiss();
+      onDismiss();
+    } catch (error) {
+      console.error('Fehler beim lokalen Speichern des Einkaufsartikels:', error);
+      setNameError('Artikel konnte nicht gespeichert werden. Bitte erneut versuchen.');
+    }
   }
 
   return (
@@ -384,12 +563,12 @@ export const AddItemForm = forwardRef<AddItemFormHandle, AddItemFormProps>(funct
           </View>
           <View className="flex-1">
             <WheelPickerField
-              label="Liste"
+              label="Markt"
               value={storeId ?? NO_STORE}
               options={storeOptions}
               onChange={(value) => {
                 dismissKeyboard();
-                setStoreId(value === NO_STORE ? null : value);
+                handleStoreChange(value === NO_STORE ? null : value);
               }}
               size="large"
             />
@@ -416,11 +595,14 @@ export const AddItemForm = forwardRef<AddItemFormHandle, AddItemFormProps>(funct
 
           {detailsOpen ? (
             <View className="gap-[10px] pb-one">
-              <CategoryField
-                categoryId={categoryState.categoryId}
-                source={categoryState.source}
-                onSelectCategory={handleSelectCategory}
-                onReset={handleResetCategory}
+              <PlacementZoneField
+                selection={placementSelection}
+                effectiveZoneId={normalizePlacementZoneIdNullable(categoryState.categoryId)}
+                categoryOrder={stores
+                  .find((store) => store.id === storeId)
+                  ?.category_order?.split(',')}
+                onSelectionChange={({ zoneId }) => handleSelectCategory(zoneId)}
+                onSelectAutomatic={handleSelectAutomatic}
               />
               <WheelPickerField
                 label="Einheit"

@@ -1,14 +1,39 @@
-import PostHog, {
-  PostHogProvider,
-  useFeatureFlag as usePostHogFeatureFlagSdk,
-  useFeatureFlags as usePostHogFeatureFlagsSdk,
-} from 'posthog-react-native';
-import type { ReactNode } from 'react';
+import PostHog, { PostHogProvider } from 'posthog-react-native';
+import { createContext, type ReactNode, useContext, useEffect, useState } from 'react';
 
 import { env } from '@/lib/env';
 
 let client: PostHog | undefined;
 let attempted = false;
+let initializationError: string | undefined;
+
+export type FeatureFlagValues = Record<string, boolean | string> | undefined;
+
+const FEATURE_FLAG_RELOAD_TIMEOUT_MS = 15_000;
+
+const FeatureFlagContext = createContext<FeatureFlagValues>(undefined);
+
+function FeatureFlagProvider({
+  posthog,
+  children,
+}: {
+  posthog: PostHog | undefined;
+  children: ReactNode;
+}) {
+  const [flags, setFlags] = useState<FeatureFlagValues>(() => posthog?.getFeatureFlags());
+
+  useEffect(() => {
+    if (!posthog) {
+      setFlags(undefined);
+      return;
+    }
+
+    setFlags(posthog.getFeatureFlags());
+    return posthog.onFeatureFlags(setFlags);
+  }, [posthog]);
+
+  return <FeatureFlagContext.Provider value={flags}>{children}</FeatureFlagContext.Provider>;
+}
 
 /**
  * Konfiguriert den PostHog-Client einmalig pro App-Leben. Muss vor dem ersten
@@ -44,6 +69,7 @@ export function initPostHog(): void {
   try {
     client = new PostHog(apiKey, { host: env.posthogHost });
   } catch (err) {
+    initializationError = err instanceof Error ? err.message : String(err);
     console.error('[posthog] Client-Konstruktion fehlgeschlagen — Tracking bleibt aus:', err);
   }
 }
@@ -51,6 +77,11 @@ export function initPostHog(): void {
 /** Ob `initPostHog()` erfolgreich einen API-Key konfiguriert hat. */
 export function isPostHogConfigured(): boolean {
   return client !== undefined;
+}
+
+/** Liefert den letzten Konstruktorfehler fuer die Diagnose im Dev-Bereich. */
+export function getPostHogInitializationError(): string | undefined {
+  return initializationError;
 }
 
 /**
@@ -63,10 +94,44 @@ export function getPostHogClient(): PostHog | undefined {
 }
 
 /**
- * Haengt den konfigurierten PostHog-Client in den Provider-Baum ein — nur
- * wenn `initPostHog()` einen API-Key konfiguriert hat, sonst reiner
- * Pass-Through (kein `<PostHogProvider>`, `useFeatureFlag()` faellt dann
- * selbst auf `defaultValue` zurueck).
+ * Laedt Flags ueber die oeffentliche Promise-API des SDK neu. PostHog liefert
+ * bei HTTP- und Netzwerkfehlern `undefined`, statt die Promise abzulehnen.
+ * Deshalb wird dieser Zustand als Diagnosefehler behandelt. Die zusaetzliche
+ * Frist garantiert, dass der Debug-Button auch dann wieder freigegeben wird,
+ * wenn SDK-Initialisierung oder Storage wider Erwarten haengen bleiben.
+ */
+export async function reloadPostHogFeatureFlags(): Promise<FeatureFlagValues> {
+  const activeClient = getPostHogClient();
+  if (!activeClient) {
+    throw new Error('PostHog ist nicht konfiguriert. API-Key fehlt im Build.');
+  }
+
+  let timeout: ReturnType<typeof setTimeout> | undefined;
+  try {
+    const flags = await Promise.race([
+      activeClient.reloadFeatureFlagsAsync(),
+      new Promise<never>((_, reject) => {
+        timeout = setTimeout(() => {
+          reject(new Error('PostHog-Flag-Abruf hat nach 15 Sekunden nicht geantwortet.'));
+        }, FEATURE_FLAG_RELOAD_TIMEOUT_MS);
+      }),
+    ]);
+
+    if (flags === undefined) {
+      throw new Error(
+        'PostHog hat keine Flags geliefert. Pruefe Project API Key, Host und Netzwerk.',
+      );
+    }
+    return flags;
+  } finally {
+    if (timeout !== undefined) clearTimeout(timeout);
+  }
+}
+
+/**
+ * Haengt den konfigurierten PostHog-Client in den Provider-Baum ein. Der
+ * interne Flag-Context bleibt auch ohne SDK-Client montiert, damit alle
+ * Feature-Flag-Hooks ohne SDK-Warnung auf ihren Default-Wert fallen.
  *
  * Rendert absichtlich nur den Client-Wrapper, keine Login/Logout-Logik —
  * `identify()`/`reset()` braucht die Supabase-Session und lebt deshalb in
@@ -74,8 +139,15 @@ export function getPostHogClient(): PostHog | undefined {
  * hier: `lib/` haengt nie von `features/` ab.
  */
 export function PostHogAppProvider({ children }: { children: ReactNode }): ReactNode {
-  if (!isPostHogConfigured() || !client) return children;
-  return <PostHogProvider client={client}>{children}</PostHogProvider>;
+  const activeClient = isPostHogConfigured() ? client : undefined;
+  if (!activeClient) {
+    return <FeatureFlagProvider posthog={undefined}>{children}</FeatureFlagProvider>;
+  }
+  return (
+    <PostHogProvider client={activeClient}>
+      <FeatureFlagProvider posthog={activeClient}>{children}</FeatureFlagProvider>
+    </PostHogProvider>
+  );
 }
 
 /**
@@ -106,6 +178,7 @@ export function PostHogAppProvider({ children }: { children: ReactNode }): React
  */
 export type FeatureFlagKey =
   | 'test-feature'
+  | 'shopping-category-feedback-alpha'
   | 'workout-log'
   | 'low-carb-tracking'
   | 'module-recipes'
@@ -115,8 +188,8 @@ export type FeatureFlagKey =
 /**
  * Fragt den rohen Zustand eines Feature-Flags ab: `true`/`false` sobald ein
  * Wert bestaetigt ist, `undefined` solange noch keiner vorliegt. Kapselt
- * `useFeatureFlag()` aus `posthog-react-native` — Komponenten importieren
- * ausschliesslich diese Hooks, nie das SDK direkt.
+ * den SDK-Client-Store — Komponenten importieren ausschliesslich diese Hooks,
+ * nie das SDK direkt.
  *
  * `undefined` greift in zwei Faellen: ohne konfigurierten API-Key
  * (`initPostHog()` war ein No-op) und beim allerersten App-Start, bevor
@@ -135,9 +208,9 @@ export type FeatureFlagKey =
  * `undefined` zurueckgegeben.
  */
 export function useFeatureFlagState(key: FeatureFlagKey | undefined): boolean | undefined {
-  const value = usePostHogFeatureFlagSdk(key ?? '__no_flag_key__');
-  if (key === undefined || value === undefined) return undefined;
-  return value === true;
+  const flags = useContext(FeatureFlagContext);
+  const value = key === undefined ? undefined : flags?.[key];
+  return typeof value === 'boolean' ? value : undefined;
 }
 
 /**
@@ -151,10 +224,10 @@ export function useFeatureFlag(key: FeatureFlagKey | undefined, defaultValue: bo
 
 /**
  * Fragt alle aktiven Feature-Flags als Key-Value-Map ab.
- * Kapselt `useFeatureFlags()` aus `posthog-react-native`.
+ * Liest den vom SDK aktualisierten internen Flag-Store.
  */
 export function useFeatureFlags() {
-  return usePostHogFeatureFlagsSdk();
+  return useContext(FeatureFlagContext);
 }
 
 export { PostHog };

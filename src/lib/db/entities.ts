@@ -16,6 +16,8 @@ export type EntityMeta = {
   hasServerTombstone: boolean;
   /** false bei 'products' und 'households' — beide global, kein household_id-Praefix. */
   householdScoped: boolean;
+  /** Push-only-Entitaeten werden nie gepullt und brauchen keine Server-Spiegelantwort. */
+  pushOnly?: boolean;
   /** Spalten ohne updated_at/deleted_at/_dirty, id zuerst. 1:1 aus migrations.ts's V1_MIRRORS. */
   columns: readonly string[];
 };
@@ -90,11 +92,48 @@ export const ENTITIES: Readonly<Record<Entity, EntityMeta>> = {
     columns: [
       'id',
       'household_id',
+      'store_id',
       'key_type',
       'normalized_key_value',
       'category_id',
       'created_by',
       'created_at',
+    ],
+  },
+  shopping_category_feedback_events: {
+    entity: 'shopping_category_feedback_events',
+    table: 'shopping_category_feedback_events',
+    hasServerTombstone: false,
+    householdScoped: true,
+    pushOnly: true,
+    columns: [
+      'event_id',
+      'schema_version',
+      'taxonomy_version',
+      'event_type',
+      'input_method',
+      'household_id',
+      'actor_user_id',
+      'shopping_list_item_id',
+      'product_key_type',
+      'product_key',
+      'product_id',
+      'barcode',
+      'product_name',
+      'store_id',
+      'preference_scope',
+      'old_placement_zone',
+      'new_placement_zone',
+      'predicted_placement_zone',
+      'old_category_source',
+      'new_category_source',
+      'predicted_product_family',
+      'predicted_product_form',
+      'classifier_version',
+      'platform',
+      'app_version',
+      'build_channel',
+      'client_created_at',
     ],
   },
   products: {
@@ -258,6 +297,9 @@ export const ALL_ENTITIES: readonly Entity[] = [
   'meal_plans',
   'meal_plan_entries',
 ];
+
+/** Push-only-Events, die bewusst nicht in ALL_ENTITIES (Pull) stehen. */
+export const PUSH_ONLY_ENTITIES: readonly Entity[] = ['shopping_category_feedback_events'];
 
 export function hasServerTombstone(entity: Entity): boolean {
   return ENTITIES[entity].hasServerTombstone;

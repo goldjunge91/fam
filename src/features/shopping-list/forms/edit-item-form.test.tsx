@@ -1,17 +1,38 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { fireEvent, render, screen, userEvent } from '@testing-library/react-native';
+import { fireEvent, render, screen, userEvent, waitFor } from '@testing-library/react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import { EditItemForm } from '@/features/shopping-list/forms/edit-item-form';
 import type { LocalShoppingItem } from '@/features/shopping-list/hooks/use-shopping-list';
 
 const mockUpdateMutateAsync = jest.fn().mockResolvedValue({});
+const defaultGlobalClassification = {
+  placementZoneId: 'fresh_produce',
+  productFamilyId: 'fruit',
+  productFormId: 'fresh',
+  classifierVersion: 'placement-v2.0.0',
+};
+const mockResolvePlacementForItem = jest.fn().mockResolvedValue({
+  ...defaultGlobalClassification,
+  categoryId: 'fresh_produce',
+  source: 'name_fallback',
+  globalClassification: defaultGlobalClassification,
+  barcode: null,
+});
 const mockSetCategoryPreferenceMutateAsync = jest.fn().mockResolvedValue('pref-1');
 const mockResetCategoryPreferenceMutateAsync = jest.fn().mockResolvedValue({
   categoryId: null,
   source: null,
   classifierVersion: '1',
 });
+let mockStores: Array<{
+  id: string;
+  household_id: string;
+  name: string;
+  color: string;
+  sort_order: number;
+  category_order: string | null;
+}> = [];
 
 jest.mock('@/features/household/active-household-provider', () => ({
   useActiveHousehold: () => ({ activeHouseholdId: 'hh-1' }),
@@ -32,13 +53,13 @@ jest.mock('@/features/shopping-list/hooks/use-shopping-list-mutations', () => ({
 }));
 
 jest.mock('../hooks/use-stores', () => ({
-  useStores: () => ({ data: [], isLoading: false }),
+  useStores: () => ({ data: mockStores, isLoading: false }),
   useAddStoreMutation: () => ({ mutateAsync: jest.fn() }),
   findStoreByName: () => null,
 }));
 
 jest.mock('@/features/shopping-list/hooks/use-stores', () => ({
-  useStores: () => ({ data: [], isLoading: false }),
+  useStores: () => ({ data: mockStores, isLoading: false }),
   useAddStoreMutation: () => ({ mutateAsync: jest.fn() }),
   findStoreByName: () => null,
 }));
@@ -52,6 +73,14 @@ jest.mock('../preferences/hooks', () => ({
   }),
 }));
 
+jest.mock('../preferences/api', () => ({
+  resolvePlacementForItem: (...args: unknown[]) => mockResolvePlacementForItem(...args),
+}));
+
+jest.mock('@/lib/posthog', () => ({
+  useFeatureFlag: () => false,
+}));
+
 describe('EditItemForm', () => {
   const mockItem: LocalShoppingItem = {
     id: 'item-1',
@@ -62,7 +91,7 @@ describe('EditItemForm', () => {
     unit: 'piece',
     package_size: null,
     package_size_unit: null,
-    category_id: 'produce',
+    category_id: 'fresh_produce',
     category_source: 'name_fallback',
     category_classifier_version: null,
     category: 'Obst & Gemüse',
@@ -76,7 +105,7 @@ describe('EditItemForm', () => {
     updated_at: '2026-08-20T10:00:00Z',
   };
 
-  async function renderForm() {
+  async function renderForm(item = mockItem, onDismiss = jest.fn()) {
     const queryClient = new QueryClient({
       defaultOptions: {
         queries: { retry: false, gcTime: Number.POSITIVE_INFINITY },
@@ -90,7 +119,7 @@ describe('EditItemForm', () => {
           insets: { top: 47, left: 0, right: 0, bottom: 34 },
         }}>
         <QueryClientProvider client={queryClient}>
-          <EditItemForm item={mockItem} onDismiss={jest.fn()} />
+          <EditItemForm item={item} onDismiss={onDismiss} />
         </QueryClientProvider>
       </SafeAreaProvider>,
     );
@@ -98,6 +127,15 @@ describe('EditItemForm', () => {
 
   beforeEach(() => {
     jest.clearAllMocks();
+    mockStores = [];
+    mockUpdateMutateAsync.mockResolvedValue({});
+    mockResolvePlacementForItem.mockResolvedValue({
+      ...defaultGlobalClassification,
+      categoryId: 'fresh_produce',
+      source: 'name_fallback',
+      globalClassification: defaultGlobalClassification,
+      barcode: null,
+    });
   });
 
   it('rendert den aktuellen Namen des Artikels', async () => {
@@ -115,12 +153,14 @@ describe('EditItemForm', () => {
     const saveBtn = screen.getByRole('button', { name: 'Speichern' });
     await fireEvent.press(saveBtn);
 
-    expect(mockUpdateMutateAsync).toHaveBeenCalledWith(
-      expect.objectContaining({
-        id: 'item-1',
-        household_id: 'hh-1',
-        name: 'Bio Bananen',
-      }),
+    await waitFor(() =>
+      expect(mockUpdateMutateAsync).toHaveBeenCalledWith(
+        expect.objectContaining({
+          id: 'item-1',
+          household_id: 'hh-1',
+          name: 'Bio Bananen',
+        }),
+      ),
     );
   });
 
@@ -128,7 +168,7 @@ describe('EditItemForm', () => {
     await renderForm();
 
     expect(screen.getByText('Obst & Gemüse')).toBeOnTheScreen();
-    expect(screen.getByText('automatisch · Name')).toBeOnTheScreen();
+    expect(screen.queryByText('automatisch · Name')).not.toBeOnTheScreen();
   });
 
   it('eine Namensänderung berechnet die Kategorie beim Speichern nicht neu', async () => {
@@ -137,8 +177,10 @@ describe('EditItemForm', () => {
     await fireEvent.changeText(screen.getByDisplayValue('Bananen'), 'Bio Bananen');
     await fireEvent.press(screen.getByRole('button', { name: 'Speichern' }));
 
-    expect(mockUpdateMutateAsync).toHaveBeenCalledWith(
-      expect.objectContaining({ category_id: 'produce', category_source: 'name_fallback' }),
+    await waitFor(() =>
+      expect(mockUpdateMutateAsync).toHaveBeenCalledWith(
+        expect.objectContaining({ category_id: 'fresh_produce', category_source: 'name_fallback' }),
+      ),
     );
     expect(mockSetCategoryPreferenceMutateAsync).not.toHaveBeenCalled();
   });
@@ -147,27 +189,117 @@ describe('EditItemForm', () => {
     const user = userEvent.setup();
     await renderForm();
 
-    await user.press(screen.getByRole('button', { name: /Kategorie:/ }));
-    await user.press(screen.getByRole('button', { name: 'Getränke' }));
+    await user.press(screen.getByRole('button', { name: /Einkaufsbereich:/ }));
+    await user.press(screen.getByRole('button', { name: 'Wasser, Saft & Softdrinks' }));
     await fireEvent.press(screen.getByRole('button', { name: 'Speichern' }));
 
-    expect(mockUpdateMutateAsync).toHaveBeenCalledWith(
-      expect.objectContaining({ category_id: 'beverages', category_source: 'user' }),
+    await waitFor(() =>
+      expect(mockUpdateMutateAsync).toHaveBeenCalledWith(
+        expect.objectContaining({ category_id: 'cold_drinks', category_source: 'user' }),
+      ),
     );
-    expect(mockSetCategoryPreferenceMutateAsync).toHaveBeenCalledWith(
-      expect.objectContaining({ householdId: 'hh-1', categoryId: 'beverages' }),
+    await waitFor(() =>
+      expect(mockUpdateMutateAsync).toHaveBeenCalledWith(
+        expect.objectContaining({
+          preference: expect.objectContaining({
+            type: 'set',
+            input: expect.objectContaining({ householdId: 'hh-1', categoryId: 'cold_drinks' }),
+          }),
+        }),
+      ),
     );
   });
 
-  it('"Automatisch" ruft die Reset-Mutation auf und schreibt beim Speichern keine neue Präferenz', async () => {
+  it('ordnet eine manuelle Auswahl nach einem Marktwechsel nur dem neuen Markt zu', async () => {
+    mockStores = [
+      {
+        id: 'store-1',
+        household_id: 'hh-1',
+        name: 'Alter Markt',
+        color: '#8B5E83',
+        sort_order: 0,
+        category_order: null,
+      },
+      {
+        id: 'store-2',
+        household_id: 'hh-1',
+        name: 'Neuer Markt',
+        color: '#A46A5A',
+        sort_order: 1,
+        category_order: null,
+      },
+    ];
     const user = userEvent.setup();
-    await renderForm();
+    await renderForm({
+      ...mockItem,
+      store_id: 'store-1',
+      category_source: 'store_preference',
+    });
 
-    await user.press(screen.getByRole('button', { name: /Kategorie:/ }));
+    await user.press(screen.getByRole('radio', { name: 'Neuer Markt' }));
+    await user.press(screen.getByRole('button', { name: /Einkaufsbereich:/ }));
+    await user.press(screen.getByRole('button', { name: 'Wasser, Saft & Softdrinks' }));
+    await user.press(screen.getByRole('button', { name: 'Speichern' }));
+
+    await waitFor(() =>
+      expect(mockUpdateMutateAsync).toHaveBeenCalledWith(
+        expect.objectContaining({
+          store_id: 'store-2',
+          category_id: 'cold_drinks',
+          preference: expect.objectContaining({
+            type: 'set',
+            input: expect.objectContaining({ storeId: 'store-2', categoryId: 'cold_drinks' }),
+          }),
+        }),
+      ),
+    );
+    expect(mockSetCategoryPreferenceMutateAsync).not.toHaveBeenCalledWith(
+      expect.objectContaining({ storeId: 'store-1' }),
+    );
+  });
+
+  it('"Automatisch" ruft Reset erst beim Speichern auf', async () => {
+    const user = userEvent.setup();
+    await renderForm({
+      ...mockItem,
+      store_id: 'store-1',
+      category_source: 'household_preference',
+    });
+
+    await user.press(screen.getByRole('button', { name: /Einkaufsbereich:/ }));
     await user.press(screen.getByRole('button', { name: /^Automatisch/ }));
-    expect(mockResetCategoryPreferenceMutateAsync).toHaveBeenCalled();
+    expect(mockResetCategoryPreferenceMutateAsync).not.toHaveBeenCalled();
+
+    await waitFor(() =>
+      expect(mockResolvePlacementForItem).toHaveBeenCalledWith(
+        expect.objectContaining({ storeId: 'store-1' }),
+        { omitPreferenceScope: 'household' },
+      ),
+    );
 
     await fireEvent.press(screen.getByRole('button', { name: 'Speichern' }));
-    expect(mockSetCategoryPreferenceMutateAsync).not.toHaveBeenCalled();
+    await waitFor(() =>
+      expect(mockUpdateMutateAsync).toHaveBeenCalledWith(
+        expect.objectContaining({
+          preference: expect.objectContaining({
+            type: 'reset',
+            input: expect.objectContaining({ storeId: null }),
+          }),
+        }),
+      ),
+    );
+  });
+
+  it('schliesst nur nach erfolgreichem lokalen Save', async () => {
+    const onDismiss = jest.fn();
+    mockUpdateMutateAsync.mockRejectedValueOnce(new Error('SQLite write failed'));
+    await renderForm(mockItem, onDismiss);
+
+    await fireEvent.press(screen.getByRole('button', { name: 'Speichern' }));
+
+    expect(
+      await screen.findByText('Speichern fehlgeschlagen. Bitte erneut versuchen.'),
+    ).toBeOnTheScreen();
+    expect(onDismiss).not.toHaveBeenCalled();
   });
 });

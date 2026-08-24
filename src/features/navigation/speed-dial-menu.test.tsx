@@ -15,6 +15,7 @@ let mockModulePreferences: ModulePreferences = {
 };
 let mockFeatureFlags: Record<FeatureFlagKey, boolean> = {
   'test-feature': false,
+  'shopping-category-feedback-alpha': false,
   'workout-log': false,
   'low-carb-tracking': false,
   'module-recipes': true,
@@ -88,6 +89,7 @@ describe('SpeedDialMenu', () => {
     };
     mockFeatureFlags = {
       'test-feature': false,
+      'shopping-category-feedback-alpha': false,
       'workout-log': false,
       'low-carb-tracking': false,
       'module-recipes': true,

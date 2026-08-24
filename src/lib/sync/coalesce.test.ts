@@ -113,6 +113,27 @@ describe('coalesce', () => {
     expect(result.pushes).toHaveLength(2);
   });
 
+  it('coalesct push-only Feedback-Events niemals', () => {
+    const result = coalesce([
+      entry(
+        'insert',
+        { event_id: 'event-1', new_placement_zone: 'other' },
+        'event-1',
+        'shopping_category_feedback_events',
+      ),
+      entry(
+        'update',
+        { new_placement_zone: 'fresh_produce' },
+        'event-1',
+        'shopping_category_feedback_events',
+      ),
+    ]);
+
+    expect(result.pushes).toHaveLength(2);
+    expect(result.pushes.map((push) => push.op)).toEqual(['insert', 'update']);
+    expect(result.pushes.map((push) => push.sourceIds)).toEqual([[1], [2]]);
+  });
+
   it('erhaelt die zeilenuebergreifende Erstellungsreihenfolge', () => {
     // Ein fridge_item zeigt auf einen storage_location. Wird der Lagerort
     // spaeter gepusht als der Artikel, laeuft der Fremdschluessel ins Leere.

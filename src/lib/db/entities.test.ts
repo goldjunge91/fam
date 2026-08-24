@@ -1,4 +1,10 @@
-import { ALL_ENTITIES, ENTITIES, hasServerTombstone, metaOf } from '@/lib/db/entities';
+import {
+  ALL_ENTITIES,
+  ENTITIES,
+  hasServerTombstone,
+  metaOf,
+  PUSH_ONLY_ENTITIES,
+} from '@/lib/db/entities';
 import type { Entity } from '@/lib/db/types';
 
 describe('entities', () => {
@@ -32,6 +38,7 @@ describe('entities', () => {
       fridge_items: true,
       shopping_list_items: true,
       shopping_category_preferences: true,
+      shopping_category_feedback_events: false,
       products: false,
       households: false,
       recipes: true,
@@ -55,6 +62,7 @@ describe('entities', () => {
       fridge_items: true,
       shopping_list_items: true,
       shopping_category_preferences: true,
+      shopping_category_feedback_events: false,
       products: false,
       households: false,
       recipes: true,
@@ -108,5 +116,12 @@ describe('entities', () => {
     expect(ENTITIES.households.columns).not.toContain('updated_at');
     expect(ENTITIES.households.columns).not.toContain('deleted_at');
     expect(ENTITIES.households.columns).not.toContain('_dirty');
+  });
+
+  it('Feedback ist push-only und bleibt aus dem Pull-Entity-Set heraus', () => {
+    expect(PUSH_ONLY_ENTITIES).toEqual(['shopping_category_feedback_events']);
+    expect(ALL_ENTITIES).not.toContain('shopping_category_feedback_events');
+    expect(ENTITIES.shopping_category_feedback_events.pushOnly).toBe(true);
+    expect(ENTITIES.shopping_category_feedback_events.columns[0]).toBe('event_id');
   });
 });

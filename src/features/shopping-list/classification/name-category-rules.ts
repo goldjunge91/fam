@@ -1,8 +1,9 @@
-import type { ShoppingCategoryId } from './shopping-category-id';
+import type { StoredPlacementZoneId } from './placement-taxonomy';
 
 export type NameCategoryRule = {
   value: string;
-  categoryId: ShoppingCategoryId;
+  /** Legacy-Regeln werden im Classifier vor der Auswertung auf V2 normalisiert. */
+  categoryId: StoredPlacementZoneId;
   /**
    * Position innerhalb eines Tokens (deutsche Komposita sind meist EIN
    * zusammengeschriebenes Wort, kein Leerzeichen):

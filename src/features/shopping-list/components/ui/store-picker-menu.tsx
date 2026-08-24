@@ -144,26 +144,24 @@ export function StorePickerMenu({
                 </Pressable>
               ))}
 
-              {unassignedCount > 0 && (
-                <Pressable
-                  onPress={() => select(UNASSIGNED_FILTER)}
-                  accessibilityRole="menuitem"
-                  accessibilityState={{ selected: activeFilter === UNASSIGNED_FILTER }}
-                  className={`store-picker-row ${
-                    activeFilter === UNASSIGNED_FILTER ? 'store-picker-row-active' : ''
-                  }`}>
-                  <View
-                    className="store-picker-dot"
-                    style={{ backgroundColor: theme.textSecondary }}
-                  />
-                  <ThemedText type="small" className="flex-1 font-semibold">
-                    Ohne Markt
-                  </ThemedText>
-                  <ThemedText type="caption" themeColor="textSecondary">
-                    {unassignedCount}
-                  </ThemedText>
-                </Pressable>
-              )}
+              <Pressable
+                onPress={() => select(UNASSIGNED_FILTER)}
+                accessibilityRole="menuitem"
+                accessibilityState={{ selected: activeFilter === UNASSIGNED_FILTER }}
+                className={`store-picker-row ${
+                  activeFilter === UNASSIGNED_FILTER ? 'store-picker-row-active' : ''
+                }`}>
+                <View
+                  className="store-picker-dot"
+                  style={{ backgroundColor: theme.textSecondary }}
+                />
+                <ThemedText type="small" className="flex-1 font-semibold">
+                  Ohne Markt
+                </ThemedText>
+                <ThemedText type="caption" themeColor="textSecondary">
+                  {unassignedCount}
+                </ThemedText>
+              </Pressable>
             </View>
           )}
         </Pressable>

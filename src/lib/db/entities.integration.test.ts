@@ -65,4 +65,11 @@ describe('entities.ts gegen das echte migrierte Schema', () => {
     const realNonSyncColumns = realColumns.filter((c) => !syncColumns.includes(c));
     expect(new Set(realNonSyncColumns)).toEqual(new Set(meta.columns));
   });
+
+  it('push-only Feedback hat lokale Client-Spalten ohne Pull-Sync-Spalten', async () => {
+    const meta = ENTITIES.shopping_category_feedback_events;
+    const realColumns = await columnNamesOf(db, meta.table);
+
+    expect(realColumns).toEqual([...meta.columns, '_dirty', 'synced_at']);
+  });
 });

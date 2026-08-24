@@ -185,10 +185,10 @@ export function ShoppingListScreen() {
       </Screen>
     );
   }
-
-  const completeActionColor = isUnassignedFilter
-    ? theme.textSecondary
-    : (activeStore?.color ?? theme.danger);
+  const completeActionColor = theme.accent;
+  // const completeActionColor = isUnassignedFilter
+  //   ? theme.textSecondary
+  //   : (activeStore?.color ?? theme.danger);
 
   const completeActionLabel = activeStore
     ? `Einkaufsliste bei ${activeStore.name} abschließen`
@@ -245,22 +245,7 @@ export function ShoppingListScreen() {
 
   return (
     <Screen title="Einkaufsliste" scroll={false} chrome={chrome} backgroundGradient={hubGradient}>
-      {isLoading ? null : allItems.length === 0 ? (
-        /* Leerzustand wenn keine Artikel auf der Einkaufsliste stehen */
-        <ScrollView
-          className="flex-1"
-          contentContainerClassName="gap-three"
-          contentContainerStyle={listContentPadding}>
-          {renderHeader()}
-          <Card>
-            <EmptyState
-              symbol="cart"
-              title="Einkaufsliste ist leer"
-              hint="Tippe auf '+' um zu starten."
-            />
-          </Card>
-        </ScrollView>
-      ) : isAllFilter ? (
+      {isLoading ? null : isAllFilter ? (
         /* Gesamtübersicht: Zusammenfassung aller Märkte & Gesamtschätzung */
         <ScrollView
           ref={scrollRef}
@@ -293,26 +278,34 @@ export function ShoppingListScreen() {
             )}
 
             {/* Übersichtszeile für Artikel ohne Marktzuordnung */}
-            {unassignedItems.length > 0 && (
-              <StoreSummaryCard
-                name="Ohne Markt"
-                color={theme.textSecondary}
-                totalCount={unassignedItems.length}
-                checkedCount={unassignedItems.filter((i) => i.checked_at !== null).length}
-                totalEstimate={unassignedItems.reduce((sum, i) => sum + (i.price_estimate ?? 0), 0)}
-                openCategoryColors={distinctCategoryColors(
-                  unassignedItems.filter((i) => i.checked_at === null).map((i) => i.category),
-                )}
-                onPress={() => setStoreFilter(UNASSIGNED_FILTER)}
+            <StoreSummaryCard
+              name="Ohne Markt"
+              color={theme.textSecondary}
+              totalCount={unassignedItems.length}
+              checkedCount={unassignedItems.filter((i) => i.checked_at !== null).length}
+              totalEstimate={unassignedItems.reduce((sum, i) => sum + (i.price_estimate ?? 0), 0)}
+              openCategoryColors={distinctCategoryColors(
+                unassignedItems.filter((i) => i.checked_at === null).map((i) => i.category),
+              )}
+              onPress={() => setStoreFilter(UNASSIGNED_FILTER)}
+            />
+
+            {allItems.length === 0 ? (
+              <Card>
+                <EmptyState
+                  symbol="cart"
+                  title="Einkaufsliste ist leer"
+                  hint="Tippe auf '+' um zu starten."
+                />
+              </Card>
+            ) : (
+              /* Gesamtkosten-Schätzung über alle Märkte */
+              <TotalEstimateCard
+                totalEstimate={totalEstimate}
+                itemCount={allItems.length}
+                storeCount={storeAggregates.length}
               />
             )}
-
-            {/* Gesamtkosten-Schätzung über alle Märkte */}
-            <TotalEstimateCard
-              totalEstimate={totalEstimate}
-              itemCount={allItems.length}
-              storeCount={storeAggregates.length}
-            />
           </View>
           {renderCompleteButton()}
         </ScrollView>
@@ -344,6 +337,17 @@ export function ShoppingListScreen() {
               {renderShoppingModeButton()}
               {renderCompleteButton()}
             </>
+          }
+          ListEmptyComponent={
+            <View className="pt-three">
+              <Card>
+                <EmptyState
+                  symbol="cart"
+                  title={isUnassignedFilter ? 'Keine Artikel ohne Markt' : 'Einkaufsliste ist leer'}
+                  hint="Tippe auf '+' um zu starten."
+                />
+              </Card>
+            </View>
           }
           renderSectionHeader={({ section }) => {
             /* Kategorie-Titel (z. B. Obst & Gemüse, Kühlung) — nur ein

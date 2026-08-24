@@ -5,10 +5,18 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { AddItemForm } from '@/features/shopping-list/forms/add-item-form';
 
 const mockAddMutateAsync = jest.fn().mockResolvedValue({});
-const mockResolveCategoryForItem = jest.fn().mockResolvedValue({
-  categoryId: null,
-  source: null,
-  classifierVersion: '1',
+const defaultGlobalClassification = {
+  placementZoneId: 'other',
+  productFamilyId: 'other_food',
+  productFormId: 'ambient',
+  classifierVersion: 'placement-v2.0.0',
+};
+const mockResolvePlacementForItem = jest.fn().mockResolvedValue({
+  ...defaultGlobalClassification,
+  categoryId: 'other',
+  source: 'name_fallback',
+  globalClassification: defaultGlobalClassification,
+  barcode: null,
 });
 const mockSetCategoryPreferenceMutateAsync = jest.fn().mockResolvedValue('pref-1');
 const mockResetCategoryPreferenceMutateAsync = jest.fn().mockResolvedValue({
@@ -16,6 +24,21 @@ const mockResetCategoryPreferenceMutateAsync = jest.fn().mockResolvedValue({
   source: null,
   classifierVersion: '1',
 });
+let mockFeedbackEnabled = false;
+let mockUserId: string | null = null;
+
+jest.mock('@/features/auth/session-provider', () => ({
+  useSession: () => ({
+    session: mockUserId ? { user: { id: mockUserId } } : null,
+    isLoading: false,
+    seenOnboarding: true,
+    error: null,
+  }),
+}));
+
+jest.mock('@/lib/posthog', () => ({
+  useFeatureFlag: () => mockFeedbackEnabled,
+}));
 
 jest.mock('@/features/household/active-household-provider', () => ({
   useActiveHousehold: () => ({ activeHouseholdId: 'hh-1' }),
@@ -48,7 +71,7 @@ jest.mock('@/features/shopping-list/hooks/use-stores', () => ({
 }));
 
 jest.mock('../preferences/api', () => ({
-  resolveCategoryForItem: (...args: unknown[]) => mockResolveCategoryForItem(...args),
+  resolvePlacementForItem: (...args: unknown[]) => mockResolvePlacementForItem(...args),
 }));
 
 // Isoliert die (nicht abgefangene, laenger als der Test dauernde) debounced
@@ -75,7 +98,7 @@ jest.mock('../preferences/hooks', () => ({
 }));
 
 describe('AddItemForm', () => {
-  async function renderForm() {
+  async function renderForm(onDismiss = jest.fn()) {
     const queryClient = new QueryClient({
       defaultOptions: {
         queries: { retry: false, gcTime: Number.POSITIVE_INFINITY },
@@ -89,7 +112,7 @@ describe('AddItemForm', () => {
           insets: { top: 47, left: 0, right: 0, bottom: 34 },
         }}>
         <QueryClientProvider client={queryClient}>
-          <AddItemForm householdId="hh-1" onDismiss={jest.fn()} />
+          <AddItemForm householdId="hh-1" onDismiss={onDismiss} />
         </QueryClientProvider>
       </SafeAreaProvider>,
     );
@@ -97,6 +120,16 @@ describe('AddItemForm', () => {
 
   beforeEach(() => {
     jest.clearAllMocks();
+    mockFeedbackEnabled = false;
+    mockUserId = null;
+    mockAddMutateAsync.mockResolvedValue({});
+    mockResolvePlacementForItem.mockResolvedValue({
+      ...defaultGlobalClassification,
+      categoryId: 'other',
+      source: 'name_fallback',
+      globalClassification: defaultGlobalClassification,
+      barcode: null,
+    });
   });
 
   it('rendert die Formular-Felder für Suche, Menge und Buttons', async () => {
@@ -111,7 +144,7 @@ describe('AddItemForm', () => {
 
     const input = screen.getByPlaceholderText('Artikel suchen');
     await fireEvent.changeText(input, 'Hafermilch');
-    await waitFor(() => expect(mockResolveCategoryForItem).toHaveBeenCalled());
+    await waitFor(() => expect(mockResolvePlacementForItem).toHaveBeenCalled());
 
     const addBtn = screen.getByRole('button', { name: 'Zur Einkaufsliste hinzufügen' });
     await fireEvent.press(addBtn);
@@ -125,10 +158,16 @@ describe('AddItemForm', () => {
   });
 
   it('zeigt die automatisch aufgelöste Kategorie im Kategoriefeld an', async () => {
-    mockResolveCategoryForItem.mockResolvedValueOnce({
+    mockResolvePlacementForItem.mockResolvedValueOnce({
+      ...defaultGlobalClassification,
+      placementZoneId: 'meat_poultry',
       categoryId: 'meat_poultry',
       source: 'name_fallback',
-      classifierVersion: '1',
+      globalClassification: {
+        ...defaultGlobalClassification,
+        placementZoneId: 'meat_poultry',
+      },
+      barcode: null,
     });
     await renderForm();
 
@@ -136,7 +175,7 @@ describe('AddItemForm', () => {
     await fireEvent.press(screen.getByRole('button', { name: 'Weitere Angaben' }));
 
     expect(await screen.findByText('Fleisch & Geflügel')).toBeOnTheScreen();
-    expect(screen.getByText('automatisch · Name')).toBeOnTheScreen();
+    expect(screen.queryByText('automatisch · Name')).not.toBeOnTheScreen();
   });
 
   it('eine manuelle Kategorie bleibt bei einer Namensänderung erhalten', async () => {
@@ -145,22 +184,20 @@ describe('AddItemForm', () => {
 
     await fireEvent.changeText(screen.getByPlaceholderText('Artikel suchen'), 'Testartikel');
     await fireEvent.press(screen.getByRole('button', { name: 'Weitere Angaben' }));
-    await waitFor(() => expect(mockResolveCategoryForItem).toHaveBeenCalled());
+    await waitFor(() => expect(mockResolvePlacementForItem).toHaveBeenCalled());
 
-    await user.press(screen.getByRole('button', { name: /Kategorie:/ }));
-    await user.press(screen.getByRole('button', { name: 'Getränke' }));
-    expect(screen.getByText('Getränke')).toBeOnTheScreen();
-    expect(screen.getByText('manuell gewählt')).toBeOnTheScreen();
+    await user.press(screen.getByRole('button', { name: /Einkaufsbereich:/ }));
+    await user.press(screen.getByRole('button', { name: 'Wasser, Saft & Softdrinks' }));
+    expect(screen.getByText('Wasser, Saft & Softdrinks')).toBeOnTheScreen();
 
-    mockResolveCategoryForItem.mockClear();
+    mockResolvePlacementForItem.mockClear();
     await fireEvent.changeText(
       screen.getByPlaceholderText('Artikel suchen'),
       'Testartikel geändert',
     );
 
-    expect(mockResolveCategoryForItem).not.toHaveBeenCalled();
-    expect(screen.getByText('Getränke')).toBeOnTheScreen();
-    expect(screen.getByText('manuell gewählt')).toBeOnTheScreen();
+    expect(mockResolvePlacementForItem).not.toHaveBeenCalled();
+    expect(screen.getByText('Wasser, Saft & Softdrinks')).toBeOnTheScreen();
   });
 
   it('bewusstes "Sonstiges" bleibt bei einer Namensänderung bestehen', async () => {
@@ -169,23 +206,34 @@ describe('AddItemForm', () => {
 
     await fireEvent.changeText(screen.getByPlaceholderText('Artikel suchen'), 'Grillkohle');
     await fireEvent.press(screen.getByRole('button', { name: 'Weitere Angaben' }));
-    await waitFor(() => expect(mockResolveCategoryForItem).toHaveBeenCalled());
+    await waitFor(() => expect(mockResolvePlacementForItem).toHaveBeenCalled());
 
-    await user.press(screen.getByRole('button', { name: /Kategorie:/ }));
-    await user.press(screen.getByRole('button', { name: 'Sonstiges' }));
-    expect(screen.getByText('bewusst „Sonstiges“')).toBeOnTheScreen();
+    await user.press(screen.getByRole('button', { name: /Einkaufsbereich:/ }));
+    const otherOptions = screen.getAllByRole('button', { name: 'Sonstiges' });
+    const otherOption = otherOptions[otherOptions.length - 1];
+    if (!otherOption) throw new Error('Sonstiges option is missing');
+    await user.press(otherOption);
+    expect(screen.getByText('Sonstiges')).toBeOnTheScreen();
 
-    mockResolveCategoryForItem.mockClear();
+    mockResolvePlacementForItem.mockClear();
     await fireEvent.changeText(screen.getByPlaceholderText('Artikel suchen'), 'Grillkohle Menge 5');
 
-    expect(mockResolveCategoryForItem).not.toHaveBeenCalled();
-    expect(screen.getByText('bewusst „Sonstiges“')).toBeOnTheScreen();
+    expect(mockResolvePlacementForItem).not.toHaveBeenCalled();
+    expect(screen.getByText('Sonstiges')).toBeOnTheScreen();
   });
 
-  it('"Automatisch" löst die Präferenz-Reset-Mutation aus und übernimmt das Ergebnis', async () => {
+  it('"Automatisch" bleibt bis zum Speichern ohne Präferenzmutation', async () => {
     const user = userEvent.setup();
+    mockResolvePlacementForItem.mockResolvedValueOnce({
+      ...defaultGlobalClassification,
+      placementZoneId: 'chilled_dairy_eggs',
+      categoryId: 'chilled_dairy_eggs',
+      source: 'household_preference',
+      globalClassification: defaultGlobalClassification,
+      barcode: null,
+    });
     mockResetCategoryPreferenceMutateAsync.mockResolvedValueOnce({
-      categoryId: 'dairy_eggs',
+      categoryId: 'chilled_dairy_eggs',
       source: 'off_taxonomy',
       classifierVersion: '1',
     });
@@ -193,17 +241,26 @@ describe('AddItemForm', () => {
 
     await fireEvent.changeText(screen.getByPlaceholderText('Artikel suchen'), 'Milch');
     await fireEvent.press(screen.getByRole('button', { name: 'Weitere Angaben' }));
-    await waitFor(() => expect(mockResolveCategoryForItem).toHaveBeenCalled());
+    await waitFor(() => expect(mockResolvePlacementForItem).toHaveBeenCalled());
 
-    await user.press(screen.getByRole('button', { name: /Kategorie:/ }));
-    await user.press(screen.getByRole('button', { name: 'Getränke' }));
+    await user.press(screen.getByRole('button', { name: /Einkaufsbereich:/ }));
+    await user.press(screen.getByRole('button', { name: 'Wasser, Saft & Softdrinks' }));
 
-    await user.press(screen.getByRole('button', { name: /Kategorie:/ }));
+    await user.press(screen.getByRole('button', { name: /Einkaufsbereich:/ }));
     await user.press(screen.getByRole('button', { name: 'Automatisch' }));
 
-    expect(mockResetCategoryPreferenceMutateAsync).toHaveBeenCalled();
-    expect(await screen.findByText('Molkerei, Käse & Eier')).toBeOnTheScreen();
-    expect(screen.getByText('automatisch · Produktdaten')).toBeOnTheScreen();
+    expect(mockResetCategoryPreferenceMutateAsync).not.toHaveBeenCalled();
+
+    await fireEvent.press(screen.getByRole('button', { name: 'Zur Einkaufsliste hinzufügen' }));
+
+    expect(mockAddMutateAsync).toHaveBeenCalledWith(
+      expect.objectContaining({
+        preference: expect.objectContaining({
+          type: 'reset',
+          input: expect.objectContaining({ householdId: 'hh-1' }),
+        }),
+      }),
+    );
   });
 
   it('schreibt eine Haushaltspräferenz nur bei einer echten manuellen Entscheidung', async () => {
@@ -212,15 +269,148 @@ describe('AddItemForm', () => {
 
     await fireEvent.changeText(screen.getByPlaceholderText('Artikel suchen'), 'Testartikel');
     await fireEvent.press(screen.getByRole('button', { name: 'Weitere Angaben' }));
-    await waitFor(() => expect(mockResolveCategoryForItem).toHaveBeenCalled());
+    await waitFor(() => expect(mockResolvePlacementForItem).toHaveBeenCalled());
 
-    await user.press(screen.getByRole('button', { name: /Kategorie:/ }));
-    await user.press(screen.getByRole('button', { name: 'Getränke' }));
+    await user.press(screen.getByRole('button', { name: /Einkaufsbereich:/ }));
+    await user.press(screen.getByRole('button', { name: 'Wasser, Saft & Softdrinks' }));
 
     await fireEvent.press(screen.getByRole('button', { name: 'Zur Einkaufsliste hinzufügen' }));
 
-    expect(mockSetCategoryPreferenceMutateAsync).toHaveBeenCalledWith(
-      expect.objectContaining({ householdId: 'hh-1', categoryId: 'beverages' }),
+    expect(mockAddMutateAsync).toHaveBeenCalledWith(
+      expect.objectContaining({
+        preference: expect.objectContaining({
+          type: 'set',
+          input: expect.objectContaining({ householdId: 'hh-1', categoryId: 'cold_drinks' }),
+        }),
+      }),
     );
+  });
+
+  it('erzeugt bei aktivem Flag Feedback für eine manuelle Abweichung', async () => {
+    mockFeedbackEnabled = true;
+    mockUserId = 'user-1';
+    const user = userEvent.setup();
+    await renderForm();
+
+    await fireEvent.changeText(screen.getByPlaceholderText('Artikel suchen'), 'Testartikel');
+    await fireEvent.press(screen.getByRole('button', { name: 'Weitere Angaben' }));
+    await waitFor(() => expect(mockResolvePlacementForItem).toHaveBeenCalled());
+
+    await user.press(screen.getByRole('button', { name: /Einkaufsbereich:/ }));
+    await user.press(screen.getByRole('button', { name: 'Wasser, Saft & Softdrinks' }));
+    await user.press(screen.getByRole('button', { name: 'Zur Einkaufsliste hinzufügen' }));
+
+    expect(mockAddMutateAsync).toHaveBeenCalledWith(
+      expect.objectContaining({
+        feedback: expect.objectContaining({
+          eventType: 'manual_reassign',
+          inputMethod: 'add_form',
+          actorUserId: 'user-1',
+          oldPlacementZone: 'other',
+          newPlacementZone: 'cold_drinks',
+        }),
+      }),
+    );
+  });
+
+  it('erzeugt bei aktivem Flag Feedback beim Entfernen einer aktiven Präferenz', async () => {
+    mockFeedbackEnabled = true;
+    mockUserId = 'user-1';
+    mockResolvePlacementForItem.mockImplementation(async (_input, options) =>
+      options?.omitPreferenceScope
+        ? {
+            ...defaultGlobalClassification,
+            categoryId: 'other',
+            source: 'name_fallback',
+            globalClassification: defaultGlobalClassification,
+            barcode: null,
+          }
+        : {
+            ...defaultGlobalClassification,
+            placementZoneId: 'chilled_dairy_eggs',
+            categoryId: 'chilled_dairy_eggs',
+            source: 'household_preference',
+            globalClassification: defaultGlobalClassification,
+            barcode: null,
+          },
+    );
+    const user = userEvent.setup();
+    await renderForm();
+
+    await fireEvent.changeText(screen.getByPlaceholderText('Artikel suchen'), 'Milch');
+    await fireEvent.press(screen.getByRole('button', { name: 'Weitere Angaben' }));
+    await waitFor(() => expect(mockResolvePlacementForItem).toHaveBeenCalled());
+
+    await user.press(screen.getByRole('button', { name: /Einkaufsbereich:/ }));
+    await user.press(screen.getByRole('button', { name: 'Automatisch' }));
+    await user.press(screen.getByRole('button', { name: 'Zur Einkaufsliste hinzufügen' }));
+
+    expect(mockAddMutateAsync).toHaveBeenCalledWith(
+      expect.objectContaining({
+        feedback: expect.objectContaining({
+          eventType: 'reset_to_automatic',
+          inputMethod: 'add_form',
+          actorUserId: 'user-1',
+          preferenceScope: 'household',
+          oldPlacementZone: 'chilled_dairy_eggs',
+          newPlacementZone: 'other',
+        }),
+      }),
+    );
+  });
+
+  it('erzeugt bei deaktiviertem Flag kein Feedback', async () => {
+    mockUserId = 'user-1';
+    const user = userEvent.setup();
+    await renderForm();
+
+    await fireEvent.changeText(screen.getByPlaceholderText('Artikel suchen'), 'Testartikel');
+    await fireEvent.press(screen.getByRole('button', { name: 'Weitere Angaben' }));
+    await waitFor(() => expect(mockResolvePlacementForItem).toHaveBeenCalled());
+
+    await user.press(screen.getByRole('button', { name: /Einkaufsbereich:/ }));
+    await user.press(screen.getByRole('button', { name: 'Wasser, Saft & Softdrinks' }));
+    await user.press(screen.getByRole('button', { name: 'Zur Einkaufsliste hinzufügen' }));
+
+    expect(mockAddMutateAsync).toHaveBeenCalledWith(
+      expect.objectContaining({ feedback: undefined }),
+    );
+  });
+
+  it('erzeugt ohne angemeldeten Nutzer kein Feedback', async () => {
+    mockFeedbackEnabled = true;
+    mockUserId = null;
+    const user = userEvent.setup();
+    await renderForm();
+
+    await fireEvent.changeText(screen.getByPlaceholderText('Artikel suchen'), 'Testartikel');
+    await fireEvent.press(screen.getByRole('button', { name: 'Weitere Angaben' }));
+    await waitFor(() => expect(mockResolvePlacementForItem).toHaveBeenCalled());
+
+    await user.press(screen.getByRole('button', { name: /Einkaufsbereich:/ }));
+    await user.press(screen.getByRole('button', { name: 'Wasser, Saft & Softdrinks' }));
+    await user.press(screen.getByRole('button', { name: 'Zur Einkaufsliste hinzufügen' }));
+
+    expect(mockAddMutateAsync).toHaveBeenCalledWith(
+      expect.objectContaining({ feedback: undefined }),
+    );
+  });
+
+  it('schliesst nach erfolgreichem lokalem Save und bleibt bei Fehler offen', async () => {
+    const onDismiss = jest.fn();
+    await renderForm(onDismiss);
+
+    await fireEvent.changeText(screen.getByPlaceholderText('Artikel suchen'), 'Hafermilch');
+    await fireEvent.press(screen.getByRole('button', { name: 'Zur Einkaufsliste hinzufügen' }));
+    await waitFor(() => expect(onDismiss).toHaveBeenCalledTimes(1));
+
+    onDismiss.mockClear();
+    mockAddMutateAsync.mockRejectedValueOnce(new Error('SQLite write failed'));
+    await fireEvent.press(screen.getByRole('button', { name: 'Zur Einkaufsliste hinzufügen' }));
+
+    expect(
+      await screen.findByText('Artikel konnte nicht gespeichert werden. Bitte erneut versuchen.'),
+    ).toBeOnTheScreen();
+    expect(onDismiss).not.toHaveBeenCalled();
   });
 });

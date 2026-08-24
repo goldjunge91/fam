@@ -1,5 +1,6 @@
+import type { CategorySource } from '@/features/shopping-list/classification/types';
 import { parseJsonArray } from '@/lib/db/json-array';
-import { enqueueMutation } from '@/lib/db/outbox';
+import { type EnqueueMutationInput, enqueueMutation } from '@/lib/db/outbox';
 import type { SqlDatabase } from '@/lib/db/types';
 import { normalizeUnit } from '@/lib/units';
 
@@ -24,7 +25,7 @@ export type AddShoppingItemInput = {
   package_size?: number | null;
   package_size_unit?: string | null;
   category_id?: string | null;
-  category_source?: 'user' | 'household_preference' | 'off_taxonomy' | 'name_fallback' | null;
+  category_source?: CategorySource | null;
   category_classifier_version?: string | null;
   product_id?: string | null;
   sort_index?: number;
@@ -49,7 +50,8 @@ function mergeRecipeNames(existing: readonly string[], incoming: readonly string
  * als niedrigster Rang, nicht als Sonderfall.
  */
 const CATEGORY_SOURCE_RANK: Record<string, number> = {
-  user: 4,
+  user: 5,
+  store_preference: 4,
   household_preference: 3,
   off_taxonomy: 2,
   name_fallback: 1,
@@ -74,6 +76,7 @@ async function findMergeableShoppingItem(
     product_id?: string | null;
     name: string;
     unit: string;
+    store_id?: string | null;
     package_size?: number | null;
     package_size_unit?: string | null;
   },
@@ -101,6 +104,7 @@ async function findMergeableShoppingItem(
         `select ${SELECT_COLUMNS} from shopping_list_items
          where household_id = ? and deleted_at is null and checked_at is null
            and product_id = ? and unit = ?
+           and coalesce(store_id, '') = coalesce(?, '')
            and coalesce(package_size, -1) = coalesce(?, -1)
            and coalesce(package_size_unit, '') = coalesce(?, '')
          limit 1`,
@@ -108,6 +112,7 @@ async function findMergeableShoppingItem(
           input.household_id,
           input.product_id,
           input.unit,
+          input.store_id ?? null,
           input.package_size ?? null,
           input.package_size_unit ?? null,
         ],
@@ -116,6 +121,7 @@ async function findMergeableShoppingItem(
         `select ${SELECT_COLUMNS} from shopping_list_items
          where household_id = ? and deleted_at is null and checked_at is null
            and product_id is null and lower(trim(name)) = lower(trim(?)) and unit = ?
+           and coalesce(store_id, '') = coalesce(?, '')
            and coalesce(package_size, -1) = coalesce(?, -1)
            and coalesce(package_size_unit, '') = coalesce(?, '')
          limit 1`,
@@ -123,6 +129,7 @@ async function findMergeableShoppingItem(
           input.household_id,
           input.name,
           input.unit,
+          input.store_id ?? null,
           input.package_size ?? null,
           input.package_size_unit ?? null,
         ],
@@ -147,11 +154,11 @@ async function findMergeableShoppingItem(
  * Modul frei von `expo-crypto` bleibt — dasselbe Muster wie
  * `product-usage.ts`. Bei einem Merge bleibt `newId` ungenutzt.
  */
-export async function addOrMergeShoppingItem(
+export async function buildAddOrMergeShoppingItemMutation(
   db: SqlDatabase,
   newId: string,
   input: AddShoppingItemInput,
-): Promise<string> {
+): Promise<EnqueueMutationInput> {
   const now = new Date().toISOString();
   const nowMs = Date.now();
   const normUnit = normalizeUnit(input.unit);
@@ -162,6 +169,7 @@ export async function addOrMergeShoppingItem(
     product_id: input.product_id,
     name: input.name,
     unit: normUnit,
+    store_id: input.store_id,
     package_size: input.package_size,
     package_size_unit: normPackageUnit,
   });
@@ -176,6 +184,7 @@ export async function addOrMergeShoppingItem(
     // manuell gewaehlte Kategorie (`user`) einen automatischen
     // Namens-Fallback ueberschreiben, aber nicht umgekehrt.
     const useIncomingCategory =
+      input.category_source === 'user' ||
       categorySourceRank(input.category_source) > categorySourceRank(existing.categorySource);
     const mergedCategoryId = useIncomingCategory
       ? (input.category_id ?? null)
@@ -187,7 +196,7 @@ export async function addOrMergeShoppingItem(
       ? (input.category_classifier_version ?? null)
       : existing.categoryClassifierVersion;
 
-    await enqueueMutation(db, {
+    return {
       entity: 'shopping_list_items',
       entityId: existing.id,
       op: 'update',
@@ -223,8 +232,7 @@ export async function addOrMergeShoppingItem(
           ],
         );
       },
-    });
-    return existing.id;
+    };
   }
 
   // sort_index: am Ende einfuegen
@@ -234,7 +242,7 @@ export async function addOrMergeShoppingItem(
   );
   const sortIndex = input.sort_index ?? (lastRow?.sort_index ?? -1) + 1;
 
-  await enqueueMutation(db, {
+  return {
     entity: 'shopping_list_items',
     entityId: newId,
     op: 'insert',
@@ -285,7 +293,15 @@ export async function addOrMergeShoppingItem(
         ],
       );
     },
-  });
+  };
+}
 
-  return newId;
+export async function addOrMergeShoppingItem(
+  db: SqlDatabase,
+  newId: string,
+  input: AddShoppingItemInput,
+): Promise<string> {
+  const mutation = await buildAddOrMergeShoppingItemMutation(db, newId, input);
+  await enqueueMutation(db, mutation);
+  return mutation.entityId;
 }

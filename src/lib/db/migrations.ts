@@ -572,6 +572,198 @@ alter table products_new rename to products;
 create index if not exists products_barcode_idx on products (barcode);
 `;
 
+// Alpha-Einkaufsbereiche: Markt-Scope fuer Praeferenzen und push-only
+// Feedback-Events. Die Tabelle wird rebuilt, weil SQLite den bisherigen
+// Tabellen-UNIQUE-Constraint nicht nachtraeglich in zwei partielle Unique-
+// Indizes umwandeln kann. Legacy-Haushaltszeilen bleiben dabei erhalten.
+const V18_ALPHA_CATEGORY_FEEDBACK = `
+create table shopping_category_preferences_v18 (
+  id                   text primary key not null,
+  household_id         text not null,
+  store_id             text,
+  key_type             text not null check (key_type in ('product','name')),
+  normalized_key_value text not null check (
+    length(normalized_key_value) between 1 and 500
+    and normalized_key_value = lower(trim(normalized_key_value))
+  ),
+  category_id          text,
+  created_by           text,
+  created_at           text,
+  updated_at           integer not null,
+  deleted_at           integer,
+  _dirty               integer not null default 0
+);
+insert into shopping_category_preferences_v18
+  (id, household_id, store_id, key_type, normalized_key_value, category_id,
+   created_by, created_at, updated_at, deleted_at, _dirty)
+select id, household_id, null, key_type, normalized_key_value, category_id,
+       created_by, created_at, updated_at, deleted_at, _dirty
+from shopping_category_preferences;
+drop table shopping_category_preferences;
+alter table shopping_category_preferences_v18 rename to shopping_category_preferences;
+create unique index shopping_category_preferences_household_key_v18
+  on shopping_category_preferences (household_id, key_type, normalized_key_value)
+  where store_id is null;
+create unique index shopping_category_preferences_store_key_v18
+  on shopping_category_preferences (household_id, store_id, key_type, normalized_key_value)
+  where store_id is not null;
+create index shopping_category_preferences_hh_idx_v18
+  on shopping_category_preferences (household_id, updated_at, id);
+create index shopping_category_preferences_dirty_idx_v18
+  on shopping_category_preferences (_dirty) where _dirty = 1;
+
+create table if not exists shopping_category_feedback_events (
+  event_id                  text primary key not null,
+  schema_version            integer not null,
+  taxonomy_version          text not null,
+  event_type                text not null check (event_type in ('manual_reassign','reset_to_automatic')),
+  input_method              text not null check (input_method in ('add_form','edit_form')),
+  household_id              text not null,
+  actor_user_id             text not null,
+  shopping_list_item_id     text not null,
+  product_key_type          text not null check (product_key_type in ('product','barcode','name')),
+  product_key               text not null,
+  product_id                text,
+  barcode                   text,
+  product_name              text not null,
+  store_id                  text,
+  preference_scope          text not null check (preference_scope in ('store','household')),
+  old_placement_zone        text not null,
+  new_placement_zone        text not null,
+  predicted_placement_zone  text not null,
+  old_category_source       text not null,
+  new_category_source       text not null,
+  predicted_product_family  text not null,
+  predicted_product_form    text not null,
+  classifier_version        text not null,
+  platform                  text not null check (platform in ('ios','android','web')),
+  app_version               text not null,
+  build_channel             text not null,
+  client_created_at         text not null,
+  _dirty                    integer not null default 1,
+  synced_at                 integer
+);
+create index shopping_category_feedback_events_hh_idx
+  on shopping_category_feedback_events (household_id, client_created_at, event_id);
+create index shopping_category_feedback_events_product_idx
+  on shopping_category_feedback_events (product_key_type, product_key);
+`;
+
+// V1/V2 konnten nur die alte Kategorien-Taxonomie aufnehmen. Neue V2-Writes
+// wie `fresh_produce` scheiterten dadurch lokal am CHECK, bevor ein Add-Modal
+// seinen erfolgreichen Save quittieren und schliessen konnte. SQLite kann
+// CHECK-Constraints nur per Table-Rebuild erweitern; beide Snapshot-Tabellen
+// behalten Legacy-IDs read-only kompatibel und akzeptieren neue 27-Zonen-
+// Snapshots samt marktbezogener Herkunft.
+const V19_PLACEMENT_V2_SNAPSHOTS = `
+create table shopping_list_items_v19 (
+  id           text primary key not null,
+  household_id text not null,
+  product_id   text,
+  name         text not null,
+  quantity     real not null default 1,
+  unit         text not null default 'piece',
+  category_id  text check (category_id in (
+    'fresh_produce','bakery','chilled_dairy_eggs','ambient_milk_drinks',
+    'chilled_plant_based','meat_poultry','fish_seafood','deli',
+    'pasta_tomato','rice_world_foods','breakfast','baking','oils_spices',
+    'condiments','canned_jars','ready_meals','snacks','sweets',
+    'cold_drinks','hot_drinks','alcohol','frozen','baby','pets',
+    'household','personal_care','other',
+    'produce','convenience','hot_beverages','pantry_staples','cooking_baking',
+    'canned_sauces','beverages','drugstore','baby_kids','pet_supplies',
+    'deli_cold_cuts','plant_based','dairy_eggs','checkout',
+    'deli_meat','pantry_canned','pantry_dry','dairy'
+  )),
+  category_source text check (category_source in (
+    'user','store_preference','household_preference','off_taxonomy','name_fallback'
+  )),
+  category_classifier_version text check (
+    category_classifier_version is null
+    or length(trim(category_classifier_version)) between 1 and 100
+  ),
+  sort_index        integer not null default 0,
+  checked_at        text,
+  checked_by        text,
+  added_by          text,
+  created_at        text,
+  updated_at        integer not null,
+  deleted_at        integer,
+  _dirty            integer not null default 0,
+  store_id          text,
+  price_estimate    real,
+  recipe_names      text not null default '[]',
+  package_size      real,
+  package_size_unit text
+);
+insert into shopping_list_items_v19 (
+  id, household_id, product_id, name, quantity, unit,
+  category_id, category_source, category_classifier_version, sort_index,
+  checked_at, checked_by, added_by, created_at, updated_at, deleted_at, _dirty,
+  store_id, price_estimate, recipe_names, package_size, package_size_unit
+)
+select
+  id, household_id, product_id, name, quantity, unit,
+  category_id, category_source, category_classifier_version, sort_index,
+  checked_at, checked_by, added_by, created_at, updated_at, deleted_at, _dirty,
+  store_id, price_estimate, recipe_names, package_size, package_size_unit
+from shopping_list_items;
+drop table shopping_list_items;
+alter table shopping_list_items_v19 rename to shopping_list_items;
+create index shopping_list_items_hh_idx
+  on shopping_list_items (household_id, deleted_at);
+create index shopping_list_items_dirty_idx
+  on shopping_list_items (_dirty) where _dirty = 1;
+create index shopping_list_items_store_idx on shopping_list_items (store_id);
+
+create table shopping_history_v19 (
+  id                          text primary key not null,
+  household_id                text not null,
+  completed_by                text,
+  completed_at                text not null,
+  item_name                   text not null,
+  quantity                    real not null,
+  unit                        text not null,
+  category_id                 text check (category_id in (
+    'fresh_produce','bakery','chilled_dairy_eggs','ambient_milk_drinks',
+    'chilled_plant_based','meat_poultry','fish_seafood','deli',
+    'pasta_tomato','rice_world_foods','breakfast','baking','oils_spices',
+    'condiments','canned_jars','ready_meals','snacks','sweets',
+    'cold_drinks','hot_drinks','alcohol','frozen','baby','pets',
+    'household','personal_care','other',
+    'produce','convenience','hot_beverages','pantry_staples','cooking_baking',
+    'canned_sauces','beverages','drugstore','baby_kids','pet_supplies',
+    'deli_cold_cuts','plant_based','dairy_eggs','checkout',
+    'deli_meat','pantry_canned','pantry_dry','dairy'
+  )),
+  category_source             text check (category_source in (
+    'user','store_preference','household_preference','off_taxonomy','name_fallback'
+  )),
+  category_classifier_version text check (
+    category_classifier_version is null
+    or length(trim(category_classifier_version)) between 1 and 100
+  ),
+  product_id                  text,
+  location_kind               text,
+  expiry_date                 text,
+  created_at                  text not null
+);
+insert into shopping_history_v19 (
+  id, household_id, completed_by, completed_at, item_name, quantity, unit,
+  category_id, category_source, category_classifier_version, product_id,
+  location_kind, expiry_date, created_at
+)
+select
+  id, household_id, completed_by, completed_at, item_name, quantity, unit,
+  category_id, category_source, category_classifier_version, product_id,
+  location_kind, expiry_date, created_at
+from shopping_history;
+drop table shopping_history;
+alter table shopping_history_v19 rename to shopping_history;
+create index shopping_history_hh_idx
+  on shopping_history (household_id, completed_at);
+`;
+
 export const MIGRATIONS: readonly Migration[] = [
   {
     version: 1,
@@ -657,5 +849,15 @@ export const MIGRATIONS: readonly Migration[] = [
     version: 17,
     name: 'products_off_category_tags_nullable',
     statements: [V17_PRODUCTS_OFF_CATEGORY_TAGS_NULLABLE],
+  },
+  {
+    version: 18,
+    name: 'alpha_category_feedback_and_store_preferences',
+    statements: [V18_ALPHA_CATEGORY_FEEDBACK],
+  },
+  {
+    version: 19,
+    name: 'placement_v2_snapshots',
+    statements: [V19_PLACEMENT_V2_SNAPSHOTS],
   },
 ];

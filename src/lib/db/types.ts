@@ -75,6 +75,7 @@ export type Entity =
   | 'fridge_items'
   | 'shopping_list_items'
   | 'shopping_category_preferences'
+  | 'shopping_category_feedback_events'
   | 'products'
   | 'households'
   | 'recipes'

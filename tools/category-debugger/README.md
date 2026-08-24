@@ -155,6 +155,49 @@ sichtbar. Regel-Miner und Baselines verwenden als menschliches Gold nur Labels,
 die bereits Familie, Form und Standardzone vollständig enthalten. Crowd-Daten
 werden dort auch nach einem Review nicht automatisch eingespeist.
 
+### Manueller App-Feedback-Import
+
+Der Importer läuft ausschließlich manuell im Bun-Prozess und verbindet die App-
+Supabase nicht mit dem Browser oder der App:
+
+```bash
+cd tools/category-debugger
+APP_SUPABASE_URL=https://app-project.supabase.co \
+APP_SUPABASE_SECRET_KEY=... \
+EVALUATION_SUPABASE_URL=https://evaluation-project.supabase.co \
+EVALUATION_SUPABASE_SECRET_KEY=... \
+CATEGORY_FEEDBACK_PSEUDONYM_KEY=... \
+bun scripts/import-app-feedback.ts --page-size=500
+```
+
+Der Import liest `shopping_category_feedback_events` nach `(created_at,
+event_id)`, schreibt nur pseudonymisierte Snapshots in
+`evaluation_crowd_signals` und behandelt wiederholte `event_id`-Werte
+idempotent. Actor-, Haushalts-, Store-, Produkt- und Listen-IDs werden nicht
+in `raw_payload` übernommen. Der Cursor wird erst nach dem erfolgreichen
+Schreiben und Protokollieren einer vollständigen Seite weitergesetzt.
+
+`public.evaluation_import_runs` protokolliert jeden Import und hält den
+Resume-Cursor. Ein Cursor wird erst nach dem erfolgreichen, idempotenten
+Schreiben einer vollständigen Seite fortgeschrieben. Der deklarative Vertrag
+ist:
+
+```text
+run_id uuid primary key
+source text, status text, started_at timestamptz, finished_at timestamptz
+cursor_created_at timestamptz, cursor_event_id text
+pages integer, events_read integer, events_imported integer,
+events_duplicate integer, error_message text
+```
+
+Die Zähler erfassen nur vollständig geschriebene Seiten und erfüllen immer
+`events_read = events_imported + events_duplicate`. Ein fehlgeschlagener Lauf
+behält deshalb genau den Cursor und die Zähler der letzten vollständigen Seite.
+
+Nur der manuelle Serverprozess mit `service_role` darf Läufe lesen, starten
+und fortschreiben. Löschen ist auch für `service_role` gesperrt; `anon` und
+`authenticated` erhalten keinen Zugriff.
+
 ## ML-Baselines
 
 Die Python-Umgebung und Modellcaches liegen standardmäßig unter

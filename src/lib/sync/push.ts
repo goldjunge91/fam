@@ -1,3 +1,4 @@
+import type { TablesInsert } from '@/lib/database.types';
 import { metaOf } from '@/lib/db/entities';
 import { deleteOutboxEntries, loadDueOutboxEntries, recordOutboxOutcome } from '@/lib/db/outbox';
 import type { Entity, SqlDatabase } from '@/lib/db/types';
@@ -62,6 +63,17 @@ type AttemptResult = {
   status: number;
 };
 
+type GenericQuery<T> = {
+  then<TResult1 = T, TResult2 = never>(
+    onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | null,
+    onrejected?: ((reason: unknown) => TResult2 | PromiseLike<TResult2>) | null,
+  ): PromiseLike<TResult1 | TResult2>;
+  insert(payload: Record<string, unknown>): GenericQuery<T>;
+  update(payload: Record<string, unknown>): GenericQuery<T>;
+  select(columns?: string): GenericQuery<T>;
+  eq(column: string, value: unknown): GenericQuery<T>;
+};
+
 /**
  * `Database`s generierte Typen binden `.from()`/`.insert()`/`.update()` an die
  * konkrete Tabelle — richtig fuer handgeschriebenen Feature-Code, aber diese
@@ -81,11 +93,15 @@ async function attempt(
   payload: Record<string, unknown>,
   nowMs: number,
 ): Promise<AttemptResult> {
-  // biome-ignore lint/suspicious/noExplicitAny: generische Tabelle, siehe Kommentar oben
-  const query = supabase.from(table) as any;
+  // Die Tabellenkorrelation geht bei einem dynamischen `Entity`-Union verloren.
+  // Dieser kleine Adapter typisiert nur die tatsächlich verwendete Query-Fläche;
+  // Tabelle und Spalten kommen weiterhin ausschließlich aus `entities.ts`.
+  const query = supabase.from(table as never) as unknown as GenericQuery<AttemptResult>;
 
   if (op === 'insert') {
-    const response = await query.insert(buildInsertPayload(payload)).select();
+    const response = metaOf(table).pushOnly
+      ? await query.insert(buildInsertPayload(payload))
+      : await query.insert(buildInsertPayload(payload)).select();
     return response as AttemptResult;
   }
 
@@ -126,6 +142,28 @@ async function applyOnePush(
 ): Promise<{ outcome: PushOutcome; stop: boolean }> {
   const meta = metaOf(entry.entity);
 
+  // Feedback-Events sind ein append-only/push-only Vertrag. Jede andere Op
+  // ist ein lokaler Programmierfehler und wird garantiert vor `attempt()`
+  // abgewiesen, also ohne SELECT, UPDATE, DELETE oder sonstigen Netzwerk-I/O.
+  if (meta.pushOnly && entry.op !== 'insert') {
+    const message = `${entry.entity} ist push-only und akzeptiert ausschliesslich insert.`;
+    await recordOutboxOutcome(db, entry.sourceIds, {
+      attempts: MAX_ATTEMPTS,
+      lastError: message,
+      nextAttemptAtMs: Number.MAX_SAFE_INTEGER,
+    });
+    return {
+      outcome: {
+        kind: 'failed-permanent',
+        entity: entry.entity,
+        entityId: entry.entityId,
+        sourceIds: entry.sourceIds,
+        error: message,
+      },
+      stop: false,
+    };
+  }
+
   // products hat kein deleted_at serverseitig — ein delete/restore waere ein
   // Soft-Delete-Versuch gegen eine nicht existente Spalte. Kein Netzwerkaufruf.
   if ((entry.op === 'delete' || entry.op === 'restore') && !meta.hasServerTombstone) {
@@ -161,7 +199,21 @@ async function applyOnePush(
   // derselben id verletzt den PK und liefert 23505/409. Die Zeile ist laengst
   // sicher auf dem Server — ein update mit demselben Inhalt ist idempotent.
   if (entry.op === 'insert' && response.error?.code === '23505') {
-    response = await attempt(supabase, meta.table, 'update', entry.entityId, entry.payload, nowMs);
+    if (meta.pushOnly) {
+      // Clientseitige event_id ist der Idempotenzschlüssel. Der Server hat das
+      // Event bereits akzeptiert, also ist ein Retry derselben INSERT-Operation
+      // ein erfolgreicher Abschluss und kein Anlass fuer ein UPDATE.
+      response = { data: null, error: null, status: response.status };
+    } else {
+      response = await attempt(
+        supabase,
+        meta.table,
+        'update',
+        entry.entityId,
+        entry.payload,
+        nowMs,
+      );
+    }
   }
 
   // 23503: Foreign Key Violation (z.B. location_id fehlt auf dem Server).
@@ -180,8 +232,10 @@ async function applyOnePush(
     );
 
     if (loc) {
-      // biome-ignore lint/suspicious/noExplicitAny: generisches Insert
-      await (supabase.from('storage_locations') as any).insert(buildInsertPayload(loc)).select();
+      await supabase
+        .from('storage_locations')
+        .insert(buildInsertPayload(loc) as TablesInsert<'storage_locations'>)
+        .select();
       response = await attempt(
         supabase,
         meta.table,
@@ -249,6 +303,26 @@ async function applyOnePush(
         error: message,
       },
       // Eine vergiftete Zeile darf die Queue nicht dauerhaft blockieren.
+      stop: false,
+    };
+  }
+
+  if (meta.pushOnly) {
+    await db.withExclusiveTransactionAsync(async (txn) => {
+      await deleteOutboxEntries(txn, entry.sourceIds);
+      await txn.runAsync(`update ${meta.table} set _dirty = 0, synced_at = ? where event_id = ?`, [
+        nowMs,
+        entry.entityId,
+      ]);
+    });
+
+    return {
+      outcome: {
+        kind: 'pushed',
+        entity: entry.entity,
+        entityId: entry.entityId,
+        sourceIds: entry.sourceIds,
+      },
       stop: false,
     };
   }

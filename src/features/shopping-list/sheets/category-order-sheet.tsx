@@ -1,6 +1,12 @@
 import BottomSheet, { BottomSheetView } from '@expo/ui/community/bottom-sheet';
 import { useEffect, useRef, useState } from 'react';
-import { Animated, PanResponder, Pressable, View } from 'react-native';
+import { Pressable, View } from 'react-native';
+import ReorderableList, {
+  type ReorderableListReorderEvent,
+  reorderItems,
+  useIsActive,
+  useReorderableDrag,
+} from 'react-native-reorderable-list';
 
 import { ThemedText } from '@/components/theme/themed-text';
 import { useTheme } from '@/hooks/use-theme';
@@ -10,8 +16,6 @@ import {
   type ShoppingCategory,
 } from '../domain-logik/shopping-categories';
 import { type Store, useSetStoreCategoryOrderMutation } from '../hooks/use-stores';
-
-const ROW_HEIGHT = 52;
 
 function resolveOrder(store: Store | null): ShoppingCategory[] {
   const customIds = parseCategoryOrder(store?.category_order);
@@ -27,53 +31,28 @@ function resolveOrder(store: Store | null): ShoppingCategory[] {
 
 interface RowProps {
   category: ShoppingCategory;
-  index: number;
-  isDragging: boolean;
-  translateY: Animated.Value;
-  onDragStart: (index: number) => void;
-  onDragMove: (dy: number) => void;
-  onDragEnd: () => void;
 }
 
-function Row({
-  category,
-  index,
-  isDragging,
-  translateY,
-  onDragStart,
-  onDragMove,
-  onDragEnd,
-}: RowProps) {
+function Row({ category }: RowProps) {
   const theme = useTheme();
-  const pan = useRef(
-    PanResponder.create({
-      onStartShouldSetPanResponder: () => true,
-      onPanResponderGrant: () => onDragStart(index),
-      onPanResponderMove: (_evt, gesture) => onDragMove(gesture.dy),
-      onPanResponderRelease: onDragEnd,
-      onPanResponderTerminate: onDragEnd,
-    }),
-  ).current;
+  const drag = useReorderableDrag();
+  const isActive = useIsActive();
 
   return (
-    <Animated.View
+    <View
       className="category-order-row"
-      // Animated.Value & Drag-State Z-Index
-      style={[
-        isDragging ? { backgroundColor: theme.backgroundElement, zIndex: 10 } : undefined,
-        { transform: [{ translateY: isDragging ? translateY : 0 }] },
-      ]}>
+      style={isActive ? { backgroundColor: theme.backgroundElement } : undefined}>
       <ThemedText type="default">{category.label}</ThemedText>
-      <View
-        {...pan.panHandlers}
+      <Pressable
+        onPressIn={drag}
         className="category-order-handle"
         accessibilityRole="adjustable"
         accessibilityLabel={`${category.label} verschieben`}>
         <ThemedText type="subtitle" className="opacity-50">
           ⠿
         </ThemedText>
-      </View>
-    </Animated.View>
+      </Pressable>
+    </View>
   );
 }
 
@@ -89,20 +68,14 @@ interface Props {
  * `stores.category_order`, damit die Reihenfolge — wie der Markt selbst —
  * automatisch haushaltsweit synchron ist.
  *
- * Handgebaute Drag-Liste statt einer Zusatz-Library: Nur 12 Zeilen, dafuer
- * reicht react-native's eigener PanResponder + Animated.
+ * Die ReorderableList trennt Scrollen und Draggen anhand des Griffes und
+ * scrollt beim Ziehen am Listenrand automatisch weiter.
  */
 export function CategoryOrderSheet({ isOpen, store, onClose }: Props) {
   const theme = useTheme();
   const sheetRef = useRef<BottomSheet>(null);
 
   const [order, setOrder] = useState<ShoppingCategory[]>(() => resolveOrder(store));
-  const [draggingIndex, setDraggingIndex] = useState<number | null>(null);
-  const draggingIndexRef = useRef<number | null>(null);
-  const startIndexRef = useRef(0);
-  const orderRef = useRef(order);
-  orderRef.current = order;
-  const translateY = useRef(new Animated.Value(0)).current;
 
   const saveMutation = useSetStoreCategoryOrderMutation();
 
@@ -118,41 +91,8 @@ export function CategoryOrderSheet({ isOpen, store, onClose }: Props) {
     }
   }, [isOpen]);
 
-  function handleDragStart(index: number) {
-    draggingIndexRef.current = index;
-    startIndexRef.current = index;
-    setDraggingIndex(index);
-    translateY.setValue(0);
-  }
-
-  function handleDragMove(dy: number) {
-    const currentIndex = draggingIndexRef.current;
-    if (currentIndex === null) return;
-
-    const shift = Math.round(dy / ROW_HEIGHT);
-    const targetIndex = Math.min(
-      Math.max(startIndexRef.current + shift, 0),
-      orderRef.current.length - 1,
-    );
-
-    if (targetIndex !== currentIndex) {
-      setOrder((prev) => {
-        const next = [...prev];
-        const [moved] = next.splice(currentIndex, 1);
-        next.splice(targetIndex, 0, moved);
-        return next;
-      });
-      draggingIndexRef.current = targetIndex;
-      setDraggingIndex(targetIndex);
-    }
-
-    translateY.setValue(dy - (targetIndex - startIndexRef.current) * ROW_HEIGHT);
-  }
-
-  function handleDragEnd() {
-    Animated.spring(translateY, { toValue: 0, useNativeDriver: true }).start();
-    draggingIndexRef.current = null;
-    setDraggingIndex(null);
+  function handleReorder({ from, to }: ReorderableListReorderEvent) {
+    setOrder((current) => reorderItems(current, from, to));
   }
 
   async function handleSave() {
@@ -183,44 +123,39 @@ export function CategoryOrderSheet({ isOpen, store, onClose }: Props) {
           {flexGrow:1, height:0} fuellenden Inhalt (Snap-Point-Bereich bleibt
           sonst leer). */}
       <BottomSheetView style={{ flex: 1 }}>
-        <View className="flex-1 px-four">
-          <View className="pt-two pb-three gap-[2px]">
-            <ThemedText type="subtitle">Reihenfolge bearbeiten</ThemedText>
-            <ThemedText type="smallMuted">{store?.name ?? ''} — am Griff ⠿ ziehen</ThemedText>
-          </View>
-
-          <View>
-            {order.map((category, index) => (
-              <Row
-                key={category.id}
-                category={category}
-                index={index}
-                isDragging={draggingIndex === index}
-                translateY={translateY}
-                onDragStart={handleDragStart}
-                onDragMove={handleDragMove}
-                onDragEnd={handleDragEnd}
-              />
-            ))}
-          </View>
-
-          <View className="row-between py-four">
-            <Pressable onPress={handleReset} accessibilityRole="button" className="py-two">
-              <ThemedText type="smallMuted">Auf Standard zurücksetzen</ThemedText>
-            </Pressable>
-            <Pressable
-              onPress={handleSave}
-              disabled={saveMutation.isPending}
-              accessibilityRole="button"
-              className="px-four py-three rounded-card"
-              // Dynamische Markt-Farbe aus der Datenbank
-              style={{ backgroundColor: store?.color ?? theme.accent }}>
-              <ThemedText type="default" className="text-white font-bold">
-                Speichern
-              </ThemedText>
-            </Pressable>
-          </View>
-        </View>
+        <ReorderableList
+          data={order}
+          keyExtractor={(category) => category.id}
+          renderItem={({ item }) => <Row category={item} />}
+          onReorder={handleReorder}
+          shouldUpdateActiveItem
+          autoscrollThreshold={0.2}
+          contentContainerStyle={{ flexGrow: 1, paddingHorizontal: 24 }}
+          ListHeaderComponent={
+            <View className="pt-two pb-three gap-[2px]">
+              <ThemedText type="subtitle">Reihenfolge bearbeiten</ThemedText>
+              <ThemedText type="smallMuted">{store?.name ?? ''} — am Griff ⠿ ziehen</ThemedText>
+            </View>
+          }
+          ListFooterComponent={
+            <View className="row-between py-four">
+              <Pressable onPress={handleReset} accessibilityRole="button" className="py-two">
+                <ThemedText type="smallMuted">Auf Standard zurücksetzen</ThemedText>
+              </Pressable>
+              <Pressable
+                onPress={handleSave}
+                disabled={saveMutation.isPending}
+                accessibilityRole="button"
+                className="px-four py-three rounded-card"
+                // Dynamische Markt-Farbe aus der Datenbank
+                style={{ backgroundColor: store?.color ?? theme.accent }}>
+                <ThemedText type="default" className="text-white font-bold">
+                  Speichern
+                </ThemedText>
+              </Pressable>
+            </View>
+          }
+        />
       </BottomSheetView>
     </BottomSheet>
   );

@@ -1412,6 +1412,114 @@ export type Database = {
           },
         ]
       }
+      shopping_category_feedback_events: {
+        Row: {
+          actor_user_id: string
+          app_version: string
+          barcode: string | null
+          build_channel: string
+          classifier_version: string
+          client_created_at: string
+          created_at: string
+          event_id: string
+          event_type: string
+          household_id: string
+          input_method: string
+          new_category_source: string
+          new_placement_zone: string
+          old_category_source: string
+          old_placement_zone: string
+          platform: string
+          predicted_placement_zone: string
+          predicted_product_family: string
+          predicted_product_form: string
+          preference_scope: string
+          product_id: string | null
+          product_key: string
+          product_key_type: string
+          product_name: string
+          schema_version: number
+          shopping_list_item_id: string
+          store_id: string | null
+          taxonomy_version: string
+        }
+        Insert: {
+          actor_user_id: string
+          app_version: string
+          barcode?: string | null
+          build_channel: string
+          classifier_version: string
+          client_created_at: string
+          created_at?: string
+          event_id: string
+          event_type: string
+          household_id: string
+          input_method: string
+          new_category_source: string
+          new_placement_zone: string
+          old_category_source: string
+          old_placement_zone: string
+          platform: string
+          predicted_placement_zone: string
+          predicted_product_family: string
+          predicted_product_form: string
+          preference_scope: string
+          product_id?: string | null
+          product_key: string
+          product_key_type: string
+          product_name: string
+          schema_version: number
+          shopping_list_item_id: string
+          store_id?: string | null
+          taxonomy_version: string
+        }
+        Update: {
+          actor_user_id?: string
+          app_version?: string
+          barcode?: string | null
+          build_channel?: string
+          classifier_version?: string
+          client_created_at?: string
+          created_at?: string
+          event_id?: string
+          event_type?: string
+          household_id?: string
+          input_method?: string
+          new_category_source?: string
+          new_placement_zone?: string
+          old_category_source?: string
+          old_placement_zone?: string
+          platform?: string
+          predicted_placement_zone?: string
+          predicted_product_family?: string
+          predicted_product_form?: string
+          preference_scope?: string
+          product_id?: string | null
+          product_key?: string
+          product_key_type?: string
+          product_name?: string
+          schema_version?: number
+          shopping_list_item_id?: string
+          store_id?: string | null
+          taxonomy_version?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "shopping_category_feedback_events_actor_user_id_fkey"
+            columns: ["actor_user_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "shopping_category_feedback_events_household_id_fkey"
+            columns: ["household_id"]
+            isOneToOne: false
+            referencedRelation: "households"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       shopping_category_preferences: {
         Row: {
           category_id: string | null
@@ -1422,6 +1530,7 @@ export type Database = {
           id: string
           key_type: string
           normalized_key_value: string
+          store_id: string | null
           updated_at: string
         }
         Insert: {
@@ -1433,6 +1542,7 @@ export type Database = {
           id: string
           key_type: string
           normalized_key_value: string
+          store_id?: string | null
           updated_at?: string
         }
         Update: {
@@ -1444,6 +1554,7 @@ export type Database = {
           id?: string
           key_type?: string
           normalized_key_value?: string
+          store_id?: string | null
           updated_at?: string
         }
         Relationships: [
@@ -1459,6 +1570,13 @@ export type Database = {
             columns: ["household_id"]
             isOneToOne: false
             referencedRelation: "households"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "shopping_category_preferences_store_id_fkey"
+            columns: ["store_id"]
+            isOneToOne: false
+            referencedRelation: "stores"
             referencedColumns: ["id"]
           },
         ]

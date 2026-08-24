@@ -86,7 +86,7 @@ export function StorePickerField({ householdId, storeId, onChange }: StorePicker
             storeId === null ? 'border-accent bg-accent/10' : 'border-border bg-transparent'
           }`}>
           <ThemedText type="small" themeColor={storeId === null ? 'accent' : 'textSecondary'}>
-            Kein Markt
+            Ohne Markt
           </ThemedText>
         </Pressable>
         {stores.map((store) => {

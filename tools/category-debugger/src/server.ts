@@ -217,7 +217,7 @@ function predictionFromRow(row: PredictionRow): EvaluationPrediction {
     predictedCategoryId: row.predicted_category_id as CanonicalCategoryId | null,
     predictionSource: row.prediction_source as EvaluationPrediction['predictionSource'],
     conflictReason: row.conflict_reason,
-    trace: row.trace as unknown as CategoryTrace,
+    trace: row.trace as unknown as EvaluationPrediction['trace'],
   };
 }
 

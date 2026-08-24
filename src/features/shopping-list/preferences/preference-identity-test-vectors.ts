@@ -36,4 +36,15 @@ export const PREFERENCE_ID_TEST_VECTORS: readonly {
       'shopping-category-preference/v1\naaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa\nname\n15:crème fraîche',
     expectedId: '42582fa5-972b-507d-b3d4-b371f22cb30a',
   },
+  {
+    input: {
+      householdId: '11111111-1111-4111-8111-111111111111',
+      storeId: '33333333-3333-4333-8333-333333333333',
+      keyType: 'name',
+      normalizedKeyValue: 'hafermilch',
+    },
+    canonicalKey:
+      'shopping-category-preference/v2\n11111111-1111-4111-8111-111111111111\n33333333-3333-4333-8333-333333333333\nname\n10:hafermilch',
+    expectedId: '43edac23-f709-5d8f-ba85-d8f31611c3c0',
+  },
 ];

@@ -1,33 +1,11 @@
 /**
- * Stabile Kategorie-IDs der Einkaufslisten-Taxonomie (Issue #223).
- *
- * Diese IDs sind die einzige gespeicherte Form der Kategorie — Labels
- * (`SHOPPING_CATEGORIES` in `../domain-logik/shopping-categories.ts`) werden
- * ausschließlich zur Anzeige aufgelöst, niemals persistiert.
+ * Technischer Read-Side-Typ für `category_id` während des V2-Cutovers.
+ * Neue Klassifikations- und Schreib-APIs verwenden explizit `PlacementZoneId`;
+ * bestehende Dumps, UI-Fixtures und Snapshots dürfen Legacy-IDs weiter lesen.
  */
-export type ShoppingCategoryId =
-  | 'produce'
-  | 'bakery'
-  | 'convenience'
-  | 'breakfast'
-  | 'hot_beverages'
-  | 'pantry_staples'
-  | 'cooking_baking'
-  | 'canned_sauces'
-  | 'snacks'
-  | 'beverages'
-  | 'drugstore'
-  | 'baby_kids'
-  | 'household'
-  | 'pet_supplies'
-  | 'meat_poultry'
-  | 'fish_seafood'
-  | 'deli_cold_cuts'
-  | 'plant_based'
-  | 'dairy_eggs'
-  | 'frozen'
-  | 'checkout'
-  | 'deli_meat'
-  | 'pantry_canned'
-  | 'pantry_dry'
-  | 'dairy';
+export type {
+  LegacyPlacementZoneId,
+  PlacementZoneId,
+  StoredPlacementZoneId as ShoppingCategoryId,
+  StoredPlacementZoneId,
+} from './placement-taxonomy';

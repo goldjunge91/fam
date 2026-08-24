@@ -1,9 +1,10 @@
-import type { ShoppingCategoryId } from './shopping-category-id';
+import type { StoredPlacementZoneId } from './placement-taxonomy';
 
 export type OffCategoryRule = {
   /** Kanonischer Open-Food-Facts-Tag, z. B. `en:porks`. Keine Anzeigenamen. */
   tag: string;
-  categoryId: ShoppingCategoryId;
+  /** Legacy-Regeln werden im Classifier vor der Auswertung auf V2 normalisiert. */
+  categoryId: StoredPlacementZoneId;
   /** Höher gewinnt. Spezifische Tags stehen über Oberkategorien. */
   priority: number;
 };

@@ -18,7 +18,13 @@ export type LocalShoppingItem = {
   package_size: number | null;
   package_size_unit: string | null;
   category_id: string | null;
-  category_source: 'user' | 'household_preference' | 'off_taxonomy' | 'name_fallback' | null;
+  category_source:
+    | 'user'
+    | 'store_preference'
+    | 'household_preference'
+    | 'off_taxonomy'
+    | 'name_fallback'
+    | null;
   category_classifier_version: string | null;
   /** Abgeleitetes Anzeige-Label, nie in SQLite/Supabase gespeichert. */
   category: string | null;

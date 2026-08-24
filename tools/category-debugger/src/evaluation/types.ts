@@ -174,8 +174,34 @@ export type EvaluationPrediction = {
   predictedCategoryId: CanonicalCategoryId | null;
   predictionSource: 'off_taxonomy' | 'name_fallback' | null;
   conflictReason: string | null;
-  trace: CategoryTrace;
+  trace: EvaluationTrace;
 };
+
+type LegacyEvaluationCandidate = Omit<CategoryTrace['candidates'][number], 'categoryId'> & {
+  categoryId: CanonicalCategoryId;
+};
+
+type LegacyEvaluationWinner = Omit<CategoryTrace['winner'], 'categoryId'> & {
+  categoryId: CanonicalCategoryId | null;
+};
+
+/**
+ * Baselines still target the legacy evaluation classes, while live classifier
+ * runs carry the app's V2 placement-zone trace. Keep that compatibility
+ * boundary explicit instead of assigning legacy IDs to the V2 CategoryTrace.
+ */
+export type LegacyEvaluationTrace = Omit<
+  CategoryTrace,
+  'candidates' | 'rejectedCandidates' | 'winner'
+> & {
+  candidates: readonly LegacyEvaluationCandidate[];
+  rejectedCandidates: readonly (LegacyEvaluationCandidate & {
+    reason: CategoryTrace['rejectedCandidates'][number]['reason'];
+  })[];
+  winner: LegacyEvaluationWinner;
+};
+
+export type EvaluationTrace = CategoryTrace | LegacyEvaluationTrace;
 
 export type CategoryMetric = {
   categoryId: EvaluationClass;

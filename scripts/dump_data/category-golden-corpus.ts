@@ -13,12 +13,12 @@
  * Danach je 2–3 zusätzliche, alltägliche Artikel pro Kategorie.
  */
 
-import type { ShoppingCategoryId } from '@/features/shopping-list/classification/shopping-category-id';
+import type { StoredPlacementZoneId } from '@/features/shopping-list/classification/placement-taxonomy';
 
 export type GoldenCorpusEntry = {
   name: string;
   categoryTags?: string[];
-  expected: ShoppingCategoryId | null;
+  expected: StoredPlacementZoneId | null;
   /** Warum genau dieser Fall drin ist — v.a. bei Kollisionsfällen. */
   note?: string;
 };

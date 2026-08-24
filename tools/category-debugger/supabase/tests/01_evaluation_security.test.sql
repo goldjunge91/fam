@@ -2,7 +2,7 @@ begin;
 set local role postgres;
 set local search_path = extensions, public;
 
-select extensions.plan(43);
+select extensions.plan(51);
 
 select extensions.has_table('public', 'evaluation_reviewers', 'evaluation_reviewers existiert');
 select extensions.has_table('public', 'evaluation_labels', 'evaluation_labels existiert');
@@ -10,6 +10,7 @@ select extensions.has_table('public', 'evaluation_silver_labels', 'evaluation_si
 select extensions.has_table('public', 'evaluation_runs', 'evaluation_runs existiert');
 select extensions.has_table('public', 'evaluation_run_predictions', 'evaluation_run_predictions existiert');
 select extensions.has_table('public', 'evaluation_crowd_signals', 'evaluation_crowd_signals existiert');
+select extensions.has_table('public', 'evaluation_import_runs', 'evaluation_import_runs existiert');
 select extensions.has_table('public', 'evaluation_crowd_signal_reviews', 'evaluation_crowd_signal_reviews existiert');
 select extensions.ok(
   to_regprocedure('private.set_evaluation_label_updated_at()') is not null,
@@ -65,6 +66,10 @@ select extensions.ok(
   'evaluation_crowd_signals hat RLS'
 );
 select extensions.ok(
+  (select relrowsecurity from pg_class where oid = 'public.evaluation_import_runs'::regclass),
+  'evaluation_import_runs hat RLS'
+);
+select extensions.ok(
   (select relrowsecurity from pg_class where oid = 'public.evaluation_crowd_signal_reviews'::regclass),
   'evaluation_crowd_signal_reviews hat RLS'
 );
@@ -92,6 +97,10 @@ select extensions.ok(
 select extensions.ok(
   exists(select 1 from pg_policies where schemaname = 'public' and tablename = 'evaluation_crowd_signals' and policyname = 'evaluation_server_only'),
   'evaluation_crowd_signals hat eine explizite Server-only-Policy'
+);
+select extensions.ok(
+  exists(select 1 from pg_policies where schemaname = 'public' and tablename = 'evaluation_import_runs' and policyname = 'evaluation_server_only'),
+  'evaluation_import_runs hat eine explizite Server-only-Policy'
 );
 select extensions.ok(
   exists(select 1 from pg_policies where schemaname = 'public' and tablename = 'evaluation_crowd_signal_reviews' and policyname = 'evaluation_server_only'),
@@ -123,6 +132,10 @@ select extensions.ok(
   'evaluation_crowd_signals verweigert direkten Clientzugriff'
 );
 select extensions.ok(
+  (select qual = 'false' and with_check = 'false' from pg_policies where schemaname = 'public' and tablename = 'evaluation_import_runs' and policyname = 'evaluation_server_only'),
+  'evaluation_import_runs verweigert direkten Clientzugriff'
+);
+select extensions.ok(
   (select qual = 'false' and with_check = 'false' from pg_policies where schemaname = 'public' and tablename = 'evaluation_crowd_signal_reviews' and policyname = 'evaluation_server_only'),
   'evaluation_crowd_signal_reviews verweigert direkten Clientzugriff'
 );
@@ -150,6 +163,40 @@ select extensions.ok(
 select extensions.ok(
   has_table_privilege('service_role', 'public.evaluation_crowd_signals', 'select,insert'),
   'service_role darf Rohsignale lesen und anfügen'
+);
+select extensions.ok(
+  has_table_privilege('service_role', 'public.evaluation_import_runs', 'select,insert,update'),
+  'service_role darf Importläufe lesen, starten und fortschreiben'
+);
+select extensions.ok(
+  not has_table_privilege('service_role', 'public.evaluation_import_runs', 'delete'),
+  'Import-Auditläufe sind für service_role nicht löschbar'
+);
+select extensions.ok(
+  not (
+    has_table_privilege('anon', 'public.evaluation_import_runs', 'select')
+    or has_table_privilege('anon', 'public.evaluation_import_runs', 'insert')
+    or has_table_privilege('anon', 'public.evaluation_import_runs', 'update')
+    or has_table_privilege('anon', 'public.evaluation_import_runs', 'delete')
+    or has_table_privilege('anon', 'public.evaluation_import_runs', 'truncate')
+    or has_table_privilege('anon', 'public.evaluation_import_runs', 'references')
+    or has_table_privilege('anon', 'public.evaluation_import_runs', 'trigger')
+    or has_table_privilege('anon', 'public.evaluation_import_runs', 'maintain')
+  ),
+  'anon hat keine Rechte auf Import-Auditläufe'
+);
+select extensions.ok(
+  not (
+    has_table_privilege('authenticated', 'public.evaluation_import_runs', 'select')
+    or has_table_privilege('authenticated', 'public.evaluation_import_runs', 'insert')
+    or has_table_privilege('authenticated', 'public.evaluation_import_runs', 'update')
+    or has_table_privilege('authenticated', 'public.evaluation_import_runs', 'delete')
+    or has_table_privilege('authenticated', 'public.evaluation_import_runs', 'truncate')
+    or has_table_privilege('authenticated', 'public.evaluation_import_runs', 'references')
+    or has_table_privilege('authenticated', 'public.evaluation_import_runs', 'trigger')
+    or has_table_privilege('authenticated', 'public.evaluation_import_runs', 'maintain')
+  ),
+  'authenticated hat keine Rechte auf Import-Auditläufe'
 );
 select extensions.ok(
   has_table_privilege('service_role', 'public.evaluation_crowd_signal_reviews', 'select,insert'),

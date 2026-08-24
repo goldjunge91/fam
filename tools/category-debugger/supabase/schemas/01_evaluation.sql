@@ -305,6 +305,55 @@ create index evaluation_crowd_signals_store_idx
   on public.evaluation_crowd_signals (store_key, received_at desc)
   where store_key is not null;
 
+-- Audit- und Resume-Cursor fuer den ausschliesslich manuellen App-Feedback-
+-- Import. Die Tabelle enthaelt bewusst keinerlei App-Actor-, Haushalts-,
+-- Store-, Produkt- oder Einkaufslisten-ID.
+create table public.evaluation_import_runs (
+  run_id uuid primary key,
+  source text not null,
+  status text not null,
+  started_at timestamptz not null,
+  finished_at timestamptz,
+  cursor_created_at timestamptz,
+  cursor_event_id text,
+  pages integer not null default 0,
+  events_read integer not null default 0,
+  events_imported integer not null default 0,
+  events_duplicate integer not null default 0,
+  error_message text,
+  constraint evaluation_import_runs_source_check check (source = 'app_feedback'),
+  constraint evaluation_import_runs_status_check check (status in ('running', 'completed', 'failed')),
+  constraint evaluation_import_runs_cursor_complete_check check (
+    (cursor_created_at is null) = (cursor_event_id is null)
+  ),
+  constraint evaluation_import_runs_cursor_event_check check (
+    cursor_event_id is null or char_length(btrim(cursor_event_id)) between 1 and 200
+  ),
+  constraint evaluation_import_runs_counts_check check (
+    pages >= 0
+    and events_read >= 0
+    and events_imported >= 0
+    and events_duplicate >= 0
+    and pages <= events_read
+    and events_imported + events_duplicate = events_read
+    and (cursor_created_at is not null or events_read = 0)
+  ),
+  constraint evaluation_import_runs_time_check check (
+    finished_at is null or finished_at >= started_at
+  ),
+  constraint evaluation_import_runs_completion_check check (
+    (status = 'running' and finished_at is null and error_message is null)
+    or (status = 'completed' and finished_at is not null and error_message is null)
+    or (status = 'failed' and finished_at is not null and error_message is not null)
+  ),
+  constraint evaluation_import_runs_error_check check (
+    error_message is null or char_length(btrim(error_message)) between 1 and 4000
+  )
+);
+
+create index evaluation_import_runs_source_started_idx
+  on public.evaluation_import_runs (source, started_at desc, run_id desc);
+
 create table public.evaluation_crowd_signal_reviews (
   id bigint generated always as identity primary key,
   signal_id bigint not null references public.evaluation_crowd_signals(id) on delete restrict,
@@ -379,6 +428,7 @@ alter table public.evaluation_silver_labels enable row level security;
 alter table public.evaluation_runs enable row level security;
 alter table public.evaluation_run_predictions enable row level security;
 alter table public.evaluation_crowd_signals enable row level security;
+alter table public.evaluation_import_runs enable row level security;
 alter table public.evaluation_crowd_signal_reviews enable row level security;
 
 create policy evaluation_server_only on public.evaluation_reviewers
@@ -393,6 +443,8 @@ create policy evaluation_server_only on public.evaluation_run_predictions
   as restrictive for all to anon, authenticated using (false) with check (false);
 create policy evaluation_server_only on public.evaluation_crowd_signals
   as restrictive for all to anon, authenticated using (false) with check (false);
+create policy evaluation_server_only on public.evaluation_import_runs
+  as restrictive for all to anon, authenticated using (false) with check (false);
 create policy evaluation_server_only on public.evaluation_crowd_signal_reviews
   as restrictive for all to anon, authenticated using (false) with check (false);
 
@@ -402,8 +454,10 @@ revoke all on table public.evaluation_silver_labels from anon, authenticated;
 revoke all on table public.evaluation_runs from anon, authenticated;
 revoke all on table public.evaluation_run_predictions from anon, authenticated;
 revoke all on table public.evaluation_crowd_signals from anon, authenticated;
+revoke all on table public.evaluation_import_runs from anon, authenticated;
 revoke all on table public.evaluation_crowd_signal_reviews from anon, authenticated;
 revoke all on table public.evaluation_crowd_signals from service_role;
+revoke all on table public.evaluation_import_runs from service_role;
 revoke all on table public.evaluation_crowd_signal_reviews from service_role;
 
 grant select, insert, update, delete on table public.evaluation_reviewers to service_role;
@@ -412,6 +466,7 @@ grant select, insert, update, delete on table public.evaluation_silver_labels to
 grant select, insert, update, delete on table public.evaluation_runs to service_role;
 grant select, insert, update, delete on table public.evaluation_run_predictions to service_role;
 grant select, insert on table public.evaluation_crowd_signals to service_role;
+grant select, insert, update on table public.evaluation_import_runs to service_role;
 grant select, insert on table public.evaluation_crowd_signal_reviews to service_role;
 
 revoke all on sequence public.evaluation_reviewers_id_seq from anon, authenticated;

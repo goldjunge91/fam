@@ -1,12 +1,13 @@
 -- Gewuenschter Endzustand — NICHT von Hand migrieren (#223 Paket 2 / #225).
 --
--- Haushaltsweite, offline synchronisierbare Korrekturen der automatischen
--- Einkaufskategorie. Die technische id ist eine deterministische UUIDv5 aus
--- der natuerlichen Identitaet; sie hat deshalb bewusst keinen Default.
+-- Haushalts- und marktbezogene, offline synchronisierbare Korrekturen der
+-- automatischen Einkaufsbereiche. Die technische id ist eine deterministische
+-- UUIDv5 aus der natuerlichen Identitaet; sie hat deshalb bewusst keinen Default.
 
 create table if not exists public.shopping_category_preferences (
   id uuid primary key,
   household_id uuid not null references public.households (id) on delete cascade,
+  store_id uuid references public.stores (id) on delete cascade,
 
   key_type text not null check (key_type in ('product', 'name')),
   normalized_key_value text not null,
@@ -15,12 +16,16 @@ create table if not exists public.shopping_category_preferences (
   -- "keine Praeferenz gefunden" zu verwechseln.
   category_id text check (
     category_id in (
-      'produce', 'bakery', 'convenience', 'breakfast', 'hot_beverages',
-      'pantry_staples', 'cooking_baking', 'canned_sauces', 'snacks', 'beverages',
-      'drugstore', 'baby_kids', 'household', 'pet_supplies',
-      'meat_poultry', 'fish_seafood', 'deli_cold_cuts', 'plant_based', 'dairy_eggs',
-      'frozen', 'checkout',
+      'fresh_produce', 'bakery', 'chilled_dairy_eggs', 'ambient_milk_drinks',
+      'chilled_plant_based', 'meat_poultry', 'fish_seafood', 'deli',
+      'pasta_tomato', 'rice_world_foods', 'breakfast', 'baking', 'oils_spices',
+      'condiments', 'canned_jars', 'ready_meals', 'snacks', 'sweets',
+      'cold_drinks', 'hot_drinks', 'alcohol', 'frozen', 'baby', 'pets',
+      'household', 'personal_care', 'other',
       -- Legacy-IDs zur Abwaertskompatibilitaet
+      'produce', 'convenience', 'hot_beverages', 'pantry_staples', 'cooking_baking',
+      'canned_sauces', 'beverages', 'drugstore', 'baby_kids', 'pet_supplies',
+      'deli_cold_cuts', 'plant_based', 'dairy_eggs', 'checkout',
       'deli_meat', 'pantry_canned', 'pantry_dry', 'dairy'
     )
   ),
@@ -28,12 +33,7 @@ create table if not exists public.shopping_category_preferences (
   created_by uuid references public.profiles (id) on delete set null,
   created_at timestamptz not null default now(),
   updated_at timestamptz not null default now(),
-  deleted_at timestamptz,
-
-  -- Nicht partiell: auch ein Tombstone reserviert die natuerliche Identitaet.
-  -- Eine erneute Auswahl restored dieselbe deterministische Zeile.
-  constraint shopping_category_preferences_natural_key_key
-    unique (household_id, key_type, normalized_key_value)
+  deleted_at timestamptz
 );
 
 alter table public.shopping_category_preferences
@@ -43,8 +43,16 @@ alter table public.shopping_category_preferences
 comment on table public.shopping_category_preferences is
   'Haushaltsweite Kategorie-Korrekturen mit deterministischer UUIDv5 und Soft Delete.';
 
--- Der Unique-Index deckt household_id als erstes Feld bereits ab und ist damit
--- zugleich der benoetigte FK-/Membership-Lookup-Index.
+-- Die beiden Scopes besitzen getrennte natuerliche Identitaeten. Tombstones
+-- bleiben dabei reserviert, damit Restore dieselbe deterministische Zeile nutzt.
+create unique index if not exists shopping_category_preferences_household_key_idx
+  on public.shopping_category_preferences (household_id, key_type, normalized_key_value)
+  where store_id is null;
+
+create unique index if not exists shopping_category_preferences_store_key_idx
+  on public.shopping_category_preferences (household_id, store_id, key_type, normalized_key_value)
+  where store_id is not null;
+
 create index if not exists shopping_category_preferences_created_by_idx
   on public.shopping_category_preferences (created_by);
 
@@ -62,4 +70,15 @@ create policy shopping_category_preferences_all_member
   on public.shopping_category_preferences
   for all to authenticated
   using ((select private.is_household_member(household_id)))
-  with check ((select private.is_household_member(household_id)));
+  with check (
+    (select private.is_household_member(household_id))
+    and (
+      store_id is null
+      or exists (
+        select 1
+        from public.stores scoped_store
+        where scoped_store.id = shopping_category_preferences.store_id
+          and scoped_store.household_id = shopping_category_preferences.household_id
+      )
+    )
+  );

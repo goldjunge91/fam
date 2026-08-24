@@ -20,7 +20,7 @@ import { Database } from 'bun:sqlite';
 import { existsSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
 
-import type { ShoppingCategoryId } from '@/features/shopping-list/classification/shopping-category-id';
+import type { PlacementZoneId } from '@/features/shopping-list/classification/placement-taxonomy';
 import { SHOPPING_CATEGORIES } from '@/features/shopping-list/domain-logik/shopping-categories';
 import { CATEGORY_GOLDEN_CORPUS } from './category-golden-corpus';
 import {
@@ -96,7 +96,7 @@ function renderHtmlReport(report: CalibrationReport, dumpHasCategoryTags: boolea
 
   const categoryRows = sortedCategories
     .map((cat) => {
-      const catId = cat.id as ShoppingCategoryId;
+      const catId = cat.id as PlacementZoneId;
       const count = report.categoryDistribution[catId] ?? 0;
       const share = report.totalProducts > 0 ? count / report.totalProducts : 0;
       const percentStr = formatPercent(share);

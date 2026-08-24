@@ -2,7 +2,6 @@ import { createHash } from 'node:crypto';
 import { existsSync } from 'node:fs';
 import path from 'node:path';
 import { explainCategory } from '../../../../src/features/shopping-list/classification/shopping-category-classifier';
-import type { CategoryTrace } from '../../../../src/features/shopping-list/classification/types';
 import {
   CANONICAL_CATEGORY_IDS,
   type BaselineDefinition,
@@ -11,6 +10,7 @@ import {
   type EvaluationLabel,
   type EvaluationPrediction,
   type EvaluationSilverLabel,
+  type LegacyEvaluationTrace,
 } from './types';
 
 export { BASELINE_IDS, type BaselineId } from './types';
@@ -186,7 +186,7 @@ function linearPredictions(training: readonly TrainingExample[], labels: readonl
 }
 
 function prediction(labelId: number, categoryId: CanonicalCategoryId | null, version: string, confidence: number): EvaluationPrediction {
-  const trace: CategoryTrace = {
+  const trace: LegacyEvaluationTrace = {
     classifierVersion: version,
     input: { source: 'dump', dataVersion: null, categoryTags: [], normalizedName: null },
     candidates: [],

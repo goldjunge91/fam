@@ -1,5 +1,5 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
-import type { CategoryClassification } from '../classification/types';
+import { getDatabase } from '@/lib/db/client';
 import {
   type ResetCategoryPreferenceInput,
   resetCategoryPreference,
@@ -7,10 +7,16 @@ import {
   type SetCategoryPreferenceInput,
   setCategoryPreference,
 } from './api';
+import type { ResolvedPlacementClassification } from './resolve-category';
+import {
+  type AtomicShoppingItemSaveInput,
+  type AtomicShoppingItemSaveResult,
+  saveShoppingItemAtomically,
+} from './save-shopping-item';
 
 /** Gemeinsamer Invalidierungs-Key — noch ohne eigenen `useQuery` (#223 Paket 8 baut die UI darauf auf). */
-export function categoryPreferencesQueryKey(householdId: string) {
-  return ['category-preferences', householdId] as const;
+export function categoryPreferencesQueryKey(householdId: string, storeId?: string | null) {
+  return ['category-preferences', householdId, storeId ?? null] as const;
 }
 
 /**
@@ -27,7 +33,7 @@ export function useSetCategoryPreferenceMutation() {
     mutationFn: (input: SetCategoryPreferenceInput) => setCategoryPreference(input),
     onSuccess: (_, variables) => {
       queryClient.invalidateQueries({
-        queryKey: categoryPreferencesQueryKey(variables.householdId),
+        queryKey: categoryPreferencesQueryKey(variables.householdId, variables.storeId),
       });
       queryClient.invalidateQueries({ queryKey: ['sync-status'] });
     },
@@ -53,10 +59,11 @@ export function useResetCategoryPreferenceMutation() {
   return useMutation({
     mutationFn: async (
       input: ResetCategoryPreferenceMutationInput,
-    ): Promise<CategoryClassification> => {
+    ): Promise<ResolvedPlacementClassification & { barcode: string | null }> => {
       await resetCategoryPreference(input);
       return resolveCategoryForItem({
         householdId: input.householdId,
+        storeId: input.storeId,
         productId: input.productId,
         name: input.name,
         categoryTags: input.categoryTags,
@@ -64,9 +71,43 @@ export function useResetCategoryPreferenceMutation() {
     },
     onSuccess: (_, variables) => {
       queryClient.invalidateQueries({
-        queryKey: categoryPreferencesQueryKey(variables.householdId),
+        queryKey: categoryPreferencesQueryKey(variables.householdId, variables.storeId),
       });
       queryClient.invalidateQueries({ queryKey: ['sync-status'] });
+    },
+  });
+}
+
+export type SaveShoppingItemMutationInput = Omit<AtomicShoppingItemSaveInput, 'db'> & {
+  householdId: string;
+};
+
+/**
+ * Gemeinsamer Hook fuer Add-/Edit-Formulare. Der Aufrufer liefert den bereits
+ * vorbereiteten lokalen Item-Write; dieser Hook haelt Preference, Feedback und
+ * Outbox in derselben exklusiven SQLite-Transaktion.
+ */
+export function useSaveShoppingItemMutation() {
+  const queryClient = useQueryClient();
+
+  return useMutation<AtomicShoppingItemSaveResult, Error, SaveShoppingItemMutationInput>({
+    mutationFn: async ({ householdId: _householdId, ...input }) => {
+      const db = await getDatabase();
+      return saveShoppingItemAtomically({ db, ...input });
+    },
+    onSuccess: (_, variables) => {
+      queryClient.invalidateQueries({
+        queryKey: ['shopping_list_items', variables.householdId],
+      });
+      queryClient.invalidateQueries({ queryKey: ['sync-status'] });
+      if (variables.preference) {
+        queryClient.invalidateQueries({
+          queryKey: categoryPreferencesQueryKey(
+            variables.preference.input.householdId,
+            variables.preference.input.storeId,
+          ),
+        });
+      }
     },
   });
 }

@@ -9,6 +9,13 @@
 -- noch Kommentare — mit ihr waeren alle Statements hier wirkungslos. Siehe
 -- AGENTS.md.
 
+-- Neue Tabellen starten geschlossen. Supabase' breite Default-Privilegien
+-- wuerden einer spaeter erzeugten push-only Tabelle sonst unter anderem
+-- TRUNCATE/REFERENCES/TRIGGER geben, bevor die expliziten Grants unten
+-- greifen.
+alter default privileges for role postgres in schema public
+  revoke all on tables from anon, authenticated, service_role;
+
 -- ------------------------------------------------------------- Tabellenrechte
 -- Supabase vergibt diese Rechte per Default an alle drei Rollen. Hier stehen
 -- sie ausdruecklich, damit der Diff sie nicht als "nicht deklariert, also
@@ -32,6 +39,9 @@ revoke all on public.shopping_category_preferences from authenticated;
 grant insert, select, update on public.shopping_category_preferences to authenticated;
 grant delete, insert, select, update on public.shopping_category_preferences to service_role;
 revoke all on public.shopping_category_preferences from anon;
+revoke all on public.shopping_category_feedback_events from anon, authenticated, service_role;
+grant insert on public.shopping_category_feedback_events to authenticated;
+grant select on public.shopping_category_feedback_events to service_role;
 grant delete, insert, select, update on public.food_entries to anon, authenticated, service_role;
 grant delete, insert, select, update on public.weight_entries to anon, authenticated, service_role;
 grant delete, insert, select, update on public.user_goals to anon, authenticated, service_role;

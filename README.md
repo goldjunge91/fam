@@ -179,10 +179,10 @@ Einmalige Einrichtung:
 
 1. PostHog-Projekt anlegen ([posthog.com](https://posthog.com), kostenloser
    Tarif reicht) → **Project Settings > Project API Key** liefert den Key.
-2. `EXPO_PUBLIC_POSTHOG_API_KEY` in `.env` eintragen. Bei einem EU-Projekt
-   zusätzlich `EXPO_PUBLIC_POSTHOG_HOST=https://eu.i.posthog.com` setzen —
+2. `EXPO_PUBLIC_POSTHOG_API_KEY` in `.env` eintragen. Bei einem zusätzlich
+3. `EXPO_PUBLIC_POSTHOG_HOST=https://us.i.posthog.com` setzen —
    ohne gesetzten Host wird der US-Cloud-Standardhost verwendet.
-3. Neuer Dev-Client-Build nötig (`bash scripts/ios-dev.sh` bzw.
+4. Neuer Dev-Client-Build nötig (`bash scripts/ios-dev.sh` bzw.
    Android-Äquivalent), da `posthog-react-native` native Peer-Dependencies
    mitbringt (`expo-file-system`, `expo-application`, `expo-device`,
    `expo-localization`).

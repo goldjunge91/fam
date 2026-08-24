@@ -5,10 +5,15 @@ import { enqueueMutation } from '@/lib/db/outbox';
 import {
   type AddShoppingItemInput as AddItemInput,
   addOrMergeShoppingItem,
+  buildAddOrMergeShoppingItemMutation,
 } from '@/lib/db/shopping-list-merge';
 import { normalizeUnit } from '@/lib/units';
+import type { CategorySource } from '../classification/types';
+import type { CategoryPreferenceMutation } from '../preferences/api';
+import type { CategoryFeedbackDraft, CategoryFeedbackInput } from '../preferences/feedback';
+import { saveShoppingItemAtomically } from '../preferences/save-shopping-item';
 
-type UpdateItemInput = {
+export type UpdateItemInput = {
   id: string;
   household_id: string;
   name: string;
@@ -17,10 +22,14 @@ type UpdateItemInput = {
   package_size?: number | null;
   package_size_unit?: string | null;
   category_id: string | null;
-  category_source: 'user' | 'household_preference' | 'off_taxonomy' | 'name_fallback' | null;
+  category_source: CategorySource | null;
   category_classifier_version: string | null;
   store_id: string | null;
   price_estimate: number | null;
+  /** Optionaler Preference-Schritt fuer den atomaren Formular-Save. */
+  preference?: CategoryPreferenceMutation;
+  /** Optionales, bereits Alpha-geprueftes Feedback-Event. */
+  feedback?: CategoryFeedbackInput;
 };
 
 type ToggleItemInput = {
@@ -48,13 +57,36 @@ type DeleteItemInput = {
  * Kein Server-Round-Trip noetig: UUID wird lokal generiert, Eintrag
  * landet sofort in SQLite und in der Outbox.
  */
+export type AddShoppingItemMutationInput = AddItemInput & {
+  /** Optionaler Preference-Schritt fuer den atomaren Formular-Save. */
+  preference?: CategoryPreferenceMutation;
+  /** Optionales, bereits Alpha-geprueftes Feedback-Event. */
+  feedback?: CategoryFeedbackDraft;
+};
+
 export function useAddShoppingItem() {
   const queryClient = useQueryClient();
 
   return useMutation({
-    mutationFn: async (input: AddItemInput) => {
+    mutationFn: async (input: AddShoppingItemMutationInput) => {
       const db = await getDatabase();
-      return addOrMergeShoppingItem(db, Crypto.randomUUID(), input);
+      const { preference, feedback, ...itemInput } = input;
+      if (!preference && !feedback) {
+        return addOrMergeShoppingItem(db, Crypto.randomUUID(), itemInput);
+      }
+
+      const itemMutation = await buildAddOrMergeShoppingItemMutation(
+        db,
+        Crypto.randomUUID(),
+        itemInput,
+      );
+      await saveShoppingItemAtomically({
+        db,
+        itemMutation,
+        preference,
+        feedback: feedback ? { ...feedback, shoppingListItemId: itemMutation.entityId } : undefined,
+      });
+      return itemMutation.entityId;
     },
     onSuccess: (_, variables) => {
       queryClient.invalidateQueries({ queryKey: ['shopping_list_items', variables.household_id] });
@@ -82,47 +114,54 @@ export function useUpdateShoppingItem() {
         ? normalizeUnit(input.package_size_unit)
         : null;
 
-      await enqueueMutation(db, {
-        entity: 'shopping_list_items',
-        entityId: input.id,
-        op: 'update',
-        payload: {
-          id: input.id,
-          household_id: input.household_id,
-          name: input.name,
-          quantity: input.quantity,
-          unit: normUnit,
-          package_size: input.package_size ?? null,
-          package_size_unit: normPackageUnit,
-          category_id: input.category_id,
-          category_source: input.category_source,
-          category_classifier_version: input.category_classifier_version,
-          store_id: input.store_id,
-          price_estimate: input.price_estimate,
-          updated_at: now,
-        },
-        applyLocally: async (txn) => {
-          await txn.runAsync(
-            `update shopping_list_items
-             set name = ?, quantity = ?, unit = ?, package_size = ?, package_size_unit = ?,
-                 category_id = ?, category_source = ?, category_classifier_version = ?,
-                 store_id = ?, price_estimate = ?, updated_at = ?, _dirty = 1
-             where id = ?`,
-            [
-              input.name,
-              input.quantity,
-              normUnit,
-              input.package_size ?? null,
-              normPackageUnit,
-              input.category_id,
-              input.category_source,
-              input.category_classifier_version,
-              input.store_id,
-              input.price_estimate,
-              nowMs,
-              input.id,
-            ],
-          );
+      await saveShoppingItemAtomically({
+        db,
+        preference: input.preference,
+        feedback: input.feedback,
+        nowMs,
+        itemMutation: {
+          entity: 'shopping_list_items',
+          entityId: input.id,
+          op: 'update',
+          payload: {
+            id: input.id,
+            household_id: input.household_id,
+            name: input.name,
+            quantity: input.quantity,
+            unit: normUnit,
+            package_size: input.package_size ?? null,
+            package_size_unit: normPackageUnit,
+            category_id: input.category_id,
+            category_source: input.category_source,
+            category_classifier_version: input.category_classifier_version,
+            store_id: input.store_id,
+            price_estimate: input.price_estimate,
+            updated_at: now,
+          },
+          now: nowMs,
+          applyLocally: async (txn) => {
+            await txn.runAsync(
+              `update shopping_list_items
+               set name = ?, quantity = ?, unit = ?, package_size = ?, package_size_unit = ?,
+                   category_id = ?, category_source = ?, category_classifier_version = ?,
+                   store_id = ?, price_estimate = ?, updated_at = ?, _dirty = 1
+               where id = ?`,
+              [
+                input.name,
+                input.quantity,
+                normUnit,
+                input.package_size ?? null,
+                normPackageUnit,
+                input.category_id,
+                input.category_source,
+                input.category_classifier_version,
+                input.store_id,
+                input.price_estimate,
+                nowMs,
+                input.id,
+              ],
+            );
+          },
         },
       });
     },
