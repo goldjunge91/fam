@@ -1,5 +1,6 @@
 import { type EnqueueMutationInput, enqueueMutations } from '@/lib/db/outbox';
 import type { SqlDatabase } from '@/lib/db/types';
+import { debugLog } from '@/lib/debug-log';
 import { buildCategoryPreferenceMutationPlan, type CategoryPreferenceMutation } from './api';
 import { type CategoryFeedbackInput, categoryFeedbackMutation } from './feedback';
 
@@ -32,6 +33,11 @@ export type AtomicShoppingItemSaveResult = {
 export async function saveShoppingItemAtomically(
   input: AtomicShoppingItemSaveInput,
 ): Promise<AtomicShoppingItemSaveResult> {
+  debugLog('LOG  [Placement] saveShoppingItemAtomically called', {
+    hasPreference: !!input.preference,
+    preference: input.preference,
+    hasFeedback: !!input.feedback,
+  });
   const nowMs = input.nowMs ?? Date.now();
   const preferencePlan = input.preference
     ? await buildCategoryPreferenceMutationPlan(input.db, input.preference, nowMs)

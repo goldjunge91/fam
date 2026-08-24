@@ -20,6 +20,7 @@ import { useAddProductMutation } from '@/features/inventory/use-product-mutation
 import { useTheme } from '@/hooks/use-theme';
 import { getDatabase } from '@/lib/db/client';
 import { recordProductUsage } from '@/lib/db/product-usage';
+import { debugLog } from '@/lib/debug-log';
 import type { OpenFoodFactsProduct } from '@/lib/open-food-facts';
 import { formatAmount, formatPackageHint } from '@/lib/package-size';
 import { useFeatureFlag } from '@/lib/posthog';
@@ -39,6 +40,7 @@ import { useStores } from '../hooks/use-stores';
 import type { CategoryPreferenceMutation } from '../preferences/api';
 import { resolvePlacementForItem } from '../preferences/api';
 import type { CategoryFeedbackDraft } from '../preferences/feedback';
+import { logCategoryFeedbackAlphaTrace } from '../preferences/feedback-debug';
 import { categoryFeedbackMetadata } from '../preferences/feedback-metadata';
 import { EMPTY_CATEGORY_STATE } from './category-form-state';
 import { PlacementZoneField, type PlacementZoneSelection } from './placement-zone-field';
@@ -60,6 +62,7 @@ async function resolveAutomaticPreview(
   input: Parameters<typeof resolvePlacementForItem>[0],
   resetScope: PreferenceScope | null,
 ) {
+  debugLog('LOG  [Placement] add-item-form resolveAutomaticPreview', { input, resetScope });
   return resolvePlacementForItem(input, { omitPreferenceScope: resetScope });
 }
 
@@ -305,6 +308,19 @@ export const AddItemForm = forwardRef<AddItemFormHandle, AddItemFormProps>(funct
   useImperativeHandle(ref, () => ({ closeSearch }));
 
   async function handleAdd() {
+    debugLog('LOG  [Placement] add-item-form handleAdd called', {
+      name: name.trim(),
+      purchaseCount,
+      unit,
+      price,
+      selectedProductId,
+      selectedProductName: selectedProduct?.name,
+      categoryState,
+      placementSelectionTouched,
+      placementSelectionMode: placementSelection.mode,
+      manualZoneId: placementSelection.mode === 'manual' ? placementSelection.zoneId : null,
+      storeId,
+    });
     const trimmed = name.trim();
     if (!trimmed) {
       setNameError('Bitte einen Namen eingeben.');
@@ -427,6 +443,16 @@ export const AddItemForm = forwardRef<AddItemFormHandle, AddItemFormProps>(funct
                 }
               : undefined
           : undefined;
+
+      logCategoryFeedbackAlphaTrace({
+        origin: 'add_form',
+        featureFlagEnabled: feedbackEnabled,
+        predictedPlacementZone: globalClassification.placementZoneId,
+        savedPlacementZone: savedCategory.placementZoneId,
+        savedCategorySource: savedCategory.source,
+        preference,
+        feedback,
+      });
 
       await addItem.mutateAsync({
         household_id: householdId,

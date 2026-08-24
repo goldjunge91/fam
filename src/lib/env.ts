@@ -73,6 +73,16 @@ export const env = {
     return isFlagEnabled(process.env.EXPO_PUBLIC_DEV_TOOLS);
   },
   /**
+   * Steuert Ad-hoc-Debug-`console.log`s (siehe `@/lib/debug-log`), die beim
+   * Nachvollziehen einzelner Flows temporär eingebaut werden. Anders als die
+   * uebrigen Schalter hier **standardmaessig an** — Debug-Ausgaben sollen ohne
+   * Zutun sichtbar sein, bis man sie explizit abschaltet, nicht umgekehrt.
+   */
+  get debugLogsEnabled(): boolean {
+    const raw = process.env.EXPO_PUBLIC_DEBUG_LOGS?.trim().toLowerCase();
+    return raw !== 'false' && raw !== '0';
+  },
+  /**
    * Unterbindet jeden Open-Food-Facts-Netzwerkzugriff (Suche + Barcode-Lookup).
    * Zum Testen des Offline-Verhaltens, ohne echtes Netz aus- und wieder
    * einzuschalten oder auf ein Rate-Limit zu warten.

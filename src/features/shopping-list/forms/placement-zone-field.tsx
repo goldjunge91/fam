@@ -3,6 +3,7 @@ import { Modal, Pressable, ScrollView, View } from 'react-native';
 
 import { ThemedText } from '@/components/theme/themed-text';
 import { Button } from '@/components/ui/buttons';
+import { debugLog } from '@/lib/debug-log';
 import {
   normalizePlacementOrder,
   normalizePlacementZoneIdNullable,
@@ -46,11 +47,13 @@ export function PlacementZoneField({
   const options = orderedZones(categoryOrder);
 
   function selectZone(zoneId: PlacementZoneId) {
+    debugLog(`LOG  [Placement] placement-zone-field selectZone: ${zoneId}`);
     onSelectionChange({ mode: 'manual', zoneId });
     setIsOpen(false);
   }
 
   function selectAutomatic() {
+    debugLog('LOG  [Placement] placement-zone-field selectAutomatic', { effectiveZoneId });
     onSelectAutomatic();
     setIsOpen(false);
   }

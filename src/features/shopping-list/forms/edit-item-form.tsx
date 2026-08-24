@@ -6,6 +6,7 @@ import { WheelPickerField } from '@/components/forms/wheel-picker-field';
 import { ThemedText } from '@/components/theme/themed-text';
 import { Button } from '@/components/ui/buttons';
 import { useSession } from '@/features/auth/session-provider';
+import { debugLog } from '@/lib/debug-log';
 import { formatAmount } from '@/lib/package-size';
 import { useFeatureFlag } from '@/lib/posthog';
 import { UNIT_OPTIONS } from '@/lib/units';
@@ -21,6 +22,7 @@ import { useStores } from '../hooks/use-stores';
 import type { CategoryPreferenceMutation } from '../preferences/api';
 import { resolvePlacementForItem } from '../preferences/api';
 import type { CategoryFeedbackInput } from '../preferences/feedback';
+import { logCategoryFeedbackAlphaTrace } from '../preferences/feedback-debug';
 import { categoryFeedbackMetadata } from '../preferences/feedback-metadata';
 import type { CategoryFormState } from './category-form-state';
 import { PlacementZoneField, type PlacementZoneSelection } from './placement-zone-field';
@@ -47,6 +49,7 @@ async function resolveAutomaticPreview(
   input: Parameters<typeof resolvePlacementForItem>[0],
   resetScope: PreferenceScope | null,
 ) {
+  debugLog('LOG  [Placement] edit-item-form resolveAutomaticPreview', { input, resetScope });
   return resolvePlacementForItem(input, { omitPreferenceScope: resetScope });
 }
 
@@ -201,6 +204,20 @@ export function EditItemForm({ item, onDismiss }: EditItemFormProps) {
   }
 
   async function handleSave() {
+    debugLog('LOG  [Placement] edit-item-form handleSave called', {
+      itemId: item.id,
+      name: name.trim(),
+      quantity,
+      unit,
+      price,
+      initialCategory: { categoryId: item.category_id, source: item.category_source },
+      categoryState,
+      placementSelectionTouched,
+      placementSelectionMode: placementSelection.mode,
+      manualZoneId: placementSelection.mode === 'manual' ? placementSelection.zoneId : null,
+      storeContextChanged,
+      storeId,
+    });
     const trimmed = name.trim();
     if (!trimmed) {
       setNameError('Bitte einen Namen eingeben.');
@@ -321,6 +338,16 @@ export function EditItemForm({ item, onDismiss }: EditItemFormProps) {
                 }
               : undefined
           : undefined;
+
+      logCategoryFeedbackAlphaTrace({
+        origin: 'edit_form',
+        featureFlagEnabled: feedbackEnabled,
+        predictedPlacementZone: globalClassification.placementZoneId,
+        savedPlacementZone: savedCategory.categoryId,
+        savedCategorySource: savedCategory.source,
+        preference,
+        feedback,
+      });
 
       await updateItem.mutateAsync({
         id: item.id,

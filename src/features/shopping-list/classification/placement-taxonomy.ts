@@ -7,6 +7,8 @@
  * Schreibvorgänge verwenden ausschließlich `PlacementZoneId`.
  */
 
+import { debugLog } from '@/lib/debug-log';
+
 export const PLACEMENT_TAXONOMY_VERSION = 'placement-taxonomy-v2' as const;
 export const PLACEMENT_CLASSIFIER_VERSION = 'placement-v2.0.0' as const;
 
@@ -479,6 +481,7 @@ export function resolvePlacementZone(
   family: ProductFamilyId,
   form: ProductFormId,
 ): PlacementZoneId {
+  debugLog('LOG  [Placement] taxonomy resolvePlacementZone', { family, form });
   if (form === 'frozen') return 'frozen';
   if (family === 'tomato_products' || family === 'pasta_sauce' || family === 'pasta')
     return 'pasta_tomato';

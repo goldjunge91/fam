@@ -1,6 +1,7 @@
 import { getDatabase } from '@/lib/db/client';
 import { type EnqueueMutationInput, enqueueMutations } from '@/lib/db/outbox';
 import type { SqlDatabase } from '@/lib/db/types';
+import { debugLog } from '@/lib/debug-log';
 import { parseCategoryTagsJson } from '@/lib/open-food-facts';
 import { normalizePlacementZoneIdNullable } from '../classification/placement-taxonomy';
 import type { ShoppingCategoryId } from '../classification/shopping-category-id';
@@ -39,6 +40,7 @@ export async function findProductPreference(
   productId: string,
   storeId?: string | null,
 ): Promise<CategoryPreference | null> {
+  debugLog('LOG  [Placement] api.ts findProductPreference', { productId, storeId });
   const db = await getDatabase();
   const scope = storeId === undefined || storeId === null ? 'store_id is null' : 'store_id = ?';
   const params =
@@ -59,6 +61,7 @@ export async function findNamePreference(
   name: string,
   storeId?: string | null,
 ): Promise<CategoryPreference | null> {
+  debugLog('LOG  [Placement] api.ts findNamePreference', { name, storeId });
   const normalized = normalizePreferenceName(name);
   if (!normalized) return null;
 
@@ -104,6 +107,7 @@ export async function resolvePlacementForItem(
   input: ResolveCategoryForItemInput,
   options: ResolvePlacementForItemOptions = {},
 ): Promise<ResolvedPlacementClassification & { barcode: string | null }> {
+  debugLog('LOG  [Placement] api.ts resolvePlacementForItem', { input, options });
   const db = await getDatabase();
   const productSignals = input.productId
     ? await db.getFirstAsync<LocalProductSignals>(
@@ -206,6 +210,7 @@ export async function buildCategoryPreferenceMutationPlan(
   action: CategoryPreferenceMutation,
   nowMs = Date.now(),
 ): Promise<CategoryPreferenceMutationPlan> {
+  debugLog('LOG  [Placement] api.ts buildCategoryPreferenceMutationPlan', { action });
   const keyInput = action.input;
   const normalizedKeyValue = canonicalKeyValueOf(keyInput as PreferenceKeyInput);
   const id = await preferenceId({
