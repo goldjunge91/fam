@@ -23,12 +23,15 @@ jest.mock('@/lib/posthog', () => ({
 
 let mockAppStateHandler: ((state: string) => void) | undefined;
 const mockAppStateRemove = jest.fn();
+let currentTime = 0;
 
 import { PostHogIdentitySync } from '@/features/auth/posthog-identity-sync';
 
 describe('PostHogIdentitySync', () => {
   beforeEach(() => {
     jest.clearAllMocks();
+    currentTime = 0;
+    jest.spyOn(Date, 'now').mockImplementation(() => currentTime);
     mockSession = null;
     mockIsLoading = false;
     mockConfigured = true;
@@ -81,12 +84,26 @@ describe('PostHogIdentitySync', () => {
     expect(mockReset).not.toHaveBeenCalled();
   });
 
-  it('laedt Feature-Flags neu, wenn die App in den Vordergrund kommt', async () => {
+  it('laedt Feature-Flags nicht innerhalb des automatischen 12-Stunden-Intervalls', async () => {
     await render(<PostHogIdentitySync />);
 
     expect(AppState.addEventListener).toHaveBeenCalledWith('change', expect.any(Function));
     expect(mockReloadFeatureFlags).not.toHaveBeenCalled();
 
+    mockAppStateHandler?.('active');
+
+    expect(mockReloadFeatureFlags).not.toHaveBeenCalled();
+  });
+
+  it('laedt Feature-Flags nach Ablauf des automatischen 12-Stunden-Intervalls neu', async () => {
+    await render(<PostHogIdentitySync />);
+
+    currentTime = 12 * 60 * 60 * 1000;
+    mockAppStateHandler?.('active');
+
+    expect(mockReloadFeatureFlags).toHaveBeenCalledTimes(1);
+
+    currentTime += 1;
     mockAppStateHandler?.('active');
 
     expect(mockReloadFeatureFlags).toHaveBeenCalledTimes(1);
