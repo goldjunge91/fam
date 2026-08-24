@@ -46,6 +46,23 @@ function isDumpManifestPatchEntry(value: unknown): value is DumpManifestPatchEnt
 }
 
 /**
+ * Uebergangs-Kompatibilitaet zu Commit 106c18a: Das Manifest-Asset-Feld hiess
+ * dort bis heute `sha256`, wurde dann auf `checksum` umbenannt. Bereits
+ * veroeffentlichte Releases (der `update_dump.yml`-Workflow laeuft nur
+ * taeglich/on demand) tragen bis zum naechsten Lauf noch den alten Namen —
+ * ohne diesen Fallback lehnt `isDumpManifestAsset()` sie komplett ab.
+ * TODO entfernen, sobald ein frisches Manifest mit `checksum` veroeffentlicht
+ * ist (naechster `update_dump.yml`-Lauf oder `gh workflow run update_dump.yml`).
+ */
+function withChecksumFallback(value: unknown): unknown {
+  if (!value || typeof value !== 'object') return value;
+  const asset = value as Record<string, unknown>;
+  if (typeof asset.checksum === 'string') return asset;
+  if (typeof asset.sha256 === 'string') return { ...asset, checksum: asset.sha256 };
+  return asset;
+}
+
+/**
  * Validiert die grobe Form eines rohen JSON-Werts als `DumpManifest`. Reine
  * Funktion, unabhängig von `fetch()` testbar — dasselbe Muster wie
  * `parseOffResponse()` in der Edge Function.
@@ -56,15 +73,20 @@ export function parseManifest(raw: unknown): DumpManifest | null {
 
   if (typeof value.schemaVersion !== 'number') return null;
   if (typeof value.latestVersion !== 'string') return null;
+
+  const baseline = withChecksumFallback(value.baseline);
   if (
-    !isDumpManifestAsset(value.baseline) ||
-    typeof (value.baseline as { version?: unknown }).version !== 'string'
+    !isDumpManifestAsset(baseline) ||
+    typeof (baseline as { version?: unknown }).version !== 'string'
   ) {
     return null;
   }
-  if (!Array.isArray(value.patches) || !value.patches.every(isDumpManifestPatchEntry)) return null;
 
-  return value as unknown as DumpManifest;
+  if (!Array.isArray(value.patches)) return null;
+  const patches = value.patches.map(withChecksumFallback);
+  if (!patches.every(isDumpManifestPatchEntry)) return null;
+
+  return { ...value, baseline, patches } as unknown as DumpManifest;
 }
 
 /** Lädt und validiert das Manifest. `null` bei jedem Fehler — kein Wurf. */

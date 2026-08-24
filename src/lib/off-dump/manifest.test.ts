@@ -57,6 +57,31 @@ describe('parseManifest', () => {
   });
 });
 
+describe('parseManifest — Uebergangs-Kompatibilitaet zu Commit 106c18a', () => {
+  // Vor 106c18a hiess das Asset-Feld `sha256` statt `checksum`. Bereits
+  // veroeffentlichte GitHub-Release-Manifeste tragen bis zum naechsten
+  // `update_dump.yml`-Lauf noch den alten Namen.
+  const LEGACY_MANIFEST = {
+    ...VALID_MANIFEST,
+    baseline: { ...VALID_MANIFEST.baseline, checksum: undefined, sha256: 'abc' },
+    patches: [{ ...VALID_MANIFEST.patches[0], checksum: undefined, sha256: 'def' }],
+  };
+
+  it('akzeptiert das alte `sha256`-Feld und normalisiert es auf `checksum`', () => {
+    const parsed = parseManifest(LEGACY_MANIFEST);
+    expect(parsed?.baseline.checksum).toBe('abc');
+    expect(parsed?.patches[0]?.checksum).toBe('def');
+  });
+
+  it('bevorzugt `checksum`, falls beide Felder vorhanden sind', () => {
+    const manifest = {
+      ...VALID_MANIFEST,
+      baseline: { ...VALID_MANIFEST.baseline, checksum: 'abc', sha256: 'veraltet' },
+    };
+    expect(parseManifest(manifest)?.baseline.checksum).toBe('abc');
+  });
+});
+
 describe('fetchManifest', () => {
   const originalFetch = global.fetch;
   afterEach(() => {
