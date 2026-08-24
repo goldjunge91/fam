@@ -169,7 +169,13 @@ export const env = {
 // EXPO_NO_DOTENV-Faelle. Direkt aus `process.env` statt ueber `env.supabaseUrl`,
 // damit ein fehlender Wert hier noch keinen Absturz vor der eigentlichen
 // Fehlermeldung auslöst — nur ein sichtbarer Hinweis im Metro-Terminal-Log.
-if (__DEV__) {
+//
+// `typeof __DEV__ !== 'undefined'` ist hier zwingend: `__DEV__` wird von
+// babel-preset-expo injiziert. jest.integration.config.js laeuft bewusst
+// OHNE dieses Preset (siehe dessen Kommentar), dort existiert die Variable
+// gar nicht — ein blosses `if (__DEV__)` an Modul-Top-Level wirft dann sofort
+// beim `require()` (ReferenceError), noch bevor irgendein Test laeuft.
+if (typeof __DEV__ !== 'undefined' && __DEV__) {
   const url = process.env.EXPO_PUBLIC_SUPABASE_URL;
   console.log(`[env] EXPO_PUBLIC_SUPABASE_URL = ${url ?? '(nicht gesetzt)'}`);
 }
