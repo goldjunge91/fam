@@ -56,6 +56,7 @@ let mockFeatureFlags: Record<string, boolean> = {
 };
 
 jest.mock('@/lib/posthog', () => ({
+  useFeatureFlags: () => mockFeatureFlags,
   useFeatureFlag: (key: string | undefined, defaultValue: boolean) =>
     key ? (mockFeatureFlags[key] ?? defaultValue) : defaultValue,
 }));

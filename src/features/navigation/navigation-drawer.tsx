@@ -9,85 +9,14 @@ import Animated, {
 } from 'react-native-reanimated';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { CalendarDayIcon } from '@/components/icons/calendar-day-icon';
-import { FamIcon, type FamIconName } from '@/components/icons/fam-icon';
+import { FamIcon } from '@/components/icons/fam-icon';
 import { ThemedText } from '@/components/theme/themed-text';
+import { getDrawerGroups } from '@/constants/feature-registry';
 import { withAlpha } from '@/constants/theme';
-import { useSession } from '@/features/auth/session-provider';
-import {
-  DEFAULT_MODULE_PREFERENCES,
-  type ModulePreferences,
-  useModulePreferences,
-} from '@/features/settings/module-preferences';
+import { useFeatureAccess } from '@/features/settings/use-feature-access';
 import { useDeferredMount } from '@/hooks/use-deferred-mount';
 import { useTheme } from '@/hooks/use-theme';
-import { type FeatureFlagKey, useFeatureFlag } from '@/lib/posthog';
 import { useNavigationChrome } from './navigation-chrome-provider';
-
-// 'calendarDay' ist kein statisches FamIcon, sondern das Kalenderblatt mit
-// dem heutigen Datum (CalendarDayIcon) — eigener Sentinel-Wert statt eines
-// weiteren FamIconName-Eintrags, weil er dynamisch ist.
-type NavRoute = {
-  label: string;
-  href: string;
-  icon: FamIconName | 'calendarDay';
-  moduleKey?: keyof ModulePreferences;
-  /**
-   * Remote-Gate zusaetzlich zu `moduleKey` (#183) — nur fuer Rezepte/
-   * Essensplan/Tagebuch, NICHT fuer Vorrat/Einkauf. Muss zum `featureFlag`
-   * auf der zugehoerigen Route (`src/app/(app)/*.tsx`, `ModuleGate`) passen,
-   * sonst zeigt der Drawer einen Eintrag, der auf einen "Noch nicht
-   * verfuegbar"-Screen fuehrt (oder umgekehrt).
-   */
-  featureFlag?: FeatureFlagKey;
-};
-
-type NavGroup = {
-  title: string;
-  routes: NavRoute[];
-  /** Gruppentitel nicht anzeigen, Abstand nach oben aber beibehalten (nur "Heute" — eine einzelne Zeile braucht keine Ueberschrift). */
-  hideTitle?: boolean;
-};
-
-const GROUPS: NavGroup[] = [
-  {
-    title: 'Heute',
-    hideTitle: true,
-    routes: [{ label: 'Übersicht', href: '/', icon: 'overview' }],
-  },
-  {
-    title: 'Haushalt & Planung',
-    routes: [
-      { label: 'Vorrat', href: '/fridge', icon: 'fridge', moduleKey: 'fridge' },
-      { label: 'Einkauf', href: '/shopping-list', icon: 'shopping', moduleKey: 'shoppingList' },
-      {
-        label: 'Rezepte',
-        href: '/recipes',
-        icon: 'recipes',
-        moduleKey: 'recipes',
-        featureFlag: 'module-recipes',
-      },
-      {
-        label: 'Essensplan',
-        href: '/meal-planner',
-        icon: 'calendarDay',
-        moduleKey: 'mealPlanner',
-        featureFlag: 'module-meal-planner',
-      },
-    ],
-  },
-  {
-    title: 'Privat',
-    routes: [
-      {
-        label: 'Tagebuch',
-        href: '/diary',
-        icon: 'diary',
-        moduleKey: 'calories',
-        featureFlag: 'module-calories',
-      },
-    ],
-  },
-];
 
 const DRAWER_WIDTH_RATIO = 0.84;
 
@@ -161,31 +90,20 @@ function DrawerContent() {
   const theme = useTheme();
   const pathname = usePathname();
   const { closeDrawer } = useNavigationChrome();
-  const { session } = useSession();
-  const { data: rawModules } = useModulePreferences(session?.user.id);
-  const modules = rawModules ?? DEFAULT_MODULE_PREFERENCES;
-
-  // Feste, bekannte Flags — kein dynamischer Lookup pro Route, damit die
-  // Anzahl der Hook-Aufrufe zwischen Renders stabil bleibt (Rules of Hooks).
-  const featureFlags: Partial<Record<FeatureFlagKey, boolean>> = {
-    'module-recipes': useFeatureFlag('module-recipes', false),
-    'module-meal-planner': useFeatureFlag('module-meal-planner', false),
-    'module-calories': useFeatureFlag('module-calories', false),
-  };
+  const { isFeatureEnabled } = useFeatureAccess();
 
   function navigateTo(href: string) {
     closeDrawer();
     setTimeout(() => router.push(href as Parameters<typeof router.push>[0]), 250);
   }
 
-  const visibleGroups = GROUPS.map((group) => ({
-    ...group,
-    routes: group.routes.filter((route) => {
-      const moduleAllowed = !route.moduleKey || modules[route.moduleKey] !== false;
-      const flagAllowed = !route.featureFlag || featureFlags[route.featureFlag];
-      return moduleAllowed && flagAllowed;
-    }),
-  })).filter((group) => group.routes.length > 0);
+  const drawerGroups = getDrawerGroups();
+  const visibleGroups = drawerGroups
+    .map((group) => ({
+      ...group,
+      routes: group.routes.filter((route) => isFeatureEnabled(route.feature)),
+    }))
+    .filter((group) => group.routes.length > 0);
 
   return (
     <>

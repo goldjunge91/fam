@@ -3,7 +3,7 @@ import { DiaryScreen } from '@/features/calorie-tracking/diary-screen';
 
 export default function DiaryRoute() {
   return (
-    <ModuleGate module="calories" featureFlag="module-calories" title="Tagebuch">
+    <ModuleGate feature="calories">
       <DiaryScreen />
     </ModuleGate>
   );

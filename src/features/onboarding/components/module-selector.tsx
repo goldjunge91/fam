@@ -1,7 +1,8 @@
 import { Pressable, Switch, Text, View } from 'react-native';
 import { ModuleLockedOverlay } from '@/components/module-locked-overlay';
 import { Button } from '@/components/ui/buttons';
-import { type FeatureFlagKey, useFeatureFlag } from '@/lib/posthog';
+import { getSettingsModules } from '@/constants/feature-registry';
+import { useFeatureAccess } from '@/features/settings/use-feature-access';
 import { useOnboarding } from '../context/onboarding-context';
 
 interface ModuleSelectorFormProps {
@@ -9,59 +10,11 @@ interface ModuleSelectorFormProps {
   onSkip: () => void;
 }
 
-const MODULE_ROWS: {
-  key: 'fridge' | 'shoppingList' | 'calories' | 'recipes' | 'mealPlanner';
-  icon: string;
-  title: string;
-  desc: string;
-  /** Remote-Gate (#183) — nur fuer gestaffelt ausgerollte Module, siehe ModuleGate. */
-  featureFlag?: FeatureFlagKey;
-}[] = [
-  {
-    key: 'fridge',
-    icon: '🧊',
-    title: 'Kühlschrank & Vorrat',
-    desc: 'Bestand verwalten, MHD-Ampel und Benachrichtigungen vor Ablauf.',
-  },
-  {
-    key: 'shoppingList',
-    icon: '🛒',
-    title: 'Geteilte Einkaufsliste',
-    desc: 'Gemeinsam einkaufen und nach dem Abkassieren direkt im Kühlschrank speichern.',
-  },
-  {
-    key: 'calories',
-    icon: '🍎',
-    title: 'Kalorienzähler & Tagebuch',
-    desc: 'Privat Nährwerte erfassen, Makros tracken und Grundumsatz berechnen.',
-    featureFlag: 'module-calories',
-  },
-  {
-    key: 'recipes',
-    icon: '📖',
-    title: 'Rezept-Manager',
-    desc: 'Rezepte anlegen und Portionsmengen berechnen.',
-    featureFlag: 'module-recipes',
-  },
-  {
-    key: 'mealPlanner',
-    icon: '🗓️',
-    title: 'Meal-Planner',
-    desc: 'Die Woche vorausplanen und Mahlzeiten Mitgliedern zuordnen.',
-    featureFlag: 'module-meal-planner',
-  },
-];
+const SETTINGS_MODULES = getSettingsModules();
 
 export function ModuleSelectorForm({ onNext, onSkip }: ModuleSelectorFormProps) {
   const { state, updateModulesData } = useOnboarding();
-
-  // Feste, bekannte Flags — kein dynamischer Lookup pro Zeile, damit die
-  // Anzahl der Hook-Aufrufe zwischen Renders stabil bleibt (Rules of Hooks).
-  const featureFlags: Partial<Record<FeatureFlagKey, boolean>> = {
-    'module-recipes': useFeatureFlag('module-recipes', false),
-    'module-meal-planner': useFeatureFlag('module-meal-planner', false),
-    'module-calories': useFeatureFlag('module-calories', false),
-  };
+  const { isModuleLocked } = useFeatureAccess();
 
   const toggle = (key: keyof typeof state.modules) => {
     updateModulesData({ [key]: !state.modules[key] });
@@ -75,11 +28,11 @@ export function ModuleSelectorForm({ onNext, onSkip }: ModuleSelectorFormProps) 
       </Text>
 
       <View className="perm-list">
-        {MODULE_ROWS.map((row) => {
+        {SETTINGS_MODULES.map((row) => {
           // Gesperrt = das Modul wird gerade schrittweise ausgerollt und ist
           // fuer diesen Nutzer noch nicht freigeschaltet (#183) — Karte
           // bleibt sichtbar, Switch wird per grauer Ueberlagerung unbedienbar.
-          const locked = row.featureFlag !== undefined && !featureFlags[row.featureFlag];
+          const locked = isModuleLocked(row.featureFlag);
 
           return (
             <Pressable

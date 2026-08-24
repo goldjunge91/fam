@@ -1,6 +1,7 @@
 import PostHog, {
   PostHogProvider,
   useFeatureFlag as usePostHogFeatureFlagSdk,
+  useFeatureFlags as usePostHogFeatureFlagsSdk,
 } from 'posthog-react-native';
 import type { ReactNode } from 'react';
 
@@ -146,6 +147,14 @@ export function useFeatureFlagState(key: FeatureFlagKey | undefined): boolean | 
  */
 export function useFeatureFlag(key: FeatureFlagKey | undefined, defaultValue: boolean): boolean {
   return useFeatureFlagState(key) ?? defaultValue;
+}
+
+/**
+ * Fragt alle aktiven Feature-Flags als Key-Value-Map ab.
+ * Kapselt `useFeatureFlags()` aus `posthog-react-native`.
+ */
+export function useFeatureFlags() {
+  return usePostHogFeatureFlagsSdk();
 }
 
 export { PostHog };

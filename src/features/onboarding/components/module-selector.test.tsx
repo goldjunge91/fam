@@ -11,6 +11,24 @@ let mockModules = {
   mealPlanner: true,
 };
 
+jest.mock('@/features/auth/session-provider', () => ({
+  useSession: () => ({ session: { user: { id: 'user-1' } } }),
+}));
+
+jest.mock('@/features/settings/module-preferences', () => ({
+  DEFAULT_MODULE_PREFERENCES: {
+    fridge: true,
+    shoppingList: true,
+    calories: true,
+    recipes: true,
+    mealPlanner: true,
+  },
+  useModulePreferences: () => ({
+    data: mockModules,
+    isLoading: false,
+  }),
+}));
+
 jest.mock('@/features/onboarding/context/onboarding-context', () => ({
   useOnboarding: () => ({
     state: { modules: mockModules },
@@ -25,6 +43,7 @@ let mockFeatureFlags: Record<string, boolean> = {
 };
 
 jest.mock('@/lib/posthog', () => ({
+  useFeatureFlags: () => mockFeatureFlags,
   useFeatureFlag: (key: string | undefined, defaultValue: boolean) =>
     key ? (mockFeatureFlags[key] ?? defaultValue) : defaultValue,
 }));
@@ -56,7 +75,7 @@ describe('ModuleSelectorForm', () => {
   it('schaltet ein Modul beim Antippen um', async () => {
     await render(<ModuleSelectorForm onNext={onNext} onSkip={onSkip} />);
 
-    await fireEvent.press(screen.getByText(/Rezept-Manager/));
+    await fireEvent.press(screen.getByText(/Rezepte/));
 
     expect(mockUpdateModulesData).toHaveBeenCalledWith({ recipes: false });
   });
@@ -67,7 +86,7 @@ describe('ModuleSelectorForm', () => {
 
     expect(screen.getByText('Demnächst verfügbar')).toBeTruthy();
 
-    await fireEvent.press(screen.getByText(/Rezept-Manager/));
+    await fireEvent.press(screen.getByText(/Rezepte/));
     expect(mockUpdateModulesData).not.toHaveBeenCalled();
   });
 

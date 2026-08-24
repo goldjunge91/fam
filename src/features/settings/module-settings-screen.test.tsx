@@ -32,6 +32,7 @@ let mockFeatureFlags: Record<string, boolean> = {
 };
 
 jest.mock('@/lib/posthog', () => ({
+  useFeatureFlags: () => mockFeatureFlags,
   useFeatureFlag: (key: string | undefined, defaultValue: boolean) =>
     key ? (mockFeatureFlags[key] ?? defaultValue) : defaultValue,
 }));
@@ -64,7 +65,7 @@ describe('ModuleSettingsScreen', () => {
     expect(screen.getByText(/Geteilte Einkaufsliste/)).toBeTruthy();
     expect(screen.getByText(/Kalorienzähler & Tagebuch/)).toBeTruthy();
     expect(screen.getByText(/Rezepte/)).toBeTruthy();
-    expect(screen.getByText(/Meal-Planner/)).toBeTruthy();
+    expect(screen.getByText(/Essensplan/)).toBeTruthy();
   });
 
   it('schaltet ein aktiviertes Modul beim Antippen aus', async () => {

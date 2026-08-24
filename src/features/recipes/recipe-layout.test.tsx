@@ -16,24 +16,19 @@ jest.mock('expo-router', () => ({
   router: { push: jest.fn(), back: jest.fn(), canGoBack: () => false },
 }));
 
-jest.mock('@/features/auth/session-provider', () => ({
-  useSession: () => ({ session: { user: { id: 'user-1' } } }),
-}));
-
-jest.mock('@/features/settings/module-preferences', () => ({
-  useModulePreferences: () => ({
-    data: {
-      fridge: true,
-      shoppingList: true,
-      calories: true,
-      recipes: mockRecipesPreference,
-      mealPlanner: true,
+jest.mock('@/features/settings/use-feature-access', () => ({
+  useFeatureAccess: () => ({
+    get modules() {
+      return {
+        fridge: true,
+        shoppingList: true,
+        calories: true,
+        recipes: mockRecipesPreference,
+        mealPlanner: true,
+      };
     },
+    getFeatureFlagState: () => mockRecipesFeatureFlag,
   }),
-}));
-
-jest.mock('@/lib/posthog', () => ({
-  useFeatureFlagState: () => mockRecipesFeatureFlag,
 }));
 
 function renderLayout() {

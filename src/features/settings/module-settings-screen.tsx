@@ -3,57 +3,15 @@ import { Screen } from '@/components/layout/screen';
 import { ModuleLockedOverlay } from '@/components/module-locked-overlay';
 import { ThemedText } from '@/components/theme/themed-text';
 import { Card } from '@/components/ui/card';
+import { getSettingsModules } from '@/constants/feature-registry';
 import { useSession } from '@/features/auth/session-provider';
 import {
-  DEFAULT_MODULE_PREFERENCES,
   type ModulePreferences,
-  useModulePreferences,
   useUpdateModulePreferencesMutation,
 } from '@/features/settings/module-preferences';
-import { type FeatureFlagKey, useFeatureFlag } from '@/lib/posthog';
+import { useFeatureAccess } from '@/features/settings/use-feature-access';
 
-const MODULE_ROWS: {
-  key: keyof ModulePreferences;
-  icon: string;
-  title: string;
-  desc: string;
-  /** Remote-Gate (#183) — nur fuer gestaffelt ausgerollte Module, siehe ModuleGate. */
-  featureFlag?: FeatureFlagKey;
-}[] = [
-  {
-    key: 'fridge',
-    icon: '🧊',
-    title: 'Kühlschrank & Vorrat',
-    desc: 'Bestand verwalten, MHD-Ampel und Benachrichtigungen vor Ablauf.',
-  },
-  {
-    key: 'shoppingList',
-    icon: '🛒',
-    title: 'Geteilte Einkaufsliste',
-    desc: 'Gemeinsam einkaufen und nach dem Abkassieren direkt im Kühlschrank speichern.',
-  },
-  {
-    key: 'calories',
-    icon: '🍎',
-    title: 'Kalorienzähler & Tagebuch',
-    desc: 'Privat Nährwerte erfassen, Makros tracken und Grundumsatz berechnen.',
-    featureFlag: 'module-calories',
-  },
-  {
-    key: 'recipes',
-    icon: '📖',
-    title: 'Rezepte',
-    desc: 'Im Haushalt geteilte Rezeptsammlung.',
-    featureFlag: 'module-recipes',
-  },
-  {
-    key: 'mealPlanner',
-    icon: '🗓️',
-    title: 'Meal-Planner',
-    desc: 'Wochenplanung fuer den Haushalt, Mahlzeiten Mitgliedern zuordnen.',
-    featureFlag: 'module-meal-planner',
-  },
-];
+const SETTINGS_MODULES = getSettingsModules();
 
 /**
  * Modul-Aktivierung (#95) ausserhalb des Onboardings — loest das dort
@@ -65,17 +23,8 @@ export function ModuleSettingsScreen() {
   const { session } = useSession();
   const userId = session?.user.id;
 
-  const { data: rawModules } = useModulePreferences(userId);
-  const modules = rawModules ?? DEFAULT_MODULE_PREFERENCES;
+  const { modules, isModuleLocked } = useFeatureAccess();
   const updateMutation = useUpdateModulePreferencesMutation();
-
-  // Feste, bekannte Flags — kein dynamischer Lookup pro Zeile, damit die
-  // Anzahl der Hook-Aufrufe zwischen Renders stabil bleibt (Rules of Hooks).
-  const featureFlags: Partial<Record<FeatureFlagKey, boolean>> = {
-    'module-recipes': useFeatureFlag('module-recipes', false),
-    'module-meal-planner': useFeatureFlag('module-meal-planner', false),
-    'module-calories': useFeatureFlag('module-calories', false),
-  };
 
   function toggle(key: keyof ModulePreferences) {
     if (!userId) return;
@@ -93,12 +42,12 @@ export function ModuleSettingsScreen() {
 
       {/* Liste aller App-Module mit Toggle-Schaltern (Vorrat, Einkauf, Tagebuch, Rezepte, Meal-Planner) */}
       <View className="gap-two">
-        {MODULE_ROWS.map((row) => {
+        {SETTINGS_MODULES.map((row) => {
           // Gesperrt = das Modul wird gerade schrittweise ausgerollt und ist
           // fuer diesen Nutzer noch nicht freigeschaltet (#183) — unabhaengig
           // von seiner eigenen Praeferenz. Karte bleibt sichtbar, Switch wird
           // per grauer Ueberlagerung unbedienbar (Variante A).
-          const locked = row.featureFlag !== undefined && !featureFlags[row.featureFlag];
+          const locked = isModuleLocked(row.featureFlag);
 
           return (
             <Pressable

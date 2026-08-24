@@ -3,7 +3,7 @@ import { ShoppingListScreen } from '@/features/shopping-list/screens/shopping-li
 
 export default function ShoppingListRoute() {
   return (
-    <ModuleGate module="shoppingList" title="Einkauf">
+    <ModuleGate feature="shoppingList">
       <ShoppingListScreen />
     </ModuleGate>
   );

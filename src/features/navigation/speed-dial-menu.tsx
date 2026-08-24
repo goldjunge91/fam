@@ -2,82 +2,14 @@ import { router } from 'expo-router';
 import { Modal, Pressable, StyleSheet, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
-import { FamIcon, type FamIconName } from '@/components/icons/fam-icon';
+import { FamIcon } from '@/components/icons/fam-icon';
 import { ThemedText } from '@/components/theme/themed-text';
+import { getSpeedDialOptions } from '@/constants/feature-registry';
 import { IconSize, Layout, Spacing } from '@/constants/layout';
-import { useSession } from '@/features/auth/session-provider';
-import type { MealType } from '@/features/calorie-tracking/api';
 import { DEFAULT_FAB_POSITION, useFabPosition } from '@/features/navigation/fab-position-settings';
-import {
-  DEFAULT_MODULE_PREFERENCES,
-  type ModulePreferences,
-  useModulePreferences,
-} from '@/features/settings/module-preferences';
+import { useFeatureAccess } from '@/features/settings/use-feature-access';
 import { useDeferredMount } from '@/hooks/use-deferred-mount';
-import { type FeatureFlagKey, useFeatureFlag } from '@/lib/posthog';
 import { useNavigationChrome } from './navigation-chrome-provider';
-
-type SpeedDialOption = {
-  title: string;
-  icon: FamIconName;
-  href: string | (() => string);
-  backgroundColor: string;
-  moduleKey?: keyof ModulePreferences;
-  featureFlag?: FeatureFlagKey;
-};
-
-/** Lokales Datum, nicht UTC — sonst rutscht das Datum kurz nach Mitternacht. */
-function todayIso(): string {
-  const date = new Date();
-  const year = date.getFullYear();
-  const month = String(date.getMonth() + 1).padStart(2, '0');
-  const day = String(date.getDate()).padStart(2, '0');
-  return `${year}-${month}-${day}`;
-}
-
-/** Grobe Tageszeit-Heuristik, damit der Schnellzugriff nicht mit einer leeren Mahlzeit startet. */
-function defaultMealType(): MealType {
-  const hour = new Date().getHours();
-  if (hour < 10) return 'breakfast';
-  if (hour < 15) return 'lunch';
-  if (hour < 21) return 'dinner';
-  return 'snack';
-}
-
-const OPTIONS: SpeedDialOption[] = [
-  {
-    title: 'Vorratsartikel',
-    icon: 'fridge',
-    href: '/add-item',
-    backgroundColor: '#F0E2DF',
-    moduleKey: 'fridge',
-  },
-  {
-    title: 'Einkaufsartikel',
-    icon: 'shopping',
-    href: '/shopping-list?action=add',
-    backgroundColor: '#EBE5F1',
-    moduleKey: 'shoppingList',
-  },
-  {
-    title: 'Tagebucheintrag',
-    icon: 'diary',
-    // `/add-food-entry` braucht date+mealType (#food-entries-query) — ohne das
-    // laeuft der Tagebuch-Query mit dem String "undefined" gegen Postgres.
-    href: () => `/add-food-entry?date=${todayIso()}&mealType=${defaultMealType()}`,
-    backgroundColor: '#F3E9D7',
-    moduleKey: 'calories',
-    featureFlag: 'module-calories',
-  },
-  {
-    title: 'Rezept',
-    icon: 'recipes',
-    href: '/recipe/create',
-    backgroundColor: '#E4EDE3',
-    moduleKey: 'recipes',
-    featureFlag: 'module-recipes',
-  },
-];
 
 /**
  * Schnellauswahl fuer den globalen Plus-Button (#150, Folgeentscheidung
@@ -98,18 +30,8 @@ export function SpeedDialMenu() {
 function SpeedDialMenuContent() {
   const insets = useSafeAreaInsets();
   const { isQuickAddOpen, closeQuickAdd } = useNavigationChrome();
-  const { session } = useSession();
   const { data: position = DEFAULT_FAB_POSITION } = useFabPosition();
-  const { data: rawModules } = useModulePreferences(session?.user.id);
-  const modules = rawModules ?? DEFAULT_MODULE_PREFERENCES;
-
-  // Feste, bekannte Flags — kein dynamischer Lookup pro Option, damit die
-  // Anzahl der Hook-Aufrufe zwischen Renders stabil bleibt (Rules of Hooks).
-  const featureFlags: Partial<Record<FeatureFlagKey, boolean>> = {
-    'module-recipes': useFeatureFlag('module-recipes', false),
-    'module-calories': useFeatureFlag('module-calories', false),
-  };
-
+  const { isFeatureEnabled } = useFeatureAccess();
   const isRight = position !== 'left';
 
   function go(href: string) {
@@ -117,11 +39,8 @@ function SpeedDialMenuContent() {
     router.push(href as Parameters<typeof router.push>[0]);
   }
 
-  const visibleOptions = OPTIONS.filter((option) => {
-    const moduleAllowed = !option.moduleKey || modules[option.moduleKey] !== false;
-    const flagAllowed = !option.featureFlag || featureFlags[option.featureFlag];
-    return moduleAllowed && flagAllowed;
-  });
+  const speedDialOptions = getSpeedDialOptions();
+  const visibleOptions = speedDialOptions.filter((option) => isFeatureEnabled(option.feature));
 
   return (
     <Modal visible={isQuickAddOpen} transparent animationType="fade" onRequestClose={closeQuickAdd}>

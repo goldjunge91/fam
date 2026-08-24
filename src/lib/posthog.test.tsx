@@ -4,6 +4,7 @@ import { Text } from 'react-native';
 
 const mockPostHogConstructor = jest.fn();
 const mockUseFeatureFlagSdk = jest.fn();
+const mockUseFeatureFlagsSdk = jest.fn();
 const mockPostHogProvider = jest.fn(({ children }) => children);
 
 jest.mock('posthog-react-native', () => ({
@@ -14,6 +15,7 @@ jest.mock('posthog-react-native', () => ({
     }
   },
   useFeatureFlag: (...args: unknown[]) => mockUseFeatureFlagSdk(...args),
+  useFeatureFlags: (...args: unknown[]) => mockUseFeatureFlagsSdk(...args),
   PostHogProvider: (props: { children: ReactNode; client: unknown }) => mockPostHogProvider(props),
 }));
 
@@ -202,6 +204,30 @@ describe('useFeatureFlagState', () => {
     const { useFeatureFlagState } = require('@/lib/posthog');
 
     const { result } = await renderHook(() => useFeatureFlagState(undefined));
+
+    expect(result.current).toBeUndefined();
+  });
+});
+
+describe('useFeatureFlags', () => {
+  beforeEach(() => {
+    jest.clearAllMocks();
+  });
+
+  it('liefert alle aktiven Flags aus dem SDK', async () => {
+    mockUseFeatureFlagsSdk.mockReturnValue({ 'module-recipes': true, 'workout-log': false });
+    const { useFeatureFlags } = require('@/lib/posthog');
+
+    const { result } = await renderHook(() => useFeatureFlags());
+
+    expect(result.current).toEqual({ 'module-recipes': true, 'workout-log': false });
+  });
+
+  it('liefert undefined wenn noch keine Flags geladen sind', async () => {
+    mockUseFeatureFlagsSdk.mockReturnValue(undefined);
+    const { useFeatureFlags } = require('@/lib/posthog');
+
+    const { result } = await renderHook(() => useFeatureFlags());
 
     expect(result.current).toBeUndefined();
   });

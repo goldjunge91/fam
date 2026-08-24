@@ -4,38 +4,35 @@ import { Text } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import { ModuleGate } from '@/components/module-gate';
+import type { FeatureId } from '@/constants/feature-registry';
+import type { ModulePreferences } from '@/features/settings/module-preferences';
 
-let mockModules:
-  | { fridge: boolean; shoppingList: boolean; calories: boolean; recipes: boolean }
-  | undefined;
+let mockModules: ModulePreferences | undefined;
 
 jest.mock('expo-router', () => ({
   router: { push: jest.fn(), back: jest.fn(), canGoBack: () => false },
 }));
 
-jest.mock('@/features/auth/session-provider', () => ({
-  useSession: () => ({ session: { user: { id: 'user-1' } } }),
-}));
-
-jest.mock('@/features/settings/module-preferences', () => ({
-  useModulePreferences: () => ({ data: mockModules }),
-}));
-
 let mockFeatureFlagState: boolean | undefined = true;
-const mockUseFeatureFlagState = jest.fn((_key: string | undefined) => mockFeatureFlagState);
+const mockGetFeatureFlagState = jest.fn((_key: string | undefined) => mockFeatureFlagState);
 
-jest.mock('@/lib/posthog', () => ({
-  useFeatureFlagState: (key: string | undefined) => mockUseFeatureFlagState(key),
+jest.mock('@/features/settings/use-feature-access', () => ({
+  useFeatureAccess: () => ({
+    get modules() {
+      return mockModules;
+    },
+    getFeatureFlagState: mockGetFeatureFlagState,
+  }),
 }));
 
-function renderScreen(featureFlag?: 'module-recipes') {
+function renderGate(feature: FeatureId, title?: string) {
   return render(
     <SafeAreaProvider
       initialMetrics={{
         frame: { x: 0, y: 0, width: 390, height: 844 },
         insets: { top: 47, left: 0, right: 0, bottom: 34 },
       }}>
-      <ModuleGate module="fridge" title="Vorrat" featureFlag={featureFlag}>
+      <ModuleGate feature={feature} title={title}>
         <Text>Echter Inhalt</Text>
       </ModuleGate>
     </SafeAreaProvider>,
@@ -43,27 +40,39 @@ function renderScreen(featureFlag?: 'module-recipes') {
 }
 
 beforeEach(() => {
-  mockModules = { fridge: true, shoppingList: true, calories: true, recipes: true };
+  mockModules = {
+    fridge: true,
+    shoppingList: true,
+    calories: true,
+    recipes: true,
+    mealPlanner: true,
+  };
   mockFeatureFlagState = true;
   (router.push as jest.Mock).mockClear();
-  mockUseFeatureFlagState.mockClear();
+  mockGetFeatureFlagState.mockClear();
 });
 
 describe('ModuleGate', () => {
   it('rendert die Kinder, wenn das Modul aktiviert ist', async () => {
-    await renderScreen();
+    await renderGate('fridge');
     expect(screen.getByText('Echter Inhalt')).toBeTruthy();
   });
 
   it('rendert die Kinder optimistisch, solange die Praeferenz noch laedt', async () => {
     mockModules = undefined;
-    await renderScreen();
+    await renderGate('fridge');
     expect(screen.getByText('Echter Inhalt')).toBeTruthy();
   });
 
   it('zeigt einen Hinweis statt der Kinder, wenn das Modul deaktiviert ist', async () => {
-    mockModules = { fridge: false, shoppingList: true, calories: true, recipes: true };
-    await renderScreen();
+    mockModules = {
+      fridge: false,
+      shoppingList: true,
+      calories: true,
+      recipes: true,
+      mealPlanner: true,
+    };
+    await renderGate('fridge');
 
     expect(screen.queryByText('Echter Inhalt')).toBeNull();
     expect(screen.getByText('Modul nicht aktiviert')).toBeTruthy();
@@ -72,46 +81,60 @@ describe('ModuleGate', () => {
     expect(router.push).toHaveBeenCalledWith('/settings/modules');
   });
 
-  it('rendert die Kinder ohne featureFlag-Prop unveraendert (kein Flag-Check)', async () => {
-    await renderScreen();
+  it('rendert die Kinder eines Moduls ohne Remote-Flag unveraendert (kein Flag-Block)', async () => {
+    await renderGate('fridge');
     expect(screen.getByText('Echter Inhalt')).toBeTruthy();
-    // Der Hook wird laut Rules of Hooks immer aufgerufen (kein Prop -> kein
-    // Key -> Zustand undefined -> kein Gate).
-    expect(mockUseFeatureFlagState).toHaveBeenCalledWith(undefined);
+    expect(mockGetFeatureFlagState).toHaveBeenCalledWith(undefined);
   });
 
   it('rendert die Kinder wenn Nutzer-Praeferenz UND Feature-Flag beide zustimmen', async () => {
     mockFeatureFlagState = true;
-    await renderScreen('module-recipes');
+    await renderGate('recipes');
 
     expect(screen.getByText('Echter Inhalt')).toBeTruthy();
-    expect(mockUseFeatureFlagState).toHaveBeenCalledWith('module-recipes');
+    expect(mockGetFeatureFlagState).toHaveBeenCalledWith('module-recipes');
   });
 
-  it('rendert die Kinder optimistisch, solange der Feature-Flag noch nicht bestaetigt ist', async () => {
+  it('rendert die Kinder optimistisch, solange der Feature-Flag noch nicht bestaetigt ist (undefined)', async () => {
     mockFeatureFlagState = undefined;
-    await renderScreen('module-recipes');
+    await renderGate('recipes');
 
     expect(screen.getByText('Echter Inhalt')).toBeTruthy();
     expect(screen.queryByText('Noch nicht verfügbar')).toBeNull();
   });
 
-  it('zeigt einen "noch nicht verfuegbar"-Hinweis ohne Einstellungen-Knopf, wenn nur der Feature-Flag aus ist', async () => {
-    mockModules = { fridge: true, shoppingList: true, calories: true, recipes: true };
+  it('zeigt einen "noch nicht verfuegbar"-Hinweis ohne Einstellungen-Knopf, wenn der Feature-Flag explizit false ist', async () => {
     mockFeatureFlagState = false;
-    await renderScreen('module-recipes');
+    await renderGate('recipes');
 
     expect(screen.queryByText('Echter Inhalt')).toBeNull();
     expect(screen.getByText('Noch nicht verfügbar')).toBeTruthy();
     expect(screen.queryByText('In den Einstellungen aktivieren')).toBeNull();
   });
 
-  it('zeigt den Einstellungen-Hinweis (nicht den Flag-Hinweis), wenn der Nutzer das Modul selbst deaktiviert hat', async () => {
-    mockModules = { fridge: false, shoppingList: true, calories: true, recipes: true };
+  it('zeigt den Einstellungen-Hinweis, wenn der Nutzer das Modul selbst deaktiviert hat', async () => {
+    if (mockModules) mockModules.recipes = false;
     mockFeatureFlagState = true;
-    await renderScreen('module-recipes');
+    await renderGate('recipes');
 
     expect(screen.getByText('Modul nicht aktiviert')).toBeTruthy();
     expect(screen.queryByText('Noch nicht verfügbar')).toBeNull();
+  });
+
+  it('beachtet parentModule bei Sub-Features (z.B. workouts unter calories)', async () => {
+    if (mockModules) mockModules.calories = false;
+    mockFeatureFlagState = true;
+    await renderGate('workouts');
+
+    expect(screen.getByText('Modul nicht aktiviert')).toBeTruthy();
+  });
+
+  it('wirft in DEV bei unbekannter Feature-ID einen Fehler', async () => {
+    // Suppress console.error from React error boundary during the expected throw test
+    const consoleError = jest.spyOn(console, 'error').mockImplementation(() => {});
+    await expect(renderGate('unknown-feature-id' as unknown as FeatureId)).rejects.toThrow(
+      /Unbekannte FeatureId/,
+    );
+    consoleError.mockRestore();
   });
 });
