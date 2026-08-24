@@ -48,9 +48,11 @@ jest.mock('@/components/layout/gradient-background', () => ({
 jest.mock('@expo/ui/community/bottom-sheet', () => {
   const React = require('react');
   const { View } = require('react-native');
-  const BottomSheet = React.forwardRef(({ children }: { children: React.ReactNode }, _ref: unknown) => (
-    <View testID="bottom-sheet">{children}</View>
-  ));
+  const BottomSheet = React.forwardRef(
+    ({ children }: { children: React.ReactNode }, _ref: unknown) => (
+      <View testID="bottom-sheet">{children}</View>
+    ),
+  );
   BottomSheet.displayName = 'BottomSheet';
   return {
     __esModule: true,
