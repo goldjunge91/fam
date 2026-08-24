@@ -4,6 +4,7 @@ import * as Crypto from 'expo-crypto';
 import { useStorageLocations } from '@/features/inventory/use-storage-locations';
 import { getDatabase } from '@/lib/db/client';
 import { enqueueMutation } from '@/lib/db/outbox';
+import { applyLocalMirrorWrite } from '@/lib/sync/mirror-write';
 import { normalizeUnit } from '@/lib/units';
 
 import type { TransferItem } from '../sheets/complete-run-sheet';
@@ -73,28 +74,27 @@ export function useCompleteShoppingRun(householdId: string | undefined) {
             created_at: now,
             updated_at: now,
           },
-          applyLocally: async (txn) => {
-            await txn.runAsync(
-              `insert into fridge_items
-                 (id, household_id, product_id, location_id, name, quantity, unit, package_size, package_size_unit, expiry_date, added_by, created_at, updated_at, _dirty)
-               values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 1)`,
-              [
+          applyLocally: (txn) =>
+            applyLocalMirrorWrite(
+              txn,
+              'fridge_items',
+              'insert',
+              {
                 id,
-                input.householdId,
-                transfer.productId,
-                locationId,
-                transfer.name,
-                transfer.quantity,
-                normUnit,
-                transfer.packageSize,
-                transfer.packageSizeUnit,
-                transfer.expiryDate ?? null,
-                input.userId,
-                now,
-                nowMs,
-              ],
-            );
-          },
+                household_id: input.householdId,
+                product_id: transfer.productId,
+                location_id: locationId,
+                name: transfer.name,
+                quantity: transfer.quantity,
+                unit: normUnit,
+                package_size: transfer.packageSize,
+                package_size_unit: transfer.packageSizeUnit,
+                expiry_date: transfer.expiryDate ?? null,
+                added_by: input.userId,
+                created_at: now,
+              },
+              nowMs,
+            ),
         });
       }
 
@@ -142,10 +142,25 @@ export function useCompleteShoppingRun(householdId: string | undefined) {
             deleted_at: now,
             updated_at: now,
           },
+          // Zwei Aufrufe statt einer kombinierten SQL: applyLocalMirrorWrite()
+          // trennt bewusst "Felder setzen" (update) von "Soft-Delete"
+          // (delete/restore ruehren nur deleted_at an) — beide laufen in
+          // derselben Transaktion (enqueueMutation), das Endergebnis ist
+          // dieselbe Zeile wie vorher mit dem kombinierten Statement.
           applyLocally: async (txn) => {
-            await txn.runAsync(
-              'update shopping_list_items set checked_at = ?, checked_by = ?, deleted_at = ?, updated_at = ?, _dirty = 1 where id = ?',
-              [now, input.userId, nowMs, nowMs, item.id],
+            await applyLocalMirrorWrite(
+              txn,
+              'shopping_list_items',
+              'update',
+              { id: item.id, checked_at: now, checked_by: input.userId },
+              nowMs,
+            );
+            await applyLocalMirrorWrite(
+              txn,
+              'shopping_list_items',
+              'delete',
+              { id: item.id },
+              nowMs,
             );
           },
         });
