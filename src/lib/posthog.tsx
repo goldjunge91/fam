@@ -67,7 +67,12 @@ export function initPostHog(): void {
   }
 
   try {
-    client = new PostHog(apiKey, { host: env.posthogHost });
+    client = new PostHog(apiKey, {
+      host: env.posthogHost,
+      // Nur Feature Flags — kein Event-Capture, siehe README "PostHog".
+      // Screen-/Touch-Autocapture wird zusaetzlich am <PostHogProvider> unten deaktiviert.
+      captureAppLifecycleEvents: false,
+    });
   } catch (err) {
     initializationError = err instanceof Error ? err.message : String(err);
     console.error('[posthog] Client-Konstruktion fehlgeschlagen — Tracking bleibt aus:', err);
@@ -144,7 +149,7 @@ export function PostHogAppProvider({ children }: { children: ReactNode }): React
     return <FeatureFlagProvider posthog={undefined}>{children}</FeatureFlagProvider>;
   }
   return (
-    <PostHogProvider client={activeClient}>
+    <PostHogProvider client={activeClient} autocapture={false}>
       <FeatureFlagProvider posthog={activeClient}>{children}</FeatureFlagProvider>
     </PostHogProvider>
   );
