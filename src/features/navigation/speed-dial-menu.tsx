@@ -10,10 +10,11 @@ import type { MealType } from '@/features/calorie-tracking/api';
 import { DEFAULT_FAB_POSITION, useFabPosition } from '@/features/navigation/fab-position-settings';
 import {
   DEFAULT_MODULE_PREFERENCES,
+  type ModulePreferences,
   useModulePreferences,
 } from '@/features/settings/module-preferences';
 import { useDeferredMount } from '@/hooks/use-deferred-mount';
-import { useFeatureFlag } from '@/lib/posthog';
+import { type FeatureFlagKey, useFeatureFlag } from '@/lib/posthog';
 import { useNavigationChrome } from './navigation-chrome-provider';
 
 type SpeedDialOption = {
@@ -21,7 +22,8 @@ type SpeedDialOption = {
   icon: FamIconName;
   href: string | (() => string);
   backgroundColor: string;
-  requiresRecipes?: boolean;
+  moduleKey?: keyof ModulePreferences;
+  featureFlag?: FeatureFlagKey;
 };
 
 /** Lokales Datum, nicht UTC — sonst rutscht das Datum kurz nach Mitternacht. */
@@ -43,12 +45,19 @@ function defaultMealType(): MealType {
 }
 
 const OPTIONS: SpeedDialOption[] = [
-  { title: 'Vorratsartikel', icon: 'fridge', href: '/add-item', backgroundColor: '#F0E2DF' },
+  {
+    title: 'Vorratsartikel',
+    icon: 'fridge',
+    href: '/add-item',
+    backgroundColor: '#F0E2DF',
+    moduleKey: 'fridge',
+  },
   {
     title: 'Einkaufsartikel',
     icon: 'shopping',
     href: '/shopping-list?action=add',
     backgroundColor: '#EBE5F1',
+    moduleKey: 'shoppingList',
   },
   {
     title: 'Tagebucheintrag',
@@ -57,14 +66,16 @@ const OPTIONS: SpeedDialOption[] = [
     // laeuft der Tagebuch-Query mit dem String "undefined" gegen Postgres.
     href: () => `/add-food-entry?date=${todayIso()}&mealType=${defaultMealType()}`,
     backgroundColor: '#F3E9D7',
+    moduleKey: 'calories',
+    featureFlag: 'module-calories',
   },
-  // { title: 'Rezept', icon: 'recipes', href: '/recipe/create', backgroundColor: '#E4EDE3' },
   {
     title: 'Rezept',
     icon: 'recipes',
     href: '/recipe/create',
     backgroundColor: '#E4EDE3',
-    requiresRecipes: true,
+    moduleKey: 'recipes',
+    featureFlag: 'module-recipes',
   },
 ];
 
@@ -90,15 +101,27 @@ function SpeedDialMenuContent() {
   const { session } = useSession();
   const { data: position = DEFAULT_FAB_POSITION } = useFabPosition();
   const { data: rawModules } = useModulePreferences(session?.user.id);
-  const recipesFeatureEnabled = useFeatureFlag('module-recipes', false);
-  const recipesEnabled =
-    (rawModules ?? DEFAULT_MODULE_PREFERENCES).recipes && recipesFeatureEnabled;
+  const modules = rawModules ?? DEFAULT_MODULE_PREFERENCES;
+
+  // Feste, bekannte Flags — kein dynamischer Lookup pro Option, damit die
+  // Anzahl der Hook-Aufrufe zwischen Renders stabil bleibt (Rules of Hooks).
+  const featureFlags: Partial<Record<FeatureFlagKey, boolean>> = {
+    'module-recipes': useFeatureFlag('module-recipes', false),
+    'module-calories': useFeatureFlag('module-calories', false),
+  };
+
   const isRight = position !== 'left';
 
   function go(href: string) {
     closeQuickAdd();
     router.push(href as Parameters<typeof router.push>[0]);
   }
+
+  const visibleOptions = OPTIONS.filter((option) => {
+    const moduleAllowed = !option.moduleKey || modules[option.moduleKey] !== false;
+    const flagAllowed = !option.featureFlag || featureFlags[option.featureFlag];
+    return moduleAllowed && flagAllowed;
+  });
 
   return (
     <Modal visible={isQuickAddOpen} transparent animationType="fade" onRequestClose={closeQuickAdd}>
@@ -118,7 +141,7 @@ function SpeedDialMenuContent() {
             [isRight ? 'right' : 'left']: Spacing.four,
             bottom: insets.bottom + Layout.floatingActionAreaHeight,
           }}>
-          {OPTIONS.filter((option) => !option.requiresRecipes || recipesEnabled).map((option) => (
+          {visibleOptions.map((option) => (
             <Pressable
               key={option.title}
               onPress={() => go(typeof option.href === 'function' ? option.href() : option.href)}

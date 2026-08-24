@@ -47,6 +47,7 @@ async function renderWithClient(ui: React.ReactElement) {
     await result.unmount();
     queryClient.clear();
   });
+  return queryClient;
 }
 
 beforeEach(() => {
@@ -75,7 +76,7 @@ test('rendert nichts, solange kein Nutzer bekannt ist', async () => {
 
 test('rendert nichts, wenn es keine Nutzungshistorie gibt', async () => {
   mockGetFrequentProductUsage.mockResolvedValue([]);
-  await renderWithClient(
+  const queryClient = await renderWithClient(
     <FrequentProductsQuickSelect
       feature="fridge"
       userId="user-1"
@@ -84,6 +85,7 @@ test('rendert nichts, wenn es keine Nutzungshistorie gibt', async () => {
     />,
   );
   await waitFor(() => expect(mockGetFrequentProductUsage).toHaveBeenCalled());
+  await waitFor(() => expect(queryClient.isFetching()).toBe(0));
   expect(screen.queryByText('Milch')).not.toBeOnTheScreen();
 });
 

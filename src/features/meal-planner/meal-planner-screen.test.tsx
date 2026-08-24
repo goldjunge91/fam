@@ -104,14 +104,14 @@ jest.mock('./use-meal-plans', () => ({
     data: { id: 'plan-1', name: 'Woche 34', week_start_date: '2026-08-17' },
     isLoading: false,
   }),
-  useMealPlanEntriesInRange: () => ({
+  useMealPlanEntriesInRange: (_householdId?: string, startDate?: string) => ({
     data: [
       {
         id: 'entry-1',
         meal_plan_id: 'plan-1',
         household_id: 'hh-1',
         recipe_id: 'r1',
-        entry_date: '2026-08-17',
+        entry_date: startDate ?? '2026-08-17',
         meal_slot: 'dinner',
         servings_mode: 'portions',
         portions: 4,

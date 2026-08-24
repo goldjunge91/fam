@@ -9,6 +9,7 @@ import {
 import { installBaseline } from './baseline-installer';
 import { createExpoFileOps } from './expo-file-ops';
 import { fetchManifest } from './manifest';
+import { isOffDumpAttached, resetOffDumpAttachment, setOffDumpAttached } from './off-dump-state';
 import type { DumpPaths } from './repository';
 import { checkForUpdate, reconcileOnStart, type UpdateOutcome } from './repository';
 
@@ -88,23 +89,7 @@ function dumpPaths(): DumpPaths {
   };
 }
 
-let attachedThisSession = false;
-
-/** Ob `attachOffDump` in diesem Prozesslauf bereits erfolgreich angehaengt hat. */
-export function isOffDumpAttached(): boolean {
-  return attachedThisSession;
-}
-
-/**
- * Setzt den Attach-Status zurueck, wenn die zugrundeliegende Connection
- * verschwindet (Logout-Wipe, Nutzerwechsel-Wipe in `client.ts`). Ohne diesen
- * Aufruf haelt `attachedThisSession` weiter `true` gegen eine Verbindung, an
- * der nie ein `ATTACH` lief — `isOffDumpAttached()`/`getOffDumpStatus()`
- * luegen dann, und `attachOffDump()` haengt nie neu an.
- */
-export function resetOffDumpAttachment(): void {
-  attachedThisSession = false;
-}
+export { isOffDumpAttached, resetOffDumpAttachment };
 
 export type OffDumpStatus = {
   attached: boolean;
@@ -131,7 +116,7 @@ export async function getOffDumpStatus(db: SqlDatabase): Promise<OffDumpStatus> 
   const lastError = await getMetaValue(db, LAST_ERROR_KEY);
 
   return {
-    attached: attachedThisSession,
+    attached: isOffDumpAttached(),
     fileExists: target.exists,
     fileSizeBytes: target.exists ? target.size : 0,
     schemaVersion: inspected?.schemaVersion ?? null,
@@ -162,7 +147,7 @@ export async function getOffDumpStatus(db: SqlDatabase): Promise<OffDumpStatus> 
  * angehaengt" statt als echten Fehlschlag.
  */
 export async function attachOffDump(db: SqlDatabase): Promise<boolean> {
-  if (attachedThisSession) return true;
+  if (isOffDumpAttached()) return true;
 
   const { File, Paths } = loadFileSystem();
   const target = new File(Paths.document, DUMP_FILE_NAME);
@@ -175,7 +160,7 @@ export async function attachOffDump(db: SqlDatabase): Promise<boolean> {
     const message = err instanceof Error ? err.message : String(err);
     if (!message.includes('off_dump is already in use')) throw err;
   }
-  attachedThisSession = true;
+  setOffDumpAttached(true);
   return true;
 }
 

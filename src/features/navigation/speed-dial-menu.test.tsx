@@ -2,10 +2,25 @@ import { render, screen } from '@testing-library/react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import { SpeedDialMenu } from '@/features/navigation/speed-dial-menu';
+import type { ModulePreferences } from '@/features/settings/module-preferences';
+import type { FeatureFlagKey } from '@/lib/posthog';
 
 const mockCloseQuickAdd = jest.fn();
-let mockRecipesPreference = true;
-let mockRecipesFeatureFlag = true;
+let mockModulePreferences: ModulePreferences = {
+  fridge: true,
+  shoppingList: true,
+  calories: true,
+  recipes: true,
+  mealPlanner: true,
+};
+let mockFeatureFlags: Record<FeatureFlagKey, boolean> = {
+  'test-feature': false,
+  'workout-log': false,
+  'low-carb-tracking': false,
+  'module-recipes': true,
+  'module-meal-planner': true,
+  'module-calories': true,
+};
 
 jest.mock('expo-router', () => ({
   router: { push: jest.fn() },
@@ -36,18 +51,13 @@ jest.mock('@/features/settings/module-preferences', () => ({
     mealPlanner: true,
   },
   useModulePreferences: () => ({
-    data: {
-      fridge: true,
-      shoppingList: true,
-      calories: true,
-      recipes: mockRecipesPreference,
-      mealPlanner: true,
-    },
+    data: mockModulePreferences,
   }),
 }));
 
 jest.mock('@/lib/posthog', () => ({
-  useFeatureFlag: () => mockRecipesFeatureFlag,
+  useFeatureFlag: (key: FeatureFlagKey, defaultValue: boolean) =>
+    mockFeatureFlags[key] ?? defaultValue,
 }));
 
 jest.mock('@/hooks/use-deferred-mount', () => ({
@@ -68,8 +78,21 @@ function renderSpeedDial() {
 
 describe('SpeedDialMenu', () => {
   beforeEach(() => {
-    mockRecipesPreference = true;
-    mockRecipesFeatureFlag = true;
+    mockModulePreferences = {
+      fridge: true,
+      shoppingList: true,
+      calories: true,
+      recipes: true,
+      mealPlanner: true,
+    };
+    mockFeatureFlags = {
+      'test-feature': false,
+      'workout-log': false,
+      'low-carb-tracking': false,
+      'module-recipes': true,
+      'module-meal-planner': true,
+      'module-calories': true,
+    };
   });
 
   it('rendert Schnellauswahl-Aktionen', async () => {
@@ -81,8 +104,44 @@ describe('SpeedDialMenu', () => {
     expect(screen.getByText('Rezept')).toBeOnTheScreen();
   });
 
+  it('blendet die Vorrats-Aktion aus, wenn das Vorrat-Modul deaktiviert ist', async () => {
+    mockModulePreferences.fridge = false;
+
+    await renderSpeedDial();
+
+    expect(screen.queryByText('Vorratsartikel')).not.toBeOnTheScreen();
+    expect(screen.getByText('Einkaufsartikel')).toBeOnTheScreen();
+  });
+
+  it('blendet die Einkaufs-Aktion aus, wenn das Einkaufs-Modul deaktiviert ist', async () => {
+    mockModulePreferences.shoppingList = false;
+
+    await renderSpeedDial();
+
+    expect(screen.queryByText('Einkaufsartikel')).not.toBeOnTheScreen();
+    expect(screen.getByText('Vorratsartikel')).toBeOnTheScreen();
+  });
+
+  it('blendet die Tagebuch-Aktion aus, wenn das Kalorien-Modul deaktiviert ist', async () => {
+    mockModulePreferences.calories = false;
+
+    await renderSpeedDial();
+
+    expect(screen.queryByText('Tagebucheintrag')).not.toBeOnTheScreen();
+    expect(screen.getByText('Vorratsartikel')).toBeOnTheScreen();
+  });
+
+  it('blendet die Tagebuch-Aktion aus, wenn module-calories deaktiviert ist', async () => {
+    mockFeatureFlags['module-calories'] = false;
+
+    await renderSpeedDial();
+
+    expect(screen.queryByText('Tagebucheintrag')).not.toBeOnTheScreen();
+    expect(screen.getByText('Vorratsartikel')).toBeOnTheScreen();
+  });
+
   it('blendet die Rezept-Aktion aus, wenn das Rezepte-Modul deaktiviert ist', async () => {
-    mockRecipesPreference = false;
+    mockModulePreferences.recipes = false;
 
     await renderSpeedDial();
 
@@ -91,7 +150,7 @@ describe('SpeedDialMenu', () => {
   });
 
   it('blendet die Rezept-Aktion aus, wenn module-recipes deaktiviert ist', async () => {
-    mockRecipesFeatureFlag = false;
+    mockFeatureFlags['module-recipes'] = false;
 
     await renderSpeedDial();
 

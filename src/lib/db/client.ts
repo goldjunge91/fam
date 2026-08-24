@@ -4,7 +4,7 @@ import { runMigrations } from '@/lib/db/migrator';
 import { ensureDatabaseBelongsTo } from '@/lib/db/ownership';
 import { type SqlStatementDriver, serializeDatabase } from '@/lib/db/serialize';
 import type { SqlDatabase } from '@/lib/db/types';
-import { resetOffDumpAttachment } from '@/lib/off-dump/off-dump';
+import { resetOffDumpAttachment } from '@/lib/off-dump/off-dump-state';
 
 /**
  * Der einzige Ort im Projekt, der `expo-sqlite` benutzen darf.
