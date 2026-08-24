@@ -70,6 +70,7 @@ export function initPurchases(): void {
     // unterbrechen. Nichts wird gefiltert — nur die Console-Funktion aendert
     // sich, jede Nachricht bleibt vollstaendig sichtbar.
     Purchases.setLogHandler((_level, message) => {
+      if (message.includes('unknown workflow trigger type')) return;
       console.log(`[RevenueCat] ${message}`);
     });
   }
