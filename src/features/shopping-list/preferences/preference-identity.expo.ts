@@ -8,9 +8,11 @@ import {
 
 /** UUIDv5-Adapter für die Expo-App. */
 export async function preferenceId(input: ShoppingCategoryPreferenceKey): Promise<string> {
+  // Das native Modul akzeptiert nur TypedArray-Instanzen, keinen rohen
+  // ArrayBuffer (sonst: NotTypedArrayException auf iOS).
   const digest = await Crypto.digest(
     Crypto.CryptoDigestAlgorithm.SHA1,
-    preferenceIdentityHashInput(input),
+    new Uint8Array(preferenceIdentityHashInput(input)),
   );
   return uuidV5FromSha1Digest(digest);
 }
