@@ -1,4 +1,3 @@
-import { classifyPlacement } from '../classification/placement-classifier';
 import {
   normalizePlacementOrder,
   normalizePlacementZoneIdNullable,
@@ -74,11 +73,6 @@ export function effectiveSortOrder(
     return index === -1 ? UNCATEGORIZED_SORT_ORDER : index;
   }
   return zone.sortOrder;
-}
-
-/** Legacy-Kompatibilitaet fuer Aufrufer, die eine Namensklassifikation nutzen. */
-export function guessCategory(name: string): string | null {
-  return categoryLabelForId(classifyPlacement({ name }).placementZoneId);
 }
 
 /** Reine ID-Normalisierung fuer Gruppierungs- und Snapshot-Integrationspunkte. */

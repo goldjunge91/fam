@@ -62,5 +62,5 @@ gelistet.
 
 | Datei | Zweck |
 |---|---|
-| `shopping-categories.ts` | Die 12 Kategorien: Sortierrang (Laufstrecke), Farbe, Lagerort-Default, Keyword-Erkennung (`guessCategory`). |
+| `shopping-categories.ts` | Die 12 Kategorien: Sortierrang (Laufstrecke), Farbe, Lagerort-Default. Automatische Kategorisierung läuft über `classification/` (`classifyCategory`/`explainCategory`), nicht hier. |
 | `store-presets.ts` | Namens-Presets (REWE, Aldi, …) + Farbpalette für neue Märkte. |
