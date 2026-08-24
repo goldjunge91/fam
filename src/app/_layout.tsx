@@ -21,6 +21,7 @@ import { SnackbarProvider } from '@/components/ui/snackbar';
 import { PostHogIdentitySync } from '@/features/auth/posthog-identity-sync';
 import { SessionProvider, useSession } from '@/features/auth/session-provider';
 import { PremiumProvider } from '@/features/premium/premium-provider';
+import { initAptabase } from '@/lib/analytics/aptabase';
 import { parseAuthErrorFromUrl, parseAuthTokensFromUrl } from '@/lib/auth-deep-link';
 import { setAuthDeepLinkError } from '@/lib/auth-deep-link-state';
 import { getDatabase } from '@/lib/db/client';
@@ -42,6 +43,7 @@ SplashScreen.preventAutoHideAsync();
 defineBackgroundSyncTask();
 initSentry();
 initPostHog();
+initAptabase();
 
 // Muss vor dem ersten Screen-Mount laufen — configure() nach dem Mount wirft.
 // Aktiviert automatische cold_ttr/warm_ttr pro Route (Expo Router Integration).

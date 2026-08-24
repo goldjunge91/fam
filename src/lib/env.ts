@@ -161,6 +161,15 @@ export const env = {
   get posthogHost(): string {
     return process.env.EXPO_PUBLIC_POSTHOG_HOST?.trim() || 'https://us.i.posthog.com';
   },
+  /**
+   * Aptabase-App-Key (Aptabase-Dashboard: App Settings > Instructions).
+   * Bewusst optional (`string | undefined`, kein `requireEnv`): Ohne Key bleibt
+   * `initAptabase()` (`@/lib/analytics/aptabase`) ein No-op, damit lokale
+   * Entwicklung ohne Aptabase-Account moeglich ist.
+   */
+  get aptabaseAppKey(): string | undefined {
+    return process.env.EXPO_PUBLIC_APTABASE_APP_KEY?.trim() || undefined;
+  },
 };
 
 // Nur `__DEV__`, einmalig beim Modul-Laden (Metro-Bundle-Start): Welche

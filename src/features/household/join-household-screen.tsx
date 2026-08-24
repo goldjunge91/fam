@@ -7,6 +7,7 @@ import { ThemedText } from '@/components/theme/themed-text';
 import { Button } from '@/components/ui/buttons';
 import { Card } from '@/components/ui/card';
 import { useRedeemInviteMutation } from '@/features/household/api';
+import { trackAptabaseEvent } from '@/lib/analytics/aptabase';
 import { clearPendingInviteToken, peekPendingInviteToken } from '@/lib/pending-invite';
 
 export function JoinHouseholdScreen() {
@@ -39,6 +40,7 @@ export function JoinHouseholdScreen() {
     setErrorMsg(null);
     try {
       await redeemMutation.mutateAsync(trimmed);
+      trackAptabaseEvent('household_joined');
       await clearPendingInviteToken();
       router.replace('/');
     } catch (err) {

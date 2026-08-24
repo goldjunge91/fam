@@ -9,7 +9,7 @@ Haushalt in Supabase. RevenueCat verwendet dabei die Haushalts-ID als
 Die Function ist unter folgender URL erreichbar:
 
 ```text
-https://movibeufhxaybfmvikhj.supabase.co/functions/v1/revenuecat-webhook
+https://ivvebtqasotqpikuydov.supabase.co/functions/v1/revenuecat-webhook
 ```
 
 Sie benötigt keinen Supabase-JWT. Stattdessen muss ein starkes, zufälliges
@@ -17,9 +17,9 @@ Secret als Edge-Function-Secret hinterlegt werden:
 
 ```bash
 supabase secrets set REVENUECAT_WEBHOOK_SECRET='<secret>' \
-  --project-ref movibeufhxaybfmvikhj
+  --project-ref ivvebtqasotqpikuydov
 supabase functions deploy revenuecat-webhook \
-  --project-ref movibeufhxaybfmvikhj \
+  --project-ref ivvebtqasotqpikuydov \
   --no-verify-jwt
 ```
 

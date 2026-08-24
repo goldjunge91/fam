@@ -5,6 +5,7 @@
     "": {
       "name": "fam",
       "dependencies": {
+        "@aptabase/react-native": "^0.6.0",
         "@callstack/liquid-glass": "^0.8.0",
         "@expo/ui": "~57.0.11",
         "@legendapp/list": "^3.3.5",
@@ -99,6 +100,8 @@
     "@adobe/css-tools": ["@adobe/css-tools@4.5.0", "", {}, "sha512-6OzddxPio9UiWTCemp4N8cYLV2ZN1ncRnV1cVGtve7dhPOtRkleRyx32GQCYSwDYgaHU3USMm84tNsvKzRCa1Q=="],
 
     "@alloc/quick-lru": ["@alloc/quick-lru@5.2.0", "", {}, "sha512-UrcABB+4bUrFABwbluTIBErXwvbsU/V7TZWfmbgJfbkwiBuziS9gxdODUyuiecfdGQ85jglMW6juS3+z5TsKLw=="],
+
+    "@aptabase/react-native": ["@aptabase/react-native@0.6.0", "", { "peerDependencies": { "react": ">=19.1.0", "react-native": ">=0.81.4" } }, "sha512-S29te6aPpc+BeH96EqiSofUgtesgBq0yAvaiYU8ZJs6q3qKlO5i93OcTbFSY/bcJsjHH2dGbFutjZGAbPsqFBQ=="],
 
     "@babel/code-frame": ["@babel/code-frame@7.29.7", "", { "dependencies": { "@babel/helper-validator-identifier": "^7.29.7", "js-tokens": "^4.0.0", "picocolors": "^1.1.1" } }, "sha512-Aup7aUOfpbAUg2ROOJN6Iw5f9DMBlzu0mIkm/malLQFN/YQgO48wCj0Kxa3sEHJvPVFg7siR+qRInwXd2qhQKw=="],
 

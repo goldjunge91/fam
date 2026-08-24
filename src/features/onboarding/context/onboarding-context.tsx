@@ -4,6 +4,7 @@ import { markOnboardingCompleted, updateProfile } from '@/features/auth/api';
 import { persistOnboardingCompleted } from '@/features/auth/onboarding-session';
 import { useSession } from '@/features/auth/session-provider';
 import { saveModulePreferences } from '@/features/settings/module-preferences';
+import { trackAptabaseEvent } from '@/lib/analytics/aptabase';
 import { getSupabase } from '@/lib/supabase';
 import { triggerHouseholdsPull } from '@/lib/sync/household-bootstrap-sync';
 import type {
@@ -191,6 +192,7 @@ export function OnboardingProvider({ children }: { children: ReactNode }) {
 
       // Onboarding-Flag persistieren
       await persistOnboardingCompleted();
+      trackAptabaseEvent('onboarding_completed');
       setIsLoading(false);
       return true;
     } catch (e) {

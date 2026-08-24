@@ -213,3 +213,28 @@ describe('env.sentryDsn', () => {
     expect(env.sentryDsn).toBe('https://examplePublicKey@o0.ingest.sentry.io/0');
   });
 });
+
+describe('env.aptabaseAppKey', () => {
+  const original = process.env.EXPO_PUBLIC_APTABASE_APP_KEY;
+
+  afterEach(() => {
+    if (original === undefined) {
+      delete process.env.EXPO_PUBLIC_APTABASE_APP_KEY;
+    } else {
+      process.env.EXPO_PUBLIC_APTABASE_APP_KEY = original;
+    }
+  });
+
+  it('gibt undefined zurueck wenn nicht gesetzt oder leer', () => {
+    delete process.env.EXPO_PUBLIC_APTABASE_APP_KEY;
+    expect(env.aptabaseAppKey).toBeUndefined();
+
+    process.env.EXPO_PUBLIC_APTABASE_APP_KEY = '   ';
+    expect(env.aptabaseAppKey).toBeUndefined();
+  });
+
+  it('gibt getrimmten Key zurueck wenn gesetzt', () => {
+    process.env.EXPO_PUBLIC_APTABASE_APP_KEY = '  A-EU-5721393654  ';
+    expect(env.aptabaseAppKey).toBe('A-EU-5721393654');
+  });
+});

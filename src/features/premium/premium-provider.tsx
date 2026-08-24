@@ -70,19 +70,24 @@ export function PremiumProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     initPurchases();
-    refresh();
 
-    if (!isPurchasesConfigured()) return;
+    if (!isPurchasesConfigured()) {
+      setLoading(false);
+      return;
+    }
 
     const listener = (info: CustomerInfo) => setCustomerInfo(info);
     Purchases.addCustomerInfoUpdateListener(listener);
     return () => {
       Purchases.removeCustomerInfoUpdateListener(listener);
     };
-  }, [refresh]);
+  }, []);
 
   useEffect(() => {
-    if (!isPurchasesConfigured()) return;
+    if (!isPurchasesConfigured()) {
+      setLoading(false);
+      return;
+    }
 
     // Bindet RevenueCat an den Haushalt statt an die Person — siehe
     // Kommentar am Provider. Ein Haushaltswechsel (HouseholdSwitcherModal)
@@ -90,7 +95,8 @@ export function PremiumProvider({ children }: { children: ReactNode }) {
     if (activeHouseholdId) {
       Purchases.logIn(activeHouseholdId)
         .then(({ customerInfo: info }) => setCustomerInfo(info))
-        .catch((err) => console.warn('[Premium] RevenueCat logIn fehlgeschlagen:', err));
+        .catch((err) => console.warn('[Premium] RevenueCat logIn fehlgeschlagen:', err))
+        .finally(() => setLoading(false));
       return;
     }
 
@@ -100,10 +106,18 @@ export function PremiumProvider({ children }: { children: ReactNode }) {
     // Fehler, der keiner ist.
     Purchases.isAnonymous()
       .then((isAnonymous) => {
-        if (isAnonymous) return;
-        return Purchases.logOut().then((info) => setCustomerInfo(info));
+        if (isAnonymous) {
+          setLoading(false);
+          return;
+        }
+        return Purchases.logOut()
+          .then((info) => setCustomerInfo(info))
+          .finally(() => setLoading(false));
       })
-      .catch((err) => console.warn('[Premium] RevenueCat logOut fehlgeschlagen:', err));
+      .catch((err) => {
+        console.warn('[Premium] RevenueCat logOut fehlgeschlagen:', err);
+        setLoading(false);
+      });
   }, [activeHouseholdId]);
 
   const isForced = env.forcePremium;

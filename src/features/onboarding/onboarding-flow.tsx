@@ -6,6 +6,7 @@ import { ProgressBar } from '@/components/ui/progress-bar';
 import { useSession } from '@/features/auth/session-provider';
 import { signOutAndClearLocalData } from '@/features/auth/sign-out';
 import { useTheme } from '@/hooks/use-theme';
+import { trackAptabaseEvent } from '@/lib/analytics/aptabase';
 import { AccountStepForm } from './components/account-step';
 import { CompleteStepForm } from './components/complete-step';
 import { HouseholdStepForm } from './components/household-step';
@@ -60,7 +61,14 @@ function OnboardingContent() {
       )}
 
       {/* Schritt 1: Willkommens-Karussell / Feature-Überblick */}
-      {currentStep === 1 && <WelcomeCarousel onStart={() => setStep(2)} />}
+      {currentStep === 1 && (
+        <WelcomeCarousel
+          onStart={() => {
+            trackAptabaseEvent('onboarding_started');
+            setStep(2);
+          }}
+        />
+      )}
       {/* Schritt 2: Account anlegen / Anmelden */}
       {currentStep === 2 && <AccountStepForm onNext={() => setStep(3)} />}
       {/* Schritt 3: Persönliches Profil (Körperdaten, Aktivitätslevel, Ziele) */}

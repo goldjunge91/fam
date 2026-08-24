@@ -18,6 +18,11 @@ import {
   formatTokenExpiry,
   maskSecret,
 } from '@/features/settings/dev/dev-info';
+import {
+  getAptabaseInitializationError,
+  isAptabaseConfigured,
+  trackAptabaseEvent,
+} from '@/lib/analytics/aptabase';
 import { deleteLocalDatabase, getDatabase } from '@/lib/db/client';
 import { env } from '@/lib/env';
 import { sendTestNotification } from '@/lib/notifications';
@@ -241,6 +246,23 @@ export function DevToolsScreen() {
           wert={testFeatureFlag ? 'an' : 'aus'}
           tone={testFeatureFlag ? undefined : 'warning'}
         />
+        <Zeile
+          label="Aptabase"
+          wert={
+            isAptabaseConfigured()
+              ? 'konfiguriert'
+              : getAptabaseInitializationError()
+                ? 'Init fehlgeschlagen'
+                : 'kein App-Key'
+          }
+          tone={
+            isAptabaseConfigured()
+              ? undefined
+              : getAptabaseInitializationError()
+                ? 'danger'
+                : 'warning'
+          }
+        />
       </Card>
 
       {/* Session-Details (Nutzer-ID, Token-Gültigkeit, aktiver Haushalt) */}
@@ -446,6 +468,28 @@ export function DevToolsScreen() {
               })
             }
             loading={busy === 'posthog-reload'}
+          />
+          <Button
+            label="Aptabase-Testevent senden"
+            variant="secondary"
+            onPress={() => {
+              if (!isAptabaseConfigured()) {
+                const message = getAptabaseInitializationError()
+                  ? `Initialisierung fehlgeschlagen: ${getAptabaseInitializationError()}`
+                  : 'nicht aktiv: API-Key ist in diesem Build nicht vorhanden';
+                Alert.alert('Aptabase nicht aktiv', message);
+                return;
+              }
+              trackAptabaseEvent('dev_tools_test_event', {
+                platform: Platform.OS,
+                source: 'dev-tools-screen',
+                timestamp: new Date().toISOString(),
+              });
+              Alert.alert(
+                'Aptabase',
+                'Test-Event ("dev_tools_test_event") wurde an Aptabase gesendet.',
+              );
+            }}
           />
           <Zeile
             label="Geladene Flags"
