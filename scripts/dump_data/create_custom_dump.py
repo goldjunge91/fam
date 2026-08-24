@@ -35,9 +35,10 @@ TARGET_COUNTRY_TAG = "en:germany"
 # den Vorfilter vor dem eigentlichen JSON-Parsing (siehe Hauptschleife).
 GERMANY_MARKER = f'"{TARGET_COUNTRY_TAG}"'
 
-# Schema 2 (#223 Paket 4) — alte Schema-1-Dumps werden gelöscht, nicht
-# migriert. Siehe openfoodfacts.sql für die dokumentierte Referenz.
-SCHEMA_VERSION = 2
+# Schema 3 (Bild-URL fuers "front"-Produktfoto, siehe extract_front_image_url)
+# — alte Schema-Versionen werden gelöscht, nicht migriert. Siehe
+# openfoodfacts.sql für die dokumentierte Referenz.
+SCHEMA_VERSION = 3
 
 
 def extract_nutrient(item, key):
@@ -99,6 +100,92 @@ def extract_category_tags(item):
     raw_tags = item.get("categories_tags") or []
     tags = [tag for tag in raw_tags if isinstance(tag, str)]
     return json.dumps(tags)
+
+
+_IMAGE_SIZE_PREFERENCE = ("400", "200", "100", "full")
+
+
+def _barcode_folder(code):
+    """Spiegelt `barcodeFolder()` in tools/category-debugger/scripts/image-manifest-v2.ts —
+    dieselbe Ordnerstruktur, die images.openfoodfacts.org fuer Produktbilder nutzt."""
+    padded = code.rjust(13, "0") if len(code) < 13 else code
+    if len(padded) > 8:
+        return f"{padded[0:3]}/{padded[3:6]}/{padded[6:9]}/{padded[9:]}"
+    return padded
+
+
+def _preferred_image_language(available_languages, item):
+    available = sorted(available_languages)
+    product_languages = []
+    for key in ("lc", "lang"):
+        value = item.get(key)
+        if isinstance(value, str) and 2 <= len(value) <= 3 and value.isalpha():
+            product_languages.append(value.lower())
+    for language in ["de", *product_languages, "en"]:
+        if language in available:
+            return language
+    return available[0] if available else None
+
+
+def extract_front_image_url(item):
+    """Bild-URL des "front"-Produktfotos (#Bilder-Anzeige lokaler Dump).
+
+    Portierte, front-only Teilmenge von `extractManifestImages()` in
+    tools/category-debugger/scripts/image-manifest-v2.ts — dort ausfuehrlich
+    dokumentiert samt Regressionstests gegen echte Dump-Zeilen. Der aktuelle
+    OFF-Export traegt Bild-Metadaten verschachtelt unter
+    `images.selected.front.<language>` (rev/imgid/sizes); ein kleinerer,
+    zuletzt lange nicht bearbeiteter Teil der Produkte hat noch das aeltere
+    flache Format `images.front_<language>`. Beide werden unterstuetzt.
+    Ein top-level `selected_images`-Feld mit fertigen URLs existiert im
+    aktuellen Export nicht mehr (Stichprobe 2026-08: 0 von 5000 DE-Produkten).
+    """
+    images = item.get("images")
+    if not isinstance(images, dict):
+        return None
+
+    nested = images.get("selected")
+    nested_front = nested.get("front") if isinstance(nested, dict) else None
+    nested_languages = (
+        [lang for lang, meta in nested_front.items() if isinstance(meta, dict)]
+        if isinstance(nested_front, dict)
+        else []
+    )
+    flat_languages = [
+        key[len("front_"):]
+        for key, value in images.items()
+        if key.startswith("front_") and isinstance(value, dict) and key != "front_"
+    ]
+
+    language = _preferred_image_language({*nested_languages, *flat_languages}, item)
+    if not language:
+        return None
+
+    metadata = None
+    if isinstance(nested_front, dict) and isinstance(nested_front.get(language), dict):
+        metadata = nested_front[language]
+    elif isinstance(images.get(f"front_{language}"), dict):
+        metadata = images[f"front_{language}"]
+    if metadata is None:
+        return None
+
+    revision = metadata.get("rev")
+    sizes = metadata.get("sizes")
+    if revision is None or not isinstance(sizes, dict):
+        return None
+    revision_str = str(revision).strip()
+    if not revision_str:
+        return None
+
+    size = next((s for s in _IMAGE_SIZE_PREFERENCE if isinstance(sizes.get(s), dict)), None)
+    if not size:
+        return None
+
+    code = item.get("code")
+    if not code:
+        return None
+    filename = f"front_{language}.{revision_str}.{size}.jpg"
+    return f"https://images.openfoodfacts.org/images/products/{_barcode_folder(str(code))}/{filename}"
 
 
 def to_iso_millis(dt):
@@ -301,7 +388,8 @@ def process_and_create_sqlite():
             carbohydrates REAL,
             sugars REAL,
             proteins REAL,
-            salt REAL
+            salt REAL,
+            image_url TEXT
         );
     """)
     cursor.execute("""
@@ -405,16 +493,19 @@ def process_and_create_sqlite():
                     if None not in (energy_kcal, proteins, carbohydrates, fat):
                         complete_nutrition += 1
 
+                    image_url = extract_front_image_url(item)
+
                     batch.append((
                         str(code), product_name, brand, quantity, stores, nutriscore,
                         categories_tags_json, off_last_modified_at,
-                        energy_kcal, fat, saturated_fat, carbohydrates, sugars, proteins, salt
+                        energy_kcal, fat, saturated_fat, carbohydrates, sugars, proteins, salt,
+                        image_url
                     ))
 
                     # In Tausender-Blöcken in SQLite schreiben (Batching für maximale Geschwindigkeit)
                     if len(batch) >= 5000:
                         cursor.executemany("""
-                            INSERT OR REPLACE INTO products VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                            INSERT OR REPLACE INTO products VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
                         """, batch)
                         batch = []
                         inserted += 5000
@@ -427,7 +518,7 @@ def process_and_create_sqlite():
                 # Restliche Daten schreiben
                 if batch:
                     cursor.executemany("""
-                        INSERT OR REPLACE INTO products VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                        INSERT OR REPLACE INTO products VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
                     """, batch)
                     inserted += len(batch)
                     conn.commit()

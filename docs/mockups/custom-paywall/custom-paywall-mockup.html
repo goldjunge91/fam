@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>fam Premium · Paywall Varianten</title>
+  <style>
+    :root {
+      --text: #2D2830;
+      --text-secondary: #786F79;
+      --bg: #F8F4EF;
+      --surface: #FBF7F2;
+      --selected: #E9E1E7;
+      --border: #E4DDE3;
+      --accent: #705773;
+      --on-accent: #FFFFFF;
+      --warning: #C69059;
+      --success: #78906F;
+      --shadow-card: #594059;
+      --premium-grad-start: #715574;
+      --premium-grad-mid: #A36E72;
+      --premium-grad-end: #C59677;
+      --page-bg: #EFE9E2;
+      --page-text: #2D2830;
+      --page-text-secondary: #5B5259;
+      --frame-label: #4A424C;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+        --text: #F2ECE7;
+        --text-secondary: #B7ADB3;
+        --bg: #211D23;
+        --surface: #2B262E;
+        --selected: #382F3B;
+        --border: #3E3640;
+        --accent: #B79CBA;
+        --on-accent: #211D23;
+        --warning: #D9A86C;
+        --success: #8FAE86;
+        --shadow-card: #594059;
+        --premium-grad-start: #4F3D52;
+        --premium-grad-mid: #765158;
+        --premium-grad-end: #8B6755;
+        --page-bg: #17141A;
+        --page-text: #F2ECE7;
+        --page-text-secondary: #C7BEC5;
+        --frame-label: #D8D0DA;
+      }
+    }
+
+    :root[data-theme="dark"] {
+      --text: #F2ECE7;
+      --text-secondary: #B7ADB3;
+      --bg: #211D23;
+      --surface: #2B262E;
+      --selected: #382F3B;
+      --border: #3E3640;
+      --accent: #B79CBA;
+      --on-accent: #211D23;
+      --warning: #D9A86C;
+      --success: #8FAE86;
+      --shadow-card: #594059;
+      --premium-grad-start: #4F3D52;
+      --premium-grad-mid: #765158;
+      --premium-grad-end: #8B6755;
+      --page-bg: #17141A;
+      --page-text: #F2ECE7;
+      --page-text-secondary: #C7BEC5;
+      --frame-label: #D8D0DA;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      background: var(--page-bg);
+      color: var(--page-text);
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui, sans-serif;
+      margin: 0;
+      padding: 40px 20px 80px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 48px;
+    }
+
+    .intro {
+      max-width: 680px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .intro h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin: 0;
+      letter-spacing: -0.02em;
+    }
+
+    .intro p {
+      margin: 0;
+      color: var(--page-text-secondary);
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+
+    .theme-toggle-bar {
+      display: flex;
+      gap: 8px;
+      background: rgba(0,0,0,0.06);
+      padding: 4px;
+      border-radius: 999px;
+      align-self: center;
+    }
+    :root[data-theme="dark"] .theme-toggle-bar {
+      background: rgba(255,255,255,0.08);
+    }
+
+    .theme-btn {
+      border: none;
+      background: transparent;
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      color: var(--page-text-secondary);
+    }
+    .theme-btn.active {
+      background: var(--surface);
+      color: var(--page-text);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+    }
+
+    .row-group {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 32px;
+      width: 100%;
+      max-width: 1280px;
+    }
+
+    .variant-col {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .variant-header {
+      text-align: center;
+    }
+    .variant-title {
+      font-size: 1.1rem;
+      font-weight: 650;
+      color: var(--frame-label);
+      margin-bottom: 4px;
+    }
+    .variant-desc {
+      font-size: 0.82rem;
+      color: var(--page-text-secondary);
+      max-width: 340px;
+    }
+
+    /* Device Mockup Frame */
+    .device-frame {
+      width: 375px;
+      height: 740px;
+      background: var(--bg);
+      border-radius: 44px;
+      box-shadow: 0 20px 48px -12px rgba(0,0,0,0.25), 0 0 0 1px var(--border);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .notch-bar {
+      height: 44px;
+      padding: 0 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text);
+      z-index: 10;
+    }
+
+    .screen-content {
+      flex: 1;
+      overflow-y: auto;
+      padding: 8px 20px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .close-btn {
+      align-self: flex-end;
+      width: 30px;
+      height: 30px;
+      border-radius: 15px;
+      background: var(--selected);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      color: var(--text-secondary);
+      cursor: pointer;
+    }
+
+    /* Hero Section */
+    .hero {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .hero-badge {
+      width: 48px;
+      height: 48px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, var(--premium-grad-start), var(--premium-grad-end));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 22px;
+      box-shadow: 0 4px 12px rgba(112, 85, 115, 0.3);
+    }
+
+    .hero-title {
+      font-size: 1.5rem;
+      font-weight: 750;
+      letter-spacing: -0.02em;
+      color: var(--text);
+      margin: 0;
+    }
+
+    .hero-subtitle {
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+      line-height: 1.4;
+      max-width: 290px;
+      margin: 0;
+    }
+
+    /* Benefits List */
+    .benefits-group {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 12px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .benefit-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    .benefit-icon {
+      font-size: 1.25rem;
+      line-height: 1;
+      padding-top: 2px;
+    }
+
+    .benefit-text {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .benefit-title {
+      font-size: 0.88rem;
+      font-weight: 650;
+      color: var(--text);
+    }
+
+    .benefit-hint {
+      font-size: 0.78rem;
+      color: var(--text-secondary);
+      line-height: 1.3;
+    }
+
+    /* Plans Option 1: Card Stack */
+    .plans-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .plan-card {
+      background: var(--surface);
+      border: 1.5px solid var(--border);
+      border-radius: 18px;
+      padding: 14px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      position: relative;
+      transition: all 0.15s ease;
+    }
+
+    .plan-card.selected {
+      border-color: var(--accent);
+      background: var(--surface);
+      box-shadow: 0 0 0 1px var(--accent);
+    }
+
+    .plan-badge {
+      position: absolute;
+      top: -10px;
+      right: 14px;
+      background: linear-gradient(135deg, var(--premium-grad-start), var(--premium-grad-mid));
+      color: #fff;
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 999px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .plan-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .plan-radio {
+      width: 20px;
+      height: 20px;
+      border-radius: 10px;
+      border: 2px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .plan-card.selected .plan-radio {
+      border-color: var(--accent);
+    }
+
+    .plan-card.selected .plan-radio::after {
+      content: "";
+      width: 10px;
+      height: 10px;
+      border-radius: 5px;
+      background: var(--accent);
+    }
+
+    .plan-info {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .plan-name {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .plan-desc {
+      font-size: 0.76rem;
+      color: var(--text-secondary);
+    }
+
+    .plan-price-block {
+      text-align: right;
+    }
+
+    .plan-price {
+      font-size: 1rem;
+      font-weight: 750;
+      color: var(--text);
+    }
+
+    .plan-period {
+      font-size: 0.72rem;
+      color: var(--text-secondary);
+    }
+
+    /* Variant 2: Segmented Switch */
+    .segmented-control {
+      display: flex;
+      background: var(--selected);
+      padding: 3px;
+      border-radius: 14px;
+      gap: 4px;
+    }
+
+    .seg-item {
+      flex: 1;
+      padding: 8px;
+      text-align: center;
+      font-size: 0.85rem;
+      font-weight: 650;
+      color: var(--text-secondary);
+      border-radius: 11px;
+      cursor: pointer;
+    }
+
+    .seg-item.active {
+      background: var(--surface);
+      color: var(--text);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+    }
+
+    .price-highlight-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 16px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .big-price {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--text);
+      letter-spacing: -0.02em;
+    }
+
+    /* Variant 3: Side-by-Side Tile Grid */
+    .tiles-grid {
+      display: flex;
+      gap: 10px;
+    }
+
+    .tile-card {
+      flex: 1;
+      background: var(--surface);
+      border: 1.5px solid var(--border);
+      border-radius: 18px;
+      padding: 14px 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .tile-card.selected {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 1px var(--accent);
+    }
+
+    /* CTA Section */
+    .cta-section {
+      margin-top: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      padding-top: 8px;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: var(--on-accent);
+      border: none;
+      padding: 14px 20px;
+      border-radius: 16px;
+      font-size: 0.96rem;
+      font-weight: 700;
+      cursor: pointer;
+      text-align: center;
+      box-shadow: 0 4px 14px rgba(112, 87, 115, 0.25);
+    }
+
+    .cta-hint {
+      text-align: center;
+      font-size: 0.72rem;
+      color: var(--text-secondary);
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 16px;
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+      margin-top: 4px;
+    }
+
+    .footer-link {
+      cursor: pointer;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="intro">
+    <h1>fam Premium · Native Paywall</h1>
+    <p>3 Entwürfe für eine 100&nbsp;% native React-Native-Paywall im Design-System von fam. Wähle deinen Favoriten für die Implementierung.</p>
+    <div class="theme-toggle-bar">
+      <button class="theme-btn active" onclick="setTheme('light')">Light Theme</button>
+      <button class="theme-btn" onclick="setTheme('dark')">Dark Theme</button>
+    </div>
+  </div>
+
+  <div class="row-group">
+
+    <!-- VARIANTE 1: Vertikale Plan-Karten mit Ersparnis-Badge (Klassisch & Klar) -->
+    <div class="variant-col">
+      <div class="variant-header">
+        <div class="variant-title">Variante 1 · Card Stack (Empfohlen)</div>
+        <div class="variant-desc">Klare vertikale Plan-Karten mit Radio-Auswahl, 17% Ersparnis-Badge und kompakter Feature-Box.</div>
+      </div>
+      <div class="device-frame">
+        <div class="notch-bar">
+          <span>9:41</span>
+          <span>●●●</span>
+        </div>
+        <div class="screen-content">
+          <div class="close-btn">✕</div>
+
+          <div class="hero">
+            <div class="hero-badge">✦</div>
+            <h2 class="hero-title">fam Premium</h2>
+            <p class="hero-subtitle">Ein Abo schaltet alle Funktionen für alle Mitglieder im Haushalt frei.</p>
+          </div>
+
+          <div class="benefits-group">
+            <div class="benefit-item">
+              <div class="benefit-icon">👨‍🍳</div>
+              <div class="benefit-text">
+                <div class="benefit-title">Geführter Kochmodus</div>
+                <div class="benefit-hint">Schritt-für-Schritt-Ansicht mit automatischen Timern</div>
+              </div>
+            </div>
+            <div class="benefit-item">
+              <div class="benefit-icon">➕</div>
+              <div class="benefit-text">
+                <div class="benefit-title">Fehlendes direkt einkaufen</div>
+                <div class="benefit-hint">1-Klick-Übernahme aus Rezepten & Wochenplan</div>
+              </div>
+            </div>
+            <div class="benefit-item">
+              <div class="benefit-icon">🔄</div>
+              <div class="benefit-text">
+                <div class="benefit-title">Bestände automatisch ergänzen</div>
+                <div class="benefit-hint">Niedrige Vorräte direkt auf die Einkaufsliste</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="plans-stack">
+            <div class="plan-card selected" onclick="selectPlanV1(this, 'yearly')">
+              <div class="plan-badge">17% Ersparnis</div>
+              <div class="plan-left">
+                <div class="plan-radio"></div>
+                <div class="plan-info">
+                  <div class="plan-name">Jahresabo</div>
+                  <div class="plan-desc">Entspricht 4,16 € / Monat</div>
+                </div>
+              </div>
+              <div class="plan-price-block">
+                <div class="plan-price">49,99 €</div>
+                <div class="plan-period">pro Jahr</div>
+              </div>
+            </div>
+
+            <div class="plan-card" onclick="selectPlanV1(this, 'monthly')">
+              <div class="plan-left">
+                <div class="plan-radio"></div>
+                <div class="plan-info">
+                  <div class="plan-name">Monatsabo</div>
+                  <div class="plan-desc">Monatlich flexibel</div>
+                </div>
+              </div>
+              <div class="plan-price-block">
+                <div class="plan-price">4,99 €</div>
+                <div class="plan-period">pro Monat</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="cta-section">
+            <button class="btn-primary" id="v1-btn">Jahresabo für 49,99 € starten</button>
+            <div class="cta-hint">Jederzeit kündbar im App Store.</div>
+            <div class="footer-links">
+              <span class="footer-link">Käufe wiederherstellen</span>
+              <span>·</span>
+              <span class="footer-link">Datenschutz</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- VARIANTE 2: Segmented Switch (Kompakt & Modern) -->
+    <div class="variant-col">
+      <div class="variant-header">
+        <div class="variant-title">Variante 2 · Segmented Switch</div>
+        <div class="variant-desc">Umschalter oben zwischen Monat & Jahr, dynamische Preisanzeige und Feature-Fokus.</div>
+      </div>
+      <div class="device-frame">
+        <div class="notch-bar">
+          <span>9:41</span>
+          <span>●●●</span>
+        </div>
+        <div class="screen-content">
+          <div class="close-btn">✕</div>
+
+          <div class="hero">
+            <div class="hero-badge">✦</div>
+            <h2 class="hero-title">Mehr für euren Haushalt</h2>
+            <p class="hero-subtitle">Gemeinsam besser kochen, planen und vorräte verwalten.</p>
+          </div>
+
+          <div class="segmented-control">
+            <div class="seg-item" onclick="setSeg(this, 'monthly')">Monatlich</div>
+            <div class="seg-item active" onclick="setSeg(this, 'yearly')">Jährlich (-17%)</div>
+          </div>
+
+          <div class="price-highlight-card">
+            <div style="font-size: 0.8rem; color: var(--text-secondary);" id="v2-sub">14 Tage kostenlos testen, danach</div>
+            <div class="big-price" id="v2-price">49,99 € <span style="font-size: 0.9rem; font-weight: 500; color: var(--text-secondary);">/ Jahr</span></div>
+            <div style="font-size: 0.82rem; color: var(--success); font-weight: 600;" id="v2-hint">Gilt für alle Haushaltsmitglieder</div>
+          </div>
+
+          <div class="benefits-group">
+            <div class="benefit-item">
+              <div class="benefit-icon">👨‍🍳</div>
+              <div class="benefit-text">
+                <div class="benefit-title">Geführter Kochmodus</div>
+                <div class="benefit-hint">Fokus-Ansicht mit automatischen Timern</div>
+              </div>
+            </div>
+            <div class="benefit-item">
+              <div class="benefit-icon">➕</div>
+              <div class="benefit-text">
+                <div class="benefit-title">Fehlende Zutaten auf Liste</div>
+                <div class="benefit-hint">Mit 1 Klick aus Rezepten übernehmen</div>
+              </div>
+            </div>
+            <div class="benefit-item">
+              <div class="benefit-icon">🔄</div>
+              <div class="benefit-text">
+                <div class="benefit-title">Auto-Bestandsauffüllung</div>
+                <div class="benefit-hint">Niedrige Bestände automatisch nachkaufen</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="cta-section">
+            <button class="btn-primary" id="v2-btn">Jetzt freischalten</button>
+            <div class="cta-hint">Automatische Verlängerung, jederzeit kündbar.</div>
+            <div class="footer-links">
+              <span class="footer-link">Wiederherstellen</span>
+              <span>·</span>
+              <span class="footer-link">AGB</span>
+              <span>·</span>
+              <span class="footer-link">Datenschutz</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- VARIANTE 3: Side-by-Side Tile Grid -->
+    <div class="variant-col">
+      <div class="variant-header">
+        <div class="variant-title">Variante 3 · Kachel-Vergleich</div>
+        <div class="variant-desc">Zwei Kacheln nebeneinander zum direkten Preisvergleich vor dem Kaufabschluss.</div>
+      </div>
+      <div class="device-frame">
+        <div class="notch-bar">
+          <span>9:41</span>
+          <span>●●●</span>
+        </div>
+        <div class="screen-content">
+          <div class="close-btn">✕</div>
+
+          <div class="hero">
+            <div class="hero-badge">✦</div>
+            <h2 class="hero-title">fam Premium</h2>
+            <p class="hero-subtitle">Holt das Beste aus eurem Familienalltag heraus.</p>
+          </div>
+
+          <div class="benefits-group">
+            <div class="benefit-item">
+              <div class="benefit-icon">👨‍🍳</div>
+              <div class="benefit-text">
+                <div class="benefit-title">Geführter Kochmodus</div>
+                <div class="benefit-hint">Timer, Portionen und Zutaten im Blick</div>
+              </div>
+            </div>
+            <div class="benefit-item">
+              <div class="benefit-icon">➕</div>
+              <div class="benefit-text">
+                <div class="benefit-title">Rezept-Übernahme</div>
+                <div class="benefit-hint">Fehlendes direkt auf den Einkaufszettel</div>
+              </div>
+            </div>
+            <div class="benefit-item">
+              <div class="benefit-icon">🔄</div>
+              <div class="benefit-text">
+                <div class="benefit-title">Automatische Vorräte</div>
+                <div class="benefit-hint">Ergänzt Bestände rechtzeitig vor dem Ausgehen</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="tiles-grid">
+            <div class="tile-card" onclick="selectTile(this, 'monthly')">
+              <div style="font-size: 0.8rem; font-weight: 700; color: var(--text-secondary);">MONAT</div>
+              <div style="font-size: 1.25rem; font-weight: 800; color: var(--text);">4,99 €</div>
+              <div style="font-size: 0.72rem; color: var(--text-secondary);">monatlich flexibel</div>
+            </div>
+
+            <div class="tile-card selected" onclick="selectTile(this, 'yearly')">
+              <div class="plan-badge" style="top: -8px; right: 8px; font-size: 0.6rem;">-17%</div>
+              <div style="font-size: 0.8rem; font-weight: 700; color: var(--accent);">1 JAHR</div>
+              <div style="font-size: 1.25rem; font-weight: 800; color: var(--text);">49,99 €</div>
+              <div style="font-size: 0.72rem; color: var(--text-secondary);">4,16 € / Monat</div>
+            </div>
+          </div>
+
+          <div class="cta-section">
+            <button class="btn-primary" id="v3-btn">Jahresabo für 49,99 € aktivieren</button>
+            <div class="cta-hint">1 Abo gilt für alle Haushaltsmitglieder.</div>
+            <div class="footer-links">
+              <span class="footer-link">Käufe wiederherstellen</span>
+              <span>·</span>
+              <span class="footer-link">Datenschutz</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    function setTheme(mode) {
+      document.documentElement.setAttribute('data-theme', mode);
+      document.querySelectorAll('.theme-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.textContent.toLowerCase().includes(mode));
+      });
+    }
+
+    function selectPlanV1(el, type) {
+      document.querySelectorAll('.plans-stack .plan-card').forEach(c => c.classList.remove('selected'));
+      el.classList.add('selected');
+      const btn = document.getElementById('v1-btn');
+      btn.textContent = type === 'yearly' ? 'Jahresabo für 49,99 € starten' : 'Monatsabo für 4,99 € starten';
+    }
+
+    function setSeg(el, type) {
+      document.querySelectorAll('.segmented-control .seg-item').forEach(i => i.classList.remove('active'));
+      el.classList.add('active');
+      const price = document.getElementById('v2-price');
+      const sub = document.getElementById('v2-sub');
+      const btn = document.getElementById('v2-btn');
+      if (type === 'yearly') {
+        price.innerHTML = '49,99 € <span style="font-size: 0.9rem; font-weight: 500; color: var(--text-secondary);">/ Jahr</span>';
+        sub.textContent = '14 Tage kostenlos testen, danach';
+        btn.textContent = 'Jahresabo freischalten (49,99 €)';
+      } else {
+        price.innerHTML = '4,99 € <span style="font-size: 0.9rem; font-weight: 500; color: var(--text-secondary);">/ Monat</span>';
+        sub.textContent = 'Monatlich flexibel kündbar';
+        btn.textContent = 'Monatsabo freischalten (4,99 €)';
+      }
+    }
+
+    function selectTile(el, type) {
+      document.querySelectorAll('.tiles-grid .tile-card').forEach(t => t.classList.remove('selected'));
+      el.classList.add('selected');
+      const btn = document.getElementById('v3-btn');
+      btn.textContent = type === 'yearly' ? 'Jahresabo für 49,99 € aktivieren' : 'Monatsabo für 4,99 € aktivieren';
+    }
+  </script>
+</body>
+</html>
+

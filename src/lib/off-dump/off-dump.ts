@@ -318,6 +318,13 @@ export type OffDumpProductRow = {
    */
   categories_tags?: string | null;
   off_last_modified_at?: string | null;
+  /**
+   * Front-Produktfoto (URL bei images.openfoodfacts.org), erst ab Dump
+   * Schema 3. Wie `categories_tags`: gegen einen aelteren Dump liefert das
+   * `select` diese Spalte gar nicht erst — `undefined` heisst dann "kein
+   * Bild bekannt", nicht "Dump kaputt".
+   */
+  image_url?: string | null;
 };
 
 export function toOpenFoodFactsProductFromDump(row: OffDumpProductRow): OpenFoodFactsProduct {
@@ -338,6 +345,7 @@ export function toOpenFoodFactsProductFromDump(row: OffDumpProductRow): OpenFood
     nutriScore: (row.nutriscore || undefined) as OpenFoodFactsProduct['nutriScore'],
     categoryTags: parseCategoryTagsJson(row.categories_tags),
     offLastModifiedAt: row.off_last_modified_at ?? undefined,
+    imageUrl: row.image_url ?? undefined,
   };
 }
 
@@ -360,7 +368,7 @@ export async function searchOffDump(
   try {
     const db = await getDatabase();
     const rows = await db.getAllAsync<OffDumpProductRow>(
-      `select code, product_name, brand, quantity, nutriscore, energy_kcal, fat, saturated_fat, carbohydrates, sugars, proteins, salt, categories_tags, off_last_modified_at
+      `select code, product_name, brand, quantity, nutriscore, energy_kcal, fat, saturated_fat, carbohydrates, sugars, proteins, salt, categories_tags, off_last_modified_at, image_url
        from off_dump.products
        where lower(product_name) like ?
        order by product_name
@@ -386,7 +394,7 @@ export async function fetchProductByBarcodeFromDump(
   try {
     const db = await getDatabase();
     const row = await db.getFirstAsync<OffDumpProductRow>(
-      `select code, product_name, brand, quantity, nutriscore, energy_kcal, fat, saturated_fat, carbohydrates, sugars, proteins, salt, categories_tags, off_last_modified_at
+      `select code, product_name, brand, quantity, nutriscore, energy_kcal, fat, saturated_fat, carbohydrates, sugars, proteins, salt, categories_tags, off_last_modified_at, image_url
        from off_dump.products
        where code = ?
        limit 1`,

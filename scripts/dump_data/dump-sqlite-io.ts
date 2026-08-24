@@ -30,15 +30,28 @@ const PRODUCT_REAL_COLUMNS = [
   'salt',
 ] as const;
 
+/**
+ * `image_url` (Schema 3) bewusst als eigene, ans Ende gehängte Liste statt
+ * Teil von `PRODUCT_TEXT_COLUMNS`: `create_custom_dump.py`s `CREATE TABLE
+ * products` haengt die Spalte ebenfalls hinten an. Die physische
+ * Spaltenreihenfolge ist fuer benannte `select`/`insert`-Statements
+ * irrelevant — aber `test-pipeline.sh` vergleicht rekonstruierte gegen
+ * echte kanonische DBs per `sqlite3 ... "select * from products"`, und das
+ * ist ordnungsabhaengig. Reihenfolge hier muss daher zur Python-Seite passen.
+ */
+const PRODUCT_IMAGE_COLUMNS = ['image_url'] as const;
+
 export const PRODUCT_COLUMNS: readonly (keyof PatchProductRecord)[] = [
   ...PRODUCT_TEXT_COLUMNS,
   ...PRODUCT_REAL_COLUMNS,
+  ...PRODUCT_IMAGE_COLUMNS,
 ];
 
 export function productColumnDefsSql(): string {
   return [
     ...PRODUCT_TEXT_COLUMNS.map((c) => `${c} text`),
     ...PRODUCT_REAL_COLUMNS.map((c) => `${c} real`),
+    ...PRODUCT_IMAGE_COLUMNS.map((c) => `${c} text`),
   ].join(', ');
 }
 

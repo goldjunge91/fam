@@ -3,11 +3,6 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import { PremiumScreen } from '@/features/premium/premium-screen';
 
-/**
- * Eigener In-App-Premium-Screen (Figma "00.06 · Premium"). Die Kauflogik
- * selbst (`presentPaywall`/`presentCustomerCenter`) ist bereits an anderer
- * Stelle getestet — hier geht es nur um die beiden sichtbaren Zustaende.
- */
 let mockIsPremium = false;
 
 jest.mock('@/features/premium/premium-provider', () => ({
@@ -28,6 +23,9 @@ jest.mock('@/features/premium/paywall', () => ({
 
 jest.mock('@/lib/purchases', () => ({
   restorePurchases: jest.fn(),
+  currentPackages: jest.fn().mockResolvedValue([]),
+  isPurchasesConfigured: () => false,
+  buyPackage: jest.fn(),
 }));
 
 jest.mock('expo-router', () => ({
@@ -51,12 +49,14 @@ describe('PremiumScreen', () => {
     mockIsPremium = false;
   });
 
-  it('zeigt ohne Premium den Kauf-Einstieg samt Plan-Hinweis', async () => {
+  it('zeigt ohne Premium den interaktiven Plan-Kauf-Einstieg', async () => {
     await renderScreen();
 
     expect(screen.getByText('Mehr für euren Haushalt')).toBeOnTheScreen();
     expect(screen.getByText('Jahresabo')).toBeOnTheScreen();
-    expect(screen.getByRole('button', { name: 'Premium freischalten' })).toBeOnTheScreen();
+    expect(screen.getByText('17 % Ersparnis')).toBeOnTheScreen();
+    expect(screen.getByText('Monatsabo')).toBeOnTheScreen();
+    expect(screen.getByRole('button', { name: 'Jahresabo für 49,99 € starten' })).toBeOnTheScreen();
     expect(screen.getByRole('button', { name: 'Käufe wiederherstellen' })).toBeOnTheScreen();
   });
 

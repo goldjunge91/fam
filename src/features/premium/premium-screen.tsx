@@ -5,10 +5,11 @@ import { GradientBackground } from '@/components/layout/gradient-background';
 import { HubScreen } from '@/components/layout/hub-screen';
 import { ThemedText } from '@/components/theme/themed-text';
 import { BackButton, Button } from '@/components/ui/buttons';
-import { presentCustomerCenter, presentPaywall } from '@/features/premium/paywall';
+import { presentCustomerCenter } from '@/features/premium/paywall';
+import { PaywallPlanCard } from '@/features/premium/paywall-plan-card';
 import { usePremium } from '@/features/premium/premium-provider';
+import { usePaywall } from '@/features/premium/use-paywall';
 import { SettingsGroup, SettingsRow } from '@/features/settings/settings-menu';
-import { restorePurchases } from '@/lib/purchases';
 
 const BENEFITS: { icon: string; title: string; hint: string }[] = [
   { icon: '👨‍🍳', title: 'Geführter Kochmodus', hint: 'Schritte, automatische Timer und Medien' },
@@ -25,62 +26,64 @@ const BENEFITS: { icon: string; title: string; hint: string }[] = [
 ];
 
 /**
- * Eigener In-App-Premium-Screen (Figma "00.06 · Premium"), erreichbar ueber
+ * Eigener In-App-Premium-Screen (Figma "00.06 · Premium"), erreichbar über
  * die Premium-Karte in `settings-screen.tsx`.
  *
- * Zeigt nur die Optik des Redesigns — die Kauflogik bleibt exakt wie vorher:
- * `presentPaywall()`/`presentCustomerCenter()` praesentieren weiterhin
- * RevenueCats im Dashboard konfiguriertes, gehostetes UI. Preis und
- * Produktname kommen von dort, nicht aus diesem Screen.
+ * Präsentiert die native fam-Paywall (Variante 1 · Card Stack) mit dynamischer
+ * Preisanzeige und %-Ersparnis sowie direktem Kaufabschluss via RevenueCat.
  */
 export function PremiumScreen() {
   const { isPremium, isForced, refresh } = usePremium();
-  const [busy, setBusy] = useState(false);
+  const {
+    plans,
+    selectedPeriod,
+    setSelectedPeriod,
+    buySelectedPlan,
+    restore,
+    isPurchasing,
+    isRestoring,
+  } = usePaywall();
+  const [managing, setManaging] = useState(false);
 
-  async function handleActivate() {
-    if (busy) return;
-    setBusy(true);
-    try {
-      const outcome = await presentPaywall();
-      if (outcome === 'unavailable') {
-        Alert.alert(
-          'Nicht verfügbar',
-          'Käufe sind in diesem Build nicht verfügbar (Web oder ohne RevenueCat-Konfiguration).',
-        );
-      }
-    } catch (err) {
-      Alert.alert('Fehlgeschlagen', err instanceof Error ? err.message : String(err));
-    } finally {
-      setBusy(false);
-      await refresh();
+  async function handleBuy() {
+    const outcome = await buySelectedPlan();
+    if (outcome.kind === 'failed') {
+      Alert.alert('Kauf fehlgeschlagen', outcome.error.message);
+    } else if (outcome.kind === 'unavailable') {
+      Alert.alert(
+        'Nicht verfügbar',
+        'Käufe sind in dieser Umgebung nicht verfügbar oder noch nicht im Store eingerichtet.',
+      );
     }
   }
 
   async function handleManage() {
-    if (busy) return;
-    setBusy(true);
+    if (managing) return;
+    setManaging(true);
     try {
       await presentCustomerCenter();
     } finally {
-      setBusy(false);
+      setManaging(false);
       await refresh();
     }
   }
 
   async function handleRestore() {
-    if (busy) return;
-    setBusy(true);
-    const result = await restorePurchases();
-    setBusy(false);
+    const result = await restore();
     if (!result.ok) {
       Alert.alert(
         'Wiederherstellen fehlgeschlagen',
-        result.error instanceof Error ? result.error.message : String(result.error),
+        result.error instanceof Error ? result.error.message : 'Keine aktiven Käufe gefunden.',
       );
       return;
     }
-    await refresh();
+    Alert.alert('Erfolgreich', 'Deine Käufe wurden wiederhergestellt.');
   }
+
+  const ctaLabel =
+    selectedPeriod === 'yearly'
+      ? `Jahresabo für ${plans.yearly.priceString} starten`
+      : `Monatsabo für ${plans.monthly.priceString} starten`;
 
   return (
     <HubScreen
@@ -132,23 +135,31 @@ export function PremiumScreen() {
                   : 'Gilt für alle aktuellen Haushaltsmitglieder.'}
               </ThemedText>
             </View>
-            <Button label="Abo verwalten" onPress={handleManage} loading={busy} />
+            <Button label="Abo verwalten" onPress={handleManage} loading={managing} />
           </>
         ) : (
-          /* Abo-Optionen, Paywall-Trigger & Wiederherstellen-Buttons */
+          /* Native Plan-Karten mit dynamischer %-Ersparnis & Kaufbuttons */
           <>
-            <View className="premium-plan-box">
-              <ThemedText className="premium-plan-title">Jahresabo</ThemedText>
-              <ThemedText themeColor="textSecondary" className="premium-plan-hint">
-                Der genaue Preis wird vor dem Kauf im App Store angezeigt.
-              </ThemedText>
-            </View>
-            <Button label="Premium freischalten" onPress={handleActivate} loading={busy} />
+            <PaywallPlanCard
+              plans={plans}
+              selectedPeriod={selectedPeriod}
+              onSelectPeriod={setSelectedPeriod}
+              disabled={isPurchasing || isRestoring}
+            />
+
+            <Button
+              label={ctaLabel}
+              onPress={handleBuy}
+              loading={isPurchasing}
+              disabled={isRestoring}
+            />
+
             <Button
               label="Käufe wiederherstellen"
               variant="secondary"
               onPress={handleRestore}
-              loading={busy}
+              loading={isRestoring}
+              disabled={isPurchasing}
             />
           </>
         )}

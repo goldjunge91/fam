@@ -64,7 +64,16 @@ export function createExpoFileOps(db: SqlDatabase): FileOps {
     async inspectDump(path: string): Promise<DumpInspection | null> {
       if (!new File(path).exists) return null;
 
-      const alias = 'off_dump_inspect';
+      // Eindeutiger Alias pro Aufruf statt eines festen Namens: `serialize.ts`
+      // sperrt jeden execAsync/getFirstAsync-Call einzeln, nicht die ganze
+      // ATTACH-...-DETACH-Folge als Einheit (ATTACH/DETACH sind in SQLite
+      // ausserhalb einer Transaktion nicht atomar buendelbar). Ueberlappen
+      // sich zwei inspectDump()-Aufrufe (z. B. Status-Refresh im Entwickler-
+      // Bereich waehrend eines Hintergrund-Update-Checks), wuerde ein fester
+      // Alias-Name im zweiten Aufruf mit "already in use" scheitern — und der
+      // Fehler wird hier als false-negatives "Dump ist beschaedigt" sichtbar,
+      // obwohl die Datei intakt ist.
+      const alias = `off_dump_inspect_${Math.random().toString(36).slice(2)}`;
       try {
         await db.execAsync(`ATTACH DATABASE '${escapePathForSql(path)}' AS ${alias}`);
       } catch {

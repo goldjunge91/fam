@@ -43,7 +43,7 @@ export function initAptabase(customOptions?: Partial<AptabaseOptions>): void {
     aptabaseInit(appKey, {
       enableWeb: true,
       appVersion,
-      enableCrashReporting: false,
+      enableCrashReporting: true,
       ...customOptions,
     });
   } catch (err) {
