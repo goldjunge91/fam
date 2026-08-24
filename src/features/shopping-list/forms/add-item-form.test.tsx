@@ -405,12 +405,23 @@ describe('AddItemForm', () => {
     await waitFor(() => expect(onDismiss).toHaveBeenCalledTimes(1));
 
     onDismiss.mockClear();
-    mockAddMutateAsync.mockRejectedValueOnce(new Error('SQLite write failed'));
-    await fireEvent.press(screen.getByRole('button', { name: 'Zur Einkaufsliste hinzufügen' }));
+    const saveError = new Error('SQLite write failed');
+    const consoleErrorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    mockAddMutateAsync.mockRejectedValueOnce(saveError);
 
-    expect(
-      await screen.findByText('Artikel konnte nicht gespeichert werden. Bitte erneut versuchen.'),
-    ).toBeOnTheScreen();
-    expect(onDismiss).not.toHaveBeenCalled();
+    try {
+      await fireEvent.press(screen.getByRole('button', { name: 'Zur Einkaufsliste hinzufügen' }));
+
+      expect(
+        await screen.findByText('Artikel konnte nicht gespeichert werden. Bitte erneut versuchen.'),
+      ).toBeOnTheScreen();
+      expect(onDismiss).not.toHaveBeenCalled();
+      expect(consoleErrorSpy).toHaveBeenCalledWith(
+        'Fehler beim lokalen Speichern des Einkaufsartikels:',
+        saveError,
+      );
+    } finally {
+      consoleErrorSpy.mockRestore();
+    }
   });
 });

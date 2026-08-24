@@ -56,8 +56,8 @@ jest.mock('@/hooks/use-theme', () => ({
   useTheme: () => require('@/constants/theme').Colors.light,
 }));
 
-function renderScreen() {
-  return render(
+async function renderScreen() {
+  await render(
     <SafeAreaProvider
       initialMetrics={{
         frame: { x: 0, y: 0, width: 390, height: 844 },
@@ -66,6 +66,10 @@ function renderScreen() {
       <FoodSearchScreen />
     </SafeAreaProvider>,
   );
+
+  // Synchronize with the first actual list result. This also lets RNTL
+  // flush VirtualizedList's deferred cell update without timing assumptions.
+  await screen.findByText('Apfel');
 }
 
 beforeEach(() => {
@@ -147,8 +151,8 @@ describe('FoodSearchScreen', () => {
     // eigentlich vermeiden soll (empirisch geprueft). Deshalb hier bewusst
     // durchgehend `fireEvent`, wie es die eigene RNTL-Regel fuer diesen Fall
     // vorsieht ("wenn User Event nicht passt, fireEvent nutzen").
-    jest.useFakeTimers();
     await renderScreen();
+    jest.useFakeTimers();
     // Bewusst NICHT await: await fireEvent.changeText() hier bringt das
     // nachfolgende advanceTimersByTimeAsync(800) durcheinander, sodass der
     // Debounce-Timer der Komponente nie feuert (empirisch geprueft — mit
@@ -191,8 +195,8 @@ describe('FoodSearchScreen', () => {
 
     // fireEvent statt userEvent hier bewusst — siehe Kommentar beim ersten
     // Debounce-Test oben.
-    jest.useFakeTimers();
     await renderScreen();
+    jest.useFakeTimers();
     // Bewusst NICHT await — siehe Kommentar beim ersten Debounce-Test oben.
     fireEvent.changeText(screen.getByPlaceholderText('Wonach suchst du?'), '4019300005307');
     await jest.advanceTimersByTimeAsync(800);
@@ -220,8 +224,8 @@ describe('FoodSearchScreen', () => {
 
     // fireEvent statt userEvent hier bewusst — siehe Kommentar beim ersten
     // Debounce-Test oben.
-    jest.useFakeTimers();
     await renderScreen();
+    jest.useFakeTimers();
     // Bewusst NICHT await — siehe Kommentar beim ersten Debounce-Test oben.
     fireEvent.changeText(screen.getByPlaceholderText('Wonach suchst du?'), 'hafer');
     await jest.advanceTimersByTimeAsync(800);
@@ -274,8 +278,8 @@ describe('FoodSearchScreen', () => {
     });
     mockSearchOpenFoodFacts.mockResolvedValueOnce({ products: [], hasMore: false, failed: true });
 
-    jest.useFakeTimers();
     await renderScreen();
+    jest.useFakeTimers();
     fireEvent.changeText(screen.getByPlaceholderText('Wonach suchst du?'), 'hafer');
     await jest.advanceTimersByTimeAsync(800);
 
@@ -292,8 +296,8 @@ describe('FoodSearchScreen', () => {
       caloriesPer100g: 566,
     });
 
-    jest.useFakeTimers();
     await renderScreen();
+    jest.useFakeTimers();
     fireEvent.changeText(screen.getByPlaceholderText('Wonach suchst du?'), '4008400404127');
     await jest.advanceTimersByTimeAsync(800);
 
