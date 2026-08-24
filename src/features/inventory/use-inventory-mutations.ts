@@ -3,6 +3,7 @@ import * as Crypto from 'expo-crypto';
 
 import { getDatabase } from '@/lib/db/client';
 import { enqueueMutation } from '@/lib/db/outbox';
+import { applyLocalMirrorWrite } from '@/lib/sync/mirror-write';
 import { normalizeUnit } from '@/lib/units';
 
 export type FridgeItem = {
@@ -26,43 +27,18 @@ export function useAddFridgeItemMutation() {
       const db = await getDatabase();
       const id = Crypto.randomUUID();
       const now = new Date().toISOString();
+      const nowMs = Date.now();
       const normUnit = normalizeUnit(item.unit);
       const normPackageUnit = item.package_size_unit ? normalizeUnit(item.package_size_unit) : null;
+      const row = { id, ...item, unit: normUnit, package_size_unit: normPackageUnit };
 
       await enqueueMutation(db, {
         entity: 'fridge_items',
         entityId: id,
         op: 'insert',
-        payload: {
-          id,
-          ...item,
-          unit: normUnit,
-          package_size_unit: normPackageUnit,
-          created_at: now,
-          updated_at: now,
-        },
-        applyLocally: async (txn) => {
-          await txn.runAsync(
-            `insert into fridge_items
-               (id, household_id, location_id, product_id, name, quantity, unit,
-                package_size, package_size_unit, expiry_date, created_at, updated_at)
-             values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
-            [
-              id,
-              item.household_id,
-              item.location_id ?? null,
-              item.product_id ?? null,
-              item.name,
-              item.quantity,
-              normUnit,
-              item.package_size ?? null,
-              normPackageUnit,
-              item.expiry_date ?? null,
-              now,
-              now,
-            ],
-          );
-        },
+        payload: { ...row, created_at: now, updated_at: now },
+        applyLocally: (txn) =>
+          applyLocalMirrorWrite(txn, 'fridge_items', 'insert', { ...row, created_at: now }, nowMs),
       });
 
       return id;
@@ -94,18 +70,14 @@ export function useRestoreFridgeItemMutation() {
     mutationFn: async ({ id, household_id }: { id: string; household_id: string }) => {
       const db = await getDatabase();
       const now = new Date().toISOString();
+      const nowMs = Date.now();
 
       await enqueueMutation(db, {
         entity: 'fridge_items',
         entityId: id,
         op: 'restore',
         payload: { id, household_id, deleted_at: null, updated_at: now },
-        applyLocally: async (txn) => {
-          await txn.runAsync(
-            'update fridge_items set deleted_at = null, updated_at = ? where id = ?',
-            [now, id],
-          );
-        },
+        applyLocally: (txn) => applyLocalMirrorWrite(txn, 'fridge_items', 'restore', { id }, nowMs),
       });
 
       return id;
@@ -133,6 +105,7 @@ export function useUpdateInventoryItemQuantityMutation() {
     }) => {
       const db = await getDatabase();
       const now = new Date().toISOString();
+      const nowMs = Date.now();
       const existing = await db.getFirstAsync<{ quantity: number; name: string }>(
         'select quantity, name from fridge_items where id = ?',
         [id],
@@ -147,12 +120,8 @@ export function useUpdateInventoryItemQuantityMutation() {
           entityId: id,
           op: 'delete',
           payload: { id, household_id, deleted_at: now, updated_at: now },
-          applyLocally: async (txn) => {
-            await txn.runAsync(
-              'update fridge_items set deleted_at = ?, updated_at = ? where id = ?',
-              [now, now, id],
-            );
-          },
+          applyLocally: (txn) =>
+            applyLocalMirrorWrite(txn, 'fridge_items', 'delete', { id }, nowMs),
         });
       } else {
         await enqueueMutation(db, {
@@ -160,12 +129,8 @@ export function useUpdateInventoryItemQuantityMutation() {
           entityId: id,
           op: 'update',
           payload: { id, household_id, quantity: newQty, updated_at: now },
-          applyLocally: async (txn) => {
-            await txn.runAsync(
-              'update fridge_items set quantity = ?, updated_at = ? where id = ?',
-              [newQty, now, id],
-            );
-          },
+          applyLocally: (txn) =>
+            applyLocalMirrorWrite(txn, 'fridge_items', 'update', { id, quantity: newQty }, nowMs),
         });
       }
       return { id, newQty };
@@ -185,35 +150,19 @@ export function useUpdateFridgeItemMutation() {
     mutationFn: async (item: FridgeItem) => {
       const db = await getDatabase();
       const now = new Date().toISOString();
+      const nowMs = Date.now();
       const unit = normalizeUnit(item.unit);
       const packageSizeUnit = item.package_size_unit ? normalizeUnit(item.package_size_unit) : null;
-      const payload = { ...item, unit, package_size_unit: packageSizeUnit, updated_at: now };
+      const localFields = { ...item, unit, package_size_unit: packageSizeUnit };
+      const payload = { ...localFields, updated_at: now };
 
       await enqueueMutation(db, {
         entity: 'fridge_items',
         entityId: item.id,
         op: 'update',
         payload,
-        applyLocally: async (txn) => {
-          await txn.runAsync(
-            `update fridge_items
-             set location_id = ?, product_id = ?, name = ?, quantity = ?, unit = ?,
-                 package_size = ?, package_size_unit = ?, expiry_date = ?, updated_at = ?
-             where id = ?`,
-            [
-              item.location_id,
-              item.product_id,
-              item.name,
-              item.quantity,
-              unit,
-              item.package_size,
-              packageSizeUnit,
-              item.expiry_date,
-              now,
-              item.id,
-            ],
-          );
-        },
+        applyLocally: (txn) =>
+          applyLocalMirrorWrite(txn, 'fridge_items', 'update', localFields, nowMs),
       });
       return payload;
     },
