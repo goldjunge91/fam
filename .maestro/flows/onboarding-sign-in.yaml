@@ -1,4 +1,4 @@
-appId: com.goldjunge91.fam
+appId: com.goldjunge91.fam1
 env:
     TEST_EMAIL: maestro-e2e@example.com
     TEST_PASSWORD: Passwort123!
@@ -24,45 +24,4 @@ env:
 #   maestro test .maestro/flows/onboarding-sign-in.yaml \
 #     -e TEST_EMAIL=other@example.com -e TEST_PASSWORD='Other123!'
 
-- runFlow: ../subflows/launch-local-dev-client.yaml
-
-# Welcome-carousel: 3 slides, "Weiter" until the last one shows "Jetzt starten".
-- tapOn: "Weiter"
-- tapOn: "Weiter"
-- tapOn: "Jetzt starten"
-
-# Account step: default tab is "Registrieren" - switch to "Anmelden".
-- tapOn: "Anmelden"
-- tapOn:
-      id: "onboarding-account-email"
-- inputText: "${TEST_EMAIL}"
-- tapOn:
-      id: "onboarding-account-password"
-- inputText: "${TEST_PASSWORD}"
-- hideKeyboard
-- tapOn: "Anmelden & weiter"
-
-# iOS' own Keychain-Dialog ("Passwort sichern?") kann nach dem Absenden
-# erscheinen - kein App-UI, exakter Match damit "Später" nicht versehentlich
-# den spaeteren "Später ausfüllen"-Button trifft.
-- tapOn:
-      text: "^Später$"
-      optional: true
-
-# Remaining steps are all skippable for a returning user.
-- scrollUntilVisible:
-    element: "Später ausfüllen"
-- tapOn: "Später ausfüllen" # Profil-Step
-- scrollUntilVisible:
-    element: "🏠 Neuen Haushalt erstellen"
-- tapOn: "🏠 Neuen Haushalt erstellen"
-- tapOn:
-    id: "onboarding-household-name"
-- inputText: "Familie E2E"
-- hideKeyboard
-- tapOn: "Weiter"
-- tapOn: "Überspringen" # Modul-Auswahl
-- tapOn: "Jetzt nicht" # Berechtigungen
-- tapOn: "Zum Dashboard" # Abschluss-Step
-
-- assertVisible: "Übersicht"
+- runFlow: ../subflows/reach-dashboard-via-sign-in.yaml

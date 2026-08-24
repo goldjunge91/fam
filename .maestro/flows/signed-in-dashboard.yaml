@@ -1,0 +1,10 @@
+appId: com.goldjunge91.fam1
+tags:
+  - local-session
+---
+# Schneller Einstieg fuer lokale Tests, wenn im Simulator bereits eine
+# gueltige Anmeldung gespeichert ist. Dieser Flow loescht bewusst keinen
+# App-Zustand und endet auf dem Uebersichts-Screen.
+- runFlow: ../subflows/launch-signed-in-dashboard.yaml
+
+- assertVisible: "Übersicht"
