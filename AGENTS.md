@@ -1,12 +1,12 @@
-# NutriTrack (fam)
+# Haushaltsapp (nicht der finale name)
 
-- **NutriTrack** ist eine Expo- und React-Native-App für Haushalte und Familien, die geteilte Bestands- und Einkaufslisten mit einem Wöchentlichen Essensplanner und der möglichkeit privatem Kalorien-, Nährwert- und Gewichts-Tracking zu kombinieren.
-- **Mental Anchor / Comparison:** Denke an NutriTrack als eine datenschutzorientierte, kollaborative Kombination aus *Bring!* und *MyFitnessPal* mit strikter Trennung zwischen Haushalts- und Privatdaten.
+- **Haushaltsapp** ist eine Expo- und React-Native-App für Haushalte und Familien, die geteilte Bestands- und Einkaufslisten mit einem Wöchentlichen Essensplanner und der möglichkeit privatem Kalorien-, Nährwert- und Gewichts-Tracking zu kombinieren.
+- **Mental Anchor / Comparison:** Denke an Haushaltsapp als eine datenschutzorientierte, kollaborative Kombination aus *Bring!* und *MyFitnessPal* mit strikter Trennung zwischen Haushalts- und Privatdaten.
 - **Goal:** Schnelle, zuverlässige mobile Workflows für iOS und Android mit robuster Offline-Fähigkeit und synchronisiertem Haushaltszustand.
 
 ---
 
-## What Makes NutriTrack Special (1–4 Non-Negotiable Pillars)
+## What Makes Haushaltsapp Special (1–4 Non-Negotiable Pillars)
 
 1. **Strikte Datentrennung & RLS-Autorität:** Geteilte Haushaltsdaten (Kühlschrank, Vorrat, Einkaufszettel) und private Nutzerdaten (Tracking: Kalorien, Gewicht, Medikamente, Fasten, Vitalwerte, Workouts) sind auf Datenbankebene per Supabase RLS strikt isoliert.
 2. **Ausschließlich Declaratives Datenbankschema:** Die Schemadefinitionen in `supabase/schemas/*.sql` sind die einzige Wahrheit. Migrationsdateien werden niemals manuell verfasst, sondern ausschließlich über `bun run db:diff` mit `pg-delta` generiert.
@@ -50,11 +50,11 @@ I want to share some of my preferences here so we can be more aligned as we work
 | :--- | :--- |
 | **`You`** | Der KI-Agent, der den Code liest, plant und bearbeitet. |
 | **`We / Maintainers`** | Marco und die Maintainer des Projekts (deine Gesprächspartner). |
-| **`User`** | Der Endnutzer der NutriTrack-App bzw. die Person, die App später verwenden wird. |
+| **`User`** | Der Endnutzer der Haushaltsapp-App bzw. die Person, die App später verwenden wird. |
 | **`Household (Haushalt)`** | Die geteilte Entität für gemeinsame Bestände, Einkaufslisten und Einladungen. |
 | **`Inventory / Fridge`** | Geteilter Lebensmittelbestand mit Lagerorten (Kühlschrank, Vorrat, Tiefkühler). Eigenständiger Bestandseintrag, optional angereichert durch ein Product. Siehe `CONTEXT.md`. |
 | **`Product`** | Globaler, nicht haushaltsgebundener Katalogeintrag (Barcode/Nährwerte). Keine Identität mit Inventory/Shopping-List-Items, nur optionale Anreicherung. Siehe `CONTEXT.md`. |
-| **`Externe Produktdatenbank (OFF / Open Food Facts)`** | Externe, quelloffene, crowdsourced Lebensmitteldatenbank (`openfoodfacts.org`, kurz **OFF**) — nicht Teil von NutriTrack, sondern eine Datenquelle: Produktsuche per Name/Barcode, Nährwerte, Marke, und die kanonische Kategorie-Taxonomie (`categories_tags`, z. B. `en:porks`). OFF ist die Quelle, aber nicht die Wahrheit — Treffer werden lokal übernommen/gespiegelt (`OpenFoodFactsProduct` in `src/lib/open-food-facts.ts`, `off_category_tags`/`off_last_modified_at`-Spalten auf `Product`), nie 1:1 als eigene Identität behandelt. Der Klassifikator (`src/features/shopping-list/classification/`) nutzt `categories_tags` als eines von mehreren Signalen zur automatischen Einkaufslisten-Kategorie. Details: `docs/issue#223_V2.md` Abschnitte 6–7. |
+| **`Externe Produktdatenbank (OFF / Open Food Facts)`** | Externe, quelloffene, crowdsourced Lebensmitteldatenbank (`openfoodfacts.org`, kurz **OFF**) — nicht Teil von Haushaltsapp, sondern eine Datenquelle: Produktsuche per Name/Barcode, Nährwerte, Marke, und die kanonische Kategorie-Taxonomie (`categories_tags`, z. B. `en:porks`). OFF ist die Quelle, aber nicht die Wahrheit — Treffer werden lokal übernommen/gespiegelt (`OpenFoodFactsProduct` in `src/lib/open-food-facts.ts`, `off_category_tags`/`off_last_modified_at`-Spalten auf `Product`), nie 1:1 als eigene Identität behandelt. Der Klassifikator (`src/features/shopping-list/classification/`) nutzt `categories_tags` als eines von mehreren Signalen zur automatischen Einkaufslisten-Kategorie. Details: `docs/issue#223_V2.md` Abschnitte 6–7. |
 | **`Tracking`** | Oberbegriff für alle privaten, per RLS isolierten Nutzerdaten (Nutrition Tracking, Medications & Symptoms, Fasting, Vital Logs, Workouts). Siehe `CONTEXT.md`. |
 | **`Nutrition Tracking`** | Ernährungs- und Gewichtsteil von Tracking: Mahlzeiten, Gewicht, Ziele. Eine Tracking-Domäne unter mehreren, kein Oberbegriff. |
 | **`Declarative Schema`** | Der deklarative Schemazustand unter `supabase/schemas/*.sql`. |
@@ -67,9 +67,12 @@ I want to share some of my preferences here so we can be more aligned as we work
 
 - **Niemals Migrationen von Hand schreiben oder editieren:** Ändere stets `supabase/schemas/*.sql`, erzeuge die Migration mit `bun run db:diff` und wende sie mit `bun run db:reset` an.
 - **Niemals `bun test` ausführen:** Führe immer `bun run test` aus. `bun test` nutzt die native Bun-Engine, ignoriert `jest.config.js` und schlägt fehl.
+- **Niemals vollständige bun run Testsuite ausführen:** Führe nur die Tests aus, die du gerade ändern willst und das Abhänigkeiten zu dein änderung hat. `bun run test` ist teuer und dauert lange. Nutze `bun run test <file>` oder `bun run test:db <file>` für gezielte Tests.
+-
 - **Kein `apply_migration` oder Einweg-SQL:** Nutze für Tests die pgTAP-Suite in `supabase/tests/` via `bun run test:db`.
+- **Keine Lokale Datenbank** benutzen niemals supabase Start / stop benutzen.
 - **Fragen sind Read-Only:** Wenn ein Prompt mit "wie schwer wäre es", "warum passiert X", "sollten wir", "können wir" beginnt, beantworte die Frage, mache Vorschläge, aber ändere keine Dateien ohne Freigabe.
-- **Keine stillen Native-Module-Installationen:** Das Hinzufügen nativer Abhängigkeiten erfordert einen Rebuild des Dev-Clients (`scripts/ios-dev.sh`). Weise den Nutzer immer darauf hin.
+- **Keine stillen Native-Module-Installationen:** Das Hinzufügen nativer Abhängigkeiten erfordert einen Rebuild des Dev-Clients. Weise den Nutzer immer darauf hin.
 - **Laufende Prozesse schützen:** Beende keine aktiven Simulator-Sessions, Metro-Server oder Docker-Container, es sei denn, es wurde ausdrücklich angewiesen.
 
 ---
@@ -93,7 +96,6 @@ I want to share some of my preferences here so we can be more aligned as we work
 
 ```bash
   bun run db:diff -- -f <feature_name>  # Migration erzeugen
-  bun run db:reset                      # Lokal anwenden
   bun run test:db                       # pgTAP-Suite validieren
   bun run db:advisors                   # Security/Performance prüfen
   bun run db:diff                       # Muss danach LEER sein
@@ -108,7 +110,7 @@ I want to share some of my preferences here so we can be more aligned as we work
 - Don't be scared to propose bold ideas if they can meaningfully benefit our work.
 - Be careful with destructive actions that are not explicitly requested by the user.
 - Tests are good! Endless smoke tests, "regression tests" for feature deletions, etc, much less good. Tests should be focused, not slop.
-- Comments are a great way to clarify functionality and how code is used. Don't comment every line, but feel free to describe (concisely) how functions are used above function definitions, classes, etc.
+- Comments are a great way to clarify functionality and how code is used. Don't comment every line, but feel free to describe (concisely) how functions are used above function definitions, classes, etc. do not use it as changelog, short comments easy explained.
 - Keep comments up to date! When making changes, it's important to keep things in sync.
 
 ## Coding preferences (Typescript focused)
