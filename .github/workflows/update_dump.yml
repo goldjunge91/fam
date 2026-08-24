@@ -17,6 +17,11 @@ name: Open Food Facts Dump Update
 
 on:
   workflow_dispatch:
+    inputs:
+      force_baseline:
+        description: "Baseline unabhaengig vom Monats-Gate neu schneiden (Reparaturweg, z.B. nach einem Pruefsummen-Algorithmus-Wechsel im Client)"
+        type: boolean
+        default: false
   schedule:
     # Taeglich pruefen/patchen; ob daraus eine neue Baseline wird, entscheidet
     # build-canonical-update.ts selbst (Kalendermonat-Wechsel).
@@ -113,6 +118,9 @@ jobs:
           )
           if [ -f previous/canonical.db ] && [ -f previous/manifest.json ]; then
             args+=(--old-canonical previous/canonical.db --previous-manifest previous/manifest.json)
+          fi
+          if [ "${{ inputs.force_baseline }}" = "true" ]; then
+            args+=(--force-baseline)
           fi
           bun run scripts/dump_data/build-canonical-update.ts "${args[@]}"
 

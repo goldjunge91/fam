@@ -24,6 +24,12 @@
  *
  * `--old-canonical`/`--previous-manifest` weglassen für den allerersten Lauf
  * (erzeugt automatisch eine neue Baseline).
+ *
+ * `--force-baseline` erzwingt einen Baseline-Schnitt unabhängig vom
+ * Monats-Gate (`isNewBaselineDue()`) — Reparaturweg, falls die aktuell
+ * veröffentlichte Baseline mit einem inkompatiblen Client nicht mehr
+ * verifizierbar ist (z. B. Prüfsummen-Algorithmus-Wechsel im Client, ohne
+ * dass zufällig ein Kalendermonat-Wechsel ansteht).
  */
 
 import { createHash } from 'node:crypto';
@@ -44,8 +50,17 @@ function parseArgs(argv: string[]): Record<string, string> {
   const args: Record<string, string> = {};
   for (let i = 0; i < argv.length; i++) {
     if (argv[i].startsWith('--')) {
-      args[argv[i].slice(2)] = argv[i + 1];
-      i++;
+      const key = argv[i].slice(2);
+      const next = argv[i + 1];
+      // Boolescher Flag statt Key/Value-Paar, wenn kein Wert folgt oder der
+      // naechste Token selbst wieder ein Flag ist (z.B. "--force-baseline
+      // --new-extract ..." statt "--force-baseline true").
+      if (next === undefined || next.startsWith('--')) {
+        args[key] = 'true';
+      } else {
+        args[key] = next;
+        i++;
+      }
     }
   }
   return args;
@@ -76,7 +91,7 @@ function main() {
 
   if (!newExtractPath || !outDir || !baseUrl) {
     console.error(
-      'Nutzung: bun run scripts/dump_data/build-canonical-update.ts --new-extract <db> --out-dir <dir> --base-url <url> [--old-canonical <db>] [--previous-manifest <json>]',
+      'Nutzung: bun run scripts/dump_data/build-canonical-update.ts --new-extract <db> --out-dir <dir> --base-url <url> [--old-canonical <db>] [--previous-manifest <json>] [--force-baseline]',
     );
     process.exit(1);
   }
@@ -102,10 +117,9 @@ function main() {
 
   mkdirSync(outDir, { recursive: true });
 
-  const isNewBaseline = isNewBaselineDue(
-    previousManifest?.baseline.version ?? null,
-    newMeta.dataVersion,
-  );
+  const isNewBaseline =
+    args['force-baseline'] === 'true' ||
+    isNewBaselineDue(previousManifest?.baseline.version ?? null, newMeta.dataVersion);
 
   const canonicalOutPath = path.join(outDir, 'canonical.db');
   copyFileSync(newExtractPath, canonicalOutPath);
