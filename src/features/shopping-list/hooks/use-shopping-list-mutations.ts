@@ -7,6 +7,7 @@ import {
   addOrMergeShoppingItem,
   buildAddOrMergeShoppingItemMutation,
 } from '@/lib/db/shopping-list-merge';
+import { applyLocalMirrorWrite } from '@/lib/sync/mirror-write';
 import { normalizeUnit } from '@/lib/units';
 import type { CategorySource } from '../classification/types';
 import type { CategoryPreferenceMutation } from '../preferences/api';
@@ -139,29 +140,26 @@ export function useUpdateShoppingItem() {
             updated_at: now,
           },
           now: nowMs,
-          applyLocally: async (txn) => {
-            await txn.runAsync(
-              `update shopping_list_items
-               set name = ?, quantity = ?, unit = ?, package_size = ?, package_size_unit = ?,
-                   category_id = ?, category_source = ?, category_classifier_version = ?,
-                   store_id = ?, price_estimate = ?, updated_at = ?, _dirty = 1
-               where id = ?`,
-              [
-                input.name,
-                input.quantity,
-                normUnit,
-                input.package_size ?? null,
-                normPackageUnit,
-                input.category_id,
-                input.category_source,
-                input.category_classifier_version,
-                input.store_id,
-                input.price_estimate,
-                nowMs,
-                input.id,
-              ],
-            );
-          },
+          applyLocally: (txn) =>
+            applyLocalMirrorWrite(
+              txn,
+              'shopping_list_items',
+              'update',
+              {
+                id: input.id,
+                name: input.name,
+                quantity: input.quantity,
+                unit: normUnit,
+                package_size: input.package_size ?? null,
+                package_size_unit: normPackageUnit,
+                category_id: input.category_id,
+                category_source: input.category_source,
+                category_classifier_version: input.category_classifier_version,
+                store_id: input.store_id,
+                price_estimate: input.price_estimate,
+              },
+              nowMs,
+            ),
         },
       });
     },
@@ -198,12 +196,14 @@ export function useToggleShoppingItem() {
           checked_by: input.checked_by,
           updated_at: now,
         },
-        applyLocally: async (txn) => {
-          await txn.runAsync(
-            'update shopping_list_items set checked_at = ?, checked_by = ?, updated_at = ?, _dirty = 1 where id = ?',
-            [input.checked_at, input.checked_by, nowMs, input.id],
-          );
-        },
+        applyLocally: (txn) =>
+          applyLocalMirrorWrite(
+            txn,
+            'shopping_list_items',
+            'update',
+            { id: input.id, checked_at: input.checked_at, checked_by: input.checked_by },
+            nowMs,
+          ),
       });
     },
     onSuccess: (_, variables) => {
@@ -237,12 +237,8 @@ export function useDeleteShoppingItem() {
           deleted_at: now,
           updated_at: now,
         },
-        applyLocally: async (txn) => {
-          await txn.runAsync(
-            'update shopping_list_items set deleted_at = ?, updated_at = ?, _dirty = 1 where id = ?',
-            [nowMs, nowMs, input.id],
-          );
-        },
+        applyLocally: (txn) =>
+          applyLocalMirrorWrite(txn, 'shopping_list_items', 'delete', { id: input.id }, nowMs),
       });
     },
     onSuccess: (_, variables) => {
