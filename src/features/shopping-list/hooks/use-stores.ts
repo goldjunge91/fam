@@ -3,6 +3,7 @@ import * as Crypto from 'expo-crypto';
 
 import { getDatabase } from '@/lib/db/client';
 import { enqueueMutation } from '@/lib/db/outbox';
+import { applyLocalMirrorWrite } from '@/lib/sync/mirror-write';
 import { serializeCategoryOrder } from '../domain-logik/shopping-categories';
 
 export type Store = {
@@ -77,12 +78,14 @@ export function useAddStoreMutation() {
           created_at: now,
           updated_at: now,
         },
-        applyLocally: async (txn) => {
-          await txn.runAsync(
-            'insert into stores (id, household_id, name, color, sort_order, created_at, updated_at, _dirty) values (?, ?, ?, ?, ?, ?, ?, 1)',
-            [id, household_id, name, color, nextSortOrder, now, nowMs],
-          );
-        },
+        applyLocally: (txn) =>
+          applyLocalMirrorWrite(
+            txn,
+            'stores',
+            'insert',
+            { id, household_id, name, color, sort_order: nextSortOrder, created_at: now },
+            nowMs,
+          ),
       });
 
       return { id, name, household_id, color, sort_order: nextSortOrder };
@@ -124,12 +127,8 @@ export function useUpdateStoreMutation() {
           color,
           updated_at: now,
         },
-        applyLocally: async (txn) => {
-          await txn.runAsync(
-            'update stores set name = ?, color = ?, updated_at = ?, _dirty = 1 where id = ?',
-            [name, color, nowMs, id],
-          );
-        },
+        applyLocally: (txn) =>
+          applyLocalMirrorWrite(txn, 'stores', 'update', { id, name, color }, nowMs),
       });
 
       return { id, name, color };
@@ -176,12 +175,8 @@ export function useSetStoreCategoryOrderMutation() {
           category_order: serialized,
           updated_at: now,
         },
-        applyLocally: async (txn) => {
-          await txn.runAsync(
-            'update stores set category_order = ?, updated_at = ?, _dirty = 1 where id = ?',
-            [serialized, nowMs, id],
-          );
-        },
+        applyLocally: (txn) =>
+          applyLocalMirrorWrite(txn, 'stores', 'update', { id, category_order: serialized }, nowMs),
       });
 
       return { id, categoryOrder };
@@ -212,12 +207,7 @@ export function useDeleteStoreMutation() {
           deleted_at: now,
           updated_at: now,
         },
-        applyLocally: async (txn) => {
-          await txn.runAsync(
-            'update stores set deleted_at = ?, updated_at = ?, _dirty = 1 where id = ?',
-            [nowMs, nowMs, id],
-          );
-        },
+        applyLocally: (txn) => applyLocalMirrorWrite(txn, 'stores', 'delete', { id }, nowMs),
       });
 
       return id;
