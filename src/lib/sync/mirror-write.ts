@@ -143,6 +143,68 @@ export async function applyRemoteRow(
   return 'written';
 }
 
+export type LocalMirrorWriteOp = 'insert' | 'update' | 'delete' | 'restore';
+
+/**
+ * Gemeinsamer Lokal-Schreiber fuer `enqueueMutation`s `applyLocally` (#191),
+ * symmetrisch zu `upsertMirrorRow` fuer die Gegenrichtung: Spaltenliste,
+ * Platzhalter und `_dirty`/`updated_at`-Handling kommen aus `metaOf(entity)`
+ * statt aus handgeschriebener SQL in jeder Feature-Mutations-Hook.
+ *
+ * - `insert`: volle Spaltenliste aus `meta.columns`, `_dirty = 1`.
+ * - `update`: nur die in `payload` vorhandenen Felder (ausser `id`), `_dirty = 1`.
+ * - `delete`/`restore`: setzt/loescht ausschliesslich `deleted_at`, ruehrt
+ *   sonst nichts an — deckungsgleich mit dem bisherigen Soft-Delete-Verhalten
+ *   in den Feature-Hooks, das `resolve()`s Konfliktlogik unveraendert laesst.
+ *
+ * `nowMs` ist ein Parameter (nicht `Date.now()` intern), damit Aufrufer und
+ * der an `enqueueMutation` gegebene Remote-Payload dieselbe Uhrzeit teilen.
+ */
+export async function applyLocalMirrorWrite(
+  txn: SqlDatabase,
+  entity: Entity,
+  op: LocalMirrorWriteOp,
+  payload: Record<string, unknown>,
+  nowMs: number,
+): Promise<void> {
+  const meta = mirrorMetaOf(entity);
+
+  if (op === 'delete' || op === 'restore') {
+    await txn.runAsync(
+      `update ${meta.table} set deleted_at = ?, updated_at = ?, _dirty = 1 where id = ?`,
+      [op === 'delete' ? nowMs : null, nowMs, String(payload.id)],
+    );
+    return;
+  }
+
+  if (op === 'insert') {
+    const columns = [...meta.columns, 'updated_at', '_dirty'];
+    const values: SqlParam[] = [
+      ...meta.columns.map((column) => toSqlParam(payload[column])),
+      nowMs,
+      1,
+    ];
+    const placeholders = columns.map(() => '?').join(', ');
+    await txn.runAsync(
+      `insert into ${meta.table} (${columns.join(', ')}) values (${placeholders})`,
+      values,
+    );
+    return;
+  }
+
+  // update: nur uebergebene, bekannte Spalten setzen (nie id, nie Spalten,
+  // die diese Entitaet gar nicht hat — z.B. ein versehentlich mitgegebenes
+  // `deleted_at`, das ueber den delete/restore-Pfad gehoert).
+  const fields = Object.keys(payload).filter((key) => key !== 'id' && meta.columns.includes(key));
+  const setClauses = [...fields.map((field) => `${field} = ?`), 'updated_at = ?', '_dirty = 1'];
+  const values: SqlParam[] = [...fields.map((field) => toSqlParam(payload[field])), nowMs];
+
+  await txn.runAsync(`update ${meta.table} set ${setClauses.join(', ')} where id = ?`, [
+    ...values,
+    String(payload.id),
+  ]);
+}
+
 /**
  * Loescht eine Spiegelzeile hart — fuer ein echtes `DELETE`-Event, das nicht
  * ueber den ueblichen Soft-Delete-Pfad kommt (App-seitige Loeschungen laufen

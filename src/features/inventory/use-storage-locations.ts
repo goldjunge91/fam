@@ -3,6 +3,7 @@ import * as Crypto from 'expo-crypto';
 
 import { getDatabase } from '@/lib/db/client';
 import { enqueueMutation } from '@/lib/db/outbox';
+import { applyLocalMirrorWrite } from '@/lib/sync/mirror-write';
 
 export type StorageLocation = {
   id: string;
@@ -72,12 +73,14 @@ export function useAddStorageLocationMutation() {
           created_at: now,
           updated_at: now,
         },
-        applyLocally: async (txn) => {
-          await txn.runAsync(
-            'insert into storage_locations (id, household_id, name, kind, sort_order, created_at, updated_at, _dirty) values (?, ?, ?, ?, ?, ?, ?, 1)',
-            [id, household_id, name, kind, nextSortOrder, now, nowMs],
-          );
-        },
+        applyLocally: (txn) =>
+          applyLocalMirrorWrite(
+            txn,
+            'storage_locations',
+            'insert',
+            { id, household_id, name, kind, sort_order: nextSortOrder, created_at: now },
+            nowMs,
+          ),
       });
 
       return { id, name, household_id, kind, sort_order: nextSortOrder };
@@ -116,12 +119,8 @@ export function useUpdateStorageLocationMutation() {
           name,
           updated_at: now,
         },
-        applyLocally: async (txn) => {
-          await txn.runAsync(
-            'update storage_locations set name = ?, updated_at = ?, _dirty = 1 where id = ?',
-            [name, nowMs, id],
-          );
-        },
+        applyLocally: (txn) =>
+          applyLocalMirrorWrite(txn, 'storage_locations', 'update', { id, name }, nowMs),
       });
 
       return { id, name };
@@ -152,12 +151,8 @@ export function useDeleteStorageLocationMutation() {
           deleted_at: now,
           updated_at: now,
         },
-        applyLocally: async (txn) => {
-          await txn.runAsync(
-            'update storage_locations set deleted_at = ?, updated_at = ?, _dirty = 1 where id = ?',
-            [nowMs, nowMs, id],
-          );
-        },
+        applyLocally: (txn) =>
+          applyLocalMirrorWrite(txn, 'storage_locations', 'delete', { id }, nowMs),
       });
 
       return id;

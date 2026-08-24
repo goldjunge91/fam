@@ -1,7 +1,12 @@
 import { MIGRATIONS } from '@/lib/db/migrations';
 import { runMigrations } from '@/lib/db/migrator';
 import { toEpochMs } from '@/lib/sync/cursor';
-import { applyRemoteRow, deleteMirrorRow, upsertMirrorRow } from '@/lib/sync/mirror-write';
+import {
+  applyLocalMirrorWrite,
+  applyRemoteRow,
+  deleteMirrorRow,
+  upsertMirrorRow,
+} from '@/lib/sync/mirror-write';
 import { createTestDatabase, type TestDatabase } from '../../../test/node-sqlite-adapter';
 
 describe('upsertMirrorRow', () => {
@@ -435,5 +440,178 @@ describe('deleteMirrorRow', () => {
 
   it('ist ein No-Op, wenn keine Zeile mit dieser id existiert', async () => {
     await expect(deleteMirrorRow(db, 'fridge_items', 'nicht-vorhanden')).resolves.toBeUndefined();
+  });
+});
+
+describe('applyLocalMirrorWrite', () => {
+  let db: TestDatabase;
+
+  beforeEach(async () => {
+    db = createTestDatabase();
+    await runMigrations(db, MIGRATIONS);
+  });
+
+  afterEach(() => {
+    db.close();
+  });
+
+  it('insert: schreibt die volle Spaltenliste plus _dirty = 1', async () => {
+    await applyLocalMirrorWrite(
+      db,
+      'storage_locations',
+      'insert',
+      {
+        id: 'loc-1',
+        household_id: 'hh-1',
+        name: 'Kühlschrank',
+        kind: 'fridge',
+        sort_order: 0,
+        created_at: '2026-01-01T00:00:00Z',
+      },
+      1_000,
+    );
+
+    const row = await db.getFirstAsync<Record<string, unknown>>(
+      'select * from storage_locations where id = ?',
+      ['loc-1'],
+    );
+    expect(row).toMatchObject({
+      id: 'loc-1',
+      household_id: 'hh-1',
+      name: 'Kühlschrank',
+      kind: 'fridge',
+      sort_order: 0,
+      updated_at: 1_000,
+      _dirty: 1,
+    });
+  });
+
+  it('update: setzt nur die im Payload vorhandenen Felder, ruehrt andere nicht an', async () => {
+    await applyLocalMirrorWrite(
+      db,
+      'storage_locations',
+      'insert',
+      {
+        id: 'loc-1',
+        household_id: 'hh-1',
+        name: 'Kühlschrank',
+        kind: 'fridge',
+        sort_order: 0,
+        created_at: '2026-01-01T00:00:00Z',
+      },
+      1_000,
+    );
+
+    await applyLocalMirrorWrite(
+      db,
+      'storage_locations',
+      'update',
+      { id: 'loc-1', name: 'Speisekammer' },
+      2_000,
+    );
+
+    const row = await db.getFirstAsync<Record<string, unknown>>(
+      'select * from storage_locations where id = ?',
+      ['loc-1'],
+    );
+    expect(row).toMatchObject({
+      name: 'Speisekammer',
+      kind: 'fridge', // unveraendert
+      sort_order: 0, // unveraendert
+      updated_at: 2_000,
+      _dirty: 1,
+    });
+  });
+
+  it('delete: setzt deleted_at und _dirty, ruehrt sonst nichts an', async () => {
+    await applyLocalMirrorWrite(
+      db,
+      'fridge_items',
+      'insert',
+      {
+        id: 'fi-1',
+        household_id: 'hh-1',
+        name: 'Milch',
+        quantity: 1,
+        unit: 'piece',
+        created_at: '2026-01-01T00:00:00Z',
+      },
+      1_000,
+    );
+
+    await applyLocalMirrorWrite(db, 'fridge_items', 'delete', { id: 'fi-1' }, 2_000);
+
+    const row = await db.getFirstAsync<Record<string, unknown>>(
+      'select * from fridge_items where id = ?',
+      ['fi-1'],
+    );
+    expect(row).toMatchObject({ deleted_at: 2_000, updated_at: 2_000, _dirty: 1, name: 'Milch' });
+  });
+
+  it('restore: setzt deleted_at zurueck auf null (#69)', async () => {
+    await applyLocalMirrorWrite(
+      db,
+      'fridge_items',
+      'insert',
+      {
+        id: 'fi-1',
+        household_id: 'hh-1',
+        name: 'Milch',
+        quantity: 1,
+        unit: 'piece',
+        created_at: '2026-01-01T00:00:00Z',
+      },
+      1_000,
+    );
+    await applyLocalMirrorWrite(db, 'fridge_items', 'delete', { id: 'fi-1' }, 2_000);
+
+    await applyLocalMirrorWrite(db, 'fridge_items', 'restore', { id: 'fi-1' }, 3_000);
+
+    const row = await db.getFirstAsync<Record<string, unknown>>(
+      'select * from fridge_items where id = ?',
+      ['fi-1'],
+    );
+    expect(row).toMatchObject({ deleted_at: null, updated_at: 3_000, _dirty: 1 });
+  });
+
+  it('insert: serialisiert Array-Felder als JSON-Text (dieselbe Konvertierung wie upsertMirrorRow)', async () => {
+    await applyLocalMirrorWrite(
+      db,
+      'products',
+      'insert',
+      {
+        id: 'prod-1',
+        barcode: '123',
+        name: 'Testprodukt',
+        off_category_tags: ['en:meats', 'en:pork'],
+        source: 'user',
+        created_at: '2026-01-01T00:00:00Z',
+      },
+      1_000,
+    );
+
+    const row = await db.getFirstAsync<{ off_category_tags: string }>(
+      'select off_category_tags from products where id = ?',
+      ['prod-1'],
+    );
+    expect(JSON.parse(row?.off_category_tags ?? '[]')).toEqual(['en:meats', 'en:pork']);
+  });
+
+  it('insert: funktioniert auch fuer globale, nicht household-gebundene Entitaeten (products)', async () => {
+    await expect(
+      applyLocalMirrorWrite(
+        db,
+        'products',
+        'insert',
+        {
+          id: 'prod-1',
+          barcode: '123',
+          name: 'Testprodukt',
+          source: 'user',
+          created_at: '2026-01-01T00:00:00Z',
+        },
+        1_000,
+      ),
+    ).resolves.toBeUndefined();
   });
 });
