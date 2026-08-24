@@ -1,5 +1,5 @@
-import { spawnSync } from 'node:child_process';
 import { createFreshConfirmedUser, createInviteFixture } from './lib/e2e-fixtures';
+import { runMaestro } from './lib/run-maestro';
 
 // Seedet einen Host-Account samt Haushalt + Invite-Token sowie einen
 // zweiten, haushaltslosen Testaccount (der beitretende Nutzer) und fuehrt
@@ -16,9 +16,8 @@ async function main() {
   console.log(`⏳ Beitretender Testaccount erstellt: ${joiner.email}`);
   console.log(`⏳ Starte Maestro-Flow household-join-via-invite.yaml...\n`);
 
-  const result = spawnSync(
-    'maestro',
-    [
+  process.exit(
+    runMaestro([
       'test',
       '.maestro/flows/household-join-via-invite.yaml',
       '-e',
@@ -29,11 +28,8 @@ async function main() {
       `INVITE_TOKEN=${invite.token}`,
       '-e',
       `HOUSEHOLD_NAME=${invite.householdName}`,
-    ],
-    { stdio: 'inherit' },
+    ]),
   );
-
-  process.exit(result.status ?? 1);
 }
 
 main().catch((err) => {

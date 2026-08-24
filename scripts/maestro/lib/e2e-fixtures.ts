@@ -60,6 +60,65 @@ export interface InviteFixture {
   host: FreshUser;
 }
 
+export interface HouseholdFixture {
+  householdId: string;
+  householdName: string;
+  user: FreshUser;
+}
+
+/**
+ * Legt einen bestaetigten Nutzer mit einem vollstaendigen Haushalt an.
+ * UI-Flows, die Funktionen innerhalb der App pruefen, muessen dadurch nicht
+ * gleichzeitig die Haushaltsanlage testen und starten immer mit denselben
+ * Lagerorten und Maerkten.
+ */
+export async function createHouseholdFixture(
+  prefix: string,
+  householdName: string,
+): Promise<HouseholdFixture> {
+  const user = await createFreshConfirmedUser(prefix);
+
+  const { data: household, error: householdErr } = await supabase
+    .from('households')
+    .insert({ name: householdName, created_by: user.userId })
+    .select('id')
+    .single();
+
+  if (householdErr || !household) {
+    throw new Error(`Fixture-Haushalt konnte nicht erstellt werden: ${householdErr?.message}`);
+  }
+
+  const { error: memberErr } = await supabase
+    .from('household_members')
+    .insert({ household_id: household.id, user_id: user.userId, role: 'admin' });
+
+  if (memberErr) {
+    throw new Error(`Fixture-Mitgliedschaft konnte nicht erstellt werden: ${memberErr.message}`);
+  }
+
+  const { error: locationsErr } = await supabase.from('storage_locations').insert([
+    { household_id: household.id, name: 'Kühlschrank', kind: 'fridge', sort_order: 0 },
+    { household_id: household.id, name: 'Tiefkühltruhe', kind: 'freezer', sort_order: 1 },
+    { household_id: household.id, name: 'Abstellkammer', kind: 'pantry', sort_order: 2 },
+  ]);
+
+  if (locationsErr) {
+    throw new Error(`Fixture-Lagerorte konnten nicht erstellt werden: ${locationsErr.message}`);
+  }
+
+  const { error: storesErr } = await supabase.from('stores').insert([
+    { household_id: household.id, name: 'REWE', color: '#B5623F', sort_order: 0 },
+    { household_id: household.id, name: 'Edeka', color: '#748C5B', sort_order: 1 },
+    { household_id: household.id, name: 'Aldi', color: '#5C7396', sort_order: 2 },
+  ]);
+
+  if (storesErr) {
+    throw new Error(`Fixture-Maerkte konnten nicht erstellt werden: ${storesErr.message}`);
+  }
+
+  return { householdId: household.id, householdName, user };
+}
+
 /**
  * Legt einen Host-Account samt Haushalt und einem einmal einloesbaren
  * Invite-Token an - direkte Table-Inserts per Service-Role (RLS-Bypass),
@@ -71,54 +130,13 @@ export interface InviteFixture {
  * Haushalt sich nicht von einem regulaer erstellten unterscheidet.
  */
 export async function createInviteFixture(householdName: string): Promise<InviteFixture> {
-  const host = await createFreshConfirmedUser('maestro-e2e-host');
-
-  const { data: household, error: householdErr } = await supabase
-    .from('households')
-    .insert({ name: householdName, created_by: host.userId })
-    .select('id')
-    .single();
-
-  if (householdErr || !household) {
-    throw new Error(`Fixture-Haushalt konnte nicht erstellt werden: ${householdErr?.message}`);
-  }
-
-  const { error: memberErr } = await supabase
-    .from('household_members')
-    .insert({ household_id: household.id, user_id: host.userId, role: 'admin' });
-
-  if (memberErr) {
-    throw new Error(`Admin-Mitgliedschaft fuer den Fixture-Host schlug fehl: ${memberErr.message}`);
-  }
-
-  const { error: locationsErr } = await supabase.from('storage_locations').insert([
-    { household_id: household.id, name: 'Kühlschrank', kind: 'fridge', sort_order: 0 },
-    { household_id: household.id, name: 'Tiefkühltruhe', kind: 'freezer', sort_order: 1 },
-    { household_id: household.id, name: 'Abstellkammer', kind: 'pantry', sort_order: 2 },
-  ]);
-
-  if (locationsErr) {
-    throw new Error(
-      `Standard-Lagerorte fuer den Fixture-Haushalt schlugen fehl: ${locationsErr.message}`,
-    );
-  }
-
-  const { error: storesErr } = await supabase.from('stores').insert([
-    { household_id: household.id, name: 'REWE', color: '#B5623F', sort_order: 0 },
-    { household_id: household.id, name: 'Edeka', color: '#748C5B', sort_order: 1 },
-    { household_id: household.id, name: 'Aldi', color: '#5C7396', sort_order: 2 },
-  ]);
-
-  if (storesErr) {
-    throw new Error(
-      `Standard-Supermärkte fuer den Fixture-Haushalt schlugen fehl: ${storesErr.message}`,
-    );
-  }
+  const fixture = await createHouseholdFixture('maestro-e2e-host', householdName);
+  const host = fixture.user;
 
   const { data: invite, error: inviteErr } = await supabase
     .from('household_invites')
     .insert({
-      household_id: household.id,
+      household_id: fixture.householdId,
       created_by: host.userId,
       max_uses: 1,
       expires_at: new Date(Date.now() + 24 * 60 * 60 * 1000).toISOString(),

@@ -1,5 +1,5 @@
-import { spawnSync } from 'node:child_process';
 import { createFreshConfirmedUser } from './lib/e2e-fixtures';
+import { runMaestro } from './lib/run-maestro';
 
 // Seedet einen frischen, haushaltslosen Testaccount und fuehrt damit gezielt
 // household-create-during-onboarding.yaml aus. Eigenes Script statt Teil der
@@ -14,9 +14,8 @@ async function main() {
   console.log(`\n⏳ Seed-Account erstellt: ${user.email}`);
   console.log(`⏳ Starte Maestro-Flow household-create-during-onboarding.yaml...\n`);
 
-  const result = spawnSync(
-    'maestro',
-    [
+  process.exit(
+    runMaestro([
       'test',
       '.maestro/flows/household-create-during-onboarding.yaml',
       '-e',
@@ -25,11 +24,8 @@ async function main() {
       `PASSWORD=${user.password}`,
       '-e',
       `HOUSEHOLD_NAME=${HOUSEHOLD_NAME}`,
-    ],
-    { stdio: 'inherit' },
+    ]),
   );
-
-  process.exit(result.status ?? 1);
 }
 
 main().catch((err) => {
