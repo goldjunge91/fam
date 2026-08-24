@@ -7,7 +7,7 @@ const VALID_MANIFEST = {
     version: '2026-08-01T00:00:00.000Z',
     url: 'https://example/baseline.db',
     size: 100,
-    sha256: 'abc',
+    checksum: 'abc',
   },
   patches: [
     {
@@ -15,7 +15,7 @@ const VALID_MANIFEST = {
       to: '2026-08-02T00:00:00.000Z',
       url: 'https://example/patch.db',
       size: 10,
-      sha256: 'def',
+      checksum: 'def',
       upserts: 3,
       deletes: 1,
     },
@@ -44,8 +44,8 @@ describe('parseManifest', () => {
       { ...VALID_MANIFEST, baseline: { ...VALID_MANIFEST.baseline, version: undefined } },
     ],
     [
-      'baseline.sha256 fehlt',
-      { ...VALID_MANIFEST, baseline: { ...VALID_MANIFEST.baseline, sha256: undefined } },
+      'baseline.checksum fehlt',
+      { ...VALID_MANIFEST, baseline: { ...VALID_MANIFEST.baseline, checksum: undefined } },
     ],
     ['patches kein Array', { ...VALID_MANIFEST, patches: 'kaputt' }],
     [

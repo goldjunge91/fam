@@ -25,10 +25,10 @@ function createDumpFile(path: string, dataVersion: string, schemaVersion = 2) {
   db.close();
 }
 
-function sha256Of(path: string): string {
+function checksumOf(path: string): string {
   const { createHash } = require('node:crypto');
   const { readFileSync } = require('node:fs');
-  return createHash('sha256').update(readFileSync(path)).digest('hex');
+  return createHash('md5').update(readFileSync(path)).digest('hex');
 }
 
 describe('installBaseline', () => {
@@ -66,7 +66,7 @@ describe('installBaseline', () => {
 
     const result = await installBaseline(db, fileOps, {
       downloadUrl: 'https://example/baseline.db',
-      expectedSha256: sha256Of(sourcePath),
+      expectedChecksum: checksumOf(sourcePath),
       expectedSchemaVersion: 2,
       activePath,
       nextPath,
@@ -92,7 +92,7 @@ describe('installBaseline', () => {
 
     const result = await installBaseline(db, fileOps, {
       downloadUrl: 'https://example/baseline-new.db',
-      expectedSha256: sha256Of(sourcePath),
+      expectedChecksum: checksumOf(sourcePath),
       expectedSchemaVersion: 2,
       activePath,
       nextPath,
@@ -117,7 +117,7 @@ describe('installBaseline', () => {
 
     const result = await installBaseline(db, fileOps, {
       downloadUrl: 'https://example/baseline.db',
-      expectedSha256: 'komplett-falsche-pruefsumme',
+      expectedChecksum: 'komplett-falsche-pruefsumme',
       expectedSchemaVersion: 2,
       activePath,
       nextPath,
@@ -141,7 +141,7 @@ describe('installBaseline', () => {
 
     const result = await installBaseline(db, fileOps, {
       downloadUrl: 'https://example/baseline.db',
-      expectedSha256: sha256Of(sourcePath),
+      expectedChecksum: checksumOf(sourcePath),
       expectedSchemaVersion: 2,
       activePath,
       nextPath,
@@ -172,7 +172,7 @@ describe('installBaseline', () => {
 
     const result = await installBaseline(db, fileOps, {
       downloadUrl: 'https://example/baseline.db',
-      expectedSha256: sha256Of(sourcePath),
+      expectedChecksum: checksumOf(sourcePath),
       expectedSchemaVersion: 2,
       activePath,
       nextPath,

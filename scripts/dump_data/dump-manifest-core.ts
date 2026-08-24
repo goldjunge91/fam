@@ -5,7 +5,7 @@
  * Datei-/GitHub-Release-Ein-/Ausgabe (`build-canonical-update.ts`).
  */
 
-export type DumpManifestAsset = { url: string; size: number; sha256: string };
+export type DumpManifestAsset = { url: string; size: number; checksum: string };
 
 export type DumpManifestPatchEntry = DumpManifestAsset & {
   from: string;

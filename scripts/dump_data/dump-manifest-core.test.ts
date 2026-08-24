@@ -18,7 +18,7 @@ describe('isNewBaselineDue', () => {
   });
 });
 
-const asset = { url: 'https://example/x.db', size: 100, sha256: 'abc' };
+const asset = { url: 'https://example/x.db', size: 100, checksum: 'abc' };
 
 describe('buildNextManifest', () => {
   it('erzeugt ein frisches Manifest für die allererste Baseline (kein Vorgänger)', () => {
@@ -51,7 +51,7 @@ describe('buildNextManifest', () => {
       to: '2026-08-02',
       url: 'https://example/patch.db',
       size: 50,
-      sha256: 'def',
+      checksum: 'def',
       upserts: 3,
       deletes: 1,
     };
@@ -76,7 +76,7 @@ describe('buildNextManifest', () => {
       to: '2026-08-02',
       url: 'x',
       size: 1,
-      sha256: 'a',
+      checksum: 'a',
       upserts: 1,
       deletes: 0,
     };
@@ -91,7 +91,7 @@ describe('buildNextManifest', () => {
       to: '2026-08-03',
       url: 'y',
       size: 2,
-      sha256: 'b',
+      checksum: 'b',
       upserts: 2,
       deletes: 1,
     };
@@ -119,7 +119,7 @@ describe('buildNextManifest', () => {
           to: '2026-08-15',
           url: 'x',
           size: 1,
-          sha256: 'a',
+          checksum: 'a',
           upserts: 1,
           deletes: 0,
         },
@@ -131,7 +131,7 @@ describe('buildNextManifest', () => {
       isNewBaseline: true,
       schemaVersion: 2,
       dataVersion: '2026-09-01',
-      baselineAsset: { url: 'https://example/new-baseline.db', size: 200, sha256: 'new' },
+      baselineAsset: { url: 'https://example/new-baseline.db', size: 200, checksum: 'new' },
       patchEntry: null,
     });
 

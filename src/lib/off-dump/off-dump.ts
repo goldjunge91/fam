@@ -253,7 +253,7 @@ export async function reinstallOffDumpBaseline(db: SqlDatabase): Promise<UpdateO
   const paths = dumpPaths();
   const result = await installBaseline(db, fileOps, {
     downloadUrl: manifest.baseline.url,
-    expectedSha256: manifest.baseline.sha256,
+    expectedChecksum: manifest.baseline.checksum,
     expectedSchemaVersion: manifest.schemaVersion,
     activePath: paths.activePath,
     nextPath: paths.nextPath,

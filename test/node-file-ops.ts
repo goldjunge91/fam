@@ -46,8 +46,8 @@ export function createNodeFileOps(): FileOps & {
       if (existsSync(path)) unlinkSync(path);
     },
 
-    async sha256(path: string): Promise<string> {
-      return createHash('sha256').update(readFileSync(path)).digest('hex');
+    async checksum(path: string): Promise<string> {
+      return createHash('md5').update(readFileSync(path)).digest('hex');
     },
 
     async inspectDump(path: string): Promise<DumpInspection | null> {

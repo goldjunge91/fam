@@ -8,7 +8,7 @@ const BASE_MANIFEST: DumpManifest = {
     version: '2026-08-01T00:00:00.000Z',
     url: 'https://example/baseline.db',
     size: 1000,
-    sha256: 'baseline-hash',
+    checksum: 'baseline-hash',
   },
   patches: [
     {
@@ -16,7 +16,7 @@ const BASE_MANIFEST: DumpManifest = {
       to: '2026-08-02T00:00:00.000Z',
       url: 'https://example/patch-1.db',
       size: 50,
-      sha256: 'patch-1-hash',
+      checksum: 'patch-1-hash',
       upserts: 10,
       deletes: 2,
     },
@@ -25,7 +25,7 @@ const BASE_MANIFEST: DumpManifest = {
       to: '2026-08-03T00:00:00.000Z',
       url: 'https://example/patch-2.db',
       size: 50,
-      sha256: 'patch-2-hash',
+      checksum: 'patch-2-hash',
       upserts: 5,
       deletes: 1,
     },

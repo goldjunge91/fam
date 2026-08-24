@@ -9,7 +9,7 @@ const MANIFEST: DumpManifest = {
     version: '2026-08-01T00:00:00.000Z',
     url: 'https://x/baseline.db',
     size: 1000,
-    sha256: 'b',
+    checksum: 'b',
   },
   patches: [
     {
@@ -17,7 +17,7 @@ const MANIFEST: DumpManifest = {
       to: '2026-08-02T00:00:00.000Z',
       url: 'https://x/patch-1.db',
       size: 10,
-      sha256: 'p1',
+      checksum: 'p1',
       upserts: 1,
       deletes: 0,
     },
@@ -26,7 +26,7 @@ const MANIFEST: DumpManifest = {
       to: '2026-08-03T00:00:00.000Z',
       url: 'https://x/patch-2.db',
       size: 10,
-      sha256: 'p2',
+      checksum: 'p2',
       upserts: 1,
       deletes: 0,
     },
@@ -133,7 +133,7 @@ describe('checkForUpdate', () => {
     expect(result).toEqual({ kind: 'baseline-installed', dataVersion: MANIFEST.baseline.version });
     expect(installBaseline).toHaveBeenCalledWith(expect.anything(), expect.anything(), {
       downloadUrl: MANIFEST.baseline.url,
-      expectedSha256: MANIFEST.baseline.sha256,
+      expectedChecksum: MANIFEST.baseline.checksum,
       expectedSchemaVersion: MANIFEST.schemaVersion,
       activePath: paths.activePath,
       nextPath: paths.nextPath,
