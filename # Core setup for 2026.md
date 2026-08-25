@@ -4,14 +4,13 @@ https://github.com/TanayK07/expo-react-native-cicd
 ## Local data persistence (offline/local state)
 
 Expo SQLite for local database.
-Drizzle (TypeScript-first schema, generates SQL via CLI) for easier SQL with Expo SQLite; includes Drizzle Studio for debugging.
-React Native MMKV for simple, fast key-value storage (not compatible with Expo Go).
+Drizzle (TypeScript-first schema, generates SQL via CLI) for easier SQL with Expo SQLite; includes Drizzle Studio for debugging. https://orm.drizzle.team/docs/get-started/expo-new#get-started-with-drizzle-and-expo
+React Native MMKV for simple, fast key-value storage https://raw.githubusercontent.com/mrousavy/react-native-mmkv/refs/heads/main/README_V3.md
 
 ## Local app state and server state
 
-Local state: React Context is fine for simple cases (e.g., theme).
-State library for app state: Zustand is recommended.
-Server/state (HTTP data): TanStack Query (React Query) for robust data fetching, caching, and synchronization.
+State Management: Zustand https://raw.githubusercontent.com/pmndrs/zustand/refs/heads/main/README.md
+Server/state (HTTP data): TanStack Query (React Query) for robust data fetching, caching, and synchronization. https://tanstack.com/ai/latest/docs/getting-started/quick-start-react-native#expo-prints-android-sdk-or-adb-warnings
 
 ## Must-have packages four core picks
 
@@ -23,8 +22,7 @@ These two (Reanimated + Gesture Handler) pair nicely with performance- and anima
 
 Back-end and services (easier shipping and monitoring)
 
-Expo Application Services (EAS): Build, Submit, Updates, hosting—essential for a smooth dev-to-deploy flow.
-Clerk for authentication/user management (has improved React Native integration in 2026).
+Clerk for authentication/user management 
 Sentry for app monitoring, error tracking, session replays, etc.
 RevenueCat for cross-platform in-app purchases/subscriptions and paywalls.
 Code Rabbit for AI-assisted code reviews and improvements.
@@ -46,10 +44,6 @@ Expo UI as a bridge to native components (SwiftUI/Jetpack Compose) for a more na
 Overall philosophy
 
 Be pragmatic: start simple with StyleSheet, upgrade to Uni Styles/Uniwind if you need more sophisticated styling, and consider Expo UI for native component access.
-Expo Router + mature ecosystem makes 2026 a stable, confident time to start new RN apps.
+Expo Router 
 The stack aims to be opinionated but practical, reducing time spent evaluating dozens of state libraries and random GitHub issues.
-If you want more hands-on depth
-
-The video promotes the zero-to-her mission on galaxies.dev as a practical path to learn RN in 2026 and ship an app.
-If you have a favorite library you think was missed, you can share it in comments to compare notes.
 

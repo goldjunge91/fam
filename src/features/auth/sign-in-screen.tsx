@@ -8,6 +8,7 @@ import { Button } from '@/components/ui/buttons';
 import { Card } from '@/components/ui/card';
 import { authErrorMessage, signIn, signInWithOAuthProvider } from '@/features/auth/api';
 import { fieldErrors, signInSchema } from '@/features/auth/auth-schemas';
+import { AppleSignInButton } from '@/features/auth/components/apple-sign-in-button';
 
 export function SignInScreen() {
   const [email, setEmail] = useState('');
@@ -87,14 +88,7 @@ export function SignInScreen() {
             </View>
 
             {/* OAuth Buttons (Apple & Google) */}
-            <Button
-              label="  Mit Apple anmelden"
-              variant="secondary"
-              onPress={async () => {
-                const { error } = await signInWithOAuthProvider('apple');
-                if (error) setFormError(authErrorMessage(error));
-              }}
-            />
+            <AppleSignInButton onError={setFormError} />
 
             <Button
               label="🌐  Mit Google anmelden"

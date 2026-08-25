@@ -1,12 +1,21 @@
 import type { AuthError } from '@supabase/supabase-js';
 import { useQuery } from '@tanstack/react-query';
-import * as Linking from 'expo-linking';
+import {
+  AppleAuthenticationScope,
+  signInAsync,
+} from 'expo-apple-authentication';
+import {
+  CryptoDigestAlgorithm,
+  digestStringAsync,
+  randomUUID,
+} from 'expo-crypto';
 
+import * as Linking from 'expo-linking';
+import { Platform } from 'react-native';
 import type { ProfileInput } from '@/features/auth/auth-schemas';
 import { isOrphanedProfileError } from '@/features/auth/orphaned-profile-error';
 import type { Database } from '@/lib/database.types';
 import { getSupabase } from '@/lib/supabase';
-
 /**
  * Uebersetzt Supabase-Fehler in Meldungen, die einem Nutzer weiterhelfen.
  *
@@ -189,4 +198,43 @@ export async function markOnboardingCompleted(userId: string) {
     .eq('id', userId);
 
   return { error };
+}
+
+export async function signInWithApple() {
+  if (Platform.OS !== 'ios') {
+    return signInWithOAuthProvider('apple');
+  }
+  try {
+    const rawNonce = randomUUID();
+    const hashedNonce = await digestStringAsync(
+      CryptoDigestAlgorithm.SHA256,
+      rawNonce
+    );
+    const credential = await signInAsync({
+      requestedScopes: [
+        AppleAuthenticationScope.FULL_NAME,
+        AppleAuthenticationScope.EMAIL,
+      ],
+      nonce: hashedNonce,
+    });
+    if (!credential.identityToken) {
+      return { data: null, error: new Error('Kein Identity-Token von Apple erhalten.') };
+    }
+    return await getSupabase().auth.signInWithIdToken({
+      provider: 'apple',
+      token: credential.identityToken,
+      nonce: rawNonce,
+    });
+  } catch (error) {
+    if (
+      typeof error === 'object' &&
+      error !== null &&
+      'code' in error &&
+      error.code === 'ERR_REQUEST_CANCELED'
+    ) {
+      return { data: null, error: null };
+    }
+    const authError = error instanceof Error ? error : new Error('Apple-Anmeldung fehlgeschlagen.');
+    return { data: null, error: authError };
+  }
 }

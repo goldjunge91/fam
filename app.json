@@ -20,6 +20,7 @@
         "NSCameraUsageDescription": "$(PRODUCT_NAME) needs access to your Camera to capture photos and videos.",
         "NSMicrophoneUsageDescription": "$(PRODUCT_NAME) needs access to your Microphone to record audio for video recordings."
       },
+      "usesAppleSignIn": true,
       "privacyManifests": {
         "NSPrivacyCollectedDataTypes": [
           {
@@ -28,6 +29,14 @@
             "NSPrivacyCollectedDataTypeTracking": false,
             "NSPrivacyCollectedDataTypePurposes": [
               "NSPrivacyCollectedDataTypePurposeAnalytics"
+            ]
+          },
+          {
+            "NSPrivacyCollectedDataType": "NSPrivacyCollectedDataTypeCoarseLocation",
+            "NSPrivacyCollectedDataTypeLinked": true,
+            "NSPrivacyCollectedDataTypeTracking": false,
+            "NSPrivacyCollectedDataTypePurposes": [
+              "NSPrivacyCollectedDataTypePurposeAppFunctionality"
             ]
           }
         ]
@@ -57,6 +66,7 @@
       "favicon": "./assets/images/favicon.png"
     },
     "plugins": [
+      "expo-apple-authentication",
       "expo-router",
       "expo-sqlite",
       "expo-secure-store",
@@ -95,13 +105,21 @@
       "@sentry/react-native",
       "expo-localization",
       [
+        "expo-location",
+        {
+          "locationWhenInUsePermission": "fam verwendet deinen Standort, um Prospekte in deiner Nähe zu zeigen."
+        }
+      ],
+      [
         "react-native-google-mobile-ads",
         {
           "androidAppId": "ca-app-pub-3940256099942544~3347511713",
           "iosAppId": "ca-app-pub-3823642106417448~8036856356",
           "userTrackingUsageDescription": "Diese Kennung wird verwendet, um dir personalisierte Werbung bereitzustellen."
         }
-      ]
+      ],
+      "expo-background-task",
+      "expo-splash-screen"
     ],
     "experiments": {
       "typedRoutes": true,
