@@ -41,6 +41,7 @@ jest.mock('expo-router', () => ({
 
 jest.mock('@/features/household/active-household-provider', () => ({
   useActiveHousehold: () => ({ activeHouseholdId: 'hh-1' }),
+  useOptionalActiveHousehold: () => ({ activeHouseholdId: 'hh-1' }),
 }));
 
 jest.mock('@/features/inventory/use-storage-locations', () => ({

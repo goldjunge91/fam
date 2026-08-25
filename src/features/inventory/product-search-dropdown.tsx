@@ -23,6 +23,9 @@ import {
 
 import { TextField } from '@/components/forms/text-field';
 import { ThemedText } from '@/components/theme/themed-text';
+import { useOptionalActiveHousehold } from '@/features/household/active-household-provider';
+import { usePreferredProductMarketName } from '@/features/product-search/preferred-market';
+import { rankProductSearchResults } from '@/features/product-search/search-ranking';
 import { useTheme } from '@/hooks/use-theme';
 import { getDatabase } from '@/lib/db/client';
 import { dedupeProductsByBarcode, searchOffDump } from '@/lib/off-dump/off-dump';
@@ -92,14 +95,24 @@ function toOpenFoodFactsProduct(row: LocalProductRow): OpenFoodFactsProduct {
  */
 async function searchOwnProducts(query: string): Promise<OpenFoodFactsProduct[]> {
   const db = await getDatabase();
+  const tokens = query
+    .trim()
+    .toLocaleLowerCase('de-DE')
+    .replace(/\d+(?:[.,]\d+)?\s*(?:kg|g|ml|l)\b/g, ' ')
+    .replace(/[^a-z0-9äöüß]+/gi, ' ')
+    .split(/\s+/)
+    .filter((token) => token.length >= 2);
+  if (tokens.length === 0) return [];
+  const conditions = tokens.flatMap(() => ['lower(name) like ?', 'lower(brand) like ?']);
+  const params = tokens.flatMap((token) => [`%${token}%`, `%${token}%`]);
   const rows = await db.getAllAsync<LocalProductRow>(
     `select barcode, name, brand, kcal_per_100, protein_g_per_100, carbs_g_per_100, fat_g_per_100,
             off_category_tags, off_last_modified_at
      from products
-     where deleted_at is null and lower(name) like ?
+     where deleted_at is null and (${conditions.join(' or ')})
      order by name
      limit 20`,
-    [`%${query.trim().toLowerCase()}%`],
+    params,
   );
   return rows.map(toOpenFoodFactsProduct);
 }
@@ -170,6 +183,10 @@ export const ProductSearchDropdown = forwardRef<
   ref,
 ) {
   const theme = useTheme();
+  const activeHousehold = useOptionalActiveHousehold();
+  const preferredMarket = usePreferredProductMarketName(
+    activeHousehold?.activeHouseholdId ?? undefined,
+  );
   const [suggestions, setSuggestions] = useState<OpenFoodFactsProduct[]>([]);
   const [searching, setSearching] = useState(false);
   const [showDropdown, setShowDropdown] = useState(false);
@@ -290,7 +307,7 @@ export const ProductSearchDropdown = forwardRef<
         localResults.length < LOCAL_RESULT_THRESHOLD && onlineManager.isOnline();
 
       if (!needsOffLookup) {
-        setSuggestions(localResults);
+        setSuggestions(rankProductSearchResults(localResults, deferredValue, preferredMarket));
       } else {
         const { products: offResults, hasMore } = await searchOpenFoodFacts(deferredValue, {
           page: 1,
@@ -298,7 +315,13 @@ export const ProductSearchDropdown = forwardRef<
         });
         const localBarcodes = new Set(localResults.map((p) => p.barcode).filter(Boolean));
         const dedupedOffResults = offResults.filter((p) => !localBarcodes.has(p.barcode));
-        setSuggestions([...localResults, ...dedupedOffResults]);
+        setSuggestions(
+          rankProductSearchResults(
+            [...localResults, ...dedupedOffResults],
+            deferredValue,
+            preferredMarket,
+          ),
+        );
         setOffHasMore(hasMore);
       }
 
@@ -308,7 +331,7 @@ export const ProductSearchDropdown = forwardRef<
     }, 300);
 
     return () => clearTimeout(timer);
-  }, [deferredValue]);
+  }, [deferredValue, preferredMarket]);
 
   /**
    * Laedt beim Scrollen ans Ende des Dropdowns nach — erst weitere Seiten des
@@ -329,7 +352,13 @@ export const ProductSearchDropdown = forwardRef<
         limit: OFF_PAGE_SIZE,
       });
       if (queryRef.current === currentQuery) {
-        setSuggestions((prev) => dedupeProductsByBarcode([...prev, ...dumpResults]));
+        setSuggestions((prev) =>
+          rankProductSearchResults(
+            dedupeProductsByBarcode([...prev, ...dumpResults]),
+            currentQuery,
+            preferredMarket,
+          ),
+        );
         setDumpHasMore(hasMore);
         setDumpOffset(nextOffset);
       }
@@ -347,7 +376,13 @@ export const ProductSearchDropdown = forwardRef<
     });
 
     if (queryRef.current === currentQuery) {
-      setSuggestions((prev) => dedupeProductsByBarcode([...prev, ...offResults]));
+      setSuggestions((prev) =>
+        rankProductSearchResults(
+          dedupeProductsByBarcode([...prev, ...offResults]),
+          currentQuery,
+          preferredMarket,
+        ),
+      );
       setOffHasMore(hasMore);
       setOffPage(nextPage);
     }

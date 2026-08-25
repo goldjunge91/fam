@@ -151,6 +151,13 @@ export function SettingsScreen() {
               hint="REWE, Aldi, Lidl, ..."
               onPress={hasHousehold ? () => router.push('/household/stores') : undefined}
               disabled={!hasHousehold}
+            />
+            <SettingsRow
+              icon="🔎"
+              label="Produktsuche"
+              hint="Bevorzugten Markt für Treffer wählen"
+              onPress={hasHousehold ? () => router.push('/settings/product-search') : undefined}
+              disabled={!hasHousehold}
               last
             />
           </SettingsGroup>

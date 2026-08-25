@@ -14,7 +14,10 @@ import {
   rankFrequentFoods,
 } from '@/features/calorie-tracking/food-history';
 import { useLocalFoodUsage } from '@/features/calorie-tracking/use-local-food-usage';
+import { useOptionalActiveHousehold } from '@/features/household/active-household-provider';
 import { BarcodeScannerModal } from '@/features/inventory/barcode-scanner-modal';
+import { usePreferredProductMarketName } from '@/features/product-search/preferred-market';
+import { rankProductSearchResults } from '@/features/product-search/search-ranking';
 import { useTheme } from '@/hooks/use-theme';
 import {
   dedupeProductsByBarcode,
@@ -56,6 +59,10 @@ export function FoodSearchScreen() {
   const theme = useTheme();
   const { session } = useSession();
   const userId = session?.user.id;
+  const activeHousehold = useOptionalActiveHousehold();
+  const preferredMarket = usePreferredProductMarketName(
+    activeHousehold?.activeHouseholdId ?? undefined,
+  );
   const params = useLocalSearchParams<{ date: string; mealType: string }>();
 
   const [query, setQuery] = useState('');
@@ -126,7 +133,7 @@ export function FoodSearchScreen() {
     });
     if (!signal.aborted) {
       const merged = dedupeProductsByBarcode([...localResult.products, ...result.products]);
-      setResults(merged);
+      setResults(rankProductSearchResults(merged, trimmedQuery, preferredMarket));
       setHasMore(localResult.hasMore || result.hasMore);
       setSearchFailed(result.failed && merged.length === 0);
       setPage(1);
@@ -186,7 +193,13 @@ export function FoodSearchScreen() {
 
     if (queryRef.current === currentQuery) {
       const newItems = dedupeProductsByBarcode([...localResult.products, ...remoteResult.products]);
-      setResults((prev) => dedupeProductsByBarcode([...prev, ...newItems]));
+      setResults((prev) =>
+        rankProductSearchResults(
+          dedupeProductsByBarcode([...prev, ...newItems]),
+          currentQuery,
+          preferredMarket,
+        ),
+      );
       setHasMore(localResult.hasMore || remoteResult.hasMore);
       setPage(nextPage);
     }

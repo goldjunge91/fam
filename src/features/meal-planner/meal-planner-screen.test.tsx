@@ -43,6 +43,7 @@ jest.mock('@/features/auth/session-provider', () => ({
 
 jest.mock('@/features/household/active-household-provider', () => ({
   useActiveHousehold: () => ({ activeHouseholdId: 'hh-1' }),
+  useOptionalActiveHousehold: () => ({ activeHouseholdId: 'hh-1' }),
 }));
 
 jest.mock('@/features/household/api', () => ({

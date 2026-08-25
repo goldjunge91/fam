@@ -142,3 +142,11 @@ export function useActiveHousehold() {
   }
   return context;
 }
+
+/**
+ * Optionale Variante fuer wiederverwendbare UI-Bausteine, die auch isoliert
+ * getestet oder ausserhalb des Haushaltsflows gerendert werden koennen.
+ */
+export function useOptionalActiveHousehold() {
+  return useContext(ActiveHouseholdContext) ?? null;
+}

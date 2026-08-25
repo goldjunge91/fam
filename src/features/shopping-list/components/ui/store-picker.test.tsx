@@ -14,6 +14,7 @@ jest.mock('expo-glass-effect', () => ({
 
 jest.mock('@/features/household/active-household-provider', () => ({
   useActiveHousehold: () => ({ activeHouseholdId: 'hh-1' }),
+  useOptionalActiveHousehold: () => ({ activeHouseholdId: 'hh-1' }),
 }));
 
 jest.mock('@/features/shopping-list/hooks/use-stores', () => ({
