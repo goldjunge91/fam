@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>fam — Supermarkt Prospekte & Interaktive Artikel</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: "Plus Jakarta Sans", sans-serif; }
+    .hide-scrollbar::-webkit-scrollbar { display: none; }
+    .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    @keyframes pulseGlow {
+      0%, 100% { opacity: 0.6; transform: scale(1); }
+      50% { opacity: 0.95; transform: scale(1.02); }
+    }
+    .hotspot-box {
+      animation: pulseGlow 2.5s infinite ease-in-out;
+    }
+  </style>
+</head>
+<body class="bg-[#FAF8F5] text-[#2C2523] min-h-screen">
+
+  <!-- Header -->
+  <header class="bg-white border-b border-[#EFECE6] sticky top-0 z-30 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+      <div class="flex items-center space-x-3">
+        <div class="w-10 h-10 rounded-2xl bg-[#E85D42] flex items-center justify-center text-white font-black text-xl shadow-md shadow-[#E85D42]/30">
+          f
+        </div>
+        <div>
+          <h1 class="text-xl font-bold tracking-tight text-[#1F1A18]">fam Prospekte & Interaktive Artikel</h1>
+          <p class="text-xs text-[#8C827A]">Tippe auf Artikel im Prospekt für das Artikel-Modal & Einkaufsliste</p>
+        </div>
+      </div>
+
+      <!-- PLZ Input & Search -->
+      <form id="searchForm" class="flex items-center gap-2">
+        <div class="relative flex-1 sm:w-64">
+          <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-[#A89F97]">📍</span>
+          <input 
+            type="text" 
+            id="zipInput" 
+            value="22043" 
+            placeholder="PLZ eingeben" 
+            class="w-full pl-9 pr-4 py-2.5 bg-[#F5F2EB] border border-transparent focus:border-[#E85D42] focus:bg-white rounded-xl text-sm font-semibold text-[#2C2523] outline-none transition"
+          />
+        </div>
+        <button 
+          type="submit" 
+          class="px-5 py-2.5 bg-[#1F1A18] hover:bg-[#3D3532] text-white rounded-xl text-sm font-semibold transition active:scale-95 shadow-sm"
+        >
+          Laden
+        </button>
+      </form>
+    </div>
+
+    <!-- Quick PLZ Chips -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-2.5 flex items-center gap-2 overflow-x-auto hide-scrollbar border-t border-[#F5F2EB]">
+      <span class="text-xs font-semibold text-[#A89F97] whitespace-nowrap">Schnellauswahl:</span>
+      <button onclick="setZip('22043')" class="px-2.5 py-1 text-xs font-medium rounded-lg bg-[#EFECE6] hover:bg-[#E4DFC] text-[#5C524B] transition">Hamburg (22043)</button>
+      <button onclick="setZip('10115')" class="px-2.5 py-1 text-xs font-medium rounded-lg bg-[#EFECE6] hover:bg-[#E4DFC] text-[#5C524B] transition">Berlin (10115)</button>
+      <button onclick="setZip('80331')" class="px-2.5 py-1 text-xs font-medium rounded-lg bg-[#EFECE6] hover:bg-[#E4DFC] text-[#5C524B] transition">München (80331)</button>
+      <button onclick="setZip('50667')" class="px-2.5 py-1 text-xs font-medium rounded-lg bg-[#EFECE6] hover:bg-[#E4DFC] text-[#5C524B] transition">Köln (50667)</button>
+      <button onclick="setZip('60311')" class="px-2.5 py-1 text-xs font-medium rounded-lg bg-[#EFECE6] hover:bg-[#E4DFC] text-[#5C524B] transition">Frankfurt (60311)</button>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 py-8">
+
+    <!-- Shopping List Cart Floating Indicator -->
+    <div id="cartBar" class="mb-6 p-4 bg-white rounded-2xl border border-[#EFECE6] shadow-sm flex items-center justify-between">
+      <div class="flex items-center space-x-3">
+        <span class="text-2xl">🛒</span>
+        <div>
+          <h4 class="text-sm font-bold text-[#1F1A18]">Haushalts-Einkaufsliste</h4>
+          <p id="cartItemsText" class="text-xs text-[#8C827A]">0 Artikel hinzugefügt</p>
+        </div>
+      </div>
+      <div id="cartList" class="flex items-center gap-2 overflow-x-auto max-w-2xl hide-scrollbar">
+        <!-- Dynamische Artikel-Chips -->
+      </div>
+    </div>
+
+    <!-- Status & Filters -->
+    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+      <div id="statusText" class="text-sm font-semibold text-[#5C524B]">
+        Lade Prospekte...
+      </div>
+      <div id="filterContainer" class="flex items-center gap-2 overflow-x-auto hide-scrollbar">
+        <!-- Dynamische Filter-Chips -->
+      </div>
+    </div>
+
+    <!-- Grid -->
+    <div id="brochuresGrid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 sm:gap-6">
+      <!-- Dynamische Prospekt-Karten -->
+    </div>
+
+    <!-- Loading Skeleton -->
+    <div id="loadingIndicator" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 sm:gap-6">
+      <div class="bg-white rounded-2xl p-4 border border-[#EFECE6] animate-pulse space-y-3">
+        <div class="w-full h-48 bg-[#EFECE6] rounded-xl"></div>
+        <div class="h-4 bg-[#EFECE6] rounded w-3/4"></div>
+      </div>
+      <div class="bg-white rounded-2xl p-4 border border-[#EFECE6] animate-pulse space-y-3">
+        <div class="w-full h-48 bg-[#EFECE6] rounded-xl"></div>
+        <div class="h-4 bg-[#EFECE6] rounded w-3/4"></div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Fullscreen Interactive Brochure Modal Reader -->
+  <div id="readerModal" class="fixed inset-0 z-40 bg-black/90 backdrop-blur-md hidden flex-col">
+    <!-- Modal Header -->
+    <div class="bg-[#1A1817] text-white px-4 py-3 flex items-center justify-between border-b border-white/10">
+      <div class="flex items-center space-x-3">
+        <img id="modalLogo" class="w-7 h-7 rounded-lg object-contain bg-white p-0.5" src="" alt="Logo" />
+        <div>
+          <h3 id="modalTitle" class="text-sm font-bold truncate max-w-[200px] sm:max-w-md">Prospekt</h3>
+          <p id="modalValidity" class="text-[11px] text-white/60">Gültigkeit</p>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <!-- Hotspot Toggle -->
+        <button 
+          id="hotspotToggle"
+          onclick="toggleHotspots()" 
+          class="px-3 py-1 bg-[#E85D42] text-white text-xs font-semibold rounded-full flex items-center gap-1.5 shadow-sm active:scale-95 transition"
+        >
+          <span>🎯</span> <span id="hotspotToggleText">Artikel-Hotspots AN</span>
+        </button>
+
+        <span id="pageIndicator" class="text-xs font-semibold px-3 py-1 bg-white/10 rounded-full">Seite 1 / 1</span>
+        <button onclick="closeReader()" class="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition">
+          ✕
+        </button>
+      </div>
+    </div>
+
+    <!-- Reader Body / Interactive Image Display -->
+    <div class="flex-1 relative flex items-center justify-center p-2 sm:p-4 overflow-hidden select-none">
+      <!-- Previous Button -->
+      <button onclick="prevPage()" class="absolute left-4 z-20 w-12 h-12 rounded-full bg-black/70 hover:bg-black text-white flex items-center justify-center transition border border-white/20 active:scale-95 shadow-xl">
+        ◀
+      </button>
+
+      <!-- Page Container with Relative Coordinate Overlay -->
+      <div id="pageContainer" class="relative max-h-[calc(100vh-150px)] max-w-full items-center justify-center inline-block">
+        <img 
+          id="readerImage" 
+          class="max-h-[calc(100vh-150px)] max-w-full object-contain rounded-lg shadow-2xl transition duration-150 block" 
+          src="" 
+          alt="Prospektseite" 
+          onload="updateHotspotOverlay()"
+        />
+
+        <!-- Clickable Hotspot Overlay Layers -->
+        <div id="hotspotOverlay" class="absolute inset-0 pointer-events-auto">
+          <!-- Dynamische Klick-Rechtecke -->
+        </div>
+      </div>
+
+      <!-- Next Button -->
+      <button onclick="nextPage()" class="absolute right-4 z-20 w-12 h-12 rounded-full bg-black/70 hover:bg-black text-white flex items-center justify-center transition border border-white/20 active:scale-95 shadow-xl">
+        ▶
+      </button>
+    </div>
+
+    <!-- Thumbnails Strip -->
+    <div id="thumbStrip" class="h-16 bg-[#1A1817] border-t border-white/10 flex items-center gap-2 px-4 overflow-x-auto hide-scrollbar">
+      <!-- Thumbnails -->
+    </div>
+  </div>
+
+  <!-- EXACT PRODUCT BOTTOM-SHEET MODAL (As shown in Screenshot) -->
+  <div id="productModal" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm hidden items-end sm:items-center justify-center p-0 sm:p-4">
+    <div class="w-full sm:max-w-md bg-[#1C242B] text-white rounded-t-3xl sm:rounded-3xl p-6 shadow-2xl border border-white/10 relative transform transition-transform duration-200">
+      
+      <!-- Close Button -->
+      <button onclick="closeProductModal()" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white text-base transition">
+        ✕
+      </button>
+
+      <!-- Cropped Product Image from Brochure -->
+      <div class="w-full flex justify-center mb-5">
+        <div class="relative bg-[#151B20] p-2 rounded-2xl border border-white/10 shadow-inner flex items-center justify-center overflow-hidden">
+          <canvas id="productCanvas" class="rounded-xl max-h-56 max-w-full object-contain shadow-lg"></canvas>
+        </div>
+      </div>
+
+      <!-- Product Meta Card (Teal style from screenshot) -->
+      <div class="bg-[#5EA89B]/30 border border-[#5EA89B]/50 rounded-2xl p-4 mb-6 flex items-center justify-between">
+        <div class="flex items-center space-x-3">
+          <div class="w-10 h-10 rounded-xl bg-[#5EA89B]/40 flex items-center justify-center text-xl">
+            🥛
+          </div>
+          <div>
+            <h4 id="productSheetName" class="text-sm font-bold text-white leading-snug">Produktname</h4>
+            <p id="productSheetStore" class="text-xs text-[#5EA89B] font-semibold">Markt</p>
+          </div>
+        </div>
+        <span id="productSheetDiscount" class="px-2.5 py-1 bg-[#5EA89B] text-[#1C242B] text-xs font-black rounded-lg">
+          %
+        </span>
+      </div>
+
+      <!-- Actions Row: Stepper [- 1x +] & "Auf die Liste" Button -->
+      <div class="flex items-center gap-3">
+        <!-- Stepper -->
+        <div class="flex items-center bg-[#2B353E] rounded-2xl px-2 py-1.5 border border-white/10">
+          <button onclick="changeQty(-1)" class="w-8 h-8 rounded-xl bg-white/10 hover:bg-white/20 flex items-center justify-center text-lg font-bold transition">
+            –
+          </button>
+          <span id="qtyDisplay" class="w-12 text-center text-sm font-bold">1x</span>
+          <button onclick="changeQty(1)" class="w-8 h-8 rounded-xl bg-white/10 hover:bg-white/20 flex items-center justify-center text-lg font-bold transition">
+            +
+          </button>
+        </div>
+
+        <!-- Add Button -->
+        <button 
+          id="addToListBtn"
+          onclick="confirmAddToCart()" 
+          class="flex-1 py-3.5 bg-[#2E8B7A] hover:bg-[#257365] text-white font-bold rounded-2xl text-sm transition active:scale-95 shadow-lg shadow-[#2E8B7A]/30"
+        >
+          Auf die Liste
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div id="toast" class="fixed bottom-6 right-6 z-50 bg-[#1F1A18] text-white px-5 py-3 rounded-2xl shadow-2xl border border-white/10 transform translate-y-20 opacity-0 transition duration-300 flex items-center space-x-3">
+    <span class="text-xl">✅</span>
+    <div>
+      <p id="toastTitle" class="text-xs font-bold">Artikel hinzugefügt</p>
+      <p class="text-[10px] text-[#A89F97]">Auf deine fam Einkaufsliste gesetzt</p>
+    </div>
+  </div>
+
+  <script>
+    let allOffers = [];
+    let currentBrochure = null;
+    let currentPageIndex = 0;
+    let currentFilter = "all";
+    let showHotspots = true;
+    let cart = [];
+
+    let selectedDiscount = null;
+    let selectedQuantity = 1;
+
+    async function loadBrochures(zip) {
+      const statusText = document.getElementById("statusText");
+      const grid = document.getElementById("brochuresGrid");
+      const loading = document.getElementById("loadingIndicator");
+      
+      statusText.innerText = `Lade Prospekte für PLZ ${zip}...`;
+      grid.innerHTML = "";
+      loading.classList.remove("hidden");
+
+      try {
+        const res = await fetch(`/api/brochures?zip=${zip}`);
+        const data = await res.json();
+        allOffers = data.offers || [];
+        
+        loading.classList.add("hidden");
+        statusText.innerText = `${allOffers.length} Prospekte gefunden in der Nähe von ${zip}`;
+
+        renderFilters();
+        renderGrid();
+      } catch (err) {
+        loading.classList.add("hidden");
+        statusText.innerText = "Fehler beim Laden der Prospekte: " + err.message;
+      }
+    }
+
+    function renderFilters() {
+      const container = document.getElementById("filterContainer");
+      const companies = [...new Set(allOffers.map(o => o.company?.title).filter(Boolean))];
+      
+      let html = `<button onclick="filterBy('all')" class="px-3 py-1.5 text-xs font-semibold rounded-xl whitespace-nowrap transition ${currentFilter === 'all' ? 'bg-[#1F1A18] text-white' : 'bg-white text-[#5C524B] border border-[#EFECE6] hover:bg-[#F5F2EB]'}">Alle (${allOffers.length})</button>`;
+      
+      companies.forEach(c => {
+        const count = allOffers.filter(o => o.company?.title === c).length;
+        const active = currentFilter === c;
+        html += `<button onclick="filterBy('${c}')" class="px-3 py-1.5 text-xs font-semibold rounded-xl whitespace-nowrap transition ${active ? 'bg-[#1F1A18] text-white' : 'bg-white text-[#5C524B] border border-[#EFECE6] hover:bg-[#F5F2EB]'}">${c} (${count})</button>`;
+      });
+
+      container.innerHTML = html;
+    }
+
+    function filterBy(comp) {
+      currentFilter = comp;
+      renderFilters();
+      renderGrid();
+    }
+
+    function renderGrid() {
+      const grid = document.getElementById("brochuresGrid");
+      const filtered = currentFilter === "all" ? allOffers : allOffers.filter(o => o.company?.title === currentFilter);
+
+      if (filtered.length === 0) {
+        grid.innerHTML = `<div class="col-span-full py-12 text-center text-[#8C827A]">Keine Prospekte für diesen Filter gefunden.</div>`;
+        return;
+      }
+
+      grid.innerHTML = filtered.map(o => {
+        const coverUrl = o.pages?.[0]?.image?.imageUrl || "";
+        const companyName = o.company?.title || "Supermarkt";
+        const logoUrl = o.company?.logoUrl || "";
+        const from = o.activeFrom ? new Date(o.activeFrom).toLocaleDateString("de-DE", { day: "2-digit", month: "2-digit" }) : "";
+        const to = o.activeTo ? new Date(o.activeTo).toLocaleDateString("de-DE", { day: "2-digit", month: "2-digit" }) : "";
+        const validity = from && to ? `Gültig: ${from}. – ${to}.` : "";
+
+        return `
+          <div 
+            onclick="openBrochure('${o.brn}', '${companyName}', '${logoUrl}', '${validity}')"
+            class="group bg-white rounded-2xl p-3 border border-[#EFECE6] hover:border-[#E85D42]/40 hover:shadow-xl hover:shadow-[#E85D42]/5 transition cursor-pointer flex flex-col justify-between"
+          >
+            <!-- Cover Image -->
+            <div class="relative w-full aspect-[3/4] bg-[#F5F2EB] rounded-xl overflow-hidden mb-3">
+              <img 
+                src="${proxyUrl(coverUrl)}" 
+                alt="${companyName}" 
+                class="w-full h-full object-cover group-hover:scale-105 transition duration-300"
+                loading="lazy"
+              />
+              <span class="absolute bottom-2 right-2 px-2 py-0.5 bg-black/70 backdrop-blur-sm text-white text-[10px] font-bold rounded-md flex items-center gap-1">
+                <span>🎯</span> Klickbar
+              </span>
+            </div>
+
+            <!-- Meta -->
+            <div>
+              <div class="flex items-center gap-2 mb-1.5">
+                ${logoUrl ? `<img src="${logoUrl}" class="w-5 h-5 rounded object-contain" alt="" />` : ""}
+                <h4 class="text-xs font-bold text-[#1F1A18] truncate">${companyName}</h4>
+              </div>
+              <p class="text-xs font-medium text-[#5C524B] line-clamp-1 mb-1">${o.title || "Wochenangebote"}</p>
+              <p class="text-[11px] font-semibold text-[#E85D42]">${validity}</p>
+            </div>
+          </div>
+        `;
+      }).join("");
+    }
+
+    async function openBrochure(brn, companyName, logoUrl, validity) {
+      const modal = document.getElementById("readerModal");
+      const modalLogo = document.getElementById("modalLogo");
+      const modalTitle = document.getElementById("modalTitle");
+      const modalValidity = document.getElementById("modalValidity");
+      const readerImage = document.getElementById("readerImage");
+      const pageIndicator = document.getElementById("pageIndicator");
+      const overlay = document.getElementById("hotspotOverlay");
+
+      modalLogo.src = logoUrl;
+      modalTitle.innerText = companyName;
+      modalValidity.innerText = validity;
+      modal.classList.remove("hidden");
+      readerImage.src = "";
+      overlay.innerHTML = "";
+      pageIndicator.innerText = "Lade Seiten...";
+
+      const zip = document.getElementById("zipInput").value || "22043";
+
+      try {
+        const res = await fetch(`/api/brochure-detail?brn=${encodeURIComponent(brn)}&zip=${zip}`);
+        const data = await res.json();
+        currentBrochure = data;
+        currentPageIndex = 0;
+        renderReaderPage();
+        renderThumbnails();
+      } catch (err) {
+        alert("Konnte Prospekt-Details nicht laden: " + err.message);
+        closeReader();
+      }
+    }
+
+    function proxyUrl(rawUrl) {
+      if (!rawUrl) return "";
+      return `/api/image-proxy?url=${encodeURIComponent(rawUrl)}`;
+    }
+
+    function renderReaderPage() {
+      if (!currentBrochure || !currentBrochure.pages) return;
+      const page = currentBrochure.pages[currentPageIndex];
+      const readerImage = document.getElementById("readerImage");
+      const pageIndicator = document.getElementById("pageIndicator");
+
+      readerImage.src = proxyUrl(page.image?.imageUrl || "");
+      pageIndicator.innerText = `Seite ${currentPageIndex + 1} / ${currentBrochure.pages.length}`;
+
+      const thumbs = document.querySelectorAll(".thumb-btn");
+      thumbs.forEach((t, idx) => {
+        if (idx === currentPageIndex) {
+          t.classList.add("border-[#E85D42]", "scale-105");
+        } else {
+          t.classList.remove("border-[#E85D42]", "scale-105");
+        }
+      });
+    }
+
+    function updateHotspotOverlay() {
+      const overlay = document.getElementById("hotspotOverlay");
+      overlay.innerHTML = "";
+      if (!currentBrochure || !currentBrochure.pages || !showHotspots) return;
+
+      const page = currentBrochure.pages[currentPageIndex];
+      const discounts = page.discounts || [];
+      const linkouts = page.linkouts || [];
+
+      // Render Discounts als klickbare Hotspot-Rechtecke
+      discounts.forEach(d => {
+        const coords = d.coordinates;
+        if (!coords) return;
+
+        const top = coords.top * 100;
+        const left = coords.left * 100;
+        const width = coords.width * 100;
+        const height = coords.height * 100;
+
+        const el = document.createElement("div");
+        el.className = "hotspot-box absolute cursor-pointer rounded-xl border-2 border-[#E85D42] bg-[#E85D42]/15 hover:bg-[#E85D42]/35 hover:border-white transition flex items-start justify-end p-1.5 z-10";
+        el.style.top = top + "%";
+        el.style.left = left + "%";
+        el.style.width = width + "%";
+        el.style.height = height + "%";
+
+        el.innerHTML = `
+          <span class="px-2 py-0.5 bg-[#E85D42] text-white text-[11px] font-extrabold rounded-md shadow-md">
+            ${d.discount || "+"}
+          </span>
+        `;
+
+        // Beim Klick: Öffne das genaue Artikel-Modal mit Bildausschnitt!
+        el.onclick = (e) => {
+          e.stopPropagation();
+          openProductModal(d);
+        };
+        overlay.appendChild(el);
+      });
+
+      if (discounts.length === 0) {
+        linkouts.forEach(l => {
+          const el = document.createElement("a");
+          el.href = l.linkoutUrl;
+          el.target = "_blank";
+          el.className = "hotspot-box absolute cursor-pointer rounded-xl border-2 border-blue-500 bg-blue-500/15 hover:bg-blue-500/30 transition flex items-start justify-end p-1";
+          el.style.top = (l.top * 100) + "%";
+          el.style.left = (l.left * 100) + "%";
+          el.style.width = (l.width * 100) + "%";
+          el.style.height = (l.height * 100) + "%";
+          el.innerHTML = `<span class="px-1.5 py-0.5 bg-blue-600 text-white text-[9px] font-bold rounded">🔗 Link</span>`;
+          overlay.appendChild(el);
+        });
+      }
+    }
+
+    // Genaues Produkt-Modal (Cropped Image + Stepper + Auf die Liste)
+    function openProductModal(discount) {
+      selectedDiscount = discount;
+      selectedQuantity = 1;
+      document.getElementById("qtyDisplay").innerText = "1x";
+
+      const modal = document.getElementById("productModal");
+      document.getElementById("productSheetName").innerText = discount.name;
+      document.getElementById("productSheetStore").innerText = currentBrochure?.company?.title || "Supermarkt";
+      document.getElementById("productSheetDiscount").innerText = discount.discount || "%";
+
+      // Canvas Crop des Artikels aus dem hochauflösenden Prospektbild
+      const canvas = document.getElementById("productCanvas");
+      const ctx = canvas.getContext("2d");
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      const coords = discount.coordinates;
+      const page = currentBrochure?.pages?.[currentPageIndex];
+      if (coords && page?.image?.imageUrl) {
+        const img = new Image();
+        img.crossOrigin = "anonymous";
+        img.onload = () => {
+          const sx = coords.left * img.naturalWidth;
+          const sy = coords.top * img.naturalHeight;
+          const sw = coords.width * img.naturalWidth;
+          const sh = coords.height * img.naturalHeight;
+
+          const targetWidth = Math.min(sw, 600);
+          const targetHeight = Math.min(sh, 600 * (sh / sw));
+          canvas.width = targetWidth;
+          canvas.height = targetHeight;
+          ctx.drawImage(img, sx, sy, sw, sh, 0, 0, targetWidth, targetHeight);
+        };
+        img.src = proxyUrl(page.image.imageUrl);
+      }
+
+      modal.classList.remove("hidden");
+    }
+
+    function closeProductModal() {
+      document.getElementById("productModal").classList.add("hidden");
+      selectedDiscount = null;
+    }
+
+    function changeQty(delta) {
+      selectedQuantity = Math.max(1, selectedQuantity + delta);
+      document.getElementById("qtyDisplay").innerText = selectedQuantity + "x";
+    }
+
+    function confirmAddToCart() {
+      if (!selectedDiscount) return;
+      const store = currentBrochure?.company?.title || "Supermarkt";
+      const itemLabel = `${selectedQuantity}x ${selectedDiscount.name} (${store})`;
+      cart.push(itemLabel);
+      renderCart();
+      showToast(itemLabel);
+      closeProductModal();
+    }
+
+    function toggleHotspots() {
+      showHotspots = !showHotspots;
+      document.getElementById("hotspotToggleText").innerText = showHotspots ? "Artikel-Hotspots AN" : "Artikel-Hotspots AUS";
+      document.getElementById("hotspotToggle").className = showHotspots 
+        ? "px-3 py-1 bg-[#E85D42] text-white text-xs font-semibold rounded-full flex items-center gap-1.5 shadow-sm active:scale-95 transition"
+        : "px-3 py-1 bg-white/20 text-white/70 text-xs font-semibold rounded-full flex items-center gap-1.5 shadow-sm active:scale-95 transition";
+      updateHotspotOverlay();
+    }
+
+    function renderCart() {
+      const cartText = document.getElementById("cartItemsText");
+      const cartList = document.getElementById("cartList");
+      cartText.innerText = `${cart.length} Artikel auf der Liste`;
+
+      cartList.innerHTML = cart.map((item, idx) => `
+        <span class="inline-flex items-center gap-1.5 px-3 py-1 bg-[#F5F2EB] text-[#1F1A18] rounded-xl text-xs font-semibold whitespace-nowrap border border-[#EFECE6]">
+          <span>${item}</span>
+          <button onclick="removeFromCart(${idx})" class="text-[#8C827A] hover:text-red-500 font-bold ml-1">✕</button>
+        </span>
+      `).join("");
+    }
+
+    function removeFromCart(idx) {
+      cart.splice(idx, 1);
+      renderCart();
+    }
+
+    function showToast(title) {
+      const toast = document.getElementById("toast");
+      document.getElementById("toastTitle").innerText = `"${title}" hinzugefügt`;
+      toast.classList.remove("translate-y-20", "opacity-0");
+      setTimeout(() => {
+        toast.classList.add("translate-y-20", "opacity-0");
+      }, 2500);
+    }
+
+    function renderThumbnails() {
+      const strip = document.getElementById("thumbStrip");
+      if (!currentBrochure || !currentBrochure.pages) return;
+
+      strip.innerHTML = currentBrochure.pages.map((p, idx) => `
+        <button 
+          onclick="goToPage(${idx})" 
+          class="thumb-btn flex-shrink-0 h-12 w-9 rounded border-2 border-transparent overflow-hidden transition"
+        >
+          <img src="${proxyUrl(p.image?.imageUrl)}" class="w-full h-full object-cover" alt="" />
+        </button>
+      `).join("");
+    }
+
+    function goToPage(idx) {
+      if (idx >= 0 && idx < currentBrochure.pages.length) {
+        currentPageIndex = idx;
+        renderReaderPage();
+      }
+    }
+
+    function nextPage() {
+      if (currentBrochure && currentPageIndex < currentBrochure.pages.length - 1) {
+        currentPageIndex++;
+        renderReaderPage();
+      }
+    }
+
+    function prevPage() {
+      if (currentBrochure && currentPageIndex > 0) {
+        currentPageIndex--;
+        renderReaderPage();
+      }
+    }
+
+    function closeReader() {
+      document.getElementById("readerModal").classList.add("hidden");
+      currentBrochure = null;
+    }
+
+    function setZip(zip) {
+      document.getElementById("zipInput").value = zip;
+      loadBrochures(zip);
+    }
+
+    document.getElementById("searchForm").addEventListener("submit", (e) => {
+      e.preventDefault();
+      const zip = document.getElementById("zipInput").value.trim();
+      if (zip) loadBrochures(zip);
+    });
+
+    window.addEventListener("keydown", (e) => {
+      if (document.getElementById("productModal") && !document.getElementById("productModal").classList.contains("hidden")) {
+        if (e.key === "Escape") closeProductModal();
+        return;
+      }
+      if (document.getElementById("readerModal").classList.contains("hidden")) return;
+      if (e.key === "ArrowRight" || e.key === " ") nextPage();
+      if (e.key === "ArrowLeft") prevPage();
+      if (e.key === "Escape") closeReader();
+    });
+
+    loadBrochures("22043");
+  </script>
+</body>
+</html>
