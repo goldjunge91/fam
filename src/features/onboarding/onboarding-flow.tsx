@@ -1,4 +1,5 @@
 import { useQueryClient } from '@tanstack/react-query';
+import { useEffect } from 'react';
 import { Pressable, Text, View } from 'react-native';
 import { Screen } from '@/components/layout/screen';
 import { BackButton } from '@/components/ui/buttons';
@@ -6,7 +7,7 @@ import { ProgressBar } from '@/components/ui/progress-bar';
 import { useSession } from '@/features/auth/session-provider';
 import { signOutAndClearLocalData } from '@/features/auth/sign-out';
 import { useTheme } from '@/hooks/use-theme';
-import { trackAptabaseEvent } from '@/lib/analytics/aptabase';
+import { trackAnalyticsEvent } from '@/lib/analytics';
 import { AccountStepForm } from './components/account-step';
 import { CompleteStepForm } from './components/complete-step';
 import { HouseholdStepForm } from './components/household-step';
@@ -18,12 +19,27 @@ import { OnboardingProvider, useOnboarding } from './context/onboarding-context'
 
 const TOTAL_STEPS = 7;
 
+const STEP_NAMES: Record<number, string> = {
+  1: 'welcome',
+  2: 'account',
+  3: 'profile',
+  4: 'household',
+  5: 'modules',
+  6: 'permissions',
+  7: 'complete',
+};
+
 function OnboardingContent() {
   const theme = useTheme();
   const { session } = useSession();
   const queryClient = useQueryClient();
   const { state, setStep, nextStep, prevStep } = useOnboarding();
   const currentStep = state.currentStep;
+
+  useEffect(() => {
+    const stepName = STEP_NAMES[currentStep] ?? `step_${currentStep}`;
+    trackAnalyticsEvent('onboarding_step_viewed', { step: stepName });
+  }, [currentStep]);
 
   // Notausstieg (#128): Ein Nutzer, dessen Account in einem kaputten Zustand
   // steckt (z. B. E-Mail nie bestaetigt, fehlendes Profil), kam bisher ab
@@ -64,11 +80,12 @@ function OnboardingContent() {
       {currentStep === 1 && (
         <WelcomeCarousel
           onStart={() => {
-            trackAptabaseEvent('onboarding_started');
+            trackAnalyticsEvent('onboarding_started');
             setStep(2);
           }}
         />
       )}
+
       {/* Schritt 2: Account anlegen / Anmelden */}
       {currentStep === 2 && <AccountStepForm onNext={() => setStep(3)} />}
       {/* Schritt 3: Persönliches Profil (Körperdaten, Aktivitätslevel, Ziele) */}

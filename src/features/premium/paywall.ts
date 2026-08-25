@@ -1,7 +1,7 @@
 import { Platform } from 'react-native';
 import RevenueCatUI, { PAYWALL_RESULT } from 'react-native-purchases-ui';
 
-import { trackAptabaseEvent } from '@/lib/analytics/aptabase';
+import { trackAnalyticsEvent } from '@/lib/analytics';
 import { isPurchasesConfigured, PREMIUM_ENTITLEMENT_ID } from '@/lib/purchases';
 
 /**
@@ -28,16 +28,19 @@ export type PaywallOutcome = 'purchased' | 'restored' | 'cancelled' | 'unavailab
 export async function presentPaywall(): Promise<PaywallOutcome> {
   if (!isPaywallUiAvailable() || !isPurchasesConfigured()) return 'unavailable';
 
-  trackAptabaseEvent('paywall_viewed');
+  trackAnalyticsEvent('paywall_viewed', { source: 'revenuecat_ui' });
   const result = await RevenueCatUI.presentPaywall({ displayCloseButton: true });
 
   switch (result) {
     case PAYWALL_RESULT.PURCHASED:
-      trackAptabaseEvent('purchase_completed');
+      trackAnalyticsEvent('purchase_completed');
       return 'purchased';
     case PAYWALL_RESULT.RESTORED:
-      trackAptabaseEvent('purchase_restored');
+      trackAnalyticsEvent('purchase_restored');
       return 'restored';
+    case PAYWALL_RESULT.CANCELLED:
+      trackAnalyticsEvent('purchase_cancelled');
+      return 'cancelled';
     default:
       return 'cancelled';
   }
@@ -58,11 +61,14 @@ export async function presentPaywallIfNeeded(): Promise<PaywallOutcome> {
 
   switch (result) {
     case PAYWALL_RESULT.PURCHASED:
-      trackAptabaseEvent('purchase_completed');
+      trackAnalyticsEvent('purchase_completed');
       return 'purchased';
     case PAYWALL_RESULT.RESTORED:
-      trackAptabaseEvent('purchase_restored');
+      trackAnalyticsEvent('purchase_restored');
       return 'restored';
+    case PAYWALL_RESULT.CANCELLED:
+      trackAnalyticsEvent('purchase_cancelled');
+      return 'cancelled';
     case PAYWALL_RESULT.NOT_PRESENTED:
       // Entitlement war schon aktiv - keine Paywall noetig, aus Aufrufersicht
       // aber trotzdem ein Erfolg (Zugriff besteht).

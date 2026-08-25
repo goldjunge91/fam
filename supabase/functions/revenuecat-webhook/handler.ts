@@ -9,12 +9,18 @@ const ACTIVATION_EVENT_TYPES = new Set([
 
 const RELEVANT_EVENT_TYPES = new Set([...ACTIVATION_EVENT_TYPES, 'EXPIRATION']);
 
-type RevenueCatEvent = {
+export type SubscriberAttribute = {
+  value: string;
+  updated_at_ms?: number;
+};
+
+export type RevenueCatEvent = {
   id: string;
   type: string;
   app_user_id: string;
   entitlement_ids?: string[] | null;
   expiration_at_ms?: number | null;
+  subscriber_attributes?: Record<string, SubscriberAttribute> | null;
 };
 
 export type HouseholdPremiumUpdate = {
@@ -31,8 +37,9 @@ type UpdateResult = {
 type Dependencies = {
   expectedSecret: string | undefined;
   updateHousehold: (
-    householdId: string,
+    appUserId: string,
     update: HouseholdPremiumUpdate,
+    subscriberAttributes?: Record<string, SubscriberAttribute> | null,
   ) => Promise<UpdateResult>;
   now?: () => Date;
 };
@@ -59,7 +66,9 @@ function isRevenueCatEvent(value: unknown): value is RevenueCatEvent {
         event.entitlement_ids.every((entitlement) => typeof entitlement === 'string'))) &&
     (event.expiration_at_ms === undefined ||
       event.expiration_at_ms === null ||
-      (typeof event.expiration_at_ms === 'number' && Number.isFinite(event.expiration_at_ms)))
+      (typeof event.expiration_at_ms === 'number' && Number.isFinite(event.expiration_at_ms))) &&
+    (event.subscriber_attributes == null ||
+      (typeof event.subscriber_attributes === 'object' && !Array.isArray(event.subscriber_attributes)))
   );
 }
 
@@ -113,13 +122,17 @@ export function createRevenueCatWebhookHandler({
       return json({ ignored: 'unrelated_entitlement' });
     }
 
-    const result = await updateHousehold(event.app_user_id, {
-      premium_active: ACTIVATION_EVENT_TYPES.has(event.type),
-      premium_expires_at: event.expiration_at_ms
-        ? new Date(event.expiration_at_ms).toISOString()
-        : null,
-      premium_updated_at: now().toISOString(),
-    });
+    const result = await updateHousehold(
+      event.app_user_id,
+      {
+        premium_active: ACTIVATION_EVENT_TYPES.has(event.type),
+        premium_expires_at: event.expiration_at_ms
+          ? new Date(event.expiration_at_ms).toISOString()
+          : null,
+        premium_updated_at: now().toISOString(),
+      },
+      event.subscriber_attributes,
+    );
 
     if (result.error) {
       return json({ error: 'update_failed', message: result.error.message }, 500);

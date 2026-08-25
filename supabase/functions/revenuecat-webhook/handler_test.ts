@@ -3,16 +3,19 @@ import { assertEquals } from 'jsr:@std/assert@1';
 import {
   createRevenueCatWebhookHandler,
   type HouseholdPremiumUpdate,
+  type SubscriberAttribute,
 } from './handler.ts';
 
 const SECRET = 'test-webhook-secret';
+const USER_ID = 'user-uuid-12345';
 const HOUSEHOLD_ID = '5e1cf93a-bc56-4a29-848a-f6b0a628f127';
 const NOW = new Date('2026-08-16T08:00:00.000Z');
 const EXPIRATION = 1_776_326_400_000;
 
 type CapturedUpdate = {
-  householdId: string;
+  appUserId: string;
   update: HouseholdPremiumUpdate;
+  subscriberAttributes?: Record<string, SubscriberAttribute> | null;
 };
 
 function request(event: Record<string, unknown>, authorization = SECRET) {
@@ -23,13 +26,18 @@ function request(event: Record<string, unknown>, authorization = SECRET) {
   });
 }
 
-function event(type: string, entitlementIds = ['Premium']) {
+function event(
+  type: string,
+  entitlementIds = ['Premium'],
+  subscriberAttributes: Record<string, SubscriberAttribute> | null = null,
+) {
   return {
     id: `event-${type}`,
     type,
-    app_user_id: HOUSEHOLD_ID,
+    app_user_id: USER_ID,
     entitlement_ids: entitlementIds,
     expiration_at_ms: EXPIRATION,
+    subscriber_attributes: subscriberAttributes,
   };
 }
 
@@ -38,8 +46,8 @@ function setup(count = 1) {
   const handler = createRevenueCatWebhookHandler({
     expectedSecret: SECRET,
     now: () => NOW,
-    updateHousehold: (householdId, update) => {
-      updates.push({ householdId, update });
+    updateHousehold: (appUserId, update, subscriberAttributes) => {
+      updates.push({ appUserId, update, subscriberAttributes });
       return Promise.resolve({ error: null, count });
     },
   });
@@ -59,20 +67,31 @@ Deno.test('rejects a missing or incorrect webhook secret', async () => {
 });
 
 for (const type of ['INITIAL_PURCHASE', 'RENEWAL', 'UNCANCELLATION', 'PRODUCT_CHANGE']) {
-  Deno.test(`${type} activates household premium`, async () => {
+  Deno.test(`${type} activates household premium with user id and attributes`, async () => {
     const { handler, updates } = setup();
 
-    const response = await handler(request(event(type)));
+    const response = await handler(
+      request(
+        event(type, ['Premium'], {
+          household_id: { value: HOUSEHOLD_ID },
+          $posthogUserId: { value: USER_ID },
+        }),
+      ),
+    );
 
     assertEquals(response.status, 200);
     assertEquals(await response.json(), { updated: 1 });
     assertEquals(updates, [
       {
-        householdId: HOUSEHOLD_ID,
+        appUserId: USER_ID,
         update: {
           premium_active: true,
           premium_expires_at: new Date(EXPIRATION).toISOString(),
           premium_updated_at: NOW.toISOString(),
+        },
+        subscriberAttributes: {
+          household_id: { value: HOUSEHOLD_ID },
+          $posthogUserId: { value: USER_ID },
         },
       },
     ]);
@@ -107,7 +126,7 @@ Deno.test('ignores unrelated event types even without entitlement data', async (
     request({
       id: 'event-test',
       type: 'TEST',
-      app_user_id: HOUSEHOLD_ID,
+      app_user_id: USER_ID,
       entitlement_ids: null,
     }),
   );
@@ -140,7 +159,7 @@ Deno.test('rejects malformed events before touching the database', async () => {
   const { handler, updates } = setup();
 
   const response = await handler(
-    request({ type: 'INITIAL_PURCHASE', app_user_id: HOUSEHOLD_ID, entitlement_ids: ['Premium'] }),
+    request({ type: 'INITIAL_PURCHASE', app_user_id: USER_ID, entitlement_ids: ['Premium'] }),
   );
 
   assertEquals(response.status, 400);

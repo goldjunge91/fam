@@ -7,6 +7,7 @@ import { ThemedText } from '@/components/theme/themed-text';
 import { Button } from '@/components/ui/buttons';
 import { SettingsGroup, SettingsRow } from '@/features/settings/settings-menu';
 import { useTheme } from '@/hooks/use-theme';
+import { trackAnalyticsEvent } from '@/lib/analytics';
 import { PaywallPlanCard } from './paywall-plan-card';
 import { usePaywall } from './use-paywall';
 
@@ -49,6 +50,7 @@ export function PaywallSheet({ isOpen, onClose, onPurchased }: PaywallSheetProps
 
   useEffect(() => {
     if (isOpen) {
+      trackAnalyticsEvent('paywall_viewed', { source: 'paywall_sheet' });
       sheetRef.current?.expand();
     } else {
       sheetRef.current?.close();

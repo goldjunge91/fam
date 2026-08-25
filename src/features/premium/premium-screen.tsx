@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Alert, ScrollView, View } from 'react-native';
 
 import { GradientBackground } from '@/components/layout/gradient-background';
@@ -10,6 +10,7 @@ import { PaywallPlanCard } from '@/features/premium/paywall-plan-card';
 import { usePremium } from '@/features/premium/premium-provider';
 import { usePaywall } from '@/features/premium/use-paywall';
 import { SettingsGroup, SettingsRow } from '@/features/settings/settings-menu';
+import { trackAnalyticsEvent } from '@/lib/analytics';
 
 const BENEFITS: { icon: string; title: string; hint: string }[] = [
   { icon: '👨‍🍳', title: 'Geführter Kochmodus', hint: 'Schritte, automatische Timer und Medien' },
@@ -44,6 +45,10 @@ export function PremiumScreen() {
     isRestoring,
   } = usePaywall();
   const [managing, setManaging] = useState(false);
+
+  useEffect(() => {
+    trackAnalyticsEvent('paywall_viewed', { source: 'premium_screen' });
+  }, []);
 
   async function handleBuy() {
     const outcome = await buySelectedPlan();

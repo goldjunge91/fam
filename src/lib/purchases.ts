@@ -1,3 +1,7 @@
+import {
+  ENTITLEMENT_VERIFICATION_MODE,
+  VERIFICATION_RESULT,
+} from '@revenuecat/purchases-typescript-internal';
 import { Platform } from 'react-native';
 import Purchases, {
   type CustomerInfo,
@@ -8,6 +12,8 @@ import Purchases, {
 } from 'react-native-purchases';
 
 import { env } from '@/lib/env';
+
+export { ENTITLEMENT_VERIFICATION_MODE, VERIFICATION_RESULT };
 
 /**
  * Entitlement-Identifier aus dem RevenueCat-Dashboard (Entitlements-Tab).
@@ -75,7 +81,10 @@ export function initPurchases(): void {
     });
   }
 
-  Purchases.configure({ apiKey });
+  Purchases.configure({
+    apiKey,
+    entitlementVerificationMode: ENTITLEMENT_VERIFICATION_MODE.INFORMATIONAL,
+  });
   configured = true;
 }
 
@@ -84,9 +93,26 @@ export function isPurchasesConfigured(): boolean {
   return configured;
 }
 
+/**
+ * Prueft den Verifikationsstatus der Entitlements aus `CustomerInfo`.
+ * Warnt bei Signaturfehlern (z.B. manipulierte Antworten oder MITM-Proxies).
+ */
+export function checkEntitlementVerification(customerInfo: CustomerInfo | null): boolean {
+  if (!customerInfo) return true;
+
+  if (customerInfo.entitlements.verification === VERIFICATION_RESULT.FAILED) {
+    console.warn(
+      '[Purchases] Entitlement-Verifikation fehlgeschlagen: Die Server-Antwort konnte nicht kryptografisch verifiziert werden.',
+    );
+    return false;
+  }
+  return true;
+}
+
 /** Prueft, ob das Premium-Entitlement in den gegebenen `CustomerInfo` aktiv ist. */
 export function hasPremiumEntitlement(customerInfo: CustomerInfo | null): boolean {
   if (!customerInfo) return false;
+  checkEntitlementVerification(customerInfo);
   return customerInfo.entitlements.active[PREMIUM_ENTITLEMENT_ID] !== undefined;
 }
 
@@ -146,5 +172,71 @@ export async function restorePurchases(): Promise<
     return { ok: true, customerInfo };
   } catch (error) {
     return { ok: false, error };
+  }
+}
+
+/**
+ * Synchronisiert die RevenueCat-Identitaet mit der Supabase-User-ID.
+ * Bindet getaetigte Kaeufe an das Nutzerkonto.
+ */
+export async function syncPurchasesIdentity(
+  userId: string,
+  attributes?: Record<string, string | null>,
+): Promise<CustomerInfo | null> {
+  if (!isPurchasesConfigured()) return null;
+
+  try {
+    const { customerInfo } = await Purchases.logIn(userId);
+    if (attributes) {
+      await Purchases.setAttributes(attributes);
+    }
+    return customerInfo;
+  } catch (err) {
+    console.warn('[Purchases] syncPurchasesIdentity fehlgeschlagen:', err);
+    return null;
+  }
+}
+
+/**
+ * Setzt benutzerdefinierte Subscriber Attributes fuer den aktuellen Nutzer.
+ */
+export async function setPurchasesAttributes(
+  attributes: Record<string, string | null>,
+): Promise<void> {
+  if (!isPurchasesConfigured()) return;
+
+  try {
+    await Purchases.setAttributes(attributes);
+  } catch (err) {
+    console.warn('[Purchases] setPurchasesAttributes fehlgeschlagen:', err);
+  }
+}
+
+/**
+ * Setzt die E-Mail-Adresse des Nutzers in RevenueCat.
+ */
+export async function setPurchasesEmail(email: string | null): Promise<void> {
+  if (!isPurchasesConfigured() || !email) return;
+
+  try {
+    await Purchases.setEmail(email);
+  } catch (err) {
+    console.warn('[Purchases] setPurchasesEmail fehlgeschlagen:', err);
+  }
+}
+
+/**
+ * Loggt den aktuellen RevenueCat-Nutzer aus, sofern er nicht bereits anonym ist.
+ */
+export async function resetPurchasesIdentity(): Promise<CustomerInfo | null> {
+  if (!isPurchasesConfigured()) return null;
+
+  try {
+    const isAnon = await Purchases.isAnonymous();
+    if (isAnon) return null;
+    return await Purchases.logOut();
+  } catch (err) {
+    console.warn('[Purchases] resetPurchasesIdentity fehlgeschlagen:', err);
+    return null;
   }
 }
