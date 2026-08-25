@@ -18,6 +18,7 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import { AnimatedSplashOverlay } from '@/components/icons/animated-icon';
 import { SnackbarProvider } from '@/components/ui/snackbar';
+import { initMobileAds } from '@/features/ads';
 import { PostHogIdentitySync } from '@/features/auth/posthog-identity-sync';
 import { SessionProvider, useSession } from '@/features/auth/session-provider';
 import { PremiumProvider } from '@/features/premium/premium-provider';
@@ -44,6 +45,7 @@ defineBackgroundSyncTask();
 initSentry();
 initPostHog();
 initAptabase();
+initMobileAds();
 
 // Muss vor dem ersten Screen-Mount laufen — configure() nach dem Mount wirft.
 // Aktiviert automatische cold_ttr/warm_ttr pro Route (Expo Router Integration).

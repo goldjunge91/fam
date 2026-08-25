@@ -9,6 +9,11 @@ type ItemModalShellProps = {
   visible: boolean;
   onDismiss: () => void;
   /**
+   * Wird auf iOS aufgerufen, sobald die Schließ-Animation des Modals vollständig
+   * beendet ist (natives `onDismiss` auf React Native's `<Modal>`).
+   */
+  onDismissFinished?: () => void;
+  /**
    * Komplette Kopfzeile inkl. `modal-header`-Klasse, Titel und
    * Schließen-Aktion — bleibt Sache des Aufrufers, da sich Layout und
    * Schließen-Control zwischen den Sheets bereits unterscheiden.
@@ -52,6 +57,7 @@ type ItemModalShellProps = {
 export function ItemModalShell({
   visible,
   onDismiss,
+  onDismissFinished,
   header,
   onHeaderPress,
   showHandle = false,
@@ -100,7 +106,8 @@ export function ItemModalShell({
       visible={visible}
       animationType="slide"
       presentationStyle={process.env.EXPO_OS === 'ios' ? 'pageSheet' : undefined}
-      onRequestClose={onDismiss}>
+      onRequestClose={onDismiss}
+      onDismiss={onDismissFinished}>
       {content}
       <KeyboardToolbar />
     </Modal>

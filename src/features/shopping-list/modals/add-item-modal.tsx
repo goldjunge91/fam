@@ -14,6 +14,8 @@ interface AddItemModalProps {
   householdId: string;
   initialStoreId?: string | null;
   onDismiss: () => void;
+  onItemAdded?: () => void;
+  onDismissFinished?: () => void;
 }
 
 /** Eigene Seite statt Inline-Formular ueber der Einkaufsliste. */
@@ -22,6 +24,8 @@ export function AddItemModal({
   householdId,
   initialStoreId = null,
   onDismiss,
+  onItemAdded,
+  onDismissFinished,
 }: AddItemModalProps) {
   const theme = useTheme();
   const formRef = useRef<AddItemFormHandle>(null);
@@ -30,6 +34,7 @@ export function AddItemModal({
     <ItemModalShell
       visible={visible}
       onDismiss={onDismiss}
+      onDismissFinished={onDismissFinished}
       rootClassName="flex-1 bg-background"
       scrollContentClassName="pb-four"
       contentInsetAdjustmentBehavior="automatic"
@@ -57,6 +62,7 @@ export function AddItemModal({
           householdId={householdId}
           initialStoreId={initialStoreId}
           onDismiss={onDismiss}
+          onItemAdded={onItemAdded}
         />
       ) : null}
     </ItemModalShell>

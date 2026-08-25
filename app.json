@@ -8,7 +8,6 @@
     "scheme": "fam",
     "userInterfaceStyle": "automatic",
     "ios": {
-      "jsEngine": "hermes",
       "appleTeamId": "SW8RP7PA3W",
       "icon": "./assets/expo.icon",
       "bundleIdentifier": "com.goldjunge91.fam1",
@@ -88,7 +87,15 @@
         }
       ],
       "@sentry/react-native",
-      "expo-localization"
+      "expo-localization",
+      [
+        "react-native-google-mobile-ads",
+        {
+          "androidAppId": "ca-app-pub-3940256099942544~3347511713",
+          "iosAppId": "ca-app-pub-3823642106417448~8036856356",
+          "userTrackingUsageDescription": "Diese Kennung wird verwendet, um dir personalisierte Werbung bereitzustellen."
+        }
+      ]
     ],
     "experiments": {
       "typedRoutes": true,

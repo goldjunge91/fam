@@ -26,7 +26,7 @@ module.exports = {
   // Muster bricht jeden Test, der (auch nur transitiv, z. B. ueber
   // `lib/sentry.ts`) `@sentry/react-native` importiert.
   transformIgnorePatterns: [
-    'node_modules/(?!(.bun|(jest-)?react-native|@react-native(-community)?|expo(nent)?|@expo(nent)?/.*|@expo-google-fonts/.*|react-navigation|@react-navigation/.*|@sentry/.*|native-base|react-native-svg|react-native-purchases-ui|@revenuecat/.*|standard-navigation|@aptabase/.*))',
+    'node_modules/(?!(.bun|(jest-)?react-native|@react-native(-community)?|expo(nent)?|@expo(nent)?/.*|@expo-google-fonts/.*|react-navigation|@react-navigation/.*|@sentry/.*|native-base|react-native-svg|react-native-purchases-ui|@revenuecat/.*|standard-navigation|@aptabase/.*|react-native-google-mobile-ads))',
   ],
 
   // Default (5000ms) ist zu knapp fuer Tests mit echten Timern/Intervallen
@@ -48,6 +48,7 @@ module.exports = {
     // nicht).
     '^react-native-keyboard-controller$':
       '<rootDir>/node_modules/react-native-keyboard-controller/jest',
+    '^react-native-google-mobile-ads$': '<rootDir>/test/admob-mock.js',
   },
 
   testMatch: ['**/*.test.ts', '**/*.test.tsx'],

@@ -4,6 +4,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { PlusIcon } from '@/components/icons/fam-icon';
 import { FloatingActionButton } from '@/components/ui/buttons';
 import { SyncBannerVisibilityProvider, SyncStatusBanner } from '@/components/ui/sync-status-banner';
+import { AdBanner } from '@/features/ads';
 import { DEFAULT_FAB_POSITION, useFabPosition } from '@/features/navigation/fab-position-settings';
 import {
   NavigationChromeProvider,
@@ -15,6 +16,8 @@ import { SpeedDialMenu } from '@/features/navigation/speed-dial-menu';
 import { useTheme } from '@/hooks/use-theme';
 
 export default function AppShell() {
+  const insets = useSafeAreaInsets();
+
   return (
     <NavigationChromeProvider>
       <SyncBannerVisibilityProvider>
@@ -24,6 +27,12 @@ export default function AppShell() {
         <ProfileSheet />
         <SpeedDialMenu />
         <GlobalAddButton />
+        <View
+          pointerEvents="box-none"
+          className="absolute bottom-0 left-0 right-0 items-center justify-center z-10"
+          style={{ paddingBottom: Math.max(insets.bottom, 2) }}>
+          <AdBanner placement="global_sticky" />
+        </View>
       </SyncBannerVisibilityProvider>
     </NavigationChromeProvider>
   );

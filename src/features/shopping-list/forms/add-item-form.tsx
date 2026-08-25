@@ -70,6 +70,7 @@ interface AddItemFormProps {
   householdId: string;
   initialStoreId?: string | null;
   onDismiss: () => void;
+  onItemAdded?: () => void;
 }
 
 /** Fuer den Modal-Header (add-item-modal.tsx): schliesst die Suche von aussen. */
@@ -78,7 +79,7 @@ export type AddItemFormHandle = {
 };
 
 export const AddItemForm = forwardRef<AddItemFormHandle, AddItemFormProps>(function AddItemForm(
-  { householdId, initialStoreId = null, onDismiss },
+  { householdId, initialStoreId = null, onDismiss, onItemAdded },
   ref,
 ) {
   const theme = useTheme();
@@ -491,7 +492,11 @@ export const AddItemForm = forwardRef<AddItemFormHandle, AddItemFormProps>(funct
           .catch((err) => console.error('Fehler beim Protokollieren der Nutzung:', err));
       }
 
-      onDismiss();
+      if (onItemAdded) {
+        onItemAdded();
+      } else {
+        onDismiss();
+      }
     } catch (error) {
       console.error('Fehler beim lokalen Speichern des Einkaufsartikels:', error);
       setNameError('Artikel konnte nicht gespeichert werden. Bitte erneut versuchen.');

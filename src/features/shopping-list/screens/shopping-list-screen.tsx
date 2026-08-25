@@ -1,6 +1,6 @@
 import { useLocalSearchParams } from 'expo-router';
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { Alert, ScrollView, SectionList, View } from 'react-native';
+import { Alert, Platform, ScrollView, SectionList, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Screen } from '@/components/layout/screen';
 import { ThemedText } from '@/components/theme/themed-text';
@@ -8,6 +8,7 @@ import { Button } from '@/components/ui/buttons';
 import { Card } from '@/components/ui/card';
 import { EmptyState } from '@/components/ui/empty-state';
 import { Layout } from '@/constants/layout';
+import { useInterstitialAd } from '@/features/ads';
 import { useSession } from '@/features/auth/session-provider';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { useNavigationChrome } from '@/features/navigation/navigation-chrome-provider';
@@ -56,6 +57,8 @@ export function ShoppingListScreen() {
   const [shoppingModeOpen, setShoppingModeOpen] = useState(false);
   const [editingItem, setEditingItem] = useState<LocalShoppingItem | null>(null);
   const [storeFilter, setStoreFilter] = useState<string>(ALL_FILTER);
+  const [pendingAdOnDismiss, setPendingAdOnDismiss] = useState(false);
+  const interstitialAd = useInterstitialAd();
   const theme = useTheme();
   const hubGradient = useHubGradient();
   const scrollRef = useRef<ScrollView>(null);
@@ -386,7 +389,29 @@ export function ShoppingListScreen() {
         visible={addModalOpen}
         householdId={householdId}
         initialStoreId={activeStore?.id ?? null}
-        onDismiss={() => setAddModalOpen(false)}
+        onDismiss={() => {
+          setPendingAdOnDismiss(false);
+          setAddModalOpen(false);
+        }}
+        onItemAdded={() => {
+          setPendingAdOnDismiss(true);
+          setAddModalOpen(false);
+          // Auf Plattformen ohne natives onDismiss-Event (z.B. Android) Timeout-Fallback nutzen
+          if (Platform.OS !== 'ios') {
+            setTimeout(() => {
+              interstitialAd.show();
+            }, 400);
+          }
+        }}
+        onDismissFinished={() => {
+          if (pendingAdOnDismiss) {
+            setPendingAdOnDismiss(false);
+            // Kleiner Delay stellt sicher, dass iOS UIKit den View-Controller vollständig entladen hat
+            setTimeout(() => {
+              interstitialAd.show();
+            }, 100);
+          }
+        }}
       />
 
       {/* Bottom Sheet zum Abschließen des Einkaufs (Übertrag in Vorrat) */}
