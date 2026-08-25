@@ -19,6 +19,8 @@ export const STORE_PRESETS: readonly StorePreset[] = [
   { name: 'Aldi', color: '#5C7396' },
   { name: 'Lidl', color: '#C6A24A' },
   { name: 'Edeka', color: '#748C5B' },
+  { name: 'Globus', color: '#4F8580' },
+  { name: 'Marktkauf', color: '#A6483D' },
   { name: 'Netto', color: '#8B6B4A' },
   { name: 'Kaufland', color: '#A6483D' },
   { name: 'dm', color: '#8B6F72' },

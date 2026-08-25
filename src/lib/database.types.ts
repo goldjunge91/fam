@@ -34,6 +34,57 @@ export type Database = {
   }
   public: {
     Tables: {
+      brochure_dumps: {
+        Row: {
+          created_at: string
+          id: string
+          payload_json: Json
+          valid_from: string
+          valid_until: string
+          zip_code: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          payload_json: Json
+          valid_from: string
+          valid_until: string
+          zip_code: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          payload_json?: Json
+          valid_from?: string
+          valid_until?: string
+          zip_code?: string
+        }
+        Relationships: []
+      }
+      brochure_stores: {
+        Row: {
+          active: boolean
+          created_at: string
+          id: string
+          logo_url: string | null
+          name: string
+        }
+        Insert: {
+          active?: boolean
+          created_at?: string
+          id: string
+          logo_url?: string | null
+          name: string
+        }
+        Update: {
+          active?: boolean
+          created_at?: string
+          id?: string
+          logo_url?: string | null
+          name?: string
+        }
+        Relationships: []
+      }
       child_profiles: {
         Row: {
           birth_date: string | null
@@ -179,6 +230,41 @@ export type Database = {
             columns: ["user_id"]
             isOneToOne: false
             referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      favorite_brochure_stores: {
+        Row: {
+          created_at: string
+          deleted_at: string | null
+          id: string
+          store_id: string
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          deleted_at?: string | null
+          id?: string
+          store_id: string
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          deleted_at?: string | null
+          id?: string
+          store_id?: string
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "favorite_brochure_stores_store_id_fkey"
+            columns: ["store_id"]
+            isOneToOne: false
+            referencedRelation: "brochure_stores"
             referencedColumns: ["id"]
           },
         ]

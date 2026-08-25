@@ -24,9 +24,7 @@ const UNIT_TOKENS = new Set([
   'packung',
   'pkg',
   'pck',
-  'dose',
   'flasche',
-  'beutel',
   'bund',
   'paar',
 ]);

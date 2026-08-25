@@ -23,6 +23,7 @@ describe('entities', () => {
       'recipe_step_ingredients',
       'meal_plans',
       'meal_plan_entries',
+      'favorite_brochure_stores',
     ]);
   });
 
@@ -48,6 +49,7 @@ describe('entities', () => {
       recipe_step_ingredients: true,
       meal_plans: true,
       meal_plan_entries: true,
+      favorite_brochure_stores: true,
     };
 
     for (const entity of ALL_ENTITIES) {
@@ -72,6 +74,7 @@ describe('entities', () => {
       recipe_step_ingredients: true,
       meal_plans: true,
       meal_plan_entries: true,
+      favorite_brochure_stores: false,
     };
 
     for (const entity of ALL_ENTITIES) {

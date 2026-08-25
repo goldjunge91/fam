@@ -84,7 +84,8 @@ export type Entity =
   | 'recipe_steps'
   | 'recipe_step_ingredients'
   | 'meal_plans'
-  | 'meal_plan_entries';
+  | 'meal_plan_entries'
+  | 'favorite_brochure_stores';
 
 /**
  * `restore` setzt `deleted_at` serverseitig zurueck auf `null` — fuer

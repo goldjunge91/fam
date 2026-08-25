@@ -371,15 +371,31 @@ export async function searchOffDump(
   const offset = options?.offset ?? 0;
   const limit = options?.limit ?? DEFAULT_OFF_PAGE_SIZE;
 
+  // Einzelne Suchanker statt der kompletten Phrase: Dadurch liefert der
+  // Dump fuer Eingaben wie "1l coca ccola" Coca-Cola-Kandidaten, obwohl der
+  // Tippfehler `ccola` nicht als exakter SQLite-LIKE-String existiert. Das
+  // eigentliche Ranking und die Tippfehler-Toleranz laufen danach zentral in
+  // `search-ranking.ts`.
+  const tokens = query
+    .trim()
+    .toLocaleLowerCase('de-DE')
+    .replace(/\d+(?:[.,]\d+)?\s*(?:kg|g|ml|l)\b/g, ' ')
+    .replace(/[^a-z0-9äöüß]+/gi, ' ')
+    .split(/\s+/)
+    .filter((token) => token.length >= 2);
+  if (tokens.length === 0) return { products: [], hasMore: false };
+
   try {
     const db = await getDatabase();
+    const conditions = tokens.flatMap(() => ['lower(product_name) like ?', 'lower(brand) like ?']);
+    const params = tokens.flatMap((token) => [`%${token}%`, `%${token}%`]);
     const rows = await db.getAllAsync<OffDumpProductRow>(
       `select code, product_name, brand, quantity, nutriscore, energy_kcal, fat, saturated_fat, carbohydrates, sugars, proteins, salt, categories_tags, off_last_modified_at, image_url
        from off_dump.products
-       where lower(product_name) like ?
+       where ${conditions.join(' or ')}
        order by product_name
        limit ? offset ?`,
-      [`%${query.trim().toLowerCase()}%`, limit, offset],
+      [...params, limit, offset],
     );
     return {
       products: rows.map(toOpenFoodFactsProductFromDump),

@@ -56,6 +56,10 @@ function hasColumn(db: Database, table: string, column: string): boolean {
  * `categories_tags` existiert (Schema 2, #223 Paket 4) — solange nicht, liefert
  * jedes Produkt ein leeres `categoryTags`-Array statt zu crashen.
  */
+const EXCLUDED_DUMP_BARCODES = new Set([
+  '9008700158671', // Apfelsprizz (aus Dump-Evaluation ausgeschlossen)
+]);
+
 function readDumpProducts(db: Database): DumpProductInput[] {
   const hasCategoryTags = hasColumn(db, 'products', 'categories_tags');
   const rows = db
@@ -67,7 +71,12 @@ function readDumpProducts(db: Database): DumpProductInput[] {
     .all() as { code: string | null; product_name: string; categories_tags?: string | null }[];
 
   return rows
-    .filter((row) => row.product_name && row.product_name.trim().length > 0)
+    .filter(
+      (row) =>
+        row.product_name &&
+        row.product_name.trim().length > 0 &&
+        (!row.code || !EXCLUDED_DUMP_BARCODES.has(row.code)),
+    )
     .map((row) => ({
       barcode: row.code ?? '',
       name: row.product_name,

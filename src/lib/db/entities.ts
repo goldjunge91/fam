@@ -1,4 +1,5 @@
 import { repairFridgeItemForeignKeyViolation } from '@/features/inventory/repair-fridge-item-push';
+import { repairShoppingListItemForeignKeyViolation } from '@/features/shopping-list/repair-shopping-list-item-push';
 import type { Entity, SqlDatabase } from '@/lib/db/types';
 import type { TypedSupabaseClient } from '@/lib/supabase';
 
@@ -83,6 +84,7 @@ export const ENTITIES: Readonly<Record<Entity, EntityMeta>> = {
     table: 'shopping_list_items',
     hasServerTombstone: true,
     householdScoped: true,
+    onForeignKeyViolation: repairShoppingListItemForeignKeyViolation,
     columns: [
       'id',
       'household_id',
@@ -292,6 +294,13 @@ export const ENTITIES: Readonly<Record<Entity, EntityMeta>> = {
       'created_at',
     ],
   },
+  favorite_brochure_stores: {
+    entity: 'favorite_brochure_stores',
+    table: 'favorite_brochure_stores',
+    hasServerTombstone: true,
+    householdScoped: false,
+    columns: ['id', 'user_id', 'store_id', 'created_at'],
+  },
 };
 
 /**
@@ -317,6 +326,7 @@ export const ALL_ENTITIES: readonly Entity[] = [
   'recipe_step_ingredients',
   'meal_plans',
   'meal_plan_entries',
+  'favorite_brochure_stores',
 ];
 
 /** Push-only-Events, die bewusst nicht in ALL_ENTITIES (Pull) stehen. */

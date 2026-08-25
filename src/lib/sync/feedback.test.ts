@@ -1,6 +1,7 @@
 import {
   type CategoryFeedbackInput,
   categoryFeedbackMutation,
+  pruneOldSyncedFeedbackEvents,
 } from '@/features/shopping-list/preferences/feedback';
 import { MIGRATIONS } from '@/lib/db/migrations';
 import { runMigrations } from '@/lib/db/migrator';
@@ -163,4 +164,44 @@ describe('shopping category feedback sync contract', () => {
       expect(from).not.toHaveBeenCalled();
     },
   );
+
+  it('prunt alte gesyncte Feedback-Events nach Ablauf der Haltefrist', async () => {
+    const now = 1_000_000_000;
+    const eightDaysAgo = now - 8 * 24 * 60 * 60 * 1000;
+    const twoDaysAgo = now - 2 * 24 * 60 * 60 * 1000;
+
+    // 1. Altes gesyncetes Event -> soll geloescht werden
+    await enqueueMutation(
+      db,
+      categoryFeedbackMutation({ ...feedbackInput, eventId: 'old-synced' }, 1),
+    );
+    await db.runAsync(
+      'update shopping_category_feedback_events set _dirty = 0, synced_at = ? where event_id = ?',
+      [eightDaysAgo, 'old-synced'],
+    );
+
+    // 2. Frisches gesyncetes Event -> soll bleiben
+    await enqueueMutation(
+      db,
+      categoryFeedbackMutation({ ...feedbackInput, eventId: 'recent-synced' }, 2),
+    );
+    await db.runAsync(
+      'update shopping_category_feedback_events set _dirty = 0, synced_at = ? where event_id = ?',
+      [twoDaysAgo, 'recent-synced'],
+    );
+
+    // 3. Altes aber noch ungesyncetes Event (_dirty = 1) -> soll bleiben
+    await enqueueMutation(
+      db,
+      categoryFeedbackMutation({ ...feedbackInput, eventId: 'old-dirty' }, 3),
+    );
+
+    const deletedCount = await pruneOldSyncedFeedbackEvents(db, { nowMs: now });
+    expect(deletedCount).toBe(1);
+
+    const remaining = await db.getAllAsync<{ event_id: string }>(
+      'select event_id from shopping_category_feedback_events order by event_id',
+    );
+    expect(remaining.map((r) => r.event_id)).toEqual(['old-dirty', 'recent-synced']);
+  });
 });

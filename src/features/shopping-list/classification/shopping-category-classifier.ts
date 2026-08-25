@@ -134,8 +134,33 @@ type Resolution = {
  * keine hypothetische Zusatzauswertung.
  */
 function resolve(input: CategoryClassifierInput): Resolution {
+  const nameTokens = normalizeShoppingName(input.name);
+  const nameCandidates = matchNameCandidates(nameTokens);
+  const namePhase = resolvePhase(nameCandidates);
+
   const offCandidates = matchOffTagCandidates(input.categoryTags ?? []);
   const offPhase = resolvePhase(offCandidates);
+
+  // Explizite Namens-Marker (z.B. Tiefkühl-/Tiefgefroren-Marker mit score >= 120)
+  // schlagen generische OFF-Tags.
+  if (namePhase.winner && namePhase.winner.weight >= 120) {
+    const candidates = [...offCandidates, ...nameCandidates];
+    const rejectedCandidates = [
+      ...rejectedCandidatesOf(offCandidates, offPhase, 'lower_priority'),
+      ...rejectedCandidatesOf(nameCandidates, namePhase, 'lower_score'),
+    ];
+    return {
+      classification: {
+        categoryId: namePhase.winner.categoryId,
+        source: 'name_fallback',
+        classifierVersion: CLASSIFIER_VERSION,
+        evidence: { kind: 'name_rule', value: namePhase.winner.value },
+      },
+      candidates,
+      rejectedCandidates,
+      conflictReason: null,
+    };
+  }
 
   if (offPhase.winner) {
     return {
@@ -151,9 +176,6 @@ function resolve(input: CategoryClassifierInput): Resolution {
     };
   }
 
-  const nameTokens = normalizeShoppingName(input.name);
-  const nameCandidates = matchNameCandidates(nameTokens);
-  const namePhase = resolvePhase(nameCandidates);
   const candidates = [...offCandidates, ...nameCandidates];
   const rejectedCandidates = [
     ...rejectedCandidatesOf(offCandidates, offPhase, 'lower_priority'),

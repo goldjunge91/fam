@@ -220,3 +220,24 @@ export async function enqueueCategoryFeedbackEvent(
 ): Promise<void> {
   await enqueueMutation(db, categoryFeedbackMutation(input));
 }
+
+export const DEFAULT_FEEDBACK_PRUNE_MAX_AGE_MS = 7 * 24 * 60 * 60 * 1000; // 7 Tage
+
+/**
+ * Prunt lokale shopping_category_feedback_events, die erfolgreich synchronisiert
+ * wurden (_dirty = 0, synced_at vorhanden) und aelter als maxAgeMs sind.
+ */
+export async function pruneOldSyncedFeedbackEvents(
+  db: SqlDatabase,
+  options?: { maxAgeMs?: number; nowMs?: number },
+): Promise<number> {
+  const maxAgeMs = options?.maxAgeMs ?? DEFAULT_FEEDBACK_PRUNE_MAX_AGE_MS;
+  const nowMs = options?.nowMs ?? Date.now();
+  const threshold = nowMs - maxAgeMs;
+
+  const result = await db.runAsync(
+    'delete from shopping_category_feedback_events where _dirty = 0 and synced_at is not null and synced_at <= ?',
+    [threshold],
+  );
+  return result.changes ?? 0;
+}
