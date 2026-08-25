@@ -103,19 +103,30 @@ async function open(): Promise<SqlDatabase> {
   rawDatabase = await SQLite.openDatabaseAsync(DATABASE_FILE_NAMES.main);
   const db = serializeDatabase(toDriver(rawDatabase));
 
-  // WAL muss ausserhalb jeder Transaktion gesetzt werden — innerhalb lehnt
-  // SQLite den Moduswechsel ab. Deshalb hier, vor den Migrationen.
-  await db.execAsync('PRAGMA journal_mode = WAL');
+  try {
+    // WAL muss ausserhalb jeder Transaktion gesetzt werden — innerhalb lehnt
+    // SQLite den Moduswechsel ab. Deshalb hier, vor den Migrationen.
+    await db.execAsync('PRAGMA journal_mode = WAL');
 
-  // Netz fuer Connections, die uns nicht gehoeren: die Devtools-Registrierung
-  // von `expo-sqlite` im Dev-Build und WAL-Checkpoints. Die Zugriffe der App
-  // selbst laufen serialisiert ueber eine Connection und kollidieren nicht mehr
-  // (siehe `serialize.ts`) — dieser PRAGMA ersetzt das nicht, er sichert nur
-  // den Rest ab. Wert 5000, weil die UI alle 3 s pollt: kuerzer hiesse, mitten
-  // im normalen Takt aufzugeben.
-  await db.execAsync('PRAGMA busy_timeout = 5000');
+    // Netz fuer Connections, die uns nicht gehoeren: die Devtools-Registrierung
+    // von `expo-sqlite` im Dev-Build und WAL-Checkpoints. Die Zugriffe der App
+    // selbst laufen serialisiert ueber eine Connection und kollidieren nicht mehr
+    // (siehe `serialize.ts`) — dieser PRAGMA ersetzt das nicht, er sichert nur
+    // den Rest ab. Wert 5000, weil die UI alle 3 s pollt: kuerzer hiesse, mitten
+    // im normalen Takt aufzugeben.
+    await db.execAsync('PRAGMA busy_timeout = 5000');
 
-  await runMigrations(db, MIGRATIONS);
+    await runMigrations(db, MIGRATIONS);
+  } catch (error) {
+    console.warn('[db] Initialisierung fehlgeschlagen, setze Datenbank zurück:', error);
+    await closeAndDeleteFile();
+    rawDatabase = await SQLite.openDatabaseAsync(DATABASE_FILE_NAMES.main);
+    const freshDb = serializeDatabase(toDriver(rawDatabase));
+    await freshDb.execAsync('PRAGMA journal_mode = WAL');
+    await freshDb.execAsync('PRAGMA busy_timeout = 5000');
+    await runMigrations(freshDb, MIGRATIONS);
+    return freshDb;
+  }
 
   return db;
 }
@@ -205,10 +216,19 @@ async function closeAndDeleteFile(): Promise<void> {
   // gegen die naechste, frische Connection melden (siehe off-dump.ts).
   resetOffDumpAttachment();
 
-  try {
-    await SQLite.deleteDatabaseAsync(DATABASE_FILE_NAMES.main);
-  } catch (e) {
-    console.warn('[db] Fehler beim Löschen der Datenbank:', e);
+  const filesToDelete = [
+    DATABASE_FILE_NAMES.main,
+    `${DATABASE_FILE_NAMES.main}-wal`,
+    `${DATABASE_FILE_NAMES.main}-shm`,
+    `${DATABASE_FILE_NAMES.main}-journal`,
+  ];
+
+  for (const fileName of filesToDelete) {
+    try {
+      await SQLite.deleteDatabaseAsync(fileName);
+    } catch {
+      // Ignorieren, falls Hilfsdateien (-wal, -shm, etc.) nicht existieren
+    }
   }
 }
 

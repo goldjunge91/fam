@@ -80,7 +80,7 @@ export function useHouseholdsBootstrapSync(userId: string | undefined, queryClie
     triggerHouseholdsPull(userId, queryClient);
 
     const interval = setInterval(() => {
-      if (userIdRef.current) {
+      if (userIdRef.current && AppState.currentState === 'active') {
         triggerHouseholdsPull(userIdRef.current, queryClient);
       }
     }, POLL_INTERVAL_MS);

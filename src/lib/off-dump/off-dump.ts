@@ -155,7 +155,13 @@ export async function attachOffDump(db: SqlDatabase): Promise<boolean> {
 
   const escapedPath = toFsPath(target.uri).replace(/'/g, "''");
   try {
-    await db.execAsync(`ATTACH DATABASE '${escapedPath}' AS off_dump`);
+    // Bevorzugt als Read-Only einhängen, damit BEGIN IMMEDIATE auf der
+    // Hauptdatenbank keine Schreibtransaktion auf dem Produktkatalog erzwingt.
+    try {
+      await db.execAsync(`ATTACH DATABASE 'file:${escapedPath}?mode=ro' AS off_dump`);
+    } catch {
+      await db.execAsync(`ATTACH DATABASE '${escapedPath}' AS off_dump`);
+    }
   } catch (err) {
     const message = err instanceof Error ? err.message : String(err);
     if (!message.includes('off_dump is already in use')) throw err;

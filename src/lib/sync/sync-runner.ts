@@ -237,7 +237,7 @@ export function useSyncEngine(householdId: string | undefined) {
     //    aus irgendeinem Grund nicht feuert (z.B. verpasste Events).
     activeSyncEngineIntervals += 1;
     const interval = setInterval(() => {
-      if (householdIdRef.current) {
+      if (householdIdRef.current && AppState.currentState === 'active') {
         triggerHouseholdSync([householdIdRef.current], false, queryClient);
       }
     }, 20000);
