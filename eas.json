@@ -8,6 +8,7 @@
       "bun": "1.3.14",
       "developmentClient": true,
       "distribution": "internal",
+      "autoIncrement": true,
       "ios": {
         "simulator": true
       },
@@ -39,14 +40,27 @@
       }
     },
     "production": {
+      "distribution": "store",
       "autoIncrement": true,
+      "credentialsSource": "local",
+      "ios": {
+        "simulator": false
+      },
       "android": {
         "buildType": "app-bundle"
       }
     }
   },
   "submit": {
-    "preview-testflight": {},
-    "production": {}
+    "preview-testflight": {
+      "ios": {
+        "appleTeamId": "SW8RP7PA3W"
+      }
+    },
+    "production": {
+      "ios": {
+        "appleTeamId": "SW8RP7PA3W"
+      }
+    }
   }
 }
