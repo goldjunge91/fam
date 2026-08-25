@@ -65,7 +65,8 @@ export function initPurchases(): void {
   }
 
   if (__DEV__) {
-    Purchases.setLogLevel(LOG_LEVEL.DEBUG);
+    // Purchases.setLogLevel(LOG_LEVEL.DEBUG);
+    Purchases.setLogLevel(LOG_LEVEL.WARN); // or .ERROR
 
     // Ohne eigenen Handler ruft das SDK fuer WARN/ERROR-Log-Zeilen
     // console.warn/console.error auf, und React Natives LogBox faengt das als
