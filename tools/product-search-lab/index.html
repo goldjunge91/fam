@@ -1,0 +1,67 @@
+<div id="search-lab">
+  <style>
+    :root { color-scheme: light; font-family: Inter, ui-sans-serif, system-ui, -apple-system, sans-serif; background: #f7f1eb; color: #241d24; }
+    * { box-sizing: border-box; }
+    body { margin: 0; padding: 28px 16px; background: #f7f1eb; }
+    main { max-width: 820px; margin: auto; }
+    h1 { margin: 0; font-size: 30px; letter-spacing: -.05em; }
+    .intro { color: #756c73; margin: 7px 0 22px; font-size: 14px; }
+    .controls { display: grid; grid-template-columns: 1fr 150px; gap: 10px; margin-bottom: 16px; }
+    input, select { width: 100%; padding: 13px 14px; border: 1px solid #d9cccf; border-radius: 12px; background: #fffdf9; color: #241d24; font: inherit; }
+    input:focus, select:focus { outline: 3px solid #f0dfe4; border-color: #9e5f70; }
+    .status { color: #756c73; font-size: 12px; min-height: 18px; margin: 8px 2px; }
+    .results { background: #fffdf9; border: 1px solid #ddd1d4; border-radius: 16px; overflow: hidden; }
+    .result { display: grid; grid-template-columns: 34px 1fr auto; gap: 10px; padding: 14px 16px; border-bottom: 1px solid #eee5e3; }
+    .result:last-child { border-bottom: 0; }
+    .rank { color: #9e5f70; font-weight: 800; font-size: 17px; }
+    .name { font-weight: 750; font-size: 14px; }
+    .meta, .reason { color: #756c73; font-size: 12px; margin-top: 3px; }
+    .score { color: #5f7e67; font-size: 12px; font-weight: 800; }
+    .reason { color: #6d4955; margin-top: 7px; }
+    .empty { padding: 28px 16px; color: #756c73; }
+    @media (max-width: 560px) { .controls { grid-template-columns: 1fr; } body { padding-top: 18px; } }
+  </style>
+  <main>
+    <h1>Artikelsuche testen</h1>
+    <div class="intro">Echter Open-Food-Facts-Dump · 404.983 Produkte · noch keine Produktionssuche</div>
+    <div class="controls">
+      <input id="query" type="search" autofocus placeholder="z. B. 1l coca ccola oder haferflocken kernig">
+      <select id="market" aria-label="Bevorzugter Markt">
+        <option value="none">Neutral</option>
+        <option value="rewe">REWE</option>
+        <option value="edeka">EDEKA</option>
+      </select>
+    </div>
+    <div class="status" id="status">Suchbegriff eingeben</div>
+    <div class="results" id="results"><div class="empty">Noch keine Suche.</div></div>
+  </main>
+  <script>
+    const query = document.querySelector('#query');
+    const market = document.querySelector('#market');
+    const status = document.querySelector('#status');
+    const results = document.querySelector('#results');
+    let timer;
+    let requestId = 0;
+    const escapeHtml = value => String(value).replace(/[&<>'"]/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[char]));
+    function render(data) {
+      if (data.error) { status.textContent = data.error; results.innerHTML = '<div class="empty">Suche fehlgeschlagen.</div>'; return; }
+      status.textContent = data.results?.length ? `${data.totalProducts.toLocaleString('de-DE')} Produkte im Dump · ${data.candidates.toLocaleString('de-DE')} Suchkandidaten` : 'Keine Treffer';
+      results.innerHTML = data.results?.length ? data.results.map((item, index) => `
+        <div class="result"><div class="rank">${index + 1}</div><div><div class="name">${escapeHtml(item.name)}</div><div class="meta">${escapeHtml(item.brand || 'Keine Marke')} · ${escapeHtml(item.quantity || 'Menge unbekannt')} · ${escapeHtml(item.code || 'ohne Barcode')}</div><div class="reason">${escapeHtml(item.reasons.join(' · ') || 'Basis-Treffer')}</div></div><div class="score">${item.score.toFixed(1)}</div></div>`).join('') : '<div class="empty">Keine passenden Treffer.</div>';
+    }
+    async function search() {
+      const value = query.value.trim();
+      if (value.length < 2) { status.textContent = 'Suchbegriff eingeben'; results.innerHTML = '<div class="empty">Noch keine Suche.</div>'; return; }
+      const current = ++requestId;
+      status.textContent = 'Suche im Dump läuft …';
+      try {
+        const response = await fetch(`/api/search?q=${encodeURIComponent(value)}&market=${market.value}&limit=30`);
+        const data = await response.json();
+        if (current === requestId) render(data);
+      } catch (error) { if (current === requestId) render({ error: error.message }); }
+    }
+    function schedule() { clearTimeout(timer); timer = setTimeout(search, 280); }
+    query.addEventListener('input', schedule);
+    market.addEventListener('change', search);
+  </script>
+</div>
