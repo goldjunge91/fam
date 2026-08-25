@@ -481,7 +481,7 @@ export function resolvePlacementZone(
   family: ProductFamilyId,
   form: ProductFormId,
 ): PlacementZoneId {
-  debugLog('LOG  [Placement] taxonomy resolvePlacementZone', { family, form });
+  debugLog(' [Placement]  ℹ️Taxonomy resolvePlacementZone', { family, form });
   if (form === 'frozen') return 'frozen';
   if (family === 'tomato_products' || family === 'pasta_sauce' || family === 'pasta')
     return 'pasta_tomato';

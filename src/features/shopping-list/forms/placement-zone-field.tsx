@@ -47,13 +47,13 @@ export function PlacementZoneField({
   const options = orderedZones(categoryOrder);
 
   function selectZone(zoneId: PlacementZoneId) {
-    debugLog(`LOG  [Placement] placement-zone-field selectZone: ${zoneId}`);
+    debugLog(` [Placement]  ℹ️ placement-zone-field selectZone: ${zoneId}`);
     onSelectionChange({ mode: 'manual', zoneId });
     setIsOpen(false);
   }
 
   function selectAutomatic() {
-    debugLog('LOG  [Placement] placement-zone-field selectAutomatic', { effectiveZoneId });
+    debugLog(' [Placement]  ℹ️ placement-zone-field selectAutomatic', { effectiveZoneId });
     onSelectAutomatic();
     setIsOpen(false);
   }

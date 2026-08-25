@@ -49,7 +49,7 @@ async function resolveAutomaticPreview(
   input: Parameters<typeof resolvePlacementForItem>[0],
   resetScope: PreferenceScope | null,
 ) {
-  debugLog('LOG  [Placement] edit-item-form resolveAutomaticPreview', { input, resetScope });
+  debugLog(' [Placement]  ℹ️ edit-item-form resolveAutomaticPreview', { input, resetScope });
   return resolvePlacementForItem(input, { omitPreferenceScope: resetScope });
 }
 
@@ -204,7 +204,7 @@ export function EditItemForm({ item, onDismiss }: EditItemFormProps) {
   }
 
   async function handleSave() {
-    debugLog('LOG  [Placement] edit-item-form handleSave called', {
+    debugLog(' [Placement]  ℹ️ edit-item-form handleSave called', {
       itemId: item.id,
       name: name.trim(),
       quantity,

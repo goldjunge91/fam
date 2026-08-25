@@ -1,6 +1,7 @@
 import { useQueryClient } from '@tanstack/react-query';
+import * as Clipboard from 'expo-clipboard';
 import { useCallback, useEffect, useMemo, useState } from 'react';
-import { Alert, View } from 'react-native';
+import { Alert, Pressable, View } from 'react-native';
 import { Screen } from '@/components/layout/screen';
 import { ThemedText } from '@/components/theme/themed-text';
 import { Button } from '@/components/ui/buttons';
@@ -157,6 +158,17 @@ export function SyncDebugScreen() {
         },
       ],
     );
+  }
+
+  const [copiedRowId, setCopiedRowId] = useState<number | null>(null);
+
+  async function handleCopyOutbox(row: OutboxRow) {
+    const textToCopy = row.last_error
+      ? `Outbox #${row.id} ${row.op.toUpperCase()} ${row.entity}\nID: ${row.entity_id} | Versuche: ${row.attempts}\nFehler: ${row.last_error}\nPayload: ${row.payload}`
+      : `Outbox #${row.id} ${row.op.toUpperCase()} ${row.entity}\nID: ${row.entity_id} | Versuche: ${row.attempts}\nPayload: ${row.payload}`;
+    await Clipboard.setStringAsync(textToCopy);
+    setCopiedRowId(row.id);
+    setTimeout(() => setCopiedRowId(null), 2000);
   }
 
   function handleDeleteOutboxEntry(row: OutboxRow) {
@@ -337,22 +349,39 @@ export function SyncDebugScreen() {
                 ID: {row.entity_id} | Versuche: {row.attempts}
               </ThemedText>
               {row.last_error && (
-                <ThemedText type="small" themeColor="danger">
-                  Fehler: {row.last_error}
-                </ThemedText>
+                <Pressable
+                  onPress={() => handleCopyOutbox(row)}
+                  accessibilityLabel="Fehler kopieren">
+                  <ThemedText type="small" themeColor="danger">
+                    Fehler: {row.last_error}
+                  </ThemedText>
+                </Pressable>
               )}
               {/* type="code" (Fonts.mono, 12px) statt der frueheren
                   Sonderroute mit fest verdrahtetem 'Courier' — jetzt eine
                   echte ThemedText-Rolle. */}
-              <ThemedText type="code" className="mt-half">
-                Payload: {row.payload}
-              </ThemedText>
-              <View className="mt-one">
-                <Button
-                  label="Eintrag löschen"
-                  variant="secondary"
-                  onPress={() => handleDeleteOutboxEntry(row)}
-                />
+              <Pressable
+                onPress={() => handleCopyOutbox(row)}
+                accessibilityLabel="Payload kopieren">
+                <ThemedText type="code" className="mt-half">
+                  Payload: {row.payload}
+                </ThemedText>
+              </Pressable>
+              <View className="flex-row gap-two mt-one">
+                <View className="flex-1">
+                  <Button
+                    label={copiedRowId === row.id ? '✓ Kopiert' : '📋 Kopieren'}
+                    variant="secondary"
+                    onPress={() => handleCopyOutbox(row)}
+                  />
+                </View>
+                <View className="flex-1">
+                  <Button
+                    label="Eintrag löschen"
+                    variant="secondary"
+                    onPress={() => handleDeleteOutboxEntry(row)}
+                  />
+                </View>
               </View>
             </View>
           ))

@@ -62,7 +62,7 @@ async function resolveAutomaticPreview(
   input: Parameters<typeof resolvePlacementForItem>[0],
   resetScope: PreferenceScope | null,
 ) {
-  debugLog('LOG  [Placement] add-item-form resolveAutomaticPreview', { input, resetScope });
+  debugLog(' [Placement]  ℹ️ add-item-form resolveAutomaticPreview', { input, resetScope });
   return resolvePlacementForItem(input, { omitPreferenceScope: resetScope });
 }
 
@@ -309,7 +309,7 @@ export const AddItemForm = forwardRef<AddItemFormHandle, AddItemFormProps>(funct
   useImperativeHandle(ref, () => ({ closeSearch }));
 
   async function handleAdd() {
-    debugLog('LOG  [Placement] add-item-form handleAdd called', {
+    debugLog(' [Placement]  ℹ️ add-item-form handleAdd called', {
       name: name.trim(),
       purchaseCount,
       unit,

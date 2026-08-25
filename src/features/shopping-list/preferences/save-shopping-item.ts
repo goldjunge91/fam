@@ -33,7 +33,7 @@ export type AtomicShoppingItemSaveResult = {
 export async function saveShoppingItemAtomically(
   input: AtomicShoppingItemSaveInput,
 ): Promise<AtomicShoppingItemSaveResult> {
-  debugLog('LOG  [Placement] saveShoppingItemAtomically called', {
+  debugLog(' [Placement]  ℹ️ saveShoppingItemAtomically called', {
     hasPreference: !!input.preference,
     preference: input.preference,
     hasFeedback: !!input.feedback,
