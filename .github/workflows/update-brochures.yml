@@ -1,0 +1,44 @@
+name: Brochure Dump Update
+
+on:
+  workflow_dispatch:
+  schedule:
+    # Montags nach dem Wechsel der meisten Wochenangebote. Eine versetzte
+    # Minute vermeidet die hohe GitHub-Actions-Last zur vollen Stunde.
+    - cron: "17 4 * * 1"
+
+concurrency:
+  group: brochure-dump-update
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  update-brochures:
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Bun environment
+        uses: ./.github/actions/setup-bun-env
+
+      - name: Download all German postal codes
+        run: |
+          curl --fail --silent --show-error --location \
+            https://download.geonames.org/export/zip/DE.zip \
+            --output /tmp/geonames-DE.zip
+          unzip -p /tmp/geonames-DE.zip DE.txt > /tmp/geonames-DE.txt
+          test -s /tmp/geonames-DE.txt
+
+      - name: Fetch and publish brochure dumps
+        run: bun run brochures:update
+        env:
+          BRING_AUTH_TOKEN: ${{ secrets.BRING_AUTH_TOKEN }}
+          BRING_API_KEY: ${{ secrets.BRING_API_KEY }}
+          BRING_USER_UUID: ${{ secrets.BRING_USER_UUID }}
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
+          BROCHURE_LOCATIONS_FILE: /tmp/geonames-DE.txt
