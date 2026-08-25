@@ -7,16 +7,20 @@ import path from "node:path";
 import url from "node:url";
 
 const PORT = 3333;
-const STATIC_AUTH =
-  "Bearer eyJraWQiOiJwcm9kX2FjY2Vzc3Rva2VuXzIwMjAtMDUtMTEiLCJhbGciOiJIUzUxMiJ9.eyJleHAiOjE3ODgyMjU1OTMsInN1YiI6ImJybjpicmluZzp1c2VyOmEzN2NiZDhjLTZhMjYtNDc0NC1iZjE5LWYwZTRhZGUzM2Q2MSIsInJvbGVzIjoiUk9MRV9VU0VSIiwiYnJuIjoiYnJuOmJyaW5nOnVzZXI6YTM3Y2JkOGMtNmEyNi00NzQ0LWJmMTktZjBlNGFkZTMzZDYxIiwicHJpdmF0ZVV1aWQiOiJhMzdjYmQ4Yy02YTI2LTQ3NDQtYmYxOS1mMGU0YWRlMzNkNjEiLCJlbWFpbCI6IjRmZ2h3eWpjcnpAcHJpdmF0ZXJlbGF5LmFwcGxlaWQuY29tIn0.kJIp4e1HoniD_Z_j8ziAWUsn3dE1-TZV3a6Ct_ovrElXhOpI_I3NSJa5IRiiLImifPMB9yX8MFMuwHXQMQg-hA";
+
+function requireEnv(name: string): string {
+  const value = process.env[name]?.trim();
+  if (!value) throw new Error(`${name} fehlt.`);
+  return value;
+}
 
 const DEFAULT_HEADERS = {
-  Authorization: STATIC_AUTH,
-  "X-BRING-API-KEY": "cof4Nc6D8saplXjE3h3HXqHH8m7VU2i1Gs0g85Sp",
+  Authorization: `Bearer ${requireEnv("BRING_AUTH_TOKEN").replace(/^Bearer\s+/i, "")}`,
+  "X-BRING-API-KEY": requireEnv("BRING_API_KEY"),
   "X-BRING-CLIENT": "iOS",
   "X-BRING-COUNTRY": "DE",
   "X-BRING-VERSION": "4.110.0",
-  "X-BRING-USER-UUID": "a37cbd8c-6a26-4744-bf19-f0e4ade33d61",
+  "X-BRING-USER-UUID": requireEnv("BRING_USER_UUID"),
   "Accept-Language": "de-DE",
   Accept: "application/json",
 };

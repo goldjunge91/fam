@@ -66,6 +66,17 @@ export interface FeatureDefinition {
 
 export const APP_FEATURES = [
   {
+    id: 'brochures',
+    title: 'Angebote',
+    moduleKey: 'fridge', // Falls wir keinen eigenen moduleKey einführen, binden wir es ans Haushalts-Modul
+    drawer: {
+      group: 'household',
+      href: '/brochures',
+      icon: 'shopping',
+      order: 4,
+    },
+  },
+  {
     id: 'overview',
     title: 'Übersicht',
     drawer: {

@@ -9,14 +9,14 @@ Dokumentation der entschlüsselten API-Struktur, Datenmodelle, Dateigrößen und
 ### Basis-Konfiguration
 * **Base URL:** `https://production.bringapi.app`
 * **CDN URL:** `https://offerscdn.bringapi.app`
-* **Static API Key:** `cof4Nc6D8saplXjE3h3HXqHH8m7VU2i1Gs0g85Sp`
+* **API Key:** ausschließlich über `BRING_API_KEY`
 * **Client Type:** `iOS` / Version `4.110.0`
 * **Default Country:** `DE` (unterstützt auch `AT`, `CH`)
 
 ### Standard Headers
 ```http
 Authorization: Bearer <token>
-X-BRING-API-KEY: cof4Nc6D8saplXjE3h3HXqHH8m7VU2i1Gs0g85Sp
+X-BRING-API-KEY: <api-key>
 X-BRING-CLIENT: iOS
 X-BRING-COUNTRY: DE
 X-BRING-VERSION: 4.110.0
@@ -99,6 +99,40 @@ Im Ordner `tools/brochure-viewer/` befindet sich der voll funktionsfähige Web-V
 
 ### Starten:
 ```bash
-bun run tools:brochures
+bun --env-file=.env run tools:brochures
 # Öffnet http://localhost:3333 im Browser
+```
+
+Benötigte lokale Variablen stehen in `.env.example`: `BRING_AUTH_TOKEN`,
+`BRING_API_KEY` und `BRING_USER_UUID`.
+
+---
+
+## 6. Wöchentliche Dump-Pipeline
+
+`.github/workflows/update-brochures.yml` läuft montags und kann zusätzlich
+manuell gestartet werden. Der Job lädt die aktuellen Prospekte, transformiert
+`discounts[]` in das Fam-Hotspot-Format und schreibt je PLZ genau den neuesten
+Dump nach Supabase. Der vorherige Dump wird erst nach einem erfolgreichen
+Insert entfernt.
+
+Repository Secrets:
+
+* `BRING_AUTH_TOKEN`
+* `BRING_API_KEY`
+* `BRING_USER_UUID`
+* `SUPABASE_URL`
+* `SUPABASE_SECRET_KEY`
+
+Der Workflow lädt automatisch den vollständigen deutschen PLZ-Datensatz von
+[GeoNames](https://www.geonames.org/) (CC BY 4.0), verdichtet mehrfach
+vorkommende Ortszeilen auf einen Mittelpunkt je PLZ und verarbeitet alle
+fünfstelligen Codes. Identische Bring-Prospekte werden während des Laufs anhand
+ihrer `brn` wiederverwendet.
+
+Lokaler Dry-Run ohne Supabase-Schreibzugriff:
+
+```bash
+BROCHURE_LOCATIONS_JSON='[{"zipCode":"22043","latitude":53.572433,"longitude":10.09511}]' \
+  bun --env-file=.env run brochures:update --dry-run
 ```

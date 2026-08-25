@@ -64,6 +64,9 @@ grant delete, insert, select, update on public.ketone_entries to anon, authentic
 grant delete, insert, select, update on public.exercises to anon, authenticated, service_role;
 grant delete, insert, select, update on public.workout_sessions to anon, authenticated, service_role;
 grant delete, insert, select, update on public.workout_sets to anon, authenticated, service_role;
+grant delete, insert, select, update on public.brochure_stores to anon, authenticated, service_role;
+grant delete, insert, select, update on public.brochure_dumps to anon, authenticated, service_role;
+grant delete, insert, select, update on public.favorite_brochure_stores to anon, authenticated, service_role;
 
 -- --------------------------------------------------- Premium-Spalten schuetzen
 -- RLS wirkt auf Zeilen, nicht auf Spalten (siehe Kommentar in 03_households.sql

@@ -860,4 +860,62 @@ export const MIGRATIONS: readonly Migration[] = [
     name: 'placement_v2_snapshots',
     statements: [V19_PLACEMENT_V2_SNAPSHOTS],
   },
+  {
+    version: 20,
+    name: 'brochures_and_favorites',
+    statements: [
+      `
+create table if not exists local_brochure_stores (
+  id         text primary key not null,
+  name       text not null,
+  logo_url   text,
+  active     integer not null default 1
+);
+
+create table if not exists local_brochures (
+  id           text primary key not null,
+  store_id     text not null,
+  title        text not null,
+  valid_from   text not null,
+  valid_until  text not null,
+  cover_image  text not null
+);
+create index if not exists local_brochures_store_idx on local_brochures (store_id);
+
+create table if not exists local_brochure_pages (
+  id           text primary key not null,
+  brochure_id  text not null,
+  page_number  integer not null,
+  image_url    text not null,
+  hotspots_json text not null default '[]'
+);
+create index if not exists local_brochure_pages_brochure_idx on local_brochure_pages (brochure_id, page_number);
+
+create table if not exists favorite_brochure_stores (
+  id         text primary key not null,
+  user_id    text not null,
+  store_id   text not null,
+  created_at text,
+  updated_at integer not null,
+  deleted_at integer,
+  _dirty     integer not null default 0
+);
+create index if not exists favorite_brochure_stores_user_idx on favorite_brochure_stores (user_id, deleted_at);
+create index if not exists favorite_brochure_stores_dirty_idx on favorite_brochure_stores (_dirty) where _dirty = 1;
+`,
+    ],
+  },
+  {
+    version: 21,
+    name: 'brochure_cache_location',
+    statements: [
+      `
+create table if not exists local_brochure_cache (
+  id         integer primary key not null check (id = 1),
+  zip_code   text not null,
+  updated_at integer not null
+);
+`,
+    ],
+  },
 ];
