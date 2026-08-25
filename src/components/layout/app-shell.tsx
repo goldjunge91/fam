@@ -30,7 +30,7 @@ export default function AppShell() {
         <View
           pointerEvents="box-none"
           className="absolute bottom-0 left-0 right-0 items-center justify-center z-10"
-          style={{ paddingBottom: Math.max(insets.bottom, 2) }}>
+          style={{ paddingBottom: insets.bottom + 65 }}>
           <AdBanner placement="global_sticky" />
         </View>
       </SyncBannerVisibilityProvider>

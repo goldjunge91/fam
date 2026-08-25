@@ -5,3 +5,4 @@ export {
   type AnalyticsEventProps,
   trackAnalyticsEvent,
 } from './events';
+export { ScreenTracker } from './screen-tracker';

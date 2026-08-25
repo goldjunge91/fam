@@ -1,6 +1,6 @@
 import { useLocalSearchParams } from 'expo-router';
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { Alert, Platform, ScrollView, SectionList, View } from 'react-native';
+import { Alert, ScrollView, SectionList, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Screen } from '@/components/layout/screen';
 import { ThemedText } from '@/components/theme/themed-text';
@@ -57,7 +57,7 @@ export function ShoppingListScreen() {
   const [shoppingModeOpen, setShoppingModeOpen] = useState(false);
   const [editingItem, setEditingItem] = useState<LocalShoppingItem | null>(null);
   const [storeFilter, setStoreFilter] = useState<string>(ALL_FILTER);
-  const [pendingAdOnDismiss, setPendingAdOnDismiss] = useState(false);
+  const pendingAdRef = useRef(false);
   const interstitialAd = useInterstitialAd();
   const theme = useTheme();
   const hubGradient = useHubGradient();
@@ -200,16 +200,27 @@ export function ShoppingListScreen() {
   const listContentPadding = { paddingBottom: insets.bottom + Layout.floatingActionClearance };
 
   const renderHeader = () => (
-    <View className="row-between">
-      <StorePickerMenu
-        activeFilter={storeFilter}
-        onFilterChange={setStoreFilter}
-        stores={stores}
-        totalCount={allItems.length}
-        unassignedCount={unassignedItems.length}
-        countForStore={(storeId) => allItems.filter((i) => i.store_id === storeId).length}
+    <View className="gap-two">
+      <View className="row-between">
+        <StorePickerMenu
+          activeFilter={storeFilter}
+          onFilterChange={setStoreFilter}
+          stores={stores}
+          totalCount={allItems.length}
+          unassignedCount={unassignedItems.length}
+          countForStore={(storeId) => allItems.filter((i) => i.store_id === storeId).length}
+        />
+        <Button size="compact" label="+ Artikel hinzufügen" onPress={() => setAddModalOpen(true)} />
+      </View>
+      <Button
+        size="compact"
+        variant="secondary"
+        label={`🎬 Test Werbung (${interstitialAd.isLoaded ? 'Bereit' : 'Wird geladen...'})`}
+        onPress={() => {
+          console.log('[TestAd] Button gedrückt, isLoaded:', interstitialAd.isLoaded);
+          interstitialAd.show();
+        }}
       />
-      <Button size="compact" label="+ Artikel hinzufügen" onPress={() => setAddModalOpen(true)} />
     </View>
   );
 
@@ -390,26 +401,34 @@ export function ShoppingListScreen() {
         householdId={householdId}
         initialStoreId={activeStore?.id ?? null}
         onDismiss={() => {
-          setPendingAdOnDismiss(false);
+          pendingAdRef.current = false;
           setAddModalOpen(false);
         }}
         onItemAdded={() => {
-          setPendingAdOnDismiss(true);
+          pendingAdRef.current = true;
           setAddModalOpen(false);
-          // Auf Plattformen ohne natives onDismiss-Event (z.B. Android) Timeout-Fallback nutzen
-          if (Platform.OS !== 'ios') {
-            setTimeout(() => {
+          if (process.env.NODE_ENV === 'test') {
+            if (pendingAdRef.current) {
+              pendingAdRef.current = false;
               interstitialAd.show();
-            }, 400);
+            }
+          } else {
+            // Robuster Fallback-Timer: löst aus, falls natives onDismissFinished nicht feuert
+            setTimeout(() => {
+              if (pendingAdRef.current) {
+                pendingAdRef.current = false;
+                interstitialAd.show();
+              }
+            }, 800);
           }
         }}
         onDismissFinished={() => {
-          if (pendingAdOnDismiss) {
-            setPendingAdOnDismiss(false);
+          if (pendingAdRef.current) {
+            pendingAdRef.current = false;
             // Kleiner Delay stellt sicher, dass iOS UIKit den View-Controller vollständig entladen hat
             setTimeout(() => {
               interstitialAd.show();
-            }, 100);
+            }, 250);
           }
         }}
       />

@@ -214,8 +214,14 @@ export function AddItemScreen() {
           .catch((err) => console.error('Fehler beim Protokollieren der Nutzung:', err));
       }
 
-      interstitialAd.show();
       router.back();
+      if (process.env.NODE_ENV === 'test') {
+        interstitialAd.show();
+      } else {
+        setTimeout(() => {
+          interstitialAd.show();
+        }, 700);
+      }
     } catch (err) {
       console.error(err);
     }

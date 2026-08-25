@@ -1,6 +1,6 @@
 import { useLocalSearchParams } from 'expo-router';
-import { useState } from 'react';
-import { Alert, FlatList, View } from 'react-native';
+import { useDeferredValue, useMemo, useState } from 'react';
+import { Alert, FlatList, Platform, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Screen } from '@/components/layout/screen';
 import { ThemedText } from '@/components/theme/themed-text';
@@ -72,6 +72,8 @@ export function InventoryScreen() {
   const { bottom } = useSafeAreaInsets();
   const paddingBottom = Math.max(bottom, Spacing.four) + Layout.floatingActionClearance;
 
+  const deferredSearchQuery = useDeferredValue(searchQuery);
+
   // filter=expiring (#73, vom Dashboard-Widget) ueberschreibt den
   // Lagerort-Tab-Filter, statt ihn zu kombinieren — einfacher, und die
   // Tab-Auswahl bleibt fuer den naechsten Besuch ohne den Query-Param erhalten.
@@ -79,26 +81,29 @@ export function InventoryScreen() {
     activeLocationId === 'all' || locations.some((location) => location.id === activeLocationId)
       ? activeLocationId
       : 'all';
-  const locationFiltered =
-    selectedLocationId !== 'all'
-      ? allItems.filter((item) => item.location_id === selectedLocationId)
-      : allItems;
-  const baseItems = showExpiringOnly
-    ? allItems.filter((item) =>
-        ['expired', 'critical'].includes(getExpiryInfo(item.expiry_date, today).bucket),
-      )
-    : locationFiltered;
-  const searchedItems = searchQuery.trim()
-    ? baseItems.filter((item) => item.name.toLowerCase().includes(searchQuery.trim().toLowerCase()))
-    : baseItems;
 
   // SQL liefert bereits MHD-sortiert (default) — der Toggle sortiert nur
   // client-seitig um, keine Requery noetig fuer "Name" (#71).
-  const visibleItems = [...searchedItems].sort((a, b) =>
-    sortMode === 'name'
-      ? a.name.localeCompare(b.name, 'de')
-      : compareByExpiry(getExpiryInfo(a.expiry_date, today), getExpiryInfo(b.expiry_date, today)),
-  );
+  const visibleItems = useMemo(() => {
+    let result = allItems;
+    if (selectedLocationId !== 'all') {
+      result = result.filter((item) => item.location_id === selectedLocationId);
+    }
+    if (showExpiringOnly) {
+      result = result.filter((item) =>
+        ['expired', 'critical'].includes(getExpiryInfo(item.expiry_date, today).bucket),
+      );
+    }
+    const q = deferredSearchQuery.trim().toLowerCase();
+    if (q) {
+      result = result.filter((item) => item.name.toLowerCase().includes(q));
+    }
+    return [...result].sort((a, b) =>
+      sortMode === 'name'
+        ? a.name.localeCompare(b.name, 'de')
+        : compareByExpiry(getExpiryInfo(a.expiry_date, today), getExpiryInfo(b.expiry_date, today)),
+    );
+  }, [allItems, selectedLocationId, showExpiringOnly, deferredSearchQuery, sortMode, today]);
   const currentActionItem = actionItem
     ? (allItems.find((item) => item.id === actionItem.id) ?? actionItem)
     : null;
@@ -167,6 +172,10 @@ export function InventoryScreen() {
         keyExtractor={(item) => item.id}
         style={{ flex: 1 }}
         contentContainerStyle={{ paddingBottom }}
+        initialNumToRender={12}
+        maxToRenderPerBatch={10}
+        windowSize={5}
+        removeClippedSubviews={Platform.OS === 'android'}
         ListHeaderComponent={
           <View className="gap-three pb-two">
             {/* Vorrats-Statistik: Gesamtanzahl & kritische/bald ablaufende Artikel */}
@@ -218,12 +227,12 @@ export function InventoryScreen() {
               <EmptyState
                 symbol="archivebox"
                 title={
-                  searchQuery.trim()
-                    ? `Keine Treffer für "${searchQuery.trim()}"`
+                  deferredSearchQuery.trim()
+                    ? `Keine Treffer für "${deferredSearchQuery.trim()}"`
                     : `${activeLocationName} ist leer`
                 }
                 hint={
-                  searchQuery.trim()
+                  deferredSearchQuery.trim()
                     ? 'Prüfe die Schreibweise oder setze die Suche zurück.'
                     : 'Schließe einen Einkauf ab oder füge Artikel manuell hinzu.'
                 }

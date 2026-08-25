@@ -66,7 +66,7 @@ export function ItemModalShell({
   contentInsetAdjustmentBehavior,
   children,
 }: ItemModalShellProps) {
-  if (!visible) return null;
+  if (!visible && process.env.NODE_ENV === 'test') return null;
 
   const content = (
     <ThemedView className={rootClassName}>

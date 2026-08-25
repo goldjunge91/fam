@@ -1,7 +1,14 @@
 import { onlineManager } from '@tanstack/react-query';
 import { router } from 'expo-router';
 import type { ReactNode } from 'react';
-import { forwardRef, useEffect, useImperativeHandle, useRef, useState } from 'react';
+import {
+  forwardRef,
+  useDeferredValue,
+  useEffect,
+  useImperativeHandle,
+  useRef,
+  useState,
+} from 'react';
 import {
   ActivityIndicator,
   Image,
@@ -192,10 +199,11 @@ export const ProductSearchDropdown = forwardRef<
   // oberste sichtbare Kante (#UI-Feedback: "ein Artikel halb von der Tastatur
   // verdeckt" — trat trotz erhoehtem PANEL_BOTTOM_MARGIN weiter auf).
   const [keyboardTopY, setKeyboardTopY] = useState<number | null>(null);
+  const deferredValue = useDeferredValue(value);
   // `value` beim Ausloesen der aktuellen Suche — schuetzt vor veralteten
   // Nachlade-Antworten, wenn der Nutzer inzwischen weitergetippt hat.
-  const queryRef = useRef(value);
-  queryRef.current = value;
+  const queryRef = useRef(deferredValue);
+  queryRef.current = deferredValue;
   // `value` aendert sich auch, wenn `onSelectProduct` den Query-Text auf den
   // gewaehlten Produktnamen setzt (siehe recipe-create-screen.tsx). Ohne diese
   // Markierung faengt der Such-Effekt unten diese Aenderung ab und oeffnet das
@@ -253,12 +261,12 @@ export const ProductSearchDropdown = forwardRef<
 
   useEffect(() => {
     if (justSelectedValueRef.current !== null) {
-      const wasSelection = justSelectedValueRef.current === value;
+      const wasSelection = justSelectedValueRef.current === deferredValue;
       justSelectedValueRef.current = null;
       if (wasSelection) return;
     }
 
-    if (!value || value.trim().length < 2) {
+    if (!deferredValue || deferredValue.trim().length < 2) {
       setSuggestions([]);
       setShowDropdown(false);
       setSearched(false);
@@ -276,7 +284,7 @@ export const ProductSearchDropdown = forwardRef<
       setDumpHasMore(false);
       setDumpOffset(0);
 
-      const { results: localResults, dumpHasMore } = await searchLocalProducts(value);
+      const { results: localResults, dumpHasMore } = await searchLocalProducts(deferredValue);
       setDumpHasMore(dumpHasMore);
       const needsOffLookup =
         localResults.length < LOCAL_RESULT_THRESHOLD && onlineManager.isOnline();
@@ -284,7 +292,7 @@ export const ProductSearchDropdown = forwardRef<
       if (!needsOffLookup) {
         setSuggestions(localResults);
       } else {
-        const { products: offResults, hasMore } = await searchOpenFoodFacts(value, {
+        const { products: offResults, hasMore } = await searchOpenFoodFacts(deferredValue, {
           page: 1,
           pageSize: OFF_PAGE_SIZE,
         });
@@ -300,7 +308,7 @@ export const ProductSearchDropdown = forwardRef<
     }, 300);
 
     return () => clearTimeout(timer);
-  }, [value]);
+  }, [deferredValue]);
 
   /**
    * Laedt beim Scrollen ans Ende des Dropdowns nach — erst weitere Seiten des

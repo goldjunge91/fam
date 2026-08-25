@@ -62,13 +62,8 @@ export function initSentry(): void {
       // Relativ zu tracesSampleRate: bei devTools=true wird jeder gesampelte
       // Trace vollstaendig profiliert.
       profilesSampleRate: env.devTools ? 1.0 : 0,
-      // sendDefaultPii (IP, User-Objekt, Cookies) und Session Replay (Screen-
-      // Recording) sind bei einer datenschutzorientierten App mit privatem
-      // Kalorien-/Gewichts-Tagebuch zu sensibel fuer den Standardbetrieb —
-      // dieselbe Dev-Tools-Flagge wie oben, statt eine eigene anzulegen, damit
-      // es nicht mehrere Schalter fuer denselben Zweck gibt. `mobileReplayIntegration`
-      // maskiert per Default ohnehin jeden Text/jedes Bild/jede Vektorgrafik.
-      sendDefaultPii: env.devTools,
+      // sendDefaultPii sendet IP-Adresse und erweiterte Geraetekontexte mit Fehlerberichten.
+      sendDefaultPii: true,
       replaysOnErrorSampleRate: env.devTools ? 1.0 : 0,
       replaysSessionSampleRate: env.devTools ? 0.1 : 0,
       integrations: env.devTools

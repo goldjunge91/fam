@@ -22,6 +22,7 @@ import { initMobileAds } from '@/features/ads';
 import { PostHogIdentitySync } from '@/features/auth/posthog-identity-sync';
 import { SessionProvider, useSession } from '@/features/auth/session-provider';
 import { PremiumProvider } from '@/features/premium/premium-provider';
+import { ScreenTracker } from '@/lib/analytics';
 import { initAptabase } from '@/lib/analytics/aptabase';
 import { parseAuthErrorFromUrl, parseAuthTokensFromUrl } from '@/lib/auth-deep-link';
 import { setAuthDeepLinkError } from '@/lib/auth-deep-link-state';
@@ -277,6 +278,7 @@ function RootLayout() {
               <SessionProvider>
                 <PostHogAppProvider>
                   <PostHogIdentitySync />
+                  <ScreenTracker />
                   <ActiveHouseholdProvider>
                     <PremiumProvider>
                       <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>

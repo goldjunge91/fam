@@ -51,7 +51,7 @@ export function createChunkedStorage(
   return {
     async getItem(key) {
       const head = await store.getItem(key);
-      if (head === null) return null;
+      if (head == null || typeof head !== 'string') return null;
 
       if (!head.startsWith(CHUNK_PREFIX)) {
         // Kleiner Wert, direkt gespeichert.

@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { memo, useCallback, useMemo, useState } from 'react';
 import { Modal, Pressable, ScrollView, View } from 'react-native';
 import {
   initialWindowMetrics,
@@ -12,6 +12,50 @@ import { formatAmount } from '@/lib/package-size';
 import { colorForCategory, parseCategoryOrder } from '../domain-logik/shopping-categories';
 import { groupByCategory, type LocalShoppingItem } from '../hooks/use-shopping-list';
 import type { Store } from '../hooks/use-stores';
+
+type ShoppingModeRowProps = {
+  item: LocalShoppingItem;
+  onToggle: (item: LocalShoppingItem) => void;
+};
+
+export const ShoppingModeRow = memo(function ShoppingModeRow({
+  item,
+  onToggle,
+}: ShoppingModeRowProps) {
+  const isChecked = item.checked_at !== null;
+  const handlePress = useCallback(() => {
+    onToggle(item);
+  }, [item, onToggle]);
+
+  return (
+    <Pressable
+      onPress={handlePress}
+      accessibilityRole="checkbox"
+      accessibilityState={{ checked: isChecked }}
+      accessibilityLabel={item.name}
+      className="shopping-mode-row">
+      <View className={`checkbox-base ${isChecked ? 'checkbox-checked' : 'checkbox-unchecked'}`}>
+        {isChecked ? (
+          <ThemedText type="detail" themeColor="onAccent">
+            ✓
+          </ThemedText>
+        ) : null}
+      </View>
+      <ThemedText
+        type="small"
+        className={`flex-1 ${isChecked ? 'line-through opacity-50' : ''}`}
+        numberOfLines={1}>
+        {item.name}
+      </ThemedText>
+      <ThemedText type="smallMuted" className="w-[84px] text-right" numberOfLines={1}>
+        {formatAmount(item.quantity, item.unit)}
+      </ThemedText>
+      <ThemedText type="captionMuted" className="w-[52px] text-right" numberOfLines={1}>
+        {item.price_estimate != null ? formatEuro(item.price_estimate) : ''}
+      </ThemedText>
+    </Pressable>
+  );
+});
 
 type ShoppingModeScreenProps = {
   visible: boolean;
@@ -56,12 +100,12 @@ export function ShoppingModeScreen({
   const checkedCount = items.filter((i) => i.checked_at !== null).length;
   const totalEstimate = items.reduce((sum, i) => sum + (i.price_estimate ?? 0), 0);
 
-  function toggleCollapse(categoryId: string, isComplete: boolean) {
+  const toggleCollapse = useCallback((categoryId: string, isComplete: boolean) => {
     setCollapsedOverrides((prev) => ({
       ...prev,
       [categoryId]: !(prev[categoryId] ?? isComplete),
     }));
-  }
+  }, []);
 
   return (
     <Modal
@@ -145,42 +189,7 @@ export function ShoppingModeScreen({
 
                   {!collapsed &&
                     catItems.map((item) => (
-                      <Pressable
-                        key={item.id}
-                        onPress={() => onToggle(item)}
-                        accessibilityRole="checkbox"
-                        accessibilityState={{ checked: item.checked_at !== null }}
-                        accessibilityLabel={item.name}
-                        className="shopping-mode-row">
-                        <View
-                          className={`checkbox-base ${
-                            item.checked_at ? 'checkbox-checked' : 'checkbox-unchecked'
-                          }`}>
-                          {item.checked_at ? (
-                            <ThemedText type="detail" themeColor="onAccent">
-                              ✓
-                            </ThemedText>
-                          ) : null}
-                        </View>
-                        <ThemedText
-                          type="small"
-                          className={`flex-1 ${item.checked_at ? 'line-through opacity-50' : ''}`}
-                          numberOfLines={1}>
-                          {item.name}
-                        </ThemedText>
-                        <ThemedText
-                          type="smallMuted"
-                          className="w-[84px] text-right"
-                          numberOfLines={1}>
-                          {formatAmount(item.quantity, item.unit)}
-                        </ThemedText>
-                        <ThemedText
-                          type="captionMuted"
-                          className="w-[52px] text-right"
-                          numberOfLines={1}>
-                          {item.price_estimate != null ? formatEuro(item.price_estimate) : ''}
-                        </ThemedText>
-                      </Pressable>
+                      <ShoppingModeRow key={item.id} item={item} onToggle={onToggle} />
                     ))}
                 </View>
               );

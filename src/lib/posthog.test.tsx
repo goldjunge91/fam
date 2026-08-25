@@ -75,7 +75,10 @@ describe('initPostHog / isPostHogConfigured', () => {
     expect(isPostHogConfigured()).toBe(true);
     expect(mockPostHogConstructor).toHaveBeenCalledWith(
       'phc_testkey',
-      expect.objectContaining({ host: 'https://eu.i.posthog.com' }),
+      expect.objectContaining({
+        host: 'https://eu.i.posthog.com',
+        captureAppLifecycleEvents: true,
+      }),
     );
   });
 
@@ -169,7 +172,7 @@ describe('PostHogAppProvider', () => {
     expect(mockPostHogProvider).not.toHaveBeenCalled();
   });
 
-  it('haengt <PostHogProvider> mit dem konfigurierten Client ein, wenn ein API-Key gesetzt ist', async () => {
+  it('haengt <PostHogProvider> mit dem konfigurierten Client und Touch-Autocapture ein', async () => {
     process.env.EXPO_PUBLIC_POSTHOG_API_KEY = 'phc_testkey';
     const { PostHogAppProvider, initPostHog, getPostHogClient } = require('@/lib/posthog');
     initPostHog();
@@ -181,7 +184,10 @@ describe('PostHogAppProvider', () => {
     );
 
     expect(mockPostHogProvider).toHaveBeenCalledWith(
-      expect.objectContaining({ client: getPostHogClient() }),
+      expect.objectContaining({
+        client: getPostHogClient(),
+        autocapture: { captureTouches: true, captureScreens: false },
+      }),
     );
   });
 });

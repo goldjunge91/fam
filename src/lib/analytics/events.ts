@@ -21,6 +21,8 @@ export interface AnalyticsEventMap {
   household_joined: Record<string, never>;
   barcode_scanned: { found: boolean };
   recipe_created: Record<string, never>;
+  screen_view: { screen: string };
+  screen_leave: { screen: string; duration_seconds: number };
   dev_tools_test_event: { timestamp: number; platform: string };
 }
 

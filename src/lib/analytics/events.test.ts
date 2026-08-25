@@ -14,6 +14,7 @@ jest.mock('@/lib/posthog', () => ({
 describe('trackAnalyticsEvent', () => {
   beforeEach(() => {
     jest.clearAllMocks();
+    (trackAptabaseEvent as jest.Mock).mockReset();
   });
 
   it('leitet Event an Aptabase und PostHog weiter, wenn beide konfiguriert sind', () => {
@@ -44,6 +45,8 @@ describe('trackAnalyticsEvent', () => {
   });
 
   it('faengt Fehler in Aptabase und PostHog lautlos ab', () => {
+    const consoleWarnSpy = jest.spyOn(console, 'warn').mockImplementation(() => {});
+
     (trackAptabaseEvent as jest.Mock).mockImplementation(() => {
       throw new Error('Aptabase error');
     });
@@ -57,5 +60,43 @@ describe('trackAnalyticsEvent', () => {
     expect(() => {
       trackAnalyticsEvent('restore_purchases_clicked');
     }).not.toThrow();
+
+    expect(consoleWarnSpy).toHaveBeenCalledWith(
+      expect.stringContaining(
+        '[analytics] Aptabase-Event "restore_purchases_clicked" fehlgeschlagen:',
+      ),
+      expect.any(Error),
+    );
+    expect(consoleWarnSpy).toHaveBeenCalledWith(
+      expect.stringContaining(
+        '[analytics] PostHog-Event "restore_purchases_clicked" fehlgeschlagen:',
+      ),
+      expect.any(Error),
+    );
+
+    consoleWarnSpy.mockRestore();
+  });
+
+  it('unterstuetzt screen_view und screen_leave Events', () => {
+    const mockCapture = jest.fn();
+    (isPostHogConfigured as jest.Mock).mockReturnValue(true);
+    (getPostHogClient as jest.Mock).mockReturnValue({ capture: mockCapture });
+
+    trackAnalyticsEvent('screen_view', { screen: '/(tabs)/inventory' });
+    expect(trackAptabaseEvent).toHaveBeenCalledWith('screen_view', { screen: '/(tabs)/inventory' });
+    expect(mockCapture).toHaveBeenCalledWith('screen_view', { screen: '/(tabs)/inventory' });
+
+    trackAnalyticsEvent('screen_leave', {
+      screen: '/(tabs)/inventory',
+      duration_seconds: 12,
+    });
+    expect(trackAptabaseEvent).toHaveBeenCalledWith('screen_leave', {
+      screen: '/(tabs)/inventory',
+      duration_seconds: 12,
+    });
+    expect(mockCapture).toHaveBeenCalledWith('screen_leave', {
+      screen: '/(tabs)/inventory',
+      duration_seconds: 12,
+    });
   });
 });
