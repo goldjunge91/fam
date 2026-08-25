@@ -1,0 +1,1843 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rebranding Design Exploration v4 — Saubere Navigation & 4 Stile</title>
+  <style>
+    /* Global Base */
+    :root {
+      --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Segoe UI", Roboto, Helvetica, sans-serif;
+      --font-mono: "SF Mono", "Menlo", Monaco, "Consolas", monospace;
+      --font-chunky: -apple-system, BlinkMacSystemFont, "SF Pro Rounded", "Inter", sans-serif;
+      --font-grotesk: "Helvetica Neue", "Helvetica", Arial, sans-serif;
+      
+      /* Shell Canvas Tokens */
+      --shell-bg: #090a0f;
+      --shell-panel: #13151c;
+      --shell-border: #222634;
+      --shell-text: #f0f2f7;
+      --shell-text-muted: #838a9b;
+      --shell-accent: #6366f1;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      background-color: var(--shell-bg);
+      color: var(--shell-text);
+      font-family: var(--font-sans);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Top Shell Toolbar */
+    .toolbar {
+      background: var(--shell-panel);
+      border-bottom: 1px solid var(--shell-border);
+      padding: 12px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(16px);
+    }
+
+    .brand-title {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-badge {
+      background: linear-gradient(135deg, #6366f1, #a855f7);
+      color: #fff;
+      font-weight: 700;
+      font-size: 11px;
+      padding: 3px 9px;
+      border-radius: 6px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .brand-name {
+      font-size: 16px;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+    }
+
+    .controls-group {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .control-label {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--shell-text-muted);
+      margin-right: -4px;
+    }
+
+    .segmented-control {
+      display: flex;
+      background: #0b0c12;
+      border: 1px solid var(--shell-border);
+      border-radius: 10px;
+      padding: 3px;
+      gap: 2px;
+    }
+
+    .seg-btn {
+      background: transparent;
+      border: none;
+      color: var(--shell-text-muted);
+      font-size: 12px;
+      font-weight: 600;
+      padding: 6px 11px;
+      border-radius: 7px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .seg-btn:hover {
+      color: var(--shell-text);
+      background: rgba(255,255,255,0.04);
+    }
+
+    .seg-btn.active {
+      background: #202433;
+      color: #ffffff;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+    }
+
+    .theme-toggle-btn {
+      background: #0b0c12;
+      border: 1px solid var(--shell-border);
+      color: var(--shell-text);
+      font-size: 12px;
+      font-weight: 600;
+      padding: 6px 12px;
+      border-radius: 9px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: background 0.15s ease;
+    }
+
+    .theme-toggle-btn:hover {
+      background: #1d212d;
+    }
+
+    /* Main Container */
+    .workspace {
+      display: flex;
+      flex: 1;
+      padding: 24px 32px 64px;
+      gap: 36px;
+      max-width: 1600px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    /* Left Sidebar: Direction Details & Design DNA */
+    .dna-panel {
+      flex: 0 0 350px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .dna-card {
+      background: var(--shell-panel);
+      border: 1px solid var(--shell-border);
+      border-radius: 16px;
+      padding: 22px;
+    }
+
+    .dna-title {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--shell-text-muted);
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+
+    .dna-direction-name {
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      margin-bottom: 8px;
+      color: #ffffff;
+    }
+
+    .dna-desc {
+      font-size: 13px;
+      line-height: 1.55;
+      color: var(--shell-text-muted);
+      margin-bottom: 16px;
+    }
+
+    .swatches {
+      display: flex;
+      gap: 8px;
+      margin-top: 8px;
+    }
+
+    .swatch {
+      flex: 1;
+      height: 38px;
+      border-radius: 8px;
+      border: 1px solid rgba(255,255,255,0.12);
+      display: flex;
+      align-items: flex-end;
+      padding: 4px 6px;
+      font-size: 9.5px;
+      font-family: var(--font-mono);
+      font-weight: 600;
+    }
+
+    .spec-table {
+      width: 100%;
+      font-size: 12px;
+      margin-top: 14px;
+      border-collapse: collapse;
+    }
+
+    .spec-table td {
+      padding: 7px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .spec-table td:first-child {
+      color: var(--shell-text-muted);
+      width: 40%;
+    }
+    .spec-table td:last-child {
+      font-weight: 600;
+      color: var(--shell-text);
+      text-align: right;
+    }
+
+    /* Screen Selector Sub-Bar (All 7 Menu Items) */
+    .screen-nav-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 20px;
+      width: 100%;
+      max-width: 780px;
+    }
+
+    .screen-nav {
+      display: flex;
+      gap: 6px;
+      background: var(--shell-panel);
+      padding: 5px 8px;
+      border-radius: 12px;
+      border: 1px solid var(--shell-border);
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .screen-nav::-webkit-scrollbar {
+      display: none;
+    }
+
+    .screen-tab {
+      background: transparent;
+      border: none;
+      color: var(--shell-text-muted);
+      font-size: 12px;
+      font-weight: 600;
+      padding: 6px 12px;
+      border-radius: 7px;
+      cursor: pointer;
+      transition: all 0.15s;
+      white-space: nowrap;
+    }
+
+    .screen-tab:hover {
+      color: var(--shell-text);
+    }
+
+    .screen-tab.active {
+      background: #232738;
+      color: #ffffff;
+    }
+
+    /* Center Stage: Phone Frame */
+    .stage {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .phone-container {
+      width: 393px;
+      height: 852px;
+      border-radius: 54px;
+      background: #000000;
+      padding: 12px;
+      box-shadow: 0 28px 70px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(255, 255, 255, 0.18);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .phone-screen {
+      width: 100%;
+      height: 100%;
+      border-radius: 44px;
+      overflow: hidden;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      user-select: none;
+    }
+
+    /* Dynamic Island */
+    .dynamic-island {
+      position: absolute;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 120px;
+      height: 32px;
+      background: #000;
+      border-radius: 20px;
+      z-index: 90;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 10px;
+    }
+
+    /* Status Bar */
+    .status-bar {
+      height: 48px;
+      padding: 12px 26px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 13px;
+      font-weight: 600;
+      z-index: 80;
+    }
+
+    /* Navigation Header inside Screen */
+    .top-nav-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 4px 18px 8px;
+    }
+
+    .nav-brand-text {
+      font-size: 18px;
+      font-weight: 800;
+      font-family: var(--app-font-heading);
+      letter-spacing: -0.02em;
+    }
+
+    .drawer-trigger-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background: var(--app-surface);
+      border: 1px solid var(--app-border);
+      color: var(--app-text);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .drawer-trigger-btn:hover {
+      background: var(--app-surface-subtle);
+    }
+
+    /* Drawer Overlay & Menu Drawer Panel */
+    .drawer-backdrop {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.65);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      z-index: 150;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease;
+    }
+    .drawer-backdrop.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .slide-drawer {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      width: 82%;
+      background: var(--app-bg);
+      border-right: 1px solid var(--app-border);
+      z-index: 160;
+      transform: translateX(-100%);
+      transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      flex-direction: column;
+      padding: 54px 18px 30px;
+      box-shadow: 20px 0 50px rgba(0,0,0,0.5);
+    }
+    .slide-drawer.open {
+      transform: translateX(0);
+    }
+
+    .drawer-brand-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      padding: 0 4px;
+    }
+
+    .drawer-brand-title {
+      font-size: 22px;
+      font-weight: 800;
+      font-family: var(--app-font-heading);
+      letter-spacing: -0.03em;
+    }
+
+    .drawer-close-btn {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--app-surface);
+      border: 1px solid var(--app-border);
+      color: var(--app-text-secondary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .drawer-group-label {
+      font-size: 10px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--app-text-secondary);
+      margin: 14px 0 6px 6px;
+      font-family: var(--app-font-mono, var(--font-sans));
+    }
+
+    .drawer-menu-list {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .drawer-menu-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 12px;
+      border-radius: var(--app-pill-radius);
+      color: var(--app-text);
+      text-decoration: none;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+    .drawer-menu-item:hover {
+      background: var(--app-surface-subtle);
+    }
+    .drawer-menu-item.active {
+      background: var(--app-surface);
+      color: var(--app-accent);
+      border: 1px solid var(--app-border);
+      font-weight: 700;
+    }
+
+    .drawer-item-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 13.5px;
+      font-weight: 600;
+    }
+
+    /* App Content Viewport */
+    .app-viewport {
+      flex: 1;
+      overflow-y: auto;
+      overflow-x: hidden;
+      padding-bottom: 90px;
+      position: relative;
+      scrollbar-width: none;
+    }
+    .app-viewport::-webkit-scrollbar {
+      display: none;
+    }
+
+    /* Bottom Navigation Bar */
+    .app-tabbar {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 82px;
+      display: flex;
+      justify-content: space-around;
+      align-items: flex-start;
+      padding-top: 10px;
+      z-index: 80;
+      border-top: 1px solid;
+    }
+
+    .app-tab-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      font-size: 10px;
+      font-weight: 600;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 2px 8px;
+    }
+
+    .home-indicator {
+      position: absolute;
+      bottom: 8px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 134px;
+      height: 5px;
+      border-radius: 100px;
+      z-index: 95;
+    }
+
+    /* =========================================================================
+       4 DESIGN SYSTEMS
+       ========================================================================= */
+
+    /* 1. LINEAR / RAYCAST */
+    .style-linear {
+      --app-bg: #0A0B0E;
+      --app-surface: #12151C;
+      --app-surface-subtle: #181C26;
+      --app-text: #F3F5F9;
+      --app-text-secondary: #8790A5;
+      --app-accent: #5E6AD2;
+      --app-accent-text: #FFFFFF;
+      --app-accent-subtle: #1C2038;
+      --app-border: #1F2433;
+      --app-card-radius: 10px;
+      --app-pill-radius: 6px;
+      --app-font-heading: var(--font-sans);
+      --app-font-mono: var(--font-mono);
+      --app-shadow: 0 4px 20px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+      --app-tab-bg: rgba(10, 11, 14, 0.94);
+      --app-tag-bg: #1A1E29;
+      --app-check-radius: 4px;
+    }
+    .style-linear.light-mode {
+      --app-bg: #F4F6F9;
+      --app-surface: #FFFFFF;
+      --app-surface-subtle: #EBEEF4;
+      --app-text: #0F131D;
+      --app-text-secondary: #5E687E;
+      --app-accent: #4F5BD5;
+      --app-accent-text: #FFFFFF;
+      --app-accent-subtle: #EEF0FD;
+      --app-border: #DDE2EC;
+      --app-card-radius: 10px;
+      --app-pill-radius: 6px;
+      --app-font-heading: var(--font-sans);
+      --app-font-mono: var(--font-mono);
+      --app-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      --app-tab-bg: rgba(244, 246, 249, 0.92);
+      --app-tag-bg: #E7EBF2;
+      --app-check-radius: 4px;
+    }
+
+    /* 2. THINGS 3 */
+    .style-things {
+      --app-bg: #FFFFFF;
+      --app-surface: #F9F9FB;
+      --app-surface-subtle: #F0F0F4;
+      --app-text: #1C1C1E;
+      --app-text-secondary: #8E8E93;
+      --app-accent: #2980B9;
+      --app-accent-text: #FFFFFF;
+      --app-accent-subtle: #EBF5FB;
+      --app-border: #E5E5EA;
+      --app-card-radius: 12px;
+      --app-pill-radius: 8px;
+      --app-font-heading: var(--font-sans);
+      --app-font-mono: var(--font-sans);
+      --app-shadow: none;
+      --app-tab-bg: rgba(255, 255, 255, 0.92);
+      --app-tag-bg: #EBEBF0;
+      --app-check-radius: 50%;
+    }
+    .style-things.dark-mode {
+      --app-bg: #000000;
+      --app-surface: #151517;
+      --app-surface-subtle: #1F1F23;
+      --app-text: #FFFFFF;
+      --app-text-secondary: #7C7C82;
+      --app-accent: #3498DB;
+      --app-accent-text: #000000;
+      --app-accent-subtle: #122533;
+      --app-border: #242428;
+      --app-card-radius: 12px;
+      --app-pill-radius: 8px;
+      --app-font-heading: var(--font-sans);
+      --app-font-mono: var(--font-sans);
+      --app-shadow: none;
+      --app-tab-bg: rgba(0, 0, 0, 0.92);
+      --app-tag-bg: #222227;
+      --app-check-radius: 50%;
+    }
+
+    /* 3. BOLD NEO-CONSUMER */
+    .style-neoconsumer {
+      --app-bg: #0D0E12;
+      --app-surface: #171922;
+      --app-surface-subtle: #212533;
+      --app-text: #FFFFFF;
+      --app-text-secondary: #9DA4B7;
+      --app-accent: #00E676;
+      --app-accent-text: #051A0D;
+      --app-accent-subtle: #0F2E1B;
+      --app-border: #282E40;
+      --app-card-radius: 24px;
+      --app-pill-radius: 100px;
+      --app-font-heading: var(--font-chunky);
+      --app-font-mono: var(--font-mono);
+      --app-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+      --app-tab-bg: #12141C;
+      --app-tag-bg: #262B3B;
+      --app-check-radius: 8px;
+    }
+    .style-neoconsumer.light-mode {
+      --app-bg: #F5F7FA;
+      --app-surface: #FFFFFF;
+      --app-surface-subtle: #E8ECF2;
+      --app-text: #0B0D14;
+      --app-text-secondary: #6A7387;
+      --app-accent: #00C853;
+      --app-accent-text: #FFFFFF;
+      --app-accent-subtle: #E2F8EA;
+      --app-border: #D8DFEB;
+      --app-card-radius: 24px;
+      --app-pill-radius: 100px;
+      --app-font-heading: var(--font-chunky);
+      --app-font-mono: var(--font-mono);
+      --app-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+      --app-tab-bg: #FFFFFF;
+      --app-tag-bg: #E6EBF5;
+      --app-check-radius: 8px;
+    }
+
+    /* 4. DIETER RAMS / BRAUN */
+    .style-rams {
+      --app-bg: #EAE6DE;
+      --app-surface: #F4F1EB;
+      --app-surface-subtle: #DDD9CF;
+      --app-text: #191919;
+      --app-text-secondary: #686660;
+      --app-accent: #E85D04;
+      --app-accent-text: #FFFFFF;
+      --app-accent-subtle: #F9E8DE;
+      --app-border: #C8C3B6;
+      --app-card-radius: 4px;
+      --app-pill-radius: 4px;
+      --app-font-heading: var(--font-grotesk);
+      --app-font-mono: var(--font-mono);
+      --app-shadow: 0 2px 0 rgba(0, 0, 0, 0.1);
+      --app-tab-bg: #E0DBD0;
+      --app-tag-bg: #D5CFC2;
+      --app-check-radius: 50%;
+    }
+    .style-rams.dark-mode {
+      --app-bg: #1A1A1A;
+      --app-surface: #262626;
+      --app-surface-subtle: #333333;
+      --app-text: #F2F2F2;
+      --app-text-secondary: #999999;
+      --app-accent: #FF6B1A;
+      --app-accent-text: #111111;
+      --app-accent-subtle: #3B2011;
+      --app-border: #3D3D3D;
+      --app-card-radius: 4px;
+      --app-pill-radius: 4px;
+      --app-font-heading: var(--font-grotesk);
+      --app-font-mono: var(--font-mono);
+      --app-shadow: 0 2px 0 rgba(0, 0, 0, 0.4);
+      --app-tab-bg: #1F1F1F;
+      --app-tag-bg: #383838;
+      --app-check-radius: 50%;
+    }
+
+    /* Screen Variables Applied */
+    .phone-screen {
+      background-color: var(--app-bg);
+      color: var(--app-text);
+      font-family: var(--font-sans);
+      transition: background-color 0.2s ease, color 0.2s ease;
+    }
+
+    .phone-screen .status-bar {
+      color: var(--app-text);
+    }
+
+    .phone-screen .home-indicator {
+      background-color: var(--app-text);
+      opacity: 0.35;
+    }
+
+    .phone-screen .app-tabbar {
+      background: var(--app-tab-bg);
+      border-color: var(--app-border);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+    }
+
+    .phone-screen .app-tab-item {
+      color: var(--app-text-secondary);
+    }
+    .phone-screen .app-tab-item.active {
+      color: var(--app-accent);
+    }
+
+    /* Screen Container */
+    .screen-content {
+      display: none;
+      padding: 4px 18px 24px;
+      flex-direction: column;
+      gap: 16px;
+      animation: fadeIn 0.18s ease-out;
+    }
+    .screen-content.active {
+      display: flex;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(3px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .greeting-sub {
+      font-size: 11.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--app-text-secondary);
+      font-family: var(--app-font-mono, var(--font-sans));
+    }
+
+    .greeting-title {
+      font-size: 24px;
+      font-weight: 800;
+      letter-spacing: -0.035em;
+      color: var(--app-text);
+      font-family: var(--app-font-heading);
+      margin-top: 1px;
+    }
+
+    .avatar-stack {
+      display: flex;
+      align-items: center;
+    }
+    .avatar-circle {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      border: 2px solid var(--app-bg);
+      margin-left: -8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      font-weight: 800;
+      color: #fff;
+    }
+
+    /* Cards */
+    .card {
+      background: var(--app-surface);
+      border-radius: var(--app-card-radius);
+      border: 1px solid var(--app-border);
+      box-shadow: var(--app-shadow);
+      padding: 14px;
+      position: relative;
+      transition: all 0.15s;
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+
+    .card-label {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--app-text-secondary);
+      font-family: var(--app-font-mono, var(--font-sans));
+    }
+
+    .badge-pill {
+      font-size: 10.5px;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: var(--app-pill-radius);
+      background: var(--app-accent-subtle);
+      color: var(--app-accent);
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      border: 1px solid transparent;
+      cursor: pointer;
+    }
+
+    /* Hero Meal Card */
+    .hero-meal-card {
+      background: var(--app-surface);
+      border-radius: var(--app-card-radius);
+      border: 1px solid var(--app-border);
+      box-shadow: var(--app-shadow);
+      overflow: hidden;
+    }
+
+    .meal-img-placeholder {
+      height: 110px;
+      background: linear-gradient(135deg, rgba(94,106,210,0.18), rgba(0,230,118,0.12)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="%23888" stroke-width="1.5"><path d="M18 8h1a4 4 0 0 1 0 8h-1"></path><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path><line x1="6" y1="1" x2="6" y2="4"></line><line x1="10" y1="1" x2="10" y2="4"></line><line x1="14" y1="1" x2="14" y2="4"></line></svg>') center/36px no-repeat;
+      position: relative;
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-end;
+      padding: 10px;
+    }
+
+    .meal-details {
+      padding: 13px;
+    }
+
+    .meal-title {
+      font-size: 16px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      font-family: var(--app-font-heading);
+      color: var(--app-text);
+      margin-bottom: 4px;
+    }
+
+    .meal-meta {
+      display: flex;
+      gap: 12px;
+      font-size: 11.5px;
+      color: var(--app-text-secondary);
+      margin-top: 6px;
+    }
+
+    .stat-grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .stat-metric {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--app-text);
+      margin-top: 4px;
+      font-family: var(--app-font-heading);
+      letter-spacing: -0.03em;
+    }
+
+    .stat-sub {
+      font-size: 11px;
+      color: var(--app-text-secondary);
+      margin-top: 1px;
+    }
+
+    /* List items */
+    .list-container {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .list-item {
+      background: var(--app-surface);
+      border: 1px solid var(--app-border);
+      border-radius: var(--app-card-radius);
+      padding: 11px 13px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: var(--app-shadow);
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .list-item:active {
+      transform: scale(0.985);
+    }
+
+    .list-item-left {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+    }
+
+    .check-box {
+      width: 19px;
+      height: 19px;
+      border-radius: var(--app-check-radius, 6px);
+      border: 2px solid var(--app-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.15s;
+    }
+
+    .list-item.checked .check-box {
+      background: var(--app-accent);
+      border-color: var(--app-accent);
+    }
+
+    .list-item.checked .item-name {
+      text-decoration: line-through;
+      color: var(--app-text-secondary);
+      opacity: 0.55;
+    }
+
+    .item-name {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: var(--app-text);
+      letter-spacing: -0.01em;
+    }
+
+    .item-qty {
+      font-size: 11px;
+      color: var(--app-text-secondary);
+      font-weight: 500;
+      margin-top: 1px;
+    }
+
+    .item-tag {
+      font-size: 9.5px;
+      font-weight: 700;
+      padding: 2px 6px;
+      border-radius: var(--app-pill-radius);
+      background: var(--app-tag-bg);
+      color: var(--app-text-secondary);
+      font-family: var(--app-font-mono, var(--font-sans));
+    }
+
+    /* Expiry Tags */
+    .expiry-tag {
+      font-size: 9.5px;
+      font-weight: 700;
+      padding: 2px 6px;
+      border-radius: 4px;
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+      font-family: var(--app-font-mono, var(--font-sans));
+    }
+    .expiry-danger {
+      background: #3B1614;
+      color: #FF5A47;
+      border: 1px solid rgba(255, 90, 71, 0.25);
+    }
+    .light-mode .expiry-danger {
+      background: #FDE8E6;
+      color: #D32F2F;
+      border: 1px solid #FFCDD2;
+    }
+    .expiry-warning {
+      background: #3B280E;
+      color: #FFA726;
+      border: 1px solid rgba(255, 167, 38, 0.25);
+    }
+    .light-mode .expiry-warning {
+      background: #FFF3E0;
+      color: #E65100;
+      border: 1px solid #FFE0B2;
+    }
+    .expiry-ok {
+      background: #0E2E18;
+      color: #66BB6A;
+      border: 1px solid rgba(102, 187, 106, 0.25);
+    }
+    .light-mode .expiry-ok {
+      background: #E8F5E9;
+      color: #2E7D32;
+      border: 1px solid #C8E6C9;
+    }
+
+    /* Floating Action / Quick Add */
+    .quick-add-btn {
+      position: absolute;
+      bottom: 96px;
+      right: 18px;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--app-accent);
+      color: var(--app-accent-text);
+      border: none;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 70;
+      transition: transform 0.15s;
+    }
+    .quick-add-btn:active {
+      transform: scale(0.92);
+    }
+
+    /* Navigation Mode Specific Overrides */
+    /* Pattern 1: Pure 5-Tab Bar (No Hamburger Button) */
+    .nav-pattern-tabs .drawer-trigger-btn {
+      display: none !important;
+    }
+    .nav-pattern-tabs .nav-brand-text {
+      display: block !important;
+    }
+
+    /* Pattern 2: Pure Drawer (No Tab Bar at all) */
+    .nav-pattern-drawer .app-tabbar {
+      display: none !important;
+    }
+    .nav-pattern-drawer .app-viewport {
+      padding-bottom: 30px !important;
+    }
+    .nav-pattern-drawer .quick-add-btn {
+      bottom: 30px !important;
+    }
+    .nav-pattern-drawer .drawer-trigger-btn {
+      display: flex !important;
+    }
+
+    .icon {
+      width: 17px;
+      height: 17px;
+      stroke-width: 2.2;
+      stroke: currentColor;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .icon-sm {
+      width: 13px;
+      height: 13px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Global Toolbar -->
+  <header class="toolbar">
+    <div class="brand-title">
+      <span class="brand-badge">fam Architecture</span>
+      <span class="brand-name">Rebranding & Navigation Suite</span>
+    </div>
+
+    <!-- Controls Group -->
+    <div class="controls-group">
+      
+      <!-- Nav Pattern Selector -->
+      <span class="control-label">Nav-Modus:</span>
+      <div class="segmented-control" id="nav-pattern-control">
+        <button class="seg-btn active" onclick="setNavPattern('tabs', this)">
+          <span>📱</span> 5-Tab Bar (Standard iOS)
+        </button>
+        <button class="seg-btn" onclick="setNavPattern('drawer', this)">
+          <span>☰</span> Pure Drawer (Kein Tabbar)
+        </button>
+      </div>
+
+      <!-- Direction Selector -->
+      <span class="control-label" style="margin-left: 8px;">Stil:</span>
+      <div class="segmented-control" id="direction-control">
+        <button class="seg-btn active" onclick="setDirection('linear', this)">
+          <span>⚡</span> Linear
+        </button>
+        <button class="seg-btn" onclick="setDirection('things', this)">
+          <span>🖋</span> Things 3
+        </button>
+        <button class="seg-btn" onclick="setDirection('neoconsumer', this)">
+          <span>🚀</span> Neo-Consumer
+        </button>
+        <button class="seg-btn" onclick="setDirection('rams', this)">
+          <span>📻</span> Braun
+        </button>
+      </div>
+
+      <!-- Light / Dark Mode Toggle -->
+      <button class="theme-toggle-btn" onclick="toggleTheme()">
+        <span id="theme-icon">☀️</span>
+        <span id="theme-label">Light</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Workspace Container -->
+  <main class="workspace">
+
+    <!-- Left Design DNA & Tokens Inspection Panel -->
+    <aside class="dna-panel">
+      
+      <div class="dna-card" id="dna-summary">
+        <div class="dna-title">Navigation & Branding Lösung</div>
+        <h2 class="dna-direction-name" id="dna-name">Linear / Raycast</h2>
+        <p class="dna-desc" id="dna-desc">
+          Ultra-Dark Cyber Precision. Tiefschwarz (#0A0B0E), 1px-Kantenbeleuchtung, Monospace-Details und klare Navigations-Hierarchie ohne redundante Menü-Buttons.
+        </p>
+
+        <div class="dna-title">Brand Color DNA</div>
+        <div class="swatches" id="dna-swatches"></div>
+
+        <table class="spec-table" id="dna-specs">
+          <tr><td>Aktiver Nav-Modus</td><td id="spec-nav-mode">5-Tab Bar (Native iOS)</td></tr>
+          <tr><td>Headlines</td><td id="spec-font-head">SF Pro Display (Bold)</td></tr>
+          <tr><td>Details / Badges</td><td id="spec-font-body">SF Mono</td></tr>
+          <tr><td>Eckenradius</td><td id="spec-radius">10px (Compact)</td></tr>
+          <tr><td>Checkbox-Stil</td><td id="spec-check">4px Sharp Square</td></tr>
+        </table>
+      </div>
+
+      <div class="dna-card">
+        <div class="dna-title">📐 Navigations-Konzepte erklärt</div>
+        <div style="font-size: 12.5px; color: var(--shell-text-muted); line-height: 1.6;">
+          <p style="margin-bottom: 8px;"><strong>1. Standard 5-Tab Bar (iOS HIG):</strong><br>Kein Hamburger-Button oben. Unten liegen 4 Haupt-Tabs + <em>"Mehr (⋯)"</em> für Rezepte, Essensplan & Prospekte.</p>
+          <p><strong>2. Pure Drawer:</strong><br>Keine Leiste unten. Die App hat maximalen Platz und wird sauber über das <em>☰ Hamburger-Menü oben links</em> gesteuert.</p>
+        </div>
+      </div>
+
+    </aside>
+
+    <!-- Center Stage: Phone Mockup Frame -->
+    <section class="stage">
+
+      <!-- Screen Nav Tabs (All 8 destinations) -->
+      <div class="screen-nav-wrapper">
+        <nav class="screen-nav" id="top-screen-nav">
+          <button class="screen-tab active" onclick="setScreen('hub', this)">1. Heute</button>
+          <button class="screen-tab" onclick="setScreen('shopping', this)">2. Einkauf</button>
+          <button class="screen-tab" onclick="setScreen('fridge', this)">3. Vorrat</button>
+          <button class="screen-tab" onclick="setScreen('diary', this)">4. Tagebuch</button>
+          <button class="screen-tab" onclick="setScreen('more', this)">5. Mehr (Übersicht)</button>
+          <button class="screen-tab" onclick="setScreen('recipes', this)">6. Rezepte</button>
+          <button class="screen-tab" onclick="setScreen('meals', this)">7. Essensplan</button>
+          <button class="screen-tab" onclick="setScreen('brochures', this)">8. Angebote</button>
+        </nav>
+      </div>
+
+      <!-- The Phone Frame -->
+      <div class="phone-container">
+        <div class="phone-screen style-linear nav-pattern-tabs" id="phone">
+          
+          <!-- Dynamic Island -->
+          <div class="dynamic-island">
+            <div style="width: 10px; height: 10px; background: #1c1c1e; border-radius: 50%;"></div>
+            <div style="width: 10px; height: 10px; background: #0c1a2e; border-radius: 50%;"></div>
+          </div>
+
+          <!-- Native iOS Status Bar -->
+          <div class="status-bar">
+            <span>09:41</span>
+            <div style="display: flex; gap: 6px; align-items: center;">
+              <svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M12 20h.01M2 8.82a15 15 0 0 1 20 0M5 12.86a10 10 0 0 1 14 0M8.5 16.9a5 5 0 0 1 7 0"/></svg>
+              <svg class="icon icon-sm" viewBox="0 0 24 24"><rect x="2" y="7" width="18" height="11" rx="2"/><path d="M22 11v3"/></svg>
+            </div>
+          </div>
+
+          <!-- Top Header inside Screen -->
+          <div class="top-nav-bar">
+            <!-- Hamburger button only visible in 'Pure Drawer' mode -->
+            <button class="drawer-trigger-btn" onclick="openDrawer()" title="Navigation Drawer öffnen">
+              <svg class="icon" viewBox="0 0 24 24"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+            </button>
+            <span class="nav-brand-text">fam</span>
+            <div class="avatar-stack">
+              <div class="avatar-circle" style="background: #5E6AD2;">M</div>
+              <div class="avatar-circle" style="background: #A855F7;">S</div>
+            </div>
+          </div>
+
+          <!-- ================= SLIDE-OUT NAVIGATION DRAWER ================= -->
+          <div class="drawer-backdrop" id="drawer-backdrop" onclick="closeDrawer()"></div>
+          
+          <div class="slide-drawer" id="slide-drawer">
+            <div class="drawer-brand-row">
+              <div class="drawer-brand-title">fam</div>
+              <button class="drawer-close-btn" onclick="closeDrawer()">✕</button>
+            </div>
+
+            <div style="overflow-y: auto; flex: 1;">
+              
+              <!-- Group 1: Heute -->
+              <div class="drawer-group-label">HEUTE</div>
+              <div class="drawer-menu-list">
+                <div class="drawer-menu-item active" onclick="navFromDrawer('hub')">
+                  <div class="drawer-item-left">
+                    <span>🏠</span>
+                    <span>Übersicht</span>
+                  </div>
+                  <span style="font-size: 11px; opacity: 0.5;">›</span>
+                </div>
+              </div>
+
+              <!-- Group 2: Haushalt & Planung -->
+              <div class="drawer-group-label">HAUSHALT & PLANUNG</div>
+              <div class="drawer-menu-list">
+                <div class="drawer-menu-item" onclick="navFromDrawer('shopping')">
+                  <div class="drawer-item-left">
+                    <span>🛒</span>
+                    <span>Einkaufsliste</span>
+                  </div>
+                  <span class="badge-pill" style="font-size: 9.5px; padding: 1px 6px;">6</span>
+                </div>
+
+                <div class="drawer-menu-item" onclick="navFromDrawer('fridge')">
+                  <div class="drawer-item-left">
+                    <span>🧊</span>
+                    <span>Kühlschrank & Vorrat</span>
+                  </div>
+                  <span class="expiry-tag expiry-danger" style="font-size: 9px; padding: 1px 4px;">2 fällig</span>
+                </div>
+
+                <div class="drawer-menu-item" onclick="navFromDrawer('recipes')">
+                  <div class="drawer-item-left">
+                    <span>📖</span>
+                    <span>Rezepte</span>
+                  </div>
+                  <span style="font-size: 11px; opacity: 0.5;">›</span>
+                </div>
+
+                <div class="drawer-menu-item" onclick="navFromDrawer('meals')">
+                  <div class="drawer-item-left">
+                    <span>🗓️</span>
+                    <span>Essensplaner</span>
+                  </div>
+                  <span style="font-size: 11px; opacity: 0.5;">›</span>
+                </div>
+
+                <div class="drawer-menu-item" onclick="navFromDrawer('brochures')">
+                  <div class="drawer-item-left">
+                    <span>🏷️</span>
+                    <span>Angebote & Prospekte</span>
+                  </div>
+                  <span style="font-size: 11px; opacity: 0.5;">›</span>
+                </div>
+              </div>
+
+              <!-- Group 3: Privat & Tracking -->
+              <div class="drawer-group-label">PRIVAT & TRACKING</div>
+              <div class="drawer-menu-list">
+                <div class="drawer-menu-item" onclick="navFromDrawer('diary')">
+                  <div class="drawer-item-left">
+                    <span>🍎</span>
+                    <span>Tagebuch & Kalorien</span>
+                  </div>
+                  <span style="font-size: 11px; color: var(--app-text-secondary);">1.840 kcal</span>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Drawer Bottom: Settings & Profile -->
+            <div style="border-top: 1px solid var(--app-border); padding-top: 12px; margin-top: 8px;">
+              <div class="drawer-menu-item" onclick="alert('Einstellungen geöffnet'); closeDrawer();">
+                <div class="drawer-item-left">
+                  <span>⚙️</span>
+                  <span>Einstellungen</span>
+                </div>
+                <span style="font-size: 11px; opacity: 0.5;">›</span>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Main Scrollable App Viewport -->
+          <div class="app-viewport">
+
+            <!-- ================= SCREEN 1: HEUTE / HUB ================= -->
+            <div class="screen-content active" id="screen-hub">
+              <div>
+                <div class="greeting-sub">DI • 25. AUG 2026</div>
+                <h1 class="greeting-title">Dashboard</h1>
+              </div>
+
+              <div class="card" style="display: flex; align-items: center; justify-content: space-between;">
+                <div style="display: flex; align-items: center; gap: 10px;">
+                  <span style="font-size: 18px;">🛒</span>
+                  <div>
+                    <div style="font-size: 13px; font-weight: 700;">Einkaufszettel aktiv</div>
+                    <div style="font-size: 11px; color: var(--app-text-secondary);">6 Artikel offen für REWE</div>
+                  </div>
+                </div>
+                <span class="badge-pill" onclick="setScreen('shopping', document.querySelectorAll('.screen-tab')[1])">Öffnen →</span>
+              </div>
+
+              <div>
+                <div class="card-header">
+                  <span class="card-label">ABENDESSEN • 19:30</span>
+                  <span class="badge-pill">VORRÄTIG</span>
+                </div>
+                <div class="hero-meal-card">
+                  <div class="meal-img-placeholder">
+                    <span class="badge-pill" style="background: rgba(0,0,0,0.7); color: #fff;">ZUTATEN KOMPLETT</span>
+                  </div>
+                  <div class="meal-details">
+                    <h3 class="meal-title">Zitronen-Kräuter-Lachs mit grünem Spargel</h3>
+                    <div class="meal-meta">
+                      <span>⏱ 25 Min</span>
+                      <span>👥 4 Port.</span>
+                      <span>🔥 540 kcal</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="stat-grid-2">
+                <div class="card">
+                  <div class="card-label">KÜHLSCHRANK</div>
+                  <div class="stat-metric">2 FÄLLIG</div>
+                  <div class="stat-sub">Milch & Joghurt bis morgen</div>
+                </div>
+                <div class="card">
+                  <div class="card-label">KALORIEN</div>
+                  <div class="stat-metric">1.840</div>
+                  <div class="stat-sub">von 2.200 kcal getrackt</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- ================= SCREEN 2: EINKAUF ================= -->
+            <div class="screen-content" id="screen-shopping">
+              <div class="header-row">
+                <div>
+                  <div class="greeting-sub">HAUSHALT • SYNC</div>
+                  <h1 class="greeting-title">Einkaufsliste</h1>
+                </div>
+                <span class="badge-pill">6 OFFEN</span>
+              </div>
+
+              <div class="list-container">
+                <div class="list-item" onclick="toggleCheck(this)">
+                  <div class="list-item-left">
+                    <div class="check-box"></div>
+                    <div>
+                      <div class="item-name">Grüner Spargel</div>
+                      <div class="item-qty">500 g • Laufzone 1</div>
+                    </div>
+                  </div>
+                  <span class="item-tag">GEMÜSE</span>
+                </div>
+
+                <div class="list-item" onclick="toggleCheck(this)">
+                  <div class="list-item-left">
+                    <div class="check-box"></div>
+                    <div>
+                      <div class="item-name">Bio-Zitronen</div>
+                      <div class="item-qty">2 Stück</div>
+                    </div>
+                  </div>
+                  <span class="item-tag">BIO</span>
+                </div>
+
+                <div class="list-item checked" onclick="toggleCheck(this)">
+                  <div class="list-item-left">
+                    <div class="check-box">
+                      <svg style="width: 12px; height: 12px; stroke: #fff; stroke-width: 3; fill: none;" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                    </div>
+                    <div>
+                      <div class="item-name">Hafermilch Barista</div>
+                      <div class="item-qty">2x 1 Liter (Oatly)</div>
+                    </div>
+                  </div>
+                  <span class="item-tag">GEKAUFT</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- ================= SCREEN 3: VORRAT ================= -->
+            <div class="screen-content" id="screen-fridge">
+              <div class="header-row">
+                <div>
+                  <div class="greeting-sub">INVENTAR</div>
+                  <h1 class="greeting-title">Vorrat & Fridge</h1>
+                </div>
+                <button class="badge-pill">+ NEU</button>
+              </div>
+
+              <div class="list-container">
+                <div class="list-item">
+                  <div class="list-item-left">
+                    <span style="font-size: 18px;">🥛</span>
+                    <div>
+                      <div class="item-name">Vollmilch 3.8%</div>
+                      <div class="item-qty">1 Flasche • Tür oben</div>
+                    </div>
+                  </div>
+                  <span class="expiry-tag expiry-danger">HEUTE FÄLLIG</span>
+                </div>
+
+                <div class="list-item">
+                  <div class="list-item-left">
+                    <span style="font-size: 18px;">🥣</span>
+                    <div>
+                      <div class="item-name">Naturjoghurt Bio</div>
+                      <div class="item-qty">500 g Becher</div>
+                    </div>
+                  </div>
+                  <span class="expiry-tag expiry-warning">NOCH 2 TAGE</span>
+                </div>
+
+                <div class="list-item">
+                  <div class="list-item-left">
+                    <span style="font-size: 18px;">🧀</span>
+                    <div>
+                      <div class="item-name">Parmigiano Reggiano</div>
+                      <div class="item-qty">200 g • Geöffnet</div>
+                    </div>
+                  </div>
+                  <span class="expiry-tag expiry-ok">18 TAGE</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- ================= SCREEN 4: TAGEBUCH ================= -->
+            <div class="screen-content" id="screen-diary">
+              <div class="header-row">
+                <div>
+                  <div class="greeting-sub">PRIVAT • TRACKING</div>
+                  <h1 class="greeting-title">Tagebuch</h1>
+                </div>
+                <span class="badge-pill">1.840 kcal</span>
+              </div>
+
+              <div class="card">
+                <div class="card-label">MAHLZEITEN HEUTE</div>
+                <div style="margin-top: 8px; display: flex; flex-direction: column; gap: 6px;">
+                  <div style="display: flex; justify-content: space-between; font-size: 12.5px;">
+                    <span>Frühstück (Oats)</span>
+                    <span style="font-weight: 700;">420 kcal</span>
+                  </div>
+                  <div style="display: flex; justify-content: space-between; font-size: 12.5px;">
+                    <span>Mittag (Quinoa Bowl)</span>
+                    <span style="font-weight: 700;">580 kcal</span>
+                  </div>
+                  <div style="display: flex; justify-content: space-between; font-size: 12.5px;">
+                    <span>Abend (Lachs)</span>
+                    <span style="font-weight: 700;">540 kcal</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- ================= SCREEN 5: MEHR / WEITERE BEREICHE ================= -->
+            <div class="screen-content" id="screen-more">
+              <div class="header-row">
+                <div>
+                  <div class="greeting-sub">ALLE MODULE</div>
+                  <h1 class="greeting-title">Mehr</h1>
+                </div>
+              </div>
+
+              <!-- Haushalt & Planung Section -->
+              <div class="card-label" style="margin-top: 6px;">HAUSHALT & PLANUNG</div>
+              <div class="list-container">
+                <div class="list-item" onclick="setScreen('recipes', document.querySelectorAll('.screen-tab')[5])">
+                  <div class="list-item-left">
+                    <span style="font-size: 18px;">📖</span>
+                    <div>
+                      <div class="item-name">Rezepte</div>
+                      <div class="item-qty">Geteilte Familiensammlung</div>
+                    </div>
+                  </div>
+                  <span style="color: var(--app-text-secondary);">›</span>
+                </div>
+
+                <div class="list-item" onclick="setScreen('meals', document.querySelectorAll('.screen-tab')[6])">
+                  <div class="list-item-left">
+                    <span style="font-size: 18px;">🗓️</span>
+                    <div>
+                      <div class="item-name">Essensplaner</div>
+                      <div class="item-qty">Wochenplan & Bedarfe</div>
+                    </div>
+                  </div>
+                  <span style="color: var(--app-text-secondary);">›</span>
+                </div>
+
+                <div class="list-item" onclick="setScreen('brochures', document.querySelectorAll('.screen-tab')[7])">
+                  <div class="list-item-left">
+                    <span style="font-size: 18px;">🏷️</span>
+                    <div>
+                      <div class="item-name">Angebote & Prospekte</div>
+                      <div class="item-qty">REWE, ALDI & Lidl Blättern</div>
+                    </div>
+                  </div>
+                  <span style="color: var(--app-text-secondary);">›</span>
+                </div>
+              </div>
+
+              <!-- Einstellungen Section -->
+              <div class="card-label" style="margin-top: 10px;">SYSTEM & EINSTELLUNGEN</div>
+              <div class="list-container">
+                <div class="list-item" onclick="alert('Einstellungen geöffnet')">
+                  <div class="list-item-left">
+                    <span style="font-size: 18px;">⚙️</span>
+                    <div>
+                      <div class="item-name">Einstellungen & Haushalt</div>
+                      <div class="item-qty">Mitglieder, Lagerorte, Sync</div>
+                    </div>
+                  </div>
+                  <span style="color: var(--app-text-secondary);">›</span>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- ================= SCREEN 6: REZEPTE ================= -->
+            <div class="screen-content" id="screen-recipes">
+              <div class="header-row">
+                <div>
+                  <div class="greeting-sub">KOCHBUCH</div>
+                  <h1 class="greeting-title">Rezepte</h1>
+                </div>
+                <button class="badge-pill">+ REZEPT</button>
+              </div>
+
+              <div class="list-container">
+                <div class="card" style="padding: 12px;">
+                  <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                    <div>
+                      <div style="font-size: 14.5px; font-weight: 700;">Zitronen-Lachs mit Spargel</div>
+                      <div style="font-size: 11.5px; color: var(--app-text-secondary); margin-top: 2px;">25 Min • 540 kcal • Fisch</div>
+                    </div>
+                    <span class="badge-pill" style="font-size: 9.5px;">⭐ Favorit</span>
+                  </div>
+                </div>
+
+                <div class="card" style="padding: 12px;">
+                  <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                    <div>
+                      <div style="font-size: 14.5px; font-weight: 700;">Quinoa Bowl mit Avocado</div>
+                      <div style="font-size: 11.5px; color: var(--app-text-secondary); margin-top: 2px;">15 Min • 580 kcal • Vegan</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- ================= SCREEN 7: ESSENSPLAN ================= -->
+            <div class="screen-content" id="screen-meals">
+              <div class="header-row">
+                <div>
+                  <div class="greeting-sub">KW 35</div>
+                  <h1 class="greeting-title">Essensplan</h1>
+                </div>
+                <button class="badge-pill">+ PLANEN</button>
+              </div>
+
+              <div class="card">
+                <div class="card-label">DIENSTAG (HEUTE)</div>
+                <div style="font-size: 14px; font-weight: 700; margin-top: 4px;">Zitronen-Lachs mit Spargel</div>
+                <div style="font-size: 11.5px; color: var(--app-text-secondary);">4 Portionen • Abendessen</div>
+              </div>
+
+              <div class="card">
+                <div class="card-label">MITTWOCH</div>
+                <div style="font-size: 14px; font-weight: 700; margin-top: 4px;">Pasta mit frischer Tomaten-Basilikum-Sauce</div>
+                <div style="font-size: 11.5px; color: var(--app-text-secondary);">4 Portionen • 2 Zutaten fehlen</div>
+              </div>
+            </div>
+
+            <!-- ================= SCREEN 8: ANGEBOTE ================= -->
+            <div class="screen-content" id="screen-brochures">
+              <div class="header-row">
+                <div>
+                  <div class="greeting-sub">SUPERMÄRKTE</div>
+                  <h1 class="greeting-title">Prospekte</h1>
+                </div>
+                <span class="badge-pill">3 MÄRKTE</span>
+              </div>
+
+              <div class="card" style="display: flex; justify-content: space-between; align-items: center;">
+                <div style="display: flex; gap: 10px; align-items: center;">
+                  <span style="font-size: 20px;">🏪</span>
+                  <div>
+                    <div style="font-size: 13.5px; font-weight: 700;">REWE Angebote</div>
+                    <div style="font-size: 11px; color: var(--app-text-secondary);">Gültig bis Samstag • 4 Treffer auf Liste</div>
+                  </div>
+                </div>
+                <span class="badge-pill">Blättern →</span>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Floating Add Button -->
+          <button class="quick-add-btn" onclick="alert('Speed-Dial / Schnell-Hinzufügen geöffnet')">
+            <svg class="icon" style="width: 22px; height: 22px;" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+          </button>
+
+          <!-- App Bottom Tabbar (Canonical 5-Tab iOS pattern: 4 Core + Mehr) -->
+          <div class="app-tabbar" id="bottom-tabbar">
+            <button class="app-tab-item active" onclick="setScreen('hub', document.querySelectorAll('.screen-tab')[0])">
+              <svg class="icon" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+              <span>Heute</span>
+            </button>
+            <button class="app-tab-item" onclick="setScreen('shopping', document.querySelectorAll('.screen-tab')[1])">
+              <svg class="icon" viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+              <span>Einkauf</span>
+            </button>
+            <button class="app-tab-item" onclick="setScreen('fridge', document.querySelectorAll('.screen-tab')[2])">
+              <svg class="icon" viewBox="0 0 24 24"><path d="M5 2h14a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z"/><line x1="5" y1="10" x2="19" y2="10"/><line x1="9" y1="6" x2="9" y2="7"/><line x1="9" y1="14" x2="9" y2="16"/></svg>
+              <span>Vorrat</span>
+            </button>
+            <button class="app-tab-item" onclick="setScreen('diary', document.querySelectorAll('.screen-tab')[3])">
+              <svg class="icon" viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z"/></svg>
+              <span>Tagebuch</span>
+            </button>
+            <button class="app-tab-item" onclick="setScreen('more', document.querySelectorAll('.screen-tab')[4])">
+              <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/></svg>
+              <span>Mehr</span>
+            </button>
+          </div>
+
+          <!-- iOS Home Indicator -->
+          <div class="home-indicator"></div>
+
+        </div>
+      </div>
+
+    </section>
+
+  </main>
+
+  <script>
+    // State
+    let currentDirection = 'linear';
+    let currentNavPattern = 'tabs';
+    let isDarkMode = true;
+
+    // Direction Data Definitions
+    const directions = {
+      linear: {
+        name: "Linear / Raycast",
+        desc: "Ultra-Dark Cyber Precision. Tiefschwarz (#0A0B0E), 1px-Kantenbeleuchtung, Monospace-Details und klare Navigations-Hierarchie ohne redundante Menü-Buttons.",
+        fontHead: "SF Pro Display (Bold)",
+        fontBody: "SF Mono & SF Pro Text",
+        radius: "10px (Compact Precision)",
+        check: "4px Sharp Box",
+        swatches: [
+          { bg: "#0A0B0E", label: "Carbon" },
+          { bg: "#181C26", label: "Elevated" },
+          { bg: "#5E6AD2", label: "Indigo" },
+          { bg: "#F3F5F9", label: "Text" }
+        ]
+      },
+      things: {
+        name: "Things 3 Minimal",
+        desc: "Swiss Tactile Minimalism. Vollkommener Verzicht auf künstliche Deko-Karten. Die Menüpunkte atmen auf reinem Canvas mit runden Check-Circles und Things-Blue (#2980B9).",
+        fontHead: "SF Pro Display (Heavy)",
+        fontBody: "SF Pro Text (Quiet)",
+        radius: "12px (Soft Minimal)",
+        check: "Zarter runder Circle",
+        swatches: [
+          { bg: "#FFFFFF", label: "Paper" },
+          { bg: "#F0F0F4", label: "Muted" },
+          { bg: "#2980B9", label: "Things Blue" },
+          { bg: "#1C1C1E", label: "Ink" }
+        ]
+      },
+      neoconsumer: {
+        name: "Bold Neo-Consumer",
+        desc: "Revolut / Cash App Look. Fette Typografie, leuchtendes Spring Volt Neon (#00E676), 24px Pill-Cards und alle 7 Menüpunkte mit haptischem Feedback.",
+        fontHead: "SF Pro Rounded (Heavy)",
+        fontBody: "SF Pro Text",
+        radius: "24px (Pill Heavy)",
+        check: "8px Rounded Squircle",
+        swatches: [
+          { bg: "#0D0E12", label: "Obsidian" },
+          { bg: "#171922", label: "Card" },
+          { bg: "#00E676", label: "Volt Neon" },
+          { bg: "#9DA4B7", label: "Steel" }
+        ]
+      },
+      rams: {
+        name: "Dieter Rams / Braun",
+        desc: "Industrial Heritage Precision. Warmer Kieselstein (#EAE6DE), Anthrazit-Tasten, Braun-Orange (#E85D04) und klare Rasterung aller Produktbereiche.",
+        fontHead: "Helvetica Neue / Grotesk",
+        fontBody: "DIN / Monospace",
+        radius: "4px (Bauhaus Sharp)",
+        check: "Kreisrunder Schalter-Button",
+        swatches: [
+          { bg: "#EAE6DE", label: "Pebble" },
+          { bg: "#232323", label: "Charcoal" },
+          { bg: "#E85D04", label: "Braun Orange" },
+          { bg: "#F2BB13", label: "Signal Yellow" }
+        ]
+      }
+    };
+
+    function updateDnaPanel(key) {
+      const data = directions[key];
+      document.getElementById('dna-name').textContent = data.name;
+      document.getElementById('dna-desc').innerHTML = data.desc;
+      document.getElementById('spec-font-head').textContent = data.fontHead;
+      document.getElementById('spec-font-body').textContent = data.fontBody;
+      document.getElementById('spec-radius').textContent = data.radius;
+      document.getElementById('spec-check').textContent = data.check;
+      document.getElementById('spec-nav-mode').textContent = currentNavPattern === 'tabs' ? '5-Tab Bar (Standard iOS)' : 'Pure Drawer (Kein Tabbar)';
+
+      const swatchContainer = document.getElementById('dna-swatches');
+      swatchContainer.innerHTML = '';
+      data.swatches.forEach(s => {
+        const div = document.createElement('div');
+        div.className = 'swatch';
+        div.style.background = s.bg;
+        div.style.color = (s.bg === '#FFFFFF' || s.bg === '#F4F6F9' || s.bg === '#EAE6DE' || s.bg === '#F0F0F4' || s.bg === '#00E676' || s.bg === '#F2BB13' || s.bg === '#F3F5F9') ? '#000' : '#fff';
+        div.textContent = s.label;
+        swatchContainer.appendChild(div);
+      });
+    }
+
+    function setNavPattern(pattern, btn) {
+      currentNavPattern = pattern;
+      document.querySelectorAll('#nav-pattern-control .seg-btn').forEach(b => b.classList.remove('active'));
+      if (btn) btn.classList.add('active');
+
+      const phone = document.getElementById('phone');
+      phone.classList.remove('nav-pattern-tabs', 'nav-pattern-drawer');
+      phone.classList.add('nav-pattern-' + pattern);
+
+      updateDnaPanel(currentDirection);
+    }
+
+    function setDirection(dir, btn) {
+      currentDirection = dir;
+      document.querySelectorAll('#direction-control .seg-btn').forEach(b => b.classList.remove('active'));
+      if (btn) btn.classList.add('active');
+
+      if (dir === 'things' || dir === 'rams') {
+        isDarkMode = false;
+      } else {
+        isDarkMode = true;
+      }
+      applyThemeClasses();
+      updateDnaPanel(dir);
+    }
+
+    function applyThemeClasses() {
+      const phone = document.getElementById('phone');
+      const icon = document.getElementById('theme-icon');
+      const label = document.getElementById('theme-label');
+
+      phone.className = 'phone-screen style-' + currentDirection + ' nav-pattern-' + currentNavPattern + (isDarkMode ? ' dark-mode' : ' light-mode');
+
+      if (isDarkMode) {
+        icon.textContent = '☀️';
+        label.textContent = 'Light';
+      } else {
+        icon.textContent = '🌙';
+        label.textContent = 'Dark';
+      }
+    }
+
+    function toggleTheme() {
+      isDarkMode = !isDarkMode;
+      applyThemeClasses();
+    }
+
+    function setScreen(screenId, tabBtn) {
+      document.querySelectorAll('.screen-tab').forEach(t => t.classList.remove('active'));
+      if (tabBtn) tabBtn.classList.add('active');
+
+      document.querySelectorAll('.screen-content').forEach(s => s.classList.remove('active'));
+      const activeScreen = document.getElementById('screen-' + screenId);
+      if (activeScreen) activeScreen.classList.add('active');
+
+      // Sync Bottom Tabbar
+      const tabs = document.querySelectorAll('.app-tab-item');
+      tabs.forEach(t => t.classList.remove('active'));
+      if (screenId === 'hub') tabs[0].classList.add('active');
+      if (screenId === 'shopping') tabs[1].classList.add('active');
+      if (screenId === 'fridge') tabs[2].classList.add('active');
+      if (screenId === 'diary') tabs[3].classList.add('active');
+      if (screenId === 'more' || screenId === 'recipes' || screenId === 'meals' || screenId === 'brochures') tabs[4].classList.add('active');
+
+      // Update drawer item state
+      document.querySelectorAll('.drawer-menu-item').forEach(item => item.classList.remove('active'));
+    }
+
+    function openDrawer() {
+      document.getElementById('slide-drawer').classList.add('open');
+      document.getElementById('drawer-backdrop').classList.add('open');
+    }
+
+    function closeDrawer() {
+      document.getElementById('slide-drawer').classList.remove('open');
+      document.getElementById('drawer-backdrop').classList.remove('open');
+    }
+
+    function navFromDrawer(screenId) {
+      const tabIndexMap = {
+        hub: 0, shopping: 1, fridge: 2, diary: 3, more: 4, recipes: 5, meals: 6, brochures: 7
+      };
+      const targetBtn = document.querySelectorAll('.screen-tab')[tabIndexMap[screenId] || 0];
+      setScreen(screenId, targetBtn);
+      closeDrawer();
+    }
+
+    function toggleCheck(item) {
+      item.classList.toggle('checked');
+      const box = item.querySelector('.check-box');
+      if (item.classList.contains('checked')) {
+        box.innerHTML = '<svg style="width: 12px; height: 12px; stroke: #fff; stroke-width: 3; fill: none;" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>';
+      } else {
+        box.innerHTML = '';
+      }
+    }
+
+    // Init
+    setNavPattern('tabs', document.querySelectorAll('#nav-pattern-control .seg-btn')[0]);
+    setDirection('linear', document.querySelectorAll('#direction-control .seg-btn')[0]);
+  </script>
+</body>
+</html>
