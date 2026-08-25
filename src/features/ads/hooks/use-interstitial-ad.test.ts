@@ -49,6 +49,14 @@ describe('useInterstitialAd', () => {
     expect(mockRawLoad).toHaveBeenCalledTimes(1);
   });
 
+  it('startet nach dem Schliessen nur einen neuen Preload', async () => {
+    mockIsClosed = true;
+
+    await renderHook(() => useInterstitialAd());
+
+    expect(mockRawLoad).toHaveBeenCalledTimes(1);
+  });
+
   it('erlaubt Anzeigen wenn geladen', async () => {
     mockIsPremium = false;
     mockIsLoaded = true;

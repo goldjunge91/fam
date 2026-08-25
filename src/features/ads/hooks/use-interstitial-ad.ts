@@ -1,4 +1,4 @@
-import { useCallback, useEffect } from 'react';
+import { useCallback, useEffect, useRef } from 'react';
 import {
   type RequestOptions,
   TestIds,
@@ -37,6 +37,20 @@ export function useInterstitialAd({
     load,
     show: rawShow,
   } = useGoogleInterstitialAd(adUnit, requestOptions);
+  const loadRequestedRef = useRef(false);
+
+  const requestLoad = useCallback(() => {
+    if (loadRequestedRef.current) return;
+    loadRequestedRef.current = true;
+    load();
+  }, [load]);
+
+  // `load()` synchronously resets the native hook state. Without this guard,
+  // the state reset after a closed ad re-enters the initial auto-load effect
+  // and starts a second request while the first reload is already pending.
+  useEffect(() => {
+    if (isLoaded) loadRequestedRef.current = false;
+  }, [isLoaded]);
 
   useEffect(() => {
     if (error && __DEV__) {
@@ -51,13 +65,13 @@ export function useInterstitialAd({
   }, [isLoaded]);
 
   useEffect(() => {
-    if (!isPremium && autoLoad && !isLoaded && !isOpened) {
+    if (!isPremium && autoLoad && !isLoaded && !isOpened && !isClosed) {
       if (__DEV__) {
         console.log(`[AdMob Interstitial] Lade Interstitial-Anzeige (Unit-ID: ${resolvedUnitId})…`);
       }
-      load();
+      requestLoad();
     }
-  }, [isPremium, autoLoad, isLoaded, isOpened, load, resolvedUnitId]);
+  }, [isPremium, autoLoad, isLoaded, isOpened, isClosed, requestLoad, resolvedUnitId]);
 
   // Automatisch nach dem Schließen für den nächsten Aufruf vorladen
   useEffect(() => {
@@ -65,9 +79,9 @@ export function useInterstitialAd({
       if (__DEV__) {
         console.log('[AdMob Interstitial] Anzeige geschlossen. Lade nächste Anzeige vor…');
       }
-      load();
+      requestLoad();
     }
-  }, [isPremium, autoLoad, isClosed, load]);
+  }, [isPremium, autoLoad, isClosed, requestLoad]);
 
   const show = useCallback(() => {
     if (isPremium) {
@@ -100,7 +114,7 @@ export function useInterstitialAd({
     isOpened,
     isClosed,
     error,
-    load: isPremium ? () => {} : load,
+    load: isPremium ? () => {} : requestLoad,
     show,
   };
 }
