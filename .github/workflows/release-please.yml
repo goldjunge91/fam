@@ -1,0 +1,81 @@
+name: Release Please
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  release-please:
+    runs-on: ubuntu-latest
+    outputs:
+      app--tag_name: ${{ steps.release.outputs.tag_name}}
+      app--release_created: ${{ steps.release.outputs.release_created}}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: googleapis/release-please-action@v4
+        id: release
+        with:
+          token:  ${{ secrets.GITHUB_TOKEN }}
+          config-file: release-please-config.json
+          manifest-file: .release-please-manifest.json
+  release2play-internal-test-track:
+    needs: release-please
+    runs-on: ubuntu-latest
+    if: ${{needs.release-please.outputs.app--release_created}}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/setup-bun-env
+      - uses: ./.github/actions/setup-expo
+        with:
+          expo-token: ${{ secrets.EXPO_TOKEN }}
+      - name: Build aab
+        run: eas build --local -p android --profile production --non-interactive --output app-release.aab
+      - name: Upload to Play Store Internal Testing
+        uses: r0adkll/upload-google-play@v1
+        with:
+          serviceAccountJsonPlainText: ${{ secrets.PLAY_CONSOLE_SERVICE_ACCOUNT_JSON }}
+          packageName: com.goldjunge91.fam
+          releaseFiles: app-release.aab
+          track: internal
+          status: draft
+          inAppUpdatePriority: 2
+  release2testflight:
+    needs: release-please
+    runs-on: macos-14
+    if: ${{needs.release-please.outputs.app--release_created}}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/setup-bun-env
+      - uses: ./.github/actions/setup-expo
+        with:
+          expo-token: ${{ secrets.EXPO_TOKEN }}
+      - name: Cache CocoaPods
+        uses: actions/cache@v4
+        with:
+          path: ios/Pods
+          key: ${{ runner.os }}-pods-${{ hashFiles('ios/Podfile.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-pods-
+      - name: Install CocoaPods
+        run: |
+          cd ios
+          pod install || pod install --repo-update
+        env:
+          LANG: en_US.UTF-8
+          LC_ALL: en_US.UTF-8
+      - name: Build iOS app
+        run: eas build --local -p ios --profile production --non-interactive --output app.ipa
+        env:
+          EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
+      - name: 'Upload app to TestFlight'
+        uses: apple-actions/upload-testflight-build@v1
+        with:
+          app-path: './app.ipa'
+          issuer-id: ${{ secrets.APPSTORE_ISSUER_ID }}
+          api-key-id: ${{ secrets.APPSTORE_API_KEY_ID }}
+          api-private-key: ${{ secrets.APPSTORE_API_PRIVATE_KEY }}

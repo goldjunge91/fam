@@ -1,0 +1,32 @@
+name: Android Dev APK Build
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build-apk:
+    name: Build Android APK
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Bun Environment
+        uses: ./.github/actions/setup-bun-env
+
+      - name: Setup Java 17 & Expo
+        uses: ./.github/actions/setup-expo
+        with:
+          expo-token: ${{ secrets.EXPO_TOKEN }}
+
+      - name: Build Android APK
+        run: bun run android:apk
+        env:
+          EXPO_PROJECT_ID: ${{ secrets.EXPO_PROJECT_ID }}
+
+      - name: Upload APK Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: fam-android-dev-apk-${{ github.sha }}
+          path: "*.apk"
+          retention-days: 7

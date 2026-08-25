@@ -189,7 +189,8 @@ export type FeatureFlagKey =
   | 'low-carb-tracking'
   | 'module-recipes'
   | 'module-meal-planner'
-  | 'module-calories';
+  | 'module-calories'
+  | 'experimental-vision-camera';
 
 /**
  * Fragt den rohen Zustand eines Feature-Flags ab: `true`/`false` sobald ein

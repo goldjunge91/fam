@@ -1,28 +1,28 @@
 {
   "editor.codeActionsOnSave": {
-    "source.fixAll": "explicit"
+    // "source.fixAll": "explicit"
   },
   "[typescript]": {
     "editor.defaultFormatter": "biomejs.biome",
-    "editor.codeActionsOnSave": {
-      "source.fixAll.biome": "explicit",
-      "source.organizeImports": "never",
-      "source.sortMembers": "never"
-    }
+    // "editor.codeActionsOnSave": {
+    //   "source.fixAll.biome": "explicit",
+    //   "source.organizeImports": "never",
+    //   "source.sortMembers": "never"
+    // }
   },
   "tailwindCSS.classAttributes": [
     "class",
     "className",
     "headerClassName"
   ],
-  "[typescriptreact]": {
-    "editor.defaultFormatter": "biomejs.biome",
-    "editor.codeActionsOnSave": {
-      "source.fixAll.biome": "explicit",
-      "source.organizeImports": "never",
-      "source.sortMembers": "never"
-    }
-  },
+  // "[typescriptreact]": {
+  //   "editor.defaultFormatter": "biomejs.biome",
+  //   "editor.codeActionsOnSave": {
+  //     "source.fixAll.biome": "explicit",
+  //     "source.organizeImports": "never",
+  //     "source.sortMembers": "never"
+  //   }
+  // },
   "telemetry.feedback.enabled": false,
   "chat.mcp.serverSampling": {
     "fam/.vscode/mcp.json: expo": {
@@ -73,3 +73,4 @@
   "explorer.sortOrder": "foldersNestsFiles",
   "claudeCode.respectGitIgnore": false,
   "explorer.compactFolders": false
+}

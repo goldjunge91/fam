@@ -21,6 +21,7 @@ let mockFeatureFlags: Record<FeatureFlagKey, boolean> = {
   'module-recipes': true,
   'module-meal-planner': true,
   'module-calories': true,
+  'experimental-vision-camera': false,
 };
 
 jest.mock('expo-router', () => ({
@@ -95,6 +96,7 @@ describe('SpeedDialMenu', () => {
       'module-recipes': true,
       'module-meal-planner': true,
       'module-calories': true,
+      'experimental-vision-camera': false,
     };
   });
 

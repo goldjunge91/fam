@@ -116,6 +116,7 @@ export function DevToolsScreen() {
   // (PostHog)". defaultValue=false greift ohne Key oder ohne je geladenen
   // Wert.
   const testFeatureFlag = useFeatureFlag('test-feature', false);
+  const visionCameraFlag = useFeatureFlag('experimental-vision-camera', false);
   const posthogFlags = useFeatureFlags();
   const posthogConfigured = isPostHogConfigured();
   const posthogInitializationError = getPostHogInitializationError();
@@ -504,6 +505,13 @@ export function DevToolsScreen() {
             label="Liquid-Glass-Labor öffnen"
             variant="secondary"
             onPress={() => router.push('/settings/glass-lab')}
+          />
+          <Button
+            label={`VisionCamera-Labor öffnen (${visionCameraFlag ? 'aktiv' : 'gesperrt'})`}
+            variant="secondary"
+            onPress={() =>
+              router.push('/settings/camera-lab' as unknown as Parameters<typeof router.push>[0])
+            }
           />
           <Button
             label="Paywall öffnen (Test Store)"

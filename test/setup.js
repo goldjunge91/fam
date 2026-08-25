@@ -42,3 +42,22 @@ jest.mock('react-native-reorderable-list', () => {
     reorderItems: (items) => items,
   };
 });
+
+jest.mock('react-native-nitro-modules', () => ({
+  NitroModules: {},
+}));
+
+jest.mock('react-native-nitro-image', () => ({
+  NitroImage: 'NitroImage',
+}));
+
+jest.mock('@lokal-dev/react-native-bugbubble', () => ({
+  BugBubble: () => null,
+  BugBubbleLogger: {
+    logAnalytics: jest.fn(),
+    logNetwork: jest.fn(),
+    logWebSocket: jest.fn(),
+    logConsole: jest.fn(),
+  },
+}));
+

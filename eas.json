@@ -5,6 +5,7 @@
   },
   "build": {
     "development": {
+      "environment": "development",
       "bun": "1.3.14",
       "developmentClient": true,
       "distribution": "internal",
@@ -22,7 +23,8 @@
         "simulator": false
       }
     },
-    "preview": {
+    "preview-simulator": {
+      "environment": "preview",
       "distribution": "internal",
       "ios": {
         "simulator": true
@@ -34,7 +36,8 @@
     "preview-testflight": {
       "distribution": "store",
       "autoIncrement": true,
-      "credentialsSource": "local",
+      "credentialsSource": "remote",
+      "environment": "preview",
       "ios": {
         "simulator": false
       }
@@ -42,7 +45,8 @@
     "production": {
       "distribution": "store",
       "autoIncrement": true,
-      "credentialsSource": "local",
+      "credentialsSource": "remote",
+      "environment": "production",
       "ios": {
         "simulator": false
       },

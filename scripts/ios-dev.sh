@@ -107,7 +107,7 @@ validate_env_for_profile() {
 
   case "$prof" in
     development|development-device)
-      env_file="$PROJECT_ROOT/.env.local"
+      env_file="$PROJECT_ROOT/.env.development.local"
       [ -f "$env_file" ] || env_file="$PROJECT_ROOT/.env.development.local"
       ;;
     preview|preview-testflight)

@@ -1,4 +1,5 @@
 import '../global.css';
+import { BugBubble } from '@lokal-dev/react-native-bugbubble';
 import { PersistQueryClientProvider } from '@tanstack/react-query-persist-client';
 import * as Linking from 'expo-linking';
 import { Observe, ObserveRoot, useObserve } from 'expo-observe';
@@ -285,6 +286,7 @@ function RootLayout() {
                         <SnackbarProvider>
                           <AnimatedSplashOverlay />
                           <RootNavigator />
+                          {env.devTools ? <BugBubble /> : null}
                         </SnackbarProvider>
                       </ThemeProvider>
                     </PremiumProvider>

@@ -7,13 +7,18 @@
     "icon": "./assets/images/icon.png",
     "scheme": "fam",
     "userInterfaceStyle": "automatic",
+    "buildCacheProvider": {
+      "plugin": "expo-build-disk-cache"
+    },
     "ios": {
       "appleTeamId": "SW8RP7PA3W",
       "icon": "./assets/expo.icon",
       "bundleIdentifier": "com.goldjunge91.fam1",
       "buildNumber": "10",
       "infoPlist": {
-        "ITSAppUsesNonExemptEncryption": false
+        "ITSAppUsesNonExemptEncryption": false,
+        "NSCameraUsageDescription": "$(PRODUCT_NAME) needs access to your Camera to capture photos and videos.",
+        "NSMicrophoneUsageDescription": "$(PRODUCT_NAME) needs access to your Microphone to record audio for video recordings."
       },
       "privacyManifests": {
         "NSPrivacyCollectedDataTypes": [
@@ -58,7 +63,8 @@
       [
         "expo-camera",
         {
-          "cameraPermission": "Die App $(PRODUCT_NAME) benötigt Kamera-Zugriff, um Barcodes von Lebensmitteln und QR-Codes für den Haushaltsbeitritt zu scannen."
+          "cameraPermission": "$(PRODUCT_NAME) needs access to your Camera to capture photos and videos.",
+          "microphonePermission": "$(PRODUCT_NAME) needs access to your Microphone to record audio for video recordings."
         }
       ],
       "expo-sharing",
