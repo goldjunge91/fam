@@ -13,14 +13,11 @@
 
 import type { SqlDatabase } from '@/lib/db/types';
 import type { FileOps } from './file-ops';
+import { attachPlaintextDatabase, type PlaintextAttachmentMode } from './plaintext-attachment';
 
 export type InstallBaselineResult =
   | { ok: true; dataVersion: string }
   | { ok: false; reason: 'checksum_mismatch' | 'schema_mismatch' | 'corrupted' };
-
-function escapePathForSql(path: string): string {
-  return path.replace(/'/g, "''");
-}
 
 /** Detacht `off_dump`, falls angehängt — kein Fehler, wenn es das nicht ist. */
 async function detachOffDumpIfAttached(db: SqlDatabase): Promise<void> {
@@ -42,6 +39,7 @@ export async function installBaseline(
     activePath: string;
     nextPath: string;
     recoveryPath: string;
+    attachmentMode: PlaintextAttachmentMode;
   },
 ): Promise<InstallBaselineResult> {
   const {
@@ -51,6 +49,7 @@ export async function installBaseline(
     activePath,
     nextPath,
     recoveryPath,
+    attachmentMode,
   } = params;
 
   // 1. Download nach `next` (nie direkt in die aktive Datei).
@@ -88,7 +87,7 @@ export async function installBaseline(
   await fileOps.move(nextPath, activePath);
 
   // 9. Neue Datei attachen.
-  await db.execAsync(`ATTACH DATABASE '${escapePathForSql(activePath)}' AS off_dump`);
+  await attachPlaintextDatabase(db, activePath, 'off_dump', attachmentMode);
 
   // 10. Recovery-Datei erst NACH erfolgreichem Attach entfernen.
   if (await fileOps.exists(recoveryPath)) {

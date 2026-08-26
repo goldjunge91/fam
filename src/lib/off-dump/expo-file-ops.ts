@@ -27,10 +27,7 @@ import { File } from 'expo-file-system';
 
 import type { SqlDatabase } from '@/lib/db/types';
 import type { DumpInspection, FileOps } from './file-ops';
-
-function escapePathForSql(path: string): string {
-  return path.replace(/'/g, "''");
-}
+import { attachPlaintextDatabase } from './plaintext-attachment';
 
 export function createExpoFileOps(db: SqlDatabase): FileOps {
   return {
@@ -75,7 +72,7 @@ export function createExpoFileOps(db: SqlDatabase): FileOps {
       // obwohl die Datei intakt ist.
       const alias = `off_dump_inspect_${Math.random().toString(36).slice(2)}`;
       try {
-        await db.execAsync(`ATTACH DATABASE '${escapePathForSql(path)}' AS ${alias}`);
+        await attachPlaintextDatabase(db, path, alias, 'sqlcipher');
       } catch {
         return null;
       }

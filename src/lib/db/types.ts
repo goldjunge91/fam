@@ -42,6 +42,15 @@ export type SqlDatabase = {
   getAllAsync<T>(source: string, params?: readonly SqlParam[]): Promise<T[]>;
   getFirstAsync<T>(source: string, params?: readonly SqlParam[]): Promise<T | null>;
   /**
+   * Zeilen als positionsstabile Wertelisten.
+   *
+   * Optional, weil die bestehende Sync-Schicht nur Objektzeilen braucht und
+   * kleine Test-Ports dadurch schlank bleiben. Der Drizzle-Adapter verlangt
+   * diese Erweiterung explizit: Objektzeilen verlieren bei Joins mit gleichen
+   * Spaltennamen Information und sind deshalb keine sichere ORM-Grundlage.
+   */
+  getAllRawAsync?(source: string, params?: readonly SqlParam[]): Promise<SqlParam[][]>;
+  /**
    * Exklusive Transaktion. Bewusst nicht `withTransactionAsync`: Laut
    * Expo-Doku geraten dort nebenlaeufige, voellig unbeteiligte Queries mit in
    * die Transaktion und werden bei einem Rollback mit zurueckgedreht. Fuer die

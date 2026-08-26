@@ -143,6 +143,7 @@ describe('applyPatch', () => {
       expectedFromVersion: '2026-08-01T00:00:00.000Z',
       expectedSchemaVersion: 2,
       toVersion: '2026-08-02T00:00:00.000Z',
+      attachmentMode: 'sqlite',
     });
 
     expect(result).toEqual({ ok: true });
@@ -168,6 +169,7 @@ describe('applyPatch', () => {
       expectedFromVersion: '2026-08-01T00:00:00.000Z',
       expectedSchemaVersion: 2,
       toVersion: '2099-01-02T00:00:00.000Z',
+      attachmentMode: 'sqlite',
     });
 
     expect(result).toEqual({ ok: false, reason: 'from_version_mismatch' });
@@ -194,6 +196,7 @@ describe('applyPatch', () => {
       expectedFromVersion: '2026-08-01T00:00:00.000Z',
       expectedSchemaVersion: 2,
       toVersion: '2026-08-02T00:00:00.000Z',
+      attachmentMode: 'sqlite',
     });
 
     expect(result).toEqual({ ok: false, reason: 'schema_mismatch' });
@@ -217,6 +220,7 @@ describe('applyPatch', () => {
       expectedFromVersion: '2026-08-01T00:00:00.000Z',
       expectedSchemaVersion: 2,
       toVersion: '2026-08-02T00:00:00.000Z',
+      attachmentMode: 'sqlite',
     });
 
     // Ein erneutes Attachen unter demselben Namen scheitert, wenn es noch haengt.
@@ -279,6 +283,7 @@ describe('applyPatch', () => {
         expectedFromVersion: '2026-08-01T00:00:00.000Z',
         expectedSchemaVersion: 2,
         toVersion: '2026-08-02T00:00:00.000Z',
+        attachmentMode: 'sqlite',
       }),
     ).rejects.toThrow();
 

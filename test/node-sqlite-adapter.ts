@@ -53,6 +53,21 @@ function wrap(db: DatabaseSync, insideTransaction: boolean): SqlDatabase {
       return (row as T | undefined) ?? null;
     },
 
+    async getAllRawAsync(source: string, params?: readonly SqlParam[]) {
+      const statement = db.prepare(source);
+      statement.setReturnArrays(true);
+      const rows: unknown[] = statement.all(...bind(params));
+      return rows.map((row) => {
+        if (!Array.isArray(row)) throw new Error('node:sqlite lieferte keine Raw-Zeile.');
+        return row.map((value) => {
+          if (value === null || typeof value === 'string' || typeof value === 'number') {
+            return value;
+          }
+          throw new Error('node:sqlite lieferte einen nicht unterstützten Wert.');
+        });
+      });
+    },
+
     async withExclusiveTransactionAsync(task: (txn: SqlDatabase) => Promise<void>): Promise<void> {
       // SQLite kennt keine echten verschachtelten Transaktionen. Ein
       // verschachtelter Aufruf wuerde mit "cannot start a transaction within a

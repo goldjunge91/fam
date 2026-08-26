@@ -71,6 +71,7 @@ describe('installBaseline', () => {
       activePath,
       nextPath,
       recoveryPath,
+      attachmentMode: 'sqlite',
     });
 
     expect(result).toEqual({ ok: true, dataVersion: '2026-08-01T00:00:00.000Z' });
@@ -97,6 +98,7 @@ describe('installBaseline', () => {
       activePath,
       nextPath,
       recoveryPath,
+      attachmentMode: 'sqlite',
     });
 
     expect(result).toEqual({ ok: true, dataVersion: '2026-09-01T00:00:00.000Z' });
@@ -122,6 +124,7 @@ describe('installBaseline', () => {
       activePath,
       nextPath,
       recoveryPath,
+      attachmentMode: 'sqlite',
     });
 
     expect(result).toEqual({ ok: false, reason: 'checksum_mismatch' });
@@ -146,6 +149,7 @@ describe('installBaseline', () => {
       activePath,
       nextPath,
       recoveryPath,
+      attachmentMode: 'sqlite',
     });
 
     expect(result).toEqual({ ok: false, reason: 'schema_mismatch' });
@@ -177,6 +181,7 @@ describe('installBaseline', () => {
       activePath,
       nextPath,
       recoveryPath,
+      attachmentMode: 'sqlite',
     });
 
     expect(result).toEqual({ ok: false, reason: 'corrupted' });

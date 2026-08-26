@@ -13,6 +13,7 @@
  */
 
 import type { SqlDatabase } from '@/lib/db/types';
+import { attachPlaintextDatabase, type PlaintextAttachmentMode } from './plaintext-attachment';
 
 const PRODUCT_COLUMNS = [
   'code',
@@ -36,10 +37,6 @@ export type ApplyPatchResult =
   | { ok: true }
   | { ok: false; reason: 'from_version_mismatch' | 'schema_mismatch' };
 
-function escapePathForSql(path: string): string {
-  return path.replace(/'/g, "''");
-}
-
 export async function applyPatch(
   db: SqlDatabase,
   params: {
@@ -47,11 +44,13 @@ export async function applyPatch(
     expectedFromVersion: string;
     expectedSchemaVersion: number;
     toVersion: string;
+    attachmentMode: PlaintextAttachmentMode;
   },
 ): Promise<ApplyPatchResult> {
-  const { patchDbPath, expectedFromVersion, expectedSchemaVersion, toVersion } = params;
+  const { patchDbPath, expectedFromVersion, expectedSchemaVersion, toVersion, attachmentMode } =
+    params;
 
-  await db.execAsync(`ATTACH DATABASE '${escapePathForSql(patchDbPath)}' AS off_patch`);
+  await attachPlaintextDatabase(db, patchDbPath, 'off_patch', attachmentMode);
 
   try {
     const meta = await db.getFirstAsync<{ from_version: string; schema_version: number }>(

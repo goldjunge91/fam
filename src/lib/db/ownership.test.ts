@@ -105,4 +105,15 @@ describe('ensureDatabaseBelongsTo', () => {
     expect(result).toBe(db);
     expect(await readOwner(db)).toBe('user-a');
   });
+
+  it('markiert Nutzer B niemals auf der Datei von A wenn der Wipe fehlschlägt', async () => {
+    await db.runAsync('insert into app_meta (key, value) values (?, ?)', ['user_id', 'user-a']);
+    const failedWipe = jest.fn().mockRejectedValue(new Error('delete failed'));
+
+    await expect(ensureDatabaseBelongsTo(db, 'user-b', failedWipe)).rejects.toThrow(
+      'delete failed',
+    );
+
+    expect(await readOwner(db)).toBe('user-a');
+  });
 });

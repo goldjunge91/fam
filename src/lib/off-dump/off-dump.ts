@@ -10,6 +10,7 @@ import { installBaseline } from './baseline-installer';
 import { createExpoFileOps } from './expo-file-ops';
 import { fetchManifest } from './manifest';
 import { isOffDumpAttached, resetOffDumpAttachment, setOffDumpAttached } from './off-dump-state';
+import { attachPlaintextDatabase } from './plaintext-attachment';
 import type { DumpPaths } from './repository';
 import { checkForUpdate, reconcileOnStart, type UpdateOutcome } from './repository';
 
@@ -153,14 +154,14 @@ export async function attachOffDump(db: SqlDatabase): Promise<boolean> {
   const target = new File(Paths.document, DUMP_FILE_NAME);
   if (!target.exists) return false;
 
-  const escapedPath = toFsPath(target.uri).replace(/'/g, "''");
+  const dumpPath = toFsPath(target.uri);
   try {
     // Bevorzugt als Read-Only einhängen, damit BEGIN IMMEDIATE auf der
     // Hauptdatenbank keine Schreibtransaktion auf dem Produktkatalog erzwingt.
     try {
-      await db.execAsync(`ATTACH DATABASE 'file:${escapedPath}?mode=ro' AS off_dump`);
+      await attachPlaintextDatabase(db, `file:${dumpPath}?mode=ro`, 'off_dump', 'sqlcipher');
     } catch {
-      await db.execAsync(`ATTACH DATABASE '${escapedPath}' AS off_dump`);
+      await attachPlaintextDatabase(db, dumpPath, 'off_dump', 'sqlcipher');
     }
   } catch (err) {
     const message = err instanceof Error ? err.message : String(err);
@@ -264,6 +265,7 @@ export async function reinstallOffDumpBaseline(db: SqlDatabase): Promise<UpdateO
     activePath: paths.activePath,
     nextPath: paths.nextPath,
     recoveryPath: paths.recoveryPath,
+    attachmentMode: 'sqlcipher',
   });
   if (!result.ok) {
     await setMetaValue(db, LAST_ERROR_KEY, 'Baseline-Installation fehlgeschlagen.');

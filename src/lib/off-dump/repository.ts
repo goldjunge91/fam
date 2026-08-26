@@ -16,6 +16,7 @@ import { reconcileBaselineState } from './baseline-reconcile';
 import type { FileOps } from './file-ops';
 import { type DumpManifest, fetchManifest as defaultFetchManifest } from './manifest';
 import { type ApplyPatchResult, applyPatch } from './patch-applier';
+import type { PlaintextAttachmentMode } from './plaintext-attachment';
 import { planUpdate } from './update-planner';
 
 export type DumpPaths = { activePath: string; nextPath: string; recoveryPath: string };
@@ -37,6 +38,7 @@ type InstallBaselineFn = (
     activePath: string;
     nextPath: string;
     recoveryPath: string;
+    attachmentMode: PlaintextAttachmentMode;
   },
 ) => Promise<InstallBaselineResult>;
 
@@ -47,6 +49,7 @@ type ApplyPatchFn = (
     expectedFromVersion: string;
     expectedSchemaVersion: number;
     toVersion: string;
+    attachmentMode: PlaintextAttachmentMode;
   },
 ) => Promise<ApplyPatchResult>;
 
@@ -95,6 +98,7 @@ async function applyPatchChain(
         expectedFromVersion: patch.from,
         expectedSchemaVersion: manifest.schemaVersion,
         toVersion: patch.to,
+        attachmentMode: 'sqlcipher',
       });
       if (!result.ok) return { ok: false };
     } finally {
@@ -147,6 +151,7 @@ export async function checkForUpdate(params: {
       activePath: paths.activePath,
       nextPath: paths.nextPath,
       recoveryPath: paths.recoveryPath,
+      attachmentMode: 'sqlcipher',
     });
     return result.ok
       ? { kind: 'baseline-installed', dataVersion: result.dataVersion }

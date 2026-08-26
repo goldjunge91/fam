@@ -44,6 +44,21 @@ function createRecordingDriver() {
       log.push(source);
       return (db.prepare(source).get(...(params ?? [])) as T | undefined) ?? null;
     },
+    async getAllRawAsync(source: string, params?: readonly SqlParam[]) {
+      await Promise.resolve();
+      log.push(source);
+      const statement = db.prepare(source);
+      statement.setReturnArrays(true);
+      const rows: unknown[] = statement.all(...(params ?? []));
+      return rows.map((row) => {
+        if (!Array.isArray(row)) throw new Error('node:sqlite lieferte keine Raw-Zeile.');
+        return row.map((value) => {
+          if (value === null || typeof value === 'string' || typeof value === 'number')
+            return value;
+          throw new Error('node:sqlite lieferte einen nicht unterstützten Wert.');
+        });
+      });
+    },
   };
 
   return { driver, log, close: () => db.close() };
@@ -116,6 +131,19 @@ describe('serializeDatabase', () => {
     );
   });
 
+  it('serialisiert auch die Raw-Zeilen des Drizzle-Adapters', async () => {
+    const db = serializeDatabase(harness.driver);
+    let readDuringTransaction: Promise<SqlParam[][]> | undefined;
+
+    await db.withExclusiveTransactionAsync(async (txn) => {
+      await txn.runAsync('insert into t (v) values (?)', ['drizzle']);
+      readDuringTransaction = db.getAllRawAsync?.('select v from t');
+    });
+
+    await expect(readDuringTransaction).resolves.toEqual([['drizzle']]);
+    expect(harness.log.indexOf('select v from t')).toBeGreaterThan(harness.log.indexOf('COMMIT'));
+  });
+
   it('rollt bei einem werfenden Task zurueck und reicht den Fehler durch', async () => {
     const db = serializeDatabase(harness.driver);
 
@@ -182,5 +210,50 @@ describe('serializeDatabase', () => {
     await db.runAsync('insert into t (v) values (?)', ['danach']);
     const row = await db.getFirstAsync<{ v: string }>('select v from t');
     expect(row).toEqual({ v: 'danach' });
+  });
+
+  it('drained reservierte Abfragen und blockiert neue Zugriffe vor dem Close', async () => {
+    let releaseQuery: (() => void) | undefined;
+    const queryFinished = new Promise<void>((resolve) => {
+      releaseQuery = resolve;
+    });
+    const close = jest.fn().mockResolvedValue(undefined);
+    const driver: SqlStatementDriver = {
+      execAsync: jest.fn(() => queryFinished),
+      runAsync: jest.fn(),
+      getAllAsync: jest.fn(),
+      getFirstAsync: jest.fn(),
+    };
+    const db = serializeDatabase(driver);
+
+    const query = db.execAsync('select slow');
+    await Promise.resolve();
+    const closing = db.closeForLifecycle(close);
+
+    expect(close).not.toHaveBeenCalled();
+    await expect(db.getAllAsync('select too late')).rejects.toThrow(/geschlossen/);
+
+    releaseQuery?.();
+    await query;
+    await closing;
+    expect(close).toHaveBeenCalledTimes(1);
+  });
+
+  it('erlaubt nach einem fehlgeschlagenen nativen Close einen erneuten Close-Versuch', async () => {
+    const db = serializeDatabase({
+      execAsync: jest.fn(),
+      runAsync: jest.fn(),
+      getAllAsync: jest.fn(),
+      getFirstAsync: jest.fn(),
+    });
+    const close = jest
+      .fn()
+      .mockRejectedValueOnce(new Error('native close failed'))
+      .mockResolvedValueOnce(undefined);
+
+    await expect(db.closeForLifecycle(close)).rejects.toThrow('native close failed');
+    await expect(db.closeForLifecycle(close)).resolves.toBeUndefined();
+    expect(close).toHaveBeenCalledTimes(2);
+    await expect(db.execAsync('select too late')).rejects.toThrow(/geschlossen/);
   });
 });

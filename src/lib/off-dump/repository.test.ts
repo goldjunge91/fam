@@ -100,12 +100,14 @@ describe('checkForUpdate', () => {
       expectedFromVersion: '2026-08-01T00:00:00.000Z',
       expectedSchemaVersion: 2,
       toVersion: '2026-08-02T00:00:00.000Z',
+      attachmentMode: 'sqlcipher',
     });
     expect(applyPatch).toHaveBeenNthCalledWith(2, expect.anything(), {
       patchDbPath: expect.any(String),
       expectedFromVersion: '2026-08-02T00:00:00.000Z',
       expectedSchemaVersion: 2,
       toVersion: '2026-08-03T00:00:00.000Z',
+      attachmentMode: 'sqlcipher',
     });
     // Jede temporaere Patch-Datei wird nach Anwendung wieder geloescht.
     expect(deleteFile).toHaveBeenCalledTimes(2);
@@ -138,6 +140,7 @@ describe('checkForUpdate', () => {
       activePath: paths.activePath,
       nextPath: paths.nextPath,
       recoveryPath: paths.recoveryPath,
+      attachmentMode: 'sqlcipher',
     });
     expect(applyPatch).not.toHaveBeenCalled();
   });

@@ -1,0 +1,4007 @@
+{
+  "version": "7",
+  "dialect": "sqlite",
+  "id": "237e2db3-da98-4e94-adda-0437931f586b",
+  "prevIds": [
+    "976a3f79-20b7-44a9-8a43-93b0b78e3241"
+  ],
+  "ddl": [
+    {
+      "name": "app_meta",
+      "entityType": "tables"
+    },
+    {
+      "name": "favorite_brochure_stores",
+      "entityType": "tables"
+    },
+    {
+      "name": "fridge_items",
+      "entityType": "tables"
+    },
+    {
+      "name": "households",
+      "entityType": "tables"
+    },
+    {
+      "name": "local_brochure_cache",
+      "entityType": "tables"
+    },
+    {
+      "name": "local_brochure_pages",
+      "entityType": "tables"
+    },
+    {
+      "name": "local_brochure_stores",
+      "entityType": "tables"
+    },
+    {
+      "name": "local_brochures",
+      "entityType": "tables"
+    },
+    {
+      "name": "local_recipe_preferences",
+      "entityType": "tables"
+    },
+    {
+      "name": "meal_plan_entries",
+      "entityType": "tables"
+    },
+    {
+      "name": "meal_plans",
+      "entityType": "tables"
+    },
+    {
+      "name": "outbox",
+      "entityType": "tables"
+    },
+    {
+      "name": "product_usage",
+      "entityType": "tables"
+    },
+    {
+      "name": "products",
+      "entityType": "tables"
+    },
+    {
+      "name": "recipe_component_items",
+      "entityType": "tables"
+    },
+    {
+      "name": "recipe_components",
+      "entityType": "tables"
+    },
+    {
+      "name": "recipe_step_ingredients",
+      "entityType": "tables"
+    },
+    {
+      "name": "recipe_steps",
+      "entityType": "tables"
+    },
+    {
+      "name": "recipes",
+      "entityType": "tables"
+    },
+    {
+      "name": "shopping_category_feedback_events",
+      "entityType": "tables"
+    },
+    {
+      "name": "shopping_category_preferences",
+      "entityType": "tables"
+    },
+    {
+      "name": "shopping_history",
+      "entityType": "tables"
+    },
+    {
+      "name": "shopping_list_items",
+      "entityType": "tables"
+    },
+    {
+      "name": "storage_locations",
+      "entityType": "tables"
+    },
+    {
+      "name": "stores",
+      "entityType": "tables"
+    },
+    {
+      "name": "sync_state",
+      "entityType": "tables"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "key",
+      "entityType": "columns",
+      "table": "app_meta"
+    },
+    {
+      "type": "text",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "value",
+      "entityType": "columns",
+      "table": "app_meta"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "id",
+      "entityType": "columns",
+      "table": "favorite_brochure_stores"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "user_id",
+      "entityType": "columns",
+      "table": "favorite_brochure_stores"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "store_id",
+      "entityType": "columns",
+      "table": "favorite_brochure_stores"
+    },
+    {
+      "type": "text",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "created_at",
+      "entityType": "columns",
+      "table": "favorite_brochure_stores"
+    },
+    {
+      "type": "integer",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "updated_at",
+      "entityType": "columns",
+      "table": "favorite_brochure_stores"
+    },
+    {
+      "type": "integer",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "deleted_at",
+      "entityType": "columns",
+      "table": "favorite_brochure_stores"
+    },
+    {
+      "type": "integer",
+      "notNull": true,
+      "autoincrement": false,
+      "default": "false",
+      "generated": null,
+      "name": "_dirty",
+      "entityType": "columns",
+      "table": "favorite_brochure_stores"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "id",
+      "entityType": "columns",
+      "table": "fridge_items"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "household_id",
+      "entityType": "columns",
+      "table": "fridge_items"
+    },
+    {
+      "type": "text",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "location_id",
+      "entityType": "columns",
+      "table": "fridge_items"
+    },
+    {
+      "type": "text",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "product_id",
+      "entityType": "columns",
+      "table": "fridge_items"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "name",
+      "entityType": "columns",
+      "table": "fridge_items"
+    },
+    {
+      "type": "real",
+      "notNull": true,
+      "autoincrement": false,
+      "default": "1",
+      "generated": null,
+      "name": "quantity",
+      "entityType": "columns",
+      "table": "fridge_items"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": "'piece'",
+      "generated": null,
+      "name": "unit",
+      "entityType": "columns",
+      "table": "fridge_items"
+    },
+    {
+      "type": "text",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "expiry_date",
+      "entityType": "columns",
+      "table": "fridge_items"
+    },
+    {
+      "type": "text",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "added_by",
+      "entityType": "columns",
+      "table": "fridge_items"
+    },
+    {
+      "type": "text",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "created_at",
+      "entityType": "columns",
+      "table": "fridge_items"
+    },
+    {
+      "type": "integer",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "updated_at",
+      "entityType": "columns",
+      "table": "fridge_items"
+    },
+    {
+      "type": "integer",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "deleted_at",
+      "entityType": "columns",
+      "table": "fridge_items"
+    },
+    {
+      "type": "integer",
+      "notNull": true,
+      "autoincrement": false,
+      "default": "false",
+      "generated": null,
+      "name": "_dirty",
+      "entityType": "columns",
+      "table": "fridge_items"
+    },
+    {
+      "type": "real",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "package_size",
+      "entityType": "columns",
+      "table": "fridge_items"
+    },
+    {
+      "type": "text",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "package_size_unit",
+      "entityType": "columns",
+      "table": "fridge_items"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "id",
+      "entityType": "columns",
+      "table": "households"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "name",
+      "entityType": "columns",
+      "table": "households"
+    },
+    {
+      "type": "text",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "created_by",
+      "entityType": "columns",
+      "table": "households"
+    },
+    {
+      "type": "text",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "created_at",
+      "entityType": "columns",
+      "table": "households"
+    },
+    {
+      "type": "integer",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "updated_at",
+      "entityType": "columns",
+      "table": "households"
+    },
+    {
+      "type": "integer",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "deleted_at",
+      "entityType": "columns",
+      "table": "households"
+    },
+    {
+      "type": "integer",
+      "notNull": true,
+      "autoincrement": false,
+      "default": "false",
+      "generated": null,
+      "name": "_dirty",
+      "entityType": "columns",
+      "table": "households"
+    },
+    {
+      "type": "integer",
+      "notNull": true,
+      "autoincrement": false,
+      "default": "false",
+      "generated": null,
+      "name": "premium_active",
+      "entityType": "columns",
+      "table": "households"
+    },
+    {
+      "type": "text",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "premium_expires_at",
+      "entityType": "columns",
+      "table": "households"
+    },
+    {
+      "type": "text",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "premium_updated_at",
+      "entityType": "columns",
+      "table": "households"
+    },
+    {
+      "type": "integer",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "id",
+      "entityType": "columns",
+      "table": "local_brochure_cache"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "zip_code",
+      "entityType": "columns",
+      "table": "local_brochure_cache"
+    },
+    {
+      "type": "integer",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "updated_at",
+      "entityType": "columns",
+      "table": "local_brochure_cache"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "id",
+      "entityType": "columns",
+      "table": "local_brochure_pages"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "brochure_id",
+      "entityType": "columns",
+      "table": "local_brochure_pages"
+    },
+    {
+      "type": "integer",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "page_number",
+      "entityType": "columns",
+      "table": "local_brochure_pages"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "image_url",
+      "entityType": "columns",
+      "table": "local_brochure_pages"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": "'[]'",
+      "generated": null,
+      "name": "hotspots_json",
+      "entityType": "columns",
+      "table": "local_brochure_pages"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "id",
+      "entityType": "columns",
+      "table": "local_brochure_stores"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "name",
+      "entityType": "columns",
+      "table": "local_brochure_stores"
+    },
+    {
+      "type": "text",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "logo_url",
+      "entityType": "columns",
+      "table": "local_brochure_stores"
+    },
+    {
+      "type": "integer",
+      "notNull": true,
+      "autoincrement": false,
+      "default": "true",
+      "generated": null,
+      "name": "active",
+      "entityType": "columns",
+      "table": "local_brochure_stores"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "id",
+      "entityType": "columns",
+      "table": "local_brochures"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "store_id",
+      "entityType": "columns",
+      "table": "local_brochures"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "title",
+      "entityType": "columns",
+      "table": "local_brochures"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "valid_from",
+      "entityType": "columns",
+      "table": "local_brochures"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "valid_until",
+      "entityType": "columns",
+      "table": "local_brochures"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "cover_image",
+      "entityType": "columns",
+      "table": "local_brochures"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "user_id",
+      "entityType": "columns",
+      "table": "local_recipe_preferences"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "recipe_key",
+      "entityType": "columns",
+      "table": "local_recipe_preferences"
+    },
+    {
+      "type": "integer",
+      "notNull": true,
+      "autoincrement": false,
+      "default": "false",
+      "generated": null,
+      "name": "is_favorite",
+      "entityType": "columns",
+      "table": "local_recipe_preferences"
+    },
+    {
+      "type": "integer",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "rating",
+      "entityType": "columns",
+      "table": "local_recipe_preferences"
+    },
+    {
+      "type": "text",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "note",
+      "entityType": "columns",
+      "table": "local_recipe_preferences"
+    },
+    {
+      "type": "integer",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "updated_at",
+      "entityType": "columns",
+      "table": "local_recipe_preferences"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "id",
+      "entityType": "columns",
+      "table": "meal_plan_entries"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "meal_plan_id",
+      "entityType": "columns",
+      "table": "meal_plan_entries"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "household_id",
+      "entityType": "columns",
+      "table": "meal_plan_entries"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "recipe_id",
+      "entityType": "columns",
+      "table": "meal_plan_entries"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "entry_date",
+      "entityType": "columns",
+      "table": "meal_plan_entries"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "meal_slot",
+      "entityType": "columns",
+      "table": "meal_plan_entries"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": "'portions'",
+      "generated": null,
+      "name": "servings_mode",
+      "entityType": "columns",
+      "table": "meal_plan_entries"
+    },
+    {
+      "type": "real",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "portions",
+      "entityType": "columns",
+      "table": "meal_plan_entries"
+    },
+    {
+      "type": "integer",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "people_count",
+      "entityType": "columns",
+      "table": "meal_plan_entries"
+    },
+    {
+      "type": "text",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "created_by",
+      "entityType": "columns",
+      "table": "meal_plan_entries"
+    },
+    {
+      "type": "text",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "created_at",
+      "entityType": "columns",
+      "table": "meal_plan_entries"
+    },
+    {
+      "type": "integer",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "updated_at",
+      "entityType": "columns",
+      "table": "meal_plan_entries"
+    },
+    {
+      "type": "integer",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "deleted_at",
+      "entityType": "columns",
+      "table": "meal_plan_entries"
+    },
+    {
+      "type": "integer",
+      "notNull": true,
+      "autoincrement": false,
+      "default": "false",
+      "generated": null,
+      "name": "_dirty",
+      "entityType": "columns",
+      "table": "meal_plan_entries"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "id",
+      "entityType": "columns",
+      "table": "meal_plans"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "household_id",
+      "entityType": "columns",
+      "table": "meal_plans"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "name",
+      "entityType": "columns",
+      "table": "meal_plans"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "week_start_date",
+      "entityType": "columns",
+      "table": "meal_plans"
+    },
+    {
+      "type": "text",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "created_by",
+      "entityType": "columns",
+      "table": "meal_plans"
+    },
+    {
+      "type": "text",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "created_at",
+      "entityType": "columns",
+      "table": "meal_plans"
+    },
+    {
+      "type": "integer",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "updated_at",
+      "entityType": "columns",
+      "table": "meal_plans"
+    },
+    {
+      "type": "integer",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "deleted_at",
+      "entityType": "columns",
+      "table": "meal_plans"
+    },
+    {
+      "type": "integer",
+      "notNull": true,
+      "autoincrement": false,
+      "default": "false",
+      "generated": null,
+      "name": "_dirty",
+      "entityType": "columns",
+      "table": "meal_plans"
+    },
+    {
+      "type": "integer",
+      "notNull": false,
+      "autoincrement": true,
+      "default": null,
+      "generated": null,
+      "name": "id",
+      "entityType": "columns",
+      "table": "outbox"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "entity",
+      "entityType": "columns",
+      "table": "outbox"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "entity_id",
+      "entityType": "columns",
+      "table": "outbox"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "op",
+      "entityType": "columns",
+      "table": "outbox"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "payload",
+      "entityType": "columns",
+      "table": "outbox"
+    },
+    {
+      "type": "integer",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "created_at",
+      "entityType": "columns",
+      "table": "outbox"
+    },
+    {
+      "type": "integer",
+      "notNull": true,
+      "autoincrement": false,
+      "default": "0",
+      "generated": null,
+      "name": "attempts",
+      "entityType": "columns",
+      "table": "outbox"
+    },
+    {
+      "type": "text",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "last_error",
+      "entityType": "columns",
+      "table": "outbox"
+    },
+    {
+      "type": "integer",
+      "notNull": true,
+      "autoincrement": false,
+      "default": "0",
+      "generated": null,
+      "name": "next_attempt_at",
+      "entityType": "columns",
+      "table": "outbox"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "id",
+      "entityType": "columns",
+      "table": "product_usage"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "user_id",
+      "entityType": "columns",
+      "table": "product_usage"
+    },
+    {
+      "type": "text",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "household_id",
+      "entityType": "columns",
+      "table": "product_usage"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "feature",
+      "entityType": "columns",
+      "table": "product_usage"
+    },
+    {
+      "type": "text",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "meal_type",
+      "entityType": "columns",
+      "table": "product_usage"
+    },
+    {
+      "type": "text",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "product_id",
+      "entityType": "columns",
+      "table": "product_usage"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "name",
+      "entityType": "columns",
+      "table": "product_usage"
+    },
+    {
+      "type": "text",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "brand",
+      "entityType": "columns",
+      "table": "product_usage"
+    },
+    {
+      "type": "text",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "barcode",
+      "entityType": "columns",
+      "table": "product_usage"
+    },
+    {
+      "type": "text",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "unit",
+      "entityType": "columns",
+      "table": "product_usage"
+    },
+    {
+      "type": "real",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "quantity",
+      "entityType": "columns",
+      "table": "product_usage"
+    },
+    {
+      "type": "real",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "kcal",
+      "entityType": "columns",
+      "table": "product_usage"
+    },
+    {
+      "type": "real",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "protein_g",
+      "entityType": "columns",
+      "table": "product_usage"
+    },
+    {
+      "type": "real",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "carbs_g",
+      "entityType": "columns",
+      "table": "product_usage"
+    },
+    {
+      "type": "real",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "fat_g",
+      "entityType": "columns",
+      "table": "product_usage"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "used_at",
+      "entityType": "columns",
+      "table": "product_usage"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "id",
+      "entityType": "columns",
+      "table": "products"
+    },
+    {
+      "type": "text",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "barcode",
+      "entityType": "columns",
+      "table": "products"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "name",
+      "entityType": "columns",
+      "table": "products"
+    },
+    {
+      "type": "text",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "brand",
+      "entityType": "columns",
+      "table": "products"
+    },
+    {
+      "type": "real",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "kcal_per_100",
+      "entityType": "columns",
+      "table": "products"
+    },
+    {
+      "type": "real",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "protein_g_per_100",
+      "entityType": "columns",
+      "table": "products"
+    },
+    {
+      "type": "real",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "carbs_g_per_100",
+      "entityType": "columns",
+      "table": "products"
+    },
+    {
+      "type": "real",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "fat_g_per_100",
+      "entityType": "columns",
+      "table": "products"
+    },
+    {
+      "type": "real",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "fiber_g_per_100",
+      "entityType": "columns",
+      "table": "products"
+    },
+    {
+      "type": "real",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "sugar_g_per_100",
+      "entityType": "columns",
+      "table": "products"
+    },
+    {
+      "type": "real",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "salt_g_per_100",
+      "entityType": "columns",
+      "table": "products"
+    },
+    {
+      "type": "real",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "serving_size_g",
+      "entityType": "columns",
+      "table": "products"
+    },
+    {
+      "type": "text",
+      "notNull": false,
+      "autoincrement": false,
+      "default": "'[]'",
+      "generated": null,
+      "name": "off_category_tags",
+      "entityType": "columns",
+      "table": "products"
+    },
+    {
+      "type": "text",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "off_last_modified_at",
+      "entityType": "columns",
+      "table": "products"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": "'manual'",
+      "generated": null,
+      "name": "source",
+      "entityType": "columns",
+      "table": "products"
+    },
+    {
+      "type": "text",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "created_by",
+      "entityType": "columns",
+      "table": "products"
+    },
+    {
+      "type": "text",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "created_at",
+      "entityType": "columns",
+      "table": "products"
+    },
+    {
+      "type": "integer",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "updated_at",
+      "entityType": "columns",
+      "table": "products"
+    },
+    {
+      "type": "integer",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "deleted_at",
+      "entityType": "columns",
+      "table": "products"
+    },
+    {
+      "type": "integer",
+      "notNull": true,
+      "autoincrement": false,
+      "default": "false",
+      "generated": null,
+      "name": "_dirty",
+      "entityType": "columns",
+      "table": "products"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "id",
+      "entityType": "columns",
+      "table": "recipe_component_items"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "component_id",
+      "entityType": "columns",
+      "table": "recipe_component_items"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "recipe_id",
+      "entityType": "columns",
+      "table": "recipe_component_items"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "household_id",
+      "entityType": "columns",
+      "table": "recipe_component_items"
+    },
+    {
+      "type": "text",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "product_id",
+      "entityType": "columns",
+      "table": "recipe_component_items"
+    },
+    {
+      "type": "text",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "sub_component_id",
+      "entityType": "columns",
+      "table": "recipe_component_items"
+    },
+    {
+      "type": "real",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "grams",
+      "entityType": "columns",
+      "table": "recipe_component_items"
+    },
+    {
+      "type": "text",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "created_at",
+      "entityType": "columns",
+      "table": "recipe_component_items"
+    },
+    {
+      "type": "integer",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "updated_at",
+      "entityType": "columns",
+      "table": "recipe_component_items"
+    },
+    {
+      "type": "integer",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "deleted_at",
+      "entityType": "columns",
+      "table": "recipe_component_items"
+    },
+    {
+      "type": "integer",
+      "notNull": true,
+      "autoincrement": false,
+      "default": "false",
+      "generated": null,
+      "name": "_dirty",
+      "entityType": "columns",
+      "table": "recipe_component_items"
+    },
+    {
+      "type": "real",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "quantity",
+      "entityType": "columns",
+      "table": "recipe_component_items"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": "'g'",
+      "generated": null,
+      "name": "unit",
+      "entityType": "columns",
+      "table": "recipe_component_items"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "id",
+      "entityType": "columns",
+      "table": "recipe_components"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "recipe_id",
+      "entityType": "columns",
+      "table": "recipe_components"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "household_id",
+      "entityType": "columns",
+      "table": "recipe_components"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "name",
+      "entityType": "columns",
+      "table": "recipe_components"
+    },
+    {
+      "type": "real",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "serving_grams",
+      "entityType": "columns",
+      "table": "recipe_components"
+    },
+    {
+      "type": "text",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "created_at",
+      "entityType": "columns",
+      "table": "recipe_components"
+    },
+    {
+      "type": "integer",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "updated_at",
+      "entityType": "columns",
+      "table": "recipe_components"
+    },
+    {
+      "type": "integer",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "deleted_at",
+      "entityType": "columns",
+      "table": "recipe_components"
+    },
+    {
+      "type": "integer",
+      "notNull": true,
+      "autoincrement": false,
+      "default": "false",
+      "generated": null,
+      "name": "_dirty",
+      "entityType": "columns",
+      "table": "recipe_components"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "id",
+      "entityType": "columns",
+      "table": "recipe_step_ingredients"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "step_id",
+      "entityType": "columns",
+      "table": "recipe_step_ingredients"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "item_id",
+      "entityType": "columns",
+      "table": "recipe_step_ingredients"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "household_id",
+      "entityType": "columns",
+      "table": "recipe_step_ingredients"
+    },
+    {
+      "type": "text",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "created_at",
+      "entityType": "columns",
+      "table": "recipe_step_ingredients"
+    },
+    {
+      "type": "integer",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "updated_at",
+      "entityType": "columns",
+      "table": "recipe_step_ingredients"
+    },
+    {
+      "type": "integer",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "deleted_at",
+      "entityType": "columns",
+      "table": "recipe_step_ingredients"
+    },
+    {
+      "type": "integer",
+      "notNull": true,
+      "autoincrement": false,
+      "default": "false",
+      "generated": null,
+      "name": "_dirty",
+      "entityType": "columns",
+      "table": "recipe_step_ingredients"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "id",
+      "entityType": "columns",
+      "table": "recipe_steps"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "recipe_id",
+      "entityType": "columns",
+      "table": "recipe_steps"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "household_id",
+      "entityType": "columns",
+      "table": "recipe_steps"
+    },
+    {
+      "type": "integer",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "position",
+      "entityType": "columns",
+      "table": "recipe_steps"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "text",
+      "entityType": "columns",
+      "table": "recipe_steps"
+    },
+    {
+      "type": "text",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "image_path",
+      "entityType": "columns",
+      "table": "recipe_steps"
+    },
+    {
+      "type": "text",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "created_at",
+      "entityType": "columns",
+      "table": "recipe_steps"
+    },
+    {
+      "type": "integer",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "updated_at",
+      "entityType": "columns",
+      "table": "recipe_steps"
+    },
+    {
+      "type": "integer",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "deleted_at",
+      "entityType": "columns",
+      "table": "recipe_steps"
+    },
+    {
+      "type": "integer",
+      "notNull": true,
+      "autoincrement": false,
+      "default": "false",
+      "generated": null,
+      "name": "_dirty",
+      "entityType": "columns",
+      "table": "recipe_steps"
+    },
+    {
+      "type": "integer",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "timer_minutes",
+      "entityType": "columns",
+      "table": "recipe_steps"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "id",
+      "entityType": "columns",
+      "table": "recipes"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "household_id",
+      "entityType": "columns",
+      "table": "recipes"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "title",
+      "entityType": "columns",
+      "table": "recipes"
+    },
+    {
+      "type": "text",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "instructions",
+      "entityType": "columns",
+      "table": "recipes"
+    },
+    {
+      "type": "text",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "created_by",
+      "entityType": "columns",
+      "table": "recipes"
+    },
+    {
+      "type": "text",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "created_at",
+      "entityType": "columns",
+      "table": "recipes"
+    },
+    {
+      "type": "integer",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "updated_at",
+      "entityType": "columns",
+      "table": "recipes"
+    },
+    {
+      "type": "integer",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "deleted_at",
+      "entityType": "columns",
+      "table": "recipes"
+    },
+    {
+      "type": "integer",
+      "notNull": true,
+      "autoincrement": false,
+      "default": "false",
+      "generated": null,
+      "name": "_dirty",
+      "entityType": "columns",
+      "table": "recipes"
+    },
+    {
+      "type": "text",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "cover_image_path",
+      "entityType": "columns",
+      "table": "recipes"
+    },
+    {
+      "type": "integer",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "cook_time_minutes",
+      "entityType": "columns",
+      "table": "recipes"
+    },
+    {
+      "type": "text",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "difficulty",
+      "entityType": "columns",
+      "table": "recipes"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": "'[]'",
+      "generated": null,
+      "name": "dish_types",
+      "entityType": "columns",
+      "table": "recipes"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": "'[]'",
+      "generated": null,
+      "name": "dietary_tags",
+      "entityType": "columns",
+      "table": "recipes"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": "'[]'",
+      "generated": null,
+      "name": "hashtags",
+      "entityType": "columns",
+      "table": "recipes"
+    },
+    {
+      "type": "integer",
+      "notNull": true,
+      "autoincrement": false,
+      "default": "1",
+      "generated": null,
+      "name": "default_servings",
+      "entityType": "columns",
+      "table": "recipes"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "event_id",
+      "entityType": "columns",
+      "table": "shopping_category_feedback_events"
+    },
+    {
+      "type": "integer",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "schema_version",
+      "entityType": "columns",
+      "table": "shopping_category_feedback_events"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "taxonomy_version",
+      "entityType": "columns",
+      "table": "shopping_category_feedback_events"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "event_type",
+      "entityType": "columns",
+      "table": "shopping_category_feedback_events"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "input_method",
+      "entityType": "columns",
+      "table": "shopping_category_feedback_events"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "household_id",
+      "entityType": "columns",
+      "table": "shopping_category_feedback_events"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "actor_user_id",
+      "entityType": "columns",
+      "table": "shopping_category_feedback_events"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "shopping_list_item_id",
+      "entityType": "columns",
+      "table": "shopping_category_feedback_events"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "product_key_type",
+      "entityType": "columns",
+      "table": "shopping_category_feedback_events"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "product_key",
+      "entityType": "columns",
+      "table": "shopping_category_feedback_events"
+    },
+    {
+      "type": "text",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "product_id",
+      "entityType": "columns",
+      "table": "shopping_category_feedback_events"
+    },
+    {
+      "type": "text",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "barcode",
+      "entityType": "columns",
+      "table": "shopping_category_feedback_events"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "product_name",
+      "entityType": "columns",
+      "table": "shopping_category_feedback_events"
+    },
+    {
+      "type": "text",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "store_id",
+      "entityType": "columns",
+      "table": "shopping_category_feedback_events"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "preference_scope",
+      "entityType": "columns",
+      "table": "shopping_category_feedback_events"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "old_placement_zone",
+      "entityType": "columns",
+      "table": "shopping_category_feedback_events"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "new_placement_zone",
+      "entityType": "columns",
+      "table": "shopping_category_feedback_events"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "predicted_placement_zone",
+      "entityType": "columns",
+      "table": "shopping_category_feedback_events"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "old_category_source",
+      "entityType": "columns",
+      "table": "shopping_category_feedback_events"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "new_category_source",
+      "entityType": "columns",
+      "table": "shopping_category_feedback_events"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "predicted_product_family",
+      "entityType": "columns",
+      "table": "shopping_category_feedback_events"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "predicted_product_form",
+      "entityType": "columns",
+      "table": "shopping_category_feedback_events"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "classifier_version",
+      "entityType": "columns",
+      "table": "shopping_category_feedback_events"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "platform",
+      "entityType": "columns",
+      "table": "shopping_category_feedback_events"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "app_version",
+      "entityType": "columns",
+      "table": "shopping_category_feedback_events"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "build_channel",
+      "entityType": "columns",
+      "table": "shopping_category_feedback_events"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "client_created_at",
+      "entityType": "columns",
+      "table": "shopping_category_feedback_events"
+    },
+    {
+      "type": "integer",
+      "notNull": true,
+      "autoincrement": false,
+      "default": "true",
+      "generated": null,
+      "name": "_dirty",
+      "entityType": "columns",
+      "table": "shopping_category_feedback_events"
+    },
+    {
+      "type": "integer",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "synced_at",
+      "entityType": "columns",
+      "table": "shopping_category_feedback_events"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "id",
+      "entityType": "columns",
+      "table": "shopping_category_preferences"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "household_id",
+      "entityType": "columns",
+      "table": "shopping_category_preferences"
+    },
+    {
+      "type": "text",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "store_id",
+      "entityType": "columns",
+      "table": "shopping_category_preferences"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "key_type",
+      "entityType": "columns",
+      "table": "shopping_category_preferences"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "normalized_key_value",
+      "entityType": "columns",
+      "table": "shopping_category_preferences"
+    },
+    {
+      "type": "text",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "category_id",
+      "entityType": "columns",
+      "table": "shopping_category_preferences"
+    },
+    {
+      "type": "text",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "created_by",
+      "entityType": "columns",
+      "table": "shopping_category_preferences"
+    },
+    {
+      "type": "text",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "created_at",
+      "entityType": "columns",
+      "table": "shopping_category_preferences"
+    },
+    {
+      "type": "integer",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "updated_at",
+      "entityType": "columns",
+      "table": "shopping_category_preferences"
+    },
+    {
+      "type": "integer",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "deleted_at",
+      "entityType": "columns",
+      "table": "shopping_category_preferences"
+    },
+    {
+      "type": "integer",
+      "notNull": true,
+      "autoincrement": false,
+      "default": "false",
+      "generated": null,
+      "name": "_dirty",
+      "entityType": "columns",
+      "table": "shopping_category_preferences"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "id",
+      "entityType": "columns",
+      "table": "shopping_history"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "household_id",
+      "entityType": "columns",
+      "table": "shopping_history"
+    },
+    {
+      "type": "text",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "completed_by",
+      "entityType": "columns",
+      "table": "shopping_history"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "completed_at",
+      "entityType": "columns",
+      "table": "shopping_history"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "item_name",
+      "entityType": "columns",
+      "table": "shopping_history"
+    },
+    {
+      "type": "real",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "quantity",
+      "entityType": "columns",
+      "table": "shopping_history"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "unit",
+      "entityType": "columns",
+      "table": "shopping_history"
+    },
+    {
+      "type": "text",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "category_id",
+      "entityType": "columns",
+      "table": "shopping_history"
+    },
+    {
+      "type": "text",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "category_source",
+      "entityType": "columns",
+      "table": "shopping_history"
+    },
+    {
+      "type": "text",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "category_classifier_version",
+      "entityType": "columns",
+      "table": "shopping_history"
+    },
+    {
+      "type": "text",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "product_id",
+      "entityType": "columns",
+      "table": "shopping_history"
+    },
+    {
+      "type": "text",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "location_kind",
+      "entityType": "columns",
+      "table": "shopping_history"
+    },
+    {
+      "type": "text",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "expiry_date",
+      "entityType": "columns",
+      "table": "shopping_history"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "created_at",
+      "entityType": "columns",
+      "table": "shopping_history"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "id",
+      "entityType": "columns",
+      "table": "shopping_list_items"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "household_id",
+      "entityType": "columns",
+      "table": "shopping_list_items"
+    },
+    {
+      "type": "text",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "product_id",
+      "entityType": "columns",
+      "table": "shopping_list_items"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "name",
+      "entityType": "columns",
+      "table": "shopping_list_items"
+    },
+    {
+      "type": "real",
+      "notNull": true,
+      "autoincrement": false,
+      "default": "1",
+      "generated": null,
+      "name": "quantity",
+      "entityType": "columns",
+      "table": "shopping_list_items"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": "'piece'",
+      "generated": null,
+      "name": "unit",
+      "entityType": "columns",
+      "table": "shopping_list_items"
+    },
+    {
+      "type": "text",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "category_id",
+      "entityType": "columns",
+      "table": "shopping_list_items"
+    },
+    {
+      "type": "text",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "category_source",
+      "entityType": "columns",
+      "table": "shopping_list_items"
+    },
+    {
+      "type": "text",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "category_classifier_version",
+      "entityType": "columns",
+      "table": "shopping_list_items"
+    },
+    {
+      "type": "integer",
+      "notNull": true,
+      "autoincrement": false,
+      "default": "0",
+      "generated": null,
+      "name": "sort_index",
+      "entityType": "columns",
+      "table": "shopping_list_items"
+    },
+    {
+      "type": "text",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "checked_at",
+      "entityType": "columns",
+      "table": "shopping_list_items"
+    },
+    {
+      "type": "text",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "checked_by",
+      "entityType": "columns",
+      "table": "shopping_list_items"
+    },
+    {
+      "type": "text",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "added_by",
+      "entityType": "columns",
+      "table": "shopping_list_items"
+    },
+    {
+      "type": "text",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "created_at",
+      "entityType": "columns",
+      "table": "shopping_list_items"
+    },
+    {
+      "type": "integer",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "updated_at",
+      "entityType": "columns",
+      "table": "shopping_list_items"
+    },
+    {
+      "type": "integer",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "deleted_at",
+      "entityType": "columns",
+      "table": "shopping_list_items"
+    },
+    {
+      "type": "integer",
+      "notNull": true,
+      "autoincrement": false,
+      "default": "false",
+      "generated": null,
+      "name": "_dirty",
+      "entityType": "columns",
+      "table": "shopping_list_items"
+    },
+    {
+      "type": "text",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "store_id",
+      "entityType": "columns",
+      "table": "shopping_list_items"
+    },
+    {
+      "type": "real",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "price_estimate",
+      "entityType": "columns",
+      "table": "shopping_list_items"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": "'[]'",
+      "generated": null,
+      "name": "recipe_names",
+      "entityType": "columns",
+      "table": "shopping_list_items"
+    },
+    {
+      "type": "real",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "package_size",
+      "entityType": "columns",
+      "table": "shopping_list_items"
+    },
+    {
+      "type": "text",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "package_size_unit",
+      "entityType": "columns",
+      "table": "shopping_list_items"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "id",
+      "entityType": "columns",
+      "table": "storage_locations"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "household_id",
+      "entityType": "columns",
+      "table": "storage_locations"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "name",
+      "entityType": "columns",
+      "table": "storage_locations"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "kind",
+      "entityType": "columns",
+      "table": "storage_locations"
+    },
+    {
+      "type": "integer",
+      "notNull": true,
+      "autoincrement": false,
+      "default": "0",
+      "generated": null,
+      "name": "sort_order",
+      "entityType": "columns",
+      "table": "storage_locations"
+    },
+    {
+      "type": "text",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "created_at",
+      "entityType": "columns",
+      "table": "storage_locations"
+    },
+    {
+      "type": "integer",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "updated_at",
+      "entityType": "columns",
+      "table": "storage_locations"
+    },
+    {
+      "type": "integer",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "deleted_at",
+      "entityType": "columns",
+      "table": "storage_locations"
+    },
+    {
+      "type": "integer",
+      "notNull": true,
+      "autoincrement": false,
+      "default": "false",
+      "generated": null,
+      "name": "_dirty",
+      "entityType": "columns",
+      "table": "storage_locations"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "id",
+      "entityType": "columns",
+      "table": "stores"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "household_id",
+      "entityType": "columns",
+      "table": "stores"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "name",
+      "entityType": "columns",
+      "table": "stores"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "color",
+      "entityType": "columns",
+      "table": "stores"
+    },
+    {
+      "type": "integer",
+      "notNull": true,
+      "autoincrement": false,
+      "default": "0",
+      "generated": null,
+      "name": "sort_order",
+      "entityType": "columns",
+      "table": "stores"
+    },
+    {
+      "type": "text",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "created_at",
+      "entityType": "columns",
+      "table": "stores"
+    },
+    {
+      "type": "integer",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "updated_at",
+      "entityType": "columns",
+      "table": "stores"
+    },
+    {
+      "type": "integer",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "deleted_at",
+      "entityType": "columns",
+      "table": "stores"
+    },
+    {
+      "type": "integer",
+      "notNull": true,
+      "autoincrement": false,
+      "default": "false",
+      "generated": null,
+      "name": "_dirty",
+      "entityType": "columns",
+      "table": "stores"
+    },
+    {
+      "type": "text",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "category_order",
+      "entityType": "columns",
+      "table": "stores"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "entity",
+      "entityType": "columns",
+      "table": "sync_state"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": "'default'",
+      "generated": null,
+      "name": "scope",
+      "entityType": "columns",
+      "table": "sync_state"
+    },
+    {
+      "type": "text",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "last_synced_at",
+      "entityType": "columns",
+      "table": "sync_state"
+    },
+    {
+      "type": "text",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "last_synced_id",
+      "entityType": "columns",
+      "table": "sync_state"
+    },
+    {
+      "type": "integer",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "last_run_at",
+      "entityType": "columns",
+      "table": "sync_state"
+    },
+    {
+      "type": "text",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "last_error",
+      "entityType": "columns",
+      "table": "sync_state"
+    },
+    {
+      "columns": [
+        "key"
+      ],
+      "nameExplicit": false,
+      "name": "app_meta_pk",
+      "entityType": "pks",
+      "table": "app_meta"
+    },
+    {
+      "columns": [
+        "id"
+      ],
+      "nameExplicit": false,
+      "name": "favorite_brochure_stores_pk",
+      "entityType": "pks",
+      "table": "favorite_brochure_stores"
+    },
+    {
+      "columns": [
+        "id"
+      ],
+      "nameExplicit": false,
+      "name": "fridge_items_pk",
+      "entityType": "pks",
+      "table": "fridge_items"
+    },
+    {
+      "columns": [
+        "id"
+      ],
+      "nameExplicit": false,
+      "name": "households_pk",
+      "entityType": "pks",
+      "table": "households"
+    },
+    {
+      "columns": [
+        "id"
+      ],
+      "nameExplicit": false,
+      "name": "local_brochure_cache_pk",
+      "entityType": "pks",
+      "table": "local_brochure_cache"
+    },
+    {
+      "columns": [
+        "id"
+      ],
+      "nameExplicit": false,
+      "name": "local_brochure_pages_pk",
+      "entityType": "pks",
+      "table": "local_brochure_pages"
+    },
+    {
+      "columns": [
+        "id"
+      ],
+      "nameExplicit": false,
+      "name": "local_brochure_stores_pk",
+      "entityType": "pks",
+      "table": "local_brochure_stores"
+    },
+    {
+      "columns": [
+        "id"
+      ],
+      "nameExplicit": false,
+      "name": "local_brochures_pk",
+      "entityType": "pks",
+      "table": "local_brochures"
+    },
+    {
+      "columns": [
+        "user_id",
+        "recipe_key"
+      ],
+      "nameExplicit": false,
+      "name": "local_recipe_preferences_pk",
+      "entityType": "pks",
+      "table": "local_recipe_preferences"
+    },
+    {
+      "columns": [
+        "id"
+      ],
+      "nameExplicit": false,
+      "name": "meal_plan_entries_pk",
+      "entityType": "pks",
+      "table": "meal_plan_entries"
+    },
+    {
+      "columns": [
+        "id"
+      ],
+      "nameExplicit": false,
+      "name": "meal_plans_pk",
+      "entityType": "pks",
+      "table": "meal_plans"
+    },
+    {
+      "columns": [
+        "id"
+      ],
+      "nameExplicit": false,
+      "name": "product_usage_pk",
+      "entityType": "pks",
+      "table": "product_usage"
+    },
+    {
+      "columns": [
+        "id"
+      ],
+      "nameExplicit": false,
+      "name": "products_pk",
+      "entityType": "pks",
+      "table": "products"
+    },
+    {
+      "columns": [
+        "id"
+      ],
+      "nameExplicit": false,
+      "name": "recipe_component_items_pk",
+      "entityType": "pks",
+      "table": "recipe_component_items"
+    },
+    {
+      "columns": [
+        "id"
+      ],
+      "nameExplicit": false,
+      "name": "recipe_components_pk",
+      "entityType": "pks",
+      "table": "recipe_components"
+    },
+    {
+      "columns": [
+        "id"
+      ],
+      "nameExplicit": false,
+      "name": "recipe_step_ingredients_pk",
+      "entityType": "pks",
+      "table": "recipe_step_ingredients"
+    },
+    {
+      "columns": [
+        "id"
+      ],
+      "nameExplicit": false,
+      "name": "recipe_steps_pk",
+      "entityType": "pks",
+      "table": "recipe_steps"
+    },
+    {
+      "columns": [
+        "id"
+      ],
+      "nameExplicit": false,
+      "name": "recipes_pk",
+      "entityType": "pks",
+      "table": "recipes"
+    },
+    {
+      "columns": [
+        "event_id"
+      ],
+      "nameExplicit": false,
+      "name": "shopping_category_feedback_events_pk",
+      "entityType": "pks",
+      "table": "shopping_category_feedback_events"
+    },
+    {
+      "columns": [
+        "id"
+      ],
+      "nameExplicit": false,
+      "name": "shopping_category_preferences_pk",
+      "entityType": "pks",
+      "table": "shopping_category_preferences"
+    },
+    {
+      "columns": [
+        "id"
+      ],
+      "nameExplicit": false,
+      "name": "shopping_history_pk",
+      "entityType": "pks",
+      "table": "shopping_history"
+    },
+    {
+      "columns": [
+        "id"
+      ],
+      "nameExplicit": false,
+      "name": "shopping_list_items_pk",
+      "entityType": "pks",
+      "table": "shopping_list_items"
+    },
+    {
+      "columns": [
+        "id"
+      ],
+      "nameExplicit": false,
+      "name": "storage_locations_pk",
+      "entityType": "pks",
+      "table": "storage_locations"
+    },
+    {
+      "columns": [
+        "id"
+      ],
+      "nameExplicit": false,
+      "name": "stores_pk",
+      "entityType": "pks",
+      "table": "stores"
+    },
+    {
+      "columns": [
+        "entity",
+        "scope"
+      ],
+      "nameExplicit": false,
+      "name": "sync_state_pk",
+      "entityType": "pks",
+      "table": "sync_state"
+    },
+    {
+      "columns": [
+        "id"
+      ],
+      "nameExplicit": false,
+      "name": "outbox_pk",
+      "table": "outbox",
+      "entityType": "pks"
+    },
+    {
+      "columns": [
+        {
+          "value": "user_id",
+          "isExpression": false
+        },
+        {
+          "value": "deleted_at",
+          "isExpression": false
+        }
+      ],
+      "isUnique": false,
+      "where": null,
+      "origin": "manual",
+      "name": "favorite_brochure_stores_user_idx",
+      "entityType": "indexes",
+      "table": "favorite_brochure_stores"
+    },
+    {
+      "columns": [
+        {
+          "value": "_dirty",
+          "isExpression": false
+        }
+      ],
+      "isUnique": false,
+      "where": "\"favorite_brochure_stores\".\"_dirty\" = 1",
+      "origin": "manual",
+      "name": "favorite_brochure_stores_dirty_idx",
+      "entityType": "indexes",
+      "table": "favorite_brochure_stores"
+    },
+    {
+      "columns": [
+        {
+          "value": "household_id",
+          "isExpression": false
+        },
+        {
+          "value": "deleted_at",
+          "isExpression": false
+        }
+      ],
+      "isUnique": false,
+      "where": null,
+      "origin": "manual",
+      "name": "fridge_items_hh_idx",
+      "entityType": "indexes",
+      "table": "fridge_items"
+    },
+    {
+      "columns": [
+        {
+          "value": "location_id",
+          "isExpression": false
+        }
+      ],
+      "isUnique": false,
+      "where": null,
+      "origin": "manual",
+      "name": "fridge_items_loc_idx",
+      "entityType": "indexes",
+      "table": "fridge_items"
+    },
+    {
+      "columns": [
+        {
+          "value": "_dirty",
+          "isExpression": false
+        }
+      ],
+      "isUnique": false,
+      "where": "\"fridge_items\".\"_dirty\" = 1",
+      "origin": "manual",
+      "name": "fridge_items_dirty_idx",
+      "entityType": "indexes",
+      "table": "fridge_items"
+    },
+    {
+      "columns": [
+        {
+          "value": "brochure_id",
+          "isExpression": false
+        },
+        {
+          "value": "page_number",
+          "isExpression": false
+        }
+      ],
+      "isUnique": false,
+      "where": null,
+      "origin": "manual",
+      "name": "local_brochure_pages_brochure_idx",
+      "entityType": "indexes",
+      "table": "local_brochure_pages"
+    },
+    {
+      "columns": [
+        {
+          "value": "store_id",
+          "isExpression": false
+        }
+      ],
+      "isUnique": false,
+      "where": null,
+      "origin": "manual",
+      "name": "local_brochures_store_idx",
+      "entityType": "indexes",
+      "table": "local_brochures"
+    },
+    {
+      "columns": [
+        {
+          "value": "user_id",
+          "isExpression": false
+        },
+        {
+          "value": "updated_at",
+          "isExpression": false
+        }
+      ],
+      "isUnique": false,
+      "where": null,
+      "origin": "manual",
+      "name": "local_recipe_preferences_user_idx",
+      "entityType": "indexes",
+      "table": "local_recipe_preferences"
+    },
+    {
+      "columns": [
+        {
+          "value": "meal_plan_id",
+          "isExpression": false
+        },
+        {
+          "value": "deleted_at",
+          "isExpression": false
+        }
+      ],
+      "isUnique": false,
+      "where": null,
+      "origin": "manual",
+      "name": "meal_plan_entries_plan_idx",
+      "entityType": "indexes",
+      "table": "meal_plan_entries"
+    },
+    {
+      "columns": [
+        {
+          "value": "_dirty",
+          "isExpression": false
+        }
+      ],
+      "isUnique": false,
+      "where": "\"meal_plan_entries\".\"_dirty\" = 1",
+      "origin": "manual",
+      "name": "meal_plan_entries_dirty_idx",
+      "entityType": "indexes",
+      "table": "meal_plan_entries"
+    },
+    {
+      "columns": [
+        {
+          "value": "household_id",
+          "isExpression": false
+        },
+        {
+          "value": "deleted_at",
+          "isExpression": false
+        }
+      ],
+      "isUnique": false,
+      "where": null,
+      "origin": "manual",
+      "name": "meal_plans_hh_idx",
+      "entityType": "indexes",
+      "table": "meal_plans"
+    },
+    {
+      "columns": [
+        {
+          "value": "household_id",
+          "isExpression": false
+        },
+        {
+          "value": "week_start_date",
+          "isExpression": false
+        }
+      ],
+      "isUnique": false,
+      "where": null,
+      "origin": "manual",
+      "name": "meal_plans_week_idx",
+      "entityType": "indexes",
+      "table": "meal_plans"
+    },
+    {
+      "columns": [
+        {
+          "value": "_dirty",
+          "isExpression": false
+        }
+      ],
+      "isUnique": false,
+      "where": "\"meal_plans\".\"_dirty\" = 1",
+      "origin": "manual",
+      "name": "meal_plans_dirty_idx",
+      "entityType": "indexes",
+      "table": "meal_plans"
+    },
+    {
+      "columns": [
+        {
+          "value": "entity",
+          "isExpression": false
+        },
+        {
+          "value": "entity_id",
+          "isExpression": false
+        },
+        {
+          "value": "id",
+          "isExpression": false
+        }
+      ],
+      "isUnique": false,
+      "where": null,
+      "origin": "manual",
+      "name": "outbox_row_idx",
+      "entityType": "indexes",
+      "table": "outbox"
+    },
+    {
+      "columns": [
+        {
+          "value": "next_attempt_at",
+          "isExpression": false
+        },
+        {
+          "value": "id",
+          "isExpression": false
+        }
+      ],
+      "isUnique": false,
+      "where": null,
+      "origin": "manual",
+      "name": "outbox_due_idx",
+      "entityType": "indexes",
+      "table": "outbox"
+    },
+    {
+      "columns": [
+        {
+          "value": "user_id",
+          "isExpression": false
+        },
+        {
+          "value": "feature",
+          "isExpression": false
+        },
+        {
+          "value": "meal_type",
+          "isExpression": false
+        },
+        {
+          "value": "used_at",
+          "isExpression": false
+        }
+      ],
+      "isUnique": false,
+      "where": null,
+      "origin": "manual",
+      "name": "product_usage_lookup_idx",
+      "entityType": "indexes",
+      "table": "product_usage"
+    },
+    {
+      "columns": [
+        {
+          "value": "barcode",
+          "isExpression": false
+        }
+      ],
+      "isUnique": false,
+      "where": null,
+      "origin": "manual",
+      "name": "products_barcode_idx",
+      "entityType": "indexes",
+      "table": "products"
+    },
+    {
+      "columns": [
+        {
+          "value": "component_id",
+          "isExpression": false
+        },
+        {
+          "value": "deleted_at",
+          "isExpression": false
+        }
+      ],
+      "isUnique": false,
+      "where": null,
+      "origin": "manual",
+      "name": "recipe_component_items_component_idx",
+      "entityType": "indexes",
+      "table": "recipe_component_items"
+    },
+    {
+      "columns": [
+        {
+          "value": "_dirty",
+          "isExpression": false
+        }
+      ],
+      "isUnique": false,
+      "where": "\"recipe_component_items\".\"_dirty\" = 1",
+      "origin": "manual",
+      "name": "recipe_component_items_dirty_idx",
+      "entityType": "indexes",
+      "table": "recipe_component_items"
+    },
+    {
+      "columns": [
+        {
+          "value": "recipe_id",
+          "isExpression": false
+        },
+        {
+          "value": "deleted_at",
+          "isExpression": false
+        }
+      ],
+      "isUnique": false,
+      "where": null,
+      "origin": "manual",
+      "name": "recipe_components_recipe_idx",
+      "entityType": "indexes",
+      "table": "recipe_components"
+    },
+    {
+      "columns": [
+        {
+          "value": "_dirty",
+          "isExpression": false
+        }
+      ],
+      "isUnique": false,
+      "where": "\"recipe_components\".\"_dirty\" = 1",
+      "origin": "manual",
+      "name": "recipe_components_dirty_idx",
+      "entityType": "indexes",
+      "table": "recipe_components"
+    },
+    {
+      "columns": [
+        {
+          "value": "step_id",
+          "isExpression": false
+        },
+        {
+          "value": "deleted_at",
+          "isExpression": false
+        }
+      ],
+      "isUnique": false,
+      "where": null,
+      "origin": "manual",
+      "name": "recipe_step_ingredients_step_idx",
+      "entityType": "indexes",
+      "table": "recipe_step_ingredients"
+    },
+    {
+      "columns": [
+        {
+          "value": "_dirty",
+          "isExpression": false
+        }
+      ],
+      "isUnique": false,
+      "where": "\"recipe_step_ingredients\".\"_dirty\" = 1",
+      "origin": "manual",
+      "name": "recipe_step_ingredients_dirty_idx",
+      "entityType": "indexes",
+      "table": "recipe_step_ingredients"
+    },
+    {
+      "columns": [
+        {
+          "value": "recipe_id",
+          "isExpression": false
+        },
+        {
+          "value": "deleted_at",
+          "isExpression": false
+        }
+      ],
+      "isUnique": false,
+      "where": null,
+      "origin": "manual",
+      "name": "recipe_steps_recipe_idx",
+      "entityType": "indexes",
+      "table": "recipe_steps"
+    },
+    {
+      "columns": [
+        {
+          "value": "_dirty",
+          "isExpression": false
+        }
+      ],
+      "isUnique": false,
+      "where": "\"recipe_steps\".\"_dirty\" = 1",
+      "origin": "manual",
+      "name": "recipe_steps_dirty_idx",
+      "entityType": "indexes",
+      "table": "recipe_steps"
+    },
+    {
+      "columns": [
+        {
+          "value": "household_id",
+          "isExpression": false
+        },
+        {
+          "value": "deleted_at",
+          "isExpression": false
+        }
+      ],
+      "isUnique": false,
+      "where": null,
+      "origin": "manual",
+      "name": "recipes_hh_idx",
+      "entityType": "indexes",
+      "table": "recipes"
+    },
+    {
+      "columns": [
+        {
+          "value": "_dirty",
+          "isExpression": false
+        }
+      ],
+      "isUnique": false,
+      "where": "\"recipes\".\"_dirty\" = 1",
+      "origin": "manual",
+      "name": "recipes_dirty_idx",
+      "entityType": "indexes",
+      "table": "recipes"
+    },
+    {
+      "columns": [
+        {
+          "value": "household_id",
+          "isExpression": false
+        },
+        {
+          "value": "client_created_at",
+          "isExpression": false
+        },
+        {
+          "value": "event_id",
+          "isExpression": false
+        }
+      ],
+      "isUnique": false,
+      "where": null,
+      "origin": "manual",
+      "name": "shopping_category_feedback_events_hh_idx",
+      "entityType": "indexes",
+      "table": "shopping_category_feedback_events"
+    },
+    {
+      "columns": [
+        {
+          "value": "product_key_type",
+          "isExpression": false
+        },
+        {
+          "value": "product_key",
+          "isExpression": false
+        }
+      ],
+      "isUnique": false,
+      "where": null,
+      "origin": "manual",
+      "name": "shopping_category_feedback_events_product_idx",
+      "entityType": "indexes",
+      "table": "shopping_category_feedback_events"
+    },
+    {
+      "columns": [
+        {
+          "value": "household_id",
+          "isExpression": false
+        },
+        {
+          "value": "key_type",
+          "isExpression": false
+        },
+        {
+          "value": "normalized_key_value",
+          "isExpression": false
+        }
+      ],
+      "isUnique": true,
+      "where": "\"shopping_category_preferences\".\"store_id\" is null",
+      "origin": "manual",
+      "name": "shopping_category_preferences_household_key_v18",
+      "entityType": "indexes",
+      "table": "shopping_category_preferences"
+    },
+    {
+      "columns": [
+        {
+          "value": "household_id",
+          "isExpression": false
+        },
+        {
+          "value": "store_id",
+          "isExpression": false
+        },
+        {
+          "value": "key_type",
+          "isExpression": false
+        },
+        {
+          "value": "normalized_key_value",
+          "isExpression": false
+        }
+      ],
+      "isUnique": true,
+      "where": "\"shopping_category_preferences\".\"store_id\" is not null",
+      "origin": "manual",
+      "name": "shopping_category_preferences_store_key_v18",
+      "entityType": "indexes",
+      "table": "shopping_category_preferences"
+    },
+    {
+      "columns": [
+        {
+          "value": "household_id",
+          "isExpression": false
+        },
+        {
+          "value": "updated_at",
+          "isExpression": false
+        },
+        {
+          "value": "id",
+          "isExpression": false
+        }
+      ],
+      "isUnique": false,
+      "where": null,
+      "origin": "manual",
+      "name": "shopping_category_preferences_hh_idx_v18",
+      "entityType": "indexes",
+      "table": "shopping_category_preferences"
+    },
+    {
+      "columns": [
+        {
+          "value": "_dirty",
+          "isExpression": false
+        }
+      ],
+      "isUnique": false,
+      "where": "\"shopping_category_preferences\".\"_dirty\" = 1",
+      "origin": "manual",
+      "name": "shopping_category_preferences_dirty_idx_v18",
+      "entityType": "indexes",
+      "table": "shopping_category_preferences"
+    },
+    {
+      "columns": [
+        {
+          "value": "household_id",
+          "isExpression": false
+        },
+        {
+          "value": "completed_at",
+          "isExpression": false
+        }
+      ],
+      "isUnique": false,
+      "where": null,
+      "origin": "manual",
+      "name": "shopping_history_hh_idx",
+      "entityType": "indexes",
+      "table": "shopping_history"
+    },
+    {
+      "columns": [
+        {
+          "value": "household_id",
+          "isExpression": false
+        },
+        {
+          "value": "deleted_at",
+          "isExpression": false
+        }
+      ],
+      "isUnique": false,
+      "where": null,
+      "origin": "manual",
+      "name": "shopping_list_items_hh_idx",
+      "entityType": "indexes",
+      "table": "shopping_list_items"
+    },
+    {
+      "columns": [
+        {
+          "value": "_dirty",
+          "isExpression": false
+        }
+      ],
+      "isUnique": false,
+      "where": "\"shopping_list_items\".\"_dirty\" = 1",
+      "origin": "manual",
+      "name": "shopping_list_items_dirty_idx",
+      "entityType": "indexes",
+      "table": "shopping_list_items"
+    },
+    {
+      "columns": [
+        {
+          "value": "store_id",
+          "isExpression": false
+        }
+      ],
+      "isUnique": false,
+      "where": null,
+      "origin": "manual",
+      "name": "shopping_list_items_store_idx",
+      "entityType": "indexes",
+      "table": "shopping_list_items"
+    },
+    {
+      "columns": [
+        {
+          "value": "household_id",
+          "isExpression": false
+        },
+        {
+          "value": "sort_order",
+          "isExpression": false
+        }
+      ],
+      "isUnique": false,
+      "where": null,
+      "origin": "manual",
+      "name": "storage_locations_hh_idx",
+      "entityType": "indexes",
+      "table": "storage_locations"
+    },
+    {
+      "columns": [
+        {
+          "value": "_dirty",
+          "isExpression": false
+        }
+      ],
+      "isUnique": false,
+      "where": "\"storage_locations\".\"_dirty\" = 1",
+      "origin": "manual",
+      "name": "storage_locations_dirty_idx",
+      "entityType": "indexes",
+      "table": "storage_locations"
+    },
+    {
+      "columns": [
+        {
+          "value": "household_id",
+          "isExpression": false
+        },
+        {
+          "value": "sort_order",
+          "isExpression": false
+        }
+      ],
+      "isUnique": false,
+      "where": null,
+      "origin": "manual",
+      "name": "stores_hh_idx",
+      "entityType": "indexes",
+      "table": "stores"
+    },
+    {
+      "columns": [
+        {
+          "value": "_dirty",
+          "isExpression": false
+        }
+      ],
+      "isUnique": false,
+      "where": "\"stores\".\"_dirty\" = 1",
+      "origin": "manual",
+      "name": "stores_dirty_idx",
+      "entityType": "indexes",
+      "table": "stores"
+    },
+    {
+      "value": "\"id\" = 1",
+      "name": "local_brochure_cache_single_row_check",
+      "entityType": "checks",
+      "table": "local_brochure_cache"
+    },
+    {
+      "value": "\"is_favorite\" in (0, 1)",
+      "name": "local_recipe_preferences_favorite_check",
+      "entityType": "checks",
+      "table": "local_recipe_preferences"
+    },
+    {
+      "value": "\"rating\" is null or \"rating\" between 1 and 10",
+      "name": "local_recipe_preferences_rating_check",
+      "entityType": "checks",
+      "table": "local_recipe_preferences"
+    },
+    {
+      "value": "\"op\" in ('insert', 'update', 'delete', 'restore')",
+      "name": "outbox_op_check",
+      "entityType": "checks",
+      "table": "outbox"
+    },
+    {
+      "value": "\"feature\" in ('fridge', 'shopping_list', 'diary')",
+      "name": "product_usage_feature_check",
+      "entityType": "checks",
+      "table": "product_usage"
+    },
+    {
+      "value": "\"meal_type\" in ('breakfast', 'lunch', 'dinner', 'snack')",
+      "name": "product_usage_meal_type_check",
+      "entityType": "checks",
+      "table": "product_usage"
+    },
+    {
+      "value": "\"event_type\" in ('manual_reassign', 'reset_to_automatic')",
+      "name": "shopping_category_feedback_event_type_check",
+      "entityType": "checks",
+      "table": "shopping_category_feedback_events"
+    },
+    {
+      "value": "\"input_method\" in ('add_form', 'edit_form')",
+      "name": "shopping_category_feedback_input_method_check",
+      "entityType": "checks",
+      "table": "shopping_category_feedback_events"
+    },
+    {
+      "value": "\"product_key_type\" in ('product', 'barcode', 'name')",
+      "name": "shopping_category_feedback_product_key_type_check",
+      "entityType": "checks",
+      "table": "shopping_category_feedback_events"
+    },
+    {
+      "value": "\"preference_scope\" in ('store', 'household')",
+      "name": "shopping_category_feedback_preference_scope_check",
+      "entityType": "checks",
+      "table": "shopping_category_feedback_events"
+    },
+    {
+      "value": "\"platform\" in ('ios', 'android', 'web')",
+      "name": "shopping_category_feedback_platform_check",
+      "entityType": "checks",
+      "table": "shopping_category_feedback_events"
+    },
+    {
+      "value": "\"key_type\" in ('product', 'name')",
+      "name": "shopping_category_preferences_key_type_check",
+      "entityType": "checks",
+      "table": "shopping_category_preferences"
+    },
+    {
+      "value": "length(\"normalized_key_value\") between 1 and 500 and \"normalized_key_value\" = lower(trim(\"normalized_key_value\"))",
+      "name": "shopping_category_preferences_normalized_key_check",
+      "entityType": "checks",
+      "table": "shopping_category_preferences"
+    },
+    {
+      "value": "\"category_id\" in (\n        'fresh_produce','bakery','chilled_dairy_eggs','ambient_milk_drinks',\n        'chilled_plant_based','meat_poultry','fish_seafood','deli',\n        'pasta_tomato','rice_world_foods','breakfast','baking','oils_spices',\n        'condiments','canned_jars','ready_meals','snacks','sweets',\n        'cold_drinks','hot_drinks','alcohol','frozen','baby','pets',\n        'household','personal_care','other','produce','convenience',\n        'hot_beverages','pantry_staples','cooking_baking','canned_sauces',\n        'beverages','drugstore','baby_kids','pet_supplies','deli_cold_cuts',\n        'plant_based','dairy_eggs','checkout','deli_meat','pantry_canned',\n        'pantry_dry','dairy'\n      )",
+      "name": "shopping_history_category_id_check",
+      "entityType": "checks",
+      "table": "shopping_history"
+    },
+    {
+      "value": "\"category_source\" in ('user','store_preference','household_preference','off_taxonomy','name_fallback')",
+      "name": "shopping_history_category_source_check",
+      "entityType": "checks",
+      "table": "shopping_history"
+    },
+    {
+      "value": "\"category_classifier_version\" is null or length(trim(\"category_classifier_version\")) between 1 and 100",
+      "name": "shopping_history_classifier_version_check",
+      "entityType": "checks",
+      "table": "shopping_history"
+    },
+    {
+      "value": "\"category_id\" in (\n        'fresh_produce','bakery','chilled_dairy_eggs','ambient_milk_drinks',\n        'chilled_plant_based','meat_poultry','fish_seafood','deli',\n        'pasta_tomato','rice_world_foods','breakfast','baking','oils_spices',\n        'condiments','canned_jars','ready_meals','snacks','sweets',\n        'cold_drinks','hot_drinks','alcohol','frozen','baby','pets',\n        'household','personal_care','other','produce','convenience',\n        'hot_beverages','pantry_staples','cooking_baking','canned_sauces',\n        'beverages','drugstore','baby_kids','pet_supplies','deli_cold_cuts',\n        'plant_based','dairy_eggs','checkout','deli_meat','pantry_canned',\n        'pantry_dry','dairy'\n      )",
+      "name": "shopping_list_items_category_id_check",
+      "entityType": "checks",
+      "table": "shopping_list_items"
+    },
+    {
+      "value": "\"category_source\" in ('user','store_preference','household_preference','off_taxonomy','name_fallback')",
+      "name": "shopping_list_items_category_source_check",
+      "entityType": "checks",
+      "table": "shopping_list_items"
+    },
+    {
+      "value": "\"category_classifier_version\" is null or length(trim(\"category_classifier_version\")) between 1 and 100",
+      "name": "shopping_list_items_classifier_version_check",
+      "entityType": "checks",
+      "table": "shopping_list_items"
+    }
+  ],
+  "renames": []
+}

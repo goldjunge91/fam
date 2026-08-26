@@ -3,11 +3,9 @@ import type { SqlDatabase } from '@/lib/db/types';
 /**
  * Stellt sicher, dass die lokale Datenbank zum angemeldeten Nutzer gehoert.
  *
- * Zweite Verteidigungslinie hinter dem Logout: Das Aufraeumen dort ist
- * Best-Effort — es darf den Logout nicht scheitern lassen und schluckt seine
- * Fehler deshalb (`sign-out.ts`). Genau dann kann die Datei des Vornutzers
- * stehen bleiben, und bei lokal gespiegelten Haushaltsdaten ist das ein
- * Datenleck, kein Schoenheitsfehler.
+ * Zweite Verteidigungslinie hinter dem Logout: Selbst wenn die App vor dem
+ * vollständigen Cleanup beendet wurde, darf eine verbliebene Datei niemals
+ * für einen anderen Nutzer freigegeben werden.
  *
  * Hier als eigene Datei und ohne `expo-sqlite`, damit die Entscheidung
  * ("verwerfen oder behalten") ohne Geraet pruefbar ist. `client.ts` liefert nur
@@ -22,12 +20,14 @@ export async function ensureDatabaseBelongsTo(
   db: SqlDatabase,
   userId: string,
   wipeAndReopen: () => Promise<SqlDatabase>,
+  assertCurrentUser: () => void = () => undefined,
 ): Promise<SqlDatabase> {
   const row = await db.getFirstAsync<{ value: string }>(
     'select value from app_meta where key = ?',
     ['user_id'],
   );
 
+  assertCurrentUser();
   if (row?.value === userId) return db;
 
   let current = db;
@@ -38,8 +38,12 @@ export async function ensureDatabaseBelongsTo(
   // wegwerfen.
   if (row?.value !== undefined && row.value !== userId) {
     current = await wipeAndReopen();
+    assertCurrentUser();
   }
 
+  // Direkt vor dem einzigen Ownership-Write noch einmal prüfen: Ein parallel
+  // eingetroffenes SIGNED_OUT darf den alten Open-Lauf nicht mehr publizieren.
+  assertCurrentUser();
   await current.runAsync('insert or replace into app_meta (key, value) values (?, ?)', [
     'user_id',
     userId,
