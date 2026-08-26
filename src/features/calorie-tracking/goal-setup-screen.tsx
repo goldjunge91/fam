@@ -56,11 +56,6 @@ function parsePercent(input: string): number {
   return Number.isNaN(value) ? 0 : value;
 }
 
-/**
- * Ziel-Setup (#84). Baut direkt auf den reinen Funktionen aus #81/#82/#83 auf
- * — die gesamte Vorschau (Grundumsatz → TDEE → Zielkalorien → Makros) laeuft
- * clientseitig, ohne zusaetzliche Requests, bevor irgendetwas gespeichert wird.
- */
 export function GoalSetupScreen() {
   const { session } = useSession();
   const userId = session?.user.id;
@@ -203,7 +198,6 @@ export function GoalSetupScreen() {
       title="Kalorienziel"
       back={{ label: 'Einstellungen', href: '/settings' }}
       backStyle="icon">
-      {/* Hinweis bei unvollständigen Profildaten (Geschlecht, Geburtsdatum, Größe) */}
       {!hasProfileFields ? (
         <Card title="Profil vervollständigen">
           <ThemedText themeColor="textSecondary">
@@ -264,7 +258,6 @@ export function GoalSetupScreen() {
                   />
                 ) : null}
 
-                {/* Auswahl des Makro-Presets (Ausgewogen, High-Protein, Low-Carb, Keto, Custom) */}
                 <ThemedText type="smallBold" className="mt-one">
                   Makro-Verteilung
                 </ThemedText>

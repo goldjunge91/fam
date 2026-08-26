@@ -24,12 +24,7 @@ export function CompactActionButton({
       accessibilityState={{ expanded }}
       className="btn-compact-action">
       <ThemedText type="default">{label}</ThemedText>
-      {/* Rotation als natives Transform statt dynamischer `rotate-180`-Klasse:
-          Ein Klassenwechsel nach dem ersten Render loest bei NativeWind einen
-          "Upgrade"-Rewrap aus, dessen Dev-Warnung an einem Navigation-Context-
-          Getter abstuerzt (react-native-css-interop-Bug). Das Transform hier
-          selbst hat keine Tailwind-Entsprechung fuer einen zur Laufzeit
-          umschaltbaren Winkel. */}
+      {}
       <View
         className="w-[12px] h-[7px]"
         style={{ transform: [{ rotate: expanded ? '180deg' : '0deg' }] }}>

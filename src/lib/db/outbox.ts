@@ -1,23 +1,6 @@
 import type { Entity, OutboxEntry, OutboxOp, SqlDatabase } from '@/lib/db/types';
 import { MAX_ATTEMPTS } from '@/lib/sync/backoff';
 
-/**
- * Outbox-Primitiven (#46).
- *
- * `parseOutboxEntry` gehoert hierher statt nach `sync/coalesce.ts`, weil es
- * eine DB-Zeilenform interpretiert, keine Sync-Algorithmus-Logik ist — dieselbe
- * Abgrenzung wie zwischen `src/lib/db/` und `src/lib/sync/` insgesamt.
- * `coalesce.ts` importiert diese Funktion, statt eine eigene private Kopie zu
- * fuehren.
- *
- * `enqueueMutation` ist der einzige vorgesehene Schreibweg in die
- * Spiegeltabellen: jede schreibende Operation geht ausnahmslos ueber die
- * Outbox, nie direkt gegen Supabase (#46). Die Funktion kennt bewusst keine
- * Spaltenliste irgendeiner Spiegeltabelle — der Aufrufer liefert
- * `applyLocally`, `enqueueMutation` buendelt es mit dem Outbox-Insert in einer
- * `withExclusiveTransactionAsync`.
- */
-
 /** Parst `OutboxEntry.payload` (JSON-Text) in ein Objekt. Wirft bei Nicht-Objekt. */
 export function parseOutboxEntry(entry: OutboxEntry): Record<string, unknown> {
   const parsed: unknown = JSON.parse(entry.payload);
@@ -58,17 +41,6 @@ export type EnqueueMutationInput = {
 type OutboxChangedListener = () => void;
 const outboxChangedListeners = new Set<OutboxChangedListener>();
 
-/**
- * Benachrichtigt bei jedem erfolgreichen `enqueueMutation()` — der einzige
- * Zweck ist, entfernten Aufrufern (der Sync-Engine, dem Sync-Status-Banner)
- * ein "gerade ist etwas lokal geschrieben worden" zu geben, ohne dass dieses
- * Modul irgendetwas ueber Haushalte, React Query oder Netzwerk wissen muss —
- * dieselbe Trennung wie sonst zwischen `lib/db/` und `lib/sync/`.
- *
- * Bewusst ein einfacher Listener-Satz, kein Event mit Payload: Was genau
- * geaendert wurde, steht schon lokal in der Outbox: Aufrufer, die mehr
- * brauchen, lesen sie selbst.
- */
 export function onOutboxChanged(listener: OutboxChangedListener): () => void {
   outboxChangedListeners.add(listener);
   return () => {
@@ -80,20 +52,6 @@ function notifyOutboxChanged(): void {
   for (const listener of outboxChangedListeners) listener();
 }
 
-/**
- * Schreibt Spiegeltabelle und Outbox-Eintrag atomar.
- *
- * Erfuellt die drei #46-Akzeptanzkriterien strukturell: dieselbe Transaktion
- * (ein Abbruch hinterlaesst keinen halben Zustand), kein `await` auf Netzwerk
- * darin (die UI-Aenderung ist sofort da, das Netzwerk passiert spaeter beim
- * Push), ein werfendes `applyLocally` rollt beide Writes zurueck.
- */
-/**
- * Schreibt mehrere lokale Mutationen in genau einer exklusiven Transaktion.
- * Das ist der Vertrag fuer Item + Praeferenz + optionales Feedback: Ein
- * Fehler rollt den kompletten lokalen Vorgang zurueck und erzeugt nur eine
- * Outbox-Changed-Benachrichtigung.
- */
 export async function enqueueMutations(
   db: SqlDatabase,
   inputs: readonly EnqueueMutationInput[],
@@ -125,13 +83,6 @@ export async function enqueueMutation(db: SqlDatabase, input: EnqueueMutationInp
   await enqueueMutations(db, [input]);
 }
 
-/**
- * Outbox-Eintraege, die jetzt versucht werden duerfen — faellig
- * (`next_attempt_at <= nowMs`) und noch nicht terminal (`attempts < MAX_ATTEMPTS`).
- *
- * In aufsteigender `id`-Reihenfolge: die Erstellungsreihenfolge, an der
- * `coalesce()` und die Push-Schleife haengen.
- */
 export async function loadDueOutboxEntries(db: SqlDatabase, nowMs: number): Promise<OutboxEntry[]> {
   return db.getAllAsync<OutboxEntry>(
     'select * from outbox where next_attempt_at <= ? and attempts < ? order by id asc',

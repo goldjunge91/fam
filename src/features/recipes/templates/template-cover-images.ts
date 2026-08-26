@@ -1,11 +1,5 @@
 import type { ImageSourcePropType } from 'react-native';
 
-/**
- * Gebuendelte Titelbilder fuer die kuratierte Vorlagen-Bibliothek
- * (`assets/rezepte/*.jpg`), referenziert ueber einen stabilen Slug. `require()`
- * mit statischem Pfad ist zwingend, weil Metro keine dynamischen Asset-Pfade
- * aufloesen kann.
- */
 const TEMPLATE_COVER_IMAGES: Record<string, ImageSourcePropType> = {
   'apfel-crumble': require('@/assets/rezepte/apfel-crumble.jpg'),
   'bananen-porridge': require('@/assets/rezepte/bananen-porridge.jpg'),

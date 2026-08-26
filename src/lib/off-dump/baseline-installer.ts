@@ -1,16 +1,3 @@
-/**
- * Sicherer Baseline-Wechsel (#223 Paket 6, Abschnitt 14 "Sicherer
- * Baseline-Wechsel"). Die aktive Datei wird nie direkt überschrieben:
- * Download nach `next`, Prüfsumme + Schema + `quick_check` verifizieren,
- * dann erst der eigentliche Wechsel (alte Datei -> recovery, next -> active,
- * neu attachen, recovery erst danach entfernen).
- *
- * Nutzt `reconcileBaselineState()` bewusst NICHT selbst — das ist die
- * Aufräumlogik für einen bereits inkonsistenten Zustand beim App-Start
- * (siehe `repository.ts`), dieser Installer erzeugt den Zustandswechsel
- * unter normalen Bedingungen.
- */
-
 import type { SqlDatabase } from '@/lib/db/types';
 import type { FileOps } from './file-ops';
 import { attachPlaintextDatabase, type PlaintextAttachmentMode } from './plaintext-attachment';

@@ -13,12 +13,6 @@ export function useFeatureAccess() {
   const modules = rawModules ?? DEFAULT_MODULE_PREFERENCES;
   const posthogFlags = useFeatureFlags();
 
-  /**
-   * Liefert den genauen Tri-State-Zustand eines Feature-Flags:
-   * - `undefined`: Flag noch nicht bestätigt (Cold Start / Offline) oder nicht konfiguriert.
-   * - `true`: Flag serverseitig aktiv.
-   * - `false`: Flag serverseitig inaktiv.
-   */
   const getFeatureFlagState = useCallback(
     (featureFlag?: FeatureFlagKey): boolean | undefined => {
       if (featureFlag === undefined) return undefined;
@@ -31,11 +25,6 @@ export function useFeatureAccess() {
     [posthogFlags],
   );
 
-  /**
-   * Prüft, ob ein Modul per Remote-Feature-Flag gesperrt ist.
-   * Module mit Remote-Gate sind standardmäßig gesperrt und werden nur bei einem
-   * expliziten `true` freigeschaltet. Module ohne Remote-Gate bleiben freigeschaltet.
-   */
   const isModuleLocked = useCallback(
     (featureFlag?: FeatureFlagKey): boolean => {
       if (featureFlag === undefined) return false;
@@ -45,12 +34,6 @@ export function useFeatureAccess() {
     [posthogFlags],
   );
 
-  /**
-   * Prüft, ob ein Feature (Top-Level Modul oder Sub-Feature) aktiv ist:
-   * 1. Falls `moduleKey` gesetzt ist -> prüft `modules[moduleKey] !== false`.
-   * 2. Falls `parentModule` gesetzt ist -> prüft `modules[parentModule] !== false`.
-   * 3. Falls `featureFlag` gesetzt ist -> prüft `posthogFlags?.[featureFlag] === true`.
-   */
   const isFeatureEnabled = useCallback(
     (featureOrId: FeatureDefinition | FeatureId): boolean => {
       const feature = typeof featureOrId === 'string' ? getFeature(featureOrId) : featureOrId;

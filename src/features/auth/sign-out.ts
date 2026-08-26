@@ -20,8 +20,7 @@ const cleanupByUserId = new Map<string, Promise<void>>();
  * SIGNED_OUT- und UI-Logout-Aufrufe teilen sich denselben Cleanup-Lauf.
  */
 export function clearLocalAccountData(queryClient: QueryClient, userId: string): Promise<void> {
-  // Synchronous access barrier, also for manual logout paths whose Auth event
-  // has not arrived yet (or whose local Auth removal itself failed).
+  // Sperrt neue lokale Zugriffe sofort.
   setActiveUserId(null);
   const running = cleanupByUserId.get(userId);
   if (running) return running;
@@ -53,10 +52,8 @@ export function clearLocalAccountData(queryClient: QueryClient, userId: string):
       essentialError ??= cleanupError;
     }
 
-    // Ein fehlgeschlagener Stopper bedeutet, dass noch ein alter Account-Task
-    // schreiben könnte. In diesem Zustand weder Dateien löschen noch einen
-    // neuen Besitzer freigeben.
     if (!essentialError) {
+      // Daten erst löschen, wenn keine alten Sync-Schreibvorgänge mehr laufen.
       try {
         await deleteLocalDatabase();
       } catch (cleanupError) {
@@ -104,13 +101,6 @@ export function clearLocalAccountData(queryClient: QueryClient, userId: string):
   return cleanup;
 }
 
-/**
- * Meldet ab und raeumt alles auf, was auf dem Geraet zurueckbleibt (#58).
- *
- * Supabase entfernt die lokale Session auch dann, wenn das serverseitige
- * Revoke wegen eines Netzwerkfehlers fehlschlägt. Der lokale Cleanup läuft
- * deshalb unabhängig vom zurückgegebenen Serverfehler weiter.
- */
 export async function signOutAndClearLocalData(queryClient: QueryClient): Promise<{
   error: Error | null;
 }> {
@@ -118,14 +108,12 @@ export async function signOutAndClearLocalData(queryClient: QueryClient): Promis
   try {
     userId = await getRememberedLocalAccountUserId();
   } catch {
-    // getSession kann die ID weiterhin liefern; der Logout selbst darf an
-    // einem beschädigten Besitzer-Marker nicht scheitern.
+    // Die Session-Abfrage kann die Nutzer-ID noch liefern.
   }
   try {
     const { data: sessionData } = await getSupabase().auth.getSession();
     userId = sessionData.session?.user.id ?? userId;
   } catch {
-    // Der lokale Besitzer-Marker reicht für den sicheren Cleanup aus.
   }
 
   let serverError: Error | null = null;
@@ -135,20 +123,14 @@ export async function signOutAndClearLocalData(queryClient: QueryClient): Promis
   } catch (error) {
     serverError = error as Error;
     try {
-      // Ein geworfener Fehler beweist im Gegensatz zu einem zurückgegebenen
-      // Auth-Fehler nicht, dass auth-js `_removeSession()` erreicht hat.
-      // Der lokale Scope wiederholt genau diese Entfernung; ein dabei
-      // zurückgegebener Netzwerkfehler kommt erst nach dem lokalen Remove.
+      // Lokale Session auch bei einem fehlgeschlagenen Server-Logout entfernen.
       await getSupabase().auth.signOut({ scope: 'local' });
     } catch (fallbackError) {
       localSessionRemovalError = fallbackError as Error;
     }
   }
 
-  // supabase-js loescht die Session-Chunks aus SecureStore selbst. Die übrigen
-  // lokalen Account-Daten werden nur bereinigt, wenn vor dem Logout tatsächlich
-  // ein Nutzer bekannt war. Der Auth-State-Listener nutzt denselben deduplizierten
-  // Cleanup für externe SIGNED_OUT-Events und direkte Nutzerwechsel.
+  // Lokale Daten unabhängig vom Server-Ergebnis bereinigen.
   if (userId) await clearLocalAccountData(queryClient, userId);
 
   if (serverError) {

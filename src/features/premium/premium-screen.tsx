@@ -26,13 +26,6 @@ const BENEFITS: { icon: string; title: string; hint: string }[] = [
   },
 ];
 
-/**
- * Eigener In-App-Premium-Screen (Figma "00.06 · Premium"), erreichbar über
- * die Premium-Karte in `settings-screen.tsx`.
- *
- * Präsentiert die native fam-Paywall (Variante 1 · Card Stack) mit dynamischer
- * Preisanzeige und %-Ersparnis sowie direktem Kaufabschluss via RevenueCat.
- */
 export function PremiumScreen() {
   const { isPremium, isForced, refresh } = usePremium();
   const {
@@ -114,7 +107,6 @@ export function PremiumScreen() {
           </ThemedText>
         </View>
 
-        {/* Feature-Vorteile (Geführter Kochmodus, Fehlendes direkt einkaufen, Auto-Bestände) */}
         <SettingsGroup>
           {BENEFITS.map((benefit, index) => (
             <SettingsRow

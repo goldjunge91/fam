@@ -1,10 +1,3 @@
-/**
- * Reine Funktionen fuer die "Baukasten-Mahlzeiten"-Naehrwertberechnung (#124).
- * Kein I/O — analog zu `../calorie-tracking/bmr.ts`. Die Zeilenformen
- * entsprechen 1:1 den DB-Tabellen aus `supabase/schemas/11_recipes.sql`
- * (snake_case, wie im Rest des Codebase ueblich, siehe `src/lib/db/entities.ts`).
- */
-
 export type NutritionPer100 = {
   kcal: number;
   protein_g: number;
@@ -63,16 +56,6 @@ function toPer100(total: NutritionTotal): NutritionPer100 {
   };
 }
 
-/**
- * Pro-100g-Wert einer Komponente, rekursiv aus ihren Positionen berechnet
- * (Summe Gewicht, Summe kcal/Makros, geteilt durch 100) bis hinunter zu den
- * Basis-Zutaten — Referenzbeispiel im Brainstorm-Dokument (#12): Soße aus
- * 50g Tomaten (30kcal/100g) + 300g Hackfleisch (100kcal/100g) → 90kcal/100g.
- *
- * `visiting` erkennt einen Zykel unabhaengig von der DB-Pruefung (#123-Trigger)
- * — diese Funktion muss auch mit veralteten/zwischengespeicherten Daten sicher
- * terminieren, etwa aus dem Offline-Cache (#42).
- */
 export function calculateComponentPer100g(
   componentId: string,
   items: readonly RecipeComponentItemRow[],
@@ -114,11 +97,6 @@ export function calculateComponentPer100g(
   return toPer100(total);
 }
 
-/**
- * "1 Portion": Summe der obersten Komponenten (die eine `serving_grams`
- * tragen) zu Gesamt-kcal/Makros. Referenzbeispiel: 300g Nudeln
- * (200kcal/100g) + 200g Soße (90kcal/100g) → 780kcal.
- */
 export function calculateServingNutrition(
   components: readonly RecipeComponentRow[],
   items: readonly RecipeComponentItemRow[],
@@ -135,14 +113,6 @@ export function calculateServingNutrition(
   return total;
 }
 
-/**
- * Wie `calculateServingNutrition`, aber mit individuell angepassten
- * Portions-Grammmengen je oberster Komponente (#127: "mehr Soße" beim
- * Loggen, ohne das Original-Rezept zu veraendern). `gramsByComponentId`
- * ueberschreibt `serving_grams` nur fuer die Berechnung — persistiert wird
- * hier nichts, das Ergebnis ist ein reiner kcal/Makro-Snapshot fuers
- * Tagebuch. Fehlt ein Override, gilt die Rezept-Vorgabe als Ausgangswert.
- */
 export function calculateAdjustedServingNutrition(
   components: readonly RecipeComponentRow[],
   items: readonly RecipeComponentItemRow[],

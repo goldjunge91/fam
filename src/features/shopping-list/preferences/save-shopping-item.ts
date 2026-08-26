@@ -4,13 +4,6 @@ import { debugLog } from '@/lib/debug-log';
 import { buildCategoryPreferenceMutationPlan, type CategoryPreferenceMutation } from './api';
 import { type CategoryFeedbackInput, categoryFeedbackMutation } from './feedback';
 
-/**
- * Der gemeinsame local-first Save-Vertrag fuer Formularaktionen.
- *
- * `itemMutation` ist bewusst ein fertiger lokaler Item-Write. Dadurch bleibt
- * die fachliche Merge-/Update-Logik beim jeweiligen Item-Aufrufer, waehrend
- * dieser Helper die Reihenfolge und die Transaktionsgrenze zentral garantiert.
- */
 export type AtomicShoppingItemSaveInput = {
   db: SqlDatabase;
   itemMutation: EnqueueMutationInput;
@@ -25,11 +18,6 @@ export type AtomicShoppingItemSaveResult = {
   mutationCount: number;
 };
 
-/**
- * Speichert Artikel, Preference und optionales Feedback in genau einem
- * exklusiven SQLite-Batch. Es gibt hier absichtlich keinen Supabase-Client:
- * Netzwerk-Push und Retry passieren spaeter ausschliesslich ueber die Outbox.
- */
 export async function saveShoppingItemAtomically(
   input: AtomicShoppingItemSaveInput,
 ): Promise<AtomicShoppingItemSaveResult> {

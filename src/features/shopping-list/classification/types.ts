@@ -5,11 +5,6 @@ import type {
   StoredPlacementZoneId,
 } from './placement-taxonomy';
 
-/**
- * Herkunft einer Kategorieentscheidung. `'user'` wird ausschließlich außerhalb
- * der reinen Klassifikationspipeline vergeben (siehe `preferences/`) — die
- * hier exportierten Klassifikationsfunktionen liefern ihn nie selbst.
- */
 export type CategorySource =
   | 'user'
   | 'store_preference'

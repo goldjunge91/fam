@@ -21,19 +21,6 @@ import { useGlassAvailable } from '@/components/ui/glass-card';
 import { useHubGradient } from '@/hooks/use-hub-gradient';
 import { useTheme } from '@/hooks/use-theme';
 
-/**
- * Entwickler-Testseite fuer Liquid Glass (Phase C, #Nachtrag) — Spielwiese
- * fuer alles, was `expo-glass-effect` und `@expo/ui`s SwiftUI-Glass koennen,
- * bevor es irgendwo im echten Produkt landet. Bewusst mit Inline-Styles statt
- * durchgaengiger NativeWind-Klassen (`GlassView`/`Host` haben ohnehin kein
- * `cssInterop`, s. docs/design-system/nativewind-liquid-glass-migration.md
- * "KRITISCH") und ohne vorherigen Mock — reine Werkstatt, kein
- * Design-Entscheid. Nur sichtbar mit `EXPO_PUBLIC_DEV_TOOLS=true`.
- *
- * Auf Android/iOS < 26 zeigt jeder Abschnitt seinen dokumentierten
- * Fallback-Zustand (solide Flaeche) statt zu crashen — das ist hier
- * ausdruecklich Teil der Vorfuehrung, kein Bug.
- */
 export function LiquidGlassLabScreen() {
   const theme = useTheme();
   const hubGradient = useHubGradient();
@@ -48,7 +35,6 @@ export function LiquidGlassLabScreen() {
       back={{ label: 'Entwickler', href: '/settings/dev' }}
       backStyle="icon"
       backgroundGradient={hubGradient}>
-      {/* Statuskarte: Verfügbarkeit von expo-glass-effect auf dem aktuellen OS/Gerät */}
       <Card title="Status">
         <View
           style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
@@ -151,7 +137,6 @@ export function LiquidGlassLabScreen() {
         </Host>
         <View style={{ height: 10 }} />
         <Host matchContents style={{ flexDirection: 'row' }}>
-          {/* biome-ignore lint/a11y/useValidAriaRole: `role` ist hier @expo/ui's SwiftUI-`ButtonRole` ('destructive'), keine ARIA-Rolle. */}
           <NativeButton
             label="Löschen"
             role="destructive"
@@ -171,12 +156,7 @@ export function LiquidGlassLabScreen() {
         </ThemedText>
         <Host matchContents>
           <ContextMenu>
-            {/* Trigger/Preview bewusst rein aus @expo/ui-Primitiven (VStack +
-            Text + glassEffect-Modifier), nicht aus `GlassView`
-            (expo-glass-effect) — zwei verschiedene native Module in einem
-            SwiftUI-Host verschachtelt haben den Long-Press nicht ausgeloest,
-            vermutlich weil `GlassView`s eigene UIView-Gestenerkennung dem
-            `ContextMenu`s `UIContextMenuInteraction` in die Quere kam. */}
+            {}
             <ContextMenu.Trigger>
               <VStack
                 alignment="leading"
@@ -219,7 +199,6 @@ export function LiquidGlassLabScreen() {
                 label="Favorisieren"
                 onPress={() => Alert.alert('Kontextmenü', 'Favorisieren gewählt')}
               />
-              {/* biome-ignore lint/a11y/useValidAriaRole: `role` ist hier @expo/ui's SwiftUI-`ButtonRole` ('destructive'), keine ARIA-Rolle. */}
               <NativeButton
                 systemImage="trash"
                 label="Löschen"
@@ -254,7 +233,6 @@ export function LiquidGlassLabScreen() {
               label="Teilen"
               onPress={() => Alert.alert('Menü', 'Teilen gewählt')}
             />
-            {/* biome-ignore lint/a11y/useValidAriaRole: `role` ist hier @expo/ui's SwiftUI-`ButtonRole` ('destructive'), keine ARIA-Rolle. */}
             <NativeButton
               systemImage="trash"
               label="Löschen"
@@ -284,10 +262,7 @@ export function LiquidGlassLabScreen() {
           </ThemedText>
 
           {editMenuOpen ? (
-            // Klappt bewusst nach OBEN auf (`bottom: '100%'` statt `top`):
-            // dieser Block ist die letzte Card auf dem Screen, "nach unten"
-            // ragte das Menü ueber den Bildschirmrand hinaus und wurde
-            // abgeschnitten.
+            // Nach oben öffnen, da dies die letzte Karte des Screens ist.
             <GlassView
               glassEffectStyle="regular"
               style={{

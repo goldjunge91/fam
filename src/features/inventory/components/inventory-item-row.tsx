@@ -102,9 +102,7 @@ export const InventoryItemRow = memo(function InventoryItemRow({
         {/* Inhalt */}
         <View className="fridge-item-main">
           <ThemedText type="smallBold">{item.name}</ThemedText>
-          {/* Bewusst kleiner als der Name (nicht "small"/16px): sonst haben
-              Meta-Zeile und Titel dieselbe Groesse und die Zeile wirkt
-              schwerer, als das Mockup vorsieht. */}
+          {}
           {meta ? (
             <ThemedText type="captionMuted" numberOfLines={1}>
               {meta}

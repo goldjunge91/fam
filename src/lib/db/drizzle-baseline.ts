@@ -91,12 +91,6 @@ export function hashSchemaShape(shape: string): string {
   return hash.toString(16).padStart(16, '0');
 }
 
-/**
- * Beschreibt Tabellen, Spalten und Indizes semantisch statt anhand formatierten
- * CREATE-SQLs. Dadurch sind die alte handgeschriebene V1–V22-Kette und die
- * äquivalente Drizzle-Startmigration trotz anderer Quotes/Constraint-Namen
- * vergleichbar.
- */
 export async function readLocalSchemaShape(db: SqlDatabase): Promise<string> {
   const tables = await db.getAllAsync<TableRow>(
     `select name
@@ -180,11 +174,6 @@ export async function readLocalSchemaFingerprint(db: SqlDatabase): Promise<strin
   return hashSchemaShape(await readLocalSchemaShape(db));
 }
 
-/**
- * Übernimmt eine vollständig migrierte Bestandsdatenbank in Drizzles Historie.
- * Die Startmigration wird nur als ausgeführt markiert, wenn die V1–V21-Kette
- * exakt den erwarteten strukturellen Fingerprint erzeugt hat.
- */
 export async function ensureDrizzleBaseline(db: SqlDatabase): Promise<void> {
   await db.withExclusiveTransactionAsync(async (transaction) => {
     const marker = await transaction.getFirstAsync<{ value: string | null }>(

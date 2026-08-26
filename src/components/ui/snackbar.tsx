@@ -21,13 +21,6 @@ const DEFAULT_DURATION_MS = 4000;
 
 type SnackbarState = { message: string; onUndo: () => void } | null;
 
-/**
- * Gemeinsame Undo-Snackbar (#86/#69) — einmal gebaut, zweimal verdrahtet
- * (Tagebuch-Eintrag loeschen, Kuehlschrank-Artikel loeschen). Bewusst als
- * Provider statt einer lokalen State-Loesung pro Screen: beide Faelle
- * brauchen exakt dasselbe Verhalten (Auto-Dismiss, Abbruch bei Undo-Tap,
- * kein Ueberlappen zweier Snackbars).
- */
 export function SnackbarProvider({ children }: { children: React.ReactNode }) {
   const [snackbar, setSnackbar] = useState<SnackbarState>(null);
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);

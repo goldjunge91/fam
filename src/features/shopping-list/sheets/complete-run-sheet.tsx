@@ -162,19 +162,6 @@ interface Props {
   onClose: () => void;
 }
 
-/**
- * Bottom-Sheet zum Abschluss eines Einkaufs (#85/#86).
- *
- * Titel: "In Vorrat übernehmen" — genau wie im Screenshot.
- * Pro Artikel: Pill-Badge Menge + 3 Location-Buttons + MHD-Feld.
- * Confirm: "N Artikel in Vorrat übernehmen".
- *
- * Gecheckte Items werden beim Bestätigen per `onConfirm` übergeben.
- * Der Aufrufer (ShoppingListScreen) ruft useCompleteShoppingRun auf,
- * der die Items soft-deletet und in fridge_items insertet.
- *
- * Implementiert mit @expo/ui/community/bottom-sheet (nativer SwiftUI/Compose Sheet).
- */
 export function CompleteRunSheet({ isOpen, checkedItems, onConfirm, onClose }: Props) {
   const theme = useTheme();
   const sheetRef = useRef<BottomSheet>(null);
@@ -251,11 +238,7 @@ export function CompleteRunSheet({ isOpen, checkedItems, onConfirm, onClose }: P
       onClose={onClose}
       backgroundStyle={{ backgroundColor: theme.background }}
       handleIndicatorStyle={{ backgroundColor: theme.border }}>
-      {/* BottomSheetView gibt `style` nur 1:1 weiter (kein automatisches
-          flex:1 wie bei gorhom) — ohne das hier kollabiert der Inhalt auf
-          seine intrinsische Hoehe, die ScrollView mit den Artikeln bekommt
-          nie eine Hoehe zugewiesen und bleibt leer (nur Header/X und der
-          Confirm-Button haben eigene intrinsische Groesse). */}
+      {}
       <BottomSheetView style={{ flex: 1 }}>
         <View className="flex-1">
           {/* Header */}

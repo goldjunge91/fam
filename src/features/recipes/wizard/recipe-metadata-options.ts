@@ -1,10 +1,3 @@
-/**
- * Anzeige-Labels fuer Rezept-Metadaten — einzige Quelle fuer Wizard-Auswahl,
- * Rezeptliste sowie Rezept- und Vorlagendetail (#158). Vorher pflegten diese
- * Ansichten eigene Kopien, die auseinanderlaufen konnten (z. B. "hard" mal als
- * "Schwer", mal als "Anspruchsvoll").
- */
-
 export const DIFFICULTY_LABELS = {
   easy: 'Einfach',
   medium: 'Mittel',

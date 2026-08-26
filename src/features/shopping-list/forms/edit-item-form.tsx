@@ -53,12 +53,6 @@ async function resolveAutomaticPreview(
   return resolvePlacementForItem(input, { omitPreferenceScope: resetScope });
 }
 
-/**
- * Bearbeitungsformular fuer einen bestehenden Artikel. Ausgangspunkt war,
- * dass ein Artikel ohne Markt sich gar nicht mehr aendern liess — bewusst
- * als vollstaendiges Formular wie beim Hinzufuegen statt eines reinen
- * Markt-Dialogs, weil hier noch weitere Punkte dazukommen werden.
- */
 export function EditItemForm({ item, onDismiss }: EditItemFormProps) {
   const [name, setName] = useState(item.name);
   const [quantity, setQuantity] = useState(String(item.quantity));

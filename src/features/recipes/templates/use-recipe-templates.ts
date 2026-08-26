@@ -18,15 +18,6 @@ import {
 } from '@/features/recipes/use-recipes';
 import { getSupabase } from '@/lib/supabase';
 
-/**
- * Vorgefertigte Rezepte ("Vorlagen"): admin-kuratierte, global lesbare
- * Bibliothek (siehe supabase/schemas/15_recipe_templates.sql). Anders als
- * `recipes` wird diese Tabellenfamilie NICHT in die lokale SQLite-Mirror
- * aufgenommen (kein Eintrag in src/lib/db/entities.ts) — der Vorlagen-Screen
- * fragt live gegen Supabase ab, Templates sind kein Kern-Offline-Datensatz.
- * Browsen erfordert deshalb Netzverbindung.
- */
-
 export type RecipeTemplateListItem = {
   id: string;
   title: string;
@@ -95,14 +86,6 @@ export type RecipeTemplateWithNutrition = RecipeTemplateListItem & {
   carbsGPerServing: number | null;
 };
 
-/**
- * Wie `useRecipeTemplates`, ergaenzt um die Portions-Naehrwerte — fuer die
- * "Nach Kalorien"-Kacheln und die abgeleiteten High-Protein-/Low-Carb-Filter
- * im Entdecken-Screen. Laedt Komponenten/Positionen aller Vorlagen in zwei
- * Batch-Queries (kein N+1) und rechnet client-seitig mit den reinen
- * Funktionen aus `nutrition.ts` — Naehrwertberechnung ist bewusst Sache des
- * Clients, nicht der DB (siehe Kommentar in 11_recipes.sql).
- */
 export function useRecipeTemplatesWithNutrition() {
   return useQuery({
     queryKey: ['recipe-templates', 'with-nutrition'],
@@ -200,18 +183,11 @@ export const CALORIE_BUCKETS: CalorieBucket[] = [
   { min: 900, max: 1000, label: '900–1000' },
 ];
 
-/** Ob `kcal` in den Bucket faellt — obere Grenze inklusive, damit z. B. 1000 noch in den letzten Bucket faellt. */
+/** Prüft, ob `kcal` inklusive Obergrenze in den Bucket fällt. */
 export function isInCalorieBucket(kcal: number, bucket: CalorieBucket): boolean {
   return kcal > bucket.min && kcal <= bucket.max;
 }
 
-/**
- * Grober, rein abgeleiteter Schnellfilter (#131-Vorschlag): High Protein ab
- * 25% Kalorienanteil aus Protein, Low Carb unter 20g Kohlenhydrate/Portion.
- * Bewusst kein eigener dietary_tag dafuer (siehe 15_recipe_templates.sql) —
- * anders als "vegan" laesst sich das direkt aus den ohnehin vorhandenen
- * Naehrwerten ableiten, ein gepflegter Tag waere doppelt haltbare Wahrheit.
- */
 export function isHighProteinTemplate(template: RecipeTemplateWithNutrition): boolean {
   if (!template.kcalPerServing || !template.proteinGPerServing) return false;
   return (template.proteinGPerServing * 4) / template.kcalPerServing >= 0.25;
@@ -311,29 +287,6 @@ export function useRecipeTemplateDetail(templateId: string | undefined) {
   });
 }
 
-/**
- * Uebernimmt eine Vorlage als neues Rezept in den Haushalt — ruft dieselbe
- * Sequenz bestehender Mutation-Hooks auf, die auch der Wizard in
- * recipe-create-screen.tsx's handleFinalSave nutzt (useAddRecipeMutation ->
- * useAddComponentMutation -> useAddItemMutation -> useAddStepMutation ->
- * useAddStepIngredientMutation). Läuft vollständig über den lokalen
- * Outbox-Mechanismus, funktioniert also auch offline, sobald das Template
- * einmal geladen wurde.
- *
- * Die "Zutaten"-Sektion in recipe-detail-screen.tsx zeigt nur eine
- * Komponenten-Summe (Name + Gesamtgramm) — die einzelnen Zutaten erscheinen
- * dort ausschliesslich als Chips unter den Zubereitungsschritten
- * (`recipe_step_ingredients`). Ohne diese Verknuepfung wirken kopierte
- * Vorlagen "leer", obwohl recipe_component_items korrekt angelegt sind. Da
- * die Vorlagen-Seed-Daten keine Schritt-Zutaten-Zuordnung kennen (Scope-Cut,
- * siehe 15_recipe_templates.sql), werden hier pragmatisch alle Zutaten des
- * Rezepts an den ersten Schritt gehaengt statt an gar keinen — nicht
- * schrittgenau, aber sichtbar.
- *
- * Das Cover wird nicht dupliziert: Template und Haushaltsrezept referenzieren
- * denselben global lesbaren Storage-Pfad, bis der Nutzer ein eigenes Cover
- * auswaehlt.
- */
 export function useApplyRecipeTemplateMutation() {
   const queryClient = useQueryClient();
   const addRecipe = useAddRecipeMutation();

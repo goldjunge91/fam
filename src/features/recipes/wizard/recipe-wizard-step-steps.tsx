@@ -41,13 +41,6 @@ function flattenIngredients(components: IngredientComponentGroup[]): Mentionable
   return result;
 }
 
-/**
- * Filtert die Autovervollstaendigungs-Treffer fuer eine gerade getippte
- * Erwaehnung — und unterdrueckt sie, sobald der einzige Treffer exakt dem
- * bereits eingefuegten Namen entspricht (sonst bliebe das Menue nach der
- * Auswahl sichtbar, siehe justSelectedValueRef-Muster in
- * product-search-dropdown.tsx, hier ohne Extra-State geloest).
- */
 function pendingAutocomplete(text: string, ingredients: MentionableIngredient[]) {
   const pending = matchPendingMention(text);
   if (!pending) return null;
@@ -66,11 +59,6 @@ interface IngredientLedgerProps {
   used: Map<string, number>;
 }
 
-/**
- * Immer sichtbare (nicht mitscrollende), einklappbare Zutatenuebersicht
- * oberhalb der Zubereitungsschritte — zeigt live, wie viel jeder Zutat schon
- * per @-Erwaehnung in den Schritten zugeordnet ist.
- */
 function IngredientLedger({ ingredients, used }: IngredientLedgerProps) {
   const [expanded, setExpanded] = useState(true);
   if (ingredients.length === 0) return null;
@@ -290,12 +278,6 @@ interface StepTimerFieldProps {
   onChange: (minutes: number | null) => void;
 }
 
-/**
- * Expliziter Timer pro Schritt, unabhaengig von der Text-basierten
- * Minutenerkennung im Kochmodus (parseStepDurationSeconds in
- * cooking-mode-screen.tsx) — dort greift die Texterkennung nur als Fallback,
- * wenn hier nichts gesetzt ist.
- */
 function StepTimerField({ minutes, onChange }: StepTimerFieldProps) {
   const theme = useTheme();
   const [draft, setDraft] = useState('');

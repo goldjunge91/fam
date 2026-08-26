@@ -7,12 +7,6 @@ import { Card } from '@/components/ui/card';
 import { useSession } from '@/features/auth/session-provider';
 import { buildUserDataExport } from '@/features/settings/data-export';
 
-/**
- * Datenexport (#97, DSGVO Art. 20). `expo-file-system`/`expo-sharing` per
- * `require()` erst hier geladen — natives Modul, dasselbe Muster wie
- * `off-dump.ts`, damit ein Test, der diese Datei transitiv importiert, nicht
- * ohne Development Build crasht.
- */
 export function ExportScreen() {
   const { session } = useSession();
   const [exporting, setExporting] = useState(false);

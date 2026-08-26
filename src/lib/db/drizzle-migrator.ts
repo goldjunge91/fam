@@ -42,11 +42,6 @@ function migrationEntries(bundle: MigrationBundle): [string, string][] {
   return entries;
 }
 
-/**
- * Führt die von Drizzle Kit gebündelten SQL-Dateien über denselben
- * serialisierten SqlDatabase-Port aus. Die Startmigration wurde zuvor per
- * Fingerprint markiert; nur spätere, noch fehlende Namen werden ausgeführt.
- */
 export async function runDrizzleMigrations(
   db: SqlDatabase,
   bundle: MigrationBundle = localMigrations,

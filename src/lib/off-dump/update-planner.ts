@@ -1,10 +1,3 @@
-/**
- * Reine Entscheidungslogik: Patch oder Baseline? (#223 Paket 6, Abschnitt
- * 14 "Entscheidung Patch oder Baseline"). Ohne Dateisystem/Netzwerk
- * testbar — dasselbe Muster wie `dump-manifest-core.ts`/`dump-patch-core.ts`
- * auf der CI-Seite.
- */
-
 import type { DumpManifest, DumpManifestPatchEntry } from './manifest';
 
 export type LocalDumpState = {
@@ -31,11 +24,6 @@ export type UpdatePlan =
 /** Als Startwert vorgegeben (Abschnitt 14), später anhand echter Messung justierbar. */
 const DEFAULT_PATCH_SIZE_THRESHOLD = 0.7;
 
-/**
- * Läuft die Patchkette von `fromVersion` bis `manifest.latestVersion`.
- * `null`, wenn die Kette lückenhaft ist (kein Patch mit `from === current`
- * gefunden, bevor `latestVersion` erreicht ist).
- */
 function findPatchChain(
   fromVersion: string,
   manifest: DumpManifest,

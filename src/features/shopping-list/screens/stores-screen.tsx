@@ -227,10 +227,6 @@ export function StoresScreen() {
                       </View>
                     </View>
                   ) : (
-                    /* Markt-Zeile mit Farbindikator, Name und kompakten
-                       Icon-Aktionen statt zweier voller Buttons — bei
-                       mehreren Märkten dominierten die Buttons sonst staerker
-                       als die Märkte selbst (Mockup "Marktliste", Variante 1). */
                     <View className="row-between">
                       <View className="row-center flex-1">
                         {/* Dynamische Markt-Farbe */}

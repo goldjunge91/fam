@@ -272,7 +272,6 @@ export function RecipeCreateScreen() {
     );
   }
 
-  // Letzte verbleibende Gruppe darf nicht entfernt werden, sonst gaebe es keinen Ort mehr fuer Zutaten.
   function handleRemoveComponentGroup(componentId: string) {
     setComponents((prev) =>
       prev.length <= 1 ? prev : prev.filter((comp) => comp.id !== componentId),

@@ -67,20 +67,6 @@ type ShoppingModeScreenProps = {
   onFinish: () => void;
 };
 
-/**
- * Vollbild-Einkaufsmodus fuer den Laden (Mockup mit Marco abgestimmt,
- * `docs/mockups/einkaufsmodus/`): nur Abhaken und Kategorien auf-/zuklappen,
- * keine Bearbeiten-Aktionen. Loeschen/Umbenennen/Reihenfolge/Hinzufuegen
- * bleiben ausschliesslich in der Marktliste dahinter (shopping-list-screen.tsx).
- *
- * Kategorien klappen automatisch ein, sobald alle ihre Artikel abgehakt
- * sind, lassen sich aber jederzeit manuell auf-/zuklappen — der manuelle
- * Zustand ueberschreibt den automatischen, bis die Kategorie wieder
- * vollstaendig ist.
- *
- * Abschliessen ist ab dem ersten abgehakten Artikel moeglich, nicht erst
- * wenn alles abgehakt ist — im Laden findet man selten wirklich alles.
- */
 export function ShoppingModeScreen({
   visible,
   store,
@@ -113,10 +99,7 @@ export function ShoppingModeScreen({
       animationType="slide"
       onRequestClose={onClose}
       presentationStyle="fullScreen">
-      {/* `Modal` rendert auf iOS in einer eigenen nativen Ebene, die die
-          Insets vom app-weiten SafeAreaProvider nicht automatisch erbt —
-          offiziell dokumentierter Workaround der Library: ein zweiter,
-          verschachtelter Provider innerhalb des Modals. */}
+      {}
       <SafeAreaProvider initialMetrics={initialWindowMetrics}>
         <SafeAreaView className="flex-1 bg-background" edges={['top', 'bottom']}>
           <View className="row-between px-three pt-two pb-two">

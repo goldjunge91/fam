@@ -1,11 +1,5 @@
 import type { OpenFoodFactsProduct } from '@/lib/open-food-facts';
 
-/**
- * Geteilte Formular-Typen des Rezept-Wizards (Seite 1-3). Der State selbst
- * lebt in `recipe-create-screen.tsx`, die drei Seiten sind reine
- * Props-gesteuerte Unterkomponenten.
- */
-
 export interface IngredientItem {
   id: string;
   product: OpenFoodFactsProduct | null;
@@ -13,21 +7,11 @@ export interface IngredientItem {
   /** Rohe Nutzereingabe, siehe recipe_component_items.quantity. */
   quantity: string;
   unit: string;
-  /** true, wenn quantity/unit ohne bekanntes Produkt-Stueckgewicht nicht in Gramm umrechenbar war. */
+  /** `true`, wenn die Menge nicht in Gramm umgerechnet werden konnte. */
   notConvertible: boolean;
-  /**
-   * `recipe_component_items.id`, wenn diese Zeile beim Bearbeiten aus einem
-   * bestehenden Rezept geladen wurde — null bei einer neu hinzugefuegten
-   * Zutat. Steuert beim Speichern, ob update (Menge/Einheit geaendert) oder
-   * insert (neu) laeuft, siehe recipe-create-screen.tsx.
-   */
+
   existingItemId: string | null;
-  /**
-   * `products.id` der bereits aufgeloesten Zutat, wenn aus einem bestehenden
-   * Rezept geladen — spart beim Speichern den OFF-Suche/Anlegen-Umweg
-   * (persistOffProductIfNeeded), solange der Nutzer keine neue Suche
-   * gestartet hat (siehe `product`, das dann Vorrang hat).
-   */
+
   existingProductId: string | null;
 }
 
@@ -48,12 +32,7 @@ export interface WizardStepItem {
   existingImagePath: string | null;
   /** Optionaler, explizit gesetzter Kochmodus-Timer in Minuten. */
   timerMinutes: number | null;
-  /**
-   * IngredientItem.id-Werte (lokale Client-IDs, nicht recipe_component_items.id)
-   * der in diesem Schritt referenzierten Zutaten — solange nicht final
-   * gespeichert wurde, gibt es noch keine DB-Zeile dafuer. Wird beim
-   * Speichern in echte item-IDs uebersetzt, siehe recipe-create-screen.tsx.
-   */
+
   ingredientIds: string[];
 }
 

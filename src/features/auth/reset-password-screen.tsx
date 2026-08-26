@@ -9,14 +9,6 @@ import { Card } from '@/components/ui/card';
 import { authErrorMessage, updatePassword } from '@/features/auth/api';
 import { fieldErrors, newPasswordSchema } from '@/features/auth/auth-schemas';
 
-/**
- * Ziel des Deep Links aus der Reset-Mail.
- *
- * Supabase legt beim Oeffnen des Links bereits eine Recovery-Session an — der
- * Nutzer ist an dieser Stelle also angemeldet, und `updateUser` funktioniert.
- * Ein abgelaufener Link erzeugt keine Session; dann meldet der Server den
- * Fehler beim Speichern.
- */
 export function ResetPasswordScreen() {
   const [password, setPassword] = useState('');
   const [passwordConfirmation, setPasswordConfirmation] = useState('');

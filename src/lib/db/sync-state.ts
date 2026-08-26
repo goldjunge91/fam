@@ -1,12 +1,5 @@
 import type { Entity, SqlDatabase } from '@/lib/db/types';
 
-/**
- * Pull-Cursor je Entity (#47).
- *
- * `sync_state.last_synced_at` ist der ROHE, unnormalisierte Server-String —
- * siehe `migrations.ts`. Diese Datei fasst ihn nur an, transformiert ihn nie.
- */
-
 const DEFAULT_SCOPE = 'default';
 
 export type SyncCursor = {
@@ -41,12 +34,6 @@ export async function readSyncState(
   };
 }
 
-/**
- * Schreibt den Cursor nach einer erfolgreich committeten Pull-Seite.
- *
- * Setzt `last_error` auf `null` — ein erfolgreicher Fortschritt loescht einen
- * vorherigen Fehlerstand.
- */
 export async function writeSyncCursor(
   txn: SqlDatabase,
   entity: Entity,

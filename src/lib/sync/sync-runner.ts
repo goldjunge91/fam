@@ -30,29 +30,12 @@ export function getLastSyncInfo() {
   return lastSyncResultSummary;
 }
 
-/**
- * Letzter bekannter Realtime-Verbindungsstatus — bisher nirgends sichtbar
- * (nicht mal fuer Debugging), obwohl `subscribeHouseholdRealtime()` ihn
- * laengst per `onStatusChange` liefert. Ohne das laesst sich "kommt eine
- * Aenderung ueber Realtime oder nur ueber den 20s-Poll an" nicht von aussen
- * beobachten. `null` = noch nie verbunden (kein Haushalt aktiv, oder erster
- * Connect steht noch aus).
- */
 let lastRealtimeStatus: RealtimeSubscribeState | null = null;
 
 export function getLastRealtimeStatus() {
   return lastRealtimeStatus;
 }
 
-/**
- * Zaehlt Status-Uebergaenge und echte Reconnects (Uebergang zurueck zu
- * `SUBSCRIBED` nach einer Stoerung, siehe `subscribeHouseholdRealtime()`s
- * `onReconnectResyncNeeded`). Jeder Reconnect loest zusaetzlich zum
- * regulaeren 20s-Poll einen vollen `triggerHouseholdSync()` aus — ein
- * staendig auf- und abbauender Kanal wuerde also wie ein verdoppelter Poll
- * aussehen, ohne dass ein zweites Intervall existiert (siehe
- * `getActiveSyncEngineIntervalCount()`).
- */
 let realtimeStatusChangeCount = 0;
 let realtimeReconnectCount = 0;
 
@@ -67,12 +50,6 @@ export type RealtimeLatencySample = {
   latencyMs: number | null;
 };
 
-/**
- * Die letzten Ende-zu-Ende-Latenzen einzelner ueber Realtime angewendeter
- * Zeilen (siehe `RealtimeRowEvent.latencyMs` in `realtime.ts`) — misst und
- * zeigt "wie lange bis eine einzelne Aenderung wirklich ankommt", statt nur
- * gefuehlt zu beurteilen. Ringpuffer, kein Verlauf ueber die Sitzung hinaus.
- */
 const MAX_LATENCY_SAMPLES = 20;
 const realtimeLatencySamples: RealtimeLatencySample[] = [];
 
@@ -80,14 +57,6 @@ export function getRealtimeLatencySamples(): readonly RealtimeLatencySample[] {
   return realtimeLatencySamples;
 }
 
-/**
- * `realtimeLatencySamples` wird in-place mutiert (`push`/`shift`) — die
- * Array-Referenz aus `getRealtimeLatencySamples()` aendert sich also nie,
- * womit sie als `useMemo`-Dependency untauglich ist (immer "gleich", auch
- * nach neuen Samples). Dieser Zaehler steigt bei jedem echten neuen Sample,
- * damit die Debug-Anzeige den Durchschnitt gezielt statt bei jedem 2s-Tick
- * neu berechnen kann.
- */
 let realtimeLatencySampleVersion = 0;
 
 export function getRealtimeLatencySampleVersion() {
@@ -106,12 +75,6 @@ function recordRealtimeLatency(
   realtimeLatencySampleVersion += 1;
 }
 
-/**
- * Invalidiert die React-Query-Keys, die von `entity` gelesen werden, fuer
- * einen Haushalt — gemeinsam genutzt vom Realtime-Pfad (pro Zeile) und vom
- * Poll-/manuellen Sync-Pfad (pro Lauf). Ohne das bleibt SQLite zwar aktuell,
- * aber niemand sagt React Query, dass es neu lesen soll (#115-Befund).
- */
 function invalidateEntityQueries(queryClient: QueryClient, entity: Entity, householdId: string) {
   queryClient.invalidateQueries({ queryKey: [entity, householdId] });
   if (entity === 'fridge_items') {
@@ -194,38 +157,16 @@ export async function triggerHouseholdSync(
   }
 }
 
-/**
- * Anzahl gerade lebender `useSyncEngine`-Poll-Intervalle. Sollte nie > 1
- * sein — mehr bedeutet, ein alter Effect-Lauf wurde nicht sauber
- * aufgeraeumt und pollt parallel zum neuen weiter (verdoppelte
- * Netzwerklast, ohne dass ein einzelner HAR-Export das von zwei echten
- * Geraeten unterscheiden liesse).
- */
 let activeSyncEngineIntervals = 0;
 
 export function getActiveSyncEngineIntervalCount() {
   return activeSyncEngineIntervals;
 }
 
-/**
- * Ruhezeit nach dem letzten Schreibvorgang EINES Schwungs, bevor der
- * Trailing-Sync ausgeloest wird — betrifft nur Schwuenge ab dem zweiten
- * Schreibvorgang (siehe `useSyncEngine`, Punkt 4). Der erste Schreibvorgang
- * loest immer sofort aus.
- */
 const OUTBOX_DEBOUNCE_MS = 800;
-/**
- * Deckel gegen einen andauernden Schreibstrom: ohne das wuerde eine
- * durchgehende Folge von Aenderungen (jede erneuert den Debounce-Timer) den
- * Push unbegrenzt aufschieben.
- */
+
 const OUTBOX_MAX_WAIT_MS = 4_000;
 
-/**
- * Automatischer Sync-Hook. Startet den Sync beim Laden, periodisch alle 20s,
- * beim Reaktivieren der App (AppState == 'active') und — debounced — nach
- * jedem lokalen Schreibvorgang.
- */
 export function useSyncEngine(householdId: string | undefined) {
   const householdIdRef = useRef(householdId);
   householdIdRef.current = householdId;
@@ -335,13 +276,6 @@ export function useSyncEngine(householdId: string | undefined) {
   }, [householdId, queryClient]);
 }
 
-/**
- * Realtime + Netzwerk-Reconnect + Hintergrund-Sync-Handler fuer den aktiven
- * Haushalt (#48, #50). Ergaenzt useSyncEngine (Poll alle 20s) um Nahe-
- * Echtzeit-Konvergenz — wird IMMER zusammen mit useSyncEngine aufgerufen,
- * nie als Ersatz: der App-Start-Sync von useSyncEngine deckt den allerersten
- * Connect ab, dieser Hook nur Aenderungen danach.
- */
 export function useRealtimeSync(householdId: string | undefined) {
   const queryClient = useQueryClient();
 

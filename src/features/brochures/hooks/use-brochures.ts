@@ -16,7 +16,6 @@ export function useBrochures() {
       );
 
       // 1. Hole alle Stores und reiche "isFavorite" an
-      // Wir holen alle gespeicherten Stores. Falls es einen Eintrag in favorite_brochure_stores gibt -> isFavorite
       const storesQuery = `
         SELECT 
           s.id, s.name, s.logo_url as logoUrl, s.active,

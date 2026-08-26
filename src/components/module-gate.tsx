@@ -15,16 +15,6 @@ type ModuleGateProps = {
   children: ReactNode;
 };
 
-/**
- * Blendet Hub-Screen-*Inhalte* aus, wenn ein Modul oder Feature deaktiviert ist (#95).
- * Bezieht Konfiguration (Modul-Zuordnung, Remote-Feature-Flag, Titel) als Single Source
- * of Truth direkt aus der Feature-Registry (`APP_FEATURES`).
- *
- * Tri-State-Semantik:
- * - `modules[targetModule] === false`: Nutzer hat das Modul deaktiviert -> Hold-Screen mit Settings-Link.
- * - `featureFlagState === false`: PostHog hat Remote-Gate bestätigt blockiert -> "Noch nicht verfügbar".
- * - `undefined` (Cold Start / Offline / Ladezustand): Optimistisches Rendern der Kinder.
- */
 export function ModuleGate({ feature, title: customTitle, children }: ModuleGateProps) {
   const featureDef = getFeature(feature);
   const { modules, getFeatureFlagState } = useFeatureAccess();

@@ -41,12 +41,7 @@ function OnboardingContent() {
     trackAnalyticsEvent('onboarding_step_viewed', { step: stepName });
   }, [currentStep]);
 
-  // Notausstieg (#128): Ein Nutzer, dessen Account in einem kaputten Zustand
-  // steckt (z. B. E-Mail nie bestaetigt, fehlendes Profil), kam bisher ab
-  // Schritt 2 nirgends mehr raus — es gibt weder einen Zurueck-Button noch
-  // eine andere Stelle im Onboarding, die abmeldet. Sichtbar ab Schritt 2,
-  // weil "Dein Account" (Schritt 2) selbst schon den angemeldeten Zustand
-  // zeigt.
+  // Ab Schritt 2 ermöglicht der Notausstieg einen Neustart des Flows.
   async function handleEmergencySignOut() {
     await signOutAndClearLocalData(queryClient);
     setStep(1);
@@ -55,11 +50,8 @@ function OnboardingContent() {
   return (
     <Screen
       title={currentStep === 1 ? 'Willkommen' : `Schritt ${currentStep} von ${TOTAL_STEPS}`}
-      // Schritt 4 (Haushalt) bringt seine eigene ScrollView im
-      // KeyboardAvoidingView mit — nur so kann er beim Tippen zuverlässig
-      // zum fokussierten Feld hochscrollen (siehe household-step.tsx).
+      // Schritt 4 verwaltet seine ScrollView selbst.
       scroll={currentStep !== 4}>
-      {/* Onboarding-Navigationsleiste (Zurück-Button, Fortschrittsbalken, Abmelden-Notausstieg) */}
       {currentStep > 1 && currentStep < TOTAL_STEPS && (
         <View className="progress-container">
           {/* Nutzt bewusst `prevStep` aus dem Context statt Routing — die

@@ -38,17 +38,6 @@ import { CategoryOrderSheet } from '../sheets/category-order-sheet';
 import { CompleteRunSheet, type TransferItem } from '../sheets/complete-run-sheet';
 import { ShoppingModeScreen } from './shopping-mode-screen';
 
-/**
- * Gemeinsame Einkaufsliste (#85/#86), markt-gruppiert.
- *
- * "Alle Listen": eine Karte je Markt mit Fortschritt + geschätzter Summe.
- * Markt antippen (Karte oder Chip) filtert auf die bekannte kategorisierte
- * Checkliste dieses Markts, mit markt-farbigem "Einkauf abschließen"-Button.
- *
- * Die Marktansicht rendert als eigene, wirklich virtualisierte SectionList
- * statt einer nicht-scrollenden Liste innerhalb eines ScrollView — sonst
- * werden bei langen Listen alle Zeilen sofort gemountet.
- */
 export function ShoppingListScreen() {
   const params = useLocalSearchParams<{ action?: string }>();
   const [addModalOpen, setAddModalOpen] = useState(false);
@@ -239,9 +228,6 @@ export function ShoppingListScreen() {
     );
   };
 
-  /* Einstieg in den Einkaufsmodus — bewusst unten im Footer statt oben im
-     Header, damit er dem Nutzer nicht im Weg steht, waehrend er die Liste
-     noch zusammenstellt (Feedback: "einkaufsmodus starten soll nach unten"). */
   const renderShoppingModeButton = () => {
     if (!activeStore) return null;
     return (
@@ -269,7 +255,6 @@ export function ShoppingListScreen() {
           contentContainerStyle={listContentPadding}>
           {renderHeader()}
           <View className="gap-three pt-two">
-            {/* Übersichtszeilen pro Markt (Anzahl, abgehakt, offene Kategorien, Preisschätzung) */}
             {storeAggregates.map(
               ({
                 store,
@@ -364,11 +349,6 @@ export function ShoppingListScreen() {
             </View>
           }
           renderSectionHeader={({ section }) => {
-            /* Kategorie-Titel (z. B. Obst & Gemüse, Kühlung) — nur ein
-               kleiner Farbpunkt zur Wiedererkennung, kein farbiges Band.
-               Zurückhaltender als vorher: viele Kategorien nebeneinander
-               mit vollem Farbband wirkten zu bunt und ließen den
-               Abgehakt-Zustand (Accent-Farbe der Checkbox) untergehen. */
             const color = colorForCategory(section.title) ?? theme.textSecondary;
             return (
               <View className="flex-row items-center gap-[6px] px-three pt-three pb-one">
@@ -425,7 +405,7 @@ export function ShoppingListScreen() {
         onDismissFinished={() => {
           if (pendingAdRef.current) {
             pendingAdRef.current = false;
-            // Kleiner Delay stellt sicher, dass iOS UIKit den View-Controller vollständig entladen hat
+            // Delay für das vollständige Entladen des iOS-View-Controllers.
             setTimeout(() => {
               interstitialAd.show();
             }, 250);

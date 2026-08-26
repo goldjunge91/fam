@@ -7,12 +7,6 @@ import type {
   PlacementClassificationInput,
 } from '../classification/types';
 
-/**
- * Bereits geladene Praeferenz-Treffer, wie sie `api.ts` lokal nachschlaegt.
- * `categoryId: null` ist eine bewusste, gelernte "Sonstiges"-Entscheidung und
- * unterscheidet sich von "keine Praeferenz gefunden" (kein Objekt / `undefined`
- * bzw. `null` als ganzer Wert von `productPreference`/`namePreference`).
- */
 export type CategoryPreferenceMatch = {
   categoryId: StoredPlacementZoneId | null;
 };
@@ -41,14 +35,6 @@ export type ResolvedPlacementClassification = PlacementClassification & {
   globalClassification: PlacementClassification;
 };
 
-/**
- * Schritte 1–3 der Auflösungsreihenfolge aus `docs/issue#223_V2.md` Abschnitt
- * 3 (manuelle Formular-Auswahl liegt bewusst außerhalb — die trifft der
- * Aufrufer selbst, siehe `types.ts`s `CategorySource`-Kommentar): Produkt-
- * vor Namenspräferenz, erst danach die automatische Klassifikation aus
- * `classification/` (Schritte 4–6). Rein — keine Datenbank, kein Netzwerk;
- * `api.ts` laedt `productPreference`/`namePreference` vorher lokal.
- */
 export function resolveCategory(input: ResolveCategoryInput): ResolvedPlacementClassification {
   const globalClassification = classifyPlacement(input);
   const householdPreference = input.householdPreference

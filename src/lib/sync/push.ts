@@ -7,16 +7,6 @@ import { type CoalescedEntry, coalesce } from '@/lib/sync/coalesce';
 import { upsertMirrorRow } from '@/lib/sync/mirror-write';
 import { normalizeUnit } from '@/lib/units';
 
-/**
- * Push-Haelfte der Sync-Engine (#47).
- *
- * Arbeitet die Outbox in Erstellungsreihenfolge ab (`coalesce()` reduziert
- * vorher), wendet bei Erfolg die Server-Antwortzeile lokal an und klassifiziert
- * Fehler ueber `backoff.ts`. Kein Aufruf von `resolve()` — Postgres hat kein
- * Compare-and-Swap auf `updated_at`, jeder Push wird angenommen und bekommt
- * einen neuen, autoritativen Zeitstempel.
- */
-
 export type PushOutcome =
   | { kind: 'pushed' | 'discarded'; entity?: Entity; entityId?: string; sourceIds: number[] }
   | {
@@ -73,17 +63,6 @@ type GenericQuery<T> = {
   eq(column: string, value: unknown): GenericQuery<T>;
 };
 
-/**
- * `Database`s generierte Typen binden `.from()`/`.insert()`/`.update()` an die
- * konkrete Tabelle — richtig fuer handgeschriebenen Feature-Code, aber diese
- * Funktion ist bewusst entity-uebergreifend generisch (dieselbe Logik fuer
- * alle vier Spiegeltabellen). Eine vollstaendig typsichere Version bruechte
- * eine Funktion pro Tabelle und wuerde den Zweck der generischen Push-Engine
- * unterlaufen. Die Korrektheit sichert stattdessen `entities.ts` (Tabellen-
- * und Spaltennamen kommen aus einer einzigen, gegen das echte Schema
- * getesteten Quelle — siehe `entities.integration.test.ts`), nicht der
- * Typchecker an dieser einen Stelle.
- */
 async function attempt(
   supabase: TypedSupabaseClient,
   table: Entity,

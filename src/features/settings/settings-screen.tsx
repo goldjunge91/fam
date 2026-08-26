@@ -23,15 +23,6 @@ import { PremiumPromoCard } from '@/features/settings/premium-promo-card';
 import { SettingsGroup, SettingsRow } from '@/features/settings/settings-menu';
 import { env } from '@/lib/env';
 
-/**
- * Einstellungen als Verzeichnis, nicht als Sammelseite (siehe `settings-menu.tsx`).
- *
- * Kopfzeile, Verlaufshintergrund und Profil-/Premium-Karten folgen jetzt dem
- * fam-Redesign (Figma "00.05 · Einstellungen") — dasselbe Grundgeruest wie
- * `diary-screen.tsx`. Premium selbst ist ein eigener Screen
- * (`/settings/premium`), diese Uebersicht navigiert nur noch dorthin, statt
- * die Paywall direkt zu praesentieren.
- */
 export function SettingsScreen() {
   const { session } = useSession();
   const { openDrawer } = useNavigationChrome();
@@ -63,9 +54,7 @@ export function SettingsScreen() {
   const hasHousehold = Boolean(activeHousehold);
   const displayName = profile?.display_name || 'Ohne Namen';
 
-  // Schon in der Uebersicht sichtbar, nicht erst eine Ebene tiefer: Ob dieser
-  // Build gegen die echten Daten laeuft, ist die Information, die man beim
-  // Ausprobieren nicht suchen wollen sollte.
+  // Entwicklungsziel direkt in der Übersicht anzeigen.
   const supabaseTarget = env.devTools
     ? classifySupabaseTarget(env.supabaseUrl)
     : { label: '', tone: 'accent' as const };
@@ -162,7 +151,6 @@ export function SettingsScreen() {
             />
           </SettingsGroup>
 
-          {/* App-Einstellungen (Berechtigungen, Benachrichtigungen, Modulauswahl, Plus-Button) */}
           <SettingsGroup title="App">
             <SettingsRow
               icon="🔐"
@@ -206,9 +194,7 @@ export function SettingsScreen() {
             />
           </SettingsGroup>
 
-          {/* Nur mit EXPO_PUBLIC_DEV_TOOLS=true. Die Gruppe verschwindet dann
-                vollstaendig statt nur deaktiviert zu sein — ein ausgegrauter
-                Eintrag "Entwickler" waere fuer Nutzer eine Frage ohne Antwort. */}
+          {}
           {env.devTools ? (
             <SettingsGroup title="Entwickler">
               <SettingsRow

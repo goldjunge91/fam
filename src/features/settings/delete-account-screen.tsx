@@ -9,18 +9,6 @@ import { Card } from '@/components/ui/card';
 import { signOutAndClearLocalData } from '@/features/auth/sign-out';
 import { getSupabase } from '@/lib/supabase';
 
-/**
- * Account- und Datenloeschung (#98). Zwei-Schritt-Bestaetigung: der Danger-
- * Button oeffnet einen nativen `Alert`, erst dessen destruktive Option loest
- * die eigentliche Loeschung aus.
- *
- * Die Edge Function `delete-account` prueft serverseitig zuerst
- * `prepare_account_deletion()` — ist dieser Nutzer irgendwo der letzte Admin
- * mit weiteren Mitgliedern, kommt ein 409 mit `last_admin_with_members`
- * zurueck, statt irgendetwas zu loeschen. Die Aufloesung (Admin uebertragen
- * oder den betroffenen Haushalt loeschen) passiert auf der bestehenden
- * Mitgliederseite (`/household/members`), nicht hier noch einmal.
- */
 export function DeleteAccountScreen() {
   const queryClient = useQueryClient();
   const [deleting, setDeleting] = useState(false);

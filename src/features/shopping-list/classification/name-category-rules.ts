@@ -4,12 +4,7 @@ export type NameCategoryRule = {
   value: string;
   /** Legacy-Regeln werden im Classifier vor der Auswertung auf V2 normalisiert. */
   categoryId: StoredPlacementZoneId;
-  /**
-   * Position innerhalb eines Tokens:
-   * - `word`: Token ist exakt `value`
-   * - `word-start`: Token beginnt mit `value`, ist aber länger
-   * - `word-end`: Token endet auf `value`, ist aber länger
-   */
+
   match: 'word' | 'word-start' | 'word-end';
   score: number;
 };
@@ -22,7 +17,7 @@ const PRIMARY_PRODUCT = 100;
 const DAIRY_PRODUCT = 98;
 /** Rohes Frischfleisch & Frischfisch */
 const RAW_MEAT_FISH = 95;
-/** Frisches Obst, Gemüse & frische Kräuter (als Zutat/Modifier in Komposita wie "Chips Paprika" oder "Marmelade Erdbeere" nachrangig) */
+/** Frisches Obst, Gemüse und Kräuter; in Komposita nachrangig. */
 const RAW_PRODUCE = 90;
 /** Grundwort-Endungen in Komposita */
 const WORD_END = 85;

@@ -1,12 +1,3 @@
-/**
- * Reine Auswertungen fuer den Entwickler-Bereich.
- *
- * Ohne Zugriff auf `process.env`, Uhr oder Datenbank — alles kommt als
- * Argument herein. Damit sind gerade die Faelle pruefbar, die man von Hand nie
- * herstellt: ein abgelaufener Token, eine unbekannte Supabase-URL, eine
- * lokale Datenbank, die noch dem vorigen Nutzer gehoert.
- */
-
 export type SupabaseTarget = {
   kind: 'lokal' | 'remote' | 'unbekannt';
   label: string;
@@ -14,14 +5,6 @@ export type SupabaseTarget = {
   tone: 'accent' | 'warning' | 'danger';
 };
 
-/**
- * Lokale Instanz oder gehostetes Projekt?
- *
- * Die wichtigste Zeile des ganzen Bereichs. Ein Build, der unbemerkt gegen das
- * verlinkte Projekt laeuft, legt beim Ausprobieren echte Konten und Haushalte
- * an — genau davor warnt auch `test/setup-integration.js`, dort allerdings nur
- * fuer die Tests.
- */
 export function classifySupabaseTarget(url: string): SupabaseTarget {
   let host: string;
   try {
@@ -53,13 +36,6 @@ export function maskSecret(value: string, visible = 8): string {
   return `${value.slice(0, visible)}…`;
 }
 
-/**
- * Restlaufzeit des Zugriffstokens.
- *
- * `exp` ist eine Unix-Zeit in SEKUNDEN (JWT-Konvention), `nowMs` in
- * Millisekunden — die Verwechslung der beiden ist der uebliche Fehler an
- * dieser Stelle, deshalb stehen die Einheiten in den Namen.
- */
 export function formatTokenExpiry(expSeconds: number | undefined, nowMs: number): string {
   if (expSeconds === undefined) return 'unbekannt';
 
@@ -79,14 +55,6 @@ export type DatabaseOwnership = {
   tone: 'accent' | 'warning' | 'danger';
 };
 
-/**
- * Gehoert die lokale Datenbank dem angemeldeten Nutzer?
- *
- * Die Frage ist nicht theoretisch: Genau diese Abweichung war das
- * Cross-Account-Datenleck (siehe `docs/plans/fix-sqlite-locking-und-household-datenleck.md`).
- * Seitdem raeumt `getDatabase()` sie beim Anmelden auf — hier steht, ob das
- * auch tatsaechlich passiert ist.
- */
 export function describeDatabaseOwnership(
   storedUserId: string | null,
   sessionUserId: string | null,

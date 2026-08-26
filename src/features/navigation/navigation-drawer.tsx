@@ -20,11 +20,6 @@ import { useNavigationChrome } from './navigation-chrome-provider';
 
 const DRAWER_WIDTH_RATIO = 0.84;
 
-/**
- * Hamburger-Drawer als Ersatz der frueheren Bottom-Tab-Leiste (#150, Figma
- * "00.02 · Navigation — Hamburger geöffnet"). Alle Produktbereiche
- * gleichberechtigt in einer Liste statt in sieben Tabs.
- */
 export function NavigationDrawer() {
   const { isDrawerOpen, closeDrawer } = useNavigationChrome();
   const mounted = useDeferredMount(isDrawerOpen);
@@ -52,7 +47,7 @@ export function NavigationDrawer() {
       <View style={StyleSheet.absoluteFill}>
         <Pressable
           className="absolute inset-0"
-          // Dynamische Opazitaet (withAlpha), kein fester Token-Schritt.
+          // Laufzeitwert für die Abdunklung.
           style={{ backgroundColor: withAlpha(theme.shadowSheet, 0.3) }}
           onPress={closeDrawer}
           accessibilityRole="button"
@@ -60,17 +55,13 @@ export function NavigationDrawer() {
         />
         <Animated.View
           className="drawer"
-          // Safe-Area-Insets, Breite (Verhaeltnis), Hintergrund-Opazitaet und
-          // Schatten sind echte Laufzeitwerte; der Animated-Transform kommt
-          // ueber `animatedStyle` (Reanimated, UI-Thread) hinzu.
+          // Laufzeitwerte für Insets, Breite, Hintergrund und Schatten.
           style={[
             {
               paddingTop: Math.max(insets.top - 20, 27),
               paddingBottom: Math.max(insets.bottom, 26),
               width: `${DRAWER_WIDTH_RATIO * 100}%`,
-              // Deckend statt 0.97 Alpha — bei leicht transparentem
-              // Hintergrund schien der Screen dahinter (Titel, Avatar) durch
-              // den Drawer-Header hindurch.
+              // Deckender Hintergrund verhindert Durchscheinen im Header.
               backgroundColor: theme.backgroundElement,
               boxShadow: `24px 0 64px ${withAlpha(theme.shadowSheet, 0.18)}`,
             },
@@ -83,9 +74,7 @@ export function NavigationDrawer() {
   );
 }
 
-// Eigene Komponente statt Inline-JSX im Drawer-Body: `{isDrawerOpen &&
-// <DrawerContent />}` unmountet den kompletten Inhalt (inkl. ScrollView der
-// Navigationsgruppen) beim Schliessen, statt ihn nur unsichtbar zu halten.
+// Beim Schließen den Drawer-Inhalt vollständig unmounten.
 function DrawerContent() {
   const theme = useTheme();
   const pathname = usePathname();
@@ -121,12 +110,7 @@ function DrawerContent() {
             type="default"
             themeColor="textSecondary"
             className="drawer-close-glyph"
-            // `type="title"` (48px/52 Zeilenhoehe) konkurrierte mit der
-            // 22px/26px-Klasse um dieselben Eigenschaften — je nachdem, wie
-            // NativeWind die beiden Klassenquellen kaskadiert, gewann mal die
-            // eine, mal die andere Zeilenhoehe, und das "×" sass zu tief im
-            // Kreis (untere Spitzen fast am Rand). Expliziter `style` gewinnt
-            // immer, unabhaengig von der Klassen-Reihenfolge.
+            // Explizite Werte verhindern eine falsche Zeilenhöhe durch `type`.
             style={{ fontSize: 20, lineHeight: 20, fontWeight: '400' }}>
             ×
           </ThemedText>

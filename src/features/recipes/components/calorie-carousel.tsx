@@ -3,7 +3,7 @@ import { Pressable, ScrollView } from 'react-native';
 import { ThemedText } from '@/components/theme/themed-text';
 import { CALORIE_BUCKETS } from '@/features/recipes/templates/use-recipe-templates';
 
-/** Ein Food-Emoji je Bucket, rein dekorativ zur Wiedererkennung — deckungsgleich mit `CALORIE_BUCKETS`. */
+/** Dekoratives Food-Emoji je `CALORIE_BUCKETS`-Bucket. */
 const BUCKET_EMOJI = ['🍉', '🥪', '🥯', '🥞', '🍛', '🍱', '🍲', '🍝', '🍔', '🍕'];
 
 type CalorieCarouselProps = {

@@ -11,13 +11,6 @@ import { useFeatureAccess } from '@/features/settings/use-feature-access';
 import { useDeferredMount } from '@/hooks/use-deferred-mount';
 import { useNavigationChrome } from './navigation-chrome-provider';
 
-/**
- * Schnellauswahl fuer den globalen Plus-Button (#150, Folgeentscheidung
- * "F2 Speed-Dial") — faechert vom Auslöser in der Bildschirmecke nach oben
- * auf, statt eines Vollflaechen-Sheets. Kein Scrim: die Chips sitzen sichtbar
- * ueber dem Inhalt, ein Tap daneben schliesst genauso wie ein Tap auf eine
- * der Optionen.
- */
 export function SpeedDialMenu() {
   const { isQuickAddOpen } = useNavigationChrome();
   const mounted = useDeferredMount(isQuickAddOpen, 180);
@@ -54,8 +47,7 @@ function SpeedDialMenuContent() {
         <View
           pointerEvents="box-none"
           className={`speed-dial-column ${isRight ? 'items-end' : 'items-start'}`}
-          // Ecke (links/rechts) und Sicherheitsabstand zum Auslöser sind
-          // Laufzeitwerte (Einstellung + Safe-Area-Insets), kein Tailwind-Token.
+          // Position und Abstand sind Laufzeitwerte.
           style={{
             [isRight ? 'right' : 'left']: Spacing.four,
             bottom: insets.bottom + Layout.floatingActionAreaHeight,
@@ -65,9 +57,7 @@ function SpeedDialMenuContent() {
               key={option.title}
               onPress={() => go(typeof option.href === 'function' ? option.href() : option.href)}
               accessibilityRole="button"
-              // Icon sitzt immer an der Bildschirmkante, Label rueckt zur
-              // Mitte hin — deshalb Reihenfolge nur in der rechten Ecke
-              // umkehren (JSX-Reihenfolge chip->label ist links schon korrekt).
+              // Rechts stehen Icon und Label in umgekehrter Reihenfolge.
               className={`speed-dial-row ${isRight ? 'flex-row-reverse' : ''}`}>
               <View
                 className="speed-dial-chip"

@@ -3,24 +3,6 @@ import { repairShoppingListItemForeignKeyViolation } from '@/features/shopping-l
 import type { Entity, SqlDatabase } from '@/lib/db/types';
 import type { TypedSupabaseClient } from '@/lib/supabase';
 
-/**
- * Pro-Entity-Metadaten der Sync-Engine (#47).
- *
- * Rein: eine statische Nachschlagetabelle, kein Grund fuer Datenbank oder
- * Netzwerk. Gemeinsam genutzt von Pull, Push und Outbox-Enqueue-Aufrufern,
- * damit die Spaltenliste je Entity nur an einer Stelle steht.
- */
-
-/**
- * Wird von der generischen Push-Engine (`push.ts`) bei jedem Fehler eines
- * Push-Versuchs aufgerufen, sofern fuer die Entitaet registriert — nicht nur
- * bei 23503, damit die Entscheidung "ist das ueberhaupt meine FK-Verletzung"
- * vollstaendig beim Resolver bleibt und `push.ts` keine Postgres-Fehlercodes
- * oder Constraint-Namen kennen muss. Liefert bei erfolgreicher Reparatur den
- * (ggf. angepassten) Payload zurueck, mit dem der Push erneut versucht wird,
- * oder `null`, wenn der Fehler nicht repariert werden kann (dann klassifiziert
- * `push.ts` ihn wie gewohnt ueber `classifyError()`).
- */
 export type ForeignKeyViolationResolver = (
   ctx: { db: SqlDatabase; supabase: TypedSupabaseClient },
   payload: Record<string, unknown>,
@@ -303,15 +285,6 @@ export const ENTITIES: Readonly<Record<Entity, EntityMeta>> = {
   },
 };
 
-/**
- * Default-Entity-Set fuer `pullHousehold()` — bewusst OHNE 'households'.
- *
- * `pullHousehold()` wird immer schon mit einer bekannten Haushalts-Id
- * aufgerufen (`useSyncEngine`). 'households' wird stattdessen exklusiv vom
- * nutzerscoped Bootstrap-Trigger (`household-bootstrap-sync.ts`) per
- * `entities: ['households']`-Override gepullt — sonst gaebe es einen
- * redundanten Voll-Pull bei jedem 20s-Tick jedes aktiven Haushalts.
- */
 export const ALL_ENTITIES: readonly Entity[] = [
   'storage_locations',
   'stores',

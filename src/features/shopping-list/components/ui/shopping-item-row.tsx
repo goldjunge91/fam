@@ -13,13 +13,6 @@ interface ShoppingItemRowProps {
   onEdit: () => void;
 }
 
-/**
- * Abhaken passiert ausschliesslich im Einkaufsmodus (shopping-mode-screen.tsx)
- * — die Marktliste zeigt gar keine Checkbox mehr (Feedback: "sieht immer
- * noch wie ein antippbarer Kreis aus"), bereits gekaufte Artikel erkennt man
- * nur noch am durchgestrichenen Namen. Antippen der Zeile oeffnet das
- * Bearbeiten-Formular, lang druecken loescht weiterhin.
- */
 export const ShoppingItemRow = memo(function ShoppingItemRow({
   item,
   onDelete,

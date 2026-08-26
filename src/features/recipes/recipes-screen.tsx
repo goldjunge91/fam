@@ -512,7 +512,6 @@ export function RecipesScreen() {
               <CalorieCarousel selectedIndex={templateCalorieFilter} onSelect={selectCalorieTile} />
             </View>
 
-            {/* Horizontale Abschnitte nach Mahlzeitentyp (Frühstück, Mittag, Abend, Snacks) */}
             {mealSections.length > 0 ? (
               <View className="mb-five">
                 <SectionHeading

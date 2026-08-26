@@ -24,18 +24,6 @@ import { compareByExpiry, getExpiryInfo } from './expiry';
 import { type LocalInventoryItem, useInventoryItems } from './use-inventory-items';
 import { useUpdateInventoryItemQuantityMutation } from './use-inventory-mutations';
 
-/**
- * Vorrat-Bestand, dynamisch gefiltert nach Lagerort (#67).
- *
- * - Dynamische Tab-Filter basierend auf den Lagerorten aus den Einstellungen
- * - Farbiger linker Rand als MHD-Ampel (#71, expiry.ts)
- * - Grosszuegige Zusammenfassung mit kompakter Arbeitsliste
- * - Vertikaler MHD-Indikator ohne dekorative Produktkacheln
- * - Kurzer Tap = Aktionen, langer Tap = Produktinformationen
- * - Eine einzige virtualisierte FlatList (Summary/Tabs/Sortierzeile als
- *   ListHeaderComponent) statt verschachtelter Listen, damit lange
- *   Bestände nicht komplett gerendert werden.
- */
 type SortMode = 'expiry' | 'name';
 
 export function InventoryScreen() {
@@ -275,7 +263,6 @@ export function InventoryScreen() {
         onClose={() => setInformationItem(null)}
       />
 
-      {/* Bearbeitungs-Sheet für Name, Lagerort, Menge und Mindesthaltbarkeitsdatum */}
       <EditInventoryItemSheet
         visible={!!editItem}
         item={editItem}

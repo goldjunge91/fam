@@ -33,11 +33,6 @@ export type AnalyticsEventProps<T extends AnalyticsEventName> =
     ? undefined | Record<string, never>
     : AnalyticsEventMap[T];
 
-/**
- * Sendet ein typisiertes Business- oder Funnel-Event simultan an:
- * 1. Aptabase (datenschutzfreundliches, anonymes Aggregats-Tracking)
- * 2. PostHog (produktanalytisches Funnel-Tracking mit Distinct-ID-Verknüpfung)
- */
 export function trackAnalyticsEvent<T extends AnalyticsEventName>(
   eventName: T,
   props?: AnalyticsEventProps<T>,

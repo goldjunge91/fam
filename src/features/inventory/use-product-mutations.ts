@@ -21,12 +21,6 @@ export type NewProduct = {
   created_by: string;
 };
 
-/**
- * Legt eine Zeile in `products` an (#80/#74) — ueber die normale
- * Sync-Engine (`enqueueMutation`), nicht per direktem Supabase-Zugriff.
- * `products` ist global (kein `household_id`), RLS erlaubt den Insert nur
- * mit `created_by = auth.uid()`.
- */
 export function useAddProductMutation() {
   const queryClient = useQueryClient();
 

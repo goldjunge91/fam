@@ -9,11 +9,6 @@ export type OffCategoryRule = {
   priority: number;
 };
 
-/**
- * Priorität-Tiers: spezifische Tags (z. B. `en:porks`) stehen bewusst über
- * Oberkategorien (z. B. `en:meats`) über generischen Sammel-Tags
- * (z. B. `en:beverages`) — siehe `docs/issue#223_V2.md` Abschnitt 7.
- */
 const SPECIFIC = 100;
 const MID = 50;
 const GENERIC = 10;

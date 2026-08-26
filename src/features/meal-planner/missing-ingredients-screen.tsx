@@ -19,20 +19,6 @@ import { type MissingIngredientView, useMealPlanShoppingNeeds } from './use-shop
 // Fix): setSelected -> Re-Render -> neues [] -> Effekt feuert erneut.
 const EMPTY_MISSING: MissingIngredientView[] = [];
 
-/**
- * Kuratierte Uebernahme fehlender Zutaten in die Einkaufsliste (#131),
- * Premium-Feature — dieselbe Funktion wie "Fehlendes direkt einkaufen" aus
- * `recipe-shopping-sheet.tsx`, hier fuer den ganzen Wochenplan statt ein
- * einzelnes Rezept. Ohne Zugriff zeigt der Screen einen Hinweis samt Button
- * zur echten RevenueCat-Paywall statt der Liste.
- *
- * Standard-Fluss (mit Zugriff): alle berechneten fehlenden Zutaten sind
- * vorausgewaehlt, der Nutzer kann einzelne abwaehlen, bevor er uebernimmt —
- * kein Ein-Klick-ohne-Rueckfrage-Automatismus (das ist #132, ausserhalb des
- * Scopes hier). Artikel mit Kaufhistorie zeigen den zuletzt verwendeten
- * Markt als Badge; Artikel ohne Historie zeigen keinen Badge und brauchen
- * keine gesonderte Auswahl, weil es nichts zum Auswaehlen gibt.
- */
 export function MissingIngredientsScreen() {
   const { mealPlanId } = useLocalSearchParams<{ mealPlanId: string }>();
   const { session } = useSession();

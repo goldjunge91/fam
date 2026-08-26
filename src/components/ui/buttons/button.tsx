@@ -14,9 +14,7 @@ type ButtonProps = {
   label: string;
   onPress: () => void;
   variant?: 'primary' | 'secondary' | 'danger' | 'link';
-  /** `compact` verkleinert nur das Innenpolster (py-two px-three statt
-   * py-three px-four) — fuer Buttons in dichten Zeilen/Leisten, die nicht
-   * die volle Formular-Groesse brauchen. */
+
   size?: 'default' | 'large' | 'compact';
   accessibilityLabel?: string;
   backgroundColor?: ColorValue;

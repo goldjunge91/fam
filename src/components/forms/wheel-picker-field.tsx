@@ -18,13 +18,6 @@ interface WheelPickerFieldProps {
   size?: 'default' | 'large';
 }
 
-/**
- * iOS-Auswahlfeld aus einer festen Optionsliste — zeigt nur den aktuellen Wert,
- * das Rad erscheint erst beim Antippen. Auf iOS ist das SwiftUI-Wheel sonst
- * dauerhaft ausgeklappt sichtbar, deshalb hier in ein eigenes Modal mit
- * Übernehmen/Abbrechen verpackt.
- * Für Android existiert eine .android.tsx mit nativer Dropdown-Logik.
- */
 export function WheelPickerField({
   label,
   value,

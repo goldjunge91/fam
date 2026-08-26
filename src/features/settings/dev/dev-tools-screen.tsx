@@ -55,26 +55,6 @@ function formatZeitpunkt(iso: string | null): string {
   return Number.isNaN(datum.getTime()) ? iso : datum.toLocaleString('de-DE');
 }
 
-/**
- * Entwickler-Bereich, sichtbar nur mit `EXPO_PUBLIC_DEV_TOOLS=true`.
- *
- * Die Auswahl ist nicht "alles, was geht", sondern das, wonach man beim
- * Nachstellen eines Fehlers zuerst sucht und was die App sonst nirgends
- * verraet:
- *
- * - **gegen welches Supabase-Projekt** dieser Build laeuft (lokal oder echt),
- * - **wie lange die Session noch gilt** — die Erklaerung fuer viele
- *   "auf einmal geht nichts mehr"-Momente,
- * - **ob die lokale Datenbank zum angemeldeten Nutzer gehoert** — die
- *   Abweichung, die das Cross-Account-Datenleck ausgemacht hat,
- * - **Migrationsstand und Zeilenzahlen**, um "kommt gar nichts an" von
- *   "kommt an, wird aber nicht angezeigt" zu unterscheiden.
- *
- * Die rohen Outbox- und Tabelleninhalte stehen weiterhin in der Sync-Diagnose;
- * von hier fuehrt nur ein Verweis dorthin, damit es die Ansicht nicht zweimal
- * gibt.
- */
-
 type DbSnapshot = {
   userVersion: number;
   storedUserId: string | null;
@@ -111,10 +91,7 @@ export function DevToolsScreen() {
   const queryClient = useQueryClient();
   const { activeHousehold } = useActiveHousehold();
   const { isPremium, isForced } = usePremium();
-  // Boolean-Flag "test-feature" im PostHog-Dashboard anlegen und umschalten,
-  // um die Integration End-to-End zu testen — siehe README "Feature Flags
-  // (PostHog)". defaultValue=false greift ohne Key oder ohne je geladenen
-  // Wert.
+  // Ohne Schlüssel oder geladenen Wert ist das Flag standardmäßig deaktiviert.
   const testFeatureFlag = useFeatureFlag('test-feature', false);
   const visionCameraFlag = useFeatureFlag('experimental-vision-camera', false);
   const posthogFlags = useFeatureFlags();
@@ -146,8 +123,7 @@ export function DevToolsScreen() {
       setSnapshot({
         userVersion: version?.user_version ?? 0,
         storedUserId: owner?.value ?? null,
-        // Schwelle aus `backoff.ts`, nicht hartcodiert: Sonst zeigt dieser
-        // Bereich irgendwann andere Zahlen als das Sync-Banner.
+        // Dieselbe Schwelle wie im Sync-Banner verwenden.
         pending: await zahl('select count(*) as c from outbox where attempts < ?', [MAX_ATTEMPTS]),
         failed: await zahl('select count(*) as c from outbox where attempts >= ?', [MAX_ATTEMPTS]),
         fridgeItems: await zahl('select count(*) as c from fridge_items'),
@@ -210,7 +186,6 @@ export function DevToolsScreen() {
       subtitle="Nur sichtbar mit EXPO_PUBLIC_DEV_TOOLS"
       back={{ label: 'Einstellungen', href: '/settings' }}
       backStyle="icon">
-      {/* Umgebungsinformationen (Supabase-URL, API-Key, Build-Typ, App-Version, Premium-Status) */}
       <Card title="Umgebung">
         <Zeile label="Supabase" wert={ziel.label} tone={ziel.tone} />
         <Zeile label="URL" wert={env.supabaseUrl} />

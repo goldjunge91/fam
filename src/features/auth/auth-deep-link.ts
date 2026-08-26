@@ -1,14 +1,3 @@
-/**
- * Supabase nutzt fuer resetPasswordForEmail den impliziten Flow
- * (`flowType: 'implicit'`, der Default von @supabase/auth-js). Reset-Links
- * landen deshalb mit den Tokens im URL-Fragment
- * (`fam:///reset-password#access_token=...&refresh_token=...&type=recovery`).
- *
- * `detectSessionInUrl: false` (siehe supabase.ts) ist in React Native
- * zwingend noetig, uebernimmt dieses Parsen also nicht automatisch. Diese
- * reine Funktion holt es manuell nach; der Aufrufer reicht das Ergebnis an
- * `supabase.auth.setSession()`.
- */
 export interface AuthDeepLinkTokens {
   accessToken: string;
   refreshToken: string;

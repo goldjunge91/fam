@@ -1,15 +1,3 @@
-/**
- * Orchestrierung des Client-Dump-Updaters (#223 Paket 6, Abschnitt 14
- * "Normaler Start"/"Entscheidung Patch oder Baseline"). Führt
- * manifest.ts, update-planner.ts, patch-applier.ts und
- * baseline-installer.ts zu den beiden öffentlichen Abläufen zusammen:
- * `reconcileOnStart()` (Absturzbereinigung vor jedem Attach) und
- * `checkForUpdate()` (Hintergrund-Update-Check). Reine Verdrahtung — die
- * eigentliche Entscheidungs-/Anwendungslogik ist bereits in den einzelnen
- * Modulen getestet, hier zählt der Ablauf (deshalb DI'd statt echtem I/O
- * in den Tests).
- */
-
 import type { SqlDatabase } from '@/lib/db/types';
 import { type InstallBaselineResult, installBaseline } from './baseline-installer';
 import { reconcileBaselineState } from './baseline-reconcile';
@@ -76,12 +64,6 @@ export async function reconcileOnStart(fileOps: FileOps, paths: DumpPaths): Prom
   }
 }
 
-/**
- * Wendet die Patchkette der Reihe nach an. Bricht bei der ersten Ablehnung
- * (from_version/schema_mismatch) sofort ab, statt in einem halb
- * angewendeten Zustand weiterzumachen — der Aufrufer faellt dann auf eine
- * neue Baseline zurueck.
- */
 async function applyPatchChain(
   db: SqlDatabase,
   fileOps: FileOps,

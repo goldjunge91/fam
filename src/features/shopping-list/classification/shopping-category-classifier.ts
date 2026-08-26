@@ -33,11 +33,6 @@ function matchOffTagCandidates(categoryTags: readonly string[]): CategoryCandida
   return candidates;
 }
 
-/**
- * Gematchte Namens-Kandidaten über alle Tokens. `word` verlangt Gleichheit,
- * `word-start`/`word-end` verlangen ein echt längeres Token (sonst würde ein
- * exaktes Token doppelt sowohl als `word` als auch als `word-start` zählen).
- */
 function matchNameCandidates(tokens: readonly string[]): CategoryCandidate[] {
   const candidates: CategoryCandidate[] = [];
   for (const token of tokens) {
@@ -74,13 +69,6 @@ type PhaseResult = {
   tied: boolean;
 };
 
-/**
- * Wertet eine Kandidatenliste einer Phase (OFF-Tags oder Namens-Fallback)
- * aus: pro Kategorie zählt nur ihr stärkstes Signal, gewonnen hat die
- * eindeutig höchste Kategorie. Bei Gleichstand des höchsten Gewichts
- * zwischen mehreren Kategorien gibt es keinen Gewinner — siehe Abschnitt
- * 7/8 des Plans.
- */
 function resolvePhase(candidates: readonly CategoryCandidate[]): PhaseResult {
   const bestByCategory = new Map<ShoppingCategoryId, CategoryCandidate>();
   for (const candidate of candidates) {
@@ -126,13 +114,6 @@ type Resolution = {
   conflictReason: string | null;
 };
 
-/**
- * Zentrale Auswertung, von der sich sowohl {@link classifyCategory} als auch
- * {@link explainCategory} ableiten. Namens-Fallback wird nur ausgeführt, wenn
- * die OFF-Taxonomie kein eindeutiges Ergebnis liefert (Abschnitt 3 des
- * Plans) — der Trace bildet exakt diesen tatsächlichen Auswertungspfad ab,
- * keine hypothetische Zusatzauswertung.
- */
 function resolve(input: CategoryClassifierInput): Resolution {
   const nameTokens = normalizeShoppingName(input.name);
   const nameCandidates = matchNameCandidates(nameTokens);
@@ -210,21 +191,10 @@ function resolve(input: CategoryClassifierInput): Resolution {
   };
 }
 
-/**
- * Reine, automatische Klassifikationspipeline (OFF-Taxonomie → Namens-Fallback
- * → „Sonstiges"). Deckt ausschließlich die Schritte 4–6 der Auflösungsreihenfolge
- * aus `docs/issue#223_V2.md` Abschnitt 3 ab — manuelle Auswahl und
- * Haushaltspräferenzen (Schritte 1–3) liegen bewusst in `preferences/`.
- */
 export function classifyCategory(input: CategoryClassifierInput): CategoryClassification {
   return resolve(input).classification;
 }
 
-/**
- * Wie {@link classifyCategory}, liefert aber zusätzlich die vollständige
- * Entscheidungskette (Kandidaten, verworfene Kandidaten, Konfliktgrund) für
- * Tests, Debugger und CLI. Nicht für Sync oder Speicherung gedacht.
- */
 export function explainCategory(input: CategoryClassifierInput): CategoryTrace {
   const { classification, candidates, rejectedCandidates, conflictReason } = resolve(input);
   const normalizedTokens = normalizeShoppingName(input.name);

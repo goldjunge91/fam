@@ -105,11 +105,6 @@ async function migrateRatings(restoredUserId: string | null): Promise<void> {
   await AsyncStorage.setItem(LEGACY_RATINGS_MARKER, 'done');
 }
 
-/**
- * Verarbeitet beide globalen Altformate unabhängig. Jeder Key besitzt seinen
- * eigenen Marker, damit ein Fehler nicht eine zweite, erfolgreiche Migration
- * zurücksetzt oder doppelt ausführt.
- */
 export async function migrateLegacyRecipePreferences(restoredUserId: string | null): Promise<void> {
   const results = await Promise.allSettled([
     migrateFavorites(restoredUserId),

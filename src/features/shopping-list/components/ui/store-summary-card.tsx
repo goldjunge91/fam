@@ -10,28 +10,13 @@ interface StoreSummaryCardProps {
   totalCount: number;
   checkedCount: number;
   totalEstimate: number;
-  /** Wiedererkennungsfarben der Kategorien mit noch offenen Artikeln, s. `distinctCategoryColors`. */
+  /** Farben der Kategorien mit offenen Artikeln. */
   openCategoryColors: string[];
   onPress: () => void;
 }
 
 const MAX_CATEGORY_DOTS = 4;
 
-/**
- * Zeile fuer die "Alle Listen"-Uebersicht: farbiger linker Streifen, Name,
- * Fortschritt, Kategorievorschau und geschaetzte Summe (Mockup "Einkauf
- * Uebersicht", Variante 2 "Kompakt mit Kategorievorschau"). `onPress`
- * wechselt in die Detailansicht des Marktes.
- *
- * Bewusst als dichte Zeile statt Karte: bei mehreren Maerkten dominierten
- * die vorherigen grosszuegigen Karten den Screen, ohne mehr Information zu
- * zeigen. Die Kategoriepunkte darunter geben zusaetzlich einen Hinweis, was
- * fachlich noch fehlt, ohne den Markt erst zu oeffnen.
- *
- * Der Fortschrittsbalken laeuft in Accent-Mauve, bei vollstaendig erledigten
- * Maerkten in Success-Gruen — die Marktfarbe bleibt als schmaler Streifen die
- * einzige Wiedererkennung.
- */
 export function StoreSummaryCard({
   name,
   color,
@@ -81,7 +66,7 @@ export function StoreSummaryCard({
           ) : (
             <>
               {visibleDots.map((dotColor) => (
-                // Kategoriefarben sind schon dedupliziert (distinctCategoryColors) — eindeutig als Key
+                // Farben sind bereits dedupliziert und daher eindeutige Keys.
                 <View
                   key={dotColor}
                   className="w-[7px] h-[7px] rounded-full"

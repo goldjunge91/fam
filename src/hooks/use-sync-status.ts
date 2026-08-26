@@ -7,33 +7,8 @@ import type { SqlDatabase } from '@/lib/db/types';
 import { MAX_ATTEMPTS } from '@/lib/sync/backoff';
 import { computeSyncStatusView, type SyncStatusView } from '@/lib/sync/sync-status';
 
-/**
- * Wie lange "Synchronisiere..." nach einem lokalen Schreibvorgang sichtbar
- * bleibt — bewusst kurz und fix, nicht an den tatsaechlichen Push gekoppelt
- * (siehe Kommentar in `sync-status.ts`). Ein weiterer Schreibvorgang in
- * dieser Zeit verlaengert die Anzeige (derselbe Timer wird neu gestartet),
- * ein Schwung von Aenderungen zeigt also durchgehend "synchronisiert" statt
- * zu flackern.
- */
 const RECENT_WRITE_DISPLAY_MS = 1_500;
 
-/**
- * Liest Netzwerkstatus und Outbox-Zaehler und leitet daraus den Anzeigezustand
- * fuer #51 ab.
- *
- * Netzwerkstatus kommt aus TanStacks bereits gemountetem `onlineManager`
- * (gespeist von echten `expo-network`-Events ueber `startQueryEnvironmentSync`
- * in `src/app/_layout.tsx`) statt einem zweiten, unabhaengigen Listener — #50s
- * Anforderung, `expo-network` direkt zu verwenden, betrifft den
- * Reconnect-*Trigger*, nicht diese *Anzeige*; beide speisen sich letztlich aus
- * denselben Events.
- *
- * Die `pending`/`failed`-Zaehler (fuer die Beschriftung, `offline`/`failed`)
- * werden weiterhin per `refetchInterval` gepollt — fuer die reine Anzeige
- * reicht das. Nur der `syncing`-Ausloeser selbst haengt jetzt an
- * `onOutboxChanged()` (`lib/db/outbox.ts`), damit "Synchronisiere..." direkt
- * nach einem Schreibvorgang erscheint statt erst beim naechsten Poll-Tick.
- */
 const outboxCountsQueryKey = ['sync-status', 'outbox-counts'] as const;
 
 async function fetchOutboxCounts(db: SqlDatabase): Promise<{ pending: number; failed: number }> {
@@ -66,13 +41,7 @@ export function useSyncStatus(
     let hideTimer: ReturnType<typeof setTimeout> | null = null;
     let cancelled = false;
     const unsubscribe = onOutboxChanged(() => {
-      // Bewusst NICHT `invalidateQueries` + sofortiges `setRecentLocalWrite(true)`:
-      // `invalidateQueries` markiert die Query nur als stale, der Refetch laeuft
-      // asynchron im Hintergrund. Da `recentLocalWrite` synchron kippt, zeigte die
-      // Anzeige fuer ein bis zwei Frames "Synchronisiere ... 0 ausstehend" (den
-      // alten Zaehlerstand), bevor sich das durch den Refetch selbst korrigierte.
-      // Stattdessen hier den echten Zaehlerstand zuerst lesen und beide Updates
-      // (Cache + `recentLocalWrite`) im selben Tick anwenden.
+      // Erst den aktuellen Outbox-Stand lesen, dann Cache und Hinweis gemeinsam aktualisieren.
       void (async () => {
         const db = await getDb();
         const counts = await fetchOutboxCounts(db);
@@ -82,8 +51,7 @@ export function useSyncStatus(
         if (hideTimer) clearTimeout(hideTimer);
         hideTimer = setTimeout(() => setRecentLocalWrite(false), RECENT_WRITE_DISPLAY_MS);
       })().catch(() => {
-        // Ein zeitgleicher Logout sperrt die DB synchron. Der nächste
-        // authentifizierte Mount liest wieder einen frischen Zustand.
+        // Ein paralleler Logout sperrt die DB; der nächste authentifizierte Mount liest neu.
       });
     });
     return () => {
@@ -98,8 +66,7 @@ export function useSyncStatus(
     queryFn: async () => fetchOutboxCounts(await getDb()),
     enabled,
     refetchInterval: 10_000,
-    // Kein `_dirty`/`household_id`-Filter: die Outbox ist geraetelokal, nicht
-    // haushaltsgebunden — der Zaehler braucht keinen "aktiver Haushalt"-Context.
+    // Die Outbox ist gerätelokal und nicht an den aktiven Haushalt gebunden.
     initialData: { pending: 0, failed: 0 },
   });
 

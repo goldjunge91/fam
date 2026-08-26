@@ -1,13 +1,5 @@
 import { z } from 'zod';
 
-/**
- * Eingabevalidierung fuer die Auth-Formulare.
- *
- * Reine Schemas ohne I/O — dadurch ohne Testdoubles pruefbar. Sie ersetzen
- * keine serverseitige Pruefung: Supabase validiert erneut, und RLS entscheidet
- * ohnehin unabhaengig davon, was der Client schickt.
- */
-
 const email = z
   .string()
   .trim()
@@ -18,14 +10,6 @@ const email = z
   .min(1, 'Bitte gib deine E-Mail-Adresse ein.')
   .email('Das sieht nicht wie eine E-Mail-Adresse aus.');
 
-/**
- * Supabase lehnt Passwoerter unter 6 Zeichen serverseitig ab. Wir fordern 8 —
- * die Fehlermeldung kommt dann sofort und nicht erst nach einem Roundtrip.
- *
- * Bewusst keine Zeichenklassen-Pflicht ("mindestens eine Ziffer, ein
- * Sonderzeichen"): Solche Regeln erzeugen erwiesenermassen vorhersagbare
- * Passwoerter wie "Passwort1!" statt sicherer. Laenge ist der wirksamere Hebel.
- */
 const password = z
   .string()
   .min(8, 'Das Passwort braucht mindestens 8 Zeichen.')
@@ -52,15 +36,6 @@ export const signUpSchema = z
 
 export const resetRequestSchema = z.object({ email });
 
-/**
- * Der 6-stellige Code aus der Bestaetigungsmail ({{ .Token }} in
- * supabase/templates/confirm.html).
- *
- * Der Zuschnitt auf genau sechs Ziffern ist keine Bequemlichkeit, sondern
- * Eingangspruefung: was hier nicht durchkommt, erreicht `verifyOtp` gar nicht
- * erst. `trim()` faengt die fuehrenden Leerzeichen ab, die beim Kopieren aus
- * einem Mailclient regelmaessig mitkommen.
- */
 export const confirmationCodeSchema = z.object({
   code: z
     .string()
@@ -156,11 +131,6 @@ export function normalizeDateInput(raw: string): string | null {
   return null;
 }
 
-/**
- * Profil-Onboarding (#57). Alle Felder sind optional — die App muss mit einem
- * unvollstaendigen Profil funktionieren und meldet ein fehlendes Kalorienziel
- * spaeter ehrlich als "nicht berechenbar", statt zu raten.
- */
 export const profileSchema = z.object({
   displayName: z.string().trim().min(1, 'Bitte gib einen Namen ein.').max(80).optional(),
   birthDate: z
@@ -199,12 +169,6 @@ export type SignInInput = z.infer<typeof signInSchema>;
 export type SignUpInput = z.infer<typeof signUpSchema>;
 export type ProfileInput = z.infer<typeof profileSchema>;
 
-/**
- * Wandelt einen Zod-Fehler in eine Zuordnung Feldname -> Meldung.
- *
- * Formulare zeigen Fehler pro Feld an, nicht als Sammelmeldung am Seitenende —
- * dort ist nicht erkennbar, welche Eingabe gemeint ist.
- */
 export function fieldErrors(error: z.ZodError): Record<string, string> {
   const result: Record<string, string> = {};
   for (const issue of error.issues) {

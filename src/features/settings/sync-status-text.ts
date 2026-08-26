@@ -2,17 +2,6 @@ import type { SyncStatusView } from '@/lib/sync/sync-status';
 
 export type SyncStatusTone = 'accent' | 'warning' | 'danger';
 
-/**
- * Formuliert den Sync-Zustand fuer die Einstellungen.
- *
- * Herausgezogen, weil ihn seit der Aufteilung zwei Stellen brauchen: die
- * Uebersicht (als Wert der Menuezeile) und die Sync-Seite (ausfuehrlich). Zwei
- * Kopien wuerden auseinanderlaufen, und ein Nutzer saehe in der Zeile etwas
- * anderes als eine Ebene tiefer.
- *
- * `short` ist die knappe Fassung fuer die Menuezeile — dort ist rechts nur
- * Platz fuer wenige Woerter.
- */
 export function describeSyncStatus(status: SyncStatusView): {
   text: string;
   short: string;

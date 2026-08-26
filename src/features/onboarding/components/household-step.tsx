@@ -73,13 +73,7 @@ export function HouseholdStepForm({ onNext, onSkip }: HouseholdStepFormProps) {
   };
 
   return (
-    // Der äußere `Screen`-Wrapper bekommt für diesen Schritt `scroll={false}`
-    // (siehe onboarding-flow.tsx), damit diese ScrollView die einzige im
-    // Baum ist. Weder `KeyboardAvoidingView` noch `automaticallyAdjustKeyboardInsets`
-    // scrollten hier zuverlässig zum fokussierten Feld — `KeyboardAwareScrollView`
-    // aus react-native-keyboard-controller (offizieller Expo-Doku-Weg für
-    // Formulare in einer ScrollView) übernimmt das nativ und konsistent auf
-    // iOS und Android.
+    // Eigene KeyboardAwareScrollView für den Haushalts-Schritt.
     <KeyboardAwareScrollView
       bottomOffset={24}
       keyboardShouldPersistTaps="handled"

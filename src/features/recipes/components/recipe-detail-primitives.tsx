@@ -4,12 +4,6 @@ import Svg, { Circle, Defs, LinearGradient, Rect, Stop } from 'react-native-svg'
 
 import { ThemedText } from '@/components/theme/themed-text';
 
-/**
- * Deckbild fuer Rezept- und Vorlagendetail: echtes Cover-Foto, sonst ein
- * warmer Verlauf mit denselben Farbstopps als Platzhalter. Vorher unabhaengig
- * in `recipe-detail-screen.tsx` und `templates/recipe-template-detail-screen.tsx`
- * dupliziert (#154).
- */
 export function HeroArtwork({ coverUrl, title }: { coverUrl?: string | null; title: string }) {
   if (coverUrl) {
     return (

@@ -9,12 +9,6 @@ type ProgressBarProps = {
   className?: string;
 };
 
-/**
- * Schmaler Fortschrittsbalken — Grundbaustein fuer Karten mit Fortschritt
- * (Einkaufslisten pro Markt, perspektivisch weitere). Bewusst ohne Animation
- * und Label: die Karte drumherum traegt den Text, dieser Baustein nur die
- * Leiste selbst.
- */
 export function ProgressBar({
   value,
   color,

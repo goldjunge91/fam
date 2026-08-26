@@ -21,10 +21,6 @@ export async function pickAvatarImage(): Promise<string | null> {
   return result.assets[0].uri;
 }
 
-/**
- * Laedt ein lokal ausgewaehltes Profilbild in den `avatars`-Bucket hoch.
- * Falls der Storage-Bucket nicht erreichbar ist (z. B. offline), wird die lokale URI/Base64 verwendet.
- */
 export async function uploadAvatarImage(userId: string, localUri: string): Promise<string> {
   try {
     const { File } = require('expo-file-system') as typeof import('expo-file-system');

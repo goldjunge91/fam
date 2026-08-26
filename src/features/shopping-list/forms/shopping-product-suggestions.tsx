@@ -83,14 +83,6 @@ function SuggestionCard({
   );
 }
 
-/**
- * Häufig/Zuletzt-Vorschläge beim Hinzufügen. Zeigt standardmäßig nur die
- * ersten drei Karten (wie bisher); gibt es mehr, klappt ein Toggle den Rest
- * in zusätzlichen Dreier-Reihen auf (#UI-Feedback: "Ansicht erweitern, History
- * soll aufklappbar sein"). Die erste Reihe bleibt bewusst `flex-1`-basiert
- * (füllt die Breite exakt), weitere Reihen nutzen feste Drittel-Breiten, da
- * `flex-wrap` mit `flex-1`-Kindern nicht zuverlässig umbricht.
- */
 export function ShoppingProductSuggestions({
   userId,
   householdId,

@@ -16,11 +16,6 @@ export type RecipeShoppingNeed = {
   preferredStoreId: string | null;
 };
 
-/**
- * Berechnet fuer ein einzelnes Rezept den Bedarf abzüglich des aktuellen
- * Vorrats. Die Berechnung nutzt dieselben Funktionen wie der Essensplaner,
- * damit Rezept- und Wochenplan-Transfer identische Ergebnisse liefern.
- */
 export function useRecipeShoppingNeeds(
   detail: RecipeDetail | null | undefined,
   servings: number,

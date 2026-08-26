@@ -375,7 +375,6 @@ export function TrackingScreen() {
       back={{ label: 'Mein Profil', href: '/profile' }}
       backStyle="icon">
       <ScrollView contentContainerClassName="screen-scroll" showsVerticalScrollIndicator={false}>
-        {/* 1. Tracking-Methode (CICO, GLP-1, Fasten, Low-Carb, Keto, Kraftsport, CGM, Volumetrics) */}
         <SettingsGroup title="Deine Tracking-Methode">
           <View className="p-three gap-two">
             <ThemedText type="small" themeColor="textSecondary" className="mb-one">
@@ -480,7 +479,6 @@ export function TrackingScreen() {
           </View>
         </SettingsGroup>
 
-        {/* 3. Vitalwerte & Biometrie Kacheln (Größe, Gewicht, Alter, Aktivität, BMR & TDEE) */}
         <SettingsGroup title="Vitalwerte & Biometrie">
           <View className="p-three gap-three">
             {/* 2x2 Grid für Kern-Messwerte */}
@@ -583,7 +581,6 @@ export function TrackingScreen() {
         </SettingsGroup>
       </ScrollView>
 
-      {/* Modal zur Bearbeitung der Biometrie (Größe, Geschlecht, Geburtsdatum, Aktivität) */}
       <Modal
         visible={biometricsModalVisible}
         transparent

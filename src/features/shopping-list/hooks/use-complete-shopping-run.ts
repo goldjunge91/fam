@@ -12,27 +12,12 @@ import type { LocalShoppingItem } from './use-shopping-list';
 
 type CompleteShoppingRunInput = {
   householdId: string;
-  /**
-   * `null` statt eines erzwungenen leeren Strings: `fridge_items.added_by`/
-   * `shopping_list_items.checked_by` sind nullable `uuid`-Spalten — ein
-   * leerer String ist dort kein gueltiger Wert
-   * ("invalid input syntax for type uuid").
-   */
+
   userId: string | null;
   checkedItems: LocalShoppingItem[];
   transfers: TransferItem[];
 };
 
-/**
- * Schliesst den Einkauf ab (#85/#86):
- *
- * 1. Fuer jeden Transfer-Eintrag: neues `fridge_items`-Insert via Outbox
- * 2a. History-Eintrag in `shopping_history` (direkter SQLite-Insert, append-only)
- * 2b. Abgehakte Shopping-Items soft-deleten (aus der Liste entfernen via Outbox)
- *
- * Danach werden beide Caches invalidiert, sodass Einkaufsliste und
- * Vorrat-Screen sofort den neuen Zustand zeigen.
- */
 export function useCompleteShoppingRun(householdId: string | undefined) {
   const queryClient = useQueryClient();
   const { data: storageLocations } = useStorageLocations(householdId);
@@ -98,7 +83,6 @@ export function useCompleteShoppingRun(householdId: string | undefined) {
         });
       }
 
-      // Schritt 2a: History-Eintrag anlegen (direkt via SQLite db.runAsync, da append-only und ohne Offline-Konflikte)
       for (const item of input.checkedItems) {
         const historyId = Crypto.randomUUID();
         const transfer = input.transfers.find((t) => t.shoppingItemId === item.id);

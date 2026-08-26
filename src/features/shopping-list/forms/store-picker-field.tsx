@@ -13,11 +13,6 @@ interface StorePickerFieldProps {
   onChange: (storeId: string | null) => void;
 }
 
-/**
- * Markt-Auswahl (Chips) + Inline-"+ Neuer Markt"-Erstellung — geteilt
- * zwischen Artikel-hinzufuegen und Artikel-bearbeiten, damit beide Formulare
- * dieselbe Dedup-/Presets-/Farb-Logik verwenden statt sie zweimal zu pflegen.
- */
 export function StorePickerField({ householdId, storeId, onChange }: StorePickerFieldProps) {
   const theme = useTheme();
   const { data: stores = [] } = useStores(householdId);

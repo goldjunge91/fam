@@ -52,11 +52,6 @@ type Per100gReference = {
 
 type Badge = { label: string; tone: 'good' | 'warn' };
 
-/**
- * Leitet Bewertungs-Badges aus echten Open-Food-Facts-Signalen ab
- * (`nutrient_levels`, `nova_group`). Bewusst keine erfundenen Badges wie
- * "Kalorienarm" — dafuer liefert OFF kein Standardfeld.
- */
 function buildNutritionBadges(
   nutrientLevels: OpenFoodFactsProduct['nutrientLevels'] | undefined,
   novaGroup: number | undefined,
@@ -74,18 +69,6 @@ function buildNutritionBadges(
   return badges;
 }
 
-/**
- * Eintrag hinzufuegen/bearbeiten/loeschen (#86), als Modal-Route erreicht.
- *
- * Drei Ausgangslagen:
- * - Bearbeiten eines bestehenden Eintrags (`entryId`-Param) — laedt aus
- *   `useFoodEntries`, keine 100g-Referenz, Felder bleiben direkt editierbar.
- * - Aus der Lebensmittelsuche/Barcode-Scan (`kcalPer100g`-Param u.a.) — Menge
- *   startet bei 100g/ml, Makros werden bei Mengen-/Einheitenaenderung live
- *   aus den 100g-Werten neu berechnet.
- * - "Schneller Eintrag" (keine Produkt-Params) — leeres Formular, alles
- *   manuell.
- */
 export function AddFoodEntryScreen() {
   const params = useLocalSearchParams<{
     date: string;
@@ -199,7 +182,7 @@ export function AddFoodEntryScreen() {
   // 100g-Referenz vorliegt (Produkt aus Suche/Barcode). `per100g` bewusst
   // nicht in den Deps: es aendert sich nur einmal bei der Vorbefuellung oben,
   // ein Re-Trigger darueber waere redundant zur Initialisierung.
-  // biome-ignore lint/correctness/useExhaustiveDependencies: per100g ist eine stabile Referenz ab der Vorbefuellung.
+  // biome-ignore lint/correctness/useExhaustiveDependencies: per100g bleibt stabil.
   useEffect(() => {
     if (!per100g || !initialized) return;
     const qty = parseFloat(quantity);

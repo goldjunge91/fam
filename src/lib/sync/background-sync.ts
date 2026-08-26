@@ -1,30 +1,3 @@
-/**
- * Hintergrund-Synchronisation (#50).
- *
- * Duenner Wrapper um `expo-background-task`/`expo-task-manager`. Beide sind
- * native Module und laden weder unter `jest-expo` noch im Node-Setup der
- * Integrationstests — derselbe Grund, warum `src/lib/db/client.ts` nicht aus
- * `index.ts` re-exportiert wird. Kein automatisierter Test fuer diese Datei.
- *
- * Expo verlangt, dass `TaskManager.defineTask` im globalen Modul-Scope laeuft,
- * nicht in einer Komponente oder einem Effekt. Dieses Projekt laedt native
- * Module dagegen grundsaetzlich erst bei Bedarf (`loadSQLite()` in
- * `client.ts`, `loadSecureStore()` in `supabase.ts`), damit ein fehlendes
- * Modul nicht beim Import der Datei die halbe App mitreisst. Der Ausweg:
- * `defineBackgroundSyncTask()` ist eine EXPORTIERTE FUNKTION, kein
- * Modul-Top-Level-Seiteneffekt — sie macht den lazy-require selbst, aber der
- * Aufrufer muss sie einmal frueh und auf Anweisungsebene aufrufen (z. B. ganz
- * beim Modul-Start ueber `initialize-app-runtime.ts`), NICHT in einem Hook.
- * Wird das versaeumt, ist die Task zur Laufzeit nie definiert
- * und `registerTaskAsync` schlaegt fehl.
- *
- * Der veraenderliche `handler`-Slot loest ein zweites Problem: die Task kann
- * schon beim Modul-Laden definiert werden, lange bevor es eine echte,
- * haushalts-aufgeloeste Sync-Funktion gibt (die kommt erst mit Epic 4). Wer
- * spaeter echten Sync verdrahten will, ruft `setBackgroundSyncHandler(fn)`
- * auf, ohne die Task neu registrieren zu muessen.
- */
-
 export const BACKGROUND_SYNC_TASK_NAME = 'fam-background-sync';
 
 const REBUILD_HINT =

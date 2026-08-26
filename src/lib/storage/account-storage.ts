@@ -191,11 +191,6 @@ export async function deleteEncryptedAccountStorage(userId: string): Promise<voi
   if (deleteError) throw deleteError;
 }
 
-/**
- * Merkt den Besitzer der lokalen Account-Daten im SecureStore. Nur so kann
- * ein Kaltstart mit abgelaufener/verwaister Supabase-Session die richtige
- * Account-MMKV-Datei entfernen, ohne die User-ID in Klartext-MMKV abzulegen.
- */
 export async function rememberLocalAccountUserId(userId: string): Promise<void> {
   const normalizedUserId = userId.trim();
   if (!normalizedUserId) {

@@ -1,29 +1,5 @@
 import type { Migration } from '@/lib/db/types';
 
-/**
- * Das lokale Schema (#45) — nummeriert und ausschliesslich vorwaerts.
- *
- * Reine Daten, keine I/O. Der Runner in `migrator.ts` wendet sie an, die
- * Auswahl trifft `planMigrations()`; beides ist dadurch ohne Datenbank pruefbar.
- *
- * Issue #223 ist die bewusst einzige Ausnahme von der sonst unveraenderlichen
- * Historie: Die App oeffnet ab diesem Cutover ausschliesslich `fam-v2.db`.
- * Deshalb beschreibt die bestehende Kette direkt die neue Baseline, statt eine
- * nie auszufuehrende Migration aus `fam.db` samt Daten-Backfill anzubauen.
- *
- * Bewusste Abweichungen vom Serverschema:
- *
- * - **`updated_at`/`deleted_at` sind INTEGER (epoch ms)**, nicht TEXT. Ein
- *   Stringvergleich von PostgREST-Zeitstempeln ist unsicher (`+00:00` gegen
- *   `Z`, drei gegen sechs Nachkommastellen) und die Ordnung muss numerisch
- *   sein. Der rohe Server-String ueberlebt nur dort, wo er exakt
- *   zurueckgehen muss: im Pull-Cursor in `sync_state`.
- * - **Keine Fremdschluessel.** Der Pull laeuft Tabelle fuer Tabelle; ein
- *   `fridge_items` mit `location_id` kann vor seinem `storage_locations`
- *   eintreffen. Integritaet erzwingt der Server, der Spiegel ist ein Cache.
- * - **`_dirty`** markiert lokal geaenderte, noch nicht gepushte Zeilen.
- */
-
 const V1_MIRRORS = `
 create table if not exists storage_locations (
   id           text primary key not null,

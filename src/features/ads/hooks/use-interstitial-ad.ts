@@ -13,12 +13,6 @@ export interface UseInterstitialAdOptions {
   autoLoad?: boolean;
 }
 
-/**
- * Hook für Interstitial-Werbung (Vollbildanzeigen) mit automatischem Premium-Gating.
- *
- * Wenn der aktive Haushalt Premium hat (`isPremium === true`), wird die Anzeige
- * weder geladen noch angezeigt, und `show()` ist ein sofortiger No-Op.
- */
 export function useInterstitialAd({
   adUnitId,
   requestOptions,
@@ -45,9 +39,7 @@ export function useInterstitialAd({
     load();
   }, [load]);
 
-  // `load()` synchronously resets the native hook state. Without this guard,
-  // the state reset after a closed ad re-enters the initial auto-load effect
-  // and starts a second request while the first reload is already pending.
+  // Verhindert parallele Requests nach dem synchronen Reset durch `load()`.
   useEffect(() => {
     if (isLoaded) loadRequestedRef.current = false;
   }, [isLoaded]);

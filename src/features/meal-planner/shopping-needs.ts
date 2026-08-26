@@ -5,25 +5,6 @@ import type {
   RecipeComponentRow,
 } from '../recipes/nutrition';
 
-/**
- * Reine Berechnungsfunktionen fuer die Meal-Planner -> Einkaufsliste-
- * Generierung (#131). Kein I/O — analog zu `../recipes/nutrition.ts`.
- *
- * Zwei Schritte, zwei Funktionen:
- *
- * 1. `computeIngredientNeeds`: aus den Rezept-Komponenten/-Positionen eines
- *    Wochenplans den Zutatenbedarf in Gramm je Produkt berechnen — die
- *    rekursive Baukasten-Traversierung ist dieselbe Idee wie
- *    `calculateComponentPer100g` in `nutrition.ts` (Positionen einer
- *    Komponente aufsummieren, Unterkomponenten rekursiv gewichten), aber ein
- *    eigenstaendiger Durchlauf: statt eines kcal/Makro-Skalars entsteht hier
- *    eine Map(productId -> Gramm), das laesst sich nicht in dieselbe
- *    Reduce-Funktion pressen, ohne beide Anwendungsfaelle zu verkomplizieren.
- * 2. `computeMissingIngredients`: Bedarf minus Vorratsbestand
- *    (`fridge_items`, ueber `toGramsEquivalent` aus `src/lib/units.ts`
- *    vereinheitlicht) -> fehlende Menge je Produkt.
- */
-
 export type RecipeNeedInput = {
   recipeId: string;
   /** Summe der Portionen aller Wochenplan-Eintraege, die auf dieses Rezept zeigen. */
@@ -70,12 +51,6 @@ function flattenComponentGramsPer100g(
   return result;
 }
 
-/**
- * Zutatenbedarf eines einzelnen Rezepts (alle obersten Komponenten,
- * skaliert auf die im Wochenplan eingetragene Portionenzahl).
- * `portions` verhaelt sich wie der `factor` in `scaleServing` (nutrition.ts):
- * `serving_grams` je oberster Komponente entspricht "1 Portion".
- */
 function ingredientNeedsForRecipe(need: RecipeNeedInput): Map<string, number> {
   const result = new Map<string, number>();
 
@@ -95,7 +70,7 @@ function ingredientNeedsForRecipe(need: RecipeNeedInput): Map<string, number> {
 export type IngredientNeedsResult = {
   /** Bedarf in Gramm je Produkt, ueber alle Rezepte des Wochenplans summiert. */
   needs: Map<string, number>;
-  /** Welche Rezepte zu diesem Produktbedarf beigetragen haben (fuer die Anzeige "aus welchem Gericht"). */
+  /** Rezepte, die zu diesem Produktbedarf beitragen. */
   recipeIdsByProduct: Map<string, Set<string>>;
 };
 
@@ -123,13 +98,6 @@ export type StockRow = {
   unit: string;
 };
 
-/**
- * Vorratsbestand (`fridge_items`) in Gramm je Produkt, ueber
- * `toGramsEquivalent` vereinheitlicht. Positionen, die sich nicht
- * umrechnen lassen (stueckbasiert ohne bekanntes `serving_size_g`), zaehlen
- * bewusst NICHT zum Bestand — sie duerfen den Bedarf nicht kuenstlich
- * senken, wenn die tatsaechliche Menge unklar ist.
- */
 export function stockInGrams(
   stock: readonly StockRow[],
   productsById: ReadonlyMap<string, { serving_size_g: number | null }>,
@@ -151,11 +119,6 @@ export type MissingIngredient = {
   missingGrams: number;
 };
 
-/**
- * Bedarf minus Bestand. Nur Produkte mit tatsaechlich fehlender Menge
- * (`missingGrams > 0`) landen im Ergebnis — Kernfunktion aus #131-AC 1
- * ("berechnet fehlende Zutaten ... automatisch").
- */
 export function computeMissingIngredients(
   needs: ReadonlyMap<string, number>,
   stock: ReadonlyMap<string, number>,

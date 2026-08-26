@@ -38,15 +38,6 @@ function portionLabel(portions: number) {
   return `${portions} ${portions === 1 ? 'Portion' : 'Portionen'}`;
 }
 
-/**
- * Responsive Tageskarten des Essensplans. Tippen bleibt der primaere Weg;
- * die vorhandene Drag-Ablage sitzt weiter unter den sichtbaren Tagen.
- *
- * Die drei Mahlzeiten stehen in jeder Ansicht (Tag/Woche) untereinander
- * und in identischer Groesse (`SLOT_SIZES`) — die Ansichten unterscheiden sich
- * nur durch die Anzahl der sichtbaren Tages-Karten (`dates`), nicht durch
- * deren Aussehen.
- */
 export function WeekGrid({
   dates,
   entries,

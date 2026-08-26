@@ -35,15 +35,6 @@ async function execute(
   return { rows: method === 'get' ? (rows[0] ?? []) : rows };
 }
 
-/**
- * Drizzle auf dem bestehenden `SqlDatabase`-Mutex.
- *
- * `transaction` und `batch` werden aus der öffentlichen API entfernt. Der
- * sqlite-proxy-Treiber sendet BEGIN/Statements/COMMIT als getrennte Callback-
- * Aufrufe; damit könnte zwischen ihnen fremde Arbeit in dieselbe Transaktion
- * geraten. Atomare Abläufe nutzen weiterhin
- * `SqlDatabase.withExclusiveTransactionAsync`.
- */
 export function createDrizzleDatabase(db: SqlDatabase) {
   if (!hasRawRows(db)) {
     throw new Error('Der SQLite-Treiber unterstützt keine positionsstabilen Drizzle-Zeilen.');

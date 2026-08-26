@@ -1,12 +1,3 @@
-/**
- * Reine Datumsfunktionen fuer den Wochenplan-Grid (#129). Kein I/O.
- *
- * Arbeitet ausschliesslich mit `YYYY-MM-DD`-Strings (wie
- * `meal_plans.week_start_date`/`meal_plan_entries.entry_date`), nicht mit
- * `Date`-Objekten samt Zeitzone — ein Kalenderdatum hat keine Uhrzeit, und
- * ein `Date`-Roundtrip haette an Zeitzonengrenzen den falschen Tag ergeben.
- */
-
 // Bewusst ohne 'snack': der Wochenplan bildet nur die drei Hauptmahlzeiten ab
 // (anders als das Kalorien-Tagebuch, das 'snack' als eigene Kategorie kennt).
 export const MEAL_SLOTS = ['breakfast', 'lunch', 'dinner'] as const;
@@ -156,14 +147,6 @@ const VIEW_MODE_DAY_COUNT: Record<ViewMode, number> = {
   week: 7,
 };
 
-/**
- * Sichtbare Tage einer Ansicht, ausgehend von einem Ankerdatum.
- *
- * Nur die Wochenansicht richtet sich am Montag der Kalenderwoche aus (wie
- * `weekDates`) — die Tagesansicht ist ein gleitendes Fenster ab dem
- * Ankerdatum selbst, damit "vor/zurueck" den Nutzer nicht ueberraschend an
- * einen Wochenanfang zurueckspringen laesst.
- */
 export function rangeDates(anchor: string, mode: ViewMode): string[] {
   const start = mode === 'week' ? getWeekStart(anchor) : anchor;
   return Array.from({ length: VIEW_MODE_DAY_COUNT[mode] }, (_, i) => addDays(start, i));

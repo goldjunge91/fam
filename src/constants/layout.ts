@@ -48,13 +48,6 @@ export const IconSize = {
   backArrow: 45,
 } as const;
 
-/**
- * Eckenradien, konsolidiert aus einem app-weiten Audit von 34 frei
- * gewählten `borderRadius`-Werten (#122, docs/design-system/radius-audit.md).
- * Eng benachbarte Werte (≤ 2px, am Bildschirm nicht unterscheidbar) wurden
- * auf den jeweils dominanten Nachbarn zusammengeführt — Rest ist Zufall,
- * kein Raster.
- */
 export const Radius = {
   hairline: 2, // Badges, kleine Indikatoren
   xs: 4, // sehr kompakte Elemente

@@ -32,20 +32,6 @@ type StorePickerMenuProps = {
   countForStore: (storeId: string) => number;
 };
 
-/**
- * Markt-Filter im Screen-Header: ein Glas-Button zeigt den aktiven Filter,
- * antippen oeffnet ein Menue direkt darunter mit "Alle Listen", jedem Markt
- * und "Ohne Markt" (Marktauswahl-Mockup Variante B — ersetzt die fruehere
- * Chip-Zeile unter dem Header vollstaendig).
- *
- * Das Menue laeuft ueber ein `Modal` statt eines nur `position: absolute`
- * platzierten `View`: der Button steht als `ListHeaderComponent` vor den
- * Listenzeilen, die als eigene Geschwister-Views danach gemountet werden und
- * je nach Plattform ueber dem Menue liegen koennen — sichtbar als "durchsichtiges"
- * Menue, dessen Zeilen nicht antippbar sind, sobald die Liste Eintraege hat.
- * Ein `Modal` rendert in einer eigenen nativen Ebene ueber allem anderen,
- * die Position wird per `measureInWindow` am Button ausgerichtet.
- */
 export function StorePickerMenu({
   activeFilter,
   onFilterChange,

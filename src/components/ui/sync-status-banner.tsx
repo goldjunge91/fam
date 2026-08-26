@@ -8,14 +8,6 @@ import { getDatabase } from '@/lib/db/client';
 import { retryFailedOutboxEntries } from '@/lib/db/outbox-retry';
 import type { SqlDatabase } from '@/lib/db/types';
 
-/**
- * Ob das Banner gerade sichtbar ist und die obere Safe Area selbst schon
- * konsumiert (Statusleiste eingefaerbt). Screens lesen das, um ihre eigene
- * `top`-Safe-Area nicht ein zweites Mal draufzuschlagen — sonst haetten sie
- * bei Offline-/Sync-/Fehlerzustand einen doppelt so hohen Abstand nach oben.
- * Default `false`, damit Konsumenten ausserhalb von `AppShell` (Tests,
- * (auth)/(onboarding) ohne Banner) unveraendert bleiben.
- */
 const BannerVisibleContext = createContext(false);
 
 export function useSyncBannerVisible(): boolean {
@@ -41,14 +33,6 @@ export function SyncBannerVisibilityProvider({
 }
 
 export type SyncStatusBannerProps = {
-  /**
-   * Wird bei einem Tap auf den Fehlerzustand aufgerufen. Ohne Vorgabe macht
-   * der Default nur die Eintraege wieder faellig (`retryFailedOutboxEntries`)
-   * — er kann keinen echten Sync anstossen, weil dafuer eine household_id
-   * noetig ist, die es vor Epic 4 nirgends im App-Code gibt. Wer die Engine
-   * spaeter verdrahtet, uebergibt eine eigene Funktion, die zusaetzlich
-   * `syncHousehold(...)` aufruft.
-   */
   onRetry?: () => Promise<void>;
   /** Nur fuer Tests: injiziert eine andere `SqlDatabase`-Quelle als die echte `getDatabase()`. */
   getDb?: () => Promise<SqlDatabase>;
@@ -61,15 +45,6 @@ async function defaultRetry(): Promise<void> {
   await retryFailedOutboxEntries(db);
 }
 
-/**
- * Dezenter Hinweis auf Offline-/Sync-Status (#51).
- *
- * Rendert `null` im `hidden`-Zustand — nimmt dann keinen Platz ein. Das,
- * nicht Insets oder z-index, ist der Grund, warum diese Komponente als
- * normaler Flex-Sibling ueber `RootNavigator` in `_layout.tsx` sitzt, statt
- * absolut positioniert zu werden: sichtbar schiebt sie den Inhalt nach unten,
- * unsichtbar verdeckt sie nichts, weil sie schlicht nicht da ist.
- */
 export function SyncStatusBanner({
   onRetry = defaultRetry,
   getDb = getDatabase,

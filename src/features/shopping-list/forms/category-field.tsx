@@ -11,11 +11,6 @@ export interface CategoryFieldProps {
   onReset: () => void;
 }
 
-/**
- * Kompatibilitätsadapter für ältere Aufrufer. Die fachliche Implementierung
- * lebt ausschließlich in `PlacementZoneField`, damit Auswahl, Reihenfolge und
- * „Automatisch“ dieselben Semantiken verwenden.
- */
 export function CategoryField({
   label,
   categoryOrder,

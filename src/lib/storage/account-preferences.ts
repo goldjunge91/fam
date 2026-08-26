@@ -26,12 +26,6 @@ export async function setBrochurePostalCode(userId: string, postalCode: string):
   storage.set(BROCHURE_POSTAL_CODE_KEY, postalCode);
 }
 
-/**
- * Migriert genau den globalen PLZ-Altwert. Nur eine beim Upgrade bereits
- * wiederhergestellte Session darf ihn übernehmen; ohne solche Session wird er
- * verworfen. Der eigene Marker verhindert eine spätere Zuordnung zum nächsten
- * Login.
- */
 export async function migrateLegacyBrochurePostalCode(
   restoredUserId: string | null,
 ): Promise<void> {

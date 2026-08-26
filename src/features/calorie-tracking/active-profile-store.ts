@@ -4,14 +4,6 @@ import { useEffect, useState } from 'react';
 import { useSession } from '@/features/auth/session-provider';
 import { getSupabase } from '@/lib/supabase';
 
-/**
- * Aktives Tracking-Profil (#65/#85): der eingeloggte Erwachsene selbst oder
- * eines seiner Kinder. `child_profile_id` ist ein Zusatz-Tag auf
- * `food_entries`/`user_goals` — der `user_id` des loggenden Erwachsenen bleibt
- * immer gesetzt (`user_id not null`, keine XOR-Constraint). Kind-Sichtbarkeit
- * laeuft komplett ueber den Account des Erwachsenen; es gibt keinen eigenen
- * Kind-Login und keine kindspezifische RLS-Policy.
- */
 export type ActiveProfile =
   | { type: 'adult'; userId: string }
   | { type: 'child'; childProfileId: string; householdId: string };
@@ -43,14 +35,6 @@ export async function setStoredActiveChildProfileId(
   }
 }
 
-/**
- * Prueft, ob eine `child_profiles`-Zeile noch existiert und zum Haushalt
- * gehoert. Die in AsyncStorage gemerkte Auswahl ueberlebt geraeteseitig
- * unabhaengig vom DB-Zustand — wird das Kindprofil geloescht (oder stammt
- * die id aus einem anderen/zurueckgesetzten Zustand), muss das erkannt
- * werden, bevor die id in einen Insert wandert (FK-Constraint auf
- * `food_entries`/`user_goals`).
- */
 async function childProfileExists(householdId: string, childProfileId: string): Promise<boolean> {
   const { data, error } = await getSupabase()
     .from('child_profiles')
@@ -68,16 +52,6 @@ async function childProfileExists(householdId: string, childProfileId: string): 
   return data != null;
 }
 
-/**
- * Liefert das aktive Profil fuer die Kalorien-Tracking-Screens, Default ist
- * immer der eingeloggte Erwachsene. Eine gespeicherte Kind-Auswahl je
- * Haushalt ueberlebt einen Neustart.
- *
- * Die gespeicherte `childProfileId` wird gegen die DB validiert: existiert
- * das Profil nicht mehr, faellt die Auswahl auf den Erwachsenen zurueck und
- * der veraltete AsyncStorage-Eintrag wird geloescht (siehe
- * `childProfileExists`).
- */
 export function useActiveProfile(householdId: string | undefined): {
   profile: ActiveProfile | null;
   setProfile: (profile: ActiveProfile) => void;

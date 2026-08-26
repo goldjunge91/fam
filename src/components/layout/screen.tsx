@@ -22,12 +22,7 @@ type ScreenProps = {
   children: ReactNode;
   /** Aktion rechts neben dem Titel, z. B. ein Hinzufuegen-Button. */
   action?: ReactNode;
-  /**
-   * Hamburger + Avatar statt Zurueck-Knopf — fuer die Hub-Screens, die frueher
-   * per Bottom-Tab erreichbar waren (#150, Figma "00 · Screens — Übersicht &
-   * Navigation"). Mit `chrome` gesetzt wird `back`/`action` ignoriert: beide
-   * Header-Varianten schliessen sich aus.
-   */
+
   chrome?: {
     onMenuPress: () => void;
     onAvatarPress: () => void;
@@ -42,42 +37,12 @@ type ScreenProps = {
   scroll?: boolean;
   /** Deaktivieren, wenn ein eigener ScrollView den unteren Inhaltsabstand übernimmt. */
   applyBottomPadding?: boolean;
-  /**
-   * Wohin diese Seite zurueckfuehrt. Ohne Angabe gibt es keinen Knopf.
-   *
-   * Jede Seite benennt ihr Ziel selbst, statt dass ein generisches
-   * "← Zurück" aus `router.canGoBack()` erraten wird. Die Automatik war aus
-   * zwei Gruenden falsch:
-   *
-   * 1. Der Wert wurde einmal beim Rendern gelesen und nie wieder. Aenderte
-   *    sich die Navigation danach, zeigte der Screen einen Knopf, den es nicht
-   *    mehr gab — `router.back()` lief dann in
-   *    "The action 'GO_BACK' was not handled by any navigator".
-   * 2. Tab-Wechsel landen bei `NativeTabs` in der Historie. Damit meldete
-   *    `canGoBack()` auch auf der Uebersicht irgendwann `true`, obwohl es dort
-   *    nichts gibt, wohin man zurueckkehren koennte.
-   *
-   * Die Position ist bewusst fuer alle Seiten dieselbe: oben links ueber dem
-   * Titel. Individuell ist nur die Beschriftung — und die nennt das Ziel.
-   */
+
   back?: BackTarget;
-  /**
-   * `'icon'` zeigt den runden Pfeil-Button im `MenuButton`-Look statt des
-   * textbasierten "‹ Ziel"-Links — fuer alle von den Einstellungen aus
-   * erreichbaren Screens (#??? , "richtiger Zurück-Button"). Andere Screens
-   * bleiben unveraendert beim textbasierten Default.
-   */
+
   backStyle?: 'text' | 'icon';
 };
 
-/**
- * Gemeinsames Geruest aller Screens: Safe Area, Titelzeile, begrenzte Breite.
- *
- * Seit #150 gibt es keine native Bottom-Tab-Leiste mehr (Hamburger-Drawer +
- * globaler Plus-Button statt `NativeTabs`) — der zusaetzliche Bodenabstand
- * ist nur noch fuer Hub-Screens (`chrome` gesetzt) noetig, damit der
- * schwebende Plus-Button den letzten Listeneintrag nicht verdeckt.
- */
 export function Screen({
   title,
   subtitle,
@@ -91,9 +56,7 @@ export function Screen({
   backgroundGradient,
 }: ScreenProps) {
   const body = <View className="gap-three">{children}</View>;
-  // Der Sync-Banner konsumiert die obere Safe Area selbst, solange er
-  // sichtbar ist (Offline/Sync/Fehler) — sonst wuerde der Statusleisten-
-  // Abstand doppelt eingerechnet.
+  // Der sichtbare Sync-Banner übernimmt die obere Safe Area selbst.
   const bannerVisible = useSyncBannerVisible();
   const edges = bannerVisible ? (['left', 'right'] as const) : (['top', 'left', 'right'] as const);
 

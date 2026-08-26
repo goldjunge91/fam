@@ -11,11 +11,6 @@ type InventorySummaryCardProps = {
   soonCount: number;
 };
 
-/**
- * Zwei Ablauf-Ringe statt eines einzelnen Bestandsrings: "Läuft bald ab"
- * (kritisch/abgelaufen) und "Bald fällig" (soon). Beide Ringe visualisieren
- * den Anteil am Gesamtfüllstand über ProgressRing im compact-Preset (#164).
- */
 export function InventorySummaryCard({
   totalCount,
   criticalCount,

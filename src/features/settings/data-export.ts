@@ -1,16 +1,6 @@
 import type { Database } from '@/lib/database.types';
 import { getSupabase } from '@/lib/supabase';
 
-/**
- * Vollstaendiger Datenexport (#97, DSGVO Art. 20).
- *
- * Nur eigene, private Daten des angemeldeten Accounts — keine geteilten
- * Haushaltsdaten anderer Mitglieder (Kuehlschrank-Bestand, Einkaufsliste
- * gehoeren dem Haushalt, nicht dem einzelnen Nutzer, siehe #96/docs/DATENSCHUTZ.md).
- * Haushaltsmitgliedschaften selbst (welchem Haushalt man angehoert, mit
- * welcher Rolle) sind Teil des Exports, weil sie zum eigenen Account gehoeren.
- */
-
 const PAGE_SIZE = 1000;
 
 type ProfileRow = Database['public']['Tables']['profiles']['Row'];
@@ -64,9 +54,7 @@ export async function buildUserDataExport(userId: string): Promise<UserDataExpor
   const [profileResult, childProfilesResult, membershipsResult, goals, foodEntries, weightEntries] =
     await Promise.all([
       supabase.from('profiles').select('*').eq('id', userId).maybeSingle(),
-      // Kinderprofile gehoeren dem Haushalt, nicht dem einzelnen Elternteil —
-      // trotzdem im Export, weil ein Nutzer sie angelegt/verwaltet hat und sie
-      // sonst mit der Kontoloeschung (#98) sonst unauffindbar waeren.
+      // Kinderprofile mit exportieren, da der Nutzer sie verwaltet.
       supabase.from('child_profiles').select('*').eq('managed_by', userId),
       supabase.from('household_members').select('*').eq('user_id', userId),
       fetchAllPages<UserGoalRow>('user_goals', userId),

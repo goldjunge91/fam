@@ -4,19 +4,6 @@ import { type PullOutcome, pullHousehold } from '@/lib/sync/pull';
 import { type PushResult, pushOutbox } from '@/lib/sync/push';
 import { clockCeiling, type ServerClock } from '@/lib/sync/server-clock';
 
-/**
- * Top-Level-Orchestrator der Sync-Engine (#47).
- *
- * Push laeuft VOR Pull: derselbe Lauf's Pull beobachtet danach sofort die
- * soeben gepushte Zeile (mit dem autoritativen Server-`updated_at`) und setzt
- * `_dirty` ueber den ohnehin idempotenten Upsert-Pfad zurueck auf 0 — statt
- * die Spiegelzeile bis zum naechsten Zyklus dirty zu lassen.
- *
- * Haushalts-parametrisiert, ohne App-Wiring: `supabase` muss mit
- * `serverClock.fetch` gebaut sein (siehe `server-clock.ts`), sonst bleibt
- * `clockCeiling` ohne Serverzeit-Beobachtung auf `now` zurueckfallen.
- */
-
 export type SyncRunResult = {
   push: PushResult;
   pull: PullOutcome[];

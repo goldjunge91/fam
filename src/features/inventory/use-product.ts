@@ -18,11 +18,6 @@ export type LocalProduct = {
   source: string;
 };
 
-/**
- * Laedt das mit einem Vorrats-Artikel verknuepfte Produkt (Naehrwerte) aus
- * SQLite. `productId` kann fehlen (manuell angelegte Artikel ohne
- * Produktbezug) — dann bleibt die Query deaktiviert.
- */
 export function useProduct(productId: string | null | undefined) {
   return useQuery({
     queryKey: ['product', productId],

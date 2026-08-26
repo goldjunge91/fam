@@ -5,19 +5,6 @@ import { AppState, type AppStateStatus } from 'react-native';
 import { trackAnalyticsEvent } from '@/lib/analytics/events';
 import { getPostHogClient, isPostHogConfigured } from '@/lib/posthog';
 
-/**
- * Automatisches Screen- und Verweildauer-Tracking fuer Expo Router.
- *
- * 1. Misst beim Betreten eines Screens den Startzeitpunkt und sendet
- *    - `screen_view` (Aptabase + PostHog)
- *    - `client.screen(pathname)` (Native PostHog Screen API)
- *
- * 2. Berechnet beim Verlassen des Screens oder beim Wechsel in den Hintergrund
- *    die genaue Verweildauer (`duration_seconds`) und sendet `screen_leave`.
- *
- * 3. Pausiert bei App-Hintergrund/Sperre, damit Screen-Zeiten nicht kuenstlich
- *    aufgeblaeht werden.
- */
 export function ScreenTracker(): null {
   const pathname = usePathname();
   const currentScreenRef = useRef<string | null>(null);

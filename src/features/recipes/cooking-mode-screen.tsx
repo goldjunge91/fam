@@ -102,13 +102,6 @@ function FinishAction({
   );
 }
 
-/**
- * Kochmodus-Basis-Ansicht (#133, kostenlose Stufe): reiner Lese-Screen mit
- * Zutatenliste, Basis-Rezepttext und nummerierten Schritten. Bewusst kein
- * interaktiver Schritt-fuer-Schritt-Ablauf und kein Timer — das bleibt
- * Premium (#134/#135), siehe `CookingModeScreen` und `BENEFITS` in
- * `premium-screen.tsx`.
- */
 function FreeCookingMode({ data }: { data: RecipeDetail }) {
   const hubGradient = useHubGradient();
   const { recipe, items, steps, productsById } = data;
@@ -190,7 +183,6 @@ function FreeCookingMode({ data }: { data: RecipeDetail }) {
             </View>
           ) : null}
 
-          {/* Paywall-Button zum Freischalten des geführten Schritt-für-Schritt-Kochmodus */}
           <Pressable
             onPress={unlockPremium}
             role="button"

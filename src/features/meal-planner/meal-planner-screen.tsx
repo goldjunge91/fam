@@ -47,14 +47,6 @@ import {
 type PendingDrop = { date: string; slot: MealSlot; recipe: DraggableRecipe };
 type PendingCell = { date: string; slot: MealSlot };
 
-/**
- * Meal-Planner-Screen (#129, Nachtrag): Tages-/3-Tage-/Wochenraster mit
- * Tippen-zum-Hinzufuegen (Hauptweg) und Drag & Drop (Zusatzweg) +
- * "letzte Woche erneut verwenden".
- *
- * Eigene Seite, nicht Teil von Rezepte — erreichbar von der Uebersicht
- * (Dashboard-Karte) und zusaetzlich als Shortcut aus dem Rezepte-Screen.
- */
 export function MealPlannerScreen() {
   const theme = useTheme();
   const { openDrawer } = useNavigationChrome();
@@ -279,7 +271,6 @@ export function MealPlannerScreen() {
           </Pressable>
         </View>
 
-        {/* Schnellaktionen für die Wochenansicht (Vorwoche übernehmen, Einkauf vorbereiten) */}
         {viewMode === 'week' ? (
           <View className="mp-actions-row">
             <Pressable
@@ -314,7 +305,6 @@ export function MealPlannerScreen() {
           </View>
         ) : null}
 
-        {/* Haupt-Planungsraster für Tage und Mahlzeitenslots (Frühstück, Mittag, Abend) */}
         <WeekGrid
           dates={dates}
           entries={entries}
@@ -348,7 +338,6 @@ export function MealPlannerScreen() {
         />
       ) : null}
 
-      {/* Bearbeitungs-Modal für bestehenden Mahlzeiteneintrag (Portionen / Löschen) */}
       {editingEntry ? (
         <EntryFormModal
           visible

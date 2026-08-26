@@ -6,12 +6,6 @@ import type { CategoryFeedbackInput } from './feedback';
  * `CategoryFeedbackDraft` (Add, noch ohne `shoppingListItemId`) passt. */
 type CategoryFeedbackTraceSlice = Pick<CategoryFeedbackInput, 'eventType' | 'preferenceScope'>;
 
-/**
- * Dev-only Trace für das `shopping-category-feedback-alpha`-Flag: zeigt, ob
- * die vom Klassifikator vorhergesagte Zone, die tatsächlich gespeicherte Zone
- * und das daraus abgeleitete Feedback-Event konsistent zueinander stehen.
- * Ueber `debugLog()` an `__DEV__` und `EXPO_PUBLIC_DEBUG_LOGS` gekoppelt.
- */
 export function logCategoryFeedbackAlphaTrace(input: {
   origin: 'add_form' | 'edit_form';
   featureFlagEnabled: boolean;

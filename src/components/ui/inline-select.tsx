@@ -20,13 +20,6 @@ type InlineSelectProps = {
   accessibilityLabel: string;
 };
 
-/**
- * Kompaktes Dropdown fuer 2-4 Optionen direkt unter einem Suchfeld (#Vorrat-
- * Redesign, angelehnt an die Einkaufen-Vorschlaege): ein Button mit
- * aktuellem Wert + Chevron, das Optionsfeld klappt darunter auf statt ein
- * natives Rad zu oeffnen (anders als `WheelPickerField`, das fuer feste,
- * laengere Listen gedacht ist).
- */
 export function InlineSelect({ value, options, onChange, accessibilityLabel }: InlineSelectProps) {
   const [open, setOpen] = useState(false);
   const selected = options.find((option) => option.value === value);

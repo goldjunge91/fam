@@ -2,11 +2,6 @@ import { migrateLegacyRecipePreferences } from '@/features/recipes/legacy-recipe
 import { Sentry } from '@/lib/sentry';
 import { migrateLegacyBrochurePostalCode } from '@/lib/storage/account-preferences';
 
-/**
- * Einziger Einstieg für globale Altwerte beim App-Upgrade. `restoredUserId`
- * stammt ausschließlich aus dem initialen getSession-Snapshot, niemals aus
- * einem späteren Login.
- */
 export async function migrateLegacyAccountData(restoredUserId: string | null): Promise<void> {
   const migrations = await Promise.allSettled([
     migrateLegacyBrochurePostalCode(restoredUserId),

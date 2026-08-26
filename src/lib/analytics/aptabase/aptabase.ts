@@ -13,15 +13,6 @@ import { env } from '@/lib/env';
 let configured = false;
 let initializationError: string | undefined;
 
-/**
- * Initialisiert das Aptabase Analytics SDK einmalig pro App-Leben.
- *
- * Ohne `EXPO_PUBLIC_APTABASE_APP_KEY` (z. B. lokale Entwicklung ohne Analytics)
- * bleibt der Aufruf bewusst ein No-op statt eines Fehlers.
- *
- * Crash-Reporting wird standardmäßig deaktiviert (`enableCrashReporting: false`),
- * da Sentry (`@/lib/sentry`) für Fehler- und Crash-Erfassung zuständig ist.
- */
 export function initAptabase(customOptions?: Partial<AptabaseOptions>): void {
   if (configured) return;
   configured = true;
@@ -62,12 +53,6 @@ export function getAptabaseInitializationError(): string | undefined {
   return initializationError;
 }
 
-/**
- * Sendet ein benutzerdefiniertes Analytics-Event an Aptabase.
- *
- * Props akzeptieren Zeichenketten, Zahlen und Booleans.
- * Aufrufe sind asynchron und blockieren den UI-Thread nicht.
- */
 export function trackAptabaseEvent(
   eventName: string,
   props?: Record<string, string | number | boolean>,

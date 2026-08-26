@@ -12,27 +12,12 @@ export type ExpiryInfo = {
 
 const MS_PER_DAY = 86_400_000;
 
-/**
- * Tage zwischen zwei Kalendertagen — bewusst ueber die Datumsanteile, nicht
- * ueber die Millisekunden-Differenz.
- *
- * Sonst waere das Ergebnis von der Uhrzeit abhaengig: "heute 23:00" gegen
- * "morgen 01:00" sind zwei Stunden, aber ein Kalendertag. Bei einem
- * Mindesthaltbarkeitsdatum zaehlt der Tag, nicht der Zeitpunkt.
- */
 function calendarDaysBetween(from: Date, to: Date): number {
   const a = Date.UTC(from.getFullYear(), from.getMonth(), from.getDate());
   const b = Date.UTC(to.getFullYear(), to.getMonth(), to.getDate());
   return Math.round((b - a) / MS_PER_DAY);
 }
 
-/**
- * Stuft ein Mindesthaltbarkeitsdatum ein (#71).
- *
- * `today` wird uebergeben statt intern `new Date()` aufzurufen. Nur so ist die
- * Funktion deterministisch und ohne Testdoubles pruefbar — und nur so haengt
- * das Ergebnis nicht davon ab, wann der Test zufaellig laeuft.
- */
 export function getExpiryInfo(
   expiryDate: Date | string | null | undefined,
   today: Date,

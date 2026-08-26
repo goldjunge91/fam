@@ -1,11 +1,3 @@
-/**
- * Aktive Dateien und die beiden kurzlebigen Cutover-Stufen.
- *
- * Eine vorhandene Klartext-`fam-v2.db` wird nicht verworfen: Sie wird zuerst
- * vollständig nach `encryptedNext` exportiert, während `plaintextRecovery`
- * den atomaren Dateitausch absichert. Der OFF-Dump bleibt ein unabhängiger,
- * öffentlicher Klartextkatalog.
- */
 export const DATABASE_FILE_NAMES = {
   main: 'fam-v2.db',
   encryptedNext: 'fam-v2.encrypted.next.db',

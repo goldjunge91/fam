@@ -11,11 +11,6 @@ function resolveDrainWaiters(): void {
   drainWaiters.clear();
 }
 
-/**
- * Reserviert einen Account-Sync-Lauf. Während eines Account-Cleanups werden
- * neue Läufe abgewiesen; bereits reservierte Läufe werden vor dem DB-Wipe
- * vollständig abgewartet.
- */
 export function beginAccountSyncRun(): (() => void) | null {
   if (stoppedForAccountTransition) return null;
   activeRuns += 1;

@@ -11,14 +11,6 @@ export function formatGermanDateInput(raw: string): string {
   return parts.join('.');
 }
 
-/**
- * Wandelt TT.MM.JJJJ in ISO (JJJJ-MM-TT) um, oder `undefined` bei ungültigem
- * oder kalendarisch unmöglichem Datum (z. B. 31.02.). `new Date()` würde
- * einen solchen Tag still in den Folgemonat umrollen statt ihn abzulehnen —
- * Postgres' `date`-Spalte tut das nicht und wirft dann erst beim Speichern
- * "date/time field value out of range". `normalizeDateInput` prüft per
- * Rundtrip, dass Jahr/Monat/Tag exakt erhalten bleiben.
- */
 export function germanDateToIso(value: string): string | undefined {
   return normalizeDateInput(value) ?? undefined;
 }

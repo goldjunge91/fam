@@ -1,14 +1,10 @@
 import { Linking, type StyleProp, Switch, View, type ViewStyle } from 'react-native';
 import { ThemedText } from '@/components/theme/themed-text';
 import { Card } from '@/components/ui/card';
-// Switch akzeptiert nur echte Farbwerte in trackColor, keine CSS-Variable/
-// Tailwind-Klasse (s. docs/design-system/nativewind-liquid-glass-migration.md).
+// `trackColor` benötigt echte Farbwerte statt CSS-Variablen.
 import { useTheme } from '@/hooks/use-theme';
 
-// Defensiver Import: expo-camera ist nur in einem nativen Dev-Build verfügbar.
-// Gleiches Hook-Pattern wie in barcode-scanner-modal.tsx und dem Onboarding-
-// Permissions-Step, damit der Systemdialog wirklich über die native Kamera-API
-// ausgelöst wird.
+// Das native Kameramodul ist nur im Dev Build verfügbar.
 // biome-ignore lint/suspicious/noExplicitAny: Dynamic Expo Camera Module
 let useCameraPermissionsHook: any = () => [null, async () => ({ granted: false })];
 try {
@@ -24,20 +20,12 @@ type CameraPermissionCardProps = {
   style?: StyleProp<ViewStyle>;
 };
 
-/**
- * Kamera-Berechtigung ist einmal im Onboarding abgefragt worden, kann aber
- * jederzeit über die iOS/Android-Systemeinstellungen wieder entzogen werden.
- * Diese Karte macht den aktuellen Systemstatus sichtbar und erlaubt, die
- * Berechtigung erneut anzufragen (Android) bzw. direkt in die
- * System-Einstellungen zu springen, wenn iOS ein erneutes Fragen verweigert.
- */
 export function CameraPermissionCard({ style }: CameraPermissionCardProps) {
   const theme = useTheme();
   const [permission, requestPermission] = useCameraPermissionsHook();
 
   const granted = permission?.granted ?? false;
-  // iOS fragt nach einer Ablehnung nie wieder selbst — dort geht es nur noch
-  // über die System-Einstellungen weiter (canAskAgain === false).
+  // Nach einer iOS-Ablehnung nur noch zu den Systemeinstellungen verweisen.
   const canAskAgain = permission?.canAskAgain ?? true;
 
   async function handleToggle(value: boolean) {

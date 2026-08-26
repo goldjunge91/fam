@@ -12,13 +12,6 @@ type QuantityStepperProps = {
   size?: 'default' | 'large';
 };
 
-/**
- * Kompakter Mengen-Stepper fuer ganzzahlige Einkaufs- und Portionsmengen.
- * `max` war frueher 99 — zu knapp, sobald die Einheit Gramm/Milliliter ist
- * und die Menge direkt (nicht als Packungsgroesse) eingegeben wird, z. B.
- * "500" bei Einheit "g" (#UI-Feedback). 99 blieb als Default fuer reine
- * Stueckzahlen plausibel, wirkte dort aber ohnehin selten begrenzend.
- */
 export function QuantityStepper({
   value,
   onChange,

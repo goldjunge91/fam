@@ -42,7 +42,7 @@ export function RecipeLogScreen() {
     [data],
   );
 
-  // biome-ignore lint/correctness/useExhaustiveDependencies: Initialwerte nur einmal aus den geladenen Rezeptdaten übernehmen.
+  // biome-ignore lint/correctness/useExhaustiveDependencies: Initialwerte nur einmal übernehmen.
   useEffect(() => {
     if (!data || gramsById !== null) return;
     const initial: Record<string, number> = {};
@@ -211,7 +211,6 @@ export function RecipeLogScreen() {
                 ))}
               </View>
 
-              {/* Berechnete Nährwert-Zusammenfassung (kcal & Makros) basierend auf Eingabegewichten */}
               {total && !isWeighMode ? (
                 <View className="min-h-[53px] rounded-card items-center justify-center px-[11px] bg-background-selected">
                   <ThemedText className="text-[15px] leading-[18px] font-bold">

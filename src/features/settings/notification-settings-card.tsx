@@ -20,14 +20,6 @@ type NotificationSettingsCardProps = {
   style?: StyleProp<ViewStyle>;
 };
 
-/**
- * Legt nur noch fest, WANN erinnert wird (Schwellenwert, Uhrzeit) — OB die
- * App überhaupt Benachrichtigungen anzeigen darf, ist eine reine
- * OS-Berechtigung und lebt in `NotificationPermissionCard` unter
- * /settings/permissions. `settings.enabled` bleibt intern immer `true`;
- * `scheduleExpiryNotificationReminder` prüft die echte OS-Berechtigung
- * ohnehin selbst, bevor etwas geplant wird.
- */
 export function NotificationSettingsCard({ style }: NotificationSettingsCardProps) {
   const [settings, setSettings] = useState<NotificationSettings>(DEFAULT_NOTIFICATION_SETTINGS);
 

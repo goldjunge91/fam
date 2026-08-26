@@ -2,14 +2,6 @@ import type { ForeignKeyViolationResolver } from '@/lib/db/entities';
 
 const SYNC_COLUMNS = new Set(['updated_at', 'deleted_at', '_dirty']);
 
-/**
- * FK-Reparatur fuer `shopping_list_items`:
- * Wenn ein `store_id` oder `product_id` auf dem Server (noch) nicht existiert
- * und der Push mit 23503 fehlschlaegt, wird versucht, den fehlenden Datensatz
- * zuerst nachzupushen (sofern lokal vorhanden). Falls er lokal nicht vorhanden
- * ist oder der Push fehlschlaegt, wird der FK auf `null` gesetzt, damit das Item
- * nicht dauerhaft in der Outbox blockiert.
- */
 export const repairShoppingListItemForeignKeyViolation: ForeignKeyViolationResolver = async (
   { db, supabase },
   payload,

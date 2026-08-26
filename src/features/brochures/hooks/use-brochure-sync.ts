@@ -5,8 +5,7 @@ import { Sentry } from '@/lib/sentry';
 import { getSupabase } from '@/lib/supabase';
 
 /**
- * Zieht den wöchentlichen Prospekt-Dump aus Supabase (falls vorhanden) und schreibt ihn in die lokale SQLite-DB.
- * Löscht außerdem abgelaufene Prospekte.
+ * Synchronisiert Prospekte nach SQLite und entfernt abgelaufene Einträge.
  */
 export function useBrochureSync(zipCode: string | null) {
   const [isSyncing, setIsSyncing] = useState(false);
@@ -24,7 +23,7 @@ export function useBrochureSync(zipCode: string | null) {
       setIsSyncing(true);
       try {
         const supabase = getSupabase();
-        // 1. Hole den Dump (den aktuellsten, der noch gueltig ist)
+        // Aktuellen gültigen Dump laden.
         const { data: dump, error } = await supabase
           .from('brochure_dumps')
           .select('payload_json')
@@ -37,7 +36,7 @@ export function useBrochureSync(zipCode: string | null) {
         if (error) throw error;
         if (!dump || !isMounted) return;
 
-        // 2. Parsen und in lokale Tabellen schreiben (Transaction)
+        // Daten transaktional in die lokalen Tabellen schreiben.
         const db = await getDatabase();
         const payload = dump.payload_json as unknown as {
           stores?: Array<{ id: string; name: string; logoUrl?: string }>;

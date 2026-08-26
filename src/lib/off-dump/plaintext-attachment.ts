@@ -18,15 +18,6 @@ export function plaintextAttachSql(
   return `ATTACH DATABASE '${escapeSqlPath(path)}' AS ${alias}${keyClause}`;
 }
 
-/**
- * OFF-Baselines und -Patches sind öffentliche Klartext-SQLite-Dateien. Auf
- * einer SQLCipher-Hauptverbindung muss das leere KEY ausdrücklich angegeben
- * werden, sonst erbt das Attachment den Raw-Key samt Salt der Hauptdatei.
- *
- * Der Modus ist absichtlich explizit: Produktion darf bei einem unbekannten
- * PRAGMA niemals still auf ein Attach ohne KEY zurückfallen. `sqlite` ist nur
- * für den node:sqlite-Testadapter bestimmt.
- */
 export async function attachPlaintextDatabase(
   db: SqlDatabase,
   path: string,

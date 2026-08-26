@@ -17,12 +17,6 @@ export type PlacementResolutionInput = {
   snapshot?: PlacementSnapshot | null;
 };
 
-/**
- * Loest eine Placement-Zone in der fachlichen Reihenfolge auf:
- * globale Klassifikation, Haushaltspraeferenz, Marktspraeferenz, Snapshot.
- * `undefined` bedeutet "keine Praeferenz"; `null` ist ein leerer Treffer und
- * wird deshalb ebenfalls nicht als Override verwendet.
- */
 export function resolvePlacement(input: PlacementResolutionInput): PlacementClassification {
   const { globalClassification } = input;
   let zone = globalClassification.placementZoneId;

@@ -20,13 +20,6 @@ export type LocalInventoryItem = {
   location_name: string | null;
 };
 
-/**
- * Liest alle Vorrats-Artikel fuer den Haushalt aus SQLite, mit JOIN
- * auf `storage_locations` fuer Lagerort-Name und -Kind (#67).
- *
- * Sortierung: Ablaufdatum aufsteigend, NULL ans Ende — nutzt die
- * Bucket-Logik aus `expiry.ts` implizit (kritische Items stehen oben).
- */
 export function useInventoryItems(householdId: string | undefined) {
   return useQuery({
     queryKey: ['fridge_items', householdId],

@@ -37,15 +37,6 @@ interface FrequentProductsQuickSelectProps {
   onSelectProduct: (product: OpenFoodFactsProduct) => void;
 }
 
-/**
- * Vorschlags-Chips fuer Vorrat und Einkaufsliste (#79), gesteuert ueber den
- * `mode`-Filter-Dropdown des Aufrufers ("Haeufig"/"Zuletzt", s.
- * add-item-screen.tsx). `getFrequentProductUsage` liefert bereits eine je
- * Name deduplizierte, passend sortierte Liste direkt aus SQL — eine
- * zusaetzliche Client-seitige Neusortierung (frueher `rankByName`) wuerde
- * bei `mode: 'recent'` die Reihenfolge nur wieder kaputt machen, deshalb
- * reicht hier ein reines Durchreichen + Slice.
- */
 export function FrequentProductsQuickSelect({
   feature,
   userId,

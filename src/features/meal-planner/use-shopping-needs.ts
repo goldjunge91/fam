@@ -20,18 +20,10 @@ export type MissingIngredientView = {
   recipeNames: string[];
 };
 
-/**
- * Zutatenbedarf des angegebenen Wochenplans minus Vorratsbestand (#131),
- * inkl. History-Praeferenz (zuletzt verwendeter Markt) je fehlendem Produkt.
- *
- * Liest lokal aus SQLite (Rezept-Baukasten, `fridge_items`,
- * `shopping_list_items`-Historie) — kein Server-Roundtrip, wie der Rest der
- * App offline-first.
- */
 export function useMealPlanShoppingNeeds(
   mealPlanId: string | undefined,
   householdId: string | undefined,
-  /** Premium-Feature (#131 kuratiert, sonst nur die Vorschau der Paywall) — ohne Zugriff wird gar nicht erst gerechnet. */
+  /** Premium-Feature; ohne Zugriff wird nicht gerechnet. */
   enabled: boolean = true,
 ) {
   return useQuery({

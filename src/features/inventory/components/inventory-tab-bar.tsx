@@ -79,10 +79,7 @@ export function InventoryTabBar({ activeTab, onTabChange, locations }: Inventory
         <ThemedText type="small" className="font-semibold">
           {activeLocation?.name ?? 'Lagerort auswählen'}
         </ThemedText>
-        {/* Rotation als natives Transform statt dynamischer Klasse: ein
-            Klassenwechsel nach dem ersten Render loest bei NativeWind einen
-            "Upgrade"-Rewrap aus, dessen Dev-Warnung an einem Navigation-
-            Context-Getter abstuerzt (react-native-css-interop-Bug). */}
+        {}
         <View
           className="w-[10px] h-[6px]"
           style={{ transform: [{ rotate: isOpen ? '180deg' : '0deg' }] }}>

@@ -4,16 +4,6 @@ import { Pressable, View } from 'react-native';
 import { ThemedText } from '@/components/theme/themed-text';
 import { ThemedView } from '@/components/theme/themed-view';
 
-/**
- * Menuezeilen fuer die Einstellungen.
- *
- * Die Einstellungen waren eine einzige lange Seite, auf der Anzeige, Aktion
- * und Formular durcheinanderliefen. Hier ist die Uebersicht nur noch ein
- * Verzeichnis: eine Zeile je Thema, das Thema selbst liegt auf einer eigenen
- * Seite. Was auf der Uebersicht bleibt, ist der aktuelle Wert rechts — damit
- * man das Wichtigste sieht, ohne irgendwo hineinzugehen.
- */
-
 type SettingsGroupProps = {
   title?: string;
   children: ReactNode;

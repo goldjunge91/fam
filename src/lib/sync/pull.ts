@@ -11,25 +11,9 @@ import type { TypedSupabaseClient } from '@/lib/supabase';
 import { EPOCH_START } from '@/lib/sync/cursor';
 import { applyRemoteRow } from '@/lib/sync/mirror-write';
 
-/**
- * Pull-Haelfte der Sync-Engine (#47).
- *
- * Keyset-Pagination ueber `(updated_at, id)` — `updated_at` allein ist kein
- * sicherer Cursor: `create_household()` fuegt drei `storage_locations` in
- * einer Transaktion ein, Postgres' `now()` ist fuer die ganze Transaktion
- * stabil, alle drei teilen sich denselben Wert. Der `.or()`-Filter dafuer
- * wurde vorab gegen die echte lokale Instanz validiert (genau dieses
- * Tie-Szenario, drei gleichzeitig angelegte Lagerorte).
- */
-
 /** Unter `config.toml`s `max_rows = 1000`. */
 const PAGE_SIZE = 500;
 
-/**
- * Untere Grenze fuer `id.gt.` beim allerersten Pull einer Entity. Eine leere
- * Zeichenkette waere hier keine gueltige `.or()`-Filter-Komponente; die
- * kleinstmoegliche UUID ist es und schliesst dieselben Zeilen ein.
- */
 const MIN_UUID = '00000000-0000-0000-0000-000000000000';
 
 type PullResponse = {
@@ -85,23 +69,12 @@ async function pullEntity(
     rowsSkippedAsLocalWins: 0,
   };
 
-  // Push-only-Entities haben weder Pull-Cursor noch Remote-Spiegelzeile.
-  // Dieser Guard bleibt auch dann wirksam, wenn ein interner Aufrufer die
-  // Entity-Liste spaeter direkt an `pullEntity` weiterreicht.
+  // Push-only-Entities haben keinen Pull-Cursor und keine Remote-Spiegelzeile.
   if (meta.pushOnly) return outcome;
 
   const { cursor: storedCursor, lastError: previousError } = await readSyncState(db, entity);
 
-  // 'households' bekommt bewusst nie den gespeicherten Cursor: RLS-
-  // Sichtbarkeit aendert sich hier per `household_members`-Beitritt, nicht
-  // per Zeilen-Update — ein Haushalt, dem man gerade beitritt, kann laengst
-  // existieren und ein `updated_at` haben, das VOR dem eigenen, schon
-  // fortgeschrittenen Cursor liegt (z.B. weil das Geraet vorher schon sein
-  // eigenes, spaeter angelegtes Haushalt gepullt hat). Ein rein inkrementeller
-  // Cursor wuerde so eine gerade neu sichtbar gewordene, aber aeltere Zeile
-  // fuer immer aussortieren (#Beitritt-ohne-lokalen-Haushalt, per Logging
-  // reproduziert). Die Tabelle ist pro Nutzer winzig — ein voller Rescan bei
-  // jedem Pull ist guenstig genug, um das Problem strukturell zu vermeiden.
+  // Haushalte immer vollständig laden: Beitritte ändern die RLS-Sichtbarkeit ohne Zeilen-Update.
   let cursor = entity === 'households' ? initialCursor() : (storedCursor ?? initialCursor());
 
   for (;;) {
@@ -124,9 +97,7 @@ async function pullEntity(
 
     if (error) {
       await recordSyncError(db, entity, error.message);
-      // Dedupliziert gegen den zuletzt gespeicherten Fehler: ein anhaltendes
-      // Problem (z.B. RLS-Fehlkonfiguration) wuerde sich sonst bei jedem
-      // 20s-Poll erneut melden und das Sentry-Kontingent durchlaufen.
+      // Wiederholte identische Fehler nicht erneut an Sentry senden.
       if (error.message !== previousError) {
         Sentry.captureMessage(`Sync-Pull fehlgeschlagen (${entity}): ${error.message}`, {
           level: 'warning',
@@ -150,10 +121,7 @@ async function pullEntity(
         else outcome.rowsSkippedAsLocalWins += 1;
       }
 
-      // Cursor rueckt erst nach Commit der vollstaendigen Seite vor — nie
-      // mitten in einer Seite. Ein Crash zwischen Fetch und Commit holt beim
-      // naechsten Lauf einfach dieselbe Seite erneut (on conflict macht das
-      // wirkungslos, kein Duplikat).
+      // Cursor erst nach dem vollständigen Seiten-Commit vorrücken; Wiederholung bleibt idempotent.
       await writeSyncCursor(
         txn,
         entity,
@@ -170,18 +138,6 @@ async function pullEntity(
   return outcome;
 }
 
-/**
- * Bereinigt verwaiste `households`-Spiegelzeilen.
- *
- * Anders als der household-gescopte Zweig unten: beide Abfragen sind
- * ungefiltert (household_id gibt es hier nicht — die Zeile IST der
- * Haushalt), und es gibt keine Outbox-`pendingIds`-Ausnahme, weil Haushalte
- * nie ueber die Outbox angelegt werden (siehe migrations.ts-Kommentar bei
- * V6_HOUSEHOLDS). Die RLS-Policy `households_select_member` sorgt dafuer,
- * dass ein entferntes Mitglied die Zeile serverseitig gar nicht mehr sieht —
- * genau wie ein hart geloeschter Haushalt verschwindet er einfach aus
- * `remoteIds` und wird hier lokal entsprechend geloescht.
- */
 async function reconcileHouseholdOrphans(db: SqlDatabase, supabase: TypedSupabaseClient) {
   const { data, error } = await supabase.from('households').select('id');
   if (error || !data) return;

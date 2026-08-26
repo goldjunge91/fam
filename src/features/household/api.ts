@@ -9,13 +9,6 @@ import { triggerHouseholdsPull } from '@/lib/sync/household-bootstrap-sync';
 
 export { HOUSEHOLDS_QUERY_KEY, householdsQueryKey } from '@/features/household/query-keys';
 
-/**
- * Form der lokal gespiegelten `households`-Zeile — bewusst nicht das volle
- * `Database['public']['Tables']['households']['Row']`: `updated_at` wird
- * lokal nicht selektiert (kein Konsument braucht es), und `created_by`/
- * `created_at` sind hier nullable, weil die lokale Spiegeltabelle (anders
- * als der Server) keine NOT-NULL-Constraints traegt (siehe migrations.ts).
- */
 export type Household = {
   id: string;
   name: string;
@@ -29,21 +22,6 @@ export type Household = {
 /** Rohzeile aus SQLite: `premium_active` kommt als 0/1, kein eigener Bool-Typ. */
 type HouseholdRow = Omit<Household, 'premium_active'> & { premium_active: number };
 
-/**
- * Liest alle Haushalte, in denen der aktuell angemeldete Nutzer Mitglied
- * ist, aus dem lokalen SQLite-Spiegel — network-unabhaengig und praktisch
- * instant, auch im Kaltstart ohne Verbindung. `household-bootstrap-sync.ts`
- * haelt den Spiegel im Hintergrund frisch (Pull bei Sitzungsbeginn, alle
- * 20s, bei Reconnect und beim Vordergrund-Wechsel).
- *
- * Der Schluessel traegt die Nutzer-Id, und das ist keine Kosmetik: Mit einem
- * gemeinsamen `['households']` blieb ein bereits gemounteter Observer nach
- * einem Nutzerwechsel an den Daten des Vornutzers haengen — `queryClient.clear()`
- * beim Logout benachrichtigt gemountete Observer naemlich nicht, und danach
- * findet auch keine Invalidierung sie mehr. Mit nutzerspezifischem Schluessel
- * wechselt der Observer beim Anmelden auf eine andere Query und *kann* die
- * fremden Daten gar nicht mehr ausliefern.
- */
 export function useHouseholds() {
   const { session } = useSession();
   const userId = session?.user.id;
@@ -84,19 +62,6 @@ export function useCreateHouseholdMutation() {
   });
 }
 
-/**
- * Mitglieder eines Haushalts samt Anzeigename und Avatar.
- *
- * Ueber das RPC `household_member_profiles` statt per Join auf `profiles`:
- * `profiles` ist bewusst streng privat — dort liegen Geburtsdatum, Geschlecht,
- * Koerpergroesse und Aktivitaetslevel. Die RLS-Policy gibt deshalb nur die
- * eigene Zeile frei, und der fruehere Join `profiles:user_id(*)` lieferte fuer
- * alle anderen `null`; im Screen stand dann "Unbekanntes Mitglied".
- *
- * Eine Policy koennte das nicht loesen: RLS wirkt auf Zeilen, nicht auf
- * Spalten. Das RPC gibt genau die zwei Spalten heraus, die zur Identifikation
- * noetig sind, und prueft serverseitig die Mitgliedschaft.
- */
 export function useHouseholdMembers(householdId: string) {
   return useQuery({
     queryKey: ['households', householdId, 'members'],

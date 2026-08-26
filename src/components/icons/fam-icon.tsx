@@ -25,12 +25,6 @@ const ICONS = {
 
 export type FamIconName = keyof typeof ICONS;
 
-/**
- * Image (expo-image) ist bei NativeWind nicht registriert (kein
- * cssInterop) — className wird auf Image-Elementen stillschweigend
- * ignoriert statt einen Fehler zu werfen. Groesse/Position laufen hier
- * deshalb ausschliesslich ueber style.
- */
 export function FamIcon({
   name,
   size,

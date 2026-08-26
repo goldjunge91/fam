@@ -24,12 +24,6 @@ interface DateWheelFieldProps {
   placeholder?: string;
 }
 
-/**
- * iOS-Datumsfeld ohne Texteingabe — öffnet ein natives Rad (iOS: SwiftUI-Wheel im
- * eigenen Modal mit Übernehmen/Abbrechen). Verhindert ungültige Datumsangaben,
- * weil nur der Picker gültige Daten liefern kann — anders als ein Freitextfeld.
- * Für Android existiert eine .android.tsx Variante mit dem Material-Dialog.
- */
 export function DateWheelField({
   label,
   value,

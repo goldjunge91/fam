@@ -13,12 +13,6 @@ import { useFeatureAccess } from '@/features/settings/use-feature-access';
 
 const SETTINGS_MODULES = getSettingsModules();
 
-/**
- * Modul-Aktivierung (#95) ausserhalb des Onboardings — loest das dort
- * gegebene Versprechen ein ("kannst du später in den Einstellungen
- * anpassen"). Dashboard und Einstellungen sind bewusst nicht abwaehlbar,
- * siehe `docs/VISION.md`, und tauchen deshalb hier nicht auf.
- */
 export function ModuleSettingsScreen() {
   const { session } = useSession();
   const userId = session?.user.id;
@@ -40,13 +34,9 @@ export function ModuleSettingsScreen() {
         </ThemedText>
       </Card>
 
-      {/* Liste aller App-Module mit Toggle-Schaltern (Vorrat, Einkauf, Tagebuch, Rezepte, Meal-Planner) */}
       <View className="gap-two">
         {SETTINGS_MODULES.map((row) => {
-          // Gesperrt = das Modul wird gerade schrittweise ausgerollt und ist
-          // fuer diesen Nutzer noch nicht freigeschaltet (#183) — unabhaengig
-          // von seiner eigenen Praeferenz. Karte bleibt sichtbar, Switch wird
-          // per grauer Ueberlagerung unbedienbar (Variante A).
+          // Gesperrte Module bleiben sichtbar, der Switch ist deaktiviert.
           const locked = isModuleLocked(row.featureFlag);
 
           return (

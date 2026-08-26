@@ -28,28 +28,6 @@ type PremiumContextValue = {
 
 const PremiumContext = createContext<PremiumContextValue | null>(null);
 
-/**
- * Stellt den Premium-Status app-weit bereit, um einzelne Funktionen hinter
- * eine Paywall stellen zu koennen.
- *
- * Drei Quellen, in dieser Reihenfolge:
- *
- * 1. `EXPO_PUBLIC_FORCE_PREMIUM=true` — schaltet Premium hart frei, egal was
- *    RevenueCat oder die DB sagen. Zum Entwickeln einzelner Premium-
- *    Funktionen ohne Sandbox-Kauf pro Testlauf.
- * 2. `households.premium_active` aus dem lokalen SQLite-Spiegel
- *    (`activeHousehold`) — die serverseitige, vom RevenueCat-Webhook
- *    gepflegte Wahrheit. Offline verfuegbar wie der Rest der App, und der
- *    einzige Weg, wie ein Mitglied den Kauf eines anderen Mitglieds sieht.
- * 3. Das RevenueCat-Entitlement `Premium` (`PREMIUM_ENTITLEMENT_ID`) aus dem
- *    live geladenen `CustomerInfo` — greift sofort nach dem eigenen Kauf,
- *    noch bevor der Webhook durchgelaufen ist und die DB-Zeile aktualisiert
- *    hat.
- *
- * Modell B (User-Centric): Der RevenueCat-Kunde wird an die Supabase `user.id`
- * gebunden (`Purchases.logIn`), nicht an die `household_id`. Der aktive Haushalt
- * wird als Subscriber Attribute `household_id` uebertragen.
- */
 export function PremiumProvider({ children }: { children: ReactNode }) {
   const { session } = useSession();
   const { activeHouseholdId, activeHousehold } = useActiveHousehold();

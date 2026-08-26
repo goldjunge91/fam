@@ -77,12 +77,6 @@ function quickDateOffset(key: QuickDateKey): string {
   }
 }
 
-/**
- * Artikel-hinzufuegen fuer Vorrat, im selben Bottom-Sheet-Stil wie
- * `add-item-form.tsx` bei der Einkaufsliste: Suche mit Scan-Button,
- * Quelle-/Vorschlagsfilter-Dropdowns, Produktkarte, Menge+Lagerort
- * nebeneinander, "Weitere Angaben" eingeklappt (Einheit + MHD).
- */
 export function AddItemScreen() {
   const theme = useTheme();
   const { activeHousehold } = useActiveHousehold();
@@ -230,10 +224,7 @@ export function AddItemScreen() {
   return (
     <ThemedView className="flex-1 bg-background">
       <SafeAreaView className="modal-safe-area" edges={['top', 'left', 'right', 'bottom']}>
-        {/* Modal-Handle und Header mit Schließen-Button — Tap darauf schliesst
-            Tastatur UND eine offene Trefferliste (#UI-Feedback: revidiert
-            gegenueber der ersten Fassung, die nur die Tastatur schloss — die
-            Liste liess sich sonst ohne Auswahl gar nicht mehr zumachen). */}
+        {}
         <Pressable
           onPress={() => {
             productSearchRef.current?.dismiss();
@@ -253,10 +244,7 @@ export function AddItemScreen() {
           </View>
         </Pressable>
 
-        {/* `KeyboardAwareScrollView` statt `ScrollView` (#UI-Feedback: "Artikel
-            halb von der Tastatur verdeckt", "kein Button zum Zuklappen") —
-            haelt das fokussierte Feld automatisch ueber der Tastatur sichtbar,
-            siehe item-modal-shell.tsx fuer denselben Fix im Einkaufslisten-Sheet. */}
+        {}
         <KeyboardAwareScrollView
           className="flex-1"
           bottomOffset={24}

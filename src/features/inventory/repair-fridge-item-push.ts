@@ -1,16 +1,5 @@
 import type { ForeignKeyViolationResolver } from '@/lib/db/entities';
 
-/**
- * FK-Reparatur fuer `fridge_items` (#192): ein lokal existierender, aber noch
- * nicht gepushter Lagerort (`location_id`) laesst den Push mit 23503
- * scheitern. Push den Lagerort zuerst nach, oder — falls er lokal gar nicht
- * (mehr) existiert — setze `location_id` auf `null`, damit das Lebensmittel
- * nicht dauerhaft in der Outbox haengen bleibt.
- *
- * Registriert bei `fridge_items` in `entities.ts`, aufgerufen von der
- * generischen Push-Engine (`push.ts`) — die kennt weder `fridge_items` noch
- * `location_id` noch `storage_locations`.
- */
 export const repairFridgeItemForeignKeyViolation: ForeignKeyViolationResolver = async (
   { db, supabase },
   payload,

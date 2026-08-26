@@ -43,18 +43,6 @@ const PAGE_SIZE = 20;
 
 type HistoryTab = 'recent' | 'frequent';
 
-/**
- * Lebensmittelsuche vor der eigentlichen Erfassung — Freitextsuche (Open Food
- * Facts), Barcode-Scan, oder ein Griff auf zuletzt/häufig geloggte
- * Lebensmittel. Ergebnis geht als Router-Params an `/add-food-entry` weiter,
- * dort passiert die eigentliche Mengenauswahl und das Speichern.
- *
- * Suchergebnisse laden seitenweise nach (#Performance-Feedback: ein Begriff
- * wie "Haferflocken" hat hunderte Treffer bei Open Food Facts — alles auf
- * einmal laden waere langsam, ein hartes Limit wuerde brauchbare Treffer
- * verstecken). `FlatList` + `onEndReached` statt der vorherigen einfachen
- * Liste, damit Scrollen tatsaechlich weitere Seiten nachlaedt.
- */
 export function FoodSearchScreen() {
   const theme = useTheme();
   const { session } = useSession();
@@ -86,16 +74,6 @@ export function FoodSearchScreen() {
     params.mealType as MealType,
   );
 
-  /**
-   * Zuerst lokaler SQLite-Dump (off_dump.products) für sofortige Offline-Ergebnisse,
-   * parallel/anschließend Ergänzung über die Open Food Facts API.
-   *
-   * Bei abgetipptem Barcode: exakter Lookup im lokalen Dump vor dem Netz-Lookup.
-   *
-   * `searchFailed` wird nur aktiv, wenn WEDER lokale noch Online-Treffer
-   * vorhanden sind UND die Online-Anfrage fehlschlug. Liegen lokale Treffer
-   * vor, sieht der Nutzer diese sofort ohne störendes Fehlerbanner.
-   */
   async function runSearch(trimmedQuery: string, signal: AbortSignal) {
     setSearching(true);
     setSearchFailed(false);

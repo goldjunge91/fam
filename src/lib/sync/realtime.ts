@@ -10,16 +10,6 @@ import { toEpochMs } from '@/lib/sync/cursor';
 import { applyRemoteRow, deleteMirrorRow } from '@/lib/sync/mirror-write';
 import { clockCeiling, type ServerClock } from '@/lib/sync/server-clock';
 
-/**
- * Realtime → SQLite Bridge (#48).
- *
- * Nur `fridge_items`, `shopping_list_items` und die Haushalts-Praeferenzen sind in der
- * `supabase_realtime`-Publication (`supabase/schemas/10_realtime.sql`) —
- * `storage_locations` und `products` liefern keine Events. Diese Liste ist
- * bewusst hier lokal definiert, nicht in `entities.ts`: sie ist eine
- * Realtime-spezifische Tatsache, keine generische Pro-Entity-Eigenschaft wie
- * `hasServerTombstone`/`householdScoped`.
- */
 const REALTIME_TABLES: readonly Entity[] = [
   'fridge_items',
   'shopping_list_items',
@@ -30,13 +20,7 @@ export type RealtimeRowEvent = {
   entity: Entity;
   op: 'insert' | 'update' | 'delete';
   id: string;
-  /**
-   * Ende-zu-Ende-Latenz in ms: lokale Ankunftszeit minus des Server-
-   * `updated_at` aus der Zeile selbst. Miss- und anzeigbar auf einem
-   * einzelnen Geraet, ohne Uhr-Abgleich mit dem sendenden Geraet — die
-   * Server-Zeit ist der gemeinsame Bezugspunkt. `null` bei `delete`
-   * (kein `updated_at` im `old`-Payload).
-   */
+
   latencyMs: number | null;
 };
 
@@ -47,23 +31,9 @@ type SubscribeHouseholdRealtimeDeps = {
   serverClock: ServerClock;
   /** Query-Cache-Invalidierung o.ae. — Sache des Aufrufers (Epic 4/5), hier nur ein Hook. */
   onRowApplied?: (event: RealtimeRowEvent) => void;
-  /**
-   * Wird bei jedem `SUBSCRIBED`-Uebergang aufgerufen, der auf eine
-   * vorangegangene Verbindungsstoerung folgt (nicht beim allerersten Connect
-   * — der wird bereits vom App-Start-Sync des Aufrufers abgedeckt, ein
-   * zusaetzlicher Resync hier waere redundant). Typisch:
-   * `() => syncHousehold({ db, supabase, serverClock, householdIds })`.
-   * Bewusst caller-supplied statt intern aufgeloest — dieselbe Disziplin wie
-   * push.ts/pull.ts, die auch nicht selbst wissen, was "syncHousehold" ist.
-   */
+
   onReconnectResyncNeeded: () => Promise<void>;
-  /**
-   * Optionaler Hook fuer jeden Status-Uebergang eines Channels — fuer Tests
-   * (auf den ersten `SUBSCRIBED` warten, bevor eine Remote-Aenderung
-   * ausgeloest wird: der WS-Handshake braucht einen Moment, ein Event vor
-   * `SUBSCRIBED` wird nie zugestellt) und optional fuer eine spaetere
-   * Verbindungsstatus-UI. Kein Ersatz fuer `onReconnectResyncNeeded`.
-   */
+
   onStatusChange?: (householdId: string, status: RealtimeSubscribeState) => void;
   now?(): number;
 };
@@ -78,41 +48,6 @@ function eventTypeToOp(
   return 'update';
 }
 
-/**
- * Abonniert Postgres-Changes fuer die uebergebenen Haushalte — ein Channel je
- * Haushalt (nicht je Tabelle, passend zur AC-Formulierung "Subscription je
- * aktivem Haushalt"), mit zwei `postgres_changes`-Bindings darauf (eine je
- * realtime-faehiger Tabelle).
- *
- * **Echo-Unterdrueckung: kein Extra-Mechanismus noetig.** `push.ts` schreibt
- * die vom Server zurueckgegebene Zeile bereits synchron mit dem Push-Erfolg
- * lokal (mit `_dirty=0`), in derselben Transaktion, die die Outbox-Zeilen
- * loescht. Ein Realtime-Echo dieses Writes trifft entweder auf eine bereits
- * identische, nicht-dirty lokale Zeile (wirkungsloser Upsert), oder — falls
- * es VOR dem lokalen Write eintrifft — auf eine dirty Zeile mit aelterem
- * Zeitstempel; `resolve()` waehlt dann zwangslaeufig 'remote' (der
- * Server-`updated_at` ist autoritativ und wurde fruehestens beim optimistischen
- * lokalen Write gestempelt). In beiden Faellen ruft dieser Pfad NIE
- * `enqueueMutation` auf — er schreibt ausschliesslich ueber
- * `applyRemoteRow`/`deleteMirrorRow` direkt in die Spiegeltabelle. Es gibt
- * damit strukturell keinen Weg zurueck in die Outbox, also keinen Weg zu
- * einer Schleife — nicht nur "im Normalfall nicht", sondern durch Konstruktion.
- * Bewiesen (nicht nur behauptet) in `realtime.integration.test.ts`.
- *
- * **Kein Modul-weites Register.** Der einzige Zustand ist der Closure ueber
- * die von DIESEM Aufruf erzeugten Channels — ein erneuter Aufruf nach
- * `unsubscribe()` ist dadurch sicher, ohne dass irgendetwas Buch fuehren muss.
- *
- * **Das Abmelden ist `async`, und darauf muss gewartet werden**, bevor
- * derselbe Haushalt erneut abonniert wird. Grund ist supabase-js:
- * `supabase.channel(topic)` legt keinen neuen Channel an, wenn zu diesem Topic
- * schon einer registriert ist — es gibt den vorhandenen zurueck
- * (`RealtimeClient.channel()`). `removeChannel()` wiederum nimmt ihn erst nach
- * einem `await channel.unsubscribe()` aus der Registry. Wer sofort neu
- * abonniert, bekommt deshalb die alte, bereits subscribte Instanz — und
- * `channel.on('postgres_changes', …)` wirft darauf
- * "cannot add `postgres_changes` callbacks … after `subscribe()`".
- */
 export function subscribeHouseholdRealtime(
   deps: SubscribeHouseholdRealtimeDeps,
 ): () => Promise<void> {

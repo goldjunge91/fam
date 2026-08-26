@@ -62,15 +62,6 @@ interface Props {
   onClose: () => void;
 }
 
-/**
- * Marktspezifische Laufstrecke per Drag&Drop bearbeiten (ersetzt die
- * fruehere binaere "Reihenfolge umkehren"). Gespeichert auf
- * `stores.category_order`, damit die Reihenfolge — wie der Markt selbst —
- * automatisch haushaltsweit synchron ist.
- *
- * Die ReorderableList trennt Scrollen und Draggen anhand des Griffes und
- * scrollt beim Ziehen am Listenrand automatisch weiter.
- */
 export function CategoryOrderSheet({ isOpen, store, onClose }: Props) {
   const theme = useTheme();
   const sheetRef = useRef<BottomSheet>(null);
@@ -117,11 +108,7 @@ export function CategoryOrderSheet({ isOpen, store, onClose }: Props) {
       onClose={onClose}
       backgroundStyle={{ backgroundColor: theme.background }}
       handleIndicatorStyle={{ backgroundColor: theme.border }}>
-      {/* BottomSheetView gibt `style` nur 1:1 weiter (kein automatisches
-          flex:1 wie bei gorhom) — ohne das hier kollabiert der Inhalt auf
-          seine intrinsische Hoehe, der native Wrapper erwartet aber
-          {flexGrow:1, height:0} fuellenden Inhalt (Snap-Point-Bereich bleibt
-          sonst leer). */}
+      {}
       <BottomSheetView style={{ flex: 1 }}>
         <ReorderableList
           data={order}

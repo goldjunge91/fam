@@ -24,11 +24,6 @@ export function goBackTo(href: Href | undefined) {
 }
 
 type BackButtonProps = BackTarget & {
-  /**
-   * 'text' (Default): "‹ Ziel"-Link fuer Screens ohne zentrierten Titel.
-   * 'arrow': runder Pfeil-Button fuer Settings-Screens.
-   * 'header': Pfeil-Button in der Standardgroesse fuer zentrierte PageHeader.
-   */
   variant?: 'text' | 'arrow' | 'header';
   /** Eigene Rueck-Aktion, etwa um einen Entwurf vor dem Verlassen zu verwerfen. */
   onPress?: () => void;

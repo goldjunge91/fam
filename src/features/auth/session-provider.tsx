@@ -16,14 +16,7 @@ import { clearLocalAccountData } from './sign-out';
 
 type SessionState = {
   session: Session | null;
-  /**
-   * `true`, solange die gespeicherte Session noch gelesen wird UND
-   * der Onboarding-Flag noch nicht aus SecureStore gelesen wurde.
-   *
-   * Der Unterschied zu `session === null` ist wesentlich: "noch nicht geladen"
-   * und "nicht angemeldet" fuehren sonst beide zum Login-Screen, und ein
-   * angemeldeter Nutzer saehe ihn beim Start kurz aufblitzen.
-   */
+
   isLoading: boolean;
   /**
    * `false` = App-Erstinstallation / neuer User → direkt Onboarding zeigen.
@@ -64,9 +57,7 @@ export function SessionProvider({ children }: { children: ReactNode }) {
     try {
       supabase = getSupabase();
     } catch (error) {
-      // Fehlende Env-Variablen oder ein Development Build ohne das native
-      // SecureStore-Modul. Die App bleibt bedienbar und zeigt die Ursache, statt
-      // beim Start mit einem Folgefehler abzubrechen.
+      // Bei fehlender Konfiguration oder SecureStore-Funktion bedienbar bleiben.
       setState({ session: null, isLoading: false, seenOnboarding: false, error: error as Error });
       return;
     }
@@ -88,9 +79,7 @@ export function SessionProvider({ children }: { children: ReactNode }) {
             ? restoredUserId
             : null;
 
-        // Kaltstart mit abgelaufener Session oder zwischenzeitlich gewechseltem
-        // Supabase-Account: Erst den tatsächlich gemerkten lokalen Besitzer
-        // entfernen, bevor irgendeine neue Ownership gesetzt wird.
+        // Alten lokalen Besitzer vor dem Setzen einer neuen Ownership entfernen.
         const localUserIdToClear =
           rememberedUserId && rememberedUserId !== authoritativeRestoredUserId
             ? rememberedUserId
@@ -104,10 +93,7 @@ export function SessionProvider({ children }: { children: ReactNode }) {
         if (authoritativeRestoredUserId) {
           activateEncryptedAccountStorage(authoritativeRestoredUserId);
         }
-        // Die Rezept-Legacy-Migration schreibt über Drizzle in SQLite. Das
-        // DB-Gate muss den wiederhergestellten Nutzer deshalb bereits kennen,
-        // bevor die Migration startet. Der catch-Pfad sperrt es wieder mit
-        // `null`, falls die Migration fehlschlägt.
+        // Nutzer vor der Drizzle-Legacy-Migration im DB-Gate registrieren.
         setActiveUserId(authoritativeRestoredUserId);
         await migrateLegacyAccountData(authoritativeRestoredUserId);
         if (!active) return;
@@ -127,16 +113,12 @@ export function SessionProvider({ children }: { children: ReactNode }) {
           resumeAccountSync();
         }
 
-        // Ein Auth-Event ist aktueller als der parallel gestartete getSession-
-        // Snapshot. Es darf nicht durch dessen inzwischen veraltetes Ergebnis
-        // überschrieben werden (z. B. SIGNED_OUT während des Kaltstarts).
+        // Auth-Events haben Vorrang vor einem veralteten getSession-Snapshot.
         if (latestAuthEventUserId !== undefined) {
           setState((prev) => ({ ...prev, seenOnboarding, error: error ?? prev.error }));
           return;
         }
-        // Vor setState: Das Re-Render kann Komponenten mounten, die sofort
-        // `getDatabase()` aufrufen. Stuende dort noch der vorige Nutzer, wuerde
-        // dieser erste Aufruf die Eigentumspruefung ueberspringen.
+        // Ownership vor dem Re-Render aktualisieren.
         setState({
           session: data.session,
           isLoading: false,

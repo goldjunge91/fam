@@ -1,14 +1,3 @@
-/**
- * Berechnet das logische Tracking-Datum basierend auf der konfigurierten
- * Startzeit des Nutzertages (#174).
- *
- * Beispiel:
- * Startzeit "06:00":
- * - Am 18.08. um 07:00 Uhr -> Datum 18.08.
- * - Am 19.08. um 02:00 Uhr (Nachtschicht / spaetes Logging) -> gehoert noch zum Tag 18.08.
- * - Am 19.08. um 06:00 Uhr -> Datum 19.08.
- */
-
 export function parseDayStartTime(timeStr: string): { hours: number; minutes: number } {
   const match = timeStr.match(/^(\d{2}):(\d{2})$/);
   if (!match) return { hours: 0, minutes: 0 };

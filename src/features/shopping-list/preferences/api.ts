@@ -97,12 +97,6 @@ type LocalProductSignals = {
   off_category_tags: string | null;
 };
 
-/**
- * Laedt die lokal bekannten Praeferenzen fuer `householdId`/`productId`/`name`
- * und delegiert die eigentliche Auflösung an das reine `resolveCategory()`.
- * Der Punkt, an dem `preferences/` und `classification/` zusammenlaufen
- * (Schritte 1–6 der Auflösungsreihenfolge, siehe `resolve-category.ts`).
- */
 export async function resolvePlacementForItem(
   input: ResolveCategoryForItemInput,
   options: ResolvePlacementForItemOptions = {},
@@ -198,13 +192,6 @@ export type CategoryPreferenceMutationPlan = {
 
 type PreferenceKeyInput = Pick<SetCategoryPreferenceInput, 'keyType' | 'keyValue'>;
 
-/**
- * Baut die lokalen Preference-Mutationen, schreibt aber noch nichts.
- *
- * Der Plan ist der gemeinsame Baustein fuer die Einzel-API und fuer den
- * atomaren Formular-Save. Dadurch bleiben `restore` + `update` ebenso wie ein
- * Reset in derselben exklusiven Transaktion wie die Artikelmutation.
- */
 export async function buildCategoryPreferenceMutationPlan(
   db: SqlDatabase,
   action: CategoryPreferenceMutation,
@@ -368,11 +355,6 @@ export async function buildCategoryPreferenceMutations(
   return (await buildCategoryPreferenceMutationPlan(db, action, nowMs)).mutations;
 }
 
-/**
- * Legt eine Haushaltspraeferenz an oder aktualisiert sie. Einzelne Aufrufe
- * bleiben rueckwaertskompatibel, nutzen intern aber denselben Batch-Writer wie
- * der Formular-Save.
- */
 export async function setCategoryPreference(input: SetCategoryPreferenceInput): Promise<string> {
   const db = await getDatabase();
   const plan = await buildCategoryPreferenceMutationPlan(db, { type: 'set', input });
@@ -380,12 +362,6 @@ export async function setCategoryPreference(input: SetCategoryPreferenceInput): 
   return plan.id;
 }
 
-/**
- * Reverse State zu {@link setCategoryPreference}: soft-deleted die Praeferenz,
- * die Resolution faellt bei der naechsten Verwendung dieses Schluessels wieder
- * auf die automatische Klassifikation zurueck (Abschnitt 9 "Auf automatisch
- * zurücksetzen"). Ohne Wirkung, wenn keine aktive Praeferenz existiert.
- */
 export async function resetCategoryPreference(input: ResetCategoryPreferenceInput): Promise<void> {
   const db = await getDatabase();
   const plan = await buildCategoryPreferenceMutationPlan(db, { type: 'reset', input });

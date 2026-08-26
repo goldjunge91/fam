@@ -46,18 +46,6 @@ type DeleteItemInput = {
   household_id: string;
 };
 
-/**
- * Fuegt einen neuen Artikel zur Einkaufsliste hinzu (#86) — oder erhoeht,
- * falls derselbe Artikel (gleiches Produkt bzw. gleicher Name, gleiche
- * Einheit) bereits offen auf der Liste steht, dessen Menge (#131/#146).
- * Verhindert Duplikate unabhaengig von der Quelle: manueller Eintrag,
- * Wochenplaner-Bedarf oder Rezept. Die eigentliche Merge-Logik steckt in
- * `@/lib/db/shopping-list-merge`, damit sie ohne `expo-crypto`/`expo-sqlite`
- * gegen eine echte SQLite-Instanz testbar ist.
- *
- * Kein Server-Round-Trip noetig: UUID wird lokal generiert, Eintrag
- * landet sofort in SQLite und in der Outbox.
- */
 export type AddShoppingItemMutationInput = AddItemInput & {
   /** Optionaler Preference-Schritt fuer den atomaren Formular-Save. */
   preference?: CategoryPreferenceMutation;
@@ -96,12 +84,6 @@ export function useAddShoppingItem() {
   });
 }
 
-/**
- * Bearbeitet einen bestehenden Artikel — bislang vor allem fuer die
- * Marktzuordnung gedacht (ein Artikel ohne Markt liess sich bisher gar nicht
- * mehr aendern), deckt aber alle Felder aus dem Formular ab, weil dort noch
- * weitere Punkte dazukommen werden.
- */
 export function useUpdateShoppingItem() {
   const queryClient = useQueryClient();
 
@@ -212,12 +194,6 @@ export function useToggleShoppingItem() {
   });
 }
 
-/**
- * Soft-deletes einen Einkaufslisten-Artikel (#86).
- *
- * Kein Hard-Delete: `deleted_at` setzen — Outbox-Push schreibt den
- * Tombstone nach Supabase, Realtime-Bridge propagiert zu anderen Geraeten.
- */
 export function useDeleteShoppingItem() {
   const queryClient = useQueryClient();
 

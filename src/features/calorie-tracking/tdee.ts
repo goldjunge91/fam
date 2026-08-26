@@ -52,18 +52,6 @@ export type TargetCalorieResult = {
   rateWarning: RateWarning | null;
 };
 
-/**
- * Leitet aus TDEE + Ziel eine Ziel-Kalorienzahl ab, mit Sicherheitskappung
- * nach unten auf den individuellen Grundumsatz (#82-AC: "Ziel darf nie unter
- * den Grundumsatz fallen").
- *
- * Bewusst KEINE Kappung auf die DB-Spanne 1000-10000 hier: Der Constraint
- * auf `user_goals.daily_kcal` ist laut Schema-Kommentar "die letzte
- * Schranke" fuer andere Schreibpfade (manuelle Eingabe, kuenftiger Import),
- * nicht fuer diese Funktion. `floor` liegt immer >= 1200 (> 1000), und die
- * obere Grenze von 10000 ist fuer realistische TDEE/Rate-Kombinationen nicht
- * erreichbar.
- */
 export function calculateTargetCalories(input: TargetCalorieInput): TargetCalorieResult {
   const { tdeeKcal, bmrKcal, sex, goalType, rateKgPerWeek } = input;
 

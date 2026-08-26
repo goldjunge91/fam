@@ -31,13 +31,6 @@ type JiggleWrapperProps = {
   children: ReactNode;
 };
 
-/**
- * Reanimated & Gesture Handler Wrapper fuer Dashboard-Cards im iOS-Style:
- * - Wackelt im Edit-Modus subtil auf dem UI-Thread.
- * - Drag & Drop: Karte folgt 1:1 dem Finger, setzt beim Loslassen sofort hart die Position.
- * - Saubere Layout-Hierarchie: Small-Cards erhalten explizit 138px Höhe, Large-Cards auto-height.
- * - Deaktiviert alle inneren Klicks/Navigationen auf der Karte waehrend des Edit-Modus.
- */
 export function JiggleWrapper({
   id: _id,
   isEditing,

@@ -325,12 +325,6 @@ async function cleanupCommittedCutover(
   }
 }
 
-/**
- * Konvertiert eine bestehende Klartextdatei mit sqlcipher_export und ersetzt
- * sie erst, nachdem Snapshot, quick_check und ein unabhängiges Keyed-Open
- * erfolgreich waren. Jeder Fehler vor dem Swap lässt die Quelle am Platz;
- * jeder Fehler während des Swaps stellt das Klartext-Recovery wieder her.
- */
 export async function migratePlaintextDatabase<TDatabase extends CipherDatabase>(
   dependencies: DatabaseEncryptionCutoverDependencies<TDatabase>,
   key: string,

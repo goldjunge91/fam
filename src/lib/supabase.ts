@@ -7,44 +7,7 @@ import { createChunkedStorage, type KeyValueStore } from '@/lib/chunked-storage'
 import type { Database } from '@/lib/database.types';
 import { env } from '@/lib/env';
 
-/**
- * Typisierter Client. `database.types.ts` wird mit `bun run db:types` aus dem
- * Schema erzeugt und ist committet — ohne die Datei bricht der Typecheck auf
- * einem frischen Checkout, weil sie sonst erst nach einem lokalen
- * Supabase-Start entstuende.
- *
- * Nach jeder Schemaaenderung neu generieren.
- */
 export type TypedSupabaseClient = SupabaseClient<Database>;
-
-/**
- * Zentraler Supabase-Client, app-weit verwendet.
- *
- * Abweichungen vom offiziellen Expo-Guide, bewusst getroffen:
- *
- * 1. **SecureStore statt AsyncStorage.** Der Guide nutzt AsyncStorage; dort
- *    liegt die Session unverschluesselt im App-Verzeichnis und ist in einem
- *    unverschluesselten Backup oder auf einem gerooteten Geraet lesbar. Diese
- *    App speichert Gesundheitsdaten — das passt nicht zusammen.
- *
- * 2. **Chunking.** SecureStore erlaubt auf iOS rund 2048 Byte pro Eintrag, eine
- *    Supabase-Session ist groesser. Siehe `chunked-storage.ts`.
- *
- * 3. **Alles wird verzoegert initialisiert.** Frueher stand hier ein
- *    `createClient(...)` auf Modulebene und `import * as SecureStore` ganz oben.
- *    Fehlt das native Modul — etwa weil der Development Build aelter ist als die
- *    Installation von `expo-secure-store` —, wirft schon der Import. Damit
- *    scheitert die Auswertung von `_layout.tsx`, Expo Router meldet
- *    "missing the required default export" und danach
- *    "Cannot read property 'ErrorBoundary' of undefined". Die eigentliche
- *    Ursache steht dann zwischen drei Folgefehlern.
- *
- *    Jetzt bootet die App in jedem Fall; der Fehler taucht dort auf, wo Supabase
- *    tatsaechlich gebraucht wird, und sagt, was zu tun ist.
- *
- * `detectSessionInUrl: false` ist in React Native zwingend: die Option ist fuer
- * OAuth-Redirects im Browser gedacht.
- */
 
 const REBUILD_HINT =
   'Das native Modul ExpoSecureStore fehlt im installierten Development Build. ' +
@@ -71,12 +34,6 @@ const secureStoreAdapter: KeyValueStore = {
 
 let client: TypedSupabaseClient | null = null;
 
-/**
- * Gibt den Client zurueck und legt ihn beim ersten Aufruf an.
- *
- * Wirft, wenn Umgebungsvariablen oder das native Modul fehlen — aber erst hier
- * und mit einer Meldung, die den naechsten Schritt nennt.
- */
 export function getSupabase(): TypedSupabaseClient {
   if (client) return client;
 
@@ -93,13 +50,6 @@ export function getSupabase(): TypedSupabaseClient {
   return client;
 }
 
-/**
- * Bindet den Token-Refresh an den App-Zustand. Im Hintergrund friert iOS Timer
- * ein; ohne diese Anbindung waere der Access-Token beim Zurueckkehren abgelaufen.
- *
- * Schlaegt die Initialisierung fehl, wird das protokolliert statt geworfen: ein
- * fehlendes natives Modul soll die Navigation nicht lahmlegen.
- */
 export function startSupabaseAutoRefresh(): () => void {
   if (Platform.OS === 'web') return () => {};
 

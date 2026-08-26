@@ -6,21 +6,6 @@ import { useSession } from './session-provider';
 
 const FEATURE_FLAG_AUTO_RELOAD_INTERVAL_MS = 12 * 60 * 60 * 1000;
 
-/**
- * Bindet den PostHog-`distinctId` an die Supabase-User-ID (nicht an die
- * Haushalt-ID, siehe Issue #183) — PostHog ist personen-zentriert, Prozent-
- * Rollouts und Zielgruppen-Targeting laufen ueber diesen `distinctId`. Laedt
- * ausserdem Feature-Flags hoechstens alle 12 Stunden bei der Rueckkehr in den
- * Vordergrund neu.
- *
- * Muss innerhalb von `<SessionProvider>` UND `<PostHogProvider>` gemountet
- * sein (siehe `src/features/app-shell/app-providers.tsx`). Rendert nichts, ist
- * reiner Sync-Effekt.
- *
- * Waehrend `isLoading` bleibt der `distinctId` unangetastet — sonst wuerde
- * ein bereits eingeloggter Nutzer beim App-Start kurz einen `reset()`
- * abbekommen, bevor die gespeicherte Session gelesen ist.
- */
 export function PostHogIdentitySync() {
   const { session, isLoading } = useSession();
   const userId = session?.user.id;
@@ -38,17 +23,10 @@ export function PostHogIdentitySync() {
   }, [isLoading, userId]);
 
   useEffect(() => {
-    // Das SDK laedt Feature-Flags NUR bei Client-Init, `identify()` mit
-    // geaenderter distinctId, `reset()` oder manuellem `reloadFeatureFlags()`
-    // neu — kein automatisches Polling, kein Reload beim Foreground (siehe
-    // posthog-react-native-Quelltext). Ohne diesen Listener wuerde ein im
-    // PostHog-Dashboard umgeschaltetes Flag einen bereits eingeloggten
-    // Nutzer nie erreichen, bevor er sich aus- und wieder einloggt.
+    // Feature-Flags beim Vordergrundwechsel aktualisieren.
     if (!isPostHogConfigured()) return;
 
-    // Der Client laedt Flags bereits beim Start. Das Zeitfenster lebt deshalb
-    // bewusst nur fuer die aktuelle App-Instanz; nach einem Neustart darf die
-    // Initialisierung wieder sofort aktuelle Flags holen.
+    // Pro App-Instanz nur einmal beim Vordergrundwechsel aktualisieren.
     let lastAutomaticReloadAt = Date.now();
 
     const subscription = AppState.addEventListener('change', (state) => {

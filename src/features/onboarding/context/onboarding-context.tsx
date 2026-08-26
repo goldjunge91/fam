@@ -86,11 +86,7 @@ export function OnboardingProvider({ children }: { children: ReactNode }) {
   };
 
   const completeOnboarding = async (): Promise<boolean> => {
-    // Ohne Session gibt es nichts zu speichern — und `create_household` ist
-    // nur an `authenticated` vergeben, der Aufruf endete in
-    // "permission denied for function create_household". Frueher lief die
-    // Funktion hier still ins Leere und der Aufrufer navigierte trotzdem
-    // weiter.
+    // Haushalts-RPCs erfordern eine authentifizierte Session.
     if (!session) {
       setError('Du bist nicht angemeldet. Bitte melde dich zuerst an.');
       return false;
@@ -100,7 +96,7 @@ export function OnboardingProvider({ children }: { children: ReactNode }) {
     setError(null);
 
     try {
-      // 1. Save profile data if filled
+      // Profil speichern, falls Daten vorhanden sind.
       if (Object.keys(state.profile).length > 0) {
         const { error: profileErr } = await updateProfile(session.user.id, {
           displayName: state.profile.displayName,
@@ -117,10 +113,7 @@ export function OnboardingProvider({ children }: { children: ReactNode }) {
         }
       }
 
-      // 1b. Modul-Auswahl speichern (#95) — anders als der Profil-Block oben
-      // immer, da state.modules ueber den Default-State immer alle fuenf Keys
-      // traegt (nie "leer"). Ohne diesen Aufruf verwirft completeOnboarding
-      // die Auswahl aus ModuleSelectorForm bisher stillschweigend.
+      // Modul-Auswahl immer speichern, da der Default-State alle Schlüssel enthält.
       const { error: modulesErr } = await saveModulePreferences(session.user.id, state.modules);
       if (modulesErr) {
         setError(modulesErr.message);
@@ -128,7 +121,6 @@ export function OnboardingProvider({ children }: { children: ReactNode }) {
         return false;
       }
 
-      // 2. Failsafe Household-Prüfung: Stellt sicher, dass der Nutzer in der DB mindestens einem Haushalt angehört
       const supabase = getSupabase();
       const { data: existingHouseholds, error: hhErr } = await supabase
         .from('households')
@@ -171,18 +163,10 @@ export function OnboardingProvider({ children }: { children: ReactNode }) {
         }
       }
 
-      // Der Haushalt entstand gerade per RPC, nicht ueber die Mutation aus
-      // `household/api.ts` — der lokale Spiegel weiss also nichts davon. Ohne
-      // diesen Pull sieht der angemeldete Bereich weiterhin null Haushalte
-      // (liest nur den bisherigen lokalen Stand) und schickt den Nutzer
-      // direkt wieder ins Anlege-Formular, aus dem er gerade kam.
+      // Den per RPC erstellten Haushalt in den lokalen Spiegel übernehmen.
       await triggerHouseholdsPull(session.user.id, queryClient);
 
-      // Markiert das Konto serverseitig als fertig onboarded (`profiles.onboarding_completed_at`).
-      // Ohne diesen Aufruf blieb die Spalte fuer immer `null` — der Guard in
-      // `(app)/_layout.tsx` erkennt den Nutzer dann nur so lange als fertig
-      // an, wie das In-Memory-Flag aus `persistOnboardingCompleted()` lebt,
-      // und schickt ihn nach jedem Hot Reload/Neustart zurueck ins Onboarding.
+      // Onboarding serverseitig und lokal als abgeschlossen markieren.
       const { error: markCompletedErr } = await markOnboardingCompleted(session.user.id);
       if (markCompletedErr) {
         setError(markCompletedErr.message);
@@ -191,7 +175,6 @@ export function OnboardingProvider({ children }: { children: ReactNode }) {
       }
       await queryClient.invalidateQueries({ queryKey: ['profile', session.user.id] });
 
-      // Onboarding-Flag persistieren
       await persistOnboardingCompleted();
       trackAnalyticsEvent('onboarding_completed');
       setIsLoading(false);

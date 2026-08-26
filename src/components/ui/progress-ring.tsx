@@ -28,13 +28,7 @@ type ProgressRingProps = {
   /** Beschreibung für Screenreader. */
   label?: string;
   unit?: string;
-  /**
-   * 'value' (Default): Große Zahl + Zielwert im Ring (z. B. Kalorienziel).
-   * 'percent': Nur die Prozentzahl (z. B. Dashboard-Widget).
-   * 'remaining': Restwert + Einheit (z. B. Tagebuch-Bilanz).
-   * 'count': Reine zentrierte Zahl mit Tabular-Nums (z. B. Vorrat-Status).
-   * 'none': Kein zentrierter Text.
-   */
+
   displayMode?: 'value' | 'percent' | 'remaining' | 'count' | 'none';
   /** Ob der Füllstand beim Mounten/Ändern animiert werden soll (Default: true). */
   animated?: boolean;

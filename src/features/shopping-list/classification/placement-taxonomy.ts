@@ -1,12 +1,3 @@
-/**
- * Kanonische, React-freie Einkaufsbereichs-Taxonomie.
- *
- * Diese Datei ist die einzige Quelle für V2-Zonen, Produktfamilien/-formen,
- * Farben, Ränge, Lagerorte und die Lesekompatibilität zu den alten IDs.
- * `category_id` bleibt im Datenmodell der technische Spaltenname; neue
- * Schreibvorgänge verwenden ausschließlich `PlacementZoneId`.
- */
-
 import { debugLog } from '@/lib/debug-log';
 
 export const PLACEMENT_TAXONOMY_VERSION = 'placement-taxonomy-v2' as const;

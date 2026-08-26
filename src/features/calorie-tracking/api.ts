@@ -4,14 +4,6 @@ import type { GoalType } from '@/features/calorie-tracking/tdee';
 import type { Database } from '@/lib/database.types';
 import { getSupabase } from '@/lib/supabase';
 
-/**
- * `food_entries`/`weight_entries`/`user_goals` sind bewusst NICHT Teil des
- * lokalen SQLite-Sync-Engines (`src/lib/db/entities.ts`): sie sind streng
- * privat pro Account, ohne Haushaltsbezug (siehe Kommentar am Kopf von
- * `supabase/schemas/09_tracking.sql`). Direkter Supabase-Zugriff + React
- * Query, genau wie `src/features/household/api.ts` fuer `child_profiles`.
- */
-
 export type FoodEntryRow = Database['public']['Tables']['food_entries']['Row'];
 export type UserGoalRow = Database['public']['Tables']['user_goals']['Row'];
 export type WeightEntryRow = Database['public']['Tables']['weight_entries']['Row'];
@@ -24,15 +16,6 @@ export function currentGoalQueryKey(userId: string | undefined, childProfileId?:
   return ['calorie-tracking', 'goal', 'current', userId, childProfileId ?? null] as const;
 }
 
-/**
- * Aktuell gueltiges Ziel: die juengste nicht geloeschte `user_goals`-Zeile.
- * `user_goals` historisiert ueber `valid_from` statt zu ueberschreiben — ein
- * neues Ziel ist immer ein Insert, nie ein Update (siehe `useSetGoalMutation`).
- *
- * `childProfileId` filtert zusaetzlich zu `user_id` (#65/#85): `undefined`/
- * `null` liest das Ziel des Erwachsenen selbst (`child_profile_id is null`),
- * eine id liest das Ziel des jeweiligen Kindes.
- */
 export function useCurrentGoal(userId: string | undefined, childProfileId?: string | null) {
   return useQuery({
     queryKey: currentGoalQueryKey(userId, childProfileId),
@@ -152,17 +135,6 @@ export function useAddWeightEntryMutation() {
   });
 }
 
-/**
- * Letzte Tagebucheintraege ueber alle Tage hinweg — Grundlage fuer
- * "Zuletzt"/"Haeufig" bei der Lebensmittelsuche (`food-history.ts`
- * verarbeitet das Ergebnis weiter). Kein eigener Query pro Tab: beide
- * Ansichten leiten sich clientseitig aus derselben Liste ab.
- *
- * Quelle ist die lokale `product_usage`-Tabelle (`use-local-food-usage.ts`),
- * nicht Supabase — siehe dort fuer die Begruendung (#79: offline-faehig und
- * nach Mahlzeitart gefiltert).
- */
-
 // ------------------------------------------------------------- Tagebuch
 
 export function foodEntriesQueryKey(
@@ -173,14 +145,6 @@ export function foodEntriesQueryKey(
   return ['calorie-tracking', 'food-entries', userId, isoDate, childProfileId ?? null] as const;
 }
 
-/**
- * Alle Tagebucheintraege eines Kalendertags (#85/#87), aelteste zuerst.
- *
- * `childProfileId` filtert zusaetzlich zu `user_id` (#65/#85): `undefined`/
- * `null` zeigt die Eintraege des Erwachsenen selbst, eine id die eines
- * bestimmten Kindes — beide liegen unter demselben `user_id` (dem loggenden
- * Erwachsenen), `child_profile_id` ist nur ein Zusatz-Tag.
- */
 export function useFoodEntries(
   userId: string | undefined,
   isoDate: string,
@@ -343,7 +307,7 @@ export function useDeleteFoodEntryMutation() {
   });
 }
 
-/** Macht `useDeleteFoodEntryMutation` rueckgaengig (#86) — gleiche Architektur, kein Sync-Layer noetig. */
+/** Löscht einen Ernährungseintrag ohne zusätzlichen Sync-Layer. */
 export function useRestoreFoodEntryMutation() {
   const queryClient = useQueryClient();
 

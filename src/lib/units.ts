@@ -28,16 +28,6 @@ export type GramsEquivalentOptions = { servingWeightG?: number };
 
 export type GramsEquivalentResult = { convertible: true; grams: number } | { convertible: false };
 
-/**
- * Rechnet eine Menge+Einheit in ein Gramm/Milliliter-Aequivalent um, als
- * Grundlage fuer eine Naehrwert-Skalierung "pro 100g/100ml".
- *
- * `g`/`ml` sind bereits das Aequivalent, `kg`/`l` werden mit 1000
- * multipliziert. Stueckbasierte Einheiten (`piece`/`package`/`portion`)
- * brauchen ein bekanntes Stueckgewicht (`servingWeightG`) — ohne das ist die
- * Umrechnung nicht moeglich und wird explizit als `convertible: false`
- * signalisiert statt eines stillen Fallbacks.
- */
 export function toGramsEquivalent(
   quantity: number,
   unit: string,

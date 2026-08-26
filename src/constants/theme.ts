@@ -88,13 +88,6 @@ export const Gradients = {
   },
 } as const satisfies Record<string, Record<'light' | 'dark', GradientSpec>>;
 
-/**
- * Wandelt einen 6-stelligen Hex-Farbwert in einen `rgba()`-String mit
- * gegebener Opazitaet um. Natives `shadowColor` + `shadowOpacity` kommen
- * ohne das aus, aber `boxShadow`-Strings brauchen Farbe und Transparenz in
- * einem Wert — damit bleibt der Farbton am `Colors`-Token haengen, statt
- * pro Stelle erneut als eigenes RGB-Tripel abgetippt zu werden.
- */
 export function withAlpha(hex: string, alpha: number): string {
   const value = hex.replace('#', '');
   const r = Number.parseInt(value.slice(0, 2), 16);

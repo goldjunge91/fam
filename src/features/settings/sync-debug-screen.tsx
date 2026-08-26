@@ -61,10 +61,7 @@ export function SyncDebugScreen() {
   const [outboxRows, setOutboxRows] = useState<OutboxRow[]>([]);
   const [locationRows, setLocationRows] = useState<LocationRow[]>([]);
   const [itemRows, setItemRows] = useState<ItemRow[]>([]);
-  // `getLastSyncInfo`/`getLastRealtimeStatus` lesen Modul-Zustand, keinen
-  // React State — ohne diesen Tick wuerde sich die Anzeige nur nach einer
-  // manuellen Aktion (z.B. "Jetzt synchronisieren") aktualisieren, obwohl
-  // sich der Realtime-Status jederzeit im Hintergrund aendern kann.
+  // Polling aktualisiert den aus Modulzustand gelesenen Realtime-Status.
   const [, forceTick] = useState(0);
   useEffect(() => {
     const interval = setInterval(() => forceTick((t) => t + 1), 2000);
@@ -76,12 +73,7 @@ export function SyncDebugScreen() {
   const realtimeDiagnostics = getRealtimeDiagnostics();
   const latencySamples = getRealtimeLatencySamples();
   const latencySampleVersion = getRealtimeLatencySampleVersion();
-  // Nur neu berechnen, wenn tatsaechlich ein neues Sample dazukam (siehe
-  // Kommentar bei `realtimeLatencySampleVersion` in sync-runner.ts), nicht bei
-  // jedem 2s-`forceTick`. `null` = kein Insert/Update-Sample im Ringpuffer
-  // (z.B. wenn bisher nur Deletes ankamen, deren `latencyMs` immer `null`
-  // ist) — ohne diese Unterscheidung zeigte `reduce` faelschlich `0 ms` statt
-  // eines erkennbar leeren Zustands.
+  // Nur bei neuen Latenz-Samples neu berechnen, nicht bei jedem Polling-Tick.
   // biome-ignore lint/correctness/useExhaustiveDependencies: latencySamples-Referenz aendert sich nie (in-place mutiert), latencySampleVersion ist das eigentliche Signal
   const averageLatencyMs = useMemo(() => {
     const numericSamples = latencySamples
@@ -200,7 +192,6 @@ export function SyncDebugScreen() {
       title="Sync-Diagnose"
       back={{ label: 'Synchronisation', href: '/settings/sync' }}
       backStyle="icon">
-      {/* Übersicht zum letzten Sync-Lauf (Zeitpunkt, Pushed/Pulled, Realtime-Status & Reconnects) */}
       <Card title="Letzter Synchronisations-Lauf">
         <View className="debug-row">
           <ThemedText type="small">Uhrzeit:</ThemedText>

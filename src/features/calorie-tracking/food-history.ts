@@ -10,13 +10,6 @@ export type FoodHistoryEntry = {
   unit: string;
 };
 
-/**
- * Ein Eintrag je Name, jüngster zuerst (#Tagebuch-Redesign "Zuletzt").
- *
- * Erwartet `entriesNewestFirst` bereits absteigend nach `created_at`
- * sortiert (so liefert `useFoodHistory`) — die erste Fundstelle je Name ist
- * damit automatisch die juengste.
- */
 export function dedupeRecentFoods(entriesNewestFirst: FoodHistoryEntry[]): FoodHistoryEntry[] {
   const seen = new Set<string>();
   const result: FoodHistoryEntry[] = [];
@@ -30,11 +23,6 @@ export function dedupeRecentFoods(entriesNewestFirst: FoodHistoryEntry[]): FoodH
   return result;
 }
 
-/**
- * Ein Eintrag je Name, nach Haeufigkeit des Namens absteigend sortiert
- * (#Tagebuch-Redesign "Haeufig"). Bei gleicher Haeufigkeit bleibt die
- * juengste Fundstelle vorn (stabile Sortierung + `entriesNewestFirst`).
- */
 export function rankFrequentFoods(entriesNewestFirst: FoodHistoryEntry[]): FoodHistoryEntry[] {
   return rankByName(entriesNewestFirst);
 }

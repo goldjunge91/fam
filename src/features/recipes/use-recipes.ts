@@ -72,11 +72,6 @@ export type RecipeStep = {
   ingredientIds: string[];
 };
 
-/**
- * Nur um `name` erweitert gegenueber `ProductNutritionRow` — nutrition.ts
- * selbst bleibt bewusst frei von Anzeige-Feldern, `name` wird ausschliesslich
- * fuer Zutaten-Chips (Rezept-Detail/Wizard) gebraucht.
- */
 export type ProductRow = ProductNutritionRow & { name: string };
 
 export type RecipeDetail = {

@@ -1,16 +1,5 @@
 import type { SqlDatabase } from '@/lib/db/types';
 
-/**
- * Wo ein Produkt verwendet wurde (#79). Rein lokal, wie `shopping_history` —
- * kein `_dirty`, keine Outbox, kein Server-Gegenstueck.
- *
- * Nimmt `db` explizit entgegen statt selbst `getDatabase()` aufzurufen (wie
- * `enqueueMutation` in `outbox.ts`) — nur so laeuft es unter `node:sqlite` im
- * Test, ohne `expo-sqlite` zu beruehren. Aus demselben Grund erzeugt dieses
- * Modul die `id` nicht selbst (kein `expo-crypto`-Import, dasselbe Muster wie
- * `outbox.ts`/`enqueueMutation`) — der Aufrufer liefert sie, in der App via
- * `Crypto.randomUUID()` wie bei `use-complete-shopping-run.ts`.
- */
 export type ProductUsageFeature = 'fridge' | 'shopping_list' | 'diary';
 
 export type MealType = 'breakfast' | 'lunch' | 'dinner' | 'snack';
@@ -35,12 +24,6 @@ export type ProductUsageEntry = {
   usedAt?: string;
 };
 
-/**
- * Protokolliert eine Produktverwendung. Wird direkt nach erfolgreichem
- * Speichern in Vorrat/Einkaufsliste/Tagebuch aufgerufen — bewusst append-only
- * und ohne Rueckgabewert, ein fehlgeschlagener Tracking-Insert darf das
- * eigentliche Speichern nie beeinflussen (Aufrufer fangen Fehler selbst ab).
- */
 export async function recordProductUsage(db: SqlDatabase, entry: ProductUsageEntry): Promise<void> {
   await db.runAsync(
     `insert into product_usage
@@ -81,27 +64,6 @@ export type ProductUsageRow = {
   used_at: string;
 };
 
-/**
- * Rohdaten fuer die Haeufig-genutzt-Anzeige, ein Eintrag je Name (case-
- * insensitiv), absteigend nach Haeufigkeit sortiert — bei Gleichstand bleibt
- * die juengste Fundstelle vorn. Dedupe/Ranking laeuft in SQL (statt beim
- * Aufrufer wie zuvor), damit `limit` distinkte Produkte begrenzt statt
- * Rohzeilen: sonst kann ein einzelnes, oft protokolliertes Produkt (z. B.
- * taeglicher Kaffee) das ganze `limit`-Fenster fuellen, bevor die
- * JS-seitige Dedupe (`dedupeRecentFoods`/`rankFrequentFoods` in
- * `food-history.ts`) ueberhaupt zum Zug kommt. Diese Funktionen bleiben
- * bestehen, werden mit bereits deduplizierten Zeilen aber zu einer
- * Durchreiche.
- *
- * `mealType: null` liefert alle Mahlzeitarten (fuer `fridge`/`shopping_list`,
- * die keine kennen); ein gesetzter Wert schraenkt fuer `diary` ein (#79 AC:
- * "Auf die Mahlzeitart eingeschraenkt").
- *
- * `mode: 'recent'` sortiert dieselbe dedupliziert-je-Name-Liste stattdessen
- * rein nach `used_at` statt nach Haeufigkeit — fuer den "Zuletzt"-Filter in
- * den Vorrat-/Einkaufen-Vorschlagslisten. Kein zweiter Query noetig, nur ein
- * anderes `order by` auf denselben `ranked`-Zeilen.
- */
 export async function getFrequentProductUsage(
   db: SqlDatabase,
   params: {

@@ -15,11 +15,6 @@ function parseOptionalNumber(value: string): number | undefined {
   return Number.isNaN(parsed) ? undefined : parsed;
 }
 
-/**
- * Produkt manuell anlegen (#80) — fuer Lebensmittel, die Open Food Facts
- * nicht kennt (unverpackte Ware, Eigenmarken ohne Barcode-Eintrag, ...).
- * Schreibt ueber die Sync-Engine in `products` (`source: 'manual'`).
- */
 export function AddProductScreen() {
   const params = useLocalSearchParams<{ prefillName?: string }>();
   const { session } = useSession();

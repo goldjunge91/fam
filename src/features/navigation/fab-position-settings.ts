@@ -1,11 +1,6 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useQuery, useQueryClient } from '@tanstack/react-query';
 
-/**
- * Ecke des globalen Plus-Buttons (#150-Folge "F2 Speed-Dial"), geräteweit —
- * analog zu `meal-planner/settings.ts`. Keine Haushalts-/Account-Einstellung,
- * reine Bedienpräferenz (Rechts-/Linkshänder), deshalb lokal statt Supabase.
- */
 const STORAGE_KEY = '@fam/fab_position';
 
 export type FabPosition = 'left' | 'right';

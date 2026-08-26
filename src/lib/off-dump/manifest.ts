@@ -1,13 +1,3 @@
-/**
- * Manifest-Vertrag des rollierenden `off-dump-current`-Release (#223 Paket
- * 6, Abschnitt 13/14 in docs/issue#223_V2.md). Spiegelt bewusst
- * `DumpManifest` aus `scripts/dump_data/dump-manifest-core.ts` — dieselbe
- * Grenze wie zwischen den Deno-Edge-Functions und dem App-Client: kein
- * Import über die Laufzeitgrenze (Bun-CLI-Skript vs. React-Native-App),
- * stattdessen ein kleiner, eigenständig gepflegter Typ für den reinen
- * Wire-Format-Vertrag.
- */
-
 export type DumpManifestAsset = { url: string; size: number; checksum: string };
 
 export type DumpManifestPatchEntry = DumpManifestAsset & {
@@ -45,15 +35,6 @@ function isDumpManifestPatchEntry(value: unknown): value is DumpManifestPatchEnt
   );
 }
 
-/**
- * Uebergangs-Kompatibilitaet zu Commit 106c18a: Das Manifest-Asset-Feld hiess
- * dort bis heute `sha256`, wurde dann auf `checksum` umbenannt. Bereits
- * veroeffentlichte Releases (der `update_dump.yml`-Workflow laeuft nur
- * taeglich/on demand) tragen bis zum naechsten Lauf noch den alten Namen —
- * ohne diesen Fallback lehnt `isDumpManifestAsset()` sie komplett ab.
- * TODO entfernen, sobald ein frisches Manifest mit `checksum` veroeffentlicht
- * ist (naechster `update_dump.yml`-Lauf oder `gh workflow run update_dump.yml`).
- */
 function withChecksumFallback(value: unknown): unknown {
   if (!value || typeof value !== 'object') return value;
   const asset = value as Record<string, unknown>;
@@ -62,11 +43,6 @@ function withChecksumFallback(value: unknown): unknown {
   return asset;
 }
 
-/**
- * Validiert die grobe Form eines rohen JSON-Werts als `DumpManifest`. Reine
- * Funktion, unabhängig von `fetch()` testbar — dasselbe Muster wie
- * `parseOffResponse()` in der Edge Function.
- */
 export function parseManifest(raw: unknown): DumpManifest | null {
   if (!raw || typeof raw !== 'object') return null;
   const value = raw as Record<string, unknown>;

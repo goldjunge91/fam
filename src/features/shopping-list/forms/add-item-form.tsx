@@ -282,16 +282,6 @@ export const AddItemForm = forwardRef<AddItemFormHandle, AddItemFormProps>(funct
     if (suggestion.last_store_id) setStoreId(suggestion.last_store_id);
   }
 
-  /**
-   * Schliesst nur die Tastatur, wenn woanders im Formular interagiert wird
-   * (#UI-Feedback: "Keyboard verschwindet nicht" — aber die Trefferliste soll
-   * dabei explizit offen bleiben, bis wirklich ein Artikel ausgewaehlt wird,
-   * siehe `closeSearch` unten). `keyboardShouldPersistTaps="handled"` auf der
-   * umschliessenden ScrollView (item-modal-shell.tsx) unterdrueckt das
-   * automatische Zuklappen bei Taps auf andere Bedienelemente absichtlich
-   * (sonst braeuchte jeder Button-Press zwei Taps) — deshalb hier explizit an
-   * jeder Stelle aufgerufen, an der tatsaechlich etwas anderes bedient wird.
-   */
   function dismissKeyboard() {
     Keyboard.dismiss();
   }
@@ -531,17 +521,7 @@ export const AddItemForm = forwardRef<AddItemFormHandle, AddItemFormProps>(funct
         }
       />
 
-      {/* Die Produktsuche selbst liegt bewusst ausserhalb dieses Wrappers,
-          damit Scrollen/Antippen im Dropdown-Panel nicht mit-dismissed wird.
-          `Pressable` ist laut React-Native-Doku die aktuelle, empfohlene
-          Touch-Komponente (TouchableWithoutFeedback gilt als veraltet) — ein
-          eigener Handler direkt auf dem Responder-System (Capture/Bubble)
-          erwies sich zuvor als unzuverlaessig (#UI-Feedback). `accessible=
-          {false}`, damit VoiceOver weiterhin jedes Kind einzeln liest statt
-          den ganzen Wrapper zu einem Knoten zu verschmelzen. Schliesst nur
-          die Tastatur, nicht die Trefferliste — echte Bedienelemente rufen
-          `dismissKeyboard()` zusaetzlich explizit auf, `KeyboardToolbar`
-          (item-modal-shell.tsx) gibt einen "Fertig"-Button. */}
+      {}
       <Pressable className="gap-[10px]" onPress={dismissKeyboard} accessible={false}>
         {nameError ? (
           <ThemedText type="body" themeColor="danger" className="font-medium">
@@ -684,9 +664,7 @@ export const AddItemForm = forwardRef<AddItemFormHandle, AddItemFormProps>(funct
           ) : null}
         </View>
 
-        {/* Übersicht bewusst direkt über dem Hinzufügen-Button statt oben bei
-            der Suche (#UI-Feedback) — letzter Check vor dem eigentlichen
-            Abschluss, nicht mitten im Formular. */}
+        {}
         {name.trim() ? (
           <View className="product-summary">
             <View className="flex-1 min-w-0">
