@@ -467,6 +467,7 @@ export function RecipeWizardStepSteps({
               </Pressable>
               <Pressable
                 className="flex-1 min-h-[48px] rounded-card items-center justify-center bg-accent active:opacity-75"
+                accessibilityRole="button"
                 onPress={onNext}>
                 <ThemedText type="captionCompact" className="text-white font-semibold">
                   Weiter

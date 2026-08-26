@@ -1,13 +1,14 @@
 import { Image } from 'expo-image';
+import { type Control, Controller, useWatch } from 'react-hook-form';
 import { Pressable, TextInput, TouchableOpacity, View } from 'react-native';
 import Svg, { Path } from 'react-native-svg';
 import { WheelPickerField } from '@/components/forms/wheel-picker-field';
 import { ThemedText } from '@/components/theme/themed-text';
 import { ProductSearchDropdown } from '@/features/inventory/product-search-dropdown';
-import type { DietaryTag, Difficulty, DishType } from '@/features/recipes/use-recipes';
 import { useTheme } from '@/hooks/use-theme';
 import type { OpenFoodFactsProduct } from '@/lib/open-food-facts';
 import { UNIT_OPTIONS } from '@/lib/units';
+import type { RecipeFormValues } from '../recipe-form-schema';
 import { DIETARY_TAGS, DIFFICULTIES, DISH_TYPES } from './recipe-metadata-options';
 import type { IngredientComponentGroup } from './types';
 
@@ -15,24 +16,18 @@ function toggle<T>(list: T[], value: T): T[] {
   return list.includes(value) ? list.filter((v) => v !== value) : [...list, value];
 }
 
+function FieldError({ message }: { message?: string }) {
+  if (!message) return null;
+  return (
+    <ThemedText type="caption" themeColor="danger" accessibilityRole="alert">
+      {message}
+    </ThemedText>
+  );
+}
+
 interface RecipeWizardStepBasicsProps {
   mode: 'details' | 'ingredients';
-  title: string;
-  onTitleChange: (v: string) => void;
-  description: string;
-  onDescriptionChange: (v: string) => void;
-  cookTimeMinutes: string;
-  onCookTimeMinutesChange: (v: string) => void;
-  defaultServings: number;
-  onDefaultServingsChange: (v: number) => void;
-  difficulty: Difficulty | null;
-  onDifficultyChange: (v: Difficulty | null) => void;
-  dishTypes: DishType[];
-  onDishTypesChange: (v: DishType[]) => void;
-  dietaryTags: DietaryTag[];
-  onDietaryTagsChange: (v: DietaryTag[]) => void;
-  hashtagsInput: string;
-  onHashtagsInputChange: (v: string) => void;
+  control: Control<RecipeFormValues>;
   coverPreviewUri: string | null;
   onPickCover: () => void;
   components: IngredientComponentGroup[];
@@ -56,22 +51,7 @@ interface RecipeWizardStepBasicsProps {
 
 export function RecipeWizardStepBasics({
   mode,
-  title,
-  onTitleChange,
-  description,
-  onDescriptionChange,
-  cookTimeMinutes,
-  onCookTimeMinutesChange,
-  defaultServings,
-  onDefaultServingsChange,
-  difficulty,
-  onDifficultyChange,
-  dishTypes,
-  onDishTypesChange,
-  dietaryTags,
-  onDietaryTagsChange,
-  hashtagsInput,
-  onHashtagsInputChange,
+  control,
   coverPreviewUri,
   onPickCover,
   components,
@@ -89,6 +69,7 @@ export function RecipeWizardStepBasics({
   onNext,
 }: RecipeWizardStepBasicsProps) {
   const theme = useTheme();
+  const title = useWatch({ control, name: 'title' });
 
   return (
     <>
@@ -134,12 +115,23 @@ export function RecipeWizardStepBasics({
             <ThemedText type="detail" className="text-[10px] leading-[12px] font-bold mb-[6px]">
               Titel
             </ThemedText>
-            <TextInput
-              className="bg-background-element rounded-control min-h-[44px] px-three text-body-small text-text"
-              value={title}
-              onChangeText={onTitleChange}
-              placeholder="Rezepttitel"
-              placeholderTextColor={theme.textSecondary}
+            <Controller
+              control={control}
+              name="title"
+              render={({ field: { onBlur, onChange, value }, fieldState: { error } }) => (
+                <>
+                  <TextInput
+                    accessibilityLabel="Titel"
+                    className="bg-background-element rounded-control min-h-[44px] px-three text-body-small text-text"
+                    value={value}
+                    onBlur={onBlur}
+                    onChangeText={onChange}
+                    placeholder="Rezepttitel"
+                    placeholderTextColor={theme.textSecondary}
+                  />
+                  <FieldError message={error?.message} />
+                </>
+              )}
             />
           </View>
 
@@ -147,15 +139,26 @@ export function RecipeWizardStepBasics({
             <ThemedText type="detail" className="text-[10px] leading-[12px] font-bold mb-[6px]">
               Beschreibung
             </ThemedText>
-            <TextInput
-              className="bg-background-element rounded-control h-[76px] px-three py-three text-body-small text-text"
-              value={description}
-              onChangeText={onDescriptionChange}
-              placeholder="Kurze Beschreibung des Rezepts"
-              placeholderTextColor={theme.textSecondary}
-              multiline
-              numberOfLines={3}
-              textAlignVertical="top"
+            <Controller
+              control={control}
+              name="description"
+              render={({ field: { onBlur, onChange, value }, fieldState: { error } }) => (
+                <>
+                  <TextInput
+                    accessibilityLabel="Beschreibung"
+                    className="bg-background-element rounded-control h-[76px] px-three py-three text-body-small text-text"
+                    value={value}
+                    onBlur={onBlur}
+                    onChangeText={onChange}
+                    placeholder="Kurze Beschreibung des Rezepts"
+                    placeholderTextColor={theme.textSecondary}
+                    multiline
+                    numberOfLines={3}
+                    textAlignVertical="top"
+                  />
+                  <FieldError message={error?.message} />
+                </>
+              )}
             />
           </View>
 
@@ -164,13 +167,24 @@ export function RecipeWizardStepBasics({
               <ThemedText type="detail" className="text-[10px] leading-[12px] font-bold mb-[6px]">
                 Kochzeit (Minuten)
               </ThemedText>
-              <TextInput
-                className="bg-background-element rounded-control min-h-[44px] px-three text-body-small text-text"
-                value={cookTimeMinutes}
-                onChangeText={onCookTimeMinutesChange}
-                placeholder="30"
-                placeholderTextColor={theme.textSecondary}
-                keyboardType="numeric"
+              <Controller
+                control={control}
+                name="cookTimeMinutes"
+                render={({ field: { onBlur, onChange, value }, fieldState: { error } }) => (
+                  <>
+                    <TextInput
+                      accessibilityLabel="Kochzeit in Minuten"
+                      className="bg-background-element rounded-control min-h-[44px] px-three text-body-small text-text"
+                      value={value}
+                      onBlur={onBlur}
+                      onChangeText={onChange}
+                      placeholder="30"
+                      placeholderTextColor={theme.textSecondary}
+                      keyboardType="numeric"
+                    />
+                    <FieldError message={error?.message} />
+                  </>
+                )}
               />
             </View>
 
@@ -178,22 +192,36 @@ export function RecipeWizardStepBasics({
               <ThemedText type="detail" className="text-[10px] leading-[12px] font-bold mb-[6px]">
                 Portionen
               </ThemedText>
-              <View className="flex-row items-center justify-between bg-background-element rounded-control h-[44px] px-three min-w-[100px]">
-                <Pressable
-                  onPress={() => onDefaultServingsChange(Math.max(1, defaultServings - 1))}>
-                  <ThemedText type="headingSmall" themeColor="accent" className="font-bold">
-                    −
-                  </ThemedText>
-                </Pressable>
-                <ThemedText type="body" className="font-semibold">
-                  {defaultServings}
-                </ThemedText>
-                <Pressable onPress={() => onDefaultServingsChange(defaultServings + 1)}>
-                  <ThemedText type="headingSmall" themeColor="accent" className="font-bold">
-                    +
-                  </ThemedText>
-                </Pressable>
-              </View>
+              <Controller
+                control={control}
+                name="defaultServings"
+                render={({ field: { onChange, value }, fieldState: { error } }) => (
+                  <>
+                    <View className="flex-row items-center justify-between bg-background-element rounded-control h-[44px] px-three min-w-[100px]">
+                      <Pressable
+                        accessibilityRole="button"
+                        accessibilityLabel="Eine Portion weniger"
+                        onPress={() => onChange(Math.max(1, value - 1))}>
+                        <ThemedText type="headingSmall" themeColor="accent" className="font-bold">
+                          −
+                        </ThemedText>
+                      </Pressable>
+                      <ThemedText type="body" className="font-semibold">
+                        {value}
+                      </ThemedText>
+                      <Pressable
+                        accessibilityRole="button"
+                        accessibilityLabel="Eine Portion mehr"
+                        onPress={() => onChange(value + 1)}>
+                        <ThemedText type="headingSmall" themeColor="accent" className="font-bold">
+                          +
+                        </ThemedText>
+                      </Pressable>
+                    </View>
+                    <FieldError message={error?.message} />
+                  </>
+                )}
+              />
             </View>
           </View>
 
@@ -202,26 +230,34 @@ export function RecipeWizardStepBasics({
             <ThemedText type="detail" className="text-[10px] leading-[12px] font-bold mb-[6px]">
               Schwierigkeit
             </ThemedText>
-            <View className="row-wrap gap-[10px]">
-              {DIFFICULTIES.map((d) => {
-                const selected = difficulty === d.value;
-                return (
-                  <Pressable
-                    key={d.value}
-                    className={`px-three py-[7px] rounded-control ${
-                      selected ? 'bg-accent' : 'bg-background-element'
-                    }`}
-                    onPress={() => onDifficultyChange(selected ? null : d.value)}>
-                    <ThemedText
-                      type="caption"
-                      themeColor={selected ? 'onAccent' : 'accent'}
-                      className="font-semibold">
-                      {d.label}
-                    </ThemedText>
-                  </Pressable>
-                );
-              })}
-            </View>
+            <Controller
+              control={control}
+              name="difficulty"
+              render={({ field: { onChange, value } }) => (
+                <View className="row-wrap gap-[10px]">
+                  {DIFFICULTIES.map((difficulty) => {
+                    const selected = value === difficulty.value;
+                    return (
+                      <Pressable
+                        key={difficulty.value}
+                        accessibilityRole="button"
+                        accessibilityState={{ selected }}
+                        className={`px-three py-[7px] rounded-control ${
+                          selected ? 'bg-accent' : 'bg-background-element'
+                        }`}
+                        onPress={() => onChange(selected ? null : difficulty.value)}>
+                        <ThemedText
+                          type="caption"
+                          themeColor={selected ? 'onAccent' : 'accent'}
+                          className="font-semibold">
+                          {difficulty.label}
+                        </ThemedText>
+                      </Pressable>
+                    );
+                  })}
+                </View>
+              )}
+            />
           </View>
 
           {/* Rezepttyp */}
@@ -229,26 +265,34 @@ export function RecipeWizardStepBasics({
             <ThemedText type="detail" className="text-[10px] leading-[12px] font-bold mb-[6px]">
               Art des Gerichts
             </ThemedText>
-            <View className="row-wrap gap-[10px]">
-              {DISH_TYPES.map((d) => {
-                const selected = dishTypes.includes(d.value);
-                return (
-                  <Pressable
-                    key={d.value}
-                    className={`px-three py-[7px] rounded-control ${
-                      selected ? 'bg-accent' : 'bg-background-element'
-                    }`}
-                    onPress={() => onDishTypesChange(toggle(dishTypes, d.value))}>
-                    <ThemedText
-                      type="caption"
-                      themeColor={selected ? 'onAccent' : 'accent'}
-                      className="font-semibold">
-                      {d.label}
-                    </ThemedText>
-                  </Pressable>
-                );
-              })}
-            </View>
+            <Controller
+              control={control}
+              name="dishTypes"
+              render={({ field: { onChange, value } }) => (
+                <View className="row-wrap gap-[10px]">
+                  {DISH_TYPES.map((dishType) => {
+                    const selected = value.includes(dishType.value);
+                    return (
+                      <Pressable
+                        key={dishType.value}
+                        accessibilityRole="button"
+                        accessibilityState={{ selected }}
+                        className={`px-three py-[7px] rounded-control ${
+                          selected ? 'bg-accent' : 'bg-background-element'
+                        }`}
+                        onPress={() => onChange(toggle(value, dishType.value))}>
+                        <ThemedText
+                          type="caption"
+                          themeColor={selected ? 'onAccent' : 'accent'}
+                          className="font-semibold">
+                          {dishType.label}
+                        </ThemedText>
+                      </Pressable>
+                    );
+                  })}
+                </View>
+              )}
+            />
           </View>
 
           {/* Ernaehrung */}
@@ -256,26 +300,34 @@ export function RecipeWizardStepBasics({
             <ThemedText type="detail" className="text-[10px] leading-[12px] font-bold mb-[6px]">
               Ernährung
             </ThemedText>
-            <View className="row-wrap gap-[10px]">
-              {DIETARY_TAGS.map((d) => {
-                const selected = dietaryTags.includes(d.value);
-                return (
-                  <Pressable
-                    key={d.value}
-                    className={`px-three py-[7px] rounded-control ${
-                      selected ? 'bg-accent' : 'bg-background-element'
-                    }`}
-                    onPress={() => onDietaryTagsChange(toggle(dietaryTags, d.value))}>
-                    <ThemedText
-                      type="caption"
-                      themeColor={selected ? 'onAccent' : 'accent'}
-                      className="font-semibold">
-                      {d.label}
-                    </ThemedText>
-                  </Pressable>
-                );
-              })}
-            </View>
+            <Controller
+              control={control}
+              name="dietaryTags"
+              render={({ field: { onChange, value } }) => (
+                <View className="row-wrap gap-[10px]">
+                  {DIETARY_TAGS.map((dietaryTag) => {
+                    const selected = value.includes(dietaryTag.value);
+                    return (
+                      <Pressable
+                        key={dietaryTag.value}
+                        accessibilityRole="button"
+                        accessibilityState={{ selected }}
+                        className={`px-three py-[7px] rounded-control ${
+                          selected ? 'bg-accent' : 'bg-background-element'
+                        }`}
+                        onPress={() => onChange(toggle(value, dietaryTag.value))}>
+                        <ThemedText
+                          type="caption"
+                          themeColor={selected ? 'onAccent' : 'accent'}
+                          className="font-semibold">
+                          {dietaryTag.label}
+                        </ThemedText>
+                      </Pressable>
+                    );
+                  })}
+                </View>
+              )}
+            />
           </View>
 
           {/* Hashtags */}
@@ -283,12 +335,23 @@ export function RecipeWizardStepBasics({
             <ThemedText type="detail" className="text-[10px] leading-[12px] font-bold mb-[6px]">
               Hashtags
             </ThemedText>
-            <TextInput
-              className="bg-background-element rounded-control min-h-[44px] px-three text-body-small text-text"
-              value={hashtagsInput}
-              onChangeText={onHashtagsInputChange}
-              placeholder="#vegan #schnell"
-              placeholderTextColor={theme.textSecondary}
+            <Controller
+              control={control}
+              name="hashtagsInput"
+              render={({ field: { onBlur, onChange, value }, fieldState: { error } }) => (
+                <>
+                  <TextInput
+                    accessibilityLabel="Hashtags"
+                    className="bg-background-element rounded-control min-h-[44px] px-three text-body-small text-text"
+                    value={value}
+                    onBlur={onBlur}
+                    onChangeText={onChange}
+                    placeholder="#vegan #schnell"
+                    placeholderTextColor={theme.textSecondary}
+                  />
+                  <FieldError message={error?.message} />
+                </>
+              )}
             />
           </View>
         </>
@@ -408,6 +471,7 @@ export function RecipeWizardStepBasics({
             !title.trim() || saving ? 'opacity-50' : ''
           }`}
           onPress={onNext}
+          accessibilityRole="button"
           disabled={!title.trim() || saving}>
           <ThemedText type="captionCompact" className="text-white font-semibold">
             {saving

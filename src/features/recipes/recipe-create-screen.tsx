@@ -1,5 +1,7 @@
+import { zodResolver } from '@hookform/resolvers/zod';
 import { router, useLocalSearchParams } from 'expo-router';
 import { useEffect, useState } from 'react';
+import { useForm } from 'react-hook-form';
 import { Alert, KeyboardAvoidingView, ScrollView, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
@@ -16,15 +18,17 @@ import { getDatabase } from '@/lib/db/client';
 import type { OpenFoodFactsProduct } from '@/lib/open-food-facts';
 import { toGramsEquivalent } from '@/lib/units';
 import {
+  RECIPE_FORM_DEFAULTS,
+  type RecipeFormValues,
+  recipeFormSchema,
+} from './recipe-form-schema';
+import {
   pickRecipeImage,
   uploadRecipeCoverImage,
   uploadRecipeStepImage,
   useRecipeCoverUrl,
 } from './recipe-image-uploader';
 import {
-  type DietaryTag,
-  type Difficulty,
-  type DishType,
   useAddComponentMutation,
   useAddItemMutation,
   useAddRecipeMutation,
@@ -77,16 +81,27 @@ export function RecipeCreateScreen() {
   const householdId = data?.recipe.household_id ?? activeHouseholdId ?? undefined;
 
   const [wizardStep, setWizardStep] = useState<1 | 2 | 3 | 4>(1);
-  const [saving, setSaving] = useState(false);
-
-  const [title, setTitle] = useState('');
-  const [description, setDescription] = useState('');
-  const [cookTimeMinutes, setCookTimeMinutes] = useState('');
-  const [defaultServings, setDefaultServings] = useState(4);
-  const [difficulty, setDifficulty] = useState<Difficulty | null>(null);
-  const [dishTypes, setDishTypes] = useState<DishType[]>([]);
-  const [dietaryTags, setDietaryTags] = useState<DietaryTag[]>([]);
-  const [hashtagsInput, setHashtagsInput] = useState('');
+  const {
+    control,
+    formState: { isSubmitting },
+    handleSubmit,
+    reset,
+    watch,
+  } = useForm<RecipeFormValues>({
+    defaultValues: RECIPE_FORM_DEFAULTS,
+    mode: 'onChange',
+    resolver: zodResolver(recipeFormSchema),
+  });
+  const {
+    title,
+    description,
+    cookTimeMinutes,
+    defaultServings,
+    difficulty,
+    dishTypes,
+    dietaryTags,
+    hashtagsInput,
+  } = watch();
   const [localCoverUri, setLocalCoverUri] = useState<string | null>(null);
   const [existingCoverPath, setExistingCoverPath] = useState<string | null>(null);
   const { data: existingCoverUrl } = useRecipeCoverUrl(existingCoverPath);
@@ -99,14 +114,16 @@ export function RecipeCreateScreen() {
 
   useEffect(() => {
     if (!data) return;
-    setTitle(data.recipe.title);
-    setDescription(data.recipe.instructions ?? '');
-    setCookTimeMinutes(data.recipe.cook_time_minutes ? String(data.recipe.cook_time_minutes) : '');
-    setDefaultServings(data.recipe.default_servings);
-    setDifficulty(data.recipe.difficulty);
-    setDishTypes(data.recipe.dish_types);
-    setDietaryTags(data.recipe.dietary_tags);
-    setHashtagsInput(data.recipe.hashtags.join(' '));
+    reset({
+      title: data.recipe.title,
+      description: data.recipe.instructions ?? '',
+      cookTimeMinutes: data.recipe.cook_time_minutes ? String(data.recipe.cook_time_minutes) : '',
+      defaultServings: data.recipe.default_servings,
+      difficulty: data.recipe.difficulty,
+      dishTypes: data.recipe.dish_types,
+      dietaryTags: data.recipe.dietary_tags,
+      hashtagsInput: data.recipe.hashtags.join(' '),
+    });
     setExistingCoverPath(data.recipe.cover_image_path);
 
     const hydrated: IngredientComponentGroup[] = data.components.map((component) => ({
@@ -144,7 +161,7 @@ export function RecipeCreateScreen() {
         ingredientIds: step.ingredientIds,
       }));
     if (hydratedSteps.length > 0) setWizardSteps(hydratedSteps);
-  }, [data]);
+  }, [data, reset]);
 
   async function handlePickCover() {
     const uri = await pickRecipeImage();
@@ -266,13 +283,20 @@ export function RecipeCreateScreen() {
   }
 
   function handleNextFromBasics() {
-    if (!title.trim()) return;
-    setWizardStep(2);
+    void handleSubmit(() => setWizardStep(2))();
   }
 
-  async function handleFinalSave() {
-    if (!title.trim() || !householdId || !userId) return;
-    setSaving(true);
+  async function saveValidatedRecipe({
+    title,
+    description,
+    cookTimeMinutes,
+    defaultServings,
+    difficulty,
+    dishTypes,
+    dietaryTags,
+    hashtagsInput,
+  }: RecipeFormValues) {
+    if (!householdId || !userId) return;
     try {
       const hashtags = hashtagsInput
         .split(/[\s,#]+/)
@@ -560,10 +584,10 @@ export function RecipeCreateScreen() {
       router.replace({ pathname: '/recipe/detail', params: { id: newRecipeId } });
     } catch (err) {
       Alert.alert('Fehler', err instanceof Error ? err.message : 'Konnte nicht speichern.');
-    } finally {
-      setSaving(false);
     }
   }
+
+  const handleFinalSave = handleSubmit(saveValidatedRecipe, () => setWizardStep(1));
 
   const coverPreviewUri = localCoverUri ?? existingCoverUrl ?? null;
 
@@ -604,22 +628,7 @@ export function RecipeCreateScreen() {
               keyboardShouldPersistTaps="handled">
               <RecipeWizardStepBasics
                 mode="details"
-                title={title}
-                onTitleChange={setTitle}
-                description={description}
-                onDescriptionChange={setDescription}
-                cookTimeMinutes={cookTimeMinutes}
-                onCookTimeMinutesChange={setCookTimeMinutes}
-                defaultServings={defaultServings}
-                onDefaultServingsChange={setDefaultServings}
-                difficulty={difficulty}
-                onDifficultyChange={setDifficulty}
-                dishTypes={dishTypes}
-                onDishTypesChange={setDishTypes}
-                dietaryTags={dietaryTags}
-                onDietaryTagsChange={setDietaryTags}
-                hashtagsInput={hashtagsInput}
-                onHashtagsInputChange={setHashtagsInput}
+                control={control}
                 coverPreviewUri={coverPreviewUri}
                 onPickCover={handlePickCover}
                 components={components}
@@ -632,7 +641,7 @@ export function RecipeCreateScreen() {
                 onAddComponentGroup={handleAddComponentGroup}
                 onUpdateComponentTitle={handleUpdateComponentTitle}
                 onRemoveComponentGroup={handleRemoveComponentGroup}
-                saving={saving}
+                saving={isSubmitting}
                 onCancel={handleCancel}
                 onNext={handleNextFromBasics}
               />
@@ -646,22 +655,7 @@ export function RecipeCreateScreen() {
               keyboardShouldPersistTaps="handled">
               <RecipeWizardStepBasics
                 mode="ingredients"
-                title={title}
-                onTitleChange={setTitle}
-                description={description}
-                onDescriptionChange={setDescription}
-                cookTimeMinutes={cookTimeMinutes}
-                onCookTimeMinutesChange={setCookTimeMinutes}
-                defaultServings={defaultServings}
-                onDefaultServingsChange={setDefaultServings}
-                difficulty={difficulty}
-                onDifficultyChange={setDifficulty}
-                dishTypes={dishTypes}
-                onDishTypesChange={setDishTypes}
-                dietaryTags={dietaryTags}
-                onDietaryTagsChange={setDietaryTags}
-                hashtagsInput={hashtagsInput}
-                onHashtagsInputChange={setHashtagsInput}
+                control={control}
                 coverPreviewUri={coverPreviewUri}
                 onPickCover={handlePickCover}
                 components={components}
@@ -674,7 +668,7 @@ export function RecipeCreateScreen() {
                 onAddComponentGroup={handleAddComponentGroup}
                 onUpdateComponentTitle={handleUpdateComponentTitle}
                 onRemoveComponentGroup={handleRemoveComponentGroup}
-                saving={saving}
+                saving={isSubmitting}
                 onCancel={() => setWizardStep(1)}
                 onNext={() => setWizardStep(3)}
               />
@@ -702,9 +696,9 @@ export function RecipeCreateScreen() {
               hashtagsInput={hashtagsInput}
               components={components}
               steps={wizardSteps}
-              saving={saving}
+              saving={isSubmitting}
               onBack={() => setWizardStep(3)}
-              onSave={handleFinalSave}
+              onSave={() => void handleFinalSave()}
             />
           )}
         </KeyboardAvoidingView>

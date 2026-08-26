@@ -1,10 +1,10 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { fireEvent, render, screen } from '@testing-library/react-native';
+import { render, screen, userEvent, waitFor } from '@testing-library/react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import { RecipeCreateScreen } from '@/features/recipes/recipe-create-screen';
 
-const mockCreateRecipeMutateAsync = jest.fn().mockResolvedValue('rec-1');
+const mockCreateRecipeMutateAsync = jest.fn().mockResolvedValue({ id: 'rec-1' });
 const mockSaveComponentsMutateAsync = jest.fn().mockResolvedValue(undefined);
 const mockSaveStepsMutateAsync = jest.fn().mockResolvedValue(undefined);
 const mockReplace = jest.fn();
@@ -53,6 +53,21 @@ jest.mock('@/features/inventory/use-product-mutations', () => ({
   useAddProductMutation: () => ({ mutateAsync: jest.fn() }),
 }));
 
+jest.mock('@/features/inventory/product-search-dropdown', () => ({
+  ProductSearchDropdown: () => null,
+}));
+
+jest.mock('@/lib/db/client', () => ({
+  getDatabase: jest.fn().mockResolvedValue({
+    getFirstAsync: jest.fn().mockResolvedValue(null),
+    getAllAsync: jest.fn().mockResolvedValue([]),
+  }),
+}));
+
+jest.mock('@/lib/analytics/aptabase', () => ({
+  trackAptabaseEvent: jest.fn(),
+}));
+
 describe('RecipeCreateScreen', () => {
   async function renderScreen() {
     const queryClient = new QueryClient({
@@ -88,14 +103,53 @@ describe('RecipeCreateScreen', () => {
   });
 
   it('navigiert zu Schritt 2 wenn Titel eingegeben ist', async () => {
+    const user = userEvent.setup();
     await renderScreen();
 
-    const titleInput = screen.getByPlaceholderText('Rezepttitel');
-    await fireEvent.changeText(titleInput, 'Pasta Pesto');
+    const titleInput = screen.getByLabelText('Titel');
+    await user.paste(titleInput, 'Pasta Pesto');
 
-    const nextBtn = screen.getByText('Weiter zu den Zutaten');
-    await fireEvent.press(nextBtn);
+    const nextBtn = screen.getByRole('button', { name: 'Weiter zu den Zutaten' });
+    await user.press(nextBtn);
 
     expect(screen.getByText('Gruppen und Zutaten')).toBeTruthy();
+  });
+
+  it('zeigt einen feldbezogenen Zod-Fehler für eine ungültige Kochzeit', async () => {
+    const user = userEvent.setup();
+    await renderScreen();
+
+    await user.paste(screen.getByLabelText('Titel'), 'Suppe');
+    await user.paste(screen.getByLabelText('Kochzeit in Minuten'), '12.5');
+    await user.press(screen.getByRole('button', { name: 'Weiter zu den Zutaten' }));
+
+    expect(await screen.findByRole('alert')).toHaveTextContent(
+      'Die Kochzeit muss eine ganze Zahl sein.',
+    );
+    expect(screen.getByText('Rezeptdetails')).toBeOnTheScreen();
+  });
+
+  it('übergibt beim Speichern ausschließlich die von Zod validierte Payload', async () => {
+    const user = userEvent.setup();
+    await renderScreen();
+
+    await user.paste(screen.getByLabelText('Titel'), '  Pasta Pesto  ');
+    await user.paste(screen.getByLabelText('Kochzeit in Minuten'), '30');
+    await user.paste(screen.getByLabelText('Hashtags'), '#Schnell');
+    await user.press(screen.getByRole('button', { name: 'Weiter zu den Zutaten' }));
+    await user.press(screen.getByRole('button', { name: 'Weiter zu den Schritten' }));
+    await user.press(screen.getByRole('button', { name: 'Weiter' }));
+    await user.press(screen.getByRole('button', { name: 'Speichern' }));
+
+    await waitFor(() => expect(mockCreateRecipeMutateAsync).toHaveBeenCalledTimes(1));
+    expect(mockCreateRecipeMutateAsync).toHaveBeenCalledWith(
+      expect.objectContaining({
+        household_id: 'hh-1',
+        title: 'Pasta Pesto',
+        created_by: 'user-1',
+        cook_time_minutes: 30,
+        hashtags: ['schnell'],
+      }),
+    );
   });
 });

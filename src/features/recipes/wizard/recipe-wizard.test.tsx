@@ -1,7 +1,8 @@
-import { fireEvent, render, screen } from '@testing-library/react-native';
+import { render, screen, userEvent } from '@testing-library/react-native';
 import type React from 'react';
+import { useForm } from 'react-hook-form';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-
+import { RECIPE_FORM_DEFAULTS, type RecipeFormValues } from '@/features/recipes/recipe-form-schema';
 import { RecipeWizardStepBasics } from '@/features/recipes/wizard/recipe-wizard-step-basics';
 import { RecipeWizardStepPreview } from '@/features/recipes/wizard/recipe-wizard-step-preview';
 import { RecipeWizardStepSteps } from '@/features/recipes/wizard/recipe-wizard-step-steps';
@@ -58,51 +59,54 @@ describe('Recipe Wizard Steps', () => {
 
   describe('RecipeWizardStepBasics', () => {
     it('rendert Basisfelder und navigiert zu Schritt 2', async () => {
+      const user = userEvent.setup();
       const onNext = jest.fn();
       const onCancel = jest.fn();
 
-      await renderWithProviders(
-        <RecipeWizardStepBasics
-          mode="details"
-          title="Linsensuppe"
-          onTitleChange={jest.fn()}
-          description="Klassische Linsensuppe"
-          onDescriptionChange={jest.fn()}
-          cookTimeMinutes="30"
-          onCookTimeMinutesChange={jest.fn()}
-          defaultServings={4}
-          onDefaultServingsChange={jest.fn()}
-          difficulty="easy"
-          onDifficultyChange={jest.fn()}
-          dishTypes={['dinner']}
-          onDishTypesChange={jest.fn()}
-          dietaryTags={['vegan']}
-          onDietaryTagsChange={jest.fn()}
-          hashtagsInput="#suppe #vegan"
-          onHashtagsInputChange={jest.fn()}
-          coverPreviewUri={null}
-          onPickCover={jest.fn()}
-          components={dummyComponents}
-          onAddIngredient={jest.fn()}
-          onRemoveIngredient={jest.fn()}
-          onSelectProduct={jest.fn()}
-          onUpdateIngredientQuery={jest.fn()}
-          onUpdateQuantity={jest.fn()}
-          onUpdateUnit={jest.fn()}
-          onAddComponentGroup={jest.fn()}
-          onUpdateComponentTitle={jest.fn()}
-          onRemoveComponentGroup={jest.fn()}
-          saving={false}
-          onNext={onNext}
-          onCancel={onCancel}
-        />,
-      );
+      function BasicsHarness() {
+        const { control } = useForm<RecipeFormValues>({
+          defaultValues: {
+            ...RECIPE_FORM_DEFAULTS,
+            title: 'Linsensuppe',
+            description: 'Klassische Linsensuppe',
+            cookTimeMinutes: '30',
+            difficulty: 'easy',
+            dishTypes: ['dinner'],
+            dietaryTags: ['vegan'],
+            hashtagsInput: '#suppe #vegan',
+          },
+        });
+
+        return (
+          <RecipeWizardStepBasics
+            mode="details"
+            control={control}
+            coverPreviewUri={null}
+            onPickCover={jest.fn()}
+            components={dummyComponents}
+            onAddIngredient={jest.fn()}
+            onRemoveIngredient={jest.fn()}
+            onSelectProduct={jest.fn()}
+            onUpdateIngredientQuery={jest.fn()}
+            onUpdateQuantity={jest.fn()}
+            onUpdateUnit={jest.fn()}
+            onAddComponentGroup={jest.fn()}
+            onUpdateComponentTitle={jest.fn()}
+            onRemoveComponentGroup={jest.fn()}
+            saving={false}
+            onNext={onNext}
+            onCancel={onCancel}
+          />
+        );
+      }
+
+      await renderWithProviders(<BasicsHarness />);
 
       expect(screen.getByDisplayValue('Linsensuppe')).toBeTruthy();
       expect(screen.getByDisplayValue('30')).toBeTruthy();
 
-      const nextBtn = screen.getByText('Weiter zu den Zutaten');
-      await fireEvent.press(nextBtn);
+      const nextBtn = screen.getByRole('button', { name: 'Weiter zu den Zutaten' });
+      await user.press(nextBtn);
 
       expect(onNext).toHaveBeenCalled();
     });
@@ -110,6 +114,7 @@ describe('Recipe Wizard Steps', () => {
 
   describe('RecipeWizardStepSteps', () => {
     it('erlaubt Hinzufügen von Arbeitsschritten', async () => {
+      const user = userEvent.setup();
       const onNext = jest.fn();
       const onBack = jest.fn();
 
@@ -127,7 +132,7 @@ describe('Recipe Wizard Steps', () => {
       expect(screen.getByDisplayValue('Zwiebeln schneiden')).toBeTruthy();
 
       const nextBtn = screen.getByText('Weiter');
-      await fireEvent.press(nextBtn);
+      await user.press(nextBtn);
 
       expect(onNext).toHaveBeenCalled();
     });
@@ -135,6 +140,7 @@ describe('Recipe Wizard Steps', () => {
 
   describe('RecipeWizardStepPreview', () => {
     it('zeigt Zusammenfassung und Speichern-Button', async () => {
+      const user = userEvent.setup();
       const onSave = jest.fn();
       const onBack = jest.fn();
 
@@ -161,7 +167,7 @@ describe('Recipe Wizard Steps', () => {
       expect(screen.getByText('Klassische Linsensuppe')).toBeTruthy();
 
       const saveBtn = screen.getByText('Speichern');
-      await fireEvent.press(saveBtn);
+      await user.press(saveBtn);
 
       expect(onSave).toHaveBeenCalled();
     });

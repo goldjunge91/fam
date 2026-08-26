@@ -252,6 +252,7 @@ export function RecipeWizardStepPreview({
           className={`flex-1 min-h-[48px] rounded-card items-center justify-center bg-accent active:opacity-75 ${
             saving ? 'opacity-50' : ''
           }`}
+          accessibilityRole="button"
           onPress={onSave}
           disabled={saving}>
           <ThemedText type="captionCompact" className="text-white font-semibold">
