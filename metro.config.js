@@ -5,6 +5,8 @@ const {
 
 const config = getSentryExpoConfig(__dirname);
 
+config.resolver.sourceExts.push('sql');
+
 config.transformer.getTransformOptions = async () => ({
   transform: {
     experimentalImportSupport: true,

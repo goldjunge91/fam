@@ -68,7 +68,12 @@
     "plugins": [
       "expo-apple-authentication",
       "expo-router",
-      "expo-sqlite",
+      [
+        "expo-sqlite",
+        {
+          "useSQLCipher": true
+        }
+      ],
       "expo-secure-store",
       [
         "expo-camera",
