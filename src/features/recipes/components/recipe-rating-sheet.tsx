@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { ActivityIndicator, Pressable, TextInput, View } from 'react-native';
 
 import { ThemedText } from '@/components/theme/themed-text';
+import { useSession } from '@/features/auth/session-provider';
 import { useTheme } from '@/hooks/use-theme';
 import { getRecipeRating, saveRecipeRating } from '../recipe-ratings';
 import { RecipeBottomSheet } from './recipe-bottom-sheet';
@@ -14,28 +15,37 @@ type Props = {
 
 export function RecipeRatingSheet({ recipeId, visible, onClose }: Props) {
   const theme = useTheme();
+  const { session } = useSession();
+  const userId = session?.user.id;
   const [score, setScore] = useState(0);
   const [note, setNote] = useState('');
   const [saving, setSaving] = useState(false);
 
   useEffect(() => {
-    if (!visible) return;
+    setScore(0);
+    setNote('');
+    if (!visible || !userId) return;
     let active = true;
-    getRecipeRating(recipeId).then((rating) => {
-      if (!active || !rating) return;
-      setScore(rating.score);
-      setNote(rating.note);
-    });
+    void getRecipeRating(userId, recipeId)
+      .then((rating) => {
+        if (!active || !rating) return;
+        setScore(rating.score);
+        setNote(rating.note);
+      })
+      .catch(() => {
+        // Logout und DB-Cleanup dürfen einen bereits gestarteten UI-Read
+        // abbrechen. Der leere Zustand oben bleibt dabei autoritativ.
+      });
     return () => {
       active = false;
     };
-  }, [recipeId, visible]);
+  }, [recipeId, userId, visible]);
 
   async function submit() {
-    if (score === 0) return;
+    if (score === 0 || !userId) return;
     setSaving(true);
     try {
-      await saveRecipeRating(recipeId, score, note);
+      await saveRecipeRating(userId, recipeId, score, note);
       onClose();
     } finally {
       setSaving(false);

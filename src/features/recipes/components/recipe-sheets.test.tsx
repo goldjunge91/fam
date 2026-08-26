@@ -1,18 +1,23 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { render, screen } from '@testing-library/react-native';
+import { act, render, screen, waitFor } from '@testing-library/react-native';
 import type { RecipeShoppingNeed } from '@/features/recipes/use-recipe-shopping-needs';
 import type { RecipeDetail } from '@/features/recipes/use-recipes';
 import { RecipeRatingSheet } from './recipe-rating-sheet';
 import { RecipeShoppingSheet } from './recipe-shopping-sheet';
 
 const MOCK_NEEDS: RecipeShoppingNeed[] = [];
+const mockGetRecipeRating = jest.fn();
+
+jest.mock('@/features/auth/session-provider', () => ({
+  useSession: () => ({ session: { user: { id: 'user-a' } } }),
+}));
 
 jest.mock('@/features/premium/premium-provider', () => ({
   usePremium: () => ({ isPremium: true, refresh: jest.fn() }),
 }));
 
 jest.mock('@/features/recipes/recipe-ratings', () => ({
-  getRecipeRating: jest.fn().mockResolvedValue({ score: 5, note: 'Sehr gut' }),
+  getRecipeRating: (...args: unknown[]) => mockGetRecipeRating(...args),
   saveRecipeRating: jest.fn().mockResolvedValue(undefined),
 }));
 
@@ -25,12 +30,36 @@ jest.mock('@/features/shopping-list/hooks/use-shopping-list-mutations', () => ({
 }));
 
 describe('RecipeRatingSheet', () => {
+  beforeEach(() => {
+    mockGetRecipeRating.mockReset();
+    mockGetRecipeRating.mockResolvedValue({ score: 5, note: 'Sehr gut' });
+  });
+
   it('rendert den Bewertungs-Dialog wenn sichtbar', async () => {
     const onClose = jest.fn();
 
     await render(<RecipeRatingSheet recipeId="rec-1" visible={true} onClose={onClose} />);
 
     expect(screen.getByText('Rezept bewerten')).toBeTruthy();
+  });
+
+  it('zeigt beim Rezeptwechsel keine Bewertung des vorherigen Rezepts', async () => {
+    mockGetRecipeRating
+      .mockResolvedValueOnce({ score: 5, note: 'Sehr gut' })
+      .mockResolvedValueOnce(null);
+    const view = await render(
+      <RecipeRatingSheet recipeId="rec-1" visible={true} onClose={jest.fn()} />,
+    );
+    await screen.findByDisplayValue('Sehr gut');
+
+    await act(async () => {
+      view.rerender(<RecipeRatingSheet recipeId="rec-2" visible={true} onClose={jest.fn()} />);
+    });
+
+    await waitFor(() => {
+      expect(screen.queryByDisplayValue('Sehr gut')).toBeNull();
+      expect(screen.getByText('Noch keine Bewertung gewählt')).toBeTruthy();
+    });
   });
 });
 

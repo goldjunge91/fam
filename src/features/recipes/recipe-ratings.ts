@@ -1,5 +1,8 @@
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useEffect, useState } from 'react';
+
+import { registerLocalAccountCache } from '@/features/auth/local-account-cache';
+import { useSession } from '@/features/auth/session-provider';
+import { readStoredRecipeRating, writeStoredRecipeRating } from './recipe-preferences-repository';
 
 export type RecipeRating = {
   score: number;
@@ -7,68 +10,93 @@ export type RecipeRating = {
   updatedAt: string;
 };
 
-const STORAGE_KEY = 'fam.recipe-ratings.v1';
 const listeners = new Map<string, Set<(rating: RecipeRating | null) => void>>();
 
-function notify(recipeId: string, rating: RecipeRating) {
-  for (const listener of listeners.get(recipeId) ?? []) listener(rating);
+function listenerKey(userId: string, recipeId: string): string {
+  return `${userId}:${recipeId}`;
 }
 
-async function readRatings(): Promise<Record<string, RecipeRating>> {
-  try {
-    const raw = await AsyncStorage.getItem(STORAGE_KEY);
-    if (!raw) return {};
-    const parsed = JSON.parse(raw) as unknown;
-    return parsed && typeof parsed === 'object' ? (parsed as Record<string, RecipeRating>) : {};
-  } catch {
-    return {};
-  }
+function toRecipeRating(
+  stored: Awaited<ReturnType<typeof readStoredRecipeRating>>,
+): RecipeRating | null {
+  if (!stored) return null;
+  return {
+    score: stored.score,
+    note: stored.note,
+    updatedAt: new Date(stored.updatedAt).toISOString(),
+  };
 }
 
-export async function getRecipeRating(recipeId: string): Promise<RecipeRating | null> {
-  const ratings = await readRatings();
-  const rating = ratings[recipeId];
-  if (!rating || rating.score < 1 || rating.score > 10) return null;
-  return rating;
+export async function getRecipeRating(
+  userId: string,
+  recipeId: string,
+): Promise<RecipeRating | null> {
+  return toRecipeRating(await readStoredRecipeRating(userId, `recipe:${recipeId}`));
 }
 
 export async function saveRecipeRating(
+  userId: string,
   recipeId: string,
   score: number,
   note: string,
 ): Promise<RecipeRating> {
-  const ratings = await readRatings();
-  const rating = {
-    score: Math.max(1, Math.min(10, Math.round(score))),
-    note: note.trim(),
-    updatedAt: new Date().toISOString(),
-  };
-  ratings[recipeId] = rating;
-  await AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(ratings));
-  notify(recipeId, rating);
+  const normalizedScore = Math.max(1, Math.min(10, Math.round(score)));
+  const stored = await writeStoredRecipeRating(
+    userId,
+    `recipe:${recipeId}`,
+    normalizedScore,
+    note.trim(),
+  );
+  const rating = toRecipeRating(stored);
+  if (!rating) throw new Error('Die Rezeptbewertung konnte nicht gespeichert werden.');
+  for (const listener of listeners.get(listenerKey(userId, recipeId)) ?? []) listener(rating);
   return rating;
 }
 
-/** Liefert die lokal gespeicherte Bewertung und aktualisiert sie nach erneutem Bewerten live. */
+/** Liefert nur die Bewertung des aktuell angemeldeten Nutzers. */
 export function useRecipeRating(recipeId: string) {
+  const { session } = useSession();
+  const userId = session?.user.id;
   const [rating, setRating] = useState<RecipeRating | null>(null);
 
   useEffect(() => {
+    // Kein kurzes Anzeigen der Bewertung des vorigen Accounts, während die
+    // neue nutzerspezifische Zeile geladen wird.
+    setRating(null);
+    if (!userId) {
+      return;
+    }
+
     let active = true;
+    const key = listenerKey(userId, recipeId);
     const listener = (next: RecipeRating | null) => {
       if (active) setRating(next);
     };
-    const recipeListeners =
-      listeners.get(recipeId) ?? new Set<(rating: RecipeRating | null) => void>();
+    const recipeListeners = listeners.get(key) ?? new Set<(rating: RecipeRating | null) => void>();
     recipeListeners.add(listener);
-    listeners.set(recipeId, recipeListeners);
-    getRecipeRating(recipeId).then(listener);
+    listeners.set(key, recipeListeners);
+    void getRecipeRating(userId, recipeId)
+      .then(listener)
+      .catch(() => {
+        // Ein Logout darf den laufenden DB-Read durch das Lifecycle-Gate
+        // abbrechen. Der bereits geleerte Hook-State bleibt autoritativ.
+      });
     return () => {
       active = false;
       recipeListeners.delete(listener);
-      if (recipeListeners.size === 0) listeners.delete(recipeId);
+      if (recipeListeners.size === 0) listeners.delete(key);
     };
-  }, [recipeId]);
+  }, [recipeId, userId]);
 
   return rating;
 }
+
+/** Entfernt Listener dieses Accounts aus dem Modulcache. */
+export function resetRecipeRatingsCache(userId: string): void {
+  const prefix = `${userId}:`;
+  for (const key of listeners.keys()) {
+    if (key.startsWith(prefix)) listeners.delete(key);
+  }
+}
+
+registerLocalAccountCache('recipe-ratings', resetRecipeRatingsCache);
