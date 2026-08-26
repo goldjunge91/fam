@@ -9,16 +9,15 @@ let configured = false;
  * Navigation auf). `Sentry.wrap()` allein liefert das NICHT mit — es haengt
  * nur eine Touch-/Profiling-Boundary um die App (siehe `sdk.js#wrap` im SDK).
  * Muss vor `Sentry.init()` erzeugt (hier, Modul-Ebene) und danach einmalig
- * mit dem Navigation-Container verbunden werden — `registerNavigationContainer`
- * ruft `src/app/_layout.tsx` auf, sobald der Router gemountet ist.
+ * mit dem Navigation-Container verbunden werden — `use-app-lifecycle.ts`
+ * ruft `registerNavigationContainer` auf, sobald der Router gemountet ist.
  */
 export const navigationIntegration = Sentry.reactNavigationIntegration();
 
 /**
  * Initialisiert Sentry einmalig pro App-Leben. Muss vor dem ersten
- * `Sentry.captureException`/`captureMessage` laufen — wird ganz oben in
- * `src/app/_layout.tsx` aufgerufen, noch vor allen anderen Imports mit
- * Nebenwirkungen.
+ * `Sentry.captureException`/`captureMessage` laufen — wird von
+ * `initialize-app-runtime.ts` aufgerufen, bevor der erste Screen mountet.
  *
  * Ohne `EXPO_PUBLIC_SENTRY_DSN` (noch kein Sentry-Projekt angelegt, oder ein
  * lokaler Dev-Build ohne eigenes Tracking) bleibt das bewusst ein No-op statt
@@ -72,7 +71,7 @@ export function initSentry(): void {
     });
   } catch (err) {
     // Ohne try/catch reisst ein Fehler aus `Sentry.init()` die ganze App beim
-    // Modul-Eval in `src/app/_layout.tsx` mit — noch bevor irgendein Screen
+    // Runtime-Init beim Root-Layout-Eval mit — noch bevor irgendein Screen
     // rendert. `configured` steht bereits oben auf `true`, ein erneuter Aufruf
     // wiederholt den Fehler also nicht.
     console.error('[sentry] Init fehlgeschlagen — Fehler-Tracking bleibt aus:', err);

@@ -14,8 +14,8 @@
  * `defineBackgroundSyncTask()` ist eine EXPORTIERTE FUNKTION, kein
  * Modul-Top-Level-Seiteneffekt — sie macht den lazy-require selbst, aber der
  * Aufrufer muss sie einmal frueh und auf Anweisungsebene aufrufen (z. B. ganz
- * oben in `_layout.tsx`, neben `SplashScreen.preventAutoHideAsync()`), NICHT
- * in einem Hook. Wird das versaeumt, ist die Task zur Laufzeit nie definiert
+ * beim Modul-Start ueber `initialize-app-runtime.ts`), NICHT in einem Hook.
+ * Wird das versaeumt, ist die Task zur Laufzeit nie definiert
  * und `registerTaskAsync` schlaegt fehl.
  *
  * Der veraenderliche `handler`-Slot loest ein zweites Problem: die Task kann

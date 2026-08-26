@@ -1,6 +1,6 @@
 /**
  * Traegt den Fehler eines fehlgeschlagenen Auth-Deep-Links vom Empfaenger
- * (`src/app/_layout.tsx`) zu der Stelle, die ihn anzeigen kann
+ * (`src/features/navigation/use-app-deep-links.ts`) zu der Stelle, die ihn anzeigen kann
  * (`PendingAuthBanner`).
  *
  * Vorher endete dieser Fehler in einem `console.warn`. Er war damit im

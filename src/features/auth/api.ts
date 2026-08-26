@@ -1,21 +1,16 @@
 import type { AuthError } from '@supabase/supabase-js';
 import { useQuery } from '@tanstack/react-query';
-import {
-  AppleAuthenticationScope,
-  signInAsync,
-} from 'expo-apple-authentication';
-import {
-  CryptoDigestAlgorithm,
-  digestStringAsync,
-  randomUUID,
-} from 'expo-crypto';
-
+import { AppleAuthenticationScope, signInAsync } from 'expo-apple-authentication';
+import { CryptoDigestAlgorithm, digestStringAsync, randomUUID } from 'expo-crypto';
 import * as Linking from 'expo-linking';
+import * as WebBrowser from 'expo-web-browser';
 import { Platform } from 'react-native';
+import { parseOAuthTokensFromUrl } from '@/features/auth/auth-deep-link';
 import type { ProfileInput } from '@/features/auth/auth-schemas';
 import { isOrphanedProfileError } from '@/features/auth/orphaned-profile-error';
 import type { Database } from '@/lib/database.types';
 import { getSupabase } from '@/lib/supabase';
+
 /**
  * Uebersetzt Supabase-Fehler in Meldungen, die einem Nutzer weiterhelfen.
  *
@@ -64,14 +59,51 @@ export function authErrorMessage(error: AuthError | Error | null): string | null
 }
 
 export async function signInWithOAuthProvider(provider: 'apple' | 'google') {
-  const redirectTo = Linking.createURL('/(app)');
-  const { data, error } = await getSupabase().auth.signInWithOAuth({
+  const redirectTo = Linking.createURL('/sign-in');
+  const supabase = getSupabase();
+  const { data, error } = await supabase.auth.signInWithOAuth({
     provider,
     options: {
       redirectTo,
+      skipBrowserRedirect: true,
     },
   });
-  return { data, error };
+
+  if (error) {
+    return { data, error };
+  }
+
+  if (!data.url) {
+    return {
+      data,
+      error: new Error('Der Anmeldedienst hat keine Weiterleitungs-URL geliefert.'),
+    };
+  }
+
+  const result = await WebBrowser.openAuthSessionAsync(data.url, redirectTo);
+
+  if (result.type !== 'success') {
+    return { data, error: null };
+  }
+
+  const tokens = parseOAuthTokensFromUrl(result.url, redirectTo);
+
+  if (!tokens) {
+    return {
+      data,
+      error: new Error('Der OAuth-Callback ist ungültig.'),
+    };
+  }
+
+  const { error: sessionError } = await supabase.auth.setSession({
+    access_token: tokens.accessToken,
+    refresh_token: tokens.refreshToken,
+  });
+
+  return {
+    data,
+    error: sessionError,
+  };
 }
 
 /**
@@ -206,15 +238,9 @@ export async function signInWithApple() {
   }
   try {
     const rawNonce = randomUUID();
-    const hashedNonce = await digestStringAsync(
-      CryptoDigestAlgorithm.SHA256,
-      rawNonce
-    );
+    const hashedNonce = await digestStringAsync(CryptoDigestAlgorithm.SHA256, rawNonce);
     const credential = await signInAsync({
-      requestedScopes: [
-        AppleAuthenticationScope.FULL_NAME,
-        AppleAuthenticationScope.EMAIL,
-      ],
+      requestedScopes: [AppleAuthenticationScope.FULL_NAME, AppleAuthenticationScope.EMAIL],
       nonce: hashedNonce,
     });
     if (!credential.identityToken) {

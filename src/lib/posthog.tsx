@@ -37,7 +37,7 @@ function FeatureFlagProvider({
 
 /**
  * Konfiguriert den PostHog-Client einmalig pro App-Leben. Muss vor dem ersten
- * Mount von `<PostHogProvider>` laufen — wird ganz oben in `src/app/_layout.tsx`
+ * Mount von `<PostHogProvider>` laufen — wird von `initialize-app-runtime.ts`
  * aufgerufen, analog zu `initSentry()`/`initPurchases()`.
  *
  * Ohne `EXPO_PUBLIC_POSTHOG_API_KEY` (noch kein PostHog-Projekt angelegt, oder
@@ -47,7 +47,7 @@ function FeatureFlagProvider({
  *
  * Wirft der Konstruktor (z. B. fehlerhafte Env-Variable, fehlendes natives
  * Storage-Modul), faengt der try/catch den Fehler ab und die App laeuft ohne
- * PostHog weiter, statt beim Modul-Eval in `src/app/_layout.tsx` abzustuerzen.
+ * PostHog weiter, statt bei der Runtime-Initialisierung abzustuerzen.
  * Der `attempted`-Flag verhindert, dass ein erneuter Aufruf denselben Fehler
  * noch einmal wirft — analog zum `configured`-Flag in `initSentry()`.
  */
@@ -90,7 +90,7 @@ export function getPostHogInitializationError(): string | undefined {
 
 /**
  * Der konfigurierte PostHog-Client, oder `undefined` ohne API-Key. Fuer
- * `<PostHogProvider client={...}>` in `src/app/_layout.tsx` sowie fuer
+ * `<PostHogProvider client={...}>` in `app-providers.tsx` sowie fuer
  * `identify()`/`reset()` bei Login/Logout.
  */
 export function getPostHogClient(): PostHog | undefined {

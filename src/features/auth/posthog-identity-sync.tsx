@@ -14,7 +14,8 @@ const FEATURE_FLAG_AUTO_RELOAD_INTERVAL_MS = 12 * 60 * 60 * 1000;
  * Vordergrund neu.
  *
  * Muss innerhalb von `<SessionProvider>` UND `<PostHogProvider>` gemountet
- * sein (siehe `src/app/_layout.tsx`). Rendert nichts, ist reiner Sync-Effekt.
+ * sein (siehe `src/features/app-shell/app-providers.tsx`). Rendert nichts, ist
+ * reiner Sync-Effekt.
  *
  * Waehrend `isLoading` bleibt der `distinctId` unangetastet — sonst wuerde
  * ein bereits eingeloggter Nutzer beim App-Start kurz einen `reset()`
