@@ -1,14 +1,20 @@
 import { parseAuthErrorFromUrl, parseAuthTokensFromUrl } from './auth-deep-link';
 
 describe('parseAuthTokensFromUrl', () => {
-  it('extrahiert access_token und refresh_token aus dem URL-Fragment', () => {
+  it('extrahiert Tokens aus einem gültigen Recovery-Callback', () => {
     const url =
-      'fam:///?#access_token=abc123&refresh_token=def456&expires_in=3600&token_type=bearer&type=signup';
+      'fam:///reset-password#access_token=abc123&refresh_token=def456&expires_in=3600&token_type=bearer&type=recovery';
 
     expect(parseAuthTokensFromUrl(url)).toEqual({
       accessToken: 'abc123',
       refreshToken: 'def456',
     });
+  });
+
+  it('lehnt Session-Tokens auf einem nicht erlaubten Deep-Link-Pfad ab', () => {
+    const url = 'fam:///household/join#access_token=abc123&refresh_token=def456&type=recovery';
+
+    expect(parseAuthTokensFromUrl(url)).toBeNull();
   });
 
   it('gibt null zurück, wenn kein Fragment vorhanden ist', () => {

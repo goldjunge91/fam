@@ -1,11 +1,6 @@
 name: iOS Simulator Build
 
 on:
-  pull_request:
-    paths-ignore:
-      - '**.md'
-      - 'docs/**'
-      - '.gitignore'
   workflow_dispatch:
     inputs:
       configuration:

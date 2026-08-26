@@ -1,9 +1,7 @@
 name: Release Please
 
 on:
-  push:
-    branches:
-      - main
+  workflow_dispatch:
 
 permissions:
   contents: write
@@ -13,20 +11,19 @@ jobs:
   release-please:
     runs-on: ubuntu-latest
     outputs:
-      app--tag_name: ${{ steps.release.outputs.tag_name}}
-      app--release_created: ${{ steps.release.outputs.release_created}}
+      tag_name: ${{ steps.release.outputs.tag_name }}
+      release_created: ${{ steps.release.outputs.release_created }}
     steps:
       - uses: actions/checkout@v4
       - uses: googleapis/release-please-action@v4
         id: release
         with:
-          token:  ${{ secrets.GITHUB_TOKEN }}
-          config-file: release-please-config.json
-          manifest-file: .release-please-manifest.json
+          token: ${{ secrets.GITHUB_TOKEN }}
+          release-type: node
   release2play-internal-test-track:
     needs: release-please
     runs-on: ubuntu-latest
-    if: ${{needs.release-please.outputs.app--release_created}}
+    if: ${{ needs.release-please.outputs.release_created }}
     steps:
       - uses: actions/checkout@v4
       - uses: ./.github/actions/setup-bun-env
@@ -47,7 +44,7 @@ jobs:
   release2testflight:
     needs: release-please
     runs-on: macos-14
-    if: ${{needs.release-please.outputs.app--release_created}}
+    if: ${{ needs.release-please.outputs.release_created }}
     steps:
       - uses: actions/checkout@v4
       - uses: ./.github/actions/setup-bun-env
