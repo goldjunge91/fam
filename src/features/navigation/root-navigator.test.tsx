@@ -8,6 +8,7 @@ let mockSessionState: {
   isLoading: boolean;
   seenOnboarding: boolean;
 };
+const mockGetDatabase = jest.fn().mockResolvedValue({});
 
 jest.mock('expo-router', () => {
   const React = jest.requireActual<typeof import('react')>('react');
@@ -23,7 +24,9 @@ jest.mock('expo-router', () => {
 jest.mock('expo-observe', () => ({ useObserve: () => ({ markInteractive: jest.fn() }) }));
 jest.mock('expo-splash-screen', () => ({ hideAsync: jest.fn() }));
 jest.mock('@/features/auth/session-provider', () => ({ useSession: () => mockSessionState }));
-jest.mock('@/lib/db/client', () => ({ getDatabase: () => Promise.resolve({}) }));
+jest.mock('@/lib/db/client', () => ({
+  getDatabase: (...args: unknown[]) => mockGetDatabase(...args),
+}));
 jest.mock('@/lib/off-dump/off-dump', () => ({ initOffDump: jest.fn() }));
 jest.mock('@/lib/env', () => ({ env: { forceOnboarding: false } }));
 
@@ -41,8 +44,11 @@ const privateRootRoutes = [
 
 describe('RootNavigator', () => {
   it('registriert private Root-Routen ausschließlich mit einer Session', async () => {
+    jest.clearAllMocks();
     mockSessionState = { session: null, isLoading: false, seenOnboarding: true };
     const view = await render(<RootNavigator />);
+
+    expect(mockGetDatabase).not.toHaveBeenCalled();
 
     for (const route of privateRootRoutes) {
       expect(screen.queryByText(route)).not.toBeOnTheScreen();
@@ -54,6 +60,8 @@ describe('RootNavigator', () => {
       seenOnboarding: true,
     };
     await view.rerender(<RootNavigator />);
+
+    expect(mockGetDatabase).toHaveBeenCalledTimes(1);
 
     for (const route of privateRootRoutes) {
       expect(screen.getByText(route)).toBeOnTheScreen();

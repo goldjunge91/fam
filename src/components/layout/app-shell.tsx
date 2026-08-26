@@ -5,6 +5,7 @@ import { PlusIcon } from '@/components/icons/fam-icon';
 import { FloatingActionButton } from '@/components/ui/buttons';
 import { SyncBannerVisibilityProvider, SyncStatusBanner } from '@/components/ui/sync-status-banner';
 import { AdBanner } from '@/features/ads';
+import { useSession } from '@/features/auth/session-provider';
 import { DEFAULT_FAB_POSITION, useFabPosition } from '@/features/navigation/fab-position-settings';
 import {
   NavigationChromeProvider,
@@ -17,11 +18,13 @@ import { useTheme } from '@/hooks/use-theme';
 
 export default function AppShell() {
   const insets = useSafeAreaInsets();
+  const { session } = useSession();
+  const syncEnabled = Boolean(session?.user.id);
 
   return (
     <NavigationChromeProvider>
-      <SyncBannerVisibilityProvider>
-        <SyncStatusBanner />
+      <SyncBannerVisibilityProvider enabled={syncEnabled}>
+        <SyncStatusBanner enabled={syncEnabled} />
         <Stack screenOptions={{ headerShown: false }} />
         <NavigationDrawer />
         <ProfileSheet />

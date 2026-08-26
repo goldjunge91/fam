@@ -1,7 +1,7 @@
 import { BugBubble } from '@lokal-dev/react-native-bugbubble';
-import { PersistQueryClientProvider } from '@tanstack/react-query-persist-client';
+import { QueryClientProvider } from '@tanstack/react-query';
 import { DarkTheme, DefaultTheme, ThemeProvider } from 'expo-router';
-import type { ReactNode } from 'react';
+import { type ReactNode, useEffect } from 'react';
 import { useColorScheme } from 'react-native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { KeyboardProvider } from 'react-native-keyboard-controller';
@@ -16,7 +16,7 @@ import { PremiumProvider } from '@/features/premium/premium-provider';
 import { ScreenTracker } from '@/lib/analytics';
 import { env } from '@/lib/env';
 import { PostHogAppProvider } from '@/lib/posthog';
-import { asyncStoragePersister, queryClient, shouldPersistQuery } from '@/lib/query-client';
+import { queryClient, removeLegacyPersistedQueryCache } from '@/lib/query-client';
 import { Sentry } from '@/lib/sentry';
 
 import { CrashFallback } from './crash-fallback';
@@ -25,18 +25,17 @@ import { CrashFallback } from './crash-fallback';
 export function AppProviders({ children }: { children: ReactNode }) {
   const colorScheme = useColorScheme();
 
+  useEffect(() => {
+    void removeLegacyPersistedQueryCache();
+  }, []);
+
   return (
     <SafeAreaProvider>
       <Sentry.ErrorBoundary
         fallback={({ resetError }) => <CrashFallback resetError={resetError} />}>
         <GestureHandlerRootView style={{ flex: 1 }}>
           <KeyboardProvider>
-            <PersistQueryClientProvider
-              client={queryClient}
-              persistOptions={{
-                persister: asyncStoragePersister,
-                dehydrateOptions: { shouldDehydrateQuery: shouldPersistQuery },
-              }}>
+            <QueryClientProvider client={queryClient}>
               <SessionProvider>
                 <PostHogAppProvider>
                   <PostHogIdentitySync />
@@ -54,7 +53,7 @@ export function AppProviders({ children }: { children: ReactNode }) {
                   </ActiveHouseholdProvider>
                 </PostHogAppProvider>
               </SessionProvider>
-            </PersistQueryClientProvider>
+            </QueryClientProvider>
           </KeyboardProvider>
         </GestureHandlerRootView>
       </Sentry.ErrorBoundary>

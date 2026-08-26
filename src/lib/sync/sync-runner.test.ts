@@ -19,6 +19,10 @@ jest.mock('@/lib/db/outbox-retry', () => ({
   retryFailedOutboxEntries: (...args: unknown[]) => mockRetryFailedOutboxEntries(...args),
 }));
 
+jest.mock('@/lib/sentry', () => ({
+  Sentry: { captureException: jest.fn() },
+}));
+
 // Eigenstaendiger Listener-Satz im Mock (nicht die echte Implementierung aus
 // `lib/db/outbox.ts`) — der Test loest Schreibvorgaenge direkt ueber
 // `__triggerOutboxChanged` aus, ohne eine echte SQLite-Transaktion zu

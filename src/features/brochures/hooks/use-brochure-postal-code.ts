@@ -1,8 +1,8 @@
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import * as Location from 'expo-location';
 import { useCallback, useEffect, useState } from 'react';
+import { useSession } from '@/features/auth/session-provider';
+import { getBrochurePostalCode, setBrochurePostalCode } from '@/lib/storage/account-preferences';
 
-const STORAGE_KEY = '@fam/brochures/postal-code-v1';
 const POSTAL_CODE_PATTERN = /^\d{5}$/;
 
 export type BrochurePostalCodeState =
@@ -34,6 +34,8 @@ async function currentPostalCode(): Promise<string> {
 
 /** Ermittelt nach Vordergrund-Freigabe nur die PLZ und speichert keine Koordinaten. */
 export function useBrochurePostalCode(): BrochurePostalCodeState {
+  const { isLoading: isSessionLoading, session } = useSession();
+  const userId = session?.user.id;
   const [status, setStatus] = useState<BrochurePostalCodeState['status']>('locating');
   const [postalCode, setPostalCode] = useState<string | null>(null);
   const [attempt, setAttempt] = useState(0);
@@ -47,6 +49,12 @@ export function useBrochurePostalCode(): BrochurePostalCodeState {
     async function locate() {
       setStatus('locating');
       setPostalCode(null);
+      if (isSessionLoading) return;
+      if (!userId) {
+        if (active) setStatus('unavailable');
+        return;
+      }
+
       if (process.env.EXPO_OS === 'web') {
         if (active) setStatus('unavailable');
         return;
@@ -60,11 +68,11 @@ export function useBrochurePostalCode(): BrochurePostalCodeState {
           return;
         }
 
-        const cached = await AsyncStorage.getItem(STORAGE_KEY);
+        const cached = await getBrochurePostalCode(userId).catch(() => null);
         try {
           const resolvedPostalCode = await currentPostalCode();
           if (!active) return;
-          await AsyncStorage.setItem(STORAGE_KEY, resolvedPostalCode);
+          await setBrochurePostalCode(userId, resolvedPostalCode).catch(() => undefined);
           setPostalCode(resolvedPostalCode);
           setStatus('ready');
         } catch (error) {
@@ -85,7 +93,7 @@ export function useBrochurePostalCode(): BrochurePostalCodeState {
     return () => {
       active = false;
     };
-  }, [attempt]);
+  }, [attempt, isSessionLoading, userId]);
 
   if (status === 'ready' && postalCode) return { status, postalCode, retry };
   return { status: status === 'ready' ? 'error' : status, postalCode: null, retry };

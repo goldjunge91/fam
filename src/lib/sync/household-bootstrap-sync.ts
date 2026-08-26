@@ -4,6 +4,7 @@ import { AppState } from 'react-native';
 import { householdsQueryKey } from '@/features/household/query-keys';
 import { getDatabase } from '@/lib/db/client';
 import { getSupabase } from '@/lib/supabase';
+import { beginAccountSyncRun, registerAccountSyncStopper } from '@/lib/sync/account-sync-gate';
 import { startNetworkReconnectTrigger } from '@/lib/sync/network-trigger';
 import { type PullOutcome, pullHousehold } from '@/lib/sync/pull';
 import { clockCeiling } from '@/lib/sync/server-clock';
@@ -35,6 +36,8 @@ export async function triggerHouseholdsPull(
   queryClient?: QueryClient,
 ): Promise<PullOutcome[] | null> {
   if (isSyncingHouseholds) return null;
+  const finishAccountSyncRun = beginAccountSyncRun();
+  if (!finishAccountSyncRun) return null;
   isSyncingHouseholds = true;
   try {
     const db = await getDatabase();
@@ -57,6 +60,7 @@ export async function triggerHouseholdsPull(
     return null;
   } finally {
     isSyncingHouseholds = false;
+    finishAccountSyncRun();
   }
 }
 
@@ -99,10 +103,19 @@ export function useHouseholdsBootstrapSync(userId: string | undefined, queryClie
       },
     });
 
-    return () => {
+    let stopped = false;
+    const stop = () => {
+      if (stopped) return;
+      stopped = true;
       clearInterval(interval);
       subscription.remove();
       stopNetworkTrigger();
+    };
+    const unregisterAccountStopper = registerAccountSyncStopper(stop);
+
+    return () => {
+      unregisterAccountStopper();
+      stop();
     };
   }, [userId, queryClient]);
 }

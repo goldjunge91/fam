@@ -1,10 +1,8 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { createAsyncStoragePersister } from '@tanstack/query-async-storage-persister';
 import {
   focusManager,
   MutationCache,
   onlineManager,
-  type Query,
   QueryCache,
   QueryClient,
 } from '@tanstack/react-query';
@@ -12,6 +10,8 @@ import * as Network from 'expo-network';
 import { AppState, type AppStateStatus, Platform } from 'react-native';
 
 import { Sentry } from '@/lib/sentry';
+
+const LEGACY_PERSISTED_QUERY_CACHE_KEY = '@fam/react-query-cache';
 
 /**
  * Meldet einen Query-/Mutation-Fehler an Sentry — aber nur, wenn das Geraet
@@ -99,45 +99,17 @@ export function startQueryEnvironmentSync(): () => void {
 }
 
 /**
- * Query-Key-Praefixe, die ueber `AsyncStorage` einen App-Neustart ueberleben.
- *
- * `calorie-tracking` (#88): `food_entries`/`weight_entries`/`user_goals`
- * laufen bewusst NICHT ueber die SQLite-Sync-Engine — streng privat, nicht
- * haushaltsgebunden (siehe `tasks/fam-backlog/001-welle-6-...md`). Das AC
- * verlangt nur, dass bereits geladene Tage einen Neustart ueberstehen — ein
- * Lese-Cache-Problem, keins, das eine volle Sync-Engine-Integration braucht.
- *
- * `profile`: `useProfile()` (`features/auth/api.ts`) hat — anders als
- * Haushalte — keine lokale SQLite-Kopie und laedt bei jedem Kaltstart live
- * gegen Supabase. `(app)/_layout.tsx` blendet bis zum Abschluss dieses
- * Requests einen Ladeindikator ueber die App, die sonst laengst interaktiv
- * waere — ein spuerbarer Zwangswarte-Moment bei jedem Neustart. Mit
- * persistiertem Profil liefert der erste Render sofort die zuletzt bekannten
- * Daten, der Live-Request laeuft im Hintergrund weiter nach.
- *
- * Neue Praefixe hier ergaenzen statt einzelne Query-Keys aufzulisten, damit
- * neue Queries innerhalb einer bereits erlaubten Domaene automatisch erfasst
- * werden, ohne diese Datei anzufassen. Haushalts-/Kuehlschrankdaten (schon
- * ueber SQLite offlinefaehig) bleiben unpersistiert, um redundante
- * Schreibzugriffe zu vermeiden.
+ * Entfernt Daten, die aeltere App-Versionen unverschluesselt in AsyncStorage
+ * abgelegt haben. Der Aufruf ist absichtlich idempotent und erfolgt bei jedem
+ * App-Start: Schlaegt das Entfernen einmal fehl, wird es beim naechsten Start
+ * erneut versucht, ohne einen weiteren Migrations-Marker zu hinterlassen.
  */
-const PERSISTED_QUERY_KEY_PREFIXES: readonly unknown[] = ['calorie-tracking', 'profile'];
-
-export const asyncStoragePersister = createAsyncStoragePersister({
-  storage: AsyncStorage,
-  key: '@fam/react-query-cache',
-});
-
-export function shouldPersistQuery(query: Query): boolean {
-  // `status === 'success'` ist bewusst zusaetzlich zum Praefix-Check noetig:
-  // TanStack persistiert eine `pending`-Query inklusive ihrer (toten)
-  // In-Flight-Promise. Wird die App mitten im Fetch beendet, haengt diese
-  // Promise im AsyncStorage-Cache und wird bei jedem folgenden App-Start neu
-  // aufgeloest — unabhaengig davon, ob gerade ein Screen die Query rendert
-  // oder das Feature-Flag aktiv ist. Schlaegt der Fetch dabei fehl, landet
-  // "A query that was dehydrated as pending ended up rejecting" im Log, ohne
-  // dass irgendetwas in der aktuellen Session das ausgeloest haette.
-  return (
-    PERSISTED_QUERY_KEY_PREFIXES.includes(query.queryKey[0]) && query.state.status === 'success'
-  );
+export async function removeLegacyPersistedQueryCache(): Promise<void> {
+  try {
+    await AsyncStorage.removeItem(LEGACY_PERSISTED_QUERY_CACHE_KEY);
+  } catch (error) {
+    Sentry.captureException(error, {
+      tags: { source: 'legacy-query-cache-cleanup' },
+    });
+  }
 }

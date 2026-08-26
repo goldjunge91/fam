@@ -1,46 +1,30 @@
-import type { Query } from '@tanstack/react-query';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
-import { shouldPersistQuery } from '@/lib/query-client';
+import { removeLegacyPersistedQueryCache } from '@/lib/query-client';
+import { Sentry } from '@/lib/sentry';
 
-function fakeQuery(
-  queryKey: readonly unknown[],
-  status: 'success' | 'pending' | 'error' = 'success',
-): Query {
-  return { queryKey, state: { status } } as Query;
-}
+jest.mock('@/lib/sentry', () => ({
+  Sentry: { captureException: jest.fn() },
+}));
 
-describe('shouldPersistQuery', () => {
-  it('persistiert erfolgreich geladene Kalorien-Tracking-Queries', () => {
-    expect(
-      shouldPersistQuery(fakeQuery(['calorie-tracking', 'food-entries', 'u1', '2026-08-10'])),
-    ).toBe(true);
-    expect(shouldPersistQuery(fakeQuery(['calorie-tracking', 'goal', 'current', 'u1']))).toBe(true);
-    expect(shouldPersistQuery(fakeQuery(['calorie-tracking', 'weight', 'latest', 'u1']))).toBe(
-      true,
-    );
+describe('removeLegacyPersistedQueryCache', () => {
+  beforeEach(() => {
+    jest.clearAllMocks();
   });
 
-  it('persistiert das Profil, damit der Kaltstart-Ladeindikator in (app)/_layout.tsx nicht auf jeden Neustart wartet', () => {
-    expect(shouldPersistQuery(fakeQuery(['profile', 'u1']))).toBe(true);
+  it('entfernt den unverschluesselten Query-Cache alter App-Versionen', async () => {
+    await removeLegacyPersistedQueryCache();
+
+    expect(AsyncStorage.removeItem).toHaveBeenCalledWith('@fam/react-query-cache');
   });
 
-  it('persistiert keine Haushalts-/Kuehlschrankdaten', () => {
-    expect(shouldPersistQuery(fakeQuery(['fridge_items', 'hh1']))).toBe(false);
-    expect(shouldPersistQuery(fakeQuery(['sync-status']))).toBe(false);
-  });
+  it('laesst einen fehlgeschlagenen Cleanup nicht als unbehandelte Promise entkommen', async () => {
+    const error = new Error('storage unavailable');
+    jest.mocked(AsyncStorage.removeItem).mockRejectedValueOnce(error);
 
-  it('persistiert keine noch laufenden oder fehlgeschlagenen Kalorien-Tracking-Queries', () => {
-    // Sonst haengt beim App-Kill mitten im Fetch eine tote In-Flight-Promise
-    // im AsyncStorage-Cache, die bei jedem folgenden App-Start erneut
-    // aufgeloest wird ("A query that was dehydrated as pending ended up
-    // rejecting") — unabhaengig davon, ob gerade ein Screen sie rendert.
-    expect(
-      shouldPersistQuery(
-        fakeQuery(['calorie-tracking', 'food-entries', 'u1', '2026-08-10'], 'pending'),
-      ),
-    ).toBe(false);
-    expect(
-      shouldPersistQuery(fakeQuery(['calorie-tracking', 'goal', 'current', 'u1'], 'error')),
-    ).toBe(false);
+    await expect(removeLegacyPersistedQueryCache()).resolves.toBeUndefined();
+    expect(Sentry.captureException).toHaveBeenCalledWith(error, {
+      tags: { source: 'legacy-query-cache-cleanup' },
+    });
   });
 });

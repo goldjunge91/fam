@@ -25,10 +25,16 @@ import { createTestDatabase, type TestDatabase } from '../../../test/node-sqlite
 
 let activeTestTrees: (() => Promise<void>)[] = [];
 
-async function renderBanner(props: SyncStatusBannerProps) {
+async function renderBanner(
+  props: SyncStatusBannerProps,
+  cachedCounts?: { pending: number; failed: number },
+) {
   const queryClient = new QueryClient({
     defaultOptions: { queries: { retry: false, gcTime: Number.POSITIVE_INFINITY } },
   });
+  if (cachedCounts) {
+    queryClient.setQueryData(['sync-status', 'outbox-counts'], cachedCounts);
+  }
   const result = await render(
     <QueryClientProvider client={queryClient}>
       <SyncStatusBanner {...props} />
@@ -90,6 +96,19 @@ describe('SyncStatusBanner', () => {
     await renderBanner({ getDb: async () => db });
 
     expect(await screen.findByText('Offline')).toBeTruthy();
+  });
+
+  it('bleibt ohne Session auch offline verborgen und greift nicht auf die DB zu', async () => {
+    await act(() => {
+      onlineManager.setOnline(false);
+    });
+    const getDb = jest.fn(async () => db);
+
+    await renderBanner({ getDb, enabled: false }, { pending: 4, failed: 2 });
+
+    expect(screen.queryByText(/Offline/)).toBeNull();
+    expect(screen.queryByText(/konnten nicht synchronisiert/)).toBeNull();
+    expect(getDb).not.toHaveBeenCalled();
   });
 
   it('zeigt den ausstehenden Zaehler kurz nach einem echten lokalen Schreibvorgang', async () => {

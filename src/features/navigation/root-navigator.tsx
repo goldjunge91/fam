@@ -20,8 +20,8 @@ export function RootNavigator() {
     }
   }, [isLoading, markInteractive]);
 
-  // biome-ignore lint/correctness/useExhaustiveDependencies: Die User-ID ist absichtlich der Re-Attach-Trigger nach einem Kontowechsel.
   useEffect(() => {
+    if (!session?.user.id) return;
     getDatabase()
       .then((database) => initOffDump(database))
       .catch((error) => {

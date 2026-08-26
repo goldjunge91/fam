@@ -25,12 +25,14 @@ export function useSyncBannerVisible(): boolean {
 /** Umschliesst `SyncStatusBanner` und den Screen-Stack in `AppShell`. */
 export function SyncBannerVisibilityProvider({
   getDb = getDatabase,
+  enabled = true,
   children,
 }: {
   getDb?: () => Promise<SqlDatabase>;
+  enabled?: boolean;
   children: ReactNode;
 }) {
-  const status = useSyncStatus(getDb);
+  const status = useSyncStatus(getDb, enabled);
   return (
     <BannerVisibleContext.Provider value={status.kind !== 'hidden'}>
       {children}
@@ -50,6 +52,8 @@ export type SyncStatusBannerProps = {
   onRetry?: () => Promise<void>;
   /** Nur fuer Tests: injiziert eine andere `SqlDatabase`-Quelle als die echte `getDatabase()`. */
   getDb?: () => Promise<SqlDatabase>;
+  /** Verhindert DB-Polling in Onboarding/Auth ohne autoritative Session. */
+  enabled?: boolean;
 };
 
 async function defaultRetry(): Promise<void> {
@@ -69,8 +73,9 @@ async function defaultRetry(): Promise<void> {
 export function SyncStatusBanner({
   onRetry = defaultRetry,
   getDb = getDatabase,
+  enabled = true,
 }: SyncStatusBannerProps) {
-  const status = useSyncStatus(getDb);
+  const status = useSyncStatus(getDb, enabled);
 
   if (status.kind === 'hidden') return null;
 

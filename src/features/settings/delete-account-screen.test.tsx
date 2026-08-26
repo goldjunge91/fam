@@ -1,5 +1,5 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { fireEvent, render, screen } from '@testing-library/react-native';
+import { act, fireEvent, render, screen, waitFor } from '@testing-library/react-native';
 import { Alert } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
@@ -7,6 +7,11 @@ import { DeleteAccountScreen } from '@/features/settings/delete-account-screen';
 
 const mockInvoke = jest.fn().mockResolvedValue({ data: { success: true }, error: null });
 const mockReplace = jest.fn();
+const mockSignOutAndClearLocalData = jest.fn();
+
+jest.mock('@/features/auth/sign-out', () => ({
+  signOutAndClearLocalData: (...args: unknown[]) => mockSignOutAndClearLocalData(...args),
+}));
 
 jest.mock('expo-router', () => ({
   router: {
@@ -22,10 +27,6 @@ jest.mock('@/lib/supabase', () => ({
       invoke: (...args: unknown[]) => mockInvoke(...args),
     },
   }),
-}));
-
-jest.mock('@/lib/db/client', () => ({
-  deleteLocalDatabase: jest.fn().mockResolvedValue(undefined),
 }));
 
 jest.spyOn(Alert, 'alert');
@@ -53,6 +54,8 @@ describe('DeleteAccountScreen', () => {
 
   beforeEach(() => {
     jest.clearAllMocks();
+    mockInvoke.mockResolvedValue({ data: { success: true }, error: null });
+    mockSignOutAndClearLocalData.mockResolvedValue({ error: null });
   });
 
   it('rendert Warnhinweise und Lösch-Button', async () => {
@@ -66,7 +69,7 @@ describe('DeleteAccountScreen', () => {
     await renderScreen();
 
     const deleteBtn = screen.getByRole('button', { name: 'Account löschen' });
-    fireEvent.press(deleteBtn);
+    await fireEvent.press(deleteBtn);
 
     expect(Alert.alert).toHaveBeenCalledWith(
       'Account wirklich löschen?',
@@ -76,5 +79,38 @@ describe('DeleteAccountScreen', () => {
         expect.objectContaining({ text: 'Endgültig löschen' }),
       ]),
     );
+  });
+
+  it('verwendet nach erfolgreicher Server-Löschung den zentralen Account-Cleanup', async () => {
+    await renderScreen();
+    await fireEvent.press(screen.getByRole('button', { name: 'Account löschen' }));
+    const actions = jest.mocked(Alert.alert).mock.calls[0][2];
+    const confirm = actions?.find((action) => action.text === 'Endgültig löschen');
+
+    await act(async () => {
+      await confirm?.onPress?.();
+    });
+
+    await waitFor(() => expect(mockSignOutAndClearLocalData).toHaveBeenCalled());
+    expect(mockSignOutAndClearLocalData).toHaveBeenCalledWith(expect.any(QueryClient));
+    expect(mockInvoke.mock.invocationCallOrder[0]).toBeLessThan(
+      mockSignOutAndClearLocalData.mock.invocationCallOrder[0],
+    );
+    expect(mockReplace).toHaveBeenCalledWith('/onboarding');
+  });
+
+  it('navigiert bei fehlgeschlagenem lokalen Wipe nicht weiter', async () => {
+    mockSignOutAndClearLocalData.mockRejectedValue(new Error('local wipe failed'));
+    await renderScreen();
+    await fireEvent.press(screen.getByRole('button', { name: 'Account löschen' }));
+    const actions = jest.mocked(Alert.alert).mock.calls[0][2];
+    const confirm = actions?.find((action) => action.text === 'Endgültig löschen');
+
+    await act(async () => {
+      await confirm?.onPress?.();
+    });
+
+    expect(mockReplace).not.toHaveBeenCalled();
+    expect(Alert.alert).toHaveBeenLastCalledWith('Löschen fehlgeschlagen', 'local wipe failed');
   });
 });

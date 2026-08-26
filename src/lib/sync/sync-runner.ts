@@ -8,6 +8,7 @@ import { retryFailedOutboxEntries } from '@/lib/db/outbox-retry';
 import type { Entity } from '@/lib/db/types';
 import { Sentry } from '@/lib/sentry';
 import { getSupabase } from '@/lib/supabase';
+import { beginAccountSyncRun, registerAccountSyncStopper } from '@/lib/sync/account-sync-gate';
 import { setBackgroundSyncHandler } from '@/lib/sync/background-sync';
 import { type SyncRunResult, syncHousehold } from '@/lib/sync/engine';
 import { startNetworkReconnectTrigger } from '@/lib/sync/network-trigger';
@@ -124,6 +125,8 @@ export async function triggerHouseholdSync(
   queryClient?: QueryClient,
 ): Promise<SyncRunResult | null> {
   if (isSyncing || !householdIds || householdIds.length === 0) return null;
+  const finishAccountSyncRun = beginAccountSyncRun();
+  if (!finishAccountSyncRun) return null;
   isSyncing = true;
   try {
     const db = await getDatabase();
@@ -187,6 +190,7 @@ export async function triggerHouseholdSync(
     return null;
   } finally {
     isSyncing = false;
+    finishAccountSyncRun();
   }
 }
 
@@ -311,13 +315,22 @@ export function useSyncEngine(householdId: string | undefined) {
       debounceTimer = setTimeout(flushDebouncedSync, OUTBOX_DEBOUNCE_MS);
     });
 
-    return () => {
+    let stopped = false;
+    const stop = () => {
+      if (stopped) return;
+      stopped = true;
       activeSyncEngineIntervals -= 1;
       outboxEffectCancelled = true;
       clearInterval(interval);
       subscription.remove();
       if (debounceTimer) clearTimeout(debounceTimer);
       unsubscribeOutbox();
+    };
+    const unregisterAccountStopper = registerAccountSyncStopper(stop);
+
+    return () => {
+      unregisterAccountStopper();
+      stop();
     };
   }, [householdId, queryClient]);
 }
@@ -363,40 +376,60 @@ export function useRealtimeSync(householdId: string | undefined) {
 
     let cancelled = false;
     let unsubscribeRealtime: (() => Promise<void>) | null = null;
+    const finishAccountSyncSetup = beginAccountSyncRun();
 
-    (async () => {
-      const db = await getDatabase();
-      const supabase = getSupabase();
-      if (cancelled) return; // Haushalt hat sich gewechselt, waehrend getDatabase() lief
-      unsubscribeRealtime = subscribeHouseholdRealtime({
-        db,
-        supabase,
-        householdIds: [householdId],
-        serverClock,
-        onReconnectResyncNeeded: onReconnect,
-        onRowApplied: (event) => {
-          recordRealtimeLatency(event.entity, event.op, event.latencyMs);
-          invalidateEntityQueries(queryClient, event.entity, householdId);
-        },
-        onStatusChange: (_householdId, status) => {
-          lastRealtimeStatus = status;
-          realtimeStatusChangeCount += 1;
-        },
-      });
-    })();
+    void (async () => {
+      try {
+        if (!finishAccountSyncSetup) return;
+        const db = await getDatabase();
+        const supabase = getSupabase();
+        if (cancelled) return; // Haushalt hat sich gewechselt, waehrend getDatabase() lief
+        unsubscribeRealtime = subscribeHouseholdRealtime({
+          db,
+          supabase,
+          householdIds: [householdId],
+          serverClock,
+          onReconnectResyncNeeded: onReconnect,
+          onRowApplied: (event) => {
+            recordRealtimeLatency(event.entity, event.op, event.latencyMs);
+            invalidateEntityQueries(queryClient, event.entity, householdId);
+          },
+          onStatusChange: (_householdId, status) => {
+            lastRealtimeStatus = status;
+            realtimeStatusChangeCount += 1;
+          },
+        });
+      } finally {
+        finishAccountSyncSetup?.();
+      }
+    })().catch((error) => {
+      // Beim Accountwechsel darf das DB-Lifecycle-Gate einen bereits
+      // gestarteten Setup-Lauf abbrechen. Echte Setup-Fehler bleiben sichtbar.
+      if (!cancelled) {
+        Sentry.captureException(error, { tags: { source: 'realtime-sync-setup' } });
+      }
+    });
 
     const stopNetworkTrigger = startNetworkReconnectTrigger({ onReconnect });
-
-    return () => {
+    let stopped = false;
+    const stop = async () => {
+      if (stopped) return;
+      stopped = true;
       cancelled = true;
       lastRealtimeStatus = null;
+      stopNetworkTrigger();
+      await unsubscribeRealtime?.();
+    };
+    const unregisterAccountStopper = registerAccountSyncStopper(stop);
+
+    return () => {
+      unregisterAccountStopper();
       // Das Abmelden ist async (es wartet das Leave zum Server ab). Hier nicht
       // abgewartet — eine Cleanup-Funktion kann das nicht. Das ist unbedenklich:
       // Aus der Channel-Registry ist der Channel bereits synchron raus, und ein
       // spaeterer Aufbau auf demselben Topic raeumt ohnehin selbst auf (siehe
       // `subscribeHouseholdRealtime`).
-      void unsubscribeRealtime?.();
-      stopNetworkTrigger();
+      void stop();
     };
   }, [householdId, queryClient]);
 }

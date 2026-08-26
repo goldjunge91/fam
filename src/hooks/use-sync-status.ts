@@ -49,7 +49,10 @@ async function fetchOutboxCounts(db: SqlDatabase): Promise<{ pending: number; fa
   return { pending: pending?.count ?? 0, failed: failed?.count ?? 0 };
 }
 
-export function useSyncStatus(getDb: () => Promise<SqlDatabase> = getDatabase): SyncStatusView {
+export function useSyncStatus(
+  getDb: () => Promise<SqlDatabase> = getDatabase,
+  enabled = true,
+): SyncStatusView {
   const isOnline = useSyncExternalStore(
     (onChange) => onlineManager.subscribe(onChange),
     () => onlineManager.isOnline(),
@@ -59,6 +62,7 @@ export function useSyncStatus(getDb: () => Promise<SqlDatabase> = getDatabase): 
   const queryClient = useQueryClient();
   const [recentLocalWrite, setRecentLocalWrite] = useState(false);
   useEffect(() => {
+    if (!enabled) return;
     let hideTimer: ReturnType<typeof setTimeout> | null = null;
     let cancelled = false;
     const unsubscribe = onOutboxChanged(() => {
@@ -77,23 +81,29 @@ export function useSyncStatus(getDb: () => Promise<SqlDatabase> = getDatabase): 
         setRecentLocalWrite(true);
         if (hideTimer) clearTimeout(hideTimer);
         hideTimer = setTimeout(() => setRecentLocalWrite(false), RECENT_WRITE_DISPLAY_MS);
-      })();
+      })().catch(() => {
+        // Ein zeitgleicher Logout sperrt die DB synchron. Der nächste
+        // authentifizierte Mount liest wieder einen frischen Zustand.
+      });
     });
     return () => {
       cancelled = true;
       unsubscribe();
       if (hideTimer) clearTimeout(hideTimer);
     };
-  }, [queryClient, getDb]);
+  }, [queryClient, getDb, enabled]);
 
   const { data } = useQuery({
     queryKey: outboxCountsQueryKey,
     queryFn: async () => fetchOutboxCounts(await getDb()),
+    enabled,
     refetchInterval: 10_000,
     // Kein `_dirty`/`household_id`-Filter: die Outbox ist geraetelokal, nicht
     // haushaltsgebunden — der Zaehler braucht keinen "aktiver Haushalt"-Context.
     initialData: { pending: 0, failed: 0 },
   });
+
+  if (!enabled) return { kind: 'hidden' };
 
   return computeSyncStatusView({
     isOnline,

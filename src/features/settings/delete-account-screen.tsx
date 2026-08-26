@@ -6,7 +6,7 @@ import { Screen } from '@/components/layout/screen';
 import { ThemedText } from '@/components/theme/themed-text';
 import { Button } from '@/components/ui/buttons';
 import { Card } from '@/components/ui/card';
-import { deleteLocalDatabase } from '@/lib/db/client';
+import { signOutAndClearLocalData } from '@/features/auth/sign-out';
 import { getSupabase } from '@/lib/supabase';
 
 /**
@@ -57,13 +57,8 @@ export function DeleteAccountScreen() {
         return;
       }
 
-      await queryClient.resetQueries();
-      try {
-        await deleteLocalDatabase();
-      } catch {
-        // Session ist zu diesem Zeitpunkt bereits ungueltig (Konto weg) — ein
-        // Fehler beim lokalen Aufraeumen darf den Erfolg nicht verschleiern.
-      }
+      const { error: signOutError } = await signOutAndClearLocalData(queryClient);
+      if (signOutError) throw signOutError;
 
       router.replace('/onboarding');
     } catch (err) {
