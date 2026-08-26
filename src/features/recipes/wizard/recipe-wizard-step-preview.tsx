@@ -11,7 +11,10 @@ function unitLabel(unit: string): string {
   return UNIT_OPTIONS.find((o) => o.value === unit)?.label ?? unit;
 }
 
-function labelFor<T extends string>(options: { value: T; label: string }[], value: T): string {
+function labelFor<T extends string>(
+  options: readonly { value: T; label: string }[],
+  value: T,
+): string {
   return options.find((o) => o.value === value)?.label ?? value;
 }
 

@@ -26,7 +26,9 @@ export function AppProviders({ children }: { children: ReactNode }) {
   const colorScheme = useColorScheme();
 
   useEffect(() => {
-    void removeLegacyPersistedQueryCache();
+    // Beim App-Start best effort; beim Account-Cleanup ist derselbe Fehler
+    // dagegen essentiell und wird von clearLocalAccountData weitergereicht.
+    void removeLegacyPersistedQueryCache().catch(() => undefined);
   }, []);
 
   return (

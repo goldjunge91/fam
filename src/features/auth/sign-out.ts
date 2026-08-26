@@ -50,7 +50,7 @@ export function clearLocalAccountData(queryClient: QueryClient, userId: string):
     try {
       await removeLegacyPersistedQueryCache();
     } catch (cleanupError) {
-      console.warn('[auth] alter Query-Cache nicht geloescht:', (cleanupError as Error).message);
+      essentialError ??= cleanupError;
     }
 
     // Ein fehlgeschlagener Stopper bedeutet, dass noch ein alter Account-Task

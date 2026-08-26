@@ -54,6 +54,16 @@ import {
   type WizardStepItem,
 } from './wizard/types';
 
+type ResolvedIngredient = {
+  sourceItemId: string;
+  existingItemId: string | null;
+  productId: string | null;
+  product: OpenFoodFactsProduct | null;
+  grams: number;
+  quantity: number;
+  unit: string;
+};
+
 export function RecipeCreateScreen() {
   const hubGradient = useHubGradient();
   const { id } = useLocalSearchParams<{ id?: string }>();
@@ -298,6 +308,74 @@ export function RecipeCreateScreen() {
   }: RecipeFormValues) {
     if (!householdId || !userId) return;
     try {
+      const db = await getDatabase();
+      const resolvedItemsByComponent = new Map<string, ResolvedIngredient[]>();
+      let hasInvalidIngredient = false;
+      const validatedComponents: IngredientComponentGroup[] = [];
+
+      // Alle Zutaten vor der ersten Mutation prüfen. Leere neue Zeilen sind
+      // erlaubt; teilweise ausgefüllte oder nicht umrechenbare Zeilen nicht.
+      for (const comp of components) {
+        const resolvedItems: ResolvedIngredient[] = [];
+        const validatedItems = [];
+
+        for (const item of comp.items) {
+          const hasProduct = !!(item.product || item.existingProductId);
+          const hasInput = hasProduct || !!item.productQuery.trim() || !!item.quantity.trim();
+          if (!hasInput) {
+            validatedItems.push(item);
+            continue;
+          }
+
+          const quantity = Number.parseFloat(item.quantity);
+          if (!hasProduct || !(quantity > 0)) {
+            hasInvalidIngredient = true;
+            validatedItems.push({ ...item, notConvertible: false });
+            continue;
+          }
+
+          const productRow = item.existingProductId
+            ? await db.getFirstAsync<{ serving_size_g: number | null }>(
+                'select serving_size_g from products where id = ?',
+                [item.existingProductId],
+              )
+            : null;
+          const conversion = toGramsEquivalent(quantity, item.unit, {
+            servingWeightG: productRow?.serving_size_g ?? undefined,
+          });
+
+          if (!conversion.convertible) {
+            hasInvalidIngredient = true;
+            validatedItems.push({ ...item, notConvertible: true });
+            continue;
+          }
+
+          validatedItems.push({ ...item, notConvertible: false });
+          resolvedItems.push({
+            sourceItemId: item.id,
+            existingItemId: item.product ? null : item.existingItemId,
+            productId: item.product ? null : item.existingProductId,
+            product: item.product,
+            grams: conversion.grams,
+            quantity,
+            unit: item.unit,
+          });
+        }
+
+        resolvedItemsByComponent.set(comp.id, resolvedItems);
+        validatedComponents.push({ ...comp, items: validatedItems });
+      }
+
+      if (hasInvalidIngredient) {
+        setComponents(validatedComponents);
+        setWizardStep(2);
+        Alert.alert(
+          'Zutaten prüfen',
+          'Wähle für jede ausgefüllte Zeile eine Zutat und eine gültige, umrechenbare Menge.',
+        );
+        return;
+      }
+
       const hashtags = hashtagsInput
         .split(/[\s,#]+/)
         .map((h) => h.trim().toLowerCase())
@@ -343,7 +421,6 @@ export function RecipeCreateScreen() {
       const localToRealItemId = new Map<string, string>();
 
       {
-        const db = await getDatabase();
         const updatedComponents: IngredientComponentGroup[] = [];
 
         const originalComponentIds = new Set(data ? data.components.map((c) => c.id) : []);
@@ -358,51 +435,19 @@ export function RecipeCreateScreen() {
 
         for (const comp of components) {
           const updatedItemsById = new Map(comp.items.map((item) => [item.id, item]));
-          type Resolved = {
-            sourceItemId: string;
-            existingItemId: string | null;
-            productId: string;
-            grams: number;
-            quantity: number;
-            unit: string;
-          };
-          const resolvedItems: Resolved[] = [];
-
-          for (const item of comp.items) {
-            const quantity = Number.parseFloat(item.quantity);
-            if (!(quantity > 0)) continue;
-
-            let productId: string | null = null;
-            if (item.product) {
-              productId = await persistOffProductIfNeeded(item.product, userId, addProduct);
-            } else if (item.existingProductId) {
-              productId = item.existingProductId;
-            }
-            if (!productId) continue;
-
-            const productRow = await db.getFirstAsync<{ serving_size_g: number | null }>(
-              'select serving_size_g from products where id = ?',
-              [productId],
-            );
-            const conversion = toGramsEquivalent(quantity, item.unit, {
-              servingWeightG: productRow?.serving_size_g ?? undefined,
-            });
-
-            if (!conversion.convertible) {
-              updatedItemsById.set(item.id, { ...item, notConvertible: true });
-              continue;
-            }
-            resolvedItems.push({
-              sourceItemId: item.id,
-              existingItemId: item.product ? null : item.existingItemId,
-              productId,
-              grams: conversion.grams,
-              quantity,
-              unit: item.unit,
-            });
-          }
+          const resolvedItems = resolvedItemsByComponent.get(comp.id) ?? [];
 
           if (resolvedItems.length === 0) {
+            if (comp.existingComponentId) {
+              keptComponentIds.add(comp.existingComponentId);
+              await updateComponent.mutateAsync({
+                id: comp.existingComponentId,
+                recipe_id: newRecipeId,
+                household_id: householdId,
+                name: comp.title,
+                serving_grams: null,
+              });
+            }
             updatedComponents.push({
               ...comp,
               items: comp.items.map((item) => updatedItemsById.get(item.id) ?? item),
@@ -436,6 +481,13 @@ export function RecipeCreateScreen() {
           for (const resolved of resolvedItems) {
             const source = updatedItemsById.get(resolved.sourceItemId);
             if (!source) continue;
+            const productId =
+              resolved.productId ??
+              (resolved.product
+                ? await persistOffProductIfNeeded(resolved.product, userId, addProduct)
+                : null);
+            if (!productId)
+              throw new Error('Die ausgewählte Zutat konnte nicht gespeichert werden.');
 
             if (resolved.existingItemId) {
               keptItemIds.add(resolved.existingItemId);
@@ -453,7 +505,7 @@ export function RecipeCreateScreen() {
                 component_id: realComponentId,
                 recipe_id: newRecipeId,
                 household_id: householdId,
-                product_id: resolved.productId,
+                product_id: productId,
                 grams: resolved.grams,
                 quantity: resolved.quantity,
                 unit: resolved.unit,

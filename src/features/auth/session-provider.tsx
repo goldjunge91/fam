@@ -2,7 +2,7 @@ import type { Session } from '@supabase/supabase-js';
 import { createContext, type ReactNode, use, useEffect, useState } from 'react';
 
 import { setActiveUserId } from '@/lib/db/client';
-import { queryClient } from '@/lib/query-client';
+import { queryClient, startAccountQueryPersistence } from '@/lib/query-client';
 import {
   activateEncryptedAccountStorage,
   getRememberedLocalAccountUserId,
@@ -56,6 +56,7 @@ export function SessionProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     let active = true;
     let currentUserId: string | null = null;
+    let stopQueryPersistence = () => {};
     let authTransition = Promise.resolve();
     let latestAuthEventUserId: string | null | undefined;
 
@@ -114,6 +115,15 @@ export function SessionProvider({ children }: { children: ReactNode }) {
         currentUserId = authoritativeRestoredUserId;
         if (authoritativeRestoredUserId) {
           await rememberLocalAccountUserId(authoritativeRestoredUserId);
+          const stopPersistence = await startAccountQueryPersistence(
+            queryClient,
+            authoritativeRestoredUserId,
+          );
+          if (!active) {
+            stopPersistence();
+            return;
+          }
+          stopQueryPersistence = stopPersistence;
           resumeAccountSync();
         }
 
@@ -155,6 +165,8 @@ export function SessionProvider({ children }: { children: ReactNode }) {
             // SQLite-Datei oder den Query-Cache rendern.
             setActiveUserId(null);
             setState((prev) => ({ ...prev, session: null, isLoading: true, error: null }));
+            stopQueryPersistence();
+            stopQueryPersistence = () => {};
             await clearLocalAccountData(queryClient, previousUserId);
             if (!active) return;
           }
@@ -166,6 +178,14 @@ export function SessionProvider({ children }: { children: ReactNode }) {
           if (nextUserId) {
             activateEncryptedAccountStorage(nextUserId);
             await rememberLocalAccountUserId(nextUserId);
+            if (nextUserId !== previousUserId) {
+              const stopPersistence = await startAccountQueryPersistence(queryClient, nextUserId);
+              if (!active) {
+                stopPersistence();
+                return;
+              }
+              stopQueryPersistence = stopPersistence;
+            }
             resumeAccountSync();
           }
           if (!active) return;
@@ -182,6 +202,7 @@ export function SessionProvider({ children }: { children: ReactNode }) {
 
     return () => {
       active = false;
+      stopQueryPersistence();
       subscription.subscription.unsubscribe();
       stopAutoRefresh();
     };

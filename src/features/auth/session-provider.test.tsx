@@ -12,6 +12,7 @@ const mockActivateEncryptedAccountStorage = jest.fn();
 const mockMigrateLegacyAccountData = jest.fn();
 const mockResumeAccountSync = jest.fn();
 const mockSetActiveUserId = jest.fn();
+const mockStartAccountQueryPersistence = jest.fn();
 let authStateCallback: ((event: string, session: { user: { id: string } } | null) => void) | null =
   null;
 
@@ -31,6 +32,7 @@ jest.mock('@/lib/db/client', () => ({
 
 jest.mock('@/lib/query-client', () => ({
   queryClient: {},
+  startAccountQueryPersistence: (...args: unknown[]) => mockStartAccountQueryPersistence(...args),
 }));
 
 jest.mock('@/features/auth/sign-out', () => ({
@@ -68,6 +70,7 @@ describe('SessionProvider', () => {
     mockGetRememberedLocalAccountUserId.mockResolvedValue(null);
     mockRememberLocalAccountUserId.mockResolvedValue(undefined);
     mockMigrateLegacyAccountData.mockResolvedValue(undefined);
+    mockStartAccountQueryPersistence.mockResolvedValue(jest.fn());
     mockOnAuthStateChange.mockImplementation((callback) => {
       authStateCallback = callback;
       return { data: { subscription: { unsubscribe: jest.fn() } } };

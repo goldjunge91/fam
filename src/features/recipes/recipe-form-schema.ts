@@ -1,4 +1,9 @@
 import { z } from 'zod';
+import {
+  DIETARY_TAG_VALUES,
+  DIFFICULTY_VALUES,
+  DISH_TYPE_VALUES,
+} from './wizard/recipe-metadata-options';
 
 export const recipeFormSchema = z.object({
   title: z
@@ -16,21 +21,9 @@ export const recipeFormSchema = z.object({
     .int('Die Portionenzahl muss eine ganze Zahl sein.')
     .min(1, 'Mindestens eine Portion ist erforderlich.')
     .max(100, 'Höchstens 100 Portionen sind möglich.'),
-  difficulty: z.enum(['easy', 'medium', 'hard']).nullable(),
-  dishTypes: z.array(
-    z.enum(['breakfast', 'lunch', 'dinner', 'snack', 'dessert', 'appetizer', 'brunch']),
-  ),
-  dietaryTags: z.array(
-    z.enum([
-      'vegetarian',
-      'vegan',
-      'high_fat',
-      'low_fat',
-      'lactose_free',
-      'sugar_free',
-      'gluten_free',
-    ]),
-  ),
+  difficulty: z.enum(DIFFICULTY_VALUES).nullable(),
+  dishTypes: z.array(z.enum(DISH_TYPE_VALUES)),
+  dietaryTags: z.array(z.enum(DIETARY_TAG_VALUES)),
   hashtagsInput: z.string().max(500, 'Hashtags dürfen zusammen höchstens 500 Zeichen lang sein.'),
 });
 

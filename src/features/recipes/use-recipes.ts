@@ -10,24 +10,9 @@ import { getDatabase } from '@/lib/db/client';
 import { parseJsonArray } from '@/lib/db/json-array';
 import { enqueueMutation } from '@/lib/db/outbox';
 import { applyLocalMirrorWrite } from '@/lib/sync/mirror-write';
+import type { DietaryTag, Difficulty, DishType } from './wizard/recipe-metadata-options';
 
-export type Difficulty = 'easy' | 'medium' | 'hard';
-export type DishType =
-  | 'breakfast'
-  | 'lunch'
-  | 'dinner'
-  | 'snack'
-  | 'dessert'
-  | 'appetizer'
-  | 'brunch';
-export type DietaryTag =
-  | 'vegetarian'
-  | 'vegan'
-  | 'high_fat'
-  | 'low_fat'
-  | 'lactose_free'
-  | 'sugar_free'
-  | 'gluten_free';
+export type { DietaryTag, Difficulty, DishType } from './wizard/recipe-metadata-options';
 
 export type RecipeListItem = {
   id: string;

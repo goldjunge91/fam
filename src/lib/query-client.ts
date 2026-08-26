@@ -1,8 +1,11 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {
+  dehydrate,
   focusManager,
+  hydrate,
   MutationCache,
   onlineManager,
+  type Query,
   QueryCache,
   QueryClient,
 } from '@tanstack/react-query';
@@ -10,8 +13,11 @@ import * as Network from 'expo-network';
 import { AppState, type AppStateStatus, Platform } from 'react-native';
 
 import { Sentry } from '@/lib/sentry';
+import { getEncryptedAccountStorage } from '@/lib/storage/account-storage';
 
 const LEGACY_PERSISTED_QUERY_CACHE_KEY = '@fam/react-query-cache';
+const ACCOUNT_QUERY_CACHE_KEY = 'react-query-cache.v1';
+const PERSISTED_QUERY_KEY_PREFIXES: readonly unknown[] = ['calorie-tracking', 'profile'];
 
 /**
  * Meldet einen Query-/Mutation-Fehler an Sentry — aber nur, wenn das Geraet
@@ -102,7 +108,8 @@ export function startQueryEnvironmentSync(): () => void {
  * Entfernt Daten, die aeltere App-Versionen unverschluesselt in AsyncStorage
  * abgelegt haben. Der Aufruf ist absichtlich idempotent und erfolgt bei jedem
  * App-Start: Schlaegt das Entfernen einmal fehl, wird es beim naechsten Start
- * erneut versucht, ohne einen weiteren Migrations-Marker zu hinterlassen.
+ * erneut versucht. Der Fehler wird weitergereicht, damit Account-Cleanup ihn
+ * als essentiell behandeln kann.
  */
 export async function removeLegacyPersistedQueryCache(): Promise<void> {
   try {
@@ -111,5 +118,42 @@ export async function removeLegacyPersistedQueryCache(): Promise<void> {
     Sentry.captureException(error, {
       tags: { source: 'legacy-query-cache-cleanup' },
     });
+    throw error;
   }
+}
+
+export function shouldPersistQuery(query: Query): boolean {
+  return (
+    PERSISTED_QUERY_KEY_PREFIXES.includes(query.queryKey[0]) && query.state.status === 'success'
+  );
+}
+
+/** Stellt den privaten Query-Cache eines Accounts wieder her und hält ihn aktuell. */
+export async function startAccountQueryPersistence(
+  client: QueryClient,
+  userId: string,
+): Promise<() => void> {
+  const storage = await getEncryptedAccountStorage(userId);
+  const persistedCache = storage.getString(ACCOUNT_QUERY_CACHE_KEY);
+
+  if (persistedCache) {
+    try {
+      hydrate(client, JSON.parse(persistedCache));
+    } catch (error) {
+      storage.remove(ACCOUNT_QUERY_CACHE_KEY);
+      Sentry.captureException(error, { tags: { source: 'account-query-cache-restore' } });
+    }
+  }
+
+  return client.getQueryCache().subscribe(({ query }) => {
+    if (!PERSISTED_QUERY_KEY_PREFIXES.includes(query.queryKey[0])) return;
+    try {
+      storage.set(
+        ACCOUNT_QUERY_CACHE_KEY,
+        JSON.stringify(dehydrate(client, { shouldDehydrateQuery: shouldPersistQuery })),
+      );
+    } catch (error) {
+      Sentry.captureException(error, { tags: { source: 'account-query-cache-persist' } });
+    }
+  });
 }

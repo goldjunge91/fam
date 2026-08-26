@@ -179,6 +179,17 @@ describe('lokaler Account-Cleanup', () => {
     expect(mockResetLocalAccountModuleCaches).toHaveBeenCalledWith('user-1');
   });
 
+  it('behält lokale Accountdaten wenn der alte unverschlüsselte Cache nicht gelöscht wird', async () => {
+    const client = queryClient();
+    mockRemoveLegacyPersistedQueryCache.mockRejectedValue(new Error('legacy cache remains'));
+
+    await expect(clearLocalAccountData(client, 'user-1')).rejects.toThrow('legacy cache remains');
+
+    expect(mockDeleteLocalDatabase).not.toHaveBeenCalled();
+    expect(mockDeleteEncryptedAccountStorage).not.toHaveBeenCalled();
+    expect(mockForgetLocalAccountUserId).not.toHaveBeenCalled();
+  });
+
   it('blockiert den Wipe wenn ein Sync-Stopper fehlschlägt', async () => {
     const client = queryClient();
     mockStopAccountSyncAndWait.mockRejectedValue(new Error('sync still active'));

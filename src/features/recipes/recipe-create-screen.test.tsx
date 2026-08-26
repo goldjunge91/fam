@@ -1,10 +1,12 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { render, screen, userEvent, waitFor } from '@testing-library/react-native';
+import { Alert } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import { RecipeCreateScreen } from '@/features/recipes/recipe-create-screen';
 
 const mockCreateRecipeMutateAsync = jest.fn().mockResolvedValue({ id: 'rec-1' });
+const mockUpdateRecipeMutateAsync = jest.fn().mockResolvedValue(undefined);
 const mockSaveComponentsMutateAsync = jest.fn().mockResolvedValue(undefined);
 const mockSaveStepsMutateAsync = jest.fn().mockResolvedValue(undefined);
 const mockReplace = jest.fn();
@@ -33,7 +35,7 @@ jest.mock('@/features/household/active-household-provider', () => ({
 jest.mock('@/features/recipes/use-recipes', () => ({
   useRecipeDetail: () => ({ data: mockRecipeData, isLoading: false }),
   useAddRecipeMutation: () => ({ mutateAsync: mockCreateRecipeMutateAsync }),
-  useUpdateRecipeMutation: () => ({ mutateAsync: jest.fn() }),
+  useUpdateRecipeMutation: () => ({ mutateAsync: mockUpdateRecipeMutateAsync }),
   useAddComponentMutation: () => ({ mutateAsync: jest.fn() }),
   useUpdateComponentMutation: () => ({ mutateAsync: jest.fn() }),
   useDeleteComponentMutation: () => ({ mutateAsync: jest.fn() }),
@@ -151,5 +153,51 @@ describe('RecipeCreateScreen', () => {
         hashtags: ['schnell'],
       }),
     );
+  });
+
+  it('verändert ein bestehendes Rezept nicht wenn eine Zutat ungültig ist', async () => {
+    const user = userEvent.setup();
+    const alert = jest.spyOn(Alert, 'alert').mockImplementation(() => undefined);
+    mockRecipeData = {
+      recipe: {
+        id: 'recipe-existing',
+        household_id: 'hh-1',
+        title: 'Pasta',
+        instructions: null,
+        cover_image_path: null,
+        cook_time_minutes: null,
+        difficulty: null,
+        dish_types: [],
+        dietary_tags: [],
+        hashtags: [],
+        default_servings: 4,
+      },
+      components: [{ id: 'component-1', name: 'Zutaten', serving_grams: 100 }],
+      items: [
+        {
+          id: 'item-1',
+          component_id: 'component-1',
+          product_id: 'product-1',
+          sub_component_id: null,
+          grams: 100,
+          quantity: 100,
+          unit: 'g',
+        },
+      ],
+      productsById: new Map([['product-1', { id: 'product-1', name: 'Mehl' }]]),
+      steps: [],
+    };
+    await renderScreen();
+
+    await user.press(screen.getByRole('button', { name: 'Weiter zu den Zutaten' }));
+    await user.clear(screen.getByPlaceholderText('Menge'));
+    await user.press(screen.getByRole('button', { name: 'Weiter zu den Schritten' }));
+    await user.press(screen.getByRole('button', { name: 'Weiter' }));
+    await user.press(screen.getByRole('button', { name: 'Speichern' }));
+
+    await waitFor(() => expect(alert).toHaveBeenCalledWith('Zutaten prüfen', expect.any(String)));
+    expect(mockUpdateRecipeMutateAsync).not.toHaveBeenCalled();
+    expect(screen.getByText('Gruppen und Zutaten')).toBeOnTheScreen();
+    alert.mockRestore();
   });
 });
