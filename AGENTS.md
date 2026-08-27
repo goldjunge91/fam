@@ -1,7 +1,7 @@
 # Haushaltsapp (nicht der finale name)
 
 - **Haushaltsapp** ist eine Expo- und React-Native-App für Haushalte und Familien, die geteilte Bestands- und Einkaufslisten mit einem Wöchentlichen Essensplanner und der möglichkeit privatem Kalorien-, Nährwert- und Gewichts-Tracking zu kombinieren.
-- **Mental Anchor / Comparison:** Denke an Haushaltsapp als eine datenschutzorientierte, kollaborative Kombination aus *Bring!* und *MyFitnessPal* mit strikter Trennung zwischen Haushalts- und Privatdaten.
+- **Mental Anchor / Comparison:** Denke an Haushaltsapp als eine datenschutzorientierte, kollaborative Kombination aus _Bring!_ und _MyFitnessPal_ mit strikter Trennung zwischen Haushalts- und Privatdaten.
 - **Goal:** Schnelle, zuverlässige mobile Workflows für iOS und Android mit robuster Offline-Fähigkeit und synchronisiertem Haushaltszustand.
 
 ---
@@ -21,7 +21,7 @@
 - **Backend & Auth:** Supabase (Postgres, GoTrue Auth, Realtime, Storage) via Docker (`supabase start`); RevenueCat für In-App-Käufe und Abonnements.
 - Wir haben jetzt einen Apple-Developer-Account. iOS-Distribution über EAS (TestFlight, App Store) ist damit möglich — `eas submit` und Store-Builds (`preview-testflight`, `production`) können genutzt werden.
 
-for CSS styling nativewind docs  @`.claude/nativewind.dev:llms.txt`.
+for CSS styling nativewind docs @`.claude/nativewind.dev:llms.txt`.
 
 ---
 
@@ -32,34 +32,35 @@ Im Marco. Your my agent. we will be working together a lot, so i thought it woul
 i love to build. i focus on building complex things as simple as possible. i love to find ways to reduce complexity when solving problems.
 
 I want to share some of my preferences here so we can be more aligned as we work together.
-> *"I like ambitious ideas, simple systems, and software that feels obvious. Do not preserve complexity just because it already exists. Do not introduce machinery because it looks architecturally impressive. Understand the real constraint, then fight for the smallest model that makes the correct behavior unsurprising.*
->
-> *Channel both 'measure twice, cut once' and 'yagni'. Fight scope creep. Try to honor the dev's intent in both a minimal and realistic fashion.*
->
-> *The rest of this document is meant to help you navigate the codebase and make changes effectively. Think of these instructions less as 'hard rules', more as 'good defaults'. The developer's preferences should be able to override anything here.*
->
-> *Of note: Most developer contributions are often controlled remotely. This means you should be careful about accessing data, killing dev servers, and other things that may damage the project instance that the developer is using."*
 
-- **Override Clause:** Anweisungen in dieser Datei sind *starke Standardwerte, keine starre Dogmatik*. Explizite Anweisungen im Prompt des Maintainers überschreiben die `AGENTS.md` jederzeit.
+> _"I like ambitious ideas, simple systems, and software that feels obvious. Do not preserve complexity just because it already exists. Do not introduce machinery because it looks architecturally impressive. Understand the real constraint, then fight for the smallest model that makes the correct behavior unsurprising._
+>
+> _Channel both 'measure twice, cut once' and 'yagni'. Fight scope creep. Try to honor the dev's intent in both a minimal and realistic fashion._
+>
+> _The rest of this document is meant to help you navigate the codebase and make changes effectively. Think of these instructions less as 'hard rules', more as 'good defaults'. The developer's preferences should be able to override anything here._
+>
+> _Of note: Most developer contributions are often controlled remotely. This means you should be careful about accessing data, killing dev servers, and other things that may damage the project instance that the developer is using."_
+
+- **Override Clause:** Anweisungen in dieser Datei sind _starke Standardwerte, keine starre Dogmatik_. Explizite Anweisungen im Prompt des Maintainers überschreiben die `AGENTS.md` jederzeit.
 
 ---
 
 ## Glossary
 
-| Term | Meaning & Dialect |
-| :--- | :--- |
-| **`You`** | Der KI-Agent, der den Code liest, plant und bearbeitet. |
-| **`We / Maintainers`** | Marco und die Maintainer des Projekts (deine Gesprächspartner). |
-| **`User`** | Der Endnutzer der Haushaltsapp-App bzw. die Person, die App später verwenden wird. |
-| **`Household (Haushalt)`** | Die geteilte Entität für gemeinsame Bestände, Einkaufslisten und Einladungen. |
-| **`Inventory / Fridge`** | Geteilter Lebensmittelbestand mit Lagerorten (Kühlschrank, Vorrat, Tiefkühler). Eigenständiger Bestandseintrag, optional angereichert durch ein Product. Siehe `CONTEXT.md`. |
-| **`Product`** | Globaler, nicht haushaltsgebundener Katalogeintrag (Barcode/Nährwerte). Keine Identität mit Inventory/Shopping-List-Items, nur optionale Anreicherung. Siehe `CONTEXT.md`. |
+| Term                                                   | Meaning & Dialect                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| :----------------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **`You`**                                              | Der KI-Agent, der den Code liest, plant und bearbeitet.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| **`We / Maintainers`**                                 | Marco und die Maintainer des Projekts (deine Gesprächspartner).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| **`User`**                                             | Der Endnutzer der Haushaltsapp-App bzw. die Person, die App später verwenden wird.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| **`Household (Haushalt)`**                             | Die geteilte Entität für gemeinsame Bestände, Einkaufslisten und Einladungen.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| **`Inventory / Fridge`**                               | Geteilter Lebensmittelbestand mit Lagerorten (Kühlschrank, Vorrat, Tiefkühler). Eigenständiger Bestandseintrag, optional angereichert durch ein Product. Siehe `CONTEXT.md`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| **`Product`**                                          | Globaler, nicht haushaltsgebundener Katalogeintrag (Barcode/Nährwerte). Keine Identität mit Inventory/Shopping-List-Items, nur optionale Anreicherung. Siehe `CONTEXT.md`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 | **`Externe Produktdatenbank (OFF / Open Food Facts)`** | Externe, quelloffene, crowdsourced Lebensmitteldatenbank (`openfoodfacts.org`, kurz **OFF**) — nicht Teil von Haushaltsapp, sondern eine Datenquelle: Produktsuche per Name/Barcode, Nährwerte, Marke, und die kanonische Kategorie-Taxonomie (`categories_tags`, z. B. `en:porks`). OFF ist die Quelle, aber nicht die Wahrheit — Treffer werden lokal übernommen/gespiegelt (`OpenFoodFactsProduct` in `src/lib/open-food-facts.ts`, `off_category_tags`/`off_last_modified_at`-Spalten auf `Product`), nie 1:1 als eigene Identität behandelt. Der Klassifikator (`src/features/shopping-list/classification/`) nutzt `categories_tags` als eines von mehreren Signalen zur automatischen Einkaufslisten-Kategorie. Details: `docs/issue#223_V2.md` Abschnitte 6–7. |
-| **`Tracking`** | Oberbegriff für alle privaten, per RLS isolierten Nutzerdaten (Nutrition Tracking, Medications & Symptoms, Fasting, Vital Logs, Workouts). Siehe `CONTEXT.md`. |
-| **`Nutrition Tracking`** | Ernährungs- und Gewichtsteil von Tracking: Mahlzeiten, Gewicht, Ziele. Eine Tracking-Domäne unter mehreren, kein Oberbegriff. |
-| **`Declarative Schema`** | Der deklarative Schemazustand unter `supabase/schemas/*.sql`. |
-| **`Outbox`** | Lokale SQLite-Warteschlange für Offline-Mutationen vor dem Push an Supabase. |
-| **`Dev Build`** | Natives Binary (`scripts/ios-dev.sh`), das für native Expo-Module zwingend nötig ist. |
+| **`Tracking`**                                         | Oberbegriff für alle privaten, per RLS isolierten Nutzerdaten (Nutrition Tracking, Medications & Symptoms, Fasting, Vital Logs, Workouts). Siehe `CONTEXT.md`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| **`Nutrition Tracking`**                               | Ernährungs- und Gewichtsteil von Tracking: Mahlzeiten, Gewicht, Ziele. Eine Tracking-Domäne unter mehreren, kein Oberbegriff.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| **`Declarative Schema`**                               | Der deklarative Schemazustand unter `supabase/schemas/*.sql`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| **`Outbox`**                                           | Lokale SQLite-Warteschlange für Offline-Mutationen vor dem Push an Supabase.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| **`Dev Build`**                                        | Natives Binary (`scripts/ios-dev.sh`), das für native Expo-Module zwingend nötig ist.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 
 ---
 
@@ -105,7 +106,7 @@ I want to share some of my preferences here so we can be more aligned as we work
 
 ## Coding preferences - general
 
-- Keep things simple. Channel "yagni" energy unless told otherwise
+- Keep things simple. Channel "yagni" & "KISS" energy unless told otherwise
 - Typesafety is useful, take advantage of it.
 - Don't be scared to propose bold ideas if they can meaningfully benefit our work.
 - Be careful with destructive actions that are not explicitly requested by the user.
@@ -119,8 +120,15 @@ I want to share some of my preferences here so we can be more aligned as we work
 - If your TS code looks like a Python dev wrote it, it is bad TS code.
 - Avoid one-line functions that are just casting wrappers.
 - Write TypeScript in ways that Matt Pocock and Theo would be proud of.
-- If not already specified in project, I generally like to use the following tech: Convex, Tailwind, React, Vite, pnpm
-- When building more complex web and react native apps, I like to pull in Zustand, React Query, Tanstack Start, Clerk (or better-auth if selfhosting), and ArkType (or zod if perf isn't an issue)
+- This project already has a settled stack (state, forms, storage, lists, local DB) — see **Stack conventions in this project** below. Don't default to a different library on top of what's already there just because it's a personal favorite; the taste above is for greenfield projects that don't already have an answer.
+
+## Stack conventions in this project
+
+- **State management:** Zustand for client-side/UI state (`create()` stores, e.g. `src/features/onboarding/onboarding-store.ts`, sync-debug state, form-local state like `src/features/shopping-list/forms/category-form-state.ts`). React Query owns server/cache state (Supabase reads, mutations, `mutateAsync`). Don't duplicate server state into a Zustand store — pull it via React Query and keep Zustand for state that has no server-side source of truth.
+- **Lists:** two list libraries are installed (`@shopify/flash-list`, `@legendapp/list`) but **neither is used anywhere** — every list screen still renders RN's built-in `FlatList` (8 files as of 2026-08); reorderable lists use `react-native-reorderable-list` instead. Don't assume a screen already uses FlashList/Legend List — check before claiming so, and migrating an existing `FlatList` is a deliberate perf change, not a drive-by rename. If asked to pick one for a new list, ask which of the two installed libraries to standardize on rather than guessing.
+- **Forms:** React Hook Form + Zod (via `@hookform/resolvers`) is the default for structured, validated forms — auth (`sign-in-form.tsx`, `sign-up-form.tsx`), profile edit, onboarding profile step, recipe creation/wizard. Simpler inline forms (e.g. `add-item-form.tsx`) still use plain `useState` and aren't required to migrate just for consistency's sake; use RHF+Zod for new forms with real validation needs, plain state for small inline inputs.
+- **Device storage:** `react-native-mmkv` for local key/value storage, in two flavors — `src/lib/storage/device-storage.ts` (unencrypted, non-sensitive UI/device flags, single shared instance) and `src/lib/storage/account-storage.ts` (per-account MMKV instance, encrypted with a key generated via `expo-crypto` and held in `expo-secure-store`, torn down on sign-out/account switch). Account/session data must go through the encrypted per-account instance, never the shared device one.
+- **Drizzle:** scoped to the **local SQLite mirror only** (`src/lib/db/schemas/*.ts`, `drizzle.config.ts` with `dialect: 'sqlite', driver: 'expo'`, output under `drizzle/local`). It replaces hand-written SQL for the offline/outbox layer in `src/lib/db/`. It is **not** connected to Supabase/Postgres — the backend schema stays declarative SQL (`supabase/schemas/*.sql`) generated via `bun run db:diff`, per the Non-Negotiable Pillars above. Don't reach for `drizzle-kit` against the Supabase database.
 
 ## Questions are read-only
 
@@ -175,7 +183,7 @@ also make sure to read `.agents/rules/react-native-testing-library.md` for react
 
 # agent-device
 
-Use agent-device only for app/device automation tasks.
+Use agent-device only for app/device automation tasks and Marco approved it!
 For a normal app-driving task, start immediately. Do not probe first with `--help`, `--version`, `devices`, `appstate`, `snapshot`, or `screenshot`; open the requested app in the foreground and continue from its initial interactive snapshot.
 For TV, Fire TV, or Vega OS tasks, read `agent-device help tv`.
 For exploratory QA, read `agent-device help dogfood`.

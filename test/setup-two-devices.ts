@@ -88,15 +88,20 @@ export async function setupTwoDevices(prefix = 'device'): Promise<TwoDeviceSetup
   const { error: signInAError } = await clientA.auth.signInWithPassword({ email, password });
   if (signInAError) throw signInAError;
 
+  const clientB = makeClient();
+  const { error: signInBError } = await clientB.auth.signInWithPassword({ email, password });
+  if (signInBError) throw signInBError;
+
+  // GoTrue stellt beide Tokens aus, bevor PostgREST sie verwendet. Leichte
+  // Clock-Drifts zwischen den lokalen Containern koennen ein ganz frisches
+  // Token sonst bereits beim folgenden RPC als "issued at future" ablehnen.
+  await new Promise((resolve) => setTimeout(resolve, 3000));
+
   const { data: householdId, error: hhError } = await clientA.rpc('create_household', {
     household_name: `Test ${email}`,
   });
   if (hhError) throw hhError;
   if (!householdId) throw new Error('create_household lieferte keine id');
-
-  const clientB = makeClient();
-  const { error: signInError } = await clientB.auth.signInWithPassword({ email, password });
-  if (signInError) throw signInError;
 
   const dbA = createTestDatabase();
   const dbB = createTestDatabase();
@@ -130,13 +135,6 @@ export async function setupTwoDevices(prefix = 'device'): Promise<TwoDeviceSetup
     dbA.close();
     dbB.close();
   };
-
-  // Workaround fuer "JWT issued at future" in lokalen Docker-Umgebungen:
-  // GoTrue generiert das Token, Realtime / PostgREST verifiziert es. Durch leichte
-  // Clock-Drifts zwischen den Containern oder zur Host-VM wird das Token
-  // abgewiesen, wenn es *zu frisch* ist (iat liegt in der Zukunft). 3s
-  // abwarten behebt das i. d. R. zuverlaessig.
-  await new Promise((resolve) => setTimeout(resolve, 3000));
 
   return {
     deviceA: { db: dbA, client: clientA },
