@@ -28,6 +28,23 @@ jest.mock('expo-notifications', () => ({
   },
 }));
 
+// Das native Sentry-SDK startet bereits beim Import einen dauerhaften Cleanup-
+// Timer. Unit-Tests pruefen unsere Telemetrie-Wrapper, nicht diesen SDK-Timer;
+// ohne Mock bleibt deshalb pro Jest-Worker ein offenes Handle zurueck.
+jest.mock('@sentry/react-native', () => ({
+  __esModule: true,
+  addBreadcrumb: jest.fn(),
+  captureException: jest.fn(),
+  captureMessage: jest.fn(),
+  ErrorBoundary: ({ children }) => children,
+  init: jest.fn(),
+  mobileReplayIntegration: jest.fn(() => ({})),
+  reactNavigationIntegration: jest.fn(() => ({
+    registerNavigationContainer: jest.fn(),
+  })),
+  wrap: (component) => component,
+}));
+
 jest.mock('react-native-reorderable-list', () => {
   const React = require('react');
   const { FlatList } = require('react-native');
@@ -60,4 +77,3 @@ jest.mock('@lokal-dev/react-native-bugbubble', () => ({
     logConsole: jest.fn(),
   },
 }));
-

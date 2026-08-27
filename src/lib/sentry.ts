@@ -4,6 +4,17 @@ import { env } from '@/lib/env';
 
 let configured = false;
 
+export const SENTRY_REPLAY_DISABLE = true;
+
+const SENTRY_REPLAY_SAMPLE_RATES = {
+  replaysOnErrorSampleRate: 0.1,
+  replaysSessionSampleRate: 0.01,
+} as const;
+
+export function getSentryReplayOptions(disabled: boolean) {
+  return disabled ? {} : SENTRY_REPLAY_SAMPLE_RATES;
+}
+
 export const navigationIntegration = Sentry.reactNavigationIntegration();
 
 export function initSentry(): void {
@@ -35,8 +46,7 @@ export function initSentry(): void {
       profilesSampleRate: env.devTools ? 1.0 : 0,
       // PII umfasst IP-Adresse und erweiterte Gerätekontexte.
       sendDefaultPii: true,
-      replaysOnErrorSampleRate: 0,
-      replaysSessionSampleRate: 0,
+      ...getSentryReplayOptions(SENTRY_REPLAY_DISABLE),
       integrations: [navigationIntegration],
     });
   } catch (err) {

@@ -1,3 +1,5 @@
+import * as Network from 'expo-network';
+
 import { ALL_ENTITIES, metaOf } from '@/lib/db/entities';
 import {
   readSyncState,
@@ -9,7 +11,7 @@ import type { Entity, SqlDatabase } from '@/lib/db/types';
 import type { TypedSupabaseClient } from '@/lib/supabase';
 import { EPOCH_START } from '@/lib/sync/cursor';
 import { applyRemoteRow } from '@/lib/sync/mirror-write';
-import { reportWarning } from '@/lib/telemetry';
+import { addDiagnosticStep, reportWarning } from '@/lib/telemetry';
 
 /** Unter `config.toml`s `max_rows = 1000`. */
 const PAGE_SIZE = 500;
@@ -40,7 +42,23 @@ export type PullOutcome = {
   rowsSkippedAsLocalWins: number;
   error?: string;
   errorCode?: string;
+  errorWasPreviouslyRecorded?: boolean;
 };
+
+function isJwtIssuedInFuture(error: { code?: string; message: string }): boolean {
+  return /jwt[^\n]*issued[^\n]*future/i.test(`${error.code ?? ''} ${error.message}`);
+}
+
+async function getNetworkState(): Promise<'online' | 'offline' | 'unknown'> {
+  try {
+    const state = await Network.getNetworkStateAsync();
+    if (state.isConnected === false || state.isInternetReachable === false) return 'offline';
+    if (state.isConnected === true || state.isInternetReachable === true) return 'online';
+  } catch {
+    // Netzwerkdiagnose ist best effort und darf den Sync nicht beeinflussen.
+  }
+  return 'unknown';
+}
 
 function initialCursor(): SyncCursor {
   return { lastSyncedAt: EPOCH_START, lastSyncedId: MIN_UUID };
@@ -62,6 +80,11 @@ async function pullEntity(
   entity: Entity,
   householdIds: readonly string[],
   clockCeilingMs: number,
+  diagnostics: {
+    retryCount: number;
+    suppressJwtWarning: boolean;
+    serverNowMs?: () => number | null;
+  },
 ): Promise<PullOutcome> {
   const meta = metaOf(entity);
   const outcome: PullOutcome = {
@@ -101,12 +124,25 @@ async function pullEntity(
       await recordSyncError(db, entity, error.message);
       outcome.error = error.message;
       outcome.errorCode = error.code;
+      outcome.errorWasPreviouslyRecorded = error.message === previousError;
+      const jwtIssuedInFuture = isJwtIssuedInFuture(error);
       // Wiederholte identische Fehler nicht erneut an Sentry senden.
-      if (error.message !== previousError) {
+      if (
+        (error.message !== previousError || diagnostics.retryCount > 0) &&
+        !(jwtIssuedInFuture && diagnostics.suppressJwtWarning)
+      ) {
+        const serverNowMs = diagnostics.serverNowMs?.();
         reportWarning(`Sync-Pull fehlgeschlagen: ${error.message}`, {
           operation: 'sync.pull',
           entity,
-          error_code: error.code ?? 'sync_pull_failed',
+          error_code: jwtIssuedInFuture
+            ? 'jwt_issued_in_future'
+            : (error.code ?? 'sync_pull_failed'),
+          retry_count: diagnostics.retryCount,
+          network_state: await getNetworkState(),
+          ...(serverNowMs === null || serverNowMs === undefined
+            ? {}
+            : { clock_skew_ms: Date.now() - serverNowMs }),
         });
       }
       break;
@@ -138,6 +174,11 @@ async function pullEntity(
     cursor = { lastSyncedAt: last.updated_at, lastSyncedId: last.id };
 
     if (page.length < PAGE_SIZE) break;
+  }
+
+  if (!outcome.error) {
+    // Auch ein leerer erfolgreicher Pull muss einen vorherigen Fehlerzustand löschen.
+    await writeSyncCursor(db, entity, cursor, Date.now());
   }
 
   return outcome;
@@ -213,17 +254,73 @@ export async function pullHousehold(deps: {
   supabase: TypedSupabaseClient;
   householdIds: readonly string[];
   clockCeilingMs: number;
+  serverNowMs?: () => number | null;
   entities?: readonly Entity[];
 }): Promise<PullOutcome[]> {
   const entities = (deps.entities ?? ALL_ENTITIES).filter((entity) => !metaOf(entity).pushOnly);
-  const outcomes: PullOutcome[] = [];
 
-  for (const entity of entities) {
-    outcomes.push(
-      await pullEntity(deps.db, deps.supabase, entity, deps.householdIds, deps.clockCeilingMs),
-    );
-    await reconcileOrphans(deps.db, deps.supabase, entity, deps.householdIds);
+  const run = async (
+    runEntities: readonly Entity[],
+    retryCount: number,
+    suppressJwtWarning: boolean,
+  ): Promise<PullOutcome[]> => {
+    const outcomes: PullOutcome[] = [];
+    for (const entity of runEntities) {
+      const serverNowMs = deps.serverNowMs?.();
+      const outcome = await pullEntity(
+        deps.db,
+        deps.supabase,
+        entity,
+        deps.householdIds,
+        serverNowMs ?? deps.clockCeilingMs,
+        { retryCount, suppressJwtWarning, serverNowMs: deps.serverNowMs },
+      );
+      outcomes.push(outcome);
+      if (outcome.error) break;
+      await reconcileOrphans(deps.db, deps.supabase, entity, deps.householdIds);
+    }
+    return outcomes;
+  };
+
+  const initialOutcomes = await run(entities, 0, true);
+  const failedIndex = initialOutcomes.findIndex(
+    (outcome) =>
+      outcome.error !== undefined &&
+      isJwtIssuedInFuture({ code: outcome.errorCode, message: outcome.error }),
+  );
+  if (failedIndex === -1) return initialOutcomes;
+
+  const failed = initialOutcomes[failedIndex];
+  const serverNowMs = deps.serverNowMs?.();
+  const context = {
+    operation: 'auth.session.refresh',
+    entity: failed.entity,
+    error_code: 'jwt_issued_in_future',
+    retry_count: 0,
+    network_state: await getNetworkState(),
+    ...(serverNowMs === null || serverNowMs === undefined
+      ? {}
+      : { clock_skew_ms: Date.now() - serverNowMs }),
+  };
+
+  addDiagnosticStep('auth.session.refresh_started', { ...context, outcome: 'started' });
+  const { error: refreshError } = await deps.supabase.auth.refreshSession();
+  if (refreshError) {
+    if (!failed.errorWasPreviouslyRecorded) {
+      reportWarning(`Session-Aktualisierung fehlgeschlagen: ${refreshError.message}`, {
+        ...context,
+        error_code: refreshError.code ?? 'auth_session_refresh_failed',
+      });
+      reportWarning(`Sync-Pull fehlgeschlagen: ${failed.error}`, context);
+    }
+    return initialOutcomes;
   }
 
-  return outcomes;
+  addDiagnosticStep('auth.session.refresh_completed', {
+    ...context,
+    outcome: 'completed',
+    retry_count: 1,
+  });
+  const retryOutcomes = await run(entities.slice(failedIndex), 1, false);
+  return [...initialOutcomes.slice(0, failedIndex), ...retryOutcomes];
 }

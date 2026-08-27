@@ -1,6 +1,7 @@
 const mockPullHousehold = jest.fn();
 const mockGetDatabase = jest.fn();
 const mockGetSupabase = jest.fn();
+const mockServerNowMs = jest.fn(() => null);
 
 jest.mock('@/lib/sync/pull', () => ({
   pullHousehold: (...args: unknown[]) => mockPullHousehold(...args),
@@ -12,6 +13,9 @@ jest.mock('@/lib/db/client', () => ({
 
 jest.mock('@/lib/supabase', () => ({
   getSupabase: (...args: unknown[]) => mockGetSupabase(...args),
+  serverClock: {
+    serverNowMs: () => mockServerNowMs(),
+  },
 }));
 
 // Dieser Unit-Test prueft den Haushalts-Pull, nicht das Sentry-SDK. Dessen
@@ -35,6 +39,7 @@ describe('triggerHouseholdsPull', () => {
     mockPullHousehold.mockReset();
     mockGetDatabase.mockResolvedValue({});
     mockGetSupabase.mockReturnValue({});
+    mockServerNowMs.mockReturnValue(null);
   });
 
   afterEach(() => {

@@ -51,8 +51,9 @@ Damit wird der bekannte iOS-26-Crash verhindert, ohne das Experiment wegzuwerfen
 
 Sentry:
 
-- `replaysOnErrorSampleRate: 0`
-- `replaysSessionSampleRate: 0`
+- `SENTRY_REPLAY_DISABLE = true`
+- Bei deaktiviertem Replay weder `replaysOnErrorSampleRate` noch `replaysSessionSampleRate` setzen.
+- Bei bewusster Reaktivierung kleine Sample-Raten verwenden.
 - `Sentry.mobileReplayIntegration()` entfernen
 
 PostHog:

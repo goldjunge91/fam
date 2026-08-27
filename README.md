@@ -194,12 +194,12 @@ Einmalige Einrichtung:
 Alarmierung (Slack/E-Mail bei neuen Fehlern) lässt sich im Sentry-Dashboard
 unter **Alerts** einrichten, kostenlos im Free-Tier enthalten.
 
-### Feature Flags (PostHog)
+### Telemetrie und Feature Flags (PostHog)
 
-PostHog (`posthog-react-native`) ist ausschließlich für **Feature Flags**
-integriert (`src/lib/posthog.ts`) — kein Event-Capture, kein Session Replay.
-Damit lässt sich ein Feature hinter einem Remote-Schalter mergen und im
-PostHog-Dashboard an-/ausschalten, ohne neuen App-Build. Ohne
+PostHog (`posthog-react-native`) erhält Produkt-Events, behandelte und
+unbehandelte Fehler, Diagnose-Schritte und native Crashes. Session Replay ist
+bewusst deaktiviert. Produkt- und Diagnose-Events werden über `src/lib/telemetry`
+identisch an PostHog und Aptabase verteilt. Ohne
 `EXPO_PUBLIC_POSTHOG_API_KEY` bleibt das ein No-op — `useFeatureFlag()` liefert
 dann immer den übergebenen `defaultValue`, App und Tests laufen auch ohne
 PostHog-Account.
@@ -208,13 +208,15 @@ Einmalige Einrichtung:
 
 1. PostHog-Projekt anlegen ([posthog.com](https://posthog.com), kostenloser
    Tarif reicht) → **Project Settings > Project API Key** liefert den Key.
-2. `EXPO_PUBLIC_POSTHOG_API_KEY` in `.env` eintragen. Bei einem zusätzlich
-3. `EXPO_PUBLIC_POSTHOG_HOST=https://us.i.posthog.com` setzen —
-   ohne gesetzten Host wird der US-Cloud-Standardhost verwendet.
-4. Neuer Dev-Client-Build nötig (`bash scripts/ios-dev.sh` bzw.
-   Android-Äquivalent), da `posthog-react-native` native Peer-Dependencies
-   mitbringt (`expo-file-system`, `expo-application`, `expo-device`,
-   `expo-localization`).
+2. `EXPO_PUBLIC_POSTHOG_API_KEY` und den passenden
+   `EXPO_PUBLIC_POSTHOG_HOST` in der Env-Datei eintragen.
+3. Im PostHog-Projekt **Enable exception autocapture** aktivieren und Session
+   Recording deaktiviert lassen.
+4. Für Source-Maps und native Symbole `POSTHOG_CLI_API_KEY`,
+   `POSTHOG_CLI_PROJECT_ID` und bei EU Cloud `POSTHOG_CLI_HOST` als Build-Secrets
+   hinterlegen.
+5. Neuer Dev-Client-Build nötig (`bash scripts/ios-dev.sh` bzw.
+   Android-Äquivalent), weil `@posthog/react-native-plugin` nativen Code enthält.
 
 **Integration testen:** Im Dashboard ein Boolean-Flag `test-feature` anlegen
 und an/aus schalten — der Live-Wert steht im Entwickler-Bereich der

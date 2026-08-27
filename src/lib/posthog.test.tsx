@@ -81,6 +81,7 @@ describe('initPostHog / isPostHogConfigured', () => {
         enableSessionReplay: false,
         errorTracking: {
           autocapture: {
+            nativeCrashes: true,
             uncaughtExceptions: true,
             unhandledRejections: true,
           },

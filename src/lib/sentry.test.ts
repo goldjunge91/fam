@@ -39,16 +39,26 @@ describe('initSentry', () => {
 
     initSentry();
 
-    expect(mockSentryInit).toHaveBeenCalledWith(
+    const initOptions = mockSentryInit.mock.calls[0]?.[0];
+    expect(initOptions).toEqual(
       expect.objectContaining({
         dsn: 'https://example@o1.ingest.sentry.io/1',
         integrations: [expect.any(Object)],
-        replaysOnErrorSampleRate: 0,
-        replaysSessionSampleRate: 0,
         sendDefaultPii: true,
       }),
     );
+    expect(initOptions).not.toHaveProperty('replaysOnErrorSampleRate');
+    expect(initOptions).not.toHaveProperty('replaysSessionSampleRate');
     expect(mockMobileReplayIntegration).not.toHaveBeenCalled();
+  });
+
+  it('verwendet bei aktiviertem Replay kleine Sample-Raten', () => {
+    const { getSentryReplayOptions } = require('@/lib/sentry');
+
+    expect(getSentryReplayOptions(false)).toEqual({
+      replaysOnErrorSampleRate: 0.1,
+      replaysSessionSampleRate: 0.01,
+    });
   });
 
   it('stuerzt nicht ab, wenn init wirft, und wiederholt den Fehler nicht', () => {

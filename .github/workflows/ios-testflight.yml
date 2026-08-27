@@ -24,6 +24,9 @@ jobs:
     env:
       EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
       SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+      POSTHOG_CLI_API_KEY: ${{ secrets.POSTHOG_CLI_API_KEY }}
+      POSTHOG_CLI_PROJECT_ID: ${{ secrets.POSTHOG_CLI_PROJECT_ID }}
+      POSTHOG_CLI_HOST: ${{ vars.POSTHOG_CLI_HOST || 'https://eu.posthog.com' }}
 
     steps:
       - name: Checkout Repository

@@ -3,12 +3,11 @@ import { useEffect, useRef } from 'react';
 import { AppState } from 'react-native';
 import { householdsQueryKey } from '@/features/household/query-keys';
 import { getDatabase } from '@/lib/db/client';
-import { getSupabase } from '@/lib/supabase';
+import { getSupabase, serverClock } from '@/lib/supabase';
 import { beginAccountSyncRun, registerAccountSyncStopper } from '@/lib/sync/account-sync-gate';
 import { startNetworkReconnectTrigger } from '@/lib/sync/network-trigger';
 import { type PullOutcome, pullHousehold } from '@/lib/sync/pull';
 import { clockCeiling } from '@/lib/sync/server-clock';
-import { serverClock } from '@/lib/sync/sync-runner';
 import { reportError } from '@/lib/telemetry';
 
 let isSyncingHouseholds = false;
@@ -34,6 +33,7 @@ export async function triggerHouseholdsPull(
       householdIds: [],
       entities: ['households'],
       clockCeilingMs: clockCeiling(serverClock, Date.now()),
+      serverNowMs: serverClock.serverNowMs,
     });
 
     if (queryClient) {

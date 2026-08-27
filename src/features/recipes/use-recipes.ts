@@ -481,7 +481,7 @@ export function useDeleteRecipeMutation() {
       return input.id;
     },
     onSuccess: (_, variables) => {
-      trackAnalyticsEvent('recipe.archive.completed');
+      trackAnalyticsEvent('recipe.delete.completed');
       queryClient.invalidateQueries({ queryKey: ['recipes', variables.household_id] });
       queryClient.invalidateQueries({ queryKey: ['sync-status'] });
     },

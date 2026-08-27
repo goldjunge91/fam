@@ -6,17 +6,16 @@ import { getDatabase } from '@/lib/db/client';
 import { onOutboxChanged } from '@/lib/db/outbox';
 import { retryFailedOutboxEntries } from '@/lib/db/outbox-retry';
 import type { Entity } from '@/lib/db/types';
-import { getSupabase } from '@/lib/supabase';
+import { getSupabase, serverClock } from '@/lib/supabase';
 import { beginAccountSyncRun, registerAccountSyncStopper } from '@/lib/sync/account-sync-gate';
 import { setBackgroundSyncHandler } from '@/lib/sync/background-sync';
 import { type SyncRunResult, syncHousehold } from '@/lib/sync/engine';
 import { startNetworkReconnectTrigger } from '@/lib/sync/network-trigger';
 import { type RealtimeSubscribeState, subscribeHouseholdRealtime } from '@/lib/sync/realtime';
-import { createServerClock } from '@/lib/sync/server-clock';
 import { addDiagnosticStep, reportError, trackEvent } from '@/lib/telemetry';
 
-/** Geteilt mit household-bootstrap-sync.ts, statt eine zweite Uhr-Instanz zu bauen. */
-export const serverClock = createServerClock();
+export { serverClock };
+
 let isSyncing = false;
 let lastSyncResultSummary: {
   timestamp: number;

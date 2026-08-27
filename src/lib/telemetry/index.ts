@@ -114,7 +114,7 @@ export function trackEvent(name: TelemetryEventName, properties: TelemetryProper
   captureEvent(name, commonProperties(name, properties));
 }
 
-export function reportError(error: unknown, context: TelemetryProperties = {}): void {
+function sendError(error: unknown, context: TelemetryProperties, captureInSentry: boolean): void {
   const details = errorDetails(error);
   const errorId = context.error_id ?? createCorrelationId();
   const properties = commonProperties(TELEMETRY_EVENTS.errorOccurred, {
@@ -125,18 +125,20 @@ export function reportError(error: unknown, context: TelemetryProperties = {}): 
     outcome: 'failed',
   });
 
-  try {
-    Sentry.captureException(error, {
-      tags: {
-        telemetry_event: TELEMETRY_EVENTS.errorOccurred,
-        correlation_id: properties.correlation_id,
-        error_code: properties.error_code,
-        operation: properties.operation,
-      },
-      extra: properties,
-    });
-  } catch (reportingError) {
-    if (__DEV__) console.warn('[telemetry] Sentry-Fehlerbericht fehlgeschlagen:', reportingError);
+  if (captureInSentry) {
+    try {
+      Sentry.captureException(error, {
+        tags: {
+          telemetry_event: TELEMETRY_EVENTS.errorOccurred,
+          correlation_id: properties.correlation_id,
+          error_code: properties.error_code,
+          operation: properties.operation,
+        },
+        extra: properties,
+      });
+    } catch (reportingError) {
+      if (__DEV__) console.warn('[telemetry] Sentry-Fehlerbericht fehlgeschlagen:', reportingError);
+    }
   }
 
   try {
@@ -152,6 +154,15 @@ export function reportError(error: unknown, context: TelemetryProperties = {}): 
   }
 
   captureEvent(TELEMETRY_EVENTS.errorOccurred, properties);
+}
+
+export function reportError(error: unknown, context: TelemetryProperties = {}): void {
+  sendError(error, context, true);
+}
+
+/** Spiegelt einen bereits von Sentry erfassten Fehler nur noch an PostHog und Aptabase. */
+export function reportCapturedError(error: unknown, context: TelemetryProperties = {}): void {
+  sendError(error, context, false);
 }
 
 export function reportWarning(message: string, context: TelemetryProperties = {}): void {

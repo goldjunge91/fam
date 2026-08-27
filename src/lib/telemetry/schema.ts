@@ -33,7 +33,7 @@ export type ProductTelemetryEventMap = {
   'product.barcode_scan.failed': Record<string, never>;
   'recipe.create.completed': Record<string, never>;
   'recipe.update.completed': Record<string, never>;
-  'recipe.archive.completed': Record<string, never>;
+  'recipe.delete.completed': Record<string, never>;
   'shopping_item.create.completed': Record<string, never>;
   'shopping_item.update.completed': Record<string, never>;
   'shopping_item.check.completed': Record<string, never>;

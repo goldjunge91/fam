@@ -1,4 +1,4 @@
-import { BugBubble } from '@lokal-dev/react-native-bugbubble';
+import { BugBubble, type BugBubbleConfig } from '@lokal-dev/react-native-bugbubble';
 import { QueryClientProvider } from '@tanstack/react-query';
 import { DarkTheme, DefaultTheme, ThemeProvider } from 'expo-router';
 import { type ReactNode, useEffect } from 'react';
@@ -18,9 +18,16 @@ import { env } from '@/lib/env';
 import { PostHogAppProvider } from '@/lib/posthog';
 import { queryClient, removeLegacyPersistedQueryCache } from '@/lib/query-client';
 import { Sentry } from '@/lib/sentry';
-import { reportError } from '@/lib/telemetry';
+import { reportCapturedError } from '@/lib/telemetry';
 
 import { CrashFallback } from './crash-fallback';
+
+const BUG_BUBBLE_CONFIG = {
+  trackingOptions: {
+    enabled: true,
+    options: { console: false },
+  },
+} satisfies Partial<BugBubbleConfig>;
 
 /** Hält die globale Provider-Reihenfolge an einem Ort fest. */
 export function AppProviders({ children }: { children: ReactNode }) {
@@ -36,7 +43,7 @@ export function AppProviders({ children }: { children: ReactNode }) {
     <SafeAreaProvider>
       <Sentry.ErrorBoundary
         onError={(error) =>
-          reportError(error, {
+          reportCapturedError(error, {
             operation: 'react.error_boundary',
             error_code: 'react_error_boundary',
           })
@@ -55,7 +62,7 @@ export function AppProviders({ children }: { children: ReactNode }) {
                         <SnackbarProvider>
                           <AnimatedSplashOverlay />
                           {children}
-                          {env.devTools ? <BugBubble /> : null}
+                          {env.devTools ? <BugBubble config={BUG_BUBBLE_CONFIG} /> : null}
                         </SnackbarProvider>
                       </ThemeProvider>
                     </PremiumProvider>

@@ -55,6 +55,7 @@ describe('verschluesselte Query-Persistierung', () => {
     const source = new QueryClient();
     source.setQueryData(['profile', 'user-1'], { name: 'Marco' });
     values.set('react-query-cache.v1', JSON.stringify(dehydrate(source)));
+    source.clear();
     const client = new QueryClient();
 
     const unsubscribe = await startAccountQueryPersistence(client, 'user-1');
@@ -62,6 +63,7 @@ describe('verschluesselte Query-Persistierung', () => {
     expect(mockGetEncryptedAccountStorage).toHaveBeenCalledWith('user-1');
     expect(client.getQueryData(['profile', 'user-1'])).toEqual({ name: 'Marco' });
     unsubscribe();
+    client.clear();
   });
 
   it('persistiert nur freigegebene Query-Domaenen', async () => {
@@ -77,5 +79,6 @@ describe('verschluesselte Query-Persistierung', () => {
     expect(persisted.queries).toHaveLength(1);
     expect(persisted.queries[0].queryKey).toEqual(['profile', 'user-1']);
     unsubscribe();
+    client.clear();
   });
 });

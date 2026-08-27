@@ -2,8 +2,17 @@ const { withNativeWind } = require('nativewind/metro');
 const {
   getSentryExpoConfig
 } = require("@sentry/react-native/metro");
+const { getPostHogExpoConfig } = require('posthog-react-native/metro');
 
-const config = getSentryExpoConfig(__dirname, { includeWebReplay: false });
+const config = getPostHogExpoConfig(__dirname, {
+  getDefaultConfig: (projectRoot, options = {}) => {
+    const { getDefaultConfig: _ignored, ...metroOptions } = options;
+    return getSentryExpoConfig(projectRoot, {
+      ...metroOptions,
+      includeWebReplay: false,
+    });
+  },
+});
 
 config.resolver.sourceExts.push('sql');
 

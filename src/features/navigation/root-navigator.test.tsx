@@ -35,7 +35,6 @@ const privateRootRoutes = [
   'profile',
   'recipe',
   'settings',
-  'meal-planner',
   'add-item',
   'add-product',
   'food-search',
@@ -66,5 +65,6 @@ describe('RootNavigator', () => {
     for (const route of privateRootRoutes) {
       expect(screen.getByText(route)).toBeOnTheScreen();
     }
+    expect(screen.queryByText('meal-planner')).not.toBeOnTheScreen();
   });
 });

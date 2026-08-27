@@ -2,7 +2,7 @@
 module.exports = {
   preset: 'jest-expo',
   setupFiles: ['<rootDir>/test/setup.js'],
-  maxWorkers: '10%',
+  maxWorkers: '50%',
 
   // Ohne diesen Resolver landet `react-native-reanimated/mock` (ueber
   // `react-native-worklets`) trotzdem bei den `.native.ts`-Dateien und damit

@@ -25,6 +25,7 @@ export async function syncHousehold(deps: {
     supabase: deps.supabase,
     householdIds: deps.householdIds,
     clockCeilingMs: clockCeiling(deps.serverClock, nowMs),
+    serverNowMs: deps.serverClock.serverNowMs,
   });
 
   return { push, pull };

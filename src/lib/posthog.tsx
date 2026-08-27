@@ -60,6 +60,7 @@ export function initPostHog(): void {
         autocapture: {
           uncaughtExceptions: true,
           unhandledRejections: true,
+          nativeCrashes: true,
         },
       },
     });
