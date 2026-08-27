@@ -84,3 +84,26 @@ jest.mock('@sentry/react-native', () => ({
   wrap: (fn) => fn,
   reactNavigationIntegration: jest.fn(() => ({})),
 }));
+
+// Die Integration-Suite ist ein reiner Node-/HTTP-Testlauf. Produktionscode
+// darf Diagnostik aufrufen, aber deren Expo-/React-Native-Backends gehoeren
+// nicht in diesen Prozess und wuerden ausserhalb von jest-expo ESM laden.
+jest.mock('@/lib/telemetry', () => ({
+  addDiagnosticStep: jest.fn(),
+  measureOperation: jest.fn((_name, operation) => operation()),
+  normalizeTelemetryProperties: jest.fn((properties) => properties),
+  normalizeTelemetryValue: jest.fn((value) => (typeof value === 'boolean' ? Number(value) : value)),
+  reportCapturedError: jest.fn(),
+  reportError: jest.fn(),
+  reportWarning: jest.fn(),
+  setTelemetryUserId: jest.fn(),
+  trackEvent: jest.fn(),
+}));
+
+jest.mock('expo-network', () => ({
+  addNetworkStateListener: jest.fn(() => ({ remove: jest.fn() })),
+  getNetworkStateAsync: jest.fn(async () => ({
+    isConnected: true,
+    isInternetReachable: true,
+  })),
+}));

@@ -19,6 +19,11 @@
 module.exports = {
   testEnvironment: 'node',
 
+  // Integrationstests leben ausschliesslich im echten Projekt-Quellbaum.
+  // Ohne diese Grenze sammelt Jest lokal auch Tests aus Codex-/Claude-
+  // Worktrees ein und fuehrt dieselbe Suite mehrfach gegen dieselbe DB aus.
+  roots: ['<rootDir>/src'],
+
   // Nur TypeScript-Typen entfernen, sonst nichts. `babel-preset-expo` waere hier
   // falsch: Es spritzt einen Import auf `expo/virtual/env` ein, den Node als
   // ESM nicht laden kann — und der Test braucht von Expo ohnehin nichts.

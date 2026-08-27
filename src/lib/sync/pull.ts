@@ -101,6 +101,7 @@ async function pullEntity(
 
   // Haushalte immer vollständig laden: Beitritte ändern die RLS-Sichtbarkeit ohne Zeilen-Update.
   let cursor = entity === 'households' ? initialCursor() : (storedCursor ?? initialCursor());
+  let cursorWritten = false;
 
   for (;;) {
     let query = (
@@ -169,6 +170,7 @@ async function pullEntity(
         { lastSyncedAt: last.updated_at, lastSyncedId: last.id },
         Date.now(),
       );
+      cursorWritten = true;
     });
 
     cursor = { lastSyncedAt: last.updated_at, lastSyncedId: last.id };
@@ -177,8 +179,12 @@ async function pullEntity(
   }
 
   if (!outcome.error) {
-    // Auch ein leerer erfolgreicher Pull muss einen vorherigen Fehlerzustand löschen.
-    await writeSyncCursor(db, entity, cursor, Date.now());
+    // Ein leerer erster Pull etabliert den Start-Cursor; ein leerer erfolgreicher
+    // Pull nach einem Fehler loescht den Fehlerzustand. Ein bereits erfolgreicher
+    // unveraenderter Pull bleibt dagegen ein echtes No-Op ohne SQLite-Write.
+    if (!cursorWritten && (storedCursor === null || previousError !== null)) {
+      await writeSyncCursor(db, entity, cursor, Date.now());
+    }
   }
 
   return outcome;
