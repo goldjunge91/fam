@@ -1,4 +1,4 @@
-import { router } from 'expo-router';
+import { router, useLocalSearchParams } from 'expo-router';
 import { useState } from 'react';
 import { View } from 'react-native';
 import { TextField } from '@/components/forms/text-field';
@@ -10,11 +10,24 @@ import { authErrorMessage, requestPasswordReset } from '@/features/auth/api';
 import { fieldErrors, resetRequestSchema } from '@/features/auth/auth-schemas';
 
 export function ForgotPasswordScreen() {
+  const { from } = useLocalSearchParams<{ from?: string }>();
+  const fromOnboarding = from === 'onboarding';
+  const backTarget = fromOnboarding
+    ? ({ label: 'Onboarding', href: '/onboarding' } as const)
+    : ({ label: 'Anmelden', href: '/sign-in' } as const);
   const [email, setEmail] = useState('');
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [formError, setFormError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
   const [sent, setSent] = useState(false);
+
+  function handleBack() {
+    if (router.canGoBack()) {
+      router.back();
+      return;
+    }
+    router.replace(backTarget.href);
+  }
 
   async function handleSubmit() {
     if (loading) return;
@@ -41,7 +54,7 @@ export function ForgotPasswordScreen() {
 
   if (sent) {
     return (
-      <Screen title="E-Mail unterwegs" back={{ label: 'Anmelden', href: '/sign-in' }}>
+      <Screen title="E-Mail unterwegs" back={backTarget}>
         {/* Bestätigungskarte nach E-Mail-Versand */}
         <Card>
           {/* Bewusst neutral formuliert: Eine Bestaetigung, dass genau diese
@@ -53,19 +66,16 @@ export function ForgotPasswordScreen() {
         </Card>
         {/* Zurück-Aktion */}
         <Button
-          label="Zurück zur Anmeldung"
+          label={fromOnboarding ? 'Zurück zum Onboarding' : 'Zurück zur Anmeldung'}
           variant="secondary"
-          onPress={() => router.replace('/sign-in')}
+          onPress={handleBack}
         />
       </Screen>
     );
   }
 
   return (
-    <Screen
-      title="Passwort zurücksetzen"
-      subtitle="Wir schicken dir einen Link"
-      back={{ label: 'Anmelden', href: '/sign-in' }}>
+    <Screen title="Passwort zurücksetzen" subtitle="Wir schicken dir einen Link" back={backTarget}>
       {/* Formular zur Passworteingabe / Reset-Anfrage */}
       <Card>
         <View className="gap-three">
