@@ -137,6 +137,7 @@ export function LiquidGlassLabScreen() {
         </Host>
         <View style={{ height: 10 }} />
         <Host matchContents style={{ flexDirection: 'row' }}>
+          {/* biome-ignore lint/a11y/useValidAriaRole: Dies ist eine SwiftUI-ButtonRole von @expo/ui, keine ARIA-Rolle. */}
           <NativeButton
             label="Löschen"
             role="destructive"
@@ -199,6 +200,7 @@ export function LiquidGlassLabScreen() {
                 label="Favorisieren"
                 onPress={() => Alert.alert('Kontextmenü', 'Favorisieren gewählt')}
               />
+              {/* biome-ignore lint/a11y/useValidAriaRole: Dies ist eine SwiftUI-ButtonRole von @expo/ui, keine ARIA-Rolle. */}
               <NativeButton
                 systemImage="trash"
                 label="Löschen"
@@ -233,6 +235,7 @@ export function LiquidGlassLabScreen() {
               label="Teilen"
               onPress={() => Alert.alert('Menü', 'Teilen gewählt')}
             />
+            {/* biome-ignore lint/a11y/useValidAriaRole: Dies ist eine SwiftUI-ButtonRole von @expo/ui, keine ARIA-Rolle. */}
             <NativeButton
               systemImage="trash"
               label="Löschen"

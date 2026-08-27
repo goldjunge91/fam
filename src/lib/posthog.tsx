@@ -55,6 +55,13 @@ export function initPostHog(): void {
       host: env.posthogHost,
       // Erfasst App-Lifecycle (Open, Background, Install/Update) mit IP & Gerätedaten
       captureAppLifecycleEvents: true,
+      enableSessionReplay: false,
+      errorTracking: {
+        autocapture: {
+          uncaughtExceptions: true,
+          unhandledRejections: true,
+        },
+      },
     });
   } catch (err) {
     initializationError = err instanceof Error ? err.message : String(err);

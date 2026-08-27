@@ -1,6 +1,6 @@
 import { migrateLegacyRecipePreferences } from '@/features/recipes/legacy-recipe-preferences';
-import { Sentry } from '@/lib/sentry';
 import { migrateLegacyBrochurePostalCode } from '@/lib/storage/account-preferences';
+import { reportError } from '@/lib/telemetry';
 
 export async function migrateLegacyAccountData(restoredUserId: string | null): Promise<void> {
   const migrations = await Promise.allSettled([
@@ -12,8 +12,9 @@ export async function migrateLegacyAccountData(restoredUserId: string | null): P
   for (const migration of migrations) {
     if (migration.status === 'rejected') {
       errors.push(migration.reason);
-      Sentry.captureException(migration.reason, {
-        tags: { source: 'legacy-account-data-migration' },
+      reportError(migration.reason, {
+        operation: 'auth.legacy_data_migration',
+        error_code: 'legacy_account_data_migration_failed',
       });
     }
   }

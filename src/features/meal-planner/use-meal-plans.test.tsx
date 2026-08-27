@@ -12,6 +12,8 @@ const mockDbRunAsync = jest.fn().mockResolvedValue({ changes: 1, lastInsertRowId
 const mockDbGetFirstAsync = jest.fn().mockResolvedValue(null);
 const mockDbGetAllAsync = jest.fn().mockResolvedValue([]);
 
+jest.mock('@/lib/analytics', () => ({ trackAnalyticsEvent: jest.fn() }));
+
 jest.mock('@/lib/db/client', () => ({
   getDatabase: jest.fn().mockResolvedValue({
     runAsync: (...args: unknown[]) => mockDbRunAsync(...args),

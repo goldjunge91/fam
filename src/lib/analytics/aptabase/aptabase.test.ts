@@ -57,7 +57,7 @@ describe('Aptabase Analytics', () => {
         'A-EU-1234567890',
         expect.objectContaining({
           enableWeb: true,
-          enableCrashReporting: false,
+          enableCrashReporting: true,
         }),
       );
     });

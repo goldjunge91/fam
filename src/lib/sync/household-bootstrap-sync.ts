@@ -9,6 +9,7 @@ import { startNetworkReconnectTrigger } from '@/lib/sync/network-trigger';
 import { type PullOutcome, pullHousehold } from '@/lib/sync/pull';
 import { clockCeiling } from '@/lib/sync/server-clock';
 import { serverClock } from '@/lib/sync/sync-runner';
+import { reportError } from '@/lib/telemetry';
 
 let isSyncingHouseholds = false;
 
@@ -41,6 +42,11 @@ export async function triggerHouseholdsPull(
 
     return outcomes;
   } catch (err) {
+    reportError(err, {
+      operation: 'sync.bootstrap',
+      entity: 'households',
+      error_code: 'household_bootstrap_sync_failed',
+    });
     console.warn('[HouseholdBootstrapSync] Pull fehlgeschlagen:', err);
     return null;
   } finally {

@@ -12,8 +12,8 @@ import {
 import * as Network from 'expo-network';
 import { AppState, type AppStateStatus, Platform } from 'react-native';
 
-import { Sentry } from '@/lib/sentry';
 import { getEncryptedAccountStorage } from '@/lib/storage/account-storage';
+import { reportError } from '@/lib/telemetry';
 
 const LEGACY_PERSISTED_QUERY_CACHE_KEY = '@fam/react-query-cache';
 const ACCOUNT_QUERY_CACHE_KEY = 'react-query-cache.v1';
@@ -21,7 +21,10 @@ const PERSISTED_QUERY_KEY_PREFIXES: readonly unknown[] = ['calorie-tracking', 'p
 
 function reportQueryError(error: unknown, queryKey: readonly unknown[]): void {
   if (!onlineManager.isOnline()) return;
-  Sentry.captureException(error, { tags: { source: 'react-query' }, extra: { queryKey } });
+  reportError(error, {
+    operation: 'react_query.request',
+    entity: typeof queryKey[0] === 'string' ? queryKey[0] : 'unknown',
+  });
 }
 
 export const queryClient = new QueryClient({
@@ -77,9 +80,7 @@ export async function removeLegacyPersistedQueryCache(): Promise<void> {
   try {
     await AsyncStorage.removeItem(LEGACY_PERSISTED_QUERY_CACHE_KEY);
   } catch (error) {
-    Sentry.captureException(error, {
-      tags: { source: 'legacy-query-cache-cleanup' },
-    });
+    reportError(error, { operation: 'query_cache.legacy_cleanup' });
     throw error;
   }
 }
@@ -103,7 +104,7 @@ export async function startAccountQueryPersistence(
       hydrate(client, JSON.parse(persistedCache));
     } catch (error) {
       storage.remove(ACCOUNT_QUERY_CACHE_KEY);
-      Sentry.captureException(error, { tags: { source: 'account-query-cache-restore' } });
+      reportError(error, { operation: 'query_cache.restore' });
     }
   }
 
@@ -115,7 +116,7 @@ export async function startAccountQueryPersistence(
         JSON.stringify(dehydrate(client, { shouldDehydrateQuery: shouldPersistQuery })),
       );
     } catch (error) {
-      Sentry.captureException(error, { tags: { source: 'account-query-cache-persist' } });
+      reportError(error, { operation: 'query_cache.persist' });
     }
   });
 }

@@ -113,8 +113,7 @@ export async function signOutAndClearLocalData(queryClient: QueryClient): Promis
   try {
     const { data: sessionData } = await getSupabase().auth.getSession();
     userId = sessionData.session?.user.id ?? userId;
-  } catch {
-  }
+  } catch {}
 
   let serverError: Error | null = null;
   let localSessionRemovalError: Error | null = null;

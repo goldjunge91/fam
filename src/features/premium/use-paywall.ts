@@ -74,7 +74,7 @@ export function usePaywall(): UsePaywallResult {
     }
 
     setIsPurchasing(true);
-    trackAnalyticsEvent('purchase_started', {
+    trackAnalyticsEvent('purchase.checkout.started', {
       package_id: targetPkg.identifier,
       period: selectedPeriod,
       price: targetPkg.product?.price,
@@ -84,17 +84,17 @@ export function usePaywall(): UsePaywallResult {
     try {
       const outcome = await buyPackage(targetPkg);
       if (outcome.kind === 'purchased') {
-        trackAnalyticsEvent('purchase_completed', {
+        trackAnalyticsEvent('purchase.checkout.completed', {
           package_id: targetPkg.identifier,
           period: selectedPeriod,
         });
         await refresh();
       } else if (outcome.kind === 'cancelled') {
-        trackAnalyticsEvent('purchase_cancelled', {
+        trackAnalyticsEvent('purchase.checkout.cancelled', {
           package_id: targetPkg.identifier,
         });
       } else if (outcome.kind === 'failed') {
-        trackAnalyticsEvent('purchase_failed', {
+        trackAnalyticsEvent('purchase.checkout.failed', {
           package_id: targetPkg.identifier,
           error_code: String(outcome.error.code),
           error_message: outcome.error.message,
@@ -109,13 +109,20 @@ export function usePaywall(): UsePaywallResult {
   const restore = useCallback(async (): Promise<{ ok: boolean; error?: unknown }> => {
     if (isRestoring) return { ok: false };
     setIsRestoring(true);
-    trackAnalyticsEvent('restore_purchases_clicked');
+    trackAnalyticsEvent('purchase.restore.started');
 
     try {
       const result = await restorePurchases();
       if (result.ok) {
-        trackAnalyticsEvent('purchase_restored');
+        trackAnalyticsEvent('purchase.restore.completed');
         await refresh();
+      } else {
+        const error = result.error;
+        trackAnalyticsEvent('purchase.restore.failed', {
+          error_code: error instanceof Error ? error.name : 'restore_failed',
+          error_message:
+            error instanceof Error ? error.message : 'Kaufwiederherstellung fehlgeschlagen',
+        });
       }
       return result;
     } finally {

@@ -21,6 +21,8 @@ jest.mock('@/lib/posthog', () => ({
       : undefined,
 }));
 
+jest.mock('@/lib/telemetry', () => ({ setTelemetryUserId: jest.fn() }));
+
 let mockAppStateHandler: ((state: string) => void) | undefined;
 const mockAppStateRemove = jest.fn();
 let currentTime = 0;

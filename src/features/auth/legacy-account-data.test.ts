@@ -1,6 +1,6 @@
 import { migrateLegacyRecipePreferences } from '@/features/recipes/legacy-recipe-preferences';
-import { Sentry } from '@/lib/sentry';
 import { migrateLegacyBrochurePostalCode } from '@/lib/storage/account-preferences';
+import { reportError } from '@/lib/telemetry';
 import { migrateLegacyAccountData } from './legacy-account-data';
 
 jest.mock('@/features/recipes/legacy-recipe-preferences', () => ({
@@ -11,8 +11,8 @@ jest.mock('@/lib/storage/account-preferences', () => ({
   migrateLegacyBrochurePostalCode: jest.fn().mockResolvedValue(undefined),
 }));
 
-jest.mock('@/lib/sentry', () => ({
-  Sentry: { captureException: jest.fn() },
+jest.mock('@/lib/telemetry', () => ({
+  reportError: jest.fn(),
 }));
 
 describe('legacy account data migration', () => {
@@ -36,8 +36,9 @@ describe('legacy account data migration', () => {
     );
 
     expect(migrateLegacyRecipePreferences).toHaveBeenCalledWith(null);
-    expect(Sentry.captureException).toHaveBeenCalledWith(error, {
-      tags: { source: 'legacy-account-data-migration' },
+    expect(reportError).toHaveBeenCalledWith(error, {
+      error_code: 'legacy_account_data_migration_failed',
+      operation: 'auth.legacy_data_migration',
     });
   });
 });

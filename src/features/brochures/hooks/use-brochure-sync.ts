@@ -1,8 +1,8 @@
 import { useQueryClient } from '@tanstack/react-query';
 import { useEffect, useState } from 'react';
 import { getDatabase } from '@/lib/db/client';
-import { Sentry } from '@/lib/sentry';
 import { getSupabase } from '@/lib/supabase';
+import { reportError } from '@/lib/telemetry';
 
 /**
  * Synchronisiert Prospekte nach SQLite und entfernt abgelaufene Einträge.
@@ -113,7 +113,7 @@ export function useBrochureSync(zipCode: string | null) {
         }
         await queryClient.invalidateQueries({ queryKey: ['brochures'] });
       } catch (e) {
-        Sentry.captureException(e);
+        reportError(e, { operation: 'brochure.sync', error_code: 'brochure_sync_failed' });
         console.error('Brochure sync failed', e);
       } finally {
         if (isMounted) {

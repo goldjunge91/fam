@@ -38,7 +38,7 @@ type GlassCardProps = {
   /** Groesse/Position der Kachel (Hoehe, evtl. `flex: 1` fuer nebeneinander stehende Widgets). */
   outerStyle?: StyleProp<ViewStyle>;
   /** (s. docs/design-system/nativewind-liquid-glass-migration.md,
-  * Abschnitt "KRITISCH"), deshalb hier als RN-Style statt Tailwind-Klasse. */
+   * Abschnitt "KRITISCH"), deshalb hier als RN-Style statt Tailwind-Klasse. */
   glassStyle: StyleProp<ViewStyle>;
   /** Aequivalente Tailwind-Klasse fuer den soliden Fallback (Android, iOS < 26,
    * Reduce-Transparency) — traegt Radius/Padding/Gap/Hintergrund/Schatten in einem. */

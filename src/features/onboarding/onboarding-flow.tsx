@@ -38,7 +38,7 @@ function OnboardingContent() {
 
   useEffect(() => {
     const stepName = STEP_NAMES[currentStep] ?? `step_${currentStep}`;
-    trackAnalyticsEvent('onboarding_step_viewed', { step: stepName });
+    trackAnalyticsEvent('onboarding.step.viewed', { step: stepName });
   }, [currentStep]);
 
   // Ab Schritt 2 ermöglicht der Notausstieg einen Neustart des Flows.
@@ -72,7 +72,7 @@ function OnboardingContent() {
       {currentStep === 1 && (
         <WelcomeCarousel
           onStart={() => {
-            trackAnalyticsEvent('onboarding_started');
+            trackAnalyticsEvent('onboarding.flow.started');
             setStep(2);
           }}
         />

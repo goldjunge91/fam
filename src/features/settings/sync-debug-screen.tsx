@@ -9,6 +9,7 @@ import { Card } from '@/components/ui/card';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { BarcodeScannerModal } from '@/features/inventory/barcode-scanner-modal';
 import { useSyncStatus } from '@/hooks/use-sync-status';
+import { trackAnalyticsEvent } from '@/lib/analytics';
 import { getDatabase } from '@/lib/db/client';
 import { deleteOutboxEntries } from '@/lib/db/outbox';
 import { sendTestNotification } from '@/lib/notifications';
@@ -20,6 +21,7 @@ import {
   getRealtimeDiagnostics,
   getRealtimeLatencySamples,
   getRealtimeLatencySampleVersion,
+  syncRunHasErrors,
   triggerHouseholdSync,
 } from '@/lib/sync/sync-runner';
 
@@ -123,8 +125,13 @@ export function SyncDebugScreen() {
   async function handleSyncNow() {
     if (!currentHousehold || loading) return;
     setLoading(true);
+    trackAnalyticsEvent('sync.manual.started', { source: 'sync_debug' });
     try {
-      await triggerHouseholdSync([currentHousehold.id], true);
+      const result = await triggerHouseholdSync([currentHousehold.id], true);
+      trackAnalyticsEvent(
+        syncRunHasErrors(result) ? 'sync.manual.failed' : 'sync.manual.completed',
+        { source: 'sync_debug' },
+      );
       queryClient.invalidateQueries();
       await loadDebugData();
     } finally {

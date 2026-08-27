@@ -1,102 +1,41 @@
-import { trackAptabaseEvent } from '@/lib/analytics/aptabase';
 import { trackAnalyticsEvent } from '@/lib/analytics/events';
-import { getPostHogClient, isPostHogConfigured } from '@/lib/posthog';
+import { trackEvent } from '@/lib/telemetry';
 
-jest.mock('@/lib/analytics/aptabase', () => ({
-  trackAptabaseEvent: jest.fn(),
-}));
-
-jest.mock('@/lib/posthog', () => ({
-  isPostHogConfigured: jest.fn(),
-  getPostHogClient: jest.fn(),
+jest.mock('@/lib/telemetry', () => ({
+  normalizeTelemetryProperties: (properties: Record<string, string | number | boolean>) =>
+    Object.fromEntries(
+      Object.entries(properties).map(([key, value]) => [
+        key,
+        typeof value === 'boolean' ? Number(value) : value,
+      ]),
+    ),
+  trackEvent: jest.fn(),
 }));
 
 describe('trackAnalyticsEvent', () => {
-  beforeEach(() => {
-    jest.clearAllMocks();
-    (trackAptabaseEvent as jest.Mock).mockReset();
-  });
+  beforeEach(() => jest.clearAllMocks());
 
-  it('leitet Event an Aptabase und PostHog weiter, wenn beide konfiguriert sind', () => {
-    const mockCapture = jest.fn();
-    (isPostHogConfigured as jest.Mock).mockReturnValue(true);
-    (getPostHogClient as jest.Mock).mockReturnValue({ capture: mockCapture });
-
-    trackAnalyticsEvent('paywall_viewed', { source: 'settings', offering_id: 'default' });
-
-    expect(trackAptabaseEvent).toHaveBeenCalledWith('paywall_viewed', {
+  it('delegiert typisierte Produkt-Events an den gemeinsamen Telemetrie-Fan-out', () => {
+    trackAnalyticsEvent('paywall.view.completed', {
       source: 'settings',
       offering_id: 'default',
     });
-    expect(mockCapture).toHaveBeenCalledWith('paywall_viewed', {
+
+    expect(trackEvent).toHaveBeenCalledWith('paywall.view.completed', {
       source: 'settings',
       offering_id: 'default',
     });
   });
 
-  it('funktioniert ohne PostHog, wenn PostHog nicht konfiguriert ist', () => {
-    (isPostHogConfigured as jest.Mock).mockReturnValue(false);
+  it('normalisiert Boolean-Properties auf den gemeinsamen kleinsten Datentyp', () => {
+    trackAnalyticsEvent('product.barcode_scan.completed', { found: false });
 
-    trackAnalyticsEvent('purchase_started', { package_id: 'fam_premium_monthly' });
-
-    expect(trackAptabaseEvent).toHaveBeenCalledWith('purchase_started', {
-      package_id: 'fam_premium_monthly',
-    });
+    expect(trackEvent).toHaveBeenCalledWith('product.barcode_scan.completed', { found: 0 });
   });
 
-  it('faengt Fehler in Aptabase und PostHog lautlos ab', () => {
-    const consoleWarnSpy = jest.spyOn(console, 'warn').mockImplementation(() => {});
+  it('unterstuetzt Events ohne Properties', () => {
+    trackAnalyticsEvent('purchase.restore.started');
 
-    (trackAptabaseEvent as jest.Mock).mockImplementation(() => {
-      throw new Error('Aptabase error');
-    });
-    (isPostHogConfigured as jest.Mock).mockReturnValue(true);
-    (getPostHogClient as jest.Mock).mockReturnValue({
-      capture: jest.fn().mockImplementation(() => {
-        throw new Error('PostHog error');
-      }),
-    });
-
-    expect(() => {
-      trackAnalyticsEvent('restore_purchases_clicked');
-    }).not.toThrow();
-
-    expect(consoleWarnSpy).toHaveBeenCalledWith(
-      expect.stringContaining(
-        '[analytics] Aptabase-Event "restore_purchases_clicked" fehlgeschlagen:',
-      ),
-      expect.any(Error),
-    );
-    expect(consoleWarnSpy).toHaveBeenCalledWith(
-      expect.stringContaining(
-        '[analytics] PostHog-Event "restore_purchases_clicked" fehlgeschlagen:',
-      ),
-      expect.any(Error),
-    );
-
-    consoleWarnSpy.mockRestore();
-  });
-
-  it('unterstuetzt screen_view und screen_leave Events', () => {
-    const mockCapture = jest.fn();
-    (isPostHogConfigured as jest.Mock).mockReturnValue(true);
-    (getPostHogClient as jest.Mock).mockReturnValue({ capture: mockCapture });
-
-    trackAnalyticsEvent('screen_view', { screen: '/(tabs)/inventory' });
-    expect(trackAptabaseEvent).toHaveBeenCalledWith('screen_view', { screen: '/(tabs)/inventory' });
-    expect(mockCapture).toHaveBeenCalledWith('screen_view', { screen: '/(tabs)/inventory' });
-
-    trackAnalyticsEvent('screen_leave', {
-      screen: '/(tabs)/inventory',
-      duration_seconds: 12,
-    });
-    expect(trackAptabaseEvent).toHaveBeenCalledWith('screen_leave', {
-      screen: '/(tabs)/inventory',
-      duration_seconds: 12,
-    });
-    expect(mockCapture).toHaveBeenCalledWith('screen_leave', {
-      screen: '/(tabs)/inventory',
-      duration_seconds: 12,
-    });
+    expect(trackEvent).toHaveBeenCalledWith('purchase.restore.started', {});
   });
 });

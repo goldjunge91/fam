@@ -2,6 +2,7 @@ import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 
 import { useSession } from '@/features/auth/session-provider';
 import { householdsQueryKey } from '@/features/household/query-keys';
+import { trackAnalyticsEvent } from '@/lib/analytics';
 import type { Database } from '@/lib/database.types';
 import { getDatabase } from '@/lib/db/client';
 import { getSupabase } from '@/lib/supabase';
@@ -58,6 +59,7 @@ export function useCreateHouseholdMutation() {
       if (userId) {
         await triggerHouseholdsPull(userId, queryClient);
       }
+      trackAnalyticsEvent('household.create.completed');
     },
   });
 }
@@ -103,6 +105,7 @@ export function useUpdateMemberRoleMutation() {
       queryClient.invalidateQueries({
         queryKey: ['households', variables.householdId, 'members'],
       });
+      trackAnalyticsEvent('household.member_update.completed', { role: variables.role });
     },
   });
 }
@@ -125,6 +128,7 @@ export function useRemoveMemberMutation() {
       queryClient.invalidateQueries({
         queryKey: ['households', variables.householdId, 'members'],
       });
+      trackAnalyticsEvent('household.member_remove.completed');
     },
   });
 }
@@ -149,6 +153,7 @@ export function useLeaveHouseholdMutation() {
       if (userId) {
         await triggerHouseholdsPull(userId, queryClient);
       }
+      trackAnalyticsEvent('household.leave.completed');
     },
   });
 }
@@ -170,6 +175,7 @@ export function useDeleteHouseholdMutation() {
       if (userId) {
         await triggerHouseholdsPull(userId, queryClient);
       }
+      trackAnalyticsEvent('household.delete.completed');
     },
   });
 }
@@ -276,6 +282,7 @@ export function useRedeemInviteMutation() {
       if (userId) {
         await triggerHouseholdsPull(userId, queryClient);
       }
+      trackAnalyticsEvent('household.join.completed');
     },
   });
 }

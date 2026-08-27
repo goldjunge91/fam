@@ -1,3 +1,5 @@
+import { reportError } from '@/lib/telemetry';
+
 export const BACKGROUND_SYNC_TASK_NAME = 'fam-background-sync';
 
 const REBUILD_HINT =
@@ -48,7 +50,11 @@ export function defineBackgroundSyncTask(): void {
     try {
       await handler();
       return BackgroundTaskResult.Success;
-    } catch {
+    } catch (error) {
+      reportError(error, {
+        operation: 'sync.background',
+        error_code: 'background_sync_failed',
+      });
       return BackgroundTaskResult.Failed;
     }
   });

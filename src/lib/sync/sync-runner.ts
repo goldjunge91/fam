@@ -6,7 +6,6 @@ import { getDatabase } from '@/lib/db/client';
 import { onOutboxChanged } from '@/lib/db/outbox';
 import { retryFailedOutboxEntries } from '@/lib/db/outbox-retry';
 import type { Entity } from '@/lib/db/types';
-import { Sentry } from '@/lib/sentry';
 import { getSupabase } from '@/lib/supabase';
 import { beginAccountSyncRun, registerAccountSyncStopper } from '@/lib/sync/account-sync-gate';
 import { setBackgroundSyncHandler } from '@/lib/sync/background-sync';
@@ -14,6 +13,7 @@ import { type SyncRunResult, syncHousehold } from '@/lib/sync/engine';
 import { startNetworkReconnectTrigger } from '@/lib/sync/network-trigger';
 import { type RealtimeSubscribeState, subscribeHouseholdRealtime } from '@/lib/sync/realtime';
 import { createServerClock } from '@/lib/sync/server-clock';
+import { addDiagnosticStep, reportError, trackEvent } from '@/lib/telemetry';
 
 /** Geteilt mit household-bootstrap-sync.ts, statt eine zweite Uhr-Instanz zu bauen. */
 export const serverClock = createServerClock();
@@ -28,6 +28,14 @@ let lastSyncResultSummary: {
 
 export function getLastSyncInfo() {
   return lastSyncResultSummary;
+}
+
+export function syncRunHasErrors(result: SyncRunResult | null): boolean {
+  if (result === null) return true;
+  return (
+    result.push.outcomes.some((outcome) => 'error' in outcome && Boolean(outcome.error)) ||
+    result.pull.some((outcome) => Boolean(outcome.error))
+  );
 }
 
 let lastRealtimeStatus: RealtimeSubscribeState | null = null;
@@ -91,6 +99,7 @@ export async function triggerHouseholdSync(
   const finishAccountSyncRun = beginAccountSyncRun();
   if (!finishAccountSyncRun) return null;
   isSyncing = true;
+  addDiagnosticStep('sync.run.started', { operation: 'sync.run' });
   try {
     const db = await getDatabase();
     if (retryFailed) {
@@ -105,8 +114,13 @@ export async function triggerHouseholdSync(
     });
 
     const pushedCount = result.push.outcomes.filter((o) => o.kind === 'pushed').length;
+    const syncedOutboxCount = result.push.outcomes.reduce(
+      (count, outcome) => count + (outcome.kind === 'pushed' ? outcome.sourceIds.length : 0),
+      0,
+    );
     const pulledCount = result.pull.reduce((acc, p) => acc + (p.rowsWritten || 0), 0);
     const firstErr = result.push.outcomes.find((o) => 'error' in o && o.error);
+    const firstPullErr = result.pull.find((outcome) => outcome.error);
 
     // Nur 'failed-permanent' meldet sich hier — die Outbox-Zeile bekommt
     // `nextAttemptAtMs = MAX_SAFE_INTEGER` und taucht deshalb in keinem
@@ -117,20 +131,39 @@ export async function triggerHouseholdSync(
     // Offline-Phase durchlaufen.
     for (const outcome of result.push.outcomes) {
       if (outcome.kind !== 'failed-permanent') continue;
-      Sentry.captureMessage(
-        `Sync-Push dauerhaft fehlgeschlagen (${outcome.entity ?? 'unbekannt'}): ${outcome.error}`,
-        { level: 'error', tags: { sync: 'push', entity: outcome.entity ?? 'unbekannt' } },
-      );
+      reportError(new Error(outcome.error), {
+        operation: 'sync.push',
+        entity: outcome.entity ?? 'unknown',
+        error_code: 'sync_push_permanent',
+        outbox_count: outcome.sourceIds.length,
+      });
     }
+
+    const hasErrors = Boolean(firstErr || firstPullErr);
+    const lastError = firstErr && 'error' in firstErr ? firstErr.error : firstPullErr?.error;
 
     lastSyncResultSummary = {
       timestamp: Date.now(),
       pushedCount,
       pulledCount,
-      hasErrors: Boolean(firstErr),
-      lastError:
-        firstErr && 'error' in firstErr ? (firstErr as { error: string }).error : undefined,
+      hasErrors,
+      lastError,
     };
+
+    trackEvent(hasErrors ? 'sync.run.failed' : 'sync.run.completed', {
+      operation: 'sync.run',
+      outcome: hasErrors ? 'failed' : 'completed',
+      pushed_count: pushedCount,
+      pulled_count: pulledCount,
+      ...(lastError ? { error_message: lastError } : {}),
+    });
+    if (syncedOutboxCount > 0) {
+      addDiagnosticStep('outbox.mutation.synced', {
+        operation: 'outbox.sync',
+        outcome: 'completed',
+        outbox_count: syncedOutboxCount,
+      });
+    }
 
     if (queryClient) {
       const changedEntities = new Set<Entity>();
@@ -149,6 +182,7 @@ export async function triggerHouseholdSync(
 
     return result;
   } catch (err) {
+    reportError(err, { operation: 'sync.run', error_code: 'sync_run_failed' });
     console.warn('[SyncRunner] Sync fehlgeschlagen:', err);
     return null;
   } finally {
@@ -331,6 +365,12 @@ export function useRealtimeSync(householdId: string | undefined) {
           onStatusChange: (_householdId, status) => {
             lastRealtimeStatus = status;
             realtimeStatusChangeCount += 1;
+            if (status === 'SUBSCRIBED' || status === 'CHANNEL_ERROR' || status === 'TIMED_OUT') {
+              addDiagnosticStep(`realtime.${status.toLowerCase()}`, {
+                operation: 'realtime.subscription',
+                outcome: status === 'SUBSCRIBED' ? 'completed' : 'failed',
+              });
+            }
           },
         });
       } finally {
@@ -340,7 +380,10 @@ export function useRealtimeSync(householdId: string | undefined) {
       // Beim Accountwechsel darf das DB-Lifecycle-Gate einen bereits
       // gestarteten Setup-Lauf abbrechen. Echte Setup-Fehler bleiben sichtbar.
       if (!cancelled) {
-        Sentry.captureException(error, { tags: { source: 'realtime-sync-setup' } });
+        reportError(error, {
+          operation: 'realtime.setup',
+          error_code: 'realtime_setup_failed',
+        });
       }
     });
 

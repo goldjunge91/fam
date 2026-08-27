@@ -1,6 +1,7 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import * as Crypto from 'expo-crypto';
 
+import { trackAnalyticsEvent } from '@/lib/analytics';
 import { getDatabase } from '@/lib/db/client';
 import { enqueueMutation } from '@/lib/db/outbox';
 import { applyLocalMirrorWrite } from '@/lib/sync/mirror-write';
@@ -44,6 +45,7 @@ export function useAddFridgeItemMutation() {
       return id;
     },
     onSuccess: (_, variables) => {
+      trackAnalyticsEvent('inventory_item.create.completed');
       queryClient.invalidateQueries({ queryKey: ['fridge_items', variables.household_id] });
       queryClient.invalidateQueries({ queryKey: ['fridge_items_grouped', variables.household_id] });
       queryClient.invalidateQueries({ queryKey: ['sync-status'] });
@@ -71,6 +73,7 @@ export function useRestoreFridgeItemMutation() {
       return id;
     },
     onSuccess: (_, variables) => {
+      trackAnalyticsEvent('inventory_item.restore.completed');
       queryClient.invalidateQueries({ queryKey: ['fridge_items', variables.household_id] });
       queryClient.invalidateQueries({ queryKey: ['fridge_items_grouped', variables.household_id] });
       queryClient.invalidateQueries({ queryKey: ['sync-status'] });
@@ -123,7 +126,19 @@ export function useUpdateInventoryItemQuantityMutation() {
       }
       return { id, newQty };
     },
-    onSuccess: (_, variables) => {
+    onSuccess: (result, variables) => {
+      if (result) {
+        if (variables.delta < 0) {
+          trackAnalyticsEvent('inventory_item.consume.completed', {
+            depleted: result.newQty === 0,
+          });
+          if (result.newQty === 0) {
+            trackAnalyticsEvent('inventory_item.delete.completed');
+          }
+        } else {
+          trackAnalyticsEvent('inventory_item.update.completed');
+        }
+      }
       queryClient.invalidateQueries({ queryKey: ['fridge_items', variables.household_id] });
       queryClient.invalidateQueries({ queryKey: ['fridge_items_grouped', variables.household_id] });
       queryClient.invalidateQueries({ queryKey: ['sync-status'] });
@@ -155,6 +170,7 @@ export function useUpdateFridgeItemMutation() {
       return payload;
     },
     onSuccess: (_, variables) => {
+      trackAnalyticsEvent('inventory_item.update.completed');
       queryClient.invalidateQueries({ queryKey: ['fridge_items', variables.household_id] });
       queryClient.invalidateQueries({ queryKey: ['fridge_item', variables.id] });
       queryClient.invalidateQueries({ queryKey: ['sync-status'] });

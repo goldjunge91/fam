@@ -13,7 +13,7 @@ import { useActiveHousehold } from '@/features/household/active-household-provid
 import { persistOffProductIfNeeded } from '@/features/inventory/persist-off-product';
 import { useAddProductMutation } from '@/features/inventory/use-product-mutations';
 import { useHubGradient } from '@/hooks/use-hub-gradient';
-import { trackAptabaseEvent } from '@/lib/analytics/aptabase';
+import { trackAnalyticsEvent } from '@/lib/analytics';
 import { getDatabase } from '@/lib/db/client';
 import type { OpenFoodFactsProduct } from '@/lib/open-food-facts';
 import { toGramsEquivalent } from '@/lib/units';
@@ -628,9 +628,7 @@ export function RecipeCreateScreen() {
         }
       }
 
-      if (!isEditing) {
-        trackAptabaseEvent('recipe_created');
-      }
+      trackAnalyticsEvent(isEditing ? 'recipe.update.completed' : 'recipe.create.completed');
 
       router.replace({ pathname: '/recipe/detail', params: { id: newRecipeId } });
     } catch (err) {

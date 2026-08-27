@@ -19,8 +19,10 @@ jest.mock('@/lib/db/outbox-retry', () => ({
   retryFailedOutboxEntries: (...args: unknown[]) => mockRetryFailedOutboxEntries(...args),
 }));
 
-jest.mock('@/lib/sentry', () => ({
-  Sentry: { captureException: jest.fn() },
+jest.mock('@/lib/telemetry', () => ({
+  addDiagnosticStep: jest.fn(),
+  reportError: jest.fn(),
+  trackEvent: jest.fn(),
 }));
 
 // Eigenstaendiger Listener-Satz im Mock (nicht die echte Implementierung aus
@@ -44,7 +46,7 @@ jest.mock('@/lib/db/outbox', () => {
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { act, renderHook } from '@testing-library/react-native';
 import { createElement, type ReactNode } from 'react';
-import { triggerHouseholdSync, useSyncEngine } from '@/lib/sync/sync-runner';
+import { getLastSyncInfo, triggerHouseholdSync, useSyncEngine } from '@/lib/sync/sync-runner';
 
 // `jest.requireMock` statt eines statischen `import`: Der reale
 // `lib/db/outbox`-Typ kennt `__triggerOutboxChanged` nicht (existiert nur im
@@ -128,6 +130,31 @@ describe('triggerHouseholdSync — Query-Invalidierung (#115-Befund)', () => {
     });
 
     await expect(triggerHouseholdSync(['household-1'])).resolves.not.toBeNull();
+  });
+
+  it('markiert einen Pull-Fehler im Gesamtergebnis statt den Lauf als erfolgreich zu melden', async () => {
+    mockSyncHousehold.mockResolvedValue({
+      push: { outcomes: [], stoppedEarly: false },
+      pull: [
+        {
+          entity: 'households',
+          pagesFetched: 0,
+          rowsWritten: 0,
+          rowsSkippedAsLocalWins: 0,
+          error: 'JWT liegt in der Zukunft',
+          errorCode: 'jwt_issued_in_future',
+        },
+      ],
+    });
+
+    await triggerHouseholdSync(['household-1']);
+
+    expect(getLastSyncInfo()).toEqual(
+      expect.objectContaining({
+        hasErrors: true,
+        lastError: 'JWT liegt in der Zukunft',
+      }),
+    );
   });
 });
 

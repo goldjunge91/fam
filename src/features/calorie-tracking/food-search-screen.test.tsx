@@ -27,6 +27,14 @@ jest.mock('@/features/calorie-tracking/use-local-food-usage', () => ({
   useLocalFoodUsage: (...args: unknown[]) => mockUseLocalFoodUsage(...args),
 }));
 
+jest.mock('@/features/product-search/preferred-market', () => ({
+  usePreferredProductMarketName: () => null,
+}));
+
+jest.mock('@/features/household/active-household-provider', () => ({
+  useOptionalActiveHousehold: () => null,
+}));
+
 jest.mock('@/lib/off-dump/off-dump', () => {
   const actual = jest.requireActual('@/lib/off-dump/off-dump');
   return {

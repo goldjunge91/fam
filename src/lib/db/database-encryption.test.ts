@@ -10,6 +10,8 @@ import {
 } from '@/lib/db/database-encryption';
 import type { DatabaseFileOps } from '@/lib/db/database-files';
 
+jest.mock('@/lib/telemetry', () => ({ addDiagnosticStep: jest.fn() }));
+
 function createStore(initial: string | null = null) {
   let value = initial;
   const storage: KeyValueStore = {

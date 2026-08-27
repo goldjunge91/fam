@@ -6,6 +6,7 @@ import {
   type RecipeComponentItemRow,
   type RecipeComponentRow,
 } from '@/features/recipes/nutrition';
+import { trackAnalyticsEvent } from '@/lib/analytics';
 import { getDatabase } from '@/lib/db/client';
 import { parseJsonArray } from '@/lib/db/json-array';
 import { enqueueMutation } from '@/lib/db/outbox';
@@ -480,6 +481,7 @@ export function useDeleteRecipeMutation() {
       return input.id;
     },
     onSuccess: (_, variables) => {
+      trackAnalyticsEvent('recipe.archive.completed');
       queryClient.invalidateQueries({ queryKey: ['recipes', variables.household_id] });
       queryClient.invalidateQueries({ queryKey: ['sync-status'] });
     },

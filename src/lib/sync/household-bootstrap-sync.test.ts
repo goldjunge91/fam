@@ -16,8 +16,8 @@ jest.mock('@/lib/supabase', () => ({
 
 // Dieser Unit-Test prueft den Haushalts-Pull, nicht das Sentry-SDK. Dessen
 // Modulimport startet sonst einen dauerhaften Cleanup-Timer im Jest-Prozess.
-jest.mock('@/lib/sentry', () => ({
-  Sentry: { captureMessage: jest.fn() },
+jest.mock('@/lib/telemetry', () => ({
+  reportError: jest.fn(),
 }));
 
 jest.mock('@/features/household/query-keys', () => ({

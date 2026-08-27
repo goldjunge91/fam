@@ -1,6 +1,7 @@
 import * as Network from 'expo-network';
 
 import { detectReconnect } from '@/lib/sync/reconnect';
+import { addDiagnosticStep, reportError } from '@/lib/telemetry';
 
 export type NetworkReconnectTriggerDeps = {
   onReconnect: () => Promise<void>;
@@ -23,7 +24,16 @@ export function startNetworkReconnectTrigger(deps: NetworkReconnectTriggerDeps):
 
     if (detectReconnect(previousOnline, isOnline) && now() - lastTriggeredAtMs >= minIntervalMs) {
       lastTriggeredAtMs = now();
-      void deps.onReconnect();
+      addDiagnosticStep('network.reconnected', {
+        operation: 'network.reconnect',
+        network_state: 'online',
+      });
+      void deps.onReconnect().catch((error) => {
+        reportError(error, {
+          operation: 'network.reconnect',
+          error_code: 'network_reconnect_failed',
+        });
+      });
     }
 
     previousOnline = isOnline;

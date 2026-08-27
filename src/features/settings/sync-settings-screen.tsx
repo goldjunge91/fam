@@ -9,8 +9,9 @@ import { Card } from '@/components/ui/card';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { describeSyncStatus } from '@/features/settings/sync-status-text';
 import { useSyncStatus } from '@/hooks/use-sync-status';
+import { trackAnalyticsEvent } from '@/lib/analytics';
 import { getDatabase } from '@/lib/db/client';
-import { triggerHouseholdSync } from '@/lib/sync/sync-runner';
+import { syncRunHasErrors, triggerHouseholdSync } from '@/lib/sync/sync-runner';
 
 export function SyncSettingsScreen() {
   const queryClient = useQueryClient();
@@ -38,9 +39,14 @@ export function SyncSettingsScreen() {
   async function handleManualSync() {
     if (isSyncing || !activeHousehold) return;
     setIsSyncing(true);
+    trackAnalyticsEvent('sync.manual.started', { source: 'sync_settings' });
 
     try {
-      await triggerHouseholdSync([activeHousehold.id], true);
+      const result = await triggerHouseholdSync([activeHousehold.id], true);
+      trackAnalyticsEvent(
+        syncRunHasErrors(result) ? 'sync.manual.failed' : 'sync.manual.completed',
+        { source: 'sync_settings' },
+      );
       queryClient.invalidateQueries();
     } finally {
       setIsSyncing(false);

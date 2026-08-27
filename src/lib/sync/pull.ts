@@ -6,10 +6,10 @@ import {
   writeSyncCursor,
 } from '@/lib/db/sync-state';
 import type { Entity, SqlDatabase } from '@/lib/db/types';
-import { Sentry } from '@/lib/sentry';
 import type { TypedSupabaseClient } from '@/lib/supabase';
 import { EPOCH_START } from '@/lib/sync/cursor';
 import { applyRemoteRow } from '@/lib/sync/mirror-write';
+import { reportWarning } from '@/lib/telemetry';
 
 /** Unter `config.toml`s `max_rows = 1000`. */
 const PAGE_SIZE = 500;
@@ -18,7 +18,7 @@ const MIN_UUID = '00000000-0000-0000-0000-000000000000';
 
 type PullResponse = {
   data: unknown;
-  error: { message: string } | null;
+  error: { code?: string; message: string } | null;
 };
 
 type GenericQuery<T> = {
@@ -38,6 +38,8 @@ export type PullOutcome = {
   pagesFetched: number;
   rowsWritten: number;
   rowsSkippedAsLocalWins: number;
+  error?: string;
+  errorCode?: string;
 };
 
 function initialCursor(): SyncCursor {
@@ -92,16 +94,19 @@ async function pullEntity(
 
     const { data, error } = (await query) as {
       data: RemoteRow[] | null;
-      error: { message: string } | null;
+      error: { code?: string; message: string } | null;
     };
 
     if (error) {
       await recordSyncError(db, entity, error.message);
+      outcome.error = error.message;
+      outcome.errorCode = error.code;
       // Wiederholte identische Fehler nicht erneut an Sentry senden.
       if (error.message !== previousError) {
-        Sentry.captureMessage(`Sync-Pull fehlgeschlagen (${entity}): ${error.message}`, {
-          level: 'warning',
-          tags: { sync: 'pull', entity },
+        reportWarning(`Sync-Pull fehlgeschlagen: ${error.message}`, {
+          operation: 'sync.pull',
+          entity,
+          error_code: error.code ?? 'sync_pull_failed',
         });
       }
       break;

@@ -9,6 +9,7 @@ import { ThemedText } from '@/components/theme/themed-text';
 import { Button } from '@/components/ui/buttons';
 import { Card } from '@/components/ui/card';
 import { useSession } from '@/features/auth/session-provider';
+import { VISION_CAMERA_LAB_ENABLED } from '@/features/experimentalscreens/vision-camera-lab';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { presentPaywall } from '@/features/premium/paywall';
 import { usePremium } from '@/features/premium/premium-provider';
@@ -18,11 +19,8 @@ import {
   formatTokenExpiry,
   maskSecret,
 } from '@/features/settings/dev/dev-info';
-import {
-  getAptabaseInitializationError,
-  isAptabaseConfigured,
-  trackAptabaseEvent,
-} from '@/lib/analytics/aptabase';
+import { getAptabaseInitializationError, isAptabaseConfigured } from '@/lib/analytics/aptabase';
+import { trackAnalyticsEvent } from '@/lib/analytics/events';
 import { deleteLocalDatabase, getDatabase } from '@/lib/db/client';
 import { env } from '@/lib/env';
 import { sendTestNotification } from '@/lib/notifications';
@@ -41,8 +39,8 @@ import {
   useFeatureFlag,
   useFeatureFlags,
 } from '@/lib/posthog';
-import { Sentry } from '@/lib/sentry';
 import { MAX_ATTEMPTS } from '@/lib/sync/backoff';
+import { reportError } from '@/lib/telemetry';
 
 function formatBytes(bytes: number): string {
   if (bytes <= 0) return '0 MB';
@@ -93,7 +91,6 @@ export function DevToolsScreen() {
   const { isPremium, isForced } = usePremium();
   // Ohne Schlüssel oder geladenen Wert ist das Flag standardmäßig deaktiviert.
   const testFeatureFlag = useFeatureFlag('test-feature', false);
-  const visionCameraFlag = useFeatureFlag('experimental-vision-camera', false);
   const posthogFlags = useFeatureFlags();
   const posthogConfigured = isPostHogConfigured();
   const posthogInitializationError = getPostHogInitializationError();
@@ -368,8 +365,14 @@ export function DevToolsScreen() {
             label="Sentry-Testfehler senden"
             variant="secondary"
             onPress={() => {
-              Sentry.captureException(new Error('First error'));
-              Alert.alert('Sentry', 'Test-Event ("First error") wurde an Sentry gesendet.');
+              reportError(new Error('First error'), {
+                operation: 'dev_tools.error_test',
+                error_code: 'dev_tools_test_error',
+              });
+              Alert.alert(
+                'Telemetrie',
+                'Testfehler ("First error") wurde an Sentry, PostHog und Aptabase gesendet.',
+              );
             }}
           />
           <Button
@@ -446,24 +449,24 @@ export function DevToolsScreen() {
             loading={busy === 'posthog-reload'}
           />
           <Button
-            label="Aptabase-Testevent senden"
+            label="Telemetrie-Testevent senden"
             variant="secondary"
             onPress={() => {
-              if (!isAptabaseConfigured()) {
+              if (!isAptabaseConfigured() && !isPostHogConfigured()) {
                 const message = getAptabaseInitializationError()
                   ? `Initialisierung fehlgeschlagen: ${getAptabaseInitializationError()}`
-                  : 'nicht aktiv: API-Key ist in diesem Build nicht vorhanden';
-                Alert.alert('Aptabase nicht aktiv', message);
+                  : 'nicht aktiv: Telemetrie-API-Keys sind in diesem Build nicht vorhanden';
+                Alert.alert('Telemetrie nicht aktiv', message);
                 return;
               }
-              trackAptabaseEvent('dev_tools_test_event', {
+              trackAnalyticsEvent('dev_tools.telemetry_test.completed', {
                 platform: Platform.OS,
                 source: 'dev-tools-screen',
-                timestamp: new Date().toISOString(),
+                timestamp: Date.now(),
               });
               Alert.alert(
-                'Aptabase',
-                'Test-Event ("dev_tools_test_event") wurde an Aptabase gesendet.',
+                'Telemetrie',
+                'Test-Event ("dev_tools.telemetry_test.completed") wurde an PostHog und Aptabase gesendet.',
               );
             }}
           />
@@ -481,13 +484,13 @@ export function DevToolsScreen() {
             variant="secondary"
             onPress={() => router.push('/settings/glass-lab')}
           />
-          <Button
-            label={`VisionCamera-Labor öffnen (${visionCameraFlag ? 'aktiv' : 'gesperrt'})`}
-            variant="secondary"
-            onPress={() =>
-              router.push('/settings/camera-lab' as unknown as Parameters<typeof router.push>[0])
-            }
-          />
+          {VISION_CAMERA_LAB_ENABLED ? (
+            <Button
+              label="VisionCamera-Labor öffnen"
+              variant="secondary"
+              onPress={() => router.push('/settings/camera-lab')}
+            />
+          ) : null}
           <Button
             label="Paywall öffnen (Test Store)"
             variant="secondary"

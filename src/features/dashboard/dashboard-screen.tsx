@@ -17,7 +17,8 @@ import { useNavigationChrome } from '@/features/navigation/navigation-chrome-pro
 import { useProfileInitials } from '@/features/navigation/use-profile-initials';
 import { useHubGradient } from '@/hooks/use-hub-gradient';
 import { useTheme } from '@/hooks/use-theme';
-import { triggerHouseholdSync } from '@/lib/sync/sync-runner';
+import { trackAnalyticsEvent } from '@/lib/analytics';
+import { syncRunHasErrors, triggerHouseholdSync } from '@/lib/sync/sync-runner';
 
 export function DashboardScreen() {
   const theme = useTheme();
@@ -47,8 +48,13 @@ export function DashboardScreen() {
   async function handleRefresh() {
     if (!householdId) return;
     setRefreshing(true);
+    trackAnalyticsEvent('sync.manual.started', { source: 'dashboard_pull_to_refresh' });
     try {
-      await triggerHouseholdSync([householdId], false, queryClient);
+      const result = await triggerHouseholdSync([householdId], false, queryClient);
+      trackAnalyticsEvent(
+        syncRunHasErrors(result) ? 'sync.manual.failed' : 'sync.manual.completed',
+        { source: 'dashboard_pull_to_refresh' },
+      );
     } finally {
       setRefreshing(false);
     }

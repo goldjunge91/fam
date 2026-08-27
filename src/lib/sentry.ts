@@ -35,11 +35,9 @@ export function initSentry(): void {
       profilesSampleRate: env.devTools ? 1.0 : 0,
       // PII umfasst IP-Adresse und erweiterte Gerätekontexte.
       sendDefaultPii: true,
-      replaysOnErrorSampleRate: env.devTools ? 1.0 : 0,
-      replaysSessionSampleRate: env.devTools ? 0.1 : 0,
-      integrations: env.devTools
-        ? [navigationIntegration, Sentry.mobileReplayIntegration()]
-        : [navigationIntegration],
+      replaysOnErrorSampleRate: 0,
+      replaysSessionSampleRate: 0,
+      integrations: [navigationIntegration],
     });
   } catch (err) {
     // Initialisierungsfehler dürfen den App-Start nicht abbrechen.

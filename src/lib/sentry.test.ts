@@ -1,10 +1,11 @@
 const mockSentryInit = jest.fn();
+const mockMobileReplayIntegration = jest.fn();
 
 jest.mock('@sentry/react-native', () => ({
   __esModule: true,
   init: (...args: unknown[]) => mockSentryInit(...args),
   reactNavigationIntegration: () => ({ registerNavigationContainer: jest.fn() }),
-  mobileReplayIntegration: () => ({}),
+  mobileReplayIntegration: () => mockMobileReplayIntegration(),
 }));
 
 describe('initSentry', () => {
@@ -41,9 +42,13 @@ describe('initSentry', () => {
     expect(mockSentryInit).toHaveBeenCalledWith(
       expect.objectContaining({
         dsn: 'https://example@o1.ingest.sentry.io/1',
+        integrations: [expect.any(Object)],
+        replaysOnErrorSampleRate: 0,
+        replaysSessionSampleRate: 0,
         sendDefaultPii: true,
       }),
     );
+    expect(mockMobileReplayIntegration).not.toHaveBeenCalled();
   });
 
   it('stuerzt nicht ab, wenn init wirft, und wiederholt den Fehler nicht', () => {

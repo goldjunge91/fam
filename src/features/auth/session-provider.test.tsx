@@ -59,6 +59,13 @@ jest.mock('@/features/auth/onboarding-session', () => ({
   hasSeenOnboarding: jest.fn().mockResolvedValue(true),
 }));
 
+jest.mock('@/lib/telemetry', () => ({
+  addDiagnosticStep: jest.fn(),
+  measureOperation: (_name: string, operation: () => Promise<unknown>) => operation(),
+  reportError: jest.fn(),
+  setTelemetryUserId: jest.fn(),
+}));
+
 describe('SessionProvider', () => {
   function wrapper({ children }: { children: React.ReactNode }) {
     return <SessionProvider>{children}</SessionProvider>;

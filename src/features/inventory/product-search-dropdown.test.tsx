@@ -35,6 +35,10 @@ jest.mock('@/lib/open-food-facts', () => ({
   searchOpenFoodFacts: jest.fn(),
 }));
 
+jest.mock('@/features/product-search/preferred-market', () => ({
+  usePreferredProductMarketName: () => null,
+}));
+
 const mockGetAllAsync = jest.fn().mockResolvedValue([]);
 
 jest.mock('@/lib/db/client', () => ({

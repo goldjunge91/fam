@@ -10,6 +10,12 @@ import {
 } from '@/lib/storage/account-storage';
 import { getSupabase, startSupabaseAutoRefresh } from '@/lib/supabase';
 import { resumeAccountSync } from '@/lib/sync/account-sync-gate';
+import {
+  addDiagnosticStep,
+  measureOperation,
+  reportError,
+  setTelemetryUserId,
+} from '@/lib/telemetry';
 import { migrateLegacyAccountData } from './legacy-account-data';
 import { hasSeenOnboarding } from './onboarding-session';
 import { clearLocalAccountData } from './sign-out';
@@ -57,6 +63,10 @@ export function SessionProvider({ children }: { children: ReactNode }) {
     try {
       supabase = getSupabase();
     } catch (error) {
+      reportError(error, {
+        operation: 'auth.client.initialize',
+        error_code: 'auth_client_initialize_failed',
+      });
       // Bei fehlender Konfiguration oder SecureStore-Funktion bedienbar bleiben.
       setState({ session: null, isLoading: false, seenOnboarding: false, error: error as Error });
       return;
@@ -64,9 +74,17 @@ export function SessionProvider({ children }: { children: ReactNode }) {
 
     // Session und Onboarding-Flag parallel lesen — beides wird benoetigt,
     // bevor die Splash-Screen ausgeblendet wird.
-    const initialization = Promise.all([supabase.auth.getSession(), hasSeenOnboarding()])
+    const initialization = measureOperation('auth.session.restore', () =>
+      Promise.all([supabase.auth.getSession(), hasSeenOnboarding()]),
+    )
       .then(async ([{ data, error }, seenOnboarding]) => {
         if (!active) return;
+        if (error) {
+          reportError(error, {
+            operation: 'auth.session.restore',
+            error_code: error.code ?? 'auth_session_restore_failed',
+          });
+        }
         const restoredUserId = data.session?.user.id ?? null;
         const rememberedUserId = await getRememberedLocalAccountUserId();
         if (!active) return;
@@ -99,6 +117,7 @@ export function SessionProvider({ children }: { children: ReactNode }) {
         if (!active) return;
 
         currentUserId = authoritativeRestoredUserId;
+        setTelemetryUserId(authoritativeRestoredUserId);
         if (authoritativeRestoredUserId) {
           await rememberLocalAccountUserId(authoritativeRestoredUserId);
           const stopPersistence = await startAccountQueryPersistence(
@@ -125,14 +144,19 @@ export function SessionProvider({ children }: { children: ReactNode }) {
           seenOnboarding,
           error: error ?? null,
         });
+        addDiagnosticStep('auth.session.restored', {
+          operation: 'auth.session.restore',
+          outcome: error ? 'failed' : 'completed',
+        });
       })
       .catch((error: Error) => {
         if (!active) return;
         setActiveUserId(null);
+        setTelemetryUserId(null);
         setState({ session: null, isLoading: false, seenOnboarding: false, error });
       });
 
-    const { data: subscription } = supabase.auth.onAuthStateChange((_event, session) => {
+    const { data: subscription } = supabase.auth.onAuthStateChange((event, session) => {
       const nextUserId = session?.user.id ?? null;
       latestAuthEventUserId = nextUserId;
 
@@ -157,6 +181,7 @@ export function SessionProvider({ children }: { children: ReactNode }) {
           // Ab hier ist der Ladevorgang in jedem Fall abgeschlossen: Das Event
           // feuert auch bei SIGNED_OUT und TOKEN_REFRESHED.
           setActiveUserId(nextUserId);
+          setTelemetryUserId(nextUserId);
           if (nextUserId) {
             activateEncryptedAccountStorage(nextUserId);
             await rememberLocalAccountUserId(nextUserId);
@@ -172,10 +197,19 @@ export function SessionProvider({ children }: { children: ReactNode }) {
           }
           if (!active) return;
           setState((prev) => ({ ...prev, session, isLoading: false, error: null }));
+          addDiagnosticStep(`auth.session.${event.toLowerCase()}`, {
+            operation: 'auth.session.state_change',
+            outcome: 'completed',
+          });
         })
         .catch((error: Error) => {
           if (!active) return;
           setActiveUserId(null);
+          setTelemetryUserId(null);
+          reportError(error, {
+            operation: 'auth.session.transition',
+            error_code: 'auth_session_transition_failed',
+          });
           setState((prev) => ({ ...prev, session: null, isLoading: false, error }));
         });
     });

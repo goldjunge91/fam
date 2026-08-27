@@ -8,6 +8,7 @@ import { DashboardScreen } from '@/features/dashboard/dashboard-screen';
 
 jest.mock('@/components/ui/progress-ring', () => ({ ProgressRing: () => null }));
 jest.mock('@/components/ui/progress-bar', () => ({ ProgressBar: () => null }));
+jest.mock('@/lib/analytics', () => ({ trackAnalyticsEvent: jest.fn() }));
 
 let mockFridgeItems: unknown[] = [];
 
@@ -84,6 +85,7 @@ jest.mock('@react-native-async-storage/async-storage', () => ({
 const mockTriggerHouseholdSync = jest.fn().mockResolvedValue(null);
 
 jest.mock('@/lib/sync/sync-runner', () => ({
+  syncRunHasErrors: (result: unknown) => result === null,
   triggerHouseholdSync: (...args: unknown[]) => mockTriggerHouseholdSync(...args),
 }));
 

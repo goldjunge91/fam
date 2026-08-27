@@ -3,7 +3,7 @@ import { dehydrate, QueryClient } from '@tanstack/react-query';
 import type { MMKV } from 'react-native-mmkv';
 
 import { removeLegacyPersistedQueryCache, startAccountQueryPersistence } from '@/lib/query-client';
-import { Sentry } from '@/lib/sentry';
+import { reportError } from '@/lib/telemetry';
 
 const mockGetEncryptedAccountStorage = jest.fn<Promise<MMKV>, [string]>();
 
@@ -11,8 +11,8 @@ jest.mock('@/lib/storage/account-storage', () => ({
   getEncryptedAccountStorage: (userId: string) => mockGetEncryptedAccountStorage(userId),
 }));
 
-jest.mock('@/lib/sentry', () => ({
-  Sentry: { captureException: jest.fn() },
+jest.mock('@/lib/telemetry', () => ({
+  reportError: jest.fn(),
 }));
 
 describe('removeLegacyPersistedQueryCache', () => {
@@ -31,8 +31,8 @@ describe('removeLegacyPersistedQueryCache', () => {
     jest.mocked(AsyncStorage.removeItem).mockRejectedValueOnce(error);
 
     await expect(removeLegacyPersistedQueryCache()).rejects.toThrow('storage unavailable');
-    expect(Sentry.captureException).toHaveBeenCalledWith(error, {
-      tags: { source: 'legacy-query-cache-cleanup' },
+    expect(reportError).toHaveBeenCalledWith(error, {
+      operation: 'query_cache.legacy_cleanup',
     });
   });
 });

@@ -255,7 +255,7 @@ export function PendingAuthBanner({
       return;
     }
 
-      // Keine Erfolgsmeldung: Die API bestätigt nicht, ob eine Mail versendet wurde.
+    // Keine Erfolgsmeldung: Die API bestätigt nicht, ob eine Mail versendet wurde.
     setResendStatus(
       'Falls dein Konto noch nicht bestätigt ist, ist eine neue E-Mail unterwegs. ' +
         'Kommt nichts an, hast du den Link vermutlich schon benutzt — nutze dann den Button darunter.',

@@ -1,6 +1,7 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import * as Crypto from 'expo-crypto';
 
+import { trackAnalyticsEvent } from '@/lib/analytics';
 import { getDatabase } from '@/lib/db/client';
 import { enqueueMutation } from '@/lib/db/outbox';
 import { applyLocalMirrorWrite } from '@/lib/sync/mirror-write';
@@ -208,6 +209,9 @@ export function useAddEntryMutation() {
       return { id, ...input };
     },
     onSuccess: (_, variables) => {
+      trackAnalyticsEvent('meal_plan_entry.create.completed', {
+        meal_slot: variables.meal_slot,
+      });
       queryClient.invalidateQueries({ queryKey: ['meal-plan-entries', variables.meal_plan_id] });
       queryClient.invalidateQueries({ queryKey: ['meal-plan-entries-range'] });
       queryClient.invalidateQueries({ queryKey: ['sync-status'] });
@@ -260,6 +264,7 @@ export function useUpdateEntryMutation() {
       return input.id;
     },
     onSuccess: (_, variables) => {
+      trackAnalyticsEvent('meal_plan_entry.update.completed');
       queryClient.invalidateQueries({ queryKey: ['meal-plan-entries', variables.meal_plan_id] });
       queryClient.invalidateQueries({ queryKey: ['meal-plan-entries-range'] });
       queryClient.invalidateQueries({ queryKey: ['sync-status'] });
@@ -292,6 +297,7 @@ export function useDeleteEntryMutation() {
       return input.id;
     },
     onSuccess: (_, variables) => {
+      trackAnalyticsEvent('meal_plan_entry.delete.completed');
       queryClient.invalidateQueries({ queryKey: ['meal-plan-entries', variables.meal_plan_id] });
       queryClient.invalidateQueries({ queryKey: ['meal-plan-entries-range'] });
       queryClient.invalidateQueries({ queryKey: ['sync-status'] });
@@ -382,7 +388,8 @@ export function useReuseLastWeekMutation() {
 
       return { copied: lastEntries.length };
     },
-    onSuccess: (_, variables) => {
+    onSuccess: (result, variables) => {
+      trackAnalyticsEvent('meal_plan.reuse.completed', { copied_count: result.copied });
       queryClient.invalidateQueries({
         queryKey: ['meal-plan-entries', variables.target_meal_plan_id],
       });

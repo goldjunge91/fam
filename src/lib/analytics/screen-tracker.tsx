@@ -3,7 +3,8 @@ import { useCallback, useEffect, useRef } from 'react';
 import { AppState, type AppStateStatus } from 'react-native';
 
 import { trackAnalyticsEvent } from '@/lib/analytics/events';
-import { getPostHogClient, isPostHogConfigured } from '@/lib/posthog';
+import { addDiagnosticStep } from '@/lib/telemetry';
+import { recordSessionRoute } from '@/lib/telemetry/session-diagnostics';
 
 export function ScreenTracker(): null {
   const pathname = usePathname();
@@ -18,7 +19,7 @@ export function ScreenTracker(): null {
       const elapsedMs = Date.now() - startTime;
       const durationSeconds = Math.max(1, Math.round(elapsedMs / 1000));
 
-      trackAnalyticsEvent('screen_leave', {
+      trackAnalyticsEvent('screen.leave.completed', {
         screen,
         duration_seconds: durationSeconds,
       });
@@ -31,20 +32,9 @@ export function ScreenTracker(): null {
     currentScreenRef.current = screen;
     screenStartTimeRef.current = Date.now();
 
-    // 1. Universelles Analytics Event (Aptabase & PostHog)
-    trackAnalyticsEvent('screen_view', { screen });
-
-    // 2. Natives PostHog Screen-Tracking
-    if (isPostHogConfigured()) {
-      try {
-        const client = getPostHogClient();
-        client?.screen(screen, { $screen_name: screen });
-      } catch (err) {
-        if (__DEV__) {
-          console.warn('[screen-tracker] PostHog screen() Aufruf fehlgeschlagen:', err);
-        }
-      }
-    }
+    recordSessionRoute(screen);
+    addDiagnosticStep('route.changed', { route: screen, operation: 'navigation.route' });
+    trackAnalyticsEvent('screen.view.completed', { screen });
   }, []);
 
   // Reagiert auf Pfadwechsel im Expo Router

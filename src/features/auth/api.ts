@@ -10,6 +10,7 @@ import type { ProfileInput } from '@/features/auth/auth-schemas';
 import { isOrphanedProfileError } from '@/features/auth/orphaned-profile-error';
 import type { Database } from '@/lib/database.types';
 import { getSupabase } from '@/lib/supabase';
+import { reportError } from '@/lib/telemetry';
 
 export function authErrorMessage(error: AuthError | Error | null): string | null {
   if (!error) return null;
@@ -89,6 +90,13 @@ export async function signInWithOAuthProvider(provider: 'apple' | 'google') {
     access_token: tokens.accessToken,
     refresh_token: tokens.refreshToken,
   });
+
+  if (sessionError) {
+    reportError(sessionError, {
+      operation: 'auth.oauth_session',
+      error_code: sessionError.code ?? 'oauth_session_failed',
+    });
+  }
 
   return {
     data,

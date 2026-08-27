@@ -1,5 +1,6 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import * as Crypto from 'expo-crypto';
+import { trackAnalyticsEvent } from '@/lib/analytics';
 import { getDatabase } from '@/lib/db/client';
 import { enqueueMutation } from '@/lib/db/outbox';
 import {
@@ -78,6 +79,7 @@ export function useAddShoppingItem() {
       return itemMutation.entityId;
     },
     onSuccess: (_, variables) => {
+      trackAnalyticsEvent('shopping_item.create.completed');
       queryClient.invalidateQueries({ queryKey: ['shopping_list_items', variables.household_id] });
       queryClient.invalidateQueries({ queryKey: ['sync-status'] });
     },
@@ -146,6 +148,7 @@ export function useUpdateShoppingItem() {
       });
     },
     onSuccess: (_, variables) => {
+      trackAnalyticsEvent('shopping_item.update.completed');
       queryClient.invalidateQueries({ queryKey: ['shopping_list_items', variables.household_id] });
       queryClient.invalidateQueries({ queryKey: ['sync-status'] });
     },
@@ -189,6 +192,9 @@ export function useToggleShoppingItem() {
       });
     },
     onSuccess: (_, variables) => {
+      trackAnalyticsEvent(
+        variables.checked_at ? 'shopping_item.check.completed' : 'shopping_item.uncheck.completed',
+      );
       queryClient.invalidateQueries({ queryKey: ['shopping_list_items', variables.household_id] });
     },
   });
@@ -218,6 +224,7 @@ export function useDeleteShoppingItem() {
       });
     },
     onSuccess: (_, variables) => {
+      trackAnalyticsEvent('shopping_item.delete.completed');
       queryClient.invalidateQueries({ queryKey: ['shopping_list_items', variables.household_id] });
       queryClient.invalidateQueries({ queryKey: ['sync-status'] });
     },

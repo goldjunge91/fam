@@ -9,6 +9,7 @@ import type { TypedSupabaseClient } from '@/lib/supabase';
 import { toEpochMs } from '@/lib/sync/cursor';
 import { applyRemoteRow, deleteMirrorRow } from '@/lib/sync/mirror-write';
 import { clockCeiling, type ServerClock } from '@/lib/sync/server-clock';
+import { reportError, reportWarning } from '@/lib/telemetry';
 
 const REALTIME_TABLES: readonly Entity[] = [
   'fridge_items',
@@ -86,7 +87,13 @@ export function subscribeHouseholdRealtime(
         'postgres_changes',
         { event: '*', schema: 'public', table: entity, filter: `household_id=eq.${householdId}` },
         (payload: RealtimePostgresChangesPayload<Record<string, unknown>>) => {
-          void handlePayload(deps, entity, payload);
+          void handlePayload(deps, entity, payload).catch((error) => {
+            reportError(error, {
+              operation: 'realtime.apply',
+              entity,
+              error_code: 'realtime_apply_failed',
+            });
+          });
         },
       );
     }
@@ -104,7 +111,12 @@ export function subscribeHouseholdRealtime(
 
       if (status === REALTIME_SUBSCRIBE_STATES.SUBSCRIBED && hasDisconnected) {
         hasDisconnected = false;
-        void deps.onReconnectResyncNeeded();
+        void deps.onReconnectResyncNeeded().catch((error) => {
+          reportError(error, {
+            operation: 'realtime.reconnect_sync',
+            error_code: 'realtime_reconnect_sync_failed',
+          });
+        });
       }
     });
 
@@ -129,6 +141,11 @@ async function handlePayload(
   // Payload mit errors ist nicht vertrauenswuerdig — lieber vollstaendig
   // nachziehen als eine kaputte Teilzeile anzuwenden.
   if (payload.errors && payload.errors.length > 0) {
+    reportWarning('Realtime-Payload enthielt Fehler.', {
+      operation: 'realtime.payload',
+      entity,
+      error_code: 'realtime_payload_error',
+    });
     await deps.onReconnectResyncNeeded();
     return;
   }

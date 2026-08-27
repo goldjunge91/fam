@@ -78,6 +78,13 @@ describe('initPostHog / isPostHogConfigured', () => {
       expect.objectContaining({
         host: 'https://eu.i.posthog.com',
         captureAppLifecycleEvents: true,
+        enableSessionReplay: false,
+        errorTracking: {
+          autocapture: {
+            uncaughtExceptions: true,
+            unhandledRejections: true,
+          },
+        },
       }),
     );
   });

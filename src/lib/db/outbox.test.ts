@@ -1,6 +1,11 @@
 import { enqueueMutations, onOutboxChanged } from '@/lib/db/outbox';
 import { createTestDatabase, type TestDatabase } from '../../../test/node-sqlite-adapter';
 
+jest.mock('@/lib/telemetry', () => ({
+  addDiagnosticStep: jest.fn(),
+  reportError: jest.fn(),
+}));
+
 async function insertStorageLocation(db: TestDatabase, id: string): Promise<void> {
   await db.runAsync(
     'insert into storage_locations (id, household_id, name, kind, updated_at) values (?, ?, ?, ?, ?)',

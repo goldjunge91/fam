@@ -66,8 +66,8 @@ jest.mock('@/lib/db/client', () => ({
   }),
 }));
 
-jest.mock('@/lib/analytics/aptabase', () => ({
-  trackAptabaseEvent: jest.fn(),
+jest.mock('@/lib/analytics', () => ({
+  trackAnalyticsEvent: jest.fn(),
 }));
 
 describe('RecipeCreateScreen', () => {

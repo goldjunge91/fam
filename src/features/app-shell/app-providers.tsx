@@ -18,6 +18,7 @@ import { env } from '@/lib/env';
 import { PostHogAppProvider } from '@/lib/posthog';
 import { queryClient, removeLegacyPersistedQueryCache } from '@/lib/query-client';
 import { Sentry } from '@/lib/sentry';
+import { reportError } from '@/lib/telemetry';
 
 import { CrashFallback } from './crash-fallback';
 
@@ -34,6 +35,12 @@ export function AppProviders({ children }: { children: ReactNode }) {
   return (
     <SafeAreaProvider>
       <Sentry.ErrorBoundary
+        onError={(error) =>
+          reportError(error, {
+            operation: 'react.error_boundary',
+            error_code: 'react_error_boundary',
+          })
+        }
         fallback={({ resetError }) => <CrashFallback resetError={resetError} />}>
         <GestureHandlerRootView style={{ flex: 1 }}>
           <KeyboardProvider>

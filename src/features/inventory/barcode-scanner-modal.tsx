@@ -4,7 +4,7 @@ import { ActivityIndicator, Modal, Pressable, StyleSheet, View } from 'react-nat
 import { ThemedText } from '@/components/theme/themed-text';
 import { Button } from '@/components/ui/buttons';
 import { useTheme } from '@/hooks/use-theme';
-import { trackAptabaseEvent } from '@/lib/analytics/aptabase';
+import { trackAnalyticsEvent } from '@/lib/analytics';
 import { fetchProductByBarcode, type OpenFoodFactsProduct } from '@/lib/open-food-facts';
 
 // Defensiver Import: Verhindert App-Crashes ("Cannot find native module ExpoCamera"),
@@ -56,16 +56,16 @@ export function BarcodeScannerModal({
     try {
       const product = await fetchProductByBarcode(data);
       if (product) {
-        trackAptabaseEvent('barcode_scanned', { found: true });
+        trackAnalyticsEvent('product.barcode_scan.completed', { found: true });
         await Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success);
         onProductFound(product);
         onClose();
       } else {
-        trackAptabaseEvent('barcode_scanned', { found: false });
+        trackAnalyticsEvent('product.barcode_scan.completed', { found: false });
         setErrorMsg(`Kein Produkt für Barcode ${data} gefunden.`);
       }
     } catch {
-      trackAptabaseEvent('barcode_scanned', { found: false });
+      trackAnalyticsEvent('product.barcode_scan.failed');
       setErrorMsg('Fehler beim Abrufen der Produktdaten.');
     } finally {
       scanningRef.current = false;

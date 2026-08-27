@@ -17,6 +17,7 @@ import {
 } from '@/lib/db/serialize';
 import type { SqlDatabase } from '@/lib/db/types';
 import { resetOffDumpAttachment } from '@/lib/off-dump/off-dump-state';
+import { measureOperation } from '@/lib/telemetry';
 
 const REBUILD_HINT =
   'expo-sqlite ist im installierten Build nicht enthalten. Native Module kommen ' +
@@ -217,9 +218,11 @@ export function getDatabase(): Promise<SqlDatabase> {
   if (!opening) {
     const generation = lifecycleGeneration;
     const userId = activeUserId;
-    const pending = openAndVerify(generation, userId).finally(() => {
-      if (opening === pending) opening = null;
-    });
+    const pending = measureOperation('db.open', () => openAndVerify(generation, userId)).finally(
+      () => {
+        if (opening === pending) opening = null;
+      },
+    );
     opening = pending;
   }
 

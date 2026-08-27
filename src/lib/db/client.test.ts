@@ -54,6 +54,9 @@ jest.mock('@/lib/db/ownership', () => ({
   ensureDatabaseBelongsTo: jest.fn(async (db) => db),
 }));
 jest.mock('@/lib/off-dump/off-dump-state', () => ({ resetOffDumpAttachment: jest.fn() }));
+jest.mock('@/lib/telemetry', () => ({
+  measureOperation: (_name: string, operation: () => Promise<unknown>) => operation(),
+}));
 
 describe('database client lifecycle', () => {
   it('blockiert ohne Session und drained eine laufende Query vor einem fail-closed Wipe', async () => {

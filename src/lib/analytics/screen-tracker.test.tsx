@@ -4,7 +4,8 @@ import { AppState, type AppStateStatus, type NativeEventSubscription } from 'rea
 
 import { trackAnalyticsEvent } from '@/lib/analytics/events';
 import { ScreenTracker } from '@/lib/analytics/screen-tracker';
-import { getPostHogClient, isPostHogConfigured } from '@/lib/posthog';
+import { addDiagnosticStep } from '@/lib/telemetry';
+import { recordSessionRoute } from '@/lib/telemetry/session-diagnostics';
 
 jest.mock('expo-router', () => ({
   usePathname: jest.fn(),
@@ -14,23 +15,19 @@ jest.mock('@/lib/analytics/events', () => ({
   trackAnalyticsEvent: jest.fn(),
 }));
 
-jest.mock('@/lib/posthog', () => ({
-  isPostHogConfigured: jest.fn(),
-  getPostHogClient: jest.fn(),
+jest.mock('@/lib/telemetry', () => ({
+  addDiagnosticStep: jest.fn(),
+}));
+
+jest.mock('@/lib/telemetry/session-diagnostics', () => ({
+  recordSessionRoute: jest.fn(),
 }));
 
 describe('ScreenTracker', () => {
   let appStateListener: ((state: AppStateStatus) => void) | undefined;
-  const mockPostHogScreen = jest.fn();
-
   beforeEach(() => {
     jest.clearAllMocks();
     jest.useFakeTimers();
-
-    (isPostHogConfigured as jest.Mock).mockReturnValue(true);
-    (getPostHogClient as jest.Mock).mockReturnValue({
-      screen: mockPostHogScreen,
-    });
 
     jest.spyOn(AppState, 'addEventListener').mockImplementation((event, listener) => {
       if (event === 'change') {
@@ -46,16 +43,18 @@ describe('ScreenTracker', () => {
     jest.useRealTimers();
   });
 
-  it('erfasst screen_view beim ersten Rendern mit PostHog und Aptabase', async () => {
+  it('erfasst Screenstart und Diagnose beim ersten Rendern', async () => {
     (usePathname as jest.Mock).mockReturnValue('/(tabs)/inventory');
 
     await render(<ScreenTracker />);
 
-    expect(trackAnalyticsEvent).toHaveBeenCalledWith('screen_view', {
+    expect(trackAnalyticsEvent).toHaveBeenCalledWith('screen.view.completed', {
       screen: '/(tabs)/inventory',
     });
-    expect(mockPostHogScreen).toHaveBeenCalledWith('/(tabs)/inventory', {
-      $screen_name: '/(tabs)/inventory',
+    expect(recordSessionRoute).toHaveBeenCalledWith('/(tabs)/inventory');
+    expect(addDiagnosticStep).toHaveBeenCalledWith('route.changed', {
+      route: '/(tabs)/inventory',
+      operation: 'navigation.route',
     });
   });
 
@@ -70,15 +69,12 @@ describe('ScreenTracker', () => {
     (usePathname as jest.Mock).mockReturnValue('/(tabs)/shopping-list');
     await rerender(<ScreenTracker />);
 
-    expect(trackAnalyticsEvent).toHaveBeenCalledWith('screen_leave', {
+    expect(trackAnalyticsEvent).toHaveBeenCalledWith('screen.leave.completed', {
       screen: '/(tabs)/inventory',
       duration_seconds: 5,
     });
-    expect(trackAnalyticsEvent).toHaveBeenCalledWith('screen_view', {
+    expect(trackAnalyticsEvent).toHaveBeenCalledWith('screen.view.completed', {
       screen: '/(tabs)/shopping-list',
-    });
-    expect(mockPostHogScreen).toHaveBeenCalledWith('/(tabs)/shopping-list', {
-      $screen_name: '/(tabs)/shopping-list',
     });
   });
 
@@ -86,7 +82,7 @@ describe('ScreenTracker', () => {
     (usePathname as jest.Mock).mockReturnValue('/(tabs)/recipes');
     await render(<ScreenTracker />);
 
-    expect(trackAnalyticsEvent).toHaveBeenCalledWith('screen_view', {
+    expect(trackAnalyticsEvent).toHaveBeenCalledWith('screen.view.completed', {
       screen: '/(tabs)/recipes',
     });
 
@@ -96,7 +92,7 @@ describe('ScreenTracker', () => {
     // App wird in den Hintergrund geschickt
     appStateListener?.('background');
 
-    expect(trackAnalyticsEvent).toHaveBeenCalledWith('screen_leave', {
+    expect(trackAnalyticsEvent).toHaveBeenCalledWith('screen.leave.completed', {
       screen: '/(tabs)/recipes',
       duration_seconds: 10,
     });
@@ -107,7 +103,7 @@ describe('ScreenTracker', () => {
     // App kehrt in den Vordergrund zurueck
     appStateListener?.('active');
 
-    expect(trackAnalyticsEvent).toHaveBeenCalledWith('screen_view', {
+    expect(trackAnalyticsEvent).toHaveBeenCalledWith('screen.view.completed', {
       screen: '/(tabs)/recipes',
     });
   });
@@ -119,7 +115,7 @@ describe('ScreenTracker', () => {
     jest.advanceTimersByTime(3000);
     await unmount();
 
-    expect(trackAnalyticsEvent).toHaveBeenCalledWith('screen_leave', {
+    expect(trackAnalyticsEvent).toHaveBeenCalledWith('screen.leave.completed', {
       screen: '/settings',
       duration_seconds: 3,
     });

@@ -7,7 +7,6 @@ import { ThemedText } from '@/components/theme/themed-text';
 import { Button } from '@/components/ui/buttons';
 import { Card } from '@/components/ui/card';
 import { useCreateHouseholdMutation } from '@/features/household/api';
-import { trackAptabaseEvent } from '@/lib/analytics/aptabase';
 
 export function CreateHouseholdScreen() {
   const [householdName, setHouseholdName] = useState('');
@@ -28,7 +27,6 @@ export function CreateHouseholdScreen() {
       // bereits in den lokalen Spiegel und invalidiert die Query, bevor
       // dieses mutateAsync aufloest — kein zusaetzlicher Refetch noetig.
       await mutation.mutateAsync(trimmed);
-      trackAptabaseEvent('household_created');
       // Nach der Erstellung routen wir ins Dashboard.
       // Falls der Nutzer von der "Kein Haushalt"-Weiche kam, greift nun die App.
       router.replace('/');

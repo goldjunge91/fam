@@ -50,7 +50,7 @@ export function PaywallSheet({ isOpen, onClose, onPurchased }: PaywallSheetProps
 
   useEffect(() => {
     if (isOpen) {
-      trackAnalyticsEvent('paywall_viewed', { source: 'paywall_sheet' });
+      trackAnalyticsEvent('paywall.view.completed', { source: 'paywall_sheet' });
       sheetRef.current?.expand();
     } else {
       sheetRef.current?.close();

@@ -40,7 +40,7 @@ export function PremiumScreen() {
   const [managing, setManaging] = useState(false);
 
   useEffect(() => {
-    trackAnalyticsEvent('paywall_viewed', { source: 'premium_screen' });
+    trackAnalyticsEvent('paywall.view.completed', { source: 'premium_screen' });
   }, []);
 
   async function handleBuy() {

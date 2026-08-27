@@ -1,5 +1,6 @@
 import type { Entity, OutboxEntry, OutboxOp, SqlDatabase } from '@/lib/db/types';
 import { MAX_ATTEMPTS } from '@/lib/sync/backoff';
+import { addDiagnosticStep, reportError } from '@/lib/telemetry';
 
 /** Parst `OutboxEntry.payload` (JSON-Text) in ein Objekt. Wirft bei Nicht-Objekt. */
 export function parseOutboxEntry(entry: OutboxEntry): Record<string, unknown> {
@@ -58,21 +59,37 @@ export async function enqueueMutations(
 ): Promise<void> {
   if (inputs.length === 0) return;
 
-  await db.withExclusiveTransactionAsync(async (txn) => {
-    for (const input of inputs) {
-      await input.applyLocally(txn);
+  try {
+    await db.withExclusiveTransactionAsync(async (txn) => {
+      for (const input of inputs) {
+        await input.applyLocally(txn);
 
-      await txn.runAsync(
-        'insert into outbox (entity, entity_id, op, payload, created_at, attempts, next_attempt_at) values (?, ?, ?, ?, ?, 0, 0)',
-        [
-          input.entity,
-          input.entityId,
-          input.op,
-          JSON.stringify(input.payload),
-          input.now ?? Date.now(),
-        ],
-      );
-    }
+        await txn.runAsync(
+          'insert into outbox (entity, entity_id, op, payload, created_at, attempts, next_attempt_at) values (?, ?, ?, ?, ?, 0, 0)',
+          [
+            input.entity,
+            input.entityId,
+            input.op,
+            JSON.stringify(input.payload),
+            input.now ?? Date.now(),
+          ],
+        );
+      }
+    });
+  } catch (error) {
+    reportError(error, {
+      operation: 'outbox.enqueue',
+      entity: inputs[0]?.entity ?? 'unknown',
+      error_code: 'outbox_enqueue_failed',
+      outbox_count: inputs.length,
+    });
+    throw error;
+  }
+
+  addDiagnosticStep('outbox.mutation.queued', {
+    operation: 'outbox.enqueue',
+    entity: inputs[0]?.entity ?? 'unknown',
+    outbox_count: inputs.length,
   });
 
   notifyOutboxChanged();

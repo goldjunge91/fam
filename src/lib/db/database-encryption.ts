@@ -1,5 +1,6 @@
 import type { KeyValueStore } from '@/lib/chunked-storage';
 import type { DatabaseFileOps } from '@/lib/db/database-files';
+import { addDiagnosticStep } from '@/lib/telemetry';
 
 const DATABASE_KEY_STORAGE_KEY = 'fam.database.sqlcipher-key.v1';
 const KEY_BYTES = 32;
@@ -351,6 +352,11 @@ export async function migratePlaintextDatabase<TDatabase extends CipherDatabase>
     // anderen Mutation liegen. Eine verschlüsselte Datei mit falschem Key
     // scheitert hier und bleibt einschließlich ihrer Sidecars unangetastet.
     sourceSnapshot = await readSnapshot(source);
+    addDiagnosticStep('db.cutover.plaintext_detected', {
+      operation: 'db.cutover',
+      outcome: 'detected',
+      outbox_count: sourceSnapshot.outboxCount,
+    });
     // Alle WAL-Seiten müssen vor dem Dateitausch in der Hauptdatei liegen.
     await source.execAsync('PRAGMA wal_checkpoint(TRUNCATE)');
     await exportPlaintextToEncrypted(
@@ -403,6 +409,11 @@ export async function migratePlaintextDatabase<TDatabase extends CipherDatabase>
 
   await cleanupCommittedCutover(files, encryptedNextFileName, plaintextRecoveryFileName);
   if (!active) throw new Error('Verschlüsselte Datenbank konnte nicht aktiviert werden.');
+  addDiagnosticStep('db.cutover.completed', {
+    operation: 'db.cutover',
+    outcome: 'completed',
+    outbox_count: sourceSnapshot.outboxCount,
+  });
   return active;
 }
 
@@ -492,8 +503,20 @@ export async function openEncryptedDatabaseWithCutover<TDatabase extends CipherD
   dependencies: DatabaseEncryptionCutoverDependencies<TDatabase>,
   key: string,
 ): Promise<TDatabase> {
+  if (dependencies.files.exists(dependencies.plaintextRecoveryFileName)) {
+    addDiagnosticStep('db.cutover.recovery_started', {
+      operation: 'db.cutover.recovery',
+      outcome: 'started',
+    });
+  }
   const recovered = await reconcileInterruptedCutover(dependencies, key);
-  if (recovered) return recovered;
+  if (recovered) {
+    addDiagnosticStep('db.cutover.recovery_completed', {
+      operation: 'db.cutover.recovery',
+      outcome: 'completed',
+    });
+    return recovered;
+  }
 
   if (!dependencies.files.exists(dependencies.mainFileName)) {
     return dependencies.openEncrypted(dependencies.mainFileName, key);

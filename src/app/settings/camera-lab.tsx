@@ -1,14 +1,32 @@
 import { router } from 'expo-router';
+import { lazy, Suspense, useEffect } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { ThemedText } from '@/components/theme/themed-text';
 import { Button } from '@/components/ui/buttons';
-import { CameraScreen } from '@/features/experimentalscreens/camera-screen';
+import { VISION_CAMERA_LAB_ENABLED } from '@/features/experimentalscreens/vision-camera-lab';
 import { env } from '@/lib/env';
 import { useFeatureFlag } from '@/lib/posthog';
+import { addDiagnosticStep } from '@/lib/telemetry';
+
+const CameraScreen = lazy(() =>
+  import('@/features/experimentalscreens/camera-screen').then(({ CameraScreen }) => ({
+    default: CameraScreen,
+  })),
+);
 
 export default function CameraLabRoute() {
   const isFeatureEnabled = useFeatureFlag('experimental-vision-camera', false);
-  const isAllowed = env.devTools && isFeatureEnabled;
+  const isAllowed = VISION_CAMERA_LAB_ENABLED && env.devTools && isFeatureEnabled;
+
+  useEffect(() => {
+    if (isAllowed) return;
+    addDiagnosticStep('camera.lab.blocked', {
+      operation: 'camera.lab',
+      outcome: 'blocked',
+      local_kill_switch: Number(VISION_CAMERA_LAB_ENABLED),
+      remote_flag_enabled: Number(isFeatureEnabled),
+    });
+  }, [isAllowed, isFeatureEnabled]);
 
   if (!isAllowed) {
     return (
@@ -17,15 +35,18 @@ export default function CameraLabRoute() {
           VisionCamera Labor gesperrt
         </ThemedText>
         <ThemedText type="body" themeColor="textSecondary" className="mb-6 text-center px-6">
-          Dieser experimentelle Screen erfordert EXPO_PUBLIC_DEV_TOOLS=true und das
-          PostHog-Feature-Flag "experimental-vision-camera".
+          Dieses experimentelle Labor ist in diesem Build deaktiviert.
         </ThemedText>
         <Button label="Zurück" variant="secondary" onPress={() => router.back()} />
       </View>
     );
   }
 
-  return <CameraScreen />;
+  return (
+    <Suspense fallback={null}>
+      <CameraScreen />
+    </Suspense>
+  );
 }
 
 const styles = StyleSheet.create({

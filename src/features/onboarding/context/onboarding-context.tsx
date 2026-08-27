@@ -176,7 +176,7 @@ export function OnboardingProvider({ children }: { children: ReactNode }) {
       await queryClient.invalidateQueries({ queryKey: ['profile', session.user.id] });
 
       await persistOnboardingCompleted();
-      trackAnalyticsEvent('onboarding_completed');
+      trackAnalyticsEvent('onboarding.flow.completed');
       setIsLoading(false);
       return true;
     } catch (e) {
