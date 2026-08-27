@@ -42,6 +42,4 @@ module.exports = {
   // Netzwerk gegen einen lokalen Docker-Stack ist langsamer als reine Logik;
   // der Default von 5 s reicht fuer signUp mit Passwort-Hashing nicht.
   testTimeout: 30_000,
-
-  maxWorkers: 2,
 };
