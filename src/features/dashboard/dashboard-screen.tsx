@@ -93,11 +93,14 @@ export function DashboardScreen() {
           trailing: editChromeTrailing,
         }}
         backgroundGradient={hubGradient}>
-        {/* Scrollbare Dashboard-Kartenliste mit Pull-to-Refresh & Drag-and-Drop */}
+        {/* Scrollbare Dashboard-Kartenliste mit Pull-to-Refresh & Drag-and-Drop.
+        Clipping bleibt nur waehrend eines aktiven Drags deaktiviert, damit die
+        gezogene Karte nicht abgeschnitten wird — ansonsten schiebt sich der
+        Inhalt beim Overscroll sonst ueber die Safe Area bzw. Nav-Buttons. */}
         <ScrollView
           testID="dashboard-scroll-view"
           className="flex-1"
-          style={{ overflow: 'visible' }}
+          style={{ overflow: isDragging ? 'visible' : 'hidden' }}
           scrollEnabled={!isDragging}
           contentContainerStyle={{ paddingTop: 8, paddingBottom: bottomPadding }}
           showsVerticalScrollIndicator={false}
