@@ -172,5 +172,8 @@
   "trustedDependencies": [
     "@posthog/cli",
     "@sentry/cli"
-  ]
+  ],
+  "patchedDependencies": {
+    "react-native-mmkv@4.3.2": "patches/react-native-mmkv@4.3.2.patch"
+  }
 }

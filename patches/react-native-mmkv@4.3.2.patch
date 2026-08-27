@@ -1,0 +1,37 @@
+diff --git a/src/addContentChangedListener/addContentChangedListener.ts b/src/addContentChangedListener/addContentChangedListener.ts
+index 8f6317eebbb5ccc081b726d17e9238e535bcea39..8b057828fad60ad7d5bfe8c6d13fda60f0643dba 100644
+--- a/src/addContentChangedListener/addContentChangedListener.ts
++++ b/src/addContentChangedListener/addContentChangedListener.ts
+@@ -16,7 +16,7 @@ export function addContentChangedListener(mmkv: MMKV): void {
+       'change',
+       (state: AppStateStatus) => {
+         if (state === 'active') {
+-          weakMmkv.deref()?.checkContentChanged()
++          checkContentChangedSafely(weakMmkv.deref())
+         }
+       }
+     )
+@@ -29,8 +29,22 @@ export function addContentChangedListener(mmkv: MMKV): void {
+   } else {
+     AppState.addEventListener('change', (state: AppStateStatus) => {
+       if (state === 'active') {
+-        mmkv.checkContentChanged()
++        checkContentChangedSafely(mmkv)
+       }
+     })
+   }
+ }
++
++// `mmkv.dispose()` can be called manually (e.g. when deleting an account's
++// storage) while this AppState listener is still registered. Without a
++// WeakRef/FinalizationRegistry runtime (or before GC runs), the listener
++// keeps a reference to the now-disposed native instance and would crash the
++// app on the next foreground event. Swallow that specific failure instead.
++function checkContentChangedSafely(mmkv: MMKV | undefined): void {
++  if (mmkv == null) return
++  try {
++    mmkv.checkContentChanged()
++  } catch {
++    // Instance was disposed; nothing to check anymore.
++  }
++}
