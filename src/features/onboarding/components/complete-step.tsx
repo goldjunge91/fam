@@ -2,7 +2,7 @@ import { router } from 'expo-router';
 import { Text, View } from 'react-native';
 import { Button } from '@/components/ui/buttons';
 import { useHouseholds } from '@/features/household/api';
-import { useOnboarding } from '../context/onboarding-context';
+import { useOnboarding } from '../onboarding-store';
 
 export function CompleteStepForm() {
   const { state, completeOnboarding, isLoading, error } = useOnboarding();

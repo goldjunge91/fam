@@ -6,9 +6,13 @@ import * as Linking from 'expo-linking';
 import * as WebBrowser from 'expo-web-browser';
 import { Platform } from 'react-native';
 import { parseOAuthTokensFromUrl } from '@/features/auth/auth-deep-link';
-import type { ProfileInput } from '@/features/auth/auth-schemas';
 import { isOrphanedProfileError } from '@/features/auth/orphaned-profile-error';
 import type { Database } from '@/lib/database.types';
+import {
+  type ProfileUpdateInput,
+  profileUpdateSchema,
+  toProfileDatabaseUpdate,
+} from '@/lib/db/zod/profile.zod';
 import { getSupabase } from '@/lib/supabase';
 import { reportError } from '@/lib/telemetry';
 
@@ -162,14 +166,10 @@ export function useProfile(userId: string | undefined) {
   });
 }
 
-export async function updateProfile(userId: string, input: Partial<ProfileInput>) {
-  const payload: Database['public']['Tables']['profiles']['Update'] = {};
-  if (input.displayName !== undefined) payload.display_name = input.displayName;
-  if (input.birthDate !== undefined) payload.birth_date = input.birthDate;
-  if (input.sex !== undefined) payload.sex = input.sex;
-  if (input.heightCm !== undefined) payload.height_cm = input.heightCm;
-  if (input.activityLevel !== undefined) payload.activity_level = input.activityLevel;
-  if (input.avatarUrl !== undefined) payload.avatar_url = input.avatarUrl;
+export async function updateProfile(userId: string, input: ProfileUpdateInput) {
+  const payload: Database['public']['Tables']['profiles']['Update'] = toProfileDatabaseUpdate(
+    profileUpdateSchema.parse(input),
+  );
 
   const { error } = await getSupabase().from('profiles').update(payload).eq('id', userId);
 

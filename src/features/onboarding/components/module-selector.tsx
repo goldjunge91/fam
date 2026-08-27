@@ -3,7 +3,7 @@ import { ModuleLockedOverlay } from '@/components/module-locked-overlay';
 import { Button } from '@/components/ui/buttons';
 import { getSettingsModules } from '@/constants/feature-registry';
 import { useFeatureAccess } from '@/features/settings/use-feature-access';
-import { useOnboarding } from '../context/onboarding-context';
+import { useOnboarding } from '../onboarding-store';
 
 interface ModuleSelectorFormProps {
   onNext: () => void;

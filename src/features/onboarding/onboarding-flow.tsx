@@ -15,7 +15,7 @@ import { ModuleSelectorForm } from './components/module-selector';
 import { PermissionsStepForm } from './components/permissions-step';
 import { ProfileStepForm } from './components/profile-step-form';
 import { WelcomeCarousel } from './components/welcome-carousel';
-import { OnboardingProvider, useOnboarding } from './context/onboarding-context';
+import { useOnboarding } from './onboarding-store';
 
 const TOTAL_STEPS = 7;
 
@@ -95,9 +95,5 @@ function OnboardingContent() {
 }
 
 export function OnboardingFlow() {
-  return (
-    <OnboardingProvider>
-      <OnboardingContent />
-    </OnboardingProvider>
-  );
+  return <OnboardingContent />;
 }

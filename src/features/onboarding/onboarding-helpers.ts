@@ -1,4 +1,4 @@
-import { normalizeDateInput } from '@/features/auth/auth-schemas';
+import { normalizeDateInput } from '@/lib/db/zod/profile.zod';
 import type { HouseholdOnboardingData, OnboardingProfileData } from './types';
 
 /**

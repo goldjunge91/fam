@@ -1,10 +1,12 @@
+import { zodResolver } from '@hookform/resolvers/zod';
 import { useState } from 'react';
+import { useForm } from 'react-hook-form';
 import { View } from 'react-native';
 import { TextField } from '@/components/forms/text-field';
 import { ThemedText } from '@/components/theme/themed-text';
 import { Button } from '@/components/ui/buttons';
 import { authErrorMessage, signUp } from '@/features/auth/api';
-import { fieldErrors, signUpSchema } from '@/features/auth/auth-schemas';
+import { type SignUpInput, signUpSchema } from '@/lib/db/zod/auth.zod';
 
 export interface PendingSignUp {
   email: string;
@@ -24,28 +26,23 @@ export function SignUpForm({
   submitLabel = 'Konto erstellen',
   testIDPrefix = 'sign-up',
 }: SignUpFormProps) {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [passwordConfirmation, setPasswordConfirmation] = useState('');
-  const [errors, setErrors] = useState<Record<string, string>>({});
   const [formError, setFormError] = useState<string | null>(null);
-  const [loading, setLoading] = useState(false);
+  const {
+    setValue,
+    watch,
+    handleSubmit,
+    formState: { errors, isSubmitting },
+  } = useForm<SignUpInput>({
+    resolver: zodResolver(signUpSchema),
+    defaultValues: { email: '', password: '', passwordConfirmation: '' },
+  });
+  const email = watch('email');
+  const password = watch('password');
+  const passwordConfirmation = watch('passwordConfirmation');
 
-  async function handleSubmit() {
-    if (loading) return;
-
+  async function submit(values: SignUpInput) {
     setFormError(null);
-    const parsed = signUpSchema.safeParse({ email, password, passwordConfirmation });
-
-    if (!parsed.success) {
-      setErrors(fieldErrors(parsed.error));
-      return;
-    }
-
-    setErrors({});
-    setLoading(true);
-    const { data, error } = await signUp(parsed.data.email, parsed.data.password);
-    setLoading(false);
+    const { data, error } = await signUp(values.email, values.password);
 
     if (error) {
       setFormError(authErrorMessage(error));
@@ -53,7 +50,7 @@ export function SignUpForm({
     }
 
     if (!data.session) {
-      onPendingVerification({ email: parsed.data.email, password: parsed.data.password });
+      onPendingVerification({ email: values.email, password: values.password });
       return;
     }
 
@@ -66,8 +63,8 @@ export function SignUpForm({
         testID={`${testIDPrefix}-email`}
         label="E-Mail"
         value={email}
-        onChangeText={setEmail}
-        error={errors.email}
+        onChangeText={(value) => setValue('email', value, { shouldValidate: true })}
+        error={errors.email?.message}
         autoCapitalize="none"
         autoComplete="email"
         keyboardType="email-address"
@@ -79,8 +76,8 @@ export function SignUpForm({
         testID={`${testIDPrefix}-password`}
         label="Passwort"
         value={password}
-        onChangeText={setPassword}
-        error={errors.password}
+        onChangeText={(value) => setValue('password', value, { shouldValidate: true })}
+        error={errors.password?.message}
         secureTextEntry
         autoCapitalize="none"
         autoComplete="new-password"
@@ -91,19 +88,23 @@ export function SignUpForm({
         testID={`${testIDPrefix}-password-confirmation`}
         label="Passwort wiederholen"
         value={passwordConfirmation}
-        onChangeText={setPasswordConfirmation}
-        error={errors.passwordConfirmation}
+        onChangeText={(value) => setValue('passwordConfirmation', value, { shouldValidate: true })}
+        error={errors.passwordConfirmation?.message}
         secureTextEntry
         autoCapitalize="none"
         autoComplete="new-password"
         textContentType="newPassword"
-        onSubmitEditing={handleSubmit}
+        onSubmitEditing={() => void handleSubmit(submit)()}
         returnKeyType="go"
       />
 
       {formError ? <ThemedText type="smallDanger">{formError}</ThemedText> : null}
 
-      <Button label={submitLabel} onPress={handleSubmit} loading={loading} />
+      <Button
+        label={submitLabel}
+        onPress={() => void handleSubmit(submit)()}
+        loading={isSubmitting}
+      />
     </View>
   );
 }

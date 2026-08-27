@@ -1,7 +1,9 @@
+import { zodResolver } from '@hookform/resolvers/zod';
 import { useQueryClient } from '@tanstack/react-query';
 import { Image } from 'expo-image';
 import { router } from 'expo-router';
 import { useEffect, useState } from 'react';
+import { useForm } from 'react-hook-form';
 import { Alert, Pressable, View } from 'react-native';
 import { TextField } from '@/components/forms/text-field';
 import { Screen } from '@/components/layout/screen';
@@ -12,6 +14,7 @@ import { updatePassword, updateProfile, useProfile } from '@/features/auth/api';
 import { useSession } from '@/features/auth/session-provider';
 import { pickAvatarImage, uploadAvatarImage } from '@/features/profile/avatar-uploader';
 import { useTheme } from '@/hooks/use-theme';
+import { type ProfileAccountForm, profileAccountFormSchema } from '@/lib/db/zod/profile.zod';
 import { getInitials } from '@/lib/initials';
 import { getSupabase } from '@/lib/supabase';
 
@@ -27,27 +30,35 @@ export function EditProfileScreen() {
   const { data: profile, isLoading: profileLoading } = useProfile(userId);
   const queryClient = useQueryClient();
 
-  const [displayName, setDisplayName] = useState('');
   const [avatarUrl, setAvatarUrl] = useState<string | null>(null);
-  const [email, setEmail] = useState('');
-  const [newPassword, setNewPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
-
   const [formError, setFormError] = useState<string | null>(null);
-  const [loading, setLoading] = useState(false);
   const [uploadingImage, setUploadingImage] = useState(false);
+  const {
+    setValue,
+    watch,
+    reset,
+    handleSubmit,
+    formState: { errors, isSubmitting },
+  } = useForm<ProfileAccountForm>({
+    resolver: zodResolver(profileAccountFormSchema),
+    defaultValues: { displayName: '', email: '', newPassword: '', passwordConfirmation: '' },
+  });
+  const displayName = watch('displayName');
+  const email = watch('email');
+  const newPassword = watch('newPassword');
+  const confirmPassword = watch('passwordConfirmation');
 
   useEffect(() => {
-    if (profile?.display_name) {
-      setDisplayName(profile.display_name);
-    }
+    reset({
+      displayName: profile?.display_name ?? '',
+      email: currentEmail,
+      newPassword: '',
+      passwordConfirmation: '',
+    });
     if (profile?.avatar_url !== undefined) {
       setAvatarUrl(profile.avatar_url);
     }
-    if (currentEmail) {
-      setEmail(currentEmail);
-    }
-  }, [profile, currentEmail]);
+  }, [profile, currentEmail, reset]);
 
   async function handlePickImage() {
     if (!userId || uploadingImage) return;
@@ -81,44 +92,28 @@ export function EditProfileScreen() {
     }
   }
 
-  async function handleSubmit() {
-    if (loading || !userId) return;
+  async function submit(values: ProfileAccountForm) {
+    if (!userId) return;
     setFormError(null);
 
-    const trimmedName = displayName.trim();
-    const trimmedEmail = email.trim().toLowerCase();
-    const trimmedPass = newPassword.trim();
-
-    if (trimmedPass && trimmedPass.length < 6) {
-      setFormError('Das neue Passwort muss mindestens 6 Zeichen lang sein.');
-      return;
-    }
-
-    if (trimmedPass && trimmedPass !== confirmPassword.trim()) {
-      setFormError('Die Passwörter stimmen nicht überein.');
-      return;
-    }
-
-    setLoading(true);
-
     try {
-      if (trimmedName && trimmedName !== profile?.display_name) {
+      if (values.displayName !== profile?.display_name) {
         const { error: profileErr } = await updateProfile(userId, {
-          displayName: trimmedName,
+          displayName: values.displayName,
           avatarUrl,
         });
         if (profileErr) throw profileErr;
       }
 
-      if (trimmedEmail && trimmedEmail !== currentEmail) {
+      if (values.email !== currentEmail) {
         const { error: emailErr } = await getSupabase().auth.updateUser({
-          email: trimmedEmail,
+          email: values.email,
         });
         if (emailErr) throw emailErr;
       }
 
-      if (trimmedPass) {
-        const { error: passErr } = await updatePassword(trimmedPass);
+      if (values.newPassword) {
+        const { error: passErr } = await updatePassword(values.newPassword);
         if (passErr) throw passErr;
       }
 
@@ -130,8 +125,6 @@ export function EditProfileScreen() {
     } catch (err: unknown) {
       const msg = err instanceof Error ? err.message : 'Fehler beim Speichern der Account-Daten.';
       setFormError(msg);
-    } finally {
-      setLoading(false);
     }
   }
 
@@ -183,7 +176,8 @@ export function EditProfileScreen() {
           <TextField
             label="Name"
             value={displayName}
-            onChangeText={setDisplayName}
+            onChangeText={(value) => setValue('displayName', value, { shouldValidate: true })}
+            error={errors.displayName?.message}
             autoCapitalize="words"
             placeholder="Wie sollen dich andere sehen?"
           />
@@ -191,7 +185,8 @@ export function EditProfileScreen() {
           <TextField
             label="E-Mail-Adresse"
             value={email}
-            onChangeText={setEmail}
+            onChangeText={(value) => setValue('email', value, { shouldValidate: true })}
+            error={errors.email?.message}
             autoCapitalize="none"
             keyboardType="email-address"
             placeholder="deine.email@beispiel.de"
@@ -208,15 +203,19 @@ export function EditProfileScreen() {
           <TextField
             label="Neues Passwort"
             value={newPassword}
-            onChangeText={setNewPassword}
+            onChangeText={(value) => setValue('newPassword', value, { shouldValidate: true })}
+            error={errors.newPassword?.message}
             secureTextEntry
-            placeholder="Mindestens 6 Zeichen"
+            placeholder="Mindestens 8 Zeichen"
             autoCapitalize="none"
           />
           <TextField
             label="Neues Passwort bestätigen"
             value={confirmPassword}
-            onChangeText={setConfirmPassword}
+            onChangeText={(value) =>
+              setValue('passwordConfirmation', value, { shouldValidate: true })
+            }
+            error={errors.passwordConfirmation?.message}
             secureTextEntry
             placeholder="Passwort wiederholen"
             autoCapitalize="none"
@@ -234,8 +233,8 @@ export function EditProfileScreen() {
       {/* Speichern-Button */}
       <Button
         label="Änderungen speichern"
-        onPress={handleSubmit}
-        loading={loading || profileLoading}
+        onPress={() => void handleSubmit(submit)()}
+        loading={isSubmitting || profileLoading}
       />
     </Screen>
   );

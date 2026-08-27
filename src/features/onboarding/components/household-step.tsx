@@ -8,8 +8,8 @@ import {
   useHouseholds,
   useRedeemInviteMutation,
 } from '@/features/household/api';
-import { useOnboarding } from '../context/onboarding-context';
 import { validateHouseholdOnboarding } from '../onboarding-helpers';
+import { useOnboarding } from '../onboarding-store';
 import type { HouseholdChoice } from '../types';
 
 interface HouseholdStepFormProps {

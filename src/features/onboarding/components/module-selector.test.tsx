@@ -29,7 +29,7 @@ jest.mock('@/features/settings/module-preferences', () => ({
   }),
 }));
 
-jest.mock('@/features/onboarding/context/onboarding-context', () => ({
+jest.mock('@/features/onboarding/onboarding-store', () => ({
   useOnboarding: () => ({
     state: { modules: mockModules },
     updateModulesData: mockUpdateModulesData,

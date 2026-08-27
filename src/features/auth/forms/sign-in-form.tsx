@@ -1,10 +1,12 @@
+import { zodResolver } from '@hookform/resolvers/zod';
 import { useState } from 'react';
+import { useForm } from 'react-hook-form';
 import { View } from 'react-native';
 import { TextField } from '@/components/forms/text-field';
 import { ThemedText } from '@/components/theme/themed-text';
 import { Button } from '@/components/ui/buttons';
 import { authErrorMessage, signIn } from '@/features/auth/api';
-import { fieldErrors, signInSchema } from '@/features/auth/auth-schemas';
+import { type SignInInput, signInSchema } from '@/lib/db/zod/auth.zod';
 
 interface SignInFormProps {
   onSuccess?: () => void;
@@ -17,27 +19,22 @@ export function SignInForm({
   submitLabel = 'Anmelden',
   testIDPrefix = 'sign-in',
 }: SignInFormProps) {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [errors, setErrors] = useState<Record<string, string>>({});
   const [formError, setFormError] = useState<string | null>(null);
-  const [loading, setLoading] = useState(false);
+  const {
+    setValue,
+    watch,
+    handleSubmit,
+    formState: { errors, isSubmitting },
+  } = useForm<SignInInput>({
+    resolver: zodResolver(signInSchema),
+    defaultValues: { email: '', password: '' },
+  });
+  const email = watch('email');
+  const password = watch('password');
 
-  async function handleSubmit() {
-    if (loading) return;
-
+  async function submit(values: SignInInput) {
     setFormError(null);
-    const parsed = signInSchema.safeParse({ email, password });
-
-    if (!parsed.success) {
-      setErrors(fieldErrors(parsed.error));
-      return;
-    }
-
-    setErrors({});
-    setLoading(true);
-    const { error } = await signIn(parsed.data.email, parsed.data.password);
-    setLoading(false);
+    const { error } = await signIn(values.email, values.password);
 
     if (error) {
       setFormError(authErrorMessage(error));
@@ -53,8 +50,8 @@ export function SignInForm({
         testID={`${testIDPrefix}-email`}
         label="E-Mail"
         value={email}
-        onChangeText={setEmail}
-        error={errors.email}
+        onChangeText={(value) => setValue('email', value, { shouldValidate: true })}
+        error={errors.email?.message}
         autoCapitalize="none"
         autoComplete="email"
         keyboardType="email-address"
@@ -66,19 +63,23 @@ export function SignInForm({
         testID={`${testIDPrefix}-password`}
         label="Passwort"
         value={password}
-        onChangeText={setPassword}
-        error={errors.password}
+        onChangeText={(value) => setValue('password', value, { shouldValidate: true })}
+        error={errors.password?.message}
         secureTextEntry
         autoCapitalize="none"
         autoComplete="current-password"
         textContentType="password"
-        onSubmitEditing={handleSubmit}
+        onSubmitEditing={() => void handleSubmit(submit)()}
         returnKeyType="go"
       />
 
       {formError ? <ThemedText type="smallDanger">{formError}</ThemedText> : null}
 
-      <Button label={submitLabel} onPress={handleSubmit} loading={loading} />
+      <Button
+        label={submitLabel}
+        onPress={() => void handleSubmit(submit)()}
+        loading={isSubmitting}
+      />
     </View>
   );
 }

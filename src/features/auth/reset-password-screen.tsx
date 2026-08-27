@@ -1,5 +1,7 @@
+import { zodResolver } from '@hookform/resolvers/zod';
 import { router } from 'expo-router';
 import { useState } from 'react';
+import { useForm } from 'react-hook-form';
 import { View } from 'react-native';
 import { TextField } from '@/components/forms/text-field';
 import { Screen } from '@/components/layout/screen';
@@ -7,30 +9,25 @@ import { ThemedText } from '@/components/theme/themed-text';
 import { Button } from '@/components/ui/buttons';
 import { Card } from '@/components/ui/card';
 import { authErrorMessage, updatePassword } from '@/features/auth/api';
-import { fieldErrors, newPasswordSchema } from '@/features/auth/auth-schemas';
+import { type NewPasswordInput, newPasswordSchema } from '@/lib/db/zod/auth.zod';
 
 export function ResetPasswordScreen() {
-  const [password, setPassword] = useState('');
-  const [passwordConfirmation, setPasswordConfirmation] = useState('');
-  const [errors, setErrors] = useState<Record<string, string>>({});
   const [formError, setFormError] = useState<string | null>(null);
-  const [loading, setLoading] = useState(false);
+  const {
+    setValue,
+    watch,
+    handleSubmit,
+    formState: { errors, isSubmitting },
+  } = useForm<NewPasswordInput>({
+    resolver: zodResolver(newPasswordSchema),
+    defaultValues: { password: '', passwordConfirmation: '' },
+  });
+  const password = watch('password');
+  const passwordConfirmation = watch('passwordConfirmation');
 
-  async function handleSubmit() {
-    if (loading) return;
-
+  async function submit(values: NewPasswordInput) {
     setFormError(null);
-    const parsed = newPasswordSchema.safeParse({ password, passwordConfirmation });
-
-    if (!parsed.success) {
-      setErrors(fieldErrors(parsed.error));
-      return;
-    }
-
-    setErrors({});
-    setLoading(true);
-    const { error } = await updatePassword(parsed.data.password);
-    setLoading(false);
+    const { error } = await updatePassword(values.password);
 
     if (error) {
       setFormError(authErrorMessage(error) ?? 'Der Link ist abgelaufen. Fordere einen neuen an.');
@@ -49,8 +46,8 @@ export function ResetPasswordScreen() {
           <TextField
             label="Neues Passwort"
             value={password}
-            onChangeText={setPassword}
-            error={errors.password}
+            onChangeText={(value) => setValue('password', value, { shouldValidate: true })}
+            error={errors.password?.message}
             secureTextEntry
             autoCapitalize="none"
             autoComplete="new-password"
@@ -60,13 +57,15 @@ export function ResetPasswordScreen() {
           <TextField
             label="Passwort wiederholen"
             value={passwordConfirmation}
-            onChangeText={setPasswordConfirmation}
-            error={errors.passwordConfirmation}
+            onChangeText={(value) =>
+              setValue('passwordConfirmation', value, { shouldValidate: true })
+            }
+            error={errors.passwordConfirmation?.message}
             secureTextEntry
             autoCapitalize="none"
             autoComplete="new-password"
             textContentType="newPassword"
-            onSubmitEditing={handleSubmit}
+            onSubmitEditing={() => void handleSubmit(submit)()}
             returnKeyType="go"
           />
 
@@ -74,7 +73,11 @@ export function ResetPasswordScreen() {
           {formError ? <ThemedText type="smallDanger">{formError}</ThemedText> : null}
 
           {/* Absende-Button */}
-          <Button label="Passwort speichern" onPress={handleSubmit} loading={loading} />
+          <Button
+            label="Passwort speichern"
+            onPress={() => void handleSubmit(submit)()}
+            loading={isSubmitting}
+          />
         </View>
       </Card>
     </Screen>

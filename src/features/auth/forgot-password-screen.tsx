@@ -1,5 +1,7 @@
+import { zodResolver } from '@hookform/resolvers/zod';
 import { router, useLocalSearchParams } from 'expo-router';
 import { useState } from 'react';
+import { useForm } from 'react-hook-form';
 import { View } from 'react-native';
 import { TextField } from '@/components/forms/text-field';
 import { Screen } from '@/components/layout/screen';
@@ -7,7 +9,7 @@ import { ThemedText } from '@/components/theme/themed-text';
 import { Button } from '@/components/ui/buttons';
 import { Card } from '@/components/ui/card';
 import { authErrorMessage, requestPasswordReset } from '@/features/auth/api';
-import { fieldErrors, resetRequestSchema } from '@/features/auth/auth-schemas';
+import { type PasswordResetRequestInput, passwordResetRequestSchema } from '@/lib/db/zod/auth.zod';
 
 export function ForgotPasswordScreen() {
   const { from } = useLocalSearchParams<{ from?: string }>();
@@ -15,11 +17,18 @@ export function ForgotPasswordScreen() {
   const backTarget = fromOnboarding
     ? ({ label: 'Onboarding', href: '/onboarding' } as const)
     : ({ label: 'Anmelden', href: '/sign-in' } as const);
-  const [email, setEmail] = useState('');
-  const [errors, setErrors] = useState<Record<string, string>>({});
   const [formError, setFormError] = useState<string | null>(null);
-  const [loading, setLoading] = useState(false);
   const [sent, setSent] = useState(false);
+  const {
+    setValue,
+    watch,
+    handleSubmit,
+    formState: { errors, isSubmitting },
+  } = useForm<PasswordResetRequestInput>({
+    resolver: zodResolver(passwordResetRequestSchema),
+    defaultValues: { email: '' },
+  });
+  const email = watch('email');
 
   function handleBack() {
     if (router.canGoBack()) {
@@ -29,21 +38,9 @@ export function ForgotPasswordScreen() {
     router.replace(backTarget.href);
   }
 
-  async function handleSubmit() {
-    if (loading) return;
-
+  async function submit(values: PasswordResetRequestInput) {
     setFormError(null);
-    const parsed = resetRequestSchema.safeParse({ email });
-
-    if (!parsed.success) {
-      setErrors(fieldErrors(parsed.error));
-      return;
-    }
-
-    setErrors({});
-    setLoading(true);
-    const { error } = await requestPasswordReset(parsed.data.email);
-    setLoading(false);
+    const { error } = await requestPasswordReset(values.email);
 
     if (error) {
       setFormError(authErrorMessage(error));
@@ -60,8 +57,8 @@ export function ForgotPasswordScreen() {
           {/* Bewusst neutral formuliert: Eine Bestaetigung, dass genau diese
               Adresse ein Konto hat, waere eine Auskunft ueber fremde Nutzer. */}
           <ThemedText>
-            Falls es zu {email} ein Konto gibt, ist eine E-Mail mit einem Link zum Zurücksetzen
-            unterwegs.
+            Falls es zu {email.trim().toLowerCase()} ein Konto gibt, ist eine E-Mail mit einem Link
+            zum Zurücksetzen unterwegs.
           </ThemedText>
         </Card>
         {/* Zurück-Aktion */}
@@ -84,14 +81,14 @@ export function ForgotPasswordScreen() {
             testID="forgot-password-email"
             label="E-Mail"
             value={email}
-            onChangeText={setEmail}
-            error={errors.email}
+            onChangeText={(value) => setValue('email', value, { shouldValidate: true })}
+            error={errors.email?.message}
             autoCapitalize="none"
             autoComplete="email"
             keyboardType="email-address"
             textContentType="emailAddress"
             inputMode="email"
-            onSubmitEditing={handleSubmit}
+            onSubmitEditing={() => void handleSubmit(submit)()}
             returnKeyType="go"
           />
 
@@ -99,7 +96,11 @@ export function ForgotPasswordScreen() {
           {formError ? <ThemedText type="smallDanger">{formError}</ThemedText> : null}
 
           {/* Absende-Button */}
-          <Button label="Link anfordern" onPress={handleSubmit} loading={loading} />
+          <Button
+            label="Link anfordern"
+            onPress={() => void handleSubmit(submit)()}
+            loading={isSubmitting}
+          />
         </View>
       </Card>
 

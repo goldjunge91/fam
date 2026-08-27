@@ -13,7 +13,7 @@ jest.mock('@/hooks/use-theme', () => ({
   useTheme: () => require('@/constants/theme').Colors.light,
 }));
 
-jest.mock('@/features/onboarding/context/onboarding-context', () => ({
+jest.mock('@/features/onboarding/onboarding-store', () => ({
   useOnboarding: () => ({
     state: {
       modules: {

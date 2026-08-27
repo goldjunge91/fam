@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Pressable, Switch, Text, View } from 'react-native';
 import { Button } from '@/components/ui/buttons';
 import { requestNotificationPermissions } from '@/lib/notifications';
-import { useOnboarding } from '../context/onboarding-context';
+import { useOnboarding } from '../onboarding-store';
 
 // Defensiver Import: expo-camera ist nur in einem nativen Dev-Build verfügbar.
 // Gleiches Hook-Pattern wie in barcode-scanner-modal.tsx, damit der Systemdialog

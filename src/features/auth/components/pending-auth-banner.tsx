@@ -10,8 +10,8 @@ import {
   signIn,
   signOut,
 } from '@/features/auth/api';
-import { confirmationCodeSchema } from '@/features/auth/auth-schemas';
 import { clearAuthDeepLinkError, subscribeAuthDeepLinkError } from '@/lib/auth-deep-link-state';
+import { confirmationCodeSchema } from '@/lib/db/zod/auth.zod';
 import { getSupabase } from '@/lib/supabase';
 
 interface PendingAuthBannerProps {
