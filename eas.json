@@ -25,7 +25,8 @@
     },
     "preview-simulator": {
       "environment": "preview",
-      "distribution": "internal",
+      "autoIncrement": false,
+      "distribution": "store",
       "ios": {
         "simulator": true
       },
@@ -35,10 +36,10 @@
     },
     "preview-testflight": {
       "env": {
-        "SENTRY_DISABLE_AUTO_UPLOAD": "true"
+        "SENTRY_DISABLE_AUTO_UPLOAD": "false"
       },
       "distribution": "store",
-      "autoIncrement": true,
+      "autoIncrement": false,
       "credentialsSource": "remote",
       "environment": "preview",
       "ios": {

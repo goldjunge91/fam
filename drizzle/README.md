@@ -1,7 +1,8 @@
 # Lokale SQLite-Migrationen
 
-`src/lib/db/drizzle-schema.ts` ist die Definition des lokalen Schemas. Neue
-lokale Änderungen werden mit folgendem Befehl erzeugt:
+`src/lib/db/schemas/` enthält die lokalen Schema-Definitionen, nach Domäne
+getrennt. `src/lib/db/schemas/index.ts` bündelt sie für Drizzle Kit. Neue lokale
+Änderungen werden mit folgendem Befehl erzeugt:
 
 ```sh
 bun run drizzle-kit generate --config drizzle.config.ts
@@ -16,3 +17,11 @@ eingefroren. `drizzle-baseline.ts` prüft deren vollständigen Schema-Fingerprin
 und markiert nur die erste Drizzle-Migration als bereits ausgeführt. Alle
 späteren Migrationen, beginnend mit `local_recipe_preferences`, führt
 `drizzle-migrator.ts` über dieselbe serialisierte SQLite-Verbindung aus.
+
+## Zod-Schemas
+
+Formular- und Eingabevalidierung bleibt beim jeweiligen Feature, zum Beispiel
+`src/features/recipes/recipe-form-schema.ts` und
+`src/features/auth/auth-schemas.ts`. Diese Schemas bilden keine SQLite-Zeilen
+ab. Falls künftig DB-nahe Insert-, Select- oder Row-Validatoren entstehen,
+werden sie beim zugehörigen Modul unter `src/lib/db/schemas/` co-located.

@@ -2,19 +2,23 @@
   "expo": {
     "name": "fam",
     "slug": "fam",
-    "version": "0.0.3",
+    "version": "0.0.4",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
     "scheme": "fam",
     "userInterfaceStyle": "automatic",
     "buildCacheProvider": {
-      "plugin": "expo-build-disk-cache"
+      "plugin": "expo-build-disk-cache",
+      "options": {
+        "remotePlugin": "eas",
+        "cacheDir": "~/expo-build-disk-cache/"
+      }
     },
     "ios": {
       "appleTeamId": "SW8RP7PA3W",
       "icon": "./assets/expo.icon",
       "bundleIdentifier": "com.goldjunge91.fam1",
-      "buildNumber": "10",
+      "buildNumber": "1",
       "infoPlist": {
         "ITSAppUsesNonExemptEncryption": false,
         "NSCameraUsageDescription": "$(PRODUCT_NAME) needs access to your Camera to capture photos and videos.",

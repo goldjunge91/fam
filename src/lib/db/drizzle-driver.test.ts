@@ -1,7 +1,7 @@
 import { DatabaseSync } from 'node:sqlite';
 
 import { createDrizzleDatabase } from '@/lib/db/drizzle-driver';
-import { localRecipePreferences } from '@/lib/db/drizzle-schema';
+import { localRecipePreferences } from '@/lib/db/schemas';
 import type { SqlDatabase, SqlParam } from '@/lib/db/types';
 
 function createDatabase() {

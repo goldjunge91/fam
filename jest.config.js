@@ -72,6 +72,7 @@ module.exports = {
     '/tools/category-debugger/',
     '\\.integration\\.test\\.tsx?$',
     '\\.bun\\.test\\.ts$',
+    '/scripts',
   ],
 
   // Bewusst nicht standardmaessig an: Instrumentierung kostet auf jedem Lauf

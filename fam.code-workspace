@@ -12,6 +12,18 @@
 			"**/.git": true,
 			"**/.svn": true,
 			"**/.hg": true
-		}
+		},
+		"jest.virtualFolders": [
+    {
+      "name": "unit-tests",
+      "jestCommandLine": "node_modules/.bin/jest",
+      "runMode": "on-demand"
+    },
+    {
+      "name": "integration-tests",
+      "jestCommandLine": "node_modules/.bin/jest --config jest.integration.config.js --forceExit",
+      "runMode": "on-demand"
+    }
+  ],
 	}
 }
