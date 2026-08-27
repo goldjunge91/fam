@@ -1,5 +1,6 @@
+import * as Location from 'expo-location';
 import { useState } from 'react';
-import { Pressable, Switch, Text, View } from 'react-native';
+import { Linking, Pressable, Switch, Text, View } from 'react-native';
 import { Button } from '@/components/ui/buttons';
 import { requestNotificationPermissions } from '@/lib/notifications';
 import { useOnboarding } from '../onboarding-store';
@@ -26,6 +27,7 @@ interface PermissionsStepFormProps {
 export function PermissionsStepForm({ onNext, onSkip }: PermissionsStepFormProps) {
   const { state, updatePermissionsData } = useOnboarding();
   const [cameraPermission, requestCameraPermission] = useCameraPermissionsHook();
+  const [locationPermission, requestLocationPermission] = Location.useForegroundPermissions();
 
   const [notifications, setNotifications] = useState(
     state.permissions.notificationsRequested ?? true,
@@ -33,6 +35,7 @@ export function PermissionsStepForm({ onNext, onSkip }: PermissionsStepFormProps
 
   // Spiegelt den echten Systemstatus wider, sobald einmal abgefragt wurde.
   const camera = cameraPermission?.granted ?? state.permissions.cameraRequested ?? false;
+  const location = locationPermission?.granted ?? state.permissions.locationRequested ?? false;
 
   const handleToggleNotifications = async (value: boolean) => {
     setNotifications(value);
@@ -42,16 +45,39 @@ export function PermissionsStepForm({ onNext, onSkip }: PermissionsStepFormProps
     if (!granted) setNotifications(false);
   };
 
+  // Apps können iOS/Android-Berechtigungen nicht selbst zurücknehmen — beim
+  // Versuch, eine bereits erteilte Berechtigung auszuschalten, bleibt nur der
+  // Weg über die Systemeinstellungen.
   const handleToggleCamera = async (value: boolean) => {
-    if (!value) return;
+    if (!value) {
+      if (camera) Linking.openSettings();
+      return;
+    }
+    if (cameraPermission != null && !cameraPermission.canAskAgain) {
+      Linking.openSettings();
+      return;
+    }
     // Löst den echten Kamera-Permission-Dialog sofort beim Umschalten aus.
     await requestCameraPermission();
+  };
+
+  const handleToggleLocation = async (value: boolean) => {
+    if (!value) {
+      if (location) Linking.openSettings();
+      return;
+    }
+    if (locationPermission != null && !locationPermission.canAskAgain) {
+      Linking.openSettings();
+      return;
+    }
+    await requestLocationPermission();
   };
 
   const handleNext = () => {
     updatePermissionsData({
       notificationsRequested: notifications,
       cameraRequested: camera,
+      locationRequested: location,
     });
     onNext();
   };
@@ -89,6 +115,18 @@ export function PermissionsStepForm({ onNext, onSkip }: PermissionsStepFormProps
               </Text>
             </View>
             <Switch value={camera} onValueChange={handleToggleCamera} />
+          </View>
+        </Pressable>
+
+        <Pressable
+          onPress={() => handleToggleLocation(!location)}
+          className={`perm-card ${location ? 'perm-card-selected' : 'perm-card-idle'}`}>
+          <View className="perm-row">
+            <View className="perm-text-col">
+              <Text className="perm-title">📍 Standort-Zugriff</Text>
+              <Text className="perm-desc">Für Prospekte aus deiner Umgebung.</Text>
+            </View>
+            <Switch value={location} onValueChange={handleToggleLocation} />
           </View>
         </Pressable>
       </View>

@@ -1,52 +1,47 @@
-import { useEffect, useState } from 'react';
+import * as Location from 'expo-location';
 import { Linking, type StyleProp, Switch, View, type ViewStyle } from 'react-native';
 import { ThemedText } from '@/components/theme/themed-text';
 import { Card } from '@/components/ui/card';
 // `trackColor` benötigt echte Farbwerte statt CSS-Variablen.
 import { useTheme } from '@/hooks/use-theme';
-import {
-  getNotificationPermissionStatus,
-  requestNotificationPermissions,
-} from '@/lib/notifications';
 
-type NotificationPermissionCardProps = {
+type LocationPermissionCardProps = {
   style?: StyleProp<ViewStyle>;
 };
 
-export function NotificationPermissionCard({ style }: NotificationPermissionCardProps) {
+export function LocationPermissionCard({ style }: LocationPermissionCardProps) {
   const theme = useTheme();
-  const [status, setStatus] = useState({ granted: false, canAskAgain: true });
+  const [permission, requestPermission] = Location.useForegroundPermissions();
 
-  useEffect(() => {
-    getNotificationPermissionStatus().then(setStatus);
-  }, []);
+  const granted = permission?.granted ?? false;
+  // Nach einer iOS-Ablehnung nur noch zu den Systemeinstellungen verweisen.
+  const canAskAgain = permission?.canAskAgain ?? true;
 
   async function handleToggle(value: boolean) {
     // Apps können iOS/Android-Berechtigungen nicht selbst zurücknehmen —
     // sowohl beim Versuch auszuschalten als auch nach dauerhafter Ablehnung
     // bleibt nur der Weg über die Systemeinstellungen.
-    if (!value || !status.canAskAgain) {
+    if (!value || !canAskAgain) {
       Linking.openSettings();
       return;
     }
-    const granted = await requestNotificationPermissions();
-    setStatus((prev) => ({ ...prev, granted }));
+    await requestPermission();
   }
 
   return (
     <View style={style}>
-      <Card title="Benachrichtigungen">
+      <Card title="Standort">
         <View className="row-between">
           <View className="row-text">
-            <ThemedText type="bodyBold">Benachrichtigungs-Zugriff</ThemedText>
+            <ThemedText type="bodyBold">Standort-Zugriff</ThemedText>
             <ThemedText type="small" themeColor="textSecondary">
-              {status.canAskAgain
-                ? 'Damit Erinnerungen an ablaufende Vorräte ankommen.'
+              {canAskAgain
+                ? 'Für Prospekte aus deiner Umgebung.'
                 : 'In den Systemeinstellungen deaktiviert. Zum Ändern antippen.'}
             </ThemedText>
           </View>
           <Switch
-            value={status.granted}
+            value={granted}
             onValueChange={handleToggle}
             trackColor={{ false: theme.border, true: theme.accent }}
           />
