@@ -2,7 +2,9 @@
 module.exports = {
   preset: 'jest-expo',
   setupFiles: ['<rootDir>/test/setup.js'],
-  maxWorkers: '50%',
+  // React-Native/Babel-Worker sind speicherintensiv. Vier parallele Worker
+  // erzeugen im Gesamtlauf GC-/CPU-Konkurrenz und dadurch falsche 15s-Timeouts.
+  maxWorkers: 2,
 
   // Ohne diesen Resolver landet `react-native-reanimated/mock` (ueber
   // `react-native-worklets`) trotzdem bei den `.native.ts`-Dateien und damit

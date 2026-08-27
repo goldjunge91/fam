@@ -13,17 +13,31 @@
 			"**/.svn": true,
 			"**/.hg": true
 		},
-		"jest.virtualFolders": [
+		 "jest.jestCommandLine": "bun run test --",
+  "jest.runMode": {
+    "type": "on-demand",
+    "coverage": false,
+    "runAllTestsOnStartup": false
+  },
+  "jest.virtualFolders": [
     {
       "name": "unit-tests",
-      "jestCommandLine": "node_modules/.bin/jest",
-      "runMode": "on-demand"
+      "jestCommandLine": "bun run test --",
+      "runMode": {
+        "type": "on-demand",
+        "coverage": false,
+        "runAllTestsOnStartup": false
+      }
     },
     {
       "name": "integration-tests",
-      "jestCommandLine": "node_modules/.bin/jest --config jest.integration.config.js --forceExit",
-      "runMode": "on-demand"
+      "jestCommandLine": "bun run test:integration --",
+      "runMode": {
+        "type": "on-demand",
+        "coverage": false,
+        "runAllTestsOnStartup": false
+      }
     }
-  ],
+  ]
 	}
 }
