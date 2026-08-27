@@ -8,9 +8,10 @@ import { useColorScheme } from '@/hooks/use-color-scheme';
 
 type AppleSignInButtonProps = {
   onError?: (errorMessage: string | null) => void;
+  onAuthStart?: () => void;
 };
 
-export function AppleSignInButton({ onError }: AppleSignInButtonProps) {
+export function AppleSignInButton({ onError, onAuthStart }: AppleSignInButtonProps) {
   const colorScheme = useColorScheme();
   const isDark = colorScheme === 'dark';
 
@@ -23,6 +24,8 @@ export function AppleSignInButton({ onError }: AppleSignInButtonProps) {
       cornerRadius={12}
       style={{ width: '100%', height: 48 }}
       onPress={async () => {
+        onError?.(null);
+        onAuthStart?.();
         const { error } = await signInWithApple();
         if (error && onError) {
           onError(authErrorMessage(error));
