@@ -1,17 +1,21 @@
 import { Pressable, ScrollView } from 'react-native';
 
 import { ThemedText } from '@/components/theme/themed-text';
-import type { RecipeTemplateWithNutrition } from '@/features/recipes/templates/use-recipe-templates';
-import {
-  isHighProteinTemplate,
-  isLowCarbTemplate,
-} from '@/features/recipes/templates/use-recipe-templates';
+
+type CategoryMatchInput = {
+  dish_types: string[];
+  dietary_tags: string[];
+  cook_time_minutes: number | null;
+  kcalPerServing: number | null;
+  proteinGPerServing: number | null;
+  carbsGPerServing: number | null;
+};
 
 export type CategoryTile = {
   key: string;
   emoji: string;
   label: string;
-  matches: (template: RecipeTemplateWithNutrition) => boolean;
+  matches: (recipe: CategoryMatchInput) => boolean;
 };
 
 export const CATEGORY_TILES: CategoryTile[] = [
@@ -41,8 +45,21 @@ export const CATEGORY_TILES: CategoryTile[] = [
     label: 'Vegetarisch',
     matches: (t) => t.dietary_tags.includes('vegetarian'),
   },
-  { key: 'high_protein', emoji: '💪', label: 'High Protein', matches: isHighProteinTemplate },
-  { key: 'low_carb', emoji: '🥦', label: 'Low Carb', matches: isLowCarbTemplate },
+  {
+    key: 'high_protein',
+    emoji: '💪',
+    label: 'High Protein',
+    matches: (r) =>
+      !!r.kcalPerServing &&
+      !!r.proteinGPerServing &&
+      (r.proteinGPerServing * 4) / r.kcalPerServing >= 0.25,
+  },
+  {
+    key: 'low_carb',
+    emoji: '🥦',
+    label: 'Low Carb',
+    matches: (r) => r.carbsGPerServing !== null && r.carbsGPerServing < 20,
+  },
   {
     key: 'quick',
     emoji: '⏱️',

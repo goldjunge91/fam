@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
-
-import { registerLocalAccountCache } from '@/features/auth/local-account-cache';
 import { useSession } from '@/features/auth/session-provider';
+import { registerLocalAccountCache } from '@/lib/storage/account-cache-registry';
 import { readStoredRecipeRating, writeStoredRecipeRating } from './recipe-preferences-repository';
 
 export type RecipeRating = {

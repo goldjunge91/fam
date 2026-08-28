@@ -75,7 +75,7 @@ export async function setupTwoDevices(prefix = 'device'): Promise<TwoDeviceSetup
   // Remote-Projekt, siehe config.toml) liefert signUp() keine Session mehr,
   // solange die Adresse nicht per Klick auf den Bestaetigungslink bestaetigt
   // wurde. Diese Suite prueft Sync-Konvergenz, nicht den
-  // Bestaetigungs-Flow — der hat eigene Tests (PendingAuthBanner).
+  // Bestaetigungs-Flow — der hat eigene Tests (EmailVerificationPanel).
   const { data: createData, error: createError } = await adminClient().auth.admin.createUser({
     email,
     password,

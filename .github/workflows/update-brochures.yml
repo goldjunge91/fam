@@ -1,31 +1,77 @@
-name: Brochure Dump Update
+name: Brochure Dump Update (Etappen-Crawler)
 
 on:
   workflow_dispatch:
+    inputs:
+      zone_group:
+        description: "PLZ-Zonengruppe (z. B. '2,3' für Norddeutschland oder 'all' für alle 5 Etappen)"
+        type: choice
+        options:
+          - all
+          - "0,1"
+          - "2,3"
+          - "4,5"
+          - "6,7"
+          - "8,9"
+        default: all
+      sample_percent:
+        description: "Optionaler Prozent-Stichprobenfilter (z. B. 100 für alle oder 20 für 20%)"
+        type: string
+        default: "100"
+
   schedule:
-    # Montags nach dem Wechsel der meisten Wochenangebote. Eine versetzte
-    # Minute vermeidet die hohe GitHub-Actions-Last zur vollen Stunde.
+    # 1. Montag 04:17 UTC: Start der regulären Wochenangebote
     - cron: "17 4 * * 1"
+    # 2. Donnerstag 04:17 UTC: Start der Wochenend- & Zweit-Prospekte
+    - cron: "17 4 * * 4"
 
 concurrency:
-  group: brochure-dump-update
+  group: brochure-dump-update-${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: false
 
 permissions:
   contents: read
 
 jobs:
-  update-brochures:
+  crawl-stage:
+    name: "Etappe ${{ matrix.zone_group }} (${{ matrix.region_name }})"
     runs-on: ubuntu-latest
-    timeout-minutes: 300
+    timeout-minutes: 30
+
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - zone_group: "0,1"
+            region_name: "Ost / Berlin / Sachsen / Thüringen"
+          - zone_group: "2,3"
+            region_name: "Nord / Hamburg / Hannover / Bremen"
+          - zone_group: "4,5"
+            region_name: "West / NRW / Ruhrgebiet / Köln"
+          - zone_group: "6,7"
+            region_name: "Südwest / Hessen / Frankfurt / BaWü"
+          - zone_group: "8,9"
+            region_name: "Süd / Bayern / München / Franken"
+
     steps:
       - name: Checkout repository
+        if: ${{ github.event_name != 'workflow_dispatch' || inputs.zone_group == 'all' || inputs.zone_group == matrix.zone_group }}
         uses: actions/checkout@v4
 
       - name: Set up Bun environment
+        if: ${{ github.event_name != 'workflow_dispatch' || inputs.zone_group == 'all' || inputs.zone_group == matrix.zone_group }}
         uses: ./.github/actions/setup-bun-env
 
-      - name: Download all German postal codes
+      - name: Cache GeoNames postal codes
+        if: ${{ github.event_name != 'workflow_dispatch' || inputs.zone_group == 'all' || inputs.zone_group == matrix.zone_group }}
+        id: cache-geonames
+        uses: actions/cache@v4
+        with:
+          path: /tmp/geonames-DE.txt
+          key: geonames-de-postal-codes-v1
+
+      - name: Download German postal codes (falls nicht im Cache)
+        if: ${{ (github.event_name != 'workflow_dispatch' || inputs.zone_group == 'all' || inputs.zone_group == matrix.zone_group) && steps.cache-geonames.outputs.cache-hit != 'true' }}
         run: |
           curl --fail --silent --show-error --location \
             https://download.geonames.org/export/zip/DE.zip \
@@ -33,12 +79,27 @@ jobs:
           unzip -p /tmp/geonames-DE.zip DE.txt > /tmp/geonames-DE.txt
           test -s /tmp/geonames-DE.txt
 
-      - name: Fetch and publish brochure dumps
-        run: bun run brochures:update
+      - name: Run Brochure Crawler (Zone ${{ matrix.zone_group }})
+        if: ${{ github.event_name != 'workflow_dispatch' || inputs.zone_group == 'all' || inputs.zone_group == matrix.zone_group }}
+        run: |
+          EXTRA_ARGS=""
+          if [ "${{ inputs.sample_percent }}" != "" ] && [ "${{ inputs.sample_percent }}" != "100" ]; then
+            EXTRA_ARGS="--sample=${{ inputs.sample_percent }}%"
+          fi
+
+          bun run crawler:brochures \
+            --zone="${{ matrix.zone_group }}" \
+            --concurrency=12 \
+            $EXTRA_ARGS
         env:
           BRING_AUTH_TOKEN: ${{ secrets.BRING_AUTH_TOKEN }}
           BRING_API_KEY: ${{ secrets.BRING_API_KEY }}
           BRING_USER_UUID: ${{ secrets.BRING_USER_UUID }}
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
+          R2_ACCOUNT_ID: ${{ secrets.R2_ACCOUNT_ID }}
+          R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+          R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+          R2_BUCKET: ${{ secrets.R2_BUCKET || 'fam-brochures' }}
+          R2_PUBLIC_URL: ${{ secrets.R2_PUBLIC_URL || 'https://pub-7c414d76492b43308e61c64079d2bbaa.r2.dev' }}
           BROCHURE_LOCATIONS_FILE: /tmp/geonames-DE.txt

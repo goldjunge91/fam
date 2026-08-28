@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react';
-import { Linking, type StyleProp, Switch, View, type ViewStyle } from 'react-native';
+import { AppState, Linking, type StyleProp, Switch, View, type ViewStyle } from 'react-native';
 import { ThemedText } from '@/components/theme/themed-text';
 import { Card } from '@/components/ui/card';
 // `trackColor` benötigt echte Farbwerte statt CSS-Variablen.
 import { useTheme } from '@/hooks/use-theme';
 import {
+  disableNotificationReminders,
   getNotificationPermissionStatus,
   requestNotificationPermissions,
 } from '@/lib/notifications';
@@ -18,19 +19,39 @@ export function NotificationPermissionCard({ style }: NotificationPermissionCard
   const [status, setStatus] = useState({ granted: false, canAskAgain: true });
 
   useEffect(() => {
-    getNotificationPermissionStatus().then(setStatus);
+    let active = true;
+
+    async function refresh() {
+      const nextStatus = await getNotificationPermissionStatus();
+      if (active) setStatus(nextStatus);
+    }
+
+    void refresh();
+    const subscription = AppState.addEventListener('change', (appState) => {
+      if (appState === 'active') void refresh();
+    });
+
+    return () => {
+      active = false;
+      subscription.remove();
+    };
   }, []);
 
   async function handleToggle(value: boolean) {
-    // Apps können iOS/Android-Berechtigungen nicht selbst zurücknehmen —
-    // sowohl beim Versuch auszuschalten als auch nach dauerhafter Ablehnung
-    // bleibt nur der Weg über die Systemeinstellungen.
-    if (!value || !status.canAskAgain) {
+    if (!value) {
+      await disableNotificationReminders();
+      return;
+    }
+    if (!status.canAskAgain) {
       Linking.openSettings();
       return;
     }
     const granted = await requestNotificationPermissions();
-    setStatus((prev) => ({ ...prev, granted }));
+    if (granted) {
+      setStatus((prev) => ({ ...prev, granted: true }));
+      return;
+    }
+    await disableNotificationReminders();
   }
 
   return (

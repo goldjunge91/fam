@@ -40,8 +40,7 @@ export const env = {
   },
 
   get debugLogsEnabled(): boolean {
-    const raw = process.env.EXPO_PUBLIC_DEBUG_LOGS?.trim().toLowerCase();
-    return raw !== 'false' && raw !== '0';
+    return isFlagEnabled(process.env.EXPO_PUBLIC_DEBUG_LOGS);
   },
 
   get offFactsOffline(): boolean {

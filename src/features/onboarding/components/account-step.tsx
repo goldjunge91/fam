@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { Pressable, Text, View } from 'react-native';
 import { Button } from '@/components/ui/buttons';
 import { AuthProviderOptions } from '@/features/auth/components/auth-provider-options';
-import { PendingAuthBanner } from '@/features/auth/components/pending-auth-banner';
+import { EmailVerificationPanel } from '@/features/auth/components/email-verification-panel';
 import { SignInForm } from '@/features/auth/forms/sign-in-form';
 import { type PendingSignUp, SignUpForm } from '@/features/auth/forms/sign-up-form';
 import { useSession } from '@/features/auth/session-provider';
@@ -26,7 +26,7 @@ export function AccountStepForm({ onNext }: AccountStepFormProps) {
   if (pendingSignUp) {
     return (
       <View className="gap-three">
-        <PendingAuthBanner
+        <EmailVerificationPanel
           email={pendingSignUp.email}
           password={pendingSignUp.password}
           onConfirmed={onNext}

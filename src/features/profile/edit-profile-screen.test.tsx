@@ -1,8 +1,8 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { render, screen, userEvent } from '@testing-library/react-native';
 
-import { updateProfile, useProfile } from '@/features/auth/api';
 import { useSession } from '@/features/auth/session-provider';
+import { updateProfile, useProfile } from '@/features/profile/api';
 import { EditProfileScreen } from '@/features/profile/edit-profile-screen';
 
 jest.mock('expo-router', () => ({
@@ -17,9 +17,12 @@ jest.mock('@/features/auth/session-provider', () => ({
 }));
 
 jest.mock('@/features/auth/api', () => ({
+  updatePassword: jest.fn().mockResolvedValue({ error: null }),
+}));
+
+jest.mock('@/features/profile/api', () => ({
   useProfile: jest.fn(),
   updateProfile: jest.fn().mockResolvedValue({ error: null }),
-  updatePassword: jest.fn().mockResolvedValue({ error: null }),
 }));
 
 jest.mock('@/features/profile/avatar-uploader', () => ({

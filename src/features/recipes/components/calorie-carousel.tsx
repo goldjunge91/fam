@@ -1,7 +1,7 @@
 import { Pressable, ScrollView } from 'react-native';
 
 import { ThemedText } from '@/components/theme/themed-text';
-import { CALORIE_BUCKETS } from '@/features/recipes/templates/use-recipe-templates';
+import { CALORIE_BUCKETS } from '@/features/recipes/recipe-calorie-buckets';
 
 /** Dekoratives Food-Emoji je `CALORIE_BUCKETS`-Bucket. */
 const BUCKET_EMOJI = ['🍉', '🥪', '🥯', '🥞', '🍛', '🍱', '🍲', '🍝', '🍔', '🍕'];

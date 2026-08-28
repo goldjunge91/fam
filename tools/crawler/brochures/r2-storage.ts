@@ -1,0 +1,214 @@
+import { createHash, createHmac } from 'node:crypto';
+import type { CrawlerBrochure } from './types';
+
+const MAX_IMAGE_BYTES = 10 * 1024 * 1024; // 10 MB
+const CACHE_CONTROL = 'public, max-age=604800, immutable';
+const DUMP_RUN_PREFIX = 'brochures/dumps/';
+
+export type R2Config = {
+  accountId: string;
+  accessKeyId: string;
+  secretAccessKey: string;
+  bucket: string;
+  publicUrl: string;
+};
+
+export function loadR2Config(): R2Config | null {
+  const accountId = process.env.R2_ACCOUNT_ID?.trim();
+  const accessKeyId = process.env.R2_ACCESS_KEY_ID?.trim();
+  const secretAccessKey = process.env.R2_SECRET_ACCESS_KEY?.trim();
+  const bucket = process.env.R2_BUCKET?.trim() || process.env.R2_BUCKET_NAME?.trim();
+  const publicUrl = process.env.R2_PUBLIC_URL?.trim();
+
+  if (!accountId || !accessKeyId || !secretAccessKey || !bucket || !publicUrl) {
+    return null;
+  }
+
+  return {
+    accountId,
+    accessKeyId,
+    secretAccessKey,
+    bucket,
+    publicUrl: publicUrl.replace(/\/+$/, ''),
+  };
+}
+
+export function sanitizeKeyPart(value: string): string {
+  return value.replace(/[^a-zA-Z0-9._-]+/g, '_');
+}
+
+/**
+ * Erzeugt den deterministischen R2-Key für ein Bild anhand von brochureId, Kontext und Original-URL Hash.
+ */
+export function imageKeyFor(originalUrl: string, brochureId: string, context: string): string {
+  const hash = createHash('sha256').update(originalUrl).digest('hex').slice(0, 16);
+  return `${DUMP_RUN_PREFIX}${sanitizeKeyPart(brochureId)}/${context}-${hash}.jpg`;
+}
+
+/**
+ * Erzeugt AWS SigV4 Signatur für R2 PUT-Requests.
+ */
+export function signR2Request(
+  config: R2Config,
+  key: string,
+): { url: string; headers: Record<string, string> } {
+  const method = 'PUT';
+  const host = `${config.accountId}.r2.cloudflarestorage.com`;
+  const canonicalUri = `/${config.bucket}/${key}`;
+  const now = new Date();
+  const amzDate = now.toISOString().replace(/[:-]|\.\d{3}/g, '');
+  const dateStamp = amzDate.slice(0, 8);
+
+  const headers: Record<string, string> = {
+    host,
+    'x-amz-content-sha256': 'UNSIGNED-PAYLOAD',
+    'x-amz-date': amzDate,
+    'cache-control': CACHE_CONTROL,
+  };
+
+  const sortedHeaderNames = Object.keys(headers).sort();
+  const canonicalHeaders = sortedHeaderNames
+    .map((name) => `${name}:${headers[name].trim()}\n`)
+    .join('');
+  const signedHeaders = sortedHeaderNames.join(';');
+
+  const canonicalRequest = [
+    method,
+    canonicalUri,
+    '',
+    canonicalHeaders,
+    signedHeaders,
+    'UNSIGNED-PAYLOAD',
+  ].join('\n');
+
+  const scope = `${dateStamp}/auto/s3/aws4_request`;
+  const stringToSign = [
+    'AWS4-HMAC-SHA256',
+    amzDate,
+    scope,
+    createHash('sha256').update(canonicalRequest).digest('hex'),
+  ].join('\n');
+
+  const kDate = createHmac('sha256', `AWS4${config.secretAccessKey}`).update(dateStamp).digest();
+  const kRegion = createHmac('sha256', kDate).update('auto').digest();
+  const kService = createHmac('sha256', kRegion).update('s3').digest();
+  const kSigning = createHmac('sha256', kService).update('aws4_request').digest();
+  const signature = createHmac('sha256', kSigning).update(stringToSign).digest('hex');
+
+  return {
+    url: `https://${host}${canonicalUri}`,
+    headers: {
+      ...headers,
+      Authorization: `AWS4-HMAC-SHA256 Credential=${config.accessKeyId}/${scope}, SignedHeaders=${signedHeaders}, Signature=${signature}`,
+    },
+  };
+}
+
+export async function uploadToR2(
+  config: R2Config,
+  key: string,
+  body: ArrayBuffer,
+): Promise<void> {
+  const signed = signR2Request(config, key);
+  const response = await fetch(signed.url, {
+    method: 'PUT',
+    headers: signed.headers,
+    body,
+    signal: AbortSignal.timeout(30_000),
+  });
+
+  if (!response.ok) {
+    const errorBody = await response.text().catch(() => '');
+    throw new Error(`R2 Upload ${response.status} für ${key}: ${errorBody.slice(0, 200)}`);
+  }
+}
+
+async function fetchImage(originalUrl: string): Promise<ArrayBuffer> {
+  const response = await fetch(originalUrl, { signal: AbortSignal.timeout(30_000) });
+  if (!response.ok) throw new Error(`Bild-Download ${response.status} für ${originalUrl}`);
+  const buffer = await response.arrayBuffer();
+  if (buffer.byteLength > MAX_IMAGE_BYTES) {
+    throw new Error(
+      `Bild ${originalUrl} überschreitet ${(MAX_IMAGE_BYTES / 1024 / 1024).toFixed(0)} MB.`,
+    );
+  }
+  return buffer;
+}
+
+/**
+ * Spiegelt Cover- und Seitengrafiken eines Prospekts nach Cloudflare R2
+ * und ersetzt die URLs durch die neue R2 Public URL.
+ */
+export async function mirrorBrochureImagesToR2(
+  brochure: CrawlerBrochure,
+  config: R2Config,
+  uploadedUrlCache: Map<string, string>,
+): Promise<CrawlerBrochure> {
+  const updatedBrochure: CrawlerBrochure = {
+    ...brochure,
+    pages: [...(brochure.pages || [])],
+  };
+
+  const tasks: Array<{
+    originalUrl: string;
+    context: string;
+    apply: (r2Url: string) => void;
+  }> = [];
+
+  // 1. Cover Image
+  if (brochure.coverImage && !brochure.coverImage.startsWith(config.publicUrl)) {
+    tasks.push({
+      originalUrl: brochure.coverImage,
+      context: 'cover',
+      apply: (r2Url) => {
+        updatedBrochure.coverImage = r2Url;
+      },
+    });
+  }
+
+  // 2. Page Images
+  updatedBrochure.pages = (brochure.pages || []).map((page, index) => {
+    const updatedPage = { ...page };
+    if (page.imageUrl && !page.imageUrl.startsWith(config.publicUrl)) {
+      const pageNumStr = String(page.number ?? index + 1).padStart(3, '0');
+      tasks.push({
+        originalUrl: page.imageUrl,
+        context: `page-${pageNumStr}`,
+        apply: (r2Url) => {
+          updatedPage.imageUrl = r2Url;
+        },
+      });
+    }
+    return updatedPage;
+  });
+
+  // Bilder parallel mit Concurrency herunterladen und nach R2 hochladen
+  const CONCURRENCY = 6;
+  for (let i = 0; i < tasks.length; i += CONCURRENCY) {
+    const chunk = tasks.slice(i, i + CONCURRENCY);
+    await Promise.all(
+      chunk.map(async (task) => {
+        const cached = uploadedUrlCache.get(task.originalUrl);
+        if (cached) {
+          task.apply(cached);
+          return;
+        }
+
+        try {
+          const key = imageKeyFor(task.originalUrl, brochure.id, task.context);
+          const r2Url = `${config.publicUrl}/${key}`;
+
+          const imageBuffer = await fetchImage(task.originalUrl);
+          await uploadToR2(config, key, imageBuffer);
+
+          uploadedUrlCache.set(task.originalUrl, r2Url);
+          task.apply(r2Url);
+        } catch (err) {
+          console.warn(`⚠️ R2-Upload für ${task.originalUrl} fehlgeschlagen, behalte Original-URL:`, err);
+        }
+      }),
+    );
+  }
+
+  return updatedBrochure;
+}

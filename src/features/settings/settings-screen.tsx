@@ -7,7 +7,6 @@ import { Alert, Platform, Pressable, ScrollView, View } from 'react-native';
 import { HubScreen } from '@/components/layout/hub-screen';
 import { ThemedText } from '@/components/theme/themed-text';
 import { Button, MenuButton, ProfileButton } from '@/components/ui/buttons';
-import { useProfile } from '@/features/auth/api';
 import { useSession } from '@/features/auth/session-provider';
 import { signOutAndClearLocalData } from '@/features/auth/sign-out';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
@@ -18,6 +17,7 @@ import {
 } from '@/features/navigation/fab-position-settings';
 import { useNavigationChrome } from '@/features/navigation/navigation-chrome-provider';
 import { useProfileInitials } from '@/features/navigation/use-profile-initials';
+import { useProfile } from '@/features/profile/api';
 import { classifySupabaseTarget } from '@/features/settings/dev/dev-info';
 import { PremiumPromoCard } from '@/features/settings/premium-promo-card';
 import { SettingsGroup, SettingsRow } from '@/features/settings/settings-menu';

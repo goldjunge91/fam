@@ -165,8 +165,8 @@ Diese Dokumentation enthält eine lückenlose Erklärung aller 13 Dateien im Mod
 
 ```typescript
 1: import { createContext, type ReactNode, useContext, useState } from 'react';
-2: import { updateProfile } from '@/features/auth/api';
-3: import { persistOnboardingCompleted } from '@/features/auth/onboarding-session';
+2: import { updateProfile } from '@/features/profile/api';
+3: import { persistOnboardingCompleted } from '@/features/onboarding/onboarding-completion';
 4: import { useSession } from '@/features/auth/session-provider';
 5: import { getSupabase } from '@/lib/supabase';
 6: import type { ... } from '../types';
@@ -415,7 +415,7 @@ Diese Dokumentation enthält eine lückenlose Erklärung aller 13 Dateien im Mod
 ```typescript
 20: jest.mock('expo-router', () => ({ ... }));
 27: jest.mock('@/features/auth/api', () => ({ ... }));
-36: jest.mock('@/features/auth/onboarding-session', () => ({ ... }));
+36: jest.mock('@/features/onboarding/onboarding-completion', () => ({ ... }));
 44: jest.mock('@/lib/supabase', () => ({ ... }));
 ```
 - **Zeilen 20–55:** Mocks für Router, Auth-API, Session-Persistierung und Supabase Auth Callbacks.
@@ -559,12 +559,12 @@ Diese Dokumentation enthält eine lückenlose Erklärung aller 13 Dateien im Mod
 56:   if (pendingEmail) {
 57:     return (
 58:       <View style={styles.container}>
-59:         <PendingAuthBanner email={pendingEmail} password={authPassword} onConfirmed={onNext} onChangeEmail={() => setPendingEmail(null)} />
+59:         <EmailVerificationPanel email={pendingEmail} password={authPassword} onConfirmed={onNext} onChangeEmail={() => setPendingEmail(null)} />
 65:       </View>
 66:     );
 67:   }
 ```
-- **Zeilen 56–67:** Zeigt das `PendingAuthBanner` (Warteraum auf E-Mail-Bestätigung), solange der Account noch nicht per Link oder Code bestätigt wurde.
+- **Zeilen 56–67:** Zeigt das `EmailVerificationPanel` (Warteraum auf E-Mail-Bestätigung), solange der Account noch nicht per Link oder Code bestätigt wurde.
 
 ```typescript
 76:   {session ? (
@@ -612,9 +612,9 @@ Diese Dokumentation enthält eine lückenlose Erklärung aller 13 Dateien im Mod
 1: import { fireEvent, render, screen } from '@testing-library/react-native';
 2: import { AccountStepForm } from './account-step';
 ...
-13: jest.mock('@/features/auth/components/pending-auth-banner', () => ({ ... }));
+13: jest.mock('@/features/auth/components/email-verification-panel', () => ({ ... }));
 ```
-- **Zeilen 1–34:** Importe und Mocks für Auth API, PendingAuthBanner, SessionProvider und Theme.
+- **Zeilen 1–34:** Importe und Mocks für Auth API, EmailVerificationPanel, SessionProvider und Theme.
 
 ```typescript
 35: async function fillAndSubmit() {

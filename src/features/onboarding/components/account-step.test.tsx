@@ -10,13 +10,20 @@ jest.mock('expo-router', () => ({
 }));
 
 jest.mock('@/features/auth/api', () => ({
-  authErrorMessage: jest.fn((err) => err?.message || 'Fehler'),
   signIn: (...args: unknown[]) => mockSignIn(...args),
   signUp: (...args: unknown[]) => mockSignUp(...args),
 }));
 
-jest.mock('@/features/auth/components/pending-auth-banner', () => ({
-  PendingAuthBanner: ({ email }: { email: string }) => {
+jest.mock('@/features/auth/domain/auth-error-message', () => ({
+  authErrorMessage: jest.fn((error) => error?.message || 'Fehler'),
+}));
+
+jest.mock('@/features/auth/provider-auth', () => ({
+  signInWithOAuthProvider: jest.fn().mockResolvedValue({ error: null }),
+}));
+
+jest.mock('@/features/auth/components/email-verification-panel', () => ({
+  EmailVerificationPanel: ({ email }: { email: string }) => {
     const { Text } = require('react-native');
     return <Text>Warteraum: {email}</Text>;
   },

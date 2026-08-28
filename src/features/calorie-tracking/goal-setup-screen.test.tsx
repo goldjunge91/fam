@@ -35,7 +35,7 @@ jest.mock('@/features/auth/session-provider', () => ({
   useSession: () => ({ session: { user: { id: 'user-1' } } }),
 }));
 
-jest.mock('@/features/auth/api', () => ({
+jest.mock('@/features/profile/api', () => ({
   useProfile: () => ({ data: mockProfile }),
 }));
 

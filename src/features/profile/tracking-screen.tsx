@@ -7,7 +7,6 @@ import { TextField } from '@/components/forms/text-field';
 import { Screen } from '@/components/layout/screen';
 import { ThemedText } from '@/components/theme/themed-text';
 import { Button } from '@/components/ui/buttons';
-import { updateProfile, useProfile } from '@/features/auth/api';
 import { useSession } from '@/features/auth/session-provider';
 import {
   type TrackingMethod,
@@ -18,6 +17,7 @@ import {
 } from '@/features/calorie-tracking/api';
 import { calculateAgeYears, calculateBmr } from '@/features/calorie-tracking/bmr';
 import { type ActivityLevel, calculateTdee } from '@/features/calorie-tracking/tdee';
+import { updateProfile, useProfile } from '@/features/profile/api';
 import { SettingsGroup } from '@/features/settings/settings-menu';
 import { useTheme } from '@/hooks/use-theme';
 

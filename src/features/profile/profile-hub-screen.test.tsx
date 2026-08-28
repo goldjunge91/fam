@@ -1,9 +1,8 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { render, screen, userEvent } from '@testing-library/react-native';
 import { router } from 'expo-router';
-
-import { useProfile } from '@/features/auth/api';
 import { useSession } from '@/features/auth/session-provider';
+import { useProfile } from '@/features/profile/api';
 import { ProfileHubScreen } from '@/features/profile/profile-hub-screen';
 
 jest.mock('expo-router', () => ({
@@ -17,7 +16,7 @@ jest.mock('@/features/auth/session-provider', () => ({
   useSession: jest.fn(),
 }));
 
-jest.mock('@/features/auth/api', () => ({
+jest.mock('@/features/profile/api', () => ({
   useProfile: jest.fn(),
 }));
 

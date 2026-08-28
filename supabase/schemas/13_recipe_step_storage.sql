@@ -21,21 +21,27 @@
 -- nachgezogen werden. `supabase/tests/10_recipes.test.sql` prueft das
 -- Ergebnis und schlaegt an, wenn die Policies fehlen.
 --
--- Pfadkonvention: `<household_id>/<step_id>.<ext>` — analog `recipe-covers`,
--- `storage.foldername(name)[1]` traegt die Haushalts-Id fuer die RLS-Pruefung.
+-- Pfadkonvention: `<household_id>/<step_id>.<ext>` fuer Haushaltsbilder;
+-- Katalogbilder liegen im separaten `recipe-catalog`-Bucket.
 
 create policy recipe_step_images_select on storage.objects
   for select to authenticated
   using (
     bucket_id = 'recipe-step-images'
-    and (select private.is_household_member(((storage.foldername(name))[1])::uuid))
+    and (
+      (storage.foldername(name))[1] = 'catalog'
+      or (select private.is_household_member(((storage.foldername(name))[1])::uuid))
+    )
   );
 
 create policy recipe_step_images_insert on storage.objects
   for insert to authenticated
   with check (
     bucket_id = 'recipe-step-images'
-    and (select private.is_household_member(((storage.foldername(name))[1])::uuid))
+    and (
+      (storage.foldername(name))[1] = 'catalog'
+      or (select private.is_household_member(((storage.foldername(name))[1])::uuid))
+    )
   );
 
 create policy recipe_step_images_update on storage.objects
@@ -55,3 +61,7 @@ create policy recipe_step_images_delete on storage.objects
     bucket_id = 'recipe-step-images'
     and (select private.is_household_member(((storage.foldername(name))[1])::uuid))
   );
+
+create policy recipe_catalog_step_images_select on storage.objects
+  for select to authenticated
+  using (bucket_id = 'recipe-catalog');

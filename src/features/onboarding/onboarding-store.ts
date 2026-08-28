@@ -1,8 +1,9 @@
 import { useQueryClient } from '@tanstack/react-query';
 import { create } from 'zustand';
-import { markOnboardingCompleted, updateProfile } from '@/features/auth/api';
-import { persistOnboardingCompleted } from '@/features/auth/onboarding-session';
 import { useSession } from '@/features/auth/session-provider';
+import { markOnboardingCompleted } from '@/features/onboarding/api';
+import { persistOnboardingCompleted } from '@/features/onboarding/onboarding-completion';
+import { updateProfile } from '@/features/profile/api';
 import { saveModulePreferences } from '@/features/settings/module-preferences';
 import { trackAnalyticsEvent } from '@/lib/analytics';
 import { getSupabase } from '@/lib/supabase';

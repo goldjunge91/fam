@@ -8,10 +8,6 @@ export function setAuthDeepLinkError(error: string | null): void {
   for (const listener of listeners) listener(error);
 }
 
-export function getAuthDeepLinkError(): string | null {
-  return lastError;
-}
-
 /**
  * Ruft den Listener sofort mit dem aktuellen Wert auf, damit ein Fehler aus der
  * Kaltstartphase nicht verloren geht. Gibt die Abmeldefunktion zurueck.
