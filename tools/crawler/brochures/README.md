@@ -17,7 +17,7 @@ graph LR
 ```
 
 1. **Quellen-Abruf:** Der Crawler fragt alle Händler (Lidl, Kaufland, Rewe, Aldi Nord/Süd, Penny, Netto, Edeka, Rossmann, dm etc.) für die jeweiligen Postleitzahlen ab.
-2. **R2 Bild-Hosting:** Jedes Cover- und Seitenbild wird genau 1x heruntergeladen, deterministisch per SHA-256 Hash benannt und nach Cloudflare R2 übertragen (`0 € Traffic-Kosten`).
+2. **R2 Bild-Hosting:** Cover- und Seitenbilder erhalten deterministische SHA-256-Keys. Ein gemeinsamer Promise-Cache, ein Remote-`HEAD` und ein bedingtes `PUT` verhindern doppelte Uploads innerhalb und zwischen Zonen-Jobs.
 3. **Live-Streaming nach Supabase:** Während des Crawlens werden fertige PLZ-Dumps sofort in 10er-Batches nach Supabase gestreamt (keine Timeouts, keine Wartezeit am Ende).
 4. **App-Synchronisation:** Die mobile Fam-App synchronisiert die Daten aus Supabase in ihr lokales SQLite und lädt die Bilder direkt von der schnellen R2-Domain.
 
@@ -28,6 +28,8 @@ graph LR
 - **⚡ Echtes Live-Streaming:** Chunks werden während des Crawlens parallel in Supabase geschrieben. Bei vorzeitigem Abbruch sind alle bis dahin verarbeiteten PLZ bereits live.
 - **🖼️ Cloudflare R2 Bild-Hosting:** 
   - Deterministische Hash-Keys: `brochures/dumps/{brochureId}/{context}-{hash16}.jpg`
+  - `HEAD` vor dem Download und `If-None-Match: *` beim Upload
+  - Automatische 60-Tage-Lifecycle-Regel für `brochures/dumps/`
   - Zero-Dependencies AWS SigV4 Signierung mit nativem `node:crypto`.
   - Cache-Control: `public, max-age=604800, immutable`.
 - **🛡️ PostgreSQL Null-Byte Schutz:** Bereinigt alle Texte rekursiv von `\u0000`- und Steuerzeichen, um Postgres `22P05` Fehler zu verhindern.

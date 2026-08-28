@@ -189,7 +189,7 @@ export async function crawlAllLocations(
 ): Promise<{ dumps: LocationDump[]; uniqueBrochuresCount: number }> {
   const concurrency = options.concurrency ?? 12;
   const brochureCache = new Map<string, CrawlerBrochure>();
-  const r2UrlCache = new Map<string, string>();
+  const r2UrlCache = new Map<string, string | Promise<string>>();
   const dumps: LocationDump[] = [];
   const backupPath =
     options.backupPath === undefined

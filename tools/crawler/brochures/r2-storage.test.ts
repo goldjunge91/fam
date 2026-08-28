@@ -1,11 +1,15 @@
-import { describe, expect, it } from '@jest/globals';
+import { afterEach, describe, expect, it, jest } from '@jest/globals';
 import {
+  BROCHURE_RETENTION_DAYS,
+  ensureBrochureLifecycle,
   imageKeyFor,
   loadR2Config,
   mirrorBrochureImagesToR2,
+  r2ObjectExists,
   sanitizeKeyPart,
   signR2Request,
   type R2Config,
+  uploadToR2,
 } from './r2-storage';
 import type { CrawlerBrochure } from './types';
 
@@ -17,6 +21,10 @@ describe('Cloudflare R2 Storage & Hash-based Image Keys', () => {
     bucket: 'fam-brochures',
     publicUrl: 'https://pub-7c414d76492b43308e61c64079d2bbaa.r2.dev',
   };
+
+  afterEach(() => {
+    jest.restoreAllMocks();
+  });
 
   it('erzeugt deterministische SHA-256 Hash-Keys analog zu migrate-brochures-r2.ts', () => {
     const url1 = 'https://offerscdn.bringapi.app/offers/de/123/cover.jpg';
@@ -86,5 +94,115 @@ describe('Cloudflare R2 Storage & Hash-based Image Keys', () => {
 
   it('deaktiviert R2 vollständig für einen Dry-Run', () => {
     expect(loadR2Config({ disabled: true })).toBeNull();
+  });
+
+  it('erkennt über HEAD bereits vorhandene Objekte', async () => {
+    const fetchMock = jest.spyOn(global, 'fetch').mockResolvedValue(new Response(null));
+
+    await expect(r2ObjectExists(mockR2Config, 'brochures/dumps/existing.jpg')).resolves.toBe(true);
+    expect(fetchMock).toHaveBeenCalledTimes(1);
+    expect(fetchMock.mock.calls[0][1]?.method).toBe('HEAD');
+  });
+
+  it('lädt bereits vorhandene Bilder weder herunter noch erneut hoch', async () => {
+    const fetchMock = jest.spyOn(global, 'fetch').mockResolvedValue(new Response(null));
+    const brochure: CrawlerBrochure = {
+      id: 'existing-brochure',
+      storeId: 'store',
+      title: 'Prospekt',
+      validFrom: '2026-08-25T00:00:00Z',
+      validUntil: '2026-09-01T00:00:00Z',
+      coverImage: 'https://cdn.example.com/cover.jpg',
+      pages: [],
+    };
+
+    const result = await mirrorBrochureImagesToR2(brochure, mockR2Config, new Map());
+
+    expect(result.coverImage).toContain('/brochures/dumps/existing-brochure/cover-');
+    expect(fetchMock).toHaveBeenCalledTimes(1);
+    expect(fetchMock.mock.calls[0][1]?.method).toBe('HEAD');
+  });
+
+  it('dedupliziert parallele Uploads über einen gemeinsamen Promise-Cache', async () => {
+    const fetchMock = jest.spyOn(global, 'fetch').mockImplementation(async (_input, init) => {
+      if (init?.method === 'HEAD') return new Response(null, { status: 404 });
+      if (init?.method === 'PUT') return new Response(null);
+      return new Response(new Uint8Array([1, 2, 3]));
+    });
+    const cache = new Map<string, string | Promise<string>>();
+    const brochure: CrawlerBrochure = {
+      id: 'shared-brochure',
+      storeId: 'store',
+      title: 'Prospekt',
+      validFrom: '2026-08-25T00:00:00Z',
+      validUntil: '2026-09-01T00:00:00Z',
+      coverImage: 'https://cdn.example.com/shared.jpg',
+      pages: [],
+    };
+
+    const [first, second] = await Promise.all([
+      mirrorBrochureImagesToR2(brochure, mockR2Config, cache),
+      mirrorBrochureImagesToR2(brochure, mockR2Config, cache),
+    ]);
+
+    expect(first.coverImage).toBe(second.coverImage);
+    expect(fetchMock.mock.calls.filter(([, init]) => init?.method === 'HEAD')).toHaveLength(1);
+    expect(fetchMock.mock.calls.filter(([, init]) => init?.method === 'PUT')).toHaveLength(1);
+    expect(fetchMock).toHaveBeenCalledTimes(3);
+  });
+
+  it('verhindert mit If-None-Match konkurrierende Überschreibungen', async () => {
+    const fetchMock = jest
+      .spyOn(global, 'fetch')
+      .mockResolvedValue(new Response(null, { status: 412 }));
+
+    await expect(
+      uploadToR2(mockR2Config, 'brochures/dumps/race.jpg', new ArrayBuffer(1)),
+    ).resolves.toBe('already-existed');
+    expect(fetchMock.mock.calls[0][1]?.headers).toEqual(
+      expect.objectContaining({ 'if-none-match': '*' }),
+    );
+  });
+
+  it('erstellt eine 60-Tage-Lifecycle-Regel für Prospekt-Dumps', async () => {
+    const fetchMock = jest
+      .spyOn(global, 'fetch')
+      .mockResolvedValueOnce(new Response(null, { status: 404 }))
+      .mockResolvedValueOnce(new Response(null));
+
+    await expect(ensureBrochureLifecycle(mockR2Config)).resolves.toBe('updated');
+
+    const lifecycleBody = fetchMock.mock.calls[1][1]?.body;
+    expect(lifecycleBody).toEqual(expect.stringContaining('<Prefix>brochures/dumps/</Prefix>'));
+    expect(lifecycleBody).toEqual(
+      expect.stringContaining(`<Days>${BROCHURE_RETENTION_DAYS}</Days>`),
+    );
+  });
+
+  it('bewahrt bestehende Lifecycle-Regeln und vermeidet unveränderte PUTs', async () => {
+    const existingXml = `<?xml version="1.0"?><LifecycleConfiguration><Rule><ID>other-rule</ID><Status>Enabled</Status><Expiration><Days>7</Days></Expiration></Rule><Rule><ID>fam-brochure-dumps-retention</ID><Filter><Prefix>brochures/dumps/</Prefix></Filter><Status>Enabled</Status><Expiration><Days>60</Days></Expiration></Rule></LifecycleConfiguration>`;
+    const fetchMock = jest
+      .spyOn(global, 'fetch')
+      .mockResolvedValue(new Response(existingXml));
+
+    await expect(ensureBrochureLifecycle(mockR2Config)).resolves.toBe('unchanged');
+    expect(fetchMock).toHaveBeenCalledTimes(1);
+    expect(fetchMock.mock.calls[0][1]?.method).toBe('GET');
+  });
+
+  it('ergänzt die Prospekt-Regel ohne andere Lifecycle-Regeln zu entfernen', async () => {
+    const existingXml = `<?xml version="1.0"?><LifecycleConfiguration><Rule><ID>other-rule</ID><Status>Enabled</Status><Expiration><Days>7</Days></Expiration></Rule></LifecycleConfiguration>`;
+    const fetchMock = jest
+      .spyOn(global, 'fetch')
+      .mockResolvedValueOnce(new Response(existingXml))
+      .mockResolvedValueOnce(new Response(null));
+
+    await expect(ensureBrochureLifecycle(mockR2Config)).resolves.toBe('updated');
+
+    const lifecycleBody = fetchMock.mock.calls[1][1]?.body;
+    expect(lifecycleBody).toEqual(expect.stringContaining('<ID>other-rule</ID>'));
+    expect(lifecycleBody).toEqual(
+      expect.stringContaining('<ID>fam-brochure-dumps-retention</ID>'),
+    );
   });
 });

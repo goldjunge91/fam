@@ -3,7 +3,7 @@ import { join } from 'node:path';
 import { assertCrawlerEnvironment } from './config';
 import { crawlAllLocations } from './engine';
 import { type LocationFilterOptions, loadTargetLocations } from './locations';
-import { loadR2Config } from './r2-storage';
+import { BROCHURE_RETENTION_DAYS, ensureBrochureLifecycle, loadR2Config } from './r2-storage';
 import { getSourcesByName } from './sources';
 import type { LocationDump } from './types';
 import {
@@ -209,6 +209,13 @@ async function main() {
     process.env.BRING_AUTH_TOKEN && process.env.BRING_API_KEY && process.env.BRING_USER_UUID,
   );
   const r2Config = loadR2Config({ disabled: dryRun });
+
+  if (r2Config) {
+    const lifecycleStatus = await ensureBrochureLifecycle(r2Config);
+    console.log(
+      `♻️ R2-Lifecycle: ${BROCHURE_RETENTION_DAYS} Tage (${lifecycleStatus === 'updated' ? 'aktualisiert' : 'bereits aktiv'})`,
+    );
+  }
 
   console.log(`📌 Filter: ${JSON.stringify(filterOptions)}`);
   console.log(`📍 Ziel-Standorte: ${locations.length} PLZ`);
