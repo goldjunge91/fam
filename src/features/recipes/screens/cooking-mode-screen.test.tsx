@@ -131,6 +131,16 @@ function makeDetail(): RecipeDetail {
   };
 }
 
+function makeTimerDetail(): RecipeDetail {
+  const detail = makeDetail();
+  detail.steps[0] = {
+    ...detail.steps[0],
+    text: 'Wasser aufsetzen, 1 Minute',
+    timer_minutes: 2,
+  };
+  return detail;
+}
+
 beforeEach(() => {
   mockDetail = null;
   mockLoading = false;
@@ -170,5 +180,15 @@ describe('CookingModeScreen', () => {
 
     expect(screen.queryByRole('button', { name: /nächster schritt/i })).not.toBeOnTheScreen();
     expect(screen.queryByRole('button', { name: /timer/i })).not.toBeOnTheScreen();
+  });
+
+  it('zeigt im Premium-Kochmodus die explizite Timer-Dauer vor dem Text-Fallback', async () => {
+    mockDetail = makeTimerDetail();
+    mockIsPremium = true;
+    await renderScreen();
+
+    expect(screen.getByText('02:00')).toBeOnTheScreen();
+    expect(screen.getByText('Pausiert')).toBeOnTheScreen();
+    expect(screen.getByRole('button', { name: 'Timer fortsetzen' })).toBeOnTheScreen();
   });
 });
