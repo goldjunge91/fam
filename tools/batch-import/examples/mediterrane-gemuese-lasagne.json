@@ -1,0 +1,144 @@
+{
+  "schemaVersion": 1,
+  "recipes": [
+    {
+      "externalId": "fam-example-mediterrane-lasagne-001",
+      "slug": "mediterrane-gemuese-lasagne-beispiel",
+      "title": "Mediterrane Gemüse-Lasagne",
+      "instructions": "Eine aromatische Gemüse-Lasagne mit geröstetem Gemüse, würziger Tomatensauce und goldbrauner Käsekruste.",
+      "cookTimeMinutes": 95,
+      "difficulty": "medium",
+      "dishTypes": ["dinner"],
+      "dietaryTags": ["vegetarian"],
+      "hashtags": ["familienessen", "gemuese", "ofengericht"],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 20,
+      "cover": "tools/batch-import/example-assets/mediterranean-vegetable-lasagna/cover.jpg",
+      "components": [
+        {
+          "key": "tomatensauce",
+          "name": "Tomatensauce",
+          "position": 0,
+          "items": [
+            { "key": "olive-oil", "ingredientName": "Olivenöl", "grams": 30, "quantity": 2, "unit": "g", "position": 0 },
+            { "key": "onion", "ingredientName": "Zwiebel", "grams": 120, "quantity": 1, "unit": "piece", "position": 1 },
+            { "key": "garlic", "ingredientName": "Knoblauch", "grams": 12, "quantity": 3, "unit": "piece", "position": 2 },
+            { "key": "tomatoes", "ingredientName": "Geschälte Tomaten", "grams": 800, "quantity": 2, "unit": "package", "position": 3 },
+            { "key": "basil", "ingredientName": "Basilikum", "grams": 10, "quantity": 1, "unit": "package", "position": 4 },
+            { "key": "sauce-salt", "ingredientName": "Salz", "grams": 6, "quantity": 6, "unit": "g", "position": 5 }
+          ]
+        },
+        {
+          "key": "roasted-vegetables",
+          "name": "Geröstetes Gemüse",
+          "position": 1,
+          "items": [
+            { "key": "zucchini", "ingredientName": "Zucchini", "grams": 400, "quantity": 2, "unit": "piece", "position": 0 },
+            { "key": "eggplant", "ingredientName": "Aubergine", "grams": 350, "quantity": 1, "unit": "piece", "position": 1 },
+            { "key": "spinach", "ingredientName": "Babyspinat", "grams": 200, "quantity": 1, "unit": "package", "position": 2 },
+            { "key": "vegetable-oil", "ingredientName": "Olivenöl zum Rösten", "grams": 20, "quantity": 20, "unit": "g", "position": 3 },
+            { "key": "pepper", "ingredientName": "Schwarzer Pfeffer", "grams": 2, "quantity": 2, "unit": "g", "position": 4 }
+          ]
+        },
+        {
+          "key": "pasta-topping",
+          "name": "Pasta & Käse",
+          "position": 2,
+          "items": [
+            { "key": "lasagna-sheets", "ingredientName": "Lasagneplatten", "grams": 250, "quantity": 1, "unit": "package", "position": 0 },
+            { "key": "ricotta", "ingredientName": "Ricotta", "grams": 250, "quantity": 1, "unit": "package", "position": 1 },
+            { "key": "mozzarella", "ingredientName": "Mozzarella, gerieben", "grams": 200, "quantity": 2, "unit": "package", "position": 2 },
+            { "key": "parmesan", "ingredientName": "Parmesan", "grams": 60, "quantity": 60, "unit": "g", "position": 3 }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Backofen auf 220 °C Ober-/Unterhitze vorheizen. Zwei Bleche mit Backpapier auslegen.",
+          "timerMinutes": 10,
+          "ingredientKeys": [],
+          "images": ["tools/batch-import/example-assets/mediterranean-vegetable-lasagna/step-01.jpg"]
+        },
+        {
+          "position": 1,
+          "text": "Zucchini und Aubergine waschen, längs halbieren und in gleichmäßige Scheiben schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": ["zucchini", "eggplant"],
+          "images": ["tools/batch-import/example-assets/mediterranean-vegetable-lasagna/step-02.jpg"]
+        },
+        {
+          "position": 2,
+          "text": "Das Gemüse mit Olivenöl und Pfeffer vermengen und auf den Blechen verteilen.",
+          "timerMinutes": null,
+          "ingredientKeys": ["vegetable-oil", "pepper"],
+          "images": ["tools/batch-import/example-assets/mediterranean-vegetable-lasagna/step-03.jpg"]
+        },
+        {
+          "position": 3,
+          "text": "Zucchini und Aubergine im heißen Ofen rösten, bis die Ränder gebräunt und die Scheiben weich sind.",
+          "timerMinutes": 20,
+          "ingredientKeys": ["zucchini", "eggplant"],
+          "images": ["tools/batch-import/example-assets/mediterranean-vegetable-lasagna/step-04.jpg"]
+        },
+        {
+          "position": 4,
+          "text": "Währenddessen Zwiebel und Knoblauch fein würfeln und das Basilikum grob zupfen.",
+          "timerMinutes": null,
+          "ingredientKeys": ["onion", "garlic", "basil"],
+          "images": ["tools/batch-import/example-assets/mediterranean-vegetable-lasagna/step-05.jpg"]
+        },
+        {
+          "position": 5,
+          "text": "Olivenöl in einem Topf erhitzen, Zwiebel und Knoblauch darin glasig anschwitzen.",
+          "timerMinutes": 5,
+          "ingredientKeys": ["olive-oil", "onion", "garlic"],
+          "images": ["tools/batch-import/example-assets/mediterranean-vegetable-lasagna/step-06.jpg"]
+        },
+        {
+          "position": 6,
+          "text": "Tomaten, Salz und die Hälfte des Basilikums dazugeben und die Sauce offen einkochen lassen.",
+          "timerMinutes": 20,
+          "ingredientKeys": ["tomatoes", "sauce-salt", "basil"],
+          "images": ["tools/batch-import/example-assets/mediterranean-vegetable-lasagna/step-07.jpg"]
+        },
+        {
+          "position": 7,
+          "text": "Lasagneplatten nach Packungsangabe in Salzwasser vorkochen und anschließend getrennt auf einem Tuch ablegen.",
+          "timerMinutes": 8,
+          "ingredientKeys": ["lasagna-sheets"],
+          "images": ["tools/batch-import/example-assets/mediterranean-vegetable-lasagna/step-08.jpg"]
+        },
+        {
+          "position": 8,
+          "text": "Eine dünne Schicht Tomatensauce in der Form verteilen und mit Lasagneplatten bedecken.",
+          "timerMinutes": null,
+          "ingredientKeys": ["lasagna-sheets", "tomatoes"],
+          "images": ["tools/batch-import/example-assets/mediterranean-vegetable-lasagna/step-09.jpg"]
+        },
+        {
+          "position": 9,
+          "text": "Geröstetes Gemüse, Spinat und Ricotta darauf verteilen. Die Schichten wiederholen, bis alles aufgebraucht ist.",
+          "timerMinutes": null,
+          "ingredientKeys": ["zucchini", "eggplant", "spinach", "ricotta"],
+          "images": ["tools/batch-import/example-assets/mediterranean-vegetable-lasagna/step-10.jpg"]
+        },
+        {
+          "position": 10,
+          "text": "Mit der restlichen Sauce abschließen und Mozzarella sowie Parmesan gleichmäßig darüberstreuen.",
+          "timerMinutes": null,
+          "ingredientKeys": ["mozzarella", "parmesan"],
+          "images": ["tools/batch-import/example-assets/mediterranean-vegetable-lasagna/step-11.jpg"]
+        },
+        {
+          "position": 11,
+          "text": "Die Lasagne goldbraun backen, anschließend kurz ruhen lassen und mit Basilikum garnieren.",
+          "timerMinutes": 30,
+          "ingredientKeys": ["basil"],
+          "images": ["tools/batch-import/example-assets/mediterranean-vegetable-lasagna/step-12.jpg"]
+        }
+      ]
+    }
+  ]
+}

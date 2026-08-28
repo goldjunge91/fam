@@ -1,15 +1,29 @@
 import { router } from 'expo-router';
 import { useMemo, useState } from 'react';
-import { ActivityIndicator, Pressable, ScrollView, TextInput, View } from 'react-native';
+import {
+  ActivityIndicator,
+  Pressable,
+  ScrollView,
+  TextInput,
+  useWindowDimensions,
+  View,
+} from 'react-native';
 import { FilterIcon, SearchIcon } from '@/components/icons/fam-icon';
 import { HubScreen } from '@/components/layout/hub-screen';
 import { SectionHeading } from '@/components/layout/section-heading';
 import { ThemedText } from '@/components/theme/themed-text';
-import { BackButton, Button, HeaderIconButton, MenuButton } from '@/components/ui/buttons';
+import { BackButton, HeaderIconButton, MenuButton } from '@/components/ui/buttons';
 import { IconSize } from '@/constants/layout';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { useNavigationChrome } from '@/features/navigation/navigation-chrome-provider';
+import {
+  type CatalogRecipe,
+  useCatalogRecipes,
+} from '@/features/recipes/catalog/use-recipe-catalog';
+import { CALORIE_BUCKETS, isInCalorieBucket } from '@/features/recipes/recipe-calorie-buckets';
 import { useTheme } from '@/hooks/use-theme';
+import { CalorieCarousel } from './components/calorie-carousel';
+import { CATEGORY_TILES, CategoryCarousel } from './components/category-carousel';
 import {
   EMPTY_RECIPE_FILTERS,
   RecipeFilterModal,
@@ -17,7 +31,6 @@ import {
   recipeFilterCount,
 } from './components/recipe-filter-modal';
 import { RecipePreviewCard } from './components/recipe-preview-card';
-import { CALORIE_BUCKETS, isInCalorieBucket } from './recipe-calorie-buckets';
 import { type RecipeFavoriteKey, useRecipeFavorites } from './recipe-favorites';
 import { type DishType, type RecipeListItem, useRecipes } from './use-recipes';
 import { DIFFICULTY_LABELS } from './wizard/recipe-metadata-options';
@@ -30,12 +43,13 @@ const MEAL_SECTIONS: { key: string; title: string; dishTypes: DishType[] }[] = [
   { key: 'snackDessert', title: 'Snacks & Dessert', dishTypes: ['snack', 'dessert'] },
 ];
 
-type RecipeView = 'discover' | 'favorites' | 'filtered' | 'household';
+type RecipeView = 'discover' | 'favorites' | 'filtered' | 'household' | 'templates';
 
 type RecipeEntry = {
   key: string;
   id: string;
-  kind: 'recipe';
+  kind: 'recipe' | 'catalog';
+  slug?: string;
   title: string;
   coverImagePath: string | null;
   cookTimeMinutes: number | null;
@@ -65,6 +79,26 @@ function recipeEntry(recipe: RecipeListItem): RecipeEntry {
     kcalPerServing: recipe.kcalPerServing ?? null,
     proteinGPerServing: recipe.proteinGPerServing ?? null,
     carbsGPerServing: recipe.carbsGPerServing ?? null,
+  };
+}
+
+function templateEntry(template: CatalogRecipe): RecipeEntry {
+  return {
+    key: `template-${template.id}`,
+    id: template.id,
+    kind: 'catalog',
+    slug: template.slug,
+    title: template.title,
+    coverImagePath: template.cover_image_path,
+    cookTimeMinutes: template.cook_time_minutes,
+    difficultyLabel: template.difficulty ? DIFFICULTY_LABELS[template.difficulty] : null,
+    servings: template.default_servings,
+    dishTypes: template.dish_types as DishType[],
+    dietaryTags: template.dietary_tags,
+    hashtags: [],
+    kcalPerServing: null,
+    proteinGPerServing: null,
+    carbsGPerServing: null,
   };
 }
 
@@ -124,6 +158,10 @@ function matchesFilters(entry: RecipeEntry, filters: RecipeFilters) {
 }
 
 function openEntry(entry: RecipeEntry) {
+  if (entry.kind === 'catalog' && entry.slug) {
+    router.push({ pathname: '/recipe/catalog/[slug]', params: { slug: entry.slug } });
+    return;
+  }
   router.push({ pathname: '/recipe/[id]', params: { id: entry.id } });
 }
 
@@ -139,6 +177,7 @@ function RecipeList({ entries }: { entries: RecipeEntry[] }) {
           key={entry.key}
           title={entry.title}
           coverImagePath={entry.coverImagePath}
+          coverSource={entry.kind === 'catalog' ? 'catalog' : 'household'}
           cookTimeMinutes={entry.cookTimeMinutes}
           difficultyLabel={entry.difficultyLabel}
           servings={entry.servings}
@@ -150,19 +189,46 @@ function RecipeList({ entries }: { entries: RecipeEntry[] }) {
   );
 }
 
+/** Horizontal scrollende Foto-Karten fuer eine Mahlzeitenkategorie. */
+function MealSection({ title, entries }: { title: string; entries: RecipeEntry[] }) {
+  const { width: windowWidth } = useWindowDimensions();
+  const contentWidth = Math.min(windowWidth, 800) - 30;
+  const cardWidth = Math.max(260, contentWidth - 12);
+
+  return (
+    <View className="mb-five">
+      <SectionHeading title={title} />
+      <ScrollView
+        horizontal
+        role="list"
+        aria-label={`${title} Rezepte`}
+        showsHorizontalScrollIndicator={false}
+        contentContainerClassName="gap-[10px] px-[6px]">
+        {entries.map((entry, index) => (
+          <View key={entry.key} style={{ width: cardWidth }}>
+            <RecipePreviewCard
+              title={entry.title}
+              coverImagePath={entry.coverImagePath}
+              coverSource={entry.kind === 'catalog' ? 'catalog' : 'household'}
+              cookTimeMinutes={entry.cookTimeMinutes}
+              difficultyLabel={entry.difficultyLabel}
+              servings={entry.servings}
+              paletteIndex={index + entry.title.length}
+              onPress={() => openEntry(entry)}
+            />
+          </View>
+        ))}
+      </ScrollView>
+    </View>
+  );
+}
+
 function EmptyPanel({ children }: { children: string }) {
   return (
     <View className="min-h-[124px] rounded-sheet items-center justify-center px-seven py-[22px] bg-background-element/80">
       <ThemedText type="body" className="font-bold text-center">
         {children}
       </ThemedText>
-      <ThemedText
-        type="caption"
-        themeColor="textSecondary"
-        className="text-center mt-[5px] font-medium">
-        Über den Plus-Button kannst du jederzeit ein neues Rezept anlegen.
-      </ThemedText>
-      <Button label="Rezept hinzufügen" onPress={() => {}} />
     </View>
   );
 }
@@ -175,11 +241,14 @@ export function RecipesScreen() {
   const [showSearch, setShowSearch] = useState(false);
   const [showFilters, setShowFilters] = useState(false);
   const [filters, setFilters] = useState<RecipeFilters>(EMPTY_RECIPE_FILTERS);
+  const [templateCategoryFilter, setTemplateCategoryFilter] = useState<string | null>(null);
+  const [templateCalorieFilter, setTemplateCalorieFilter] = useState<number | null>(null);
 
   const { activeHouseholdId } = useActiveHousehold();
   const { data: recipes = [], isLoading: recipesLoading } = useRecipes(
     activeHouseholdId ?? undefined,
   );
+  const { data: templates = [], isLoading: templatesLoading } = useCatalogRecipes();
   const { favorites } = useRecipeFavorites();
 
   const query = searchQuery.trim().toLocaleLowerCase('de');
@@ -192,18 +261,72 @@ export function RecipesScreen() {
     [recipes, query],
   );
 
-  const allEntries = householdEntries;
+  const searchedTemplates = useMemo(
+    () => templates.filter((t) => !query || t.title.toLocaleLowerCase('de').includes(query)),
+    [templates, query],
+  );
+  const templateEntries = useMemo(() => searchedTemplates.map(templateEntry), [searchedTemplates]);
+
+  const filteredTemplateEntries = useMemo(() => {
+    if (!templateCategoryFilter && templateCalorieFilter === null) return templateEntries;
+    const tile = templateCategoryFilter
+      ? CATEGORY_TILES.find((t) => t.key === templateCategoryFilter)
+      : null;
+    const bucket = templateCalorieFilter !== null ? CALORIE_BUCKETS[templateCalorieFilter] : null;
+    return searchedTemplates
+      .filter(
+        (t) =>
+          !tile ||
+          tile.matches({
+            ...t,
+            kcalPerServing: null,
+            proteinGPerServing: null,
+            carbsGPerServing: null,
+          }),
+      )
+      .filter(() => !bucket)
+      .map(templateEntry);
+  }, [searchedTemplates, templateEntries, templateCategoryFilter, templateCalorieFilter]);
+
+  const mealSections = useMemo(
+    () =>
+      MEAL_SECTIONS.map((section) => ({
+        ...section,
+        entries: searchedTemplates
+          .filter((t) => section.dishTypes.some((type) => t.dish_types.includes(type)))
+          .map(templateEntry),
+      })).filter((section) => section.entries.length > 0),
+    [searchedTemplates],
+  );
+
+  const allEntries = [...householdEntries, ...templateEntries];
   const availableTags = [...new Set(recipes.flatMap((recipe) => recipe.hashtags))].sort((a, b) =>
     a.localeCompare(b, 'de'),
   );
   const filterEntries = (nextFilters: RecipeFilters) =>
     allEntries.filter((entry) => matchesFilters(entry, nextFilters));
   const filteredEntries = filterEntries(filters);
-  const favoriteEntries = householdEntries.filter((entry) => favorites.has(favoriteKey(entry)));
+  const favoriteEntries = [...householdEntries, ...templateEntries].filter((entry) =>
+    favorites.has(favoriteKey(entry)),
+  );
   const activeFilterCount = recipeFilterCount(filters);
-  const isLoading = recipesLoading;
+  const isLoading = recipesLoading || templatesLoading;
+
+  function selectCategoryTile(key: string | null) {
+    setTemplateCategoryFilter(key);
+    setTemplateCalorieFilter(null);
+    if (key) setView('templates');
+  }
+
+  function selectCalorieTile(index: number | null) {
+    setTemplateCalorieFilter(index);
+    setTemplateCategoryFilter(null);
+    if (index !== null) setView('templates');
+  }
 
   function goBackToDiscover() {
+    setTemplateCategoryFilter(null);
+    setTemplateCalorieFilter(null);
     setFilters(EMPTY_RECIPE_FILTERS);
     setView('discover');
   }
@@ -214,6 +337,11 @@ export function RecipesScreen() {
     setView(recipeFilterCount(nextFilters) > 0 ? 'filtered' : 'discover');
   }
 
+  const activeCategoryTile = templateCategoryFilter
+    ? CATEGORY_TILES.find((t) => t.key === templateCategoryFilter)
+    : null;
+  const activeCalorieBucket =
+    templateCalorieFilter !== null ? CALORIE_BUCKETS[templateCalorieFilter] : null;
   const screenTitle =
     view === 'favorites'
       ? 'Meine Favoriten'
@@ -221,7 +349,9 @@ export function RecipesScreen() {
         ? 'Gefilterte Rezepte'
         : view === 'household'
           ? 'Eigene Rezepte'
-          : 'Rezepte';
+          : view === 'templates'
+            ? (activeCategoryTile?.label ?? activeCalorieBucket?.label ?? 'Vorlagen')
+            : 'Rezepte';
 
   return (
     <HubScreen
@@ -289,10 +419,6 @@ export function RecipesScreen() {
               className="flex-1 h-full text-[14px] font-medium py-0 text-text"
             />
           </View>
-        ) : null}
-
-        {view === 'discover' ? (
-          <Button label="Rezeptkatalog öffnen" onPress={() => router.push('/recipe/catalog')} />
         ) : null}
 
         {/* Tab-Leiste (Entdecken vs. Eigene Rezepte vs. Meine Favoriten) */}
@@ -368,22 +494,46 @@ export function RecipesScreen() {
           ) : (
             <EmptyPanel>Noch keine eigenen Rezepte.</EmptyPanel>
           )
-        ) : householdEntries.length > 0 ? (
-          /* Standard Entdecken-Ansicht mit eigenen Haushaltsrezepten */
-          <View className="mb-five">
-            <SectionHeading
-              title="Unsere Rezepte"
-              actionLabel="Alle ansehen"
-              onActionPress={() => setView('household')}
-            />
-            {householdEntries.length > 0 ? (
-              <RecipeList entries={householdEntries.slice(0, 4)} />
-            ) : (
-              <EmptyPanel>Noch keine Rezepte im Haushalt.</EmptyPanel>
-            )}
-          </View>
+        ) : view === 'templates' ? (
+          /* Gefilterte Rezeptvorlagen */
+          filteredTemplateEntries.length > 0 ? (
+            <RecipeList entries={filteredTemplateEntries} />
+          ) : (
+            <EmptyPanel>Keine Vorlagen für diesen Filter.</EmptyPanel>
+          )
+        ) : householdEntries.length > 0 || templates.length > 0 ? (
+          /* Standard Entdecken-Ansicht mit Karussells und Mahlzeitenbereichen */
+          <>
+            {/* Karussell: Themenkategorien (z. B. Vegan, Schnell, High-Protein) */}
+            <View className="mb-five">
+              <SectionHeading title="Kategorien" />
+              <CategoryCarousel
+                selectedKey={templateCategoryFilter}
+                onSelect={selectCategoryTile}
+              />
+            </View>
+
+            {/* Karussell: Kalorien-Buckets (<400 kcal, 400-600 kcal, etc.) */}
+            <View className="mb-five">
+              <SectionHeading title="Rezepte nach Kalorien" />
+              <CalorieCarousel selectedIndex={templateCalorieFilter} onSelect={selectCalorieTile} />
+            </View>
+
+            {mealSections.length > 0 ? (
+              <View className="mb-five">
+                <SectionHeading
+                  title="Nach Mahlzeiten"
+                  titleClassName="text-heading-sm leading-[26px]"
+                />
+                {mealSections.map((section) => (
+                  <MealSection key={section.key} title={section.title} entries={section.entries} />
+                ))}
+              </View>
+            ) : null}
+
+          </>
         ) : (
-          /* Leerzustand wenn keine eigenen Rezepte vorhanden sind */
+          /* Leerzustand wenn keine Rezepte/Vorlagen vorhanden sind */
           <EmptyPanel>Noch keine Rezepte im Haushalt.</EmptyPanel>
         )}
       </ScrollView>

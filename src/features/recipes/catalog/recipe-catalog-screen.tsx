@@ -4,6 +4,7 @@ import { HubScreen } from '@/components/layout/hub-screen';
 import { SectionHeading } from '@/components/layout/section-heading';
 import { ThemedText } from '@/components/theme/themed-text';
 import { RecipePreviewCard } from '../components/recipe-preview-card';
+import { getCatalogCoverPath } from './recipe-catalog-image';
 import { useCatalogRecipes } from './use-recipe-catalog';
 
 export function RecipeCatalogScreen() {
@@ -31,7 +32,8 @@ export function RecipeCatalogScreen() {
               <RecipePreviewCard
                 key={recipe.id}
                 title={recipe.title}
-                coverImagePath={null}
+                coverImagePath={getCatalogCoverPath(recipe)}
+                coverSource="catalog"
                 cookTimeMinutes={recipe.cook_time_minutes}
                 difficultyLabel={recipe.difficulty}
                 servings={recipe.default_servings}

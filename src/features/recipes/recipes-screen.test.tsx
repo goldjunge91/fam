@@ -20,6 +20,10 @@ jest.mock('./use-recipes', () => ({
   useRecipes: () => ({ data: mockRecipes, isLoading: false }),
 }));
 
+jest.mock('./catalog/use-recipe-catalog', () => ({
+  useCatalogRecipes: () => ({ data: [], isLoading: false }),
+}));
+
 jest.mock('./recipe-image-uploader', () => ({
   useRecipeCoverUrl: () => ({ data: null }),
 }));

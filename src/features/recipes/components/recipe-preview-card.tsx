@@ -4,11 +4,13 @@ import { Pressable, View } from 'react-native';
 import Svg, { Circle, Defs, LinearGradient, Rect, Stop } from 'react-native-svg';
 
 import { ThemedText } from '@/components/theme/themed-text';
+import { useCatalogImageUrl } from '../catalog/use-recipe-catalog';
 import { useRecipeCoverUrl } from '../recipe-image-uploader';
 
 type RecipePreview = {
   title: string;
   coverImagePath?: string | null;
+  coverSource?: 'household' | 'catalog';
   cookTimeMinutes?: number | null;
   difficultyLabel?: string | null;
   servings?: number | null;
@@ -136,13 +138,16 @@ function formatMeta({
 export function RecipePreviewCard({
   title,
   coverImagePath,
+  coverSource = 'household',
   cookTimeMinutes,
   difficultyLabel,
   servings,
   onPress,
   paletteIndex,
 }: RecipePreviewCardProps) {
-  const { data: coverUrl } = useRecipeCoverUrl(coverImagePath);
+  const householdCover = useRecipeCoverUrl(coverSource === 'household' ? coverImagePath : null);
+  const catalogCover = useCatalogImageUrl(coverSource === 'catalog' ? coverImagePath : null);
+  const coverUrl = coverSource === 'catalog' ? catalogCover.data : householdCover.data;
   const meta = formatMeta({ cookTimeMinutes, difficultyLabel, servings });
 
   return (
@@ -179,6 +184,7 @@ type RecipeHeroCardProps = RecipePreviewCardProps & {
 export function RecipeHeroCard({
   title,
   coverImagePath,
+  coverSource = 'household',
   cookTimeMinutes,
   difficultyLabel,
   servings,
@@ -186,7 +192,9 @@ export function RecipeHeroCard({
   paletteIndex,
   eyebrow = 'Community',
 }: RecipeHeroCardProps) {
-  const { data: coverUrl } = useRecipeCoverUrl(coverImagePath);
+  const householdCover = useRecipeCoverUrl(coverSource === 'household' ? coverImagePath : null);
+  const catalogCover = useCatalogImageUrl(coverSource === 'catalog' ? coverImagePath : null);
+  const coverUrl = coverSource === 'catalog' ? catalogCover.data : householdCover.data;
   const meta = formatMeta({ cookTimeMinutes, difficultyLabel, servings });
 
   return (

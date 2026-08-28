@@ -816,11 +816,11 @@
 
   /* Recipes (Phase B, src/features/recipes) */
   .calorie-carousel-content {
-    @apply flex-col flex-wrap content-start h-[156px] gap-two;
+    @apply flex-col flex-wrap content-start h-[176px] gap-two;
   }
 
   .calorie-tile {
-    @apply w-[92px] h-[74px] rounded-card border items-center justify-center mr-two active:opacity-80;
+    @apply w-[108px] h-[84px] rounded-card border items-center justify-center mr-two active:opacity-80;
   }
 
   .category-carousel-content {
@@ -828,7 +828,7 @@
   }
 
   .category-tile {
-    @apply w-[78px] min-h-[68px] rounded-card border items-center justify-center gap-1 px-[6px] py-two active:opacity-80;
+    @apply w-[92px] min-h-[78px] rounded-card border items-center justify-center gap-1 px-[8px] py-two active:opacity-80;
   }
 
   .recipe-preview-card {

@@ -96,11 +96,11 @@ export function CategoryCarousel({ selectedKey, onSelect }: CategoryCarouselProp
             aria-label={tile.label}
             aria-selected={selected}
             className={`category-tile ${selected ? 'selectable-selected' : 'selectable-idle'}`}>
-            <ThemedText className="text-[22px] leading-[26px]">{tile.emoji}</ThemedText>
+            <ThemedText className="text-[24px] leading-[28px]">{tile.emoji}</ThemedText>
             <ThemedText
               type="detail"
               themeColor={selected ? 'onAccent' : 'text'}
-              className="text-[9px] leading-[11px] font-semibold text-center"
+              className="text-[10px] leading-[12px] font-semibold text-center"
               numberOfLines={1}>
               {tile.label}
             </ThemedText>

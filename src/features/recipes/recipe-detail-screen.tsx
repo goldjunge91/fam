@@ -1,3 +1,18 @@
+/**
+ * Rezept-Detailansicht mit zwei Tabs:
+ *   1. „Details“ — Hero-Bild, Basis-Fakten, portionierbare Zutatenliste,
+ *      Nährwerte und Zubereitungsschritte.
+ *   2. „Bewertungen“ — eigene Punktebewertung plus Notiz.
+ *
+ * Route: /recipe/[id]; Daten kommen über useRecipeDetail aus der
+ * lokalen SQLite-Spiegelung (Offline-first).
+ *
+ * Datei-Gliederung:
+ *   1. Kleine UI-Bausteine (DetailFact, NutritionStat, ManageRow, …)
+ *   2. IngredientGroups — Zutaten nach Komponenten, auf Portionen skaliert
+ *   3. RecipeDetailScreen — Haupt-Screen mit Tabs, Verwaltungs-Modal,
+ *      Shopping-Sheet und Rating-Sheet
+ */
 import { Image } from 'expo-image';
 import { router, useLocalSearchParams } from 'expo-router';
 import { useMemo, useState } from 'react';
@@ -60,6 +75,7 @@ function DetailFact({
   );
 }
 
+/** Einzelner Zubereitungsschritt: optionales Bild, Nummer, Text mit @-Mentions, Timer. */
 function RecipeStepItem({
   step,
   index,
@@ -106,6 +122,7 @@ function RecipeStepItem({
   );
 }
 
+/** Zelle der Nährwerttabelle (Wert + Label untereinander). */
 function NutritionStat({ value, label }: { value: string; label: string }) {
   return (
     <View className="flex-1 min-h-[58px] min-w-0 items-center justify-center px-half">
@@ -146,6 +163,11 @@ function ManageRow({
   );
 }
 
+/**
+ * Zutatenliste gegliedert nach Komponenten (z.B. „Teig“, „Belag“).
+ * Mengen werden mit dem Portionsfaktor multipliziert; Produkte liefern
+ * den Anzeigenamen, sonst Fallback „Zutat“.
+ */
 function IngredientGroups({ data, servings }: { data: RecipeDetail; servings: number }) {
   const groups = data.components.filter((component) => component.serving_grams !== null);
 
@@ -205,6 +227,11 @@ function IngredientGroups({ data, servings }: { data: RecipeDetail; servings: nu
   );
 }
 
+/**
+ * Haupt-Screen: lädt Rezept + Komponenten + Items + Steps über
+ * useRecipeDetail. Der Portions-Stepper skaliert lokal (kein Server-Call),
+ * Nährwerte und Zutatenmengen werden aus baseServing × servings berechnet.
+ */
 export function RecipeDetailScreen() {
   const { id } = useLocalSearchParams<{ id: string }>();
   const [servings, setServings] = useState(1);

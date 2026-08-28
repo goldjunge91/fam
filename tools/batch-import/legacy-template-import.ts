@@ -1,4 +1,3 @@
-import path from 'node:path';
 import type { SupabaseClient } from '@supabase/supabase-js';
 
 type Template = {
@@ -89,18 +88,13 @@ export async function importLegacyTemplates(db: SupabaseClient, onProgress?: (pr
       if (insertError) throw insertError;
     }
 
-    let coverCopied = false;
+    let coverReused = false;
     if (template.cover_image_path) {
-      const source = await db.storage.from('recipe-covers').download(template.cover_image_path);
-      if (source.error) throw source.error;
-      const storagePath = `${slug}/cover${path.extname(template.cover_image_path) || '.jpg'}`;
-      const upload = await db.storage.from('recipe-catalog').upload(storagePath, source.data, { upsert: true, contentType: source.data.type || 'image/jpeg' });
-      if (upload.error) throw upload.error;
-      const image = await db.from('catalog_recipe_images').insert({ recipe_id: recipeId, storage_path: storagePath, position: 0 });
+      const image = await db.from('catalog_recipe_images').insert({ recipe_id: recipeId, storage_path: template.cover_image_path, position: 0 });
       if (image.error) throw image.error;
-      coverCopied = true;
+      coverReused = true;
     }
-    report.push({ templateId: template.id, slug, title: template.title, coverCopied });
+    report.push({ templateId: template.id, slug, title: template.title, coverReused });
     onProgress?.({ completed: index + 1, total: templateList.length, current: template.title });
   }
   return report;
