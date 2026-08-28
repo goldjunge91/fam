@@ -4,16 +4,16 @@ import { useEffect } from 'react';
 import { ActivityIndicator, View } from 'react-native';
 
 import AppShell from '@/components/layout/app-shell';
-import { useProfile } from '@/features/auth/api';
-import { resolveAppEntry } from '@/features/auth/app-entry';
-import {
-  isOnboardingSessionCompleted,
-  persistOnboardingCompleted,
-} from '@/features/auth/onboarding-session';
-import { useSignOutOnOrphanedProfile } from '@/features/auth/orphaned-session';
 import { useSession } from '@/features/auth/session-provider';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { useRedeemInviteMutation } from '@/features/household/api';
+import { resolveAppEntry } from '@/features/onboarding/domain/app-entry';
+import {
+  isOnboardingSessionCompleted,
+  persistOnboardingCompleted,
+} from '@/features/onboarding/onboarding-completion';
+import { useProfile } from '@/features/profile/api';
+import { useSignOutOnOrphanedProfile } from '@/features/profile/hooks/use-sign-out-on-orphaned-profile';
 import { env } from '@/lib/env';
 import { clearPendingInviteToken, peekPendingInviteToken } from '@/lib/pending-invite';
 import { useRealtimeSync, useSyncEngine } from '@/lib/sync/sync-runner';

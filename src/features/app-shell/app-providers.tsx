@@ -9,7 +9,7 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import { AnimatedSplashOverlay } from '@/components/icons/animated-icon';
 import { SnackbarProvider } from '@/components/ui/snackbar';
-import { PostHogIdentitySync } from '@/features/auth/posthog-identity-sync';
+import { PostHogIdentitySync } from '@/features/app-shell/posthog-identity-sync';
 import { SessionProvider } from '@/features/auth/session-provider';
 import { ActiveHouseholdProvider } from '@/features/household/active-household-provider';
 import { PremiumProvider } from '@/features/premium/premium-provider';

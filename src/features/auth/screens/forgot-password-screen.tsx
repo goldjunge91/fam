@@ -8,7 +8,8 @@ import { Screen } from '@/components/layout/screen';
 import { ThemedText } from '@/components/theme/themed-text';
 import { Button } from '@/components/ui/buttons';
 import { Card } from '@/components/ui/card';
-import { authErrorMessage, requestPasswordReset } from '@/features/auth/api';
+import { requestPasswordReset } from '@/features/auth/api';
+import { authErrorMessage } from '@/features/auth/domain/auth-error-message';
 import { type PasswordResetRequestInput, passwordResetRequestSchema } from '@/lib/db/zod/auth.zod';
 
 export function ForgotPasswordScreen() {

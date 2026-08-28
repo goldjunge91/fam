@@ -6,7 +6,7 @@ import { ThemedText } from '@/components/theme/themed-text';
 import { Button } from '@/components/ui/buttons';
 import { Card } from '@/components/ui/card';
 import { AuthProviderOptions } from '@/features/auth/components/auth-provider-options';
-import { PendingAuthBanner } from '@/features/auth/components/pending-auth-banner';
+import { EmailVerificationPanel } from '@/features/auth/components/email-verification-panel';
 import { type PendingSignUp, SignUpForm } from '@/features/auth/forms/sign-up-form';
 
 export function SignUpScreen() {
@@ -19,7 +19,7 @@ export function SignUpScreen() {
         subtitle="E-Mail-Bestätigung ausstehend"
         back={{ label: 'Anmelden', href: '/sign-in' }}>
         {/* Banner/Hinweis für ausstehende E-Mail-Bestätigung */}
-        <PendingAuthBanner
+        <EmailVerificationPanel
           email={pendingSignUp.email}
           password={pendingSignUp.password}
           onConfirmed={() => router.replace('/onboarding')}

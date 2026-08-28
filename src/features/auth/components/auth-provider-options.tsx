@@ -2,8 +2,9 @@ import { useState } from 'react';
 import { View } from 'react-native';
 import { ThemedText } from '@/components/theme/themed-text';
 import { Button } from '@/components/ui/buttons';
-import { authErrorMessage, signInWithOAuthProvider } from '@/features/auth/api';
 import { AppleSignInButton } from '@/features/auth/components/apple-sign-in-button';
+import { authErrorMessage } from '@/features/auth/domain/auth-error-message';
+import { signInWithOAuthProvider } from '@/features/auth/provider-auth';
 
 interface AuthProviderOptionsProps {
   mode: 'sign_in' | 'sign_up';

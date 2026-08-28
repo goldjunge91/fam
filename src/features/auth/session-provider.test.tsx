@@ -39,7 +39,7 @@ jest.mock('@/features/auth/sign-out', () => ({
   clearLocalAccountData: (...args: unknown[]) => mockClearLocalAccountData(...args),
 }));
 
-jest.mock('@/features/auth/legacy-account-data', () => ({
+jest.mock('@/features/auth/migrations/legacy-account-data', () => ({
   migrateLegacyAccountData: (...args: unknown[]) => mockMigrateLegacyAccountData(...args),
 }));
 
@@ -55,7 +55,7 @@ jest.mock('@/lib/sync/account-sync-gate', () => ({
   resumeAccountSync: (...args: unknown[]) => mockResumeAccountSync(...args),
 }));
 
-jest.mock('@/features/auth/onboarding-session', () => ({
+jest.mock('@/features/onboarding/onboarding-completion', () => ({
   hasSeenOnboarding: jest.fn().mockResolvedValue(true),
 }));
 

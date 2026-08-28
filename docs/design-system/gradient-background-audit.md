@@ -105,7 +105,7 @@ Tokens, in zwei erkennbaren Clustern plus drei `#000`-Ausreißern:
 | --- | --- |
 | `rgba(41–46, 28–36, 43–61, …)` — dunkles Mauve/Violett | `navigation-drawer.tsx`, `quick-add-sheet.tsx`, `profile-sheet.tsx`, `edit-fridge-item-sheet.tsx`, `fridge-item-actions-sheet.tsx`, `fridge-tab-bar.tsx`, `product-information.tsx`, `floating-action-button.tsx` |
 | `rgba(84–89, 59–74, 88–106, …)` — helleres Mauve | `dashboard-screen.tsx` (2×), `fridge-screen.tsx`, `fridge-summary-card.tsx`, `card.tsx` (`shadowColor: '#594059'`), `segmented-control.tsx` |
-| `#000` pur — **entfernt** | ~~`pending-auth-banner.tsx`, `product-search-dropdown.tsx`, `week-grid.tsx`~~ |
+| `#000` pur — **entfernt** | ~~`email-verification-panel.tsx`, `product-search-dropdown.tsx`, `week-grid.tsx`~~ |
 
 **Umgesetzt (2026-08-16):** `Colors.light`/`Colors.dark` haben jetzt
 `shadowCard` (`#594059`, helleres Mauve — Karten auf Screen-Hintergrund) und
