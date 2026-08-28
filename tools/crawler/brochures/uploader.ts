@@ -73,10 +73,13 @@ export async function uploadSingleBatch(
 ): Promise<{ uploadedCount: number; storesCount: number }> {
   if (chunk.length === 0) return { uploadedCount: 0, storesCount: 0 };
 
+  const publishableChunk = chunk.filter((dump) => dump.brochures.length > 0);
+  if (publishableChunk.length === 0) return { uploadedCount: 0, storesCount: 0 };
+
   const now = new Date();
   const stores = new Map<string, CrawlerStore>();
 
-  for (const dump of chunk) {
+  for (const dump of publishableChunk) {
     for (const store of dump.stores) {
       stores.set(store.id, store);
     }
@@ -98,12 +101,12 @@ export async function uploadSingleBatch(
       .upsert(cleanStores, { onConflict: 'id' });
 
     if (storeError) {
-      console.warn('⚠️ Warnung beim Aktualisieren der brochure_stores:', storeError.message);
+      throw new Error(`brochure_stores konnten nicht aktualisiert werden: ${storeError.message}`);
     }
   }
 
   // 2. Dumps einfügen
-  const rows = chunk.map((dump) => {
+  const rows = publishableChunk.map((dump) => {
     const validity = calculateValidityRange(dump, now);
     const rawPayload = {
       generatedAt: now.toISOString(),
@@ -124,40 +127,54 @@ export async function uploadSingleBatch(
   });
 
   let uploadedCount = 0;
+  const successfulZipCodes: string[] = [];
+  const uploadErrors: Error[] = [];
   const { error: insertError } = await supabase
     .from('brochure_dumps')
     .upsert(rows, { onConflict: 'zip_code,run_id' });
 
   if (insertError) {
-    // Fallback: Einzel-Inserts
+    // Fallback: Einzel-Upserts
     for (const row of rows) {
       try {
-        const { error: singleError } = await supabase.from('brochure_dumps').insert([row]);
+        const { error: singleError } = await supabase
+          .from('brochure_dumps')
+          .upsert([row], { onConflict: 'zip_code,run_id' });
         if (!singleError) {
           uploadedCount += 1;
+          successfulZipCodes.push(row.zip_code);
         } else {
           console.error(`❌ Einzelzeile PLZ ${row.zip_code} fehlgeschlagen:`, singleError.message);
+          uploadErrors.push(new Error(`PLZ ${row.zip_code}: ${singleError.message}`));
         }
       } catch (err) {
         console.error(`❌ Exception bei PLZ ${row.zip_code}:`, err);
+        uploadErrors.push(
+          err instanceof Error ? err : new Error(`Unbekannter Uploadfehler für PLZ ${row.zip_code}`),
+        );
       }
     }
   } else {
     uploadedCount = rows.length;
+    successfulZipCodes.push(...rows.map((row) => row.zip_code));
   }
 
-  // 3. Ältere Dumps für diese PLZs bereinigen
-  try {
-    await supabase
+  // 3. Nur nachweislich erfolgreich ersetzte PLZs bereinigen. run_id ist im
+  // Gegensatz zu created_at unabhängig von Clock-Skew zwischen Runner und DB.
+  if (successfulZipCodes.length > 0) {
+    const { error: deleteError } = await supabase
       .from('brochure_dumps')
       .delete()
-      .in(
-        'zip_code',
-        chunk.map((d) => d.location.zipCode),
-      )
-      .lt('created_at', runStartedAt);
-  } catch {
-    // Ignorieren
+      .in('zip_code', successfulZipCodes)
+      .neq('run_id', runStartedAt);
+
+    if (deleteError) {
+      throw new Error(`Alte brochure_dumps konnten nicht bereinigt werden: ${deleteError.message}`);
+    }
+  }
+
+  if (uploadErrors.length > 0) {
+    throw new AggregateError(uploadErrors, `${uploadErrors.length} Prospekt-Dumps fehlgeschlagen.`);
   }
 
   return { uploadedCount, storesCount: stores.size };
@@ -196,15 +213,13 @@ export async function uploadDumpsInParallel(
 
   for (let i = 0; i < batches.length; i += concurrency) {
     const chunkOfBatches = batches.slice(i, i + concurrency);
-    const results = await Promise.allSettled(
+    const results = await Promise.all(
       chunkOfBatches.map((batch) => uploadSingleBatch(supabase, batch, runStartedAt)),
     );
 
     for (const res of results) {
-      if (res.status === 'fulfilled') {
-        totalUploaded += res.value.uploadedCount;
-        totalStores += res.value.storesCount;
-      }
+      totalUploaded += res.uploadedCount;
+      totalStores += res.storesCount;
     }
 
     options?.onProgress?.(totalUploaded, dumps.length, totalStores);

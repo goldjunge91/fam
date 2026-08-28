@@ -1,5 +1,6 @@
 import { describe, expect, it } from '@jest/globals';
-import { existsSync, readFileSync, unlinkSync } from 'node:fs';
+import { existsSync, mkdtempSync, readFileSync, rmSync } from 'node:fs';
+import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { cleanNullBytes, crawlAllLocations, sanitizeBrochure } from './engine';
 import type { BrochureLocation, BrochureSource, CrawlerBrochure, LocationDump } from './types';
@@ -117,18 +118,24 @@ describe('Crawler Engine & Schema Sanitizer', () => {
       },
     };
 
-    const backupPath = join(process.cwd(), 'tools', 'crawler', 'data', 'last_crawl_backup.json');
-    if (existsSync(backupPath)) unlinkSync(backupPath);
+    const testDirectory = mkdtempSync(join(tmpdir(), 'brochure-crawler-'));
+    const backupPath = join(testDirectory, 'last_crawl_backup.json');
 
-    const result = await crawlAllLocations([mockLocation], {
-      concurrency: 1,
-      sources: [mockSource],
-    });
+    try {
+      await crawlAllLocations([mockLocation], {
+        concurrency: 1,
+        sources: [mockSource],
+        backupPath,
+      });
 
-    const content = JSON.parse(readFileSync(backupPath, 'utf8')) as LocationDump[];
-    expect(content).toHaveLength(1);
-    expect(content[0].location.zipCode).toBe('99999');
-    expect(content[0].brochures[0].title).toBe('Mock Prospekt');
+      const content = JSON.parse(readFileSync(backupPath, 'utf8')) as LocationDump[];
+      expect(content).toHaveLength(1);
+      expect(content[0].location.zipCode).toBe('99999');
+      expect(content[0].brochures[0].title).toBe('Mock Prospekt');
+      expect(existsSync(`${backupPath}.tmp`)).toBe(false);
+    } finally {
+      rmSync(testDirectory, { recursive: true, force: true });
+    }
   });
 
   it('verhindert Postgres 22P05 Error (\\u0000 cannot be converted to text) auf realen Dump-Payloads', () => {
@@ -187,7 +194,17 @@ describe('Crawler Engine & Schema Sanitizer', () => {
         return [
           {
             store: { id: `store-${loc.zipCode}`, name: 'Store' },
-            brochures: [],
+            brochures: [
+              {
+                id: `brochure-${loc.zipCode}`,
+                storeId: `store-${loc.zipCode}`,
+                title: 'Prospekt',
+                validFrom: '2026-08-25T00:00:00Z',
+                validUntil: '2026-09-01T00:00:00Z',
+                coverImage: 'https://example.com/cover.jpg',
+                pages: [],
+              },
+            ],
           },
         ];
       },
@@ -198,6 +215,7 @@ describe('Crawler Engine & Schema Sanitizer', () => {
     await crawlAllLocations(mockLocations, {
       concurrency: 1,
       sources: [mockSource],
+      backupPath: null,
       onChunkDone: (chunk) => {
         streamedChunks.push(chunk);
       },
@@ -206,5 +224,82 @@ describe('Crawler Engine & Schema Sanitizer', () => {
     expect(streamedChunks).toHaveLength(2);
     expect(streamedChunks[0][0].location.zipCode).toBe('11111');
     expect(streamedChunks[1][0].location.zipCode).toBe('22222');
+  });
+
+  it('bricht ab, wenn alle Quellen eines Standorts fehlschlagen', async () => {
+    const failingSource: BrochureSource = {
+      name: 'failing',
+      async fetchBrochuresForLocation() {
+        throw new Error('Token abgelaufen');
+      },
+    };
+
+    await expect(
+      crawlAllLocations(
+        [{ zipCode: '11111', latitude: 50, longitude: 10 }],
+        { concurrency: 1, sources: [failingSource], backupPath: null },
+      ),
+    ).rejects.toThrow('Standort-Crawls fehlgeschlagen');
+  });
+
+  it('veröffentlicht keine erfolgreich gecrawlten, aber leeren Dumps', async () => {
+    const emptySource: BrochureSource = {
+      name: 'empty',
+      async fetchBrochuresForLocation() {
+        return [];
+      },
+    };
+    const publishedChunks: LocationDump[][] = [];
+
+    const result = await crawlAllLocations(
+      [{ zipCode: '11111', latitude: 50, longitude: 10 }],
+      {
+        concurrency: 1,
+        sources: [emptySource],
+        backupPath: null,
+        onChunkDone: (chunk) => publishedChunks.push(chunk),
+      },
+    );
+
+    expect(result.dumps).toHaveLength(1);
+    expect(publishedChunks).toHaveLength(0);
+  });
+
+  it('propagiert Streaming-Uploadfehler bis zum aufrufenden Prozess', async () => {
+    const source: BrochureSource = {
+      name: 'mock',
+      async fetchBrochuresForLocation() {
+        return [
+          {
+            store: { id: 'store', name: 'Store' },
+            brochures: [
+              {
+                id: 'brochure',
+                storeId: 'store',
+                title: 'Prospekt',
+                validFrom: '2026-08-25T00:00:00Z',
+                validUntil: '2026-09-01T00:00:00Z',
+                coverImage: 'https://example.com/cover.jpg',
+                pages: [],
+              },
+            ],
+          },
+        ];
+      },
+    };
+
+    await expect(
+      crawlAllLocations(
+        [{ zipCode: '11111', latitude: 50, longitude: 10 }],
+        {
+          concurrency: 1,
+          sources: [source],
+          backupPath: null,
+          onChunkDone: async () => {
+            throw new Error('Supabase nicht erreichbar');
+          },
+        },
+      ),
+    ).rejects.toThrow('Supabase nicht erreichbar');
   });
 });

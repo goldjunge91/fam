@@ -13,7 +13,9 @@ export type R2Config = {
   publicUrl: string;
 };
 
-export function loadR2Config(): R2Config | null {
+export function loadR2Config(options?: { disabled?: boolean }): R2Config | null {
+  if (options?.disabled) return null;
+
   const accountId = process.env.R2_ACCOUNT_ID?.trim();
   const accessKeyId = process.env.R2_ACCESS_KEY_ID?.trim();
   const secretAccessKey = process.env.R2_SECRET_ACCESS_KEY?.trim();

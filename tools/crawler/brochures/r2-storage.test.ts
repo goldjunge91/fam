@@ -1,6 +1,7 @@
 import { describe, expect, it } from '@jest/globals';
 import {
   imageKeyFor,
+  loadR2Config,
   mirrorBrochureImagesToR2,
   sanitizeKeyPart,
   signR2Request,
@@ -81,5 +82,9 @@ describe('Cloudflare R2 Storage & Hash-based Image Keys', () => {
 
     expect(result.coverImage).toBe('https://pub-7c414d76492b43308e61c64079d2bbaa.r2.dev/cached-cover.jpg');
     expect(result.pages[0].imageUrl).toBe('https://pub-7c414d76492b43308e61c64079d2bbaa.r2.dev/cached-page1.jpg');
+  });
+
+  it('deaktiviert R2 vollständig für einen Dry-Run', () => {
+    expect(loadR2Config({ disabled: true })).toBeNull();
   });
 });

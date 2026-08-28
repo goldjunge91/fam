@@ -1,4 +1,4 @@
-import { mkdir, writeFile } from 'node:fs/promises';
+import { mkdir, rename, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
 import { mirrorBrochureImagesToR2, type R2Config } from './r2-storage';
 import type {
@@ -16,6 +16,7 @@ export type CrawlEngineOptions = {
   r2Config?: R2Config;
   onProgress?: (processed: number, total: number, uniqueBrochuresCount: number) => void;
   onChunkDone?: (chunkDumps: LocationDump[]) => Promise<void> | void;
+  backupPath?: string | null;
 };
 
 /**
@@ -111,10 +112,13 @@ export async function crawlLocation(
 ): Promise<LocationDump> {
   const stores = new Map<string, CrawlerStore>();
   const locationBrochures: CrawlerBrochure[] = [];
+  const sourceErrors: unknown[] = [];
+  let successfulSources = 0;
 
   for (const source of sources) {
     try {
       const results: ScraperResult[] = await source.fetchBrochuresForLocation(location);
+      successfulSources += 1;
 
       for (const res of results) {
         stores.set(res.store.id, {
@@ -139,8 +143,16 @@ export async function crawlLocation(
         }
       }
     } catch (sourceErr) {
+      sourceErrors.push(sourceErr);
       console.warn(`Fehler bei Quelle ${source.name} für PLZ ${location.zipCode}:`, sourceErr);
     }
+  }
+
+  if (successfulSources === 0) {
+    throw new AggregateError(
+      sourceErrors,
+      `Alle Prospektquellen für PLZ ${location.zipCode} sind fehlgeschlagen.`,
+    );
   }
 
   return cleanNullBytes({
@@ -153,12 +165,15 @@ export async function crawlLocation(
 /**
  * Sichert Dumps atomar auf Festplatte.
  */
-async function saveBackupToDisk(dumps: LocationDump[]): Promise<void> {
+async function saveBackupToDisk(dumps: LocationDump[], backupPath: string | null): Promise<void> {
+  if (!backupPath) return;
+
   try {
-    const outDir = join(process.cwd(), 'tools', 'crawler', 'data');
+    const outDir = join(backupPath, '..');
     await mkdir(outDir, { recursive: true });
-    const backupPath = join(outDir, 'last_crawl_backup.json');
-    await writeFile(backupPath, JSON.stringify(dumps, null, 2), 'utf8');
+    const temporaryPath = `${backupPath}.tmp`;
+    await writeFile(temporaryPath, JSON.stringify(dumps, null, 2), 'utf8');
+    await rename(temporaryPath, backupPath);
   } catch {
     // Ignorieren
   }
@@ -176,6 +191,10 @@ export async function crawlAllLocations(
   const brochureCache = new Map<string, CrawlerBrochure>();
   const r2UrlCache = new Map<string, string>();
   const dumps: LocationDump[] = [];
+  const backupPath =
+    options.backupPath === undefined
+      ? join(process.cwd(), 'tools', 'crawler', 'data', 'last_crawl_backup.json')
+      : options.backupPath;
   let processed = 0;
 
   for (let i = 0; i < locations.length; i += concurrency) {
@@ -187,32 +206,38 @@ export async function crawlAllLocations(
     );
 
     const chunkDumps: LocationDump[] = [];
+    const crawlErrors: unknown[] = [];
     for (const res of results) {
       if (res.status === 'fulfilled') {
         dumps.push(res.value);
         chunkDumps.push(res.value);
+      } else {
+        crawlErrors.push(res.reason);
       }
+    }
+
+    if (crawlErrors.length > 0) {
+      await saveBackupToDisk(dumps, backupPath);
+      throw new AggregateError(crawlErrors, `${crawlErrors.length} Standort-Crawls fehlgeschlagen.`);
     }
 
     processed += chunk.length;
     options.onProgress?.(processed, locations.length, brochureCache.size);
 
-    // Live Streaming Callback ausführen (sofortiger Upload nach Supabase)
-    if (chunkDumps.length > 0 && options.onChunkDone) {
-      try {
-        await options.onChunkDone(chunkDumps);
-      } catch (chunkErr) {
-        console.warn('⚠️ Streaming-Upload-Fehler für Chunk:', chunkErr);
-      }
+    // Leere Dumps werden nicht veröffentlicht. Ein bestehender gültiger Dump
+    // bleibt dadurch bis zu seinem regulären Ablauf verfügbar.
+    const publishableDumps = chunkDumps.filter((dump) => dump.brochures.length > 0);
+    if (publishableDumps.length > 0 && options.onChunkDone) {
+      await options.onChunkDone(publishableDumps);
     }
 
     // Alle 50 Standorte oder am Ende Zwischenstand auf Festplatte sichern
     if (processed % 50 === 0 || processed >= locations.length) {
-      await saveBackupToDisk(dumps);
+      await saveBackupToDisk(dumps, backupPath);
     }
   }
 
-  await saveBackupToDisk(dumps);
+  await saveBackupToDisk(dumps, backupPath);
 
   return {
     dumps,

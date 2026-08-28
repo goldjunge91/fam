@@ -94,7 +94,7 @@ async function fetchJsonWithRetry(url: string, headers: HeadersInit): Promise<un
       const retryAfter = Number(response.headers.get('retry-after'));
       const delay = Number.isFinite(retryAfter) && retryAfter > 0 ? retryAfter * 1000 : 2 ** attempt * 1000;
       await wait(Math.min(delay, 30000));
-    } catch (err: any) {
+    } catch (err: unknown) {
       if (attempt === 3) throw err;
       await wait(2 ** attempt * 1000);
     }
@@ -266,7 +266,9 @@ export class LiveOfferBrochureSource implements BrochureSource {
   async fetchBrochuresForLocation(location: BrochureLocation): Promise<ScraperResult[]> {
     const tokens = getLiveTokens();
     if (!tokens) {
-      return [];
+      throw new Error(
+        'Live-Quelle benötigt BRING_AUTH_TOKEN, BRING_API_KEY und BRING_USER_UUID.',
+      );
     }
 
     const headers = liveHeaders(tokens);
@@ -280,7 +282,10 @@ export class LiveOfferBrochureSource implements BrochureSource {
 
     const listUrl = `https://production.bringapi.app/offers/rest/v1/offers?${params}`;
     const list = asRecord(await fetchJsonWithRetry(listUrl, headers));
-    const offers = asArray(list?.offers);
+    if (!list || !Array.isArray(list.offers)) {
+      throw new Error(`Ungültige Angebotsantwort für PLZ ${location.zipCode}.`);
+    }
+    const offers = list.offers;
 
     const storeMap = new Map<string, { store: CrawlerStore; brochures: CrawlerBrochure[] }>();
 

@@ -1,5 +1,6 @@
 import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
+import { assertCrawlerEnvironment } from './config';
 import { crawlAllLocations } from './engine';
 import { type LocationFilterOptions, loadTargetLocations } from './locations';
 import { loadR2Config } from './r2-storage';
@@ -150,13 +151,8 @@ async function main() {
   const runStartedAt = new Date().toISOString();
   const startTime = Date.now();
 
-  const supabase = createSupabaseUploaderClient({
-    supabaseUrl,
-    supabaseSecretKey,
-    dryRun: dryRun || !supabaseUrl || !supabaseSecretKey,
-  });
-
   if (fromBackup) {
+    assertCrawlerEnvironment({ dryRun, fromBackup, sourceNames: [] });
     const backupPath = join(process.cwd(), 'tools', 'crawler', 'data', 'last_crawl_backup.json');
     if (!existsSync(backupPath)) {
       throw new Error(`Backup-Datei nicht gefunden: ${backupPath}`);
@@ -200,8 +196,19 @@ async function main() {
   }
 
   const sources = getSourcesByName(sourcesList);
-  const hasLiveTokens = Boolean(process.env.BRING_AUTH_TOKEN && process.env.BRING_API_KEY);
-  const r2Config = loadR2Config();
+  if (sources.length === 0) {
+    throw new Error('Keine gültige Prospektquelle ausgewählt.');
+  }
+  assertCrawlerEnvironment({
+    dryRun,
+    fromBackup,
+    sourceNames: sources.map((source) => source.name),
+  });
+  const supabase = createSupabaseUploaderClient({ supabaseUrl, supabaseSecretKey, dryRun });
+  const hasLiveTokens = Boolean(
+    process.env.BRING_AUTH_TOKEN && process.env.BRING_API_KEY && process.env.BRING_USER_UUID,
+  );
+  const r2Config = loadR2Config({ disabled: dryRun });
 
   console.log(`📌 Filter: ${JSON.stringify(filterOptions)}`);
   console.log(`📍 Ziel-Standorte: ${locations.length} PLZ`);
