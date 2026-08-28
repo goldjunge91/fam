@@ -9,6 +9,7 @@ SUPABASE_URL=... SUPABASE_SERVICE_ROLE_KEY=... bun run tools:recipe-catalog
 Danach `http://localhost:8787` oeffnen. Eine `catalog.json` der Version 1 kann
 direkt als Datei geladen oder in das Textfeld eingefuegt werden. Bildpfade in
 `cover` und `steps[].images` werden relativ zum Arbeitsverzeichnis aufgeloest.
+Eine fertige Vorlage liegt unter `tools/batch-import/catalog.example.json`.
 
 Fuer den Altbestand reicht der Button **Vorhandene Templates importieren**. Er
 liest die bestehenden `recipe_templates` inklusive Gruppen, Produkten und

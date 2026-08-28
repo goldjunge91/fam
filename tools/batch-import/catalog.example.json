@@ -1,0 +1,77 @@
+{
+  "schemaVersion": 1,
+  "recipes": [
+    {
+      "externalId": "example-pancakes-001",
+      "slug": "klassische-pfannkuchen-beispiel",
+      "title": "Klassische Pfannkuchen",
+      "instructions": "Goldbraun ausbacken und warm servieren.",
+      "cookTimeMinutes": 20,
+      "difficulty": "easy",
+      "dishTypes": ["breakfast", "brunch"],
+      "dietaryTags": ["vegetarian"],
+      "hashtags": ["familie", "schnell"],
+      "defaultServings": 4,
+      "status": "draft",
+      "sortOrder": 10,
+      "components": [
+        {
+          "key": "teig",
+          "name": "Teig",
+          "position": 0,
+          "items": [
+            {
+              "key": "flour",
+              "ingredientName": "Weizenmehl",
+              "grams": 200,
+              "quantity": 200,
+              "unit": "g",
+              "position": 0
+            },
+            {
+              "key": "milk",
+              "ingredientName": "Milch",
+              "grams": 300,
+              "quantity": 300,
+              "unit": "ml",
+              "position": 1
+            },
+            {
+              "key": "eggs",
+              "ingredientName": "Eier",
+              "grams": 120,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2
+            },
+            {
+              "key": "salt",
+              "ingredientName": "Salz",
+              "grams": 2,
+              "quantity": 2,
+              "unit": "g",
+              "position": 3
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Mehl, Milch, Eier und Salz zu einem glatten Teig verrühren.",
+          "ingredientKeys": ["flour", "milk", "eggs", "salt"]
+        },
+        {
+          "position": 1,
+          "text": "Eine beschichtete Pfanne erhitzen und etwas Teig hineingeben.",
+          "ingredientKeys": []
+        },
+        {
+          "position": 2,
+          "text": "Die Pfannkuchen von beiden Seiten goldbraun backen.",
+          "ingredientKeys": []
+        }
+      ]
+    }
+  ]
+}
