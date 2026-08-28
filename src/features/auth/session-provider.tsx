@@ -1,6 +1,7 @@
 import type { Session } from '@supabase/supabase-js';
 import { createContext, type ReactNode, use, useEffect, useState } from 'react';
-
+import { migrateLegacyAccountData } from '@/features/auth/migrations/legacy-account-data';
+import { hasSeenOnboarding } from '@/features/onboarding/onboarding-completion';
 import { setActiveUserId } from '@/lib/db/client';
 import { queryClient, startAccountQueryPersistence } from '@/lib/query-client';
 import {
@@ -16,8 +17,6 @@ import {
   reportError,
   setTelemetryUserId,
 } from '@/lib/telemetry';
-import { migrateLegacyAccountData } from './legacy-account-data';
-import { hasSeenOnboarding } from './onboarding-session';
 import { clearLocalAccountData } from './sign-out';
 
 type SessionState = {

@@ -8,7 +8,8 @@ import { Screen } from '@/components/layout/screen';
 import { ThemedText } from '@/components/theme/themed-text';
 import { Button } from '@/components/ui/buttons';
 import { Card } from '@/components/ui/card';
-import { authErrorMessage, updatePassword } from '@/features/auth/api';
+import { updatePassword } from '@/features/auth/api';
+import { authErrorMessage } from '@/features/auth/domain/auth-error-message';
 import { type NewPasswordInput, newPasswordSchema } from '@/lib/db/zod/auth.zod';
 
 export function ResetPasswordScreen() {

@@ -27,7 +27,7 @@ let mockAppStateHandler: ((state: string) => void) | undefined;
 const mockAppStateRemove = jest.fn();
 let currentTime = 0;
 
-import { PostHogIdentitySync } from '@/features/auth/posthog-identity-sync';
+import { PostHogIdentitySync } from '@/features/app-shell/posthog-identity-sync';
 
 describe('PostHogIdentitySync', () => {
   beforeEach(() => {

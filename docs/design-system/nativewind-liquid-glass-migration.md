@@ -312,11 +312,10 @@ nicht relevant (Redesign-Skills, Phase B aendert keine Optik).
 
 **`auth/` [ERLEDIGT]:** `sign-in-screen.tsx`, `sign-up-screen.tsx`,
 `forgot-password-screen.tsx`, `reset-password-screen.tsx`,
-`components/pending-auth-banner.tsx` — alle auf NativeWind umgestellt. Neue
+`components/email-verification-panel.tsx` — alle auf NativeWind umgestellt. Neue
 `ThemedText`-Rollen aus Phase A genutzt (`smallDanger`, `smallMuted`,
-`bodyBold`, `smallSelected`, `code`). Einzige verbliebene `style`-Treffer in
-`pending-auth-banner.tsx`: zwei `Animated.Value`-Transforms (Puls-Ring-Scale,
-Live-Dot-Opazitaet) — echte Laufzeitwerte, dokumentiert im Code.
+`bodyBold`, `smallSelected`, `code`). Die früheren permanenten Puls-Animationen
+des Verifizierungsstatus wurden beim Auth-Umbau entfernt; der Status ist nun statisch.
 `bun run check`/`typecheck`/`test` (77 Tests in `auth/`) grün.
 
 **`onboarding/` [ERLEDIGT]:** `onboarding-flow.tsx` und alle 7

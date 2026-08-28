@@ -1,14 +1,21 @@
 import { fireEvent, render, screen } from '@testing-library/react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
-import { SignInScreen } from '@/features/auth/sign-in-screen';
+import { SignInScreen } from '@/features/auth/screens/sign-in-screen';
 
 const mockSignIn = jest.fn();
 
 jest.mock('@/features/auth/api', () => ({
   signIn: (...args: unknown[]) => mockSignIn(...args),
+}));
+
+jest.mock('@/features/auth/provider-auth', () => ({
   signInWithOAuthProvider: jest.fn(),
-  authErrorMessage: (err: { message: string }) => err.message,
+  signInWithApple: jest.fn(),
+}));
+
+jest.mock('@/features/auth/domain/auth-error-message', () => ({
+  authErrorMessage: (error: { message: string }) => error.message,
 }));
 
 describe('SignInScreen', () => {

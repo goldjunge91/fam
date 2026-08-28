@@ -1,8 +1,8 @@
 import { act, fireEvent, render, screen } from '@testing-library/react-native';
-import { PendingAuthBanner } from './pending-auth-banner';
+import { EmailVerificationPanel as VerificationPanel } from './email-verification-panel';
 
 /**
- * Laesst viele Intervall- und Animations-Timer in einem Schritt ablaufen.
+ * Laesst mehrere Polling-Intervalle in einem Schritt ablaufen.
  * Die Mikroaufgabe wartet danach noch die asynchronen Poll-Fortsetzungen ab.
  */
 async function advanceFakeTimersByTime(ms: number) {
@@ -13,11 +13,14 @@ async function advanceFakeTimersByTime(ms: number) {
 }
 
 jest.mock('@/features/auth/api', () => ({
-  authErrorMessage: jest.fn((err) => err?.message || 'Fehler'),
   resendConfirmationEmail: jest.fn().mockResolvedValue({ error: null }),
   signIn: jest.fn().mockResolvedValue({ data: { session: null }, error: null }),
   signOut: jest.fn().mockResolvedValue({ error: null }),
   confirmSignUpWithCode: jest.fn().mockResolvedValue({ data: { session: null }, error: null }),
+}));
+
+jest.mock('@/features/auth/domain/auth-error-message', () => ({
+  authErrorMessage: jest.fn((error) => error?.message || 'Fehler'),
 }));
 
 jest.mock('@/lib/supabase', () => ({
@@ -35,7 +38,7 @@ jest.mock('@/hooks/use-theme', () => ({
   useTheme: () => require('@/constants/theme').Colors.light,
 }));
 
-describe('PendingAuthBanner (Apple Liquid UI)', () => {
+describe('EmailVerificationPanel', () => {
   afterEach(() => {
     jest.clearAllTimers();
     jest.useRealTimers();
@@ -43,7 +46,7 @@ describe('PendingAuthBanner (Apple Liquid UI)', () => {
 
   it('sollte E-Mail-Adresse und Bestätigungs-Hinweis rendern', async () => {
     await render(
-      <PendingAuthBanner
+      <VerificationPanel
         email="test@example.com"
         onConfirmed={jest.fn()}
         onChangeEmail={jest.fn()}
@@ -59,7 +62,7 @@ describe('PendingAuthBanner (Apple Liquid UI)', () => {
   it('sollte Re-Send E-Mail auslösen bei Klick auf den Button', async () => {
     const { resendConfirmationEmail } = require('@/features/auth/api');
 
-    await render(<PendingAuthBanner email="test@example.com" onConfirmed={jest.fn()} />);
+    await render(<VerificationPanel email="test@example.com" onConfirmed={jest.fn()} />);
 
     const resendBtn = screen.getByText('Bestätigungs-E-Mail erneut senden');
     await fireEvent.press(resendBtn);
@@ -71,7 +74,7 @@ describe('PendingAuthBanner (Apple Liquid UI)', () => {
     const onChangeEmailMock = jest.fn();
 
     await render(
-      <PendingAuthBanner
+      <VerificationPanel
         email="test@example.com"
         onConfirmed={jest.fn()}
         onChangeEmail={onChangeEmailMock}
@@ -90,7 +93,7 @@ describe('PendingAuthBanner (Apple Liquid UI)', () => {
 
     jest.useFakeTimers();
 
-    await render(<PendingAuthBanner email="test@example.com" onConfirmed={onConfirmedMock} />);
+    await render(<VerificationPanel email="test@example.com" onConfirmed={onConfirmedMock} />);
     await advanceFakeTimersByTime(30_000);
 
     expect(signIn).not.toHaveBeenCalled();
@@ -118,7 +121,7 @@ describe('PendingAuthBanner (Apple Liquid UI)', () => {
       jest.useFakeTimers();
 
       await render(
-        <PendingAuthBanner
+        <VerificationPanel
           email="test@example.com"
           password="geheim-genug"
           onConfirmed={onConfirmedMock}
@@ -147,7 +150,7 @@ describe('PendingAuthBanner (Apple Liquid UI)', () => {
       jest.useFakeTimers();
 
       await render(
-        <PendingAuthBanner
+        <VerificationPanel
           email="test@example.com"
           password="geheim-genug"
           onConfirmed={onConfirmedMock}
@@ -172,7 +175,7 @@ describe('PendingAuthBanner (Apple Liquid UI)', () => {
       jest.useFakeTimers();
 
       await render(
-        <PendingAuthBanner
+        <VerificationPanel
           email="test@example.com"
           password="geheim-genug"
           onConfirmed={onConfirmedMock}
@@ -201,7 +204,7 @@ describe('PendingAuthBanner (Apple Liquid UI)', () => {
       jest.useFakeTimers();
 
       await render(
-        <PendingAuthBanner
+        <VerificationPanel
           email="test@example.com"
           password="geheim-genug"
           onConfirmed={onConfirmedMock}
@@ -225,9 +228,8 @@ describe('PendingAuthBanner (Apple Liquid UI)', () => {
       // ist in dieser Zeitspanne also bereits vollstaendig geprueft — und
       // schaerfer als vorher (exakte Kadenz statt nur einer Obergrenze).
       // Die vollen 300s zu simulieren hiesse zusaetzlich ~100 Ticks des
-      // unabhaengigen Session-Polls (alle 3s, #166) und die Ring-/Punkt-
-      // Animation durchlaufen zu lassen — das trieb den Test unter Last
-      // ueber den 15s-testTimeout, ohne die Aussage zu verstaerken.
+      // unabhaengigen Session-Polls (alle 3s, #166), ohne die Aussage zu
+      // verstaerken.
       const { signIn } = require('@/features/auth/api');
       signIn.mockResolvedValue({
         data: { session: null },
@@ -237,7 +239,7 @@ describe('PendingAuthBanner (Apple Liquid UI)', () => {
       jest.useFakeTimers();
 
       await render(
-        <PendingAuthBanner
+        <VerificationPanel
           email="test@example.com"
           password="geheim-genug"
           onConfirmed={jest.fn()}
@@ -247,7 +249,7 @@ describe('PendingAuthBanner (Apple Liquid UI)', () => {
 
       // Bei 15s-Kadenz sind das in 5 Minuten 20 Anfragen, ein Drittel unter
       // dem Kontingent von 30 (siehe Intervall-Kommentar in
-      // pending-auth-banner.tsx).
+      // use-email-verification.ts).
       expect(signIn.mock.calls.length).toBe(4);
 
       jest.useRealTimers();
@@ -269,9 +271,9 @@ describe('PendingAuthBanner (Apple Liquid UI)', () => {
       });
       const onConfirmedMock = jest.fn();
 
-      await render(<PendingAuthBanner email="test@example.com" onConfirmed={onConfirmedMock} />);
+      await render(<VerificationPanel email="test@example.com" onConfirmed={onConfirmedMock} />);
 
-      await fireEvent.changeText(screen.getByTestId('pending-auth-code'), '472913');
+      await fireEvent.changeText(screen.getByTestId('email-verification-code'), '472913');
       await fireEvent.press(screen.getByText('Bestätigen'));
 
       expect(confirmSignUpWithCode).toHaveBeenCalledWith('test@example.com', '472913');
@@ -281,9 +283,9 @@ describe('PendingAuthBanner (Apple Liquid UI)', () => {
     it('sollte einen zu kurzen Code abweisen, ohne das Netz zu bemühen', async () => {
       const { confirmSignUpWithCode } = require('@/features/auth/api');
 
-      await render(<PendingAuthBanner email="test@example.com" onConfirmed={jest.fn()} />);
+      await render(<VerificationPanel email="test@example.com" onConfirmed={jest.fn()} />);
 
-      const input = screen.getByTestId('pending-auth-code');
+      const input = screen.getByTestId('email-verification-code');
       await fireEvent.changeText(input, '4729');
       // Der Button ist bei weniger als 6 Ziffern gesperrt; ueber die Tastatur
       // laesst sich trotzdem absenden — genau dafuer ist das Schema da.
@@ -300,9 +302,9 @@ describe('PendingAuthBanner (Apple Liquid UI)', () => {
         error: null,
       });
 
-      await render(<PendingAuthBanner email="test@example.com" onConfirmed={jest.fn()} />);
+      await render(<VerificationPanel email="test@example.com" onConfirmed={jest.fn()} />);
 
-      await fireEvent.changeText(screen.getByTestId('pending-auth-code'), ' 472 913 ');
+      await fireEvent.changeText(screen.getByTestId('email-verification-code'), ' 472 913 ');
       await fireEvent.press(screen.getByText('Bestätigen'));
 
       expect(confirmSignUpWithCode).toHaveBeenCalledWith('test@example.com', '472913');
@@ -316,9 +318,9 @@ describe('PendingAuthBanner (Apple Liquid UI)', () => {
       });
       const onConfirmedMock = jest.fn();
 
-      await render(<PendingAuthBanner email="test@example.com" onConfirmed={onConfirmedMock} />);
+      await render(<VerificationPanel email="test@example.com" onConfirmed={onConfirmedMock} />);
 
-      await fireEvent.changeText(screen.getByTestId('pending-auth-code'), '472913');
+      await fireEvent.changeText(screen.getByTestId('email-verification-code'), '472913');
       await fireEvent.press(screen.getByText('Bestätigen'));
 
       expect(onConfirmedMock).not.toHaveBeenCalled();
@@ -332,7 +334,7 @@ describe('PendingAuthBanner (Apple Liquid UI)', () => {
     });
 
     it('sollte den Button ohne Passwort gar nicht anbieten', async () => {
-      await render(<PendingAuthBanner email="test@example.com" onConfirmed={jest.fn()} />);
+      await render(<VerificationPanel email="test@example.com" onConfirmed={jest.fn()} />);
 
       expect(screen.queryByText('Jetzt prüfen')).toBeNull();
     });
@@ -348,7 +350,7 @@ describe('PendingAuthBanner (Apple Liquid UI)', () => {
       const onConfirmedMock = jest.fn();
 
       await render(
-        <PendingAuthBanner
+        <VerificationPanel
           email="test@example.com"
           password="geheim-genug"
           onConfirmed={onConfirmedMock}
@@ -372,7 +374,7 @@ describe('PendingAuthBanner (Apple Liquid UI)', () => {
       const onConfirmedMock = jest.fn();
 
       await render(
-        <PendingAuthBanner
+        <VerificationPanel
           email="test@example.com"
           password="geheim-genug"
           onConfirmed={onConfirmedMock}
@@ -393,7 +395,7 @@ describe('PendingAuthBanner (Apple Liquid UI)', () => {
     // ("Bestätigungs-E-Mail erneut gesendet!") war damit nachweislich falsch.
     jest.clearAllMocks();
 
-    await render(<PendingAuthBanner email="test@example.com" onConfirmed={jest.fn()} />);
+    await render(<VerificationPanel email="test@example.com" onConfirmed={jest.fn()} />);
 
     await fireEvent.press(screen.getByText('Bestätigungs-E-Mail erneut senden'));
 

@@ -241,7 +241,7 @@ Lernpunkt: Nicht jede `act`-Warnung wird direkt durch den eigenen State-Code aus
 
 ### 8. Fake Timer wurden nicht React-konform weitergeschaltet
 
-Beim `PendingAuthBanner` liefen mehrere Dinge gleichzeitig:
+Beim damaligen Verifizierungs-Banner (heute `EmailVerificationPanel`) liefen mehrere Dinge gleichzeitig:
 
 - Animationen
 - ein 3-Sekunden-Session-Poll

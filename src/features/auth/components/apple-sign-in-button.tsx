@@ -3,7 +3,8 @@ import {
   AppleAuthenticationButtonStyle,
   AppleAuthenticationButtonType,
 } from 'expo-apple-authentication';
-import { authErrorMessage, signInWithApple } from '@/features/auth/api';
+import { authErrorMessage } from '@/features/auth/domain/auth-error-message';
+import { signInWithApple } from '@/features/auth/provider-auth';
 import { useColorScheme } from '@/hooks/use-color-scheme';
 
 type AppleSignInButtonProps = {

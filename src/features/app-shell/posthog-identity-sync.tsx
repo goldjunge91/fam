@@ -1,9 +1,8 @@
 import { useEffect } from 'react';
 import { AppState } from 'react-native';
-
+import { useSession } from '@/features/auth/session-provider';
 import { getPostHogClient, isPostHogConfigured } from '@/lib/posthog';
 import { setTelemetryUserId } from '@/lib/telemetry';
-import { useSession } from './session-provider';
 
 const FEATURE_FLAG_AUTO_RELOAD_INTERVAL_MS = 12 * 60 * 60 * 1000;
 

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Text } from 'react-native';
 
-// Steht stellvertretend fuer z. B. PendingAuthBanner: pollt periodisch mit
+// Steht stellvertretend fuer z. B. den E-Mail-Verifizierungs-Flow: pollt periodisch mit
 // einem echten setInterval, solange die Komponente gemountet ist.
 export function PollingBanner({ intervalMs = 3000 }: { intervalMs?: number }) {
   const [count, setCount] = useState(0);

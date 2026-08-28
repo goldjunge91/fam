@@ -1,9 +1,10 @@
 import type { QueryClient } from '@tanstack/react-query';
 
-import { signOut } from '@/features/auth/api';
+import { signOut as signOutSession } from '@/features/auth/api';
 import { setStoredActiveHouseholdId } from '@/features/household/active-household-store';
 import { deleteLocalDatabase, setActiveUserId } from '@/lib/db/client';
 import { removeLegacyPersistedQueryCache } from '@/lib/query-client';
+import { resetLocalAccountModuleCaches } from '@/lib/storage/account-cache-registry';
 import {
   deleteEncryptedAccountStorage,
   forgetLocalAccountUserId,
@@ -11,7 +12,6 @@ import {
 } from '@/lib/storage/account-storage';
 import { getSupabase } from '@/lib/supabase';
 import { stopAccountSyncAndWait } from '@/lib/sync/account-sync-gate';
-import { resetLocalAccountModuleCaches } from './local-account-cache';
 
 const cleanupByUserId = new Map<string, Promise<void>>();
 
@@ -118,7 +118,7 @@ export async function signOutAndClearLocalData(queryClient: QueryClient): Promis
   let serverError: Error | null = null;
   let localSessionRemovalError: Error | null = null;
   try {
-    ({ error: serverError } = await signOut());
+    ({ error: serverError } = await signOutSession());
   } catch (error) {
     serverError = error as Error;
     try {

@@ -1,7 +1,7 @@
 import { fireEvent, render, screen, waitFor } from '@testing-library/react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
-import { ForgotPasswordScreen } from '@/features/auth/forgot-password-screen';
+import { ForgotPasswordScreen } from '@/features/auth/screens/forgot-password-screen';
 
 const mockRequestPasswordReset = jest.fn();
 const mockBack = jest.fn();
@@ -20,7 +20,10 @@ jest.mock('expo-router', () => ({
 
 jest.mock('@/features/auth/api', () => ({
   requestPasswordReset: (...args: unknown[]) => mockRequestPasswordReset(...args),
-  authErrorMessage: (err: { message: string }) => err.message,
+}));
+
+jest.mock('@/features/auth/domain/auth-error-message', () => ({
+  authErrorMessage: (error: { message: string }) => error.message,
 }));
 
 describe('ForgotPasswordScreen', () => {

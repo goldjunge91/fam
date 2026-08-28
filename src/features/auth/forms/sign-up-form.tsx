@@ -5,7 +5,8 @@ import { View } from 'react-native';
 import { TextField } from '@/components/forms/text-field';
 import { ThemedText } from '@/components/theme/themed-text';
 import { Button } from '@/components/ui/buttons';
-import { authErrorMessage, signUp } from '@/features/auth/api';
+import { signUp } from '@/features/auth/api';
+import { authErrorMessage } from '@/features/auth/domain/auth-error-message';
 import { type SignUpInput, signUpSchema } from '@/lib/db/zod/auth.zod';
 
 export interface PendingSignUp {

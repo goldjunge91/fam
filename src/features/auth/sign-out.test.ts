@@ -44,7 +44,7 @@ jest.mock('@/lib/sync/account-sync-gate', () => ({
   stopAccountSyncAndWait: (...args: unknown[]) => mockStopAccountSyncAndWait(...args),
 }));
 
-jest.mock('./local-account-cache', () => ({
+jest.mock('@/lib/storage/account-cache-registry', () => ({
   resetLocalAccountModuleCaches: (...args: unknown[]) => mockResetLocalAccountModuleCaches(...args),
 }));
 

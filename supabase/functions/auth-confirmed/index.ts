@@ -20,7 +20,7 @@
  * entscheidet ein kleines Skript im Browser, was angezeigt wird.
  *
  * Die Tokens werden bewusst NICHT eingeloest: Die App holt sich die Session
- * selbst (Polling in PendingAuthBanner bzw. der 6-stellige Code). Diese Seite
+ * selbst (Polling im E-Mail-Verifizierungs-Flow bzw. der 6-stellige Code). Diese Seite
  * informiert nur.
  *
  * Braucht `verify_jwt = false` (supabase/config.toml) — ein Browser, der einem
