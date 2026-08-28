@@ -7,6 +7,7 @@ type SectionHeadingProps = {
   eyebrow?: string;
   actionLabel?: string;
   onActionPress?: () => void;
+  titleClassName?: string;
 };
 
 /** Kleine Abschnittszeile fuer Kartenraster und horizontale Sammlungen. */
@@ -15,6 +16,7 @@ export function SectionHeading({
   eyebrow,
   actionLabel,
   onActionPress,
+  titleClassName = '',
 }: SectionHeadingProps) {
   return (
     <View className="min-h-[24px] flex-row items-end justify-between gap-[12px] mb-two">
@@ -26,7 +28,9 @@ export function SectionHeading({
             {eyebrow}
           </ThemedText>
         ) : null}
-        <ThemedText className="text-body-small leading-[18px] font-bold">{title}</ThemedText>
+        <ThemedText className={`text-body-small leading-[18px] font-bold ${titleClassName}`}>
+          {title}
+        </ThemedText>
       </View>
       {actionLabel && onActionPress ? (
         <Pressable
