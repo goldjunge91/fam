@@ -22,9 +22,6 @@ const config = getPostHogExpoConfig(__dirname, {
   },
 });
 
-// Disable Watchman
-config.useWatchman = false;
-
 config.resolver.sourceExts.push("sql");
 
 config.transformer.getTransformOptions = async () => ({

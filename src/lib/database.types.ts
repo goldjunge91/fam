@@ -39,6 +39,7 @@ export type Database = {
           created_at: string
           id: string
           payload_json: Json
+          run_id: string
           valid_from: string
           valid_until: string
           zip_code: string
@@ -47,6 +48,7 @@ export type Database = {
           created_at?: string
           id?: string
           payload_json: Json
+          run_id?: string
           valid_from: string
           valid_until: string
           zip_code: string
@@ -55,6 +57,7 @@ export type Database = {
           created_at?: string
           id?: string
           payload_json?: Json
+          run_id?: string
           valid_from?: string
           valid_until?: string
           zip_code?: string
