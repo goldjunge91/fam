@@ -1,7 +1,5 @@
 import { afterEach, describe, expect, it, jest } from '@jest/globals';
 import {
-  BROCHURE_RETENTION_DAYS,
-  ensureBrochureLifecycle,
   imageKeyFor,
   loadR2Config,
   mirrorBrochureImagesToR2,
@@ -10,6 +8,7 @@ import {
   signR2Request,
   type R2Config,
   uploadToR2,
+  verifyBrochureLifecycle,
 } from './r2-storage';
 import type { CrawlerBrochure } from './types';
 
@@ -164,45 +163,67 @@ describe('Cloudflare R2 Storage & Hash-based Image Keys', () => {
     );
   });
 
-  it('erstellt eine 60-Tage-Lifecycle-Regel für Prospekt-Dumps', async () => {
+  it('verifiziert die 60-Tage-Regel über ein bestehendes Probeobjekt', async () => {
+    const fetchMock = jest
+      .spyOn(global, 'fetch')
+      .mockResolvedValue(
+        new Response(null, {
+          headers: {
+            'last-modified': 'Fri, 28 Aug 2026 10:00:00 GMT',
+            'x-amz-expiration': 'expiry-date="Tue, 27 Oct 2026 10:00:00 GMT", rule-id="dump-retention"',
+          },
+        }),
+      );
+
+    await expect(verifyBrochureLifecycle(mockR2Config)).resolves.toEqual({
+      expiresAt: '2026-10-27T10:00:00.000Z',
+    });
+
+    expect(fetchMock).toHaveBeenCalledTimes(1);
+    expect(fetchMock.mock.calls[0][1]?.method).toBe('HEAD');
+    expect(fetchMock.mock.calls[0][0]).toEqual(
+      expect.stringContaining('/brochures/dumps/.lifecycle-probe'),
+    );
+  });
+
+  it('legt ein fehlendes Probeobjekt höchstens einmal an und prüft es danach', async () => {
     const fetchMock = jest
       .spyOn(global, 'fetch')
       .mockResolvedValueOnce(new Response(null, { status: 404 }))
-      .mockResolvedValueOnce(new Response(null));
+      .mockResolvedValueOnce(new Response(null))
+      .mockResolvedValueOnce(
+        new Response(null, {
+          headers: {
+            'last-modified': 'Fri, 28 Aug 2026 10:00:00 GMT',
+            'x-amz-expiration': 'expiry-date="Tue, 27 Oct 2026 10:00:00 GMT"',
+          },
+        }),
+      );
 
-    await expect(ensureBrochureLifecycle(mockR2Config)).resolves.toBe('updated');
+    await expect(verifyBrochureLifecycle(mockR2Config)).resolves.toEqual({
+      expiresAt: '2026-10-27T10:00:00.000Z',
+    });
 
-    const lifecycleBody = fetchMock.mock.calls[1][1]?.body;
-    expect(lifecycleBody).toEqual(expect.stringContaining('<Prefix>brochures/dumps/</Prefix>'));
-    expect(lifecycleBody).toEqual(
-      expect.stringContaining(`<Days>${BROCHURE_RETENTION_DAYS}</Days>`),
+    expect(fetchMock).toHaveBeenCalledTimes(3);
+    expect(fetchMock.mock.calls.map(([, init]) => init?.method)).toEqual(['HEAD', 'PUT', 'HEAD']);
+    expect(fetchMock.mock.calls[1][1]?.headers).toEqual(
+      expect.objectContaining({ 'if-none-match': '*' }),
     );
   });
 
-  it('bewahrt bestehende Lifecycle-Regeln und vermeidet unveränderte PUTs', async () => {
-    const existingXml = `<?xml version="1.0"?><LifecycleConfiguration><Rule><ID>other-rule</ID><Status>Enabled</Status><Expiration><Days>7</Days></Expiration></Rule><Rule><ID>fam-brochure-dumps-retention</ID><Filter><Prefix>brochures/dumps/</Prefix></Filter><Status>Enabled</Status><Expiration><Days>60</Days></Expiration></Rule></LifecycleConfiguration>`;
-    const fetchMock = jest
-      .spyOn(global, 'fetch')
-      .mockResolvedValue(new Response(existingXml));
+  it('stoppt vor dem Crawl, wenn das Probeobjekt nicht nach 60 Tagen abläuft', async () => {
+    const fetchMock = jest.spyOn(global, 'fetch').mockResolvedValue(
+      new Response(null, {
+        headers: {
+          'last-modified': 'Fri, 28 Aug 2026 10:00:00 GMT',
+          'x-amz-expiration': 'expiry-date="Fri, 11 Sep 2026 10:00:00 GMT"',
+        },
+      }),
+    );
 
-    await expect(ensureBrochureLifecycle(mockR2Config)).resolves.toBe('unchanged');
+    await expect(verifyBrochureLifecycle(mockR2Config)).rejects.toThrow(
+      'R2 Lifecycle ist für brochures/dumps/ nicht auf 60 Tage aktiv',
+    );
     expect(fetchMock).toHaveBeenCalledTimes(1);
-    expect(fetchMock.mock.calls[0][1]?.method).toBe('GET');
-  });
-
-  it('ergänzt die Prospekt-Regel ohne andere Lifecycle-Regeln zu entfernen', async () => {
-    const existingXml = `<?xml version="1.0"?><LifecycleConfiguration><Rule><ID>other-rule</ID><Status>Enabled</Status><Expiration><Days>7</Days></Expiration></Rule></LifecycleConfiguration>`;
-    const fetchMock = jest
-      .spyOn(global, 'fetch')
-      .mockResolvedValueOnce(new Response(existingXml))
-      .mockResolvedValueOnce(new Response(null));
-
-    await expect(ensureBrochureLifecycle(mockR2Config)).resolves.toBe('updated');
-
-    const lifecycleBody = fetchMock.mock.calls[1][1]?.body;
-    expect(lifecycleBody).toEqual(expect.stringContaining('<ID>other-rule</ID>'));
-    expect(lifecycleBody).toEqual(
-      expect.stringContaining('<ID>fam-brochure-dumps-retention</ID>'),
-    );
   });
 });

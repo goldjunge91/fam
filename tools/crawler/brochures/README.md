@@ -29,7 +29,7 @@ graph LR
 - **🖼️ Cloudflare R2 Bild-Hosting:** 
   - Deterministische Hash-Keys: `brochures/dumps/{brochureId}/{context}-{hash16}.jpg`
   - `HEAD` vor dem Download und `If-None-Match: *` beim Upload
-  - Automatische 60-Tage-Lifecycle-Regel für `brochures/dumps/`
+  - Verifiziert die extern konfigurierte 60-Tage-Lifecycle-Regel per Objekt-`HEAD`, ohne Bucket-Adminrechte
   - Zero-Dependencies AWS SigV4 Signierung mit nativem `node:crypto`.
   - Cache-Control: `public, max-age=604800, immutable`.
 - **🛡️ PostgreSQL Null-Byte Schutz:** Bereinigt alle Texte rekursiv von `\u0000`- und Steuerzeichen, um Postgres `22P05` Fehler zu verhindern.

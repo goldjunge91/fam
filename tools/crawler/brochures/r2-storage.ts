@@ -4,7 +4,8 @@ import type { CrawlerBrochure } from './types';
 const MAX_IMAGE_BYTES = 10 * 1024 * 1024; // 10 MB
 const CACHE_CONTROL = 'public, max-age=604800, immutable';
 const DUMP_RUN_PREFIX = 'brochures/dumps/';
-const BROCHURE_LIFECYCLE_RULE_ID = 'fam-brochure-dumps-retention';
+const LIFECYCLE_PROBE_KEY = `${DUMP_RUN_PREFIX}.lifecycle-probe`;
+const DAY_MS = 24 * 60 * 60 * 1000;
 export const BROCHURE_RETENTION_DAYS = 60;
 
 export type R2Config = {
@@ -50,18 +51,9 @@ export function imageKeyFor(originalUrl: string, brochureId: string, context: st
 }
 
 type R2RequestOptions = {
-  method?: 'GET' | 'HEAD' | 'PUT';
-  query?: Record<string, string>;
+  method?: 'HEAD' | 'PUT';
   headers?: Record<string, string>;
-  payloadHash?: string;
-  bucketLevel?: boolean;
 };
-
-function encodeQueryComponent(value: string): string {
-  return encodeURIComponent(value).replace(/[!'()*]/g, (character) =>
-    `%${character.charCodeAt(0).toString(16).toUpperCase()}`,
-  );
-}
 
 /**
  * Erzeugt AWS-SigV4-Signaturen für R2-Anfragen.
@@ -73,21 +65,17 @@ export function signR2Request(
 ): { url: string; headers: Record<string, string> } {
   const method = options.method ?? 'PUT';
   const host = `${config.accountId}.r2.cloudflarestorage.com`;
-  const canonicalUri = options.bucketLevel ? `/${config.bucket}` : `/${config.bucket}/${key}`;
-  const canonicalQuery = Object.entries(options.query ?? {})
-    .sort(([left], [right]) => left.localeCompare(right))
-    .map(([name, value]) => `${encodeQueryComponent(name)}=${encodeQueryComponent(value)}`)
-    .join('&');
+  const canonicalUri = `/${config.bucket}/${key}`;
   const now = new Date();
   const amzDate = now.toISOString().replace(/[:-]|\.\d{3}/g, '');
   const dateStamp = amzDate.slice(0, 8);
-  const payloadHash = options.payloadHash ?? 'UNSIGNED-PAYLOAD';
+  const payloadHash = 'UNSIGNED-PAYLOAD';
 
   const headers: Record<string, string> = {
     host,
     'x-amz-content-sha256': payloadHash,
     'x-amz-date': amzDate,
-    ...(method === 'PUT' && !options.bucketLevel ? { 'cache-control': CACHE_CONTROL } : {}),
+    ...(method === 'PUT' ? { 'cache-control': CACHE_CONTROL } : {}),
     ...Object.fromEntries(
       Object.entries(options.headers ?? {}).map(([name, value]) => [name.toLowerCase(), value]),
     ),
@@ -102,7 +90,7 @@ export function signR2Request(
   const canonicalRequest = [
     method,
     canonicalUri,
-    canonicalQuery,
+    '',
     canonicalHeaders,
     signedHeaders,
     payloadHash,
@@ -123,7 +111,7 @@ export function signR2Request(
   const signature = createHmac('sha256', kSigning).update(stringToSign).digest('hex');
 
   return {
-    url: `https://${host}${canonicalUri}${canonicalQuery ? `?${canonicalQuery}` : ''}`,
+    url: `https://${host}${canonicalUri}`,
     headers: {
       ...headers,
       Authorization: `AWS4-HMAC-SHA256 Credential=${config.accessKeyId}/${scope}, SignedHeaders=${signedHeaders}, Signature=${signature}`,
@@ -136,8 +124,7 @@ async function retryDelay(attempt: number): Promise<void> {
   await new Promise((resolve) => setTimeout(resolve, backoffMs));
 }
 
-/** Prüft über die geteilte R2-Instanz, ob ein Objekt bereits existiert. */
-export async function r2ObjectExists(config: R2Config, key: string): Promise<boolean> {
+async function headR2Object(config: R2Config, key: string): Promise<Response | null> {
   for (let attempt = 0; attempt < 3; attempt++) {
     const signed = signR2Request(config, key, { method: 'HEAD' });
     const response = await fetch(signed.url, {
@@ -146,8 +133,8 @@ export async function r2ObjectExists(config: R2Config, key: string): Promise<boo
       signal: AbortSignal.timeout(30_000),
     });
 
-    if (response.ok) return true;
-    if (response.status === 404) return false;
+    if (response.ok) return response;
+    if (response.status === 404) return null;
 
     const retryable = response.status === 429 || response.status >= 500;
     if (!retryable || attempt === 2) {
@@ -155,7 +142,12 @@ export async function r2ObjectExists(config: R2Config, key: string): Promise<boo
     }
     await retryDelay(attempt);
   }
-  return false;
+  return null;
+}
+
+/** Prüft über die geteilte R2-Instanz, ob ein Objekt bereits existiert. */
+export async function r2ObjectExists(config: R2Config, key: string): Promise<boolean> {
+  return (await headR2Object(config, key)) !== null;
 }
 
 export async function uploadToR2(
@@ -187,85 +179,47 @@ export async function uploadToR2(
   throw new Error(`R2 Upload für ${key} ohne Ergebnis beendet.`);
 }
 
-function lifecycleRuleXml(retentionDays: number): string {
-  return `<Rule><ID>${BROCHURE_LIFECYCLE_RULE_ID}</ID><Filter><Prefix>${DUMP_RUN_PREFIX}</Prefix></Filter><Status>Enabled</Status><Expiration><Days>${retentionDays}</Days></Expiration></Rule>`;
-}
-
-function upsertLifecycleRule(existingXml: string, retentionDays: number): string {
-  const desiredRule = lifecycleRuleXml(retentionDays);
-  if (!existingXml) {
-    return `<?xml version="1.0" encoding="UTF-8"?><LifecycleConfiguration xmlns="http://s3.amazonaws.com/doc/2006-03-01/">${desiredRule}</LifecycleConfiguration>`;
-  }
-
-  const rulePattern = /<Rule>[\s\S]*?<\/Rule>/g;
-  const existingRule = [...existingXml.matchAll(rulePattern)].find((match) =>
-    match[0].includes(`<ID>${BROCHURE_LIFECYCLE_RULE_ID}</ID>`),
+function lifecycleConfigurationError(retentionDays: number): Error {
+  return new Error(
+    `R2 Lifecycle ist für ${DUMP_RUN_PREFIX} nicht auf ${retentionDays} Tage aktiv. ` +
+      `Bitte die Object-Lifecycle-Regel im Cloudflare-Dashboard prüfen.`,
   );
-  if (existingRule) {
-    const isCurrent =
-      existingRule[0].includes(`<Prefix>${DUMP_RUN_PREFIX}</Prefix>`) &&
-      existingRule[0].includes('<Status>Enabled</Status>') &&
-      existingRule[0].includes(`<Days>${retentionDays}</Days>`);
-    if (isCurrent) return existingXml;
-    return existingXml.replace(existingRule[0], desiredRule);
-  }
-
-  if (!existingXml.includes('</LifecycleConfiguration>')) {
-    throw new Error('R2 Lifecycle lieferte eine ungültige XML-Konfiguration.');
-  }
-  return existingXml.replace('</LifecycleConfiguration>', `${desiredRule}</LifecycleConfiguration>`);
 }
 
 /**
- * Stellt eine 60-Tage-Aufbewahrung für Prospektbilder sicher und bewahrt
- * eventuell vorhandene andere Lifecycle-Regeln im Bucket.
+ * Verifiziert die Aufbewahrung über ein einziges Objekt-HEAD. Damit benötigt
+ * der wiederkehrende Crawler nur Object Read & Write statt Bucket-Adminrechte.
  */
-export async function ensureBrochureLifecycle(
+export async function verifyBrochureLifecycle(
   config: R2Config,
   retentionDays = BROCHURE_RETENTION_DAYS,
-): Promise<'unchanged' | 'updated'> {
-  const getRequest = signR2Request(config, '', {
-    method: 'GET',
-    query: { lifecycle: '' },
-    bucketLevel: true,
-  });
-  const getResponse = await fetch(getRequest.url, {
-    method: 'GET',
-    headers: getRequest.headers,
-    signal: AbortSignal.timeout(30_000),
-  });
-
-  let existingXml = '';
-  if (getResponse.ok) {
-    existingXml = await getResponse.text();
-  } else if (getResponse.status !== 404) {
-    throw new Error(`R2 Lifecycle konnte nicht gelesen werden: ${getResponse.status}`);
+): Promise<{ expiresAt: string }> {
+  let probeResponse = await headR2Object(config, LIFECYCLE_PROBE_KEY);
+  if (!probeResponse) {
+    await uploadToR2(config, LIFECYCLE_PROBE_KEY, new ArrayBuffer(0));
+    probeResponse = await headR2Object(config, LIFECYCLE_PROBE_KEY);
   }
 
-  const updatedXml = upsertLifecycleRule(existingXml, retentionDays);
-  if (updatedXml === existingXml) return 'unchanged';
+  const expirationHeader = probeResponse?.headers.get('x-amz-expiration');
+  const lastModifiedHeader = probeResponse?.headers.get('last-modified');
+  const expirationMatch = expirationHeader?.match(/expiry-date="([^"]+)"/i);
+  const expirationValue = expirationMatch?.[1];
+  const expirationMs = expirationValue ? Date.parse(expirationValue) : Number.NaN;
+  const lastModifiedMs = lastModifiedHeader ? Date.parse(lastModifiedHeader) : Number.NaN;
+  const configuredRetentionMs = expirationMs - lastModifiedMs;
+  const minimumRetentionMs = (retentionDays - 1) * DAY_MS;
+  const maximumRetentionMs = (retentionDays + 2) * DAY_MS;
 
-  const payloadHash = createHash('sha256').update(updatedXml).digest('hex');
-  const putRequest = signR2Request(config, '', {
-    method: 'PUT',
-    query: { lifecycle: '' },
-    headers: { 'content-type': 'application/xml' },
-    payloadHash,
-    bucketLevel: true,
-  });
-  const putResponse = await fetch(putRequest.url, {
-    method: 'PUT',
-    headers: putRequest.headers,
-    body: updatedXml,
-    signal: AbortSignal.timeout(30_000),
-  });
-  if (!putResponse.ok) {
-    const errorBody = await putResponse.text().catch(() => '');
-    throw new Error(
-      `R2 Lifecycle konnte nicht aktualisiert werden: ${putResponse.status} ${errorBody.slice(0, 200)}`,
-    );
+  if (
+    !probeResponse ||
+    !Number.isFinite(configuredRetentionMs) ||
+    configuredRetentionMs < minimumRetentionMs ||
+    configuredRetentionMs > maximumRetentionMs
+  ) {
+    throw lifecycleConfigurationError(retentionDays);
   }
-  return 'updated';
+
+  return { expiresAt: new Date(expirationMs).toISOString() };
 }
 
 async function fetchImage(originalUrl: string): Promise<ArrayBuffer> {
