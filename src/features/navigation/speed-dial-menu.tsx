@@ -1,4 +1,4 @@
-import { router } from 'expo-router';
+import { router, usePathname } from 'expo-router';
 import { Modal, Pressable, StyleSheet, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
@@ -13,9 +13,11 @@ import { useNavigationChrome } from './navigation-chrome-provider';
 
 export function SpeedDialMenu() {
   const { isQuickAddOpen } = useNavigationChrome();
-  const mounted = useDeferredMount(isQuickAddOpen, 180);
+  const pathname = usePathname();
+  const isBrochureRoute = pathname === '/brochures' || pathname.includes('/brochures/');
+  const mounted = useDeferredMount(isQuickAddOpen && !isBrochureRoute, 180);
 
-  if (!mounted) return null;
+  if (!mounted || isBrochureRoute) return null;
 
   return <SpeedDialMenuContent />;
 }

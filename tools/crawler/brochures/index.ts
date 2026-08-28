@@ -14,6 +14,7 @@ import {
 
 function loadEnvFiles() {
   const files = [
+    join(process.cwd(), 'tools', 'crawler', '.env'),
     join(process.cwd(), '.env'),
     join(process.cwd(), '.env.local'),
     join(process.cwd(), '.env.development.local'),
@@ -144,9 +145,9 @@ async function main() {
   console.log('   Fam Prospekte & Supermarkt-Crawler (Batch Engine)');
   console.log('====================================================\n');
 
-  const supabaseUrl = process.env.SUPABASE_URL || process.env.EXPO_PUBLIC_SUPABASE_URL || '';
-  const supabaseSecretKey =
-    process.env.SUPABASE_SECRET_KEY || process.env.SUPABASE_SERVICE_ROLE_KEY || '';
+  const supabaseUrl: string = process.env.SUPABASE_URL ?? process.env.EXPO_PUBLIC_SUPABASE_URL ?? '';
+  const supabaseSecretKey: string =
+    process.env.SUPABASE_SECRET_KEY ?? process.env.SUPABASE_SERVICE_ROLE_KEY ?? '';
 
   const runStartedAt = new Date().toISOString();
   const startTime = Date.now();

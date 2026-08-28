@@ -12,6 +12,7 @@ export type CrawlerStore = {
 };
 
 export type CrawlerHotspot = {
+  kind: 'discount' | 'linkout' | 'unknown';
   id: string;
   x: number; // 0..100 (%)
   y: number; // 0..100 (%)
@@ -20,10 +21,12 @@ export type CrawlerHotspot = {
   title: string;
   description?: string;
   discount?: string;
+  priceLabel?: string;
   priceCents?: number;
   oldPriceCents?: number;
   currency?: string;
   imageUrl?: string;
+  linkoutUrl?: string;
 };
 
 export type CrawlerPage = {

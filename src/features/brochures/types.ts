@@ -16,6 +16,7 @@ export interface LocalBrochure {
 }
 
 export interface Hotspot {
+  kind: 'discount' | 'linkout' | 'unknown';
   id: string;
   x: number; // Percentage (z.B. 10 für 10%)
   y: number; // Percentage
@@ -24,15 +25,18 @@ export interface Hotspot {
   title: string;
   description?: string;
   discount?: string;
+  priceLabel?: string;
   priceCents?: number;
   oldPriceCents?: number;
   currency?: string;
   imageUrl?: string;
+  linkoutUrl?: string;
 }
 
 export interface LocalBrochurePage {
   id: string;
   brochureId: string;
+  storeName: string;
   pageNumber: number;
   imageUrl: string;
   hotspots: Hotspot[]; // Aus hotspots_json geparst

@@ -60,12 +60,42 @@ export function useBrochureSync(zipCode: string | null) {
             }>;
           }>;
         };
+        const brochures = Array.isArray(payload.brochures) ? payload.brochures : [];
+        const pageCount = brochures.reduce(
+          (total, brochure) => total + (Array.isArray(brochure.pages) ? brochure.pages.length : 0),
+          0,
+        );
+        const hotspotCount = brochures.reduce(
+          (total, brochure) =>
+            total +
+            (Array.isArray(brochure.pages)
+              ? brochure.pages.reduce(
+                  (pageTotal, page) =>
+                    pageTotal + (Array.isArray(page.hotspots) ? page.hotspots.length : 0),
+                  0,
+                )
+              : 0),
+          0,
+        );
+        const firstBrochure = brochures[0];
         debugLog('[brochures] dump payload', {
           zipCode: currentZip,
           storeCount: payload.stores?.length ?? 0,
-          brochureCount: payload.brochures?.length ?? 0,
-          firstStore: payload.stores?.[0],
-          firstBrochure: payload.brochures?.[0],
+          brochureCount: brochures.length,
+          pageCount,
+          hotspotCount,
+          firstBrochure: firstBrochure
+            ? {
+                id: firstBrochure.id,
+                pageCount: firstBrochure.pages?.length ?? 0,
+                hotspotCount:
+                  firstBrochure.pages?.reduce(
+                    (total, page) =>
+                      total + (Array.isArray(page.hotspots) ? page.hotspots.length : 0),
+                    0,
+                  ) ?? 0,
+              }
+            : null,
         });
 
         await db.execAsync('BEGIN TRANSACTION;');
@@ -125,7 +155,12 @@ export function useBrochureSync(zipCode: string | null) {
           throw txnError;
         }
         await queryClient.invalidateQueries({ queryKey: ['brochures'] });
-        debugLog('[brochures] local sync complete', { zipCode: currentZip });
+        debugLog('[brochures] local sync complete', {
+          zipCode: currentZip,
+          brochureCount: brochures.length,
+          pageCount,
+          hotspotCount,
+        });
       } catch (e) {
         debugLog('[brochures] sync failed', e);
         reportError(e, { operation: 'brochure.sync', error_code: 'brochure_sync_failed' });

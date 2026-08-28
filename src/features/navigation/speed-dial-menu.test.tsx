@@ -6,6 +6,7 @@ import type { ModulePreferences } from '@/features/settings/module-preferences';
 import type { FeatureFlagKey } from '@/lib/posthog';
 
 const mockCloseQuickAdd = jest.fn();
+let mockPathname = '/';
 let mockModulePreferences: ModulePreferences = {
   fridge: true,
   shoppingList: true,
@@ -26,6 +27,7 @@ let mockFeatureFlags: Record<FeatureFlagKey, boolean> = {
 
 jest.mock('expo-router', () => ({
   router: { push: jest.fn() },
+  usePathname: () => mockPathname,
 }));
 
 jest.mock('@/features/navigation/navigation-chrome-provider', () => ({
@@ -81,6 +83,7 @@ function renderSpeedDial() {
 
 describe('SpeedDialMenu', () => {
   beforeEach(() => {
+    mockPathname = '/';
     mockModulePreferences = {
       fridge: true,
       shoppingList: true,
@@ -98,6 +101,23 @@ describe('SpeedDialMenu', () => {
       'module-calories': true,
       'experimental-vision-camera': false,
     };
+  });
+
+  it('blendet die Schnellauswahl in der Prospektansicht aus', async () => {
+    mockPathname = '/(app)/brochures/brochure-1';
+
+    await renderSpeedDial();
+
+    expect(screen.queryByText('Vorratsartikel')).not.toBeOnTheScreen();
+    expect(screen.queryByText('Einkaufsartikel')).not.toBeOnTheScreen();
+  });
+
+  it('blendet die Schnellauswahl auch in der Prospektübersicht aus', async () => {
+    mockPathname = '/brochures';
+
+    await renderSpeedDial();
+
+    expect(screen.queryByText('Vorratsartikel')).not.toBeOnTheScreen();
   });
 
   it('rendert Schnellauswahl-Aktionen', async () => {

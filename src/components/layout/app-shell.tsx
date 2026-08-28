@@ -1,4 +1,4 @@
-import { Stack } from 'expo-router';
+import { Stack, usePathname } from 'expo-router';
 import { View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { PlusIcon } from '@/components/icons/fam-icon';
@@ -18,8 +18,10 @@ import { useTheme } from '@/hooks/use-theme';
 
 export default function AppShell() {
   const insets = useSafeAreaInsets();
+  const pathname = usePathname();
   const { session } = useSession();
   const syncEnabled = Boolean(session?.user.id);
+  const isBrochureRoute = pathname === '/brochures' || pathname.includes('/brochures/');
 
   return (
     <NavigationChromeProvider>
@@ -29,13 +31,15 @@ export default function AppShell() {
         <NavigationDrawer />
         <ProfileSheet />
         <SpeedDialMenu />
-        <GlobalAddButton />
-        <View
-          pointerEvents="box-none"
-          className="absolute bottom-0 left-0 right-0 items-center justify-center z-10"
-          style={{ paddingBottom: insets.bottom + 65 }}>
-          <AdBanner placement="global_sticky" />
-        </View>
+        {!isBrochureRoute ? <GlobalAddButton /> : null}
+        {!isBrochureRoute ? (
+          <View
+            pointerEvents="box-none"
+            className="absolute bottom-0 left-0 right-0 items-center justify-center z-10"
+            style={{ paddingBottom: insets.bottom + 65 }}>
+            <AdBanner placement="global_sticky" />
+          </View>
+        ) : null}
       </SyncBannerVisibilityProvider>
     </NavigationChromeProvider>
   );

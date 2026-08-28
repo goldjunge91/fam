@@ -119,7 +119,50 @@ function asString(value: unknown): string | null {
 }
 
 function asNumber(value: unknown): number | null {
-  return typeof value === 'number' && Number.isFinite(value) ? value : null;
+  if (typeof value === 'number' && Number.isFinite(value)) return value;
+  if (typeof value === 'string') {
+    const parsed = Number(
+      value
+        .replace(/[^\d,.-]/g, '')
+        .replace(/\.(?=\d{3}(?:\D|$))/g, '')
+        .replace(',', '.')
+        .trim(),
+    );
+    return Number.isFinite(parsed) ? parsed : null;
+  }
+  return null;
+}
+
+function moneyToCents(value: unknown): number | null {
+  const direct = asNumber(value);
+  if (direct !== null) {
+    // Bring liefert Preise je nach Endpoint als Eurobetrag (1.29) oder bereits
+    // in Cent (129). Beide Formen werden intern einheitlich als Cent gespeichert.
+    return Number.isInteger(direct) && Math.abs(direct) >= 100
+      ? direct
+      : Math.round(direct * 100);
+  }
+
+  const money = asRecord(value);
+  if (!money) return null;
+
+  const cents = asNumber(money.cents) ?? asNumber(money.amountCents) ?? asNumber(money.valueCents);
+  if (cents !== null) return Math.round(cents);
+
+  return moneyToCents(money.amount ?? money.value ?? money.price);
+}
+
+function pricesFromLabel(label: string | null): { priceCents?: number; oldPriceCents?: number } {
+  if (!label) return {};
+
+  const prices = [...label.matchAll(/\b(\d+(?:[.,]\d{1,2})?)(?=\s*(?:€|\*?\s+statt|$))/g)]
+    .map((match) => moneyToCents(match[1]))
+    .filter((price): price is number => price !== null);
+
+  return {
+    priceCents: prices[0],
+    oldPriceCents: prices[1],
+  };
 }
 
 function firstString(...values: unknown[]): string | null {
@@ -176,6 +219,7 @@ function transformHotspot(
   const providerId = firstString(discount.providerDiscountId, discount.id);
 
   const hotspot: CrawlerHotspot = {
+    kind: 'discount',
     id: providerId ?? `${brochureId}-${pageNumber}-${index}`,
     x,
     y,
@@ -186,19 +230,105 @@ function transformHotspot(
 
   const description = asString(discount.description);
   const discountLabel = asString(discount.discount);
-  const priceCents = asNumber(discount.price);
-  const oldPriceCents = asNumber(discount.oldPrice);
+  const priceValue = discount.price ?? discount.currentPrice ?? discount.salePrice ?? discount.offerPrice;
+  const oldPriceValue = discount.oldPrice ?? discount.regularPrice ?? discount.originalPrice;
+  const priceCents = moneyToCents(priceValue);
+  const oldPriceCents = moneyToCents(oldPriceValue);
+  const labelPrices = pricesFromLabel(discountLabel);
+  const resolvedPriceCents = priceCents ?? labelPrices.priceCents;
+  const resolvedOldPriceCents = oldPriceCents ?? labelPrices.oldPriceCents;
+  const priceLabel = firstString(
+    discount.priceLabel,
+    discount.priceText,
+    discount.formattedPrice,
+    discount.currentPriceText,
+    discount.priceFormatted,
+  );
   const currency = asString(discount.currency);
   const productImg = imageUrl(discount.imageUrl ?? discount.image);
 
   if (description && description !== title) hotspot.description = description;
   if (discountLabel) hotspot.discount = discountLabel;
-  if (priceCents !== null) hotspot.priceCents = priceCents;
-  if (oldPriceCents !== null) hotspot.oldPriceCents = oldPriceCents;
+  if (priceLabel) hotspot.priceLabel = priceLabel;
+  if (resolvedPriceCents !== undefined) hotspot.priceCents = resolvedPriceCents;
+  if (resolvedOldPriceCents !== undefined) hotspot.oldPriceCents = resolvedOldPriceCents;
   if (currency) hotspot.currency = currency;
   if (productImg) hotspot.imageUrl = productImg;
 
   return hotspot;
+}
+
+function transformLinkout(
+  value: unknown,
+  brochureId: string,
+  pageNumber: number,
+  index: number,
+): CrawlerHotspot | null {
+  const linkout = asRecord(value);
+  const top = asNumber(linkout?.top);
+  const left = asNumber(linkout?.left);
+  const width = asNumber(linkout?.width);
+  const height = asNumber(linkout?.height);
+  const linkoutUrl = asString(linkout?.linkoutUrl);
+  if (
+    top === null ||
+    left === null ||
+    width === null ||
+    height === null ||
+    !linkoutUrl
+  ) {
+    return null;
+  }
+
+  const x = percentage(left);
+  const y = percentage(top);
+  const pWidth = percentage(width);
+  const pHeight = percentage(height);
+  if (x < 0 || y < 0 || pWidth <= 0 || pHeight <= 0 || x >= 100 || y >= 100) return null;
+
+  return {
+    kind: 'linkout',
+    id: `linkout:${brochureId}:${pageNumber}:${index}`,
+    x,
+    y,
+    width: Math.min(pWidth, 100 - x),
+    height: Math.min(pHeight, 100 - y),
+    title: 'Produktangebot',
+    linkoutUrl,
+  };
+}
+
+function transformUnknownEntry(
+  value: unknown,
+  brochureId: string,
+  pageNumber: number,
+  index: number,
+): CrawlerHotspot | null {
+  const entry = asRecord(value);
+  const coordinates = asRecord(entry?.coordinates) ?? entry;
+  const top = asNumber(coordinates?.top);
+  const left = asNumber(coordinates?.left);
+  const width = asNumber(coordinates?.width);
+  const height = asNumber(coordinates?.height);
+  if (top === null || left === null || width === null || height === null) return null;
+
+  const x = percentage(left);
+  const y = percentage(top);
+  const pWidth = percentage(width);
+  const pHeight = percentage(height);
+  if (x < 0 || y < 0 || pWidth <= 0 || pHeight <= 0 || x >= 100 || y >= 100) return null;
+
+  const url = firstString(entry?.linkoutUrl, entry?.url, entry?.link);
+  return {
+    kind: 'unknown',
+    id: `unknown:${brochureId}:${pageNumber}:${index}`,
+    x,
+    y,
+    width: Math.min(pWidth, 100 - x),
+    height: Math.min(pHeight, 100 - y),
+    title: firstString(entry?.name, entry?.title, entry?.description) ?? 'Angebot',
+    linkoutUrl: url ?? undefined,
+  };
 }
 
 function transformPage(value: unknown, brochureId: string, index: number): CrawlerPage | null {
@@ -212,8 +342,19 @@ function transformPage(value: unknown, brochureId: string, index: number): Crawl
   const hotspots = asArray(page.discounts)
     .map((d, dIndex) => transformHotspot(d, brochureId, number, dIndex))
     .filter((h): h is CrawlerHotspot => h !== null);
+  const linkouts = asArray(page.linkouts)
+    .map((linkout, linkoutIndex) => transformLinkout(linkout, brochureId, number, linkoutIndex))
+    .filter((h): h is CrawlerHotspot => h !== null);
+  const unknownEntries = Object.entries(page)
+    .filter(([key, value]) => key !== 'discounts' && key !== 'linkouts' && Array.isArray(value))
+    .flatMap(([, value]) =>
+      asArray(value).map((entry, entryIndex) =>
+        transformUnknownEntry(entry, brochureId, number, entryIndex),
+      ),
+    )
+    .filter((h): h is CrawlerHotspot => h !== null);
 
-  return { number, imageUrl: pageImgUrl, hotspots };
+  return { number, imageUrl: pageImgUrl, hotspots: [...hotspots, ...linkouts, ...unknownEntries] };
 }
 
 function transformLiveBrochure(

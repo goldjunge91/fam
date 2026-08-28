@@ -68,6 +68,7 @@ export function sanitizeBrochure(
     imageUrl: typeof page.imageUrl === 'string' && page.imageUrl ? cleanNullBytes(page.imageUrl) : '',
     hotspots: Array.isArray(page.hotspots)
       ? page.hotspots.map((h, hIndex) => ({
+          kind: h.kind ?? 'unknown',
           id: cleanNullBytes(h.id || `h-${index + 1}-${hIndex + 1}`),
           x: typeof h.x === 'number' ? h.x : 0,
           y: typeof h.y === 'number' ? h.y : 0,
@@ -76,10 +77,12 @@ export function sanitizeBrochure(
           title: cleanNullBytes(h.title || 'Angebot'),
           description: h.description ? cleanNullBytes(h.description) : undefined,
           discount: h.discount ? cleanNullBytes(h.discount) : undefined,
+          priceLabel: h.priceLabel ? cleanNullBytes(h.priceLabel) : undefined,
           priceCents: typeof h.priceCents === 'number' ? h.priceCents : undefined,
           oldPriceCents: typeof h.oldPriceCents === 'number' ? h.oldPriceCents : undefined,
           currency: h.currency ? cleanNullBytes(h.currency) : 'EUR',
           imageUrl: h.imageUrl ? cleanNullBytes(h.imageUrl) : undefined,
+          linkoutUrl: h.linkoutUrl ? cleanNullBytes(h.linkoutUrl) : undefined,
         }))
       : [],
   }));
@@ -108,7 +111,7 @@ export async function crawlLocation(
   sources: BrochureSource[],
   brochureCache: Map<string, CrawlerBrochure>,
   r2Config?: R2Config,
-  r2UrlCache?: Map<string, string>,
+  r2UrlCache?: Map<string, string | Promise<string>>,
 ): Promise<LocationDump> {
   const stores = new Map<string, CrawlerStore>();
   const locationBrochures: CrawlerBrochure[] = [];

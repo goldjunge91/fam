@@ -43,6 +43,7 @@ describe('Crawler Engine & Schema Sanitizer', () => {
           imageUrl: 'https://example.com/page1\0.jpg',
           hotspots: [
             {
+              kind: 'discount',
               id: 'h-1\u0000',
               x: 10,
               y: 20,
@@ -156,6 +157,7 @@ describe('Crawler Engine & Schema Sanitizer', () => {
               imageUrl: 'https://example.com/p1.jpg',
               hotspots: [
                 {
+                  kind: 'discount',
                   id: 'h1',
                   x: 10,
                   y: 10,

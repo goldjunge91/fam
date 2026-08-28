@@ -1,22 +1,179 @@
 import PagerView from '@expo/ui/community/pager-view';
 import { Image } from 'expo-image';
 import { useRouter } from 'expo-router';
-import { useState } from 'react';
-import { ActivityIndicator, Alert, Pressable, StyleSheet, Text, View } from 'react-native';
+import { useEffect, useState } from 'react';
+import {
+  ActivityIndicator,
+  Alert,
+  type LayoutChangeEvent,
+  Linking,
+  Pressable,
+  StyleSheet,
+  Text,
+  View,
+} from 'react-native';
 import Animated, { FadeIn, FadeOut } from 'react-native-reanimated';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { withAlpha } from '@/constants/theme';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { useAddShoppingItem } from '@/features/shopping-list/hooks/use-shopping-list-mutations';
+import { findStoreByName, useStores } from '@/features/shopping-list/hooks/use-stores';
 import { resolveCategoryForItem } from '@/features/shopping-list/preferences/api';
 import { useTheme } from '@/hooks/use-theme';
+import { debugLog } from '@/lib/debug-log';
 import { formatEuro } from '@/lib/format-currency';
 import { BrochureHotspot } from '../components/brochure-hotspot';
 import { useBrochurePages } from '../hooks/use-brochures';
 import type { Hotspot, LocalBrochurePage } from '../types';
+import { calculateContainedImageFrame, type Size } from './brochure-page-layout';
+
+function priceValuesFromDiscount(discount: string | undefined): number[] {
+  if (!discount) return [];
+
+  return [...discount.matchAll(/\b(\d+(?:[.,]\d{1,2})?)(?=\s*(?:€|\*?\s+statt|$))/g)]
+    .map((match) => Number(match[1].replace(',', '.')))
+    .filter((price) => Number.isFinite(price))
+    .map((price) => Math.round(price * 100));
+}
+
+function hotspotPrices(hotspot: Hotspot): { priceCents?: number; oldPriceCents?: number } {
+  const discountPrices = priceValuesFromDiscount(hotspot.discount);
+  return {
+    priceCents: hotspot.priceCents ?? discountPrices[0],
+    oldPriceCents: hotspot.oldPriceCents ?? discountPrices[1],
+  };
+}
 
 function hotspotPrice(hotspot: Hotspot): string | null {
-  return hotspot.priceCents === undefined ? null : formatEuro(hotspot.priceCents / 100);
+  const { priceCents } = hotspotPrices(hotspot);
+  if (hotspot.priceLabel) return hotspot.priceLabel;
+  return priceCents === undefined ? null : formatEuro(priceCents / 100);
+}
+
+function imageHost(imageUrl: string): string {
+  try {
+    return new URL(imageUrl).host;
+  } catch {
+    return 'invalid-url';
+  }
+}
+
+function BrochurePage({
+  page,
+  activeHotspot,
+  hotspotsVisible,
+  isCurrent,
+  onSelectHotspot,
+}: {
+  page: LocalBrochurePage;
+  activeHotspot: Hotspot | null;
+  hotspotsVisible: boolean;
+  isCurrent: boolean;
+  onSelectHotspot: (hotspot: Hotspot, imageUrl: string, imageSize: Size) => void;
+}) {
+  const [containerSize, setContainerSize] = useState<Size>({ width: 0, height: 0 });
+  const [imageSize, setImageSize] = useState<Size>({ width: 0, height: 0 });
+  const imageFrame = calculateContainedImageFrame(containerSize, imageSize);
+
+  function handleLayout(event: LayoutChangeEvent) {
+    const { width, height } = event.nativeEvent.layout;
+    setContainerSize({ width, height });
+    if (isCurrent) {
+      debugLog('[brochures] viewer page layout', {
+        pageNumber: page.pageNumber,
+        container: { width, height },
+        image: imageSize,
+        overlay: calculateContainedImageFrame({ width, height }, imageSize),
+        hotspotCount: page.hotspots.length,
+      });
+    }
+  }
+
+  return (
+    <View style={styles.page} onLayout={handleLayout}>
+      <Image
+        source={{ uri: page.imageUrl }}
+        style={styles.pageImage}
+        contentFit="contain"
+        transition={200}
+        blurRadius={activeHotspot ? 12 : 0}
+        pointerEvents="none"
+        onLoad={({ source }) => {
+          const nextImageSize = { width: source.width, height: source.height };
+          setImageSize(nextImageSize);
+          if (isCurrent) {
+            debugLog('[brochures] viewer image loaded', {
+              pageNumber: page.pageNumber,
+              imageHost: imageHost(page.imageUrl),
+              image: nextImageSize,
+              container: containerSize,
+              overlay: calculateContainedImageFrame(containerSize, nextImageSize),
+              hotspotCount: page.hotspots.length,
+            });
+          }
+        }}
+        onError={({ error }) => {
+          if (isCurrent) {
+            debugLog('[brochures] viewer image failed', {
+              pageNumber: page.pageNumber,
+              imageHost: imageHost(page.imageUrl),
+              error,
+            });
+          }
+        }}
+      />
+      {imageFrame ? (
+        <View
+          style={[styles.hotspotsOverlay, imageFrame]}
+          pointerEvents={hotspotsVisible ? 'auto' : 'none'}>
+          {page.hotspots.map((hotspot) => (
+            <BrochureHotspot
+              key={hotspot.id}
+              hotspot={hotspot}
+              isActive={activeHotspot?.id === hotspot.id}
+              isVisible={hotspotsVisible}
+              onPress={(hotspot) => onSelectHotspot(hotspot, page.imageUrl, imageSize)}
+            />
+          ))}
+        </View>
+      ) : null}
+    </View>
+  );
+}
+
+function ProductCropPreview({
+  imageUrl,
+  imageSize,
+  hotspot,
+}: {
+  imageUrl: string;
+  imageSize: Size;
+  hotspot: Hotspot;
+}) {
+  const previewWidth = 248;
+  const cropWidth = (imageSize.width * hotspot.width) / 100;
+  const cropHeight = (imageSize.height * hotspot.height) / 100;
+  if (cropWidth <= 0 || cropHeight <= 0) return null;
+
+  const scale = previewWidth / cropWidth;
+  const previewHeight = cropHeight * scale;
+  const imageScale = scale;
+
+  return (
+    <View style={[styles.productCrop, { width: previewWidth, height: previewHeight }]}>
+      <Image
+        source={{ uri: imageUrl }}
+        style={{
+          position: 'absolute',
+          width: imageSize.width * imageScale,
+          height: imageSize.height * imageScale,
+          left: -(imageSize.width * imageScale * hotspot.x) / 100,
+          top: -(imageSize.height * imageScale * hotspot.y) / 100,
+        }}
+        contentFit="fill"
+      />
+    </View>
+  );
 }
 
 export default function BrochureViewerScreen({ brochureId }: { brochureId: string }) {
@@ -26,9 +183,32 @@ export default function BrochureViewerScreen({ brochureId }: { brochureId: strin
   const { activeHouseholdId } = useActiveHousehold();
   const addShoppingItem = useAddShoppingItem();
   const { data: pages, isLoading } = useBrochurePages(brochureId);
+  const { data: householdStores = [] } = useStores(activeHouseholdId ?? undefined);
   const [activeHotspot, setActiveHotspot] = useState<Hotspot | null>(null);
+  const [activePageImage, setActivePageImage] = useState<{
+    url: string;
+    size: Size;
+  } | null>(null);
   const [quantity, setQuantity] = useState(1);
   const [hotspotsVisible, setHotspotsVisible] = useState(true);
+  const [currentPageIndex, setCurrentPageIndex] = useState(0);
+
+  useEffect(() => {
+    if (!pages) return;
+    debugLog('[brochures] viewer data ready', {
+      brochureId,
+      pageCount: pages.length,
+      hotspotCount: pages.reduce((total, page) => total + page.hotspots.length, 0),
+      pagesWithHotspots: pages.filter((page) => page.hotspots.length > 0).length,
+      firstPage: pages[0]
+        ? {
+            pageNumber: pages[0].pageNumber,
+            imageHost: imageHost(pages[0].imageUrl),
+            hotspotCount: pages[0].hotspots.length,
+          }
+        : null,
+    });
+  }, [brochureId, pages]);
 
   if (isLoading || !pages) {
     return (
@@ -39,13 +219,25 @@ export default function BrochureViewerScreen({ brochureId }: { brochureId: strin
     );
   }
 
-  function selectHotspot(hotspot: Hotspot) {
+  function selectHotspot(hotspot: Hotspot, imageUrl: string, imageSize: Size) {
+    debugLog('[brochures] hotspot selected', {
+      pageIndex: currentPageIndex,
+      hotspotId: hotspot.id,
+      title: hotspot.title,
+    });
+    if (hotspot.kind === 'linkout' || (hotspot.kind === 'unknown' && hotspot.linkoutUrl)) {
+      if (hotspot.linkoutUrl) void Linking.openURL(hotspot.linkoutUrl);
+      return;
+    }
+
     setQuantity(1);
     setActiveHotspot(hotspot);
+    setActivePageImage({ url: imageUrl, size: imageSize });
   }
 
   function closeProductSheet() {
     setActiveHotspot(null);
+    setActivePageImage(null);
     setQuantity(1);
   }
 
@@ -56,6 +248,10 @@ export default function BrochureViewerScreen({ brochureId }: { brochureId: strin
     }
 
     try {
+      const brochureStoreName = pages?.[0]?.storeName;
+      const householdStore = brochureStoreName
+        ? findStoreByName(householdStores, brochureStoreName)
+        : undefined;
       const classification = await resolveCategoryForItem({
         householdId: activeHouseholdId,
         name: activeHotspot.title,
@@ -68,13 +264,11 @@ export default function BrochureViewerScreen({ brochureId }: { brochureId: strin
         category_id: classification.categoryId,
         category_source: classification.source,
         category_classifier_version: classification.classifierVersion,
-        // Prospekt-Haendler sind globale Slugs, Einkaufslisten-Maerkte dagegen
-        // haushaltsspezifische UUIDs. Ohne explizites Mapping bleibt der Markt leer.
-        store_id: null,
-        price_estimate:
-          activeHotspot.priceCents === undefined
-            ? null
-            : (activeHotspot.priceCents * quantity) / 100,
+        store_id: householdStore?.id ?? null,
+        price_estimate: (() => {
+          const { priceCents } = hotspotPrices(activeHotspot);
+          return priceCents === undefined ? null : (priceCents * quantity) / 100;
+        })(),
       });
       closeProductSheet();
       Alert.alert('Zur Einkaufsliste hinzugefügt', `${quantity} × ${activeHotspot.title}`);
@@ -88,28 +282,28 @@ export default function BrochureViewerScreen({ brochureId }: { brochureId: strin
 
   return (
     <View style={styles.container}>
-      <PagerView style={styles.pagerView} initialPage={0}>
-        {pages.map((page: LocalBrochurePage) => (
-          <View key={page.id} style={styles.page}>
-            <Image
-              source={{ uri: page.imageUrl }}
-              style={styles.pageImage}
-              contentFit="contain"
-              transition={200}
-              blurRadius={activeHotspot ? 12 : 0}
-            />
-            <View style={styles.hotspotsOverlay} pointerEvents={hotspotsVisible ? 'auto' : 'none'}>
-              {page.hotspots.map((hotspot: Hotspot) => (
-                <BrochureHotspot
-                  key={hotspot.id}
-                  hotspot={hotspot}
-                  isActive={activeHotspot?.id === hotspot.id}
-                  isVisible={hotspotsVisible}
-                  onPress={selectHotspot}
-                />
-              ))}
-            </View>
-          </View>
+      <PagerView
+        style={styles.pagerView}
+        initialPage={0}
+        onPageSelected={({ nativeEvent }) => {
+          const page = pages[nativeEvent.position];
+          setCurrentPageIndex(nativeEvent.position);
+          debugLog('[brochures] viewer page selected', {
+            pageIndex: nativeEvent.position,
+            pageNumber: page?.pageNumber ?? null,
+            hotspotCount: page?.hotspots.length ?? 0,
+            imageHost: page ? imageHost(page.imageUrl) : null,
+          });
+        }}>
+        {pages.map((page: LocalBrochurePage, index) => (
+          <BrochurePage
+            key={page.id}
+            page={page}
+            activeHotspot={activeHotspot}
+            hotspotsVisible={hotspotsVisible}
+            isCurrent={index === currentPageIndex}
+            onSelectHotspot={selectHotspot}
+          />
         ))}
       </PagerView>
 
@@ -135,41 +329,45 @@ export default function BrochureViewerScreen({ brochureId }: { brochureId: strin
               },
             ]}>
             <View style={[styles.sheetHandle, { backgroundColor: theme.border }]} />
-            <View style={styles.productHeading}>
-              {activeHotspot.imageUrl ? (
-                <Image source={{ uri: activeHotspot.imageUrl }} style={styles.productImage} />
-              ) : null}
+            <Pressable
+              role="button"
+              aria-label="Artikeldetails schließen"
+              style={[styles.sheetClose, { backgroundColor: theme.background }]}
+              onPress={closeProductSheet}>
+              <Text style={[styles.sheetCloseText, { color: theme.text }]}>×</Text>
+            </Pressable>
+
+            {activePageImage && activePageImage.size.width > 0 ? (
+              <ProductCropPreview
+                imageUrl={activePageImage.url}
+                imageSize={activePageImage.size}
+                hotspot={activeHotspot}
+              />
+            ) : activeHotspot.imageUrl ? (
+              <Image source={{ uri: activeHotspot.imageUrl }} style={styles.productPreviewImage} />
+            ) : null}
+
+            <View style={[styles.productCard, { backgroundColor: theme.accent }]}>
               <View style={styles.productCopy}>
-                <Text style={[styles.productTitle, { color: theme.text }]}>
+                <Text style={[styles.productTitle, { color: theme.onAccent }]} numberOfLines={2}>
                   {activeHotspot.title}
                 </Text>
-                {activeHotspot.description ? (
-                  <Text style={[styles.productDescription, { color: theme.textSecondary }]}>
-                    {activeHotspot.description}
-                  </Text>
-                ) : null}
+                <Text style={[styles.storeTitle, { color: theme.onAccent }]}>
+                  {pages?.[0]?.storeName ?? 'Supermarkt'}
+                </Text>
               </View>
-              {activeHotspot.discount ? (
-                <View style={[styles.sheetDiscount, { backgroundColor: theme.accent }]}>
-                  <Text style={[styles.sheetDiscountText, { color: theme.onAccent }]}>
-                    {activeHotspot.discount}
-                  </Text>
-                </View>
-              ) : null}
-            </View>
-
-            <View style={styles.priceRow}>
               {hotspotPrice(activeHotspot) ? (
-                <Text style={[styles.productPrice, { color: theme.accent }]}>
+                <Text style={[styles.productPrice, { color: theme.onAccent }]}>
                   {hotspotPrice(activeHotspot)}
                 </Text>
               ) : null}
-              {activeHotspot.oldPriceCents !== undefined ? (
-                <Text style={[styles.oldPrice, { color: theme.textSecondary }]}>
-                  {formatEuro(activeHotspot.oldPriceCents / 100)}
-                </Text>
-              ) : null}
             </View>
+
+            {activeHotspot.description ? (
+              <Text style={[styles.productDescription, { color: theme.textSecondary }]}>
+                {activeHotspot.description}
+              </Text>
+            ) : null}
 
             <View style={styles.actionRow}>
               <View
@@ -258,8 +456,8 @@ const styles = StyleSheet.create({
   loadingContainer: { flex: 1, justifyContent: 'center', alignItems: 'center', gap: 12 },
   pagerView: { flex: 1 },
   page: { flex: 1, justifyContent: 'center', alignItems: 'center' },
-  pageImage: { width: '100%', height: '100%' },
-  hotspotsOverlay: { ...StyleSheet.absoluteFill },
+  pageImage: { position: 'absolute', inset: 0, zIndex: 0 },
+  hotspotsOverlay: { position: 'absolute', zIndex: 1 },
   hotspotToggle: {
     position: 'absolute',
     left: 16,
@@ -294,16 +492,35 @@ const styles = StyleSheet.create({
     gap: 16,
   },
   sheetHandle: { width: 40, height: 4, borderRadius: 2, alignSelf: 'center' },
-  productHeading: { flexDirection: 'row', alignItems: 'center', gap: 12 },
-  productImage: { width: 56, height: 56, borderRadius: 10 },
-  productCopy: { flex: 1, gap: 4 },
-  productTitle: { fontSize: 20, fontWeight: '600' },
+  productCard: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    borderRadius: 14,
+    paddingHorizontal: 18,
+    paddingVertical: 11,
+    gap: 12,
+  },
+  productCopy: { flex: 1, gap: 2 },
+  productTitle: { fontSize: 14, lineHeight: 18, fontWeight: '600' },
+  storeTitle: { fontSize: 12, fontWeight: '600' },
   productDescription: { fontSize: 14 },
   sheetDiscount: { borderRadius: 8, paddingHorizontal: 8, paddingVertical: 5 },
   sheetDiscountText: { fontSize: 12, fontWeight: '800' },
-  priceRow: { flexDirection: 'row', alignItems: 'baseline', gap: 10 },
-  productPrice: { fontSize: 26, fontWeight: '800' },
-  oldPrice: { fontSize: 15, textDecorationLine: 'line-through' },
+  productPrice: { fontSize: 13, fontWeight: '800' },
+  productPreviewImage: { width: 248, height: 300, alignSelf: 'center', borderRadius: 4 },
+  productCrop: { alignSelf: 'center', overflow: 'hidden', borderRadius: 4 },
+  sheetClose: {
+    position: 'absolute',
+    top: 18,
+    right: 18,
+    width: 52,
+    height: 52,
+    borderRadius: 26,
+    alignItems: 'center',
+    justifyContent: 'center',
+    zIndex: 2,
+  },
+  sheetCloseText: { fontSize: 38, fontWeight: '300', lineHeight: 42 },
   actionRow: { flexDirection: 'row', gap: 12 },
   stepper: { flexDirection: 'row', alignItems: 'center', borderWidth: 1, borderRadius: 12 },
   stepperButton: { width: 42, minHeight: 48, justifyContent: 'center', alignItems: 'center' },
