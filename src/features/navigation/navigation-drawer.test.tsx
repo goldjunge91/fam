@@ -89,6 +89,8 @@ describe('NavigationDrawer', () => {
     expect(screen.getByText('Essensplan')).toBeTruthy();
     expect(screen.getByText('Tagebuch')).toBeTruthy();
     expect(screen.getByText('Einstellungen')).toBeTruthy();
+    expect(screen.queryByText('HAUSHALT & PLANUNG')).toBeNull();
+    expect(screen.queryByText('PRIVAT')).toBeNull();
   });
 
   it('navigiert beim Klick auf ein Ziel und schließt den Drawer', async () => {

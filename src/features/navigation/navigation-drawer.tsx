@@ -119,7 +119,9 @@ function DrawerContent() {
 
       <ScrollView className="flex-1" showsVerticalScrollIndicator={false}>
         {visibleGroups.map((group) => (
-          <View key={group.title} className="drawer-group">
+          <View
+            key={group.title}
+            className={`drawer-group ${group.key === 'household' ? 'drawer-group-household' : ''}`}>
             {group.hideTitle ? null : (
               <ThemedText type="small" themeColor="textSecondary" className="drawer-group-title">
                 {group.title.toUpperCase()}

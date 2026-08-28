@@ -229,8 +229,8 @@ export const DRAWER_GROUPS_META: readonly {
   hideTitle?: boolean;
 }[] = [
   { key: 'today', title: 'Heute', hideTitle: true },
-  { key: 'household', title: 'Haushalt & Planung' },
-  { key: 'private', title: 'Privat' },
+  { key: 'household', title: 'Haushalt & Planung', hideTitle: true },
+  { key: 'private', title: 'Privat', hideTitle: true },
 ];
 
 export type DrawerRouteItem = {
