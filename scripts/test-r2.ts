@@ -100,15 +100,10 @@ async function runR2Test() {
   console.log(`3️⃣  Lade Test-Datei hoch (${testKey})...`);
   try {
     const s3File = s3.file(testKey);
-    await s3File.write(testPayload, {
-      type: 'application/json',
-      headers: {
-        'Cache-Control': 'public, max-age=3600',
-      },
-    });
+    await s3File.write(testPayload, { type: 'application/json' });
     console.log('  ✅ Upload erfolgreich!\n');
-  } catch (err: any) {
-    console.error('  ❌ Upload fehlgeschlagen:', err?.message || err);
+  } catch (err) {
+    console.error('  ❌ Upload fehlgeschlagen:', err instanceof Error ? err.message : err);
     console.error('  👉 Prüfe, ob Access Key, Secret Key und Bucket-Name exakt stimmen.');
     process.exit(1);
   }
@@ -120,8 +115,8 @@ async function runR2Test() {
     const downloadedContent = await s3File.text();
     const parsed = JSON.parse(downloadedContent);
     console.log(`  ✅ Datei erfolgreich gelesen: "${parsed.message}"\n`);
-  } catch (err: any) {
-    console.error('  ❌ Lesen via S3 fehlgeschlagen:', err?.message || err);
+  } catch (err) {
+    console.error('  ❌ Lesen via S3 fehlgeschlagen:', err instanceof Error ? err.message : err);
   }
 
   // Schritt 5: Öffentlicher HTTP-Zugriffstest (Public URL / CDN / CORS)
@@ -148,8 +143,8 @@ async function runR2Test() {
         console.warn(`  ⚠️ HTTP Status ${response.status}: Öffentlicher Zugriff noch nicht aktiv oder Domain falsch.`);
         console.warn('  👉 Prüfe im Dashboard: Settings -> Public access (Allow) oder Custom Domain.');
       }
-    } catch (err: any) {
-      console.warn('  ⚠️ Fehler beim HTTP-Fetch:', err?.message || err);
+    } catch (err) {
+      console.warn('  ⚠️ Fehler beim HTTP-Fetch:', err instanceof Error ? err.message : err);
     }
   }
 
@@ -159,8 +154,8 @@ async function runR2Test() {
     const s3File = s3.file(testKey);
     await s3File.delete();
     console.log('  ✅ Test-Datei gelöscht.\n');
-  } catch (err: any) {
-    console.warn('  ⚠️ Konnte Test-Datei nicht löschen:', err?.message || err);
+  } catch (err) {
+    console.warn('  ⚠️ Konnte Test-Datei nicht löschen:', err instanceof Error ? err.message : err);
   }
 
   console.log('======================================================');
