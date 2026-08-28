@@ -6,8 +6,9 @@ import { WheelPickerField } from '@/components/forms/wheel-picker-field';
 import { ThemedText } from '@/components/theme/themed-text';
 import { Button } from '@/components/ui/buttons';
 import { useSession } from '@/features/auth/session-provider';
+import { useProduct } from '@/features/inventory/use-product';
 import { debugLog } from '@/lib/debug-log';
-import { formatAmount } from '@/lib/package-size';
+import { formatAmount, formatPackageHint } from '@/lib/package-size';
 import { useFeatureFlag } from '@/lib/posthog';
 import { UNIT_OPTIONS } from '@/lib/units';
 import {
@@ -57,6 +58,10 @@ export function EditItemForm({ item, onDismiss }: EditItemFormProps) {
   const [name, setName] = useState(item.name);
   const [quantity, setQuantity] = useState(String(item.quantity));
   const [unit, setUnit] = useState(item.unit);
+  const [packageSizeInput, setPackageSizeInput] = useState(
+    item.package_size != null ? String(item.package_size) : '',
+  );
+  const [packageSizeUnit, setPackageSizeUnit] = useState(item.package_size_unit ?? 'g');
   const [price, setPrice] = useState(
     item.price_estimate != null ? String(item.price_estimate) : '',
   );
@@ -98,6 +103,7 @@ export function EditItemForm({ item, onDismiss }: EditItemFormProps) {
   const resetScopeRequestRef = useRef(0);
 
   const updateItem = useUpdateShoppingItem();
+  const { data: product } = useProduct(item.product_id);
   const { session } = useSession();
   const userId = session?.user.id;
   const { data: stores = [] } = useStores(item.household_id);
@@ -106,6 +112,12 @@ export function EditItemForm({ item, onDismiss }: EditItemFormProps) {
     { value: NO_STORE, label: 'Ohne Markt' },
     ...stores.map((store) => ({ value: store.id, label: store.name })),
   ];
+  const parsedPackageSize = Number(packageSizeInput.replace(',', '.'));
+  const packageSize =
+    unit === 'package' && Number.isFinite(parsedPackageSize) && parsedPackageSize > 0
+      ? parsedPackageSize
+      : null;
+  const packageHint = formatPackageHint(packageSize, packageSizeUnit);
 
   useEffect(() => {
     if (placementSelection.mode === 'manual') return;
@@ -349,6 +361,8 @@ export function EditItemForm({ item, onDismiss }: EditItemFormProps) {
         name: trimmed,
         quantity: Number(quantity) || 1,
         unit,
+        package_size: packageSize,
+        package_size_unit: packageSize ? packageSizeUnit : null,
         category_id: savedCategory.categoryId,
         category_source: savedCategory.source,
         category_classifier_version: savedCategory.classifierVersion,
@@ -424,6 +438,30 @@ export function EditItemForm({ item, onDismiss }: EditItemFormProps) {
               onChange={setUnit}
               size="large"
             />
+            {unit === 'package' ? (
+              <View className="flex-row items-end gap-two">
+                <View className="flex-[1.3]">
+                  <TextField
+                    label="Inhalt je Packung"
+                    value={packageSizeInput}
+                    onChangeText={setPackageSizeInput}
+                    keyboardType="decimal-pad"
+                    placeholder="z. B. 500"
+                  />
+                </View>
+                <View className="flex-1">
+                  <WheelPickerField
+                    label="Einheit"
+                    value={packageSizeUnit}
+                    options={UNIT_OPTIONS.filter((option) =>
+                      ['g', 'kg', 'ml', 'l', 'piece', 'portion'].includes(option.value),
+                    )}
+                    onChange={setPackageSizeUnit}
+                    size="large"
+                  />
+                </View>
+              </View>
+            ) : null}
             <PlacementZoneField
               selection={placementSelection}
               effectiveZoneId={normalizePlacementZoneIdNullable(categoryState.categoryId)}
@@ -457,14 +495,19 @@ export function EditItemForm({ item, onDismiss }: EditItemFormProps) {
               themeColor="textSecondary"
               numberOfLines={1}
               className="font-medium">
-              Bestehender Eintrag
+              {product?.brand ?? 'Bestehender Eintrag'}
             </ThemedText>
+            {product?.barcode ? (
+              <ThemedText type="captionMuted" numberOfLines={1}>
+                EAN {product.barcode}
+              </ThemedText>
+            ) : null}
           </View>
           <View className="items-end">
             <ThemedText type="default">
-              {formatAmount(Number(quantity.replace(',', '.')) || 1, unit)}
+              {packageHint ?? formatAmount(Number(quantity.replace(',', '.')) || 1, unit)}
             </ThemedText>
-            <ThemedText type="smallMuted">Menge</ThemedText>
+            <ThemedText type="smallMuted">{packageHint ? 'Packungsinhalt' : 'Menge'}</ThemedText>
           </View>
         </View>
       ) : null}

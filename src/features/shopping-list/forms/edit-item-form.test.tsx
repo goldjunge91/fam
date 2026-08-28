@@ -33,6 +33,16 @@ let mockStores: Array<{
   sort_order: number;
   category_order: string | null;
 }> = [];
+let mockProduct: {
+  id: string;
+  barcode: string | null;
+  name: string;
+  brand: string | null;
+} | null = null;
+
+jest.mock('@/features/inventory/use-product', () => ({
+  useProduct: () => ({ data: mockProduct, isLoading: false }),
+}));
 
 jest.mock('@/components/forms/wheel-picker-field', () => {
   const { Pressable, Text, View } =
@@ -158,6 +168,7 @@ describe('EditItemForm', () => {
   beforeEach(() => {
     jest.clearAllMocks();
     mockStores = [];
+    mockProduct = null;
     mockUpdateMutateAsync.mockResolvedValue({});
     mockResolvePlacementForItem.mockResolvedValue({
       ...defaultGlobalClassification,
@@ -172,6 +183,29 @@ describe('EditItemForm', () => {
     await renderForm();
 
     expect(screen.getByDisplayValue('Bananen')).toBeTruthy();
+  });
+
+  it('zeigt die Produktdetails eines per Barcode hinzugefügten Artikels', async () => {
+    mockProduct = {
+      id: 'product-1',
+      barcode: '4006381333931',
+      name: 'Haferdrink',
+      brand: 'Hafergut',
+    };
+
+    await renderForm({
+      ...mockItem,
+      product_id: 'product-1',
+      name: 'Haferdrink',
+      quantity: 2,
+      unit: 'package',
+      package_size: 750,
+      package_size_unit: 'ml',
+    });
+
+    expect(await screen.findByText('Hafergut')).toBeOnTheScreen();
+    expect(screen.getByText('EAN 4006381333931')).toBeOnTheScreen();
+    expect(screen.getByText('750 ml je Packung')).toBeOnTheScreen();
   });
 
   it('speichert Änderungen beim Absenden', async () => {
@@ -189,6 +223,29 @@ describe('EditItemForm', () => {
           id: 'item-1',
           household_id: 'hh-1',
           name: 'Bio Bananen',
+        }),
+      ),
+    );
+  });
+
+  it('behält vorhandene Packungsinformationen beim Speichern', async () => {
+    await renderForm({
+      ...mockItem,
+      product_id: 'product-1',
+      quantity: 2,
+      unit: 'package',
+      package_size: 750,
+      package_size_unit: 'ml',
+    });
+
+    await fireEvent.press(screen.getByRole('button', { name: 'Speichern' }));
+
+    await waitFor(() =>
+      expect(mockUpdateMutateAsync).toHaveBeenCalledWith(
+        expect.objectContaining({
+          id: 'item-1',
+          package_size: 750,
+          package_size_unit: 'ml',
         }),
       ),
     );

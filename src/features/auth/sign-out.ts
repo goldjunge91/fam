@@ -3,6 +3,7 @@ import type { QueryClient } from '@tanstack/react-query';
 import { signOut as signOutSession } from '@/features/auth/api';
 import { setStoredActiveHouseholdId } from '@/features/household/active-household-store';
 import { deleteLocalDatabase, setActiveUserId } from '@/lib/db/client';
+import { debugLogEvent } from '@/lib/debug-log';
 import { removeLegacyPersistedQueryCache } from '@/lib/query-client';
 import { resetLocalAccountModuleCaches } from '@/lib/storage/account-cache-registry';
 import {
@@ -104,6 +105,7 @@ export function clearLocalAccountData(queryClient: QueryClient, userId: string):
 export async function signOutAndClearLocalData(queryClient: QueryClient): Promise<{
   error: Error | null;
 }> {
+  debugLogEvent('auth.sign-out.started');
   let userId: string | null = null;
   try {
     userId = await getRememberedLocalAccountUserId();
@@ -119,18 +121,26 @@ export async function signOutAndClearLocalData(queryClient: QueryClient): Promis
   let localSessionRemovalError: Error | null = null;
   try {
     ({ error: serverError } = await signOutSession());
+    debugLogEvent('auth.sign-out.server-completed', { failed: serverError !== null });
   } catch (error) {
     serverError = error as Error;
     try {
       // Lokale Session auch bei einem fehlgeschlagenen Server-Logout entfernen.
       await getSupabase().auth.signOut({ scope: 'local' });
+      debugLogEvent('auth.sign-out.local-fallback-completed');
     } catch (fallbackError) {
       localSessionRemovalError = fallbackError as Error;
     }
   }
 
   // Lokale Daten unabhängig vom Server-Ergebnis bereinigen.
-  if (userId) await clearLocalAccountData(queryClient, userId);
+  if (userId) {
+    debugLogEvent('auth.sign-out.local-cleanup-started');
+    await clearLocalAccountData(queryClient, userId);
+    debugLogEvent('auth.sign-out.completed');
+  } else {
+    debugLogEvent('auth.sign-out.completed', { localCleanup: 'skipped-no-user-id' });
+  }
 
   if (serverError) {
     console.warn('[auth] Server-Session konnte nicht widerrufen werden:', serverError.message);

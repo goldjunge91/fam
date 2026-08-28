@@ -1,3 +1,4 @@
+import { debugLogEvent } from '@/lib/debug-log';
 import { env } from '@/lib/env';
 
 export type NutrientLevel = 'low' | 'moderate' | 'high';
@@ -213,9 +214,18 @@ async function fetchProductWithRetry(
 
     try {
       productRateLimiter.record();
+      debugLogEvent('open-food-facts.barcode.request', {
+        attempt: attempt + 1,
+        maxAttempts: MAX_RETRIES + 1,
+      });
       const res = await fetch(url, {
         headers: { 'User-Agent': 'FamApp/1.0 (contact@fam.app)' },
         signal,
+      });
+      debugLogEvent('open-food-facts.barcode.response', {
+        attempt: attempt + 1,
+        status: res.status,
+        ok: res.ok,
       });
       if (!res.ok) {
         // Response-Body lesen, damit die Verbindung wiederverwendet werden kann.
@@ -260,10 +270,12 @@ export async function searchOpenFoodFacts(
   if (cached) return cached;
 
   if (env.offFactsOffline) {
+    debugLogEvent('open-food-facts.search.skipped', { reason: 'offline-mode' });
     return { products: [], hasMore: false, failed: true };
   }
 
   if (searchRateLimiter.isLimited()) {
+    debugLogEvent('open-food-facts.search.skipped', { reason: 'rate-limit' });
     return { products: [], hasMore: false, failed: true };
   }
 
@@ -275,12 +287,20 @@ export async function searchOpenFoodFacts(
       `&sort_by=unique_scans_n&lc=de&cc=de&fields=${SEARCH_FIELDS}`;
 
     searchRateLimiter.record();
+    const startedAt = Date.now();
+    debugLogEvent('open-food-facts.search.request', { page, pageSize });
     const res = await fetch(url, {
       headers: { 'User-Agent': 'FamApp/1.0 (contact@fam.app)' },
       signal,
     });
 
-    if (!res.ok) return { products: [], hasMore: false, failed: true };
+    if (!res.ok) {
+      debugLogEvent('open-food-facts.search.failed', {
+        status: res.status,
+        durationMs: Date.now() - startedAt,
+      });
+      return { products: [], hasMore: false, failed: true };
+    }
     const data = await res.json();
     const rawProducts = data.products || [];
 
@@ -295,10 +315,18 @@ export async function searchOpenFoodFacts(
       failed: false,
     };
     cacheSearchResult(cacheKey, result);
+    debugLogEvent('open-food-facts.search.succeeded', {
+      resultCount: products.length,
+      hasMore: result.hasMore,
+      durationMs: Date.now() - startedAt,
+    });
     return result;
   } catch (err) {
     // Abgebrochene, durch neue Eingaben überholte Anfragen ignorieren.
     if (signal?.aborted) return { products: [], hasMore: false, failed: false };
+    debugLogEvent('open-food-facts.search.failed', {
+      reason: 'network-or-parse-error',
+    });
     console.error('Fehler bei Open Food Facts Suche:', err);
     return { products: [], hasMore: false, failed: true };
   }
@@ -388,13 +416,22 @@ export async function fetchProductByBarcode(
 
     const res = await fetchProductWithRetry(url, signal);
 
-    if (!res?.ok) return null;
+    if (!res?.ok) {
+      debugLogEvent('open-food-facts.barcode.failed', { reason: 'http-error' });
+      return null;
+    }
     const data = await res.json();
 
-    if (data.status !== 1 || !data.product) return null;
-    return formatOFFProduct(data.product);
+    if (data.status !== 1 || !data.product) {
+      debugLogEvent('open-food-facts.barcode.completed', { found: false });
+      return null;
+    }
+    const product = formatOFFProduct(data.product);
+    debugLogEvent('open-food-facts.barcode.completed', { found: product !== null });
+    return product;
   } catch (err) {
     if (signal?.aborted) return null;
+    debugLogEvent('open-food-facts.barcode.failed', { reason: 'network-or-parse-error' });
     console.error('Fehler bei Open Food Facts Barcode-Abfrage:', err);
     return null;
   }

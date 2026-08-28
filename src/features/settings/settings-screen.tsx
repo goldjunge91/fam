@@ -21,6 +21,7 @@ import { useProfile } from '@/features/profile/api';
 import { classifySupabaseTarget } from '@/features/settings/dev/dev-info';
 import { PremiumPromoCard } from '@/features/settings/premium-promo-card';
 import { SettingsGroup, SettingsRow } from '@/features/settings/settings-menu';
+import { debugLogEvent } from '@/lib/debug-log';
 import { env } from '@/lib/env';
 
 export function SettingsScreen() {
@@ -38,6 +39,7 @@ export function SettingsScreen() {
 
   async function handleSignOut() {
     if (signingOut) return;
+    debugLogEvent('auth.sign-out.button-clicked');
     setSigningOut(true);
 
     const { error } = await signOutAndClearLocalData(queryClient);

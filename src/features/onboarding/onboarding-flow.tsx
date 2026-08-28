@@ -8,6 +8,7 @@ import { useSession } from '@/features/auth/session-provider';
 import { signOutAndClearLocalData } from '@/features/auth/sign-out';
 import { useTheme } from '@/hooks/use-theme';
 import { trackAnalyticsEvent } from '@/lib/analytics';
+import { debugLogEvent } from '@/lib/debug-log';
 import { AccountStepForm } from './components/account-step';
 import { CompleteStepForm } from './components/complete-step';
 import { HouseholdStepForm } from './components/household-step';
@@ -43,6 +44,7 @@ function OnboardingContent() {
 
   // Ab Schritt 2 ermöglicht der Notausstieg einen Neustart des Flows.
   async function handleEmergencySignOut() {
+    debugLogEvent('auth.sign-out.button-clicked', { source: 'onboarding-emergency' });
     await signOutAndClearLocalData(queryClient);
     setStep(1);
   }
