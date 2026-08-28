@@ -630,7 +630,7 @@ export function RecipeCreateScreen() {
 
       trackAnalyticsEvent(isEditing ? 'recipe.update.completed' : 'recipe.create.completed');
 
-      router.replace({ pathname: '/recipe/[id]' as any, params: { id: newRecipeId } });
+      router.replace({ pathname: '/recipe/[id]', params: { id: newRecipeId } });
     } catch (err) {
       Alert.alert('Fehler', err instanceof Error ? err.message : 'Konnte nicht speichern.');
     }

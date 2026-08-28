@@ -23,7 +23,7 @@ export function CalorieCarousel({ selectedIndex, onSelect }: CalorieCarouselProp
       showsHorizontalScrollIndicator={false}
       contentContainerClassName="calorie-carousel-content">
       {columns.map((column, columnIndex) => (
-        <View key={`calorie-column-${columnIndex}`} className="gap-two">
+        <View key={`calorie-column-${column.map(({ min }) => min).join('-')}`} className="gap-two">
           {column.map((bucket, rowIndex) => {
             const index = columnIndex * 2 + rowIndex;
             const selected = index === selectedIndex;
