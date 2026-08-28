@@ -15,13 +15,13 @@ import { useAddProductMutation } from '@/features/inventory/use-product-mutation
 import { useHubGradient } from '@/hooks/use-hub-gradient';
 import { trackAnalyticsEvent } from '@/lib/analytics';
 import { getDatabase } from '@/lib/db/client';
-import type { OpenFoodFactsProduct } from '@/lib/open-food-facts';
-import { toGramsEquivalent } from '@/lib/units';
 import {
   RECIPE_FORM_DEFAULTS,
   type RecipeFormValues,
   recipeFormSchema,
 } from '@/lib/db/zod/recipe-form-schema.zod';
+import type { OpenFoodFactsProduct } from '@/lib/open-food-facts';
+import { toGramsEquivalent } from '@/lib/units';
 import {
   pickRecipeImage,
   uploadRecipeCoverImage,

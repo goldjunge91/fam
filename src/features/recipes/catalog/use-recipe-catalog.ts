@@ -372,7 +372,10 @@ export function useCopyCatalogRecipeMutation() {
           const componentItems = detail.items.filter((item) => item.component_id === component.id);
           const servingGrams =
             component.serving_grams ??
-            componentItems.reduce((sum, item) => sum + (Number.isFinite(item.grams) ? item.grams : 0), 0);
+            componentItems.reduce(
+              (sum, item) => sum + (Number.isFinite(item.grams) ? item.grams : 0),
+              0,
+            );
           const created = await addComponent.mutateAsync({
             recipe_id: recipe.id,
             household_id: activeHouseholdId,
@@ -453,7 +456,8 @@ export function useCopyCatalogRecipeMutation() {
         for (const link of detail.stepIngredients) {
           const stepId = stepIds.get(link.step_id);
           const itemId = itemIds.get(link.item_id);
-          if (!stepId || !itemId) throw new Error('Schritt-Zutaten konnten nicht zugeordnet werden.');
+          if (!stepId || !itemId)
+            throw new Error('Schritt-Zutaten konnten nicht zugeordnet werden.');
           await addStepIngredient.mutateAsync({
             step_id: stepId,
             recipe_id: recipe.id,
@@ -474,7 +478,9 @@ export function useCopyCatalogRecipeMutation() {
             });
           } catch (cleanupError) {
             cleanupErrors.push(
-              cleanupError instanceof Error ? cleanupError.message : 'Unbekannter Rezept-Cleanup-Fehler',
+              cleanupError instanceof Error
+                ? cleanupError.message
+                : 'Unbekannter Rezept-Cleanup-Fehler',
             );
           }
         }
@@ -490,7 +496,9 @@ export function useCopyCatalogRecipeMutation() {
             if (removeError) cleanupErrors.push(removeError.message);
           } catch (removeError) {
             cleanupErrors.push(
-              removeError instanceof Error ? removeError.message : 'Unbekannter Asset-Cleanup-Fehler',
+              removeError instanceof Error
+                ? removeError.message
+                : 'Unbekannter Asset-Cleanup-Fehler',
             );
           }
         }
@@ -498,7 +506,9 @@ export function useCopyCatalogRecipeMutation() {
         if (cleanupErrors.length > 0) {
           const originalMessage =
             error instanceof Error ? error.message : 'Rezept konnte nicht kopiert werden';
-          throw new Error(`${originalMessage} (Cleanup fehlgeschlagen: ${cleanupErrors.join('; ')})`);
+          throw new Error(
+            `${originalMessage} (Cleanup fehlgeschlagen: ${cleanupErrors.join('; ')})`,
+          );
         }
         throw error;
       }

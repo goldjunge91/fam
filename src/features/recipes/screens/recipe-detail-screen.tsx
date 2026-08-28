@@ -24,17 +24,17 @@ import { HeartGlyph, HeroArtwork } from '../components/recipe-detail-primitives'
 import { RecipeRatingSheet } from '../components/recipe-rating-sheet';
 import { RecipeShoppingSheet } from '../components/recipe-shopping-sheet';
 import { StepMentionText } from '../components/step-mention-text';
-import { flattenRecipeItems, type MentionableIngredient } from '../domain/ingredient-mentions';
-import { calculateServingNutrition, scaleServing } from '../domain/nutrition';
-import { useRecipeFavorites } from '../domain/recipe-favorites';
 import { useRecipeCoverUrl, useRecipeStepImageUrl } from '../data/household-recipe-images';
-import { useRecipeRating } from '../domain/recipe-ratings';
 import {
   type RecipeDetail,
   type RecipeStep,
   useDeleteRecipeMutation,
   useRecipeDetail,
 } from '../data/use-recipes';
+import { flattenRecipeItems, type MentionableIngredient } from '../domain/ingredient-mentions';
+import { calculateServingNutrition, scaleServing } from '../domain/nutrition';
+import { useRecipeFavorites } from '../domain/recipe-favorites';
+import { useRecipeRating } from '../domain/recipe-ratings';
 import {
   DIETARY_TAG_LABELS,
   DIFFICULTY_LABELS,

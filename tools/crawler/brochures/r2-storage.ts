@@ -109,17 +109,24 @@ export async function uploadToR2(
   key: string,
   body: ArrayBuffer,
 ): Promise<void> {
-  const signed = signR2Request(config, key);
-  const response = await fetch(signed.url, {
-    method: 'PUT',
-    headers: signed.headers,
-    body,
-    signal: AbortSignal.timeout(30_000),
-  });
+  for (let attempt = 0; attempt < 3; attempt++) {
+    const signed = signR2Request(config, key);
+    const response = await fetch(signed.url, {
+      method: 'PUT',
+      headers: signed.headers,
+      body,
+      signal: AbortSignal.timeout(30_000),
+    });
 
-  if (!response.ok) {
+    if (response.ok) return;
+
     const errorBody = await response.text().catch(() => '');
-    throw new Error(`R2 Upload ${response.status} für ${key}: ${errorBody.slice(0, 200)}`);
+    const retryable = response.status === 429 || response.status >= 500;
+    if (!retryable || attempt === 2) {
+      throw new Error(`R2 Upload ${response.status} für ${key}: ${errorBody.slice(0, 200)}`);
+    }
+    const backoffMs = 2 ** attempt * 2000 + Math.floor(Math.random() * 1000);
+    await new Promise((resolve) => setTimeout(resolve, backoffMs));
   }
 }
 
@@ -183,7 +190,7 @@ export async function mirrorBrochureImagesToR2(
   });
 
   // Bilder parallel mit Concurrency herunterladen und nach R2 hochladen
-  const CONCURRENCY = 6;
+  const CONCURRENCY = 2;
   for (let i = 0; i < tasks.length; i += CONCURRENCY) {
     const chunk = tasks.slice(i, i + CONCURRENCY);
     await Promise.all(

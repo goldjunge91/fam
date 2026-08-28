@@ -1,9 +1,8 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { render, screen } from '@testing-library/react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-
-import { CookingModeScreen } from './cooking-mode-screen';
 import type { RecipeDetail } from '../data/use-recipes';
+import { CookingModeScreen } from './cooking-mode-screen';
 
 const mockNavigation = { canGoBack: () => true, addListener: () => () => {} };
 

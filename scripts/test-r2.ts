@@ -76,7 +76,9 @@ async function runR2Test() {
   console.log(`  ✅ Account ID:   ${accountId?.slice(0, 6)}...${accountId?.slice(-4)}`);
   console.log(`  ✅ Access Key:   ${accessKeyId?.slice(0, 6)}...`);
   console.log(`  ✅ Bucket Name:  ${bucketName}`);
-  console.log(`  ✅ Public URL:   ${publicUrl || '⚠️ Nicht gesetzt (Public HTTP Test wird übersprungen)'}\n`);
+  console.log(
+    `  ✅ Public URL:   ${publicUrl || '⚠️ Nicht gesetzt (Public HTTP Test wird übersprungen)'}\n`,
+  );
 
   // Schritt 2: S3 Client initialisieren
   console.log('2️⃣  Initialisiere S3 Client...');
@@ -90,11 +92,15 @@ async function runR2Test() {
   console.log(`  ✅ Endpoint: ${endpoint}\n`);
 
   const testKey = `test/r2-connection-check-${Date.now()}.txt`;
-  const testPayload = JSON.stringify({
-    message: 'Hello from Haushaltsapp R2 Test!',
-    timestamp: new Date().toISOString(),
-    bucket: bucketName,
-  }, null, 2);
+  const testPayload = JSON.stringify(
+    {
+      message: 'Hello from Haushaltsapp R2 Test!',
+      timestamp: new Date().toISOString(),
+      bucket: bucketName,
+    },
+    null,
+    2,
+  );
 
   // Schritt 3: Upload Test
   console.log(`3️⃣  Lade Test-Datei hoch (${testKey})...`);
@@ -136,12 +142,18 @@ async function runR2Test() {
         const corsHeader = response.headers.get('access-control-allow-origin');
         const cacheHeader = response.headers.get('cache-control');
         console.log(`  ✅ HTTP Status: ${response.status} ${response.statusText}`);
-        console.log(`  ✅ CORS Header (Access-Control-Allow-Origin): ${corsHeader || 'nicht gesetzt (prüfe CORS-Policy im Bucket)'}`);
+        console.log(
+          `  ✅ CORS Header (Access-Control-Allow-Origin): ${corsHeader || 'nicht gesetzt (prüfe CORS-Policy im Bucket)'}`,
+        );
         console.log(`  ✅ Cache-Control: ${cacheHeader || 'kein Header'}`);
         console.log('  🎉 Öffentlicher Zugriff für App & Tools funktioniert einwandfrei!\n');
       } else {
-        console.warn(`  ⚠️ HTTP Status ${response.status}: Öffentlicher Zugriff noch nicht aktiv oder Domain falsch.`);
-        console.warn('  👉 Prüfe im Dashboard: Settings -> Public access (Allow) oder Custom Domain.');
+        console.warn(
+          `  ⚠️ HTTP Status ${response.status}: Öffentlicher Zugriff noch nicht aktiv oder Domain falsch.`,
+        );
+        console.warn(
+          '  👉 Prüfe im Dashboard: Settings -> Public access (Allow) oder Custom Domain.',
+        );
       }
     } catch (err) {
       console.warn('  ⚠️ Fehler beim HTTP-Fetch:', err instanceof Error ? err.message : err);

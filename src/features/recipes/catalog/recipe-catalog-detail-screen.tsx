@@ -9,15 +9,19 @@ import { BackButton, HeaderIconButton } from '@/components/ui/buttons';
 import { useSession } from '@/features/auth/session-provider';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { HeartGlyph, HeroArtwork } from '@/features/recipes/components/recipe-detail-primitives';
-import { useRecipeFavorites } from '@/features/recipes/domain/recipe-favorites';
 import type { DietaryTag, DishType } from '@/features/recipes/data/use-recipes';
+import { useRecipeFavorites } from '@/features/recipes/domain/recipe-favorites';
 import {
   DIETARY_TAG_LABELS,
   DIFFICULTY_LABELS,
   DISH_TYPE_LABELS,
 } from '@/features/recipes/wizard/recipe-metadata-options';
-import { useCatalogImageUrl, useCatalogRecipe, useCopyCatalogRecipeMutation } from './use-recipe-catalog';
 import type { CatalogDetail, CatalogStep } from './use-recipe-catalog';
+import {
+  useCatalogImageUrl,
+  useCatalogRecipe,
+  useCopyCatalogRecipeMutation,
+} from './use-recipe-catalog';
 
 function round(value: number): number {
   return Math.round(value);
@@ -88,7 +92,9 @@ function CatalogStepItem({
 }
 
 function IngredientGroups({ detail, servings }: { detail: CatalogDetail; servings: number }) {
-  const componentNames = new Map(detail.components.map((component) => [component.id, component.name]));
+  const componentNames = new Map(
+    detail.components.map((component) => [component.id, component.name]),
+  );
 
   if (detail.components.length === 0) {
     return (
@@ -117,7 +123,9 @@ function IngredientGroups({ detail, servings }: { detail: CatalogDetail; serving
               ) : null}
             </View>
             {items.map((item, index) => {
-              const product = item.product_id ? detail.productsById.get(item.product_id) : undefined;
+              const product = item.product_id
+                ? detail.productsById.get(item.product_id)
+                : undefined;
               const name =
                 product?.name ??
                 item.ingredient_name ??
@@ -198,7 +206,9 @@ export function RecipeCatalogDetailScreen() {
   const currentServings = servings ?? recipe.default_servings;
   const scale = currentServings / Math.max(1, recipe.default_servings);
   const kcalPer100g =
-    detail.nutrition.grams > 0 ? round((detail.nutrition.kcal / detail.nutrition.grams) * 100) : null;
+    detail.nutrition.grams > 0
+      ? round((detail.nutrition.kcal / detail.nutrition.grams) * 100)
+      : null;
   const tags = Array.from(
     new Set([
       ...recipe.dish_types.map((tag) => DISH_TYPE_LABELS[tag as DishType] ?? tag),
@@ -289,7 +299,11 @@ export function RecipeCatalogDetailScreen() {
             {tags.length > 0 ? (
               <View className="flex-row flex-wrap items-center gap-x-three gap-y-two pt-three">
                 {visibleTags.map((tag) => (
-                  <ThemedText key={tag} type="caption" themeColor="textSecondary" className="font-medium">
+                  <ThemedText
+                    key={tag}
+                    type="caption"
+                    themeColor="textSecondary"
+                    className="font-medium">
                     {tag.startsWith('#') ? tag : `#${tag}`}
                   </ThemedText>
                 ))}
@@ -300,7 +314,10 @@ export function RecipeCatalogDetailScreen() {
                     aria-label={showAllTags ? 'Weniger Tags anzeigen' : 'Alle Tags anzeigen'}
                     aria-expanded={showAllTags}
                     hitSlop={8}>
-                    <ThemedText type="caption" themeColor="textSecondary" className="font-medium underline">
+                    <ThemedText
+                      type="caption"
+                      themeColor="textSecondary"
+                      className="font-medium underline">
                       {showAllTags ? 'Weniger' : `+${tags.length - 3} mehr`}
                     </ThemedText>
                   </Pressable>
@@ -317,27 +334,29 @@ export function RecipeCatalogDetailScreen() {
                   Portionen
                 </ThemedText>
                 <View className="w-[112px] h-[44px] rounded-control flex-row items-center bg-background-element">
-                <Pressable
-                  onPress={() => setServings((value) => Math.max(1, (value ?? currentServings) - 1))}
-                  role="button"
-                  aria-label="Weniger Portionen"
-                  className="w-[44px] h-[44px] items-center justify-center">
-                  <ThemedText type="headingSmall" themeColor="accent" className="font-medium">
-                    −
+                  <Pressable
+                    onPress={() =>
+                      setServings((value) => Math.max(1, (value ?? currentServings) - 1))
+                    }
+                    role="button"
+                    aria-label="Weniger Portionen"
+                    className="w-[44px] h-[44px] items-center justify-center">
+                    <ThemedText type="headingSmall" themeColor="accent" className="font-medium">
+                      −
+                    </ThemedText>
+                  </Pressable>
+                  <ThemedText type="body" className="min-w-[24px] flex-1 text-center font-bold">
+                    {currentServings}
                   </ThemedText>
-                </Pressable>
-                <ThemedText type="body" className="min-w-[24px] flex-1 text-center font-bold">
-                  {currentServings}
-                </ThemedText>
-                <Pressable
-                  onPress={() => setServings((value) => (value ?? currentServings) + 1)}
-                  role="button"
-                  aria-label="Mehr Portionen"
-                  className="w-[44px] h-[44px] items-center justify-center">
-                  <ThemedText type="headingSmall" themeColor="accent" className="font-medium">
-                    +
-                  </ThemedText>
-                </Pressable>
+                  <Pressable
+                    onPress={() => setServings((value) => (value ?? currentServings) + 1)}
+                    role="button"
+                    aria-label="Mehr Portionen"
+                    className="w-[44px] h-[44px] items-center justify-center">
+                    <ThemedText type="headingSmall" themeColor="accent" className="font-medium">
+                      +
+                    </ThemedText>
+                  </Pressable>
                 </View>
               </View>
             </View>

@@ -6,9 +6,9 @@ import { WheelPickerField } from '@/components/forms/wheel-picker-field';
 import { ThemedText } from '@/components/theme/themed-text';
 import { ProductSearchDropdown } from '@/features/inventory/product-search-dropdown';
 import { useTheme } from '@/hooks/use-theme';
+import type { RecipeFormValues } from '@/lib/db/zod/recipe-form-schema.zod';
 import type { OpenFoodFactsProduct } from '@/lib/open-food-facts';
 import { UNIT_OPTIONS } from '@/lib/units';
-import type { RecipeFormValues } from '@/lib/db/zod/recipe-form-schema.zod';
 import { DIETARY_TAGS, DIFFICULTIES, DISH_TYPES } from './recipe-metadata-options';
 import type { IngredientComponentGroup } from './types';
 

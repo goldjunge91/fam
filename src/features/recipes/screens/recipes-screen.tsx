@@ -20,7 +20,10 @@ import {
   type CatalogRecipe,
   useCatalogRecipes,
 } from '@/features/recipes/catalog/use-recipe-catalog';
-import { CALORIE_BUCKETS, isInCalorieBucket } from '@/features/recipes/domain/recipe-calorie-buckets';
+import {
+  CALORIE_BUCKETS,
+  isInCalorieBucket,
+} from '@/features/recipes/domain/recipe-calorie-buckets';
 import { useTheme } from '@/hooks/use-theme';
 import { CalorieCarousel } from '../components/calorie-carousel';
 import { CATEGORY_TILES, CategoryCarousel } from '../components/category-carousel';
@@ -31,8 +34,8 @@ import {
   recipeFilterCount,
 } from '../components/recipe-filter-modal';
 import { RecipePreviewCard } from '../components/recipe-preview-card';
-import { type RecipeFavoriteKey, useRecipeFavorites } from '../domain/recipe-favorites';
 import { type DishType, type RecipeListItem, useRecipes } from '../data/use-recipes';
+import { type RecipeFavoriteKey, useRecipeFavorites } from '../domain/recipe-favorites';
 import { DIFFICULTY_LABELS } from '../wizard/recipe-metadata-options';
 
 /** Reihenfolge der "Nach Mahlzeiten"-Carousels — Snack und Dessert teilen sich eine Reihe. */
@@ -530,7 +533,6 @@ export function RecipesScreen() {
                 ))}
               </View>
             ) : null}
-
           </>
         ) : (
           /* Leerzustand wenn keine Rezepte/Vorlagen vorhanden sind */

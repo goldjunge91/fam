@@ -1,8 +1,7 @@
 import { render, screen, userEvent } from '@testing-library/react-native';
 import { router } from 'expo-router';
-
-import { RecipeLogScreen } from './recipe-log-screen';
 import type { RecipeDetail } from '../data/use-recipes';
+import { RecipeLogScreen } from './recipe-log-screen';
 
 let mockDetail: RecipeDetail | null = null;
 

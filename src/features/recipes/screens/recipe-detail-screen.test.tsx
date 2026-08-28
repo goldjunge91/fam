@@ -1,10 +1,9 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { render, screen, userEvent } from '@testing-library/react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-
-import { RecipeDetailScreen } from './recipe-detail-screen';
-import type { RecipeRating } from '../domain/recipe-ratings';
 import type { RecipeDetail } from '../data/use-recipes';
+import type { RecipeRating } from '../domain/recipe-ratings';
+import { RecipeDetailScreen } from './recipe-detail-screen';
 
 jest.mock('expo-router', () => ({
   router: { push: jest.fn(), back: jest.fn() },

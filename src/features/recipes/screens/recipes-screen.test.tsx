@@ -1,9 +1,8 @@
 import { render, screen, userEvent, within } from '@testing-library/react-native';
 import { router } from 'expo-router';
-
-import { RecipesScreen } from './recipes-screen';
 import type { CatalogRecipe } from '../catalog/use-recipe-catalog';
 import type { RecipeListItem } from '../data/use-recipes';
+import { RecipesScreen } from './recipes-screen';
 
 let mockRecipes: RecipeListItem[] = [];
 let mockCatalogRecipes: CatalogRecipe[] = [];
@@ -104,10 +103,30 @@ describe('RecipesScreen — Entdecken', () => {
       makeRecipe({ id: 'r4', title: 'Suppe Fremd', dish_types: ['lunch'] }),
     ];
     mockCatalogRecipes = [
-      makeCatalogRecipe({ id: 'c1', slug: 'salat-overview', title: 'Salat Overview', dish_types: ['lunch'] }),
-      makeCatalogRecipe({ id: 'c2', slug: 'pizza-home', title: 'Pizza Home', dish_types: ['dinner'] }),
-      makeCatalogRecipe({ id: 'c3', slug: 'kuchen-mine', title: 'Kuchen Mine', dish_types: ['dessert'] }),
-      makeCatalogRecipe({ id: 'c4', slug: 'suppe-fremd', title: 'Suppe Fremd', dish_types: ['lunch'] }),
+      makeCatalogRecipe({
+        id: 'c1',
+        slug: 'salat-overview',
+        title: 'Salat Overview',
+        dish_types: ['lunch'],
+      }),
+      makeCatalogRecipe({
+        id: 'c2',
+        slug: 'pizza-home',
+        title: 'Pizza Home',
+        dish_types: ['dinner'],
+      }),
+      makeCatalogRecipe({
+        id: 'c3',
+        slug: 'kuchen-mine',
+        title: 'Kuchen Mine',
+        dish_types: ['dessert'],
+      }),
+      makeCatalogRecipe({
+        id: 'c4',
+        slug: 'suppe-fremd',
+        title: 'Suppe Fremd',
+        dish_types: ['lunch'],
+      }),
     ];
   });
 

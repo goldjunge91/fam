@@ -9,13 +9,13 @@ import ReorderableList, {
 import Svg, { Path } from 'react-native-svg';
 import { ThemedText } from '@/components/theme/themed-text';
 import { StepMentionText } from '@/features/recipes/components/step-mention-text';
+import { pickRecipeImage } from '@/features/recipes/data/household-recipe-images';
 import {
   computeMentionUsage,
   type MentionableIngredient,
   matchPendingMention,
   mentionedIngredientIds,
 } from '@/features/recipes/domain/ingredient-mentions';
-import { pickRecipeImage } from '@/features/recipes/data/household-recipe-images';
 import { useTheme } from '@/hooks/use-theme';
 import type { IngredientComponentGroup, WizardStepItem } from './types';
 

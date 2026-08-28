@@ -2,14 +2,11 @@ import { render, screen, userEvent } from '@testing-library/react-native';
 import type React from 'react';
 import { useForm } from 'react-hook-form';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-import {
-  RECIPE_FORM_DEFAULTS,
-  type RecipeFormValues,
-} from '@/lib/db/zod/recipe-form-schema.zod';
 import { RecipeWizardStepBasics } from '@/features/recipes/wizard/recipe-wizard-step-basics';
 import { RecipeWizardStepPreview } from '@/features/recipes/wizard/recipe-wizard-step-preview';
 import { RecipeWizardStepSteps } from '@/features/recipes/wizard/recipe-wizard-step-steps';
 import type { IngredientComponentGroup, WizardStepItem } from '@/features/recipes/wizard/types';
+import { RECIPE_FORM_DEFAULTS, type RecipeFormValues } from '@/lib/db/zod/recipe-form-schema.zod';
 
 jest.mock('@/hooks/use-theme', () => ({
   useTheme: () => require('@/constants/theme').Colors.light,

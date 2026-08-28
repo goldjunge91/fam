@@ -35,7 +35,9 @@ export function CalorieCarousel({ selectedIndex, onSelect }: CalorieCarouselProp
                 aria-label={`${bucket.label} Kilokalorien`}
                 aria-selected={selected}
                 className={`calorie-tile ${selected ? 'selectable-selected' : 'selectable-idle'}`}>
-                <ThemedText className="text-[22px] leading-[25px]">{BUCKET_EMOJI[index]}</ThemedText>
+                <ThemedText className="text-[22px] leading-[25px]">
+                  {BUCKET_EMOJI[index]}
+                </ThemedText>
                 <ThemedText
                   type="captionCompact"
                   themeColor={selected ? 'onAccent' : 'text'}
