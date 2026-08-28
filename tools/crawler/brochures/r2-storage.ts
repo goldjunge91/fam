@@ -4,9 +4,6 @@ import type { CrawlerBrochure } from './types';
 const MAX_IMAGE_BYTES = 10 * 1024 * 1024; // 10 MB
 const CACHE_CONTROL = 'public, max-age=604800, immutable';
 const DUMP_RUN_PREFIX = 'brochures/dumps/';
-const LIFECYCLE_PROBE_KEY = `${DUMP_RUN_PREFIX}.lifecycle-probe`;
-const DAY_MS = 24 * 60 * 60 * 1000;
-export const BROCHURE_RETENTION_DAYS = 60;
 
 export type R2Config = {
   accountId: string;
@@ -177,49 +174,6 @@ export async function uploadToR2(
     await retryDelay(attempt);
   }
   throw new Error(`R2 Upload für ${key} ohne Ergebnis beendet.`);
-}
-
-function lifecycleConfigurationError(retentionDays: number): Error {
-  return new Error(
-    `R2 Lifecycle ist für ${DUMP_RUN_PREFIX} nicht auf ${retentionDays} Tage aktiv. ` +
-      `Bitte die Object-Lifecycle-Regel im Cloudflare-Dashboard prüfen.`,
-  );
-}
-
-/**
- * Verifiziert die Aufbewahrung über ein einziges Objekt-HEAD. Damit benötigt
- * der wiederkehrende Crawler nur Object Read & Write statt Bucket-Adminrechte.
- */
-export async function verifyBrochureLifecycle(
-  config: R2Config,
-  retentionDays = BROCHURE_RETENTION_DAYS,
-): Promise<{ expiresAt: string }> {
-  let probeResponse = await headR2Object(config, LIFECYCLE_PROBE_KEY);
-  if (!probeResponse) {
-    await uploadToR2(config, LIFECYCLE_PROBE_KEY, new ArrayBuffer(0));
-    probeResponse = await headR2Object(config, LIFECYCLE_PROBE_KEY);
-  }
-
-  const expirationHeader = probeResponse?.headers.get('x-amz-expiration');
-  const lastModifiedHeader = probeResponse?.headers.get('last-modified');
-  const expirationMatch = expirationHeader?.match(/expiry-date="([^"]+)"/i);
-  const expirationValue = expirationMatch?.[1];
-  const expirationMs = expirationValue ? Date.parse(expirationValue) : Number.NaN;
-  const lastModifiedMs = lastModifiedHeader ? Date.parse(lastModifiedHeader) : Number.NaN;
-  const configuredRetentionMs = expirationMs - lastModifiedMs;
-  const minimumRetentionMs = (retentionDays - 1) * DAY_MS;
-  const maximumRetentionMs = (retentionDays + 2) * DAY_MS;
-
-  if (
-    !probeResponse ||
-    !Number.isFinite(configuredRetentionMs) ||
-    configuredRetentionMs < minimumRetentionMs ||
-    configuredRetentionMs > maximumRetentionMs
-  ) {
-    throw lifecycleConfigurationError(retentionDays);
-  }
-
-  return { expiresAt: new Date(expirationMs).toISOString() };
 }
 
 async function fetchImage(originalUrl: string): Promise<ArrayBuffer> {
