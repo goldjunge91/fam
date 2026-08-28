@@ -33,8 +33,46 @@ permissions:
   contents: read
 
 jobs:
+  validate-secrets:
+    name: Crawler-Zugangsdaten prüfen
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    steps:
+      - name: Validate required secrets
+        env:
+          BRING_AUTH_TOKEN: ${{ secrets.BRING_AUTH_TOKEN }}
+          BRING_API_KEY: ${{ secrets.BRING_API_KEY }}
+          BRING_USER_UUID: ${{ secrets.BRING_USER_UUID }}
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL || secrets.EXPO_PUBLIC_SUPABASE_URL }}
+          SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY || secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          R2_ACCOUNT_ID: ${{ secrets.R2_ACCOUNT_ID }}
+          R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+          R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+        run: |
+          required=(
+            BRING_AUTH_TOKEN
+            BRING_API_KEY
+            BRING_USER_UUID
+            SUPABASE_URL
+            SUPABASE_SECRET_KEY
+            R2_ACCOUNT_ID
+            R2_ACCESS_KEY_ID
+            R2_SECRET_ACCESS_KEY
+          )
+          missing=()
+          for name in "${required[@]}"; do
+            if [ -z "${!name:-}" ]; then
+              missing+=("$name")
+            fi
+          done
+          if [ "${#missing[@]}" -gt 0 ]; then
+            printf '::error::Fehlende Crawler-Secrets: %s\n' "${missing[*]}"
+            exit 1
+          fi
+
   crawl-stage:
     name: "Etappe ${{ matrix.zone_group }} (${{ matrix.region_name }})"
+    needs: validate-secrets
     runs-on: ubuntu-latest
     timeout-minutes: 30
 
@@ -56,7 +94,7 @@ jobs:
     steps:
       - name: Checkout repository
         if: ${{ github.event_name != 'workflow_dispatch' || inputs.zone_group == 'all' || inputs.zone_group == matrix.zone_group }}
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Set up Bun environment
         if: ${{ github.event_name != 'workflow_dispatch' || inputs.zone_group == 'all' || inputs.zone_group == matrix.zone_group }}
@@ -65,7 +103,7 @@ jobs:
       - name: Cache GeoNames postal codes
         if: ${{ github.event_name != 'workflow_dispatch' || inputs.zone_group == 'all' || inputs.zone_group == matrix.zone_group }}
         id: cache-geonames
-        uses: actions/cache@v4
+        uses: actions/cache@v6
         with:
           path: /tmp/geonames-DE.txt
           key: geonames-de-postal-codes-v1
@@ -95,8 +133,8 @@ jobs:
           BRING_AUTH_TOKEN: ${{ secrets.BRING_AUTH_TOKEN }}
           BRING_API_KEY: ${{ secrets.BRING_API_KEY }}
           BRING_USER_UUID: ${{ secrets.BRING_USER_UUID }}
-          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
-          SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL || secrets.EXPO_PUBLIC_SUPABASE_URL }}
+          SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY || secrets.SUPABASE_SERVICE_ROLE_KEY }}
           R2_ACCOUNT_ID: ${{ secrets.R2_ACCOUNT_ID }}
           R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
           R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
