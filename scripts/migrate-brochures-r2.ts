@@ -119,6 +119,27 @@ function wait(ms: number): Promise<void> {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
+// Supabase und Cloudflare/R2 antworten gelegentlich mit 5xx. Ein kurzes
+// exponentielles Backoff reicht fuer eine Migration — der Checkpoint macht
+// den Rest, falls ein Fehler nach vier Versuchen immer noch besteht.
+async function withRetry<T>(label: string, operation: () => Promise<T>, attempts = 4): Promise<T> {
+  let lastError: unknown;
+  for (let attempt = 0; attempt < attempts; attempt += 1) {
+    try {
+      return await operation();
+    } catch (error) {
+      lastError = error;
+      if (attempt === attempts - 1) break;
+      const delay = 2 ** attempt * 1000;
+      console.warn(
+        `${label} fehlgeschlagen (Versuch ${attempt + 1}/${attempts}), neuer Versuch in ${delay} ms.`,
+      );
+      await wait(delay);
+    }
+  }
+  throw lastError;
+}
+
 function sanitizeKeyPart(value: string): string {
   return value.replace(/[^a-zA-Z0-9._-]+/g, '_');
 }
@@ -254,12 +275,13 @@ async function main(): Promise<void> {
   const readStart = Date.now();
   let from = 0;
   for (;;) {
-    const { data, error } = await supabase
-      .from('brochure_dumps')
-      .select('id, zip_code, payload_json, created_at')
-      .order('zip_code', { ascending: true })
-      .range(from, from + BATCH_SIZE - 1);
-    if (error) throw error;
+    const { data } = await withRetry('Supabase-Read', () =>
+      supabase
+        .from('brochure_dumps')
+        .select('id, zip_code, payload_json, created_at')
+        .order('zip_code', { ascending: true })
+        .range(from, from + BATCH_SIZE - 1),
+    );
     if (!data || data.length === 0) break;
     rows.push(...(data as SupabaseDumpRow[]));
     from += data.length;
@@ -333,8 +355,10 @@ async function main(): Promise<void> {
   let completed = 0;
   for (const task of pending) {
     try {
-      const image = await fetchImage(task.originalUrl);
-      await uploadToR2(options, task.key, image);
+      await withRetry(`Bild ${task.originalUrl}`, async () => {
+        const image = await fetchImage(task.originalUrl);
+        await uploadToR2(options, task.key, image);
+      });
       const r2Url = `${options.r2PublicUrl}/${task.key}`;
       const verified = await verifyPublicUrl(r2Url);
       if (!verified) throw new Error(`Public-URL nicht erreichbar: ${r2Url}`);
@@ -401,10 +425,9 @@ async function main(): Promise<void> {
       failedCount: 0,
     });
     if (replaced > 0) {
-      const { error } = await supabase
-        .from('brochure_dumps')
-        .update({ payload_json: payload })
-        .eq('id', row.id);
+      const { error } = await withRetry(`Supabase-Update ${row.id}`, () =>
+        supabase.from('brochure_dumps').update({ payload_json: payload }).eq('id', row.id),
+      );
       if (error)
         throw new Error(`Supabase-Update fuer Dump ${row.id} fehlgeschlagen: ${error.message}`);
       updatedRows += 1;

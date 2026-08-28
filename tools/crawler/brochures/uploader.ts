@@ -116,6 +116,7 @@ export async function uploadSingleBatch(
 
     return {
       zip_code: dump.location.zipCode,
+      run_id: runStartedAt,
       payload_json: sanitizeJsonForPostgres(rawPayload),
       valid_from: validity.validFrom,
       valid_until: validity.validUntil,
@@ -123,7 +124,9 @@ export async function uploadSingleBatch(
   });
 
   let uploadedCount = 0;
-  const { error: insertError } = await supabase.from('brochure_dumps').insert(rows);
+  const { error: insertError } = await supabase
+    .from('brochure_dumps')
+    .upsert(rows, { onConflict: 'zip_code,run_id' });
 
   if (insertError) {
     // Fallback: Einzel-Inserts

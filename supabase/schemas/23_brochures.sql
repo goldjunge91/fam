@@ -21,12 +21,14 @@ create policy brochure_stores_select on public.brochure_stores
 create table public.brochure_dumps (
   id uuid primary key default gen_random_uuid(),
   zip_code text not null,
+  run_id text not null default 'legacy',
   payload_json jsonb not null,
   valid_from timestamptz not null,
   valid_until timestamptz not null,
   created_at timestamptz default now() not null
 );
 
+create unique index brochure_dumps_zip_code_run_id_idx on public.brochure_dumps (zip_code, run_id);
 create index brochure_dumps_zip_code_idx on public.brochure_dumps (zip_code, valid_until);
 
 alter table public.brochure_dumps enable row level security;

@@ -1,18 +1,8 @@
 import type { BrochureSource } from '../types';
-import { AldiBrochureSource } from './aldi';
-import { DmBrochureSource } from './dm';
-import { KauflandBrochureSource } from './kaufland';
-import { LidlBrochureSource } from './lidl';
 import { LiveOfferBrochureSource } from './live-offers';
-import { ReweBrochureSource } from './rewe';
 
 export const ALL_BROCHURE_SOURCES: BrochureSource[] = [
   new LiveOfferBrochureSource(),
-  new LidlBrochureSource(),
-  new AldiBrochureSource(),
-  new KauflandBrochureSource(),
-  new ReweBrochureSource(),
-  new DmBrochureSource(),
 ];
 
 export function getSourcesByName(names?: string[]): BrochureSource[] {
