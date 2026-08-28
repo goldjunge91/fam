@@ -74,7 +74,7 @@ jest.mock('@/lib/posthog', () => ({
   useFeatureFlag: () => mockRecipesFeatureFlag,
 }));
 
-jest.mock('@/features/recipes/use-recipes', () => ({
+jest.mock('@/features/recipes/data/use-recipes', () => ({
   useRecipes: () => ({
     data: [{ id: 'r1', title: 'Spaghetti Bolognese', cover_image_path: null }],
   }),
@@ -83,7 +83,7 @@ jest.mock('@/features/recipes/use-recipes', () => ({
 // Die Drag-Card im Tray zeigt das Rezeptbild ueber `useRecipeCoverUrl` (echtes
 // `useQuery`) — ohne QueryClientProvider in diesem Test-Setup wuerde das
 // werfen, siehe react-query-Fehlermeldung "No QueryClient set".
-jest.mock('@/features/recipes/recipe-image-uploader', () => ({
+jest.mock('@/features/recipes/data/household-recipe-images', () => ({
   useRecipeCoverUrl: () => ({ data: null }),
 }));
 

@@ -20,26 +20,26 @@ import { Alert, Modal, Pressable, ScrollView, Share, View } from 'react-native';
 import { HubScreen } from '@/components/layout/hub-screen';
 import { ThemedText } from '@/components/theme/themed-text';
 import { BackButton, HeaderIconButton } from '@/components/ui/buttons';
-import { HeartGlyph, HeroArtwork } from './components/recipe-detail-primitives';
-import { RecipeRatingSheet } from './components/recipe-rating-sheet';
-import { RecipeShoppingSheet } from './components/recipe-shopping-sheet';
-import { StepMentionText } from './components/step-mention-text';
-import { flattenRecipeItems, type MentionableIngredient } from './ingredient-mentions';
-import { calculateServingNutrition, scaleServing } from './nutrition';
-import { useRecipeFavorites } from './recipe-favorites';
-import { useRecipeCoverUrl, useRecipeStepImageUrl } from './recipe-image-uploader';
-import { useRecipeRating } from './recipe-ratings';
+import { HeartGlyph, HeroArtwork } from '../components/recipe-detail-primitives';
+import { RecipeRatingSheet } from '../components/recipe-rating-sheet';
+import { RecipeShoppingSheet } from '../components/recipe-shopping-sheet';
+import { StepMentionText } from '../components/step-mention-text';
+import { flattenRecipeItems, type MentionableIngredient } from '../domain/ingredient-mentions';
+import { calculateServingNutrition, scaleServing } from '../domain/nutrition';
+import { useRecipeFavorites } from '../domain/recipe-favorites';
+import { useRecipeCoverUrl, useRecipeStepImageUrl } from '../data/household-recipe-images';
+import { useRecipeRating } from '../domain/recipe-ratings';
 import {
   type RecipeDetail,
   type RecipeStep,
   useDeleteRecipeMutation,
   useRecipeDetail,
-} from './use-recipes';
+} from '../data/use-recipes';
 import {
   DIETARY_TAG_LABELS,
   DIFFICULTY_LABELS,
   DISH_TYPE_LABELS,
-} from './wizard/recipe-metadata-options';
+} from '../wizard/recipe-metadata-options';
 
 function round(value: number): number {
   return Math.round(value);

@@ -5,7 +5,7 @@ import Svg, { Circle, Defs, LinearGradient, Rect, Stop } from 'react-native-svg'
 
 import { ThemedText } from '@/components/theme/themed-text';
 import { useCatalogImageUrl } from '../catalog/use-recipe-catalog';
-import { useRecipeCoverUrl } from '../recipe-image-uploader';
+import { useRecipeCoverUrl } from '../data/household-recipe-images';
 
 type RecipePreview = {
   title: string;

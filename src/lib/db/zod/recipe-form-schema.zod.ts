@@ -3,7 +3,7 @@ import {
   DIETARY_TAG_VALUES,
   DIFFICULTY_VALUES,
   DISH_TYPE_VALUES,
-} from './wizard/recipe-metadata-options';
+} from '@/features/recipes/wizard/recipe-metadata-options';
 
 export const recipeFormSchema = z.object({
   title: z

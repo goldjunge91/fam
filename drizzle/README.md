@@ -20,8 +20,8 @@ späteren Migrationen, beginnend mit `local_recipe_preferences`, führt
 
 ## Zod-Schemas
 
-Formular- und Eingabevalidierung bleibt beim jeweiligen Feature, zum Beispiel
-`src/features/recipes/recipe-form-schema.ts` und
-`src/features/auth/auth-schemas.ts`. Diese Schemas bilden keine SQLite-Zeilen
-ab. Falls künftig DB-nahe Insert-, Select- oder Row-Validatoren entstehen,
-werden sie beim zugehörigen Modul unter `src/lib/db/schemas/` co-located.
+Formular- und Eingabevalidierung liegt zentral unter `src/lib/db/zod/`, zum
+Beispiel `recipe-form-schema.zod.ts` und `auth.zod.ts`. Diese Schemas bilden
+keine SQLite-Zeilen ab. Falls künftig DB-nahe Insert-, Select- oder
+Row-Validatoren entstehen, werden sie beim zugehörigen Modul unter
+`src/lib/db/schemas/` co-located.

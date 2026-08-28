@@ -1,9 +1,9 @@
-import { migrateLegacyRecipePreferences } from '@/features/recipes/legacy-recipe-preferences';
+import { migrateLegacyRecipePreferences } from '@/features/recipes/data/legacy-recipe-preferences';
 import { migrateLegacyBrochurePostalCode } from '@/lib/storage/account-preferences';
 import { reportError } from '@/lib/telemetry';
 import { migrateLegacyAccountData } from './legacy-account-data';
 
-jest.mock('@/features/recipes/legacy-recipe-preferences', () => ({
+jest.mock('@/features/recipes/data/legacy-recipe-preferences', () => ({
   migrateLegacyRecipePreferences: jest.fn().mockResolvedValue(undefined),
 }));
 

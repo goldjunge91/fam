@@ -8,7 +8,7 @@ import { ProductSearchDropdown } from '@/features/inventory/product-search-dropd
 import { useTheme } from '@/hooks/use-theme';
 import type { OpenFoodFactsProduct } from '@/lib/open-food-facts';
 import { UNIT_OPTIONS } from '@/lib/units';
-import type { RecipeFormValues } from '../recipe-form-schema';
+import type { RecipeFormValues } from '@/lib/db/zod/recipe-form-schema.zod';
 import { DIETARY_TAGS, DIFFICULTIES, DISH_TYPES } from './recipe-metadata-options';
 import type { IngredientComponentGroup } from './types';
 

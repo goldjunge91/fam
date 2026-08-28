@@ -7,7 +7,7 @@ import {
   readStoredRecipeRating,
   setStoredRecipeFavorite,
   writeStoredRecipeRating,
-} from '@/features/recipes/recipe-preferences-repository';
+} from '@/features/recipes/data/recipe-preferences-repository';
 import { createDrizzleDatabase, type DrizzleDatabase } from '@/lib/db/drizzle-driver';
 import { getBrochurePostalCode, setBrochurePostalCode } from '@/lib/storage/account-preferences';
 import { createTestDatabase, type TestDatabase } from '../../../test/node-sqlite-adapter';

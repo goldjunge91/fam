@@ -1,5 +1,5 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import type { RecipeFavoriteKey } from './recipe-favorites';
+import type { RecipeFavoriteKey } from '../domain/recipe-favorites';
 import { setStoredRecipeFavorite, writeStoredRecipeRating } from './recipe-preferences-repository';
 
 const LEGACY_FAVORITES_KEY = 'fam.recipe-favorites.v1';

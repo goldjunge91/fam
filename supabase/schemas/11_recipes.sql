@@ -16,7 +16,7 @@
 --
 -- Nährwerte kommen ausschliesslich aus `products` — keine eigene
 -- Naehrwert-Spalte hier, die berechnete Zusammensetzung ist Sache der reinen
--- Funktion in `src/features/recipes/nutrition.ts` (#124), nicht der DB.
+-- Funktion in `src/features/recipes/domain/nutrition.ts` (#124), nicht der DB.
 
 -- -------------------------------------------------------------------- Rezepte
 create table if not exists public.recipes (
@@ -118,7 +118,7 @@ create table if not exists public.recipe_component_items (
   -- Kanonische Rechengroesse fuer nutrition.ts, wird aus quantity/unit
   -- abgeleitet (client-seitig ueber toGramsEquivalent, kein DB-Trigger —
   -- konsistent mit dem Muster, dass Naehrwertberechnung Sache der reinen
-  -- Funktionen in src/features/recipes/nutrition.ts ist, nicht der DB).
+  -- Funktionen in src/features/recipes/domain/nutrition.ts ist, nicht der DB).
   grams numeric(8, 2) not null check (grams > 0),
   -- Rohe Nutzereingabe (z. B. "2" + "piece"), nullable fuer Altdaten ohne
   -- Roheingabe. Gleiche erlaubte Einheiten wie fridge_items/shopping_list

@@ -1,4 +1,4 @@
-import { RecipeCreateScreen } from '@/features/recipes/recipe-create-screen';
+import { RecipeCreateScreen } from '@/features/recipes/screens/recipe-create-screen';
 
 export default function RecipeCreateRoute() {
   return <RecipeCreateScreen />;

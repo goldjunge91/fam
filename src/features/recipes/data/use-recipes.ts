@@ -5,15 +5,15 @@ import {
   type ProductNutritionRow,
   type RecipeComponentItemRow,
   type RecipeComponentRow,
-} from '@/features/recipes/nutrition';
+} from '@/features/recipes/domain/nutrition';
 import { trackAnalyticsEvent } from '@/lib/analytics';
 import { getDatabase } from '@/lib/db/client';
 import { parseJsonArray } from '@/lib/db/json-array';
 import { enqueueMutation } from '@/lib/db/outbox';
 import { applyLocalMirrorWrite } from '@/lib/sync/mirror-write';
-import type { DietaryTag, Difficulty, DishType } from './wizard/recipe-metadata-options';
+import type { DietaryTag, Difficulty, DishType } from '../wizard/recipe-metadata-options';
 
-export type { DietaryTag, Difficulty, DishType } from './wizard/recipe-metadata-options';
+export type { DietaryTag, Difficulty, DishType } from '../wizard/recipe-metadata-options';
 
 export type RecipeListItem = {
   id: string;

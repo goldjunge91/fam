@@ -6,7 +6,7 @@ import {
   type RecipeComponentItemRow,
   type RecipeComponentRow,
   scaleServing,
-} from '@/features/recipes/nutrition';
+} from '@/features/recipes/domain/nutrition';
 
 // Referenzbeispiel aus docs/plans/phase-2-4-brainstorm.md, Abschnitt #12:
 // Nudeln 200kcal/100g, Soße aus 50g Tomaten (30kcal/100g) + 300g Hackfleisch

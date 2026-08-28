@@ -2,7 +2,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { act, renderHook, waitFor } from '@testing-library/react-native';
 import type React from 'react';
 
-import { useAddRecipeMutation, useDeleteRecipeMutation } from '@/features/recipes/use-recipes';
+import { useAddRecipeMutation, useDeleteRecipeMutation } from '@/features/recipes/data/use-recipes';
 import { enqueueMutation } from '@/lib/db/outbox';
 
 const mockDbRunAsync = jest.fn().mockResolvedValue({ changes: 1, lastInsertRowId: 1 });

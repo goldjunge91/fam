@@ -12,7 +12,7 @@ jest.mock('@/features/auth/session-provider', () => ({
   useSession: () => ({ session: mockUserId ? { user: { id: mockUserId } } : null }),
 }));
 
-jest.mock('@/features/recipes/recipe-preferences-repository', () => ({
+jest.mock('@/features/recipes/data/recipe-preferences-repository', () => ({
   listFavoriteRecipeKeys: jest.fn(async (userId: string) => mockFavoritesByUser.get(userId) ?? []),
   toggleStoredRecipeFavorite: jest.fn().mockResolvedValue(true),
 }));

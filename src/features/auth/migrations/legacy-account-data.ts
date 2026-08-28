@@ -1,4 +1,4 @@
-import { migrateLegacyRecipePreferences } from '@/features/recipes/legacy-recipe-preferences';
+import { migrateLegacyRecipePreferences } from '@/features/recipes/data/legacy-recipe-preferences';
 import { migrateLegacyBrochurePostalCode } from '@/lib/storage/account-preferences';
 import { reportError } from '@/lib/telemetry';
 

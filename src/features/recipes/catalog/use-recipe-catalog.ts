@@ -7,7 +7,7 @@ import {
   calculateServingNutrition,
   type NutritionTotal,
   type ProductNutritionRow,
-} from '@/features/recipes/nutrition';
+} from '@/features/recipes/domain/nutrition';
 import { getSupabase } from '@/lib/supabase';
 import {
   useAddComponentMutation,
@@ -18,7 +18,7 @@ import {
   useDeleteRecipeMutation,
   useUpdateRecipeMutation,
   useUpdateStepMutation,
-} from '../use-recipes';
+} from '../data/use-recipes';
 import { getCatalogCoverPath } from './recipe-catalog-image';
 
 export type CatalogRecipe = {

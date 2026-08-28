@@ -14,8 +14,8 @@ import {
   type MentionableIngredient,
   matchPendingMention,
   mentionedIngredientIds,
-} from '@/features/recipes/ingredient-mentions';
-import { pickRecipeImage } from '@/features/recipes/recipe-image-uploader';
+} from '@/features/recipes/domain/ingredient-mentions';
+import { pickRecipeImage } from '@/features/recipes/data/household-recipe-images';
 import { useTheme } from '@/hooks/use-theme';
 import type { IngredientComponentGroup, WizardStepItem } from './types';
 

@@ -1,4 +1,4 @@
-import { getRecipeRating, saveRecipeRating } from '@/features/recipes/recipe-ratings';
+import { getRecipeRating, saveRecipeRating } from '@/features/recipes/domain/recipe-ratings';
 
 const mockRatings = new Map<string, { score: number; note: string; updatedAt: number }>();
 
@@ -6,7 +6,7 @@ jest.mock('@/features/auth/session-provider', () => ({
   useSession: () => ({ session: { user: { id: 'user-1' } } }),
 }));
 
-jest.mock('@/features/recipes/recipe-preferences-repository', () => ({
+jest.mock('@/features/recipes/data/recipe-preferences-repository', () => ({
   readStoredRecipeRating: jest.fn(async (userId: string, recipeKey: string) =>
     mockRatings.get(`${userId}:${recipeKey}`),
   ),

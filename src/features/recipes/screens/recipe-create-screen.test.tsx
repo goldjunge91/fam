@@ -3,7 +3,7 @@ import { render, screen, userEvent, waitFor } from '@testing-library/react-nativ
 import { Alert } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
-import { RecipeCreateScreen } from '@/features/recipes/recipe-create-screen';
+import { RecipeCreateScreen } from '@/features/recipes/screens/recipe-create-screen';
 
 const mockCreateRecipeMutateAsync = jest.fn().mockResolvedValue({ id: 'rec-1' });
 const mockUpdateRecipeMutateAsync = jest.fn().mockResolvedValue(undefined);
@@ -32,7 +32,7 @@ jest.mock('@/features/household/active-household-provider', () => ({
   useOptionalActiveHousehold: () => ({ activeHouseholdId: 'hh-1' }),
 }));
 
-jest.mock('@/features/recipes/use-recipes', () => ({
+jest.mock('@/features/recipes/data/use-recipes', () => ({
   useRecipeDetail: () => ({ data: mockRecipeData, isLoading: false }),
   useAddRecipeMutation: () => ({ mutateAsync: mockCreateRecipeMutateAsync }),
   useUpdateRecipeMutation: () => ({ mutateAsync: mockUpdateRecipeMutateAsync }),

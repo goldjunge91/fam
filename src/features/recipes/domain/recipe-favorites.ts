@@ -4,7 +4,7 @@ import { registerLocalAccountCache } from '@/lib/storage/account-cache-registry'
 import {
   listFavoriteRecipeKeys,
   toggleStoredRecipeFavorite,
-} from './recipe-preferences-repository';
+} from '../data/recipe-preferences-repository';
 
 export type RecipeFavoriteKey = `recipe:${string}` | `template:${string}` | `catalog:${string}`;
 

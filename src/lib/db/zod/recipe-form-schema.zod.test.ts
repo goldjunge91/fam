@@ -1,4 +1,4 @@
-import { RECIPE_FORM_DEFAULTS, recipeFormSchema } from './recipe-form-schema';
+import { RECIPE_FORM_DEFAULTS, recipeFormSchema } from '@/lib/db/zod/recipe-form-schema.zod';
 
 describe('recipeFormSchema', () => {
   it('normalisiert einen gültigen Rezepttitel', () => {

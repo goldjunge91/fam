@@ -21,13 +21,13 @@ import {
   RECIPE_FORM_DEFAULTS,
   type RecipeFormValues,
   recipeFormSchema,
-} from './recipe-form-schema';
+} from '@/lib/db/zod/recipe-form-schema.zod';
 import {
   pickRecipeImage,
   uploadRecipeCoverImage,
   uploadRecipeStepImage,
   useRecipeCoverUrl,
-} from './recipe-image-uploader';
+} from '../data/household-recipe-images';
 import {
   useAddComponentMutation,
   useAddItemMutation,
@@ -43,16 +43,16 @@ import {
   useUpdateItemMutation,
   useUpdateRecipeMutation,
   useUpdateStepMutation,
-} from './use-recipes';
-import { RecipeWizardStepBasics } from './wizard/recipe-wizard-step-basics';
-import { RecipeWizardStepPreview } from './wizard/recipe-wizard-step-preview';
-import { RecipeWizardStepSteps } from './wizard/recipe-wizard-step-steps';
+} from '../data/use-recipes';
+import { RecipeWizardStepBasics } from '../wizard/recipe-wizard-step-basics';
+import { RecipeWizardStepPreview } from '../wizard/recipe-wizard-step-preview';
+import { RecipeWizardStepSteps } from '../wizard/recipe-wizard-step-steps';
 import {
   type IngredientComponentGroup,
   newIngredient,
   newWizardStep,
   type WizardStepItem,
-} from './wizard/types';
+} from '../wizard/types';
 
 type ResolvedIngredient = {
   sourceItemId: string;

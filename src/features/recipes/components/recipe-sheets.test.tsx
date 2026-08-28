@@ -1,7 +1,7 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { act, render, screen, waitFor } from '@testing-library/react-native';
-import type { RecipeShoppingNeed } from '@/features/recipes/use-recipe-shopping-needs';
-import type { RecipeDetail } from '@/features/recipes/use-recipes';
+import type { RecipeShoppingNeed } from '@/features/recipes/data/use-recipe-shopping-needs';
+import type { RecipeDetail } from '@/features/recipes/data/use-recipes';
 import { RecipeRatingSheet } from './recipe-rating-sheet';
 import { RecipeShoppingSheet } from './recipe-shopping-sheet';
 
@@ -16,12 +16,12 @@ jest.mock('@/features/premium/premium-provider', () => ({
   usePremium: () => ({ isPremium: true, refresh: jest.fn() }),
 }));
 
-jest.mock('@/features/recipes/recipe-ratings', () => ({
+jest.mock('@/features/recipes/domain/recipe-ratings', () => ({
   getRecipeRating: (...args: unknown[]) => mockGetRecipeRating(...args),
   saveRecipeRating: jest.fn().mockResolvedValue(undefined),
 }));
 
-jest.mock('@/features/recipes/use-recipe-shopping-needs', () => ({
+jest.mock('@/features/recipes/data/use-recipe-shopping-needs', () => ({
   useRecipeShoppingNeeds: () => ({ data: MOCK_NEEDS, isLoading: false }),
 }));
 

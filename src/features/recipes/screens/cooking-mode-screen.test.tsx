@@ -3,7 +3,7 @@ import { render, screen } from '@testing-library/react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import { CookingModeScreen } from './cooking-mode-screen';
-import type { RecipeDetail } from './use-recipes';
+import type { RecipeDetail } from '../data/use-recipes';
 
 const mockNavigation = { canGoBack: () => true, addListener: () => () => {} };
 
@@ -16,7 +16,7 @@ jest.mock('expo-router', () => ({
 let mockDetail: RecipeDetail | null = null;
 let mockLoading = false;
 
-jest.mock('./use-recipes', () => ({
+jest.mock('../data/use-recipes', () => ({
   useRecipeDetail: () => ({ data: mockDetail, isLoading: mockLoading }),
 }));
 

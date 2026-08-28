@@ -5,7 +5,7 @@ import Animated, { runOnJS, useAnimatedStyle, useSharedValue } from 'react-nativ
 
 import { ThemedText } from '@/components/theme/themed-text';
 import { RecipeArtwork } from '@/features/recipes/components/recipe-preview-card';
-import { useRecipeCoverUrl } from '@/features/recipes/recipe-image-uploader';
+import { useRecipeCoverUrl } from '@/features/recipes/data/household-recipe-images';
 import { useTheme } from '@/hooks/use-theme';
 import type { MealPlanEntry, MealSlot } from '../use-meal-plans';
 import { dateLabel, MEAL_SLOTS, weekdayLabel } from '../week';

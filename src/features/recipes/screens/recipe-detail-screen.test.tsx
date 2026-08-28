@@ -3,8 +3,8 @@ import { render, screen, userEvent } from '@testing-library/react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import { RecipeDetailScreen } from './recipe-detail-screen';
-import type { RecipeRating } from './recipe-ratings';
-import type { RecipeDetail } from './use-recipes';
+import type { RecipeRating } from '../domain/recipe-ratings';
+import type { RecipeDetail } from '../data/use-recipes';
 
 jest.mock('expo-router', () => ({
   router: { push: jest.fn(), back: jest.fn() },
@@ -73,31 +73,31 @@ const mockDetail: RecipeDetail = {
   ]),
 };
 
-jest.mock('./use-recipes', () => ({
+jest.mock('../data/use-recipes', () => ({
   useRecipeDetail: () => ({ data: mockDetail, isLoading: false }),
   useDeleteRecipeMutation: () => ({ mutate: jest.fn() }),
 }));
 
-jest.mock('./recipe-image-uploader', () => ({
+jest.mock('../data/household-recipe-images', () => ({
   useRecipeCoverUrl: () => ({ data: null }),
   useRecipeStepImageUrl: (path: string | null) => ({
     data: path ? `https://example.com/${path}` : null,
   }),
 }));
 
-jest.mock('./recipe-favorites', () => ({
+jest.mock('../domain/recipe-favorites', () => ({
   useRecipeFavorites: () => ({ isFavorite: () => false, toggleFavorite: jest.fn() }),
 }));
 
-jest.mock('./recipe-ratings', () => ({
+jest.mock('../domain/recipe-ratings', () => ({
   useRecipeRating: () => mockRating,
 }));
 
-jest.mock('./components/recipe-shopping-sheet', () => ({
+jest.mock('../components/recipe-shopping-sheet', () => ({
   RecipeShoppingSheet: () => null,
 }));
 
-jest.mock('./components/recipe-rating-sheet', () => ({
+jest.mock('../components/recipe-rating-sheet', () => ({
   RecipeRatingSheet: () => null,
 }));
 

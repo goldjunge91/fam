@@ -3,7 +3,7 @@ import type {
   ProductNutritionRow,
   RecipeComponentItemRow,
   RecipeComponentRow,
-} from '../recipes/nutrition';
+} from '../recipes/domain/nutrition';
 
 export type RecipeNeedInput = {
   recipeId: string;

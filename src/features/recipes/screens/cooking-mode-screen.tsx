@@ -12,11 +12,11 @@ import { BackButton } from '@/components/ui/buttons';
 import { presentPaywallIfNeeded } from '@/features/premium/paywall';
 import { usePremium } from '@/features/premium/premium-provider';
 import { useHubGradient } from '@/hooks/use-hub-gradient';
-import { RecipeRatingSheet } from './components/recipe-rating-sheet';
-import { StepMentionText } from './components/step-mention-text';
-import { flattenRecipeItems, renderMentionPlainText } from './ingredient-mentions';
-import { useRecipeStepImageUrl } from './recipe-image-uploader';
-import { type RecipeDetail, type RecipeStep, useRecipeDetail } from './use-recipes';
+import { RecipeRatingSheet } from '../components/recipe-rating-sheet';
+import { StepMentionText } from '../components/step-mention-text';
+import { flattenRecipeItems, renderMentionPlainText } from '../domain/ingredient-mentions';
+import { useRecipeStepImageUrl } from '../data/household-recipe-images';
+import { type RecipeDetail, type RecipeStep, useRecipeDetail } from '../data/use-recipes';
 
 function parseStepDurationSeconds(text: string | undefined): number | null {
   if (!text) return null;

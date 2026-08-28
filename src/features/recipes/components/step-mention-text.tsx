@@ -1,5 +1,5 @@
 import { ThemedText, type ThemedTextProps } from '@/components/theme/themed-text';
-import { type MentionableIngredient, splitStepMentions } from '../ingredient-mentions';
+import { type MentionableIngredient, splitStepMentions } from '../domain/ingredient-mentions';
 
 interface StepMentionTextProps extends Omit<ThemedTextProps, 'children'> {
   text: string;
