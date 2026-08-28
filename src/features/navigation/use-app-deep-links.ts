@@ -1,7 +1,10 @@
 import * as Linking from 'expo-linking';
 import { useEffect } from 'react';
 
-import { parseAuthErrorFromUrl, parseAuthTokensFromUrl } from '@/features/auth/auth-deep-link';
+import {
+  parseAuthErrorFromUrl,
+  parseAuthTokensFromUrl,
+} from '@/features/auth/domain/auth-deep-link';
 import { setAuthDeepLinkError } from '@/lib/auth-deep-link-state';
 import { savePendingInviteToken } from '@/lib/pending-invite';
 import { getSupabase } from '@/lib/supabase';

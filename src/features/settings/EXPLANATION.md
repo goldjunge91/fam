@@ -34,7 +34,7 @@ This file implements the user profile editing screen (`EditProfileScreen`). It a
 9: import { TextField } from '@/components/text-field';
 10: import { ThemedText } from '@/components/themed-text';
 11: import { Spacing } from '@/constants/theme';
-12: import { updateProfile, useProfile } from '@/features/auth/api';
+12: import { updateProfile, useProfile } from '@/features/profile/api';
 13: import { fieldErrors, getDeviceDateFormat, profileSchema } from '@/features/auth/auth-schemas';
 14: import { useSession } from '@/features/auth/session-provider';
 15: import type { ActivityLevel } from '@/features/onboarding/types';

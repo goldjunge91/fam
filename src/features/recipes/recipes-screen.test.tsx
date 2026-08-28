@@ -1,13 +1,10 @@
 import { render, screen, userEvent, within } from '@testing-library/react-native';
 import { router } from 'expo-router';
 
-import type { RecipeTemplateWithNutrition } from '@/features/recipes/templates/use-recipe-templates';
-
 import { RecipesScreen } from './recipes-screen';
 import type { RecipeListItem } from './use-recipes';
 
 let mockRecipes: RecipeListItem[] = [];
-let mockTemplates: RecipeTemplateWithNutrition[] = [];
 const mockOpenDrawer = jest.fn();
 
 jest.mock('expo-router', () => ({
@@ -22,14 +19,6 @@ jest.mock('@/features/household/active-household-provider', () => ({
 jest.mock('./use-recipes', () => ({
   useRecipes: () => ({ data: mockRecipes, isLoading: false }),
 }));
-
-jest.mock('@/features/recipes/templates/use-recipe-templates', () => {
-  const actual = jest.requireActual('@/features/recipes/templates/use-recipe-templates');
-  return {
-    ...actual,
-    useRecipeTemplatesWithNutrition: () => ({ data: mockTemplates, isLoading: false }),
-  };
-});
 
 jest.mock('./recipe-image-uploader', () => ({
   useRecipeCoverUrl: () => ({ data: null }),
@@ -58,29 +47,8 @@ function makeRecipe(overrides: Partial<RecipeListItem>): RecipeListItem {
   };
 }
 
-function makeTemplate(
-  overrides: Partial<RecipeTemplateWithNutrition>,
-): RecipeTemplateWithNutrition {
-  return {
-    id: overrides.id ?? 'template-id',
-    title: overrides.title ?? 'Vorlage',
-    cover_image_path: null,
-    cook_time_minutes: 30,
-    difficulty: 'easy',
-    dish_types: ['dinner'],
-    dietary_tags: [],
-    default_servings: 2,
-    sort_order: 0,
-    kcalPerServing: null,
-    proteinGPerServing: null,
-    carbsGPerServing: null,
-    ...overrides,
-  };
-}
-
 beforeEach(() => {
   mockRecipes = [];
-  mockTemplates = [];
   mockOpenDrawer.mockClear();
   (router.push as jest.Mock).mockClear();
 });
@@ -114,8 +82,6 @@ describe('RecipesScreen — Entdecken', () => {
     expect(screen.queryByText('Trending')).not.toBeOnTheScreen();
     expect(screen.getByRole('button', { name: 'Salat Overview' })).toBeOnTheScreen();
     expect(screen.getByText('Unsere Rezepte')).toBeOnTheScreen();
-    expect(screen.getByText('Kategorien')).toBeOnTheScreen();
-    expect(screen.getByText('Rezepte nach Kalorien')).toBeOnTheScreen();
   });
 
   it('öffnet das Navigationsmenü über den Header', async () => {
@@ -134,7 +100,7 @@ describe('RecipesScreen — Entdecken', () => {
     await user.press(screen.getAllByRole('button', { name: 'Pizza Home' })[0]);
 
     expect(router.push).toHaveBeenCalledWith({
-      pathname: '/recipe/detail',
+      pathname: '/recipe/[id]',
       params: { id: 'r2' },
     });
   });
@@ -213,87 +179,6 @@ describe('RecipesScreen — Entdecken', () => {
     const filterSelection = screen.getByLabelText('Filterauswahl');
     await user.press(within(filterSelection).getByRole('button', { name: '100–200 Kilokalorien' }));
     await user.press(screen.getByRole('button', { name: '1 Rezept anzeigen' }));
-
-    expect(screen.getByRole('button', { name: 'Leichter Salat' })).toBeOnTheScreen();
-    expect(screen.queryByRole('button', { name: 'Deftiger Auflauf' })).not.toBeOnTheScreen();
-  });
-});
-
-describe('RecipesScreen — Vorlagen', () => {
-  it('zeigt fuer jede Mahlzeit einen eigenen horizontalen Rezept-Carousel', async () => {
-    mockTemplates = [
-      makeTemplate({ id: 'breakfast-1', title: 'Porridge', dish_types: ['breakfast'] }),
-      makeTemplate({ id: 'breakfast-2', title: 'Omelett', dish_types: ['breakfast'] }),
-      makeTemplate({ id: 'dinner-1', title: 'Curry', dish_types: ['dinner'] }),
-    ];
-    await render(<RecipesScreen />);
-
-    const breakfastCarousel = screen.getByLabelText('Frühstück Rezepte');
-    const dinnerCarousel = screen.getByLabelText('Abendessen Rezepte');
-
-    expect(breakfastCarousel).toHaveProp('role', 'list');
-    expect(breakfastCarousel).toHaveProp('horizontal', true);
-    expect(dinnerCarousel).toHaveProp('role', 'list');
-    expect(dinnerCarousel).toHaveProp('horizontal', true);
-    expect(within(breakfastCarousel).getByRole('button', { name: 'Porridge' })).toBeOnTheScreen();
-    expect(within(dinnerCarousel).getByRole('button', { name: 'Curry' })).toBeOnTheScreen();
-  });
-
-  it('öffnet fam-Vorlagen in der Vorlagen-Detailansicht', async () => {
-    const user = userEvent.setup();
-    mockTemplates = [makeTemplate({ id: 't1', title: 'Fam Ofengemüse' })];
-    await render(<RecipesScreen />);
-
-    await user.press(screen.getAllByRole('button', { name: 'Fam Ofengemüse' })[0]);
-
-    expect(router.push).toHaveBeenCalledWith({
-      pathname: '/recipe/template-detail',
-      params: { id: 't1' },
-    });
-  });
-
-  it('öffnet über "Alle Vorlagen ansehen" das gemeinsame Raster aller Vorlagen (#136)', async () => {
-    const user = userEvent.setup();
-    mockTemplates = [
-      makeTemplate({ id: 't1', title: 'Fam Ofengemüse' }),
-      makeTemplate({ id: 't2', title: 'Fam Linsensuppe' }),
-      makeTemplate({ id: 't3', title: 'Fam Nudelauflauf' }),
-      makeTemplate({ id: 't4', title: 'Fam Reispfanne' }),
-      makeTemplate({ id: 't5', title: 'Fam Kürbissuppe' }),
-    ];
-    await render(<RecipesScreen />);
-
-    await user.press(screen.getByRole('button', { name: 'Alle Vorlagen ansehen' }));
-
-    expect(screen.getByText('Vorlagen')).toBeOnTheScreen();
-    expect(screen.getByRole('button', { name: 'Fam Kürbissuppe' })).toBeOnTheScreen();
-    expect(screen.getByRole('button', { name: 'Zurück zu Rezepte' })).toBeOnTheScreen();
-  });
-
-  it('filtert Vorlagen über die Kategorien-Kacheln (#131)', async () => {
-    const user = userEvent.setup();
-    mockTemplates = [
-      makeTemplate({ id: 't1', title: 'Schoko Kuchen', dish_types: ['dessert'] }),
-      makeTemplate({ id: 't2', title: 'Hähnchen Curry', dish_types: ['dinner'] }),
-    ];
-    await render(<RecipesScreen />);
-
-    await user.press(screen.getByRole('button', { name: 'Dessert' }));
-
-    expect(screen.getByText('Dessert')).toBeOnTheScreen();
-    expect(screen.getByRole('button', { name: 'Schoko Kuchen' })).toBeOnTheScreen();
-    expect(screen.queryByRole('button', { name: 'Hähnchen Curry' })).not.toBeOnTheScreen();
-  });
-
-  it('filtert Vorlagen über die Kalorien-Kacheln', async () => {
-    const user = userEvent.setup();
-    mockTemplates = [
-      makeTemplate({ id: 't1', title: 'Leichter Salat', kcalPerServing: 150 }),
-      makeTemplate({ id: 't2', title: 'Deftiger Auflauf', kcalPerServing: 850 }),
-    ];
-    await render(<RecipesScreen />);
-
-    await user.press(screen.getByRole('button', { name: '100–200 Kilokalorien' }));
 
     expect(screen.getByRole('button', { name: 'Leichter Salat' })).toBeOnTheScreen();
     expect(screen.queryByRole('button', { name: 'Deftiger Auflauf' })).not.toBeOnTheScreen();

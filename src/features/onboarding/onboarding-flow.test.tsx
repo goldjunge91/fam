@@ -11,8 +11,8 @@ const initialMetrics = {
 const mockSignUp = jest.fn();
 const mockSignIn = jest.fn();
 
-// Faengt den Callback ein, den PendingAuthBanner bei onAuthStateChange
-// registriert, statt wie in pending-auth-banner.test.tsx nur ein leeres
+// Faengt den Callback ein, den EmailVerificationPanel bei onAuthStateChange
+// registriert, statt wie im Panel-Test nur ein leeres
 // Unsubscribe-Objekt zurueckzugeben — der Test loest ihn gezielt aus.
 let capturedAuthStateCallback: ((event: string, session: unknown) => void) | undefined;
 const mockGetSession = jest.fn().mockResolvedValue({ data: { session: null } });
@@ -29,10 +29,7 @@ jest.mock('./components/module-selector', () => ({ ModuleSelectorForm: () => nul
 jest.mock('./components/permissions-step', () => ({ PermissionsStepForm: () => null }));
 jest.mock('./components/complete-step', () => ({ CompleteStepForm: () => null }));
 
-// `requireActual` behaelt Hilfsfunktionen wie `authErrorMessage`; nur die
-// Netzwerkfunktionen, die dieser Test steuert, werden ersetzt.
 jest.mock('@/features/auth/api', () => ({
-  ...jest.requireActual('@/features/auth/api'),
   signIn: (...args: unknown[]) => mockSignIn(...args),
   signUp: (...args: unknown[]) => mockSignUp(...args),
   signOut: jest.fn().mockResolvedValue({ error: null }),
@@ -40,7 +37,11 @@ jest.mock('@/features/auth/api', () => ({
   confirmSignUpWithCode: jest.fn().mockResolvedValue({ data: { session: null }, error: null }),
 }));
 
-jest.mock('@/features/auth/onboarding-session', () => ({
+jest.mock('@/features/auth/domain/auth-error-message', () => ({
+  authErrorMessage: jest.fn((error) => error?.message || 'Fehler'),
+}));
+
+jest.mock('@/features/onboarding/onboarding-completion', () => ({
   persistOnboardingCompleted: jest.fn().mockResolvedValue(undefined),
 }));
 
@@ -105,7 +106,27 @@ describe('OnboardingFlow — Bestaetigung waehrend Schritt 2 (#Bruchteil-Sekunde
     // den 3s-Session-Poll) melden die Bestaetigung im selben Tick. Ohne den
     // Fix (relatives nextStep) laeuft der Schritt von 2 auf 4 durch.
     expect(capturedAuthStateCallback).toBeDefined();
-    const confirmedSession = { user: { id: 'u1', email: 'family@example.com' } };
+    await act(async () => {
+      capturedAuthStateCallback?.('SIGNED_IN', {
+        user: { id: 'u1', email: 'family@example.com', email_confirmed_at: null },
+      });
+      capturedAuthStateCallback?.('SIGNED_IN', {
+        user: {
+          id: 'u2',
+          email: 'other@example.com',
+          email_confirmed_at: '2026-08-09T06:07:57Z',
+        },
+      });
+    });
+    expect(screen.getByText('Bestätigung ausstehend')).toBeOnTheScreen();
+
+    const confirmedSession = {
+      user: {
+        id: 'u1',
+        email: 'family@example.com',
+        email_confirmed_at: '2026-08-09T06:07:57Z',
+      },
+    };
     await act(async () => {
       capturedAuthStateCallback?.('SIGNED_IN', confirmedSession);
       capturedAuthStateCallback?.('SIGNED_IN', confirmedSession);

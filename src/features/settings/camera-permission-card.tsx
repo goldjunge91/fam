@@ -29,13 +29,15 @@ export function CameraPermissionCard({ style }: CameraPermissionCardProps) {
   const canAskAgain = permission?.canAskAgain ?? true;
 
   async function handleToggle(value: boolean) {
-    // Apps können iOS/Android-Berechtigungen nicht selbst zurücknehmen —
-    // sowohl beim Versuch auszuschalten als auch nach dauerhafter Ablehnung
-    // bleibt nur der Weg über die Systemeinstellungen.
-    if (!value || !canAskAgain) {
+    // Die App kann die Systemberechtigung nicht zurücknehmen. Beim Ausschalten
+    // bleibt der Schalter daher beim echten Systemstatus; der Nutzer kann die
+    // Nutzung im Modul-Settings steuern. Nach dauerhafter Ablehnung hilft nur
+    // noch der Weg über die Systemeinstellungen.
+    if (value && !canAskAgain) {
       Linking.openSettings();
       return;
     }
+    if (!value) return;
     await requestPermission();
   }
 

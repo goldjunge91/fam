@@ -23,7 +23,7 @@ jest.mock('expo-router', () => ({
   router: { push: jest.fn(), back: jest.fn(), canGoBack: () => false },
 }));
 
-jest.mock('@/features/auth/api', () => ({
+jest.mock('@/features/profile/api', () => ({
   useProfile: () => ({
     data: { tracking_day_start_time: '00:00', tracking_method: 'standard' },
     isLoading: false,

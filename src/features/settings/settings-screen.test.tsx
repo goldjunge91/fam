@@ -68,7 +68,7 @@ jest.mock('@/features/navigation/fab-position-settings', () => ({
   useSetFabPosition: () => jest.fn(),
 }));
 
-jest.mock('@/features/auth/api', () => ({
+jest.mock('@/features/profile/api', () => ({
   useProfile: () => ({ data: { display_name: 'Marco Müller' } }),
 }));
 

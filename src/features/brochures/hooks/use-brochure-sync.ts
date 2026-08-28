@@ -1,6 +1,7 @@
 import { useQueryClient } from '@tanstack/react-query';
 import { useEffect, useState } from 'react';
 import { getDatabase } from '@/lib/db/client';
+import { debugLog } from '@/lib/debug-log';
 import { getSupabase } from '@/lib/supabase';
 import { reportError } from '@/lib/telemetry';
 
@@ -33,6 +34,11 @@ export function useBrochureSync(zipCode: string | null) {
           .limit(1)
           .maybeSingle();
 
+        debugLog('[brochures] supabase dump query', {
+          zipCode: currentZip,
+          error,
+          hasDump: !!dump,
+        });
         if (error) throw error;
         if (!dump || !isMounted) return;
 
@@ -54,6 +60,13 @@ export function useBrochureSync(zipCode: string | null) {
             }>;
           }>;
         };
+        debugLog('[brochures] dump payload', {
+          zipCode: currentZip,
+          storeCount: payload.stores?.length ?? 0,
+          brochureCount: payload.brochures?.length ?? 0,
+          firstStore: payload.stores?.[0],
+          firstBrochure: payload.brochures?.[0],
+        });
 
         await db.execAsync('BEGIN TRANSACTION;');
         try {
@@ -112,7 +125,9 @@ export function useBrochureSync(zipCode: string | null) {
           throw txnError;
         }
         await queryClient.invalidateQueries({ queryKey: ['brochures'] });
+        debugLog('[brochures] local sync complete', { zipCode: currentZip });
       } catch (e) {
+        debugLog('[brochures] sync failed', e);
         reportError(e, { operation: 'brochure.sync', error_code: 'brochure_sync_failed' });
         console.error('Brochure sync failed', e);
       } finally {

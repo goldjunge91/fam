@@ -32,7 +32,7 @@ module.exports = {
   ],
 
   // Default (5000ms) ist zu knapp fuer Tests mit echten Timern/Intervallen
-  // (z. B. PendingAuthBanner pollt alle 3s) sobald alle Suiten gemeinsam um
+  // (z. B. der E-Mail-Verifizierungs-Flow pollt alle 3s) sobald alle Suiten gemeinsam um
   // CPU konkurrieren statt einzeln zu laufen — beobachtet beim vollen
   // `bun run test` unter Last, nicht bei isolierten Laeufen.
   testTimeout: 15000,

@@ -6,7 +6,6 @@ import { Screen } from '@/components/layout/screen';
 import { ThemedText } from '@/components/theme/themed-text';
 import { Button } from '@/components/ui/buttons';
 import { Card } from '@/components/ui/card';
-import { useProfile } from '@/features/auth/api';
 import { useSession } from '@/features/auth/session-provider';
 import {
   useAddWeightEntryMutation,
@@ -26,6 +25,7 @@ import {
   calculateTdee,
   type GoalType,
 } from '@/features/calorie-tracking/tdee';
+import { useProfile } from '@/features/profile/api';
 
 const GOAL_LABELS: Record<GoalType, string> = {
   lose: 'Abnehmen',

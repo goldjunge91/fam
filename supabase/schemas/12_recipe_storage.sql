@@ -20,8 +20,8 @@
 -- wenn die Policies fehlen.
 --
 -- Pfadkonvention: Nutzer-Cover liegen unter
--- `<household_id>/<recipe_id>.<ext>`. Kuratierte Template-Cover liegen unter
--- `templates/<template_id>.jpg` und sind fuer alle angemeldeten Nutzer lesbar.
+-- `<household_id>/<recipe_id>.<ext>`. Katalog-Cover liegen im separaten
+-- `recipe-catalog`-Bucket und sind fuer alle angemeldeten Nutzer lesbar.
 -- Schreiben duerfen Clients weiterhin ausschliesslich in Haushalts-Pfade.
 
 create policy recipe_covers_select on storage.objects
@@ -29,7 +29,7 @@ create policy recipe_covers_select on storage.objects
   using (
     bucket_id = 'recipe-covers'
     and case
-      when (storage.foldername(name))[1] = 'templates' then true
+      when (storage.foldername(name))[1] in ('templates', 'catalog') then true
       else (select private.is_household_member(((storage.foldername(name))[1])::uuid))
     end
   );
@@ -58,3 +58,7 @@ create policy recipe_covers_delete on storage.objects
     bucket_id = 'recipe-covers'
     and (select private.is_household_member(((storage.foldername(name))[1])::uuid))
   );
+
+create policy recipe_catalog_select on storage.objects
+  for select to authenticated
+  using (bucket_id = 'recipe-catalog');

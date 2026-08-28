@@ -94,6 +94,21 @@ export async function saveNotificationSettings(settings: NotificationSettings): 
   }
 }
 
+/**
+ * Deaktiviert die Nutzung von Erinnerungen in der App und entfernt geplante
+ * lokale Benachrichtigungen. Die Systemberechtigung bleibt unverändert.
+ */
+export async function disableNotificationReminders(): Promise<void> {
+  await saveNotificationSettings({ ...DEFAULT_NOTIFICATION_SETTINGS, enabled: false });
+  try {
+    if (NotificationsModule) {
+      await NotificationsModule.cancelAllScheduledNotificationsAsync();
+    }
+  } catch {
+    // Graceful Fallback, wenn Notifications nicht unterstützt werden.
+  }
+}
+
 export type NotificationPermissionStatus = {
   granted: boolean;
   /** false = iOS hat den System-Dialog schon einmal verweigert bekommen und fragt nie wieder selbst — nur noch über die Systemeinstellungen änderbar. */

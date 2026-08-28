@@ -1,13 +1,12 @@
 import { useEffect, useState } from 'react';
-
-import { registerLocalAccountCache } from '@/features/auth/local-account-cache';
 import { useSession } from '@/features/auth/session-provider';
+import { registerLocalAccountCache } from '@/lib/storage/account-cache-registry';
 import {
   listFavoriteRecipeKeys,
   toggleStoredRecipeFavorite,
 } from './recipe-preferences-repository';
 
-export type RecipeFavoriteKey = `recipe:${string}` | `template:${string}`;
+export type RecipeFavoriteKey = `recipe:${string}` | `template:${string}` | `catalog:${string}`;
 
 type AccountFavorites = {
   cache: Set<RecipeFavoriteKey> | null;
@@ -26,7 +25,9 @@ function stateFor(userId: string): AccountFavorites {
 }
 
 function isFavoriteKey(value: string): value is RecipeFavoriteKey {
-  return value.startsWith('recipe:') || value.startsWith('template:');
+  return (
+    value.startsWith('recipe:') || value.startsWith('template:') || value.startsWith('catalog:')
+  );
 }
 
 async function loadFavorites(userId: string): Promise<Set<RecipeFavoriteKey>> {

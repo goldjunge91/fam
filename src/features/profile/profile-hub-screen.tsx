@@ -4,8 +4,8 @@ import { Pressable, ScrollView, View } from 'react-native';
 
 import { Screen } from '@/components/layout/screen';
 import { ThemedText } from '@/components/theme/themed-text';
-import { useProfile } from '@/features/auth/api';
 import { useSession } from '@/features/auth/session-provider';
+import { useProfile } from '@/features/profile/api';
 import { SettingsGroup } from '@/features/settings/settings-menu';
 import { useTheme } from '@/hooks/use-theme';
 import { getInitials } from '@/lib/initials';

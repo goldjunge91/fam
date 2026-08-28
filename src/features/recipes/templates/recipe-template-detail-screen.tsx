@@ -51,7 +51,7 @@ export function RecipeTemplateDetailScreen() {
         household_id: activeHouseholdId,
         created_by: session.user.id,
       });
-      router.replace({ pathname: '/recipe/detail', params: { id: recipe.id } });
+      router.replace({ pathname: '/recipe/[id]' as any, params: { id: recipe.id } });
     } catch (error) {
       Alert.alert(
         'Rezept konnte nicht übernommen werden',

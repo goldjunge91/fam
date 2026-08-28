@@ -9,7 +9,8 @@ const LEGACY_RATINGS_MARKER = '@fam/migrations/recipe-ratings-v1';
 
 function isFavoriteKey(value: unknown): value is RecipeFavoriteKey {
   return (
-    typeof value === 'string' && (value.startsWith('recipe:') || value.startsWith('template:'))
+    typeof value === 'string' &&
+    (value.startsWith('recipe:') || value.startsWith('template:') || value.startsWith('catalog:'))
   );
 }
 

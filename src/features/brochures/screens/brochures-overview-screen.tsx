@@ -2,7 +2,11 @@ import { Image } from 'expo-image';
 import { useRouter } from 'expo-router';
 import { useState } from 'react';
 import { Linking, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { Screen } from '@/components/layout/screen';
+import { useNavigationChrome } from '@/features/navigation/navigation-chrome-provider';
+import { useProfileInitials } from '@/features/navigation/use-profile-initials';
 import { useTheme } from '@/hooks/use-theme';
+import { PostalCodeEditor } from '../components/postal-code-editor';
 import { useBrochurePostalCode } from '../hooks/use-brochure-postal-code';
 import { useBrochureSync } from '../hooks/use-brochure-sync';
 import { useBrochures } from '../hooks/use-brochures';
@@ -10,7 +14,13 @@ import { useBrochures } from '../hooks/use-brochures';
 export default function BrochuresOverviewScreen() {
   const router = useRouter();
   const theme = useTheme();
+  // Angebote ist ein Drawer-Top-Level-Screen: der Header braucht einen Menü-Button
+  // zurück ins Nav-Menü statt eines Zurück-Pfeils zur vorherigen Route.
+  const { openDrawer, openProfile } = useNavigationChrome();
+  const initials = useProfileInitials();
+  const chrome = { onMenuPress: openDrawer, onAvatarPress: openProfile, initials };
   const [selectedStoreId, setSelectedStoreId] = useState<string | null>(null);
+  const [isEditingPostalCode, setIsEditingPostalCode] = useState(false);
   const location = useBrochurePostalCode();
   const postalCode = location.status === 'ready' ? location.postalCode : null;
   const { isSyncing, hasSynced } = useBrochureSync(postalCode);
@@ -18,52 +28,82 @@ export default function BrochuresOverviewScreen() {
 
   if (location.status === 'locating') {
     return (
-      <View style={[styles.loadingContainer, { backgroundColor: theme.background }]}>
-        <Text style={{ color: theme.textSecondary }}>Standort wird ermittelt...</Text>
-      </View>
+      <Screen title="Angebote" chrome={chrome}>
+        <View style={[styles.loadingContainer, { backgroundColor: theme.background }]}>
+          <Text style={{ color: theme.textSecondary }}>Standort wird ermittelt...</Text>
+        </View>
+      </Screen>
     );
   }
   if (location.status !== 'ready') {
     const denied = location.status === 'denied';
+    // Solange iOS/Android noch einen erneuten System-Dialog erlauben (canAskAgain),
+    // reicht ein erneuter Request statt eines Umwegs über die Einstellungen.
+    const permanentlyDenied = denied && !location.canAskAgain;
     return (
-      <View style={[styles.locationState, { backgroundColor: theme.background }]}>
-        <Text style={[styles.locationTitle, { color: theme.text }]}>Standort erforderlich</Text>
-        <Text style={[styles.locationCopy, { color: theme.textSecondary }]}>
-          {denied
-            ? 'Erlaube den Standortzugriff, damit fam die Prospekte für deine PLZ laden kann.'
-            : 'Deine PLZ konnte gerade nicht ermittelt werden.'}
-        </Text>
-        <Pressable
-          role="button"
-          style={[styles.locationButton, { backgroundColor: theme.accent }]}
-          onPress={() => {
-            if (denied) void Linking.openSettings();
-            else location.retry();
-          }}>
-          <Text style={{ color: theme.onAccent, fontWeight: '700' }}>
-            {denied ? 'Einstellungen öffnen' : 'Erneut versuchen'}
+      <Screen title="Angebote" chrome={chrome}>
+        <View style={[styles.locationState, { backgroundColor: theme.background }]}>
+          <Text style={[styles.locationTitle, { color: theme.text }]}>Standort erforderlich</Text>
+          <Text style={[styles.locationCopy, { color: theme.textSecondary }]}>
+            {permanentlyDenied
+              ? 'Erlaube den Standortzugriff in den Systemeinstellungen, damit fam die Prospekte für deine PLZ laden kann.'
+              : denied
+                ? 'Erlaube den Standortzugriff, damit fam die Prospekte für deine PLZ laden kann.'
+                : 'Deine PLZ konnte gerade nicht ermittelt werden.'}
           </Text>
-        </Pressable>
-      </View>
+          {isEditingPostalCode ? (
+            <PostalCodeEditor
+              onCancel={() => setIsEditingPostalCode(false)}
+              onSubmit={async (code) => {
+                await location.setManualPostalCode(code);
+                setIsEditingPostalCode(false);
+              }}
+            />
+          ) : (
+            <>
+              <Pressable
+                role="button"
+                style={[styles.locationButton, { backgroundColor: theme.accent }]}
+                onPress={() => {
+                  if (permanentlyDenied) void Linking.openSettings();
+                  else location.retry();
+                }}>
+                <Text style={{ color: theme.onAccent, fontWeight: '700' }}>
+                  {permanentlyDenied ? 'Einstellungen öffnen' : 'Erneut versuchen'}
+                </Text>
+              </Pressable>
+              <Pressable role="button" onPress={() => setIsEditingPostalCode(true)}>
+                <Text style={{ color: theme.textSecondary, textDecorationLine: 'underline' }}>
+                  PLZ stattdessen manuell eingeben
+                </Text>
+              </Pressable>
+            </>
+          )}
+        </View>
+      </Screen>
     );
   }
   if (isLoading || isSyncing || !hasSynced) {
     return (
-      <View style={[styles.loadingContainer, { backgroundColor: theme.background }]}>
-        <Text style={{ color: theme.textSecondary }}>
-          Angebote für {postalCode} werden geladen...
-        </Text>
-      </View>
+      <Screen title="Angebote" chrome={chrome}>
+        <View style={[styles.loadingContainer, { backgroundColor: theme.background }]}>
+          <Text style={{ color: theme.textSecondary }}>
+            Angebote für {postalCode} werden geladen...
+          </Text>
+        </View>
+      </Screen>
     );
   }
   if (data?.cacheZip !== postalCode) {
     return (
-      <View style={[styles.locationState, { backgroundColor: theme.background }]}>
-        <Text style={[styles.locationTitle, { color: theme.text }]}>Noch keine Prospekte</Text>
-        <Text style={[styles.locationCopy, { color: theme.textSecondary }]}>
-          Für die PLZ {postalCode} liegt derzeit kein aktueller Dump vor.
-        </Text>
-      </View>
+      <Screen title="Angebote" chrome={chrome}>
+        <View style={[styles.locationState, { backgroundColor: theme.background }]}>
+          <Text style={[styles.locationTitle, { color: theme.text }]}>Noch keine Prospekte</Text>
+          <Text style={[styles.locationCopy, { color: theme.textSecondary }]}>
+            Für die PLZ {postalCode} liegt derzeit kein aktueller Dump vor.
+          </Text>
+        </View>
+      </Screen>
     );
   }
   const { brochures, favorites, stores } = data || { brochures: [], favorites: [], stores: [] };
@@ -76,118 +116,151 @@ export default function BrochuresOverviewScreen() {
     : brochures;
 
   return (
-    <ScrollView
-      style={[styles.container, { backgroundColor: theme.background }]}
-      contentContainerStyle={styles.content}>
-      <Text style={[styles.postalCode, { color: theme.textSecondary }]}>PLZ {postalCode}</Text>
-      {favorites.length > 0 && (
+    <Screen title="Angebote" chrome={chrome} scroll={false} applyBottomPadding={false}>
+      <ScrollView
+        style={[styles.container, { backgroundColor: theme.background }]}
+        contentContainerStyle={styles.content}>
+        {isEditingPostalCode ? (
+          <View style={styles.postalCodeEditRow}>
+            <PostalCodeEditor
+              onCancel={() => setIsEditingPostalCode(false)}
+              onSubmit={async (code) => {
+                await location.setManualPostalCode(code);
+                setIsEditingPostalCode(false);
+              }}
+            />
+          </View>
+        ) : (
+          <View style={styles.postalCodeRow}>
+            <Text style={[styles.postalCode, { color: theme.textSecondary }]}>
+              PLZ {postalCode}
+            </Text>
+            <Pressable role="button" onPress={() => setIsEditingPostalCode(true)}>
+              <Text style={{ color: theme.accent, fontWeight: '600' }}>Ändern</Text>
+            </Pressable>
+            {location.isManual ? (
+              <Pressable role="button" onPress={location.useDeviceLocation}>
+                <Text style={{ color: theme.textSecondary, textDecorationLine: 'underline' }}>
+                  Standort verwenden
+                </Text>
+              </Pressable>
+            ) : null}
+          </View>
+        )}
+        {favorites.length > 0 && (
+          <View style={styles.section}>
+            <Text style={[styles.sectionTitle, { color: theme.text }]}>Deine Märkte</Text>
+            <ScrollView
+              horizontal
+              showsHorizontalScrollIndicator={false}
+              style={styles.favoritesScroll}>
+              {favorites.map((store) => (
+                <View key={store.id} style={styles.favoriteStore}>
+                  {store.logoUrl ? (
+                    <Image
+                      source={{ uri: store.logoUrl }}
+                      style={styles.storeLogo}
+                      contentFit="contain"
+                    />
+                  ) : (
+                    <View
+                      style={[
+                        styles.storeLogoPlaceholder,
+                        { backgroundColor: theme.backgroundSelected },
+                      ]}>
+                      <Text style={[styles.storeInitials, { color: theme.textSecondary }]}>
+                        {store.name.substring(0, 2)}
+                      </Text>
+                    </View>
+                  )}
+                  <Text
+                    style={[styles.storeName, { color: theme.textSecondary }]}
+                    numberOfLines={1}>
+                    {store.name}
+                  </Text>
+                </View>
+              ))}
+            </ScrollView>
+          </View>
+        )}
+
         <View style={styles.section}>
-          <Text style={[styles.sectionTitle, { color: theme.text }]}>Deine Märkte</Text>
+          <Text style={[styles.sectionTitle, { color: theme.text }]}>Aktuelle Prospekte</Text>
           <ScrollView
             horizontal
             showsHorizontalScrollIndicator={false}
-            style={styles.favoritesScroll}>
-            {favorites.map((store) => (
-              <View key={store.id} style={styles.favoriteStore}>
-                {store.logoUrl ? (
-                  <Image
-                    source={{ uri: store.logoUrl }}
-                    style={styles.storeLogo}
-                    contentFit="contain"
-                  />
-                ) : (
-                  <View
-                    style={[
-                      styles.storeLogoPlaceholder,
-                      { backgroundColor: theme.backgroundSelected },
-                    ]}>
-                    <Text style={[styles.storeInitials, { color: theme.textSecondary }]}>
-                      {store.name.substring(0, 2)}
-                    </Text>
-                  </View>
-                )}
-                <Text style={[styles.storeName, { color: theme.textSecondary }]} numberOfLines={1}>
-                  {store.name}
-                </Text>
-              </View>
-            ))}
-          </ScrollView>
-        </View>
-      )}
-
-      <View style={styles.section}>
-        <Text style={[styles.sectionTitle, { color: theme.text }]}>Aktuelle Prospekte</Text>
-        <ScrollView
-          horizontal
-          showsHorizontalScrollIndicator={false}
-          contentContainerStyle={styles.filterRow}>
-          <Pressable
-            role="button"
-            aria-pressed={selectedStoreId === null}
-            style={[
-              styles.filterChip,
-              {
-                backgroundColor: selectedStoreId === null ? theme.accent : theme.backgroundElement,
-                borderColor: selectedStoreId === null ? theme.accent : theme.border,
-              },
-            ]}
-            onPress={() => setSelectedStoreId(null)}>
-            <Text style={{ color: selectedStoreId === null ? theme.onAccent : theme.text }}>
-              Alle
-            </Text>
-          </Pressable>
-          {availableStores.map((store) => {
-            const isSelected = selectedStoreId === store.id;
-            return (
-              <Pressable
-                key={store.id}
-                role="button"
-                aria-pressed={isSelected}
-                style={[
-                  styles.filterChip,
-                  {
-                    backgroundColor: isSelected ? theme.accent : theme.backgroundElement,
-                    borderColor: isSelected ? theme.accent : theme.border,
-                  },
-                ]}
-                onPress={() => setSelectedStoreId(store.id)}>
-                <Text style={{ color: isSelected ? theme.onAccent : theme.text }}>
-                  {store.name}
-                </Text>
-              </Pressable>
-            );
-          })}
-        </ScrollView>
-        <View style={styles.grid}>
-          {visibleBrochures.map((brochure) => (
+            contentContainerStyle={styles.filterRow}>
             <Pressable
-              key={brochure.id}
+              role="button"
+              aria-pressed={selectedStoreId === null}
               style={[
-                styles.brochureCard,
-                { backgroundColor: theme.backgroundElement, borderColor: theme.border },
+                styles.filterChip,
+                {
+                  backgroundColor:
+                    selectedStoreId === null ? theme.accent : theme.backgroundElement,
+                  borderColor: selectedStoreId === null ? theme.accent : theme.border,
+                },
               ]}
-              onPress={() => router.push(`/brochures/${brochure.id}`)}>
-              <Image
-                source={{ uri: brochure.coverImage }}
-                style={styles.brochureCover}
-                contentFit="cover"
-              />
-              <View style={styles.brochureInfo}>
-                <Text style={[styles.brochureTitle, { color: theme.text }]} numberOfLines={2}>
-                  {brochure.title}
-                </Text>
-                <Text style={[styles.brochureDate, { color: theme.textSecondary }]}>
-                  Bis {new Date(brochure.validUntil).toLocaleDateString()}
-                </Text>
-              </View>
+              onPress={() => setSelectedStoreId(null)}>
+              <Text style={{ color: selectedStoreId === null ? theme.onAccent : theme.text }}>
+                Alle
+              </Text>
             </Pressable>
-          ))}
-          {visibleBrochures.length === 0 ? (
-            <Text style={[styles.emptyText, { color: theme.textSecondary }]}>Keine Prospekte.</Text>
-          ) : null}
+            {availableStores.map((store) => {
+              const isSelected = selectedStoreId === store.id;
+              return (
+                <Pressable
+                  key={store.id}
+                  role="button"
+                  aria-pressed={isSelected}
+                  style={[
+                    styles.filterChip,
+                    {
+                      backgroundColor: isSelected ? theme.accent : theme.backgroundElement,
+                      borderColor: isSelected ? theme.accent : theme.border,
+                    },
+                  ]}
+                  onPress={() => setSelectedStoreId(store.id)}>
+                  <Text style={{ color: isSelected ? theme.onAccent : theme.text }}>
+                    {store.name}
+                  </Text>
+                </Pressable>
+              );
+            })}
+          </ScrollView>
+          <View style={styles.grid}>
+            {visibleBrochures.map((brochure) => (
+              <Pressable
+                key={brochure.id}
+                style={[
+                  styles.brochureCard,
+                  { backgroundColor: theme.backgroundElement, borderColor: theme.border },
+                ]}
+                onPress={() => router.push(`/brochures/${brochure.id}`)}>
+                <Image
+                  source={{ uri: brochure.coverImage }}
+                  style={styles.brochureCover}
+                  contentFit="cover"
+                />
+                <View style={styles.brochureInfo}>
+                  <Text style={[styles.brochureTitle, { color: theme.text }]} numberOfLines={2}>
+                    {brochure.title}
+                  </Text>
+                  <Text style={[styles.brochureDate, { color: theme.textSecondary }]}>
+                    Bis {new Date(brochure.validUntil).toLocaleDateString()}
+                  </Text>
+                </View>
+              </Pressable>
+            ))}
+            {visibleBrochures.length === 0 ? (
+              <Text style={[styles.emptyText, { color: theme.textSecondary }]}>
+                Keine Prospekte.
+              </Text>
+            ) : null}
+          </View>
         </View>
-      </View>
-    </ScrollView>
+      </ScrollView>
+    </Screen>
   );
 }
 
@@ -228,6 +301,14 @@ const styles = StyleSheet.create({
   },
   postalCode: {
     fontSize: 13,
+  },
+  postalCodeRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 12,
+    marginBottom: 16,
+  },
+  postalCodeEditRow: {
     marginBottom: 16,
   },
   section: {

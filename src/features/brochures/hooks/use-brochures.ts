@@ -1,14 +1,10 @@
 import { useQuery } from '@tanstack/react-query';
-import { useSession } from '@/features/auth/session-provider';
 import { getDatabase } from '@/lib/db/client';
 import type { LocalBrochure, LocalBrochurePage, LocalBrochureStore } from '../types';
 
 export function useBrochures() {
-  const { session } = useSession();
-  const userId = session?.user.id;
-
   return useQuery({
-    queryKey: ['brochures', 'overview', userId],
+    queryKey: ['brochures', 'overview'],
     queryFn: async () => {
       const db = await getDatabase();
       const cache = await db.getFirstAsync<{ zip_code: string }>(
@@ -21,7 +17,7 @@ export function useBrochures() {
           s.id, s.name, s.logo_url as logoUrl, s.active,
           CASE WHEN f.id IS NOT NULL THEN 1 ELSE 0 END as isFavorite
         FROM local_brochure_stores s
-        LEFT JOIN favorite_brochure_stores f ON f.store_id = s.id AND f.user_id = $userId AND f.deleted_at IS NULL
+        LEFT JOIN favorite_brochure_stores f ON f.store_id = s.id AND f.deleted_at IS NULL
       `;
       const stores = await db.getAllAsync<{
         id: string;
@@ -82,7 +78,6 @@ export function useBrochures() {
         favorites: mappedStores.filter((s) => s.isFavorite),
       };
     },
-    enabled: !!userId,
   });
 }
 

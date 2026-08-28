@@ -1,5 +1,5 @@
-import { useProfile } from '@/features/auth/api';
 import { useSession } from '@/features/auth/session-provider';
+import { useProfile } from '@/features/profile/api';
 import { getInitials } from '@/lib/initials';
 
 /** Kuerzel fuer den Avatar-Kreis im Hub-Screen-Header (#150). */
