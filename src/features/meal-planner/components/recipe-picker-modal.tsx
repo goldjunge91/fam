@@ -1,10 +1,12 @@
+import { FlashList } from '@shopify/flash-list';
 import { useMemo, useState } from 'react';
-import { FlatList, Modal, Platform, Pressable, View } from 'react-native';
+import { Modal, Platform, Pressable, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { TextField } from '@/components/forms/text-field';
 import { ThemedText } from '@/components/theme/themed-text';
 import { ThemedView } from '@/components/theme/themed-view';
+import { Spacing } from '@/constants/layout';
 import type { DraggableRecipe } from './week-grid';
 
 type RecipePickerModalProps = {
@@ -61,10 +63,13 @@ export function RecipePickerModal({
                 : 'Kein Rezept gefunden.'}
             </ThemedText>
           ) : (
-            <FlatList
+            <FlashList
               data={filtered}
               keyExtractor={(item) => item.id}
-              contentContainerClassName="rpm-list"
+              // FlashList hat kein cssInterop, deshalb RN-Styles statt
+              // Tailwind-Klassen — s. glass-card.tsx (#139).
+              style={{ flex: 1 }}
+              contentContainerStyle={{ paddingVertical: Spacing.two }}
               renderItem={({ item }) => (
                 <Pressable
                   accessibilityRole="button"
