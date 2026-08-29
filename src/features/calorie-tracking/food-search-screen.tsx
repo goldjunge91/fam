@@ -1,7 +1,8 @@
+import { FlashList } from '@shopify/flash-list';
 import { Image } from 'expo-image';
 import { router, useLocalSearchParams } from 'expo-router';
 import { useState } from 'react';
-import { ActivityIndicator, FlatList, Pressable, View } from 'react-native';
+import { ActivityIndicator, Pressable, View } from 'react-native';
 import { TextField } from '@/components/forms/text-field';
 import { Screen } from '@/components/layout/screen';
 import { ThemedText } from '@/components/theme/themed-text';
@@ -148,8 +149,8 @@ export function FoodSearchScreen() {
             Keine Treffer für „{query}".
           </ThemedText>
         ) : (
-          <FlatList
-            className="flex-1"
+          <FlashList
+            style={{ flex: 1 }}
             data={results}
             keyExtractor={(item, index) => item.barcode || `${item.name}-${index}`}
             renderItem={({ item }) => (
@@ -172,8 +173,8 @@ export function FoodSearchScreen() {
           Noch keine Einträge — fang mit der Suche oder „Schneller Eintrag" an.
         </ThemedText>
       ) : (
-        <FlatList
-          className="flex-1"
+        <FlashList
+          style={{ flex: 1 }}
           data={historyList}
           keyExtractor={(item) => item.name}
           renderItem={({ item }) => (
