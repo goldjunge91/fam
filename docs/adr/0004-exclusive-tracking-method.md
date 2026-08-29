@@ -1,0 +1,5 @@
+# Tracking-Methode bleibt exklusiv, nicht frei kombinierbar
+
+Epic #179 beschreibt die Abnehm-/Trainingsmethoden (GLP-1, Fasten, Keto, Low-Carb, CGM, Workouts, Volumetrics) als "frei wählbare Module". Schema (`profiles.tracking_method`, ein einzelner `text`-Check-Constraint) und Frontend (`tracking-screen.tsx`, ein Radio-Choice über `setSelectedMethod`) implementieren das bereits — vor #179's Wayfinder-Map — als sich gegenseitig ausschließenden Single-Choice, inklusive des bereits gelieferten `#174` (GLP-1).
+
+Entscheidung: Single-Choice bleibt die Zielarchitektur, nicht nur Zwischenstand. Fachlich sinnvoll, weil sich mehrere Methoden inhaltlich widersprechen (Keto- und Low-Carb-Makro-Presets etwa), und günstiger als eine Migration auf Mehrfachauswahl, die auch das bereits live befindliche `#174` anfassen müsste. Der Epic-Text "frei wählbare Module" bezieht sich auf die bereits bestehenden, unabhängig kombinierbaren `module_*`-Booleans (Kühlschrank, Einkaufsliste, Kalorien, Rezepte, Meal-Planner) — nicht auf `tracking_method`.
