@@ -65,7 +65,7 @@ export function AdBanner({
   const resolvedUnitId = unitId ?? defaultUnitId;
 
   // Premium-Nutzer sehen keinerlei Werbung
-  if (isPremium || failedToLoad) {
+  if (!env.adsEnabled || isPremium || failedToLoad) {
     return null;
   }
 

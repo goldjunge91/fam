@@ -33,11 +33,21 @@ jest.mock('react-native-google-mobile-ads', () => ({
 }));
 
 describe('useInterstitialAd', () => {
+  const originalAdsEnabled = process.env.EXPO_PUBLIC_ADS_ENABLED;
+
   beforeEach(() => {
     mockIsPremium = false;
     mockIsLoaded = false;
     mockIsClosed = false;
     jest.clearAllMocks();
+  });
+
+  afterEach(() => {
+    if (originalAdsEnabled === undefined) {
+      delete process.env.EXPO_PUBLIC_ADS_ENABLED;
+    } else {
+      process.env.EXPO_PUBLIC_ADS_ENABLED = originalAdsEnabled;
+    }
   });
 
   it('laedt automatisch im Hintergrund fuer Free-Nutzer', async () => {
@@ -70,6 +80,18 @@ describe('useInterstitialAd', () => {
 
   it('deaktiviert Interstitials vollstaendig fuer Premium-Nutzer', async () => {
     mockIsPremium = true;
+    mockIsLoaded = true;
+
+    const { result } = await renderHook(() => useInterstitialAd());
+
+    expect(result.current.isLoaded).toBe(false);
+    expect(mockRawLoad).not.toHaveBeenCalled();
+    result.current.show();
+    expect(mockRawShow).not.toHaveBeenCalled();
+  });
+
+  it('deaktiviert Interstitials bei global deaktivierter Werbung', async () => {
+    process.env.EXPO_PUBLIC_ADS_ENABLED = 'false';
     mockIsLoaded = true;
 
     const { result } = await renderHook(() => useInterstitialAd());

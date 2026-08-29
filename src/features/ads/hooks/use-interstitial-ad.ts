@@ -19,10 +19,11 @@ export function useInterstitialAd({
   autoLoad = true,
 }: UseInterstitialAdOptions = {}) {
   const { isPremium } = usePremium();
+  const adsEnabled = env.adsEnabled;
 
   const defaultUnitId = __DEV__ ? TestIds.INTERSTITIAL : env.adMobInterstitialIdIos;
   const resolvedUnitId = adUnitId ?? defaultUnitId;
-  const adUnit = isPremium ? null : resolvedUnitId;
+  const adUnit = adsEnabled && !isPremium ? resolvedUnitId : null;
   const {
     isLoaded,
     isOpened,
@@ -57,7 +58,7 @@ export function useInterstitialAd({
   }, [isLoaded]);
 
   useEffect(() => {
-    if (!isPremium && autoLoad && !isLoaded && !isOpened && !isClosed) {
+    if (adsEnabled && !isPremium && autoLoad && !isLoaded && !isOpened && !isClosed) {
       if (__DEV__) {
         console.log(`[AdMob Interstitial] Lade Interstitial-Anzeige (Unit-ID: ${resolvedUnitId})…`);
       }
@@ -67,7 +68,7 @@ export function useInterstitialAd({
 
   // Automatisch nach dem Schließen für den nächsten Aufruf vorladen
   useEffect(() => {
-    if (!isPremium && autoLoad && isClosed) {
+    if (adsEnabled && !isPremium && autoLoad && isClosed) {
       if (__DEV__) {
         console.log('[AdMob Interstitial] Anzeige geschlossen. Lade nächste Anzeige vor…');
       }
@@ -76,10 +77,10 @@ export function useInterstitialAd({
   }, [isPremium, autoLoad, isClosed, requestLoad]);
 
   const show = useCallback(() => {
-    if (isPremium) {
+    if (!adsEnabled || isPremium) {
       if (__DEV__) {
         console.log(
-          '[AdMob Interstitial] show() übersprungen: Aktiver Haushalt/Nutzer hat Premium-Status.',
+          `[AdMob Interstitial] show() übersprungen: Werbung ist ${adsEnabled ? 'für Premium deaktiviert' : 'global deaktiviert'}.`,
         );
       }
       return;
@@ -102,11 +103,11 @@ export function useInterstitialAd({
   }, [isPremium, isLoaded, rawShow, error]);
 
   return {
-    isLoaded: isPremium ? false : isLoaded,
+    isLoaded: adsEnabled && !isPremium ? isLoaded : false,
     isOpened,
     isClosed,
     error,
-    load: isPremium ? () => {} : requestLoad,
+    load: adsEnabled && !isPremium ? requestLoad : () => {},
     show,
   };
 }

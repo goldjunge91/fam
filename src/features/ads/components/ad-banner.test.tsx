@@ -15,9 +15,19 @@ jest.mock('@/features/premium/premium-provider', () => ({
 }));
 
 describe('AdBanner', () => {
+  const originalAdsEnabled = process.env.EXPO_PUBLIC_ADS_ENABLED;
+
   beforeEach(() => {
     mockIsPremium = false;
     jest.clearAllMocks();
+  });
+
+  afterEach(() => {
+    if (originalAdsEnabled === undefined) {
+      delete process.env.EXPO_PUBLIC_ADS_ENABLED;
+    } else {
+      process.env.EXPO_PUBLIC_ADS_ENABLED = originalAdsEnabled;
+    }
   });
 
   it('rendert Banner fuer Free-Nutzer', async () => {
@@ -30,6 +40,15 @@ describe('AdBanner', () => {
 
   it('blendet Banner fuer Premium-Nutzer vollstaendig aus', async () => {
     mockIsPremium = true;
+    await render(<AdBanner />);
+
+    expect(screen.queryByTestId('admob-banner-container')).not.toBeOnTheScreen();
+    expect(screen.queryByTestId('admob-banner-ad')).not.toBeOnTheScreen();
+  });
+
+  it('blendet Banner bei global deaktivierter Werbung vollstaendig aus', async () => {
+    process.env.EXPO_PUBLIC_ADS_ENABLED = 'false';
+
     await render(<AdBanner />);
 
     expect(screen.queryByTestId('admob-banner-container')).not.toBeOnTheScreen();

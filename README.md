@@ -90,6 +90,7 @@ EXPO_PUBLIC_SUPABASE_KEY=sb_publishable_...
 EXPO_PUBLIC_FORCE_ONBOARDING=false  # optional: bei true wird beim App-Start das Profil-Onboarding geöffnet
 EXPO_PUBLIC_DEV_TOOLS=false         # optional: bei true erscheint der Entwickler-Bereich in den Einstellungen
 EXPO_PUBLIC_OFF_OFFLINE=false       # optional: bei true werden alle Open-Food-Facts-Anfragen unterbunden (Offline-Test)
+EXPO_PUBLIC_ADS_ENABLED=true        # optional: bei false werden Banner, Interstitials und die AdMob-SDK deaktiviert
 EXPO_PUBLIC_POSTHOG_API_KEY=phc_... # optional: PostHog-Projekt-API-Key, siehe "Feature Flags (PostHog)"
 EXPO_PUBLIC_POSTHOG_HOST=https://us.i.posthog.com # optional, Default siehe unten
 ```

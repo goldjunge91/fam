@@ -1,6 +1,7 @@
 import mobileAds, { type PaidEvent, RevenuePrecisions } from 'react-native-google-mobile-ads';
 import Purchases, { AdFormat, AdMediatorName, AdRevenuePrecision } from 'react-native-purchases';
 
+import { env } from '@/lib/env';
 import { isPurchasesConfigured } from '@/lib/purchases';
 
 let initialized = false;
@@ -9,6 +10,7 @@ let initialized = false;
  * Initialisiert das Google Mobile Ads SDK einmalig beim App-Start.
  */
 export async function initMobileAds(): Promise<void> {
+  if (!env.adsEnabled) return;
   if (initialized) return;
 
   try {
@@ -47,7 +49,7 @@ export async function trackAdRevenueToRevenueCat(params: {
   paidEvent: PaidEvent;
   placement?: string;
 }): Promise<void> {
-  if (!isPurchasesConfigured()) return;
+  if (!env.adsEnabled || !isPurchasesConfigured()) return;
 
   try {
     const revenueMicros = Math.round(params.paidEvent.value * 1_000_000);
