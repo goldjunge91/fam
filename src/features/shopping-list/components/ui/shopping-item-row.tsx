@@ -11,12 +11,18 @@ interface ShoppingItemRowProps {
   item: LocalShoppingItem;
   onDelete: () => void;
   onEdit: () => void;
+  selectionMode?: boolean;
+  selected?: boolean;
+  onSelect?: () => void;
 }
 
 export const ShoppingItemRow = memo(function ShoppingItemRow({
   item,
   onDelete,
   onEdit,
+  selectionMode = false,
+  selected = false,
+  onSelect,
 }: ShoppingItemRowProps) {
   const isChecked = item.checked_at !== null;
   const packageHint = formatPackageHint(item.package_size, item.package_size_unit);
@@ -24,12 +30,24 @@ export const ShoppingItemRow = memo(function ShoppingItemRow({
   return (
     <View className="shopping-item-row">
       <Pressable
-        onPress={onEdit}
-        onLongPress={onDelete}
+        onPress={selectionMode ? onSelect : onEdit}
+        onLongPress={selectionMode ? undefined : onDelete}
         accessibilityRole="button"
-        accessibilityLabel={`${item.name} bearbeiten`}
-        accessibilityHint="Antippen zum Bearbeiten, lang drücken zum Löschen"
+        accessibilityLabel={`${item.name} ${selectionMode ? 'auswählen' : 'bearbeiten'}`}
+        accessibilityHint={
+          selectionMode
+            ? 'Antippen zum Auswählen oder Abwählen'
+            : 'Antippen zum Bearbeiten, lang drücken zum Löschen'
+        }
+        accessibilityState={selectionMode ? { selected } : undefined}
         className="shopping-item-main">
+        {selectionMode ? (
+          <View
+            className={`checkbox-base ${selected ? 'checkbox-checked' : 'checkbox-unchecked'}`}
+            accessibilityElementsHidden>
+            {selected ? <ThemedText className="text-white font-bold">✓</ThemedText> : null}
+          </View>
+        ) : null}
         <View className="flex-1 gap-[2px]">
           {/* Produkt · Menge · Preis als drei Spalten (Mockup
               docs/mockups/einkaufsmodus/), nicht Menge+Preis gestapelt. */}

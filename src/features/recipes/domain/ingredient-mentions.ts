@@ -21,6 +21,7 @@ export function flattenRecipeItems(
   items: readonly {
     id: string;
     product_id: string | null;
+    ingredient_name?: string | null;
     unit: string;
     quantity: number | null;
   }[],
@@ -29,10 +30,11 @@ export function flattenRecipeItems(
   const result: MentionableIngredient[] = [];
   for (const item of items) {
     const product = item.product_id ? productsById.get(item.product_id) : undefined;
-    if (!product) continue;
+    const name = product?.name ?? item.ingredient_name?.trim();
+    if (!name) continue;
     result.push({
       itemId: item.id,
-      name: product.name,
+      name,
       unit: item.unit,
       quantity: item.quantity ?? 0,
     });

@@ -11,6 +11,8 @@ import { applyLocalMirrorWrite } from '@/lib/sync/mirror-write';
 export type RecipeComponent = RecipeComponentRow & { name: string; recipe_id: string };
 export type RecipeComponentItem = RecipeComponentItemRow & {
   id: string;
+  /** Nur bei Katalogzutaten ohne verknüpftes Produkt gesetzt. */
+  ingredient_name?: string | null;
   quantity: number | null;
   unit: string;
 };

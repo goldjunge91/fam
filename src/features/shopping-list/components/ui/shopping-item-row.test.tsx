@@ -84,4 +84,23 @@ describe('ShoppingItemRow', () => {
     await fireEvent(screen.getByRole('button', { name: 'Hafermilch bearbeiten' }), 'longPress');
     expect(onDeleteMock).toHaveBeenCalledTimes(1);
   });
+
+  it('waehlt einen Artikel im Mehrfachauswahlmodus aus', async () => {
+    const onSelectMock = jest.fn();
+    await render(
+      <ShoppingItemRow
+        item={dummyItem}
+        onDelete={jest.fn()}
+        onEdit={jest.fn()}
+        selectionMode
+        selected
+        onSelect={onSelectMock}
+      />,
+    );
+
+    const row = screen.getByRole('button', { name: 'Hafermilch auswählen' });
+    expect(row).toBeSelected();
+    await fireEvent.press(row);
+    expect(onSelectMock).toHaveBeenCalledTimes(1);
+  });
 });

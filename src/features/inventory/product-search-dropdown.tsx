@@ -53,6 +53,7 @@ const PANEL_MIN_HEIGHT = 140;
 const PANEL_FALLBACK_HEIGHT = 220;
 
 type LocalProductRow = {
+  id: string;
   barcode: string | null;
   name: string;
   brand: string | null;
@@ -67,6 +68,7 @@ type LocalProductRow = {
 
 function toOpenFoodFactsProduct(row: LocalProductRow): OpenFoodFactsProduct {
   return {
+    productId: row.id,
     barcode: row.barcode ?? '',
     name: row.name,
     brand: row.brand ?? undefined,
@@ -92,7 +94,7 @@ async function searchOwnProducts(query: string): Promise<OpenFoodFactsProduct[]>
   const conditions = tokens.flatMap(() => ['lower(name) like ?', 'lower(brand) like ?']);
   const params = tokens.flatMap((token) => [`%${token}%`, `%${token}%`]);
   const rows = await db.getAllAsync<LocalProductRow>(
-    `select barcode, name, brand, kcal_per_100, protein_g_per_100, carbs_g_per_100, fat_g_per_100,
+    `select id, barcode, name, brand, kcal_per_100, protein_g_per_100, carbs_g_per_100, fat_g_per_100,
             off_category_tags, off_last_modified_at
      from products
      where deleted_at is null and (${conditions.join(' or ')})
@@ -444,7 +446,7 @@ export const ProductSearchDropdown = forwardRef<
             ) : null}
             {suggestions.map((item) => (
               <Pressable
-                key={item.barcode || item.name}
+                key={item.productId || item.barcode || item.name}
                 onPress={() => {
                   justSelectedValueRef.current = item.name;
                   onSelectProduct(item);
@@ -476,9 +478,17 @@ export const ProductSearchDropdown = forwardRef<
                     numberOfLines={1}
                     className={size === 'large' ? 'font-medium' : undefined}>
                     {item.brand ? `${item.brand} · ` : ''}
-                    {item.quantity} {item.unit}
+                    {item.quantity !== undefined ? `${item.quantity} ${item.unit ?? ''}` : ''}
                     {item.caloriesPer100g ? ` · ${item.caloriesPer100g} kcal/100g` : ''}
                   </ThemedText>
+                  {item.barcode ? (
+                    <ThemedText
+                      type={size === 'large' ? 'small' : 'captionMuted'}
+                      themeColor="textSecondary"
+                      numberOfLines={1}>
+                      EAN {item.barcode}
+                    </ThemedText>
+                  ) : null}
                 </View>
               </Pressable>
             ))}

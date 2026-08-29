@@ -15,7 +15,7 @@ gelistet.
 
 | Datei | Zweck |
 |---|---|
-| `shopping-list-screen.tsx` | Hauptscreen. "Alle Listen"-Übersicht (Markt-Karten) + marktgefilterte Checkliste, steuert alle Modals/Sheets dieses Features. |
+| `shopping-list-screen.tsx` | Hauptscreen. "Alle Listen"-Übersicht (Markt-Karten) + marktgefilterte Checkliste, steuert alle Modals/Sheets und die Mehrfachauswahl dieses Features. |
 | `shopping-mode-screen.tsx` | Vollbild-Einkaufsmodus für den Laden — nur Abhaken, aufklappbare farbcodierte Kategorien, kein Bearbeiten. |
 | `stores-screen.tsx` | Märkte verwalten (anlegen, umbenennen, Farbe, löschen) — eigene Route außerhalb der Einkaufsliste selbst. |
 
@@ -27,6 +27,7 @@ gelistet.
 | `sheets/category-order-sheet.tsx` | Drag&Drop-Sortierung der Kategorie-Laufstrecke pro Markt. |
 | `modals/add-item-modal.tsx` | Wrapper um `add-item-form.tsx` in der gemeinsamen Modal-Hülle. |
 | `modals/edit-item-modal.tsx` | Wrapper um `forms/edit-item-form.tsx` in der gemeinsamen Modal-Hülle. |
+| `modals/move-items-modal.tsx` | Zielauswahl für das Verschieben mehrerer Einkaufsartikel in eine andere Markt-Liste. |
 | `modals/item-modal-shell.tsx` | Geteiltes Modal-Gerüst (Header, Scroll, Tastatur-Handling) für Add/Edit. |
 
 ## `forms/` (Formulare & Eingabe-Bausteine)
@@ -53,7 +54,7 @@ gelistet.
 | Datei | Zweck |
 |---|---|
 | `use-shopping-list.ts` | Liest Artikel aus SQLite, gruppiert nach Kategorie/Laufstrecke. |
-| `use-shopping-list-mutations.ts` | Hinzufügen/Abhaken/Löschen von Artikeln (Outbox-Sync). |
+| `use-shopping-list-mutations.ts` | Hinzufügen/Abhaken/Löschen/Verschieben von Artikeln (Outbox-Sync). |
 | `use-complete-shopping-run.ts` | Transaktion: abgehakte Artikel → `fridge_items` + `shopping_history`, dann Soft-Delete. |
 | `use-stores.ts` | Märkte lesen/anlegen/ändern/löschen, inkl. `category_order`-Persistenz. |
 | `use-shopping-product-suggestions.ts` | Zuletzt/häufig gekaufte Produkte für die Vorschlagsliste. |

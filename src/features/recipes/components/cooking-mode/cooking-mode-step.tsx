@@ -14,6 +14,7 @@ type CookingModeStepProps = {
   steps: RecipeStep[];
   stepIndex: number;
   currentStep: RecipeStep;
+  currentStepImageUrl?: string | null;
   mentionIngredients: MentionableIngredient[];
   durationSeconds: number | null;
   remainingSeconds: number;
@@ -29,6 +30,7 @@ export function CookingModeStep({
   steps,
   stepIndex,
   currentStep,
+  currentStepImageUrl,
   mentionIngredients,
   durationSeconds,
   remainingSeconds,
@@ -67,7 +69,7 @@ export function CookingModeStep({
       </ThemedText>
 
       <View className="h-[184px] mt-[13px] rounded-fam-large overflow-hidden">
-        <CookingModeArtwork step={currentStep} />
+        <CookingModeArtwork step={currentStep} imageUrl={currentStepImageUrl} />
       </View>
       <StepMentionText
         text={currentStep.text}

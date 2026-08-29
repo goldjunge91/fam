@@ -105,25 +105,28 @@ export function AddFoodEntryScreen() {
       } else {
         await addMutation.mutateAsync(payload);
 
-        void getDatabase()
-          .then((db) =>
-            recordProductUsage(db, {
-              id: Crypto.randomUUID(),
-              userId,
-              householdId: activeHousehold?.id ?? null,
-              feature: 'diary',
-              mealType: payload.mealType,
-              name: payload.name,
-              unit: payload.unit,
-              quantity: payload.quantity,
-              kcal: payload.kcal,
-              proteinG: payload.proteinG,
-              carbsG: payload.carbsG,
-              fatG: payload.fatG,
-            }),
-          )
-          .then(() => queryClient.invalidateQueries({ queryKey: ['product_usage'] }))
-          .catch((err) => console.error('Fehler beim Protokollieren der Nutzung:', err));
+        try {
+          const db = await getDatabase();
+          await recordProductUsage(db, {
+            id: Crypto.randomUUID(),
+            userId,
+            householdId: activeHousehold?.id ?? null,
+            feature: 'diary',
+            mealType: payload.mealType,
+            name: payload.name,
+            unit: payload.unit,
+            quantity: payload.quantity,
+            kcal: payload.kcal,
+            proteinG: payload.proteinG,
+            carbsG: payload.carbsG,
+            fatG: payload.fatG,
+          });
+          void queryClient.invalidateQueries({ queryKey: ['product_usage'] });
+        } catch (err) {
+          // Der Tagebucheintrag ist bereits gespeichert; ein History-Fehler
+          // darf den Nutzer nicht von der naechsten Ansicht abhalten.
+          console.error('Fehler beim Protokollieren der Nutzung:', err);
+        }
       }
       // Kommt der Eintrag aus einem vorgelagerten Sheet (z.B. "Rezept fertig
       // gekocht"), muss dieses beim Speichern mitgeschlossen werden, statt

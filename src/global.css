@@ -695,6 +695,18 @@
     @apply border-border bg-transparent;
   }
 
+  .move-items-backdrop {
+    @apply flex-1 justify-end bg-black/40;
+  }
+
+  .move-items-panel {
+    @apply rounded-t-sheet border-t border-border px-four pt-four pb-five;
+  }
+
+  .move-items-target {
+    @apply flex-row items-center gap-three rounded-control border border-border px-three py-three;
+  }
+
   /* store-picker-menu.tsx — Glas-Button + Menü statt der frueheren
      Chip-Zeile (Marktauswahl-Mockup Variante B). Menue laeuft ueber ein
      Modal (eigene native Ebene), Position kommt per measureInWindow als
@@ -796,8 +808,8 @@
     @apply flex-1 flex-row items-center justify-center gap-one py-one px-one rounded-sheet border-[1.5px];
   }
 
-  /* complete-run-sheet.tsx — MHD-Feld bewusst schmal statt volle Zeilenbreite,
-     ein Datum braucht keine so grosse Tapp-Flaeche wie die Lagerort-Buttons. */
+  /* complete-run-sheet.tsx — Label bekommt den Rest der Zeile, das Datum sitzt
+     mit gleichbleibender Breite bündig am rechten Rand. */
   .mhd-field-width {
     @apply w-[140px];
   }

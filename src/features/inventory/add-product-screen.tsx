@@ -46,6 +46,7 @@ export function AddProductScreen() {
       });
 
       setPendingProductSelection({
+        productId: created.id,
         barcode: created.barcode ?? '',
         name: created.name,
         brand: created.brand ?? undefined,

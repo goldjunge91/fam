@@ -3,7 +3,7 @@ import Constants from 'expo-constants';
 import { Observe } from 'expo-observe';
 import { router } from 'expo-router';
 import { useCallback, useEffect, useState } from 'react';
-import { Alert, Platform, Switch, View } from 'react-native';
+import { Alert, Platform, View } from 'react-native';
 import { Screen } from '@/components/layout/screen';
 import { ThemedText } from '@/components/theme/themed-text';
 import { Button } from '@/components/ui/buttons';
@@ -92,6 +92,7 @@ export function DevToolsScreen() {
   const { isPremium, isForced } = usePremium();
   const forcePremiumOverride = useForcePremiumOverrideStore((state) => state.override);
   const setForcePremiumOverride = useForcePremiumOverrideStore((state) => state.setOverride);
+  const premiumOverrideEnabled = forcePremiumOverride ?? env.forcePremium;
   // Ohne Schlüssel oder geladenen Wert ist das Flag standardmäßig deaktiviert.
   const testFeatureFlag = useFeatureFlag('test-feature', false);
   const posthogFlags = useFeatureFlags();
@@ -205,11 +206,15 @@ export function DevToolsScreen() {
           <ThemedText type="small" themeColor="textSecondary">
             Premium erzwingen (Override, überlebt Neustart)
           </ThemedText>
-          <Switch
-            value={forcePremiumOverride ?? env.forcePremium}
-            onValueChange={(value) => setForcePremiumOverride(value)}
-          />
         </View>
+        <Button
+          label={`Premium erzwingen: ${premiumOverrideEnabled ? 'AN' : 'AUS'}`}
+          variant={premiumOverrideEnabled ? 'primary' : 'secondary'}
+          accessibilityLabel={
+            premiumOverrideEnabled ? 'Premium-Override ausschalten' : 'Premium-Override einschalten'
+          }
+          onPress={() => setForcePremiumOverride(!premiumOverrideEnabled)}
+        />
         {forcePremiumOverride !== null ? (
           <Button
             label={`Override zurücksetzen (Build-Wert: ${env.forcePremium ? 'an' : 'aus'})`}

@@ -74,14 +74,14 @@ function TransferRow({
     <View className="transfer-row">
       {/* Artikel-Header */}
       <View className="row-between">
-        <ThemedText type="bodyLarge" className="font-bold">
+        <ThemedText type="bodyLarge" numberOfLines={2} className="flex-1 min-w-0 font-bold">
           {item.name}
         </ThemedText>
 
         {/* Menge — grüner Pill-Badge, per Antippen als Zahl editierbar
             (Feedback: "im Laden nur 5 statt 6 Brötchen bekommen") */}
         {isEditingQty ? (
-          <View className="quantity-badge flex-row items-center gap-half">
+          <View className="quantity-badge flex-row items-center gap-half" style={{ flexShrink: 0 }}>
             <TextInput
               value={qtyDraft}
               onChangeText={setQtyDraft}
@@ -103,7 +103,8 @@ function TransferRow({
             onPress={startEditingQty}
             accessibilityRole="button"
             accessibilityLabel={`Menge für ${item.name}, ${formatAmount(transfer.quantity, item.unit)}, zum Ändern antippen`}
-            className="quantity-badge">
+            className="quantity-badge"
+            style={{ flexShrink: 0 }}>
             <ThemedText type="small" className="text-white font-semibold">
               {formatAmount(transfer.quantity, item.unit)}
             </ThemedText>
@@ -138,11 +139,11 @@ function TransferRow({
         </View>
 
         {/* MHD */}
-        <View className="row-center">
-          <ThemedText type="smallMuted" className="w-8">
+        <View className="flex-row items-center">
+          <ThemedText type="smallMuted" numberOfLines={1} className="flex-1">
             MHD
           </ThemedText>
-          <View className="mhd-field-width">
+          <View className="mhd-field-width ml-auto">
             <DateWheelField value={transfer.expiryDate ?? ''} onChange={onUpdateExpiry} />
           </View>
         </View>

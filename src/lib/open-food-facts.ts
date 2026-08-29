@@ -4,6 +4,8 @@ import { env } from '@/lib/env';
 export type NutrientLevel = 'low' | 'moderate' | 'high';
 
 export type OpenFoodFactsProduct = {
+  /** Lokale Produktidentitaet, sofern der Treffer aus dem eigenen Katalog/Verlauf stammt. */
+  productId?: string;
   barcode: string;
   name: string;
   brand?: string;

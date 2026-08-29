@@ -14,6 +14,7 @@ export type SuggestionMode = 'frequent' | 'recent';
 
 function toOpenFoodFactsProduct(row: ProductUsageRow): OpenFoodFactsProduct {
   return {
+    productId: row.product_id ?? undefined,
     barcode: row.barcode ?? '',
     name: row.name,
     brand: row.brand ?? undefined,
@@ -50,6 +51,9 @@ export function FrequentProductsQuickSelect({
       return getFrequentProductUsage(db, { userId: userId as string, feature, mode });
     },
     enabled: !!userId,
+    // Die Datenbank ist die lokale Quelle der Wahrheit. Nach einem Save kann
+    // diese Komponente mit einem zuvor leeren Query-Ergebnis erneut erscheinen.
+    refetchOnMount: 'always',
   });
 
   const chips = rows.slice(0, MAX_CHIPS);

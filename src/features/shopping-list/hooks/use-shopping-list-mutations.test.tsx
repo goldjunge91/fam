@@ -4,6 +4,7 @@ import type React from 'react';
 
 import {
   useDeleteShoppingItem,
+  useMoveShoppingItems,
   useToggleShoppingItem,
   useUpdateShoppingItem,
 } from '@/features/shopping-list/hooks/use-shopping-list-mutations';
@@ -22,6 +23,7 @@ jest.mock('@/lib/db/client', () => ({
 
 jest.mock('@/lib/db/outbox', () => ({
   enqueueMutation: jest.fn().mockResolvedValue(undefined),
+  enqueueMutations: jest.fn().mockResolvedValue(undefined),
 }));
 
 jest.mock('@/features/shopping-list/preferences/save-shopping-item', () => ({
@@ -127,6 +129,39 @@ describe('use-shopping-list-mutations', () => {
           payload: expect.objectContaining({ category_source: 'store_preference' }),
         }),
       }),
+    );
+  });
+
+  it('verschiebt mehrere Einträge als eine Outbox-Transaktion', async () => {
+    const { result } = await renderHook(() => useMoveShoppingItems(), { wrapper });
+
+    await act(async () => {
+      await result.current.mutateAsync({
+        household_id: 'hh-1',
+        item_ids: ['item-1', 'item-2'],
+        store_id: 'store-2',
+      });
+    });
+
+    await waitFor(() => expect(result.current.isSuccess).toBe(true));
+
+    const { enqueueMutations } = jest.requireMock('@/lib/db/outbox') as {
+      enqueueMutations: jest.Mock;
+    };
+    expect(enqueueMutations).toHaveBeenCalledWith(
+      expect.anything(),
+      expect.arrayContaining([
+        expect.objectContaining({
+          entity: 'shopping_list_items',
+          entityId: 'item-1',
+          payload: expect.objectContaining({ store_id: 'store-2' }),
+        }),
+        expect.objectContaining({
+          entity: 'shopping_list_items',
+          entityId: 'item-2',
+          payload: expect.objectContaining({ store_id: 'store-2' }),
+        }),
+      ]),
     );
   });
 });

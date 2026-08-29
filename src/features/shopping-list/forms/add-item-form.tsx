@@ -31,6 +31,7 @@ import {
   type PlacementZoneId,
 } from '../classification/placement-taxonomy';
 import type { CategorySource } from '../classification/types';
+import { findLastStoreForProduct } from '../domain-logik/product-store-preference';
 import { useAddShoppingItem } from '../hooks/use-shopping-list-mutations';
 import type {
   ShoppingProductSuggestion,
@@ -69,6 +70,7 @@ async function resolveAutomaticPreview(
 interface AddItemFormProps {
   householdId: string;
   initialStoreId?: string | null;
+  initialProduct?: OpenFoodFactsProduct | null;
   onDismiss: () => void;
   onItemAdded?: () => void;
 }
@@ -79,7 +81,7 @@ export type AddItemFormHandle = {
 };
 
 export const AddItemForm = forwardRef<AddItemFormHandle, AddItemFormProps>(function AddItemForm(
-  { householdId, initialStoreId = null, onDismiss, onItemAdded },
+  { householdId, initialStoreId = null, initialProduct = null, onDismiss, onItemAdded },
   ref,
 ) {
   const theme = useTheme();
@@ -102,9 +104,9 @@ export const AddItemForm = forwardRef<AddItemFormHandle, AddItemFormProps>(funct
   const [selectedProduct, setSelectedProduct] = useState<OpenFoodFactsProduct | null>(null);
   // Bekannte `product_id` aus einem Häufig/Zuletzt-Vorschlag (#UI-Feedback:
   // "2 Einträge auf der Liste, addiert nicht") — die Vorschläge kennen ihre
-  // echte `product_id` bereits aus `product_usage`, aber `toProduct()` wandelt
-  // sie in ein `OpenFoodFactsProduct` (nur Barcode) um; ist der Barcode dort
-  // leer, findet `persistOffProductIfNeeded` keine/eine andere `product_id`
+  // echte `product_id` bereits aus `product_usage`; die ID wird bis zum Save
+  // durchgereicht, auch wenn der Verlauf keinen Barcode enthält. So bleibt
+  // die Produktidentität beim Zusammenführen der Liste erhalten.
   // als beim selben Artikel aus der Live-Suche — der Merge-Check in
   // `shopping-list-merge.ts` verlangt exakte `product_id`-Übereinstimmung und
   // legt sonst eine zweite Zeile an, statt die Menge zu addieren.
@@ -124,6 +126,8 @@ export const AddItemForm = forwardRef<AddItemFormHandle, AddItemFormProps>(funct
   const feedbackEnabled = useFeatureFlag('shopping-category-feedback-alpha', false);
 
   const automaticSourceRef = useRef<CategorySource | null>(null);
+  const productSelectionRef = useRef(0);
+  const initialProductAppliedRef = useRef(false);
 
   // Automatischer Modus (Abschnitt 10 "Hinzufügen"): klassifiziert bei jeder
   // Namens-/Produktänderung neu, solange keine manuelle Auswahl aktiv ist.
@@ -228,7 +232,10 @@ export const AddItemForm = forwardRef<AddItemFormHandle, AddItemFormProps>(funct
   const packageHint = formatPackageHint(packageSize, packageSizeUnit);
   const purchaseAmount = formatAmount(purchaseCount, unit);
 
-  function handleSelectProduct(product: OpenFoodFactsProduct) {
+  function handleSelectProduct(
+    product: OpenFoodFactsProduct,
+    options: { productId?: string | null; storeId?: string | null } = {},
+  ) {
     // Muss VOR `setName` passieren — sonst haelt der Such-Effekt in
     // `product-search-dropdown.tsx` diesen Namenswechsel fuer neue Eingabe
     // und oeffnet die Trefferliste erneut (#UI-Feedback: "Auswaehlen eines
@@ -245,7 +252,8 @@ export const AddItemForm = forwardRef<AddItemFormHandle, AddItemFormProps>(funct
     setPackageSizeInput(hasKnownPackageSize ? String(product.quantity) : '');
     setPackageSizeUnit(hasKnownPackageSize ? productUnit : 'g');
     setSelectedProduct(product);
-    setSelectedProductId(null);
+    const productId = options.productId ?? product.productId ?? null;
+    setSelectedProductId(productId);
     setNameError(null);
     // Produktwechsel darf eine manuelle Kategorie nicht unbemerkt uebernehmen
     // (Abschnitt 10) — zurueck in den automatischen Modus, der
@@ -255,9 +263,43 @@ export const AddItemForm = forwardRef<AddItemFormHandle, AddItemFormProps>(funct
     setPendingPreferenceResetScope(null);
     setCategoryState(EMPTY_CATEGORY_STATE);
     manualSelectionStoreIdRef.current = undefined;
+
+    const selection = ++productSelectionRef.current;
+    if (options.storeId !== undefined) {
+      if (options.storeId) setStoreId(options.storeId);
+      return;
+    }
+
+    void getDatabase()
+      .then((db) =>
+        findLastStoreForProduct(db, {
+          householdId,
+          productId,
+          barcode: product.barcode,
+          name: product.name,
+        }),
+      )
+      .then((lastStoreId) => {
+        if (selection === productSelectionRef.current && lastStoreId) {
+          setStoreId(lastStoreId);
+        }
+      })
+      .catch((error) => {
+        console.error('Markt des Produkts konnte nicht ermittelt werden:', error);
+      });
   }
 
+  // Das Formular wird nach einem Scan neu gemountet. Der Ref verhindert,
+  // dass ein vorausgefülltes Produkt bei späteren Re-Renders erneut gesetzt wird.
+  // biome-ignore lint/correctness/useExhaustiveDependencies: Einmalige Initialisierung pro Formular-Mount.
+  useEffect(() => {
+    if (!initialProduct || initialProductAppliedRef.current) return;
+    initialProductAppliedRef.current = true;
+    handleSelectProduct(initialProduct, { storeId: initialStoreId });
+  }, [initialProduct, initialStoreId]);
+
   function handleStoreChange(nextStoreId: string | null) {
+    productSelectionRef.current += 1;
     const manualSelectionBelongsToPreviousStore =
       placementSelection.mode === 'manual' && manualSelectionStoreIdRef.current !== nextStoreId;
 
@@ -275,11 +317,13 @@ export const AddItemForm = forwardRef<AddItemFormHandle, AddItemFormProps>(funct
     product: OpenFoodFactsProduct,
     suggestion: ShoppingProductSuggestion,
   ) {
-    handleSelectProduct(product);
+    handleSelectProduct(product, {
+      productId: suggestion.product_id,
+      storeId: suggestion.last_store_id,
+    });
     // Bekannte `product_id` direkt übernehmen statt sie ueber den (evtl.
     // leeren) Barcode neu aufzuloesen, siehe Kommentar bei `selectedProductId`.
-    setSelectedProductId(suggestion.product_id ?? null);
-    if (suggestion.last_store_id) setStoreId(suggestion.last_store_id);
+    setSelectedProductId(suggestion.product_id ?? product.productId ?? null);
   }
 
   function dismissKeyboard() {
@@ -463,23 +507,26 @@ export const AddItemForm = forwardRef<AddItemFormHandle, AddItemFormProps>(funct
       });
 
       if (userId) {
-        void getDatabase()
-          .then((db) =>
-            recordProductUsage(db, {
-              id: Crypto.randomUUID(),
-              userId,
-              householdId,
-              feature: 'shopping_list',
-              productId,
-              name: trimmed,
-              brand: selectedProduct?.brand ?? null,
-              barcode: selectedProduct?.barcode ?? null,
-              quantity: packageSize ?? purchaseCount,
-              unit: packageSize ? packageSizeUnit : unit,
-            }),
-          )
-          .then(() => queryClient.invalidateQueries({ queryKey: ['product_usage'] }))
-          .catch((err) => console.error('Fehler beim Protokollieren der Nutzung:', err));
+        try {
+          const db = await getDatabase();
+          await recordProductUsage(db, {
+            id: Crypto.randomUUID(),
+            userId,
+            householdId,
+            feature: 'shopping_list',
+            productId,
+            name: trimmed,
+            brand: selectedProduct?.brand ?? null,
+            barcode: selectedProduct?.barcode ?? null,
+            quantity: packageSize ?? purchaseCount,
+            unit: packageSize ? packageSizeUnit : unit,
+          });
+          void queryClient.invalidateQueries({ queryKey: ['product_usage'] });
+        } catch (err) {
+          // Die History ist Zusatzfunktion: Der Einkaufslisten-Save bleibt
+          // erfolgreich, falls der lokale History-Write fehlschlaegt.
+          console.error('Fehler beim Protokollieren der Nutzung:', err);
+        }
       }
 
       if (onItemAdded) {
@@ -501,6 +548,7 @@ export const AddItemForm = forwardRef<AddItemFormHandle, AddItemFormProps>(funct
         placeholder={source === 'dish' ? 'Gericht suchen…' : 'Artikel suchen'}
         value={name}
         onChangeText={(text) => {
+          productSelectionRef.current += 1;
           setName(text);
           setSelectedProduct(null);
           setSelectedProductId(null);
