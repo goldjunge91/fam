@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Alert, FlatList, Pressable, View } from 'react-native';
+import { Alert, Pressable, View } from 'react-native';
 import { DatePicker } from '@/components/forms/date-picker';
 import { TextField } from '@/components/forms/text-field';
 import { Screen } from '@/components/layout/screen';
@@ -195,116 +195,102 @@ export function ChildProfilesScreen() {
             Noch keine Kinder-Profile in diesem Haushalt hinterlegt.
           </ThemedText>
         ) : (
-          <FlatList
-            data={children}
-            keyExtractor={(item) => item.id}
-            scrollEnabled={false}
-            renderItem={({ item }) => {
-              const isEditing = editingId === item.id;
-              if (isEditing) {
-                return (
-                  /* Inline-Bearbeitungsformular für ein Kind */
-                  <View className="child-edit-card">
-                    <TextField
-                      label="Name des Kindes"
-                      value={editName}
-                      onChangeText={setEditName}
-                    />
-                    <DatePicker
-                      label="Geburtsdatum"
-                      value={editBirthDate}
-                      onChangeText={setEditBirthDate}
-                    />
-
-                    <ThemedText type="smallBold" className="mt-one">
-                      Geschlecht
-                    </ThemedText>
-                    <View className="sex-row">
-                      <Pressable
-                        onPress={() => setEditSex(editSex === 'male' ? null : 'male')}
-                        className={`child-segment-btn ${editSex === 'male' ? 'bg-accent' : 'bg-background-element'}`}>
-                        <ThemedText themeColor={editSex === 'male' ? 'onAccent' : 'text'}>
-                          👦 Männlich
-                        </ThemedText>
-                      </Pressable>
-                      <Pressable
-                        onPress={() => setEditSex(editSex === 'female' ? null : 'female')}
-                        className={`child-segment-btn ${editSex === 'female' ? 'bg-accent' : 'bg-background-element'}`}>
-                        <ThemedText themeColor={editSex === 'female' ? 'onAccent' : 'text'}>
-                          👧 Weiblich
-                        </ThemedText>
-                      </Pressable>
-                    </View>
-
-                    <TextField
-                      label="Körpergröße in cm"
-                      value={editHeightCm}
-                      onChangeText={setEditHeightCm}
-                      keyboardType="numeric"
-                    />
-
-                    <View className="flex-row gap-two mt-one">
-                      <View className="flex-1">
-                        <Button
-                          label="Übernehmen"
-                          onPress={() => handleUpdate(item.id)}
-                          loading={updateMutation.isPending}
-                          disabled={!editName.trim()}
-                        />
-                      </View>
-                      <View className="flex-1">
-                        <Button
-                          label="Abbrechen"
-                          variant="secondary"
-                          onPress={() => setEditingId(null)}
-                        />
-                      </View>
-                    </View>
-                  </View>
-                );
-              }
-
+          /* Kein FlashList: die Karte steckt im scrollenden Screen, eine
+             virtualisierte Liste im ScrollView wird nicht unterstuetzt (#139).
+             Die Profilanzahl ist klein, eine Direktabbildung reicht. */
+          children.map((item) => {
+            const isEditing = editingId === item.id;
+            if (isEditing) {
               return (
-                /* Zeile mit Profil-Stammdaten und Aktions-Buttons */
-                <View className="child-row">
-                  <View className="flex-1">
-                    <ThemedText className="font-bold text-[16px]">
-                      {item.sex === 'female' ? '👧' : item.sex === 'male' ? '👦' : '👶'}{' '}
-                      {item.display_name}
-                    </ThemedText>
-                    <ThemedText type="small" themeColor="textSecondary">
-                      {[
-                        item.birth_date
-                          ? `Geboren: ${new Date(item.birth_date).toLocaleDateString('de-DE')}`
-                          : null,
-                        item.height_cm ? `${item.height_cm} cm` : null,
-                        item.sex === 'male'
-                          ? 'männlich'
-                          : item.sex === 'female'
-                            ? 'weiblich'
-                            : null,
-                      ]
-                        .filter(Boolean)
-                        .join(' · ') || 'Keine Zusatzdaten'}
-                    </ThemedText>
+                /* Inline-Bearbeitungsformular für ein Kind */
+                <View key={item.id} className="child-edit-card">
+                  <TextField label="Name des Kindes" value={editName} onChangeText={setEditName} />
+                  <DatePicker
+                    label="Geburtsdatum"
+                    value={editBirthDate}
+                    onChangeText={setEditBirthDate}
+                  />
+
+                  <ThemedText type="smallBold" className="mt-one">
+                    Geschlecht
+                  </ThemedText>
+                  <View className="sex-row">
+                    <Pressable
+                      onPress={() => setEditSex(editSex === 'male' ? null : 'male')}
+                      className={`child-segment-btn ${editSex === 'male' ? 'bg-accent' : 'bg-background-element'}`}>
+                      <ThemedText themeColor={editSex === 'male' ? 'onAccent' : 'text'}>
+                        👦 Männlich
+                      </ThemedText>
+                    </Pressable>
+                    <Pressable
+                      onPress={() => setEditSex(editSex === 'female' ? null : 'female')}
+                      className={`child-segment-btn ${editSex === 'female' ? 'bg-accent' : 'bg-background-element'}`}>
+                      <ThemedText themeColor={editSex === 'female' ? 'onAccent' : 'text'}>
+                        👧 Weiblich
+                      </ThemedText>
+                    </Pressable>
                   </View>
 
-                  <View className="child-action-buttons">
-                    <Button
-                      label="Bearbeiten"
-                      variant="secondary"
-                      onPress={() => startEdit(item)}
-                    />
-                    <Button
-                      label="Löschen"
-                      variant="danger"
-                      onPress={() => handleDelete(item.id, item.display_name)}
-                    />
+                  <TextField
+                    label="Körpergröße in cm"
+                    value={editHeightCm}
+                    onChangeText={setEditHeightCm}
+                    keyboardType="numeric"
+                  />
+
+                  <View className="flex-row gap-two mt-one">
+                    <View className="flex-1">
+                      <Button
+                        label="Übernehmen"
+                        onPress={() => handleUpdate(item.id)}
+                        loading={updateMutation.isPending}
+                        disabled={!editName.trim()}
+                      />
+                    </View>
+                    <View className="flex-1">
+                      <Button
+                        label="Abbrechen"
+                        variant="secondary"
+                        onPress={() => setEditingId(null)}
+                      />
+                    </View>
                   </View>
                 </View>
               );
-            }}
-          />
+            }
+
+            return (
+              /* Zeile mit Profil-Stammdaten und Aktions-Buttons */
+              <View key={item.id} className="child-row">
+                <View className="flex-1">
+                  <ThemedText className="font-bold text-[16px]">
+                    {item.sex === 'female' ? '👧' : item.sex === 'male' ? '👦' : '👶'}{' '}
+                    {item.display_name}
+                  </ThemedText>
+                  <ThemedText type="small" themeColor="textSecondary">
+                    {[
+                      item.birth_date
+                        ? `Geboren: ${new Date(item.birth_date).toLocaleDateString('de-DE')}`
+                        : null,
+                      item.height_cm ? `${item.height_cm} cm` : null,
+                      item.sex === 'male' ? 'männlich' : item.sex === 'female' ? 'weiblich' : null,
+                    ]
+                      .filter(Boolean)
+                      .join(' · ') || 'Keine Zusatzdaten'}
+                  </ThemedText>
+                </View>
+
+                <View className="child-action-buttons">
+                  <Button label="Bearbeiten" variant="secondary" onPress={() => startEdit(item)} />
+                  <Button
+                    label="Löschen"
+                    variant="danger"
+                    onPress={() => handleDelete(item.id, item.display_name)}
+                  />
+                </View>
+              </View>
+            );
+          })
         )}
       </Card>
     </Screen>

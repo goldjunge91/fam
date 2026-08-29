@@ -48,7 +48,7 @@ export function InventoryTabBar({ activeTab, onTabChange, locations }: Inventory
     }
     // Absolute Fensterkoordinaten statt eines relativ positionierten Panels:
     // dieses Dropdown steckt seit dem Performance-Umbau (#71) in der
-    // FlatList-Kopfzeile, deren `z-index` nur innerhalb desselben Eltern-
+    // Kopfzeile der Vorratsliste, deren `z-index` nur innerhalb desselben Eltern-
     // Containers wirkt — gegen die separat gerenderten Listenzeilen darunter
     // setzt es sich sonst nicht durch. Das Modal rendert unabhaengig davon
     // immer zuoberst. Sichtbarkeit haengt bewusst nicht an der Messung —

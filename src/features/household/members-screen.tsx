@@ -1,10 +1,12 @@
+import { FlashList } from '@shopify/flash-list';
 import { Image } from 'expo-image';
 import { router } from 'expo-router';
 import { useState } from 'react';
-import { Alert, FlatList, Pressable, View } from 'react-native';
+import { Alert, Pressable, View } from 'react-native';
 import { Screen } from '@/components/layout/screen';
 import { ThemedText } from '@/components/theme/themed-text';
 import { Button } from '@/components/ui/buttons';
+import { Spacing } from '@/constants/layout';
 import { useSession } from '@/features/auth/session-provider';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import {
@@ -181,11 +183,14 @@ export function MembersScreen() {
       )}
 
       {/* Liste aller Haushaltsmitglieder mit Rollenanzeige & Verwaltungsoptionen */}
-      <FlatList
-        className="flex-1"
+      <FlashList
+        style={{ flex: 1 }}
         data={members}
         keyExtractor={(item) => item.user_id}
-        contentContainerClassName="py-two gap-two"
+        // FlashList positioniert Zeilen selbst, `gap` im Container greift nicht
+        // — der Zeilenabstand kommt deshalb ueber einen Separator (#139).
+        contentContainerStyle={{ paddingVertical: Spacing.two }}
+        ItemSeparatorComponent={() => <View style={{ height: Spacing.two }} />}
         renderItem={({ item }) => {
           const isMe = item.user_id === currentUserId;
           const displayName = item.display_name || 'Unbekanntes Mitglied';
