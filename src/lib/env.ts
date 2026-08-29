@@ -94,7 +94,7 @@ export const env = {
     return process.env.EXPO_PUBLIC_APTABASE_APP_KEY?.trim() || undefined;
   },
   /**
-   * AdMob Anzeigenblock-IDs fuer iOS (Produktion).
+   * AdMob Anzeigenblock-IDs, plattformabhaengig (iOS / Android).
    * In __DEV__ wird automatisch auf TestIds ausgewichen, um Google-Policy-Verstoesse zu verhindern.
    */
   get adMobBannerIdIos(): string {
@@ -107,6 +107,18 @@ export const env = {
     return (
       process.env.EXPO_PUBLIC_ADMOB_INTERSTITIAL_ID_IOS?.trim() ||
       'ca-app-pub-3823642106417448/3925336471'
+    );
+  },
+  get adMobBannerIdAndroid(): string {
+    return (
+      process.env.EXPO_PUBLIC_ADMOB_BANNER_ID_ANDROID?.trim() ||
+      'ca-app-pub-3823642106417448/3426300147'
+    );
+  },
+  get adMobInterstitialIdAndroid(): string {
+    return (
+      process.env.EXPO_PUBLIC_ADMOB_INTERSTITIAL_ID_ANDROID?.trim() ||
+      'ca-app-pub-3823642106417448/7574640164'
     );
   },
 };
