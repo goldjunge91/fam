@@ -1773,57 +1773,48 @@
 
   /* Kartenlos (#164-Folgeredesign): Bilanz, Makros und Mahlzeiten liegen
      direkt auf dem Verlaufshintergrund, nur Haarlinien trennen Abschnitte —
-     kein Karten-Chrome mehr, analog zur Zeilenoptik im Vorrat. */
-  .diary-summary-card {
-    @apply min-h-[152px] pb-three border-b-hairline border-border flex-row items-center gap-four;
+     kein Karten-Chrome mehr, analog zur Zeilenoptik im Vorrat.
+     Bilanz selbst ist seit dem "Kompakter Fokus"-Redesign (Design-Audit
+     2026-08-29) eine grosse Zahl + duenner Balken statt Ring + vier
+     Textzeilen — dieselbe Information kompakter. */
+  .diary-hero {
+    @apply pb-three border-b-hairline border-border gap-[6px];
   }
 
-  .diary-summary-stats {
-    @apply flex-1 min-w-0 gap-[100px];
+  .diary-hero-row {
+    @apply flex-row items-baseline gap-two;
   }
 
-  .diary-summary-row {
-    @apply flex-row justify-between items-baseline gap-two;
+  .diary-hero-value {
+    @apply text-[30px] leading-[34px] font-bold;
   }
 
-  /* Beschriftung: "Gegessen", "Grundziel", "Übrig" */
-  .diary-summary-label {
-    @apply text-[14px] leading-[18px] font-medium;
-    /* <- ztext-[12px] leading-[15px] oder text-[13px] */
+  .diary-hero-label {
+    @apply text-[13px] leading-[16px] font-semibold;
   }
 
-  .diary-summary-value {
-    @apply text-[20px] leading-[22px] font-bold text-right;
-    /* <- z. B. auf text-[12px] leading-[15px] oder text-[13px] */
+  .diary-hero-bar {
+    @apply mt-[2px];
   }
 
-  .diary-goal-status {
-    @apply mt-[2px] text-[9px] leading-[12px] font-semibold;
+  /* Makros als gleichwertige Chips statt gestapelter Balkenzeilen — traegt
+     auch bei einer vierten Zeile (Ballaststoffe, #281) ohne linear zu
+     wachsen. */
+  .diary-macro-grid {
+    @apply flex-row flex-wrap justify-between gap-y-two pb-three border-b-hairline border-border;
   }
 
-  .diary-macro-list {
-    @apply gap-three;
-  }
-
-  .diary-macro-item {
-    @apply gap-[6px] pb-three border-b-hairline border-border;
-  }
-
-  .diary-macro-item-last {
-    @apply gap-[6px];
-  }
-
-  .diary-macro-labels {
-    @apply flex-row items-baseline justify-between gap-two;
+  .diary-macro-chip {
+    @apply w-[48%] bg-background-element border border-border rounded-control p-three gap-[6px];
   }
 
   /* Name des Makros: "Protein", "Kohlenhydrate", "Fett" */
-  .diary-macro-label {
-    @apply text-[13px] leading-[16px] font-bold;
+  .diary-macro-chip-label {
+    @apply text-[11px] leading-[14px] font-bold;
   }
 
-  .diary-macro-value {
-    @apply text-[11px] leading-[14px] font-medium;
+  .diary-macro-chip-value {
+    @apply text-[13px] leading-[16px] font-bold;
   }
 
   .diary-meal-section {
@@ -1921,6 +1912,19 @@
 
   .fss-quick-entry-btn {
     @apply flex-row items-center justify-center gap-two py-three rounded-control-lg mt-three mb-four bg-background-element;
+  }
+
+  /* food-search-dropdown.tsx */
+  .fsd-root {
+    @apply gap-two;
+  }
+
+  .fsd-dropdown {
+    @apply rounded-card border-hairline border-border overflow-hidden;
+  }
+
+  .fsd-more-button {
+    @apply items-center justify-center py-two border-t-hairline border-border;
   }
 
   /* add-food-entry-screen.tsx */

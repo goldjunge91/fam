@@ -5,11 +5,6 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import { AddFoodEntryScreen } from '@/features/calorie-tracking/add-food-entry-screen';
 
-// add-food-entry-screen importiert MEAL_LABELS aus diary-screen, das wiederum
-// ProgressRing (Reanimated) laedt — dessen Worklets-Bootstrap laeuft unter
-// Jest nicht. Fuer diesen Test zaehlt nur das Label-Mapping, nicht der Ring.
-jest.mock('@/components/ui/progress-ring', () => ({ ProgressRing: () => null }));
-
 let mockParams: Record<string, string> = {};
 let mockFoodEntries: unknown[] = [];
 
@@ -35,6 +30,10 @@ jest.mock('@/features/calorie-tracking/api', () => ({
   useUpdateFoodEntryMutation: () => ({ mutateAsync: mockUpdateMutateAsync, isPending: false }),
   useDeleteFoodEntryMutation: () => ({ mutateAsync: mockDeleteMutateAsync, isPending: false }),
   useRestoreFoodEntryMutation: () => ({ mutate: mockRestoreMutate, isPending: false }),
+}));
+
+jest.mock('@/features/calorie-tracking/food-search-dropdown', () => ({
+  FoodSearchDropdown: () => null,
 }));
 
 jest.mock('@/lib/db/client', () => ({
@@ -155,21 +154,26 @@ describe('AddFoodEntryScreen — Produkt aus der Suche (100g-Referenz)', () => {
     mockParams = {
       date: '2026-08-10',
       mealType: 'breakfast',
-      name: 'Hafermilch Barista',
-      brand: 'Oatly',
-      kcalPer100g: '59',
-      proteinPer100g: '1.1',
-      carbsPer100g: '6.6',
-      fatPer100g: '3',
-      nutrientLevels: JSON.stringify({ fat: 'low', sugars: 'high' }),
+      productData: JSON.stringify({
+        name: 'Hafermilch Barista',
+        brand: 'Oatly',
+        kcalPer100g: '59',
+        proteinPer100g: '1.1',
+        carbsPer100g: '6.6',
+        fatPer100g: '3',
+        nutrientLevels: JSON.stringify({ fat: 'low', sugars: 'high' }),
+      }),
     };
   });
 
   it('befuellt Name, Marke und die 100g-Werte bei Menge 100', async () => {
     await renderScreen();
-    expect(screen.getByDisplayValue('Hafermilch Barista')).toBeTruthy();
+    expect(screen.queryByPlaceholderText('Name des Lebensmittels')).toBeNull();
     expect(screen.getByText('Oatly')).toBeTruthy();
     expect(screen.getByDisplayValue('59')).toBeTruthy();
+    expect(screen.getByDisplayValue('6.6')).toBeTruthy();
+    expect(screen.getByDisplayValue('1.1')).toBeTruthy();
+    expect(screen.getByDisplayValue('3')).toBeTruthy();
   });
 
   it('zeigt aus nutrient_levels abgeleitete Bewertungs-Badges', async () => {
@@ -222,7 +226,7 @@ describe('AddFoodEntryScreen — Schneller Eintrag (ohne Produktdaten)', () => {
 
   it('startet mit einem leeren Formular', async () => {
     await renderScreen();
-    expect(screen.getByPlaceholderText('Name des Lebensmittels').props.value).toBe('');
+    expect(screen.queryByPlaceholderText('Name des Lebensmittels')).toBeNull();
   });
 });
 
@@ -246,7 +250,7 @@ describe('AddFoodEntryScreen — bestehenden Eintrag bearbeiten', () => {
 
   it('befuellt das Formular aus dem bestehenden Eintrag', async () => {
     await renderScreen();
-    expect(screen.getByDisplayValue('Reis')).toBeTruthy();
+    expect(screen.getByText('Reis')).toBeTruthy();
     expect(screen.getByDisplayValue('195')).toBeTruthy();
     expect(screen.getByText('Löschen')).toBeTruthy();
   });

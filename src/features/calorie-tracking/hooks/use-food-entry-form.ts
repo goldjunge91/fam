@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 
 import type { FoodEntryRow } from '@/features/calorie-tracking/api';
+import { debugLogEvent } from '@/lib/debug-log';
 import {
   type NutrientLevel,
   type OpenFoodFactsProduct,
@@ -104,18 +105,26 @@ export function useFoodEntryForm({ isEditing, existingEntry, routeParams }: UseF
   // Live-Skalierung und ob die Vorbefuellung bereits gelaufen ist.
   const per100gRef = useRef<Per100gReference | null>(null);
   const hasInitializedRef = useRef(false);
+  const initializedSourceKeyRef = useRef<string | null>(null);
   const routeParamsRef = useRef(routeParams);
   routeParamsRef.current = routeParams;
+  // Expo Router kann die Parameter beim Mounten einer Modal-Route in einem
+  // spaeteren Render liefern. Der Key sorgt dafuer, dass wir diesen Wechsel
+  // erkennen, ohne bei jeder Formularaenderung erneut vorzufuellen.
+  const routeParamsKey = JSON.stringify(
+    Object.keys(routeParams)
+      .sort()
+      .map((key) => [key, routeParams[key]]),
+  );
 
   // Vorbefuellung: bestehender Eintrag > Produkt aus der Suche > Verlaufs-
-  // Snapshot > leer. `existingEntry` und `isEditing` sind vollstaendige Deps
-  // (kein Lint-Suppress noetig) — laeuft dank `hasInitializedRef` trotzdem
-  // nur einmal, reagiert aber korrekt, wenn `existingEntry` erst verzoegert
-  // aus der Query eintrifft (Editier-Modus wartet dann einfach weiter).
+  // Snapshot > leer. Die Quelle wird ueber ihren Key nur einmal uebernommen,
+  // reagiert aber korrekt, wenn `existingEntry` oder Router-Parameter erst
+  // verzoegert eintreffen.
   useEffect(() => {
-    if (hasInitializedRef.current) return;
-
     if (existingEntry) {
+      const sourceKey = `entry:${existingEntry.id}`;
+      if (initializedSourceKeyRef.current === sourceKey) return;
       setValues({
         name: existingEntry.name,
         quantity: String(existingEntry.quantity),
@@ -125,14 +134,22 @@ export function useFoodEntryForm({ isEditing, existingEntry, routeParams }: UseF
         carbsG: existingEntry.carbs_g !== null ? String(existingEntry.carbs_g) : '',
         fatG: existingEntry.fat_g !== null ? String(existingEntry.fat_g) : '',
       });
+      initializedSourceKeyRef.current = sourceKey;
       hasInitializedRef.current = true;
       return;
     }
 
     if (isEditing) return; // Eintrag laedt noch async — Effect feuert erneut, sobald er da ist.
 
+    if (initializedSourceKeyRef.current === routeParamsKey) return;
+
     const product = productFromRouteParams(routeParamsRef.current);
     if (!product) {
+      per100gRef.current = null;
+      setProductMeta(EMPTY_PRODUCT_META);
+      setUnitNotScalable(false);
+      setValues(EMPTY_VALUES);
+      initializedSourceKeyRef.current = routeParamsKey;
       hasInitializedRef.current = true;
       return;
     }
@@ -144,8 +161,30 @@ export function useFoodEntryForm({ isEditing, existingEntry, routeParams }: UseF
       badges: buildNutritionBadges(product.nutrientLevels, product.novaGroup),
     });
 
-    if (product.caloriesPer100g !== undefined) {
-      // Aus Suche/Barcode: 100g/ml-Referenz, Menge startet bei 100.
+    const hasPer100gNutrition = [
+      product.caloriesPer100g,
+      product.proteinsPer100g,
+      product.carbsPer100g,
+      product.fatPer100g,
+    ].some((value) => value !== undefined);
+
+    const params = routeParamsRef.current;
+    if (hasPer100gNutrition) {
+      debugLogEvent('calorie-tracking.add-food-entry.product-received', {
+        routeParamKeys: Object.keys(params).sort(),
+        hasProductData: Boolean(params.productData),
+        name: product.name,
+        brand: product.brand,
+        kcalPer100g: product.caloriesPer100g,
+        proteinPer100g: product.proteinsPer100g,
+        carbsPer100g: product.carbsPer100g,
+        fatPer100g: product.fatPer100g,
+      });
+    }
+
+    if (hasPer100gNutrition) {
+      // Aus Suche/Barcode: 100g/ml-Referenz, Menge startet bei 100. Auch
+      // Treffer ohne einzelne Nährwerte behalten die vorhandenen Werte.
       const ref: Per100gReference = {
         kcal: product.caloriesPer100g,
         protein: product.proteinsPer100g,
@@ -165,7 +204,16 @@ export function useFoodEntryForm({ isEditing, existingEntry, routeParams }: UseF
     } else {
       // Aus "Zuletzt"/"Haeufig": bereits fertige Snapshot-Werte, keine
       // Live-Skalierung (wie bei manueller Erfassung).
-      const params = routeParamsRef.current;
+      debugLogEvent('calorie-tracking.add-food-entry.history-snapshot-received', {
+        routeParamKeys: Object.keys(params).sort(),
+        name: product.name,
+        quantity: params.quantity,
+        unit: params.unit,
+        kcal: params.kcal,
+        proteinG: params.proteinG,
+        carbsG: params.carbsG,
+        fatG: params.fatG,
+      });
       setValues({
         name: product.name ?? '',
         quantity: params.quantity ? String(params.quantity) : '1',
@@ -177,8 +225,9 @@ export function useFoodEntryForm({ isEditing, existingEntry, routeParams }: UseF
       });
     }
 
+    initializedSourceKeyRef.current = routeParamsKey;
     hasInitializedRef.current = true;
-  }, [existingEntry, isEditing]);
+  }, [existingEntry, isEditing, routeParamsKey]);
 
   // Live-Neuberechnung, wenn Menge/Einheit geaendert werden UND eine
   // 100g-Referenz vorliegt (Produkt aus Suche/Barcode). Reagiert bewusst nur

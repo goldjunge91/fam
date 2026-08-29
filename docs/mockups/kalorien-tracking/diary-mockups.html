@@ -1,0 +1,609 @@
+<!doctype html>
+<title>Ernährungstagebuch Mockups</title>
+<style>
+  :root{
+    --page-bg:#F1EBE4;
+    --page-ink:#2D2830;
+    --page-ink-soft:#786F79;
+    --page-line:#E4DDE3;
+    --page-card:#FFFFFF;
+    --tag-bg:#E9E1E7;
+
+    /* fam/light — 1:1 aus src/constants/theme.ts */
+    --fam-text:#2D2830;
+    --fam-text-secondary:#786F79;
+    --fam-bg:#F8F4EF;
+    --fam-surface:#FBF7F2;
+    --fam-selected:#E9E1E7;
+    --fam-border:#E4DDE3;
+    --fam-accent:#705773;
+    --fam-on-accent:#FFFFFF;
+    --fam-success:#78906F;
+    --fam-warning:#C69059;
+    --fam-danger:#C65F50;
+    --fam-shadow:#594059;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --page-bg:#18151A;
+      --page-ink:#F2ECE7;
+      --page-ink-soft:#B7ADB3;
+      --page-line:#3E3640;
+      --page-card:#211D23;
+      --tag-bg:#2B262E;
+
+      --fam-text:#F2ECE7;
+      --fam-text-secondary:#B7ADB3;
+      --fam-bg:#211D23;
+      --fam-surface:#2B262E;
+      --fam-selected:#382F3B;
+      --fam-border:#3E3640;
+      --fam-accent:#B79CBA;
+      --fam-on-accent:#211D23;
+      --fam-success:#8FAE86;
+      --fam-warning:#D9A86C;
+      --fam-danger:#D9776A;
+      --fam-shadow:#000000;
+    }
+  }
+  :root[data-theme="dark"]{
+    --page-bg:#18151A;
+    --page-ink:#F2ECE7;
+    --page-ink-soft:#B7ADB3;
+    --page-line:#3E3640;
+    --page-card:#211D23;
+    --tag-bg:#2B262E;
+
+    --fam-text:#F2ECE7;
+    --fam-text-secondary:#B7ADB3;
+    --fam-bg:#211D23;
+    --fam-surface:#2B262E;
+    --fam-selected:#382F3B;
+    --fam-border:#3E3640;
+    --fam-accent:#B79CBA;
+    --fam-on-accent:#211D23;
+    --fam-success:#8FAE86;
+    --fam-warning:#D9A86C;
+    --fam-danger:#D9776A;
+    --fam-shadow:#000000;
+  }
+
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--page-bg);
+    color:var(--page-ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;
+    padding:32px 20px 80px;
+  }
+  h1,h2,h3{text-wrap:balance;}
+
+  .wrap{max-width:1180px;margin:0 auto;}
+
+  .kicker{
+    font-size:12px; font-weight:700; letter-spacing:.09em; text-transform:uppercase;
+    color:var(--fam-accent);
+  }
+  h1{font-size:28px;line-height:1.2;margin:6px 0 8px;font-weight:700;}
+  .lede{font-size:15px;line-height:1.6;color:var(--page-ink-soft);max-width:62ch;margin:0 0 28px;}
+
+  section.audit{
+    background:var(--page-card);
+    border:1px solid var(--page-line);
+    border-radius:16px;
+    padding:22px 24px;
+    margin-bottom:36px;
+  }
+  section.audit h2{font-size:15px;margin:0 0 12px;font-weight:700;}
+  section.audit h2:not(:first-child){margin-top:22px;}
+  .findings{display:grid;gap:10px;margin:0;padding:0;list-style:none;}
+  .findings li{
+    font-size:13.5px;line-height:1.55;
+    padding-left:16px;position:relative;
+    color:var(--page-ink);
+  }
+  .findings li::before{
+    content:"";position:absolute;left:0;top:8px;width:5px;height:5px;border-radius:50%;
+    background:var(--fam-accent);
+  }
+  .findings b{font-weight:650;}
+
+  .issue-table{width:100%;border-collapse:collapse;font-size:13px;margin-top:4px;}
+  .issue-table th{
+    text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:.05em;
+    color:var(--page-ink-soft);font-weight:650;padding:6px 10px 6px 0;border-bottom:1px solid var(--page-line);
+  }
+  .issue-table td{padding:8px 10px 8px 0;border-bottom:1px solid var(--page-line);vertical-align:top;}
+  .issue-table tr:last-child td{border-bottom:none;}
+  .issue-num{font-variant-numeric:tabular-nums;color:var(--fam-accent);font-weight:700;white-space:nowrap;}
+  .issue-status{
+    display:inline-block;font-size:10.5px;font-weight:700;letter-spacing:.03em;
+    padding:2px 7px;border-radius:999px;background:var(--tag-bg);color:var(--page-ink-soft);
+    white-space:nowrap;
+  }
+  .issue-status.ready{background:color-mix(in srgb, var(--fam-success) 22%, transparent);color:var(--fam-success);}
+  .issue-status.blocked{background:color-mix(in srgb, var(--fam-warning) 22%, transparent);color:var(--fam-warning);}
+
+  .overflow-x{overflow-x:auto;}
+
+  /* ---------- Phone frames ---------- */
+  .frames{
+    display:flex;gap:28px;overflow-x:auto;padding:6px 6px 26px;
+    scroll-snap-type:x proximity;
+  }
+  .frame-col{scroll-snap-align:start;flex:0 0 auto;width:340px;}
+  .frame-title{font-size:15px;font-weight:700;margin:0 0 3px;}
+  .frame-sub{font-size:12.5px;color:var(--page-ink-soft);line-height:1.5;margin:0 0 14px;max-width:34ch;}
+
+  .phone{
+    width:340px;height:706px;border-radius:44px;
+    background:var(--fam-bg);
+    border:9px solid var(--page-ink);
+    box-shadow:0 18px 36px -14px color-mix(in srgb, var(--fam-shadow) 55%, transparent);
+    overflow:hidden;position:relative;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;
+    color:var(--fam-text);
+    display:flex;flex-direction:column;
+  }
+  .notch{
+    position:absolute;top:9px;left:50%;transform:translateX(-50%);
+    width:120px;height:22px;background:var(--page-ink);border-radius:0 0 16px 16px;z-index:5;
+  }
+
+  .app-header{
+    padding:52px 18px 10px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0;
+  }
+  .icon-btn{
+    width:30px;height:30px;border-radius:10px;display:flex;align-items:center;justify-content:center;
+    color:var(--fam-text-secondary);font-size:16px;
+  }
+  .app-title{font-size:16px;font-weight:700;}
+  .avatar{
+    width:26px;height:26px;border-radius:50%;background:var(--fam-accent);color:var(--fam-on-accent);
+    font-size:10px;font-weight:700;display:flex;align-items:center;justify-content:center;
+  }
+
+  .app-scroll{flex:1;overflow-y:auto;padding:2px 16px 28px;display:flex;flex-direction:column;gap:14px;}
+  .app-scroll::-webkit-scrollbar{display:none;}
+
+  .date-row{display:flex;align-items:center;justify-content:center;gap:22px;padding:2px 0 2px;}
+  .date-arrow{color:var(--fam-accent);font-size:17px;font-weight:600;width:22px;text-align:center;}
+  .date-copy{text-align:center;}
+  .date-main{color:var(--fam-accent);font-size:14.5px;font-weight:700;}
+  .date-sub{color:var(--fam-text-secondary);font-size:11px;}
+
+  .surface-card{
+    background:var(--fam-surface);
+    border:1px solid var(--fam-border);
+    border-radius:16px;
+    padding:14px;
+  }
+  .surface-card.large{border-radius:20px;padding:16px;}
+
+  .kicker-mini{
+    font-size:9.5px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;
+    color:var(--fam-text-secondary);
+  }
+
+  /* progress bar */
+  .bar-track{height:6px;border-radius:999px;background:var(--fam-selected);overflow:hidden;}
+  .bar-fill{height:100%;border-radius:999px;background:var(--fam-accent);}
+  .bar-fill.warn{background:var(--fam-warning);}
+
+  /* macro chip grid */
+  .macro-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+  .macro-chip{
+    background:var(--fam-surface);border:1px solid var(--fam-border);border-radius:12px;padding:9px 10px;
+    display:flex;flex-direction:column;gap:5px;
+  }
+  .macro-chip .lbl{font-size:10.5px;color:var(--fam-text-secondary);font-weight:600;}
+  .macro-chip .val{font-size:13px;font-weight:700;font-variant-numeric:tabular-nums;}
+  .macro-row-inline{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:11.5px;color:var(--fam-text-secondary);font-variant-numeric:tabular-nums;}
+  .macro-row-inline b{color:var(--fam-text);font-weight:650;}
+
+  /* method strip / card */
+  .method-strip{
+    display:flex;align-items:center;gap:10px;
+    background:color-mix(in srgb, var(--fam-accent) 12%, var(--fam-surface));
+    border:1px solid color-mix(in srgb, var(--fam-accent) 30%, var(--fam-border));
+    border-radius:14px;padding:10px 12px;
+  }
+  .method-strip .emoji{font-size:17px;}
+  .method-strip .body{flex:1;min-width:0;}
+  .method-strip .title{font-size:12.5px;font-weight:700;}
+  .method-strip .detail{font-size:11px;color:var(--fam-text-secondary);}
+  .method-strip .chev{color:var(--fam-accent);font-size:15px;font-weight:700;}
+
+  .tab-rail{display:flex;gap:6px;margin-bottom:11px;}
+  .tab-dot{
+    flex:1;height:4px;border-radius:999px;background:var(--fam-selected);
+  }
+  .tab-dot.active{background:var(--fam-accent);}
+
+  .glucose-bars{display:flex;align-items:flex-end;gap:4px;height:38px;margin:10px 0 4px;}
+  .glucose-bars i{flex:1;border-radius:3px 3px 1px 1px;background:var(--fam-success);display:block;}
+  .glucose-bars i.hi{background:var(--fam-warning);}
+
+  /* meals */
+  .meal-legend{display:flex;gap:12px;font-size:10px;color:var(--fam-text-secondary);align-items:center;}
+  .dot{width:7px;height:7px;border-radius:50%;display:inline-block;margin-right:4px;}
+  .dot.g{background:var(--fam-success);} .dot.y{background:var(--fam-warning);} .dot.n{background:var(--fam-text-secondary);opacity:.5;}
+
+  .meal-block{display:flex;flex-direction:column;gap:0;}
+  .meal-head{display:flex;align-items:center;justify-content:space-between;padding:9px 2px 7px;}
+  .meal-head .name{font-size:13px;font-weight:700;}
+  .meal-head .kcal{font-size:11.5px;color:var(--fam-text-secondary);font-variant-numeric:tabular-nums;}
+  .meal-add{
+    width:22px;height:22px;border-radius:8px;background:var(--fam-accent);color:var(--fam-on-accent);
+    display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;
+  }
+  .entry-row{
+    display:flex;align-items:center;gap:9px;padding:8px 2px;border-top:1px solid var(--fam-border);
+  }
+  .entry-row .name{flex:1;min-width:0;font-size:12.5px;font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+  .entry-row .qty{font-size:10.5px;color:var(--fam-text-secondary);display:block;}
+  .entry-row .kcal{font-size:12px;color:var(--fam-text-secondary);font-variant-numeric:tabular-nums;flex-shrink:0;}
+  .chip-net{
+    font-size:9.5px;font-weight:700;color:var(--fam-accent);background:color-mix(in srgb, var(--fam-accent) 14%, transparent);
+    border-radius:999px;padding:1px 6px;flex-shrink:0;
+  }
+  .accent-border{border-left:3px solid var(--fam-success);}
+  .accent-border.y{border-left-color:var(--fam-warning);}
+
+  /* Mockup B card list */
+  .card-list{display:flex;flex-direction:column;gap:10px;}
+  .card-list .meal-block{background:var(--fam-surface);border:1px solid var(--fam-border);border-radius:14px;padding:2px 10px;}
+  .card-list .entry-row{border-top-color:var(--fam-border);}
+
+  /* Mockup C timeline */
+  .timeline{position:relative;padding-left:14px;}
+  .timeline::before{content:"";position:absolute;left:3px;top:4px;bottom:4px;width:1px;background:var(--fam-border);}
+  .tl-row{position:relative;padding:0 0 14px;}
+  .tl-row::before{
+    content:"";position:absolute;left:-14px;top:3px;width:7px;height:7px;border-radius:50%;background:var(--fam-success);
+  }
+  .tl-row.y::before{background:var(--fam-warning);}
+  .tl-time{font-size:9.5px;color:var(--fam-text-secondary);font-variant-numeric:tabular-nums;}
+  .tl-main{display:flex;align-items:center;gap:8px;margin-top:2px;}
+  .tl-name{flex:1;font-size:12.5px;font-weight:650;}
+  .tl-kcal{font-size:11.5px;color:var(--fam-text-secondary);font-variant-numeric:tabular-nums;}
+  .tl-meal-tag{font-size:9.5px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:var(--fam-text-secondary);margin:14px 0 2px;}
+
+  footer.note{
+    max-width:1180px;margin:0 auto;font-size:12.5px;color:var(--page-ink-soft);line-height:1.6;
+    border-top:1px solid var(--page-line);padding-top:18px;
+  }
+</style>
+
+<div class="wrap">
+  <div class="kicker">Design-Audit · Ernährungstagebuch / Kalorien</div>
+  <h1>Wie das Tagebuch die nächsten sieben Tracking-Methoden verkraftet</h1>
+  <p class="lede">
+    Heute rendert <code>diary-screen.tsx</code> genau zwei optionale Methoden-Karten (GLP-1, Fasten) unter derselben
+    festen Kalorien-/Makro-Struktur. Fünf weitere Methoden stehen spezifiziert und <code>ready-for-agent</code> in der
+    Pipeline. Die drei Mockups unten sind drei verschiedene Antworten auf dieselbe Frage: wie bleibt der Screen ruhig,
+    wenn aus zwei Karten irgendwann sieben werden — plus zwei neue Signale direkt in der Mahlzeiten-Liste.
+  </p>
+
+  <section class="audit">
+    <h2>Befund am aktuellen Screen</h2>
+    <ul class="findings">
+      <li><b>Ring + 4 Textzeilen für eine Zahl.</b> Fortschrittsring, „Gegessen“, „Grundziel“, „Übrig“ und ein separater Status-Satz sagen im Kern alle dasselbe: wie viel Budget noch da ist. Das kostet ~180px Höhe, bevor die erste Mahlzeit sichtbar wird.</li>
+      <li><b>Makros sind fix auf drei.</b> <code>MacroSummary</code> ist für Protein/Kohlenhydrate/Fett gebaut. Ballaststoff-Ziel (#281) und Netto-Kohlenhydrate bei Low-Carb (#280) brauchen eine vierte Zeile bzw. einen Ersatzwert — als weitere volle <code>ProgressBar</code>-Zeile wächst der Block linear mit jeder neuen Methode mit.</li>
+      <li><b>Jede Methode ist eine eigene <code>Card</code>.</b> Funktioniert für zwei sich gegenseitig ausschließende Karten (laut Tracking-Notiz: exklusive Single-Choice). Bei sieben Methoden ist es strukturell trotzdem nur <i>eine</i> Karte gleichzeitig sichtbar — das Muster trägt, aber Header/Rand/Innenabstand jeder Karte sind bislang komplett eigenständig statt eines gemeinsamen Slots.</li>
+      <li><b>Kein Platz für Signale pro Eintrag.</b> Die Energiedichte-Ampel (#282) soll pro Mahlzeit/Eintrag erscheinen — <code>diary-entry-row</code> hat aktuell nur Name, Menge, kcal. Ein zusätzliches Icon braucht eine bewusste Position, sonst kippt die Zeile.</li>
+      <li><b>Terminologie hängt am selben Screen.</b> #181 benennt „Tagebuch“ in „Nutrition Tracking“ um — inklusive Route, Header-Titel und Copy genau in dieser Datei. Die Mockups zeigen „Ernährung“ als Arbeitstitel; die endgültige deutsche Copy ist in #181 nicht festgelegt und sollte vor Umsetzung kurz abgestimmt werden.</li>
+    </ul>
+
+    <h2>Offene Issues mit direkter Auswirkung auf diesen Screen</h2>
+    <div class="overflow-x">
+    <table class="issue-table">
+      <tr><th>Issue</th><th>Titel</th><th>Auswirkung auf den Screen</th><th>Status</th></tr>
+      <tr>
+        <td class="issue-num">#181</td>
+        <td>„Diary“ → „Nutrition Tracking“</td>
+        <td>Route, Dateiname, Header-Titel „Tagebuch“ und alle sichtbaren Labels dieses Screens</td>
+        <td><span class="issue-status ready">ready-for-agent</span></td>
+      </tr>
+      <tr>
+        <td class="issue-num">#282</td>
+        <td>Energiedichte-Ampel pro Mahlzeit</td>
+        <td>Neues visuelles Signal direkt in jeder <code>diary-entry-row</code>, nur bei Methode „volumetrics“</td>
+        <td><span class="issue-status ready">ready-for-agent</span></td>
+      </tr>
+      <tr>
+        <td class="issue-num">#278 / #280</td>
+        <td>Low-Carb: Net Carbs & Ballaststoffe</td>
+        <td>Kohlenhydrat-Makrozeile bekommt bei Methode „low-carb“ einen Netto-Wert statt/neben brutto</td>
+        <td><span class="issue-status ready">ready-for-agent</span></td>
+      </tr>
+      <tr>
+        <td class="issue-num">#281</td>
+        <td>Ballaststoff-Ziel</td>
+        <td>Vierte Makro-Zeile/-Chip, unabhängig von der aktiven Methode</td>
+        <td><span class="issue-status ready">ready-for-agent</span></td>
+      </tr>
+      <tr>
+        <td class="issue-num">#289 / #294</td>
+        <td>Keto: Keton-Logging & Ketose-Status</td>
+        <td>Dritte Methoden-Karte nach demselben Muster wie GLP-1/Fasten</td>
+        <td><span class="issue-status ready">ready-for-agent</span></td>
+      </tr>
+      <tr>
+        <td class="issue-num">#284 / #286</td>
+        <td>CGM: Glukose-Logging & Kontext-Ampel</td>
+        <td>Vierte Methoden-Karte, zusätzlich mit Zeitreihen-Darstellung (Glukoseverlauf)</td>
+        <td><span class="issue-status ready">ready-for-agent</span></td>
+      </tr>
+      <tr>
+        <td class="issue-num">#293</td>
+        <td>Diary-Zusammenfassungskarte (Workouts)</td>
+        <td>Fünfte Methoden-Karte, bewusst ohne Logging-Flow — nur letzter Eintrag + Link</td>
+        <td><span class="issue-status blocked">blocked by #291</span></td>
+      </tr>
+      <tr>
+        <td class="issue-num">#283</td>
+        <td>Energiedichte-Dashboard-Card</td>
+        <td>Zur Einordnung: das ist die <b>Dashboard</b>-Card, nicht das Tagebuch — hier nur erwähnt, um Verwechslung zu vermeiden</td>
+        <td><span class="issue-status blocked">blocked by #282</span></td>
+      </tr>
+    </table>
+    </div>
+  </section>
+
+  <div class="frames">
+
+    <!-- MOCKUP A -->
+    <div class="frame-col">
+      <div class="frame-title">A · Kompakter Fokus</div>
+      <p class="frame-sub">Ring raus, eine Zahl + ein Balken. Makros als vier gleichwertige Chips. Methoden-Karte wird zur schlanken Zeile — trägt auch bei sieben Methoden nicht auf.</p>
+      <div class="phone">
+        <div class="notch"></div>
+        <div class="app-header">
+          <div class="icon-btn">☰</div>
+          <div class="app-title">Ernährung</div>
+          <div class="avatar">MK</div>
+        </div>
+        <div class="app-scroll">
+          <div class="date-row">
+            <div class="date-arrow">‹</div>
+            <div class="date-copy">
+              <div class="date-main">Heute</div>
+              <div class="date-sub">Freitag, 29. August</div>
+            </div>
+            <div class="date-arrow">›</div>
+          </div>
+
+          <div>
+            <div style="display:flex;align-items:baseline;gap:6px;">
+              <span style="font-size:30px;font-weight:700;font-variant-numeric:tabular-nums;">687</span>
+              <span style="font-size:13px;color:var(--fam-text-secondary);font-weight:600;">kcal übrig · von 2.100</span>
+            </div>
+            <div class="bar-track" style="margin-top:8px;"><div class="bar-fill" style="width:68%;"></div></div>
+          </div>
+
+          <div class="macro-grid">
+            <div class="macro-chip">
+              <span class="lbl">Protein</span>
+              <span class="val">82 / 120 g</span>
+              <div class="bar-track"><div class="bar-fill" style="width:68%;"></div></div>
+            </div>
+            <div class="macro-chip">
+              <span class="lbl">Kohlenhydrate</span>
+              <span class="val">140 / 220 g</span>
+              <div class="bar-track"><div class="bar-fill" style="width:64%;"></div></div>
+            </div>
+            <div class="macro-chip">
+              <span class="lbl">Fett</span>
+              <span class="val">45 / 70 g</span>
+              <div class="bar-track"><div class="bar-fill" style="width:64%;"></div></div>
+            </div>
+            <div class="macro-chip">
+              <span class="lbl">Ballaststoffe</span>
+              <span class="val">18 / 30 g</span>
+              <div class="bar-track"><div class="bar-fill warn" style="width:60%;"></div></div>
+            </div>
+          </div>
+
+          <div class="method-strip">
+            <div class="emoji">🥑</div>
+            <div class="body">
+              <div class="title">Keto · Ketose aktiv, Tag 4</div>
+              <div class="detail">Aceton mittel · zuletzt 07:40 Uhr</div>
+            </div>
+            <div class="chev">›</div>
+          </div>
+
+          <div class="meal-block">
+            <div class="meal-head"><span class="name">Frühstück</span><span class="kcal">320 kcal</span><div class="meal-add">+</div></div>
+            <div class="entry-row">
+              <span class="dot g"></span>
+              <span class="name">Rührei mit Spinat<span class="qty">2 Portion</span></span>
+              <span class="kcal">280 kcal</span>
+            </div>
+            <div class="entry-row">
+              <span class="dot y"></span>
+              <span class="name">Butterkaffee<span class="qty">1 Tasse</span></span>
+              <span class="kcal">40 kcal</span>
+            </div>
+          </div>
+          <div class="meal-block">
+            <div class="meal-head"><span class="name">Mittagessen</span><span class="kcal">–</span><div class="meal-add">+</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MOCKUP B -->
+    <div class="frame-col">
+      <div class="frame-title">B · Karten-Stapel</div>
+      <p class="frame-sub">Bestehendes Kartenmuster bleibt, wird aber verdichtet. Eine „Tracking-Fokus“-Karte mit Reiter-Leiste macht sichtbar, dass hier künftig sieben Methoden andocken.</p>
+      <div class="phone">
+        <div class="notch"></div>
+        <div class="app-header">
+          <div class="icon-btn">☰</div>
+          <div class="app-title">Ernährung</div>
+          <div class="avatar">MK</div>
+        </div>
+        <div class="app-scroll">
+          <div class="date-row">
+            <div class="date-arrow">‹</div>
+            <div class="date-copy">
+              <div class="date-main">Heute</div>
+              <div class="date-sub">Freitag, 29. August</div>
+            </div>
+            <div class="date-arrow">›</div>
+          </div>
+
+          <div class="surface-card large" style="display:flex;gap:14px;align-items:center;">
+            <svg width="72" height="72" viewBox="0 0 72 72">
+              <circle cx="36" cy="36" r="30" fill="none" stroke="var(--fam-selected)" stroke-width="8"/>
+              <circle cx="36" cy="36" r="30" fill="none" stroke="var(--fam-accent)" stroke-width="8"
+                stroke-linecap="round" stroke-dasharray="188.5" stroke-dashoffset="60"
+                transform="rotate(-90 36 36)"/>
+              <text x="36" y="33" text-anchor="middle" font-size="15" font-weight="700" fill="var(--fam-text)">687</text>
+              <text x="36" y="46" text-anchor="middle" font-size="8" fill="var(--fam-text-secondary)">übrig</text>
+            </svg>
+            <div style="flex:1;display:flex;flex-direction:column;gap:4px;">
+              <div style="display:flex;justify-content:space-between;"><span class="kicker-mini">Gegessen</span><b style="font-size:12.5px;">1.413 kcal</b></div>
+              <div style="display:flex;justify-content:space-between;"><span class="kicker-mini">Ziel</span><b style="font-size:12.5px;">2.100 kcal</b></div>
+              <div class="bar-track" style="margin-top:3px;"><div class="bar-fill" style="width:68%;"></div></div>
+            </div>
+          </div>
+
+          <div class="surface-card large">
+            <div class="kicker-mini" style="margin-bottom:8px;">Makros</div>
+            <div class="macro-grid">
+              <div><div class="macro-chip" style="border:none;background:transparent;padding:0;"><span class="lbl">Protein</span><span class="val">82 / 120 g</span><div class="bar-track"><div class="bar-fill" style="width:68%;"></div></div></div></div>
+              <div><div class="macro-chip" style="border:none;background:transparent;padding:0;"><span class="lbl">Kohlenhydrate</span><span class="val">140 / 220 g</span><div class="bar-track"><div class="bar-fill" style="width:64%;"></div></div></div></div>
+              <div><div class="macro-chip" style="border:none;background:transparent;padding:0;"><span class="lbl">Fett</span><span class="val">45 / 70 g</span><div class="bar-track"><div class="bar-fill" style="width:64%;"></div></div></div></div>
+              <div><div class="macro-chip" style="border:none;background:transparent;padding:0;"><span class="lbl">Ballaststoffe</span><span class="val">18 / 30 g</span><div class="bar-track"><div class="bar-fill warn" style="width:60%;"></div></div></div></div>
+            </div>
+          </div>
+
+          <div class="surface-card large">
+            <div class="tab-rail">
+              <div class="tab-dot" title="GLP-1"></div>
+              <div class="tab-dot" title="Fasten"></div>
+              <div class="tab-dot" title="Keto"></div>
+              <div class="tab-dot active" title="CGM"></div>
+              <div class="tab-dot" title="Low-Carb"></div>
+              <div class="tab-dot" title="Volumetrics"></div>
+              <div class="tab-dot" title="Workouts"></div>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:baseline;">
+              <span style="font-size:12.5px;font-weight:700;">Glukose · CGM</span>
+              <span style="font-size:10.5px;color:var(--fam-warning);font-weight:700;">Auffällig nach Mittag</span>
+            </div>
+            <div class="glucose-bars">
+              <i style="height:40%;"></i><i style="height:55%;"></i><i style="height:48%;"></i>
+              <i class="hi" style="height:90%;"></i><i class="hi" style="height:78%;"></i>
+              <i style="height:50%;"></i><i style="height:45%;"></i>
+            </div>
+            <div style="font-size:10.5px;color:var(--fam-text-secondary);">08:00 – 20:00 Uhr · Ø 118 mg/dl</div>
+          </div>
+
+          <div class="meal-legend" style="padding:2px 2px 0;">
+            <span><span class="dot g"></span>niedrig</span>
+            <span><span class="dot y"></span>mittel</span>
+          </div>
+          <div class="card-list">
+            <div class="meal-block">
+              <div class="meal-head"><span class="name">Frühstück</span><span class="kcal">320 kcal</span><div class="meal-add">+</div></div>
+              <div class="entry-row accent-border">
+                <span class="name">Rührei mit Spinat<span class="qty">2 Portion</span></span>
+                <span class="kcal">280 kcal</span>
+              </div>
+              <div class="entry-row accent-border y">
+                <span class="name">Butterkaffee<span class="qty">1 Tasse</span></span>
+                <span class="kcal">40 kcal</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MOCKUP C -->
+    <div class="frame-col">
+      <div class="frame-title">C · Zeitleiste</div>
+      <p class="frame-sub">Zusammenfassung auf eine Zeile verdichtet, damit die Mahlzeiten-Chronologie den Screen dominiert. Methoden-Karte startet eingeklappt als Banner.</p>
+      <div class="phone">
+        <div class="notch"></div>
+        <div class="app-header">
+          <div class="icon-btn">☰</div>
+          <div class="app-title">Ernährung</div>
+          <div class="avatar">MK</div>
+        </div>
+        <div class="app-scroll">
+          <div class="date-row">
+            <div class="date-arrow">‹</div>
+            <div class="date-copy">
+              <div class="date-main">Heute</div>
+              <div class="date-sub">Freitag, 29. August</div>
+            </div>
+            <div class="date-arrow">›</div>
+          </div>
+
+          <div class="surface-card">
+            <div style="display:flex;align-items:baseline;justify-content:space-between;">
+              <span style="font-size:20px;font-weight:700;font-variant-numeric:tabular-nums;">687 kcal übrig</span>
+              <span style="font-size:11px;color:var(--fam-text-secondary);">1.413 / 2.100</span>
+            </div>
+            <div class="bar-track" style="margin:8px 0 9px;"><div class="bar-fill" style="width:68%;"></div></div>
+            <div class="macro-row-inline">
+              <span>P <b>82</b>/120g</span>
+              <span>K <b>140</b>/220g</span>
+              <span>F <b>45</b>/70g</span>
+              <span>B <b>18</b>/30g</span>
+            </div>
+          </div>
+
+          <div class="method-strip">
+            <div class="emoji">🏋️</div>
+            <div class="body">
+              <div class="title">Workouts</div>
+              <div class="detail">Zuletzt: Gestern, Push Day · 52 Min</div>
+            </div>
+            <div class="chev">›</div>
+          </div>
+
+          <div class="timeline">
+            <div class="tl-meal-tag">Frühstück</div>
+            <div class="tl-row">
+              <div class="tl-time">07:40</div>
+              <div class="tl-main">
+                <span class="tl-name">Rührei mit Spinat</span>
+                <span class="tl-kcal">280 kcal</span>
+              </div>
+            </div>
+            <div class="tl-row y">
+              <div class="tl-time">07:52</div>
+              <div class="tl-main">
+                <span class="tl-name">Butterkaffee</span>
+                <span class="tl-kcal">40 kcal</span>
+              </div>
+            </div>
+
+            <div class="tl-meal-tag">Mittagessen</div>
+            <div class="tl-row">
+              <div class="tl-time">12:30</div>
+              <div class="tl-main">
+                <span class="tl-name">Hähnchen-Avocado-Bowl</span>
+                <span class="chip-net">Netto 4g KH</span>
+                <span class="tl-kcal">610 kcal</span>
+              </div>
+            </div>
+
+            <div class="tl-meal-tag" style="opacity:.5;">Abendessen · noch nichts geloggt</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <footer class="note">
+    Alle drei Screens verwenden 1:1 die bestehenden Tokens aus <code>src/constants/theme.ts</code> (Mauve-/Creme-Palette, Light-Mode) und <code>Radius</code>/<code>Spacing</code> aus <code>src/constants/layout.ts</code> — keine neuen Farben. Punkte/Rahmenfarben für die Energiedichte-Ampel (#282) sind Platzhalter für Grün/Gelb; Rot/„n/a“ fehlen hier nur aus Platzgründen, nicht aus Entscheidung. Keine der drei Varianten ist implementiert — es ist eine Auswahl, keine Umsetzung.
+  </footer>
+</div>

@@ -4,19 +4,6 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import { DiaryScreen } from '@/features/calorie-tracking/diary-screen';
 
-// ProgressRing animiert per Reanimated — der Worklets-Native-Bootstrap laeuft
-// unter Jest nicht, und selbst `react-native-reanimated/mock` startet ihn in
-// dieser Version erneut. Fuer diesen Test zaehlt nur die Datenverdrahtung,
-// nicht die Animation, daher eine einfache Ersatzkomponente.
-jest.mock('@/components/ui/progress-ring', () => {
-  const { Text } = require('react-native');
-  return {
-    ProgressRing: ({ value, target, label }: { value: number; target: number; label: string }) => (
-      <Text>{`${label}: ${Math.round(value)}/${target}`}</Text>
-    ),
-  };
-});
-
 const mockUseFoodEntries = jest.fn();
 
 jest.mock('expo-router', () => ({
@@ -145,7 +132,9 @@ describe('DiaryScreen', () => {
 
   it('zeigt die Tagessumme aus allen Eintraegen', async () => {
     await renderScreen();
-    expect(screen.getByText('Kalorien: 640/2000')).toBeTruthy(); // 190 + 450
+    // 190 + 450 = 640 gegessen, Ziel 2000 -> 1360 uebrig
+    expect(screen.getByText('1.360')).toBeTruthy();
+    expect(screen.getByText('kcal übrig · von 2.000')).toBeTruthy();
   });
 
   it('oeffnet die Lebensmittelsuche vorbelegt mit der Mahlzeit', async () => {
@@ -154,7 +143,7 @@ describe('DiaryScreen', () => {
 
     expect(router.push).toHaveBeenCalledWith(
       expect.objectContaining({
-        pathname: '/food-search',
+        pathname: '/add-food-entry',
         params: expect.objectContaining({ mealType: 'breakfast' }),
       }),
     );

@@ -371,32 +371,54 @@ function firstNumber(value: string | string[] | undefined): number | undefined {
   return Number.isNaN(num) ? undefined : num;
 }
 
+function isRouteParamsRecord(
+  value: unknown,
+): value is Record<string, string | string[] | undefined> {
+  return typeof value === 'object' && value !== null && !Array.isArray(value);
+}
+
 /** Kehrt `productToRouteParams` um — liest ein Produkt aus `useLocalSearchParams()`. */
 export function productFromRouteParams(
   params: Record<string, string | string[] | undefined>,
 ): Partial<OpenFoodFactsProduct> | null {
-  const name = firstString(params.name);
+  // Produktsuche und Erfassungsformular sind zwei aufeinanderfolgende
+  // Modals. Der Suchscreen kapselt Produktdaten deshalb in einem Parameter,
+  // damit kein einzelner Nährwert-Parameter beim Modalwechsel verloren geht.
+  // Die einzelnen Parameter bleiben als Fallback fuer alte/deep-linked
+  // Aufrufe kompatibel.
+  const productDataRaw = firstString(params.productData);
+  let sourceParams = params;
+  if (productDataRaw) {
+    try {
+      const parsed = JSON.parse(productDataRaw) as unknown;
+      if (isRouteParamsRecord(parsed)) sourceParams = parsed;
+    } catch {
+      // Ungueltige Payloads fallen auf die alten flachen Route-Params zurueck.
+    }
+  }
+
+  const name = firstString(sourceParams.name);
   if (!name) return null;
 
-  const nutrientLevelsRaw = firstString(params.nutrientLevels);
-  const categoryTagsRaw = firstString(params.categoryTags);
+  const nutrientLevelsRaw = firstString(sourceParams.nutrientLevels);
+  const categoryTagsRaw = firstString(sourceParams.categoryTags);
 
   return {
     name,
-    brand: firstString(params.brand),
-    imageUrl: firstString(params.imageUrl),
-    caloriesPer100g: firstNumber(params.kcalPer100g),
-    proteinsPer100g: firstNumber(params.proteinPer100g),
-    carbsPer100g: firstNumber(params.carbsPer100g),
-    fatPer100g: firstNumber(params.fatPer100g),
-    sugarsPer100g: firstNumber(params.sugarPer100g),
-    saturatedFatPer100g: firstNumber(params.satFatPer100g),
-    saltPer100g: firstNumber(params.saltPer100g),
-    nutriScore: firstString(params.nutriScore) as OpenFoodFactsProduct['nutriScore'],
-    novaGroup: firstNumber(params.novaGroup) as OpenFoodFactsProduct['novaGroup'],
+    brand: firstString(sourceParams.brand),
+    imageUrl: firstString(sourceParams.imageUrl),
+    caloriesPer100g: firstNumber(sourceParams.kcalPer100g),
+    proteinsPer100g: firstNumber(sourceParams.proteinPer100g),
+    carbsPer100g: firstNumber(sourceParams.carbsPer100g),
+    fatPer100g: firstNumber(sourceParams.fatPer100g),
+    sugarsPer100g: firstNumber(sourceParams.sugarPer100g),
+    saturatedFatPer100g: firstNumber(sourceParams.satFatPer100g),
+    saltPer100g: firstNumber(sourceParams.saltPer100g),
+    nutriScore: firstString(sourceParams.nutriScore) as OpenFoodFactsProduct['nutriScore'],
+    novaGroup: firstNumber(sourceParams.novaGroup) as OpenFoodFactsProduct['novaGroup'],
     nutrientLevels: nutrientLevelsRaw ? JSON.parse(nutrientLevelsRaw) : undefined,
     categoryTags: categoryTagsRaw ? JSON.parse(categoryTagsRaw) : [],
-    offLastModifiedAt: firstString(params.offLastModifiedAt),
+    offLastModifiedAt: firstString(sourceParams.offLastModifiedAt),
   };
 }
 

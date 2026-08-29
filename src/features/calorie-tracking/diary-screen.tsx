@@ -7,7 +7,6 @@ import { ThemedText } from '@/components/theme/themed-text';
 import { MenuButton } from '@/components/ui/buttons';
 import { FilterChipBar } from '@/components/ui/filter-chip-bar';
 import { ProgressBar } from '@/components/ui/progress-bar';
-import { ProgressRing } from '@/components/ui/progress-ring';
 import { useSession } from '@/features/auth/session-provider';
 import { useActiveProfile } from '@/features/calorie-tracking/active-profile-store';
 import {
@@ -74,23 +73,13 @@ function formatKcal(value: number): string {
   return `${Math.round(value).toLocaleString('de-DE')} kcal`;
 }
 
-function MacroSummary({
-  label,
-  value,
-  target,
-  isLast = false,
-}: {
-  label: string;
-  value: number;
-  target: number;
-  isLast?: boolean;
-}) {
+function MacroChip({ label, value, target }: { label: string; value: number; target: number }) {
   const theme = useTheme();
   const exceeded = target > 0 && value > target;
 
   return (
     <View
-      className={isLast ? 'diary-macro-item-last' : 'diary-macro-item'}
+      className="diary-macro-chip"
       accessible
       accessibilityRole="progressbar"
       accessibilityLabel={
@@ -98,16 +87,15 @@ function MacroSummary({
           ? `${label}: ${Math.round(value)} von ${Math.round(target)} Gramm`
           : `${label}: ${Math.round(value)} Gramm, kein Ziel gesetzt`
       }>
-      <View className="diary-macro-labels">
-        <ThemedText className="diary-macro-label">{label}</ThemedText>
-        <ThemedText themeColor="textSecondary" className="diary-macro-value">
-          {Math.round(value)} / {target > 0 ? Math.round(target) : '–'} g
-        </ThemedText>
-      </View>
+      <ThemedText className="diary-macro-chip-label">{label}</ThemedText>
+      <ThemedText themeColor="textSecondary" className="diary-macro-chip-value">
+        {Math.round(value)} / {target > 0 ? Math.round(target) : '–'} g
+      </ThemedText>
       <ProgressBar
         value={target > 0 ? value / target : 0}
         color={exceeded ? theme.warning : theme.accent}
         trackColor={theme.backgroundSelected}
+        height={4}
       />
     </View>
   );
@@ -167,31 +155,6 @@ function MealSection({ meal, entries, isLast, onAdd, onEntry }: MealSectionProps
           </ThemedText>
         </Pressable>
       ))}
-    </View>
-  );
-}
-
-function SummaryRow({
-  label,
-  value,
-  accent = false,
-}: {
-  label: string;
-  value: string;
-  accent?: boolean;
-}) {
-  return (
-    <View className="diary-summary-row">
-      <ThemedText
-        themeColor="textSecondary"
-        style={{ fontSize: 16, lineHeight: 22, fontWeight: '500' }}>
-        {label}
-      </ThemedText>
-      <ThemedText
-        themeColor={accent ? 'accent' : 'text'}
-        style={{ fontSize: 22, lineHeight: 26, fontWeight: '700' }}>
-        {value}
-      </ThemedText>
     </View>
   );
 }
@@ -256,7 +219,7 @@ export function DiaryScreen() {
       });
       return;
     }
-    router.push({ pathname: '/food-search', params: { date: selectedDate, mealType } });
+    router.push({ pathname: '/add-food-entry', params: { date: selectedDate, mealType } });
   }
 
   return (
@@ -316,46 +279,47 @@ export function DiaryScreen() {
           </Pressable>
         </View>
 
-        {/* Kalorien-Zusammenfassung mit Ring-Diagramm & Bilanz */}
-        <View className="diary-summary-card">
-          <ProgressRing
-            value={totals.kcal}
-            target={calorieGoal}
-            preset="medium"
-            label="Kalorien"
-            displayMode="remaining"
-            progressColor={theme.accent}
-            trackColor={theme.backgroundSelected}
-          />
-          <View className="diary-summary-stats">
-            <SummaryRow label="Gegessen" value={formatKcal(totals.kcal)} />
-            <SummaryRow label="Grundziel" value={calorieGoal > 0 ? formatKcal(calorieGoal) : '–'} />
-            <SummaryRow
-              label="Übrig"
-              value={calorieGoal > 0 ? formatKcal(remaining) : 'Kein Ziel'}
-              accent={remaining >= 0}
-            />
-            <ThemedText
-              themeColor={currentGoal ? 'success' : 'textSecondary'}
-              className="diary-goal-status">
-              {currentGoal ? 'Tagesziel ist aktiv' : 'Noch kein Tagesziel hinterlegt'}
+        {/* Kalorien-Bilanz: grosse Zahl + duenner Balken statt Ring + vier
+            Textzeilen (Redesign "Kompakter Fokus", Design-Audit 2026-08-29) */}
+        <View
+          className="diary-hero"
+          accessible
+          accessibilityRole="text"
+          accessibilityLabel={
+            calorieGoal > 0
+              ? `${formatKcal(Math.abs(remaining))} ${remaining < 0 ? 'über dem Tagesziel' : 'übrig'}, Ziel ${formatKcal(calorieGoal)}`
+              : `${formatKcal(totals.kcal)} gegessen, kein Tagesziel hinterlegt`
+          }>
+          <View className="diary-hero-row">
+            <ThemedText className="diary-hero-value">
+              {Math.round(calorieGoal > 0 ? Math.abs(remaining) : totals.kcal).toLocaleString(
+                'de-DE',
+              )}
+            </ThemedText>
+            <ThemedText themeColor="textSecondary" className="diary-hero-label">
+              {calorieGoal > 0
+                ? `kcal ${remaining < 0 ? 'über Ziel' : 'übrig'} · von ${Math.round(calorieGoal).toLocaleString('de-DE')}`
+                : 'kcal gegessen · kein Tagesziel'}
             </ThemedText>
           </View>
+          <ProgressBar
+            value={calorieGoal > 0 ? totals.kcal / calorieGoal : 0}
+            color={remaining < 0 ? theme.warning : theme.accent}
+            trackColor={theme.backgroundSelected}
+            height={6}
+            className="diary-hero-bar"
+          />
         </View>
 
-        {/* Makronährstoff-Balken (Protein, Kohlenhydrate, Fett) */}
-        <View className="diary-macro-list">
-          <MacroSummary
-            label="Protein"
-            value={totals.proteinG}
-            target={currentGoal?.protein_g ?? 0}
-          />
-          <MacroSummary
+        {/* Makronährstoff-Chips (Protein, Kohlenhydrate, Fett) */}
+        <View className="diary-macro-grid">
+          <MacroChip label="Protein" value={totals.proteinG} target={currentGoal?.protein_g ?? 0} />
+          <MacroChip
             label="Kohlenhydrate"
             value={totals.carbsG}
             target={currentGoal?.carbs_g ?? 0}
           />
-          <MacroSummary label="Fett" value={totals.fatG} target={currentGoal?.fat_g ?? 0} isLast />
+          <MacroChip label="Fett" value={totals.fatG} target={currentGoal?.fat_g ?? 0} />
         </View>
 
         {/* GLP-1 Tracking-Karte (optional) */}
