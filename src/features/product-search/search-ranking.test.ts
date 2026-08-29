@@ -1,12 +1,7 @@
-import type { OpenFoodFactsProduct } from '@/lib/open-food-facts';
+import type { CatalogProduct } from '@/features/product-search/types';
 import { normalizeProductSearchQuery, rankProductSearchResults } from './search-ranking';
 
-function product(
-  name: string,
-  brand: string,
-  quantity: number,
-  unit: string,
-): OpenFoodFactsProduct {
+function product(name: string, brand: string, quantity: number, unit: string): CatalogProduct {
   return { barcode: name, name, brand, quantity, unit, categoryTags: [] };
 }
 

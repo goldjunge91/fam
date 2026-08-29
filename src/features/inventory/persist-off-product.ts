@@ -1,12 +1,12 @@
+import type { CatalogProduct } from '@/features/product-search/types';
 import { getDatabase } from '@/lib/db/client';
-import type { OpenFoodFactsProduct } from '@/lib/open-food-facts';
 import { triggerOffEnrichment } from './trigger-off-enrichment';
 import type { useAddProductMutation } from './use-product-mutations';
 
 type AddProductMutation = ReturnType<typeof useAddProductMutation>;
 
 export async function persistOffProductIfNeeded(
-  product: OpenFoodFactsProduct,
+  product: CatalogProduct,
   userId: string | undefined,
   addProductMutation: AddProductMutation,
 ): Promise<string | null> {

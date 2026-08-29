@@ -5,10 +5,8 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { FoodSearchScreen } from '@/features/calorie-tracking/food-search-screen';
 
 const mockUseLocalFoodUsage = jest.fn();
-const mockSearchOpenFoodFacts = jest.fn();
-const mockFetchProductByBarcode = jest.fn();
-const mockSearchOffDump = jest.fn();
-const mockFetchProductByBarcodeFromDump = jest.fn();
+const mockCatalogSearch = jest.fn();
+const mockCatalogFindByBarcode = jest.fn();
 
 jest.mock('expo-router', () => ({
   router: { push: jest.fn(), back: jest.fn(), canGoBack: () => false },
@@ -35,24 +33,14 @@ jest.mock('@/features/household/active-household-provider', () => ({
   useOptionalActiveHousehold: () => null,
 }));
 
-jest.mock('@/lib/off-dump/off-dump', () => {
-  const actual = jest.requireActual('@/lib/off-dump/off-dump');
-  return {
-    ...actual,
-    searchOffDump: (...args: unknown[]) => mockSearchOffDump(...args),
-    fetchProductByBarcodeFromDump: (...args: unknown[]) =>
-      mockFetchProductByBarcodeFromDump(...args),
-  };
-});
-
-jest.mock('@/lib/open-food-facts', () => {
-  const actual = jest.requireActual('@/lib/open-food-facts');
-  return {
-    ...actual,
-    searchOpenFoodFacts: (...args: unknown[]) => mockSearchOpenFoodFacts(...args),
-    fetchProductByBarcode: (...args: unknown[]) => mockFetchProductByBarcode(...args),
-  };
-});
+// Der Screen kennt nur den Product Catalog. Welche Quelle einen Treffer
+// liefert, ist am Katalog-Seam getestet (product-catalog.test.ts).
+jest.mock('@/features/product-search/product-catalog-instance', () => ({
+  productCatalog: {
+    search: (...args: unknown[]) => mockCatalogSearch(...args),
+    findByBarcode: (...args: unknown[]) => mockCatalogFindByBarcode(...args),
+  },
+}));
 
 // Kamera-Abhaengigkeit ausserhalb des Tests halten — der Scanner selbst hat
 // keine eigene Logik in diesem Screen, nur der Ergebnis-Callback zaehlt.
@@ -114,8 +102,8 @@ beforeEach(() => {
     ],
     isLoading: false,
   });
-  mockSearchOpenFoodFacts.mockReset();
-  mockSearchOpenFoodFacts.mockResolvedValue({
+  mockCatalogSearch.mockReset();
+  mockCatalogSearch.mockResolvedValue({
     products: [
       {
         barcode: '123',
@@ -131,12 +119,8 @@ beforeEach(() => {
     hasMore: false,
     failed: false,
   });
-  mockFetchProductByBarcode.mockReset();
-  mockFetchProductByBarcode.mockResolvedValue(null);
-  mockSearchOffDump.mockReset();
-  mockSearchOffDump.mockResolvedValue({ products: [], hasMore: false });
-  mockFetchProductByBarcodeFromDump.mockReset();
-  mockFetchProductByBarcodeFromDump.mockResolvedValue(null);
+  mockCatalogFindByBarcode.mockReset();
+  mockCatalogFindByBarcode.mockResolvedValue(null);
   (router.push as jest.Mock).mockClear();
 });
 
@@ -180,11 +164,10 @@ describe('FoodSearchScreen', () => {
     await jest.advanceTimersByTimeAsync(800);
 
     expect(screen.getByText('Hafermilch')).toBeTruthy();
-    expect(mockSearchOpenFoodFacts).toHaveBeenCalledWith(
+    expect(mockCatalogSearch).toHaveBeenCalledWith(
       'Hafermilch',
-      expect.objectContaining({ page: 1, pageSize: 20 }),
+      expect.objectContaining({ limit: 20 }),
     );
-    expect(mockFetchProductByBarcode).not.toHaveBeenCalled();
 
     await fireEvent.press(screen.getByText('Hafermilch'));
 
@@ -211,11 +194,18 @@ describe('FoodSearchScreen', () => {
   });
 
   it('erkennt eine abgetippte Zahlenfolge als Barcode und nutzt den exakten Lookup', async () => {
-    mockFetchProductByBarcode.mockResolvedValue({
-      barcode: '4019300005307',
-      name: 'Balance Reich an Protein',
-      brand: 'Exquisa',
-      caloriesPer100g: 91,
+    mockCatalogSearch.mockResolvedValue({
+      products: [
+        {
+          barcode: '4019300005307',
+          name: 'Balance Reich an Protein',
+          brand: 'Exquisa',
+          caloriesPer100g: 91,
+          categoryTags: [],
+        },
+      ],
+      hasMore: false,
+      failed: false,
     });
 
     // fireEvent statt userEvent hier bewusst — siehe Kommentar beim ersten
@@ -227,11 +217,7 @@ describe('FoodSearchScreen', () => {
     await jest.advanceTimersByTimeAsync(800);
 
     expect(screen.getByText('Balance Reich an Protein')).toBeTruthy();
-    expect(mockFetchProductByBarcode).toHaveBeenCalledWith(
-      '4019300005307',
-      expect.any(AbortSignal),
-    );
-    expect(mockSearchOpenFoodFacts).not.toHaveBeenCalled();
+    expect(mockCatalogSearch).toHaveBeenCalledWith('4019300005307', expect.anything());
 
     await fireEvent.press(screen.getByText('Balance Reich an Protein'));
     const pushCall = (router.push as jest.Mock).mock.calls[0][0];
@@ -244,7 +230,7 @@ describe('FoodSearchScreen', () => {
   });
 
   it('zeigt bei einem fehlgeschlagenen Request einen Hinweis statt "keine Treffer" und erlaubt Retry', async () => {
-    mockSearchOpenFoodFacts.mockResolvedValueOnce({ products: [], hasMore: false, failed: true });
+    mockCatalogSearch.mockResolvedValue({ products: [], hasMore: false, failed: true });
 
     // fireEvent statt userEvent hier bewusst — siehe Kommentar beim ersten
     // Debounce-Test oben.
@@ -257,8 +243,8 @@ describe('FoodSearchScreen', () => {
     expect(screen.getByText(/Open Food Facts ist gerade nicht erreichbar/)).toBeTruthy();
     expect(screen.queryByText(/Keine Treffer/)).toBeNull();
 
-    mockSearchOpenFoodFacts.mockResolvedValueOnce({
-      products: [{ barcode: '123', name: 'Haferflocken', caloriesPer100g: 380 }],
+    mockCatalogSearch.mockResolvedValue({
+      products: [{ barcode: '123', name: 'Haferflocken', caloriesPer100g: 380, categoryTags: [] }],
       hasMore: false,
       failed: false,
     });
@@ -291,43 +277,5 @@ describe('FoodSearchScreen', () => {
         params: expect.objectContaining({ name: 'Banane', kcal: '89', quantity: '100', unit: 'g' }),
       }),
     );
-  });
-
-  it('zeigt lokale Dump-Ergebnisse sofort an und unterdrückt Fehlermeldung bei 503 der Online-API', async () => {
-    mockSearchOffDump.mockResolvedValueOnce({
-      products: [
-        { barcode: '789', name: 'Haferkleie Bio', brand: 'Alnatura', caloriesPer100g: 350 },
-      ],
-      hasMore: false,
-    });
-    mockSearchOpenFoodFacts.mockResolvedValueOnce({ products: [], hasMore: false, failed: true });
-
-    await renderScreen();
-    jest.useFakeTimers();
-    fireEvent.changeText(screen.getByPlaceholderText('Wonach suchst du?'), 'hafer');
-    await jest.advanceTimersByTimeAsync(800);
-
-    expect(screen.getByText('Haferkleie Bio')).toBeTruthy();
-    expect(screen.queryByText(/Open Food Facts ist gerade nicht erreichbar/)).toBeNull();
-
-    jest.useRealTimers();
-  });
-
-  it('findet Barcodes direkt im lokalen Offline-Dump', async () => {
-    mockFetchProductByBarcodeFromDump.mockResolvedValueOnce({
-      barcode: '4008400404127',
-      name: 'Kinder Riegel',
-      caloriesPer100g: 566,
-    });
-
-    await renderScreen();
-    jest.useFakeTimers();
-    fireEvent.changeText(screen.getByPlaceholderText('Wonach suchst du?'), '4008400404127');
-    await jest.advanceTimersByTimeAsync(800);
-
-    expect(screen.getByText('Kinder Riegel')).toBeTruthy();
-    expect(mockFetchProductByBarcode).not.toHaveBeenCalled();
-
-    jest.useRealTimers();
   });
 });

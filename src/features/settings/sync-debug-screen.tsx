@@ -8,12 +8,13 @@ import { Button } from '@/components/ui/buttons';
 import { Card } from '@/components/ui/card';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { BarcodeScannerModal } from '@/features/inventory/barcode-scanner-modal';
+import { useProductBarcodeLookup } from '@/features/product-search/hooks/use-product-barcode-lookup';
+import type { CatalogProduct } from '@/features/product-search/types';
 import { useSyncStatus } from '@/hooks/use-sync-status';
 import { trackAnalyticsEvent } from '@/lib/analytics';
 import { getDatabase } from '@/lib/db/client';
 import { deleteOutboxEntries } from '@/lib/db/outbox';
 import { sendTestNotification } from '@/lib/notifications';
-import type { OpenFoodFactsProduct } from '@/lib/open-food-facts';
 import {
   getActiveSyncEngineIntervalCount,
   getLastRealtimeStatus,
@@ -90,11 +91,18 @@ export function SyncDebugScreen() {
     Alert.alert(result.success ? 'Erfolg' : 'Hinweis', result.message);
   }
 
-  function handleProductScanned(product: OpenFoodFactsProduct) {
+  function handleProductScanned(product: CatalogProduct) {
     Alert.alert(
       'Produkt erkannt! 📷',
       `Name: ${product.name}\nMarke: ${product.brand ?? '—'}\nBarcode: ${product.barcode}\nMenge: ${product.quantity} ${product.unit}`,
     );
+  }
+
+  const barcodeLookup = useProductBarcodeLookup({ onFound: handleProductScanned });
+
+  function closeScanner() {
+    setShowScannerTest(false);
+    barcodeLookup.reset();
   }
 
   const loadDebugData = useCallback(async () => {
@@ -433,8 +441,10 @@ export function SyncDebugScreen() {
       {/* Barcode-Scanner Testmodal */}
       <BarcodeScannerModal
         visible={showScannerTest}
-        onClose={() => setShowScannerTest(false)}
-        onProductFound={handleProductScanned}
+        onClose={closeScanner}
+        onBarcodeDetected={barcodeLookup.lookup}
+        looking={barcodeLookup.looking}
+        errorMessage={barcodeLookup.errorMessage}
       />
     </Screen>
   );

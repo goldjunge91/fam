@@ -5,8 +5,8 @@ import { View } from 'react-native';
 import { ThemedText } from '@/components/theme/themed-text';
 import { HeaderIconButton } from '@/components/ui/buttons';
 import { IconSize } from '@/constants/layout';
+import type { CatalogProduct } from '@/features/product-search/types';
 import { useTheme } from '@/hooks/use-theme';
-import type { OpenFoodFactsProduct } from '@/lib/open-food-facts';
 import { AddItemForm, type AddItemFormHandle } from '../forms/add-item-form';
 import { ItemModalShell } from './item-modal-shell';
 
@@ -14,7 +14,7 @@ interface AddItemModalProps {
   visible: boolean;
   householdId: string;
   initialStoreId?: string | null;
-  initialProduct?: OpenFoodFactsProduct | null;
+  initialProduct?: CatalogProduct | null;
   onDismiss: () => void;
   onItemAdded?: () => void;
   onDismissFinished?: () => void;

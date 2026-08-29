@@ -5,7 +5,8 @@ import { ThemedText } from '@/components/theme/themed-text';
 import type { MealType } from '@/features/calorie-tracking/api';
 import type { FoodHistoryEntry } from '@/features/calorie-tracking/food-history';
 import { FoodSearchDropdown } from '@/features/calorie-tracking/food-search-dropdown';
-import { type OpenFoodFactsProduct, productToRouteParams } from '@/lib/open-food-facts';
+import { productToRouteParams } from '@/features/calorie-tracking/product-route-params';
+import type { CatalogProduct } from '@/features/product-search/types';
 
 const MEAL_LABELS: Record<string, string> = {
   breakfast: 'Frühstück',
@@ -25,7 +26,7 @@ export function FoodSearchScreen() {
     });
   }
 
-  function selectProduct(product: OpenFoodFactsProduct) {
+  function selectProduct(product: CatalogProduct) {
     goToDetail({ productData: JSON.stringify(productToRouteParams(product)) });
   }
 

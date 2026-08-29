@@ -35,10 +35,11 @@ import {
   useAddStorageLocationMutation,
   useStorageLocations,
 } from '@/features/inventory/use-storage-locations';
+import { useProductBarcodeLookup } from '@/features/product-search/hooks/use-product-barcode-lookup';
+import type { CatalogProduct } from '@/features/product-search/types';
 import { useTheme } from '@/hooks/use-theme';
 import { getDatabase } from '@/lib/db/client';
 import { recordProductUsage } from '@/lib/db/product-usage';
-import type { OpenFoodFactsProduct } from '@/lib/open-food-facts';
 import { normalizeUnit, UNIT_OPTIONS } from '@/lib/units';
 
 function formatOffsetDate(days: number): string {
@@ -100,7 +101,7 @@ export function AddItemScreen() {
   const [packageSizeUnit, setPackageSizeUnit] = useState<string | null>(null);
   const [locationId, setLocationId] = useState<string | null>(null);
   const [expiryDate, setExpiryDate] = useState('');
-  const [selectedProduct, setSelectedProduct] = useState<OpenFoodFactsProduct | null>(null);
+  const [selectedProduct, setSelectedProduct] = useState<CatalogProduct | null>(null);
 
   const [source, setSource] = useState<ItemSource>('food');
   const [suggestionMode, setSuggestionMode] = useState<SuggestionMode>('frequent');
@@ -117,7 +118,7 @@ export function AddItemScreen() {
     QUICK_DATE_OPTIONS.find((option) => quickDateOffset(option.value) === expiryDate)?.value ??
     'none';
 
-  const handleSelectProduct = useCallback((product: OpenFoodFactsProduct) => {
+  const handleSelectProduct = useCallback((product: CatalogProduct) => {
     // Muss VOR `setName` passieren — sonst haelt der Such-Effekt in
     // `product-search-dropdown.tsx` diesen Namenswechsel fuer neue Eingabe
     // und oeffnet die Trefferliste erneut (#UI-Feedback: "Auswaehlen eines
@@ -141,6 +142,18 @@ export function AddItemScreen() {
   // Nimmt ein Produkt entgegen, das ueber "Produkt manuell anlegen" (#80) im
   // add-product-Screen erstellt wurde und beim Zurueckkommen hier abgeholt
   // wird — Expo Router kennt keine Rueckgabewerte aus gepushten Routen.
+  const barcodeLookup = useProductBarcodeLookup({
+    onFound: (product) => {
+      handleSelectProduct(product);
+      setShowScanner(false);
+    },
+  });
+
+  const closeScanner = useCallback(() => {
+    setShowScanner(false);
+    barcodeLookup.reset();
+  }, [barcodeLookup.reset]);
+
   useFocusEffect(
     useCallback(() => {
       const created = consumePendingProductSelection();
@@ -440,8 +453,10 @@ export function AddItemScreen() {
       {/* Barcode-Scanner-Modal */}
       <BarcodeScannerModal
         visible={showScanner}
-        onClose={() => setShowScanner(false)}
-        onProductFound={handleSelectProduct}
+        onClose={closeScanner}
+        onBarcodeDetected={barcodeLookup.lookup}
+        looking={barcodeLookup.looking}
+        errorMessage={barcodeLookup.errorMessage}
       />
       <KeyboardToolbar />
     </ThemedView>

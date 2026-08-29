@@ -24,12 +24,12 @@ import { MEAL_LABELS } from '@/features/calorie-tracking/diary-screen';
 import type { FoodHistoryEntry } from '@/features/calorie-tracking/food-history';
 import { FoodSearchDropdown } from '@/features/calorie-tracking/food-search-dropdown';
 import { useFoodEntryForm } from '@/features/calorie-tracking/hooks/use-food-entry-form';
+import { productToRouteParams } from '@/features/calorie-tracking/product-route-params';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { useChildProfiles } from '@/features/household/api';
+import type { CatalogProduct } from '@/features/product-search/types';
 import { getDatabase } from '@/lib/db/client';
 import { recordProductUsage } from '@/lib/db/product-usage';
-import type { OpenFoodFactsProduct } from '@/lib/open-food-facts';
-import { productToRouteParams } from '@/lib/open-food-facts';
 
 const UNIT_LABELS: Record<string, string> = {
   g: 'g',
@@ -94,7 +94,7 @@ export function AddFoodEntryScreen() {
     routeParams: (selectedFoodParams ?? params) as Record<string, string | string[] | undefined>,
   });
 
-  function selectProduct(product: OpenFoodFactsProduct) {
+  function selectProduct(product: CatalogProduct) {
     setSelectedFoodParams({ productData: JSON.stringify(productToRouteParams(product)) });
   }
 
