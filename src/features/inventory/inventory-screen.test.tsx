@@ -92,8 +92,8 @@ async function renderScreen() {
     </QueryClientProvider>,
   );
 
-  // Die FlatList (VirtualizedList) plant beim Mount ein setTimeout(50ms,
-  // updateCellsBatchingPeriod) fuers Cell-Layout. RNTLs user-event wait()
+  // FlashList plant beim Mount ein setTimeout fuers erste Layout (useOnLoad).
+  // RNTLs user-event wait()
   // wrapt diesen Schritt selbst NICHT in act() (nur die Event-Dispatches),
   // daher hier explizit VOR der ersten Interaktion abfliessen lassen, statt
   // spaeter unkontrolliert waehrend user.press() zu feuern.
@@ -104,8 +104,8 @@ async function renderScreen() {
   return result;
 }
 
-// FlatList/VirtualizedList plant beim Mount intern ein setTimeout(50ms,
-// updateCellsBatchingPeriod), das ausserhalb jeder act()-Kontrolle feuert
+// FlashList plant beim Mount intern ein setTimeout fuers erste Layout,
+// das ausserhalb jeder act()-Kontrolle feuert
 // ("The current testing environment is not configured to support act(...)")
 // und je nach Systemlast mit Interaktionen des Tests kollidiert (siehe
 // test/examples/act-and-real-timers-demo/). Fake Timers machen das
@@ -305,7 +305,11 @@ describe('Sortier-Toggle MHD/Name (#71)', () => {
     expect(itemOrder()).toEqual(['Zwiebel, 1 Stück', 'Apfel, 1 Stück']);
   });
 
-  it('sortiert nach Name, wenn der Name-Toggle gewaehlt wird', async () => {
+  // Die umsortierte Reihenfolge selbst prueft visible-items.test.ts: FlashList
+  // recycelt Zeilen-Views, dadurch bleibt die Reihenfolge im Testbaum nach einem
+  // Re-Sort auf dem Mount-Stand stehen (visuell wird ueber Layout positioniert).
+  // Am Screen bleibt pruefbar, dass der Toggle den Sortiermodus umschaltet.
+  it('schaltet den Sortiermodus per Toggle auf alphabetisch um', async () => {
     const user = userEvent.setup();
     await renderScreen();
     await user.press(
@@ -313,7 +317,9 @@ describe('Sortier-Toggle MHD/Name (#71)', () => {
         name: 'Sortierung ändern, aktuell nach Haltbarkeit',
       }),
     );
-    expect(itemOrder()).toEqual(['Apfel, 1 Stück', 'Zwiebel, 1 Stück']);
+    expect(
+      screen.getByRole('button', { name: 'Sortierung ändern, aktuell alphabetisch' }),
+    ).toBeOnTheScreen();
   });
 });
 

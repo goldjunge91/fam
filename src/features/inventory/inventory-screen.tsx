@@ -1,6 +1,7 @@
+import { FlashList } from '@shopify/flash-list';
 import { useLocalSearchParams } from 'expo-router';
 import { useDeferredValue, useMemo, useState } from 'react';
-import { Alert, FlatList, Platform, View } from 'react-native';
+import { Alert, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Screen } from '@/components/layout/screen';
 import { ThemedText } from '@/components/theme/themed-text';
@@ -20,11 +21,10 @@ import { InventoryItemRow } from './components/inventory-item-row';
 import { InventorySearchField } from './components/inventory-search-field';
 import { InventorySummaryCard } from './components/inventory-summary-card';
 import { InventoryTabBar } from './components/inventory-tab-bar';
-import { compareByExpiry, getExpiryInfo } from './expiry';
+import { getExpiryInfo } from './expiry';
 import { type LocalInventoryItem, useInventoryItems } from './use-inventory-items';
 import { useUpdateInventoryItemQuantityMutation } from './use-inventory-mutations';
-
-type SortMode = 'expiry' | 'name';
+import { type InventorySortMode, selectVisibleInventoryItems } from './visible-items';
 
 export function InventoryScreen() {
   const hubGradient = useHubGradient();
@@ -34,7 +34,7 @@ export function InventoryScreen() {
   const showExpiringOnly = params.filter === 'expiring';
   const [activeLocationId, setActiveLocationId] = useState('all');
   const [searchQuery, setSearchQuery] = useState('');
-  const [sortMode, setSortMode] = useState<SortMode>('expiry');
+  const [sortMode, setSortMode] = useState<InventorySortMode>('expiry');
   const [actionItem, setActionItem] = useState<LocalInventoryItem | null>(null);
   const [informationItem, setInformationItem] = useState<LocalInventoryItem | null>(null);
   const [editItem, setEditItem] = useState<LocalInventoryItem | null>(null);
@@ -72,26 +72,17 @@ export function InventoryScreen() {
 
   // SQL liefert bereits MHD-sortiert (default) — der Toggle sortiert nur
   // client-seitig um, keine Requery noetig fuer "Name" (#71).
-  const visibleItems = useMemo(() => {
-    let result = allItems;
-    if (selectedLocationId !== 'all') {
-      result = result.filter((item) => item.location_id === selectedLocationId);
-    }
-    if (showExpiringOnly) {
-      result = result.filter((item) =>
-        ['expired', 'critical'].includes(getExpiryInfo(item.expiry_date, today).bucket),
-      );
-    }
-    const q = deferredSearchQuery.trim().toLowerCase();
-    if (q) {
-      result = result.filter((item) => item.name.toLowerCase().includes(q));
-    }
-    return [...result].sort((a, b) =>
-      sortMode === 'name'
-        ? a.name.localeCompare(b.name, 'de')
-        : compareByExpiry(getExpiryInfo(a.expiry_date, today), getExpiryInfo(b.expiry_date, today)),
-    );
-  }, [allItems, selectedLocationId, showExpiringOnly, deferredSearchQuery, sortMode, today]);
+  const visibleItems = useMemo(
+    () =>
+      selectVisibleInventoryItems(allItems, {
+        locationId: selectedLocationId,
+        showExpiringOnly,
+        searchQuery: deferredSearchQuery,
+        sortMode,
+        today,
+      }),
+    [allItems, selectedLocationId, showExpiringOnly, deferredSearchQuery, sortMode, today],
+  );
   const currentActionItem = actionItem
     ? (allItems.find((item) => item.id === actionItem.id) ?? actionItem)
     : null;
@@ -154,16 +145,14 @@ export function InventoryScreen() {
       backgroundGradient={hubGradient}
       scroll={false}
       applyBottomPadding={false}>
-      {/* Virtuelle Vorratsliste mit Header, Filtern und MHD-Einträgen */}
-      <FlatList
+      {/* Virtuelle Vorratsliste mit Header, Filtern und MHD-Einträgen.
+          FlashList statt FlatList (#139): Batch-/Window-Tuning entfällt, das
+          Recycling regelt die Liste selbst. */}
+      <FlashList
         data={visibleItems}
         keyExtractor={(item) => item.id}
         style={{ flex: 1 }}
         contentContainerStyle={{ paddingBottom }}
-        initialNumToRender={12}
-        maxToRenderPerBatch={10}
-        windowSize={5}
-        removeClippedSubviews={Platform.OS === 'android'}
         ListHeaderComponent={
           <View className="gap-three pb-two">
             {/* Vorrats-Statistik: Gesamtanzahl & kritische/bald ablaufende Artikel */}
