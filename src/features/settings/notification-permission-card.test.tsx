@@ -1,10 +1,7 @@
-import { fireEvent, render, screen, waitFor } from '@testing-library/react-native';
-import {
-  disableNotificationReminders,
-  getNotificationPermissionStatus,
-  requestNotificationPermissions,
-} from '@/lib/notifications';
+import { render } from '@testing-library/react-native';
+import { getNotificationPermissionStatus } from '@/lib/notifications';
 import { NotificationPermissionCard } from './notification-permission-card';
+import { PermissionCard } from './permission-card';
 
 jest.mock('@/lib/notifications', () => ({
   disableNotificationReminders: jest.fn().mockResolvedValue(undefined),
@@ -15,58 +12,30 @@ jest.mock('@/lib/notifications', () => ({
   requestNotificationPermissions: jest.fn().mockResolvedValue(false),
 }));
 
-const mockedGetNotificationPermissionStatus = jest.mocked(getNotificationPermissionStatus);
-const mockedRequestNotificationPermissions = jest.mocked(requestNotificationPermissions);
-const mockedDisableNotificationReminders = jest.mocked(disableNotificationReminders);
+jest.mock('./permission-card', () => ({
+  PermissionCard: jest.fn(() => null),
+}));
 
 describe('NotificationPermissionCard', () => {
   beforeEach(() => {
     jest.clearAllMocks();
-  });
-
-  it('aktiviert Nutzung und Status nach erteilter Berechtigung', async () => {
-    mockedGetNotificationPermissionStatus.mockResolvedValue({
+    jest.mocked(getNotificationPermissionStatus).mockResolvedValue({
       granted: false,
       canAskAgain: true,
     });
-    mockedRequestNotificationPermissions.mockResolvedValue(true);
-
-    await render(<NotificationPermissionCard />);
-    fireEvent(screen.getByRole('switch'), 'valueChange', true);
-
-    await waitFor(() => {
-      expect(mockedRequestNotificationPermissions).toHaveBeenCalledTimes(1);
-      expect(mockedDisableNotificationReminders).not.toHaveBeenCalled();
-    });
   });
 
-  it('deaktiviert Nutzung nach abgelehnter Berechtigung', async () => {
-    mockedGetNotificationPermissionStatus.mockResolvedValue({
-      granted: false,
-      canAskAgain: true,
-    });
-    mockedRequestNotificationPermissions.mockResolvedValue(false);
-
+  it('reicht Benachrichtigungs-Copy und die Benachrichtigungs-Berechtigungsfunktionen an das geteilte Muster weiter', async () => {
     await render(<NotificationPermissionCard />);
-    fireEvent(screen.getByRole('switch'), 'valueChange', true);
 
-    await waitFor(() => {
-      expect(mockedDisableNotificationReminders).toHaveBeenCalledTimes(1);
+    const props = jest.mocked(PermissionCard).mock.calls[0]?.[0];
+    expect(props).toMatchObject({
+      title: 'Benachrichtigungen',
+      label: 'Benachrichtigungs-Zugriff',
+      grantedCopy: expect.stringContaining('Erinnerungen'),
+      deniedCopy: expect.stringContaining('Systemeinstellungen'),
     });
-  });
-
-  it('deaktiviert Nutzung, wenn der Nutzer den Schalter ausschaltet', async () => {
-    mockedGetNotificationPermissionStatus.mockResolvedValue({
-      granted: true,
-      canAskAgain: true,
-    });
-
-    await render(<NotificationPermissionCard />);
-    fireEvent(screen.getByRole('switch'), 'valueChange', false);
-
-    await waitFor(() => {
-      expect(mockedDisableNotificationReminders).toHaveBeenCalledTimes(1);
-      expect(mockedRequestNotificationPermissions).not.toHaveBeenCalled();
-    });
+    expect(props?.usePermission).toEqual(expect.any(Function));
+    expect(props?.onDisable).toEqual(expect.any(Function));
   });
 });

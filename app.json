@@ -20,9 +20,7 @@
       "bundleIdentifier": "com.goldjunge91.fam1",
       "buildNumber": "1",
       "infoPlist": {
-        "ITSAppUsesNonExemptEncryption": false,
-        "NSCameraUsageDescription": "$(PRODUCT_NAME) needs access to your Camera to capture photos and videos.",
-        "NSMicrophoneUsageDescription": "$(PRODUCT_NAME) needs access to your Microphone to record audio for video recordings."
+        "ITSAppUsesNonExemptEncryption": false
       },
       "usesAppleSignIn": true,
       "privacyManifests": {
@@ -55,13 +53,7 @@
       },
       "predictiveBackGestureEnabled": false,
       "versionCode": 2,
-      "permissions": [
-        "android.permission.READ_EXTERNAL_STORAGE",
-        "android.permission.WRITE_EXTERNAL_STORAGE",
-        "android.permission.INTERNET",
-        "android.permission.CAMERA",
-        "android.permission.RECORD_AUDIO"
-      ],
+      "permissions": ["android.permission.INTERNET"],
       "package": "com.goldjunge91.fam"
     },
     "web": {
