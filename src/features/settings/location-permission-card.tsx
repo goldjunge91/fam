@@ -1,54 +1,20 @@
 import * as Location from 'expo-location';
-import { Linking, type StyleProp, Switch, View, type ViewStyle } from 'react-native';
-import { ThemedText } from '@/components/theme/themed-text';
-import { Card } from '@/components/ui/card';
-// `trackColor` benötigt echte Farbwerte statt CSS-Variablen.
-import { useTheme } from '@/hooks/use-theme';
+import type { StyleProp, ViewStyle } from 'react-native';
+import { PermissionCard } from './permission-card';
 
 type LocationPermissionCardProps = {
   style?: StyleProp<ViewStyle>;
 };
 
 export function LocationPermissionCard({ style }: LocationPermissionCardProps) {
-  const theme = useTheme();
-  const [permission, requestPermission] = Location.useForegroundPermissions();
-
-  const granted = permission?.granted ?? false;
-  // Nach einer iOS-Ablehnung nur noch zu den Systemeinstellungen verweisen.
-  const canAskAgain = permission?.canAskAgain ?? true;
-
-  async function handleToggle(value: boolean) {
-    // Die App kann die Systemberechtigung nicht zurücknehmen. Beim Ausschalten
-    // bleibt der Schalter beim echten Systemstatus; die Prospekt-PLZ kann der
-    // Nutzer manuell setzen. Nach dauerhafter Ablehnung hilft nur noch der Weg
-    // über die Systemeinstellungen.
-    if (value && !canAskAgain) {
-      Linking.openSettings();
-      return;
-    }
-    if (!value) return;
-    await requestPermission();
-  }
-
   return (
-    <View style={style}>
-      <Card title="Standort">
-        <View className="row-between">
-          <View className="row-text">
-            <ThemedText type="bodyBold">Standort-Zugriff</ThemedText>
-            <ThemedText type="small" themeColor="textSecondary">
-              {canAskAgain
-                ? 'Für Prospekte aus deiner Umgebung.'
-                : 'In den Systemeinstellungen deaktiviert. Zum Ändern antippen.'}
-            </ThemedText>
-          </View>
-          <Switch
-            value={granted}
-            onValueChange={handleToggle}
-            trackColor={{ false: theme.border, true: theme.accent }}
-          />
-        </View>
-      </Card>
-    </View>
+    <PermissionCard
+      style={style}
+      title="Standort"
+      label="Standort-Zugriff"
+      grantedCopy="Für Prospekte aus deiner Umgebung."
+      deniedCopy="In den Systemeinstellungen deaktiviert. Zum Ändern antippen."
+      usePermission={Location.useForegroundPermissions}
+    />
   );
 }

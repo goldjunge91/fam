@@ -1,22 +1,21 @@
 import { useEffect, useState } from 'react';
-import { AppState, Linking, type StyleProp, Switch, View, type ViewStyle } from 'react-native';
-import { ThemedText } from '@/components/theme/themed-text';
-import { Card } from '@/components/ui/card';
-// `trackColor` benötigt echte Farbwerte statt CSS-Variablen.
-import { useTheme } from '@/hooks/use-theme';
+import { AppState, type StyleProp, type ViewStyle } from 'react-native';
 import {
   disableNotificationReminders,
   getNotificationPermissionStatus,
   requestNotificationPermissions,
 } from '@/lib/notifications';
+import { PermissionCard, type PermissionState } from './permission-card';
 
-type NotificationPermissionCardProps = {
-  style?: StyleProp<ViewStyle>;
-};
-
-export function NotificationPermissionCard({ style }: NotificationPermissionCardProps) {
-  const theme = useTheme();
-  const [status, setStatus] = useState({ granted: false, canAskAgain: true });
+/**
+ * expo-notifications bietet keinen `usePermissions`-Hook wie expo-camera/-location.
+ * Dieser Hook bildet dieselbe `[status, request]`-Form nach: Status wird bei Fokus
+ * (App-Vordergrund) neu geladen, `request` fragt an und fällt bei Ablehnung auf
+ * `disableNotificationReminders` zurück, damit Erinnerungen nicht für eine
+ * Berechtigung geplant bleiben, die der Nutzer gerade verweigert hat.
+ */
+function useNotificationPermission(): readonly [PermissionState, () => Promise<void>] {
+  const [status, setStatus] = useState<PermissionState>({ granted: false, canAskAgain: true });
 
   useEffect(() => {
     let active = true;
@@ -37,15 +36,7 @@ export function NotificationPermissionCard({ style }: NotificationPermissionCard
     };
   }, []);
 
-  async function handleToggle(value: boolean) {
-    if (!value) {
-      await disableNotificationReminders();
-      return;
-    }
-    if (!status.canAskAgain) {
-      Linking.openSettings();
-      return;
-    }
+  async function request() {
     const granted = await requestNotificationPermissions();
     if (granted) {
       setStatus((prev) => ({ ...prev, granted: true }));
@@ -54,25 +45,23 @@ export function NotificationPermissionCard({ style }: NotificationPermissionCard
     await disableNotificationReminders();
   }
 
+  return [status, request];
+}
+
+type NotificationPermissionCardProps = {
+  style?: StyleProp<ViewStyle>;
+};
+
+export function NotificationPermissionCard({ style }: NotificationPermissionCardProps) {
   return (
-    <View style={style}>
-      <Card title="Benachrichtigungen">
-        <View className="row-between">
-          <View className="row-text">
-            <ThemedText type="bodyBold">Benachrichtigungs-Zugriff</ThemedText>
-            <ThemedText type="small" themeColor="textSecondary">
-              {status.canAskAgain
-                ? 'Damit Erinnerungen an ablaufende Vorräte ankommen.'
-                : 'In den Systemeinstellungen deaktiviert. Zum Ändern antippen.'}
-            </ThemedText>
-          </View>
-          <Switch
-            value={status.granted}
-            onValueChange={handleToggle}
-            trackColor={{ false: theme.border, true: theme.accent }}
-          />
-        </View>
-      </Card>
-    </View>
+    <PermissionCard
+      style={style}
+      title="Benachrichtigungen"
+      label="Benachrichtigungs-Zugriff"
+      grantedCopy="Damit Erinnerungen an ablaufende Vorräte ankommen."
+      deniedCopy="In den Systemeinstellungen deaktiviert. Zum Ändern antippen."
+      usePermission={useNotificationPermission}
+      onDisable={disableNotificationReminders}
+    />
   );
 }
