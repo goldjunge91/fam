@@ -24,28 +24,24 @@ describe('Cloudflare R2 Storage & Hash-based Image Keys', () => {
     jest.restoreAllMocks();
   });
 
-  it('erzeugt deterministische SHA-256 Hash-Keys analog zu migrate-brochures-r2.ts', () => {
+  it('erzeugt globale deterministische SHA-256 Asset-Keys', () => {
     const url1 = 'https://offerscdn.bringapi.app/offers/de/123/cover.jpg';
     const url2 = 'https://offerscdn.bringapi.app/offers/de/123/page1.jpg';
 
-    const keyCover = imageKeyFor(url1, 'lidl_kw35', 'cover');
-    const keyPage1 = imageKeyFor(url2, 'lidl_kw35', 'page-001');
+    const keyCover = imageKeyFor(url1);
+    const keyPage1 = imageKeyFor(url2);
 
-    expect(keyCover).toMatch(/^brochures\/dumps\/lidl_kw35\/cover-[a-f0-9]{16}\.jpg$/);
-    expect(keyPage1).toMatch(/^brochures\/dumps\/lidl_kw35\/page-001-[a-f0-9]{16}\.jpg$/);
+    expect(keyCover).toMatch(/^brochures\/dumps\/assets\/[a-f0-9]{64}\.jpg$/);
+    expect(keyPage1).toMatch(/^brochures\/dumps\/assets\/[a-f0-9]{64}\.jpg$/);
 
-    // Gleiche URL muss exakt denselben Hash erzeugen (Deterministisch)
-    const keyCoverAgain = imageKeyFor(url1, 'lidl_kw35', 'cover');
+    // Gleiche URL muss unabhängig von Prospekt und Kontext exakt denselben Key erzeugen.
+    const keyCoverAgain = imageKeyFor(url1);
     expect(keyCoverAgain).toBe(keyCover);
   });
 
-  it('bereinigt Sonderzeichen im brochureId Key-Pfad', () => {
-    const key = imageKeyFor(
-      'https://example.com/test.jpg',
-      'aldi:nord/special#2026',
-      'cover',
-    );
-    expect(key).toBe('brochures/dumps/aldi_nord_special_2026/cover-a4e3f584073a0ae9.jpg');
+  it('hält neue Assets unter dem bestehenden Lifecycle-Prefix', () => {
+    const key = imageKeyFor('https://example.com/test.jpg');
+    expect(key).toMatch(/^brochures\/dumps\/assets\/[a-f0-9]{64}\.jpg$/);
     expect(sanitizeKeyPart('a b/c:d')).toBe('a_b_c_d');
   });
 
@@ -116,9 +112,36 @@ describe('Cloudflare R2 Storage & Hash-based Image Keys', () => {
 
     const result = await mirrorBrochureImagesToR2(brochure, mockR2Config, new Map());
 
-    expect(result.coverImage).toContain('/brochures/dumps/existing-brochure/cover-');
+    expect(result.coverImage).toMatch(/\/brochures\/dumps\/assets\/[a-f0-9]{64}\.jpg$/);
     expect(fetchMock).toHaveBeenCalledTimes(1);
     expect(fetchMock.mock.calls[0][1]?.method).toBe('HEAD');
+  });
+
+  it('verwendet während der Umstellung vorhandene Legacy-Objekte weiter', async () => {
+    const fetchMock = jest.spyOn(global, 'fetch').mockImplementation(async (_input, init) => {
+      if (init?.method === 'HEAD') {
+        const url = String(_input);
+        return new Response(null, {
+          status: url.includes('/assets/') ? 404 : 200,
+        });
+      }
+      throw new Error('Das Legacy-Objekt darf keinen Download auslösen.');
+    });
+
+    const brochure: CrawlerBrochure = {
+      id: 'legacy-brochure',
+      storeId: 'store',
+      title: 'Prospekt',
+      validFrom: '2026-08-25T00:00:00Z',
+      validUntil: '2026-09-01T00:00:00Z',
+      coverImage: 'https://cdn.example.com/cover.jpg',
+      pages: [],
+    };
+
+    const result = await mirrorBrochureImagesToR2(brochure, mockR2Config, new Map());
+
+    expect(result.coverImage).toContain('/brochures/dumps/legacy-brochure/cover-');
+    expect(fetchMock.mock.calls.filter(([, init]) => init?.method === 'HEAD')).toHaveLength(2);
   });
 
   it('dedupliziert parallele Uploads über einen gemeinsamen Promise-Cache', async () => {
@@ -144,9 +167,9 @@ describe('Cloudflare R2 Storage & Hash-based Image Keys', () => {
     ]);
 
     expect(first.coverImage).toBe(second.coverImage);
-    expect(fetchMock.mock.calls.filter(([, init]) => init?.method === 'HEAD')).toHaveLength(1);
+    expect(fetchMock.mock.calls.filter(([, init]) => init?.method === 'HEAD')).toHaveLength(2);
     expect(fetchMock.mock.calls.filter(([, init]) => init?.method === 'PUT')).toHaveLength(1);
-    expect(fetchMock).toHaveBeenCalledTimes(3);
+    expect(fetchMock).toHaveBeenCalledTimes(4);
   });
 
   it('verhindert mit If-None-Match konkurrierende Überschreibungen', async () => {

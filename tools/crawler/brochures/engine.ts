@@ -1,5 +1,6 @@
 import { mkdir, rename, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
+import { mirrorBrochureImagesToLocal, type LocalStorageConfig } from './local-storage';
 import { mirrorBrochureImagesToR2, type R2Config } from './r2-storage';
 import type {
   BrochureLocation,
@@ -14,6 +15,7 @@ export type CrawlEngineOptions = {
   concurrency?: number;
   sources: BrochureSource[];
   r2Config?: R2Config;
+  localStorage?: LocalStorageConfig;
   onProgress?: (processed: number, total: number, uniqueBrochuresCount: number) => void;
   onChunkDone?: (chunkDumps: LocationDump[]) => Promise<void> | void;
   backupPath?: string | null;
@@ -111,6 +113,7 @@ export async function crawlLocation(
   sources: BrochureSource[],
   brochureCache: Map<string, CrawlerBrochure>,
   r2Config?: R2Config,
+  localStorage?: LocalStorageConfig,
   r2UrlCache?: Map<string, string | Promise<string>>,
 ): Promise<LocationDump> {
   const stores = new Map<string, CrawlerStore>();
@@ -138,6 +141,8 @@ export async function crawlLocation(
             // Wenn R2 aktiv ist: Bilder nach R2 spiegeln
             if (r2Config && r2UrlCache) {
               sanitized = await mirrorBrochureImagesToR2(sanitized, r2Config, r2UrlCache);
+            } else if (localStorage && r2UrlCache) {
+              sanitized = await mirrorBrochureImagesToLocal(sanitized, localStorage, r2UrlCache);
             }
 
             brochureCache.set(b.id, sanitized);
@@ -204,7 +209,14 @@ export async function crawlAllLocations(
     const chunk = locations.slice(i, i + concurrency);
     const results = await Promise.allSettled(
       chunk.map((loc) =>
-        crawlLocation(loc, options.sources, brochureCache, options.r2Config, r2UrlCache),
+        crawlLocation(
+          loc,
+          options.sources,
+          brochureCache,
+          options.r2Config,
+          options.localStorage,
+          r2UrlCache,
+        ),
       ),
     );
 

@@ -1,7 +1,10 @@
 import { createHash, createHmac } from 'node:crypto';
+import sharp from 'sharp';
 import type { CrawlerBrochure } from './types';
 
 const MAX_IMAGE_BYTES = 10 * 1024 * 1024; // 10 MB
+const MAX_STORED_IMAGE_WIDTH = 2048;
+const JPEG_QUALITY = 82;
 const CACHE_CONTROL = 'public, max-age=604800, immutable';
 const DUMP_RUN_PREFIX = 'brochures/dumps/';
 
@@ -40,9 +43,19 @@ export function sanitizeKeyPart(value: string): string {
 }
 
 /**
- * Erzeugt den deterministischen R2-Key für ein Bild anhand von brochureId, Kontext und Original-URL Hash.
+ * Erzeugt einen globalen, URL-basierten Asset-Key.
+ *
+ * Die Prospekt-ID gehört absichtlich nicht in den Key: Dasselbe CDN-Bild kann
+ * in mehreren PLZ-Dumps und Prospekt-IDs auftauchen und soll nur einmal in R2
+ * liegen. Der bestehende dumps/-Prefix bleibt erhalten, damit die vorhandene
+ * Lifecycle-Regel weiterhin auch neue Assets erfasst.
  */
-export function imageKeyFor(originalUrl: string, brochureId: string, context: string): string {
+export function imageKeyFor(originalUrl: string): string {
+  const hash = createHash('sha256').update(originalUrl).digest('hex');
+  return `${DUMP_RUN_PREFIX}assets/${hash}.jpg`;
+}
+
+export function legacyImageKeyFor(originalUrl: string, brochureId: string, context: string): string {
   const hash = createHash('sha256').update(originalUrl).digest('hex').slice(0, 16);
   return `${DUMP_RUN_PREFIX}${sanitizeKeyPart(brochureId)}/${context}-${hash}.jpg`;
 }
@@ -177,15 +190,55 @@ export async function uploadToR2(
 }
 
 async function fetchImage(originalUrl: string): Promise<ArrayBuffer> {
-  const response = await fetch(originalUrl, { signal: AbortSignal.timeout(30_000) });
-  if (!response.ok) throw new Error(`Bild-Download ${response.status} für ${originalUrl}`);
-  const buffer = await response.arrayBuffer();
-  if (buffer.byteLength > MAX_IMAGE_BYTES) {
-    throw new Error(
-      `Bild ${originalUrl} überschreitet ${(MAX_IMAGE_BYTES / 1024 / 1024).toFixed(0)} MB.`,
-    );
+  for (let attempt = 0; attempt < 4; attempt++) {
+    try {
+      const response = await fetch(originalUrl, { signal: AbortSignal.timeout(30_000) });
+      if (response.ok) {
+        const buffer = await response.arrayBuffer();
+        if (buffer.byteLength > MAX_IMAGE_BYTES) {
+          throw new Error(
+            `Bild ${originalUrl} überschreitet ${(MAX_IMAGE_BYTES / 1024 / 1024).toFixed(0)} MB.`,
+          );
+        }
+        return buffer;
+      }
+
+      const retryable = response.status === 429 || response.status >= 500;
+      if (!retryable || attempt === 3) {
+        throw new Error(`Bild-Download ${response.status} für ${originalUrl}`);
+      }
+    } catch (error) {
+      if (attempt === 3) throw error;
+    }
+    await retryDelay(attempt);
   }
-  return buffer;
+  throw new Error(`Bild-Download für ${originalUrl} ohne Ergebnis beendet.`);
+}
+
+/**
+ * Reduziert große CDN-Bilder vor dem Upload. Prospektseiten bleiben mit 2048px
+ * Breite lesbar, benötigen aber deutlich weniger R2-Speicher und Bandbreite.
+ * Bei einem nicht decodierbaren Bild bleibt der bisherige Upload-Pfad erhalten.
+ */
+export async function optimizeImage(buffer: ArrayBuffer): Promise<ArrayBuffer> {
+  try {
+    const optimized = await sharp(Buffer.from(buffer))
+      .rotate()
+      .resize({ width: MAX_STORED_IMAGE_WIDTH, withoutEnlargement: true })
+      .jpeg({ quality: JPEG_QUALITY, progressive: true })
+      .toBuffer();
+
+    return optimized.buffer.slice(
+      optimized.byteOffset,
+      optimized.byteOffset + optimized.byteLength,
+    ) as ArrayBuffer;
+  } catch {
+    return buffer;
+  }
+}
+
+export async function downloadOptimizedImage(originalUrl: string): Promise<ArrayBuffer> {
+  return optimizeImage(await fetchImage(originalUrl));
 }
 
 /**
@@ -223,10 +276,9 @@ export async function mirrorBrochureImagesToR2(
   updatedBrochure.pages = (brochure.pages || []).map((page, index) => {
     const updatedPage = { ...page };
     if (page.imageUrl && !page.imageUrl.startsWith(config.publicUrl)) {
-      const pageNumStr = String(page.number ?? index + 1).padStart(3, '0');
       tasks.push({
         originalUrl: page.imageUrl,
-        context: `page-${pageNumStr}`,
+        context: `page-${String(page.number ?? index + 1).padStart(3, '0')}`,
         apply: (r2Url) => {
           updatedPage.imageUrl = r2Url;
         },
@@ -248,15 +300,22 @@ export async function mirrorBrochureImagesToR2(
         }
 
         const mirrorPromise = (async () => {
-          const key = imageKeyFor(task.originalUrl, brochure.id, task.context);
+          const key = imageKeyFor(task.originalUrl);
           const r2Url = `${config.publicUrl}/${key}`;
 
           if (await r2ObjectExists(config, key)) {
             return r2Url;
           }
 
-          const imageBuffer = await fetchImage(task.originalUrl);
-          await uploadToR2(config, key, imageBuffer);
+          // Während der Umstellung alte, noch gültige Objekte weiterverwenden.
+          // So erzeugt der erste Lauf keine zweite Kopie jedes bereits geladenen Bildes.
+          const legacyKey = legacyImageKeyFor(task.originalUrl, brochure.id, task.context);
+          if (await r2ObjectExists(config, legacyKey)) {
+            return `${config.publicUrl}/${legacyKey}`;
+          }
+
+          const storedImage = await downloadOptimizedImage(task.originalUrl);
+          await uploadToR2(config, key, storedImage);
 
           return r2Url;
         })();

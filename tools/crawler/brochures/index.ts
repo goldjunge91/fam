@@ -3,6 +3,11 @@ import { join } from 'node:path';
 import { assertCrawlerEnvironment } from './config';
 import { crawlAllLocations } from './engine';
 import { type LocationFilterOptions, loadTargetLocations } from './locations';
+import {
+  ensureLocalStorageDirectory,
+  loadLocalStorageConfig,
+  type LocalStorageConfig,
+} from './local-storage';
 import { loadR2Config } from './r2-storage';
 import { getSourcesByName } from './sources';
 import type { LocationDump } from './types';
@@ -78,6 +83,8 @@ function parseArgs(): {
   sourcesList?: string[];
   dryRun: boolean;
   fromBackup: boolean;
+  localDir?: string;
+  localPublicUrl?: string;
 } {
   const args = process.argv.slice(2);
   const filterOptions: LocationFilterOptions = {};
@@ -85,6 +92,8 @@ function parseArgs(): {
   let sourcesList: string[] | undefined;
   let dryRun = false;
   let fromBackup = false;
+  let localDir: string | undefined;
+  let localPublicUrl: string | undefined;
 
   for (const arg of args) {
     if (arg === '--all') {
@@ -125,6 +134,10 @@ function parseArgs(): {
       filterOptions.limit = Number.parseInt(arg.slice('--limit='.length), 10);
     } else if (arg.startsWith('--concurrency=')) {
       concurrency = Number.parseInt(arg.slice('--concurrency='.length), 10) || 12;
+    } else if (arg.startsWith('--local-dir=')) {
+      localDir = arg.slice('--local-dir='.length).trim();
+    } else if (arg.startsWith('--local-public-url=')) {
+      localPublicUrl = arg.slice('--local-public-url='.length).trim();
     } else if (arg.startsWith('--sources=')) {
       sourcesList = arg
         .slice('--sources='.length)
@@ -134,12 +147,32 @@ function parseArgs(): {
     }
   }
 
-  return { filterOptions, concurrency, sourcesList, dryRun, fromBackup };
+  return {
+    filterOptions,
+    concurrency,
+    sourcesList,
+    dryRun,
+    fromBackup,
+    localDir,
+    localPublicUrl,
+  };
 }
 
 async function main() {
   loadEnvFiles();
-  const { filterOptions, concurrency, sourcesList, dryRun, fromBackup } = parseArgs();
+  const {
+    filterOptions,
+    concurrency,
+    sourcesList,
+    dryRun,
+    fromBackup,
+    localDir,
+    localPublicUrl,
+  } = parseArgs();
+
+  if (fromBackup && localDir) {
+    throw new Error('--local-dir ist nur für einen neuen Crawl verfügbar, nicht für --from-backup.');
+  }
 
   console.log('\n🛒 ====================================================');
   console.log('   Fam Prospekte & Supermarkt-Crawler (Batch Engine)');
@@ -209,13 +242,34 @@ async function main() {
   const hasLiveTokens = Boolean(
     process.env.BRING_AUTH_TOKEN && process.env.BRING_API_KEY && process.env.BRING_USER_UUID,
   );
-  const r2Config = loadR2Config({ disabled: dryRun });
+  if (localPublicUrl && !localDir) {
+    throw new Error('--local-public-url benötigt zusätzlich --local-dir.');
+  }
+  if (localDir && !dryRun && !localPublicUrl) {
+    throw new Error(
+      '--local-dir ohne --dry-run würde lokale Dateien speichern, aber Supabase weiter mit Original-URLs veröffentlichen. Nutze --dry-run oder zusätzlich --local-public-url.',
+    );
+  }
+  const localStorage: LocalStorageConfig | undefined = localDir
+    ? loadLocalStorageConfig(localDir, localPublicUrl)
+    : undefined;
+  if (localStorage) {
+    await ensureLocalStorageDirectory(localStorage);
+  }
+  const r2Config = loadR2Config({ disabled: dryRun || Boolean(localStorage) });
 
   console.log(`📌 Filter: ${JSON.stringify(filterOptions)}`);
   console.log(`📍 Ziel-Standorte: ${locations.length} PLZ`);
   console.log(`🏬 Aktive Quellen: ${sources.map((s) => s.name).join(', ')}`);
   console.log(`🔑 Live-Tokens aktiv: ${hasLiveTokens ? 'JA (echte Prospektdaten)' : 'NEIN'}`);
-  console.log(`☁️ R2-Bild-Hosting: ${r2Config ? `JA (${r2Config.publicUrl})` : 'NEIN (Original-URLs)'}`);
+  console.log(
+    `☁️ R2-Bild-Hosting: ${r2Config ? `JA (${r2Config.publicUrl})` : 'NEIN (lokal/Original-URLs)'}`,
+  );
+  if (localStorage) {
+    console.log(
+      `💾 Lokale Bildablage: JA (${localStorage.directory})${localStorage.publicUrl ? ` | ${localStorage.publicUrl}` : ' | Original-URLs im Payload'}`,
+    );
+  }
   console.log(`⚡ Concurrency: ${concurrency} | Streaming-Upload: ${supabase ? 'JA' : 'NEIN (Dry-Run)'}\n`);
 
   let totalUploaded = 0;
@@ -225,6 +279,7 @@ async function main() {
     concurrency,
     sources,
     r2Config: r2Config || undefined,
+    localStorage,
     onProgress: (processed, total, uniqueCount) => {
       renderProgressBar(
         processed,

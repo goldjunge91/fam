@@ -27,6 +27,7 @@ function getLiveTokens(): LiveTokenConfig | null {
       join(process.cwd(), 'tokens_backup.env'),
       join(import.meta.dirname, '..', 'tokens_backup.env'),
       join(import.meta.dirname, '..', '..', '..', 'tokens_backup.env'),
+      join(import.meta.dirname, '..', '..', '..', 'brochure-viewer', 'tokens_backup.env'),
       join(import.meta.dirname, '..', '..', 'brochure-viewer', 'tokens_backup.env'),
     ];
 
@@ -400,9 +401,16 @@ function transformLiveBrochure(
   };
 }
 
+export type LiveOfferBrochureSourceOptions = {
+  storeNameIncludes?: string | readonly string[];
+  detailCacheByLocation?: boolean;
+};
+
 export class LiveOfferBrochureSource implements BrochureSource {
   name = 'live';
   private detailCache = new Map<string, Promise<unknown>>();
+
+  constructor(private readonly options: LiveOfferBrochureSourceOptions = {}) {}
 
   async fetchBrochuresForLocation(location: BrochureLocation): Promise<ScraperResult[]> {
     const tokens = getLiveTokens();
@@ -435,7 +443,30 @@ export class LiveOfferBrochureSource implements BrochureSource {
       const brochureId = typeof offer?.brn === 'string' ? offer.brn : null;
       if (!brochureId) continue;
 
-      let detailPromise = this.detailCache.get(brochureId);
+      const listCompany = asRecord(offer.company) ?? asRecord(offer.retailer);
+      const listStoreName = firstString(listCompany?.title, listCompany?.name);
+      const configuredStoreFilters = this.options.storeNameIncludes;
+      const storeNameFilters = (
+        typeof configuredStoreFilters === 'string'
+          ? [configuredStoreFilters]
+          : (configuredStoreFilters ?? [])
+      )
+        .map((filter) => filter.trim().toLocaleLowerCase('de-DE'))
+        .filter(Boolean);
+      if (
+        storeNameFilters.length > 0 &&
+        listStoreName &&
+        !storeNameFilters.some((filter) =>
+          listStoreName.toLocaleLowerCase('de-DE').includes(filter),
+        )
+      ) {
+        continue;
+      }
+
+      const detailCacheKey = this.options.detailCacheByLocation
+        ? `${brochureId}:${location.zipCode}:${location.latitude}:${location.longitude}`
+        : brochureId;
+      let detailPromise = this.detailCache.get(detailCacheKey);
       if (!detailPromise) {
         const detailParams = new URLSearchParams({
           brochureId,
@@ -446,8 +477,8 @@ export class LiveOfferBrochureSource implements BrochureSource {
         });
         const detailUrl = `https://production.bringapi.app/offers/rest/v1/offers/brochures/${encodeURIComponent(brochureId)}?${detailParams}`;
         detailPromise = fetchJsonWithRetry(detailUrl, headers);
-        this.detailCache.set(brochureId, detailPromise);
-        detailPromise.catch(() => this.detailCache.delete(brochureId));
+        this.detailCache.set(detailCacheKey, detailPromise);
+        detailPromise.catch(() => this.detailCache.delete(detailCacheKey));
       }
 
       try {
