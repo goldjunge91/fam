@@ -8,6 +8,7 @@ import { Screen } from '@/components/layout/screen';
 import { ThemedText } from '@/components/theme/themed-text';
 import { Button } from '@/components/ui/buttons';
 import { Card } from '@/components/ui/card';
+import { initMobileAds, useAdsEnabled, useAdsOverrideStore } from '@/features/ads';
 import { useSession } from '@/features/auth/session-provider';
 import { VISION_CAMERA_LAB_ENABLED } from '@/features/experimentalscreens/vision-camera-lab';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
@@ -93,6 +94,9 @@ export function DevToolsScreen() {
   const forcePremiumOverride = useForcePremiumOverrideStore((state) => state.override);
   const setForcePremiumOverride = useForcePremiumOverrideStore((state) => state.setOverride);
   const premiumOverrideEnabled = forcePremiumOverride ?? env.forcePremium;
+  const adsEnabled = useAdsEnabled();
+  const adsOverride = useAdsOverrideStore((state) => state.override);
+  const setAdsOverride = useAdsOverrideStore((state) => state.setOverride);
   // Ohne Schlüssel oder geladenen Wert ist das Flag standardmäßig deaktiviert.
   const testFeatureFlag = useFeatureFlag('test-feature', false);
   const posthogFlags = useFeatureFlags();
@@ -220,6 +224,33 @@ export function DevToolsScreen() {
             label={`Override zurücksetzen (Build-Wert: ${env.forcePremium ? 'an' : 'aus'})`}
             variant="secondary"
             onPress={() => setForcePremiumOverride(null)}
+          />
+        ) : null}
+        <Zeile
+          label="Werbung"
+          wert={adsEnabled ? 'an' : 'aus'}
+          tone={adsEnabled ? undefined : 'warning'}
+        />
+        <View className="dev-zeile">
+          <ThemedText type="small" themeColor="textSecondary">
+            Werbung umschalten (Override, überlebt Neustart)
+          </ThemedText>
+        </View>
+        <Button
+          label={`Werbung: ${adsEnabled ? 'AN' : 'AUS'}`}
+          variant={adsEnabled ? 'primary' : 'secondary'}
+          accessibilityLabel={adsEnabled ? 'Werbung ausschalten' : 'Werbung einschalten'}
+          onPress={() => {
+            const nextEnabled = !adsEnabled;
+            setAdsOverride(nextEnabled);
+            if (nextEnabled) void initMobileAds();
+          }}
+        />
+        {adsOverride !== null ? (
+          <Button
+            label={`Override zurücksetzen (Build-Wert: ${env.adsEnabled ? 'an' : 'aus'})`}
+            variant="secondary"
+            onPress={() => setAdsOverride(null)}
           />
         ) : null}
         <Zeile

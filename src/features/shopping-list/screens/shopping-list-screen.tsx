@@ -9,7 +9,7 @@ import { Button, HeaderIconButton } from '@/components/ui/buttons';
 import { Card } from '@/components/ui/card';
 import { EmptyState } from '@/components/ui/empty-state';
 import { Layout } from '@/constants/layout';
-import { useInterstitialAd } from '@/features/ads';
+import { useAdsEnabled, useInterstitialAd } from '@/features/ads';
 import { useSession } from '@/features/auth/session-provider';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { BarcodeScannerModal } from '@/features/inventory/barcode-scanner-modal';
@@ -17,7 +17,6 @@ import { useNavigationChrome } from '@/features/navigation/navigation-chrome-pro
 import { useProfileInitials } from '@/features/navigation/use-profile-initials';
 import { useHubGradient } from '@/hooks/use-hub-gradient';
 import { useTheme } from '@/hooks/use-theme';
-import { env } from '@/lib/env';
 import type { OpenFoodFactsProduct } from '@/lib/open-food-facts';
 import { ShoppingItemRow } from '../components/ui/shopping-item-row';
 import { ALL_FILTER, StorePickerMenu, UNASSIGNED_FILTER } from '../components/ui/store-picker-menu';
@@ -61,6 +60,7 @@ export function ShoppingListScreen() {
   const [selectedItemIds, setSelectedItemIds] = useState<Set<string>>(() => new Set());
   const [moveModalOpen, setMoveModalOpen] = useState(false);
   const pendingAdRef = useRef(false);
+  const adsEnabled = useAdsEnabled();
   const interstitialAd = useInterstitialAd();
   const theme = useTheme();
   const hubGradient = useHubGradient();
@@ -306,7 +306,7 @@ export function ShoppingListScreen() {
           </View>
         </View>
       ) : null}
-      {env.adsEnabled ? (
+      {adsEnabled ? (
         <Button
           size="compact"
           variant="secondary"
