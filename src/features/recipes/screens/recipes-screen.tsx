@@ -160,6 +160,17 @@ function matchesFilters(entry: RecipeEntry, filters: RecipeFilters) {
   return true;
 }
 
+/** Katalogrezepte bleiben im Karussell sichtbar, solange ihnen noch Nährwerte fehlen. */
+function matchesTemplateCalorieBucket(
+  entry: RecipeEntry,
+  bucket: (typeof CALORIE_BUCKETS)[number],
+) {
+  return (
+    entry.kcalPerServing === null ||
+    (entry.kcalPerServing !== null && isInCalorieBucket(entry.kcalPerServing, bucket))
+  );
+}
+
 function openEntry(entry: RecipeEntry) {
   if (entry.kind === 'catalog' && entry.slug) {
     router.push({ pathname: '/recipe/catalog/[slug]', params: { slug: entry.slug } });
@@ -287,8 +298,8 @@ export function RecipesScreen() {
             carbsGPerServing: null,
           }),
       )
-      .filter(() => !bucket)
-      .map(templateEntry);
+      .map(templateEntry)
+      .filter((entry) => !bucket || matchesTemplateCalorieBucket(entry, bucket));
   }, [searchedTemplates, templateEntries, templateCategoryFilter, templateCalorieFilter]);
 
   const mealSections = useMemo(

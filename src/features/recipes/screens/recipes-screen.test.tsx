@@ -138,6 +138,16 @@ describe('RecipesScreen — Entdecken', () => {
     expect(screen.queryByText('Unsere Rezepte')).not.toBeOnTheScreen();
   });
 
+  it('zeigt Katalogrezepte auch bei einem Kalorienbereich ohne hinterlegte Nährwerte', async () => {
+    const user = userEvent.setup();
+    await render(<RecipesScreen />);
+
+    await user.press(screen.getByRole('button', { name: '100–200 Kilokalorien' }));
+
+    expect(screen.getByText('100–200')).toBeOnTheScreen();
+    expect(screen.getByRole('button', { name: 'Pizza Home' })).toBeOnTheScreen();
+  });
+
   it('öffnet das Navigationsmenü über den Header', async () => {
     const user = userEvent.setup();
     await render(<RecipesScreen />);
