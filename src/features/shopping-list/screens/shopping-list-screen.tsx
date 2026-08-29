@@ -15,6 +15,7 @@ import { useNavigationChrome } from '@/features/navigation/navigation-chrome-pro
 import { useProfileInitials } from '@/features/navigation/use-profile-initials';
 import { useHubGradient } from '@/hooks/use-hub-gradient';
 import { useTheme } from '@/hooks/use-theme';
+import { env } from '@/lib/env';
 import { ShoppingItemRow } from '../components/ui/shopping-item-row';
 import { ALL_FILTER, StorePickerMenu, UNASSIGNED_FILTER } from '../components/ui/store-picker-menu';
 import { StoreSummaryCard } from '../components/ui/store-summary-card';
@@ -201,15 +202,17 @@ export function ShoppingListScreen() {
         />
         <Button size="compact" label="+ Artikel hinzufügen" onPress={() => setAddModalOpen(true)} />
       </View>
-      <Button
-        size="compact"
-        variant="secondary"
-        label={`🎬 Test Werbung (${interstitialAd.isLoaded ? 'Bereit' : 'Wird geladen...'})`}
-        onPress={() => {
-          console.log('[TestAd] Button gedrückt, isLoaded:', interstitialAd.isLoaded);
-          interstitialAd.show();
-        }}
-      />
+      {env.adsEnabled ? (
+        <Button
+          size="compact"
+          variant="secondary"
+          label={`🎬 Test Werbung (${interstitialAd.isLoaded ? 'Bereit' : 'Wird geladen...'})`}
+          onPress={() => {
+            console.log('[TestAd] Button gedrückt, isLoaded:', interstitialAd.isLoaded);
+            interstitialAd.show();
+          }}
+        />
+      ) : null}
     </View>
   );
 

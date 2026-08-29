@@ -51,6 +51,15 @@ export const env = {
     return isFlagEnabled(process.env.EXPO_PUBLIC_FORCE_PREMIUM);
   },
 
+  /**
+   * Schaltet Banner, Interstitials und die AdMob-SDK-Initialisierung global.
+   * Ohne Variable bleibt Werbung aus Kompatibilitätsgründen aktiviert.
+   */
+  get adsEnabled(): boolean {
+    const value = process.env.EXPO_PUBLIC_ADS_ENABLED?.trim().toLowerCase();
+    return value === undefined || value === '' || value === 'true' || value === '1';
+  },
+
   get revenueCatApiKeyIos(): string | undefined {
     return process.env.EXPO_PUBLIC_REVENUECAT_IOS_API_KEY?.trim() || undefined;
   },

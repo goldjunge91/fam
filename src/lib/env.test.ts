@@ -117,6 +117,39 @@ describe('env.offFactsOffline', () => {
   });
 });
 
+describe('env.adsEnabled', () => {
+  const original = process.env.EXPO_PUBLIC_ADS_ENABLED;
+
+  afterEach(() => {
+    if (original === undefined) {
+      delete process.env.EXPO_PUBLIC_ADS_ENABLED;
+    } else {
+      process.env.EXPO_PUBLIC_ADS_ENABLED = original;
+    }
+  });
+
+  it('ist ohne gesetzte Variable standardmaessig aktiviert', () => {
+    delete process.env.EXPO_PUBLIC_ADS_ENABLED;
+    expect(env.adsEnabled).toBe(true);
+  });
+
+  it('laesst sich mit false oder 0 deaktivieren', () => {
+    process.env.EXPO_PUBLIC_ADS_ENABLED = 'false';
+    expect(env.adsEnabled).toBe(false);
+
+    process.env.EXPO_PUBLIC_ADS_ENABLED = '0';
+    expect(env.adsEnabled).toBe(false);
+  });
+
+  it('akzeptiert true oder 1 als aktiviert', () => {
+    process.env.EXPO_PUBLIC_ADS_ENABLED = 'true';
+    expect(env.adsEnabled).toBe(true);
+
+    process.env.EXPO_PUBLIC_ADS_ENABLED = '1';
+    expect(env.adsEnabled).toBe(true);
+  });
+});
+
 describe('env.sentryDebug', () => {
   const original = process.env.EXPO_PUBLIC_SENTRY_DEBUG;
 
