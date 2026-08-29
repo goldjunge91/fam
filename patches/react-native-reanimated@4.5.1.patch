@@ -1,0 +1,19 @@
+diff --git a/android/CMakeLists.txt b/android/CMakeLists.txt
+index e7f2cf1..bc59d7b 100644
+--- a/android/CMakeLists.txt
++++ b/android/CMakeLists.txt
+@@ -40,11 +40,11 @@ set(PACKAGE_ROOT_DIR "${CMAKE_SOURCE_DIR}/..")
+ set(CODEGEN_OUTPUT_DIR "${BUILD_DIR}/generated/source/codegen/jni")
+ 
+ file(GLOB_RECURSE REANIMATED_COMMON_CPP_SOURCES
+-     "src/main/cpp/Common/reanimated/*.cpp")
++     "${COMMON_CPP_DIR}/reanimated/*.cpp")
+ file(GLOB_RECURSE REANIMATED_ANDROID_CPP_SOURCES
+-     "src/main/cpp/reanimated/*.cpp")
++     "${ANDROID_CPP_DIR}/reanimated/*.cpp")
+ file(GLOB_RECURSE REANIMATED_NATIVEVIEW_CPP_SOURCES
+-     "src/main/cpp/NativeView/react/renderer/components/rnreanimated/*.cpp")
++     "${NATIVEVIEW_DIR}/react/renderer/components/rnreanimated/*.cpp")
+ 
+ find_package(fbjni REQUIRED CONFIG)
+ find_package(ReactAndroid REQUIRED CONFIG)

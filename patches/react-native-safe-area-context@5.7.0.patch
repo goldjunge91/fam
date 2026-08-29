@@ -1,0 +1,24 @@
+diff --git a/android/src/main/jni/CMakeLists.txt b/android/src/main/jni/CMakeLists.txt
+index a081da2..4a282f1 100644
+--- a/android/src/main/jni/CMakeLists.txt
++++ b/android/src/main/jni/CMakeLists.txt
+@@ -4,13 +4,13 @@ set(CMAKE_VERBOSE_MAKEFILE ON)
+ set(LIB_LITERAL safeareacontext)
+ set(LIB_TARGET_NAME react_codegen_${LIB_LITERAL})
+ 
+-set(LIB_ANDROID_DIR ${CMAKE_CURRENT_SOURCE_DIR}/../../..)
+-set(LIB_COMMON_DIR ${CMAKE_CURRENT_SOURCE_DIR}/common)
+-set(LIB_ANDROID_GENERATED_JNI_DIR ${CMAKE_CURRENT_SOURCE_DIR}/generated)
+-set(LIB_ANDROID_GENERATED_COMPONENTS_DIR ${LIB_ANDROID_GENERATED_JNI_DIR}/react/renderer/components/${LIB_LITERAL})
++get_filename_component(LIB_PACKAGE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../../../.." ABSOLUTE)
++set(LIB_COMMON_DIR "${LIB_PACKAGE_DIR}/common/cpp")
++set(LIB_ANDROID_GENERATED_JNI_DIR "${LIB_PACKAGE_DIR}/android/build/generated/source/codegen/jni")
++set(LIB_ANDROID_GENERATED_COMPONENTS_DIR "${LIB_ANDROID_GENERATED_JNI_DIR}/react/renderer/components/${LIB_LITERAL}")
+ 
+-file(GLOB LIB_CUSTOM_SRCS *.cpp ${LIB_COMMON_DIR}/react/renderer/components/${LIB_LITERAL}/*.cpp)
+-file(GLOB LIB_CODEGEN_SRCS ${LIB_ANDROID_GENERATED_JNI_DIR}/*.cpp ${LIB_ANDROID_GENERATED_COMPONENTS_DIR}/*.cpp)
++file(GLOB LIB_CUSTOM_SRCS "${LIB_COMMON_DIR}/react/renderer/components/${LIB_LITERAL}/*.cpp")
++file(GLOB LIB_CODEGEN_SRCS "${LIB_ANDROID_GENERATED_JNI_DIR}/*.cpp" "${LIB_ANDROID_GENERATED_COMPONENTS_DIR}/*.cpp")
+ 
+ add_library(
+   ${LIB_TARGET_NAME}

@@ -59,7 +59,7 @@
         "react-hook-form": "^7.86.0",
         "react-native": "0.86.3",
         "react-native-gesture-handler": "~2.32.0",
-        "react-native-google-mobile-ads": "^16.5.0",
+        "react-native-google-mobile-ads": "16.3.4",
         "react-native-keyboard-controller": "1.21.9",
         "react-native-mmkv": "^4.3.2",
         "react-native-nitro-image": "^0.15.2",
@@ -114,11 +114,13 @@
         "start:local": "EXPO_NO_DOTENV=1 dotenv -o -e .env.local -- expo start",
         "start:development": "EXPO_NO_DOTENV=1 dotenv -o -e .env.development.local -- expo start",
         "clean": "expo prebuild --clean -p ios",
-        "android": "EXPO_NO_DOTENV=1 dotenv -o -e .env.local -- expo run:android",
-        "android:local": "EXPO_NO_DOTENV=1 dotenv -o -e .env.local -- expo run:android",
-        "android:development": "EXPO_NO_DOTENV=1 dotenv -o -e .env.development.local -- expo run:android",
-        "android:release": "EXPO_NO_DOTENV=1 dotenv -o -e .env.preview -- expo run:android --variant release",
+        "android": "bun scripts/run-android.ts --env .env.local",
+        "android:local": "bun scripts/run-android.ts --env .env.local",
+        "android:development": "bun scripts/run-android.ts --env .env.development.local",
+        "android:release": "bun scripts/run-android.ts --env .env.preview --variant release",
         "android:apk": "bun scripts/build-android-apk.ts",
+        "android:apk:clean": "bun scripts/build-android-apk.ts --clean",
+        "android:apk:debug": "bun scripts/build-android-apk.ts --variant debug",
         "ios": "EXPO_NO_DOTENV=1 dotenv -o -e .env.development.local -- expo run:ios",
         "ios:dev": "bash scripts/ios-dev.sh --profile development",
         "ios:local": "EXPO_NO_DOTENV=1 dotenv -o -e .env.local -- expo run:ios",
@@ -186,6 +188,8 @@
         "@sentry/cli"
     ],
     "patchedDependencies": {
-        "react-native-mmkv@4.3.2": "patches/react-native-mmkv@4.3.2.patch"
+        "react-native-mmkv@4.3.2": "patches/react-native-mmkv@4.3.2.patch",
+        "react-native-reanimated@4.5.1": "patches/react-native-reanimated@4.5.1.patch",
+        "react-native-safe-area-context@5.7.0": "patches/react-native-safe-area-context@5.7.0.patch"
     }
 }

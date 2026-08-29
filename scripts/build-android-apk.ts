@@ -1,16 +1,22 @@
 #!/usr/bin/env bun
 /**
- * build-android-apk.ts — Standalone Android Release APK Build Script.
+ * build-android-apk.ts — Standalone Android Release & Debug APK Build Script mit Logging.
  *
  *   bun run android:apk                        Standard: Zählt versionCode automatisch hoch,
- *                                              baut Release-APK & speichert sie in dist/
+ *                                              baut Release-APK, speichert APK in dist/
+ *                                              und schreibt Logfile nach logs/
+ *   bun run android:apk --clean                Bereinigt vor dem Build alle Caches (.cxx, build)
+ *   bun run android:apk --stacktrace           Führt Gradle mit --stacktrace aus
+ *   bun run android:apk --info                 Führt Gradle mit --info aus
+ *   bun run android:apk --variant debug        Baut eine Debug-APK (assembleDebug)
  *   bun run android:apk --no-bump              Kein Hochzählen der Build-Nummer (versionCode)
  *   bun run android:apk --version-code 10      Spezifischen versionCode setzen
  *   bun run android:apk --app-version 1.1.0    App-Version anpassen
+ *   bun run android:apk --log-file <pfad>      Eigenen Pfad für Logdatei angeben
  *   bun run android:apk --install              APK nach dem Bauen direkt via adb installieren
  */
 
-import { execSync, spawnSync } from 'node:child_process';
+import { execSync, spawn } from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
 
@@ -19,19 +25,7 @@ process.chdir(projectRoot);
 
 const appJsonPath = path.join(projectRoot, 'app.json');
 const envPath = path.join(projectRoot, '.env');
-
-function log(msg: string) {
-  console.log(`\n\x1b[1;34m==>\x1b[0m \x1b[1m${msg}\x1b[0m`);
-}
-
-function ok(msg: string) {
-  console.log(`\x1b[1;32m==> OK: ${msg}\x1b[0m`);
-}
-
-function die(msg: string): never {
-  console.error(`\n\x1b[1;31mFehler:\x1b[0m ${msg}`);
-  process.exit(1);
-}
+const isWindows = process.platform === 'win32';
 
 // ------------------------------------------------------------- 1. Argument Parsing
 const args = process.argv.slice(2);
@@ -39,6 +33,11 @@ let bumpVersionCode = true;
 let explicitVersionCode: number | null = null;
 let explicitAppVersion: string | null = null;
 let autoInstall = false;
+let shouldClean = false;
+let withStacktrace = false;
+let withInfo = false;
+let variant: 'release' | 'debug' = 'release';
+let customLogFile: string | null = null;
 
 for (let i = 0; i < args.length; i++) {
   const arg = args[i];
@@ -51,15 +50,36 @@ for (let i = 0; i < args.length; i++) {
     explicitAppVersion = args[++i];
   } else if (arg === '--install' || arg === '-i') {
     autoInstall = true;
+  } else if (arg === '--clean' || arg === '-c') {
+    shouldClean = true;
+  } else if (arg === '--stacktrace' || arg === '-s') {
+    withStacktrace = true;
+  } else if (arg === '--info') {
+    withInfo = true;
+  } else if (arg === '--variant') {
+    const v = args[++i]?.toLowerCase();
+    if (v === 'debug' || v === 'release') {
+      variant = v;
+    } else {
+      console.error(`Ungültige Variante: ${v}. Erlaubt: release, debug`);
+      process.exit(1);
+    }
+  } else if (arg === '--log-file') {
+    customLogFile = args[++i];
   } else if (arg === '--help' || arg === '-h') {
     console.log(`
 Verwendung:
   bun run android:apk [Optionen]
 
 Optionen:
+  --clean, -c            Bereinigt native C++ Caches (.cxx) und führt gradlew clean aus
+  --stacktrace, -s       Gradle mit detailliertem --stacktrace ausführen
+  --info                 Gradle mit verbose --info ausführen
+  --variant <typ>        Build-Variante wählen: 'release' (Standard) oder 'debug'
   --no-bump              versionCode nicht erhöhen
   --version-code <num>   Spezifischen versionCode setzen
   --app-version <str>    Spezifische Versionsnummer setzen (z. B. 1.2.0)
+  --log-file <pfad>      Benutzerdefinierten Pfad für die Log-Datei angeben
   --install, -i          Nach dem Build direkt per adb auf angeschlossenem Gerät installieren
   --help, -h             Diese Hilfe anzeigen
 `);
@@ -67,10 +87,88 @@ Optionen:
   }
 }
 
-// ------------------------------------------------------------- 2. .env Validierung
-log('Prüfe Umgebungsvariablen in .env für Android Release...');
+// ------------------------------------------------------------- 2. Logger Setup (Dual: Console + File)
+function formatTimestamp(d = new Date()): string {
+  const pad = (n: number) => String(n).padStart(2, '0');
+  const year = d.getFullYear();
+  const month = pad(d.getMonth() + 1);
+  const day = pad(d.getDate());
+  const hours = pad(d.getHours());
+  const minutes = pad(d.getMinutes());
+  const seconds = pad(d.getSeconds());
+  return `${year}-${month}-${day}_${hours}-${minutes}-${seconds}`;
+}
+
+// biome-ignore lint/suspicious/noControlCharactersInRegex: ANSI escape regex requires escape character
+const ANSI_REGEX = /\x1B(?:[@-Z\\-_]|\[[0-?]*[ -/]*[@-~])/g;
+function stripAnsi(str: string): string {
+  return str.replace(ANSI_REGEX, '');
+}
+
+const logsDir = path.join(projectRoot, 'logs');
+if (!fs.existsSync(logsDir)) {
+  fs.mkdirSync(logsDir, { recursive: true });
+}
+
+const logFilePath = customLogFile
+  ? path.resolve(projectRoot, customLogFile)
+  : path.join(logsDir, `android-build-${formatTimestamp()}.log`);
+
+const logStream = fs.createWriteStream(logFilePath, { flags: 'a' });
+
+const logger = {
+  log(msg: string) {
+    console.log(msg);
+    logStream.write(`${stripAnsi(msg)}\n`);
+  },
+  info(msg: string) {
+    console.log(`\n\x1b[1;34m==>\x1b[0m \x1b[1m${msg}\x1b[0m`);
+    logStream.write(`\n==> ${stripAnsi(msg)}\n`);
+  },
+  ok(msg: string) {
+    console.log(`\x1b[1;32m==> OK: ${msg}\x1b[0m`);
+    logStream.write(`==> OK: ${stripAnsi(msg)}\n`);
+  },
+  warn(msg: string) {
+    console.warn(`\x1b[1;33m==> WARNUNG: ${msg}\x1b[0m`);
+    logStream.write(`==> WARNUNG: ${stripAnsi(msg)}\n`);
+  },
+  error(msg: string) {
+    console.error(`\n\x1b[1;31mFehler:\x1b[0m ${msg}`);
+    logStream.write(`\nFehler: ${stripAnsi(msg)}\n`);
+  },
+  writeRaw(chunk: Buffer | string, isStderr = false) {
+    const text = chunk.toString();
+    if (isStderr) {
+      process.stderr.write(text);
+    } else {
+      process.stdout.write(text);
+    }
+    logStream.write(stripAnsi(text));
+  },
+  die(msg: string): never {
+    this.error(msg);
+    this.log(
+      `\n📄 Detailliertes Logfile gespeichert unter:\n   file:///${logFilePath.replace(/\\/g, '/')}\n`,
+    );
+    logStream.end();
+    process.exit(1);
+  },
+};
+
+logger.log(
+  `\x1b[1;36m═══════════════════════════════════════════════════════════════════════\x1b[0m`,
+);
+logger.log(`\x1b[1;36m  Android Build Runner (Variante: ${variant.toUpperCase()})\x1b[0m`);
+logger.log(`  Log-Datei: ${logFilePath}`);
+logger.log(
+  `\x1b[1;36m═══════════════════════════════════════════════════════════════════════\x1b[0m`,
+);
+
+// ------------------------------------------------------------- 3. .env Validierung
+logger.info(`Prüfe Umgebungsvariablen in .env für Android ${variant}...`);
 if (!fs.existsSync(envPath)) {
-  die(`.env-Datei nicht gefunden unter ${envPath}`);
+  logger.die(`.env-Datei nicht gefunden unter ${envPath}`);
 }
 
 const envContent = fs.readFileSync(envPath, 'utf8');
@@ -85,14 +183,13 @@ for (const line of envContent.split('\n')) {
 }
 
 if (!env.EXPO_PUBLIC_SUPABASE_URL || !env.EXPO_PUBLIC_SUPABASE_KEY) {
-  die('EXPO_PUBLIC_SUPABASE_URL oder EXPO_PUBLIC_SUPABASE_KEY fehlt in .env!');
+  logger.die('EXPO_PUBLIC_SUPABASE_URL oder EXPO_PUBLIC_SUPABASE_KEY fehlt in .env!');
 }
+logger.ok('Umgebungsvariablen sind gültig.');
 
-ok('Umgebungsvariablen sind gültig.');
-
-// ------------------------------------------------------------- 3. Version Management (app.json)
+// ------------------------------------------------------------- 4. Version Management (app.json)
 if (!fs.existsSync(appJsonPath)) {
-  die(`app.json nicht gefunden unter ${appJsonPath}`);
+  logger.die(`app.json nicht gefunden unter ${appJsonPath}`);
 }
 
 const appJson = JSON.parse(fs.readFileSync(appJsonPath, 'utf8'));
@@ -104,11 +201,11 @@ let newVersionCode = currentVersionCode;
 
 if (explicitVersionCode !== null) {
   newVersionCode = explicitVersionCode;
-} else if (bumpVersionCode) {
+} else if (bumpVersionCode && variant === 'release') {
   newVersionCode = currentVersionCode + 1;
 }
 
-log(
+logger.info(
   `App-Version: ${newAppVersion} | Android versionCode: ${newVersionCode} (vorher: ${currentAppVersion} / ${currentVersionCode})`,
 );
 
@@ -117,48 +214,131 @@ appJson.expo.android = appJson.expo.android || {};
 appJson.expo.android.versionCode = newVersionCode;
 
 fs.writeFileSync(appJsonPath, `${JSON.stringify(appJson, null, 2)}\n`);
-ok('app.json erfolgreich aktualisiert.');
+logger.ok('app.json erfolgreich aktualisiert.');
 
-// ------------------------------------------------------------- 4. Gradle Release Build
-log('Starte Gradle Release Build (assembleRelease)...');
+// ------------------------------------------------------------- 5. Cache Cleaning (Optional)
+function cleanNativeCaches() {
+  logger.info('Bereinige native Android- und CMake-Caches (.cxx / build)...');
+  const dirsToRemove = [
+    path.join(projectRoot, 'android', 'build'),
+    path.join(projectRoot, 'android', 'app', 'build'),
+    path.join(projectRoot, 'android', 'app', '.cxx'),
+  ];
+
+  const nodeModulesDir = path.join(projectRoot, 'node_modules');
+  if (fs.existsSync(nodeModulesDir)) {
+    const scanDirs = (dir: string, depth = 0) => {
+      if (depth > 4) return;
+      try {
+        const entries = fs.readdirSync(dir, { withFileTypes: true });
+        for (const entry of entries) {
+          if (entry.isDirectory()) {
+            const fullPath = path.join(dir, entry.name);
+            if (entry.name === '.cxx' || (entry.name === 'build' && dir.endsWith('android'))) {
+              dirsToRemove.push(fullPath);
+            } else if (!entry.name.startsWith('.') && entry.name !== 'src') {
+              scanDirs(fullPath, depth + 1);
+            }
+          }
+        }
+      } catch {
+        // Ignoriere Zugriffsfehler
+      }
+    };
+    scanDirs(nodeModulesDir);
+  }
+
+  for (const dir of dirsToRemove) {
+    if (fs.existsSync(dir)) {
+      try {
+        fs.rmSync(dir, { recursive: true, force: true });
+        logger.log(`  🗑️  Gelöscht: ${path.relative(projectRoot, dir)}`);
+      } catch (err) {
+        logger.warn(
+          `  Konnte Verzeichnis nicht löschen: ${path.relative(projectRoot, dir)} (${err})`,
+        );
+      }
+    }
+  }
+
+  logger.ok('Native Cache-Bereinigung abgeschlossen.');
+}
+
+if (shouldClean) {
+  cleanNativeCaches();
+}
+
+// ------------------------------------------------------------- 6. Gradle Build Execution
+const gradleTask = variant === 'release' ? 'assembleRelease' : 'assembleDebug';
+logger.info(`Starte Gradle Build (${gradleTask})...`);
 const startTime = Date.now();
 
-const isWindows = process.platform === 'win32';
-const gradlewCmd = isWindows ? path.join('android', 'gradlew.bat') : './gradlew';
+const gradlewCmd = isWindows ? path.join(projectRoot, 'android', 'gradlew.bat') : './gradlew';
 const cwd = isWindows ? projectRoot : path.join(projectRoot, 'android');
-const cmdArgs = isWindows
-  ? [
-      '-p',
-      'android',
-      'assembleRelease',
-      '-x',
-      'lint',
-      '-x',
-      'lintVitalRelease',
-      '-x',
-      'lintVitalAnalyzeRelease',
-    ]
-  : ['assembleRelease', '-x', 'lint', '-x', 'lintVitalRelease', '-x', 'lintVitalAnalyzeRelease'];
 
-const buildResult = spawnSync(gradlewCmd, cmdArgs, {
-  cwd,
-  stdio: 'inherit',
-  env: {
-    ...process.env,
-    ...env,
-  },
-});
+const cmdArgs: string[] = [];
+if (isWindows) {
+  cmdArgs.push('-p', 'android');
+}
+if (shouldClean) {
+  cmdArgs.push('clean');
+}
+cmdArgs.push(gradleTask);
 
-if (buildResult.status !== 0) {
-  die('Gradle assembleRelease fehlgeschlagen!');
+// Exclude Lint Tasks for faster builds
+cmdArgs.push('-x', 'lint', '-x', 'lintVitalRelease', '-x', 'lintVitalAnalyzeRelease');
+
+if (withStacktrace) {
+  cmdArgs.push('--stacktrace');
+}
+if (withInfo) {
+  cmdArgs.push('--info');
+}
+
+async function runGradleBuild(): Promise<number> {
+  return new Promise((resolve) => {
+    logger.log(`Ausführen: ${gradlewCmd} ${cmdArgs.join(' ')}\n`);
+    const child = spawn(gradlewCmd, cmdArgs, {
+      cwd,
+      env: {
+        ...process.env,
+        ...env,
+      },
+      shell: isWindows,
+    });
+
+    child.stdout.on('data', (chunk) => {
+      logger.writeRaw(chunk, false);
+    });
+
+    child.stderr.on('data', (chunk) => {
+      logger.writeRaw(chunk, true);
+    });
+
+    child.on('error', (err) => {
+      logger.error(`Fehler beim Starten von Gradle: ${err.message}`);
+      resolve(1);
+    });
+
+    child.on('close', (code) => {
+      resolve(code ?? 0);
+    });
+  });
+}
+
+const exitCode = await runGradleBuild();
+
+if (exitCode !== 0) {
+  logger.die(`Gradle ${gradleTask} mit Exit-Code ${exitCode} fehlgeschlagen!`);
 }
 
 const durationSec = Math.round((Date.now() - startTime) / 1000);
-ok(
+logger.ok(
   `Gradle Build erfolgreich abgeschlossen in ${Math.floor(durationSec / 60)}m ${durationSec % 60}s`,
 );
 
-// ------------------------------------------------------------- 5. APK-Datei lokalisieren & kopieren
+// ------------------------------------------------------------- 7. APK-Datei lokalisieren & kopieren
+const rawApkName = variant === 'release' ? 'app-release.apk' : 'app-debug.apk';
 const rawApkPath = path.join(
   projectRoot,
   'android',
@@ -166,11 +346,12 @@ const rawApkPath = path.join(
   'build',
   'outputs',
   'apk',
-  'release',
-  'app-release.apk',
+  variant,
+  rawApkName,
 );
+
 if (!fs.existsSync(rawApkPath)) {
-  die(`Erwartete APK-Datei wurde nicht gefunden unter: ${rawApkPath}`);
+  logger.die(`Erwartete APK-Datei wurde nicht gefunden unter: ${rawApkPath}`);
 }
 
 const distDir = path.join(projectRoot, 'dist');
@@ -178,40 +359,43 @@ if (!fs.existsSync(distDir)) {
   fs.mkdirSync(distDir, { recursive: true });
 }
 
-const targetApkName = `fam-v${newAppVersion}-b${newVersionCode}-release.apk`;
+const targetApkName = `fam-v${newAppVersion}-b${newVersionCode}-${variant}.apk`;
 const targetApkPath = path.join(distDir, targetApkName);
 
 fs.copyFileSync(rawApkPath, targetApkPath);
 const stats = fs.statSync(targetApkPath);
 const sizeMB = (stats.size / (1024 * 1024)).toFixed(2);
 
-ok(`APK erfolgreich nach dist/ kopiert: ${targetApkName} (${sizeMB} MB)`);
+logger.ok(`APK erfolgreich nach dist/ kopiert: ${targetApkName} (${sizeMB} MB)`);
 
-// ------------------------------------------------------------- 6. Optional: adb Install
+// ------------------------------------------------------------- 8. Optional: adb Install
 if (autoInstall) {
-  log('Versuche APK auf verbundenem Android-Gerät zu installieren (adb install)...');
+  logger.info('Versuche APK auf verbundenem Android-Gerät zu installieren (adb install)...');
   try {
     execSync(`adb install -r "${targetApkPath}"`, { stdio: 'inherit' });
-    ok('App erfolgreich auf Gerät installiert!');
+    logger.ok('App erfolgreich auf Gerät installiert!');
   } catch {
-    console.warn(
-      '\x1b[33mWarnung: adb install fehlgeschlagen. Ist ein Android-Gerät mit aktiviertem USB-Debugging angeschlossen?\x1b[0m',
+    logger.warn(
+      'adb install fehlgeschlagen. Ist ein Android-Gerät mit aktiviertem USB-Debugging angeschlossen?',
     );
   }
 }
 
-// ------------------------------------------------------------- 7. Zusammenfassung
-console.log(
+// ------------------------------------------------------------- 9. Zusammenfassung
+logger.log(
   '\n\x1b[1;32m═══════════════════════════════════════════════════════════════════════\x1b[0m',
 );
-console.log(
-  `\x1b[1;32m  🎉 ANDROID RELEASE BUILD ERFOLGREICH: fam ${newAppVersion} (${newVersionCode})\x1b[0m`,
+logger.log(
+  `\x1b[1;32m  🎉 ANDROID ${variant.toUpperCase()} BUILD ERFOLGREICH: fam ${newAppVersion} (${newVersionCode})\x1b[0m`,
 );
-console.log(`  Größe:      ${sizeMB} MB`);
-console.log(`  APK-Pfad:   ${targetApkPath}`);
-console.log('\n  Installation auf Android-Hardware:');
-console.log(`  • Per USB:   adb install -r "${targetApkPath}"`);
-console.log('  • Oder:      Datei einfach per USB/Messenger/Drive aufs Handy laden und antippen.');
-console.log(
+logger.log(`  Größe:      ${sizeMB} MB`);
+logger.log(`  APK-Pfad:   ${targetApkPath}`);
+logger.log(`  Log-Datei:  ${logFilePath}`);
+logger.log('\n  Installation auf Android-Hardware:');
+logger.log(`  • Per USB:   adb install -r "${targetApkPath}"`);
+logger.log('  • Oder:      Datei einfach per USB/Messenger/Drive aufs Handy laden und antippen.');
+logger.log(
   '\x1b[1;32m═══════════════════════════════════════════════════════════════════════\x1b[0m\n',
 );
+
+logStream.end();
