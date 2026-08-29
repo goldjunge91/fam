@@ -92,9 +92,7 @@ Optionen:
 }
 
 if (!approveRebuild) {
-  console.error(
-    'Native APK-Kompilierung ist gesperrt. Bitte explizit --approve-rebuild angeben.',
-  );
+  console.error('Native APK-Kompilierung ist gesperrt. Bitte explizit --approve-rebuild angeben.');
   process.exit(1);
 }
 
@@ -297,15 +295,17 @@ if (shouldClean) {
 // Liest androidAppId aus app.json und schreibt/aktualisiert den meta-data-Eintrag im Manifest.
 // Das verhindert den "Invalid application ID"-Crash beim App-Start ohne expo prebuild zu benötigen.
 const manifestPath = path.join(projectRoot, 'android', 'app', 'src', 'main', 'AndroidManifest.xml');
-const admobAppId = (appJson.expo?.plugins as unknown[])
-  ?.find((p): p is [string, Record<string, string>] => Array.isArray(p) && p[0] === 'react-native-google-mobile-ads')
-  ?.[1]?.androidAppId;
+const admobAppId = (appJson.expo?.plugins as unknown[])?.find(
+  (p): p is [string, Record<string, string>] =>
+    Array.isArray(p) && p[0] === 'react-native-google-mobile-ads',
+)?.[1]?.androidAppId;
 
 if (admobAppId) {
   logger.info(`Injiziere AdMob Android App-ID ins AndroidManifest: ${admobAppId}`);
   let manifest = fs.readFileSync(manifestPath, 'utf8');
   const metaTag = `<meta-data android:name="com.google.android.gms.ads.APPLICATION_ID" android:value="${admobAppId}" tools:replace="android:value"/>`;
-  const existingEntry = /\s*<meta-data android:name="com\.google\.android\.gms\.ads\.APPLICATION_ID"[^/]*\/>/;
+  const existingEntry =
+    /\s*<meta-data android:name="com\.google\.android\.gms\.ads\.APPLICATION_ID"[^/]*\/>/;
   if (existingEntry.test(manifest)) {
     // Aktualisiere bestehenden Eintrag
     manifest = manifest.replace(existingEntry, `\n    ${metaTag}`);
@@ -342,7 +342,11 @@ cmdArgs.push('-x', 'lint', '-x', 'lintVitalRelease', '-x', 'lintVitalAnalyzeRele
 // PostHog Sourcemap-Upload überspringen wenn keine Credentials konfiguriert sind
 const hasPosthogCreds = !!(env.POSTHOG_CLI_API_KEY && env.POSTHOG_CLI_PROJECT_ID);
 if (!hasPosthogCreds) {
-  cmdArgs.push('-x', 'createBundleReleaseJsAndAssets_PostHogUpload_com.goldjunge91.fam', '--continue');
+  cmdArgs.push(
+    '-x',
+    'createBundleReleaseJsAndAssets_PostHogUpload_com.goldjunge91.fam',
+    '--continue',
+  );
   logger.warn('POSTHOG_CLI_API_KEY fehlt — PostHog Sourcemap-Upload wird übersprungen.');
 }
 

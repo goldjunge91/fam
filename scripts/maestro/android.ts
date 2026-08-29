@@ -23,9 +23,7 @@ function findAdb(): string | null {
 function findConnectedAndroidDevice(): string | null {
   const adb = findAdb();
   if (!adb) {
-    console.error(
-      'ADB wurde nicht gefunden. Setze ANDROID_HOME, ANDROID_SDK_ROOT oder ADB_BIN.',
-    );
+    console.error('ADB wurde nicht gefunden. Setze ANDROID_HOME, ANDROID_SDK_ROOT oder ADB_BIN.');
     return null;
   }
 

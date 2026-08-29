@@ -277,24 +277,29 @@ async function status(): Promise<void> {
   const current = await assertNativeBaseline(lock);
   log('Native Baseline ist unverändert.');
 
-  let missingArtifacts = 0;
+  let invalidArtifacts = 0;
   for (const [targetName, targetLock] of Object.entries(lock.artifacts) as [
     TargetName,
     ArtifactLock,
   ][]) {
+    const artifactPath = join(PROJECT_ROOT, targetLock.relativePath);
+    if (!existsSync(artifactPath)) {
+      console.warn(`  Artefakt nicht lokal vorhanden: ${targetLock.relativePath}`);
+      continue;
+    }
     try {
       assertArtifact(targetLock, targetName, current[TARGETS[targetName].platform].hash);
       log(`Artefakt gültig: ${targetName}`);
     } catch (error) {
-      missingArtifacts += 1;
+      invalidArtifacts += 1;
       console.warn(`  ${error instanceof Error ? error.message : String(error)}`);
     }
   }
 
   if (Object.keys(lock.artifacts).length === 0) {
     log('Noch keine Binärartefakte registriert. Die Baseline ist dennoch gültig.');
-  } else if (missingArtifacts > 0) {
-    fail(`${missingArtifacts} registrierte Artefakte fehlen oder sind ungültig.`);
+  } else if (invalidArtifacts > 0) {
+    fail(`${invalidArtifacts} registrierte Artefakte sind ungültig.`);
   }
 }
 
