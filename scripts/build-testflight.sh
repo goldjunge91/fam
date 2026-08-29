@@ -31,6 +31,7 @@ EXPLICIT_BUILD_NUMBER=""
 EXPLICIT_APP_VERSION=""
 SKIP_PODS=false
 CLEAN=false
+APPROVE_REBUILD=false
 
 while [ $# -gt 0 ]; do
   case "$1" in
@@ -55,6 +56,10 @@ while [ $# -gt 0 ]; do
       CLEAN=true
       shift
       ;;
+    --approve-rebuild)
+      APPROVE_REBUILD=true
+      shift
+      ;;
     -h | --help)
       sed -n '2,14p' "$0" | sed 's/^# \{0,1\}//'
       exit 0
@@ -64,6 +69,8 @@ while [ $# -gt 0 ]; do
       ;;
   esac
 done
+
+[ "$APPROVE_REBUILD" = true ] || die "Release-Build blockiert. Bitte explizit --approve-rebuild angeben."
 
 # ------------------------------------------------------------- Voraussetzungen
 for cmd in node xcodebuild pod; do

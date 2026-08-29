@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>fam · Vorrat mit MHD-Losen</title>
+    <style>
+      :root {
+        --canvas: #eee5eb;
+        --paper: #fffaf7;
+        --surface: #fffdfb;
+        --selected: #f2e9ef;
+        --ink: #211b22;
+        --muted: #766b76;
+        --line: #ded2dc;
+        --accent: #a05e84;
+        --accent-soft: #f1dce8;
+        --warning: #b77927;
+        --danger: #bc5964;
+        --success: #538467;
+        --shadow: 0 18px 42px rgba(73, 43, 67, .16);
+      }
+      * { box-sizing: border-box; }
+      body { margin: 0; color: var(--ink); background: var(--canvas); font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif; }
+      .page { max-width: 1220px; margin: 0 auto; padding: 42px 24px 64px; }
+      .intro { max-width: 760px; margin-bottom: 28px; }
+      .eyebrow { color: var(--accent); font-size: 12px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+      h1 { margin: 8px 0 10px; font-size: 34px; line-height: 1.08; letter-spacing: -.04em; }
+      .intro p { color: var(--muted); font-size: 16px; line-height: 1.5; margin: 0; }
+      .tabs { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 22px; }
+      .tab { border: 1px solid var(--line); border-radius: 999px; background: var(--surface); color: var(--muted); padding: 10px 14px; font: inherit; font-size: 14px; cursor: pointer; }
+      .tab.active { border-color: var(--accent); background: var(--accent); color: #fff; }
+      .variant { display: none; align-items: flex-start; gap: 34px; }
+      .variant.active { display: flex; }
+      .explanation { flex: 1; max-width: 430px; padding-top: 24px; }
+      .explanation h2 { margin: 0 0 10px; font-size: 23px; letter-spacing: -.025em; }
+      .explanation p { color: var(--muted); line-height: 1.55; }
+      .decision { margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--line); }
+      .decision strong { display: block; margin-bottom: 6px; }
+      .decision span { color: var(--success); font-weight: 700; }
+      .phone { position: relative; width: 382px; min-width: 382px; min-height: 730px; border: 9px solid #30272f; border-radius: 40px; overflow: hidden; background: var(--paper); box-shadow: var(--shadow); }
+      .status { height: 28px; background: #f6ecef; color: var(--muted); display: flex; justify-content: space-between; align-items: center; padding: 0 22px; font-size: 11px; font-weight: 700; }
+      .screen { padding: 20px 18px 28px; }
+      .nav { display: flex; justify-content: space-between; align-items: center; margin-bottom: 22px; }
+      .nav-title { font-size: 25px; font-weight: 750; letter-spacing: -.035em; }
+      .avatar { width: 30px; height: 30px; border-radius: 50%; background: var(--accent-soft); color: var(--accent); display: grid; place-items: center; font-size: 12px; font-weight: 800; }
+      .summary { display: flex; gap: 9px; margin-bottom: 16px; }
+      .summary-item { flex: 1; padding: 13px 12px; border: 1px solid var(--line); border-radius: 15px; background: var(--surface); }
+      .summary-number { display: block; font-size: 23px; font-weight: 800; letter-spacing: -.04em; }
+      .summary-label { display: block; color: var(--muted); font-size: 11px; line-height: 1.2; margin-top: 4px; }
+      .toolbar { display: flex; gap: 8px; margin-bottom: 18px; }
+      .control { border: 1px solid var(--line); border-radius: 999px; background: var(--surface); color: var(--muted); padding: 10px 12px; font-size: 12px; }
+      .control.search { flex: 1; }
+      .section-label { color: var(--muted); font-size: 11px; font-weight: 800; letter-spacing: .11em; text-transform: uppercase; margin: 4px 2px 8px; }
+      .group { position: relative; display: flex; gap: 12px; align-items: center; padding: 15px 4px 15px 13px; border-bottom: 1px solid var(--line); }
+      .bar { width: 5px; align-self: stretch; min-height: 49px; border-radius: 4px; background: var(--success); }
+      .bar.warning { background: var(--warning); }
+      .bar.danger { background: var(--danger); }
+      .group-main { min-width: 0; flex: 1; }
+      .group-name { font-size: 16px; font-weight: 750; }
+      .group-meta { color: var(--muted); font-size: 12px; line-height: 1.35; margin-top: 4px; }
+      .group-amount { text-align: right; font-size: 15px; font-weight: 800; white-space: nowrap; }
+      .chevron { color: var(--muted); font-size: 23px; margin-left: 3px; }
+      .sheet-backdrop { position: absolute; inset: 0; background: rgba(33, 27, 34, .24); }
+      .sheet { position: absolute; left: 9px; right: 9px; bottom: 9px; padding: 13px 15px 17px; border-radius: 23px; background: var(--surface); box-shadow: 0 -10px 32px rgba(73, 43, 67, .18); }
+      .handle { width: 42px; height: 4px; border-radius: 3px; background: var(--line); margin: 0 auto 16px; }
+      .sheet-head { display: flex; justify-content: space-between; align-items: flex-start; padding-bottom: 14px; border-bottom: 1px solid var(--line); }
+      .sheet-title { font-size: 21px; font-weight: 800; letter-spacing: -.03em; }
+      .sheet-total { color: var(--muted); font-size: 12px; margin-top: 3px; }
+      .sheet-close { color: var(--muted); font-size: 22px; }
+      .lot { display: flex; align-items: center; gap: 10px; padding: 13px 0; border-bottom: 1px solid var(--line); }
+      .lot-date { flex: 1; }
+      .lot-date strong { display: block; font-size: 14px; }
+      .lot-date span { display: block; color: var(--muted); font-size: 12px; margin-top: 3px; }
+      .lot-amount { font-size: 14px; font-weight: 800; }
+      .lot-edit { color: var(--accent); font-size: 12px; font-weight: 750; }
+      .sheet-actions { display: flex; gap: 8px; padding-top: 14px; }
+      .action { flex: 1; border: 0; border-radius: 12px; padding: 13px 7px; background: var(--selected); color: var(--ink); font-size: 12px; font-weight: 750; text-align: center; }
+      .action.primary { background: var(--accent); color: #fff; }
+      .inline-lots { display: none; padding: 0 0 6px 30px; }
+      .inline-lots.open { display: block; }
+      .inline-lot { display: flex; justify-content: space-between; gap: 10px; padding: 9px 0; color: var(--muted); font-size: 12px; border-bottom: 1px solid var(--line); }
+      .mhd-section { margin-top: 15px; }
+      .mhd-heading { display: flex; justify-content: space-between; align-items: baseline; padding: 8px 2px; }
+      .mhd-heading strong { font-size: 13px; }
+      .mhd-heading span { color: var(--muted); font-size: 11px; }
+      .note { margin-top: 18px; padding: 12px; border-left: 3px solid var(--accent); background: var(--accent-soft); color: #624257; font-size: 12px; line-height: 1.45; }
+      @media (max-width: 800px) {
+        .page { padding: 26px 16px 44px; }
+        .variant.active { flex-direction: column; }
+        .explanation { padding-top: 0; max-width: none; }
+        .phone { align-self: center; width: min(382px, 100%); min-width: 0; }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="page">
+      <section class="intro">
+        <div class="eyebrow">Vorrat · Design-Audit Mockup</div>
+        <h1>Ein Artikel, mehrere MHDs</h1>
+        <p>Die Liste zeigt den Bestand addiert. Das MHD bleibt auf Los-Ebene vollständig sichtbar und wird beim Verbrauch nach dem frühesten Datum aufgelöst.</p>
+      </section>
+      <nav class="tabs" aria-label="Mockup-Varianten">
+        <button class="tab active" data-variant="a">A · Detail-Sheet</button>
+        <button class="tab" data-variant="b">B · Inline-Aufklappen</button>
+        <button class="tab" data-variant="c">C · MHD-Abschnitte</button>
+      </nav>
+      <section class="variant active" data-panel="a">
+        <div class="explanation">
+          <h2>A · Artikelgruppe mit Detail-Sheet</h2>
+          <p>Die Hauptliste bleibt schnell scannbar. Eine Zeile zeigt die addierte Menge und das nächste MHD. Ein Tap öffnet alle Lose, inklusive Menge und Lagerort.</p>
+          <div class="decision"><strong>Empfehlung</strong><span>Beste Balance aus Übersicht und MHD-Transparenz.</span></div>
+          <div class="note">Verbrauchen nimmt automatisch zuerst das Los mit dem frühesten MHD. Bei gleichem Artikel in mehreren Lagerorten zeigt das Sheet die Aufteilung.</div>
+        </div>
+        <div class="phone">
+          <div class="status"><span>9:41</span><span>••• 100%</span></div>
+          <div class="screen">
+            <div class="nav"><div class="nav-title">Vorrat</div><div class="avatar">MS</div></div>
+            <div class="summary"><div class="summary-item"><span class="summary-number">12</span><span class="summary-label">Artikelgruppen</span></div><div class="summary-item"><span class="summary-number">18</span><span class="summary-label">Einheiten</span></div><div class="summary-item"><span class="summary-number">3</span><span class="summary-label">MHD bald</span></div></div>
+            <div class="toolbar"><div class="control">Alle⌄</div><div class="control search">⌕ Artikel suchen</div></div>
+            <div class="section-label">Nach MHD</div>
+            <div class="group"><div class="bar warning"></div><div class="group-main"><div class="group-name">Milch 1,5 %</div><div class="group-meta">2 MHD · nächstes: 03.09.2026</div></div><div class="group-amount">4 l</div><div class="chevron">›</div></div>
+            <div class="group"><div class="bar danger"></div><div class="group-main"><div class="group-name">Joghurt Natur</div><div class="group-meta">heute · 1 MHD</div></div><div class="group-amount">4 Becher</div><div class="chevron">›</div></div>
+            <div class="group"><div class="bar"></div><div class="group-main"><div class="group-name">Tomaten</div><div class="group-meta">1 MHD · Kühlschrank</div></div><div class="group-amount">6 Stück</div><div class="chevron">›</div></div>
+          </div>
+          <div class="sheet-backdrop"></div>
+          <div class="sheet">
+            <div class="handle"></div>
+            <div class="sheet-head"><div><div class="sheet-title">Milch 1,5 %</div><div class="sheet-total">4 l gesamt · 2 MHD-Einträge</div></div><div class="sheet-close">×</div></div>
+            <div class="lot"><div class="bar warning"></div><div class="lot-date"><strong>03.09.2026 · noch 5 Tage</strong><span>Kühlschrank</span></div><div class="lot-amount">2 l</div><div class="lot-edit">Ändern</div></div>
+            <div class="lot"><div class="bar"></div><div class="lot-date"><strong>12.09.2026</strong><span>Kühlschrank</span></div><div class="lot-amount">2 l</div><div class="lot-edit">Ändern</div></div>
+            <div class="sheet-actions"><div class="action primary">Los antippen</div><div class="action">Long-Press: Info</div></div>
+          </div>
+        </div>
+      </section>
+      <section class="variant" data-panel="b">
+        <div class="explanation">
+          <h2>B · Inline-Aufklappen</h2>
+          <p>Der Nutzer bleibt in der Liste und sieht die Lose direkt unter dem Artikel. Das ist schnell verständlich, kann bei vielen Artikeln aber zu einer unruhigen, langen Liste führen.</p>
+          <div class="decision"><strong>Geeignet, wenn</strong><span>die Zahl der MHD-Lose pro Artikel klein bleibt.</span></div>
+          <div class="note">Die Gesamtzeile bleibt der Touch-Zielpunkt. Die einzelnen Lose erhalten nur sekundäre Aktionen, damit die Liste nicht wie eine Tabelle wirkt.</div>
+        </div>
+        <div class="phone">
+          <div class="status"><span>9:41</span><span>••• 100%</span></div>
+          <div class="screen">
+            <div class="nav"><div class="nav-title">Vorrat</div><div class="avatar">MS</div></div>
+            <div class="summary"><div class="summary-item"><span class="summary-number">12</span><span class="summary-label">Gruppen</span></div><div class="summary-item"><span class="summary-number">18</span><span class="summary-label">Einheiten</span></div></div>
+            <div class="toolbar"><div class="control">Alle⌄</div><div class="control search">⌕ Artikel suchen</div></div>
+            <div class="section-label">Nach MHD</div>
+            <div class="group"><div class="bar warning"></div><div class="group-main"><div class="group-name">Milch 1,5 %</div><div class="group-meta">2 MHD · nächstes: 03.09.2026</div><div class="inline-lots open"><div class="inline-lot"><span>03.09.2026 · Kühlschrank</span><strong>2 l</strong></div><div class="inline-lot"><span>12.09.2026 · Kühlschrank</span><strong>2 l</strong></div></div></div><div class="group-amount">4 l</div><div class="chevron">⌄</div></div>
+            <div class="group"><div class="bar danger"></div><div class="group-main"><div class="group-name">Joghurt Natur</div><div class="group-meta">heute · 1 MHD</div></div><div class="group-amount">4 Becher</div><div class="chevron">›</div></div>
+          </div>
+        </div>
+      </section>
+      <section class="variant" data-panel="c">
+        <div class="explanation">
+          <h2>C · MHD-Abschnitte als Primärstruktur</h2>
+          <p>Jedes MHD steht sichtbar in der Liste. Die Artikelmenge wird innerhalb des Datums addiert. Diese Variante macht Ablaufplanung am deutlichsten, opfert aber die schnelle Produktsicht.</p>
+          <div class="decision"><strong>Geeignet, wenn</strong><span>MHD-Planung wichtiger ist als ein kompakter Bestand.</span></div>
+          <div class="note">Mehrere Lose desselben Artikels mit gleichem MHD werden in einem Abschnitt addiert. Unterschiedliche MHDs bleiben getrennt.</div>
+        </div>
+        <div class="phone">
+          <div class="status"><span>9:41</span><span>••• 100%</span></div>
+          <div class="screen">
+            <div class="nav"><div class="nav-title">Vorrat</div><div class="avatar">MS</div></div>
+            <div class="summary"><div class="summary-item"><span class="summary-number">12</span><span class="summary-label">Artikelgruppen</span></div><div class="summary-item"><span class="summary-number">3</span><span class="summary-label">MHD bald</span></div></div>
+            <div class="toolbar"><div class="control">Alle⌄</div><div class="control search">⌕ Artikel suchen</div></div>
+            <div class="mhd-section"><div class="mhd-heading"><strong>Heute · 29.08.</strong><span>1 Artikel</span></div><div class="group"><div class="bar danger"></div><div class="group-main"><div class="group-name">Joghurt Natur</div><div class="group-meta">Kühlschrank · 1 MHD</div></div><div class="group-amount">4 Becher</div><div class="chevron">›</div></div></div>
+            <div class="mhd-section"><div class="mhd-heading"><strong>03.09.2026 · noch 5 Tage</strong><span>2 Artikel</span></div><div class="group"><div class="bar warning"></div><div class="group-main"><div class="group-name">Milch 1,5 %</div><div class="group-meta">Kühlschrank · Gruppe mit 2 MHD</div></div><div class="group-amount">4 l</div><div class="chevron">›</div></div><div class="group"><div class="bar warning"></div><div class="group-main"><div class="group-name">Beeren</div><div class="group-meta">Kühlschrank · 1 MHD</div></div><div class="group-amount">2 Schalen</div><div class="chevron">›</div></div></div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <script>
+      const tabs = document.querySelectorAll('.tab');
+      const panels = document.querySelectorAll('.variant');
+      tabs.forEach((tab) => tab.addEventListener('click', () => {
+        tabs.forEach((item) => item.classList.toggle('active', item === tab));
+        panels.forEach((panel) => panel.classList.toggle('active', panel.dataset.panel === tab.dataset.variant));
+      }));
+    </script>
+  </body>
+</html>

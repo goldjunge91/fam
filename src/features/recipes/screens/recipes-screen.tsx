@@ -34,8 +34,8 @@ import {
   recipeFilterCount,
 } from '../components/recipe-filter-modal';
 import { RecipePreviewCard } from '../components/recipe-preview-card';
-import { type DishType, type RecipeListItem, useRecipes } from '../data/use-recipes';
 import { type RecipeFavoriteKey, useRecipeFavorites } from '../domain/recipe-favorites';
+import { type DishType, type RecipeListItem, useRecipes } from '../hooks/use-recipes';
 import { DIFFICULTY_LABELS } from '../wizard/recipe-metadata-options';
 
 /** Reihenfolge der "Nach Mahlzeiten"-Carousels — Snack und Dessert teilen sich eine Reihe. */
@@ -158,6 +158,17 @@ function matchesFilters(entry: RecipeEntry, filters: RecipeFilters) {
   }
 
   return true;
+}
+
+/** Katalogrezepte bleiben im Karussell sichtbar, solange ihnen noch Nährwerte fehlen. */
+function matchesTemplateCalorieBucket(
+  entry: RecipeEntry,
+  bucket: (typeof CALORIE_BUCKETS)[number],
+) {
+  return (
+    entry.kcalPerServing === null ||
+    (entry.kcalPerServing !== null && isInCalorieBucket(entry.kcalPerServing, bucket))
+  );
 }
 
 function openEntry(entry: RecipeEntry) {
@@ -287,8 +298,8 @@ export function RecipesScreen() {
             carbsGPerServing: null,
           }),
       )
-      .filter(() => !bucket)
-      .map(templateEntry);
+      .map(templateEntry)
+      .filter((entry) => !bucket || matchesTemplateCalorieBucket(entry, bucket));
   }, [searchedTemplates, templateEntries, templateCategoryFilter, templateCalorieFilter]);
 
   const mealSections = useMemo(

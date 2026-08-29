@@ -41,6 +41,7 @@ export function formatPackageSize(quantity: number | null, unit: string | null):
 
 function toProduct(suggestion: ShoppingProductSuggestion): OpenFoodFactsProduct {
   return {
+    productId: suggestion.product_id ?? undefined,
     barcode: suggestion.barcode ?? '',
     name: suggestion.name,
     brand: suggestion.brand ?? undefined,

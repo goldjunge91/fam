@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { type StyleProp, StyleSheet, View, type ViewStyle } from 'react-native';
 import {
   BannerAd,
@@ -10,6 +10,7 @@ import {
 import { AdFormat } from 'react-native-purchases';
 import { usePremium } from '@/features/premium/premium-provider';
 import { env } from '@/lib/env';
+import { useAdsEnabled } from '../ads-override';
 import { trackAdRevenueToRevenueCat } from '../ads-service';
 
 export interface AdBannerProps {
@@ -59,13 +60,22 @@ export function AdBanner({
   onAdFailedToLoad,
 }: AdBannerProps) {
   const { isPremium } = usePremium();
+  const adsEnabled = useAdsEnabled();
   const [failedToLoad, setFailedToLoad] = useState(false);
+  const previousAdsEnabledRef = useRef(adsEnabled);
+
+  useEffect(() => {
+    if (adsEnabled && !previousAdsEnabledRef.current) {
+      setFailedToLoad(false);
+    }
+    previousAdsEnabledRef.current = adsEnabled;
+  }, [adsEnabled]);
 
   const defaultUnitId = __DEV__ ? TestIds.BANNER : env.adMobBannerIdIos;
   const resolvedUnitId = unitId ?? defaultUnitId;
 
   // Premium-Nutzer sehen keinerlei Werbung
-  if (!env.adsEnabled || isPremium || failedToLoad) {
+  if (!adsEnabled || isPremium || failedToLoad) {
     return null;
   }
 

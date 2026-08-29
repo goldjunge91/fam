@@ -53,6 +53,7 @@ PROFILE_EXPLICIT=false
 BUILD_MODE="local"       # "local" oder "cloud"
 DEVICE_NAME="iPhone 17 Pro"
 REUSE_LAST=false
+APPROVE_REBUILD=false
 START_METRO=true
 BACKGROUND_METRO=false
 RESTART_METRO=false
@@ -232,6 +233,7 @@ detect_target_device() {
 # ------------------------------------------------------------- Release Archive Build (TestFlight / Store)
 run_release_archive() {
   local prof="$1"
+  [ "$APPROVE_REBUILD" = true ] || die "Release-Build blockiert. Bitte explizit --approve-rebuild angeben."
   validate_env_for_profile "$prof"
 
   say "Erstelle iOS Release-Archiv für Profil: $prof"
@@ -307,81 +309,71 @@ run_dev_client() {
   validate_env_for_profile "$PROFILE"
   detect_target_device
 
-  APP_PATH=""
+  if [ "$REUSE_LAST" = false ] && { [ "$TARGET_KIND" = "device" ] || [ "$BUILD_MODE" = "cloud" ]; }; then
+    [ "$APPROVE_REBUILD" = true ] || die "Dieser Pfad kompiliert nativ. Bitte --approve-rebuild angeben oder --reuse-last verwenden."
+  fi
 
   if [ "$REUSE_LAST" = true ]; then
-    say "Suche letzten fertigen Build für Profil $PROFILE..."
-    LOCAL_CACHED="$(find "$BASE_CACHE_DIR" -maxdepth 3 -name '*.app' -print | head -1 || true)"
-    if [ -n "$LOCAL_CACHED" ]; then
-      APP_PATH="$LOCAL_CACHED"
-      ok "Verwende lokalen Cache: $APP_PATH"
-    else
-      say "Prüfe EAS auf fertige Builds..."
-      BUILD_ID="$(eas build:list --platform ios --status finished --build-profile "$PROFILE" --limit 1 --json --non-interactive 2>/dev/null |
-        node -e '
-          let d = "";
-          process.stdin.on("data", (c) => (d += c)).on("end", () => {
-            try { console.log(JSON.parse(d)[0]?.id ?? ""); } catch { console.log(""); }
-          });
-        ')"
-      [ -n "$BUILD_ID" ] || die "Kein lokaler Cache oder EAS-Build gefunden — bitte normalen Build starten"
-      
-      ARCHIVE_URL="$(build_field_json "$BUILD_ID" artifacts.applicationArchiveUrl)"
-      [ -n "$ARCHIVE_URL" ] || die "Keine Artefakt-URL für Build $BUILD_ID"
-
-      APP_DIR="$BASE_CACHE_DIR/$BUILD_ID"
-      mkdir -p "$APP_DIR"
-      say "Lade Build-Artefakt herunter..."
-      curl -# -L -o "$APP_DIR/build.archive" "$ARCHIVE_URL"
-      case "$(file -b --mime-type "$APP_DIR/build.archive")" in
-        application/gzip | application/x-gzip) tar -xzf "$APP_DIR/build.archive" -C "$APP_DIR" ;;
-        application/zip) unzip -q "$APP_DIR/build.archive" -d "$APP_DIR" ;;
-        *) die "Unbekanntes Archivformat" ;;
-      esac
-      rm -f "$APP_DIR/build.archive"
-      APP_PATH="$(find "$APP_DIR" -maxdepth 3 -name '*.app' -print -quit)"
+    local locked_target="ios-development-simulator"
+    if [ "$TARGET_KIND" = "device" ]; then
+      locked_target="ios-development-device"
     fi
-  else
-    if [ "$BUILD_MODE" = "local" ]; then
-      say "Starte LOKALEN Build (0 EAS Cloud-Credits, Xcode auf diesem Mac)..."
-      if [ "$TARGET_KIND" = "simulator" ]; then
-        bun run ios
-        return 0
+
+    say "Starte zuletzt registriertes Native-Artefakt ($locked_target)..."
+    # --reuse-last ist absichtlich kein EAS-Latest-Fallback: ausschließlich der
+    # versionierte Lock darf ein Binary zum Start freigeben.
+    if [ "$TARGET_KIND" = "device" ]; then
+      bun run native:run -- --target "$locked_target" --device "$PHYSICAL_ID"
+    else
+      bun run native:run -- --target "$locked_target" --device "$DEVICE_NAME"
+    fi
+    [ "$START_METRO" = true ] && start_metro
+    return 0
+  fi
+
+  if [ "$BUILD_MODE" = "local" ]; then
+    say "Starte LOKALEN Build (0 EAS Cloud-Credits, Xcode auf diesem Mac)..."
+    if [ "$TARGET_KIND" = "simulator" ]; then
+      if [ "$APPROVE_REBUILD" = true ]; then
+        bun run native:rebuild -- --target ios-development-simulator --approve-rebuild
       else
-        say "Baud Dev Client lokal für physisches Gerät via EAS..."
-        eas build --profile "$PROFILE" --platform ios --local --output "$BASE_CACHE_DIR/fam-device.ipa"
-        APP_PATH="$BASE_CACHE_DIR/fam-device.ipa"
+        bun run ios
       fi
-    else
-      say "Starte EAS Cloud-Build (Profil: $PROFILE)..."
-      BUILD_OUTPUT="$(eas build --profile "$PROFILE" --platform ios --non-interactive --no-wait 2>&1)"
-      BUILD_ID="$(echo "$BUILD_OUTPUT" | grep -oE '[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}' | tail -1)"
-      [ -n "$BUILD_ID" ] || die "Cloud-Build konnte nicht gestartet werden: $BUILD_OUTPUT"
-
-      say "Warte auf Cloud-Build $BUILD_ID..."
-      START_TS=$(date +%s)
-      while true; do
-        STATUS="$(build_field_json "$BUILD_ID" status)"
-        case "$STATUS" in
-          FINISHED | finished) echo "  fertig nach $(( ($(date +%s) - START_TS) / 60 )) min"; break ;;
-          ERRORED | errored | CANCELED | canceled)
-            die "Build $STATUS — Logs: https://expo.dev/accounts/goldjunge91/projects/fam/builds/$BUILD_ID" ;;
-          *) printf '\r  Status: %-14s (%s min)' "${STATUS:-unbekannt}" "$(( ($(date +%s) - START_TS) / 60 ))" ;;
-        esac
-        sleep 30
-      done
-
-      ARCHIVE_URL="$(build_field_json "$BUILD_ID" artifacts.applicationArchiveUrl)"
-      APP_DIR="$BASE_CACHE_DIR/$BUILD_ID"
-      mkdir -p "$APP_DIR"
-      curl -# -L -o "$APP_DIR/build.archive" "$ARCHIVE_URL"
-      case "$(file -b --mime-type "$APP_DIR/build.archive")" in
-        application/gzip | application/x-gzip) tar -xzf "$APP_DIR/build.archive" -C "$APP_DIR" ;;
-        application/zip) unzip -q "$APP_DIR/build.archive" -d "$APP_DIR" ;;
-      esac
-      rm -f "$APP_DIR/build.archive"
-      APP_PATH="$(find "$APP_DIR" -maxdepth 3 -name '*.app' -print -quit)"
+      return 0
     fi
+
+    say "Baue Dev Client lokal für physisches Gerät via den Native-Guard..."
+    bun run native:rebuild -- --target ios-development-device --approve-rebuild
+    APP_PATH="$PROJECT_ROOT/native-artifacts/ios-development-device/fam.ipa"
+  else
+    say "Starte EAS Cloud-Build (Profil: $PROFILE)..."
+    BUILD_OUTPUT="$(eas build --profile "$PROFILE" --platform ios --non-interactive --no-wait 2>&1)"
+    BUILD_ID="$(echo "$BUILD_OUTPUT" | grep -oE '[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}' | tail -1)"
+    [ -n "$BUILD_ID" ] || die "Cloud-Build konnte nicht gestartet werden: $BUILD_OUTPUT"
+
+    say "Warte auf Cloud-Build $BUILD_ID..."
+    START_TS=$(date +%s)
+    while true; do
+      STATUS="$(build_field_json "$BUILD_ID" status)"
+      case "$STATUS" in
+        FINISHED | finished) echo "  fertig nach $(( ($(date +%s) - START_TS) / 60 )) min"; break ;;
+        ERRORED | errored | CANCELED | canceled)
+          die "Build $STATUS — Logs: https://expo.dev/accounts/goldjunge91/projects/fam/builds/$BUILD_ID" ;;
+        *) printf '\r  Status: %-14s (%s min)' "${STATUS:-unbekannt}" "$(( ($(date +%s) - START_TS) / 60 ))" ;;
+      esac
+      sleep 30
+    done
+
+    ARCHIVE_URL="$(build_field_json "$BUILD_ID" artifacts.applicationArchiveUrl)"
+    APP_DIR="$BASE_CACHE_DIR/$BUILD_ID"
+    mkdir -p "$APP_DIR"
+    curl -# -L -o "$APP_DIR/build.archive" "$ARCHIVE_URL"
+    case "$(file -b --mime-type "$APP_DIR/build.archive")" in
+      application/gzip | application/x-gzip) tar -xzf "$APP_DIR/build.archive" -C "$APP_DIR" ;;
+      application/zip) unzip -q "$APP_DIR/build.archive" -d "$APP_DIR" ;;
+    esac
+    rm -f "$APP_DIR/build.archive"
+    APP_PATH="$(find "$APP_DIR" -maxdepth 3 -name '*.app' -print -quit)"
   fi
 
   # ------------------------------------------------------------- Installation & Simulator/Device Start
@@ -423,6 +415,7 @@ while [ $# -gt 0 ]; do
     --local) BUILD_MODE="local"; shift ;;
     --cloud) BUILD_MODE="cloud"; shift ;;
     --reuse-last) REUSE_LAST=true; shift ;;
+    --approve-rebuild) APPROVE_REBUILD=true; shift ;;
     --device) DEVICE_NAME="$2"; DEVICE_EXPLICIT=true; shift 2 ;;
     --clean) CLEAN=true; ONLY_ACTIONS=true; shift ;;
     --no-metro) START_METRO=false; shift ;;
@@ -448,6 +441,7 @@ while [ $# -gt 0 ]; do
       echo "  bash scripts/ios-dev.sh --profile preview-testflight TestFlight Release Build erstellen"
       echo "  bash scripts/ios-dev.sh --profile production      Production Release Build erstellen"
       echo "  bash scripts/ios-dev.sh --cloud                   Cloud-Build erzwingen (statt --local)"
+      echo "  bash scripts/ios-dev.sh --approve-rebuild         Native Kompilierung explizit erlauben"
       echo "  bash scripts/ios-dev.sh --clean                   DerivedData & Build-Caches bereinigen"
       echo "  bash scripts/ios-dev.sh --restart-metro           Metro-Server neustarten"
       echo "  bash scripts/ios-dev.sh --stop-metro              Metro-Server stoppen"
@@ -506,4 +500,3 @@ while true; do
     *) echo "Ungültige Auswahl, bitte erneut versuchen." ;;
   esac
 done
-

@@ -9,16 +9,18 @@ import {
   type ProductNutritionRow,
 } from '@/features/recipes/domain/nutrition';
 import { getSupabase } from '@/lib/supabase';
+import { useAddComponentMutation, useAddItemMutation } from '../hooks/use-recipe-components';
 import {
-  useAddComponentMutation,
-  useAddItemMutation,
-  useAddRecipeMutation,
   useAddStepIngredientMutation,
   useAddStepMutation,
+  useUpdateStepMutation,
+} from '../hooks/use-recipe-steps';
+import type { RecipeDetail } from '../hooks/use-recipes';
+import {
+  useAddRecipeMutation,
   useDeleteRecipeMutation,
   useUpdateRecipeMutation,
-  useUpdateStepMutation,
-} from '../data/use-recipes';
+} from '../hooks/use-recipes';
 import { getCatalogCoverPath } from './recipe-catalog-image';
 
 export type CatalogRecipe = {
@@ -81,6 +83,46 @@ export type CatalogDetail = {
   productsById: Map<string, { name: string } & ProductNutritionRow>;
   nutrition: NutritionTotal;
 };
+
+/** Adaptiert ein Katalogrezept für den gemeinsamen Kochmodus. */
+export function toCookingRecipeDetail(detail: CatalogDetail): RecipeDetail {
+  const ingredientIdsByStep = new Map<string, string[]>();
+  for (const link of detail.stepIngredients) {
+    const ingredientIds = ingredientIdsByStep.get(link.step_id) ?? [];
+    ingredientIds.push(link.item_id);
+    ingredientIdsByStep.set(link.step_id, ingredientIds);
+  }
+
+  return {
+    recipe: {
+      id: detail.recipe.id,
+      household_id: '',
+      title: detail.recipe.title,
+      instructions: detail.recipe.instructions,
+      cover_image_path: detail.recipe.cover_image_path,
+      cook_time_minutes: detail.recipe.cook_time_minutes,
+      difficulty: detail.recipe.difficulty,
+      dish_types: detail.recipe.dish_types as RecipeDetail['recipe']['dish_types'],
+      dietary_tags: detail.recipe.dietary_tags as RecipeDetail['recipe']['dietary_tags'],
+      hashtags: detail.recipe.hashtags,
+      default_servings: detail.recipe.default_servings,
+      created_by: null,
+      created_at: null,
+    },
+    components: detail.components,
+    items: detail.items,
+    steps: detail.steps.map((step) => ({
+      id: step.id,
+      recipe_id: step.recipe_id,
+      position: step.position,
+      text: step.text,
+      image_path: null,
+      timer_minutes: step.timer_minutes,
+      ingredientIds: ingredientIdsByStep.get(step.id) ?? [],
+    })),
+    productsById: detail.productsById,
+  };
+}
 
 const client = () => getSupabase() as unknown as SupabaseClient;
 
@@ -331,15 +373,14 @@ export function useCopyCatalogRecipeMutation() {
           targetBucket: string,
           targetPath: string,
         ) => {
-          const { data, error } = await storage.storage.from(sourceBucket).download(sourcePath);
+          // Storage kopiert serverseitig bucket-uebergreifend. Ein Download als
+          // React-Native-Blob und anschliessender Upload ist auf iOS langsam und
+          // kann bei groesseren Bildern an der Blob/Base64-Bruecke scheitern.
+          const { data, error } = await storage.storage
+            .from(sourceBucket)
+            .copy(sourcePath, targetPath, { destinationBucket: targetBucket });
           if (error) throw error;
-          const upload = await storage.storage
-            .from(targetBucket)
-            .upload(targetPath, await data.arrayBuffer(), {
-              contentType: data.type || 'image/jpeg',
-              upsert: false,
-            });
-          if (upload.error) throw upload.error;
+          if (!data?.path) throw new Error('Das Rezeptbild konnte nicht kopiert werden.');
           uploadedAssets.push({ bucket: targetBucket, path: targetPath });
           return targetPath;
         };

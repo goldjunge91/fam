@@ -36,6 +36,7 @@ let autoInstall = false;
 let shouldClean = false;
 let withStacktrace = false;
 let withInfo = false;
+let approveRebuild = false;
 let variant: 'release' | 'debug' = 'release';
 let customLogFile: string | null = null;
 
@@ -56,6 +57,8 @@ for (let i = 0; i < args.length; i++) {
     withStacktrace = true;
   } else if (arg === '--info') {
     withInfo = true;
+  } else if (arg === '--approve-rebuild') {
+    approveRebuild = true;
   } else if (arg === '--variant') {
     const v = args[++i]?.toLowerCase();
     if (v === 'debug' || v === 'release') {
@@ -75,6 +78,7 @@ Optionen:
   --clean, -c            Bereinigt native C++ Caches (.cxx) und führt gradlew clean aus
   --stacktrace, -s       Gradle mit detailliertem --stacktrace ausführen
   --info                 Gradle mit verbose --info ausführen
+  --approve-rebuild      Native Kompilierung explizit erlauben
   --variant <typ>        Build-Variante wählen: 'release' (Standard) oder 'debug'
   --no-bump              versionCode nicht erhöhen
   --version-code <num>   Spezifischen versionCode setzen
@@ -85,6 +89,13 @@ Optionen:
 `);
     process.exit(0);
   }
+}
+
+if (!approveRebuild) {
+  console.error(
+    'Native APK-Kompilierung ist gesperrt. Bitte explizit --approve-rebuild angeben.',
+  );
+  process.exit(1);
 }
 
 // ------------------------------------------------------------- 2. Logger Setup (Dual: Console + File)

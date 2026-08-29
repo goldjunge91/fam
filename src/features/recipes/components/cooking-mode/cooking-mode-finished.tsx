@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { Pressable, ScrollView, View } from 'react-native';
 
 import { ThemedText } from '@/components/theme/themed-text';
-import type { RecipeDetail } from '../../data/use-recipes';
+import type { RecipeDetail } from '../../hooks/use-recipes';
 import { RecipeRatingSheet } from '../recipe-rating-sheet';
 import { CookingModeFinishAction } from './cooking-mode-finish-action';
 import { CookingModeShell } from './cooking-mode-shell';
@@ -11,9 +11,14 @@ import { CookingModeShell } from './cooking-mode-shell';
 type CookingModeFinishedProps = {
   recipe: RecipeDetail['recipe'];
   onBack: () => void;
+  isCatalog?: boolean;
 };
 
-export function CookingModeFinished({ recipe, onBack }: CookingModeFinishedProps) {
+export function CookingModeFinished({
+  recipe,
+  onBack,
+  isCatalog = false,
+}: CookingModeFinishedProps) {
   const [ratingOpen, setRatingOpen] = useState(false);
 
   return (
@@ -32,28 +37,30 @@ export function CookingModeFinished({ recipe, onBack }: CookingModeFinishedProps
           Alles Weitere ist freiwillig und kann übersprungen werden.
         </ThemedText>
 
-        <View className="w-full gap-two pt-six">
-          <CookingModeFinishAction
-            title="Zubereitete Gruppen wiegen"
-            subtitle="Werte im eigenen Rezept verbessern"
-            onPress={() =>
-              router.push({
-                pathname: '/recipe/log',
-                params: { id: recipe.id, mode: 'weigh' },
-              })
-            }
-          />
-          <CookingModeFinishAction
-            title="Ins Tagebuch eintragen"
-            subtitle="Portionsmengen getrennt anpassen"
-            onPress={() => router.push({ pathname: '/recipe/log', params: { id: recipe.id } })}
-          />
-          <CookingModeFinishAction
-            title="Rezept bewerten"
-            subtitle="1–10 Sterne und optionaler Text"
-            onPress={() => setRatingOpen(true)}
-          />
-        </View>
+        {!isCatalog ? (
+          <View className="w-full gap-two pt-six">
+            <CookingModeFinishAction
+              title="Zubereitete Gruppen wiegen"
+              subtitle="Werte im eigenen Rezept verbessern"
+              onPress={() =>
+                router.push({
+                  pathname: '/recipe/log',
+                  params: { id: recipe.id, mode: 'weigh' },
+                })
+              }
+            />
+            <CookingModeFinishAction
+              title="Ins Tagebuch eintragen"
+              subtitle="Portionsmengen getrennt anpassen"
+              onPress={() => router.push({ pathname: '/recipe/log', params: { id: recipe.id } })}
+            />
+            <CookingModeFinishAction
+              title="Rezept bewerten"
+              subtitle="1–10 Sterne und optionaler Text"
+              onPress={() => setRatingOpen(true)}
+            />
+          </View>
+        ) : null}
 
         <Pressable
           onPress={() => router.back()}
@@ -68,11 +75,13 @@ export function CookingModeFinished({ recipe, onBack }: CookingModeFinishedProps
         </Pressable>
       </ScrollView>
 
-      <RecipeRatingSheet
-        recipeId={recipe.id}
-        visible={ratingOpen}
-        onClose={() => setRatingOpen(false)}
-      />
+      {!isCatalog ? (
+        <RecipeRatingSheet
+          recipeId={recipe.id}
+          visible={ratingOpen}
+          onClose={() => setRatingOpen(false)}
+        />
+      ) : null}
     </CookingModeShell>
   );
 }

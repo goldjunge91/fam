@@ -116,7 +116,18 @@ beforeEach(() => {
   });
   mockSearchOpenFoodFacts.mockReset();
   mockSearchOpenFoodFacts.mockResolvedValue({
-    products: [{ barcode: '123', name: 'Hafermilch', brand: 'Oatly', caloriesPer100g: 59 }],
+    products: [
+      {
+        barcode: '123',
+        name: 'Hafermilch',
+        brand: 'Oatly',
+        caloriesPer100g: 59,
+        proteinsPer100g: 1.1,
+        carbsPer100g: 6.6,
+        fatPer100g: 3,
+        categoryTags: [],
+      },
+    ],
     hasMore: false,
     failed: false,
   });
@@ -177,16 +188,22 @@ describe('FoodSearchScreen', () => {
 
     await fireEvent.press(screen.getByText('Hafermilch'));
 
-    expect(router.push).toHaveBeenCalledWith(
+    const pushCall = (router.push as jest.Mock).mock.calls[0][0];
+    const productParams = JSON.parse(pushCall.params.productData);
+    expect(pushCall).toEqual(
       expect.objectContaining({
         pathname: '/add-food-entry',
-        params: expect.objectContaining({
-          date: '2026-08-10',
-          mealType: 'breakfast',
-          name: 'Hafermilch',
-          brand: 'Oatly',
-          kcalPer100g: '59',
-        }),
+        params: expect.objectContaining({ date: '2026-08-10', mealType: 'breakfast' }),
+      }),
+    );
+    expect(productParams).toEqual(
+      expect.objectContaining({
+        name: 'Hafermilch',
+        brand: 'Oatly',
+        kcalPer100g: '59',
+        proteinPer100g: '1.1',
+        carbsPer100g: '6.6',
+        fatPer100g: '3',
       }),
     );
 
@@ -217,11 +234,10 @@ describe('FoodSearchScreen', () => {
     expect(mockSearchOpenFoodFacts).not.toHaveBeenCalled();
 
     await fireEvent.press(screen.getByText('Balance Reich an Protein'));
-    expect(router.push).toHaveBeenCalledWith(
-      expect.objectContaining({
-        pathname: '/add-food-entry',
-        params: expect.objectContaining({ name: 'Balance Reich an Protein', brand: 'Exquisa' }),
-      }),
+    const pushCall = (router.push as jest.Mock).mock.calls[0][0];
+    expect(pushCall).toEqual(expect.objectContaining({ pathname: '/add-food-entry' }));
+    expect(JSON.parse(pushCall.params.productData)).toEqual(
+      expect.objectContaining({ name: 'Balance Reich an Protein', brand: 'Exquisa' }),
     );
 
     jest.useRealTimers();

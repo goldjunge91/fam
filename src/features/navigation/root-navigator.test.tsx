@@ -37,7 +37,6 @@ const privateRootRoutes = [
   'settings',
   'add-item',
   'add-product',
-  'food-search',
   'add-food-entry',
 ];
 

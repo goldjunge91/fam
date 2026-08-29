@@ -2,7 +2,7 @@ import { useMutation, useQueryClient } from '@tanstack/react-query';
 import * as Crypto from 'expo-crypto';
 import { trackAnalyticsEvent } from '@/lib/analytics';
 import { getDatabase } from '@/lib/db/client';
-import { enqueueMutation } from '@/lib/db/outbox';
+import { enqueueMutation, enqueueMutations } from '@/lib/db/outbox';
 import {
   type AddShoppingItemInput as AddItemInput,
   addOrMergeShoppingItem,
@@ -45,6 +45,12 @@ type ToggleItemInput = {
 type DeleteItemInput = {
   id: string;
   household_id: string;
+};
+
+export type MoveShoppingItemsInput = {
+  household_id: string;
+  item_ids: readonly string[];
+  store_id: string | null;
 };
 
 export type AddShoppingItemMutationInput = AddItemInput & {
@@ -146,6 +152,50 @@ export function useUpdateShoppingItem() {
             ),
         },
       });
+    },
+    onSuccess: (_, variables) => {
+      trackAnalyticsEvent('shopping_item.update.completed');
+      queryClient.invalidateQueries({ queryKey: ['shopping_list_items', variables.household_id] });
+      queryClient.invalidateQueries({ queryKey: ['sync-status'] });
+    },
+  });
+}
+
+/** Verschiebt mehrere Einkaufsartikel atomar in eine andere Markt-Liste. */
+export function useMoveShoppingItems() {
+  const queryClient = useQueryClient();
+
+  return useMutation({
+    mutationFn: async (input: MoveShoppingItemsInput) => {
+      if (input.item_ids.length === 0) return;
+
+      const db = await getDatabase();
+      const now = new Date().toISOString();
+      const nowMs = Date.now();
+
+      await enqueueMutations(
+        db,
+        input.item_ids.map((id) => ({
+          entity: 'shopping_list_items' as const,
+          entityId: id,
+          op: 'update' as const,
+          payload: {
+            id,
+            household_id: input.household_id,
+            store_id: input.store_id,
+            updated_at: now,
+          },
+          now: nowMs,
+          applyLocally: (txn) =>
+            applyLocalMirrorWrite(
+              txn,
+              'shopping_list_items',
+              'update',
+              { id, store_id: input.store_id },
+              nowMs,
+            ),
+        })),
+      );
     },
     onSuccess: (_, variables) => {
       trackAnalyticsEvent('shopping_item.update.completed');

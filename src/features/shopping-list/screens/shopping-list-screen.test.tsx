@@ -22,10 +22,12 @@ jest.mock('@/features/household/active-household-provider', () => ({
 
 const mockToggleMutateAsync = jest.fn();
 const mockDeleteMutateAsync = jest.fn();
+const mockMoveMutateAsync = jest.fn().mockResolvedValue(undefined);
 
 jest.mock('../hooks/use-shopping-list-mutations', () => ({
   useToggleShoppingItem: () => ({ mutateAsync: mockToggleMutateAsync }),
   useDeleteShoppingItem: () => ({ mutateAsync: mockDeleteMutateAsync }),
+  useMoveShoppingItems: () => ({ mutateAsync: mockMoveMutateAsync }),
   useCompleteShoppingRun: () => ({ mutateAsync: jest.fn() }),
   useAddShoppingItem: () => ({ mutateAsync: jest.fn() }),
   // Zeile antippen oeffnet jetzt das Bearbeiten-Formular (statt abzuhaken),
@@ -61,6 +63,25 @@ jest.mock('../hooks/use-shopping-list', () => {
               product_id: null,
               updated_at: '2026-03-29T10:00:00Z',
             },
+            {
+              id: 'item-2',
+              household_id: 'hh-1',
+              name: 'Hafermilch',
+              quantity: 1,
+              unit: 'l',
+              category_id: 'beverages',
+              category_source: 'name_fallback',
+              category_classifier_version: null,
+              category: 'Getränke',
+              checked_at: null,
+              checked_by: null,
+              store_id: 'store-1',
+              notes: null,
+              recipe_names: [],
+              sort_order: 1,
+              product_id: null,
+              updated_at: '2026-03-29T10:00:00Z',
+            },
           ],
         },
       ],
@@ -82,6 +103,13 @@ jest.mock('../hooks/use-stores', () => {
           icon: 'cart',
           household_id: 'hh-1',
         },
+        {
+          id: 'store-2',
+          name: 'Discounter',
+          color: '#0055ff',
+          icon: 'cart',
+          household_id: 'hh-1',
+        },
       ],
     }),
     useSetStoreCategoryOrderMutation: () => ({
@@ -91,6 +119,22 @@ jest.mock('../hooks/use-stores', () => {
   };
 });
 
+jest.mock('../preferences/api', () => ({
+  resolvePlacementForItem: jest.fn().mockResolvedValue({
+    placementZoneId: 'other',
+    categoryId: 'other',
+    source: 'name_fallback',
+    classifierVersion: 'placement-v2.0.0',
+    globalClassification: {
+      placementZoneId: 'other',
+      productFamilyId: 'other_food',
+      productFormId: 'ambient',
+      classifierVersion: 'placement-v2.0.0',
+    },
+    barcode: null,
+  }),
+}));
+
 jest.mock('@/features/navigation/navigation-chrome-provider', () => ({
   useNavigationChrome: () => ({ openDrawer: jest.fn(), openProfile: jest.fn() }),
 }));
@@ -98,6 +142,42 @@ jest.mock('@/features/navigation/navigation-chrome-provider', () => ({
 jest.mock('@/features/navigation/use-profile-initials', () => ({
   useProfileInitials: () => 'M',
 }));
+
+jest.mock('@/features/inventory/barcode-scanner-modal', () => {
+  const { Pressable, Text } = require('react-native');
+
+  return {
+    BarcodeScannerModal: ({
+      visible,
+      onProductFound,
+    }: {
+      visible: boolean;
+      onProductFound: (product: {
+        barcode: string;
+        categoryTags: string[];
+        name: string;
+        quantity: number;
+        unit: string;
+      }) => void;
+    }) =>
+      visible ? (
+        <Pressable
+          accessibilityRole="button"
+          accessibilityLabel="Testprodukt scannen"
+          onPress={() =>
+            onProductFound({
+              barcode: '4001234567890',
+              categoryTags: [],
+              name: 'Hafermilch',
+              quantity: 1,
+              unit: 'l',
+            })
+          }>
+          <Text>Barcode scanner geöffnet</Text>
+        </Pressable>
+      ) : null,
+  };
+});
 
 jest.mock('@/hooks/use-hub-gradient', () => ({
   useHubGradient: () => undefined,
@@ -169,13 +249,51 @@ describe('ShoppingListScreen', () => {
     expect(mockToggleMutateAsync).not.toHaveBeenCalled();
   });
 
-  it('öffnet das AddItemModal beim Klick auf Artikel hinzufügen', async () => {
+  it('öffnet den Barcode-Scanner direkt über den Icon-Button', async () => {
     await renderScreen();
 
-    const addBtn = screen.getByRole('button', { name: '+ Artikel hinzufügen' });
-    await fireEvent.press(addBtn);
+    const scannerButton = screen.getByRole('button', { name: 'Barcode scannen' });
+    await fireEvent.press(scannerButton);
+
+    expect(await screen.findByText('Barcode scanner geöffnet')).toBeTruthy();
+  });
+
+  it('verschiebt mehrere ausgewählte Artikel in eine andere Liste', async () => {
+    await renderScreen();
+
+    await fireEvent.press(screen.getByText('Supermarkt'));
+    await act(() => {
+      jest.advanceTimersByTime(60);
+    });
+
+    expect(
+      await screen.findByRole('button', { name: 'Mehrfachauswahl starten' }),
+    ).toBeOnTheScreen();
+    await fireEvent.press(screen.getByRole('button', { name: 'Mehrfachauswahl starten' }));
+    await fireEvent.press(screen.getByRole('button', { name: 'Bananen auswählen' }));
+    await fireEvent.press(screen.getByRole('button', { name: 'Hafermilch auswählen' }));
+
+    await fireEvent.press(screen.getByRole('button', { name: 'Verschieben' }));
+    expect(await screen.findByText('Artikel verschieben')).toBeOnTheScreen();
+
+    await fireEvent.press(screen.getByRole('button', { name: 'Auf Discounter verschieben' }));
+
+    expect(mockMoveMutateAsync).toHaveBeenCalledWith({
+      household_id: 'hh-1',
+      item_ids: ['item-1', 'item-2'],
+      store_id: 'store-2',
+    });
+    expect(screen.queryByText('Artikel verschieben')).not.toBeOnTheScreen();
+  });
+
+  it('öffnet nach einem erfolgreichen Scan das Hinzufügen-Modal mit dem Produkt', async () => {
+    await renderScreen();
+
+    await fireEvent.press(screen.getByRole('button', { name: 'Barcode scannen' }));
+    await fireEvent.press(screen.getByRole('button', { name: 'Testprodukt scannen' }));
 
     expect((await screen.findAllByText('Artikel hinzufügen')).length).toBeGreaterThan(0);
+    expect(screen.getByDisplayValue('Hafermilch')).toBeTruthy();
   });
 
   it('öffnet das AddItemModal automatisch, wenn action=add gesetzt ist', async () => {

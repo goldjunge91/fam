@@ -3,15 +3,20 @@ import { useState } from 'react';
 
 import { ThemedText } from '@/components/theme/themed-text';
 import { usePremium } from '@/features/premium/premium-provider';
+import {
+  toCookingRecipeDetail,
+  useCatalogImageUrl,
+  useCatalogRecipe,
+} from '../catalog/use-recipe-catalog';
 import { CookingModeFinished } from '../components/cooking-mode/cooking-mode-finished';
 import { CookingModeNoSteps } from '../components/cooking-mode/cooking-mode-no-steps';
 import { CookingModeShell } from '../components/cooking-mode/cooking-mode-shell';
 import { CookingModeStep } from '../components/cooking-mode/cooking-mode-step';
 import { getCookingTimerDurationSeconds } from '../components/cooking-mode/cooking-mode-timer';
 import { FreeCookingMode } from '../components/cooking-mode/free-cooking-mode';
-import { useRecipeDetail } from '../data/use-recipes';
 import { flattenRecipeItems } from '../domain/ingredient-mentions';
 import { useCookingTimer } from '../hooks/use-cooking-timer';
+import { useRecipeDetail } from '../hooks/use-recipes';
 
 function CookingModeLoading() {
   return (
@@ -24,12 +29,21 @@ function CookingModeLoading() {
 }
 
 export function CookingModeScreen() {
-  const { id } = useLocalSearchParams<{ id: string }>();
-  const { data, isLoading } = useRecipeDetail(id);
+  const { id, slug } = useLocalSearchParams<{ id?: string; slug?: string }>();
+  const recipeQuery = useRecipeDetail(id);
+  const catalogQuery = useCatalogRecipe(slug);
+  const catalogData = catalogQuery.data;
+  const data = recipeQuery.data ?? (catalogData ? toCookingRecipeDetail(catalogData) : null);
+  const isCatalog = !id && Boolean(slug);
+  const isLoading = isCatalog ? catalogQuery.isLoading : recipeQuery.isLoading;
   const { isPremium } = usePremium();
   const [stepIndex, setStepIndex] = useState(0);
   const [finished, setFinished] = useState(false);
   const timerStep = data?.steps[Math.min(stepIndex, Math.max((data?.steps.length ?? 0) - 1, 0))];
+  const catalogStepImagePath = catalogData?.stepImages.find(
+    (image) => image.step_id === timerStep?.id,
+  )?.storage_path;
+  const { data: catalogStepImageUrl } = useCatalogImageUrl(catalogStepImagePath);
   const durationSeconds = getCookingTimerDurationSeconds(timerStep);
   const {
     remainingSeconds,
@@ -42,7 +56,13 @@ export function CookingModeScreen() {
   if (isLoading || !data) return <CookingModeLoading />;
   if (!isPremium) return <FreeCookingMode data={data} />;
   if (finished) {
-    return <CookingModeFinished recipe={data.recipe} onBack={() => setFinished(false)} />;
+    return (
+      <CookingModeFinished
+        recipe={data.recipe}
+        onBack={() => setFinished(false)}
+        isCatalog={isCatalog}
+      />
+    );
   }
 
   const currentStep = data.steps[Math.min(stepIndex, Math.max(data.steps.length - 1, 0))];
@@ -55,6 +75,7 @@ export function CookingModeScreen() {
           steps={data.steps}
           stepIndex={stepIndex}
           currentStep={currentStep}
+          currentStepImageUrl={catalogStepImageUrl}
           mentionIngredients={mentionIngredients}
           durationSeconds={durationSeconds}
           remainingSeconds={remainingSeconds}

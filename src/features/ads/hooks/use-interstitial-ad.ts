@@ -6,6 +6,7 @@ import {
 } from 'react-native-google-mobile-ads';
 import { usePremium } from '@/features/premium/premium-provider';
 import { env } from '@/lib/env';
+import { useAdsEnabled } from '../ads-override';
 
 export interface UseInterstitialAdOptions {
   adUnitId?: string;
@@ -19,7 +20,7 @@ export function useInterstitialAd({
   autoLoad = true,
 }: UseInterstitialAdOptions = {}) {
   const { isPremium } = usePremium();
-  const adsEnabled = env.adsEnabled;
+  const adsEnabled = useAdsEnabled();
 
   const defaultUnitId = __DEV__ ? TestIds.INTERSTITIAL : env.adMobInterstitialIdIos;
   const resolvedUnitId = adUnitId ?? defaultUnitId;
@@ -46,6 +47,10 @@ export function useInterstitialAd({
   }, [isLoaded]);
 
   useEffect(() => {
+    if (!adsEnabled) loadRequestedRef.current = false;
+  }, [adsEnabled]);
+
+  useEffect(() => {
     if (error && __DEV__) {
       console.warn('[AdMob Interstitial] Fehler beim Laden der Anzeige:', error);
     }
@@ -64,7 +69,7 @@ export function useInterstitialAd({
       }
       requestLoad();
     }
-  }, [isPremium, autoLoad, isLoaded, isOpened, isClosed, requestLoad, resolvedUnitId]);
+  }, [isPremium, autoLoad, isLoaded, isOpened, isClosed, requestLoad, resolvedUnitId, adsEnabled]);
 
   // Automatisch nach dem Schließen für den nächsten Aufruf vorladen
   useEffect(() => {
@@ -74,7 +79,7 @@ export function useInterstitialAd({
       }
       requestLoad();
     }
-  }, [isPremium, autoLoad, isClosed, requestLoad]);
+  }, [isPremium, autoLoad, isClosed, requestLoad, adsEnabled]);
 
   const show = useCallback(() => {
     if (!adsEnabled || isPremium) {
@@ -100,7 +105,7 @@ export function useInterstitialAd({
         );
       }
     }
-  }, [isPremium, isLoaded, rawShow, error]);
+  }, [isPremium, isLoaded, rawShow, error, adsEnabled]);
 
   return {
     isLoaded: adsEnabled && !isPremium ? isLoaded : false,

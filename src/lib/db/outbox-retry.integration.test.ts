@@ -87,6 +87,39 @@ describe('retryFailedOutboxEntries', () => {
     expect(row?.next_attempt_at).toBe(999_999);
   });
 
+  it('entfernt veraltete JOIN-Felder aus gescheiterten Inventar-Updates', async () => {
+    await enqueueMutation(db, {
+      entity: 'fridge_items',
+      entityId: 'item-1',
+      op: 'update',
+      payload: {
+        id: 'item-1',
+        household_id: 'hh-1',
+        expiry_date: '2026-08-29',
+        location_kind: 'fridge',
+        location_name: 'Kühlschrank',
+      },
+      applyLocally: async () => {},
+    });
+
+    const [entry] = await loadDueOutboxEntries(db, 0);
+    await recordOutboxOutcome(db, [entry.id], {
+      attempts: MAX_ATTEMPTS,
+      lastError: "Could not find the 'location_kind' column",
+      nextAttemptAtMs: Number.MAX_SAFE_INTEGER,
+    });
+
+    const changed = await retryFailedOutboxEntries(db, 500);
+
+    expect(changed).toBe(1);
+    const [due] = await loadDueOutboxEntries(db, 500);
+    expect(JSON.parse(due.payload)).toEqual({
+      id: 'item-1',
+      household_id: 'hh-1',
+      expiry_date: '2026-08-29',
+    });
+  });
+
   it('gibt 0 zurueck, wenn keine Eintraege terminal gescheitert sind', async () => {
     expect(await retryFailedOutboxEntries(db)).toBe(0);
   });

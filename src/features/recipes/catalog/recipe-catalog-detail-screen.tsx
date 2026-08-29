@@ -9,8 +9,8 @@ import { BackButton, HeaderIconButton } from '@/components/ui/buttons';
 import { useSession } from '@/features/auth/session-provider';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { HeartGlyph, HeroArtwork } from '@/features/recipes/components/recipe-detail-primitives';
-import type { DietaryTag, DishType } from '@/features/recipes/data/use-recipes';
 import { useRecipeFavorites } from '@/features/recipes/domain/recipe-favorites';
+import type { DietaryTag, DishType } from '@/features/recipes/hooks/use-recipes';
 import {
   DIETARY_TAG_LABELS,
   DIFFICULTY_LABELS,
@@ -401,22 +401,33 @@ export function RecipeCatalogDetailScreen() {
       </ScrollView>
 
       <View className="absolute left-[15px] right-[15px] bottom-three">
-        <Pressable
-          onPress={() => void copyToHousehold()}
-          disabled={buttonDisabled}
-          role="button"
-          aria-label="Rezept in meine Rezepte übernehmen"
-          className={`min-h-[48px] self-center rounded-control items-center justify-center px-six bg-accent active:opacity-75 ${
-            buttonDisabled ? 'opacity-45' : ''
-          }`}>
-          {copyRecipe.isPending ? (
-            <ActivityIndicator color="#FFFFFF" />
-          ) : (
-            <ThemedText type="headingSmall" className="text-white">
-              In meine Rezepte übernehmen
+        <View className="flex-row gap-two">
+          <Pressable
+            onPress={() => router.push({ pathname: '/recipe/cook', params: { slug: recipe.slug } })}
+            role="button"
+            aria-label="Kochmodus starten"
+            className="min-h-[48px] flex-1 rounded-control items-center justify-center px-two border border-accent bg-background-element active:opacity-75">
+            <ThemedText type="captionCompact" themeColor="accent" className="text-center font-bold">
+              Kochmodus starten
             </ThemedText>
-          )}
-        </Pressable>
+          </Pressable>
+          <Pressable
+            onPress={() => void copyToHousehold()}
+            disabled={buttonDisabled}
+            role="button"
+            aria-label="Rezept in meine Rezepte übernehmen"
+            className={`min-h-[48px] flex-1 rounded-control items-center justify-center px-two bg-accent active:opacity-75 ${
+              buttonDisabled ? 'opacity-45' : ''
+            }`}>
+            {copyRecipe.isPending ? (
+              <ActivityIndicator color="#FFFFFF" />
+            ) : (
+              <ThemedText type="captionCompact" className="text-white text-center font-bold">
+                In meine Rezepte übernehmen
+              </ThemedText>
+            )}
+          </Pressable>
+        </View>
       </View>
     </HubScreen>
   );

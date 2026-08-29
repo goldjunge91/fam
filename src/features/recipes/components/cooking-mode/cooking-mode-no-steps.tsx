@@ -1,7 +1,7 @@
 import { Pressable, ScrollView } from 'react-native';
 
 import { ThemedText } from '@/components/theme/themed-text';
-import type { RecipeDetail } from '../../data/use-recipes';
+import type { RecipeDetail } from '../../hooks/use-recipes';
 
 type CookingModeNoStepsProps = {
   recipe: RecipeDetail['recipe'];

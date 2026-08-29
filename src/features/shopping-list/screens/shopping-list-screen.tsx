@@ -2,20 +2,22 @@ import { useLocalSearchParams } from 'expo-router';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { Alert, ScrollView, SectionList, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { FamIcon } from '@/components/icons/fam-icon';
 import { Screen } from '@/components/layout/screen';
 import { ThemedText } from '@/components/theme/themed-text';
-import { Button } from '@/components/ui/buttons';
+import { Button, HeaderIconButton } from '@/components/ui/buttons';
 import { Card } from '@/components/ui/card';
 import { EmptyState } from '@/components/ui/empty-state';
 import { Layout } from '@/constants/layout';
-import { useInterstitialAd } from '@/features/ads';
+import { useAdsEnabled, useInterstitialAd } from '@/features/ads';
 import { useSession } from '@/features/auth/session-provider';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
+import { BarcodeScannerModal } from '@/features/inventory/barcode-scanner-modal';
 import { useNavigationChrome } from '@/features/navigation/navigation-chrome-provider';
 import { useProfileInitials } from '@/features/navigation/use-profile-initials';
 import { useHubGradient } from '@/hooks/use-hub-gradient';
 import { useTheme } from '@/hooks/use-theme';
-import { env } from '@/lib/env';
+import type { OpenFoodFactsProduct } from '@/lib/open-food-facts';
 import { ShoppingItemRow } from '../components/ui/shopping-item-row';
 import { ALL_FILTER, StorePickerMenu, UNASSIGNED_FILTER } from '../components/ui/store-picker-menu';
 import { StoreSummaryCard } from '../components/ui/store-summary-card';
@@ -31,10 +33,15 @@ import {
   type LocalShoppingItem,
   useShoppingList,
 } from '../hooks/use-shopping-list';
-import { useDeleteShoppingItem, useToggleShoppingItem } from '../hooks/use-shopping-list-mutations';
+import {
+  useDeleteShoppingItem,
+  useMoveShoppingItems,
+  useToggleShoppingItem,
+} from '../hooks/use-shopping-list-mutations';
 import { useStores } from '../hooks/use-stores';
 import { AddItemModal } from '../modals/add-item-modal';
 import { EditItemModal } from '../modals/edit-item-modal';
+import { MoveItemsModal } from '../modals/move-items-modal';
 import { CategoryOrderSheet } from '../sheets/category-order-sheet';
 import { CompleteRunSheet, type TransferItem } from '../sheets/complete-run-sheet';
 import { ShoppingModeScreen } from './shopping-mode-screen';
@@ -45,9 +52,15 @@ export function ShoppingListScreen() {
   const [sheetOpen, setSheetOpen] = useState(false);
   const [orderSheetOpen, setOrderSheetOpen] = useState(false);
   const [shoppingModeOpen, setShoppingModeOpen] = useState(false);
+  const [scannerOpen, setScannerOpen] = useState(false);
+  const [scannedProduct, setScannedProduct] = useState<OpenFoodFactsProduct | null>(null);
   const [editingItem, setEditingItem] = useState<LocalShoppingItem | null>(null);
   const [storeFilter, setStoreFilter] = useState<string>(ALL_FILTER);
+  const [selectionMode, setSelectionMode] = useState(false);
+  const [selectedItemIds, setSelectedItemIds] = useState<Set<string>>(() => new Set());
+  const [moveModalOpen, setMoveModalOpen] = useState(false);
   const pendingAdRef = useRef(false);
+  const adsEnabled = useAdsEnabled();
   const interstitialAd = useInterstitialAd();
   const theme = useTheme();
   const hubGradient = useHubGradient();
@@ -87,6 +100,7 @@ export function ShoppingListScreen() {
 
   const toggleItem = useToggleShoppingItem();
   const deleteItem = useDeleteShoppingItem();
+  const moveItems = useMoveShoppingItems();
   const completeRun = useCompleteShoppingRun(householdId);
 
   const allItems = useMemo(() => groups.flatMap((g) => g.items), [groups]);
@@ -123,6 +137,7 @@ export function ShoppingListScreen() {
 
   const checkedItems = filteredItems.filter((i) => i.checked_at !== null);
   const hasCheckedItems = checkedItems.length > 0 && !isAllFilter;
+  const selectedItems = filteredItems.filter((item) => selectedItemIds.has(item.id));
 
   const totalEstimate = allItems.reduce((sum, i) => sum + (i.price_estimate ?? 0), 0);
 
@@ -133,6 +148,41 @@ export function ShoppingListScreen() {
       checked_at: item.checked_at ? null : new Date().toISOString(),
       checked_by: item.checked_at ? null : (userId ?? null),
     });
+  }
+
+  function closeSelection() {
+    setSelectionMode(false);
+    setSelectedItemIds(new Set());
+    setMoveModalOpen(false);
+  }
+
+  function handleFilterChange(nextFilter: string) {
+    closeSelection();
+    setStoreFilter(nextFilter);
+  }
+
+  function toggleSelectedItem(itemId: string) {
+    setSelectedItemIds((current) => {
+      const next = new Set(current);
+      if (next.has(itemId)) next.delete(itemId);
+      else next.add(itemId);
+      return next;
+    });
+  }
+
+  function selectAllVisibleItems() {
+    setSelectedItemIds(new Set(filteredItems.map((item) => item.id)));
+  }
+
+  async function handleMoveItems(storeId: string | null) {
+    if (!householdId || selectedItems.length === 0) return;
+
+    await moveItems.mutateAsync({
+      household_id: householdId,
+      item_ids: selectedItems.map((item) => item.id),
+      store_id: storeId,
+    });
+    closeSelection();
   }
 
   function handleDeletePress(item: LocalShoppingItem) {
@@ -165,6 +215,12 @@ export function ShoppingListScreen() {
 
   const chrome = { onMenuPress: openDrawer, onAvatarPress: openProfile, initials };
 
+  function handleProductScanned(product: OpenFoodFactsProduct) {
+    setScannedProduct(product);
+    setScannerOpen(false);
+    setAddModalOpen(true);
+  }
+
   if (!householdId) {
     return (
       <Screen title="Einkaufsliste" subtitle="Gemeinsame Liste" chrome={chrome}>
@@ -194,15 +250,63 @@ export function ShoppingListScreen() {
       <View className="row-between">
         <StorePickerMenu
           activeFilter={storeFilter}
-          onFilterChange={setStoreFilter}
+          onFilterChange={handleFilterChange}
           stores={stores}
           totalCount={allItems.length}
           unassignedCount={unassignedItems.length}
           countForStore={(storeId) => allItems.filter((i) => i.store_id === storeId).length}
         />
-        <Button size="compact" label="+ Artikel hinzufügen" onPress={() => setAddModalOpen(true)} />
+        <View className="flex-row items-center gap-one">
+          <HeaderIconButton
+            label="Barcode scannen"
+            onPress={() => {
+              setScannedProduct(null);
+              setScannerOpen(true);
+            }}>
+            <FamIcon name="camera" size={20} color={theme.accent} />
+          </HeaderIconButton>
+          {!isAllFilter && filteredItems.length > 0 ? (
+            <HeaderIconButton
+              label={selectionMode ? 'Auswahl schließen' : 'Mehrfachauswahl starten'}
+              onPress={selectionMode ? closeSelection : () => setSelectionMode(true)}>
+              <ThemedText type="subtitle" themeColor="accent">
+                {selectionMode ? '✕' : '☑'}
+              </ThemedText>
+            </HeaderIconButton>
+          ) : null}
+        </View>
       </View>
-      {env.adsEnabled ? (
+      {selectionMode ? (
+        <View className="gap-one">
+          <ThemedText type="smallBold" numberOfLines={1}>
+            {selectedItems.length} {selectedItems.length === 1 ? 'Artikel' : 'Artikel'} ausgewählt
+          </ThemedText>
+          <View className="flex-row items-center justify-end gap-two">
+            <Button
+              size="compact"
+              variant="link"
+              label={selectedItems.length === filteredItems.length ? 'Keine' : 'Alle'}
+              onPress={
+                selectedItems.length === filteredItems.length
+                  ? () => setSelectedItemIds(new Set())
+                  : selectAllVisibleItems
+              }
+              accessibilityLabel={
+                selectedItems.length === filteredItems.length
+                  ? 'Auswahl aufheben'
+                  : 'Alle Artikel auswählen'
+              }
+            />
+            <Button
+              size="compact"
+              label="Verschieben"
+              disabled={selectedItems.length === 0}
+              onPress={() => setMoveModalOpen(true)}
+            />
+          </View>
+        </View>
+      ) : null}
+      {adsEnabled ? (
         <Button
           size="compact"
           variant="secondary"
@@ -274,7 +378,7 @@ export function ShoppingListScreen() {
                   checkedCount={checkedCount}
                   totalEstimate={storeTotal}
                   openCategoryColors={openCategoryColors}
-                  onPress={() => setStoreFilter(store.id)}
+                  onPress={() => handleFilterChange(store.id)}
                 />
               ),
             )}
@@ -289,7 +393,7 @@ export function ShoppingListScreen() {
               openCategoryColors={distinctCategoryColors(
                 unassignedItems.filter((i) => i.checked_at === null).map((i) => i.category),
               )}
-              onPress={() => setStoreFilter(UNASSIGNED_FILTER)}
+              onPress={() => handleFilterChange(UNASSIGNED_FILTER)}
             />
 
             {allItems.length === 0 ? (
@@ -372,6 +476,9 @@ export function ShoppingListScreen() {
               item={item}
               onDelete={() => handleDeletePress(item)}
               onEdit={() => setEditingItem(item)}
+              selectionMode={selectionMode}
+              selected={selectedItemIds.has(item.id)}
+              onSelect={() => toggleSelectedItem(item.id)}
             />
           )}
           stickySectionHeadersEnabled={false}
@@ -379,16 +486,25 @@ export function ShoppingListScreen() {
       )}
 
       {/* Modal zum Hinzufügen neuer Einkaufsartikel */}
+      <BarcodeScannerModal
+        visible={scannerOpen}
+        onClose={() => setScannerOpen(false)}
+        onProductFound={handleProductScanned}
+      />
+
       <AddItemModal
         visible={addModalOpen}
         householdId={householdId}
         initialStoreId={activeStore?.id ?? null}
+        initialProduct={scannedProduct}
         onDismiss={() => {
           pendingAdRef.current = false;
+          setScannedProduct(null);
           setAddModalOpen(false);
         }}
         onItemAdded={() => {
           pendingAdRef.current = true;
+          setScannedProduct(null);
           setAddModalOpen(false);
           if (process.env.NODE_ENV === 'test') {
             if (pendingAdRef.current) {
@@ -433,6 +549,14 @@ export function ShoppingListScreen() {
 
       {/* Modal zum Bearbeiten eines bestehenden Einkaufsartikels */}
       <EditItemModal item={editingItem} onDismiss={() => setEditingItem(null)} />
+
+      <MoveItemsModal
+        visible={moveModalOpen}
+        selectedItems={selectedItems}
+        stores={stores}
+        onSelect={handleMoveItems}
+        onClose={() => setMoveModalOpen(false)}
+      />
 
       {/* Vollbild-Einkaufsmodus fuer diesen Markt (nur Abhaken, kein Bearbeiten) */}
       {activeStore && (

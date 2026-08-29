@@ -2,7 +2,7 @@ import { Image } from 'expo-image';
 import { useState } from 'react';
 import { Pressable, ScrollView, View } from 'react-native';
 import { ThemedText } from '@/components/theme/themed-text';
-import type { DietaryTag, Difficulty, DishType } from '@/features/recipes/data/use-recipes';
+import type { DietaryTag, Difficulty, DishType } from '@/features/recipes/hooks/use-recipes';
 import { UNIT_OPTIONS } from '@/lib/units';
 import { DIETARY_TAGS, DIFFICULTIES, DISH_TYPES } from './recipe-metadata-options';
 import type { IngredientComponentGroup, WizardStepItem } from './types';

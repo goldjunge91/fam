@@ -7,7 +7,7 @@ import {
 } from '@/features/meal-planner/shopping-needs';
 import { getDatabase } from '@/lib/db/client';
 
-import type { RecipeDetail } from './use-recipes';
+import type { RecipeDetail } from '../hooks/use-recipes';
 
 export type RecipeShoppingNeed = {
   productId: string;

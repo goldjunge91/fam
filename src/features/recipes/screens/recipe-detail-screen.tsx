@@ -25,16 +25,12 @@ import { RecipeRatingSheet } from '../components/recipe-rating-sheet';
 import { RecipeShoppingSheet } from '../components/recipe-shopping-sheet';
 import { StepMentionText } from '../components/step-mention-text';
 import { useRecipeCoverUrl, useRecipeStepImageUrl } from '../data/household-recipe-images';
-import {
-  type RecipeDetail,
-  type RecipeStep,
-  useDeleteRecipeMutation,
-  useRecipeDetail,
-} from '../data/use-recipes';
 import { flattenRecipeItems, type MentionableIngredient } from '../domain/ingredient-mentions';
 import { calculateServingNutrition, scaleServing } from '../domain/nutrition';
 import { useRecipeFavorites } from '../domain/recipe-favorites';
 import { useRecipeRating } from '../domain/recipe-ratings';
+import type { RecipeStep } from '../hooks/use-recipe-steps';
+import { type RecipeDetail, useDeleteRecipeMutation, useRecipeDetail } from '../hooks/use-recipes';
 import {
   DIETARY_TAG_LABELS,
   DIFFICULTY_LABELS,

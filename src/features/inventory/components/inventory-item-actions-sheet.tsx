@@ -1,4 +1,5 @@
 import { Modal, Pressable, StyleSheet, View } from 'react-native';
+import { DateWheelField } from '@/components/forms/date-wheel-field';
 import { ThemedText } from '@/components/theme/themed-text';
 import { QuantityStepper } from '@/components/ui/quantity-stepper';
 import { useSheetShadowStyle } from '@/hooks/use-sheet-shadow-style';
@@ -16,7 +17,7 @@ type InventoryItemActionsSheetProps = {
   onEdit: () => void;
   onConsume: () => void;
   onRemove: () => void;
-  onProductInformation: () => void;
+  onExpiryChange: (expiryDate: string) => void;
 };
 
 export function InventoryItemActionsSheet({
@@ -27,7 +28,7 @@ export function InventoryItemActionsSheet({
   onEdit,
   onConsume,
   onRemove,
-  onProductInformation,
+  onExpiryChange,
 }: InventoryItemActionsSheetProps) {
   const theme = useTheme();
   const sheetStyle = useSheetShadowStyle();
@@ -88,16 +89,11 @@ export function InventoryItemActionsSheet({
             <SheetAction label="Entfernen" onPress={onRemove} variant="danger" />
           </View>
 
-          <Pressable
-            onPress={onProductInformation}
-            accessibilityRole="button"
-            accessibilityLabel="Produktinformationen"
-            className="fridge-actions-info-action">
-            <View className="fridge-actions-info-icon">
-              <ThemedText type="smallBold">i</ThemedText>
-            </View>
-            <ThemedText type="small">Produktinformationen</ThemedText>
-          </Pressable>
+          <DateWheelField
+            label="Mindesthaltbarkeitsdatum"
+            value={item.expiry_date ?? ''}
+            onChange={onExpiryChange}
+          />
         </View>
       </View>
     </Modal>

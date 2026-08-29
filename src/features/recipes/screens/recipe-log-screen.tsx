@@ -7,8 +7,9 @@ import { BackButton } from '@/components/ui/buttons';
 import { FilterChipBar } from '@/components/ui/filter-chip-bar';
 import type { MealType } from '@/features/calorie-tracking/api';
 import { useTheme } from '@/hooks/use-theme';
-import { useRecipeDetail, useUpdateComponentMutation } from '../data/use-recipes';
 import { calculateAdjustedServingNutrition } from '../domain/nutrition';
+import { useUpdateComponentMutation } from '../hooks/use-recipe-components';
+import { useRecipeDetail } from '../hooks/use-recipes';
 
 const MEAL_OPTIONS: { value: MealType; label: string }[] = [
   { value: 'breakfast', label: 'Frühstück' },

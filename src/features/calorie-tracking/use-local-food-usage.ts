@@ -26,5 +26,6 @@ export function useLocalFoodUsage(userId: string | undefined, mealType: MealType
       }));
     },
     enabled: !!userId,
+    refetchOnMount: 'always',
   });
 }

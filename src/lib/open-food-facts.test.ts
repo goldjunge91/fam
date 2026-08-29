@@ -258,4 +258,27 @@ describe('productToRouteParams / productFromRouteParams', () => {
       expect.objectContaining({ name: 'Apfel', caloriesPer100g: 52 }),
     );
   });
+
+  it('sollte den gekapselten Produkt-Payload aus dem Lebensmittelsuche-Modal lesen', () => {
+    const payload = productToRouteParams({
+      barcode: '123',
+      name: 'Hafermilch',
+      brand: 'Oatly',
+      caloriesPer100g: 59,
+      proteinsPer100g: 1.1,
+      carbsPer100g: 6.6,
+      fatPer100g: 3,
+      categoryTags: [],
+    });
+
+    expect(productFromRouteParams({ productData: JSON.stringify(payload) })).toEqual(
+      expect.objectContaining({
+        name: 'Hafermilch',
+        caloriesPer100g: 59,
+        proteinsPer100g: 1.1,
+        carbsPer100g: 6.6,
+        fatPer100g: 3,
+      }),
+    );
+  });
 });

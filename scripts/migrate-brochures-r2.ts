@@ -1,6 +1,7 @@
 import { createHash, createHmac } from 'node:crypto';
 import { readFile, writeFile } from 'node:fs/promises';
 import { createClient } from '@supabase/supabase-js';
+import sharp from 'sharp';
 import type { BrochureDump } from './brochures/transform';
 
 // Einmalige In-Place-Migration: spiegelt bereits gecrawlte Prospekt-Bilder von
@@ -10,6 +11,8 @@ import type { BrochureDump } from './brochures/transform';
 // Ohne Flags: nur Analyse (dry-run). Upload/Update nur mit explizitem Flag.
 
 const MAX_IMAGE_BYTES = 5 * 1024 * 1024;
+const MAX_STORED_IMAGE_WIDTH = 2048;
+const JPEG_QUALITY = 82;
 const REQUEST_DELAY_MS = 250;
 const BATCH_SIZE = 50;
 const CACHE_CONTROL = 'public, max-age=604800, immutable';
@@ -144,9 +147,9 @@ function sanitizeKeyPart(value: string): string {
   return value.replace(/[^a-zA-Z0-9._-]+/g, '_');
 }
 
-function imageKeyFor(originalUrl: string, brochureId: string, context: string): string {
-  const hash = createHash('sha256').update(originalUrl).digest('hex').slice(0, 16);
-  return `${DUMP_RUN_PREFIX}${sanitizeKeyPart(brochureId)}/${context}-${hash}.jpg`;
+function imageKeyFor(originalUrl: string): string {
+  const hash = createHash('sha256').update(originalUrl).digest('hex');
+  return `${DUMP_RUN_PREFIX}assets/${hash}.jpg`;
 }
 
 // Minimale AWS-SigV4-Signatur fuer R2 (service "s3", region "auto").
@@ -166,6 +169,7 @@ function signR2Request(
     'x-amz-content-sha256': 'UNSIGNED-PAYLOAD',
     'x-amz-date': amzDate,
     'cache-control': CACHE_CONTROL,
+    'content-type': 'image/jpeg',
   };
   const sortedHeaderNames = Object.keys(headers).sort();
   const canonicalHeaders = sortedHeaderNames
@@ -233,6 +237,23 @@ async function fetchImage(originalUrl: string): Promise<ArrayBuffer> {
     );
   }
   return buffer;
+}
+
+async function optimizeImage(buffer: ArrayBuffer): Promise<ArrayBuffer> {
+  try {
+    const optimized = await sharp(Buffer.from(buffer))
+      .rotate()
+      .resize({ width: MAX_STORED_IMAGE_WIDTH, withoutEnlargement: true })
+      .jpeg({ quality: JPEG_QUALITY, progressive: true })
+      .toBuffer();
+
+    return optimized.buffer.slice(
+      optimized.byteOffset,
+      optimized.byteOffset + optimized.byteLength,
+    ) as ArrayBuffer;
+  } catch {
+    return buffer;
+  }
 }
 
 async function verifyPublicUrl(url: string): Promise<boolean> {
@@ -336,7 +357,7 @@ async function main(): Promise<void> {
     pending.push({
       brochureId: location.brochureId,
       originalUrl,
-      key: imageKeyFor(originalUrl, location.brochureId, location.pageContext),
+      key: imageKeyFor(originalUrl),
     });
   }
 
@@ -357,7 +378,7 @@ async function main(): Promise<void> {
     try {
       await withRetry(`Bild ${task.originalUrl}`, async () => {
         const image = await fetchImage(task.originalUrl);
-        await uploadToR2(options, task.key, image);
+        await uploadToR2(options, task.key, await optimizeImage(image));
       });
       const r2Url = `${options.r2PublicUrl}/${task.key}`;
       const verified = await verifyPublicUrl(r2Url);

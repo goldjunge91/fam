@@ -1,7 +1,7 @@
 import { render, screen, userEvent, within } from '@testing-library/react-native';
 import { router } from 'expo-router';
 import type { CatalogRecipe } from '../catalog/use-recipe-catalog';
-import type { RecipeListItem } from '../data/use-recipes';
+import type { RecipeListItem } from '../hooks/use-recipes';
 import { RecipesScreen } from './recipes-screen';
 
 let mockRecipes: RecipeListItem[] = [];
@@ -17,7 +17,7 @@ jest.mock('@/features/household/active-household-provider', () => ({
   useOptionalActiveHousehold: () => ({ activeHouseholdId: 'hh-1' }),
 }));
 
-jest.mock('../data/use-recipes', () => ({
+jest.mock('../hooks/use-recipes', () => ({
   useRecipes: () => ({ data: mockRecipes, isLoading: false }),
 }));
 
@@ -136,6 +136,16 @@ describe('RecipesScreen — Entdecken', () => {
     expect(screen.queryByText('Trending')).not.toBeOnTheScreen();
     expect(screen.getByRole('button', { name: 'Salat Overview' })).toBeOnTheScreen();
     expect(screen.queryByText('Unsere Rezepte')).not.toBeOnTheScreen();
+  });
+
+  it('zeigt Katalogrezepte auch bei einem Kalorienbereich ohne hinterlegte Nährwerte', async () => {
+    const user = userEvent.setup();
+    await render(<RecipesScreen />);
+
+    await user.press(screen.getByRole('button', { name: '100–200 Kilokalorien' }));
+
+    expect(screen.getByText('100–200')).toBeOnTheScreen();
+    expect(screen.getByRole('button', { name: 'Pizza Home' })).toBeOnTheScreen();
   });
 
   it('öffnet das Navigationsmenü über den Header', async () => {

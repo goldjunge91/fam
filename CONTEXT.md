@@ -12,6 +12,10 @@ _Avoid_: Diary, Tagebuch, Journal, Log (als Oberbegriff)
 Der Ernährungs- und Gewichtsteil von Tracking: Mahlzeiten (`food_entries`), Gewicht (`weight_entries`), Ziele (`user_goals`). Eine von mehreren Tracking-Domänen, kein Oberbegriff.
 _Avoid_: Diary, Ernährungstagebuch, Food Diary
 
+**Tracking-Methode**:
+Genau eine aktive, sich gegenseitig ausschließende Ernährungs-/Trainingsmethode pro Nutzer (`profiles.tracking_method`: `standard`, `glp1`, `fasting`, `keto`, `low_carb`, `workouts`, `cgm`, `volumetrics`). Kein Multi-Select — ein Wechsel ersetzt die vorherige Methode. Siehe ADR 0004.
+_Avoid_: Modul (als Synonym — Module, z. B. `module_calories`, sind unabhängig voneinander kombinierbare App-Bereich-Umschalter; Tracking-Methode ist eine einzelne Auswahl innerhalb des Nutrition-Tracking-Moduls)
+
 **Product**:
 Globaler, nicht haushaltsgebundener Katalogeintrag (z. B. aus Open Food Facts) mit Barcode/Nährwertdaten. Existiert unabhängig von jedem Haushalt.
 

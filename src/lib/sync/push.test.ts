@@ -50,7 +50,13 @@ describe('pushOutbox — generischer onForeignKeyViolation-Dispatch', () => {
       entity: 'fridge_items',
       entityId: 'item-1',
       op: 'update',
-      payload: { id: 'item-1', location_id: 'loc-1', quantity: 2 },
+      payload: {
+        id: 'item-1',
+        location_id: 'loc-1',
+        location_kind: 'fridge',
+        location_name: 'Kühlschrank',
+        quantity: 2,
+      },
       now: 10,
       applyLocally: async () => {},
     });
@@ -93,6 +99,8 @@ describe('pushOutbox — generischer onForeignKeyViolation-Dispatch', () => {
     // fridge_items ein zweites Mal versucht (Repair + Retry).
     expect(insert).toHaveBeenCalledWith(expect.objectContaining({ id: 'loc-1' }));
     expect(update).toHaveBeenCalledTimes(2);
+    expect(update.mock.calls[0][0]).not.toHaveProperty('location_kind');
+    expect(update.mock.calls[0][0]).not.toHaveProperty('location_name');
   });
 
   it('klassifiziert den Fehler wie gewohnt, wenn der Resolver nicht reparieren kann (kein FK-Fehler)', async () => {

@@ -8,7 +8,7 @@ import { useAddShoppingItem } from '@/features/shopping-list/hooks/use-shopping-
 import { resolveCategoryForItem } from '@/features/shopping-list/preferences/api';
 import { useTheme } from '@/hooks/use-theme';
 import { type RecipeShoppingNeed, useRecipeShoppingNeeds } from '../data/use-recipe-shopping-needs';
-import type { RecipeDetail } from '../data/use-recipes';
+import type { RecipeDetail } from '../hooks/use-recipes';
 import { RecipeBottomSheet } from './recipe-bottom-sheet';
 
 type Props = {

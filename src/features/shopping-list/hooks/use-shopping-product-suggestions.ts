@@ -41,7 +41,7 @@ export function useShoppingProductSuggestions({
                   count(*) over (partition by lower(pu.name)) as frequency
            from product_usage pu
            where pu.user_id = ?
-             and pu.feature = 'shopping_list'
+             and pu.feature in ('shopping_list', 'fridge')
              and (pu.household_id = ? or pu.household_id is null)
          )
          select ranked.name,
@@ -55,7 +55,9 @@ export function useShoppingProductSuggestions({
                   from shopping_list_items item
                   join stores store on store.id = item.store_id
                   where item.household_id = ?
-                    and lower(item.name) = lower(ranked.name)
+                    and ((ranked.product_id is not null and item.product_id = ranked.product_id)
+                      or (ranked.product_id is null and lower(item.name) = lower(ranked.name)))
+                    and item.store_id is not null
                     and store.deleted_at is null
                   order by item.updated_at desc
                   limit 1
@@ -65,7 +67,9 @@ export function useShoppingProductSuggestions({
                   from shopping_list_items item
                   join stores store on store.id = item.store_id
                   where item.household_id = ?
-                    and lower(item.name) = lower(ranked.name)
+                    and ((ranked.product_id is not null and item.product_id = ranked.product_id)
+                      or (ranked.product_id is null and lower(item.name) = lower(ranked.name)))
+                    and item.store_id is not null
                     and store.deleted_at is null
                   order by item.updated_at desc
                   limit 1
@@ -78,5 +82,8 @@ export function useShoppingProductSuggestions({
       );
     },
     enabled: !!userId,
+    // Die Vorschlagsliste liest direkt aus SQLite und darf keinen alten,
+    // leeren Cache nach dem ersten Öffnen wiederverwenden.
+    refetchOnMount: 'always',
   });
 }

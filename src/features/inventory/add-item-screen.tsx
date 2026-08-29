@@ -117,7 +117,7 @@ export function AddItemScreen() {
     QUICK_DATE_OPTIONS.find((option) => quickDateOffset(option.value) === expiryDate)?.value ??
     'none';
 
-  function handleSelectProduct(product: OpenFoodFactsProduct) {
+  const handleSelectProduct = useCallback((product: OpenFoodFactsProduct) => {
     // Muss VOR `setName` passieren — sonst haelt der Such-Effekt in
     // `product-search-dropdown.tsx` diesen Namenswechsel fuer neue Eingabe
     // und oeffnet die Trefferliste erneut (#UI-Feedback: "Auswaehlen eines
@@ -136,7 +136,7 @@ export function AddItemScreen() {
     setPackageSize(hasKnownPackageSize ? productQuantity : null);
     setPackageSizeUnit(hasKnownPackageSize ? productUnit : null);
     setSelectedProduct(product);
-  }
+  }, []);
 
   // Nimmt ein Produkt entgegen, das ueber "Produkt manuell anlegen" (#80) im
   // add-product-Screen erstellt wurde und beim Zurueckkommen hier abgeholt
@@ -144,12 +144,8 @@ export function AddItemScreen() {
   useFocusEffect(
     useCallback(() => {
       const created = consumePendingProductSelection();
-      if (created) {
-        setName(created.name);
-        if (created.quantity) setQuantity(String(created.quantity));
-        if (created.unit) setUnit(created.unit);
-      }
-    }, []),
+      if (created) handleSelectProduct(created);
+    }, [handleSelectProduct]),
   );
 
   async function handleAddLocation() {
@@ -189,23 +185,26 @@ export function AddItemScreen() {
       await mutation.mutateAsync(values);
 
       if (userId) {
-        void getDatabase()
-          .then((db) =>
-            recordProductUsage(db, {
-              id: Crypto.randomUUID(),
-              userId,
-              householdId: currentHousehold.id,
-              feature: 'fridge',
-              productId,
-              name: name.trim(),
-              brand: selectedProduct?.brand ?? null,
-              barcode: selectedProduct?.barcode ?? null,
-              quantity: packageSize ?? (parseFloat(quantity) || 1),
-              unit: packageSizeUnit ?? unit,
-            }),
-          )
-          .then(() => queryClient.invalidateQueries({ queryKey: ['product_usage'] }))
-          .catch((err) => console.error('Fehler beim Protokollieren der Nutzung:', err));
+        try {
+          const db = await getDatabase();
+          await recordProductUsage(db, {
+            id: Crypto.randomUUID(),
+            userId,
+            householdId: currentHousehold.id,
+            feature: 'fridge',
+            productId,
+            name: name.trim(),
+            brand: selectedProduct?.brand ?? null,
+            barcode: selectedProduct?.barcode ?? null,
+            quantity: packageSize ?? (parseFloat(quantity) || 1),
+            unit: packageSizeUnit ?? unit,
+          });
+          void queryClient.invalidateQueries({ queryKey: ['product_usage'] });
+        } catch (err) {
+          // Die History ist Zusatzfunktion: Ein erfolgreicher Vorrat-Save
+          // darf nicht nachtraeglich als Fehler erscheinen.
+          console.error('Fehler beim Protokollieren der Nutzung:', err);
+        }
       }
 
       router.back();
@@ -257,7 +256,10 @@ export function AddItemScreen() {
             label=""
             placeholder={source === 'dish' ? 'Gericht suchen…' : 'z. B. Milch oder Barcode-Name'}
             value={name}
-            onChangeText={setName}
+            onChangeText={(text) => {
+              setName(text);
+              setSelectedProduct(null);
+            }}
             onSelectProduct={handleSelectProduct}
             size="large"
             trailing={

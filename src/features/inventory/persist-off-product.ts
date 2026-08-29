@@ -10,10 +10,20 @@ export async function persistOffProductIfNeeded(
   userId: string | undefined,
   addProductMutation: AddProductMutation,
 ): Promise<string | null> {
-  if (!product.barcode || !userId) return null;
-  triggerOffEnrichment(product.barcode);
+  if (!userId) return null;
 
   const db = await getDatabase();
+  if (product.productId) {
+    const existingById = await db.getFirstAsync<{ id: string }>(
+      'select id from products where id = ?',
+      [product.productId],
+    );
+    if (existingById) return existingById.id;
+  }
+
+  if (!product.barcode) return null;
+  triggerOffEnrichment(product.barcode);
+
   const existing = await db.getFirstAsync<{ id: string }>(
     'select id from products where barcode = ?',
     [product.barcode],

@@ -262,8 +262,8 @@ gebraucht:
 Alles in einem Schritt — bauen, laden, installieren, Simulator und Metro starten:
 
 ```bash
-bash scripts/ios-dev.sh                # neuer Build
-bash scripts/ios-dev.sh --reuse-last   # letzten fertigen Build verwenden
+bash scripts/ios-dev.sh                # interaktiver Controller
+bash scripts/ios-dev.sh --reuse-last   # registriertes Lock-Artefakt verwenden
 bash scripts/ios-dev.sh --no-metro     # nur installieren
 bash scripts/ios-dev.sh --device "iPhone 17"
 ```
@@ -271,9 +271,12 @@ bash scripts/ios-dev.sh --device "iPhone 17"
 Einzelschritte, falls nötig:
 
 ```bash
-eas build --profile development --platform ios      # Simulator-Build
-eas build --profile development --platform android  # APK
-eas build --profile development-device --platform ios  # echtes Gerät
+bun run native:run -- --target ios-development-simulator
+bun run native:run -- --target android-development
+bun run native:run -- --target ios-development-device
+
+# Nur nach bewusster Freigabe: Prebuild und nativer Rebuild
+bun run native:rebuild -- --target ios-development-simulator --approve-rebuild
 ```
 
 Profile stehen in `eas.json`.

@@ -1,22 +1,33 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { render, screen } from '@testing-library/react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-import type { RecipeDetail } from '../data/use-recipes';
+import type { CatalogDetail } from '../catalog/use-recipe-catalog';
+import type { RecipeDetail } from '../hooks/use-recipes';
 import { CookingModeScreen } from './cooking-mode-screen';
 
 const mockNavigation = { canGoBack: () => true, addListener: () => () => {} };
 
+let mockRouteParams: { id?: string; slug?: string } = { id: 'recipe-1' };
+
 jest.mock('expo-router', () => ({
   router: { push: jest.fn(), back: jest.fn(), canGoBack: () => true },
-  useLocalSearchParams: () => ({ id: 'recipe-1' }),
+  useLocalSearchParams: () => mockRouteParams,
   useNavigation: () => mockNavigation,
 }));
 
 let mockDetail: RecipeDetail | null = null;
 let mockLoading = false;
+let mockCatalogDetail: CatalogDetail | null = null;
+let mockCatalogLoading = false;
 
-jest.mock('../data/use-recipes', () => ({
+jest.mock('../hooks/use-recipes', () => ({
   useRecipeDetail: () => ({ data: mockDetail, isLoading: mockLoading }),
+}));
+
+jest.mock('../catalog/use-recipe-catalog', () => ({
+  useCatalogRecipe: () => ({ data: mockCatalogDetail, isLoading: mockCatalogLoading }),
+  useCatalogImageUrl: () => ({ data: null }),
+  toCookingRecipeDetail: () => mockDetail,
 }));
 
 let mockIsPremium = false;
@@ -63,7 +74,10 @@ function makeDetail(): RecipeDetail {
       created_by: 'user-1',
       created_at: '2024-01-01T00:00:00.000Z',
     },
-    components: [{ id: 'sauce', recipe_id: 'recipe-1', name: 'Soße', serving_grams: 200 }],
+    components: [
+      { id: 'sauce', recipe_id: 'recipe-1', name: 'Soße', serving_grams: 200 },
+      { id: 'side', recipe_id: 'recipe-1', name: 'Beilage', serving_grams: 150 },
+    ],
     items: [
       {
         id: 'item-1',
@@ -81,6 +95,15 @@ function makeDetail(): RecipeDetail {
         sub_component_id: null,
         grams: 300,
         quantity: 300,
+        unit: 'g',
+      },
+      {
+        id: 'item-3',
+        component_id: 'side',
+        product_id: 'nudeln',
+        sub_component_id: null,
+        grams: 200,
+        quantity: 200,
         unit: 'g',
       },
     ],
@@ -127,6 +150,17 @@ function makeDetail(): RecipeDetail {
           fat_g_per_100: 5,
         },
       ],
+      [
+        'nudeln',
+        {
+          id: 'nudeln',
+          name: 'Nudeln',
+          kcal_per_100: 350,
+          protein_g_per_100: 12,
+          carbs_g_per_100: 70,
+          fat_g_per_100: 2,
+        },
+      ],
     ]),
   };
 }
@@ -141,9 +175,23 @@ function makeTimerDetail(): RecipeDetail {
   return detail;
 }
 
+function makeDetailWithoutGroupWeights(): RecipeDetail {
+  const detail = makeDetail();
+  return {
+    ...detail,
+    components: detail.components.map((component) => ({
+      ...component,
+      serving_grams: null,
+    })),
+  };
+}
+
 beforeEach(() => {
+  mockRouteParams = { id: 'recipe-1' };
   mockDetail = null;
   mockLoading = false;
+  mockCatalogDetail = null;
+  mockCatalogLoading = false;
   mockIsPremium = false;
 });
 
@@ -159,8 +207,34 @@ describe('CookingModeScreen', () => {
     mockDetail = makeDetail();
     await renderScreen();
 
+    expect(screen.getByText('Soße')).toBeOnTheScreen();
+    expect(screen.getByText('Beilage')).toBeOnTheScreen();
     expect(screen.getByText('Tomaten')).toBeOnTheScreen();
     expect(screen.getByText('Hackfleisch')).toBeOnTheScreen();
+    expect(screen.getByText('Nudeln')).toBeOnTheScreen();
+  });
+
+  it('öffnet ein Katalogrezept im Kochmodus, ohne es zu kopieren', async () => {
+    mockRouteParams = { slug: 'mediterrane-gemuese-lasagne' };
+    mockCatalogDetail = { stepImages: [] } as unknown as CatalogDetail;
+    mockDetail = makeDetail();
+    await renderScreen();
+
+    expect(screen.getByText('Spaghetti Bolognese')).toBeOnTheScreen();
+    expect(screen.getByText('Tomaten')).toBeOnTheScreen();
+    expect(screen.getByText('Wasser aufsetzen')).toBeOnTheScreen();
+  });
+
+  it('zeigt Katalog-Zutaten auch ohne Gruppengewichte', async () => {
+    mockRouteParams = { slug: 'mediterrane-gemuese-lasagne' };
+    mockCatalogDetail = { stepImages: [] } as unknown as CatalogDetail;
+    mockDetail = makeDetailWithoutGroupWeights();
+    await renderScreen();
+
+    expect(screen.getByText('Soße')).toBeOnTheScreen();
+    expect(screen.getByText('Tomaten')).toBeOnTheScreen();
+    expect(screen.getByText('Beilage')).toBeOnTheScreen();
+    expect(screen.getByText('Nudeln')).toBeOnTheScreen();
   });
 
   it('zeigt Basis-Rezepttext und nummerierte Zubereitungsschritte', async () => {

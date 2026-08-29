@@ -85,6 +85,36 @@ describe('useFoodEntryForm', () => {
     expect(result.current.values.proteinG).toBe('7.5');
   });
 
+  it('uebernimmt Produktdaten, wenn Router-Parameter erst nach dem Mount eintreffen', async () => {
+    const { result, rerender } = await renderHook(
+      (props: { routeParams: Record<string, string> }) =>
+        useFoodEntryForm({
+          isEditing: false,
+          existingEntry: undefined,
+          routeParams: props.routeParams,
+        }),
+      { initialProps: { routeParams: {} } },
+    );
+
+    await rerender({
+      routeParams: {
+        name: 'Hafermilch',
+        kcalPer100g: '59',
+        proteinPer100g: '1.1',
+        carbsPer100g: '6.6',
+        fatPer100g: '3',
+      },
+    });
+
+    await waitFor(() => {
+      expect(result.current.values.name).toBe('Hafermilch');
+    });
+    expect(result.current.values.kcal).toBe('59');
+    expect(result.current.values.proteinG).toBe('1.1');
+    expect(result.current.values.carbsG).toBe('6.6');
+    expect(result.current.values.fatG).toBe('3');
+  });
+
   it('uebernimmt bei einem Verlaufs-Snapshot die fertigen Werte ohne Live-Skalierung', async () => {
     const { result } = await renderHook(() =>
       useFoodEntryForm({

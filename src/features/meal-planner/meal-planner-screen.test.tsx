@@ -74,7 +74,7 @@ jest.mock('@/lib/posthog', () => ({
   useFeatureFlag: () => mockRecipesFeatureFlag,
 }));
 
-jest.mock('@/features/recipes/data/use-recipes', () => ({
+jest.mock('@/features/recipes/hooks/use-recipes', () => ({
   useRecipes: () => ({
     data: [{ id: 'r1', title: 'Spaghetti Bolognese', cover_image_path: null }],
   }),

@@ -10,7 +10,7 @@ import { useSession } from '@/features/auth/session-provider';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { useHouseholdMembers } from '@/features/household/api';
 import { useNavigationChrome } from '@/features/navigation/navigation-chrome-provider';
-import { useRecipes } from '@/features/recipes/data/use-recipes';
+import { useRecipes } from '@/features/recipes/hooks/use-recipes';
 import {
   DEFAULT_MODULE_PREFERENCES,
   useModulePreferences,

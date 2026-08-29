@@ -165,6 +165,7 @@ it('gibt off_category_tags/off_last_modified_at eines lokalen Treffers an onSele
   await render(<ControlledDropdown onSelectProduct={onSelectProduct} />);
   await fireEvent.changeText(screen.getByPlaceholderText('z. B. Hafermilch'), 'Schwein');
 
+  expect(await screen.findByText('EAN local-1')).toBeOnTheScreen();
   await fireEvent.press(await screen.findByText('Schweineschnitzel'));
 
   expect(onSelectProduct).toHaveBeenCalledWith(

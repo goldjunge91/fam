@@ -24,10 +24,14 @@ export type PushResult = {
 
 const SYNC_COLUMNS = new Set(['updated_at', 'deleted_at', '_dirty']);
 
-/** insert-Payload: volle Zeile minus Sync-Spalten. id und created_at bleiben. */
-function buildInsertPayload(payload: Record<string, unknown>): Record<string, unknown> {
+/** Insert-Payload: Server-Spalten ohne die lokalen Sync-Spalten. */
+function buildInsertPayload(
+  payload: Record<string, unknown>,
+  columns: readonly string[],
+): Record<string, unknown> {
+  const serverColumns = new Set(columns);
   const result = Object.fromEntries(
-    Object.entries(payload).filter(([key]) => !SYNC_COLUMNS.has(key)),
+    Object.entries(payload).filter(([key]) => !SYNC_COLUMNS.has(key) && serverColumns.has(key)),
   );
   if ('unit' in result) {
     result.unit = normalizeUnit(typeof result.unit === 'string' ? result.unit : undefined);
@@ -35,10 +39,16 @@ function buildInsertPayload(payload: Record<string, unknown>): Record<string, un
   return result;
 }
 
-/** update-Payload: geaenderte Felder minus Sync-Spalten und id (id geht in .eq()). */
-function buildUpdatePayload(payload: Record<string, unknown>): Record<string, unknown> {
+/** Update-Payload: geaenderte Server-Felder ohne Sync-Spalten und id. */
+function buildUpdatePayload(
+  payload: Record<string, unknown>,
+  columns: readonly string[],
+): Record<string, unknown> {
+  const serverColumns = new Set(columns);
   const result = Object.fromEntries(
-    Object.entries(payload).filter(([key]) => !SYNC_COLUMNS.has(key) && key !== 'id'),
+    Object.entries(payload).filter(
+      ([key]) => !SYNC_COLUMNS.has(key) && key !== 'id' && serverColumns.has(key),
+    ),
   );
   if ('unit' in result) {
     result.unit = normalizeUnit(typeof result.unit === 'string' ? result.unit : undefined);
@@ -78,8 +88,8 @@ async function attempt(
 
   if (op === 'insert') {
     const response = metaOf(table).pushOnly
-      ? await query.insert(buildInsertPayload(payload))
-      : await query.insert(buildInsertPayload(payload)).select();
+      ? await query.insert(buildInsertPayload(payload, metaOf(table).columns))
+      : await query.insert(buildInsertPayload(payload, metaOf(table).columns)).select();
     return response as AttemptResult;
   }
 
@@ -100,13 +110,16 @@ async function attempt(
     // nichts: deren Payload traegt ausser deleted_at nur unveraenderte
     // Identitaetsfelder (z. B. household_id), ein Update darauf ist idempotent.
     const response = await query
-      .update({ ...buildUpdatePayload(payload), deleted_at: null })
+      .update({ ...buildUpdatePayload(payload, metaOf(table).columns), deleted_at: null })
       .eq('id', entityId)
       .select();
     return response as AttemptResult;
   }
 
-  const response = await query.update(buildUpdatePayload(payload)).eq('id', entityId).select();
+  const response = await query
+    .update(buildUpdatePayload(payload, metaOf(table).columns))
+    .eq('id', entityId)
+    .select();
   return response as AttemptResult;
 }
 

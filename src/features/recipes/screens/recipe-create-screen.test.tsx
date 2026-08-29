@@ -32,22 +32,28 @@ jest.mock('@/features/household/active-household-provider', () => ({
   useOptionalActiveHousehold: () => ({ activeHouseholdId: 'hh-1' }),
 }));
 
-jest.mock('@/features/recipes/data/use-recipes', () => ({
+jest.mock('@/features/recipes/hooks/use-recipes', () => ({
   useRecipeDetail: () => ({ data: mockRecipeData, isLoading: false }),
   useAddRecipeMutation: () => ({ mutateAsync: mockCreateRecipeMutateAsync }),
   useUpdateRecipeMutation: () => ({ mutateAsync: mockUpdateRecipeMutateAsync }),
+}));
+
+jest.mock('@/features/recipes/hooks/use-recipe-components', () => ({
   useAddComponentMutation: () => ({ mutateAsync: jest.fn() }),
   useUpdateComponentMutation: () => ({ mutateAsync: jest.fn() }),
   useDeleteComponentMutation: () => ({ mutateAsync: jest.fn() }),
   useAddItemMutation: () => ({ mutateAsync: jest.fn() }),
   useUpdateItemMutation: () => ({ mutateAsync: jest.fn() }),
   useDeleteItemMutation: () => ({ mutateAsync: jest.fn() }),
+  useSaveRecipeComponentsMutation: () => ({ mutateAsync: mockSaveComponentsMutateAsync }),
+}));
+
+jest.mock('@/features/recipes/hooks/use-recipe-steps', () => ({
   useAddStepMutation: () => ({ mutateAsync: jest.fn() }),
   useUpdateStepMutation: () => ({ mutateAsync: jest.fn() }),
   useDeleteStepMutation: () => ({ mutateAsync: jest.fn() }),
   useAddStepIngredientMutation: () => ({ mutateAsync: jest.fn() }),
   useRemoveStepIngredientMutation: () => ({ mutateAsync: jest.fn() }),
-  useSaveRecipeComponentsMutation: () => ({ mutateAsync: mockSaveComponentsMutateAsync }),
   useSaveRecipeStepsMutation: () => ({ mutateAsync: mockSaveStepsMutateAsync }),
 }));
 

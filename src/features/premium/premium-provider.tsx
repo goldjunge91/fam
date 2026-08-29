@@ -4,6 +4,7 @@ import Purchases, { type CustomerInfo } from 'react-native-purchases';
 
 import { useSession } from '@/features/auth/session-provider';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
+import { useForcePremiumOverrideStore } from '@/features/premium/force-premium-override';
 import { env } from '@/lib/env';
 import {
   hasPremiumEntitlement,
@@ -18,7 +19,11 @@ import {
 type PremiumContextValue = {
   /** Ob der aktive Haushalt Zugriff auf Premium-Funktionen hat. */
   isPremium: boolean;
-  /** Ob `isPremium` ueber `EXPO_PUBLIC_FORCE_PREMIUM` erzwungen ist statt aus RevenueCat/der DB zu kommen. */
+  /**
+   * Ob `isPremium` erzwungen ist statt aus RevenueCat/der DB zu kommen — entweder ueber
+   * `EXPO_PUBLIC_FORCE_PREMIUM` (Build-Zeit) oder den Dev-Tools-Override (Laufzeit, siehe
+   * `force-premium-override.ts`), z. B. um Premium in einem bereits kompilierten TestFlight-Build umzuschalten.
+   */
   isForced: boolean;
   /** `null` ohne konfigurierten RevenueCat-API-Key oder vor dem ersten Laden. */
   customerInfo: CustomerInfo | null;
@@ -104,13 +109,14 @@ export function PremiumProvider({ children }: { children: ReactNode }) {
     });
   }, [activeHouseholdId, userId]);
 
-  const isForced = env.forcePremium;
+  const forcePremiumOverride = useForcePremiumOverrideStore((state) => state.override);
+  const isForced = forcePremiumOverride ?? env.forcePremium;
   const isPremium =
     isForced || (activeHousehold?.premium_active ?? false) || hasPremiumEntitlement(customerInfo);
 
   const value = useMemo(
     () => ({ isPremium, isForced, customerInfo, loading, refresh }),
-    [isPremium, customerInfo, loading, refresh],
+    [isPremium, isForced, customerInfo, loading, refresh],
   );
 
   return <PremiumContext.Provider value={value}>{children}</PremiumContext.Provider>;

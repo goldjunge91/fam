@@ -1,6 +1,7 @@
 import { useQueryClient } from '@tanstack/react-query';
 import * as Crypto from 'expo-crypto';
 import { router, useLocalSearchParams } from 'expo-router';
+import { useState } from 'react';
 import { Alert, Image, View } from 'react-native';
 import { TextField } from '@/components/forms/text-field';
 import { Screen } from '@/components/layout/screen';
@@ -20,11 +21,15 @@ import {
   useUpdateFoodEntryMutation,
 } from '@/features/calorie-tracking/api';
 import { MEAL_LABELS } from '@/features/calorie-tracking/diary-screen';
+import type { FoodHistoryEntry } from '@/features/calorie-tracking/food-history';
+import { FoodSearchDropdown } from '@/features/calorie-tracking/food-search-dropdown';
 import { useFoodEntryForm } from '@/features/calorie-tracking/hooks/use-food-entry-form';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { useChildProfiles } from '@/features/household/api';
 import { getDatabase } from '@/lib/db/client';
 import { recordProductUsage } from '@/lib/db/product-usage';
+import type { OpenFoodFactsProduct } from '@/lib/open-food-facts';
+import { productToRouteParams } from '@/lib/open-food-facts';
 
 const UNIT_LABELS: Record<string, string> = {
   g: 'g',
@@ -48,11 +53,13 @@ export function AddFoodEntryScreen() {
     proteinG?: string;
     carbsG?: string;
     fatG?: string;
+    productData?: string;
     closeStackCount?: string;
   }>();
   const { session } = useSession();
   const userId = session?.user.id;
   const isEditing = !!params.entryId;
+  const [selectedFoodParams, setSelectedFoodParams] = useState<Record<string, string> | null>(null);
   const queryClient = useQueryClient();
 
   const { activeHousehold } = useActiveHousehold();
@@ -84,8 +91,24 @@ export function AddFoodEntryScreen() {
   } = useFoodEntryForm({
     isEditing,
     existingEntry,
-    routeParams: params as Record<string, string | string[] | undefined>,
+    routeParams: (selectedFoodParams ?? params) as Record<string, string | string[] | undefined>,
   });
+
+  function selectProduct(product: OpenFoodFactsProduct) {
+    setSelectedFoodParams({ productData: JSON.stringify(productToRouteParams(product)) });
+  }
+
+  function selectHistoryEntry(entry: FoodHistoryEntry) {
+    setSelectedFoodParams({
+      name: entry.name,
+      quantity: String(entry.quantity),
+      unit: entry.unit,
+      kcal: entry.kcal !== null ? String(entry.kcal) : '',
+      proteinG: entry.proteinG !== null ? String(entry.proteinG) : '',
+      carbsG: entry.carbsG !== null ? String(entry.carbsG) : '',
+      fatG: entry.fatG !== null ? String(entry.fatG) : '',
+    });
+  }
 
   async function handleSave() {
     if (!userId || !values.name.trim() || !params.date || !params.mealType) return;
@@ -105,25 +128,28 @@ export function AddFoodEntryScreen() {
       } else {
         await addMutation.mutateAsync(payload);
 
-        void getDatabase()
-          .then((db) =>
-            recordProductUsage(db, {
-              id: Crypto.randomUUID(),
-              userId,
-              householdId: activeHousehold?.id ?? null,
-              feature: 'diary',
-              mealType: payload.mealType,
-              name: payload.name,
-              unit: payload.unit,
-              quantity: payload.quantity,
-              kcal: payload.kcal,
-              proteinG: payload.proteinG,
-              carbsG: payload.carbsG,
-              fatG: payload.fatG,
-            }),
-          )
-          .then(() => queryClient.invalidateQueries({ queryKey: ['product_usage'] }))
-          .catch((err) => console.error('Fehler beim Protokollieren der Nutzung:', err));
+        try {
+          const db = await getDatabase();
+          await recordProductUsage(db, {
+            id: Crypto.randomUUID(),
+            userId,
+            householdId: activeHousehold?.id ?? null,
+            feature: 'diary',
+            mealType: payload.mealType,
+            name: payload.name,
+            unit: payload.unit,
+            quantity: payload.quantity,
+            kcal: payload.kcal,
+            proteinG: payload.proteinG,
+            carbsG: payload.carbsG,
+            fatG: payload.fatG,
+          });
+          void queryClient.invalidateQueries({ queryKey: ['product_usage'] });
+        } catch (err) {
+          // Der Tagebucheintrag ist bereits gespeichert; ein History-Fehler
+          // darf den Nutzer nicht von der naechsten Ansicht abhalten.
+          console.error('Fehler beim Protokollieren der Nutzung:', err);
+        }
       }
       // Kommt der Eintrag aus einem vorgelagerten Sheet (z.B. "Rezept fertig
       // gekocht"), muss dieses beim Speichern mitgeschlossen werden, statt
@@ -168,6 +194,16 @@ export function AddFoodEntryScreen() {
   return (
     <Screen title={title} back={{ label: 'Abbrechen' }}>
       <View className="afe-form">
+        {!isEditing ? (
+          <FoodSearchDropdown
+            mealType={params.mealType}
+            value={values.name}
+            onChangeText={setName}
+            onProductSelect={selectProduct}
+            onHistorySelect={selectHistoryEntry}
+          />
+        ) : null}
+
         {/* Profil-Auswahl (Erwachsener / Kind-Profil) */}
         {!isEditing && childProfiles.length > 0 ? (
           <View>
@@ -206,11 +242,7 @@ export function AddFoodEntryScreen() {
             </View>
           )}
           <View className="afe-hero-text">
-            <TextField
-              placeholder="Name des Lebensmittels"
-              value={values.name}
-              onChangeText={setName}
-            />
+            {isEditing ? <ThemedText type="smallBold">{values.name}</ThemedText> : null}
             {productMeta.brand ? (
               <ThemedText type="small" themeColor="textSecondary">
                 {productMeta.brand}
