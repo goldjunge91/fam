@@ -2,6 +2,12 @@ name: Android Dev APK Build
 
 on:
   workflow_dispatch:
+    inputs:
+      approve_rebuild:
+        description: "Native APK-Rebuild ausdrücklich freigeben"
+        required: true
+        default: false
+        type: boolean
 
 jobs:
   build-apk:
@@ -20,7 +26,12 @@ jobs:
           expo-token: ${{ secrets.EXPO_TOKEN }}
 
       - name: Build Android APK
-        run: bun run android:apk
+        run: |
+          if [ "${{ inputs.approve_rebuild }}" != "true" ]; then
+            echo "Native APK-Rebuild nicht freigegeben"
+            exit 1
+          fi
+          bun run android:apk -- --approve-rebuild
         env:
           EXPO_PROJECT_ID: ${{ secrets.EXPO_PROJECT_ID }}
 
@@ -28,5 +39,5 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: fam-android-dev-apk-${{ github.sha }}
-          path: "*.apk"
+          path: "dist/*.apk"
           retention-days: 7

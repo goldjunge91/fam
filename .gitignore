@@ -13,6 +13,7 @@ expo-env.d.ts
 .kotlin/
 *.orig.*
 *.jks
+*.keystore
 *.p8
 *.p12
 *.key
@@ -45,9 +46,17 @@ yarn-error.*
 
 example
 
-# generated native folders
-/ios
-/android
+# Generated native projects are versioned. Keep only build products and local
+# machine state out of the repository.
+ios/Pods/
+ios/build/
+ios/DerivedData/
+ios/.xcode.env.local
+android/.gradle/
+android/build/
+android/app/build/
+android/.cxx/
+native-artifacts/
 temp/
 /*.log
 .venv
@@ -68,13 +77,15 @@ tools/crawler/data/brochure-version-analysis.json
 tools/crawler/data/aldi-capitals-v2/
 tools/crawler/data/aldi-sample-v2/
 *.har
-fam.*
-fam 2.*
 build-*.tar.gz
 dist/
+/fam.*
+/fam 2.*
 # Veraltetes Ausgabeformat der frueheren Prospekt-SQL-Seed-Pipeline.
 seed_brochures.sql
 tokens_backup.env
 docs.md
 *.ipa
+*.apk
+*.aab
 scripts/set-crawler-secrets.sh

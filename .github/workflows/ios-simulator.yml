@@ -2,15 +2,6 @@ name: iOS Simulator Build
 
 on:
   workflow_dispatch:
-    inputs:
-      configuration:
-        description: 'Xcode Configuration (Debug / Release)'
-        required: true
-        default: 'Release'
-        type: choice
-        options:
-          - Release
-          - Debug
 
 concurrency:
   group: ios-sim-${{ github.workflow }}-${{ github.ref }}
@@ -45,42 +36,32 @@ jobs:
       - name: Setup Bun Environment
         uses: ./.github/actions/setup-bun-env
 
-      - name: Expo Prebuild iOS (CNG)
-        run: bunx expo prebuild --platform ios --no-install
-
-      - name: Cache CocoaPods
-        uses: actions/cache@v4
+      - name: Setup Expo & EAS
+        uses: ./.github/actions/setup-expo
         with:
-          path: ios/Pods
-          key: ${{ runner.os }}-pods-${{ hashFiles('ios/Podfile.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-pods-
+          expo-token: ${{ secrets.EXPO_TOKEN }}
 
-      - name: Install CocoaPods
-        run: |
-          cd ios
-          pod install || pod install --repo-update
-        env:
-          LANG: en_US.UTF-8
-          LC_ALL: en_US.UTF-8
+      - name: Verify locked native baseline
+        run: bun run native:status
 
-      - name: Build iOS Simulator App
+      - name: Restore locked iOS Simulator artifact
+        run: bun run native:restore -- --target ios-development-simulator
+
+      - name: Install locked iOS Simulator App
         run: |
-          CONFIG="${{ github.event.inputs.configuration || 'Release' }}"
-          xcodebuild \
-            -workspace ios/fam.xcworkspace \
-            -scheme fam \
-            -configuration "$CONFIG" \
-            -sdk iphonesimulator \
-            -destination "generic/platform=iOS Simulator" \
-            -derivedDataPath build/DerivedData \
-            CODE_SIGNING_ALLOWED=NO \
-            build
+          DEVICE_ID="$(xcrun simctl list devices available | grep -m1 -E 'iPhone 17 Pro \\(' | grep -oE '[0-9A-F-]{36}' || true)"
+          if [ -z "$DEVICE_ID" ]; then
+            echo "Kein verfügbarer iPhone 17 Pro Simulator gefunden"
+            exit 1
+          fi
+          xcrun simctl boot "$DEVICE_ID" 2>/dev/null || true
+          xcrun simctl bootstatus "$DEVICE_ID" -b
+          xcrun simctl install "$DEVICE_ID" native-artifacts/ios-development-simulator/fam.app
 
       - name: Package Simulator App (.tar.gz)
         run: |
-          APP_PATH="$(find build/DerivedData/Build/Products -type d -name 'fam.app' | head -n1)"
-          if [ -z "$APP_PATH" ]; then
+          APP_PATH="native-artifacts/ios-development-simulator/fam.app"
+          if [ ! -d "$APP_PATH" ]; then
             echo "Fehler: fam.app wurde nicht gefunden"
             exit 1
           fi

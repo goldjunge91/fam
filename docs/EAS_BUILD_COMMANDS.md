@@ -4,7 +4,30 @@ Referenz für alle `eas build`/`eas submit`-Kombinationen dieses Projekts. Profi
 
 Das Projekt hat einen Apple-Developer-Account — iOS-Distribution (TestFlight, App Store) über EAS ist nutzbar, nicht nur Simulator-Builds.
 
+## Native Baseline und Rebuild-Sperre
+
+`ios/` und `android/` sind versionierte native Projekte. Normale Startbefehle verwenden ausschließlich ein im `native-build-lock.json` registriertes Binary. Fehlt es oder weicht der Expo-Fingerprint ab, wird nicht automatisch kompiliert.
+
+```bash
+# Native Baseline und Artefakte prüfen
+bun run native:status
+
+# Ein vorhandenes EAS-Artefakt wiederherstellen, ohne neu zu bauen
+bun run native:restore -- --target ios-development-simulator
+# Einen fertigen EAS-Build einmalig registrieren und lokal wiederherstellen
+bun run native:restore -- --target ios-development-simulator --eas-build-id <BUILD_ID>
+
+# Prebuild und Kompilierung ausdrücklich freigeben
+bun run native:rebuild -- --target ios-development-simulator --approve-rebuild
+```
+
+Der Rebuild-Schalter ist absichtlich Pflicht. Änderungen an `app.json`, Config Plugins, Dependencies oder nativen Dateien erfordern eine neue Baseline und ein neues Binary.
+
+Expo Precompiled Modules bleiben aktiviert. Das native Projekt setzt dafür `EXPO_USE_PRECOMPILED_MODULES=1`; es gibt keine globale `buildFromSource`-Regel. `expo-sqlite` bleibt mit `useSQLCipher: true` konfiguriert. Module ohne passendes vorgefertigtes Artefakt oder mit eigener nativer Konfiguration dürfen weiterhin auf Source-Build zurückfallen. Dieser Fallback ist Bestandteil des kontrollierten Rebuilds und kein Grund, alle Expo-Module global aus Source zu bauen.
+
 ## Builds erstellen
+
+Die folgenden direkten EAS-Befehle sind ausschließlich für einen bewusst freigegebenen Release-/Rebuild-Vorgang gedacht. Für den normalen lokalen Start bitte `native:run` verwenden.
 
 ```bash
 # Development (Dev-Client, für Metro/Fast-Refresh-Workflow)
@@ -24,7 +47,7 @@ eas build --profile production --platform android    # baut app-bundle (.aab)
 eas build --profile production --platform all
 ```
 
-Nützliche Flags: `--non-interactive` (kein Prompt, z. B. in Skripten), `--local` (lokal statt in der EAS-Cloud bauen), `--clear-cache` (Build-Cache verwerfen bei kaputten nativen Deps).y
+Nützliche Flags: `--non-interactive` (kein Prompt, z. B. in Skripten), `--local` (lokal statt in der EAS-Cloud bauen), `--clear-cache` (Build-Cache verwerfen bei kaputten nativen Deps).
 
 ## An Stores übermitteln
 

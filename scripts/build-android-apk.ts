@@ -39,6 +39,7 @@ let bumpVersionCode = true;
 let explicitVersionCode: number | null = null;
 let explicitAppVersion: string | null = null;
 let autoInstall = false;
+let approveRebuild = false;
 
 for (let i = 0; i < args.length; i++) {
   const arg = args[i];
@@ -51,6 +52,8 @@ for (let i = 0; i < args.length; i++) {
     explicitAppVersion = args[++i];
   } else if (arg === '--install' || arg === '-i') {
     autoInstall = true;
+  } else if (arg === '--approve-rebuild') {
+    approveRebuild = true;
   } else if (arg === '--help' || arg === '-h') {
     console.log(`
 Verwendung:
@@ -61,10 +64,15 @@ Optionen:
   --version-code <num>   Spezifischen versionCode setzen
   --app-version <str>    Spezifische Versionsnummer setzen (z. B. 1.2.0)
   --install, -i          Nach dem Build direkt per adb auf angeschlossenem Gerät installieren
+  --approve-rebuild      Native Kompilierung explizit erlauben
   --help, -h             Diese Hilfe anzeigen
 `);
     process.exit(0);
   }
+}
+
+if (!approveRebuild) {
+  die('Native APK-Kompilierung ist gesperrt. Bitte explizit --approve-rebuild angeben.');
 }
 
 // ------------------------------------------------------------- 2. .env Validierung
