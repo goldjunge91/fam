@@ -31,19 +31,23 @@ import {
 import {
   useAddComponentMutation,
   useAddItemMutation,
-  useAddRecipeMutation,
-  useAddStepIngredientMutation,
-  useAddStepMutation,
   useDeleteComponentMutation,
   useDeleteItemMutation,
-  useDeleteStepMutation,
-  useRecipeDetail,
-  useRemoveStepIngredientMutation,
   useUpdateComponentMutation,
   useUpdateItemMutation,
-  useUpdateRecipeMutation,
+} from '../hooks/use-recipe-components';
+import {
+  useAddStepIngredientMutation,
+  useAddStepMutation,
+  useDeleteStepMutation,
+  useRemoveStepIngredientMutation,
   useUpdateStepMutation,
-} from '../data/use-recipes';
+} from '../hooks/use-recipe-steps';
+import {
+  useAddRecipeMutation,
+  useRecipeDetail,
+  useUpdateRecipeMutation,
+} from '../hooks/use-recipes';
 import { RecipeWizardStepBasics } from '../wizard/recipe-wizard-step-basics';
 import { RecipeWizardStepPreview } from '../wizard/recipe-wizard-step-preview';
 import { RecipeWizardStepSteps } from '../wizard/recipe-wizard-step-steps';

@@ -1,7 +1,7 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { render, screen } from '@testing-library/react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-import type { RecipeDetail } from '../data/use-recipes';
+import type { RecipeDetail } from '../hooks/use-recipes';
 import { CookingModeScreen } from './cooking-mode-screen';
 
 const mockNavigation = { canGoBack: () => true, addListener: () => () => {} };
@@ -15,7 +15,7 @@ jest.mock('expo-router', () => ({
 let mockDetail: RecipeDetail | null = null;
 let mockLoading = false;
 
-jest.mock('../data/use-recipes', () => ({
+jest.mock('../hooks/use-recipes', () => ({
   useRecipeDetail: () => ({ data: mockDetail, isLoading: mockLoading }),
 }));
 

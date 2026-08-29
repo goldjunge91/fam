@@ -34,8 +34,8 @@ import {
   recipeFilterCount,
 } from '../components/recipe-filter-modal';
 import { RecipePreviewCard } from '../components/recipe-preview-card';
-import { type DishType, type RecipeListItem, useRecipes } from '../data/use-recipes';
 import { type RecipeFavoriteKey, useRecipeFavorites } from '../domain/recipe-favorites';
+import { type DishType, type RecipeListItem, useRecipes } from '../hooks/use-recipes';
 import { DIFFICULTY_LABELS } from '../wizard/recipe-metadata-options';
 
 /** Reihenfolge der "Nach Mahlzeiten"-Carousels — Snack und Dessert teilen sich eine Reihe. */

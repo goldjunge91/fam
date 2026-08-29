@@ -3,8 +3,8 @@ import { Pressable, ScrollView, View } from 'react-native';
 
 import { ThemedText } from '@/components/theme/themed-text';
 import { presentPaywallIfNeeded } from '@/features/premium/paywall';
-import type { RecipeDetail } from '../../data/use-recipes';
 import { flattenRecipeItems } from '../../domain/ingredient-mentions';
+import type { RecipeDetail } from '../../hooks/use-recipes';
 import { StepMentionText } from '../step-mention-text';
 import { CookingModeShell } from './cooking-mode-shell';
 

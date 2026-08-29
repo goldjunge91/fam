@@ -2,7 +2,7 @@ import { Image } from 'expo-image';
 import Svg, { Circle, Defs, LinearGradient, Rect, Stop } from 'react-native-svg';
 
 import { useRecipeStepImageUrl } from '../../data/household-recipe-images';
-import type { RecipeStep } from '../../data/use-recipes';
+import type { RecipeStep } from '../../hooks/use-recipe-steps';
 
 export function CookingModeArtwork({ step }: { step: RecipeStep }) {
   const { data: imageUrl } = useRecipeStepImageUrl(step.image_path);

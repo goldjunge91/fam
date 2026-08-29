@@ -1,7 +1,7 @@
 import { render, screen, userEvent, within } from '@testing-library/react-native';
 import { router } from 'expo-router';
 import type { CatalogRecipe } from '../catalog/use-recipe-catalog';
-import type { RecipeListItem } from '../data/use-recipes';
+import type { RecipeListItem } from '../hooks/use-recipes';
 import { RecipesScreen } from './recipes-screen';
 
 let mockRecipes: RecipeListItem[] = [];
@@ -17,7 +17,7 @@ jest.mock('@/features/household/active-household-provider', () => ({
   useOptionalActiveHousehold: () => ({ activeHouseholdId: 'hh-1' }),
 }));
 
-jest.mock('../data/use-recipes', () => ({
+jest.mock('../hooks/use-recipes', () => ({
   useRecipes: () => ({ data: mockRecipes, isLoading: false }),
 }));
 

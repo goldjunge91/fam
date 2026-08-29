@@ -1,7 +1,7 @@
 import { Pressable, View } from 'react-native';
 
 import { ThemedText } from '@/components/theme/themed-text';
-import type { RecipeStep } from '../../data/use-recipes';
+import type { RecipeStep } from '../../hooks/use-recipe-steps';
 
 export function getCookingTimerDurationSeconds(step: RecipeStep | undefined): number | null {
   if (!step) return null;
