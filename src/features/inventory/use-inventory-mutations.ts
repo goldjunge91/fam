@@ -156,7 +156,18 @@ export function useUpdateFridgeItemMutation() {
       const nowMs = Date.now();
       const unit = normalizeUnit(item.unit);
       const packageSizeUnit = item.package_size_unit ? normalizeUnit(item.package_size_unit) : null;
-      const localFields = { ...item, unit, package_size_unit: packageSizeUnit };
+      const localFields = {
+        id: item.id,
+        household_id: item.household_id,
+        location_id: item.location_id,
+        product_id: item.product_id,
+        name: item.name,
+        quantity: item.quantity,
+        unit,
+        package_size: item.package_size,
+        package_size_unit: packageSizeUnit,
+        expiry_date: item.expiry_date,
+      };
       const payload = { ...localFields, updated_at: now };
 
       await enqueueMutation(db, {

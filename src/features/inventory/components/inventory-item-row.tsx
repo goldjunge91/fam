@@ -9,7 +9,8 @@ import type { ThemeColor } from '@/constants/theme';
 import { useTheme } from '@/hooks/use-theme';
 import { formatAmount, formatPackageHint } from '@/lib/package-size';
 
-import { type ExpiryBucket, getExpiryInfo } from '../expiry';
+import type { ExpiryBucket } from '../expiry';
+import { groupInventoryItems, type InventoryItemGroup } from '../grouped-items';
 import type { LocalInventoryItem } from '../use-inventory-items';
 
 // MHD-Ampel als linker Streifen an der Zeile — Farbe kommt aus dem Theme,
@@ -23,10 +24,14 @@ const EXPIRY_LEFT_BORDER_KEY: Record<ExpiryBucket, ThemeColor | 'transparent'> =
 };
 
 interface InventoryItemRowProps {
-  item: LocalInventoryItem;
+  item: LocalInventoryItem | InventoryItemGroup;
   onPress: () => void;
   onLongPress: () => void;
   onRemove: () => void;
+}
+
+function toGroup(item: LocalInventoryItem | InventoryItemGroup): InventoryItemGroup {
+  return 'lots' in item ? item : groupInventoryItems([item])[0];
 }
 
 export const InventoryItemRow = memo(function InventoryItemRow({
@@ -36,7 +41,8 @@ export const InventoryItemRow = memo(function InventoryItemRow({
   onRemove,
 }: InventoryItemRowProps) {
   const theme = useTheme();
-  const expiry = getExpiryInfo(item.expiry_date, new Date());
+  const group = toGroup(item);
+  const expiry = group.expiry;
   const borderColorKey = EXPIRY_LEFT_BORDER_KEY[expiry.bucket];
   const borderColor = borderColorKey === 'transparent' ? 'transparent' : theme[borderColorKey];
   const expiryLabel =
@@ -49,11 +55,13 @@ export const InventoryItemRow = memo(function InventoryItemRow({
           : expiry.daysLeft === 1
             ? 'morgen'
             : `in ${expiry.daysLeft} Tagen`;
-  const packageHint = formatPackageHint(item.package_size, item.package_size_unit);
-  // Lagerort steht nicht mehr in der Zeile — der Filter oben grenzt bereits
-  // auf einen Lagerort ein, die Wiederholung pro Zeile war redundant.
-  const meta = [expiryLabel, packageHint].filter(Boolean).join(' · ');
-  const amount = formatAmount(item.quantity, item.unit);
+  const packageHint = formatPackageHint(group.package_size, group.package_size_unit);
+  const groupMeta =
+    group.lots.length > 1
+      ? `${group.lots.length} MHD-Einträge · nächstes: ${group.expiry_date ?? 'ohne MHD'}`
+      : [expiryLabel, packageHint].filter(Boolean).join(' · ');
+  const amount = formatAmount(group.quantity, group.unit);
+  const removeLabel = group.lots.length > 1 ? 'MHDs anzeigen' : 'Entfernen';
 
   function renderRemoveAction(
     _progress: unknown,
@@ -63,14 +71,14 @@ export const InventoryItemRow = memo(function InventoryItemRow({
     return (
       <Pressable
         accessibilityRole="button"
-        accessibilityLabel={`${item.name} entfernen`}
+        accessibilityLabel={`${group.name} ${removeLabel.toLocaleLowerCase('de-DE')}`}
         onPress={() => {
           swipeable.close();
           onRemove();
         }}
         className="fridge-item-remove-action">
         <ThemedText type="smallBold" className="text-white">
-          Entfernen
+          {removeLabel}
         </ThemedText>
       </Pressable>
     );
@@ -93,7 +101,7 @@ export const InventoryItemRow = memo(function InventoryItemRow({
         onPress={onPress}
         onLongPress={onLongPress}
         accessibilityRole="button"
-        accessibilityLabel={`${item.name}, ${amount}${packageHint ? `, ${packageHint}` : ''}`}
+        accessibilityLabel={`${group.name}, ${amount}${group.lots.length > 1 ? `, ${group.lots.length} MHD-Einträge` : packageHint ? `, ${packageHint}` : ''}`}
         accessibilityHint="Tippen für Aktionen, lang drücken für Produktinformationen, nach links wischen zum Entfernen"
         className="inventory-item-row">
         {/* MHD-Ampel — linker farbiger Streifen, Farbe pro Item dynamisch. */}
@@ -101,11 +109,11 @@ export const InventoryItemRow = memo(function InventoryItemRow({
 
         {/* Inhalt */}
         <View className="fridge-item-main">
-          <ThemedText type="smallBold">{item.name}</ThemedText>
+          <ThemedText type="smallBold">{group.name}</ThemedText>
           {}
-          {meta ? (
+          {groupMeta ? (
             <ThemedText type="captionMuted" numberOfLines={1}>
-              {meta}
+              {groupMeta}
             </ThemedText>
           ) : null}
         </View>

@@ -1511,6 +1511,35 @@
     @apply w-[28px] h-[28px] rounded-control-lg border-hairline items-center justify-center bg-background-selected border-border;
   }
 
+  /* inventory-item-group-sheet.tsx */
+  .fridge-group-sheet {
+    @apply absolute left-[10px] right-[10px] bottom-[10px] max-h-[86%] rounded-fam-large px-[14px] pt-[11px] gap-[14px] bg-background-element;
+  }
+
+  .fridge-group-header {
+    @apply min-h-[58px] flex-row items-center justify-between gap-three pb-[12px] border-b-hairline border-border;
+  }
+
+  .fridge-group-header-copy {
+    @apply flex-1 gap-half;
+  }
+
+  .fridge-group-lots-content {
+    @apply gap-0 pb-two;
+  }
+
+  .fridge-group-lot {
+    @apply min-h-[66px] flex-row items-center gap-two border-b-hairline border-border active:opacity-[0.72];
+  }
+
+  .fridge-group-lot-status {
+    @apply w-[5px] h-[42px] rounded-xs;
+  }
+
+  .fridge-group-lot-copy {
+    @apply flex-1 gap-half;
+  }
+
   /* edit-fridge-item-sheet.tsx */
   .edit-fridge-modal-root {
     @apply flex-1 justify-end;

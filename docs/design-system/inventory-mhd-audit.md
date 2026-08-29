@@ -1,7 +1,7 @@
 # Design-Audit: Vorrat mit addierten Artikeln und sichtbaren MHDs
 
 Stand: 2026-08-29  
-Status: Vorschlag, nicht implementiert
+Status: Variante A umgesetzt, Historie nach Verbrauch bleibt offen
 
 ## Ergebnis
 
@@ -24,6 +24,27 @@ Damit bekommt der Nutzer beides:
 
 Das statische Mockup liegt unter
 [`docs/mockups/vorrat-mhd/vorrat-mhd-mockup.html`](../mockups/vorrat-mhd/vorrat-mhd-mockup.html).
+
+## Entscheidung zu Kurz- und Long-Press sowie Nutri-Score
+
+Der Nutri-Score und die Nährwerte gehören nicht als zusätzliches `i` in die
+Vorratszeile oder in das Gruppen-Sheet. Die Zeile hat bereits mehrere
+Bedeutungen: kurzer Tap für die Gruppe, Long-Press als Schnellzugriff auf
+Produktinformationen und Swipe zum Entfernen. Ein weiteres kleines Ziel würde
+diese Hierarchie unnötig verdichten.
+
+Die Interaktionen bleiben deshalb klar getrennt:
+
+- Kurz-Tap auf die Artikelgruppe öffnet das Sheet mit Gesamtmenge und allen
+  MHD-Losen.
+- Tap auf ein konkretes Los öffnet das bestehende Aktions-Sheet.
+- Unter `Bearbeiten · Verbrauchen · Entfernen` steht die
+  `Mindesthaltbarkeitsdatum`-Auswahl für dieses Los.
+- Long-Press bleibt als direkter Schnellzugriff auf die bestehende
+  `ProductInformation`-Ansicht mit Nutri-Score und Nährwerten bestehen.
+
+Damit werden keine Produktinformationen dupliziert und die bestehende
+Schnellbedienung bleibt erhalten.
 
 ## Was ich im bestehenden Vorrat gefunden habe
 
@@ -101,8 +122,8 @@ Tap auf eine Gruppe öffnet ein Sheet:
 - `4 l gesamt · 2 MHD-Einträge`
 - sortierte Liste aller Lose mit Menge, exaktem MHD und Lagerort
 - Aktion pro Los: `Ändern`
-- primäre Gruppenaktion: `Verbrauchen`
-- sekundäre Aktion: `MHD hinzufügen`
+- Tap auf ein Los öffnet die bekannten drei Aktionen
+- direkt darunter: MHD eintragen oder ändern
 
 `Bearbeiten` darf nach der Gruppierung nicht stillschweigend ein beliebiges
 Los ändern. Es muss entweder direkt am Los angeboten werden oder zuerst die
@@ -152,7 +173,7 @@ ergänzt` reicht als Orientierung.
 | MHD als separates Los | 1 | 5 | Elevate: exaktes Datum, Menge und Lagerort im Detail sichtbar machen. |
 | Nächstes MHD in der Gruppenzeile | 1 | 5 | Elevate: dient direkt der Verbrauchsentscheidung. |
 | Detail-Sheet | 1 | 4 | Elevate: erhält Transparenz ohne die Hauptliste zu überladen. |
-| Zweite gleichrangige Primäraktion | 3 | 1 | Entfernen: `Verbrauchen` primär, `MHD hinzufügen` sekundär. |
+| Zweite gleichrangige Primäraktion | 3 | 1 | Entfernen: das Gruppen-Sheet bleibt bei Losdetails; MHD-Eingabe sitzt im Aktions-Sheet. |
 
 ## Phasenplan
 
@@ -181,7 +202,7 @@ ergänzt` reicht als Orientierung.
 - Leerer Zustand für eine Gruppe ohne MHD: `ohne MHD`, eindeutig getrennt von
   ablaufenden Losen.
 
-## Offene Produktentscheidung vor der Implementierung
+## Offene Produktentscheidung für die nächste Ausbaustufe
 
 Dieser Audit behandelt die **aktuell vorhandenen** Lose als einsehbar. Bitte
 noch entscheiden:
@@ -194,8 +215,8 @@ brauchen wir zusätzlich ein unveränderliches Verbrauchs-/Entsorgungsprotokoll.
 Wenn nein, bleiben die MHDs solange sichtbar, wie das jeweilige Los Bestand
 hat, und der bestehende Lösch-/Sync-Pfad kann konzeptionell erhalten bleiben.
 
-## Freigabepunkt
+## Umsetzungsstand
 
-Es wurden keine echten Komponenten, Datenbankschemas oder Mutationen geändert.
-Die empfohlene nächste Umsetzung ist Phase 1 mit Variante A aus dem Mockup.
-
+Die Umsetzung ändert keine Datenbankstruktur. Phase 1 ist umgesetzt: Anzeige-
+Aggregation, MHD-Los-Sheet, Los-Aktionen, MHD-Eingabe im Aktions-Sheet und
+Long-Press-Produktinformationen.

@@ -1,4 +1,5 @@
 import { compareByExpiry, getExpiryInfo } from './expiry';
+import { groupInventoryItems, type InventoryItemGroup } from './grouped-items';
 import type { LocalInventoryItem } from './use-inventory-items';
 
 export type InventorySortMode = 'expiry' | 'name';
@@ -22,23 +23,26 @@ export interface VisibleInventoryOptions {
 export function selectVisibleInventoryItems(
   items: LocalInventoryItem[],
   { locationId, showExpiringOnly, searchQuery, sortMode, today }: VisibleInventoryOptions,
-): LocalInventoryItem[] {
+): InventoryItemGroup[] {
   let result = items;
   if (locationId !== 'all') {
     result = result.filter((item) => item.location_id === locationId);
-  }
-  if (showExpiringOnly) {
-    result = result.filter((item) =>
-      ['expired', 'critical'].includes(getExpiryInfo(item.expiry_date, today).bucket),
-    );
   }
   const query = searchQuery.trim().toLowerCase();
   if (query) {
     result = result.filter((item) => item.name.toLowerCase().includes(query));
   }
-  return [...result].sort((a, b) =>
-    sortMode === 'name'
-      ? a.name.localeCompare(b.name, 'de')
-      : compareByExpiry(getExpiryInfo(a.expiry_date, today), getExpiryInfo(b.expiry_date, today)),
+
+  const groups = groupInventoryItems(result, today);
+  const visibleGroups = showExpiringOnly
+    ? groups.filter((group) =>
+        group.lots.some((lot) =>
+          ['expired', 'critical'].includes(getExpiryInfo(lot.expiry_date, today).bucket),
+        ),
+      )
+    : groups;
+
+  return visibleGroups.sort((a, b) =>
+    sortMode === 'name' ? a.name.localeCompare(b.name, 'de') : compareByExpiry(a.expiry, b.expiry),
   );
 }

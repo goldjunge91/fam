@@ -17,13 +17,18 @@ import { useProfileInitials } from '@/features/navigation/use-profile-initials';
 import { useHubGradient } from '@/hooks/use-hub-gradient';
 import { EditInventoryItemSheet } from './components/edit-inventory-item-sheet';
 import { InventoryItemActionsSheet } from './components/inventory-item-actions-sheet';
+import { InventoryItemGroupSheet } from './components/inventory-item-group-sheet';
 import { InventoryItemRow } from './components/inventory-item-row';
 import { InventorySearchField } from './components/inventory-search-field';
 import { InventorySummaryCard } from './components/inventory-summary-card';
 import { InventoryTabBar } from './components/inventory-tab-bar';
 import { getExpiryInfo } from './expiry';
+import { groupInventoryItems, type InventoryItemGroup } from './grouped-items';
 import { type LocalInventoryItem, useInventoryItems } from './use-inventory-items';
-import { useUpdateInventoryItemQuantityMutation } from './use-inventory-mutations';
+import {
+  useUpdateFridgeItemMutation,
+  useUpdateInventoryItemQuantityMutation,
+} from './use-inventory-mutations';
 import { type InventorySortMode, selectVisibleInventoryItems } from './visible-items';
 
 export function InventoryScreen() {
@@ -36,6 +41,7 @@ export function InventoryScreen() {
   const [searchQuery, setSearchQuery] = useState('');
   const [sortMode, setSortMode] = useState<InventorySortMode>('expiry');
   const [actionItem, setActionItem] = useState<LocalInventoryItem | null>(null);
+  const [detailGroup, setDetailGroup] = useState<InventoryItemGroup | null>(null);
   const [informationItem, setInformationItem] = useState<LocalInventoryItem | null>(null);
   const [editItem, setEditItem] = useState<LocalInventoryItem | null>(null);
 
@@ -45,9 +51,11 @@ export function InventoryScreen() {
   const { data: locations = [], isLoading: locationsLoading } = useStorageLocations(householdId);
   const { data: allItems = [], isLoading } = useInventoryItems(householdId);
   const updateQty = useUpdateInventoryItemQuantityMutation();
+  const updateItem = useUpdateFridgeItemMutation();
 
   const today = new Date();
-  const expiryCounts = allItems.reduce(
+  const allGroups = useMemo(() => groupInventoryItems(allItems, today), [allItems, today]);
+  const expiryCounts = allGroups.reduce(
     (counts, item) => {
       const bucket = getExpiryInfo(item.expiry_date, today).bucket;
       if (bucket === 'expired' || bucket === 'critical') counts.critical += 1;
@@ -116,6 +124,14 @@ export function InventoryScreen() {
     ]);
   }
 
+  function handleGroupRemove(group: InventoryItemGroup) {
+    if (group.lots.length === 1) {
+      handleDeletePress(group.lots[0]);
+      return;
+    }
+    setDetailGroup(group);
+  }
+
   const chrome = { onMenuPress: openDrawer, onAvatarPress: openProfile, initials };
 
   if (!householdId) {
@@ -145,7 +161,7 @@ export function InventoryScreen() {
       backgroundGradient={hubGradient}
       scroll={false}
       applyBottomPadding={false}>
-      {/* Virtuelle Vorratsliste mit Header, Filtern und MHD-Einträgen.
+      {/* Virtuelle Vorratsliste mit Header, Filtern und Artikelgruppen.
           FlashList statt FlatList (#139): Batch-/Window-Tuning entfällt, das
           Recycling regelt die Liste selbst. */}
       <FlashList
@@ -157,7 +173,7 @@ export function InventoryScreen() {
           <View className="gap-three pb-two">
             {/* Vorrats-Statistik: Gesamtanzahl & kritische/bald ablaufende Artikel */}
             <InventorySummaryCard
-              totalCount={allItems.length}
+              totalCount={allGroups.length}
               criticalCount={expiryCounts.critical}
               soonCount={expiryCounts.soon}
             />
@@ -221,14 +237,25 @@ export function InventoryScreen() {
           /* Einzelne Artikelzeile mit MHD-Status und Mengensteuerung */
           <InventoryItemRow
             item={item}
-            onPress={() => setActionItem(item)}
-            onLongPress={() => setInformationItem(item)}
-            onRemove={() => handleDeletePress(item)}
+            onPress={() => setDetailGroup(item)}
+            onLongPress={() => setInformationItem(item.lots[0])}
+            onRemove={() => handleGroupRemove(item)}
           />
         )}
       />
 
-      {/* Aktions-Bottom-Sheet für schnelles Verbrauchen, Ändern und Löschen */}
+      {/* MHD-Sheet für die aggregierte Artikelgruppe */}
+      <InventoryItemGroupSheet
+        visible={!!detailGroup}
+        group={detailGroup}
+        onClose={() => setDetailGroup(null)}
+        onSelectLot={(lot) => {
+          setDetailGroup(null);
+          setActionItem(lot);
+        }}
+      />
+
+      {/* Aktions-Bottom-Sheet für ein konkretes MHD-Los */}
       <InventoryItemActionsSheet
         visible={!!currentActionItem}
         item={currentActionItem}
@@ -239,9 +266,9 @@ export function InventoryScreen() {
         onEdit={() => currentActionItem && handleEdit(currentActionItem)}
         onConsume={() => currentActionItem && handleConsume(currentActionItem)}
         onRemove={() => currentActionItem && handleDeletePress(currentActionItem)}
-        onProductInformation={() => {
-          setInformationItem(currentActionItem);
-          setActionItem(null);
+        onExpiryChange={(expiryDate) => {
+          if (!currentActionItem) return;
+          updateItem.mutate({ ...currentActionItem, expiry_date: expiryDate || null });
         }}
       />
 

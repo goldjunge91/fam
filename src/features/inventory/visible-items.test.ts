@@ -42,4 +42,40 @@ describe('selectVisibleInventoryItems', () => {
 
     expect(result.map((entry) => entry.name)).toEqual(['Apfel', 'Zwiebel']);
   });
+
+  it('addiert gleiche Artikel, hält aber unterschiedliche MHD-Lose getrennt', () => {
+    const result = selectVisibleInventoryItems(
+      [
+        item({ id: 'i-milch-1', name: 'Milch', quantity: 2, unit: 'l', expiry_date: '2026-09-03' }),
+        item({
+          id: 'i-milch-2',
+          name: ' milch ',
+          quantity: 1,
+          unit: 'l',
+          expiry_date: '2026-09-12',
+        }),
+      ],
+      BASE,
+    );
+
+    expect(result).toHaveLength(1);
+    expect(result[0]).toEqual(
+      expect.objectContaining({ name: 'Milch', quantity: 3, unit: 'l', expiry_date: '2026-09-03' }),
+    );
+    expect(result[0]?.lots.map((lot) => lot.expiry_date)).toEqual(['2026-09-03', '2026-09-12']);
+  });
+
+  it('zeigt eine Gruppe im Ablauf-Filter, wenn nur eines ihrer Lose abläuft', () => {
+    const result = selectVisibleInventoryItems(
+      [
+        item({ id: 'i-milch-1', name: 'Milch', quantity: 2, unit: 'l', expiry_date: '2026-09-01' }),
+        item({ id: 'i-milch-2', name: 'Milch', quantity: 1, unit: 'l', expiry_date: '2026-10-12' }),
+      ],
+      { ...BASE, showExpiringOnly: true },
+    );
+
+    expect(result).toHaveLength(1);
+    expect(result[0]?.quantity).toBe(3);
+    expect(result[0]?.lots).toHaveLength(2);
+  });
 });

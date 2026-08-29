@@ -1,7 +1,7 @@
 # Vorrat: gleiche Artikel und mehrere MHDs
 
-Design-Audit und statische Mockups für die Vorratsansicht. Stand: Vorschlag,
-nicht implementiert.
+Design-Audit und statische Mockups für die Vorratsansicht. Die empfohlene
+Variante A ist implementiert.
 
 - `vorrat-mhd-mockup.html` zeigt drei Varianten im warmen fam-Design.
 - Die Mockups modellieren eine Artikelgruppe mit mehreren einzelnen MHD-Losen.
@@ -29,8 +29,8 @@ Artikel.
 
 1. **A: Detail-Sheet**
    Eine kompakte Zeile pro Artikelgruppe. Ein Tap öffnet alle MHDs, Mengen und
-   Lagerorte. Das hält den Hauptscreen ruhig und macht das MHD trotzdem direkt
-   einsehbar.
+   Lagerorte. Ein Tap auf ein Los öffnet das bestehende Aktions-Sheet. Das hält
+   den Hauptscreen ruhig und macht alle MHDs trotzdem direkt einsehbar.
 2. **B: Inline-Aufklappen**
    Eine Gruppe lässt sich direkt in der Liste öffnen. Die MHDs sind ohne Sheet
    sichtbar, verbrauchen aber bei mehreren Losen viel vertikalen Platz.
@@ -44,4 +44,3 @@ Artikel.
 ```bash
 open docs/mockups/vorrat-mhd/vorrat-mhd-mockup.html
 ```
-
