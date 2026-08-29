@@ -3,7 +3,7 @@ import Constants from 'expo-constants';
 import { Observe } from 'expo-observe';
 import { router } from 'expo-router';
 import { useCallback, useEffect, useState } from 'react';
-import { Alert, Platform, View } from 'react-native';
+import { Alert, Platform, Switch, View } from 'react-native';
 import { Screen } from '@/components/layout/screen';
 import { ThemedText } from '@/components/theme/themed-text';
 import { Button } from '@/components/ui/buttons';
@@ -11,6 +11,7 @@ import { Card } from '@/components/ui/card';
 import { useSession } from '@/features/auth/session-provider';
 import { VISION_CAMERA_LAB_ENABLED } from '@/features/experimentalscreens/vision-camera-lab';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
+import { useForcePremiumOverrideStore } from '@/features/premium/force-premium-override';
 import { presentPaywall } from '@/features/premium/paywall';
 import { usePremium } from '@/features/premium/premium-provider';
 import {
@@ -89,6 +90,8 @@ export function DevToolsScreen() {
   const queryClient = useQueryClient();
   const { activeHousehold } = useActiveHousehold();
   const { isPremium, isForced } = usePremium();
+  const forcePremiumOverride = useForcePremiumOverrideStore((state) => state.override);
+  const setForcePremiumOverride = useForcePremiumOverrideStore((state) => state.setOverride);
   // Ohne Schlüssel oder geladenen Wert ist das Flag standardmäßig deaktiviert.
   const testFeatureFlag = useFeatureFlag('test-feature', false);
   const posthogFlags = useFeatureFlags();
@@ -198,6 +201,22 @@ export function DevToolsScreen() {
           wert={isPremium ? (isForced ? 'ja (erzwungen)' : 'ja') : 'nein'}
           tone={isForced ? 'warning' : undefined}
         />
+        <View className="dev-zeile">
+          <ThemedText type="small" themeColor="textSecondary">
+            Premium erzwingen (Override, überlebt Neustart)
+          </ThemedText>
+          <Switch
+            value={forcePremiumOverride ?? env.forcePremium}
+            onValueChange={(value) => setForcePremiumOverride(value)}
+          />
+        </View>
+        {forcePremiumOverride !== null ? (
+          <Button
+            label={`Override zurücksetzen (Build-Wert: ${env.forcePremium ? 'an' : 'aus'})`}
+            variant="secondary"
+            onPress={() => setForcePremiumOverride(null)}
+          />
+        ) : null}
         <Zeile
           label="PostHog"
           wert={
