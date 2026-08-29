@@ -1,8 +1,8 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { render, screen, userEvent } from '@testing-library/react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-import type { RecipeDetail } from '../data/use-recipes';
 import type { RecipeRating } from '../domain/recipe-ratings';
+import type { RecipeDetail } from '../hooks/use-recipes';
 import { RecipeDetailScreen } from './recipe-detail-screen';
 
 jest.mock('expo-router', () => ({
@@ -72,7 +72,7 @@ const mockDetail: RecipeDetail = {
   ]),
 };
 
-jest.mock('../data/use-recipes', () => ({
+jest.mock('../hooks/use-recipes', () => ({
   useRecipeDetail: () => ({ data: mockDetail, isLoading: false }),
   useDeleteRecipeMutation: () => ({ mutate: jest.fn() }),
 }));

@@ -1,4 +1,4 @@
-import type { RecipeStep } from '../../data/use-recipes';
+import type { RecipeStep } from '../../hooks/use-recipe-steps';
 import { getCookingTimerDurationSeconds } from './cooking-mode-timer';
 
 const step: RecipeStep = {

@@ -1,11 +1,11 @@
 import { Pressable, View } from 'react-native';
 
 import { ThemedText } from '@/components/theme/themed-text';
-import type { RecipeStep } from '../../data/use-recipes';
 import {
   type MentionableIngredient,
   renderMentionPlainText,
 } from '../../domain/ingredient-mentions';
+import type { RecipeStep } from '../../hooks/use-recipe-steps';
 import { StepMentionText } from '../step-mention-text';
 import { CookingModeArtwork } from './cooking-mode-artwork';
 import { CookingModeTimer } from './cooking-mode-timer';

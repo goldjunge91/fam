@@ -1,6 +1,6 @@
 import { render, screen, userEvent } from '@testing-library/react-native';
 import { router } from 'expo-router';
-import type { RecipeDetail } from '../data/use-recipes';
+import type { RecipeDetail } from '../hooks/use-recipes';
 import { RecipeLogScreen } from './recipe-log-screen';
 
 let mockDetail: RecipeDetail | null = null;
@@ -10,8 +10,11 @@ jest.mock('expo-router', () => ({
   useLocalSearchParams: () => ({ id: 'recipe-1' }),
 }));
 
-jest.mock('../data/use-recipes', () => ({
+jest.mock('../hooks/use-recipes', () => ({
   useRecipeDetail: () => ({ data: mockDetail, isLoading: false }),
+}));
+
+jest.mock('../hooks/use-recipe-components', () => ({
   useUpdateComponentMutation: () => ({ mutateAsync: jest.fn(), isPending: false }),
 }));
 

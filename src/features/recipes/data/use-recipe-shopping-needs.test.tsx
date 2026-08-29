@@ -6,7 +6,7 @@ import {
   type RecipeShoppingNeed,
   useRecipeShoppingNeeds,
 } from '@/features/recipes/data/use-recipe-shopping-needs';
-import type { RecipeDetail } from '@/features/recipes/data/use-recipes';
+import type { RecipeDetail } from '@/features/recipes/hooks/use-recipes';
 
 const mockDbGetAllAsync = jest.fn();
 const mockDbGetFirstAsync = jest.fn().mockResolvedValue(null);

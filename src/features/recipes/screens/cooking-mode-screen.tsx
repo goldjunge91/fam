@@ -9,9 +9,9 @@ import { CookingModeShell } from '../components/cooking-mode/cooking-mode-shell'
 import { CookingModeStep } from '../components/cooking-mode/cooking-mode-step';
 import { getCookingTimerDurationSeconds } from '../components/cooking-mode/cooking-mode-timer';
 import { FreeCookingMode } from '../components/cooking-mode/free-cooking-mode';
-import { useRecipeDetail } from '../data/use-recipes';
 import { flattenRecipeItems } from '../domain/ingredient-mentions';
 import { useCookingTimer } from '../hooks/use-cooking-timer';
+import { useRecipeDetail } from '../hooks/use-recipes';
 
 function CookingModeLoading() {
   return (

@@ -9,16 +9,17 @@ import {
   type ProductNutritionRow,
 } from '@/features/recipes/domain/nutrition';
 import { getSupabase } from '@/lib/supabase';
+import { useAddComponentMutation, useAddItemMutation } from '../hooks/use-recipe-components';
 import {
-  useAddComponentMutation,
-  useAddItemMutation,
-  useAddRecipeMutation,
   useAddStepIngredientMutation,
   useAddStepMutation,
+  useUpdateStepMutation,
+} from '../hooks/use-recipe-steps';
+import {
+  useAddRecipeMutation,
   useDeleteRecipeMutation,
   useUpdateRecipeMutation,
-  useUpdateStepMutation,
-} from '../data/use-recipes';
+} from '../hooks/use-recipes';
 import { getCatalogCoverPath } from './recipe-catalog-image';
 
 export type CatalogRecipe = {

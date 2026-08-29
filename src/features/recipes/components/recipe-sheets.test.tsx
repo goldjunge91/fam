@@ -1,7 +1,7 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { act, render, screen, waitFor } from '@testing-library/react-native';
 import type { RecipeShoppingNeed } from '@/features/recipes/data/use-recipe-shopping-needs';
-import type { RecipeDetail } from '@/features/recipes/data/use-recipes';
+import type { RecipeDetail } from '@/features/recipes/hooks/use-recipes';
 import { RecipeRatingSheet } from './recipe-rating-sheet';
 import { RecipeShoppingSheet } from './recipe-shopping-sheet';
 

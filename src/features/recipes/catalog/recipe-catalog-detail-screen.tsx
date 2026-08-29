@@ -9,8 +9,8 @@ import { BackButton, HeaderIconButton } from '@/components/ui/buttons';
 import { useSession } from '@/features/auth/session-provider';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { HeartGlyph, HeroArtwork } from '@/features/recipes/components/recipe-detail-primitives';
-import type { DietaryTag, DishType } from '@/features/recipes/data/use-recipes';
 import { useRecipeFavorites } from '@/features/recipes/domain/recipe-favorites';
+import type { DietaryTag, DishType } from '@/features/recipes/hooks/use-recipes';
 import {
   DIETARY_TAG_LABELS,
   DIFFICULTY_LABELS,

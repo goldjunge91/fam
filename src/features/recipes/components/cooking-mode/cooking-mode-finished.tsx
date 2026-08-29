@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { Pressable, ScrollView, View } from 'react-native';
 
 import { ThemedText } from '@/components/theme/themed-text';
-import type { RecipeDetail } from '../../data/use-recipes';
+import type { RecipeDetail } from '../../hooks/use-recipes';
 import { RecipeRatingSheet } from '../recipe-rating-sheet';
 import { CookingModeFinishAction } from './cooking-mode-finish-action';
 import { CookingModeShell } from './cooking-mode-shell';
