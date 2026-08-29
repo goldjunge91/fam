@@ -1,0 +1,66 @@
+appId: com.goldjunge91.fam
+tags:
+  - local-session
+---
+- stopApp
+- launchApp:
+    clearState: false
+- tapOn:
+    text: "Menü öffnen"
+- assertVisible: "Einkauf, ›"
+- tapOn: "Einkauf, ›"
+- tapOn:
+    text: "Close sheet"
+    optional: true
+- tapOn: "\\+ Artikel hinzufügen"
+- extendedWaitUntil:
+    visible: "Artikel suchen"
+    timeout: 10000
+- tapOn: "Artikel suchen"
+- inputText: "X"
+- assertVisible:
+    id: "keyboard.toolbar"
+- tapOn: "Done"
+- assertVisible: "Markt Ohne Markt ändern"
+- tapOn: "Markt Ohne Markt ändern"
+- tapOn:
+    point: 12%,36%
+- assertVisible: "REWE"
+- tapOn: "REWE"
+- tapOn: "Übernehmen"
+- tapOn: "Weitere Angaben"
+- extendedWaitUntil:
+    visible: "Einkaufsbereich"
+    timeout: 10000
+- tapOn: "Einkaufsbereich: Sonstiges. Ändern"
+- extendedWaitUntil:
+    visible: "Einkaufsbereich"
+    timeout: 10000
+- scrollUntilVisible:
+    element: "Tiefkühl"
+    direction: DOWN
+- tapOn: "Tiefkühl"
+- tapOn: "Zur Einkaufsliste hinzufügen"
+- extendedWaitUntil:
+    visible: "X bearbeiten"
+    timeout: 10000
+- assertVisible: "Tiefkühl"
+- tapOn: "X bearbeiten"
+- tapOn: "Weitere Angaben"
+- assertVisible: "Einkaufsbereich: Tiefkühl. Ändern"
+- tapOn: "Einkaufsbereich: Tiefkühl. Ändern"
+- tapOn: "Automatisch"
+- tapOn: "Schließen"
+- tapOn: "X bearbeiten"
+- tapOn: "Weitere Angaben"
+- assertVisible: "Einkaufsbereich: Tiefkühl. Ändern"
+- tapOn: "Einkaufsbereich: Tiefkühl. Ändern"
+- tapOn: "Automatisch"
+- scrollUntilVisible:
+    element: "Speichern"
+    direction: DOWN
+- tapOn: "Speichern"
+- extendedWaitUntil:
+    visible: "X bearbeiten"
+    timeout: 10000
+- assertVisible: "Sonstiges"

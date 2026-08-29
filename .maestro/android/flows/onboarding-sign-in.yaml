@@ -1,0 +1,6 @@
+appId: com.goldjunge91.fam
+env:
+  TEST_EMAIL: maestro-e2e@example.com
+  TEST_PASSWORD: Passwort123!
+---
+- runFlow: ../subflows/reach-dashboard-via-sign-in.yaml

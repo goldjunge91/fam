@@ -1,0 +1,7 @@
+appId: com.goldjunge91.fam
+---
+- launchApp:
+    clearState: true
+- extendedWaitUntil:
+    visible: "Weiter"
+    timeout: 50000

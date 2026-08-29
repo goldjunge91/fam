@@ -1,0 +1,46 @@
+appId: com.goldjunge91.fam
+tags:
+  - local-session
+---
+- runFlow: ../subflows/launch-signed-in-dashboard.yaml
+- evalScript: ${output.itemName = 'MaestroEinkauf' + Date.now()}
+- evalScript: ${output.itemAction = output.itemName + ' bearbeiten'}
+- tapOn:
+    text: "Menü öffnen"
+- tapOn: "Einkauf, ›"
+- repeat:
+    while:
+      visible: "Close sheet"
+    commands:
+      - tapOn: "Close sheet"
+- extendedWaitUntil:
+    visible: "Einkaufsliste"
+    timeout: 10000
+- tapOn: "\\+ Artikel hinzufügen"
+- extendedWaitUntil:
+    visible: "Zur Einkaufsliste hinzufügen"
+    timeout: 10000
+- tapOn: "Artikel suchen"
+- inputText: "${output.itemName}"
+- runFlow:
+    when:
+      visible: "Trefferliste schließen"
+    commands:
+      - tapOn: "Trefferliste schließen"
+- tapOn: "Zur Einkaufsliste hinzufügen"
+- runFlow:
+    when:
+      visible:
+        text: "^Ohne Markt.*"
+    commands:
+      - tapOn:
+          text: "^Ohne Markt.*"
+- extendedWaitUntil:
+    visible: "${output.itemName}.*"
+    timeout: 10000
+- longPressOn: "${output.itemName}.*"
+- extendedWaitUntil:
+    visible: "LÖSCHEN"
+    timeout: 10000
+- tapOn: "LÖSCHEN"
+- assertNotVisible: "${output.itemName}"
