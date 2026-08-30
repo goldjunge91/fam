@@ -39,6 +39,14 @@ function result(
   return { products, hasMore: false, failed: false, ...overrides };
 }
 
+function deferred<T>() {
+  let resolve!: (value: T) => void;
+  const promise = new Promise<T>((resolvePromise) => {
+    resolve = resolvePromise;
+  });
+  return { promise, resolve };
+}
+
 // Kurze Debounces statt Fake-Timer: Letztere geraten mit renderHooks eigenem
 // Scheduling durcheinander (siehe use-food-search.test.ts).
 const fast = { localDebounceMs: 5, apiDebounceMs: 10 };
@@ -73,6 +81,32 @@ describe('useProductSearch', () => {
     expect(calls[0].options.allowApi).toBe(false);
     // Die zweite Stufe sperrt die Online-Ebene nicht mehr.
     expect(calls[1].options.allowApi).not.toBe(false);
+  });
+
+  it('wartet mit der Online-Stufe auf eine langsame lokale Antwort', async () => {
+    const localPage = deferred<ProductCatalogSearchResult>();
+    const { catalog, calls } = fakeCatalog(({ options }) =>
+      options.allowApi === false
+        ? localPage.promise
+        : result([product('Hafermilch lokal', '1'), product('Hafermilch online', '2')]),
+    );
+
+    const { result: hook } = await renderHook(() =>
+      useProductSearch('Hafermilch', { catalog, ...fast }),
+    );
+
+    await new Promise((resolve) => setTimeout(resolve, 30));
+    expect(calls).toHaveLength(1);
+
+    await act(() => {
+      localPage.resolve(result([product('Hafermilch lokal', '1')]));
+    });
+
+    await waitFor(() => expect(hook.current.results).toHaveLength(2));
+    expect(hook.current.results.map((item) => item.name)).toEqual([
+      'Hafermilch lokal',
+      'Hafermilch online',
+    ]);
   });
 
   it('bleibt zwischen lokaler und Online-Stufe im Suchzustand', async () => {

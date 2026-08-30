@@ -12,19 +12,30 @@ const hafermilch: CatalogProduct = {
 };
 
 function fakeCatalog(
-  respond: (barcode: string) => Promise<CatalogProduct | null> | CatalogProduct | null,
+  respond: (
+    barcode: string,
+    signal?: AbortSignal,
+  ) => Promise<CatalogProduct | null> | CatalogProduct | null,
 ) {
   const calls: string[] = [];
   const catalog: ProductCatalog = {
     async search() {
       return { products: [], hasMore: false, failed: false };
     },
-    async findByBarcode(barcode) {
+    async findByBarcode(barcode, signal) {
       calls.push(barcode);
-      return respond(barcode);
+      return respond(barcode, signal);
     },
   };
   return { catalog, calls };
+}
+
+function deferred<T>() {
+  let resolve!: (value: T) => void;
+  const promise = new Promise<T>((resolvePromise) => {
+    resolve = resolvePromise;
+  });
+  return { promise, resolve };
 }
 
 describe('useProductBarcodeLookup', () => {
@@ -106,5 +117,72 @@ describe('useProductBarcodeLookup', () => {
 
     expect(hook.current.errorMessage).toBeNull();
     expect(hook.current.product).toBeNull();
+  });
+
+  it('bricht einen laufenden Lookup beim Reset ab und verwirft dessen Antwort', async () => {
+    const pending = deferred<CatalogProduct | null>();
+    const onFound = jest.fn();
+    let lookupSignal: AbortSignal | undefined;
+    const { catalog } = fakeCatalog((_barcode, signal) => {
+      lookupSignal = signal;
+      return pending.promise;
+    });
+    const { result: hook } = await renderHook(() => useProductBarcodeLookup({ catalog, onFound }));
+    let lookupPromise = Promise.resolve<CatalogProduct | null>(null);
+
+    await act(() => {
+      lookupPromise = hook.current.lookup('4008400401027');
+    });
+    await waitFor(() => expect(hook.current.looking).toBe(true));
+
+    await act(() => hook.current.reset());
+
+    expect(lookupSignal?.aborted).toBe(true);
+    expect(hook.current.looking).toBe(false);
+
+    let lookupResult: CatalogProduct | null = hafermilch;
+    await act(async () => {
+      pending.resolve(hafermilch);
+      lookupResult = await lookupPromise;
+    });
+
+    expect(lookupResult).toBeNull();
+    expect(onFound).not.toHaveBeenCalled();
+    expect(hook.current.product).toBeNull();
+  });
+
+  it('laesst einen alten Lookup den Guard eines neuen Lookups nicht entfernen', async () => {
+    const first = deferred<CatalogProduct | null>();
+    const second = deferred<CatalogProduct | null>();
+    const { catalog, calls } = fakeCatalog((barcode) => {
+      if (barcode === '111') return first.promise;
+      return second.promise;
+    });
+    const { result: hook } = await renderHook(() => useProductBarcodeLookup({ catalog }));
+    let firstLookup = Promise.resolve<CatalogProduct | null>(null);
+    let secondLookup = Promise.resolve<CatalogProduct | null>(null);
+
+    await act(() => {
+      firstLookup = hook.current.lookup('111');
+    });
+    await act(() => hook.current.reset());
+    await act(() => {
+      secondLookup = hook.current.lookup('222');
+    });
+
+    await act(async () => {
+      first.resolve(hafermilch);
+      await firstLookup;
+    });
+    await act(async () => {
+      await hook.current.lookup('333');
+    });
+
+    expect(calls).toEqual(['111', '222']);
+
+    await act(async () => {
+      second.resolve(hafermilch);
+      await secondLookup;
+    });
   });
 });

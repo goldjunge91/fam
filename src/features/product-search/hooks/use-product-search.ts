@@ -121,9 +121,8 @@ export function useProductSearch(
 
     setSearching(true);
     const controller = new AbortController();
-    // Wird gesetzt, wenn die lokale Stufe schon genug geliefert hat — die
-    // Online-Stufe wuerde dann ohnehin nichts anfragen.
-    let skipApiPhase = false;
+    const searchStartedAt = Date.now();
+    let apiTimer: ReturnType<typeof setTimeout> | undefined;
 
     const localTimer = setTimeout(async () => {
       if (requestId !== requestIdRef.current) return;
@@ -133,25 +132,31 @@ export function useProductSearch(
         allowApi: false,
         signal: controller.signal,
       });
-      if (controller.signal.aborted) return;
-      skipApiPhase = page.products.length >= LOCAL_RESULT_THRESHOLD;
+      if (controller.signal.aborted || requestId !== requestIdRef.current) return;
+      const skipApiPhase = page.products.length >= LOCAL_RESULT_THRESHOLD;
       // Treffer sofort zeigen, aber `searching` erst am Ende loesen: sonst
       // blitzt zwischen lokaler und Online-Stufe der Leerzustand ("manuell
       // anlegen") auf, obwohl noch gesucht wird.
-      if (applyResult(requestId, page) && skipApiPhase) setSearching(false);
-    }, localDebounceMs);
+      if (!applyResult(requestId, page)) return;
+      if (skipApiPhase) {
+        setSearching(false);
+        return;
+      }
 
-    const apiTimer = setTimeout(async () => {
-      // Ein zwischenzeitliches `retry()` hat die Suche schon uebernommen —
-      // dieser Lauf wuerde nur ein OFF-Kontingent verbrennen.
-      if (skipApiPhase || requestId !== requestIdRef.current) return;
-      await runSearch(trimmedQuery, requestId, controller.signal);
-      if (!controller.signal.aborted && requestId === requestIdRef.current) setSearching(false);
-    }, apiDebounceMs);
+      // Die vollstaendige Suche darf nie vor der lokalen Stufe abschliessen:
+      // sonst koennte deren spaete Antwort bereits sichtbare API-Treffer wieder
+      // ueberschreiben. Das Debounce bleibt relativ zum Beginn der Eingabe.
+      const remainingApiDelay = Math.max(0, apiDebounceMs - (Date.now() - searchStartedAt));
+      apiTimer = setTimeout(async () => {
+        if (controller.signal.aborted || requestId !== requestIdRef.current) return;
+        await runSearch(trimmedQuery, requestId, controller.signal);
+        if (!controller.signal.aborted && requestId === requestIdRef.current) setSearching(false);
+      }, remainingApiDelay);
+    }, localDebounceMs);
 
     return () => {
       clearTimeout(localTimer);
-      clearTimeout(apiTimer);
+      if (apiTimer !== undefined) clearTimeout(apiTimer);
       controller.abort();
     };
   }, [

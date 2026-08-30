@@ -1,4 +1,4 @@
-import { useCallback, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 
 import type { ProductCatalog } from '@/features/product-search/product-catalog';
 import { productCatalog } from '@/features/product-search/product-catalog-instance';
@@ -41,17 +41,31 @@ export function useProductBarcodeLookup(
   // laufen zwei Lookups parallel und `onFound` navigiert zweimal (gestapelte
   // Modals).
   const inFlightRef = useRef<string | null>(null);
+  const requestIdRef = useRef(0);
+  const controllerRef = useRef<AbortController | null>(null);
+
+  useEffect(
+    () => () => {
+      requestIdRef.current += 1;
+      controllerRef.current?.abort();
+    },
+    [],
+  );
 
   const lookup = useCallback(
     async (barcode: string): Promise<CatalogProduct | null> => {
       const trimmed = barcode.trim();
       if (!trimmed || inFlightRef.current !== null) return null;
+      const requestId = ++requestIdRef.current;
+      const controller = new AbortController();
       inFlightRef.current = trimmed;
+      controllerRef.current = controller;
       setLooking(true);
       setErrorMessage(null);
 
       try {
-        const found = await catalog.findByBarcode(trimmed);
+        const found = await catalog.findByBarcode(trimmed, controller.signal);
+        if (controller.signal.aborted || requestId !== requestIdRef.current) return null;
         trackAnalyticsEvent('product.barcode_scan.completed', { found: found !== null });
         setProduct(found);
         if (found) {
@@ -62,19 +76,27 @@ export function useProductBarcodeLookup(
         }
         return found;
       } catch {
+        if (controller.signal.aborted || requestId !== requestIdRef.current) return null;
         trackAnalyticsEvent('product.barcode_scan.failed');
         setErrorMessage('Fehler beim Abrufen der Produktdaten.');
         return null;
       } finally {
-        inFlightRef.current = null;
-        setLooking(false);
+        if (requestId === requestIdRef.current) {
+          inFlightRef.current = null;
+          if (controllerRef.current === controller) controllerRef.current = null;
+          setLooking(false);
+        }
       }
     },
     [catalog, onFound, onNotFound],
   );
 
   const reset = useCallback(() => {
+    requestIdRef.current += 1;
+    controllerRef.current?.abort();
+    controllerRef.current = null;
     inFlightRef.current = null;
+    setLooking(false);
     setProduct(null);
     setErrorMessage(null);
   }, []);
