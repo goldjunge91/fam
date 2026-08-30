@@ -48,6 +48,9 @@ bun install && bun start
 
 Zum schnellen Testen auf der lokalen Entwicklungsdatenbank (`supabase start`):
 
+Die Admin-Skripte benötigen `SUPABASE_SERVICE_ROLE_KEY` aus `supabase status`.
+Der Wert wird nur als Umgebungsvariable übergeben und nie im Repository hinterlegt.
+
 - **Bash Script (`scripts/create-user-with-household.sh`)**:
   - `./scripts/create-user-with-household.sh` — Erstellt 1 neuen Test-Nutzer mit eigenem Haushalt, Standard-Lagerorten und vorausgefüllten Einkaufslisten-Produkten.
   - `./scripts/create-user-with-household.sh <anzahl>` — Kann mehrmals oder mit einer Anzahl aufgerufen werden (z. B. `./scripts/create-user-with-household.sh 5`), um mehrere Test-User gleichzeitig mit jeweils eigenem Haushalt anzulegen.

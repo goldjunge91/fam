@@ -4,7 +4,11 @@ set -euo pipefail
 
 # Configuration
 SUPABASE_URL="${EXPO_PUBLIC_SUPABASE_URL:-http://127.0.0.1:54321}"
-SERVICE_ROLE_KEY="${SUPABASE_SERVICE_ROLE_KEY:-eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZS1kZW1vIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImV4cCI6MTk4MzgxMjk5Nn0.EGIM96RAZx35lJzdJsyH-qQwv8Hdp7fsn3W0YpN81IU}"
+if [[ -z "${SUPABASE_SERVICE_ROLE_KEY:-}" ]]; then
+  echo 'SUPABASE_SERVICE_ROLE_KEY fehlt. Übergib den lokalen Service-Role-Key als Umgebungsvariable.' >&2
+  exit 1
+fi
+SERVICE_ROLE_KEY="${SUPABASE_SERVICE_ROLE_KEY}"
 
 create_single_user() {
   local custom_email="${1:-}"

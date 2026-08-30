@@ -16,6 +16,13 @@ type SymptomInsert = Database['public']['Tables']['symptom_logs']['Insert'];
 type FoodInsert = Database['public']['Tables']['food_entries']['Insert'];
 type WeightInsert = Database['public']['Tables']['weight_entries']['Insert'];
 
+export type Glp1SeedData = {
+  medications: MedicationInsert[];
+  symptoms: SymptomInsert[];
+  food: FoodInsert[];
+  weights: WeightInsert[];
+};
+
 const PRODUCTS = {
   oats: {
     name: 'Zarte Haferflocken',
@@ -299,6 +306,15 @@ function withUserId<T extends { user_id: string }>(rows: T[], userId: string): T
   return rows.map((row) => ({ ...row, user_id: userId }));
 }
 
+export function buildSeedData(userId: string): Glp1SeedData {
+  return {
+    medications: withUserId(buildMedicationRows(userId), userId),
+    symptoms: withUserId(buildSymptomRows(userId), userId),
+    food: withUserId(buildFoodRows(userId), userId),
+    weights: withUserId(buildWeightRows(userId), userId),
+  };
+}
+
 function throwOnError(error: { message: string } | null, operation: string): void {
   if (error) throw new Error(`${operation}: ${error.message}`);
 }
@@ -358,10 +374,12 @@ async function findUser(supabase: Supabase, email: string) {
 }
 
 async function seedAccount(supabase: Supabase, userId: string): Promise<void> {
-  const medicationRows = withUserId(buildMedicationRows(userId), userId);
-  const symptomRows = withUserId(buildSymptomRows(userId), userId);
-  const foodRows = withUserId(buildFoodRows(userId), userId);
-  const weightRows = withUserId(buildWeightRows(userId), userId);
+  const {
+    medications: medicationRows,
+    symptoms: symptomRows,
+    food: foodRows,
+    weights: weightRows,
+  } = buildSeedData(userId);
   const goalId = createSeedId(userId, 'goal', 0);
 
   await deleteGeneratedRows(supabase, 'medication_logs', userId, [

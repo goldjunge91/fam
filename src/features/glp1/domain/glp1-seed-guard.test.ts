@@ -1,4 +1,4 @@
-import { buildWeightRows, createSeedId } from '../../../../scripts/glp1-seed';
+import { buildSeedData, buildWeightRows, createSeedId } from '../../../../scripts/glp1-seed';
 import { assertSafeSeedTarget } from '../../../../scripts/glp1-seed-guard';
 
 describe('GLP-1 seed target guard', () => {
@@ -75,6 +75,32 @@ describe('GLP-1 seed target guard', () => {
           localTime: [7, 30, 0, 0],
         })),
       );
+    } finally {
+      jest.useRealTimers();
+    }
+  });
+
+  it('includes all four UI-review edge cases in the generated dataset', () => {
+    jest.useFakeTimers().setSystemTime(new Date(2026, 7, 30, 12));
+
+    try {
+      const seed = buildSeedData('account-a');
+
+      expect(seed.medications).toHaveLength(12);
+      expect(seed.medications.some((row) => row.unit === 'ml')).toBe(true);
+      expect(seed.medications.every((row) => row.injection_site !== null)).toBe(true);
+
+      expect(
+        seed.symptoms.some((row) => row.notes === 'Randfall: Symptomtag ohne Medikationseintrag'),
+      ).toBe(true);
+      expect(
+        seed.symptoms.some((row) => {
+          if (row.notes !== 'Randfall: vor dem Tagesstart um 06:00 erfasst') return false;
+          if (typeof row.logged_at !== 'string') return false;
+          const loggedAt = new Date(row.logged_at);
+          return loggedAt.getHours() === 5 && loggedAt.getMinutes() === 15;
+        }),
+      ).toBe(true);
     } finally {
       jest.useRealTimers();
     }
