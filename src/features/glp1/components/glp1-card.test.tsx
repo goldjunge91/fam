@@ -144,18 +144,8 @@ describe('Glp1Card', () => {
       />,
     );
 
-    expect(mockUseMedicationLogs).toHaveBeenCalledWith(
-      'user-1',
-      'child-1',
-      '2026-08-18',
-      '06:00',
-    );
-    expect(mockUseSymptomLogs).toHaveBeenCalledWith(
-      'user-1',
-      'child-1',
-      '2026-08-18',
-      '06:00',
-    );
+    expect(mockUseMedicationLogs).toHaveBeenCalledWith('user-1', 'child-1', '2026-08-18', '06:00');
+    expect(mockUseSymptomLogs).toHaveBeenCalledWith('user-1', 'child-1', '2026-08-18', '06:00');
   });
 
   it('behaelt letzte Injektion und Rotationshilfe ausserhalb des ausgewaehlten Tages', async () => {
@@ -171,9 +161,7 @@ describe('Glp1Card', () => {
       },
     ];
 
-    await render(
-      <Glp1Card userId="user-1" logicalDate="2026-08-18" dayStartTime="06:00" />,
-    );
+    await render(<Glp1Card userId="user-1" logicalDate="2026-08-18" dayStartTime="06:00" />);
 
     expect(screen.getByText('Semaglutid (1 mg)')).toBeOnTheScreen();
     await user.press(screen.getByText('+ Injektion eintragen'));
@@ -192,9 +180,7 @@ describe('Glp1Card', () => {
       },
     ];
 
-    await render(
-      <Glp1Card userId="user-1" logicalDate="2026-08-18" dayStartTime="06:00" />,
-    );
+    await render(<Glp1Card userId="user-1" logicalDate="2026-08-18" dayStartTime="06:00" />);
 
     expect(screen.getByText('Injektion, Kalorien und Gewicht')).toBeOnTheScreen();
     expect(screen.getByText('Tag 2')).toBeOnTheScreen();

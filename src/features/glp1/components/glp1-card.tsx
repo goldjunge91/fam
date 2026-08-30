@@ -14,6 +14,7 @@ import {
 } from '@/features/glp1/domain/medication-options';
 import { InjectionForm, type InjectionFormValue } from '@/features/glp1/forms/injection-form';
 import { SymptomForm, type SymptomFormValue } from '@/features/glp1/forms/symptom-form';
+import { useCorrelationSeries } from '@/features/glp1/hooks/correlation-api';
 import {
   type MedicationLogRow,
   type SymptomLogRow,
@@ -29,7 +30,6 @@ import {
   useUpdateMedicationLogMutation,
   useUpdateSymptomLogMutation,
 } from '@/features/glp1/hooks/glp1-api';
-import { useCorrelationSeries } from '@/features/glp1/hooks/correlation-api';
 import { useInjectionReminder } from '@/features/glp1/hooks/use-injection-reminder';
 
 type Glp1CardProps = {
@@ -86,17 +86,11 @@ export function Glp1Card({
   dayStartTime = '00:00',
 }: Glp1CardProps) {
   useInjectionReminder(userId);
-  const selectedLogicalDate =
-    logicalDate ?? getLogicalDateForTimestamp(new Date(), dayStartTime);
+  const selectedLogicalDate = logicalDate ?? getLogicalDateForTimestamp(new Date(), dayStartTime);
   const [activeForm, setActiveForm] = useState<ActiveForm | null>(null);
   const [showHistory, setShowHistory] = useState(false);
   const { showUndoSnackbar } = useSnackbar();
-  const { data: medLogs } = useMedicationLogs(
-    userId,
-    childProfileId,
-    logicalDate,
-    dayStartTime,
-  );
+  const { data: medLogs } = useMedicationLogs(userId, childProfileId, logicalDate, dayStartTime);
   const { data: recentMedLogs } = useRecentMedicationLogs(userId, childProfileId);
   const { data: correlationSeries } = useCorrelationSeries(
     userId,
@@ -104,12 +98,7 @@ export function Glp1Card({
     selectedLogicalDate,
     dayStartTime,
   );
-  const { data: symptomLogs } = useSymptomLogs(
-    userId,
-    childProfileId,
-    logicalDate,
-    dayStartTime,
-  );
+  const { data: symptomLogs } = useSymptomLogs(userId, childProfileId, logicalDate, dayStartTime);
   const addMedMutation = useAddMedicationLogMutation();
   const addSymptomMutation = useAddSymptomLogMutation();
   const updateMedMutation = useUpdateMedicationLogMutation();

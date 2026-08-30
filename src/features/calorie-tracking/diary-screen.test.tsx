@@ -5,7 +5,7 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { DiaryScreen } from '@/features/calorie-tracking/diary-screen';
 
 const mockUseFoodEntries = jest.fn();
-const mockGlp1Card = jest.fn(() => null);
+const mockGlp1Card = jest.fn((_props: unknown) => null);
 let mockProfile: {
   tracking_day_start_time: string;
   tracking_method: string;
