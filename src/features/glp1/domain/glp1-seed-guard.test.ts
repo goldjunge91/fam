@@ -1,5 +1,5 @@
-import { createSeedId } from '../../../scripts/glp1-seed';
-import { assertSafeSeedTarget } from '../../../scripts/glp1-seed-guard';
+import { createSeedId } from '../../../../scripts/glp1-seed';
+import { assertSafeSeedTarget } from '../../../../scripts/glp1-seed-guard';
 
 describe('GLP-1 seed target guard', () => {
   it('allows local Supabase targets', () => {

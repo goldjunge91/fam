@@ -21,7 +21,7 @@ jest.mock('@/features/settings/module-preferences', () => ({
   useModulePreferences: () => ({ data: { glp1: false, fasting: false }, isLoading: false }),
 }));
 
-jest.mock('@/features/calorie-tracking/glp1-api', () => ({
+jest.mock('@/features/glp1/hooks/glp1-api', () => ({
   useMedicationLogs: () => ({ data: [], isLoading: false }),
   useSymptomLogs: () => ({ data: [], isLoading: false }),
   useAddMedicationLogMutation: () => ({ mutate: jest.fn(), isPending: false }),

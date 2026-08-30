@@ -16,9 +16,9 @@ import {
   useFoodEntries,
 } from '@/features/calorie-tracking/api';
 import { FastingCard } from '@/features/calorie-tracking/components/fasting-card';
-import { Glp1Card } from '@/features/calorie-tracking/components/glp1-card';
 import { calculateDailyTotals } from '@/features/calorie-tracking/daily-totals';
 import { getLogicalDateForTimestamp } from '@/features/calorie-tracking/day-boundary';
+import { Glp1Card } from '@/features/glp1/components/glp1-card';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { useChildProfiles } from '@/features/household/api';
 import { useNavigationChrome } from '@/features/navigation/navigation-chrome-provider';

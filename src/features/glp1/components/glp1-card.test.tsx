@@ -20,7 +20,7 @@ let mockSymptomLogs: {
   logged_at: string;
 }[] = [];
 
-jest.mock('@/features/calorie-tracking/glp1-api', () => ({
+jest.mock('@/features/glp1/hooks/glp1-api', () => ({
   useMedicationLogs: () => ({ data: mockMedLogs, isLoading: false }),
   useSymptomLogs: () => ({ data: mockSymptomLogs, isLoading: false }),
   useAddMedicationLogMutation: () => ({ mutate: mockMutateMed, isPending: false }),
