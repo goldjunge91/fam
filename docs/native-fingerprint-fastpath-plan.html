@@ -1,0 +1,941 @@
+<title>Fingerprint & Fastpath</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+  :root {
+    --ground: #F5F6F4;
+    --surface: #FFFFFF;
+    --surface-2: #ECEEEC;
+    --ink: #14181D;
+    --ink-2: #3C444E;
+    --muted: #6B7480;
+    --rule: #D8DCDA;
+    --rule-strong: #B9BFBC;
+    --accent: #1B3A8C;
+    --accent-soft: #E4E9F6;
+    --hit: #17654F;
+    --hit-soft: #DCEDE6;
+    --warm: #92600A;
+    --warm-soft: #F5E9CF;
+    --cold: #A3372B;
+    --cold-soft: #F6E0DC;
+    --code-bg: #1A1F26;
+    --code-ink: #E6E9EC;
+
+    --step: 1.5;
+    color-scheme: light;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ground: #101317;
+      --surface: #171B21;
+      --surface-2: #1F242B;
+      --ink: #E9ECEF;
+      --ink-2: #BAC1CA;
+      --muted: #8B949F;
+      --rule: #2A3038;
+      --rule-strong: #3C444E;
+      --accent: #8FA9EE;
+      --accent-soft: #1C2740;
+      --hit: #6FC4A6;
+      --hit-soft: #16302A;
+      --warm: #DCAF57;
+      --warm-soft: #322710;
+      --cold: #E8897B;
+      --cold-soft: #351E1A;
+      --code-bg: #0B0E12;
+      --code-ink: #DDE2E7;
+      color-scheme: dark;
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --ground: #101317;
+    --surface: #171B21;
+    --surface-2: #1F242B;
+    --ink: #E9ECEF;
+    --ink-2: #BAC1CA;
+    --muted: #8B949F;
+    --rule: #2A3038;
+    --rule-strong: #3C444E;
+    --accent: #8FA9EE;
+    --accent-soft: #1C2740;
+    --hit: #6FC4A6;
+    --hit-soft: #16302A;
+    --warm: #DCAF57;
+    --warm-soft: #322710;
+    --cold: #E8897B;
+    --cold-soft: #351E1A;
+    --code-bg: #0B0E12;
+    --code-ink: #DDE2E7;
+    color-scheme: dark;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    background: var(--ground);
+    color: var(--ink);
+    font-family: "Source Serif 4", Georgia, "Times New Roman", serif;
+    font-size: 17px;
+    line-height: 1.62;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0 28px 120px;
+  }
+
+  .measure { max-width: 68ch; }
+
+  h1, h2, h3, h4, .ui {
+    font-family: Archivo, "Helvetica Neue", Arial, sans-serif;
+  }
+
+  code, pre, .mono, .num {
+    font-family: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  }
+
+  /* ---------- masthead ---------- */
+
+  header.masthead {
+    border-bottom: 2px solid var(--ink);
+    padding: 64px 0 26px;
+    margin-bottom: 44px;
+  }
+
+  .eyebrow {
+    font-family: Archivo, sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--muted);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 18px;
+    margin-bottom: 22px;
+  }
+
+  h1 {
+    font-size: clamp(2.4rem, 6vw, 3.9rem);
+    font-weight: 700;
+    letter-spacing: -0.028em;
+    line-height: 1.02;
+    margin: 0 0 20px;
+    text-wrap: balance;
+  }
+
+  .thesis {
+    font-size: clamp(1.06rem, 2vw, 1.24rem);
+    color: var(--ink-2);
+    max-width: 62ch;
+    margin: 0;
+  }
+
+  .thesis strong { color: var(--ink); font-weight: 600; }
+
+  /* ---------- sections ---------- */
+
+  section { margin-bottom: 68px; }
+
+  h2 {
+    font-size: 1.62rem;
+    font-weight: 700;
+    letter-spacing: -0.018em;
+    margin: 0 0 6px;
+    text-wrap: balance;
+  }
+
+  .sec-head {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    border-bottom: 1px solid var(--rule-strong);
+    padding-bottom: 10px;
+    margin-bottom: 26px;
+  }
+
+  .sec-head h2 { margin: 0; }
+
+  .sec-num {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--accent);
+    letter-spacing: 0.06em;
+    flex: none;
+    padding-top: 3px;
+  }
+
+  h3 {
+    font-size: 1.11rem;
+    font-weight: 600;
+    letter-spacing: -0.008em;
+    margin: 34px 0 10px;
+  }
+
+  p { margin: 0 0 16px; }
+  .measure p, .measure ul, .measure ol { max-width: 68ch; }
+
+  ul, ol { margin: 0 0 16px; padding-left: 1.2em; }
+  li { margin-bottom: 7px; }
+  li::marker { color: var(--muted); }
+
+  a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+  strong { font-weight: 600; }
+
+  code:not(pre code) {
+    font-size: 0.855em;
+    background: var(--surface-2);
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    padding: 0.1em 0.36em;
+    color: var(--ink);
+    white-space: nowrap;
+  }
+
+  pre {
+    background: var(--code-bg);
+    color: var(--code-ink);
+    font-size: 13px;
+    line-height: 1.65;
+    padding: 16px 18px;
+    border-radius: 4px;
+    overflow-x: auto;
+    margin: 0 0 18px;
+    border: 1px solid var(--rule);
+  }
+  pre code { background: none; border: none; padding: 0; white-space: pre; }
+  pre .c { color: #7C8794; }
+
+  /* ---------- findings ---------- */
+
+  .findings {
+    display: grid;
+    gap: 1px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .finding {
+    background: var(--surface);
+    display: grid;
+    grid-template-columns: 42px 1fr 108px;
+    gap: 18px;
+    padding: 18px 20px;
+    align-items: start;
+  }
+
+  .finding .fid {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--muted);
+    padding-top: 3px;
+  }
+
+  .finding h4 {
+    margin: 0 0 5px;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: -0.005em;
+  }
+
+  .finding p { margin: 0; font-size: 0.925rem; color: var(--ink-2); }
+
+  .sev {
+    font-family: Archivo, sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 4px 9px;
+    border-radius: 2px;
+    text-align: center;
+    justify-self: end;
+    white-space: nowrap;
+    margin-top: 2px;
+  }
+  .sev.blocker { background: var(--cold-soft); color: var(--cold); }
+  .sev.high    { background: var(--warm-soft); color: var(--warm); }
+  .sev.med     { background: var(--accent-soft); color: var(--accent); }
+  .sev.done    { background: var(--hit-soft); color: var(--hit); }
+
+  .finding.solved { background: var(--surface); }
+  .finding.solved h4 { color: var(--hit); }
+  .finding.solved h4::before {
+    content: "✓";
+    font-family: Archivo, sans-serif;
+    margin-right: 7px;
+    font-weight: 700;
+  }
+
+  .proof {
+    margin-top: 10px;
+    padding: 10px 13px;
+    background: var(--surface-2);
+    border-left: 2px solid var(--rule-strong);
+    border-radius: 0 3px 3px 0;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11.5px;
+    line-height: 1.75;
+    color: var(--ink-2);
+    overflow-x: auto;
+    white-space: pre;
+  }
+  .proof .no { color: var(--cold); font-weight: 600; }
+  .proof .yes { color: var(--hit); font-weight: 600; }
+
+  /* ---------- keystone callout ---------- */
+
+  .keystone {
+    background: var(--surface);
+    border: 1px solid var(--rule-strong);
+    border-top: 3px solid var(--cold);
+    border-radius: 4px;
+    padding: 26px 28px;
+    margin: 32px 0;
+  }
+
+  .keystone .label {
+    font-family: Archivo, sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--cold);
+    margin-bottom: 12px;
+  }
+
+  .keystone p { margin: 0 0 12px; max-width: 66ch; }
+  .keystone p:last-child { margin-bottom: 0; }
+
+  .chain {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 12.5px;
+    margin: 18px 0 4px;
+  }
+  .chain span {
+    background: var(--surface-2);
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    padding: 6px 10px;
+  }
+  .chain span.end { background: var(--cold-soft); border-color: var(--cold); color: var(--cold); font-weight: 600; }
+  .chain b { color: var(--muted); font-weight: 400; }
+
+  /* ---------- tables ---------- */
+
+  .tbl-scroll { overflow-x: auto; margin: 0 0 20px; }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+  }
+
+  th {
+    font-family: Archivo, sans-serif;
+    font-size: 10.5px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-align: left;
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--rule-strong);
+    white-space: nowrap;
+  }
+
+  td {
+    padding: 13px 16px;
+    border-bottom: 1px solid var(--rule);
+    vertical-align: top;
+    color: var(--ink-2);
+  }
+  tr:last-child td { border-bottom: none; }
+  td strong { color: var(--ink); }
+
+  td.num, th.num { font-family: "IBM Plex Mono", monospace; font-variant-numeric: tabular-nums; white-space: nowrap; }
+
+  .cls {
+    font-family: Archivo, sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 2px;
+    white-space: nowrap;
+  }
+  .cls.a { background: var(--hit-soft); color: var(--hit); }
+  .cls.b { background: var(--warm-soft); color: var(--warm); }
+  .cls.c { background: var(--cold-soft); color: var(--cold); }
+
+  /* ---------- phases ---------- */
+
+  .phase {
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    padding: 26px 28px 22px;
+    margin-bottom: 20px;
+  }
+
+  .phase-head {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    margin-bottom: 4px;
+  }
+
+  .phase-num {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: var(--surface);
+    background: var(--accent);
+    padding: 4px 8px;
+    border-radius: 2px;
+    flex: none;
+  }
+
+  .phase h3 { margin: 0; font-size: 1.24rem; font-weight: 700; letter-spacing: -0.015em; }
+
+  .phase-goal {
+    font-size: 0.95rem;
+    color: var(--ink-2);
+    margin: 10px 0 20px;
+    max-width: 70ch;
+  }
+
+  .phase h4 {
+    font-family: Archivo, sans-serif;
+    font-size: 10.5px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin: 24px 0 10px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .phase ol, .phase ul { font-size: 0.945rem; }
+  .phase p { font-size: 0.945rem; }
+
+  .gate {
+    background: var(--hit-soft);
+    border-left: 3px solid var(--hit);
+    border-radius: 0 3px 3px 0;
+    padding: 13px 16px;
+    margin-top: 20px;
+    font-size: 0.9rem;
+    color: var(--ink-2);
+  }
+  .gate b {
+    font-family: Archivo, sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.11em;
+    text-transform: uppercase;
+    color: var(--hit);
+    display: block;
+    margin-bottom: 5px;
+  }
+
+  .warn {
+    background: var(--warm-soft);
+    border-left: 3px solid var(--warm);
+    border-radius: 0 3px 3px 0;
+    padding: 13px 16px;
+    margin: 18px 0;
+    font-size: 0.9rem;
+    color: var(--ink-2);
+  }
+  .warn b {
+    font-family: Archivo, sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.11em;
+    text-transform: uppercase;
+    color: var(--warm);
+    display: block;
+    margin-bottom: 5px;
+  }
+
+  footer {
+    border-top: 2px solid var(--ink);
+    padding-top: 22px;
+    margin-top: 76px;
+    font-size: 0.875rem;
+    color: var(--muted);
+  }
+
+  @media (max-width: 720px) {
+    body { font-size: 16px; }
+    .wrap { padding: 0 18px 80px; }
+    .finding { grid-template-columns: 1fr; gap: 8px; }
+    .finding .fid { padding-top: 0; }
+    .sev { justify-self: start; }
+    .phase { padding: 20px 18px 18px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; transition: none !important; }
+  }
+</style>
+
+<div class="wrap">
+
+<header class="masthead">
+  <div class="eyebrow">
+    <span>Expo SDK 57.0.17</span>
+    <span>React Native 0.86.3</span>
+    <span>fam · goldjunge91</span>
+    <span>30. August 2026</span>
+  </div>
+  <h1>Fingerprint &amp; Fastpath</h1>
+  <p class="thesis">Ein Plan, lokale Native-Builds reproduzierbar schnell zu machen. Die bestehende Implementierung hat alle richtigen Bausteine installiert — <strong>und umgeht sie im heißen Pfad vollständig</strong>. Der Determinismus-Bug, der das lange verdeckt hat, ist gefunden und behoben; damit steht der eigentliche Hebel frei.</p>
+</header>
+
+<section>
+  <div class="sec-head">
+    <span class="sec-num">BEFUND</span>
+    <h2>Was heute tatsächlich passiert</h2>
+  </div>
+
+  <div class="measure">
+    <p>Gelesen: <code>scripts/native-build.ts</code>, <code>native-build-lock.json</code>, <code>app.json</code>, <code>eas.json</code>, <code>ios/Podfile</code>, <code>android/gradle.properties</code>, <code>package.json</code>. Alle folgenden Punkte sind am Code verifiziert, nicht vermutet.</p>
+  </div>
+
+  <div class="findings">
+
+    <div class="finding solved">
+      <div class="fid">B1</div>
+      <div>
+        <h4>Fingerprint-Drift — Ursache gefunden und behoben</h4>
+        <p>Derselbe Git-Stand erzeugte wechselnde iOS-Hashes; <code>assertNativeBaseline()</code> bricht bei Abweichung hart ab und blockierte damit den gesamten <code>native:*</code>-Pfad. Ursache: <code>DEFAULT_IGNORE_PATHS</code> in <code>@expo/fingerprint</code> enthält <code>'**/ios/**/project.xcworkspace'</code> — <strong>ohne abschließendes <code>/**</code></strong>. Das Pattern matcht nur das Verzeichnis, nicht die Dateien darin. Xcode legt den Ordner beim Öffnen des <code>.xcodeproj</code> an, also driftete der Hash pro Maschine.</p>
+        <div class="proof">isIgnoredPath() gegen die echten DEFAULT_IGNORE_PATHS:
+
+  …/project.xcworkspace                       <span class="yes">ignoriert</span>
+  …/project.xcworkspace/contents.xcworkspacedata   <span class="no">im Fingerprint</span>
+  …/project.xcworkspace/…/IDEWorkspaceChecks.plist <span class="no">im Fingerprint</span>
+  …/fam.xcodeproj/xcuserdata/…                     <span class="no">im Fingerprint</span></div>
+        <p style="margin-top:12px">Das zweite Pattern <code>'**/ios/*.xcworkspace/xcuserdata/**/*'</code> verlangt ein <code>ios/&lt;name&gt;.xcworkspace/</code> auf oberster Ebene und greift bei <code>fam.xcodeproj/xcuserdata/</code> gar nicht. <strong>Fix:</strong> beide Pfade in <code>.gitignore</code> <em>und</em> <code>.fingerprintignore</code>. Letzteres ist zwingend, nicht redundant — <code>sourcer/Bare.js:74</code> liest <code>.gitignore</code> ausschließlich als Hash-Quelle <code>bareGitIgnore</code> ein und wertet sie nie als Ignore-Regel aus. Nach dem Fix taucht keiner der Pfade mehr in den 172 Sources auf.</p>
+        <p style="margin-top:10px;font-size:0.87rem;color:var(--muted)">Vollständige Herleitung, Fundweg und archiviertes Ausschlussverfahren: <code>docs/native-fingerprint-drift-debugging.md</code></p>
+      </div>
+      <div class="sev done">Gelöst</div>
+    </div>
+
+    <div class="finding">
+      <div class="fid">B2</div>
+      <div>
+        <h4>Der Build-Cache ist konfiguriert und wird nie benutzt</h4>
+        <p><code>buildCacheProvider: "eas"</code> steht in <code>app.json</code>, <code>eas-build-cache-provider@22</code> ist installiert. Der Provider greift laut Expo-Doku aber <em>ausschließlich</em> bei <code>npx expo run:ios|android</code>. Der gesamte Repo-Pfad läuft über <code>eas build --local</code> bzw. <code>expo run --binary</code> — beide umgehen ihn. Aktuelle Trefferquote: strukturell null.</p>
+      </div>
+      <div class="sev blocker">Blocker</div>
+    </div>
+
+    <div class="finding">
+      <div class="fid">B3</div>
+      <div>
+        <h4><code>eas build --local</code> ist der langsamste verfügbare lokale Pfad</h4>
+        <p><code>rebuild()</code> ruft <code>expo prebuild --clean</code>, dann <code>pod install</code>, dann <code>eas build --local</code>. EAS kopiert das Projekt in ein isoliertes Temp-Verzeichnis und installiert Pods erneut. Kein DerivedData-Reuse, kein Gradle-Build-Cache, kein Inkrement — jeder Lauf ist ein Kaltstart. Für Release-Artefakte korrekt, für den Inner Loop das Gegenteil des Ziels.</p>
+      </div>
+      <div class="sev high">Hoch</div>
+    </div>
+
+    <div class="finding">
+      <div class="fid">B4</div>
+      <div>
+        <h4>Es gibt keinerlei Zeitmessung</h4>
+        <p>Weder Dauer, noch Phasenaufteilung, noch Cache-Hit-Rate wird irgendwo festgehalten. Jede Aussage über Effizienz — auch die in diesem Dokument — ist damit heute unbelegt. Deshalb steht Messen vor Optimieren.</p>
+      </div>
+      <div class="sev high">Hoch</div>
+    </div>
+
+    <div class="finding">
+      <div class="fid">B5</div>
+      <div>
+        <h4>ccache liegt installiert daneben, ohne verdrahtet zu sein</h4>
+        <p><code>/opt/homebrew/bin/ccache</code> existiert. Der generierte <code>ios/Podfile</code> enthält bereits <code>ccache_enabled?()</code> und liest <code>ENV['USE_CCACHE'] == '1'</code> sowie <code>apple.ccacheEnabled</code>. Gesetzt wird beides nirgends — der Hebel ist gebaut und nicht umgelegt.</p>
+      </div>
+      <div class="sev high">Hoch</div>
+    </div>
+
+    <div class="finding">
+      <div class="fid">B6</div>
+      <div>
+        <h4>Android baut vier ABIs für ein Testgerät</h4>
+        <p><code>reactNativeArchitectures=armeabi-v7a,arm64-v8a,x86,x86_64</code>. Lokal wird immer genau eine gebraucht. Dazu: <code>org.gradle.jvmargs=-Xmx2048m</code> auf einer Apple-Silicon-Maschine, kein <code>org.gradle.caching</code>, keine Configuration Cache.</p>
+      </div>
+      <div class="sev high">Hoch</div>
+    </div>
+
+    <div class="finding">
+      <div class="fid">B7</div>
+      <div>
+        <h4><code>EXPO_USE_PRECOMPILED_MODULES=1</code> ist auf SDK 57 wirkungslos</h4>
+        <p><code>native-build.ts</code> setzt die Variable an drei Stellen. Der Podfile setzt bereits selbst <code>ENV['EXPO_USE_PRECOMPILED_MODULES'] ||= '1'</code>, und seit SDK 56 ist Precompiled default. Kein Schaden, aber es verdeckt, dass der eigentliche Kostenblock woanders liegt: Third-Party-Pods, die lokal aus Source bauen.</p>
+      </div>
+      <div class="sev med">Mittel</div>
+    </div>
+
+    <div class="finding">
+      <div class="fid">B8</div>
+      <div>
+        <h4>Hybridzustand zwischen CNG und Bare</h4>
+        <p><code>ios/</code> und <code>android/</code> sind teilweise eingecheckt (21 bzw. 54 getrackte Dateien) — gleichzeitig löscht <code>rebuild()</code> sie per <code>prebuild --clean</code> und generiert neu. Beide Modelle sind für sich tragfähig; die Mischung erzeugt Fingerprint-Rauschen und macht unklar, was Quelle der Wahrheit ist.</p>
+      </div>
+      <div class="sev med">Mittel</div>
+    </div>
+
+    <div class="finding">
+      <div class="fid">B9</div>
+      <div>
+        <h4>Die neue Baseline wurde mitten im Prebuild gemessen</h4>
+        <p>Der Lock trägt bereits <code>c243f33c</code> für iOS. Dieser Wert entstand, bevor <code>pod install</code> die <code>Podfile.lock</code> geschrieben hatte, und war zwei Minuten später überholt — nachgemessen im laufenden Betrieb:</p>
+        <div class="proof">17:00   c243f33c…    Podfile.lock fehlt noch
+17:02   <span class="no">3433bb4a…</span>    pod install fertig, Podfile.lock geschrieben</div>
+        <p style="margin-top:12px">Dazu: <code>baseline()</code> lässt <code>lock.artifacts</code> bewusst unverändert. Beide registrierten Artefakte zeigen weiterhin auf Fingerprint <code>34c909d7</code>, der zu keiner der Baselines passt — <code>native:status</code> wird bei ihnen fehlschlagen. Erwartbar, aber leicht als neuer Drift misszudeuten.</p>
+      </div>
+      <div class="sev high">Hoch</div>
+    </div>
+
+  </div>
+
+  <div class="keystone" style="border-top-color: var(--hit)">
+    <div class="label" style="color: var(--hit)">Der kausale Kern — erste Hälfte aufgelöst</div>
+    <p>B1 und B2 waren nie zwei Probleme, sondern eines. Der Fingerprint ist <em>gleichzeitig</em> die Integritätsprüfung des Locks <em>und</em> der Cache-Key des Build-Cache-Providers. Solange derselbe Quellstand zwei verschiedene Hashes erzeugte, konnte kein Cache-Layer treffen — jeder Lauf war per Definition ein Miss.</p>
+    <div class="chain">
+      <span>identischer Git-Stand</span><b>→</b>
+      <span style="background: var(--hit-soft); border-color: var(--hit); color: var(--hit); font-weight:600">Hash jetzt stabil</span><b>→</b>
+      <span>Cache-Key stabil</span><b>→</b>
+      <span class="end">trotzdem 0 % Trefferquote</span>
+    </div>
+    <p style="margin-top:18px">Mit dem Fix aus B1 ist die Kette an der ersten Stelle aufgetrennt — das Ergebnis am Ende bleibt aber unverändert, denn der Cache wird im heißen Pfad ohnehin nicht abgefragt (B2). <strong>Damit rückt B2 vom Mitverursacher zum alleinigen Blocker.</strong> Die Umstellung des Inner Loops auf <code>expo run:*</code> ist jetzt der Schritt mit der größten Wirkung, und der Determinismus-Fix ist die Voraussetzung, die ihn überhaupt erst nutzbar macht.</p>
+  </div>
+</section>
+
+<section>
+  <div class="sec-head">
+    <span class="sec-num">ZIEL</span>
+    <h2>Drei Build-Klassen, drei Budgets</h2>
+  </div>
+
+  <div class="measure">
+    <p>„So schnell wie möglich" ist als Ziel nicht messbar. Nützlich wird es erst, wenn nach Änderungsart getrennt wird — die drei Klassen haben grundverschiedene physikalische Untergrenzen und verlangen verschiedene Mechanismen.</p>
+  </div>
+
+  <div class="tbl-scroll">
+    <table>
+      <thead>
+        <tr>
+          <th>Klasse</th>
+          <th>Auslöser</th>
+          <th>Mechanismus</th>
+          <th class="num">Zielbudget iOS</th>
+          <th class="num">Zielbudget Android</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="cls a">A · JS</span></td>
+          <td>Nur JS/TS geändert</td>
+          <td>Metro Fast Refresh, kein nativer Build</td>
+          <td class="num">&lt; 3 s</td>
+          <td class="num">&lt; 3 s</td>
+        </tr>
+        <tr>
+          <td><span class="cls b">B · Warm</span></td>
+          <td>Native Config/Dependency, Fingerprint schon einmal gebaut</td>
+          <td>Cache-Hit: Binary laden + installieren</td>
+          <td class="num">&lt; 90 s</td>
+          <td class="num">&lt; 60 s</td>
+        </tr>
+        <tr>
+          <td><span class="cls b">B' · Inkrement</span></td>
+          <td>Eine native Datei geändert, DerivedData/Gradle warm</td>
+          <td><code>expo run:*</code> inkrementell + ccache</td>
+          <td class="num">&lt; 120 s</td>
+          <td class="num">&lt; 90 s</td>
+        </tr>
+        <tr>
+          <td><span class="cls c">C · Kalt</span></td>
+          <td>Neuer Fingerprint, kein Cache, leeres DerivedData</td>
+          <td>Vollcompile, Precompiled Modules + ccache</td>
+          <td class="num">&lt; 8 min</td>
+          <td class="num">&lt; 5 min</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="warn">
+    <b>Diese Zahlen sind Hypothesen, keine Messwerte</b>
+    Es existieren heute keine Baseline-Daten (B4). Die Budgets sind als Zielkorridor gesetzt und werden in Phase 0 gegen die reale Maschine kalibriert. Falls die gemessene Kaltbau-Zeit deutlich abweicht, werden die Budgets angepasst — nicht die Messung.
+  </div>
+</section>
+
+<section>
+  <div class="sec-head">
+    <span class="sec-num">PLAN</span>
+    <h2>Sechs Phasen, sequenziell und gegated</h2>
+  </div>
+
+  <div class="measure">
+    <p>Die Nummerierung ist hier keine Dekoration: jede Phase hat ein Abnahmekriterium, das die nächste erst freischaltet. Phase 1 blockiert alles Nachgelagerte, weil ohne stabilen Cache-Key kein Caching messbar ist.</p>
+  </div>
+
+  <div class="phase">
+    <div class="phase-head">
+      <span class="phase-num">PHASE 0</span>
+      <h3>Messen, bevor irgendetwas geändert wird</h3>
+    </div>
+    <p class="phase-goal">Ohne Baseline ist jede Optimierung eine Behauptung. Diese Phase verändert keinen einzigen Buildparameter — sie legt nur das Instrument an. Sie ist konfliktfrei zum laufenden Debugging, weil sie ausschließlich neue Dateien anlegt.</p>
+
+    <h4>Schritte</h4>
+    <ol>
+      <li><strong><code>scripts/build-timer.ts</code></strong> — ein Wrapper, der einen Buildbefehl ausführt und eine Zeile nach <code>.build-metrics/builds.jsonl</code> schreibt. Kein Ersatz für bestehende Skripte, nur eine Hülle darum.</li>
+      <li><strong>Phasen einzeln erfassen</strong>, sonst ist hinterher unklar wo die Zeit liegt: <code>prebuild</code>, <code>pod-install</code>, <code>compile</code>, <code>bundle</code>, <code>install</code>, <code>launch</code>.</li>
+      <li><strong>Kontext mitschreiben</strong>: Fingerprint-Hash, <code>cacheHit</code>, Git-SHA, Xcode-/Gradle-Version, ccache-Statistik-Delta (<code>ccache -s</code> vor/nach), Maschine, Klasse A/B/C.</li>
+      <li><strong>iOS-Compilezeit isolieren</strong> über <code>xcodebuild -showBuildTimingSummary</code>; Android über <code>./gradlew --profile</code>.</li>
+    </ol>
+
+    <h4>Datensatz-Schema</h4>
+    <pre><code>{
+  "ts": "2026-08-30T14:02:11Z",
+  "target": "ios-development-simulator",
+  "class": "C",                  <span class="c">// A | B | B' | C</span>
+  "fingerprint": "cb526d17…",
+  "cacheHit": false,
+  "phases": { "prebuild": 8100, "podInstall": 41200,
+              "compile": 402700, "install": 9400 },
+  "totalMs": 461400,
+  "ccache": { "hits": 0, "misses": 1842 },
+  "gitSha": "f74bb47", "xcode": "26.1", "machine": "M-Series"
+}</code></pre>
+
+    <h4>Messprotokoll</h4>
+    <ul>
+      <li>Jede Konfiguration <strong>3× kalt und 3× warm</strong>, berichtet wird der <strong>Median</strong> — Einzelläufe streuen auf macOS zu stark für belastbare Vergleiche.</li>
+      <li><em>Kalt</em> = DerivedData gelöscht, Pods gelöscht, ccache geleert. <em>Warm</em> = genau eine Datei geändert.</li>
+      <li>Baseline für alle drei Klassen aufnehmen, <strong>bevor</strong> Phase 2 startet.</li>
+    </ul>
+
+    <div class="gate">
+      <b>Abnahmekriterium</b>
+      <code>.build-metrics/builds.jsonl</code> enthält je Plattform mindestens 3 kalte und 3 warme Läufe mit vollständiger Phasenaufteilung. Erst dann darf ein Buildparameter angefasst werden.
+    </div>
+  </div>
+
+  <div class="phase">
+    <div class="phase-head">
+      <span class="phase-num">PHASE 1</span>
+      <h3>Determinismus sauber abschließen <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:600;color:var(--hit);background:var(--hit-soft);padding:3px 8px;border-radius:2px;vertical-align:middle;margin-left:6px">GRÖSSTENTEILS ERLEDIGT</span></h3>
+    </div>
+    <p class="phase-goal">Die Ursache ist gefunden und der Fix angewendet (B1). Was bleibt, ist der korrekte Abschluss: die Baseline zu einem Zeitpunkt festschreiben, an dem der Baum wirklich ruht — und das Werkzeug bauen, das die nächste Drift in Minuten statt Stunden findet.</p>
+
+    <h4>Erledigt</h4>
+    <ul>
+      <li><s>Ursache identifizieren</s> — Glob-Pattern in <code>DEFAULT_IGNORE_PATHS</code> greift nicht für Dateien im Verzeichnis.</li>
+      <li><s>Fix anwenden</s> — <code>.gitignore</code> und <code>.fingerprintignore</code> um <code>project.xcworkspace/</code> und <code>xcuserdata/</code> ergänzt.</li>
+      <li><s>Install-Determinismus ausschließen</s> — zwei saubere Reinstalls ergaben denselben Hash.</li>
+    </ul>
+
+    <h4>Restarbeit</h4>
+    <ol>
+      <li><strong>Baseline zum richtigen Zeitpunkt neu setzen.</strong> Erst messen, wenn <code>prebuild</code> <em>und</em> <code>pod install</code> abgeschlossen sind — der aktuell im Lock stehende Wert entstand ohne <code>Podfile.lock</code> und ist bereits überholt (B9).</li>
+      <li><strong>Veraltete Artefakteinträge mitziehen.</strong> Beide Einträge auf <code>34c909d7</code> entweder per <code>native:restore</code> erneuern oder bewusst aus dem Lock entfernen, statt sie als Dauerfehler stehen zu lassen.</li>
+      <li><strong>Diff-Werkzeug bauen.</strong> Den <em>vollständigen</em> Fingerprint (alle Sources, nicht nur den Hash) mitschreiben und <code>native:status --diff</code> über <code>diffFingerprints()</code> anbieten. Das war das fehlende Werkzeug, das die Suche zweimal in ein Ausschlussverfahren verwandelt hat.</li>
+      <li><strong>Guardrail.</strong> CI-Check, der nach <code>bun install</code> in gepinnter Umgebung <code>native:status</code> prüft.</li>
+    </ol>
+
+    <p style="margin-top:16px;font-size:0.9rem;color:var(--ink-2)"><strong>Laufendes Protokoll:</strong> <code>docs/native-fingerprint-drift-debugging.md</code> hält Symptom, Root Cause, exakten Mechanismus, Timing-Falle und das Vorgehen bei einem erneuten Mismatch fest — inklusive des archivierten Ausschlussverfahrens, damit bereits widerlegte Hypothesen nicht ein drittes Mal durchlaufen werden. Diese Datei ist der Einstiegspunkt bei jedem künftigen Drift, nicht dieses Kapitel.</p>
+
+    <div class="warn">
+      <b>Regel für künftige Ignore-Einträge</b>
+      Nur Einträge mit belegtem Diff, jeweils mit Begründung im Commit. Ein zu breiter <code>.fingerprintignore</code> macht den Cache-Key unscharf und produziert <em>falsche Cache-Hits</em> — veraltete Binaries, die als gültig durchgehen. Das ist der teurere Fehler als ein Mismatch.
+    </div>
+
+    <div class="gate">
+      <b>Abnahmekriterium</b>
+      10 <code>native:status</code>-Läufe über einen ruhenden Arbeitsbaum verteilt, davon 3 nach frischem <code>bun install</code> und einer nach dem Öffnen des Projekts in Xcode, liefern denselben Hash für beide Plattformen.
+    </div>
+  </div>
+
+  <div class="phase">
+    <div class="phase-head">
+      <span class="phase-num">PHASE 2</span>
+      <h3>Den Inner Loop auf den Cache-Pfad legen</h3>
+    </div>
+    <p class="phase-goal">Der größte Einzelhebel und die eigentliche Antwort auf B2/B3: den täglichen Entwicklungsbuild von <code>eas build --local</code> auf <code>expo run:*</code> umstellen, weil nur dieser Pfad den bereits konfigurierten Build-Cache-Provider bedient und DerivedData bzw. den Gradle-Cache inkrementell weiterverwendet.</p>
+
+    <h4>Schritte</h4>
+    <ol>
+      <li><strong>Zwei Pfade sauber trennen.</strong> <code>eas build --local</code> bleibt zuständig für Release-, TestFlight- und Store-Artefakte (reproduzierbar, isoliert, signiert). Für Development-Targets tritt <code>expo run:ios --scheme fam</code> / <code>expo run:android</code> an seine Stelle.</li>
+      <li><strong><code>prebuild --clean</code> aus dem Loop nehmen.</strong> Es zerstört Pods und DerivedData und erzwingt damit jedes Mal Klasse C. Nur noch aufrufen, wenn der Fingerprint es verlangt.</li>
+      <li><strong><code>pod install</code> konditionieren</strong> — nur bei geändertem <code>Podfile.lock</code>, nicht bei jedem Lauf.</li>
+      <li><strong>Rolle des Locks neu fassen.</strong> <code>native-build-lock.json</code> bleibt als Verifikations- und Release-Gate wertvoll, darf den Inner Loop aber nicht mehr hart blockieren. Vorschlag: <code>fail()</code> im Development-Pfad zu einer sichtbaren Warnung mit Diff herunterstufen, im Release-Pfad hart lassen.</li>
+      <li><strong>Cache-Hit-Rate messen</strong> und in die JSONL schreiben — das ist die zentrale Kennzahl dieser Phase.</li>
+    </ol>
+
+    <div class="gate">
+      <b>Abnahmekriterium</b>
+      Klasse B erreicht auf einer zweiten Maschine oder nach <code>rm -rf ios/build</code> eine Cache-Hit-Rate &gt; 80 % und liegt im Zeitbudget. Klasse A bleibt unberührt bei &lt; 3 s.
+    </div>
+  </div>
+
+  <div class="phase">
+    <div class="phase-head">
+      <span class="phase-num">PHASE 3</span>
+      <h3>Compile-Zeit senken, wenn der Cache doch verfehlt</h3>
+    </div>
+    <p class="phase-goal">Klasse C wird nie verschwinden — jede neue native Dependency erzeugt sie. Hier geht es darum, den unvermeidbaren Kaltbau billiger zu machen. Alle Maßnahmen einzeln einführen und einzeln messen, sonst ist der Beitrag nicht zuzuordnen.</p>
+
+    <h4>iOS</h4>
+    <ul>
+      <li><strong>ccache aktivieren</strong> — der Podfile unterstützt es bereits. Entweder <code>USE_CCACHE=1</code> als Env-Var, oder sauberer über das <code>expo-build-properties</code>-Plugin mit <code>ios.ccacheEnabled: true</code>. Das Plugin ist aktuell nicht in <code>app.json</code> eingetragen; das Hinzufügen ändert den Fingerprint — deshalb bewusst <em>nach</em> Phase 1.</li>
+      <li><strong>Precompiled Modules verifizieren statt annehmen.</strong> Auf SDK 57 default. Prüfen, ob ein Paket über <code>autolinking.ios.buildFromSource</code> herausfällt, und ob Third-Party-Pods (nicht Expo-Module) den Löwenanteil der Compilezeit stellen — dort liegt der ungehobene Rest.</li>
+      <li><strong>Debug-Einstellungen</strong>: <code>ONLY_ACTIVE_ARCH=YES</code> und Debug Information Format auf <code>dwarf</code> statt <code>dwarf-with-dsym</code>. Beides nur im Debug-Pfad, nie im Release.</li>
+      <li><strong><code>EXPO_USE_PRECOMPILED_MODULES=1</code> aus <code>native-build.ts</code> entfernen</strong> — redundant (B7) und irreführend.</li>
+    </ul>
+
+    <h4>Android</h4>
+    <ul>
+      <li><strong>Nur die gebrauchte ABI bauen</strong>: <code>-PreactNativeArchitectures=arm64-v8a</code> für lokale Läufe. Der Podfile-Kommentar in <code>gradle.properties</code> nennt genau diesen CLI-Override. Größter Einzelhebel auf Android, weil er die NDK-Arbeit auf ein Viertel reduziert.</li>
+      <li><strong><code>org.gradle.caching=true</code></strong> ergänzen — fehlt heute.</li>
+      <li><strong><code>org.gradle.jvmargs</code> anheben</strong> von <code>-Xmx2048m</code> auf <code>-Xmx6g</code> oder <code>-Xmx8g</code>; 2 GB sind auf einer Apple-Silicon-Maschine ein künstlicher Engpass.</li>
+      <li><strong>Configuration Cache prüfen</strong> (<code>org.gradle.configuration-cache=true</code>) — potenziell großer Gewinn, aber RN-Plugin-Kompatibilität muss verifiziert werden, nicht angenommen.</li>
+    </ul>
+
+    <div class="gate">
+      <b>Abnahmekriterium</b>
+      Klasse C liegt im Budget. Jede Einzelmaßnahme hat einen dokumentierten Median-Delta-Wert in der JSONL — Maßnahmen ohne messbaren Beitrag werden wieder entfernt statt „sicherheitshalber" behalten.
+    </div>
+  </div>
+
+  <div class="phase">
+    <div class="phase-head">
+      <span class="phase-num">PHASE 4</span>
+      <h3>Cache-Layer kaskadieren</h3>
+    </div>
+    <p class="phase-goal">Der EAS-Remote-Cache kostet bei jedem Treffer einen Netzwerk-Roundtrip plus Download. Für eine Solo-Maschine ist eine lokale Disk-Kopie fast immer schneller. <code>buildCacheProvider</code> akzeptiert allerdings nur einen Provider.</p>
+
+    <h4>Optionen</h4>
+    <ol>
+      <li><strong>Pragmatisch</strong> — lokal Disk-Cache, in CI der EAS-Provider, umgeschaltet über die App-Config-Umgebung. Wenig Aufwand, deckt 90 % ab.</li>
+      <li><strong>Sauber</strong> — ein eigener Provider, der beides kaskadiert: erst Disk, bei Miss remote, nach Remote-Hit lokal ablegen. Die Provider-Schnittstelle verlangt nur <code>resolveBuildCache</code>, <code>uploadBuildCache</code> und optional <code>calculateFingerprintHash</code>. Lohnt sich ab dem zweiten Entwickler oder mit CI.</li>
+    </ol>
+    <p><strong>Empfehlung:</strong> mit Option 1 starten und erst auf Option 2 gehen, wenn die gemessene Download-Zeit aus Phase 2 das rechtfertigt. Bekannte Einschränkung beachten: iOS-Builds für physische Geräte nehmen wegen Provisioning nie am Cache teil, nur Simulator-Builds.</p>
+
+    <div class="gate">
+      <b>Abnahmekriterium</b>
+      Klasse-B-Medianzeit sinkt gegenüber Phase 2 messbar, oder die Option wird verworfen und der Grund notiert.
+    </div>
+  </div>
+
+  <div class="phase">
+    <div class="phase-head">
+      <span class="phase-num">PHASE 5</span>
+      <h3>CNG-Modell entscheiden und Regression verhindern</h3>
+    </div>
+    <p class="phase-goal">Aufräumen des Hybridzustands aus B8 und Absichern, dass die gewonnene Zeit nicht wieder wegdriftet.</p>
+
+    <h4>Schritte</h4>
+    <ol>
+      <li><strong>Eine Entscheidung treffen</strong> statt beides halb zu fahren. <em>Voll-CNG</em> (<code>ios/</code> und <code>android/</code> gitignoriert, alle nativen Anpassungen über Config-Plugins — es gibt bereits <code>./plugins/withPushCapability</code> und <code>withoutPushEntitlement</code>) ist bei diesem Plugin-Bestand der wahrscheinlich passendere Weg. <em>Bare</em> wäre die Alternative, dann muss aber <code>prebuild --clean</code> vollständig aus allen Skripten verschwinden.</li>
+      <li><strong>Regression-Gate</strong>: die JSONL gegen die Budgets prüfen und bei Überschreitung des Medians um &gt; 25 % warnen.</li>
+      <li><strong>Kleines Dashboard</strong> aus der JSONL — Trend je Klasse, Cache-Hit-Rate, Phasenanteile. Macht sichtbar, ob eine neue Dependency die Kaltbau-Zeit verschiebt.</li>
+    </ol>
+
+    <div class="gate">
+      <b>Abnahmekriterium</b>
+      Alle drei Klassen liegen über eine Woche realer Nutzung im Budget, und ein absichtlich eingefügter Regressionsfall (z. B. neue native Dependency) wird vom Gate erkannt.
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="sec-head">
+    <span class="sec-num">RISIKO</span>
+    <h2>Was diesen Plan kippen kann</h2>
+  </div>
+
+  <div class="tbl-scroll">
+    <table>
+      <thead>
+        <tr>
+          <th>Risiko</th>
+          <th>Wirkung</th>
+          <th>Gegenmaßnahme</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Fingerprint-Drift ist umgebungsbedingt</strong>, nicht paketbedingt</td>
+          <td>Phase 1 zieht sich; Cache-Hits bleiben maschinenlokal</td>
+          <td>Phase 2 funktioniert trotzdem — inkrementelle Builds hängen nicht am Cache-Key. Reihenfolge notfalls tauschen, Ziel für Klasse B temporär senken.</td>
+        </tr>
+        <tr>
+          <td><strong>Kollision mit dem laufenden Debugging</strong></td>
+          <td>Doppelte oder gegenläufige Änderungen an <code>.fingerprintignore</code></td>
+          <td>Phase 0 zuerst (nur neue Dateien). Vor Phase 1 explizit Eigentümerschaft der Datei klären.</td>
+        </tr>
+        <tr>
+          <td><strong>Configuration Cache inkompatibel</strong> mit RN 0.86-Plugins</td>
+          <td>Android-Builds brechen</td>
+          <td>Als eigenständiger, isoliert messbarer und einzeln rückrollbarer Schritt eingeplant.</td>
+        </tr>
+        <tr>
+          <td><strong>Zu breiter <code>.fingerprintignore</code></strong> als Schnellschuss</td>
+          <td>Falsche Cache-Hits: veraltete Binaries werden als gültig behandelt</td>
+          <td>Nur Einträge mit belegtem Diff. Jeder Eintrag braucht eine Begründung im Commit.</td>
+        </tr>
+        <tr>
+          <td><strong>Optimierung ohne Baseline</strong></td>
+          <td>Zeit fließt in Maßnahmen ohne Wirkung</td>
+          <td>Das Abnahmekriterium von Phase 0 ist bindend.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <div class="sec-head">
+    <span class="sec-num">START</span>
+    <h2>Die nächsten drei Schritte</h2>
+  </div>
+
+  <div class="measure">
+    <ol>
+      <li><strong>Baseline sauber abschließen</strong> — warten, bis <code>prebuild</code> und <code>pod install</code> durch sind, dann neu messen, die veralteten Artefakteinträge mitziehen und erst danach <code>native-build-lock.json</code> committen. Der aktuell eingetragene Wert ist bereits überholt (B9).</li>
+      <li><strong><code>scripts/build-timer.ts</code> bauen und Baseline aufnehmen</strong> — 3× kalt, 3× warm, beide Plattformen. Konfliktfrei, sofort startbar, und die Voraussetzung für jede spätere Aussage über Effizienz.</li>
+      <li><strong>Inner Loop auf <code>expo run:*</code> umstellen</strong> (Phase 2). Seit B1 gelöst ist, der Schritt mit der mit Abstand größten Wirkung — er schaltet den bereits bezahlten, bisher nie benutzten Build-Cache scharf.</li>
+    </ol>
+  </div>
+</section>
+
+<footer>
+  Erstellt am 30. August 2026 gegen den Stand <code>f74bb47</code> · Expo SDK 57.0.17 · React Native 0.86.3 · Alle Befunde am Code verifiziert, alle Zeitbudgets sind Hypothesen bis Phase 0 abgeschlossen ist.<br>
+  Zuletzt aktualisiert 17:10 nach Auflösung von B1 · Fingerprint-Drift im Detail: <code>docs/native-fingerprint-drift-debugging.md</code>
+</footer>
+
+</div>
