@@ -23,6 +23,26 @@ function runNative(...arguments_: string[]): CommandResult {
 }
 
 describe('native build lock', () => {
+  it('excludes only dev seed commands from the native fingerprint', () => {
+    const config = jest.requireActual('../fingerprint.config.js') as {
+      fileHookTransform: (
+        source: { type: 'contents'; id: string },
+        chunk: string,
+      ) => string;
+    };
+    const scripts = JSON.stringify({
+      start: 'expo start',
+      'seed:glp1': 'bun scripts/glp1-seed.ts',
+      'test:unit': 'jest',
+    });
+
+    expect(
+      JSON.parse(
+        config.fileHookTransform({ type: 'contents', id: 'packageJson:scripts' }, scripts),
+      ),
+    ).toEqual({ start: 'expo start', 'test:unit': 'jest' });
+  });
+
   it('contains the generated iOS and Android baseline', () => {
     const lock = JSON.parse(
       readFileSync(resolve(projectRoot, 'native-build-lock.json'), 'utf8'),
