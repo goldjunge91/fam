@@ -146,6 +146,8 @@ async function fetchWeightInputs({
   endDate: string;
   dayStartTime: string;
 }) {
+  const { start } = getTimeRangeForLogicalDate(startDate, dayStartTime);
+  const { nextStart } = getTimeRangeForLogicalDate(endDate, dayStartTime);
   let query = getSupabase()
     .from('weight_entries')
     .select('measured_on, measured_at, weight_kg')
@@ -154,9 +156,10 @@ async function fetchWeightInputs({
   query = childProfileId
     ? query.eq('child_profile_id', childProfileId)
     : query.is('child_profile_id', null);
+  const timestampRange = `and(measured_at.gte.${start.toISOString()},measured_at.lt.${nextStart.toISOString()})`;
+  const legacyRange = `and(measured_at.is.null,measured_on.gte.${startDate},measured_on.lte.${endDate})`;
   const { data, error } = await query
-    .gte('measured_on', startDate)
-    .lte('measured_on', endDate)
+    .or(`${timestampRange},${legacyRange}`)
     .order('measured_on', { ascending: true });
 
   if (error) throw new Error(error.message);

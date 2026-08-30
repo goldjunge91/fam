@@ -26,6 +26,7 @@ function remoteQuery(data: unknown[] = [], error: { message: string } | null = n
     is: jest.fn(),
     gte: jest.fn(),
     lte: jest.fn(),
+    or: jest.fn(),
     order: jest.fn(),
   };
   query.select.mockReturnValue(query);
@@ -33,6 +34,7 @@ function remoteQuery(data: unknown[] = [], error: { message: string } | null = n
   query.is.mockReturnValue(query);
   query.gte.mockReturnValue(query);
   query.lte.mockReturnValue(query);
+  query.or.mockReturnValue(query);
   query.order.mockResolvedValue({ data, error });
   return query;
 }
@@ -78,11 +80,10 @@ it('liefert eine 90-Tage-Serie und trennt den Cache nach Scope und Tagesstart', 
   expect(
     queryClient.getQueryData(correlationSeriesQueryKey('user-1', null, '2026-08-30', '06:00')),
   ).toBe(result.current.data);
-  for (const query of [foodQuery, weightQuery]) {
-    expect(query.is).toHaveBeenCalledWith('child_profile_id', null);
-    expect(query.gte).toHaveBeenCalledWith(expect.any(String), '2026-06-02');
-    expect(query.lte).toHaveBeenCalledWith(expect.any(String), '2026-08-30');
-  }
+  expect(foodQuery.is).toHaveBeenCalledWith('child_profile_id', null);
+  expect(foodQuery.gte).toHaveBeenCalledWith('logged_on', '2026-06-02');
+  expect(foodQuery.lte).toHaveBeenCalledWith('logged_on', '2026-08-30');
+  expect(weightQuery.is).toHaveBeenCalledWith('child_profile_id', null);
 });
 
 it('nutzt die letzte Injektion vor dem Fenster und filtert Account und Kind strikt', async () => {
@@ -164,6 +165,12 @@ it('ordnet neue Gewichte per Messzeit und Legacy-Gewichte per Messdatum ein', as
   expect(result.current.data?.find(({ date }) => date === '2026-08-30')?.weightKg).toBeNull();
   expect(result.current.data?.find(({ date }) => date === '2026-08-28')?.weightKg).toBe(91.1);
   expect(weightQuery.select).toHaveBeenCalledWith('measured_on, measured_at, weight_kg');
+  const rangeFilter = weightQuery.or.mock.calls[0]?.[0] as string | undefined;
+  expect(rangeFilter).toContain('and(measured_at.gte.');
+  expect(rangeFilter).toContain(',measured_at.lt.');
+  expect(rangeFilter).toContain(
+    'and(measured_at.is.null,measured_on.gte.2026-06-02,measured_on.lte.2026-08-30)',
+  );
 });
 
 it('liefert Supabase-Fehler als Query-Fehler an den Aufrufer', async () => {
