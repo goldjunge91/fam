@@ -26,6 +26,7 @@ import {
   useUpdateMedicationLogMutation,
   useUpdateSymptomLogMutation,
 } from '@/features/glp1/hooks/glp1-api';
+import { useInjectionReminder } from '@/features/glp1/hooks/use-injection-reminder';
 
 type Glp1CardProps = {
   userId: string | undefined;
@@ -73,6 +74,7 @@ function formatHistoryTimestamp(timestamp: string): string {
 }
 
 export function Glp1Card({ userId, childProfileId }: Glp1CardProps) {
+  useInjectionReminder(userId);
   const [activeForm, setActiveForm] = useState<ActiveForm | null>(null);
   const [showHistory, setShowHistory] = useState(false);
   const { showUndoSnackbar } = useSnackbar();

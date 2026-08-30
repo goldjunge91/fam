@@ -71,6 +71,10 @@ jest.mock('@/features/glp1/hooks/injection-plan-api', () => ({
   useDeleteInjectionPlanMutation: () => ({ mutate: mockDeletePlan, isPending: false }),
 }));
 
+jest.mock('@/features/glp1/hooks/use-injection-reminder', () => ({
+  useInjectionReminder: jest.fn(),
+}));
+
 beforeEach(() => {
   mockMedLogs = [];
   mockSymptomLogs = [];

@@ -1,6 +1,7 @@
 import { Platform } from 'react-native';
 
 const NOTIF_SETTINGS_KEY = 'fam_notification_settings_v1';
+export const EXPIRY_NOTIFICATION_IDENTIFIER = 'fam.inventory.expiry.v1';
 
 export type NotificationSettings = {
   enabled: boolean;
@@ -100,13 +101,7 @@ export async function saveNotificationSettings(settings: NotificationSettings): 
  */
 export async function disableNotificationReminders(): Promise<void> {
   await saveNotificationSettings({ ...DEFAULT_NOTIFICATION_SETTINGS, enabled: false });
-  try {
-    if (NotificationsModule) {
-      await NotificationsModule.cancelAllScheduledNotificationsAsync();
-    }
-  } catch {
-    // Graceful Fallback, wenn Notifications nicht unterstützt werden.
-  }
+  await cancelLocalReminder(EXPIRY_NOTIFICATION_IDENTIFIER);
 }
 
 export type NotificationPermissionStatus = {
@@ -122,8 +117,11 @@ export type NotificationPermissionStatus = {
 export async function getNotificationPermissionStatus(): Promise<NotificationPermissionStatus> {
   if (Platform.OS === 'web' || !NotificationsModule) return { granted: false, canAskAgain: false };
   try {
-    const { status, canAskAgain } = await NotificationsModule.getPermissionsAsync();
-    return { granted: status === 'granted', canAskAgain: canAskAgain ?? true };
+    const permission = await NotificationsModule.getPermissionsAsync();
+    return {
+      granted: hasNotificationPermission(permission),
+      canAskAgain: permission.canAskAgain ?? true,
+    };
   } catch (err) {
     console.error('Fehler bei getNotificationPermissionStatus:', err);
     return { granted: false, canAskAgain: true };
@@ -136,23 +134,83 @@ export async function getNotificationPermissionStatus(): Promise<NotificationPer
 export async function requestNotificationPermissions(): Promise<boolean> {
   if (Platform.OS === 'web' || !NotificationsModule) return false;
   try {
-    const { status: existingStatus } = await NotificationsModule.getPermissionsAsync();
-    let finalStatus = existingStatus;
-
-    if (existingStatus !== 'granted') {
-      const { status } = await NotificationsModule.requestPermissionsAsync({
-        ios: {
-          allowAlert: true,
-          allowBadge: true,
-          allowSound: true,
-        },
+    if (Platform.OS === 'android' && NotificationsModule.setNotificationChannelAsync) {
+      await NotificationsModule.setNotificationChannelAsync('reminders', {
+        name: 'Erinnerungen',
+        importance: NotificationsModule.AndroidImportance.DEFAULT,
       });
-      finalStatus = status;
     }
 
-    return finalStatus === 'granted';
+    const existing = await NotificationsModule.getPermissionsAsync();
+    if (hasNotificationPermission(existing)) return true;
+
+    const requested = await NotificationsModule.requestPermissionsAsync({
+      ios: {
+        allowAlert: true,
+        allowBadge: true,
+        allowSound: true,
+      },
+    });
+
+    return hasNotificationPermission(requested);
   } catch (err) {
     console.error('Fehler bei requestNotificationPermissions:', err);
+    return false;
+  }
+}
+
+function hasNotificationPermission(permission: {
+  status?: string;
+  ios?: { status?: number };
+}): boolean {
+  if (permission.status === 'granted') return true;
+  const iosStatus = permission.ios?.status;
+  return [
+    NotificationsModule?.IosAuthorizationStatus?.AUTHORIZED,
+    NotificationsModule?.IosAuthorizationStatus?.PROVISIONAL,
+    NotificationsModule?.IosAuthorizationStatus?.EPHEMERAL,
+  ].includes(iosStatus);
+}
+
+export type LocalReminderInput = {
+  identifier: string;
+  date: Date;
+  title: string;
+  body: string;
+};
+
+export async function cancelLocalReminder(identifier: string): Promise<void> {
+  if (Platform.OS === 'web' || !NotificationsModule) return;
+  try {
+    await NotificationsModule.cancelScheduledNotificationAsync(identifier);
+  } catch {
+    // Graceful Fallback, wenn Notifications nicht unterstützt werden.
+  }
+}
+
+export async function scheduleLocalReminder({
+  identifier,
+  date,
+  title,
+  body,
+}: LocalReminderInput): Promise<boolean> {
+  if (Platform.OS === 'web' || !NotificationsModule) return false;
+
+  await cancelLocalReminder(identifier);
+  const hasPermission = await requestNotificationPermissions();
+  if (!hasPermission) return false;
+
+  try {
+    await NotificationsModule.scheduleNotificationAsync({
+      identifier,
+      content: { title, body, sound: true },
+      trigger: {
+        type: NotificationsModule.SchedulableTriggerInputTypes.DATE,
+        date,
+      },
+    });
+    return true;
+  } catch {
     return false;
   }
 }
@@ -167,8 +225,7 @@ export async function scheduleExpiryNotificationReminder(
   if (Platform.OS === 'web' || !NotificationsModule) return;
 
   try {
-    // Bestehende geplante Benachrichtigungen löschen
-    await NotificationsModule.cancelAllScheduledNotificationsAsync();
+    await cancelLocalReminder(EXPIRY_NOTIFICATION_IDENTIFIER);
 
     if (!settings.enabled || expiringItemsCount <= 0) return;
 
@@ -177,6 +234,7 @@ export async function scheduleExpiryNotificationReminder(
 
     // Tägliche Benachrichtigung zur eingestellten Uhrzeit planen
     await NotificationsModule.scheduleNotificationAsync({
+      identifier: EXPIRY_NOTIFICATION_IDENTIFIER,
       content: {
         title: 'Vorräte laufen bald ab! 🫙',
         body: `${expiringItemsCount} Produkt(e) laufen in den nächsten ${settings.daysThreshold} Tag(en) oder sind bereits abgelaufen.`,
