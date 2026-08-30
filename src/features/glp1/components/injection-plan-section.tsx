@@ -7,6 +7,7 @@ import {
   InjectionPlanForm,
   type InjectionPlanFormValue,
 } from '@/features/glp1/forms/injection-plan-form';
+import { useRecentMedicationLogs } from '@/features/glp1/hooks/glp1-api';
 import {
   type InjectionPlanRow,
   useCreateInjectionPlanMutation,
@@ -14,17 +15,10 @@ import {
   useInjectionPlan,
   useUpdateInjectionPlanMutation,
 } from '@/features/glp1/hooks/injection-plan-api';
+import { useInjectionReminder } from '@/features/glp1/hooks/use-injection-reminder';
 
 type InjectionPlanSectionProps = {
   userId: string | undefined;
-  recentInjectionLogs?: ReadonlyArray<
-    Pick<InjectionPlanMedication, 'medication_name' | 'administered_at'>
-  >;
-};
-
-type InjectionPlanMedication = {
-  medication_name: string;
-  administered_at: string;
 };
 
 const STATUS_CONTENT = {
@@ -44,11 +38,10 @@ function planFormValue(plan: InjectionPlanRow): InjectionPlanFormValue {
   };
 }
 
-export function InjectionPlanSection({
-  userId,
-  recentInjectionLogs = [],
-}: InjectionPlanSectionProps) {
+export function InjectionPlanSection({ userId }: InjectionPlanSectionProps) {
+  useInjectionReminder(userId);
   const [showForm, setShowForm] = useState(false);
+  const { data: recentInjectionLogs = [] } = useRecentMedicationLogs(userId);
   const { data: plan, isLoading, isError } = useInjectionPlan(userId);
   const createMutation = useCreateInjectionPlanMutation();
   const updateMutation = useUpdateInjectionPlanMutation();

@@ -1,6 +1,6 @@
 import { useQueryClient } from '@tanstack/react-query';
 import { router } from 'expo-router';
-import { useEffect, useMemo, useState } from 'react';
+import { Fragment, useEffect, useMemo, useState } from 'react';
 import { Modal, Pressable, ScrollView, View } from 'react-native';
 
 import { TextField } from '@/components/forms/text-field';
@@ -18,6 +18,7 @@ import {
 } from '@/features/calorie-tracking/api';
 import { calculateAgeYears, calculateBmr } from '@/features/calorie-tracking/bmr';
 import { type ActivityLevel, calculateTdee } from '@/features/calorie-tracking/tdee';
+import { InjectionPlanSection } from '@/features/glp1/components/injection-plan-section';
 import { updateProfile, useProfile } from '@/features/profile/api';
 import { SettingsGroup } from '@/features/settings/settings-menu';
 import { getLogicalDateForTimestamp } from '@/features/tracking/domain/day-boundary';
@@ -395,35 +396,41 @@ export function TrackingScreen() {
               {TRACKING_METHODS.map((m) => {
                 const isSelected = selectedMethod === m.id;
                 return (
-                  <Pressable
-                    key={m.id}
-                    onPress={() => handleSelectMethod(m.id)}
-                    accessibilityRole="radio"
-                    accessibilityState={{ selected: isSelected }}
-                    style={{
-                      backgroundColor: isSelected ? theme.accent : theme.backgroundElement,
-                      borderColor: isSelected ? theme.accent : theme.border,
-                    }}
-                    className="p-three rounded-xl border flex-row items-center justify-between">
-                    <View className="flex-row items-center gap-three flex-1 mr-two">
-                      <ThemedText type="subtitle">{m.icon}</ThemedText>
-                      <View className="flex-1">
-                        <ThemedText type="smallBold" themeColor={isSelected ? 'onAccent' : 'text'}>
-                          {m.label}
-                        </ThemedText>
-                        <ThemedText
-                          type="captionCompact"
-                          themeColor={isSelected ? 'onAccent' : 'textSecondary'}>
-                          {m.desc}
-                        </ThemedText>
+                  <Fragment key={m.id}>
+                    <Pressable
+                      onPress={() => handleSelectMethod(m.id)}
+                      accessibilityRole="radio"
+                      accessibilityState={{ selected: isSelected }}
+                      style={{
+                        backgroundColor: isSelected ? theme.accent : theme.backgroundElement,
+                        borderColor: isSelected ? theme.accent : theme.border,
+                      }}
+                      className="p-three rounded-xl border flex-row items-center justify-between">
+                      <View className="flex-row items-center gap-three flex-1 mr-two">
+                        <ThemedText type="subtitle">{m.icon}</ThemedText>
+                        <View className="flex-1">
+                          <ThemedText
+                            type="smallBold"
+                            themeColor={isSelected ? 'onAccent' : 'text'}>
+                            {m.label}
+                          </ThemedText>
+                          <ThemedText
+                            type="captionCompact"
+                            themeColor={isSelected ? 'onAccent' : 'textSecondary'}>
+                            {m.desc}
+                          </ThemedText>
+                        </View>
                       </View>
-                    </View>
-                    {isSelected ? (
-                      <ThemedText type="smallBold" themeColor="onAccent">
-                        Aktiv ✓
-                      </ThemedText>
+                      {isSelected ? (
+                        <ThemedText type="smallBold" themeColor="onAccent">
+                          Aktiv ✓
+                        </ThemedText>
+                      ) : null}
+                    </Pressable>
+                    {m.id === 'glp1' && isSelected ? (
+                      <InjectionPlanSection userId={userId} />
                     ) : null}
-                  </Pressable>
+                  </Fragment>
                 );
               })}
             </View>

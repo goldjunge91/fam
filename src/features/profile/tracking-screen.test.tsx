@@ -12,6 +12,8 @@ import {
 import { useProfile } from '@/features/profile/api';
 import { TrackingScreen } from '@/features/profile/tracking-screen';
 
+const mockInjectionPlanSection = jest.fn((_props: { userId: string | undefined }) => null);
+
 jest.mock('expo-router', () => ({
   router: {
     push: jest.fn(),
@@ -34,6 +36,10 @@ jest.mock('@/features/calorie-tracking/api', () => ({
   useWeightEntries: jest.fn(),
   useUpdateTrackingMethodMutation: jest.fn(),
   useUpdateTrackingDayStartTimeMutation: jest.fn(),
+}));
+
+jest.mock('@/features/glp1/components/injection-plan-section', () => ({
+  InjectionPlanSection: (props: { userId: string | undefined }) => mockInjectionPlanSection(props),
 }));
 
 const mockMutateMethod = jest.fn();
@@ -125,6 +131,16 @@ describe('TrackingScreen', () => {
     expect(screen.getByText('ERNÄHRUNG & TAGESZIELE')).toBeOnTheScreen();
     expect(screen.getByText('2200 kcal')).toBeOnTheScreen();
     expect(screen.getByText('160g')).toBeOnTheScreen();
+  });
+
+  it('zeigt den Injektionsplan direkt nach Aktivierung der GLP-1-Methode', async () => {
+    const user = userEvent.setup();
+    await renderScreen();
+    expect(mockInjectionPlanSection).not.toHaveBeenCalled();
+
+    await user.press(screen.getByRole('radio', { name: /GLP-1 & Medikation/ }));
+
+    expect(mockInjectionPlanSection.mock.calls.at(-1)?.[0]).toEqual({ userId: 'user-1' });
   });
 
   it('navigiert zur Ziel-Bearbeitung beim Klick auf Ziele & Makros bearbeiten', async () => {
