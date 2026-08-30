@@ -2,17 +2,17 @@ import { useQuery } from '@tanstack/react-query';
 import { Pressable, ScrollView } from 'react-native';
 
 import { ThemedText } from '@/components/theme/themed-text';
+import type { CatalogProduct } from '@/features/product-search/types';
 import { getDatabase } from '@/lib/db/client';
 import {
   getFrequentProductUsage,
   type ProductUsageFeature,
   type ProductUsageRow,
 } from '@/lib/db/product-usage';
-import type { OpenFoodFactsProduct } from '@/lib/open-food-facts';
 
 export type SuggestionMode = 'frequent' | 'recent';
 
-function toOpenFoodFactsProduct(row: ProductUsageRow): OpenFoodFactsProduct {
+function toOpenFoodFactsProduct(row: ProductUsageRow): CatalogProduct {
   return {
     productId: row.product_id ?? undefined,
     barcode: row.barcode ?? '',
@@ -35,7 +35,7 @@ interface FrequentProductsQuickSelectProps {
   feature: ProductUsageFeature;
   userId: string | undefined;
   mode: SuggestionMode;
-  onSelectProduct: (product: OpenFoodFactsProduct) => void;
+  onSelectProduct: (product: CatalogProduct) => void;
 }
 
 export function FrequentProductsQuickSelect({

@@ -12,6 +12,7 @@ import { useSession } from '@/features/auth/session-provider';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { persistOffProductIfNeeded } from '@/features/inventory/persist-off-product';
 import { useAddProductMutation } from '@/features/inventory/use-product-mutations';
+import type { CatalogProduct } from '@/features/product-search/types';
 import { useHubGradient } from '@/hooks/use-hub-gradient';
 import { trackAnalyticsEvent } from '@/lib/analytics';
 import { getDatabase } from '@/lib/db/client';
@@ -20,7 +21,6 @@ import {
   type RecipeFormValues,
   recipeFormSchema,
 } from '@/lib/db/zod/recipe-form-schema.zod';
-import type { OpenFoodFactsProduct } from '@/lib/open-food-facts';
 import { toGramsEquivalent } from '@/lib/units';
 import {
   pickRecipeImage,
@@ -62,7 +62,7 @@ type ResolvedIngredient = {
   sourceItemId: string;
   existingItemId: string | null;
   productId: string | null;
-  product: OpenFoodFactsProduct | null;
+  product: CatalogProduct | null;
   grams: number;
   quantity: number;
   unit: string;
@@ -200,11 +200,7 @@ export function RecipeCreateScreen() {
     );
   }
 
-  function handleSelectProduct(
-    componentId: string,
-    ingredientId: string,
-    product: OpenFoodFactsProduct,
-  ) {
+  function handleSelectProduct(componentId: string, ingredientId: string, product: CatalogProduct) {
     setComponents((prev) =>
       prev.map((comp) => {
         if (comp.id !== componentId) return comp;

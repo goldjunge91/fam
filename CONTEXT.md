@@ -19,6 +19,14 @@ _Avoid_: Modul (als Synonym — Module, z. B. `module_calories`, sind unabhängi
 **Product**:
 Globaler, nicht haushaltsgebundener Katalogeintrag (z. B. aus Open Food Facts) mit Barcode/Nährwertdaten. Existiert unabhängig von jedem Haushalt.
 
+**Catalog Product**:
+Quellneutrale Produktdarstellung für Suche und Barcode-Scan (`CatalogProduct`), wie sie der Product Catalog liefert. Kann aus dem eigenen Produktspiegel, dem lokalen OFF-Dump oder der OFF-API stammen — die Quelle ist für Konsumenten bewusst nicht erkennbar. Keine Identität mit Product: ein Catalog Product ist ein Suchtreffer, kein Katalogeintrag der Datenbank, und wird erst beim Übernehmen zu einem Product.
+_Avoid_: Product (als Synonym), OpenFoodFactsProduct (alter Name — die Darstellung ist nicht mehr OFF-spezifisch)
+
+**Product Catalog**:
+Der local-first Service, über den die App Produkte findet (`createProductCatalog`) — die einzige Art, wie Textsuche und Barcode-Lookup laufen. Befragt drei Quellen in fester Priorität: eigener Produktspiegel, OFF-Dump, OFF-API. Der erste Treffer eines Barcodes gewinnt vollständig; es wird nie ein Feld aus einer tieferen Quelle nachgereicht. Die Online-Ebene wird nur befragt, wenn lokal zu wenig gefunden wurde und ein Netz da ist.
+_Avoid_: Produktsuche (als Synonym für das Feature-Verzeichnis), Externe Produktdatenbank (OFF ist eine der Quellen des Katalogs, nicht der Katalog)
+
 **Product Usage**:
 Append-only, rein lokales Protokoll (`product_usage`, keine Sync/Outbox, kein Server-Gegenstück) jeder Verwendung eines Produkts über Kühlschrank, Einkaufsliste und Tagebuch hinweg. Pro einzelnem Nutzer (`user_id`), nicht pro Haushalt. Grundlage für „Häufig"/„Zuletzt"-Vorschläge, keine Entscheidung — reine Verhaltensdaten.
 _Avoid_: Nutzungshistorie (als Synonym für Category Preference — unterschiedliche Konzepte, siehe dort)

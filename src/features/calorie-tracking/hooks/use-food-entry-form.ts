@@ -1,12 +1,9 @@
 import { useEffect, useRef, useState } from 'react';
 
 import type { FoodEntryRow } from '@/features/calorie-tracking/api';
+import { productFromRouteParams } from '@/features/calorie-tracking/product-route-params';
+import type { CatalogProduct, NutrientLevel } from '@/features/product-search/types';
 import { debugLogEvent } from '@/lib/debug-log';
-import {
-  type NutrientLevel,
-  type OpenFoodFactsProduct,
-  productFromRouteParams,
-} from '@/lib/open-food-facts';
 import { scaleToQuantity } from '@/lib/units';
 
 export type FoodEntryFormValues = {
@@ -63,7 +60,7 @@ type Per100gReference = {
 };
 
 function buildNutritionBadges(
-  nutrientLevels: OpenFoodFactsProduct['nutrientLevels'] | undefined,
+  nutrientLevels: CatalogProduct['nutrientLevels'] | undefined,
   novaGroup: number | undefined,
 ): FoodEntryBadge[] {
   const badges: FoodEntryBadge[] = [];

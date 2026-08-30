@@ -1,8 +1,8 @@
-import type { OpenFoodFactsProduct } from '@/lib/open-food-facts';
+import type { CatalogProduct } from '@/features/product-search/types';
 
 export interface IngredientItem {
   id: string;
-  product: OpenFoodFactsProduct | null;
+  product: CatalogProduct | null;
   productQuery: string;
   /** Rohe Nutzereingabe, siehe recipe_component_items.quantity. */
   quantity: string;

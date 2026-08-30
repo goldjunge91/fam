@@ -4,8 +4,9 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { ThemedText } from '@/components/theme/themed-text';
 import { useProduct } from '@/features/inventory/use-product';
+import { offApiSource } from '@/features/product-search/sources/off-api-source';
+import type { CatalogProduct } from '@/features/product-search/types';
 import { useTheme } from '@/hooks/use-theme';
-import { fetchProductByBarcode, type OpenFoodFactsProduct } from '@/lib/open-food-facts';
 
 export type ProductInformationItem = {
   product_id: string | null;
@@ -15,7 +16,7 @@ export type ProductInformationItem = {
   expiry_date?: string | null;
 };
 
-type NutriScoreGrade = NonNullable<OpenFoodFactsProduct['nutriScore']>;
+type NutriScoreGrade = NonNullable<CatalogProduct['nutriScore']>;
 
 type ProductInformationProps = {
   visible: boolean;
@@ -52,7 +53,7 @@ export function ProductInformation({ visible, item, onClose }: ProductInformatio
   const { data: localProduct } = useProduct(item?.product_id);
   const { data: openFoodFactsProduct, isFetching } = useQuery({
     queryKey: ['open-food-facts-product', localProduct?.barcode],
-    queryFn: ({ signal }) => fetchProductByBarcode(localProduct?.barcode ?? '', signal),
+    queryFn: ({ signal }) => offApiSource.findByBarcode(localProduct?.barcode ?? '', signal),
     enabled: visible && !!localProduct?.barcode,
     staleTime: 24 * 60 * 60 * 1000,
   });

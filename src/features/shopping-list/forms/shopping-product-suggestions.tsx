@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Pressable, View } from 'react-native';
 import { ThemedText } from '@/components/theme/themed-text';
-import type { OpenFoodFactsProduct } from '@/lib/open-food-facts';
+import type { CatalogProduct } from '@/features/product-search/types';
 
 import {
   type ShoppingProductSuggestion,
@@ -14,7 +14,7 @@ type ShoppingProductSuggestionsProps = {
   householdId: string;
   mode: ShoppingSuggestionMode;
   selectedName: string;
-  onSelect: (product: OpenFoodFactsProduct, suggestion: ShoppingProductSuggestion) => void;
+  onSelect: (product: CatalogProduct, suggestion: ShoppingProductSuggestion) => void;
 };
 
 /** Anzahl Karten in der ersten, immer sichtbaren Reihe. */
@@ -39,7 +39,7 @@ export function formatPackageSize(quantity: number | null, unit: string | null):
   return `${amount.toLocaleString('de-DE')} ${label}`;
 }
 
-function toProduct(suggestion: ShoppingProductSuggestion): OpenFoodFactsProduct {
+function toProduct(suggestion: ShoppingProductSuggestion): CatalogProduct {
   return {
     productId: suggestion.product_id ?? undefined,
     barcode: suggestion.barcode ?? '',

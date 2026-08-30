@@ -1,11 +1,9 @@
 import * as Haptics from 'expo-haptics';
-import { useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import { ActivityIndicator, Modal, Pressable, StyleSheet, View } from 'react-native';
 import { ThemedText } from '@/components/theme/themed-text';
 import { Button } from '@/components/ui/buttons';
 import { useTheme } from '@/hooks/use-theme';
-import { trackAnalyticsEvent } from '@/lib/analytics';
-import { fetchProductByBarcode, type OpenFoodFactsProduct } from '@/lib/open-food-facts';
 
 // Defensiver Import: Verhindert App-Crashes ("Cannot find native module ExpoCamera"),
 // wenn der Native Dev Build noch nicht kompiliert wurde oder Expo Go genutzt wird.
@@ -29,48 +27,41 @@ try {
 interface BarcodeScannerModalProps {
   visible: boolean;
   onClose: () => void;
-  onProductFound: (product: OpenFoodFactsProduct) => void;
+  /** Meldet den rohen Code. Den Produkt-Lookup besitzt das aufrufende Feature. */
+  onBarcodeDetected: (barcode: string) => void;
+  /** Laeuft im Aufrufer gerade ein Lookup? Nur Anzeige. */
+  looking?: boolean;
+  /** Fehlertext des Aufrufers, z. B. "Kein Produkt gefunden". */
+  errorMessage?: string | null;
 }
 
 export function BarcodeScannerModal({
   visible,
   onClose,
-  onProductFound,
+  onBarcodeDetected,
+  looking = false,
+  errorMessage = null,
 }: BarcodeScannerModalProps) {
   const theme = useTheme();
   const [permission, requestPermission] = useCameraPermissionsHook();
-  const [scanning, setScanning] = useState(false);
-  const [errorMsg, setErrorMsg] = useState<string | null>(null);
-  // Ref statt nur State: die Kamera feuert onBarcodeScanned pro erkanntem Frame,
-  // oft mehrfach bevor der scanning-State-Update im naechsten Render sichtbar
-  // wird. Ohne synchronen Guard rutschen mehrere Aufrufe durch und loesen
-  // mehrfache Navigation (mehrfach gestapeltes Modal) aus.
-  const scanningRef = useRef(false);
+  // Ref statt State: die Kamera feuert onBarcodeScanned pro erkanntem Frame,
+  // oft mehrfach bevor ein State-Update im naechsten Render sichtbar wird.
+  // Ohne synchronen Guard rutschen mehrere Aufrufe durch und loesen mehrfache
+  // Navigation (mehrfach gestapeltes Modal) aus. Das ist Kamera-Verhalten und
+  // bleibt deshalb hier, obwohl der Lookup selbst nochmal entprellt.
+  const scannedRef = useRef<string | null>(null);
 
-  async function handleBarcodeScanned({ data }: { data: string }) {
-    if (scanningRef.current || !data) return;
-    scanningRef.current = true;
-    setScanning(true);
-    setErrorMsg(null);
+  // Jedes Oeffnen ist ein neuer Scanversuch: sonst bliebe derselbe Code nach
+  // einem "nicht gefunden" dauerhaft gesperrt.
+  useEffect(() => {
+    if (visible) scannedRef.current = null;
+  }, [visible]);
 
-    try {
-      const product = await fetchProductByBarcode(data);
-      if (product) {
-        trackAnalyticsEvent('product.barcode_scan.completed', { found: true });
-        await Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success);
-        onProductFound(product);
-        onClose();
-      } else {
-        trackAnalyticsEvent('product.barcode_scan.completed', { found: false });
-        setErrorMsg(`Kein Produkt für Barcode ${data} gefunden.`);
-      }
-    } catch {
-      trackAnalyticsEvent('product.barcode_scan.failed');
-      setErrorMsg('Fehler beim Abrufen der Produktdaten.');
-    } finally {
-      scanningRef.current = false;
-      setScanning(false);
-    }
+  function handleBarcodeScanned({ data }: { data: string }) {
+    if (!data || scannedRef.current === data) return;
+    scannedRef.current = data;
+    Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success).catch(() => {});
+    onBarcodeDetected(data);
   }
 
   return (
@@ -115,16 +106,16 @@ export function BarcodeScannerModal({
             </View>
           )}
 
-          {scanning && (
+          {looking && (
             <View className="scanner-status-box">
               <ActivityIndicator color={theme.accent} />
               <ThemedText type="small">Suche Produktdaten...</ThemedText>
             </View>
           )}
 
-          {errorMsg && (
+          {errorMessage && (
             <ThemedText type="smallDanger" className="text-center">
-              {errorMsg}
+              {errorMessage}
             </ThemedText>
           )}
 

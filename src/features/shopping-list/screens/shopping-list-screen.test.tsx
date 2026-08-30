@@ -149,35 +149,36 @@ jest.mock('@/features/inventory/barcode-scanner-modal', () => {
   return {
     BarcodeScannerModal: ({
       visible,
-      onProductFound,
+      onBarcodeDetected,
     }: {
       visible: boolean;
-      onProductFound: (product: {
-        barcode: string;
-        categoryTags: string[];
-        name: string;
-        quantity: number;
-        unit: string;
-      }) => void;
+      onBarcodeDetected: (barcode: string) => void;
     }) =>
       visible ? (
         <Pressable
           accessibilityRole="button"
           accessibilityLabel="Testprodukt scannen"
-          onPress={() =>
-            onProductFound({
-              barcode: '4001234567890',
-              categoryTags: [],
-              name: 'Hafermilch',
-              quantity: 1,
-              unit: 'l',
-            })
-          }>
+          onPress={() => onBarcodeDetected('4001234567890')}>
           <Text>Barcode scanner geöffnet</Text>
         </Pressable>
       ) : null,
   };
 });
+
+// Der Screen kennt nur den Product Catalog; die Quellenreihenfolge ist am
+// Katalog-Seam getestet.
+jest.mock('@/features/product-search/product-catalog-instance', () => ({
+  productCatalog: {
+    search: async () => ({ products: [], hasMore: false, failed: false }),
+    findByBarcode: async (barcode: string) => ({
+      barcode,
+      categoryTags: [],
+      name: 'Hafermilch',
+      quantity: 1,
+      unit: 'l',
+    }),
+  },
+}));
 
 jest.mock('@/hooks/use-hub-gradient', () => ({
   useHubGradient: () => undefined,

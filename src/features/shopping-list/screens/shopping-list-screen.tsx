@@ -15,9 +15,10 @@ import { useActiveHousehold } from '@/features/household/active-household-provid
 import { BarcodeScannerModal } from '@/features/inventory/barcode-scanner-modal';
 import { useNavigationChrome } from '@/features/navigation/navigation-chrome-provider';
 import { useProfileInitials } from '@/features/navigation/use-profile-initials';
+import { useProductBarcodeLookup } from '@/features/product-search/hooks/use-product-barcode-lookup';
+import type { CatalogProduct } from '@/features/product-search/types';
 import { useHubGradient } from '@/hooks/use-hub-gradient';
 import { useTheme } from '@/hooks/use-theme';
-import type { OpenFoodFactsProduct } from '@/lib/open-food-facts';
 import { ShoppingItemRow } from '../components/ui/shopping-item-row';
 import { ALL_FILTER, StorePickerMenu, UNASSIGNED_FILTER } from '../components/ui/store-picker-menu';
 import { StoreSummaryCard } from '../components/ui/store-summary-card';
@@ -53,7 +54,7 @@ export function ShoppingListScreen() {
   const [orderSheetOpen, setOrderSheetOpen] = useState(false);
   const [shoppingModeOpen, setShoppingModeOpen] = useState(false);
   const [scannerOpen, setScannerOpen] = useState(false);
-  const [scannedProduct, setScannedProduct] = useState<OpenFoodFactsProduct | null>(null);
+  const [scannedProduct, setScannedProduct] = useState<CatalogProduct | null>(null);
   const [editingItem, setEditingItem] = useState<LocalShoppingItem | null>(null);
   const [storeFilter, setStoreFilter] = useState<string>(ALL_FILTER);
   const [selectionMode, setSelectionMode] = useState(false);
@@ -215,10 +216,17 @@ export function ShoppingListScreen() {
 
   const chrome = { onMenuPress: openDrawer, onAvatarPress: openProfile, initials };
 
-  function handleProductScanned(product: OpenFoodFactsProduct) {
+  function handleProductScanned(product: CatalogProduct) {
     setScannedProduct(product);
     setScannerOpen(false);
     setAddModalOpen(true);
+  }
+
+  const barcodeLookup = useProductBarcodeLookup({ onFound: handleProductScanned });
+
+  function closeScanner() {
+    setScannerOpen(false);
+    barcodeLookup.reset();
   }
 
   if (!householdId) {
@@ -488,8 +496,10 @@ export function ShoppingListScreen() {
       {/* Modal zum Hinzufügen neuer Einkaufsartikel */}
       <BarcodeScannerModal
         visible={scannerOpen}
-        onClose={() => setScannerOpen(false)}
-        onProductFound={handleProductScanned}
+        onClose={closeScanner}
+        onBarcodeDetected={barcodeLookup.lookup}
+        looking={barcodeLookup.looking}
+        errorMessage={barcodeLookup.errorMessage}
       />
 
       <AddItemModal

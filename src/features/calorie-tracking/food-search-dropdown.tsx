@@ -15,15 +15,16 @@ import { useFoodSearch } from '@/features/calorie-tracking/hooks/use-food-search
 import { useLocalFoodUsage } from '@/features/calorie-tracking/use-local-food-usage';
 import { useOptionalActiveHousehold } from '@/features/household/active-household-provider';
 import { BarcodeScannerModal } from '@/features/inventory/barcode-scanner-modal';
+import { useProductBarcodeLookup } from '@/features/product-search/hooks/use-product-barcode-lookup';
 import { usePreferredProductMarketName } from '@/features/product-search/preferred-market';
+import type { CatalogProduct } from '@/features/product-search/types';
 import { useTheme } from '@/hooks/use-theme';
-import type { OpenFoodFactsProduct } from '@/lib/open-food-facts';
 
 type FoodSearchDropdownProps = {
   mealType: MealType;
   value?: string;
   onChangeText?: (text: string) => void;
-  onProductSelect: (product: OpenFoodFactsProduct) => void;
+  onProductSelect: (product: CatalogProduct) => void;
   onHistorySelect: (entry: FoodHistoryEntry) => void;
 };
 
@@ -82,12 +83,24 @@ export function FoodSearchDropdown({
     if (displayedValue !== query) setQuery(displayedValue);
   }
 
-  function selectProduct(product: OpenFoodFactsProduct) {
+  function selectProduct(product: CatalogProduct) {
     if (value === undefined) setInputValue(product.name);
     onChangeText?.(product.name);
     setShowDropdown(false);
     Keyboard.dismiss();
     onProductSelect(product);
+  }
+
+  const barcodeLookup = useProductBarcodeLookup({
+    onFound: (product) => {
+      setShowScanner(false);
+      selectProduct(product);
+    },
+  });
+
+  function closeScanner() {
+    setShowScanner(false);
+    barcodeLookup.reset();
   }
 
   function selectHistoryEntry(entry: FoodHistoryEntry) {
@@ -196,17 +209,16 @@ export function FoodSearchDropdown({
 
       <BarcodeScannerModal
         visible={showScanner}
-        onClose={() => setShowScanner(false)}
-        onProductFound={(product) => {
-          setShowScanner(false);
-          selectProduct(product);
-        }}
+        onClose={closeScanner}
+        onBarcodeDetected={barcodeLookup.lookup}
+        looking={barcodeLookup.looking}
+        errorMessage={barcodeLookup.errorMessage}
       />
     </View>
   );
 }
 
-function ProductRow({ product, onPress }: { product: OpenFoodFactsProduct; onPress: () => void }) {
+function ProductRow({ product, onPress }: { product: CatalogProduct; onPress: () => void }) {
   return (
     <Pressable onPress={onPress} className="fss-row">
       {product.imageUrl ? (

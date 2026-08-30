@@ -1,4 +1,4 @@
-import type { OpenFoodFactsProduct } from '@/lib/open-food-facts';
+import type { CatalogProduct } from '@/features/product-search/types';
 
 export type ProductSearchMarket = string | null | undefined;
 
@@ -87,7 +87,7 @@ function words(value: string): string[] {
   return normalize(value).split(' ').filter(Boolean);
 }
 
-function marketMatches(product: OpenFoodFactsProduct, market: ProductSearchMarket): boolean {
+function marketMatches(product: CatalogProduct, market: ProductSearchMarket): boolean {
   const aliases = MARKET_ALIASES[normalize(market ?? '')];
   if (!aliases) return false;
 
@@ -96,7 +96,7 @@ function marketMatches(product: OpenFoodFactsProduct, market: ProductSearchMarke
 }
 
 function quantityMatch(
-  product: OpenFoodFactsProduct,
+  product: CatalogProduct,
   query: ParsedProductSearchQuery,
 ): 'exact' | 'unit' | null {
   if (query.quantity === null || !query.unit || product.quantity === undefined || !product.unit) {
@@ -107,7 +107,7 @@ function quantityMatch(
 }
 
 export function matchProductSearchResult(
-  product: OpenFoodFactsProduct,
+  product: CatalogProduct,
   rawQuery: string,
   preferredMarket?: ProductSearchMarket,
 ): ProductSearchMatch {
@@ -180,10 +180,10 @@ export function matchProductSearchResult(
 }
 
 export function rankProductSearchResults(
-  products: readonly OpenFoodFactsProduct[],
+  products: readonly CatalogProduct[],
   rawQuery: string,
   preferredMarket?: ProductSearchMarket,
-): OpenFoodFactsProduct[] {
+): CatalogProduct[] {
   return products
     .map((product, index) => ({
       product,

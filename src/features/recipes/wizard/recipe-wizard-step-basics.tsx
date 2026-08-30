@@ -5,9 +5,9 @@ import Svg, { Path } from 'react-native-svg';
 import { WheelPickerField } from '@/components/forms/wheel-picker-field';
 import { ThemedText } from '@/components/theme/themed-text';
 import { ProductSearchDropdown } from '@/features/inventory/product-search-dropdown';
+import type { CatalogProduct } from '@/features/product-search/types';
 import { useTheme } from '@/hooks/use-theme';
 import type { RecipeFormValues } from '@/lib/db/zod/recipe-form-schema.zod';
-import type { OpenFoodFactsProduct } from '@/lib/open-food-facts';
 import { UNIT_OPTIONS } from '@/lib/units';
 import { DIETARY_TAGS, DIFFICULTIES, DISH_TYPES } from './recipe-metadata-options';
 import type { IngredientComponentGroup } from './types';
@@ -33,11 +33,7 @@ interface RecipeWizardStepBasicsProps {
   components: IngredientComponentGroup[];
   onAddIngredient: (componentId: string) => void;
   onRemoveIngredient: (componentId: string, ingredientId: string) => void;
-  onSelectProduct: (
-    componentId: string,
-    ingredientId: string,
-    product: OpenFoodFactsProduct,
-  ) => void;
+  onSelectProduct: (componentId: string, ingredientId: string, product: CatalogProduct) => void;
   onUpdateIngredientQuery: (componentId: string, ingredientId: string, query: string) => void;
   onUpdateQuantity: (componentId: string, ingredientId: string, quantity: string) => void;
   onUpdateUnit: (componentId: string, ingredientId: string, unit: string) => void;

@@ -17,11 +17,12 @@ import {
   type ProductSearchDropdownHandle,
 } from '@/features/inventory/product-search-dropdown';
 import { useAddProductMutation } from '@/features/inventory/use-product-mutations';
+import { useProductBarcodeLookup } from '@/features/product-search/hooks/use-product-barcode-lookup';
+import type { CatalogProduct } from '@/features/product-search/types';
 import { useTheme } from '@/hooks/use-theme';
 import { getDatabase } from '@/lib/db/client';
 import { recordProductUsage } from '@/lib/db/product-usage';
 import { debugLog } from '@/lib/debug-log';
-import type { OpenFoodFactsProduct } from '@/lib/open-food-facts';
 import { formatAmount, formatPackageHint } from '@/lib/package-size';
 import { useFeatureFlag } from '@/lib/posthog';
 import { normalizeUnit, UNIT_OPTIONS } from '@/lib/units';
@@ -70,7 +71,7 @@ async function resolveAutomaticPreview(
 interface AddItemFormProps {
   householdId: string;
   initialStoreId?: string | null;
-  initialProduct?: OpenFoodFactsProduct | null;
+  initialProduct?: CatalogProduct | null;
   onDismiss: () => void;
   onItemAdded?: () => void;
 }
@@ -101,7 +102,7 @@ export const AddItemForm = forwardRef<AddItemFormHandle, AddItemFormProps>(funct
   const [storeId, setStoreId] = useState<string | null>(initialStoreId);
   const manualSelectionStoreIdRef = useRef<string | null | undefined>(undefined);
   const [nameError, setNameError] = useState<string | null>(null);
-  const [selectedProduct, setSelectedProduct] = useState<OpenFoodFactsProduct | null>(null);
+  const [selectedProduct, setSelectedProduct] = useState<CatalogProduct | null>(null);
   // Bekannte `product_id` aus einem Häufig/Zuletzt-Vorschlag (#UI-Feedback:
   // "2 Einträge auf der Liste, addiert nicht") — die Vorschläge kennen ihre
   // echte `product_id` bereits aus `product_usage`; die ID wird bis zum Save
@@ -232,8 +233,20 @@ export const AddItemForm = forwardRef<AddItemFormHandle, AddItemFormProps>(funct
   const packageHint = formatPackageHint(packageSize, packageSizeUnit);
   const purchaseAmount = formatAmount(purchaseCount, unit);
 
+  const barcodeLookup = useProductBarcodeLookup({
+    onFound: (product) => {
+      handleSelectProduct(product);
+      setShowScanner(false);
+    },
+  });
+
+  function closeScanner() {
+    setShowScanner(false);
+    barcodeLookup.reset();
+  }
+
   function handleSelectProduct(
-    product: OpenFoodFactsProduct,
+    product: CatalogProduct,
     options: { productId?: string | null; storeId?: string | null } = {},
   ) {
     // Muss VOR `setName` passieren — sonst haelt der Such-Effekt in
@@ -313,10 +326,7 @@ export const AddItemForm = forwardRef<AddItemFormHandle, AddItemFormProps>(funct
     setCategoryState(EMPTY_CATEGORY_STATE);
   }
 
-  function handleSelectSuggestion(
-    product: OpenFoodFactsProduct,
-    suggestion: ShoppingProductSuggestion,
-  ) {
+  function handleSelectSuggestion(product: CatalogProduct, suggestion: ShoppingProductSuggestion) {
     handleSelectProduct(product, {
       productId: suggestion.product_id,
       storeId: suggestion.last_store_id,
@@ -749,8 +759,10 @@ export const AddItemForm = forwardRef<AddItemFormHandle, AddItemFormProps>(funct
 
         <BarcodeScannerModal
           visible={showScanner}
-          onClose={() => setShowScanner(false)}
-          onProductFound={handleSelectProduct}
+          onClose={closeScanner}
+          onBarcodeDetected={barcodeLookup.lookup}
+          looking={barcodeLookup.looking}
+          errorMessage={barcodeLookup.errorMessage}
         />
       </Pressable>
     </View>

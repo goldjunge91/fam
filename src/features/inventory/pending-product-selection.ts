@@ -1,4 +1,4 @@
-import type { OpenFoodFactsProduct } from '@/lib/open-food-facts';
+import type { CatalogProduct } from '@/features/product-search/types';
 
 /**
  * Rückgabewert über eine Navigations-Grenze hinweg, für die Expo Router keinen
@@ -13,13 +13,13 @@ import type { OpenFoodFactsProduct } from '@/lib/open-food-facts';
  * wiederverwendet oder einen eigenen, unabhängigen Singleton nach demselben
  * Muster anlegt.
  */
-let pendingSelection: OpenFoodFactsProduct | null = null;
+let pendingSelection: CatalogProduct | null = null;
 
-export function setPendingProductSelection(product: OpenFoodFactsProduct): void {
+export function setPendingProductSelection(product: CatalogProduct): void {
   pendingSelection = product;
 }
 
-export function consumePendingProductSelection(): OpenFoodFactsProduct | null {
+export function consumePendingProductSelection(): CatalogProduct | null {
   const product = pendingSelection;
   pendingSelection = null;
   return product;
