@@ -31,7 +31,7 @@ export type Migration = {
 
 // ------------------------------------------------------------------ Entitaeten
 
-/** Die Spiegeltabellen aus #45. Die privaten Tracking-Tabellen sind bewusst nicht dabei. */
+/** Serverseitig synchronisierte SQLite-Spiegel. */
 export type Entity =
   | 'storage_locations'
   | 'stores'
@@ -48,7 +48,9 @@ export type Entity =
   | 'recipe_step_ingredients'
   | 'meal_plans'
   | 'meal_plan_entries'
-  | 'favorite_brochure_stores';
+  | 'favorite_brochure_stores'
+  | 'medication_logs'
+  | 'symptom_logs';
 
 export type OutboxOp = 'insert' | 'update' | 'delete' | 'restore';
 

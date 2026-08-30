@@ -86,7 +86,10 @@ create table if not exists public.weight_entries (
 
   created_at timestamptz not null default now(),
   updated_at timestamptz not null default now(),
-  deleted_at timestamptz
+  deleted_at timestamptz,
+
+  -- Nullable fuer Legacy-Zeilen: historische Messzeiten werden nicht erfunden.
+  measured_at timestamptz
 );
 
 comment on table public.weight_entries is
@@ -97,6 +100,9 @@ create index if not exists weight_entries_user_day_idx
   where deleted_at is null;
 create index if not exists weight_entries_child_id_idx
   on public.weight_entries (child_profile_id);
+create index if not exists weight_entries_user_profile_measured_idx
+  on public.weight_entries (user_id, child_profile_id, measured_at)
+  where deleted_at is null and measured_at is not null;
 
 create or replace trigger weight_entries_set_updated_at
   before update on public.weight_entries

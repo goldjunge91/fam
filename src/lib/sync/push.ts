@@ -28,12 +28,13 @@ const SYNC_COLUMNS = new Set(['updated_at', 'deleted_at', '_dirty']);
 function buildInsertPayload(
   payload: Record<string, unknown>,
   columns: readonly string[],
+  normalizeQuantityUnits: boolean,
 ): Record<string, unknown> {
   const serverColumns = new Set(columns);
   const result = Object.fromEntries(
     Object.entries(payload).filter(([key]) => !SYNC_COLUMNS.has(key) && serverColumns.has(key)),
   );
-  if ('unit' in result) {
+  if (normalizeQuantityUnits && 'unit' in result) {
     result.unit = normalizeUnit(typeof result.unit === 'string' ? result.unit : undefined);
   }
   return result;
@@ -43,6 +44,7 @@ function buildInsertPayload(
 function buildUpdatePayload(
   payload: Record<string, unknown>,
   columns: readonly string[],
+  normalizeQuantityUnits: boolean,
 ): Record<string, unknown> {
   const serverColumns = new Set(columns);
   const result = Object.fromEntries(
@@ -50,7 +52,7 @@ function buildUpdatePayload(
       ([key]) => !SYNC_COLUMNS.has(key) && key !== 'id' && serverColumns.has(key),
     ),
   );
-  if ('unit' in result) {
+  if (normalizeQuantityUnits && 'unit' in result) {
     result.unit = normalizeUnit(typeof result.unit === 'string' ? result.unit : undefined);
   }
   return result;
@@ -85,11 +87,17 @@ async function attempt(
   // Dieser kleine Adapter typisiert nur die tatsächlich verwendete Query-Fläche;
   // Tabelle und Spalten kommen weiterhin ausschließlich aus `entities.ts`.
   const query = supabase.from(table as never) as unknown as GenericQuery<AttemptResult>;
+  const meta = metaOf(table);
 
   if (op === 'insert') {
-    const response = metaOf(table).pushOnly
-      ? await query.insert(buildInsertPayload(payload, metaOf(table).columns))
-      : await query.insert(buildInsertPayload(payload, metaOf(table).columns)).select();
+    const insertPayload = buildInsertPayload(
+      payload,
+      meta.columns,
+      meta.normalizeQuantityUnits === true,
+    );
+    const response = meta.pushOnly
+      ? await query.insert(insertPayload)
+      : await query.insert(insertPayload).select();
     return response as AttemptResult;
   }
 
@@ -110,14 +118,17 @@ async function attempt(
     // nichts: deren Payload traegt ausser deleted_at nur unveraenderte
     // Identitaetsfelder (z. B. household_id), ein Update darauf ist idempotent.
     const response = await query
-      .update({ ...buildUpdatePayload(payload, metaOf(table).columns), deleted_at: null })
+      .update({
+        ...buildUpdatePayload(payload, meta.columns, meta.normalizeQuantityUnits === true),
+        deleted_at: null,
+      })
       .eq('id', entityId)
       .select();
     return response as AttemptResult;
   }
 
   const response = await query
-    .update(buildUpdatePayload(payload, metaOf(table).columns))
+    .update(buildUpdatePayload(payload, meta.columns, meta.normalizeQuantityUnits === true))
     .eq('id', entityId)
     .select();
   return response as AttemptResult;

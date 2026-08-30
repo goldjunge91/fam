@@ -971,6 +971,53 @@ export type Database = {
           },
         ]
       }
+      injection_plans: {
+        Row: {
+          anchor_at: string
+          cadence_days: number
+          created_at: string
+          dose: number
+          id: string
+          medication_name: string
+          reminder_enabled: boolean
+          unit: string
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          anchor_at: string
+          cadence_days: number
+          created_at?: string
+          dose: number
+          id?: string
+          medication_name: string
+          reminder_enabled?: boolean
+          unit?: string
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          anchor_at?: string
+          cadence_days?: number
+          created_at?: string
+          dose?: number
+          id?: string
+          medication_name?: string
+          reminder_enabled?: boolean
+          unit?: string
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "injection_plans_user_id_fkey"
+            columns: ["user_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       ketone_entries: {
         Row: {
           child_profile_id: string | null
@@ -2412,6 +2459,7 @@ export type Database = {
           deleted_at: string | null
           hip_cm: number | null
           id: string
+          measured_at: string | null
           measured_on: string
           updated_at: string
           user_id: string
@@ -2425,6 +2473,7 @@ export type Database = {
           deleted_at?: string | null
           hip_cm?: number | null
           id?: string
+          measured_at?: string | null
           measured_on?: string
           updated_at?: string
           user_id: string
@@ -2438,6 +2487,7 @@ export type Database = {
           deleted_at?: string | null
           hip_cm?: number | null
           id?: string
+          measured_at?: string | null
           measured_on?: string
           updated_at?: string
           user_id?: string

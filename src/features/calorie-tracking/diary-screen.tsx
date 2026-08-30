@@ -1,5 +1,5 @@
 import { router } from 'expo-router';
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Pressable, ScrollView, View } from 'react-native';
 import { PlusIcon } from '@/components/icons/fam-icon';
 import { HubScreen } from '@/components/layout/hub-screen';
@@ -16,13 +16,13 @@ import {
   useFoodEntries,
 } from '@/features/calorie-tracking/api';
 import { FastingCard } from '@/features/calorie-tracking/components/fasting-card';
-import { Glp1Card } from '@/features/calorie-tracking/components/glp1-card';
 import { calculateDailyTotals } from '@/features/calorie-tracking/daily-totals';
-import { getLogicalDateForTimestamp } from '@/features/calorie-tracking/day-boundary';
+import { Glp1Card } from '@/features/glp1/components/glp1-card';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { useChildProfiles } from '@/features/household/api';
 import { useNavigationChrome } from '@/features/navigation/navigation-chrome-provider';
 import { useProfile } from '@/features/profile/api';
+import { getLogicalDateForTimestamp } from '@/features/tracking/domain/day-boundary';
 import { useTheme } from '@/hooks/use-theme';
 
 const MEAL_ORDER: MealType[] = ['breakfast', 'lunch', 'dinner', 'snack'];
@@ -51,10 +51,10 @@ function addDays(iso: string, delta: number): string {
   return toIsoDate(date);
 }
 
-function relativeDateLabel(iso: string, todayIso: string): string {
-  if (iso === todayIso) return 'Heute';
-  if (iso === addDays(todayIso, -1)) return 'Gestern';
-  if (iso === addDays(todayIso, 1)) return 'Morgen';
+function relativeDateLabel(iso: string, todayLogicalDate: string): string {
+  if (iso === todayLogicalDate) return 'Heute';
+  if (iso === addDays(todayLogicalDate, -1)) return 'Gestern';
+  if (iso === addDays(todayLogicalDate, 1)) return 'Morgen';
   return parseIsoDate(iso).toLocaleDateString('de-DE', {
     day: 'numeric',
     month: 'long',
@@ -167,18 +167,29 @@ export function DiaryScreen() {
   const userId = session?.user.id;
   const { data: userProfile } = useProfile(userId);
 
-  const todayIso = getLogicalDateForTimestamp(
+  const todayLogicalDate = getLogicalDateForTimestamp(
     new Date(),
     userProfile?.tracking_day_start_time ?? '00:00',
   );
-  const [selectedDate, setSelectedDate] = useState(todayIso);
+  const [selectedLogicalDate, setSelectedLogicalDate] = useState(todayLogicalDate);
+  const previousTodayLogicalDate = useRef(todayLogicalDate);
+
+  useEffect(() => {
+    const previousToday = previousTodayLogicalDate.current;
+    previousTodayLogicalDate.current = todayLogicalDate;
+    setSelectedLogicalDate((current) => (current === previousToday ? todayLogicalDate : current));
+  }, [todayLogicalDate]);
 
   const { activeHousehold } = useActiveHousehold();
   const { data: childProfiles = [] } = useChildProfiles(activeHousehold?.id ?? '');
   const { profile, setProfile } = useActiveProfile(activeHousehold?.id);
   const childProfileId = profile?.type === 'child' ? profile.childProfileId : null;
 
-  const { data: entries = [], isLoading } = useFoodEntries(userId, selectedDate, childProfileId);
+  const { data: entries = [], isLoading } = useFoodEntries(
+    userId,
+    selectedLogicalDate,
+    childProfileId,
+  );
   const { data: currentGoal } = useCurrentGoal(userId, childProfileId);
   const totals = calculateDailyTotals(
     entries.map((entry) => ({
@@ -215,11 +226,14 @@ export function DiaryScreen() {
     if (entryId) {
       router.push({
         pathname: '/add-food-entry',
-        params: { date: selectedDate, mealType, entryId },
+        params: { date: selectedLogicalDate, mealType, entryId },
       });
       return;
     }
-    router.push({ pathname: '/add-food-entry', params: { date: selectedDate, mealType } });
+    router.push({
+      pathname: '/add-food-entry',
+      params: { date: selectedLogicalDate, mealType },
+    });
   }
 
   return (
@@ -248,7 +262,7 @@ export function DiaryScreen() {
         {/* Datumsnavigation (Gestern, Heute, Morgen, Datumswahl) */}
         <View className="diary-date-row">
           <Pressable
-            onPress={() => setSelectedDate((date) => addDays(date, -1))}
+            onPress={() => setSelectedLogicalDate((date) => addDays(date, -1))}
             role="button"
             aria-label="Vorheriger Tag"
             className="diary-date-arrow">
@@ -257,19 +271,19 @@ export function DiaryScreen() {
             </ThemedText>
           </Pressable>
           <Pressable
-            onPress={() => setSelectedDate(todayIso)}
+            onPress={() => setSelectedLogicalDate(todayLogicalDate)}
             role="button"
             aria-label="Heutigen Tag anzeigen"
             className="diary-date-copy">
             <ThemedText themeColor="accent" className="diary-relative-date">
-              {relativeDateLabel(selectedDate, todayIso)}
+              {relativeDateLabel(selectedLogicalDate, todayLogicalDate)}
             </ThemedText>
             <ThemedText themeColor="textSecondary" className="diary-full-date">
-              {fullDateLabel(selectedDate)}
+              {fullDateLabel(selectedLogicalDate)}
             </ThemedText>
           </Pressable>
           <Pressable
-            onPress={() => setSelectedDate((date) => addDays(date, 1))}
+            onPress={() => setSelectedLogicalDate((date) => addDays(date, 1))}
             role="button"
             aria-label="Nächster Tag"
             className="diary-date-arrow">
@@ -324,7 +338,12 @@ export function DiaryScreen() {
 
         {/* GLP-1 Tracking-Karte (optional) */}
         {userProfile?.tracking_method === 'glp1' ? (
-          <Glp1Card userId={userId} childProfileId={childProfileId} />
+          <Glp1Card
+            userId={userId}
+            childProfileId={childProfileId}
+            logicalDate={selectedLogicalDate}
+            dayStartTime={userProfile.tracking_day_start_time}
+          />
         ) : null}
 
         {/* Intervallfasten-Karte (optional) */}

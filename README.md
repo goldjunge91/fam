@@ -48,6 +48,9 @@ bun install && bun start
 
 Zum schnellen Testen auf der lokalen Entwicklungsdatenbank (`supabase start`):
 
+Die Admin-Skripte benötigen `SUPABASE_SERVICE_ROLE_KEY` aus `supabase status`.
+Der Wert wird nur als Umgebungsvariable übergeben und nie im Repository hinterlegt.
+
 - **Bash Script (`scripts/create-user-with-household.sh`)**:
   - `./scripts/create-user-with-household.sh` — Erstellt 1 neuen Test-Nutzer mit eigenem Haushalt, Standard-Lagerorten und vorausgefüllten Einkaufslisten-Produkten.
   - `./scripts/create-user-with-household.sh <anzahl>` — Kann mehrmals oder mit einer Anzahl aufgerufen werden (z. B. `./scripts/create-user-with-household.sh 5`), um mehrere Test-User gleichzeitig mit jeweils eigenem Haushalt anzulegen.
@@ -58,6 +61,22 @@ Zum schnellen Testen auf der lokalen Entwicklungsdatenbank (`supabase start`):
   - `bun run user:list` — Listet vorhandene Test-Accounts auf
   - `bun run user:clean` — Löscht alle Test-Accounts (`*@example.com`, `tester_*`)
   - `bun run user:delete <email>` — Löscht einen bestimmten Test-Account
+- **GLP-1-Demo (`scripts/glp1-seed.ts`)**:
+  - `SUPABASE_SERVICE_ROLE_KEY=... bun run seed:glp1 [email]` — Befüllt den bestehenden lokalen Account mit einem wiederholbaren 12-Wochen-Verlauf
+  - Den lokalen `service_role`-Key zeigt `supabase status`; er wird ausschließlich als Umgebungsvariable übergeben und niemals eingecheckt
+  - Ohne E-Mail wird `maestro-e2e@example.com` verwendet; den Account bei Bedarf vorher mit `bun run user:create` anlegen
+  - Das Skript löscht nur seine eigenen, deterministisch identifizierten Demo-Zeilen. Ein nicht-lokales Ziel wird standardmäßig abgewiesen.
+
+Für ein bewusstes Remote-Ziel müssen URL und Service-Role-Key explizit gesetzt
+werden. Die zusätzliche Freigabe verhindert, dass ein gehostetes Projekt aus
+Versehen überschrieben wird:
+
+```bash
+GLP1_SEED_URL=https://example.supabase.co \
+SUPABASE_SERVICE_ROLE_KEY=... \
+GLP1_SEED_ALLOW_NON_LOCAL=true \
+bun run seed:glp1 test@example.com
+```
 
 ## Umgebungsvariablen
 

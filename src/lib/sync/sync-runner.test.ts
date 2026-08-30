@@ -123,6 +123,32 @@ describe('triggerHouseholdSync — Query-Invalidierung (#115-Befund)', () => {
     });
   });
 
+  it('invalidiert die GLP-1-Query-Praefixe nach Push und Pull', async () => {
+    mockSyncHousehold.mockResolvedValue({
+      push: {
+        outcomes: [
+          { kind: 'pushed', entity: 'symptom_logs', entityId: 'symptom-1', sourceIds: [1] },
+        ],
+        stoppedEarly: false,
+      },
+      pull: [{ entity: 'medication_logs', cursor: null, rowsWritten: 1 }],
+    });
+    const queryClient = fakeQueryClient();
+
+    // biome-ignore lint/suspicious/noExplicitAny: Test-Double, keine echte QueryClient-Instanz noetig
+    await triggerHouseholdSync(['household-1'], false, queryClient as any);
+
+    expect(queryClient.invalidateQueries).toHaveBeenCalledWith({
+      queryKey: ['glp1', 'medications'],
+    });
+    expect(queryClient.invalidateQueries).toHaveBeenCalledWith({
+      queryKey: ['glp1', 'correlation'],
+    });
+    expect(queryClient.invalidateQueries).toHaveBeenCalledWith({
+      queryKey: ['glp1', 'symptoms'],
+    });
+  });
+
   it('ohne uebergebenen QueryClient bleibt das Verhalten unveraendert (kein Crash)', async () => {
     mockSyncHousehold.mockResolvedValue({
       push: { outcomes: [], stoppedEarly: false },

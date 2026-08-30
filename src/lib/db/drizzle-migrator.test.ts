@@ -6,11 +6,13 @@ import localMigrations from '../../../drizzle/local/migrations';
 import { createTestDatabase } from '../../../test/node-sqlite-adapter';
 
 describe('Drizzle-Migrationsrunner', () => {
-  it('baselined V1–V21 und führt danach nur die neue Preference-Migration aus', async () => {
+  it('baselined V1–V21 und führt danach alle Drizzle-Inkremente genau einmal aus', async () => {
     const db = createTestDatabase();
     await runMigrations(db, MIGRATIONS);
 
-    await expect(runDrizzleMigrations(db)).resolves.toBe(1);
+    await expect(runDrizzleMigrations(db)).resolves.toBe(
+      Object.keys(localMigrations.migrations).length - 1,
+    );
     await expect(runDrizzleMigrations(db)).resolves.toBe(0);
 
     const migrationNames = await db.getAllAsync<{ name: string }>(

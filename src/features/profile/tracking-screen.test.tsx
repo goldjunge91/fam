@@ -7,9 +7,12 @@ import {
   useLatestWeightEntry,
   useUpdateTrackingDayStartTimeMutation,
   useUpdateTrackingMethodMutation,
+  useWeightEntries,
 } from '@/features/calorie-tracking/api';
 import { useProfile } from '@/features/profile/api';
 import { TrackingScreen } from '@/features/profile/tracking-screen';
+
+const mockInjectionPlanSection = jest.fn((_props: { userId: string | undefined }) => null);
 
 jest.mock('expo-router', () => ({
   router: {
@@ -30,14 +33,25 @@ jest.mock('@/features/profile/api', () => ({
 jest.mock('@/features/calorie-tracking/api', () => ({
   useCurrentGoal: jest.fn(),
   useLatestWeightEntry: jest.fn(),
+  useWeightEntries: jest.fn(),
   useUpdateTrackingMethodMutation: jest.fn(),
   useUpdateTrackingDayStartTimeMutation: jest.fn(),
+}));
+
+jest.mock('@/features/glp1/components/injection-plan-section', () => ({
+  InjectionPlanSection: (props: { userId: string | undefined }) => mockInjectionPlanSection(props),
 }));
 
 const mockMutateMethod = jest.fn();
 const mockMutateStartTime = jest.fn();
 
-async function renderScreen() {
+async function renderScreen({
+  trackingDayStartTime = '00:00',
+  logicalDayWeightEntries = [{ weight_kg: 80 }],
+}: {
+  trackingDayStartTime?: string;
+  logicalDayWeightEntries?: { weight_kg: number }[];
+} = {}) {
   const queryClient = new QueryClient({
     defaultOptions: {
       queries: { retry: false, gcTime: Number.POSITIVE_INFINITY },
@@ -60,7 +74,7 @@ async function renderScreen() {
       birth_date: '1990-01-01',
       activity_level: 'moderate',
       tracking_method: 'standard',
-      tracking_day_start_time: '00:00',
+      tracking_day_start_time: trackingDayStartTime,
     },
     isLoading: false,
   });
@@ -80,6 +94,11 @@ async function renderScreen() {
 
   (useLatestWeightEntry as jest.Mock).mockReturnValue({
     data: { weight_kg: 80 },
+    isLoading: false,
+  });
+
+  (useWeightEntries as jest.Mock).mockReturnValue({
+    data: logicalDayWeightEntries,
     isLoading: false,
   });
 
@@ -114,6 +133,16 @@ describe('TrackingScreen', () => {
     expect(screen.getByText('160g')).toBeOnTheScreen();
   });
 
+  it('zeigt den Injektionsplan direkt nach Aktivierung der GLP-1-Methode', async () => {
+    const user = userEvent.setup();
+    await renderScreen();
+    expect(mockInjectionPlanSection).not.toHaveBeenCalled();
+
+    await user.press(screen.getByRole('radio', { name: /GLP-1 & Medikation/ }));
+
+    expect(mockInjectionPlanSection.mock.calls.at(-1)?.[0]).toEqual({ userId: 'user-1' });
+  });
+
   it('navigiert zur Ziel-Bearbeitung beim Klick auf Ziele & Makros bearbeiten', async () => {
     const user = userEvent.setup();
     await renderScreen();
@@ -133,6 +162,23 @@ describe('TrackingScreen', () => {
     expect(screen.getByText('80 kg')).toBeOnTheScreen();
   });
 
+  it('zeigt vor 06:00 das Gewicht des vorherigen logischen Tages an', async () => {
+    jest.useFakeTimers();
+    jest.setSystemTime(new Date(2026, 7, 19, 5, 15));
+
+    try {
+      await renderScreen({
+        trackingDayStartTime: '06:00',
+        logicalDayWeightEntries: [{ weight_kg: 78.4 }],
+      });
+
+      expect(useWeightEntries).toHaveBeenCalledWith('user-1', null, '2026-08-18', '06:00');
+      expect(screen.getByText('78.4 kg')).toBeOnTheScreen();
+    } finally {
+      jest.useRealTimers();
+    }
+  });
+
   it('aendert den individuellen Tagesstart per Stepper', async () => {
     const user = userEvent.setup();
     await renderScreen();
@@ -144,6 +190,13 @@ describe('TrackingScreen', () => {
       userId: 'user-1',
       time: '01:00',
     });
+  });
+
+  it('erklaert die Wirkung auf alle Tracking-Bereiche ohne Bestandsdaten umzuschreiben', async () => {
+    await renderScreen();
+
+    expect(screen.getByText(/Mahlzeiten, Injektionen, Symptome und Gewicht/)).toBeOnTheScreen();
+    expect(screen.getByText(/Bestehende Einträge bleiben unverändert/)).toBeOnTheScreen();
   });
 
   it('wechselt die aktive Tracking-Methode im Profil auf Low-Carb und Keto', async () => {

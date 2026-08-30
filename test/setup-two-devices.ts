@@ -1,6 +1,7 @@
 import { createClient, type SupabaseClient } from '@supabase/supabase-js';
 
 import type { Database } from '@/lib/database.types';
+import { runDrizzleMigrations } from '@/lib/db/drizzle-migrator';
 import { MIGRATIONS } from '@/lib/db/migrations';
 import { runMigrations } from '@/lib/db/migrator';
 import { createTestDatabase, type TestDatabase } from './node-sqlite-adapter';
@@ -107,12 +108,16 @@ export async function setupTwoDevices(prefix = 'device'): Promise<TwoDeviceSetup
   const dbB = createTestDatabase();
   await runMigrations(dbA, MIGRATIONS);
   await runMigrations(dbB, MIGRATIONS);
+  await runDrizzleMigrations(dbA);
+  await runDrizzleMigrations(dbB);
 
   const teardown = async () => {
     // Reihenfolge: Kind-Tabellen → Elterntabellen → auth.users.
     // Direkt per service-role RPC, nicht ueber admin.auth.admin.deleteUser —
     // das scheitert am Household-Admin-Constraint und hinterlaesst Leichen.
     const admin = adminClient();
+    await admin.from('symptom_logs').delete().eq('user_id', userId);
+    await admin.from('medication_logs').delete().eq('user_id', userId);
     await admin.from('shopping_list_items').delete().eq('household_id', householdId);
     await admin.from('fridge_items').delete().eq('household_id', householdId);
     await admin.from('storage_locations').delete().eq('household_id', householdId);

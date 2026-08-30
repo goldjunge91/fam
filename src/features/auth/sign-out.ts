@@ -4,6 +4,7 @@ import { signOut as signOutSession } from '@/features/auth/api';
 import { setStoredActiveHouseholdId } from '@/features/household/active-household-store';
 import { deleteLocalDatabase, setActiveUserId } from '@/lib/db/client';
 import { debugLogEvent } from '@/lib/debug-log';
+import { cancelUserNotificationReminders } from '@/lib/notifications';
 import { removeLegacyPersistedQueryCache } from '@/lib/query-client';
 import { resetLocalAccountModuleCaches } from '@/lib/storage/account-cache-registry';
 import {
@@ -39,6 +40,15 @@ export function clearLocalAccountData(queryClient: QueryClient, userId: string):
       await stopAccountSyncAndWait();
     } catch (cleanupError) {
       essentialError = cleanupError;
+    }
+
+    try {
+      await cancelUserNotificationReminders(userId);
+    } catch (cleanupError) {
+      console.warn(
+        '[auth] geplante Account-Erinnerungen nicht entfernt:',
+        (cleanupError as Error).message,
+      );
     }
 
     try {

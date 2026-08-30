@@ -1,6 +1,8 @@
+import { metaOf } from '@/lib/db/entities';
 import type { Entity, OutboxEntry, OutboxOp, SqlDatabase } from '@/lib/db/types';
 import { MAX_ATTEMPTS } from '@/lib/sync/backoff';
 import { addDiagnosticStep, reportError } from '@/lib/telemetry';
+import { normalizeUnit } from '@/lib/units';
 
 /** Parst `OutboxEntry.payload` (JSON-Text) in ein Objekt. Wirft bei Nicht-Objekt. */
 export function parseOutboxEntry(entry: OutboxEntry): Record<string, unknown> {
@@ -11,17 +13,8 @@ export function parseOutboxEntry(entry: OutboxEntry): Record<string, unknown> {
   }
 
   const rec = parsed as Record<string, unknown>;
-  if ('unit' in rec && typeof rec.unit === 'string') {
-    const u = rec.unit.toLowerCase().trim();
-    if (u === 'l' || u === 'liter') rec.unit = 'l';
-    else if (u === 'g' || u === 'gramm') rec.unit = 'g';
-    else if (u === 'kg' || u === 'kilo') rec.unit = 'kg';
-    else if (u === 'ml') rec.unit = 'ml';
-    else if (u === 'piece' || u === 'stk' || u === 'stück') rec.unit = 'piece';
-    else if (u === 'package' || u === 'packung') rec.unit = 'package';
-    else if (u === 'portion') rec.unit = 'portion';
-    else if (['g', 'kg', 'ml', 'l', 'piece', 'package', 'portion'].includes(u)) rec.unit = u;
-    else rec.unit = 'piece';
+  if (metaOf(entry.entity).normalizeQuantityUnits && typeof rec.unit === 'string') {
+    rec.unit = normalizeUnit(rec.unit);
   }
 
   return rec;

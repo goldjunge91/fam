@@ -13,6 +13,7 @@ const mockStopAccountSyncAndWait = jest.fn();
 const mockResetLocalAccountModuleCaches = jest.fn();
 const mockGetSession = jest.fn();
 const mockLocalSignOut = jest.fn();
+const mockCancelUserNotificationReminders = jest.fn();
 const mockConsoleWarn = jest.spyOn(console, 'warn').mockImplementation(() => undefined);
 
 jest.mock('@/features/auth/api', () => ({
@@ -38,6 +39,11 @@ jest.mock('@/lib/storage/account-storage', () => ({
 jest.mock('@/lib/query-client', () => ({
   removeLegacyPersistedQueryCache: (...args: unknown[]) =>
     mockRemoveLegacyPersistedQueryCache(...args),
+}));
+
+jest.mock('@/lib/notifications', () => ({
+  cancelUserNotificationReminders: (...args: unknown[]) =>
+    mockCancelUserNotificationReminders(...args),
 }));
 
 jest.mock('@/lib/sync/account-sync-gate', () => ({
@@ -80,6 +86,7 @@ describe('lokaler Account-Cleanup', () => {
     mockStopAccountSyncAndWait.mockResolvedValue(undefined);
     mockSignOut.mockResolvedValue({ error: null });
     mockLocalSignOut.mockResolvedValue({ error: null });
+    mockCancelUserNotificationReminders.mockResolvedValue(undefined);
     mockGetSession.mockResolvedValue({
       data: { session: { user: { id: 'user-1' } } },
     });
@@ -120,6 +127,12 @@ describe('lokaler Account-Cleanup', () => {
 
     expect(mockSignOut).toHaveBeenCalledTimes(1);
     expect(mockDeleteEncryptedAccountStorage).toHaveBeenCalledWith('user-1');
+  });
+
+  it('entfernt beim Account-Cleanup die privaten Erinnerungen des Nutzers', async () => {
+    await clearLocalAccountData(queryClient(), 'user-1');
+
+    expect(mockCancelUserNotificationReminders).toHaveBeenCalledWith('user-1');
   });
 
   it('setzt den Cleanup fort wenn das Leeren des Query-Caches fehlschlägt', async () => {

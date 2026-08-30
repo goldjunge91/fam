@@ -1,6 +1,11 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
-
+import { z } from 'zod';
 import type { GoalType } from '@/features/calorie-tracking/tdee';
+import { invalidateCorrelationSeries } from '@/features/glp1/hooks/invalidate-correlation';
+import {
+  getLogicalDateForTimestamp,
+  getTimeRangeForLogicalDate,
+} from '@/features/tracking/domain/day-boundary';
 import type { Database } from '@/lib/database.types';
 import { getSupabase } from '@/lib/supabase';
 
@@ -91,6 +96,77 @@ export function latestWeightEntryQueryKey(userId: string | undefined) {
   return ['calorie-tracking', 'weight', 'latest', userId] as const;
 }
 
+function weightEntriesScopeQueryKey(userId: string | undefined, childProfileId?: string | null) {
+  return ['calorie-tracking', 'weight', userId, childProfileId ?? null] as const;
+}
+
+export function weightEntriesQueryKey(
+  userId: string | undefined,
+  childProfileId: string | null | undefined,
+  logicalDate: string,
+  dayStartTime: string,
+) {
+  return [
+    ...weightEntriesScopeQueryKey(userId, childProfileId),
+    'logical-day',
+    logicalDate,
+    dayStartTime,
+  ] as const;
+}
+
+type LogicalDayWeightQueryInput = {
+  userId: string;
+  childProfileId?: string | null;
+  logicalDate: string;
+  dayStartTime: string;
+};
+
+export async function fetchWeightEntriesForLogicalDay({
+  userId,
+  childProfileId,
+  logicalDate,
+  dayStartTime,
+}: LogicalDayWeightQueryInput): Promise<WeightEntryRow[]> {
+  const { start, nextStart } = getTimeRangeForLogicalDate(logicalDate, dayStartTime);
+  let query = getSupabase()
+    .from('weight_entries')
+    .select('*')
+    .eq('user_id', userId)
+    .is('deleted_at', null);
+
+  query = childProfileId
+    ? query.eq('child_profile_id', childProfileId)
+    : query.is('child_profile_id', null);
+
+  const timestampRange = `and(measured_at.gte.${start.toISOString()},measured_at.lt.${nextStart.toISOString()})`;
+  const legacyFallback = `and(measured_at.is.null,measured_on.eq.${logicalDate})`;
+  const { data, error } = await query
+    .or(`${timestampRange},${legacyFallback}`)
+    .order('measured_at', { ascending: true, nullsFirst: false });
+
+  if (error) throw new Error(error.message);
+  return data ?? [];
+}
+
+export function useWeightEntries(
+  userId: string | undefined,
+  childProfileId: string | null | undefined,
+  logicalDate: string,
+  dayStartTime: string,
+) {
+  return useQuery({
+    queryKey: weightEntriesQueryKey(userId, childProfileId, logicalDate, dayStartTime),
+    queryFn: () =>
+      fetchWeightEntriesForLogicalDay({
+        userId: userId as string,
+        childProfileId,
+        logicalDate,
+        dayStartTime,
+      }),
+    enabled: !!userId && !!logicalDate,
+  });
+}
+
 export function useLatestWeightEntry(userId: string | undefined) {
   return useQuery({
     queryKey: latestWeightEntryQueryKey(userId),
@@ -115,24 +191,51 @@ export function useAddWeightEntryMutation() {
   const queryClient = useQueryClient();
 
   return useMutation({
-    mutationFn: async (input: { userId: string; weightKg: number; measuredOn?: string }) => {
-      const { data, error } = await getSupabase()
-        .from('weight_entries')
-        .insert({
-          user_id: input.userId,
-          weight_kg: input.weightKg,
-          measured_on: input.measuredOn,
-        })
-        .select('*')
-        .single();
-
-      if (error) throw new Error(error.message);
-      return data;
-    },
+    mutationFn: createWeightEntry,
     onSuccess: (_, variables) => {
       queryClient.invalidateQueries({ queryKey: latestWeightEntryQueryKey(variables.userId) });
+      queryClient.invalidateQueries({
+        queryKey: weightEntriesScopeQueryKey(variables.userId, variables.childProfileId),
+      });
+      invalidateCorrelationSeries(queryClient, variables.userId, variables.childProfileId);
     },
   });
+}
+
+const createWeightEntryInputSchema = z.object({
+  userId: z.string().min(1),
+  childProfileId: z.string().min(1).nullish(),
+  weightKg: z.number().positive().lt(700),
+  measuredAt: z.iso.datetime({ offset: true }).optional(),
+  measuredOn: z.iso.date().optional(),
+  dayStartTime: z
+    .string()
+    .regex(/^(?:[01]\d|2[0-3]):[0-5]\d$/)
+    .optional(),
+});
+
+export type CreateWeightEntryInput = z.input<typeof createWeightEntryInputSchema>;
+
+export async function createWeightEntry(input: CreateWeightEntryInput): Promise<WeightEntryRow> {
+  const validated = createWeightEntryInputSchema.parse(input);
+  const measuredAt = validated.measuredAt ?? new Date().toISOString();
+  const measuredOn =
+    validated.measuredOn ??
+    getLogicalDateForTimestamp(new Date(measuredAt), validated.dayStartTime ?? '00:00');
+  const { data, error } = await getSupabase()
+    .from('weight_entries')
+    .insert({
+      user_id: validated.userId,
+      child_profile_id: validated.childProfileId ?? null,
+      weight_kg: validated.weightKg,
+      measured_at: measuredAt,
+      measured_on: measuredOn,
+    })
+    .select('*')
+    .single();
+
+  if (error) throw new Error(error.message);
+  return data;
 }
 
 // ------------------------------------------------------------- Tagebuch
@@ -229,6 +332,7 @@ export function useAddFoodEntryMutation() {
           variables.childProfileId,
         ),
       });
+      invalidateCorrelationSeries(queryClient, variables.userId, variables.childProfileId);
     },
   });
 }
@@ -272,6 +376,7 @@ export function useUpdateFoodEntryMutation() {
       queryClient.invalidateQueries({
         queryKey: foodEntriesQueryKey(variables.userId, variables.loggedOn),
       });
+      invalidateCorrelationSeries(queryClient, variables.userId);
     },
   });
 }
@@ -303,6 +408,7 @@ export function useDeleteFoodEntryMutation() {
       queryClient.invalidateQueries({
         queryKey: foodEntriesQueryKey(variables.userId, variables.loggedOn),
       });
+      invalidateCorrelationSeries(queryClient, variables.userId);
     },
   });
 }
@@ -333,6 +439,7 @@ export function useRestoreFoodEntryMutation() {
       queryClient.invalidateQueries({
         queryKey: foodEntriesQueryKey(variables.userId, variables.loggedOn),
       });
+      invalidateCorrelationSeries(queryClient, variables.userId);
     },
   });
 }

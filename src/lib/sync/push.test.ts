@@ -1,3 +1,4 @@
+import { runDrizzleMigrations } from '@/lib/db/drizzle-migrator';
 import { MIGRATIONS } from '@/lib/db/migrations';
 import { runMigrations } from '@/lib/db/migrator';
 import { enqueueMutation } from '@/lib/db/outbox';
@@ -115,5 +116,50 @@ describe('pushOutbox — generischer onForeignKeyViolation-Dispatch', () => {
     // Resolver wurde aufgerufen (jeder Fehler geht an ihn), hat aber nicht
     // reparieren koennen -> keinen zweiten Versuch ausgeloest.
     expect(update).toHaveBeenCalledTimes(1);
+  });
+});
+
+describe('pushOutbox — medizinische Einheiten', () => {
+  it('sendet unit "units" unveraendert an Supabase', async () => {
+    const db = createTestDatabase();
+    await runMigrations(db, MIGRATIONS);
+    await runDrizzleMigrations(db);
+
+    const remoteRow = {
+      id: 'med-1',
+      user_id: 'user-1',
+      child_profile_id: null,
+      medication_name: 'Insulin',
+      dose: 4,
+      unit: 'units',
+      injection_site: null,
+      administered_at: '2026-08-30T10:00:00.000Z',
+      notes: null,
+      created_at: '2026-08-30T10:00:00.000Z',
+      updated_at: '2026-08-30T10:00:01.000Z',
+      deleted_at: null,
+    };
+    const select = jest.fn().mockResolvedValue({ data: [remoteRow], error: null, status: 201 });
+    const insert = jest.fn().mockReturnValue({ select });
+    const client = {
+      from: jest.fn().mockReturnValue({ insert }),
+    } as unknown as TypedSupabaseClient;
+
+    await enqueueMutation(db, {
+      entity: 'medication_logs',
+      entityId: 'med-1',
+      op: 'insert',
+      payload: remoteRow,
+      now: 1,
+      applyLocally: async () => {},
+    });
+
+    try {
+      await pushOutbox({ db, supabase: client, now: () => 2 });
+
+      expect(insert).toHaveBeenCalledWith(expect.objectContaining({ unit: 'units' }));
+    } finally {
+      db.close();
+    }
   });
 });

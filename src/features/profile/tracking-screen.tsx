@@ -1,6 +1,6 @@
 import { useQueryClient } from '@tanstack/react-query';
 import { router } from 'expo-router';
-import { useEffect, useMemo, useState } from 'react';
+import { Fragment, useEffect, useMemo, useState } from 'react';
 import { Modal, Pressable, ScrollView, View } from 'react-native';
 
 import { TextField } from '@/components/forms/text-field';
@@ -14,11 +14,14 @@ import {
   useLatestWeightEntry,
   useUpdateTrackingDayStartTimeMutation,
   useUpdateTrackingMethodMutation,
+  useWeightEntries,
 } from '@/features/calorie-tracking/api';
 import { calculateAgeYears, calculateBmr } from '@/features/calorie-tracking/bmr';
 import { type ActivityLevel, calculateTdee } from '@/features/calorie-tracking/tdee';
+import { InjectionPlanSection } from '@/features/glp1/components/injection-plan-section';
 import { updateProfile, useProfile } from '@/features/profile/api';
 import { SettingsGroup } from '@/features/settings/settings-menu';
+import { getLogicalDateForTimestamp } from '@/features/tracking/domain/day-boundary';
 import { useTheme } from '@/hooks/use-theme';
 
 function formatHourString(hour: number): string {
@@ -216,8 +219,8 @@ function TimePicker({
       {/* Präzise Erklärung */}
       <ThemedText type="caption" themeColor="textSecondary">
         {value === '00:00'
-          ? 'Standard: Dein Tracking-Tag wechselt um 00:00 Uhr (Mitternacht).'
-          : `Dein Tracking-Tag läuft jeweils 24 Stunden ab ${value} Uhr. Mahlzeiten vor ${value} Uhr zählen zum vorherigen Tag.`}
+          ? 'Standard: Dein Tracking-Tag wechselt um 00:00 Uhr. Das betrifft Mahlzeiten, Injektionen, Symptome und Gewicht. Bestehende Einträge bleiben unverändert.'
+          : `Dein Tracking-Tag läuft jeweils 24 Stunden ab ${value} Uhr. Mahlzeiten, Injektionen, Symptome und Gewicht vor ${value} Uhr zählen zum vorherigen Tag. Bestehende Einträge bleiben unverändert.`}
       </ThemedText>
 
       {/* Modal für manuelle Zeiteingabe */}
@@ -276,6 +279,15 @@ export function TrackingScreen() {
   const { data: profile } = useProfile(userId);
   const { data: currentGoal } = useCurrentGoal(userId);
   const { data: latestWeight } = useLatestWeightEntry(userId);
+  const dayStartTime = profile?.tracking_day_start_time ?? '00:00';
+  const selectedLogicalDate = getLogicalDateForTimestamp(new Date(), dayStartTime);
+  const { data: logicalDayWeightEntries = [] } = useWeightEntries(
+    userId,
+    null,
+    selectedLogicalDate,
+    dayStartTime,
+  );
+  const logicalDayWeight = logicalDayWeightEntries.at(-1);
   const queryClient = useQueryClient();
 
   const [biometricsModalVisible, setBiometricsModalVisible] = useState(false);
@@ -384,35 +396,41 @@ export function TrackingScreen() {
               {TRACKING_METHODS.map((m) => {
                 const isSelected = selectedMethod === m.id;
                 return (
-                  <Pressable
-                    key={m.id}
-                    onPress={() => handleSelectMethod(m.id)}
-                    accessibilityRole="radio"
-                    accessibilityState={{ selected: isSelected }}
-                    style={{
-                      backgroundColor: isSelected ? theme.accent : theme.backgroundElement,
-                      borderColor: isSelected ? theme.accent : theme.border,
-                    }}
-                    className="p-three rounded-xl border flex-row items-center justify-between">
-                    <View className="flex-row items-center gap-three flex-1 mr-two">
-                      <ThemedText type="subtitle">{m.icon}</ThemedText>
-                      <View className="flex-1">
-                        <ThemedText type="smallBold" themeColor={isSelected ? 'onAccent' : 'text'}>
-                          {m.label}
-                        </ThemedText>
-                        <ThemedText
-                          type="captionCompact"
-                          themeColor={isSelected ? 'onAccent' : 'textSecondary'}>
-                          {m.desc}
-                        </ThemedText>
+                  <Fragment key={m.id}>
+                    <Pressable
+                      onPress={() => handleSelectMethod(m.id)}
+                      accessibilityRole="radio"
+                      accessibilityState={{ selected: isSelected }}
+                      style={{
+                        backgroundColor: isSelected ? theme.accent : theme.backgroundElement,
+                        borderColor: isSelected ? theme.accent : theme.border,
+                      }}
+                      className="p-three rounded-xl border flex-row items-center justify-between">
+                      <View className="flex-row items-center gap-three flex-1 mr-two">
+                        <ThemedText type="subtitle">{m.icon}</ThemedText>
+                        <View className="flex-1">
+                          <ThemedText
+                            type="smallBold"
+                            themeColor={isSelected ? 'onAccent' : 'text'}>
+                            {m.label}
+                          </ThemedText>
+                          <ThemedText
+                            type="captionCompact"
+                            themeColor={isSelected ? 'onAccent' : 'textSecondary'}>
+                            {m.desc}
+                          </ThemedText>
+                        </View>
                       </View>
-                    </View>
-                    {isSelected ? (
-                      <ThemedText type="smallBold" themeColor="onAccent">
-                        Aktiv ✓
-                      </ThemedText>
+                      {isSelected ? (
+                        <ThemedText type="smallBold" themeColor="onAccent">
+                          Aktiv ✓
+                        </ThemedText>
+                      ) : null}
+                    </Pressable>
+                    {m.id === 'glp1' && isSelected ? (
+                      <InjectionPlanSection userId={userId} />
                     ) : null}
-                  </Pressable>
+                  </Fragment>
                 );
               })}
             </View>
@@ -501,7 +519,7 @@ export function TrackingScreen() {
                   ⚖️ Aktuelles Gewicht
                 </ThemedText>
                 <ThemedText type="smallBold" className="text-base mt-one">
-                  {latestWeight?.weight_kg ? `${latestWeight.weight_kg} kg` : 'Kein Log'}
+                  {logicalDayWeight?.weight_kg ? `${logicalDayWeight.weight_kg} kg` : 'Kein Log'}
                 </ThemedText>
               </View>
             </View>

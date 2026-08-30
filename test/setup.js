@@ -22,9 +22,25 @@ jest.mock('expo-notifications', () => ({
   getPermissionsAsync: jest.fn().mockResolvedValue({ status: 'granted' }),
   requestPermissionsAsync: jest.fn().mockResolvedValue({ status: 'granted' }),
   scheduleNotificationAsync: jest.fn().mockResolvedValue('notif-id-123'),
+  cancelScheduledNotificationAsync: jest.fn().mockResolvedValue(undefined),
   cancelAllScheduledNotificationsAsync: jest.fn().mockResolvedValue(undefined),
+  setNotificationChannelAsync: jest.fn().mockResolvedValue(undefined),
+  AndroidImportance: {
+    DEFAULT: 'default',
+  },
+  IosAuthorizationStatus: {
+    AUTHORIZED: 2,
+    PROVISIONAL: 3,
+    EPHEMERAL: 4,
+  },
+  PermissionStatus: {
+    GRANTED: 'granted',
+    DENIED: 'denied',
+    UNDETERMINED: 'undetermined',
+  },
   SchedulableTriggerInputTypes: {
     DAILY: 'daily',
+    DATE: 'date',
   },
 }));
 
