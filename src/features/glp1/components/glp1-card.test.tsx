@@ -40,6 +40,19 @@ let mockMedLogs: {
   notes?: string | null;
 }[] = [];
 let mockRecentMedLogs: typeof mockMedLogs | undefined;
+let mockCorrelationSeries: Array<{
+  date: string;
+  daysSinceInjection: number | null;
+  calories: number | null;
+  weightKg: number | null;
+  injection: {
+    administeredAt: string;
+    medicationName: string;
+    dose: number | null;
+    unit: string;
+  } | null;
+  doseChanged: boolean;
+}> = [];
 
 let mockSymptomLogs: {
   id: string;
@@ -80,9 +93,14 @@ jest.mock('@/features/glp1/hooks/use-injection-reminder', () => ({
   useInjectionReminder: jest.fn(),
 }));
 
+jest.mock('@/features/glp1/hooks/correlation-api', () => ({
+  useCorrelationSeries: () => ({ data: mockCorrelationSeries, isLoading: false, isError: false }),
+}));
+
 beforeEach(() => {
   mockMedLogs = [];
   mockRecentMedLogs = undefined;
+  mockCorrelationSeries = [];
   mockSymptomLogs = [];
   mockPlan = null;
   mockMutateMed.mockClear();
@@ -160,6 +178,28 @@ describe('Glp1Card', () => {
     expect(screen.getByText('Semaglutid (1 mg)')).toBeOnTheScreen();
     await user.press(screen.getByText('+ Injektion eintragen'));
     expect(screen.getByText('Zuletzt: Oberschenkel')).toBeOnTheScreen();
+  });
+
+  it('stellt Injektion, Kalorien und Gewicht in der Korrelationsanalyse gegenueber', async () => {
+    mockCorrelationSeries = [
+      {
+        date: '2026-08-18',
+        daysSinceInjection: 2,
+        calories: 1450,
+        weightKg: 91.2,
+        injection: null,
+        doseChanged: false,
+      },
+    ];
+
+    await render(
+      <Glp1Card userId="user-1" logicalDate="2026-08-18" dayStartTime="06:00" />,
+    );
+
+    expect(screen.getByText('Injektion, Kalorien und Gewicht')).toBeOnTheScreen();
+    expect(screen.getByText('Tag 2')).toBeOnTheScreen();
+    expect(screen.getByText('1.450 kcal')).toBeOnTheScreen();
+    expect(screen.getByText('91,2 kg')).toBeOnTheScreen();
   });
 
   it('zeigt letzte Injektion und Symptom-Status an', async () => {

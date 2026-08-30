@@ -3,6 +3,8 @@ import { Pressable, View } from 'react-native';
 import { ThemedText } from '@/components/theme/themed-text';
 import { Card } from '@/components/ui/card';
 import { useSnackbar } from '@/components/ui/snackbar';
+import { getLogicalDateForTimestamp } from '@/features/calorie-tracking/day-boundary';
+import { CorrelationSection } from '@/features/glp1/components/correlation-section';
 import { InjectionPlanSection } from '@/features/glp1/components/injection-plan-section';
 import { formatDaysSince } from '@/features/glp1/domain/format-days-since';
 import {
@@ -27,6 +29,7 @@ import {
   useUpdateMedicationLogMutation,
   useUpdateSymptomLogMutation,
 } from '@/features/glp1/hooks/glp1-api';
+import { useCorrelationSeries } from '@/features/glp1/hooks/correlation-api';
 import { useInjectionReminder } from '@/features/glp1/hooks/use-injection-reminder';
 
 type Glp1CardProps = {
@@ -83,6 +86,8 @@ export function Glp1Card({
   dayStartTime = '00:00',
 }: Glp1CardProps) {
   useInjectionReminder(userId);
+  const selectedLogicalDate =
+    logicalDate ?? getLogicalDateForTimestamp(new Date(), dayStartTime);
   const [activeForm, setActiveForm] = useState<ActiveForm | null>(null);
   const [showHistory, setShowHistory] = useState(false);
   const { showUndoSnackbar } = useSnackbar();
@@ -93,6 +98,12 @@ export function Glp1Card({
     dayStartTime,
   );
   const { data: recentMedLogs } = useRecentMedicationLogs(userId, childProfileId);
+  const { data: correlationSeries } = useCorrelationSeries(
+    userId,
+    childProfileId,
+    selectedLogicalDate,
+    dayStartTime,
+  );
   const { data: symptomLogs } = useSymptomLogs(
     userId,
     childProfileId,
@@ -241,6 +252,10 @@ export function Glp1Card({
 
       {!childProfileId ? (
         <InjectionPlanSection userId={userId} latestMedicationAt={latestMed?.administered_at} />
+      ) : null}
+
+      {correlationSeries && correlationSeries.length > 0 ? (
+        <CorrelationSection series={correlationSeries} />
       ) : null}
 
       <View className="flex-row gap-two">
