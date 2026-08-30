@@ -7,6 +7,7 @@ import { formatDateTimeInput } from '@/features/glp1/domain/date-time-input';
 import {
   dateTimeInputSchema,
   optionalNotesInputSchema,
+  sideEffectsInputSchema,
 } from '@/features/glp1/domain/form-schema-primitives';
 import { useTheme } from '@/hooks/use-theme';
 
@@ -14,12 +15,7 @@ const symptomFormSchema = z.object({
   appetiteLevel: z.number().int().min(1).max(5),
   satietyLevel: z.number().int().min(1).max(5),
   nauseaLevel: z.number().int().min(0).max(5),
-  sideEffects: z.string().transform((value) =>
-    value
-      .split(',')
-      .map((entry) => entry.trim())
-      .filter(Boolean),
-  ),
+  sideEffects: sideEffectsInputSchema,
   loggedAt: dateTimeInputSchema,
   notes: optionalNotesInputSchema,
 });
@@ -153,6 +149,11 @@ export function SymptomForm({
             />
           )}
         />
+        {errors.sideEffects ? (
+          <ThemedText type="caption" themeColor="danger">
+            {errors.sideEffects.message}
+          </ThemedText>
+        ) : null}
       </View>
 
       <View className="gap-one">
@@ -219,6 +220,10 @@ export function SymptomForm({
       </View>
 
       <Pressable
+        accessibilityRole="button"
+        accessibilityLabel={
+          isPending ? 'Speichern...' : mode === 'edit' ? 'Änderungen speichern' : 'Status speichern'
+        }
         onPress={handleSubmit((value) => onSubmit(value))}
         disabled={isPending}
         style={{ backgroundColor: theme.accent }}

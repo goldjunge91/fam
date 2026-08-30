@@ -147,3 +147,32 @@ it('entfernt eine deaktivierte Ablauf-Erinnerung ohne andere IDs anzufassen', as
   );
   expect(notifications.scheduleNotificationAsync).not.toHaveBeenCalled();
 });
+
+it('plant bei fehlender Berechtigung nichts und nutzt den bestehenden Adapter-Fallback', async () => {
+  notifications.getPermissionsAsync.mockResolvedValue({
+    status: ExpoNotifications.PermissionStatus.DENIED,
+    canAskAgain: false,
+    expires: 'never',
+    granted: false,
+    ios: undefined,
+    android: undefined,
+  });
+  notifications.requestPermissionsAsync.mockResolvedValue({
+    status: ExpoNotifications.PermissionStatus.DENIED,
+    canAskAgain: false,
+    expires: 'never',
+    granted: false,
+    ios: undefined,
+    android: undefined,
+  });
+
+  await expect(
+    scheduleLocalReminder({
+      identifier: 'fam.glp1.injection-due.v1.user-1',
+      date: new Date('2099-09-01T08:00:00.000Z'),
+      title: 'Injektion fällig',
+      body: 'Deine Injektion ist fällig.',
+    }),
+  ).resolves.toBe(false);
+  expect(notifications.scheduleNotificationAsync).not.toHaveBeenCalled();
+});

@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import { calculateInjectionDue } from '@/features/glp1/domain/injection-due';
+import { resolveInjectionReminder } from '@/features/glp1/domain/injection-reminder';
 import { useLatestMedicationLog } from '@/features/glp1/hooks/glp1-api';
 import { useInjectionPlan } from '@/features/glp1/hooks/injection-plan-api';
 import { cancelLocalReminder, scheduleLocalReminder } from '@/lib/notifications';
@@ -11,7 +11,11 @@ export function injectionReminderIdentifier(userId: string): string {
 export function useInjectionReminder(userId: string | undefined): void {
   const planQuery = useInjectionPlan(userId);
   const plan = planQuery.data;
-  const medicationQuery = useLatestMedicationLog(userId, null, plan?.medication_name);
+  const planMedicationName = plan?.medication_name;
+  const planAnchorAt = plan?.anchor_at;
+  const planCadenceDays = plan?.cadence_days;
+  const planReminderEnabled = plan?.reminder_enabled;
+  const medicationQuery = useLatestMedicationLog(userId, null, planMedicationName);
   const latestInjectionAt = medicationQuery.data?.administered_at;
   const reconciliationQueue = useRef<Promise<void>>(Promise.resolve());
   const previousUserId = useRef(userId);
@@ -40,29 +44,30 @@ export function useInjectionReminder(userId: string | undefined): void {
 
     const reconcile = async () => {
       const identifier = injectionReminderIdentifier(userId);
-      if (!plan?.reminder_enabled) {
-        await cancelLocalReminder(identifier);
-        return;
-      }
+      const action = resolveInjectionReminder({
+        identifier,
+        plan:
+          planAnchorAt && planCadenceDays !== undefined && planReminderEnabled !== undefined
+            ? {
+                anchorAt: planAnchorAt,
+                cadenceDays: planCadenceDays,
+                reminderEnabled: planReminderEnabled,
+              }
+            : null,
+        latestInjectionAt,
+        now: new Date(),
+      });
 
-      const now = new Date();
-      const due = calculateInjectionDue(
-        { anchorAt: plan.anchor_at, cadenceDays: plan.cadence_days },
-        latestInjectionAt ? { administeredAt: latestInjectionAt } : null,
-        now,
-      );
-      const dueDate = new Date(due.nextDueAt);
-
-      if (dueDate <= now) {
+      if (action.kind === 'cancel') {
         await cancelLocalReminder(identifier);
         return;
       }
 
       await scheduleLocalReminder({
-        identifier,
-        date: dueDate,
-        title: 'Injektion fällig',
-        body: 'Deine Injektion ist fällig.',
+        identifier: action.identifier,
+        date: action.date,
+        title: action.title,
+        body: action.body,
       });
     };
 
@@ -74,7 +79,9 @@ export function useInjectionReminder(userId: string | undefined): void {
     latestInjectionAt,
     medicationQuery.isError,
     medicationQuery.isLoading,
-    plan,
+    planAnchorAt,
+    planCadenceDays,
+    planReminderEnabled,
     planQuery.isError,
     planQuery.isLoading,
     userId,

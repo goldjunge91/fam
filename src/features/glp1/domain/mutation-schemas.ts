@@ -54,8 +54,14 @@ export const updateInjectionPlanMutationSchema = injectionPlanMutationSchema.ext
   id: z.string().trim().min(1),
 });
 
+export const deleteInjectionPlanMutationSchema = z.object({
+  id: z.string().trim().min(1),
+  userId: accountIdSchema,
+});
+
 export type CreateMedicationLogInput = z.input<typeof medicationLogMutationSchema>;
 export type UpdateMedicationLogInput = z.input<typeof updateMedicationLogMutationSchema>;
 export type CreateSymptomLogInput = z.input<typeof symptomLogMutationSchema>;
 export type UpdateSymptomLogInput = z.input<typeof updateSymptomLogMutationSchema>;
 export type InjectionPlanInput = z.input<typeof injectionPlanMutationSchema>;
+export type DeleteInjectionPlanInput = z.input<typeof deleteInjectionPlanMutationSchema>;

@@ -1,4 +1,5 @@
 import {
+  deleteInjectionPlanMutationSchema,
   injectionPlanMutationSchema,
   medicationLogMutationSchema,
   symptomLogMutationSchema,
@@ -66,5 +67,13 @@ describe('GLP-1 persistence validation', () => {
         reminderEnabled: true,
       }),
     ).toThrow();
+  });
+
+  it('validiert auch das Löschen eines Injektionsplans an der API-Grenze', () => {
+    expect(() => deleteInjectionPlanMutationSchema.parse({ id: ' ', userId: 'user-1' })).toThrow();
+    expect(deleteInjectionPlanMutationSchema.parse({ id: 'plan-1', userId: ' user-1 ' })).toEqual({
+      id: 'plan-1',
+      userId: 'user-1',
+    });
   });
 });

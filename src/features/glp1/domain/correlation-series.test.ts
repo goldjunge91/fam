@@ -1,6 +1,32 @@
 import { buildCorrelationSeries } from './correlation-series';
 
 describe('buildCorrelationSeries', () => {
+  it('ordnet Zeitstempel mit unterschiedlichen Offsets chronologisch', () => {
+    const earlier = {
+      administeredAt: '2026-08-10T10:00:00+02:00',
+      medicationName: 'Mounjaro',
+      dose: 2.5,
+      unit: 'mg',
+    };
+    const later = {
+      administeredAt: '2026-08-10T09:30:00Z',
+      medicationName: 'Mounjaro',
+      dose: 5,
+      unit: 'mg',
+    };
+
+    const [point] = buildCorrelationSeries({
+      startDate: '2026-08-10',
+      endDate: '2026-08-10',
+      injections: [earlier, later],
+      calorieEntries: [],
+      weightEntries: [],
+    });
+
+    expect(point?.injection).toEqual(later);
+    expect(point?.doseChanged).toBe(true);
+  });
+
   it('ordnet jedem logischen Tag den Abstand zur letzten Injektion zu', () => {
     const series = buildCorrelationSeries({
       startDate: '2026-08-10',

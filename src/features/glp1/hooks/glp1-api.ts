@@ -476,6 +476,56 @@ export function useSymptomLogs(
   });
 }
 
+export function recentSymptomLogsQueryKey(
+  userId: string | undefined,
+  childProfileId: string | null | undefined,
+  limit: number,
+) {
+  return [...symptomLogsScopeQueryKey(userId, childProfileId), 'recent', limit] as const;
+}
+
+export async function fetchRecentSymptomLogs({
+  userId,
+  childProfileId,
+  limit = 10,
+}: {
+  userId: string;
+  childProfileId?: string | null;
+  limit?: number;
+}): Promise<SymptomLogRow[]> {
+  const db = await getDatabase();
+  const boundedLimit = boundedRecentLimit(limit);
+  const rows = await db.getAllAsync<LocalSymptomLogRow>(
+    `select id, user_id, child_profile_id, logged_at, appetite_level, satiety_level,
+            nausea_level, side_effects, notes, created_at, updated_at, deleted_at
+     from symptom_logs
+     where user_id = ? and child_profile_id is ? and deleted_at is null
+     order by logged_at desc
+     limit ?`,
+    [userId, childProfileId ?? null, boundedLimit],
+  );
+  return rows.map(symptomLogFromLocal);
+}
+
+export function useRecentSymptomLogs(
+  userId: string | undefined,
+  childProfileId: string | null | undefined,
+  limit = 10,
+) {
+  const boundedLimit = boundedRecentLimit(limit);
+  return useQuery({
+    queryKey: recentSymptomLogsQueryKey(userId, childProfileId, boundedLimit),
+    queryFn: () =>
+      fetchRecentSymptomLogs({
+        userId: userId as string,
+        childProfileId,
+        limit: boundedLimit,
+      }),
+    enabled: !!userId,
+    networkMode: 'always',
+  });
+}
+
 export function useAddSymptomLogMutation() {
   const queryClient = useQueryClient();
 

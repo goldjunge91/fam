@@ -4,13 +4,11 @@ import { ThemedText } from '@/components/theme/themed-text';
 import { Card } from '@/components/ui/card';
 import { useSnackbar } from '@/components/ui/snackbar';
 import { CorrelationSection } from '@/features/glp1/components/correlation-section';
+import { Glp1LogHistory } from '@/features/glp1/components/glp1-log-history';
 import { InjectionPlanSection } from '@/features/glp1/components/injection-plan-section';
 import { formatDaysSince } from '@/features/glp1/domain/format-days-since';
-import {
-  INJECTION_SITE_LABELS,
-  isInjectionSite,
-  toMedicationUnit,
-} from '@/features/glp1/domain/medication-options';
+import { type Glp1HistoryItem, sortGlp1History } from '@/features/glp1/domain/log-history';
+import { isInjectionSite, toMedicationUnit } from '@/features/glp1/domain/medication-options';
 import { InjectionForm, type InjectionFormValue } from '@/features/glp1/forms/injection-form';
 import { SymptomForm, type SymptomFormValue } from '@/features/glp1/forms/symptom-form';
 import { useCorrelationSeries } from '@/features/glp1/hooks/correlation-api';
@@ -23,6 +21,7 @@ import {
   useDeleteSymptomLogMutation,
   useMedicationLogs,
   useRecentMedicationLogs,
+  useRecentSymptomLogs,
   useRestoreMedicationLogMutation,
   useRestoreSymptomLogMutation,
   useSymptomLogs,
@@ -42,10 +41,6 @@ type Glp1CardProps = {
 type ActiveForm =
   | { kind: 'injection'; log?: MedicationLogRow }
   | { kind: 'symptom'; log?: SymptomLogRow };
-
-type HistoryItem =
-  | { kind: 'injection'; timestamp: string; log: MedicationLogRow }
-  | { kind: 'symptom'; timestamp: string; log: SymptomLogRow };
 
 function injectionFormValue(log: MedicationLogRow): InjectionFormValue {
   return {
@@ -69,16 +64,6 @@ function symptomFormValue(log: SymptomLogRow): SymptomFormValue {
   };
 }
 
-function formatHistoryTimestamp(timestamp: string): string {
-  return new Date(timestamp).toLocaleString('de-DE', {
-    day: '2-digit',
-    month: '2-digit',
-    year: 'numeric',
-    hour: '2-digit',
-    minute: '2-digit',
-  });
-}
-
 export function Glp1Card({
   userId,
   childProfileId,
@@ -88,7 +73,6 @@ export function Glp1Card({
   useInjectionReminder(userId);
   const selectedLogicalDate = logicalDate ?? getLogicalDateForTimestamp(new Date(), dayStartTime);
   const [activeForm, setActiveForm] = useState<ActiveForm | null>(null);
-  const [showHistory, setShowHistory] = useState(false);
   const { showUndoSnackbar } = useSnackbar();
   const { data: injectionLogs } = useMedicationLogs(
     userId,
@@ -104,6 +88,7 @@ export function Glp1Card({
     dayStartTime,
   );
   const { data: symptomLogs } = useSymptomLogs(userId, childProfileId, logicalDate, dayStartTime);
+  const { data: recentSymptomLogs } = useRecentSymptomLogs(userId, childProfileId);
   const addInjectionMutation = useAddMedicationLogMutation();
   const addSymptomMutation = useAddSymptomLogMutation();
   const updateInjectionMutation = useUpdateMedicationLogMutation();
@@ -114,9 +99,13 @@ export function Glp1Card({
   const restoreSymptomMutation = useRestoreSymptomLogMutation();
   const latestInjection =
     recentInjectionLogs && recentInjectionLogs.length > 0 ? recentInjectionLogs[0] : null;
-  const latestSymptom = symptomLogs && symptomLogs.length > 0 ? symptomLogs[0] : null;
+  const latestSymptom =
+    recentSymptomLogs && recentSymptomLogs.length > 0 ? recentSymptomLogs[0] : null;
 
-  const history: HistoryItem[] = [
+  const history: Glp1HistoryItem<MedicationLogRow, SymptomLogRow>[] = sortGlp1History<
+    MedicationLogRow,
+    SymptomLogRow
+  >([
     ...(injectionLogs ?? []).map((log) => ({
       kind: 'injection' as const,
       timestamp: log.administered_at,
@@ -127,7 +116,7 @@ export function Glp1Card({
       timestamp: log.logged_at,
       log,
     })),
-  ].sort((left, right) => right.timestamp.localeCompare(left.timestamp));
+  ]);
 
   const recentSites = (recentInjectionLogs ?? [])
     .map((log) => log.injection_site)
@@ -246,10 +235,7 @@ export function Glp1Card({
       </View>
 
       {!childProfileId ? (
-        <InjectionPlanSection
-          userId={userId}
-          latestInjectionAt={latestInjection?.administered_at}
-        />
+        <InjectionPlanSection userId={userId} recentInjectionLogs={recentInjectionLogs} />
       ) : null}
 
       {correlationSeries && correlationSeries.length > 0 ? (
@@ -303,100 +289,13 @@ export function Glp1Card({
         />
       ) : null}
 
-      {history.length > 0 ? (
-        <View className="pt-one border-t border-border">
-          <Pressable
-            onPress={() => setShowHistory(!showHistory)}
-            className="py-one flex-row items-center justify-between">
-            <ThemedText type="small" themeColor="textSecondary">
-              {showHistory ? 'Verlauf ausblenden' : 'Bisherigen Verlauf anzeigen'}
-            </ThemedText>
-            <ThemedText type="small" themeColor="textSecondary">
-              {showHistory ? '▲' : '▼'}
-            </ThemedText>
-          </Pressable>
-
-          {showHistory ? (
-            <View className="gap-two pt-two">
-              {history.slice(0, 10).map((item) => {
-                if (item.kind === 'injection') {
-                  const { log } = item;
-                  return (
-                    <View
-                      key={`medication-${log.id}`}
-                      className="p-two rounded-lg bg-surface border border-border gap-one">
-                      <ThemedText type="smallBold">
-                        Injektion · {log.medication_name} {log.dose} {log.unit}
-                      </ThemedText>
-                      <ThemedText type="caption" themeColor="textSecondary">
-                        {formatHistoryTimestamp(log.administered_at)}
-                        {isInjectionSite(log.injection_site)
-                          ? ` · ${INJECTION_SITE_LABELS[log.injection_site]}`
-                          : ''}
-                      </ThemedText>
-                      {log.notes ? <ThemedText type="small">{log.notes}</ThemedText> : null}
-                      <View className="flex-row gap-three">
-                        <Pressable
-                          accessibilityRole="button"
-                          accessibilityLabel="Injektion bearbeiten"
-                          onPress={() => setActiveForm({ kind: 'injection', log })}>
-                          <ThemedText type="caption" themeColor="accent">
-                            Bearbeiten
-                          </ThemedText>
-                        </Pressable>
-                        <Pressable
-                          accessibilityRole="button"
-                          accessibilityLabel="Injektion löschen"
-                          onPress={() => deleteInjection(log)}>
-                          <ThemedText type="caption" themeColor="danger">
-                            Löschen
-                          </ThemedText>
-                        </Pressable>
-                      </View>
-                    </View>
-                  );
-                }
-
-                const { log } = item;
-                return (
-                  <View
-                    key={`symptom-${log.id}`}
-                    className="p-two rounded-lg bg-surface border border-border gap-one">
-                    <ThemedText type="smallBold">
-                      Symptome · Appetit {log.appetite_level}/5 · Sättigung {log.satiety_level}/5
-                    </ThemedText>
-                    <ThemedText type="caption" themeColor="textSecondary">
-                      {formatHistoryTimestamp(log.logged_at)} · Übelkeit {log.nausea_level ?? 0}/5
-                    </ThemedText>
-                    {log.side_effects.length > 0 ? (
-                      <ThemedText type="small">{log.side_effects.join(' · ')}</ThemedText>
-                    ) : null}
-                    {log.notes ? <ThemedText type="small">{log.notes}</ThemedText> : null}
-                    <View className="flex-row gap-three">
-                      <Pressable
-                        accessibilityRole="button"
-                        accessibilityLabel="Symptome bearbeiten"
-                        onPress={() => setActiveForm({ kind: 'symptom', log })}>
-                        <ThemedText type="caption" themeColor="accent">
-                          Bearbeiten
-                        </ThemedText>
-                      </Pressable>
-                      <Pressable
-                        accessibilityRole="button"
-                        accessibilityLabel="Symptome löschen"
-                        onPress={() => deleteSymptom(log)}>
-                        <ThemedText type="caption" themeColor="danger">
-                          Löschen
-                        </ThemedText>
-                      </Pressable>
-                    </View>
-                  </View>
-                );
-              })}
-            </View>
-          ) : null}
-        </View>
-      ) : null}
+      <Glp1LogHistory
+        items={history}
+        onEditMedication={(log) => setActiveForm({ kind: 'injection', log })}
+        onDeleteMedication={deleteInjection}
+        onEditSymptom={(log) => setActiveForm({ kind: 'symptom', log })}
+        onDeleteSymptom={deleteSymptom}
+      />
     </Card>
   );
 }

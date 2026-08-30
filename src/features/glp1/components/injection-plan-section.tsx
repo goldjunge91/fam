@@ -17,7 +17,14 @@ import {
 
 type InjectionPlanSectionProps = {
   userId: string | undefined;
-  latestInjectionAt?: string;
+  recentInjectionLogs?: ReadonlyArray<
+    Pick<InjectionPlanMedication, 'medication_name' | 'administered_at'>
+  >;
+};
+
+type InjectionPlanMedication = {
+  medication_name: string;
+  administered_at: string;
 };
 
 const STATUS_CONTENT = {
@@ -37,7 +44,10 @@ function planFormValue(plan: InjectionPlanRow): InjectionPlanFormValue {
   };
 }
 
-export function InjectionPlanSection({ userId, latestInjectionAt }: InjectionPlanSectionProps) {
+export function InjectionPlanSection({
+  userId,
+  recentInjectionLogs = [],
+}: InjectionPlanSectionProps) {
   const [showForm, setShowForm] = useState(false);
   const { data: plan, isLoading, isError } = useInjectionPlan(userId);
   const createMutation = useCreateInjectionPlanMutation();
@@ -85,6 +95,11 @@ export function InjectionPlanSection({ userId, latestInjectionAt }: InjectionPla
     );
   }
 
+  const latestInjectionAt = recentInjectionLogs.find(
+    (log) =>
+      log.medication_name.trim().toLocaleLowerCase('de-DE') ===
+      plan.medication_name.trim().toLocaleLowerCase('de-DE'),
+  )?.administered_at;
   const due = calculateInjectionDue(
     { anchorAt: plan.anchor_at, cadenceDays: plan.cadence_days },
     latestInjectionAt ? { administeredAt: latestInjectionAt } : null,

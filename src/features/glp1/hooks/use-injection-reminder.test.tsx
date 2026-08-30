@@ -120,6 +120,36 @@ it('plant nach einer neuen Injektion auf deren Rhythmus neu', async () => {
   });
 });
 
+it('plant nach einer Planänderung auf den neuen Fälligkeitszeitpunkt neu', async () => {
+  mockPlan = {
+    id: 'plan-1',
+    user_id: 'user-1',
+    medication_name: 'Semaglutid',
+    dose: 0.5,
+    unit: 'mg',
+    cadence_days: 7,
+    anchor_at: '2099-09-01T08:00:00.000Z',
+    reminder_enabled: true,
+    created_at: '2026-08-01T08:00:00.000Z',
+    updated_at: '2026-08-01T08:00:00.000Z',
+  };
+  const { rerender } = await renderHook(() => useInjectionReminder('user-1'));
+  await waitFor(() => {
+    expect(mockScheduleLocalReminder).toHaveBeenCalledWith(
+      expect.objectContaining({ date: new Date('2099-09-01T08:00:00.000Z') }),
+    );
+  });
+
+  mockPlan = { ...mockPlan, anchor_at: '2099-09-03T08:00:00.000Z' };
+  await rerender({});
+
+  await waitFor(() => {
+    expect(mockScheduleLocalReminder).toHaveBeenLastCalledWith(
+      expect.objectContaining({ date: new Date('2099-09-03T08:00:00.000Z') }),
+    );
+  });
+});
+
 it('serialisiert eine laufende Planung vor einer nachfolgenden Deaktivierung', async () => {
   let finishScheduling: (() => void) | undefined;
   mockScheduleLocalReminder.mockImplementationOnce(

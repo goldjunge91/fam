@@ -49,6 +49,13 @@ function daysBetween(startDate: string, endDate: string): number {
   return Math.round((parseDate(endDate).getTime() - parseDate(startDate).getTime()) / 86_400_000);
 }
 
+function compareTimestamps(left: string, right: string): number {
+  const leftMs = Date.parse(left);
+  const rightMs = Date.parse(right);
+  if (Number.isFinite(leftMs) && Number.isFinite(rightMs)) return leftMs - rightMs;
+  return left.localeCompare(right);
+}
+
 export function buildCorrelationSeries({
   startDate,
   endDate,
@@ -67,7 +74,7 @@ export function buildCorrelationSeries({
       date: getLogicalDateForTimestamp(new Date(entry.injection.administeredAt), dayStartTime),
     }))
     .sort((left, right) =>
-      left.injection.administeredAt.localeCompare(right.injection.administeredAt),
+      compareTimestamps(left.injection.administeredAt, right.injection.administeredAt),
     );
 
   const injectionsByDate = new Map<

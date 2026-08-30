@@ -1,5 +1,7 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import {
+  type DeleteInjectionPlanInput,
+  deleteInjectionPlanMutationSchema,
   type InjectionPlanInput,
   injectionPlanMutationSchema,
   updateInjectionPlanMutationSchema,
@@ -9,7 +11,7 @@ import { getSupabase } from '@/lib/supabase';
 
 export type InjectionPlanRow = Database['public']['Tables']['injection_plans']['Row'];
 
-export type { InjectionPlanInput };
+export type { DeleteInjectionPlanInput, InjectionPlanInput };
 
 export function injectionPlanQueryKey(userId: string | undefined) {
   return ['glp1', 'injection-plan', userId] as const;
@@ -94,7 +96,8 @@ export function useUpdateInjectionPlanMutation() {
 export function useDeleteInjectionPlanMutation() {
   const queryClient = useQueryClient();
   return useMutation({
-    mutationFn: async ({ id, userId }: { id: string; userId: string }) => {
+    mutationFn: async (input: DeleteInjectionPlanInput) => {
+      const { id, userId } = deleteInjectionPlanMutationSchema.parse(input);
       const { error } = await getSupabase()
         .from('injection_plans')
         .delete()

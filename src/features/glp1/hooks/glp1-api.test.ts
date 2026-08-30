@@ -14,6 +14,7 @@ import {
   type CreateMedicationLogInput,
   fetchLatestMedicationLog,
   fetchMedicationLogsForLogicalDay,
+  fetchRecentSymptomLogs,
   fetchSymptomLogsForLogicalDay,
   latestMedicationLogQueryKey,
   medicationLogsQueryKey,
@@ -185,6 +186,38 @@ it('liest Symptome offline und fällt bei ungültigen Legacy-Nebenwirkungen sich
   const [sql, params] = mockGetAllAsync.mock.calls[0];
   expect(sql).toContain('user_id = ? and child_profile_id is ? and deleted_at is null');
   expect(params).toEqual(['user-1', 'child-1', expect.any(String), expect.any(String)]);
+});
+
+it('liest die zuletzt erfassten Symptome offline ohne logisches Tagesfenster', async () => {
+  mockGetAllAsync.mockResolvedValue([
+    {
+      id: 'symptom-recent',
+      user_id: 'user-1',
+      child_profile_id: null,
+      logged_at: '2026-08-17T08:00:00.000Z',
+      appetite_level: 2,
+      satiety_level: 5,
+      nausea_level: 1,
+      side_effects: '["Kopfschmerz"]',
+      notes: null,
+      created_at: '2026-08-17T08:00:00.000Z',
+      updated_at: Date.parse('2026-08-17T08:00:00.000Z'),
+      deleted_at: null,
+    },
+  ]);
+  onlineManager.setOnline(false);
+
+  await expect(
+    fetchRecentSymptomLogs({ userId: 'user-1', childProfileId: null, limit: 3 }),
+  ).resolves.toEqual([
+    expect.objectContaining({ id: 'symptom-recent', side_effects: ['Kopfschmerz'] }),
+  ]);
+
+  const [sql, params] = mockGetAllAsync.mock.calls[0];
+  expect(sql).toContain('from symptom_logs');
+  expect(sql).toContain('order by logged_at desc');
+  expect(sql).not.toContain('logged_at >=');
+  expect(params).toEqual(['user-1', null, 3]);
 });
 
 it('legt eine Injektion lokal mit stabiler Unit atomar in Spiegel und Outbox an', async () => {
