@@ -1,0 +1,38 @@
+appId: com.goldjunge91.fam
+tags:
+  - local-session
+---
+- runFlow: ../subflows/launch-signed-in-dashboard.yaml
+- evalScript: ${output.itemName = 'MaestroVorrat' + Date.now()}
+- tapOn:
+    text: "Menü öffnen"
+- tapOn: "Vorrat, ›"
+- extendedWaitUntil:
+    visible: "Artikel suchen"
+    timeout: 10000
+- tapOn: "Neu hinzufügen"
+- tapOn: "Vorratsartikel"
+- extendedWaitUntil:
+    visible: "Artikel hinzufügen"
+    timeout: 10000
+- tapOn: "z. B. Milch oder Barcode-Name"
+- inputText: "${output.itemName}"
+- runFlow:
+    when:
+      visible: "Trefferliste schließen"
+    commands:
+      - tapOn: "Trefferliste schließen"
+- tapOn: "Zum Vorrat hinzufügen"
+- extendedWaitUntil:
+    visible: "${output.itemName}"
+    timeout: 10000
+- tapOn: "${output.itemName}"
+- extendedWaitUntil:
+    visible: "Entfernen"
+    timeout: 10000
+- tapOn: "Entfernen"
+- extendedWaitUntil:
+    visible: "LÖSCHEN"
+    timeout: 10000
+- tapOn: "LÖSCHEN"
+- assertNotVisible: "${output.itemName}"

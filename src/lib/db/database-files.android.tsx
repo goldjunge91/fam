@@ -1,0 +1,47 @@
+export const DATABASE_FILE_NAMES = {
+  main: 'fam-v2.db',
+  encryptedNext: 'fam-v2.encrypted.next.db',
+  plaintextRecovery: 'fam-v2.plaintext.recovery.db',
+  offDump: 'off-dump-v2.db',
+} as const;
+
+export type DatabaseFileOps = {
+  exists(fileName: string): boolean;
+  delete(fileName: string): Promise<void>;
+  move(fromFileName: string, toFileName: string): Promise<void>;
+  path(fileName: string): string;
+};
+
+function loadFileSystem(): typeof import('expo-file-system') {
+  try {
+    return require('expo-file-system') as typeof import('expo-file-system');
+  } catch {
+    throw new Error(
+      'expo-file-system fehlt im Development Build. Der Development Build muss neu erstellt werden.',
+    );
+  }
+}
+
+/** Android liefert einen Dateisystempfad; expo-file-system erwartet hier eine file-URI. */
+export function createExpoDatabaseFileOps(databaseDirectory: string): DatabaseFileOps {
+  const { File } = loadFileSystem();
+  const databaseDirectoryUri = databaseDirectory.startsWith('file://')
+    ? databaseDirectory
+    : `file://${databaseDirectory}`;
+  const file = (fileName: string) => new File(databaseDirectoryUri, fileName);
+
+  return {
+    exists: (fileName) => file(fileName).exists,
+    async delete(fileName) {
+      const target = file(fileName);
+      if (target.exists) target.delete();
+    },
+    async move(fromFileName, toFileName) {
+      await file(fromFileName).move(file(toFileName));
+    },
+    path: (fileName) => {
+      const uri = file(fileName).uri;
+      return uri.startsWith('file://') ? uri.slice('file://'.length) : uri;
+    },
+  };
+}

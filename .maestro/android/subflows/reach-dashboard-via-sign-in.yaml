@@ -1,0 +1,44 @@
+appId: com.goldjunge91.fam
+env:
+  TEST_EMAIL: maestro-e2e@example.com
+  TEST_PASSWORD: Passwort123!
+---
+- runFlow: launch-local-dev-client.yaml
+- tapOn: "Weiter"
+- tapOn: "Weiter"
+- tapOn: "Jetzt starten"
+- tapOn: "Anmelden"
+- tapOn:
+    id: "onboarding-account-email"
+- inputText: "${TEST_EMAIL}"
+- tapOn:
+    id: "onboarding-account-password"
+- inputText: "${TEST_PASSWORD}"
+- hideKeyboard
+- tapOn: "Anmelden & weiter"
+- scrollUntilVisible:
+    element: "Später ausfüllen"
+- tapOn: "Später ausfüllen"
+- runFlow:
+    when:
+      visible: ".*AKTIVER HAUSHALT ERKANNT.*"
+    commands:
+      - tapOn: "Weiter"
+- runFlow:
+    when:
+      visible: "Dein Haushalt"
+    commands:
+      - scrollUntilVisible:
+          element: "🏠 Neuen Haushalt erstellen"
+      - tapOn: "🏠 Neuen Haushalt erstellen"
+      - tapOn:
+          id: "onboarding-household-name"
+      - inputText: "Familie E2E"
+      - hideKeyboard
+      - tapOn: "Weiter"
+- tapOn: "Überspringen"
+- tapOn: "Jetzt nicht"
+- tapOn: "Zum Dashboard"
+- extendedWaitUntil:
+    visible: "Übersicht"
+    timeout: 20000

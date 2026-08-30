@@ -1,0 +1,7 @@
+appId: com.goldjunge91.fam
+tags:
+  - local-session
+---
+- launchApp:
+    clearState: false
+- assertVisible: "Übersicht"
