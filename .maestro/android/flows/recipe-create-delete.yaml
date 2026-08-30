@@ -1,0 +1,58 @@
+appId: com.goldjunge91.fam
+tags:
+  - local-session
+---
+- runFlow: ../subflows/launch-signed-in-dashboard.yaml
+- evalScript: ${output.recipeName = 'MaestroRezept' + Date.now()}
+- tapOn:
+    text: "Menü öffnen"
+- tapOn: "Rezepte, ›"
+- extendedWaitUntil:
+    visible: "Rezepte"
+    timeout: 10000
+- tapOn: "Neu hinzufügen"
+- tapOn: "Rezept"
+- extendedWaitUntil:
+    visible: "Rezept erstellen"
+    timeout: 10000
+- tapOn:
+    text: "^Titel$"
+- inputText: "${output.recipeName}"
+- scrollUntilVisible:
+    element: "Weiter zu den Zutaten"
+    direction: DOWN
+    timeout: 10000
+- tapOn: "Weiter zu den Zutaten"
+- assertVisible: "Gruppen und Zutaten"
+- scrollUntilVisible:
+    element: "Weiter zu den Schritten"
+    direction: DOWN
+    timeout: 10000
+- tapOn: "Weiter zu den Schritten"
+- assertVisible: "Zubereitungsschritte"
+- scrollUntilVisible:
+    element:
+      text: "^Weiter$"
+    direction: DOWN
+    timeout: 10000
+- tapOn:
+    text: "^Weiter$"
+- assertVisible: "Vorschau"
+- scrollUntilVisible:
+    element:
+      text: "^Speichern$"
+    direction: DOWN
+    timeout: 10000
+- tapOn:
+    text: "^Speichern$"
+- extendedWaitUntil:
+    visible: "${output.recipeName}"
+    timeout: 15000
+- tapOn: "Rezept verwalten"
+- tapOn: "Löschen"
+- assertVisible: "Rezept löschen"
+- tapOn: "LÖSCHEN"
+- extendedWaitUntil:
+    visible: "Rezepte"
+    timeout: 10000
+- assertNotVisible: "${output.recipeName}"

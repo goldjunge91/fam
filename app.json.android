@@ -2,12 +2,18 @@
   "expo": {
     "name": "fam",
     "slug": "fam",
-    "version": "0.0.5",
+    "version": "0.0.4",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
     "scheme": "fam",
     "userInterfaceStyle": "automatic",
-    "buildCacheProvider": "eas",
+    "buildCacheProvider": {
+      "plugin": "expo-build-disk-cache",
+      "options": {
+        "remotePlugin": "eas",
+        "cacheDir": "~/expo-build-disk-cache/"
+      }
+    },
     "ios": {
       "appleTeamId": "SW8RP7PA3W",
       "icon": "./assets/expo.icon",
