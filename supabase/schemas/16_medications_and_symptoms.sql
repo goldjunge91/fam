@@ -92,7 +92,7 @@ create table if not exists public.injection_plans (
 comment on table public.injection_plans is
   'Streng privater, expliziter Injektionsrhythmus pro Account.';
 
-create index if not exists injection_plans_user_id_idx
+create unique index if not exists injection_plans_user_id_idx
   on public.injection_plans (user_id);
 
 create or replace trigger injection_plans_set_updated_at

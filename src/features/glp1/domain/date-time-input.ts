@@ -9,6 +9,23 @@ export function formatDateTimeInput(isoTimestamp = new Date().toISOString()): st
 }
 
 export function parseDateTimeInput(value: string): string | null {
-  const date = new Date(value.trim().replace(' ', 'T'));
-  return Number.isNaN(date.getTime()) ? null : date.toISOString();
+  const match = /^(\d{4})-(\d{2})-(\d{2}) (\d{2}):(\d{2})$/.exec(value.trim());
+  if (!match) return null;
+
+  const [, year, month, day, hours, minutes] = match;
+  const date = new Date(
+    Number(year),
+    Number(month) - 1,
+    Number(day),
+    Number(hours),
+    Number(minutes),
+  );
+  const isExact =
+    date.getFullYear() === Number(year) &&
+    date.getMonth() === Number(month) - 1 &&
+    date.getDate() === Number(day) &&
+    date.getHours() === Number(hours) &&
+    date.getMinutes() === Number(minutes);
+
+  return isExact ? date.toISOString() : null;
 }

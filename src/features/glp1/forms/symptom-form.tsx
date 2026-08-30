@@ -1,17 +1,38 @@
-import { useState } from 'react';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { Controller, useForm } from 'react-hook-form';
 import { Pressable, TextInput, View } from 'react-native';
+import { z } from 'zod';
 import { ThemedText } from '@/components/theme/themed-text';
 import { formatDateTimeInput, parseDateTimeInput } from '@/features/glp1/domain/date-time-input';
 import { useTheme } from '@/hooks/use-theme';
 
-export type SymptomFormValue = {
-  appetiteLevel: number;
-  satietyLevel: number;
-  nauseaLevel: number;
-  sideEffects: string[];
-  loggedAt: string;
-  notes: string | null;
-};
+const symptomFormSchema = z.object({
+  appetiteLevel: z.number().int().min(1).max(5),
+  satietyLevel: z.number().int().min(1).max(5),
+  nauseaLevel: z.number().int().min(0).max(5),
+  sideEffects: z.string().transform((value) =>
+    value
+      .split(',')
+      .map((entry) => entry.trim())
+      .filter(Boolean),
+  ),
+  loggedAt: z.string().transform((value, context) => {
+    const parsed = parseDateTimeInput(value);
+    if (!parsed) {
+      context.addIssue({ code: 'custom', message: 'Bitte als JJJJ-MM-TT HH:MM eingeben' });
+      return z.NEVER;
+    }
+    return parsed;
+  }),
+  notes: z
+    .string()
+    .max(2_000, 'Notiz ist zu lang')
+    .transform((value) => value.trim() || null),
+});
+
+export type SymptomFormValue = z.output<typeof symptomFormSchema>;
+type SymptomFormInput = z.input<typeof symptomFormSchema>;
+type SymptomFormOutput = z.output<typeof symptomFormSchema>;
 
 type SymptomFormProps = {
   isPending: boolean;
@@ -66,28 +87,27 @@ export function SymptomForm({
   mode = 'create',
 }: SymptomFormProps) {
   const theme = useTheme();
-  const [appetite, setAppetite] = useState(initialValue?.appetiteLevel ?? 2);
-  const [satiety, setSatiety] = useState(initialValue?.satietyLevel ?? 4);
-  const [nausea, setNausea] = useState(initialValue?.nauseaLevel ?? 0);
-  const [sideEffects, setSideEffects] = useState(initialValue?.sideEffects.join(', ') ?? '');
-  const [loggedAt, setLoggedAt] = useState(() => formatDateTimeInput(initialValue?.loggedAt));
-  const [notes, setNotes] = useState(initialValue?.notes ?? '');
-  const parsedLoggedAt = parseDateTimeInput(loggedAt);
+  const {
+    control,
+    formState: { errors },
+    handleSubmit,
+    setValue,
+    watch,
+  } = useForm<SymptomFormInput, unknown, SymptomFormOutput>({
+    resolver: zodResolver(symptomFormSchema),
+    defaultValues: {
+      appetiteLevel: initialValue?.appetiteLevel ?? 2,
+      satietyLevel: initialValue?.satietyLevel ?? 4,
+      nauseaLevel: initialValue?.nauseaLevel ?? 0,
+      sideEffects: initialValue?.sideEffects.join(', ') ?? '',
+      loggedAt: formatDateTimeInput(initialValue?.loggedAt),
+      notes: initialValue?.notes ?? '',
+    },
+  });
 
-  function handleSubmit() {
-    if (!parsedLoggedAt) return;
-    onSubmit({
-      appetiteLevel: appetite,
-      satietyLevel: satiety,
-      nauseaLevel: nausea,
-      sideEffects: sideEffects
-        .split(',')
-        .map((value) => value.trim())
-        .filter(Boolean),
-      loggedAt: parsedLoggedAt,
-      notes: notes.trim() || null,
-    });
-  }
+  const appetite = watch('appetiteLevel');
+  const satiety = watch('satietyLevel');
+  const nausea = watch('nauseaLevel');
 
   return (
     <View className="p-three bg-surface rounded-xl gap-three border border-border">
@@ -99,33 +119,45 @@ export function SymptomForm({
         label="Appetit (1 = kein Appetit, 5 = starker Heißhunger):"
         levels={[1, 2, 3, 4, 5]}
         selected={appetite}
-        onSelect={setAppetite}
+        onSelect={(value) =>
+          setValue('appetiteLevel', value, { shouldDirty: true, shouldValidate: true })
+        }
       />
       <LevelPicker
         label="Sättigungsgefühl (1 = kaum satt, 5 = sehr schnell satt):"
         levels={[1, 2, 3, 4, 5]}
         selected={satiety}
-        onSelect={setSatiety}
+        onSelect={(value) =>
+          setValue('satietyLevel', value, { shouldDirty: true, shouldValidate: true })
+        }
       />
       <LevelPicker
         label="Übelkeit / Nebenwirkung (0 = keine, 5 = stark):"
         levels={[0, 1, 2, 3, 4, 5]}
         selected={nausea}
-        onSelect={setNausea}
+        onSelect={(value) =>
+          setValue('nauseaLevel', value, { shouldDirty: true, shouldValidate: true })
+        }
       />
 
       <View className="gap-one">
         <ThemedText type="caption" themeColor="textSecondary">
           Konkrete Nebenwirkungen:
         </ThemedText>
-        <TextInput
-          value={sideEffects}
-          onChangeText={setSideEffects}
-          accessibilityLabel="Konkrete Nebenwirkungen"
-          placeholder="z. B. Kopfschmerz, Müdigkeit"
-          className="p-two bg-card rounded-lg border border-border text-sm"
-          placeholderTextColor={theme.textSecondary}
-          style={{ color: theme.text }}
+        <Controller
+          control={control}
+          name="sideEffects"
+          render={({ field: { onChange, value } }) => (
+            <TextInput
+              value={value}
+              onChangeText={onChange}
+              accessibilityLabel="Konkrete Nebenwirkungen"
+              placeholder="z. B. Kopfschmerz, Müdigkeit"
+              className="p-two bg-card rounded-lg border border-border text-sm"
+              placeholderTextColor={theme.textSecondary}
+              style={{ color: theme.text }}
+            />
+          )}
         />
       </View>
 
@@ -133,19 +165,25 @@ export function SymptomForm({
         <ThemedText type="caption" themeColor="textSecondary">
           Zeitpunkt:
         </ThemedText>
-        <TextInput
-          value={loggedAt}
-          onChangeText={setLoggedAt}
-          accessibilityLabel="Zeitpunkt der Symptome"
-          placeholder="JJJJ-MM-TT HH:MM"
-          autoCapitalize="none"
-          className="p-two bg-card rounded-lg border border-border text-sm"
-          placeholderTextColor={theme.textSecondary}
-          style={{ color: theme.text }}
+        <Controller
+          control={control}
+          name="loggedAt"
+          render={({ field: { onChange, value } }) => (
+            <TextInput
+              value={value}
+              onChangeText={onChange}
+              accessibilityLabel="Zeitpunkt der Symptome"
+              placeholder="JJJJ-MM-TT HH:MM"
+              autoCapitalize="none"
+              className="p-two bg-card rounded-lg border border-border text-sm"
+              placeholderTextColor={theme.textSecondary}
+              style={{ color: theme.text }}
+            />
+          )}
         />
-        {!parsedLoggedAt ? (
+        {errors.loggedAt ? (
           <ThemedText type="caption" themeColor="danger">
-            Bitte als JJJJ-MM-TT HH:MM eingeben.
+            {errors.loggedAt.message}
           </ThemedText>
         ) : null}
       </View>
@@ -154,16 +192,27 @@ export function SymptomForm({
         <ThemedText type="caption" themeColor="textSecondary">
           Notiz:
         </ThemedText>
-        <TextInput
-          value={notes}
-          onChangeText={setNotes}
-          accessibilityLabel="Notiz zu den Symptomen"
-          placeholder="Optional"
-          multiline
-          className="p-two bg-card rounded-lg border border-border text-sm min-h-16"
-          placeholderTextColor={theme.textSecondary}
-          style={{ color: theme.text, textAlignVertical: 'top' }}
+        <Controller
+          control={control}
+          name="notes"
+          render={({ field: { onChange, value } }) => (
+            <TextInput
+              value={value}
+              onChangeText={onChange}
+              accessibilityLabel="Notiz zu den Symptomen"
+              placeholder="Optional"
+              multiline
+              className="p-two bg-card rounded-lg border border-border text-sm min-h-16"
+              placeholderTextColor={theme.textSecondary}
+              style={{ color: theme.text, textAlignVertical: 'top' }}
+            />
+          )}
         />
+        {errors.notes ? (
+          <ThemedText type="caption" themeColor="danger">
+            {errors.notes.message}
+          </ThemedText>
+        ) : null}
       </View>
 
       <View className="p-two rounded-lg bg-card border border-border flex-row items-center justify-between">
@@ -176,8 +225,8 @@ export function SymptomForm({
       </View>
 
       <Pressable
-        onPress={handleSubmit}
-        disabled={isPending || !parsedLoggedAt}
+        onPress={handleSubmit((value) => onSubmit(value))}
+        disabled={isPending}
         style={{ backgroundColor: theme.accent }}
         className="py-three rounded-xl items-center justify-center mt-one">
         <ThemedText type="labelBold" themeColor="onAccent">

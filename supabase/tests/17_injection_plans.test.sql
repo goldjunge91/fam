@@ -3,7 +3,7 @@
 begin;
 \ir helpers.sql
 
-select plan(6);
+select plan(7);
 
 select tests.create_user('11111111-1111-1111-1111-111111111111', 'alice@example.com');
 select tests.create_user('22222222-2222-2222-2222-222222222222', 'bob@example.com');
@@ -67,6 +67,16 @@ select throws_ok(
   '23514',
   null,
   'eine nicht positive Kadenz wird abgelehnt'
+);
+
+select throws_ok(
+  $$ insert into public.injection_plans
+       (user_id, medication_name, dose, unit, cadence_days, anchor_at)
+     values
+       ('11111111-1111-1111-1111-111111111111', 'Tirzepatid', 2.5, 'mg', 7, now()) $$,
+  '23505',
+  null,
+  'pro Account kann nur ein Injektionsplan bestehen'
 );
 
 select hasnt_column(

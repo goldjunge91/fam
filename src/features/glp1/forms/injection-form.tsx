@@ -1,30 +1,49 @@
-import { useState } from 'react';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { Controller, useForm } from 'react-hook-form';
 import { Pressable, TextInput, View } from 'react-native';
+import { z } from 'zod';
 import { ThemedText } from '@/components/theme/themed-text';
 import { formatDateTimeInput, parseDateTimeInput } from '@/features/glp1/domain/date-time-input';
+import {
+  INJECTION_SITE_VALUES,
+  INJECTION_SITES,
+  type InjectionSite,
+  MEDICATION_UNITS,
+} from '@/features/glp1/domain/medication-options';
 import { useTheme } from '@/hooks/use-theme';
 
-const COMMON_MEDICATIONS = ['Semaglutid', 'Tirzepatid', 'Liraglutid'];
-const COMMON_DOSES = ['0.25', '0.5', '1.0', '1.7', '2.4'];
-export const MEDICATION_UNITS = ['mg', 'ml', 'units', 'mcg', 'pills'] as const;
-const INJECTION_SITES = [
-  { value: 'abdomen', label: 'Bauch' },
-  { value: 'thigh', label: 'Oberschenkel' },
-  { value: 'upper_arm', label: 'Oberarm' },
-  { value: 'other', label: 'Andere Stelle' },
-] as const;
+const COMMON_MEDICATIONS = ['Semaglutid', 'Tirzepatid', 'Liraglutid'] as const;
+const COMMON_DOSES = ['0.25', '0.5', '1.0', '1.7', '2.4'] as const;
 
-export type InjectionSite = (typeof INJECTION_SITES)[number]['value'];
-export type MedicationUnit = (typeof MEDICATION_UNITS)[number];
+const injectionFormSchema = z.object({
+  medicationName: z.string().trim().min(1, 'Medikament fehlt').max(200),
+  dose: z.string().transform((value, context) => {
+    const parsed = Number(value.trim().replace(',', '.'));
+    if (!Number.isFinite(parsed) || parsed <= 0) {
+      context.addIssue({ code: 'custom', message: 'Dosis muss größer als 0 sein' });
+      return z.NEVER;
+    }
+    return parsed;
+  }),
+  unit: z.enum(MEDICATION_UNITS),
+  injectionSite: z.enum(INJECTION_SITE_VALUES).nullable(),
+  administeredAt: z.string().transform((value, context) => {
+    const parsed = parseDateTimeInput(value);
+    if (!parsed) {
+      context.addIssue({ code: 'custom', message: 'Bitte als JJJJ-MM-TT HH:MM eingeben' });
+      return z.NEVER;
+    }
+    return parsed;
+  }),
+  notes: z
+    .string()
+    .max(2_000, 'Notiz ist zu lang')
+    .transform((value) => value.trim() || null),
+});
 
-export type InjectionFormValue = {
-  medicationName: string;
-  dose: number | null;
-  unit: MedicationUnit;
-  injectionSite: InjectionSite | null;
-  administeredAt: string;
-  notes: string | null;
-};
+export type InjectionFormValue = z.output<typeof injectionFormSchema>;
+type InjectionFormInput = z.input<typeof injectionFormSchema>;
+type InjectionFormOutput = z.output<typeof injectionFormSchema>;
 
 type InjectionFormProps = {
   isPending: boolean;
@@ -34,6 +53,14 @@ type InjectionFormProps = {
   mode?: 'create' | 'edit';
 };
 
+function isCommonMedication(value: string): boolean {
+  return COMMON_MEDICATIONS.some((medication) => medication === value);
+}
+
+function isCommonDose(value: string): boolean {
+  return COMMON_DOSES.some((dose) => dose === value);
+}
+
 export function InjectionForm({
   isPending,
   onSubmit,
@@ -42,43 +69,30 @@ export function InjectionForm({
   mode = 'create',
 }: InjectionFormProps) {
   const theme = useTheme();
-  const initialMedication = initialValue?.medicationName ?? 'Semaglutid';
-  const initialDose = initialValue?.dose?.toString() ?? '0.5';
-  const [medName, setMedName] = useState(
-    COMMON_MEDICATIONS.includes(initialMedication) ? initialMedication : 'Andere',
-  );
-  const [customMed, setCustomMed] = useState(
-    COMMON_MEDICATIONS.includes(initialMedication) ? '' : initialMedication,
-  );
-  const [dose, setDose] = useState(COMMON_DOSES.includes(initialDose) ? initialDose : 'Andere');
-  const [customDose, setCustomDose] = useState(
-    COMMON_DOSES.includes(initialDose) ? '' : initialDose,
-  );
-  const [unit, setUnit] = useState<MedicationUnit>(initialValue?.unit ?? 'mg');
-  const [injectionSite, setInjectionSite] = useState<InjectionSite | null>(
-    initialValue?.injectionSite ?? null,
-  );
-  const [administeredAt, setAdministeredAt] = useState(() =>
-    formatDateTimeInput(initialValue?.administeredAt),
-  );
-  const [notes, setNotes] = useState(initialValue?.notes ?? '');
+  const {
+    control,
+    formState: { errors },
+    handleSubmit,
+    setValue,
+    watch,
+  } = useForm<InjectionFormInput, unknown, InjectionFormOutput>({
+    resolver: zodResolver(injectionFormSchema),
+    defaultValues: {
+      medicationName: initialValue?.medicationName ?? 'Semaglutid',
+      dose: initialValue?.dose.toString() ?? '0.5',
+      unit: initialValue?.unit ?? 'mg',
+      injectionSite: initialValue?.injectionSite ?? null,
+      administeredAt: formatDateTimeInput(initialValue?.administeredAt),
+      notes: initialValue?.notes ?? '',
+    },
+  });
 
-  const effectiveMedName = medName === 'Andere' ? customMed : medName;
-  const effectiveDose = dose === 'Andere' ? customDose : dose;
-  const parsedAdministeredAt = parseDateTimeInput(administeredAt);
-
-  function handleSubmit() {
-    if (!effectiveMedName.trim() || !parsedAdministeredAt) return;
-    const parsedDose = Number.parseFloat(effectiveDose.replace(',', '.'));
-    onSubmit({
-      medicationName: effectiveMedName.trim(),
-      dose: Number.isNaN(parsedDose) ? null : parsedDose,
-      unit,
-      injectionSite,
-      administeredAt: parsedAdministeredAt,
-      notes: notes.trim() || null,
-    });
-  }
+  const medicationName = watch('medicationName');
+  const dose = watch('dose');
+  const unit = watch('unit');
+  const injectionSite = watch('injectionSite');
+  const customMedication = !isCommonMedication(medicationName);
+  const customDose = !isCommonDose(dose);
 
   return (
     <View className="p-three bg-surface rounded-xl gap-three border border-border">
@@ -92,11 +106,16 @@ export function InjectionForm({
         </ThemedText>
         <View className="flex-row flex-wrap gap-two">
           {[...COMMON_MEDICATIONS, 'Andere'].map((name) => {
-            const isSelected = medName === name;
+            const isSelected = name === 'Andere' ? customMedication : medicationName === name;
             return (
               <Pressable
                 key={name}
-                onPress={() => setMedName(name)}
+                onPress={() =>
+                  setValue('medicationName', name === 'Andere' ? '' : name, {
+                    shouldDirty: true,
+                    shouldValidate: true,
+                  })
+                }
                 accessibilityRole="radio"
                 accessibilityState={{ selected: isSelected }}
                 style={{
@@ -111,16 +130,28 @@ export function InjectionForm({
             );
           })}
         </View>
-        {medName === 'Andere' && (
-          <TextInput
-            value={customMed}
-            onChangeText={setCustomMed}
-            placeholder="Name des Medikaments"
-            className="p-two bg-card rounded-lg border border-border text-sm mt-one"
-            placeholderTextColor={theme.textSecondary}
-            style={{ color: theme.text }}
+        {customMedication ? (
+          <Controller
+            control={control}
+            name="medicationName"
+            render={({ field: { onChange, value } }) => (
+              <TextInput
+                value={value}
+                onChangeText={onChange}
+                accessibilityLabel="Name des Medikaments"
+                placeholder="Name des Medikaments"
+                className="p-two bg-card rounded-lg border border-border text-sm mt-one"
+                placeholderTextColor={theme.textSecondary}
+                style={{ color: theme.text }}
+              />
+            )}
           />
-        )}
+        ) : null}
+        {errors.medicationName ? (
+          <ThemedText type="caption" themeColor="danger">
+            {errors.medicationName.message}
+          </ThemedText>
+        ) : null}
       </View>
 
       <View className="gap-one">
@@ -133,7 +164,7 @@ export function InjectionForm({
             return (
               <Pressable
                 key={value}
-                onPress={() => setUnit(value)}
+                onPress={() => setValue('unit', value, { shouldDirty: true, shouldValidate: true })}
                 accessibilityRole="radio"
                 accessibilityState={{ selected: isSelected }}
                 style={{
@@ -156,11 +187,16 @@ export function InjectionForm({
         </ThemedText>
         <View className="flex-row flex-wrap gap-two">
           {[...COMMON_DOSES, 'Andere'].map((value) => {
-            const isSelected = dose === value;
+            const isSelected = value === 'Andere' ? customDose : dose === value;
             return (
               <Pressable
                 key={value}
-                onPress={() => setDose(value)}
+                onPress={() =>
+                  setValue('dose', value === 'Andere' ? '' : value, {
+                    shouldDirty: true,
+                    shouldValidate: true,
+                  })
+                }
                 accessibilityRole="radio"
                 accessibilityState={{ selected: isSelected }}
                 style={{
@@ -175,17 +211,29 @@ export function InjectionForm({
             );
           })}
         </View>
-        {dose === 'Andere' && (
-          <TextInput
-            value={customDose}
-            onChangeText={setCustomDose}
-            placeholder="z. B. 0.75"
-            keyboardType="decimal-pad"
-            className="p-two bg-card rounded-lg border border-border text-sm mt-one"
-            placeholderTextColor={theme.textSecondary}
-            style={{ color: theme.text }}
+        {customDose ? (
+          <Controller
+            control={control}
+            name="dose"
+            render={({ field: { onChange, value } }) => (
+              <TextInput
+                value={value}
+                onChangeText={onChange}
+                accessibilityLabel="Dosis"
+                placeholder="z. B. 0.75"
+                keyboardType="decimal-pad"
+                className="p-two bg-card rounded-lg border border-border text-sm mt-one"
+                placeholderTextColor={theme.textSecondary}
+                style={{ color: theme.text }}
+              />
+            )}
           />
-        )}
+        ) : null}
+        {errors.dose ? (
+          <ThemedText type="caption" themeColor="danger">
+            {errors.dose.message}
+          </ThemedText>
+        ) : null}
       </View>
 
       <View className="gap-one">
@@ -202,7 +250,9 @@ export function InjectionForm({
         ) : null}
         <View className="flex-row flex-wrap gap-two">
           <Pressable
-            onPress={() => setInjectionSite(null)}
+            onPress={() =>
+              setValue('injectionSite', null, { shouldDirty: true, shouldValidate: true })
+            }
             accessibilityRole="radio"
             accessibilityState={{ selected: injectionSite === null }}
             style={{
@@ -219,7 +269,9 @@ export function InjectionForm({
             return (
               <Pressable
                 key={value}
-                onPress={() => setInjectionSite(value)}
+                onPress={() =>
+                  setValue('injectionSite', value, { shouldDirty: true, shouldValidate: true })
+                }
                 accessibilityRole="radio"
                 accessibilityState={{ selected: isSelected }}
                 style={{
@@ -240,19 +292,25 @@ export function InjectionForm({
         <ThemedText type="caption" themeColor="textSecondary">
           Zeitpunkt:
         </ThemedText>
-        <TextInput
-          value={administeredAt}
-          onChangeText={setAdministeredAt}
-          accessibilityLabel="Zeitpunkt der Injektion"
-          placeholder="JJJJ-MM-TT HH:MM"
-          autoCapitalize="none"
-          className="p-two bg-card rounded-lg border border-border text-sm"
-          placeholderTextColor={theme.textSecondary}
-          style={{ color: theme.text }}
+        <Controller
+          control={control}
+          name="administeredAt"
+          render={({ field: { onChange, value } }) => (
+            <TextInput
+              value={value}
+              onChangeText={onChange}
+              accessibilityLabel="Zeitpunkt der Injektion"
+              placeholder="JJJJ-MM-TT HH:MM"
+              autoCapitalize="none"
+              className="p-two bg-card rounded-lg border border-border text-sm"
+              placeholderTextColor={theme.textSecondary}
+              style={{ color: theme.text }}
+            />
+          )}
         />
-        {!parsedAdministeredAt ? (
+        {errors.administeredAt ? (
           <ThemedText type="caption" themeColor="danger">
-            Bitte als JJJJ-MM-TT HH:MM eingeben.
+            {errors.administeredAt.message}
           </ThemedText>
         ) : null}
       </View>
@@ -261,16 +319,27 @@ export function InjectionForm({
         <ThemedText type="caption" themeColor="textSecondary">
           Notiz:
         </ThemedText>
-        <TextInput
-          value={notes}
-          onChangeText={setNotes}
-          accessibilityLabel="Notiz zur Injektion"
-          placeholder="Optional"
-          multiline
-          className="p-two bg-card rounded-lg border border-border text-sm min-h-16"
-          placeholderTextColor={theme.textSecondary}
-          style={{ color: theme.text, textAlignVertical: 'top' }}
+        <Controller
+          control={control}
+          name="notes"
+          render={({ field: { onChange, value } }) => (
+            <TextInput
+              value={value}
+              onChangeText={onChange}
+              accessibilityLabel="Notiz zur Injektion"
+              placeholder="Optional"
+              multiline
+              className="p-two bg-card rounded-lg border border-border text-sm min-h-16"
+              placeholderTextColor={theme.textSecondary}
+              style={{ color: theme.text, textAlignVertical: 'top' }}
+            />
+          )}
         />
+        {errors.notes ? (
+          <ThemedText type="caption" themeColor="danger">
+            {errors.notes.message}
+          </ThemedText>
+        ) : null}
       </View>
 
       <View className="p-two rounded-lg bg-card border border-border flex-row items-center justify-between">
@@ -278,15 +347,13 @@ export function InjectionForm({
           Ausgewählt:
         </ThemedText>
         <ThemedText type="smallBold">
-          {effectiveMedName || '–'} ({effectiveDose || '–'} {unit})
+          {medicationName || '–'} ({dose || '–'} {unit})
         </ThemedText>
       </View>
 
       <Pressable
-        onPress={handleSubmit}
-        disabled={
-          isPending || !effectiveMedName.trim() || !effectiveDose.trim() || !parsedAdministeredAt
-        }
+        onPress={handleSubmit((value) => onSubmit(value))}
+        disabled={isPending}
         style={{ backgroundColor: theme.accent }}
         className="py-three rounded-xl items-center justify-center mt-one">
         <ThemedText type="labelBold" themeColor="onAccent">

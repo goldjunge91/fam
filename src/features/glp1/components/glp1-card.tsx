@@ -3,14 +3,14 @@ import { Pressable, View } from 'react-native';
 import { ThemedText } from '@/components/theme/themed-text';
 import { Card } from '@/components/ui/card';
 import { useSnackbar } from '@/components/ui/snackbar';
+import { InjectionPlanSection } from '@/features/glp1/components/injection-plan-section';
 import { formatDaysSince } from '@/features/glp1/domain/format-days-since';
 import {
-  InjectionForm,
-  type InjectionFormValue,
-  type InjectionSite,
-  MEDICATION_UNITS,
-  type MedicationUnit,
-} from '@/features/glp1/forms/injection-form';
+  INJECTION_SITE_LABELS,
+  isInjectionSite,
+  toMedicationUnit,
+} from '@/features/glp1/domain/medication-options';
+import { InjectionForm, type InjectionFormValue } from '@/features/glp1/forms/injection-form';
 import { SymptomForm, type SymptomFormValue } from '@/features/glp1/forms/symptom-form';
 import {
   type MedicationLogRow,
@@ -40,29 +40,11 @@ type HistoryItem =
   | { kind: 'medication'; timestamp: string; log: MedicationLogRow }
   | { kind: 'symptom'; timestamp: string; log: SymptomLogRow };
 
-const INJECTION_SITE_LABELS = {
-  abdomen: 'Bauch',
-  thigh: 'Oberschenkel',
-  upper_arm: 'Oberarm',
-  other: 'Andere Stelle',
-} as const satisfies Record<InjectionSite, string>;
-
-function isInjectionSite(value: string | null): value is InjectionSite {
-  return value !== null && value in INJECTION_SITE_LABELS;
-}
-
-function medicationUnit(value: string): MedicationUnit {
-  for (const unit of MEDICATION_UNITS) {
-    if (unit === value) return unit;
-  }
-  return 'mg';
-}
-
 function medicationFormValue(log: MedicationLogRow): InjectionFormValue {
   return {
     medicationName: log.medication_name,
-    dose: log.dose,
-    unit: medicationUnit(log.unit),
+    dose: log.dose ?? 0.5,
+    unit: toMedicationUnit(log.unit),
     injectionSite: isInjectionSite(log.injection_site) ? log.injection_site : null,
     administeredAt: log.administered_at,
     notes: log.notes,
@@ -235,6 +217,10 @@ export function Glp1Card({ userId, childProfileId }: Glp1CardProps) {
           )}
         </View>
       </View>
+
+      {!childProfileId ? (
+        <InjectionPlanSection userId={userId} latestMedicationAt={latestMed?.administered_at} />
+      ) : null}
 
       <View className="flex-row gap-two">
         <Pressable

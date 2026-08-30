@@ -10,6 +10,22 @@ const mockDeleteSymptom = jest.fn();
 const mockRestoreMed = jest.fn();
 const mockRestoreSymptom = jest.fn();
 const mockShowUndoSnackbar = jest.fn();
+const mockCreatePlan = jest.fn();
+const mockUpdatePlan = jest.fn();
+const mockDeletePlan = jest.fn();
+
+let mockPlan: {
+  id: string;
+  user_id: string;
+  medication_name: string;
+  dose: number;
+  unit: string;
+  cadence_days: number;
+  anchor_at: string;
+  reminder_enabled: boolean;
+  created_at: string;
+  updated_at: string;
+} | null = null;
 
 let mockMedLogs: {
   id: string;
@@ -48,9 +64,17 @@ jest.mock('@/components/ui/snackbar', () => ({
   useSnackbar: () => ({ showUndoSnackbar: mockShowUndoSnackbar }),
 }));
 
+jest.mock('@/features/glp1/hooks/injection-plan-api', () => ({
+  useInjectionPlan: () => ({ data: mockPlan, isLoading: false }),
+  useCreateInjectionPlanMutation: () => ({ mutate: mockCreatePlan, isPending: false }),
+  useUpdateInjectionPlanMutation: () => ({ mutate: mockUpdatePlan, isPending: false }),
+  useDeleteInjectionPlanMutation: () => ({ mutate: mockDeletePlan, isPending: false }),
+}));
+
 beforeEach(() => {
   mockMedLogs = [];
   mockSymptomLogs = [];
+  mockPlan = null;
   mockMutateMed.mockClear();
   mockMutateSymptom.mockClear();
   mockUpdateMed.mockClear();
@@ -60,6 +84,9 @@ beforeEach(() => {
   mockRestoreMed.mockClear();
   mockRestoreSymptom.mockClear();
   mockShowUndoSnackbar.mockClear();
+  mockCreatePlan.mockClear();
+  mockUpdatePlan.mockClear();
+  mockDeletePlan.mockClear();
 });
 
 describe('Glp1Card', () => {
@@ -163,6 +190,19 @@ describe('Glp1Card', () => {
       }),
       expect.any(Object),
     );
+  });
+
+  it('blockiert ungueltige Formwerte ueber das Zod-Schema', async () => {
+    const user = userEvent.setup();
+    await render(<Glp1Card userId="user-1" />);
+    await user.press(screen.getByText('+ Injektion eintragen'));
+
+    await user.clear(screen.getByLabelText('Zeitpunkt der Injektion'));
+    await user.type(screen.getByLabelText('Zeitpunkt der Injektion'), 'kein Datum');
+    await user.press(screen.getByText('Injektion speichern'));
+
+    expect(await screen.findByText('Bitte als JJJJ-MM-TT HH:MM eingeben')).toBeOnTheScreen();
+    expect(mockMutateMed).not.toHaveBeenCalled();
   });
 
   it('erfasst konkrete Nebenwirkungen, Zeitpunkt und Notiz', async () => {
@@ -281,5 +321,99 @@ describe('Glp1Card', () => {
       userId: 'user-1',
       childProfileId: undefined,
     });
+  });
+
+  it.each([
+    ['Anstehend', '2026-09-02T08:00:00.000Z'],
+    ['Heute fällig', '2026-08-30T08:00:00.000Z'],
+    ['Überfällig', '2026-08-29T08:00:00.000Z'],
+  ])('zeigt den Fälligkeitszustand %s', async (statusLabel, anchorAt) => {
+    jest.useFakeTimers().setSystemTime(new Date('2026-08-30T12:00:00.000Z'));
+    mockPlan = {
+      id: 'plan-1',
+      user_id: 'user-1',
+      medication_name: 'Semaglutid',
+      dose: 0.5,
+      unit: 'mg',
+      cadence_days: 7,
+      anchor_at: anchorAt,
+      reminder_enabled: true,
+      created_at: '2026-08-01T08:00:00.000Z',
+      updated_at: '2026-08-01T08:00:00.000Z',
+    };
+
+    await render(<Glp1Card userId="user-1" />);
+    expect(screen.getByText(statusLabel)).toBeOnTheScreen();
+    jest.useRealTimers();
+  });
+
+  it('legt einen Injektionsplan an', async () => {
+    const user = userEvent.setup();
+    await render(<Glp1Card userId="user-1" />);
+    await user.press(screen.getByRole('button', { name: 'Injektionsplan anlegen' }));
+    await user.press(screen.getByText('Plan speichern'));
+
+    expect(mockCreatePlan).toHaveBeenCalledWith(
+      expect.objectContaining({
+        userId: 'user-1',
+        medicationName: 'Semaglutid',
+        dose: 0.5,
+        unit: 'mg',
+        cadenceDays: 7,
+        reminderEnabled: true,
+      }),
+      expect.any(Object),
+    );
+  });
+
+  it('aendert und entfernt einen bestehenden Injektionsplan', async () => {
+    const user = userEvent.setup();
+    mockPlan = {
+      id: 'plan-1',
+      user_id: 'user-1',
+      medication_name: 'Semaglutid',
+      dose: 0.5,
+      unit: 'mg',
+      cadence_days: 7,
+      anchor_at: '2026-08-30T08:00:00.000Z',
+      reminder_enabled: true,
+      created_at: '2026-08-01T08:00:00.000Z',
+      updated_at: '2026-08-01T08:00:00.000Z',
+    };
+
+    await render(<Glp1Card userId="user-1" />);
+    await user.press(screen.getByRole('button', { name: 'Injektionsplan bearbeiten' }));
+    await user.press(screen.getByText('Änderungen speichern'));
+    expect(mockUpdatePlan).toHaveBeenCalledWith(
+      expect.objectContaining({ id: 'plan-1', userId: 'user-1' }),
+      expect.any(Object),
+    );
+
+    await user.press(screen.getByRole('button', { name: 'Injektionsplan entfernen' }));
+    expect(mockDeletePlan).toHaveBeenCalledWith(
+      { id: 'plan-1', userId: 'user-1' },
+      expect.any(Object),
+    );
+  });
+
+  it('blendet den accountweiten Plan bei ausgewaehltem Kind aus', async () => {
+    mockPlan = {
+      id: 'plan-1',
+      user_id: 'user-1',
+      medication_name: 'Semaglutid',
+      dose: 0.5,
+      unit: 'mg',
+      cadence_days: 7,
+      anchor_at: '2026-08-30T08:00:00.000Z',
+      reminder_enabled: true,
+      created_at: '2026-08-01T08:00:00.000Z',
+      updated_at: '2026-08-01T08:00:00.000Z',
+    };
+
+    await render(<Glp1Card userId="user-1" childProfileId="child-1" />);
+    expect(screen.queryByText('Nächste Injektion')).not.toBeOnTheScreen();
+    expect(
+      screen.queryByRole('button', { name: 'Injektionsplan bearbeiten' }),
+    ).not.toBeOnTheScreen();
   });
 });
