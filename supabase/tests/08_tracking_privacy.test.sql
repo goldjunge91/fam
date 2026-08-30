@@ -10,7 +10,47 @@
 begin;
 \ir helpers.sql
 
-select plan(12);
+select plan(17);
+
+select has_column(
+  'public',
+  'weight_entries',
+  'measured_at',
+  'weight_entries hat einen echten Messzeitpunkt'
+);
+select is(
+  (
+    select data_type
+    from information_schema.columns
+    where table_schema = 'public'
+      and table_name = 'weight_entries'
+      and column_name = 'measured_at'
+  ),
+  'timestamp with time zone',
+  'measured_at ist zeitzonenfest'
+);
+select is(
+  (
+    select is_nullable
+    from information_schema.columns
+    where table_schema = 'public'
+      and table_name = 'weight_entries'
+      and column_name = 'measured_at'
+  ),
+  'YES',
+  'Legacy-Gewichte duerfen ohne erfundenen Messzeitpunkt bleiben'
+);
+select is(
+  (
+    select column_default
+    from information_schema.columns
+    where table_schema = 'public'
+      and table_name = 'weight_entries'
+      and column_name = 'measured_at'
+  ),
+  null::text,
+  'measured_at hat keinen erfundenen Default'
+);
 
 select tests.create_user('11111111-1111-1111-1111-111111111111', 'alice@example.com');
 select tests.create_user('22222222-2222-2222-2222-222222222222', 'bob@example.com');
@@ -31,6 +71,16 @@ values ('11111111-1111-1111-1111-111111111111', current_date, 'breakfast', 80, '
 
 insert into public.weight_entries (user_id, measured_on, weight_kg, waist_cm)
 values ('11111111-1111-1111-1111-111111111111', current_date, 71.4, 82);
+
+select is(
+  (
+    select measured_at
+    from public.weight_entries
+    where user_id = '11111111-1111-1111-1111-111111111111'
+  ),
+  null::timestamptz,
+  'ein Legacy-kompatibler Eintrag ohne Messzeit bleibt unveraendert null'
+);
 
 insert into public.user_goals (user_id, goal_type, target_weight_kg, rate_kg_per_week, daily_kcal)
 values ('11111111-1111-1111-1111-111111111111', 'lose', 68, 0.5, 2100);
