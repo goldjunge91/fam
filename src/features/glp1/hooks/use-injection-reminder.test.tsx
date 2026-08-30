@@ -1,4 +1,4 @@
-import { renderHook } from '@testing-library/react-native';
+import { renderHook, waitFor } from '@testing-library/react-native';
 import { cancelLocalReminder, scheduleLocalReminder } from '@/lib/notifications';
 import { injectionReminderIdentifier, useInjectionReminder } from './use-injection-reminder';
 
@@ -41,11 +41,6 @@ beforeEach(() => {
     data: mockMedicationLogs,
     isLoading: false,
   }));
-  jest.useFakeTimers().setSystemTime(new Date('2026-08-30T12:00:00.000Z'));
-});
-
-afterEach(() => {
-  jest.useRealTimers();
 });
 
 it('plant die accountweite Erinnerung aus Plan und erwachsener Historie', async () => {
@@ -56,7 +51,7 @@ it('plant die accountweite Erinnerung aus Plan und erwachsener Historie', async 
     dose: 0.5,
     unit: 'mg',
     cadence_days: 7,
-    anchor_at: '2026-09-01T08:00:00.000Z',
+    anchor_at: '2099-09-01T08:00:00.000Z',
     reminder_enabled: true,
     created_at: '2026-08-01T08:00:00.000Z',
     updated_at: '2026-08-01T08:00:00.000Z',
@@ -64,11 +59,13 @@ it('plant die accountweite Erinnerung aus Plan und erwachsener Historie', async 
 
   await renderHook(() => useInjectionReminder('user-1'));
 
-  expect(mockScheduleLocalReminder).toHaveBeenCalledWith({
-    identifier: injectionReminderIdentifier('user-1'),
-    date: new Date('2026-09-01T08:00:00.000Z'),
-    title: 'Injektion fällig',
-    body: 'Deine Injektion ist fällig.',
+  await waitFor(() => {
+    expect(mockScheduleLocalReminder).toHaveBeenCalledWith({
+      identifier: injectionReminderIdentifier('user-1'),
+      date: new Date('2099-09-01T08:00:00.000Z'),
+      title: 'Injektion fällig',
+      body: 'Deine Injektion ist fällig.',
+    });
   });
   expect(mockUseMedicationLogs).toHaveBeenCalledWith('user-1', null);
 });
@@ -81,7 +78,7 @@ it('entfernt die Erinnerung wenn sie im Plan abgeschaltet ist', async () => {
     dose: 0.5,
     unit: 'mg',
     cadence_days: 7,
-    anchor_at: '2026-09-01T08:00:00.000Z',
+    anchor_at: '2099-09-01T08:00:00.000Z',
     reminder_enabled: false,
     created_at: '2026-08-01T08:00:00.000Z',
     updated_at: '2026-08-01T08:00:00.000Z',
@@ -89,7 +86,9 @@ it('entfernt die Erinnerung wenn sie im Plan abgeschaltet ist', async () => {
 
   await renderHook(() => useInjectionReminder('user-1'));
 
-  expect(mockCancelLocalReminder).toHaveBeenCalledWith(injectionReminderIdentifier('user-1'));
+  await waitFor(() => {
+    expect(mockCancelLocalReminder).toHaveBeenCalledWith(injectionReminderIdentifier('user-1'));
+  });
   expect(mockScheduleLocalReminder).not.toHaveBeenCalled();
 });
 
@@ -101,18 +100,22 @@ it('plant nach einer neuen Injektion auf deren Rhythmus neu', async () => {
     dose: 0.5,
     unit: 'mg',
     cadence_days: 7,
-    anchor_at: '2026-09-01T08:00:00.000Z',
+    anchor_at: '2099-09-01T08:00:00.000Z',
     reminder_enabled: true,
     created_at: '2026-08-01T08:00:00.000Z',
     updated_at: '2026-08-01T08:00:00.000Z',
   };
   const { rerender } = await renderHook(() => useInjectionReminder('user-1'));
-  expect(mockScheduleLocalReminder).toHaveBeenCalledTimes(1);
+  await waitFor(() => {
+    expect(mockScheduleLocalReminder).toHaveBeenCalledTimes(1);
+  });
 
-  mockMedicationLogs = [{ administered_at: '2026-08-31T08:00:00.000Z' }];
+  mockMedicationLogs = [{ administered_at: '2099-08-31T08:00:00.000Z' }];
   await rerender({});
 
-  expect(mockScheduleLocalReminder).toHaveBeenLastCalledWith(
-    expect.objectContaining({ date: new Date('2026-09-07T08:00:00.000Z') }),
-  );
+  await waitFor(() => {
+    expect(mockScheduleLocalReminder).toHaveBeenLastCalledWith(
+      expect.objectContaining({ date: new Date('2099-09-07T08:00:00.000Z') }),
+    );
+  });
 });
