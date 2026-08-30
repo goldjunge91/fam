@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { calculateInjectionDue } from '@/features/glp1/domain/injection-due';
-import { useMedicationLogs } from '@/features/glp1/hooks/glp1-api';
+import { useLatestMedicationLog } from '@/features/glp1/hooks/glp1-api';
 import { useInjectionPlan } from '@/features/glp1/hooks/injection-plan-api';
 import { cancelLocalReminder, scheduleLocalReminder } from '@/lib/notifications';
 
@@ -10,9 +10,9 @@ export function injectionReminderIdentifier(userId: string): string {
 
 export function useInjectionReminder(userId: string | undefined): void {
   const planQuery = useInjectionPlan(userId);
-  const medicationQuery = useMedicationLogs(userId, null);
+  const medicationQuery = useLatestMedicationLog(userId, null);
   const plan = planQuery.data;
-  const latestMedicationAt = medicationQuery.data?.[0]?.administered_at;
+  const latestMedicationAt = medicationQuery.data?.administered_at;
 
   useEffect(() => {
     if (

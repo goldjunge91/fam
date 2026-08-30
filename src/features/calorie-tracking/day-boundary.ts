@@ -42,14 +42,13 @@ export function getLogicalDateForTimestamp(date: Date, dayStartTime = '00:00'): 
 export function getTimeRangeForLogicalDate(
   logicalDateIso: string,
   dayStartTime = '00:00',
-): { start: Date; end: Date } {
+): { start: Date; nextStart: Date } {
   const { hours: startHour, minutes: startMinute } = parseDayStartTime(dayStartTime);
   const [year, month, day] = logicalDateIso.split('-').map(Number);
 
   const start = new Date(year, month - 1, day, startHour, startMinute, 0, 0);
-  const end = new Date(start);
-  end.setDate(end.getDate() + 1);
-  end.setMilliseconds(end.getMilliseconds() - 1);
+  const nextStart = new Date(start);
+  nextStart.setDate(nextStart.getDate() + 1);
 
-  return { start, end };
+  return { start, nextStart };
 }

@@ -30,6 +30,11 @@ describe('day-boundary (#174)', () => {
       expect(getLogicalDateForTimestamp(earlyMorning, '06:00')).toBe('2026-08-18');
     });
 
+    it('ordnet 05:15 bei Tagesstart 06:00 dem Vortag zu', () => {
+      const earlyMorning = new Date(2026, 7, 19, 5, 15);
+      expect(getLogicalDateForTimestamp(earlyMorning, '06:00')).toBe('2026-08-18');
+    });
+
     it('ordnet mit 06:00 Startzeit einen Zeitpunkt um 06:00 Uhr dem neuen Tag zu', () => {
       const exactStart = new Date(2026, 7, 19, 6, 0); // 19. Aug 2026, 06:00
       expect(getLogicalDateForTimestamp(exactStart, '06:00')).toBe('2026-08-19');
@@ -42,7 +47,7 @@ describe('day-boundary (#174)', () => {
   });
 
   describe('getTimeRangeForLogicalDate', () => {
-    it('erzeugt exakte Zeitspanne fuer einen Tag mit 06:00 Startzeit', () => {
+    it('erzeugt ein halb-offenes Tagesfenster von Start bis zum naechsten Start', () => {
       const range = getTimeRangeForLogicalDate('2026-08-18', '06:00');
       expect(range.start.getFullYear()).toBe(2026);
       expect(range.start.getMonth()).toBe(7);
@@ -50,9 +55,11 @@ describe('day-boundary (#174)', () => {
       expect(range.start.getHours()).toBe(6);
       expect(range.start.getMinutes()).toBe(0);
 
-      expect(range.end.getDate()).toBe(19);
-      expect(range.end.getHours()).toBe(5);
-      expect(range.end.getMinutes()).toBe(59);
+      expect(range.nextStart.getDate()).toBe(19);
+      expect(range.nextStart.getHours()).toBe(6);
+      expect(range.nextStart.getMinutes()).toBe(0);
+      expect(range.nextStart.getSeconds()).toBe(0);
+      expect(range.nextStart.getMilliseconds()).toBe(0);
     });
   });
 });

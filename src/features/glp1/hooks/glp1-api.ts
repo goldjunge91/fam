@@ -1,41 +1,142 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
+import {
+  getLogicalDateForTimestamp,
+  getTimeRangeForLogicalDate,
+} from '@/features/calorie-tracking/day-boundary';
 import type { Database } from '@/lib/database.types';
 import { getSupabase } from '@/lib/supabase';
 
 export type MedicationLogRow = Database['public']['Tables']['medication_logs']['Row'];
 export type SymptomLogRow = Database['public']['Tables']['symptom_logs']['Row'];
 
-export function medicationLogsQueryKey(userId: string | undefined, childProfileId?: string | null) {
+function medicationLogsScopeQueryKey(userId: string | undefined, childProfileId?: string | null) {
   return ['glp1', 'medications', userId, childProfileId ?? null] as const;
 }
 
-export function symptomLogsQueryKey(userId: string | undefined, childProfileId?: string | null) {
+function symptomLogsScopeQueryKey(userId: string | undefined, childProfileId?: string | null) {
   return ['glp1', 'symptoms', userId, childProfileId ?? null] as const;
 }
 
-export function useMedicationLogs(userId: string | undefined, childProfileId?: string | null) {
+export function medicationLogsQueryKey(
+  userId: string | undefined,
+  childProfileId: string | null | undefined,
+  logicalDate: string,
+  dayStartTime: string,
+) {
+  return [
+    ...medicationLogsScopeQueryKey(userId, childProfileId),
+    'logical-day',
+    logicalDate,
+    dayStartTime,
+  ] as const;
+}
+
+export function symptomLogsQueryKey(
+  userId: string | undefined,
+  childProfileId: string | null | undefined,
+  logicalDate: string,
+  dayStartTime: string,
+) {
+  return [
+    ...symptomLogsScopeQueryKey(userId, childProfileId),
+    'logical-day',
+    logicalDate,
+    dayStartTime,
+  ] as const;
+}
+
+export function latestMedicationLogQueryKey(
+  userId: string | undefined,
+  childProfileId?: string | null,
+) {
+  return [...medicationLogsScopeQueryKey(userId, childProfileId), 'latest'] as const;
+}
+
+type LogicalDayLogQueryInput = {
+  userId: string;
+  childProfileId?: string | null;
+  logicalDate: string;
+  dayStartTime: string;
+};
+
+export async function fetchMedicationLogsForLogicalDay({
+  userId,
+  childProfileId,
+  logicalDate,
+  dayStartTime,
+}: LogicalDayLogQueryInput): Promise<MedicationLogRow[]> {
+  const { start, nextStart } = getTimeRangeForLogicalDate(logicalDate, dayStartTime);
+  let query = getSupabase()
+    .from('medication_logs')
+    .select('*')
+    .eq('user_id', userId)
+    .is('deleted_at', null)
+    .order('administered_at', { ascending: false });
+
+  if (childProfileId) {
+    query = query.eq('child_profile_id', childProfileId);
+  } else {
+    query = query.is('child_profile_id', null);
+  }
+
+  const { data, error } = await query
+    .gte('administered_at', start.toISOString())
+    .lt('administered_at', nextStart.toISOString());
+  if (error) throw new Error(error.message);
+  return data ?? [];
+}
+
+export function useMedicationLogs(
+  userId: string | undefined,
+  childProfileId?: string | null,
+  logicalDate?: string,
+  dayStartTime = '00:00',
+) {
+  const selectedLogicalDate = logicalDate ?? getLogicalDateForTimestamp(new Date(), dayStartTime);
   return useQuery({
-    queryKey: medicationLogsQueryKey(userId, childProfileId),
-    queryFn: async (): Promise<MedicationLogRow[]> => {
-      let query = getSupabase()
-        .from('medication_logs')
-        .select('*')
-        .eq('user_id', userId as string)
-        .is('deleted_at', null)
-        .order('administered_at', { ascending: false });
-
-      if (childProfileId) {
-        query = query.eq('child_profile_id', childProfileId);
-      } else {
-        query = query.is('child_profile_id', null);
-      }
-
-      const { data, error } = await query;
-      if (error) throw new Error(error.message);
-      return data ?? [];
-    },
+    queryKey: medicationLogsQueryKey(userId, childProfileId, selectedLogicalDate, dayStartTime),
+    queryFn: () =>
+      fetchMedicationLogsForLogicalDay({
+        userId: userId as string,
+        childProfileId,
+        logicalDate: selectedLogicalDate,
+        dayStartTime,
+      }),
     enabled: !!userId,
   });
+}
+
+export function useLatestMedicationLog(userId: string | undefined, childProfileId?: string | null) {
+  return useQuery({
+    queryKey: latestMedicationLogQueryKey(userId, childProfileId),
+    queryFn: () => fetchLatestMedicationLog({ userId: userId as string, childProfileId }),
+    enabled: !!userId,
+  });
+}
+
+export async function fetchLatestMedicationLog({
+  userId,
+  childProfileId,
+}: {
+  userId: string;
+  childProfileId?: string | null;
+}): Promise<MedicationLogRow | null> {
+  let query = getSupabase()
+    .from('medication_logs')
+    .select('*')
+    .eq('user_id', userId)
+    .is('deleted_at', null)
+    .order('administered_at', { ascending: false });
+
+  if (childProfileId) {
+    query = query.eq('child_profile_id', childProfileId);
+  } else {
+    query = query.is('child_profile_id', null);
+  }
+
+  const { data, error } = await query.limit(1);
+  if (error) throw new Error(error.message);
+  return data?.[0] ?? null;
 }
 
 export type CreateMedicationLogInput = {
@@ -74,7 +175,7 @@ export function useAddMedicationLogMutation() {
     },
     onSuccess: (_, variables) => {
       queryClient.invalidateQueries({
-        queryKey: medicationLogsQueryKey(variables.userId, variables.childProfileId),
+        queryKey: medicationLogsScopeQueryKey(variables.userId, variables.childProfileId),
       });
     },
   });
@@ -107,7 +208,7 @@ export function useUpdateMedicationLogMutation() {
     },
     onSuccess: (_, variables) => {
       queryClient.invalidateQueries({
-        queryKey: medicationLogsQueryKey(variables.userId, variables.childProfileId),
+        queryKey: medicationLogsScopeQueryKey(variables.userId, variables.childProfileId),
       });
     },
   });
@@ -135,7 +236,7 @@ export function useDeleteMedicationLogMutation() {
     },
     onSuccess: (_, variables) => {
       queryClient.invalidateQueries({
-        queryKey: medicationLogsQueryKey(variables.userId, variables.childProfileId),
+        queryKey: medicationLogsScopeQueryKey(variables.userId, variables.childProfileId),
       });
     },
   });
@@ -163,33 +264,55 @@ export function useRestoreMedicationLogMutation() {
     },
     onSuccess: (_, variables) => {
       queryClient.invalidateQueries({
-        queryKey: medicationLogsQueryKey(variables.userId, variables.childProfileId),
+        queryKey: medicationLogsScopeQueryKey(variables.userId, variables.childProfileId),
       });
     },
   });
 }
 
-export function useSymptomLogs(userId: string | undefined, childProfileId?: string | null) {
+export async function fetchSymptomLogsForLogicalDay({
+  userId,
+  childProfileId,
+  logicalDate,
+  dayStartTime,
+}: LogicalDayLogQueryInput): Promise<SymptomLogRow[]> {
+  const { start, nextStart } = getTimeRangeForLogicalDate(logicalDate, dayStartTime);
+  let query = getSupabase()
+    .from('symptom_logs')
+    .select('*')
+    .eq('user_id', userId)
+    .is('deleted_at', null)
+    .order('logged_at', { ascending: false });
+
+  if (childProfileId) {
+    query = query.eq('child_profile_id', childProfileId);
+  } else {
+    query = query.is('child_profile_id', null);
+  }
+
+  const { data, error } = await query
+    .gte('logged_at', start.toISOString())
+    .lt('logged_at', nextStart.toISOString());
+  if (error) throw new Error(error.message);
+  return data ?? [];
+}
+
+export function useSymptomLogs(
+  userId: string | undefined,
+  childProfileId?: string | null,
+  logicalDate?: string,
+  dayStartTime = '00:00',
+) {
+  const selectedLogicalDate = logicalDate ?? getLogicalDateForTimestamp(new Date(), dayStartTime);
   return useQuery({
-    queryKey: symptomLogsQueryKey(userId, childProfileId),
-    queryFn: async (): Promise<SymptomLogRow[]> => {
-      let query = getSupabase()
-        .from('symptom_logs')
-        .select('*')
-        .eq('user_id', userId as string)
-        .is('deleted_at', null)
-        .order('logged_at', { ascending: false });
-
-      if (childProfileId) {
-        query = query.eq('child_profile_id', childProfileId);
-      } else {
-        query = query.is('child_profile_id', null);
-      }
-
-      const { data, error } = await query;
-      if (error) throw new Error(error.message);
-      return data ?? [];
-    },
+    queryKey: symptomLogsQueryKey(userId, childProfileId, selectedLogicalDate, dayStartTime),
+    queryFn: () =>
+      fetchSymptomLogsForLogicalDay({
+        userId: userId as string,
+        childProfileId,
+        logicalDate: selectedLogicalDate,
+        dayStartTime,
+      }),
     enabled: !!userId,
   });
 }
@@ -230,7 +353,7 @@ export function useAddSymptomLogMutation() {
     },
     onSuccess: (_, variables) => {
       queryClient.invalidateQueries({
-        queryKey: symptomLogsQueryKey(variables.userId, variables.childProfileId),
+        queryKey: symptomLogsScopeQueryKey(variables.userId, variables.childProfileId),
       });
     },
   });
@@ -263,7 +386,7 @@ export function useUpdateSymptomLogMutation() {
     },
     onSuccess: (_, variables) => {
       queryClient.invalidateQueries({
-        queryKey: symptomLogsQueryKey(variables.userId, variables.childProfileId),
+        queryKey: symptomLogsScopeQueryKey(variables.userId, variables.childProfileId),
       });
     },
   });
@@ -290,7 +413,7 @@ export function useDeleteSymptomLogMutation() {
     },
     onSuccess: (_, variables) => {
       queryClient.invalidateQueries({
-        queryKey: symptomLogsQueryKey(variables.userId, variables.childProfileId),
+        queryKey: symptomLogsScopeQueryKey(variables.userId, variables.childProfileId),
       });
     },
   });
@@ -311,7 +434,7 @@ export function useRestoreSymptomLogMutation() {
     },
     onSuccess: (_, variables) => {
       queryClient.invalidateQueries({
-        queryKey: symptomLogsQueryKey(variables.userId, variables.childProfileId),
+        queryKey: symptomLogsScopeQueryKey(variables.userId, variables.childProfileId),
       });
     },
   });

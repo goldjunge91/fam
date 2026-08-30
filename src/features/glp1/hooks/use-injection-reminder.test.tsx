@@ -2,7 +2,7 @@ import { renderHook, waitFor } from '@testing-library/react-native';
 import { cancelLocalReminder, scheduleLocalReminder } from '@/lib/notifications';
 import { injectionReminderIdentifier, useInjectionReminder } from './use-injection-reminder';
 
-const mockUseMedicationLogs = jest.fn();
+const mockUseLatestMedicationLog = jest.fn();
 let mockPlan: {
   id: string;
   user_id: string;
@@ -22,7 +22,7 @@ jest.mock('@/features/glp1/hooks/injection-plan-api', () => ({
 }));
 
 jest.mock('@/features/glp1/hooks/glp1-api', () => ({
-  useMedicationLogs: (...args: unknown[]) => mockUseMedicationLogs(...args),
+  useLatestMedicationLog: (...args: unknown[]) => mockUseLatestMedicationLog(...args),
 }));
 
 jest.mock('@/lib/notifications', () => ({
@@ -37,8 +37,8 @@ beforeEach(() => {
   jest.clearAllMocks();
   mockPlan = null;
   mockMedicationLogs = [];
-  mockUseMedicationLogs.mockImplementation(() => ({
-    data: mockMedicationLogs,
+  mockUseLatestMedicationLog.mockImplementation(() => ({
+    data: mockMedicationLogs[0] ?? null,
     isLoading: false,
   }));
 });
@@ -67,7 +67,7 @@ it('plant die accountweite Erinnerung aus Plan und erwachsener Historie', async 
       body: 'Deine Injektion ist fällig.',
     });
   });
-  expect(mockUseMedicationLogs).toHaveBeenCalledWith('user-1', null);
+  expect(mockUseLatestMedicationLog).toHaveBeenCalledWith('user-1', null);
 });
 
 it('entfernt die Erinnerung wenn sie im Plan abgeschaltet ist', async () => {
