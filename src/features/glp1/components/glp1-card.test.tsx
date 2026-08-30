@@ -13,6 +13,8 @@ const mockShowUndoSnackbar = jest.fn();
 const mockCreatePlan = jest.fn();
 const mockUpdatePlan = jest.fn();
 const mockDeletePlan = jest.fn();
+const mockUseMedicationLogs = jest.fn();
+const mockUseSymptomLogs = jest.fn();
 
 let mockPlan: {
   id: string;
@@ -48,8 +50,8 @@ let mockSymptomLogs: {
 }[] = [];
 
 jest.mock('@/features/glp1/hooks/glp1-api', () => ({
-  useMedicationLogs: () => ({ data: mockMedLogs, isLoading: false }),
-  useSymptomLogs: () => ({ data: mockSymptomLogs, isLoading: false }),
+  useMedicationLogs: (...args: unknown[]) => mockUseMedicationLogs(...args),
+  useSymptomLogs: (...args: unknown[]) => mockUseSymptomLogs(...args),
   useAddMedicationLogMutation: () => ({ mutate: mockMutateMed, isPending: false }),
   useAddSymptomLogMutation: () => ({ mutate: mockMutateSymptom, isPending: false }),
   useUpdateMedicationLogMutation: () => ({ mutate: mockUpdateMed, isPending: false }),
@@ -91,6 +93,10 @@ beforeEach(() => {
   mockCreatePlan.mockClear();
   mockUpdatePlan.mockClear();
   mockDeletePlan.mockClear();
+  mockUseMedicationLogs.mockClear();
+  mockUseSymptomLogs.mockClear();
+  mockUseMedicationLogs.mockImplementation(() => ({ data: mockMedLogs, isLoading: false }));
+  mockUseSymptomLogs.mockImplementation(() => ({ data: mockSymptomLogs, isLoading: false }));
 });
 
 describe('Glp1Card', () => {
@@ -99,6 +105,30 @@ describe('Glp1Card', () => {
     expect(screen.getByText(/GLP-1 & Medikation/)).toBeOnTheScreen();
     expect(screen.getByText('Keine Injektion erfasst')).toBeOnTheScreen();
     expect(screen.getByText('Kein Symptom-Log')).toBeOnTheScreen();
+  });
+
+  it('liest Medikation und Symptome im ausgewaehlten logischen Tagesfenster', async () => {
+    await render(
+      <Glp1Card
+        userId="user-1"
+        childProfileId="child-1"
+        logicalDate="2026-08-18"
+        dayStartTime="06:00"
+      />,
+    );
+
+    expect(mockUseMedicationLogs).toHaveBeenCalledWith(
+      'user-1',
+      'child-1',
+      '2026-08-18',
+      '06:00',
+    );
+    expect(mockUseSymptomLogs).toHaveBeenCalledWith(
+      'user-1',
+      'child-1',
+      '2026-08-18',
+      '06:00',
+    );
   });
 
   it('zeigt letzte Injektion und Symptom-Status an', async () => {

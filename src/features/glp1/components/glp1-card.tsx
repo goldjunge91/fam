@@ -31,6 +31,8 @@ import { useInjectionReminder } from '@/features/glp1/hooks/use-injection-remind
 type Glp1CardProps = {
   userId: string | undefined;
   childProfileId?: string | null;
+  logicalDate?: string;
+  dayStartTime?: string;
 };
 
 type ActiveForm =
@@ -73,13 +75,28 @@ function formatHistoryTimestamp(timestamp: string): string {
   });
 }
 
-export function Glp1Card({ userId, childProfileId }: Glp1CardProps) {
+export function Glp1Card({
+  userId,
+  childProfileId,
+  logicalDate,
+  dayStartTime = '00:00',
+}: Glp1CardProps) {
   useInjectionReminder(userId);
   const [activeForm, setActiveForm] = useState<ActiveForm | null>(null);
   const [showHistory, setShowHistory] = useState(false);
   const { showUndoSnackbar } = useSnackbar();
-  const { data: medLogs } = useMedicationLogs(userId, childProfileId);
-  const { data: symptomLogs } = useSymptomLogs(userId, childProfileId);
+  const { data: medLogs } = useMedicationLogs(
+    userId,
+    childProfileId,
+    logicalDate,
+    dayStartTime,
+  );
+  const { data: symptomLogs } = useSymptomLogs(
+    userId,
+    childProfileId,
+    logicalDate,
+    dayStartTime,
+  );
   const addMedMutation = useAddMedicationLogMutation();
   const addSymptomMutation = useAddSymptomLogMutation();
   const updateMedMutation = useUpdateMedicationLogMutation();

@@ -1,5 +1,5 @@
 import { router } from 'expo-router';
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Pressable, ScrollView, View } from 'react-native';
 import { PlusIcon } from '@/components/icons/fam-icon';
 import { HubScreen } from '@/components/layout/hub-screen';
@@ -172,6 +172,13 @@ export function DiaryScreen() {
     userProfile?.tracking_day_start_time ?? '00:00',
   );
   const [selectedDate, setSelectedDate] = useState(todayIso);
+  const previousTodayIso = useRef(todayIso);
+
+  useEffect(() => {
+    const previousToday = previousTodayIso.current;
+    previousTodayIso.current = todayIso;
+    setSelectedDate((current) => (current === previousToday ? todayIso : current));
+  }, [todayIso]);
 
   const { activeHousehold } = useActiveHousehold();
   const { data: childProfiles = [] } = useChildProfiles(activeHousehold?.id ?? '');
@@ -324,7 +331,12 @@ export function DiaryScreen() {
 
         {/* GLP-1 Tracking-Karte (optional) */}
         {userProfile?.tracking_method === 'glp1' ? (
-          <Glp1Card userId={userId} childProfileId={childProfileId} />
+          <Glp1Card
+            userId={userId}
+            childProfileId={childProfileId}
+            logicalDate={selectedDate}
+            dayStartTime={userProfile.tracking_day_start_time}
+          />
         ) : null}
 
         {/* Intervallfasten-Karte (optional) */}

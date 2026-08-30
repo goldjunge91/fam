@@ -146,6 +146,15 @@ describe('TrackingScreen', () => {
     });
   });
 
+  it('erklaert die Wirkung auf alle Tracking-Bereiche ohne Bestandsdaten umzuschreiben', async () => {
+    await renderScreen();
+
+    expect(
+      screen.getByText(/Mahlzeiten, Injektionen, Symptome und Gewicht/),
+    ).toBeOnTheScreen();
+    expect(screen.getByText(/Bestehende Einträge bleiben unverändert/)).toBeOnTheScreen();
+  });
+
   it('wechselt die aktive Tracking-Methode im Profil auf Low-Carb und Keto', async () => {
     const user = userEvent.setup();
     await renderScreen();

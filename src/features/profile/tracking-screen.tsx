@@ -216,8 +216,8 @@ function TimePicker({
       {/* Präzise Erklärung */}
       <ThemedText type="caption" themeColor="textSecondary">
         {value === '00:00'
-          ? 'Standard: Dein Tracking-Tag wechselt um 00:00 Uhr (Mitternacht).'
-          : `Dein Tracking-Tag läuft jeweils 24 Stunden ab ${value} Uhr. Mahlzeiten vor ${value} Uhr zählen zum vorherigen Tag.`}
+          ? 'Standard: Dein Tracking-Tag wechselt um 00:00 Uhr. Das betrifft Mahlzeiten, Injektionen, Symptome und Gewicht. Bestehende Einträge bleiben unverändert.'
+          : `Dein Tracking-Tag läuft jeweils 24 Stunden ab ${value} Uhr. Mahlzeiten, Injektionen, Symptome und Gewicht vor ${value} Uhr zählen zum vorherigen Tag. Bestehende Einträge bleiben unverändert.`}
       </ThemedText>
 
       {/* Modal für manuelle Zeiteingabe */}

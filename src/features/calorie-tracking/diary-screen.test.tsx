@@ -5,6 +5,14 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { DiaryScreen } from '@/features/calorie-tracking/diary-screen';
 
 const mockUseFoodEntries = jest.fn();
+const mockGlp1Card = jest.fn(() => null);
+let mockProfile: {
+  tracking_day_start_time: string;
+  tracking_method: string;
+} | null = {
+  tracking_day_start_time: '00:00',
+  tracking_method: 'standard',
+};
 
 jest.mock('expo-router', () => ({
   router: { push: jest.fn(), back: jest.fn(), canGoBack: () => false },
@@ -12,9 +20,13 @@ jest.mock('expo-router', () => ({
 
 jest.mock('@/features/profile/api', () => ({
   useProfile: () => ({
-    data: { tracking_day_start_time: '00:00', tracking_method: 'standard' },
+    data: mockProfile,
     isLoading: false,
   }),
+}));
+
+jest.mock('@/features/glp1/components/glp1-card', () => ({
+  Glp1Card: (props: unknown) => mockGlp1Card(props),
 }));
 
 jest.mock('@/features/settings/module-preferences', () => ({
@@ -75,19 +87,25 @@ jest.mock('@/hooks/use-theme', () => ({
   useTheme: () => require('@/constants/theme').Colors.light,
 }));
 
-function renderScreen() {
-  return render(
+function ScreenUnderTest() {
+  return (
     <SafeAreaProvider
       initialMetrics={{
         frame: { x: 0, y: 0, width: 390, height: 844 },
         insets: { top: 47, left: 0, right: 0, bottom: 34 },
       }}>
       <DiaryScreen />
-    </SafeAreaProvider>,
+    </SafeAreaProvider>
   );
 }
 
+function renderScreen() {
+  return render(<ScreenUnderTest />);
+}
+
 beforeEach(() => {
+  mockProfile = { tracking_day_start_time: '00:00', tracking_method: 'standard' };
+  mockGlp1Card.mockClear();
   mockChildProfiles = [];
   mockSetProfile.mockClear();
   mockUseFoodEntries.mockReset();
@@ -122,6 +140,42 @@ beforeEach(() => {
 });
 
 describe('DiaryScreen', () => {
+  it('reicht den ausgewaehlten logischen Tag und Tagesstart an GLP-1 weiter', async () => {
+    jest.useFakeTimers().setSystemTime(new Date(2026, 7, 19, 5, 15));
+    mockProfile = { tracking_day_start_time: '06:00', tracking_method: 'glp1' };
+
+    try {
+      await renderScreen();
+
+      expect(mockGlp1Card.mock.calls.at(-1)?.[0]).toEqual(
+        expect.objectContaining({
+          userId: 'user-1',
+          logicalDate: '2026-08-18',
+          dayStartTime: '06:00',
+        }),
+      );
+    } finally {
+      jest.useRealTimers();
+    }
+  });
+
+  it('korrigiert Heute wenn der abweichende Tagesstart nachlaedt', async () => {
+    jest.useFakeTimers().setSystemTime(new Date(2026, 7, 19, 5, 15));
+    mockProfile = null;
+
+    try {
+      const rendered = await renderScreen();
+      mockProfile = { tracking_day_start_time: '06:00', tracking_method: 'glp1' };
+      await rendered.rerender(<ScreenUnderTest />);
+
+      expect(mockGlp1Card.mock.calls.at(-1)?.[0]).toEqual(
+        expect.objectContaining({ logicalDate: '2026-08-18', dayStartTime: '06:00' }),
+      );
+    } finally {
+      jest.useRealTimers();
+    }
+  });
+
   it('gruppiert Eintraege nach Mahlzeit', async () => {
     await renderScreen();
     expect(screen.getByText('Haferflocken')).toBeTruthy();
