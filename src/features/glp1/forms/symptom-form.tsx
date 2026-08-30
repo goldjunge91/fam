@@ -1,17 +1,23 @@
 import { useState } from 'react';
-import { Pressable, View } from 'react-native';
+import { Pressable, TextInput, View } from 'react-native';
 import { ThemedText } from '@/components/theme/themed-text';
+import { formatDateTimeInput, parseDateTimeInput } from '@/features/glp1/domain/date-time-input';
 import { useTheme } from '@/hooks/use-theme';
 
 export type SymptomFormValue = {
   appetiteLevel: number;
   satietyLevel: number;
   nauseaLevel: number;
+  sideEffects: string[];
+  loggedAt: string;
+  notes: string | null;
 };
 
 type SymptomFormProps = {
   isPending: boolean;
   onSubmit: (value: SymptomFormValue) => void;
+  initialValue?: SymptomFormValue;
+  mode?: 'create' | 'edit';
 };
 
 type LevelPickerProps = {
@@ -53,15 +59,41 @@ function LevelPicker({ label, levels, selected, onSelect }: LevelPickerProps) {
   );
 }
 
-export function SymptomForm({ isPending, onSubmit }: SymptomFormProps) {
+export function SymptomForm({
+  isPending,
+  onSubmit,
+  initialValue,
+  mode = 'create',
+}: SymptomFormProps) {
   const theme = useTheme();
-  const [appetite, setAppetite] = useState(2);
-  const [satiety, setSatiety] = useState(4);
-  const [nausea, setNausea] = useState(0);
+  const [appetite, setAppetite] = useState(initialValue?.appetiteLevel ?? 2);
+  const [satiety, setSatiety] = useState(initialValue?.satietyLevel ?? 4);
+  const [nausea, setNausea] = useState(initialValue?.nauseaLevel ?? 0);
+  const [sideEffects, setSideEffects] = useState(initialValue?.sideEffects.join(', ') ?? '');
+  const [loggedAt, setLoggedAt] = useState(() => formatDateTimeInput(initialValue?.loggedAt));
+  const [notes, setNotes] = useState(initialValue?.notes ?? '');
+  const parsedLoggedAt = parseDateTimeInput(loggedAt);
+
+  function handleSubmit() {
+    if (!parsedLoggedAt) return;
+    onSubmit({
+      appetiteLevel: appetite,
+      satietyLevel: satiety,
+      nauseaLevel: nausea,
+      sideEffects: sideEffects
+        .split(',')
+        .map((value) => value.trim())
+        .filter(Boolean),
+      loggedAt: parsedLoggedAt,
+      notes: notes.trim() || null,
+    });
+  }
 
   return (
     <View className="p-three bg-surface rounded-xl gap-three border border-border">
-      <ThemedText type="labelBold">Symptom- & Sättigungs-Verlauf</ThemedText>
+      <ThemedText type="labelBold">
+        {mode === 'edit' ? 'Symptome bearbeiten' : 'Symptom- & Sättigungs-Verlauf'}
+      </ThemedText>
 
       <LevelPicker
         label="Appetit (1 = kein Appetit, 5 = starker Heißhunger):"
@@ -82,6 +114,58 @@ export function SymptomForm({ isPending, onSubmit }: SymptomFormProps) {
         onSelect={setNausea}
       />
 
+      <View className="gap-one">
+        <ThemedText type="caption" themeColor="textSecondary">
+          Konkrete Nebenwirkungen:
+        </ThemedText>
+        <TextInput
+          value={sideEffects}
+          onChangeText={setSideEffects}
+          accessibilityLabel="Konkrete Nebenwirkungen"
+          placeholder="z. B. Kopfschmerz, Müdigkeit"
+          className="p-two bg-card rounded-lg border border-border text-sm"
+          placeholderTextColor={theme.textSecondary}
+          style={{ color: theme.text }}
+        />
+      </View>
+
+      <View className="gap-one">
+        <ThemedText type="caption" themeColor="textSecondary">
+          Zeitpunkt:
+        </ThemedText>
+        <TextInput
+          value={loggedAt}
+          onChangeText={setLoggedAt}
+          accessibilityLabel="Zeitpunkt der Symptome"
+          placeholder="JJJJ-MM-TT HH:MM"
+          autoCapitalize="none"
+          className="p-two bg-card rounded-lg border border-border text-sm"
+          placeholderTextColor={theme.textSecondary}
+          style={{ color: theme.text }}
+        />
+        {!parsedLoggedAt ? (
+          <ThemedText type="caption" themeColor="danger">
+            Bitte als JJJJ-MM-TT HH:MM eingeben.
+          </ThemedText>
+        ) : null}
+      </View>
+
+      <View className="gap-one">
+        <ThemedText type="caption" themeColor="textSecondary">
+          Notiz:
+        </ThemedText>
+        <TextInput
+          value={notes}
+          onChangeText={setNotes}
+          accessibilityLabel="Notiz zu den Symptomen"
+          placeholder="Optional"
+          multiline
+          className="p-two bg-card rounded-lg border border-border text-sm min-h-16"
+          placeholderTextColor={theme.textSecondary}
+          style={{ color: theme.text, textAlignVertical: 'top' }}
+        />
+      </View>
+
       <View className="p-two rounded-lg bg-card border border-border flex-row items-center justify-between">
         <ThemedText type="small" themeColor="textSecondary">
           Ausgewählt:
@@ -92,14 +176,16 @@ export function SymptomForm({ isPending, onSubmit }: SymptomFormProps) {
       </View>
 
       <Pressable
-        onPress={() =>
-          onSubmit({ appetiteLevel: appetite, satietyLevel: satiety, nauseaLevel: nausea })
-        }
-        disabled={isPending}
+        onPress={handleSubmit}
+        disabled={isPending || !parsedLoggedAt}
         style={{ backgroundColor: theme.accent }}
         className="py-three rounded-xl items-center justify-center mt-one">
         <ThemedText type="labelBold" themeColor="onAccent">
-          {isPending ? 'Speichern...' : 'Status speichern'}
+          {isPending
+            ? 'Speichern...'
+            : mode === 'edit'
+              ? 'Änderungen speichern'
+              : 'Status speichern'}
         </ThemedText>
       </Pressable>
     </View>

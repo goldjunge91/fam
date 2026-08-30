@@ -44,6 +44,7 @@ export type CreateMedicationLogInput = {
   medicationName: string;
   dose?: number | null;
   unit?: string;
+  injectionSite?: string | null;
   administeredAt?: string;
   notes?: string | null;
 };
@@ -61,9 +62,43 @@ export function useAddMedicationLogMutation() {
           medication_name: input.medicationName.trim(),
           dose: input.dose ?? null,
           unit: input.unit ?? 'mg',
+          injection_site: input.injectionSite ?? null,
           administered_at: input.administeredAt ?? new Date().toISOString(),
           notes: input.notes?.trim() || null,
         })
+        .select()
+        .single();
+
+      if (error) throw new Error(error.message);
+      return data;
+    },
+    onSuccess: (_, variables) => {
+      queryClient.invalidateQueries({
+        queryKey: medicationLogsQueryKey(variables.userId, variables.childProfileId),
+      });
+    },
+  });
+}
+
+export type UpdateMedicationLogInput = CreateMedicationLogInput & { id: string };
+
+export function useUpdateMedicationLogMutation() {
+  const queryClient = useQueryClient();
+
+  return useMutation({
+    mutationFn: async (input: UpdateMedicationLogInput) => {
+      const { data, error } = await getSupabase()
+        .from('medication_logs')
+        .update({
+          medication_name: input.medicationName.trim(),
+          dose: input.dose ?? null,
+          unit: input.unit ?? 'mg',
+          injection_site: input.injectionSite ?? null,
+          administered_at: input.administeredAt ?? new Date().toISOString(),
+          notes: input.notes?.trim() || null,
+        })
+        .eq('id', input.id)
+        .eq('user_id', input.userId)
         .select()
         .single();
 
@@ -82,11 +117,47 @@ export function useDeleteMedicationLogMutation() {
   const queryClient = useQueryClient();
 
   return useMutation({
-    mutationFn: async ({ id }: { id: string; userId: string; childProfileId?: string | null }) => {
+    mutationFn: async ({
+      id,
+      userId,
+    }: {
+      id: string;
+      userId: string;
+      childProfileId?: string | null;
+    }) => {
       const { error } = await getSupabase()
         .from('medication_logs')
         .update({ deleted_at: new Date().toISOString() })
-        .eq('id', id);
+        .eq('id', id)
+        .eq('user_id', userId);
+
+      if (error) throw new Error(error.message);
+    },
+    onSuccess: (_, variables) => {
+      queryClient.invalidateQueries({
+        queryKey: medicationLogsQueryKey(variables.userId, variables.childProfileId),
+      });
+    },
+  });
+}
+
+export function useRestoreMedicationLogMutation() {
+  const queryClient = useQueryClient();
+
+  return useMutation({
+    mutationFn: async ({
+      id,
+      userId,
+    }: {
+      id: string;
+      userId: string;
+      childProfileId?: string | null;
+    }) => {
+      const { error } = await getSupabase()
+        .from('medication_logs')
+        .update({ deleted_at: null })
+        .eq('id', id)
+        .eq('user_id', userId);
 
       if (error) throw new Error(error.message);
     },
@@ -156,6 +227,87 @@ export function useAddSymptomLogMutation() {
 
       if (error) throw new Error(error.message);
       return data;
+    },
+    onSuccess: (_, variables) => {
+      queryClient.invalidateQueries({
+        queryKey: symptomLogsQueryKey(variables.userId, variables.childProfileId),
+      });
+    },
+  });
+}
+
+export type UpdateSymptomLogInput = CreateSymptomLogInput & { id: string };
+
+export function useUpdateSymptomLogMutation() {
+  const queryClient = useQueryClient();
+
+  return useMutation({
+    mutationFn: async (input: UpdateSymptomLogInput) => {
+      const { data, error } = await getSupabase()
+        .from('symptom_logs')
+        .update({
+          logged_at: input.loggedAt ?? new Date().toISOString(),
+          appetite_level: input.appetiteLevel ?? null,
+          satiety_level: input.satietyLevel ?? null,
+          nausea_level: input.nauseaLevel ?? null,
+          side_effects: input.sideEffects ?? [],
+          notes: input.notes?.trim() || null,
+        })
+        .eq('id', input.id)
+        .eq('user_id', input.userId)
+        .select()
+        .single();
+
+      if (error) throw new Error(error.message);
+      return data;
+    },
+    onSuccess: (_, variables) => {
+      queryClient.invalidateQueries({
+        queryKey: symptomLogsQueryKey(variables.userId, variables.childProfileId),
+      });
+    },
+  });
+}
+
+type SymptomLogMutationScope = {
+  id: string;
+  userId: string;
+  childProfileId?: string | null;
+};
+
+export function useDeleteSymptomLogMutation() {
+  const queryClient = useQueryClient();
+
+  return useMutation({
+    mutationFn: async ({ id, userId }: SymptomLogMutationScope) => {
+      const { error } = await getSupabase()
+        .from('symptom_logs')
+        .update({ deleted_at: new Date().toISOString() })
+        .eq('id', id)
+        .eq('user_id', userId);
+
+      if (error) throw new Error(error.message);
+    },
+    onSuccess: (_, variables) => {
+      queryClient.invalidateQueries({
+        queryKey: symptomLogsQueryKey(variables.userId, variables.childProfileId),
+      });
+    },
+  });
+}
+
+export function useRestoreSymptomLogMutation() {
+  const queryClient = useQueryClient();
+
+  return useMutation({
+    mutationFn: async ({ id, userId }: SymptomLogMutationScope) => {
+      const { error } = await getSupabase()
+        .from('symptom_logs')
+        .update({ deleted_at: null })
+        .eq('id', id)
+        .eq('user_id', userId);
+
+      if (error) throw new Error(error.message);
     },
     onSuccess: (_, variables) => {
       queryClient.invalidateQueries({
