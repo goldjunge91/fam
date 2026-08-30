@@ -1,4 +1,5 @@
 import { render, screen, userEvent } from '@testing-library/react-native';
+import { router } from 'expo-router';
 import { Glp1Card } from './glp1-card';
 
 const mockMutateMed = jest.fn();
@@ -10,27 +11,10 @@ const mockDeleteSymptom = jest.fn();
 const mockRestoreMed = jest.fn();
 const mockRestoreSymptom = jest.fn();
 const mockShowUndoSnackbar = jest.fn();
-const mockCreatePlan = jest.fn();
-const mockUpdatePlan = jest.fn();
-const mockDeletePlan = jest.fn();
 const mockUseMedicationLogs = jest.fn();
 const mockUseSymptomLogs = jest.fn();
 const mockUseRecentMedicationLogs = jest.fn();
 const mockUseRecentSymptomLogs = jest.fn();
-const mockUseLatestMedicationLog = jest.fn();
-
-let mockPlan: {
-  id: string;
-  user_id: string;
-  medication_name: string;
-  dose: number;
-  unit: string;
-  cadence_days: number;
-  anchor_at: string;
-  reminder_enabled: boolean;
-  created_at: string;
-  updated_at: string;
-} | null = null;
 
 let mockMedLogs: {
   id: string;
@@ -42,20 +26,6 @@ let mockMedLogs: {
   notes?: string | null;
 }[] = [];
 let mockRecentMedLogs: typeof mockMedLogs | undefined;
-let mockCorrelationSeries: Array<{
-  date: string;
-  daysSinceInjection: number | null;
-  calories: number | null;
-  weightKg: number | null;
-  injection: {
-    administeredAt: string;
-    medicationName: string;
-    dose: number | null;
-    unit: string;
-  } | null;
-  doseChanged: boolean;
-}> = [];
-
 let mockSymptomLogs: {
   id: string;
   appetite_level: number;
@@ -69,7 +39,6 @@ let mockSymptomLogs: {
 jest.mock('@/features/glp1/hooks/glp1-api', () => ({
   useMedicationLogs: (...args: unknown[]) => mockUseMedicationLogs(...args),
   useRecentMedicationLogs: (...args: unknown[]) => mockUseRecentMedicationLogs(...args),
-  useLatestMedicationLog: (...args: unknown[]) => mockUseLatestMedicationLog(...args),
   useSymptomLogs: (...args: unknown[]) => mockUseSymptomLogs(...args),
   useRecentSymptomLogs: (...args: unknown[]) => mockUseRecentSymptomLogs(...args),
   useAddMedicationLogMutation: () => ({ mutate: mockMutateMed, isPending: false }),
@@ -86,27 +55,13 @@ jest.mock('@/components/ui/snackbar', () => ({
   useSnackbar: () => ({ showUndoSnackbar: mockShowUndoSnackbar }),
 }));
 
-jest.mock('@/features/glp1/hooks/injection-plan-api', () => ({
-  useInjectionPlan: () => ({ data: mockPlan, isLoading: false }),
-  useCreateInjectionPlanMutation: () => ({ mutate: mockCreatePlan, isPending: false }),
-  useUpdateInjectionPlanMutation: () => ({ mutate: mockUpdatePlan, isPending: false }),
-  useDeleteInjectionPlanMutation: () => ({ mutate: mockDeletePlan, isPending: false }),
-}));
-
-jest.mock('@/features/glp1/hooks/use-injection-reminder', () => ({
-  useInjectionReminder: jest.fn(),
-}));
-
-jest.mock('@/features/glp1/hooks/correlation-api', () => ({
-  useCorrelationSeries: () => ({ data: mockCorrelationSeries, isLoading: false, isError: false }),
-}));
+jest.mock('expo-router', () => ({ router: { push: jest.fn() } }));
 
 beforeEach(() => {
   mockMedLogs = [];
   mockRecentMedLogs = undefined;
-  mockCorrelationSeries = [];
+  jest.mocked(router.push).mockClear();
   mockSymptomLogs = [];
-  mockPlan = null;
   mockMutateMed.mockClear();
   mockMutateSymptom.mockClear();
   mockUpdateMed.mockClear();
@@ -116,20 +71,15 @@ beforeEach(() => {
   mockRestoreMed.mockClear();
   mockRestoreSymptom.mockClear();
   mockShowUndoSnackbar.mockClear();
-  mockCreatePlan.mockClear();
-  mockUpdatePlan.mockClear();
-  mockDeletePlan.mockClear();
   mockUseMedicationLogs.mockClear();
   mockUseSymptomLogs.mockClear();
   mockUseRecentMedicationLogs.mockClear();
   mockUseRecentSymptomLogs.mockClear();
-  mockUseLatestMedicationLog.mockClear();
   mockUseMedicationLogs.mockImplementation(() => ({ data: mockMedLogs, isLoading: false }));
   mockUseRecentMedicationLogs.mockImplementation(() => ({
     data: mockRecentMedLogs ?? mockMedLogs,
     isLoading: false,
   }));
-  mockUseLatestMedicationLog.mockImplementation(() => ({ data: null, isLoading: false }));
   mockUseSymptomLogs.mockImplementation(() => ({ data: mockSymptomLogs, isLoading: false }));
   mockUseRecentSymptomLogs.mockImplementation(() => ({
     data: mockSymptomLogs,
@@ -179,99 +129,15 @@ describe('Glp1Card', () => {
     expect(screen.getByText('Zuletzt: Oberschenkel')).toBeOnTheScreen();
   });
 
-  it('berechnet die Fälligkeit aus der letzten Injektion der gesamten Historie', async () => {
-    jest.useFakeTimers().setSystemTime(new Date('2026-08-30T12:00:00.000Z'));
-    mockPlan = {
-      id: 'plan-1',
-      user_id: 'user-1',
-      medication_name: 'Semaglutid',
-      dose: 0.5,
-      unit: 'mg',
-      cadence_days: 7,
-      anchor_at: '2026-08-01T08:00:00.000Z',
-      reminder_enabled: true,
-      created_at: '2026-08-01T08:00:00.000Z',
-      updated_at: '2026-08-01T08:00:00.000Z',
-    };
-    mockMedLogs = [];
-    mockRecentMedLogs = [
-      {
-        id: 'm-recent',
-        medication_name: 'Semaglutid',
-        dose: 0.5,
-        unit: 'mg',
-        administered_at: '2026-08-24T08:00:00.000Z',
-      },
-    ];
-
-    try {
-      await render(<Glp1Card userId="user-1" logicalDate="2026-08-30" />);
-      expect(screen.getByText('Anstehend')).toBeOnTheScreen();
-      expect(screen.getByText(/31\.08\.2026/)).toBeOnTheScreen();
-    } finally {
-      jest.useRealTimers();
-    }
-  });
-
-  it('berechnet die Planfälligkeit wirkstoffbezogen', async () => {
-    jest.useFakeTimers().setSystemTime(new Date('2026-08-30T12:00:00.000Z'));
-    mockPlan = {
-      id: 'plan-1',
-      user_id: 'user-1',
-      medication_name: 'Semaglutid',
-      dose: 0.5,
-      unit: 'mg',
-      cadence_days: 7,
-      anchor_at: '2026-08-01T08:00:00.000Z',
-      reminder_enabled: true,
-      created_at: '2026-08-01T08:00:00.000Z',
-      updated_at: '2026-08-01T08:00:00.000Z',
-    };
-    mockMedLogs = [];
-    mockRecentMedLogs = [
-      {
-        id: 'm-other',
-        medication_name: 'Tirzepatid',
-        dose: 2.5,
-        unit: 'mg',
-        administered_at: '2026-08-29T08:00:00.000Z',
-      },
-      {
-        id: 'm-plan',
-        medication_name: 'Semaglutid',
-        dose: 0.5,
-        unit: 'mg',
-        administered_at: '2026-08-24T08:00:00.000Z',
-      },
-    ];
-
-    try {
-      await render(<Glp1Card userId="user-1" logicalDate="2026-08-30" />);
-      expect(screen.getByText(/31\.08\.2026/)).toBeOnTheScreen();
-      expect(screen.queryByText(/05\.09\.2026/)).not.toBeOnTheScreen();
-    } finally {
-      jest.useRealTimers();
-    }
-  });
-
   it('stellt Injektion, Kalorien und Gewicht in der Korrelationsanalyse gegenueber', async () => {
-    mockCorrelationSeries = [
-      {
-        date: '2026-08-18',
-        daysSinceInjection: 2,
-        calories: 1450,
-        weightKg: 91.2,
-        injection: null,
-        doseChanged: false,
-      },
-    ];
-
+    const user = userEvent.setup();
     await render(<Glp1Card userId="user-1" logicalDate="2026-08-18" dayStartTime="06:00" />);
 
-    expect(screen.getByText('Injektion, Kalorien und Gewicht')).toBeOnTheScreen();
-    expect(screen.getByText('Tag 2')).toBeOnTheScreen();
-    expect(screen.getByText('1.450 kcal')).toBeOnTheScreen();
-    expect(screen.getByText('91,2 kg')).toBeOnTheScreen();
+    await user.press(screen.getByRole('button', { name: 'Korrelationsanalyse öffnen' }));
+    expect(router.push).toHaveBeenCalledWith({
+      pathname: '/glp1/correlation',
+      params: { logicalDate: '2026-08-18', dayStartTime: '06:00' },
+    });
   });
 
   it('zeigt letzte Injektion und Symptom-Status an', async () => {
@@ -339,6 +205,45 @@ describe('Glp1Card', () => {
         medicationName: 'Semaglutid',
         dose: 0.5,
         unit: 'mg',
+      }),
+      expect.any(Object),
+    );
+  });
+
+  it('fuellt eine neue Injektion mit der letzten Auswahl voraus', async () => {
+    const user = userEvent.setup();
+    mockRecentMedLogs = [
+      {
+        id: 'm-recent',
+        medication_name: 'Tirzepatid',
+        dose: 1.7,
+        unit: 'ml',
+        administered_at: '2026-08-17T08:00:00.000Z',
+        injection_site: 'upper_arm',
+        notes: 'Alte Notiz',
+      },
+    ];
+
+    await render(<Glp1Card userId="user-1" />);
+    await user.press(screen.getByText('+ Injektion eintragen'));
+
+    expect(screen.getByRole('radio', { name: 'Tirzepatid' })).toBeSelected();
+    expect(screen.getByRole('radio', { name: 'ml' })).toBeSelected();
+    expect(screen.getByRole('radio', { name: '1.7 ml' })).toBeSelected();
+    expect(screen.getByRole('radio', { name: 'Oberarm' })).toBeSelected();
+    expect(screen.getByLabelText('Notiz zur Injektion')).toHaveDisplayValue('');
+
+    await user.press(screen.getByText('Injektion speichern'));
+
+    expect(mockMutateMed).toHaveBeenCalledWith(
+      expect.objectContaining({
+        userId: 'user-1',
+        medicationName: 'Tirzepatid',
+        dose: 1.7,
+        unit: 'ml',
+        injectionSite: 'upper_arm',
+        administeredAt: expect.any(String),
+        notes: null,
       }),
       expect.any(Object),
     );
@@ -519,142 +424,5 @@ describe('Glp1Card', () => {
       userId: 'user-1',
       childProfileId: undefined,
     });
-  });
-
-  it.each([
-    ['Anstehend', '2026-09-02T08:00:00.000Z'],
-    ['Heute fällig', '2026-08-30T08:00:00.000Z'],
-    ['Überfällig', '2026-08-29T08:00:00.000Z'],
-  ])('zeigt den Fälligkeitszustand %s', async (statusLabel, anchorAt) => {
-    jest.useFakeTimers().setSystemTime(new Date('2026-08-30T12:00:00.000Z'));
-    mockPlan = {
-      id: 'plan-1',
-      user_id: 'user-1',
-      medication_name: 'Semaglutid',
-      dose: 0.5,
-      unit: 'mg',
-      cadence_days: 7,
-      anchor_at: anchorAt,
-      reminder_enabled: true,
-      created_at: '2026-08-01T08:00:00.000Z',
-      updated_at: '2026-08-01T08:00:00.000Z',
-    };
-
-    await render(<Glp1Card userId="user-1" />);
-    expect(screen.getByText(statusLabel)).toBeOnTheScreen();
-    jest.useRealTimers();
-  });
-
-  it('berechnet die Fälligkeit anhand der letzten Injektion des Planmedikaments', async () => {
-    jest.useFakeTimers().setSystemTime(new Date('2099-08-30T12:00:00.000Z'));
-    mockPlan = {
-      id: 'plan-1',
-      user_id: 'user-1',
-      medication_name: 'Semaglutid',
-      dose: 0.5,
-      unit: 'mg',
-      cadence_days: 7,
-      anchor_at: '2099-09-01T08:00:00.000Z',
-      reminder_enabled: true,
-      created_at: '2026-08-01T08:00:00.000Z',
-      updated_at: '2026-08-01T08:00:00.000Z',
-    };
-    mockRecentMedLogs = [
-      {
-        id: 'other-medication',
-        medication_name: 'Tirzepatid',
-        dose: 5,
-        unit: 'mg',
-        administered_at: '2099-08-30T08:00:00.000Z',
-      },
-      {
-        id: 'plan-medication',
-        medication_name: 'Semaglutid',
-        dose: 0.5,
-        unit: 'mg',
-        administered_at: '2099-08-20T08:00:00.000Z',
-      },
-    ];
-    mockUseLatestMedicationLog.mockImplementation(() => ({
-      data: { administered_at: '2099-08-20T08:00:00.000Z' },
-      isLoading: false,
-    }));
-
-    try {
-      await render(<Glp1Card userId="user-1" />);
-      expect(screen.getByText('Überfällig')).toBeOnTheScreen();
-    } finally {
-      jest.useRealTimers();
-    }
-  });
-
-  it('legt einen Injektionsplan an', async () => {
-    const user = userEvent.setup();
-    await render(<Glp1Card userId="user-1" />);
-    await user.press(screen.getByRole('button', { name: 'Injektionsplan anlegen' }));
-    await user.press(screen.getByText('Plan speichern'));
-
-    expect(mockCreatePlan).toHaveBeenCalledWith(
-      expect.objectContaining({
-        userId: 'user-1',
-        medicationName: 'Semaglutid',
-        dose: 0.5,
-        unit: 'mg',
-        cadenceDays: 7,
-        reminderEnabled: true,
-      }),
-      expect.any(Object),
-    );
-  });
-
-  it('aendert und entfernt einen bestehenden Injektionsplan', async () => {
-    const user = userEvent.setup();
-    mockPlan = {
-      id: 'plan-1',
-      user_id: 'user-1',
-      medication_name: 'Semaglutid',
-      dose: 0.5,
-      unit: 'mg',
-      cadence_days: 7,
-      anchor_at: '2026-08-30T08:00:00.000Z',
-      reminder_enabled: true,
-      created_at: '2026-08-01T08:00:00.000Z',
-      updated_at: '2026-08-01T08:00:00.000Z',
-    };
-
-    await render(<Glp1Card userId="user-1" />);
-    await user.press(screen.getByRole('button', { name: 'Injektionsplan bearbeiten' }));
-    await user.press(screen.getByText('Änderungen speichern'));
-    expect(mockUpdatePlan).toHaveBeenCalledWith(
-      expect.objectContaining({ id: 'plan-1', userId: 'user-1' }),
-      expect.any(Object),
-    );
-
-    await user.press(screen.getByRole('button', { name: 'Injektionsplan entfernen' }));
-    expect(mockDeletePlan).toHaveBeenCalledWith(
-      { id: 'plan-1', userId: 'user-1' },
-      expect.any(Object),
-    );
-  });
-
-  it('blendet den accountweiten Plan bei ausgewaehltem Kind aus', async () => {
-    mockPlan = {
-      id: 'plan-1',
-      user_id: 'user-1',
-      medication_name: 'Semaglutid',
-      dose: 0.5,
-      unit: 'mg',
-      cadence_days: 7,
-      anchor_at: '2026-08-30T08:00:00.000Z',
-      reminder_enabled: true,
-      created_at: '2026-08-01T08:00:00.000Z',
-      updated_at: '2026-08-01T08:00:00.000Z',
-    };
-
-    await render(<Glp1Card userId="user-1" childProfileId="child-1" />);
-    expect(screen.queryByText('Nächste Injektion')).not.toBeOnTheScreen();
-    expect(
-      screen.queryByRole('button', { name: 'Injektionsplan bearbeiten' }),
-    ).not.toBeOnTheScreen();
   });
 });

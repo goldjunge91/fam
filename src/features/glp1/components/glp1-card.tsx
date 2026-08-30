@@ -3,15 +3,13 @@ import { Pressable, View } from 'react-native';
 import { ThemedText } from '@/components/theme/themed-text';
 import { Card } from '@/components/ui/card';
 import { useSnackbar } from '@/components/ui/snackbar';
-import { CorrelationSection } from '@/features/glp1/components/correlation-section';
+import { CorrelationMenuItem } from '@/features/glp1/components/correlation-menu-item';
 import { Glp1LogHistory } from '@/features/glp1/components/glp1-log-history';
-import { InjectionPlanSection } from '@/features/glp1/components/injection-plan-section';
 import { formatDaysSince } from '@/features/glp1/domain/format-days-since';
 import { type Glp1HistoryItem, sortGlp1History } from '@/features/glp1/domain/log-history';
 import { isInjectionSite, toMedicationUnit } from '@/features/glp1/domain/medication-options';
 import { InjectionForm, type InjectionFormValue } from '@/features/glp1/forms/injection-form';
 import { SymptomForm, type SymptomFormValue } from '@/features/glp1/forms/symptom-form';
-import { useCorrelationSeries } from '@/features/glp1/hooks/correlation-api';
 import {
   type MedicationLogRow,
   type SymptomLogRow,
@@ -28,7 +26,6 @@ import {
   useUpdateMedicationLogMutation,
   useUpdateSymptomLogMutation,
 } from '@/features/glp1/hooks/glp1-api';
-import { useInjectionReminder } from '@/features/glp1/hooks/use-injection-reminder';
 import { getLogicalDateForTimestamp } from '@/features/tracking/domain/day-boundary';
 
 type Glp1CardProps = {
@@ -53,6 +50,14 @@ function injectionFormValue(log: MedicationLogRow): InjectionFormValue {
   };
 }
 
+function newInjectionFormValue(log: MedicationLogRow): InjectionFormValue {
+  return {
+    ...injectionFormValue(log),
+    administeredAt: new Date().toISOString(),
+    notes: null,
+  };
+}
+
 function symptomFormValue(log: SymptomLogRow): SymptomFormValue {
   return {
     appetiteLevel: log.appetite_level ?? 2,
@@ -70,7 +75,6 @@ export function Glp1Card({
   logicalDate,
   dayStartTime = '00:00',
 }: Glp1CardProps) {
-  useInjectionReminder(userId);
   const selectedLogicalDate = logicalDate ?? getLogicalDateForTimestamp(new Date(), dayStartTime);
   const [activeForm, setActiveForm] = useState<ActiveForm | null>(null);
   const { showUndoSnackbar } = useSnackbar();
@@ -81,12 +85,6 @@ export function Glp1Card({
     dayStartTime,
   );
   const { data: recentInjectionLogs } = useRecentMedicationLogs(userId, childProfileId);
-  const { data: correlationSeries } = useCorrelationSeries(
-    userId,
-    childProfileId,
-    selectedLogicalDate,
-    dayStartTime,
-  );
   const { data: symptomLogs } = useSymptomLogs(userId, childProfileId, logicalDate, dayStartTime);
   const { data: recentSymptomLogs } = useRecentSymptomLogs(userId, childProfileId);
   const addInjectionMutation = useAddMedicationLogMutation();
@@ -234,13 +232,11 @@ export function Glp1Card({
         </View>
       </View>
 
-      {!childProfileId ? (
-        <InjectionPlanSection userId={userId} recentInjectionLogs={recentInjectionLogs} />
-      ) : null}
-
-      {correlationSeries && correlationSeries.length > 0 ? (
-        <CorrelationSection series={correlationSeries} />
-      ) : null}
+      <CorrelationMenuItem
+        logicalDate={selectedLogicalDate}
+        dayStartTime={dayStartTime}
+        childProfileId={childProfileId}
+      />
 
       <View className="flex-row gap-two">
         <Pressable
@@ -271,7 +267,13 @@ export function Glp1Card({
           isPending={
             activeForm.log ? updateInjectionMutation.isPending : addInjectionMutation.isPending
           }
-          initialValue={activeForm.log ? injectionFormValue(activeForm.log) : undefined}
+          initialValue={
+            activeForm.log
+              ? injectionFormValue(activeForm.log)
+              : latestInjection
+                ? newInjectionFormValue(latestInjection)
+                : undefined
+          }
           recentSites={recentSites}
           mode={activeForm.log ? 'edit' : 'create'}
           onSubmit={saveInjection}

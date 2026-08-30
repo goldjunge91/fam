@@ -1,4 +1,3 @@
-import { Host, Switch } from '@expo/ui';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Controller, useForm } from 'react-hook-form';
 import { Pressable, TextInput, View } from 'react-native';
@@ -203,21 +202,6 @@ export function InjectionPlanForm({
           </ThemedText>
         ) : null}
       </View>
-
-      <Controller
-        control={control}
-        name="reminderEnabled"
-        render={({ field: { onChange, value } }) => (
-          <Host matchContents>
-            <Switch
-              value={value}
-              onValueChange={onChange}
-              label="An fällige Injektion erinnern"
-              disabled={isPending}
-            />
-          </Host>
-        )}
-      />
 
       <Pressable
         onPress={handleSubmit((value) => onSubmit(value))}
