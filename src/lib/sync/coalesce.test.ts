@@ -121,6 +121,21 @@ describe('coalesce', () => {
     expect(result.pushes[0].payload).toEqual({ medication_name: 'Insulin', unit: 'units' });
   });
 
+  it.each([
+    ['litre', 'l'],
+    ['gram', 'g'],
+    ['kilogramm', 'kg'],
+    ['milliliter', 'ml'],
+    ['stk.', 'piece'],
+    ['stueck', 'piece'],
+    ['pkg', 'package'],
+    ['pck', 'portion'],
+  ])('normalisiert die kanonische Unit-Variante %s zu %s', (input, expected) => {
+    const result = coalesce([entry('insert', { name: 'Vorrat', unit: input })]);
+
+    expect(result.pushes[0].payload).toEqual({ name: 'Vorrat', unit: expected });
+  });
+
   it('coalesct push-only Feedback-Events niemals', () => {
     const result = coalesce([
       entry(

@@ -3,7 +3,11 @@ import { Controller, useForm } from 'react-hook-form';
 import { Pressable, TextInput, View } from 'react-native';
 import { z } from 'zod';
 import { ThemedText } from '@/components/theme/themed-text';
-import { formatDateTimeInput, parseDateTimeInput } from '@/features/glp1/domain/date-time-input';
+import { formatDateTimeInput } from '@/features/glp1/domain/date-time-input';
+import {
+  dateTimeInputSchema,
+  optionalNotesInputSchema,
+} from '@/features/glp1/domain/form-schema-primitives';
 import { useTheme } from '@/hooks/use-theme';
 
 const symptomFormSchema = z.object({
@@ -16,18 +20,8 @@ const symptomFormSchema = z.object({
       .map((entry) => entry.trim())
       .filter(Boolean),
   ),
-  loggedAt: z.string().transform((value, context) => {
-    const parsed = parseDateTimeInput(value);
-    if (!parsed) {
-      context.addIssue({ code: 'custom', message: 'Bitte als JJJJ-MM-TT HH:MM eingeben' });
-      return z.NEVER;
-    }
-    return parsed;
-  }),
-  notes: z
-    .string()
-    .max(2_000, 'Notiz ist zu lang')
-    .transform((value) => value.trim() || null),
+  loggedAt: dateTimeInputSchema,
+  notes: optionalNotesInputSchema,
 });
 
 export type SymptomFormValue = z.output<typeof symptomFormSchema>;

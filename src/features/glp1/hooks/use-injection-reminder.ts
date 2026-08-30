@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { calculateInjectionDue } from '@/features/glp1/domain/injection-due';
 import { useLatestMedicationLog } from '@/features/glp1/hooks/glp1-api';
 import { useInjectionPlan } from '@/features/glp1/hooks/injection-plan-api';
@@ -10,9 +10,22 @@ export function injectionReminderIdentifier(userId: string): string {
 
 export function useInjectionReminder(userId: string | undefined): void {
   const planQuery = useInjectionPlan(userId);
-  const medicationQuery = useLatestMedicationLog(userId, null);
   const plan = planQuery.data;
-  const latestMedicationAt = medicationQuery.data?.administered_at;
+  const medicationQuery = useLatestMedicationLog(userId, null, plan?.medication_name);
+  const latestInjectionAt = medicationQuery.data?.administered_at;
+  const reconciliationQueue = useRef<Promise<void>>(Promise.resolve());
+  const previousUserId = useRef(userId);
+
+  useEffect(() => {
+    const previous = previousUserId.current;
+    previousUserId.current = userId;
+    if (!previous || previous === userId) return;
+
+    reconciliationQueue.current = reconciliationQueue.current
+      .catch(() => undefined)
+      .then(() => cancelLocalReminder(injectionReminderIdentifier(previous)))
+      .catch(() => undefined);
+  }, [userId]);
 
   useEffect(() => {
     if (
@@ -25,33 +38,40 @@ export function useInjectionReminder(userId: string | undefined): void {
       return;
     }
 
-    const identifier = injectionReminderIdentifier(userId);
-    if (!plan?.reminder_enabled) {
-      void cancelLocalReminder(identifier);
-      return;
-    }
+    const reconcile = async () => {
+      const identifier = injectionReminderIdentifier(userId);
+      if (!plan?.reminder_enabled) {
+        await cancelLocalReminder(identifier);
+        return;
+      }
 
-    const now = new Date();
-    const due = calculateInjectionDue(
-      { anchorAt: plan.anchor_at, cadenceDays: plan.cadence_days },
-      latestMedicationAt ? { administeredAt: latestMedicationAt } : null,
-      now,
-    );
-    const dueDate = new Date(due.nextDueAt);
+      const now = new Date();
+      const due = calculateInjectionDue(
+        { anchorAt: plan.anchor_at, cadenceDays: plan.cadence_days },
+        latestInjectionAt ? { administeredAt: latestInjectionAt } : null,
+        now,
+      );
+      const dueDate = new Date(due.nextDueAt);
 
-    if (dueDate <= now) {
-      void cancelLocalReminder(identifier);
-      return;
-    }
+      if (dueDate <= now) {
+        await cancelLocalReminder(identifier);
+        return;
+      }
 
-    void scheduleLocalReminder({
-      identifier,
-      date: dueDate,
-      title: 'Injektion fällig',
-      body: 'Deine Injektion ist fällig.',
-    });
+      await scheduleLocalReminder({
+        identifier,
+        date: dueDate,
+        title: 'Injektion fällig',
+        body: 'Deine Injektion ist fällig.',
+      });
+    };
+
+    reconciliationQueue.current = reconciliationQueue.current
+      .catch(() => undefined)
+      .then(reconcile)
+      .catch(() => undefined);
   }, [
-    latestMedicationAt,
+    latestInjectionAt,
     medicationQuery.isError,
     medicationQuery.isLoading,
     plan,

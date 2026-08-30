@@ -14,11 +14,13 @@ import {
   useLatestWeightEntry,
   useUpdateTrackingDayStartTimeMutation,
   useUpdateTrackingMethodMutation,
+  useWeightEntries,
 } from '@/features/calorie-tracking/api';
 import { calculateAgeYears, calculateBmr } from '@/features/calorie-tracking/bmr';
 import { type ActivityLevel, calculateTdee } from '@/features/calorie-tracking/tdee';
 import { updateProfile, useProfile } from '@/features/profile/api';
 import { SettingsGroup } from '@/features/settings/settings-menu';
+import { getLogicalDateForTimestamp } from '@/features/tracking/domain/day-boundary';
 import { useTheme } from '@/hooks/use-theme';
 
 function formatHourString(hour: number): string {
@@ -276,6 +278,15 @@ export function TrackingScreen() {
   const { data: profile } = useProfile(userId);
   const { data: currentGoal } = useCurrentGoal(userId);
   const { data: latestWeight } = useLatestWeightEntry(userId);
+  const dayStartTime = profile?.tracking_day_start_time ?? '00:00';
+  const selectedLogicalDate = getLogicalDateForTimestamp(new Date(), dayStartTime);
+  const { data: logicalDayWeightEntries = [] } = useWeightEntries(
+    userId,
+    null,
+    selectedLogicalDate,
+    dayStartTime,
+  );
+  const logicalDayWeight = logicalDayWeightEntries.at(-1);
   const queryClient = useQueryClient();
 
   const [biometricsModalVisible, setBiometricsModalVisible] = useState(false);
@@ -501,7 +512,7 @@ export function TrackingScreen() {
                   ⚖️ Aktuelles Gewicht
                 </ThemedText>
                 <ThemedText type="smallBold" className="text-base mt-one">
-                  {latestWeight?.weight_kg ? `${latestWeight.weight_kg} kg` : 'Kein Log'}
+                  {logicalDayWeight?.weight_kg ? `${logicalDayWeight.weight_kg} kg` : 'Kein Log'}
                 </ThemedText>
               </View>
             </View>

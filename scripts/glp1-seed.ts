@@ -1,5 +1,6 @@
 import { createHash } from 'node:crypto';
 import { createClient, type SupabaseClient } from '@supabase/supabase-js';
+import { getLogicalDateForTimestamp } from '../src/features/tracking/domain/day-boundary';
 import type { Database } from '../src/lib/database.types';
 import { assertSafeSeedTarget } from './glp1-seed-guard';
 
@@ -7,6 +8,7 @@ const LOCAL_SUPABASE_URL = 'http://127.0.0.1:54321';
 const DEFAULT_EMAIL = 'maestro-e2e@example.com';
 const SEED_NAMESPACE = 'nutritrack-glp1-ui-seed-v1';
 const DAY_COUNT = 84;
+const TRACKING_DAY_START_TIME = '06:00';
 
 type Supabase = SupabaseClient<Database>;
 type MedicationInsert = Database['public']['Tables']['medication_logs']['Insert'];
@@ -273,19 +275,24 @@ function buildFoodRows(userId: string): FoodInsert[] {
   }).flat();
 }
 
-function buildWeightRows(userId: string): WeightInsert[] {
+export function buildWeightRows(userId: string): WeightInsert[] {
   const weeklyVariation = [0, 0.3, -0.2, 0.15, -0.25, 0.1, -0.15, 0.2, -0.1, 0.15, -0.2, 0.05];
 
-  return injectionDayIndexes().map((dayIndex, week) => ({
-    id: createSeedId(userId, 'weight', week),
-    user_id: '',
-    child_profile_id: null,
-    measured_on: dateOnly(localDate(DAY_COUNT - 1 - dayIndex)),
-    weight_kg: round(112 - week * 0.65 + weeklyVariation[week]),
-    waist_cm: null,
-    chest_cm: null,
-    hip_cm: null,
-  }));
+  return injectionDayIndexes().map((dayIndex, week) => {
+    const measuredAt = localDate(DAY_COUNT - 1 - dayIndex, 7, 30);
+
+    return {
+      id: createSeedId(userId, 'weight', week),
+      user_id: '',
+      child_profile_id: null,
+      measured_on: getLogicalDateForTimestamp(measuredAt, TRACKING_DAY_START_TIME),
+      measured_at: measuredAt.toISOString(),
+      weight_kg: round(112 - week * 0.65 + weeklyVariation[week]),
+      waist_cm: null,
+      chest_cm: null,
+      hip_cm: null,
+    };
+  });
 }
 
 function withUserId<T extends { user_id: string }>(rows: T[], userId: string): T[] {
@@ -385,7 +392,7 @@ async function seedAccount(supabase: Supabase, userId: string): Promise<void> {
       activity_level: 'moderate',
       onboarding_completed_at: new Date().toISOString(),
       tracking_method: 'glp1',
-      tracking_day_start_time: '06:00',
+      tracking_day_start_time: TRACKING_DAY_START_TIME,
     })
     .eq('id', userId);
   throwOnError(profileError, 'Demo-Profil aktualisieren');

@@ -2,9 +2,24 @@ import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import * as Crypto from 'expo-crypto';
 import { z } from 'zod';
 import {
+  type CreateMedicationLogInput,
+  type CreateSymptomLogInput,
+  medicationLogMutationSchema,
+  symptomLogMutationSchema,
+  type UpdateMedicationLogInput,
+  type UpdateSymptomLogInput,
+  updateMedicationLogMutationSchema,
+  updateSymptomLogMutationSchema,
+} from '@/features/glp1/domain/mutation-schemas';
+import {
+  medicationLogsScopeQueryKey,
+  symptomLogsScopeQueryKey,
+} from '@/features/glp1/domain/query-keys';
+import { invalidateCorrelationSeries } from '@/features/glp1/hooks/invalidate-correlation';
+import {
   getLogicalDateForTimestamp,
   getTimeRangeForLogicalDate,
-} from '@/features/calorie-tracking/day-boundary';
+} from '@/features/tracking/domain/day-boundary';
 import type { Database } from '@/lib/database.types';
 import { getDatabase } from '@/lib/db/client';
 import { enqueueMutation } from '@/lib/db/outbox';
@@ -52,14 +67,6 @@ function symptomLogFromLocal(row: LocalSymptomLogRow): SymptomLogRow {
   };
 }
 
-function medicationLogsScopeQueryKey(userId: string | undefined, childProfileId?: string | null) {
-  return ['glp1', 'medications', userId, childProfileId ?? null] as const;
-}
-
-function symptomLogsScopeQueryKey(userId: string | undefined, childProfileId?: string | null) {
-  return ['glp1', 'symptoms', userId, childProfileId ?? null] as const;
-}
-
 export function medicationLogsQueryKey(
   userId: string | undefined,
   childProfileId: string | null | undefined,
@@ -91,8 +98,13 @@ export function symptomLogsQueryKey(
 export function latestMedicationLogQueryKey(
   userId: string | undefined,
   childProfileId?: string | null,
+  medicationName?: string,
 ) {
-  return [...medicationLogsScopeQueryKey(userId, childProfileId), 'latest'] as const;
+  return [
+    ...medicationLogsScopeQueryKey(userId, childProfileId),
+    'latest',
+    medicationName?.trim().toLocaleLowerCase('de-DE') ?? null,
+  ] as const;
 }
 
 export function recentMedicationLogsQueryKey(
@@ -151,10 +163,15 @@ export function useMedicationLogs(
   });
 }
 
-export function useLatestMedicationLog(userId: string | undefined, childProfileId?: string | null) {
+export function useLatestMedicationLog(
+  userId: string | undefined,
+  childProfileId?: string | null,
+  medicationName?: string,
+) {
   return useQuery({
-    queryKey: latestMedicationLogQueryKey(userId, childProfileId),
-    queryFn: () => fetchLatestMedicationLog({ userId: userId as string, childProfileId }),
+    queryKey: latestMedicationLogQueryKey(userId, childProfileId, medicationName),
+    queryFn: () =>
+      fetchLatestMedicationLog({ userId: userId as string, childProfileId, medicationName }),
     enabled: !!userId,
     networkMode: 'always',
   });
@@ -168,22 +185,27 @@ function boundedRecentLimit(limit: number): number {
 export async function fetchRecentMedicationLogs({
   userId,
   childProfileId,
+  medicationName,
   limit = 10,
 }: {
   userId: string;
   childProfileId?: string | null;
+  medicationName?: string;
   limit?: number;
 }): Promise<MedicationLogRow[]> {
   const db = await getDatabase();
   const boundedLimit = boundedRecentLimit(limit);
+  const medicationFilter = medicationName ? ' and medication_name = ? collate nocase' : '';
+  const params = [userId, childProfileId ?? null];
+  if (medicationName) params.push(medicationName.trim());
   const rows = await db.getAllAsync<LocalMedicationLogRow>(
     `select id, user_id, child_profile_id, medication_name, dose, unit, injection_site,
             administered_at, notes, created_at, updated_at, deleted_at
      from medication_logs
-     where user_id = ? and child_profile_id is ? and deleted_at is null
+     where user_id = ? and child_profile_id is ? and deleted_at is null${medicationFilter}
      order by administered_at desc
      limit ?`,
-    [userId, childProfileId ?? null, boundedLimit],
+    [...params, boundedLimit],
   );
   return rows.map(medicationLogFromLocal);
 }
@@ -210,44 +232,43 @@ export function useRecentMedicationLogs(
 export async function fetchLatestMedicationLog({
   userId,
   childProfileId,
+  medicationName,
 }: {
   userId: string;
   childProfileId?: string | null;
+  medicationName?: string;
 }): Promise<MedicationLogRow | null> {
-  const [latest] = await fetchRecentMedicationLogs({ userId, childProfileId, limit: 1 });
+  const [latest] = await fetchRecentMedicationLogs({
+    userId,
+    childProfileId,
+    medicationName,
+    limit: 1,
+  });
   return latest ?? null;
 }
 
-export type CreateMedicationLogInput = {
-  userId: string;
-  childProfileId?: string | null;
-  medicationName: string;
-  dose?: number | null;
-  unit?: string;
-  injectionSite?: string | null;
-  administeredAt?: string;
-  notes?: string | null;
-};
+export type { CreateMedicationLogInput, CreateSymptomLogInput };
 
 export function useAddMedicationLogMutation() {
   const queryClient = useQueryClient();
 
   return useMutation({
     mutationFn: async (input: CreateMedicationLogInput) => {
+      const validated = medicationLogMutationSchema.parse(input);
       const db = await getDatabase();
       const id = Crypto.randomUUID();
       const nowMs = Date.now();
       const now = new Date(nowMs).toISOString();
       const row: MedicationLogRow = {
         id,
-        user_id: input.userId,
-        child_profile_id: input.childProfileId ?? null,
-        medication_name: input.medicationName.trim(),
-        dose: input.dose ?? null,
-        unit: input.unit ?? 'mg',
-        injection_site: input.injectionSite ?? null,
-        administered_at: input.administeredAt ?? now,
-        notes: input.notes?.trim() || null,
+        user_id: validated.userId,
+        child_profile_id: validated.childProfileId ?? null,
+        medication_name: validated.medicationName,
+        dose: validated.dose ?? null,
+        unit: validated.unit,
+        injection_site: validated.injectionSite ?? null,
+        administered_at: validated.administeredAt ?? now,
+        notes: validated.notes,
         created_at: now,
         updated_at: now,
         deleted_at: null,
@@ -266,13 +287,12 @@ export function useAddMedicationLogMutation() {
       queryClient.invalidateQueries({
         queryKey: medicationLogsScopeQueryKey(variables.userId, variables.childProfileId),
       });
+      invalidateCorrelationSeries(queryClient, variables.userId, variables.childProfileId);
       queryClient.invalidateQueries({ queryKey: ['sync-status'] });
     },
     networkMode: 'always',
   });
 }
-
-export type UpdateMedicationLogInput = CreateMedicationLogInput & { id: string };
 
 async function findScopedMedicationLog(
   db: SqlDatabase,
@@ -297,28 +317,29 @@ export function useUpdateMedicationLogMutation() {
 
   return useMutation({
     mutationFn: async (input: UpdateMedicationLogInput) => {
+      const validated = updateMedicationLogMutationSchema.parse(input);
       const db = await getDatabase();
       const existing = await findScopedMedicationLog(
         db,
-        input.id,
-        input.userId,
-        input.childProfileId,
+        validated.id,
+        validated.userId,
+        validated.childProfileId,
       );
       const nowMs = Date.now();
       const now = new Date(nowMs).toISOString();
       const changed = {
-        id: input.id,
-        medication_name: input.medicationName.trim(),
-        dose: input.dose ?? null,
-        unit: input.unit ?? 'mg',
-        injection_site: input.injectionSite ?? null,
-        administered_at: input.administeredAt ?? now,
-        notes: input.notes?.trim() || null,
+        id: validated.id,
+        medication_name: validated.medicationName,
+        dose: validated.dose ?? null,
+        unit: validated.unit,
+        injection_site: validated.injectionSite ?? null,
+        administered_at: validated.administeredAt ?? existing.administered_at,
+        notes: validated.notes,
       };
 
       await enqueueMutation(db, {
         entity: 'medication_logs',
-        entityId: input.id,
+        entityId: validated.id,
         op: 'update',
         payload: changed,
         applyLocally: (txn) =>
@@ -335,6 +356,7 @@ export function useUpdateMedicationLogMutation() {
       queryClient.invalidateQueries({
         queryKey: medicationLogsScopeQueryKey(variables.userId, variables.childProfileId),
       });
+      invalidateCorrelationSeries(queryClient, variables.userId, variables.childProfileId);
       queryClient.invalidateQueries({ queryKey: ['sync-status'] });
     },
     networkMode: 'always',
@@ -370,6 +392,7 @@ export function useDeleteMedicationLogMutation() {
       queryClient.invalidateQueries({
         queryKey: medicationLogsScopeQueryKey(variables.userId, variables.childProfileId),
       });
+      invalidateCorrelationSeries(queryClient, variables.userId, variables.childProfileId);
       queryClient.invalidateQueries({ queryKey: ['sync-status'] });
     },
     networkMode: 'always',
@@ -405,6 +428,7 @@ export function useRestoreMedicationLogMutation() {
       queryClient.invalidateQueries({
         queryKey: medicationLogsScopeQueryKey(variables.userId, variables.childProfileId),
       });
+      invalidateCorrelationSeries(queryClient, variables.userId, variables.childProfileId);
       queryClient.invalidateQueries({ queryKey: ['sync-status'] });
     },
     networkMode: 'always',
@@ -452,36 +476,26 @@ export function useSymptomLogs(
   });
 }
 
-export type CreateSymptomLogInput = {
-  userId: string;
-  childProfileId?: string | null;
-  loggedAt?: string;
-  appetiteLevel?: number | null;
-  satietyLevel?: number | null;
-  nauseaLevel?: number | null;
-  sideEffects?: string[];
-  notes?: string | null;
-};
-
 export function useAddSymptomLogMutation() {
   const queryClient = useQueryClient();
 
   return useMutation({
     mutationFn: async (input: CreateSymptomLogInput) => {
+      const validated = symptomLogMutationSchema.parse(input);
       const db = await getDatabase();
       const id = Crypto.randomUUID();
       const nowMs = Date.now();
       const now = new Date(nowMs).toISOString();
       const row: SymptomLogRow = {
         id,
-        user_id: input.userId,
-        child_profile_id: input.childProfileId ?? null,
-        logged_at: input.loggedAt ?? now,
-        appetite_level: input.appetiteLevel ?? null,
-        satiety_level: input.satietyLevel ?? null,
-        nausea_level: input.nauseaLevel ?? null,
-        side_effects: input.sideEffects ?? [],
-        notes: input.notes?.trim() || null,
+        user_id: validated.userId,
+        child_profile_id: validated.childProfileId ?? null,
+        logged_at: validated.loggedAt ?? now,
+        appetite_level: validated.appetiteLevel ?? null,
+        satiety_level: validated.satietyLevel ?? null,
+        nausea_level: validated.nauseaLevel ?? null,
+        side_effects: validated.sideEffects,
+        notes: validated.notes,
         created_at: now,
         updated_at: now,
         deleted_at: null,
@@ -508,8 +522,6 @@ export function useAddSymptomLogMutation() {
   });
 }
 
-export type UpdateSymptomLogInput = CreateSymptomLogInput & { id: string };
-
 async function findScopedSymptomLog(
   db: SqlDatabase,
   id: string,
@@ -533,18 +545,24 @@ export function useUpdateSymptomLogMutation() {
 
   return useMutation({
     mutationFn: async (input: UpdateSymptomLogInput) => {
+      const validated = updateSymptomLogMutationSchema.parse(input);
       const db = await getDatabase();
-      const existing = await findScopedSymptomLog(db, input.id, input.userId, input.childProfileId);
+      const existing = await findScopedSymptomLog(
+        db,
+        validated.id,
+        validated.userId,
+        validated.childProfileId,
+      );
       const nowMs = Date.now();
       const now = new Date(nowMs).toISOString();
       const changed = {
-        id: input.id,
-        logged_at: input.loggedAt ?? now,
-        appetite_level: input.appetiteLevel ?? null,
-        satiety_level: input.satietyLevel ?? null,
-        nausea_level: input.nauseaLevel ?? null,
-        side_effects: input.sideEffects ?? [],
-        notes: input.notes?.trim() || null,
+        id: validated.id,
+        logged_at: validated.loggedAt ?? existing.logged_at,
+        appetite_level: validated.appetiteLevel ?? null,
+        satiety_level: validated.satietyLevel ?? null,
+        nausea_level: validated.nauseaLevel ?? null,
+        side_effects: validated.sideEffects,
+        notes: validated.notes,
       };
       const localChanged = {
         ...changed,
@@ -553,7 +571,7 @@ export function useUpdateSymptomLogMutation() {
 
       await enqueueMutation(db, {
         entity: 'symptom_logs',
-        entityId: input.id,
+        entityId: validated.id,
         op: 'update',
         payload: changed,
         applyLocally: (txn) =>

@@ -9,46 +9,30 @@ export function parseDayStartTime(timeStr: string): { hours: number; minutes: nu
   };
 }
 
-/**
- * Wandelt ein Date-Objekt in das logische ISO-Datum (YYYY-MM-DD) gemaess
- * der individuellen Tag-Startzeit um.
- */
+/** Ordnet einen Zeitpunkt dem persönlichen logischen Tracking-Tag zu. */
 export function getLogicalDateForTimestamp(date: Date, dayStartTime = '00:00'): string {
   const { hours: startHour, minutes: startMinute } = parseDayStartTime(dayStartTime);
-
-  const localHours = date.getHours();
-  const localMinutes = date.getMinutes();
-
-  // Falls der Zeitpunkt VOR der Startzeit des aktuellen Kalendertages liegt,
-  // gehoert dieser Zeitpunkt noch zum vorherigen logischen Tracking-Tag.
   const isBeforeStart =
-    localHours < startHour || (localHours === startHour && localMinutes < startMinute);
-
+    date.getHours() < startHour ||
+    (date.getHours() === startHour && date.getMinutes() < startMinute);
   const logicalDate = new Date(date);
-  if (isBeforeStart) {
-    logicalDate.setDate(logicalDate.getDate() - 1);
-  }
+  if (isBeforeStart) logicalDate.setDate(logicalDate.getDate() - 1);
 
   const year = logicalDate.getFullYear();
   const month = String(logicalDate.getMonth() + 1).padStart(2, '0');
   const day = String(logicalDate.getDate()).padStart(2, '0');
-
   return `${year}-${month}-${day}`;
 }
 
-/**
- * Gibt den Start- und Endzeitpunkt (Date) eines logischen Tracking-Tages zurueck.
- */
+/** Gibt das halb-offene Zeitfenster eines logischen Tracking-Tages zurück. */
 export function getTimeRangeForLogicalDate(
   logicalDateIso: string,
   dayStartTime = '00:00',
 ): { start: Date; nextStart: Date } {
   const { hours: startHour, minutes: startMinute } = parseDayStartTime(dayStartTime);
   const [year, month, day] = logicalDateIso.split('-').map(Number);
-
   const start = new Date(year, month - 1, day, startHour, startMinute, 0, 0);
   const nextStart = new Date(start);
   nextStart.setDate(nextStart.getDate() + 1);
-
   return { start, nextStart };
 }

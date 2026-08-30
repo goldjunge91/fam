@@ -11,6 +11,7 @@ import { getDatabase } from '@/lib/db/client';
 import { enqueueMutation } from '@/lib/db/outbox';
 import { applyLocalMirrorWrite } from '@/lib/sync/mirror-write';
 import {
+  type CreateMedicationLogInput,
   fetchLatestMedicationLog,
   fetchMedicationLogsForLogicalDay,
   fetchSymptomLogsForLogicalDay,
@@ -233,6 +234,29 @@ it('legt eine Injektion lokal mit stabiler Unit atomar in Spiegel und Outbox an'
   );
 });
 
+it('verwirft ungueltige Injektionsdaten vor SQLite und Outbox', async () => {
+  const queryClient = new QueryClient({
+    defaultOptions: { mutations: { retry: false, gcTime: Number.POSITIVE_INFINITY } },
+  });
+  const { result } = await renderHook(() => useAddMedicationLogMutation(), {
+    wrapper: ({ children }: { children: React.ReactNode }) =>
+      React.createElement(QueryClientProvider, { client: queryClient }, children),
+  });
+
+  const invalidInput = {
+    userId: 'user-1',
+    medicationName: 'Semaglutid',
+    dose: -1,
+    unit: 'drops',
+    injectionSite: 'hand',
+  } as unknown as CreateMedicationLogInput;
+
+  await expect(act(() => result.current.mutateAsync(invalidInput))).rejects.toThrow();
+
+  expect(getDatabase).not.toHaveBeenCalled();
+  expect(enqueueMutation).not.toHaveBeenCalled();
+});
+
 it('aktualisiert nur eine Injektion aus demselben Account- und Child-Scope', async () => {
   const queryClient = new QueryClient({
     defaultOptions: { mutations: { retry: false, gcTime: Number.POSITIVE_INFINITY } },
@@ -286,6 +310,47 @@ it('aktualisiert nur eine Injektion aus demselben Account- und Child-Scope', asy
   );
 });
 
+it('behaelt beim Injektions-Update einen ausgelassenen Zeitpunkt bei', async () => {
+  const queryClient = new QueryClient({
+    defaultOptions: { mutations: { retry: false, gcTime: Number.POSITIVE_INFINITY } },
+  });
+  mockGetFirstAsync.mockResolvedValue({
+    id: 'medication-1',
+    user_id: 'user-1',
+    child_profile_id: null,
+    medication_name: 'Semaglutid',
+    dose: 0.5,
+    unit: 'mg',
+    injection_site: 'abdomen',
+    administered_at: '2026-08-18T08:00:00.000Z',
+    notes: null,
+    created_at: '2026-08-18T08:00:00.000Z',
+    updated_at: Date.parse('2026-08-18T08:00:00.000Z'),
+    deleted_at: null,
+  });
+  const { result } = await renderHook(() => useUpdateMedicationLogMutation(), {
+    wrapper: ({ children }: { children: React.ReactNode }) =>
+      React.createElement(QueryClientProvider, { client: queryClient }, children),
+  });
+
+  await act(() =>
+    result.current.mutateAsync({
+      id: 'medication-1',
+      userId: 'user-1',
+      medicationName: 'Semaglutid',
+      dose: 1,
+      unit: 'mg',
+    }),
+  );
+
+  expect(enqueueMutation).toHaveBeenCalledWith(
+    mockDatabase,
+    expect.objectContaining({
+      payload: expect.objectContaining({ administered_at: '2026-08-18T08:00:00.000Z' }),
+    }),
+  );
+});
+
 it.each([
   ['delete', useDeleteMedicationLogMutation],
   ['restore', useRestoreMedicationLogMutation],
@@ -325,6 +390,9 @@ it.each([
   );
   expect(invalidate).toHaveBeenCalledWith({
     queryKey: ['glp1', 'medications', 'user-1', 'child-1'],
+  });
+  expect(invalidate).toHaveBeenCalledWith({
+    queryKey: ['glp1', 'correlation', 'user-1', 'child-1'],
   });
   expect(invalidate).toHaveBeenCalledWith({ queryKey: ['sync-status'] });
 });
@@ -369,6 +437,30 @@ it('legt Symptome offline mit JSON-Text im lokalen Spiegel an', async () => {
     expect.objectContaining({ side_effects: '["Kopfschmerz","Müdigkeit"]' }),
     expect.any(Number),
   );
+});
+
+it('verwirft ungueltige Symptomdaten vor SQLite und Outbox', async () => {
+  const queryClient = new QueryClient({
+    defaultOptions: { mutations: { retry: false, gcTime: Number.POSITIVE_INFINITY } },
+  });
+  const { result } = await renderHook(() => useAddSymptomLogMutation(), {
+    wrapper: ({ children }: { children: React.ReactNode }) =>
+      React.createElement(QueryClientProvider, { client: queryClient }, children),
+  });
+
+  await expect(
+    act(() =>
+      result.current.mutateAsync({
+        userId: 'user-1',
+        appetiteLevel: 9,
+        satietyLevel: 4,
+        nauseaLevel: 0,
+      }),
+    ),
+  ).rejects.toThrow();
+
+  expect(getDatabase).not.toHaveBeenCalled();
+  expect(enqueueMutation).not.toHaveBeenCalled();
 });
 
 it('aktualisiert Symptome im Account-/Child-Scope und serialisiert Nebenwirkungen lokal', async () => {
@@ -490,7 +582,7 @@ it('verwirft Mutationen, wenn die ID nicht zum Account- und Child-Scope gehört'
   expect(enqueueMutation).not.toHaveBeenCalled();
 });
 
-it('liest die letzte Medikation all-time ohne logisches Tagesfenster', async () => {
+it('liest die letzte Medikation all-time und filtert optional nach dem Plan-Medikament', async () => {
   mockGetAllAsync.mockResolvedValue([
     {
       id: 'latest-medication',
@@ -508,13 +600,18 @@ it('liest die letzte Medikation all-time ohne logisches Tagesfenster', async () 
     },
   ]);
   await expect(
-    fetchLatestMedicationLog({ userId: 'user-1', childProfileId: null }),
+    fetchLatestMedicationLog({
+      userId: 'user-1',
+      childProfileId: null,
+      medicationName: 'Semaglutid',
+    }),
   ).resolves.toEqual(expect.objectContaining({ id: 'latest-medication' }));
 
   const [sql, params] = mockGetAllAsync.mock.calls[0];
   expect(sql).toContain('order by administered_at desc');
+  expect(sql).toContain('medication_name = ? collate nocase');
   expect(sql).not.toContain('administered_at >=');
-  expect(params).toEqual(['user-1', null, 1]);
+  expect(params).toEqual(['user-1', null, 'Semaglutid', 1]);
 });
 
 it('trennt GLP-1 Tagesabfragen im Cache nach logischem Datum und Tagesstart', () => {
@@ -542,6 +639,7 @@ it('trennt GLP-1 Tagesabfragen im Cache nach logischem Datum und Tagesstart', ()
     'user-1',
     null,
     'latest',
+    null,
   ]);
   expect(recentMedicationLogsQueryKey('user-1', null, 3)).toEqual([
     'glp1',

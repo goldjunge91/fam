@@ -2,6 +2,11 @@ import { type QueryClient, useQueryClient } from '@tanstack/react-query';
 import { useEffect, useRef } from 'react';
 import { AppState } from 'react-native';
 
+import {
+  correlationSeriesRootQueryKey,
+  medicationLogsRootQueryKey,
+  symptomLogsRootQueryKey,
+} from '@/features/glp1/domain/query-keys';
 import { getDatabase } from '@/lib/db/client';
 import { onOutboxChanged } from '@/lib/db/outbox';
 import { retryFailedOutboxEntries } from '@/lib/db/outbox-retry';
@@ -84,11 +89,12 @@ function recordRealtimeLatency(
 
 function invalidateEntityQueries(queryClient: QueryClient, entity: Entity, householdId: string) {
   if (entity === 'medication_logs') {
-    queryClient.invalidateQueries({ queryKey: ['glp1', 'medications'] });
+    queryClient.invalidateQueries({ queryKey: medicationLogsRootQueryKey });
+    queryClient.invalidateQueries({ queryKey: correlationSeriesRootQueryKey });
     return;
   }
   if (entity === 'symptom_logs') {
-    queryClient.invalidateQueries({ queryKey: ['glp1', 'symptoms'] });
+    queryClient.invalidateQueries({ queryKey: symptomLogsRootQueryKey });
     return;
   }
 

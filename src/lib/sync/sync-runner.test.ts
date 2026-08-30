@@ -142,6 +142,9 @@ describe('triggerHouseholdSync — Query-Invalidierung (#115-Befund)', () => {
       queryKey: ['glp1', 'medications'],
     });
     expect(queryClient.invalidateQueries).toHaveBeenCalledWith({
+      queryKey: ['glp1', 'correlation'],
+    });
+    expect(queryClient.invalidateQueries).toHaveBeenCalledWith({
       queryKey: ['glp1', 'symptoms'],
     });
   });

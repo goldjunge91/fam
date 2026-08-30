@@ -1,4 +1,4 @@
-import { createSeedId } from '../../../../scripts/glp1-seed';
+import { buildWeightRows, createSeedId } from '../../../../scripts/glp1-seed';
 import { assertSafeSeedTarget } from '../../../../scripts/glp1-seed-guard';
 
 describe('GLP-1 seed target guard', () => {
@@ -26,5 +26,57 @@ describe('GLP-1 seed target guard', () => {
     expect(createSeedId('account-a', 'medication', 0)).not.toBe(
       createSeedId('account-b', 'medication', 0),
     );
+  });
+
+  it('seeds weekly weights at a deterministic time inside the 06:00 logical day', () => {
+    jest.useFakeTimers().setSystemTime(new Date(2026, 7, 30, 12));
+
+    try {
+      const rows = buildWeightRows('account-a');
+      const expectedDates = [
+        '2026-06-08',
+        '2026-06-15',
+        '2026-06-22',
+        '2026-06-29',
+        '2026-07-06',
+        '2026-07-13',
+        '2026-07-20',
+        '2026-07-27',
+        '2026-08-03',
+        '2026-08-10',
+        '2026-08-17',
+        '2026-08-24',
+      ];
+
+      expect(rows.map((row) => row.measured_on)).toEqual(expectedDates);
+      expect(
+        rows.map((row) => {
+          if (typeof row.measured_at !== 'string') throw new Error('measured_at fehlt');
+          const measuredAt = new Date(row.measured_at);
+          const localDate = [
+            measuredAt.getFullYear(),
+            String(measuredAt.getMonth() + 1).padStart(2, '0'),
+            String(measuredAt.getDate()).padStart(2, '0'),
+          ].join('-');
+
+          return {
+            localDate,
+            localTime: [
+              measuredAt.getHours(),
+              measuredAt.getMinutes(),
+              measuredAt.getSeconds(),
+              measuredAt.getMilliseconds(),
+            ],
+          };
+        }),
+      ).toEqual(
+        expectedDates.map((localDate) => ({
+          localDate,
+          localTime: [7, 30, 0, 0],
+        })),
+      );
+    } finally {
+      jest.useRealTimers();
+    }
   });
 });

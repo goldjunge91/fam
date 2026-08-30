@@ -29,22 +29,6 @@ describe('entities', () => {
     ]);
   });
 
-  it.each(['medication_logs', 'symptom_logs'])(
-    '%s wird per Account-RLS statt household_id synchronisiert',
-    (entity) => {
-      const metadata = ENTITIES as unknown as Record<
-        string,
-        { accountScoped?: boolean; householdScoped: boolean; hasServerTombstone: boolean }
-      >;
-
-      expect(metadata[entity]).toMatchObject({
-        accountScoped: true,
-        householdScoped: false,
-        hasServerTombstone: true,
-      });
-    },
-  );
-
   // `households` ist bewusst nicht in ALL_ENTITIES (siehe Kommentar dort) und
   // taucht deshalb in der Schleife unten nie auf — steht in `expected` trotzdem
   // mit drin, damit der Typ `Record<Entity, boolean>` vollstaendig bleibt und

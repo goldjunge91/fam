@@ -1,4 +1,4 @@
-import { getLogicalDateForTimestamp } from '@/features/calorie-tracking/day-boundary';
+import { getLogicalDateForTimestamp } from '@/features/tracking/domain/day-boundary';
 
 export type CorrelationInjection = {
   administeredAt: string;

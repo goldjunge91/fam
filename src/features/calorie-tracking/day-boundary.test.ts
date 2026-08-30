@@ -2,7 +2,7 @@ import {
   getLogicalDateForTimestamp,
   getTimeRangeForLogicalDate,
   parseDayStartTime,
-} from './day-boundary';
+} from '@/features/tracking/domain/day-boundary';
 
 describe('day-boundary (#174)', () => {
   describe('parseDayStartTime', () => {

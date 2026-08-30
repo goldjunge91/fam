@@ -67,7 +67,7 @@ it('plant die accountweite Erinnerung aus Plan und erwachsener Historie', async 
       body: 'Deine Injektion ist fällig.',
     });
   });
-  expect(mockUseLatestMedicationLog).toHaveBeenCalledWith('user-1', null);
+  expect(mockUseLatestMedicationLog).toHaveBeenCalledWith('user-1', null, 'Semaglutid');
 });
 
 it('entfernt die Erinnerung wenn sie im Plan abgeschaltet ist', async () => {
@@ -118,4 +118,64 @@ it('plant nach einer neuen Injektion auf deren Rhythmus neu', async () => {
       expect.objectContaining({ date: new Date('2099-09-07T08:00:00.000Z') }),
     );
   });
+});
+
+it('serialisiert eine laufende Planung vor einer nachfolgenden Deaktivierung', async () => {
+  let finishScheduling: (() => void) | undefined;
+  mockScheduleLocalReminder.mockImplementationOnce(
+    () =>
+      new Promise<boolean>((resolve) => {
+        finishScheduling = () => resolve(true);
+      }),
+  );
+  mockPlan = {
+    id: 'plan-1',
+    user_id: 'user-1',
+    medication_name: 'Semaglutid',
+    dose: 0.5,
+    unit: 'mg',
+    cadence_days: 7,
+    anchor_at: '2099-09-01T08:00:00.000Z',
+    reminder_enabled: true,
+    created_at: '2026-08-01T08:00:00.000Z',
+    updated_at: '2026-08-01T08:00:00.000Z',
+  };
+
+  const { rerender } = await renderHook(() => useInjectionReminder('user-1'));
+  await waitFor(() => expect(mockScheduleLocalReminder).toHaveBeenCalledTimes(1));
+
+  mockPlan = { ...mockPlan, reminder_enabled: false };
+  await rerender({});
+  expect(mockCancelLocalReminder).not.toHaveBeenCalled();
+
+  finishScheduling?.();
+  await waitFor(() =>
+    expect(mockCancelLocalReminder).toHaveBeenLastCalledWith(injectionReminderIdentifier('user-1')),
+  );
+});
+
+it('entfernt die accountgebundene Erinnerung beim Account-Wechsel', async () => {
+  mockPlan = {
+    id: 'plan-1',
+    user_id: 'user-1',
+    medication_name: 'Semaglutid',
+    dose: 0.5,
+    unit: 'mg',
+    cadence_days: 7,
+    anchor_at: '2099-09-01T08:00:00.000Z',
+    reminder_enabled: true,
+    created_at: '2026-08-01T08:00:00.000Z',
+    updated_at: '2026-08-01T08:00:00.000Z',
+  };
+  const { rerender } = await renderHook(
+    ({ activeUserId }: { activeUserId: string | undefined }) => useInjectionReminder(activeUserId),
+    { initialProps: { activeUserId: 'user-1' as string | undefined } },
+  );
+  await waitFor(() => expect(mockScheduleLocalReminder).toHaveBeenCalledTimes(1));
+
+  await rerender({ activeUserId: undefined });
+
+  await waitFor(() =>
+    expect(mockCancelLocalReminder).toHaveBeenLastCalledWith(injectionReminderIdentifier('user-1')),
+  );
 });

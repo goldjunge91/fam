@@ -3,7 +3,7 @@
 begin;
 \ir helpers.sql
 
-select plan(7);
+select plan(11);
 
 select tests.create_user('11111111-1111-1111-1111-111111111111', 'alice@example.com');
 select tests.create_user('22222222-2222-2222-2222-222222222222', 'bob@example.com');
@@ -48,7 +48,36 @@ select is(
   'Haushalts-Admin Bob sieht Alices Injektionsplan nicht'
 );
 
+select throws_ok(
+  $$ insert into public.injection_plans
+       (user_id, medication_name, dose, unit, cadence_days, anchor_at)
+     values
+       ('11111111-1111-1111-1111-111111111111', 'Tirzepatid', 2.5, 'mg', 7, now()) $$,
+  '42501',
+  null,
+  'Bob kann keinen Injektionsplan fuer Alice anlegen'
+);
+
+select lives_ok(
+  $$ update public.injection_plans set dose = 1
+     where user_id = '11111111-1111-1111-1111-111111111111' $$,
+  'Bob kann Alices Injektionsplan nicht aendern'
+);
+
+select lives_ok(
+  $$ delete from public.injection_plans
+     where user_id = '11111111-1111-1111-1111-111111111111' $$,
+  'Bob kann Alices Injektionsplan nicht loeschen'
+);
+
 select tests.as_postgres();
+select is(
+  (select dose from public.injection_plans
+   where user_id = '11111111-1111-1111-1111-111111111111'),
+  0.5::numeric,
+  'Alices Injektionsplan bleibt nach Bobs Schreibversuchen unveraendert'
+);
+
 select throws_ok(
   $$ insert into public.injection_plans
        (user_id, medication_name, dose, unit, cadence_days, anchor_at)

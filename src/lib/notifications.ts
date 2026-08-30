@@ -2,6 +2,7 @@ import { Platform } from 'react-native';
 
 const NOTIF_SETTINGS_KEY = 'fam_notification_settings_v1';
 export const EXPIRY_NOTIFICATION_IDENTIFIER = 'fam.inventory.expiry.v1';
+const GLP1_INJECTION_NOTIFICATION_IDENTIFIER_PREFIX = 'fam.glp1.injection-due.v1.';
 
 export type NotificationSettings = {
   enabled: boolean;
@@ -101,7 +102,25 @@ export async function saveNotificationSettings(settings: NotificationSettings): 
  */
 export async function disableNotificationReminders(): Promise<void> {
   await saveNotificationSettings({ ...DEFAULT_NOTIFICATION_SETTINGS, enabled: false });
+  if (Platform.OS === 'web' || !NotificationsModule) return;
+
   await cancelLocalReminder(EXPIRY_NOTIFICATION_IDENTIFIER);
+
+  try {
+    const scheduledNotifications: { identifier: string }[] =
+      await NotificationsModule.getAllScheduledNotificationsAsync();
+    const reminderIdentifiers = scheduledNotifications
+      .map(({ identifier }) => identifier)
+      .filter((identifier) => identifier.startsWith(GLP1_INJECTION_NOTIFICATION_IDENTIFIER_PREFIX));
+
+    await Promise.all(reminderIdentifiers.map(cancelLocalReminder));
+  } catch {
+    // Graceful Fallback, wenn Notifications nicht unterstützt werden.
+  }
+}
+
+export async function cancelUserNotificationReminders(userId: string): Promise<void> {
+  await cancelLocalReminder(`${GLP1_INJECTION_NOTIFICATION_IDENTIFIER_PREFIX}${userId}`);
 }
 
 export type NotificationPermissionStatus = {

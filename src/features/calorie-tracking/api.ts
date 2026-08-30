@@ -1,11 +1,11 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { z } from 'zod';
-
+import type { GoalType } from '@/features/calorie-tracking/tdee';
+import { invalidateCorrelationSeries } from '@/features/glp1/hooks/invalidate-correlation';
 import {
   getLogicalDateForTimestamp,
   getTimeRangeForLogicalDate,
-} from '@/features/calorie-tracking/day-boundary';
-import type { GoalType } from '@/features/calorie-tracking/tdee';
+} from '@/features/tracking/domain/day-boundary';
 import type { Database } from '@/lib/database.types';
 import { getSupabase } from '@/lib/supabase';
 
@@ -197,6 +197,7 @@ export function useAddWeightEntryMutation() {
       queryClient.invalidateQueries({
         queryKey: weightEntriesScopeQueryKey(variables.userId, variables.childProfileId),
       });
+      invalidateCorrelationSeries(queryClient, variables.userId, variables.childProfileId);
     },
   });
 }
@@ -331,6 +332,7 @@ export function useAddFoodEntryMutation() {
           variables.childProfileId,
         ),
       });
+      invalidateCorrelationSeries(queryClient, variables.userId, variables.childProfileId);
     },
   });
 }
@@ -374,6 +376,7 @@ export function useUpdateFoodEntryMutation() {
       queryClient.invalidateQueries({
         queryKey: foodEntriesQueryKey(variables.userId, variables.loggedOn),
       });
+      invalidateCorrelationSeries(queryClient, variables.userId);
     },
   });
 }
@@ -405,6 +408,7 @@ export function useDeleteFoodEntryMutation() {
       queryClient.invalidateQueries({
         queryKey: foodEntriesQueryKey(variables.userId, variables.loggedOn),
       });
+      invalidateCorrelationSeries(queryClient, variables.userId);
     },
   });
 }
@@ -435,6 +439,7 @@ export function useRestoreFoodEntryMutation() {
       queryClient.invalidateQueries({
         queryKey: foodEntriesQueryKey(variables.userId, variables.loggedOn),
       });
+      invalidateCorrelationSeries(queryClient, variables.userId);
     },
   });
 }

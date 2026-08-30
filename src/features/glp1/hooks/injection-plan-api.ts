@@ -1,19 +1,15 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
-import type { MedicationUnit } from '@/features/glp1/domain/medication-options';
+import {
+  type InjectionPlanInput,
+  injectionPlanMutationSchema,
+  updateInjectionPlanMutationSchema,
+} from '@/features/glp1/domain/mutation-schemas';
 import type { Database } from '@/lib/database.types';
 import { getSupabase } from '@/lib/supabase';
 
 export type InjectionPlanRow = Database['public']['Tables']['injection_plans']['Row'];
 
-export type InjectionPlanInput = {
-  userId: string;
-  medicationName: string;
-  dose: number;
-  unit: MedicationUnit;
-  cadenceDays: number;
-  anchorAt: string;
-  reminderEnabled: boolean;
-};
+export type { InjectionPlanInput };
 
 export function injectionPlanQueryKey(userId: string | undefined) {
   return ['glp1', 'injection-plan', userId] as const;
@@ -42,16 +38,17 @@ export function useCreateInjectionPlanMutation() {
   const queryClient = useQueryClient();
   return useMutation({
     mutationFn: async (input: InjectionPlanInput) => {
+      const validated = injectionPlanMutationSchema.parse(input);
       const { data, error } = await getSupabase()
         .from('injection_plans')
         .insert({
-          user_id: input.userId,
-          medication_name: input.medicationName.trim(),
-          dose: input.dose,
-          unit: input.unit,
-          cadence_days: input.cadenceDays,
-          anchor_at: input.anchorAt,
-          reminder_enabled: input.reminderEnabled,
+          user_id: validated.userId,
+          medication_name: validated.medicationName,
+          dose: validated.dose,
+          unit: validated.unit,
+          cadence_days: validated.cadenceDays,
+          anchor_at: validated.anchorAt,
+          reminder_enabled: validated.reminderEnabled,
         })
         .select()
         .single();
@@ -69,18 +66,19 @@ export function useUpdateInjectionPlanMutation() {
   const queryClient = useQueryClient();
   return useMutation({
     mutationFn: async (input: InjectionPlanInput & { id: string }) => {
+      const validated = updateInjectionPlanMutationSchema.parse(input);
       const { data, error } = await getSupabase()
         .from('injection_plans')
         .update({
-          medication_name: input.medicationName.trim(),
-          dose: input.dose,
-          unit: input.unit,
-          cadence_days: input.cadenceDays,
-          anchor_at: input.anchorAt,
-          reminder_enabled: input.reminderEnabled,
+          medication_name: validated.medicationName,
+          dose: validated.dose,
+          unit: validated.unit,
+          cadence_days: validated.cadenceDays,
+          anchor_at: validated.anchorAt,
+          reminder_enabled: validated.reminderEnabled,
         })
-        .eq('id', input.id)
-        .eq('user_id', input.userId)
+        .eq('id', validated.id)
+        .eq('user_id', validated.userId)
         .select()
         .single();
 

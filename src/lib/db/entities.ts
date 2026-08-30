@@ -17,8 +17,6 @@ export type EntityMeta = {
   hasServerTombstone: boolean;
   /** false bei 'products' und 'households' — beide global, kein household_id-Praefix. */
   householdScoped: boolean;
-  /** Die Remote-Sicht wird ausschließlich durch die private Account-RLS begrenzt. */
-  accountScoped?: true;
   /** Push-only-Entitaeten werden nie gepullt und brauchen keine Server-Spiegelantwort. */
   pushOnly?: boolean;
   /** Normalisiert Mengen-Einheiten aus Nutzereingaben auf den gemeinsamen Inventory-Vertrag. */
@@ -295,7 +293,6 @@ export const ENTITIES: Readonly<Record<Entity, EntityMeta>> = {
     table: 'medication_logs',
     hasServerTombstone: true,
     householdScoped: false,
-    accountScoped: true,
     columns: [
       'id',
       'user_id',
@@ -314,7 +311,6 @@ export const ENTITIES: Readonly<Record<Entity, EntityMeta>> = {
     table: 'symptom_logs',
     hasServerTombstone: true,
     householdScoped: false,
-    accountScoped: true,
     columns: [
       'id',
       'user_id',

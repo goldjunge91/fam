@@ -4,20 +4,18 @@ import { Controller, useForm } from 'react-hook-form';
 import { Pressable, TextInput, View } from 'react-native';
 import { z } from 'zod';
 import { ThemedText } from '@/components/theme/themed-text';
-import { formatDateTimeInput, parseDateTimeInput } from '@/features/glp1/domain/date-time-input';
+import { formatDateTimeInput } from '@/features/glp1/domain/date-time-input';
+import {
+  dateTimeInputSchema,
+  medicationNameInputSchema,
+  positiveDoseInputSchema,
+} from '@/features/glp1/domain/form-schema-primitives';
 import { MEDICATION_UNITS } from '@/features/glp1/domain/medication-options';
 import { useTheme } from '@/hooks/use-theme';
 
 const injectionPlanFormSchema = z.object({
-  medicationName: z.string().trim().min(1, 'Medikament fehlt').max(200),
-  dose: z.string().transform((value, context) => {
-    const parsed = Number(value.trim().replace(',', '.'));
-    if (!Number.isFinite(parsed) || parsed <= 0) {
-      context.addIssue({ code: 'custom', message: 'Dosis muss größer als 0 sein' });
-      return z.NEVER;
-    }
-    return parsed;
-  }),
+  medicationName: medicationNameInputSchema,
+  dose: positiveDoseInputSchema,
   unit: z.enum(MEDICATION_UNITS),
   cadenceDays: z.string().transform((value, context) => {
     const parsed = Number(value.trim());
@@ -27,14 +25,7 @@ const injectionPlanFormSchema = z.object({
     }
     return parsed;
   }),
-  anchorAt: z.string().transform((value, context) => {
-    const parsed = parseDateTimeInput(value);
-    if (!parsed) {
-      context.addIssue({ code: 'custom', message: 'Bitte als JJJJ-MM-TT HH:MM eingeben' });
-      return z.NEVER;
-    }
-    return parsed;
-  }),
+  anchorAt: dateTimeInputSchema,
   reminderEnabled: z.boolean(),
 });
 

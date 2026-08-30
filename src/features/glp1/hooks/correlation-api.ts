@@ -1,15 +1,15 @@
 import { useQuery } from '@tanstack/react-query';
 import { z } from 'zod';
-
-import {
-  getLogicalDateForTimestamp,
-  getTimeRangeForLogicalDate,
-} from '@/features/calorie-tracking/day-boundary';
 import {
   buildCorrelationSeries,
   type CorrelationInjection,
   type CorrelationSeriesPoint,
 } from '@/features/glp1/domain/correlation-series';
+import { correlationSeriesQueryKey } from '@/features/glp1/domain/query-keys';
+import {
+  getLogicalDateForTimestamp,
+  getTimeRangeForLogicalDate,
+} from '@/features/tracking/domain/day-boundary';
 import { getDatabase } from '@/lib/db/client';
 import { getSupabase } from '@/lib/supabase';
 
@@ -36,14 +36,7 @@ const weightEntriesSchema = z.array(
   }),
 );
 
-export function correlationSeriesQueryKey(
-  userId: string | undefined,
-  childProfileId: string | null | undefined,
-  endDate: string,
-  dayStartTime: string,
-) {
-  return ['glp1', 'correlation', userId, childProfileId ?? null, endDate, dayStartTime] as const;
-}
+export { correlationSeriesQueryKey } from '@/features/glp1/domain/query-keys';
 
 function subtractDays(date: string, days: number): string {
   const value = new Date(`${date}T00:00:00.000Z`);

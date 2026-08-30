@@ -17,7 +17,7 @@ import {
 
 type InjectionPlanSectionProps = {
   userId: string | undefined;
-  latestMedicationAt?: string;
+  latestInjectionAt?: string;
 };
 
 const STATUS_CONTENT = {
@@ -37,7 +37,7 @@ function planFormValue(plan: InjectionPlanRow): InjectionPlanFormValue {
   };
 }
 
-export function InjectionPlanSection({ userId, latestMedicationAt }: InjectionPlanSectionProps) {
+export function InjectionPlanSection({ userId, latestInjectionAt }: InjectionPlanSectionProps) {
   const [showForm, setShowForm] = useState(false);
   const { data: plan, isLoading, isError } = useInjectionPlan(userId);
   const createMutation = useCreateInjectionPlanMutation();
@@ -87,7 +87,7 @@ export function InjectionPlanSection({ userId, latestMedicationAt }: InjectionPl
 
   const due = calculateInjectionDue(
     { anchorAt: plan.anchor_at, cadenceDays: plan.cadence_days },
-    latestMedicationAt ? { administeredAt: latestMedicationAt } : null,
+    latestInjectionAt ? { administeredAt: latestInjectionAt } : null,
     new Date(),
   );
   const status = STATUS_CONTENT[due.status];
