@@ -1,7 +1,5 @@
-import { useEffect, useMemo, useState } from 'react';
-import { View } from 'react-native';
-
-import { WheelPickerField } from '@/components/forms/wheel-picker-field';
+import { useEffect, useState } from 'react';
+import { Pressable, View } from 'react-native';
 import { Screen } from '@/components/layout/screen';
 import { ThemedText } from '@/components/theme/themed-text';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
@@ -15,31 +13,46 @@ export default function ProductSearchSettingsRoute() {
   const { activeHousehold } = useActiveHousehold();
   const householdId = activeHousehold?.id;
   const { data: stores = [], isLoading: storesLoading } = useStores(householdId);
-  const { data: storedStoreId, isLoading: preferenceLoading } =
+  const { data: storedStoreIds = [], isLoading: preferenceLoading } =
     usePreferredProductMarket(householdId);
   const setPreferredMarket = useSetPreferredProductMarket();
-  const [selectedStoreId, setSelectedStoreId] = useState('');
+  const [selectedStoreIds, setSelectedStoreIds] = useState<string[]>([]);
 
   useEffect(() => {
-    setSelectedStoreId(
-      storedStoreId && stores.some((store) => store.id === storedStoreId) ? storedStoreId : '',
+    setSelectedStoreIds(
+      storedStoreIds.filter((storeId) => stores.some((store) => store.id === storeId)),
     );
-  }, [storedStoreId, stores]);
+  }, [storedStoreIds, stores]);
 
-  const options = useMemo(
-    () => [
-      { value: '', label: 'Neutral, kein bevorzugter Markt' },
-      ...stores.map((store) => ({ value: store.id, label: store.name })),
-    ],
-    [stores],
-  );
+  async function saveSelection(storeIds: string[]) {
+    setSelectedStoreIds(storeIds);
+    if (householdId) await setPreferredMarket(householdId, storeIds);
+  }
 
-  async function handleChange(storeId: string) {
-    setSelectedStoreId(storeId);
-    if (householdId) await setPreferredMarket(householdId, storeId || null);
+  function toggleStore(storeId: string) {
+    const next = selectedStoreIds.includes(storeId)
+      ? selectedStoreIds.filter((id) => id !== storeId)
+      : [...selectedStoreIds, storeId];
+    void saveSelection(next);
+  }
+
+  function moveStore(index: number, direction: -1 | 1) {
+    const target = index + direction;
+    if (target < 0 || target >= selectedStoreIds.length) return;
+    const next = [...selectedStoreIds];
+    [next[index], next[target]] = [next[target], next[index]];
+    void saveSelection(next);
   }
 
   const loading = storesLoading || preferenceLoading;
+  const orderedStores = [...stores].sort((left, right) => {
+    const leftPosition = selectedStoreIds.indexOf(left.id);
+    const rightPosition = selectedStoreIds.indexOf(right.id);
+    return (
+      (leftPosition < 0 ? stores.length : leftPosition) -
+      (rightPosition < 0 ? stores.length : rightPosition)
+    );
+  });
 
   return (
     <Screen title="Produktsuche" back={{ label: 'Einstellungen' }} backStyle="icon">
@@ -51,12 +64,56 @@ export default function ProductSearchSettingsRoute() {
         </ThemedText>
 
         {loading ? null : (
-          <WheelPickerField
-            label="Bevorzugter Markt"
-            value={selectedStoreId}
-            options={options}
-            onChange={handleChange}
-          />
+          <View className="gap-two">
+            <View className="gap-one">
+              <ThemedText type="small" themeColor="textSecondary">
+                Bevorzugte Märkte
+              </ThemedText>
+              <ThemedText type="small" themeColor="textSecondary">
+                Wähle mehrere Märkte. Die Reihenfolge bestimmt die Priorität.
+              </ThemedText>
+            </View>
+            <View className="gap-one">
+              {orderedStores.map((store) => {
+                const selected = selectedStoreIds.includes(store.id);
+                const position = selectedStoreIds.indexOf(store.id);
+                return (
+                  <View key={store.id} className="flex-row items-center gap-two">
+                    <Pressable
+                      onPress={() => toggleStore(store.id)}
+                      accessibilityRole="checkbox"
+                      accessibilityState={{ checked: selected }}
+                      accessibilityLabel={`${store.name} auswählen`}
+                      className="input-field flex-1 active:opacity-75">
+                      <ThemedText themeColor="text">
+                        {selected ? `✓  ${position + 1}. ${store.name}` : store.name}
+                      </ThemedText>
+                    </Pressable>
+                    {selected ? (
+                      <View className="flex-row gap-one">
+                        <Pressable
+                          onPress={() => moveStore(position, -1)}
+                          disabled={position === 0}
+                          accessibilityRole="button"
+                          accessibilityLabel={`${store.name} nach oben bewegen`}
+                          className="px-two py-two active:opacity-75">
+                          <ThemedText themeColor="text">↑</ThemedText>
+                        </Pressable>
+                        <Pressable
+                          onPress={() => moveStore(position, 1)}
+                          disabled={position === selectedStoreIds.length - 1}
+                          accessibilityRole="button"
+                          accessibilityLabel={`${store.name} nach unten bewegen`}
+                          className="px-two py-two active:opacity-75">
+                          <ThemedText themeColor="text">↓</ThemedText>
+                        </Pressable>
+                      </View>
+                    ) : null}
+                  </View>
+                );
+              })}
+            </View>
+          </View>
         )}
 
         {!loading && stores.length === 0 ? (

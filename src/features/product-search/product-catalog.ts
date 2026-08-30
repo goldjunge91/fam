@@ -22,7 +22,7 @@ export type ProductCatalogSearchOptions = {
   limit?: number;
   signal?: AbortSignal;
   /** Eigenmarken dieses Markts werden im Ranking bevorzugt. */
-  preferredMarket?: string | null;
+  preferredMarket?: string | readonly string[] | null;
   /**
    * Sperrt die Online-Ebene fuer diesen Aufruf. Die UI nutzt das fuer die
    * schnelle erste Antwort waehrend des Tippens: Open Food Facts untersagt

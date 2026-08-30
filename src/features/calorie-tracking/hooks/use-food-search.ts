@@ -13,7 +13,7 @@ const PAGE_SIZE = 20;
  * Verlaufsfilter, Quellen-Umschalter und Scanner-Sichtbarkeit bleiben bewusst
  * draussen: reiner UI-Zustand ohne Sucheinfluss.
  */
-export function useFoodSearch(preferredMarket: string | null | undefined) {
+export function useFoodSearch(preferredMarket: string | readonly string[] | null | undefined) {
   const [query, setQuery] = useState('');
   const search = useProductSearch(query, { preferredMarket, pageSize: PAGE_SIZE });
 

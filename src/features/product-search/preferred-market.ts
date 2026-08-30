@@ -9,20 +9,35 @@ function storageKey(householdId: string): string {
   return `${STORAGE_PREFIX}${householdId}`;
 }
 
-export async function getPreferredProductMarket(householdId: string): Promise<string | null> {
+export type PreferredProductMarkets = string[];
+
+export async function getPreferredProductMarkets(
+  householdId: string,
+): Promise<PreferredProductMarkets> {
   try {
-    return await AsyncStorage.getItem(storageKey(householdId));
+    const stored = await AsyncStorage.getItem(storageKey(householdId));
+    if (!stored) return [];
+    try {
+      const parsed: unknown = JSON.parse(stored);
+      if (Array.isArray(parsed)) {
+        return parsed.filter((value): value is string => typeof value === 'string');
+      }
+    } catch {
+      // Vor der Mehrfachauswahl wurde nur die Markt-ID gespeichert.
+    }
+    return [stored];
   } catch {
-    return null;
+    return [];
   }
 }
 
-export async function setPreferredProductMarket(
+export async function setPreferredProductMarkets(
   householdId: string,
-  storeId: string | null,
+  storeIds: readonly string[],
 ): Promise<void> {
   try {
-    if (storeId) await AsyncStorage.setItem(storageKey(householdId), storeId);
+    if (storeIds.length > 0)
+      await AsyncStorage.setItem(storageKey(householdId), JSON.stringify(storeIds));
     else await AsyncStorage.removeItem(storageKey(householdId));
   } catch {
     // Eine lokale Komforteinstellung darf den Such- oder Haushaltsworkflow nicht blockieren.
@@ -36,15 +51,15 @@ export function preferredProductMarketQueryKey(householdId: string | undefined) 
 export function usePreferredProductMarket(householdId: string | undefined) {
   return useQuery({
     queryKey: preferredProductMarketQueryKey(householdId),
-    queryFn: () => (householdId ? getPreferredProductMarket(householdId) : null),
+    queryFn: () => (householdId ? getPreferredProductMarkets(householdId) : []),
     enabled: Boolean(householdId),
   });
 }
 
 export function useSetPreferredProductMarket() {
   const queryClient = useQueryClient();
-  return async (householdId: string, storeId: string | null) => {
-    await setPreferredProductMarket(householdId, storeId);
+  return async (householdId: string, storeIds: readonly string[]) => {
+    await setPreferredProductMarkets(householdId, storeIds);
     await queryClient.invalidateQueries({
       queryKey: preferredProductMarketQueryKey(householdId),
     });
@@ -52,7 +67,9 @@ export function useSetPreferredProductMarket() {
 }
 
 export function usePreferredProductMarketName(householdId: string | undefined) {
-  const { data: storeId } = usePreferredProductMarket(householdId);
+  const { data: storeIds = [] } = usePreferredProductMarket(householdId);
   const { data: stores = [] } = useStores(householdId);
-  return stores.find((store) => store.id === storeId)?.name ?? null;
+  return storeIds
+    .map((storeId) => stores.find((store) => store.id === storeId)?.name)
+    .filter((name): name is string => Boolean(name));
 }

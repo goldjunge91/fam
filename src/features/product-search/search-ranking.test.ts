@@ -40,6 +40,19 @@ describe('product search ranking', () => {
     expect(results[0]?.brand).toBe('Edeka Bio');
   });
 
+  it('uses the preferred market order as a tie-breaker', () => {
+    const results = rankProductSearchResults(
+      [
+        product('Haferflocken kernig', 'Lidl', 500, 'g'),
+        product('Haferflocken kernig', 'Edeka Bio', 500, 'g'),
+      ],
+      'haferflocken kernig',
+      ['Edeka', 'Lidl'],
+    );
+
+    expect(results[0]?.brand).toBe('Edeka Bio');
+  });
+
   it('does not treat a private-label alias as a substring', () => {
     const results = rankProductSearchResults(
       [product('Coca-Cola Lift Orange', 'Coca-Cola', 1, 'l')],

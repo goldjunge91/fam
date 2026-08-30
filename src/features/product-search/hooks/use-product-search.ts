@@ -24,7 +24,7 @@ const API_DEBOUNCE_MS = 800;
 
 export type UseProductSearchOptions = {
   /** Eigenmarken dieses Markts stehen im Ranking weiter oben. */
-  preferredMarket?: string | null;
+  preferredMarket?: string | readonly string[] | null;
   /** Test-Seam: ein anderer Katalog (z. B. ein Fake) statt der App-Instanz. */
   catalog?: ProductCatalog;
   localDebounceMs?: number;

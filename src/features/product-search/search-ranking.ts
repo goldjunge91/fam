@@ -1,6 +1,6 @@
 import type { CatalogProduct } from '@/features/product-search/types';
 
-export type ProductSearchMarket = string | null | undefined;
+export type ProductSearchMarket = string | readonly string[] | null | undefined;
 
 export type ParsedProductSearchQuery = {
   normalized: string;
@@ -87,12 +87,17 @@ function words(value: string): string[] {
   return normalize(value).split(' ').filter(Boolean);
 }
 
-function marketMatches(product: CatalogProduct, market: ProductSearchMarket): boolean {
-  const aliases = MARKET_ALIASES[normalize(market ?? '')];
+function marketMatches(product: CatalogProduct, market: string): boolean {
+  const aliases = MARKET_ALIASES[normalize(market)];
   if (!aliases) return false;
 
   const haystack = ` ${normalize(`${product.brand ?? ''} ${product.name}`)} `;
   return aliases.some((alias) => haystack.includes(` ${normalize(alias)} `));
+}
+
+function preferredMarkets(market: ProductSearchMarket): string[] {
+  if (typeof market === 'string') return [market];
+  return market ? [...market] : [];
 }
 
 function quantityMatch(
@@ -171,9 +176,11 @@ export function matchProductSearchResult(
     reasons.push('Marke passend');
   }
 
-  if (marketMatches(product, preferredMarket)) {
-    score += 35;
-    reasons.push(`${normalize(preferredMarket ?? '').toUpperCase()}-Eigenmarke`);
+  const markets = preferredMarkets(preferredMarket);
+  const marketIndex = markets.findIndex((market) => marketMatches(product, market));
+  if (marketIndex >= 0) {
+    score += Math.max(8, 35 - marketIndex * 9);
+    reasons.push(`${normalize(markets[marketIndex]).toUpperCase()}-Eigenmarke`);
   }
 
   return { score, reasons };
