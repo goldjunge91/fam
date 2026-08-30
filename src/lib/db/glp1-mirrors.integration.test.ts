@@ -9,6 +9,8 @@ type ColumnInfo = {
   dflt_value: string | null;
 };
 
+type IndexInfo = { name: string };
+
 async function columnsOf(db: TestDatabase, table: string): Promise<ColumnInfo[]> {
   return db.getAllAsync<ColumnInfo>(`pragma table_info(${table})`);
 }
@@ -57,6 +59,21 @@ describe('GLP-1-Spiegelmigration', () => {
 
       const sideEffects = symptomColumns.find(({ name }) => name === 'side_effects');
       expect(sideEffects).toMatchObject({ notnull: 1, dflt_value: "'[]'" });
+
+      const medicationIndexes = await db.getAllAsync<IndexInfo>(
+        'select name from pragma_index_list(?)',
+        ['medication_logs'],
+      );
+      const symptomIndexes = await db.getAllAsync<IndexInfo>(
+        'select name from pragma_index_list(?)',
+        ['symptom_logs'],
+      );
+      expect(medicationIndexes.map(({ name }) => name)).toEqual(
+        expect.arrayContaining(['medication_logs_user_time_idx', 'medication_logs_dirty_idx']),
+      );
+      expect(symptomIndexes.map(({ name }) => name)).toEqual(
+        expect.arrayContaining(['symptom_logs_user_time_idx', 'symptom_logs_dirty_idx']),
+      );
     } finally {
       db.close();
     }
