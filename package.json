@@ -191,6 +191,7 @@
         "user:list": "bun scripts/test-users.ts list",
         "user:clean": "bun scripts/test-users.ts clean",
         "user:delete": "bun scripts/test-users.ts delete",
+        "seed:glp1": "bun scripts/glp1-seed.ts",
         "test:env": "EXPO_NO_DOTENV=1 dotenv -o -e .env.development.local -- bun -e \"console.log(process.env.EXPO_PUBLIC_SUPABASE_URL)\"",
         "classify": "bun scripts/classify.ts"
     },
