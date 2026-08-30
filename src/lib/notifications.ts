@@ -165,11 +165,13 @@ function hasNotificationPermission(permission: {
 }): boolean {
   if (permission.status === 'granted') return true;
   const iosStatus = permission.ios?.status;
+  if (iosStatus === undefined) return false;
+
   return [
     NotificationsModule?.IosAuthorizationStatus?.AUTHORIZED,
     NotificationsModule?.IosAuthorizationStatus?.PROVISIONAL,
     NotificationsModule?.IosAuthorizationStatus?.EPHEMERAL,
-  ].includes(iosStatus);
+  ].some((status) => status !== undefined && status === iosStatus);
 }
 
 export type LocalReminderInput = {
