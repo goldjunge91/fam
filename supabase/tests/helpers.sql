@@ -45,6 +45,8 @@ begin
     json_build_object('sub', user_id::text, 'role', 'authenticated')::text,
     true
   );
+  perform set_config('request.jwt.claim.sub', user_id::text, true);
+  perform set_config('request.jwt.claim.role', 'authenticated', true);
 end;
 $$;
 
@@ -62,6 +64,8 @@ as $$
 begin
   execute 'reset role';
   perform set_config('request.jwt.claims', null, true);
+  perform set_config('request.jwt.claim.sub', null, true);
+  perform set_config('request.jwt.claim.role', null, true);
 end;
 $$;
 
@@ -73,6 +77,8 @@ as $$
 begin
   perform set_config('role', 'anon', true);
   perform set_config('request.jwt.claims', null, true);
+  perform set_config('request.jwt.claim.sub', null, true);
+  perform set_config('request.jwt.claim.role', 'anon', true);
 end;
 $$;
 

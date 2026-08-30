@@ -2459,6 +2459,7 @@ export type Database = {
           deleted_at: string | null
           hip_cm: number | null
           id: string
+          measured_at: string | null
           measured_on: string
           updated_at: string
           user_id: string
@@ -2472,6 +2473,7 @@ export type Database = {
           deleted_at?: string | null
           hip_cm?: number | null
           id?: string
+          measured_at?: string | null
           measured_on?: string
           updated_at?: string
           user_id: string
@@ -2485,6 +2487,7 @@ export type Database = {
           deleted_at?: string | null
           hip_cm?: number | null
           id?: string
+          measured_at?: string | null
           measured_on?: string
           updated_at?: string
           user_id?: string

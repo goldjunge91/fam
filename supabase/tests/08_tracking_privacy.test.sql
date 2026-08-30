@@ -20,7 +20,7 @@ select has_column(
 );
 select is(
   (
-    select data_type
+    select data_type::text
     from information_schema.columns
     where table_schema = 'public'
       and table_name = 'weight_entries'
@@ -31,7 +31,7 @@ select is(
 );
 select is(
   (
-    select is_nullable
+    select is_nullable::text
     from information_schema.columns
     where table_schema = 'public'
       and table_name = 'weight_entries'
@@ -42,7 +42,7 @@ select is(
 );
 select is(
   (
-    select column_default
+    select column_default::text
     from information_schema.columns
     where table_schema = 'public'
       and table_name = 'weight_entries'
