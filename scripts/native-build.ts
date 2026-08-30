@@ -241,6 +241,7 @@ async function assertNativeBaseline(
       fail(
         `${platform}-Fingerprint stimmt nicht mit dem Lock überein. ` +
           `Native Änderung, Config-/Dependency-Änderung oder falsche Baseline erkannt. ` +
+          `Erwartet: ${expected?.hash ?? '(nicht gesetzt)'}, aktuell: ${current[platform].hash}. ` +
           `Rebuild nur mit '--approve-rebuild'.`,
       );
     }
