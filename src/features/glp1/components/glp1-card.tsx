@@ -20,6 +20,7 @@ import {
   useDeleteMedicationLogMutation,
   useDeleteSymptomLogMutation,
   useMedicationLogs,
+  useRecentMedicationLogs,
   useRestoreMedicationLogMutation,
   useRestoreSymptomLogMutation,
   useSymptomLogs,
@@ -91,6 +92,7 @@ export function Glp1Card({
     logicalDate,
     dayStartTime,
   );
+  const { data: recentMedLogs } = useRecentMedicationLogs(userId, childProfileId);
   const { data: symptomLogs } = useSymptomLogs(
     userId,
     childProfileId,
@@ -105,7 +107,7 @@ export function Glp1Card({
   const deleteSymptomMutation = useDeleteSymptomLogMutation();
   const restoreMedMutation = useRestoreMedicationLogMutation();
   const restoreSymptomMutation = useRestoreSymptomLogMutation();
-  const latestMed = medLogs && medLogs.length > 0 ? medLogs[0] : null;
+  const latestMed = recentMedLogs && recentMedLogs.length > 0 ? recentMedLogs[0] : null;
   const latestSymptom = symptomLogs && symptomLogs.length > 0 ? symptomLogs[0] : null;
 
   const history: HistoryItem[] = [
@@ -121,7 +123,7 @@ export function Glp1Card({
     })),
   ].sort((left, right) => right.timestamp.localeCompare(left.timestamp));
 
-  const recentSites = (medLogs ?? [])
+  const recentSites = (recentMedLogs ?? [])
     .map((log) => log.injection_site)
     .filter(isInjectionSite)
     .filter((site, index, sites) => sites.indexOf(site) === index)

@@ -15,6 +15,7 @@ const mockUpdatePlan = jest.fn();
 const mockDeletePlan = jest.fn();
 const mockUseMedicationLogs = jest.fn();
 const mockUseSymptomLogs = jest.fn();
+const mockUseRecentMedicationLogs = jest.fn();
 
 let mockPlan: {
   id: string;
@@ -38,6 +39,7 @@ let mockMedLogs: {
   injection_site?: string | null;
   notes?: string | null;
 }[] = [];
+let mockRecentMedLogs: typeof mockMedLogs | undefined;
 
 let mockSymptomLogs: {
   id: string;
@@ -51,6 +53,7 @@ let mockSymptomLogs: {
 
 jest.mock('@/features/glp1/hooks/glp1-api', () => ({
   useMedicationLogs: (...args: unknown[]) => mockUseMedicationLogs(...args),
+  useRecentMedicationLogs: (...args: unknown[]) => mockUseRecentMedicationLogs(...args),
   useSymptomLogs: (...args: unknown[]) => mockUseSymptomLogs(...args),
   useAddMedicationLogMutation: () => ({ mutate: mockMutateMed, isPending: false }),
   useAddSymptomLogMutation: () => ({ mutate: mockMutateSymptom, isPending: false }),
@@ -79,6 +82,7 @@ jest.mock('@/features/glp1/hooks/use-injection-reminder', () => ({
 
 beforeEach(() => {
   mockMedLogs = [];
+  mockRecentMedLogs = undefined;
   mockSymptomLogs = [];
   mockPlan = null;
   mockMutateMed.mockClear();
@@ -95,7 +99,12 @@ beforeEach(() => {
   mockDeletePlan.mockClear();
   mockUseMedicationLogs.mockClear();
   mockUseSymptomLogs.mockClear();
+  mockUseRecentMedicationLogs.mockClear();
   mockUseMedicationLogs.mockImplementation(() => ({ data: mockMedLogs, isLoading: false }));
+  mockUseRecentMedicationLogs.mockImplementation(() => ({
+    data: mockRecentMedLogs ?? mockMedLogs,
+    isLoading: false,
+  }));
   mockUseSymptomLogs.mockImplementation(() => ({ data: mockSymptomLogs, isLoading: false }));
 });
 
@@ -129,6 +138,28 @@ describe('Glp1Card', () => {
       '2026-08-18',
       '06:00',
     );
+  });
+
+  it('behaelt letzte Injektion und Rotationshilfe ausserhalb des ausgewaehlten Tages', async () => {
+    const user = userEvent.setup();
+    mockRecentMedLogs = [
+      {
+        id: 'm-recent',
+        medication_name: 'Semaglutid',
+        dose: 1,
+        unit: 'mg',
+        administered_at: '2026-08-17T08:00:00.000Z',
+        injection_site: 'thigh',
+      },
+    ];
+
+    await render(
+      <Glp1Card userId="user-1" logicalDate="2026-08-18" dayStartTime="06:00" />,
+    );
+
+    expect(screen.getByText('Semaglutid (1 mg)')).toBeOnTheScreen();
+    await user.press(screen.getByText('+ Injektion eintragen'));
+    expect(screen.getByText('Zuletzt: Oberschenkel')).toBeOnTheScreen();
   });
 
   it('zeigt letzte Injektion und Symptom-Status an', async () => {
