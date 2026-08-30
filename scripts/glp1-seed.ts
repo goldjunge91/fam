@@ -81,13 +81,24 @@ const PRODUCTS = {
   },
 } as const;
 
-const INJECTION_DOSES = [0.25, 0.5, 0.5, 1, 1, 0.5, 1.7, 1.7, 2.4, 2.4, 2.4, 2.4];
-const INJECTION_UNITS = ['mg', 'mg', 'mg', 'mg', 'mg', 'ml', 'mg', 'mg', 'mg', 'mg', 'mg', 'mg'];
+const INJECTION_DOSES = [0.25, 0.5, 0.5, 1, 1, 1, 1.7, 1.7, 2.4, 2.4, 0.5, 2.4];
+const INJECTION_UNITS = ['mg', 'mg', 'mg', 'mg', 'mg', 'mg', 'mg', 'mg', 'mg', 'mg', 'ml', 'mg'];
 const INJECTION_SITES = ['abdomen', 'thigh', 'upper_arm', 'other'] as const;
 const DAILY_VARIATION = [0.97, 1.02, 1.01, 0.98, 1.04, 1.08, 1.03];
 
-function stableId(kind: string, index: number): string {
+export function createSeedId(accountId: string, kind: string, index: number): string {
+  const digest = createHash('sha256')
+    .update(`${SEED_NAMESPACE}:${accountId}:${kind}:${index}`)
+    .digest();
+  return uuidFromDigest(digest);
+}
+
+function legacySeedId(kind: string, index: number): string {
   const digest = createHash('sha256').update(`${SEED_NAMESPACE}:${kind}:${index}`).digest();
+  return uuidFromDigest(digest);
+}
+
+function uuidFromDigest(digest: Buffer): string {
   const bytes = [...digest.subarray(0, 16)];
   bytes[6] = (bytes[6] & 0x0f) | 0x50;
   bytes[8] = (bytes[8] & 0x3f) | 0x80;
@@ -127,13 +138,13 @@ function lastInjectionIndex(dayIndex: number): number {
   return Math.floor(dayIndex / 7) * 7;
 }
 
-function buildMedicationRows(): MedicationInsert[] {
+function buildMedicationRows(userId: string): MedicationInsert[] {
   return injectionDayIndexes().map((dayIndex, week) => {
     const administeredAt = localDate(DAY_COUNT - 1 - dayIndex, 8, 15);
     const unit = INJECTION_UNITS[week];
 
     return {
-      id: stableId('medication', week),
+      id: createSeedId(userId, 'medication', week),
       user_id: '',
       child_profile_id: null,
       medication_name: 'Semaglutid',
@@ -142,7 +153,7 @@ function buildMedicationRows(): MedicationInsert[] {
       injection_site: INJECTION_SITES[week % INJECTION_SITES.length],
       administered_at: administeredAt.toISOString(),
       notes:
-        unit === 'units'
+        unit !== 'mg'
           ? 'Randfall: Pen-Einheit statt mg'
           : week === 0
             ? 'Start der Demo-Titration'
@@ -180,7 +191,7 @@ function symptomValues(dayIndex: number): {
   };
 }
 
-function buildSymptomRows(): SymptomInsert[] {
+function buildSymptomRows(userId: string): SymptomInsert[] {
   const rows = Array.from({ length: DAY_COUNT }, (_, dayIndex) => {
     const values = symptomValues(dayIndex);
     const isSymptomOnlyDay = dayIndex === 30;
@@ -192,7 +203,7 @@ function buildSymptomRows(): SymptomInsert[] {
     );
 
     return {
-      id: stableId('symptom', dayIndex),
+      id: createSeedId(userId, 'symptom', dayIndex),
       user_id: '',
       child_profile_id: null,
       logged_at: loggedAt.toISOString(),
@@ -229,7 +240,7 @@ const FOOD_TEMPLATES: FoodTemplate[] = [
   { mealType: 'dinner', product: PRODUCTS.honey, baseGrams: 15, hour: 19 },
 ];
 
-function buildFoodRows(): FoodInsert[] {
+function buildFoodRows(userId: string): FoodInsert[] {
   return Array.from({ length: DAY_COUNT }, (_, dayIndex) => {
     const day = localDate(DAY_COUNT - 1 - dayIndex);
     const { appetiteLevel } = symptomValues(dayIndex);
@@ -242,7 +253,7 @@ function buildFoodRows(): FoodInsert[] {
       const loggedAt = localDate(DAY_COUNT - 1 - dayIndex, template.hour, mealIndex === 0 ? 0 : 10);
 
       return {
-        id: stableId('food', dayIndex * FOOD_TEMPLATES.length + mealIndex),
+        id: createSeedId(userId, 'food', dayIndex * FOOD_TEMPLATES.length + mealIndex),
         user_id: '',
         child_profile_id: null,
         product_id: null,
@@ -262,11 +273,11 @@ function buildFoodRows(): FoodInsert[] {
   }).flat();
 }
 
-function buildWeightRows(): WeightInsert[] {
+function buildWeightRows(userId: string): WeightInsert[] {
   const weeklyVariation = [0, 0.3, -0.2, 0.15, -0.25, 0.1, -0.15, 0.2, -0.1, 0.15, -0.2, 0.05];
 
   return injectionDayIndexes().map((dayIndex, week) => ({
-    id: stableId('weight', week),
+    id: createSeedId(userId, 'weight', week),
     user_id: '',
     child_profile_id: null,
     measured_on: dateOnly(localDate(DAY_COUNT - 1 - dayIndex)),
@@ -340,37 +351,29 @@ async function findUser(supabase: Supabase, email: string) {
 }
 
 async function seedAccount(supabase: Supabase, userId: string): Promise<void> {
-  const medicationRows = withUserId(buildMedicationRows(), userId);
-  const symptomRows = withUserId(buildSymptomRows(), userId);
-  const foodRows = withUserId(buildFoodRows(), userId);
-  const weightRows = withUserId(buildWeightRows(), userId);
-  const goalId = stableId('goal', 0);
+  const medicationRows = withUserId(buildMedicationRows(userId), userId);
+  const symptomRows = withUserId(buildSymptomRows(userId), userId);
+  const foodRows = withUserId(buildFoodRows(userId), userId);
+  const weightRows = withUserId(buildWeightRows(userId), userId);
+  const goalId = createSeedId(userId, 'goal', 0);
 
-  await deleteGeneratedRows(
-    supabase,
-    'medication_logs',
-    userId,
-    medicationRows.map((row) => row.id as string),
-  );
-  await deleteGeneratedRows(
-    supabase,
-    'symptom_logs',
-    userId,
-    symptomRows.map((row) => row.id as string),
-  );
-  await deleteGeneratedRows(
-    supabase,
-    'food_entries',
-    userId,
-    foodRows.map((row) => row.id as string),
-  );
-  await deleteGeneratedRows(
-    supabase,
-    'weight_entries',
-    userId,
-    weightRows.map((row) => row.id as string),
-  );
-  await deleteGeneratedRows(supabase, 'user_goals', userId, [goalId]);
+  await deleteGeneratedRows(supabase, 'medication_logs', userId, [
+    ...medicationRows.map((row) => row.id as string),
+    ...injectionDayIndexes().map((_, index) => legacySeedId('medication', index)),
+  ]);
+  await deleteGeneratedRows(supabase, 'symptom_logs', userId, [
+    ...symptomRows.map((row) => row.id as string),
+    ...Array.from({ length: DAY_COUNT }, (_, index) => legacySeedId('symptom', index)),
+  ]);
+  await deleteGeneratedRows(supabase, 'food_entries', userId, [
+    ...foodRows.map((row) => row.id as string),
+    ...Array.from({ length: foodRows.length }, (_, index) => legacySeedId('food', index)),
+  ]);
+  await deleteGeneratedRows(supabase, 'weight_entries', userId, [
+    ...weightRows.map((row) => row.id as string),
+    ...injectionDayIndexes().map((_, index) => legacySeedId('weight', index)),
+  ]);
+  await deleteGeneratedRows(supabase, 'user_goals', userId, [goalId, legacySeedId('goal', 0)]);
 
   const { error: profileError } = await supabase
     .from('profiles')
