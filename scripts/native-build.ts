@@ -228,6 +228,7 @@ function assertNativeDirectories(): void {
 
 async function assertNativeBaseline(
   lock: NativeBuildLock,
+  platforms: readonly Platform[] = ['ios', 'android'],
 ): Promise<Record<Platform, NativeFingerprint>> {
   assertNativeDirectories();
   const current = {
@@ -235,7 +236,7 @@ async function assertNativeBaseline(
     android: await fingerprint('android'),
   };
 
-  for (const platform of ['ios', 'android'] as const) {
+  for (const platform of platforms) {
     const expected = lock.nativeFingerprints[platform];
     if (!expected || expected.hash !== current[platform].hash) {
       fail(
@@ -437,7 +438,7 @@ async function rebuild(): Promise<void> {
 async function restore(): Promise<void> {
   const [targetName, target] = getTarget();
   const lock = readLock();
-  const current = await assertNativeBaseline(lock);
+  const current = await assertNativeBaseline(lock, [target.platform]);
   const artifactLock = lock.artifacts[targetName];
   const requestedBuildId = parseValue('--eas-build-id');
   const easBuildId = requestedBuildId ?? artifactLock?.easBuildId;
@@ -503,7 +504,7 @@ async function restore(): Promise<void> {
 async function runLocked(): Promise<void> {
   const [targetName, target] = getTarget();
   const lock = readLock();
-  const current = await assertNativeBaseline(lock);
+  const current = await assertNativeBaseline(lock, [target.platform]);
   const artifactLock = lock.artifacts[targetName];
   if (!artifactLock) {
     fail(`Kein Artefakt für ${targetName} registriert. Kein automatischer Rebuild.`);

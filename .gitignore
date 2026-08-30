@@ -52,6 +52,10 @@ ios/Pods/
 ios/build/
 ios/DerivedData/
 ios/.xcode.env.local
+# Xcode erzeugt dieses implizite Workspace beim Öffnen des .xcodeproj lokal neu;
+# unversioniert lassen, sonst driftet der Native-Fingerprint pro Maschine.
+ios/fam.xcodeproj/project.xcworkspace/
+ios/fam.xcodeproj/xcuserdata/
 android/.gradle/
 android/build/
 android/app/build/

@@ -3,9 +3,12 @@
 -- Vereinfachte Profile fuer Kinder ohne eigenen Account.
 --
 -- Designentscheidung mit Folgen: Kinder-Profile haengen am Haushalt, nicht an
--- auth.users. Alle Tracking-Tabellen brauchen deshalb ein optionales
--- child_profile_id als Alternative zu user_id (#41) — nachtraeglich waere das
--- eine schmerzhafte Migration.
+-- auth.users. Neun Tracking-Tabellen tragen deshalb ein optionales
+-- child_profile_id (#41), vorgebaut mit der Begruendung, nachtraeglich waere
+-- das eine schmerzhafte Migration. Die Begruendung traegt nicht: eine nullable
+-- FK-Spalte nachzuruesten ist in Postgres ein Katalog-Update ohne
+-- Table-Rewrite. Neue Tabellen bekommen die Spalte deshalb NICHT mehr auf
+-- Vorrat, siehe ADR 0005.
 
 create table if not exists public.child_profiles (
   id uuid primary key default gen_random_uuid(),
