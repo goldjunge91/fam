@@ -14,7 +14,8 @@ import {
 } from 'node:fs';
 import { basename, dirname, extname, join, relative, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { createFingerprintAsync } from 'expo/fingerprint';
+import type { Fingerprint } from '@expo/fingerprint';
+import { createFingerprintAsync, diffFingerprints } from 'expo/fingerprint';
 
 type Platform = 'ios' | 'android';
 type ArtifactKind = 'app' | 'ipa' | 'apk' | 'aab';
@@ -50,6 +51,11 @@ type NativeBuildLock = {
 const PROJECT_ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const LOCK_PATH = join(PROJECT_ROOT, 'native-build-lock.json');
 const ARTIFACT_ROOT = join(PROJECT_ROOT, 'native-artifacts');
+// Nicht committet (siehe .gitignore) — lokaler Snapshot des vollen Fingerprints
+// (alle Sources inkl. Hashes) zum Zeitpunkt der letzten Baseline. Erlaubt
+// 'native:status --diff', die abweichende Quelle direkt zu benennen, statt
+// nur den Gesamthash zu vergleichen (siehe docs/native-fingerprint-drift-debugging.md).
+const FINGERPRINT_CACHE_DIR = join(PROJECT_ROOT, '.native-fingerprint-cache');
 
 const TARGETS = {
   'ios-development-simulator': {
@@ -153,12 +159,72 @@ function getExpoSdk(): string {
   return packageJson.dependencies?.expo?.replace(/^[^0-9]*/u, '') ?? 'unknown';
 }
 
-async function fingerprint(platform: Platform): Promise<NativeFingerprint> {
-  const result = await createFingerprintAsync(PROJECT_ROOT, {
+async function fingerprintFull(platform: Platform): Promise<Fingerprint> {
+  return createFingerprintAsync(PROJECT_ROOT, {
     platforms: [platform],
     silent: true,
+    debug: true,
   });
+}
+
+async function fingerprint(platform: Platform): Promise<NativeFingerprint> {
+  const result = await fingerprintFull(platform);
   return { hash: result.hash, expoSdk: getExpoSdk() };
+}
+
+function fingerprintCachePath(platform: Platform): string {
+  return join(FINGERPRINT_CACHE_DIR, `${platform}.json`);
+}
+
+function saveFingerprintSnapshot(platform: Platform, full: Fingerprint): void {
+  mkdirSync(FINGERPRINT_CACHE_DIR, { recursive: true });
+  writeFileSync(fingerprintCachePath(platform), `${JSON.stringify(full, null, 2)}\n`);
+}
+
+function loadFingerprintSnapshot(platform: Platform): Fingerprint | undefined {
+  const path = fingerprintCachePath(platform);
+  if (!existsSync(path)) return undefined;
+  return JSON.parse(readFileSync(path, 'utf8')) as Fingerprint;
+}
+
+// diffFingerprints() setzt sortierte Source-Arrays voraus (siehe JSDoc in
+// @expo/fingerprint) — createFingerprintAsync() garantiert das nicht explizit.
+function sortedSources(full: Fingerprint): Fingerprint {
+  return {
+    ...full,
+    sources: [...full.sources].sort((a, b) => (a.hash ?? '').localeCompare(b.hash ?? '')),
+  };
+}
+
+async function printFingerprintDiff(platform: Platform): Promise<void> {
+  const before = loadFingerprintSnapshot(platform);
+  if (!before) {
+    console.warn(
+      `  Kein gespeicherter Fingerprint-Snapshot für ${platform} (${relative(PROJECT_ROOT, fingerprintCachePath(platform))} fehlt). ` +
+        `Diff nicht möglich — der Snapshot entsteht erst bei 'native:baseline'.`,
+    );
+    return;
+  }
+  const after = await fingerprintFull(platform);
+  const diff = diffFingerprints(sortedSources(before), sortedSources(after));
+  if (diff.length === 0) {
+    console.warn(`  Kein Source-Diff für ${platform} gefunden (Gesamthash weicht trotzdem ab).`);
+    return;
+  }
+  console.warn(`  Abweichende Fingerprint-Sources (${platform}):`);
+  for (const item of diff) {
+    if (item.op === 'added') console.warn(`    + ${describeSource(item.addedSource)}`);
+    else if (item.op === 'removed') console.warn(`    - ${describeSource(item.removedSource)}`);
+    else
+      console.warn(
+        `    ~ ${describeSource(item.afterSource)} (${item.beforeSource.hash} → ${item.afterSource.hash})`,
+      );
+  }
+}
+
+function describeSource(source: { type: string } & Record<string, unknown>): string {
+  const path = 'filePath' in source ? source.filePath : 'id' in source ? source.id : '';
+  return `${source.type}:${path}`;
 }
 
 function hashPath(path: string): string {
@@ -228,6 +294,7 @@ function assertNativeDirectories(): void {
 
 async function assertNativeBaseline(
   lock: NativeBuildLock,
+  platforms: readonly Platform[] = ['ios', 'android'],
 ): Promise<Record<Platform, NativeFingerprint>> {
   assertNativeDirectories();
   const current = {
@@ -235,14 +302,15 @@ async function assertNativeBaseline(
     android: await fingerprint('android'),
   };
 
-  for (const platform of ['ios', 'android'] as const) {
+  for (const platform of platforms) {
     const expected = lock.nativeFingerprints[platform];
     if (!expected || expected.hash !== current[platform].hash) {
+      if (parseFlag('--diff')) await printFingerprintDiff(platform);
       fail(
         `${platform}-Fingerprint stimmt nicht mit dem Lock überein. ` +
           `Native Änderung, Config-/Dependency-Änderung oder falsche Baseline erkannt. ` +
           `Erwartet: ${expected?.hash ?? '(nicht gesetzt)'}, aktuell: ${current[platform].hash}. ` +
-          `Rebuild nur mit '--approve-rebuild'.`,
+          `Rebuild nur mit '--approve-rebuild'. Genaue abweichende Quelle: 'native:status -- --diff'.`,
       );
     }
   }
@@ -309,11 +377,18 @@ async function baseline(): Promise<void> {
     fail(`Baseline-Schreibvorgang benötigt '--approve-rebuild'.`);
   }
   assertNativeDirectories();
+  const [iosFull, androidFull] = await Promise.all([
+    fingerprintFull('ios'),
+    fingerprintFull('android'),
+  ]);
+  saveFingerprintSnapshot('ios', iosFull);
+  saveFingerprintSnapshot('android', androidFull);
+
   const lock: NativeBuildLock = {
     schemaVersion: 1,
     nativeFingerprints: {
-      ios: await fingerprint('ios'),
-      android: await fingerprint('android'),
+      ios: { hash: iosFull.hash, expoSdk: getExpoSdk() },
+      android: { hash: androidFull.hash, expoSdk: getExpoSdk() },
     },
     artifacts: {},
   };
@@ -357,6 +432,14 @@ function findFirstNamedPath(directory: string, suffix: string): string | undefin
   return undefined;
 }
 
+// ios/Podfile liest USE_CCACHE bereits (ccache_enabled?()) — B5, der Hebel war
+// gebaut und nicht umgelegt. ccache selbst muss lokal installiert sein
+// (/opt/homebrew/bin/ccache); ist es das nicht, ist die Env-Var wirkungslos,
+// kein Fehler.
+function iosBuildEnv(): Record<string, string> {
+  return { USE_CCACHE: '1' };
+}
+
 async function rebuild(): Promise<void> {
   if (!parseFlag('--approve-rebuild')) {
     fail(`Rebuild blockiert. Nur '--approve-rebuild' erlaubt Prebuild und Kompilierung.`);
@@ -364,15 +447,16 @@ async function rebuild(): Promise<void> {
   const [targetName, target] = getTarget();
 
   log(`Regeneriere ${target.platform}/ kontrolliert für ${targetName}...`);
-  run('bunx', ['expo', 'prebuild', '--clean', '--platform', target.platform, '--no-install'], {
-    EXPO_USE_PRECOMPILED_MODULES: '1',
-  });
+  // Kein EXPO_USE_PRECOMPILED_MODULES mehr setzen: der generierte Podfile
+  // setzt es bereits selbst (ENV['EXPO_USE_PRECOMPILED_MODULES'] ||= '1'),
+  // und seit SDK 56 ist Precompiled ohnehin default (B7, Plan Phase 3).
+  run('bunx', ['expo', 'prebuild', '--clean', '--platform', target.platform, '--no-install']);
 
   if (target.platform === 'ios') {
     // Keep the resolved CocoaPods graph versioned. EAS installs again in its
     // isolated local build directory, but the project baseline must include
     // the same Podfile.lock before its fingerprint is recorded.
-    run('pod', ['install'], { EXPO_USE_PRECOMPILED_MODULES: '1' }, join(PROJECT_ROOT, 'ios'));
+    run('pod', ['install'], iosBuildEnv(), join(PROJECT_ROOT, 'ios'));
   }
 
   const outputDirectory = join(ARTIFACT_ROOT, targetName);
@@ -396,7 +480,7 @@ async function rebuild(): Promise<void> {
       '--output',
       buildOutput,
     ],
-    { EXPO_USE_PRECOMPILED_MODULES: '1' },
+    target.platform === 'ios' ? iosBuildEnv() : undefined,
   );
 
   const finalPath = artifactPath(targetName, target.kind);
@@ -408,20 +492,19 @@ async function rebuild(): Promise<void> {
     rmSync(buildOutput, { force: true });
   }
 
-  const lock = existsSync(LOCK_PATH)
-    ? readLock()
-    : {
-        schemaVersion: 1 as const,
-        nativeFingerprints: {
-          ios: await fingerprint('ios'),
-          android: await fingerprint('android'),
-        },
-        artifacts: {},
-      };
-  const currentFingerprints = {
-    ios: await fingerprint('ios'),
-    android: await fingerprint('android'),
+  const [iosFull, androidFull] = await Promise.all([
+    fingerprintFull('ios'),
+    fingerprintFull('android'),
+  ]);
+  saveFingerprintSnapshot('ios', iosFull);
+  saveFingerprintSnapshot('android', androidFull);
+  const currentFingerprints: Record<Platform, NativeFingerprint> = {
+    ios: { hash: iosFull.hash, expoSdk: getExpoSdk() },
+    android: { hash: androidFull.hash, expoSdk: getExpoSdk() },
   };
+  const lock: NativeBuildLock = existsSync(LOCK_PATH)
+    ? readLock()
+    : { schemaVersion: 1, nativeFingerprints: currentFingerprints, artifacts: {} };
   lock.nativeFingerprints = currentFingerprints;
   lock.artifacts[targetName] = {
     fingerprint: currentFingerprints[target.platform].hash,
@@ -437,7 +520,7 @@ async function rebuild(): Promise<void> {
 async function restore(): Promise<void> {
   const [targetName, target] = getTarget();
   const lock = readLock();
-  const current = await assertNativeBaseline(lock);
+  const current = await assertNativeBaseline(lock, [target.platform]);
   const artifactLock = lock.artifacts[targetName];
   const requestedBuildId = parseValue('--eas-build-id');
   const easBuildId = requestedBuildId ?? artifactLock?.easBuildId;
@@ -500,10 +583,86 @@ async function restore(): Promise<void> {
   log(`Artefakt wiederhergestellt: ${relative(PROJECT_ROOT, finalPath)}`);
 }
 
+// Development-Targets laufen über den Inner-Loop-Pfad (native:dev), alles
+// andere bleibt bei eas build --local — reproduzierbar, isoliert, signiert
+// (Plan Phase 2, "Zwei Pfade sauber trennen").
+const DEV_TARGETS: readonly TargetName[] = [
+  'ios-development-simulator',
+  'ios-development-device',
+  'android-development',
+];
+
+async function warnOnBaselineMismatch(platform: Platform): Promise<void> {
+  assertNativeDirectories();
+  if (!existsSync(LOCK_PATH)) {
+    console.warn(
+      'Native Build Lock: keine Baseline vorhanden — native:dev läuft trotzdem (Inner Loop blockiert nicht).',
+    );
+    return;
+  }
+  const expected = readLock().nativeFingerprints[platform];
+  const current = await fingerprint(platform);
+  if (!expected || expected.hash !== current.hash) {
+    console.warn(
+      `Native Build Lock: ${platform}-Fingerprint weicht von der Baseline ab (Inner Loop, keine Blockade). ` +
+        `Erwartet: ${expected?.hash ?? '(nicht gesetzt)'}, aktuell: ${current.hash}. ` +
+        `Baseline danach mit 'bun run native:baseline -- --approve-rebuild' aktualisieren; Quelle finden mit 'bun run native:status -- --diff'.`,
+    );
+  }
+}
+
+async function runDev(): Promise<void> {
+  const [targetName, target] = getTarget();
+  if (!DEV_TARGETS.includes(targetName)) {
+    fail(
+      `native:dev ist nur für Development-Targets gedacht: ${DEV_TARGETS.join(', ')}. ` +
+        `Für Release-/Preview-Targets 'native:rebuild' nutzen.`,
+    );
+  }
+  await warnOnBaselineMismatch(target.platform);
+
+  const device = parseValue('--device');
+  // Bewusst kein 'prebuild --clean' und kein bedingungsloses 'pod install'
+  // davor (das war B3: eas build --local erzwingt bei jedem Lauf Klasse C).
+  // expo run:* nutzt DerivedData/Gradle inkrementell weiter und ist der
+  // einzige lokale Pfad, der den bereits konfigurierten EAS-Build-Cache-
+  // Provider überhaupt bedient (siehe Plan, Befund B2/B3, Phase 2).
+  const commandArgs =
+    target.platform === 'ios' ? ['expo', 'run:ios', '--scheme', 'fam'] : ['expo', 'run:android'];
+  if (device) commandArgs.push('--device', device);
+  // ACHTUNG (per Quellcode verifiziert, @expo/cli/src/run/ios/runIosAsync.ts):
+  // '--no-build-cache' löscht nur lokales DerivedData vor dem Xcode-Build —
+  // es umgeht NICHT den Remote-Cache-Lookup (resolveBuildCache() wird
+  // unabhängig vom Flag aufgerufen, sobald 'buildCacheProvider' in app.json
+  // gesetzt ist). Für eine echte Klasse-C-Messung (kein Cache-Treffer) bleibt
+  // nur, 'buildCacheProvider' in app.json temporär zu entfernen oder den
+  // Fingerprint tatsächlich zu ändern. Der Flag ist trotzdem nützlich, um
+  // lokales DerivedData gezielt zu leeren, ohne die Baseline anzufassen.
+  if (parseFlag('--no-build-cache')) {
+    if (target.platform !== 'ios') fail(`--no-build-cache ist nur für iOS-Targets verfügbar.`);
+    commandArgs.push('--no-build-cache');
+  }
+
+  const environment = buildDevEnv(target.platform);
+  run('bunx', commandArgs, environment);
+}
+
+// Env-Overrides nur für den Inner Loop (native:dev), niemals für rebuild()/
+// den Release-Pfad — dort bleibt die volle Multi-ABI-Matrix bzw. das
+// unveränderte Podfile-Verhalten maßgeblich.
+function buildDevEnv(platform: Platform): Record<string, string> | undefined {
+  if (platform === 'ios') return iosBuildEnv();
+  // B6: lokal wird immer genau eine ABI gebraucht. ORG_GRADLE_PROJECT_* wird
+  // von Gradle automatisch als Projekt-Property gelesen — kein Eingriff in
+  // android/gradle.properties nötig, das bei jedem 'prebuild --clean' ohnehin
+  // neu generiert wird (B8).
+  return { ORG_GRADLE_PROJECT_reactNativeArchitectures: 'arm64-v8a' };
+}
+
 async function runLocked(): Promise<void> {
   const [targetName, target] = getTarget();
   const lock = readLock();
-  const current = await assertNativeBaseline(lock);
+  const current = await assertNativeBaseline(lock, [target.platform]);
   const artifactLock = lock.artifacts[targetName];
   if (!artifactLock) {
     fail(`Kein Artefakt für ${targetName} registriert. Kein automatischer Rebuild.`);
@@ -523,12 +682,16 @@ function printHelp(): void {
 Native Build Lock
 
   bun run native:status
+  bun run native:status -- --diff        # bei Mismatch die abweichende Fingerprint-Quelle anzeigen
   bun run native:baseline -- --approve-rebuild
-  bun run native:run -- --target <target> [--device <name>]
+  bun run native:dev -- --target <dev-target> [--device <name>] [--no-build-cache]   # Inner Loop, expo run:*, Lock blockiert nicht
+                                                                                       # --no-build-cache leert nur lokales DerivedData, umgeht NICHT den Remote-Cache
+  bun run native:run -- --target <target> [--device <name>]       # gesperrtes Artefakt installieren
   bun run native:restore -- --target <target> [--eas-build-id <id>]
-  bun run native:rebuild -- --target <target> --approve-rebuild
+  bun run native:rebuild -- --target <target> --approve-rebuild   # eas build --local, Release-Pfad
 
 Targets: ${Object.keys(TARGETS).join(', ')}
+Dev-Targets (native:dev): ${DEV_TARGETS.join(', ')}
 `);
 }
 
@@ -548,6 +711,9 @@ async function main(): Promise<void> {
       break;
     case 'run':
       await runLocked();
+      break;
+    case 'dev':
+      await runDev();
       break;
     default:
       printHelp();

@@ -8,6 +8,12 @@ Datenschutzorientierte, kollaborative App für Haushalte: geteilte Bestands- und
 Oberbegriff für alle privaten, per RLS isolierten Nutzerdaten — Nutrition Tracking, Medications & Symptoms, Fasting, Vital Logs, Workouts. Nicht haushaltsgebunden, nur für den einzelnen Nutzer sichtbar.
 _Avoid_: Diary, Tagebuch, Journal, Log (als Oberbegriff)
 
+**Kind-Tracking**:
+Tracking-Einträge, die zu einem Child Profile statt zu einem Account gehören, erfasst durch einen verwaltenden Erwachsenen. Zielmodell: der Eintrag gehört dem Child Profile, sichtbar für alle, die es verwalten dürfen; wer ihn erfasst hat, ist nur Herkunftsangabe. Keine Aufweichung der Tracking-Privatheit — die schützt Daten von Accounts, und ein Kind hat keinen. Gilt pro Domäne, nicht pauschal: ja bei Ernährung, Gewicht, Medikamenten, Symptomen, Glukose und Workouts, nicht bei Fasten, Ketonen und Aktivität. Umbau eingefroren, siehe ADR 0005.
+
+**Volljährigkeits-Übergabe**:
+Verknüpfung eines Child Profile mit einem echten Account, wenn das Kind selbst übernimmt: die Daten bleiben liegen, der Elternzugriff endet. Noch nicht gebaut, aber der Grund, warum Kind-Tracking-Einträge dem Child Profile gehören müssen und nicht dem Elternteil.
+
 **Nutrition Tracking**:
 Der Ernährungs- und Gewichtsteil von Tracking: Mahlzeiten (`food_entries`), Gewicht (`weight_entries`), Ziele (`user_goals`). Eine von mehreren Tracking-Domänen, kein Oberbegriff.
 _Avoid_: Diary, Ernährungstagebuch, Food Diary
@@ -49,7 +55,7 @@ Der Vorgang, einen Einkauf abzuschließen: mehrere abgehakte Shopping List Items
 Append-only-Protokoll abgeschlossener Shopping Runs (`shopping_history`), kein Offline-Sync. Überlebt unabhängig davon, ob das zugehörige Shopping List Item oder Inventory Item später gelöscht wird.
 
 **Child Profile**:
-Auth-loses Profil für ein Kind, gehört zum Household (nicht zu `auth.users`), verwaltet von einem Household Member. Verlässt der verwaltende Elternteil den Haushalt, bleibt das Profil erhalten — ein Admin kann es parallel verwalten (RLS erlaubt `managed_by`-Match ODER Admin-Rolle). `managed_by` selbst wird beim Verlassen aktuell **nicht** zurückgesetzt (bekannte Lücke, #188), zeigt danach also auf ein Nicht-Mitglied.
+Auth-loses Profil für ein Kind, gehört zum Household (nicht zu `auth.users`), verwaltet von einem Household Member. Verlässt der verwaltende Elternteil den Haushalt, bleibt das Profil erhalten — ein Admin kann es parallel verwalten (RLS erlaubt `managed_by`-Match ODER Admin-Rolle). `managed_by` selbst wird beim Verlassen aktuell **nicht** zurückgesetzt (bekannte Lücke, #188), zeigt danach also auf ein Nicht-Mitglied. Kann Ziel von Kind-Tracking sein und geht bei der Volljährigkeits-Übergabe in einen Account über.
 
 **Role**:
 Autorisierungsstufe eines Household Members: `admin` oder `member`. Bestimmt Rechte innerhalb eines Haushalts (z. B. Mitglieder entfernen). Jeder Haushalt **mit Mitgliedern** braucht mindestens einen Admin (`guard_last_admin`-Trigger). Ausnahme: der letzte Admin darf gehen, wenn dadurch keine Mitglieder mehr übrig bleiben — der Haushalt wird dann komplett mitgliederlos (verwaist), aber nicht gelöscht; Inventory/Shopping-List/Recipes bleiben als unerreichbare Daten bestehen (kein Cleanup, #189).

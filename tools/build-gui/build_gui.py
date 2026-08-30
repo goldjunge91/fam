@@ -22,7 +22,7 @@ LOCK_PATH = PROJECT_ROOT / "native-build-lock.json"
 LOG_DIR = PROJECT_ROOT / "tools" / "build-gui" / "logs"
 
 STATUS_ACTION = "Lock prüfen"
-RUN_ACTION = "Simulator starten"
+RUN_ACTION = "Simulator/Emulator starten"
 RESTORE_ACTION = "Artefakt wiederherstellen"
 REBUILD_ACTION = "Rebuild (explizit freigeben)"
 SUBMIT_ACTION = "TestFlight hochladen"
@@ -33,6 +33,7 @@ class Target:
     label: str
     name: str
     description: str
+    platform: str  # "ios" oder "android" — steuert Emulator/Simulator-Wortwahl und eas-submit-Plattform
     simulator: bool
     profile: str
     env_file: str | None = None
@@ -40,34 +41,65 @@ class Target:
 
 
 TARGETS = {
-    "Development": Target(
-        label="Development-Simulator",
+    "iOS Development": Target(
+        label="iOS Development-Simulator",
         name="ios-development-simulator",
         description="Startet ausschließlich das gelockte Debug-APP im iOS-Simulator.",
+        platform="ios",
         simulator=True,
         profile="development",
         env_file=".env.development.local",
     ),
-    "Preview-Simulator": Target(
-        label="Preview-Simulator",
+    "iOS Preview-Simulator": Target(
+        label="iOS Preview-Simulator",
         name="ios-preview-simulator",
         description="Startet ausschließlich das gelockte Preview-APP im iOS-Simulator.",
+        platform="ios",
         simulator=True,
         profile="preview-simulator",
         env_file=".env.preview",
     ),
-    "TestFlight": Target(
-        label="Preview-TestFlight",
+    "iOS TestFlight": Target(
+        label="iOS Preview-TestFlight",
         name="ios-preview-testflight",
         description="Verwendet das gelockte IPA. Build und Upload sind getrennte Aktionen.",
+        platform="ios",
         simulator=False,
         profile="preview-testflight",
         submit=True,
     ),
-    "Production": Target(
-        label="Production",
+    "iOS Production": Target(
+        label="iOS Production",
         name="ios-production",
         description="Verwendet ausschließlich ein explizit gelocktes Production-IPA.",
+        platform="ios",
+        simulator=False,
+        profile="production",
+        submit=False,
+    ),
+    "Android Development": Target(
+        label="Android Development-Emulator",
+        name="android-development",
+        description="Startet ausschließlich die gelockte Debug-APK im Android-Emulator.",
+        platform="android",
+        simulator=True,
+        profile="development",
+        env_file=".env.development.local",
+    ),
+    "Android Preview": Target(
+        label="Android Preview-Emulator",
+        name="android-preview",
+        description="Startet ausschließlich die gelockte Preview-APK im Android-Emulator.",
+        platform="android",
+        simulator=True,
+        profile="preview",
+        env_file=".env.preview",
+    ),
+    "Android Production": Target(
+        label="Android Production",
+        name="android-production",
+        description="Verwendet ausschließlich ein explizit gelocktes Production-AAB.",
+        platform="android",
         simulator=False,
         profile="production",
         submit=False,
@@ -82,7 +114,7 @@ class BuildGui(tk.Tk):
         self.geometry("900x640")
         self.minsize(720, 500)
 
-        self.target = tk.StringVar(value="Development")
+        self.target = tk.StringVar(value="iOS Development")
         self.action = tk.StringVar(value=RUN_ACTION)
         self.approve_rebuild = tk.BooleanVar(value=False)
         self.eas_build_id = tk.StringVar()
@@ -263,7 +295,7 @@ class BuildGui(tk.Tk):
 
         if action == RUN_ACTION:
             if not target.simulator:
-                raise ValueError("Nur Simulator-Targets können direkt gestartet werden.")
+                raise ValueError("Nur Simulator-/Emulator-Targets können direkt gestartet werden.")
             command = [
                 *native_command,
                 "native:run",
@@ -312,7 +344,7 @@ class BuildGui(tk.Tk):
                 "eas",
                 "submit",
                 "--platform",
-                "ios",
+                target.platform,
                 "--profile",
                 target.profile,
                 "--path",

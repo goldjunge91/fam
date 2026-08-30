@@ -52,11 +52,22 @@ ios/Pods/
 ios/build/
 ios/DerivedData/
 ios/.xcode.env.local
+# Xcode erzeugt dieses implizite Workspace beim Öffnen des .xcodeproj lokal neu;
+# unversioniert lassen, sonst driftet der Native-Fingerprint pro Maschine.
+ios/fam.xcodeproj/project.xcworkspace/
+ios/fam.xcodeproj/xcuserdata/
 android/.gradle/
 android/build/
 android/app/build/
 android/.cxx/
 native-artifacts/
+# Lokaler Snapshot des vollen Fingerprints (alle Sources+Hashes) je Plattform,
+# geschrieben von 'native:baseline'/'native:rebuild'. Nur für 'native:status
+# -- --diff' — nicht committen, maschinenlokal und ändert sich mit jedem Lauf.
+.native-fingerprint-cache/
+# JSONL-Messreihe von scripts/build-timer.ts (Plan Phase 0) — Rohdaten je
+# Maschine, kein Quelltext.
+.build-metrics/
 temp/
 /*.log
 .venv

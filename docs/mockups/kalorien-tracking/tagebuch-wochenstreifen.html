@@ -1,0 +1,592 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Wochenstreifen</title>
+<style>
+  :root {
+    --page-bg: #F0EAE3;
+    --page-ink: #2D2830;
+    --page-ink-soft: #786F79;
+    --page-line: #DDD3D8;
+    --page-surface: #FBF7F2;
+    --page-accent: #705773;
+
+    /* fam light tokens — 1:1 aus src/constants/theme.ts */
+    --fam-text: #2D2830;
+    --fam-bg: #F8F4EF;
+    --fam-bg-element: #FBF7F2;
+    --fam-bg-selected: #E9E1E7;
+    --fam-text-secondary: #786F79;
+    --fam-border: #E4DDE3;
+    --fam-accent: #705773;
+    --fam-on-accent: #FFFFFF;
+    --fam-success: #78906F;
+    --fam-warning: #C69059;
+    --fam-danger: #C65F50;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --page-bg: #1B171D;
+      --page-ink: #F2ECE7;
+      --page-ink-soft: #B7ADB3;
+      --page-line: #3E3640;
+      --page-surface: #241F27;
+      --page-accent: #B79CBA;
+    }
+  }
+  :root[data-theme="dark"] {
+    --page-bg: #1B171D;
+    --page-ink: #F2ECE7;
+    --page-ink-soft: #B7ADB3;
+    --page-line: #3E3640;
+    --page-surface: #241F27;
+    --page-accent: #B79CBA;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--page-bg);
+    color: var(--page-ink);
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Inter", system-ui, sans-serif;
+  }
+
+  .wrap {
+    max-width: 480px;
+    margin: 0 auto;
+    padding: 40px 20px 64px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .eyebrow {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--page-accent);
+    margin: 0;
+  }
+  h1 {
+    font-size: 22px;
+    line-height: 1.25;
+    font-weight: 700;
+    margin: 0;
+    text-wrap: balance;
+  }
+  .lede {
+    font-size: 13.5px;
+    line-height: 1.6;
+    color: var(--page-ink-soft);
+    margin: 0;
+  }
+
+  /* --- Phone frame: feste, echte Handybreite. Nie width:100% eines
+     breiteren Containers ueberlassen — sonst passt jeder Inhalt ohne
+     Ueberlauf rein und ein Karussell hat schlicht nichts zu scrollen. */
+  .phone {
+    width: 375px;
+    max-width: 100%;
+    aspect-ratio: 375 / 812;
+    background: #000;
+    border-radius: 46px;
+    padding: 12px;
+    box-shadow: 0 24px 48px -20px rgba(45, 40, 48, 0.35);
+  }
+  .screen {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 34px;
+    overflow: hidden;
+    background: var(--fam-bg);
+    color: var(--fam-text);
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui, sans-serif;
+    display: flex;
+    flex-direction: column;
+  }
+  .notch {
+    position: absolute;
+    top: 0; left: 50%;
+    transform: translateX(-50%);
+    width: 96px; height: 24px;
+    background: #000;
+    border-radius: 0 0 16px 16px;
+    z-index: 30;
+  }
+  .statusbar {
+    height: 44px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    padding: 0 22px 6px;
+    font-size: 13px;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .screen-scroll {
+    flex: 1;
+    overflow: hidden;
+    padding: 0 16px 16px;
+    display: flex;
+    flex-direction: column;
+  }
+  .nav-title {
+    text-align: center;
+    font-size: 17px;
+    font-weight: 700;
+    padding: 4px 0 10px;
+  }
+
+  .hairline-block {
+    padding-bottom: 14px;
+    margin-bottom: 14px;
+    border-bottom: 1px solid var(--fam-border);
+  }
+
+  .hero-row { display: flex; align-items: baseline; gap: 8px; }
+  .hero-value { font-size: 30px; line-height: 34px; font-weight: 700; font-variant-numeric: tabular-nums; }
+  .hero-label { font-size: 13px; font-weight: 600; color: var(--fam-text-secondary); }
+  .bar-track { height: 6px; border-radius: 3px; background: var(--fam-bg-selected); margin-top: 8px; overflow: hidden; }
+  .bar-fill { height: 100%; border-radius: 3px; background: var(--fam-accent); }
+
+  .macro-grid { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 0; padding-bottom: 14px; margin-bottom: 14px; border-bottom: 1px solid var(--fam-border); }
+  .macro-chip { width: 48%; background: var(--fam-bg-element); border: 1px solid var(--fam-border); border-radius: 12px; padding: 10px; }
+  .macro-label { font-size: 11px; font-weight: 700; }
+  .macro-value { font-size: 13px; font-weight: 700; color: var(--fam-text-secondary); margin: 3px 0 6px; font-variant-numeric: tabular-nums; }
+  .macro-bar { height: 4px; border-radius: 2px; background: var(--fam-bg-selected); overflow: hidden; }
+  .macro-bar-fill { height: 100%; border-radius: 2px; background: var(--fam-accent); }
+
+  .meal-section { padding-bottom: 8px; margin-bottom: 8px; border-bottom: 1px solid var(--fam-border); }
+  .meal-head { min-height: 40px; display: flex; align-items: center; justify-content: space-between; }
+  .meal-title { font-size: 13px; font-weight: 700; }
+  .meal-kcal { font-size: 10px; font-weight: 500; color: var(--fam-text-secondary); margin-top: 1px; }
+  .meal-add {
+    width: 26px; height: 26px; border-radius: 8px;
+    background: var(--fam-accent); color: var(--fam-on-accent);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 15px; font-weight: 600; line-height: 1;
+  }
+  .entry-row { min-height: 32px; padding: 4px 0; display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+  .entry-name { font-size: 11px; font-weight: 700; }
+  .entry-qty { font-size: 10px; color: var(--fam-text-secondary); margin-top: 1px; }
+  .entry-kcal { font-size: 10px; font-weight: 600; color: var(--fam-text-secondary); font-variant-numeric: tabular-nums; }
+
+  .glass {
+    background: rgba(251, 247, 242, 0.62);
+    backdrop-filter: blur(20px) saturate(160%);
+    -webkit-backdrop-filter: blur(20px) saturate(160%);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+  }
+
+  .s2-hint {
+    text-align: center;
+    font-size: 10px;
+    font-weight: 600;
+    color: var(--fam-text-secondary);
+    margin: 0 0 6px;
+  }
+  .s2-weekstrip {
+    display: flex; gap: 8px;
+    border-radius: 16px; padding: 10px 14px 8px;
+    margin-bottom: 10px;
+    overflow-x: auto;
+    scroll-snap-type: x proximity;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .s2-weekstrip::-webkit-scrollbar { display: none; }
+  .s2-day {
+    display: flex; flex-direction: column; align-items: center; gap: 6px;
+    width: 34px; flex: 0 0 34px;
+    scroll-snap-align: start;
+    background: none; border: none; padding: 4px 0 0; cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .s2-day-label { font-size: 9px; font-weight: 600; color: var(--fam-text-secondary); }
+  .s2-day.active .s2-day-label { color: var(--fam-accent); font-weight: 700; }
+  .s2-day-bar-track { width: 5px; height: 34px; border-radius: 3px; background: rgba(112, 87, 115, 0.14); display: flex; align-items: flex-end; overflow: hidden; }
+  .s2-day-bar-fill { width: 100%; border-radius: 3px; background: var(--fam-accent); transition: height 0.2s ease; }
+  .s2-day-bar-fill.warning { background: var(--fam-warning); }
+  .s2-day-dot { width: 4px; height: 4px; border-radius: 50%; background: transparent; }
+  .s2-day.active .s2-day-dot { background: var(--fam-accent); }
+
+  .s2-dateline { text-align: center; padding: 2px 0 14px; }
+  .s2-dateline-rel { font-size: 14px; font-weight: 700; color: var(--fam-accent); }
+  .s2-dateline-full { font-size: 10px; font-weight: 500; color: var(--fam-text-secondary); margin-top: 1px; }
+
+  .s2-empty-state {
+    padding: 18px 0 6px;
+    text-align: center;
+    font-size: 11.5px;
+    font-weight: 600;
+    color: var(--fam-text-secondary);
+  }
+
+  .notes {
+    background: var(--page-surface);
+    border: 1px solid var(--page-line);
+    border-radius: 14px;
+    padding: 16px 18px;
+    font-size: 12.5px;
+    line-height: 1.6;
+    color: var(--page-ink-soft);
+  }
+  .notes dt { font-weight: 700; color: var(--page-ink); margin-top: 10px; }
+  .notes dt:first-child { margin-top: 0; }
+  .notes dd { margin: 2px 0 0; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <p class="eyebrow">Tagebuch · Wochenstreifen</p>
+  <h1>Der Streifen ist die Datumsnavigation</h1>
+  <p class="lede">
+    Eigene Datei, nur dieser eine Screen — ohne Galerie drumherum, damit
+    das seitliche Scrollen nicht durch eine breitere Grid-Spalte verdeckt wird.
+  </p>
+
+  <div class="phone">
+    <div class="screen">
+      <div class="notch"></div>
+      <div class="statusbar">
+        <span>9:41</span>
+        <span>••• 5G 100%</span>
+      </div>
+      <div class="nav-title">Tagebuch</div>
+      <div class="screen-scroll" id="s2-root">
+        <p class="s2-hint">Tippe auf einen Tag · wische für ältere Tage</p>
+        <div class="s2-weekstrip glass" id="s2-strip"></div>
+        <div class="s2-dateline">
+          <div class="s2-dateline-rel" id="s2-rel"></div>
+          <div class="s2-dateline-full" id="s2-full"></div>
+        </div>
+
+        <div class="hairline-block">
+          <div class="hero-row">
+            <span class="hero-value" id="s2-hero-value"></span>
+            <span class="hero-label" id="s2-hero-label"></span>
+          </div>
+          <div class="bar-track"><div class="bar-fill" id="s2-hero-bar"></div></div>
+        </div>
+
+        <div class="macro-grid" id="s2-macros"></div>
+
+        <div id="s2-meals"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="notes">
+    <dl>
+      <dt>Karussell</dt>
+      <dd>Feste Breite pro Tag (34px, flex: 0 0 34px) statt flex:1 — die
+        Reihe (14 Tage, zwei Wochen) ist bewusst breiter als die Box und
+        scrollt seitlich. Start ist immer bei "Heute" rechts, der Tag davor
+        wird links sichtbar angeschnitten.</dd>
+      <dt>Verhalten</dt>
+      <dd>Tap auf einen Tag lädt Bilanz, Makros und Mahlzeiten darunter neu.
+        Ein Tag ohne Einträge zeigt einen leeren Track ohne Füllung und
+        darunter "Keine Einträge an diesem Tag". Balken/Makro-Chips färben
+        sich in Warnfarbe bei Zielüberschreitung.</dd>
+    </dl>
+  </div>
+</div>
+
+<script>
+(function () {
+  var GOAL_KCAL = 2100;
+  var TARGETS = { protein: 140, carbs: 220, fat: 70 };
+  var MAX_SCALE = 2600;
+  var MEAL_LABELS = { breakfast: 'Frühstück', lunch: 'Mittagessen', dinner: 'Abendessen', snack: 'Snacks' };
+  var MEAL_ORDER = ['breakfast', 'lunch', 'dinner', 'snack'];
+
+  var DAYS = [
+    {
+      key: 'Mo', rel: 'Montag', full: '20. August', kcal: 1900,
+      macros: { protein: 70, carbs: 200, fat: 60 },
+      meals: {
+        breakfast: [{ name: 'Skyr mit Granola', qty: '1 Portion', kcal: 340 }],
+        lunch: [{ name: 'Gemüse-Curry', qty: '1 Portion', kcal: 560 }],
+        dinner: [{ name: 'Ofenkartoffel mit Quark', qty: '1 Portion', kcal: 720 }],
+        snack: [{ name: 'Trockenobst', qty: '30 g', kcal: 280 }],
+      },
+    },
+    {
+      key: 'Di', rel: 'Dienstag', full: '21. August', kcal: 0,
+      macros: { protein: 0, carbs: 0, fat: 0 },
+      meals: { breakfast: [], lunch: [], dinner: [], snack: [] },
+    },
+    {
+      key: 'Mi', rel: 'Mittwoch', full: '22. August', kcal: 2020,
+      macros: { protein: 88, carbs: 215, fat: 62 },
+      meals: {
+        breakfast: [{ name: 'Vollkorntoast mit Avocado', qty: '2 Scheiben', kcal: 420 }],
+        lunch: [{ name: 'Reispfanne mit Tofu', qty: '1 Portion', kcal: 600 }],
+        dinner: [{ name: 'Gefüllte Paprika', qty: '1 Portion', kcal: 700 }],
+        snack: [{ name: 'Cashewkerne', qty: '25 g', kcal: 300 }],
+      },
+    },
+    {
+      key: 'Do', rel: 'Donnerstag', full: '23. August', kcal: 2380,
+      macros: { protein: 82, carbs: 255, fat: 90 },
+      meals: {
+        breakfast: [{ name: 'French Toast', qty: '1 Portion', kcal: 580 }],
+        lunch: [{ name: 'Döner Teller', qty: '1 Portion', kcal: 820 }],
+        dinner: [{ name: 'Käsespätzle', qty: '1 Portion', kcal: 780 }],
+        snack: [{ name: 'Gummibärchen', qty: '1 Tüte', kcal: 200 }],
+      },
+    },
+    {
+      key: 'Fr', rel: 'Freitag', full: '24. August', kcal: 1680,
+      macros: { protein: 74, carbs: 165, fat: 50 },
+      meals: {
+        breakfast: [{ name: 'Overnight Oats', qty: '1 Glas', kcal: 310 }],
+        lunch: [{ name: 'Quinoa-Salat', qty: '1 Portion', kcal: 470 }],
+        dinner: [{ name: 'Gemüsepfanne', qty: '1 Portion', kcal: 610 }],
+        snack: [{ name: 'Beeren', qty: '150 g', kcal: 290 }],
+      },
+    },
+    {
+      key: 'Sa', rel: 'Samstag', full: '25. August', kcal: 1550,
+      macros: { protein: 66, carbs: 150, fat: 45 },
+      meals: {
+        breakfast: [{ name: 'Rührei mit Lachs', qty: '1 Portion', kcal: 380 }],
+        lunch: [{ name: 'Poke Bowl', qty: '1 Portion', kcal: 590 }],
+        dinner: [{ name: 'Gemüsesuppe', qty: '1 Teller', kcal: 380 }],
+        snack: [{ name: 'Reiswaffeln', qty: '3 Stück', kcal: 200 }],
+      },
+    },
+    {
+      key: 'So', rel: 'Sonntag', full: '26. August', kcal: 1870,
+      macros: { protein: 71, carbs: 195, fat: 56 },
+      meals: {
+        breakfast: [{ name: 'Pfannkuchen', qty: '1 Portion', kcal: 450 }],
+        lunch: [{ name: 'Nudelsalat', qty: '1 Portion', kcal: 520 }],
+        dinner: [{ name: 'Gebratener Reis', qty: '1 Portion', kcal: 650 }],
+        snack: [{ name: 'Joghurt', qty: '150 g', kcal: 250 }],
+      },
+    },
+    {
+      key: 'Mo', rel: 'Montag', full: '27. August', kcal: 1800,
+      macros: { protein: 68, carbs: 205, fat: 58 },
+      meals: {
+        breakfast: [{ name: 'Müsli mit Milch', qty: '1 Portion', kcal: 350 }],
+        lunch: [{ name: 'Linsensuppe', qty: '1 Teller', kcal: 450 }, { name: 'Vollkornbrot', qty: '1 Scheibe', kcal: 150 }],
+        dinner: [{ name: 'Lachs mit Gemüse', qty: '1 Portion', kcal: 600 }],
+        snack: [{ name: 'Mandeln', qty: '30 g', kcal: 250 }],
+      },
+    },
+    {
+      key: 'Di', rel: 'Dienstag', full: '28. August', kcal: 1720,
+      macros: { protein: 72, carbs: 180, fat: 52 },
+      meals: {
+        breakfast: [{ name: 'Rührei mit Toast', qty: '2 Eier', kcal: 400 }],
+        lunch: [{ name: 'Caesar Salat', qty: '1 Portion', kcal: 480 }],
+        dinner: [{ name: 'Pasta Pesto', qty: '1 Teller', kcal: 620 }],
+        snack: [{ name: 'Banane', qty: '1 Stück', kcal: 220 }],
+      },
+    },
+    {
+      key: 'Mi', rel: 'Mittwoch', full: '29. August', kcal: 2450,
+      macros: { protein: 78, carbs: 260, fat: 95 },
+      meals: {
+        breakfast: [{ name: 'Pancakes mit Sirup', qty: '1 Portion', kcal: 620 }],
+        lunch: [{ name: 'Burger mit Pommes', qty: '1 Portion', kcal: 890 }],
+        dinner: [{ name: 'Pizza Margherita', qty: '1 Stück', kcal: 740 }],
+        snack: [{ name: 'Schokolade', qty: '1 Riegel', kcal: 200 }],
+      },
+    },
+    {
+      key: 'Do', rel: 'Donnerstag', full: '30. August', kcal: 0,
+      macros: { protein: 0, carbs: 0, fat: 0 },
+      meals: { breakfast: [], lunch: [], dinner: [], snack: [] },
+    },
+    {
+      key: 'Fr', rel: 'Freitag', full: '31. August', kcal: 1950,
+      macros: { protein: 85, carbs: 210, fat: 60 },
+      meals: {
+        breakfast: [{ name: 'Porridge mit Nüssen', qty: '1 Portion', kcal: 380 }],
+        lunch: [{ name: 'Falafel Wrap', qty: '1 Stück', kcal: 520 }],
+        dinner: [{ name: 'Hähnchen Curry', qty: '1 Portion', kcal: 680 }],
+        snack: [{ name: 'Studentenfutter', qty: '30 g', kcal: 370 }],
+      },
+    },
+    {
+      key: 'Sa', rel: 'Samstag', full: '1. September', kcal: 2100,
+      macros: { protein: 95, carbs: 230, fat: 68 },
+      meals: {
+        breakfast: [{ name: 'Vollkorn-Pancakes', qty: '1 Portion', kcal: 420 }],
+        lunch: [{ name: 'Sushi Bowl', qty: '1 Portion', kcal: 610 }],
+        dinner: [{ name: 'Steak mit Ofengemüse', qty: '1 Portion', kcal: 780 }],
+        snack: [{ name: 'Popcorn', qty: '1 Schüssel', kcal: 290 }],
+      },
+    },
+    {
+      key: 'So', rel: 'Heute', full: 'Sonntag, 2. September', kcal: 1450,
+      macros: { protein: 62, carbs: 140, fat: 38 },
+      meals: {
+        breakfast: [{ name: 'Haferflocken mit Beeren', qty: '1 Portion', kcal: 320 }],
+        lunch: [{ name: 'Hähnchen Bowl', qty: '1 Portion', kcal: 540 }, { name: 'Apfel', qty: '1 Stück', kcal: 80 }],
+        dinner: [{ name: 'Gemüsepfanne mit Reis', qty: '1 Portion', kcal: 420 }],
+        snack: [{ name: 'Naturjoghurt', qty: '200 g', kcal: 90 }],
+      },
+    },
+  ];
+
+  var strip = document.getElementById('s2-strip');
+  var relEl = document.getElementById('s2-rel');
+  var fullEl = document.getElementById('s2-full');
+  var heroValueEl = document.getElementById('s2-hero-value');
+  var heroLabelEl = document.getElementById('s2-hero-label');
+  var heroBarEl = document.getElementById('s2-hero-bar');
+  var macrosEl = document.getElementById('s2-macros');
+  var mealsEl = document.getElementById('s2-meals');
+
+  var activeIndex = DAYS.length - 1; // Heute
+  var dayButtons = [];
+
+  function fmtKcal(n) { return Math.round(n).toLocaleString('de-DE') + ' kcal'; }
+
+  function buildStrip() {
+    strip.innerHTML = '';
+    dayButtons = DAYS.map(function (day, i) {
+      var height = day.kcal ? Math.max(6, Math.round((day.kcal / MAX_SCALE) * 100)) : 0;
+      var over = day.kcal > GOAL_KCAL;
+      var btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 's2-day' + (i === activeIndex ? ' active' : '');
+      btn.setAttribute('aria-label', day.rel + ', ' + day.full + (day.kcal ? ', ' + fmtKcal(day.kcal) : ', keine Einträge'));
+      btn.innerHTML =
+        '<span class="s2-day-label">' + day.key + '</span>' +
+        '<div class="s2-day-bar-track"><div class="s2-day-bar-fill' + (over ? ' warning' : '') + '" style="height:' + height + '%"></div></div>' +
+        '<span class="s2-day-dot"></span>';
+      btn.addEventListener('click', function () { selectDay(i); });
+      strip.appendChild(btn);
+      return btn;
+    });
+    strip.scrollLeft = strip.scrollWidth - strip.clientWidth;
+  }
+
+  function renderMacro(label, value, target) {
+    var exceeded = target > 0 && value > target;
+    var pct = target > 0 ? Math.min(100, Math.round((value / target) * 100)) : 0;
+    var chip = document.createElement('div');
+    chip.className = 'macro-chip';
+    chip.innerHTML =
+      '<div class="macro-label">' + label + '</div>' +
+      '<div class="macro-value">' + value + ' / ' + target + ' g</div>' +
+      '<div class="macro-bar"><div class="macro-bar-fill" style="width:' + pct + '%; background:' + (exceeded ? 'var(--fam-warning)' : 'var(--fam-accent)') + '"></div></div>';
+    return chip;
+  }
+
+  function renderMeals(day) {
+    mealsEl.innerHTML = '';
+    var hasAnyEntry = MEAL_ORDER.some(function (m) { return day.meals[m].length > 0; });
+    if (!hasAnyEntry) {
+      var empty = document.createElement('div');
+      empty.className = 's2-empty-state';
+      empty.textContent = 'Keine Einträge an diesem Tag';
+      mealsEl.appendChild(empty);
+      return;
+    }
+    MEAL_ORDER.forEach(function (meal, idx) {
+      var entries = day.meals[meal];
+      var mealKcal = entries.reduce(function (sum, e) { return sum + e.kcal; }, 0);
+      var section = document.createElement('div');
+      section.className = 'meal-section';
+      if (idx === MEAL_ORDER.length - 1) section.style.borderBottom = 'none';
+      var rows = entries.map(function (e) {
+        return '<div class="entry-row"><div><div class="entry-name">' + e.name + '</div><div class="entry-qty">' + e.qty + '</div></div><div class="entry-kcal">' + e.kcal + ' kcal</div></div>';
+      }).join('');
+      section.innerHTML =
+        '<div class="meal-head"><div><div class="meal-title">' + MEAL_LABELS[meal] + '</div><div class="meal-kcal">' + mealKcal + ' kcal</div></div><div class="meal-add">+</div></div>' +
+        rows;
+      mealsEl.appendChild(section);
+    });
+  }
+
+  function selectDay(index) {
+    if (dayButtons[activeIndex]) dayButtons[activeIndex].classList.remove('active');
+    activeIndex = index;
+    if (dayButtons[activeIndex]) {
+      dayButtons[activeIndex].classList.add('active');
+      dayButtons[activeIndex].scrollIntoView({ inline: 'nearest', block: 'nearest', behavior: 'smooth' });
+    }
+    var day = DAYS[index];
+
+    relEl.textContent = day.rel;
+    fullEl.textContent = day.rel === 'Heute' ? day.full : day.rel + ', ' + day.full;
+
+    var remaining = GOAL_KCAL - day.kcal;
+    var over = remaining < 0;
+    heroValueEl.textContent = Math.abs(remaining).toLocaleString('de-DE');
+    heroLabelEl.textContent = 'kcal ' + (over ? 'über Ziel' : 'übrig') + ' · von ' + GOAL_KCAL.toLocaleString('de-DE');
+    heroBarEl.style.width = Math.min(100, Math.round((day.kcal / GOAL_KCAL) * 100)) + '%';
+    heroBarEl.style.background = over ? 'var(--fam-warning)' : 'var(--fam-accent)';
+
+    macrosEl.innerHTML = '';
+    macrosEl.appendChild(renderMacro('Protein', day.macros.protein, TARGETS.protein));
+    macrosEl.appendChild(renderMacro('Kohlenhydrate', day.macros.carbs, TARGETS.carbs));
+    macrosEl.appendChild(renderMacro('Fett', day.macros.fat, TARGETS.fat));
+
+    renderMeals(day);
+  }
+
+  // Normales vertikales Mausrad scrollt sonst die ganze Seite statt den
+  // Streifen — das dürfte der eigentliche Grund sein, warum sich "nichts
+  // bewegt" hat, wenn per Maus statt per Touch/Trackpad-Wisch getestet
+  // wurde. Vertikales Wheel-Delta wird hier auf den Streifen umgeleitet.
+  strip.addEventListener('wheel', function (e) {
+    var absX = Math.abs(e.deltaX);
+    var absY = Math.abs(e.deltaY);
+    if (absY > absX) {
+      strip.scrollLeft += e.deltaY;
+      e.preventDefault();
+    }
+  }, { passive: false });
+
+  // Click-and-drag mit der Maus, fuer Desktop-Tests ganz ohne
+  // Trackpad-Wisch oder Touch. dragMoved unterdrueckt den Tap-Klick auf
+  // einen Tag-Button, wenn eigentlich gezogen statt getippt wurde.
+  var isDragging = false;
+  var dragStartX = 0;
+  var dragStartScrollLeft = 0;
+  var dragMoved = false;
+  strip.addEventListener('pointerdown', function (e) {
+    isDragging = true;
+    dragMoved = false;
+    dragStartX = e.clientX;
+    dragStartScrollLeft = strip.scrollLeft;
+    strip.setPointerCapture(e.pointerId);
+    strip.style.cursor = 'grabbing';
+  });
+  strip.addEventListener('pointermove', function (e) {
+    if (!isDragging) return;
+    var delta = e.clientX - dragStartX;
+    if (Math.abs(delta) > 4) dragMoved = true;
+    strip.scrollLeft = dragStartScrollLeft - delta;
+  });
+  function endDrag() {
+    isDragging = false;
+    strip.style.cursor = 'grab';
+  }
+  strip.addEventListener('pointerup', endDrag);
+  strip.addEventListener('pointercancel', endDrag);
+  strip.addEventListener('click', function (e) {
+    if (dragMoved) { e.preventDefault(); e.stopPropagation(); }
+  }, true);
+  strip.style.cursor = 'grab';
+
+  buildStrip();
+  selectDay(activeIndex);
+})();
+</script>
+</body>
+</html>

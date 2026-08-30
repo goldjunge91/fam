@@ -13,9 +13,15 @@
 create table if not exists public.food_entries (
   id uuid primary key default gen_random_uuid(),
 
-  -- Genau eine der beiden Zuordnungen: entweder ein eigener Account oder ein
-  -- verwaltetes Kinder-Profil (#37). Der Check verhindert Eintraege, die zu
-  -- beidem oder zu nichts gehoeren.
+  -- Achtung: Es gibt hier KEINEN Check, der genau eine der beiden Zuordnungen
+  -- erzwingt -- mit "user_id not null" waere ein echtes XOR auch gar nicht
+  -- abbildbar. Faktisch traegt user_id die RLS (der eintragende Account),
+  -- child_profile_id ist optionales Ziel; die Trennung "eigene Eintraege vs.
+  -- Kind-Eintraege" erzwingt heute allein der Client per Filter.
+  --
+  -- Zielmodell laut ADR 0005: ein Kind-Eintrag gehoert dem Kindprofil, RLS
+  -- laeuft ueber child_profiles, user_id wird zum Audit-Feld. Umbau
+  -- eingefroren, siehe #190.
   user_id uuid not null references public.profiles (id) on delete cascade,
   child_profile_id uuid references public.child_profiles (id) on delete cascade,
 
