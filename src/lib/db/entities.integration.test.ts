@@ -1,3 +1,4 @@
+import { runDrizzleMigrations } from '@/lib/db/drizzle-migrator';
 import { ALL_ENTITIES, ENTITIES, metaOf } from '@/lib/db/entities';
 import { MIGRATIONS } from '@/lib/db/migrations';
 import { runMigrations } from '@/lib/db/migrator';
@@ -24,6 +25,7 @@ describe('entities.ts gegen das echte migrierte Schema', () => {
   beforeEach(async () => {
     db = createTestDatabase();
     await runMigrations(db, MIGRATIONS);
+    await runDrizzleMigrations(db);
   });
 
   afterEach(() => {

@@ -25,6 +25,7 @@ import {
   stores,
 } from './shopping';
 import { appMeta, outbox, syncState } from './system';
+import { medicationLogs, symptomLogs } from './tracking';
 
 export * from './brochures';
 export * from './households';
@@ -34,6 +35,7 @@ export * from './products';
 export * from './recipes';
 export * from './shopping';
 export * from './system';
+export * from './tracking';
 
 export const localDrizzleSchema = {
   appMeta,
@@ -47,6 +49,7 @@ export const localDrizzleSchema = {
   localRecipePreferences,
   mealPlanEntries,
   mealPlans,
+  medicationLogs,
   outbox,
   productUsage,
   products,
@@ -62,4 +65,5 @@ export const localDrizzleSchema = {
   storageLocations,
   stores,
   syncState,
+  symptomLogs,
 };

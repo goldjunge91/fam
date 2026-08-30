@@ -113,6 +113,14 @@ describe('coalesce', () => {
     expect(result.pushes).toHaveLength(2);
   });
 
+  it('erhaelt medizinische Einheiten unveraendert', () => {
+    const result = coalesce([
+      entry('insert', { medication_name: 'Insulin', unit: 'units' }, 'med-1', 'medication_logs'),
+    ]);
+
+    expect(result.pushes[0].payload).toEqual({ medication_name: 'Insulin', unit: 'units' });
+  });
+
   it('coalesct push-only Feedback-Events niemals', () => {
     const result = coalesce([
       entry(

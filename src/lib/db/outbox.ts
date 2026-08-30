@@ -1,3 +1,4 @@
+import { metaOf } from '@/lib/db/entities';
 import type { Entity, OutboxEntry, OutboxOp, SqlDatabase } from '@/lib/db/types';
 import { MAX_ATTEMPTS } from '@/lib/sync/backoff';
 import { addDiagnosticStep, reportError } from '@/lib/telemetry';
@@ -11,7 +12,7 @@ export function parseOutboxEntry(entry: OutboxEntry): Record<string, unknown> {
   }
 
   const rec = parsed as Record<string, unknown>;
-  if ('unit' in rec && typeof rec.unit === 'string') {
+  if (metaOf(entry.entity).normalizeQuantityUnits && typeof rec.unit === 'string') {
     const u = rec.unit.toLowerCase().trim();
     if (u === 'l' || u === 'liter') rec.unit = 'l';
     else if (u === 'g' || u === 'gramm') rec.unit = 'g';

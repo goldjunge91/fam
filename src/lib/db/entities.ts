@@ -17,8 +17,12 @@ export type EntityMeta = {
   hasServerTombstone: boolean;
   /** false bei 'products' und 'households' — beide global, kein household_id-Praefix. */
   householdScoped: boolean;
+  /** Die Remote-Sicht wird ausschließlich durch die private Account-RLS begrenzt. */
+  accountScoped?: true;
   /** Push-only-Entitaeten werden nie gepullt und brauchen keine Server-Spiegelantwort. */
   pushOnly?: boolean;
+  /** Normalisiert Mengen-Einheiten aus Nutzereingaben auf den gemeinsamen Inventory-Vertrag. */
+  normalizeQuantityUnits?: true;
   /** Spalten ohne updated_at/deleted_at/_dirty, id zuerst. 1:1 aus migrations.ts's V1_MIRRORS. */
   columns: readonly string[];
   /** Optionale Fehlerreparatur-Strategie, siehe `ForeignKeyViolationResolver`. */
@@ -46,6 +50,7 @@ export const ENTITIES: Readonly<Record<Entity, EntityMeta>> = {
     hasServerTombstone: true,
     householdScoped: true,
     onForeignKeyViolation: repairFridgeItemForeignKeyViolation,
+    normalizeQuantityUnits: true,
     columns: [
       'id',
       'household_id',
@@ -67,6 +72,7 @@ export const ENTITIES: Readonly<Record<Entity, EntityMeta>> = {
     hasServerTombstone: true,
     householdScoped: true,
     onForeignKeyViolation: repairShoppingListItemForeignKeyViolation,
+    normalizeQuantityUnits: true,
     columns: [
       'id',
       'household_id',
@@ -214,6 +220,7 @@ export const ENTITIES: Readonly<Record<Entity, EntityMeta>> = {
     table: 'recipe_component_items',
     hasServerTombstone: true,
     householdScoped: true,
+    normalizeQuantityUnits: true,
     columns: [
       'id',
       'component_id',
@@ -283,6 +290,44 @@ export const ENTITIES: Readonly<Record<Entity, EntityMeta>> = {
     householdScoped: false,
     columns: ['id', 'user_id', 'store_id', 'created_at'],
   },
+  medication_logs: {
+    entity: 'medication_logs',
+    table: 'medication_logs',
+    hasServerTombstone: true,
+    householdScoped: false,
+    accountScoped: true,
+    columns: [
+      'id',
+      'user_id',
+      'child_profile_id',
+      'medication_name',
+      'dose',
+      'unit',
+      'injection_site',
+      'administered_at',
+      'notes',
+      'created_at',
+    ],
+  },
+  symptom_logs: {
+    entity: 'symptom_logs',
+    table: 'symptom_logs',
+    hasServerTombstone: true,
+    householdScoped: false,
+    accountScoped: true,
+    columns: [
+      'id',
+      'user_id',
+      'child_profile_id',
+      'logged_at',
+      'appetite_level',
+      'satiety_level',
+      'nausea_level',
+      'side_effects',
+      'notes',
+      'created_at',
+    ],
+  },
 };
 
 export const ALL_ENTITIES: readonly Entity[] = [
@@ -300,6 +345,8 @@ export const ALL_ENTITIES: readonly Entity[] = [
   'meal_plans',
   'meal_plan_entries',
   'favorite_brochure_stores',
+  'medication_logs',
+  'symptom_logs',
 ];
 
 /** Push-only-Events, die bewusst nicht in ALL_ENTITIES (Pull) stehen. */

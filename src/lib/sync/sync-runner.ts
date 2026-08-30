@@ -83,6 +83,15 @@ function recordRealtimeLatency(
 }
 
 function invalidateEntityQueries(queryClient: QueryClient, entity: Entity, householdId: string) {
+  if (entity === 'medication_logs') {
+    queryClient.invalidateQueries({ queryKey: ['glp1', 'medications'] });
+    return;
+  }
+  if (entity === 'symptom_logs') {
+    queryClient.invalidateQueries({ queryKey: ['glp1', 'symptoms'] });
+    return;
+  }
+
   queryClient.invalidateQueries({ queryKey: [entity, householdId] });
   if (entity === 'fridge_items') {
     queryClient.invalidateQueries({ queryKey: ['fridge_items_grouped', householdId] });

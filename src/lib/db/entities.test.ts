@@ -24,8 +24,26 @@ describe('entities', () => {
       'meal_plans',
       'meal_plan_entries',
       'favorite_brochure_stores',
+      'medication_logs',
+      'symptom_logs',
     ]);
   });
+
+  it.each(['medication_logs', 'symptom_logs'])(
+    '%s wird per Account-RLS statt household_id synchronisiert',
+    (entity) => {
+      const metadata = ENTITIES as unknown as Record<
+        string,
+        { accountScoped?: boolean; householdScoped: boolean; hasServerTombstone: boolean }
+      >;
+
+      expect(metadata[entity]).toMatchObject({
+        accountScoped: true,
+        householdScoped: false,
+        hasServerTombstone: true,
+      });
+    },
+  );
 
   // `households` ist bewusst nicht in ALL_ENTITIES (siehe Kommentar dort) und
   // taucht deshalb in der Schleife unten nie auf — steht in `expected` trotzdem
@@ -50,6 +68,8 @@ describe('entities', () => {
       meal_plans: true,
       meal_plan_entries: true,
       favorite_brochure_stores: true,
+      medication_logs: true,
+      symptom_logs: true,
     };
 
     for (const entity of ALL_ENTITIES) {
@@ -75,6 +95,8 @@ describe('entities', () => {
       meal_plans: true,
       meal_plan_entries: true,
       favorite_brochure_stores: false,
+      medication_logs: false,
+      symptom_logs: false,
     };
 
     for (const entity of ALL_ENTITIES) {
