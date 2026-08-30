@@ -101,3 +101,9 @@ docs.md
 *.aab
 scripts/set-crawler-secrets.sh
 .env_folder
+
+# Beads / Dolt files (added by bd init)
+.dolt/
+*.db
+.beads-credential-key
+.beads/proxieddb/
