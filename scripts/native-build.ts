@@ -249,37 +249,27 @@ async function assertNativeBaseline(
   return current;
 }
 
-function artifactProblem(
-  lock: ArtifactLock,
-  targetName: TargetName,
-  currentFingerprint: string,
-): string | undefined {
-  if (lock.fingerprint !== currentFingerprint) {
-    return `Artefakt ${targetName} gehört zu einem anderen Fingerprint.`;
-  }
-
-  const fullPath = join(PROJECT_ROOT, lock.relativePath);
-  if (!existsSync(fullPath)) {
-    return (
-      `Artefakt fehlt: ${lock.relativePath}. ` +
-      `Nutze 'bun run native:restore -- --target ${targetName}' oder erteile explizit einen Rebuild.`
-    );
-  }
-
-  const actualHash = hashPath(fullPath);
-  if (actualHash !== lock.sha256) {
-    return `SHA-256-Prüfung für ${lock.relativePath} fehlgeschlagen.`;
-  }
-}
-
 function assertArtifact(
   lock: ArtifactLock,
   targetName: TargetName,
   currentFingerprint: string,
 ): string {
-  const problem = artifactProblem(lock, targetName, currentFingerprint);
-  if (problem) fail(problem);
+  if (lock.fingerprint !== currentFingerprint) {
+    fail(`Artefakt ${targetName} gehört zu einem anderen Fingerprint.`);
+  }
+
   const fullPath = join(PROJECT_ROOT, lock.relativePath);
+  if (!existsSync(fullPath)) {
+    fail(
+      `Artefakt fehlt: ${lock.relativePath}. ` +
+        `Nutze 'bun run native:restore -- --target ${targetName}' oder erteile explizit einen Rebuild.`,
+    );
+  }
+
+  const actualHash = hashPath(fullPath);
+  if (actualHash !== lock.sha256) {
+    fail(`SHA-256-Prüfung für ${lock.relativePath} fehlgeschlagen.`);
+  }
   return fullPath;
 }
 
