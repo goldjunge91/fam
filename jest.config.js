@@ -77,6 +77,11 @@ module.exports = {
     '/scripts',
   ],
 
+  // Eigenstaendige Tools und lokale Agent-Skills koennen eigene
+  // package.json-Dateien mit demselben Namen enthalten. Sie gehoeren nicht
+  // zum App-Modulgraphen und duerfen deshalb auch nicht in Jest Haste landen.
+  modulePathIgnorePatterns: ['<rootDir>/(?:tools|\\.agents|\\.claude)/'],
+
   // Bewusst nicht standardmaessig an: Instrumentierung kostet auf jedem Lauf
   // ~2x Laufzeit. Fuer gezielte Coverage-Reports gibt es `bun run test:coverage`.
   collectCoverage: false,
