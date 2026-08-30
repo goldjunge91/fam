@@ -58,6 +58,8 @@ grant delete, insert, select, update on public.recipe_template_items to anon, au
 grant delete, insert, select, update on public.recipe_template_steps to anon, authenticated, service_role;
 grant delete, insert, select, update on public.medication_logs to anon, authenticated, service_role;
 grant delete, insert, select, update on public.symptom_logs to anon, authenticated, service_role;
+revoke all on public.injection_plans from anon, authenticated, service_role;
+grant delete, insert, select, update on public.injection_plans to anon, authenticated, service_role;
 grant delete, insert, select, update on public.fasting_sessions to anon, authenticated, service_role;
 grant delete, insert, select, update on public.glucose_entries to anon, authenticated, service_role;
 grant delete, insert, select, update on public.ketone_entries to anon, authenticated, service_role;

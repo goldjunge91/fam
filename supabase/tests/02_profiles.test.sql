@@ -3,7 +3,7 @@
 begin;
 \ir helpers.sql
 
-select plan(7);
+select plan(8);
 
 select tests.create_user('11111111-1111-1111-1111-111111111111', 'alice@example.com');
 select tests.create_user('22222222-2222-2222-2222-222222222222', 'bob@example.com');
@@ -66,6 +66,15 @@ select is(
   (select display_name from public.profiles where id = '11111111-1111-1111-1111-111111111111'),
   'Alice T.',
   'Alice kann ihr eigenes Profil aendern'
+);
+
+select throws_ok(
+  $$ update public.profiles
+     set tracking_day_start_time = '24:00'
+     where id = '11111111-1111-1111-1111-111111111111' $$,
+  '23514',
+  null,
+  'der Tagesstart muss eine gueltige Uhrzeit im Format HH:MM sein'
 );
 
 -- ----------------------------------------------------------------- anonym
