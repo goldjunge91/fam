@@ -66,12 +66,12 @@ module.exports = {
   // (scripts/dump_data/*.bun.test.ts) laufen stattdessen ueber
   // `bun run test:dump-pipeline` (Buns eigener Testrunner, siehe
   // scripts/dump_data/README.md).
-  // Das eigenstaendige Category Lab ist eine Vite/Vitest-Anwendung mit
-  // eigenem `bun run test`. Jest Expo darf seine ESM/Vitest-Suiten nicht als
+  // Die eigenstaendigen Tools sind eigene Node-/Vite-Anwendungen mit jeweils
+  // eigenem Test-Runner. Jest Expo darf ihre Suiten nicht als
   // React-Native-Tests einsammeln.
   testPathIgnorePatterns: [
     '/node_modules/',
-    '/tools/category-debugger/',
+    '/tools/',
     '\\.integration\\.test\\.tsx?$',
     '\\.bun\\.test\\.ts$',
     '/scripts',
