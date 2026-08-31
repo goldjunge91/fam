@@ -1,0 +1,381 @@
+<title>Doppelzählung Einkaufsliste</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Inter:wght@400;500;600;700;800&display=swap');
+
+  :root {
+    --ink: #2d2830;
+    --ink-soft: #55505a;
+    --muted: #786f79;
+    --page-bg: #efe6e6;
+    --page-panel: #fbf5ef;
+    --line: #e4dde3;
+    --accent: #705773;
+    --accent-soft: #ece3ec;
+    --shadow: rgba(45, 40, 48, 0.1);
+
+    /* App-Tokens 1:1 aus src/constants/theme.ts (light) */
+    --app-text: #2D2830;
+    --app-bg: #F8F4EF;
+    --app-surface: #FBF7F2;
+    --app-selected: #E9E1E7;
+    --app-text-secondary: #786F79;
+    --app-border: #E4DDE3;
+    --app-accent: #705773;
+    --app-on-accent: #FFFFFF;
+    --app-success: #78906F;
+    --app-warning: #C69059;
+    --app-danger: #C65F50;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ink: #f2ece7;
+      --ink-soft: #d8d0d5;
+      --muted: #b7adb3;
+      --page-bg: #16131a;
+      --page-panel: #1c181f;
+      --line: #3e3640;
+      --accent: #b79cba;
+      --accent-soft: #362f3a;
+      --shadow: rgba(0, 0, 0, 0.4);
+
+      --app-text: #F2ECE7;
+      --app-bg: #211D23;
+      --app-surface: #2B262E;
+      --app-selected: #382F3B;
+      --app-text-secondary: #B7ADB3;
+      --app-border: #3E3640;
+      --app-accent: #B79CBA;
+      --app-on-accent: #211D23;
+      --app-success: #8FAE86;
+      --app-warning: #D9A86C;
+      --app-danger: #D9776A;
+    }
+  }
+  :root[data-theme="dark"] {
+    --ink: #f2ece7;
+    --ink-soft: #d8d0d5;
+    --muted: #b7adb3;
+    --page-bg: #16131a;
+    --page-panel: #1c181f;
+    --line: #3e3640;
+    --accent: #b79cba;
+    --accent-soft: #362f3a;
+    --shadow: rgba(0, 0, 0, 0.4);
+
+    --app-text: #F2ECE7;
+    --app-bg: #211D23;
+    --app-surface: #2B262E;
+    --app-selected: #382F3B;
+    --app-text-secondary: #B7ADB3;
+    --app-border: #3E3640;
+    --app-accent: #B79CBA;
+    --app-on-accent: #211D23;
+    --app-success: #8FAE86;
+    --app-warning: #D9A86C;
+    --app-danger: #D9776A;
+  }
+
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0;
+    background: var(--page-bg);
+    color: var(--ink);
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  body { padding: clamp(20px, 5vw, 56px) clamp(16px, 5vw, 64px) 80px; }
+
+  .intro { max-width: 760px; margin: 0 auto 36px; }
+  .eyebrow {
+    font-size: 12px; font-weight: 700; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--accent);
+  }
+  h1 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 600;
+    font-size: clamp(26px, 4vw, 36px);
+    line-height: 1.15;
+    margin: 8px 0 12px;
+    text-wrap: balance;
+    letter-spacing: -0.01em;
+  }
+  .intro p { font-size: 15px; line-height: 1.6; color: var(--ink-soft); max-width: 66ch; margin: 0 0 10px; }
+  .intro code { background: var(--accent-soft); padding: 1px 5px; border-radius: 5px; font-size: 13px; }
+
+  .scenario {
+    max-width: 760px; margin: 24px auto 8px; background: var(--page-panel);
+    border: 1px solid var(--line); border-radius: 16px; padding: 16px 18px;
+  }
+  .scenario .label {
+    font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--muted); margin-bottom: 8px;
+  }
+  .scenario ol { margin: 0; padding-left: 20px; font-size: 13.5px; line-height: 1.7; color: var(--ink-soft); }
+  .scenario .num { font-feature-settings: "tnum"; font-variant-numeric: tabular-nums; font-weight: 700; color: var(--ink); }
+
+  .variants {
+    display: flex; gap: clamp(20px, 3vw, 44px); justify-content: center;
+    flex-wrap: wrap; align-items: flex-start; margin-top: 48px;
+  }
+  .variant-block { width: 340px; }
+  .variant-label { text-align: center; margin-bottom: 16px; }
+  .variant-label .eyebrow-small {
+    font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted);
+  }
+  .variant-label .name {
+    font-family: 'Fraunces', Georgia, serif; font-weight: 600; font-size: 20px; letter-spacing: -0.01em; margin-top: 3px;
+  }
+  .variant-label .desc { font-size: 12.5px; color: var(--muted); margin-top: 6px; line-height: 1.55; padding: 0 6px; }
+
+  .phone {
+    width: 340px; height: 720px; border-radius: 42px; background: #0f0d11; padding: 10px;
+    box-shadow: 0 24px 60px -18px var(--shadow), 0 2px 8px var(--shadow);
+  }
+  .screen {
+    width: 100%; height: 100%; border-radius: 34px; overflow: hidden;
+    background: var(--app-bg); display: flex; flex-direction: column; position: relative;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui, sans-serif;
+    color: var(--app-text);
+  }
+  .statusbar { height: 28px; flex-shrink: 0; }
+
+  .back-row { padding: 8px 18px 2px; flex-shrink: 0; }
+  .back-arrow {
+    width: 40px; height: 40px; border-radius: 18px;
+    background: color-mix(in srgb, var(--app-surface) 70%, transparent);
+    display: flex; align-items: center; justify-content: center; font-size: 15px; color: var(--app-text);
+  }
+  .title-row { padding: 10px 18px 12px; flex-shrink: 0; }
+  .screen-title { font-size: 19px; font-weight: 700; letter-spacing: -0.01em; }
+
+  .app-scroll {
+    flex: 1; overflow: hidden; padding: 0 18px 18px; display: flex; flex-direction: column; gap: 10px;
+  }
+
+  .bulk-row { display: flex; justify-content: flex-end; margin-bottom: 2px; }
+  .bulk-btn {
+    display: flex; align-items: center; gap: 6px; padding: 7px 12px; border-radius: 999px;
+    border: 1px solid var(--app-border); background: var(--app-surface); font-size: 11px; font-weight: 600;
+    color: var(--app-text-secondary);
+  }
+  .bulk-btn .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--app-text-secondary); }
+
+  .mis-row {
+    background: var(--app-surface); border-radius: 16px; padding: 12px; display: flex;
+    align-items: flex-start; gap: 10px;
+  }
+  .mis-checkbox {
+    width: 22px; height: 22px; border-radius: 6px; border: 2px solid var(--app-accent);
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px;
+  }
+  .mis-checkbox.checked { background: var(--app-accent); }
+  .mis-checkbox.checked::after { content: '✓'; color: var(--app-on-accent); font-size: 11px; font-weight: 700; }
+  .mis-body { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 3px; }
+  .mis-name { font-size: 13.5px; font-weight: 700; }
+  .mis-detail { font-size: 11.5px; color: var(--app-text-secondary); line-height: 1.5; }
+  .mis-detail .num { font-feature-settings: "tnum"; font-variant-numeric: tabular-nums; font-weight: 600; color: var(--app-text); }
+  .mis-note {
+    display: flex; align-items: center; gap: 5px; font-size: 11px; font-weight: 600; margin-top: 1px;
+  }
+  .mis-note.warn { color: var(--app-warning); }
+  .mis-note.info { color: var(--app-accent); }
+  .mis-recipe { font-size: 11px; color: var(--app-text-secondary); margin-top: 1px; }
+  .store-chip {
+    align-self: center; display: flex; align-items: center; gap: 6px; padding: 5px 10px;
+    border-radius: 999px; border: 1px solid var(--app-border); background: var(--app-bg);
+    font-size: 10.5px; font-weight: 600; color: var(--app-text-secondary); flex-shrink: 0; margin-top: 1px;
+  }
+  .store-chip .dot { width: 6px; height: 6px; border-radius: 50%; background: #C69059; }
+
+  .cta-btn {
+    margin-top: auto; padding: 13px; border-radius: 16px; background: var(--app-accent);
+    color: var(--app-on-accent); text-align: center; font-size: 13.5px; font-weight: 700;
+  }
+
+  /* Ergebnis-Streifen unter dem Screen: was am Ende auf der Liste steht */
+  .result-strip {
+    margin-top: 14px; border-radius: 14px; border: 1px solid var(--line); background: var(--page-panel);
+    padding: 11px 13px;
+  }
+  .result-strip .rlabel { font-size: 10.5px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); margin-bottom: 4px; }
+  .result-strip .rvalue { font-size: 14px; font-weight: 700; font-feature-settings: "tnum"; font-variant-numeric: tabular-nums; }
+  .result-strip .rvalue.bad { color: var(--app-danger); }
+  .result-strip .rvalue.good { color: var(--app-success); }
+  .result-strip .rsub { font-size: 11.5px; color: var(--muted); margin-top: 2px; line-height: 1.5; }
+
+  footer {
+    max-width: 760px; margin: 56px auto 0; font-size: 12px; color: var(--muted);
+    text-align: center; border-top: 1px solid var(--line); padding-top: 18px; line-height: 1.6;
+  }
+</style>
+
+<div class="intro">
+  <div class="eyebrow">Meal-Planner → Einkaufsliste · #131-Nachschärfung</div>
+  <h1>Was passiert, wenn ein Gericht zweimal geplant wird?</h1>
+  <p>
+    <code>computeMissingIngredients</code> rechnet Bedarf minus physischen Vorrat
+    (<code>fridge_items</code>) — nicht minus dem, was bereits ungecheckt auf der
+    Einkaufsliste liegt. Wird ein Gericht ein zweites Mal für einen weiteren Tag
+    eingeplant, addiert der erneute Übertrag die volle neue Menge auf die bestehende
+    Zeile, statt nur das echte Delta. Drei gleichwertige Lösungswege, zur Auswahl.
+  </p>
+</div>
+
+<div class="scenario">
+  <div class="label">Szenario in allen drei Varianten</div>
+  <ol>
+    <li>Bolognese am Montag geplant. Bedarf <span class="num">400g</span> Tomaten, Vorrat <span class="num">100g</span> → Übertrag legt <span class="num">300g</span> Tomaten auf die Einkaufsliste.</li>
+    <li>Bolognese zusätzlich für Mittwoch geplant. Gesamtbedarf steigt auf <span class="num">800g</span>, Vorrat unverändert <span class="num">100g</span>.</li>
+    <li>Nutzer öffnet "Fehlende Zutaten" erneut — wie soll die Zeile jetzt aussehen, und was passiert beim zweiten Übertrag?</li>
+  </ol>
+</div>
+
+<div class="variants">
+
+  <div class="variant-block">
+    <div class="variant-label">
+      <div class="eyebrow-small">Variante 1</div>
+      <div class="name">Verrechnen</div>
+      <div class="desc">"Verfügbar" = Vorrat + bereits ungecheckt auf der Liste. Zeigt immer die echte Restmenge, Übertrag bleibt bei Wiederholung korrekt.</div>
+    </div>
+    <div class="phone">
+      <div class="screen">
+        <div class="statusbar"></div>
+        <div class="back-row"><div class="back-arrow">‹</div></div>
+        <div class="title-row"><div class="screen-title">Fehlende Zutaten</div></div>
+        <div class="app-scroll">
+          <div class="bulk-row"><div class="bulk-btn"><span class="dot"></span>Allen einen Markt zuweisen</div></div>
+
+          <div class="mis-row">
+            <div class="mis-checkbox checked"></div>
+            <div class="mis-body">
+              <div class="mis-name">Tomaten</div>
+              <div class="mis-detail"><span class="num">800g</span> benötigt · <span class="num">400g</span> bereits vorhanden</div>
+              <div class="mis-note info">ⓘ 100g Vorrat + 300g Einkaufsliste</div>
+              <div class="mis-recipe">🍽️ Bolognese</div>
+            </div>
+            <div class="store-chip"><span class="dot"></span>Aldi</div>
+          </div>
+
+          <div class="mis-row">
+            <div class="mis-checkbox checked"></div>
+            <div class="mis-body">
+              <div class="mis-name">Hackfleisch</div>
+              <div class="mis-detail"><span class="num">1000g</span> benötigt · <span class="num">0g</span> bereits vorhanden</div>
+              <div class="mis-recipe">🍽️ Bolognese</div>
+            </div>
+            <div class="store-chip"><span class="dot"></span>Aldi</div>
+          </div>
+
+          <div class="cta-btn">2 Artikel zur Einkaufsliste hinzufügen</div>
+        </div>
+      </div>
+    </div>
+    <div class="result-strip">
+      <div class="rlabel">Nach dem zweiten Übertrag</div>
+      <div class="rvalue good">700g Tomaten auf der Liste</div>
+      <div class="rsub">300g (bestehend) + 400g (neu übertragen) = exakt der Gesamtbedarf. Keine Überzählung, kein Zutun nötig.</div>
+    </div>
+  </div>
+
+  <div class="variant-block">
+    <div class="variant-label">
+      <div class="eyebrow-small">Variante 2</div>
+      <div class="name">Nur Warnhinweis</div>
+      <div class="desc">Zeigt weiterhin die volle berechnete Menge, ergänzt um einen Hinweis. Nutzer entscheidet selbst, ob er die volle Menge übernimmt.</div>
+    </div>
+    <div class="phone">
+      <div class="screen">
+        <div class="statusbar"></div>
+        <div class="back-row"><div class="back-arrow">‹</div></div>
+        <div class="title-row"><div class="screen-title">Fehlende Zutaten</div></div>
+        <div class="app-scroll">
+          <div class="bulk-row"><div class="bulk-btn"><span class="dot"></span>Allen einen Markt zuweisen</div></div>
+
+          <div class="mis-row">
+            <div class="mis-checkbox checked"></div>
+            <div class="mis-body">
+              <div class="mis-name">Tomaten</div>
+              <div class="mis-detail"><span class="num">700g</span> fehlen · <span class="num">100g</span> im Vorrat</div>
+              <div class="mis-note warn">⚠ 300g bereits auf der Einkaufsliste</div>
+              <div class="mis-recipe">🍽️ Bolognese</div>
+            </div>
+            <div class="store-chip"><span class="dot"></span>Aldi</div>
+          </div>
+
+          <div class="mis-row">
+            <div class="mis-checkbox checked"></div>
+            <div class="mis-body">
+              <div class="mis-name">Hackfleisch</div>
+              <div class="mis-detail"><span class="num">1000g</span> fehlen · <span class="num">0g</span> im Vorrat</div>
+              <div class="mis-recipe">🍽️ Bolognese</div>
+            </div>
+            <div class="store-chip"><span class="dot"></span>Aldi</div>
+          </div>
+
+          <div class="cta-btn">2 Artikel zur Einkaufsliste hinzufügen</div>
+        </div>
+      </div>
+    </div>
+    <div class="result-strip">
+      <div class="rlabel">Nach dem zweiten Übertrag</div>
+      <div class="rvalue bad">1000g Tomaten auf der Liste</div>
+      <div class="rsub">300g (bestehend) + 700g (neu, ungekürzt) = 300g mehr als der Gesamtbedarf — außer der Hinweis wird gelesen und die Menge manuell angepasst.</div>
+    </div>
+  </div>
+
+  <div class="variant-block">
+    <div class="variant-label">
+      <div class="eyebrow-small">Variante 3</div>
+      <div class="name">Ersetzen statt addieren</div>
+      <div class="desc">Übertrag setzt die Menge auf der Liste neu (Gesamtbedarf minus Vorrat), statt sie zur bestehenden Zeile zu addieren.</div>
+    </div>
+    <div class="phone">
+      <div class="screen">
+        <div class="statusbar"></div>
+        <div class="back-row"><div class="back-arrow">‹</div></div>
+        <div class="title-row"><div class="screen-title">Fehlende Zutaten</div></div>
+        <div class="app-scroll">
+          <div class="bulk-row"><div class="bulk-btn"><span class="dot"></span>Allen einen Markt zuweisen</div></div>
+
+          <div class="mis-row">
+            <div class="mis-checkbox checked"></div>
+            <div class="mis-body">
+              <div class="mis-name">Tomaten</div>
+              <div class="mis-detail"><span class="num">700g</span> fehlen · <span class="num">100g</span> im Vorrat</div>
+              <div class="mis-note info">↻ ersetzt 300g bereits auf der Liste</div>
+              <div class="mis-recipe">🍽️ Bolognese</div>
+            </div>
+            <div class="store-chip"><span class="dot"></span>Aldi</div>
+          </div>
+
+          <div class="mis-row">
+            <div class="mis-checkbox checked"></div>
+            <div class="mis-body">
+              <div class="mis-name">Hackfleisch</div>
+              <div class="mis-detail"><span class="num">1000g</span> fehlen · <span class="num">0g</span> im Vorrat</div>
+              <div class="mis-recipe">🍽️ Bolognese</div>
+            </div>
+            <div class="store-chip"><span class="dot"></span>Aldi</div>
+          </div>
+
+          <div class="cta-btn">2 Artikel zur Einkaufsliste hinzufügen</div>
+        </div>
+      </div>
+    </div>
+    <div class="result-strip">
+      <div class="rlabel">Nach dem zweiten Übertrag</div>
+      <div class="rvalue good">700g Tomaten auf der Liste</div>
+      <div class="rsub">Die bestehende Zeile wird auf 700g gesetzt, nicht addiert. Korrekt — aber weicht vom sonst überall geltenden Merge-Add-Verhalten der Einkaufsliste ab.</div>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  Rein statischer Vergleich, keine echten Komponenten verändert. Auswahl bestimmt die
+  Umsetzung in <code>shopping-needs.ts</code> und <code>use-shopping-needs.ts</code> —
+  siehe <code>docs/issue-131-missing-ingredients-transfer.md</code>, Abschnitt
+  "Nachschärfung 2".
+</footer>
