@@ -19,14 +19,14 @@ Plan: `tasks/feedback-tool/plan.md`
 
 **Checkpoint 1: erreicht.** pgTAP grün, `db:diff` leer, Types aktuell.
 
-## 2. Ticket erstellen
+## 2. Ticket erstellen — ✅ erledigt (17131bf)
 
-- [ ] `src/features/feedback/types.ts`
-- [ ] `src/features/feedback/api.ts#createTicket`
-- [ ] `src/features/feedback/hooks.ts#useCreateTicket`
-- [ ] `src/features/feedback/feedback-form-screen.tsx` (+ `.test.tsx`)
-- [ ] Route `src/app/settings/feedback/new.tsx`
-- [ ] Settings-Menüeintrag "Feedback geben" in `settings-screen.tsx` ("App"-Gruppe)
+- [x] `src/features/feedback/api.ts`: Types (`FeedbackType`/`FeedbackStatus` als eigene Literal-Unions, generierte Row-Typen kennen nur `string`) + `createTicket` + `useCreateTicketMutation` (kombiniert statt separater `types.ts`/`hooks.ts` — folgt dem Muster aus `calorie-tracking/api.ts`)
+- [x] `src/features/feedback/feedback-form-screen.tsx` (+ `.test.tsx`): Typ-Auswahl (SegmentedControl), Betreff, Nachricht, zeigt Ticket-Nummer nach Absenden
+- [x] Route `src/app/settings/feedback/new.tsx`
+- [x] Settings-Menüeintrag "Feedback geben" in `settings-screen.tsx` ("App"-Gruppe) — zeigt vorerst direkt aufs Formular (`/settings/feedback/new`), Aufgabe 3 biegt auf die Liste (`/settings/feedback`) um
+
+**Hinweis:** `router.replace('/settings/feedback')` (Liste) im Erfolgs-Screen zeigt bis Aufgabe 3 auf eine noch nicht existierende Route.
 
 ## 3. Ticket-Liste mit Status
 
