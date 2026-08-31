@@ -1,4 +1,4 @@
-import { useLocalSearchParams } from 'expo-router';
+import { router, useLocalSearchParams } from 'expo-router';
 import { useEffect, useState } from 'react';
 import { ActivityIndicator, Alert, Pressable, View } from 'react-native';
 import { Screen } from '@/components/layout/screen';
@@ -8,6 +8,7 @@ import { useSession } from '@/features/auth/session-provider';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { presentPaywallIfNeeded } from '@/features/premium/paywall';
 import { usePremium } from '@/features/premium/premium-provider';
+import { RowStorePicker } from '@/features/shopping-list/components/ui/row-store-picker';
 import { useAddShoppingItem } from '@/features/shopping-list/hooks/use-shopping-list-mutations';
 import { resolveCategoryForItem } from '@/features/shopping-list/preferences/api';
 import { type MissingIngredientView, useMealPlanShoppingNeeds } from './use-shopping-needs';
@@ -33,11 +34,22 @@ export function MissingIngredientsScreen() {
     isPremium,
   );
   const [selected, setSelected] = useState<Set<string>>(new Set());
+  // Marktzuweisung pro Zeile, vom Nutzer manuell ueberschrieben (Fallback:
+  // item.preferredStoreId aus der Kaufhistorie). `productId in storeOverrides`
+  // statt `??`, weil eine bewusst gewaehlte "Ohne Markt" (null) sonst nicht
+  // von "noch nicht angefasst" unterscheidbar waere.
+  const [storeOverrides, setStoreOverrides] = useState<Record<string, string | null>>({});
   const addShoppingItem = useAddShoppingItem();
-  const [addedCount, setAddedCount] = useState<number | null>(null);
+  // Eigener Sperrzustand statt addShoppingItem.isPending: die Mutation wird
+  // im Loop pro Artikel einzeln aufgerufen, isPending flackert dazwischen
+  // wieder auf false — der Button muss aber ueber die gesamte Uebertragsdauer
+  // gesperrt bleiben.
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   useEffect(() => {
-    setSelected(new Set(missing.map((m) => m.productId)));
+    // Nur Artikel mit echtem Fehlbetrag vorauswaehlen — bereits gedeckte
+    // Artikel (Nachschub-Fall) bleiben sichtbar, aber abgewaehlt.
+    setSelected(new Set(missing.filter((m) => m.missingGrams > 0).map((m) => m.productId)));
   }, [missing]);
 
   function toggle(productId: string) {
@@ -49,32 +61,50 @@ export function MissingIngredientsScreen() {
     });
   }
 
+  function storeIdFor(item: MissingIngredientView): string | null {
+    return item.productId in storeOverrides
+      ? storeOverrides[item.productId]
+      : item.preferredStoreId;
+  }
+
   async function handleAddSelected() {
     if (!householdId) return;
-    const toAdd = missing.filter((m) => selected.has(m.productId));
-    for (const item of toAdd) {
-      // Alle Erzeugungswege nutzen den Resolver (#223 Abschnitt 10) — hier
-      // ohne `categoryTags`, da diese Zutaten nur als Produkt-Id/Name
-      // bekannt sind, nicht als vollstaendiges OFF-Produkt.
-      const classification = await resolveCategoryForItem({
-        householdId,
-        productId: item.productId,
-        name: item.name,
-      });
-      await addShoppingItem.mutateAsync({
-        household_id: householdId,
-        name: item.name,
-        quantity: item.missingGrams,
-        unit: 'g',
-        product_id: item.productId,
-        category_id: classification.categoryId,
-        category_source: classification.source,
-        category_classifier_version: classification.classifierVersion,
-        store_id: item.preferredStoreId,
-        recipe_names: item.recipeNames,
-      });
+    setIsSubmitting(true);
+    try {
+      const toAdd = missing.filter((m) => selected.has(m.productId));
+      for (const item of toAdd) {
+        // Alle Erzeugungswege nutzen den Resolver (#223 Abschnitt 10) — hier
+        // ohne `categoryTags`, da diese Zutaten nur als Produkt-Id/Name
+        // bekannt sind, nicht als vollstaendiges OFF-Produkt.
+        const classification = await resolveCategoryForItem({
+          householdId,
+          productId: item.productId,
+          name: item.name,
+        });
+        await addShoppingItem.mutateAsync({
+          household_id: householdId,
+          name: item.name,
+          // Bei bereits gedecktem Bedarf (missingGrams <= 0) gibt es kein
+          // sinnvolles Delta zu uebertragen — dann zaehlt die volle
+          // benoetigte Menge (Nachschub-Fall).
+          quantity: item.missingGrams > 0 ? item.missingGrams : item.neededGrams,
+          unit: 'g',
+          product_id: item.productId,
+          category_id: classification.categoryId,
+          category_source: classification.source,
+          category_classifier_version: classification.classifierVersion,
+          store_id: storeIdFor(item),
+          recipe_names: item.recipeNames,
+        });
+      }
+      Alert.alert(
+        'Einkaufsliste aktualisiert',
+        `${toAdd.length} ${toAdd.length === 1 ? 'Artikel wurde' : 'Artikel wurden'} ergänzt.`,
+      );
+      router.back();
+    } finally {
+      setIsSubmitting(false);
     }
-    setAddedCount(toAdd.length);
   }
 
   async function unlockPremium() {
@@ -117,12 +147,34 @@ export function MissingIngredientsScreen() {
       ) : (
         /* Auswahlliste aller fehlenden Zutaten mit Mengenangaben und Übertrags-Button */
         <View className="mis-list">
+          {/* Bulk-Aktion: allen Artikeln auf einen Schlag denselben Markt zuweisen (#342) */}
+          {householdId ? (
+            <View className="mis-bulk-store">
+              <RowStorePicker
+                householdId={householdId}
+                storeId={null}
+                label="Allen einen Markt zuweisen"
+                onChange={(storeId) =>
+                  setStoreOverrides(
+                    Object.fromEntries(missing.map((item) => [item.productId, storeId])),
+                  )
+                }
+                testID="bulk-store-picker"
+              />
+            </View>
+          ) : null}
+
           {missing.map((item) => (
             <IngredientRow
               key={item.productId}
               item={item}
               selected={selected.has(item.productId)}
               onToggle={() => toggle(item.productId)}
+              householdId={householdId}
+              storeId={storeIdFor(item)}
+              onStoreChange={(storeId) =>
+                setStoreOverrides((prev) => ({ ...prev, [item.productId]: storeId }))
+              }
             />
           ))}
 
@@ -130,16 +182,9 @@ export function MissingIngredientsScreen() {
           <Button
             label={`${selected.size} Artikel zur Einkaufsliste hinzufügen`}
             onPress={handleAddSelected}
-            disabled={selected.size === 0 || addShoppingItem.isPending || !session}
-            loading={addShoppingItem.isPending}
+            disabled={selected.size === 0 || isSubmitting || !session}
+            loading={isSubmitting}
           />
-
-          {/* Erfolgs-Bestätigung nach Übertrag */}
-          {addedCount !== null ? (
-            <ThemedText type="small" themeColor="accent">
-              {addedCount} Artikel zur Einkaufsliste hinzugefügt.
-            </ThemedText>
-          ) : null}
         </View>
       )}
     </Screen>
@@ -150,33 +195,56 @@ function IngredientRow({
   item,
   selected,
   onToggle,
+  householdId,
+  storeId,
+  onStoreChange,
 }: {
   item: MissingIngredientView;
   selected: boolean;
   onToggle: () => void;
+  householdId: string | undefined;
+  storeId: string | null;
+  onStoreChange: (storeId: string | null) => void;
 }) {
   return (
-    <Pressable
-      accessibilityRole="checkbox"
-      accessibilityState={{ checked: selected }}
-      accessibilityLabel={item.name}
-      onPress={onToggle}
-      className="mis-row">
-      <View className={`mis-checkbox ${selected ? 'bg-accent' : 'bg-transparent'}`}>
-        {selected ? <ThemedText themeColor="onAccent">✓</ThemedText> : null}
-      </View>
-      <View className="mis-row-text">
-        <ThemedText type="smallBold">{item.name}</ThemedText>
-        <ThemedText type="small" themeColor="textSecondary">
-          {item.missingGrams} g fehlen
-          {item.preferredStoreName ? ` · zuletzt bei ${item.preferredStoreName}` : ''}
-        </ThemedText>
-        {item.recipeNames.length > 0 ? (
-          <ThemedText type="small" themeColor="textSecondary" numberOfLines={1}>
-            🍽️ {item.recipeNames.join(', ')}
-          </ThemedText>
-        ) : null}
-      </View>
-    </Pressable>
+    <View className="mis-row">
+      <Pressable
+        accessibilityRole="checkbox"
+        accessibilityState={{ checked: selected }}
+        accessibilityLabel={item.name}
+        onPress={onToggle}
+        className="mis-row-toggle">
+        <View className={`mis-checkbox ${selected ? 'bg-accent' : 'bg-transparent'}`}>
+          {selected ? <ThemedText themeColor="onAccent">✓</ThemedText> : null}
+        </View>
+        <View className="mis-row-text">
+          <ThemedText type="smallBold">{item.name}</ThemedText>
+          {item.missingGrams > 0 ? (
+            <ThemedText type="small" themeColor="textSecondary">
+              {item.missingGrams} g fehlen
+              {item.preferredStoreName ? ` · zuletzt bei ${item.preferredStoreName}` : ''}
+            </ThemedText>
+          ) : (
+            <ThemedText type="small" themeColor="textSecondary">
+              {item.neededGrams} g benötigt / {item.availableGrams} g im Vorrat
+              {item.preferredStoreName ? ` · zuletzt bei ${item.preferredStoreName}` : ''}
+            </ThemedText>
+          )}
+          {item.recipeNames.length > 0 ? (
+            <ThemedText type="small" themeColor="textSecondary" numberOfLines={1}>
+              🍽️ {item.recipeNames.join(', ')}
+            </ThemedText>
+          ) : null}
+        </View>
+      </Pressable>
+      {householdId ? (
+        <RowStorePicker
+          householdId={householdId}
+          storeId={storeId}
+          onChange={onStoreChange}
+          testID={`row-store-picker-${item.productId}`}
+        />
+      ) : null}
+    </View>
   );
 }

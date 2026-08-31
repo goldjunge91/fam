@@ -68,6 +68,46 @@ describe('useMealPlanShoppingNeeds', () => {
       expect.objectContaining({
         productId: 'prod-zucker',
         missingGrams: 80,
+        neededGrams: 100,
+        availableGrams: 20,
+      }),
+    );
+  });
+
+  it('nimmt bereits vollstaendig gedeckte Artikel mit missingGrams 0 auf, statt sie wegzulassen', async () => {
+    // Nachschub-Fall (#131-Nachschaerfung, docs/issue-131-missing-ingredients-transfer.md):
+    // der Vorrat deckt den Bedarf bereits vollstaendig ab.
+    mockDbGetAllAsync
+      .mockResolvedValueOnce([{ recipe_id: 'rec-1', portions: 1 }])
+      .mockResolvedValueOnce([{ id: 'comp-1', recipe_id: 'rec-1', serving_grams: 100 }])
+      .mockResolvedValueOnce([
+        {
+          component_id: 'comp-1',
+          recipe_id: 'rec-1',
+          product_id: 'prod-zucker',
+          sub_component_id: null,
+          grams: 100,
+        },
+      ])
+      .mockResolvedValueOnce([{ id: 'rec-1', title: 'Kuchen' }])
+      .mockResolvedValueOnce([{ product_id: 'prod-zucker', quantity: 100, unit: 'g' }])
+      .mockResolvedValueOnce([{ id: 'prod-zucker', name: 'Zucker', serving_size_g: 100 }]);
+
+    const { result } = await renderHook(() => useMealPlanShoppingNeeds('plan-1', 'hh-1', true), {
+      wrapper,
+    });
+
+    await waitFor(() => {
+      expect(result.current.isSuccess).toBe(true);
+    });
+
+    expect(result.current.data).toHaveLength(1);
+    expect(result.current.data?.[0]).toEqual(
+      expect.objectContaining({
+        productId: 'prod-zucker',
+        missingGrams: 0,
+        neededGrams: 100,
+        availableGrams: 100,
       }),
     );
   });
