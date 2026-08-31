@@ -38,13 +38,13 @@ Plan: `tasks/feedback-tool/plan.md`
 
 **Checkpoint 2: erreicht.** `bun run test -- feedback` (18 Tests) + `settings-screen.test.tsx` grün, `bun run typecheck` sauber. FlashList-`act()`-Warnung nach Vorbild `docs/fehler bei der test erstellung.md` #7 mit Fake-Timern behoben.
 
-## 4. Ticket-Detail & Thread
+## 4. Ticket-Detail & Thread — ✅ erledigt (03ce014)
 
-- [ ] `api.ts#getTicket`, `#listMessages`, `#sendReply`; passende `hooks.ts`-Einträge
-- [ ] `feedback-detail-screen.tsx` (+ `.test.tsx`): Thread-Reihenfolge, Antwort-Eingabe deaktiviert bei `status='closed'`
-- [ ] Route `src/app/settings/feedback/[id].tsx`, Navigation aus Liste verdrahten
+- [x] `api.ts#useTicket`, `#useTicketMessages`, `#sendReply`/`#useSendReplyMutation`
+- [x] `feedback-detail-screen.tsx` (+ `.test.tsx`): Thread-Reihenfolge inkl. staff-Hervorhebung, Antwortformular verschwindet bei `status='closed'` zugunsten Hinweistext
+- [x] Route `src/app/settings/feedback/[id].tsx` — Navigation aus der Liste war bereits in Aufgabe 3 verdrahtet
 
-**Checkpoint 3:** Detail-/Thread-Tests grün, Navigation Liste→Detail funktioniert.
+**Checkpoint 3: erreicht.** 17 Feedback-Tests grün, `bun run typecheck`/`check` sauber.
 
 ## 5. Realtime-Benachrichtigung
 
