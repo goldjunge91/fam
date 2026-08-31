@@ -109,8 +109,8 @@
     },
     "scripts": {
         "prepare": "git config core.hooksPath .githooks",
-        "start": "EXPO_NO_DOTENV=1 dotenv -o -e .env.local -- expo start",
-        "start:local": "EXPO_NO_DOTENV=1 dotenv -o -e .env.local -- expo start",
+        "start": "EXPO_NO_DOTENV=1 dotenv -o -e .env.development.local -- expo start",
+        "start:local": "EXPO_NO_DOTENV=1 dotenv -o -e .env.development.local -- expo start",
         "start:development": "EXPO_NO_DOTENV=1 dotenv -o -e .env.development.local -- expo start",
         "native:status": "bun scripts/native-build.ts status",
         "native:baseline": "bun scripts/native-build.ts baseline",
