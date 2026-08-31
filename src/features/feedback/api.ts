@@ -86,3 +86,85 @@ export function useCreateTicketMutation() {
     },
   });
 }
+
+export function ticketQueryKey(ticketId: string | undefined) {
+  return ['feedback', 'ticket', ticketId] as const;
+}
+
+export function useTicket(ticketId: string | undefined) {
+  return useQuery({
+    queryKey: ticketQueryKey(ticketId),
+    queryFn: async () => {
+      const { data, error } = await getSupabase()
+        .from('feedback_tickets')
+        .select('*')
+        .eq('id', ticketId as string)
+        .single();
+
+      if (error) throw new Error(error.message);
+      return data as FeedbackTicket;
+    },
+    enabled: !!ticketId,
+  });
+}
+
+// ----------------------------------------------------------------- Nachrichten
+
+export function ticketMessagesQueryKey(ticketId: string | undefined) {
+  return ['feedback', 'ticket', ticketId, 'messages'] as const;
+}
+
+export function useTicketMessages(ticketId: string | undefined) {
+  return useQuery({
+    queryKey: ticketMessagesQueryKey(ticketId),
+    queryFn: async () => {
+      const { data, error } = await getSupabase()
+        .from('feedback_messages')
+        .select('*')
+        .eq('ticket_id', ticketId as string)
+        .order('created_at', { ascending: true });
+
+      if (error) throw new Error(error.message);
+      return data ?? [];
+    },
+    enabled: !!ticketId,
+  });
+}
+
+const sendReplyInputSchema = z.object({
+  ticketId: z.string().min(1),
+  userId: z.string().min(1),
+  body: z.string().trim().min(1).max(4000),
+});
+
+export type SendReplyInput = z.input<typeof sendReplyInputSchema>;
+
+/** Antwort eines Nutzers auf sein eigenes Ticket. RLS lehnt das ab, sobald das Ticket `closed` ist. */
+export async function sendReply(input: SendReplyInput): Promise<FeedbackMessage> {
+  const validated = sendReplyInputSchema.parse(input);
+
+  const { data, error } = await getSupabase()
+    .from('feedback_messages')
+    .insert({
+      ticket_id: validated.ticketId,
+      author_type: 'user',
+      author_id: validated.userId,
+      body: validated.body,
+    })
+    .select('*')
+    .single();
+
+  if (error) throw new Error(error.message);
+  return data;
+}
+
+export function useSendReplyMutation() {
+  const queryClient = useQueryClient();
+
+  return useMutation({
+    mutationFn: sendReply,
+    onSuccess: (_, variables) => {
+      queryClient.invalidateQueries({ queryKey: ticketMessagesQueryKey(variables.ticketId) });
+    },
+  });
+}

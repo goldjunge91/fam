@@ -1,10 +1,11 @@
 import { getSupabase } from '@/lib/supabase';
-import { createTicket, myTicketsQueryKey } from './api';
+import { createTicket, myTicketsQueryKey, sendReply, ticketMessagesQueryKey } from './api';
 
 const mockSelect = jest.fn();
 const mockSingle = jest.fn();
 const mockInsert = jest.fn();
 const mockOrder = jest.fn();
+const mockEq = jest.fn();
 const mockFrom = jest.fn();
 
 jest.mock('@/lib/supabase', () => ({
@@ -16,6 +17,7 @@ const queryBuilder = {
   single: mockSingle,
   insert: mockInsert,
   order: mockOrder,
+  eq: mockEq,
 };
 
 beforeEach(() => {
@@ -27,6 +29,7 @@ beforeEach(() => {
   });
   mockInsert.mockReturnValue(queryBuilder);
   mockOrder.mockResolvedValue({ data: [], error: null });
+  mockEq.mockReturnValue(queryBuilder);
   mockFrom.mockReturnValue(queryBuilder);
   jest
     .mocked(getSupabase)
@@ -77,4 +80,51 @@ it('wirft die Postgres-Fehlermeldung, wenn der Ticket-Insert fehlschlaegt', asyn
   await expect(
     createTicket({ userId: 'user-1', type: 'bug', subject: 'x', body: 'y' }),
   ).rejects.toThrow('permission denied');
+});
+
+it('trennt Thread-Abfragen nach Ticket', () => {
+  expect(ticketMessagesQueryKey('ticket-1')).toEqual([
+    'feedback',
+    'ticket',
+    'ticket-1',
+    'messages',
+  ]);
+});
+
+it('haengt eine Nutzer-Antwort an den Thread an', async () => {
+  mockSingle.mockResolvedValueOnce({
+    data: { id: 'msg-2', ticket_id: 'ticket-1', author_type: 'user', body: 'Noch ein Hinweis.' },
+    error: null,
+  });
+
+  const message = await sendReply({
+    ticketId: 'ticket-1',
+    userId: 'user-1',
+    body: 'Noch ein Hinweis.',
+  });
+
+  expect(mockFrom).toHaveBeenCalledWith('feedback_messages');
+  expect(mockInsert).toHaveBeenCalledWith({
+    ticket_id: 'ticket-1',
+    author_type: 'user',
+    author_id: 'user-1',
+    body: 'Noch ein Hinweis.',
+  });
+  expect(message).toEqual({
+    id: 'msg-2',
+    ticket_id: 'ticket-1',
+    author_type: 'user',
+    body: 'Noch ein Hinweis.',
+  });
+});
+
+it('wirft die RLS-Fehlermeldung, wenn auf ein geschlossenes Ticket geantwortet wird', async () => {
+  mockSingle.mockResolvedValueOnce({
+    data: null,
+    error: { message: 'new row violates row-level security policy for table "feedback_messages"' },
+  });
+
+  await expect(
+    sendReply({ ticketId: 'ticket-1', userId: 'user-1', body: 'zu spaet' }),
+  ).rejects.toThrow('row-level security policy');
 });
