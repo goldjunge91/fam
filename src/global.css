@@ -715,6 +715,13 @@
     @apply flex-row items-center gap-two px-four py-three rounded-pill border border-border bg-background-element;
   }
 
+  /* row-store-picker.tsx — gleicher Dropdown-Mechanismus wie
+     store-picker-btn, aber kompakter fuer den Einsatz in einer einzelnen
+     Zutaten-/Artikelzeile statt als Kopfzeilen-Filter. */
+  .row-store-picker-btn {
+    @apply flex-row items-center gap-two px-two py-one rounded-pill border border-border bg-background-element;
+  }
+
   .store-picker-dot {
     @apply w-[8px] h-[8px] rounded-full;
   }
