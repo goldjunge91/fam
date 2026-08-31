@@ -201,6 +201,23 @@ describe('MissingIngredientsScreen', () => {
     );
   });
 
+  it('Bulk-Markt-Auswahl weist allen Artikeln denselben Markt zu', async () => {
+    const user = userEvent.setup();
+    await renderScreen();
+
+    // Tomaten hatte ueber die Kaufhistorie bereits 'store-1' zugewiesen —
+    // der Bulk-Picker ueberschreibt das fuer alle Artikel einheitlich.
+    await user.press(screen.getByTestId('bulk-store-picker'));
+    await user.press(screen.getByText('2 Artikel zur Einkaufsliste hinzufügen'));
+
+    expect(mockAddMutateAsync).toHaveBeenCalledWith(
+      expect.objectContaining({ name: 'Tomaten', store_id: 'store-override' }),
+    );
+    expect(mockAddMutateAsync).toHaveBeenCalledWith(
+      expect.objectContaining({ name: 'Hackfleisch', store_id: 'store-override' }),
+    );
+  });
+
   it('navigiert nach erfolgreichem Uebertrag automatisch zurueck', async () => {
     const user = userEvent.setup();
     await renderScreen();

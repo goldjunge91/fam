@@ -11,6 +11,13 @@ type RowStorePickerProps = {
   householdId: string;
   storeId: string | null;
   onChange: (storeId: string | null) => void;
+  /**
+   * Ueberschreibt den berechneten Trigger-Text (Store-Name/"Ohne Markt").
+   * Fuer den Bulk-Einsatz ("Allen einen Markt zuweisen", #342) statt einer
+   * Zeilen-Anzeige — derselbe Dropdown-Mechanismus, aber ohne eigenen
+   * "aktuellen" Zustand.
+   */
+  label?: string;
   /** Nur fuer Tests: mehrere Zeilen-Instanzen sonst ueber dasselbe Label nicht unterscheidbar. */
   testID?: string;
 };
@@ -21,7 +28,13 @@ type RowStorePickerProps = {
  * aus dem anchored-Dropdown-Mechanismus von `StorePickerMenu`. Kein
  * "+ Neuer Markt"-Flow, das deckt `StorePickerField` an anderer Stelle ab.
  */
-export function RowStorePicker({ householdId, storeId, onChange, testID }: RowStorePickerProps) {
+export function RowStorePicker({
+  householdId,
+  storeId,
+  onChange,
+  label: labelOverride,
+  testID,
+}: RowStorePickerProps) {
   const { data: stores = [] } = useStores(householdId);
   const [anchor, setAnchor] = useState<Anchor | null>(null);
   const anchorRef = useRef<View>(null);
@@ -29,7 +42,8 @@ export function RowStorePicker({ householdId, storeId, onChange, testID }: RowSt
   const open = anchor !== null;
 
   const activeStore = stores.find((store) => store.id === storeId) ?? null;
-  const label = storeId === null ? 'Ohne Markt' : (activeStore?.name ?? 'Markt wählen');
+  const computedLabel = storeId === null ? 'Ohne Markt' : (activeStore?.name ?? 'Markt wählen');
+  const label = labelOverride ?? computedLabel;
   const dotColor =
     storeId === null ? theme.textSecondary : (activeStore?.color ?? theme.textSecondary);
 

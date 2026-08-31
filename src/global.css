@@ -2045,6 +2045,11 @@
     @apply gap-two;
   }
 
+  /* Bulk-Markt-Picker (#342) — rechtsbuendig ueber der Zutatenliste. */
+  .mis-bulk-store {
+    @apply flex-row justify-end;
+  }
+
   .mis-row {
     @apply flex-row items-center gap-two p-two rounded-control bg-background-element;
   }

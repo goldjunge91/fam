@@ -271,6 +271,39 @@ describe('RecipeShoppingSheet', () => {
     );
   });
 
+  it('Bulk-Markt-Auswahl weist allen Zutaten denselben Markt zu', async () => {
+    const user = userEvent.setup();
+    mockNeeds = [
+      {
+        productId: 'p-tomaten',
+        name: 'Tomaten',
+        neededGrams: 400,
+        availableGrams: 100,
+        missingGrams: 300,
+        preferredStoreId: null,
+      },
+      {
+        productId: 'p-basilikum',
+        name: 'Basilikum',
+        neededGrams: 20,
+        availableGrams: 0,
+        missingGrams: 20,
+        preferredStoreId: null,
+      },
+    ];
+    await renderSheet();
+
+    await user.press(screen.getByTestId('recipe-bulk-store-picker'));
+    await user.press(screen.getByText('2 Zutaten übernehmen'));
+
+    expect(mockAddMutateAsync).toHaveBeenCalledWith(
+      expect.objectContaining({ name: 'Tomaten', store_id: 'store-override' }),
+    );
+    expect(mockAddMutateAsync).toHaveBeenCalledWith(
+      expect.objectContaining({ name: 'Basilikum', store_id: 'store-override' }),
+    );
+  });
+
   it('schliesst das Sheet nach erfolgreichem Uebertrag weiterhin ueber onClose', async () => {
     const user = userEvent.setup();
     const onClose = jest.fn();

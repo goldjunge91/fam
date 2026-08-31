@@ -64,4 +64,20 @@ describe('RowStorePicker', () => {
     });
     expect(screen.getByText('Markt wählen')).toBeOnTheScreen();
   });
+
+  it('zeigt statt des Store-Namens das optionale label, wenn gesetzt (Bulk-Aktion)', async () => {
+    // #342: derselbe Dropdown-Mechanismus dient auch als Bulk-Trigger
+    // ("Allen einen Markt zuweisen") statt einer Zeilen-Anzeige.
+    await render(
+      <RowStorePicker
+        householdId="hh-1"
+        storeId="store-1"
+        label="Allen einen Markt zuweisen"
+        onChange={jest.fn()}
+      />,
+      { wrapper },
+    );
+    expect(screen.getByText('Allen einen Markt zuweisen')).toBeOnTheScreen();
+    expect(screen.queryByText('Rewe')).not.toBeOnTheScreen();
+  });
 });

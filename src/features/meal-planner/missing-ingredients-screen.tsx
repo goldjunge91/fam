@@ -137,6 +137,23 @@ export function MissingIngredientsScreen() {
       ) : (
         /* Auswahlliste aller fehlenden Zutaten mit Mengenangaben und Übertrags-Button */
         <View className="mis-list">
+          {/* Bulk-Aktion: allen Artikeln auf einen Schlag denselben Markt zuweisen (#342) */}
+          {householdId ? (
+            <View className="mis-bulk-store">
+              <RowStorePicker
+                householdId={householdId}
+                storeId={null}
+                label="Allen einen Markt zuweisen"
+                onChange={(storeId) =>
+                  setStoreOverrides(
+                    Object.fromEntries(missing.map((item) => [item.productId, storeId])),
+                  )
+                }
+                testID="bulk-store-picker"
+              />
+            </View>
+          ) : null}
+
           {missing.map((item) => (
             <IngredientRow
               key={item.productId}

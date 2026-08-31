@@ -163,6 +163,20 @@ export function RecipeShoppingSheet({ visible, detail, servings, onClose }: Prop
             className="leading-[15px] font-medium">
             Bereits vorhandene Mengen wurden abgezogen. Wähle aus, was auf die Einkaufsliste soll.
           </ThemedText>
+          {/* Bulk-Aktion: allen Zutaten auf einen Schlag denselben Markt zuweisen (#342) */}
+          <View className="mt-[10px] flex-row justify-end">
+            <RowStorePicker
+              householdId={detail.recipe.household_id}
+              storeId={null}
+              label="Allen einen Markt zuweisen"
+              onChange={(storeId) =>
+                setStoreOverrides(
+                  Object.fromEntries(missing.map((item) => [item.productId, storeId])),
+                )
+              }
+              testID="recipe-bulk-store-picker"
+            />
+          </View>
           <View className="mt-[14px] rounded-sheet overflow-hidden bg-background-selected">
             {missing.map((item, index) => {
               const checked = selected.has(item.productId);
