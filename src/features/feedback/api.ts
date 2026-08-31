@@ -1,0 +1,86 @@
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
+import { z } from 'zod';
+
+import type { Database } from '@/lib/database.types';
+import { getSupabase } from '@/lib/supabase';
+
+// Generierte Row-Typen kennen `type`/`status` nur als `string` — Postgres-Check-
+// Constraints werden nicht als TS-Union exportiert. Deshalb hier eigene Literal-
+// Unions, passend zu den `check`-Constraints in supabase/schemas/24_feedback.sql.
+export type FeedbackType = 'bug' | 'suggestion' | 'other';
+export type FeedbackStatus = 'open' | 'in_progress' | 'answered' | 'closed';
+
+export type FeedbackTicket = Omit<
+  Database['public']['Tables']['feedback_tickets']['Row'],
+  'type' | 'status'
+> & { type: FeedbackType; status: FeedbackStatus };
+export type FeedbackMessage = Database['public']['Tables']['feedback_messages']['Row'];
+
+// ------------------------------------------------------------------ Tickets
+
+export function myTicketsQueryKey(userId: string | undefined) {
+  return ['feedback', 'tickets', userId] as const;
+}
+
+export function useMyTickets(userId: string | undefined) {
+  return useQuery({
+    queryKey: myTicketsQueryKey(userId),
+    queryFn: async () => {
+      const { data, error } = await getSupabase()
+        .from('feedback_tickets')
+        .select('*')
+        .order('created_at', { ascending: false });
+
+      if (error) throw new Error(error.message);
+      return data;
+    },
+    enabled: !!userId,
+  });
+}
+
+const createTicketInputSchema = z.object({
+  userId: z.string().min(1),
+  type: z.enum(['bug', 'suggestion', 'other']),
+  subject: z.string().trim().min(1).max(200),
+  body: z.string().trim().min(1).max(4000),
+});
+
+export type CreateTicketInput = z.input<typeof createTicketInputSchema>;
+
+/** Legt ein Ticket samt initialer Nachricht an. Kein RPC noetig — beide Inserts sind durch RLS auf denselben Nutzer beschraenkt. */
+export async function createTicket(input: CreateTicketInput): Promise<FeedbackTicket> {
+  const validated = createTicketInputSchema.parse(input);
+  const supabase = getSupabase();
+
+  const { data: ticket, error: ticketError } = await supabase
+    .from('feedback_tickets')
+    .insert({ user_id: validated.userId, type: validated.type, subject: validated.subject })
+    .select('*')
+    .single();
+
+  if (ticketError) throw new Error(ticketError.message);
+
+  const { error: messageError } = await supabase.from('feedback_messages').insert({
+    ticket_id: ticket.id,
+    author_type: 'user',
+    author_id: validated.userId,
+    body: validated.body,
+  });
+
+  if (messageError) throw new Error(messageError.message);
+
+  // Die generierten Row-Typen kennen `type`/`status` nur als `string` (siehe
+  // Kommentar oben); der Datenbank-Check-Constraint garantiert die Literale.
+  return ticket as FeedbackTicket;
+}
+
+export function useCreateTicketMutation() {
+  const queryClient = useQueryClient();
+
+  return useMutation({
+    mutationFn: createTicket,
+    onSuccess: (_, variables) => {
+      queryClient.invalidateQueries({ queryKey: myTicketsQueryKey(variables.userId) });
+    },
+  });
+}
