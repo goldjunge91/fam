@@ -224,6 +224,14 @@ identisch an PostHog und Aptabase verteilt. Ohne
 dann immer den übergebenen `defaultValue`, App und Tests laufen auch ohne
 PostHog-Account.
 
+Die Analytics-Steuerung liegt unabhängig von den Provider-Schlüsseln in
+`src/constants/analytics.ts`. Alle Werte sind standardmäßig aktiviert. Im
+Entwickler-Bereich (`EXPO_PUBLIC_DEV_TOOLS=true`) lassen sich Aptabase,
+PostHog, die Kanäle für Produkt-Events, Fehlerberichte und Diagnose sowie jede
+Produkt-Feature-Domäne einzeln umschalten. Die Overrides gelten sofort, werden
+lokal auf dem Gerät gespeichert und können dort vollständig zurückgesetzt
+werden. Sentry bleibt von diesen Schaltern unabhängig.
+
 Einmalige Einrichtung:
 
 1. PostHog-Projekt anlegen ([posthog.com](https://posthog.com), kostenloser

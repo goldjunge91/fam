@@ -9,12 +9,14 @@ import Aptabase, {
 import Constants from 'expo-constants';
 
 import { env } from '@/lib/env';
+import { isAnalyticsProviderEnabled } from '@/lib/telemetry/policy';
 
 let configured = false;
 let initializationError: string | undefined;
 
 export function initAptabase(customOptions?: Partial<AptabaseOptions>): void {
   if (configured) return;
+  if (!isAnalyticsProviderEnabled('aptabase')) return;
   configured = true;
 
   const appKey = env.aptabaseAppKey;
@@ -57,7 +59,7 @@ export function trackAptabaseEvent(
   eventName: string,
   props?: Record<string, string | number | boolean>,
 ): void {
-  if (!isAptabaseConfigured()) return;
+  if (!isAptabaseConfigured() || !isAnalyticsProviderEnabled('aptabase')) return;
   try {
     aptabaseTrackEvent(eventName, props);
   } catch (err) {
@@ -71,7 +73,7 @@ export function trackAptabaseEvent(
  * Sendet einen erfassten Fehler an Aptabase.
  */
 export function trackAptabaseError(error: unknown, options?: TrackErrorOptions): void {
-  if (!isAptabaseConfigured()) return;
+  if (!isAptabaseConfigured() || !isAnalyticsProviderEnabled('aptabase')) return;
   try {
     aptabaseTrackError(error, options);
   } catch (err) {
