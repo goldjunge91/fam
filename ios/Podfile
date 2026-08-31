@@ -65,5 +65,18 @@ target 'fam' do
       :mac_catalyst_enabled => false,
       :ccache_enabled => ccache_enabled?(podfile_properties),
     )
+
+    # withIosCcacheDir: RNs eigener ccache-Wrapper liest CCACHE_BINARY/DIR aus
+    # der Prozessumgebung, die Xcode nicht an Compile-Sources-Subprozesse
+    # durchreicht (siehe docs/native-fingerprint-drift-debugging.md).
+    installer.pods_project.build_configurations.each do |c|
+      if c.build_settings['CC'].to_s.include?('ccache-clang.sh')
+        c.build_settings['CC'] = File.join(__dir__, '.ccache-wrapper-clang.sh')
+        c.build_settings['CXX'] = File.join(__dir__, '.ccache-wrapper-clang++.sh')
+        c.build_settings['LD'] = File.join(__dir__, '.ccache-wrapper-clang.sh')
+        c.build_settings['LDPLUSPLUS'] = File.join(__dir__, '.ccache-wrapper-clang++.sh')
+      end
+    end
+    installer.pods_project.save
   end
 end

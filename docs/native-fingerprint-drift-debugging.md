@@ -129,6 +129,17 @@ Trotzdem ergab sich durch einen Fingerprint-Wechsel (Datei-Touch in `ios/fam/App
 
 `native:dev`s `--no-build-cache`-Flag bleibt trotzdem im Code (nützlich zum gezielten Leeren von lokalem DerivedData), der Code-Kommentar wurde korrigiert, um die falsche Annahme nicht zu wiederholen.
 
+## ccache zeigte 0 Hits — Root Cause gefunden (2026-08-31)
+
+Alle bisherigen Messungen zeigten `"ccache":{"hits":0,"misses":0}`, obwohl `USE_CCACHE=1` gesetzt war. Zwei unabhängige Ursachen, beide verifiziert:
+
+1. **`pod install` muss `USE_CCACHE=1` gesetzt haben, nicht erst der spätere Build.** `react-native/scripts/cocoapods/utils.rb#set_ccache_compiler_and_linker_build_settings` schreibt `CC`/`CXX`/`LD`/`LDPLUSPLUS` (Ccache-Wrapper-Pfade) **zum Zeitpunkt von `pod install`** fest in die generierten `.xcodeproj`-Dateien. Ein späteres `USE_CCACHE=1` beim reinen Build-Aufruf kommt zu spät, wenn `pod install` davor ohne die Variable lief (z. B. in eigenen Test-/Reset-Skripten, die `pod install` manuell ohne Env aufgerufen haben).
+2. **Der RN-eigene ccache-Wrapper hat den konfigurierten `cache_dir` ignoriert.** `node_modules/react-native/scripts/xcode/ccache-clang.sh` exportiert `CCACHE_CONFIGPATH` auf eine RN-eigene `ccache.conf` (ohne `cache_dir`). Das **ersetzt** (nicht ergänzt) die primäre Nutzer-Config (`~/.config/ccache/ccache.conf`) — ein dort gesetzter `cache_dir` auf einem externen Volume wurde dadurch komplett übergangen, ccache fiel auf den internen Default (`~/.cache/ccache`) zurück. Per direktem Wrapper-Aufruf verifiziert: mit `CCACHE_CONFIGPATH` gesetzt landete der Cache nachweislich unter `~/.cache/ccache` (interne Platte), nicht im konfigurierten externen Pfad.
+
+**Fix in `scripts/native-build.ts` (`iosBuildEnv()`):** liest `cache_dir` aus der echten Nutzer-Config (`$XDG_CONFIG_HOME/ccache/ccache.conf` bzw. `~/.config/ccache/ccache.conf`, oder `$CCACHE_DIR` falls bereits gesetzt) und reicht ihn explizit als `CCACHE_DIR`-Env-Var durch — Env-Variablen haben bei ccache Vorrang vor jeder Config-Datei, das stellt den externen Cache-Pfad zuverlässig wieder her, ohne einen maschinenspezifischen Pfad im Repo zu hardcoden. Per direktem Wrapper-Aufruf verifiziert: mit `CCACHE_DIR` explizit gesetzt landet der Cache korrekt im externen Verzeichnis (1 Miss, dann 1 Hit beim Wiederholungslauf), `~/.cache/ccache` bleibt leer.
+
+**Noch nicht verifiziert:** ob ein echter `xcodebuild`-Lauf (über `native:dev`/`native:rebuild`, nicht nur der direkte Wrapper-Aufruf) mit dem Fix tatsächlich Hits produziert — das braucht einen echten Build-Zyklus (kalt, dann warm), der aus Rücksicht auf lokalen Speicherplatz nicht mehr unkontrolliert wiederholt gestartet wurde.
+
 ## Archiviertes Ausschlussverfahren
 
 Folgende Theorien wurden mit Belegen (nicht nur Vermutung) geprüft und widerlegt, bevor die Root Cause gefunden wurde:
@@ -143,3 +154,72 @@ Folgende Theorien wurden mit Belegen (nicht nur Vermutung) geprüft und widerleg
 | Git-Stand weicht vom Baseline-Commit ab | `app.json`, `package.json`, `bun.lock`, `ios/`, `android/`, `patches/`, `eas.json`, `plugins/*.js` per SHA-256 gegen Baseline-Commit verglichen | Byte-identisch |
 
 Das Repo hatte dieses Symptom schon vorher (zwei Commits `fix(native): sync ios/android baseline fingerprint` innerhalb von 5 Minuten am 2026-08-30) — damals wurde vermutlich nur mit `native:baseline --approve-rebuild` übertüncht statt die Ursache gefunden. Sollte es erneut auftreten: vermutlich ein anderer, ähnlich gelagerter lokal-generierter/ungetrackter Pfad unter `ios/` oder `android/` — der Diff-Ansatz oben findet ihn zuverlässig.
+
+## Fingerprint-Empfindlichkeit reduziert (2026-08-31)
+
+`app.json`/`eas.json`-Edits (Versionsnummer, Anzeigename, `buildCacheProvider` u. Ä.) haben in dieser Session mehrfach die Baseline verschoben, obwohl kein natives Verhalten betroffen war. Zwei Mechanismen ergänzt, beide offiziell von `@expo/fingerprint` unterstützt:
+
+- **`fingerprint.config.js`** (bereits vorhanden mit einem `fileHookTransform`, das `seed:*`-Skripte aus dem package.json-Scripts-Hash filtert — **beim ersten Anlegen versehentlich überschrieben, dann gemergt**, siehe Git-Historie) bekam zusätzlich `sourceSkips` (Bitmask): `ExpoConfigVersions | ExpoConfigNames | ExpoConfigEASProject | ExpoConfigExtraSection`, plus den bereits von `@expo/fingerprint` defaultmäßig aktiven `PackageJsonAndroidAndIosScriptsIfNotContainRun`. Diese Datei wird automatisch von **allen** Konsumenten gelesen (unser Skript, `expo run:*`, `eas build`) — ein zentraler Ort statt divergierender Optionen. Verifiziert: `version`-Bump in `app.json` ändert den Hash jetzt nicht mehr.
+  - Bewusst NICHT geskippt: `ExpoConfigAssets`, `ExpoConfigAndroidPackage`/`IosBundleIdentifier`/`Schemes`, `ExpoConfigAll`, `PackageJsonScriptsAll` — alle nativ relevant bzw. zu breit (letzteres würde z. B. einen `patch-package`-Postinstall-Hook unsichtbar machen).
+- **`.fingerprintignore`**: `eas.json`/`.easignore` ergänzt. Abwägung bewusst getroffen (nicht risikofrei): Build-Profile steuern *wie* gebaut wird (Env-Injection, Distribution-Typ, Channel), nicht direkt was in den nativen Code kompiliert wird — Env-Vars landen im JS-Bundle, das ohnehin bei jedem Lauf frisch gebaut wird. Restrisiko: ein Profilfeld, das doch den `xcodebuild`-Aufruf ändert, würde nicht erkannt. Bei sicherheitsrelevanten `eas.json`-Änderungen manuell `native:baseline` erneuern.
+
+Hinweis: `app.json` selbst stand schon vorher in `@expo/fingerprint`s `DEFAULT_IGNORE_PATHS` (als Datei) — die Config wird stattdessen als `expoConfig`-**Contents**-Quelle gehasht, deshalb griff `.fingerprintignore` dafür nie und `sourceSkips` war der einzig richtige Hebel.
+
+## `scripts/dev-disk-clean.sh` angepasst
+
+Ursprünglich löschte das Skript pauschal `~/.cache` (den ccache-Fallback-Ordner, siehe oben). Jetzt: eigener `ccache`-Diagnoseblock (zeigt konfigurierten `cache_dir`, warnt falls `~/.cache/ccache` doch auf der Boot-Disk existiert), pauschales `~/.cache`-Löschen entfernt zugunsten des gezielten Checks.
+
+## ccache-Fix verifiziert — 3,5× schneller bei leerem DerivedData (2026-08-31)
+
+Root Cause des vorherigen "0 Hits"-Rätsels war gravierender als der reine Timing-/Verzeichnis-Bug: **Xcodes Build-System (26.x) reicht selbst gesetzte Build-Settings NICHT als Umgebungsvariablen an die einzelnen "Compile Sources"-Subprozesse durch.** Per selbstgebautem Debug-Wrapper-Skript direkt verifiziert — ein echter `xcodebuild`-Lauf zeigte `CCACHE_BINARY=[] CCACHE_DIR=[]`, obwohl beide korrekt als Build-Settings im `.pbxproj` standen. Das betrifft auch `CCACHE_BINARY`, RNs eigenes, offizielles Feature — der ccache-Mechanismus aus `react-native/scripts/xcode/ccache-clang.sh` (`exec $CCACHE_BINARY clang "$@"`) lief in diesem Projekt vermutlich noch nie wirklich, unabhängig von allem vorherigen Wiring.
+
+**Fix:** `plugins/withIosCcacheDir.js` (neu). Statt auf Env-Var-Durchreichung zu vertrauen, schreibt das Plugin bei `expo prebuild` zwei eigenständige Wrapper-Skripte (`ios/.ccache-wrapper-clang.sh`, `.ccache-wrapper-clang++.sh`) mit `CCACHE_DIR`/`CCACHE_CONFIGPATH` fest einprogrammiert (kein Env-Var-Vertrauen mehr nötig). `CC`/`CXX`/`LD`/`LDPLUSPLUS` — die Xcode selbst interpretiert, das funktioniert nachweislich — zeigen für Haupt-Target (`withXcodeProject`) und Pods-Project (`withPodfile`-Patch direkt nach `react_native_post_install()`) auf diese Skripte statt auf RNs env-var-abhängige Variante.
+
+**Verifiziert mit echten Zahlen** (zwei identische `xcodebuild`-Läufe, DerivedData beide Male komplett geleert, damit ausschließlich ccache und nichts DerivedData-Inkrementelles gemessen wird):
+
+| Lauf | DerivedData | ccache | Dauer |
+|---|---|---|---|
+| 1 | leer | 0 Hits / 2420 Misses (Cache wird befüllt) | 837s (13,9 Min) |
+| 2 | leer (erneut geleert) | **2420 Hits / 0 Misses (100 %)** | **237s (4,0 Min)** |
+
+**Faktor 3,5× — rein durch ccache**, ohne jede Hilfe von warmem DerivedData oder dem EAS-Remote-Cache (`buildCacheProvider` war für diesen Test bewusst deaktiviert). Bekannter Kompromiss: Xcode meldet pro Pod-Target `note: Explicit modules is enabled but the compiler was not recognized` — der Wrapper verhindert, dass Xcode den Compiler für "Explicit Modules" (ein separates Xcode-eigenes Optimierungsfeature) erkennt. Nicht weiter untersucht, ob das selbst spürbaren Zeitverlust verursacht; der Netto-Effekt (3,5× schneller) überwiegt deutlich.
+
+## TestFlight-Pfad (`eas build --local`, Release): ccache bringt bisher NICHTS — ungelöst
+
+Der obige Erfolg gilt nur für den Simulator/Debug-Pfad (`native:dev`/`expo run:ios`). Für `native:rebuild -- --target ios-preview-testflight` (der tatsächliche lokale TestFlight-Build-Pfad, `eas build --local`, Release-Konfiguration) wurden **vier echte, vollständige Läufe** durchgeführt — alle mit **0 Hits**:
+
+| Lauf | Ansatz | ccache | Dauer |
+|---|---|---|---|
+| 1 | ohne `CCACHE_BASEDIR` (Baseline) | 0/1210 | 853,1s |
+| 2 | Wiederholung, identisch | 0/1210 | 847,1s |
+| 3 | `CCACHE_BASEDIR` statisch = Original-Projekt-Root | 0/1210 | 825,7s |
+| 4 | (abgebrochen wegen Prozess-Kollision mit Lauf 3, siehe unten) | — | — |
+| 5 | `CCACHE_BASEDIR` dynamisch ermittelt (siehe unten) — Befüllungslauf | 0/998 (Population) | 1253,6s (kontaminiert, siehe unten) |
+| 6 | `CCACHE_BASEDIR` dynamisch, direkt danach | 0/1118 (abgebrochen kurz vor Ende, aber schon eindeutig) | abgebrochen |
+
+**Was probiert wurde:**
+1. `CCACHE_BASEDIR` statisch auf den ursprünglichen Projekt-Pfad gesetzt — Annahme falsch, dass `eas build --local` im Originalverzeichnis baut. Tatsächlich verifiziert: `bun install --frozen-lockfile` lief unter `/var/folders/.../eas-build-local-nodejs/<neue-uuid-pro-lauf>/build` — das **ganze Projekt** wird bei jedem Lauf in ein frisches Temp-Verzeichnis kopiert (deckt sich mit [ccache/ccache Discussion #1566](https://github.com/ccache/ccache/discussions/1566), demselben Symptom bei einem anderen RN/EAS-Projekt).
+2. `CCACHE_BASEDIR` dynamisch zur Aufrufzeit im Wrapper-Skript ermittelt (`_find_basedir()`: von `$PWD` aufwärts nach dem nächsten `ios`-Verzeichnis suchen, dessen Elternordner nehmen — funktioniert nachweislich korrekt sowohl im normalen Projekt als auch simuliert für eine Temp-Kopie-Struktur, siehe isolierter Test). **Trotzdem weiterhin 0 Hits.**
+
+**Nebenbefund während der Untersuchung:** Ein `pkill`-Aufruf zwischen zwei Läufen hat einen `xcodebuild archive`-Prozess nicht sauber beendet — Lauf 5 lief dadurch zeitweise parallel zu einem Rest von Lauf 4 (unterschiedliche Temp-UUIDs, daher keine Dateikollision, aber gemeinsame Ressourcen-/ccache-Nutzung), was Lauf 5 künstlich verlangsamt und dessen Zwischenzahlen kontaminiert hat. `pkill -f "eas build --local"`/`pkill -f xcodebuild` sind für diesen mehrstufigen `fastlane`/`gym`-Prozessbaum offenbar nicht zuverlässig — im Zweifel `ps aux` nach spezifischen PIDs prüfen und gezielt `kill` statt Pattern-Match.
+
+**Offene Hypothesen, nicht mehr verfolgt (Zeit-/Kostenabwägung mit dem Nutzer):**
+- Die von PR #1567 abgedeckten Flags (`-ivfsoverlay`, `-fmodules-cache-path`, `-fbuild-session-file`, `-fmodule-map-file`) sind möglicherweise nicht die einzigen variierenden Pfade — z. B. `-fmodules-cache-path=<basedir>/ModuleCache.noindex` selbst enthält den DerivedData-Pfad (`-derivedDataPath ./build`, aber relativ zum jeweiligen Temp-Root), unklar ob das korrekt normalisiert wird.
+- `CCACHE_NOHASHDIR=true` (aus der GitHub-Diskussion als zusätzliche, nicht vollständig lösende Maßnahme erwähnt) wurde nicht ausprobiert.
+- Denkbar, dass `-fmodule-map-file`/Precompiled-Header-Pfade (`-include .../UMAppLoader-prefix.pch`) selbst temp-pfad-abhängig sind und nicht von `base_dir` erfasst werden.
+- Kein Debug-Wrapper-Log-Vergleich (wie beim Simulator-Fix) gemacht, der tatsächlich zeigt, WARUM ccache trotz korrektem `CCACHE_BASEDIR` einen Miss meldet (`ccache --debug`/`CCACHE_LOGFILE` je Aufruf einer Datei über zwei Läufe hinweg vergleichen wäre der nächste Schritt).
+
+**Update: gelöst — mit dem richtigen Hebel (2026-08-31).** Der Fehler in der Analyse: der Ansatz war "ccache reparieren, damit es mit wechselnden Pfaden zurechtkommt" statt "die wechselnden Pfade an der Wurzel abstellen". `eas build --local` unterstützt `EAS_LOCAL_BUILD_WORKINGDIR` — eine offizielle, undokumentiert wenig bekannte Env-Var, die das sonst zufällige Temp-Arbeitsverzeichnis (`/var/folders/.../eas-build-local-nodejs/<uuid>/build`) auf einen **festen** Pfad zwingt. Gefunden über [expo/eas-cli Issue #1155](https://github.com/expo/eas-cli/issues/1155) — dort schlug die Variable mit einem *relativen* Pfad fehl (`tar: could not chdir`); mit einem **absoluten** Pfad funktioniert sie.
+
+**Implementiert** in `scripts/native-build.ts` (`easLocalBuildEnv()`): setzt `EAS_LOCAL_BUILD_WORKINGDIR` auf `<ccache-cache_dir>/../eas-build-local-workingdir` — automatisch neben dem ccache-Verzeichnis auf dem externen Volume, kein hartcodierter Pfad, keine Boot-Disk-Nutzung. Der zuvor gebaute `CCACHE_BASEDIR`-Mechanismus (dynamische Ermittlung im Wrapper-Skript) bleibt bestehen, ist mit festem Arbeitsverzeichnis aber ohnehin nicht mehr nötig, da die Pfade jetzt gar nicht mehr variieren.
+
+**Verifiziert mit echten Zahlen** (zwei Läufe von `native:rebuild -- --target ios-preview-testflight`, derselbe feste Arbeitsordner):
+
+| Lauf | ccache | Dauer |
+|---|---|---|
+| 7 (Cache leer, Netzwerkfehler bei PostHog-Symbolupload am Ende — Compile selbst lief komplett durch) | 0/1210 | 779,0s (13,0 Min) |
+| 7b (Wiederholung, identischer Arbeitsordner) | **1197/1197 Hits (100 %)** | **520,5s (8,7 Min)** |
+
+**Faktor 1,5×, 4,3 Minuten gespart pro wiederholtem lokalen TestFlight-Build.** Kleiner als beim Simulator (3,5×), weil der Signing-/Export-/Upload-Teil (Codesign, IPA-Packaging, Symbol-Upload) nicht von ccache profitiert und einen fixen Anteil der Gesamtzeit ausmacht — nur die reine Compile-Phase wird beschleunigt. Ein reales, signiertes `.ipa` wurde erzeugt und in `native-build-lock.json` registriert.
+
+**Nebeneffekt:** Da `eas build --local` jetzt immer denselben Arbeitsordner wiederverwendet statt ihn zu löschen, wächst `/Volumes/Programme/dev-caches/eas-build-local-workingdir` mit der Zeit — bei Bedarf manuell aufräumen oder in `scripts/dev-disk-clean.sh` aufnehmen (bislang nicht getan, da extern und damit außerhalb von dessen Boot-Disk-Fokus).
