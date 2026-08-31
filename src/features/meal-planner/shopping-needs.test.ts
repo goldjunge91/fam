@@ -165,21 +165,37 @@ describe('computeMissingIngredients', () => {
     ]);
   });
 
-  it('laesst Produkte weg, die vollstaendig vorraetig sind', () => {
+  it('nimmt Produkte, die vollstaendig vorraetig sind, mit missingGrams 0 auf statt sie wegzulassen', () => {
+    // Nachschub-Fall (#131-Nachschaerfung): der Nutzer soll einen bereits
+    // gedeckten Artikel weiterhin in der Vorschlagsliste sehen und bei
+    // Bedarf trotzdem nachkaufen koennen, statt dass er komplett
+    // verschwindet.
+    const needs = new Map([['tomaten', 200]]);
+    const stock = new Map([['tomaten', 200]]);
+
+    expect(computeMissingIngredients(needs, stock)).toEqual([
+      { productId: 'tomaten', neededGrams: 200, availableGrams: 200, missingGrams: 0 },
+    ]);
+  });
+
+  it('laesst missingGrams negativ, wenn der Vorrat den Bedarf uebersteigt', () => {
     const needs = new Map([['tomaten', 200]]);
     const stock = new Map([['tomaten', 500]]);
 
-    expect(computeMissingIngredients(needs, stock)).toEqual([]);
+    expect(computeMissingIngredients(needs, stock)).toEqual([
+      { productId: 'tomaten', neededGrams: 200, availableGrams: 500, missingGrams: -300 },
+    ]);
   });
 
-  it('sortiert absteigend nach fehlender Menge', () => {
+  it('sortiert absteigend nach fehlender Menge, gedeckte Artikel rutschen ans Ende', () => {
     const needs = new Map([
       ['a', 100],
       ['b', 500],
+      ['c', 50],
     ]);
-    const stock = new Map<string, number>();
+    const stock = new Map([['c', 500]]);
 
     const result = computeMissingIngredients(needs, stock);
-    expect(result.map((r) => r.productId)).toEqual(['b', 'a']);
+    expect(result.map((r) => r.productId)).toEqual(['b', 'a', 'c']);
   });
 });

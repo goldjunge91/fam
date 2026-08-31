@@ -77,12 +77,10 @@ describe('useRecipeShoppingNeeds', () => {
 
   it('berechnet Fehlmengen basierend auf dem Vorratsbestand', async () => {
     // 1. fridge items: 20g vorhanden
-    // 2. products lookup
-    // 3. history lookup
+    // 2. products lookup (Kaufhistorie laeuft ueber getFirstAsync, nicht getAllAsync)
     mockDbGetAllAsync
       .mockResolvedValueOnce([{ product_id: 'prod-basilikum', quantity: 20, unit: 'g' }])
-      .mockResolvedValueOnce([{ id: 'prod-basilikum', name: 'Basilikum', serving_size_g: 50 }])
-      .mockResolvedValueOnce([]);
+      .mockResolvedValueOnce([{ id: 'prod-basilikum', name: 'Basilikum', serving_size_g: 50 }]);
 
     const { result } = await renderHook(() => useRecipeShoppingNeeds(mockRecipe, 2, true), {
       wrapper,
@@ -94,6 +92,30 @@ describe('useRecipeShoppingNeeds', () => {
 
     const needs: RecipeShoppingNeed[] = result.current.data ?? [];
     expect(needs).toHaveLength(1);
-    expect(needs[0].missingGrams).toBe(80);
+    expect(needs[0]).toEqual(
+      expect.objectContaining({ missingGrams: 80, neededGrams: 100, availableGrams: 20 }),
+    );
+  });
+
+  it('nimmt bereits vollstaendig gedeckte Zutaten mit missingGrams 0 auf, statt sie wegzulassen', async () => {
+    // Nachschub-Fall (#131-Nachschaerfung, docs/issue-131-missing-ingredients-transfer.md):
+    // der Vorrat deckt den Bedarf (100g) bereits vollstaendig ab.
+    mockDbGetAllAsync
+      .mockResolvedValueOnce([{ product_id: 'prod-basilikum', quantity: 100, unit: 'g' }])
+      .mockResolvedValueOnce([{ id: 'prod-basilikum', name: 'Basilikum', serving_size_g: 50 }]);
+
+    const { result } = await renderHook(() => useRecipeShoppingNeeds(mockRecipe, 2, true), {
+      wrapper,
+    });
+
+    await waitFor(() => {
+      expect(result.current.isSuccess).toBe(true);
+    });
+
+    const needs: RecipeShoppingNeed[] = result.current.data ?? [];
+    expect(needs).toHaveLength(1);
+    expect(needs[0]).toEqual(
+      expect.objectContaining({ missingGrams: 0, neededGrams: 100, availableGrams: 100 }),
+    );
   });
 });

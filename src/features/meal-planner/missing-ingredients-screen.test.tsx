@@ -1,7 +1,9 @@
-import { render, screen, userEvent } from '@testing-library/react-native';
+import { render, screen, userEvent, waitFor } from '@testing-library/react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import { MissingIngredientsScreen } from './missing-ingredients-screen';
+
+const mockRouterBack = jest.fn();
 
 const mockAddMutateAsync = jest.fn().mockResolvedValue(undefined);
 const mockResolveCategoryForItem = jest.fn().mockResolvedValue({
@@ -17,10 +19,40 @@ const mockResolveCategoryForItem = jest.fn().mockResolvedValue({
 const mockNavigation = { canGoBack: () => true, addListener: () => () => {} };
 
 jest.mock('expo-router', () => ({
-  router: { push: jest.fn(), back: jest.fn(), canGoBack: () => true },
+  router: {
+    push: jest.fn(),
+    back: (...args: unknown[]) => mockRouterBack(...args),
+    canGoBack: () => true,
+  },
   useLocalSearchParams: () => ({ mealPlanId: 'plan-1' }),
   useNavigation: () => mockNavigation,
 }));
+
+// RowStorePicker haengt an useStores() (React Query) — hier durch einen
+// minimalen Stub ersetzt, der storeId als Text zeigt und bei Druck fest
+// 'store-override' waehlt. Das eigene Verhalten von RowStorePicker ist
+// bereits in row-store-picker.test.tsx abgedeckt (siehe #335).
+jest.mock('@/features/shopping-list/components/ui/row-store-picker', () => {
+  const { Pressable, Text } = require('react-native');
+  return {
+    RowStorePicker: ({
+      storeId,
+      onChange,
+      testID,
+    }: {
+      storeId: string | null;
+      onChange: (next: string | null) => void;
+      testID?: string;
+    }) => (
+      <Pressable
+        testID={testID}
+        accessibilityRole="button"
+        onPress={() => onChange('store-override')}>
+        <Text>{storeId ?? 'Ohne Markt'}</Text>
+      </Pressable>
+    ),
+  };
+});
 
 jest.mock('@/features/auth/session-provider', () => ({
   useSession: () => ({ session: { user: { id: 'user-1' } } }),
@@ -58,6 +90,8 @@ const mockMissingIngredients = [
   {
     productId: 'p1',
     name: 'Tomaten',
+    neededGrams: 400,
+    availableGrams: 100,
     missingGrams: 300,
     preferredStoreId: 'store-1',
     preferredStoreName: 'Aldi',
@@ -66,10 +100,22 @@ const mockMissingIngredients = [
   {
     productId: 'p2',
     name: 'Hackfleisch',
+    neededGrams: 500,
+    availableGrams: 0,
     missingGrams: 500,
     preferredStoreId: null,
     preferredStoreName: null,
     recipeNames: [],
+  },
+  {
+    productId: 'p3',
+    name: 'Salz',
+    neededGrams: 50,
+    availableGrams: 50,
+    missingGrams: 0,
+    preferredStoreId: null,
+    preferredStoreName: null,
+    recipeNames: ['Bolognese'],
   },
 ];
 
@@ -96,6 +142,7 @@ beforeEach(() => {
   mockAddMutateAsync.mockClear();
   mockResolveCategoryForItem.mockClear();
   mockPresentPaywallIfNeeded.mockClear();
+  mockRouterBack.mockClear();
   mockIsPremium = true;
 });
 
@@ -107,6 +154,103 @@ describe('MissingIngredientsScreen', () => {
     expect(screen.getByText(/300 g fehlen/)).toBeOnTheScreen();
     expect(screen.getByText(/zuletzt bei Aldi/)).toBeOnTheScreen();
     expect(screen.getByText('Hackfleisch')).toBeOnTheScreen();
+  });
+
+  it('zeigt bereits gedeckte Zutaten mit "benötigt / Vorrat" statt "g fehlen"', async () => {
+    // Nachschub-Fall (#131-Nachschaerfung): Salz ist voll gedeckt
+    // (neededGrams === availableGrams), bleibt aber sichtbar.
+    await renderScreen();
+
+    expect(screen.getByText('Salz')).toBeOnTheScreen();
+    expect(screen.getByText(/50 g benötigt \/ 50 g im Vorrat/)).toBeOnTheScreen();
+  });
+
+  it('waehlt nur Artikel mit echtem Fehlbetrag vor, gedeckte Artikel bleiben abgewaehlt', async () => {
+    await renderScreen();
+
+    // 2 von 3 Artikeln (Tomaten, Hackfleisch) haben missingGrams > 0 und
+    // sind vorausgewaehlt; Salz (gedeckt) ist es nicht.
+    expect(screen.getByText('2 Artikel zur Einkaufsliste hinzufügen')).toBeOnTheScreen();
+    expect(screen.getByRole('checkbox', { name: 'Salz' })).not.toBeChecked();
+    expect(screen.getByRole('checkbox', { name: 'Tomaten' })).toBeChecked();
+  });
+
+  it('Auswahl eines gedeckten Artikels uebertraegt die volle benoetigte Menge', async () => {
+    const user = userEvent.setup();
+    await renderScreen();
+
+    await user.press(screen.getByRole('checkbox', { name: 'Salz' }));
+    await user.press(screen.getByText('3 Artikel zur Einkaufsliste hinzufügen'));
+
+    expect(mockAddMutateAsync).toHaveBeenCalledWith(
+      expect.objectContaining({ name: 'Salz', quantity: 50, unit: 'g' }),
+    );
+  });
+
+  it('Markt-Override einer Zeile wird beim Uebertrag statt der Kaufhistorie verwendet', async () => {
+    const user = userEvent.setup();
+    await renderScreen();
+
+    // Hackfleisch hat keine Kaufhistorie (preferredStoreId: null) — Nutzer
+    // weist ihm im Markt-Picker manuell einen Markt zu.
+    await user.press(screen.getByTestId('row-store-picker-p2'));
+    await user.press(screen.getByText('2 Artikel zur Einkaufsliste hinzufügen'));
+
+    expect(mockAddMutateAsync).toHaveBeenCalledWith(
+      expect.objectContaining({ name: 'Hackfleisch', store_id: 'store-override' }),
+    );
+  });
+
+  it('Bulk-Markt-Auswahl weist allen Artikeln denselben Markt zu', async () => {
+    const user = userEvent.setup();
+    await renderScreen();
+
+    // Tomaten hatte ueber die Kaufhistorie bereits 'store-1' zugewiesen —
+    // der Bulk-Picker ueberschreibt das fuer alle Artikel einheitlich.
+    await user.press(screen.getByTestId('bulk-store-picker'));
+    await user.press(screen.getByText('2 Artikel zur Einkaufsliste hinzufügen'));
+
+    expect(mockAddMutateAsync).toHaveBeenCalledWith(
+      expect.objectContaining({ name: 'Tomaten', store_id: 'store-override' }),
+    );
+    expect(mockAddMutateAsync).toHaveBeenCalledWith(
+      expect.objectContaining({ name: 'Hackfleisch', store_id: 'store-override' }),
+    );
+  });
+
+  it('navigiert nach erfolgreichem Uebertrag automatisch zurueck', async () => {
+    const user = userEvent.setup();
+    await renderScreen();
+
+    await user.press(screen.getByText('2 Artikel zur Einkaufsliste hinzufügen'));
+
+    expect(mockRouterBack).toHaveBeenCalledTimes(1);
+  });
+
+  it('sperrt den Button waehrend des gesamten Uebertrags, nicht nur zwischen einzelnen Artikeln', async () => {
+    // addShoppingItem.mutateAsync wird im Loop pro Artikel aufgerufen —
+    // isPending der Mutation allein flackert zwischen den Aufrufen wieder
+    // auf false. Der Button muss ueber die gesamte handleAddSelected-Dauer
+    // gesperrt bleiben (2 Artikel in mockMissingIngredients).
+    const user = userEvent.setup();
+    let resolveFirst: (() => void) | undefined;
+    mockAddMutateAsync.mockImplementationOnce(
+      () =>
+        new Promise<void>((resolve) => {
+          resolveFirst = resolve;
+        }),
+    );
+    await renderScreen();
+
+    const button = screen.getByRole('button', { name: '2 Artikel zur Einkaufsliste hinzufügen' });
+    user.press(button);
+
+    await waitFor(() => {
+      expect(button).toBeDisabled();
+      expect(button).toBeBusy();
+    });
+
+    resolveFirst?.();
   });
 
   it('ist standardmaessig alles vorausgewaehlt und uebernimmt beim Bestaetigen', async () => {

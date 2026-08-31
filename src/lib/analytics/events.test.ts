@@ -21,21 +21,29 @@ describe('trackAnalyticsEvent', () => {
       offering_id: 'default',
     });
 
-    expect(trackEvent).toHaveBeenCalledWith('paywall.view.completed', {
-      source: 'settings',
-      offering_id: 'default',
-    });
+    expect(trackEvent).toHaveBeenCalledWith(
+      'paywall.view.completed',
+      {
+        source: 'settings',
+        offering_id: 'default',
+      },
+      'productEvents',
+    );
   });
 
   it('normalisiert Boolean-Properties auf den gemeinsamen kleinsten Datentyp', () => {
     trackAnalyticsEvent('product.barcode_scan.completed', { found: false });
 
-    expect(trackEvent).toHaveBeenCalledWith('product.barcode_scan.completed', { found: 0 });
+    expect(trackEvent).toHaveBeenCalledWith(
+      'product.barcode_scan.completed',
+      { found: 0 },
+      'productEvents',
+    );
   });
 
   it('unterstuetzt Events ohne Properties', () => {
     trackAnalyticsEvent('purchase.restore.started');
 
-    expect(trackEvent).toHaveBeenCalledWith('purchase.restore.started', {});
+    expect(trackEvent).toHaveBeenCalledWith('purchase.restore.started', {}, 'productEvents');
   });
 });

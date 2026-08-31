@@ -176,6 +176,11 @@ export function SettingsScreen() {
               value={fabPosition === 'left' ? 'Links' : 'Rechts'}
               hint="Ecke, in der das + sitzt"
               onPress={() => setFabPosition(fabPosition === 'left' ? 'right' : 'left')}
+            />
+            <SettingsRow
+              icon="💬"
+              label="Feedback geben"
+              onPress={() => router.push('/settings/feedback')}
               last
             />
           </SettingsGroup>

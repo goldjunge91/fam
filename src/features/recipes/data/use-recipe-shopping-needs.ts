@@ -12,6 +12,16 @@ import type { RecipeDetail } from '../hooks/use-recipes';
 export type RecipeShoppingNeed = {
   productId: string;
   name: string;
+  /** Gesamtbedarf des Rezepts bei den gewaehlten Portionen, in Gramm. */
+  neededGrams: number;
+  /** Aktueller Vorratsbestand, in Gramm. */
+  availableGrams: number;
+  /**
+   * `neededGrams - availableGrams`, kann <= 0 sein, wenn der Vorrat den
+   * Bedarf bereits deckt — solche Zutaten bleiben sichtbar (Nachschub-Fall,
+   * siehe docs/issue-131-missing-ingredients-transfer.md), werden von der UI
+   * aber nicht mehr automatisch vorausgewaehlt.
+   */
   missingGrams: number;
   preferredStoreId: string | null;
 };
@@ -67,7 +77,9 @@ export function useRecipeShoppingNeeds(
           return {
             productId: item.productId,
             name: productsById.get(item.productId)?.name ?? 'Zutat',
-            missingGrams: Math.max(1, Math.round(item.missingGrams)),
+            neededGrams: Math.round(item.neededGrams),
+            availableGrams: Math.round(item.availableGrams),
+            missingGrams: Math.round(item.missingGrams),
             preferredStoreId: history?.store_id ?? null,
           };
         }),

@@ -12,6 +12,16 @@ import {
 export type MissingIngredientView = {
   productId: string;
   name: string;
+  /** Gesamtbedarf aller Rezepte des Wochenplans, in Gramm. */
+  neededGrams: number;
+  /** Aktueller Vorratsbestand, in Gramm. */
+  availableGrams: number;
+  /**
+   * `neededGrams - availableGrams`, kann <= 0 sein, wenn der Vorrat den
+   * Bedarf bereits deckt — solche Artikel bleiben sichtbar (Nachschub-Fall,
+   * siehe docs/issue-131-missing-ingredients-transfer.md), werden von der UI
+   * aber nicht mehr automatisch vorausgewaehlt.
+   */
   missingGrams: number;
   /** Aus der Kaufhistorie: zuletzt fuer dieses Produkt verwendeter Markt (falls vorhanden). */
   preferredStoreId: string | null;
@@ -122,6 +132,8 @@ export function useMealPlanShoppingNeeds(
         result.push({
           productId: item.productId,
           name: product?.name ?? item.productId,
+          neededGrams: Math.round(item.neededGrams),
+          availableGrams: Math.round(item.availableGrams),
           missingGrams: Math.round(item.missingGrams),
           preferredStoreId: historyRow?.store_id ?? null,
           preferredStoreName: historyRow?.store_name ?? null,

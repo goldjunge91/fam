@@ -4,6 +4,7 @@ import { ActivityIndicator, Alert, Pressable, View } from 'react-native';
 import { ThemedText } from '@/components/theme/themed-text';
 import { presentPaywallIfNeeded } from '@/features/premium/paywall';
 import { usePremium } from '@/features/premium/premium-provider';
+import { RowStorePicker } from '@/features/shopping-list/components/ui/row-store-picker';
 import { useAddShoppingItem } from '@/features/shopping-list/hooks/use-shopping-list-mutations';
 import { resolveCategoryForItem } from '@/features/shopping-list/preferences/api';
 import { useTheme } from '@/hooks/use-theme';
@@ -29,7 +30,16 @@ export function RecipeShoppingSheet({ visible, detail, servings, onClose }: Prop
   const { isPremium, refresh } = usePremium();
   const [accessGranted, setAccessGranted] = useState(false);
   const [selected, setSelected] = useState<Set<string>>(new Set());
+  // Marktzuweisung pro Zeile, vom Nutzer manuell ueberschrieben (Fallback:
+  // item.preferredStoreId aus der Kaufhistorie) — gespiegelt zu
+  // missing-ingredients-screen.tsx (#131-Nachschaerfung).
+  const [storeOverrides, setStoreOverrides] = useState<Record<string, string | null>>({});
   const [unlocking, setUnlocking] = useState(false);
+  // Eigener Sperrzustand statt addShoppingItem.isPending: die Mutation wird
+  // im Loop pro Zutat einzeln aufgerufen, isPending flackert dazwischen
+  // wieder auf false — der Button muss ueber die gesamte Uebertragsdauer
+  // gesperrt bleiben (gespiegelt zu missing-ingredients-screen.tsx).
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const addShoppingItem = useAddShoppingItem();
   const hasAccess = isPremium || accessGranted;
   const { data: missing = EMPTY_MISSING, isLoading } = useRecipeShoppingNeeds(
@@ -39,8 +49,18 @@ export function RecipeShoppingSheet({ visible, detail, servings, onClose }: Prop
   );
 
   useEffect(() => {
-    setSelected(new Set(missing.map((item) => item.productId)));
+    // Nur Zutaten mit echtem Fehlbetrag vorauswaehlen — bereits gedeckte
+    // Zutaten (Nachschub-Fall) bleiben sichtbar, aber abgewaehlt.
+    setSelected(
+      new Set(missing.filter((item) => item.missingGrams > 0).map((item) => item.productId)),
+    );
   }, [missing]);
+
+  function storeIdFor(item: RecipeShoppingNeed): string | null {
+    return item.productId in storeOverrides
+      ? storeOverrides[item.productId]
+      : item.preferredStoreId;
+  }
 
   async function unlockPremium() {
     setUnlocking(true);
@@ -71,6 +91,7 @@ export function RecipeShoppingSheet({ visible, detail, servings, onClose }: Prop
 
   async function addSelected() {
     const selectedItems = missing.filter((item) => selected.has(item.productId));
+    setIsSubmitting(true);
     try {
       for (const item of selectedItems) {
         // Alle Erzeugungswege nutzen den Resolver (#223 Abschnitt 10) — hier
@@ -85,12 +106,15 @@ export function RecipeShoppingSheet({ visible, detail, servings, onClose }: Prop
           household_id: detail.recipe.household_id,
           product_id: item.productId,
           name: item.name,
-          quantity: item.missingGrams,
+          // Bei bereits gedecktem Bedarf (missingGrams <= 0) gibt es kein
+          // sinnvolles Delta zu uebertragen — dann zaehlt die volle
+          // benoetigte Menge (Nachschub-Fall).
+          quantity: item.missingGrams > 0 ? item.missingGrams : item.neededGrams,
           unit: 'g',
           category_id: classification.categoryId,
           category_source: classification.source,
           category_classifier_version: classification.classifierVersion,
-          store_id: item.preferredStoreId,
+          store_id: storeIdFor(item),
           recipe_names: [detail.recipe.title],
         });
       }
@@ -104,6 +128,8 @@ export function RecipeShoppingSheet({ visible, detail, servings, onClose }: Prop
         'Übernahme fehlgeschlagen',
         error instanceof Error ? error.message : 'Die Zutaten konnten nicht übernommen werden.',
       );
+    } finally {
+      setIsSubmitting(false);
     }
   }
 
@@ -145,45 +171,73 @@ export function RecipeShoppingSheet({ visible, detail, servings, onClose }: Prop
             className="leading-[15px] font-medium">
             Bereits vorhandene Mengen wurden abgezogen. Wähle aus, was auf die Einkaufsliste soll.
           </ThemedText>
+          {/* Bulk-Aktion: allen Zutaten auf einen Schlag denselben Markt zuweisen (#342) */}
+          <View className="mt-[10px] flex-row justify-end">
+            <RowStorePicker
+              householdId={detail.recipe.household_id}
+              storeId={null}
+              label="Allen einen Markt zuweisen"
+              onChange={(storeId) =>
+                setStoreOverrides(
+                  Object.fromEntries(missing.map((item) => [item.productId, storeId])),
+                )
+              }
+              testID="recipe-bulk-store-picker"
+            />
+          </View>
           <View className="mt-[14px] rounded-sheet overflow-hidden bg-background-selected">
             {missing.map((item, index) => {
               const checked = selected.has(item.productId);
               return (
-                <Pressable
+                <View
                   key={item.productId}
-                  onPress={() => toggle(item.productId)}
-                  role="checkbox"
-                  accessibilityState={{ checked }}
                   className={`min-h-[45px] px-three flex-row items-center gap-[10px] ${
                     index < missing.length - 1 ? 'border-b-hairline border-border' : ''
                   }`}>
-                  <View
-                    className={`w-[22px] h-[22px] rounded-fam-sm border-[1.5px] items-center justify-center border-accent ${
-                      checked ? 'bg-accent' : 'bg-transparent'
-                    }`}>
-                    {checked ? (
-                      <ThemedText className="text-white text-[12px] leading-[14px] font-bold">
-                        ✓
-                      </ThemedText>
-                    ) : null}
-                  </View>
-                  <ThemedText type="detail" className="flex-1 font-semibold" numberOfLines={1}>
-                    {item.name}
-                  </ThemedText>
-                  <ThemedText
-                    type="detail"
-                    themeColor="textSecondary"
-                    className="text-[9px] leading-[11px] font-medium">
-                    {item.missingGrams} g
-                  </ThemedText>
-                </Pressable>
+                  <Pressable
+                    onPress={() => toggle(item.productId)}
+                    role="checkbox"
+                    accessibilityState={{ checked }}
+                    accessibilityLabel={item.name}
+                    className="flex-1 flex-row items-center gap-[10px]">
+                    <View
+                      className={`w-[22px] h-[22px] rounded-fam-sm border-[1.5px] items-center justify-center border-accent ${
+                        checked ? 'bg-accent' : 'bg-transparent'
+                      }`}>
+                      {checked ? (
+                        <ThemedText className="text-white text-[12px] leading-[14px] font-bold">
+                          ✓
+                        </ThemedText>
+                      ) : null}
+                    </View>
+                    <ThemedText type="detail" className="flex-1 font-semibold" numberOfLines={1}>
+                      {item.name}
+                    </ThemedText>
+                    <ThemedText
+                      type="detail"
+                      themeColor="textSecondary"
+                      className="text-[9px] leading-[11px] font-medium">
+                      {item.missingGrams > 0
+                        ? `${item.missingGrams} g`
+                        : `${item.neededGrams}g / ${item.availableGrams}g`}
+                    </ThemedText>
+                  </Pressable>
+                  <RowStorePicker
+                    householdId={detail.recipe.household_id}
+                    storeId={storeIdFor(item)}
+                    onChange={(storeId) =>
+                      setStoreOverrides((prev) => ({ ...prev, [item.productId]: storeId }))
+                    }
+                    testID={`recipe-row-store-picker-${item.productId}`}
+                  />
+                </View>
               );
             })}
           </View>
           <SheetButton
             label={`${selected.size} ${selected.size === 1 ? 'Zutat' : 'Zutaten'} übernehmen`}
-            loading={addShoppingItem.isPending}
-            disabled={selected.size === 0}
+            loading={isSubmitting}
+            disabled={selected.size === 0 || isSubmitting}
             onPress={addSelected}
           />
         </>
@@ -208,6 +262,7 @@ function SheetButton({
       onPress={onPress}
       disabled={disabled || loading}
       role="button"
+      accessibilityState={{ disabled: disabled || loading, busy: loading }}
       className={`h-12 mt-[14px] rounded-card items-center justify-center px-[14px] bg-accent active:opacity-75 ${
         disabled || loading ? 'opacity-45' : ''
       }`}>

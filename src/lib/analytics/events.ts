@@ -17,5 +17,9 @@ export function trackAnalyticsEvent<T extends AnalyticsEventName>(
   const normalizedProps = normalizeTelemetryProperties(
     (props ?? {}) as Record<string, string | number | boolean>,
   );
-  trackEvent(eventName, normalizedProps);
+  trackEvent(
+    eventName,
+    normalizedProps,
+    eventName.startsWith('dev_tools.') ? 'diagnostics' : 'productEvents',
+  );
 }
