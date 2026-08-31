@@ -435,9 +435,48 @@ function findFirstNamedPath(directory: string, suffix: string): string | undefin
 // ios/Podfile liest USE_CCACHE bereits (ccache_enabled?()) — B5, der Hebel war
 // gebaut und nicht umgelegt. ccache selbst muss lokal installiert sein
 // (/opt/homebrew/bin/ccache); ist es das nicht, ist die Env-Var wirkungslos,
-// kein Fehler.
+// kein Fehler. Wichtig: 'pod install' schreibt CC/CXX (Ccache-Wrapper) fest in
+// die generierten .xcodeproj-Dateien — USE_CCACHE muss also beim Aufruf von
+// 'pod install' gesetzt sein, nicht erst beim späteren Build, sonst wirkt es
+// gar nicht (verifiziert, siehe docs/native-fingerprint-drift-debugging.md).
+// USE_CCACHE=1 triggert ccache_enabled?() in ios/Podfile zur 'pod install'-
+// Zeit (schreibt CC/CXX aufs Pods-Project fest). Der eigentliche Cache-Pfad
+// (CCACHE_DIR) wird NICHT mehr hier gesetzt — Env-Vars erreichen die
+// Compile-Sources-Subprozesse von Xcode nachweislich nicht (siehe
+// plugins/withIosCcacheDir.js für den echten Fix: eigenständige
+// Wrapper-Skripte mit fest einprogrammiertem Pfad statt Env-Var-Vertrauen).
 function iosBuildEnv(): Record<string, string> {
   return { USE_CCACHE: '1' };
+}
+
+// 'eas build --local' kopiert das Projekt bei JEDEM Lauf in ein neues Temp-
+// Verzeichnis mit zufälliger UUID (/var/folders/.../eas-build-local-nodejs/
+// <uuid>/build) — dadurch enthalten Compiler-Flags (u. a.
+// -fbuild-session-file, ModuleCache-Pfade) bei jedem Lauf andere absolute
+// Pfade, was ccache selbst mit CCACHE_BASEDIR verlässlich verhindert hat
+// (siehe docs/native-fingerprint-drift-debugging.md, "TestFlight-Pfad:
+// ccache bringt bisher NICHTS"). EAS_LOCAL_BUILD_WORKINGDIR erzwingt
+// stattdessen ein FESTES Arbeitsverzeichnis über alle Läufe hinweg — löst
+// das Problem an der Wurzel statt es nachträglich zu kompensieren. Muss ein
+// ABSOLUTER Pfad sein (relative Pfade brechen die interne tar-Extraktion,
+// siehe github.com/expo/eas-cli/issues/1155). Auf dem externen Volume neben
+// dem ccache-Verzeichnis, nicht auf der Boot-Disk (siehe
+// scripts/dev-disk-clean.sh).
+function easLocalBuildEnv(): Record<string, string> {
+  const ccacheDir = readCcacheDirFromUserConfig();
+  if (!ccacheDir) return {};
+  return { EAS_LOCAL_BUILD_WORKINGDIR: join(dirname(ccacheDir), 'eas-build-local-workingdir') };
+}
+
+function readCcacheDirFromUserConfig(): string | undefined {
+  if (process.env.CCACHE_DIR) return process.env.CCACHE_DIR;
+  const configPath = join(
+    process.env.XDG_CONFIG_HOME ?? join(process.env.HOME ?? '', '.config'),
+    'ccache/ccache.conf',
+  );
+  if (!existsSync(configPath)) return undefined;
+  const match = readFileSync(configPath, 'utf8').match(/^\s*cache_dir\s*=\s*(.+?)\s*$/mu);
+  return match?.[1];
 }
 
 async function rebuild(): Promise<void> {
@@ -480,7 +519,7 @@ async function rebuild(): Promise<void> {
       '--output',
       buildOutput,
     ],
-    target.platform === 'ios' ? iosBuildEnv() : undefined,
+    target.platform === 'ios' ? { ...iosBuildEnv(), ...easLocalBuildEnv() } : undefined,
   );
 
   const finalPath = artifactPath(targetName, target.kind);
