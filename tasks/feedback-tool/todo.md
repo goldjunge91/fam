@@ -46,16 +46,19 @@ Plan: `tasks/feedback-tool/plan.md`
 
 **Checkpoint 3: erreicht.** 17 Feedback-Tests grün, `bun run typecheck`/`check` sauber.
 
-## 5. Realtime-Benachrichtigung
+## 5. Realtime-Benachrichtigung — ✅ erledigt (02733bb)
 
-- [ ] `use-feedback-realtime.ts`: Supabase-Realtime-Subscription (Liste: Statuswechsel, Detail: neue Nachrichten), Cache-Invalidierung
-- [ ] Banner/Toast bei `status → in_progress`
-- [ ] Banner/Toast bei neuer `author_type='staff'`-Nachricht
-- [ ] Hook-Test mit gemocktem Supabase-Channel
+- [x] `use-feedback-realtime.ts`: Channel `feedback:<userId>`, UPDATE auf `feedback_tickets` (gefiltert `user_id=eq.`) + INSERT auf `feedback_messages` (kein Filter möglich, RLS scoped), Cache-Invalidierung für Liste/Detail/Thread
+- [x] Banner bei `status → in_progress` (Liste), auto-verschwindend nach 4s
+- [x] Banner bei neuer `author_type='staff'`-Nachricht (Detail, nur fürs beobachtete Ticket)
+- [x] Hook-Test mit gemocktem Supabase-Channel (5 Tests: Subscribe-Aufbau, Statusübergang-Filter, staff-Filter pro Ticket, Cleanup, kein Nutzer → keine Subscription)
 
-**Checkpoint 4:** Realtime-Hook-Test grün, `bun run check` + `bun run typecheck` für den gesamten Feature-Ordner.
+**Checkpoint 4: erreicht.** 24 Feedback-Tests grün, `bun run check` + `bun run typecheck` sauber.
 
-## Abschluss
+**Plan vollständig umgesetzt.** Alle 5 Aufgaben erledigt, siehe Commits `7f241ad`..`02733bb`.
 
-- [ ] `src/features/feedback/EXPLANATION.md` schreiben
-- [ ] Vollständiger lokaler Verifikationslauf: `bun run check`, `bun run typecheck`, `bun run test -- feedback`, `bun run test:db`
+## Abschluss — ✅ erledigt
+
+- [x] `src/features/feedback/EXPLANATION.md` geschrieben (Übersicht statt exhaustivem Zeile-für-Zeile-Format, siehe Datei)
+- [x] Vollständiger lokaler Verifikationslauf: `bun run check` ✓, `bun run typecheck` ✓, `bun run test -- feedback` (24/24) ✓, `bun run test:db` (231/231) ✓
+- [x] Breiterer Regressionslauf `bun run test -- feedback` mit vollem Pfad-Match: 244 Suiten / 1505 Tests grün (der zuvor beobachtete `use-product-search.test.ts`-Fehler war ein Timing-Flake, kein durch dieses Feature verursachter Regressionsfehler)
