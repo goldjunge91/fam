@@ -18,8 +18,8 @@ import type { Fingerprint } from '@expo/fingerprint';
 import { createFingerprintAsync, diffFingerprints } from 'expo/fingerprint';
 import {
   isNativePlatformSupportedOnHost,
-  nativePlatformsForHost,
   type NativePlatform,
+  nativePlatformsForHost,
 } from './native-build-platform';
 
 type Platform = NativePlatform;
@@ -359,7 +359,9 @@ async function status(): Promise<void> {
     ArtifactLock,
   ][]) {
     if (!isNativePlatformSupportedOnHost(TARGETS[targetName].platform)) {
-      console.warn(`  Artefaktprüfung übersprungen: ${targetName} ist auf Windows nicht verfügbar.`);
+      console.warn(
+        `  Artefaktprüfung übersprungen: ${targetName} ist auf Windows nicht verfügbar.`,
+      );
       continue;
     }
     const currentFingerprint = current[TARGETS[targetName].platform];
@@ -574,7 +576,9 @@ async function rebuild(): Promise<void> {
 async function restore(): Promise<void> {
   const [targetName, target] = getTarget();
   if (!isNativePlatformSupportedOnHost(target.platform)) {
-    fail(`Das iOS-Artefakt ${targetName} kann nur auf macOS geprüft oder wiederhergestellt werden.`);
+    fail(
+      `Das iOS-Artefakt ${targetName} kann nur auf macOS geprüft oder wiederhergestellt werden.`,
+    );
   }
   const lock = readLock();
   const current = await assertNativeBaseline(lock, [target.platform]);
