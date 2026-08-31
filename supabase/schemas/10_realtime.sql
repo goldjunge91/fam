@@ -19,6 +19,8 @@
 alter table public.fridge_items replica identity full;
 alter table public.shopping_list_items replica identity full;
 alter table public.shopping_category_preferences replica identity full;
+alter table public.feedback_tickets replica identity full;
+alter table public.feedback_messages replica identity full;
 
 do $$
 begin
@@ -47,6 +49,24 @@ begin
       and tablename = 'shopping_category_preferences'
   ) then
     alter publication supabase_realtime add table public.shopping_category_preferences;
+  end if;
+
+  if not exists (
+    select 1 from pg_publication_tables
+    where pubname = 'supabase_realtime'
+      and schemaname = 'public'
+      and tablename = 'feedback_tickets'
+  ) then
+    alter publication supabase_realtime add table public.feedback_tickets;
+  end if;
+
+  if not exists (
+    select 1 from pg_publication_tables
+    where pubname = 'supabase_realtime'
+      and schemaname = 'public'
+      and tablename = 'feedback_messages'
+  ) then
+    alter publication supabase_realtime add table public.feedback_messages;
   end if;
 end;
 $$;
