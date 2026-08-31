@@ -70,6 +70,16 @@ grant delete, insert, select, update on public.brochure_stores to anon, authenti
 grant delete, insert, select, update on public.brochure_dumps to anon, authenticated, service_role;
 grant delete, insert, select, update on public.favorite_brochure_stores to anon, authenticated, service_role;
 
+-- feedback_tickets/feedback_messages: Statuswechsel und staff-Antworten
+-- passieren nur ueber service_role (siehe Kommentar in 24_feedback.sql) —
+-- authenticated bekommt deshalb bewusst kein update/delete.
+revoke all on public.feedback_tickets from anon, authenticated, service_role;
+grant select, insert on public.feedback_tickets to authenticated;
+grant delete, insert, select, update on public.feedback_tickets to service_role;
+revoke all on public.feedback_messages from anon, authenticated, service_role;
+grant select, insert on public.feedback_messages to authenticated;
+grant delete, insert, select, update on public.feedback_messages to service_role;
+
 -- --------------------------------------------------- Premium-Spalten schuetzen
 -- RLS wirkt auf Zeilen, nicht auf Spalten (siehe Kommentar in 03_households.sql
 -- bei household_member_profiles): `households_update_admin` erlaubt jedem
