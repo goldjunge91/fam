@@ -22,6 +22,8 @@ LOCK_PATH = PROJECT_ROOT / "native-build-lock.json"
 LOG_DIR = PROJECT_ROOT / "tools" / "build-gui" / "logs"
 
 STATUS_ACTION = "Lock prüfen"
+DIFF_ACTION = "Lock-Diff anzeigen (bei Mismatch)"
+DEV_ACTION = "Dev-Loop starten (schnell, expo run:*)"
 RUN_ACTION = "Simulator/Emulator starten"
 RESTORE_ACTION = "Artefakt wiederherstellen"
 REBUILD_ACTION = "Rebuild (explizit freigeben)"
@@ -38,6 +40,11 @@ class Target:
     profile: str
     env_file: str | None = None
     submit: bool = False
+    # Deckt sich mit DEV_TARGETS in scripts/native-build.ts — dort läuft der
+    # Inner-Loop-Pfad (expo run:*, ccache, kein prebuild --clean bei jedem
+    # Lauf), im Gegensatz zu RUN_ACTION, das nur ein bereits gelocktes
+    # Artefakt installiert.
+    dev_loop: bool = False
 
 
 TARGETS = {
@@ -49,6 +56,7 @@ TARGETS = {
         simulator=True,
         profile="development",
         env_file=".env.development.local",
+        dev_loop=True,
     ),
     "iOS Preview-Simulator": Target(
         label="iOS Preview-Simulator",
@@ -85,6 +93,7 @@ TARGETS = {
         simulator=True,
         profile="development",
         env_file=".env.development.local",
+        dev_loop=True,
     ),
     "Android Preview": Target(
         label="Android Preview-Emulator",
@@ -233,16 +242,18 @@ class BuildGui(tk.Tk):
         target = self._selected_target()
         self.description.configure(text=f"{target.label}: {target.description}")
 
-        actions = [STATUS_ACTION, REBUILD_ACTION]
+        actions = [STATUS_ACTION, DIFF_ACTION, REBUILD_ACTION]
+        if target.dev_loop:
+            actions.insert(2, DEV_ACTION)
         if target.simulator:
-            actions.insert(1, RUN_ACTION)
+            actions.insert(2, RUN_ACTION)
         if target.submit:
             actions.append(SUBMIT_ACTION)
         actions.insert(actions.index(REBUILD_ACTION), RESTORE_ACTION)
 
         self.action_menu.configure(values=tuple(actions))
         if self.action.get() not in actions:
-            self.action.set(RUN_ACTION if target.simulator else STATUS_ACTION)
+            self.action.set(DEV_ACTION if target.dev_loop else STATUS_ACTION)
         self._refresh_target_state()
         self._update_controls()
 
@@ -292,6 +303,32 @@ class BuildGui(tk.Tk):
 
         if action == STATUS_ACTION:
             return [*native_command, "native:status"], env, "Native-Lock prüfen"
+
+        if action == DIFF_ACTION:
+            return (
+                [*native_command, "native:status", "--", "--diff"],
+                env,
+                "Native-Lock-Diff (abweichende Fingerprint-Quelle anzeigen)",
+            )
+
+        if action == DEV_ACTION:
+            if not target.dev_loop:
+                raise ValueError(
+                    "Der Dev-Loop-Pfad ist nur für Development-Targets gedacht "
+                    "(siehe DEV_TARGETS in scripts/native-build.ts)."
+                )
+            command = [
+                *native_command,
+                "native:dev",
+                "--",
+                "--target",
+                target.name,
+            ]
+            return (
+                self._with_env_file(command, target.env_file),
+                env,
+                f"{target.label}: Inner Loop (expo run:*, ccache)",
+            )
 
         if action == RUN_ACTION:
             if not target.simulator:
