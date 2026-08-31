@@ -20,6 +20,9 @@ type UseFeedbackRealtimeOptions = {
  * Haelt Ticket-Liste/-Detail live: invalidiert den React-Query-Cache bei
  * Statuswechseln und neuen Thread-Nachrichten, solange die App offen ist.
  * Kein Server-Push — nur Supabase Realtime (siehe SPEC.md, v1-Entscheidung).
+ * Liste und Detail verwenden getrennte Basis-Topics. Eine eindeutige
+ * Instanzkennung verhindert zusätzlich Kollisionen bei Remounts, während ein
+ * vorheriger Channel noch asynchron entfernt wird.
  *
  * `feedback_messages` hat keine `user_id`-Spalte, daher kein serverseitiger
  * Filter dafuer; die RLS-Policy aus 24_feedback.sql laesst ohnehin nur
@@ -37,7 +40,12 @@ export function useFeedbackRealtime({
     if (!userId) return;
 
     const supabase = getSupabase();
-    const channel = supabase.channel(`feedback:${userId}`);
+    const viewTopic = ticketId
+      ? `feedback:${userId}:ticket:${ticketId}`
+      : `feedback:${userId}:list`;
+    const channel = supabase.channel(
+      `${viewTopic}:${Date.now().toString(36)}-${Math.random().toString(36).slice(2)}`,
+    );
 
     channel.on(
       'postgres_changes',

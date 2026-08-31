@@ -50,10 +50,10 @@ function wrapper({ children }: { children: ReactNode }) {
   return <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>;
 }
 
-it('abonniert einen nach Nutzer benannten Channel fuer Tickets und Nachrichten', async () => {
+it('abonniert das eigene Listen-Topic fuer Tickets und Nachrichten', async () => {
   await renderHook(() => useFeedbackRealtime({ userId: 'user-1' }), { wrapper });
 
-  expect(mockChannel).toHaveBeenCalledWith('feedback:user-1');
+  expect(mockChannel).toHaveBeenCalledWith(expect.stringMatching(/^feedback:user-1:list:/));
   expect(mockOn).toHaveBeenCalledWith(
     'postgres_changes',
     expect.objectContaining({ event: 'UPDATE', table: 'feedback_tickets' }),
@@ -65,6 +65,26 @@ it('abonniert einen nach Nutzer benannten Channel fuer Tickets und Nachrichten',
     expect.any(Function),
   );
   expect(mockSubscribe).toHaveBeenCalled();
+});
+
+it('verwendet fuer ein Ticket ein eigenes Channel-Topic', async () => {
+  await renderHook(() => useFeedbackRealtime({ userId: 'user-1', ticketId: 'ticket-1' }), {
+    wrapper,
+  });
+
+  expect(mockChannel).toHaveBeenCalledWith(
+    expect.stringMatching(/^feedback:user-1:ticket:ticket-1:/),
+  );
+});
+
+it('verwendet auch bei wiederholtem Listen-Mount unterschiedliche Topics', async () => {
+  await renderHook(() => useFeedbackRealtime({ userId: 'user-1' }), { wrapper });
+  const firstTopic = mockChannel.mock.calls[0][0];
+
+  await renderHook(() => useFeedbackRealtime({ userId: 'user-1' }), { wrapper });
+  const secondTopic = mockChannel.mock.calls[1][0];
+
+  expect(secondTopic).not.toBe(firstTopic);
 });
 
 it('meldet einen Uebergang zu in_progress, aber nicht bei anderen Statuswechseln', async () => {
