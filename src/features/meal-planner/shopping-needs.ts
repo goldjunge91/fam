@@ -123,13 +123,16 @@ export function computeMissingIngredients(
   needs: ReadonlyMap<string, number>,
   stock: ReadonlyMap<string, number>,
 ): MissingIngredient[] {
+  // Kein Filter auf missingGrams > 0: bereits vollstaendig gedeckte
+  // Artikel bleiben im Ergebnis (missingGrams <= 0), damit der Nutzer sie
+  // in der Vorschlagsliste sieht und bei Bedarf trotzdem nachkaufen kann
+  // (Nachschub-Fall, #131-Nachschaerfung). Sortierung nach absteigender
+  // Luecke sorgt dafuer, dass echte Fehlbestaende weiterhin oben stehen.
   const missing: MissingIngredient[] = [];
   for (const [productId, neededGrams] of needs) {
     const availableGrams = stock.get(productId) ?? 0;
     const missingGrams = neededGrams - availableGrams;
-    if (missingGrams > 0.0001) {
-      missing.push({ productId, neededGrams, availableGrams, missingGrams });
-    }
+    missing.push({ productId, neededGrams, availableGrams, missingGrams });
   }
   return missing.sort((a, b) => b.missingGrams - a.missingGrams);
 }
