@@ -28,6 +28,7 @@ RUN_ACTION = "Simulator/Emulator starten"
 RESTORE_ACTION = "Artefakt wiederherstellen"
 REBUILD_ACTION = "Rebuild (explizit freigeben)"
 SUBMIT_ACTION = "TestFlight hochladen"
+DEPLOY_ACTION = "Build & Deploy (Rebuild + Upload)"
 
 
 @dataclass(frozen=True)
@@ -249,6 +250,7 @@ class BuildGui(tk.Tk):
             actions.insert(2, RUN_ACTION)
         if target.submit:
             actions.append(SUBMIT_ACTION)
+            actions.append(DEPLOY_ACTION)
         actions.insert(actions.index(REBUILD_ACTION), RESTORE_ACTION)
 
         self.action_menu.configure(values=tuple(actions))
@@ -277,7 +279,7 @@ class BuildGui(tk.Tk):
         self.target_state.set(f"Artefakt: {state}")
 
     def _update_controls(self) -> None:
-        is_rebuild = self.action.get() == REBUILD_ACTION
+        is_rebuild = self.action.get() in (REBUILD_ACTION, DEPLOY_ACTION)
         self.rebuild_check.configure(state="normal" if is_rebuild else "disabled")
         if not is_rebuild:
             self.approve_rebuild.set(False)
@@ -389,6 +391,44 @@ class BuildGui(tk.Tk):
                 "--wait",
                 "--non-interactive",
             ], env, "Vorhandenes IPA an TestFlight senden"
+
+        if action == DEPLOY_ACTION:
+            if not self.approve_rebuild.get():
+                raise ValueError(
+                    "Build & Deploy bleibt gesperrt. Aktiviere zuerst die ausdrückliche Freigabe."
+                )
+            if not target.submit:
+                raise ValueError("Build & Deploy ist nur für Submit-fähige Targets gedacht.")
+            # Artefaktpfad folgt der festen Konvention aus scripts/native-build.ts
+            # (artifactPath()) — 'kind' ist für alle Submit-fähigen Targets aktuell
+            # immer 'ipa'. Kann erst nach dem Rebuild geprüft werden, deshalb hier
+            # direkt konstruiert statt aus dem (noch veralteten) Lock gelesen.
+            artifact_path = PROJECT_ROOT / "native-artifacts" / target.name / "fam.ipa"
+            rebuild_command = [
+                *native_command,
+                "native:rebuild",
+                "--",
+                "--target",
+                target.name,
+                "--approve-rebuild",
+            ]
+            submit_command = [
+                "eas",
+                "submit",
+                "--platform",
+                target.platform,
+                "--profile",
+                target.profile,
+                "--path",
+                str(artifact_path),
+                "--wait",
+                "--non-interactive",
+            ]
+            # Ein Shell-Aufruf mit '&&', damit die bestehende Ein-Prozess-Log-
+            # Streaming-Logik (_run_process) unverändert funktioniert und der
+            # Upload nur bei einem tatsächlich erfolgreichen Rebuild startet.
+            combined = f"{shlex.join(rebuild_command)} && {shlex.join(submit_command)}"
+            return ["bash", "-lc", combined], env, f"{target.label}: Build & Deploy"
 
         raise ValueError(f"Unbekannte Aktion: {action}")
 
