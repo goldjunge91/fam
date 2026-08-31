@@ -16,8 +16,13 @@ import { basename, dirname, extname, join, relative, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import type { Fingerprint } from '@expo/fingerprint';
 import { createFingerprintAsync, diffFingerprints } from 'expo/fingerprint';
+import {
+  isNativePlatformSupportedOnHost,
+  nativePlatformsForHost,
+  type NativePlatform,
+} from './native-build-platform';
 
-type Platform = 'ios' | 'android';
+type Platform = NativePlatform;
 type ArtifactKind = 'app' | 'ipa' | 'apk' | 'aab';
 type TargetName = keyof typeof TARGETS;
 
@@ -284,8 +289,8 @@ function runCapture(program: string, commandArgs: string[]): string {
   return result.stdout;
 }
 
-function assertNativeDirectories(): void {
-  for (const platform of ['ios', 'android'] as const) {
+function assertNativeDirectories(platforms: readonly Platform[] = nativePlatformsForHost()): void {
+  for (const platform of platforms) {
     if (!existsSync(join(PROJECT_ROOT, platform))) {
       fail(`Native Projekt fehlt: ${platform}/. Es darf nicht automatisch erzeugt werden.`);
     }
@@ -294,13 +299,14 @@ function assertNativeDirectories(): void {
 
 async function assertNativeBaseline(
   lock: NativeBuildLock,
-  platforms: readonly Platform[] = ['ios', 'android'],
-): Promise<Record<Platform, NativeFingerprint>> {
-  assertNativeDirectories();
-  const current = {
-    ios: await fingerprint('ios'),
-    android: await fingerprint('android'),
-  };
+  platforms: readonly Platform[] = nativePlatformsForHost(),
+): Promise<Partial<Record<Platform, NativeFingerprint>>> {
+  assertNativeDirectories(platforms);
+  const current = Object.fromEntries(
+    await Promise.all(
+      platforms.map(async (platform) => [platform, await fingerprint(platform)] as const),
+    ),
+  ) as Partial<Record<Platform, NativeFingerprint>>;
 
   for (const platform of platforms) {
     const expected = lock.nativeFingerprints[platform];
@@ -343,7 +349,8 @@ function assertArtifact(
 
 async function status(): Promise<void> {
   const lock = readLock();
-  const current = await assertNativeBaseline(lock);
+  const platforms = nativePlatformsForHost();
+  const current = await assertNativeBaseline(lock, platforms);
   log('Native Baseline ist unverändert.');
 
   let invalidArtifacts = 0;
@@ -351,13 +358,21 @@ async function status(): Promise<void> {
     TargetName,
     ArtifactLock,
   ][]) {
+    if (!isNativePlatformSupportedOnHost(TARGETS[targetName].platform)) {
+      console.warn(`  Artefaktprüfung übersprungen: ${targetName} ist auf Windows nicht verfügbar.`);
+      continue;
+    }
+    const currentFingerprint = current[TARGETS[targetName].platform];
+    if (!currentFingerprint) {
+      fail(`Kein aktueller Fingerprint für ${TARGETS[targetName].platform} verfügbar.`);
+    }
     const artifactPath = join(PROJECT_ROOT, targetLock.relativePath);
     if (!existsSync(artifactPath)) {
       console.warn(`  Artefakt nicht lokal vorhanden: ${targetLock.relativePath}`);
       continue;
     }
     try {
-      assertArtifact(targetLock, targetName, current[TARGETS[targetName].platform].hash);
+      assertArtifact(targetLock, targetName, currentFingerprint.hash);
       log(`Artefakt gültig: ${targetName}`);
     } catch (error) {
       invalidArtifacts += 1;
@@ -558,6 +573,9 @@ async function rebuild(): Promise<void> {
 
 async function restore(): Promise<void> {
   const [targetName, target] = getTarget();
+  if (!isNativePlatformSupportedOnHost(target.platform)) {
+    fail(`Das iOS-Artefakt ${targetName} kann nur auf macOS geprüft oder wiederhergestellt werden.`);
+  }
   const lock = readLock();
   const current = await assertNativeBaseline(lock, [target.platform]);
   const artifactLock = lock.artifacts[targetName];
@@ -700,6 +718,9 @@ function buildDevEnv(platform: Platform): Record<string, string> | undefined {
 
 async function runLocked(): Promise<void> {
   const [targetName, target] = getTarget();
+  if (!isNativePlatformSupportedOnHost(target.platform)) {
+    fail(`Das iOS-Artefakt ${targetName} kann nur auf macOS geprüft oder gestartet werden.`);
+  }
   const lock = readLock();
   const current = await assertNativeBaseline(lock, [target.platform]);
   const artifactLock = lock.artifacts[targetName];
