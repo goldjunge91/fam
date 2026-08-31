@@ -104,6 +104,42 @@ I want to share some of my preferences here so we can be more aligned as we work
 
 ```
 
+## Native Fingerprint & Build Lock
+
+`native-build-lock.json` sperrt gebaute native Artefakte (`native-artifacts/`) an einen Fingerprint-Hash (`@expo/fingerprint`, je Plattform). `bun run native:status` bricht hart ab, sobald der aktuelle Fingerprint vom gelockten abweicht — das ist beabsichtigt, kein Bug. Vor einem erneuten "Mismatch"-Debugging immer zuerst `docs/native-fingerprint-drift-debugging.md` lesen (Root Cause, Ausschlussverfahren, Diff-Tool) statt bei Null anzufangen.
+
+**Löst einen neuen Fingerprint aus** (Rebuild nötig):
+
+- Jede Änderung unter `ios/` bzw. `android/` (getrackte Dateien).
+- `app.json`/`app.config.*` — außer den unten explizit ausgenommenen Feldern.
+- Neue/geänderte native Dependency (`bun add`, `package.json`-Dependencies, nicht Scripts).
+- Config-Plugins selbst (`plugins/*.js`) und ihre Optionen in `app.json`.
+- `.gitignore`-Inhalt (wird als Hash-Quelle gelesen, nicht nur als Ignore-Regel).
+- `package.json`-Scripts (außer `android`/`ios`, wenn sie kein `run` enthalten — Default-Skip von `@expo/fingerprint`).
+
+**Löst KEINEN neuen Fingerprint aus** (bewusst über `fingerprint.config.js`/`.fingerprintignore` ausgenommen, siehe `docs/native-fingerprint-drift-debugging.md`):
+
+- `version`, `ios.buildNumber`, `android.versionCode` in `app.json`.
+- Anzeigename/Beschreibung (`name`, `description`) in `app.json`.
+- EAS-Projekt-Metadaten (`extra.eas`) in `app.json`.
+- Das `extra`-Feld in `app.json` generell (nur zur Laufzeit über `expo-constants` sichtbar).
+- `eas.json`/`.easignore` (Abwägung: steuert *wie* gebaut wird, nicht was kompiliert wird — Restrisiko dokumentiert).
+- Lokal generierte Xcode-Dateien (`project.xcworkspace`, `xcuserdata`, `.DS_Store`, `.xcode.env.local`).
+
+**Bei echtem Mismatch:**
+
+```bash
+bun run native:status -- --diff        # zeigt die abweichende Fingerprint-Quelle direkt
+bun run native:baseline -- --approve-rebuild   # Baseline nach geprüfter, gewollter Änderung neu setzen
+```
+
+**Zwei Build-Pfade, bewusst getrennt:**
+
+- `native:dev -- --target <dev-target>` — Inner Loop (`expo run:*`), für Simulator/Emulator während der Entwicklung. Läuft in-place, profitiert von ccache und DerivedData-Wiederverwendung. Baseline-Mismatch blockiert hier nur als Warnung.
+- `native:rebuild -- --target <target> --approve-rebuild` — Release-Pfad (`eas build --local`), reproduzierbar/signiert, für TestFlight/Production. Blockiert hart bei Mismatch.
+
+ccache ist für beide Pfade verdrahtet (`plugins/withIosCcacheDir.js`, `scripts/native-build.ts`) — Xcode reicht Build-Settings nicht als Env-Vars an Compile-Subprozesse durch, deshalb eigenständige Wrapper-Skripte statt Env-Var-Vertrauen. Für den TestFlight-Pfad zusätzlich `EAS_LOCAL_BUILD_WORKINGDIR` (festes statt zufälliges Arbeitsverzeichnis pro `eas build --local`-Lauf). Details, Messwerte und die verworfenen Lösungswege: `docs/native-fingerprint-drift-debugging.md`.
+
 ## Coding preferences - general
 
 - Keep things simple. Channel "yagni" & "KISS" energy unless told otherwise
