@@ -26,15 +26,17 @@ Plan: `tasks/feedback-tool/plan.md`
 - [x] Route `src/app/settings/feedback/new.tsx`
 - [x] Settings-Menüeintrag "Feedback geben" in `settings-screen.tsx` ("App"-Gruppe) — zeigt vorerst direkt aufs Formular (`/settings/feedback/new`), Aufgabe 3 biegt auf die Liste (`/settings/feedback`) um
 
-**Hinweis:** `router.replace('/settings/feedback')` (Liste) im Erfolgs-Screen zeigt bis Aufgabe 3 auf eine noch nicht existierende Route.
+**Hinweis:** War in Aufgabe 3 aufgelöst — Route existiert jetzt.
 
-## 3. Ticket-Liste mit Status
+## 3. Ticket-Liste mit Status — ✅ erledigt (d3920a9)
 
-- [ ] `api.ts#listMyTickets`, `hooks.ts#useMyTickets`
-- [ ] `feedback-list-screen.tsx` (+ `.test.tsx`): Status-Badges, leerer Zustand
-- [ ] Route `src/app/settings/feedback/index.tsx`
+- [x] `api.ts#useMyTickets` (bereits in Aufgabe 2 angelegt, hier um `FeedbackTicket[]`-Rückgabetyp ergänzt)
+- [x] `feedback-list-screen.tsx` (+ `.test.tsx`): FlashList mit Status-Badges, leerer Zustand via `EmptyState`, Zeilen navigieren zum Detail
+- [x] Route `src/app/settings/feedback/index.tsx`
+- [x] `labels.ts`: geteilte Typ-/Status-Anzeigetexte (Formular nutzt sie jetzt auch, keine Duplikation)
+- [x] Settings-Menüpunkt zeigt jetzt auf `/settings/feedback` (Liste) statt `/new`
 
-**Checkpoint 2:** `bun run test -- feedback` grün, `bun run typecheck`, manueller Durchlauf (Ticket erstellen → in Liste sichtbar).
+**Checkpoint 2: erreicht.** `bun run test -- feedback` (18 Tests) + `settings-screen.test.tsx` grün, `bun run typecheck` sauber. FlashList-`act()`-Warnung nach Vorbild `docs/fehler bei der test erstellung.md` #7 mit Fake-Timern behoben.
 
 ## 4. Ticket-Detail & Thread
 
