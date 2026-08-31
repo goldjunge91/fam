@@ -11,6 +11,8 @@ type RowStorePickerProps = {
   householdId: string;
   storeId: string | null;
   onChange: (storeId: string | null) => void;
+  /** Nur fuer Tests: mehrere Zeilen-Instanzen sonst ueber dasselbe Label nicht unterscheidbar. */
+  testID?: string;
 };
 
 /**
@@ -19,7 +21,7 @@ type RowStorePickerProps = {
  * aus dem anchored-Dropdown-Mechanismus von `StorePickerMenu`. Kein
  * "+ Neuer Markt"-Flow, das deckt `StorePickerField` an anderer Stelle ab.
  */
-export function RowStorePicker({ householdId, storeId, onChange }: RowStorePickerProps) {
+export function RowStorePicker({ householdId, storeId, onChange, testID }: RowStorePickerProps) {
   const { data: stores = [] } = useStores(householdId);
   const [anchor, setAnchor] = useState<Anchor | null>(null);
   const anchorRef = useRef<View>(null);
@@ -51,6 +53,7 @@ export function RowStorePicker({ householdId, storeId, onChange }: RowStorePicke
           onPress={openMenu}
           accessibilityRole="button"
           accessibilityLabel={`Markt wählen, aktuell: ${label}`}
+          testID={testID}
           className="row-store-picker-btn">
           <View className="store-picker-dot" style={{ backgroundColor: dotColor }} />
           <ThemedText type="small" numberOfLines={1} className="max-w-[110px]">

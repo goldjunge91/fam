@@ -1,4 +1,4 @@
-import { useLocalSearchParams } from 'expo-router';
+import { router, useLocalSearchParams } from 'expo-router';
 import { useEffect, useState } from 'react';
 import { ActivityIndicator, Alert, Pressable, View } from 'react-native';
 import { Screen } from '@/components/layout/screen';
@@ -8,6 +8,7 @@ import { useSession } from '@/features/auth/session-provider';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { presentPaywallIfNeeded } from '@/features/premium/paywall';
 import { usePremium } from '@/features/premium/premium-provider';
+import { RowStorePicker } from '@/features/shopping-list/components/ui/row-store-picker';
 import { useAddShoppingItem } from '@/features/shopping-list/hooks/use-shopping-list-mutations';
 import { resolveCategoryForItem } from '@/features/shopping-list/preferences/api';
 import { type MissingIngredientView, useMealPlanShoppingNeeds } from './use-shopping-needs';
@@ -33,11 +34,17 @@ export function MissingIngredientsScreen() {
     isPremium,
   );
   const [selected, setSelected] = useState<Set<string>>(new Set());
+  // Marktzuweisung pro Zeile, vom Nutzer manuell ueberschrieben (Fallback:
+  // item.preferredStoreId aus der Kaufhistorie). `productId in storeOverrides`
+  // statt `??`, weil eine bewusst gewaehlte "Ohne Markt" (null) sonst nicht
+  // von "noch nicht angefasst" unterscheidbar waere.
+  const [storeOverrides, setStoreOverrides] = useState<Record<string, string | null>>({});
   const addShoppingItem = useAddShoppingItem();
-  const [addedCount, setAddedCount] = useState<number | null>(null);
 
   useEffect(() => {
-    setSelected(new Set(missing.map((m) => m.productId)));
+    // Nur Artikel mit echtem Fehlbetrag vorauswaehlen — bereits gedeckte
+    // Artikel (Nachschub-Fall) bleiben sichtbar, aber abgewaehlt.
+    setSelected(new Set(missing.filter((m) => m.missingGrams > 0).map((m) => m.productId)));
   }, [missing]);
 
   function toggle(productId: string) {
@@ -47,6 +54,12 @@ export function MissingIngredientsScreen() {
       else next.add(productId);
       return next;
     });
+  }
+
+  function storeIdFor(item: MissingIngredientView): string | null {
+    return item.productId in storeOverrides
+      ? storeOverrides[item.productId]
+      : item.preferredStoreId;
   }
 
   async function handleAddSelected() {
@@ -64,17 +77,24 @@ export function MissingIngredientsScreen() {
       await addShoppingItem.mutateAsync({
         household_id: householdId,
         name: item.name,
-        quantity: item.missingGrams,
+        // Bei bereits gedecktem Bedarf (missingGrams <= 0) gibt es kein
+        // sinnvolles Delta zu uebertragen — dann zaehlt die volle
+        // benoetigte Menge (Nachschub-Fall).
+        quantity: item.missingGrams > 0 ? item.missingGrams : item.neededGrams,
         unit: 'g',
         product_id: item.productId,
         category_id: classification.categoryId,
         category_source: classification.source,
         category_classifier_version: classification.classifierVersion,
-        store_id: item.preferredStoreId,
+        store_id: storeIdFor(item),
         recipe_names: item.recipeNames,
       });
     }
-    setAddedCount(toAdd.length);
+    Alert.alert(
+      'Einkaufsliste aktualisiert',
+      `${toAdd.length} ${toAdd.length === 1 ? 'Artikel wurde' : 'Artikel wurden'} ergänzt.`,
+    );
+    router.back();
   }
 
   async function unlockPremium() {
@@ -123,6 +143,11 @@ export function MissingIngredientsScreen() {
               item={item}
               selected={selected.has(item.productId)}
               onToggle={() => toggle(item.productId)}
+              householdId={householdId}
+              storeId={storeIdFor(item)}
+              onStoreChange={(storeId) =>
+                setStoreOverrides((prev) => ({ ...prev, [item.productId]: storeId }))
+              }
             />
           ))}
 
@@ -133,13 +158,6 @@ export function MissingIngredientsScreen() {
             disabled={selected.size === 0 || addShoppingItem.isPending || !session}
             loading={addShoppingItem.isPending}
           />
-
-          {/* Erfolgs-Bestätigung nach Übertrag */}
-          {addedCount !== null ? (
-            <ThemedText type="small" themeColor="accent">
-              {addedCount} Artikel zur Einkaufsliste hinzugefügt.
-            </ThemedText>
-          ) : null}
         </View>
       )}
     </Screen>
@@ -150,33 +168,56 @@ function IngredientRow({
   item,
   selected,
   onToggle,
+  householdId,
+  storeId,
+  onStoreChange,
 }: {
   item: MissingIngredientView;
   selected: boolean;
   onToggle: () => void;
+  householdId: string | undefined;
+  storeId: string | null;
+  onStoreChange: (storeId: string | null) => void;
 }) {
   return (
-    <Pressable
-      accessibilityRole="checkbox"
-      accessibilityState={{ checked: selected }}
-      accessibilityLabel={item.name}
-      onPress={onToggle}
-      className="mis-row">
-      <View className={`mis-checkbox ${selected ? 'bg-accent' : 'bg-transparent'}`}>
-        {selected ? <ThemedText themeColor="onAccent">✓</ThemedText> : null}
-      </View>
-      <View className="mis-row-text">
-        <ThemedText type="smallBold">{item.name}</ThemedText>
-        <ThemedText type="small" themeColor="textSecondary">
-          {item.missingGrams} g fehlen
-          {item.preferredStoreName ? ` · zuletzt bei ${item.preferredStoreName}` : ''}
-        </ThemedText>
-        {item.recipeNames.length > 0 ? (
-          <ThemedText type="small" themeColor="textSecondary" numberOfLines={1}>
-            🍽️ {item.recipeNames.join(', ')}
-          </ThemedText>
-        ) : null}
-      </View>
-    </Pressable>
+    <View className="mis-row">
+      <Pressable
+        accessibilityRole="checkbox"
+        accessibilityState={{ checked: selected }}
+        accessibilityLabel={item.name}
+        onPress={onToggle}
+        className="mis-row-toggle">
+        <View className={`mis-checkbox ${selected ? 'bg-accent' : 'bg-transparent'}`}>
+          {selected ? <ThemedText themeColor="onAccent">✓</ThemedText> : null}
+        </View>
+        <View className="mis-row-text">
+          <ThemedText type="smallBold">{item.name}</ThemedText>
+          {item.missingGrams > 0 ? (
+            <ThemedText type="small" themeColor="textSecondary">
+              {item.missingGrams} g fehlen
+              {item.preferredStoreName ? ` · zuletzt bei ${item.preferredStoreName}` : ''}
+            </ThemedText>
+          ) : (
+            <ThemedText type="small" themeColor="textSecondary">
+              {item.neededGrams} g benötigt / {item.availableGrams} g im Vorrat
+              {item.preferredStoreName ? ` · zuletzt bei ${item.preferredStoreName}` : ''}
+            </ThemedText>
+          )}
+          {item.recipeNames.length > 0 ? (
+            <ThemedText type="small" themeColor="textSecondary" numberOfLines={1}>
+              🍽️ {item.recipeNames.join(', ')}
+            </ThemedText>
+          ) : null}
+        </View>
+      </Pressable>
+      {householdId ? (
+        <RowStorePicker
+          householdId={householdId}
+          storeId={storeId}
+          onChange={onStoreChange}
+          testID={`row-store-picker-${item.productId}`}
+        />
+      ) : null}
+    </View>
   );
 }
