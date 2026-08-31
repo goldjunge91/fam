@@ -2,22 +2,22 @@
 
 Plan: `tasks/feedback-tool/plan.md`
 
-## 1. DB-Schema & RLS (Fundament)
+## 1. DB-Schema & RLS (Fundament) — ✅ erledigt (7f241ad)
 
-- [ ] Schema-Nummer gegen `supabase/config.toml` (`schema_paths`) verifizieren (Vorschlag: `04_feedback.sql`, muss vor `10_realtime.sql` laden)
-- [ ] `supabase/schemas/0X_feedback.sql`: `feedback_tickets` + `feedback_messages` (Spalten, Indizes, `set_updated_at`-Trigger)
-- [ ] RLS-Policies: `feedback_tickets` (select/insert eigene, kein update/delete für `authenticated`)
-- [ ] RLS-Policies: `feedback_messages` (select eigene Ticket-Nachrichten, insert nur `author_type='user'` + eigenes offenes Ticket)
-- [ ] `supabase/schemas/10_realtime.sql`: beide Tabellen zur `supabase_realtime`-Publication hinzufügen, `replica identity full`
-- [ ] `supabase/schemas/20_privileges.sql`: selektive Grants/Revokes (authenticated vs. service_role)
-- [ ] `supabase/tests/0X_feedback.test.sql`: pgTAP nach Vorbild `04_invites.test.sql`/`01_privileges.test.sql`
-- [ ] `bun run db:diff -- -f feedback`
-- [ ] `bun run test:db`
-- [ ] `bun run db:advisors`
-- [ ] `bun run db:diff` (muss leer sein)
-- [ ] `bun run db:types`
+- [x] Schema-Nummer gegen `supabase/config.toml` (`schema_paths`) verifizieren — `24_feedback.sql`, eingehängt vor `09_tracking.sql`/`10_realtime.sql` (Ladereihenfolge ≠ Dateiname, siehe `config.toml`)
+- [x] `supabase/schemas/24_feedback.sql`: `feedback_tickets` + `feedback_messages` (Spalten, Indizes, `set_updated_at`-Trigger)
+- [x] RLS-Policies: `feedback_tickets` (select/insert eigene, kein update/delete für `authenticated`)
+- [x] RLS-Policies: `feedback_messages` (select eigene Ticket-Nachrichten, insert nur `author_type='user'` + eigenes offenes Ticket)
+- [x] `supabase/schemas/10_realtime.sql`: beide Tabellen zur `supabase_realtime`-Publication hinzufügen, `replica identity full`
+- [x] `supabase/schemas/20_privileges.sql`: selektive Grants/Revokes (authenticated vs. service_role)
+- [x] `supabase/tests/18_feedback.test.sql`: pgTAP nach Vorbild `04_invites.test.sql`/`01_privileges.test.sql` (11 Assertions)
+- [x] `bun run db:diff -- -f feedback`
+- [x] `bun run test:db` — 231/231 grün
+- [x] `bun run db:advisors` — keine Findings
+- [x] `bun run db:diff` (leer)
+- [x] `bun run db:types`
 
-**Checkpoint 1:** pgTAP grün, `db:diff` leer, Types aktuell.
+**Checkpoint 1: erreicht.** pgTAP grün, `db:diff` leer, Types aktuell.
 
 ## 2. Ticket erstellen
 
