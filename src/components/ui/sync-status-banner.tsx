@@ -62,9 +62,7 @@ export function SyncStatusBanner({
       ? status.pendingCount > 0
         ? `Offline, ${status.pendingCount} Änderungen ausstehend`
         : 'Offline'
-      : status.kind === 'syncing'
-        ? `Synchronisiere … ${status.pendingCount} ausstehend`
-        : `${status.failedCount} Änderungen konnten nicht synchronisiert werden. Erneut versuchen.`;
+      : `${status.failedCount} Änderungen konnten nicht synchronisiert werden. Erneut versuchen.`;
 
   const content = (
     <ThemedText type="smallBold" className="text-white text-center">

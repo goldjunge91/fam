@@ -18,14 +18,6 @@ export function describeSyncStatus(status: SyncStatusView): {
     };
   }
 
-  if (status.kind === 'syncing') {
-    return {
-      text: `Synchronisiere … (${status.pendingCount} ausstehend)`,
-      short: `${status.pendingCount} ausstehend`,
-      tone: 'warning',
-    };
-  }
-
   if (status.kind === 'failed') {
     return {
       text: `${status.failedCount} Änderungen konnten nicht synchronisiert werden.`,
