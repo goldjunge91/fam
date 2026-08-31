@@ -20,8 +20,10 @@ import { debugLogEvent } from '@/lib/debug-log';
 import { useNavigationChrome } from './navigation-chrome-provider';
 
 const DRAWER_WIDTH_RATIO = 0.84;
+const ANDROID_DRAWER_CLOSE_DELAY_MS = 300;
+type DrawerRoute = Parameters<typeof router.push>[0];
 
-debugLogEvent('navigation-drawer.module-loaded', { variant: 'shared' });
+debugLogEvent('navigation-drawer.module-loaded', { variant: 'android' });
 
 export function NavigationDrawer() {
   const { isDrawerOpen, closeDrawer } = useNavigationChrome();
@@ -34,6 +36,15 @@ export function NavigationDrawer() {
   useEffect(() => {
     translateX.value = withTiming(isDrawerOpen ? 0 : -1, { duration: 220 });
   }, [isDrawerOpen, translateX]);
+
+  function navigateTo(href: string) {
+    debugLogEvent('navigation-drawer.navigate', { variant: 'android', href });
+    // Die neue Route bleibt unter dem nativen Modal abgeschirmt, bis der Tap
+    // abgeschlossen ist. So kann Android nicht in den darunterliegenden Screen
+    // durchreichen und dort versehentlich ein zweites Sheet öffnen.
+    router.push(href as DrawerRoute);
+    setTimeout(closeDrawer, ANDROID_DRAWER_CLOSE_DELAY_MS);
+  }
 
   const animatedStyle = useAnimatedStyle(() => ({
     transform: [
@@ -70,7 +81,7 @@ export function NavigationDrawer() {
             },
             animatedStyle,
           ]}>
-          {isDrawerOpen && <DrawerContent />}
+          {isDrawerOpen && <DrawerContent onNavigate={navigateTo} />}
         </Animated.View>
       </View>
     </Modal>
@@ -78,17 +89,11 @@ export function NavigationDrawer() {
 }
 
 // Beim Schließen den Drawer-Inhalt vollständig unmounten.
-function DrawerContent() {
+function DrawerContent({ onNavigate }: { onNavigate: (href: string) => void }) {
   const theme = useTheme();
   const pathname = usePathname();
   const { closeDrawer } = useNavigationChrome();
   const { isFeatureEnabled } = useFeatureAccess();
-
-  function navigateTo(href: string) {
-    debugLogEvent('navigation-drawer.navigate', { variant: 'shared', href });
-    closeDrawer();
-    setTimeout(() => router.push(href as Parameters<typeof router.push>[0]), 250);
-  }
 
   const drawerGroups = getDrawerGroups();
   const visibleGroups = drawerGroups
@@ -137,7 +142,7 @@ function DrawerContent() {
               return (
                 <Pressable
                   key={route.href}
-                  onPress={() => navigateTo(route.href)}
+                  onPress={() => onNavigate(route.href)}
                   accessibilityRole="button"
                   accessibilityState={{ selected: isActive }}
                   className={`drawer-nav-row ${isActive ? 'bg-background-selected' : ''}`}>
@@ -167,7 +172,7 @@ function DrawerContent() {
       </ScrollView>
 
       <Pressable
-        onPress={() => navigateTo('/settings')}
+        onPress={() => onNavigate('/settings')}
         accessibilityRole="button"
         className="drawer-manage-row">
         <View className="drawer-settings-icon">

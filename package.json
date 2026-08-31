@@ -123,7 +123,7 @@
         "metro:android:development": "bun scripts/start-android-metro.ts --env .env.development.local",
         "metro:android:clear": "bun scripts/start-android-metro.ts --env .env.local -- --clear",
         "clean": "expo prebuild --clean -p ios",
-        "android": "bun scripts/run-android.ts --env .env.local",
+        "android": "bun scripts/run-android.ts --env .env.developmnent.android.local",
         "android:local": "bun scripts/run-android.ts --env .env.local",
         "android:development": "bun scripts/run-android.ts --env .env.development.local",
         "android:release": "bun scripts/run-android.ts --env .env.preview --variant release",
