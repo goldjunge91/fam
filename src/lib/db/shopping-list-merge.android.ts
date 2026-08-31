@@ -1,8 +1,8 @@
 import type { CategorySource } from '@/features/shopping-list/classification/types';
 import { parseJsonArray } from '@/lib/db/json-array';
 import { type EnqueueMutationInput, enqueueMutation } from '@/lib/db/outbox';
-import { debugLogEvent } from '@/lib/debug-log';
 import type { SqlDatabase } from '@/lib/db/types';
+import { debugLogEvent } from '@/lib/debug-log';
 import { normalizeUnit } from '@/lib/units';
 
 debugLogEvent('shopping-list.merge.module-loaded', { variant: 'android' });

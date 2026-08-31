@@ -4,8 +4,8 @@ import { Pressable, ScrollView, TextInput, View } from 'react-native';
 
 import { DateWheelField } from '@/components/forms/date-wheel-field';
 import { ThemedText } from '@/components/theme/themed-text';
-import { debugLogEvent } from '@/lib/debug-log';
 import { useTheme } from '@/hooks/use-theme';
+import { debugLogEvent } from '@/lib/debug-log';
 import { formatAmount, formatPackageHint } from '@/lib/package-size';
 import { type StorageKind, storageKindForCategory } from '../domain-logik/shopping-categories';
 import type { LocalShoppingItem } from '../hooks/use-shopping-list';

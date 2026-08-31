@@ -9,8 +9,8 @@ import ReorderableList, {
 } from 'react-native-reorderable-list';
 
 import { ThemedText } from '@/components/theme/themed-text';
-import { debugLogEvent } from '@/lib/debug-log';
 import { useTheme } from '@/hooks/use-theme';
+import { debugLogEvent } from '@/lib/debug-log';
 import {
   parseCategoryOrder,
   SHOPPING_CATEGORIES,
