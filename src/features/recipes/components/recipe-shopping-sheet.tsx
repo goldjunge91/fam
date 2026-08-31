@@ -35,6 +35,11 @@ export function RecipeShoppingSheet({ visible, detail, servings, onClose }: Prop
   // missing-ingredients-screen.tsx (#131-Nachschaerfung).
   const [storeOverrides, setStoreOverrides] = useState<Record<string, string | null>>({});
   const [unlocking, setUnlocking] = useState(false);
+  // Eigener Sperrzustand statt addShoppingItem.isPending: die Mutation wird
+  // im Loop pro Zutat einzeln aufgerufen, isPending flackert dazwischen
+  // wieder auf false — der Button muss ueber die gesamte Uebertragsdauer
+  // gesperrt bleiben (gespiegelt zu missing-ingredients-screen.tsx).
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const addShoppingItem = useAddShoppingItem();
   const hasAccess = isPremium || accessGranted;
   const { data: missing = EMPTY_MISSING, isLoading } = useRecipeShoppingNeeds(
@@ -86,6 +91,7 @@ export function RecipeShoppingSheet({ visible, detail, servings, onClose }: Prop
 
   async function addSelected() {
     const selectedItems = missing.filter((item) => selected.has(item.productId));
+    setIsSubmitting(true);
     try {
       for (const item of selectedItems) {
         // Alle Erzeugungswege nutzen den Resolver (#223 Abschnitt 10) — hier
@@ -122,6 +128,8 @@ export function RecipeShoppingSheet({ visible, detail, servings, onClose }: Prop
         'Übernahme fehlgeschlagen',
         error instanceof Error ? error.message : 'Die Zutaten konnten nicht übernommen werden.',
       );
+    } finally {
+      setIsSubmitting(false);
     }
   }
 
@@ -228,8 +236,8 @@ export function RecipeShoppingSheet({ visible, detail, servings, onClose }: Prop
           </View>
           <SheetButton
             label={`${selected.size} ${selected.size === 1 ? 'Zutat' : 'Zutaten'} übernehmen`}
-            loading={addShoppingItem.isPending}
-            disabled={selected.size === 0}
+            loading={isSubmitting}
+            disabled={selected.size === 0 || isSubmitting}
             onPress={addSelected}
           />
         </>
@@ -254,6 +262,7 @@ function SheetButton({
       onPress={onPress}
       disabled={disabled || loading}
       role="button"
+      accessibilityState={{ disabled: disabled || loading, busy: loading }}
       className={`h-12 mt-[14px] rounded-card items-center justify-center px-[14px] bg-accent active:opacity-75 ${
         disabled || loading ? 'opacity-45' : ''
       }`}>

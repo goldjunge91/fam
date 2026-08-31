@@ -304,6 +304,38 @@ describe('RecipeShoppingSheet', () => {
     );
   });
 
+  it('sperrt den Uebernehmen-Button waehrend des gesamten Uebertrags, nicht nur zwischen einzelnen Zutaten', async () => {
+    const user = userEvent.setup();
+    let resolveFirst: (() => void) | undefined;
+    mockAddMutateAsync.mockImplementationOnce(
+      () =>
+        new Promise<void>((resolve) => {
+          resolveFirst = resolve;
+        }),
+    );
+    mockNeeds = [
+      {
+        productId: 'p-tomaten',
+        name: 'Tomaten',
+        neededGrams: 400,
+        availableGrams: 100,
+        missingGrams: 300,
+        preferredStoreId: null,
+      },
+    ];
+    await renderSheet();
+
+    const button = screen.getByRole('button', { name: '1 Zutat übernehmen' });
+    user.press(button);
+
+    await waitFor(() => {
+      expect(button).toBeDisabled();
+      expect(button).toBeBusy();
+    });
+
+    resolveFirst?.();
+  });
+
   it('schliesst das Sheet nach erfolgreichem Uebertrag weiterhin ueber onClose', async () => {
     const user = userEvent.setup();
     const onClose = jest.fn();

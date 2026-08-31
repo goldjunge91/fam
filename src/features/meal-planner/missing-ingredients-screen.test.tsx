@@ -1,4 +1,4 @@
-import { render, screen, userEvent } from '@testing-library/react-native';
+import { render, screen, userEvent, waitFor } from '@testing-library/react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import { MissingIngredientsScreen } from './missing-ingredients-screen';
@@ -225,6 +225,32 @@ describe('MissingIngredientsScreen', () => {
     await user.press(screen.getByText('2 Artikel zur Einkaufsliste hinzufügen'));
 
     expect(mockRouterBack).toHaveBeenCalledTimes(1);
+  });
+
+  it('sperrt den Button waehrend des gesamten Uebertrags, nicht nur zwischen einzelnen Artikeln', async () => {
+    // addShoppingItem.mutateAsync wird im Loop pro Artikel aufgerufen —
+    // isPending der Mutation allein flackert zwischen den Aufrufen wieder
+    // auf false. Der Button muss ueber die gesamte handleAddSelected-Dauer
+    // gesperrt bleiben (2 Artikel in mockMissingIngredients).
+    const user = userEvent.setup();
+    let resolveFirst: (() => void) | undefined;
+    mockAddMutateAsync.mockImplementationOnce(
+      () =>
+        new Promise<void>((resolve) => {
+          resolveFirst = resolve;
+        }),
+    );
+    await renderScreen();
+
+    const button = screen.getByRole('button', { name: '2 Artikel zur Einkaufsliste hinzufügen' });
+    user.press(button);
+
+    await waitFor(() => {
+      expect(button).toBeDisabled();
+      expect(button).toBeBusy();
+    });
+
+    resolveFirst?.();
   });
 
   it('ist standardmaessig alles vorausgewaehlt und uebernimmt beim Bestaetigen', async () => {

@@ -40,6 +40,11 @@ export function MissingIngredientsScreen() {
   // von "noch nicht angefasst" unterscheidbar waere.
   const [storeOverrides, setStoreOverrides] = useState<Record<string, string | null>>({});
   const addShoppingItem = useAddShoppingItem();
+  // Eigener Sperrzustand statt addShoppingItem.isPending: die Mutation wird
+  // im Loop pro Artikel einzeln aufgerufen, isPending flackert dazwischen
+  // wieder auf false — der Button muss aber ueber die gesamte Uebertragsdauer
+  // gesperrt bleiben.
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   useEffect(() => {
     // Nur Artikel mit echtem Fehlbetrag vorauswaehlen — bereits gedeckte
@@ -64,37 +69,42 @@ export function MissingIngredientsScreen() {
 
   async function handleAddSelected() {
     if (!householdId) return;
-    const toAdd = missing.filter((m) => selected.has(m.productId));
-    for (const item of toAdd) {
-      // Alle Erzeugungswege nutzen den Resolver (#223 Abschnitt 10) — hier
-      // ohne `categoryTags`, da diese Zutaten nur als Produkt-Id/Name
-      // bekannt sind, nicht als vollstaendiges OFF-Produkt.
-      const classification = await resolveCategoryForItem({
-        householdId,
-        productId: item.productId,
-        name: item.name,
-      });
-      await addShoppingItem.mutateAsync({
-        household_id: householdId,
-        name: item.name,
-        // Bei bereits gedecktem Bedarf (missingGrams <= 0) gibt es kein
-        // sinnvolles Delta zu uebertragen — dann zaehlt die volle
-        // benoetigte Menge (Nachschub-Fall).
-        quantity: item.missingGrams > 0 ? item.missingGrams : item.neededGrams,
-        unit: 'g',
-        product_id: item.productId,
-        category_id: classification.categoryId,
-        category_source: classification.source,
-        category_classifier_version: classification.classifierVersion,
-        store_id: storeIdFor(item),
-        recipe_names: item.recipeNames,
-      });
+    setIsSubmitting(true);
+    try {
+      const toAdd = missing.filter((m) => selected.has(m.productId));
+      for (const item of toAdd) {
+        // Alle Erzeugungswege nutzen den Resolver (#223 Abschnitt 10) — hier
+        // ohne `categoryTags`, da diese Zutaten nur als Produkt-Id/Name
+        // bekannt sind, nicht als vollstaendiges OFF-Produkt.
+        const classification = await resolveCategoryForItem({
+          householdId,
+          productId: item.productId,
+          name: item.name,
+        });
+        await addShoppingItem.mutateAsync({
+          household_id: householdId,
+          name: item.name,
+          // Bei bereits gedecktem Bedarf (missingGrams <= 0) gibt es kein
+          // sinnvolles Delta zu uebertragen — dann zaehlt die volle
+          // benoetigte Menge (Nachschub-Fall).
+          quantity: item.missingGrams > 0 ? item.missingGrams : item.neededGrams,
+          unit: 'g',
+          product_id: item.productId,
+          category_id: classification.categoryId,
+          category_source: classification.source,
+          category_classifier_version: classification.classifierVersion,
+          store_id: storeIdFor(item),
+          recipe_names: item.recipeNames,
+        });
+      }
+      Alert.alert(
+        'Einkaufsliste aktualisiert',
+        `${toAdd.length} ${toAdd.length === 1 ? 'Artikel wurde' : 'Artikel wurden'} ergänzt.`,
+      );
+      router.back();
+    } finally {
+      setIsSubmitting(false);
     }
-    Alert.alert(
-      'Einkaufsliste aktualisiert',
-      `${toAdd.length} ${toAdd.length === 1 ? 'Artikel wurde' : 'Artikel wurden'} ergänzt.`,
-    );
-    router.back();
   }
 
   async function unlockPremium() {
@@ -172,8 +182,8 @@ export function MissingIngredientsScreen() {
           <Button
             label={`${selected.size} Artikel zur Einkaufsliste hinzufügen`}
             onPress={handleAddSelected}
-            disabled={selected.size === 0 || addShoppingItem.isPending || !session}
-            loading={addShoppingItem.isPending}
+            disabled={selected.size === 0 || isSubmitting || !session}
+            loading={isSubmitting}
           />
         </View>
       )}
