@@ -1,7 +1,9 @@
+import { useAnalyticsSettingsStore } from '@/constants/analytics';
 import { trackAptabaseError, trackAptabaseEvent } from '@/lib/analytics/aptabase';
 import { getPostHogClient, isPostHogConfigured } from '@/lib/posthog';
 import { Sentry } from '@/lib/sentry';
 import {
+  addDiagnosticStep,
   measureOperation,
   reportError,
   reportWarning,
@@ -34,6 +36,7 @@ describe('telemetry fan-out', () => {
 
   beforeEach(() => {
     jest.clearAllMocks();
+    useAnalyticsSettingsStore.getState().resetOverrides();
     setTelemetryUserId(null);
     (isPostHogConfigured as jest.Mock).mockReturnValue(true);
     (getPostHogClient as jest.Mock).mockReturnValue({
@@ -116,6 +119,47 @@ describe('telemetry fan-out', () => {
       'warning.occurred',
       capture.mock.calls.at(-1)?.[1],
     );
+  });
+
+  it('spricht Aptabase und PostHog unabhaengig an', () => {
+    useAnalyticsSettingsStore.getState().setOverride('providers.aptabase', false);
+
+    trackEvent('sync.pull.completed', { entity: 'households' });
+
+    expect(trackAptabaseEvent).not.toHaveBeenCalled();
+    expect(capture).toHaveBeenCalledWith('sync.pull.completed', expect.any(Object));
+
+    useAnalyticsSettingsStore.getState().setOverride('providers.aptabase', null);
+    useAnalyticsSettingsStore.getState().setOverride('providers.posthog', false);
+    jest.clearAllMocks();
+
+    trackEvent('sync.pull.completed', { entity: 'households' });
+
+    expect(trackAptabaseEvent).toHaveBeenCalledWith('sync.pull.completed', expect.any(Object));
+    expect(capture).not.toHaveBeenCalled();
+  });
+
+  it('trennt Produkt-, Fehler- und Diagnosekanaele', () => {
+    const store = useAnalyticsSettingsStore.getState();
+    store.setOverride('channels.productEvents', false);
+    trackEvent('recipe.create.completed', {}, 'productEvents');
+    expect(trackAptabaseEvent).not.toHaveBeenCalled();
+    expect(capture).not.toHaveBeenCalled();
+
+    store.setOverride('channels.productEvents', null);
+    store.setOverride('channels.diagnostics', false);
+    addDiagnosticStep('route.changed', { route: '/settings' });
+    expect(Sentry.addBreadcrumb).toHaveBeenCalled();
+    expect(trackAptabaseEvent).not.toHaveBeenCalled();
+    expect(capture).not.toHaveBeenCalled();
+
+    store.setOverride('channels.diagnostics', null);
+    store.setOverride('channels.errorReports', false);
+    reportError(new Error('Testfehler'));
+    expect(Sentry.captureException).toHaveBeenCalled();
+    expect(trackAptabaseError).not.toHaveBeenCalled();
+    expect(captureException).not.toHaveBeenCalled();
+    expect(capture).not.toHaveBeenCalledWith('error.occurred', expect.any(Object));
   });
 
   it('misst erfolgreiche Operationen mit einer gemeinsamen Korrelation', async () => {

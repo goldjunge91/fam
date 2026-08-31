@@ -62,6 +62,18 @@ describe('Aptabase Analytics', () => {
       );
     });
 
+    it('initialisiert nicht, wenn Aptabase lokal deaktiviert ist', () => {
+      process.env.EXPO_PUBLIC_APTABASE_APP_KEY = 'A-EU-1234567890';
+      const { useAnalyticsSettingsStore } = require('@/constants/analytics');
+      useAnalyticsSettingsStore.getState().setOverride('providers.aptabase', false);
+      const { initAptabase, isAptabaseConfigured } = require('@/lib/analytics/aptabase');
+
+      initAptabase();
+
+      expect(isAptabaseConfigured()).toBe(false);
+      expect(mockInit).not.toHaveBeenCalled();
+    });
+
     it('stürzt nicht ab, wenn init wirft, und fängt Fehler ab', () => {
       process.env.EXPO_PUBLIC_APTABASE_APP_KEY = 'A-EU-1234567890';
       mockInit.mockImplementationOnce(() => {
