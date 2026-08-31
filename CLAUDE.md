@@ -145,3 +145,13 @@ This protocol applies when ending a Beads implementation workflow. It is subordi
 - Do not commit or push without clear authority from the active profile or the current user request.
 - If a required sync or push is blocked, stop and report the exact command and error.
 <!-- END BEADS INTEGRATION -->
+
+### Local Windows Beads runtime
+
+Before running any `bd` command in this workspace, set the Dolt root for the embedded database:
+
+```powershell
+$env:DOLT_ROOT_PATH = 'C:\Users\tozzi'
+```
+
+New agent shells do not inherit the environment of an earlier agent. Without this setting, `bd` cannot open the local `fam` database.

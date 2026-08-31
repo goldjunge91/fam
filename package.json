@@ -109,7 +109,7 @@
     },
     "scripts": {
         "prepare": "git config core.hooksPath .githooks",
-        "start": "EXPO_NO_DOTENV=1 dotenv -o -e .env.local -- expo start",
+        "start": "EXPO_NO_DOTENV=1 dotenv -o -e.env.developmnent.android.local -- expo start",
         "start:local": "EXPO_NO_DOTENV=1 dotenv -o -e .env.local -- expo start",
         "start:development": "EXPO_NO_DOTENV=1 dotenv -o -e .env.development.local -- expo start",
         "native:status": "bun scripts/native-build.ts status",
@@ -123,7 +123,7 @@
         "metro:android:development": "bun scripts/start-android-metro.ts --env .env.development.local",
         "metro:android:clear": "bun scripts/start-android-metro.ts --env .env.local -- --clear",
         "clean": "expo prebuild --clean -p ios",
-        "android": "bun scripts/run-android.ts --env .env.local",
+        "android": "bun scripts/run-android.ts --env .env.developmnent.android.local",
         "android:local": "bun scripts/run-android.ts --env .env.local",
         "android:development": "bun scripts/run-android.ts --env .env.development.local",
         "android:release": "bun scripts/run-android.ts --env .env.preview --variant release",

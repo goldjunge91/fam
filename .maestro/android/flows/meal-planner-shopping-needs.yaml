@@ -1,0 +1,59 @@
+appId: com.goldjunge91.fam
+tags:
+  - local-session
+---
+# Abnahme fuer Epic #15 / #132. Der Flow tippt bewusst keine Zutatenzeile an:
+# Die berechnete Fehlmenge wird mit genau einer Bestaetigung uebernommen.
+# Voraussetzung: angemeldete Session, Premium-Zugriff, aktueller Wochenplan mit
+# mindestens einem Rezept und einer nicht im Vorrat vorhandenen Zutat. Mit
+# `-e INGREDIENT_NAME=...` kann die erwartete Zutat überschrieben werden.
+- runFlow: ../subflows/launch-signed-in-dashboard.yaml
+
+- tapOn: "Menü öffnen"
+- tapOn: "Essensplan"
+- extendedWaitUntil:
+    visible: "Einkauf vorbereiten"
+    timeout: 15000
+- tapOn: "Einkauf vorbereiten"
+
+- extendedWaitUntil:
+    visible: "Fehlende Zutaten"
+    timeout: 15000
+- assertVisible: "Bedarf dieser Woche minus Vorrat"
+- assertVisible: "${INGREDIENT_NAME}"
+
+# Dynamische Anzahl, weil die Berechnung mehrere Produkte liefern kann.
+- extendedWaitUntil:
+    visible:
+      text: ".*Artikel zur Einkaufsliste hinzufügen"
+    timeout: 15000
+- tapOn:
+    text: ".*Artikel zur Einkaufsliste hinzufügen"
+- extendedWaitUntil:
+    visible:
+      text: '.*Artikel zur Einkaufsliste hinzugefügt\.'
+    timeout: 15000
+
+# Gegenprobe: Der Eintrag ist nach dem Übertrag auch in der Einkaufsliste sichtbar.
+- tapOn: "Zurück zu Wochenplan"
+- extendedWaitUntil:
+    visible: "Essensplan"
+    timeout: 10000
+- tapOn: "Menü öffnen"
+- tapOn:
+    text: "Einkauf, ›"
+    retryTapIfNoChange: false
+- waitForAnimationToEnd
+- assertNotVisible: "Reihenfolge bearbeiten"
+- extendedWaitUntil:
+    visible: "Einkaufsliste"
+    timeout: 60000
+- tapOn: "Markt filtern, aktuell: Alle Listen"
+- extendedWaitUntil:
+    visible: "Ohne Markt, .*"
+    timeout: 10000
+- tapOn: "Ohne Markt, .*"
+- extendedWaitUntil:
+    visible: "${INGREDIENT_NAME}"
+    timeout: 15000
+- assertVisible: "${INGREDIENT_NAME}"

@@ -315,3 +315,13 @@ bd prime                # Refresh Beads context
 
 **Architecture in one line:** issues live in a local Dolt DB; sync uses `refs/dolt/data` on your git remote; `.beads/issues.jsonl` is a passive export. See https://github.com/gastownhall/beads/blob/main/docs/SYNC_CONCEPTS.md for details and anti-patterns.
 <!-- END BEADS CODEX SETUP -->
+
+### Local Windows Beads runtime
+
+Before running any `bd` command in this workspace, set the Dolt root for the embedded database:
+
+```powershell
+$env:DOLT_ROOT_PATH = 'C:\Users\tozzi'
+```
+
+New agent shells do not inherit the environment of an earlier agent. Without this setting, `bd` cannot open the local `fam` database.
