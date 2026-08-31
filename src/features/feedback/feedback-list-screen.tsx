@@ -1,9 +1,11 @@
 import { FlashList } from '@shopify/flash-list';
 import { router } from 'expo-router';
+import { useCallback, useEffect, useState } from 'react';
 import { Pressable, View } from 'react-native';
 
 import { Screen } from '@/components/layout/screen';
 import { ThemedText } from '@/components/theme/themed-text';
+import { ThemedView } from '@/components/theme/themed-view';
 import { Button } from '@/components/ui/buttons';
 import { Card } from '@/components/ui/card';
 import { EmptyState } from '@/components/ui/empty-state';
@@ -15,6 +17,9 @@ import {
   FEEDBACK_STATUS_LABELS,
   FEEDBACK_TYPE_LABELS,
 } from '@/features/feedback/labels';
+import { useFeedbackRealtime } from '@/features/feedback/use-feedback-realtime';
+
+const BANNER_DURATION_MS = 4000;
 
 function TicketRow({ ticket }: { ticket: FeedbackTicket }) {
   return (
@@ -41,6 +46,18 @@ export function FeedbackListScreen() {
   const userId = session?.user.id;
 
   const { data: tickets, isLoading } = useMyTickets(userId);
+
+  const [banner, setBanner] = useState<string | null>(null);
+  const onTicketInProgress = useCallback(() => {
+    setBanner('Ein Ticket ist jetzt in Bearbeitung.');
+  }, []);
+  useFeedbackRealtime({ userId, onTicketInProgress });
+
+  useEffect(() => {
+    if (!banner) return;
+    const timer = setTimeout(() => setBanner(null), BANNER_DURATION_MS);
+    return () => clearTimeout(timer);
+  }, [banner]);
 
   const action = <Button label="+ Neu" onPress={() => router.push('/settings/feedback/new')} />;
 
@@ -72,6 +89,11 @@ export function FeedbackListScreen() {
       action={action}
       scroll={false}
       back={{ label: 'Einstellungen', href: '/settings' }}>
+      {banner ? (
+        <ThemedView type="backgroundElement" className="rounded-card p-two mb-two">
+          <ThemedText type="small">{banner}</ThemedText>
+        </ThemedView>
+      ) : null}
       <FlashList
         data={tickets}
         keyExtractor={(item) => item.id}

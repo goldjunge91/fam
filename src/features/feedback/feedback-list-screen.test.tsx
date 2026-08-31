@@ -3,6 +3,7 @@ import { act, render, screen, userEvent } from '@testing-library/react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import { FeedbackListScreen } from '@/features/feedback/feedback-list-screen';
+import { useFeedbackRealtime } from '@/features/feedback/use-feedback-realtime';
 
 const mockPush = jest.fn();
 let mockTicketsResult: { data: unknown; isLoading: boolean } = { data: [], isLoading: false };
@@ -26,6 +27,10 @@ jest.mock('@/features/auth/session-provider', () => ({
 
 jest.mock('@/features/feedback/api', () => ({
   useMyTickets: () => mockTicketsResult,
+}));
+
+jest.mock('@/features/feedback/use-feedback-realtime', () => ({
+  useFeedbackRealtime: jest.fn(),
 }));
 
 describe('FeedbackListScreen', () => {
@@ -120,5 +125,29 @@ describe('FeedbackListScreen', () => {
     await user.press(screen.getByRole('button', { name: '+ Neu' }));
 
     expect(mockPush).toHaveBeenCalledWith('/settings/feedback/new');
+  });
+
+  it('zeigt ein Banner, wenn der Realtime-Hook einen Statuswechsel meldet', async () => {
+    mockTicketsResult = {
+      data: [
+        {
+          id: 'ticket-1',
+          ticket_number: 142,
+          subject: 'App stürzt ab',
+          type: 'bug',
+          status: 'open',
+          created_at: '2026-08-01T00:00:00.000Z',
+        },
+      ],
+      isLoading: false,
+    };
+    await renderScreen();
+
+    const onTicketInProgress = jest.mocked(useFeedbackRealtime).mock.calls[0][0].onTicketInProgress;
+    await act(() => {
+      onTicketInProgress?.('ticket-1');
+    });
+
+    expect(await screen.findByText('Ein Ticket ist jetzt in Bearbeitung.')).toBeTruthy();
   });
 });

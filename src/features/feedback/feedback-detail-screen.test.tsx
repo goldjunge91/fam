@@ -1,8 +1,9 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { render, screen, userEvent, waitFor } from '@testing-library/react-native';
+import { act, render, screen, userEvent, waitFor } from '@testing-library/react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import { FeedbackDetailScreen } from '@/features/feedback/feedback-detail-screen';
+import { useFeedbackRealtime } from '@/features/feedback/use-feedback-realtime';
 
 const mockSendReplyMutateAsync = jest.fn().mockResolvedValue({ id: 'msg-2' });
 let mockTicket: { data: unknown } = { data: undefined };
@@ -33,6 +34,10 @@ jest.mock('@/features/feedback/api', () => ({
     mutateAsync: mockSendReplyMutateAsync,
     isPending: false,
   }),
+}));
+
+jest.mock('@/features/feedback/use-feedback-realtime', () => ({
+  useFeedbackRealtime: jest.fn(),
 }));
 
 describe('FeedbackDetailScreen', () => {
@@ -132,5 +137,16 @@ describe('FeedbackDetailScreen', () => {
     expect(
       screen.getByText('Dieses Ticket ist geschlossen. Neue Antworten sind nicht mehr möglich.'),
     ).toBeTruthy();
+  });
+
+  it('zeigt ein Banner, wenn der Realtime-Hook eine staff-Antwort meldet', async () => {
+    await renderScreen();
+
+    const onStaffReply = jest.mocked(useFeedbackRealtime).mock.calls[0][0].onStaffReply;
+    await act(() => {
+      onStaffReply?.('ticket-1');
+    });
+
+    expect(await screen.findByText('Das Team hat geantwortet.')).toBeTruthy();
   });
 });

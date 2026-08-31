@@ -1,5 +1,5 @@
 import { useLocalSearchParams } from 'expo-router';
-import { useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { View } from 'react-native';
 
 import { TextField } from '@/components/forms/text-field';
@@ -20,6 +20,9 @@ import {
   FEEDBACK_STATUS_LABELS,
   FEEDBACK_TYPE_LABELS,
 } from '@/features/feedback/labels';
+import { useFeedbackRealtime } from '@/features/feedback/use-feedback-realtime';
+
+const BANNER_DURATION_MS = 4000;
 
 function MessageBubble({ message }: { message: FeedbackMessage }) {
   const isStaff = message.author_type === 'staff';
@@ -48,6 +51,18 @@ export function FeedbackDetailScreen() {
   const [reply, setReply] = useState('');
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
 
+  const [banner, setBanner] = useState<string | null>(null);
+  const onStaffReply = useCallback(() => {
+    setBanner('Das Team hat geantwortet.');
+  }, []);
+  useFeedbackRealtime({ userId, ticketId: id, onStaffReply });
+
+  useEffect(() => {
+    if (!banner) return;
+    const timer = setTimeout(() => setBanner(null), BANNER_DURATION_MS);
+    return () => clearTimeout(timer);
+  }, [banner]);
+
   const isClosed = ticket?.status === 'closed';
 
   async function handleSend() {
@@ -66,6 +81,11 @@ export function FeedbackDetailScreen() {
 
   return (
     <Screen title={ticket ? `#${ticket.ticket_number}` : 'Ticket'} back={{ label: 'Feedback' }}>
+      {banner ? (
+        <ThemedView type="backgroundElement" className="rounded-card p-two">
+          <ThemedText type="small">{banner}</ThemedText>
+        </ThemedView>
+      ) : null}
       {ticket ? (
         <Card>
           <View className="gap-one">
