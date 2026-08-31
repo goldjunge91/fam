@@ -10,12 +10,12 @@ import { Card } from '@/components/ui/card';
 import { SegmentedControl } from '@/components/ui/segmented-control';
 import { useSession } from '@/features/auth/session-provider';
 import { type FeedbackType, useCreateTicketMutation } from '@/features/feedback/api';
+import { FEEDBACK_TYPE_LABELS } from '@/features/feedback/labels';
 
-const TYPE_OPTIONS = [
-  { value: 'bug', label: 'Fehler' },
-  { value: 'suggestion', label: 'Anregung' },
-  { value: 'other', label: 'Sonstiges' },
-] as const satisfies readonly { value: FeedbackType; label: string }[];
+const TYPE_OPTIONS = (Object.keys(FEEDBACK_TYPE_LABELS) as FeedbackType[]).map((value) => ({
+  value,
+  label: FEEDBACK_TYPE_LABELS[value],
+}));
 
 export function FeedbackFormScreen() {
   const { session } = useSession();

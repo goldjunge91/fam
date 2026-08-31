@@ -180,7 +180,7 @@ export function SettingsScreen() {
             <SettingsRow
               icon="💬"
               label="Feedback geben"
-              onPress={() => router.push('/settings/feedback/new')}
+              onPress={() => router.push('/settings/feedback')}
               last
             />
           </SettingsGroup>

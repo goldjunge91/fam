@@ -32,7 +32,9 @@ export function useMyTickets(userId: string | undefined) {
         .order('created_at', { ascending: false });
 
       if (error) throw new Error(error.message);
-      return data;
+      // Siehe Kommentar bei FeedbackTicket: type/status kommen aus dem
+      // generierten Row-Typ nur als `string`.
+      return (data ?? []) as FeedbackTicket[];
     },
     enabled: !!userId,
   });
