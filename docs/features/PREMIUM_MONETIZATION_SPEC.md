@@ -586,6 +586,31 @@ Die folgenden Punkte bleiben aus dem Brainstorming in Epic #23 offen:
 4. Lassen die aktuellen Store- und Subscription-Gruppen-Konfigurationen eine
    gleichzeitige Buchung von Plus und AI zu, oder brauchen wir später ein
    Bundle-Produkt?
+
+   **Befund fam-yu6.8 (2026-09-01):** Im RevenueCat-Projekt `projca17095c`
+   sind für beide Stores keine App-Store-Connect- bzw. Play-Console-API-
+   Credentials hinterlegt (`get-product-store-state` liefert für alle acht
+   Produkte `Missing App Store Connect API credentials` bzw.
+   `Missing credentials for the store`). Damit lässt sich die tatsächliche
+   Subscription-Group- (iOS) bzw. Base-Plan-Konfiguration (Android) nicht
+   automatisiert über den RevenueCat-MCP verifizieren; das bleibt eine
+   manuelle Maintainer-Prüfung direkt in den Stores.
+
+   Konkrete Maintainer-Schritte vor dem ersten kombinierten Kauf-Test:
+   - App Store Connect: pro Bundle-ID prüfen, dass `fam_plus_monthly` /
+     `fam_plus_yearly` in einer eigenen Subscription Group liegen und
+     `fam_ai_monthly` / `fam_ai_yearly` in einer zweiten, getrennten Group.
+     Abos derselben Group schließen sich auf iOS gegenseitig aus; nur
+     getrennte Groups erlauben gleichzeitig aktives Plus und AI.
+   - Google Play Console: prüfen, dass `fam_plus` und `fam_ai` zwei getrennte
+     Subscription-Produkte sind (nicht zwei Base-Plans desselben Produkts).
+     Getrennte Produkte lassen sich unabhängig voneinander abonnieren; ein
+     kombinierter Kauf-/Add-on-Pfad braucht keine zusätzliche Konfiguration.
+   - Optional: App-Store-Connect- und Play-Console-API-Credentials in
+     RevenueCat hinterlegen (Project Settings → Apps), damit
+     `get-product-store-state` künftig automatisiert prüfbar ist.
+   - Ergebnis (Group-Zuordnung bestätigt oder Korrekturbedarf) hier
+     nachtragen, sobald die manuelle Prüfung erfolgt ist.
 5. Welche Analytics-Kennzahlen werden für Paywall, Conversion, Kündigung,
    Werbung, AI-Nutzung und AI-Kosten benötigt?
 
