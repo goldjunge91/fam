@@ -1,24 +1,24 @@
 {
-  "permissions": {
-    "allow": []
-  },
-  "hooks": {
-    "SessionStart": [
-      {
-        "matcher": "",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "bd prime --hook-json"
-          }
-        ]
-      }
-    ]
-  },
   "enabledPlugins": {
     "cwb-ship@cwb-plugins": false,
     "expo@claude-plugins-official": true,
     "mattpocock-skills@claude-plugins-official": false,
     "skill-creator@claude-plugins-official": false
+  },
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "command": "bd prime --hook-json",
+            "type": "command"
+          }
+        ],
+        "matcher": ""
+      }
+    ]
+  },
+  "permissions": {
+    "allow": []
   }
 }
