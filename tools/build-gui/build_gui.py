@@ -128,6 +128,9 @@ class BuildGui(tk.Tk):
         self.action = tk.StringVar(value=RUN_ACTION)
         self.approve_rebuild = tk.BooleanVar(value=False)
         self.eas_build_id = tk.StringVar()
+        # Leer = Expo/eas wählt selbst (meist das zuletzt gestartete Gerät).
+        # Name muss exakt zu 'xcrun simctl list devices' bzw. 'adb devices' passen.
+        self.device = tk.StringVar()
         self.status = tk.StringVar(value="Lock wird geprüft …")
         self.target_state = tk.StringVar()
         self.output: queue.Queue[tuple[str, object]] = queue.Queue()
@@ -137,6 +140,7 @@ class BuildGui(tk.Tk):
 
         self._build_ui()
         self._refresh_target_info()
+        self._refresh_devices()
         self.after(150, self.refresh_status)
         self.after(100, self._drain_output)
         self.protocol("WM_DELETE_WINDOW", self._close)
@@ -177,10 +181,27 @@ class BuildGui(tk.Tk):
             row=2, column=1, sticky="ew", pady=6
         )
 
+        ttk.Label(container, text="Gerät (optional)").grid(
+            row=3, column=0, sticky="w", padx=(0, 12), pady=6
+        )
+        device_frame = ttk.Frame(container)
+        device_frame.grid(row=3, column=1, sticky="ew", pady=6)
+        device_frame.columnconfigure(0, weight=1)
+        self.device_menu = ttk.Combobox(device_frame, textvariable=self.device)
+        self.device_menu.grid(row=0, column=0, sticky="ew")
+        ttk.Button(device_frame, text="⟳", width=3, command=self._refresh_devices).grid(
+            row=0, column=1, padx=(6, 0)
+        )
+        ttk.Label(
+            container,
+            text="Leer = Expo wählt selbst. Exakter Name/UDID aus 'xcrun simctl list devices' bzw. 'adb devices'.",
+            foreground="#888888",
+        ).grid(row=4, column=0, columnspan=2, sticky="w", pady=(0, 6))
+
         self.description = ttk.Label(container, anchor="w", justify="left")
-        self.description.grid(row=3, column=0, columnspan=2, sticky="ew", pady=(4, 2))
+        self.description.grid(row=5, column=0, columnspan=2, sticky="ew", pady=(4, 2))
         ttk.Label(container, textvariable=self.target_state).grid(
-            row=4, column=0, columnspan=2, sticky="w", pady=(0, 10)
+            row=6, column=0, columnspan=2, sticky="w", pady=(0, 10)
         )
 
         self.rebuild_check = ttk.Checkbutton(
@@ -188,11 +209,11 @@ class BuildGui(tk.Tk):
             text="Ich erlaube für diese Aktion ausdrücklich Prebuild, CocoaPods und Kompilierung.",
             variable=self.approve_rebuild,
         )
-        self.rebuild_check.grid(row=5, column=0, columnspan=2, sticky="w", pady=(0, 10))
+        self.rebuild_check.grid(row=7, column=0, columnspan=2, sticky="w", pady=(0, 10))
 
         log_frame = ttk.Frame(container)
-        log_frame.grid(row=6, column=0, columnspan=2, sticky="nsew")
-        container.rowconfigure(6, weight=1)
+        log_frame.grid(row=8, column=0, columnspan=2, sticky="nsew")
+        container.rowconfigure(8, weight=1)
         log_frame.columnconfigure(0, weight=1)
         log_frame.rowconfigure(0, weight=1)
         self.log = tk.Text(
@@ -209,7 +230,7 @@ class BuildGui(tk.Tk):
         self.log.configure(yscrollcommand=scrollbar.set)
 
         footer = ttk.Frame(container)
-        footer.grid(row=7, column=0, columnspan=2, sticky="ew", pady=(12, 0))
+        footer.grid(row=9, column=0, columnspan=2, sticky="ew", pady=(12, 0))
         footer.columnconfigure(0, weight=1)
         ttk.Label(footer, textvariable=self.status).grid(row=0, column=0, sticky="w")
         self.refresh_button = ttk.Button(footer, text="Status prüfen", command=self.refresh_status)
@@ -221,6 +242,44 @@ class BuildGui(tk.Tk):
 
     def _target_changed(self, _event: tk.Event[tk.Misc]) -> None:
         self._refresh_target_info()
+        self._refresh_devices()
+
+    def _refresh_devices(self) -> None:
+        platform = self._selected_target().platform
+        try:
+            names = self._list_ios_devices() if platform == "ios" else self._list_android_devices()
+        except (OSError, subprocess.SubprocessError, json.JSONDecodeError):
+            names = []
+        self.device_menu.configure(values=tuple(names))
+
+    @staticmethod
+    def _list_ios_devices() -> list[str]:
+        # '-j' liefert stabiles JSON statt der menschenlesbaren simctl-Textausgabe.
+        result = subprocess.run(
+            ["xcrun", "simctl", "list", "devices", "available", "-j"],
+            capture_output=True,
+            text=True,
+            check=True,
+            timeout=10,
+        )
+        data = json.loads(result.stdout)
+        names = []
+        for runtime_devices in data.get("devices", {}).values():
+            for device in runtime_devices:
+                if device.get("isAvailable", True):
+                    names.append(device["name"])
+        return sorted(set(names))
+
+    @staticmethod
+    def _list_android_devices() -> list[str]:
+        result = subprocess.run(
+            ["emulator", "-list-avds"],
+            capture_output=True,
+            text=True,
+            check=True,
+            timeout=10,
+        )
+        return sorted(line.strip() for line in result.stdout.splitlines() if line.strip())
 
     def _action_changed(self, _event: tk.Event[tk.Misc]) -> None:
         self._update_controls()
@@ -326,6 +385,9 @@ class BuildGui(tk.Tk):
                 "--target",
                 target.name,
             ]
+            device = self.device.get().strip()
+            if device:
+                command.extend(["--device", device])
             return (
                 self._with_env_file(command, target.env_file),
                 env,
@@ -342,6 +404,9 @@ class BuildGui(tk.Tk):
                 "--target",
                 target.name,
             ]
+            device = self.device.get().strip()
+            if device:
+                command.extend(["--device", device])
             return self._with_env_file(command, target.env_file), env, f"{target.label} starten"
 
         if action == RESTORE_ACTION:
