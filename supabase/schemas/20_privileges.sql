@@ -31,6 +31,8 @@ revoke all on public.revenuecat_ai_assignments from anon, authenticated, service
 grant delete, insert, select, update on public.revenuecat_ai_assignments to service_role;
 revoke all on public.revenuecat_processed_events from anon, authenticated, service_role;
 grant insert, select on public.revenuecat_processed_events to service_role;
+revoke all on public.ai_credit_bookings from anon, authenticated, service_role;
+grant insert, select on public.ai_credit_bookings to service_role;
 grant delete, insert, select, update on public.products to anon, authenticated, service_role;
 grant delete, insert, select, update on public.household_invites to anon, authenticated, service_role;
 grant delete, insert, select, update on public.child_profiles to anon, authenticated, service_role;
@@ -108,6 +110,11 @@ grant update (name) on public.households to authenticated;
 -- ein anonymer Client wertet sie nie aus.
 grant usage on schema private to authenticated;
 
+-- service_role braucht dieselbe USAGE fuer private.ai_credit_month_usage(),
+-- aufgerufen aus book_ai_credit()/get_ai_credit_status() (beide SECURITY
+-- INVOKER, siehe Kommentar dort).
+grant usage on schema private to service_role;
+
 grant execute on function private.is_household_member(uuid) to authenticated;
 grant execute on function private.is_household_admin(uuid) to authenticated;
 
@@ -160,6 +167,27 @@ grant execute on function public.assign_ai_household(uuid, uuid, timestamptz, bi
 revoke execute on function public.deactivate_ai_household(uuid, bigint)
   from public, anon, authenticated;
 grant execute on function public.deactivate_ai_household(uuid, bigint)
+  to service_role;
+
+-- AI-Fair-Use-Vertrag: Es existiert noch keine AI-Fachfunktion, die im Namen
+-- eines Haushaltsmitglieds bucht oder den Status anzeigt. Beide RPCs bleiben
+-- deshalb service-role-only, bis die erste AI-Funktion entscheidet, ob und
+-- wie ein Client (direkt oder ueber eine eigene Edge Function mit
+-- Entitlement-Pruefung) Zugriff bekommt.
+revoke execute on function private.ai_credit_month_usage(uuid)
+  from public, anon, authenticated;
+grant execute on function private.ai_credit_month_usage(uuid) to service_role;
+revoke execute on function private.ai_credit_subscriber_for_household(uuid)
+  from public, anon, authenticated;
+grant execute on function private.ai_credit_subscriber_for_household(uuid)
+  to service_role;
+revoke execute on function public.book_ai_credit(uuid, text, uuid, integer)
+  from public, anon, authenticated;
+grant execute on function public.book_ai_credit(uuid, text, uuid, integer)
+  to service_role;
+revoke execute on function public.get_ai_credit_status(uuid, integer)
+  from public, anon, authenticated;
+grant execute on function public.get_ai_credit_status(uuid, integer)
   to service_role;
 
 -- household_member_profiles() umgeht die profiles-RLS (SECURITY DEFINER) und

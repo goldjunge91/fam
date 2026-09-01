@@ -219,6 +219,24 @@ Die Nutzung wird haushaltsbezogen aggregiert. Ein späterer AI-Dienst muss
 Credits atomar verbuchen, eine doppelte Verbuchung bei Retries verhindern und
 den Verbrauch für die berechtigten Haushaltsmitglieder lesbar machen.
 
+**Serverseitiger Vertrag (fam-yu6.7, implementiert):** `ai_credit_bookings`
+ist ein Append-only-Ledger je `subscriber_user_id` — bewusst am Subscriber
+statt am Haushalt, weil das Kontingent bei einem erlaubten monatlichen
+AI-Haushaltswechsel erhalten bleiben muss (siehe oben). `book_ai_credit(
+p_household_id, p_action, p_request_id, p_monthly_limit default 100)` löst
+den Haushalt intern über `revenuecat_ai_assignments` auf den zugeordneten
+Subscriber auf, bucht atomar (kein Teilverbrauch bei Überschreitung) und ist
+über `p_request_id` idempotent gegen Retries. `get_ai_credit_status(
+p_household_id, p_monthly_limit)` liest denselben Stand ohne zu buchen. Beide
+RPCs sind service-role-only; eine spätere AI-Edge-Function ruft sie nach der
+eigenen Entitlement-Prüfung auf. Monatsreset ergibt sich implizit aus der
+Fensterung auf den laufenden UTC-Kalendermonat, kein separater Job nötig.
+pgTAP-Vertrag: `supabase/tests/20_ai_fair_use.test.sql` (Gewichtung, 80-/
+100-Prozent-Zustände, Idempotenz, kein Rollover, Übertrag beim
+Haushaltswechsel). Die technischen Abuse-Grenzen (Rate-Limit, Eingabelänge,
+Kostenüberwachung) sind noch nicht implementiert — dafür existiert noch keine
+aufrufende AI-Funktion, an der sie sich festmachen ließen.
+
 ### 4.3 Zusammenspiel
 
 Plus und AI sind unabhängig. Die gültigen Zustände sind:

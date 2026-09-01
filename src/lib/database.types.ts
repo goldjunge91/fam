@@ -34,6 +34,38 @@ export type Database = {
   }
   public: {
     Tables: {
+      ai_credit_bookings: {
+        Row: {
+          action: string
+          created_at: string
+          credits: number
+          request_id: string
+          subscriber_user_id: string
+        }
+        Insert: {
+          action: string
+          created_at?: string
+          credits: number
+          request_id: string
+          subscriber_user_id: string
+        }
+        Update: {
+          action?: string
+          created_at?: string
+          credits?: number
+          request_id?: string
+          subscriber_user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "ai_credit_bookings_subscriber_user_id_fkey"
+            columns: ["subscriber_user_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       brochure_dumps: {
         Row: {
           created_at: string
@@ -2804,10 +2836,35 @@ export type Database = {
         }
         Returns: undefined
       }
+      book_ai_credit: {
+        Args: {
+          p_action: string
+          p_household_id: string
+          p_monthly_limit?: number
+          p_request_id: string
+        }
+        Returns: {
+          blocked: boolean
+          credit_limit: number
+          credits_remaining: number
+          credits_used: number
+          warning_reached: boolean
+        }[]
+      }
       create_household: { Args: { household_name: string }; Returns: string }
       deactivate_ai_household: {
         Args: { p_event_timestamp_ms?: number; p_subscriber_user_id: string }
         Returns: undefined
+      }
+      get_ai_credit_status: {
+        Args: { p_household_id: string; p_monthly_limit?: number }
+        Returns: {
+          blocked: boolean
+          credit_limit: number
+          credits_remaining: number
+          credits_used: number
+          warning_reached: boolean
+        }[]
       }
       household_member_profiles: {
         Args: { hid: string }

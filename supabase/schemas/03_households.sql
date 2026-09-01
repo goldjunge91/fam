@@ -381,6 +381,185 @@ begin
 end;
 $$;
 
+-- ------------------------------------------------------- AI-Fair-Use-Kontingent
+-- Serverseitiger Vertrag fuer das haushaltsweite AI-Kontingent (Epic #23,
+-- 100 Credits pro UTC-Kalendermonat als Arbeitsbaseline). Es existiert noch
+-- keine AI-Fachfunktion; dieser Vertrag legt nur Buchung, Monatsreset und
+-- Zustandsableitung fest, damit die erste AI-Funktion ihn direkt aufrufen
+-- kann, statt eine eigene Zaehl-Logik zu erfinden.
+--
+-- Der Ledger haengt bewusst am Subscriber (`subscriber_user_id`), nicht am
+-- Haushalt: PREMIUM_MONETIZATION_SPEC Abschnitt 4.2.1 verlangt, dass beim
+-- erlaubten monatlichen AI-Haushaltswechsel "das verbleibende Kontingent
+-- uebertragen, aber nicht zurueckgesetzt" wird. Ein an household_id
+-- gebundener Ledger wuerde dem neuen Haushalt faelschlich volle 100 Credits
+-- geben, obwohl derselbe Subscriber im selben Monat schon Credits verbraucht
+-- hat. `revenuecat_ai_assignments` ist bereits die kanonische, haushalts-
+-- unabhaengige Subscriber-Identitaet — der Ledger nutzt dieselbe.
+--
+-- Buchungen sind ein Append-only-Ledger statt eines einzelnen Zaehlerfelds:
+-- Der Verbrauch des laufenden UTC-Kalendermonats wird bei jeder Pruefung neu
+-- summiert. Ein Reset am Monatsanfang braucht dadurch keinen eigenen Job —
+-- Buchungen des Vormonats faellen einfach aus dem Summenfenster, es gibt
+-- explizit keinen Uebertrag zwischen Monaten (kein Rollover). `primary key
+-- (subscriber_user_id, request_id)` macht Retries idempotent: Derselbe
+-- Request kann nie doppelt verbucht werden.
+create table if not exists public.ai_credit_bookings (
+  subscriber_user_id uuid not null references public.profiles (id) on delete cascade,
+  request_id uuid not null,
+  action text not null check (action in ('suggestion', 'recipe', 'voice')),
+  credits smallint not null check (credits > 0),
+  created_at timestamptz not null default now(),
+  primary key (subscriber_user_id, request_id)
+);
+
+create index if not exists ai_credit_bookings_subscriber_created_idx
+  on public.ai_credit_bookings (subscriber_user_id, created_at);
+
+-- Summiert den Verbrauch des laufenden UTC-Kalendermonats. Eigene Funktion
+-- statt Inline-Subquery, damit Buchung und reine Statusabfrage exakt dieselbe
+-- Monatsgrenze verwenden.
+create or replace function private.ai_credit_month_usage(p_subscriber_user_id uuid)
+returns integer
+language sql
+security invoker
+stable
+set search_path = ''
+as $$
+  select coalesce(sum(credits), 0)::integer
+  from public.ai_credit_bookings
+  where subscriber_user_id = p_subscriber_user_id
+    and created_at >= (date_trunc('month', (now() at time zone 'UTC')) at time zone 'UTC');
+$$;
+
+-- Loest den fuer einen Haushalt kanonisch zugeordneten AI-Subscriber auf.
+-- Beide oeffentlichen Funktionen nehmen bewusst `p_household_id` entgegen
+-- (das kennt die aufrufende AI-Funktion aus dem aktiven Haushalt des
+-- Nutzers), buchen intern aber gegen den Subscriber, damit das Kontingent
+-- den Haushaltswechsel ueberlebt.
+create or replace function private.ai_credit_subscriber_for_household(p_household_id uuid)
+returns uuid
+language sql
+security invoker
+stable
+set search_path = ''
+as $$
+  select subscriber_user_id
+  from public.revenuecat_ai_assignments
+  where household_id = p_household_id;
+$$;
+
+-- Bucht eine AI-Aktion atomar gegen das Monatskontingent. Die aufrufende
+-- AI-Edge-Function muss vorher pruefen, dass der Haushalt AI-Zugriff hat —
+-- dieser Vertrag kennt nur Credits, keine Entitlements. `p_request_id` ist
+-- die Idempotenzsperre: Ein wiederholter Aufruf mit derselben ID (Netzwerk-
+-- Retry) bucht nicht doppelt, sondern liefert denselben Stand zurueck.
+-- Ueberschreitet die Buchung das Kontingent, schlaegt sie vollstaendig fehl
+-- (kein Teilverbrauch) — Plus bleibt davon unberuehrt, diese Funktion
+-- schreibt ausschliesslich in ai_credit_bookings.
+create or replace function public.book_ai_credit(
+  p_household_id uuid,
+  p_action text,
+  p_request_id uuid,
+  p_monthly_limit integer default 100
+)
+returns table (
+  credits_used integer,
+  credits_remaining integer,
+  credit_limit integer,
+  warning_reached boolean,
+  blocked boolean
+)
+language plpgsql
+security invoker
+set search_path = ''
+as $$
+declare
+  v_subscriber_user_id uuid;
+  v_weight smallint;
+  v_existing smallint;
+  v_usage integer;
+begin
+  v_subscriber_user_id := private.ai_credit_subscriber_for_household(p_household_id);
+  if v_subscriber_user_id is null then
+    raise exception using
+      errcode = '42501',
+      message = 'ai_household_not_assigned';
+  end if;
+
+  v_weight := case p_action
+    when 'suggestion' then 1
+    when 'recipe' then 3
+    when 'voice' then 2
+    else null
+  end;
+  if v_weight is null then
+    raise exception using errcode = '22023', message = 'ai_credit_invalid_action';
+  end if;
+
+  select b.credits into v_existing
+  from public.ai_credit_bookings as b
+  where b.subscriber_user_id = v_subscriber_user_id and b.request_id = p_request_id;
+
+  if v_existing is null then
+    v_usage := private.ai_credit_month_usage(v_subscriber_user_id);
+    if v_usage + v_weight > p_monthly_limit then
+      raise exception using errcode = 'P0001', message = 'ai_credit_limit_exceeded';
+    end if;
+
+    insert into public.ai_credit_bookings (subscriber_user_id, request_id, action, credits)
+    values (v_subscriber_user_id, p_request_id, p_action, v_weight);
+
+    v_usage := v_usage + v_weight;
+  else
+    v_usage := private.ai_credit_month_usage(v_subscriber_user_id);
+  end if;
+
+  return query select
+    v_usage,
+    greatest(p_monthly_limit - v_usage, 0),
+    p_monthly_limit,
+    v_usage >= ceil(p_monthly_limit * 0.8),
+    v_usage >= p_monthly_limit;
+end;
+$$;
+
+-- Reine Statusabfrage ohne Buchung, fuer eine spaetere 80-Prozent-Warnung in
+-- der UI — bewusst getrennt von book_ai_credit, damit ein reines Anzeigen des
+-- Kontingents niemals selbst Credits verbraucht. Ein Haushalt ohne AI-
+-- Zuordnung hat definitionsgemaess 0 Verbrauch.
+create or replace function public.get_ai_credit_status(
+  p_household_id uuid,
+  p_monthly_limit integer default 100
+)
+returns table (
+  credits_used integer,
+  credits_remaining integer,
+  credit_limit integer,
+  warning_reached boolean,
+  blocked boolean
+)
+language sql
+security invoker
+stable
+set search_path = ''
+as $$
+  select
+    usage.credits_used,
+    greatest(p_monthly_limit - usage.credits_used, 0),
+    p_monthly_limit,
+    usage.credits_used >= ceil(p_monthly_limit * 0.8),
+    usage.credits_used >= p_monthly_limit
+  from (
+    select coalesce(
+      private.ai_credit_month_usage(
+        private.ai_credit_subscriber_for_household(p_household_id)
+      ),
+      0
+    ) as credits_used
+  ) as usage;
+$$;
+
 -- ------------------------------------------------- verwaisten Haushalt loeschen
 -- `guard_last_admin` laesst den letzten Admin gehen, wenn danach kein Mitglied
 -- mehr bleibt. Ohne diesen Trigger bliebe dann die households-Zeile mitsamt
@@ -519,6 +698,7 @@ alter table public.households enable row level security;
 alter table public.household_members enable row level security;
 alter table public.revenuecat_ai_assignments enable row level security;
 alter table public.revenuecat_processed_events enable row level security;
+alter table public.ai_credit_bookings enable row level security;
 
 -- households: sichtbar fuer Mitglieder, aenderbar nur durch Admins.
 -- Kein INSERT: Haushalte entstehen ausschliesslich ueber create_household().
