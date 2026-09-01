@@ -10,7 +10,7 @@ const mockRawLoad = jest.fn();
 
 jest.mock('@/features/premium/premium-provider', () => ({
   usePremium: () => ({
-    isPremium: mockIsPremium,
+    hasPlus: mockIsPremium,
     isForced: false,
     customerInfo: null,
     loading: false,

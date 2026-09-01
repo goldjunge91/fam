@@ -19,7 +19,7 @@ jest.mock('@/features/auth/session-provider', () => ({
 }));
 
 jest.mock('@/features/premium/premium-provider', () => ({
-  usePremium: () => ({ isPremium: true, refresh: jest.fn() }),
+  usePremium: () => ({ hasPlus: true, refresh: jest.fn() }),
 }));
 
 jest.mock('@/features/recipes/domain/recipe-ratings', () => ({

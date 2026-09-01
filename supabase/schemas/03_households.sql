@@ -9,18 +9,29 @@ create table if not exists public.households (
   created_by uuid not null references public.profiles (id) on delete restrict,
   created_at timestamptz not null default now(),
   updated_at timestamptz not null default now(),
-  -- Premium gilt haushaltsweit, nicht pro Nutzer: RevenueCat wird per
-  -- `Purchases.logIn(householdId)` an genau diese Zeile gebunden (nicht an
-  -- eine user_id), damit ein Kauf allen Mitgliedern zugutekommt. Die Wahrheit
-  -- liegt hier statt nur im RevenueCat-SDK jedes einzelnen Geraets, weil ein
-  -- Mitglied, das selbst nie eingekauft hat, sonst nie `isPremium: true`
-  -- saehe. Serverseitig gepflegt vom RevenueCat-Webhook
+  -- Plus und AI gelten haushaltsweit. RevenueCat bleibt per
+  -- `Purchases.logIn(userId)` an den kaufenden Supabase-Account gebunden; der
+  -- Webhook projiziert dessen Entitlements auf den zugeordneten Haushalt,
+  -- damit auch Mitglieder ohne eigenen Kauf den gemeinsamen Status sehen.
+  -- Plus und AI bleiben getrennt, weil beide unabhaengig aktiv sein koennen.
+  -- Serverseitig gepflegt vom RevenueCat-Webhook
   -- (supabase/functions/revenuecat-webhook) — siehe Schreibschutz in
-  -- 04_privileges.sql, sonst koennte sich jeder Haushalts-Admin selbst
+  -- 20_privileges.sql, sonst koennte sich jeder Haushalts-Admin selbst
   -- freischalten.
-  premium_active boolean not null default false,
-  premium_expires_at timestamptz,
-  premium_updated_at timestamptz
+  plus_active boolean not null default false,
+  plus_expires_at timestamptz,
+  plus_updated_at timestamptz,
+  -- RevenueCat-`event_timestamp_ms` des zuletzt angewendeten Plus-Events.
+  -- Schuetzt vor einem verspaetet zugestellten aelteren Webhook-Event, das
+  -- sonst einen bereits neueren Stand ueberschreiben wuerde (Ereignisreihen-
+  -- folge ist bei Retries nicht garantiert).
+  plus_last_event_timestamp_ms bigint,
+  ai_active boolean not null default false,
+  ai_expires_at timestamptz,
+  ai_updated_at timestamptz,
+  ai_subscriber_id uuid references public.profiles (id) on delete set null,
+  constraint households_active_ai_has_subscriber
+    check (not ai_active or ai_subscriber_id is not null)
 );
 
 -- UUID statt bigint identity, obwohl UUIDv4 die Index-Lokalitaet
@@ -48,6 +59,61 @@ create index if not exists household_members_user_id_idx
   on public.household_members (user_id);
 create index if not exists households_created_by_idx
   on public.households (created_by);
+
+-- Die kanonische AI-Zuordnung lebt pro RevenueCat-Subscriber genau einmal.
+-- Inaktive Zeilen bleiben als Reihenfolge-/Cooldown-Tombstone erhalten; nur
+-- aktive Zuordnungen muessen pro Haushalt eindeutig sein. `households.ai_*`
+-- ist nur die gemeinsam lesbare Projektion fuer Mitglieder.
+-- Clients erhalten auf diese Tabelle weder Tabellenrechte noch eine RLS-
+-- Policy; geschrieben wird ausschliesslich ueber assign_ai_household().
+create table if not exists public.revenuecat_ai_assignments (
+  subscriber_user_id uuid primary key references public.profiles (id) on delete cascade,
+  household_id uuid not null references public.households (id) on delete cascade,
+  active boolean not null default true,
+  household_changed_at timestamptz not null default now(),
+  -- RevenueCat-`event_timestamp_ms` des zuletzt angewendeten AI-Events fuer
+  -- diesen Subscriber. Bleibt beim Haushaltswechsel erhalten (anders als die
+  -- Haushaltsprojektion), damit ein verspaetet zugestelltes aelteres Event
+  -- den bereits neueren Zuordnungsstand nicht zuruecksetzen kann.
+  last_event_timestamp_ms bigint,
+  created_at timestamptz not null default now(),
+  updated_at timestamptz not null default now()
+);
+
+create unique index if not exists revenuecat_ai_assignments_active_household_idx
+  on public.revenuecat_ai_assignments (household_id)
+  where active;
+
+-- Idempotenz fuer den RevenueCat-Webhook: RevenueCat sendet ein Event bei
+-- ausbleibender 2xx-Antwort erneut zu. Ohne diese Tabelle wuerde ein
+-- wiederholter Zustellversuch denselben Zustand ein zweites Mal schreiben —
+-- bei AI sogar einen Eintrag im monatlichen Wechsel-Kontingent verbrauchen,
+-- obwohl fachlich kein zweiter Wechsel stattgefunden hat. Jede Kombination
+-- aus Event-ID und betroffenem Entitlement wird deshalb genau einmal
+-- verarbeitet; der DB-Adapter fuegt vor der eigentlichen Verarbeitung einen
+-- Eintrag ein und ueberspringt die Anwendung, wenn er schon existiert.
+create table if not exists public.revenuecat_processed_events (
+  event_id text not null,
+  entitlement_id text not null check (entitlement_id in ('Plus', 'AI')),
+  processed_at timestamptz not null default now(),
+  primary key (event_id, entitlement_id)
+);
+
+-- Kanonische Kaeufer-zu-Haushalt-Zuordnung fuer Plus, pro Subscriber. Kein
+-- unique(household_id): mehrere Accounts koennen Plus fuer denselben Haushalt halten.
+create table if not exists public.revenuecat_plus_assignments (
+  subscriber_user_id uuid primary key references public.profiles (id) on delete cascade,
+  household_id uuid not null references public.households (id) on delete cascade,
+  active boolean not null default true,
+  expires_at timestamptz,
+  last_event_timestamp_ms bigint,
+  created_at timestamptz not null default now(),
+  updated_at timestamptz not null default now()
+);
+
+create index if not exists revenuecat_plus_assignments_household_active_idx
+  on public.revenuecat_plus_assignments (household_id)
+  where active;
 
 create or replace trigger households_set_updated_at
   before update on public.households
@@ -186,6 +252,471 @@ create or replace trigger household_members_set_updated_at
   for each row
   execute function private.set_updated_at();
 
+create or replace trigger revenuecat_ai_assignments_set_updated_at
+  before update on public.revenuecat_ai_assignments
+  for each row
+  execute function private.set_updated_at();
+
+create or replace trigger revenuecat_plus_assignments_set_updated_at
+  before update on public.revenuecat_plus_assignments
+  for each row
+  execute function private.set_updated_at();
+
+-- Dedupliziert ein Webhook-Event atomar innerhalb der aufrufenden Funktion:
+-- schlaegt die restliche Funktion fehl, rollt Postgres auch diesen Insert zurueck.
+create or replace function private.mark_webhook_event_processed(
+  p_event_id text,
+  p_entitlement_id text
+)
+returns boolean
+language plpgsql
+security invoker
+set search_path = ''
+as $$
+begin
+  if p_event_id is null then
+    return true;
+  end if;
+
+  insert into public.revenuecat_processed_events (event_id, entitlement_id)
+  values (p_event_id, p_entitlement_id)
+  on conflict (event_id, entitlement_id) do nothing;
+
+  return found;
+end;
+$$;
+
+-- Aggregiert alle aktiven Plus-Zuordnungen eines Haushalts auf households.plus_*.
+create or replace function private.recompute_household_plus(p_household_id uuid)
+returns void
+language plpgsql
+security invoker
+set search_path = ''
+as $$
+declare
+  v_active boolean;
+  v_expires_at timestamptz;
+begin
+  -- Alle Quellen desselben Haushalts teilen sich diese Sperre. Dadurch kann
+  -- keine parallel laufende Neuberechnung einen neueren Aggregatzustand mit
+  -- einem Snapshot ueberschreiben, in dem eine andere Quelle noch fehlt.
+  perform 1
+  from public.households
+  where id = p_household_id
+  for update;
+
+  select bool_or(active), max(expires_at) filter (where active)
+  into v_active, v_expires_at
+  from public.revenuecat_plus_assignments
+  where household_id = p_household_id;
+
+  update public.households
+  set plus_active = coalesce(v_active, false),
+      plus_expires_at = case when coalesce(v_active, false) then v_expires_at else null end,
+      plus_updated_at = now()
+  where id = p_household_id;
+end;
+$$;
+
+-- Atomare serverseitige AI-Zuordnung, Mitgliedschaft/Eindeutigkeit/Monats-
+-- limit werden erzwungen. `p_event_id` macht den Aufruf idempotent, ein
+-- juengeres `last_event_timestamp_ms` gewinnt gegen Out-of-Order-Events.
+create or replace function public.assign_ai_household(
+  p_subscriber_user_id uuid,
+  p_target_household_id uuid,
+  p_entitlement_expires_at timestamptz,
+  p_event_timestamp_ms bigint default null,
+  p_event_id text default null
+)
+returns boolean
+language plpgsql
+security invoker
+set search_path = ''
+as $$
+declare
+  current_household_id uuid;
+  current_household_changed_at timestamptz;
+  current_event_timestamp_ms bigint;
+begin
+  if not exists (
+    select 1
+    from public.household_members
+    where household_id = p_target_household_id
+      and user_id = p_subscriber_user_id
+  ) then
+    raise exception using
+      errcode = '42501',
+      message = 'ai_target_household_forbidden';
+  end if;
+
+  if not private.mark_webhook_event_processed(p_event_id, 'AI') then
+    return false;
+  end if;
+
+  select household_id, household_changed_at, last_event_timestamp_ms
+  into current_household_id, current_household_changed_at, current_event_timestamp_ms
+  from public.revenuecat_ai_assignments
+  where subscriber_user_id = p_subscriber_user_id
+  for update;
+
+  if p_event_timestamp_ms is not null
+    and current_event_timestamp_ms is not null
+    and p_event_timestamp_ms < current_event_timestamp_ms
+  then
+    return false;
+  end if;
+
+  if current_household_id is null then
+    insert into public.revenuecat_ai_assignments (
+      subscriber_user_id,
+      household_id,
+      last_event_timestamp_ms
+    )
+    values (
+      p_subscriber_user_id,
+      p_target_household_id,
+      p_event_timestamp_ms
+    );
+  elsif current_household_id <> p_target_household_id then
+    if date_trunc('month', current_household_changed_at at time zone 'UTC')
+      >= date_trunc('month', now() at time zone 'UTC') then
+      raise exception 'ai_household_change_cooldown';
+    end if;
+
+    update public.households
+    set ai_active = false,
+        ai_expires_at = null,
+        ai_updated_at = now(),
+        ai_subscriber_id = null
+    where id = current_household_id
+      and ai_subscriber_id = p_subscriber_user_id;
+
+    update public.revenuecat_ai_assignments
+    set household_id = p_target_household_id,
+        household_changed_at = now(),
+        active = true,
+        last_event_timestamp_ms = p_event_timestamp_ms
+    where subscriber_user_id = p_subscriber_user_id;
+  else
+    update public.revenuecat_ai_assignments
+    set active = true,
+        last_event_timestamp_ms = p_event_timestamp_ms
+    where subscriber_user_id = p_subscriber_user_id;
+  end if;
+
+  update public.households
+  set ai_active = true,
+      ai_expires_at = p_entitlement_expires_at,
+      ai_updated_at = now(),
+      ai_subscriber_id = p_subscriber_user_id
+  where id = p_target_household_id;
+
+  return true;
+end;
+$$;
+
+-- Deaktiviert AI fuer den zugeordneten Haushalt. Die inaktive Zuordnung
+-- blockiert keinen anderen aktiven Subscriber, behaelt aber Event-Reihenfolge
+-- und monatlichen Wechselzeitpunkt fuer den bisherigen Subscriber.
+create or replace function public.deactivate_ai_household(
+  p_subscriber_user_id uuid,
+  p_event_timestamp_ms bigint default null,
+  p_event_id text default null
+)
+returns boolean
+language plpgsql
+security invoker
+set search_path = ''
+as $$
+declare
+  current_household_id uuid;
+  current_event_timestamp_ms bigint;
+begin
+  if not private.mark_webhook_event_processed(p_event_id, 'AI') then
+    return false;
+  end if;
+
+  select household_id, last_event_timestamp_ms
+  into current_household_id, current_event_timestamp_ms
+  from public.revenuecat_ai_assignments
+  where subscriber_user_id = p_subscriber_user_id
+  for update;
+
+  if current_household_id is null then
+    return false;
+  end if;
+
+  if p_event_timestamp_ms is not null
+    and current_event_timestamp_ms is not null
+    and p_event_timestamp_ms < current_event_timestamp_ms
+  then
+    return false;
+  end if;
+
+  update public.households
+  set ai_active = false,
+      ai_expires_at = null,
+      ai_updated_at = now(),
+      ai_subscriber_id = null
+  where id = current_household_id
+    and ai_subscriber_id = p_subscriber_user_id;
+
+  update public.revenuecat_ai_assignments
+  set active = false,
+      last_event_timestamp_ms = p_event_timestamp_ms
+  where subscriber_user_id = p_subscriber_user_id;
+
+  return true;
+end;
+$$;
+
+-- Wendet ein Plus-Event kanonisch auf den Kaufhaushalt des Subscribers an.
+-- `p_household_id` bindet nur beim allerersten Event; danach bleibt sie stabil.
+create or replace function public.apply_plus_household_event(
+  p_subscriber_user_id uuid,
+  p_household_id uuid,
+  p_active boolean,
+  p_expires_at timestamptz,
+  p_event_timestamp_ms bigint default null,
+  p_event_id text default null
+)
+returns boolean
+language plpgsql
+security invoker
+set search_path = ''
+as $$
+declare
+  v_household_id uuid;
+  v_event_timestamp_ms bigint;
+begin
+  if not private.mark_webhook_event_processed(p_event_id, 'Plus') then
+    return false;
+  end if;
+
+  select household_id, last_event_timestamp_ms
+  into v_household_id, v_event_timestamp_ms
+  from public.revenuecat_plus_assignments
+  where subscriber_user_id = p_subscriber_user_id
+  for update;
+
+  if v_household_id is not null
+    and p_event_timestamp_ms is not null
+    and v_event_timestamp_ms is not null
+    and p_event_timestamp_ms < v_event_timestamp_ms
+  then
+    return false;
+  end if;
+
+  if v_household_id is null then
+    if not exists (
+      select 1 from public.household_members
+      where household_id = p_household_id and user_id = p_subscriber_user_id
+    ) then
+      raise exception using
+        errcode = '42501',
+        message = 'plus_target_household_forbidden';
+    end if;
+
+    v_household_id := p_household_id;
+    insert into public.revenuecat_plus_assignments (
+      subscriber_user_id, household_id, active, expires_at, last_event_timestamp_ms
+    )
+    values (
+      p_subscriber_user_id, v_household_id, p_active, p_expires_at, p_event_timestamp_ms
+    );
+  else
+    update public.revenuecat_plus_assignments
+    set active = p_active,
+        expires_at = p_expires_at,
+        last_event_timestamp_ms = p_event_timestamp_ms
+    where subscriber_user_id = p_subscriber_user_id;
+  end if;
+
+  perform private.recompute_household_plus(v_household_id);
+  return true;
+end;
+$$;
+
+-- ------------------------------------------------------- AI-Fair-Use-Kontingent
+-- Serverseitiger Vertrag fuer das haushaltsweite AI-Kontingent (Epic #23,
+-- 100 Credits pro UTC-Kalendermonat als Arbeitsbaseline). Es existiert noch
+-- keine AI-Fachfunktion; dieser Vertrag legt nur Buchung, Monatsreset und
+-- Zustandsableitung fest, damit die erste AI-Funktion ihn direkt aufrufen
+-- kann, statt eine eigene Zaehl-Logik zu erfinden.
+--
+-- Der Ledger haengt bewusst am Subscriber (`subscriber_user_id`), nicht am
+-- Haushalt: PREMIUM_MONETIZATION_SPEC Abschnitt 4.2.1 verlangt, dass beim
+-- erlaubten monatlichen AI-Haushaltswechsel "das verbleibende Kontingent
+-- uebertragen, aber nicht zurueckgesetzt" wird. Ein an household_id
+-- gebundener Ledger wuerde dem neuen Haushalt faelschlich volle 100 Credits
+-- geben, obwohl derselbe Subscriber im selben Monat schon Credits verbraucht
+-- hat. `revenuecat_ai_assignments` ist bereits die kanonische, haushalts-
+-- unabhaengige Subscriber-Identitaet — der Ledger nutzt dieselbe.
+--
+-- Buchungen sind ein Append-only-Ledger statt eines einzelnen Zaehlerfelds:
+-- Der Verbrauch des laufenden UTC-Kalendermonats wird bei jeder Pruefung neu
+-- summiert. Ein Reset am Monatsanfang braucht dadurch keinen eigenen Job —
+-- Buchungen des Vormonats faellen einfach aus dem Summenfenster, es gibt
+-- explizit keinen Uebertrag zwischen Monaten (kein Rollover). `primary key
+-- (subscriber_user_id, request_id)` macht Retries idempotent: Derselbe
+-- Request kann nie doppelt verbucht werden.
+create table if not exists public.ai_credit_bookings (
+  subscriber_user_id uuid not null references public.profiles (id) on delete cascade,
+  request_id uuid not null,
+  action text not null check (action in ('suggestion', 'recipe', 'voice')),
+  credits smallint not null check (credits > 0),
+  created_at timestamptz not null default now(),
+  primary key (subscriber_user_id, request_id)
+);
+
+create index if not exists ai_credit_bookings_subscriber_created_idx
+  on public.ai_credit_bookings (subscriber_user_id, created_at);
+
+-- Summiert den Verbrauch des laufenden UTC-Kalendermonats. Eigene Funktion
+-- statt Inline-Subquery, damit Buchung und reine Statusabfrage exakt dieselbe
+-- Monatsgrenze verwenden.
+create or replace function private.ai_credit_month_usage(p_subscriber_user_id uuid)
+returns integer
+language sql
+security invoker
+stable
+set search_path = ''
+as $$
+  select coalesce(sum(credits), 0)::integer
+  from public.ai_credit_bookings
+  where subscriber_user_id = p_subscriber_user_id
+    and created_at >= (date_trunc('month', (now() at time zone 'UTC')) at time zone 'UTC');
+$$;
+
+-- Loest den fuer einen Haushalt kanonisch zugeordneten AI-Subscriber auf.
+-- Beide oeffentlichen Funktionen nehmen bewusst `p_household_id` entgegen
+-- (das kennt die aufrufende AI-Funktion aus dem aktiven Haushalt des
+-- Nutzers), buchen intern aber gegen den Subscriber, damit das Kontingent
+-- den Haushaltswechsel ueberlebt.
+create or replace function private.ai_credit_subscriber_for_household(p_household_id uuid)
+returns uuid
+language sql
+security invoker
+stable
+set search_path = ''
+as $$
+  select subscriber_user_id
+  from public.revenuecat_ai_assignments
+  where household_id = p_household_id
+    and active;
+$$;
+
+-- Bucht eine AI-Aktion atomar gegen das Monatskontingent. Die aufrufende
+-- AI-Edge-Function muss vorher pruefen, dass der Haushalt AI-Zugriff hat —
+-- dieser Vertrag kennt nur Credits, keine Entitlements. `p_request_id` ist
+-- die Idempotenzsperre: Ein wiederholter Aufruf mit derselben ID (Netzwerk-
+-- Retry) bucht nicht doppelt, sondern liefert denselben Stand zurueck.
+-- Ueberschreitet die Buchung das Kontingent, schlaegt sie vollstaendig fehl
+-- (kein Teilverbrauch) — Plus bleibt davon unberuehrt, diese Funktion
+-- schreibt ausschliesslich in ai_credit_bookings.
+create or replace function public.book_ai_credit(
+  p_household_id uuid,
+  p_action text,
+  p_request_id uuid,
+  p_monthly_limit integer default 100
+)
+returns table (
+  credits_used integer,
+  credits_remaining integer,
+  credit_limit integer,
+  warning_reached boolean,
+  blocked boolean
+)
+language plpgsql
+security invoker
+set search_path = ''
+as $$
+declare
+  v_subscriber_user_id uuid;
+  v_weight smallint;
+  v_existing smallint;
+  v_usage integer;
+begin
+  v_subscriber_user_id := private.ai_credit_subscriber_for_household(p_household_id);
+  if v_subscriber_user_id is null then
+    raise exception using
+      errcode = '42501',
+      message = 'ai_household_not_assigned';
+  end if;
+
+  v_weight := case p_action
+    when 'suggestion' then 1
+    when 'recipe' then 3
+    when 'voice' then 2
+    else null
+  end;
+  if v_weight is null then
+    raise exception using errcode = '22023', message = 'ai_credit_invalid_action';
+  end if;
+
+  select b.credits into v_existing
+  from public.ai_credit_bookings as b
+  where b.subscriber_user_id = v_subscriber_user_id and b.request_id = p_request_id;
+
+  if v_existing is null then
+    v_usage := private.ai_credit_month_usage(v_subscriber_user_id);
+    if v_usage + v_weight > p_monthly_limit then
+      raise exception using errcode = 'P0001', message = 'ai_credit_limit_exceeded';
+    end if;
+
+    insert into public.ai_credit_bookings (subscriber_user_id, request_id, action, credits)
+    values (v_subscriber_user_id, p_request_id, p_action, v_weight);
+
+    v_usage := v_usage + v_weight;
+  else
+    v_usage := private.ai_credit_month_usage(v_subscriber_user_id);
+  end if;
+
+  return query select
+    v_usage,
+    greatest(p_monthly_limit - v_usage, 0),
+    p_monthly_limit,
+    v_usage >= ceil(p_monthly_limit * 0.8),
+    v_usage >= p_monthly_limit;
+end;
+$$;
+
+-- Reine Statusabfrage ohne Buchung, fuer eine spaetere 80-Prozent-Warnung in
+-- der UI — bewusst getrennt von book_ai_credit, damit ein reines Anzeigen des
+-- Kontingents niemals selbst Credits verbraucht. Ein Haushalt ohne AI-
+-- Zuordnung hat definitionsgemaess 0 Verbrauch.
+create or replace function public.get_ai_credit_status(
+  p_household_id uuid,
+  p_monthly_limit integer default 100
+)
+returns table (
+  credits_used integer,
+  credits_remaining integer,
+  credit_limit integer,
+  warning_reached boolean,
+  blocked boolean
+)
+language sql
+security invoker
+stable
+set search_path = ''
+as $$
+  select
+    usage.credits_used,
+    greatest(p_monthly_limit - usage.credits_used, 0),
+    p_monthly_limit,
+    usage.credits_used >= ceil(p_monthly_limit * 0.8),
+    usage.credits_used >= p_monthly_limit
+  from (
+    select coalesce(
+      private.ai_credit_month_usage(
+        private.ai_credit_subscriber_for_household(p_household_id)
+      ),
+      0
+    ) as credits_used
+  ) as usage;
+$$;
+
 -- ------------------------------------------------- verwaisten Haushalt loeschen
 -- `guard_last_admin` laesst den letzten Admin gehen, wenn danach kein Mitglied
 -- mehr bleibt. Ohne diesen Trigger bliebe dann die households-Zeile mitsamt
@@ -262,6 +793,22 @@ begin
     raise exception 'not authenticated';
   end if;
 
+  -- AI/Plus vorher deaktivieren: sonst verletzt die FK-Aktion auf
+  -- ai_subscriber_id gleich den Active-Subscriber-Constraint.
+  update public.households
+  set ai_active = false, ai_expires_at = null, ai_updated_at = now(), ai_subscriber_id = null
+  where ai_subscriber_id = uid;
+
+  delete from public.revenuecat_ai_assignments where subscriber_user_id = uid;
+
+  for rec in
+    select household_id from public.revenuecat_plus_assignments where subscriber_user_id = uid
+  loop
+    delete from public.revenuecat_plus_assignments
+    where subscriber_user_id = uid and household_id = rec.household_id;
+    perform private.recompute_household_plus(rec.household_id);
+  end loop;
+
   -- Haushalte, in denen dieser Nutzer Admin ist: Bricht ab, wenn er dort der
   -- letzte Admin waere UND noch andere Mitglieder zurueckbliebe. Der Abbruch
   -- rollt die ganze Funktion zurueck — die Edge Function sieht die Exception
@@ -322,6 +869,10 @@ $$;
 -- ------------------------------------------------------------------------- RLS
 alter table public.households enable row level security;
 alter table public.household_members enable row level security;
+alter table public.revenuecat_ai_assignments enable row level security;
+alter table public.revenuecat_plus_assignments enable row level security;
+alter table public.revenuecat_processed_events enable row level security;
+alter table public.ai_credit_bookings enable row level security;
 
 -- households: sichtbar fuer Mitglieder, aenderbar nur durch Admins.
 -- Kein INSERT: Haushalte entstehen ausschliesslich ueber create_household().

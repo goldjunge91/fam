@@ -41,7 +41,7 @@ jest.mock('@/features/profile/api', () => ({
 }));
 
 jest.mock('@/features/premium/premium-provider', () => ({
-  usePremium: () => ({ isPremium: true }),
+  usePremium: () => ({ hasPlus: true }),
 }));
 
 describe('ProfileSheet', () => {

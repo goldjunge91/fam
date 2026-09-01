@@ -25,13 +25,13 @@ export function MissingIngredientsScreen() {
   const { session } = useSession();
   const { activeHouseholdId } = useActiveHousehold();
   const householdId = activeHouseholdId ?? undefined;
-  const { isPremium } = usePremium();
+  const { hasPlus } = usePremium();
   const [unlocking, setUnlocking] = useState(false);
 
   const { data: missing = EMPTY_MISSING, isLoading } = useMealPlanShoppingNeeds(
     mealPlanId,
     householdId,
-    isPremium,
+    hasPlus,
   );
   const [selected, setSelected] = useState<Set<string>>(new Set());
   // Marktzuweisung pro Zeile, vom Nutzer manuell ueberschrieben (Fallback:
@@ -128,7 +128,7 @@ export function MissingIngredientsScreen() {
       subtitle="Bedarf dieser Woche minus Vorrat"
       back={{ label: 'Wochenplan' }}>
       {/* Paywall-Hinweis falls kein aktives Premium-Abo vorhanden ist */}
-      {!isPremium ? (
+      {!hasPlus ? (
         <View className="mis-list">
           <ThemedText themeColor="textSecondary">
             fam vergleicht den Bedarf des ganzen Wochenplans mit eurem Vorrat und übernimmt nur

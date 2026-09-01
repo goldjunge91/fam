@@ -33,7 +33,7 @@ jest.mock('../catalog/use-recipe-catalog', () => ({
 let mockIsPremium = false;
 
 jest.mock('@/features/premium/premium-provider', () => ({
-  usePremium: () => ({ isPremium: mockIsPremium }),
+  usePremium: () => ({ hasPlus: mockIsPremium }),
 }));
 
 jest.mock('@/features/premium/paywall', () => ({

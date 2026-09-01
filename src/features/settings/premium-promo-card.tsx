@@ -8,7 +8,7 @@ import { useTheme } from '@/hooks/use-theme';
 
 export function PremiumPromoCard() {
   const theme = useTheme();
-  const { isPremium, isForced } = usePremium();
+  const { hasPlus, isForced } = usePremium();
 
   return (
     <Pressable
@@ -26,10 +26,10 @@ export function PremiumPromoCard() {
         ✦
       </ThemedText>
       <ThemedText type="subtitle" style={{ color: theme.premiumOnSurface }}>
-        {isPremium ? 'Premium ist aktiv' : 'Premium für den ganzen Haushalt'}
+        {hasPlus ? 'Premium ist aktiv' : 'Premium für den ganzen Haushalt'}
       </ThemedText>
       <ThemedText type="default" style={{ color: withAlpha(theme.premiumOnSurface, 0.82) }}>
-        {isPremium
+        {hasPlus
           ? 'Alle Mitglieder profitieren von den Premium-Funktionen.'
           : 'Kochmodus, intelligente Einkaufslisten und weitere Automationen.'}
       </ThemedText>
@@ -40,11 +40,7 @@ export function PremiumPromoCard() {
           type="default"
           className="font-semibold"
           style={{ color: theme.premiumActionText }}>
-          {isPremium
-            ? isForced
-              ? 'Abo verwalten (erzwungen)'
-              : 'Abo verwalten'
-            : 'Premium ansehen'}
+          {hasPlus ? (isForced ? 'Abo verwalten (erzwungen)' : 'Abo verwalten') : 'Premium ansehen'}
         </ThemedText>
       </View>
     </Pressable>

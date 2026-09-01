@@ -98,7 +98,7 @@ export function DevToolsScreen() {
   const { session } = useSession();
   const queryClient = useQueryClient();
   const { activeHousehold } = useActiveHousehold();
-  const { isPremium, isForced } = usePremium();
+  const { hasPlus, isForced } = usePremium();
   const forcePremiumOverride = useForcePremiumOverrideStore((state) => state.override);
   const setForcePremiumOverride = useForcePremiumOverrideStore((state) => state.setOverride);
   const premiumOverrideEnabled = forcePremiumOverride ?? env.forcePremium;
@@ -233,7 +233,7 @@ export function DevToolsScreen() {
         <Zeile label="Onboarding erzwungen" wert={env.forceOnboarding ? 'ja' : 'nein'} />
         <Zeile
           label="Premium"
-          wert={isPremium ? (isForced ? 'ja (erzwungen)' : 'ja') : 'nein'}
+          wert={hasPlus ? (isForced ? 'ja (erzwungen)' : 'ja') : 'nein'}
           tone={isForced ? 'warning' : undefined}
         />
         <View className="dev-zeile">
