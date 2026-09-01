@@ -30,7 +30,7 @@ function ProfileSheetContent() {
   const { isProfileOpen, closeProfile } = useNavigationChrome();
   const { session } = useSession();
   const { data: profile } = useProfile(session?.user.id);
-  const { hasPlus } = usePremium();
+  const { isPremium } = usePremium();
 
   const displayName = profile?.display_name || 'Ohne Namen';
   const email = session?.user.email ?? '';
@@ -110,7 +110,7 @@ function ProfileSheetContent() {
           <ProfileRow
             icon="premium"
             title="Premium"
-            subtitle={hasPlus ? 'Aktiv für den Haushalt' : 'Jetzt freischalten'}
+            subtitle={isPremium ? 'Aktiv für den Haushalt' : 'Jetzt freischalten'}
             onPress={() => go('/settings/premium')}
             borderColor="transparent"
             isLast

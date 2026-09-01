@@ -27,7 +27,7 @@ const EMPTY_MISSING: RecipeShoppingNeed[] = [];
 
 export function RecipeShoppingSheet({ visible, detail, servings, onClose }: Props) {
   const theme = useTheme();
-  const { hasPlus, refresh } = usePremium();
+  const { isPremium, refresh } = usePremium();
   const [accessGranted, setAccessGranted] = useState(false);
   const [selected, setSelected] = useState<Set<string>>(new Set());
   // Marktzuweisung pro Zeile, vom Nutzer manuell ueberschrieben (Fallback:
@@ -41,7 +41,7 @@ export function RecipeShoppingSheet({ visible, detail, servings, onClose }: Prop
   // gesperrt bleiben (gespiegelt zu missing-ingredients-screen.tsx).
   const [isSubmitting, setIsSubmitting] = useState(false);
   const addShoppingItem = useAddShoppingItem();
-  const hasAccess = hasPlus || accessGranted;
+  const hasAccess = isPremium || accessGranted;
   const { data: missing = EMPTY_MISSING, isLoading } = useRecipeShoppingNeeds(
     detail,
     servings,

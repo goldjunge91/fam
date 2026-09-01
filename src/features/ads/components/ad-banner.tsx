@@ -48,7 +48,7 @@ export interface AdBannerProps {
  * Standard Banner-Werbekomponente.
  *
  * Verhält sich automatisch no-op / unsichtbar, wenn der aktive Haushalt
- * Premium-Status besitzt (`hasPlus === true`).
+ * Premium-Status besitzt (`isPremium === true`).
  */
 export function AdBanner({
   unitId,
@@ -59,7 +59,7 @@ export function AdBanner({
   onAdLoaded,
   onAdFailedToLoad,
 }: AdBannerProps) {
-  const { hasPlus } = usePremium();
+  const { isPremium } = usePremium();
   const adsEnabled = useAdsEnabled();
   const [failedToLoad, setFailedToLoad] = useState(false);
   const previousAdsEnabledRef = useRef(adsEnabled);
@@ -75,7 +75,7 @@ export function AdBanner({
   const resolvedUnitId = unitId ?? defaultUnitId;
 
   // Premium-Nutzer sehen keinerlei Werbung
-  if (!adsEnabled || hasPlus || failedToLoad) {
+  if (!adsEnabled || isPremium || failedToLoad) {
     return null;
   }
 

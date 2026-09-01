@@ -18,12 +18,12 @@ export function useInterstitialAd({
   requestOptions,
   autoLoad = true,
 }: UseInterstitialAdOptions = {}) {
-  const { hasPlus } = usePremium();
+  const { isPremium } = usePremium();
   const adsEnabled = env.adsEnabled;
 
   const defaultUnitId = __DEV__ ? TestIds.INTERSTITIAL : env.adMobInterstitialIdAndroid;
   const resolvedUnitId = adUnitId ?? defaultUnitId;
-  const adUnit = adsEnabled && !hasPlus ? resolvedUnitId : null;
+  const adUnit = adsEnabled && !isPremium ? resolvedUnitId : null;
   const {
     isLoaded,
     isOpened,
@@ -58,26 +58,26 @@ export function useInterstitialAd({
   }, [isLoaded]);
 
   useEffect(() => {
-    if (adsEnabled && !hasPlus && autoLoad && !isLoaded && !isOpened && !isClosed) {
+    if (adsEnabled && !isPremium && autoLoad && !isLoaded && !isOpened && !isClosed) {
       if (__DEV__) {
         console.log(`[AdMob Interstitial] Lade Interstitial-Anzeige (Unit-ID: ${resolvedUnitId})…`);
       }
       requestLoad();
     }
-  }, [hasPlus, autoLoad, isLoaded, isOpened, isClosed, requestLoad, resolvedUnitId]);
+  }, [isPremium, autoLoad, isLoaded, isOpened, isClosed, requestLoad, resolvedUnitId]);
 
   // Automatisch nach dem Schließen für den nächsten Aufruf vorladen
   useEffect(() => {
-    if (adsEnabled && !hasPlus && autoLoad && isClosed) {
+    if (adsEnabled && !isPremium && autoLoad && isClosed) {
       if (__DEV__) {
         console.log('[AdMob Interstitial] Anzeige geschlossen. Lade nächste Anzeige vor…');
       }
       requestLoad();
     }
-  }, [hasPlus, autoLoad, isClosed, requestLoad]);
+  }, [isPremium, autoLoad, isClosed, requestLoad]);
 
   const show = useCallback(() => {
-    if (!adsEnabled || hasPlus) {
+    if (!adsEnabled || isPremium) {
       if (__DEV__) {
         console.log(
           `[AdMob Interstitial] show() übersprungen: Werbung ist ${adsEnabled ? 'für Premium deaktiviert' : 'global deaktiviert'}.`,
@@ -100,14 +100,14 @@ export function useInterstitialAd({
         );
       }
     }
-  }, [hasPlus, isLoaded, rawShow, error]);
+  }, [isPremium, isLoaded, rawShow, error]);
 
   return {
-    isLoaded: adsEnabled && !hasPlus ? isLoaded : false,
+    isLoaded: adsEnabled && !isPremium ? isLoaded : false,
     isOpened,
     isClosed,
     error,
-    load: adsEnabled && !hasPlus ? requestLoad : () => {},
+    load: adsEnabled && !isPremium ? requestLoad : () => {},
     show,
   };
 }

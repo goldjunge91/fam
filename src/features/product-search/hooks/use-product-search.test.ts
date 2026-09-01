@@ -110,10 +110,10 @@ describe('useProductSearch', () => {
   });
 
   it('bleibt zwischen lokaler und Online-Stufe im Suchzustand', async () => {
-    const onlinePage = deferred<ProductCatalogSearchResult>();
-    const { catalog } = fakeCatalog(({ options }) => {
+    const { catalog } = fakeCatalog(async ({ options }) => {
       if (options.allowApi === false) return result([]);
-      return onlinePage.promise;
+      await new Promise((resolve) => setTimeout(resolve, 40));
+      return result([product('Hafermilch online', '1')]);
     });
 
     const { result: hook } = await renderHook(() =>
@@ -123,10 +123,6 @@ describe('useProductSearch', () => {
     // Ohne das blitzt zwischen den Stufen der Leerzustand auf.
     await waitFor(() => expect(hook.current.searched).toBe(true));
     expect(hook.current.searching).toBe(true);
-
-    await act(() => {
-      onlinePage.resolve(result([product('Hafermilch online', '1')]));
-    });
 
     await waitFor(() => expect(hook.current.results).toHaveLength(1));
     await waitFor(() => expect(hook.current.searching).toBe(false));

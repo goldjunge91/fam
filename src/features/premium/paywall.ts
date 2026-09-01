@@ -2,7 +2,7 @@ import { Platform } from 'react-native';
 import RevenueCatUI, { PAYWALL_RESULT } from 'react-native-purchases-ui';
 
 import { trackAnalyticsEvent } from '@/lib/analytics';
-import { ENTITLEMENT_IDS, isPurchasesConfigured } from '@/lib/purchases';
+import { isPurchasesConfigured, PREMIUM_ENTITLEMENT_ID } from '@/lib/purchases';
 
 function isPaywallUiAvailable(): boolean {
   return Platform.OS === 'ios' || Platform.OS === 'android';
@@ -35,7 +35,7 @@ export async function presentPaywallIfNeeded(): Promise<PaywallOutcome> {
   if (!isPaywallUiAvailable() || !isPurchasesConfigured()) return 'unavailable';
 
   const result = await RevenueCatUI.presentPaywallIfNeeded({
-    requiredEntitlementIdentifier: ENTITLEMENT_IDS.PLUS,
+    requiredEntitlementIdentifier: PREMIUM_ENTITLEMENT_ID,
     displayCloseButton: true,
   });
 

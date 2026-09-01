@@ -8,7 +8,6 @@ bei Widersprüchen die maßgebliche Quelle.
 
 - [Produktvision](features/VISION.md) — Produktgrenzen, Datenschutzprinzipien und langfristige Module.
 - [Roadmap](features/ROADMAP.md) — abgeschlossener MVP und geplante Phase-2–4-Epics.
-- [RevenueCat Monetarisierung](SPEC.md) — Spec für die Entitlements Plus und AI.
 - [Supermarkt-Laufstrecke](features/Supermarkt%20Laufstrecke%20-%20Einkaufslisten%20Sortierung.md) — Kategorie-Reihenfolge der Einkaufsliste.
 
 ## Entwicklung und Betrieb
