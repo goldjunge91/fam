@@ -46,7 +46,7 @@ export function PaywallSheet({ isOpen, onClose, onPurchased }: PaywallSheetProps
     restore,
     isPurchasing,
     isRestoring,
-  } = usePaywall();
+  } = usePaywall('plus');
 
   useEffect(() => {
     if (isOpen) {

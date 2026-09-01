@@ -14,7 +14,6 @@ import { useSession } from '@/features/auth/session-provider';
 import { VISION_CAMERA_LAB_ENABLED } from '@/features/experimentalscreens/vision-camera-lab';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { useForcePremiumOverrideStore } from '@/features/premium/force-premium-override';
-import { presentPaywall } from '@/features/premium/paywall';
 import { usePremium } from '@/features/premium/premium-provider';
 import { type AnalyticsToggle, analyticsToggles } from '@/features/settings/dev/analytics-controls';
 import {
@@ -98,7 +97,7 @@ export function DevToolsScreen() {
   const { session } = useSession();
   const queryClient = useQueryClient();
   const { activeHousehold } = useActiveHousehold();
-  const { isPremium, isForced } = usePremium();
+  const { hasPlus, isForced } = usePremium();
   const forcePremiumOverride = useForcePremiumOverrideStore((state) => state.override);
   const setForcePremiumOverride = useForcePremiumOverrideStore((state) => state.setOverride);
   const premiumOverrideEnabled = forcePremiumOverride ?? env.forcePremium;
@@ -233,7 +232,7 @@ export function DevToolsScreen() {
         <Zeile label="Onboarding erzwungen" wert={env.forceOnboarding ? 'ja' : 'nein'} />
         <Zeile
           label="Premium"
-          wert={isPremium ? (isForced ? 'ja (erzwungen)' : 'ja') : 'nein'}
+          wert={hasPlus ? (isForced ? 'ja (erzwungen)' : 'ja') : 'nein'}
           tone={isForced ? 'warning' : undefined}
         />
         <View className="dev-zeile">
@@ -606,15 +605,18 @@ export function DevToolsScreen() {
             />
           ) : null}
           <Button
-            label="Paywall öffnen (Test Store)"
+            label="Plus-Paywall öffnen (Test Store)"
             variant="secondary"
             onPress={() =>
-              mitBusy('paywall', async () => {
-                const outcome = await presentPaywall();
-                Alert.alert('Paywall-Ergebnis', outcome);
-              })
+              router.push({ pathname: '/settings/plus-and-ai', params: { tier: 'plus' } })
             }
-            loading={busy === 'paywall'}
+          />
+          <Button
+            label="KI-Paywall öffnen (Test Store)"
+            variant="secondary"
+            onPress={() =>
+              router.push({ pathname: '/settings/plus-and-ai', params: { tier: 'ai' } })
+            }
           />
           <Button
             label="Lokale Datenbank löschen"

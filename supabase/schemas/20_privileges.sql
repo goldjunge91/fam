@@ -27,6 +27,14 @@ alter default privileges for role postgres in schema public
 grant delete, insert, select, update on public.profiles to anon, authenticated, service_role;
 grant delete, insert, select, update on public.households to anon, authenticated, service_role;
 grant delete, insert, select, update on public.household_members to anon, authenticated, service_role;
+revoke all on public.revenuecat_ai_assignments from anon, authenticated, service_role;
+grant delete, insert, select, update on public.revenuecat_ai_assignments to service_role;
+revoke all on public.revenuecat_plus_assignments from anon, authenticated, service_role;
+grant delete, insert, select, update on public.revenuecat_plus_assignments to service_role;
+revoke all on public.revenuecat_processed_events from anon, authenticated, service_role;
+grant insert, select on public.revenuecat_processed_events to service_role;
+revoke all on public.ai_credit_bookings from anon, authenticated, service_role;
+grant insert, select on public.ai_credit_bookings to service_role;
 grant delete, insert, select, update on public.products to anon, authenticated, service_role;
 grant delete, insert, select, update on public.household_invites to anon, authenticated, service_role;
 grant delete, insert, select, update on public.child_profiles to anon, authenticated, service_role;
@@ -80,12 +88,12 @@ revoke all on public.feedback_messages from anon, authenticated, service_role;
 grant select, insert on public.feedback_messages to authenticated;
 grant delete, insert, select, update on public.feedback_messages to service_role;
 
--- --------------------------------------------------- Premium-Spalten schuetzen
+-- -------------------------------------------- Entitlement-Spalten schuetzen
 -- RLS wirkt auf Zeilen, nicht auf Spalten (siehe Kommentar in 03_households.sql
 -- bei household_member_profiles): `households_update_admin` erlaubt jedem
 -- Admin, seine eigene Haushaltszeile zu aendern — ohne diese Einschraenkung
--- koennte er ueber ein normales UPDATE `premium_active` selbst auf `true`
--- setzen und sich Premium gratis freischalten. Ein spaltenscharfes REVOKE
+-- koennte er ueber ein normales UPDATE Plus oder AI selbst freischalten. Ein
+-- spaltenscharfes REVOKE
 -- allein wuerde nichts bewirken, solange der Tabellen-Grant oben weiter
 -- besteht (Postgres prueft Tabellen- UND Spaltenrechte, jedes ausreichend
 -- fuer sich) — deshalb erst das Tabellenrecht fuer `authenticated` entziehen
@@ -103,6 +111,11 @@ grant update (name) on public.households to authenticated;
 -- `anon` bekommt sie ausdruecklich nicht. Alle Policies sind `to authenticated`;
 -- ein anonymer Client wertet sie nie aus.
 grant usage on schema private to authenticated;
+
+-- service_role braucht dieselbe USAGE fuer private.ai_credit_month_usage(),
+-- aufgerufen aus book_ai_credit()/get_ai_credit_status() (beide SECURITY
+-- INVOKER, siehe Kommentar dort).
+grant usage on schema private to service_role;
 
 grant execute on function private.is_household_member(uuid) to authenticated;
 grant execute on function private.is_household_admin(uuid) to authenticated;
@@ -144,6 +157,54 @@ grant execute on function public.redeem_invite(uuid) to authenticated;
 -- stehen (SECURITY DEFINER, siehe Kommentar in 03_households.sql).
 revoke execute on function public.prepare_account_deletion() from public, anon;
 grant execute on function public.prepare_account_deletion() to authenticated;
+
+-- Der RevenueCat-Webhook verifiziert das Entitlement, bevor diese
+-- service-role-only Funktionen Zuordnung und Haushaltsprojektion atomar
+-- schreiben. Ein Client darf sie auch als angemeldeter Nutzer nie direkt
+-- aufrufen.
+revoke execute on function private.mark_webhook_event_processed(text, text)
+  from public, anon, authenticated;
+grant execute on function private.mark_webhook_event_processed(text, text)
+  to service_role;
+revoke execute on function private.recompute_household_plus(uuid)
+  from public, anon, authenticated;
+grant execute on function private.recompute_household_plus(uuid)
+  to service_role;
+revoke execute on function public.assign_ai_household(uuid, uuid, timestamptz, bigint, text)
+  from public, anon, authenticated;
+grant execute on function public.assign_ai_household(uuid, uuid, timestamptz, bigint, text)
+  to service_role;
+revoke execute on function public.deactivate_ai_household(uuid, bigint, text)
+  from public, anon, authenticated;
+grant execute on function public.deactivate_ai_household(uuid, bigint, text)
+  to service_role;
+revoke execute on function public.apply_plus_household_event(
+  uuid, uuid, boolean, timestamptz, bigint, text
+) from public, anon, authenticated;
+grant execute on function public.apply_plus_household_event(
+  uuid, uuid, boolean, timestamptz, bigint, text
+) to service_role;
+
+-- AI-Fair-Use-Vertrag: Es existiert noch keine AI-Fachfunktion, die im Namen
+-- eines Haushaltsmitglieds bucht oder den Status anzeigt. Beide RPCs bleiben
+-- deshalb service-role-only, bis die erste AI-Funktion entscheidet, ob und
+-- wie ein Client (direkt oder ueber eine eigene Edge Function mit
+-- Entitlement-Pruefung) Zugriff bekommt.
+revoke execute on function private.ai_credit_month_usage(uuid)
+  from public, anon, authenticated;
+grant execute on function private.ai_credit_month_usage(uuid) to service_role;
+revoke execute on function private.ai_credit_subscriber_for_household(uuid)
+  from public, anon, authenticated;
+grant execute on function private.ai_credit_subscriber_for_household(uuid)
+  to service_role;
+revoke execute on function public.book_ai_credit(uuid, text, uuid, integer)
+  from public, anon, authenticated;
+grant execute on function public.book_ai_credit(uuid, text, uuid, integer)
+  to service_role;
+revoke execute on function public.get_ai_credit_status(uuid, integer)
+  from public, anon, authenticated;
+grant execute on function public.get_ai_credit_status(uuid, integer)
+  to service_role;
 
 -- household_member_profiles() umgeht die profiles-RLS (SECURITY DEFINER) und
 -- prueft die Mitgliedschaft selbst. Fuer `anon` gaebe es nichts zu pruefen —

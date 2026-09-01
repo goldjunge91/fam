@@ -6,7 +6,6 @@ import { ThemedText } from '@/components/theme/themed-text';
 import { Button } from '@/components/ui/buttons';
 import { useSession } from '@/features/auth/session-provider';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
-import { presentPaywallIfNeeded } from '@/features/premium/paywall';
 import { usePremium } from '@/features/premium/premium-provider';
 import { RowStorePicker } from '@/features/shopping-list/components/ui/row-store-picker';
 import { useAddShoppingItem } from '@/features/shopping-list/hooks/use-shopping-list-mutations';
@@ -25,13 +24,12 @@ export function MissingIngredientsScreen() {
   const { session } = useSession();
   const { activeHouseholdId } = useActiveHousehold();
   const householdId = activeHouseholdId ?? undefined;
-  const { isPremium } = usePremium();
-  const [unlocking, setUnlocking] = useState(false);
+  const { hasPlus } = usePremium();
 
   const { data: missing = EMPTY_MISSING, isLoading } = useMealPlanShoppingNeeds(
     mealPlanId,
     householdId,
-    isPremium,
+    hasPlus,
   );
   const [selected, setSelected] = useState<Set<string>>(new Set());
   // Marktzuweisung pro Zeile, vom Nutzer manuell ueberschrieben (Fallback:
@@ -107,19 +105,8 @@ export function MissingIngredientsScreen() {
     }
   }
 
-  async function unlockPremium() {
-    setUnlocking(true);
-    try {
-      const outcome = await presentPaywallIfNeeded();
-      if (outcome === 'unavailable') {
-        Alert.alert(
-          'Premium nicht verfügbar',
-          'Die Premium-Paywall ist auf diesem Gerät nicht konfiguriert.',
-        );
-      }
-    } finally {
-      setUnlocking(false);
-    }
+  function openPlusPaywall() {
+    router.push({ pathname: '/settings/plus-and-ai', params: { tier: 'plus' } });
   }
 
   return (
@@ -127,14 +114,14 @@ export function MissingIngredientsScreen() {
       title="Fehlende Zutaten"
       subtitle="Bedarf dieser Woche minus Vorrat"
       back={{ label: 'Wochenplan' }}>
-      {/* Paywall-Hinweis falls kein aktives Premium-Abo vorhanden ist */}
-      {!isPremium ? (
+      {/* Paywall-Hinweis falls kein aktives Plus-Abo vorhanden ist */}
+      {!hasPlus ? (
         <View className="mis-list">
           <ThemedText themeColor="textSecondary">
             fam vergleicht den Bedarf des ganzen Wochenplans mit eurem Vorrat und übernimmt nur
             Fehlendes in die Einkaufsliste.
           </ThemedText>
-          <Button label="Premium ansehen" onPress={unlockPremium} loading={unlocking} />
+          <Button label="Plus ansehen" onPress={openPlusPaywall} />
         </View>
       ) : isLoading ? (
         /* Ladeindikator beim Berechnen der Vorratsabgleiche */

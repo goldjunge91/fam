@@ -38,7 +38,7 @@ jest.mock('@/features/calorie-tracking/api', () => ({
 
 jest.mock('@/features/premium/premium-provider', () => ({
   usePremium: () => ({
-    isPremium: false,
+    hasPlus: false,
     isForced: false,
     customerInfo: null,
     loading: false,
@@ -47,8 +47,6 @@ jest.mock('@/features/premium/premium-provider', () => ({
 }));
 
 jest.mock('@/features/premium/paywall', () => ({
-  presentPaywall: jest.fn(),
-  presentPaywallIfNeeded: jest.fn(),
   presentCustomerCenter: jest.fn(),
 }));
 
@@ -184,9 +182,9 @@ describe('SettingsScreen', () => {
     expect(getByText('fam v1.0.0')).toBeTruthy();
   });
 
-  it('bietet ohne Premium einen Einstieg zum Premium-Screen an', async () => {
+  it('bietet ohne Plus/KI einen Einstieg zum Plus-&-KI-Screen an', async () => {
     const { getByText } = await renderScreen();
-    expect(getByText('Premium für den ganzen Haushalt')).toBeTruthy();
-    expect(getByText('Premium ansehen')).toBeTruthy();
+    expect(getByText('Plus & KI für den ganzen Haushalt')).toBeTruthy();
+    expect(getByText('Plus & KI ansehen')).toBeTruthy();
   });
 });

@@ -1,8 +1,7 @@
-import { useState } from 'react';
+import { router } from 'expo-router';
 import { Pressable, ScrollView, View } from 'react-native';
 
 import { ThemedText } from '@/components/theme/themed-text';
-import { presentPaywallIfNeeded } from '@/features/premium/paywall';
 import { flattenRecipeItems } from '../../domain/ingredient-mentions';
 import type { RecipeDetail } from '../../hooks/use-recipes';
 import { StepMentionText } from '../step-mention-text';
@@ -11,16 +10,6 @@ import { CookingModeShell } from './cooking-mode-shell';
 export function FreeCookingMode({ data }: { data: RecipeDetail }) {
   const { recipe, steps } = data;
   const mentionIngredients = flattenRecipeItems(data.items, data.productsById);
-  const [unlocking, setUnlocking] = useState(false);
-
-  async function unlockPremium() {
-    setUnlocking(true);
-    try {
-      await presentPaywallIfNeeded();
-    } finally {
-      setUnlocking(false);
-    }
-  }
 
   return (
     <CookingModeShell title="Kochmodus" backLabel="Kochmodus schließen">
@@ -61,11 +50,13 @@ export function FreeCookingMode({ data }: { data: RecipeDetail }) {
         ) : null}
 
         <Pressable
-          onPress={unlockPremium}
+          onPress={() =>
+            router.push({ pathname: '/settings/plus-and-ai', params: { tier: 'plus' } })
+          }
           role="button"
           className="min-h-[48px] rounded-card items-center justify-center px-three bg-accent active:opacity-75 mt-auto">
           <ThemedText type="captionCompact" className="text-white font-bold text-center">
-            {unlocking ? 'Öffnet…' : 'Geführten Kochmodus freischalten'}
+            Geführten Kochmodus freischalten
           </ThemedText>
         </Pressable>
       </ScrollView>

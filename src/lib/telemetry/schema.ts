@@ -3,17 +3,19 @@ export type TelemetryProperties = Record<string, TelemetryValue>;
 
 /** Einzige typisierte Quelle für kuratierte Produkt-Events beider Analytics-Ziele. */
 export type ProductTelemetryEventMap = {
-  'paywall.view.completed': { source: string; offering_id?: string };
+  'paywall.view.completed': { source: string; offering_id?: string; tier?: string };
   'purchase.checkout.started': {
     package_id: string;
     period?: string;
+    tier?: string;
     price?: number;
     currency?: string;
   };
-  'purchase.checkout.completed': { package_id?: string; period?: string };
-  'purchase.checkout.cancelled': { package_id?: string };
+  'purchase.checkout.completed': { package_id?: string; period?: string; tier?: string };
+  'purchase.checkout.cancelled': { package_id?: string; tier?: string };
   'purchase.checkout.failed': {
     package_id?: string;
+    tier?: string;
     error_code?: string;
     error_message?: string;
   };

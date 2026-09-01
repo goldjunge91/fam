@@ -19,7 +19,7 @@ import { useNavigationChrome } from '@/features/navigation/navigation-chrome-pro
 import { useProfileInitials } from '@/features/navigation/use-profile-initials';
 import { useProfile } from '@/features/profile/api';
 import { classifySupabaseTarget } from '@/features/settings/dev/dev-info';
-import { PremiumPromoCard } from '@/features/settings/premium-promo-card';
+import { PlusAndAiPromoCard } from '@/features/settings/plus-and-ai-promo-card';
 import { SettingsGroup, SettingsRow } from '@/features/settings/settings-menu';
 import { debugLogEvent } from '@/lib/debug-log';
 import { env } from '@/lib/env';
@@ -104,7 +104,7 @@ export function SettingsScreen() {
             </ThemedText>
           </Pressable>
 
-          <PremiumPromoCard />
+          <PlusAndAiPromoCard />
         </View>
 
         {/* Einstellungs-Menügruppen */}

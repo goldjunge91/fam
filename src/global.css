@@ -1076,6 +1076,19 @@
     @apply text-[7px] mt-[3px];
   }
 
+  /* plus-and-ai-screen.tsx — Upgrade-Banner zum jeweils anderen, noch nicht aktiven Tab-Tier */
+  .premium-upgrade-banner {
+    @apply mt-two p-three rounded-sheet bg-background-selected gap-[2px];
+  }
+
+  .premium-upgrade-title {
+    @apply text-[11px] font-semibold;
+  }
+
+  .premium-upgrade-hint {
+    @apply text-[9px];
+  }
+
   /* recipe-template-detail-screen.tsx */
   .rtd-meta-pill {
     @apply rounded-control px-[8px] py-[6px] bg-background-element/[84%];

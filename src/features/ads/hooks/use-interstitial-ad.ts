@@ -19,12 +19,12 @@ export function useInterstitialAd({
   requestOptions,
   autoLoad = true,
 }: UseInterstitialAdOptions = {}) {
-  const { isPremium } = usePremium();
+  const { hasPlus } = usePremium();
   const adsEnabled = useAdsEnabled();
 
   const defaultUnitId = __DEV__ ? TestIds.INTERSTITIAL : env.adMobInterstitialIdIos;
   const resolvedUnitId = adUnitId ?? defaultUnitId;
-  const adUnit = adsEnabled && !isPremium ? resolvedUnitId : null;
+  const adUnit = adsEnabled && !hasPlus ? resolvedUnitId : null;
   const {
     isLoaded,
     isOpened,
@@ -63,26 +63,26 @@ export function useInterstitialAd({
   }, [isLoaded]);
 
   useEffect(() => {
-    if (adsEnabled && !isPremium && autoLoad && !isLoaded && !isOpened && !isClosed) {
+    if (adsEnabled && !hasPlus && autoLoad && !isLoaded && !isOpened && !isClosed) {
       if (__DEV__) {
         console.log(`[AdMob Interstitial] Lade Interstitial-Anzeige (Unit-ID: ${resolvedUnitId})…`);
       }
       requestLoad();
     }
-  }, [isPremium, autoLoad, isLoaded, isOpened, isClosed, requestLoad, resolvedUnitId, adsEnabled]);
+  }, [hasPlus, autoLoad, isLoaded, isOpened, isClosed, requestLoad, resolvedUnitId, adsEnabled]);
 
   // Automatisch nach dem Schließen für den nächsten Aufruf vorladen
   useEffect(() => {
-    if (adsEnabled && !isPremium && autoLoad && isClosed) {
+    if (adsEnabled && !hasPlus && autoLoad && isClosed) {
       if (__DEV__) {
         console.log('[AdMob Interstitial] Anzeige geschlossen. Lade nächste Anzeige vor…');
       }
       requestLoad();
     }
-  }, [isPremium, autoLoad, isClosed, requestLoad, adsEnabled]);
+  }, [hasPlus, autoLoad, isClosed, requestLoad, adsEnabled]);
 
   const show = useCallback(() => {
-    if (!adsEnabled || isPremium) {
+    if (!adsEnabled || hasPlus) {
       if (__DEV__) {
         console.log(
           `[AdMob Interstitial] show() übersprungen: Werbung ist ${adsEnabled ? 'für Premium deaktiviert' : 'global deaktiviert'}.`,
@@ -105,14 +105,14 @@ export function useInterstitialAd({
         );
       }
     }
-  }, [isPremium, isLoaded, rawShow, error, adsEnabled]);
+  }, [hasPlus, isLoaded, rawShow, error, adsEnabled]);
 
   return {
-    isLoaded: adsEnabled && !isPremium ? isLoaded : false,
+    isLoaded: adsEnabled && !hasPlus ? isLoaded : false,
     isOpened,
     isClosed,
     error,
-    load: adsEnabled && !isPremium ? requestLoad : () => {},
+    load: adsEnabled && !hasPlus ? requestLoad : () => {},
     show,
   };
 }

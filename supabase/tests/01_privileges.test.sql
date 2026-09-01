@@ -12,7 +12,7 @@
 begin;
 \ir helpers.sql
 
-select plan(15);
+select plan(20);
 
 -- ------------------------------------------------------ Tabellen brauchen RLS
 select is_empty(
@@ -96,18 +96,38 @@ select ok(
   'authenticated kann create_household aufrufen'
 );
 
--- --------------------------------------------- Premium-Spalten sind geschuetzt
+-- -------------------------------------- Entitlement-Spalten sind geschuetzt
 -- households_update_admin erlaubt jedem Admin, seine Haushaltszeile zu
--- aendern — ohne diesen Spaltenschutz koennte er premium_active per
--- normalem UPDATE selbst auf true setzen. Nur der RevenueCat-Webhook
+-- aendern — ohne diesen Spaltenschutz koennte er Plus oder AI per
+-- normalem UPDATE selbst freischalten. Nur der RevenueCat-Webhook
 -- (service_role) darf das.
 select ok(
-  not has_column_privilege('authenticated', 'public.households', 'premium_active', 'update'),
-  'authenticated kann premium_active nicht per UPDATE aendern'
+  not has_column_privilege('authenticated', 'public.households', 'plus_active', 'update'),
+  'authenticated kann plus_active nicht per UPDATE aendern'
 );
 select ok(
-  not has_column_privilege('authenticated', 'public.households', 'premium_expires_at', 'update'),
-  'authenticated kann premium_expires_at nicht per UPDATE aendern'
+  not has_column_privilege('authenticated', 'public.households', 'plus_expires_at', 'update'),
+  'authenticated kann plus_expires_at nicht per UPDATE aendern'
+);
+select ok(
+  not has_column_privilege('authenticated', 'public.households', 'plus_updated_at', 'update'),
+  'authenticated kann plus_updated_at nicht per UPDATE aendern'
+);
+select ok(
+  not has_column_privilege('authenticated', 'public.households', 'ai_active', 'update'),
+  'authenticated kann ai_active nicht per UPDATE aendern'
+);
+select ok(
+  not has_column_privilege('authenticated', 'public.households', 'ai_expires_at', 'update'),
+  'authenticated kann ai_expires_at nicht per UPDATE aendern'
+);
+select ok(
+  not has_column_privilege('authenticated', 'public.households', 'ai_updated_at', 'update'),
+  'authenticated kann ai_updated_at nicht per UPDATE aendern'
+);
+select ok(
+  not has_column_privilege('authenticated', 'public.households', 'ai_subscriber_id', 'update'),
+  'authenticated kann ai_subscriber_id nicht per UPDATE aendern'
 );
 select ok(
   has_column_privilege('authenticated', 'public.households', 'name', 'update'),

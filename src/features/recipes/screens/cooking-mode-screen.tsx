@@ -36,7 +36,7 @@ export function CookingModeScreen() {
   const data = recipeQuery.data ?? (catalogData ? toCookingRecipeDetail(catalogData) : null);
   const isCatalog = !id && Boolean(slug);
   const isLoading = isCatalog ? catalogQuery.isLoading : recipeQuery.isLoading;
-  const { isPremium } = usePremium();
+  const { hasPlus } = usePremium();
   const [stepIndex, setStepIndex] = useState(0);
   const [finished, setFinished] = useState(false);
   const timerStep = data?.steps[Math.min(stepIndex, Math.max((data?.steps.length ?? 0) - 1, 0))];
@@ -54,7 +54,7 @@ export function CookingModeScreen() {
   } = useCookingTimer({ stepId: timerStep?.id, durationSeconds });
 
   if (isLoading || !data) return <CookingModeLoading />;
-  if (!isPremium) return <FreeCookingMode data={data} />;
+  if (!hasPlus) return <FreeCookingMode data={data} />;
   if (finished) {
     return (
       <CookingModeFinished

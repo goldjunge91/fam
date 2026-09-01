@@ -18,9 +18,11 @@ const mockResolveCategoryForItem = jest.fn().mockResolvedValue({
 // eine Endlosschleife aus setState-Aufrufen.
 const mockNavigation = { canGoBack: () => true, addListener: () => () => {} };
 
+const mockRouterPush = jest.fn();
+
 jest.mock('expo-router', () => ({
   router: {
-    push: jest.fn(),
+    push: (...args: unknown[]) => mockRouterPush(...args),
     back: (...args: unknown[]) => mockRouterBack(...args),
     canGoBack: () => true,
   },
@@ -74,12 +76,7 @@ jest.mock('@/features/shopping-list/preferences/api', () => ({
 let mockIsPremium = true;
 
 jest.mock('@/features/premium/premium-provider', () => ({
-  usePremium: () => ({ isPremium: mockIsPremium }),
-}));
-
-const mockPresentPaywallIfNeeded = jest.fn();
-jest.mock('@/features/premium/paywall', () => ({
-  presentPaywallIfNeeded: () => mockPresentPaywallIfNeeded(),
+  usePremium: () => ({ hasPlus: mockIsPremium }),
 }));
 
 // Modulweite Konstante statt Array-Literal im Mock: die Screen-Komponente
@@ -141,7 +138,7 @@ function renderScreen() {
 beforeEach(() => {
   mockAddMutateAsync.mockClear();
   mockResolveCategoryForItem.mockClear();
-  mockPresentPaywallIfNeeded.mockClear();
+  mockRouterPush.mockClear();
   mockRouterBack.mockClear();
   mockIsPremium = true;
 });
@@ -297,18 +294,20 @@ describe('MissingIngredientsScreen', () => {
     expect(mockAddMutateAsync).toHaveBeenCalledWith(expect.objectContaining({ name: 'Tomaten' }));
   });
 
-  it('zeigt ohne Premium einen Paywall-Hinweis statt der Zutatenliste', async () => {
+  it('zeigt ohne Plus einen Paywall-Hinweis statt der Zutatenliste', async () => {
     const user = userEvent.setup();
     mockIsPremium = false;
-    mockPresentPaywallIfNeeded.mockResolvedValue('purchased');
 
     await renderScreen();
 
     expect(screen.queryByText('Tomaten')).not.toBeOnTheScreen();
-    expect(screen.getByRole('button', { name: 'Premium ansehen' })).toBeOnTheScreen();
+    expect(screen.getByRole('button', { name: 'Plus ansehen' })).toBeOnTheScreen();
 
-    await user.press(screen.getByRole('button', { name: 'Premium ansehen' }));
+    await user.press(screen.getByRole('button', { name: 'Plus ansehen' }));
 
-    expect(mockPresentPaywallIfNeeded).toHaveBeenCalledTimes(1);
+    expect(mockRouterPush).toHaveBeenCalledWith({
+      pathname: '/settings/plus-and-ai',
+      params: { tier: 'plus' },
+    });
   });
 });

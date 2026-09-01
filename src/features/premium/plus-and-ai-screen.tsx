@@ -5,29 +5,44 @@ import { GradientBackground } from '@/components/layout/gradient-background';
 import { HubScreen } from '@/components/layout/hub-screen';
 import { ThemedText } from '@/components/theme/themed-text';
 import { BackButton, Button } from '@/components/ui/buttons';
+import { SegmentedControl } from '@/components/ui/segmented-control';
 import { presentCustomerCenter } from '@/features/premium/paywall';
 import { PaywallPlanCard } from '@/features/premium/paywall-plan-card';
 import { usePremium } from '@/features/premium/premium-provider';
 import { usePaywall } from '@/features/premium/use-paywall';
 import { SettingsGroup, SettingsRow } from '@/features/settings/settings-menu';
 import { trackAnalyticsEvent } from '@/lib/analytics';
+import { TIER_CONTENT } from './tier-content';
+import type { PaywallTier } from './types';
 
-const BENEFITS: { icon: string; title: string; hint: string }[] = [
-  { icon: '👨‍🍳', title: 'Geführter Kochmodus', hint: 'Schritte, automatische Timer und Medien' },
-  {
-    icon: '➕',
-    title: 'Fehlendes direkt einkaufen',
-    hint: 'Aus Rezepten und dem Essensplan übernehmen',
-  },
-  {
-    icon: '🔄',
-    title: 'Bestände automatisch ergänzen',
-    hint: 'Niedrige Vorräte auf die Einkaufsliste setzen',
-  },
-];
+const TIER_OPTIONS = [
+  { value: 'plus', label: TIER_CONTENT.plus.tabLabel },
+  { value: 'ai', label: TIER_CONTENT.ai.tabLabel },
+] as const;
 
-export function PremiumScreen() {
-  const { isPremium, isForced, refresh } = usePremium();
+interface PlusAndAiScreenProps {
+  /** Tier, mit dem der Screen geoeffnet wurde — entscheidet der jeweilige Einstiegspunkt. */
+  initialTier: PaywallTier;
+}
+
+/**
+ * Eigene Plus-/AI-Paywall unter `/settings/plus-and-ai` (kein RevenueCatUI-Paywall).
+ * Segmented Tabs "Plus"/"KI" ueber dem Inhalt halten beide unabhaengigen Angebote
+ * jederzeit einen Tap entfernt, statt eines kontextuell zu verstecken. Ist das aktuelle
+ * Tab-Tier bereits aktiv und das andere noch nicht, wirbt ein Upgrade-Banner additiv
+ * dafuer (Plus und AI sind unabhaengige Entitlements, keines enthaelt das andere).
+ */
+export function PlusAndAiScreen({ initialTier }: PlusAndAiScreenProps) {
+  const { hasPlus, hasAI, isForced, refresh } = usePremium();
+  const [tier, setTier] = useState<PaywallTier>(initialTier);
+  const [managing, setManaging] = useState(false);
+
+  const owned = tier === 'plus' ? hasPlus : hasAI;
+  const otherTier: PaywallTier = tier === 'plus' ? 'ai' : 'plus';
+  const otherOwned = otherTier === 'plus' ? hasPlus : hasAI;
+  const content = TIER_CONTENT[tier];
+  const otherContent = TIER_CONTENT[otherTier];
+
   const {
     plans,
     selectedPeriod,
@@ -36,12 +51,11 @@ export function PremiumScreen() {
     restore,
     isPurchasing,
     isRestoring,
-  } = usePaywall();
-  const [managing, setManaging] = useState(false);
+  } = usePaywall(tier);
 
   useEffect(() => {
-    trackAnalyticsEvent('paywall.view.completed', { source: 'premium_screen' });
-  }, []);
+    trackAnalyticsEvent('paywall.view.completed', { source: 'plus_and_ai_screen', tier });
+  }, [tier]);
 
   async function handleBuy() {
     const outcome = await buySelectedPlan();
@@ -86,56 +100,81 @@ export function PremiumScreen() {
   return (
     <HubScreen
       header={{
-        title: 'fam Premium',
+        title: 'Plus & KI',
         align: 'center',
         leading: <BackButton label="Einstellungen" href="/settings" variant="arrow" />,
       }}>
       <ScrollView contentContainerClassName="premium-scroll" showsVerticalScrollIndicator={false}>
-        {/* Premium-Hero-Banner (Krone-Icon, Überschrift, Haushalts-Erklärung) */}
+        <SegmentedControl
+          label="Tier auswählen"
+          options={TIER_OPTIONS}
+          selected={tier}
+          onSelect={setTier}
+          appearance="surface"
+        />
+
+        {/* Hero-Banner (Krone-Icon, Ueberschrift, Haushalts-Erklaerung fuer das aktive Tab-Tier) */}
         <View className="premium-hero">
           <View className="premium-crown">
             <GradientBackground colors={['#705573', '#c38b75']} />
             <ThemedText className="premium-crown-glyph">✦</ThemedText>
           </View>
           <ThemedText className="premium-hero-title">
-            {isPremium ? 'Premium ist aktiv' : 'Mehr für euren Haushalt'}
+            {owned ? content.heroTitleActive : content.heroTitleInactive}
           </ThemedText>
           <ThemedText themeColor="textSecondary" className="premium-hero-subtitle">
-            {isPremium
-              ? 'Euer Haushalt nutzt alle Premium-Funktionen.'
-              : 'Ein Abo schaltet Premium für alle Mitglieder des aktuellen Haushalts frei.'}
+            {owned ? content.heroSubtitleActive : content.heroSubtitleInactive}
           </ThemedText>
         </View>
 
         <SettingsGroup>
-          {BENEFITS.map((benefit, index) => (
+          {content.benefits.map((benefit, index) => (
             <SettingsRow
               key={benefit.title}
               icon={benefit.icon}
               label={benefit.title}
               hint={benefit.hint}
-              last={index === BENEFITS.length - 1}
+              last={index === content.benefits.length - 1}
             />
           ))}
         </SettingsGroup>
 
-        {isPremium ? (
-          /* Aktiver Premium-Status & Abo-Verwaltungs-Button */
+        {owned ? (
+          /* Aktiver Status & Abo-Verwaltungs-Button fuer das aktive Tab-Tier */
           <>
             <View className="premium-active-box">
               <ThemedText themeColor="success" className="premium-active-title">
-                ✓ Premium aktiv
+                ✓ {content.activeLabel}
               </ThemedText>
               <ThemedText themeColor="textSecondary" className="premium-active-hint">
-                {isForced
+                {isForced && tier === 'plus'
                   ? 'Für diesen Build erzwungen (Entwicklermodus).'
                   : 'Gilt für alle aktuellen Haushaltsmitglieder.'}
               </ThemedText>
             </View>
             <Button label="Abo verwalten" onPress={handleManage} loading={managing} />
+
+            {/* Upgrade-Hinweis zum jeweils anderen Tab, solange dieser noch nicht aktiv ist */}
+            {!otherOwned ? (
+              <>
+                <View className="premium-upgrade-banner">
+                  <ThemedText className="premium-upgrade-title">
+                    {otherContent.crossSellTitle}
+                  </ThemedText>
+                  <ThemedText themeColor="textSecondary" className="premium-upgrade-hint">
+                    {otherContent.crossSellHint}
+                  </ThemedText>
+                </View>
+                <Button
+                  label={`Zum ${otherContent.tabLabel}-Tab wechseln`}
+                  variant="secondary"
+                  onPress={() => setTier(otherTier)}
+                />
+              </>
+            ) : null}
           </>
         ) : (
-          /* Native Plan-Karten mit dynamischer %-Ersparnis & Kaufbuttons */
+          /* Plan-Karten mit dynamischer %-Ersparnis & Kaufbuttons fuer das aktive Tab-Tier */
           <>
             <PaywallPlanCard
               plans={plans}

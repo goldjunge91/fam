@@ -15,20 +15,80 @@ import { env } from '@/lib/env';
 
 export { ENTITLEMENT_VERIFICATION_MODE, VERIFICATION_RESULT };
 
-export const PREMIUM_ENTITLEMENT_ID = 'Premium';
+export const ENTITLEMENT_IDS = {
+  PLUS: 'Plus',
+  AI: 'AI',
+} as const;
+
+export type EntitlementId = (typeof ENTITLEMENT_IDS)[keyof typeof ENTITLEMENT_IDS];
+
+export const OFFERING_IDS = {
+  PLUS: 'plus',
+  AI: 'ai',
+} as const;
+
+export const PACKAGE_IDS = {
+  MONTHLY: '$rc_monthly',
+  ANNUAL: '$rc_annual',
+} as const;
+
+const OFFERING_ID_BY_ENTITLEMENT = {
+  [ENTITLEMENT_IDS.PLUS]: OFFERING_IDS.PLUS,
+  [ENTITLEMENT_IDS.AI]: OFFERING_IDS.AI,
+} as const satisfies Record<EntitlementId, (typeof OFFERING_IDS)[keyof typeof OFFERING_IDS]>;
+
+type RevenueCatPlatform = 'ios' | 'android';
+
+const PRODUCTION_KEY_PREFIX: Record<RevenueCatPlatform, string> = {
+  ios: 'appl_',
+  android: 'goog_',
+};
+
+type SelectRevenueCatApiKeyOptions = {
+  isDev: boolean;
+  platform: string;
+  testStoreApiKey: string | undefined;
+  iosApiKey: string | undefined;
+  androidApiKey: string | undefined;
+};
+
+/**
+ * Waehlt den RevenueCat-API-Key fuer die aktuelle Plattform aus. In der
+ * Entwicklung hat der Test-Store-Key Vorrang. Im Release-Build wird der
+ * plattformspezifische Store-Key verlangt und die Auswahl faellt geschlossen
+ * aus (liefert `undefined`), wenn dessen Praefix nicht zur Plattform passt --
+ * etwa ein versehentlich verbliebener `test_`-Key oder der Key der jeweils
+ * anderen Plattform in einem TestFlight-/Store-Build.
+ */
+export function selectRevenueCatApiKey({
+  isDev,
+  platform,
+  testStoreApiKey,
+  iosApiKey,
+  androidApiKey,
+}: SelectRevenueCatApiKeyOptions): string | undefined {
+  if (isDev && testStoreApiKey) return testStoreApiKey;
+
+  const candidate =
+    platform === 'ios' ? iosApiKey : platform === 'android' ? androidApiKey : undefined;
+  const expectedPrefix = PRODUCTION_KEY_PREFIX[platform as RevenueCatPlatform];
+  if (!candidate || !expectedPrefix || !candidate.startsWith(expectedPrefix)) return undefined;
+
+  return candidate;
+}
 
 let configured = false;
 
 export function initPurchases(): void {
   if (configured) return;
 
-  const apiKey =
-    (__DEV__ && env.revenueCatTestStoreApiKey) ||
-    Platform.select({
-      ios: env.revenueCatApiKeyIos,
-      android: env.revenueCatApiKeyAndroid,
-      default: undefined,
-    });
+  const apiKey = selectRevenueCatApiKey({
+    isDev: __DEV__,
+    platform: Platform.OS,
+    testStoreApiKey: env.revenueCatTestStoreApiKey,
+    iosApiKey: env.revenueCatApiKeyIos,
+    androidApiKey: env.revenueCatApiKeyAndroid,
+  });
 
   if (!apiKey) {
     console.warn(
@@ -79,24 +139,35 @@ export function checkEntitlementVerification(customerInfo: CustomerInfo | null):
   return true;
 }
 
-/** Prueft, ob das Premium-Entitlement in den gegebenen `CustomerInfo` aktiv ist. */
-export function hasPremiumEntitlement(customerInfo: CustomerInfo | null): boolean {
-  if (!customerInfo) return false;
-  checkEntitlementVerification(customerInfo);
-  return customerInfo.entitlements.active[PREMIUM_ENTITLEMENT_ID] !== undefined;
+/** Prueft ein bekanntes Entitlement und verwirft nicht verifizierte CustomerInfo. */
+export function hasEntitlement(
+  customerInfo: CustomerInfo | null,
+  entitlementId: EntitlementId,
+): boolean {
+  if (!customerInfo || !checkEntitlementVerification(customerInfo)) return false;
+  return customerInfo.entitlements.active[entitlementId] !== undefined;
 }
 
-export async function currentPackages(): Promise<PurchasesPackage[]> {
-  if (!isPurchasesConfigured()) return [];
-  const offerings = await Purchases.getOfferings();
-  return offerings.current?.availablePackages ?? [];
+export function hasPlusEntitlement(customerInfo: CustomerInfo | null): boolean {
+  return hasEntitlement(customerInfo, ENTITLEMENT_IDS.PLUS);
 }
 
-/** Wie `currentPackages()`, gibt aber das ganze Offering zurueck (z.B. fuer `RevenueCatUI.Paywall`). */
-export async function currentOffering(): Promise<PurchasesOffering | null> {
+export function hasAIEntitlement(customerInfo: CustomerInfo | null): boolean {
+  return hasEntitlement(customerInfo, ENTITLEMENT_IDS.AI);
+}
+
+export async function offeringForEntitlement(
+  entitlementId: EntitlementId,
+): Promise<PurchasesOffering | null> {
   if (!isPurchasesConfigured()) return null;
   const offerings = await Purchases.getOfferings();
-  return offerings.current ?? null;
+  return offerings.all[OFFERING_ID_BY_ENTITLEMENT[entitlementId]] ?? null;
+}
+
+export async function packagesForEntitlement(
+  entitlementId: EntitlementId,
+): Promise<PurchasesPackage[]> {
+  return (await offeringForEntitlement(entitlementId))?.availablePackages ?? [];
 }
 
 export type PurchaseOutcome =

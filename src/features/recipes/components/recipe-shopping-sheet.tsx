@@ -1,8 +1,8 @@
+import { router } from 'expo-router';
 import { useEffect, useState } from 'react';
 import { ActivityIndicator, Alert, Pressable, View } from 'react-native';
 
 import { ThemedText } from '@/components/theme/themed-text';
-import { presentPaywallIfNeeded } from '@/features/premium/paywall';
 import { usePremium } from '@/features/premium/premium-provider';
 import { RowStorePicker } from '@/features/shopping-list/components/ui/row-store-picker';
 import { useAddShoppingItem } from '@/features/shopping-list/hooks/use-shopping-list-mutations';
@@ -27,25 +27,22 @@ const EMPTY_MISSING: RecipeShoppingNeed[] = [];
 
 export function RecipeShoppingSheet({ visible, detail, servings, onClose }: Props) {
   const theme = useTheme();
-  const { isPremium, refresh } = usePremium();
-  const [accessGranted, setAccessGranted] = useState(false);
+  const { hasPlus } = usePremium();
   const [selected, setSelected] = useState<Set<string>>(new Set());
   // Marktzuweisung pro Zeile, vom Nutzer manuell ueberschrieben (Fallback:
   // item.preferredStoreId aus der Kaufhistorie) — gespiegelt zu
   // missing-ingredients-screen.tsx (#131-Nachschaerfung).
   const [storeOverrides, setStoreOverrides] = useState<Record<string, string | null>>({});
-  const [unlocking, setUnlocking] = useState(false);
   // Eigener Sperrzustand statt addShoppingItem.isPending: die Mutation wird
   // im Loop pro Zutat einzeln aufgerufen, isPending flackert dazwischen
   // wieder auf false — der Button muss ueber die gesamte Uebertragsdauer
   // gesperrt bleiben (gespiegelt zu missing-ingredients-screen.tsx).
   const [isSubmitting, setIsSubmitting] = useState(false);
   const addShoppingItem = useAddShoppingItem();
-  const hasAccess = isPremium || accessGranted;
   const { data: missing = EMPTY_MISSING, isLoading } = useRecipeShoppingNeeds(
     detail,
     servings,
-    visible && hasAccess,
+    visible && hasPlus,
   );
 
   useEffect(() => {
@@ -62,22 +59,8 @@ export function RecipeShoppingSheet({ visible, detail, servings, onClose }: Prop
       : item.preferredStoreId;
   }
 
-  async function unlockPremium() {
-    setUnlocking(true);
-    try {
-      const outcome = await presentPaywallIfNeeded();
-      if (outcome === 'purchased' || outcome === 'restored') {
-        setAccessGranted(true);
-        await refresh();
-      } else if (outcome === 'unavailable') {
-        Alert.alert(
-          'Premium nicht verfügbar',
-          'Die Premium-Paywall ist auf diesem Gerät nicht konfiguriert.',
-        );
-      }
-    } finally {
-      setUnlocking(false);
-    }
+  function openPlusPaywall() {
+    router.push({ pathname: '/settings/plus-and-ai', params: { tier: 'plus' } });
   }
 
   function toggle(productId: string) {
@@ -137,9 +120,9 @@ export function RecipeShoppingSheet({ visible, detail, servings, onClose }: Prop
     <RecipeBottomSheet
       visible={visible}
       onClose={onClose}
-      title={hasAccess ? 'Fehlende Zutaten' : 'Mit Premium einkaufen'}
+      title={hasPlus ? 'Fehlende Zutaten' : 'Mit Plus einkaufen'}
       sheetClassName="max-h-[82%]">
-      {!hasAccess ? (
+      {!hasPlus ? (
         <>
           <ThemedText
             type="detail"
@@ -148,7 +131,7 @@ export function RecipeShoppingSheet({ visible, detail, servings, onClose }: Prop
             fam vergleicht die Rezeptzutaten mit deinem Vorrat und übernimmt nur Fehlendes in die
             Einkaufsliste.
           </ThemedText>
-          <SheetButton label="Premium ansehen" loading={unlocking} onPress={unlockPremium} />
+          <SheetButton label="Plus ansehen" onPress={openPlusPaywall} />
         </>
       ) : isLoading ? (
         <ActivityIndicator className="h-[76px]" color={theme.accent} />
