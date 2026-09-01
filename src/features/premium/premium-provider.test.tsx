@@ -102,6 +102,36 @@ describe('PremiumProvider', () => {
     expect(result.current.hasPlus).toBe(false);
   });
 
+  it('erlaubt Plus und AI gleichzeitig aktiv', async () => {
+    mockActiveHousehold = { id: 'hh-1', plus_active: true, ai_active: true };
+
+    const { result } = await renderHook(() => usePremium(), { wrapper });
+
+    await waitFor(() => {
+      expect(result.current.loading).toBe(false);
+    });
+
+    expect(result.current.hasPlus).toBe(true);
+    expect(result.current.hasAI).toBe(true);
+  });
+
+  it('aktualisiert Plus/AI beim Haushaltswechsel', async () => {
+    mockActiveHousehold = { id: 'hh-1', plus_active: true, ai_active: false };
+
+    const { result, rerender } = await renderHook(() => usePremium(), { wrapper });
+
+    await waitFor(() => {
+      expect(result.current.hasPlus).toBe(true);
+    });
+    expect(result.current.hasAI).toBe(false);
+
+    mockActiveHousehold = { id: 'hh-2', plus_active: false, ai_active: true };
+    await rerender({});
+
+    expect(result.current.hasPlus).toBe(false);
+    expect(result.current.hasAI).toBe(true);
+  });
+
   it('synchronisiert User-ID und Attribute mit RevenueCat wenn konfiguriert und eingeloggt', async () => {
     (isPurchasesConfigured as jest.Mock).mockReturnValue(true);
     mockSession = { user: { id: 'user-123', email: 'test@fam.app' } };
