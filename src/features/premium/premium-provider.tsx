@@ -1,5 +1,13 @@
 import type { ReactNode } from 'react';
-import { createContext, useCallback, useContext, useEffect, useMemo, useState } from 'react';
+import {
+  createContext,
+  useCallback,
+  useContext,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from 'react';
 import Purchases, { type CustomerInfo } from 'react-native-purchases';
 
 import { useSession } from '@/features/auth/session-provider';
@@ -40,6 +48,7 @@ export function PremiumProvider({ children }: { children: ReactNode }) {
 
   const userId = session?.user.id;
   const userEmail = session?.user.email;
+  const previousUserIdRef = useRef<string | undefined>(undefined);
 
   const refresh = useCallback(async () => {
     if (!isPurchasesConfigured()) {
@@ -75,6 +84,15 @@ export function PremiumProvider({ children }: { children: ReactNode }) {
     if (!isPurchasesConfigured()) {
       setLoading(false);
       return;
+    }
+
+    // Wechselt der eingeloggte User (Account-Wechsel oder Logout), gehört ein bereits
+    // geladener customerInfo-Wert zum falschen Account: sofort loeschen statt bis zum
+    // Ende des Identitaetsabgleichs stehen zu lassen, sonst blieben fremde Entitlements
+    // fuer diesen Zeitraum im lokalen Zustand sichtbar.
+    if (previousUserIdRef.current !== userId) {
+      previousUserIdRef.current = userId;
+      setCustomerInfo(null);
     }
 
     if (userId) {
