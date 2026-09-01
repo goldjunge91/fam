@@ -7,25 +7,28 @@ export interface TierBenefit {
 }
 
 export interface TierContent {
+  /** Beschriftung des Segmented-Tab-Segments für dieses Tier. */
+  tabLabel: string;
   heroTitleActive: string;
   heroTitleInactive: string;
   heroSubtitleActive: string;
   heroSubtitleInactive: string;
   activeLabel: string;
   benefits: TierBenefit[];
-  /** Titel/Hint dieses Tiers als Cross-Sell-Banner auf der Ansicht des jeweils anderen Tiers. */
+  /** Titel/Hint dieses Tiers als Upgrade-Banner, wenn das andere Tier bereits aktiv ist. */
   crossSellTitle: string;
   crossSellHint: string;
 }
 
 /**
- * Copy und Vorteile je Tier für die kontextuell fokussierte Plus-/AI-Paywall
- * (Variante 3 des UI-Mock-Reviews zu fam-yu6.6). Plus und AI sind unabhängige
- * Entitlements ohne Enthalten-Beziehung — die Cross-Sell-Texte werben additiv
+ * Copy und Vorteile je Tier für die Plus-/AI-Paywall mit Segmented Tabs
+ * (Variante 1 des UI-Mock-Reviews zu fam-yu6.6). Plus und AI sind unabhängige
+ * Entitlements ohne Enthalten-Beziehung — die Upgrade-Texte werben additiv
  * für das jeweils andere Abo, statt eines als Obermenge des anderen zu verkaufen.
  */
 export const TIER_CONTENT: Record<PaywallTier, TierContent> = {
   plus: {
+    tabLabel: 'Plus',
     heroTitleInactive: 'Mehr für euren Haushalt',
     heroTitleActive: 'Plus ist aktiv',
     heroSubtitleInactive: 'Ein Abo schaltet Plus für alle Mitglieder des Haushalts frei.',
@@ -52,6 +55,7 @@ export const TIER_CONTENT: Record<PaywallTier, TierContent> = {
     crossSellHint: 'Geführter Kochmodus, Direkteinkauf und Auto-Ergänzung',
   },
   ai: {
+    tabLabel: 'KI',
     heroTitleInactive: 'Kochen mit KI',
     heroTitleActive: 'KI ist aktiv',
     heroSubtitleInactive:

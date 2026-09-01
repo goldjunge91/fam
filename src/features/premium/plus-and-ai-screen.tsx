@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react';
-import { Alert, Pressable, ScrollView, View } from 'react-native';
+import { Alert, ScrollView, View } from 'react-native';
 
 import { GradientBackground } from '@/components/layout/gradient-background';
 import { HubScreen } from '@/components/layout/hub-screen';
 import { ThemedText } from '@/components/theme/themed-text';
 import { BackButton, Button } from '@/components/ui/buttons';
+import { SegmentedControl } from '@/components/ui/segmented-control';
 import { presentCustomerCenter } from '@/features/premium/paywall';
 import { PaywallPlanCard } from '@/features/premium/paywall-plan-card';
 import { usePremium } from '@/features/premium/premium-provider';
@@ -14,6 +15,11 @@ import { trackAnalyticsEvent } from '@/lib/analytics';
 import { TIER_CONTENT } from './tier-content';
 import type { PaywallTier } from './types';
 
+const TIER_OPTIONS = [
+  { value: 'plus', label: TIER_CONTENT.plus.tabLabel },
+  { value: 'ai', label: TIER_CONTENT.ai.tabLabel },
+] as const;
+
 interface PlusAndAiScreenProps {
   /** Tier, mit dem der Screen geoeffnet wurde — entscheidet der jeweilige Einstiegspunkt. */
   initialTier: PaywallTier;
@@ -21,9 +27,10 @@ interface PlusAndAiScreenProps {
 
 /**
  * Eigene Plus-/AI-Paywall unter `/settings/plus-and-ai` (kein RevenueCatUI-Paywall).
- * Zeigt kontextuell genau ein Tier; das jeweils andere, noch nicht aktive Tier steht
- * als kompaktes Cross-Sell-Banner darunter (Plus und AI sind unabhaengige Entitlements,
- * keines enthaelt das andere).
+ * Segmented Tabs "Plus"/"KI" ueber dem Inhalt halten beide unabhaengigen Angebote
+ * jederzeit einen Tap entfernt, statt eines kontextuell zu verstecken. Ist das aktuelle
+ * Tab-Tier bereits aktiv und das andere noch nicht, wirbt ein Upgrade-Banner additiv
+ * dafuer (Plus und AI sind unabhaengige Entitlements, keines enthaelt das andere).
  */
 export function PlusAndAiScreen({ initialTier }: PlusAndAiScreenProps) {
   const { hasPlus, hasAI, isForced, refresh } = usePremium();
@@ -98,7 +105,15 @@ export function PlusAndAiScreen({ initialTier }: PlusAndAiScreenProps) {
         leading: <BackButton label="Einstellungen" href="/settings" variant="arrow" />,
       }}>
       <ScrollView contentContainerClassName="premium-scroll" showsVerticalScrollIndicator={false}>
-        {/* Hero-Banner (Krone-Icon, Ueberschrift, Haushalts-Erklaerung fuer das fokussierte Tier) */}
+        <SegmentedControl
+          label="Tier auswählen"
+          options={TIER_OPTIONS}
+          selected={tier}
+          onSelect={setTier}
+          appearance="surface"
+        />
+
+        {/* Hero-Banner (Krone-Icon, Ueberschrift, Haushalts-Erklaerung fuer das aktive Tab-Tier) */}
         <View className="premium-hero">
           <View className="premium-crown">
             <GradientBackground colors={['#705573', '#c38b75']} />
@@ -125,7 +140,7 @@ export function PlusAndAiScreen({ initialTier }: PlusAndAiScreenProps) {
         </SettingsGroup>
 
         {owned ? (
-          /* Aktiver Status & Abo-Verwaltungs-Button fuer das fokussierte Tier */
+          /* Aktiver Status & Abo-Verwaltungs-Button fuer das aktive Tab-Tier */
           <>
             <View className="premium-active-box">
               <ThemedText themeColor="success" className="premium-active-title">
@@ -138,9 +153,28 @@ export function PlusAndAiScreen({ initialTier }: PlusAndAiScreenProps) {
               </ThemedText>
             </View>
             <Button label="Abo verwalten" onPress={handleManage} loading={managing} />
+
+            {/* Upgrade-Hinweis zum jeweils anderen Tab, solange dieser noch nicht aktiv ist */}
+            {!otherOwned ? (
+              <>
+                <View className="premium-upgrade-banner">
+                  <ThemedText className="premium-upgrade-title">
+                    {otherContent.crossSellTitle}
+                  </ThemedText>
+                  <ThemedText themeColor="textSecondary" className="premium-upgrade-hint">
+                    {otherContent.crossSellHint}
+                  </ThemedText>
+                </View>
+                <Button
+                  label={`Zum ${otherContent.tabLabel}-Tab wechseln`}
+                  variant="secondary"
+                  onPress={() => setTier(otherTier)}
+                />
+              </>
+            ) : null}
           </>
         ) : (
-          /* Plan-Karten mit dynamischer %-Ersparnis & Kaufbuttons fuer das fokussierte Tier */
+          /* Plan-Karten mit dynamischer %-Ersparnis & Kaufbuttons fuer das aktive Tab-Tier */
           <>
             <PaywallPlanCard
               plans={plans}
@@ -165,21 +199,6 @@ export function PlusAndAiScreen({ initialTier }: PlusAndAiScreenProps) {
             />
           </>
         )}
-
-        {/* Cross-Sell zum jeweils anderen Tier, solange dieses noch nicht aktiv ist */}
-        {!otherOwned ? (
-          <Pressable
-            onPress={() => setTier(otherTier)}
-            accessibilityRole="button"
-            className="premium-crosssell">
-            <ThemedText className="premium-crosssell-title">
-              {otherContent.crossSellTitle}
-            </ThemedText>
-            <ThemedText themeColor="textSecondary" className="premium-crosssell-hint">
-              {otherContent.crossSellHint}
-            </ThemedText>
-          </Pressable>
-        ) : null}
       </ScrollView>
     </HubScreen>
   );

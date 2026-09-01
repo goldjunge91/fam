@@ -51,16 +51,23 @@ describe('PlusAndAiScreen', () => {
     mockHasAI = false;
   });
 
-  it('zeigt ohne Abo den Plus-Kauf-Einstieg samt KI-Cross-Sell', async () => {
+  it('zeigt die Segmented Tabs Plus/KI', async () => {
+    await renderScreen('plus');
+
+    expect(screen.getByRole('tab', { name: 'Plus' })).toBeOnTheScreen();
+    expect(screen.getByRole('tab', { name: 'KI' })).toBeOnTheScreen();
+  });
+
+  it('zeigt ohne Abo im Plus-Tab den Kauf-Einstieg ohne Upgrade-Banner', async () => {
     await renderScreen('plus');
 
     expect(screen.getByText('Mehr für euren Haushalt')).toBeOnTheScreen();
     expect(screen.getByText('Geführter Kochmodus')).toBeOnTheScreen();
     expect(screen.getByRole('button', { name: 'Jahresabo für 49,99 € starten' })).toBeOnTheScreen();
-    expect(screen.getByText('Auf KI upgraden')).toBeOnTheScreen();
+    expect(screen.queryByText('Auf KI upgraden')).not.toBeOnTheScreen();
   });
 
-  it('zeigt mit aktivem Plus die Verwalten-Variante und weiterhin den KI-Cross-Sell', async () => {
+  it('zeigt mit aktivem Plus die Verwalten-Variante und einen KI-Upgrade-Hinweis', async () => {
     mockHasPlus = true;
     await renderScreen('plus');
 
@@ -68,9 +75,10 @@ describe('PlusAndAiScreen', () => {
     expect(screen.getByRole('button', { name: 'Abo verwalten' })).toBeOnTheScreen();
     expect(screen.queryByText('Jahresabo')).not.toBeOnTheScreen();
     expect(screen.getByText('Auf KI upgraden')).toBeOnTheScreen();
+    expect(screen.getByRole('button', { name: 'Zum KI-Tab wechseln' })).toBeOnTheScreen();
   });
 
-  it('blendet den Cross-Sell aus, sobald beide Tiers aktiv sind', async () => {
+  it('blendet den Upgrade-Hinweis aus, sobald beide Tiers aktiv sind', async () => {
     mockHasPlus = true;
     mockHasAI = true;
     await renderScreen('plus');
@@ -79,21 +87,32 @@ describe('PlusAndAiScreen', () => {
     expect(screen.queryByText('Auf KI upgraden')).not.toBeOnTheScreen();
   });
 
-  it('startet mit dem KI-Tier, wenn ueber tier=ai geoeffnet', async () => {
+  it('startet im KI-Tab, wenn ueber tier=ai geoeffnet', async () => {
     await renderScreen('ai');
 
+    expect(screen.getByRole('tab', { name: 'KI', selected: true })).toBeOnTheScreen();
     expect(screen.getByText('Kochen mit KI')).toBeOnTheScreen();
     expect(screen.getByText('KI-Rezeptvorschläge')).toBeOnTheScreen();
-    expect(screen.getByText('Mit Plus kombinieren')).toBeOnTheScreen();
   });
 
-  it('wechselt per Cross-Sell-Banner das fokussierte Tier', async () => {
+  it('wechselt per Segmented Tab das aktive Tier', async () => {
     const user = userEvent.setup();
     await renderScreen('plus');
 
-    await user.press(screen.getByText('Auf KI upgraden'));
+    await user.press(screen.getByRole('tab', { name: 'KI' }));
 
     expect(screen.getByText('Kochen mit KI')).toBeOnTheScreen();
     expect(screen.queryByText('Geführter Kochmodus')).not.toBeOnTheScreen();
+  });
+
+  it('wechselt per Upgrade-Button das aktive Tier', async () => {
+    mockHasPlus = true;
+    const user = userEvent.setup();
+    await renderScreen('plus');
+
+    await user.press(screen.getByRole('button', { name: 'Zum KI-Tab wechseln' }));
+
+    expect(screen.getByRole('tab', { name: 'KI', selected: true })).toBeOnTheScreen();
+    expect(screen.getByText('Kochen mit KI')).toBeOnTheScreen();
   });
 });
