@@ -6,13 +6,38 @@ import { withAlpha } from '@/constants/theme';
 import { usePremium } from '@/features/premium/premium-provider';
 import { useTheme } from '@/hooks/use-theme';
 
-export function PremiumPromoCard() {
+export function PlusAndAiPromoCard() {
   const theme = useTheme();
-  const { hasPlus, isForced } = usePremium();
+  const { hasPlus, hasAI, isForced } = usePremium();
+
+  const title =
+    hasPlus && hasAI
+      ? 'Plus & KI sind aktiv'
+      : hasPlus
+        ? 'Plus ist aktiv'
+        : hasAI
+          ? 'KI ist aktiv'
+          : 'Plus & KI für den ganzen Haushalt';
+
+  const subtitle =
+    hasPlus && hasAI
+      ? 'Alle Mitglieder profitieren von allen Funktionen.'
+      : hasPlus
+        ? 'KI-Rezeptvorschläge sind als Upgrade verfügbar.'
+        : hasAI
+          ? 'Plus ergänzt euer KI-Abo um weitere Automationen.'
+          : 'Kochmodus, KI-Vorschläge und weitere Automationen.';
+
+  const actionLabel =
+    hasPlus || hasAI
+      ? isForced
+        ? 'Abo verwalten (erzwungen)'
+        : 'Abo verwalten'
+      : 'Plus & KI ansehen';
 
   return (
     <Pressable
-      onPress={() => router.push('/settings/premium')}
+      onPress={() => router.push('/settings/plus-and-ai')}
       accessibilityRole="button"
       className="overflow-hidden rounded-sheet p-[14px] active:opacity-85"
       style={{
@@ -26,12 +51,10 @@ export function PremiumPromoCard() {
         ✦
       </ThemedText>
       <ThemedText type="subtitle" style={{ color: theme.premiumOnSurface }}>
-        {hasPlus ? 'Premium ist aktiv' : 'Premium für den ganzen Haushalt'}
+        {title}
       </ThemedText>
       <ThemedText type="default" style={{ color: withAlpha(theme.premiumOnSurface, 0.82) }}>
-        {hasPlus
-          ? 'Alle Mitglieder profitieren von den Premium-Funktionen.'
-          : 'Kochmodus, intelligente Einkaufslisten und weitere Automationen.'}
+        {subtitle}
       </ThemedText>
       <View
         className="self-start mt-[9px] px-[9px] py-[6px] rounded-control"
@@ -40,7 +63,7 @@ export function PremiumPromoCard() {
           type="default"
           className="font-semibold"
           style={{ color: theme.premiumActionText }}>
-          {hasPlus ? (isForced ? 'Abo verwalten (erzwungen)' : 'Abo verwalten') : 'Premium ansehen'}
+          {actionLabel}
         </ThemedText>
       </View>
     </Pressable>

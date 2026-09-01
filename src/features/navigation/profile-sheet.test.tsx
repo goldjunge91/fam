@@ -63,7 +63,7 @@ describe('ProfileSheet', () => {
     expect(screen.getByText('Max Mustermann')).toBeTruthy();
     expect(screen.getByText('Mein Profil')).toBeTruthy();
     expect(screen.getByText('Familie')).toBeTruthy();
-    expect(screen.getByText('Premium')).toBeTruthy();
+    expect(screen.getByText('Plus & KI')).toBeTruthy();
   });
 
   it('navigiert zu Haushalts-Einstellungen beim Klick auf Familie', async () => {

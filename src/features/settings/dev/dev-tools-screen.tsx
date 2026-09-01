@@ -14,7 +14,6 @@ import { useSession } from '@/features/auth/session-provider';
 import { VISION_CAMERA_LAB_ENABLED } from '@/features/experimentalscreens/vision-camera-lab';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { useForcePremiumOverrideStore } from '@/features/premium/force-premium-override';
-import { presentPaywall } from '@/features/premium/paywall';
 import { usePremium } from '@/features/premium/premium-provider';
 import { type AnalyticsToggle, analyticsToggles } from '@/features/settings/dev/analytics-controls';
 import {
@@ -606,15 +605,18 @@ export function DevToolsScreen() {
             />
           ) : null}
           <Button
-            label="Paywall öffnen (Test Store)"
+            label="Plus-Paywall öffnen (Test Store)"
             variant="secondary"
             onPress={() =>
-              mitBusy('paywall', async () => {
-                const outcome = await presentPaywall();
-                Alert.alert('Paywall-Ergebnis', outcome);
-              })
+              router.push({ pathname: '/settings/plus-and-ai', params: { tier: 'plus' } })
             }
-            loading={busy === 'paywall'}
+          />
+          <Button
+            label="KI-Paywall öffnen (Test Store)"
+            variant="secondary"
+            onPress={() =>
+              router.push({ pathname: '/settings/plus-and-ai', params: { tier: 'ai' } })
+            }
           />
           <Button
             label="Lokale Datenbank löschen"

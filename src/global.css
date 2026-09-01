@@ -1076,6 +1076,19 @@
     @apply text-[7px] mt-[3px];
   }
 
+  /* plus-and-ai-screen.tsx — Cross-Sell-Banner zum jeweils anderen, noch nicht aktiven Tier */
+  .premium-crosssell {
+    @apply mt-two p-three rounded-sheet bg-background-selected gap-[2px];
+  }
+
+  .premium-crosssell-title {
+    @apply text-[11px] font-semibold;
+  }
+
+  .premium-crosssell-hint {
+    @apply text-[9px];
+  }
+
   /* recipe-template-detail-screen.tsx */
   .rtd-meta-pill {
     @apply rounded-control px-[8px] py-[6px] bg-background-element/[84%];

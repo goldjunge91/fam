@@ -5,12 +5,14 @@ import { usePremium } from '@/features/premium/premium-provider';
 import { trackAnalyticsEvent } from '@/lib/analytics';
 import {
   buyPackage,
-  currentPackages,
+  ENTITLEMENT_IDS,
   isPurchasesConfigured,
   type PurchaseOutcome,
+  packagesForEntitlement,
   restorePurchases,
 } from '@/lib/purchases';
 import { type ExtractedPaywallPlans, extractPaywallPlans, type PlanPeriod } from './paywall-plans';
+import type { PaywallTier } from './types';
 
 export interface UsePaywallResult {
   packages: PurchasesPackage[];
@@ -27,9 +29,10 @@ export interface UsePaywallResult {
 
 /**
  * Hook zur Kapselung von Package-Laden, Plan-Auswahl und Kauf-/Wiederherstellen-Aktionen
- * mit integriertem Analytics-Funnel-Tracking (Aptabase & PostHog).
+ * fuer ein einzelnes Tier (Plus oder AI), mit integriertem Analytics-Funnel-Tracking
+ * (Aptabase & PostHog).
  */
-export function usePaywall(): UsePaywallResult {
+export function usePaywall(tier: PaywallTier): UsePaywallResult {
   const { refresh } = usePremium();
   const [packages, setPackages] = useState<PurchasesPackage[]>([]);
   const [isLoadingPackages, setIsLoadingPackages] = useState(true);
@@ -37,20 +40,23 @@ export function usePaywall(): UsePaywallResult {
   const [isPurchasing, setIsPurchasing] = useState(false);
   const [isRestoring, setIsRestoring] = useState(false);
 
+  const entitlementId = tier === 'plus' ? ENTITLEMENT_IDS.PLUS : ENTITLEMENT_IDS.AI;
+
   const fetchPackages = useCallback(async () => {
     if (!isPurchasesConfigured()) {
       setIsLoadingPackages(false);
       return;
     }
+    setIsLoadingPackages(true);
     try {
-      const pkgs = await currentPackages();
+      const pkgs = await packagesForEntitlement(entitlementId);
       setPackages(pkgs);
     } catch (err) {
       console.warn('[usePaywall] Packages konnten nicht geladen werden:', err);
     } finally {
       setIsLoadingPackages(false);
     }
-  }, []);
+  }, [entitlementId]);
 
   useEffect(() => {
     fetchPackages();
@@ -77,6 +83,7 @@ export function usePaywall(): UsePaywallResult {
     trackAnalyticsEvent('purchase.checkout.started', {
       package_id: targetPkg.identifier,
       period: selectedPeriod,
+      tier,
       price: targetPkg.product?.price,
       currency: targetPkg.product?.currencyCode,
     });
@@ -87,15 +94,18 @@ export function usePaywall(): UsePaywallResult {
         trackAnalyticsEvent('purchase.checkout.completed', {
           package_id: targetPkg.identifier,
           period: selectedPeriod,
+          tier,
         });
         await refresh();
       } else if (outcome.kind === 'cancelled') {
         trackAnalyticsEvent('purchase.checkout.cancelled', {
           package_id: targetPkg.identifier,
+          tier,
         });
       } else if (outcome.kind === 'failed') {
         trackAnalyticsEvent('purchase.checkout.failed', {
           package_id: targetPkg.identifier,
+          tier,
           error_code: String(outcome.error.code),
           error_message: outcome.error.message,
         });
@@ -104,7 +114,7 @@ export function usePaywall(): UsePaywallResult {
     } finally {
       setIsPurchasing(false);
     }
-  }, [isPurchasing, selectedPackage, selectedPeriod, refresh]);
+  }, [isPurchasing, selectedPackage, selectedPeriod, refresh, tier]);
 
   const restore = useCallback(async (): Promise<{ ok: boolean; error?: unknown }> => {
     if (isRestoring) return { ok: false };

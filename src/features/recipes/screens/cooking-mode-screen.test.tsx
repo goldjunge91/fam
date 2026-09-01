@@ -36,10 +36,6 @@ jest.mock('@/features/premium/premium-provider', () => ({
   usePremium: () => ({ hasPlus: mockIsPremium }),
 }));
 
-jest.mock('@/features/premium/paywall', () => ({
-  presentPaywallIfNeeded: jest.fn(),
-}));
-
 function renderScreen() {
   const queryClient = new QueryClient({
     defaultOptions: { queries: { retry: false, gcTime: Number.POSITIVE_INFINITY } },

@@ -170,11 +170,6 @@ export async function packagesForEntitlement(
   return (await offeringForEntitlement(entitlementId))?.availablePackages ?? [];
 }
 
-/** Kompatibilitaetszugriff fuer die bestehende eigene Plus-Paywall. */
-export function currentPackages(): Promise<PurchasesPackage[]> {
-  return packagesForEntitlement(ENTITLEMENT_IDS.PLUS);
-}
-
 export type PurchaseOutcome =
   | { kind: 'purchased'; customerInfo: CustomerInfo }
   | { kind: 'cancelled' }
