@@ -51,6 +51,7 @@ export function PremiumProvider({ children }: { children: ReactNode }) {
   const userId = session?.user.id;
   const userEmail = session?.user.email;
   const previousUserIdRef = useRef<string | undefined>(undefined);
+  const identitySyncGenerationRef = useRef(0);
 
   const refresh = useCallback(async () => {
     if (!isPurchasesConfigured()) {
@@ -97,24 +98,38 @@ export function PremiumProvider({ children }: { children: ReactNode }) {
       setCustomerInfo(null);
     }
 
+    // Ein Generation-Zaehler markiert, welcher Aufruf der aktuelle ist: loest ein
+    // aelterer Sync/Reset erst auf, nachdem ein neuerer bereits gestartet wurde
+    // (Account-Wechsel waehrend eines laufenden Requests), darf sein Ergebnis
+    // customerInfo nicht mehr setzen.
+    identitySyncGenerationRef.current += 1;
+    const generation = identitySyncGenerationRef.current;
+    const isCurrent = () => identitySyncGenerationRef.current === generation;
+
     if (userId) {
       syncPurchasesIdentity(userId, {
         household_id: activeHouseholdId ?? null,
         $posthogUserId: userId,
       })
         .then((info) => {
+          if (!isCurrent()) return;
           if (info) setCustomerInfo(info);
           if (userEmail) {
             setPurchasesEmail(userEmail);
           }
         })
-        .finally(() => setLoading(false));
+        .finally(() => {
+          if (isCurrent()) setLoading(false);
+        });
     } else {
       resetPurchasesIdentity()
         .then((info) => {
+          if (!isCurrent()) return;
           if (info) setCustomerInfo(info);
         })
-        .finally(() => setLoading(false));
+        .finally(() => {
+          if (isCurrent()) setLoading(false);
+        });
     }
   }, [userId, userEmail, activeHouseholdId]);
 

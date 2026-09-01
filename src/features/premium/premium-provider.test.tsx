@@ -1,4 +1,4 @@
-import { renderHook, waitFor } from '@testing-library/react-native';
+import { act, renderHook, waitFor } from '@testing-library/react-native';
 import type React from 'react';
 import type { CustomerInfo } from 'react-native-purchases';
 
@@ -195,5 +195,43 @@ describe('PremiumProvider', () => {
     await waitFor(() => {
       expect(result.current.loading).toBe(false);
     });
+  });
+
+  it('ignoriert eine spaet aufloesende Identitaetssynchronisierung des vorherigen Accounts', async () => {
+    (isPurchasesConfigured as jest.Mock).mockReturnValue(true);
+    mockSession = { user: { id: 'user-1', email: 'a@fam.app' } };
+    mockActiveHousehold = { id: 'hh-1', plus_active: false };
+
+    let resolveUserOneSync: (info: CustomerInfo | null) => void = () => {};
+    (syncPurchasesIdentity as jest.Mock).mockReturnValueOnce(
+      new Promise<CustomerInfo | null>((resolve) => {
+        resolveUserOneSync = resolve;
+      }),
+    );
+
+    const { result, rerender } = await renderHook(() => usePremium(), { wrapper });
+
+    // Account-Wechsel, bevor der Identitaetsabgleich von user-1 aufgeloest hat.
+    const userTwoInfo = {
+      entitlements: { active: {} },
+    } as unknown as CustomerInfo;
+    (syncPurchasesIdentity as jest.Mock).mockResolvedValueOnce(userTwoInfo);
+    mockSession = { user: { id: 'user-2', email: 'b@fam.app' } };
+    await rerender({});
+
+    await waitFor(() => {
+      expect(result.current.customerInfo).toBe(userTwoInfo);
+    });
+
+    // Der veraltete user-1-Request loest jetzt erst auf, mit fremden Daten.
+    const userOneInfo = {
+      entitlements: { active: { Plus: { identifier: 'Plus', isActive: true } } },
+    } as unknown as CustomerInfo;
+    await act(async () => {
+      resolveUserOneSync(userOneInfo);
+      await Promise.resolve();
+    });
+
+    expect(result.current.customerInfo).toBe(userTwoInfo);
   });
 });
