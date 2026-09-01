@@ -29,6 +29,8 @@ grant delete, insert, select, update on public.households to anon, authenticated
 grant delete, insert, select, update on public.household_members to anon, authenticated, service_role;
 revoke all on public.revenuecat_ai_assignments from anon, authenticated, service_role;
 grant delete, insert, select, update on public.revenuecat_ai_assignments to service_role;
+revoke all on public.revenuecat_plus_assignments from anon, authenticated, service_role;
+grant delete, insert, select, update on public.revenuecat_plus_assignments to service_role;
 revoke all on public.revenuecat_processed_events from anon, authenticated, service_role;
 grant insert, select on public.revenuecat_processed_events to service_role;
 revoke all on public.ai_credit_bookings from anon, authenticated, service_role;
@@ -156,18 +158,32 @@ grant execute on function public.redeem_invite(uuid) to authenticated;
 revoke execute on function public.prepare_account_deletion() from public, anon;
 grant execute on function public.prepare_account_deletion() to authenticated;
 
--- Das RevenueCat-/Edge-Function-Gate verifiziert das Entitlement, bevor diese
--- service-role-only Funktion die Zuordnung und Haushaltsprojektion atomar
--- schreibt. Ein Client darf sie auch als angemeldeter Nutzer nie direkt
+-- Der RevenueCat-Webhook verifiziert das Entitlement, bevor diese
+-- service-role-only Funktionen Zuordnung und Haushaltsprojektion atomar
+-- schreiben. Ein Client darf sie auch als angemeldeter Nutzer nie direkt
 -- aufrufen.
-revoke execute on function public.assign_ai_household(uuid, uuid, timestamptz, bigint)
+revoke execute on function private.mark_webhook_event_processed(text, text)
   from public, anon, authenticated;
-grant execute on function public.assign_ai_household(uuid, uuid, timestamptz, bigint)
+grant execute on function private.mark_webhook_event_processed(text, text)
   to service_role;
-revoke execute on function public.deactivate_ai_household(uuid, bigint)
+revoke execute on function private.recompute_household_plus(uuid)
   from public, anon, authenticated;
-grant execute on function public.deactivate_ai_household(uuid, bigint)
+grant execute on function private.recompute_household_plus(uuid)
   to service_role;
+revoke execute on function public.assign_ai_household(uuid, uuid, timestamptz, bigint, text)
+  from public, anon, authenticated;
+grant execute on function public.assign_ai_household(uuid, uuid, timestamptz, bigint, text)
+  to service_role;
+revoke execute on function public.deactivate_ai_household(uuid, bigint, text)
+  from public, anon, authenticated;
+grant execute on function public.deactivate_ai_household(uuid, bigint, text)
+  to service_role;
+revoke execute on function public.apply_plus_household_event(
+  uuid, uuid, boolean, timestamptz, bigint, text
+) from public, anon, authenticated;
+grant execute on function public.apply_plus_household_event(
+  uuid, uuid, boolean, timestamptz, bigint, text
+) to service_role;
 
 -- AI-Fair-Use-Vertrag: Es existiert noch keine AI-Fachfunktion, die im Namen
 -- eines Haushaltsmitglieds bucht oder den Status anzeigt. Beide RPCs bleiben

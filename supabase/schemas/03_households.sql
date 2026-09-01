@@ -92,6 +92,22 @@ create table if not exists public.revenuecat_processed_events (
   primary key (event_id, entitlement_id)
 );
 
+-- Kanonische Kaeufer-zu-Haushalt-Zuordnung fuer Plus, pro Subscriber. Kein
+-- unique(household_id): mehrere Accounts koennen Plus fuer denselben Haushalt halten.
+create table if not exists public.revenuecat_plus_assignments (
+  subscriber_user_id uuid primary key references public.profiles (id) on delete cascade,
+  household_id uuid not null references public.households (id) on delete cascade,
+  active boolean not null default true,
+  expires_at timestamptz,
+  last_event_timestamp_ms bigint,
+  created_at timestamptz not null default now(),
+  updated_at timestamptz not null default now()
+);
+
+create index if not exists revenuecat_plus_assignments_household_active_idx
+  on public.revenuecat_plus_assignments (household_id)
+  where active;
+
 create or replace trigger households_set_updated_at
   before update on public.households
   for each row
@@ -234,24 +250,70 @@ create or replace trigger revenuecat_ai_assignments_set_updated_at
   for each row
   execute function private.set_updated_at();
 
--- Atomare serverseitige AI-Zuordnung. Die aufrufende Edge Function muss das
--- RevenueCat-Entitlement vorher verifizieren; die Datenbank erzwingt danach
--- Mitgliedschaft, Eindeutigkeit und hoechstens einen Wechsel pro UTC-
--- Kalendermonat. Die Funktion ist nur fuer service_role ausfuehrbar.
---
--- `p_event_timestamp_ms` ist optional (Default null) fuer Aufrufer ohne
--- Ereignis-Zeitstempel. Ist er gesetzt und existiert bereits eine Zuordnung
--- mit einem juengeren `last_event_timestamp_ms`, ist der Aufruf ein No-op:
--- Ein verspaetet zugestelltes aelteres RevenueCat-Event (Retry, Out-of-Order-
--- Zustellung) darf einen bereits neueren Zuordnungs- oder Ablaufstand nicht
--- ueberschreiben.
+create or replace trigger revenuecat_plus_assignments_set_updated_at
+  before update on public.revenuecat_plus_assignments
+  for each row
+  execute function private.set_updated_at();
+
+-- Dedupliziert ein Webhook-Event atomar innerhalb der aufrufenden Funktion:
+-- schlaegt die restliche Funktion fehl, rollt Postgres auch diesen Insert zurueck.
+create or replace function private.mark_webhook_event_processed(
+  p_event_id text,
+  p_entitlement_id text
+)
+returns boolean
+language plpgsql
+security invoker
+set search_path = ''
+as $$
+begin
+  if p_event_id is null then
+    return true;
+  end if;
+
+  insert into public.revenuecat_processed_events (event_id, entitlement_id)
+  values (p_event_id, p_entitlement_id)
+  on conflict (event_id, entitlement_id) do nothing;
+
+  return found;
+end;
+$$;
+
+-- Aggregiert alle aktiven Plus-Zuordnungen eines Haushalts auf households.plus_*.
+create or replace function private.recompute_household_plus(p_household_id uuid)
+returns void
+language plpgsql
+security invoker
+set search_path = ''
+as $$
+declare
+  v_active boolean;
+  v_expires_at timestamptz;
+begin
+  select bool_or(active), max(expires_at) filter (where active)
+  into v_active, v_expires_at
+  from public.revenuecat_plus_assignments
+  where household_id = p_household_id;
+
+  update public.households
+  set plus_active = coalesce(v_active, false),
+      plus_expires_at = case when coalesce(v_active, false) then v_expires_at else null end,
+      plus_updated_at = now()
+  where id = p_household_id;
+end;
+$$;
+
+-- Atomare serverseitige AI-Zuordnung, Mitgliedschaft/Eindeutigkeit/Monats-
+-- limit werden erzwungen. `p_event_id` macht den Aufruf idempotent, ein
+-- juengeres `last_event_timestamp_ms` gewinnt gegen Out-of-Order-Events.
 create or replace function public.assign_ai_household(
   p_subscriber_user_id uuid,
   p_target_household_id uuid,
   p_entitlement_expires_at timestamptz,
-  p_event_timestamp_ms bigint default null
+  p_event_timestamp_ms bigint default null,
+  p_event_id text default null
 )
-returns void
+returns boolean
 language plpgsql
 security invoker
 set search_path = ''
@@ -272,6 +334,10 @@ begin
       message = 'ai_target_household_forbidden';
   end if;
 
+  if not private.mark_webhook_event_processed(p_event_id, 'AI') then
+    return false;
+  end if;
+
   select household_id, household_changed_at, last_event_timestamp_ms
   into current_household_id, current_household_changed_at, current_event_timestamp_ms
   from public.revenuecat_ai_assignments
@@ -283,7 +349,7 @@ begin
     and current_event_timestamp_ms is not null
     and p_event_timestamp_ms < current_event_timestamp_ms
   then
-    return;
+    return false;
   end if;
 
   if current_household_id is null then
@@ -328,20 +394,19 @@ begin
       ai_updated_at = now(),
       ai_subscriber_id = p_subscriber_user_id
   where id = p_target_household_id;
+
+  return true;
 end;
 $$;
 
--- Deaktiviert AI fuer den aktuell zugeordneten Haushalt eines Subscribers
--- (RevenueCat EXPIRATION). Getrennt von assign_ai_household, weil eine
--- Deaktivierung keinen Zielhaushalt kennt und das Monatswechsel-Limit nicht
--- betrifft. Derselbe Staleness-Schutz wie oben: Ein verspaetet zugestelltes
--- EXPIRATION-Event darf eine bereits juengere Aktivierung (Renewal) nicht
--- widerrufen.
+-- Deaktiviert AI fuer den zugeordneten Haushalt und gibt die Zuordnung frei,
+-- damit ein anderes Haushaltsmitglied AI danach selbst kaufen kann.
 create or replace function public.deactivate_ai_household(
   p_subscriber_user_id uuid,
-  p_event_timestamp_ms bigint default null
+  p_event_timestamp_ms bigint default null,
+  p_event_id text default null
 )
-returns void
+returns boolean
 language plpgsql
 security invoker
 set search_path = ''
@@ -350,6 +415,10 @@ declare
   current_household_id uuid;
   current_event_timestamp_ms bigint;
 begin
+  if not private.mark_webhook_event_processed(p_event_id, 'AI') then
+    return false;
+  end if;
+
   select household_id, last_event_timestamp_ms
   into current_household_id, current_event_timestamp_ms
   from public.revenuecat_ai_assignments
@@ -357,14 +426,14 @@ begin
   for update;
 
   if current_household_id is null then
-    return;
+    return false;
   end if;
 
   if p_event_timestamp_ms is not null
     and current_event_timestamp_ms is not null
     and p_event_timestamp_ms < current_event_timestamp_ms
   then
-    return;
+    return false;
   end if;
 
   update public.households
@@ -375,9 +444,77 @@ begin
   where id = current_household_id
     and ai_subscriber_id = p_subscriber_user_id;
 
-  update public.revenuecat_ai_assignments
-  set last_event_timestamp_ms = p_event_timestamp_ms
+  delete from public.revenuecat_ai_assignments
   where subscriber_user_id = p_subscriber_user_id;
+
+  return true;
+end;
+$$;
+
+-- Wendet ein Plus-Event kanonisch auf den Kaufhaushalt des Subscribers an.
+-- `p_household_id` bindet nur beim allerersten Event; danach bleibt sie stabil.
+create or replace function public.apply_plus_household_event(
+  p_subscriber_user_id uuid,
+  p_household_id uuid,
+  p_active boolean,
+  p_expires_at timestamptz,
+  p_event_timestamp_ms bigint default null,
+  p_event_id text default null
+)
+returns boolean
+language plpgsql
+security invoker
+set search_path = ''
+as $$
+declare
+  v_household_id uuid;
+  v_event_timestamp_ms bigint;
+begin
+  if not private.mark_webhook_event_processed(p_event_id, 'Plus') then
+    return false;
+  end if;
+
+  select household_id, last_event_timestamp_ms
+  into v_household_id, v_event_timestamp_ms
+  from public.revenuecat_plus_assignments
+  where subscriber_user_id = p_subscriber_user_id
+  for update;
+
+  if v_household_id is not null
+    and p_event_timestamp_ms is not null
+    and v_event_timestamp_ms is not null
+    and p_event_timestamp_ms < v_event_timestamp_ms
+  then
+    return false;
+  end if;
+
+  if v_household_id is null then
+    if not exists (
+      select 1 from public.household_members
+      where household_id = p_household_id and user_id = p_subscriber_user_id
+    ) then
+      raise exception using
+        errcode = '42501',
+        message = 'plus_target_household_forbidden';
+    end if;
+
+    v_household_id := p_household_id;
+    insert into public.revenuecat_plus_assignments (
+      subscriber_user_id, household_id, active, expires_at, last_event_timestamp_ms
+    )
+    values (
+      p_subscriber_user_id, v_household_id, p_active, p_expires_at, p_event_timestamp_ms
+    );
+  else
+    update public.revenuecat_plus_assignments
+    set active = p_active,
+        expires_at = p_expires_at,
+        last_event_timestamp_ms = p_event_timestamp_ms
+    where subscriber_user_id = p_subscriber_user_id;
+  end if;
+
+  perform private.recompute_household_plus(v_household_id);
+  return true;
 end;
 $$;
 
@@ -636,6 +773,22 @@ begin
     raise exception 'not authenticated';
   end if;
 
+  -- AI/Plus vorher deaktivieren: sonst verletzt die FK-Aktion auf
+  -- ai_subscriber_id gleich den Active-Subscriber-Constraint.
+  update public.households
+  set ai_active = false, ai_expires_at = null, ai_updated_at = now(), ai_subscriber_id = null
+  where ai_subscriber_id = uid;
+
+  delete from public.revenuecat_ai_assignments where subscriber_user_id = uid;
+
+  for rec in
+    select household_id from public.revenuecat_plus_assignments where subscriber_user_id = uid
+  loop
+    delete from public.revenuecat_plus_assignments
+    where subscriber_user_id = uid and household_id = rec.household_id;
+    perform private.recompute_household_plus(rec.household_id);
+  end loop;
+
   -- Haushalte, in denen dieser Nutzer Admin ist: Bricht ab, wenn er dort der
   -- letzte Admin waere UND noch andere Mitglieder zurueckbliebe. Der Abbruch
   -- rollt die ganze Funktion zurueck — die Edge Function sieht die Exception
@@ -697,6 +850,7 @@ $$;
 alter table public.households enable row level security;
 alter table public.household_members enable row level security;
 alter table public.revenuecat_ai_assignments enable row level security;
+alter table public.revenuecat_plus_assignments enable row level security;
 alter table public.revenuecat_processed_events enable row level security;
 alter table public.ai_credit_bookings enable row level security;
 

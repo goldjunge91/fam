@@ -2060,6 +2060,51 @@ export type Database = {
           },
         ]
       }
+      revenuecat_plus_assignments: {
+        Row: {
+          active: boolean
+          created_at: string
+          expires_at: string | null
+          household_id: string
+          last_event_timestamp_ms: number | null
+          subscriber_user_id: string
+          updated_at: string
+        }
+        Insert: {
+          active?: boolean
+          created_at?: string
+          expires_at?: string | null
+          household_id: string
+          last_event_timestamp_ms?: number | null
+          subscriber_user_id: string
+          updated_at?: string
+        }
+        Update: {
+          active?: boolean
+          created_at?: string
+          expires_at?: string | null
+          household_id?: string
+          last_event_timestamp_ms?: number | null
+          subscriber_user_id?: string
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "revenuecat_plus_assignments_household_id_fkey"
+            columns: ["household_id"]
+            isOneToOne: false
+            referencedRelation: "households"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "revenuecat_plus_assignments_subscriber_user_id_fkey"
+            columns: ["subscriber_user_id"]
+            isOneToOne: true
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       revenuecat_processed_events: {
         Row: {
           entitlement_id: string
@@ -2827,14 +2872,26 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
+      apply_plus_household_event: {
+        Args: {
+          p_active: boolean
+          p_event_id?: string
+          p_event_timestamp_ms?: number
+          p_expires_at: string
+          p_household_id: string
+          p_subscriber_user_id: string
+        }
+        Returns: boolean
+      }
       assign_ai_household: {
         Args: {
           p_entitlement_expires_at: string
+          p_event_id?: string
           p_event_timestamp_ms?: number
           p_subscriber_user_id: string
           p_target_household_id: string
         }
-        Returns: undefined
+        Returns: boolean
       }
       book_ai_credit: {
         Args: {
@@ -2853,8 +2910,12 @@ export type Database = {
       }
       create_household: { Args: { household_name: string }; Returns: string }
       deactivate_ai_household: {
-        Args: { p_event_timestamp_ms?: number; p_subscriber_user_id: string }
-        Returns: undefined
+        Args: {
+          p_event_id?: string
+          p_event_timestamp_ms?: number
+          p_subscriber_user_id: string
+        }
+        Returns: boolean
       }
       get_ai_credit_status: {
         Args: { p_household_id: string; p_monthly_limit?: number }

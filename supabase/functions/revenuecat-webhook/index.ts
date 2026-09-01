@@ -55,32 +55,13 @@ async function resolveMemberHousehold(
  * RevenueCat sendet keinen Supabase-JWT. Die Function ist in config.toml mit
  * `verify_jwt = false` eingetragen und prueft stattdessen den im Dashboard
  * konfigurierten Authorization-Header in `handler.ts`.
+ *
+ * Idempotenz, Stale-Event-Guard und die kanonische Kaeufer-Zuordnung (Plus
+ * und AI) laufen jeweils atomar in einer einzigen DB-Funktion
+ * (assign_ai_household, deactivate_ai_household, apply_plus_household_event)
+ * — ein Fehlschlag dort rollt auch den Dedup-Eintrag zurueck, statt ein Event
+ * faelschlich als verarbeitet zu markieren.
  */
-/**
- * Traegt (event_id, entitlement_id) idempotent in revenuecat_processed_events
- * ein. RevenueCat sendet ein Event bei ausbleibender 2xx-Antwort erneut zu;
- * ohne diese Sperre wuerde ein wiederholter Zustellversuch denselben Zustand
- * ein zweites Mal schreiben — bei AI sogar den Monatswechsel-Zaehler
- * verbrauchen, obwohl fachlich kein zweiter Wechsel stattfand. Gibt
- * `{ alreadyProcessed: true }` zurueck, wenn dieses Paar bereits existiert.
- */
-async function markEventProcessed(
-  adminClient: AdminClient,
-  eventId: string,
-  entitlementId: string,
-): Promise<{ alreadyProcessed: boolean; error: { message: string } | null }> {
-  const { data, error } = await adminClient
-    .from("revenuecat_processed_events")
-    .upsert(
-      { event_id: eventId, entitlement_id: entitlementId },
-      { onConflict: "event_id,entitlement_id", ignoreDuplicates: true },
-    )
-    .select("event_id");
-
-  if (error) return { alreadyProcessed: false, error };
-  return { alreadyProcessed: (data?.length ?? 0) === 0, error: null };
-}
-
 Deno.serve(
   createRevenueCatWebhookHandler({
     expectedSecret: Deno.env.get("REVENUECAT_WEBHOOK_SECRET"),
@@ -90,23 +71,17 @@ Deno.serve(
         Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!,
       );
 
-      const dedup = await markEventProcessed(
-        adminClient,
-        change.eventId,
-        change.entitlementId,
-      );
-      if (dedup.error) return { error: dedup.error, count: null };
-      // Bereits verarbeitetes Event/Entitlement-Paar (Retry-Zustellung):
-      // erfolgreich, aber ohne erneute Anwendung.
-      if (dedup.alreadyProcessed) return { error: null, count: 0 };
-
       if (change.entitlementId === "AI") {
         if (!change.active) {
-          const { error } = await adminClient.rpc("deactivate_ai_household", {
-            p_subscriber_user_id: appUserId,
-            p_event_timestamp_ms: change.eventTimestampMs,
-          });
-          return { error, count: error ? null : 1 };
+          const { data, error } = await adminClient.rpc(
+            "deactivate_ai_household",
+            {
+              p_subscriber_user_id: appUserId,
+              p_event_timestamp_ms: change.eventTimestampMs,
+              p_event_id: change.eventId,
+            },
+          );
+          return { error, count: error ? null : (data ? 1 : 0) };
         }
 
         // Renewals bleiben auf der kanonischen AI-Zuordnung. Nur die erste
@@ -136,46 +111,55 @@ Deno.serve(
           };
         }
 
-        const { error } = await adminClient.rpc("assign_ai_household", {
+        const { data, error } = await adminClient.rpc("assign_ai_household", {
           p_subscriber_user_id: appUserId,
           p_target_household_id: targetHouseholdId,
           p_entitlement_expires_at: change.expiresAt,
           p_event_timestamp_ms: change.eventTimestampMs,
+          p_event_id: change.eventId,
         });
-        return { error, count: error ? null : 1 };
+        return { error, count: error ? null : (data ? 1 : 0) };
       }
 
-      const resolved = await resolveMemberHousehold(
-        adminClient,
-        appUserId,
-        subscriberAttributes,
-      );
-      if (resolved.error) return { error: resolved.error, count: null };
-      if (!resolved.householdId) {
+      // Plus bleibt am Kaufhaushalt: apply_plus_household_event ignoriert
+      // householdId, sobald der Subscriber bereits kanonisch gebunden ist.
+      const { data: plusAssignment, error: plusAssignmentError } =
+        await adminClient
+          .from("revenuecat_plus_assignments")
+          .select("household_id")
+          .eq("subscriber_user_id", appUserId)
+          .maybeSingle();
+      if (plusAssignmentError) {
+        return { error: plusAssignmentError, count: null };
+      }
+
+      let householdId = plusAssignment?.household_id;
+      if (!householdId) {
+        const resolved = await resolveMemberHousehold(
+          adminClient,
+          appUserId,
+          subscriberAttributes,
+        );
+        if (resolved.error) return { error: resolved.error, count: null };
+        householdId = resolved.householdId;
+      }
+
+      if (!householdId) {
         return { error: { message: "target_household_missing" }, count: null };
       }
 
-      // Stale-Event-Guard: Ein verspaetet zugestelltes aelteres Plus-Event
-      // (Retry, Out-of-Order-Zustellung) darf einen bereits neueren Stand
-      // nicht ueberschreiben. `or()` erlaubt den Schreibzugriff nur, wenn noch
-      // kein Event angewendet wurde oder das gespeicherte aelter/gleich ist.
-      const { error, count } = await adminClient
-        .from("households")
-        .update(
-          {
-            plus_active: change.active,
-            plus_expires_at: change.expiresAt,
-            plus_updated_at: change.processedAt,
-            plus_last_event_timestamp_ms: change.eventTimestampMs,
-          },
-          { count: "exact" },
-        )
-        .eq("id", resolved.householdId)
-        .or(
-          `plus_last_event_timestamp_ms.is.null,plus_last_event_timestamp_ms.lte.${change.eventTimestampMs}`,
-        );
-
-      return { error, count };
+      const { data, error } = await adminClient.rpc(
+        "apply_plus_household_event",
+        {
+          p_subscriber_user_id: appUserId,
+          p_household_id: householdId,
+          p_active: change.active,
+          p_expires_at: change.expiresAt,
+          p_event_timestamp_ms: change.eventTimestampMs,
+          p_event_id: change.eventId,
+        },
+      );
+      return { error, count: error ? null : (data ? 1 : 0) };
     },
   }),
 );

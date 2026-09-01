@@ -49,7 +49,7 @@ select ok(
 select ok(
   not has_function_privilege(
     'authenticated',
-    'public.assign_ai_household(uuid,uuid,timestamptz,bigint)',
+    'public.assign_ai_household(uuid,uuid,timestamptz,bigint,text)',
     'execute'
   ),
   'authenticated kann die AI-Zuordnungs-RPC nicht aufrufen'
@@ -57,7 +57,7 @@ select ok(
 select ok(
   not has_function_privilege(
     'anon',
-    'public.assign_ai_household(uuid,uuid,timestamptz,bigint)',
+    'public.assign_ai_household(uuid,uuid,timestamptz,bigint,text)',
     'execute'
   ),
   'anon kann die AI-Zuordnungs-RPC nicht aufrufen'
@@ -65,7 +65,7 @@ select ok(
 select ok(
   has_function_privilege(
     'service_role',
-    'public.assign_ai_household(uuid,uuid,timestamptz,bigint)',
+    'public.assign_ai_household(uuid,uuid,timestamptz,bigint,text)',
     'execute'
   ),
   'service_role kann die AI-Zuordnungs-RPC aufrufen'
@@ -77,7 +77,7 @@ select ok(
 select ok(
   not (select prosecdef
        from pg_proc
-       where oid = 'public.assign_ai_household(uuid,uuid,timestamptz,bigint)'::regprocedure),
+       where oid = 'public.assign_ai_household(uuid,uuid,timestamptz,bigint,text)'::regprocedure),
   'die service-role-only RPC laeuft als SECURITY INVOKER'
 );
 
