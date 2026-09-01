@@ -24,12 +24,14 @@ import {
 } from '@/lib/purchases';
 
 type PremiumContextValue = {
-  /** Kompatibilitaetsname fuer den serverautorisierten Plus-Status des aktiven Haushalts. */
-  isPremium: boolean;
+  /** Serverautorisierter Plus-Status des aktiven Haushalts. */
+  hasPlus: boolean;
+  /** Serverautorisierter AI-Status des aktiven Haushalts, unabhaengig von Plus. */
+  hasAI: boolean;
   /**
-   * Ob `isPremium` erzwungen ist statt aus RevenueCat/der DB zu kommen — entweder ueber
+   * Ob `hasPlus` erzwungen ist statt aus RevenueCat/der DB zu kommen — entweder ueber
    * `EXPO_PUBLIC_FORCE_PREMIUM` (Build-Zeit) oder den Dev-Tools-Override (Laufzeit, siehe
-   * `force-premium-override.ts`), z. B. um Premium in einem bereits kompilierten TestFlight-Build umzuschalten.
+   * `force-premium-override.ts`), z. B. um Plus in einem bereits kompilierten TestFlight-Build umzuschalten.
    */
   isForced: boolean;
   /** `null` ohne konfigurierten RevenueCat-API-Key oder vor dem ersten Laden. */
@@ -128,18 +130,20 @@ export function PremiumProvider({ children }: { children: ReactNode }) {
 
   const forcePremiumOverride = useForcePremiumOverrideStore((state) => state.override);
   const isForced = forcePremiumOverride ?? env.forcePremium;
-  const isPremium = isForced || (activeHousehold?.plus_active ?? false);
+  const hasPlus = isForced || (activeHousehold?.plus_active ?? false);
+  const hasAI = activeHousehold?.ai_active ?? false;
 
   const value = useMemo(
-    () => ({ isPremium, isForced, customerInfo, loading, refresh }),
-    [isPremium, isForced, customerInfo, loading, refresh],
+    () => ({ hasPlus, hasAI, isForced, customerInfo, loading, refresh }),
+    [hasPlus, hasAI, isForced, customerInfo, loading, refresh],
   );
 
   return <PremiumContext.Provider value={value}>{children}</PremiumContext.Provider>;
 }
 
 const DEFAULT_PREMIUM_CONTEXT: PremiumContextValue = {
-  isPremium: false,
+  hasPlus: false,
+  hasAI: false,
   isForced: false,
   customerInfo: null,
   loading: false,

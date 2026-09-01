@@ -11,7 +11,7 @@ import {
   syncPurchasesIdentity,
 } from '@/lib/purchases';
 
-let mockActiveHousehold: { id: string; plus_active: boolean } | null = null;
+let mockActiveHousehold: { id: string; plus_active: boolean; ai_active?: boolean } | null = null;
 let mockSession: { user: { id: string; email?: string } } | null = null;
 
 jest.mock('@/features/household/active-household-provider', () => ({
@@ -61,7 +61,7 @@ describe('PremiumProvider', () => {
       expect(result.current.loading).toBe(false);
     });
 
-    expect(result.current.isPremium).toBe(true);
+    expect(result.current.hasPlus).toBe(true);
   });
 
   it('gibt false zurueck wenn kein aktives Abo fuer den Haushalt vorliegt', async () => {
@@ -73,7 +73,7 @@ describe('PremiumProvider', () => {
       expect(result.current.loading).toBe(false);
     });
 
-    expect(result.current.isPremium).toBe(false);
+    expect(result.current.hasPlus).toBe(false);
   });
 
   it('verwendet ein persoenliches Plus-Entitlement nicht als Haushaltsfreigabe', async () => {
@@ -86,7 +86,20 @@ describe('PremiumProvider', () => {
       expect(result.current.loading).toBe(false);
     });
 
-    expect(result.current.isPremium).toBe(false);
+    expect(result.current.hasPlus).toBe(false);
+  });
+
+  it('prueft AI unabhaengig von Plus ueber den Haushalt', async () => {
+    mockActiveHousehold = { id: 'hh-1', plus_active: false, ai_active: true };
+
+    const { result } = await renderHook(() => usePremium(), { wrapper });
+
+    await waitFor(() => {
+      expect(result.current.loading).toBe(false);
+    });
+
+    expect(result.current.hasAI).toBe(true);
+    expect(result.current.hasPlus).toBe(false);
   });
 
   it('synchronisiert User-ID und Attribute mit RevenueCat wenn konfiguriert und eingeloggt', async () => {
