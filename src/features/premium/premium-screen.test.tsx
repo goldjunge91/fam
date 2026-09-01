@@ -7,7 +7,7 @@ let mockIsPremium = false;
 
 jest.mock('@/features/premium/premium-provider', () => ({
   usePremium: () => ({
-    hasPlus: mockIsPremium,
+    isPremium: mockIsPremium,
     isForced: false,
     customerInfo: null,
     loading: false,

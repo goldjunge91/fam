@@ -125,20 +125,6 @@ describe('entities', () => {
     expect(ENTITIES.households.columns).not.toContain('updated_at');
     expect(ENTITIES.households.columns).not.toContain('deleted_at');
     expect(ENTITIES.households.columns).not.toContain('_dirty');
-    expect(ENTITIES.households.columns).toEqual(
-      expect.arrayContaining([
-        'plus_active',
-        'plus_expires_at',
-        'plus_updated_at',
-        'ai_active',
-        'ai_expires_at',
-        'ai_updated_at',
-        'ai_subscriber_id',
-      ]),
-    );
-    expect(ENTITIES.households.columns).not.toEqual(
-      expect.arrayContaining(['premium_active', 'premium_expires_at', 'premium_updated_at']),
-    );
   });
 
   it('Feedback ist push-only und bleibt aus dem Pull-Entity-Set heraus', () => {

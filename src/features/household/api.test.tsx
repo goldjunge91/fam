@@ -119,29 +119,23 @@ describe('household api', () => {
     queryClient.clear();
   });
 
-  it('liest getrennte Plus- und AI-Zustaende und konvertiert SQLite 0/1 in Booleans', async () => {
+  it('liest Haushalte lokal und konvertiert SQLite 0/1 in Booleans', async () => {
     mockDbGetAllAsync.mockResolvedValue([
       {
         id: 'hh-1',
         name: 'Familie Eins',
         created_by: 'user-1',
         created_at: '2026-08-01T00:00:00.000Z',
-        plus_active: 1,
-        plus_expires_at: null,
-        ai_active: 0,
-        ai_expires_at: null,
-        ai_subscriber_id: null,
+        premium_active: 1,
+        premium_expires_at: null,
       },
       {
         id: 'hh-2',
         name: 'Familie Zwei',
         created_by: 'user-1',
         created_at: '2026-08-02T00:00:00.000Z',
-        plus_active: 0,
-        plus_expires_at: null,
-        ai_active: 1,
-        ai_expires_at: '2026-09-30T00:00:00.000Z',
-        ai_subscriber_id: 'user-1',
+        premium_active: 0,
+        premium_expires_at: null,
       },
     ]);
 
@@ -151,18 +145,12 @@ describe('household api', () => {
 
     await waitFor(() => expect(result.current.isSuccess).toBe(true));
 
-    expect(
-      result.current.data?.map(({ id, plus_active, ai_active }) => ({
-        id,
-        plus_active,
-        ai_active,
-      })),
-    ).toEqual([
-      { id: 'hh-1', plus_active: true, ai_active: false },
-      { id: 'hh-2', plus_active: false, ai_active: true },
+    expect(result.current.data?.map(({ id, premium_active }) => ({ id, premium_active }))).toEqual([
+      { id: 'hh-1', premium_active: true },
+      { id: 'hh-2', premium_active: false },
     ]);
     expect(mockDbGetAllAsync).toHaveBeenCalledWith(
-      expect.stringMatching(/plus_active.*ai_active.*order by created_at asc/s),
+      expect.stringContaining('order by created_at asc'),
     );
   });
 

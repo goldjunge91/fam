@@ -27,7 +27,7 @@ const BENEFITS: { icon: string; title: string; hint: string }[] = [
 ];
 
 export function PremiumScreen() {
-  const { hasPlus, isForced, refresh } = usePremium();
+  const { isPremium, isForced, refresh } = usePremium();
   const {
     plans,
     selectedPeriod,
@@ -98,10 +98,10 @@ export function PremiumScreen() {
             <ThemedText className="premium-crown-glyph">✦</ThemedText>
           </View>
           <ThemedText className="premium-hero-title">
-            {hasPlus ? 'Premium ist aktiv' : 'Mehr für euren Haushalt'}
+            {isPremium ? 'Premium ist aktiv' : 'Mehr für euren Haushalt'}
           </ThemedText>
           <ThemedText themeColor="textSecondary" className="premium-hero-subtitle">
-            {hasPlus
+            {isPremium
               ? 'Euer Haushalt nutzt alle Premium-Funktionen.'
               : 'Ein Abo schaltet Premium für alle Mitglieder des aktuellen Haushalts frei.'}
           </ThemedText>
@@ -119,7 +119,7 @@ export function PremiumScreen() {
           ))}
         </SettingsGroup>
 
-        {hasPlus ? (
+        {isPremium ? (
           /* Aktiver Premium-Status & Abo-Verwaltungs-Button */
           <>
             <View className="premium-active-box">

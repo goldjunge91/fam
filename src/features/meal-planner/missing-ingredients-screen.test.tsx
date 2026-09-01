@@ -74,7 +74,7 @@ jest.mock('@/features/shopping-list/preferences/api', () => ({
 let mockIsPremium = true;
 
 jest.mock('@/features/premium/premium-provider', () => ({
-  usePremium: () => ({ hasPlus: mockIsPremium }),
+  usePremium: () => ({ isPremium: mockIsPremium }),
 }));
 
 const mockPresentPaywallIfNeeded = jest.fn();

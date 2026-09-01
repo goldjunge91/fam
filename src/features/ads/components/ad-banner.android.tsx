@@ -47,7 +47,7 @@ export interface AdBannerProps {
  * Standard Banner-Werbekomponente (Android).
  *
  * Verhält sich automatisch no-op / unsichtbar, wenn der aktive Haushalt
- * Premium-Status besitzt (`hasPlus === true`).
+ * Premium-Status besitzt (`isPremium === true`).
  */
 export function AdBanner({
   unitId,
@@ -58,14 +58,14 @@ export function AdBanner({
   onAdLoaded,
   onAdFailedToLoad,
 }: AdBannerProps) {
-  const { hasPlus } = usePremium();
+  const { isPremium } = usePremium();
   const [failedToLoad, setFailedToLoad] = useState(false);
 
   const defaultUnitId = __DEV__ ? TestIds.BANNER : env.adMobBannerIdAndroid;
   const resolvedUnitId = unitId ?? defaultUnitId;
 
   // Premium-Nutzer sehen keinerlei Werbung
-  if (!env.adsEnabled || hasPlus || failedToLoad) {
+  if (!env.adsEnabled || isPremium || failedToLoad) {
     return null;
   }
 

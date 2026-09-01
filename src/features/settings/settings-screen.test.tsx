@@ -38,7 +38,7 @@ jest.mock('@/features/calorie-tracking/api', () => ({
 
 jest.mock('@/features/premium/premium-provider', () => ({
   usePremium: () => ({
-    hasPlus: false,
+    isPremium: false,
     isForced: false,
     customerInfo: null,
     loading: false,

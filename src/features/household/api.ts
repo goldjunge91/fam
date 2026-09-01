@@ -15,20 +15,13 @@ export type Household = {
   name: string;
   created_by: string | null;
   created_at: string | null;
-  plus_active: boolean;
-  plus_expires_at: string | null;
-  plus_updated_at: string | null;
-  ai_active: boolean;
-  ai_expires_at: string | null;
-  ai_updated_at: string | null;
-  ai_subscriber_id: string | null;
+  /** Haushaltsweiter Premium-Status, serverseitig vom RevenueCat-Webhook gepflegt (siehe 03_households.sql). */
+  premium_active: boolean;
+  premium_expires_at: string | null;
 };
 
-/** SQLite speichert die beiden booleschen Server-Projektionen als 0/1. */
-type HouseholdRow = Omit<Household, 'plus_active' | 'ai_active'> & {
-  plus_active: number;
-  ai_active: number;
-};
+/** Rohzeile aus SQLite: `premium_active` kommt als 0/1, kein eigener Bool-Typ. */
+type HouseholdRow = Omit<Household, 'premium_active'> & { premium_active: number };
 
 export function useHouseholds() {
   const { session } = useSession();
@@ -39,16 +32,10 @@ export function useHouseholds() {
     queryFn: async () => {
       const db = await getDatabase();
       const rows = await db.getAllAsync<HouseholdRow>(
-        `select id, name, created_by, created_at,
-                plus_active, plus_expires_at, plus_updated_at,
-                ai_active, ai_expires_at, ai_updated_at, ai_subscriber_id
+        `select id, name, created_by, created_at, premium_active, premium_expires_at
          from households order by created_at asc`,
       );
-      return rows.map((row) => ({
-        ...row,
-        plus_active: row.plus_active === 1,
-        ai_active: row.ai_active === 1,
-      }));
+      return rows.map((row) => ({ ...row, premium_active: row.premium_active === 1 }));
     },
     enabled: !!userId,
   });

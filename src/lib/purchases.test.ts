@@ -4,19 +4,12 @@ import Purchases from 'react-native-purchases';
 import {
   buyPackage,
   checkEntitlementVerification,
-  ENTITLEMENT_IDS,
   ENTITLEMENT_VERIFICATION_MODE,
-  hasAIEntitlement,
-  hasEntitlement,
-  hasPlusEntitlement,
+  hasPremiumEntitlement,
   initPurchases,
   isPurchasesConfigured,
-  OFFERING_IDS,
-  offeringForEntitlement,
-  PACKAGE_IDS,
-  packagesForEntitlement,
+  PREMIUM_ENTITLEMENT_ID,
   restorePurchases,
-  selectRevenueCatApiKey,
   VERIFICATION_RESULT,
 } from './purchases';
 
@@ -69,52 +62,6 @@ describe('purchases security and entitlement checks', () => {
     });
   });
 
-  describe('RevenueCat API key selection', () => {
-    it('prefers a test store key only in development', () => {
-      expect(
-        selectRevenueCatApiKey({
-          isDev: true,
-          platform: 'ios',
-          testStoreApiKey: 'test_development',
-          iosApiKey: 'appl_production',
-          androidApiKey: 'goog_production',
-        }),
-      ).toBe('test_development');
-
-      expect(
-        selectRevenueCatApiKey({
-          isDev: false,
-          platform: 'ios',
-          testStoreApiKey: 'test_development',
-          iosApiKey: 'appl_production',
-          androidApiKey: 'goog_production',
-        }),
-      ).toBe('appl_production');
-    });
-
-    it('fails closed when a release platform receives the wrong key type', () => {
-      expect(
-        selectRevenueCatApiKey({
-          isDev: false,
-          platform: 'ios',
-          testStoreApiKey: undefined,
-          iosApiKey: 'test_not_for_testflight',
-          androidApiKey: 'goog_production',
-        }),
-      ).toBeUndefined();
-
-      expect(
-        selectRevenueCatApiKey({
-          isDev: false,
-          platform: 'android',
-          testStoreApiKey: undefined,
-          iosApiKey: 'appl_production',
-          androidApiKey: 'appl_wrong_platform',
-        }),
-      ).toBeUndefined();
-    });
-  });
-
   describe('checkEntitlementVerification', () => {
     it('returns true for null customerInfo', () => {
       expect(checkEntitlementVerification(null)).toBe(true);
@@ -152,96 +99,38 @@ describe('purchases security and entitlement checks', () => {
     });
   });
 
-  describe('hasEntitlement', () => {
+  describe('hasPremiumEntitlement', () => {
     it('returns false when customerInfo is null', () => {
-      expect(hasEntitlement(null, ENTITLEMENT_IDS.PLUS)).toBe(false);
+      expect(hasPremiumEntitlement(null)).toBe(false);
     });
 
-    it('distinguishes independently active Plus and AI entitlements', () => {
+    it('returns true when PREMIUM_ENTITLEMENT_ID is in active entitlements', () => {
       const customerInfo = {
         entitlements: {
           verification: VERIFICATION_RESULT.VERIFIED,
           all: {},
           active: {
-            [ENTITLEMENT_IDS.AI]: {
-              identifier: ENTITLEMENT_IDS.AI,
+            [PREMIUM_ENTITLEMENT_ID]: {
+              identifier: PREMIUM_ENTITLEMENT_ID,
               isActive: true,
             },
           },
         },
       } as unknown as CustomerInfo;
 
-      expect(hasPlusEntitlement(customerInfo)).toBe(false);
-      expect(hasAIEntitlement(customerInfo)).toBe(true);
+      expect(hasPremiumEntitlement(customerInfo)).toBe(true);
     });
 
-    it('does not accept the legacy Premium entitlement as a fallback', () => {
+    it('returns false when PREMIUM_ENTITLEMENT_ID is missing from active entitlements', () => {
       const customerInfo = {
         entitlements: {
           verification: VERIFICATION_RESULT.VERIFIED,
           all: {},
-          active: {
-            Premium: {
-              identifier: 'Premium',
-              isActive: true,
-            },
-          },
+          active: {},
         },
       } as unknown as CustomerInfo;
 
-      expect(hasPlusEntitlement(customerInfo)).toBe(false);
-      expect(hasAIEntitlement(customerInfo)).toBe(false);
-    });
-
-    it('fails closed when RevenueCat marks CustomerInfo verification as failed', () => {
-      const warnSpy = jest.spyOn(console, 'warn').mockImplementation(() => {});
-      const customerInfo = {
-        entitlements: {
-          verification: VERIFICATION_RESULT.FAILED,
-          all: {},
-          active: {
-            [ENTITLEMENT_IDS.PLUS]: {
-              identifier: ENTITLEMENT_IDS.PLUS,
-              isActive: true,
-            },
-          },
-        },
-      } as unknown as CustomerInfo;
-
-      expect(hasPlusEntitlement(customerInfo)).toBe(false);
-      expect(warnSpy).toHaveBeenCalled();
-      warnSpy.mockRestore();
-    });
-  });
-
-  describe('targeted offerings', () => {
-    it('resolves Plus and AI independently instead of using the current offering', async () => {
-      const plusPackages = [{ identifier: PACKAGE_IDS.MONTHLY }];
-      const aiPackages = [{ identifier: PACKAGE_IDS.ANNUAL }];
-      (Purchases.getOfferings as jest.Mock).mockResolvedValue({
-        current: { identifier: 'default', availablePackages: [] },
-        all: {
-          [OFFERING_IDS.PLUS]: {
-            identifier: OFFERING_IDS.PLUS,
-            availablePackages: plusPackages,
-          },
-          [OFFERING_IDS.AI]: {
-            identifier: OFFERING_IDS.AI,
-            availablePackages: aiPackages,
-          },
-        },
-      });
-
-      expect(await packagesForEntitlement(ENTITLEMENT_IDS.PLUS)).toBe(plusPackages);
-      expect(await packagesForEntitlement(ENTITLEMENT_IDS.AI)).toBe(aiPackages);
-      expect(Purchases.getOfferings).toHaveBeenCalledTimes(2);
-    });
-
-    it('returns null and an empty package list when the targeted offering is unavailable', async () => {
-      (Purchases.getOfferings as jest.Mock).mockResolvedValue({ current: null, all: {} });
-
-      expect(await offeringForEntitlement(ENTITLEMENT_IDS.AI)).toBeNull();
-      expect(await packagesForEntitlement(ENTITLEMENT_IDS.AI)).toEqual([]);
+      expect(hasPremiumEntitlement(customerInfo)).toBe(false);
     });
   });
 
