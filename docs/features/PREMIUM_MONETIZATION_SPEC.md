@@ -268,6 +268,30 @@ Die konkrete Benennung des Providers darf die bestehende Feature-Struktur
 berücksichtigen. Ein großer Ordnerumbau von `src/features/premium/` ist nicht
 erforderlich, solange die fachliche API nicht mehr Premium und AI vermischt.
 
+### Offering Metadata
+
+Beide Offerings tragen bereits ein per RevenueCat-Dashboard/-MCP gepflegtes
+JSON-Metadata-Objekt (nicht hart im Client codiert, ohne App-Release
+änderbar), pro Locale strukturiert nach dem Muster aus der
+RevenueCat-Doku „Offering metadata example use cases" (Abschnitt
+Localization: Client liest den Wert für die Gerätesprache mit Fallback,
+z. B. `getMetadataValue(for: title_copy)[deviceLocale] ?? default`):
+
+| Offering | `title_copy` (de-DE / en-US) | `description_copy` (de-DE / en-US) | `cta_copy` (de-DE / en-US) | `annual_savings_percent` | `badge` |
+| --- | --- | --- | --- | --- | --- |
+| `plus` | Fam Plus / Fam Plus | Werbefreie Haushalts-Funktionen / Ad-free household features | Jetzt Plus freischalten / Unlock Plus now | 25 | — |
+| `ai` | Fam AI / Fam AI | KI-Rezepte und smarte Vorschläge / AI recipes and smart suggestions | Jetzt AI freischalten / Unlock AI now | 30 | `best_value` |
+
+`title_copy`/`description_copy` decken sich bewusst mit den
+App-Store-Connect-Lokalisierungen aus 3.2, damit dieselbe Copy nicht doppelt
+gepflegt wird. Die Prozentwerte sind aus den in 3.2 dokumentierten Preisen
+abgeleitet (z. B. Plus: 12 × 4,99 EUR vs. 44,99 EUR ≈ 25 % Ersparnis) — ob
+dieser Rabatt so bleibt oder die Jahrespreise angehoben werden, ist noch
+nicht entschieden. Die Paywall aus `fam-yu6.6` liest diese Werte über
+`offering.metadata` statt sie zu hardcoden; das beantwortet einen Teil der
+offenen Frage 3 aus Abschnitt 14 (AI als „Best Value", CTA-Copy), lässt
+Feinschliff aber weiterhin offen.
+
 ### Datenbank und lokaler Mirror
 
 Der Haushaltsstatus wird für beide Zugriffsstufen ausdrücklich getrennt
