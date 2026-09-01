@@ -2,6 +2,7 @@
 import { createClient } from "jsr:@supabase/supabase-js@2";
 
 import {
+  activeAiAssignmentHouseholdId,
   createRevenueCatWebhookHandler,
   type SubscriberAttribute,
 } from "./handler.ts";
@@ -84,16 +85,17 @@ Deno.serve(
           return { error, count: error ? null : (data ? 1 : 0) };
         }
 
-        // Renewals bleiben auf der kanonischen AI-Zuordnung. Nur die erste
-        // Aktivierung verwendet den beim Kauf gemeldeten aktiven Haushalt.
+        // Aktive Renewals bleiben auf der kanonischen AI-Zuordnung. Nach einer
+        // Expiration ist die Zeile nur noch ein Reihenfolge-/Cooldown-Tombstone;
+        // eine spaetere Reaktivierung loest den dann aktiven Haushalt neu auf.
         const { data: assignment, error: assignmentError } = await adminClient
           .from("revenuecat_ai_assignments")
-          .select("household_id")
+          .select("household_id, active")
           .eq("subscriber_user_id", appUserId)
           .maybeSingle();
         if (assignmentError) return { error: assignmentError, count: null };
 
-        let targetHouseholdId = assignment?.household_id;
+        let targetHouseholdId = activeAiAssignmentHouseholdId(assignment);
         if (!targetHouseholdId) {
           const resolved = await resolveMemberHousehold(
             adminClient,

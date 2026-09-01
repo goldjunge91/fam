@@ -1,6 +1,7 @@
 import { act, renderHook, waitFor } from '@testing-library/react-native';
 import type React from 'react';
-import type { CustomerInfo } from 'react-native-purchases';
+import { StrictMode } from 'react';
+import Purchases, { type CustomerInfo } from 'react-native-purchases';
 
 import { PremiumProvider, usePremium } from '@/features/premium/premium-provider';
 import {
@@ -13,6 +14,17 @@ import {
 
 let mockActiveHousehold: { id: string; plus_active: boolean; ai_active?: boolean } | null = null;
 let mockSession: { user: { id: string; email?: string } } | null = null;
+let mockCustomerInfoListener: ((info: CustomerInfo) => void) | null = null;
+
+jest.mock('react-native-purchases', () => ({
+  __esModule: true,
+  default: {
+    addCustomerInfoUpdateListener: jest.fn(),
+    removeCustomerInfoUpdateListener: jest.fn(),
+    getCustomerInfo: jest.fn(),
+    getAppUserID: jest.fn(),
+  },
+}));
 
 jest.mock('@/features/household/active-household-provider', () => ({
   useActiveHousehold: () => ({
@@ -45,11 +57,20 @@ describe('PremiumProvider', () => {
   }
 
   beforeEach(() => {
-    jest.clearAllMocks();
+    jest.resetAllMocks();
     (isPurchasesConfigured as jest.Mock).mockReturnValue(false);
     (hasPlusEntitlement as jest.Mock).mockReturnValue(false);
     mockActiveHousehold = null;
     mockSession = null;
+    mockCustomerInfoListener = null;
+    (Purchases.addCustomerInfoUpdateListener as jest.Mock).mockImplementation(
+      (listener: (info: CustomerInfo) => void) => {
+        mockCustomerInfoListener = listener;
+      },
+    );
+    (Purchases.getAppUserID as jest.Mock).mockImplementation(
+      async () => mockSession?.user.id ?? '$RCAnonymousID',
+    );
   });
 
   it('erkennt aktiven Haushalt-Status ueber die Datenbank', async () => {
@@ -150,6 +171,25 @@ describe('PremiumProvider', () => {
     expect(result.current.loading).toBe(false);
   });
 
+  it('bleibt unter StrictMode-Effect-Replay aktiv', async () => {
+    (isPurchasesConfigured as jest.Mock).mockReturnValue(true);
+    mockSession = { user: { id: 'user-strict' } };
+    const strictInfo = { entitlements: { active: {} } } as unknown as CustomerInfo;
+    (syncPurchasesIdentity as jest.Mock).mockResolvedValueOnce(strictInfo);
+
+    const strictWrapper = ({ children }: { children: React.ReactNode }) => (
+      <StrictMode>
+        <PremiumProvider>{children}</PremiumProvider>
+      </StrictMode>
+    );
+    const { result } = await renderHook(() => usePremium(), { wrapper: strictWrapper });
+
+    await waitFor(() => {
+      expect(result.current.customerInfo).toBe(strictInfo);
+      expect(result.current.loading).toBe(false);
+    });
+  });
+
   it('resettet RevenueCat-Identitaet wenn kein User eingeloggt ist', async () => {
     (isPurchasesConfigured as jest.Mock).mockReturnValue(true);
     mockSession = null;
@@ -219,11 +259,9 @@ describe('PremiumProvider', () => {
     mockSession = { user: { id: 'user-2', email: 'b@fam.app' } };
     await rerender({});
 
-    await waitFor(() => {
-      expect(result.current.customerInfo).toBe(userTwoInfo);
-    });
-
-    // Der veraltete user-1-Request loest jetzt erst auf, mit fremden Daten.
+    // Der neue Sync wartet seriell hinter dem noch laufenden alten Sync. Dessen
+    // Ergebnis darf nach dem Account-Wechsel trotzdem nie sichtbar werden.
+    expect(result.current.customerInfo).toBeNull();
     const userOneInfo = {
       entitlements: { active: { Plus: { identifier: 'Plus', isActive: true } } },
     } as unknown as CustomerInfo;
@@ -232,6 +270,98 @@ describe('PremiumProvider', () => {
       await Promise.resolve();
     });
 
+    await waitFor(() => {
+      expect(result.current.customerInfo).toBe(userTwoInfo);
+    });
+    expect(result.current.customerInfo).not.toBe(userOneInfo);
+  });
+
+  it('ignoriert einen spaet aufloesenden Refresh des vorherigen Accounts', async () => {
+    (isPurchasesConfigured as jest.Mock).mockReturnValue(true);
+    mockSession = { user: { id: 'user-1', email: 'a@fam.app' } };
+    mockActiveHousehold = { id: 'hh-1', plus_active: false };
+
+    const userOneInfo = { entitlements: { active: {} } } as unknown as CustomerInfo;
+    (syncPurchasesIdentity as jest.Mock).mockResolvedValueOnce(userOneInfo);
+
+    const { result, rerender } = await renderHook(() => usePremium(), { wrapper });
+    await waitFor(() => {
+      expect(result.current.customerInfo).toBe(userOneInfo);
+    });
+
+    let resolveRefresh: (info: CustomerInfo) => void = () => {};
+    (Purchases.getCustomerInfo as jest.Mock).mockReturnValueOnce(
+      new Promise<CustomerInfo>((resolve) => {
+        resolveRefresh = resolve;
+      }),
+    );
+    const refreshPromise = result.current.refresh();
+
+    const userTwoInfo = {
+      entitlements: { active: { AI: { identifier: 'AI', isActive: true } } },
+    } as unknown as CustomerInfo;
+    (syncPurchasesIdentity as jest.Mock).mockResolvedValueOnce(userTwoInfo);
+    mockSession = { user: { id: 'user-2', email: 'b@fam.app' } };
+    await rerender({});
+    await waitFor(() => {
+      expect(result.current.customerInfo).toBe(userTwoInfo);
+    });
+
+    const staleInfo = {
+      entitlements: { active: { Plus: { identifier: 'Plus', isActive: true } } },
+    } as unknown as CustomerInfo;
+    await act(async () => {
+      resolveRefresh(staleInfo);
+      await refreshPromise;
+    });
+
     expect(result.current.customerInfo).toBe(userTwoInfo);
+  });
+
+  it('verwirft den Listener-Payload und liest CustomerInfo stabil fuer den aktuellen Account', async () => {
+    (isPurchasesConfigured as jest.Mock).mockReturnValue(true);
+    mockSession = { user: { id: 'user-2', email: 'b@fam.app' } };
+    mockActiveHousehold = { id: 'hh-1', plus_active: false };
+
+    const userTwoInfo = { entitlements: { active: {} } } as unknown as CustomerInfo;
+    (syncPurchasesIdentity as jest.Mock).mockResolvedValueOnce(userTwoInfo);
+
+    const { result } = await renderHook(() => usePremium(), { wrapper });
+    await waitFor(() => {
+      expect(result.current.customerInfo).toBe(userTwoInfo);
+      expect(mockCustomerInfoListener).not.toBeNull();
+    });
+
+    const refreshedUserTwoInfo = {
+      entitlements: { active: { AI: { identifier: 'AI', isActive: true } } },
+    } as unknown as CustomerInfo;
+    (Purchases.getCustomerInfo as jest.Mock).mockResolvedValueOnce(refreshedUserTwoInfo);
+    (Purchases.getAppUserID as jest.Mock).mockResolvedValue('user-2');
+    const staleInfo = {
+      entitlements: { active: { Plus: { identifier: 'Plus', isActive: true } } },
+    } as unknown as CustomerInfo;
+    await act(async () => {
+      mockCustomerInfoListener?.(staleInfo);
+      await Promise.resolve();
+    });
+
+    await waitFor(() => {
+      expect(Purchases.getCustomerInfo).toHaveBeenCalledTimes(1);
+      expect(result.current.customerInfo).toBe(refreshedUserTwoInfo);
+    });
+    expect(result.current.customerInfo).not.toBe(staleInfo);
+  });
+
+  it('entfernt den CustomerInfo-Listener beim Unmount', async () => {
+    (isPurchasesConfigured as jest.Mock).mockReturnValue(true);
+    mockSession = { user: { id: 'user-1' } };
+
+    const { unmount } = await renderHook(() => usePremium(), { wrapper });
+    const listener = mockCustomerInfoListener;
+    expect(listener).not.toBeNull();
+
+    await unmount();
+
+    expect(Purchases.removeCustomerInfoUpdateListener).toHaveBeenCalledWith(listener);
   });
 });

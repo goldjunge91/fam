@@ -61,12 +61,15 @@ create index if not exists households_created_by_idx
   on public.households (created_by);
 
 -- Die kanonische AI-Zuordnung lebt pro RevenueCat-Subscriber genau einmal.
--- `households.ai_*` ist nur die gemeinsam lesbare Projektion fuer Mitglieder.
+-- Inaktive Zeilen bleiben als Reihenfolge-/Cooldown-Tombstone erhalten; nur
+-- aktive Zuordnungen muessen pro Haushalt eindeutig sein. `households.ai_*`
+-- ist nur die gemeinsam lesbare Projektion fuer Mitglieder.
 -- Clients erhalten auf diese Tabelle weder Tabellenrechte noch eine RLS-
 -- Policy; geschrieben wird ausschliesslich ueber assign_ai_household().
 create table if not exists public.revenuecat_ai_assignments (
   subscriber_user_id uuid primary key references public.profiles (id) on delete cascade,
-  household_id uuid not null unique references public.households (id) on delete cascade,
+  household_id uuid not null references public.households (id) on delete cascade,
+  active boolean not null default true,
   household_changed_at timestamptz not null default now(),
   -- RevenueCat-`event_timestamp_ms` des zuletzt angewendeten AI-Events fuer
   -- diesen Subscriber. Bleibt beim Haushaltswechsel erhalten (anders als die
@@ -76,6 +79,10 @@ create table if not exists public.revenuecat_ai_assignments (
   created_at timestamptz not null default now(),
   updated_at timestamptz not null default now()
 );
+
+create unique index if not exists revenuecat_ai_assignments_active_household_idx
+  on public.revenuecat_ai_assignments (household_id)
+  where active;
 
 -- Idempotenz fuer den RevenueCat-Webhook: RevenueCat sendet ein Event bei
 -- ausbleibender 2xx-Antwort erneut zu. Ohne diese Tabelle wuerde ein
@@ -290,6 +297,14 @@ declare
   v_active boolean;
   v_expires_at timestamptz;
 begin
+  -- Alle Quellen desselben Haushalts teilen sich diese Sperre. Dadurch kann
+  -- keine parallel laufende Neuberechnung einen neueren Aggregatzustand mit
+  -- einem Snapshot ueberschreiben, in dem eine andere Quelle noch fehlt.
+  perform 1
+  from public.households
+  where id = p_household_id
+  for update;
+
   select bool_or(active), max(expires_at) filter (where active)
   into v_active, v_expires_at
   from public.revenuecat_plus_assignments
@@ -344,8 +359,7 @@ begin
   where subscriber_user_id = p_subscriber_user_id
   for update;
 
-  if current_household_id is not null
-    and p_event_timestamp_ms is not null
+  if p_event_timestamp_ms is not null
     and current_event_timestamp_ms is not null
     and p_event_timestamp_ms < current_event_timestamp_ms
   then
@@ -380,11 +394,13 @@ begin
     update public.revenuecat_ai_assignments
     set household_id = p_target_household_id,
         household_changed_at = now(),
+        active = true,
         last_event_timestamp_ms = p_event_timestamp_ms
     where subscriber_user_id = p_subscriber_user_id;
   else
     update public.revenuecat_ai_assignments
-    set last_event_timestamp_ms = p_event_timestamp_ms
+    set active = true,
+        last_event_timestamp_ms = p_event_timestamp_ms
     where subscriber_user_id = p_subscriber_user_id;
   end if;
 
@@ -399,8 +415,9 @@ begin
 end;
 $$;
 
--- Deaktiviert AI fuer den zugeordneten Haushalt und gibt die Zuordnung frei,
--- damit ein anderes Haushaltsmitglied AI danach selbst kaufen kann.
+-- Deaktiviert AI fuer den zugeordneten Haushalt. Die inaktive Zuordnung
+-- blockiert keinen anderen aktiven Subscriber, behaelt aber Event-Reihenfolge
+-- und monatlichen Wechselzeitpunkt fuer den bisherigen Subscriber.
 create or replace function public.deactivate_ai_household(
   p_subscriber_user_id uuid,
   p_event_timestamp_ms bigint default null,
@@ -444,7 +461,9 @@ begin
   where id = current_household_id
     and ai_subscriber_id = p_subscriber_user_id;
 
-  delete from public.revenuecat_ai_assignments
+  update public.revenuecat_ai_assignments
+  set active = false,
+      last_event_timestamp_ms = p_event_timestamp_ms
   where subscriber_user_id = p_subscriber_user_id;
 
   return true;
@@ -583,7 +602,8 @@ set search_path = ''
 as $$
   select subscriber_user_id
   from public.revenuecat_ai_assignments
-  where household_id = p_household_id;
+  where household_id = p_household_id
+    and active;
 $$;
 
 -- Bucht eine AI-Aktion atomar gegen das Monatskontingent. Die aufrufende

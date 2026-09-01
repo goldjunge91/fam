@@ -2020,6 +2020,7 @@ export type Database = {
       }
       revenuecat_ai_assignments: {
         Row: {
+          active: boolean
           created_at: string
           household_changed_at: string
           household_id: string
@@ -2028,6 +2029,7 @@ export type Database = {
           updated_at: string
         }
         Insert: {
+          active?: boolean
           created_at?: string
           household_changed_at?: string
           household_id: string
@@ -2036,6 +2038,7 @@ export type Database = {
           updated_at?: string
         }
         Update: {
+          active?: boolean
           created_at?: string
           household_changed_at?: string
           household_id?: string
@@ -2047,7 +2050,7 @@ export type Database = {
           {
             foreignKeyName: "revenuecat_ai_assignments_household_id_fkey"
             columns: ["household_id"]
-            isOneToOne: true
+            isOneToOne: false
             referencedRelation: "households"
             referencedColumns: ["id"]
           },

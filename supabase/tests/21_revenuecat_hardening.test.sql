@@ -5,7 +5,7 @@
 begin;
 \ir helpers.sql
 
-select plan(23);
+select plan(28);
 
 select tests.create_user('a1000000-0000-0000-0000-000000000001', 'dave-plus@example.com');
 select tests.create_user('a1000000-0000-0000-0000-000000000002', 'erin-plus@example.com');
@@ -128,6 +128,12 @@ select ok(
   'erst wenn alle Quellen inaktiv sind, ist der Haushalt inaktiv'
 );
 
+select matches(
+  lower(pg_get_functiondef('private.recompute_household_plus(uuid)'::regprocedure)),
+  'from public[.]households[[:space:]]+where id = p_household_id[[:space:]]+for update',
+  'die Plus-Aggregation serialisiert konkurrierende Updates ueber den Haushalt'
+);
+
 -- ------------------------------------------- Plus: Atomizitaet bei Fehlschlag
 set local role service_role;
 select throws_ok(
@@ -166,10 +172,32 @@ select ok(
 reset role;
 
 select is(
-  (select count(*)::integer from public.revenuecat_ai_assignments
-   where household_id = :'hh_ai'::uuid),
-  0,
-  'die Zuordnung wird nach der Expiration freigegeben'
+  (select active from public.revenuecat_ai_assignments
+   where subscriber_user_id = 'a1000000-0000-0000-0000-000000000005'),
+  false,
+  'die Expiration behaelt eine inaktive Zuordnung als Reihenfolge-Tombstone'
+);
+select is(
+  (select last_event_timestamp_ms from public.revenuecat_ai_assignments
+   where subscriber_user_id = 'a1000000-0000-0000-0000-000000000005'),
+  2000::bigint,
+  'der Tombstone behaelt den Zeitstempel des letzten AI-Events'
+);
+
+set local role service_role;
+select ok(
+  not (public.assign_ai_household(
+    'a1000000-0000-0000-0000-000000000005'::uuid, :'hh_ai'::uuid,
+    '2099-03-01T00:00:00Z'::timestamptz, 1500, 'ai-stale-renewal'
+  )),
+  'ein verspaetetes Renewal vor der Expiration reaktiviert AI nicht'
+);
+reset role;
+
+select ok(
+  (select not ai_active and ai_subscriber_id is null
+   from public.households where id = :'hh_ai'),
+  'der Haushalt bleibt nach dem veralteten Renewal inaktiv'
 );
 
 set local role service_role;
@@ -193,6 +221,12 @@ set local role service_role;
 select public.assign_ai_household(
   'a1000000-0000-0000-0000-000000000007'::uuid, :'hh_ai_x'::uuid,
   '2099-01-01T00:00:00Z'::timestamptz, 1000, 'ai-cooldown-evt-1'
+);
+select ok(
+  public.deactivate_ai_household(
+    'a1000000-0000-0000-0000-000000000007'::uuid, 1500, 'ai-cooldown-evt-2'
+  ),
+  'eine Expiration behaelt den monatlichen AI-Wechselzeitpunkt'
 );
 reset role;
 

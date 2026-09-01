@@ -1,6 +1,7 @@
 import { assertEquals } from "jsr:@std/assert@1";
 
 import {
+  activeAiAssignmentHouseholdId,
   createRevenueCatWebhookHandler,
   type RevenueCatEntitlementChange,
   type SubscriberAttribute,
@@ -59,6 +60,24 @@ function setup(count = 1) {
 
   return { handler, updates };
 }
+
+Deno.test("reuses only an active canonical AI assignment", () => {
+  assertEquals(
+    activeAiAssignmentHouseholdId({
+      household_id: HOUSEHOLD_ID,
+      active: true,
+    }),
+    HOUSEHOLD_ID,
+  );
+  assertEquals(
+    activeAiAssignmentHouseholdId({
+      household_id: HOUSEHOLD_ID,
+      active: false,
+    }),
+    null,
+  );
+  assertEquals(activeAiAssignmentHouseholdId(null), null);
+});
 
 Deno.test("rejects a missing or incorrect webhook secret", async () => {
   const { handler, updates } = setup();

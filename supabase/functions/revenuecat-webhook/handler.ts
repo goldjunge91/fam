@@ -40,6 +40,18 @@ type UpdateResult = {
   count: number | null;
 };
 
+type AiAssignment = {
+  household_id: string;
+  active: boolean;
+};
+
+/** Inaktive Tombstones bewahren nur Reihenfolge/Cooldown und sind kein Kaufziel. */
+export function activeAiAssignmentHouseholdId(
+  assignment: AiAssignment | null,
+): string | null {
+  return assignment?.active ? assignment.household_id : null;
+}
+
 type Dependencies = {
   expectedSecret: string | undefined;
   applyEntitlementEvent: (
