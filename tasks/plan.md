@@ -3,7 +3,7 @@
 ## Overview
 
 Dieser Plan setzt
-[`docs/features/PREMIUM_MONETIZATION_SPEC.md`](../docs/features/PREMIUM_MONETIZATION_SPEC.md)
+[`docs/SPEC.md`](../docs/SPEC.md)
 um. Plus und AI gelten haushaltsweit, aber ausschließlich für den jeweils
 zugeordneten aktiven Haushalt. Beide Entitlements sind unabhängig und können
 gleichzeitig aktiv sein. Der AI-Zielhaushalt darf
