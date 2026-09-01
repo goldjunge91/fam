@@ -1015,36 +1015,55 @@ export type Database = {
       }
       households: {
         Row: {
+          ai_active: boolean
+          ai_expires_at: string | null
+          ai_subscriber_id: string | null
+          ai_updated_at: string | null
           created_at: string
           created_by: string
           id: string
           name: string
-          premium_active: boolean
-          premium_expires_at: string | null
-          premium_updated_at: string | null
+          plus_active: boolean
+          plus_expires_at: string | null
+          plus_updated_at: string | null
           updated_at: string
         }
         Insert: {
+          ai_active?: boolean
+          ai_expires_at?: string | null
+          ai_subscriber_id?: string | null
+          ai_updated_at?: string | null
           created_at?: string
           created_by: string
           id?: string
           name: string
-          premium_active?: boolean
-          premium_expires_at?: string | null
-          premium_updated_at?: string | null
+          plus_active?: boolean
+          plus_expires_at?: string | null
+          plus_updated_at?: string | null
           updated_at?: string
         }
         Update: {
+          ai_active?: boolean
+          ai_expires_at?: string | null
+          ai_subscriber_id?: string | null
+          ai_updated_at?: string | null
           created_at?: string
           created_by?: string
           id?: string
           name?: string
-          premium_active?: boolean
-          premium_expires_at?: string | null
-          premium_updated_at?: string | null
+          plus_active?: boolean
+          plus_expires_at?: string | null
+          plus_updated_at?: string | null
           updated_at?: string
         }
         Relationships: [
+          {
+            foreignKeyName: "households_ai_subscriber_id_fkey"
+            columns: ["ai_subscriber_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
           {
             foreignKeyName: "households_created_by_fkey"
             columns: ["created_by"]
@@ -1964,6 +1983,45 @@ export type Database = {
           },
         ]
       }
+      revenuecat_ai_assignments: {
+        Row: {
+          created_at: string
+          household_changed_at: string
+          household_id: string
+          subscriber_user_id: string
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          household_changed_at?: string
+          household_id: string
+          subscriber_user_id: string
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          household_changed_at?: string
+          household_id?: string
+          subscriber_user_id?: string
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "revenuecat_ai_assignments_household_id_fkey"
+            columns: ["household_id"]
+            isOneToOne: true
+            referencedRelation: "households"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "revenuecat_ai_assignments_subscriber_user_id_fkey"
+            columns: ["subscriber_user_id"]
+            isOneToOne: true
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       shopping_category_feedback_events: {
         Row: {
           actor_user_id: string
@@ -2713,6 +2771,14 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
+      assign_ai_household: {
+        Args: {
+          p_entitlement_expires_at: string
+          p_subscriber_user_id: string
+          p_target_household_id: string
+        }
+        Returns: undefined
+      }
       create_household: { Args: { household_name: string }; Returns: string }
       household_member_profiles: {
         Args: { hid: string }
