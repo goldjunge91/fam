@@ -9,18 +9,24 @@ create table if not exists public.households (
   created_by uuid not null references public.profiles (id) on delete restrict,
   created_at timestamptz not null default now(),
   updated_at timestamptz not null default now(),
-  -- Premium gilt haushaltsweit, nicht pro Nutzer: RevenueCat wird per
-  -- `Purchases.logIn(householdId)` an genau diese Zeile gebunden (nicht an
-  -- eine user_id), damit ein Kauf allen Mitgliedern zugutekommt. Die Wahrheit
-  -- liegt hier statt nur im RevenueCat-SDK jedes einzelnen Geraets, weil ein
-  -- Mitglied, das selbst nie eingekauft hat, sonst nie `isPremium: true`
-  -- saehe. Serverseitig gepflegt vom RevenueCat-Webhook
+  -- Plus und AI gelten haushaltsweit. RevenueCat bleibt per
+  -- `Purchases.logIn(userId)` an den kaufenden Supabase-Account gebunden; der
+  -- Webhook projiziert dessen Entitlements auf den zugeordneten Haushalt,
+  -- damit auch Mitglieder ohne eigenen Kauf den gemeinsamen Status sehen.
+  -- Plus und AI bleiben getrennt, weil beide unabhaengig aktiv sein koennen.
+  -- Serverseitig gepflegt vom RevenueCat-Webhook
   -- (supabase/functions/revenuecat-webhook) — siehe Schreibschutz in
-  -- 04_privileges.sql, sonst koennte sich jeder Haushalts-Admin selbst
+  -- 20_privileges.sql, sonst koennte sich jeder Haushalts-Admin selbst
   -- freischalten.
-  premium_active boolean not null default false,
-  premium_expires_at timestamptz,
-  premium_updated_at timestamptz
+  plus_active boolean not null default false,
+  plus_expires_at timestamptz,
+  plus_updated_at timestamptz,
+  ai_active boolean not null default false,
+  ai_expires_at timestamptz,
+  ai_updated_at timestamptz,
+  ai_subscriber_id uuid references public.profiles (id) on delete set null,
+  constraint households_active_ai_has_subscriber
+    check (not ai_active or ai_subscriber_id is not null)
 );
 
 -- UUID statt bigint identity, obwohl UUIDv4 die Index-Lokalitaet
@@ -48,6 +54,18 @@ create index if not exists household_members_user_id_idx
   on public.household_members (user_id);
 create index if not exists households_created_by_idx
   on public.households (created_by);
+
+-- Die kanonische AI-Zuordnung lebt pro RevenueCat-Subscriber genau einmal.
+-- `households.ai_*` ist nur die gemeinsam lesbare Projektion fuer Mitglieder.
+-- Clients erhalten auf diese Tabelle weder Tabellenrechte noch eine RLS-
+-- Policy; geschrieben wird ausschliesslich ueber assign_ai_household().
+create table if not exists public.revenuecat_ai_assignments (
+  subscriber_user_id uuid primary key references public.profiles (id) on delete cascade,
+  household_id uuid not null unique references public.households (id) on delete cascade,
+  household_changed_at timestamptz not null default now(),
+  created_at timestamptz not null default now(),
+  updated_at timestamptz not null default now()
+);
 
 create or replace trigger households_set_updated_at
   before update on public.households
@@ -186,6 +204,84 @@ create or replace trigger household_members_set_updated_at
   for each row
   execute function private.set_updated_at();
 
+create or replace trigger revenuecat_ai_assignments_set_updated_at
+  before update on public.revenuecat_ai_assignments
+  for each row
+  execute function private.set_updated_at();
+
+-- Atomare serverseitige AI-Zuordnung. Die aufrufende Edge Function muss das
+-- RevenueCat-Entitlement vorher verifizieren; die Datenbank erzwingt danach
+-- Mitgliedschaft, Eindeutigkeit und hoechstens einen Wechsel pro UTC-
+-- Kalendermonat. Die Funktion ist nur fuer service_role ausfuehrbar.
+create or replace function public.assign_ai_household(
+  p_subscriber_user_id uuid,
+  p_target_household_id uuid,
+  p_entitlement_expires_at timestamptz
+)
+returns void
+language plpgsql
+security invoker
+set search_path = ''
+as $$
+declare
+  current_household_id uuid;
+  current_household_changed_at timestamptz;
+begin
+  if not exists (
+    select 1
+    from public.household_members
+    where household_id = p_target_household_id
+      and user_id = p_subscriber_user_id
+  ) then
+    raise exception using
+      errcode = '42501',
+      message = 'ai_target_household_forbidden';
+  end if;
+
+  select household_id, household_changed_at
+  into current_household_id, current_household_changed_at
+  from public.revenuecat_ai_assignments
+  where subscriber_user_id = p_subscriber_user_id
+  for update;
+
+  if current_household_id is null then
+    insert into public.revenuecat_ai_assignments (
+      subscriber_user_id,
+      household_id
+    )
+    values (
+      p_subscriber_user_id,
+      p_target_household_id
+    );
+  elsif current_household_id <> p_target_household_id then
+    if date_trunc('month', current_household_changed_at at time zone 'UTC')
+      >= date_trunc('month', now() at time zone 'UTC') then
+      raise exception 'ai_household_change_cooldown';
+    end if;
+
+    update public.households
+    set ai_active = false,
+        ai_expires_at = null,
+        ai_updated_at = now(),
+        ai_subscriber_id = null
+    where id = current_household_id
+      and ai_subscriber_id = p_subscriber_user_id;
+
+    update public.revenuecat_ai_assignments
+    set household_id = p_target_household_id,
+        household_changed_at = now()
+    where subscriber_user_id = p_subscriber_user_id;
+  end if;
+
+  update public.households
+  set ai_active = true,
+      ai_expires_at = p_entitlement_expires_at,
+      ai_updated_at = now(),
+      ai_subscriber_id = p_subscriber_user_id
+  where id = p_target_household_id;
+end;
+$$;
+
 -- ------------------------------------------------- verwaisten Haushalt loeschen
 -- `guard_last_admin` laesst den letzten Admin gehen, wenn danach kein Mitglied
 -- mehr bleibt. Ohne diesen Trigger bliebe dann die households-Zeile mitsamt
@@ -322,6 +418,7 @@ $$;
 -- ------------------------------------------------------------------------- RLS
 alter table public.households enable row level security;
 alter table public.household_members enable row level security;
+alter table public.revenuecat_ai_assignments enable row level security;
 
 -- households: sichtbar fuer Mitglieder, aenderbar nur durch Admins.
 -- Kein INSERT: Haushalte entstehen ausschliesslich ueber create_household().

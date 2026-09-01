@@ -740,6 +740,36 @@ create index shopping_history_hh_idx
   on shopping_history (household_id, completed_at);
 `;
 
+// Plus und AI ersetzen den alten lokalen Premium-Cache. Die Entitlements
+// werden getrennt gespiegelt und beim naechsten Pull aus der serverseitigen
+// Haushaltsprojektion gefuellt; alte Premium-Werte werden bewusst nicht als
+// Plus-Fallback uebernommen.
+const V22_HOUSEHOLD_ENTITLEMENTS = `
+create table households_v22 (
+  id               text primary key not null,
+  name             text not null,
+  created_by       text,
+  created_at       text,
+  updated_at       integer not null,
+  deleted_at       integer,
+  _dirty           integer not null default 0,
+  plus_active      integer not null default 0,
+  plus_expires_at  text,
+  plus_updated_at  text,
+  ai_active        integer not null default 0,
+  ai_expires_at    text,
+  ai_updated_at    text,
+  ai_subscriber_id text
+);
+insert into households_v22 (
+  id, name, created_by, created_at, updated_at, deleted_at, _dirty
+)
+select id, name, created_by, created_at, updated_at, deleted_at, _dirty
+from households;
+drop table households;
+alter table households_v22 rename to households;
+`;
+
 export const MIGRATIONS: readonly Migration[] = [
   {
     version: 1,
@@ -893,5 +923,10 @@ create table if not exists local_brochure_cache (
 );
 `,
     ],
+  },
+  {
+    version: 22,
+    name: 'household_entitlements',
+    statements: [V22_HOUSEHOLD_ENTITLEMENTS],
   },
 ];

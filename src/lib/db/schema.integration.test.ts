@@ -64,6 +64,25 @@ describe('lokales Schema', () => {
     expect(tables).toHaveLength(1);
   });
 
+  it('spiegelt Plus und AI getrennt und entfernt den alten Premium-Zustand', async () => {
+    const names = (await columnsOf(db, 'households')).map((column) => column.name);
+
+    expect(names).toEqual(
+      expect.arrayContaining([
+        'plus_active',
+        'plus_expires_at',
+        'plus_updated_at',
+        'ai_active',
+        'ai_expires_at',
+        'ai_updated_at',
+        'ai_subscriber_id',
+      ]),
+    );
+    expect(names).not.toEqual(
+      expect.arrayContaining(['premium_active', 'premium_expires_at', 'premium_updated_at']),
+    );
+  });
+
   it('legt Outbox, Sync-Stand und app_meta an', async () => {
     const tables = await db.getAllAsync<{ name: string }>(
       "select name from sqlite_master where type = 'table'",

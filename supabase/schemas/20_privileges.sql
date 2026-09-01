@@ -27,6 +27,8 @@ alter default privileges for role postgres in schema public
 grant delete, insert, select, update on public.profiles to anon, authenticated, service_role;
 grant delete, insert, select, update on public.households to anon, authenticated, service_role;
 grant delete, insert, select, update on public.household_members to anon, authenticated, service_role;
+revoke all on public.revenuecat_ai_assignments from anon, authenticated, service_role;
+grant delete, insert, select, update on public.revenuecat_ai_assignments to service_role;
 grant delete, insert, select, update on public.products to anon, authenticated, service_role;
 grant delete, insert, select, update on public.household_invites to anon, authenticated, service_role;
 grant delete, insert, select, update on public.child_profiles to anon, authenticated, service_role;
@@ -80,12 +82,12 @@ revoke all on public.feedback_messages from anon, authenticated, service_role;
 grant select, insert on public.feedback_messages to authenticated;
 grant delete, insert, select, update on public.feedback_messages to service_role;
 
--- --------------------------------------------------- Premium-Spalten schuetzen
+-- -------------------------------------------- Entitlement-Spalten schuetzen
 -- RLS wirkt auf Zeilen, nicht auf Spalten (siehe Kommentar in 03_households.sql
 -- bei household_member_profiles): `households_update_admin` erlaubt jedem
 -- Admin, seine eigene Haushaltszeile zu aendern — ohne diese Einschraenkung
--- koennte er ueber ein normales UPDATE `premium_active` selbst auf `true`
--- setzen und sich Premium gratis freischalten. Ein spaltenscharfes REVOKE
+-- koennte er ueber ein normales UPDATE Plus oder AI selbst freischalten. Ein
+-- spaltenscharfes REVOKE
 -- allein wuerde nichts bewirken, solange der Tabellen-Grant oben weiter
 -- besteht (Postgres prueft Tabellen- UND Spaltenrechte, jedes ausreichend
 -- fuer sich) — deshalb erst das Tabellenrecht fuer `authenticated` entziehen
@@ -144,6 +146,15 @@ grant execute on function public.redeem_invite(uuid) to authenticated;
 -- stehen (SECURITY DEFINER, siehe Kommentar in 03_households.sql).
 revoke execute on function public.prepare_account_deletion() from public, anon;
 grant execute on function public.prepare_account_deletion() to authenticated;
+
+-- Das RevenueCat-/Edge-Function-Gate verifiziert das Entitlement, bevor diese
+-- service-role-only Funktion die Zuordnung und Haushaltsprojektion atomar
+-- schreibt. Ein Client darf sie auch als angemeldeter Nutzer nie direkt
+-- aufrufen.
+revoke execute on function public.assign_ai_household(uuid, uuid, timestamptz)
+  from public, anon, authenticated;
+grant execute on function public.assign_ai_household(uuid, uuid, timestamptz)
+  to service_role;
 
 -- household_member_profiles() umgeht die profiles-RLS (SECURITY DEFINER) und
 -- prueft die Mitgliedschaft selbst. Fuer `anon` gaebe es nichts zu pruefen —
