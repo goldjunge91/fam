@@ -1,5 +1,6 @@
 import { act, render, screen } from '@testing-library/react-native';
 
+import { useAdsConsentStore } from '../ads-consent';
 import { AdBanner } from './ad-banner';
 
 let mockIsPremium = false;
@@ -19,6 +20,7 @@ describe('AdBanner', () => {
 
   beforeEach(() => {
     mockIsPremium = false;
+    useAdsConsentStore.getState().setReady(true);
     jest.clearAllMocks();
   });
 
@@ -53,6 +55,14 @@ describe('AdBanner', () => {
 
     expect(screen.queryByTestId('admob-banner-container')).not.toBeOnTheScreen();
     expect(screen.queryByTestId('admob-banner-ad')).not.toBeOnTheScreen();
+  });
+
+  it('blendet Banner aus, solange der Consent noch nicht abgeschlossen ist', async () => {
+    useAdsConsentStore.getState().setReady(false);
+
+    await render(<AdBanner />);
+
+    expect(screen.queryByTestId('admob-banner-container')).not.toBeOnTheScreen();
   });
 
   it('faellt bei einem Ladefehler still zusammen (rendert null)', async () => {

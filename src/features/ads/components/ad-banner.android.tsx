@@ -10,6 +10,7 @@ import {
 import { AdFormat } from 'react-native-purchases';
 import { usePremium } from '@/features/premium/premium-provider';
 import { env } from '@/lib/env';
+import { useAdsConsentReady } from '../ads-consent';
 import { trackAdRevenueToRevenueCat } from '../ads-service';
 
 export interface AdBannerProps {
@@ -60,12 +61,13 @@ export function AdBanner({
 }: AdBannerProps) {
   const { isPremium } = usePremium();
   const [failedToLoad, setFailedToLoad] = useState(false);
+  const adsConsentReady = useAdsConsentReady();
 
   const defaultUnitId = __DEV__ ? TestIds.BANNER : env.adMobBannerIdAndroid;
   const resolvedUnitId = unitId ?? defaultUnitId;
 
   // Premium-Nutzer sehen keinerlei Werbung
-  if (!env.adsEnabled || isPremium || failedToLoad) {
+  if (!env.adsEnabled || !adsConsentReady || isPremium || failedToLoad) {
     return null;
   }
 

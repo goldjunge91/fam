@@ -6,6 +6,7 @@ import {
 } from 'react-native-google-mobile-ads';
 import { usePremium } from '@/features/premium/premium-provider';
 import { env } from '@/lib/env';
+import { useAdsConsentReady } from '../ads-consent';
 import { useAdsEnabled } from '../ads-override';
 
 export interface UseInterstitialAdOptions {
@@ -21,10 +22,11 @@ export function useInterstitialAd({
 }: UseInterstitialAdOptions = {}) {
   const { isPremium } = usePremium();
   const adsEnabled = useAdsEnabled();
+  const adsConsentReady = useAdsConsentReady();
 
   const defaultUnitId = __DEV__ ? TestIds.INTERSTITIAL : env.adMobInterstitialIdIos;
   const resolvedUnitId = adUnitId ?? defaultUnitId;
-  const adUnit = adsEnabled && !isPremium ? resolvedUnitId : null;
+  const adUnit = adsEnabled && adsConsentReady && !isPremium ? resolvedUnitId : null;
   const {
     isLoaded,
     isOpened,
@@ -63,26 +65,44 @@ export function useInterstitialAd({
   }, [isLoaded]);
 
   useEffect(() => {
-    if (adsEnabled && !isPremium && autoLoad && !isLoaded && !isOpened && !isClosed) {
+    if (
+      adsEnabled &&
+      adsConsentReady &&
+      !isPremium &&
+      autoLoad &&
+      !isLoaded &&
+      !isOpened &&
+      !isClosed
+    ) {
       if (__DEV__) {
         console.log(`[AdMob Interstitial] Lade Interstitial-Anzeige (Unit-ID: ${resolvedUnitId})…`);
       }
       requestLoad();
     }
-  }, [isPremium, autoLoad, isLoaded, isOpened, isClosed, requestLoad, resolvedUnitId, adsEnabled]);
+  }, [
+    isPremium,
+    autoLoad,
+    isLoaded,
+    isOpened,
+    isClosed,
+    requestLoad,
+    resolvedUnitId,
+    adsEnabled,
+    adsConsentReady,
+  ]);
 
   // Automatisch nach dem Schließen für den nächsten Aufruf vorladen
   useEffect(() => {
-    if (adsEnabled && !isPremium && autoLoad && isClosed) {
+    if (adsEnabled && adsConsentReady && !isPremium && autoLoad && isClosed) {
       if (__DEV__) {
         console.log('[AdMob Interstitial] Anzeige geschlossen. Lade nächste Anzeige vor…');
       }
       requestLoad();
     }
-  }, [isPremium, autoLoad, isClosed, requestLoad, adsEnabled]);
+  }, [isPremium, autoLoad, isClosed, requestLoad, adsEnabled, adsConsentReady]);
 
   const show = useCallback(() => {
-    if (!adsEnabled || isPremium) {
+    if (!adsEnabled || !adsConsentReady || isPremium) {
       if (__DEV__) {
         console.log(
           `[AdMob Interstitial] show() übersprungen: Werbung ist ${adsEnabled ? 'für Premium deaktiviert' : 'global deaktiviert'}.`,
@@ -105,14 +125,14 @@ export function useInterstitialAd({
         );
       }
     }
-  }, [isPremium, isLoaded, rawShow, error, adsEnabled]);
+  }, [isPremium, isLoaded, rawShow, error, adsEnabled, adsConsentReady]);
 
   return {
-    isLoaded: adsEnabled && !isPremium ? isLoaded : false,
+    isLoaded: adsEnabled && adsConsentReady && !isPremium ? isLoaded : false,
     isOpened,
     isClosed,
     error,
-    load: adsEnabled && !isPremium ? requestLoad : () => {},
+    load: adsEnabled && adsConsentReady && !isPremium ? requestLoad : () => {},
     show,
   };
 }

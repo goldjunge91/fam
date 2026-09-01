@@ -9,6 +9,23 @@ jest.mock('@/lib/purchases', () => ({
   isPurchasesConfigured: () => mockPurchasesConfigured,
 }));
 
+jest.mock('react-native-google-mobile-ads', () => ({
+  __esModule: true,
+  default: () => ({
+    initialize: jest.fn().mockResolvedValue([]),
+  }),
+  AdsConsent: {
+    gatherConsent: jest.fn().mockResolvedValue({ canRequestAds: true }),
+    getConsentInfo: jest.fn().mockResolvedValue({ canRequestAds: true }),
+    getGdprApplies: jest.fn().mockResolvedValue(false),
+  },
+  RevenuePrecisions: {
+    PRECISE: 1,
+    ESTIMATED: 2,
+    PUBLISHER_PROVIDED: 3,
+  },
+}));
+
 jest.mock('react-native-purchases', () => ({
   __esModule: true,
   default: {
