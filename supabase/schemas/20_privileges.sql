@@ -29,6 +29,8 @@ grant delete, insert, select, update on public.households to anon, authenticated
 grant delete, insert, select, update on public.household_members to anon, authenticated, service_role;
 revoke all on public.revenuecat_ai_assignments from anon, authenticated, service_role;
 grant delete, insert, select, update on public.revenuecat_ai_assignments to service_role;
+revoke all on public.revenuecat_processed_events from anon, authenticated, service_role;
+grant insert, select on public.revenuecat_processed_events to service_role;
 grant delete, insert, select, update on public.products to anon, authenticated, service_role;
 grant delete, insert, select, update on public.household_invites to anon, authenticated, service_role;
 grant delete, insert, select, update on public.child_profiles to anon, authenticated, service_role;
@@ -151,9 +153,13 @@ grant execute on function public.prepare_account_deletion() to authenticated;
 -- service-role-only Funktion die Zuordnung und Haushaltsprojektion atomar
 -- schreibt. Ein Client darf sie auch als angemeldeter Nutzer nie direkt
 -- aufrufen.
-revoke execute on function public.assign_ai_household(uuid, uuid, timestamptz)
+revoke execute on function public.assign_ai_household(uuid, uuid, timestamptz, bigint)
   from public, anon, authenticated;
-grant execute on function public.assign_ai_household(uuid, uuid, timestamptz)
+grant execute on function public.assign_ai_household(uuid, uuid, timestamptz, bigint)
+  to service_role;
+revoke execute on function public.deactivate_ai_household(uuid, bigint)
+  from public, anon, authenticated;
+grant execute on function public.deactivate_ai_household(uuid, bigint)
   to service_role;
 
 -- household_member_profiles() umgeht die profiles-RLS (SECURITY DEFINER) und

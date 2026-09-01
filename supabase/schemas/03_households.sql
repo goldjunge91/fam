@@ -21,6 +21,11 @@ create table if not exists public.households (
   plus_active boolean not null default false,
   plus_expires_at timestamptz,
   plus_updated_at timestamptz,
+  -- RevenueCat-`event_timestamp_ms` des zuletzt angewendeten Plus-Events.
+  -- Schuetzt vor einem verspaetet zugestellten aelteren Webhook-Event, das
+  -- sonst einen bereits neueren Stand ueberschreiben wuerde (Ereignisreihen-
+  -- folge ist bei Retries nicht garantiert).
+  plus_last_event_timestamp_ms bigint,
   ai_active boolean not null default false,
   ai_expires_at timestamptz,
   ai_updated_at timestamptz,
@@ -63,8 +68,28 @@ create table if not exists public.revenuecat_ai_assignments (
   subscriber_user_id uuid primary key references public.profiles (id) on delete cascade,
   household_id uuid not null unique references public.households (id) on delete cascade,
   household_changed_at timestamptz not null default now(),
+  -- RevenueCat-`event_timestamp_ms` des zuletzt angewendeten AI-Events fuer
+  -- diesen Subscriber. Bleibt beim Haushaltswechsel erhalten (anders als die
+  -- Haushaltsprojektion), damit ein verspaetet zugestelltes aelteres Event
+  -- den bereits neueren Zuordnungsstand nicht zuruecksetzen kann.
+  last_event_timestamp_ms bigint,
   created_at timestamptz not null default now(),
   updated_at timestamptz not null default now()
+);
+
+-- Idempotenz fuer den RevenueCat-Webhook: RevenueCat sendet ein Event bei
+-- ausbleibender 2xx-Antwort erneut zu. Ohne diese Tabelle wuerde ein
+-- wiederholter Zustellversuch denselben Zustand ein zweites Mal schreiben —
+-- bei AI sogar einen Eintrag im monatlichen Wechsel-Kontingent verbrauchen,
+-- obwohl fachlich kein zweiter Wechsel stattgefunden hat. Jede Kombination
+-- aus Event-ID und betroffenem Entitlement wird deshalb genau einmal
+-- verarbeitet; der DB-Adapter fuegt vor der eigentlichen Verarbeitung einen
+-- Eintrag ein und ueberspringt die Anwendung, wenn er schon existiert.
+create table if not exists public.revenuecat_processed_events (
+  event_id text not null,
+  entitlement_id text not null check (entitlement_id in ('Plus', 'AI')),
+  processed_at timestamptz not null default now(),
+  primary key (event_id, entitlement_id)
 );
 
 create or replace trigger households_set_updated_at
@@ -213,10 +238,18 @@ create or replace trigger revenuecat_ai_assignments_set_updated_at
 -- RevenueCat-Entitlement vorher verifizieren; die Datenbank erzwingt danach
 -- Mitgliedschaft, Eindeutigkeit und hoechstens einen Wechsel pro UTC-
 -- Kalendermonat. Die Funktion ist nur fuer service_role ausfuehrbar.
+--
+-- `p_event_timestamp_ms` ist optional (Default null) fuer Aufrufer ohne
+-- Ereignis-Zeitstempel. Ist er gesetzt und existiert bereits eine Zuordnung
+-- mit einem juengeren `last_event_timestamp_ms`, ist der Aufruf ein No-op:
+-- Ein verspaetet zugestelltes aelteres RevenueCat-Event (Retry, Out-of-Order-
+-- Zustellung) darf einen bereits neueren Zuordnungs- oder Ablaufstand nicht
+-- ueberschreiben.
 create or replace function public.assign_ai_household(
   p_subscriber_user_id uuid,
   p_target_household_id uuid,
-  p_entitlement_expires_at timestamptz
+  p_entitlement_expires_at timestamptz,
+  p_event_timestamp_ms bigint default null
 )
 returns void
 language plpgsql
@@ -226,6 +259,7 @@ as $$
 declare
   current_household_id uuid;
   current_household_changed_at timestamptz;
+  current_event_timestamp_ms bigint;
 begin
   if not exists (
     select 1
@@ -238,20 +272,30 @@ begin
       message = 'ai_target_household_forbidden';
   end if;
 
-  select household_id, household_changed_at
-  into current_household_id, current_household_changed_at
+  select household_id, household_changed_at, last_event_timestamp_ms
+  into current_household_id, current_household_changed_at, current_event_timestamp_ms
   from public.revenuecat_ai_assignments
   where subscriber_user_id = p_subscriber_user_id
   for update;
 
+  if current_household_id is not null
+    and p_event_timestamp_ms is not null
+    and current_event_timestamp_ms is not null
+    and p_event_timestamp_ms < current_event_timestamp_ms
+  then
+    return;
+  end if;
+
   if current_household_id is null then
     insert into public.revenuecat_ai_assignments (
       subscriber_user_id,
-      household_id
+      household_id,
+      last_event_timestamp_ms
     )
     values (
       p_subscriber_user_id,
-      p_target_household_id
+      p_target_household_id,
+      p_event_timestamp_ms
     );
   elsif current_household_id <> p_target_household_id then
     if date_trunc('month', current_household_changed_at at time zone 'UTC')
@@ -269,7 +313,12 @@ begin
 
     update public.revenuecat_ai_assignments
     set household_id = p_target_household_id,
-        household_changed_at = now()
+        household_changed_at = now(),
+        last_event_timestamp_ms = p_event_timestamp_ms
+    where subscriber_user_id = p_subscriber_user_id;
+  else
+    update public.revenuecat_ai_assignments
+    set last_event_timestamp_ms = p_event_timestamp_ms
     where subscriber_user_id = p_subscriber_user_id;
   end if;
 
@@ -279,6 +328,56 @@ begin
       ai_updated_at = now(),
       ai_subscriber_id = p_subscriber_user_id
   where id = p_target_household_id;
+end;
+$$;
+
+-- Deaktiviert AI fuer den aktuell zugeordneten Haushalt eines Subscribers
+-- (RevenueCat EXPIRATION). Getrennt von assign_ai_household, weil eine
+-- Deaktivierung keinen Zielhaushalt kennt und das Monatswechsel-Limit nicht
+-- betrifft. Derselbe Staleness-Schutz wie oben: Ein verspaetet zugestelltes
+-- EXPIRATION-Event darf eine bereits juengere Aktivierung (Renewal) nicht
+-- widerrufen.
+create or replace function public.deactivate_ai_household(
+  p_subscriber_user_id uuid,
+  p_event_timestamp_ms bigint default null
+)
+returns void
+language plpgsql
+security invoker
+set search_path = ''
+as $$
+declare
+  current_household_id uuid;
+  current_event_timestamp_ms bigint;
+begin
+  select household_id, last_event_timestamp_ms
+  into current_household_id, current_event_timestamp_ms
+  from public.revenuecat_ai_assignments
+  where subscriber_user_id = p_subscriber_user_id
+  for update;
+
+  if current_household_id is null then
+    return;
+  end if;
+
+  if p_event_timestamp_ms is not null
+    and current_event_timestamp_ms is not null
+    and p_event_timestamp_ms < current_event_timestamp_ms
+  then
+    return;
+  end if;
+
+  update public.households
+  set ai_active = false,
+      ai_expires_at = null,
+      ai_updated_at = now(),
+      ai_subscriber_id = null
+  where id = current_household_id
+    and ai_subscriber_id = p_subscriber_user_id;
+
+  update public.revenuecat_ai_assignments
+  set last_event_timestamp_ms = p_event_timestamp_ms
+  where subscriber_user_id = p_subscriber_user_id;
 end;
 $$;
 
@@ -419,6 +518,7 @@ $$;
 alter table public.households enable row level security;
 alter table public.household_members enable row level security;
 alter table public.revenuecat_ai_assignments enable row level security;
+alter table public.revenuecat_processed_events enable row level security;
 
 -- households: sichtbar fuer Mitglieder, aenderbar nur durch Admins.
 -- Kein INSERT: Haushalte entstehen ausschliesslich ueber create_household().

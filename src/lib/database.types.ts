@@ -1025,6 +1025,7 @@ export type Database = {
           name: string
           plus_active: boolean
           plus_expires_at: string | null
+          plus_last_event_timestamp_ms: number | null
           plus_updated_at: string | null
           updated_at: string
         }
@@ -1039,6 +1040,7 @@ export type Database = {
           name: string
           plus_active?: boolean
           plus_expires_at?: string | null
+          plus_last_event_timestamp_ms?: number | null
           plus_updated_at?: string | null
           updated_at?: string
         }
@@ -1053,6 +1055,7 @@ export type Database = {
           name?: string
           plus_active?: boolean
           plus_expires_at?: string | null
+          plus_last_event_timestamp_ms?: number | null
           plus_updated_at?: string | null
           updated_at?: string
         }
@@ -1988,6 +1991,7 @@ export type Database = {
           created_at: string
           household_changed_at: string
           household_id: string
+          last_event_timestamp_ms: number | null
           subscriber_user_id: string
           updated_at: string
         }
@@ -1995,6 +1999,7 @@ export type Database = {
           created_at?: string
           household_changed_at?: string
           household_id: string
+          last_event_timestamp_ms?: number | null
           subscriber_user_id: string
           updated_at?: string
         }
@@ -2002,6 +2007,7 @@ export type Database = {
           created_at?: string
           household_changed_at?: string
           household_id?: string
+          last_event_timestamp_ms?: number | null
           subscriber_user_id?: string
           updated_at?: string
         }
@@ -2021,6 +2027,24 @@ export type Database = {
             referencedColumns: ["id"]
           },
         ]
+      }
+      revenuecat_processed_events: {
+        Row: {
+          entitlement_id: string
+          event_id: string
+          processed_at: string
+        }
+        Insert: {
+          entitlement_id: string
+          event_id: string
+          processed_at?: string
+        }
+        Update: {
+          entitlement_id?: string
+          event_id?: string
+          processed_at?: string
+        }
+        Relationships: []
       }
       shopping_category_feedback_events: {
         Row: {
@@ -2774,12 +2798,17 @@ export type Database = {
       assign_ai_household: {
         Args: {
           p_entitlement_expires_at: string
+          p_event_timestamp_ms?: number
           p_subscriber_user_id: string
           p_target_household_id: string
         }
         Returns: undefined
       }
       create_household: { Args: { household_name: string }; Returns: string }
+      deactivate_ai_household: {
+        Args: { p_event_timestamp_ms?: number; p_subscriber_user_id: string }
+        Returns: undefined
+      }
       household_member_profiles: {
         Args: { hid: string }
         Returns: {
