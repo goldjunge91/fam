@@ -7,7 +7,6 @@ import { useActiveHousehold } from '@/features/household/active-household-provid
 import { useForcePremiumOverrideStore } from '@/features/premium/force-premium-override';
 import { env } from '@/lib/env';
 import {
-  hasPremiumEntitlement,
   initPurchases,
   isPurchasesConfigured,
   resetPurchasesIdentity,
@@ -17,7 +16,7 @@ import {
 } from '@/lib/purchases';
 
 type PremiumContextValue = {
-  /** Ob der aktive Haushalt Zugriff auf Premium-Funktionen hat. */
+  /** Kompatibilitaetsname fuer den serverautorisierten Plus-Status des aktiven Haushalts. */
   isPremium: boolean;
   /**
    * Ob `isPremium` erzwungen ist statt aus RevenueCat/der DB zu kommen — entweder ueber
@@ -111,8 +110,7 @@ export function PremiumProvider({ children }: { children: ReactNode }) {
 
   const forcePremiumOverride = useForcePremiumOverrideStore((state) => state.override);
   const isForced = forcePremiumOverride ?? env.forcePremium;
-  const isPremium =
-    isForced || (activeHousehold?.premium_active ?? false) || hasPremiumEntitlement(customerInfo);
+  const isPremium = isForced || (activeHousehold?.plus_active ?? false);
 
   const value = useMemo(
     () => ({ isPremium, isForced, customerInfo, loading, refresh }),
