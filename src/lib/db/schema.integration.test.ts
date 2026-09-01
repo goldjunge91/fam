@@ -2,6 +2,7 @@ import { mkdtempSync, rmSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 
+import { runDrizzleMigrations } from '@/lib/db/drizzle-migrator';
 import { MIGRATIONS } from '@/lib/db/migrations';
 import { readUserVersion, runMigrations } from '@/lib/db/migrator';
 import type { Migration } from '@/lib/db/types';
@@ -40,6 +41,7 @@ describe('lokales Schema', () => {
   beforeEach(async () => {
     db = createTestDatabase();
     await runMigrations(db, MIGRATIONS);
+    await runDrizzleMigrations(db);
   });
 
   afterEach(() => {

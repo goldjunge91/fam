@@ -2,6 +2,7 @@ import { createClient, type SupabaseClient } from '@supabase/supabase-js';
 
 import { preferenceId } from '@/features/shopping-list/preferences/preference-identity.node';
 import type { Database } from '@/lib/database.types';
+import { runDrizzleMigrations } from '@/lib/db/drizzle-migrator';
 import { MIGRATIONS } from '@/lib/db/migrations';
 import { runMigrations } from '@/lib/db/migrator';
 import { toEpochMs } from '@/lib/sync/cursor';
@@ -117,6 +118,7 @@ describe('pullHousehold gegen die lokale Supabase-Instanz', () => {
   beforeEach(async () => {
     db = createTestDatabase();
     await runMigrations(db, MIGRATIONS);
+    await runDrizzleMigrations(db);
     client = makeClient();
     householdId = await signUpAndCreateHousehold(client);
   }, 30_000);
