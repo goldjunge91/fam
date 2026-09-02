@@ -49,8 +49,28 @@ test('Rezeptquellen erlauben nur Katalog oder deterministisches Template', () =>
 });
 
 test('Kontext-Kandidaten verwenden denselben nicht-generativen Quellentyp', () => {
-  const candidateSource = contextSchema.properties.candidate_recipes.items.properties.source;
+  const candidateProperties = contextSchema.properties.candidate_recipes.items.properties;
+  const candidateSource = candidateProperties.source;
 
   assert.deepEqual(candidateSource.enum, ['catalog', 'template']);
   assert.equal(candidateSource.enum.includes('model_generated'), false);
+
+  assert.equal(candidateProperties.id.type, recipeSourceSchema.properties.id.type);
+  assert.equal(candidateProperties.id.minLength, recipeSourceSchema.properties.id.minLength);
+  assert.equal(candidateProperties.id.pattern, recipeSourceSchema.properties.id.pattern);
+
+  const candidateIngredients = candidateProperties.ingredient_names;
+  assert.equal(candidateIngredients.minItems, 1);
+  assert.equal(candidateIngredients.uniqueItems, true);
+});
+
+test('Rezeptquellen dürfen Schritte tragen, Kontext-Kandidaten reduzieren sie für Token-Sparsamkeit', () => {
+  const recipeSourceSteps = recipeSourceSchema.properties.steps;
+  const candidateRecipe = contextSchema.properties.candidate_recipes.items;
+
+  assert.equal(recipeSourceSchema.required.includes('steps'), false);
+  assert.equal(recipeSourceSteps.type, 'array');
+  assert.equal(candidateRecipe.required.includes('steps'), false);
+  assert.equal(Object.hasOwn(candidateRecipe.properties, 'steps'), false);
+  assert.equal(candidateRecipe.additionalProperties, false);
 });

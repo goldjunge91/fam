@@ -42,7 +42,15 @@
     },
     "unit": {
       "type": "string",
-      "minLength": 1,
+      "enum": [
+        "g",
+        "kg",
+        "ml",
+        "l",
+        "piece",
+        "package",
+        "portion"
+      ],
       "description": "Einheit der entsorgten Menge."
     },
     "reason": {

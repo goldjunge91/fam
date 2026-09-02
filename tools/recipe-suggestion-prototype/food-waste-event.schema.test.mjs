@@ -32,6 +32,15 @@ test("Food-Waste-Ereignis-Schema enthält den vollständigen Bestandsvertrag", a
 
   assert.equal(schema.properties.quantity.type, "number");
   assert.equal(schema.properties.quantity.exclusiveMinimum, 0);
+  assert.deepEqual(schema.properties.unit.enum, [
+    "g",
+    "kg",
+    "ml",
+    "l",
+    "piece",
+    "package",
+    "portion",
+  ]);
   assert.deepEqual(schema.properties.reason.enum, [
     "expired",
     "spoiled",

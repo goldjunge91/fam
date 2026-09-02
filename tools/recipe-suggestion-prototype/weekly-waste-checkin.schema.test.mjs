@@ -33,6 +33,15 @@ test('weekly waste check-in schema is a strict, separate contract', () => {
   assert.equal(schema.properties.week_start.format, 'date');
   assert.equal(schema.properties.submitted_at.format, 'date-time');
   assert.equal(schema.properties.reported_waste_quantity.minimum, 0);
+  assert.deepEqual(schema.properties.reported_waste_unit.enum, [
+    'g',
+    'kg',
+    'ml',
+    'l',
+    'piece',
+    'package',
+    'portion',
+  ]);
   assert.equal(schema.properties.notes.type, 'string');
 
   const serializedSchema = JSON.stringify(schema);

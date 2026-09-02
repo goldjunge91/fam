@@ -73,11 +73,17 @@
         "additionalProperties": false,
         "required": ["id", "source", "title", "ingredient_names"],
         "properties": {
-          "id": { "type": "string", "minLength": 1 },
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$"
+          },
           "source": { "enum": ["catalog", "template"] },
           "title": { "type": "string", "minLength": 1 },
           "ingredient_names": {
             "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
             "items": { "type": "string", "minLength": 1 }
           }
         }
