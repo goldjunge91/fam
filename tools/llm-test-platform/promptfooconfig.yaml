@@ -1,0 +1,14 @@
+# yaml-language-server: $schema=https://promptfoo.dev/config-schema.json
+description: fam AI smoke evaluation
+
+# Echo is intentionally the first provider: it validates fixture expansion and
+# assertions without sending data to an external model or consuming credits.
+# Add real providers only in a separate local config once API keys are set.
+providers:
+  - id: echo
+    label: fixture-echo
+
+prompts:
+  - file://prompts/inventory.txt
+
+tests: file://tests/smoke.yaml

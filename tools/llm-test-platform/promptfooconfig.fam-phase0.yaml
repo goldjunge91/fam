@@ -1,0 +1,15 @@
+# yaml-language-server: $schema=https://promptfoo.dev/config-schema.json
+description: fam Agent Skills Phase 0 contracts and safety gates
+
+providers:
+  - id: file://providers/fam-fixture-provider.mjs
+    label: fam-fixture
+
+prompts:
+  - file://prompts/fam-phase0.txt
+
+defaultTest:
+  options:
+    disableVarExpansion: true
+
+tests: file://tests/fam-phase0.yaml
