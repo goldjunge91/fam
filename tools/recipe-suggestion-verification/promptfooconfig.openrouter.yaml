@@ -1,0 +1,42 @@
+# yaml-language-server: $schema=https://promptfoo.dev/config-schema.json
+description: fam Agent Skills model comparison via OpenRouter
+
+providers:
+  - id: openrouter:ibm-granite/granite-4.2-8b
+    label: granite-4.2-8b
+    config:
+      apiKeyEnvar: OPENROUTER_API_KEY
+      showThinking: false
+      max_tokens: 1536
+      max_completion_tokens: 1024
+      # Promptfoo maps this to OpenRouter's supported non-thinking mode.
+      reasoning_effort: none
+      # Promptfoo only forwards the nested reasoning object for o-series models;
+      # passthrough sends the OpenRouter flag to Granite directly.
+      response_format: { type: json_object }
+      passthrough: { reasoning: { enabled: false } }
+  - id: openrouter:google/gemma-4-26b-a4b-it
+    label: gemma-4-26b-a4b-it
+    config: { apiKeyEnvar: OPENROUTER_API_KEY, showThinking: false, max_tokens: 1536, response_format: { type: json_object } }
+  - id: openrouter:qwen/qwen3.8-flash
+    label: qwen3.8-flash
+    config: { apiKeyEnvar: OPENROUTER_API_KEY, showThinking: false, max_tokens: 1536, response_format: { type: json_object } }
+  - id: openrouter:z-ai/glm-5.3-flash
+    label: glm-5.3-flash
+    config: { apiKeyEnvar: OPENROUTER_API_KEY, showThinking: false, max_tokens: 1536, response_format: { type: json_object } }
+  - id: openrouter:google/gemma-4-31b-it
+    label: gemma-4-31b-it
+    config: { apiKeyEnvar: OPENROUTER_API_KEY, showThinking: false, max_tokens: 1536, response_format: { type: json_object } }
+  - id: openrouter:minimax/minimax-m3:free
+    label: minimax-m3-free
+    config: { apiKeyEnvar: OPENROUTER_API_KEY, showThinking: false, max_tokens: 1536, response_format: { type: json_object } }
+
+prompts:
+  - file://prompts/fam-model.txt
+
+tests: file://tests/fam-model.yaml
+
+defaultTest:
+  options:
+    # Arrays in vars are data for the contract, not Promptfoo's test-case expansion.
+    disableVarExpansion: true

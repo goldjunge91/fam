@@ -1,0 +1,38 @@
+description: OpenRouter recipe suggestion compatibility matrix with a strict-output request
+
+providers:
+  - id: openrouter:minimax/minimax-m3:free
+    config:
+      apiKeyEnvar: OPENROUTER_API_KEY
+      temperature: 0
+      top_p: 1
+      seed: 0
+      max_tokens: 1536
+      showThinking: false
+      passthrough:
+        reasoning:
+          effort: low
+        provider:
+          require_parameters: true
+  - id: openrouter:ibm-granite/granite-4.2-8b
+    config:
+      apiKeyEnvar: OPENROUTER_API_KEY
+      temperature: 0
+      top_p: 1
+      seed: 0
+      max_tokens: 1536
+      showThinking: false
+      passthrough:
+        reasoning:
+          effort: low
+        provider:
+          require_parameters: true
+
+prompts:
+  - file://prompts/recipe-suggestion.prompt.txt
+
+defaultTest:
+  options:
+    response_format: file://schemas/recipe-suggestion-response-format.json
+
+tests: file://tests/recipe-suggestion.yaml

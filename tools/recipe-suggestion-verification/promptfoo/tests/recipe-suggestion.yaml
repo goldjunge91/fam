@@ -1,0 +1,39 @@
+- description: Empty shopping list uses available inventory
+  vars:
+    compact_context: >-
+      {"schema_version":1,"request":{"type":"recipe_suggestion","servings":2},"constraints":{"allergies":[],"preferences":["schnell"],"allowed_staples":["Olivenöl","Salz"],"forbidden_ingredients":["Erdnüsse"]},"priority_foods":[{"inventory_item_id":"inv-pasta","name":"Pasta","available_quantity":2,"unit":"pack","priority_score":100},{"inventory_item_id":"inv-tomato","name":"Tomaten","available_quantity":4,"unit":"piece","priority_score":90}],"planned_shopping_items":[],"candidate_recipes":[{"id":"catalog-pasta-tomato","source":"catalog","title":"Tomatenpasta","ingredient_names":["Pasta","Tomaten","Olivenöl","Salz"]}],"shopping_question":null,"fallback_allowed":false}
+  assert:
+    - type: is-json
+      value: file://promptfoo/schemas/recipe-suggestion-response.schema.json
+    - type: javascript
+      value: file://assertions/recipe-suggestion.js
+
+- description: Declined shopping is limited to available inventory
+  vars:
+    compact_context: >-
+      {"schema_version":1,"request":{"type":"recipe_suggestion","servings":3},"constraints":{"allergies":[],"preferences":["familienfreundlich"],"allowed_staples":["Öl"],"forbidden_ingredients":["Alkohol"]},"priority_foods":[{"inventory_item_id":"inv-rice","name":"Reis","available_quantity":3,"unit":"kg","priority_score":100},{"inventory_item_id":"inv-carrot","name":"Karotten","available_quantity":5,"unit":"piece","priority_score":80}],"planned_shopping_items":[],"candidate_recipes":[{"id":"template-rice-carrot","source":"template","title":"Reis mit Karotten","ingredient_names":["Reis","Karotten","Öl"]}],"shopping_question":null,"fallback_allowed":false}
+  assert:
+    - type: is-json
+      value: file://promptfoo/schemas/recipe-suggestion-response.schema.json
+    - type: javascript
+      value: file://assertions/recipe-suggestion.js
+
+- description: Accepted shopping plan uses planned ingredients
+  vars:
+    compact_context: >-
+      {"schema_version":1,"request":{"type":"recipe_suggestion","servings":2},"constraints":{"allergies":[],"preferences":["vegetarisch"],"allowed_staples":["Olivenöl","Salz"],"forbidden_ingredients":["Nüsse"]},"priority_foods":[{"inventory_item_id":"inv-chickpeas","name":"Kichererbsen","available_quantity":2,"unit":"dose","priority_score":100},{"inventory_item_id":"inv-tomato","name":"Tomaten","available_quantity":2,"unit":"piece","priority_score":90}],"planned_shopping_items":[{"shopping_item_id":"shop-spinach","name":"Spinat","quantity":1,"unit":"pack"}],"candidate_recipes":[{"id":"catalog-chickpea-spinach","source":"catalog","title":"Kichererbsen mit Spinat","ingredient_names":["Kichererbsen","Spinat","Olivenöl"]}],"shopping_question":null,"fallback_allowed":false}
+  assert:
+    - type: is-json
+      value: file://promptfoo/schemas/recipe-suggestion-response.schema.json
+    - type: javascript
+      value: file://assertions/recipe-suggestion.js
+
+- description: Generative fallback is explicitly marked and context-bounded
+  vars:
+    compact_context: >-
+      {"schema_version":1,"request":{"type":"recipe_suggestion","servings":1},"constraints":{"allergies":[],"preferences":[],"allowed_staples":["Wasser","Zimt"],"forbidden_ingredients":["Fisch"]},"priority_foods":[{"inventory_item_id":"inv-oats","name":"Haferflocken","available_quantity":2,"unit":"portion","priority_score":100}],"planned_shopping_items":[],"candidate_recipes":[],"shopping_question":null,"fallback_allowed":true}
+  assert:
+    - type: is-json
+      value: file://promptfoo/schemas/recipe-suggestion-response.schema.json
+    - type: javascript
+      value: file://assertions/recipe-suggestion.js
