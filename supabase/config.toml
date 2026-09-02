@@ -385,6 +385,11 @@ verify_jwt = false
 [functions.revenuecat-webhook]
 verify_jwt = false
 
+# Der AI-Gateway ist ausschließlich für eingeloggte App-Nutzer erreichbar.
+# Der Handler prüft zusätzlich den Haushaltsscope, bevor er Inventar liest.
+[functions.ai-gateway]
+verify_jwt = true
+
 [edge_runtime]
 enabled = true
 # Supported request policies: `oneshot`, `per_worker`.
