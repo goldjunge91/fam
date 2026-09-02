@@ -1,9 +1,12 @@
+import { SymbolView } from 'expo-symbols';
+import { useEffect, useState } from 'react';
 import { Modal, Pressable, View } from 'react-native';
 
 import { TextField } from '@/components/forms/text-field';
 import { ThemedText } from '@/components/theme/themed-text';
 import { ThemedView } from '@/components/theme/themed-view';
 import { Button } from '@/components/ui/buttons';
+import { useTheme } from '@/hooks/use-theme';
 
 type PasswordChangeSheetProps = {
   visible: boolean;
@@ -11,6 +14,8 @@ type PasswordChangeSheetProps = {
   passwordConfirmation: string;
   passwordError?: string;
   passwordConfirmationError?: string;
+  submissionError?: string | null;
+  saving?: boolean;
   onPasswordChange: (value: string) => void;
   onPasswordConfirmationChange: (value: string) => void;
   onApply: () => void;
@@ -23,11 +28,45 @@ export function PasswordChangeSheet({
   passwordConfirmation,
   passwordError,
   passwordConfirmationError,
+  submissionError,
+  saving = false,
   onPasswordChange,
   onPasswordConfirmationChange,
   onApply,
   onClose,
 }: PasswordChangeSheetProps) {
+  const theme = useTheme();
+  const [passwordVisible, setPasswordVisible] = useState(false);
+  const [confirmationVisible, setConfirmationVisible] = useState(false);
+
+  useEffect(() => {
+    if (!visible) return;
+    setPasswordVisible(false);
+    setConfirmationVisible(false);
+  }, [visible]);
+
+  function visibilityButton(label: string, visibleValue: boolean, onPress: () => void) {
+    return (
+      <Pressable
+        onPress={onPress}
+        role="button"
+        aria-label={`${label} ${visibleValue ? 'verbergen' : 'anzeigen'}`}
+        aria-pressed={visibleValue}
+        hitSlop={4}
+        className="w-12 h-full items-center justify-center active:opacity-70">
+        <SymbolView
+          name={
+            visibleValue
+              ? { ios: 'eye.slash', android: 'visibility_off', web: 'visibility_off' }
+              : { ios: 'eye', android: 'visibility', web: 'visibility' }
+          }
+          size={20}
+          tintColor={theme.textSecondary}
+        />
+      </Pressable>
+    );
+  }
+
   return (
     <Modal
       visible={visible}
@@ -41,9 +80,7 @@ export function PasswordChangeSheet({
           <View className="profile-food-rules-sheet-header">
             <View className="flex-1 gap-half">
               <ThemedText type="headingSmall">Passwort ändern</ThemedText>
-              <ThemedText type="smallMuted">
-                Das neue Passwort wird mit deinen Profiländerungen gespeichert.
-              </ThemedText>
+              <ThemedText type="smallMuted">Speichere dein neues Passwort direkt hier.</ThemedText>
             </View>
             <Pressable
               onPress={onClose}
@@ -60,22 +97,40 @@ export function PasswordChangeSheet({
               value={password}
               onChangeText={onPasswordChange}
               error={passwordError}
-              secureTextEntry
+              secureTextEntry={!passwordVisible}
+              trailing={visibilityButton('Neues Passwort', passwordVisible, () =>
+                setPasswordVisible((current) => !current),
+              )}
               placeholder="Mindestens 8 Zeichen"
               autoCapitalize="none"
+              autoComplete="new-password"
+              textContentType="newPassword"
             />
             <TextField
               label="Neues Passwort bestätigen"
               value={passwordConfirmation}
               onChangeText={onPasswordConfirmationChange}
               error={passwordConfirmationError}
-              secureTextEntry
+              secureTextEntry={!confirmationVisible}
+              trailing={visibilityButton('Passwortbestätigung', confirmationVisible, () =>
+                setConfirmationVisible((current) => !current),
+              )}
               placeholder="Passwort wiederholen"
               autoCapitalize="none"
+              autoComplete="new-password"
+              textContentType="newPassword"
+              returnKeyType="go"
+              onSubmitEditing={onApply}
             />
           </View>
 
-          <Button label="Passwort übernehmen" onPress={onApply} />
+          {submissionError ? (
+            <ThemedText role="alert" type="small" themeColor="danger">
+              {submissionError}
+            </ThemedText>
+          ) : null}
+
+          <Button label="Passwort speichern" onPress={onApply} loading={saving} />
         </ThemedView>
       </View>
     </Modal>

@@ -2,7 +2,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useQueryClient } from '@tanstack/react-query';
 import { Image } from 'expo-image';
 import { router } from 'expo-router';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Alert, Pressable, View } from 'react-native';
 import { TextField } from '@/components/forms/text-field';
@@ -11,9 +11,24 @@ import { ThemedText } from '@/components/theme/themed-text';
 import { Button } from '@/components/ui/buttons';
 import { Card } from '@/components/ui/card';
 import { updatePassword } from '@/features/auth/api';
+import { authErrorMessage } from '@/features/auth/domain/auth-error-message';
 import { useSession } from '@/features/auth/session-provider';
 import { updateProfile, useProfile } from '@/features/profile/api';
 import { pickAvatarImage, uploadAvatarImage } from '@/features/profile/avatar-uploader';
+import { FoodRulesSummary } from '@/features/profile/components/food-rules-summary';
+import {
+  ALLERGY_PRESETS,
+  EMPTY_PROFILE_FOOD_RULES,
+  INTOLERANCE_PRESETS,
+  type ProfileFoodRules,
+} from '@/features/profile/domain/food-rules';
+import {
+  profileFoodRulesQueryKey,
+  saveProfileFoodRules,
+  useProfileFoodRules,
+} from '@/features/profile/food-rules-api';
+import { FoodRuleSelectionSheet } from '@/features/profile/sheets/food-rule-selection-sheet';
+import { PasswordChangeSheet } from '@/features/profile/sheets/password-change-sheet';
 import { useTheme } from '@/hooks/use-theme';
 import { type ProfileAccountForm, profileAccountFormSchema } from '@/lib/db/zod/profile.zod';
 import { getInitials } from '@/lib/initials';
@@ -29,15 +44,25 @@ export function EditProfileScreen() {
   const userId = session?.user.id;
   const currentEmail = session?.user.email ?? '';
   const { data: profile, isLoading: profileLoading } = useProfile(userId);
+  const { data: storedFoodRules, isLoading: foodRulesLoading } = useProfileFoodRules(userId);
   const queryClient = useQueryClient();
 
   const [avatarUrl, setAvatarUrl] = useState<string | null>(null);
   const [formError, setFormError] = useState<string | null>(null);
   const [uploadingImage, setUploadingImage] = useState(false);
+  const [passwordSheetVisible, setPasswordSheetVisible] = useState(false);
+  const [passwordSaving, setPasswordSaving] = useState(false);
+  const [passwordSaveError, setPasswordSaveError] = useState<string | null>(null);
+  const [foodRules, setFoodRules] = useState<ProfileFoodRules>(EMPTY_PROFILE_FOOD_RULES);
+  const [activeFoodRule, setActiveFoodRule] = useState<keyof ProfileFoodRules | null>(null);
+  const hydratedFoodRulesUserId = useRef<string | null>(null);
   const {
     setValue,
     watch,
     reset,
+    trigger,
+    setError,
+    clearErrors,
     handleSubmit,
     formState: { errors, isSubmitting },
   } = useForm<ProfileAccountForm>({
@@ -60,6 +85,21 @@ export function EditProfileScreen() {
       setAvatarUrl(profile.avatar_url);
     }
   }, [profile, currentEmail, reset]);
+
+  useEffect(() => {
+    if (!userId) {
+      hydratedFoodRulesUserId.current = null;
+      setFoodRules(EMPTY_PROFILE_FOOD_RULES);
+      setActiveFoodRule(null);
+      return;
+    }
+
+    if (!storedFoodRules || hydratedFoodRulesUserId.current === userId) return;
+
+    hydratedFoodRulesUserId.current = userId;
+    setFoodRules(storedFoodRules);
+    setActiveFoodRule(null);
+  }, [storedFoodRules, userId]);
 
   async function handlePickImage() {
     if (!userId || uploadingImage) return;
@@ -121,12 +161,10 @@ export function EditProfileScreen() {
         if (emailErr) throw emailErr;
       }
 
-      if (values.newPassword) {
-        const { error: passErr } = await updatePassword(values.newPassword);
-        if (passErr) throw passErr;
-      }
+      await saveProfileFoodRules(userId, foodRules);
 
       await queryClient.invalidateQueries({ queryKey: ['profile', userId] });
+      await queryClient.invalidateQueries({ queryKey: profileFoodRulesQueryKey(userId) });
 
       Alert.alert('Erfolg', 'Deine Profil- & Account-Daten wurden erfolgreich aktualisiert.', [
         { text: 'OK', onPress: () => router.back() },
@@ -134,6 +172,43 @@ export function EditProfileScreen() {
     } catch (err: unknown) {
       const msg = err instanceof Error ? err.message : 'Fehler beim Speichern der Account-Daten.';
       setFormError(msg);
+    }
+  }
+
+  function closePasswordSheet() {
+    setValue('newPassword', '');
+    setValue('passwordConfirmation', '');
+    clearErrors(['newPassword', 'passwordConfirmation']);
+    setPasswordSaveError(null);
+    setPasswordSheetVisible(false);
+  }
+
+  async function savePassword() {
+    setPasswordSaveError(null);
+
+    if (!newPassword) {
+      setError('newPassword', {
+        type: 'manual',
+        message: 'Das Passwort braucht mindestens 8 Zeichen.',
+      });
+      return;
+    }
+
+    const isValid = await trigger(['newPassword', 'passwordConfirmation']);
+    if (!isValid) return;
+
+    setPasswordSaving(true);
+    try {
+      const { error } = await updatePassword(newPassword);
+      if (error) {
+        setPasswordSaveError(authErrorMessage(error));
+        return;
+      }
+
+      closePasswordSheet();
+      Alert.alert('Passwort gespeichert', 'Dein neues Passwort ist jetzt aktiv.');
+    } finally {
+      setPasswordSaving(false);
     }
   }
 
@@ -206,36 +281,67 @@ export function EditProfileScreen() {
             placeholder="deine.email@beispiel.de"
           />
         </View>
+        <Button
+          label="Passwort ändern"
+          variant="secondary"
+          size="compact"
+          className="mt-one"
+          onPress={() => setPasswordSheetVisible(true)}
+        />
       </Card>
 
-      {/* Formular zum Ändern des Passworts */}
-      <Card title="Passwort ändern">
-        <ThemedText type="caption" themeColor="textSecondary" className="mb-two">
-          Lass diese Felder leer, wenn du dein aktuelles Passwort behalten möchtest.
-        </ThemedText>
-        <View className="gap-three">
-          <TextField
-            label="Neues Passwort"
-            value={newPassword}
-            onChangeText={(value) => setValue('newPassword', value, { shouldValidate: true })}
-            error={errors.newPassword?.message}
-            secureTextEntry
-            placeholder="Mindestens 8 Zeichen"
-            autoCapitalize="none"
-          />
-          <TextField
-            label="Neues Passwort bestätigen"
-            value={confirmPassword}
-            onChangeText={(value) =>
-              setValue('passwordConfirmation', value, { shouldValidate: true })
-            }
-            error={errors.passwordConfirmation?.message}
-            secureTextEntry
-            placeholder="Passwort wiederholen"
-            autoCapitalize="none"
-          />
-        </View>
-      </Card>
+      <View className="mt-two">
+        <FoodRulesSummary rules={foodRules} onSelect={setActiveFoodRule} />
+      </View>
+
+      <PasswordChangeSheet
+        visible={passwordSheetVisible}
+        password={newPassword}
+        passwordConfirmation={confirmPassword}
+        passwordError={errors.newPassword?.message}
+        passwordConfirmationError={errors.passwordConfirmation?.message}
+        submissionError={passwordSaveError}
+        saving={passwordSaving}
+        onPasswordChange={(value) => setValue('newPassword', value, { shouldValidate: true })}
+        onPasswordConfirmationChange={(value) =>
+          setValue('passwordConfirmation', value, { shouldValidate: true })
+        }
+        onApply={() => void savePassword()}
+        onClose={closePasswordSheet}
+      />
+
+      <FoodRuleSelectionSheet
+        visible={activeFoodRule === 'allergies'}
+        title="Allergien"
+        inputLabel="Allergie suchen oder ergänzen"
+        presets={ALLERGY_PRESETS}
+        value={foodRules.allergies}
+        onApply={(allergies) => setFoodRules((current) => ({ ...current, allergies }))}
+        onClose={() => setActiveFoodRule(null)}
+      />
+      <FoodRuleSelectionSheet
+        visible={activeFoodRule === 'intolerances'}
+        title="Unverträglichkeiten"
+        inputLabel="Unverträglichkeit suchen oder ergänzen"
+        presets={INTOLERANCE_PRESETS}
+        value={foodRules.intolerances}
+        onApply={(intolerances) => setFoodRules((current) => ({ ...current, intolerances }))}
+        onClose={() => setActiveFoodRule(null)}
+      />
+      <FoodRuleSelectionSheet
+        visible={activeFoodRule === 'dislikedFoods'}
+        title="Mag ich nicht"
+        inputLabel="Lebensmittel ergänzen"
+        presets={[]}
+        value={foodRules.dislikedFoods}
+        onApply={(selections) =>
+          setFoodRules((current) => ({
+            ...current,
+            dislikedFoods: selections.filter((selection) => selection.source === 'custom'),
+          }))
+        }
+        onClose={() => setActiveFoodRule(null)}
+      />
 
       {/* Fehlermeldungs-Anzeige */}
       {formError ? (
@@ -248,7 +354,7 @@ export function EditProfileScreen() {
       <Button
         label="Änderungen speichern"
         onPress={() => void handleSubmit(submit)()}
-        loading={isSubmitting || profileLoading}
+        loading={isSubmitting || profileLoading || foodRulesLoading}
       />
     </Screen>
   );

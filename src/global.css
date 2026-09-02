@@ -611,6 +611,46 @@
     @apply gap-three mt-one;
   }
 
+  .profile-food-rules-sheet-backdrop {
+    @apply flex-1 justify-end bg-black/40;
+  }
+
+  .profile-food-rules-sheet {
+    @apply max-h-[88%] rounded-t-sheet px-four pt-two pb-four gap-three bg-background;
+  }
+
+  .profile-food-rules-sheet-header {
+    @apply flex-row items-start gap-three;
+  }
+
+  .profile-food-rules-option {
+    @apply min-h-[48px] flex-row items-center gap-three py-two;
+  }
+
+  .profile-food-rules-option-bordered {
+    @apply border-b-hairline border-border;
+  }
+
+  .profile-food-rules-custom-row {
+    @apply min-h-[48px] flex-row items-center gap-three py-two border-t-hairline border-border;
+  }
+
+  .profile-food-rules-remove {
+    @apply min-h-[44px] justify-center px-two;
+  }
+
+  .profile-food-rules-summary {
+    @apply rounded-fam-large px-three;
+  }
+
+  .profile-food-rules-summary-row {
+    @apply min-h-[56px] flex-row items-center gap-two py-two;
+  }
+
+  .profile-food-rules-summary-row-bordered {
+    @apply border-b-hairline border-border;
+  }
+
   .input-row {
     @apply flex-row gap-two;
   }

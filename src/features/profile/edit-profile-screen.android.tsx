@@ -10,6 +10,7 @@ import { Screen } from '@/components/layout/screen';
 import { ThemedText } from '@/components/theme/themed-text';
 import { Button } from '@/components/ui/buttons';
 import { updatePassword } from '@/features/auth/api';
+import { authErrorMessage } from '@/features/auth/domain/auth-error-message';
 import { useSession } from '@/features/auth/session-provider';
 import { useAddWeightEntryMutation } from '@/features/calorie-tracking/api';
 import { updateProfile, useProfile } from '@/features/profile/api';
@@ -67,6 +68,8 @@ export function EditProfileScreen() {
   const [biometrics, setBiometrics] = useState<ProfileBiometrics>(EMPTY_PROFILE_BIOMETRICS);
   const [biometricsSheetVisible, setBiometricsSheetVisible] = useState(false);
   const [passwordSheetVisible, setPasswordSheetVisible] = useState(false);
+  const [passwordSaving, setPasswordSaving] = useState(false);
+  const [passwordSaveError, setPasswordSaveError] = useState<string | null>(null);
   const hydratedFoodRulesUserId = useRef<string | null>(null);
   const hydratedBiometricsUserId = useRef<string | null>(null);
   const {
@@ -74,6 +77,7 @@ export function EditProfileScreen() {
     watch,
     reset,
     trigger,
+    setError,
     clearErrors,
     handleSubmit,
     formState: { errors, isSubmitting },
@@ -198,11 +202,6 @@ export function EditProfileScreen() {
         if (emailErr) throw emailErr;
       }
 
-      if (values.newPassword) {
-        const { error: passErr } = await updatePassword(values.newPassword);
-        if (passErr) throw passErr;
-      }
-
       await saveProfileFoodRules(userId, foodRules);
 
       if (
@@ -229,12 +228,37 @@ export function EditProfileScreen() {
     setValue('newPassword', '');
     setValue('passwordConfirmation', '');
     clearErrors(['newPassword', 'passwordConfirmation']);
+    setPasswordSaveError(null);
     setPasswordSheetVisible(false);
   }
 
-  async function applyPassword() {
+  async function savePassword() {
+    setPasswordSaveError(null);
+
+    if (!newPassword) {
+      setError('newPassword', {
+        type: 'manual',
+        message: 'Das Passwort braucht mindestens 8 Zeichen.',
+      });
+      return;
+    }
+
     const isValid = await trigger(['newPassword', 'passwordConfirmation']);
-    if (isValid) setPasswordSheetVisible(false);
+    if (!isValid) return;
+
+    setPasswordSaving(true);
+    try {
+      const { error } = await updatePassword(newPassword);
+      if (error) {
+        setPasswordSaveError(authErrorMessage(error));
+        return;
+      }
+
+      closePasswordSheet();
+      Alert.alert('Passwort gespeichert', 'Dein neues Passwort ist jetzt aktiv.');
+    } finally {
+      setPasswordSaving(false);
+    }
   }
 
   const initials = getInitials(displayName || 'Ohne Namen');
@@ -306,13 +330,15 @@ export function EditProfileScreen() {
           label="Passwort ändern"
           variant="secondary"
           size="compact"
+          className="mt-one"
           onPress={() => setPasswordSheetVisible(true)}
         />
       </View>
 
-      <BiometricsSummary value={biometrics} onPress={() => setBiometricsSheetVisible(true)} />
-
-      <FoodRulesSummary rules={foodRules} onSelect={setActiveFoodRule} />
+      <View className="gap-four mt-two">
+        <BiometricsSummary value={biometrics} onPress={() => setBiometricsSheetVisible(true)} />
+        <FoodRulesSummary rules={foodRules} onSelect={setActiveFoodRule} />
+      </View>
 
       <BiometricsSheet
         visible={biometricsSheetVisible}
@@ -327,11 +353,13 @@ export function EditProfileScreen() {
         passwordConfirmation={confirmPassword}
         passwordError={errors.newPassword?.message}
         passwordConfirmationError={errors.passwordConfirmation?.message}
+        submissionError={passwordSaveError}
+        saving={passwordSaving}
         onPasswordChange={(value) => setValue('newPassword', value, { shouldValidate: true })}
         onPasswordConfirmationChange={(value) =>
           setValue('passwordConfirmation', value, { shouldValidate: true })
         }
-        onApply={() => void applyPassword()}
+        onApply={() => void savePassword()}
         onClose={closePasswordSheet}
       />
 
