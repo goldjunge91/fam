@@ -8,20 +8,26 @@ import { Screen } from '@/components/layout/screen';
 import { ThemedText } from '@/components/theme/themed-text';
 import { Button } from '@/components/ui/buttons';
 import { Card } from '@/components/ui/card';
+import { getAnalyticsSettings, useAnalyticsSettingsStore } from '@/constants/analytics';
 import { initMobileAds, useAdsEnabled, useAdsOverrideStore } from '@/features/ads';
 import { useSession } from '@/features/auth/session-provider';
 import { VISION_CAMERA_LAB_ENABLED } from '@/features/experimentalscreens/vision-camera-lab';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { useForcePremiumOverrideStore } from '@/features/premium/force-premium-override';
-import { presentPaywall } from '@/features/premium/paywall';
 import { usePremium } from '@/features/premium/premium-provider';
+import { type AnalyticsToggle, analyticsToggles } from '@/features/settings/dev/analytics-controls';
 import {
   classifySupabaseTarget,
   describeDatabaseOwnership,
   formatTokenExpiry,
   maskSecret,
 } from '@/features/settings/dev/dev-info';
-import { getAptabaseInitializationError, isAptabaseConfigured } from '@/lib/analytics/aptabase';
+import {
+  disposeAptabase,
+  getAptabaseInitializationError,
+  initAptabase,
+  isAptabaseConfigured,
+} from '@/lib/analytics/aptabase';
 import { trackAnalyticsEvent } from '@/lib/analytics/events';
 import { deleteLocalDatabase, getDatabase } from '@/lib/db/client';
 import { env } from '@/lib/env';
@@ -36,6 +42,7 @@ import {
 import {
   getPostHogClient,
   getPostHogInitializationError,
+  initPostHog,
   isPostHogConfigured,
   reloadPostHogFeatureFlags,
   useFeatureFlag,
@@ -90,7 +97,7 @@ export function DevToolsScreen() {
   const { session } = useSession();
   const queryClient = useQueryClient();
   const { activeHousehold } = useActiveHousehold();
-  const { isPremium, isForced } = usePremium();
+  const { hasPlus, isForced } = usePremium();
   const forcePremiumOverride = useForcePremiumOverrideStore((state) => state.override);
   const setForcePremiumOverride = useForcePremiumOverrideStore((state) => state.setOverride);
   const premiumOverrideEnabled = forcePremiumOverride ?? env.forcePremium;
@@ -102,6 +109,10 @@ export function DevToolsScreen() {
   const posthogFlags = useFeatureFlags();
   const posthogConfigured = isPostHogConfigured();
   const posthogInitializationError = getPostHogInitializationError();
+  const analyticsOverrides = useAnalyticsSettingsStore((state) => state.overrides);
+  const setAnalyticsOverride = useAnalyticsSettingsStore((state) => state.setOverride);
+  const resetAnalyticsOverrides = useAnalyticsSettingsStore((state) => state.resetOverrides);
+  const analyticsSettings = getAnalyticsSettings();
 
   const [snapshot, setSnapshot] = useState<DbSnapshot | null>(null);
   const [offDump, setOffDump] = useState<OffDumpStatus | null>(null);
@@ -164,6 +175,24 @@ export function DevToolsScreen() {
     }
   }
 
+  function refreshAnalyticsProviders() {
+    const settings = getAnalyticsSettings();
+    if (settings.enabled && settings.providers.posthog) {
+      initPostHog();
+      void getPostHogClient()?.optIn();
+    } else {
+      void getPostHogClient()?.optOut();
+    }
+
+    if (settings.enabled && settings.providers.aptabase) initAptabase();
+    else disposeAptabase();
+  }
+
+  function toggleAnalyticsSetting(toggle: AnalyticsToggle) {
+    setAnalyticsOverride(toggle.path, !toggle.getValue(analyticsSettings));
+    refreshAnalyticsProviders();
+  }
+
   function handleWipe() {
     Alert.alert(
       'Lokale Datenbank löschen?',
@@ -203,7 +232,7 @@ export function DevToolsScreen() {
         <Zeile label="Onboarding erzwungen" wert={env.forceOnboarding ? 'ja' : 'nein'} />
         <Zeile
           label="Premium"
-          wert={isPremium ? (isForced ? 'ja (erzwungen)' : 'ja') : 'nein'}
+          wert={hasPlus ? (isForced ? 'ja (erzwungen)' : 'ja') : 'nein'}
           tone={isForced ? 'warning' : undefined}
         />
         <View className="dev-zeile">
@@ -291,6 +320,35 @@ export function DevToolsScreen() {
                 : 'warning'
           }
         />
+      </Card>
+
+      <Card title="Analytics-Steuerung">
+        <Zeile label="Standardwerte" wert="alle an" tone="accent" />
+        <ThemedText type="small" themeColor="textSecondary">
+          Lokale Overrides gelten sofort und überleben einen Neustart.
+        </ThemedText>
+        {analyticsToggles.map((toggle) => {
+          const enabled = toggle.getValue(analyticsSettings);
+          return (
+            <Button
+              key={toggle.path}
+              label={`${toggle.label}: ${enabled ? 'AN' : 'AUS'}`}
+              variant={enabled ? 'primary' : 'secondary'}
+              accessibilityLabel={`${toggle.label} ${enabled ? 'ausschalten' : 'einschalten'}`}
+              onPress={() => toggleAnalyticsSetting(toggle)}
+            />
+          );
+        })}
+        {Object.keys(analyticsOverrides).length > 0 ? (
+          <Button
+            label="Analytics-Overrides zurücksetzen"
+            variant="secondary"
+            onPress={() => {
+              resetAnalyticsOverrides();
+              refreshAnalyticsProviders();
+            }}
+          />
+        ) : null}
       </Card>
 
       {/* Session-Details (Nutzer-ID, Token-Gültigkeit, aktiver Haushalt) */}
@@ -547,15 +605,18 @@ export function DevToolsScreen() {
             />
           ) : null}
           <Button
-            label="Paywall öffnen (Test Store)"
+            label="Plus-Paywall öffnen (Test Store)"
             variant="secondary"
             onPress={() =>
-              mitBusy('paywall', async () => {
-                const outcome = await presentPaywall();
-                Alert.alert('Paywall-Ergebnis', outcome);
-              })
+              router.push({ pathname: '/settings/plus-and-ai', params: { tier: 'plus' } })
             }
-            loading={busy === 'paywall'}
+          />
+          <Button
+            label="KI-Paywall öffnen (Test Store)"
+            variant="secondary"
+            onPress={() =>
+              router.push({ pathname: '/settings/plus-and-ai', params: { tier: 'ai' } })
+            }
           />
           <Button
             label="Lokale Datenbank löschen"

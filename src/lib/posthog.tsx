@@ -1,7 +1,9 @@
 import PostHog, { PostHogProvider } from 'posthog-react-native';
 import { createContext, type ReactNode, useContext, useEffect, useState } from 'react';
 
+import { useAnalyticsSettingsStore } from '@/constants/analytics';
 import { env } from '@/lib/env';
+import { isAnalyticsProviderEnabled } from '@/lib/telemetry/policy';
 
 let client: PostHog | undefined;
 let attempted = false;
@@ -37,6 +39,7 @@ function FeatureFlagProvider({
 
 export function initPostHog(): void {
   if (attempted) return;
+  if (!isAnalyticsProviderEnabled('posthog')) return;
   attempted = true;
 
   const apiKey = env.posthogApiKey;
@@ -85,6 +88,10 @@ export function getPostHogClient(): PostHog | undefined {
 }
 
 export async function reloadPostHogFeatureFlags(): Promise<FeatureFlagValues> {
+  if (!isAnalyticsProviderEnabled('posthog')) {
+    throw new Error('PostHog ist in den Analytics-Einstellungen deaktiviert.');
+  }
+
   const activeClient = getPostHogClient();
   if (!activeClient) {
     throw new Error('PostHog ist nicht konfiguriert. API-Key fehlt im Build.');
@@ -113,7 +120,17 @@ export async function reloadPostHogFeatureFlags(): Promise<FeatureFlagValues> {
 }
 
 export function PostHogAppProvider({ children }: { children: ReactNode }): ReactNode {
-  const activeClient = isPostHogConfigured() ? client : undefined;
+  const posthogEnabled = useAnalyticsSettingsStore(
+    (state) => state.overrides.enabled !== false && state.overrides.providers?.posthog !== false,
+  );
+  const [providerClient, setProviderClient] = useState<PostHog | undefined>(() => client);
+
+  useEffect(() => {
+    if (posthogEnabled) initPostHog();
+    setProviderClient(posthogEnabled ? getPostHogClient() : undefined);
+  }, [posthogEnabled]);
+
+  const activeClient = posthogEnabled && isPostHogConfigured() ? providerClient : undefined;
   if (!activeClient) {
     return <FeatureFlagProvider posthog={undefined}>{children}</FeatureFlagProvider>;
   }

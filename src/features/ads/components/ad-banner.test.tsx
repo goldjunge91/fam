@@ -3,11 +3,13 @@ import { act, render, screen } from '@testing-library/react-native';
 import { useAdsConsentStore } from '../ads-consent';
 import { AdBanner } from './ad-banner';
 
-let mockIsPremium = false;
+let mockHasPlus = false;
+let mockHasAI = false;
 
 jest.mock('@/features/premium/premium-provider', () => ({
   usePremium: () => ({
-    isPremium: mockIsPremium,
+    hasPlus: mockHasPlus,
+    hasAI: mockHasAI,
     isForced: false,
     customerInfo: null,
     loading: false,
@@ -19,7 +21,8 @@ describe('AdBanner', () => {
   const originalAdsEnabled = process.env.EXPO_PUBLIC_ADS_ENABLED;
 
   beforeEach(() => {
-    mockIsPremium = false;
+    mockHasPlus = false;
+    mockHasAI = false;
     useAdsConsentStore.getState().setReady(true);
     jest.clearAllMocks();
   });
@@ -33,15 +36,24 @@ describe('AdBanner', () => {
   });
 
   it('rendert Banner fuer Free-Nutzer', async () => {
-    mockIsPremium = false;
+    mockHasPlus = false;
+    mockHasAI = false;
     await render(<AdBanner />);
 
     expect(screen.getByTestId('admob-banner-container')).toBeOnTheScreen();
     expect(screen.getByTestId('admob-banner-ad')).toBeOnTheScreen();
   });
 
-  it('blendet Banner fuer Premium-Nutzer vollstaendig aus', async () => {
-    mockIsPremium = true;
+  it('blendet Banner fuer Plus-Nutzer vollstaendig aus', async () => {
+    mockHasPlus = true;
+    await render(<AdBanner />);
+
+    expect(screen.queryByTestId('admob-banner-container')).not.toBeOnTheScreen();
+    expect(screen.queryByTestId('admob-banner-ad')).not.toBeOnTheScreen();
+  });
+
+  it('blendet Banner fuer AI-Nutzer vollstaendig aus', async () => {
+    mockHasAI = true;
     await render(<AdBanner />);
 
     expect(screen.queryByTestId('admob-banner-container')).not.toBeOnTheScreen();
@@ -67,7 +79,8 @@ describe('AdBanner', () => {
 
   it('faellt bei einem Ladefehler still zusammen (rendert null)', async () => {
     jest.spyOn(console, 'warn').mockImplementation(() => {});
-    mockIsPremium = false;
+    mockHasPlus = false;
+    mockHasAI = false;
     const onFailed = jest.fn();
 
     await render(<AdBanner onAdFailedToLoad={onFailed} />);

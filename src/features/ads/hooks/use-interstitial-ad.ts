@@ -20,13 +20,13 @@ export function useInterstitialAd({
   requestOptions,
   autoLoad = true,
 }: UseInterstitialAdOptions = {}) {
-  const { isPremium } = usePremium();
+  const { hasPlus, hasAI } = usePremium();
   const adsEnabled = useAdsEnabled();
   const adsConsentReady = useAdsConsentReady();
 
   const defaultUnitId = __DEV__ ? TestIds.INTERSTITIAL : env.adMobInterstitialIdIos;
   const resolvedUnitId = adUnitId ?? defaultUnitId;
-  const adUnit = adsEnabled && adsConsentReady && !isPremium ? resolvedUnitId : null;
+  const adUnit = adsEnabled && adsConsentReady && !hasPlus && !hasAI ? resolvedUnitId : null;
   const {
     isLoaded,
     isOpened,
@@ -68,7 +68,8 @@ export function useInterstitialAd({
     if (
       adsEnabled &&
       adsConsentReady &&
-      !isPremium &&
+      !hasPlus &&
+      !hasAI &&
       autoLoad &&
       !isLoaded &&
       !isOpened &&
@@ -80,7 +81,8 @@ export function useInterstitialAd({
       requestLoad();
     }
   }, [
-    isPremium,
+    hasPlus,
+    hasAI,
     autoLoad,
     isLoaded,
     isOpened,
@@ -93,19 +95,19 @@ export function useInterstitialAd({
 
   // Automatisch nach dem Schließen für den nächsten Aufruf vorladen
   useEffect(() => {
-    if (adsEnabled && adsConsentReady && !isPremium && autoLoad && isClosed) {
+    if (adsEnabled && adsConsentReady && !hasPlus && !hasAI && autoLoad && isClosed) {
       if (__DEV__) {
         console.log('[AdMob Interstitial] Anzeige geschlossen. Lade nächste Anzeige vor…');
       }
       requestLoad();
     }
-  }, [isPremium, autoLoad, isClosed, requestLoad, adsEnabled, adsConsentReady]);
+  }, [hasPlus, hasAI, autoLoad, isClosed, requestLoad, adsEnabled, adsConsentReady]);
 
   const show = useCallback(() => {
-    if (!adsEnabled || !adsConsentReady || isPremium) {
+    if (!adsEnabled || !adsConsentReady || hasPlus || hasAI) {
       if (__DEV__) {
         console.log(
-          `[AdMob Interstitial] show() übersprungen: Werbung ist ${adsEnabled ? 'für Premium deaktiviert' : 'global deaktiviert'}.`,
+          `[AdMob Interstitial] show() übersprungen: Werbung ist ${adsEnabled ? 'für Plus/AI deaktiviert' : 'global deaktiviert'}.`,
         );
       }
       return;
@@ -125,14 +127,14 @@ export function useInterstitialAd({
         );
       }
     }
-  }, [isPremium, isLoaded, rawShow, error, adsEnabled, adsConsentReady]);
+  }, [hasPlus, hasAI, isLoaded, rawShow, error, adsEnabled, adsConsentReady]);
 
   return {
-    isLoaded: adsEnabled && adsConsentReady && !isPremium ? isLoaded : false,
+    isLoaded: adsEnabled && adsConsentReady && !hasPlus && !hasAI ? isLoaded : false,
     isOpened,
     isClosed,
     error,
-    load: adsEnabled && adsConsentReady && !isPremium ? requestLoad : () => {},
+    load: adsEnabled && adsConsentReady && !hasPlus && !hasAI ? requestLoad : () => {},
     show,
   };
 }

@@ -1,5 +1,5 @@
 import { onlineManager, QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { act, fireEvent, render, screen, waitFor } from '@testing-library/react-native';
+import { act, fireEvent, render, screen } from '@testing-library/react-native';
 
 import { SyncStatusBanner, type SyncStatusBannerProps } from '@/components/ui/sync-status-banner';
 import { Colors } from '@/constants/theme';
@@ -111,11 +111,11 @@ describe('SyncStatusBanner', () => {
     expect(getDb).not.toHaveBeenCalled();
   });
 
-  it('zeigt den ausstehenden Zaehler kurz nach einem echten lokalen Schreibvorgang', async () => {
-    // Erst rendern, dann schreiben — wie im echten App-Baum: das Banner
-    // haengt bereits am Root, bevor je eine Mutation passiert. `enqueueMutation`
-    // vor dem Mount aufzurufen wuerde die Benachrichtigung verpassen, die
-    // `useSyncStatus` erst ab seinem `useEffect` abonniert.
+  it('bleibt unsichtbar nach einem lokalen Schreibvorgang, solange online und nichts fehlschlaegt', async () => {
+    // Local-First: ein Schreibvorgang, der (noch) nicht gepusht ist, aber
+    // online passiert, ist fuer den Nutzer kein Grund zur Unterbrechung —
+    // anders als vorher gibt es hier keine "Synchronisiere …"-Anzeige mehr
+    // (siehe sync-status.ts).
     await renderBanner({ getDb: async () => db });
 
     await act(async () => {
@@ -128,33 +128,12 @@ describe('SyncStatusBanner', () => {
       });
     });
 
-    expect(await screen.findByText('Synchronisiere … 1 ausstehend')).toBeTruthy();
-  });
-
-  it('verschwindet von selbst kurz nach dem Schreibvorgang — unabhaengig davon, ob der Push schon durch ist', async () => {
-    // Der Kern der neuen Semantik (#Sync-Diagnose-Session): "synchronisiere"
-    // ist keine Anzeige des tatsaechlichen Push-Fortschritts mehr, sondern
-    // eine kurze, feste Rueckmeldung auf den lokalen Schreibvorgang. Die
-    // Outbox-Zeile bleibt hier absichtlich bestehen (kein Push simuliert) —
-    // die Anzeige muss trotzdem verschwinden.
-    await renderBanner({ getDb: async () => db });
-
-    await act(async () => {
-      await enqueueMutation(db, {
-        entity: 'storage_locations',
-        entityId: 'loc-2',
-        op: 'insert',
-        payload: { id: 'loc-2', household_id: 'hh-1', name: 'Vorrat', kind: 'pantry' },
-        applyLocally: (txn) => insertStorageLocation(txn, 'loc-2'),
-      });
-    });
-    expect(await screen.findByText(/ausstehend/)).toBeTruthy();
-
-    await waitFor(() => expect(screen.queryByText(/ausstehend/)).toBeNull(), { timeout: 4_000 });
+    expect(screen.queryByText(/ausstehend/)).toBeNull();
+    expect(screen.queryByText(/Synchronisiere/)).toBeNull();
 
     const due = await loadDueOutboxEntries(db, Date.now());
     expect(due).toHaveLength(1);
-  }, 10_000);
+  });
 
   it('zeigt den Fehlerzustand und ruft onRetry beim Tap auf', async () => {
     await enqueueMutation(db, {
@@ -181,7 +160,7 @@ describe('SyncStatusBanner', () => {
     expect(onRetry).toHaveBeenCalledTimes(1);
   });
 
-  it('nutzt fuer offline/syncing und failed unterschiedliche Theme-Farben', () => {
+  it('nutzt fuer offline und failed unterschiedliche Theme-Farben', () => {
     // Mechanische Pruefung, dass die Komponente Colors aus theme.ts verwendet
     // (nicht fest verdrahtete Hex-Werte) — kein Screenshot-Vergleich hier,
     // das uebernimmt die manuelle Simulator-Verifikation.

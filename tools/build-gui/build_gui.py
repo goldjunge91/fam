@@ -22,10 +22,13 @@ LOCK_PATH = PROJECT_ROOT / "native-build-lock.json"
 LOG_DIR = PROJECT_ROOT / "tools" / "build-gui" / "logs"
 
 STATUS_ACTION = "Lock prüfen"
+DIFF_ACTION = "Lock-Diff anzeigen (bei Mismatch)"
+DEV_ACTION = "Dev-Loop starten (schnell, expo run:*)"
 RUN_ACTION = "Simulator/Emulator starten"
 RESTORE_ACTION = "Artefakt wiederherstellen"
 REBUILD_ACTION = "Rebuild (explizit freigeben)"
 SUBMIT_ACTION = "TestFlight hochladen"
+DEPLOY_ACTION = "Build & Deploy (Rebuild + Upload)"
 
 
 @dataclass(frozen=True)
@@ -38,6 +41,11 @@ class Target:
     profile: str
     env_file: str | None = None
     submit: bool = False
+    # Deckt sich mit DEV_TARGETS in scripts/native-build.ts — dort läuft der
+    # Inner-Loop-Pfad (expo run:*, ccache, kein prebuild --clean bei jedem
+    # Lauf), im Gegensatz zu RUN_ACTION, das nur ein bereits gelocktes
+    # Artefakt installiert.
+    dev_loop: bool = False
 
 
 TARGETS = {
@@ -49,6 +57,7 @@ TARGETS = {
         simulator=True,
         profile="development",
         env_file=".env.development.local",
+        dev_loop=True,
     ),
     "iOS Preview-Simulator": Target(
         label="iOS Preview-Simulator",
@@ -85,6 +94,7 @@ TARGETS = {
         simulator=True,
         profile="development",
         env_file=".env.development.local",
+        dev_loop=True,
     ),
     "Android Preview": Target(
         label="Android Preview-Emulator",
@@ -118,6 +128,9 @@ class BuildGui(tk.Tk):
         self.action = tk.StringVar(value=RUN_ACTION)
         self.approve_rebuild = tk.BooleanVar(value=False)
         self.eas_build_id = tk.StringVar()
+        # Leer = Expo/eas wählt selbst (meist das zuletzt gestartete Gerät).
+        # Name muss exakt zu 'xcrun simctl list devices' bzw. 'adb devices' passen.
+        self.device = tk.StringVar()
         self.status = tk.StringVar(value="Lock wird geprüft …")
         self.target_state = tk.StringVar()
         self.output: queue.Queue[tuple[str, object]] = queue.Queue()
@@ -127,6 +140,7 @@ class BuildGui(tk.Tk):
 
         self._build_ui()
         self._refresh_target_info()
+        self._refresh_devices()
         self.after(150, self.refresh_status)
         self.after(100, self._drain_output)
         self.protocol("WM_DELETE_WINDOW", self._close)
@@ -167,10 +181,27 @@ class BuildGui(tk.Tk):
             row=2, column=1, sticky="ew", pady=6
         )
 
+        ttk.Label(container, text="Gerät (optional)").grid(
+            row=3, column=0, sticky="w", padx=(0, 12), pady=6
+        )
+        device_frame = ttk.Frame(container)
+        device_frame.grid(row=3, column=1, sticky="ew", pady=6)
+        device_frame.columnconfigure(0, weight=1)
+        self.device_menu = ttk.Combobox(device_frame, textvariable=self.device)
+        self.device_menu.grid(row=0, column=0, sticky="ew")
+        ttk.Button(device_frame, text="⟳", width=3, command=self._refresh_devices).grid(
+            row=0, column=1, padx=(6, 0)
+        )
+        ttk.Label(
+            container,
+            text="Leer = Expo wählt selbst. Exakter Name/UDID aus 'xcrun simctl list devices' bzw. 'adb devices'.",
+            foreground="#888888",
+        ).grid(row=4, column=0, columnspan=2, sticky="w", pady=(0, 6))
+
         self.description = ttk.Label(container, anchor="w", justify="left")
-        self.description.grid(row=3, column=0, columnspan=2, sticky="ew", pady=(4, 2))
+        self.description.grid(row=5, column=0, columnspan=2, sticky="ew", pady=(4, 2))
         ttk.Label(container, textvariable=self.target_state).grid(
-            row=4, column=0, columnspan=2, sticky="w", pady=(0, 10)
+            row=6, column=0, columnspan=2, sticky="w", pady=(0, 10)
         )
 
         self.rebuild_check = ttk.Checkbutton(
@@ -178,11 +209,11 @@ class BuildGui(tk.Tk):
             text="Ich erlaube für diese Aktion ausdrücklich Prebuild, CocoaPods und Kompilierung.",
             variable=self.approve_rebuild,
         )
-        self.rebuild_check.grid(row=5, column=0, columnspan=2, sticky="w", pady=(0, 10))
+        self.rebuild_check.grid(row=7, column=0, columnspan=2, sticky="w", pady=(0, 10))
 
         log_frame = ttk.Frame(container)
-        log_frame.grid(row=6, column=0, columnspan=2, sticky="nsew")
-        container.rowconfigure(6, weight=1)
+        log_frame.grid(row=8, column=0, columnspan=2, sticky="nsew")
+        container.rowconfigure(8, weight=1)
         log_frame.columnconfigure(0, weight=1)
         log_frame.rowconfigure(0, weight=1)
         self.log = tk.Text(
@@ -199,7 +230,7 @@ class BuildGui(tk.Tk):
         self.log.configure(yscrollcommand=scrollbar.set)
 
         footer = ttk.Frame(container)
-        footer.grid(row=7, column=0, columnspan=2, sticky="ew", pady=(12, 0))
+        footer.grid(row=9, column=0, columnspan=2, sticky="ew", pady=(12, 0))
         footer.columnconfigure(0, weight=1)
         ttk.Label(footer, textvariable=self.status).grid(row=0, column=0, sticky="w")
         self.refresh_button = ttk.Button(footer, text="Status prüfen", command=self.refresh_status)
@@ -211,6 +242,44 @@ class BuildGui(tk.Tk):
 
     def _target_changed(self, _event: tk.Event[tk.Misc]) -> None:
         self._refresh_target_info()
+        self._refresh_devices()
+
+    def _refresh_devices(self) -> None:
+        platform = self._selected_target().platform
+        try:
+            names = self._list_ios_devices() if platform == "ios" else self._list_android_devices()
+        except (OSError, subprocess.SubprocessError, json.JSONDecodeError):
+            names = []
+        self.device_menu.configure(values=tuple(names))
+
+    @staticmethod
+    def _list_ios_devices() -> list[str]:
+        # '-j' liefert stabiles JSON statt der menschenlesbaren simctl-Textausgabe.
+        result = subprocess.run(
+            ["xcrun", "simctl", "list", "devices", "available", "-j"],
+            capture_output=True,
+            text=True,
+            check=True,
+            timeout=10,
+        )
+        data = json.loads(result.stdout)
+        names = []
+        for runtime_devices in data.get("devices", {}).values():
+            for device in runtime_devices:
+                if device.get("isAvailable", True):
+                    names.append(device["name"])
+        return sorted(set(names))
+
+    @staticmethod
+    def _list_android_devices() -> list[str]:
+        result = subprocess.run(
+            ["emulator", "-list-avds"],
+            capture_output=True,
+            text=True,
+            check=True,
+            timeout=10,
+        )
+        return sorted(line.strip() for line in result.stdout.splitlines() if line.strip())
 
     def _action_changed(self, _event: tk.Event[tk.Misc]) -> None:
         self._update_controls()
@@ -233,16 +302,19 @@ class BuildGui(tk.Tk):
         target = self._selected_target()
         self.description.configure(text=f"{target.label}: {target.description}")
 
-        actions = [STATUS_ACTION, REBUILD_ACTION]
+        actions = [STATUS_ACTION, DIFF_ACTION, REBUILD_ACTION]
+        if target.dev_loop:
+            actions.insert(2, DEV_ACTION)
         if target.simulator:
-            actions.insert(1, RUN_ACTION)
+            actions.insert(2, RUN_ACTION)
         if target.submit:
             actions.append(SUBMIT_ACTION)
+            actions.append(DEPLOY_ACTION)
         actions.insert(actions.index(REBUILD_ACTION), RESTORE_ACTION)
 
         self.action_menu.configure(values=tuple(actions))
         if self.action.get() not in actions:
-            self.action.set(RUN_ACTION if target.simulator else STATUS_ACTION)
+            self.action.set(DEV_ACTION if target.dev_loop else STATUS_ACTION)
         self._refresh_target_state()
         self._update_controls()
 
@@ -266,7 +338,7 @@ class BuildGui(tk.Tk):
         self.target_state.set(f"Artefakt: {state}")
 
     def _update_controls(self) -> None:
-        is_rebuild = self.action.get() == REBUILD_ACTION
+        is_rebuild = self.action.get() in (REBUILD_ACTION, DEPLOY_ACTION)
         self.rebuild_check.configure(state="normal" if is_rebuild else "disabled")
         if not is_rebuild:
             self.approve_rebuild.set(False)
@@ -293,6 +365,35 @@ class BuildGui(tk.Tk):
         if action == STATUS_ACTION:
             return [*native_command, "native:status"], env, "Native-Lock prüfen"
 
+        if action == DIFF_ACTION:
+            return (
+                [*native_command, "native:status", "--", "--diff"],
+                env,
+                "Native-Lock-Diff (abweichende Fingerprint-Quelle anzeigen)",
+            )
+
+        if action == DEV_ACTION:
+            if not target.dev_loop:
+                raise ValueError(
+                    "Der Dev-Loop-Pfad ist nur für Development-Targets gedacht "
+                    "(siehe DEV_TARGETS in scripts/native-build.ts)."
+                )
+            command = [
+                *native_command,
+                "native:dev",
+                "--",
+                "--target",
+                target.name,
+            ]
+            device = self.device.get().strip()
+            if device:
+                command.extend(["--device", device])
+            return (
+                self._with_env_file(command, target.env_file),
+                env,
+                f"{target.label}: Inner Loop (expo run:*, ccache)",
+            )
+
         if action == RUN_ACTION:
             if not target.simulator:
                 raise ValueError("Nur Simulator-/Emulator-Targets können direkt gestartet werden.")
@@ -303,6 +404,9 @@ class BuildGui(tk.Tk):
                 "--target",
                 target.name,
             ]
+            device = self.device.get().strip()
+            if device:
+                command.extend(["--device", device])
             return self._with_env_file(command, target.env_file), env, f"{target.label} starten"
 
         if action == RESTORE_ACTION:
@@ -352,6 +456,44 @@ class BuildGui(tk.Tk):
                 "--wait",
                 "--non-interactive",
             ], env, "Vorhandenes IPA an TestFlight senden"
+
+        if action == DEPLOY_ACTION:
+            if not self.approve_rebuild.get():
+                raise ValueError(
+                    "Build & Deploy bleibt gesperrt. Aktiviere zuerst die ausdrückliche Freigabe."
+                )
+            if not target.submit:
+                raise ValueError("Build & Deploy ist nur für Submit-fähige Targets gedacht.")
+            # Artefaktpfad folgt der festen Konvention aus scripts/native-build.ts
+            # (artifactPath()) — 'kind' ist für alle Submit-fähigen Targets aktuell
+            # immer 'ipa'. Kann erst nach dem Rebuild geprüft werden, deshalb hier
+            # direkt konstruiert statt aus dem (noch veralteten) Lock gelesen.
+            artifact_path = PROJECT_ROOT / "native-artifacts" / target.name / "fam.ipa"
+            rebuild_command = [
+                *native_command,
+                "native:rebuild",
+                "--",
+                "--target",
+                target.name,
+                "--approve-rebuild",
+            ]
+            submit_command = [
+                "eas",
+                "submit",
+                "--platform",
+                target.platform,
+                "--profile",
+                target.profile,
+                "--path",
+                str(artifact_path),
+                "--wait",
+                "--non-interactive",
+            ]
+            # Ein Shell-Aufruf mit '&&', damit die bestehende Ein-Prozess-Log-
+            # Streaming-Logik (_run_process) unverändert funktioniert und der
+            # Upload nur bei einem tatsächlich erfolgreichen Rebuild startet.
+            combined = f"{shlex.join(rebuild_command)} && {shlex.join(submit_command)}"
+            return ["bash", "-lc", combined], env, f"{target.label}: Build & Deploy"
 
         raise ValueError(f"Unbekannte Aktion: {action}")
 

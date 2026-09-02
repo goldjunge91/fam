@@ -49,7 +49,7 @@ export interface AdBannerProps {
  * Standard Banner-Werbekomponente.
  *
  * Verhält sich automatisch no-op / unsichtbar, wenn der aktive Haushalt
- * Premium-Status besitzt (`isPremium === true`).
+ * Plus- oder AI-Status besitzt (`hasPlus || hasAI`).
  */
 export function AdBanner({
   unitId,
@@ -60,7 +60,7 @@ export function AdBanner({
   onAdLoaded,
   onAdFailedToLoad,
 }: AdBannerProps) {
-  const { isPremium } = usePremium();
+  const { hasPlus, hasAI } = usePremium();
   const adsEnabled = useAdsEnabled();
   const adsConsentReady = useAdsConsentReady();
   const [failedToLoad, setFailedToLoad] = useState(false);
@@ -76,8 +76,8 @@ export function AdBanner({
   const defaultUnitId = __DEV__ ? TestIds.BANNER : env.adMobBannerIdIos;
   const resolvedUnitId = unitId ?? defaultUnitId;
 
-  // Premium-Nutzer sehen keinerlei Werbung
-  if (!adsEnabled || !adsConsentReady || isPremium || failedToLoad) {
+  // Plus- und AI-Nutzer sehen keinerlei Werbung
+  if (!adsEnabled || !adsConsentReady || hasPlus || hasAI || failedToLoad) {
     return null;
   }
 

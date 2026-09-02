@@ -16,8 +16,13 @@ import { basename, dirname, extname, join, relative, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import type { Fingerprint } from '@expo/fingerprint';
 import { createFingerprintAsync, diffFingerprints } from 'expo/fingerprint';
+import {
+  isNativePlatformSupportedOnHost,
+  type NativePlatform,
+  nativePlatformsForHost,
+} from './native-build-platform';
 
-type Platform = 'ios' | 'android';
+type Platform = NativePlatform;
 type ArtifactKind = 'app' | 'ipa' | 'apk' | 'aab';
 type TargetName = keyof typeof TARGETS;
 
@@ -284,8 +289,8 @@ function runCapture(program: string, commandArgs: string[]): string {
   return result.stdout;
 }
 
-function assertNativeDirectories(): void {
-  for (const platform of ['ios', 'android'] as const) {
+function assertNativeDirectories(platforms: readonly Platform[] = nativePlatformsForHost()): void {
+  for (const platform of platforms) {
     if (!existsSync(join(PROJECT_ROOT, platform))) {
       fail(`Native Projekt fehlt: ${platform}/. Es darf nicht automatisch erzeugt werden.`);
     }
@@ -294,13 +299,14 @@ function assertNativeDirectories(): void {
 
 async function assertNativeBaseline(
   lock: NativeBuildLock,
-  platforms: readonly Platform[] = ['ios', 'android'],
-): Promise<Record<Platform, NativeFingerprint>> {
-  assertNativeDirectories();
-  const current = {
-    ios: await fingerprint('ios'),
-    android: await fingerprint('android'),
-  };
+  platforms: readonly Platform[] = nativePlatformsForHost(),
+): Promise<Partial<Record<Platform, NativeFingerprint>>> {
+  assertNativeDirectories(platforms);
+  const current = Object.fromEntries(
+    await Promise.all(
+      platforms.map(async (platform) => [platform, await fingerprint(platform)] as const),
+    ),
+  ) as Partial<Record<Platform, NativeFingerprint>>;
 
   for (const platform of platforms) {
     const expected = lock.nativeFingerprints[platform];
@@ -343,7 +349,8 @@ function assertArtifact(
 
 async function status(): Promise<void> {
   const lock = readLock();
-  const current = await assertNativeBaseline(lock);
+  const platforms = nativePlatformsForHost();
+  const current = await assertNativeBaseline(lock, platforms);
   log('Native Baseline ist unverändert.');
 
   let invalidArtifacts = 0;
@@ -351,13 +358,23 @@ async function status(): Promise<void> {
     TargetName,
     ArtifactLock,
   ][]) {
+    if (!isNativePlatformSupportedOnHost(TARGETS[targetName].platform)) {
+      console.warn(
+        `  Artefaktprüfung übersprungen: ${targetName} ist auf Windows nicht verfügbar.`,
+      );
+      continue;
+    }
+    const currentFingerprint = current[TARGETS[targetName].platform];
+    if (!currentFingerprint) {
+      fail(`Kein aktueller Fingerprint für ${TARGETS[targetName].platform} verfügbar.`);
+    }
     const artifactPath = join(PROJECT_ROOT, targetLock.relativePath);
     if (!existsSync(artifactPath)) {
       console.warn(`  Artefakt nicht lokal vorhanden: ${targetLock.relativePath}`);
       continue;
     }
     try {
-      assertArtifact(targetLock, targetName, current[TARGETS[targetName].platform].hash);
+      assertArtifact(targetLock, targetName, currentFingerprint.hash);
       log(`Artefakt gültig: ${targetName}`);
     } catch (error) {
       invalidArtifacts += 1;
@@ -435,9 +452,48 @@ function findFirstNamedPath(directory: string, suffix: string): string | undefin
 // ios/Podfile liest USE_CCACHE bereits (ccache_enabled?()) — B5, der Hebel war
 // gebaut und nicht umgelegt. ccache selbst muss lokal installiert sein
 // (/opt/homebrew/bin/ccache); ist es das nicht, ist die Env-Var wirkungslos,
-// kein Fehler.
+// kein Fehler. Wichtig: 'pod install' schreibt CC/CXX (Ccache-Wrapper) fest in
+// die generierten .xcodeproj-Dateien — USE_CCACHE muss also beim Aufruf von
+// 'pod install' gesetzt sein, nicht erst beim späteren Build, sonst wirkt es
+// gar nicht (verifiziert, siehe docs/native-fingerprint-drift-debugging.md).
+// USE_CCACHE=1 triggert ccache_enabled?() in ios/Podfile zur 'pod install'-
+// Zeit (schreibt CC/CXX aufs Pods-Project fest). Der eigentliche Cache-Pfad
+// (CCACHE_DIR) wird NICHT mehr hier gesetzt — Env-Vars erreichen die
+// Compile-Sources-Subprozesse von Xcode nachweislich nicht (siehe
+// plugins/withIosCcacheDir.js für den echten Fix: eigenständige
+// Wrapper-Skripte mit fest einprogrammiertem Pfad statt Env-Var-Vertrauen).
 function iosBuildEnv(): Record<string, string> {
   return { USE_CCACHE: '1' };
+}
+
+// 'eas build --local' kopiert das Projekt bei JEDEM Lauf in ein neues Temp-
+// Verzeichnis mit zufälliger UUID (/var/folders/.../eas-build-local-nodejs/
+// <uuid>/build) — dadurch enthalten Compiler-Flags (u. a.
+// -fbuild-session-file, ModuleCache-Pfade) bei jedem Lauf andere absolute
+// Pfade, was ccache selbst mit CCACHE_BASEDIR verlässlich verhindert hat
+// (siehe docs/native-fingerprint-drift-debugging.md, "TestFlight-Pfad:
+// ccache bringt bisher NICHTS"). EAS_LOCAL_BUILD_WORKINGDIR erzwingt
+// stattdessen ein FESTES Arbeitsverzeichnis über alle Läufe hinweg — löst
+// das Problem an der Wurzel statt es nachträglich zu kompensieren. Muss ein
+// ABSOLUTER Pfad sein (relative Pfade brechen die interne tar-Extraktion,
+// siehe github.com/expo/eas-cli/issues/1155). Auf dem externen Volume neben
+// dem ccache-Verzeichnis, nicht auf der Boot-Disk (siehe
+// scripts/dev-disk-clean.sh).
+function easLocalBuildEnv(): Record<string, string> {
+  const ccacheDir = readCcacheDirFromUserConfig();
+  if (!ccacheDir) return {};
+  return { EAS_LOCAL_BUILD_WORKINGDIR: join(dirname(ccacheDir), 'eas-build-local-workingdir') };
+}
+
+function readCcacheDirFromUserConfig(): string | undefined {
+  if (process.env.CCACHE_DIR) return process.env.CCACHE_DIR;
+  const configPath = join(
+    process.env.XDG_CONFIG_HOME ?? join(process.env.HOME ?? '', '.config'),
+    'ccache/ccache.conf',
+  );
+  if (!existsSync(configPath)) return undefined;
+  const match = readFileSync(configPath, 'utf8').match(/^\s*cache_dir\s*=\s*(.+?)\s*$/mu);
+  return match?.[1];
 }
 
 async function rebuild(): Promise<void> {
@@ -480,7 +536,7 @@ async function rebuild(): Promise<void> {
       '--output',
       buildOutput,
     ],
-    target.platform === 'ios' ? iosBuildEnv() : undefined,
+    target.platform === 'ios' ? { ...iosBuildEnv(), ...easLocalBuildEnv() } : undefined,
   );
 
   const finalPath = artifactPath(targetName, target.kind);
@@ -519,6 +575,11 @@ async function rebuild(): Promise<void> {
 
 async function restore(): Promise<void> {
   const [targetName, target] = getTarget();
+  if (!isNativePlatformSupportedOnHost(target.platform)) {
+    fail(
+      `Das iOS-Artefakt ${targetName} kann nur auf macOS geprüft oder wiederhergestellt werden.`,
+    );
+  }
   const lock = readLock();
   const current = await assertNativeBaseline(lock, [target.platform]);
   const artifactLock = lock.artifacts[targetName];
@@ -661,6 +722,9 @@ function buildDevEnv(platform: Platform): Record<string, string> | undefined {
 
 async function runLocked(): Promise<void> {
   const [targetName, target] = getTarget();
+  if (!isNativePlatformSupportedOnHost(target.platform)) {
+    fail(`Das iOS-Artefakt ${targetName} kann nur auf macOS geprüft oder gestartet werden.`);
+  }
   const lock = readLock();
   const current = await assertNativeBaseline(lock, [target.platform]);
   const artifactLock = lock.artifacts[targetName];

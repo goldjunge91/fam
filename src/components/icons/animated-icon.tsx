@@ -35,9 +35,7 @@ export function AnimatedSplashOverlay() {
   // Image (expo-image) ist bei NativeWind nicht registriert (kein
   // cssInterop) — className wird stillschweigend ignoriert, style bleibt
   // hier zwingend.
-  const image = (
-    <Image style={{ width: 180, height: 180 }} source={SPLASH_ICON} />
-  );
+  const image = <Image style={{ width: 180, height: 180 }} source={SPLASH_ICON} />;
 
   return animate ? (
     <Animated.View

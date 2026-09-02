@@ -34,6 +34,38 @@ export type Database = {
   }
   public: {
     Tables: {
+      ai_credit_bookings: {
+        Row: {
+          action: string
+          created_at: string
+          credits: number
+          request_id: string
+          subscriber_user_id: string
+        }
+        Insert: {
+          action: string
+          created_at?: string
+          credits: number
+          request_id: string
+          subscriber_user_id: string
+        }
+        Update: {
+          action?: string
+          created_at?: string
+          credits?: number
+          request_id?: string
+          subscriber_user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "ai_credit_bookings_subscriber_user_id_fkey"
+            columns: ["subscriber_user_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       brochure_dumps: {
         Row: {
           created_at: string
@@ -605,6 +637,89 @@ export type Database = {
           },
         ]
       }
+      feedback_messages: {
+        Row: {
+          author_id: string | null
+          author_type: string
+          body: string
+          created_at: string
+          id: string
+          ticket_id: string
+        }
+        Insert: {
+          author_id?: string | null
+          author_type: string
+          body: string
+          created_at?: string
+          id?: string
+          ticket_id: string
+        }
+        Update: {
+          author_id?: string | null
+          author_type?: string
+          body?: string
+          created_at?: string
+          id?: string
+          ticket_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "feedback_messages_author_id_fkey"
+            columns: ["author_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "feedback_messages_ticket_id_fkey"
+            columns: ["ticket_id"]
+            isOneToOne: false
+            referencedRelation: "feedback_tickets"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      feedback_tickets: {
+        Row: {
+          created_at: string
+          id: string
+          status: string
+          subject: string
+          ticket_number: number
+          type: string
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          status?: string
+          subject: string
+          ticket_number?: never
+          type: string
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          status?: string
+          subject?: string
+          ticket_number?: never
+          type?: string
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "feedback_tickets_user_id_fkey"
+            columns: ["user_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       food_entries: {
         Row: {
           carbs_g: number | null
@@ -932,36 +1047,58 @@ export type Database = {
       }
       households: {
         Row: {
+          ai_active: boolean
+          ai_expires_at: string | null
+          ai_subscriber_id: string | null
+          ai_updated_at: string | null
           created_at: string
           created_by: string
           id: string
           name: string
-          premium_active: boolean
-          premium_expires_at: string | null
-          premium_updated_at: string | null
+          plus_active: boolean
+          plus_expires_at: string | null
+          plus_last_event_timestamp_ms: number | null
+          plus_updated_at: string | null
           updated_at: string
         }
         Insert: {
+          ai_active?: boolean
+          ai_expires_at?: string | null
+          ai_subscriber_id?: string | null
+          ai_updated_at?: string | null
           created_at?: string
           created_by: string
           id?: string
           name: string
-          premium_active?: boolean
-          premium_expires_at?: string | null
-          premium_updated_at?: string | null
+          plus_active?: boolean
+          plus_expires_at?: string | null
+          plus_last_event_timestamp_ms?: number | null
+          plus_updated_at?: string | null
           updated_at?: string
         }
         Update: {
+          ai_active?: boolean
+          ai_expires_at?: string | null
+          ai_subscriber_id?: string | null
+          ai_updated_at?: string | null
           created_at?: string
           created_by?: string
           id?: string
           name?: string
-          premium_active?: boolean
-          premium_expires_at?: string | null
-          premium_updated_at?: string | null
+          plus_active?: boolean
+          plus_expires_at?: string | null
+          plus_last_event_timestamp_ms?: number | null
+          plus_updated_at?: string | null
           updated_at?: string
         }
         Relationships: [
+          {
+            foreignKeyName: "households_ai_subscriber_id_fkey"
+            columns: ["ai_subscriber_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
           {
             foreignKeyName: "households_created_by_fkey"
             columns: ["created_by"]
@@ -1881,6 +2018,114 @@ export type Database = {
           },
         ]
       }
+      revenuecat_ai_assignments: {
+        Row: {
+          active: boolean
+          created_at: string
+          household_changed_at: string
+          household_id: string
+          last_event_timestamp_ms: number | null
+          subscriber_user_id: string
+          updated_at: string
+        }
+        Insert: {
+          active?: boolean
+          created_at?: string
+          household_changed_at?: string
+          household_id: string
+          last_event_timestamp_ms?: number | null
+          subscriber_user_id: string
+          updated_at?: string
+        }
+        Update: {
+          active?: boolean
+          created_at?: string
+          household_changed_at?: string
+          household_id?: string
+          last_event_timestamp_ms?: number | null
+          subscriber_user_id?: string
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "revenuecat_ai_assignments_household_id_fkey"
+            columns: ["household_id"]
+            isOneToOne: false
+            referencedRelation: "households"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "revenuecat_ai_assignments_subscriber_user_id_fkey"
+            columns: ["subscriber_user_id"]
+            isOneToOne: true
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      revenuecat_plus_assignments: {
+        Row: {
+          active: boolean
+          created_at: string
+          expires_at: string | null
+          household_id: string
+          last_event_timestamp_ms: number | null
+          subscriber_user_id: string
+          updated_at: string
+        }
+        Insert: {
+          active?: boolean
+          created_at?: string
+          expires_at?: string | null
+          household_id: string
+          last_event_timestamp_ms?: number | null
+          subscriber_user_id: string
+          updated_at?: string
+        }
+        Update: {
+          active?: boolean
+          created_at?: string
+          expires_at?: string | null
+          household_id?: string
+          last_event_timestamp_ms?: number | null
+          subscriber_user_id?: string
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "revenuecat_plus_assignments_household_id_fkey"
+            columns: ["household_id"]
+            isOneToOne: false
+            referencedRelation: "households"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "revenuecat_plus_assignments_subscriber_user_id_fkey"
+            columns: ["subscriber_user_id"]
+            isOneToOne: true
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      revenuecat_processed_events: {
+        Row: {
+          entitlement_id: string
+          event_id: string
+          processed_at: string
+        }
+        Insert: {
+          entitlement_id: string
+          event_id: string
+          processed_at?: string
+        }
+        Update: {
+          entitlement_id?: string
+          event_id?: string
+          processed_at?: string
+        }
+        Relationships: []
+      }
       shopping_category_feedback_events: {
         Row: {
           actor_user_id: string
@@ -2630,7 +2875,61 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
+      apply_plus_household_event: {
+        Args: {
+          p_active: boolean
+          p_event_id?: string
+          p_event_timestamp_ms?: number
+          p_expires_at: string
+          p_household_id: string
+          p_subscriber_user_id: string
+        }
+        Returns: boolean
+      }
+      assign_ai_household: {
+        Args: {
+          p_entitlement_expires_at: string
+          p_event_id?: string
+          p_event_timestamp_ms?: number
+          p_subscriber_user_id: string
+          p_target_household_id: string
+        }
+        Returns: boolean
+      }
+      book_ai_credit: {
+        Args: {
+          p_action: string
+          p_household_id: string
+          p_monthly_limit?: number
+          p_request_id: string
+        }
+        Returns: {
+          blocked: boolean
+          credit_limit: number
+          credits_remaining: number
+          credits_used: number
+          warning_reached: boolean
+        }[]
+      }
       create_household: { Args: { household_name: string }; Returns: string }
+      deactivate_ai_household: {
+        Args: {
+          p_event_id?: string
+          p_event_timestamp_ms?: number
+          p_subscriber_user_id: string
+        }
+        Returns: boolean
+      }
+      get_ai_credit_status: {
+        Args: { p_household_id: string; p_monthly_limit?: number }
+        Returns: {
+          blocked: boolean
+          credit_limit: number
+          credits_remaining: number
+          credits_used: number
+          warning_reached: boolean
+        }[]
+      }
       household_member_profiles: {
         Args: { hid: string }
         Returns: {

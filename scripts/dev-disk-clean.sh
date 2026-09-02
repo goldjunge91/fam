@@ -88,9 +88,35 @@ if [ -d "$DEVSUPPORT" ]; then
 fi
 
 echo ""
+echo "-- ccache --"
+# ccache gehoert bewusst NICHT auf die Boot-Disk (siehe
+# docs/native-fingerprint-drift-debugging.md, Abschnitt "ccache zeigte
+# 0 Hits"): der von react-native mitgelieferte Ccache-Wrapper ersetzt die
+# primaere Nutzer-Config (CCACHE_CONFIGPATH) und faellt ohne eigenen
+# 'cache_dir' auf den internen Default ~/.cache/ccache zurueck. Wenn das
+# hier auftaucht, ist entweder scripts/native-build.ts's CCACHE_DIR-Fix nicht
+# gegriffen, oder ein anderes Tool/Projekt schreibt ccache ohne eigene
+# Config auf die Boot-Disk.
+if command -v ccache >/dev/null 2>&1; then
+  CCACHE_CONFIGURED_DIR="$(ccache -p 2>/dev/null | awk -F'= ' '/cache_dir *=/{print $2; exit}')"
+  echo "  konfigurierter cache_dir: ${CCACHE_CONFIGURED_DIR:-unbekannt}"
+  if [ -d "$HOME/.cache/ccache" ]; then
+    echo "  WARNUNG: $HOME/.cache/ccache existiert — ccache ist (teilweise) auf der Boot-Disk gelandet."
+    clean_path "$HOME/.cache/ccache" "ccache auf der Boot-Disk (sollte extern liegen)"
+  else
+    echo "  $HOME/.cache/ccache existiert nicht — ccache landet wie vorgesehen ausserhalb der Boot-Disk."
+  fi
+else
+  echo "  ccache nicht installiert, uebersprungen"
+fi
+
+echo ""
 echo "-- Paketmanager-Caches (werden beim naechsten Install neu geladen) --"
 clean_path "$HOME/Library/Caches/CocoaPods" "CocoaPods-Cache"
-clean_path "$HOME/.cache" "Generischer Unix-Tool-Cache (~/.cache)"
+# Absichtlich NICHT mehr pauschal $HOME/.cache loeschen: das ist der Default-
+# Fallback-Ordner fuer ccache (siehe oben) und weitere Unix-Tools, die dort
+# durchaus wiederverwendbare, teils grosse Caches ablegen. Gezielt statt
+# pauschal, seit wir wissen, was dort eigentlich nicht hingehoert.
 if command -v brew >/dev/null 2>&1; then
   echo "  brew cleanup -s  (alte Homebrew-Downloads/Versionen)"
   [ "$APPLY" = true ] && brew cleanup -s >/dev/null 2>&1 || true

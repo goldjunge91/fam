@@ -1,5 +1,5 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { fireEvent, render, screen } from '@testing-library/react-native';
+import { act, fireEvent, render, screen } from '@testing-library/react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import { MembersScreen } from '@/features/household/members-screen';
@@ -45,7 +45,7 @@ describe('MembersScreen', () => {
     const queryClient = new QueryClient({
       defaultOptions: { queries: { retry: false, gcTime: Number.POSITIVE_INFINITY } },
     });
-    return render(
+    const result = await render(
       <SafeAreaProvider
         initialMetrics={{
           frame: { x: 0, y: 0, width: 390, height: 844 },
@@ -56,9 +56,25 @@ describe('MembersScreen', () => {
         </QueryClientProvider>
       </SafeAreaProvider>,
     );
+
+    // FlashList schedules its initial layout callback with a timer. Flush it
+    // while the act scope from the render is still under our control.
+    await act(() => {
+      jest.advanceTimersByTime(60);
+    });
+
+    return result;
   }
 
+  afterEach(async () => {
+    await act(() => {
+      jest.runOnlyPendingTimers();
+    });
+    jest.useRealTimers();
+  });
+
   beforeEach(() => {
+    jest.useFakeTimers();
     jest.clearAllMocks();
     mockMembers = [
       {

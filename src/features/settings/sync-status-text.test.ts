@@ -27,13 +27,6 @@ describe('describeSyncStatus', () => {
     });
   });
 
-  it('nennt beim Synchronisieren die Anzahl', () => {
-    expect(describeSyncStatus({ kind: 'syncing', pendingCount: 2 })).toMatchObject({
-      short: '2 ausstehend',
-      tone: 'warning',
-    });
-  });
-
   it('hebt Fehlgeschlagenes hervor', () => {
     expect(describeSyncStatus({ kind: 'failed', failedCount: 4 })).toEqual({
       text: '4 Änderungen konnten nicht synchronisiert werden.',
@@ -47,7 +40,6 @@ describe('describeSyncStatus', () => {
       describeSyncStatus({ kind: 'hidden' }),
       describeSyncStatus({ kind: 'offline', pendingCount: 0 }),
       describeSyncStatus({ kind: 'offline', pendingCount: 12 }),
-      describeSyncStatus({ kind: 'syncing', pendingCount: 12 }),
       describeSyncStatus({ kind: 'failed', failedCount: 12 }),
     ];
 

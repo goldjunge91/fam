@@ -90,6 +90,18 @@ describe('initPostHog / isPostHogConfigured', () => {
     );
   });
 
+  it('konstruiert keinen Client, wenn PostHog lokal deaktiviert ist', () => {
+    process.env.EXPO_PUBLIC_POSTHOG_API_KEY = 'phc_testkey';
+    const { useAnalyticsSettingsStore } = require('@/constants/analytics');
+    useAnalyticsSettingsStore.getState().setOverride('providers.posthog', false);
+    const { initPostHog, isPostHogConfigured } = require('@/lib/posthog');
+
+    initPostHog();
+
+    expect(isPostHogConfigured()).toBe(false);
+    expect(mockPostHogConstructor).not.toHaveBeenCalled();
+  });
+
   it('stuerzt nicht ab, wenn der Konstruktor wirft, und wiederholt den Fehler nicht', () => {
     process.env.EXPO_PUBLIC_POSTHOG_API_KEY = 'phc_testkey';
     mockPostHogConstructor.mockImplementationOnce(() => {
@@ -122,6 +134,18 @@ describe('initPostHog / isPostHogConfigured', () => {
     initPostHog();
 
     await expect(reloadPostHogFeatureFlags()).rejects.toThrow('Netzwerk nicht erreichbar');
+  });
+
+  it('fragt keine Flags ab, wenn PostHog lokal deaktiviert ist', async () => {
+    process.env.EXPO_PUBLIC_POSTHOG_API_KEY = 'phc_testkey';
+    const { useAnalyticsSettingsStore } = require('@/constants/analytics');
+    useAnalyticsSettingsStore.getState().setOverride('providers.posthog', false);
+    const { reloadPostHogFeatureFlags } = require('@/lib/posthog');
+
+    await expect(reloadPostHogFeatureFlags()).rejects.toThrow(
+      'Analytics-Einstellungen deaktiviert',
+    );
+    expect(mockReloadFeatureFlagsAsync).not.toHaveBeenCalled();
   });
 
   it('meldet eine fehlende SDK-Antwort als Konfigurations- oder Netzwerkfehler', async () => {

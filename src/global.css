@@ -715,6 +715,13 @@
     @apply flex-row items-center gap-two px-four py-three rounded-pill border border-border bg-background-element;
   }
 
+  /* row-store-picker.tsx — gleicher Dropdown-Mechanismus wie
+     store-picker-btn, aber kompakter fuer den Einsatz in einer einzelnen
+     Zutaten-/Artikelzeile statt als Kopfzeilen-Filter. */
+  .row-store-picker-btn {
+    @apply flex-row items-center gap-two px-two py-one rounded-pill border border-border bg-background-element;
+  }
+
   .store-picker-dot {
     @apply w-[8px] h-[8px] rounded-full;
   }
@@ -1067,6 +1074,19 @@
 
   .premium-plan-hint {
     @apply text-[7px] mt-[3px];
+  }
+
+  /* plus-and-ai-screen.tsx — Upgrade-Banner zum jeweils anderen, noch nicht aktiven Tab-Tier */
+  .premium-upgrade-banner {
+    @apply mt-two p-three rounded-sheet bg-background-selected gap-[2px];
+  }
+
+  .premium-upgrade-title {
+    @apply text-[11px] font-semibold;
+  }
+
+  .premium-upgrade-hint {
+    @apply text-[9px];
   }
 
   /* recipe-template-detail-screen.tsx */
@@ -2038,8 +2058,20 @@
     @apply gap-two;
   }
 
+  /* Bulk-Markt-Picker (#342) — rechtsbuendig ueber der Zutatenliste. */
+  .mis-bulk-store {
+    @apply flex-row justify-end;
+  }
+
   .mis-row {
     @apply flex-row items-center gap-two p-two rounded-control bg-background-element;
+  }
+
+  /* Checkbox + Text, links in der Zeile — RowStorePicker (#131-Nachschaerfung)
+     sitzt daneben, ausserhalb dieses Pressable, damit ein Tap auf den
+     Markt-Picker nicht gleichzeitig den Auswahl-Toggle ausloest. */
+  .mis-row-toggle {
+    @apply flex-1 flex-row items-center gap-two;
   }
 
   .mis-checkbox {

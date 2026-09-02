@@ -5,6 +5,12 @@ import { trackAptabaseError, trackAptabaseEvent } from '@/lib/analytics/aptabase
 import { getPostHogClient, isPostHogConfigured } from '@/lib/posthog';
 import { Sentry } from '@/lib/sentry';
 import {
+  getTelemetryChannelForEvent,
+  isAnalyticsProviderEnabled,
+  shouldCaptureTelemetry,
+  type TelemetryChannel,
+} from './policy';
+import {
   HANGING_OPERATION_THRESHOLD_MS,
   SLOW_OPERATION_THRESHOLD_MS,
   TELEMETRY_EVENTS,
@@ -79,16 +85,25 @@ function commonProperties(
   return { ...base, ...properties };
 }
 
-function captureEvent(name: TelemetryEventName, properties: TelemetryProperties): void {
+function captureEvent(
+  name: TelemetryEventName,
+  properties: TelemetryProperties,
+  channel: TelemetryChannel = 'diagnostics',
+): void {
   recordSessionOperation(String(properties.operation ?? name));
+
+  if (!shouldCaptureTelemetry(channel, name)) return;
+
   try {
-    trackAptabaseEvent(name, properties);
+    if (isAnalyticsProviderEnabled('aptabase')) trackAptabaseEvent(name, properties);
   } catch (error) {
     if (__DEV__) console.warn(`[telemetry] Aptabase-Event "${name}" fehlgeschlagen:`, error);
   }
 
   try {
-    if (isPostHogConfigured()) getPostHogClient()?.capture(name, properties);
+    if (isAnalyticsProviderEnabled('posthog') && isPostHogConfigured()) {
+      getPostHogClient()?.capture(name, properties);
+    }
   } catch (error) {
     if (__DEV__) console.warn(`[telemetry] PostHog-Event "${name}" fehlgeschlagen:`, error);
   }
@@ -110,8 +125,16 @@ export function normalizeTelemetryProperties(
   );
 }
 
-export function trackEvent(name: TelemetryEventName, properties: TelemetryProperties = {}): void {
-  captureEvent(name, commonProperties(name, properties));
+export function trackEvent(
+  name: TelemetryEventName,
+  properties: TelemetryProperties = {},
+  channel?: TelemetryChannel,
+): void {
+  captureEvent(
+    name,
+    commonProperties(name, properties),
+    channel ?? getTelemetryChannelForEvent(name),
+  );
 }
 
 function sendError(error: unknown, context: TelemetryProperties, captureInSentry: boolean): void {
@@ -142,18 +165,22 @@ function sendError(error: unknown, context: TelemetryProperties, captureInSentry
   }
 
   try {
-    if (isPostHogConfigured()) getPostHogClient()?.captureException(error, properties);
+    if (isAnalyticsProviderEnabled('posthog') && shouldCaptureTelemetry('errorReports')) {
+      if (isPostHogConfigured()) getPostHogClient()?.captureException(error, properties);
+    }
   } catch (reportingError) {
     if (__DEV__) console.warn('[telemetry] PostHog-Fehlerbericht fehlgeschlagen:', reportingError);
   }
 
   try {
-    trackAptabaseError(error);
+    if (isAnalyticsProviderEnabled('aptabase') && shouldCaptureTelemetry('errorReports')) {
+      trackAptabaseError(error);
+    }
   } catch (reportingError) {
     if (__DEV__) console.warn('[telemetry] Aptabase-Fehlerbericht fehlgeschlagen:', reportingError);
   }
 
-  captureEvent(TELEMETRY_EVENTS.errorOccurred, properties);
+  captureEvent(TELEMETRY_EVENTS.errorOccurred, properties, 'errorReports');
 }
 
 export function reportError(error: unknown, context: TelemetryProperties = {}): void {
@@ -186,7 +213,7 @@ export function reportWarning(message: string, context: TelemetryProperties = {}
     if (__DEV__) console.warn('[telemetry] Sentry-Warnung fehlgeschlagen:', reportingError);
   }
 
-  captureEvent(TELEMETRY_EVENTS.warningOccurred, properties);
+  captureEvent(TELEMETRY_EVENTS.warningOccurred, properties, 'errorReports');
 }
 
 export function addDiagnosticStep(
@@ -207,13 +234,15 @@ export function addDiagnosticStep(
   }
 
   try {
-    if (isPostHogConfigured()) getPostHogClient()?.addExceptionStep(name, properties);
+    if (isAnalyticsProviderEnabled('posthog') && shouldCaptureTelemetry('diagnostics')) {
+      if (isPostHogConfigured()) getPostHogClient()?.addExceptionStep(name, properties);
+    }
   } catch (reportingError) {
     if (__DEV__)
       console.warn('[telemetry] PostHog-Diagnoseschritt fehlgeschlagen:', reportingError);
   }
 
-  captureEvent(name, properties);
+  captureEvent(name, properties, 'diagnostics');
 }
 
 function reportOperationDuration(

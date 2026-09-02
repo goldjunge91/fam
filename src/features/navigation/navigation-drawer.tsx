@@ -16,9 +16,12 @@ import { withAlpha } from '@/constants/theme';
 import { useFeatureAccess } from '@/features/settings/use-feature-access';
 import { useDeferredMount } from '@/hooks/use-deferred-mount';
 import { useTheme } from '@/hooks/use-theme';
+import { debugLogEvent } from '@/lib/debug-log';
 import { useNavigationChrome } from './navigation-chrome-provider';
 
 const DRAWER_WIDTH_RATIO = 0.84;
+
+debugLogEvent('navigation-drawer.module-loaded', { variant: 'shared' });
 
 export function NavigationDrawer() {
   const { isDrawerOpen, closeDrawer } = useNavigationChrome();
@@ -82,6 +85,7 @@ function DrawerContent() {
   const { isFeatureEnabled } = useFeatureAccess();
 
   function navigateTo(href: string) {
+    debugLogEvent('navigation-drawer.navigate', { variant: 'shared', href });
     closeDrawer();
     setTimeout(() => router.push(href as Parameters<typeof router.push>[0]), 250);
   }
