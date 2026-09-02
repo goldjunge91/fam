@@ -1,0 +1,12 @@
+- description: natural-language inventory input remains traceable
+  vars:
+    inventory_note: "Noch zwei Paprika und etwas Spinat"
+  assert:
+    - type: contains
+      value: "Noch zwei Paprika"
+    - type: contains
+      value: "etwas Spinat"
+  metadata:
+    workflow: extract_inventory_text
+    split: smoke
+    safety: no_write

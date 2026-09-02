@@ -18,9 +18,12 @@ if (!SUPABASE_URL) {
 
 // SUPABASE_SECRET_KEY statt des lokalen service-role-key.ts-Helpers, da dieses
 // Skript bewusst gegen die Remote-DB laeuft, nicht gegen die lokale Instanz.
-const SUPABASE_SECRET_KEY = process.env.SUPABASE_SECRET_KEY ?? process.env.SUPABASE_SERVICE_ROLE_KEY;
+const SUPABASE_SECRET_KEY =
+  process.env.SUPABASE_SECRET_KEY ?? process.env.SUPABASE_SERVICE_ROLE_KEY;
 if (!SUPABASE_SECRET_KEY) {
-  throw new Error('SUPABASE_SECRET_KEY (oder SUPABASE_SERVICE_ROLE_KEY) fehlt als Umgebungsvariable.');
+  throw new Error(
+    'SUPABASE_SECRET_KEY (oder SUPABASE_SERVICE_ROLE_KEY) fehlt als Umgebungsvariable.',
+  );
 }
 
 const supabase = createClient(SUPABASE_URL, SUPABASE_SECRET_KEY, {
@@ -86,7 +89,10 @@ async function ensureStorageLocations(householdId: string) {
     { household_id: householdId, name: 'Gefrierfach', kind: 'freezer', sort_order: 1 },
     { household_id: householdId, name: 'Vorratsschrank', kind: 'pantry', sort_order: 2 },
   ];
-  const { data, error: insertError } = await supabase.from('storage_locations').insert(rows).select('id, kind');
+  const { data, error: insertError } = await supabase
+    .from('storage_locations')
+    .insert(rows)
+    .select('id, kind');
   if (insertError) throw insertError;
   console.log(`${data.length} Lagerorte angelegt.`);
   return Object.fromEntries(data.map((l) => [l.kind, l.id])) as Record<string, string>;
@@ -108,7 +114,10 @@ async function ensureStores(householdId: string) {
     { household_id: householdId, name: 'REWE', color: '#CC071E', sort_order: 0 },
     { household_id: householdId, name: 'Aldi Süd', color: '#00549F', sort_order: 1 },
   ];
-  const { data, error: insertError } = await supabase.from('stores').insert(rows).select('id, name');
+  const { data, error: insertError } = await supabase
+    .from('stores')
+    .insert(rows)
+    .select('id, name');
   if (insertError) throw insertError;
   console.log(`${data.length} Maerkte angelegt.`);
   return Object.fromEntries(data.map((s) => [s.name, s.id])) as Record<string, string>;
@@ -140,9 +149,15 @@ const PRODUCT_SEEDS: ProductSeed[] = [
 /** Legt fehlende Produkte an und gibt eine Name->id-Map fuer alle Seeds zurueck. */
 async function ensureProducts(): Promise<Record<string, string>> {
   const names = PRODUCT_SEEDS.map((p) => p.name);
-  const { data: existing, error } = await supabase.from('products').select('id, name').in('name', names);
+  const { data: existing, error } = await supabase
+    .from('products')
+    .select('id, name')
+    .in('name', names);
   if (error) throw error;
-  const map = Object.fromEntries((existing ?? []).map((p) => [p.name, p.id])) as Record<string, string>;
+  const map = Object.fromEntries((existing ?? []).map((p) => [p.name, p.id])) as Record<
+    string,
+    string
+  >;
 
   const missing = PRODUCT_SEEDS.filter((p) => !map[p.name]);
   if (missing.length === 0) {
@@ -158,7 +173,10 @@ async function ensureProducts(): Promise<Record<string, string>> {
     carbs_g_per_100: p.carbs,
     fat_g_per_100: p.fat,
   }));
-  const { data, error: insertError } = await supabase.from('products').insert(rows).select('id, name');
+  const { data, error: insertError } = await supabase
+    .from('products')
+    .insert(rows)
+    .select('id, name');
   if (insertError) throw insertError;
   console.log(`${data.length} Produkte angelegt.`);
   for (const p of data) map[p.name] = p.id;
@@ -182,18 +200,102 @@ async function seedFridgeItems(
   }
 
   const rows = [
-    { name: 'Vollmilch', product: 'Vollmilch', location: 'fridge', qty: 1, unit: 'l', expiry: isoDate(2) },
-    { name: 'Eier', product: 'Eier', location: 'fridge', qty: 6, unit: 'piece', expiry: isoDate(12) },
-    { name: 'Naturjoghurt', product: 'Naturjoghurt', location: 'fridge', qty: 4, unit: 'piece', expiry: isoDate(1) },
-    { name: 'Gouda', product: 'Gouda', location: 'fridge', qty: 200, unit: 'g', expiry: isoDate(9) },
-    { name: 'Paprika rot', product: 'Paprika rot', location: 'fridge', qty: 3, unit: 'piece', expiry: isoDate(4) },
-    { name: 'Hähnchenbrustfilet', product: 'Hähnchenbrustfilet', location: 'freezer', qty: 500, unit: 'g', expiry: isoDate(60) },
-    { name: 'Hackfleisch gemischt', product: 'Hackfleisch gemischt', location: 'freezer', qty: 400, unit: 'g', expiry: isoDate(45) },
-    { name: 'Spaghetti', product: 'Spaghetti', location: 'pantry', qty: 2, unit: 'package', expiry: null },
-    { name: 'Basmatireis', product: 'Basmatireis', location: 'pantry', qty: 1, unit: 'kg', expiry: null },
-    { name: 'Bananen', product: 'Bananen', location: 'pantry', qty: 5, unit: 'piece', expiry: isoDate(3) },
-    { name: 'Zwiebeln', product: 'Zwiebeln', location: 'pantry', qty: 4, unit: 'piece', expiry: null },
-    { name: 'Tomaten', product: 'Tomaten', location: 'fridge', qty: 6, unit: 'piece', expiry: isoDate(2) },
+    {
+      name: 'Vollmilch',
+      product: 'Vollmilch',
+      location: 'fridge',
+      qty: 1,
+      unit: 'l',
+      expiry: isoDate(2),
+    },
+    {
+      name: 'Eier',
+      product: 'Eier',
+      location: 'fridge',
+      qty: 6,
+      unit: 'piece',
+      expiry: isoDate(12),
+    },
+    {
+      name: 'Naturjoghurt',
+      product: 'Naturjoghurt',
+      location: 'fridge',
+      qty: 4,
+      unit: 'piece',
+      expiry: isoDate(1),
+    },
+    {
+      name: 'Gouda',
+      product: 'Gouda',
+      location: 'fridge',
+      qty: 200,
+      unit: 'g',
+      expiry: isoDate(9),
+    },
+    {
+      name: 'Paprika rot',
+      product: 'Paprika rot',
+      location: 'fridge',
+      qty: 3,
+      unit: 'piece',
+      expiry: isoDate(4),
+    },
+    {
+      name: 'Hähnchenbrustfilet',
+      product: 'Hähnchenbrustfilet',
+      location: 'freezer',
+      qty: 500,
+      unit: 'g',
+      expiry: isoDate(60),
+    },
+    {
+      name: 'Hackfleisch gemischt',
+      product: 'Hackfleisch gemischt',
+      location: 'freezer',
+      qty: 400,
+      unit: 'g',
+      expiry: isoDate(45),
+    },
+    {
+      name: 'Spaghetti',
+      product: 'Spaghetti',
+      location: 'pantry',
+      qty: 2,
+      unit: 'package',
+      expiry: null,
+    },
+    {
+      name: 'Basmatireis',
+      product: 'Basmatireis',
+      location: 'pantry',
+      qty: 1,
+      unit: 'kg',
+      expiry: null,
+    },
+    {
+      name: 'Bananen',
+      product: 'Bananen',
+      location: 'pantry',
+      qty: 5,
+      unit: 'piece',
+      expiry: isoDate(3),
+    },
+    {
+      name: 'Zwiebeln',
+      product: 'Zwiebeln',
+      location: 'pantry',
+      qty: 4,
+      unit: 'piece',
+      expiry: null,
+    },
+    {
+      name: 'Tomaten',
+      product: 'Tomaten',
+      location: 'fridge',
+      qty: 6,
+      unit: 'piece',
+      expiry: isoDate(2),
+    },
   ];
 
   const insertRows = rows.map((r) => ({
@@ -206,7 +308,10 @@ async function seedFridgeItems(
     expiry_date: r.expiry,
   }));
 
-  const { data, error: insertError } = await supabase.from('fridge_items').insert(insertRows).select('id');
+  const { data, error: insertError } = await supabase
+    .from('fridge_items')
+    .insert(insertRows)
+    .select('id');
   if (insertError) throw insertError;
   console.log(`${data.length} Vorratsartikel angelegt.`);
 }
@@ -223,7 +328,7 @@ async function seedShoppingListItems(householdId: string, stores: Record<string,
     return;
   }
 
-  const rewe = stores['REWE'] ?? null;
+  const rewe = stores.REWE ?? null;
   const aldi = stores['Aldi Süd'] ?? null;
 
   const rows = [
@@ -235,7 +340,14 @@ async function seedShoppingListItems(householdId: string, stores: Record<string,
     { name: 'Orangensaft', qty: 2, unit: 'l', category_id: 'cold_drinks', store: aldi },
     { name: 'Haferflocken', qty: 1, unit: 'package', category_id: 'breakfast', store: aldi },
     { name: 'Tiefkühlerbsen', qty: 1, unit: 'package', category_id: 'frozen', store: aldi },
-    { name: 'Kaffee', qty: 1, unit: 'package', category_id: 'hot_drinks', store: null, checked: true },
+    {
+      name: 'Kaffee',
+      qty: 1,
+      unit: 'package',
+      category_id: 'hot_drinks',
+      store: null,
+      checked: true,
+    },
   ];
 
   const insertRows = rows.map((r, i) => ({
@@ -250,7 +362,10 @@ async function seedShoppingListItems(householdId: string, stores: Record<string,
     checked_at: r.checked ? new Date().toISOString() : null,
   }));
 
-  const { data, error: insertError } = await supabase.from('shopping_list_items').insert(insertRows).select('id');
+  const { data, error: insertError } = await supabase
+    .from('shopping_list_items')
+    .insert(insertRows)
+    .select('id');
   if (insertError) throw insertError;
   console.log(`${data.length} Einkaufsartikel angelegt.`);
 }
@@ -328,7 +443,10 @@ const RECIPE_SEEDS: RecipeSeed[] = [
 ];
 
 /** Legt Rezepte inkl. einer Komponente, Positionen und Schritten an. Gibt id-Map nach Titel zurueck. */
-async function seedRecipes(householdId: string, products: Record<string, string>): Promise<Record<string, string>> {
+async function seedRecipes(
+  householdId: string,
+  products: Record<string, string>,
+): Promise<Record<string, string>> {
   const { data: existing, error } = await supabase
     .from('recipes')
     .select('id, title')
@@ -506,7 +624,10 @@ async function seedTracking(userId: string) {
         fat_g: 5,
       },
     ];
-    const { data, error: insertError } = await supabase.from('food_entries').insert(rows).select('id');
+    const { data, error: insertError } = await supabase
+      .from('food_entries')
+      .insert(rows)
+      .select('id');
     if (insertError) throw insertError;
     console.log(`${data.length} Tagebucheintraege angelegt.`);
   }
@@ -525,7 +646,10 @@ async function seedTracking(userId: string) {
       { user_id: userId, measured_on: isoDate(-7), weight_kg: 81.6 },
       { user_id: userId, measured_on: isoDate(0), weight_kg: 80.9 },
     ];
-    const { data, error: insertError } = await supabase.from('weight_entries').insert(rows).select('id');
+    const { data, error: insertError } = await supabase
+      .from('weight_entries')
+      .insert(rows)
+      .select('id');
     if (insertError) throw insertError;
     console.log(`${data.length} Gewichtseintraege angelegt.`);
   }

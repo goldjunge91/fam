@@ -2,9 +2,11 @@ import mobileAds, { type PaidEvent, RevenuePrecisions } from 'react-native-googl
 import Purchases, { AdFormat, AdMediatorName, AdRevenuePrecision } from 'react-native-purchases';
 
 import { isPurchasesConfigured } from '@/lib/purchases';
+import { gatherAdsConsent } from './ads-consent';
 import { getAdsEnabled } from './ads-override';
 
 let initialized = false;
+let initializationPromise: Promise<void> | undefined;
 
 /**
  * Initialisiert das Google Mobile Ads SDK einmalig beim App-Start.
@@ -12,15 +14,27 @@ let initialized = false;
 export async function initMobileAds(): Promise<void> {
   if (!getAdsEnabled()) return;
   if (initialized) return;
+  if (initializationPromise) return initializationPromise;
+
+  initializationPromise = (async () => {
+    try {
+      const consentReady = await gatherAdsConsent();
+      if (!consentReady) return;
+
+      const status = await mobileAds().initialize();
+      initialized = true;
+      if (__DEV__) {
+        console.log('[AdMob] SDK erfolgreich initialisiert:', status);
+      }
+    } catch (error) {
+      console.warn('[AdMob] Initialisierung fehlgeschlagen:', error);
+    }
+  })();
 
   try {
-    const status = await mobileAds().initialize();
-    initialized = true;
-    if (__DEV__) {
-      console.log('[AdMob] SDK erfolgreich initialisiert:', status);
-    }
-  } catch (error) {
-    console.warn('[AdMob] Initialisierung fehlgeschlagen:', error);
+    await initializationPromise;
+  } finally {
+    initializationPromise = undefined;
   }
 }
 

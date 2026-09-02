@@ -1,175 +1,357 @@
-# Implementation Plan: RevenueCat Plus und AI
+# Umsetzungsplan: Rezeptvorschläge aus dem Haushaltsbestand
 
-## Overview
+## 1. Verbindliche Quelle und Scope
 
-Dieser Plan setzt
-[`docs/SPEC.md`](../docs/SPEC.md)
-um. Plus und AI gelten haushaltsweit, aber ausschließlich für den jeweils
-zugeordneten aktiven Haushalt. Beide Entitlements sind unabhängig und können
-gleichzeitig aktiv sein. Der AI-Zielhaushalt darf
-höchstens einmal pro Kalendermonat wechseln. Das vorgeschlagene AI-Fair-Use-
-Kontingent beträgt zunächst 100 Credits pro Haushalt und Monat mit der
-Gewichtung 1/3/2.
+Die kanonische fachliche Quelle für diesen Plan ist:
 
-Die Task-Quelle ist Beads. Die acht Tasks sind unter dem Feature
-`fam-yu6` angelegt. `tasks/plan.md` ist nur die technische Reihenfolge,
-Architektur und Verifikation; es gibt bewusst keine zusätzliche
-`tasks/todo.md`.
+[`docs/specs/fam-agent-skills.md`](../docs/specs/fam-agent-skills.md)
 
-## Architecture Decisions
+Diese Spezifikation wird jetzt überarbeitet und bleibt dabei die einzige
+fachliche Quelle der Wahrheit. Die kompakte Datei
+[`docs/referenced-chatgpt-conversation-this-is-an/work/ai-rezeptvorschlaege-kompakt.md`](../docs/referenced-chatgpt-conversation-this-is-an/work/ai-rezeptvorschlaege-kompakt.md)
+war redaktionelle Arbeitsgrundlage für die Überarbeitung, ist aber nicht
+normativ.
 
-- RevenueCat bleibt die Quelle für Produkt-, Offering- und Store-Metadaten.
-  Entitlement-, Produkt-, Offering- und Package-IDs sind für Projekt
-  `projca17095c` verifiziert. Der Client nutzt die Offering-Identifier `plus`
-  und `ai` sowie `$rc_monthly` und `$rc_annual`; interne Dashboard-IDs bleiben
-  Dokumentation.
-- Plus-Produkte gewähren ausschließlich `Plus`. AI-Produkte gewähren
-  ausschließlich `AI`. Beide Produkte können unabhängig oder gleichzeitig
-  aktiv sein.
-- Die fachliche Entscheidung trifft das Produktteam. Die Store-seitige
-  Subscription-Konfiguration liegt in App Store Connect und Google Play
-  Console. RevenueCat bildet die Store-Produkte auf Entitlements und Offerings
-  ab, ersetzt aber keine Store-Regeln.
-- Für ein späteres gleichzeitiges Plus-/AI-Modell wird die Store-Konfiguration
-  als Release-Gate geprüft. Auf iOS braucht jedes unabhängig aktive Abo eine
-  eigene Subscription Group; auf Android werden Plus und AI als getrennte
-  Subscription-Produkte geprüft.
-- RevenueCat identifiziert weiterhin den kaufenden Supabase-Account.
-  Haushaltszugriff wird serverseitig über den aktiven Haushalt und einen
-  abonnentenbezogenen AI-Assignment-State abgebildet.
-- Plus und AI werden als getrennte Haushaltsprojektionen geführt. Ein
-  AI-Haushaltswechsel ist eine atomare serverseitige Operation und wird am
-  Subscriber gespeichert, damit das Monatslimit nicht über mehrere Haushalte
-  umgangen werden kann.
-- Ein aktives Entitlement blockiert einen weiteren Kauf desselben Tiers. Plus
-  und AI blockieren sich gegenseitig nicht; ein kombinierter Kauf bleibt eine
-  spätere Store- und Produktentscheidung.
-- Das alte Entitlement `Premium` wird direkt durch `Plus` ersetzt. Es gibt
-  keinen Legacy-Fallback und keine Bestandskunden-Kompatibilitätsmigration.
-- AI-Fair-Use wird erst an eine konkrete AI-Fachfunktion angeschlossen. Die
-  aktuelle Planung definiert den serverseitigen Vertrag, aber keine
-  vorgezogene AI-UI, da noch keine AI-Funktion existiert.
-- Die App verwendet ihre eigene Paywall-UI. RevenueCat-Paywall-Drafts werden
-  nicht über `RevenueCatUI.presentPaywall*` ausgeliefert.
+Dieser Plan umfasst genau einen read-only Produkt-Workflow:
 
-## Dependency Graph
+`fam-cook-from-inventory`
+
+Er hat zwei Auslöser, aber dieselbe fachliche Pipeline:
+
+1. Der Nutzer nennt vorhandene Lebensmittel. Der Text ist nur ein Intent-
+   Trigger. Die Lebensmittel und Mengen kommen ausschließlich aus dem
+   autorisierten Inventar.
+2. Der Nutzer fragt sinngemäß „Was kann ich heute kochen/essen?“. Die App
+   berechnet die Nutzungspriorität aus dem autoritativen Zustand und übergibt
+   nur den relevanten Ausschnitt.
+
+Nicht Bestandteil dieses Plans:
+
+- natürliche Inventarerfassung, OCR, Bild, Barcode oder Sprache;
+- Produktsuche oder Einkaufslisten-Klassifikation;
+- automatische Bestands-, Einkaufs- oder sonstige Mutationen;
+- ein autonomer Agent, ein eigener Runner, eine eigene Run-Datenbank oder
+  eine neue generische Plattform;
+- Phase-3/4-Themen wie Belegimport oder Vision.
+
+`tools/category-debugger` bleibt ein unabhängiges Werkzeug. Es ist weder Abhängigkeit noch Testziel dieses
+Plans. Alle anderen vorhandenen Einträge unter `/tools/` sind ebenfalls
+außerhalb des Scopes. Einzige Ausnahme ist der ausdrücklich dafür vorgesehene
+Eval-Workspace `tools/llm-test-platform`.
+
+## 2. Nicht verhandelbare fachliche Regeln
+
+### Verantwortungsgrenze
+
+App und Backend halten den Zustand und entscheiden deterministisch:
+
+1. Rezept-Intent routen.
+2. Tenant-scoped Inventar- und Nutzerdaten lesen.
+3. Lebensmittel, Einheiten, Mengen und Zustände normalisieren.
+4. MHD, Öffnungsstatus, Verfügbarkeit und Lebensmittelsicherheit prüfen.
+5. Allergien als harte Ausschlussregel anwenden.
+6. Personenanzahl und verfügbare Mengen berücksichtigen.
+7. `priority_score` berechnen und priorisierte verderbliche Lots auswählen.
+8. Den Einkaufslistenstatus behandeln:
+   - leer: keine Einkaufsrückfrage;
+   - nicht leer: fragen, ob heute eingekauft wird;
+   - bei Zustimmung: Artikel nur als `planned_shopping_items` führen;
+   - niemals geplante Artikel als bereits vorhandenen Bestand behandeln.
+9. Zuerst passende vorhandene Rezepte suchen.
+10. Höchstens drei Kandidaten an den Modellkontext geben.
+11. Den minimalen JSON-Kontext erzeugen.
+12. Die Modellantwort gegen Schema und Domänenregeln validieren.
+13. Erst nach expliziter Nutzerentscheidung den bestehenden Mutationspfad
+    verwenden.
+
+Das Modell darf aus dem geprüften Kontext Titel, Zutatenhinweise, Schritte und
+bis zu drei Mahlzeiten formulieren. Es darf keinen Bestand erfinden, Allergien
+oder Sicherheit entscheiden, Rezeptreferenzen austauschen oder schreiben.
+
+### Structured-Output-Vertrag
+
+Die technische Antwort ist versioniertes JSON, kein reparierter Freitext:
+
+```json
+{
+  "schema_version": 1,
+  "meals": [
+    {
+      "title": "Spinat-Tomaten-Pasta",
+      "source": "catalog",
+      "recipe_id": "recipe-123",
+      "servings": 3,
+      "used_items": [
+        { "inventory_item_id": "inventory-1", "quantity": 3, "unit": "Stück" }
+      ],
+      "additional_ingredients": [],
+      "steps": ["..."],
+      "notes": []
+    }
+  ]
+}
+```
+
+Harte Regeln:
+
+- `meals` enthält 1 bis 3 Einträge;
+- `source` ist `catalog` oder `model_generated`;
+- `recipe_id` ist bei `model_generated` `null`;
+- jede `inventory_item_id` stammt aus dem geprüften Kontext;
+- zusätzliche Zutaten kommen ausschließlich aus einer expliziten Allowlist;
+- Allergien, Verfügbarkeit und Lot-Zuordnung werden vor und nach dem
+  Modellaufruf geprüft;
+- ungültige Antworten werden verworfen und nicht heuristisch repariert;
+- keine Antwort löst selbst eine Mutation aus.
+
+## 3. Aktueller Stand, korrekt eingeordnet
+
+| Bereich | Stand | Aussage |
+| --- | --- | --- |
+| Fachliche Quelle | überarbeitet | `docs/specs/fam-agent-skills.md` ist die kanonische Quelle; die kompakte Datei war nur redaktionelle Arbeitsgrundlage. |
+| App-Verträge/Gateway | vorhanden, zu härten | Read-only Gateway und typisierter Client existieren; Validator-Parität und fail-closed Modellkonfiguration müssen noch geprüft werden. |
+| Lokale Evals | vorhanden | Promptfoo-Fixtures und deterministische Gates sind vorhanden. |
+| Sechs-Modell-Lauf | Diagnose, keine Freigabe | 24 Requests, 18 bestanden, 6 Befunde, 28.522 Tokens. Zwei Befunde sind semantisch; vier betreffen leere/abgeschnittene strukturierte Ausgaben mit noch offener Ursachenklassifikation. |
+| Deno-Handler | bestanden | Windows-Lauf: 9/9 Tests grün. Der gleiche Befehl bleibt macOS/CI-Gate. |
+| Manuelle Zeitmessung | verworfen/deferiert | Der JSON-Terminal-Timer misst keine reale Produktinteraktion und ist kein Phase-0-Nachweis. Eine echte Messung gehört frühestens in eine spätere Produktvalidierung. |
+| `fam-cook-from-inventory` | noch nicht als vollständiger Produktfluss abgenommen | Deterministische Adapter und Teile der Validierung sind vorhanden; Kontextpipeline, Gateway-Parität und App-Review müssen als zusammenhängender Ablauf geschlossen werden. |
+
+Die Matrix ist damit ein Fehler- und Konfigurationssignal, keine
+Produktionsrangliste. Vor einer Modellpromotion müssen die effektive
+Request-Konfiguration, `finish_reason`, Tokenaufteilung, Retry-Anzahl,
+Provider-/Modellmetadaten sowie Prompt-/Config-Hashes reproduzierbar gespeichert
+werden. Eine zweite Vollmatrix ist nicht der nächste Schritt.
+
+## 4. Arbeitsplan
+
+### Arbeitspaket A: Quelle und Verträge bereinigen
+
+**Ziel:** `docs/specs/fam-agent-skills.md` enthält einen konsistenten,
+umsetzbaren Vertrag für den kleinen Rezeptvorschlags-Scope.
+
+**Akzeptanz:**
+
+- nur `fam-cook-from-inventory` bleibt in diesem Workflow;
+- die beiden Einstiege liefern denselben `recipe_suggestion`-Pfad;
+- Rohtexte werden nicht als Lebensmittelquelle verwendet;
+- der Structured-Output-Vertrag ist versioniert und dokumentiert;
+- alte Capture-Annahmen sind aus diesem Plan und den zugehörigen Phase-
+  1-Gates entfernt.
+
+**Prüfung:** Contract- und Domain-Tests für Katalogquelle, Fallbackquelle,
+`recipe_id`, `used_items`, 1–3 Mahlzeiten und Null-Mutationspfad.
+
+**Dateien/Verantwortung:**
+
+- `src/features/ai-agent-skills/domain/`
+- `src/features/ai-agent-skills/` zugehörige Verträge und Tests
+- `docs/specs/fam-agent-skills.md`
+- `docs/specs/fam-agent-skills-phase0-baseline.md` nur, wenn die technische
+  Befundklassifikation korrigiert werden muss
+
+**Abhängigkeit:** keine.
+
+### Arbeitspaket B: Deterministische Kontextpipeline
+
+**Ziel:** Derselbe geprüfte Haushaltszustand erzeugt denselben minimalen
+Modellkontext.
+
+**Akzeptanz:**
+
+- aktive, tenant-scoped verderbliche Lots werden aus dem Inventar gelesen;
+- abgelaufene, nicht verfügbare und allergene Lots sind ausgeschlossen;
+- `priority_score` ist eine reine, separat testbare Regel;
+- Personenanzahl, Mengen, Öffnungsstatus und Nutzerrestriktionen wirken vor
+  dem Modellaufruf;
+- passende Katalogrezepte werden vor einem generativen Fallback gesucht;
+- der Kontext enthält nur `request`, `constraints`, `priority_foods`,
+  `planned_shopping_items` und `candidate_recipes`;
+- Einkaufslistenartikel bleiben klar vom Bestand getrennt.
+
+**Prüfung:** deterministische Domain-Tests mit identischem Zustand, Ablauf-
+und Prioritätsfällen, Allergie-Negativfällen sowie leerer/nichtleerer
+Einkaufsliste.
+
+**Dateien/Verantwortung:**
+
+- `src/features/ai-agent-skills/domain/context*`
+- `src/features/ai-agent-skills/domain/priority*`
+- tenant-scoped Inventar-/Rezeptadapter und fokussierte Tests
+
+**Abhängigkeit:** Arbeitspaket A.
+
+### Arbeitspaket C: Ein strenger Validator für Gateway und Evals
+
+**Ziel:** Produktionspfad und Testplattform beurteilen dieselben Invarianten.
+
+**Akzeptanz:**
+
+- ein gemeinsames oder inhaltlich identisches Schema validiert die Gateway-
+  Antwort und die Promptfoo-Auswertung;
+- Katalogtitel/-zutaten, Fallbackregel, `used_items`, Mengen, Servings,
+  `additional_ingredients` und Allergene werden geprüft;
+- fremde Lot-/Rezept-IDs werden fail-closed abgelehnt;
+- `toolTrace`/Allowlist-Daten werden nicht nur vom Testfall behauptet,
+  sondern der Prüfpfad erhält nachweisbare Gateway-Evidenz;
+- ungültiges JSON, fremdes Modell, Timeout und Rate Limit liefern strukturierte
+  Fehler und keinen Fallback-Text.
+
+**Prüfung:** Handler-Tests für jede aktuelle Fehlerklasse sowie lokale Evals,
+deren Assertions fehlende Felder, Mengen, Rezeptgrundlage und Allergene
+explizit prüfen.
+
+**Dateien/Verantwortung:**
+
+- `src/features/ai-agent-skills/domain/validation*`
+- `supabase/functions/ai-gateway/handler.ts`
+- `supabase/functions/ai-gateway/handler_test.ts`
+- `tools/llm-test-platform/assertions/` und die scoped Fixtures
+
+**Abhängigkeit:** Arbeitspakete A und B.
+
+### Arbeitspaket D: Eval-Harness und kostensparende Modellentscheidung
+
+**Ziel:** Die sechs Modelle werden reproduzierbar beurteilt, ohne blind weitere
+Vollmatrizen zu bezahlen.
+
+**Akzeptanz:**
+
+- jede Auswertung speichert effektive Modell-/Endpoint-Konfiguration,
+  Structured-Output-Modus, Reasoning-Einstellungen, Tokenaufteilung,
+  `finish_reason`, Retry-Anzahl sowie Prompt-/Config-Hashes;
+- Modell-Aliase und Endpoint-Fähigkeiten werden vor einem bezahlten Retest
+  geprüft;
+- nur betroffene Modell/Fixture-Paare werden gezielt wiederholt;
+- semantische Fehler und Ausgabestabilitäts-/Budgetfehler bleiben getrennt;
+- ein produktiver Default ist explizit konfiguriert und darf nicht auf einem
+  ungeprüften Modell liegen;
+- keine Modellpromotion allein aus einem einzelnen 4-Fixture-Lauf.
+
+**Prüfung:** maximal zwölf gezielte Anfragen nach kostenlosem Capability-Check;
+lokaler Replay, soweit möglich; Report mit Rohantwort-/Provenance-Verweis und
+klarer Entscheidung `candidate`, `blocked` oder `needs-more-evidence`.
+
+**Dateien/Verantwortung:**
+
+- `tools/llm-test-platform/promptfooconfig.openrouter.yaml`
+- `tools/llm-test-platform/assertions/`
+- `tools/llm-test-platform/tests/`
+- `tools/llm-test-platform/scripts/` für PowerShell und Bash
+- `docs/specs/fam-agent-skills-phase0-baseline.md`
+
+**Abhängigkeit:** Arbeitspaket C.
+
+### Arbeitspaket E: Read-only Gateway und App-Review schließen
+
+**Ziel:** Der reale App-Fluss nutzt ausschließlich den geprüften Kontext und
+zeigt eine Vorschlagskarte, bevor irgendeine Mutation möglich ist.
+
+**Akzeptanz:**
+
+- Authentifizierung, Haushaltsmitgliedschaft und Rate Limit werden vor
+  Kontext-/Providerzugriff geprüft;
+- das Gateway liest nur erlaubte, aktive, verderbliche Lots;
+- die Modell-Allowlist und das Default-Modell sind explizit, fail-closed und
+  per Umgebung konfiguriert;
+- die App zeigt 1–3 geprüfte Vorschläge inklusive Herkunft (`catalog` oder
+  `model_generated`);
+- erst eine explizite Nutzeraktion erreicht den normalen lokalen
+  Mutations-/Outbox-Pfad;
+- Offline-/Outbox-Verhalten wird nicht durch das read-only Gateway umgangen.
+
+**Prüfung:** Deno-Handler-Suite auf Windows und macOS/CI, fokussierte App-
+Tests, Typecheck und ein manueller Review des bestätigungsfreien Pfads.
+
+**Dateien/Verantwortung:**
+
+- `supabase/functions/ai-gateway/`
+- `src/features/ai-agent-skills/gateway.ts`
+- zugehörige App-Screens/Hook-Integration nach bestehender Feature-First-
+  Struktur
+
+**Abhängigkeit:** Arbeitspakete A–D.
+
+### Arbeitspaket F: Produktmessung erst nach funktionierendem Flow
+
+**Ziel:** Falls Geschwindigkeit als Produktziel bewertet werden soll, wird die
+reale Aufgabe gemessen und nicht JSON abgetippt.
+
+**Akzeptanz:**
+
+- Messbeginn ist die sichtbare Aufgabe, nicht eine technische Startbestätigung;
+- Messende ist die fertige, geprüfte Vorschlagsanzeige;
+- drei Personen-/Durchlaufmessungen sind ohne Copy/Paste und mit dokumentierter
+  Korrektur-/Review-Regel reproduzierbar;
+- die Messung umfasst die tatsächliche App-Interaktion und wird getrennt von
+  Providerkosten ausgewertet.
+
+**Prüfung:** erst nach Abschluss von Arbeitspaket E; kein Phase-0-Gate.
+
+**Abhängigkeit:** Arbeitspaket E. Der vorhandene JSON-Timer bleibt höchstens
+ein technischer Smoke-Test.
+
+## 5. Gates und Reihenfolge
 
 ```text
-RevenueCat-Katalogvertrag (fam-yu6.1)
-    ├── Haushaltsmodell und RLS (fam-yu6.2)
-    │       ├── Webhook und Assignment (fam-yu6.4)
-    │       │       └── Provider und bestehende Gates (fam-yu6.5)
-    │       └── Fair-Use-Vertrag (fam-yu6.7)
-    └── Purchases-API und Identität (fam-yu6.3)
-            └── Provider und bestehende Gates (fam-yu6.5)
-                    └── Paywall und Route (fam-yu6.6)
-
-Store-Konfigurationsprüfung (fam-yu6.8) hängt vom RevenueCat-Katalog ab und
-blockiert den kombinierten Kauf-Test vor dem Release.
+A Verträge
+  -> B deterministischer Kontext
+    -> C Validator-Parität
+      -> D gezielte Modelldiagnose
+        -> E Gateway/App-Review
+          -> F optionale Produktmessung
 ```
 
-Tasks `fam-yu6.2` und `fam-yu6.3` können nach dem RevenueCat-Katalogvertrag
-parallel bearbeitet werden. Der Webhook bleibt nach dem Schema sequentiell.
+### Phase 0: Verträge und technische Messbarkeit
 
-## Task List
+Phase 0 ist abgeschlossen, wenn A–C umgesetzt und geprüft sind, die Deno-
+Handler-Suite auf Windows sowie in macOS/CI reproduzierbar läuft und der
+vorhandene Matrixlauf als Diagnose mit korrekter Fehlerklassifikation
+archiviert ist. Eine vollständige Modellfreigabe und eine menschliche
+Erfassungszeit gehören nicht zur Abnahme von Phase 0.
 
-### Phase 1: Vertrag und Fundament
+### Phase 1: Read-only Rezeptvorschläge
 
-1. `fam-yu6.1` RevenueCat-Katalog auslesen und Produktvertrag festhalten.
-2. `fam-yu6.2` Haushaltsmodell für Plus und AI definieren.
-3. `fam-yu6.3` RevenueCat-Entitlement-API und Identität erweitern.
-4. `fam-yu6.8` Store-Konfiguration für parallele Plus-/AI-Abos prüfen.
+Phase 1 beginnt erst nach dem Phase-0-Gate. Sie umfasst D und E: gezielte
+Modellpromotion, der echte Gateway-Aufruf, App-Anzeige und Bestätigung vor
+Mutation.
 
-### Checkpoint: Fundament
+### Phase 2: Produktvalidierung
 
-Weitergehen, wenn Produkt- und Offering-IDs aus RevenueCat verifiziert sind,
-die unabhängige AI-Produktzuordnung bestätigt ist, Schema- und Client-Vertrag
-zusammenpassen und die fokussierten
-Entitlement-Tests grün sind.
+Erst hier wird F ausgeführt. Die Messung beantwortet eine Produktfrage und
+ändert nicht die fachliche Wahrheit des Inventars.
 
-### Phase 2: Serverautorität und Zugriff
+## 6. Verifikation
 
-5. `fam-yu6.4` RevenueCat-Webhook für Plus, AI und Haushaltszuordnung.
-6. `fam-yu6.5` Entitlement-Provider und bestehende Gates migrieren.
+Nur betroffene Prüfungen ausführen:
 
-### Checkpoint: Zugriff
-
-Weitergehen, wenn Plus und AI unabhängig getestet sind, AI nur im
-zugeordneten Haushalt erscheint, Expiration/stale/duplicate Events korrekt
-verarbeitet werden und RLS keine Client-Schreibzugriffe zulässt.
-
-### Phase 3: Kaufoberfläche und Fair Use
-
-7. `fam-yu6.6` Plus-und-AI-Paywall sowie Route umsetzen.
-8. `fam-yu6.7` AI-Fair-Use-Limit als serverseitigen Vertrag vorbereiten.
-
-### Checkpoint: Release-Kandidat
-
-Weitergehen, wenn beide Paywalls die RevenueCat-Offerings und lokalisierten
-Preise korrekt darstellen, die Route `/settings/plus-and-ai` funktioniert,
-die 100-Credit-Baseline als konfigurierbarer Serververtrag dokumentiert ist
-und keine AI-Limit-Sperre Plus-Funktionen beeinflusst.
-
-## Verification Plan
-
-Gezielte Client-Prüfungen:
-
-```bash
-bun run check
+```powershell
+cd C:\GIT\fam
 bun run typecheck
-bun run test -- purchases
-bun run test -- premium
+bun run test src/features/ai-agent-skills
+deno test --allow-net supabase/functions/ai-gateway/handler_test.ts
 ```
 
-Bei Schema-/RLS-Änderungen:
+Lokale Eval-Suite ohne Providerzugriff:
 
-```bash
-bun run db:diff -- -f revenuecat-entitlements
-bun run test:db
-bun run db:advisors
-bun run db:diff
-bun run db:types
+```powershell
+cd C:\GIT\fam\tools\llm-test-platform
+.\scripts\promptfoo.ps1 eval -c promptfooconfig.fam-phase0.yaml --no-cache -j 1
 ```
 
-Zusätzlich erforderlich:
+Die kostenpflichtige OpenRouter-Auswertung läuft nur nach Arbeitspaket D und
+nicht automatisch. PowerShell- und Bash-Launcher bleiben als gleichwertige
+Ausführungswege erhalten; kein Launcher darf ein anderes Testset oder einen
+anderen Scope implizit starten.
 
-- RevenueCat Test Store in iOS- und Android-Development-Builds.
-- iOS Sandbox/TestFlight und Android-Store-Test.
-- Kauf, Restore, Ablauf, unabhängiger Plus-/AI-Kauf und Customer Center.
-- App Store Connect: Plus monatlich/jährlich in einer Gruppe, AI
-  monatlich/jährlich in einer separaten Gruppe, falls beide gleichzeitig aktiv
-  sein sollen.
-- Google Play Console: getrennte Plus-/AI-Subscription-Produkte und
-  kombinierter Kauf/Add-on-Pfad prüfen.
-- Verifikation der Webhook-Zustellhistorie und der Haushaltsprojektionen.
-- Kein Test Store API-Key in Preview-/Production-Builds.
+## 7. Offene Entscheidungen vor Phase 1
 
-## Risks and Mitigations
+Nur diese Punkte benötigen noch eine fachliche Entscheidung:
 
-| Risiko | Impact | Mitigation |
-| --- | --- | --- |
-| RevenueCat-Katalog driftet von der dokumentierten Matrix ab | Hoch | Zentrale Offering-/Package-Identifier verwenden und Dashboard-Matrix vor Store-Tests prüfen |
-| Store erlaubt keine gleichzeitigen Plus-/AI-Abos | Hoch | Store- und Subscription-Gruppen-Konfiguration vor einem kombinierten Angebot prüfen |
-| AI-Haushaltswechsel wird über mehrere Haushalte umgangen | Hoch | Subscriberbezogener Assignment-State mit serverseitigem Monatslimit |
-| Expiration eines Accounts überschreibt gültigen Haushaltszugriff | Hoch | Zuordnung, Event-Reihenfolge und aktive Quellen atomar prüfen |
-| Offline-Client autorisiert veralteten AI-Zugriff | Mittel | Serverautorität; Offline nur zuletzt synchronisierten Zustand anzeigen |
-| AI-Limit wird durch Retries doppelt belastet | Mittel | Atomare Credits-Buchung mit Event-/Request-Idempotenz |
-| Paywall verwechselt gleichartige Monats-/Jahrespackages | Mittel | Ziel-Entitlement und zentrale Produkt-ID-Zuordnung statt Array-Reihenfolge |
-| UI-Änderung driftet vom Designsystem ab | Mittel | Statische Mocks vor Komponentenänderung und Reviewcheckpoint |
+1. Welche autoritative Rezeptbasis wird für `candidate_recipes` verwendet?
+2. Welche Grundzutaten gehören initial in `allowed_staples`?
+3. Ist ein generativer Fallback bei null Katalogtreffern zum Start erlaubt,
+   oder wird zunächst nur der Katalogpfad freigegeben?
 
-## Open Questions
-
-Die Grundarchitektur ist entschieden. Vor dem Release bleiben die folgenden
-Produktfragen aus Epic #23 offen:
-
-- Bestätigung der Arbeitsbaseline von 100 AI-Credits sowie der Gewichtung 1/3/2.
-- Free-Tier-Werbung, Tracking-/ATT- und Consent-Strategie.
-- AI-Testphase, CTA-Hierarchie und Darstellung der Jahresersparnis.
-- Upgrade-/Downgrade-Verhalten in iOS und Android.
-- Store-Subscription-Gruppen und die gleichzeitige Buchbarkeit von Plus und AI
-  müssen vor dem kombinierten Kauf-Test bestätigt werden.
-- AI-Caching, Kostenobergrenzen, Abuse-Sperren und benötigte Analytics.
-
-Die Implementierung darf mit der Fair-Use-Baseline planen, muss Änderungen
-aber zuerst im Spec und anschließend in den betroffenen Beads-Tasks
-nachführen.
+Diese Entscheidungen ändern nicht die Verantwortungsgrenze: Bestand,
+Sicherheit, Priorisierung und Mutationen bleiben deterministisch und außerhalb
+des Modells.

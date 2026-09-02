@@ -7,6 +7,8 @@ import { scheduleOnRN } from 'react-native-worklets';
 
 const INITIAL_SCALE_FACTOR = Dimensions.get('screen').height / 90;
 const DURATION = 600;
+const SPLASH_BACKGROUND = '#F8F4EF';
+const SPLASH_ICON = require('@/assets/splash/fam-splash-icon.png');
 
 export function AnimatedSplashOverlay() {
   const [animate, setAnimate] = useState(false);
@@ -19,26 +21,21 @@ export function AnimatedSplashOverlay() {
       transform: [{ scale: 1 }],
       opacity: 1,
     },
-    20: {
+    45: {
+      transform: [{ scale: 1.02 }],
       opacity: 1,
-    },
-    70: {
-      opacity: 0,
-      easing: Easing.elastic(0.7),
     },
     100: {
       opacity: 0,
-      transform: [{ scale: 1 }],
-      easing: Easing.elastic(0.7),
+      transform: [{ scale: 1.06 }],
+      easing: Easing.out(Easing.cubic),
     },
   });
 
   // Image (expo-image) ist bei NativeWind nicht registriert (kein
   // cssInterop) — className wird stillschweigend ignoriert, style bleibt
   // hier zwingend.
-  const image = (
-    <Image style={{ width: 76, height: 71 }} source={require('@/assets/images/expo-logo.png')} />
-  );
+  const image = <Image style={{ width: 180, height: 180 }} source={SPLASH_ICON} />;
 
   return animate ? (
     <Animated.View
@@ -48,7 +45,8 @@ export function AnimatedSplashOverlay() {
           scheduleOnRN(setVisible, false);
         }
       })}
-      className="absolute inset-0 bg-[#208AEF] items-center justify-center z-[1000]">
+      className="absolute inset-0 items-center justify-center z-[1000]"
+      style={{ backgroundColor: SPLASH_BACKGROUND }}>
       {image}
     </Animated.View>
   ) : (
@@ -58,7 +56,8 @@ export function AnimatedSplashOverlay() {
           setAnimate(true);
         });
       }}
-      className="absolute inset-0 bg-[#208AEF] items-center justify-center z-[1000]">
+      className="absolute inset-0 items-center justify-center z-[1000]"
+      style={{ backgroundColor: SPLASH_BACKGROUND }}>
       {image}
     </View>
   );

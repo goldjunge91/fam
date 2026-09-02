@@ -41,6 +41,7 @@ supabase start / status / stop
 supabase db reset          # Migrationen neu anwenden
 bun run db:advisors        # Security/Performance-Advisors, lokal
 ```
+
 Studio unter `http://localhost:54323`.
 
 Datenbank-Workflow ist in AGENTS.md dokumentiert (`db:diff` → `db:reset` → `test:db` → `db:advisors` → `db:diff` muss leer sein → `db:types`). Migrationsdateien unter `supabase/migrations/` niemals von Hand bearbeiten — einzige Quelle der Wahrheit sind `supabase/schemas/*.sql` (Reihenfolge über `schema_paths` in `supabase/config.toml`, Elterntabellen vor Fremdschlüsseln).
@@ -55,16 +56,16 @@ bun run user:create / user:list / user:clean / user:delete
 ## Architecture
 
 **Feature-first, drei Schichten:**
+
 - `src/app/` — ausschließlich Expo-Router-Routing (file-based), keine Fachlogik. `(auth)/` = nicht eingeloggt, `(app)/` = Haupt-Tabs, `household/`, `settings/`, `recipe/` = verschachtelte Stacks.
 - `src/features/<domain>/` — Fachlogik pro Domäne (`inventory`, `shopping-list`, `meal-planner`, `recipes`, `calorie-tracking`, `household`, `auth`, `onboarding`, `premium`, `settings`, `dashboard`, `navigation`). Kleine Features bleiben flach (`components/`, `hooks/`, `api.ts`, `types.ts`); ab spürbarer Größe wird nach Verantwortungsschicht getrennt statt alles in `components/` zu sammeln — `screens/` (Screens/Routen-Ziele), `sheets/` (Modals/Bottom-Sheets), `forms/` (Formulare & Eingabe-Bausteine), `components/` (reine Anzeige-Komponenten), `hooks/` (React-Query-/Datenzugriffs-Hooks), `domain/` (Domänen-Logik & Konfiguration ohne React). Referenz: `src/features/shopping-list/` (siehe dessen `ARCHITECTURE.md`).
+- **Android-Feature-Kopien:** Bei der Erstellung oder Erweiterung eines Features wird für jede betroffene plattformübergreifende Datei zusätzlich eine harte Kopie für Android angelegt. Die Kopie erhält `.android` vor der Dateiendung, zum Beispiel `component.tsx` → `component.android.tsx`. Die Android-Datei ist eine eigenständige Kopie und darf nicht als Symlink, Stub oder bloße Referenz umgesetzt werden.
 - `src/components/` — geteilte, domänenlose UI-Bausteine (`screen.tsx`, `card.tsx`, `text-field.tsx`, etc.).
 - `src/lib/` — Supabase-Client, Env-Handling (`env.ts`, wirft klaren Fehler bei fehlenden `EXPO_PUBLIC_*`-Variablen), lokaler DB-/Sync-Layer.
 
 **Lokaler DB-Layer (`src/lib/db/`):** SQLite via `expo-sqlite`. `client.ts` ist bewusst **nicht** im Barrel `index.ts` re-exportiert — es ist die einzige Datei, die das native Modul lädt; würde sie mit-exportiert, zöge jeder Unit-Test, der irgendetwas aus `@/lib/db` importiert, das native Modul mit und schlüge fehl. App-Code importiert `@/lib/db/client` direkt, reine Logik nie. Migrationen laufen über `migrator.ts` + `migrations.ts` (App-interne SQLite-Schemaversion, unabhängig von den Supabase-Migrationen).
 
-
 **Datenbank-Trennung (RLS):** `supabase/schemas/` ist nummeriert und lädt in dieser Reihenfolge (siehe `schema_paths` in `supabase/config.toml`): `01_private` → `02_profiles` → `03_households` → `05_products` → `06_household_invites` → `07_child_profiles` → `08_inventory` → `09_tracking` → `10_realtime` → `11_recipes` → `12_recipe_storage` → `13_recipe_step_storage` → `14_meal_plans` → `15_recipe_templates` → `16_medications_and_symptoms` → `17_fasting` → `18_vital_logs` → `19_workouts` → `20_privileges`. Geteilte Haushaltsdaten (Inventar, Einkaufsliste) und private Nutzerdaten (Tracking/Tagebuch) sind strikt per RLS getrennt — jede neue Tabelle braucht eigene Policies + pgTAP-Tests unter `supabase/tests/`.
-
 
 **Umgebungsvariablen:** `.env` im Root, gitignored. Nur `EXPO_PUBLIC_*`-Variablen landen im Client-Bundle. Lokale Werte via `supabase status`; für Produktion ist ein eigener SMTP-Server zwingend (Supabase-Default-Mailversand ist auf 2 Mails/Stunde begrenzt und liefert seit 2026-06-03 bei neuen Free-Projekten keine anpassbaren Auth-Templates mehr). Details in `README.md`.
 
@@ -89,7 +90,6 @@ Standard-Vokabular (`needs-triage`, `needs-info`, `ready-for-agent`, `ready-for-
 
 Single-Context (`CONTEXT.md` + `docs/adr/` im Root). Siehe `docs/agents/domain.md`.
 
-
 <!-- BEGIN BEADS INTEGRATION v:1 profile:minimal hash:970c3bf2 -->
 ## Beads Issue Tracker
 
@@ -110,7 +110,7 @@ bd close <id>         # Complete work
 - Run `bd prime` for detailed command reference and session close protocol
 - Use `bd remember` for persistent knowledge — do NOT use MEMORY.md files
 
-**Architecture in one line:** issues live in a local Dolt DB; sync uses `refs/dolt/data` on your git remote; `.beads/issues.jsonl` is a passive export. See https://github.com/gastownhall/beads/blob/main/docs/SYNC_CONCEPTS.md for details and anti-patterns.
+**Architecture in one line:** issues live in a local Dolt DB; sync uses `refs/dolt/data` on your git remote; `.beads/issues.jsonl` is a passive export. See <https://github.com/gastownhall/beads/blob/main/docs/SYNC_CONCEPTS.md> for details and anti-patterns.
 
 ## Agent Context Profiles
 
@@ -128,6 +128,7 @@ This protocol applies when ending a Beads implementation workflow. It is subordi
 2. **Run quality gates** (if code changed) - Tests, linters, builds
 3. **Update issue status** - Close finished work, update in-progress items
 4. **Handle git/sync by active profile**:
+
    ```bash
    # Conservative/minimal/default: report status and proposed commands; wait for approval.
    git status
@@ -138,9 +139,11 @@ This protocol applies when ending a Beads implementation workflow. It is subordi
    git push
    git status
    ```
+
 5. **Hand off** - Summarize changes, validation, issue status, and any blocked sync/commit/push step
 
 **Critical rules:**
+
 - Explicit user or orchestrator instructions override this Beads block.
 - Do not commit or push without clear authority from the active profile or the current user request.
 - If a required sync or push is blocked, stop and report the exact command and error.

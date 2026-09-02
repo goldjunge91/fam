@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fam.local/schemas/food-waste-event.schema.json",
+  "title": "Food-Waste-Ereignis",
+  "description": "Referenziert den konkreten Bestandsverbrauch, der als Lebensmittelverschwendung erfasst wurde.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "household_id",
+    "actor_user_id",
+    "inventory_item_id",
+    "quantity",
+    "unit",
+    "reason",
+    "occurred_at"
+  ],
+  "properties": {
+    "household_id": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Referenz auf den Haushalt, dem das Ereignis zugeordnet ist."
+    },
+    "actor_user_id": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Referenz auf den Nutzer, der das Ereignis erfasst hat."
+    },
+    "inventory_item_id": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Referenz auf den konkreten Bestandsartikel, nicht auf einen Produktkatalogeintrag."
+    },
+    "lot_id": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Optionale Referenz auf die konkrete Charge beziehungsweise das Los."
+    },
+    "quantity": {
+      "type": "number",
+      "exclusiveMinimum": 0,
+      "description": "Die entsorgte Menge muss positiv sein."
+    },
+    "unit": {
+      "type": "string",
+      "enum": [
+        "g",
+        "kg",
+        "ml",
+        "l",
+        "piece",
+        "package",
+        "portion"
+      ],
+      "description": "Einheit der entsorgten Menge."
+    },
+    "reason": {
+      "type": "string",
+      "enum": [
+        "expired",
+        "spoiled",
+        "leftover",
+        "other"
+      ],
+      "description": "Expliziter Grund für die Lebensmittelverschwendung."
+    },
+    "occurred_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Zeitpunkt, an dem die Lebensmittelverschwendung aufgetreten ist."
+    }
+  }
+}

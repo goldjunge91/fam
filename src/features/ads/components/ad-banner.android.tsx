@@ -10,6 +10,8 @@ import {
 import { AdFormat } from 'react-native-purchases';
 import { usePremium } from '@/features/premium/premium-provider';
 import { env } from '@/lib/env';
+import { useAdsConsentReady } from '../ads-consent';
+import { useAdsEnabled } from '../ads-override';
 import { trackAdRevenueToRevenueCat } from '../ads-service';
 
 export interface AdBannerProps {
@@ -47,7 +49,7 @@ export interface AdBannerProps {
  * Standard Banner-Werbekomponente (Android).
  *
  * Verhält sich automatisch no-op / unsichtbar, wenn der aktive Haushalt
- * Premium-Status besitzt (`hasPlus === true`).
+ * Plus- oder AI-Status besitzt (`hasPlus || hasAI`).
  */
 export function AdBanner({
   unitId,
@@ -58,14 +60,16 @@ export function AdBanner({
   onAdLoaded,
   onAdFailedToLoad,
 }: AdBannerProps) {
-  const { hasPlus } = usePremium();
+  const { hasPlus, hasAI } = usePremium();
   const [failedToLoad, setFailedToLoad] = useState(false);
+  const adsEnabled = useAdsEnabled();
+  const adsConsentReady = useAdsConsentReady();
 
   const defaultUnitId = __DEV__ ? TestIds.BANNER : env.adMobBannerIdAndroid;
   const resolvedUnitId = unitId ?? defaultUnitId;
 
-  // Premium-Nutzer sehen keinerlei Werbung
-  if (!env.adsEnabled || hasPlus || failedToLoad) {
+  // Plus- und AI-Nutzer sehen keinerlei Werbung
+  if (!adsEnabled || !adsConsentReady || hasPlus || hasAI || failedToLoad) {
     return null;
   }
 

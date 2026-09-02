@@ -1,8 +1,10 @@
 import { renderHook } from '@testing-library/react-native';
 
+import { useAdsConsentStore } from '../ads-consent';
 import { useInterstitialAd } from './use-interstitial-ad';
 
-let mockIsPremium = false;
+let mockHasPlus = false;
+let mockHasAI = false;
 let mockIsLoaded = false;
 let mockIsClosed = false;
 const mockRawShow = jest.fn();
@@ -10,7 +12,8 @@ const mockRawLoad = jest.fn();
 
 jest.mock('@/features/premium/premium-provider', () => ({
   usePremium: () => ({
-    hasPlus: mockIsPremium,
+    hasPlus: mockHasPlus,
+    hasAI: mockHasAI,
     isForced: false,
     customerInfo: null,
     loading: false,
@@ -36,9 +39,11 @@ describe('useInterstitialAd', () => {
   const originalAdsEnabled = process.env.EXPO_PUBLIC_ADS_ENABLED;
 
   beforeEach(() => {
-    mockIsPremium = false;
+    mockHasPlus = false;
+    mockHasAI = false;
     mockIsLoaded = false;
     mockIsClosed = false;
+    useAdsConsentStore.getState().setReady(true);
     jest.clearAllMocks();
   });
 
@@ -51,7 +56,8 @@ describe('useInterstitialAd', () => {
   });
 
   it('laedt automatisch im Hintergrund fuer Free-Nutzer', async () => {
-    mockIsPremium = false;
+    mockHasPlus = false;
+    mockHasAI = false;
     mockIsLoaded = false;
 
     await renderHook(() => useInterstitialAd());
@@ -68,7 +74,8 @@ describe('useInterstitialAd', () => {
   });
 
   it('erlaubt Anzeigen wenn geladen', async () => {
-    mockIsPremium = false;
+    mockHasPlus = false;
+    mockHasAI = false;
     mockIsLoaded = true;
 
     const { result } = await renderHook(() => useInterstitialAd());
@@ -78,8 +85,20 @@ describe('useInterstitialAd', () => {
     expect(mockRawShow).toHaveBeenCalledTimes(1);
   });
 
-  it('deaktiviert Interstitials vollstaendig fuer Premium-Nutzer', async () => {
-    mockIsPremium = true;
+  it('deaktiviert Interstitials vollstaendig fuer Plus-Nutzer', async () => {
+    mockHasPlus = true;
+    mockIsLoaded = true;
+
+    const { result } = await renderHook(() => useInterstitialAd());
+
+    expect(result.current.isLoaded).toBe(false);
+    expect(mockRawLoad).not.toHaveBeenCalled();
+    result.current.show();
+    expect(mockRawShow).not.toHaveBeenCalled();
+  });
+
+  it('deaktiviert Interstitials vollstaendig fuer AI-Nutzer', async () => {
+    mockHasAI = true;
     mockIsLoaded = true;
 
     const { result } = await renderHook(() => useInterstitialAd());
@@ -100,5 +119,13 @@ describe('useInterstitialAd', () => {
     expect(mockRawLoad).not.toHaveBeenCalled();
     result.current.show();
     expect(mockRawShow).not.toHaveBeenCalled();
+  });
+
+  it('lädt keine Interstitials vor abgeschlossenem Consent', async () => {
+    useAdsConsentStore.getState().setReady(false);
+
+    await renderHook(() => useInterstitialAd());
+
+    expect(mockRawLoad).not.toHaveBeenCalled();
   });
 });

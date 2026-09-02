@@ -1,6 +1,6 @@
 # Datenschutzerklärung
 
-> Stand: 2026-08-12. Diese Erklärung beschreibt, was in der App tatsächlich
+> Stand: 2026-09-01. Diese Erklärung beschreibt, was in der App tatsächlich
 > passiert — nicht mehr und nicht weniger. Sie ist die Quelle für die
 > App-Store-Privacy-Labels ([#99](https://github.com/goldjunge91/fam/issues/99))
 > und ersetzt die frühere, technisch nicht haltbare Zusage einer
@@ -41,6 +41,8 @@ zu verteilen — das ist mit echter E2EE nicht vereinbar. Stattdessen:
 | Kühlschrank-/Einkaufslisten-Daten | Produktname, Menge, Mindesthaltbarkeitsdatum, Lagerort | Gemeinsamer Bestand, Ablauf-Erinnerungen | Ja — mit dem Haushalt |
 | Produktdaten | Barcode, Name, Nährwerte pro 100 g | Produktsuche und -anzeige | Nein (öffentliche Produktdatenbank, siehe unten) |
 | Geräte-/Diagnosedaten | Push-Token für lokale Erinnerungen, Sync-Zeitstempel | Ablauf-Benachrichtigungen, Offline-Synchronisation | Nein |
+| Nutzungs-/Diagnosedaten | App-/Produktinteraktionen, technische Geräte- und Build-Informationen, Fehler- und Absturzberichte | Produktverbesserung, Feature-Flags, Fehlerdiagnose und Stabilität | Nein — an Drittanbieter-SDKs übermittelt |
+| Werbe- und Kaufdaten | Werbe-/Gerätekennungen nach Einwilligung, Impressionen, Kauf- und Abo-Status | Werbung in der kostenlosen Version, Premium-Funktionen und Abrechnung | Nein |
 
 ## Drittdienste
 
@@ -53,9 +55,22 @@ zu verteilen — das ist mit echter E2EE nicht vereinbar. Stattdessen:
 - **Supabase** (supabase.com): Hostet Datenbank, Authentifizierung und
   Realtime-Synchronisation. Alle unter „Welche Daten verarbeitet werden"
   genannten Kategorien liegen dort.
+- **Google AdMob** (Google): Liefert Werbung in der kostenlosen Version.
+  Google kann abhängig von Region, Consent und iOS-ATT-Auswahl personalisierte,
+  nicht personalisierte oder eingeschränkte Werbung ausliefern. Die App holt
+  den Google-UMP-Consent vor der AdMob-Initialisierung ein und fragt auf iOS
+  die App-Tracking-Erlaubnis ab, bevor personalisierte Werbung möglich ist.
+- **RevenueCat** (revenuecat.com): Verarbeitet den Kauf- und Abo-Status für
+  Premium-Funktionen. Ad-Impression-Umsätze können zur Abo- und
+  Monetarisierungsanalyse an RevenueCat übermittelt werden.
+- **Sentry** (sentry.io): Empfängt Fehler-, Absturz- und technische
+  Diagnosedaten zur Stabilitätsanalyse.
+- **PostHog** (posthog.com) und **Aptabase** (aptabase.com): Empfangen
+  Nutzungs- und Produktinteraktionen sowie technische Ereignisse für
+  Produktverbesserung, Feature-Flags und Fehleranalyse.
 
-Es gibt keine Werbe-SDKs, kein Tracking durch Dritte und keinen Verkauf von
-Daten.
+Es findet kein Verkauf von Daten statt. Die Entscheidung über personalisierte
+Werbung wird durch Google UMP und auf iOS zusätzlich durch ATT gesteuert.
 
 ## Berechtigungen auf dem Gerät
 
@@ -63,9 +78,11 @@ Daten.
 |---|---|---|
 | Kamera | Barcode-Scan für Produkte, QR-Code-Scan für Haushaltsbeitritt | Ja — manuelle Eingabe geht immer |
 | Benachrichtigungen | Lokale Erinnerung, wenn ein Kühlschrank-Artikel bald abläuft | Ja |
+| Standort | Prospekte und Märkte in der Nähe | Ja |
+| Fotomediathek | Rezept-Titelbild auswählen | Ja |
+| App-Tracking (iOS) | Personalisierte Werbung in der kostenlosen Version | Ja — ATT- und UMP-Auswahl |
 
-Standort, Mikrofon, Kontakte, Fotomediathek werden von der App nicht
-angefragt.
+Mikrofon und Kontakte werden nicht als eigenständige Funktionen genutzt.
 
 ## Deine Rechte (DSGVO)
 
