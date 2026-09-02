@@ -100,19 +100,7 @@ Zielmodul: `inventory-lifecycle`.
 
 ### Paket 3: Verbrauch statt bloßes Löschen
 
-Die Bestandsoberfläche unterscheidet fachlich:
-
-- vollständig oder teilweise verbraucht;
-- weggeworfen, optional mit kurzem Grund;
-- an einen anderen Lagerort verschoben;
-- Bestand korrigiert.
-
-Wegwerfgründe bleiben bewusst knapp, etwa `verdorben`, `abgelaufen`,
-`vergessen`, `zu_viel_gekauft` oder `schlechte_qualitaet`. Jede Aktion zeigt
-eine Undo-Möglichkeit. Ein generisches Entfernen darf diese Unterschiede nicht
-unsichtbar machen.
-
-das orginial wird in `transactions` protokolliert. wir müssen ein platz finden.
+Bestandsänderungen werden in `transactions` protokolliert.
 
 ```text
 in | out | waste
