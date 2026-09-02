@@ -2,12 +2,12 @@
   "schemaVersion": 1,
   "nativeFingerprints": {
     "ios": {
-      "hash": "8134256d2afd4b5440ad4db7044489deae5a50b5",
-      "expoSdk": "57.0.17"
+      "hash": "289cf0378c570e289fe3125637d8df6dd1fa3119",
+      "expoSdk": "57.0.19"
     },
     "android": {
-      "hash": "0321c1eb3d7bc343004c71632547fb4c70b0c190",
-      "expoSdk": "57.0.17"
+      "hash": "c0d28229cbccb4804119ee9036ee2afe300b8ff2",
+      "expoSdk": "57.0.19"
     }
   },
   "artifacts": {
@@ -17,6 +17,20 @@
       "kind": "app",
       "relativePath": "native-artifacts/ios-development-simulator/fam.app",
       "sha256": "0a605d3596159fd3ed519cb301bf013dda3cd9b31fce8ec8d9c403926ab2b1f4"
+    },
+    "ios-preview-testflight": {
+      "fingerprint": "ccc154e456b16e7a4861f8a503557c59947acdf7",
+      "configuration": "Release",
+      "kind": "ipa",
+      "relativePath": "native-artifacts/ios-preview-testflight/fam.ipa",
+      "sha256": "f501d8c435eebcd3f3783d64cfed82c296610c67df7e17fd012f15c76d4f9048"
+    },
+    "ios-preview-simulator": {
+      "fingerprint": "289cf0378c570e289fe3125637d8df6dd1fa3119",
+      "configuration": "Release",
+      "kind": "app",
+      "relativePath": "native-artifacts/ios-preview-simulator/fam.app",
+      "sha256": "94e916478c496cf449cba6886555cb7771efe5542453ad5340f4892fb90166f0"
     }
   }
 }
