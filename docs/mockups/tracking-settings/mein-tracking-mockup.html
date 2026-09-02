@@ -1,0 +1,453 @@
+<!doctype html>
+<title>Mein Tracking, verbesserte Layouts</title>
+<style>
+  :root {
+    --bg-app: #F8F4EF;
+    --bg-surface: #FBF7F2;
+    --bg-selected: #E9E1E7;
+    --text: #2D2830;
+    --text-secondary: #786F79;
+    --border: #E4DDE3;
+    --accent: #705773;
+    --on-accent: #FFFFFF;
+    --success: #78906F;
+    --warning: #C69059;
+
+    --page-bg: #EFE9E2;
+    --page-ink: #2D2830;
+    --page-ink-dim: #8A8089;
+    --page-line: #DED5CC;
+    --page-card: #FFFFFF;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg-app: #211D23;
+      --bg-surface: #2B262E;
+      --bg-selected: #382F3B;
+      --text: #F2ECE7;
+      --text-secondary: #B7ADB3;
+      --border: #3E3640;
+      --accent: #B79CBA;
+      --on-accent: #211D23;
+      --success: #8FAE86;
+      --warning: #D9A86C;
+
+      --page-bg: #17151A;
+      --page-ink: #F2ECE7;
+      --page-ink-dim: #948C93;
+      --page-line: #332D37;
+      --page-card: #201C22;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg-app: #211D23;
+    --bg-surface: #2B262E;
+    --bg-selected: #382F3B;
+    --text: #F2ECE7;
+    --text-secondary: #B7ADB3;
+    --border: #3E3640;
+    --accent: #B79CBA;
+    --on-accent: #211D23;
+    --success: #8FAE86;
+    --warning: #D9A86C;
+
+    --page-bg: #17151A;
+    --page-ink: #F2ECE7;
+    --page-ink-dim: #948C93;
+    --page-line: #332D37;
+    --page-card: #201C22;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--page-bg);
+    color: var(--page-ink);
+    font-family: -apple-system, "SF Pro Text", Inter, "Segoe UI", system-ui, sans-serif;
+  }
+
+  .wrap { max-width: 1240px; margin: 0 auto; padding: 48px 28px 96px; }
+
+  header.intro { margin-bottom: 40px; max-width: 720px; }
+  header.intro .eyebrow {
+    font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--page-ink-dim); font-weight: 600; margin: 0 0 10px;
+  }
+  header.intro h1 {
+    font-size: 28px; line-height: 1.2; margin: 0 0 12px; font-weight: 700;
+    text-wrap: balance;
+  }
+  header.intro p {
+    font-size: 15px; line-height: 1.55; color: var(--page-ink-dim); margin: 0;
+    max-width: 62ch;
+  }
+
+  .board {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(346px, 1fr));
+    gap: 40px;
+    align-items: start;
+  }
+
+  figure { margin: 0; }
+  figcaption { margin-bottom: 14px; }
+  figcaption .name { font-size: 15px; font-weight: 700; color: var(--page-ink); }
+  figcaption .why { font-size: 13px; color: var(--page-ink-dim); line-height: 1.4; margin-top: 3px; }
+
+  .phone {
+    width: 100%;
+    max-width: 346px;
+    background: var(--page-card);
+    border: 1px solid var(--page-line);
+    border-radius: 34px;
+    padding: 10px;
+    box-shadow: 0 20px 40px -24px rgba(0,0,0,0.35);
+  }
+  .screen {
+    background: var(--bg-app);
+    color: var(--text);
+    border-radius: 26px;
+    overflow: hidden;
+    height: 720px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .screen-header {
+    display: flex; align-items: center; gap: 10px;
+    padding: 18px 16px 10px;
+    flex-shrink: 0;
+  }
+  .screen-header .back { color: var(--text-secondary); font-size: 20px; line-height: 1; }
+  .screen-header h2 { font-size: 17px; font-weight: 700; margin: 0; }
+
+  .scroll { flex: 1; overflow: hidden; padding: 4px 14px 14px; }
+
+  .group-title {
+    font-size: 11px; font-weight: 700; letter-spacing: 0.06em;
+    text-transform: uppercase; color: var(--text-secondary);
+    margin: 16px 2px 6px;
+  }
+  .group-title:first-child { margin-top: 4px; }
+
+  .group-body {
+    background: var(--bg-surface);
+    border-radius: 14px;
+    overflow: hidden;
+  }
+
+  .row {
+    display: flex; align-items: center; gap: 10px;
+    padding: 11px 12px;
+    border-bottom: 1px solid var(--border);
+  }
+  .row:last-child { border-bottom: none; }
+  .row .icon { width: 20px; text-align: center; font-size: 14px; flex-shrink: 0; }
+  .row .label { flex: 1; min-width: 0; }
+  .row .label .t { font-size: 14px; font-weight: 500; }
+  .row .label .h { font-size: 11.5px; color: var(--text-secondary); margin-top: 1px; }
+  .row .value { font-size: 12.5px; color: var(--text-secondary); text-align: right; font-variant-numeric: tabular-nums; }
+  .row .chev { color: var(--text-secondary); font-size: 16px; flex-shrink: 0; }
+  .row.selected { background: var(--accent); }
+  .row.selected .t, .row.selected .h, .row.selected .value { color: var(--on-accent); }
+
+  .stat-row {
+    display: flex;
+    padding: 14px 4px;
+  }
+  .stat {
+    flex: 1; text-align: center;
+    padding: 0 6px;
+    border-right: 1px solid var(--border);
+  }
+  .stat:last-child { border-right: none; }
+  .stat .k { font-size: 10.5px; color: var(--text-secondary); }
+  .stat .v { font-size: 15px; font-weight: 700; margin-top: 3px; font-variant-numeric: tabular-nums; }
+
+  .segctl {
+    display: flex; gap: 3px;
+    background: var(--bg-selected);
+    border-radius: 10px;
+    padding: 3px;
+    margin: 0 2px 12px;
+  }
+  .segctl .seg {
+    flex: 1; text-align: center; font-size: 12px; font-weight: 600;
+    padding: 7px 4px; border-radius: 8px; color: var(--text-secondary);
+  }
+  .segctl .seg.active { background: var(--bg-surface); color: var(--text); }
+
+  .accordion-head {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 12px 12px;
+  }
+  .accordion-head .t { font-size: 14px; font-weight: 600; }
+  .accordion-head .chev { color: var(--text-secondary); }
+  .accordion-body { padding: 0 12px 12px; }
+
+  .method-item {
+    display: flex; align-items: center; gap: 10px;
+    padding: 9px 10px; margin: 0 8px 6px;
+    border-radius: 10px;
+  }
+  .method-item:last-child { margin-bottom: 8px; }
+  .method-item .icon { font-size: 15px; }
+  .method-item .t { font-size: 13px; font-weight: 600; flex: 1; }
+  .method-item .check { font-size: 12px; font-weight: 700; }
+
+  .pair {
+    margin-bottom: 64px;
+  }
+  .pair-head { margin-bottom: 22px; max-width: 720px; }
+  .pair-head .tag {
+    display: inline-block; font-size: 11px; font-weight: 700;
+    letter-spacing: 0.06em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 6px;
+  }
+  .pair-head h2 { font-size: 20px; margin: 0 0 6px; font-weight: 700; }
+  .pair-head p { font-size: 14px; line-height: 1.5; color: var(--page-ink-dim); margin: 0; max-width: 62ch; }
+  .pair .board { grid-template-columns: repeat(auto-fit, minmax(346px, 1fr)); }
+
+  .fix-list { margin: 14px 0 0; padding-left: 18px; font-size: 13px; line-height: 1.6; color: var(--page-ink-dim); }
+  .fix-list li::marker { color: var(--accent); }
+
+  .accordion-head .chev.open { transform: rotate(90deg); display: inline-block; }
+
+  footer.note {
+    max-width: 720px; margin: 56px auto 0; font-size: 13px;
+    color: var(--page-ink-dim); line-height: 1.5; border-top: 1px solid var(--page-line);
+    padding-top: 20px;
+  }
+</style>
+
+<div class="wrap">
+  <header class="intro">
+    <p class="eyebrow">Settings &middot; Mein Tracking</p>
+    <h1>A und B, überarbeitet</h1>
+    <p>
+      Beide Varianten je einmal original und einmal verbessert, direkt nebeneinander.
+      C (Segmented Control) ist raus. Die Beispielperson und alle Werte bleiben gleich,
+      damit sich nur das Layout ändert.
+    </p>
+  </header>
+
+  <!-- Paar 1: Variante A -->
+  <section class="pair">
+    <div class="pair-head">
+      <div class="tag">Variante A</div>
+      <h2>Zeilen statt Kacheln</h2>
+      <p>Original: 11 Zeilen über 4 Gruppen, jeder Makro- und Vitalwert einzeln. Verbessert:</p>
+      <ul class="fix-list">
+        <li>Protein/Carbs/Fett zu einer Zeile zusammengefasst, statt drei fast identischen Zeilen</li>
+        <li>Größe, Geschlecht und Alter zu „Körperdaten“ zusammengefasst</li>
+        <li>Chevron nur noch dort, wo ein Tap wirklich zu einem Bearbeiten-Screen führt</li>
+      </ul>
+    </div>
+    <div class="board">
+
+      <figure>
+        <figcaption>
+          <div class="name">Original</div>
+          <div class="why">7 Gruppenzeilen wirken gleichwertig, dabei sind nur zwei davon editierbar.</div>
+        </figcaption>
+        <div class="phone"><div class="screen">
+          <div class="screen-header"><span class="back">&lsaquo;</span><h2>Mein Tracking</h2></div>
+          <div class="scroll">
+
+            <div class="group-title">Tracking-Methode</div>
+            <div class="group-body">
+              <div class="row selected">
+                <span class="icon">⏱️</span>
+                <div class="label"><div class="t">Intervallfasten</div></div>
+                <span class="value">Aktiv</span>
+                <span class="chev">›</span>
+              </div>
+            </div>
+
+            <div class="group-title">Ernährung &amp; Ziele</div>
+            <div class="group-body">
+              <div class="row"><span class="icon">🎯</span><div class="label"><div class="t">Kalorienziel</div></div><span class="value">1.800 kcal</span></div>
+              <div class="row"><span class="icon">🥩</span><div class="label"><div class="t">Protein</div></div><span class="value">120 g</span></div>
+              <div class="row"><span class="icon">🍞</span><div class="label"><div class="t">Carbs</div></div><span class="value">180 g</span></div>
+              <div class="row"><span class="icon">🥑</span><div class="label"><div class="t">Fett</div></div><span class="value">60 g</span><span class="chev">›</span></div>
+            </div>
+
+            <div class="group-title">Vitalwerte &amp; Biometrie</div>
+            <div class="group-body">
+              <div class="row"><span class="icon">📏</span><div class="label"><div class="t">Größe</div></div><span class="value">168 cm</span></div>
+              <div class="row"><span class="icon">⚖️</span><div class="label"><div class="t">Gewicht heute</div></div><span class="value">64,2 kg</span></div>
+              <div class="row"><span class="icon">🧬</span><div class="label"><div class="t">Geschlecht &amp; Alter</div></div><span class="value">Weiblich · 29 J.</span></div>
+              <div class="row"><span class="icon">🏃</span><div class="label"><div class="t">Aktivität</div></div><span class="value">Mäßig aktiv</span></div>
+              <div class="row"><span class="icon">🔥</span><div class="label"><div class="t">Grundumsatz / Bedarf</div></div><span class="value">1.420 / 2.050 kcal</span><span class="chev">›</span></div>
+            </div>
+
+            <div class="group-title">Rhythmus</div>
+            <div class="group-body">
+              <div class="row"><span class="icon">🌅</span><div class="label"><div class="t">Tagesstart</div><div class="h">Frühschicht-Preset</div></div><span class="value">06:00</span><span class="chev">›</span></div>
+            </div>
+
+          </div>
+        </div></div>
+      </figure>
+
+      <figure>
+        <figcaption>
+          <div class="name">Verbessert</div>
+          <div class="why">10 statt 14 Zeilen insgesamt, passt ohne Scrollen auf den Screen.</div>
+        </figcaption>
+        <div class="phone"><div class="screen">
+          <div class="screen-header"><span class="back">&lsaquo;</span><h2>Mein Tracking</h2></div>
+          <div class="scroll">
+
+            <div class="group-title">Tracking-Methode</div>
+            <div class="group-body">
+              <div class="row selected">
+                <span class="icon">⏱️</span>
+                <div class="label"><div class="t">Intervallfasten</div><div class="h">Fastenphasen &amp; Essensfenster</div></div>
+                <span class="chev">›</span>
+              </div>
+            </div>
+
+            <div class="group-title">Ernährung &amp; Ziele</div>
+            <div class="group-body">
+              <div class="row"><span class="icon">🎯</span><div class="label"><div class="t">Kalorienziel</div></div><span class="value">1.800 kcal</span></div>
+              <div class="row"><span class="icon">🍽️</span><div class="label"><div class="t">Makros</div><div class="h">Protein · Carbs · Fett</div></div><span class="value">120 · 180 · 60 g</span><span class="chev">›</span></div>
+            </div>
+
+            <div class="group-title">Vitalwerte &amp; Biometrie</div>
+            <div class="group-body">
+              <div class="row"><span class="icon">🧬</span><div class="label"><div class="t">Körperdaten</div><div class="h">168 cm · Weiblich · 29 J.</div></div><span class="chev">›</span></div>
+              <div class="row"><span class="icon">⚖️</span><div class="label"><div class="t">Gewicht heute</div></div><span class="value">64,2 kg</span></div>
+              <div class="row"><span class="icon">🏃</span><div class="label"><div class="t">Aktivität</div></div><span class="value">Mäßig aktiv</span></div>
+              <div class="row"><span class="icon">🔥</span><div class="label"><div class="t">Energiebedarf</div><div class="h">Grundumsatz · Gesamtbedarf</div></div><span class="value">1.420 · 2.050 kcal</span></div>
+            </div>
+
+            <div class="group-title">Rhythmus</div>
+            <div class="group-body">
+              <div class="row"><span class="icon">🌅</span><div class="label"><div class="t">Tagesstart</div><div class="h">Frühschicht-Preset</div></div><span class="value">06:00</span><span class="chev">›</span></div>
+            </div>
+
+          </div>
+        </div></div>
+      </figure>
+
+    </div>
+  </section>
+
+  <!-- Paar 2: Variante B -->
+  <section class="pair">
+    <div class="pair-head">
+      <div class="tag">Variante B</div>
+      <h2>Kennzahlen oben, Rest eingeklappt</h2>
+      <p>Original: alle drei Gruppen starten zu, ALL-CAPS-Kürzel oben. Verbessert:</p>
+      <ul class="fix-list">
+        <li>Kennzahlen-Leiste bekommt einen Gruppentitel und Icons statt kryptischer Kürzel</li>
+        <li>Methode &amp; Ziele startet offen, weil sie am häufigsten geändert wird</li>
+        <li>Akkordeon-Pfeil dreht sich wie der Chevron im Rest der App, statt eigener ⌄/⌃-Zeichen</li>
+      </ul>
+    </div>
+    <div class="board">
+
+      <figure>
+        <figcaption>
+          <div class="name">Original</div>
+          <div class="why">„KCAL-ZIEL“, „TDEE“ als Labels weichen vom Rest der App ab; alles startet zu.</div>
+        </figcaption>
+        <div class="phone"><div class="screen">
+          <div class="screen-header"><span class="back">&lsaquo;</span><h2>Mein Tracking</h2></div>
+          <div class="scroll">
+
+            <div class="stat-row">
+              <div class="stat"><div class="k">KCAL-ZIEL</div><div class="v">1.800</div></div>
+              <div class="stat"><div class="k">GEWICHT</div><div class="v">64,2 kg</div></div>
+              <div class="stat"><div class="k">TDEE</div><div class="v">2.050</div></div>
+              <div class="stat"><div class="k">TAGESSTART</div><div class="v">06:00</div></div>
+            </div>
+
+            <div class="group-title">Methode &amp; Ziele</div>
+            <div class="group-body">
+              <div class="accordion-head"><span class="t">⏱️ Intervallfasten</span><span class="chev">⌄</span></div>
+              <div class="accordion-body">
+                <div class="row" style="border:none;padding:0 0 6px;"><span class="icon">🥩</span><div class="label"><div class="t">Protein</div></div><span class="value">120 g</span></div>
+                <div class="row" style="border:none;padding:0 0 6px;"><span class="icon">🍞</span><div class="label"><div class="t">Carbs</div></div><span class="value">180 g</span></div>
+                <div class="row" style="border:none;padding:0;"><span class="icon">🥑</span><div class="label"><div class="t">Fett</div></div><span class="value">60 g</span></div>
+              </div>
+            </div>
+
+            <div class="group-title">Biometrie</div>
+            <div class="group-body">
+              <div class="accordion-head"><span class="t">Weiblich · 29 J. · 168 cm</span><span class="chev">⌄</span></div>
+              <div class="accordion-body">
+                <div class="row" style="border:none;padding:0 0 6px;"><span class="icon">🏃</span><div class="label"><div class="t">Aktivität</div></div><span class="value">Mäßig aktiv</span></div>
+                <div class="row" style="border:none;padding:0;"><span class="icon">🔥</span><div class="label"><div class="t">Grundumsatz</div></div><span class="value">1.420 kcal</span></div>
+              </div>
+            </div>
+
+            <div class="group-title">Rhythmus</div>
+            <div class="group-body">
+              <div class="accordion-head"><span class="t">Frühschicht-Preset</span><span class="chev">⌃</span></div>
+              <div class="accordion-body">
+                <div style="display:flex;gap:6px;">
+                  <div style="flex:1;background:var(--accent);color:var(--on-accent);border-radius:9px;padding:8px 0;text-align:center;font-size:12px;font-weight:700;">06:00</div>
+                  <div style="flex:1;background:var(--bg-selected);border-radius:9px;padding:8px 0;text-align:center;font-size:12px;">00:00</div>
+                  <div style="flex:1;background:var(--bg-selected);border-radius:9px;padding:8px 0;text-align:center;font-size:12px;">22:00</div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div></div>
+      </figure>
+
+      <figure>
+        <figcaption>
+          <div class="name">Verbessert</div>
+          <div class="why">Methode ist auf einen Blick sichtbar, Biometrie und Rhythmus bleiben ruhig zu.</div>
+        </figcaption>
+        <div class="phone"><div class="screen">
+          <div class="screen-header"><span class="back">&lsaquo;</span><h2>Mein Tracking</h2></div>
+          <div class="scroll">
+
+            <div class="group-title">Auf einen Blick</div>
+            <div class="group-body">
+              <div class="stat-row">
+                <div class="stat"><div class="k">🎯 Kcal-Ziel</div><div class="v">1.800</div></div>
+                <div class="stat"><div class="k">⚖️ Gewicht</div><div class="v">64,2 kg</div></div>
+                <div class="stat"><div class="k">🔥 TDEE</div><div class="v">2.050</div></div>
+                <div class="stat"><div class="k">🌅 Start</div><div class="v">06:00</div></div>
+              </div>
+            </div>
+
+            <div class="group-title">Methode &amp; Ziele</div>
+            <div class="group-body">
+              <div class="accordion-head"><span class="t">⏱️ Intervallfasten</span><span class="chev open">›</span></div>
+              <div class="accordion-body">
+                <div class="row" style="border:none;padding:0 0 6px;"><span class="icon">🥩</span><div class="label"><div class="t">Protein</div></div><span class="value">120 g</span></div>
+                <div class="row" style="border:none;padding:0 0 6px;"><span class="icon">🍞</span><div class="label"><div class="t">Carbs</div></div><span class="value">180 g</span></div>
+                <div class="row" style="border:none;padding:0;"><span class="icon">🥑</span><div class="label"><div class="t">Fett</div></div><span class="value">60 g</span></div>
+              </div>
+            </div>
+
+            <div class="group-title">Biometrie</div>
+            <div class="group-body">
+              <div class="accordion-head"><span class="t">🧬 Weiblich · 29 J. · 168 cm</span><span class="chev">›</span></div>
+            </div>
+
+            <div class="group-title">Rhythmus</div>
+            <div class="group-body">
+              <div class="accordion-head"><span class="t">🌅 Frühschicht-Preset</span><span class="chev">›</span></div>
+            </div>
+
+          </div>
+        </div></div>
+      </figure>
+
+    </div>
+  </section>
+
+  <footer class="note">
+    Farben, Radien und Zeilenaufbau kommen direkt aus <code>src/constants/theme.ts</code> und
+    <code>settings-menu.tsx</code> (SettingsGroup/SettingsRow). Beispielwerte für Kalorienziel,
+    Makros, Größe, Gewicht und Grundumsatz sind frei erfunden, keine echten Nutzerdaten.
+  </footer>
+</div>
