@@ -7,6 +7,7 @@ import { scheduleOnRN } from 'react-native-worklets';
 
 const INITIAL_SCALE_FACTOR = Dimensions.get('screen').height / 90;
 const DURATION = 600;
+const SPLASH_DURATION = 900;
 const SPLASH_BACKGROUND = '#F8F4EF';
 const SPLASH_ICON = require('@/assets/splash/fam-splash-icon.png');
 
@@ -16,18 +17,25 @@ export function AnimatedSplashOverlay() {
 
   if (!visible) return null;
 
+  // Deutlich sichtbarer Handoff vom statischen nativen Launch-Screen: das
+  // Icon wächst hörbar auf, bevor es ausfadet, statt nur unauffällig zu blitzen.
   const splashKeyframe = new Keyframe({
     0: {
       transform: [{ scale: 1 }],
       opacity: 1,
     },
-    45: {
-      transform: [{ scale: 1.02 }],
+    30: {
+      transform: [{ scale: 1.12 }],
+      opacity: 1,
+      easing: Easing.out(Easing.cubic),
+    },
+    70: {
+      transform: [{ scale: 1.18 }],
       opacity: 1,
     },
     100: {
       opacity: 0,
-      transform: [{ scale: 1.06 }],
+      transform: [{ scale: 1.3 }],
       easing: Easing.out(Easing.cubic),
     },
   });
@@ -39,7 +47,7 @@ export function AnimatedSplashOverlay() {
 
   return animate ? (
     <Animated.View
-      entering={splashKeyframe.duration(DURATION).withCallback((finished) => {
+      entering={splashKeyframe.duration(SPLASH_DURATION).withCallback((finished) => {
         'worklet';
         if (finished) {
           scheduleOnRN(setVisible, false);
