@@ -35,9 +35,24 @@ ergänzten Funktionen in technisch unabhängige Spec-Module.
 Bestandsänderungen werden nicht nur als neuer Zustand gespeichert, sondern
 durch append-only Haushaltsereignisse erklärt. Der aktuelle Bestand bleibt der
 schnelle Lesestand.
+Transaktionen werden normalerweise angehängt, aber beim Undo wird die ursprüngliche Zeile mit undone=1 aktualisiert.
+
+Ereignistypen:
 
 ```text
-purchase | consume | waste | adjust | move | open | restore | undo
+in | out | waste
+```
+
+Unser Datenfelder solte erweitert werden.
+
+```text
+Datenfelderid, product_id, type, quantity, location, notes, undone, created_at
+Verbrauch: out
+Wegwerfen: waste, note
+Korrektur: in oder out  mit [Manuel note]
+Verschieben: erzeugt out am alten und in am neuen ort.
+RückgängigmachenMaximal 24 Stunden; Original erhält undone=1; Gegentransaktion wird geschrieben
+HistorieTransaktionen bleiben für Protokoll und Statistik erhalten
 ```
 
 Jedes Ereignis hält Menge, Einheit, Bestandseintrag, optionales Produkt,
@@ -55,15 +70,45 @@ und Herkunft des Datums bleiben getrennt, damit ein Nutzerwert nicht von einer
 Schätzung oder Katalogangabe überschrieben wird.
 
 ```text
-opened_at
-expiry_date
-expiry_date_type: best_before | use_by | estimated
-expiry_source: user | product_default | opened_estimate | vision
+inventory (
+  id,
+  product_id,
+  location,
+  quantity,
+  expiry_date,
+  added_at,
+  updated_at,
+  expiry_user_set,
+  vacuum_sealed,
+  opened_at
+)
+| Dokumentaussage | Tatsächlicher Code |
+|---|---|
+| `opened_at` | Ja, nullable `DATETIME`; wird beim Öffnen gesetzt |
+| `expiry_date` | Ja, `DATE` |
+| `estimated` | Nein als gespeicherter Wert |
+| `user` | Nicht als Quelle; nur `expiry_user_set = 1` |
+| `vacuum_sealed` | Ja, Boolean/Integer |
+| „versiegelt“ | Indirekt: `opened_at IS NULL` und `vacuum_sealed = 0` |
+| „geöffnet“ | `opened_at IS NOT NULL` |
+| „vakuumiert“ | `vacuum_sealed = 1` |
 ```
 
+Wie das Öffnen tatsächlich funktionieren sollte:
+Beim Öffnen berechnen wir eine Haltbarkeit in Tagen:
+
+```text
+estimateOpenedExpiryDays(product, location)
+```
+
+Diese Berechnung verwendet Produktname, Kategorie und Lagerort. Danach wird:
+1. opened_at = CURRENT_TIMESTAMP gesetzt.
+2. Eine neue geöffnete Inventarzeile angelegt oder die bestehende geändert.
+3. Das Ergebnis als konkretes expiry_date gespeichert.
+4. Das ursprüngliche Ablaufdatum beibehalten, falls es früher liegt.
+5. Geöffnete Packungen nicht mit versiegeltem Bestand zusammengeführt.
 Eine verkürzte Haltbarkeit nach dem Öffnen ist ein prüfbarer Vorschlag, keine
 stille automatische Änderung. Vakuumieren bleibt außerhalb des ersten Scopes.
-
 Zielmodul: `inventory-lifecycle`.
 
 ### Paket 3: Verbrauch statt bloßes Löschen
@@ -79,6 +124,40 @@ Wegwerfgründe bleiben bewusst knapp, etwa `verdorben`, `abgelaufen`,
 `vergessen`, `zu_viel_gekauft` oder `schlechte_qualitaet`. Jede Aktion zeigt
 eine Undo-Möglichkeit. Ein generisches Entfernen darf diese Unterschiede nicht
 unsichtbar machen.
+
+das orginial wird in `transactions` protokolliert. wir müssen ein platz finden.
+
+```text
+in | out | waste
+```
+
+- `out`: Verbrauch oder Entfernung
+- `waste`: Wegwerfen
+- `in`: Zugang oder Undo-Wiederherstellung
+
+Teilweiser Verbrauch reduziert die Menge. Vollständiger Verbrauch kann den
+Bestand löschen oder auf null setzen.
+
+Beim Wegwerfen wird ein Grund als `Buttato|<reason>` gespeichert:
+
+```text
+expired | spoiled | wrong_location | kept_too_long
+bought_too_much | forgotten | bad_quality | other
+```
+
+Mengen-Korrekturen erzeugen `in` oder `out` mit
+`[Manual correction]`.
+
+Verschieben erzeugt:
+
+```text
+out am alten Ort
+in am neuen Ort
+```
+
+Undo ist innerhalb von 24 Stunden möglich. Die Originaltransaktion erhält
+`undone = 1`; eine Gegenbuchung mit `[Undone]` wird gespeichert.
+
 
 Zielmodul: `inventory-lifecycle`.
 
