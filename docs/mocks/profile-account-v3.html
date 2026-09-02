@@ -1,0 +1,931 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>fam · Profil-Biometrie Varianten</title>
+    <style>
+      :root {
+        --canvas: #171419;
+        --canvas-text: #f7f1ed;
+        --canvas-muted: #bcb2ba;
+        --screen: #f8f4ef;
+        --surface: #fbf7f2;
+        --selected: #e9e1e7;
+        --text: #2d2830;
+        --muted: #786f79;
+        --border: #e4dde3;
+        --accent: #705773;
+        --on-accent: #ffffff;
+        --success: #78906f;
+        --shadow: rgba(42, 31, 44, 0.24);
+      }
+
+      * { box-sizing: border-box; }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        background: var(--canvas);
+        color: var(--canvas-text);
+        font-family: ui-rounded, -apple-system, BlinkMacSystemFont, "SF Pro Rounded", "Segoe UI", sans-serif;
+      }
+
+      button { font: inherit; }
+
+      .page {
+        max-width: 1440px;
+        margin: 0 auto;
+        padding: 32px 24px 48px;
+      }
+
+      .topbar {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        gap: 24px;
+        margin-bottom: 28px;
+      }
+
+      .eyebrow {
+        color: #c8b3ca;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      h1 {
+        margin: 6px 0 6px;
+        font-size: clamp(25px, 3vw, 38px);
+        line-height: 1.1;
+        letter-spacing: -0.03em;
+      }
+
+      .intro {
+        max-width: 680px;
+        margin: 0;
+        color: var(--canvas-muted);
+        font-size: 15px;
+        line-height: 1.5;
+      }
+
+      .controls {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        padding: 4px;
+        border: 1px solid #3d363f;
+        border-radius: 12px;
+        background: #211d23;
+      }
+
+      .controls button {
+        min-height: 38px;
+        padding: 0 14px;
+        border: 0;
+        border-radius: 8px;
+        background: transparent;
+        color: #b7adb3;
+        cursor: pointer;
+        font-size: 13px;
+        font-weight: 700;
+      }
+
+      .controls button.active {
+        background: #b79cba;
+        color: #211d23;
+      }
+
+      .variants {
+        display: grid;
+        grid-template-columns: minmax(300px, 390px);
+        gap: 24px;
+        align-items: start;
+      }
+
+      .variants > article:not(:first-child) { display: none; }
+
+      .variant-head {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: 12px;
+        min-height: 74px;
+        margin: 0 3px 14px;
+      }
+
+      .letter {
+        display: grid;
+        place-items: center;
+        width: 34px;
+        height: 34px;
+        border: 1px solid #5a4a5e;
+        border-radius: 10px;
+        color: #decce0;
+        font-weight: 800;
+      }
+
+      .variant-title {
+        margin: 1px 0 3px;
+        font-size: 16px;
+        font-weight: 800;
+      }
+
+      .variant-note {
+        margin: 0;
+        color: var(--canvas-muted);
+        font-size: 13px;
+        line-height: 1.35;
+      }
+
+      .recommended {
+        color: #e8d8e9;
+      }
+
+      .phone {
+        position: relative;
+        width: 100%;
+        max-width: 390px;
+        height: 760px;
+        margin: 0 auto;
+        overflow: hidden;
+        border: 1px solid #474049;
+        border-radius: 34px;
+        background: var(--screen);
+        color: var(--text);
+        box-shadow: 0 24px 56px var(--shadow);
+      }
+
+      .status {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 30px;
+        padding: 8px 24px 0;
+        color: var(--text);
+        font-size: 11px;
+        font-weight: 700;
+      }
+
+      .notch {
+        position: absolute;
+        top: 8px;
+        left: 50%;
+        width: 90px;
+        height: 20px;
+        transform: translateX(-50%);
+        border-radius: 20px;
+        background: #171419;
+      }
+
+      .screen-header {
+        display: grid;
+        grid-template-columns: 42px 1fr 42px;
+        align-items: center;
+        min-height: 58px;
+        padding: 5px 16px 7px;
+      }
+
+      .back {
+        display: grid;
+        place-items: center;
+        width: 34px;
+        height: 34px;
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        background: var(--surface);
+        color: var(--text);
+        font-size: 26px;
+        line-height: 1;
+      }
+
+      .screen-title {
+        text-align: center;
+        font-size: 18px;
+        font-weight: 800;
+        letter-spacing: -0.015em;
+      }
+
+      .scroll {
+        height: calc(100% - 88px);
+        padding: 8px 18px 116px;
+        overflow-y: auto;
+        scrollbar-width: none;
+      }
+
+      .scroll::-webkit-scrollbar { display: none; }
+
+      .context-block {
+        margin-bottom: 24px;
+      }
+
+      .section-bar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        margin-bottom: 10px;
+      }
+
+      .section-title {
+        font-size: 14px;
+        font-weight: 800;
+        letter-spacing: -0.005em;
+      }
+
+      .edit-link {
+        min-height: 36px;
+        padding: 7px 0 5px 12px;
+        border: 0;
+        background: transparent;
+        color: var(--accent);
+        font-size: 13px;
+        font-weight: 800;
+      }
+
+      .fake-field {
+        padding: 11px 0;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .fake-label, .meta-label {
+        color: var(--muted);
+        font-size: 11px;
+        font-weight: 650;
+      }
+
+      .fake-value {
+        margin-top: 4px;
+        font-size: 14px;
+        font-weight: 650;
+      }
+
+      .password-action {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        min-height: 44px;
+        margin-top: 10px;
+        padding: 0 13px;
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        background: var(--surface);
+        color: var(--accent);
+        cursor: pointer;
+        font-size: 12px;
+        font-weight: 800;
+        text-align: left;
+      }
+
+      .password-action:focus-visible {
+        outline: 3px solid var(--selected);
+        outline-offset: 2px;
+      }
+
+      .save {
+        position: absolute;
+        right: 18px;
+        bottom: 22px;
+        left: 18px;
+        display: grid;
+        place-items: center;
+        min-height: 52px;
+        border-radius: 15px;
+        background: var(--accent);
+        color: var(--on-accent);
+        font-size: 15px;
+        font-weight: 800;
+        box-shadow: 0 10px 24px rgba(89, 64, 89, 0.18);
+      }
+
+      .surface {
+        border: 1px solid var(--border);
+        background: var(--surface);
+      }
+
+      /* A: klare Gewichtshierarchie */
+      .a-panel {
+        overflow: hidden;
+        border-radius: 20px;
+      }
+
+      .weight-primary {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        min-height: 92px;
+        padding: 17px 16px;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .weight-value {
+        margin-top: 3px;
+        font-size: 28px;
+        font-weight: 850;
+        letter-spacing: -0.04em;
+      }
+
+      .history-badge {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        color: var(--muted);
+        font-size: 10px;
+        font-weight: 700;
+      }
+
+      .history-dot {
+        width: 7px;
+        height: 7px;
+        border-radius: 99px;
+        background: var(--success);
+      }
+
+      .facts-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .fact {
+        min-height: 67px;
+        padding: 13px 15px;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .fact:nth-child(odd) { border-right: 1px solid var(--border); }
+      .fact:nth-last-child(-n + 2) { border-bottom: 0; }
+
+      .fact-value {
+        margin-top: 5px;
+        font-size: 13px;
+        font-weight: 750;
+      }
+
+      .privacy-note {
+        margin: 9px 3px 0;
+        color: var(--muted);
+        font-size: 10px;
+        line-height: 1.4;
+      }
+
+      .food-block { margin-top: 23px; }
+
+      .food-list {
+        overflow: hidden;
+        border-radius: 20px;
+      }
+
+      .food-row {
+        display: grid;
+        grid-template-columns: 112px 1fr auto;
+        align-items: center;
+        gap: 10px;
+        min-height: 57px;
+        padding: 10px 14px;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .food-row:last-child { border-bottom: 0; }
+      .food-name { font-size: 12px; font-weight: 750; }
+      .food-value { color: var(--muted); font-size: 11px; font-weight: 650; line-height: 1.35; text-align: right; }
+
+      /* B: klassische Settings-Liste */
+      .settings-list {
+        overflow: hidden;
+        border-radius: 20px;
+      }
+
+      .settings-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 14px;
+        min-height: 58px;
+        padding: 9px 15px;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .settings-row:last-child { border-bottom: 0; }
+      .settings-name { font-size: 13px; font-weight: 690; }
+      .settings-value { color: var(--muted); font-size: 13px; font-weight: 650; text-align: right; }
+      .settings-value.strong { color: var(--text); font-size: 17px; font-weight: 850; }
+      .chevron { margin-left: 3px; color: #a59aa5; font-size: 18px; }
+
+      /* C: kein Container, maximale Ruhe */
+      .editorial {
+        padding: 2px 1px 0;
+      }
+
+      .editorial-weight {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        gap: 16px;
+        padding: 10px 0 19px;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .editorial-weight .weight-value { font-size: 37px; }
+
+      .mini-action {
+        padding-bottom: 5px;
+        color: var(--accent);
+        font-size: 12px;
+        font-weight: 800;
+      }
+
+      .editorial-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 14px;
+        padding: 14px 0;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .editorial-cell:last-child { text-align: right; }
+      .editorial-value { margin-top: 4px; font-size: 13px; font-weight: 750; }
+
+      /* Editing previews */
+      .profile-state { display: block; }
+      .edit-state { display: none; }
+      .food-edit-state { display: none; }
+      body.editing .profile-state { display: none; }
+      body.editing .edit-state { display: block; }
+      body.food-editing .profile-state { display: none; }
+      body.food-editing .food-edit-state { display: block; }
+
+      .dimmed {
+        position: absolute;
+        inset: 0;
+        background: rgba(33, 29, 35, 0.38);
+      }
+
+      .sheet {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        height: 615px;
+        padding: 10px 18px 24px;
+        border-radius: 28px 28px 0 0;
+        background: var(--screen);
+        color: var(--text);
+        box-shadow: 0 -14px 38px var(--shadow);
+      }
+
+      .handle {
+        width: 36px;
+        height: 4px;
+        margin: 0 auto 17px;
+        border-radius: 9px;
+        background: var(--border);
+      }
+
+      .sheet-head {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        margin-bottom: 20px;
+      }
+
+      .sheet-title { font-size: 21px; font-weight: 850; letter-spacing: -0.025em; }
+      .sheet-subtitle { margin-top: 4px; color: var(--muted); font-size: 11px; }
+      .close { color: var(--muted); font-size: 20px; }
+
+      .edit-group-label {
+        margin: 18px 0 7px;
+        color: var(--muted);
+        font-size: 10px;
+        font-weight: 800;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+      }
+
+      .edit-list {
+        overflow: hidden;
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        background: var(--surface);
+      }
+
+      .edit-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        min-height: 50px;
+        padding: 9px 13px;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .edit-row:last-child { border-bottom: 0; }
+      .edit-row label { font-size: 12px; font-weight: 700; }
+      .edit-value { color: var(--accent); font-size: 13px; font-weight: 800; }
+
+      .weight-editor {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        min-height: 80px;
+        padding: 12px 14px;
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        background: var(--surface);
+      }
+
+      .weight-input {
+        display: flex;
+        align-items: baseline;
+        gap: 5px;
+      }
+
+      .weight-input strong { font-size: 27px; letter-spacing: -0.035em; }
+      .weight-input span { color: var(--muted); font-size: 13px; font-weight: 700; }
+
+      .done-button {
+        position: absolute;
+        right: 18px;
+        bottom: 22px;
+        left: 18px;
+        display: grid;
+        place-items: center;
+        min-height: 50px;
+        border-radius: 15px;
+        background: var(--accent);
+        color: var(--on-accent);
+        font-size: 14px;
+        font-weight: 850;
+      }
+
+      .food-overview {
+        overflow: hidden;
+        margin-top: 8px;
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        background: var(--surface);
+      }
+
+      .food-overview-row {
+        display: grid;
+        grid-template-columns: 122px 1fr auto;
+        align-items: center;
+        gap: 9px;
+        min-height: 68px;
+        padding: 10px 13px;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .food-overview-row:last-child { border-bottom: 0; }
+      .food-overview-label { font-size: 12px; font-weight: 750; }
+      .food-overview-value { color: var(--muted); font-size: 11px; font-weight: 650; line-height: 1.35; text-align: right; }
+      .food-editor-note { margin-top: 16px; }
+
+      .full-editor {
+        position: absolute;
+        inset: 30px 0 0;
+        padding: 0 18px;
+        background: var(--screen);
+      }
+
+      .nav-editor {
+        display: grid;
+        grid-template-columns: 70px 1fr 70px;
+        align-items: center;
+        height: 58px;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .nav-editor span { color: var(--accent); font-size: 12px; font-weight: 750; }
+      .nav-editor span:last-child { text-align: right; font-weight: 850; }
+      .nav-editor strong { text-align: center; font-size: 16px; }
+
+      .inline-editor {
+        margin-top: 16px;
+      }
+
+      .number-line {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        padding: 16px 0;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .number-line strong { font-size: 29px; letter-spacing: -0.035em; }
+
+      .choice-line {
+        display: flex;
+        gap: 8px;
+        margin-top: 10px;
+      }
+
+      .choice {
+        display: grid;
+        place-items: center;
+        flex: 1;
+        min-height: 40px;
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        background: var(--surface);
+        color: var(--text);
+        font-size: 11px;
+        font-weight: 750;
+      }
+
+      .choice.selected { border-color: var(--accent); background: var(--selected); color: var(--accent); }
+
+      body.dark {
+        --screen: #211d23;
+        --surface: #2b262e;
+        --selected: #382f3b;
+        --text: #f2ece7;
+        --muted: #b7adb3;
+        --border: #3e3640;
+        --accent: #b79cba;
+        --on-accent: #211d23;
+        --success: #8fae86;
+        --shadow: rgba(0, 0, 0, 0.42);
+      }
+
+      @media (max-width: 1040px) {
+        .variants { grid-template-columns: 1fr; gap: 38px; }
+        .variant-head { max-width: 390px; margin-right: auto; margin-left: auto; }
+      }
+
+      @media (max-width: 620px) {
+        .page { padding: 22px 12px 36px; }
+        .topbar { align-items: stretch; flex-direction: column; }
+        .controls { align-self: flex-start; }
+        .phone { height: 740px; border-radius: 28px; }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="page">
+      <div class="topbar">
+        <div>
+          <div class="eyebrow">fam · Designentscheidung</div>
+          <h1>Körper &amp; Aktivität im Profil</h1>
+          <p class="intro">Eine ruhige Richtung mit kompaktem Profil und klarer Bearbeitung.</p>
+        </div>
+        <div class="controls" aria-label="Vorschau steuern">
+          <button id="profileButton" class="active" type="button">Profil</button>
+          <button id="editButton" type="button">Körper bearbeiten</button>
+          <button id="foodButton" type="button">Lebensmittel bearbeiten</button>
+          <button id="themeButton" type="button">Dunkel</button>
+        </div>
+      </div>
+
+      <section class="variants">
+        <article>
+          <div class="variant-head">
+            <div class="letter">A</div>
+            <div>
+              <div class="variant-title recommended">Gewicht zuerst · Empfehlung</div>
+              <p class="variant-note">Klare Priorität, übrige Werte kompakt. Im Sheet werden seltene Optionen zu einfachen Zeilen.</p>
+            </div>
+          </div>
+          <div class="phone">
+            <div class="profile-state">
+              <div class="notch"></div>
+              <div class="status"><span>9:41</span><span>5G&nbsp;&nbsp;●</span></div>
+              <div class="screen-header"><div class="back">‹</div><div class="screen-title">Profil &amp; Account</div><div></div></div>
+              <div class="scroll">
+                <div class="context-block">
+                  <div class="section-bar"><div class="section-title">Persönliche Angaben</div></div>
+                  <div class="fake-field"><div class="fake-label">Name</div><div class="fake-value">Max Mustermann</div></div>
+                  <div class="fake-field"><div class="fake-label">E-Mail-Adresse</div><div class="fake-value">max@example.com</div></div>
+                  <button type="button" class="password-action"><span>Passwort ändern</span><span aria-hidden="true">›</span></button>
+                </div>
+                <div class="section-bar"><div class="section-title">Körper &amp; Aktivität</div><button class="edit-link">Bearbeiten</button></div>
+                <div class="a-panel surface">
+                  <div class="weight-primary">
+                    <div><div class="meta-label">Aktuelles Gewicht</div><div class="weight-value">79,5 kg</div></div>
+                    <div class="history-badge"><span class="history-dot"></span>Heute</div>
+                  </div>
+                  <div class="facts-grid">
+                    <div class="fact"><div class="meta-label">Größe</div><div class="fact-value">181 cm</div></div>
+                    <div class="fact"><div class="meta-label">Geburtsdatum</div><div class="fact-value">15.05.1990</div></div>
+                    <div class="fact"><div class="meta-label">Berechnungsbasis</div><div class="fact-value">Männlich</div></div>
+                    <div class="fact"><div class="meta-label">Aktivität</div><div class="fact-value">Mäßig aktiv</div></div>
+                  </div>
+                </div>
+                <p class="privacy-note">Privat · Änderungen am Gewicht werden im Verlauf gespeichert.</p>
+                <div class="food-block">
+                  <div class="section-bar"><div class="section-title">Lebensmittel &amp; Verträglichkeit</div><button class="edit-link">Bearbeiten</button></div>
+                  <div class="food-list surface">
+                    <div class="food-row"><span class="food-name">Allergien</span><span class="food-value">Erdnüsse, Schalentiere</span><span class="chevron">›</span></div>
+                    <div class="food-row"><span class="food-name">Unverträglichkeiten</span><span class="food-value">Laktose</span><span class="chevron">›</span></div>
+                    <div class="food-row"><span class="food-name">Mag ich nicht</span><span class="food-value">Oliven, Koriander</span><span class="chevron">›</span></div>
+                  </div>
+                  <p class="privacy-note">Persönliche Angaben, keine medizinische Diagnose.</p>
+                </div>
+              </div>
+              <div class="save">Änderungen speichern</div>
+            </div>
+            <div class="edit-state">
+              <div class="notch"></div><div class="status"><span>9:41</span><span>5G&nbsp;&nbsp;●</span></div>
+              <div class="dimmed"></div>
+              <div class="sheet">
+                <div class="handle"></div>
+                <div class="sheet-head"><div><div class="sheet-title">Körper &amp; Aktivität</div><div class="sheet-subtitle">Deine persönlichen Berechnungswerte</div></div><div class="close">×</div></div>
+                <div class="weight-editor"><div><div class="meta-label">Aktuelles Gewicht</div><div class="sheet-subtitle">Neuer Eintrag im Verlauf</div></div><div class="weight-input"><strong>79,5</strong><span>kg</span></div></div>
+                <div class="edit-group-label">Profilangaben</div>
+                <div class="edit-list">
+                  <div class="edit-row"><label>Körpergröße</label><span class="edit-value">181 cm</span></div>
+                  <div class="edit-row"><label>Geburtsdatum</label><span class="edit-value">15.05.1990</span></div>
+                  <div class="edit-row"><label>Berechnungsbasis</label><span class="edit-value">Männlich&nbsp; ›</span></div>
+                  <div class="edit-row"><label>Aktivitätslevel</label><span class="edit-value">Mäßig aktiv&nbsp; ›</span></div>
+                </div>
+                <div class="done-button">Angaben übernehmen</div>
+              </div>
+            </div>
+            <div class="food-edit-state">
+              <div class="notch"></div><div class="status"><span>9:41</span><span>5G&nbsp;&nbsp;●</span></div>
+              <div class="dimmed"></div>
+              <div class="sheet">
+                <div class="handle"></div>
+                <div class="sheet-head"><div><div class="sheet-title">Lebensmittel &amp; Verträglichkeit</div><div class="sheet-subtitle">Persönliche Angaben, keine medizinische Diagnose</div></div><div class="close">×</div></div>
+                <div class="food-overview">
+                  <div class="food-overview-row"><span class="food-overview-label">Allergien</span><span class="food-overview-value">Erdnüsse, Schalentiere</span><span class="chevron">›</span></div>
+                  <div class="food-overview-row"><span class="food-overview-label">Unverträglichkeiten</span><span class="food-overview-value">Laktose</span><span class="chevron">›</span></div>
+                  <div class="food-overview-row"><span class="food-overview-label">Mag ich nicht</span><span class="food-overview-value">Oliven, Koriander</span><span class="chevron">›</span></div>
+                </div>
+                <div class="done-button">Auswahl übernehmen</div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article>
+          <div class="variant-head">
+            <div class="letter">B</div>
+            <div><div class="variant-title">Klassische Profil-Liste</div><p class="variant-note">Am vertrautesten und am dichtesten. Jeder Wert ist direkt scannbar, ohne eigene Gewichtskarte.</p></div>
+          </div>
+          <div class="phone">
+            <div class="profile-state">
+              <div class="notch"></div><div class="status"><span>9:41</span><span>5G&nbsp;&nbsp;●</span></div>
+              <div class="screen-header"><div class="back">‹</div><div class="screen-title">Profil &amp; Account</div><div></div></div>
+              <div class="scroll">
+                <div class="context-block">
+                  <div class="section-bar"><div class="section-title">Persönliche Angaben</div></div>
+                  <div class="fake-field"><div class="fake-label">Name</div><div class="fake-value">Max Mustermann</div></div>
+                  <div class="fake-field"><div class="fake-label">E-Mail-Adresse</div><div class="fake-value">max@example.com</div></div>
+                  <button type="button" class="password-action"><span>Passwort ändern</span><span aria-hidden="true">›</span></button>
+                </div>
+                <div class="section-bar"><div class="section-title">Körper &amp; Aktivität</div><button class="edit-link">Bearbeiten</button></div>
+                <div class="settings-list surface">
+                  <div class="settings-row"><span class="settings-name">Aktuelles Gewicht</span><span><span class="settings-value strong">79,5 kg</span><span class="chevron">›</span></span></div>
+                  <div class="settings-row"><span class="settings-name">Körpergröße</span><span class="settings-value">181 cm</span></div>
+                  <div class="settings-row"><span class="settings-name">Geburtsdatum</span><span class="settings-value">15.05.1990</span></div>
+                  <div class="settings-row"><span class="settings-name">Berechnungsbasis</span><span class="settings-value">Männlich</span></div>
+                  <div class="settings-row"><span class="settings-name">Aktivitätslevel</span><span class="settings-value">Mäßig aktiv</span></div>
+                </div>
+                <p class="privacy-note">Gewicht: neuester privater Verlaufseintrag</p>
+                <div class="food-block">
+                  <div class="section-bar"><div class="section-title">Lebensmittel &amp; Verträglichkeit</div><button class="edit-link">Bearbeiten</button></div>
+                  <div class="settings-list surface">
+                    <div class="settings-row"><span class="settings-name">Allergien</span><span><span class="settings-value">Erdnüsse, Schalentiere</span><span class="chevron">›</span></span></div>
+                    <div class="settings-row"><span class="settings-name">Unverträglichkeiten</span><span><span class="settings-value">Laktose</span><span class="chevron">›</span></span></div>
+                    <div class="settings-row"><span class="settings-name">Mag ich nicht</span><span><span class="settings-value">Oliven, Koriander</span><span class="chevron">›</span></span></div>
+                  </div>
+                </div>
+              </div>
+              <div class="save">Änderungen speichern</div>
+            </div>
+            <div class="edit-state">
+              <div class="notch"></div><div class="status"><span>9:41</span><span>5G&nbsp;&nbsp;●</span></div>
+              <div class="full-editor">
+                <div class="nav-editor"><span>Abbrechen</span><strong>Körperdaten</strong><span>Fertig</span></div>
+                <div class="edit-group-label">Messwert</div>
+                <div class="edit-list"><div class="edit-row"><label>Aktuelles Gewicht</label><span class="edit-value">79,5 kg</span></div></div>
+                <div class="privacy-note">Speichert beim Ändern einen neuen Verlaufseintrag.</div>
+                <div class="edit-group-label">Persönliche Angaben</div>
+                <div class="edit-list">
+                  <div class="edit-row"><label>Körpergröße</label><span class="edit-value">181 cm</span></div>
+                  <div class="edit-row"><label>Geburtsdatum</label><span class="edit-value">15.05.1990</span></div>
+                  <div class="edit-row"><label>Berechnungsbasis</label><span class="edit-value">Männlich&nbsp; ›</span></div>
+                  <div class="edit-row"><label>Aktivitätslevel</label><span class="edit-value">Mäßig aktiv&nbsp; ›</span></div>
+                </div>
+              </div>
+            </div>
+            <div class="food-edit-state">
+              <div class="notch"></div><div class="status"><span>9:41</span><span>5G&nbsp;&nbsp;●</span></div>
+              <div class="full-editor">
+                <div class="nav-editor"><span>Abbrechen</span><strong>Lebensmittel</strong><span>Fertig</span></div>
+                <div class="privacy-note food-editor-note">Persönliche Angaben, keine medizinische Diagnose.</div>
+                <div class="edit-group-label">Deine Angaben</div>
+                <div class="food-overview">
+                  <div class="food-overview-row"><span class="food-overview-label">Allergien</span><span class="food-overview-value">Erdnüsse, Schalentiere</span><span class="chevron">›</span></div>
+                  <div class="food-overview-row"><span class="food-overview-label">Unverträglichkeiten</span><span class="food-overview-value">Laktose</span><span class="chevron">›</span></div>
+                  <div class="food-overview-row"><span class="food-overview-label">Mag ich nicht</span><span class="food-overview-value">Oliven, Koriander</span><span class="chevron">›</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article>
+          <div class="variant-head">
+            <div class="letter">C</div>
+            <div><div class="variant-title">Editorial ohne Karte</div><p class="variant-note">Am leichtesten und offensten. Keine zusätzliche Fläche, nur Typografie und Trennlinien.</p></div>
+          </div>
+          <div class="phone">
+            <div class="profile-state">
+              <div class="notch"></div><div class="status"><span>9:41</span><span>5G&nbsp;&nbsp;●</span></div>
+              <div class="screen-header"><div class="back">‹</div><div class="screen-title">Profil &amp; Account</div><div></div></div>
+              <div class="scroll">
+                <div class="context-block">
+                  <div class="section-bar"><div class="section-title">Persönliche Angaben</div></div>
+                  <div class="fake-field"><div class="fake-label">Name</div><div class="fake-value">Max Mustermann</div></div>
+                  <div class="fake-field"><div class="fake-label">E-Mail-Adresse</div><div class="fake-value">max@example.com</div></div>
+                  <button type="button" class="password-action"><span>Passwort ändern</span><span aria-hidden="true">›</span></button>
+                </div>
+                <div class="section-bar"><div class="section-title">Körper &amp; Aktivität</div><button class="edit-link">Bearbeiten</button></div>
+                <div class="editorial">
+                  <div class="editorial-weight"><div><div class="meta-label">Aktuelles Gewicht</div><div class="weight-value">79,5 kg</div></div><div class="mini-action">Verlauf</div></div>
+                  <div class="editorial-row"><div class="editorial-cell"><div class="meta-label">Körpergröße</div><div class="editorial-value">181 cm</div></div><div class="editorial-cell"><div class="meta-label">Geburtsdatum</div><div class="editorial-value">15.05.1990</div></div></div>
+                  <div class="editorial-row"><div class="editorial-cell"><div class="meta-label">Berechnungsbasis</div><div class="editorial-value">Männlich</div></div><div class="editorial-cell"><div class="meta-label">Aktivität</div><div class="editorial-value">Mäßig aktiv</div></div></div>
+                </div>
+                <p class="privacy-note">Nur für dich sichtbar</p>
+                <div class="food-block">
+                  <div class="section-bar"><div class="section-title">Lebensmittel &amp; Verträglichkeit</div><button class="edit-link">Bearbeiten</button></div>
+                  <div class="editorial">
+                    <div class="editorial-row"><div class="editorial-cell"><div class="meta-label">Allergien</div><div class="editorial-value">Erdnüsse, Schalentiere</div></div><div class="editorial-cell"><div class="meta-label">Unverträglichkeiten</div><div class="editorial-value">Laktose</div></div></div>
+                    <div class="editorial-row"><div class="editorial-cell"><div class="meta-label">Mag ich nicht</div><div class="editorial-value">Oliven, Koriander</div></div><div class="editorial-cell"><div class="mini-action">Bearbeiten</div></div></div>
+                  </div>
+                </div>
+              </div>
+              <div class="save">Änderungen speichern</div>
+            </div>
+            <div class="edit-state">
+              <div class="notch"></div><div class="status"><span>9:41</span><span>5G&nbsp;&nbsp;●</span></div>
+              <div class="full-editor">
+                <div class="nav-editor"><span>‹ Profil</span><strong>Körperdaten</strong><span>Fertig</span></div>
+                <div class="inline-editor">
+                  <div class="meta-label">Aktuelles Gewicht</div>
+                  <div class="number-line"><strong>79,5 kg</strong><span class="mini-action">Ändern</span></div>
+                  <div class="meta-label" style="margin-top:18px">Körpergröße</div>
+                  <div class="number-line"><strong>181 cm</strong><span class="mini-action">Ändern</span></div>
+                  <div class="editorial-row"><div><div class="meta-label">Geburtsdatum</div><div class="editorial-value">15.05.1990</div></div><div class="editorial-cell"><div class="mini-action">Ändern</div></div></div>
+                  <div class="edit-group-label">Berechnungsbasis</div>
+                  <div class="choice-line"><div class="choice selected">Männlich</div><div class="choice">Weiblich</div></div>
+                  <div class="edit-group-label">Aktivitätslevel</div>
+                  <div class="choice-line"><div class="choice">Leicht</div><div class="choice selected">Mäßig</div><div class="choice">Aktiv</div></div>
+                </div>
+              </div>
+            </div>
+            <div class="food-edit-state">
+              <div class="notch"></div><div class="status"><span>9:41</span><span>5G&nbsp;&nbsp;●</span></div>
+              <div class="full-editor">
+                <div class="nav-editor"><span>‹ Profil</span><strong>Lebensmittel</strong><span>Fertig</span></div>
+                <div class="privacy-note food-editor-note">Persönliche Angaben, keine medizinische Diagnose.</div>
+                <div class="inline-editor">
+                  <div class="editorial-row"><div><div class="meta-label">Allergien</div><div class="editorial-value">Erdnüsse, Schalentiere</div></div><div class="editorial-cell"><div class="mini-action">Ändern</div></div></div>
+                  <div class="editorial-row"><div><div class="meta-label">Unverträglichkeiten</div><div class="editorial-value">Laktose</div></div><div class="editorial-cell"><div class="mini-action">Ändern</div></div></div>
+                  <div class="editorial-row"><div><div class="meta-label">Mag ich nicht</div><div class="editorial-value">Oliven, Koriander</div></div><div class="editorial-cell"><div class="mini-action">Ändern</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+      </section>
+    </main>
+    <script>
+      const profileButton = document.querySelector('#profileButton');
+      const editButton = document.querySelector('#editButton');
+      const foodButton = document.querySelector('#foodButton');
+      const themeButton = document.querySelector('#themeButton');
+
+      function activate(button) {
+        [profileButton, editButton, foodButton].forEach((control) => control.classList.remove('active'));
+        button.classList.add('active');
+      }
+
+      profileButton.addEventListener('click', () => {
+        document.body.classList.remove('editing');
+        document.body.classList.remove('food-editing');
+        activate(profileButton);
+      });
+
+      editButton.addEventListener('click', () => {
+        document.body.classList.remove('food-editing');
+        document.body.classList.add('editing');
+        activate(editButton);
+      });
+
+      foodButton.addEventListener('click', () => {
+        document.body.classList.remove('editing');
+        document.body.classList.add('food-editing');
+        activate(foodButton);
+      });
+
+      themeButton.addEventListener('click', () => {
+        const dark = document.body.classList.toggle('dark');
+        themeButton.textContent = dark ? 'Hell' : 'Dunkel';
+        themeButton.classList.toggle('active', dark);
+      });
+    </script>
+  </body>
+</html>

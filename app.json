@@ -139,9 +139,13 @@
       [
         "expo-custom-assets",
         {
-          "assetsPaths": ["./assets/splash"]
+          "assetsPaths": [
+            "./assets/splash"
+          ]
         }
-      ]
+      ],
+      "@react-native-community/datetimepicker",
+      "expo-font"
     ],
     "experiments": {
       "typedRoutes": true,

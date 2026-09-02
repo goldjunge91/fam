@@ -25,6 +25,9 @@ alter default privileges for role postgres in schema public
 -- ausschliesslich RLS. Ohne das Tabellenrecht kaeme die Policy gar nicht erst
 -- zum Zuge, mit dem Recht allein sieht niemand fremde Daten.
 grant delete, insert, select, update on public.profiles to anon, authenticated, service_role;
+revoke all on public.profile_food_rules from anon, authenticated, service_role;
+grant insert, select, update on public.profile_food_rules to authenticated;
+grant delete, insert, select, update on public.profile_food_rules to service_role;
 grant delete, insert, select, update on public.households to anon, authenticated, service_role;
 grant delete, insert, select, update on public.household_members to anon, authenticated, service_role;
 revoke all on public.revenuecat_ai_assignments from anon, authenticated, service_role;

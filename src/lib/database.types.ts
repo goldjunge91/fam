@@ -1468,6 +1468,39 @@ export type Database = {
           },
         ]
       }
+      profile_food_rules: {
+        Row: {
+          allergy_codes: string[]
+          created_at: string
+          custom_allergies: string[]
+          custom_intolerances: string[]
+          disliked_foods: string[]
+          intolerance_codes: string[]
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          allergy_codes?: string[]
+          created_at?: string
+          custom_allergies?: string[]
+          custom_intolerances?: string[]
+          disliked_foods?: string[]
+          intolerance_codes?: string[]
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          allergy_codes?: string[]
+          created_at?: string
+          custom_allergies?: string[]
+          custom_intolerances?: string[]
+          disliked_foods?: string[]
+          intolerance_codes?: string[]
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
       profiles: {
         Row: {
           activity_level: string | null
@@ -3077,4 +3110,3 @@ export const Constants = {
     Enums: {},
   },
 } as const
-

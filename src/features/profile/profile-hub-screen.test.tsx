@@ -20,7 +20,7 @@ jest.mock('@/features/profile/api', () => ({
   useProfile: jest.fn(),
 }));
 
-async function renderScreen() {
+async function renderScreen(avatarUrl: string | null = null) {
   const queryClient = new QueryClient({
     defaultOptions: {
       queries: { retry: false, gcTime: Number.POSITIVE_INFINITY },
@@ -38,7 +38,7 @@ async function renderScreen() {
     data: {
       id: 'user-1',
       display_name: 'Max Mustermann',
-      avatar_url: null,
+      avatar_url: avatarUrl,
       tracking_method: 'standard',
     },
     isLoading: false,
@@ -62,6 +62,15 @@ describe('ProfileHubScreen (Vorseite)', () => {
     expect(screen.getByText('Max Mustermann')).toBeOnTheScreen();
     expect(screen.getByText('max@example.com')).toBeOnTheScreen();
     expect(screen.getByText('MM')).toBeOnTheScreen();
+  });
+
+  it('gibt dem Profilbild eine explizite Groesse', async () => {
+    await renderScreen('https://example.com/avatar.jpg');
+
+    expect(screen.getByLabelText('Profilbild im Profil')).toHaveStyle({
+      width: '100%',
+      height: '100%',
+    });
   });
 
   it('navigiert zu Profil & Account beim Klick auf Profil & Account-Daten', async () => {

@@ -74,11 +74,25 @@ describe('EditProfileScreen', () => {
     expect(screen.getByDisplayValue('max@example.com')).toBeOnTheScreen();
   });
 
+  it('zeigt Allergien, Unverträglichkeiten und Mag ich nicht im Profil', async () => {
+    await renderScreen();
+
+    expect(screen.getByRole('button', { name: /Allergien bearbeiten/ })).toBeOnTheScreen();
+    expect(
+      screen.getByRole('button', { name: /Unverträglichkeiten bearbeiten/ }),
+    ).toBeOnTheScreen();
+    expect(screen.getByRole('button', { name: /Mag ich nicht bearbeiten/ })).toBeOnTheScreen();
+  });
+
   it('zeigt Bild entfernen an wenn ein avatar_url vorhanden ist', async () => {
     await renderScreen('https://example.com/avatar.jpg');
 
     expect(screen.getByText('Bild ändern')).toBeOnTheScreen();
     expect(screen.getByText('Bild entfernen')).toBeOnTheScreen();
+    expect(screen.getByLabelText('Profilbild bearbeiten')).toHaveStyle({
+      width: '100%',
+      height: '100%',
+    });
   });
 
   it('loescht das Profilbild beim Klick auf Bild entfernen', async () => {

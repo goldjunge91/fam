@@ -140,7 +140,7 @@ jest.mock('@/features/navigation/navigation-chrome-provider', () => ({
 }));
 
 jest.mock('@/features/navigation/use-profile-initials', () => ({
-  useProfileInitials: () => 'M',
+  useProfileAvatar: () => ({ initials: 'M', avatarUrl: null }),
 }));
 
 jest.mock('@/features/inventory/barcode-scanner-modal', () => {

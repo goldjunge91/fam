@@ -69,10 +69,12 @@ export function EditProfileScreen() {
 
       setUploadingImage(true);
       const remoteUrl = await uploadAvatarImage(userId, localUri);
-      setAvatarUrl(remoteUrl);
 
       // Direkt im Profil persistieren
-      await updateProfile(userId, { avatarUrl: remoteUrl });
+      const { error } = await updateProfile(userId, { avatarUrl: remoteUrl });
+      if (error) throw new Error(error.message, { cause: error });
+
+      setAvatarUrl(remoteUrl);
       await queryClient.invalidateQueries({ queryKey: ['profile', userId] });
     } catch (err: unknown) {
       const msg = err instanceof Error ? err.message : 'Fehler beim Hochladen des Profilbilds.';
@@ -84,12 +86,18 @@ export function EditProfileScreen() {
 
   async function handleDeleteImage() {
     if (!userId || uploadingImage) return;
-    setAvatarUrl(null);
+    setUploadingImage(true);
     try {
-      await updateProfile(userId, { avatarUrl: null });
+      const { error } = await updateProfile(userId, { avatarUrl: null });
+      if (error) throw new Error(error.message, { cause: error });
+
+      setAvatarUrl(null);
       await queryClient.invalidateQueries({ queryKey: ['profile', userId] });
-    } catch {
-      // Ignorieren
+    } catch (err: unknown) {
+      const msg = err instanceof Error ? err.message : 'Fehler beim Entfernen des Profilbilds.';
+      Alert.alert('Fehler', msg);
+    } finally {
+      setUploadingImage(false);
     }
   }
 
@@ -143,7 +151,12 @@ export function EditProfileScreen() {
             style={{ backgroundColor: theme.accent }}
             className="w-20 h-20 rounded-full overflow-hidden items-center justify-center border-2 border-border">
             {avatarUrl ? (
-              <Image source={{ uri: avatarUrl }} className="w-full h-full" contentFit="cover" />
+              <Image
+                source={{ uri: avatarUrl }}
+                accessibilityLabel="Profilbild bearbeiten"
+                style={{ width: '100%', height: '100%' }}
+                contentFit="cover"
+              />
             ) : (
               <ThemedText type="title" themeColor="onAccent" className="text-2xl font-bold">
                 {initials}

@@ -1,6 +1,6 @@
 import { renderHook } from '@testing-library/react-native';
 
-import { useProfileInitials } from '@/features/navigation/use-profile-initials';
+import { useProfileAvatar, useProfileInitials } from '@/features/navigation/use-profile-initials';
 
 jest.mock('@/features/auth/session-provider', () => ({
   useSession: () => ({
@@ -10,7 +10,7 @@ jest.mock('@/features/auth/session-provider', () => ({
 
 jest.mock('@/features/profile/api', () => ({
   useProfile: () => ({
-    data: { display_name: 'Max Mustermann' },
+    data: { display_name: 'Max Mustermann', avatar_url: 'https://example.com/avatar.jpg' },
   }),
 }));
 
@@ -19,5 +19,14 @@ describe('useProfileInitials', () => {
     const { result } = await renderHook(() => useProfileInitials());
 
     expect(result.current).toBe('MM');
+  });
+
+  it('liefert Initialen und Profilbild für den Header', async () => {
+    const { result } = await renderHook(() => useProfileAvatar());
+
+    expect(result.current).toEqual({
+      initials: 'MM',
+      avatarUrl: 'https://example.com/avatar.jpg',
+    });
   });
 });

@@ -102,6 +102,16 @@ describe('MembersScreen', () => {
     expect(screen.getByText(/Erika Mitglied/)).toBeTruthy();
   });
 
+  it('gibt Profilbildern von Mitgliedern eine explizite Groesse', async () => {
+    mockMembers[0].avatar_url = 'https://example.com/avatar.jpg';
+    await renderScreen();
+
+    expect(screen.getByLabelText('Profilbild von Max Admin')).toHaveStyle({
+      width: '100%',
+      height: '100%',
+    });
+  });
+
   it('öffnet das Einladungsmodal beim Klick auf Mitglied einladen', async () => {
     await renderScreen();
 
