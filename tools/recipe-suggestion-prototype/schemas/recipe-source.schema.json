@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fam.local/schemas/recipe-source.schema.json",
+  "title": "Recipe source",
+  "description": "A catalog recipe or deterministic recipe template available to the suggestion pipeline.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "source", "title", "ingredient_names"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$",
+      "description": "Stable source identifier. It must not depend on display text."
+    },
+    "source": {
+      "type": "string",
+      "enum": ["catalog", "template"],
+      "description": "The source is either a catalog recipe or a deterministic template."
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "ingredient_names": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "steps": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    }
+  }
+}
