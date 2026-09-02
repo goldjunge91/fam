@@ -62,7 +62,8 @@ Zielmodul: `inventory-lifecycle`.
 
 ### Paket 2: Geöffnete Produkte und Haltbarkeit
 
-Ein Bestandseintrag kann geöffnet werden; das Ablaufdatum wird gespeichert.
+Ein Bestandseintrag kann geöffnet werden. Der Öffnungszeitpunkt wird in
+`opened_at` gespeichert. Das Ablaufdatum steht in `expiry_date`.
 
 ```text
 inventory (
@@ -77,32 +78,24 @@ inventory (
   vacuum_sealed,
   opened_at
 )
+```
+
 | Dokumentaussage | Tatsächlicher Code |
 |---|---|
-| `opened_at` | Ja, nullable `DATETIME`; wird beim Öffnen gesetzt |
-| `expiry_date` | Ja, `DATE` |
-| `user` | Nicht als Quelle; nur `expiry_user_set = 1` |
-| `vacuum_sealed` | Ja, Boolean/Integer |
-| „versiegelt“ | Indirekt: `opened_at IS NULL` und `vacuum_sealed = 0` |
+| `opened_at` | Nullable `DATETIME`; wird beim Öffnen gesetzt |
+| `expiry_date` | `DATE` |
+| `user` | Kein Feld; `expiry_user_set` markiert ein gesetztes Ablaufdatum |
+| `vacuum_sealed` | Boolean/Integer |
+| „versiegelt“ | Ableitung: `opened_at IS NULL` und `vacuum_sealed = 0` |
 | „geöffnet“ | `opened_at IS NOT NULL` |
 | „vakuumiert“ | `vacuum_sealed = 1` |
-```
 
-Wie das Öffnen tatsächlich funktionieren sollte:
-Beim Öffnen berechnen wir eine Haltbarkeit in Tagen:
+Beim Öffnen berechnet der Code eine Haltbarkeit anhand von Produktname,
+Kategorie und Lagerort. Das berechnete Datum wird als `expiry_date` gespeichert.
+Ist das vorhandene Ablaufdatum früher, bleibt dieses erhalten.
 
-```text
-estimateOpenedExpiryDays(product, location)
-```
-
-Diese Berechnung verwendet Produktname, Kategorie und Lagerort. Danach wird:
-1. opened_at = CURRENT_TIMESTAMP gesetzt.
-2. Eine neue geöffnete Inventarzeile angelegt oder die bestehende geändert.
-3. Das Ergebnis als konkretes expiry_date gespeichert.
-4. Das ursprüngliche Ablaufdatum beibehalten, falls es früher liegt.
-5. Geöffnete Packungen nicht mit versiegeltem Bestand zusammengeführt.
-Eine verkürzte Haltbarkeit nach dem Öffnen ist ein prüfbarer Vorschlag, keine
-stille automatische Änderung. Vakuumieren bleibt außerhalb des ersten Scopes.
+Geöffnete Packungen werden getrennt von versiegeltem Bestand geführt und nicht
+mit diesem zusammengeführt. `vacuum_sealed` kennzeichnet vakuumierte Ware.
 Zielmodul: `inventory-lifecycle`.
 
 ### Paket 3: Verbrauch statt bloßes Löschen
