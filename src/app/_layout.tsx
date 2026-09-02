@@ -1,6 +1,7 @@
 import '../global.css';
 import { ObserveRoot } from 'expo-observe';
 
+import { ScreenshotDriver } from '@/components/ScreenshotDriver';
 import { AppProviders } from '@/features/app-shell/app-providers';
 import { initializeAppRuntime } from '@/features/app-shell/initialize-app-runtime';
 import { useAppLifecycle } from '@/features/app-shell/use-app-lifecycle';
@@ -17,6 +18,7 @@ function RootLayout() {
   return (
     <AppProviders>
       <RootNavigator />
+      {__DEV__ && <ScreenshotDriver />}
     </AppProviders>
   );
 }
