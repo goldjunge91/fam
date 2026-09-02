@@ -185,6 +185,10 @@ test('Dataset enthält genau vier Szenarien mit vollständigem kanonischem compa
 test('Prompt beschreibt ausschließlich die kanonischen Kontext- und Response-Felder', async () => {
   const prompt = await readArtifact(promptPath);
 
+  assert.match(prompt, /\{compact_context\}/);
+  assert.doesNotMatch(prompt, /\{inventory\}/);
+  assert.doesNotMatch(prompt, /\{[ \t]*"inventory_item_id"/);
+
   for (const field of canonicalContextKeys.concat(canonicalMealKeys, canonicalResponseKeys)) {
     assert.ok(prompt.includes(field), 'Prompt enthält ' + field);
   }
@@ -323,12 +327,12 @@ test('OpenRouter-Provider bindet Key, Modell und strict Structured Output ohne S
 
   assert.match(source, /OPENROUTER_API_KEY/);
   assert.match(source, /OPENROUTER_MODEL/);
-  assert.match(source, /OPENROUTER_BASE_URL/);
+  assert.match(source, /OPENROUTER_URL/);
   assert.match(source, /response_format/);
   assert.match(source, /json_schema/);
   assert.match(source, /strict['"]?\s*:\s*True/);
   assert.match(source, /require_parameters['"]?\s*:\s*True/);
-  assert.match(source, /reasoning['"]?\s*:\s*\{['"]effort['"]:\s*DEFAULT_REASONING_EFFORT\}/);
+  assert.match(source, /reasoning['"]?\s*:\s*\{['"]effort['"]:\s*['"]low['"]\}/);
   assert.match(source, /ibm-granite\/granite-4\.2-8b/);
   assert.match(source, /recipe-suggestion-response\.schema\.json/);
   assert.match(source, /urllib\.request/);

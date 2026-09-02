@@ -71,16 +71,20 @@ class OpenRouterProviderTest(unittest.TestCase):
 
         request = captured["request"]
         payload = json.loads(request.data.decode("utf-8"))
-        expected_schema = json.loads(PROVIDER.SCHEMA_PATH.read_text(encoding="utf-8"))
+        expected_schema = json.loads(
+            (PROVIDER_PATH.parent.parent / "promptfoo" / "schemas" / PROVIDER.SCHEMA_FILENAME).read_text(
+                encoding="utf-8"
+            )
+        )
 
         self.assertEqual(request.full_url, "https://openrouter.ai/api/v1/chat/completions")
         self.assertEqual(request.get_header("Authorization"), "Bearer test-key")
-        self.assertEqual(captured["timeout"], PROVIDER.REQUEST_TIMEOUT_SECONDS)
-        self.assertEqual(payload["model"], PROVIDER.DEFAULT_MODEL)
+        self.assertEqual(captured["timeout"], 120)
+        self.assertEqual(payload["model"], PROVIDER.OPENROUTER_MODEL)
         self.assertEqual(payload["temperature"], 0)
         self.assertEqual(payload["top_p"], 1)
         self.assertEqual(payload["seed"], 0)
-        self.assertEqual(payload["max_tokens"], PROVIDER.MAX_TOKENS)
+        self.assertEqual(payload["max_tokens"], 1536)
         self.assertEqual(payload["reasoning"], {"effort": "low"})
         self.assertEqual(payload["provider"], {"require_parameters": True})
         self.assertEqual(
@@ -102,6 +106,19 @@ class OpenRouterProviderTest(unittest.TestCase):
             },
         )
         self.assertEqual(json.loads(result)["schema_version"], 1)
+
+    def test_schema_falls_back_when_cached_provider_has_no_repository_paths(self):
+        with mock.patch.object(PROVIDER, "_schema_candidates", return_value=[Path("missing-schema.json")]):
+            schema = PROVIDER._load_response_schema()
+
+        self.assertEqual(schema, PROVIDER.EMBEDDED_RESPONSE_SCHEMA)
+
+        repository_schema = json.loads(
+            (PROVIDER_PATH.parent.parent / "promptfoo" / "schemas" / PROVIDER.SCHEMA_FILENAME).read_text(
+                encoding="utf-8"
+            )
+        )
+        self.assertEqual(schema, repository_schema)
 
     def test_missing_api_key_fails_before_a_network_request(self):
         with mock.patch.dict(os.environ, {}, clear=True), mock.patch.object(

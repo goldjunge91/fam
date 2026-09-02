@@ -1,29 +1,36 @@
+"""Self-contained ChainForge provider for recipe-suggestion verification."""
+
 from __future__ import annotations
 
 import json
 import os
 import urllib.error
 import urllib.request
-from pathlib import Path
 from typing import Any
 
 from chainforge.providers import provider
 
 
 OPENROUTER_URL = "https://openrouter.ai/api/v1/chat/completions"
-OPENROUTER_MODEL = "ibm-granite/granite-4.2-8b"
-SCHEMA_FILENAME = "recipe-suggestion-response.schema.json"
+OPENROUTER_MODELS = [
+    "ibm-granite/granite-4.2-8b",
+    "google/gemma-4-26b-a4b-it",
+    "qwen/qwen3.8-flash",
+    "z-ai/glm-5.3-flash",
+    "google/gemma-4-31b-it",
+    "minimax/minimax-m3:free",
+]
+OPENROUTER_MODEL = OPENROUTER_MODELS[0]
 
-# Custom provider scripts are copied into ChainForge's provider cache. Keep a
-# cache-safe fallback here so the provider does not depend on the cached
-# script's __file__ location.
-EMBEDDED_RESPONSE_SCHEMA: dict[str, Any] = {
-    "title": "Recipe suggestion response",
+# Embedded deliberately: ChainForge caches uploaded provider scripts outside the
+# project, so provider execution must not depend on repository-relative files.
+RECIPE_SUGGESTION_RESPONSE_SCHEMA: dict[str, Any] = {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
     "type": "object",
     "additionalProperties": False,
     "required": ["schema_version", "meals"],
     "properties": {
-        "schema_version": {"const": 1},
+        "schema_version": {"type": "integer", "const": 1},
         "meals": {
             "type": "array",
             "minItems": 1,
@@ -42,17 +49,21 @@ EMBEDDED_RESPONSE_SCHEMA: dict[str, Any] = {
                     "notes",
                 ],
                 "properties": {
-                    "title": {"type": "string", "pattern": "\\S"},
-                    "source": {"enum": ["catalog", "template", "model_generated"]},
+                    "title": {"type": "string", "minLength": 1},
+                    "source": {
+                        "type": "string",
+                        "enum": ["catalog", "template", "model_generated"],
+                    },
                     "recipe_id": {
                         "anyOf": [
-                            {"type": "string", "pattern": "\\S"},
+                            {"type": "string", "minLength": 1},
                             {"type": "null"},
                         ]
                     },
                     "servings": {"type": "integer", "minimum": 1},
                     "used_items": {
                         "type": "array",
+                        "minItems": 1,
                         "items": {
                             "type": "object",
                             "additionalProperties": False,
@@ -60,78 +71,34 @@ EMBEDDED_RESPONSE_SCHEMA: dict[str, Any] = {
                             "properties": {
                                 "inventory_item_id": {
                                     "type": "string",
-                                    "pattern": "\\S",
+                                    "minLength": 1,
                                 },
-                                "quantity": {"type": "number", "exclusiveMinimum": 0},
-                                "unit": {"type": "string", "pattern": "\\S"},
+                                "quantity": {
+                                    "type": "number",
+                                    "exclusiveMinimum": 0,
+                                },
+                                "unit": {"type": "string", "minLength": 1},
                             },
                         },
                     },
                     "additional_ingredients": {
                         "type": "array",
-                        "items": {"type": "string", "pattern": "\\S"},
+                        "items": {"type": "string", "minLength": 1},
                     },
                     "steps": {
                         "type": "array",
                         "minItems": 1,
-                        "items": {"type": "string", "pattern": "\\S"},
+                        "items": {"type": "string", "minLength": 1},
                     },
-                    "notes": {"type": "array", "items": {"type": "string"}},
+                    "notes": {
+                        "type": "array",
+                        "items": {"type": "string", "minLength": 1},
+                    },
                 },
             },
         },
     },
 }
-
-
-def _schema_candidates() -> list[Path]:
-    candidates: list[Path] = []
-    configured_path = os.environ.get("FAM_RECIPE_SCHEMA_PATH")
-    if configured_path:
-        candidates.append(Path(configured_path).expanduser())
-
-    # ChainForge caches provider scripts in its Python environment. Its process
-    # working directory remains the verification project from which it starts.
-    candidates.append(Path.cwd() / "promptfoo" / "schemas" / SCHEMA_FILENAME)
-
-    # Supports importing and testing this source file directly from the repo.
-    candidates.append(
-        Path(__file__).resolve().parents[1]
-        / "promptfoo"
-        / "schemas"
-        / SCHEMA_FILENAME
-    )
-
-    unique_candidates: list[Path] = []
-    for candidate in candidates:
-        resolved = candidate.resolve()
-        if resolved not in unique_candidates:
-            unique_candidates.append(resolved)
-    return unique_candidates
-
-
-def _load_response_schema() -> dict[str, Any]:
-    attempted_paths: list[str] = []
-    for schema_path in _schema_candidates():
-        attempted_paths.append(str(schema_path))
-        try:
-            schema = json.loads(schema_path.read_text(encoding="utf-8"))
-        except FileNotFoundError:
-            continue
-        except (OSError, json.JSONDecodeError) as error:
-            raise RuntimeError(
-                f"Kanonisches Rezeptvorschlags-Schema ist ungültig: {schema_path}"
-            ) from error
-
-        if not isinstance(schema, dict):
-            raise RuntimeError(
-                f"Kanonisches Rezeptvorschlags-Schema muss ein JSON-Objekt sein: {schema_path}"
-            )
-        return schema
-
-    # ChainForge executes a cached copy of this script, where repository-based
-    # paths are unavailable. The embedded schema keeps that copy functional.
-    return EMBEDDED_RESPONSE_SCHEMA
 
 
 def _messages(
@@ -142,9 +109,9 @@ def _messages(
     return messages
 
 
-def _response_text(payload: dict[str, Any]) -> str:
+def _response_text(response_payload: dict[str, Any]) -> str:
     try:
-        content = payload["choices"][0]["message"]["content"]
+        content = response_payload["choices"][0]["message"]["content"]
     except (KeyError, IndexError, TypeError) as error:
         raise RuntimeError("OpenRouter-Antwort enthält keinen Modelltext.") from error
 
@@ -156,12 +123,12 @@ def _response_text(payload: dict[str, Any]) -> str:
 
 
 @provider(
-    name="OpenRouter Rezeptvorschlag",
-    emoji="R",
-    models=[OPENROUTER_MODEL],
+    name="OpenRouter Rezeptvorschlag v2",
+    emoji="R2",
+    models=OPENROUTER_MODELS,
     rate_limit="sequential",
 )
-def openrouter_recipe_suggestion(
+def OpenRouterRecipeSuggestionV2(
     prompt: str,
     model: str | None = None,
     chat_history: list[dict[str, Any]] | None = None,
@@ -171,7 +138,6 @@ def openrouter_recipe_suggestion(
     if not api_key:
         raise RuntimeError("OPENROUTER_API_KEY ist nicht gesetzt.")
 
-    schema = _load_response_schema()
     request_payload = {
         "model": model or OPENROUTER_MODEL,
         "messages": _messages(prompt, chat_history),
@@ -186,7 +152,7 @@ def openrouter_recipe_suggestion(
             "json_schema": {
                 "name": "recipe_suggestion_response",
                 "strict": True,
-                "schema": schema,
+                "schema": RECIPE_SUGGESTION_RESPONSE_SCHEMA,
             },
         },
     }

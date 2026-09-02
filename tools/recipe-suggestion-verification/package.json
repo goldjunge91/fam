@@ -3,8 +3,8 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "test": "bun test",
-    "test:contracts": "bun test promptfoo/promptfoo-contract.test.mjs chainforge/chainforge-contract.test.mjs scripts/wrapper-contract.test.mjs eval-run-manifest.test.mjs run-openrouter-smoke-args.test.mjs run-openrouter-smoke-core.test.mjs",
+    "test": "node --test",
+    "test:contracts": "node --test promptfoo/promptfoo-contract.test.mjs chainforge/chainforge-contract.test.mjs scripts/wrapper-contract.test.mjs eval-run-manifest.test.mjs run-openrouter-smoke-args.test.mjs run-openrouter-smoke-core.test.mjs",
     "eval": "promptfoo eval -c promptfoo/promptfooconfig.yaml --env-file .env -j 1 --no-cache",
     "eval:matrix": "promptfoo eval -c promptfoo/promptfooconfig.openrouter.yaml --env-file .env -j 1 --no-cache",
     "view": "promptfoo view"

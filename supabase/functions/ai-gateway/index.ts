@@ -12,7 +12,7 @@ import {
 import { SlidingWindowRateLimiter } from '../enrich-off-product/rate-limiter.ts';
 
 const supabaseUrl = Deno.env.get('SUPABASE_URL')!;
-const anonKey = Deno.env.get('SUPABASE_ANON_KEY')!;
+const anonKey = Deno.env.get('SUPABASE_SECRET_KEY')!;
 const openRouterKey = Deno.env.get('OPENROUTER_API_KEY');
 const openRouterBaseUrl = (Deno.env.get('OPENROUTER_BASE_URL') ?? 'https://openrouter.ai/api/v1').replace(/\/$/, '');
 const defaultModel = Deno.env.get('AI_GATEWAY_MODEL') ?? 'z-ai/glm-5.3-flash';

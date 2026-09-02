@@ -1,6 +1,10 @@
 description: OpenRouter recipe suggestion compatibility matrix with a strict-output request
 
 providers:
+  - id: openrouter:google/gemma-4-26b-a4b-it
+  - id: openrouter:qwen/qwen3.8-flash
+  - id: openrouter:z-ai/glm-5.3-flash
+  - id: openrouter:google/gemma-4-31b-it
   - id: openrouter:minimax/minimax-m3:free
     config:
       apiKeyEnvar: OPENROUTER_API_KEY

@@ -30,12 +30,16 @@ test('ChainForge wrappers resolve the local environment and allow an explicit la
   const powershell = await read('chainforge.ps1');
   const shell = await read('chainforge.sh');
 
-  assert.match(powershell, /Join-Path \$verificationDir '\.venv\\Scripts\\chainforge\.exe'/);
+  assert.match(powershell, /Join-Path \$verificationDir '\.venv\\Scripts\\python\.exe'/);
+  assert.match(powershell, /from chainforge import main; main\(\)/);
+  assert.doesNotMatch(powershell, /\.venv\\Scripts\\chainforge\.exe/);
   assert.doesNotMatch(powershell, /\$platformDir|\.venv-chainforge/);
   assert.match(powershell, /FAM_CHAINFORGE_BIN/);
   assert.match(shell, /VERIFICATION_DIR/);
-  assert.match(shell, /\.venv\/bin\/chainforge/);
-  assert.match(shell, /\.venv\/Scripts\/chainforge\.exe/);
+  assert.match(shell, /\.venv\/bin\/python/);
+  assert.match(shell, /\.venv\/Scripts\/python\.exe/);
+  assert.match(shell, /from chainforge import main; main\(\)/);
+  assert.doesNotMatch(shell, /\.venv\/(?:bin\/chainforge|Scripts\/chainforge\.exe)/);
   assert.doesNotMatch(shell, /PLATFORM_DIR|\.venv-chainforge/);
   assert.match(shell, /FAM_CHAINFORGE_BIN/);
 });
