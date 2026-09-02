@@ -4,13 +4,13 @@
     "slug": "fam",
     "version": "0.0.5",
     "orientation": "portrait",
-    "icon": "./assets/images/icon.png",
+    "icon": "./assets/images/icon-fam-v4-pantry.png",
     "scheme": "fam",
     "userInterfaceStyle": "automatic",
     "buildCacheProvider": "eas",
     "ios": {
       "appleTeamId": "SW8RP7PA3W",
-      "icon": "./assets/expo.icon",
+      "icon": "./assets/images/icon-fam-v4-pantry.png",
       "bundleIdentifier": "com.goldjunge91.fam1",
       "buildNumber": "1",
       "infoPlist": {
@@ -120,11 +120,27 @@
         {
           "androidAppId": "ca-app-pub-3823642106417448~9031192062",
           "iosAppId": "ca-app-pub-3823642106417448~8036856356",
+          "delayAppMeasurementInit": true,
           "userTrackingUsageDescription": "Diese Kennung wird verwendet, um dir personalisierte Werbung bereitzustellen."
         }
       ],
       "expo-background-task",
-      "expo-splash-screen"
+      [
+        "expo-splash-screen",
+        {
+          "backgroundColor": "#F8F4EF",
+          "image": "./assets/splash/fam-splash-icon.png",
+          "imageWidth": 180,
+          "resizeMode": "contain"
+        }
+      ],
+      "expo-tracking-transparency",
+      [
+        "expo-custom-assets",
+        {
+          "assetsPaths": ["./assets/splash"]
+        }
+      ]
     ],
     "experiments": {
       "typedRoutes": true,
