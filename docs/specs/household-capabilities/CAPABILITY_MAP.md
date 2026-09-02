@@ -43,12 +43,12 @@ Ereignistypen:
 in | out | waste
 ```
 
-Unser Datenfelder solte erweitert werden.
+Transaktionen speichern folgende Felder:
 
 ```text
 Datenfelderid, product_id, type, quantity, location, notes, undone, created_at
 Verbrauch: out
-Wegwerfen: waste, note
+Wegwerfen: waste, notes
 Korrektur: in oder out  mit [Manuel note]
 Verschieben: erzeugt out am alten und in am neuen ort.
 RückgängigmachenMaximal 24 Stunden; Original erhält undone=1; Gegentransaktion wird geschrieben
@@ -65,9 +65,7 @@ Zielmodul: `inventory-lifecycle`.
 
 ### Paket 2: Geöffnete Produkte und Haltbarkeit
 
-Ein Bestandseintrag kann ausdrücklich als geöffnet markiert werden. Datumstyp
-und Herkunft des Datums bleiben getrennt, damit ein Nutzerwert nicht von einer
-Schätzung oder Katalogangabe überschrieben wird.
+Ein Bestandseintrag kann geöffnet werden; das Ablaufdatum wird gespeichert.
 
 ```text
 inventory (
@@ -86,7 +84,6 @@ inventory (
 |---|---|
 | `opened_at` | Ja, nullable `DATETIME`; wird beim Öffnen gesetzt |
 | `expiry_date` | Ja, `DATE` |
-| `estimated` | Nein als gespeicherter Wert |
 | `user` | Nicht als Quelle; nur `expiry_user_set = 1` |
 | `vacuum_sealed` | Ja, Boolean/Integer |
 | „versiegelt“ | Indirekt: `opened_at IS NULL` und `vacuum_sealed = 0` |
@@ -161,22 +158,6 @@ Undo ist innerhalb von 24 Stunden möglich. Die Originaltransaktion erhält
 
 Zielmodul: `inventory-lifecycle`.
 
-### Paket 4: Nachschubplanung ohne KI
-
-Mindestbestand, Verbrauchsereignisse und Einkaufshistorie erzeugen lokal und
-deterministisch begründete Einkaufsvorschläge. Einkaufsvorlagen decken
-wiederkehrende, bewusst gepflegte Listen ab. Vorschläge verändern die
-Einkaufsliste erst nach Bestätigung.
-
-```text
-Mindestbestand + Verbrauchsrate + Nachkaufintervall
-  → begründeter Vorschlag
-  → Nutzer bestätigt
-  → Eintrag auf der Einkaufsliste
-```
-
-Zielmodul: `replenishment-planning`.
-
 ### Paket 5: Vollständige Datenportabilität
 
 Fam bietet einen vollständigen persönlichen Export und einen getrennten,
@@ -184,9 +165,6 @@ berechtigungsgeprüften Haushalts-Export. CSV dient dem lesbaren Austausch von
 Bestand und Einkauf. Versioniertes JSON ermöglicht eine spätere, validierte
 Wiederherstellung. Der Bestandsimport zeigt vor dem Schreiben eine Vorschau,
 erkennt Duplikate und ist wiederholbar, ohne Einträge zu vervielfachen.
-
-Ein app-eigenes Cloud-Backup ist kein Bestandteil; die Serverquelle und der
-portable Export bleiben getrennte Konzepte.
 
 Zielmodul: `data-portability`.
 
@@ -208,9 +186,8 @@ fremde Architektur.
 | Produktduplikate erkennen und zusammenführen | Fehlt | Übernehmen |
 | Produktnamen gegen externe Updates sperren | Teilweise durch lokale Produktspiegelung | Explizites `name_source`/Nutzer-Override übernehmen |
 | CSV-Import und -Export des Bestands | Haushaltsbestand fehlt im aktuellen Export | Übernehmen |
-| Einkaufsvorlagen | Fehlen | Übernehmen |
+| Einkaufsvorlagen | Fehlen | EverShelf vorhanden; übernehmen |
 | Verbrauchsbasierte Einkaufsvorschläge | Häufige Produkte vorhanden, keine echte Prognose | Übernehmen |
-| Mindestbestand pro Produkt | Fehlt | Übernehmen |
 | Bestandsbasierte Rezeptvorschläge | Fehlen | Übernehmen |
 | Von einem einzelnen Produkt zu Rezepten | Fehlt | Übernehmen |
 | Vorlesen der Kochschritte | Fehlt | Übernehmen, gute Accessibility-Funktion |
@@ -259,7 +236,7 @@ verzehrbar angenommen werden.
 | `inventory-lifecycle` | Append-only Inventarereignisse mit Undo, Geöffnet-Zustand, Datumsart sowie getrennte Vorgänge für Verbrauch, Wegwerfen und Korrektur | bestehender Bestand und Sync | 1, 2, 3 |
 | `product-provenance` | Produkt-Merge, Duplikaterkennung, Barcode-Cache sowie sichtbare und prüfbare Datenherkunft | bestehender Product Catalog | 7, 10 |
 | `cooking-suggestions` | Deterministische bestandsbasierte Rezeptvorschläge für „Was kann ich heute kochen?“ und den Einstieg „Damit kochen“ von einem Bestandseintrag | bestehender Bestand, Product Catalog und Rezeptdomäne | positive Feature-Paritätsprüfung |
-| `replenishment-planning` | Mindestbestände, Einkaufsvorlagen und bestätigungspflichtige verbrauchsbasierte Einkaufsvorschläge | `inventory-lifecycle`, `product-provenance`, bestehende Einkaufsliste | 5, 6, 11, 12 |
+`inventory-lifecycle`, `product-provenance`, bestehende Einkaufsliste | 5, 6, 11, 12 |
 | `recipe-stock-review` | Vor dem Kochen berechneten Rezeptverbrauch gegen konkrete Bestände prüfen, anpassen, bestätigen und rückgängig machen | `inventory-lifecycle`, `product-provenance`, bestehende Rezeptdomäne | 8 |
 | `recipe-share-speech` | Rezepte über das native Share Sheet freigeben und Zubereitungsschritte vorlesen | bestehende Rezeptdomäne | 9 |
 | `mealie-evaluation` | Mealie-Schnittstellen, Lizenz, Datenmodell und Integrationsvarianten prüfen; erst danach Import, Export oder Synchronisation festlegen | bestehende Rezeptdomäne | 13 |
