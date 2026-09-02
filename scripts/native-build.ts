@@ -14,7 +14,7 @@ import {
 } from 'node:fs';
 import { basename, dirname, extname, join, relative, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import type { Fingerprint } from '@expo/fingerprint';
+import type { Fingerprint, FingerprintSource } from '@expo/fingerprint';
 import { createFingerprintAsync, diffFingerprints } from 'expo/fingerprint';
 import {
   isNativePlatformSupportedOnHost,
@@ -227,7 +227,7 @@ async function printFingerprintDiff(platform: Platform): Promise<void> {
   }
 }
 
-function describeSource(source: { type: string } & Record<string, unknown>): string {
+function describeSource(source: FingerprintSource): string {
   const path = 'filePath' in source ? source.filePath : 'id' in source ? source.id : '';
   return `${source.type}:${path}`;
 }
@@ -310,12 +310,14 @@ async function assertNativeBaseline(
 
   for (const platform of platforms) {
     const expected = lock.nativeFingerprints[platform];
-    if (!expected || expected.hash !== current[platform].hash) {
+    const actual = current[platform];
+    if (!actual) fail(`Kein aktueller Fingerprint für ${platform} ermittelt.`);
+    if (!expected || expected.hash !== actual.hash) {
       if (parseFlag('--diff')) await printFingerprintDiff(platform);
       fail(
         `${platform}-Fingerprint stimmt nicht mit dem Lock überein. ` +
           `Native Änderung, Config-/Dependency-Änderung oder falsche Baseline erkannt. ` +
-          `Erwartet: ${expected?.hash ?? '(nicht gesetzt)'}, aktuell: ${current[platform].hash}. ` +
+          `Erwartet: ${expected?.hash ?? '(nicht gesetzt)'}, aktuell: ${actual.hash}. ` +
           `Rebuild nur mit '--approve-rebuild'. Genaue abweichende Quelle: 'native:status -- --diff'.`,
       );
     }
@@ -582,6 +584,8 @@ async function restore(): Promise<void> {
   }
   const lock = readLock();
   const current = await assertNativeBaseline(lock, [target.platform]);
+  const currentFingerprint = current[target.platform];
+  if (!currentFingerprint) fail(`Kein aktueller Fingerprint für ${target.platform} ermittelt.`);
   const artifactLock = lock.artifacts[targetName];
   const requestedBuildId = parseValue('--eas-build-id');
   const easBuildId = requestedBuildId ?? artifactLock?.easBuildId;
@@ -618,8 +622,8 @@ async function restore(): Promise<void> {
     rmSync(downloadPath, { force: true });
   }
 
-  const expectedFingerprint = artifactLock?.fingerprint ?? current[target.platform].hash;
-  if (expectedFingerprint !== current[target.platform].hash) {
+  const expectedFingerprint = artifactLock?.fingerprint ?? currentFingerprint.hash;
+  if (expectedFingerprint !== currentFingerprint.hash) {
     rmSync(temporaryPath, { force: true, recursive: true });
     fail(`Das wiederhergestellte Artefakt gehört nicht zur aktuellen Native Baseline.`);
   }
@@ -640,7 +644,7 @@ async function restore(): Promise<void> {
     easBuildId,
   };
   writeLock(lock);
-  assertArtifact(lock.artifacts[targetName], targetName, current[target.platform].hash);
+  assertArtifact(lock.artifacts[targetName], targetName, currentFingerprint.hash);
   log(`Artefakt wiederhergestellt: ${relative(PROJECT_ROOT, finalPath)}`);
 }
 
@@ -727,11 +731,13 @@ async function runLocked(): Promise<void> {
   }
   const lock = readLock();
   const current = await assertNativeBaseline(lock, [target.platform]);
+  const currentFingerprint = current[target.platform];
+  if (!currentFingerprint) fail(`Kein aktueller Fingerprint für ${target.platform} ermittelt.`);
   const artifactLock = lock.artifacts[targetName];
   if (!artifactLock) {
     fail(`Kein Artefakt für ${targetName} registriert. Kein automatischer Rebuild.`);
   }
-  const binaryPath = assertArtifact(artifactLock, targetName, current[target.platform].hash);
+  const binaryPath = assertArtifact(artifactLock, targetName, currentFingerprint.hash);
   const device = parseValue('--device');
   const commandArgs =
     target.platform === 'ios'
