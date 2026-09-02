@@ -121,8 +121,8 @@ describe('EditProfileScreen', () => {
     await renderScreen();
 
     await user.press(screen.getByRole('button', { name: 'Passwort ändern' }));
-    await user.type(screen.getByLabelText('Neues Passwort'), 'sicheres-passwort');
-    await user.type(screen.getByLabelText('Neues Passwort bestätigen'), 'sicheres-passwort');
+    await user.paste(screen.getByLabelText('Neues Passwort'), 'sicheres-passwort');
+    await user.paste(screen.getByLabelText('Neues Passwort bestätigen'), 'sicheres-passwort');
     await user.press(screen.getByRole('button', { name: 'Passwort speichern' }));
 
     await waitFor(() => expect(updatePassword).toHaveBeenCalledWith('sicheres-passwort'));

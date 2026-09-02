@@ -68,7 +68,7 @@ export function FoodRulesSummary({ rules, onSelect }: FoodRulesSummaryProps) {
     <View className="gap-two">
       <View className="gap-half">
         <ThemedText type="smallBold">Lebensmittel &amp; Verträglichkeit</ThemedText>
-        <ThemedText type="smallMuted">Keine medizinische Diagnose</ThemedText>
+        {/* <ThemedText type="smallMuted">Keine medizinische Diagnose</ThemedText> */}
       </View>
       <ThemedView type="backgroundElement" className="profile-food-rules-summary">
         <SummaryRow

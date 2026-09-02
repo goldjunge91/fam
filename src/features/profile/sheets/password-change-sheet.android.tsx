@@ -79,8 +79,8 @@ export function PasswordChangeSheet({
           <View className="modal-handle" />
           <View className="profile-food-rules-sheet-header">
             <View className="flex-1 gap-half">
-              <ThemedText type="headingSmall">Passwort ändern</ThemedText>
-              <ThemedText type="smallMuted">Speichere dein neues Passwort direkt hier.</ThemedText>
+              <ThemedText type="bodyLarge">Passwort ändern</ThemedText>
+              <ThemedText type="labelMuted">Speichere dein neues Passwort direkt hier.</ThemedText>
             </View>
             <Pressable
               onPress={onClose}
@@ -105,6 +105,7 @@ export function PasswordChangeSheet({
               autoCapitalize="none"
               autoComplete="new-password"
               textContentType="newPassword"
+              className="text-body-small"
             />
             <TextField
               label="Neues Passwort bestätigen"
@@ -121,6 +122,7 @@ export function PasswordChangeSheet({
               textContentType="newPassword"
               returnKeyType="go"
               onSubmitEditing={onApply}
+              className="text-body-small"
             />
           </View>
 

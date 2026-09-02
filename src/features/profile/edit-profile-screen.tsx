@@ -184,6 +184,7 @@ export function EditProfileScreen() {
   }
 
   async function savePassword() {
+    if (passwordSaving) return;
     setPasswordSaveError(null);
 
     if (!newPassword) {

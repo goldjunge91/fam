@@ -1,5 +1,5 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { render } from '@testing-library/react-native';
+import { render, screen } from '@testing-library/react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import { SettingsScreen } from '@/features/settings/settings-screen';
@@ -12,6 +12,7 @@ import { SettingsScreen } from '@/features/settings/settings-screen';
  */
 let mockHouseholds: { id: string; name: string }[] = [{ id: 'hh-1', name: 'Familie Tozzi' }];
 let mockActiveHousehold: { id: string; name: string } | null = mockHouseholds[0];
+let mockAvatarUrl: string | null = null;
 
 jest.mock('@/features/auth/session-provider', () => ({
   useSession: () => ({
@@ -67,7 +68,7 @@ jest.mock('@/features/navigation/fab-position-settings', () => ({
 }));
 
 jest.mock('@/features/profile/api', () => ({
-  useProfile: () => ({ data: { display_name: 'Marco Müller' } }),
+  useProfile: () => ({ data: { display_name: 'Marco Müller', avatar_url: mockAvatarUrl } }),
 }));
 
 // `Screen` fragt den Router, ob es etwas zum Zurueckgehen gibt; ausserhalb
@@ -102,6 +103,7 @@ describe('SettingsScreen', () => {
   beforeEach(() => {
     mockHouseholds = [{ id: 'hh-1', name: 'Familie Tozzi' }];
     mockActiveHousehold = mockHouseholds[0];
+    mockAvatarUrl = null;
     process.env.EXPO_PUBLIC_DEV_TOOLS = 'false';
     process.env.EXPO_PUBLIC_SUPABASE_URL = 'http://127.0.0.1:54321';
   });
@@ -149,6 +151,18 @@ describe('SettingsScreen', () => {
     expect(getByText('Marco Müller')).toBeTruthy();
     expect(getByText('marco@example.com')).toBeTruthy();
     expect(getByText('Familie Tozzi')).toBeTruthy();
+  });
+
+  it('zeigt das gespeicherte Profilbild im Settings-Header an', async () => {
+    mockAvatarUrl = 'https://example.com/avatar.jpg';
+
+    await renderScreen();
+
+    expect(screen.getByLabelText('Profilbild in Einstellungen')).toHaveStyle({
+      width: '100%',
+      height: '100%',
+    });
+    expect(screen.getByLabelText('Profilbild')).toBeOnTheScreen();
   });
 
   it('blendet den Entwickler-Bereich ohne Flag aus', async () => {
