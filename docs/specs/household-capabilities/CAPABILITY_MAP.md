@@ -32,12 +32,11 @@ ergänzten Funktionen in technisch unabhängige Spec-Module.
 
 ### Paket 1: Inventarereignisse als Grundlage
 
-Bestandsänderungen werden nicht nur als neuer Zustand gespeichert, sondern
-durch append-only Haushaltsereignisse erklärt. Der aktuelle Bestand bleibt der
-schnelle Lesestand.
-Transaktionen werden normalerweise angehängt, aber beim Undo wird die ursprüngliche Zeile mit undone=1 aktualisiert.
+Bestandsänderungen werden zusätzlich zur Bestandszeile in `transactions`
+protokolliert. Transaktionen werden angehängt; beim Undo wird die ursprüngliche
+Zeile mit `undone = 1` markiert und eine Gegenbuchung angelegt.
 
-Ereignistypen:
+Die Transaktionstypen sind:
 
 ```text
 in | out | waste
@@ -46,20 +45,18 @@ in | out | waste
 Transaktionen speichern folgende Felder:
 
 ```text
-Datenfelderid, product_id, type, quantity, location, notes, undone, created_at
-Verbrauch: out
-Wegwerfen: waste, notes
-Korrektur: in oder out  mit [Manuel note]
-Verschieben: erzeugt out am alten und in am neuen ort.
-RückgängigmachenMaximal 24 Stunden; Original erhält undone=1; Gegentransaktion wird geschrieben
-HistorieTransaktionen bleiben für Protokoll und Statistik erhalten
+id, product_id, type, quantity, location, notes, undone, created_at
 ```
 
-Jedes Ereignis hält Menge, Einheit, Bestandseintrag, optionales Produkt,
-Lagerort, Grund, Actor, Zeitpunkt sowie eine optionale Einkaufs- oder
-Rezeptreferenz fest. Undo erzeugt ein nachvollziehbares Gegenereignis und
-löscht keine Historie. Dieses Paket bildet die Datenbasis für Verbrauch,
-Verschwendung, Prognosen, Statistiken und Rezeptabbuchungen.
+- `out`: Verbrauch oder Entfernung aus dem Bestand.
+- `waste`: Wegwerfen; der Grund steht in `notes` als `Buttato|<reason>`.
+- Korrekturen erzeugen `in` oder `out` mit `[Manual correction]` in `notes`.
+- Verschieben erzeugt `out` am alten und `in` am neuen Lagerort.
+- Undo ist innerhalb von 24 Stunden möglich und erzeugt eine Gegenbuchung.
+- Die ursprüngliche Transaktion bleibt mit `undone = 1` erhalten.
+
+`product_id` verweist auf das Produkt; eine `inventory_id`, Einheit, Actor- oder
+Rezeptreferenz ist in der Transaktionstabelle nicht vorhanden.
 
 Zielmodul: `inventory-lifecycle`.
 
