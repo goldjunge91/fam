@@ -215,6 +215,8 @@ export function parseShotsConfig(value: unknown): ShotsConfig | null {
 
 // Die Flag-Datei schaltet den Screenshot-Modus für genau einen App-Start ein.
 const FLAG_FILE = new File(Paths.document, 'shots.json');
+// Ein liegengebliebenes Flag aus einem abgebrochenen Lauf darf später keinen normalen App-Start aktivieren.
+export const SCREENSHOT_FLAG_MAX_AGE_MS = 30_000;
 // Die Statusdatei meldet dem Bash-Skript den aktuell freigegebenen Screen.
 const STATUS_FILE = new File(Paths.document, 'shot-current.txt');
 // Die Zähldatei teilt dem Skript die Länge deiner aktuellen Tourliste mit.
@@ -230,6 +232,28 @@ export function shotsConfig(): ShotsConfig | null {
   return loadedConfig;
 }
 
+// Diese Funktion unterscheidet ein frisch vom Capture-Skript gesetztes Flag von einem Altbestand.
+export function isRecentScreenshotFlag(
+  modificationTime: number | undefined,
+  now = Date.now(),
+  maxAgeMs = SCREENSHOT_FLAG_MAX_AGE_MS,
+): boolean {
+  // Fehlende oder ungültige Dateizeiten werden sicherheitshalber abgelehnt.
+  if (
+    modificationTime === undefined ||
+    !Number.isFinite(modificationTime) ||
+    !Number.isFinite(now) ||
+    !Number.isFinite(maxAgeMs) ||
+    maxAgeMs < 0
+  ) {
+    return false;
+  }
+
+  // Ein Flag darf weder aus der Zukunft stammen noch älter als das Startfenster sein.
+  const ageMs = now - modificationTime;
+  return ageMs >= 0 && ageMs <= maxAgeMs;
+}
+
 /** Liest die Opt-in-Datei; ungültige oder deaktivierte Dateien lassen die Tour aus. */
 export async function loadShotsFlag(): Promise<ShotsConfig | null> {
   // Ein alter Wert darf einen späteren normalen App-Start nicht aktivieren.
@@ -238,6 +262,11 @@ export async function loadShotsFlag(): Promise<ShotsConfig | null> {
   try {
     // Ohne vom Skript gesetzte Flag-Datei bleibt die App vollständig im Normalbetrieb.
     if (!FLAG_FILE.exists) return null;
+    // Ein abgebrochener Capture-Lauf darf bei einem späteren normalen Start nicht nachwirken.
+    if (!isRecentScreenshotFlag(FLAG_FILE.info().modificationTime)) {
+      FLAG_FILE.delete();
+      return null;
+    }
     // Der Dateiinhalt wird erst geparst und danach fachlich validiert.
     loadedConfig = parseShotsConfig(JSON.parse(await FLAG_FILE.text()));
     // Das geprüfte Ergebnis aktiviert entweder die Tour oder bleibt null.
