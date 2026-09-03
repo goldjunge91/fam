@@ -23,6 +23,15 @@ test('ChainForge comparison matrix remains explicitly selectable', () => {
   assert.equal(new Set(cases.map((item) => item.scenario_id)).size, 4);
 });
 
+test('synthetic mode selects all 75 GLM cases and supports a single-case control', () => {
+  const cases = JSON.parse(run('--dry-run', '--synthetic'));
+  assert.equal(cases.length, 75);
+  assert.equal(new Set(cases.map((item) => item.scenario_id)).size, 75);
+  assert.ok(cases.every((item) => item.model === 'z-ai/glm-5.3-flash'));
+  assert.deepEqual(JSON.parse(run('--dry-run', '--synthetic', '--scenario', 'synthetic-075')), [cases[74]]);
+  assert.throws(() => run('--dry-run', '--synthetic', '--matrix'));
+});
+
 test('ChainForge control selections preserve model IDs and reject unknown or duplicate input', () => {
   assert.deepEqual(JSON.parse(run('--dry-run', '--matrix', '--model', 'upstage/solar-pro4', '--scenario', 'empty-shopping-list')), [
     { model: 'upstage/solar-pro4', scenario_id: 'empty-shopping-list' },

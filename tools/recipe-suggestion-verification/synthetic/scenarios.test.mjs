@@ -237,3 +237,56 @@ test('first scenario has an independently specified one-person porridge context'
     shopping_question: null, fallback_allowed: false,
   });
 });
+
+test('75 distinct inventories balance fifteen food families, five states and five household sizes', () => {
+  assert.equal(new Set(syntheticScenarios.map((scenario) => scenario.scenario_id)).size, 75);
+  // Strip generated IDs: renamed copies do not count as distinct contexts.
+  const contexts = syntheticScenarios.map((scenario) => JSON.stringify(scenario.compact_context)
+    .replace(/synthetic-\d{3}/g, 'scenario'));
+  assert.equal(new Set(contexts).size, 75);
+  assert.equal(new Set(syntheticScenarios.map(familyOf)).size, 15);
+  for (const family of Object.keys(PRIMARY_PORTIONS)) {
+    assert.deepEqual(syntheticScenarios.filter((scenario) => familyOf(scenario) === family)
+      .map((scenario) => scenario.scenario_type), STATES);
+  }
+  for (const size of [1, 2, 3, 4, 6]) {
+    assert.equal(syntheticScenarios.filter((scenario) => scenario.expected.servings === size).length, 15);
+  }
+  const contextsOnly = syntheticScenarios.map((scenario) => scenario.compact_context);
+  assert.deepEqual([...new Set(contextsOnly.flatMap((context) => context.priority_foods.map((food) => food.unit)))].sort(), [...UNITS].sort());
+  assert.equal(contextsOnly.filter((context) => context.constraints.allergies.length === 0).length, 5);
+  assert.equal(contextsOnly.filter((context) => context.constraints.allergies.length > 1).length, 5);
+  for (const [tag, count] of Object.entries({ duplicate_lots: 15, score_tie: 15, quantity_boundary: 30, past_mhd_explicitly_usable: 1 })) {
+    assert.equal(syntheticScenarios.filter((scenario) => scenario.tags.includes(tag)).length, count, tag);
+  }
+});
+
+test('fresh processes produce the identical dataset regardless of timezone', () => {
+  const script = "import { syntheticScenarios } from './scenarios.mjs'; console.log(JSON.stringify(syntheticScenarios));";
+  for (const timezone of ['UTC', 'Pacific/Honolulu']) {
+    const output = execFileSync(process.execPath, ['--input-type=module', '-e', script], {
+      cwd: fileURLToPath(new URL('./', import.meta.url)), encoding: 'utf8', timeout: 10_000,
+      env: { ...process.env, TZ: timezone }, windowsHide: true,
+    });
+    assert.deepEqual(JSON.parse(output), syntheticScenarios);
+  }
+});
+
+test('fixture checks reject corrupt quantities, safety flags, units and shopping states', () => {
+  const mutations = [
+    (scenario) => { scenario.synthetic_inventory[0].quantity = 0; },
+    (scenario) => { scenario.synthetic_inventory[0].usable = false; },
+    (scenario) => { scenario.compact_context.constraints.forbidden_ingredients.push('Haferflocken'); },
+    (scenario) => { scenario.compact_context.constraints.allergies.push('Gluten'); },
+    (scenario) => { scenario.compact_context.priority_foods[0].unit = 'ml'; },
+    (scenario) => { scenario.compact_context.priority_foods[0].available_quantity *= 2; },
+    (scenario) => { scenario.compact_context.candidate_recipes[0].ingredient_names.push('Butter'); },
+    (scenario) => { scenario.compact_context.fallback_allowed = true; },
+    (scenario) => { scenario.shopping_decision = 'accepted'; },
+  ];
+  for (const mutate of mutations) {
+    const corrupted = structuredClone(syntheticScenarios[0]);
+    mutate(corrupted);
+    assert.throws(() => assertFixture(corrupted), assert.AssertionError);
+  }
+});

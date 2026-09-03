@@ -14,6 +14,26 @@ const prompt = flow.flow.nodes.find((node) => node.type === 'prompt').data;
 const sandbox = { module: { exports: {} } };
 vm.runInNewContext(flow.flow.nodes.find((node) => node.type === 'evaluator').data.code, sandbox);
 
+test('synthetic Promptfoo config keeps strict outputs, GLM settings and bounded retries', async () => {
+  const config = await read('promptfoo/promptfooconfig.synthetic.yaml');
+  assert.deepEqual([...config.matchAll(/- id:\s*(\S+)/g)].map((match) => match[1]), ['openrouter:z-ai/glm-5.3-flash']);
+  for (const pattern of [
+    /apiKeyEnvar:\s*OPENROUTER_API_KEY/,
+    /maxRetries:\s*0\b/, /temperature:\s*0\b/, /top_p:\s*1\b/, /seed:\s*0\b/,
+    /max_tokens:\s*8192\b/, /showThinking:\s*false/,
+    /reasoning:\s*\r?\n\s+effort:\s*low/, /require_parameters:\s*true/,
+    /PROMPTFOO_DISABLE_ADAPTIVE_SCHEDULER:\s*true/, /REQUEST_TIMEOUT_MS:\s*120000\b/,
+    /timeoutMs:\s*125000\b/, /maxEvalTimeMs:\s*900000\b/,
+    /response_format:\s*file:\/\/schemas\/recipe-suggestion-response-format.json/,
+    /tests:\s*file:\/\/tests\/recipe-suggestion-synthetic.json/,
+  ]) assert.match(config, pattern);
+  const responseFormat = JSON.parse(await read('promptfoo/schemas/recipe-suggestion-response-format.json'));
+  assert.equal(responseFormat.type, 'json_schema');
+  assert.equal(responseFormat.json_schema.strict, true);
+  assert.deepEqual(responseFormat.json_schema.schema,
+    JSON.parse(await read('promptfoo/schemas/recipe-suggestion-response.schema.json')));
+});
+
 test('both tools receive the exact same 75 inputs and prompt, GLM only, no cached answers', async () => {
   assert.equal(cases.length, 75);
   assert.equal(table.rows.length, 75);
@@ -28,6 +48,11 @@ test('both tools receive the exact same 75 inputs and prompt, GLM only, no cache
     assert.equal(table.rows[index].compact_context, cases[index].vars.compact_context);
     assert.equal(cases[index].vars.scenario_id, scenario.scenario_id);
     assert.deepEqual(JSON.parse(cases[index].vars.expected), scenario.expected);
+    for (const assertion of cases[index].assert) {
+      assert.ok(assertion.value.startsWith('file://'));
+      // External test files resolve assertion paths against the config directory.
+      assert.ok((await read(`promptfoo/${assertion.value.slice('file://'.length)}`)).length > 0);
+    }
   }
 });
 

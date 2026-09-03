@@ -45,7 +45,7 @@ const tests = syntheticScenarios.map((scenario) => ({
   vars: { scenario_id: scenario.scenario_id, compact_context: JSON.stringify(scenario.compact_context), expected: JSON.stringify(scenario.expected) },
   metadata: { dataset: DATASET_VERSION, scenario_type: scenario.scenario_type, tags: scenario.tags },
   assert: [
-    { type: 'is-json', value: 'file://promptfoo/schemas/recipe-suggestion-response.schema.json' },
+    { type: 'is-json', value: 'file://schemas/recipe-suggestion-response.schema.json' },
     { type: 'javascript', value: 'file://assertions/recipe-suggestion.js' },
     { type: 'javascript', value: 'file://assertions/synthetic-quality.js' },
   ],

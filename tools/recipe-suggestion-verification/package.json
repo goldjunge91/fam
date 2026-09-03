@@ -11,6 +11,7 @@
     "verify:synthetic": "node chainforge/run-live.mjs --synthetic",
     "eval": "promptfoo eval -c promptfoo/promptfooconfig.yaml --env-file .env -j 1 --no-cache",
     "eval:matrix": "promptfoo eval -c promptfoo/promptfooconfig.openrouter.yaml --env-file .env -j 1 --no-cache",
+    "eval:synthetic": "promptfoo eval -c promptfoo/promptfooconfig.synthetic.yaml --env-file .env -j 3 --no-cache",
     "view": "promptfoo view"
   },
   "devDependencies": {
