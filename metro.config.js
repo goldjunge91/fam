@@ -1,7 +1,3 @@
-const {
-  withStorybook,
-} = require('@storybook/react-native/withStorybook');
-
 const { withNativeWind } = require("nativewind/metro");
 const { getSentryExpoConfig } = require("@sentry/react-native/metro");
 const { getPostHogExpoConfig } = require("posthog-react-native/metro");
@@ -42,6 +38,4 @@ config.transformer.getTransformOptions = async () => ({
   },
 });
 
-module.exports = withStorybook(withNativeWind(config, { input: "./src/global.css" }), {
-  enabled: process.env.EXPO_PUBLIC_STORYBOOK_ENABLED === "true",
-});
+module.exports = withNativeWind(config, { input: "./src/global.css" });

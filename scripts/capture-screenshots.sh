@@ -93,13 +93,15 @@ rm -f "$DOCS/shot-current.txt" "$DOCS/shot-expected.txt" "$DOCS/shot-captured.tx
 CAPTURE_TIMEOUT_MS=3000
 SETTLE_MS=1000
 FIXTURE_TIMEOUT_MS=1500
+ARMED_AT_MS=$(( $(date +%s) * 1000 ))
 # Die Datei wird direkt in den für Expo FileSystem sichtbaren Container geschrieben.
-printf '%s' "{\"enabled\":true,\"captureTimeoutMs\":$CAPTURE_TIMEOUT_MS,\"settleMs\":$SETTLE_MS,\"fixtureTimeoutMs\":$FIXTURE_TIMEOUT_MS}" \
+printf '%s' "{\"enabled\":true,\"armedAt\":$ARMED_AT_MS,\"captureTimeoutMs\":$CAPTURE_TIMEOUT_MS,\"settleMs\":$SETTLE_MS,\"fixtureTimeoutMs\":$FIXTURE_TIMEOUT_MS}" \
 	>"$DOCS/shots.json"
 
 echo "▶ fam-Screenshots werden auf $UDID aufgenommen"
 # Diese Meldung zeigt die aktiven Timer, damit "Seiten wechseln zu schnell" gezielt tunbar ist.
 echo "  Timer: settleMs=$SETTLE_MS captureTimeoutMs=$CAPTURE_TIMEOUT_MS fixtureTimeoutMs=$FIXTURE_TIMEOUT_MS"
+echo "  App wird für den Screenshot-Lauf neu gestartet..."
 # Die App wird gestoppt, damit Flag-Datei und native Einstellungen beim Start gelten.
 xcrun simctl terminate "$UDID" "$BUNDLE" >/dev/null 2>&1 || true
 
@@ -118,6 +120,7 @@ if ! start_error="$(xcrun simctl launch "$UDID" "$BUNDLE" 2>&1 >/dev/null)"; the
 	echo "✗ App-Start für den Screenshot-Lauf fehlgeschlagen: $start_error" >&2
 	exit 1
 fi
+echo "  App gestartet; warte auf die ScreenshotTour..."
 # Ab jetzt stellt Cleanup nach dem Lauf den normalen App-Zustand wieder her.
 CAPTURE_STARTED=true
 

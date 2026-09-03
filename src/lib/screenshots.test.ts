@@ -28,20 +28,25 @@ describe('screenshot tour', () => {
   });
 
   it('startet bei unvollständiger SQLite-Fixture nicht', () => {
-    expect(isFixtureReady({ householdId: 'household-demo', recipeId: '', ready: false })).toBe(
-      false,
-    );
-    expect(
-      isFixtureReady({ householdId: 'household-demo', recipeId: 'recipe-demo', ready: true }),
-    ).toBe(true);
+    expect(isFixtureReady({ householdId: 'household-demo', recipeId: '' })).toBe(false);
+    expect(isFixtureReady({ householdId: 'household-demo', recipeId: 'recipe-demo' })).toBe(true);
   });
 
   it('akzeptiert nur gültige opt-in shots.json-Konfigurationen', () => {
     expect(parseShotsConfig({ enabled: false })).toBeNull();
+    expect(parseShotsConfig({ enabled: true })).toBeNull();
     expect(parseShotsConfig({ enabled: true, settleMs: -1 })).toBeNull();
     expect(parseShotsConfig({ enabled: true, captureTimeoutMs: '15000' })).toBeNull();
-    expect(parseShotsConfig({ enabled: true, settleMs: 0, captureTimeoutMs: 15_000 })).toEqual({
+    expect(
+      parseShotsConfig({
+        enabled: true,
+        armedAt: 1_000_000,
+        settleMs: 0,
+        captureTimeoutMs: 15_000,
+      }),
+    ).toEqual({
       enabled: true,
+      armedAt: 1_000_000,
       settleMs: 0,
       captureTimeoutMs: 15_000,
       fixtureTimeoutMs: undefined,
