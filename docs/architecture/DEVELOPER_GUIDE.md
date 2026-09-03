@@ -107,16 +107,37 @@ Vor Änderungen an React-Native-Komponententests zuerst
 `.agents/rules/react-native-testing-library.md` und die lokale Dokumentation
 von `@testing-library/react-native` lesen.
 
+bun run native:dev --
+iOS:
+
+- ios-development-simulator (Debug, Simulator, .app)
+- ios-development-device (Debug, echtes Gerät, .ipa)
+- ios-preview-simulator (Release, Simulator, .app)
+- ios-preview-testflight (Release, TestFlight, .ipa)
+- ios-production (Release, Store, .ipa)
+
+Android:
+
+- android-development (.apk)
+- android-preview (.apk)
+- android-production (.aab)
+
+Für deinen Fall (lokal im Simulator testen, ob expo-tracking-transparency jetzt funktioniert) wäre ios-development-simulator der richtige Target-Name:
+
+```bash
+bun run native:rebuild -- --approve-rebuild --target ios-development-simulator
+```
+
+native:rebuild ist bewusst der Release-Pfad (eas build --local, reproduzierbar/signiert, für TestFlight/Production) und entsprechend langsamer/schwerer. Für den reinen Inner-Loop (Simulator während der Entwicklung, mit ccache/DerivedData-Wiederverwendung) ist native:dev vorgesehen:
+
+```bash
+bun run native:dev -- --target ios-development-simulator
+```
+
 ---
 
 ## Befehle
 
-- `bun start` — Metro starten
-- `bun run ios` / `bun run android` / `bun run web`
-- `bun run check` — Lint + Format prüfen (Biome), `bun run check:fix` schreibt
-- `bun run typecheck` — `tsc --noEmit`
-- `bun run test` — Jest. **Nicht `bun test`**: das startet Buns eigenen Runner,
-  ignoriert `jest.config.js` und schlägt fehl
 - `bun run e2e` — Maestro-Flows gegen einen laufenden Simulator/Emulator
   (Dev Build + `supabase start` + Testaccount nötig, siehe
   `.maestro/flows/onboarding-sign-in.yaml`)
@@ -183,17 +204,6 @@ gitignored und werden bewusst nicht mitgeliefert:
 | `.env.development` | Gehostete Development-Datenbank und RevenueCat Test Store |
 | `.env.preview` | TestFlight über `bun run ios:testflight` |
 | `.env.production` | Reserviert für den späteren Produktions-Build |
-
-Wichtige Kommandos:
-
-```bash
-bun run start:local        # .env.local
-bun run ios:local          # .env.local
-bun run ios:development    # .env.development
-bun run test:local         # .env.local
-bun run test:development   # .env.development
-bun run ios:testflight     # .env.preview
-```
 
 Beispiel für lokale Entwicklung:
 
@@ -282,31 +292,6 @@ erzeugen.
 Aktuelle Supabase-Versionen geben **Publishable** und **Secret** aus, nicht mehr
 `anon` und `service_role`. In `EXPO_PUBLIC_SUPABASE_KEY` gehört der
 Publishable Key — der Secret Key darf niemals in die App.
-
-### Fehler-Tracking (Sentry)
-
-JS- und native Crashes sowie dauerhaft gescheiterte Sync-Vorgänge (`@/lib/sync`)
-landen in Sentry (`src/lib/sentry.ts`). Ohne `EXPO_PUBLIC_SENTRY_DSN` bleibt das
-ein No-op — App und Tests laufen auch ohne Sentry-Account.
-
-Einmalige Einrichtung:
-
-1. Sentry-Projekt anlegen (Plattform **React Native**, kostenloser Tarif reicht:
-   5.000 Errors/Monat) → **Project Settings > Client Keys** liefert den DSN.
-2. `EXPO_PUBLIC_SENTRY_DSN` in `.env` eintragen.
-3. In `app.json` unter dem Plugin `@sentry/react-native/expo` die Platzhalter
-   `TODO_SENTRY_ORG_SLUG` / `TODO_SENTRY_PROJECT_SLUG` durch die echten Slugs
-   aus der Sentry-URL ersetzen (`sentry.io/organizations/<org>/projects/<project>/`).
-   Beides sind keine Geheimnisse, dürfen also im Repo stehen.
-4. Für Source-Map-Uploads bei EAS-Builds ein Auth-Token unter
-   **Settings > Auth Tokens** erzeugen (Scope `project:releases`) und als
-   `SENTRY_AUTH_TOKEN` per `eas secret:create --scope project --name SENTRY_AUTH_TOKEN --value <token>`
-   hinterlegen — **nicht** in `.env` committen.
-5. Neuer Dev-Client-Build nötig (`bash scripts/ios-dev.sh` bzw. Android-Äquivalent),
-   da `@sentry/react-native` ein natives Modul mitbringt.
-
-Alarmierung (Slack/E-Mail bei neuen Fehlern) lässt sich im Sentry-Dashboard
-unter **Alerts** einrichten, kostenlos im Free-Tier enthalten.
 
 ### Telemetrie und Feature Flags (PostHog)
 

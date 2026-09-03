@@ -22,7 +22,6 @@ jest.mock('expo-router', () => {
   return { Stack };
 });
 jest.mock('expo-observe', () => ({ useObserve: () => ({ markInteractive: jest.fn() }) }));
-jest.mock('expo-splash-screen', () => ({ hideAsync: jest.fn() }));
 jest.mock('@/features/auth/session-provider', () => ({ useSession: () => mockSessionState }));
 jest.mock('@/lib/db/client', () => ({
   getDatabase: (...args: unknown[]) => mockGetDatabase(...args),
