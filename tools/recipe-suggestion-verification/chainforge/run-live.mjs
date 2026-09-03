@@ -10,9 +10,12 @@ const { values } = parseArgs({ options: {
   model: { type: 'string', multiple: true },
   scenario: { type: 'string' },
   matrix: { type: 'boolean', default: false },
+  synthetic: { type: 'boolean', default: false },
   'dry-run': { type: 'boolean', default: false },
 } });
-const flowFile = values.matrix ? 'recipe-suggestion-model-comparison.cforge' : 'recipe-suggestion-v2.cforge';
+if (values.matrix && values.synthetic) throw new Error('Select either the comparison matrix or the GLM synthetic suite.');
+const flowFile = values.synthetic ? 'recipe-suggestion-synthetic-75.cforge'
+  : values.matrix ? 'recipe-suggestion-model-comparison.cforge' : 'recipe-suggestion-v2.cforge';
 const flow = JSON.parse(await readFile(new URL(flowFile, import.meta.url), 'utf8')).flow;
 const prompt = flow.nodes.find((node) => node.type === 'prompt').data;
 const table = flow.nodes.find((node) => node.type === 'table').data;
@@ -66,7 +69,16 @@ except Exception as error:
     const score = response.error ? null : evaluator.module.exports.evaluate({ text: response.output, var: { compact_context: row.compact_context } });
     const result = { model, scenario_id: row.scenario_id, duration_ms: Date.now() - started,
       status: response.error ? 'provider_error' : score === 1 ? 'pass' : 'contract_failure', ...response };
-    if (score === 0) result.reason = assertRecipeSuggestion(response.output, { vars: { compact_context: row.compact_context } }).reason;
+    if (!response.error) {
+      const contract = assertRecipeSuggestion(response.output, { vars: { compact_context: row.compact_context } });
+      const quality = contract.pass ? evaluator.module.exports.evaluateSyntheticQuality?.({
+        text: response.output, var: { compact_context: row.compact_context },
+      }) : null;
+      if (quality?.metrics) result.metrics = quality.metrics;
+      if (score === 0) result.reason = contract.pass
+        ? quality?.reason ?? 'Embedded ChainForge evaluator rejected the response'
+        : contract.reason;
+    }
     results.push(result);
     await writeFile(reportPath, `${JSON.stringify(results, null, 2)}\n`);
     console.log(JSON.stringify({ model, scenario_id: row.scenario_id, status: result.status, duration_ms: result.duration_ms, error: result.error, reason: result.reason }));

@@ -6,6 +6,9 @@
     "test": "node --test",
     "test:contracts": "node --test promptfoo/promptfoo-contract.test.mjs chainforge/chainforge-contract.test.mjs chainforge/recipe-suggestion-flow.test.mjs chainforge/run-live.test.mjs scripts/wrapper-contract.test.mjs eval-run-manifest.test.mjs run-openrouter-smoke-args.test.mjs run-openrouter-smoke-core.test.mjs",
     "verify:chainforge": "node chainforge/run-live.mjs",
+    "build:synthetic": "node synthetic/build.mjs",
+    "test:synthetic": "node --test synthetic/scenarios.test.mjs synthetic/quality.test.mjs synthetic/integration.test.mjs",
+    "verify:synthetic": "node chainforge/run-live.mjs --synthetic",
     "eval": "promptfoo eval -c promptfoo/promptfooconfig.yaml --env-file .env -j 1 --no-cache",
     "eval:matrix": "promptfoo eval -c promptfoo/promptfooconfig.openrouter.yaml --env-file .env -j 1 --no-cache",
     "view": "promptfoo view"

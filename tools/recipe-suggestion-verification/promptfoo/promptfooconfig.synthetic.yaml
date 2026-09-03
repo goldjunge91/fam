@@ -1,0 +1,34 @@
+description: 75 synthetic household inventories, GLM 5.3, strict contract and priority-use checks
+
+env:
+  PROMPTFOO_DISABLE_ADAPTIVE_SCHEDULER: true
+  REQUEST_TIMEOUT_MS: 120000
+
+evaluateOptions:
+  timeoutMs: 125000
+  maxEvalTimeMs: 900000
+
+providers:
+  - id: openrouter:z-ai/glm-5.3-flash
+    config:
+      apiKeyEnvar: OPENROUTER_API_KEY
+      maxRetries: 0
+      temperature: 0
+      top_p: 1
+      seed: 0
+      max_tokens: 8192
+      showThinking: false
+      passthrough:
+        reasoning:
+          effort: low
+        provider:
+          require_parameters: true
+
+prompts:
+  - file://prompts/recipe-suggestion-synthetic.prompt.txt
+
+defaultTest:
+  options:
+    response_format: file://schemas/recipe-suggestion-response-format.json
+
+tests: file://tests/recipe-suggestion-synthetic.json
