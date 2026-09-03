@@ -1,6 +1,9 @@
+// Route-basiertes Storybook (src/app/(storybook)/index.tsx + root-navigator.tsx) statt
+// Entry-Swap: die alte '@storybook/react-native/withStorybook' würde expo-router/entry
+// komplett ersetzen und damit Router + AppProviders (Session, QueryClient, ...) killen.
 const {
   withStorybook,
-} = require('@storybook/react-native/withStorybook');
+} = require('@storybook/react-native/metro/withStorybook');
 
 const { withNativeWind } = require("nativewind/metro");
 const { getSentryExpoConfig } = require("@sentry/react-native/metro");

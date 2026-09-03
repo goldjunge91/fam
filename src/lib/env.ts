@@ -39,6 +39,10 @@ export const env = {
     return isFlagEnabled(process.env.EXPO_PUBLIC_DEV_TOOLS);
   },
 
+  get storybookEnabled(): boolean {
+    return isFlagEnabled(process.env.EXPO_PUBLIC_STORYBOOK_ENABLED);
+  },
+
   get debugLogsEnabled(): boolean {
     return isFlagEnabled(process.env.EXPO_PUBLIC_DEBUG_LOGS);
   },

@@ -1,4 +1,3 @@
-import { registerRootComponent } from 'expo';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import { view } from './storybook.requires';
@@ -8,6 +7,10 @@ import { view } from './storybook.requires';
  *
  * Use it as your React Native Storybook entrypoint and wrap `StorybookUIRoot`
  * with application decorators/providers (theme, i18n, state, navigation, etc).
+ *
+ * Wird als Route unter `src/app/(storybook)/index.tsx` eingehängt, nicht als
+ * eigener App-Root — dadurch bleiben Expo Router und AppProviders (Session,
+ * QueryClient, Theme etc.) aktiv, siehe root-navigator.tsx.
  */
 const StorybookUIRoot = view.getStorybookUI({
   shouldPersistSelection: true,
@@ -18,4 +21,4 @@ const StorybookUIRoot = view.getStorybookUI({
   enableWebsockets: true,
 });
 
-registerRootComponent(StorybookUIRoot);
+export default StorybookUIRoot;

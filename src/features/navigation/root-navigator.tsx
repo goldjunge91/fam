@@ -29,21 +29,32 @@ export function RootNavigator() {
       });
   }, [session?.user.id]);
 
-  if (isLoading) return null;
+  // Storybook laeuft als eigene Route, unabhaengig vom Session-/Onboarding-Gate
+  // darunter (Ladezustand des echten Nutzers ist fuer die Story-Ansicht irrelevant).
+  // Ein einzelner Stack bleibt immer gemountet, Stack.Protected schaltet die
+  // Screen-Sets per Guard um -- ein bedingtes Redirect ohne Ziel-Stack fuehrt
+  // sonst zu einer Navigations-Endlosschleife (Maximum update depth exceeded).
+  if (isLoading && !env.storybookEnabled) return null;
 
   const isNewUser = !seenOnboarding || env.forceOnboarding;
 
   return (
     <Stack screenOptions={{ headerShown: false }}>
-      <Stack.Screen name="onboarding" />
+      <Stack.Protected guard={env.storybookEnabled}>
+        <Stack.Screen name="(storybook)/index" />
+      </Stack.Protected>
+
+      <Stack.Protected guard={!env.storybookEnabled}>
+        <Stack.Screen name="onboarding" />
+      </Stack.Protected>
 
       {/* (app) behält den bestehenden Onboarding-Einstieg für Erstnutzer. */}
-      <Stack.Protected guard={!!session || isNewUser}>
+      <Stack.Protected guard={!env.storybookEnabled && (!!session || isNewUser)}>
         <Stack.Screen name="(app)" />
       </Stack.Protected>
 
       {/* Haushalts- und Privatdaten benötigen immer eine echte Session. */}
-      <Stack.Protected guard={!!session}>
+      <Stack.Protected guard={!env.storybookEnabled && !!session}>
         <Stack.Screen name="household" />
         <Stack.Screen name="profile" />
         <Stack.Screen name="recipe" />
@@ -54,7 +65,7 @@ export function RootNavigator() {
         <Stack.Screen name="add-food-entry" options={{ presentation: 'modal' }} />
       </Stack.Protected>
 
-      <Stack.Protected guard={!session && !isNewUser}>
+      <Stack.Protected guard={!env.storybookEnabled && !session && !isNewUser}>
         <Stack.Screen name="(auth)" />
       </Stack.Protected>
     </Stack>
