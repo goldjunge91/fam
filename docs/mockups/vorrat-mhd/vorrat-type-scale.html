@@ -1,0 +1,502 @@
+<title>Vorrat Schriftgrößen</title>
+<style>
+  :root {
+    --bg: #f8f4ef;
+    --bg-element: #fbf7f2;
+    --bg-selected: #e9e1e7;
+    --text: #2d2830;
+    --text-secondary: #786f79;
+    --border: #e4dde3;
+    --accent: #705773;
+    --success: #78906f;
+    --danger: #c65f50;
+    --grad-1: #ffccb2;
+    --grad-2: #f9f2eb;
+    --grad-3: #e8def2;
+    --page-bg: #efe9e1;
+    --frame-shadow: rgba(89, 64, 89, 0.18);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #211d23;
+      --bg-element: #2b262e;
+      --bg-selected: #382f3b;
+      --text: #f2ece7;
+      --text-secondary: #b7adb3;
+      --border: #3e3640;
+      --accent: #b79cba;
+      --success: #8faf86;
+      --danger: #d9776a;
+      --grad-1: #3b2b2b;
+      --grad-2: #211d23;
+      --grad-3: #2e2638;
+      --page-bg: #16131a;
+      --frame-shadow: rgba(0, 0, 0, 0.45);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #211d23;
+    --bg-element: #2b262e;
+    --bg-selected: #382f3b;
+    --text: #f2ece7;
+    --text-secondary: #b7adb3;
+    --border: #3e3640;
+    --accent: #b79cba;
+    --success: #8faf86;
+    --danger: #d9776a;
+    --grad-1: #3b2b2b;
+    --grad-2: #211d23;
+    --grad-3: #2e2638;
+    --page-bg: #16131a;
+    --frame-shadow: rgba(0, 0, 0, 0.45);
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--page-bg);
+    color: var(--text);
+    font-family: -apple-system, "SF Pro Text", "Segoe UI", system-ui, sans-serif;
+    padding: 40px 24px 80px;
+  }
+
+  .intro {
+    max-width: 720px;
+    margin: 0 auto 44px;
+  }
+  .eyebrow {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 10px;
+  }
+  h1 {
+    font-size: 26px;
+    font-weight: 650;
+    letter-spacing: -0.01em;
+    margin: 0 0 12px;
+    text-wrap: balance;
+  }
+  .intro p {
+    font-size: 15px;
+    line-height: 1.55;
+    color: var(--text-secondary);
+    margin: 0 0 8px;
+    max-width: 62ch;
+  }
+  .intro code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 0.92em;
+    background: var(--bg-selected);
+    padding: 1px 5px;
+    border-radius: 4px;
+    color: var(--text);
+  }
+
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 28px;
+    justify-content: center;
+    align-items: flex-start;
+    max-width: 1180px;
+    margin: 0 auto;
+  }
+
+  .col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .col-label {
+    text-align: center;
+  }
+  .col-label .name {
+    font-size: 14px;
+    font-weight: 650;
+    margin: 0 0 2px;
+  }
+  .col-label .delta {
+    font-size: 12px;
+    color: var(--text-secondary);
+    margin: 0;
+    font-variant-numeric: tabular-nums;
+  }
+  .col.recommended .name::after {
+    content: "Vorschlag";
+    display: inline-block;
+    margin-left: 8px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: color-mix(in srgb, var(--accent) 14%, transparent);
+    padding: 2px 7px;
+    border-radius: 999px;
+    vertical-align: 2px;
+  }
+
+  /* --- Phone frame --- */
+  .phone {
+    width: 300px;
+    height: 610px;
+    border-radius: 40px;
+    background: linear-gradient(160deg, var(--grad-1) 0%, var(--grad-2) 42%, var(--grad-3) 100%);
+    box-shadow: 0 18px 40px var(--frame-shadow);
+    padding: 14px 12px;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid color-mix(in srgb, var(--text) 8%, transparent);
+  }
+  .statusbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+    font-weight: 650;
+    padding: 2px 6px 10px;
+    font-variant-numeric: tabular-nums;
+  }
+  .statusbar .dots { opacity: 0.75; font-weight: 600; letter-spacing: 1px; }
+
+  .app-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 4px 2px 18px;
+  }
+  .menu-btn, .avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .menu-btn {
+    background: color-mix(in srgb, var(--bg-element) 70%, transparent);
+    font-size: 16px;
+  }
+  .avatar {
+    background: var(--accent);
+    color: var(--bg-element);
+    font-size: 12px;
+    font-weight: 700;
+  }
+  .app-title {
+    font-size: 21px;
+    font-weight: 750;
+    letter-spacing: -0.01em;
+  }
+
+  .summary-card {
+    background: color-mix(in srgb, var(--bg-element) 91%, transparent);
+    border-radius: 22px;
+    padding: 18px 16px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    box-shadow: 0 6px 16px color-mix(in srgb, var(--text) 6%, transparent);
+    margin-bottom: 14px;
+  }
+  .ring-wrap {
+    width: 78px;
+    height: 78px;
+    border-radius: 50%;
+    position: relative;
+    flex-shrink: 0;
+    background: conic-gradient(var(--danger) 0deg 210deg, var(--success) 210deg 360deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .ring-wrap::before {
+    content: "";
+    position: absolute;
+    inset: 9px;
+    border-radius: 50%;
+    background: color-mix(in srgb, var(--bg-element) 91%, var(--bg));
+  }
+  .ring-center {
+    position: relative;
+    text-align: center;
+    line-height: 1.1;
+  }
+  .ring-count {
+    display: block;
+    font-weight: 650;
+    font-variant-numeric: tabular-nums;
+  }
+  .ring-sub {
+    display: block;
+    color: var(--text-secondary);
+    font-weight: 550;
+  }
+  .summary-copy { flex: 1; min-width: 0; }
+  .summary-copy .eyebrow-line {
+    color: var(--text-secondary);
+    font-weight: 550;
+    margin: 0 0 3px;
+  }
+  .summary-copy .headline {
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    margin: 0 0 3px;
+  }
+  .summary-copy .status-line {
+    color: var(--danger);
+    font-weight: 550;
+    margin: 0;
+  }
+
+  .dropdown {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--bg-element);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 10px 14px;
+    margin-bottom: 14px;
+    font-weight: 600;
+  }
+  .dropdown .chev { color: var(--text-secondary); font-size: 0.85em; }
+
+  .sort-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2px 4px 10px;
+  }
+  .sort-row .sort-label { color: var(--text-secondary); font-weight: 550; }
+  .sort-row .sort-action { color: var(--accent); font-weight: 650; }
+
+  .item-list { display: flex; flex-direction: column; }
+  .item-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 4px;
+    border-bottom: 1px solid var(--border);
+  }
+  .item-row:last-child { border-bottom: none; }
+  .expiry-bar {
+    width: 4px;
+    align-self: stretch;
+    border-radius: 2px;
+    flex-shrink: 0;
+  }
+  .expiry-bar.soon { background: var(--danger); }
+  .expiry-bar.later { background: var(--success); opacity: 0.55; }
+  .expiry-bar.none { background: transparent; }
+  .item-main { flex: 1; min-width: 0; }
+  .item-name { font-weight: 650; margin: 0 0 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .item-meta { color: var(--text-secondary); font-weight: 500; margin: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .item-qty { font-weight: 650; font-variant-numeric: tabular-nums; flex-shrink: 0; }
+
+  .fab {
+    position: absolute;
+    bottom: 22px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: var(--accent);
+    color: var(--bg-element);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    font-weight: 400;
+    box-shadow: 0 10px 22px color-mix(in srgb, var(--accent) 45%, transparent);
+  }
+
+  /* --- Scale variants --- */
+  /* Baseline: matches the shipped app (small/smallBold = 14px, default = 16px) */
+  .scale-base {
+    --fs-summary-sub: 14px;
+    --fs-headline: 24px;
+    --fs-ring-count: 24px;
+    --fs-dropdown: 16px;
+    --fs-sort: 14px;
+    --fs-item-name: 14px;
+    --fs-item-meta: 14px;
+    --fs-item-qty: 14px;
+  }
+  .scale-plus1 {
+    --fs-summary-sub: 15px;
+    --fs-headline: 25px;
+    --fs-ring-count: 25px;
+    --fs-dropdown: 17px;
+    --fs-sort: 15px;
+    --fs-item-name: 15px;
+    --fs-item-meta: 15px;
+    --fs-item-qty: 15px;
+  }
+  .scale-plus2 {
+    --fs-summary-sub: 16px;
+    --fs-headline: 26px;
+    --fs-ring-count: 26px;
+    --fs-dropdown: 18px;
+    --fs-sort: 16px;
+    --fs-item-name: 16px;
+    --fs-item-meta: 16px;
+    --fs-item-qty: 16px;
+  }
+
+  .phone .ring-sub,
+  .phone .summary-copy .eyebrow-line,
+  .phone .summary-copy .status-line { font-size: var(--fs-summary-sub); }
+  .phone .headline { font-size: var(--fs-headline); }
+  .phone .ring-count { font-size: var(--fs-ring-count); }
+  .phone .dropdown { font-size: var(--fs-dropdown); }
+  .phone .sort-row { font-size: var(--fs-sort); }
+  .phone .item-name { font-size: var(--fs-item-name); }
+  .phone .item-meta { font-size: var(--fs-item-meta); }
+  .phone .item-qty { font-size: var(--fs-item-qty); }
+
+  footer {
+    max-width: 720px;
+    margin: 48px auto 0;
+    font-size: 13px;
+    color: var(--text-secondary);
+    text-align: center;
+  }
+</style>
+
+<div class="intro">
+  <p class="eyebrow">Typografie-Vergleich</p>
+  <h1>Ist "small" im Vorrat wirklich zu klein?</h1>
+  <p>
+    Fast jeder Text im Vorrat-Screen — Artikelname, Menge, Metadaten, Sortierzeile,
+    Zusammenfassungs-Untertexte — läuft über dieselbe Rolle <code>small</code>/<code>smallBold</code>,
+    aktuell 14&nbsp;px. Drei Varianten mit echtem Vorrat-Inhalt, damit der Unterschied direkt sichtbar ist statt nur als Zahl.
+  </p>
+</div>
+
+<div class="row">
+  <div class="col">
+    <div class="col-label">
+      <p class="name">Aktuell</p>
+      <p class="delta">small/smallBold 14&nbsp;px · Dropdown 16&nbsp;px</p>
+    </div>
+    <div class="phone scale-base">
+      <div class="statusbar"><span>03:03</span><span class="dots">●●●● 82%</span></div>
+      <div class="app-header">
+        <div class="menu-btn">☰</div>
+        <div class="app-title">Vorrat</div>
+        <div class="avatar">MA</div>
+      </div>
+      <div class="summary-card">
+        <div class="ring-wrap"><div class="ring-center"><span class="ring-count">2</span><span class="ring-sub">Artikel</span></div></div>
+        <div class="summary-copy">
+          <p class="eyebrow-line">Dein Vorrat heute</p>
+          <p class="headline">1 läuft bald ab</p>
+          <p class="status-line">Zuerst verbrauchen</p>
+        </div>
+      </div>
+      <div class="dropdown"><span>Alle</span><span class="chev">⌄</span></div>
+      <div class="sort-row"><span class="sort-label">Nach Haltbarkeit</span><span class="sort-action">Sortieren</span></div>
+      <div class="item-list">
+        <div class="item-row">
+          <div class="expiry-bar soon"></div>
+          <div class="item-main"><p class="item-name">Zarte Haferflocken</p><p class="item-meta">in 3 Tagen · Abstellkammer</p></div>
+          <div class="item-qty">3 Stück</div>
+        </div>
+        <div class="item-row">
+          <div class="expiry-bar none"></div>
+          <div class="item-main"><p class="item-name">Hackfleisch gemischt</p><p class="item-meta">Abstellkammer</p></div>
+          <div class="item-qty">1 Stück</div>
+        </div>
+      </div>
+      <div class="fab">+</div>
+    </div>
+  </div>
+
+  <div class="col recommended">
+    <div class="col-label">
+      <p class="name">+1&nbsp;px</p>
+      <p class="delta">small/smallBold 15&nbsp;px · Dropdown 17&nbsp;px</p>
+    </div>
+    <div class="phone scale-plus1">
+      <div class="statusbar"><span>03:03</span><span class="dots">●●●● 82%</span></div>
+      <div class="app-header">
+        <div class="menu-btn">☰</div>
+        <div class="app-title">Vorrat</div>
+        <div class="avatar">MA</div>
+      </div>
+      <div class="summary-card">
+        <div class="ring-wrap"><div class="ring-center"><span class="ring-count">2</span><span class="ring-sub">Artikel</span></div></div>
+        <div class="summary-copy">
+          <p class="eyebrow-line">Dein Vorrat heute</p>
+          <p class="headline">1 läuft bald ab</p>
+          <p class="status-line">Zuerst verbrauchen</p>
+        </div>
+      </div>
+      <div class="dropdown"><span>Alle</span><span class="chev">⌄</span></div>
+      <div class="sort-row"><span class="sort-label">Nach Haltbarkeit</span><span class="sort-action">Sortieren</span></div>
+      <div class="item-list">
+        <div class="item-row">
+          <div class="expiry-bar soon"></div>
+          <div class="item-main"><p class="item-name">Zarte Haferflocken</p><p class="item-meta">in 3 Tagen · Abstellkammer</p></div>
+          <div class="item-qty">3 Stück</div>
+        </div>
+        <div class="item-row">
+          <div class="expiry-bar none"></div>
+          <div class="item-main"><p class="item-name">Hackfleisch gemischt</p><p class="item-meta">Abstellkammer</p></div>
+          <div class="item-qty">1 Stück</div>
+        </div>
+      </div>
+      <div class="fab">+</div>
+    </div>
+  </div>
+
+  <div class="col">
+    <div class="col-label">
+      <p class="name">+2&nbsp;px</p>
+      <p class="delta">small/smallBold 16&nbsp;px · Dropdown 18&nbsp;px</p>
+    </div>
+    <div class="phone scale-plus2">
+      <div class="statusbar"><span>03:03</span><span class="dots">●●●● 82%</span></div>
+      <div class="app-header">
+        <div class="menu-btn">☰</div>
+        <div class="app-title">Vorrat</div>
+        <div class="avatar">MA</div>
+      </div>
+      <div class="summary-card">
+        <div class="ring-wrap"><div class="ring-center"><span class="ring-count">2</span><span class="ring-sub">Artikel</span></div></div>
+        <div class="summary-copy">
+          <p class="eyebrow-line">Dein Vorrat heute</p>
+          <p class="headline">1 läuft bald ab</p>
+          <p class="status-line">Zuerst verbrauchen</p>
+        </div>
+      </div>
+      <div class="dropdown"><span>Alle</span><span class="chev">⌄</span></div>
+      <div class="sort-row"><span class="sort-label">Nach Haltbarkeit</span><span class="sort-action">Sortieren</span></div>
+      <div class="item-list">
+        <div class="item-row">
+          <div class="expiry-bar soon"></div>
+          <div class="item-main"><p class="item-name">Zarte Haferflocken</p><p class="item-meta">in 3 Tagen · Abstellkammer</p></div>
+          <div class="item-qty">3 Stück</div>
+        </div>
+        <div class="item-row">
+          <div class="expiry-bar none"></div>
+          <div class="item-main"><p class="item-name">Hackfleisch gemischt</p><p class="item-meta">Abstellkammer</p></div>
+          <div class="item-qty">1 Stück</div>
+        </div>
+      </div>
+      <div class="fab">+</div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  Palette und Verlauf 1:1 aus <code>src/constants/theme.ts</code> / <code>global.css</code> — Systemschrift, keine Web-Font-Substitution.
+  Betrifft global die <code>small</code>/<code>smallBold</code>-Rolle in <code>themed-text.tsx</code>, nicht nur Vorrat.
+</footer>

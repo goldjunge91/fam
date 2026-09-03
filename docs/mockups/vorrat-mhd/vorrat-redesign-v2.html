@@ -1,0 +1,304 @@
+<title>Vorrat Feinschliff</title>
+<style>
+  :root {
+    --bg: #f8f4ef;
+    --bg-element: #fbf7f2;
+    --bg-selected: #e9e1e7;
+    --text: #2d2830;
+    --text-secondary: #786f79;
+    --border: #e4dde3;
+    --accent: #705773;
+    --success: #78906f;
+    --warning: #c69059;
+    --danger: #c65f50;
+    --grad-1: #ffccb2;
+    --grad-2: #f9f2eb;
+    --grad-3: #e8def2;
+    --page-bg: #efe9e1;
+    --frame-shadow: rgba(89, 64, 89, 0.18);
+    --glass-bg: rgba(255, 255, 255, 0.55);
+    --glass-border: rgba(255, 255, 255, 0.7);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #211d23; --bg-element: #2b262e; --bg-selected: #382f3b;
+      --text: #f2ece7; --text-secondary: #b7adb3; --border: #3e3640;
+      --accent: #b79cba; --success: #8faf86; --warning: #d9a86c; --danger: #d9776a;
+      --grad-1: #3b2b2b; --grad-2: #211d23; --grad-3: #2e2638;
+      --page-bg: #16131a; --frame-shadow: rgba(0, 0, 0, 0.45);
+      --glass-bg: rgba(255, 255, 255, 0.09); --glass-border: rgba(255, 255, 255, 0.16);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #211d23; --bg-element: #2b262e; --bg-selected: #382f3b;
+    --text: #f2ece7; --text-secondary: #b7adb3; --border: #3e3640;
+    --accent: #b79cba; --success: #8faf86; --warning: #d9a86c; --danger: #d9776a;
+    --grad-1: #3b2b2b; --grad-2: #211d23; --grad-3: #2e2638;
+    --page-bg: #16131a; --frame-shadow: rgba(0, 0, 0, 0.45);
+    --glass-bg: rgba(255, 255, 255, 0.09); --glass-border: rgba(255, 255, 255, 0.16);
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--page-bg);
+    color: var(--text);
+    font-family: -apple-system, "SF Pro Text", "Segoe UI", system-ui, sans-serif;
+    padding: 40px 24px 90px;
+  }
+
+  .intro { max-width: 720px; margin: 0 auto 40px; }
+  .eyebrow {
+    font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--accent); margin: 0 0 10px;
+  }
+  h1 { font-size: 26px; font-weight: 650; letter-spacing: -0.01em; margin: 0 0 12px; text-wrap: balance; }
+  .intro p { font-size: 15px; line-height: 1.55; color: var(--text-secondary); margin: 0 0 8px; max-width: 64ch; }
+  .changelist { display: flex; flex-direction: column; gap: 6px; margin: 16px 0 0; padding: 0; list-style: none; }
+  .changelist li { font-size: 13.5px; color: var(--text); display: flex; gap: 8px; }
+  .changelist li b { color: var(--accent); flex-shrink: 0; }
+
+  .row {
+    display: flex; flex-wrap: wrap; gap: 32px; justify-content: center; align-items: flex-start;
+    max-width: 1220px; margin: 0 auto;
+  }
+  .col { display: flex; flex-direction: column; align-items: center; gap: 16px; width: 300px; }
+  .col-label { text-align: center; max-width: 300px; }
+  .col-label .name { font-size: 15px; font-weight: 700; margin: 0 0 4px; }
+  .col-label .desc { font-size: 12.5px; line-height: 1.5; color: var(--text-secondary); margin: 0; }
+
+  .phone {
+    width: 300px; height: 630px; border-radius: 40px;
+    background: linear-gradient(160deg, var(--grad-1) 0%, var(--grad-2) 42%, var(--grad-3) 100%);
+    box-shadow: 0 18px 40px var(--frame-shadow);
+    padding: 14px 12px; position: relative; overflow: hidden;
+    border: 1px solid color-mix(in srgb, var(--text) 8%, transparent);
+    font-size: 14px;
+  }
+  .statusbar {
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 13px; font-weight: 650; padding: 2px 6px 8px; font-variant-numeric: tabular-nums;
+  }
+  .statusbar .dots { opacity: 0.75; font-weight: 600; }
+  .scroll { overflow-y: auto; height: calc(100% - 34px); scrollbar-width: none; position: relative; }
+  .scroll::-webkit-scrollbar { display: none; }
+
+  .app-header {
+    display: flex; align-items: center; justify-content: space-between; padding: 4px 2px 16px;
+  }
+  .menu-btn, .avatar { width: 39px; height: 39px; border-radius: 13px; display: flex; align-items: center; justify-content: center; }
+  .menu-btn { background: color-mix(in srgb, var(--bg-element) 70%, transparent); font-size: 15px; }
+  .avatar { background: var(--accent); color: var(--bg-element); font-size: 11px; font-weight: 700; }
+  .app-title { font-size: 21px; font-weight: 750; letter-spacing: -0.01em; }
+
+  .fab {
+    position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%);
+    width: 50px; height: 50px; border-radius: 50%; background: var(--accent); color: var(--bg-element);
+    display: flex; align-items: center; justify-content: center; font-size: 21px;
+    box-shadow: 0 10px 22px color-mix(in srgb, var(--accent) 45%, transparent); z-index: 5;
+  }
+
+  .qty { font-weight: 650; font-variant-numeric: tabular-nums; flex-shrink: 0; }
+
+  footer {
+    max-width: 720px; margin: 56px auto 0; font-size: 13px; color: var(--text-secondary); text-align: center;
+  }
+  footer code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.92em;
+    background: var(--bg-selected); padding: 1px 5px; border-radius: 4px; color: var(--text);
+  }
+
+  /* ============ Zwei-Ringe Summary ============ */
+  .summary { display: flex; gap: 10px; margin-bottom: 16px; }
+  .ring-card {
+    flex: 1; background: color-mix(in srgb, var(--bg-element) 91%, transparent);
+    border-radius: 20px; padding: 14px 12px; display: flex; flex-direction: column; align-items: center; gap: 8px;
+    box-shadow: 0 6px 16px color-mix(in srgb, var(--text) 6%, transparent);
+  }
+  .ring { width: 58px; height: 58px; border-radius: 50%; position: relative; display: flex; align-items: center; justify-content: center; }
+  .ring.danger { background: conic-gradient(var(--danger) 0deg 260deg, color-mix(in srgb, var(--danger) 16%, transparent) 260deg 360deg); }
+  .ring.warning { background: conic-gradient(var(--warning) 0deg 140deg, color-mix(in srgb, var(--warning) 16%, transparent) 140deg 360deg); }
+  .ring::before { content: ""; position: absolute; inset: 7px; border-radius: 50%; background: color-mix(in srgb, var(--bg-element) 91%, var(--bg)); }
+  .ring-count { position: relative; font-size: 19px; font-weight: 700; font-variant-numeric: tabular-nums; }
+  .ring-label { font-size: 11.5px; font-weight: 650; color: var(--text-secondary); text-align: center; line-height: 1.25; }
+  .ring-label b { color: var(--text); }
+
+  /* ============ Liquid-Glass Filter + Suche ============ */
+  .toolbar { display: flex; gap: 8px; margin-bottom: 14px; position: relative; }
+  .glass-filter {
+    display: flex; align-items: center; gap: 6px; padding: 10px 14px; border-radius: 16px;
+    background: var(--glass-bg); border: 1px solid var(--glass-border);
+    backdrop-filter: blur(18px) saturate(160%); -webkit-backdrop-filter: blur(18px) saturate(160%);
+    box-shadow: 0 4px 14px color-mix(in srgb, var(--text) 8%, transparent), inset 0 1px 0 color-mix(in srgb, #fff 40%, transparent);
+    font-size: 13.5px; font-weight: 650; color: var(--text); flex-shrink: 0;
+  }
+  .glass-filter .chev { font-size: 9px; color: var(--text-secondary); margin-left: 1px; }
+  .search-field {
+    flex: 1; display: flex; align-items: center; gap: 7px; padding: 10px 12px; border-radius: 16px;
+    background: var(--glass-bg); border: 1px solid var(--glass-border);
+    backdrop-filter: blur(18px) saturate(160%); -webkit-backdrop-filter: blur(18px) saturate(160%);
+    box-shadow: 0 4px 14px color-mix(in srgb, var(--text) 8%, transparent), inset 0 1px 0 color-mix(in srgb, #fff 40%, transparent);
+    font-size: 13px; color: var(--text-secondary); min-width: 0;
+  }
+  .search-field span.txt { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+  .filter-menu {
+    position: absolute; top: 46px; left: 0; width: 168px; z-index: 20;
+    background: var(--glass-bg); border: 1px solid var(--glass-border);
+    backdrop-filter: blur(22px) saturate(170%); -webkit-backdrop-filter: blur(22px) saturate(170%);
+    border-radius: 16px; padding: 6px; box-shadow: 0 14px 30px color-mix(in srgb, var(--text) 18%, transparent), inset 0 1px 0 color-mix(in srgb, #fff 45%, transparent);
+  }
+  .filter-menu .item {
+    padding: 9px 10px; border-radius: 11px; font-size: 13px; font-weight: 600; color: var(--text);
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .filter-menu .item.active { background: color-mix(in srgb, var(--accent) 18%, transparent); color: var(--accent); }
+  .filter-menu .item .check { font-size: 11px; }
+
+  /* ============ Zeilen ohne Lagerort ============ */
+  .group-label {
+    font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;
+    color: var(--text-secondary); padding: 12px 2px 6px; display: flex; align-items: center; justify-content: space-between;
+  }
+  .group-label .sort-action { color: var(--accent); text-transform: none; letter-spacing: 0; font-weight: 650; }
+
+  .item-row { display: flex; align-items: center; gap: 12px; padding: 12px 4px; border-bottom: 1px solid var(--border); }
+  .item-row:last-child { border-bottom: none; }
+  .item-bar { width: 3px; align-self: stretch; border-radius: 2px; flex-shrink: 0; }
+  .item-main { flex: 1; min-width: 0; }
+  .item-name { font-weight: 650; font-size: 15px; margin: 0 0 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .item-meta { color: var(--text-secondary); font-size: 12.5px; font-weight: 500; margin: 0; }
+  .item-row .qty { font-size: 15px; }
+</style>
+
+<div class="intro">
+  <p class="eyebrow">Vorrat · Feinschliff auf Basis A</p>
+  <h1>Zwei Ringe, Liquid-Glass-Filter, Zeilen ohne Lagerort</h1>
+  <p>
+    Direkt auf Variante A aufgesetzt, mit den drei besprochenen Änderungen. Links die helle, rechts die dunkle
+    Darstellung mit geöffnetem Filtermenü.
+  </p>
+  <ul class="changelist">
+    <li><b>1</b> Ein Ring für "Läuft bald ab" (rot), ein Ring für "Bald fällig" (orange) — der reine Bestands-Ring ohne Aussagekraft fällt weg.</li>
+    <li><b>2</b> "Alle" wird zum Liquid-Glass-Button, der das Lagerort-Menü öffnet; daneben ein eigenes Glass-Suchfeld für Artikel.</li>
+    <li><b>3</b> Lagerort verschwindet aus der Zeile — nur noch Ablaufdatum bzw. "Kein Datum" als Meta-Text.</li>
+  </ul>
+</div>
+
+<div class="row">
+
+  <div class="col">
+    <div class="col-label">
+      <p class="name">Hell</p>
+      <p class="desc">Standardzustand, Menü geschlossen.</p>
+    </div>
+    <div class="phone">
+      <div class="statusbar"><span>03:57</span><span class="dots">●●●● 83%</span></div>
+      <div class="scroll">
+        <div class="app-header">
+          <div class="menu-btn">☰</div>
+          <div class="app-title">Vorrat</div>
+          <div class="avatar">MA</div>
+        </div>
+
+        <div class="summary">
+          <div class="ring-card">
+            <div class="ring danger"><span class="ring-count">2</span></div>
+            <span class="ring-label"><b>Läuft</b> bald ab</span>
+          </div>
+          <div class="ring-card">
+            <div class="ring warning"><span class="ring-count">1</span></div>
+            <span class="ring-label"><b>Bald</b> fällig</span>
+          </div>
+        </div>
+
+        <div class="toolbar">
+          <div class="glass-filter">Abstellkammer <span class="chev">▾</span></div>
+          <div class="search-field">🔍 <span class="txt">Artikel suchen</span></div>
+        </div>
+
+        <div class="group-label"><span>Nach Haltbarkeit</span><span class="sort-action">Sortieren</span></div>
+
+        <div class="item-row">
+          <div class="item-bar" style="background:var(--danger)"></div>
+          <div class="item-main"><p class="item-name">Zarte Haferflocken</p><p class="item-meta">in 3 Tagen</p></div>
+          <div class="qty">3 Stück</div>
+        </div>
+        <div class="item-row">
+          <div class="item-bar" style="background:var(--warning)"></div>
+          <div class="item-main"><p class="item-name">Kartoffeln vorwiegend festkochend</p><p class="item-meta">in 4 Tagen</p></div>
+          <div class="qty">3 kg</div>
+        </div>
+        <div class="item-row">
+          <div class="item-bar" style="background:transparent"></div>
+          <div class="item-main"><p class="item-name">Hackfleisch gemischt</p><p class="item-meta">Kein Datum hinterlegt</p></div>
+          <div class="qty">1 Stück</div>
+        </div>
+      </div>
+      <div class="fab">+</div>
+    </div>
+  </div>
+
+  <div class="col">
+    <div class="col-label">
+      <p class="name">Dunkel · Menü offen</p>
+      <p class="desc">"Alle" antippen öffnet das Lagerort-Menü als Glass-Panel über der Liste.</p>
+    </div>
+    <div class="phone" data-theme="dark">
+      <div class="statusbar"><span>03:57</span><span class="dots">●●●● 83%</span></div>
+      <div class="scroll">
+        <div class="app-header">
+          <div class="menu-btn">☰</div>
+          <div class="app-title">Vorrat</div>
+          <div class="avatar">MA</div>
+        </div>
+
+        <div class="summary">
+          <div class="ring-card">
+            <div class="ring danger"><span class="ring-count">2</span></div>
+            <span class="ring-label"><b>Läuft</b> bald ab</span>
+          </div>
+          <div class="ring-card">
+            <div class="ring warning"><span class="ring-count">1</span></div>
+            <span class="ring-label"><b>Bald</b> fällig</span>
+          </div>
+        </div>
+
+        <div class="toolbar">
+          <div class="glass-filter">Alle <span class="chev">▾</span></div>
+          <div class="search-field">🔍 <span class="txt">Artikel suchen</span></div>
+          <div class="filter-menu">
+            <div class="item active"><span>Alle</span><span class="check">✓</span></div>
+            <div class="item"><span>Kühlschrank</span></div>
+            <div class="item"><span>Abstellkammer</span></div>
+            <div class="item"><span>Tiefkühltruhe</span></div>
+          </div>
+        </div>
+
+        <div class="group-label"><span>Nach Haltbarkeit</span><span class="sort-action">Sortieren</span></div>
+
+        <div class="item-row">
+          <div class="item-bar" style="background:var(--danger)"></div>
+          <div class="item-main"><p class="item-name">Zarte Haferflocken</p><p class="item-meta">in 3 Tagen</p></div>
+          <div class="qty">3 Stück</div>
+        </div>
+        <div class="item-row">
+          <div class="item-bar" style="background:var(--warning)"></div>
+          <div class="item-main"><p class="item-name">Kartoffeln vorwiegend festkochend</p><p class="item-meta">in 4 Tagen</p></div>
+          <div class="qty">3 kg</div>
+        </div>
+        <div class="item-row">
+          <div class="item-bar" style="background:transparent"></div>
+          <div class="item-main"><p class="item-name">Hackfleisch gemischt</p><p class="item-meta">Kein Datum hinterlegt</p></div>
+          <div class="qty">1 Stück</div>
+        </div>
+      </div>
+      <div class="fab">+</div>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  Direkte Weiterentwicklung von Variante A. Kein Code geändert, reiner Vorschlag zur Freigabe.
+</footer>

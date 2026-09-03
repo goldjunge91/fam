@@ -1,0 +1,400 @@
+<title>Vorrat Layout-Varianten</title>
+<style>
+  :root {
+    --bg: #f8f4ef;
+    --bg-element: #fbf7f2;
+    --bg-selected: #e9e1e7;
+    --text: #2d2830;
+    --text-secondary: #786f79;
+    --border: #e4dde3;
+    --accent: #705773;
+    --success: #78906f;
+    --warning: #c69059;
+    --danger: #c65f50;
+    --grad-1: #ffccb2;
+    --grad-2: #f9f2eb;
+    --grad-3: #e8def2;
+    --page-bg: #efe9e1;
+    --frame-shadow: rgba(89, 64, 89, 0.18);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #211d23; --bg-element: #2b262e; --bg-selected: #382f3b;
+      --text: #f2ece7; --text-secondary: #b7adb3; --border: #3e3640;
+      --accent: #b79cba; --success: #8faf86; --warning: #d9a86c; --danger: #d9776a;
+      --grad-1: #3b2b2b; --grad-2: #211d23; --grad-3: #2e2638;
+      --page-bg: #16131a; --frame-shadow: rgba(0, 0, 0, 0.45);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #211d23; --bg-element: #2b262e; --bg-selected: #382f3b;
+    --text: #f2ece7; --text-secondary: #b7adb3; --border: #3e3640;
+    --accent: #b79cba; --success: #8faf86; --warning: #d9a86c; --danger: #d9776a;
+    --grad-1: #3b2b2b; --grad-2: #211d23; --grad-3: #2e2638;
+    --page-bg: #16131a; --frame-shadow: rgba(0, 0, 0, 0.45);
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--page-bg);
+    color: var(--text);
+    font-family: -apple-system, "SF Pro Text", "Segoe UI", system-ui, sans-serif;
+    padding: 40px 24px 90px;
+  }
+
+  .intro { max-width: 760px; margin: 0 auto 44px; }
+  .eyebrow {
+    font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--accent); margin: 0 0 10px;
+  }
+  h1 { font-size: 27px; font-weight: 650; letter-spacing: -0.01em; margin: 0 0 12px; text-wrap: balance; }
+  .intro p { font-size: 15px; line-height: 1.55; color: var(--text-secondary); margin: 0 0 8px; max-width: 64ch; }
+
+  .row {
+    display: flex; flex-wrap: wrap; gap: 32px; justify-content: center; align-items: flex-start;
+    max-width: 1220px; margin: 0 auto;
+  }
+  .col { display: flex; flex-direction: column; align-items: center; gap: 16px; width: 300px; }
+  .col-label { text-align: center; max-width: 300px; }
+  .col-label .name { font-size: 15px; font-weight: 700; margin: 0 0 4px; }
+  .col-label .desc { font-size: 12.5px; line-height: 1.5; color: var(--text-secondary); margin: 0; }
+
+  /* --- Phone frame --- */
+  .phone {
+    width: 300px; height: 630px; border-radius: 40px;
+    background: linear-gradient(160deg, var(--grad-1) 0%, var(--grad-2) 42%, var(--grad-3) 100%);
+    box-shadow: 0 18px 40px var(--frame-shadow);
+    padding: 14px 12px; position: relative; overflow: hidden;
+    border: 1px solid color-mix(in srgb, var(--text) 8%, transparent);
+    font-size: 14px;
+  }
+  .statusbar {
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 13px; font-weight: 650; padding: 2px 6px 8px; font-variant-numeric: tabular-nums;
+  }
+  .statusbar .dots { opacity: 0.75; font-weight: 600; }
+  .scroll { overflow-y: auto; height: calc(100% - 34px); scrollbar-width: none; }
+  .scroll::-webkit-scrollbar { display: none; }
+
+  .app-header {
+    display: flex; align-items: center; justify-content: space-between; padding: 4px 2px 16px;
+  }
+  .menu-btn, .avatar { width: 39px; height: 39px; border-radius: 13px; display: flex; align-items: center; justify-content: center; }
+  .menu-btn { background: color-mix(in srgb, var(--bg-element) 70%, transparent); font-size: 15px; }
+  .avatar { background: var(--accent); color: var(--bg-element); font-size: 11px; font-weight: 700; }
+  .app-title { font-size: 21px; font-weight: 750; letter-spacing: -0.01em; }
+
+  .fab {
+    position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%);
+    width: 50px; height: 50px; border-radius: 50%; background: var(--accent); color: var(--bg-element);
+    display: flex; align-items: center; justify-content: center; font-size: 21px;
+    box-shadow: 0 10px 22px color-mix(in srgb, var(--accent) 45%, transparent); z-index: 5;
+  }
+
+  /* Shared bits */
+  .qty { font-weight: 650; font-variant-numeric: tabular-nums; flex-shrink: 0; }
+  .dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
+  .dot.danger { background: var(--danger); }
+  .dot.warning { background: var(--warning); }
+  .dot.success { background: var(--success); }
+
+  footer {
+    max-width: 760px; margin: 56px auto 0; font-size: 13px; color: var(--text-secondary); text-align: center;
+  }
+  footer code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.92em;
+    background: var(--bg-selected); padding: 1px 5px; border-radius: 4px; color: var(--text);
+  }
+
+  /* ================= VARIANT A: Verfeinert (aktuelles Konzept, geschaerft) ================= */
+  .a-summary {
+    background: color-mix(in srgb, var(--bg-element) 91%, transparent);
+    border-radius: 22px; padding: 18px 16px; display: flex; align-items: center; gap: 16px;
+    box-shadow: 0 6px 16px color-mix(in srgb, var(--text) 6%, transparent); margin-bottom: 16px;
+  }
+  .a-ring { width: 76px; height: 76px; border-radius: 50%; position: relative; flex-shrink: 0;
+    background: conic-gradient(var(--danger) 0deg 130deg, var(--warning) 130deg 210deg, var(--success) 210deg 360deg);
+    display: flex; align-items: center; justify-content: center; }
+  .a-ring::before { content: ""; position: absolute; inset: 9px; border-radius: 50%;
+    background: color-mix(in srgb, var(--bg-element) 91%, var(--bg)); }
+  .a-ring-center { position: relative; text-align: center; line-height: 1.05; }
+  .a-ring-count { display: block; font-size: 26px; font-weight: 650; }
+  .a-ring-sub { display: block; font-size: 11px; font-weight: 600; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.04em; }
+  .a-copy .eyebrow-line { color: var(--text-secondary); font-weight: 550; font-size: 13px; margin: 0 0 3px; }
+  .a-copy .headline { font-weight: 650; font-size: 18px; letter-spacing: -0.01em; margin: 0 0 4px; }
+  .a-copy .status-line { color: var(--danger); font-weight: 600; font-size: 13px; margin: 0; }
+
+  .a-filters { display: flex; gap: 8px; margin-bottom: 14px; }
+  .a-pill {
+    flex: 1; text-align: center; padding: 9px 4px; border-radius: 12px; font-size: 13px; font-weight: 650;
+    background: var(--bg-element); border: 1px solid var(--border); color: var(--text-secondary);
+  }
+  .a-pill.active { background: var(--accent); color: var(--bg-element); border-color: var(--accent); }
+
+  .a-group-label {
+    font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;
+    color: var(--text-secondary); padding: 12px 2px 6px; display: flex; align-items: center; justify-content: space-between;
+  }
+  .a-group-label .sort-action { color: var(--accent); text-transform: none; letter-spacing: 0; font-weight: 650; }
+
+  .a-row { display: flex; align-items: center; gap: 12px; padding: 11px 4px; border-bottom: 1px solid var(--border); }
+  .a-row:last-child { border-bottom: none; }
+  .a-bar { width: 3px; align-self: stretch; border-radius: 2px; flex-shrink: 0; }
+  .a-main { flex: 1; min-width: 0; }
+  .a-name { font-weight: 650; font-size: 15px; margin: 0 0 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .a-meta { color: var(--text-secondary); font-size: 12.5px; font-weight: 500; margin: 0; }
+  .a-row .qty { font-size: 15px; }
+
+  /* ================= VARIANT B: Nach Lagerort gruppiert ================= */
+  .b-summary {
+    display: flex; align-items: center; justify-content: space-between; padding: 2px 4px 16px;
+  }
+  .b-stat { text-align: center; }
+  .b-stat .num { font-size: 22px; font-weight: 700; display: block; font-variant-numeric: tabular-nums; }
+  .b-stat .label { font-size: 10.5px; color: var(--text-secondary); font-weight: 600; text-transform: uppercase; letter-spacing: 0.03em; }
+  .b-divider { width: 1px; height: 30px; background: var(--border); }
+
+  .b-card {
+    background: color-mix(in srgb, var(--bg-element) 93%, transparent);
+    border-radius: 18px; margin-bottom: 12px; overflow: hidden;
+    box-shadow: 0 4px 14px color-mix(in srgb, var(--text) 5%, transparent);
+  }
+  .b-card-head {
+    display: flex; align-items: center; gap: 9px; padding: 12px 14px; border-bottom: 1px solid var(--border);
+  }
+  .b-card-icon { width: 26px; height: 26px; border-radius: 8px; background: color-mix(in srgb, var(--accent) 14%, transparent);
+    display: flex; align-items: center; justify-content: center; font-size: 13px; flex-shrink: 0; }
+  .b-card-title { font-weight: 700; font-size: 14px; flex: 1; }
+  .b-card-count { font-size: 12px; color: var(--text-secondary); font-weight: 600; }
+
+  .b-row { display: flex; align-items: center; gap: 10px; padding: 10px 14px; border-bottom: 1px solid var(--border); }
+  .b-row:last-child { border-bottom: none; }
+  .b-main { flex: 1; min-width: 0; }
+  .b-name { font-weight: 600; font-size: 14px; margin: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .b-expiry { font-size: 11.5px; font-weight: 600; margin-top: 1px; }
+  .b-expiry.danger { color: var(--danger); }
+  .b-expiry.warning { color: var(--warning); }
+  .b-expiry.muted { color: var(--text-secondary); }
+  .b-row .qty { font-size: 14px; }
+
+  /* ================= VARIANT C: Kompakt & scannbar ================= */
+  .c-stat-line {
+    display: flex; align-items: center; gap: 8px; padding: 4px 2px 14px; font-size: 13px; font-weight: 600;
+    color: var(--text-secondary);
+  }
+  .c-stat-line b { color: var(--text); font-weight: 700; }
+  .c-stat-line .sep { opacity: 0.4; }
+  .c-stat-line .flag { color: var(--danger); }
+
+  .c-search {
+    display: flex; align-items: center; gap: 8px; background: var(--bg-element); border: 1px solid var(--border);
+    border-radius: 12px; padding: 9px 12px; margin-bottom: 10px; font-size: 13px; color: var(--text-secondary);
+  }
+
+  .c-chiprow { display: flex; gap: 6px; margin-bottom: 12px; overflow: hidden; }
+  .c-chip {
+    padding: 6px 12px; border-radius: 999px; font-size: 12px; font-weight: 650; white-space: nowrap;
+    background: var(--bg-element); border: 1px solid var(--border); color: var(--text-secondary);
+  }
+  .c-chip.active { background: var(--accent); color: var(--bg-element); border-color: var(--accent); }
+
+  .c-row {
+    display: flex; align-items: center; gap: 10px; padding: 9px 6px; border-radius: 12px;
+  }
+  .c-row + .c-row { margin-top: 2px; }
+  .c-row.flagged { background: color-mix(in srgb, var(--danger) 8%, transparent); }
+  .c-tag {
+    font-size: 10px; font-weight: 700; padding: 2px 6px; border-radius: 6px; flex-shrink: 0;
+    background: color-mix(in srgb, var(--text-secondary) 14%, transparent); color: var(--text-secondary);
+  }
+  .c-tag.danger { background: color-mix(in srgb, var(--danger) 16%, transparent); color: var(--danger); }
+  .c-tag.warning { background: color-mix(in srgb, var(--warning) 18%, transparent); color: var(--warning); }
+  .c-main { flex: 1; min-width: 0; display: flex; align-items: baseline; gap: 6px; }
+  .c-name { font-weight: 600; font-size: 13.5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .c-loc { font-size: 11.5px; color: var(--text-secondary); flex-shrink: 0; }
+  .c-actions { display: flex; gap: 4px; flex-shrink: 0; }
+  .c-action-btn {
+    width: 26px; height: 26px; border-radius: 8px; background: var(--bg-selected);
+    display: flex; align-items: center; justify-content: center; font-size: 12px; color: var(--text-secondary);
+  }
+  .c-row .qty { font-size: 13px; margin-right: 2px; }
+</style>
+
+<div class="intro">
+  <p class="eyebrow">Vorrat · Layout-Varianten</p>
+  <h1>Drei Richtungen für den nächsten Schritt</h1>
+  <p>
+    Alle drei bauen auf der reparierten Basis auf (fam-Palette, echte Warenkorb-Inhalte, korrekte Safe Area) und
+    lösen dasselbe Problem unterschiedlich: wie viel Struktur die Liste selbst braucht, damit sie auf einen Blick
+    lesbar bleibt, ohne wieder in Kartenschichten zu ertrinken.
+  </p>
+</div>
+
+<div class="row">
+
+  <!-- VARIANT A -->
+  <div class="col">
+    <div class="col-label">
+      <p class="name">A · Verfeinert</p>
+      <p class="desc">Nahe am jetzigen Stand: Ring + Segment-Filter statt Dropdown, Gruppen-Header mit Sortier-Aktion, dünnerer Ampel-Strich.</p>
+    </div>
+    <div class="phone">
+      <div class="statusbar"><span>03:57</span><span class="dots">●●●● 83%</span></div>
+      <div class="scroll">
+        <div class="app-header">
+          <div class="menu-btn">☰</div>
+          <div class="app-title">Vorrat</div>
+          <div class="avatar">MA</div>
+        </div>
+
+        <div class="a-summary">
+          <div class="a-ring"><div class="a-ring-center"><span class="a-ring-count">3</span><span class="a-ring-sub">Artikel</span></div></div>
+          <div class="a-copy">
+            <p class="eyebrow-line">Dein Vorrat heute</p>
+            <p class="headline">2 laufen bald ab</p>
+            <p class="status-line">Zuerst verbrauchen</p>
+          </div>
+        </div>
+
+        <div class="a-filters">
+          <div class="a-pill active">Alle</div>
+          <div class="a-pill">Kühlschrank</div>
+          <div class="a-pill">Abstellkammer</div>
+        </div>
+
+        <div class="a-group-label"><span>Nach Haltbarkeit</span><span class="sort-action">Sortieren</span></div>
+
+        <div class="a-row">
+          <div class="a-bar" style="background:var(--danger)"></div>
+          <div class="a-main"><p class="a-name">Zarte Haferflocken</p><p class="a-meta">in 3 Tagen · Abstellkammer</p></div>
+          <div class="qty">3 Stück</div>
+        </div>
+        <div class="a-row">
+          <div class="a-bar" style="background:var(--warning)"></div>
+          <div class="a-main"><p class="a-name">Kartoffeln vorwiegend festkochend</p><p class="a-meta">in 4 Tagen · Abstellkammer</p></div>
+          <div class="qty">3 kg</div>
+        </div>
+        <div class="a-row">
+          <div class="a-bar" style="background:transparent"></div>
+          <div class="a-main"><p class="a-name">Hackfleisch gemischt</p><p class="a-meta">Abstellkammer</p></div>
+          <div class="qty">1 Stück</div>
+        </div>
+      </div>
+      <div class="fab">+</div>
+    </div>
+  </div>
+
+  <!-- VARIANT B -->
+  <div class="col">
+    <div class="col-label">
+      <p class="name">B · Nach Lagerort</p>
+      <p class="desc">Kein Dropdown-Filter mehr — jeder Lagerort ist eine eigene Karte mit Kopfzeile. Zusammenfassung wird zur schmalen Statuszeile, weil die Gruppierung selbst schon Struktur gibt.</p>
+    </div>
+    <div class="phone">
+      <div class="statusbar"><span>03:57</span><span class="dots">●●●● 83%</span></div>
+      <div class="scroll">
+        <div class="app-header">
+          <div class="menu-btn">☰</div>
+          <div class="app-title">Vorrat</div>
+          <div class="avatar">MA</div>
+        </div>
+
+        <div class="b-summary">
+          <div class="b-stat"><span class="num">3</span><span class="label">Artikel</span></div>
+          <div class="b-divider"></div>
+          <div class="b-stat" style="color:var(--danger)"><span class="num" style="color:var(--danger)">2</span><span class="label">Laufen ab</span></div>
+          <div class="b-divider"></div>
+          <div class="b-stat"><span class="num">2</span><span class="label">Lagerorte</span></div>
+        </div>
+
+        <div class="b-card">
+          <div class="b-card-head">
+            <div class="b-card-icon">🧊</div>
+            <div class="b-card-title">Abstellkammer</div>
+            <div class="b-card-count">3 Artikel</div>
+          </div>
+          <div class="b-row">
+            <div class="b-main"><p class="b-name">Zarte Haferflocken</p><p class="b-expiry danger">Läuft in 3 Tagen ab</p></div>
+            <div class="qty">3 Stück</div>
+          </div>
+          <div class="b-row">
+            <div class="b-main"><p class="b-name">Kartoffeln vorwiegend festkochend</p><p class="b-expiry warning">Läuft in 4 Tagen ab</p></div>
+            <div class="qty">3 kg</div>
+          </div>
+          <div class="b-row">
+            <div class="b-main"><p class="b-name">Hackfleisch gemischt</p><p class="b-expiry muted">Kein Datum hinterlegt</p></div>
+            <div class="qty">1 Stück</div>
+          </div>
+        </div>
+
+        <div class="b-card">
+          <div class="b-card-head">
+            <div class="b-card-icon">❄️</div>
+            <div class="b-card-title">Kühlschrank</div>
+            <div class="b-card-count">0 Artikel</div>
+          </div>
+          <div class="b-row" style="justify-content:center; color:var(--text-secondary); font-size:12.5px;">Noch leer</div>
+        </div>
+      </div>
+      <div class="fab">+</div>
+    </div>
+  </div>
+
+  <!-- VARIANT C -->
+  <div class="col">
+    <div class="col-label">
+      <p class="name">C · Kompakt &amp; scannbar</p>
+      <p class="desc">Ring komplett weg, eine Statuszeile stattdessen. Suchfeld + Chip-Filter oben, Tags statt Ampel-Strich, Aktionsbuttons direkt sichtbar statt Wisch-Geste.</p>
+    </div>
+    <div class="phone">
+      <div class="statusbar"><span>03:57</span><span class="dots">●●●● 83%</span></div>
+      <div class="scroll">
+        <div class="app-header">
+          <div class="menu-btn">☰</div>
+          <div class="app-title">Vorrat</div>
+          <div class="avatar">MA</div>
+        </div>
+
+        <div class="c-stat-line">
+          <b>3</b> Artikel <span class="sep">·</span> <span class="flag">2 laufen bald ab</span>
+        </div>
+
+        <div class="c-search">🔍 Artikel suchen</div>
+
+        <div class="c-chiprow">
+          <div class="c-chip active">Alle</div>
+          <div class="c-chip">Läuft ab</div>
+          <div class="c-chip">Kühlschrank</div>
+          <div class="c-chip">Abstellkammer</div>
+        </div>
+
+        <div class="c-row flagged">
+          <div class="c-tag danger">3T</div>
+          <div class="c-main"><span class="c-name">Zarte Haferflocken</span><span class="c-loc">· Abstellkammer</span></div>
+          <div class="qty">3 Stk</div>
+          <div class="c-actions"><div class="c-action-btn">✓</div><div class="c-action-btn">⋯</div></div>
+        </div>
+        <div class="c-row flagged">
+          <div class="c-tag warning">4T</div>
+          <div class="c-main"><span class="c-name">Kartoffeln vorwiegend festk.</span><span class="c-loc">· Abstellk.</span></div>
+          <div class="qty">3 kg</div>
+          <div class="c-actions"><div class="c-action-btn">✓</div><div class="c-action-btn">⋯</div></div>
+        </div>
+        <div class="c-row">
+          <div class="c-tag">—</div>
+          <div class="c-main"><span class="c-name">Hackfleisch gemischt</span><span class="c-loc">· Abstellkammer</span></div>
+          <div class="qty">1 Stk</div>
+          <div class="c-actions"><div class="c-action-btn">✓</div><div class="c-action-btn">⋯</div></div>
+        </div>
+      </div>
+      <div class="fab">+</div>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  Alle drei nutzen dieselbe Palette und denselben Verlauf aus <code>src/constants/theme.ts</code> — nur Struktur und
+  Informationsdichte unterscheiden sich. Kein Code geändert, reine Vorschläge zur Auswahl.
+</footer>
