@@ -335,7 +335,7 @@ test('OpenRouter-Provider bindet Key, Modell und strict Structured Output ohne S
   assert.match(source, /strict['"]?\s*:\s*True/);
   assert.match(source, /require_parameters['"]?\s*:\s*True/);
   assert.match(source, /reasoning['"]?\s*:\s*\{['"]effort['"]:\s*['"]low['"]\}/);
-  assert.match(source, /z-ai\/glm-5\.2:free/);
+  assert.match(source, /z-ai\/glm-5\.3-flash/);
   assert.match(source, /recipe-suggestion-response\.schema\.json/);
   assert.match(source, /urllib\.request/);
   assert.doesNotMatch(source, /sk-or-v1|api[_-]?key\s*=\s*['"][^'"]+['"]/i);

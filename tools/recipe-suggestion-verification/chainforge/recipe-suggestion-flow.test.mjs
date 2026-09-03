@@ -6,6 +6,7 @@ import vm from 'node:vm';
 const read = (relativePath) =>
   readFile(new URL(relativePath, import.meta.url), 'utf8');
 const bundle = JSON.parse(await read('./recipe-suggestion-v2.cforge'));
+const comparison = JSON.parse(await read('./recipe-suggestion-model-comparison.cforge'));
 const { nodes, edges } = bundle.flow;
 const models = [
   'z-ai/glm-5.2:free',
@@ -34,13 +35,13 @@ test('import flow embeds all four original scenarios without sampling or cached 
   assert.deepEqual(prompt.data.fields, []);
 });
 
-test('three distinct custom-provider selections produce exactly 12 planned calls', async () => {
+test('normal flow selects GLM 5.3 only and comparison is explicit', async () => {
   const provider = await read('./openrouter_provider_v2.py');
   const declaredModels = JSON.parse(provider.match(/OPENROUTER_MODELS = (\[[\s\S]*?\])/)[1]
     .replace(/,\s*\]/, ']'));
   assert.deepEqual(declaredModels, models);
-  assert.deepEqual(prompt.data.llms.map((llm) => llm.formData.model), models);
-  assert.equal(new Set(prompt.data.llms.map((llm) => llm.key)).size, 3);
+  assert.deepEqual(prompt.data.llms.map((llm) => llm.formData.model), ['z-ai/glm-5.3-flash']);
+  assert.equal(new Set(prompt.data.llms.map((llm) => llm.key)).size, 1);
   for (const llm of prompt.data.llms) {
     assert.equal(llm.base_model, baseModel);
     assert.equal(llm.model, baseModel + llm.formData.model);
@@ -49,7 +50,15 @@ test('three distinct custom-provider selections produce exactly 12 planned calls
     assert.deepEqual(llm.settings, {});
   }
   assert.equal(prompt.data.n, 1);
-  assert.equal(table.data.rows.length * prompt.data.llms.length * prompt.data.n, 12);
+  assert.equal(table.data.rows.length * prompt.data.llms.length * prompt.data.n, 4);
+  const comparisonPrompt = comparison.flow.nodes.find((node) => node.type === 'prompt').data;
+  assert.deepEqual(comparisonPrompt.llms.map((llm) => llm.formData.model), models);
+  assert.equal(comparisonPrompt.n, 1);
+  assert.equal(comparisonPrompt.prompt, prompt.data.prompt);
+  assert.deepEqual(comparison.flow.edges, edges);
+  assert.deepEqual(comparison.flow.nodes.find((node) => node.type === 'table').data, table.data);
+  assert.equal(comparison.flow.nodes.find((node) => node.type === 'evaluator').data.code, evaluator.data.code);
+  assert.deepEqual(comparison.cache, { __s: [] });
 });
 
 test('prompt has exactly one input and embedded evaluator matches its source', async () => {
