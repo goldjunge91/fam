@@ -144,5 +144,17 @@ module.exports = function withIosCcacheDir(config) {
     return config;
   });
 
+  config = withPodfile(config, (config) => {
+    const marker = 'withIosCcacheDir: disable explicit modules';
+    if (config.modResults.contents.includes(marker)) return config;
+    const callRegex = /(react_native_post_install\(\s*installer,[\s\S]*?\n\s*\))/u;
+    if (!callRegex.test(config.modResults.contents)) return config;
+    config.modResults.contents = config.modResults.contents.replace(
+      callRegex,
+      `$1\n\n    # ${marker}: Xcode 26 cannot use Explicit Modules with a custom compiler launcher.\n    # Without this, Swift loses ExpoSQLite's sqlite3 module and exsqlite3_* is missing.\n    installer.pods_project.targets.each do |target|\n      target.build_configurations.each do |c|\n        c.build_settings['CLANG_ENABLE_EXPLICIT_MODULES'] = 'NO'\n      end\n    end`,
+    );
+    return config;
+  });
+
   return config;
 };

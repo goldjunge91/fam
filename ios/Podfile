@@ -66,17 +66,12 @@ target 'fam' do
       :ccache_enabled => ccache_enabled?(podfile_properties),
     )
 
-    # withIosCcacheDir: RNs eigener ccache-Wrapper liest CCACHE_BINARY/DIR aus
-    # der Prozessumgebung, die Xcode nicht an Compile-Sources-Subprozesse
-    # durchreicht (siehe docs/native-fingerprint-drift-debugging.md).
-    installer.pods_project.build_configurations.each do |c|
-      if c.build_settings['CC'].to_s.include?('ccache-clang.sh')
-        c.build_settings['CC'] = File.join(__dir__, '.ccache-wrapper-clang.sh')
-        c.build_settings['CXX'] = File.join(__dir__, '.ccache-wrapper-clang++.sh')
-        c.build_settings['LD'] = File.join(__dir__, '.ccache-wrapper-clang.sh')
-        c.build_settings['LDPLUSPLUS'] = File.join(__dir__, '.ccache-wrapper-clang++.sh')
+    # withIosCcacheDir: disable explicit modules: Xcode 26 cannot use Explicit Modules with a custom compiler launcher.
+    # Without this, Swift loses ExpoSQLite's sqlite3 module and exsqlite3_* is missing.
+    installer.pods_project.targets.each do |target|
+      target.build_configurations.each do |c|
+        c.build_settings['CLANG_ENABLE_EXPLICIT_MODULES'] = 'NO'
       end
     end
-    installer.pods_project.save
   end
 end

@@ -469,22 +469,18 @@ function iosBuildEnv(): Record<string, string> {
 }
 
 // 'eas build --local' kopiert das Projekt bei JEDEM Lauf in ein neues Temp-
-// Verzeichnis mit zufälliger UUID (/var/folders/.../eas-build-local-nodejs/
-// <uuid>/build) — dadurch enthalten Compiler-Flags (u. a.
-// -fbuild-session-file, ModuleCache-Pfade) bei jedem Lauf andere absolute
-// Pfade, was ccache selbst mit CCACHE_BASEDIR verlässlich verhindert hat
-// (siehe docs/native-fingerprint-drift-debugging.md, "TestFlight-Pfad:
-// ccache bringt bisher NICHTS"). EAS_LOCAL_BUILD_WORKINGDIR erzwingt
-// stattdessen ein FESTES Arbeitsverzeichnis über alle Läufe hinweg — löst
-// das Problem an der Wurzel statt es nachträglich zu kompensieren. Muss ein
-// ABSOLUTER Pfad sein (relative Pfade brechen die interne tar-Extraktion,
-// siehe github.com/expo/eas-cli/issues/1155). Auf dem externen Volume neben
-// dem ccache-Verzeichnis, nicht auf der Boot-Disk (siehe
-// scripts/dev-disk-clean.sh).
+// Verzeichnis mit zufälliger UUID. EAS_LOCAL_BUILD_WORKINGDIR erzwingt
+// stattdessen einen festen Pfad, damit absolute Build-Pfade zwischen Läufen
+// stabil bleiben und ccache wiederverwendbar ist. Der EAS-Plugin-Runner
+// verlangt allerdings, dass dieser Arbeitsordner beim Start leer ist. Wir
+// löschen deshalb nur den alten Arbeitsinhalt, nicht den benachbarten ccache.
 function easLocalBuildEnv(): Record<string, string> {
   const ccacheDir = readCcacheDirFromUserConfig();
   if (!ccacheDir) return {};
-  return { EAS_LOCAL_BUILD_WORKINGDIR: join(dirname(ccacheDir), 'eas-build-local-workingdir') };
+  const workingDir = join(dirname(ccacheDir), 'eas-build-local-workingdir');
+  rmSync(workingDir, { force: true, recursive: true });
+  mkdirSync(workingDir, { recursive: true });
+  return { EAS_LOCAL_BUILD_WORKINGDIR: workingDir };
 }
 
 function readCcacheDirFromUserConfig(): string | undefined {
