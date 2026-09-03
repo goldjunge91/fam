@@ -16,7 +16,6 @@ export type ScreenshotTourStep = {
 export type FixtureReadiness = {
   householdId: string;
   recipeId: string;
-  ready: boolean;
 };
 
 // Diese Funktion bringt Pfade für zuverlässige Vergleiche in ein einheitliches Format.
@@ -62,8 +61,7 @@ export function buildScreenshotTour(recipeId: string): readonly ScreenshotTourSt
 }
 
 export function isFixtureReady(value: FixtureReadiness): boolean {
-  // Die Tour startet nur mit vollständigem Haushalt und Rezept.
-  return value.ready && value.householdId.length > 0 && value.recipeId.length > 0;
+  return value.householdId.length > 0 && value.recipeId.length > 0;
 }
 
 // Diese Meldung wird auch vom Driver zur Abbrucherkennung verwendet, daher exportiert
@@ -98,13 +96,10 @@ async function readFixtureReadiness(db: SqlDatabase): Promise<FixtureReadiness> 
   );
 
   // Fehlende Datensätze werden als leere IDs dargestellt.
-  const result = {
+  return {
     householdId: fixture?.household_id ?? '',
     recipeId: fixture?.recipe_id ?? '',
-    ready: fixture !== null,
   };
-  // Ready wird noch einmal aus den tatsächlich gelesenen IDs abgeleitet.
-  return { ...result, ready: isFixtureReady(result) };
 }
 
 // Diese öffentliche Funktion öffnet die Datenbank und delegiert die eigentliche Prüfung.
@@ -126,6 +121,7 @@ export async function waitForScreenshotFixture(
   const timeoutMs = options.timeoutMs ?? 30_000;
   // Die absolute Deadline verhindert eine unbegrenzte Warteschleife.
   const deadline = Date.now() + timeoutMs;
+  console.log(`[ScreenshotTour] warte auf Fixture (timeoutMs=${timeoutMs}).`);
   // Der zuletzt gesehene Fehler landet im finalen Timeout, statt spurlos verworfen zu werden.
   let lastError: unknown;
 
@@ -138,7 +134,10 @@ export async function waitForScreenshotFixture(
       // Jeder Durchlauf liest den aktuellen lokalen Fixture-Zustand neu.
       const readiness = await getScreenshotFixtureReadiness();
       // Vollständige Daten beenden das Warten sofort.
-      if (isFixtureReady(readiness)) return readiness;
+      if (isFixtureReady(readiness)) {
+        console.log('[ScreenshotTour] Fixture ist bereit.');
+        return readiness;
+      }
     } catch (error) {
       // The session/database may still be initializing. Keep waiting until the deadline.
       lastError = error;
@@ -172,6 +171,8 @@ export async function waitForScreenshotFixture(
 export type ShotsConfig = {
   // Nur der explizite Wert true aktiviert die Tour.
   enabled: boolean;
+  // Das Capture-Skript setzt diesen Zeitstempel beim Arming des Laufs.
+  armedAt: number;
   // Dieses Limit wartet auf die Bestätigung einer vollständig gespeicherten PNG-Datei.
   captureTimeoutMs?: number;
   // Dieses Limit wartet vor Tourbeginn auf die Demo-Fixture.
@@ -188,6 +189,8 @@ export function parseShotsConfig(value: unknown): ShotsConfig | null {
   const candidate = value as Record<string, unknown>;
   // Jeder andere enabled-Wert als true lässt die Tour ausgeschaltet.
   if (candidate.enabled !== true) return null;
+  // Ohne Zeitstempel kann eine alte oder manuell abgelegte Datei keinen Lauf starten.
+  if (typeof candidate.armedAt !== 'number' || !Number.isFinite(candidate.armedAt)) return null;
 
   // Dieser lokale Parser akzeptiert nur endliche, nicht negative Millisekunden.
   const optionalMilliseconds = (name: string): number | undefined => {
@@ -210,7 +213,7 @@ export function parseShotsConfig(value: unknown): ShotsConfig | null {
   }
 
   // Nur geprüfte Werte gelangen in den laufenden Screenshot-Driver.
-  return { enabled: true, captureTimeoutMs, fixtureTimeoutMs, settleMs };
+  return { enabled: true, armedAt: candidate.armedAt, captureTimeoutMs, fixtureTimeoutMs, settleMs };
 }
 
 // Die Flag-Datei schaltet den Screenshot-Modus für genau einen App-Start ein.
@@ -223,25 +226,16 @@ const STATUS_FILE = new File(Paths.document, 'shot-current.txt');
 const EXPECTED_FILE = new File(Paths.document, 'shot-expected.txt');
 // Die Bestätigungsdatei meldet der App, dass simctl das aktuelle PNG beendet hat.
 const CAPTURED_FILE = new File(Paths.document, 'shot-captured.txt');
-// Die geladene Konfiguration bleibt für andere Entwicklungswerkzeuge abrufbar.
-let loadedConfig: ShotsConfig | null = null;
-
-// Diese Funktion liefert die zuletzt erfolgreich geladene Tour-Konfiguration.
-export function shotsConfig(): ShotsConfig | null {
-  // Vor dem ersten Laden oder bei ungültiger Flag-Datei ist der Wert null.
-  return loadedConfig;
-}
-
 // Diese Funktion unterscheidet ein frisch vom Capture-Skript gesetztes Flag von einem Altbestand.
 export function isRecentScreenshotFlag(
-  modificationTime: number | undefined,
+  timestamp: number | undefined,
   now = Date.now(),
   maxAgeMs = SCREENSHOT_FLAG_MAX_AGE_MS,
 ): boolean {
   // Fehlende oder ungültige Dateizeiten werden sicherheitshalber abgelehnt.
   if (
-    modificationTime === undefined ||
-    !Number.isFinite(modificationTime) ||
+    timestamp === undefined ||
+    !Number.isFinite(timestamp) ||
     !Number.isFinite(now) ||
     !Number.isFinite(maxAgeMs) ||
     maxAgeMs < 0
@@ -250,29 +244,30 @@ export function isRecentScreenshotFlag(
   }
 
   // Ein Flag darf weder aus der Zukunft stammen noch älter als das Startfenster sein.
-  const ageMs = now - modificationTime;
+  const ageMs = now - timestamp;
   return ageMs >= 0 && ageMs <= maxAgeMs;
 }
 
 /** Liest die Opt-in-Datei; ungültige oder deaktivierte Dateien lassen die Tour aus. */
 export async function loadShotsFlag(): Promise<ShotsConfig | null> {
-  // Ein alter Wert darf einen späteren normalen App-Start nicht aktivieren.
-  loadedConfig = null;
   // Dateizugriff und JSON-Parsing werden gemeinsam fehlertolerant behandelt.
   try {
     // Ohne vom Skript gesetzte Flag-Datei bleibt die App vollständig im Normalbetrieb.
     if (!FLAG_FILE.exists) return null;
+    const config = parseShotsConfig(JSON.parse(await FLAG_FILE.text()));
     // Ein abgebrochener Capture-Lauf darf bei einem späteren normalen Start nicht nachwirken.
-    if (!isRecentScreenshotFlag(FLAG_FILE.info().modificationTime)) {
+    if (!config || !isRecentScreenshotFlag(config.armedAt)) {
+      console.warn('[ScreenshotTour] shots.json verworfen: ungültig oder nicht frisch armiert.');
       FLAG_FILE.delete();
       return null;
     }
-    // Der Dateiinhalt wird erst geparst und danach fachlich validiert.
-    loadedConfig = parseShotsConfig(JSON.parse(await FLAG_FILE.text()));
-    // Das geprüfte Ergebnis aktiviert entweder die Tour oder bleibt null.
-    return loadedConfig;
+    console.log(
+      `[ScreenshotTour] shots.json akzeptiert (Arming vor ${Date.now() - config.armedAt}ms).`,
+    );
+    return config;
   } catch {
     // Unlesbare oder unvollständige Dateien deaktivieren den Modus sicher.
+    console.warn('[ScreenshotTour] shots.json konnte nicht gelesen werden.');
     return null;
   }
 }
@@ -281,6 +276,7 @@ export async function loadShotsFlag(): Promise<ShotsConfig | null> {
 export async function announce(name: string): Promise<void> {
   // Das Überschreiben hält immer nur den neuesten Tourzustand bereit.
   STATUS_FILE.write(name);
+  console.log(`[ScreenshotTour] Status: ${name}`);
 }
 
 // Diese Funktion veröffentlicht die Anzahl der aktuell aktivierten Tour-Einträge.
@@ -300,6 +296,7 @@ export async function waitForScreenshotCapture(
 ): Promise<void> {
   // Die absolute Deadline begrenzt die Dateiabfrage zuverlässig.
   const deadline = Date.now() + timeoutMs;
+  console.log(`[ScreenshotTour] warte auf Capture-Bestätigung für ${name}.`);
   // Die Schleife prüft regelmäßig die vom Skript geschriebene Bestätigung.
   while (Date.now() <= deadline) {
     // Ein App-Abbruch beendet das Warten sofort.
@@ -307,7 +304,10 @@ export async function waitForScreenshotCapture(
     // Gleichzeitiges Schreiben und Lesen wird als vorübergehender Zustand behandelt.
     try {
       // Erst der passende Name beweist, dass genau das aktuelle PNG fertig ist.
-      if (CAPTURED_FILE.exists && (await CAPTURED_FILE.text()).trim() === name) return;
+      if (CAPTURED_FILE.exists && (await CAPTURED_FILE.text()).trim() === name) {
+        console.log(`[ScreenshotTour] Capture bestätigt: ${name}`);
+        return;
+      }
     } catch {
       // The shell may be replacing the acknowledgement while it is read.
     }
@@ -315,17 +315,6 @@ export async function waitForScreenshotCapture(
     await new Promise((resolve) => setTimeout(resolve, 50));
   }
   // Ohne Bestätigung darf die App nicht unbemerkt zum nächsten Screen wechseln.
+  console.error(`[ScreenshotTour] Capture-Timeout für ${name} nach ${timeoutMs}ms.`);
   throw new Error(`Screenshot was not captured before the timeout: ${name}`);
-}
-
-// Diese Funktion entfernt sämtliche temporären Steuerdateien der Tour.
-export function clearScreenshotTourFiles(): void {
-  // Die Flag-Datei darf keinen späteren normalen App-Start erneut aktivieren.
-  if (FLAG_FILE.exists) FLAG_FILE.delete();
-  // Der zuletzt veröffentlichte Screen darf nicht als neuer Status gelesen werden.
-  if (STATUS_FILE.exists) STATUS_FILE.delete();
-  // Die erwartete Anzahl wird bei jedem Lauf frisch aus deiner Liste geschrieben.
-  if (EXPECTED_FILE.exists) EXPECTED_FILE.delete();
-  // Eine alte Bestätigung darf keinen neuen Screenshot überspringen.
-  if (CAPTURED_FILE.exists) CAPTURED_FILE.delete();
 }

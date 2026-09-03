@@ -57,13 +57,18 @@ async function waitForRoute(
 ): Promise<void> {
   // Nach zehn Sekunden gilt die Navigation als fehlgeschlagen.
   const deadline = Date.now() + 10_000;
+  const normalizedExpectedPath = normalizeScreenshotPath(expectedPath);
+  console.log(`[ScreenshotDriver] warte auf Route ${normalizedExpectedPath}.`);
 
   // Die Schleife prüft den Pfad bis zum Erfolg oder zur Deadline.
   while (Date.now() <= deadline) {
     // Ein Abbruch beendet die Navigation sofort.
     if (signal.aborted) throw new Error(ABORT_MESSAGE);
     // Normalisierte Pfade verhindern Unterschiede durch zusätzliche Slashes.
-    if (normalizeScreenshotPath(currentPath()) === normalizeScreenshotPath(expectedPath)) return;
+    if (normalizeScreenshotPath(currentPath()) === normalizedExpectedPath) {
+      console.log(`[ScreenshotDriver] Route bestätigt: ${normalizedExpectedPath}.`);
+      return;
+    }
     // Das kurze Intervall wartet auf den nächsten Router-Render.
     await delay(50, signal);
   }
@@ -89,6 +94,7 @@ export async function runScreenshotTour(
   const settleMs = Math.max(0, config.settleMs ?? 1_600);
   // Dieses Limit greift nur, wenn simctl keine Fertigmeldung liefert.
   const captureTimeoutMs = Math.max(1_000, config.captureTimeoutMs ?? 60_000);
+  console.log(`[ScreenshotDriver] Tour gestartet (${tour.length} Screens).`);
 
   // Bash erfährt die erwartete Anzahl direkt aus deiner Liste.
   announceExpectedScreenshotCount(tour.length);
@@ -99,6 +105,7 @@ export async function runScreenshotTour(
 
   // Jeder aktive Tour-Schritt wird genau einmal verarbeitet.
   for (const step of tour) {
+    console.log(`[ScreenshotDriver] Screen ${step.name}: navigiere zu ${step.path}.`);
     // Der Umweg über Home macht Wechsel zwischen Stack-Routen zuverlässig.
     if (step.path !== '/') {
       // Replace hält die automatische Tour aus dem Navigationsverlauf heraus.
@@ -124,6 +131,7 @@ export async function runScreenshotTour(
 
   // Done wird erst nach der letzten vollständig bestätigten PNG-Datei gemeldet.
   await announce(TOUR_STATUS.DONE);
+  console.log('[ScreenshotDriver] Tour beendet.');
 }
 
 // Das Modul-Flag verhindert doppelte Touren durch mehrfache Root-Mounts.
@@ -146,6 +154,7 @@ export function ScreenshotDriver() {
     if (started || isLoading || !session?.user.id) return;
     // Das Flag wird vor der ersten asynchronen Operation gesetzt.
     started = true;
+    console.log('[ScreenshotDriver] bereit, prüfe Screenshot-Arming.');
     // Der Controller beendet offene Wartephasen beim Unmount.
     const controller = new AbortController();
 
@@ -154,13 +163,18 @@ export function ScreenshotDriver() {
       // Nur die vom Bash-Skript abgelegte Flag-Datei aktiviert die Tour.
       const config = await loadShotsFlag();
       // Im normalen App-Betrieb bleibt die Komponente ein No-op.
-      if (!config?.enabled) return;
+      if (!config) {
+        console.log('[ScreenshotDriver] inaktiv: kein gültiges Screenshot-Arming.');
+        return;
+      }
+      console.log('[ScreenshotDriver] Screenshot-Arming erkannt.');
 
       // Vor der ersten Route wartet fam auf vollständige lokale Demo-Daten.
       const fixture = await waitForScreenshotFixture(controller.signal, {
         // Das optionale Fixture-Limit kommt aus der validierten Flag-Datei.
         timeoutMs: config.fixtureTimeoutMs,
       });
+      console.log('[ScreenshotDriver] Fixture-Prüfung abgeschlossen.');
       // Die Tour erhält die Demo-ID und immer den neuesten sichtbaren Pfad.
       await runScreenshotTour(
         controller.signal,

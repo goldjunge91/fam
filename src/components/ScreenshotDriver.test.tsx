@@ -53,7 +53,6 @@ describe('ScreenshotDriver', () => {
     mockWaitForScreenshotFixture.mockResolvedValue({
       householdId: 'household-1',
       recipeId: 'recipe-1',
-      ready: true,
     });
   });
 
