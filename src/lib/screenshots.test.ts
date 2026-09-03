@@ -1,6 +1,7 @@
 import {
   buildScreenshotTour,
   isFixtureReady,
+  isRecentScreenshotFlag,
   normalizeScreenshotPath,
   parseShotsConfig,
 } from '@/lib/screenshots';
@@ -45,5 +46,13 @@ describe('screenshot tour', () => {
       captureTimeoutMs: 15_000,
       fixtureTimeoutMs: undefined,
     });
+  });
+
+  it('akzeptiert nur ein frisches Capture-Flag', () => {
+    const now = 1_000_000;
+
+    expect(isRecentScreenshotFlag(now - 29_999, now)).toBe(true);
+    expect(isRecentScreenshotFlag(now - 30_001, now)).toBe(false);
+    expect(isRecentScreenshotFlag(undefined, now)).toBe(false);
   });
 });
