@@ -32,6 +32,22 @@ test('synthetic expectations reject wrong servings, no food use and skipped urge
   }
 });
 
+test('an otherwise valid response cannot append a recipe with no inventory ingredients', () => {
+  const value = response();
+  value.meals.push({ servings: 3, used_items: [] });
+  const result = assessSyntheticResponse(value, compact, expected);
+  assert.equal(result.pass, false);
+  assert.match(result.reason, /every meal must use available inventory/i);
+});
+
+test('multiple meals remain valid when each uses stock and the shared budget is respected', () => {
+  const value = response();
+  value.meals.push(structuredClone(value.meals[0]));
+  const result = assessSyntheticResponse(value, compact, expected);
+  assert.equal(result.pass, true);
+  assert.equal(result.metrics.mean_available_quantity_used, 1);
+});
+
 test('Promptfoo quality adapter uses only explicit test expectations and fails closed', () => {
   assert.equal(assertSyntheticQuality(JSON.stringify(response()), { vars: {
     compact_context: JSON.stringify(compact), expected: JSON.stringify(expected),

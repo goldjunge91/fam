@@ -11,6 +11,9 @@ export function assessSyntheticResponse(output, compact, expected) {
     if (meal.servings !== expected.servings || meal.servings !== compact.request.servings) {
       return { pass: false, score: 0, reason: 'servings must equal the requested household size' };
     }
+    if (!Array.isArray(meal.used_items) || meal.used_items.length === 0) {
+      return { pass: false, score: 0, reason: 'Every meal must use available inventory; omit recipes without remaining ingredients' };
+    }
     for (const item of meal.used_items ?? []) {
       used.set(item.inventory_item_id, (used.get(item.inventory_item_id) ?? 0) + item.quantity);
     }

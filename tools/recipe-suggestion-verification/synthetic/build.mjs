@@ -33,12 +33,14 @@ if (typeof module !== 'undefined') module.exports = { evaluate, evaluateSyntheti
 `;
 const flow = JSON.parse(await read('chainforge/recipe-suggestion-v2.cforge'));
 const table = flow.flow.nodes.find((node) => node.type === 'table').data;
+table.title = '1. 75 synthetische Inventare';
 table.rows = rows.map((row) => ({ ...row, compact_context: JSON.stringify(row.compact_context), __uid: row.scenario_id }));
 table.sample = false;
 const promptNode = flow.flow.nodes.find((node) => node.type === 'prompt').data;
 promptNode.prompt = prompt;
-promptNode.title = '75 synthetische Inventare · GLM 5.3';
+promptNode.title = '2. GLM 5.3 · 75 Szenarien';
 flow.flow.nodes.find((node) => node.type === 'evaluator').data.code = evaluator;
+flow.flow.nodes.find((node) => node.type === 'vis').data.title = '5. Ergebnisübersicht';
 flow.cache = { __s: [] };
 const tests = syntheticScenarios.map((scenario) => ({
   description: `${scenario.scenario_id}: ${scenario.description}`,

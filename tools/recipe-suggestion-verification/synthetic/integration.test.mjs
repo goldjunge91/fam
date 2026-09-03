@@ -37,6 +37,7 @@ test('synthetic Promptfoo config keeps strict outputs, GLM settings and bounded 
 test('both tools receive the exact same 75 inputs and prompt, GLM only, no cached answers', async () => {
   assert.equal(cases.length, 75);
   assert.equal(table.rows.length, 75);
+  assert.equal(table.title, '1. 75 synthetische Inventare');
   assert.equal(table.sample, false);
   assert.equal(prompt.n, 1);
   assert.deepEqual(prompt.llms.map((llm) => llm.formData.model), ['z-ai/glm-5.3-flash']);
@@ -71,7 +72,7 @@ function validResponse(scenario) {
 }
 
 for (const scenario of syntheticScenarios) {
-  test(`${scenario.scenario_id}: canonical response passes; twelve deliberate violations fail in both tools`, () => {
+  test(`${scenario.scenario_id}: canonical response passes; thirteen deliberate violations fail in both tools`, () => {
     const compact = scenario.compact_context;
     const check = (value, expectedPass, label) => {
       const text = typeof value === 'string' ? value : JSON.stringify(value);
@@ -94,6 +95,11 @@ for (const scenario of syntheticScenarios) {
       wrong_servings: (value) => { value.meals[0].servings++; },
       skipped_urgent_food: (value) => { value.meals[0].used_items.shift(); },
       no_food_used: (value) => { value.meals[0].used_items = []; },
+      empty_extra_meal: (value) => {
+        const second = structuredClone(value.meals[0]);
+        second.used_items = [];
+        value.meals.push(second);
+      },
       cumulative_overdraft: (value) => {
         const second = structuredClone(value.meals[0]);
         second.used_items[0].quantity = compact.priority_foods[0].available_quantity;
