@@ -33,7 +33,7 @@ ignore_default_excludes = false
 [features]
 apps = true
 hooks = true
-memories = true
+# msemories = true
 unified_exec = true
 shell_snapshot = true
 shell_tool = true
@@ -47,30 +47,20 @@ skill_mcp_dependency_install = false
 prevent_idle_sleep = true
 plugin_sharing = true
 
-[features.code_mode]
-enabled = true
-excluded_tool_namespaces = []
-direct_only_tool_namespaces = []
+# [features.code_mode]
+# enabled = true
+# excluded_tool_namespaces = []
+# direct_only_tool_namespaces = []
 
 # Codex 0.149.1 rejects the newer rollout-budget table and host-level agent
 # overrides. Both documented variants remain available in config-reference.toml.
-[memories]
-generate_memories = true
-use_memories = true
-disable_on_external_context = true
-max_raw_memories_for_consolidation = 50
-max_unused_days = 30
-max_rollout_age_days = 30
-max_rollouts_per_startup = 8
-min_rollout_idle_hours = 1
-min_rate_limit_remaining_percent = 10
-
-# Argent is optional for non-device tasks.
-[mcp_servers.argent]
-command = "node"
-args = ["node_modules/@swmansion/argent/dist/cli.js", "mcp"]
-enabled = true
-required = false
-startup_timeout_sec = 10
-tool_timeout_sec = 120
-default_tools_approval_mode = "approve"
+# [memories]
+# generate_memories = true
+# use_memories = true
+# disable_on_external_context = true
+# max_raw_memories_for_consolidation = 50
+# max_unused_days = 30
+# max_rollout_age_days = 30
+# max_rollouts_per_startup = 8
+# min_rollout_idle_hours = 1
+# min_rate_limit_remaining_percent = 10

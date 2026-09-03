@@ -1,299 +1,299 @@
-# Codex configuration reference for fam
-#
-# Documentation only. Codex loads `.codex/config.toml`, not this filename.
-# Copy individual settings deliberately into the correct layer:
-# project `.codex/config.toml`, user `~/.codex/config.toml`, or profile
-# `~/.codex/<profile>.config.toml`.
-#
-# Do not put credentials, API keys, OAuth tokens, or real provider endpoints in
-# this repository. Project config cannot override host-owned provider, profile,
-# notification, telemetry, or credential settings.
+# # Codex configuration reference for fam
+# #
+# # Documentation only. Codex loads `.codex/config.toml`, not this filename.
+# # Copy individual settings deliberately into the correct layer:
+# # project `.codex/config.toml`, user `~/.codex/config.toml`, or profile
+# # `~/.codex/<profile>.config.toml`.
+# #
+# # Do not put credentials, API keys, OAuth tokens, or real provider endpoints in
+# # this repository. Project config cannot override host-owned provider, profile,
+# # notification, telemetry, or credential settings.
 
-# Core model and response settings
-model = "gpt-5.6"
-review_model = "gpt-5.6-sol"
-model_reasoning_effort = "high"          # none | low | medium | high | xhigh | max
-model_reasoning_summary = "none"
-model_verbosity = "medium"               # low | medium | high
-model_supports_reasoning_summaries = true
-# model_context_window = 128000
-# model_auto_compact_token_limit = 100000
-# model_auto_compact_token_limit_scope = "total"
-# model_catalog_json = "/absolute/path/to/model-catalog.json"
-personality = "pragmatic"                # none | friendly | pragmatic
-service_tier = "fast"
-project_root_markers = [".git", ".hg", ".sl"]
+# # Core model and response settings
+# model = "gpt-5.6"
+# review_model = "gpt-5.6-sol"
+# model_reasoning_effort = "high"          # none | low | medium | high | xhigh | max
+# model_reasoning_summary = "none"
+# model_verbosity = "medium"               # low | medium | high
+# model_supports_reasoning_summaries = true
+# # model_context_window = 128000
+# # model_auto_compact_token_limit = 100000
+# # model_auto_compact_token_limit_scope = "total"
+# # model_catalog_json = "/absolute/path/to/model-catalog.json"
+# personality = "pragmatic"                # none | friendly | pragmatic
+# service_tier = "fast"
+# project_root_markers = [".git", ".hg", ".sl"]
 
-# Approval and sandbox
-approval_policy = "on-request"            # on-request | never | granular table
-approvals_reviewer = "user"              # user | auto_review
-sandbox_mode = "workspace-write"         # read-only | workspace-write | danger-full-access
-allow_login_shell = true
+# # Approval and sandbox
+# approval_policy = "on-request"            # on-request | never | granular table
+# approvals_reviewer = "user"              # user | auto_review
+# sandbox_mode = "workspace-write"         # read-only | workspace-write | danger-full-access
+# allow_login_shell = true
 
-[sandbox_workspace_write]
-network_access = true
-exclude_tmpdir_env_var = false
-exclude_slash_tmp = false
-# writable_roots = ["/absolute/path/to/extra-root"]
+# [sandbox_workspace_write]
+# network_access = true
+# exclude_tmpdir_env_var = false
+# exclude_slash_tmp = false
+# # writable_roots = ["/absolute/path/to/extra-root"]
 
-[auto_review]
-# policy = "Use the organization's automatic review policy."
+# [auto_review]
+# # policy = "Use the organization's automatic review policy."
 
-# Alternative granular approvals:
-# approval_policy = { granular = {
-#   sandbox_approval = true,
-#   rules = true,
-#   mcp_elicitations = true,
-#   request_permissions = false,
-#   skill_approval = false
-# } }
+# # Alternative granular approvals:
+# # approval_policy = { granular = {
+# #   sandbox_approval = true,
+# #   rules = true,
+# #   mcp_elicitations = true,
+# #   request_permissions = false,
+# #   skill_approval = false
+# # } }
 
-# Shell environment and host state
-[shell_environment_policy]
-inherit = "core"                          # none | core | all
-ignore_default_excludes = false
-# set = { FAM_MODE = "development" }
+# # Shell environment and host state
+# [shell_environment_policy]
+# inherit = "core"                          # none | core | all
+# ignore_default_excludes = false
+# # set = { FAM_MODE = "development" }
 
-[shell_environment_policy.filters]
-"AWS_*" = "exclude"
-"AZURE_*" = "exclude"
-"*_TOKEN" = "exclude"
-"*_SECRET" = "exclude"
-# Include rules become an allowlist after automatic exclusions:
-# "PATH" = "include"
-# "HOME" = "include"
+# [shell_environment_policy.filters]
+# "AWS_*" = "exclude"
+# "AZURE_*" = "exclude"
+# "*_TOKEN" = "exclude"
+# "*_SECRET" = "exclude"
+# # Include rules become an allowlist after automatic exclusions:
+# # "PATH" = "include"
+# # "HOME" = "include"
 
-# Prefer user config for these host-owned options:
-# log_dir = "/absolute/path/to/codex-logs"
-# sqlite_home = "/absolute/path/to/codex-state"
-# check_for_update_on_startup = true
-# feedback.enabled = true
-# analytics.enabled = false
-# developer_instructions = "..."
-# model_instructions_file = "/absolute/path/to/instructions.md"
+# # Prefer user config for these host-owned options:
+# # log_dir = "/absolute/path/to/codex-logs"
+# # sqlite_home = "/absolute/path/to/codex-state"
+# # check_for_update_on_startup = true
+# # feedback.enabled = true
+# # analytics.enabled = false
+# # developer_instructions = "..."
+# # model_instructions_file = "/absolute/path/to/instructions.md"
 
-# Feature switches
-[features]
-apps = true
-hooks = true
-memories = true
-unified_exec = true
-shell_snapshot = true
-shell_tool = true
-multi_agent = true
-goals = true
-remote_plugin = true
-personality = true
-fast_mode = true
-enable_request_compression = true
-skill_mcp_dependency_install = true
-prevent_idle_sleep = true
-plugin_sharing = true
+# # Feature switches
+# [features]
+# apps = true
+# hooks = true
+# memories = true
+# unified_exec = true
+# shell_snapshot = true
+# shell_tool = true
+# multi_agent = true
+# goals = true
+# remote_plugin = true
+# personality = true
+# fast_mode = true
+# enable_request_compression = true
+# skill_mcp_dependency_install = true
+# prevent_idle_sleep = true
+# plugin_sharing = true
 
-[features.code_mode]
-enabled = true
-excluded_tool_namespaces = []
-direct_only_tool_namespaces = []
-
-[features.rollout_budget]
-enabled = true
-limit_tokens = 12000
-reminder_interval_tokens = 4000
-sampling_token_weight = 1.0
-prefill_token_weight = 1.0
-
-[features.network_proxy]
-enabled = false
-# domains = { "api.openai.com" = "allow", "example.com" = "deny" }
-# unix_sockets = { "/absolute/path/to/socket" = "allow" }
-# allow_local_binding = false
-# enable_socks5 = true
-# enable_socks5_udp = true
-# allow_upstream_proxy = true
-# dangerously_allow_non_loopback_proxy = false
-# dangerously_allow_all_unix_sockets = false
-# proxy_url = "http://127.0.0.1:8080"
-# socks_url = "socks5://127.0.0.1:1080"
-
-# Deprecated legacy feature toggles. Prefer the top-level `web_search` setting:
-# web_search = true
-# web_search_cached = true
-# web_search_request = true
-
-# App/managed capabilities. Keep these in the user or managed layer when
-# supported by the installed Codex surface:
-# in_app_updates = true
-# in_app_browser = true
-# browser_use = true
-# browser_use_external = true
-# browser_use_full_cdp_access = false
-# computer_use = true
-# guardian_approval = true
-# workspace_dependencies = true
-
-# Memories and agents
-[memories]
-generate_memories = true
-use_memories = true
-disable_on_external_context = true
-max_raw_memories_for_consolidation = 50
-max_unused_days = 30
-max_rollout_age_days = 30
-max_rollouts_per_startup = 8
-min_rollout_idle_hours = 1
-min_rate_limit_remaining_percent = 10
-# extract_model = "gpt-5.6-luna"
-# consolidation_model = "gpt-5.6-luna"
-
-[agents]
-enabled = true
-max_concurrent_threads_per_session = 4
-max_threads = 8
-default_subagent_model = "gpt-5.6-luna"
-default_subagent_reasoning_effort = "medium"
-interrupt_message = true
-
-# [agents.environment_inspector]
-# description = "Inspect the project environment and return structured JSON."
-# config_file = ".codex/agents/argent-environment-inspector.toml"
-
-# MCP servers and tool approval
-# [mcp_servers.example_local]
-# command = "node"
-# args = ["path/to/server.js"]
-# cwd = "."
+# [features.code_mode]
 # enabled = true
-# required = false
-# startup_timeout_sec = 10
-# tool_timeout_sec = 120
-# enabled_tools = ["tool_name"]
-# disabled_tools = ["dangerous_tool"]
-# default_tools_approval_mode = "prompt" # auto | prompt | writes | approve
+# excluded_tool_namespaces = []
+# direct_only_tool_namespaces = []
 
-# [mcp_servers.example_remote]
-# url = "https://example.invalid/mcp"
+# [features.rollout_budget]
 # enabled = true
-# auth = "oauth"                         # oauth | chatgpt
-# bearer_token_env_var = "EXAMPLE_TOKEN"
-# env_http_headers = { "X-Example" = "EXAMPLE_HEADER_ENV" }
-# scopes = ["read"]
-# oauth_resource = "https://example.invalid"
+# limit_tokens = 12000
+# reminder_interval_tokens = 4000
+# sampling_token_weight = 1.0
+# prefill_token_weight = 1.0
 
-# [mcp_servers.example_local.tools.tool_name]
-# approval_mode = "prompt"
-# output_token_limit = 10000
+# [features.network_proxy]
+# enabled = false
+# # domains = { "api.openai.com" = "allow", "example.com" = "deny" }
+# # unix_sockets = { "/absolute/path/to/socket" = "allow" }
+# # allow_local_binding = false
+# # enable_socks5 = true
+# # enable_socks5_udp = true
+# # allow_upstream_proxy = true
+# # dangerously_allow_non_loopback_proxy = false
+# # dangerously_allow_all_unix_sockets = false
+# # proxy_url = "http://127.0.0.1:8080"
+# # socks_url = "socks5://127.0.0.1:1080"
 
-# OAuth callback/storage settings are user-level only:
-# mcp_oauth_credentials_store = "file"
-# mcp_oauth_callback_port = 1455
-# mcp_oauth_callback_url = "http://localhost:1455/callback"
+# # Deprecated legacy feature toggles. Prefer the top-level `web_search` setting:
+# # web_search = true
+# # web_search_cached = true
+# # web_search_request = true
 
-# Model providers are user-level only and must not contain secrets here.
-# [model_providers.proxy]
-# name = "OpenAI-compatible proxy"
-# base_url = "https://proxy.example.invalid/v1"
-# env_key = "OPENAI_API_KEY"
-# wire_api = "responses"
-# supports_websockets = true
-# supports_standalone_web_search = false
-# request_max_retries = 3
-# stream_max_retries = 3
-# stream_idle_timeout_ms = 300000
+# # App/managed capabilities. Keep these in the user or managed layer when
+# # supported by the installed Codex surface:
+# # in_app_updates = true
+# # in_app_browser = true
+# # browser_use = true
+# # browser_use_external = true
+# # browser_use_full_cdp_access = false
+# # computer_use = true
+# # guardian_approval = true
+# # workspace_dependencies = true
 
-# [model_providers.proxy.auth]
-# command = "/absolute/path/to/fetch-token"
-# args = ["--audience", "codex"]
-# timeout_ms = 5000
-# refresh_interval_ms = 300000
-# cwd = "/absolute/path/to/helper"
+# # Memories and agents
+# [memories]
+# generate_memories = true
+# use_memories = true
+# disable_on_external_context = true
+# max_raw_memories_for_consolidation = 50
+# max_unused_days = 30
+# max_rollout_age_days = 30
+# max_rollouts_per_startup = 8
+# min_rollout_idle_hours = 1
+# min_rate_limit_remaining_percent = 10
+# # extract_model = "gpt-5.6-luna"
+# # consolidation_model = "gpt-5.6-luna"
 
-# OSS and Bedrock examples:
-# oss_provider = "ollama"                  # ollama | lmstudio
-# model_provider = "amazon-bedrock"
-# [model_providers.amazon-bedrock.aws]
-# profile = "default"
-# region = "us-east-1"
-
-# Permission profiles. Do not combine default_permissions with sandbox_mode or
-# [sandbox_workspace_write] in the same configuration layer.
-# default_permissions = "project-edit"
-# [permissions.project-edit]
-# description = "Project editing with explicit network policy"
-# extends = ":workspace"
-# workspace_roots = ["/absolute/path/to/project"]
-# [permissions.project-edit.filesystem]
-# glob_scan_max_depth = 6
-# [permissions.project-edit.filesystem."/absolute/path/to/project"]
-# read = true
-# write = true
-# [permissions.project-edit.network]
+# [agents]
 # enabled = true
-# mode = "restricted"
-# allow_local_binding = false
-# domains = { "api.openai.com" = "allow" }
-# unix_sockets = {}
+# max_concurrent_threads_per_session = 4
+# max_threads = 8
+# default_subagent_model = "gpt-5.6-luna"
+# default_subagent_reasoning_effort = "medium"
+# interrupt_message = true
 
-# Apps, plugins, skills, and suggestions
-[apps._default]
-enabled = true
-destructive_enabled = false
-open_world_enabled = true
-approvals_reviewer = "user"
-default_tools_approval_mode = "prompt"
+# # [agents.environment_inspector]
+# # description = "Inspect the project environment and return structured JSON."
+# # config_file = ".codex/agents/argent-environment-inspector.toml"
 
-# [apps.example_app]
+# # MCP servers and tool approval
+# # [mcp_servers.example_local]
+# # command = "node"
+# # args = ["path/to/server.js"]
+# # cwd = "."
+# # enabled = true
+# # required = false
+# # startup_timeout_sec = 10
+# # tool_timeout_sec = 120
+# # enabled_tools = ["tool_name"]
+# # disabled_tools = ["dangerous_tool"]
+# # default_tools_approval_mode = "prompt" # auto | prompt | writes | approve
+
+# # [mcp_servers.example_remote]
+# # url = "https://example.invalid/mcp"
+# # enabled = true
+# # auth = "oauth"                         # oauth | chatgpt
+# # bearer_token_env_var = "EXAMPLE_TOKEN"
+# # env_http_headers = { "X-Example" = "EXAMPLE_HEADER_ENV" }
+# # scopes = ["read"]
+# # oauth_resource = "https://example.invalid"
+
+# # [mcp_servers.example_local.tools.tool_name]
+# # approval_mode = "prompt"
+# # output_token_limit = 10000
+
+# # OAuth callback/storage settings are user-level only:
+# # mcp_oauth_credentials_store = "file"
+# # mcp_oauth_callback_port = 1455
+# # mcp_oauth_callback_url = "http://localhost:1455/callback"
+
+# # Model providers are user-level only and must not contain secrets here.
+# # [model_providers.proxy]
+# # name = "OpenAI-compatible proxy"
+# # base_url = "https://proxy.example.invalid/v1"
+# # env_key = "OPENAI_API_KEY"
+# # wire_api = "responses"
+# # supports_websockets = true
+# # supports_standalone_web_search = false
+# # request_max_retries = 3
+# # stream_max_retries = 3
+# # stream_idle_timeout_ms = 300000
+
+# # [model_providers.proxy.auth]
+# # command = "/absolute/path/to/fetch-token"
+# # args = ["--audience", "codex"]
+# # timeout_ms = 5000
+# # refresh_interval_ms = 300000
+# # cwd = "/absolute/path/to/helper"
+
+# # OSS and Bedrock examples:
+# # oss_provider = "ollama"                  # ollama | lmstudio
+# # model_provider = "amazon-bedrock"
+# # [model_providers.amazon-bedrock.aws]
+# # profile = "default"
+# # region = "us-east-1"
+
+# # Permission profiles. Do not combine default_permissions with sandbox_mode or
+# # [sandbox_workspace_write] in the same configuration layer.
+# # default_permissions = "project-edit"
+# # [permissions.project-edit]
+# # description = "Project editing with explicit network policy"
+# # extends = ":workspace"
+# # workspace_roots = ["/absolute/path/to/project"]
+# # [permissions.project-edit.filesystem]
+# # glob_scan_max_depth = 6
+# # [permissions.project-edit.filesystem."/absolute/path/to/project"]
+# # read = true
+# # write = true
+# # [permissions.project-edit.network]
+# # enabled = true
+# # mode = "restricted"
+# # allow_local_binding = false
+# # domains = { "api.openai.com" = "allow" }
+# # unix_sockets = {}
+
+# # Apps, plugins, skills, and suggestions
+# [apps._default]
 # enabled = true
 # destructive_enabled = false
 # open_world_enabled = true
-# default_tools_enabled = true
 # approvals_reviewer = "user"
 # default_tools_approval_mode = "prompt"
-# [apps.example_app.tools.example_tool]
-# enabled = true
-# approval_mode = "prompt"
 
-# [tool_suggest]
-# discoverables = []
-# disabled_tools = []
+# # [apps.example_app]
+# # enabled = true
+# # destructive_enabled = false
+# # open_world_enabled = true
+# # default_tools_enabled = true
+# # approvals_reviewer = "user"
+# # default_tools_approval_mode = "prompt"
+# # [apps.example_app.tools.example_tool]
+# # enabled = true
+# # approval_mode = "prompt"
 
-# [skills]
-# max_context_tokens = 10000
-# [[skills.config]]
-# path = "/absolute/path/to/skill"
-# enabled = true
+# # [tool_suggest]
+# # discoverables = []
+# # disabled_tools = []
 
-# Plugin-bundled MCP server controls:
-# [plugins.example_plugin.mcp_servers.example_server]
-# enabled = true
-# default_tools_approval_mode = "prompt"
-# enabled_tools = ["tool_name"]
-# disabled_tools = ["dangerous_tool"]
+# # [skills]
+# # max_context_tokens = 10000
+# # [[skills.config]]
+# # path = "/absolute/path/to/skill"
+# # enabled = true
 
-# Hooks: use either hooks.json or inline hooks in a given layer, not both.
-# [[hooks.PreToolUse]]
-# matcher = "^Bash$"
-# [[hooks.PreToolUse.hooks]]
-# type = "command"
-# command = "/absolute/path/to/policy-check"
-# timeout = 30
-# async = false
-# additionalContextLimit = 2500
+# # Plugin-bundled MCP server controls:
+# # [plugins.example_plugin.mcp_servers.example_server]
+# # enabled = true
+# # default_tools_approval_mode = "prompt"
+# # enabled_tools = ["tool_name"]
+# # disabled_tools = ["dangerous_tool"]
 
-# UI and platform options
-# [tui.keymap.global]
-# open_transcript = "ctrl-t"
-# [tui.keymap.composer]
-# submit = ["enter", "ctrl-m"]
-# [tui.keymap.chat]
-# interrupt_turn = "f12"
-# notify = ["/absolute/path/to/notify", "codex"]
-# [windows]
-# sandbox = "elevated"
-# sandbox_private_desktop = true
-# computer_use_windows_always_allowed_app_ids = []
+# # Hooks: use either hooks.json or inline hooks in a given layer, not both.
+# # [[hooks.PreToolUse]]
+# # matcher = "^Bash$"
+# # [[hooks.PreToolUse.hooks]]
+# # type = "command"
+# # command = "/absolute/path/to/policy-check"
+# # timeout = 30
+# # async = false
+# # additionalContextLimit = 2500
 
-# Observability is intentionally omitted from project config:
-# [otel]
-# environment = "dev"
-# exporter = "none"
-# log_user_prompt = false
+# # UI and platform options
+# # [tui.keymap.global]
+# # open_transcript = "ctrl-t"
+# # [tui.keymap.composer]
+# # submit = ["enter", "ctrl-m"]
+# # [tui.keymap.chat]
+# # interrupt_turn = "f12"
+# # notify = ["/absolute/path/to/notify", "codex"]
+# # [windows]
+# # sandbox = "elevated"
+# # sandbox_private_desktop = true
+# # computer_use_windows_always_allowed_app_ids = []
+
+# # Observability is intentionally omitted from project config:
+# # [otel]
+# # environment = "dev"
+# # exporter = "none"
+# # log_user_prompt = false
