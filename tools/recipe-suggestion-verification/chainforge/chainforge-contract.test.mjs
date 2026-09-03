@@ -213,6 +213,8 @@ test('Prompt beschreibt ausschließlich die kanonischen Kontext- und Response-Fe
   assert.ok(prompt.includes('catalog'));
   assert.ok(prompt.includes('template'));
   assert.ok(prompt.includes('model_generated'));
+  assert.doesNotMatch(prompt, /"source":\s*"catalog"/);
+  assert.match(prompt, /candidate_recipes leer/);
   assert.doesNotMatch(prompt, /\bmeal_id\b/);
   assert.doesNotMatch(prompt, /\bingredients\b/);
 });
@@ -333,7 +335,7 @@ test('OpenRouter-Provider bindet Key, Modell und strict Structured Output ohne S
   assert.match(source, /strict['"]?\s*:\s*True/);
   assert.match(source, /require_parameters['"]?\s*:\s*True/);
   assert.match(source, /reasoning['"]?\s*:\s*\{['"]effort['"]:\s*['"]low['"]\}/);
-  assert.match(source, /ibm-granite\/granite-4\.2-8b/);
+  assert.match(source, /z-ai\/glm-5\.2:free/);
   assert.match(source, /recipe-suggestion-response\.schema\.json/);
   assert.match(source, /urllib\.request/);
   assert.doesNotMatch(source, /sk-or-v1|api[_-]?key\s*=\s*['"][^'"]+['"]/i);

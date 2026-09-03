@@ -45,7 +45,7 @@ const baseUrl = (process.env.OPENROUTER_BASE_URL ?? 'https://openrouter.ai/api/v
   /\/$/,
   '',
 );
-const model = process.env.OPENROUTER_MODEL?.trim() || 'ibm-granite/granite-4.2-8b';
+const model = process.env.OPENROUTER_MODEL?.trim() || 'z-ai/glm-5.3-flash';
 const promptTemplate = await readArtifact('promptfoo/prompts/recipe-suggestion.prompt.txt');
 const prompt = promptTemplate.replace(
   '{{compact_context}}',
@@ -56,14 +56,14 @@ const responseFormat = JSON.parse(
 );
 const schemaText = await readArtifact('promptfoo/schemas/recipe-suggestion-response.schema.json');
 
-const { attempts: attemptResults } = await runOpenRouterScenario({
+const { attempts: attemptResults, effectiveConfig } = await runOpenRouterScenario({
   endpoint: `${baseUrl}/chat/completions`,
   apiKey,
   model,
   prompt,
   responseFormat,
   compactContext: scenario.compact_context,
-  reasoningEffort: process.env.OPENROUTER_REASONING_EFFORT?.trim() || 'low',
+  reasoningEffort: process.env.OPENROUTER_REASONING_EFFORT?.trim() || undefined,
   semanticRetryLimit: retries,
 });
 
@@ -73,14 +73,7 @@ const manifest = createEvalRunManifest({
   model,
   effectiveConfig: {
     apiKeyEnvar: 'OPENROUTER_API_KEY',
-    temperature: 0,
-    top_p: 1,
-    seed: 0,
-    max_tokens: 1536,
-    reasoning: {
-      effort: process.env.OPENROUTER_REASONING_EFFORT?.trim() || 'low',
-    },
-    provider: { require_parameters: true },
+    ...effectiveConfig,
     semantic_retry_limit: retries,
   },
   responseFormat,
@@ -90,7 +83,7 @@ const manifest = createEvalRunManifest({
   scenarioIds: [scenario.scenario_id],
   attempts: attemptResults.map((attempt) => ({
     scenarioId: scenario.scenario_id,
-      retryIndex: attempt.retryIndex,
+    retryIndex: attempt.retryIndex,
     finishReason: attempt.finishReason,
     pass: attempt.semanticPass,
   })),

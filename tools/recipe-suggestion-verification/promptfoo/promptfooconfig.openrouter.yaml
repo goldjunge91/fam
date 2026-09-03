@@ -1,30 +1,49 @@
 description: OpenRouter recipe suggestion compatibility matrix with a strict-output request
 
+env:
+  PROMPTFOO_DISABLE_ADAPTIVE_SCHEDULER: true
+  REQUEST_TIMEOUT_MS: 120000
+
+evaluateOptions:
+  timeoutMs: 125000
+  maxEvalTimeMs: 900000
+
 providers:
-  - id: openrouter:google/gemma-4-26b-a4b-it
-  - id: openrouter:qwen/qwen3.8-flash
-  - id: openrouter:z-ai/glm-5.3-flash
-  - id: openrouter:google/gemma-4-31b-it
-  - id: openrouter:minimax/minimax-m3:free
+  - id: openrouter:z-ai/glm-5.2:free
     config:
       apiKeyEnvar: OPENROUTER_API_KEY
+      maxRetries: 0
       temperature: 0
       top_p: 1
       seed: 0
-      max_tokens: 1536
+      max_tokens: 8192
       showThinking: false
       passthrough:
         reasoning:
-          effort: low
+          enabled: false
         provider:
           require_parameters: true
-  - id: openrouter:ibm-granite/granite-4.2-8b
+  - id: openrouter:upstage/solar-pro4
     config:
       apiKeyEnvar: OPENROUTER_API_KEY
+      maxRetries: 0
+      temperature: 0
+      top_p: 1
+      max_tokens: 8192
+      showThinking: false
+      passthrough:
+        reasoning:
+          enabled: false
+        provider:
+          require_parameters: true
+  - id: openrouter:z-ai/glm-5.3-flash
+    config:
+      apiKeyEnvar: OPENROUTER_API_KEY
+      maxRetries: 0
       temperature: 0
       top_p: 1
       seed: 0
-      max_tokens: 1536
+      max_tokens: 8192
       showThinking: false
       passthrough:
         reasoning:

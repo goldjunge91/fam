@@ -63,6 +63,31 @@ function validResponseFor(compactContext) {
 
 const compactContexts = readCompactContexts(scenarios);
 
+test('request strings use portable length constraints, not single-character decoding patterns', () => {
+  const meal = canonicalSchema.properties.meals.items.properties;
+  const item = meal.used_items.items.properties;
+  for (const field of [meal.title, meal.recipe_id.anyOf[0], item.inventory_item_id,
+    item.unit, meal.additional_ingredients.items, meal.steps.items]) {
+    assert.equal(field.minLength, 1);
+    assert.equal(field.pattern, undefined);
+  }
+});
+
+test('portable string schema still rejects blank values and truncated IDs semantically', () => {
+  const compactContext = compactContexts[0];
+  for (const field of ['title', 'recipe_id', 'steps', 'additional_ingredients']) {
+    for (const blank of ['', ' ', '\t\n']) {
+      const response = validResponseFor(compactContext);
+      response.meals[0][field] = ['steps', 'additional_ingredients'].includes(field) ? [blank] : blank;
+      assert.equal(assertRecipeSuggestion(JSON.stringify(response), contextForAssertion(compactContext)).pass, false, field);
+    }
+  }
+  const truncated = validResponseFor(compactContext);
+  truncated.meals[0].recipe_id = 'c';
+  truncated.meals[0].used_items[0].inventory_item_id = 'i';
+  assert.equal(assertRecipeSuggestion(JSON.stringify(truncated), contextForAssertion(compactContext)).pass, false);
+});
+
 test('response_format is a strict OpenRouter envelope over the canonical schema', () => {
   assert.deepEqual(responseFormat, {
     type: 'json_schema',
@@ -92,19 +117,35 @@ test('response_format is a strict OpenRouter envelope over the canonical schema'
     promptfooConfig,
     /defaultTest:\s*\r?\n\s+options:\s*\r?\n\s+response_format:\s*file:\/\/schemas\/recipe-suggestion-response-format\.json/,
   );
-  assert.match(promptfooConfig, /id:\s*openrouter:ibm-granite\/granite-4\.2-8b/);
+  assert.match(promptfooConfig, /id:\s*openrouter:z-ai\/glm-5\.3-flash/);
+  assert.equal((promptfooConfig.match(/- id:/g) ?? []).length, 1);
   assert.match(promptfooConfig, /apiKeyEnvar:\s*OPENROUTER_API_KEY/);
   assert.match(promptfooConfig, /showThinking:\s*false/);
   assert.match(promptfooConfig, /passthrough:\s*\r?\n\s+reasoning:/);
   assert.match(promptfooConfig, /require_parameters:\s*true/);
   assert.match(promptfooConfig, /temperature:\s*0/);
+  assert.match(promptfooConfig, /max_tokens:\s*8192\b/);
   assert.doesNotMatch(promptfooConfig, /openai:chat:/);
-  assert.match(openrouterConfig, /id:\s*openrouter:minimax\/minimax-m3:free/);
-  assert.match(openrouterConfig, /id:\s*openrouter:ibm-granite\/granite-4\.2-8b/);
+  assert.match(openrouterConfig, /id:\s*openrouter:z-ai\/glm-5\.2:free/);
+  assert.match(openrouterConfig, /id:\s*openrouter:upstage\/solar-pro4/);
+  assert.doesNotMatch(openrouterConfig, /inclusionai\/ling-3\.0-flash/);
+  assert.match(openrouterConfig, /id:\s*openrouter:z-ai\/glm-5\.3-flash/);
   assert.match(
     openrouterConfig,
     /defaultTest:\s*\r?\n\s+options:\s*\r?\n\s+response_format:\s*file:\/\/schemas\/recipe-suggestion-response-format\.json/,
   );
+});
+
+test('both Promptfoo entry configs explicitly bound native retries', () => {
+  for (const config of [promptfooConfig, openrouterConfig]) {
+    const providers = config.split(/\r?\nprompts:/)[0]
+      .split(/(?=  - id: openrouter:)/).slice(1);
+    assert.ok(providers.length > 0);
+    for (const provider of providers) {
+      assert.match(provider, /\n      maxRetries: 0\r?\n/);
+      assert.match(provider, /require_parameters:\s*true/);
+    }
+  }
 });
 
 test('prompt is restricted to the canonical compact context and response fields', () => {

@@ -20,29 +20,10 @@ Kopiere jede inventory_item_id und jede candidate_recipes.id Zeichen für Zeiche
 
 Für source catalog oder template kopierst du id aus candidate_recipes als recipe_id und übernimmst source exakt. Ein model_generated-Rezept ist nur gültig, wenn fallback_allowed true ist; bei model_generated muss recipe_id null sein. Erfinde keinen Kandidaten, wenn kein passender Eintrag in candidate_recipes existiert und der Fallback nicht erlaubt ist.
 
+Wenn candidate_recipes leer ist und fallback_allowed true ist, muss JEDES meal source model_generated und recipe_id null haben. Eine inventory_item_id darf niemals als recipe_id verwendet werden.
+
 additional_ingredients ist ausschließlich eine Liste von nichtleeren Strings. Jeder Eintrag muss entweder in constraints.allowed_staples oder als name in planned_shopping_items enthalten sein und darf nicht in constraints.forbidden_ingredients enthalten sein.
 
-Antworte ausschließlich mit einem parsebaren JSON-Objekt ohne Markdown und ohne Begleittext. Verwende exakt diese Schlüssel, keine weiteren:
-{
-  "schema_version": 1,
-  "meals": [
-    {
-      "title": "...",
-      "source": "catalog",
-      "recipe_id": "...",
-      "servings": 2,
-      "used_items": [
-        {
-          "inventory_item_id": "...",
-          "quantity": 1,
-          "unit": "pcs"
-        }
-      ],
-      "additional_ingredients": ["water"],
-      "steps": ["..."],
-      "notes": []
-    }
-  ]
-}
+Antworte ausschließlich mit einem parsebaren JSON-Objekt ohne Markdown und ohne Begleittext. Verwende nur schema_version und meals auf oberster Ebene. Das verbindliche Ausgabeschema wird separat übermittelt; übernimm keine Beispielwerte.
 
 schema_version muss exakt 1 sein. meals muss 1 bis 3 Einträge enthalten. Jeder Eintrag muss title, source, recipe_id, servings, used_items, additional_ingredients, steps und notes enthalten. source ist catalog, template oder model_generated. steps muss mindestens einen nichtleeren String enthalten; notes und additional_ingredients sind Listen von Strings.

@@ -11,7 +11,7 @@ from chainforge.providers import provider
 
 
 OPENROUTER_URL = "https://openrouter.ai/api/v1/chat/completions"
-OPENROUTER_MODEL = "ibm-granite/granite-4.2-8b"
+OPENROUTER_MODEL = "z-ai/glm-5.3-flash"
 SCHEMA_FILENAME = "recipe-suggestion-response.schema.json"
 
 # Custom provider scripts are copied into ChainForge's provider cache. Keep a
@@ -42,11 +42,11 @@ EMBEDDED_RESPONSE_SCHEMA: dict[str, Any] = {
                     "notes",
                 ],
                 "properties": {
-                    "title": {"type": "string", "pattern": "\\S"},
+                    "title": {"type": "string", "minLength": 1},
                     "source": {"enum": ["catalog", "template", "model_generated"]},
                     "recipe_id": {
                         "anyOf": [
-                            {"type": "string", "pattern": "\\S"},
+                            {"type": "string", "minLength": 1},
                             {"type": "null"},
                         ]
                     },
@@ -60,21 +60,21 @@ EMBEDDED_RESPONSE_SCHEMA: dict[str, Any] = {
                             "properties": {
                                 "inventory_item_id": {
                                     "type": "string",
-                                    "pattern": "\\S",
+                                    "minLength": 1,
                                 },
                                 "quantity": {"type": "number", "exclusiveMinimum": 0},
-                                "unit": {"type": "string", "pattern": "\\S"},
+                                "unit": {"type": "string", "minLength": 1},
                             },
                         },
                     },
                     "additional_ingredients": {
                         "type": "array",
-                        "items": {"type": "string", "pattern": "\\S"},
+                        "items": {"type": "string", "minLength": 1},
                     },
                     "steps": {
                         "type": "array",
                         "minItems": 1,
-                        "items": {"type": "string", "pattern": "\\S"},
+                        "items": {"type": "string", "minLength": 1},
                     },
                     "notes": {"type": "array", "items": {"type": "string"}},
                 },
@@ -178,7 +178,7 @@ def openrouter_recipe_suggestion(
         "temperature": 0,
         "top_p": 1,
         "seed": 0,
-        "max_tokens": 1536,
+        "max_tokens": 8192,
         "reasoning": {"effort": "low"},
         "provider": {"require_parameters": True},
         "response_format": {

@@ -18,6 +18,7 @@ function errorMessage(error) {
 
 async function runAttempt({ fetchImpl, endpoint, apiKey, requestBody, compactContext }) {
   let response;
+  let responseText;
   try {
     response = await fetchImpl(endpoint, {
       method: 'POST',
@@ -26,7 +27,9 @@ async function runAttempt({ fetchImpl, endpoint, apiKey, requestBody, compactCon
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(requestBody),
+      signal: AbortSignal.timeout(120_000),
     });
+    responseText = await response.text();
   } catch (error) {
     return {
       httpStatus: null,
@@ -38,7 +41,6 @@ async function runAttempt({ fetchImpl, endpoint, apiKey, requestBody, compactCon
     };
   }
 
-  const responseText = await response.text();
   if (!response.ok) {
     return {
       httpStatus: response.status,
@@ -66,6 +68,16 @@ async function runAttempt({ fetchImpl, endpoint, apiKey, requestBody, compactCon
 
   const choice = body?.choices?.[0];
   const content = choice?.message?.content;
+  if (choice?.finish_reason && choice.finish_reason !== 'stop') {
+    return {
+      httpStatus: response.status,
+      finishReason: choice.finish_reason,
+      usage: body.usage ?? null,
+      semanticPass: false,
+      semanticReason: `OpenRouter-Antwort nicht abgeschlossen: ${choice.finish_reason}`,
+      retryable: false,
+    };
+  }
   if (typeof content !== 'string' || !content.trim()) {
     const refusal = choice?.message?.refusal;
     return {
@@ -99,7 +111,7 @@ export async function runOpenRouterScenario({
   prompt,
   responseFormat,
   compactContext,
-  reasoningEffort = 'low',
+  reasoningEffort,
   semanticRetryLimit = 0,
 }) {
   if (typeof fetchImpl !== 'function') throw new TypeError('fetchImpl muss eine Funktion sein.');
@@ -107,15 +119,22 @@ export async function runOpenRouterScenario({
     throw new TypeError('semanticRetryLimit muss eine nicht-negative ganze Zahl sein.');
   }
 
+  const effectiveConfig = {
+    temperature: 0,
+    top_p: 1,
+    ...(model === 'upstage/solar-pro4' ? {} : { seed: 0 }),
+    max_tokens: 8192,
+    reasoning: reasoningEffort
+      ? { effort: reasoningEffort }
+      : ['upstage/solar-pro4', 'z-ai/glm-5.2:free'].includes(model)
+        ? { enabled: false }
+        : { effort: 'low' },
+    provider: { require_parameters: true },
+  };
   const requestBody = {
     model,
     messages: [{ role: 'user', content: prompt }],
-    temperature: 0,
-    top_p: 1,
-    seed: 0,
-    max_tokens: 1536,
-    reasoning: { effort: reasoningEffort },
-    provider: { require_parameters: true },
+    ...effectiveConfig,
     response_format: responseFormat,
   };
   const attempts = [];
@@ -132,5 +151,5 @@ export async function runOpenRouterScenario({
     if (result.semanticPass || !result.retryable) break;
   }
 
-  return { attempts, finalAttempt: attempts.at(-1) };
+  return { attempts, finalAttempt: attempts.at(-1), effectiveConfig };
 }

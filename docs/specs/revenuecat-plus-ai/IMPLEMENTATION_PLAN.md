@@ -3,7 +3,7 @@
 ## Overview
 
 Dieser Plan setzt
-[`docs/SPEC.md`](../../SPEC.md)
+[`docs/SPEC.md`](./SPEC.md)
 um. Plus und AI gelten haushaltsweit, aber ausschließlich für den jeweils
 zugeordneten aktiven Haushalt. Beide Entitlements sind unabhängig und können
 gleichzeitig aktiv sein. Der AI-Zielhaushalt darf

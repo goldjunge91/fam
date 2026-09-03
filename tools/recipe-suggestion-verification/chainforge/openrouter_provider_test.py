@@ -84,7 +84,7 @@ class OpenRouterProviderTest(unittest.TestCase):
         self.assertEqual(payload["temperature"], 0)
         self.assertEqual(payload["top_p"], 1)
         self.assertEqual(payload["seed"], 0)
-        self.assertEqual(payload["max_tokens"], 1536)
+        self.assertEqual(payload["max_tokens"], 8192)
         self.assertEqual(payload["reasoning"], {"effort": "low"})
         self.assertEqual(payload["provider"], {"require_parameters": True})
         self.assertEqual(

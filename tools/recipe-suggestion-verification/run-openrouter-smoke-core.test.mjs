@@ -90,6 +90,7 @@ test('retries only a semantic failure, keeps requests identical and stops on suc
 
   assert.equal(callCount, 2);
   assert.equal(requestBodies[0], requestBodies[1]);
+  assert.equal(JSON.parse(requestBodies[0]).max_tokens, 8192);
   assert.deepEqual(
     result.attempts.map(({ retryIndex, semanticPass }) => [retryIndex, semanticPass]),
     [[0, false], [1, true]],
@@ -137,4 +138,36 @@ test('stops after the bounded semantic retry limit', async () => {
   assert.equal(callCount, 3);
   assert.deepEqual(result.attempts.map(({ retryIndex }) => retryIndex), [0, 1, 2]);
   assert.equal(result.finalAttempt.semanticPass, false);
+});
+
+test('Solar request and effective manifest config omit unsupported seed', async () => {
+  let request;
+  const result = await runOpenRouterScenario({
+    fetchImpl: async (_endpoint, init) => { request = init; return jsonResponse(validOutput); },
+    endpoint: 'https://example.test/chat/completions', apiKey: 'test-key',
+    model: 'upstage/solar-pro4', prompt: 'test', responseFormat, compactContext,
+  });
+  assert.equal(JSON.parse(request.body).seed, undefined);
+  assert.ok(request.signal instanceof AbortSignal);
+  assert.equal(result.effectiveConfig.seed, undefined);
+  assert.equal(result.effectiveConfig.max_tokens, 8192);
+  assert.deepEqual(result.effectiveConfig.reasoning, { enabled: false });
+});
+
+test('incomplete output never passes or triggers semantic retries', async () => {
+  for (const reason of ['length', 'content_filter', 'error']) {
+    let count = 0;
+    const result = await runOpenRouterScenario({
+      fetchImpl: async () => { count++; return {
+        ok: true, status: 200, text: async () => JSON.stringify({ choices: [
+          { finish_reason: reason, message: { content: validOutput } },
+        ] }),
+      }; },
+      endpoint: 'https://example.test/chat/completions', apiKey: 'test-key',
+      model: 'test', prompt: 'test', responseFormat, compactContext, semanticRetryLimit: 2,
+    });
+    assert.equal(result.finalAttempt.semanticPass, false);
+    assert.equal(result.finalAttempt.finishReason, reason);
+    assert.equal(count, 1);
+  }
 });

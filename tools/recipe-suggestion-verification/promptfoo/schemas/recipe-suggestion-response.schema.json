@@ -27,7 +27,7 @@
         "properties": {
           "title": {
             "type": "string",
-            "pattern": "\\S"
+            "minLength": 1
           },
           "source": {
             "enum": ["catalog", "template", "model_generated"]
@@ -36,7 +36,7 @@
             "anyOf": [
               {
                 "type": "string",
-                "pattern": "\\S"
+                "minLength": 1
               },
               {
                 "type": "null"
@@ -56,7 +56,7 @@
               "properties": {
                 "inventory_item_id": {
                   "type": "string",
-                  "pattern": "\\S"
+                  "minLength": 1
                 },
                 "quantity": {
                   "type": "number",
@@ -64,7 +64,7 @@
                 },
                 "unit": {
                   "type": "string",
-                  "pattern": "\\S"
+                  "minLength": 1
                 }
               }
             }
@@ -73,7 +73,7 @@
             "type": "array",
             "items": {
               "type": "string",
-              "pattern": "\\S"
+              "minLength": 1
             }
           },
           "steps": {
@@ -81,7 +81,7 @@
             "minItems": 1,
             "items": {
               "type": "string",
-              "pattern": "\\S"
+              "minLength": 1
             }
           },
           "notes": {

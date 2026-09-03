@@ -1,13 +1,22 @@
 description: Deterministic recipe suggestion verification
 
+env:
+  PROMPTFOO_DISABLE_ADAPTIVE_SCHEDULER: true
+  REQUEST_TIMEOUT_MS: 120000
+
+evaluateOptions:
+  timeoutMs: 125000
+  maxEvalTimeMs: 900000
+
 providers:
-  - id: openrouter:ibm-granite/granite-4.2-8b
+  - id: openrouter:z-ai/glm-5.3-flash
     config:
       apiKeyEnvar: OPENROUTER_API_KEY
+      maxRetries: 0
       temperature: 0
       top_p: 1
       seed: 0
-      max_tokens: 1536
+      max_tokens: 8192
       showThinking: false
       passthrough:
         reasoning:

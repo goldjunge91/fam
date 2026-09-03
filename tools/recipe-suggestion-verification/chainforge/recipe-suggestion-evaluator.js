@@ -78,7 +78,13 @@ function readJson(value) {
   try {
     return JSON.parse(value.trim());
   } catch {
-    return null;
+    // Tabular Data keeps ChainForge's escaped braces in response.var.
+    // Decode only the input context; model output is still parsed strictly.
+    try {
+      return JSON.parse(value.trim().replace(/\\([{}])/g, '$1'));
+    } catch {
+      return null;
+    }
   }
 }
 
