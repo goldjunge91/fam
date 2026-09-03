@@ -1,0 +1,95 @@
+name: iOS Simulator Build
+
+on:
+  workflow_dispatch:
+    inputs:
+      configuration:
+        description: 'Xcode Configuration (Debug / Release)'
+        required: true
+        default: 'Release'
+        type: choice
+        options:
+          - Release
+          - Debug
+
+concurrency:
+  group: ios-sim-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build-simulator:
+    name: Build iOS Simulator App
+    runs-on: macos-26
+    env:
+      EXPO_PUBLIC_SUPABASE_URL: ${{ vars.EXPO_PUBLIC_SUPABASE_URL }}
+      EXPO_PUBLIC_SUPABASE_KEY: ${{ vars.EXPO_PUBLIC_SUPABASE_KEY }}
+      EXPO_PUBLIC_DEV_TOOLS: ${{ vars.EXPO_PUBLIC_DEV_TOOLS || 'true' }}
+      EXPO_PUBLIC_DEBUG_LOGS: ${{ vars.EXPO_PUBLIC_DEBUG_LOGS || 'true' }}
+      EXPO_PUBLIC_OFF_OFFLINE: ${{ vars.EXPO_PUBLIC_OFF_OFFLINE || 'false' }}
+      EXPO_PUBLIC_FORCE_ONBOARDING: ${{ vars.EXPO_PUBLIC_FORCE_ONBOARDING || 'false' }}
+      EXPO_PUBLIC_FORCE_PREMIUM: ${{ vars.EXPO_PUBLIC_FORCE_PREMIUM || 'false' }}
+      EXPO_PUBLIC_REVENUECAT_TEST_STORE_API_KEY: ${{ vars.EXPO_PUBLIC_REVENUECAT_TEST_STORE_API_KEY }}
+      EXPO_PUBLIC_APTABASE_APP_KEY: ${{ vars.EXPO_PUBLIC_APTABASE_APP_KEY }}
+      EXPO_PUBLIC_POSTHOG_API_KEY: ${{ vars.EXPO_PUBLIC_POSTHOG_API_KEY }}
+      EXPO_PUBLIC_POSTHOG_HOST: ${{ vars.EXPO_PUBLIC_POSTHOG_HOST || 'https://eu.i.posthog.com' }}
+      EXPO_PUBLIC_SENTRY_DSN: ${{ vars.EXPO_PUBLIC_SENTRY_DSN }}
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Xcode 26.4.1
+        uses: maxim-lobanov/setup-xcode@v1
+        with:
+          xcode-version: '26.4.1'
+
+      - name: Setup Bun Environment
+        uses: ./.github/actions/setup-bun-env
+
+      - name: Expo Prebuild iOS (CNG)
+        run: bunx expo prebuild --platform ios --no-install
+
+      - name: Cache CocoaPods
+        uses: actions/cache@v4
+        with:
+          path: ios/Pods
+          key: ${{ runner.os }}-pods-${{ hashFiles('ios/Podfile.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-pods-
+
+      - name: Install CocoaPods
+        run: |
+          cd ios
+          pod install || pod install --repo-update
+        env:
+          LANG: en_US.UTF-8
+          LC_ALL: en_US.UTF-8
+
+      - name: Build iOS Simulator App
+        run: |
+          CONFIG="${{ github.event.inputs.configuration || 'Release' }}"
+          xcodebuild \
+            -workspace ios/fam.xcworkspace \
+            -scheme fam \
+            -configuration "$CONFIG" \
+            -sdk iphonesimulator \
+            -destination "generic/platform=iOS Simulator" \
+            -derivedDataPath build/DerivedData \
+            CODE_SIGNING_ALLOWED=NO \
+            build
+
+      - name: Package Simulator App (.tar.gz)
+        run: |
+          APP_PATH="$(find build/DerivedData/Build/Products -type d -name 'fam.app' | head -n1)"
+          if [ -z "$APP_PATH" ]; then
+            echo "Fehler: fam.app wurde nicht gefunden"
+            exit 1
+          fi
+          mkdir -p dist
+          tar -C "$(dirname "$APP_PATH")" -czf dist/fam-simulator.app.tar.gz "$(basename "$APP_PATH")"
+
+      - name: Upload Simulator Build Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: fam-ios-simulator-${{ github.sha }}
+          path: dist/fam-simulator.app.tar.gz
+          retention-days: 7

@@ -222,4 +222,4 @@ Der obige Erfolg gilt nur für den Simulator/Debug-Pfad (`native:dev`/`expo run:
 
 **Faktor 1,5×, 4,3 Minuten gespart pro wiederholtem lokalen TestFlight-Build.** Kleiner als beim Simulator (3,5×), weil der Signing-/Export-/Upload-Teil (Codesign, IPA-Packaging, Symbol-Upload) nicht von ccache profitiert und einen fixen Anteil der Gesamtzeit ausmacht — nur die reine Compile-Phase wird beschleunigt. Ein reales, signiertes `.ipa` wurde erzeugt und in `native-build-lock.json` registriert.
 
-**Nebeneffekt:** Da `eas build --local` jetzt immer denselben Arbeitsordner wiederverwendet statt ihn zu löschen, wächst `/Volumes/Programme/dev-caches/eas-build-local-workingdir` mit der Zeit — bei Bedarf manuell aufräumen oder in `scripts/dev-disk-clean.sh` aufnehmen (bislang nicht getan, da extern und damit außerhalb von dessen Boot-Disk-Fokus).
+**Arbeitsordner-Verhalten:** Der feste `EAS_LOCAL_BUILD_WORKINGDIR` bleibt als Pfad bestehen, wird aber vor jedem Lauf automatisch geleert, weil der lokale EAS-Plugin-Runner keinen alten Build-Inhalt akzeptiert. Der separate ccache-Ordner bleibt dabei erhalten und wird nicht gelöscht.

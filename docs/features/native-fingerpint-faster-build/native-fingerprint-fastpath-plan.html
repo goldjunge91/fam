@@ -557,6 +557,7 @@
       <div>
         <h4><code>eas build --local</code> ist der langsamste verfügbare lokale Pfad</h4>
         <p><code>rebuild()</code> ruft <code>expo prebuild --clean</code>, dann <code>pod install</code>, dann <code>eas build --local</code>. EAS kopiert das Projekt in ein isoliertes Temp-Verzeichnis und installiert Pods erneut. Kein DerivedData-Reuse, kein Gradle-Build-Cache, kein Inkrement — jeder Lauf ist ein Kaltstart. Für Release-Artefakte korrekt, für den Inner Loop das Gegenteil des Ziels.</p>
+        <p>Für wiederholbare lokale Release-Läufe wird ein fester <code>EAS_LOCAL_BUILD_WORKINGDIR</code> neben dem ccache verwendet. Der Plugin-Runner verlangt beim Start einen leeren Arbeitsbereich; deshalb wird nur dieser alte Arbeitsinhalt automatisch entfernt. Der ccache selbst bleibt erhalten.</p>
       </div>
       <div class="sev high">Hoch</div>
     </div>
