@@ -1,0 +1,224 @@
+<title>Option B — Inline</title>
+<style>
+  :root {
+    --bg: #F8F4EF; --surface: #FBF7F2; --surface-selected: #E9E1E7;
+    --text: #2D2830; --text-secondary: #786F79; --border: #E4DDE3;
+    --accent: #705773; --on-accent: #FFFFFF;
+    --success: #78906F; --warning: #C69059; --danger: #C65F50;
+    --shadow-sheet: #2A1F2C; --frame-bg: #EDE6DE; --frame-label: #8C8290;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #211D23; --surface: #2B262E; --surface-selected: #382F3B;
+      --text: #F2ECE7; --text-secondary: #B7ADB3; --border: #3E3640;
+      --accent: #B79CBA; --on-accent: #211D23;
+      --success: #8FAE86; --warning: #D9A86C; --danger: #D9776A;
+      --shadow-sheet: #2A1F2C; --frame-bg: #17141A; --frame-label: #6E6672;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #211D23; --surface: #2B262E; --surface-selected: #382F3B;
+    --text: #F2ECE7; --text-secondary: #B7ADB3; --border: #3E3640;
+    --accent: #B79CBA; --on-accent: #211D23;
+    --success: #8FAE86; --warning: #D9A86C; --danger: #D9776A;
+    --shadow-sheet: #2A1F2C; --frame-bg: #17141A; --frame-label: #6E6672;
+  }
+  * { box-sizing: border-box; }
+  body {
+    background: var(--frame-bg); color: var(--text);
+    font-family: 'Manrope', -apple-system, sans-serif;
+    display: flex; flex-direction: column; align-items: center; gap: 16px;
+    padding: 40px 16px 64px;
+  }
+  .toolbar { display: flex; align-items: center; gap: 12px; }
+  .toolbar button {
+    font-family: inherit; font-size: 13px; font-weight: 600;
+    padding: 7px 14px; border-radius: 999px; border: 1px solid var(--border);
+    background: var(--surface); color: var(--text); cursor: pointer;
+  }
+  .caption { color: var(--frame-label); font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; text-align: center; max-width: 620px; }
+  .row-frames { display: flex; gap: 24px; flex-wrap: wrap; justify-content: center; }
+  .phone {
+    width: 350px; max-width: 92vw; background: var(--bg); border-radius: 38px;
+    padding: 14px 0 0; overflow: hidden; box-shadow: 0 30px 60px -20px rgba(0,0,0,0.45); position: relative;
+  }
+  .notch { width: 110px; height: 24px; background: var(--frame-bg); border-radius: 0 0 14px 14px; margin: 0 auto 6px; }
+  .screen { padding: 4px 18px 22px; min-height: 640px; display: flex; flex-direction: column; }
+  .screen-title { font-size: 19px; font-weight: 800; margin: 6px 0 2px; letter-spacing: -0.01em; }
+  .screen-sub { color: var(--text-secondary); font-size: 12px; margin-bottom: 14px; }
+  .frame-caption { text-align: center; font-size: 12px; font-weight: 700; color: var(--frame-label); margin-bottom: 8px; }
+
+  /* Inline-Accordion statt Bottom-Sheet: die Aktion klappt direkt aus der
+     Zeile auf, kein zweiter Overlay-Layer. */
+  .item-block { border-bottom: 1px solid var(--border); padding: 12px 2px; }
+  .item-row { display: flex; align-items: center; gap: 10px; }
+  .item-name { font-size: 14.5px; font-weight: 700; flex: 1; }
+  .item-tag { font-size: 10.5px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.03em; color: var(--accent); }
+  .item-qty { font-size: 14px; font-weight: 700; font-variant-numeric: tabular-nums; }
+
+  .inline-panel { margin-top: 12px; background: var(--surface); border-radius: 16px; padding: 14px; }
+  .panel-label { font-size: 11.5px; font-weight: 700; color: var(--text-secondary); margin-bottom: 10px; }
+
+  .segmented { display: flex; background: var(--bg); border-radius: 10px; padding: 3px; margin-bottom: 12px; }
+  .segmented .seg { flex: 1; text-align: center; padding: 8px 4px; font-size: 12.5px; font-weight: 700; border-radius: 8px; color: var(--text-secondary); }
+  .segmented .seg.active { background: var(--surface-selected); color: var(--text); }
+
+  .inline-toggle { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+  .inline-toggle .lbl { font-size: 12.5px; font-weight: 700; }
+  .switch { width: 40px; height: 23px; border-radius: 999px; background: var(--surface-selected); position: relative; }
+  .switch.on { background: var(--accent); }
+  .switch .knob { width: 17px; height: 17px; border-radius: 999px; background: var(--surface); position: absolute; top: 3px; left: 3px; }
+  .switch.on .knob { left: 20px; background: var(--on-accent); }
+
+  .inline-banner { display: flex; gap: 8px; align-items: flex-start; background: color-mix(in srgb, var(--warning) 15%, var(--bg)); border-radius: 12px; padding: 10px 12px; font-size: 12px; color: var(--text-secondary); margin-bottom: 12px; line-height: 1.45; }
+  .inline-banner b { color: var(--text); }
+
+  .btn-primary { background: var(--accent); color: var(--on-accent); border: none; border-radius: 12px; padding: 13px; font-size: 14px; font-weight: 800; text-align: center; }
+  .btn-danger { background: var(--danger); color: #fff; }
+
+  .pill-row { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 2px; margin-bottom: 12px; }
+  .pill { flex-shrink: 0; padding: 9px 14px; border-radius: 999px; border: 1.5px solid var(--border); font-size: 12.5px; font-weight: 700; color: var(--text-secondary); }
+  .pill.selected { border-color: var(--danger); color: var(--danger); background: color-mix(in srgb, var(--danger) 10%, var(--bg)); }
+
+  .note-input { background: var(--bg); border: 1px solid var(--border); border-radius: 10px; padding: 10px 12px; font-size: 13px; color: var(--text-secondary); margin-bottom: 12px; }
+
+  .undo-banner { display: flex; justify-content: space-between; align-items: center; background: var(--surface-selected); border-radius: 12px; padding: 10px 12px; font-size: 12.5px; font-weight: 700; margin-bottom: 10px; }
+  .undo-banner .link { color: var(--accent); }
+
+  /* Verlauf: Timeline mit verbindender Linie statt freistehender Icon-Kreise */
+  .timeline { position: relative; padding-left: 22px; margin-top: 4px; }
+  .timeline::before { content: ''; position: absolute; left: 6px; top: 4px; bottom: 4px; width: 2px; background: var(--border); }
+  .tl-day { font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-secondary); margin: 16px 0 8px -22px; padding-left: 22px; }
+  .tl-entry { position: relative; padding: 9px 0 9px 6px; }
+  .tl-entry::before { content: ''; position: absolute; left: -22px; top: 15px; width: 9px; height: 9px; border-radius: 999px; background: var(--accent); border: 2px solid var(--bg); }
+  .tl-entry.waste::before { background: var(--danger); }
+  .tl-entry.in::before { background: var(--success); }
+  .tl-title-row { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
+  .tl-title { font-size: 13.5px; font-weight: 700; }
+  .tl-amount { font-size: 13px; font-weight: 800; font-variant-numeric: tabular-nums; flex-shrink: 0; }
+  .tl-meta { font-size: 11.5px; color: var(--text-secondary); margin-top: 2px; }
+  .tl-undo { font-size: 11px; font-weight: 800; color: var(--accent); margin-top: 3px; }
+</style>
+
+<div class="toolbar">
+  <span class="caption">Theme</span>
+  <button onclick="document.documentElement.setAttribute('data-theme','light')">Hell</button>
+  <button onclick="document.documentElement.setAttribute('data-theme','dark')">Dunkel</button>
+  <button onclick="document.documentElement.removeAttribute('data-theme')">System</button>
+</div>
+<p class="caption">Option B — Inline-Accordion &middot; Aktionen klappen direkt aus der Zeile auf statt in einem Bottom-Sheet, Verlauf als verbundene Timeline</p>
+
+<div class="row-frames">
+  <div>
+    <div class="frame-caption">Öffnen — inline aus der Zeile</div>
+    <div class="phone">
+      <div class="notch"></div>
+      <div class="screen">
+        <div class="screen-title">Speisekammer</div>
+        <div class="screen-sub">Senf antippen und halten → öffnen</div>
+
+        <div class="item-block">
+          <div class="item-row">
+            <span class="item-name">Senf</span>
+            <span class="item-tag">Wird geöffnet</span>
+            <span class="item-qty">3 Gläser</span>
+          </div>
+          <div class="inline-panel">
+            <div class="panel-label">Wie viel wird geöffnet?</div>
+            <div class="segmented">
+              <div class="seg">Alle 3</div>
+              <div class="seg">2</div>
+              <div class="seg active">1</div>
+            </div>
+            <div class="inline-toggle">
+              <span class="lbl">Vakuumiert</span>
+              <div class="switch"><div class="knob"></div></div>
+            </div>
+            <div class="inline-banner"><b>90 Tage</b> berechnete Haltbarkeit ab heute · neues Ablaufdatum 2. Dez.</div>
+            <div class="btn-primary">1 Glas öffnen</div>
+          </div>
+        </div>
+
+        <div class="item-block">
+          <div class="item-row">
+            <span class="item-name">Reis</span>
+            <span class="item-qty">1 kg</span>
+          </div>
+        </div>
+        <div class="item-block">
+          <div class="item-row">
+            <span class="item-name">Olivenöl</span>
+            <span class="item-qty">750 ml</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <div class="frame-caption">Wegwerfen — Pill-Reihe statt Raster</div>
+    <div class="phone">
+      <div class="notch"></div>
+      <div class="screen">
+        <div class="screen-title">Salat wegwerfen</div>
+        <div class="screen-sub">500 g · Kühlschrank</div>
+
+        <div class="item-block" style="border:none; padding-top:4px;">
+          <div class="panel-label">Grund</div>
+          <div class="pill-row">
+            <div class="pill selected">📅 Abgelaufen</div>
+            <div class="pill">🤢 Schlecht geworden</div>
+            <div class="pill">••• Sonstiges</div>
+          </div>
+          <div class="panel-label">Notiz (optional)</div>
+          <div class="note-input">z. B. „war schon braun“</div>
+          <div class="btn-primary btn-danger">Als Verschwendung buchen</div>
+        </div>
+
+        <div class="panel-label" style="margin-top:20px;">Nach der Buchung</div>
+        <div class="undo-banner">
+          <span>Salat als Verschwendung gebucht</span>
+          <span class="link">Rückgängig</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <div class="frame-caption">Verlauf — verbundene Timeline</div>
+    <div class="phone">
+      <div class="notch"></div>
+      <div class="screen">
+        <div class="screen-title">Verlauf</div>
+        <div class="screen-sub">Kühlschrank &amp; Vorrat</div>
+
+        <div class="timeline">
+          <div class="tl-day">Heute</div>
+          <div class="tl-entry waste">
+            <div class="tl-title-row"><span class="tl-title">Salat weggeworfen</span><span class="tl-amount">&minus;500 g</span></div>
+            <div class="tl-meta">Marco · vor 12 Min · Abgelaufen</div>
+            <div class="tl-undo">Rückgängig · noch 23 Std 48 Min</div>
+          </div>
+          <div class="tl-entry">
+            <div class="tl-title-row"><span class="tl-title">Vollmilch verbraucht</span><span class="tl-amount">&minus;1 l</span></div>
+            <div class="tl-meta">Lea · vor 2 Std</div>
+          </div>
+          <div class="tl-entry in">
+            <div class="tl-title-row"><span class="tl-title">Reis eingekauft</span><span class="tl-amount">+2 kg</span></div>
+            <div class="tl-meta">Marco · vor 4 Std · Speisekammer</div>
+          </div>
+
+          <div class="tl-day">Gestern</div>
+          <div class="tl-entry">
+            <div class="tl-title-row"><span class="tl-title">Manuelle Korrektur: Karotten</span><span class="tl-amount">&minus;200 g</span></div>
+            <div class="tl-meta">Marco · 09:12 · [Manual correction]</div>
+          </div>
+          <div class="tl-entry">
+            <div class="tl-title-row"><span class="tl-title">Joghurt umgelagert</span><span class="tl-amount">4 Stk</span></div>
+            <div class="tl-meta">Marco · 08:03 · Vorrat → Kühlschrank</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

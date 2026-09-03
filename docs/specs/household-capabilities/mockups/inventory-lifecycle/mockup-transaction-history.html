@@ -1,0 +1,169 @@
+<title>Verlauf Vorschlag</title>
+<style>
+  :root {
+    --bg: #F8F4EF; --surface: #FBF7F2; --surface-selected: #E9E1E7;
+    --text: #2D2830; --text-secondary: #786F79; --border: #E4DDE3;
+    --accent: #705773; --on-accent: #FFFFFF;
+    --success: #78906F; --warning: #C69059; --danger: #C65F50;
+    --frame-bg: #EDE6DE; --frame-label: #8C8290;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #211D23; --surface: #2B262E; --surface-selected: #382F3B;
+      --text: #F2ECE7; --text-secondary: #B7ADB3; --border: #3E3640;
+      --accent: #B79CBA; --on-accent: #211D23;
+      --success: #8FAE86; --warning: #D9A86C; --danger: #D9776A;
+      --frame-bg: #17141A; --frame-label: #6E6672;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #211D23; --surface: #2B262E; --surface-selected: #382F3B;
+    --text: #F2ECE7; --text-secondary: #B7ADB3; --border: #3E3640;
+    --accent: #B79CBA; --on-accent: #211D23;
+    --success: #8FAE86; --warning: #D9A86C; --danger: #D9776A;
+    --frame-bg: #17141A; --frame-label: #6E6672;
+  }
+  * { box-sizing: border-box; }
+  body {
+    background: var(--frame-bg); color: var(--text);
+    font-family: 'Manrope', -apple-system, sans-serif;
+    display: flex; flex-direction: column; align-items: center; gap: 14px;
+    padding: 40px 16px 64px;
+  }
+  .toolbar { display: flex; align-items: center; gap: 12px; margin-bottom: 4px; }
+  .toolbar button {
+    font-family: inherit; font-size: 13px; font-weight: 600;
+    padding: 7px 14px; border-radius: 999px; border: 1px solid var(--border);
+    background: var(--surface); color: var(--text); cursor: pointer;
+  }
+  .caption {
+    color: var(--frame-label); font-size: 12px; letter-spacing: 0.06em;
+    text-transform: uppercase; text-align: center; max-width: 360px;
+  }
+  .phone {
+    width: 375px; max-width: 92vw; background: var(--bg); border-radius: 40px;
+    padding: 14px 0 0; overflow: hidden;
+    box-shadow: 0 30px 60px -20px rgba(0,0,0,0.45); position: relative;
+  }
+  .notch { width: 120px; height: 26px; background: var(--frame-bg); border-radius: 0 0 16px 16px; margin: 0 auto 6px; }
+  .screen { padding: 4px 20px 28px; min-height: 720px; display: flex; flex-direction: column; }
+  .screen-title { font-size: 22px; font-weight: 800; margin: 6px 0 2px; letter-spacing: -0.01em; }
+  .screen-sub { color: var(--text-secondary); font-size: 13px; margin-bottom: 8px; }
+
+  .day-label {
+    font-size: 11px; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase;
+    color: var(--text-secondary); margin: 18px 0 6px 2px;
+  }
+
+  .entry { display: flex; align-items: flex-start; gap: 12px; padding: 11px 2px; border-bottom: 1px solid var(--border); }
+  .entry:last-child { border-bottom: none; }
+  .type-icon {
+    width: 30px; height: 30px; border-radius: 999px; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 800;
+  }
+  .icon-in { background: color-mix(in srgb, var(--success) 22%, transparent); color: var(--success); }
+  .icon-out { background: var(--surface-selected); color: var(--text-secondary); }
+  .icon-waste { background: color-mix(in srgb, var(--danger) 20%, transparent); color: var(--danger); }
+
+  .entry-main { flex: 1; min-width: 0; }
+  .entry-title { font-size: 14px; font-weight: 700; }
+  .entry-meta { font-size: 12px; color: var(--text-secondary); margin-top: 2px; }
+  .entry-right { text-align: right; flex-shrink: 0; }
+  .entry-amount { font-size: 14px; font-weight: 800; font-variant-numeric: tabular-nums; }
+  .entry-amount.neg { color: var(--danger); }
+  .entry-amount.pos { color: var(--success); }
+  .entry-undo { font-size: 11.5px; font-weight: 800; color: var(--accent); margin-top: 4px; }
+  .entry-undone { font-size: 11px; color: var(--text-secondary); font-style: italic; margin-top: 2px; }
+
+  .undone-row { opacity: 0.55; }
+  .undone-row .entry-title { text-decoration: line-through; }
+</style>
+
+<div class="toolbar">
+  <span class="caption">Theme</span>
+  <button onclick="document.documentElement.setAttribute('data-theme','light')">Hell</button>
+  <button onclick="document.documentElement.setAttribute('data-theme','dark')">Dunkel</button>
+  <button onclick="document.documentElement.removeAttribute('data-theme')">System</button>
+</div>
+<p class="caption">Vorschlag &middot; Verlauf &amp; Undo &middot; „Rückgängig“ nur innerhalb 24h, danach reine Historie</p>
+
+<div class="phone">
+  <div class="notch"></div>
+  <div class="screen">
+    <div class="screen-title">Verlauf</div>
+    <div class="screen-sub">Kühlschrank &amp; Vorrat · alle Mitglieder</div>
+
+    <div class="day-label">Heute</div>
+
+    <div class="entry">
+      <div class="type-icon icon-waste">🗑</div>
+      <div class="entry-main">
+        <div class="entry-title">Salat weggeworfen</div>
+        <div class="entry-meta">Marco · vor 12 Min · Grund: Abgelaufen</div>
+        <div class="entry-undo">Rückgängig · noch 23 Std 48 Min</div>
+      </div>
+      <div class="entry-right"><div class="entry-amount neg">&minus;500 g</div></div>
+    </div>
+
+    <div class="entry">
+      <div class="type-icon icon-out">↓</div>
+      <div class="entry-main">
+        <div class="entry-title">Vollmilch verbraucht</div>
+        <div class="entry-meta">Lea · vor 2 Std</div>
+        <div class="entry-undo">Rückgängig · noch 21 Std 55 Min</div>
+      </div>
+      <div class="entry-right"><div class="entry-amount neg">&minus;1 l</div></div>
+    </div>
+
+    <div class="entry">
+      <div class="type-icon icon-in">↑</div>
+      <div class="entry-main">
+        <div class="entry-title">Reis eingekauft</div>
+        <div class="entry-meta">Marco · vor 4 Std · Speisekammer</div>
+        <div class="entry-undo">Rückgängig · noch 19 Std 40 Min</div>
+      </div>
+      <div class="entry-right"><div class="entry-amount pos">+2 kg</div></div>
+    </div>
+
+    <div class="day-label">Gestern</div>
+
+    <div class="entry undone-row">
+      <div class="type-icon icon-out">↓</div>
+      <div class="entry-main">
+        <div class="entry-title">Butter verbraucht</div>
+        <div class="entry-meta">Lea · gestern, 18:20</div>
+        <div class="entry-undone">Rückgängig gemacht</div>
+      </div>
+      <div class="entry-right"><div class="entry-amount">&minus;125 g</div></div>
+    </div>
+
+    <div class="entry">
+      <div class="type-icon icon-out">↓</div>
+      <div class="entry-main">
+        <div class="entry-title">Manuelle Korrektur: Karotten</div>
+        <div class="entry-meta">Marco · gestern, 09:12 · [Manual correction]</div>
+      </div>
+      <div class="entry-right"><div class="entry-amount neg">&minus;200 g</div></div>
+    </div>
+
+    <div class="entry">
+      <div class="type-icon icon-out">↓</div>
+      <div class="entry-main">
+        <div class="entry-title">Joghurt umgelagert</div>
+        <div class="entry-meta">Marco · gestern, 08:03 · Vorrat → Kühlschrank</div>
+      </div>
+      <div class="entry-right"><div class="entry-amount">4 Stk</div></div>
+    </div>
+
+    <div class="day-label">Vor 3 Tagen</div>
+
+    <div class="entry">
+      <div class="type-icon icon-waste">🗑</div>
+      <div class="entry-main">
+        <div class="entry-title">Brot weggeworfen</div>
+        <div class="entry-meta">Lea · Mo, 20:41 · Grund: Schlecht geworden</div>
+      </div>
+      <div class="entry-right"><div class="entry-amount neg">&minus;1 Stk</div></div>
+    </div>
+  </div>
+</div>
