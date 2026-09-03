@@ -8,23 +8,17 @@ Stand: 2026-09-01
 
 Diese Initiative überführt die von Marco ausgewählten Produktideen in das
 Fam-Domänenmodell. Sie strebt keine technische oder vollständige
-Feature-Parität mit einer Referenzanwendung an. Fremde Monolith-,
-Single-Tenant- und Kiosk-/Waagenarchitekturen sind keine Vorlage.
+Feature-Parität an, sondern legt die fachlichen Grenzen und Abhängigkeiten der Module fest.
 
-Die ausgewählten Ideen werden Fam-konform spezifiziert:
-
-- local-first mit SQLite und Outbox;
-- Haushaltsdaten bleiben per Supabase RLS auf den Haushalt begrenzt;
+Es die bereits implementierten Funktionen in Fam, haben vorrang vor den neuen Modulen. Die Capability Map ist nur reine hilfestellung um eine idee auszuarbeiten. es gilt für unsere app:
+- local-first
+- Haushaltsdaten sind privat und werden nicht an Dritte weitergegeben;
 - private Tracking-Daten werden weder abgeleitet noch mit Haushaltsdaten
   vermischt;
 - automatische Aktionen werden nachvollziehbar und reversibel;
 - neue Datenbankzustände beginnen im deklarativen Schema.
 
-Diese Map ist die Freigabestufe vor den einzelnen Modul-Specs. Sie legt stabile
-Modul-IDs, Grenzen, Abhängigkeiten und Reihenfolge fest, implementiert aber noch
-nichts.
-
-## Die fünf Umsetzungspakete
+## Die Mögliche ideen
 
 Die fünf Pakete beschreiben die ursprünglich vorgeschlagenen, fachlichen
 Lieferbündel. Die Capability Map darunter schneidet sie zusammen mit den später
@@ -57,8 +51,6 @@ id, product_id, type, quantity, location, notes, undone, created_at
 
 `product_id` verweist auf das Produkt; eine `inventory_id`, Einheit, Actor- oder
 Rezeptreferenz ist in der Transaktionstabelle nicht vorhanden.
-
-Zielmodul: `inventory-lifecycle`.
 
 ### Paket 2: Geöffnete Produkte und Haltbarkeit
 
@@ -96,7 +88,6 @@ Ist das vorhandene Ablaufdatum früher, bleibt dieses erhalten.
 
 Geöffnete Packungen werden getrennt von versiegeltem Bestand geführt und nicht
 mit diesem zusammengeführt. `vacuum_sealed` kennzeichnet vakuumierte Ware.
-Zielmodul: `inventory-lifecycle`.
 
 ### Paket 3: Verbrauch statt bloßes Löschen
 
@@ -133,9 +124,7 @@ in am neuen Ort
 Undo ist innerhalb von 24 Stunden möglich. Die Originaltransaktion erhält
 `undone = 1`; eine Gegenbuchung mit `[Undone]` wird gespeichert.
 
-Zielmodul: `inventory-lifecycle`.
-
-### Paket 5: Vollständige Datenportabilität
+### interessante funktion: Vollständige Datenportabilität
 
 Der Code bietet CSV-Export und CSV-Import für den Inventarbestand.
 Zusätzlich können lokale Datenbank-Backups erstellt und wiederhergestellt
