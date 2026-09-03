@@ -75,7 +75,7 @@ describe('ScreenshotDriver', () => {
 
     await runScreenshotTour(
       new AbortController().signal,
-      { enabled: true, settleMs: 0 },
+      { enabled: true, armedAt: Date.now(), settleMs: 0 },
       'recipe-1',
       () => mockPathname,
     );
@@ -111,7 +111,7 @@ describe('ScreenshotDriver', () => {
     const getCurrentPath = () => activePath;
     const tour = runScreenshotTour(
       new AbortController().signal,
-      { enabled: true, settleMs: 0 },
+      { enabled: true, armedAt: Date.now(), settleMs: 0 },
       'recipe-1',
       getCurrentPath,
     );

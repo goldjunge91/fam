@@ -213,7 +213,13 @@ export function parseShotsConfig(value: unknown): ShotsConfig | null {
   }
 
   // Nur geprüfte Werte gelangen in den laufenden Screenshot-Driver.
-  return { enabled: true, armedAt: candidate.armedAt, captureTimeoutMs, fixtureTimeoutMs, settleMs };
+  return {
+    enabled: true,
+    armedAt: candidate.armedAt,
+    captureTimeoutMs,
+    fixtureTimeoutMs,
+    settleMs,
+  };
 }
 
 // Die Flag-Datei schaltet den Screenshot-Modus für genau einen App-Start ein.

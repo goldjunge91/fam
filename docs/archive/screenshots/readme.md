@@ -1,0 +1,1 @@
+alte screenshots die nicht mehr aktuell sind, können hier archiviert werden.

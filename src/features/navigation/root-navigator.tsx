@@ -1,6 +1,5 @@
 import { useObserve } from 'expo-observe';
 import { Stack } from 'expo-router';
-import * as SplashScreen from 'expo-splash-screen';
 import { useEffect } from 'react';
 
 import { useSession } from '@/features/auth/session-provider';
@@ -15,7 +14,6 @@ export function RootNavigator() {
 
   useEffect(() => {
     if (!isLoading) {
-      SplashScreen.hideAsync();
       markInteractive();
     }
   }, [isLoading, markInteractive]);

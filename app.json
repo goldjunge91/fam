@@ -135,7 +135,12 @@
           "resizeMode": "contain"
         }
       ],
-      "expo-tracking-transparency",
+      [
+        "expo-tracking-transparency",
+        {
+          "userTrackingPermission": "Diese Kennung wird verwendet, um dir personalisierte Werbung bereitzustellen."
+        }
+      ],
       [
         "expo-custom-assets",
         {
@@ -145,7 +150,8 @@
         }
       ],
       "@react-native-community/datetimepicker",
-      "expo-font"
+      "expo-font",
+      "expo-asset"
     ],
     "experiments": {
       "typedRoutes": true,
