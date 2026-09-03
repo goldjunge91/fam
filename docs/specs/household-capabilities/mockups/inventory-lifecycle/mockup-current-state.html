@@ -1,0 +1,274 @@
+<title>Bestand heute</title>
+<style>
+  :root {
+    --bg: #F8F4EF;
+    --surface: #FBF7F2;
+    --surface-selected: #E9E1E7;
+    --text: #2D2830;
+    --text-secondary: #786F79;
+    --border: #E4DDE3;
+    --accent: #705773;
+    --on-accent: #FFFFFF;
+    --success: #78906F;
+    --warning: #C69059;
+    --danger: #C65F50;
+    --shadow-sheet: #2A1F2C;
+    --frame-bg: #EDE6DE;
+    --frame-label: #8C8290;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #211D23;
+      --surface: #2B262E;
+      --surface-selected: #382F3B;
+      --text: #F2ECE7;
+      --text-secondary: #B7ADB3;
+      --border: #3E3640;
+      --accent: #B79CBA;
+      --on-accent: #211D23;
+      --success: #8FAE86;
+      --warning: #D9A86C;
+      --danger: #D9776A;
+      --shadow-sheet: #2A1F2C;
+      --frame-bg: #17141A;
+      --frame-label: #6E6672;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #211D23;
+    --surface: #2B262E;
+    --surface-selected: #382F3B;
+    --text: #F2ECE7;
+    --text-secondary: #B7ADB3;
+    --border: #3E3640;
+    --accent: #B79CBA;
+    --on-accent: #211D23;
+    --success: #8FAE86;
+    --warning: #D9A86C;
+    --danger: #D9776A;
+    --shadow-sheet: #2A1F2C;
+    --frame-bg: #17141A;
+    --frame-label: #6E6672;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    background: var(--frame-bg);
+    color: var(--text);
+    font-family: 'Manrope', -apple-system, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    padding: 40px 16px 64px;
+  }
+
+  .toolbar { display: flex; align-items: center; gap: 12px; margin-bottom: 4px; }
+  .toolbar button {
+    font-family: inherit; font-size: 13px; font-weight: 600;
+    padding: 7px 14px; border-radius: 999px; border: 1px solid var(--border);
+    background: var(--surface); color: var(--text); cursor: pointer;
+  }
+  .caption {
+    color: var(--frame-label); font-size: 12px; letter-spacing: 0.06em;
+    text-transform: uppercase; text-align: center; max-width: 340px;
+  }
+
+  .phone {
+    width: 375px;
+    max-width: 92vw;
+    background: var(--bg);
+    border-radius: 40px;
+    padding: 14px 0 0;
+    overflow: hidden;
+    box-shadow: 0 30px 60px -20px rgba(0,0,0,0.45);
+    position: relative;
+  }
+  .notch {
+    width: 120px; height: 26px; background: var(--frame-bg);
+    border-radius: 0 0 16px 16px; margin: 0 auto 6px;
+  }
+  .screen { padding: 4px 20px 28px; min-height: 700px; display: flex; flex-direction: column; }
+
+  .screen-title { font-size: 22px; font-weight: 800; margin: 6px 0 2px; letter-spacing: -0.01em; }
+  .screen-sub { color: var(--text-secondary); font-size: 13px; margin-bottom: 18px; }
+
+  .row {
+    display: flex; align-items: center; gap: 12px;
+    padding: 13px 4px; border-bottom: 1px solid var(--border);
+    position: relative;
+  }
+  .row:last-of-type { border-bottom: none; }
+  .expiry-bar { width: 3px; align-self: stretch; border-radius: 3px; flex-shrink: 0; }
+  .row-main { flex: 1; min-width: 0; }
+  .row-name { font-size: 15px; font-weight: 700; }
+  .row-meta { font-size: 12.5px; color: var(--text-secondary); margin-top: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .row-qty { font-size: 15px; font-weight: 700; font-variant-numeric: tabular-nums; flex-shrink: 0; }
+
+  .section-label {
+    font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--text-secondary); margin: 22px 0 8px 4px;
+  }
+
+  .gap-note {
+    margin-top: auto;
+    border: 1px dashed var(--border);
+    border-radius: 14px;
+    padding: 14px 16px;
+    font-size: 12.5px;
+    color: var(--text-secondary);
+    line-height: 1.5;
+  }
+  .gap-note b { color: var(--text); }
+
+  /* Sheet */
+  .sheet-overlay {
+    position: relative;
+    margin-top: 10px;
+  }
+  .sheet {
+    background: var(--surface);
+    border-radius: 24px 24px 0 0;
+    padding: 10px 20px 22px;
+    box-shadow: 0 -16px 40px -10px var(--shadow-sheet);
+  }
+  .sheet-handle { width: 36px; height: 4px; border-radius: 2px; background: var(--border); margin: 0 auto 14px; }
+  .sheet-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
+  .sheet-header h2 { font-size: 16px; font-weight: 800; margin: 0; }
+  .close-x { color: var(--text-secondary); font-size: 18px; }
+
+  .field-label { font-size: 12px; font-weight: 700; color: var(--text-secondary); margin-bottom: 6px; }
+  .text-input {
+    background: var(--bg); border: 1px solid var(--border); border-radius: 12px;
+    padding: 12px 14px; font-size: 14px; font-weight: 600; color: var(--text); margin-bottom: 16px;
+  }
+
+  .product-card {
+    display: flex; justify-content: space-between; align-items: center;
+    background: var(--bg); border-radius: 14px; padding: 12px 14px; margin-bottom: 16px;
+  }
+  .product-card .name { font-size: 14px; font-weight: 700; }
+  .product-card .sub { font-size: 11.5px; color: var(--text-secondary); margin-top: 2px; }
+  .product-card .qty { font-size: 14px; font-weight: 700; text-align: right; }
+  .product-card .qty-sub { font-size: 11.5px; color: var(--text-secondary); text-align: right; margin-top: 2px; }
+
+  .controls-row { display: flex; gap: 14px; margin-bottom: 16px; }
+  .control-col { flex: 1; }
+  .stepper { display: flex; align-items: center; justify-content: space-between; background: var(--bg); border-radius: 12px; padding: 8px 12px; }
+  .stepper button { width: 30px; height: 30px; border-radius: 999px; border: none; background: var(--surface-selected); color: var(--text); font-size: 16px; font-weight: 700; }
+  .stepper .val { font-size: 15px; font-weight: 800; font-variant-numeric: tabular-nums; }
+  .picker { background: var(--bg); border-radius: 12px; padding: 12px 14px; display: flex; justify-content: space-between; align-items: center; }
+  .picker .val { font-size: 14px; font-weight: 700; }
+  .picker .chev { color: var(--text-secondary); }
+
+  .details-toggle { display: flex; align-items: center; gap: 6px; color: var(--accent); font-size: 13px; font-weight: 700; margin-bottom: 18px; }
+
+  .btn-primary {
+    background: var(--accent); color: var(--on-accent); border: none; border-radius: 14px;
+    padding: 15px; font-size: 15px; font-weight: 800; text-align: center;
+  }
+</style>
+
+<div class="toolbar">
+  <span class="caption">Theme</span>
+  <button onclick="document.documentElement.setAttribute('data-theme','light')">Hell</button>
+  <button onclick="document.documentElement.setAttribute('data-theme','dark')">Dunkel</button>
+  <button onclick="document.documentElement.removeAttribute('data-theme')">System</button>
+</div>
+<p class="caption">Mockup 0 &middot; Ist-Zustand &middot; keine Öffnen-/Waste-/Verlauf-Funktion</p>
+
+<div class="phone">
+  <div class="notch"></div>
+  <div class="screen">
+    <div class="screen-title">Kühlschrank</div>
+    <div class="screen-sub">12 Artikel · 2 laufen bald ab</div>
+
+    <div class="row">
+      <div class="expiry-bar" style="background: var(--danger)"></div>
+      <div class="row-main">
+        <div class="row-name">Vollmilch</div>
+        <div class="row-meta">heute · 1 l Packung</div>
+      </div>
+      <div class="row-qty">1 l</div>
+    </div>
+    <div class="row">
+      <div class="expiry-bar" style="background: var(--warning)"></div>
+      <div class="row-main">
+        <div class="row-name">Parmesan</div>
+        <div class="row-meta">in 3 Tagen</div>
+      </div>
+      <div class="row-qty">180 g</div>
+    </div>
+    <div class="row">
+      <div class="expiry-bar" style="background: var(--success)"></div>
+      <div class="row-main">
+        <div class="row-name">Lachsfilet, TK</div>
+        <div class="row-meta">in 24 Tagen</div>
+      </div>
+      <div class="row-qty">400 g</div>
+    </div>
+    <div class="row">
+      <div class="expiry-bar" style="background: transparent"></div>
+      <div class="row-main">
+        <div class="row-name">Reis</div>
+        <div class="row-meta">1 kg Packung</div>
+      </div>
+      <div class="row-qty">1 kg</div>
+    </div>
+
+    <div class="section-label">Was heute passiert, wenn Parmesan angetippt wird</div>
+
+    <div class="sheet-overlay">
+      <div class="sheet">
+        <div class="sheet-handle"></div>
+        <div class="sheet-header">
+          <h2>Artikel bearbeiten</h2>
+          <span class="close-x">&times;</span>
+        </div>
+
+        <div class="field-label">Artikelname</div>
+        <div class="text-input">Parmesan</div>
+
+        <div class="product-card">
+          <div>
+            <div class="name">Parmesan</div>
+            <div class="sub">Kühlschrank</div>
+          </div>
+          <div>
+            <div class="qty">180 g</div>
+            <div class="qty-sub">aktuelle Menge</div>
+          </div>
+        </div>
+
+        <div class="controls-row">
+          <div class="control-col">
+            <div class="field-label">Menge</div>
+            <div class="stepper">
+              <button>&minus;</button>
+              <span class="val">180</span>
+              <button>+</button>
+            </div>
+          </div>
+          <div class="control-col">
+            <div class="field-label">Lagerort</div>
+            <div class="picker">
+              <span class="val">Kühlschrank</span>
+              <span class="chev">⌄</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="details-toggle"><span>›</span> Weitere Angaben</div>
+
+        <div class="btn-primary">Änderungen speichern</div>
+      </div>
+    </div>
+
+    <div class="gap-note">
+      <b>Was fehlt:</b> Kein „geöffnet“/„versiegelt“-Zustand, keine berechnete
+      Haltbarkeit nach dem Öffnen, kein Wegwerf-Grund, kein Verlauf und kein
+      Rückgängig — Mengenänderung reduziert nur still die Zahl oder löscht die
+      Zeile.
+    </div>
+  </div>
+</div>
