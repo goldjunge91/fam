@@ -13,6 +13,11 @@ type CardGallerySheetProps = {
 };
 
 const CARD_METADATA: Record<string, { title: string; desc: string; icon: string }> = {
+  streak: {
+    title: 'Kochstreak',
+    desc: 'Sieben-Tage-Ansicht deiner Serie und persönlicher Rekord.',
+    icon: '🔥',
+  },
   calories: {
     title: 'Kalorien & Makros',
     desc: 'Tagesübersicht, Kalorienring und verbleibende kcal.',

@@ -1,8 +1,8 @@
 /**
  * Cooking streak — the Duolingo-style "don't break the chain" reward.
- * Counts consecutive days the user cooks or logs food. Stored locally (and
- * synced like other srf: keys). recordActivity() is called from cook-complete
- * and food logging; the home screen shows a 🔥 chip.
+ * Counts consecutive days the user completes a cooking flow or shopping run.
+ * Stored locally in the device preference store. The dashboard consumes the
+ * reactive `useStreak()` view and renders the 🔥 card.
  */
 import { useSyncExternalStore } from 'react';
 
@@ -87,7 +87,7 @@ export function recordActivity(): { count: number; increased: boolean; milestone
   return { count, increased: true, milestone: [3, 7, 14, 30, 50, 100, 365].includes(count) };
 }
 
-/** Reactive streak for the home screen. */
+/** Reactive streak for the dashboard card. */
 export function useStreak(): StreakView {
   const raw = useSyncExternalStore(
     (onStoreChange) => {

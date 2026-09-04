@@ -1,6 +1,7 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { fireEvent, render, screen } from '@testing-library/react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { celebrate } from '@/lib/haptics';
 import { recordActivity } from '@/lib/streak';
 import type { CatalogDetail } from '../catalog/use-recipe-catalog';
 import type { RecipeDetail } from '../hooks/use-recipes';
@@ -38,7 +39,11 @@ jest.mock('@/features/premium/premium-provider', () => ({
 }));
 
 jest.mock('@/lib/streak', () => ({
-  recordActivity: jest.fn(),
+  recordActivity: jest.fn(() => ({ count: 1, increased: true, milestone: false })),
+}));
+
+jest.mock('@/lib/haptics', () => ({
+  celebrate: jest.fn(),
 }));
 
 function renderScreen() {
@@ -194,6 +199,8 @@ beforeEach(() => {
   mockCatalogDetail = null;
   mockCatalogLoading = false;
   mockIsPremium = false;
+  jest.mocked(recordActivity).mockReturnValue({ count: 1, increased: true, milestone: false });
+  jest.mocked(celebrate).mockClear();
 });
 
 describe('CookingModeScreen', () => {
@@ -277,5 +284,17 @@ describe('CookingModeScreen', () => {
 
     expect(await screen.findByText('Guten Appetit!')).toBeOnTheScreen();
     expect(recordActivity).toHaveBeenCalledTimes(1);
+  });
+
+  it('feiert einen erreichten Streak-Meilenstein', async () => {
+    mockDetail = makeDetail();
+    mockIsPremium = true;
+    jest.mocked(recordActivity).mockReturnValue({ count: 3, increased: true, milestone: true });
+    await renderScreen();
+
+    await fireEvent.press(screen.getByRole('button', { name: 'Nächster Schritt' }));
+    await fireEvent.press(screen.getByRole('button', { name: 'Zubereitung abschließen' }));
+
+    expect(celebrate).toHaveBeenCalledTimes(1);
   });
 });

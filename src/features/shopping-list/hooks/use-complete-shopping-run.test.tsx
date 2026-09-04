@@ -5,6 +5,7 @@ import type React from 'react';
 import { useCompleteShoppingRun } from '@/features/shopping-list/hooks/use-complete-shopping-run';
 import type { LocalShoppingItem } from '@/features/shopping-list/hooks/use-shopping-list';
 import { enqueueMutation } from '@/lib/db/outbox';
+import { celebrate } from '@/lib/haptics';
 import { recordActivity } from '@/lib/streak';
 
 // `useStorageLocations` erwartet immer eine Liste; `undefined` ist fuer TanStack Query ungueltig.
@@ -23,7 +24,11 @@ jest.mock('@/lib/db/outbox', () => ({
 }));
 
 jest.mock('@/lib/streak', () => ({
-  recordActivity: jest.fn(),
+  recordActivity: jest.fn(() => ({ count: 1, increased: true, milestone: false })),
+}));
+
+jest.mock('@/lib/haptics', () => ({
+  celebrate: jest.fn(),
 }));
 
 describe('useCompleteShoppingRun', () => {
@@ -36,6 +41,8 @@ describe('useCompleteShoppingRun', () => {
   beforeEach(() => {
     jest.clearAllMocks();
     mockDbGetAllAsync.mockResolvedValue([]);
+    jest.mocked(recordActivity).mockReturnValue({ count: 1, increased: true, milestone: false });
+    jest.mocked(celebrate).mockClear();
     queryClient = new QueryClient({
       defaultOptions: {
         queries: { retry: false, gcTime: Number.POSITIVE_INFINITY },
@@ -102,5 +109,45 @@ describe('useCompleteShoppingRun', () => {
       }),
     );
     expect(recordActivity).toHaveBeenCalledTimes(1);
+  });
+
+  it('feiert einen erreichten Streak-Meilenstein beim Einkaufsabschluss', async () => {
+    jest.mocked(recordActivity).mockReturnValue({ count: 7, increased: true, milestone: true });
+    const { result } = await renderHook(() => useCompleteShoppingRun('hh-1'), { wrapper });
+
+    await act(async () => {
+      await result.current.mutateAsync({
+        householdId: 'hh-1',
+        userId: 'user-1',
+        checkedItems: [
+          {
+            id: 'item-1',
+            household_id: 'hh-1',
+            product_id: null,
+            name: 'Brot',
+            quantity: 1,
+            unit: 'piece',
+            package_size: null,
+            package_size_unit: null,
+            category_id: 'bakery',
+            category_source: 'name_fallback',
+            category_classifier_version: '2026-08-22',
+            category: 'Brot & Backwaren',
+            store_id: null,
+            price_estimate: null,
+            recipe_names: [],
+            checked_at: null,
+            checked_by: null,
+            sort_index: 0,
+            created_at: '2026-08-20T12:00:00Z',
+            updated_at: '2026-08-20T12:00:00Z',
+          },
+        ],
+        transfers: [],
+      });
+    });
+
+    await waitFor(() => expect(result.current.isSuccess).toBe(true));
+    expect(celebrate).toHaveBeenCalledTimes(1);
   });
 });

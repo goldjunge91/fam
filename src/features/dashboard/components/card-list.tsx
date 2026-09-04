@@ -17,6 +17,7 @@ import '@/features/calorie-tracking/components/dashboard-card';
 import '@/features/meal-planner/components/dashboard-card';
 import '@/features/inventory/components/dashboard-card';
 import '@/features/shopping-list/components/ui/dashboard-card';
+import '@/features/dashboard/components/streak-dashboard-card';
 
 const TOGGLE: Record<CardSize, CardSize> = { large: 'small', small: 'large' };
 

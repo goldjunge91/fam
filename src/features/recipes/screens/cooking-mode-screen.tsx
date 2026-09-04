@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { Txt } from '@/constants/ui';
 import { usePremium } from '@/features/premium/premium-provider';
+import { celebrate } from '@/lib/haptics';
 import { recordActivity } from '@/lib/streak';
 import {
   toCookingRecipeDetail,
@@ -67,7 +68,8 @@ export function CookingModeScreen() {
     if (!finished || !recipeId || completedRecipeIdRef.current === recipeId) return;
 
     completedRecipeIdRef.current = recipeId;
-    recordActivity();
+    const result = recordActivity();
+    if (result.milestone) celebrate();
   }, [data?.recipe.id, finished]);
 
   if (isLoading || !data) return <CookingModeLoading />;

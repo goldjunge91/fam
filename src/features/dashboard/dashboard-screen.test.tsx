@@ -188,6 +188,15 @@ describe('DashboardScreen — Essensplan-Karte', () => {
   });
 });
 
+describe('DashboardScreen — Kochstreak-Karte', () => {
+  it('zeigt die Kochstreak auf der Übersicht', async () => {
+    await renderScreen();
+
+    expect(screen.getByText('KOCHSTREAK')).toBeOnTheScreen();
+    expect(screen.getByText('Starte deine erste Serie')).toBeOnTheScreen();
+  });
+});
+
 describe('DashboardScreen — iOS-Style Wackel-Modus & Plus-Button', () => {
   it('aktiviert Edit-Modus bei Long-Press, zeigt Plus- und Fertig-Knopf und öffnet Galerie', async () => {
     await renderScreen();
@@ -209,6 +218,7 @@ describe('DashboardScreen — iOS-Style Wackel-Modus & Plus-Button', () => {
     // Plus-Button öffnet das Galerie-Sheet
     await fireEvent.press(screen.getByLabelText('Karten anpassen'));
     expect(screen.getByText('Karten anpassen')).toBeTruthy();
+    expect(screen.getByText(/Kochstreak/)).toBeOnTheScreen();
 
     // Fertig-Knopf in Galerie schließt Sheet
     await fireEvent.press(screen.getByLabelText('Galerie schließen'));
