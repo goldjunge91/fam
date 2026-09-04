@@ -3,9 +3,9 @@ import * as Clipboard from 'expo-clipboard';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { Alert, Pressable, View } from 'react-native';
 import { Screen } from '@/components/layout/screen';
-import { ThemedText } from '@/components/theme/themed-text';
 import { Button } from '@/components/ui/buttons';
 import { Card } from '@/components/ui/card';
+import { Txt } from '@/constants/ui';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { BarcodeScannerModal } from '@/features/inventory/barcode-scanner-modal';
 import { useProductBarcodeLookup } from '@/features/product-search/hooks/use-product-barcode-lookup';
@@ -209,51 +209,47 @@ export function SyncDebugScreen() {
       backStyle="icon">
       <Card title="Letzter Synchronisations-Lauf">
         <View className="debug-row">
-          <ThemedText type="small">Uhrzeit:</ThemedText>
-          <ThemedText type="smallBold">{formattedLastSync}</ThemedText>
+          <Txt variant="caption">Uhrzeit:</Txt>
+          <Txt variant="caption" weight="700">{formattedLastSync}</Txt>
         </View>
         {lastSyncInfo && (
           <>
             <View className="debug-row">
-              <ThemedText type="small">Hochgeladen (Pushed):</ThemedText>
-              <ThemedText type="smallBold">{lastSyncInfo.pushedCount} Einträge</ThemedText>
+              <Txt variant="caption">Hochgeladen (Pushed):</Txt>
+              <Txt variant="caption" weight="700">{lastSyncInfo.pushedCount} Einträge</Txt>
             </View>
             <View className="debug-row">
-              <ThemedText type="small">Empfangen (Pulled):</ThemedText>
-              <ThemedText type="smallBold">{lastSyncInfo.pulledCount} Zeilen</ThemedText>
+              <Txt variant="caption">Empfangen (Pulled):</Txt>
+              <Txt variant="caption" weight="700">{lastSyncInfo.pulledCount} Zeilen</Txt>
             </View>
           </>
         )}
         <View className="debug-row">
-          <ThemedText type="small">Aktueller Sync-Status:</ThemedText>
-          <ThemedText type="smallBold">{syncStatus.kind.toUpperCase()}</ThemedText>
+          <Txt variant="caption">Aktueller Sync-Status:</Txt>
+          <Txt variant="caption" weight="700">{syncStatus.kind.toUpperCase()}</Txt>
         </View>
         <View className="debug-row">
-          <ThemedText type="small">Realtime-Verbindung:</ThemedText>
-          <ThemedText
-            type="smallBold"
-            themeColor={realtimeStatus === 'SUBSCRIBED' ? 'success' : 'danger'}>
+          <Txt variant="caption">Realtime-Verbindung:</Txt>
+          <Txt variant="caption" weight="700" tone={realtimeStatus === 'SUBSCRIBED' ? 'success' : 'danger'}>
             {realtimeStatus ?? 'nie verbunden'}
-          </ThemedText>
+          </Txt>
         </View>
         <View className="debug-row">
-          <ThemedText type="small">Aktive Poll-Intervalle:</ThemedText>
-          <ThemedText type="smallBold" themeColor={activeIntervalCount > 1 ? 'danger' : 'success'}>
+          <Txt variant="caption">Aktive Poll-Intervalle:</Txt>
+          <Txt variant="caption" weight="700" tone={activeIntervalCount > 1 ? 'danger' : 'success'}>
             {activeIntervalCount}
             {activeIntervalCount > 1 ? ' — sollte 1 sein!' : ''}
-          </ThemedText>
+          </Txt>
         </View>
         <View className="debug-row">
-          <ThemedText type="small">Realtime Status-Wechsel gesamt:</ThemedText>
-          <ThemedText type="smallBold">{realtimeDiagnostics.statusChangeCount}</ThemedText>
+          <Txt variant="caption">Realtime Status-Wechsel gesamt:</Txt>
+          <Txt variant="caption" weight="700">{realtimeDiagnostics.statusChangeCount}</Txt>
         </View>
         <View className="debug-row">
-          <ThemedText type="small">Realtime Reconnects gesamt:</ThemedText>
-          <ThemedText
-            type="smallBold"
-            themeColor={realtimeDiagnostics.reconnectCount > 0 ? 'danger' : 'success'}>
+          <Txt variant="caption">Realtime Reconnects gesamt:</Txt>
+          <Txt variant="caption" weight="700" tone={realtimeDiagnostics.reconnectCount > 0 ? 'danger' : 'success'}>
             {realtimeDiagnostics.reconnectCount}
-          </ThemedText>
+          </Txt>
         </View>
         <View className="mt-three">
           <Button
@@ -267,29 +263,30 @@ export function SyncDebugScreen() {
       {/* Realtime-Latenzmessungen & Samples */}
       <Card title={`Realtime-Latenz (letzte ${latencySamples.length} Zeilen)`}>
         {latencySamples.length === 0 ? (
-          <ThemedText type="small" themeColor="textSecondary">
+          <Txt variant="caption" tone="secondary">
             Noch keine ueber Realtime empfangene Zeile in dieser Sitzung. Auf einem zweiten Geraet
             etwas aendern, um Messwerte zu sammeln.
-          </ThemedText>
+          </Txt>
         ) : (
           <>
             <View className="debug-row">
-              <ThemedText type="small">Letzte Latenz:</ThemedText>
-              <ThemedText
-                type="smallBold"
-                themeColor={
+              <Txt variant="caption">Letzte Latenz:</Txt>
+              <Txt
+                variant="caption"
+                weight="700"
+                tone={
                   (latencySamples[latencySamples.length - 1].latencyMs ?? 0) > 2000
                     ? 'danger'
                     : 'success'
                 }>
                 {latencySamples[latencySamples.length - 1].latencyMs ?? '—'} ms
-              </ThemedText>
+              </Txt>
             </View>
             <View className="debug-row">
-              <ThemedText type="small">Durchschnitt:</ThemedText>
-              <ThemedText type="smallBold">
+              <Txt variant="caption">Durchschnitt:</Txt>
+              <Txt variant="caption" weight="700">
                 {averageLatencyMs === null ? '—' : `${averageLatencyMs} ms`}
-              </ThemedText>
+              </Txt>
             </View>
             {latencySamples
               .slice()
@@ -297,10 +294,10 @@ export function SyncDebugScreen() {
               .map((sample, i) => (
                 // biome-ignore lint/suspicious/noArrayIndexKey: Ringpuffer ohne stabile Id, Reihenfolge aendert sich nicht rueckwirkend
                 <View key={i} className="debug-item">
-                  <ThemedText type="small" themeColor="textSecondary">
+                  <Txt variant="caption" tone="secondary">
                     {new Date(sample.timestamp).toLocaleTimeString('de-DE')} —{' '}
                     {sample.op.toUpperCase()} {sample.entity}: {sample.latencyMs ?? '—'} ms
-                  </ThemedText>
+                  </Txt>
                 </View>
               ))}
           </>
@@ -309,9 +306,9 @@ export function SyncDebugScreen() {
 
       {/* Live-Tests für Push-Mitteilungen und Barcode-Scanner */}
       <Card title="Live-Test (Hardware & Push)">
-        <ThemedText type="small" themeColor="textSecondary">
+        <Txt variant="caption" tone="secondary">
           Test-Aktionen für lokale Mitteilungen und die Kamera-Barcode-Erkennung.
-        </ThemedText>
+        </Txt>
 
         <View className="action-stack">
           <Button label="🔔 Test-Benachrichtigung senden" onPress={handleTestNotification} />
@@ -326,52 +323,53 @@ export function SyncDebugScreen() {
       {/* Aktiver Haushalt in der lokalen SQLite-DB */}
       <Card title="Aktueller Haushalt in DB">
         <View className="debug-row">
-          <ThemedText type="small">Haushalts-Name:</ThemedText>
-          <ThemedText type="smallBold">
+          <Txt variant="caption">Haushalts-Name:</Txt>
+          <Txt variant="caption" weight="700">
             {currentHousehold?.name ?? 'Kein Haushalt geladen'}
-          </ThemedText>
+          </Txt>
         </View>
         <View className="debug-row">
-          <ThemedText type="small">Haushalts-ID:</ThemedText>
-          <ThemedText type="small" themeColor="textSecondary">
+          <Txt variant="caption">Haushalts-ID:</Txt>
+          <Txt variant="caption" tone="secondary">
             {currentHousehold?.id ?? '—'}
-          </ThemedText>
+          </Txt>
         </View>
       </Card>
 
       {/* Lokale Outbox-Warteschlange mit Mutations-Payloads und Fehlern */}
       <Card title={`Lokale Outbox (${outboxRows.length} Einträge)`}>
         {outboxRows.length === 0 ? (
-          <ThemedText type="small" themeColor="textSecondary">
+          <Txt variant="caption" tone="secondary">
             Outbox ist leer. Alle lokalen Änderungen sind synchronisiert!
-          </ThemedText>
+          </Txt>
         ) : (
           outboxRows.map((row) => (
             <View key={row.id} className="debug-item">
-              <ThemedText type="smallBold">
+              <Txt variant="caption" weight="700">
                 #{row.id} {row.op.toUpperCase()} {row.entity}
-              </ThemedText>
-              <ThemedText type="small" themeColor="textSecondary">
+              </Txt>
+              <Txt variant="caption" tone="secondary">
                 ID: {row.entity_id} | Versuche: {row.attempts}
-              </ThemedText>
+              </Txt>
               {row.last_error && (
                 <Pressable
                   onPress={() => handleCopyOutbox(row)}
                   accessibilityLabel="Fehler kopieren">
-                  <ThemedText type="small" themeColor="danger">
+                  <Txt variant="caption" tone="danger">
                     Fehler: {row.last_error}
-                  </ThemedText>
+                  </Txt>
                 </Pressable>
               )}
-              {/* type="code" (Fonts.mono, 12px) statt der frueheren
-                  Sonderroute mit fest verdrahtetem 'Courier' — jetzt eine
-                  echte ThemedText-Rolle. */}
+              {/* Payload bleibt als kompakte, monospace Debug-Information lesbar. */}
               <Pressable
                 onPress={() => handleCopyOutbox(row)}
                 accessibilityLabel="Payload kopieren">
-                <ThemedText type="code" className="mt-half">
+                <Txt
+                  variant="caption"
+                  className="mt-half"
+                  style={{ fontFamily: 'monospace', fontSize: 12, lineHeight: 16 }}>
                   Payload: {row.payload}
-                </ThemedText>
+                </Txt>
               </Pressable>
               <View className="flex-row gap-two mt-one">
                 <View className="flex-1">
@@ -403,16 +401,16 @@ export function SyncDebugScreen() {
       {/* Lokale Lagerorte aus SQLite */}
       <Card title={`Lokale Lagerorte (${locationRows.length} Orte)`}>
         {locationRows.length === 0 ? (
-          <ThemedText type="small" themeColor="textSecondary">
+          <Txt variant="caption" tone="secondary">
             Keine Lagerorte lokal in SQLite gefunden.
-          </ThemedText>
+          </Txt>
         ) : (
           locationRows.map((loc) => (
             <View key={loc.id} className="debug-item">
-              <ThemedText type="smallBold">{loc.name}</ThemedText>
-              <ThemedText type="small" themeColor="textSecondary">
+              <Txt variant="caption" weight="700">{loc.name}</Txt>
+              <Txt variant="caption" tone="secondary">
                 Typ: {loc.kind} | ID: {loc.id}
-              </ThemedText>
+              </Txt>
             </View>
           ))
         )}
@@ -421,18 +419,18 @@ export function SyncDebugScreen() {
       {/* Lokale Lebensmittel aus SQLite */}
       <Card title={`Lokale Lebensmittel (${itemRows.length} Artikel)`}>
         {itemRows.length === 0 ? (
-          <ThemedText type="small" themeColor="textSecondary">
+          <Txt variant="caption" tone="secondary">
             Keine Artikel lokal in SQLite gefunden.
-          </ThemedText>
+          </Txt>
         ) : (
           itemRows.map((item) => (
             <View key={item.id} className="debug-item">
-              <ThemedText type="smallBold">
+              <Txt variant="caption" weight="700">
                 {item.name} ({item.quantity} {item.unit})
-              </ThemedText>
-              <ThemedText type="small" themeColor="textSecondary">
+              </Txt>
+              <Txt variant="caption" tone="secondary">
                 Lagerort-ID: {item.location_id ?? 'Keiner'} | Artikel-ID: {item.id}
-              </ThemedText>
+              </Txt>
             </View>
           ))
         )}

@@ -5,7 +5,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { FullOverlay } from '@/components/components_camera/FullOverlay';
 import { IconButton } from '@/components/components_camera/IconButton';
 import { Row } from '@/components/components_camera/Row';
-import { ThemedText } from '@/components/theme/themed-text';
+import { Txt } from '@/constants/ui';
 
 interface VideoScreenProps {
   videoURL?: string;
@@ -26,12 +26,12 @@ export function VideoScreen({ videoURL, onClose }: VideoScreenProps): React.Reac
   return (
     <View style={[styles.container, { paddingTop: insets.top, paddingBottom: insets.bottom }]}>
       <View style={styles.centerContainer}>
-        <ThemedText type="title" className="mb-2 text-center">
+        <Txt variant="title" tone="inverse" center className="mb-2">
           Video aufgenommen
-        </ThemedText>
-        <ThemedText type="small" themeColor="textSecondary" className="text-center px-4">
+        </Txt>
+        <Txt variant="caption" tone="inverse" center className="px-4">
           Pfad: {videoURL ?? 'Unbekannt'}
-        </ThemedText>
+        </Txt>
       </View>
 
       <FullOverlay style={{ top: insets.top, bottom: insets.bottom }}>

@@ -1,4 +1,6 @@
-import { Pressable, ScrollView, Text } from 'react-native';
+import { Pressable, ScrollView } from 'react-native';
+import { useTheme } from '@/components/theme/ThemeProvider';
+import { Txt } from '@/constants/ui';
 
 export type FilterChipOption<T extends string> = {
   value: T;
@@ -19,6 +21,7 @@ export function FilterChipBar<T extends string>({
   selected,
   onSelect,
 }: FilterChipBarProps<T>) {
+  const { colors } = useTheme();
   return (
     <ScrollView
       horizontal
@@ -34,15 +37,14 @@ export function FilterChipBar<T extends string>({
             role="button"
             aria-label={`${label}: ${option.label}`}
             aria-pressed={active}
-            className={`min-h-[28px] justify-center px-[13px] rounded-control active:opacity-75 ${
-              active ? 'bg-accent' : 'bg-background-element/70'
-            }`}>
-            <Text
-              className={`text-caption-compact font-semibold ${
-                active ? 'text-white' : 'text-text-secondary'
-              }`}>
+            className="min-h-[28px] justify-center px-[13px] rounded-control active:opacity-75"
+            style={{ backgroundColor: active ? colors.basil : colors.surface }}>
+            <Txt
+              variant="caption"
+              tone={active ? 'onAccent' : 'secondary'}
+              weight="600">
               {option.label}
-            </Text>
+            </Txt>
           </Pressable>
         );
       })}

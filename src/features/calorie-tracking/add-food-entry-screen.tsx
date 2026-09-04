@@ -5,11 +5,13 @@ import { useState } from 'react';
 import { Alert, Image, View } from 'react-native';
 import { TextField } from '@/components/forms/text-field';
 import { Screen } from '@/components/layout/screen';
-import { ThemedText } from '@/components/theme/themed-text';
+import { withAlpha } from '@/components/theme/index';
+import { useTheme } from '@/components/theme/ThemeProvider';
 import { Button } from '@/components/ui/buttons';
 import { FilterChipBar } from '@/components/ui/filter-chip-bar';
 import { QuantityStepper } from '@/components/ui/quantity-stepper';
 import { useSnackbar } from '@/components/ui/snackbar';
+import { Txt } from '@/constants/ui';
 import { useSession } from '@/features/auth/session-provider';
 import { useActiveProfile } from '@/features/calorie-tracking/active-profile-store';
 import {
@@ -57,6 +59,7 @@ export function AddFoodEntryScreen() {
     closeStackCount?: string;
   }>();
   const { session } = useSession();
+  const { colors } = useTheme();
   const userId = session?.user.id;
   const isEditing = !!params.entryId;
   const [selectedFoodParams, setSelectedFoodParams] = useState<Record<string, string> | null>(null);
@@ -207,7 +210,9 @@ export function AddFoodEntryScreen() {
         {/* Profil-Auswahl (Erwachsener / Kind-Profil) */}
         {!isEditing && childProfiles.length > 0 ? (
           <View>
-            <ThemedText type="smallBold">Für wen?</ThemedText>
+            <Txt variant="body" weight="700">
+              Für wen?
+            </Txt>
             <FilterChipBar
               label="Für wen?"
               options={[
@@ -238,22 +243,28 @@ export function AddFoodEntryScreen() {
             <Image source={{ uri: productMeta.imageUrl }} className="afe-hero-image" />
           ) : (
             <View className="afe-hero-image-placeholder">
-              <ThemedText className="text-[28px]">🍽️</ThemedText>
+              <Txt variant="body" style={{ fontSize: 28 }}>
+                🍽️
+              </Txt>
             </View>
           )}
           <View className="afe-hero-text">
-            {isEditing ? <ThemedText type="smallBold">{values.name}</ThemedText> : null}
+            {isEditing ? (
+              <Txt variant="body" weight="700">
+                {values.name}
+              </Txt>
+            ) : null}
             {productMeta.brand ? (
-              <ThemedText type="small" themeColor="textSecondary">
+              <Txt variant="body" tone="secondary">
                 {productMeta.brand}
-              </ThemedText>
+              </Txt>
             ) : null}
           </View>
           {productMeta.nutriScore ? (
             <View className="afe-nutri-badge">
-              <ThemedText className="afe-nutri-badge-text">
+              <Txt variant="label" tone="inverse" className="afe-nutri-badge-text">
                 {productMeta.nutriScore.toUpperCase()}
-              </ThemedText>
+              </Txt>
             </View>
           ) : null}
         </View>
@@ -264,10 +275,16 @@ export function AddFoodEntryScreen() {
             {productMeta.badges.map((badge) => (
               <View
                 key={badge.label}
-                className={`afe-badge ${badge.tone === 'good' ? 'bg-success/[13%]' : 'bg-warning/[13%]'}`}>
-                <ThemedText type="small" themeColor={badge.tone === 'good' ? 'success' : 'warning'}>
+                className="afe-badge"
+                style={{
+                  backgroundColor: withAlpha(
+                    badge.tone === 'good' ? colors.basil : colors.carrot,
+                    0.13,
+                  ),
+                }}>
+                <Txt variant="body" tone={badge.tone === 'good' ? 'success' : 'warning'}>
                   {badge.tone === 'good' ? '🟢' : '⚠️'} {badge.label}
-                </ThemedText>
+                </Txt>
               </View>
             ))}
           </View>
@@ -312,9 +329,9 @@ export function AddFoodEntryScreen() {
         </View>
 
         {/* Mengen- und Einheitenauswahl */}
-        <ThemedText type="smallBold" className="mt-one">
+        <Txt variant="body" weight="700" className="mt-one">
           Menge
-        </ThemedText>
+        </Txt>
         <QuantityStepper
           value={Number.parseInt(values.quantity, 10) || 1}
           onChange={(value) => setQuantity(String(value))}
@@ -328,10 +345,10 @@ export function AddFoodEntryScreen() {
           onSelect={setUnit}
         />
         {unitNotScalable ? (
-          <ThemedText type="small" themeColor="warning">
+          <Txt variant="body" tone="warning">
             Automatische Umrechnung für diese Einheit nicht möglich — Nährwerte bitte manuell
             anpassen.
-          </ThemedText>
+          </Txt>
         ) : null}
 
         {/* Aktions-Buttons (Speichern, Löschen, Abbrechen) */}

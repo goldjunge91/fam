@@ -212,6 +212,8 @@ PODS:
     - Yoga
   - ExpoAsset (57.0.16):
     - ExpoModulesCore
+  - ExpoAudio (56.0.13):
+    - ExpoModulesCore
   - ExpoBackgroundTask (57.0.15):
     - ExpoModulesCore
     - ExpoTaskManager
@@ -240,6 +242,8 @@ PODS:
   - ExpoImagePicker (57.0.15):
     - ExpoModulesCore
   - ExpoKeepAwake (57.0.1):
+    - ExpoModulesCore
+  - ExpoLinearGradient (57.0.1):
     - ExpoModulesCore
   - ExpoLinking (57.0.9):
     - ExpoModulesCore
@@ -319,6 +323,8 @@ PODS:
   - ExpoSecureStore (57.0.3):
     - ExpoModulesCore
   - ExpoSharing (57.0.17):
+    - ExpoModulesCore
+  - ExpoSpeech (57.0.2):
     - ExpoModulesCore
   - ExpoSplashScreen (57.0.8):
     - ExpoModulesCore
@@ -2902,6 +2908,7 @@ DEPENDENCIES:
   - ExpoAppleAuthentication (from `../node_modules/expo-apple-authentication/ios`)
   - ExpoAppMetrics (from `../node_modules/expo-app-metrics/ios`)
   - ExpoAsset (from `../node_modules/expo-asset/ios`)
+  - ExpoAudio (from `../node_modules/expo-audio/ios`)
   - ExpoBackgroundTask (from `../node_modules/expo-background-task/ios`)
   - ExpoCamera (from `../node_modules/expo-camera/ios/ExpoCamera.podspec`)
   - ExpoCameraBarcodeScanning (from `../node_modules/expo-camera/ios/ExpoCameraBarcodeScanning.podspec`)
@@ -2916,6 +2923,7 @@ DEPENDENCIES:
   - ExpoImage (from `../node_modules/expo-image/ios/ExpoImage.podspec`)
   - ExpoImagePicker (from `../node_modules/expo-image-picker/ios`)
   - ExpoKeepAwake (from `../node_modules/expo-keep-awake/ios`)
+  - ExpoLinearGradient (from `../node_modules/expo-linear-gradient/ios`)
   - ExpoLinking (from `../node_modules/expo-linking/ios`)
   - ExpoLocalization (from `../node_modules/expo-localization/ios`)
   - ExpoLocation (from `../node_modules/expo-location/ios/ExpoLocation.podspec`)
@@ -2930,6 +2938,7 @@ DEPENDENCIES:
   - ExpoRouter (from `../node_modules/expo-router/ios`)
   - ExpoSecureStore (from `../node_modules/expo-secure-store/ios`)
   - ExpoSharing (from `../node_modules/expo-sharing/ios`)
+  - ExpoSpeech (from `../node_modules/expo-speech/ios`)
   - ExpoSplashScreen (from `../node_modules/expo-splash-screen/ios`)
   - ExpoSQLite (from `../node_modules/expo-sqlite/ios`)
   - ExpoSymbols (from `../node_modules/expo-symbols/ios`)
@@ -3079,6 +3088,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/expo-app-metrics/ios"
   ExpoAsset:
     :path: "../node_modules/expo-asset/ios"
+  ExpoAudio:
+    :path: "../node_modules/expo-audio/ios"
   ExpoBackgroundTask:
     :path: "../node_modules/expo-background-task/ios"
   ExpoCamera:
@@ -3107,6 +3118,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/expo-image-picker/ios"
   ExpoKeepAwake:
     :path: "../node_modules/expo-keep-awake/ios"
+  ExpoLinearGradient:
+    :path: "../node_modules/expo-linear-gradient/ios"
   ExpoLinking:
     :path: "../node_modules/expo-linking/ios"
   ExpoLocalization:
@@ -3135,6 +3148,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/expo-secure-store/ios"
   ExpoSharing:
     :path: "../node_modules/expo-sharing/ios"
+  ExpoSpeech:
+    :path: "../node_modules/expo-speech/ios"
   ExpoSplashScreen:
     :path: "../node_modules/expo-splash-screen/ios"
   ExpoSQLite:
@@ -3364,6 +3379,7 @@ SPEC CHECKSUMS:
   ExpoAppleAuthentication: 97d113f0f2680067e6e76d3c9249e7e1fc026b42
   ExpoAppMetrics: 28aa8df7299fc978be3613bba20a3f65f667b96e
   ExpoAsset: bea9115098b9f4ddfb0456961c8a7d2779ccc8f5
+  ExpoAudio: 2970e2d332b52bfbb64d88564105df4b422c78a4
   ExpoBackgroundTask: ae2e24e462217f8d91650d1f70a6dd22f00bdaf5
   ExpoCamera: 00a098da25adbc6013f051b5db47279cb10a716c
   ExpoCameraBarcodeScanning: 14c72e1f522eb69f7a672d757eb294c096756faa
@@ -3378,6 +3394,7 @@ SPEC CHECKSUMS:
   ExpoImage: 83e66008c6440975f7f279b78bb80f1f9c0c24ca
   ExpoImagePicker: 732dc2030e718296c393d60cb9f3acbbe53f8aa9
   ExpoKeepAwake: c26f14275017370cc8a4b7b43a0e23361f2053a5
+  ExpoLinearGradient: 903b3f5fe566c666ff78b2599add51d094483613
   ExpoLinking: 0e104e1f3402abec3fd8243fd9586ca38df8e3ef
   ExpoLocalization: 659243b03b3a3e9589793cee2f728a899e181329
   ExpoLocation: 8ff9d333424065fdb779429d9a69e163e8c23796
@@ -3392,6 +3409,7 @@ SPEC CHECKSUMS:
   ExpoRouter: 00ce3fd59a48778a90c313bf1be5598835aad24e
   ExpoSecureStore: 536804a6aea15cafa49dc969609cd6636d506e68
   ExpoSharing: 61c8a64893ce83eeed66a1d0f38ad0317ed7ea37
+  ExpoSpeech: a7da9746b9f7549b4e08aaf1e1335de15c1e9b54
   ExpoSplashScreen: 6f422fd595600d78520c6b7dcf8a908fb8a7fec0
   ExpoSQLite: fd20da917c2a9c6abd5c974878a229557963191d
   ExpoSymbols: 0efd93edf0f825bf3c762582b0769dd3b296235c

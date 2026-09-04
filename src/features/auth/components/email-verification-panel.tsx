@@ -1,8 +1,8 @@
 import { View } from 'react-native';
 
 import { TextField } from '@/components/forms/text-field';
-import { ThemedText } from '@/components/theme/themed-text';
 import { Button } from '@/components/ui/buttons';
+import { Txt } from '@/constants/ui';
 import { useEmailVerification } from '@/features/auth/hooks/use-email-verification';
 
 interface EmailVerificationPanelProps {
@@ -25,25 +25,29 @@ export function EmailVerificationPanel({
       <View className="hero-container">
         <View className="pulse-ring opacity-20" />
         <View className="icon-circle">
-          <ThemedText type="controlActionLarge">✉️</ThemedText>
+          <Txt variant="heading" style={{ fontSize: 22, lineHeight: 24 }}>
+            ✉️
+          </Txt>
         </View>
       </View>
 
       <View className="row-center">
         <View className="live-dot" />
-        <ThemedText className="pending-title">Bestätigung ausstehend</ThemedText>
+        <Txt variant="heading" className="pending-title">
+          Bestätigung ausstehend
+        </Txt>
       </View>
 
       <View className="email-capsule">
-        <ThemedText type="smallBold" themeColor="accent">
+        <Txt variant="body" tone="primary" weight="700">
           {email}
-        </ThemedText>
+        </Txt>
       </View>
 
-      <ThemedText type="smallMuted" className="pending-description">
+      <Txt variant="body" tone="secondary" className="pending-description">
         Wir haben dir eine E-Mail geschickt. Klick den Link darin — egal auf welchem Gerät, die App
         merkt das von selbst und geht weiter. Oder gib den 6-stelligen Code aus der E-Mail hier ein.
-      </ThemedText>
+      </Txt>
 
       <View className="code-block">
         <TextField
@@ -71,11 +75,9 @@ export function EmailVerificationPanel({
       </View>
 
       {verification.resendStatus ? (
-        <ThemedText
-          type={verification.resendFailed ? 'smallDanger' : 'smallMuted'}
-          className="text-center">
+        <Txt variant="body" tone={verification.resendFailed ? 'danger' : 'secondary'} center>
           {verification.resendStatus}
-        </ThemedText>
+        </Txt>
       ) : null}
 
       <View className="action-list">

@@ -2,9 +2,9 @@ import { useEffect, useState } from 'react';
 import { Modal, Pressable, ScrollView, View } from 'react-native';
 
 import { TextField } from '@/components/forms/text-field';
-import { ThemedText } from '@/components/theme/themed-text';
-import { ThemedView } from '@/components/theme/themed-view';
+import { useTheme } from '@/components/theme/ThemeProvider';
 import { Button } from '@/components/ui/buttons';
+import { Txt } from '@/constants/ui';
 import {
   ACTIVITY_OPTIONS,
   type ProfileBiometrics,
@@ -27,6 +27,7 @@ export function BiometricsSheet({
   onApply: (value: ProfileBiometrics) => void;
   onClose: () => void;
 }) {
+  const { colors } = useTheme();
   const [draft, setDraft] = useState<ProfileBiometricsDraft>(() => toProfileBiometricsDraft(value));
   const [errors, setErrors] = useState<DraftErrors>({});
 
@@ -75,26 +76,28 @@ export function BiometricsSheet({
       statusBarTranslucent
       onRequestClose={onClose}>
       <View className="profile-food-rules-sheet-backdrop">
-        <ThemedView className="profile-food-rules-sheet">
+        <View className="profile-food-rules-sheet" style={{ backgroundColor: colors.surface }}>
           <View className="modal-handle" />
           <View className="profile-food-rules-sheet-header">
             <View className="flex-1 gap-half">
-              <ThemedText type="headingSmall">Körper &amp; Aktivität</ThemedText>
-              <ThemedText type="smallMuted">Persönliche Werte für deine Berechnungen</ThemedText>
+              <Txt variant="heading">Körper &amp; Aktivität</Txt>
+              <Txt variant="caption" tone="secondary">Persönliche Werte für deine Berechnungen</Txt>
             </View>
             <Pressable
               onPress={onClose}
               role="button"
               aria-label="Körper & Aktivität schließen"
               className="modal-close-btn">
-              <ThemedText aria-hidden>✕</ThemedText>
+              <Txt variant="body" tone="secondary" aria-hidden>✕</Txt>
             </Pressable>
           </View>
 
           <ScrollView
             showsVerticalScrollIndicator={false}
             contentContainerClassName="gap-three pb-two">
-            <ThemedView type="backgroundElement" className="profile-biometrics-weight-editor">
+            <View
+              className="profile-biometrics-weight-editor"
+              style={{ backgroundColor: colors.surfaceSoft }}>
               <TextField
                 label="Aktuelles Gewicht (kg)"
                 value={draft.weightKg}
@@ -105,12 +108,12 @@ export function BiometricsSheet({
                 size="large"
                 error={errors.weightKg}
               />
-              <ThemedText type="captionCompact" themeColor="textSecondary">
+              <Txt variant="caption" tone="secondary">
                 Eine Änderung wird als neuer privater Verlaufseintrag gespeichert.
-              </ThemedText>
-            </ThemedView>
+              </Txt>
+            </View>
 
-            <ThemedText type="smallBold">Profilangaben</ThemedText>
+            <Txt variant="label" weight="700">Profilangaben</Txt>
 
             <TextField
               label="Körpergröße (cm)"
@@ -134,7 +137,7 @@ export function BiometricsSheet({
             />
 
             <View className="gap-two">
-              <ThemedText type="smallBold">Berechnungsbasis</ThemedText>
+              <Txt variant="label" weight="700">Berechnungsbasis</Txt>
               <View className="input-row" role="radiogroup" aria-label="Berechnungsbasis">
                 {SEX_OPTIONS.map((option) => {
                   const selected = draft.sex === option.value;
@@ -145,22 +148,23 @@ export function BiometricsSheet({
                       role="radio"
                       aria-checked={selected}
                       aria-label={option.label}
-                      className={`flex-1 option-button ${
-                        selected ? 'selectable-selected' : 'selectable-idle'
-                      }`}>
-                      <ThemedText
-                        themeColor={selected ? 'onAccent' : 'text'}
-                        className={selected ? '!text-on-accent' : ''}>
+                      className="flex-1 option-button"
+                      style={{
+                        backgroundColor: selected ? colors.basil : colors.surface,
+                        borderColor: selected ? colors.basil : colors.border,
+                        borderWidth: 1,
+                      }}>
+                      <Txt tone={selected ? 'onAccent' : 'primary'} variant="body">
                         {option.label}
-                      </ThemedText>
+                      </Txt>
                     </Pressable>
                   );
                 })}
               </View>
             </View>
 
-            <View className="gap-two" role="radiogroup" aria-label="Aktivitätslevel">
-              <ThemedText type="smallBold">Aktivitätslevel</ThemedText>
+          <View className="gap-two" role="radiogroup" aria-label="Aktivitätslevel">
+              <Txt variant="label" weight="700">Aktivitätslevel</Txt>
               {[
                 ACTIVITY_OPTIONS.slice(0, 2),
                 ACTIVITY_OPTIONS.slice(2, 4),
@@ -176,15 +180,18 @@ export function BiometricsSheet({
                         role="radio"
                         aria-checked={selected}
                         aria-label={option.label}
-                        className={`flex-1 option-button ${
-                          selected ? 'selectable-selected' : 'selectable-idle'
-                        }`}>
-                        <ThemedText
-                          type="smallBold"
-                          themeColor={selected ? 'onAccent' : 'text'}
-                          className={selected ? '!text-on-accent' : ''}>
+                        className="flex-1 option-button"
+                        style={{
+                          backgroundColor: selected ? colors.basil : colors.surface,
+                          borderColor: selected ? colors.basil : colors.border,
+                          borderWidth: 1,
+                        }}>
+                        <Txt
+                          variant="label"
+                          tone={selected ? 'onAccent' : 'primary'}
+                          weight="700">
                           {option.label}
-                        </ThemedText>
+                        </Txt>
                       </Pressable>
                     );
                   })}
@@ -194,7 +201,7 @@ export function BiometricsSheet({
           </ScrollView>
 
           <Button label="Angaben übernehmen" onPress={handleApply} />
-        </ThemedView>
+        </View>
       </View>
     </Modal>
   );

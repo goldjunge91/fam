@@ -1,9 +1,9 @@
 import * as Haptics from 'expo-haptics';
 import { useEffect, useRef } from 'react';
 import { ActivityIndicator, Modal, Pressable, StyleSheet, View } from 'react-native';
-import { ThemedText } from '@/components/theme/themed-text';
+import { useTheme } from '@/components/theme/ThemeProvider';
 import { Button } from '@/components/ui/buttons';
-import { useTheme } from '@/hooks/use-theme';
+import { Txt } from '@/constants/ui';
 
 // Defensiver Import: Verhindert App-Crashes ("Cannot find native module ExpoCamera"),
 // wenn der Native Dev Build noch nicht kompiliert wurde oder Expo Go genutzt wird.
@@ -42,7 +42,7 @@ export function BarcodeScannerModal({
   looking = false,
   errorMessage = null,
 }: BarcodeScannerModalProps) {
-  const theme = useTheme();
+  const { colors } = useTheme();
   const [permission, requestPermission] = useCameraPermissionsHook();
   // Ref statt State: die Kamera feuert onBarcodeScanned pro erkanntem Frame,
   // oft mehrfach bevor ein State-Update im naechsten Render sichtbar wird.
@@ -69,27 +69,27 @@ export function BarcodeScannerModal({
       <View className="scanner-backdrop">
         <View className="scanner-modal-box bg-background">
           <View className="modal-header-row">
-            <ThemedText type="subtitle">📷 Barcode scannen</ThemedText>
+            <Txt variant="title">📷 Barcode scannen</Txt>
             <Pressable onPress={onClose} hitSlop={10}>
-              <ThemedText themeColor="textSecondary" className="text-[18px]">
+              <Txt variant="body" tone="secondary" style={{ fontSize: 18 }}>
                 ✕
-              </ThemedText>
+              </Txt>
             </Pressable>
           </View>
 
           {!isCameraSupported ? (
             <View className="scanner-permission-box">
-              <ThemedText className="text-center" themeColor="textSecondary">
+              <Txt tone="secondary" center>
                 Der Kamera-Barcode-Scanner benötigt ein natives Build (`bun run ios` oder `bun run
                 android`). Im Simulator (kein Kamerazugriff) oder ohne Kamera gib den Barcode
                 stattdessen direkt in die Suche ein.
-              </ThemedText>
+              </Txt>
             </View>
           ) : !permission?.granted ? (
             <View className="scanner-permission-box">
-              <ThemedText className="text-center">
+              <Txt center>
                 Kamera-Berechtigung ist erforderlich, um Produkt-Barcodes zu scannen.
-              </ThemedText>
+              </Txt>
               <Button label="Kamera erlauben" onPress={requestPermission} />
             </View>
           ) : (
@@ -108,15 +108,15 @@ export function BarcodeScannerModal({
 
           {looking && (
             <View className="scanner-status-box">
-              <ActivityIndicator color={theme.accent} />
-              <ThemedText type="small">Suche Produktdaten...</ThemedText>
+              <ActivityIndicator color={colors.basil} />
+              <Txt variant="body">Suche Produktdaten...</Txt>
             </View>
           )}
 
           {errorMessage && (
-            <ThemedText type="smallDanger" className="text-center">
+            <Txt variant="body" tone="danger" center>
               {errorMessage}
-            </ThemedText>
+            </Txt>
           )}
 
           <Button label="Schließen" variant="secondary" onPress={onClose} />

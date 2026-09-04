@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { View } from 'react-native';
-import { ThemedText } from '@/components/theme/themed-text';
 import { Button } from '@/components/ui/buttons';
+import { Txt } from '@/constants/ui';
 import { AppleSignInButton } from '@/features/auth/components/apple-sign-in-button';
 import { authErrorMessage } from '@/features/auth/domain/auth-error-message';
 import { signInWithOAuthProvider } from '@/features/auth/provider-auth';
@@ -17,9 +17,9 @@ export function AuthProviderOptions({ mode, onAuthAttempt }: AuthProviderOptions
   return (
     <View className="gap-three">
       <View className="divider">
-        <ThemedText type="smallMuted">
+        <Txt variant="body" tone="secondary">
           {mode === 'sign_in' ? 'oder anmelden mit' : 'oder weiter mit'}
-        </ThemedText>
+        </Txt>
       </View>
 
       <AppleSignInButton onAuthStart={onAuthAttempt} onError={(error) => setOAuthError(error)} />
@@ -35,7 +35,11 @@ export function AuthProviderOptions({ mode, onAuthAttempt }: AuthProviderOptions
         }}
       />
 
-      {oauthError ? <ThemedText type="smallDanger">{oauthError}</ThemedText> : null}
+      {oauthError ? (
+        <Txt variant="body" tone="danger">
+          {oauthError}
+        </Txt>
+      ) : null}
     </View>
   );
 }

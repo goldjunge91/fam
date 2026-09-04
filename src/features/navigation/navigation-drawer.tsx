@@ -10,12 +10,12 @@ import Animated, {
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { CalendarDayIcon } from '@/components/icons/calendar-day-icon';
 import { FamIcon } from '@/components/icons/fam-icon';
-import { ThemedText } from '@/components/theme/themed-text';
+import { withAlpha } from '@/components/theme/index';
+import { useTheme } from '@/components/theme/ThemeProvider';
 import { getDrawerGroups } from '@/constants/feature-registry';
-import { withAlpha } from '@/constants/theme';
+import { Txt } from '@/constants/ui';
 import { useFeatureAccess } from '@/features/settings/use-feature-access';
 import { useDeferredMount } from '@/hooks/use-deferred-mount';
-import { useTheme } from '@/hooks/use-theme';
 import { debugLogEvent } from '@/lib/debug-log';
 import { useNavigationChrome } from './navigation-chrome-provider';
 
@@ -26,7 +26,7 @@ debugLogEvent('navigation-drawer.module-loaded', { variant: 'shared' });
 export function NavigationDrawer() {
   const { isDrawerOpen, closeDrawer } = useNavigationChrome();
   const mounted = useDeferredMount(isDrawerOpen);
-  const theme = useTheme();
+  const { colors } = useTheme();
   const insets = useSafeAreaInsets();
 
   const translateX = useSharedValue(-1);
@@ -51,7 +51,7 @@ export function NavigationDrawer() {
         <Pressable
           className="absolute inset-0"
           // Laufzeitwert für die Abdunklung.
-          style={{ backgroundColor: withAlpha(theme.shadowSheet, 0.3) }}
+          style={{ backgroundColor: withAlpha(colors.text, 0.3) }}
           onPress={closeDrawer}
           accessibilityRole="button"
           accessibilityLabel="Menü schließen"
@@ -65,8 +65,8 @@ export function NavigationDrawer() {
               paddingBottom: Math.max(insets.bottom, 26),
               width: `${DRAWER_WIDTH_RATIO * 100}%`,
               // Deckender Hintergrund verhindert Durchscheinen im Header.
-              backgroundColor: theme.backgroundElement,
-              boxShadow: `24px 0 64px ${withAlpha(theme.shadowSheet, 0.18)}`,
+              backgroundColor: colors.surface,
+              boxShadow: `24px 0 64px ${withAlpha(colors.text, 0.18)}`,
             },
             animatedStyle,
           ]}>
@@ -79,7 +79,7 @@ export function NavigationDrawer() {
 
 // Beim Schließen den Drawer-Inhalt vollständig unmounten.
 function DrawerContent() {
-  const theme = useTheme();
+  const { colors } = useTheme();
   const pathname = usePathname();
   const { closeDrawer } = useNavigationChrome();
   const { isFeatureEnabled } = useFeatureAccess();
@@ -101,23 +101,23 @@ function DrawerContent() {
   return (
     <>
       <View className="drawer-header">
-        <ThemedText type="subtitle" className="drawer-brand">
+        <Txt variant="title" className="drawer-brand">
           fam
-        </ThemedText>
+        </Txt>
         <Pressable
           onPress={closeDrawer}
           accessibilityRole="button"
           accessibilityLabel="Menü schließen"
           className="drawer-close-btn"
           hitSlop={8}>
-          <ThemedText
-            type="default"
-            themeColor="textSecondary"
+          <Txt
+            variant="body"
+            tone="secondary"
             className="drawer-close-glyph"
             // Explizite Werte verhindern eine falsche Zeilenhöhe durch `type`.
             style={{ fontSize: 20, lineHeight: 20, fontWeight: '400' }}>
             ×
-          </ThemedText>
+          </Txt>
         </Pressable>
       </View>
 
@@ -127,9 +127,9 @@ function DrawerContent() {
             key={group.title}
             className={`drawer-group ${group.key === 'household' ? 'drawer-group-household' : ''}`}>
             {group.hideTitle ? null : (
-              <ThemedText type="small" themeColor="textSecondary" className="drawer-group-title">
+              <Txt variant="body" tone="secondary" className="drawer-group-title">
                 {group.title.toUpperCase()}
-              </ThemedText>
+              </Txt>
             )}
             {group.routes.map((route) => {
               const isActive =
@@ -140,7 +140,8 @@ function DrawerContent() {
                   onPress={() => navigateTo(route.href)}
                   accessibilityRole="button"
                   accessibilityState={{ selected: isActive }}
-                  className={`drawer-nav-row ${isActive ? 'bg-background-selected' : ''}`}>
+                  className="drawer-nav-row"
+                  style={isActive ? { backgroundColor: colors.surfaceSoft } : undefined}>
                   <View className="drawer-nav-icon">
                     {route.icon === 'calendarDay' ? (
                       <CalendarDayIcon size={35} />
@@ -148,17 +149,18 @@ function DrawerContent() {
                       <FamIcon
                         name={route.icon}
                         size={35}
-                        color={isActive ? theme.accent : theme.text}
+                        color={isActive ? colors.basil : colors.text}
                       />
                     )}
                   </View>
-                  <ThemedText
-                    type={isActive ? 'smallBold' : 'default'}
-                    themeColor={isActive ? 'accent' : 'text'}
+                  <Txt
+                    variant="body"
+                    tone="primary"
+                    weight={isActive ? '700' : '500'}
                     className={`drawer-nav-label ${isActive ? 'drawer-nav-label-active' : ''}`}>
                     {route.label}
-                  </ThemedText>
-                  <ThemedText themeColor="textSecondary">›</ThemedText>
+                  </Txt>
+                  <Txt tone="secondary">›</Txt>
                 </Pressable>
               );
             })}
@@ -171,12 +173,12 @@ function DrawerContent() {
         accessibilityRole="button"
         className="drawer-manage-row">
         <View className="drawer-settings-icon">
-          <FamIcon name="settings" size={37} color={theme.text} />
+          <FamIcon name="settings" size={37} color={colors.text} />
         </View>
-        <ThemedText type="smallBold" className="drawer-nav-label">
+        <Txt variant="body" weight="700" className="drawer-nav-label">
           Einstellungen
-        </ThemedText>
-        <ThemedText themeColor="textSecondary">›</ThemedText>
+        </Txt>
+        <Txt tone="secondary">›</Txt>
       </Pressable>
     </>
   );

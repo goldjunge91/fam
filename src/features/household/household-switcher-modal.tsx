@@ -1,8 +1,8 @@
 import { useQueryClient } from '@tanstack/react-query';
 import { router } from 'expo-router';
 import { Modal, Pressable, View } from 'react-native';
-import { ThemedText } from '@/components/theme/themed-text';
 import { Button } from '@/components/ui/buttons';
+import { Txt } from '@/constants/ui';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 
 interface HouseholdSwitcherModalProps {
@@ -37,11 +37,13 @@ export function HouseholdSwitcherModal({
       <View className="modal-backdrop">
         <View className="modal-sheet">
           <View className="modal-header-row">
-            <ThemedText type="subtitle">Haushalt wechseln</ThemedText>
+            <Txt variant="title" weight="600">
+              Haushalt wechseln
+            </Txt>
             <Pressable onPress={onClose} hitSlop={10}>
-              <ThemedText themeColor="textSecondary" className="text-[18px]">
+              <Txt variant="body" tone="secondary" style={{ fontSize: 18, lineHeight: 22 }}>
                 ✕
-              </ThemedText>
+              </Txt>
             </Pressable>
           </View>
 
@@ -54,12 +56,14 @@ export function HouseholdSwitcherModal({
                   onPress={() => handleSelect(hh.id)}
                   className={`hh-row ${isSelected ? 'bg-background-element' : ''}`}>
                   <View className="flex-1">
-                    <ThemedText className={isSelected ? 'font-bold' : 'font-normal'}>
+                    <Txt variant="body" weight={isSelected ? '700' : '400'}>
                       🏠 {hh.name}
-                    </ThemedText>
+                    </Txt>
                   </View>
                   {isSelected && (
-                    <ThemedText className="text-[#10B981] font-bold">✓ Aktiv</ThemedText>
+                    <Txt variant="body" tone="success" weight="700">
+                      ✓ Aktiv
+                    </Txt>
                   )}
                 </Pressable>
               );

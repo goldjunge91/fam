@@ -1,8 +1,8 @@
 import DateTimePicker from '@expo/ui/community/datetime-picker';
 import { useState } from 'react';
 import { Modal, Pressable, View } from 'react-native';
-import { ThemedText } from '@/components/theme/themed-text';
 import { Button } from '@/components/ui/buttons';
+import { Txt } from '@/constants/ui';
 
 function toIsoDate(date: Date): string {
   const y = date.getFullYear();
@@ -50,9 +50,9 @@ export function DateWheelField({
   return (
     <View className="gap-one">
       {label && (
-        <ThemedText type="small" themeColor="textSecondary">
+        <Txt variant="body" tone="secondary">
           {label}
-        </ThemedText>
+        </Txt>
       )}
       <Pressable
         onPress={open}
@@ -63,15 +63,17 @@ export function DateWheelField({
             : `${label ?? 'Datum'} auswählen`
         }
         className="input-field active:opacity-75">
-        <ThemedText themeColor={value ? 'text' : 'textSecondary'}>
+        <Txt variant="body" tone={value ? 'primary' : 'secondary'}>
           {value ? formatIsoDate(value) : placeholder}
-        </ThemedText>
+        </Txt>
       </Pressable>
 
       <Modal visible={isOpen} transparent animationType="fade" onRequestClose={cancel}>
         <View className="modal-backdrop">
           <View className="modal-sheet">
-            <ThemedText type="subtitle">{label ?? 'Datum auswählen'}</ThemedText>
+            <Txt variant="heading" weight="700">
+              {label ?? 'Datum auswählen'}
+            </Txt>
             <DateTimePicker
               value={pendingDate}
               mode="date"

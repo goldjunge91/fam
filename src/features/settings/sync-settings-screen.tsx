@@ -3,9 +3,9 @@ import { router } from 'expo-router';
 import { useEffect, useState } from 'react';
 import { View } from 'react-native';
 import { Screen } from '@/components/layout/screen';
-import { ThemedText } from '@/components/theme/themed-text';
 import { Button } from '@/components/ui/buttons';
 import { Card } from '@/components/ui/card';
+import { Txt } from '@/constants/ui';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { describeSyncStatus } from '@/features/settings/sync-status-text';
 import { useSyncStatus } from '@/hooks/use-sync-status';
@@ -61,18 +61,18 @@ export function SyncSettingsScreen() {
       back={{ label: 'Einstellungen', href: '/settings' }}
       backStyle="icon">
       <Card title="Status">
-        <ThemedText type="small" themeColor="textSecondary">
+        <Txt variant="body" tone="secondary">
           Daten werden im Hintergrund automatisch synchronisiert.
-        </ThemedText>
+        </Txt>
         {/* Kein separates marginTop mehr: card-fam liefert bereits gap-two
             zwischen allen Kindern (Card-Komponente). */}
-        <ThemedText type="smallBold" themeColor={tone}>
+        <Txt variant="body" weight="700" tone={tone}>
           {text}
-        </ThemedText>
+        </Txt>
         {lastErrorMsg ? (
-          <ThemedText type="small" themeColor="danger">
+          <Txt variant="body" tone="danger">
             Ursache: {lastErrorMsg}
-          </ThemedText>
+          </Txt>
         ) : null}
 
         <View className="action-stack">

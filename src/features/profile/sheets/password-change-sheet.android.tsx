@@ -3,10 +3,9 @@ import { useEffect, useState } from 'react';
 import { Modal, Pressable, View } from 'react-native';
 
 import { TextField } from '@/components/forms/text-field';
-import { ThemedText } from '@/components/theme/themed-text';
-import { ThemedView } from '@/components/theme/themed-view';
+import { useTheme } from '@/components/theme/ThemeProvider';
 import { Button } from '@/components/ui/buttons';
-import { useTheme } from '@/hooks/use-theme';
+import { Txt } from '@/constants/ui';
 
 type PasswordChangeSheetProps = {
   visible: boolean;
@@ -35,7 +34,7 @@ export function PasswordChangeSheet({
   onApply,
   onClose,
 }: PasswordChangeSheetProps) {
-  const theme = useTheme();
+  const { colors } = useTheme();
   const [passwordVisible, setPasswordVisible] = useState(false);
   const [confirmationVisible, setConfirmationVisible] = useState(false);
 
@@ -61,7 +60,7 @@ export function PasswordChangeSheet({
               : { ios: 'eye', android: 'visibility', web: 'visibility' }
           }
           size={20}
-          tintColor={theme.textSecondary}
+          tintColor={colors.textMuted}
         />
       </Pressable>
     );
@@ -75,19 +74,19 @@ export function PasswordChangeSheet({
       statusBarTranslucent
       onRequestClose={onClose}>
       <View className="profile-food-rules-sheet-backdrop">
-        <ThemedView className="profile-password-sheet">
+        <View className="profile-password-sheet" style={{ backgroundColor: colors.surface }}>
           <View className="modal-handle" />
           <View className="profile-food-rules-sheet-header">
             <View className="flex-1 gap-half">
-              <ThemedText type="bodyLarge">Passwort ändern</ThemedText>
-              <ThemedText type="labelMuted">Speichere dein neues Passwort direkt hier.</ThemedText>
+              <Txt variant="title">Passwort ändern</Txt>
+              <Txt variant="caption" tone="secondary">Speichere dein neues Passwort direkt hier.</Txt>
             </View>
             <Pressable
               onPress={onClose}
               role="button"
               aria-label="Passwort ändern schließen"
               className="modal-close-btn">
-              <ThemedText aria-hidden>✕</ThemedText>
+              <Txt variant="body" tone="secondary" aria-hidden>✕</Txt>
             </Pressable>
           </View>
 
@@ -127,13 +126,13 @@ export function PasswordChangeSheet({
           </View>
 
           {submissionError ? (
-            <ThemedText role="alert" type="small" themeColor="danger">
+            <Txt role="alert" variant="caption" tone="danger">
               {submissionError}
-            </ThemedText>
+            </Txt>
           ) : null}
 
           <Button label="Passwort speichern" onPress={onApply} loading={saving} />
-        </ThemedView>
+        </View>
       </View>
     </Modal>
   );

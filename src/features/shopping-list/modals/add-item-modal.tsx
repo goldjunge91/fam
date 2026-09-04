@@ -1,12 +1,11 @@
 import { Image } from 'expo-image';
 import { useRef } from 'react';
 import { View } from 'react-native';
-
-import { ThemedText } from '@/components/theme/themed-text';
+import { useTheme } from '@/components/theme/ThemeProvider';
+import { space } from '@/components/theme/index';
 import { HeaderIconButton } from '@/components/ui/buttons';
-import { IconSize } from '@/constants/layout';
+import { Txt } from '@/constants/ui';
 import type { CatalogProduct } from '@/features/product-search/types';
-import { useTheme } from '@/hooks/use-theme';
 import { AddItemForm, type AddItemFormHandle } from '../forms/add-item-form';
 import { ItemModalShell } from './item-modal-shell';
 
@@ -30,7 +29,7 @@ export function AddItemModal({
   onItemAdded,
   onDismissFinished,
 }: AddItemModalProps) {
-  const theme = useTheme();
+  const { colors: theme } = useTheme();
   const formRef = useRef<AddItemFormHandle>(null);
 
   return (
@@ -47,14 +46,14 @@ export function AddItemModal({
       onHeaderPress={() => formRef.current?.closeSearch()}
       header={
         <View className="modal-header min-h-[54px]">
-          <ThemedText type="headingSmall">Artikel hinzufügen</ThemedText>
+          <Txt variant="heading">Artikel hinzufügen</Txt>
           <HeaderIconButton label="Schließen" onPress={onDismiss} className="btn-modal-close">
             <Image
               source="sf:xmark"
               contentFit="contain"
-              tintColor={theme.textSecondary}
+              tintColor={theme.textMuted}
               // expo-image unterstützt kein cssInterop; statische Abmessungen als style
-              style={{ width: IconSize.xs, height: IconSize.xs }}
+              style={{ width: space.md, height: space.md }}
             />
           </HeaderIconButton>
         </View>

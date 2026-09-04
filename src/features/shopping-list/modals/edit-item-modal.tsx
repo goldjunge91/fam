@@ -1,10 +1,9 @@
 import { Image } from 'expo-image';
 import { View } from 'react-native';
-
-import { ThemedText } from '@/components/theme/themed-text';
+import { useTheme } from '@/components/theme/ThemeProvider';
+import { space } from '@/components/theme/index';
 import { HeaderIconButton } from '@/components/ui/buttons';
-import { IconSize } from '@/constants/layout';
-import { useTheme } from '@/hooks/use-theme';
+import { Txt } from '@/constants/ui';
 import { EditItemForm } from '../forms/edit-item-form';
 import type { LocalShoppingItem } from '../hooks/use-shopping-list';
 import { ItemModalShell } from './item-modal-shell';
@@ -16,7 +15,7 @@ interface EditItemModalProps {
 
 /** Eigene Seite statt Inline-Formular — analog zu AddItemModal. */
 export function EditItemModal({ item, onDismiss }: EditItemModalProps) {
-  const theme = useTheme();
+  const { colors: theme } = useTheme();
 
   return (
     <ItemModalShell
@@ -28,13 +27,13 @@ export function EditItemModal({ item, onDismiss }: EditItemModalProps) {
       showHandle
       header={
         <View className="modal-header min-h-[54px]">
-          <ThemedText type="headingSmall">Artikel bearbeiten</ThemedText>
+          <Txt variant="heading">Artikel bearbeiten</Txt>
           <HeaderIconButton label="Schließen" onPress={onDismiss} className="btn-modal-close">
             <Image
               source="sf:xmark"
               contentFit="contain"
-              tintColor={theme.textSecondary}
-              style={{ width: IconSize.xs, height: IconSize.xs }}
+              tintColor={theme.textMuted}
+              style={{ width: space.md, height: space.md }}
             />
           </HeaderIconButton>
         </View>

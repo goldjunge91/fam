@@ -1,7 +1,7 @@
 import DateTimePicker from '@expo/ui/community/datetime-picker';
 import { useState } from 'react';
 import { Pressable, View } from 'react-native';
-import { ThemedText } from '@/components/theme/themed-text';
+import { Txt } from '@/constants/ui';
 
 function toTime(date: Date): string {
   return `${String(date.getHours()).padStart(2, '0')}:${String(date.getMinutes()).padStart(2, '0')}`;
@@ -27,9 +27,9 @@ export function TimeWheelField({ label, value, onChange }: TimeWheelFieldProps) 
   return (
     <View className="gap-one">
       {label ? (
-        <ThemedText type="caption" themeColor="textSecondary">
+        <Txt variant="caption" tone="secondary">
           {label}
-        </ThemedText>
+        </Txt>
       ) : null}
       <Pressable
         onPress={() => setIsOpen(true)}
@@ -38,7 +38,7 @@ export function TimeWheelField({ label, value, onChange }: TimeWheelFieldProps) 
           value ? `${label ?? 'Uhrzeit'} ${value} ändern` : `${label ?? 'Uhrzeit'} auswählen`
         }
         className="input-field active:opacity-75">
-        <ThemedText>{value || 'Uhrzeit auswählen'}</ThemedText>
+        <Txt variant="body">{value || 'Uhrzeit auswählen'}</Txt>
       </Pressable>
       {isOpen ? (
         <DateTimePicker

@@ -1,32 +1,78 @@
-import { ThemedText, type ThemedTextProps } from '@/components/theme/themed-text';
+import type { TextProps, TextStyle } from 'react-native';
+import { Txt } from '@/constants/ui';
 import { type MentionableIngredient, splitStepMentions } from '../domain/ingredient-mentions';
 
-interface StepMentionTextProps extends Omit<ThemedTextProps, 'children'> {
+type StepMentionVariant = 'display' | 'title' | 'heading' | 'subheading' | 'body' | 'label' | 'caption';
+type StepMentionTone =
+  | 'primary'
+  | 'secondary'
+  | 'accent'
+  | 'onAccent'
+  | 'success'
+  | 'warning'
+  | 'danger'
+  | 'inverse';
+
+interface StepMentionTextProps extends TextProps {
   text: string;
   ingredients: MentionableIngredient[];
+  variant?: StepMentionVariant;
+  tone?: StepMentionTone;
+  className?: string;
+  color?: string;
+  weight?: TextStyle['fontWeight'];
+  center?: boolean;
 }
 
-export function StepMentionText({ text, ingredients, ...rest }: StepMentionTextProps) {
+export function StepMentionText({
+  text,
+  ingredients,
+  variant = 'body',
+  tone,
+  className,
+  color,
+  weight,
+  center,
+  style,
+  ...rest
+}: StepMentionTextProps) {
   const segments = splitStepMentions(text, ingredients);
   return (
-    <ThemedText {...rest}>
+    <Txt
+      {...rest}
+      variant={variant}
+      tone={tone}
+      className={className}
+      color={color}
+      weight={weight}
+      center={center}
+      style={style}>
       {segments.map((segment) => {
         if (segment.kind === 'resolved') {
           return (
-            <ThemedText key={segment.key} themeColor="accent" className="font-bold">
+            <Txt
+              key={segment.key}
+              variant={variant}
+              tone="accent"
+              weight="700"
+              style={[style, { fontWeight: '700' }]}>
               {segment.text}
-            </ThemedText>
+            </Txt>
           );
         }
         if (segment.kind === 'unresolved') {
           return (
-            <ThemedText key={segment.key} themeColor="danger">
+            <Txt key={segment.key} variant={variant} tone="danger" weight={weight} style={style}>
               {segment.text}
-            </ThemedText>
+            </Txt>
           );
         }
-        return <ThemedText key={segment.key}>{segment.text}</ThemedText>;
+        return (
+          <Txt key={segment.key} variant={variant} tone={tone} weight={weight} style={style}>
+            {segment.text}
+          </Txt>
+        );
       })}
-    </ThemedText>
+    </Txt>
   );
 }

@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { Pressable, TextInput, View } from 'react-native';
 
-import { ThemedText } from '@/components/theme/themed-text';
+import { useTheme } from '@/components/theme/ThemeProvider';
+import { Txt } from '@/constants/ui';
 
 type QuantityStepperProps = {
   value: number;
@@ -20,6 +21,7 @@ export function QuantityStepper({
   label = 'Menge',
   size = 'default',
 }: QuantityStepperProps) {
+  const { colors } = useTheme();
   const [isEditing, setIsEditing] = useState(false);
   const [draftValue, setDraftValue] = useState(String(value));
 
@@ -51,12 +53,14 @@ export function QuantityStepper({
         disabled={value <= min}
         accessibilityRole="button"
         accessibilityLabel={`${label} verringern`}
-        className={`stepper-btn ${value <= min ? 'opacity-45' : ''}`}>
-        <ThemedText
-          themeColor="accent"
-          className={`text-control-action ${size === 'large' ? 'text-control-action-lg' : ''}`}>
+        className="stepper-btn"
+        style={{ opacity: value <= min ? 0.45 : 1 }}>
+        <Txt
+          variant="body"
+          tone="secondary"
+          style={{ fontSize: size === 'large' ? 24 : 20, lineHeight: size === 'large' ? 28 : 24 }}>
           −
-        </ThemedText>
+        </Txt>
       </Pressable>
 
       {isEditing ? (
@@ -69,9 +73,12 @@ export function QuantityStepper({
           keyboardType="number-pad"
           returnKeyType="done"
           accessibilityLabel={`${label} eingeben`}
-          className={`flex-1 self-stretch px-two py-0 text-center text-control-value font-semibold [font-variant:tabular-nums] text-text ${
-            size === 'large' ? 'text-control-value-lg' : ''
-          }`}
+          className="flex-1 self-stretch px-two py-0 text-center [font-variant:tabular-nums]"
+          style={{
+            color: colors.text,
+            fontSize: size === 'large' ? 18 : 16,
+            fontWeight: '600',
+          }}
         />
       ) : (
         <Pressable
@@ -79,12 +86,13 @@ export function QuantityStepper({
           accessibilityRole="button"
           accessibilityLabel={`${label} direkt eingeben`}
           className="flex-1 items-center justify-center">
-          <ThemedText
-            className={`text-center text-control-value font-semibold [font-variant:tabular-nums] ${
-              size === 'large' ? 'text-control-value-lg' : ''
-            }`}>
+          <Txt
+            variant="body"
+            weight="600"
+            className="text-center [font-variant:tabular-nums]"
+            style={{ fontSize: size === 'large' ? 18 : 16 }}>
             {value}
-          </ThemedText>
+          </Txt>
         </Pressable>
       )}
 
@@ -93,12 +101,14 @@ export function QuantityStepper({
         disabled={value >= max}
         accessibilityRole="button"
         accessibilityLabel={`${label} erhöhen`}
-        className={`stepper-btn ${value >= max ? 'opacity-45' : ''}`}>
-        <ThemedText
-          themeColor="accent"
-          className={`text-control-action ${size === 'large' ? 'text-control-action-lg' : ''}`}>
+        className="stepper-btn"
+        style={{ opacity: value >= max ? 0.45 : 1 }}>
+        <Txt
+          variant="body"
+          tone="secondary"
+          style={{ fontSize: size === 'large' ? 24 : 20, lineHeight: size === 'large' ? 28 : 24 }}>
           +
-        </ThemedText>
+        </Txt>
       </Pressable>
     </View>
   );

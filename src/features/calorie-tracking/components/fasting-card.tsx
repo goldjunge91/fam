@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
 import { Pressable, View } from 'react-native';
-import { ThemedText } from '@/components/theme/themed-text';
+import { useTheme } from '@/components/theme/ThemeProvider';
 import { Card } from '@/components/ui/card';
 import { ProgressBar } from '@/components/ui/progress-bar';
+import { Txt } from '@/constants/ui';
 import {
   FASTING_PROTOCOL_DURATIONS,
   type FastingProtocol,
@@ -10,7 +11,6 @@ import {
   useEndFastMutation,
   useStartFastMutation,
 } from '@/features/calorie-tracking/fasting-api';
-import { useTheme } from '@/hooks/use-theme';
 
 const PROTOCOLS: {
   key: Exclude<FastingProtocol, 'custom' | '5:2'>;
@@ -37,7 +37,7 @@ type FastingCardProps = {
 };
 
 export function FastingCard({ userId, childProfileId }: FastingCardProps) {
-  const theme = useTheme();
+  const { colors } = useTheme();
   const [selectedProtocol, setSelectedProtocol] =
     useState<Exclude<FastingProtocol, 'custom' | '5:2'>>('16:8');
   const [now, setNow] = useState(() => Date.now());
@@ -88,21 +88,21 @@ export function FastingCard({ userId, childProfileId }: FastingCardProps) {
       {/* Header */}
       <View className="flex-row items-center justify-between">
         <View className="flex-row items-center gap-two">
-          <ThemedText type="smallBold">
+          <Txt variant="body" weight="700">
             ⏱️ Intervallfasten {activeSession ? `(${activeSession.protocol})` : ''}
-          </ThemedText>
+          </Txt>
         </View>
-        <ThemedText type="caption" themeColor="textSecondary">
+        <Txt variant="caption" tone="secondary">
           Privat
-        </ThemedText>
+        </Txt>
       </View>
 
       {!activeSession ? (
         // Inaktiver Zustand: Protokollauswahl
         <View className="gap-three">
-          <ThemedText type="caption" themeColor="textSecondary">
+          <Txt variant="caption" tone="secondary">
             Wähle dein Fastenprotokoll und starte dein Fastenfenster:
-          </ThemedText>
+          </Txt>
 
           {/* Protokoll-Chips */}
           <View className="flex-row gap-two">
@@ -115,81 +115,84 @@ export function FastingCard({ userId, childProfileId }: FastingCardProps) {
                   accessibilityRole="radio"
                   accessibilityState={{ selected: isSelected }}
                   style={{
-                    backgroundColor: isSelected ? theme.accent : theme.backgroundElement,
-                    borderColor: isSelected ? theme.accent : theme.border,
+                    backgroundColor: isSelected ? colors.basil : colors.surface,
+                    borderColor: isSelected ? colors.basil : colors.border,
                   }}
                   className="flex-1 py-two rounded-xl items-center justify-center border">
-                  <ThemedText type="labelBold" themeColor={isSelected ? 'onAccent' : 'text'}>
+                  <Txt variant="label" weight="700" tone={isSelected ? 'onAccent' : 'primary'}>
                     {p.label}
-                  </ThemedText>
+                  </Txt>
                 </Pressable>
               );
             })}
           </View>
 
-          <View className="bg-surface p-three rounded-xl border border-border flex-row items-center justify-between">
-            <ThemedText type="small">
-              {PROTOCOLS.find((p) => p.key === selectedProtocol)?.desc}
-            </ThemedText>
+          <View
+            className="p-three rounded-xl flex-row items-center justify-between"
+            style={{ backgroundColor: colors.surface, borderColor: colors.border, borderWidth: 1 }}>
+            <Txt variant="body">{PROTOCOLS.find((p) => p.key === selectedProtocol)?.desc}</Txt>
           </View>
 
           <Pressable
             onPress={handleStartFast}
             disabled={startFastMutation.isPending}
-            style={{ backgroundColor: theme.accent }}
+            style={{ backgroundColor: colors.basil }}
             className="py-three rounded-xl items-center justify-center">
-            <ThemedText type="labelBold" themeColor="onAccent">
+            <Txt variant="label" tone="onAccent" weight="700">
               {startFastMutation.isPending ? 'Wird gestartet...' : 'Fasten starten'}
-            </ThemedText>
+            </Txt>
           </Pressable>
         </View>
       ) : (
         // Aktiver Zustand: Laufender Timer
         <View className="gap-three">
           {/* Status-Übersicht */}
-          <View className="bg-surface p-three rounded-xl border border-border gap-two">
+          <View
+            className="p-three rounded-xl gap-two"
+            style={{ backgroundColor: colors.surface, borderColor: colors.border, borderWidth: 1 }}>
             <View className="flex-row justify-between items-center">
-              <ThemedText type="caption" themeColor="textSecondary">
+              <Txt variant="caption" tone="secondary">
                 Gefastet seit{' '}
                 {new Date(activeSession.started_at).toLocaleTimeString('de-DE', {
                   hour: '2-digit',
                   minute: '2-digit',
                 })}{' '}
                 Uhr
-              </ThemedText>
-              <ThemedText type="labelBold" themeColor={isTargetReached ? 'success' : 'accent'}>
+              </Txt>
+              <Txt variant="label" weight="700" tone={isTargetReached ? 'success' : 'primary'}>
                 {isTargetReached ? 'Essensfenster erreicht!' : 'Fastenphase'}
-              </ThemedText>
+              </Txt>
             </View>
 
             <View className="flex-row items-baseline gap-two">
-              <ThemedText type="title">{formatDuration(elapsedMinutes)}</ThemedText>
-              <ThemedText type="bodySmall" themeColor="textSecondary">
+              <Txt variant="display">{formatDuration(elapsedMinutes)}</Txt>
+              <Txt variant="body" tone="secondary" style={{ fontSize: 14, lineHeight: 20 }}>
                 / Ziel: {formatDuration(targetMinutes)}
-              </ThemedText>
+              </Txt>
             </View>
 
             <ProgressBar value={progressRatio} />
 
             <View className="flex-row justify-between pt-one">
-              <ThemedText type="caption" themeColor="textSecondary">
+              <Txt variant="caption" tone="secondary">
                 {isTargetReached
                   ? `+${formatDuration(elapsedMinutes - targetMinutes)} über Zielzeit`
                   : `Noch ${formatDuration(remainingMinutes)} bis zum Essensfenster`}
-              </ThemedText>
-              <ThemedText type="caption" themeColor="textSecondary">
+              </Txt>
+              <Txt variant="caption" tone="secondary">
                 {Math.round(progressRatio * 100)}%
-              </ThemedText>
+              </Txt>
             </View>
           </View>
 
           <Pressable
             onPress={handleEndFast}
             disabled={endFastMutation.isPending}
-            className="py-three bg-card border border-border rounded-xl items-center justify-center">
-            <ThemedText type="labelBold" themeColor="danger">
+            className="py-three rounded-xl items-center justify-center"
+            style={{ backgroundColor: colors.surface, borderColor: colors.border, borderWidth: 1 }}>
+            <Txt variant="label" tone="danger" weight="700">
               {endFastMutation.isPending ? 'Wird beendet...' : 'Fasten beenden'}
-            </ThemedText>
+            </Txt>
           </Pressable>
         </View>
       )}

@@ -1,8 +1,8 @@
 import type { ReactNode } from 'react';
 import { Pressable, View } from 'react-native';
 
-import { ThemedText } from '@/components/theme/themed-text';
-import { ThemedView } from '@/components/theme/themed-view';
+import { useTheme } from '@/components/theme/ThemeProvider';
+import { Txt } from '@/constants/ui';
 
 type SettingsGroupProps = {
   title?: string;
@@ -10,16 +10,18 @@ type SettingsGroupProps = {
 };
 
 export function SettingsGroup({ title, children }: SettingsGroupProps) {
+  const { colors } = useTheme();
+
   return (
     <View className="gap-one">
       {title ? (
-        <ThemedText type="smallBold" themeColor="textSecondary" className="settings-group-title">
+        <Txt variant="caption" tone="secondary" className="settings-group-title" weight="700">
           {title.toUpperCase()}
-        </ThemedText>
+        </Txt>
       ) : null}
-      <ThemedView type="backgroundElement" className="settings-group-body">
+      <View className="settings-group-body" style={{ backgroundColor: colors.surface }}>
         {children}
-      </ThemedView>
+      </View>
     </View>
   );
 }
@@ -49,40 +51,46 @@ export function SettingsRow({
   last = false,
   disabled = false,
 }: SettingsRowProps) {
+  const { colors } = useTheme();
   const isNavigable = Boolean(onPress) && !disabled;
 
   const content = (
     <View
-      className={`settings-row ${!last ? 'settings-row-bordered' : ''} ${disabled ? 'settings-row-disabled' : ''}`}>
+      className={`settings-row ${disabled ? 'settings-row-disabled' : ''}`}
+      style={{
+        borderBottomColor: colors.border,
+        borderBottomWidth: last ? 0 : 1,
+        opacity: disabled ? 0.45 : 1,
+      }}>
       {icon ? (
         <View className="settings-icon-tile">
-          <ThemedText className="text-[14px] text-center">{icon}</ThemedText>
+          <Txt variant="body" center style={{ fontSize: 14 }}>{icon}</Txt>
         </View>
       ) : null}
 
       <View className="settings-label-block">
-        <ThemedText themeColor={tone === 'danger' ? 'danger' : 'text'}>{label}</ThemedText>
+        <Txt variant="body" tone={tone === 'danger' ? 'danger' : 'primary'}>{label}</Txt>
         {hint ? (
-          <ThemedText type="small" themeColor="textSecondary">
+          <Txt variant="caption" tone="secondary">
             {hint}
-          </ThemedText>
+          </Txt>
         ) : null}
       </View>
 
       {value ? (
-        <ThemedText
-          type="small"
-          themeColor="textSecondary"
+        <Txt
+          variant="caption"
+          tone="secondary"
           numberOfLines={1}
           className="flex-shrink text-right max-w-[45%]">
           {value}
-        </ThemedText>
+        </Txt>
       ) : null}
 
       {isNavigable ? (
-        <ThemedText type="small" themeColor="textSecondary" className="text-[20px] leading-[20px]">
+        <Txt variant="body" tone="secondary" style={{ fontSize: 20, lineHeight: 20 }}>
           ›
-        </ThemedText>
+        </Txt>
       ) : null}
     </View>
   );

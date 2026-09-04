@@ -1,8 +1,8 @@
 import { Link } from 'expo-router';
 import { KeyboardAvoidingView, Platform, View } from 'react-native';
 import { Screen } from '@/components/layout/screen';
-import { ThemedText } from '@/components/theme/themed-text';
 import { Card } from '@/components/ui/card';
+import { Txt } from '@/constants/ui';
 import { AuthProviderOptions } from '@/features/auth/components/auth-provider-options';
 import { SignInForm } from '@/features/auth/forms/sign-in-form';
 
@@ -21,13 +21,15 @@ export function SignInScreen() {
         {/* Links zu Registrierung & Passwort vergessen */}
         <View className="link-stack">
           <Link href="/sign-up" asChild>
-            <ThemedText type="link">Noch kein Konto? Registrieren</ThemedText>
+            <Txt variant="body" tone="accent" style={{ fontSize: 14, lineHeight: 30 }}>
+              Noch kein Konto? Registrieren
+            </Txt>
           </Link>
 
           <Link href="/forgot-password" asChild>
-            <ThemedText type="link" themeColor="textSecondary">
+            <Txt variant="body" tone="secondary" style={{ fontSize: 14, lineHeight: 30 }}>
               Passwort vergessen
-            </ThemedText>
+            </Txt>
           </Link>
         </View>
       </KeyboardAvoidingView>

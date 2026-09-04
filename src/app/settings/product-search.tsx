@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
 import { Pressable, View } from 'react-native';
 import { Screen } from '@/components/layout/screen';
-import { ThemedText } from '@/components/theme/themed-text';
+import { useTheme } from '@/components/theme/ThemeProvider';
+import { Txt } from '@/constants/ui';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import {
   usePreferredProductMarket,
@@ -10,6 +11,7 @@ import {
 import { useStores } from '@/features/shopping-list/hooks/use-stores';
 
 export default function ProductSearchSettingsRoute() {
+  const { colors } = useTheme();
   const { activeHousehold } = useActiveHousehold();
   const householdId = activeHousehold?.id;
   const { data: stores = [], isLoading: storesLoading } = useStores(householdId);
@@ -57,21 +59,21 @@ export default function ProductSearchSettingsRoute() {
   return (
     <Screen title="Produktsuche" back={{ label: 'Einstellungen' }} backStyle="icon">
       <View className="gap-three">
-        <ThemedText themeColor="textSecondary">
+        <Txt variant="body" tone="secondary">
           Der bevorzugte Markt beeinflusst die Reihenfolge der Suchtreffer. Passende Eigenmarken
           werden etwas weiter nach vorne sortiert. Die Einstellung ist persönlich und nur auf diesem
           Gerät gespeichert.
-        </ThemedText>
+        </Txt>
 
         {loading ? null : (
           <View className="gap-two">
             <View className="gap-one">
-              <ThemedText type="small" themeColor="textSecondary">
+              <Txt variant="caption" tone="secondary">
                 Bevorzugte Märkte
-              </ThemedText>
-              <ThemedText type="small" themeColor="textSecondary">
+              </Txt>
+              <Txt variant="caption" tone="secondary">
                 Wähle mehrere Märkte. Die Reihenfolge bestimmt die Priorität.
-              </ThemedText>
+              </Txt>
             </View>
             <View className="gap-one">
               {orderedStores.map((store) => {
@@ -84,10 +86,11 @@ export default function ProductSearchSettingsRoute() {
                       accessibilityRole="checkbox"
                       accessibilityState={{ checked: selected }}
                       accessibilityLabel={`${store.name} auswählen`}
-                      className="input-field flex-1 active:opacity-75">
-                      <ThemedText themeColor="text">
+                      className="input-field flex-1 active:opacity-75"
+                      style={{ backgroundColor: colors.surface, borderColor: colors.border }}>
+                      <Txt variant="body" tone="primary">
                         {selected ? `✓  ${position + 1}. ${store.name}` : store.name}
-                      </ThemedText>
+                      </Txt>
                     </Pressable>
                     {selected ? (
                       <View className="flex-row gap-one">
@@ -97,7 +100,7 @@ export default function ProductSearchSettingsRoute() {
                           accessibilityRole="button"
                           accessibilityLabel={`${store.name} nach oben bewegen`}
                           className="px-two py-two active:opacity-75">
-                          <ThemedText themeColor="text">↑</ThemedText>
+                          <Txt variant="body" tone="secondary">↑</Txt>
                         </Pressable>
                         <Pressable
                           onPress={() => moveStore(position, 1)}
@@ -105,7 +108,7 @@ export default function ProductSearchSettingsRoute() {
                           accessibilityRole="button"
                           accessibilityLabel={`${store.name} nach unten bewegen`}
                           className="px-two py-two active:opacity-75">
-                          <ThemedText themeColor="text">↓</ThemedText>
+                          <Txt variant="body" tone="secondary">↓</Txt>
                         </Pressable>
                       </View>
                     ) : null}
@@ -117,9 +120,9 @@ export default function ProductSearchSettingsRoute() {
         )}
 
         {!loading && stores.length === 0 ? (
-          <ThemedText type="small" themeColor="textSecondary">
+          <Txt variant="caption" tone="secondary">
             Lege zuerst unter Einstellungen → Märkte einen Markt an.
-          </ThemedText>
+          </Txt>
         ) : null}
       </View>
     </Screen>

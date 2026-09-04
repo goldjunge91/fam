@@ -5,10 +5,10 @@ import { router } from 'expo-router';
 import { useCallback, useEffect, useState } from 'react';
 import { Alert, Platform, View } from 'react-native';
 import { Screen } from '@/components/layout/screen';
-import { ThemedText } from '@/components/theme/themed-text';
 import { Button } from '@/components/ui/buttons';
 import { Card } from '@/components/ui/card';
 import { getAnalyticsSettings, useAnalyticsSettingsStore } from '@/constants/analytics';
+import { Txt } from '@/constants/ui';
 import { initMobileAds, useAdsEnabled, useAdsOverrideStore } from '@/features/ads';
 import { useSession } from '@/features/auth/session-provider';
 import { VISION_CAMERA_LAB_ENABLED } from '@/features/experimentalscreens/vision-camera-lab';
@@ -83,12 +83,17 @@ function Zeile({
 }) {
   return (
     <View className="dev-zeile">
-      <ThemedText type="small" themeColor="textSecondary">
+      <Txt variant="caption" tone="secondary">
         {label}
-      </ThemedText>
-      <ThemedText type="smallBold" themeColor={tone} numberOfLines={2} className="dev-zeile-value">
+      </Txt>
+      <Txt
+        variant="caption"
+        weight="700"
+        tone={tone ?? 'primary'}
+        numberOfLines={2}
+        className="dev-zeile-value">
         {wert}
-      </ThemedText>
+      </Txt>
     </View>
   );
 }
@@ -236,9 +241,9 @@ export function DevToolsScreen() {
           tone={isForced ? 'warning' : undefined}
         />
         <View className="dev-zeile">
-          <ThemedText type="small" themeColor="textSecondary">
+          <Txt variant="caption" tone="secondary">
             Premium erzwingen (Override, überlebt Neustart)
-          </ThemedText>
+          </Txt>
         </View>
         <Button
           label={`Premium erzwingen: ${premiumOverrideEnabled ? 'AN' : 'AUS'}`}
@@ -261,9 +266,9 @@ export function DevToolsScreen() {
           tone={adsEnabled ? undefined : 'warning'}
         />
         <View className="dev-zeile">
-          <ThemedText type="small" themeColor="textSecondary">
+          <Txt variant="caption" tone="secondary">
             Werbung umschalten (Override, überlebt Neustart)
-          </ThemedText>
+          </Txt>
         </View>
         <Button
           label={`Werbung: ${adsEnabled ? 'AN' : 'AUS'}`}
@@ -324,9 +329,9 @@ export function DevToolsScreen() {
 
       <Card title="Analytics-Steuerung">
         <Zeile label="Standardwerte" wert="alle an" tone="accent" />
-        <ThemedText type="small" themeColor="textSecondary">
+        <Txt variant="caption" tone="secondary">
           Lokale Overrides gelten sofort und überleben einen Neustart.
-        </ThemedText>
+        </Txt>
         {analyticsToggles.map((toggle) => {
           const enabled = toggle.getValue(analyticsSettings);
           return (
@@ -367,9 +372,9 @@ export function DevToolsScreen() {
       {/* Lokale SQLite-Datenbank (Schema-Version, Tabellenzähler, Outbox) */}
       <Card title="Lokale Datenbank">
         {dbError ? (
-          <ThemedText type="small" themeColor="danger">
+          <Txt variant="caption" tone="danger">
             Nicht lesbar: {dbError}
-          </ThemedText>
+          </Txt>
         ) : (
           <>
             <Zeile label="Gehört Nutzer" wert={besitz.label} tone={besitz.tone} />

@@ -1,4 +1,6 @@
-import { Pressable, ScrollView, type StyleProp, Text, type TextStyle, View } from 'react-native';
+import { Pressable, ScrollView, type StyleProp, type TextStyle, View } from 'react-native';
+import { useTheme } from '@/components/theme/ThemeProvider';
+import { Txt } from '@/constants/ui';
 
 /**
  * Boxshadow des aktiven "surface"-Segments als Inline-Style statt als
@@ -41,6 +43,7 @@ export function SegmentedControl<T extends string>({
   gap: _gap,
   labelStyle: _labelStyle,
 }: SegmentedControlProps<T>) {
+  const { colors } = useTheme();
   const rootClass =
     appearance === 'surface'
       ? 'h-[48px] gap-two rounded-card p-one'
@@ -52,7 +55,8 @@ export function SegmentedControl<T extends string>({
     <View
       accessibilityRole="tablist"
       accessibilityLabel={label}
-      className={`flex-row bg-background-selected ${rootClass} ${scrollable ? 'self-start' : ''}`}>
+      className={`flex-row ${rootClass} ${scrollable ? 'self-start' : ''}`}
+      style={{ backgroundColor: colors.surfaceSoft }}>
       {options.map((option) => {
         const active = option.value === selected;
         const segmentHeightClass =
@@ -63,20 +67,6 @@ export function SegmentedControl<T extends string>({
               : 'min-h-[34px]';
 
         const isActiveSurface = active && appearance === 'surface';
-        const activeBgClass = active
-          ? appearance === 'surface'
-            ? 'bg-background-element'
-            : 'bg-accent'
-          : '';
-
-        const labelColorClass = active
-          ? appearance === 'surface'
-            ? 'text-text'
-            : 'text-on-accent'
-          : 'text-text-secondary';
-
-        const labelSizeClass = appearance === 'surface' ? 'text-label' : 'text-caption-compact';
-
         return (
           <Pressable
             key={option.value}
@@ -84,13 +74,32 @@ export function SegmentedControl<T extends string>({
             accessibilityLabel={option.accessibilityLabel ?? option.label}
             accessibilityState={{ selected: active }}
             onPress={() => onSelect(option.value)}
-            style={isActiveSurface ? ACTIVE_SURFACE_SHADOW : undefined}
+            style={[
+              isActiveSurface ? ACTIVE_SURFACE_SHADOW : undefined,
+              {
+                backgroundColor: active
+                  ? appearance === 'surface'
+                    ? colors.surface
+                    : colors.basil
+                  : 'transparent',
+              },
+            ]}
             className={`items-center justify-center rounded-control active:opacity-75 ${segmentHeightClass} ${
               scrollable ? 'flex-none min-w-[104px]' : 'flex-1'
-            } ${activeBgClass}`}>
-            <Text className={`font-semibold ${labelSizeClass} ${labelColorClass}`}>
+            }`}>
+            <Txt
+              variant={appearance === 'surface' ? 'label' : 'caption'}
+              tone={
+                active
+                  ? appearance === 'surface'
+                    ? 'primary'
+                    : 'onAccent'
+                  : 'secondary'
+              }
+              weight="600"
+              style={_labelStyle}>
               {option.label}
-            </Text>
+            </Txt>
           </Pressable>
         );
       })}

@@ -2,8 +2,9 @@ import { router, useLocalSearchParams } from 'expo-router';
 import { useEffect, useState } from 'react';
 import { ActivityIndicator, Pressable, View } from 'react-native';
 import { Screen } from '@/components/layout/screen';
-import { ThemedText } from '@/components/theme/themed-text';
+import { useTheme } from '@/components/theme/ThemeProvider';
 import { Button } from '@/components/ui/buttons';
+import { Txt } from '@/constants/ui';
 import { useSession } from '@/features/auth/session-provider';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { usePremium } from '@/features/premium/premium-provider';
@@ -22,6 +23,7 @@ debugLogEvent('meal-planner.missing-ingredients-screen.module-loaded', { variant
 const EMPTY_MISSING: MissingIngredientView[] = [];
 
 export function MissingIngredientsScreen() {
+  const { colors } = useTheme();
   const { mealPlanId } = useLocalSearchParams<{ mealPlanId: string }>();
   const { session } = useSession();
   const { activeHouseholdId } = useActiveHousehold();
@@ -148,10 +150,10 @@ export function MissingIngredientsScreen() {
       {/* Paywall-Hinweis falls kein aktives Plus-Abo vorhanden ist */}
       {!hasPlus ? (
         <View className="mis-list">
-          <ThemedText themeColor="textSecondary">
+          <Txt variant="body" tone="secondary">
             fam vergleicht den Bedarf des ganzen Wochenplans mit eurem Vorrat und übernimmt nur
             Fehlendes in die Einkaufsliste.
-          </ThemedText>
+          </Txt>
           <Button label="Plus ansehen" onPress={openPlusPaywall} />
         </View>
       ) : isLoading ? (
@@ -159,9 +161,9 @@ export function MissingIngredientsScreen() {
         <ActivityIndicator className="mis-loading" />
       ) : missing.length === 0 ? (
         /* Statusanzeige wenn alle Zutaten im Vorrat vorhanden sind */
-        <ThemedText themeColor="textSecondary">
+        <Txt variant="body" tone="secondary">
           Für die geplanten Rezepte fehlt nichts – der Vorrat reicht.
-        </ThemedText>
+        </Txt>
       ) : (
         /* Auswahlliste aller fehlenden Zutaten mit Mengenangaben und Übertrags-Button */
         <View className="mis-list">
@@ -184,9 +186,9 @@ export function MissingIngredientsScreen() {
 
           {/* Erfolgs-Bestätigung nach Übertrag */}
           {addedCount !== null ? (
-            <ThemedText type="small" themeColor="accent">
+            <Txt variant="body" tone="success">
               {addedCount} Artikel zur Einkaufsliste hinzugefügt.
-            </ThemedText>
+            </Txt>
           ) : null}
         </View>
       )}
@@ -210,19 +212,23 @@ function IngredientRow({
       accessibilityLabel={item.name}
       onPress={onToggle}
       className="mis-row">
-      <View className={`mis-checkbox ${selected ? 'bg-accent' : 'bg-transparent'}`}>
-        {selected ? <ThemedText themeColor="onAccent">✓</ThemedText> : null}
+      <View
+        className="mis-checkbox"
+        style={{ backgroundColor: selected ? colors.basil : 'transparent' }}>
+        {selected ? <Txt tone="onAccent">✓</Txt> : null}
       </View>
       <View className="mis-row-text">
-        <ThemedText type="smallBold">{item.name}</ThemedText>
-        <ThemedText type="small" themeColor="textSecondary">
+        <Txt variant="body" weight="700">
+          {item.name}
+        </Txt>
+        <Txt variant="body" tone="secondary">
           {item.missingGrams} g fehlen
           {item.preferredStoreName ? ` · zuletzt bei ${item.preferredStoreName}` : ''}
-        </ThemedText>
+        </Txt>
         {item.recipeNames.length > 0 ? (
-          <ThemedText type="small" themeColor="textSecondary" numberOfLines={1}>
+          <Txt variant="body" tone="secondary" numberOfLines={1}>
             🍽️ {item.recipeNames.join(', ')}
-          </ThemedText>
+          </Txt>
         ) : null}
       </View>
     </Pressable>

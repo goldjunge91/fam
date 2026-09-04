@@ -1274,7 +1274,7 @@
      Schatten+Radius unter dem Namen (s. DESIGN_SYSTEM.md Backlog Punkt 5,
      Phase C). borderCurve bleibt style (kein Tailwind-Aequivalent). */
   .dashboard-calorie-card {
-    @apply h-[176px] rounded-fam-large flex-row items-center gap-[24px] px-[22px] py-[20px] mb-[15px] bg-background-element;
+    @apply min-h-[176px] rounded-fam-large flex-row items-center gap-[24px] px-[22px] py-[20px] bg-background-element;
   }
 
   .dashboard-ring-wrap {
@@ -1282,7 +1282,7 @@
   }
 
   .dashboard-calorie-copy {
-    @apply flex-1 gap-[4px];
+    @apply min-w-0 flex-1 gap-[4px];
   }
 
   .dashboard-calorie-label {
@@ -1298,11 +1298,11 @@
   }
 
   .dashboard-planned-card {
-    @apply h-[140px] rounded-fam-large flex-row items-center gap-[16px] pl-[16px] pr-[18px] py-[16px] mb-[15px] bg-background-element;
+    @apply min-h-[140px] rounded-fam-large flex-row items-center gap-[16px] pl-[16px] pr-[18px] py-[16px] bg-background-element;
   }
 
   .dashboard-planned-copy {
-    @apply flex-1 gap-[5px];
+    @apply min-w-0 flex-1 gap-[5px];
   }
 
   .dashboard-planned-kicker {
@@ -1321,8 +1321,12 @@
     @apply flex-row gap-[12px];
   }
 
+  .dashboard-widget-row-stacked {
+    @apply flex-col gap-[15px];
+  }
+
   .dashboard-widget {
-    @apply flex-1 h-[138px] rounded-fam-large p-[16px] gap-[8px] bg-background-element;
+    @apply flex-1 min-h-[138px] rounded-fam-large p-[16px] gap-[8px] bg-background-element;
   }
 
   .dashboard-widget-badge {

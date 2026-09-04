@@ -4,8 +4,9 @@ import { useState } from 'react';
 import { ActivityIndicator, Alert, Pressable, ScrollView, View } from 'react-native';
 
 import { HubScreen } from '@/components/layout/hub-screen';
-import { ThemedText } from '@/components/theme/themed-text';
+import { useTheme } from '@/components/theme/ThemeProvider';
 import { BackButton, HeaderIconButton } from '@/components/ui/buttons';
+import { Txt } from '@/constants/ui';
 import { useSession } from '@/features/auth/session-provider';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { HeartGlyph, HeroArtwork } from '@/features/recipes/components/recipe-detail-primitives';
@@ -36,15 +37,18 @@ function DetailFact({
   label: string;
   withDivider?: boolean;
 }) {
+  const { colors } = useTheme();
+
   return (
     <View
-      className={`flex-1 min-w-0 items-center px-one ${withDivider ? 'border-l border-border' : ''}`}>
-      <ThemedText type="headingSmall" className="text-center">
+      className="flex-1 min-w-0 items-center px-one"
+      style={withDivider ? { borderLeftColor: colors.border, borderLeftWidth: 1 } : undefined}>
+      <Txt variant="heading" center>
         {value}
-      </ThemedText>
-      <ThemedText type="caption" themeColor="textSecondary" className="pt-[3px] text-center">
+      </Txt>
+      <Txt variant="caption" tone="secondary" className="pt-[3px] text-center" style={{ lineHeight: 16 }}>
         {label}
-      </ThemedText>
+      </Txt>
     </View>
   );
 }
@@ -60,10 +64,13 @@ function CatalogStepItem({
   isLast: boolean;
   imagePath: string | null;
 }) {
+  const { colors } = useTheme();
   const { data: imageUrl } = useCatalogImageUrl(imagePath);
 
   return (
-    <View className={`gap-three py-four ${!isLast ? 'border-b border-border' : ''}`}>
+    <View
+      className="gap-three py-four"
+      style={!isLast ? { borderBottomColor: colors.border, borderBottomWidth: 1 } : undefined}>
       {imageUrl ? (
         <Image
           source={{ uri: imageUrl }}
@@ -73,17 +80,17 @@ function CatalogStepItem({
         />
       ) : null}
       <View className="flex-row gap-[10px]">
-        <ThemedText type="headingSmall" themeColor="accent" className="w-[30px]">
+        <Txt variant="heading" tone="primary" className="w-[30px]">
           {index + 1}
-        </ThemedText>
+        </Txt>
         <View className="flex-1 gap-one">
-          <ThemedText type="body" className="font-medium">
+          <Txt variant="body" style={{ fontWeight: '500' }}>
             {step.text}
-          </ThemedText>
+          </Txt>
           {step.timer_minutes !== null ? (
-            <ThemedText type="caption" themeColor="textSecondary">
+            <Txt variant="caption" tone="secondary">
               ⏱ {step.timer_minutes} Min. Timer
-            </ThemedText>
+            </Txt>
           ) : null}
         </View>
       </View>
@@ -92,15 +99,16 @@ function CatalogStepItem({
 }
 
 function IngredientGroups({ detail, servings }: { detail: CatalogDetail; servings: number }) {
+  const { colors } = useTheme();
   const componentNames = new Map(
     detail.components.map((component) => [component.id, component.name]),
   );
 
   if (detail.components.length === 0) {
     return (
-      <ThemedText type="body" themeColor="textSecondary" className="py-four">
+      <Txt variant="body" tone="secondary" className="py-four">
         Noch keine Zutaten hinterlegt.
-      </ThemedText>
+      </Txt>
     );
   }
 
@@ -112,14 +120,16 @@ function IngredientGroups({ detail, servings }: { detail: CatalogDetail; serving
 
         return (
           <View key={component.id} className="pt-[14px]">
-            <View className="min-h-[40px] row-between gap-[10px] border-b border-border">
-              <ThemedText type="headingSmall" className="flex-1 font-bold">
+            <View
+              className="min-h-[40px] row-between gap-[10px]"
+              style={{ borderBottomColor: colors.border, borderBottomWidth: 1 }}>
+              <Txt variant="heading" weight="700" className="flex-1">
                 {component.name}
-              </ThemedText>
+              </Txt>
               {component.serving_grams !== null ? (
-                <ThemedText type="caption" themeColor="textSecondary">
+                <Txt variant="caption" tone="secondary">
                   {round(preparedGrams)} g zubereitet
-                </ThemedText>
+                </Txt>
               ) : null}
             </View>
             {items.map((item, index) => {
@@ -137,25 +147,30 @@ function IngredientGroups({ detail, servings }: { detail: CatalogDetail; serving
               return (
                 <View
                   key={item.id}
-                  className={`min-h-[44px] row-between gap-three ${
-                    index < items.length - 1 ? 'border-b border-border' : ''
-                  }`}>
-                  <ThemedText
-                    type="body"
-                    className="flex-1 text-[17px] leading-[23px] font-bold"
+                  className="min-h-[44px] row-between gap-three"
+                  style={
+                    index < items.length - 1
+                      ? { borderBottomColor: colors.border, borderBottomWidth: 1 }
+                      : undefined
+                  }>
+                  <Txt
+                    variant="body"
+                    weight="700"
+                    className="flex-1"
+                    style={{ fontSize: 17, lineHeight: 23 }}
                     numberOfLines={1}>
                     {name}
-                  </ThemedText>
-                  <ThemedText type="body" themeColor="textSecondary" className="font-medium">
+                  </Txt>
+                  <Txt variant="body" tone="secondary" style={{ fontWeight: '500' }}>
                     {round(quantity)} {unit}
-                  </ThemedText>
+                  </Txt>
                 </View>
               );
             })}
             {items.length === 0 ? (
-              <ThemedText type="body" themeColor="textSecondary" className="py-three">
+              <Txt variant="body" tone="secondary" className="py-three">
                 Noch keine Zutaten in dieser Gruppe.
-              </ThemedText>
+              </Txt>
             ) : null}
           </View>
         );
@@ -165,6 +180,7 @@ function IngredientGroups({ detail, servings }: { detail: CatalogDetail; serving
 }
 
 export function RecipeCatalogDetailScreen() {
+  const { colors } = useTheme();
   const { slug } = useLocalSearchParams<{ slug: string }>();
   const [servings, setServings] = useState<number | null>(null);
   const [activeTab, setActiveTab] = useState<'details' | 'ratings'>('details');
@@ -195,9 +211,9 @@ export function RecipeCatalogDetailScreen() {
       <HubScreen
         safeAreaClassName="flex-1 w-full max-w-[800px] self-center"
         header={{ title: 'Rezept', leading: <BackButton label="Zurück" variant="header" /> }}>
-        <ThemedText type="body" themeColor="textSecondary" className="p-six text-center">
+        <Txt variant="body" tone="secondary" className="p-six text-center">
           Rezept wird geladen…
-        </ThemedText>
+        </Txt>
       </HubScreen>
     );
   }
@@ -243,13 +259,17 @@ export function RecipeCatalogDetailScreen() {
           <HeroArtwork coverUrl={coverUrl} title={recipe.title} />
         </View>
 
-        <ThemedText
-          type="subtitle"
-          className="pt-[18px] text-[28px] leading-[32px] font-bold tracking-tight">
+        <Txt
+          variant="display"
+          weight="700"
+          className="pt-[18px] tracking-tight"
+          style={{ fontSize: 28, lineHeight: 32 }}>
           {recipe.title}
-        </ThemedText>
+        </Txt>
 
-        <View className="flex-row mt-five border-b border-border">
+        <View
+          className="flex-row mt-five"
+          style={{ borderBottomColor: colors.border, borderBottomWidth: 1 }}>
           {(['details', 'ratings'] as const).map((tab) => {
             const selected = activeTab === tab;
             const label = tab === 'details' ? 'Details' : 'Bewertungen';
@@ -260,12 +280,11 @@ export function RecipeCatalogDetailScreen() {
                 role="tab"
                 aria-label={label}
                 aria-selected={selected}
-                className={`flex-1 min-h-[48px] items-center justify-center border-b-[3px] ${
-                  selected ? 'border-accent' : 'border-transparent'
-                }`}>
-                <ThemedText type="headingSmall" themeColor={selected ? 'text' : 'textSecondary'}>
+                className="flex-1 min-h-[48px] items-center justify-center border-b-[3px]"
+                style={{ borderBottomColor: selected ? colors.basil : 'transparent' }}>
+                <Txt variant="heading" tone={selected ? 'primary' : 'secondary'}>
                   {label}
-                </ThemedText>
+                </Txt>
               </Pressable>
             );
           })}
@@ -273,7 +292,9 @@ export function RecipeCatalogDetailScreen() {
 
         {activeTab === 'details' ? (
           <View>
-            <View className="flex-row py-four border-b border-border">
+            <View
+              className="flex-row py-four"
+              style={{ borderBottomColor: colors.border, borderBottomWidth: 1 }}>
               <DetailFact
                 value={kcalPer100g !== null ? `${kcalPer100g} kcal` : '–'}
                 label="pro 100 g"
@@ -291,21 +312,20 @@ export function RecipeCatalogDetailScreen() {
             </View>
 
             {recipe.instructions ? (
-              <ThemedText type="body" className="pt-four text-[16px] leading-[24px] font-medium">
+              <Txt
+                variant="body"
+                className="pt-four"
+                style={{ fontSize: 16, lineHeight: 24, fontWeight: '500' }}>
                 {recipe.instructions}
-              </ThemedText>
+              </Txt>
             ) : null}
 
             {tags.length > 0 ? (
               <View className="flex-row flex-wrap items-center gap-x-three gap-y-two pt-three">
                 {visibleTags.map((tag) => (
-                  <ThemedText
-                    key={tag}
-                    type="caption"
-                    themeColor="textSecondary"
-                    className="font-medium">
+                  <Txt key={tag} variant="caption" tone="secondary" style={{ fontWeight: '500' }}>
                     {tag.startsWith('#') ? tag : `#${tag}`}
-                  </ThemedText>
+                  </Txt>
                 ))}
                 {tags.length > 3 ? (
                   <Pressable
@@ -314,26 +334,31 @@ export function RecipeCatalogDetailScreen() {
                     aria-label={showAllTags ? 'Weniger Tags anzeigen' : 'Alle Tags anzeigen'}
                     aria-expanded={showAllTags}
                     hitSlop={8}>
-                    <ThemedText
-                      type="caption"
-                      themeColor="textSecondary"
-                      className="font-medium underline">
+                    <Txt
+                      variant="caption"
+                      tone="secondary"
+                      className="underline"
+                      style={{ fontWeight: '500' }}>
                       {showAllTags ? 'Weniger' : `+${tags.length - 3} mehr`}
-                    </ThemedText>
+                    </Txt>
                   </Pressable>
                 ) : null}
               </View>
             ) : null}
 
-            <View className="min-h-[58px] row-between gap-three mt-[18px] border-b border-border">
-              <ThemedText type="headingSmall" className="font-bold">
+            <View
+              className="min-h-[58px] row-between gap-three mt-[18px]"
+              style={{ borderBottomColor: colors.border, borderBottomWidth: 1 }}>
+              <Txt variant="heading" weight="700">
                 Zutatenliste
-              </ThemedText>
+              </Txt>
               <View className="flex-row items-center gap-two">
-                <ThemedText type="body" className="font-bold">
+                <Txt variant="body" weight="700">
                   Portionen
-                </ThemedText>
-                <View className="w-[112px] h-[44px] rounded-control flex-row items-center bg-background-element">
+                </Txt>
+                <View
+                  className="w-[112px] h-[44px] rounded-control flex-row items-center"
+                  style={{ backgroundColor: colors.surface }}>
                   <Pressable
                     onPress={() =>
                       setServings((value) => Math.max(1, (value ?? currentServings) - 1))
@@ -341,21 +366,21 @@ export function RecipeCatalogDetailScreen() {
                     role="button"
                     aria-label="Weniger Portionen"
                     className="w-[44px] h-[44px] items-center justify-center">
-                    <ThemedText type="headingSmall" themeColor="accent" className="font-medium">
+                    <Txt variant="heading" tone="secondary" style={{ fontWeight: '500' }}>
                       −
-                    </ThemedText>
+                    </Txt>
                   </Pressable>
-                  <ThemedText type="body" className="min-w-[24px] flex-1 text-center font-bold">
+                  <Txt variant="body" weight="700" className="min-w-[24px] flex-1 text-center">
                     {currentServings}
-                  </ThemedText>
+                  </Txt>
                   <Pressable
                     onPress={() => setServings((value) => (value ?? currentServings) + 1)}
                     role="button"
                     aria-label="Mehr Portionen"
                     className="w-[44px] h-[44px] items-center justify-center">
-                    <ThemedText type="headingSmall" themeColor="accent" className="font-medium">
+                    <Txt variant="heading" tone="secondary" style={{ fontWeight: '500' }}>
                       +
-                    </ThemedText>
+                    </Txt>
                   </Pressable>
                 </View>
               </View>
@@ -363,11 +388,13 @@ export function RecipeCatalogDetailScreen() {
 
             <IngredientGroups detail={detail} servings={scale} />
 
-            <View className="min-h-[58px] row-between gap-three mt-[18px] border-b border-border">
-              <ThemedText type="headingSmall">Zubereitung</ThemedText>
-              <ThemedText type="caption" themeColor="textSecondary" className="font-medium">
+            <View
+              className="min-h-[58px] row-between gap-three mt-[18px]"
+              style={{ borderBottomColor: colors.border, borderBottomWidth: 1 }}>
+              <Txt variant="heading">Zubereitung</Txt>
+              <Txt variant="caption" tone="secondary" style={{ fontWeight: '500' }}>
                 {detail.steps.length} {detail.steps.length === 1 ? 'Schritt' : 'Schritte'}
-              </ThemedText>
+              </Txt>
             </View>
             {detail.steps.length > 0 ? (
               <View>
@@ -385,17 +412,17 @@ export function RecipeCatalogDetailScreen() {
                 ))}
               </View>
             ) : (
-              <ThemedText type="body" themeColor="textSecondary" className="py-four">
+              <Txt variant="body" tone="secondary" className="py-four">
                 Noch keine Zubereitungsschritte hinterlegt.
-              </ThemedText>
+              </Txt>
             )}
           </View>
         ) : (
           <View className="items-center py-six">
-            <ThemedText type="headingSmall">Noch keine Bewertungen</ThemedText>
-            <ThemedText type="body" themeColor="textSecondary" className="pt-[6px] text-center">
+            <Txt variant="heading">Noch keine Bewertungen</Txt>
+            <Txt variant="body" tone="secondary" className="pt-[6px] text-center">
               Bewertungen sind für Katalogrezepte noch nicht verfügbar.
-            </ThemedText>
+            </Txt>
           </View>
         )}
       </ScrollView>
@@ -406,25 +433,25 @@ export function RecipeCatalogDetailScreen() {
             onPress={() => router.push({ pathname: '/recipe/cook', params: { slug: recipe.slug } })}
             role="button"
             aria-label="Kochmodus starten"
-            className="min-h-[48px] flex-1 rounded-control items-center justify-center px-two border border-accent bg-background-element active:opacity-75">
-            <ThemedText type="captionCompact" themeColor="accent" className="text-center font-bold">
+            className="min-h-[48px] flex-1 rounded-control items-center justify-center px-two active:opacity-75"
+            style={{ backgroundColor: colors.surface, borderColor: colors.basil, borderWidth: 1 }}>
+            <Txt variant="caption" tone="primary" weight="700" center>
               Kochmodus starten
-            </ThemedText>
+            </Txt>
           </Pressable>
           <Pressable
             onPress={() => void copyToHousehold()}
             disabled={buttonDisabled}
             role="button"
             aria-label="Rezept in meine Rezepte übernehmen"
-            className={`min-h-[48px] flex-1 rounded-control items-center justify-center px-two bg-accent active:opacity-75 ${
-              buttonDisabled ? 'opacity-45' : ''
-            }`}>
+            className="min-h-[48px] flex-1 rounded-control items-center justify-center px-two active:opacity-75"
+            style={{ backgroundColor: colors.basil, opacity: buttonDisabled ? 0.45 : 1 }}>
             {copyRecipe.isPending ? (
-              <ActivityIndicator color="#FFFFFF" />
+              <ActivityIndicator color={colors.inverse} />
             ) : (
-              <ThemedText type="captionCompact" className="text-white text-center font-bold">
+              <Txt variant="caption" tone="onAccent" weight="700" center>
                 In meine Rezepte übernehmen
-              </ThemedText>
+              </Txt>
             )}
           </Pressable>
         </View>

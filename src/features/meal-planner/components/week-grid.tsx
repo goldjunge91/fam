@@ -3,10 +3,10 @@ import { Pressable, ScrollView, View } from 'react-native';
 import { Gesture, GestureDetector } from 'react-native-gesture-handler';
 import Animated, { runOnJS, useAnimatedStyle, useSharedValue } from 'react-native-reanimated';
 
-import { ThemedText } from '@/components/theme/themed-text';
+import { useTheme } from '@/components/theme/ThemeProvider';
+import { Txt } from '@/constants/ui';
 import { RecipeArtwork } from '@/features/recipes/components/recipe-preview-card';
 import { useRecipeCoverUrl } from '@/features/recipes/data/household-recipe-images';
-import { useTheme } from '@/hooks/use-theme';
 import type { MealPlanEntry, MealSlot } from '../use-meal-plans';
 import { dateLabel, MEAL_SLOTS, weekdayLabel } from '../week';
 
@@ -117,12 +117,12 @@ export function WeekGrid({
             // borderCurve ist ein echter Laufzeitwert ohne Tailwind-Aequivalent.
             style={{ borderCurve: 'continuous' }}>
             <View className="wg-day-header">
-              <ThemedText type="headingSmall" className="wg-day-name">
+              <Txt variant="heading" className="wg-day-name">
                 {weekdayLabel(date)}
-              </ThemedText>
-              <ThemedText themeColor="textSecondary" className="wg-day-date">
+              </Txt>
+              <Txt variant="body" tone="secondary" className="wg-day-date">
                 {dateLabel(date)}
-              </ThemedText>
+              </Txt>
             </View>
 
             <View className="wg-slot-column">
@@ -134,9 +134,9 @@ export function WeekGrid({
                     key={slot}
                     ref={(node) => registerCell(key, node)}
                     className={`wg-slot ${slotIndex > 0 ? 'wg-slot-divider' : ''}`}>
-                    <ThemedText themeColor="textSecondary" className="wg-slot-label">
+                    <Txt variant="body" tone="secondary" className="wg-slot-label">
                       {SLOT_LABELS[slot]}
-                    </ThemedText>
+                    </Txt>
 
                     {cellEntries.map((entry) => (
                       <Pressable
@@ -147,12 +147,12 @@ export function WeekGrid({
                         className="wg-entry-chip"
                         // borderCurve ist ein echter Laufzeitwert ohne Tailwind-Aequivalent.
                         style={{ borderCurve: 'continuous' }}>
-                        <ThemedText className="wg-entry-title" numberOfLines={1}>
+                        <Txt variant="body" className="wg-entry-title" numberOfLines={1}>
                           {entry.recipe_title}
-                        </ThemedText>
-                        <ThemedText themeColor="textSecondary" className="wg-entry-meta">
+                        </Txt>
+                        <Txt variant="body" tone="secondary" className="wg-entry-meta">
                           {portionLabel(entry.portions)}
-                        </ThemedText>
+                        </Txt>
                       </Pressable>
                     ))}
 
@@ -164,9 +164,9 @@ export function WeekGrid({
                       className="wg-add-button"
                       // borderCurve ist ein echter Laufzeitwert ohne Tailwind-Aequivalent.
                       style={{ borderCurve: 'continuous' }}>
-                      <ThemedText themeColor="accent" className="wg-add-text">
+                      <Txt variant="body" tone="primary" className="wg-add-text">
                         {cellEntries.length > 0 ? '+ Weiteres' : '+ Gericht'}
-                      </ThemedText>
+                      </Txt>
                     </Pressable>
                   </View>
                 );
@@ -180,12 +180,12 @@ export function WeekGrid({
             className="wg-tray"
             // borderCurve ist ein echter Laufzeitwert ohne Tailwind-Aequivalent.
             style={{ borderCurve: 'continuous' }}>
-            <ThemedText type="captionCompact" className="wg-tray-title">
+            <Txt variant="caption" className="wg-tray-title" weight="700">
               Rezepte zum Ziehen
-            </ThemedText>
-            <ThemedText themeColor="textSecondary" className="wg-tray-label">
+            </Txt>
+            <Txt variant="body" tone="secondary" className="wg-tray-label">
               Karte halten und auf eine Mahlzeit ziehen
-            </ThemedText>
+            </Txt>
             <View className="wg-tray-grid">
               {recipes.map((recipe) => (
                 <DraggableRecipeCard
@@ -255,9 +255,9 @@ function DraggableRecipeCard({
         <View className="wg-recipe-card-artwork" style={{ borderCurve: 'continuous' }}>
           <RecipeArtwork title={recipe.title} coverUrl={coverUrl} paletteIndex={recipe.id.length} />
         </View>
-        <ThemedText className="wg-recipe-card-text" numberOfLines={2}>
+        <Txt variant="body" className="wg-recipe-card-text" numberOfLines={2}>
           {recipe.title}
-        </ThemedText>
+        </Txt>
       </View>
     </GestureDetector>
   );
@@ -265,7 +265,7 @@ function DraggableRecipeCard({
 
 /** Schwebende Vorschau waehrend des Ziehens — dieselbe Bildkachel, etwas kleiner. */
 function DragPreviewCard({ recipe }: { recipe: DraggableRecipe }) {
-  const theme = useTheme();
+  const { colors } = useTheme();
   const { data: coverUrl } = useRecipeCoverUrl(recipe.coverImagePath);
 
   return (
@@ -276,7 +276,7 @@ function DragPreviewCard({ recipe }: { recipe: DraggableRecipe }) {
       // ohne Tailwind-Aequivalent.
       style={{
         borderCurve: 'continuous',
-        shadowColor: theme.shadowCard,
+        shadowColor: colors.text,
         shadowOpacity: 0.22,
         shadowRadius: 12,
         shadowOffset: { width: 0, height: 6 },
@@ -284,9 +284,9 @@ function DragPreviewCard({ recipe }: { recipe: DraggableRecipe }) {
       <View className="wg-drag-preview-artwork" style={{ borderCurve: 'continuous' }}>
         <RecipeArtwork title={recipe.title} coverUrl={coverUrl} paletteIndex={recipe.id.length} />
       </View>
-      <ThemedText className="wg-drag-preview-text" numberOfLines={1}>
+      <Txt variant="body" className="wg-drag-preview-text" numberOfLines={1}>
         {recipe.title}
-      </ThemedText>
+      </Txt>
     </View>
   );
 }

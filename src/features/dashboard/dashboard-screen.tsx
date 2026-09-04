@@ -2,11 +2,13 @@ import { useQueryClient } from '@tanstack/react-query';
 import { useState } from 'react';
 import { Pressable, RefreshControl, ScrollView, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+
 import { PlusIcon } from '@/components/icons/fam-icon';
 import { Screen } from '@/components/layout/screen';
-import { ThemedText } from '@/components/theme/themed-text';
+import { space } from '@/components/theme/index';
+import { useTheme } from '@/components/theme/ThemeProvider';
 import { HeaderIconButton } from '@/components/ui/buttons/header-icon-button';
-import { Layout, Spacing } from '@/constants/layout';
+import { Txt } from '@/constants/ui';
 import { CardGallerySheet } from '@/features/dashboard/components/card-gallery-sheet';
 import { CardList } from '@/features/dashboard/components/card-list';
 import { DashboardCardsProvider } from '@/features/dashboard/use-card-sizes';
@@ -16,12 +18,11 @@ import { useExpiryNotifications } from '@/features/inventory/use-expiry-notifica
 import { useNavigationChrome } from '@/features/navigation/navigation-chrome-provider';
 import { useProfileAvatar } from '@/features/navigation/use-profile-initials';
 import { useHubGradient } from '@/hooks/use-hub-gradient';
-import { useTheme } from '@/hooks/use-theme';
 import { trackAnalyticsEvent } from '@/lib/analytics';
 import { syncRunHasErrors, triggerHouseholdSync } from '@/lib/sync/sync-runner';
 
 export function DashboardScreen() {
-  const theme = useTheme();
+  const { colors } = useTheme();
   const hubGradient = useHubGradient();
   const insets = useSafeAreaInsets();
   const queryClient = useQueryClient();
@@ -60,24 +61,34 @@ export function DashboardScreen() {
     }
   }
 
-  const bottomPadding = insets.bottom + Spacing.four + Layout.floatingActionClearance;
+  const bottomPadding = insets.bottom + space.xxl + space.xxxl;
 
   const editChromeTrailing = isEditing ? (
     <View className="flex-row items-center gap-two">
       <HeaderIconButton label="Karten anpassen" onPress={openGallery}>
-        <PlusIcon color={theme.accent} />
+        <PlusIcon color={colors.basil} />
       </HeaderIconButton>
       <Pressable
         onPress={exitEditMode}
         accessibilityRole="button"
         accessibilityLabel="Bearbeitungsmodus beenden"
-        className="px-three py-one rounded-control bg-accent items-center justify-center">
-        <ThemedText style={{ color: theme.onAccent, fontWeight: '600', fontSize: 13 }}>
+        className="px-three py-one rounded-control items-center justify-center"
+        style={{ backgroundColor: colors.basil }}>
+        <Txt variant="label" tone="onAccent" weight="600">
           Fertig
-        </ThemedText>
+        </Txt>
       </Pressable>
     </View>
   ) : null;
+
+  const cardList = (
+    <CardList
+      isEditing={isEditing}
+      onEnterEditMode={enterEditMode}
+      onOpenGallery={openGallery}
+      onDragStateChange={setIsDragging}
+    />
+  );
 
   return (
     <DashboardCardsProvider>
@@ -94,33 +105,29 @@ export function DashboardScreen() {
           trailing: editChromeTrailing,
         }}
         backgroundGradient={hubGradient}>
-        {/* Scrollbare Dashboard-Kartenliste mit Pull-to-Refresh & Drag-and-Drop.
-        Clipping bleibt nur waehrend eines aktiven Drags deaktiviert, damit die
-        gezogene Karte nicht abgeschnitten wird — ansonsten schiebt sich der
-        Inhalt beim Overscroll sonst ueber die Safe Area bzw. Nav-Buttons. */}
-        <ScrollView
-          testID="dashboard-scroll-view"
-          className="flex-1"
-          style={{ overflow: isDragging ? 'visible' : 'hidden' }}
-          scrollEnabled={!isDragging}
-          contentContainerStyle={{ paddingTop: 8, paddingBottom: bottomPadding }}
-          showsVerticalScrollIndicator={false}
-          refreshControl={
-            <RefreshControl
-              testID="dashboard-refresh-control"
-              refreshing={refreshing}
-              onRefresh={handleRefresh}
-              tintColor={theme.accent}
-            />
-          }>
-          {/* Dynamische Widgets/Karten (z. B. Vorrat, Einkaufsliste, Kalorien) */}
-          <CardList
-            isEditing={isEditing}
-            onEnterEditMode={enterEditMode}
-            onOpenGallery={openGallery}
-            onDragStateChange={setIsDragging}
-          />
-        </ScrollView>
+        {isEditing ? (
+          <View className="flex-1" style={{ paddingTop: space.sm }}>
+            {cardList}
+          </View>
+        ) : (
+          <ScrollView
+            testID="dashboard-scroll-view"
+            className="flex-1"
+            style={{ overflow: isDragging ? 'visible' : 'hidden' }}
+            scrollEnabled={!isDragging}
+            contentContainerStyle={{ paddingTop: space.sm, paddingBottom: bottomPadding }}
+            showsVerticalScrollIndicator={false}
+            refreshControl={
+              <RefreshControl
+                testID="dashboard-refresh-control"
+                refreshing={refreshing}
+                onRefresh={handleRefresh}
+                tintColor={colors.basil}
+              />
+            }>
+            {cardList}
+          </ScrollView>
+        )}
 
         {/* Galerie-Bottom-Sheet zum Hinzufügen/Entfernen von Dashboard-Karten */}
         <CardGallerySheet visible={isGalleryOpen} onClose={closeGallery} />

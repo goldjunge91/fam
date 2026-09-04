@@ -18,7 +18,7 @@ import { CaptureButton } from '@/components/components_camera/CaptureButton';
 import { FullOverlay } from '@/components/components_camera/FullOverlay';
 import { IconButton } from '@/components/components_camera/IconButton';
 import { Row } from '@/components/components_camera/Row';
-import { ThemedText } from '@/components/theme/themed-text';
+import { Txt } from '@/constants/ui';
 import { PermissionsScreen } from '@/features/experimentalscreens/PermissionsScreen';
 import { PhotoScreen } from '@/features/experimentalscreens/PhotoScreen';
 import { VideoScreen } from '@/features/experimentalscreens/VideoScreen';
@@ -129,7 +129,7 @@ export function CameraScreen() {
   if (device == null) {
     return (
       <View style={[styles.container, styles.center]}>
-        <ThemedText type="body">Kein Kamera-Gerät gefunden.</ThemedText>
+        <Txt variant="body" tone="inverse">Kein Kamera-Gerät gefunden.</Txt>
       </View>
     );
   }

@@ -2,9 +2,9 @@ import { router } from 'expo-router';
 import { useState } from 'react';
 import { KeyboardAvoidingView, Platform, View } from 'react-native';
 import { Screen } from '@/components/layout/screen';
-import { ThemedText } from '@/components/theme/themed-text';
 import { Button } from '@/components/ui/buttons';
 import { Card } from '@/components/ui/card';
+import { Txt } from '@/constants/ui';
 import { AuthProviderOptions } from '@/features/auth/components/auth-provider-options';
 import { EmailVerificationPanel } from '@/features/auth/components/email-verification-panel';
 import { type PendingSignUp, SignUpForm } from '@/features/auth/forms/sign-up-form';
@@ -45,10 +45,10 @@ export function SignUpScreen() {
             <AuthProviderOptions mode="sign_up" />
 
             {/* Datenschutz- & Haushalts-Hinweis */}
-            <ThemedText type="smallMuted">
+            <Txt variant="body" tone="secondary">
               Vorrat und Einkaufsliste teilst du später mit deinem Haushalt. Kalorien, Gewicht und
               Ziele bleiben privat.
-            </ThemedText>
+            </Txt>
           </View>
         </Card>
 

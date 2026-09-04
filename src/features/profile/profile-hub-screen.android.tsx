@@ -3,15 +3,15 @@ import { router } from 'expo-router';
 import { Pressable, ScrollView, View } from 'react-native';
 
 import { Screen } from '@/components/layout/screen';
-import { ThemedText } from '@/components/theme/themed-text';
+import { useTheme } from '@/components/theme/ThemeProvider';
+import { Txt } from '@/constants/ui';
 import { useSession } from '@/features/auth/session-provider';
 import { useProfile } from '@/features/profile/api';
 import { SettingsGroup } from '@/features/settings/settings-menu';
-import { useTheme } from '@/hooks/use-theme';
 import { getInitials } from '@/lib/initials';
 
 export function ProfileHubScreen() {
-  const theme = useTheme();
+  const { colors } = useTheme();
   const { session } = useSession();
   const userId = session?.user.id;
   const { data: profile } = useProfile(userId);
@@ -29,10 +29,10 @@ export function ProfileHubScreen() {
       <ScrollView contentContainerClassName="screen-scroll" showsVerticalScrollIndicator={false}>
         {/* Großer Profil-Header (Avatar, Display-Name, E-Mail) */}
         <View
-          style={{ backgroundColor: theme.backgroundElement, borderColor: theme.border }}
+          style={{ backgroundColor: colors.surface, borderColor: colors.border }}
           className="p-five rounded-3xl border items-center gap-three">
           <View
-            style={{ backgroundColor: theme.accent }}
+            style={{ backgroundColor: colors.basil }}
             className="w-24 h-24 rounded-full overflow-hidden items-center justify-center border-2 border-border shadow-sm">
             {avatarUrl ? (
               <Image
@@ -42,19 +42,19 @@ export function ProfileHubScreen() {
                 contentFit="cover"
               />
             ) : (
-              <ThemedText type="title" themeColor="onAccent" className="text-3xl font-bold">
+              <Txt variant="title" tone="inverse" weight="700">
                 {initials}
-              </ThemedText>
+              </Txt>
             )}
           </View>
 
           <View className="items-center">
-            <ThemedText type="title" className="text-xl font-bold">
+            <Txt variant="body" weight="700" style={{ fontSize: 20, lineHeight: 26 }}>
               {displayName}
-            </ThemedText>
-            <ThemedText type="small" themeColor="textSecondary" className="mt-half">
+            </Txt>
+            <Txt variant="body" tone="secondary" className="mt-half">
               {email}
-            </ThemedText>
+            </Txt>
           </View>
         </View>
 
@@ -66,26 +66,26 @@ export function ProfileHubScreen() {
               onPress={() => router.push('/profile/edit')}
               accessibilityRole="button"
               accessibilityLabel="Profil und Account bearbeiten"
-              style={{ backgroundColor: theme.backgroundElement, borderColor: theme.border }}
+              style={{ backgroundColor: colors.surface, borderColor: colors.border }}
               className="p-four rounded-2xl border flex-row items-center justify-between">
               <View className="flex-row items-center gap-three flex-1 mr-two">
                 <View
-                  style={{ backgroundColor: theme.background }}
+                  style={{ backgroundColor: colors.bg, borderColor: colors.border }}
                   className="w-12 h-12 rounded-xl border border-border items-center justify-center">
-                  <ThemedText type="title">👤</ThemedText>
+                  <Txt variant="title">👤</Txt>
                 </View>
                 <View className="flex-1">
-                  <ThemedText type="smallBold" className="text-base">
+                  <Txt variant="body" weight="700" style={{ fontSize: 16 }}>
                     Profil & Account-Daten
-                  </ThemedText>
-                  <ThemedText type="captionCompact" themeColor="textSecondary">
+                  </Txt>
+                  <Txt variant="caption" tone="secondary">
                     Profilbild, Name, E-Mail und Passwort
-                  </ThemedText>
+                  </Txt>
                 </View>
               </View>
-              <ThemedText type="bodyLarge" themeColor="textSecondary">
+              <Txt variant="body" tone="secondary" style={{ fontSize: 18 }}>
                 ›
-              </ThemedText>
+              </Txt>
             </Pressable>
 
             {/* 2. Mein Tracking (Methode, Tagesbedarf, Vitalwerte & Rhythmus) */}
@@ -93,26 +93,26 @@ export function ProfileHubScreen() {
               onPress={() => router.push('/profile/tracking')}
               accessibilityRole="button"
               accessibilityLabel="Mein Tracking öffnen"
-              style={{ backgroundColor: theme.backgroundElement, borderColor: theme.border }}
+              style={{ backgroundColor: colors.surface, borderColor: colors.border }}
               className="p-four rounded-2xl border flex-row items-center justify-between">
               <View className="flex-row items-center gap-three flex-1 mr-two">
                 <View
-                  style={{ backgroundColor: theme.background }}
+                  style={{ backgroundColor: colors.bg, borderColor: colors.border }}
                   className="w-12 h-12 rounded-xl border border-border items-center justify-center">
-                  <ThemedText type="title">🎯</ThemedText>
+                  <Txt variant="title">🎯</Txt>
                 </View>
                 <View className="flex-1">
-                  <ThemedText type="smallBold" className="text-base">
+                  <Txt variant="body" weight="700" style={{ fontSize: 16 }}>
                     Mein Tracking
-                  </ThemedText>
-                  <ThemedText type="captionCompact" themeColor="textSecondary">
+                  </Txt>
+                  <Txt variant="caption" tone="secondary">
                     Methode, Tagesbedarf, Vitalwerte & Rhythmus
-                  </ThemedText>
+                  </Txt>
                 </View>
               </View>
-              <ThemedText type="bodyLarge" themeColor="textSecondary">
+              <Txt variant="body" tone="secondary" style={{ fontSize: 18 }}>
                 ›
-              </ThemedText>
+              </Txt>
             </Pressable>
 
             {/* 3. Familie & Haushalt */}
@@ -120,26 +120,26 @@ export function ProfileHubScreen() {
               onPress={() => router.push('/household/members')}
               accessibilityRole="button"
               accessibilityLabel="Haushalt verwalten"
-              style={{ backgroundColor: theme.backgroundElement, borderColor: theme.border }}
+              style={{ backgroundColor: colors.surface, borderColor: colors.border }}
               className="p-four rounded-2xl border flex-row items-center justify-between">
               <View className="flex-row items-center gap-three flex-1 mr-two">
                 <View
-                  style={{ backgroundColor: theme.background }}
+                  style={{ backgroundColor: colors.bg, borderColor: colors.border }}
                   className="w-12 h-12 rounded-xl border border-border items-center justify-center">
-                  <ThemedText type="title">🏠</ThemedText>
+                  <Txt variant="title">🏠</Txt>
                 </View>
                 <View className="flex-1">
-                  <ThemedText type="smallBold" className="text-base">
+                  <Txt variant="body" weight="700" style={{ fontSize: 16 }}>
                     Familie
-                  </ThemedText>
-                  <ThemedText type="captionCompact" themeColor="textSecondary">
+                  </Txt>
+                  <Txt variant="caption" tone="secondary">
                     Haushalt verwalten & Mitglieder
-                  </ThemedText>
+                  </Txt>
                 </View>
               </View>
-              <ThemedText type="bodyLarge" themeColor="textSecondary">
+              <Txt variant="body" tone="secondary" style={{ fontSize: 18 }}>
                 ›
-              </ThemedText>
+              </Txt>
             </Pressable>
           </View>
         </SettingsGroup>

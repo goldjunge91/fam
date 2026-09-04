@@ -3,9 +3,9 @@ import { router } from 'expo-router';
 import { useState } from 'react';
 import { Alert, View } from 'react-native';
 import { Screen } from '@/components/layout/screen';
-import { ThemedText } from '@/components/theme/themed-text';
 import { Button } from '@/components/ui/buttons';
 import { Card } from '@/components/ui/card';
+import { Txt } from '@/constants/ui';
 import { signOutAndClearLocalData } from '@/features/auth/sign-out';
 import { getSupabase } from '@/lib/supabase';
 
@@ -76,12 +76,12 @@ export function DeleteAccountScreen() {
       backStyle="icon">
       {/* Warnhinweis-Karte zu den Auswirkungen der Account-Löschung */}
       <Card>
-        <ThemedText type="small" themeColor="textSecondary">
+        <Txt variant="body" tone="secondary" weight="500">
           Löscht deinen Account und alle privaten Daten dauerhaft — Profil, Ernährungstagebuch,
           Gewichtsverlauf und Ziele. Geteilte Haushaltsdaten (z. B. der Kühlschrank-Bestand) bleiben
           für verbleibende Haushaltsmitglieder erhalten. Bist du irgendwo der letzte Administrator
           mit weiteren Mitgliedern, musst du das vorher in den Haushalts-Einstellungen auflösen.
-        </ThemedText>
+        </Txt>
       </Card>
       {/* Gefahren-Aktionsbutton zum Einleiten der Kontolöschung */}
       <View className="mt-four">

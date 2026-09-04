@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { Alert, View } from 'react-native';
 import { Screen } from '@/components/layout/screen';
-import { ThemedText } from '@/components/theme/themed-text';
 import { Button } from '@/components/ui/buttons';
 import { Card } from '@/components/ui/card';
+import { Txt } from '@/constants/ui';
 import { showAdsPrivacyOptions } from '@/features/ads';
 
 type Section = {
@@ -108,18 +108,18 @@ export function PrivacyScreen() {
           <Card key={section.title}>
             {/* Kein separates marginBottom mehr: card-fam liefert bereits
                 gap-two zwischen Titel und Text (Card-Komponente). */}
-            <ThemedText type="smallBold">{section.title}</ThemedText>
-            <ThemedText type="small" themeColor="textSecondary">
+            <Txt variant="body" weight="700">{section.title}</Txt>
+            <Txt variant="body" tone="secondary">
               {section.body}
-            </ThemedText>
+            </Txt>
           </Card>
         ))}
         <Card>
-          <ThemedText type="smallBold">Werbe-Einstellungen</ThemedText>
-          <ThemedText type="small" themeColor="textSecondary">
+          <Txt variant="body" weight="700">Werbe-Einstellungen</Txt>
+          <Txt variant="body" tone="secondary">
             Verwalte die Einwilligung für personalisierte Werbung und die damit verbundenen
             Anbieter.
-          </ThemedText>
+          </Txt>
           <Button
             label="Werbe-Einstellungen öffnen"
             variant="secondary"

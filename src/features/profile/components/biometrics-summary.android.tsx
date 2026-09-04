@@ -1,7 +1,6 @@
 import { Pressable, View } from 'react-native';
 
-import { ThemedText } from '@/components/theme/themed-text';
-import { ThemedView } from '@/components/theme/themed-view';
+import { Surface, Txt } from '@/constants/ui';
 import {
   ACTIVITY_OPTIONS,
   formatBirthDate,
@@ -34,63 +33,75 @@ export function BiometricsSummary({
   return (
     <View className="gap-two">
       <View className="profile-section-header">
-        <ThemedText type="smallBold">Körper &amp; Aktivität</ThemedText>
+        <Txt variant="body" weight="700">
+          Körper &amp; Aktivität
+        </Txt>
         <Pressable
           onPress={onPress}
           role="button"
           aria-label={`Körper & Aktivität bearbeiten. ${accessibleSummary}`}
           className="profile-section-edit">
-          <ThemedText type="smallBold" themeColor="accent">
+          <Txt variant="body" tone="primary" weight="700">
             Bearbeiten
-          </ThemedText>
+          </Txt>
         </Pressable>
       </View>
 
-      <ThemedView type="backgroundElement" className="profile-biometrics-summary">
+      <Surface tone="surface" className="profile-biometrics-summary">
         <View className="profile-biometrics-weight">
           <View className="gap-half">
-            <ThemedText type="smallMuted">Aktuelles Gewicht</ThemedText>
-            <ThemedText type="headingSmall">{weight}</ThemedText>
+            <Txt variant="body" tone="secondary">
+              Aktuelles Gewicht
+            </Txt>
+            <Txt variant="heading">{weight}</Txt>
           </View>
-          <ThemedText type="captionCompact" themeColor="textSecondary">
+          <Txt variant="caption" tone="secondary">
             Neuester Eintrag
-          </ThemedText>
+          </Txt>
         </View>
 
         <View className="profile-biometrics-facts-row profile-biometrics-facts-row-bordered">
           <View className="profile-biometrics-fact profile-biometrics-fact-bordered">
-            <ThemedText type="captionCompact" themeColor="textSecondary">
+            <Txt variant="caption" tone="secondary">
               Größe
-            </ThemedText>
-            <ThemedText type="smallBold">{height}</ThemedText>
+            </Txt>
+            <Txt variant="body" weight="700">
+              {height}
+            </Txt>
           </View>
           <View className="profile-biometrics-fact">
-            <ThemedText type="captionCompact" themeColor="textSecondary">
+            <Txt variant="caption" tone="secondary">
               Geburtsdatum
-            </ThemedText>
-            <ThemedText type="smallBold">{birthDate}</ThemedText>
+            </Txt>
+            <Txt variant="body" weight="700">
+              {birthDate}
+            </Txt>
           </View>
         </View>
 
         <View className="profile-biometrics-facts-row">
           <View className="profile-biometrics-fact profile-biometrics-fact-bordered">
-            <ThemedText type="captionCompact" themeColor="textSecondary">
+            <Txt variant="caption" tone="secondary">
               Berechnungsbasis
-            </ThemedText>
-            <ThemedText type="smallBold">{sex}</ThemedText>
+            </Txt>
+            <Txt variant="body" weight="700">
+              {sex}
+            </Txt>
           </View>
           <View className="profile-biometrics-fact">
-            <ThemedText type="captionCompact" themeColor="textSecondary">
+            <Txt variant="caption" tone="secondary">
               Aktivität
-            </ThemedText>
-            <ThemedText type="smallBold">{activity}</ThemedText>
+            </Txt>
+            <Txt variant="body" weight="700">
+              {activity}
+            </Txt>
           </View>
         </View>
-      </ThemedView>
+      </Surface>
 
-      <ThemedText type="captionCompact" themeColor="textSecondary" className="px-one">
+      <Txt variant="caption" tone="secondary" className="px-one">
         Privat · im Verlauf gespeichert
-      </ThemedText>
+      </Txt>
     </View>
   );
 }

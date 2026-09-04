@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Pressable, View } from 'react-native';
 
-import { ThemedText } from '@/components/theme/themed-text';
+import { Txt } from '@/constants/ui';
 
 export type InlineSelectOption = {
   value: string;
@@ -32,13 +32,13 @@ export function InlineSelect({ value, options, onChange, accessibilityLabel }: I
         accessibilityLabel={accessibilityLabel}
         accessibilityState={{ expanded: open }}
         className={`inline-select-btn ${open ? 'inline-select-btn-open' : ''}`}>
-        <ThemedText type="small" numberOfLines={1} className="flex-1 font-bold">
+        <Txt variant="body" weight="700" numberOfLines={1} className="flex-1">
           {selected?.icon ? `${selected.icon} ` : ''}
           {selected?.label ?? value}
-        </ThemedText>
-        <ThemedText themeColor="textSecondary" className="text-[10px]">
+        </Txt>
+        <Txt variant="body" tone="secondary" style={{ fontSize: 10, lineHeight: 14 }}>
           {open ? '︿' : '⌄'}
-        </ThemedText>
+        </Txt>
       </Pressable>
 
       {open ? (
@@ -58,18 +58,19 @@ export function InlineSelect({ value, options, onChange, accessibilityLabel }: I
                 className={`inline-select-option ${active ? 'inline-select-option-active' : ''} ${
                   option.disabled ? 'opacity-40' : ''
                 }`}>
-                <ThemedText
-                  type="small"
-                  themeColor={active ? 'onAccent' : 'text'}
+                <Txt
+                  variant="body"
+                  weight="600"
+                  tone={active ? 'onAccent' : 'primary'}
                   numberOfLines={1}
-                  className="font-semibold flex-1">
+                  className="flex-1">
                   {option.icon ? `${option.icon} ` : ''}
                   {option.label}
-                </ThemedText>
+                </Txt>
                 {option.disabled && option.disabledHint ? (
-                  <ThemedText type="caption" themeColor={active ? 'onAccent' : 'textSecondary'}>
+                  <Txt variant="caption" tone={active ? 'onAccent' : 'secondary'}>
                     {option.disabledHint}
-                  </ThemedText>
+                  </Txt>
                 ) : null}
               </Pressable>
             );

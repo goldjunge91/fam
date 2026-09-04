@@ -2,8 +2,8 @@ import { useEffect, useState } from 'react';
 import { View } from 'react-native';
 import { TextField } from '@/components/forms/text-field';
 import { Screen } from '@/components/layout/screen';
-import { ThemedText } from '@/components/theme/themed-text';
 import { Button } from '@/components/ui/buttons';
+import { Txt } from '@/constants/ui';
 import { DEFAULT_PORTIONS_PER_PERSON } from '@/features/meal-planner/servings';
 import { usePortionsPerPerson, useSetPortionsPerPerson } from '@/features/meal-planner/settings';
 
@@ -34,10 +34,10 @@ export function MealPlannerSettingsScreen() {
     <Screen title="Portionen pro Person" back={{ label: 'Einstellungen' }} backStyle="icon">
       {/* Portions-Faktor Formular (Erklärung, Eingabefeld und Speichern-Aktion) */}
       <View className="gap-three">
-        <ThemedText themeColor="textSecondary">
+        <Txt variant="body" tone="secondary">
           Im Personen-Modus des Wochenplans wird die Personenzahl mit diesem Faktor in Portionen
           umgerechnet (Standard: {DEFAULT_PORTIONS_PER_PERSON}).
-        </ThemedText>
+        </Txt>
 
         {isLoading ? null : (
           <TextField
@@ -54,9 +54,9 @@ export function MealPlannerSettingsScreen() {
 
         <Button label="Speichern" onPress={handleSave} disabled={!isValid} />
         {saved ? (
-          <ThemedText type="small" themeColor="accent">
+          <Txt variant="body" tone="success">
             Gespeichert.
-          </ThemedText>
+          </Txt>
         ) : null}
       </View>
     </Screen>

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Pressable, View } from 'react-native';
-import { ThemedText } from '@/components/theme/themed-text';
+import { Txt } from '@/constants/ui';
 import { calculateInjectionDue } from '@/features/glp1/domain/injection-due';
 import { toMedicationUnit } from '@/features/glp1/domain/medication-options';
 import {
@@ -60,17 +60,17 @@ export function InjectionPlanSection({ userId }: InjectionPlanSectionProps) {
 
   if (isLoading) {
     return (
-      <ThemedText type="caption" themeColor="textSecondary">
+      <Txt variant="caption" tone="secondary">
         Injektionsplan wird geladen...
-      </ThemedText>
+      </Txt>
     );
   }
 
   if (isError) {
     return (
-      <ThemedText type="caption" themeColor="danger">
+      <Txt variant="caption" tone="danger">
         Injektionsplan konnte nicht geladen werden.
-      </ThemedText>
+      </Txt>
     );
   }
 
@@ -83,7 +83,9 @@ export function InjectionPlanSection({ userId }: InjectionPlanSectionProps) {
         accessibilityLabel="Injektionsplan anlegen"
         onPress={() => setShowForm(true)}
         className="py-two px-three rounded-xl bg-card border border-border items-center">
-        <ThemedText type="labelBold">Injektionsplan anlegen</ThemedText>
+        <Txt variant="label" weight="700">
+          Injektionsplan anlegen
+        </Txt>
       </Pressable>
     );
   }
@@ -104,14 +106,14 @@ export function InjectionPlanSection({ userId }: InjectionPlanSectionProps) {
     <View className="gap-two">
       <View className="p-three bg-surface rounded-xl border border-border gap-one">
         <View className="flex-row items-center justify-between">
-          <ThemedText type="caption" themeColor="textSecondary">
+          <Txt variant="caption" tone="secondary">
             Nächste Injektion
-          </ThemedText>
-          <ThemedText type="smallBold" themeColor={status.color}>
+          </Txt>
+          <Txt variant="body" weight="700" tone={status.color}>
             {status.label}
-          </ThemedText>
+          </Txt>
         </View>
-        <ThemedText type="smallBold">
+        <Txt variant="body" weight="700">
           {new Date(due.nextDueAt).toLocaleString('de-DE', {
             day: '2-digit',
             month: '2-digit',
@@ -119,18 +121,18 @@ export function InjectionPlanSection({ userId }: InjectionPlanSectionProps) {
             hour: '2-digit',
             minute: '2-digit',
           })}
-        </ThemedText>
-        <ThemedText type="caption" themeColor="textSecondary">
+        </Txt>
+        <Txt variant="caption" tone="secondary">
           {plan.medication_name} · {plan.dose} {plan.unit} · alle {plan.cadence_days} Tage
-        </ThemedText>
+        </Txt>
         <View className="flex-row gap-three pt-one">
           <Pressable
             accessibilityRole="button"
             accessibilityLabel="Injektionsplan bearbeiten"
             onPress={() => setShowForm((current) => !current)}>
-            <ThemedText type="caption" themeColor="accent">
+            <Txt variant="caption" tone="primary">
               Bearbeiten
-            </ThemedText>
+            </Txt>
           </Pressable>
           <Pressable
             accessibilityRole="button"
@@ -142,9 +144,9 @@ export function InjectionPlanSection({ userId }: InjectionPlanSectionProps) {
                 { onSuccess: () => setShowForm(false) },
               )
             }>
-            <ThemedText type="caption" themeColor="danger">
+            <Txt variant="caption" tone="danger">
               Entfernen
-            </ThemedText>
+            </Txt>
           </Pressable>
         </View>
       </View>

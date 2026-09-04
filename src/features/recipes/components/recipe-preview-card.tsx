@@ -3,7 +3,7 @@ import { useId } from 'react';
 import { Pressable, View } from 'react-native';
 import Svg, { Circle, Defs, LinearGradient, Rect, Stop } from 'react-native-svg';
 
-import { ThemedText } from '@/components/theme/themed-text';
+import { Txt } from '@/constants/ui';
 import { useCatalogImageUrl } from '../catalog/use-recipe-catalog';
 import { useRecipeCoverUrl } from '../data/household-recipe-images';
 
@@ -160,17 +160,24 @@ export function RecipePreviewCard({
       />
       <FadeShade height="62%" />
       <View className="card-copy-bottom">
-        <ThemedText
-          className="text-white text-[19px] leading-[22px] font-bold tracking-tight"
+        <Txt
+          variant="body"
+          tone="inverse"
+          weight="700"
+          className="tracking-tight"
+          style={{ fontSize: 19, lineHeight: 22 }}
           numberOfLines={1}>
           {title}
-        </ThemedText>
-        <ThemedText
-          type="captionCompact"
-          className="text-white/85 font-semibold mt-[3px]"
+        </Txt>
+        <Txt
+          variant="caption"
+          tone="inverse"
+          weight="600"
+          className="mt-[3px]"
+          style={{ fontSize: 11, lineHeight: 14, opacity: 0.85 }}
           numberOfLines={1}>
           {[meta.left, meta.right].filter(Boolean).join(' · ') || 'Rezept'}
-        </ThemedText>
+        </Txt>
       </View>
     </Pressable>
   );
@@ -207,20 +214,32 @@ export function RecipeHeroCard({
       />
       <View className="absolute inset-0 bg-[#261d29]/20" />
       <View className="card-copy-bottom">
-        <ThemedText className="text-white/80 text-[9px] leading-[12px] font-bold uppercase tracking-widest">
+        <Txt
+          variant="caption"
+          tone="inverse"
+          weight="700"
+          className="uppercase tracking-widest"
+          style={{ fontSize: 9, lineHeight: 12, opacity: 0.8 }}>
           {eyebrow}
-        </ThemedText>
-        <ThemedText
-          className="text-white text-[18px] leading-[21px] font-bold mt-half"
+        </Txt>
+        <Txt
+          variant="body"
+          tone="inverse"
+          weight="700"
+          className="mt-half"
+          style={{ fontSize: 18, lineHeight: 21 }}
           numberOfLines={2}>
           {title}
-        </ThemedText>
-        <ThemedText
-          type="detail"
-          className="text-white/85 text-[10px] leading-[13px] font-semibold mt-[3px]"
+        </Txt>
+        <Txt
+          variant="caption"
+          tone="inverse"
+          weight="600"
+          className="mt-[3px]"
+          style={{ fontSize: 10, lineHeight: 13, opacity: 0.85 }}
           numberOfLines={1}>
           {[meta.left, meta.right].filter(Boolean).join(' · ') || 'Entdecke dieses Rezept'}
-        </ThemedText>
+        </Txt>
       </View>
     </Pressable>
   );

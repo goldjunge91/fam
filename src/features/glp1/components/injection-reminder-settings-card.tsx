@@ -2,8 +2,8 @@ import { Host, Switch } from '@expo/ui';
 import { useEffect, useState } from 'react';
 import { View } from 'react-native';
 import { TimeWheelField } from '@/components/forms/time-wheel-field';
-import { ThemedText } from '@/components/theme/themed-text';
 import { Card } from '@/components/ui/card';
+import { Txt } from '@/constants/ui';
 import { formatDateTimeInput, parseDateTimeInput } from '@/features/glp1/domain/date-time-input';
 import { toMedicationUnit } from '@/features/glp1/domain/medication-options';
 import {
@@ -68,22 +68,22 @@ export function InjectionReminderSettingsCard({ userId }: InjectionReminderSetti
   return (
     <Card title="Injektions-Erinnerung">
       {isLoading ? (
-        <ThemedText type="caption" themeColor="textSecondary">
+        <Txt variant="caption" tone="secondary">
           Injektions-Erinnerung wird geladen...
-        </ThemedText>
+        </Txt>
       ) : isError ? (
-        <ThemedText type="caption" themeColor="danger">
+        <Txt variant="caption" tone="danger">
           Injektions-Erinnerung konnte nicht geladen werden.
-        </ThemedText>
+        </Txt>
       ) : !plan ? (
-        <ThemedText type="caption" themeColor="textSecondary">
+        <Txt variant="caption" tone="secondary">
           Lege zuerst einen Injektionsplan an, um die Erinnerung zu aktivieren.
-        </ThemedText>
+        </Txt>
       ) : (
         <View className="gap-two">
-          <ThemedText type="caption" themeColor="textSecondary">
+          <Txt variant="caption" tone="secondary">
             Erinnert dich vor dem nächsten fälligen Termin aus deinem Injektionsplan.
-          </ThemedText>
+          </Txt>
           <Host matchContents>
             <Switch
               value={plan.reminder_enabled}
@@ -99,9 +99,9 @@ export function InjectionReminderSettingsCard({ userId }: InjectionReminderSetti
               onChange={handleTimeChange}
             />
             {timeError || updateMutation.isError ? (
-              <ThemedText type="caption" themeColor="danger">
+              <Txt variant="caption" tone="danger">
                 {timeError ?? 'Die Uhrzeit konnte nicht gespeichert werden.'}
-              </ThemedText>
+              </Txt>
             ) : null}
           </View>
         </View>

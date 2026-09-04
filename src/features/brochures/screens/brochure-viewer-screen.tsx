@@ -9,17 +9,17 @@ import {
   Linking,
   Pressable,
   StyleSheet,
-  Text,
   View,
 } from 'react-native';
 import Animated, { FadeIn, FadeOut } from 'react-native-reanimated';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { withAlpha } from '@/constants/theme';
+import { withAlpha } from '@/components/theme/index';
+import { useTheme } from '@/components/theme/ThemeProvider';
+import { Txt } from '@/constants/ui';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { useAddShoppingItem } from '@/features/shopping-list/hooks/use-shopping-list-mutations';
 import { findStoreByName, useStores } from '@/features/shopping-list/hooks/use-stores';
 import { resolveCategoryForItem } from '@/features/shopping-list/preferences/api';
-import { useTheme } from '@/hooks/use-theme';
 import { debugLog } from '@/lib/debug-log';
 import { formatEuro } from '@/lib/format-currency';
 import { BrochureHotspot } from '../components/brochure-hotspot';
@@ -179,7 +179,7 @@ function ProductCropPreview({
 export default function BrochureViewerScreen({ brochureId }: { brochureId: string }) {
   const router = useRouter();
   const insets = useSafeAreaInsets();
-  const theme = useTheme();
+  const { colors } = useTheme();
   const { activeHouseholdId } = useActiveHousehold();
   const addShoppingItem = useAddShoppingItem();
   const { data: pages, isLoading } = useBrochurePages(brochureId);
@@ -212,9 +212,11 @@ export default function BrochureViewerScreen({ brochureId }: { brochureId: strin
 
   if (isLoading || !pages) {
     return (
-      <View style={[styles.loadingContainer, { backgroundColor: theme.background }]}>
-        <ActivityIndicator color={theme.accent} />
-        <Text style={{ color: theme.textSecondary }}>Prospekt wird geladen...</Text>
+      <View style={[styles.loadingContainer, { backgroundColor: colors.bg }]}>
+        <ActivityIndicator color={colors.basil} />
+        <Txt variant="body" tone="secondary">
+          Prospekt wird geladen...
+        </Txt>
       </View>
     );
   }
@@ -324,17 +326,19 @@ export default function BrochureViewerScreen({ brochureId }: { brochureId: strin
               styles.bottomSheet,
               {
                 paddingBottom: Math.max(insets.bottom, 24),
-                backgroundColor: theme.backgroundElement,
-                borderColor: theme.border,
+                backgroundColor: colors.surface,
+                borderColor: colors.border,
               },
             ]}>
-            <View style={[styles.sheetHandle, { backgroundColor: theme.border }]} />
+            <View style={[styles.sheetHandle, { backgroundColor: colors.border }]} />
             <Pressable
               role="button"
               aria-label="Artikeldetails schließen"
-              style={[styles.sheetClose, { backgroundColor: theme.background }]}
+              style={[styles.sheetClose, { backgroundColor: colors.bg }]}
               onPress={closeProductSheet}>
-              <Text style={[styles.sheetCloseText, { color: theme.text }]}>×</Text>
+              <Txt variant="body" style={[styles.sheetCloseText, { color: colors.text }]}>
+                ×
+              </Txt>
             </Pressable>
 
             {activePageImage && activePageImage.size.width > 0 ? (
@@ -347,33 +351,33 @@ export default function BrochureViewerScreen({ brochureId }: { brochureId: strin
               <Image source={{ uri: activeHotspot.imageUrl }} style={styles.productPreviewImage} />
             ) : null}
 
-            <View style={[styles.productCard, { backgroundColor: theme.accent }]}>
+            <View style={[styles.productCard, { backgroundColor: colors.basil }]}>
               <View style={styles.productCopy}>
-                <Text style={[styles.productTitle, { color: theme.onAccent }]} numberOfLines={2}>
+                <Txt variant="heading" tone="inverse" style={styles.productTitle} numberOfLines={2}>
                   {activeHotspot.title}
-                </Text>
-                <Text style={[styles.storeTitle, { color: theme.onAccent }]}>
+                </Txt>
+                <Txt variant="body" tone="inverse" style={styles.storeTitle}>
                   {pages?.[0]?.storeName ?? 'Supermarkt'}
-                </Text>
+                </Txt>
               </View>
               {hotspotPrice(activeHotspot) ? (
-                <Text style={[styles.productPrice, { color: theme.onAccent }]}>
+                <Txt variant="title" tone="inverse" style={styles.productPrice}>
                   {hotspotPrice(activeHotspot)}
-                </Text>
+                </Txt>
               ) : null}
             </View>
 
             {activeHotspot.description ? (
-              <Text style={[styles.productDescription, { color: theme.textSecondary }]}>
+              <Txt variant="body" tone="secondary" style={styles.productDescription}>
                 {activeHotspot.description}
-              </Text>
+              </Txt>
             ) : null}
 
             <View style={styles.actionRow}>
               <View
                 style={[
                   styles.stepper,
-                  { borderColor: theme.border, backgroundColor: theme.background },
+                  { borderColor: colors.border, backgroundColor: colors.bg },
                 ]}>
                 <Pressable
                   role="button"
@@ -381,21 +385,26 @@ export default function BrochureViewerScreen({ brochureId }: { brochureId: strin
                   disabled={quantity === 1}
                   style={styles.stepperButton}
                   onPress={() => setQuantity((current) => Math.max(1, current - 1))}>
-                  <Text
+                  <Txt
+                    variant="body"
                     style={{
-                      color: quantity === 1 ? theme.textSecondary : theme.text,
+                      color: quantity === 1 ? colors.textMuted : colors.text,
                       fontSize: 20,
                     }}>
                     −
-                  </Text>
+                  </Txt>
                 </Pressable>
-                <Text style={[styles.quantity, { color: theme.text }]}>{quantity}×</Text>
+                <Txt variant="body" style={[styles.quantity, { color: colors.text }]}>
+                  {quantity}×
+                </Txt>
                 <Pressable
                   role="button"
                   aria-label="Menge erhöhen"
                   style={styles.stepperButton}
                   onPress={() => setQuantity((current) => current + 1)}>
-                  <Text style={{ color: theme.text, fontSize: 20 }}>+</Text>
+                  <Txt variant="body" style={{ color: colors.text, fontSize: 20 }}>
+                    +
+                  </Txt>
                 </Pressable>
               </View>
               <Pressable
@@ -405,17 +414,17 @@ export default function BrochureViewerScreen({ brochureId }: { brochureId: strin
                 style={[
                   styles.addButton,
                   {
-                    backgroundColor: theme.accent,
+                    backgroundColor: colors.basil,
                     opacity: addShoppingItem.isPending ? 0.6 : 1,
                   },
                 ]}
                 onPress={addActiveHotspot}>
                 {addShoppingItem.isPending ? (
-                  <ActivityIndicator color={theme.onAccent} />
+                  <ActivityIndicator color={colors.inverse} />
                 ) : (
-                  <Text style={[styles.addButtonText, { color: theme.onAccent }]}>
+                  <Txt variant="body" tone="inverse" weight="700" style={styles.addButtonText}>
                     Auf die Liste
-                  </Text>
+                  </Txt>
                 )}
               </Pressable>
             </View>
@@ -431,21 +440,25 @@ export default function BrochureViewerScreen({ brochureId }: { brochureId: strin
           styles.hotspotToggle,
           {
             top: Math.max(insets.top, 16),
-            backgroundColor: hotspotsVisible ? theme.accent : withAlpha(theme.text, 0.7),
+            backgroundColor: hotspotsVisible ? colors.basil : withAlpha(colors.text, 0.7),
           },
         ]}
         onPress={() => setHotspotsVisible((visible) => !visible)}>
-        <Text style={[styles.headerButtonText, { color: theme.onAccent }]}>Artikel</Text>
+        <Txt variant="body" tone="inverse" weight="700" style={styles.headerButtonText}>
+          Artikel
+        </Txt>
       </Pressable>
       <Pressable
         role="button"
         aria-label="Prospekt schließen"
         style={[
           styles.closeButton,
-          { top: Math.max(insets.top, 16), backgroundColor: withAlpha(theme.text, 0.7) },
+          { top: Math.max(insets.top, 16), backgroundColor: withAlpha(colors.text, 0.7) },
         ]}
         onPress={() => router.back()}>
-        <Text style={[styles.headerButtonText, { color: theme.onAccent }]}>✕</Text>
+        <Txt variant="body" tone="inverse" weight="700" style={styles.headerButtonText}>
+          ✕
+        </Txt>
       </Pressable>
     </View>
   );

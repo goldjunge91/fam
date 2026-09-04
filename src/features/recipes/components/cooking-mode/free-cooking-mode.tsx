@@ -1,13 +1,15 @@
 import { router } from 'expo-router';
 import { Pressable, ScrollView, View } from 'react-native';
 
-import { ThemedText } from '@/components/theme/themed-text';
+import { useTheme } from '@/components/theme/ThemeProvider';
+import { Txt } from '@/constants/ui';
 import { flattenRecipeItems } from '../../domain/ingredient-mentions';
 import type { RecipeDetail } from '../../hooks/use-recipes';
 import { StepMentionText } from '../step-mention-text';
 import { CookingModeShell } from './cooking-mode-shell';
 
 export function FreeCookingMode({ data }: { data: RecipeDetail }) {
+  const { colors } = useTheme();
   const { recipe, steps } = data;
   const mentionIngredients = flattenRecipeItems(data.items, data.productsById);
 
@@ -16,33 +18,36 @@ export function FreeCookingMode({ data }: { data: RecipeDetail }) {
       <ScrollView
         contentContainerClassName="flex-grow px-four pb-four gap-[14px]"
         showsVerticalScrollIndicator={false}>
-        <ThemedText type="headingSmall" className="pt-[6px]">
+        <Txt variant="heading" className="pt-[6px]">
           {recipe.title}
-        </ThemedText>
+        </Txt>
 
         <IngredientGroups data={data} />
 
         {recipe.instructions ? (
-          <ThemedText
-            type="detail"
-            themeColor="textSecondary"
-            className="pt-three text-[12px] leading-[18px] font-medium">
+          <Txt
+            variant="body"
+            tone="secondary"
+            className="pt-three"
+            style={{ fontSize: 12, lineHeight: 18 }}>
             {recipe.instructions}
-          </ThemedText>
+          </Txt>
         ) : null}
 
         {steps.length > 0 ? (
           <View className="gap-three">
             {steps.map((step) => (
               <View key={step.id} className="flex-row gap-two">
-                <ThemedText type="captionCompact" themeColor="accent" className="font-bold">
+                <Txt variant="caption" tone="primary" weight="700">
                   {step.position + 1}.
-                </ThemedText>
+                </Txt>
                 <StepMentionText
                   text={step.text}
                   ingredients={mentionIngredients}
-                  type="detail"
-                  className="flex-1 text-[11px] leading-[18px] font-medium"
+                  variant="caption"
+                  className="flex-1"
+                  weight="500"
+                  style={{ fontSize: 11, lineHeight: 18 }}
                 />
               </View>
             ))}
@@ -54,10 +59,11 @@ export function FreeCookingMode({ data }: { data: RecipeDetail }) {
             router.push({ pathname: '/settings/plus-and-ai', params: { tier: 'plus' } })
           }
           role="button"
-          className="min-h-[48px] rounded-card items-center justify-center px-three bg-accent active:opacity-75 mt-auto">
-          <ThemedText type="captionCompact" className="text-white font-bold text-center">
+          className="min-h-[48px] rounded-card items-center justify-center px-three active:opacity-75 mt-auto"
+          style={{ backgroundColor: colors.basil }}>
+          <Txt variant="caption" tone="inverse" weight="700" center>
             Geführten Kochmodus freischalten
-          </ThemedText>
+          </Txt>
         </Pressable>
       </ScrollView>
     </CookingModeShell>
@@ -69,6 +75,7 @@ function round(value: number): number {
 }
 
 function IngredientGroups({ data }: { data: RecipeDetail }) {
+  const { colors } = useTheme();
   const groupsWithServingWeight = data.components.filter(
     (component) => component.serving_grams !== null,
   );
@@ -84,19 +91,19 @@ function IngredientGroups({ data }: { data: RecipeDetail }) {
   }
 
   return (
-    <View className="rounded-sheet p-[13px] gap-[18px] bg-background-element/85">
+    <View className="rounded-sheet p-[13px] gap-[18px]" style={{ backgroundColor: colors.surface }}>
       {groups.map((component) => {
         const items = data.items.filter((item) => item.component_id === component.id);
 
         return (
           <View key={component.id}>
             <View className="min-h-[40px] row-between gap-[10px] border-b border-border">
-              <ThemedText type="headingSmall" className="flex-1">
+              <Txt variant="heading" className="flex-1">
                 {component.name}
-              </ThemedText>
-              <ThemedText type="caption" themeColor="textSecondary">
+              </Txt>
+              <Txt variant="caption" tone="secondary">
                 {round(component.serving_grams ?? 0)} g zubereitet
-              </ThemedText>
+              </Txt>
             </View>
             {items.map((item, index) => {
               const product = item.product_id ? data.productsById.get(item.product_id) : undefined;
@@ -114,12 +121,12 @@ function IngredientGroups({ data }: { data: RecipeDetail }) {
                   className={`min-h-[44px] row-between gap-three ${
                     index < items.length - 1 ? 'border-b border-border' : ''
                   }`}>
-                  <ThemedText type="body" className="flex-1 font-medium" numberOfLines={1}>
+                  <Txt variant="body" weight="500" className="flex-1" numberOfLines={1}>
                     {name}
-                  </ThemedText>
-                  <ThemedText type="body" themeColor="textSecondary" className="font-medium">
+                  </Txt>
+                  <Txt variant="body" tone="secondary" weight="500">
                     {round(quantity)} {unit}
-                  </ThemedText>
+                  </Txt>
                 </View>
               );
             })}

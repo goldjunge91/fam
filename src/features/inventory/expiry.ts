@@ -1,13 +1,12 @@
-import type { ThemeColor } from '@/constants/theme';
-
 export type ExpiryBucket = 'expired' | 'critical' | 'soon' | 'ok' | 'none';
+export type ExpiryThemeColor = 'textSecondary' | 'warning' | 'danger';
 
 export type ExpiryInfo = {
   bucket: ExpiryBucket;
   /** Tage bis zum MHD. Negativ = bereits abgelaufen. `null`, wenn kein MHD gesetzt ist. */
   daysLeft: number | null;
   label: string;
-  themeColor: ThemeColor;
+  themeColor: ExpiryThemeColor;
 };
 
 const MS_PER_DAY = 86_400_000;

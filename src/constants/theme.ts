@@ -24,18 +24,9 @@ export const Colors = {
     premiumOnSurface: '#FFFFFF',
     premiumActionBackground: '#F8F1ED',
     premiumActionText: '#604765',
-    // Ampel fuer Mindesthaltbarkeitsdaten (#71) und Zielerreichung.
-    // Farbe ist nie der einzige Traeger der Information — daneben steht immer
-    // ein Text oder ein Symbol, sonst ist die Anzeige fuer Farbfehlsichtige wertlos.
     success: '#78906F', // fam/color/status-success
     warning: '#C69059', // fam/color/status-warning
     danger: '#C65F50', // fam/color/status-danger (Figma: kritische MHD-Zeilen)
-    // Schatten-Grundton, konsolidiert aus dem app-weiten Audit (#122,
-    // docs/design-system/gradient-background-audit.md) statt der bisher pro
-    // Stelle frei erfundenen Hex/RGBA-Literale. Opazitaet, Blur und Offset
-    // bleiben weiterhin Sache des jeweiligen `shadowOpacity`/`boxShadow` —
-    // hier steht nur der Farbton. Noch identisch fuer Light/Dark, da keine
-    // der bisherigen Stellen zwischen den Modi unterschieden hat.
     shadowCard: '#594059', // helleres Mauve, fuer Karten auf dem Screen-Hintergrund
     shadowSheet: '#2A1F2C', // dunkles Mauve/Violett, fuer Sheets/Overlays/Dropdowns
   },

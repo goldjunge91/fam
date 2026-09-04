@@ -1,8 +1,8 @@
 import { router } from 'expo-router';
 import { lazy, Suspense, useEffect } from 'react';
 import { StyleSheet, View } from 'react-native';
-import { ThemedText } from '@/components/theme/themed-text';
 import { Button } from '@/components/ui/buttons';
+import { Txt } from '@/constants/ui';
 import { VISION_CAMERA_LAB_ENABLED } from '@/features/experimentalscreens/vision-camera-lab';
 import { env } from '@/lib/env';
 import { useFeatureFlag } from '@/lib/posthog';
@@ -31,12 +31,12 @@ export default function CameraLabRoute() {
   if (!isAllowed) {
     return (
       <View style={styles.lockedContainer}>
-        <ThemedText type="title" className="mb-2 text-center">
+        <Txt variant="title" center className="mb-2">
           VisionCamera Labor gesperrt
-        </ThemedText>
-        <ThemedText type="body" themeColor="textSecondary" className="mb-6 text-center px-6">
+        </Txt>
+        <Txt variant="body" tone="secondary" center className="mb-6 px-6">
           Dieses experimentelle Labor ist in diesem Build deaktiviert.
-        </ThemedText>
+        </Txt>
         <Button label="Zurück" variant="secondary" onPress={() => router.back()} />
       </View>
     );

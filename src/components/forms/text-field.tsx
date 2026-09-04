@@ -1,8 +1,8 @@
 import type { ReactNode } from 'react';
 import { TextInput, type TextInputProps, View } from 'react-native';
 
-import { ThemedText } from '@/components/theme/themed-text';
-import { useTheme } from '@/hooks/use-theme';
+import { useTheme } from '@/components/theme/ThemeProvider';
+import { Txt } from '@/constants/ui';
 
 type TextFieldProps = TextInputProps & {
   label?: string;
@@ -23,23 +23,20 @@ export function TextField({
   className = '',
   ...rest
 }: TextFieldProps) {
-  const theme = useTheme();
+  const { colors } = useTheme();
 
   return (
     <View className="gap-one">
       {label ? (
-        <ThemedText
-          type="small"
-          themeColor="textSecondary"
-          className={size === 'large' ? 'text-body' : ''}>
+        <Txt variant="body" tone="secondary" className={size === 'large' ? 'text-body' : ''}>
           {label}
-        </ThemedText>
+        </Txt>
       ) : null}
 
       <View className="relative">
         <TextInput
           {...rest}
-          placeholderTextColor={theme.textSecondary}
+          placeholderTextColor={colors.textMuted}
           // accessibilityLabel setzt das Label mit dem Feld in Beziehung; ohne das
           // liest ein Screenreader nur "Textfeld".
           accessibilityLabel={label || rest.placeholder}
@@ -59,12 +56,9 @@ export function TextField({
       </View>
 
       {error ? (
-        <ThemedText
-          type="small"
-          themeColor="danger"
-          className={size === 'large' ? 'text-body' : ''}>
+        <Txt variant="body" tone="danger" className={size === 'large' ? 'text-body' : ''}>
           {error}
-        </ThemedText>
+        </Txt>
       ) : null}
     </View>
   );

@@ -3,9 +3,10 @@ import { useEffect, useMemo, useState } from 'react';
 import { Alert, Pressable, View } from 'react-native';
 import { TextField } from '@/components/forms/text-field';
 import { Screen } from '@/components/layout/screen';
-import { ThemedText } from '@/components/theme/themed-text';
+import { useTheme } from '@/components/theme/ThemeProvider';
 import { Button } from '@/components/ui/buttons';
 import { Card } from '@/components/ui/card';
+import { Txt } from '@/constants/ui';
 import { useSession } from '@/features/auth/session-provider';
 import {
   useAddWeightEntryMutation,
@@ -58,6 +59,7 @@ function parsePercent(input: string): number {
 
 export function GoalSetupScreen() {
   const { session } = useSession();
+  const { colors } = useTheme();
   const userId = session?.user.id;
 
   const { data: profile } = useProfile(userId);
@@ -200,10 +202,10 @@ export function GoalSetupScreen() {
       backStyle="icon">
       {!hasProfileFields ? (
         <Card title="Profil vervollständigen">
-          <ThemedText themeColor="textSecondary">
+          <Txt variant="body" tone="secondary">
             Für die Berechnung fehlen noch Angaben zu Geschlecht, Geburtsdatum oder Körpergröße im
             Profil.
-          </ThemedText>
+          </Txt>
           <Button
             label="Zum Tracking & Vitalwerten"
             onPress={() => router.push('/profile/tracking')}
@@ -214,11 +216,11 @@ export function GoalSetupScreen() {
           {/* Karte mit aktuellem Kalorien- und Makroziel */}
           {currentGoal ? (
             <Card title="Aktuelles Ziel">
-              <ThemedText type="subtitle">{currentGoal.daily_kcal ?? '–'} kcal / Tag</ThemedText>
-              <ThemedText type="small" themeColor="textSecondary">
+              <Txt variant="title">{currentGoal.daily_kcal ?? '–'} kcal / Tag</Txt>
+              <Txt variant="body" tone="secondary">
                 {GOAL_LABELS[currentGoal.goal_type as GoalType] ?? currentGoal.goal_type} · seit{' '}
                 {new Date(currentGoal.valid_from).toLocaleDateString('de-DE')}
-              </ThemedText>
+              </Txt>
               {!formVisible ? (
                 <Button
                   label="Ziel anpassen"
@@ -234,16 +236,22 @@ export function GoalSetupScreen() {
             <Card title="Neues Ziel">
               <View className="gap-three">
                 {/* Zielart: Abnehmen / Halten / Zunehmen */}
-                <ThemedText type="smallBold">Ziel-Art</ThemedText>
+                <Txt variant="body" weight="700">
+                  Ziel-Art
+                </Txt>
                 <View className="gs-segmented-row">
                   {(Object.keys(GOAL_LABELS) as GoalType[]).map((type) => (
                     <Pressable
                       key={type}
                       onPress={() => setGoalType(type)}
-                      className={`gs-segment-btn ${goalType === type ? 'bg-accent' : 'bg-background-element'}`}>
-                      <ThemedText themeColor={goalType === type ? 'onAccent' : 'text'}>
+                      className="gs-segment-btn"
+                      style={{
+                        backgroundColor: goalType === type ? colors.basil : colors.surface,
+                        borderColor: goalType === type ? colors.basil : colors.border,
+                      }}>
+                      <Txt variant="body" tone={goalType === type ? 'onAccent' : 'primary'}>
                         {GOAL_LABELS[type]}
-                      </ThemedText>
+                      </Txt>
                     </Pressable>
                   ))}
                 </View>
@@ -258,18 +266,22 @@ export function GoalSetupScreen() {
                   />
                 ) : null}
 
-                <ThemedText type="smallBold" className="mt-one">
+                <Txt variant="body" weight="700" className="mt-one">
                   Makro-Verteilung
-                </ThemedText>
+                </Txt>
                 <View className="gs-segmented-row">
                   {(Object.keys(SEGMENT_LABELS) as PresetSelection[]).map((p) => (
                     <Pressable
                       key={p}
                       onPress={() => setPreset(p)}
-                      className={`gs-segment-btn ${preset === p ? 'bg-accent' : 'bg-background-element'}`}>
-                      <ThemedText themeColor={preset === p ? 'onAccent' : 'text'}>
+                      className="gs-segment-btn"
+                      style={{
+                        backgroundColor: preset === p ? colors.basil : colors.surface,
+                        borderColor: preset === p ? colors.basil : colors.border,
+                      }}>
+                      <Txt variant="body" tone={preset === p ? 'onAccent' : 'primary'}>
                         {SEGMENT_LABELS[p]}
-                      </ThemedText>
+                      </Txt>
                     </Pressable>
                   ))}
                 </View>
@@ -304,9 +316,9 @@ export function GoalSetupScreen() {
                       </View>
                     </View>
                     {!customRatioValid ? (
-                      <ThemedText type="small" themeColor="danger">
+                      <Txt variant="body" tone="danger">
                         Die Summe muss 100 % ergeben (aktuell {customPercentSum} %).
-                      </ThemedText>
+                      </Txt>
                     ) : null}
                   </View>
                 ) : null}
@@ -335,31 +347,31 @@ export function GoalSetupScreen() {
                       keyboardType="numeric"
                     />
                     {overrideErrorText ? (
-                      <ThemedText type="small" themeColor="danger">
+                      <Txt variant="body" tone="danger">
                         {overrideErrorText}
-                      </ThemedText>
+                      </Txt>
                     ) : null}
                     {preview ? (
-                      <ThemedText type="small" themeColor="textSecondary">
+                      <Txt variant="body" tone="secondary">
                         Eiweiß {preview.macros.proteinG} g · Kohlenhydrate {preview.macros.carbsG} g
                         · Fett {preview.macros.fatG} g
-                      </ThemedText>
+                      </Txt>
                     ) : null}
                     {cappedText ? (
-                      <ThemedText type="small" themeColor="warning">
+                      <Txt variant="body" tone="warning">
                         {cappedText}
-                      </ThemedText>
+                      </Txt>
                     ) : null}
                     {rateWarningText ? (
-                      <ThemedText type="small" themeColor="warning">
+                      <Txt variant="body" tone="warning">
                         {rateWarningText}
-                      </ThemedText>
+                      </Txt>
                     ) : null}
                   </View>
                 ) : (
-                  <ThemedText type="small" themeColor="textSecondary">
+                  <Txt variant="body" tone="secondary">
                     Gib dein aktuelles Gewicht ein, um eine Vorschau zu sehen.
-                  </ThemedText>
+                  </Txt>
                 )}
 
                 {/* Aktions-Buttons (Ziel speichern / Abbrechen) */}

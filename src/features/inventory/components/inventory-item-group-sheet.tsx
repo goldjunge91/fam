@@ -1,8 +1,8 @@
 import { Modal, Pressable, ScrollView, StyleSheet, View } from 'react-native';
 
-import { ThemedText } from '@/components/theme/themed-text';
+import { useTheme } from '@/components/theme/ThemeProvider';
+import { Txt } from '@/constants/ui';
 import { useSheetShadowStyle } from '@/hooks/use-sheet-shadow-style';
-import { useTheme } from '@/hooks/use-theme';
 import { formatAmount, formatPackageHint } from '@/lib/package-size';
 
 import { getExpiryInfo } from '../expiry';
@@ -37,7 +37,7 @@ export function InventoryItemGroupSheet({
   onSelectLot,
 }: InventoryItemGroupSheetProps) {
   const sheetStyle = useSheetShadowStyle();
-  const theme = useTheme();
+  const { colors } = useTheme();
 
   if (!group) return null;
 
@@ -55,27 +55,26 @@ export function InventoryItemGroupSheet({
 
           <View className="fridge-group-header">
             <View className="fridge-group-header-copy">
-              <ThemedText type="subtitle">{group.name}</ThemedText>
-              <ThemedText type="small" themeColor="textSecondary">
+              <Txt variant="title">{group.name}</Txt>
+              <Txt variant="body" tone="secondary">
                 {formatAmount(group.quantity, group.unit)} gesamt · {group.lots.length} MHD-
                 {group.lots.length === 1 ? 'Eintrag' : 'Einträge'}
-              </ThemedText>
+              </Txt>
             </View>
             <Pressable
               onPress={onClose}
               accessibilityRole="button"
               accessibilityLabel="Schließen"
               className="edit-fridge-close-button">
-              <ThemedText themeColor="textSecondary">×</ThemedText>
+              <Txt variant="body" tone="secondary">
+                ×
+              </Txt>
             </Pressable>
           </View>
 
-          <ThemedText
-            type="captionCompact"
-            themeColor="textSecondary"
-            className="uppercase font-bold">
+          <Txt variant="caption" tone="secondary" weight="700" className="uppercase">
             MHD-Einträge
-          </ThemedText>
+          </Txt>
 
           <ScrollView
             showsVerticalScrollIndicator={false}
@@ -95,20 +94,27 @@ export function InventoryItemGroupSheet({
                   <View
                     className="fridge-group-lot-status"
                     style={{
-                      backgroundColor: theme[getExpiryInfo(lot.expiry_date, new Date()).themeColor],
+                      backgroundColor:
+                        getExpiryInfo(lot.expiry_date, new Date()).themeColor === 'danger'
+                          ? colors.tomato
+                          : getExpiryInfo(lot.expiry_date, new Date()).themeColor === 'warning'
+                            ? colors.carrot
+                            : colors.textMuted,
                     }}
                   />
                   <View className="fridge-group-lot-copy">
-                    <ThemedText type="smallBold">MHD {expiryDate}</ThemedText>
-                    <ThemedText type="captionMuted" numberOfLines={1}>
+                    <Txt variant="body" weight="700">
+                      MHD {expiryDate}
+                    </Txt>
+                    <Txt variant="caption" tone="secondary" numberOfLines={1}>
                       {formatExpiryStatus(lot)} · {location}
                       {packageHint ? ` · ${packageHint}` : ''}
-                    </ThemedText>
+                    </Txt>
                   </View>
-                  <ThemedText type="smallBold" style={{ fontVariant: ['tabular-nums'] }}>
+                  <Txt variant="body" weight="700" style={{ fontVariant: ['tabular-nums'] }}>
                     {amount}
-                  </ThemedText>
-                  <ThemedText themeColor="accent">›</ThemedText>
+                  </Txt>
+                  <Txt tone="secondary">›</Txt>
                 </Pressable>
               );
             })}

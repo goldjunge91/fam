@@ -2,8 +2,9 @@ import { Image } from 'expo-image';
 import { useState } from 'react';
 import { ActivityIndicator, Keyboard, Pressable, View } from 'react-native';
 import { TextField } from '@/components/forms/text-field';
-import { ThemedText } from '@/components/theme/themed-text';
+import { useTheme } from '@/components/theme/ThemeProvider';
 import { type ItemSource, ItemSourceFilterRow } from '@/components/ui/item-source-filter';
+import { Txt } from '@/constants/ui';
 import { useSession } from '@/features/auth/session-provider';
 import type { MealType } from '@/features/calorie-tracking/api';
 import {
@@ -18,7 +19,6 @@ import { BarcodeScannerModal } from '@/features/inventory/barcode-scanner-modal'
 import { useProductBarcodeLookup } from '@/features/product-search/hooks/use-product-barcode-lookup';
 import { usePreferredProductMarketName } from '@/features/product-search/preferred-market';
 import type { CatalogProduct } from '@/features/product-search/types';
-import { useTheme } from '@/hooks/use-theme';
 
 type FoodSearchDropdownProps = {
   mealType: MealType;
@@ -38,7 +38,7 @@ export function FoodSearchDropdown({
   onProductSelect,
   onHistorySelect,
 }: FoodSearchDropdownProps) {
-  const theme = useTheme();
+  const { colors } = useTheme();
   const { session } = useSession();
   const activeHousehold = useOptionalActiveHousehold();
   const preferredMarket = usePreferredProductMarketName(
@@ -128,7 +128,9 @@ export function FoodSearchDropdown({
           accessibilityRole="button"
           accessibilityLabel="Barcode scannen"
           className="fss-scan-btn">
-          <ThemedText className="text-[20px]">📷</ThemedText>
+          <Txt variant="body" style={{ fontSize: 20 }}>
+            📷
+          </Txt>
         </Pressable>
       </View>
 
@@ -147,22 +149,22 @@ export function FoodSearchDropdown({
         <View className="fsd-dropdown">
           {isSearchMode ? (
             searching ? (
-              <ActivityIndicator color={theme.accent} className="fss-center-loader" />
+              <ActivityIndicator color={colors.basil} className="fss-center-loader" />
             ) : results.length === 0 && searchFailed ? (
               <View className="fss-failed-box">
-                <ThemedText type="small" themeColor="warning" className="text-center">
+                <Txt variant="body" tone="warning" center>
                   Open Food Facts ist gerade nicht erreichbar. Versuch's gleich nochmal.
-                </ThemedText>
+                </Txt>
                 <Pressable onPress={retrySearch} accessibilityRole="button">
-                  <ThemedText type="smallBold" themeColor="accent">
+                  <Txt variant="body" tone="primary" weight="700">
                     Erneut versuchen
-                  </ThemedText>
+                  </Txt>
                 </Pressable>
               </View>
             ) : results.length === 0 ? (
-              <ThemedText type="small" themeColor="textSecondary" className="fss-centered">
+              <Txt variant="body" tone="secondary" center className="fss-centered">
                 Keine Treffer für „{query}".
-              </ThemedText>
+              </Txt>
             ) : (
               <>
                 {results.map((product, index) => (
@@ -179,22 +181,22 @@ export function FoodSearchDropdown({
                     accessibilityRole="button"
                     className="fsd-more-button">
                     {loadingMore ? (
-                      <ActivityIndicator color={theme.accent} />
+                      <ActivityIndicator color={colors.basil} />
                     ) : (
-                      <ThemedText type="smallBold" themeColor="accent">
+                      <Txt variant="body" tone="primary" weight="700">
                         Mehr anzeigen
-                      </ThemedText>
+                      </Txt>
                     )}
                   </Pressable>
                 ) : null}
               </>
             )
           ) : historyLoading ? (
-            <ActivityIndicator color={theme.accent} className="fss-center-loader" />
+            <ActivityIndicator color={colors.basil} className="fss-center-loader" />
           ) : historyList.length === 0 ? (
-            <ThemedText type="small" themeColor="textSecondary" className="fss-centered">
+            <Txt variant="body" tone="secondary" center className="fss-centered">
               Noch keine Einträge. Suche oben nach einem Lebensmittel.
-            </ThemedText>
+            </Txt>
           ) : (
             historyList.map((entry) => (
               <HistoryRow
@@ -225,19 +227,21 @@ function ProductRow({ product, onPress }: { product: CatalogProduct; onPress: ()
         <Image source={{ uri: product.imageUrl }} className="fss-row-img" />
       ) : (
         <View className="fss-row-img-placeholder">
-          <ThemedText className="text-[16px]">🥫</ThemedText>
+          <Txt variant="body" style={{ fontSize: 16 }}>
+            🥫
+          </Txt>
         </View>
       )}
       <View className="fss-row-text">
-        <ThemedText type="smallBold" numberOfLines={1}>
+        <Txt variant="body" weight="700" numberOfLines={1}>
           {product.name}
-        </ThemedText>
-        <ThemedText type="small" themeColor="textSecondary" numberOfLines={1}>
+        </Txt>
+        <Txt variant="body" tone="secondary" numberOfLines={1}>
           {product.brand ? `${product.brand} · ` : ''}
           {product.caloriesPer100g !== undefined
             ? `${Math.round(product.caloriesPer100g)} kcal/100g`
             : ''}
-        </ThemedText>
+        </Txt>
       </View>
     </Pressable>
   );
@@ -247,16 +251,18 @@ function HistoryRow({ entry, onPress }: { entry: FoodHistoryEntry; onPress: () =
   return (
     <Pressable onPress={onPress} className="fss-row">
       <View className="fss-row-img-placeholder">
-        <ThemedText className="text-[16px]">🥫</ThemedText>
+        <Txt variant="body" style={{ fontSize: 16 }}>
+          🥫
+        </Txt>
       </View>
       <View className="fss-row-text">
-        <ThemedText type="smallBold" numberOfLines={1}>
+        <Txt variant="body" weight="700" numberOfLines={1}>
           {entry.name}
-        </ThemedText>
-        <ThemedText type="small" themeColor="textSecondary" numberOfLines={1}>
+        </Txt>
+        <Txt variant="body" tone="secondary" numberOfLines={1}>
           {entry.quantity} {entry.unit}
           {entry.kcal !== null ? ` · ${Math.round(entry.kcal)} kcal` : ''}
-        </ThemedText>
+        </Txt>
       </View>
     </Pressable>
   );

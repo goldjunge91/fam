@@ -1,8 +1,7 @@
 import { useRef, useState } from 'react';
 import { Modal, Pressable, View } from 'react-native';
-
-import { ThemedText } from '@/components/theme/themed-text';
-import { useTheme } from '@/hooks/use-theme';
+import { useTheme } from '@/components/theme/ThemeProvider';
+import { Txt } from '@/constants/ui';
 import { useStores } from '../../hooks/use-stores';
 
 type Anchor = { x: number; y: number; height: number };
@@ -38,14 +37,13 @@ export function RowStorePicker({
   const { data: stores = [] } = useStores(householdId);
   const [anchor, setAnchor] = useState<Anchor | null>(null);
   const anchorRef = useRef<View>(null);
-  const theme = useTheme();
+  const { colors: theme } = useTheme();
   const open = anchor !== null;
 
   const activeStore = stores.find((store) => store.id === storeId) ?? null;
   const computedLabel = storeId === null ? 'Ohne Markt' : (activeStore?.name ?? 'Markt wählen');
   const label = labelOverride ?? computedLabel;
-  const dotColor =
-    storeId === null ? theme.textSecondary : (activeStore?.color ?? theme.textSecondary);
+  const dotColor = storeId === null ? theme.textMuted : (activeStore?.color ?? theme.textMuted);
 
   function openMenu() {
     anchorRef.current?.measureInWindow((x, y, _width, height) => setAnchor({ x, y, height }));
@@ -70,9 +68,9 @@ export function RowStorePicker({
           testID={testID}
           className="row-store-picker-btn">
           <View className="store-picker-dot" style={{ backgroundColor: dotColor }} />
-          <ThemedText type="small" numberOfLines={1} className="max-w-[110px]">
+          <Txt variant="body" numberOfLines={1} className="max-w-[110px]">
             {label}
-          </ThemedText>
+          </Txt>
         </Pressable>
       </View>
 
@@ -88,13 +86,10 @@ export function RowStorePicker({
                 accessibilityLabel="Ohne Markt"
                 accessibilityState={{ selected: storeId === null }}
                 className={`store-picker-row ${storeId === null ? 'store-picker-row-active' : ''}`}>
-                <View
-                  className="store-picker-dot"
-                  style={{ backgroundColor: theme.textSecondary }}
-                />
-                <ThemedText type="small" className="flex-1 font-semibold">
+                <View className="store-picker-dot" style={{ backgroundColor: theme.textMuted }} />
+                <Txt variant="body" weight="600" className="flex-1">
                   Ohne Markt
-                </ThemedText>
+                </Txt>
               </Pressable>
 
               {stores.map((store) => (
@@ -108,9 +103,9 @@ export function RowStorePicker({
                     storeId === store.id ? 'store-picker-row-active' : ''
                   }`}>
                   <View className="store-picker-dot" style={{ backgroundColor: store.color }} />
-                  <ThemedText type="small" numberOfLines={1} className="flex-1 font-semibold">
+                  <Txt variant="body" weight="600" numberOfLines={1} className="flex-1">
                     {store.name}
-                  </ThemedText>
+                  </Txt>
                 </Pressable>
               ))}
             </View>

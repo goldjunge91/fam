@@ -5,9 +5,9 @@ import { useForm } from 'react-hook-form';
 import { View } from 'react-native';
 import { TextField } from '@/components/forms/text-field';
 import { Screen } from '@/components/layout/screen';
-import { ThemedText } from '@/components/theme/themed-text';
 import { Button } from '@/components/ui/buttons';
 import { Card } from '@/components/ui/card';
+import { Txt } from '@/constants/ui';
 import { requestPasswordReset } from '@/features/auth/api';
 import { authErrorMessage } from '@/features/auth/domain/auth-error-message';
 import { type PasswordResetRequestInput, passwordResetRequestSchema } from '@/lib/db/zod/auth.zod';
@@ -57,10 +57,10 @@ export function ForgotPasswordScreen() {
         <Card>
           {/* Bewusst neutral formuliert: Eine Bestaetigung, dass genau diese
               Adresse ein Konto hat, waere eine Auskunft ueber fremde Nutzer. */}
-          <ThemedText>
+          <Txt variant="body">
             Falls es zu {email.trim().toLowerCase()} ein Konto gibt, ist eine E-Mail mit einem Link
             zum Zurücksetzen unterwegs.
-          </ThemedText>
+          </Txt>
         </Card>
         {/* Zurück-Aktion */}
         <Button
@@ -94,7 +94,11 @@ export function ForgotPasswordScreen() {
           />
 
           {/* Fehlermeldung */}
-          {formError ? <ThemedText type="smallDanger">{formError}</ThemedText> : null}
+          {formError ? (
+            <Txt variant="body" tone="danger">
+              {formError}
+            </Txt>
+          ) : null}
 
           {/* Absende-Button */}
           <Button

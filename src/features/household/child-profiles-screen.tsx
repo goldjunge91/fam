@@ -3,9 +3,10 @@ import { Alert, Pressable, View } from 'react-native';
 import { DatePicker } from '@/components/forms/date-picker';
 import { TextField } from '@/components/forms/text-field';
 import { Screen } from '@/components/layout/screen';
-import { ThemedText } from '@/components/theme/themed-text';
+import { useTheme } from '@/components/theme/ThemeProvider';
 import { Button } from '@/components/ui/buttons';
 import { Card } from '@/components/ui/card';
+import { Txt } from '@/constants/ui';
 import { useSession } from '@/features/auth/session-provider';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import {
@@ -18,6 +19,7 @@ import { parseChildHeight } from '@/features/household/household-helpers';
 
 export function ChildProfilesScreen() {
   const { session } = useSession();
+  const { colors } = useTheme();
   const userId = session?.user.id;
   const { activeHousehold } = useActiveHousehold();
   const currentHousehold = activeHousehold;
@@ -132,23 +134,31 @@ export function ChildProfilesScreen() {
               onChangeText={setBirthDate}
             />
 
-            <ThemedText type="smallBold" className="mt-one">
+            <Txt variant="body" weight="700" className="mt-one">
               Geschlecht (optional)
-            </ThemedText>
+            </Txt>
             <View className="sex-row">
               <Pressable
                 onPress={() => setSex(sex === 'male' ? null : 'male')}
-                className={`child-segment-btn ${sex === 'male' ? 'bg-accent' : 'bg-background-element'}`}>
-                <ThemedText themeColor={sex === 'male' ? 'onAccent' : 'text'}>
+                className="child-segment-btn"
+                style={{
+                  backgroundColor: sex === 'male' ? colors.basil : colors.surface,
+                  borderColor: sex === 'male' ? colors.basil : colors.border,
+                }}>
+                <Txt variant="body" tone={sex === 'male' ? 'onAccent' : 'primary'}>
                   👦 Männlich
-                </ThemedText>
+                </Txt>
               </Pressable>
               <Pressable
                 onPress={() => setSex(sex === 'female' ? null : 'female')}
-                className={`child-segment-btn ${sex === 'female' ? 'bg-accent' : 'bg-background-element'}`}>
-                <ThemedText themeColor={sex === 'female' ? 'onAccent' : 'text'}>
+                className="child-segment-btn"
+                style={{
+                  backgroundColor: sex === 'female' ? colors.basil : colors.surface,
+                  borderColor: sex === 'female' ? colors.basil : colors.border,
+                }}>
+                <Txt variant="body" tone={sex === 'female' ? 'onAccent' : 'primary'}>
                   👧 Weiblich
-                </ThemedText>
+                </Txt>
               </Pressable>
             </View>
 
@@ -189,11 +199,11 @@ export function ChildProfilesScreen() {
       {/* Liste aller erfassten Kinder-Profile mit Bearbeiten & Löschen */}
       <Card title="Erfasste Kinder-Profile">
         {isLoading ? (
-          <ThemedText>Lädt Kinder-Profile...</ThemedText>
+          <Txt variant="body">Lädt Kinder-Profile...</Txt>
         ) : children.length === 0 ? (
-          <ThemedText themeColor="textSecondary">
+          <Txt variant="body" tone="secondary">
             Noch keine Kinder-Profile in diesem Haushalt hinterlegt.
-          </ThemedText>
+          </Txt>
         ) : (
           /* Kein FlashList: die Karte steckt im scrollenden Screen, eine
              virtualisierte Liste im ScrollView wird nicht unterstuetzt (#139).
@@ -211,23 +221,31 @@ export function ChildProfilesScreen() {
                     onChangeText={setEditBirthDate}
                   />
 
-                  <ThemedText type="smallBold" className="mt-one">
+                  <Txt variant="body" weight="700" className="mt-one">
                     Geschlecht
-                  </ThemedText>
+                  </Txt>
                   <View className="sex-row">
                     <Pressable
                       onPress={() => setEditSex(editSex === 'male' ? null : 'male')}
-                      className={`child-segment-btn ${editSex === 'male' ? 'bg-accent' : 'bg-background-element'}`}>
-                      <ThemedText themeColor={editSex === 'male' ? 'onAccent' : 'text'}>
+                      className="child-segment-btn"
+                      style={{
+                        backgroundColor: editSex === 'male' ? colors.basil : colors.surface,
+                        borderColor: editSex === 'male' ? colors.basil : colors.border,
+                      }}>
+                      <Txt variant="body" tone={editSex === 'male' ? 'onAccent' : 'primary'}>
                         👦 Männlich
-                      </ThemedText>
+                      </Txt>
                     </Pressable>
                     <Pressable
                       onPress={() => setEditSex(editSex === 'female' ? null : 'female')}
-                      className={`child-segment-btn ${editSex === 'female' ? 'bg-accent' : 'bg-background-element'}`}>
-                      <ThemedText themeColor={editSex === 'female' ? 'onAccent' : 'text'}>
+                      className="child-segment-btn"
+                      style={{
+                        backgroundColor: editSex === 'female' ? colors.basil : colors.surface,
+                        borderColor: editSex === 'female' ? colors.basil : colors.border,
+                      }}>
+                      <Txt variant="body" tone={editSex === 'female' ? 'onAccent' : 'primary'}>
                         👧 Weiblich
-                      </ThemedText>
+                      </Txt>
                     </Pressable>
                   </View>
 
@@ -263,11 +281,11 @@ export function ChildProfilesScreen() {
               /* Zeile mit Profil-Stammdaten und Aktions-Buttons */
               <View key={item.id} className="child-row">
                 <View className="flex-1">
-                  <ThemedText className="font-bold text-[16px]">
+                  <Txt variant="body" weight="700" style={{ fontSize: 16 }}>
                     {item.sex === 'female' ? '👧' : item.sex === 'male' ? '👦' : '👶'}{' '}
                     {item.display_name}
-                  </ThemedText>
-                  <ThemedText type="small" themeColor="textSecondary">
+                  </Txt>
+                  <Txt variant="body" tone="secondary">
                     {[
                       item.birth_date
                         ? `Geboren: ${new Date(item.birth_date).toLocaleDateString('de-DE')}`
@@ -277,7 +295,7 @@ export function ChildProfilesScreen() {
                     ]
                       .filter(Boolean)
                       .join(' · ') || 'Keine Zusatzdaten'}
-                  </ThemedText>
+                  </Txt>
                 </View>
 
                 <View className="child-action-buttons">

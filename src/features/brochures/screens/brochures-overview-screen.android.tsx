@@ -1,11 +1,12 @@
 import { Image } from 'expo-image';
 import { useRouter } from 'expo-router';
 import { useState } from 'react';
-import { Linking, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { Linking, Pressable, ScrollView, StyleSheet, View } from 'react-native';
 import { Screen } from '@/components/layout/screen';
+import { useTheme } from '@/components/theme/ThemeProvider';
+import { Txt } from '@/constants/ui';
 import { useNavigationChrome } from '@/features/navigation/navigation-chrome-provider';
 import { useProfileAvatar } from '@/features/navigation/use-profile-initials';
-import { useTheme } from '@/hooks/use-theme';
 import { PostalCodeEditor } from '../components/postal-code-editor';
 import { useBrochurePostalCode } from '../hooks/use-brochure-postal-code';
 import { useBrochureSync } from '../hooks/use-brochure-sync';
@@ -13,7 +14,7 @@ import { useBrochures } from '../hooks/use-brochures';
 
 export default function BrochuresOverviewScreen() {
   const router = useRouter();
-  const theme = useTheme();
+  const { colors } = useTheme();
   // Angebote ist ein Drawer-Top-Level-Screen: der Header braucht einen Menü-Button
   // zurück ins Nav-Menü statt eines Zurück-Pfeils zur vorherigen Route.
   const { openDrawer, openProfile } = useNavigationChrome();
@@ -29,8 +30,8 @@ export default function BrochuresOverviewScreen() {
   if (location.status === 'locating') {
     return (
       <Screen title="Angebote" chrome={chrome}>
-        <View style={[styles.loadingContainer, { backgroundColor: theme.background }]}>
-          <Text style={{ color: theme.textSecondary }}>Standort wird ermittelt...</Text>
+        <View style={[styles.loadingContainer, { backgroundColor: colors.bg }]}>
+          <Txt variant="body" tone="secondary">Standort wird ermittelt...</Txt>
         </View>
       </Screen>
     );
@@ -42,9 +43,9 @@ export default function BrochuresOverviewScreen() {
     const permanentlyDenied = denied && !location.canAskAgain;
     return (
       <Screen title="Angebote" chrome={chrome}>
-        <View style={[styles.locationState, { backgroundColor: theme.background }]}>
-          <Text style={[styles.locationTitle, { color: theme.text }]}>Standort erforderlich</Text>
-          <Text style={[styles.locationCopy, { color: theme.textSecondary }]}>
+        <View style={[styles.locationState, { backgroundColor: colors.bg }]}>
+          <Txt variant="heading" style={[styles.locationTitle, { color: colors.text }]}>Standort erforderlich</Txt>
+          <Txt variant="body" style={[styles.locationCopy, { color: colors.textMuted }]}> 
             {permanentlyDenied
               ? 'Erlaube den Standortzugriff in den Systemeinstellungen, damit fam die Prospekte für deine PLZ laden kann.'
               : denied
@@ -63,19 +64,19 @@ export default function BrochuresOverviewScreen() {
             <>
               <Pressable
                 role="button"
-                style={[styles.locationButton, { backgroundColor: theme.accent }]}
+                style={[styles.locationButton, { backgroundColor: colors.basil }]}
                 onPress={() => {
                   if (permanentlyDenied) void Linking.openSettings();
                   else location.retry();
                 }}>
-                <Text style={{ color: theme.onAccent, fontWeight: '700' }}>
+                <Txt variant="body" tone="inverse" weight="700">
                   {permanentlyDenied ? 'Einstellungen öffnen' : 'Erneut versuchen'}
-                </Text>
+                </Txt>
               </Pressable>
               <Pressable role="button" onPress={() => setIsEditingPostalCode(true)}>
-                <Text style={{ color: theme.textSecondary, textDecorationLine: 'underline' }}>
+                <Txt variant="body" tone="secondary" style={{ textDecorationLine: 'underline' }}>
                   PLZ stattdessen manuell eingeben
-                </Text>
+                </Txt>
               </Pressable>
             </>
           )}
@@ -86,10 +87,10 @@ export default function BrochuresOverviewScreen() {
   if (isLoading || isSyncing || !hasSynced) {
     return (
       <Screen title="Angebote" chrome={chrome}>
-        <View style={[styles.loadingContainer, { backgroundColor: theme.background }]}>
-          <Text style={{ color: theme.textSecondary }}>
+        <View style={[styles.loadingContainer, { backgroundColor: colors.bg }]}>
+          <Txt variant="body" tone="secondary">
             Angebote für {postalCode} werden geladen...
-          </Text>
+          </Txt>
         </View>
       </Screen>
     );
@@ -97,9 +98,9 @@ export default function BrochuresOverviewScreen() {
   if (data?.cacheZip !== postalCode) {
     return (
       <Screen title="Angebote" chrome={chrome}>
-        <View style={[styles.locationState, { backgroundColor: theme.background }]}>
-          <Text style={[styles.locationTitle, { color: theme.text }]}>Noch keine Prospekte</Text>
-          <Text style={[styles.locationCopy, { color: theme.textSecondary }]}>
+        <View style={[styles.locationState, { backgroundColor: colors.bg }]}>
+          <Txt variant="heading" style={[styles.locationTitle, { color: colors.text }]}>Noch keine Prospekte</Txt>
+          <Txt variant="body" style={[styles.locationCopy, { color: colors.textMuted }]}> 
             Für die PLZ {postalCode} liegt derzeit kein aktueller Dump vor.
           </Text>
         </View>
@@ -118,7 +119,7 @@ export default function BrochuresOverviewScreen() {
   return (
     <Screen title="Angebote" chrome={chrome} scroll={false} applyBottomPadding={false}>
       <ScrollView
-        style={[styles.container, { backgroundColor: theme.background }]}
+        style={[styles.container, { backgroundColor: colors.bg }]}
         contentContainerStyle={styles.content}>
         {isEditingPostalCode ? (
           <View style={styles.postalCodeEditRow}>
@@ -132,24 +133,24 @@ export default function BrochuresOverviewScreen() {
           </View>
         ) : (
           <View style={styles.postalCodeRow}>
-            <Text style={[styles.postalCode, { color: theme.textSecondary }]}>
+            <Txt variant="caption" tone="secondary" style={styles.postalCode}>
               PLZ {postalCode}
-            </Text>
+            </Txt>
             <Pressable role="button" onPress={() => setIsEditingPostalCode(true)}>
-              <Text style={{ color: theme.accent, fontWeight: '600' }}>Ändern</Text>
+              <Txt variant="body" tone="primary" weight="600">Ändern</Txt>
             </Pressable>
             {location.isManual ? (
               <Pressable role="button" onPress={location.useDeviceLocation}>
-                <Text style={{ color: theme.textSecondary, textDecorationLine: 'underline' }}>
+                <Txt variant="body" tone="secondary" style={{ textDecorationLine: 'underline' }}>
                   Standort verwenden
-                </Text>
+                </Txt>
               </Pressable>
             ) : null}
           </View>
         )}
         {favorites.length > 0 && (
           <View style={styles.section}>
-            <Text style={[styles.sectionTitle, { color: theme.text }]}>Deine Märkte</Text>
+            <Txt variant="heading" style={[styles.sectionTitle, { color: colors.text }]}>Deine Märkte</Txt>
             <ScrollView
               horizontal
               showsHorizontalScrollIndicator={false}
@@ -166,18 +167,20 @@ export default function BrochuresOverviewScreen() {
                     <View
                       style={[
                         styles.storeLogoPlaceholder,
-                        { backgroundColor: theme.backgroundSelected },
+                        { backgroundColor: colors.surfaceSoft },
                       ]}>
-                      <Text style={[styles.storeInitials, { color: theme.textSecondary }]}>
+                      <Txt variant="body" tone="secondary" style={styles.storeInitials}>
                         {store.name.substring(0, 2)}
-                      </Text>
+                      </Txt>
                     </View>
                   )}
-                  <Text
-                    style={[styles.storeName, { color: theme.textSecondary }]}
+                  <Txt
+                    variant="caption"
+                    tone="secondary"
+                    style={styles.storeName}
                     numberOfLines={1}>
                     {store.name}
-                  </Text>
+                  </Txt>
                 </View>
               ))}
             </ScrollView>
@@ -185,7 +188,7 @@ export default function BrochuresOverviewScreen() {
         )}
 
         <View style={styles.section}>
-          <Text style={[styles.sectionTitle, { color: theme.text }]}>Aktuelle Prospekte</Text>
+          <Txt variant="heading" style={[styles.sectionTitle, { color: colors.text }]}>Aktuelle Prospekte</Txt>
           <ScrollView
             horizontal
             showsHorizontalScrollIndicator={false}
@@ -197,14 +200,16 @@ export default function BrochuresOverviewScreen() {
                 styles.filterChip,
                 {
                   backgroundColor:
-                    selectedStoreId === null ? theme.accent : theme.backgroundElement,
-                  borderColor: selectedStoreId === null ? theme.accent : theme.border,
+                    selectedStoreId === null ? colors.basil : colors.surface,
+                  borderColor: selectedStoreId === null ? colors.basil : colors.border,
                 },
               ]}
               onPress={() => setSelectedStoreId(null)}>
-              <Text style={{ color: selectedStoreId === null ? theme.onAccent : theme.text }}>
+              <Txt
+                variant="body"
+                color={selectedStoreId === null ? colors.inverse : colors.text}>
                 Alle
-              </Text>
+              </Txt>
             </Pressable>
             {availableStores.map((store) => {
               const isSelected = selectedStoreId === store.id;
@@ -216,14 +221,14 @@ export default function BrochuresOverviewScreen() {
                   style={[
                     styles.filterChip,
                     {
-                      backgroundColor: isSelected ? theme.accent : theme.backgroundElement,
-                      borderColor: isSelected ? theme.accent : theme.border,
+                      backgroundColor: isSelected ? colors.basil : colors.surface,
+                      borderColor: isSelected ? colors.basil : colors.border,
                     },
                   ]}
                   onPress={() => setSelectedStoreId(store.id)}>
-                  <Text style={{ color: isSelected ? theme.onAccent : theme.text }}>
+                  <Txt variant="body" color={isSelected ? colors.inverse : colors.text}>
                     {store.name}
-                  </Text>
+                  </Txt>
                 </Pressable>
               );
             })}
@@ -234,7 +239,7 @@ export default function BrochuresOverviewScreen() {
                 key={brochure.id}
                 style={[
                   styles.brochureCard,
-                  { backgroundColor: theme.backgroundElement, borderColor: theme.border },
+                  { backgroundColor: colors.surface, borderColor: colors.border },
                 ]}
                 onPress={() => router.push(`/brochures/${brochure.id}`)}>
                 <Image
@@ -243,19 +248,19 @@ export default function BrochuresOverviewScreen() {
                   contentFit="cover"
                 />
                 <View style={styles.brochureInfo}>
-                  <Text style={[styles.brochureTitle, { color: theme.text }]} numberOfLines={2}>
+                  <Txt variant="body" style={[styles.brochureTitle, { color: colors.text }]} numberOfLines={2}>
                     {brochure.title}
-                  </Text>
-                  <Text style={[styles.brochureDate, { color: theme.textSecondary }]}>
+                  </Txt>
+                  <Txt variant="caption" tone="secondary" style={styles.brochureDate}>
                     Bis {new Date(brochure.validUntil).toLocaleDateString()}
-                  </Text>
+                  </Txt>
                 </View>
               </Pressable>
             ))}
             {visibleBrochures.length === 0 ? (
-              <Text style={[styles.emptyText, { color: theme.textSecondary }]}>
+              <Txt variant="body" tone="secondary" style={styles.emptyText}> 
                 Keine Prospekte.
-              </Text>
+              </Txt>
             ) : null}
           </View>
         </View>

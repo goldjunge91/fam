@@ -7,7 +7,8 @@ import ReorderableList, {
   useReorderableDrag,
 } from 'react-native-reorderable-list';
 import Svg, { Path } from 'react-native-svg';
-import { ThemedText } from '@/components/theme/themed-text';
+import { useTheme } from '@/components/theme/ThemeProvider';
+import { Txt } from '@/constants/ui';
 import { StepMentionText } from '@/features/recipes/components/step-mention-text';
 import { pickRecipeImage } from '@/features/recipes/data/household-recipe-images';
 import {
@@ -16,7 +17,6 @@ import {
   matchPendingMention,
   mentionedIngredientIds,
 } from '@/features/recipes/domain/ingredient-mentions';
-import { useTheme } from '@/hooks/use-theme';
 import type { IngredientComponentGroup, WizardStepItem } from './types';
 
 function flattenIngredients(components: IngredientComponentGroup[]): MentionableIngredient[] {
@@ -60,33 +60,37 @@ interface IngredientLedgerProps {
 }
 
 function IngredientLedger({ ingredients, used }: IngredientLedgerProps) {
+  const { colors } = useTheme();
   const [expanded, setExpanded] = useState(true);
   if (ingredients.length === 0) return null;
 
   const doneCount = ingredients.filter((i) => (used.get(i.itemId) ?? 0) >= i.quantity).length;
 
   return (
-    <View className="mb-two pb-two border-b-hairline border-border">
+    <View
+      className="mb-two pb-two"
+      style={{ borderBottomColor: colors.border, borderBottomWidth: 1 }}>
       <Pressable
         className="flex-row items-center justify-between py-one"
         onPress={() => setExpanded((prev) => !prev)}
         accessibilityRole="button"
         accessibilityLabel={expanded ? 'Zutatenliste einklappen' : 'Zutatenliste ausklappen'}>
-        <ThemedText
-          type="detail"
-          themeColor="textSecondary"
-          className="text-[9px] leading-[11px] font-bold tracking-widest">
+        <Txt
+          variant="caption"
+          tone="secondary"
+          className="tracking-widest"
+          style={{ fontSize: 9, lineHeight: 11, fontWeight: '700' }}>
           ZUTATEN
-        </ThemedText>
+        </Txt>
         <View className="flex-row items-center gap-two">
           {!expanded ? (
-            <ThemedText type="caption" themeColor="textSecondary">
+            <Txt variant="caption" tone="secondary">
               {doneCount}/{ingredients.length} aufgebraucht
-            </ThemedText>
+            </Txt>
           ) : null}
-          <ThemedText themeColor="textSecondary" className="text-[11px]">
+          <Txt variant="caption" tone="secondary" style={{ fontSize: 11 }}>
             {expanded ? '▾' : '▸'}
-          </ThemedText>
+          </Txt>
         </View>
       </Pressable>
 
@@ -101,20 +105,26 @@ function IngredientLedger({ ingredients, used }: IngredientLedgerProps) {
             return (
               <View key={ing.itemId}>
                 <View className="flex-row items-baseline justify-between gap-two">
-                  <ThemedText
-                    type="detail"
-                    className={`font-bold ${full ? 'line-through text-text-secondary' : ''}`}>
+                  <Txt
+                    variant="body"
+                    weight="700"
+                    style={full ? { color: colors.textMuted, textDecorationLine: 'line-through' } : undefined}>
                     {ing.name}
-                  </ThemedText>
-                  <ThemedText
-                    type="caption"
-                    themeColor={full ? 'success' : 'textSecondary'}
-                    className={full ? 'font-semibold' : undefined}>
+                  </Txt>
+                  <Txt
+                    variant="caption"
+                    tone={full ? 'success' : 'secondary'}
+                    style={full ? { fontWeight: '600' } : undefined}>
                     {full ? 'aufgebraucht' : `${remaining}${ing.unit} übrig`}
-                  </ThemedText>
+                  </Txt>
                 </View>
-                <View className="h-[2px] rounded-hairline bg-border overflow-hidden">
-                  <View className="h-full bg-accent" style={{ width: `${pct}%` }} />
+                <View
+                  className="h-[2px] rounded-hairline overflow-hidden"
+                  style={{ backgroundColor: colors.border }}>
+                  <View
+                    className="h-full"
+                    style={{ width: `${pct}%`, backgroundColor: colors.basil }}
+                  />
                 </View>
               </View>
             );
@@ -151,7 +161,7 @@ const StepCard = memo(function StepCard({
   onPickImage,
 }: StepCardProps) {
   const drag = useReorderableDrag();
-  const theme = useTheme();
+  const { colors } = useTheme();
   const autocomplete = pendingAutocomplete(step.text, ingredients);
 
   function handleChangeText(text: string) {
@@ -166,28 +176,31 @@ const StepCard = memo(function StepCard({
   }
 
   return (
-    <View className="bg-white/70 rounded-sheet p-[11px] mb-three gap-[10px]">
+    <View
+      className="rounded-sheet p-[11px] mb-three gap-[10px]"
+      style={{ backgroundColor: colors.surface }}>
       <View className="row-center gap-[10px]">
         <TouchableOpacity
           onLongPress={drag}
           className="p-one"
           accessibilityLabel="Schritt verschieben">
-          <ThemedText type="headingSmall" themeColor="textSecondary">
+          <Txt variant="heading" tone="secondary">
             ≡
-          </ThemedText>
+          </Txt>
         </TouchableOpacity>
-        <ThemedText type="label" themeColor="accent" className="flex-1 font-bold">
+        <Txt variant="label" tone="primary" weight="700" className="flex-1">
           Schritt {index + 1}
-        </ThemedText>
+        </Txt>
         <TouchableOpacity
           onPress={() => onRemoveStep(step.id)}
-          className="w-9 h-9 rounded-sheet bg-background-element items-center justify-center"
+          className="w-9 h-9 rounded-sheet items-center justify-center"
+          style={{ backgroundColor: colors.surfaceSoft }}
           accessibilityRole="button"
           accessibilityLabel="Delete step">
           <Svg width={16} height={16} viewBox="0 0 24 24" fill="none">
             <Path
               d="M3 6h18M19 6v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6m3 0V4a2 2 0 012-2h4a2 2 0 012 2v2"
-              stroke={theme.accent}
+              stroke={colors.text}
               strokeWidth={2}
               strokeLinecap="round"
               strokeLinejoin="round"
@@ -198,11 +211,17 @@ const StepCard = memo(function StepCard({
 
       <View className="relative">
         <TextInput
-          className="bg-white rounded-card min-h-[132px] px-four py-three text-[15px] text-text"
+          className="rounded-card min-h-[132px] px-four py-three"
+          style={{
+            backgroundColor: colors.bg,
+            color: colors.text,
+            fontSize: 15,
+            lineHeight: 21,
+          }}
           value={step.text}
           onChangeText={handleChangeText}
           placeholder={`Was ist in Schritt ${index + 1} zu tun? Zutat mit @ einfügen, z. B. @Wurst50`}
-          placeholderTextColor={theme.textSecondary}
+          placeholderTextColor={colors.textMuted}
           multiline
           textAlignVertical="top"
         />
@@ -213,19 +232,19 @@ const StepCard = memo(function StepCard({
                 key={ing.itemId}
                 className="mention-row"
                 onPress={() => insertMention(ing)}>
-                <ThemedText type="detail" className="font-semibold">
+                <Txt variant="body" weight="700">
                   {ing.name}{' '}
-                  <ThemedText type="detail" themeColor="textSecondary">
+                  <Txt variant="caption" tone="secondary">
                     · {ing.quantity}
                     {ing.unit}
-                  </ThemedText>
-                </ThemedText>
+                  </Txt>
+                </Txt>
               </TouchableOpacity>
             ))}
             <View className="mention-hint">
-              <ThemedText type="caption" themeColor="textSecondary">
+              <Txt variant="caption" tone="secondary">
                 Danach direkt eine Zahl tippen, z. B. „{autocomplete.matches[0].name}50“
-              </ThemedText>
+              </Txt>
             </View>
           </View>
         ) : null}
@@ -235,8 +254,8 @@ const StepCard = memo(function StepCard({
         <StepMentionText
           text={step.text}
           ingredients={ingredients}
-          type="detail"
-          themeColor="textSecondary"
+          variant="caption"
+          tone="secondary"
           className="px-one"
         />
       ) : null}
@@ -252,16 +271,16 @@ const StepCard = memo(function StepCard({
           <TouchableOpacity
             className="self-start"
             onPress={() => onUpdateStep(step.id, { localImageUri: null, existingImagePath: null })}>
-            <ThemedText type="label" themeColor="accent" className="font-semibold">
+            <Txt variant="label" tone="primary" style={{ fontWeight: '600' }}>
               Bild entfernen
-            </ThemedText>
+            </Txt>
           </TouchableOpacity>
         </View>
       ) : (
         <TouchableOpacity className="self-start" onPress={() => onPickImage(step.id)}>
-          <ThemedText type="label" themeColor="accent" className="font-semibold">
+          <Txt variant="label" tone="primary" style={{ fontWeight: '600' }}>
             + Bild hinzufügen
-          </ThemedText>
+          </Txt>
         </TouchableOpacity>
       )}
 
@@ -279,20 +298,20 @@ interface StepTimerFieldProps {
 }
 
 function StepTimerField({ minutes, onChange }: StepTimerFieldProps) {
-  const theme = useTheme();
+  const { colors } = useTheme();
   const [draft, setDraft] = useState('');
   const [editing, setEditing] = useState(false);
 
   if (minutes !== null) {
     return (
       <View className="row-center gap-two">
-        <ThemedText type="label" themeColor="text" className="font-semibold">
+        <Txt variant="label" tone="primary" style={{ fontWeight: '600' }}>
           ⏱ {minutes} Min. Timer
-        </ThemedText>
+        </Txt>
         <TouchableOpacity onPress={() => onChange(null)}>
-          <ThemedText type="label" themeColor="accent" className="font-semibold">
+          <Txt variant="label" tone="primary" style={{ fontWeight: '600' }}>
             Entfernen
-          </ThemedText>
+          </Txt>
         </TouchableOpacity>
       </View>
     );
@@ -302,11 +321,12 @@ function StepTimerField({ minutes, onChange }: StepTimerFieldProps) {
     return (
       <View className="row-center gap-two">
         <TextInput
-          className="bg-white rounded-card px-three py-two text-[15px] text-text w-[70px]"
+          className="rounded-card px-three py-two w-[70px]"
+          style={{ backgroundColor: colors.bg, color: colors.text, fontSize: 15, lineHeight: 21 }}
           value={draft}
           onChangeText={setDraft}
           placeholder="Min."
-          placeholderTextColor={theme.textSecondary}
+          placeholderTextColor={colors.textMuted}
           keyboardType="number-pad"
           autoFocus
           onSubmitEditing={() => {
@@ -323,18 +343,18 @@ function StepTimerField({ minutes, onChange }: StepTimerFieldProps) {
             setDraft('');
             setEditing(false);
           }}>
-          <ThemedText type="label" themeColor="accent" className="font-semibold">
+          <Txt variant="label" tone="primary" style={{ fontWeight: '600' }}>
             Übernehmen
-          </ThemedText>
+          </Txt>
         </TouchableOpacity>
         <TouchableOpacity
           onPress={() => {
             setDraft('');
             setEditing(false);
           }}>
-          <ThemedText type="label" themeColor="textSecondary" className="font-semibold">
+          <Txt variant="label" tone="secondary" style={{ fontWeight: '600' }}>
             Abbrechen
-          </ThemedText>
+          </Txt>
         </TouchableOpacity>
       </View>
     );
@@ -342,9 +362,9 @@ function StepTimerField({ minutes, onChange }: StepTimerFieldProps) {
 
   return (
     <TouchableOpacity className="self-start" onPress={() => setEditing(true)}>
-      <ThemedText type="label" themeColor="accent" className="font-semibold">
+      <Txt variant="label" tone="primary" style={{ fontWeight: '600' }}>
         + Timer hinzufügen
-      </ThemedText>
+      </Txt>
     </TouchableOpacity>
   );
 }
@@ -356,6 +376,7 @@ export function RecipeWizardStepSteps({
   onBack,
   onNext,
 }: RecipeWizardStepStepsProps) {
+  const { colors } = useTheme();
   const ingredients = flattenIngredients(components);
   const used = computeMentionUsage(
     steps.map((s) => s.text),
@@ -396,19 +417,20 @@ export function RecipeWizardStepSteps({
 
   return (
     <View className="flex-1 px-four">
-      <ThemedText
-        type="detail"
-        themeColor="textSecondary"
-        className="pt-two pb-[6px] text-[8px] leading-[10px] font-medium tracking-widest">
+      <Txt
+        variant="caption"
+        tone="secondary"
+        className="pt-two pb-[6px] tracking-widest"
+        style={{ fontSize: 8, lineHeight: 10, fontWeight: '500' }}>
         SCHRITT 3 VON 4
-      </ThemedText>
-      <ThemedText type="headingSmall" className="mb-one">
+      </Txt>
+      <Txt variant="heading" className="mb-one">
         Zubereitungsschritte
-      </ThemedText>
-      <ThemedText type="label" themeColor="textSecondary" className="mb-two">
+      </Txt>
+      <Txt variant="label" tone="secondary" className="mb-two">
         Zutat mit @ einfügen (z. B. @Wurst50 = 50 g Wurst). Zum Umsortieren einen Schritt gedrückt
         halten und ziehen.
-      </ThemedText>
+      </Txt>
 
       <IngredientLedger ingredients={ingredients} used={used} />
 
@@ -432,28 +454,31 @@ export function RecipeWizardStepSteps({
         ListFooterComponent={
           <>
             <TouchableOpacity
-              className="w-full h-[42px] bg-background-element rounded-fam-large items-center justify-center mt-one mb-seven active:opacity-75"
+              className="w-full h-[42px] rounded-fam-large items-center justify-center mt-one mb-seven active:opacity-75"
+              style={{ backgroundColor: colors.surface }}
               onPress={addStep}>
-              <ThemedText type="detail" themeColor="accent" className="font-semibold">
+              <Txt variant="caption" tone="primary" style={{ fontWeight: '600' }}>
                 + Schritt hinzufügen
-              </ThemedText>
+              </Txt>
             </TouchableOpacity>
 
             <View className="flex-row gap-[14px] mb-three">
               <Pressable
-                className="flex-1 min-h-[48px] rounded-card items-center justify-center bg-background-element active:opacity-75"
+                className="flex-1 min-h-[48px] rounded-card items-center justify-center active:opacity-75"
+                style={{ backgroundColor: colors.surface }}
                 onPress={onBack}>
-                <ThemedText type="captionCompact" themeColor="accent" className="font-semibold">
+                <Txt variant="caption" tone="primary" style={{ fontWeight: '600' }}>
                   Zurück
-                </ThemedText>
+                </Txt>
               </Pressable>
               <Pressable
-                className="flex-1 min-h-[48px] rounded-card items-center justify-center bg-accent active:opacity-75"
+                className="flex-1 min-h-[48px] rounded-card items-center justify-center active:opacity-75"
+                style={{ backgroundColor: colors.basil }}
                 accessibilityRole="button"
                 onPress={onNext}>
-                <ThemedText type="captionCompact" className="text-white font-semibold">
+                <Txt variant="caption" tone="onAccent" style={{ fontWeight: '600' }}>
                   Weiter
-                </ThemedText>
+                </Txt>
               </Pressable>
             </View>
           </>

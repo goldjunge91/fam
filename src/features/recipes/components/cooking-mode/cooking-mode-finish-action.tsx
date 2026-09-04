@@ -1,6 +1,7 @@
 import { Pressable, View } from 'react-native';
 
-import { ThemedText } from '@/components/theme/themed-text';
+import { useTheme } from '@/components/theme/ThemeProvider';
+import { Txt } from '@/constants/ui';
 
 type CookingModeFinishActionProps = {
   title: string;
@@ -13,26 +14,33 @@ export function CookingModeFinishAction({
   subtitle,
   onPress,
 }: CookingModeFinishActionProps) {
+  const { colors } = useTheme();
+
   return (
     <Pressable
       onPress={onPress}
       role="button"
-      className="min-h-[62px] rounded-sheet px-[11px] py-[9px] flex-row items-center gap-[10px] bg-background-element/85 active:opacity-75">
-      <View className="w-[38px] h-[38px] rounded-control bg-background-selected" />
+      className="min-h-[62px] rounded-sheet px-[11px] py-[9px] flex-row items-center gap-[10px] active:opacity-75"
+      style={{ backgroundColor: colors.surface }}>
+      <View
+        className="w-[38px] h-[38px] rounded-control"
+        style={{ backgroundColor: colors.surfaceSoft }}
+      />
       <View className="flex-1 min-w-0">
-        <ThemedText type="detail" className="text-[10px] leading-[12px] font-bold">
+        <Txt variant="caption" weight="700" style={{ fontSize: 10, lineHeight: 12 }}>
           {title}
-        </ThemedText>
-        <ThemedText
-          type="detail"
-          themeColor="textSecondary"
-          className="pt-half text-[8px] leading-[10px] font-medium">
+        </Txt>
+        <Txt
+          variant="caption"
+          tone="secondary"
+          className="pt-half"
+          style={{ fontSize: 8, lineHeight: 10 }}>
           {subtitle}
-        </ThemedText>
+        </Txt>
       </View>
-      <ThemedText type="detail" themeColor="textSecondary" className="text-[18px] leading-[20px]">
+      <Txt variant="body" tone="secondary" style={{ fontSize: 18, lineHeight: 20 }}>
         ›
-      </ThemedText>
+      </Txt>
     </Pressable>
   );
 }

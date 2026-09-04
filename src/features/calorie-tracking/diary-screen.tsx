@@ -3,10 +3,11 @@ import { useEffect, useRef, useState } from 'react';
 import { Pressable, ScrollView, View } from 'react-native';
 import { PlusIcon } from '@/components/icons/fam-icon';
 import { HubScreen } from '@/components/layout/hub-screen';
-import { ThemedText } from '@/components/theme/themed-text';
+import { useTheme } from '@/components/theme/ThemeProvider';
 import { MenuButton } from '@/components/ui/buttons';
 import { FilterChipBar } from '@/components/ui/filter-chip-bar';
 import { ProgressBar } from '@/components/ui/progress-bar';
+import { Txt } from '@/constants/ui';
 import { useSession } from '@/features/auth/session-provider';
 import { useActiveProfile } from '@/features/calorie-tracking/active-profile-store';
 import {
@@ -23,7 +24,6 @@ import { useChildProfiles } from '@/features/household/api';
 import { useNavigationChrome } from '@/features/navigation/navigation-chrome-provider';
 import { useProfile } from '@/features/profile/api';
 import { getLogicalDateForTimestamp } from '@/features/tracking/domain/day-boundary';
-import { useTheme } from '@/hooks/use-theme';
 
 const MEAL_ORDER: MealType[] = ['breakfast', 'lunch', 'dinner', 'snack'];
 export const MEAL_LABELS: Record<MealType, string> = {
@@ -74,7 +74,7 @@ function formatKcal(value: number): string {
 }
 
 function MacroChip({ label, value, target }: { label: string; value: number; target: number }) {
-  const theme = useTheme();
+  const { colors } = useTheme();
   const exceeded = target > 0 && value > target;
 
   return (
@@ -87,14 +87,21 @@ function MacroChip({ label, value, target }: { label: string; value: number; tar
           ? `${label}: ${Math.round(value)} von ${Math.round(target)} Gramm`
           : `${label}: ${Math.round(value)} Gramm, kein Ziel gesetzt`
       }>
-      <ThemedText className="diary-macro-chip-label">{label}</ThemedText>
-      <ThemedText themeColor="textSecondary" className="diary-macro-chip-value">
+      <Txt
+        variant="label"
+        style={{ fontSize: 11, lineHeight: 14, fontWeight: '700' }}>
+        {label}
+      </Txt>
+      <Txt
+        variant="body"
+        tone="secondary"
+        style={{ fontSize: 13, lineHeight: 16, fontWeight: '700' }}>
         {Math.round(value)} / {target > 0 ? Math.round(target) : '–'} g
-      </ThemedText>
+      </Txt>
       <ProgressBar
         value={target > 0 ? value / target : 0}
-        color={exceeded ? theme.warning : theme.accent}
-        trackColor={theme.backgroundSelected}
+        color={exceeded ? colors.carrot : colors.basil}
+        trackColor={colors.surfaceSoft}
         height={4}
       />
     </View>
@@ -110,17 +117,24 @@ type MealSectionProps = {
 };
 
 function MealSection({ meal, entries, isLast, onAdd, onEntry }: MealSectionProps) {
-  const theme = useTheme();
+  const { colors } = useTheme();
   const mealKcal = entries.reduce((sum, entry) => sum + (entry.kcal ?? 0), 0);
 
   return (
     <View className={!isLast ? 'diary-meal-section' : undefined}>
-      <View className="diary-meal-header">
+      <View className="diary-meal-header pt-[6px]">
         <View className="diary-meal-heading">
-          <ThemedText className="diary-meal-title">{MEAL_LABELS[meal]}</ThemedText>
-          <ThemedText themeColor="textSecondary" className="diary-meal-kcal">
+          <Txt
+            variant="subheading"
+            style={{ fontSize: 20, lineHeight: 24, fontWeight: '700' }}>
+            {MEAL_LABELS[meal]}
+          </Txt>
+          <Txt
+            variant="body"
+            tone="secondary"
+            style={{ marginTop: 1, fontSize: 13, lineHeight: 17, fontWeight: '500' }}>
             {formatKcal(mealKcal)}
-          </ThemedText>
+          </Txt>
         </View>
         <Pressable
           onPress={onAdd}
@@ -129,7 +143,7 @@ function MealSection({ meal, entries, isLast, onAdd, onEntry }: MealSectionProps
           className="diary-add-button"
           // borderCurve ist ein echter Laufzeitwert ohne Tailwind-Aequivalent.
           style={{ borderCurve: 'continuous' }}>
-          <PlusIcon size={18} color={theme.onAccent} />
+          <PlusIcon size={18} color={colors.inverse} />
         </Pressable>
       </View>
       {entries.map((entry) => (
@@ -140,19 +154,26 @@ function MealSection({ meal, entries, isLast, onAdd, onEntry }: MealSectionProps
           aria-label={`${entry.name} bearbeiten`}
           className="diary-entry-row">
           <View className="diary-entry-info">
-            <ThemedText className="diary-entry-name" numberOfLines={1}>
+            <Txt
+              variant="body"
+              numberOfLines={1}
+              style={{ fontSize: 11, lineHeight: 14, fontWeight: '700' }}>
               {entry.name}
-            </ThemedText>
-            <ThemedText
-              themeColor="textSecondary"
-              className="diary-entry-quantity"
-              numberOfLines={1}>
+            </Txt>
+            <Txt
+              variant="body"
+              tone="secondary"
+              numberOfLines={1}
+              style={{ marginTop: 1, fontSize: 10, lineHeight: 12, fontWeight: '500' }}>
               {entry.quantity} {entry.unit}
-            </ThemedText>
+            </Txt>
           </View>
-          <ThemedText themeColor="textSecondary" className="diary-entry-kcal">
+          <Txt
+            variant="body"
+            tone="secondary"
+            style={{ fontSize: 10, lineHeight: 12, fontWeight: '600' }}>
             {entry.kcal !== null ? formatKcal(entry.kcal) : '–'}
-          </ThemedText>
+          </Txt>
         </Pressable>
       ))}
     </View>
@@ -161,7 +182,7 @@ function MealSection({ meal, entries, isLast, onAdd, onEntry }: MealSectionProps
 
 /** Tagebuch: Tagesbilanz, Makros und kompakte Mahlzeitenliste. */
 export function DiaryScreen() {
-  const theme = useTheme();
+  const { colors } = useTheme();
   const { openDrawer } = useNavigationChrome();
   const { session } = useSession();
   const userId = session?.user.id;
@@ -266,30 +287,43 @@ export function DiaryScreen() {
             role="button"
             aria-label="Vorheriger Tag"
             className="diary-date-arrow">
-            <ThemedText themeColor="accent" className="diary-chevron">
+            <Txt
+              variant="body"
+              tone="secondary"
+              style={{ fontSize: 28, lineHeight: 32, fontWeight: '500' }}>
               ‹
-            </ThemedText>
+            </Txt>
           </Pressable>
           <Pressable
             onPress={() => setSelectedLogicalDate(todayLogicalDate)}
             role="button"
             aria-label="Heutigen Tag anzeigen"
             className="diary-date-copy">
-            <ThemedText themeColor="accent" className="diary-relative-date">
+            <Txt
+              variant="body"
+              tone="primary"
+              style={{ fontSize: 14, lineHeight: 18, fontWeight: '700' }}>
               {relativeDateLabel(selectedLogicalDate, todayLogicalDate)}
-            </ThemedText>
-            <ThemedText themeColor="textSecondary" className="diary-full-date">
+            </Txt>
+            <Txt
+              variant="body"
+              tone="secondary"
+              numberOfLines={1}
+              style={{ marginTop: 1, fontSize: 16, lineHeight: 20, fontWeight: '500' }}>
               {fullDateLabel(selectedLogicalDate)}
-            </ThemedText>
+            </Txt>
           </Pressable>
           <Pressable
             onPress={() => setSelectedLogicalDate((date) => addDays(date, 1))}
             role="button"
             aria-label="Nächster Tag"
             className="diary-date-arrow">
-            <ThemedText themeColor="accent" className="diary-chevron">
+            <Txt
+              variant="body"
+              tone="secondary"
+              style={{ fontSize: 28, lineHeight: 32, fontWeight: '500' }}>
               ›
-            </ThemedText>
+            </Txt>
           </Pressable>
         </View>
 
@@ -305,21 +339,26 @@ export function DiaryScreen() {
               : `${formatKcal(totals.kcal)} gegessen, kein Tagesziel hinterlegt`
           }>
           <View className="diary-hero-row">
-            <ThemedText className="diary-hero-value">
+            <Txt
+              variant="display"
+              style={{ fontSize: 30, lineHeight: 34, fontWeight: '700' }}>
               {Math.round(calorieGoal > 0 ? Math.abs(remaining) : totals.kcal).toLocaleString(
                 'de-DE',
               )}
-            </ThemedText>
-            <ThemedText themeColor="textSecondary" className="diary-hero-label">
+            </Txt>
+            <Txt
+              variant="body"
+              tone="secondary"
+              style={{ fontSize: 13, lineHeight: 16, fontWeight: '600' }}>
               {calorieGoal > 0
                 ? `kcal ${remaining < 0 ? 'über Ziel' : 'übrig'} · von ${Math.round(calorieGoal).toLocaleString('de-DE')}`
                 : 'kcal gegessen · kein Tagesziel'}
-            </ThemedText>
+            </Txt>
           </View>
           <ProgressBar
             value={calorieGoal > 0 ? totals.kcal / calorieGoal : 0}
-            color={remaining < 0 ? theme.warning : theme.accent}
-            trackColor={theme.backgroundSelected}
+            color={remaining < 0 ? colors.carrot : colors.basil}
+            trackColor={colors.surfaceSoft}
             height={6}
             className="diary-hero-bar"
           />
@@ -353,12 +392,9 @@ export function DiaryScreen() {
 
         {/* Mahlzeiten-Abschnitte (Frühstück, Mittagessen, Abendessen, Snacks) */}
         {isLoading ? (
-          <ThemedText
-            type="captionCompact"
-            themeColor="textSecondary"
-            className="diary-loading-text">
+          <Txt variant="caption" tone="secondary" className="diary-loading-text">
             Lade Tagebuch...
-          </ThemedText>
+          </Txt>
         ) : (
           MEAL_ORDER.map((meal, index) => (
             <MealSection

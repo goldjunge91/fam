@@ -1,6 +1,6 @@
 import { View } from 'react-native';
 
-import { ThemedText } from '@/components/theme/themed-text';
+import { Txt } from '@/constants/ui';
 import { formatEuro } from '@/lib/format-currency';
 
 interface TotalEstimateCardProps {
@@ -17,11 +17,13 @@ export function TotalEstimateCard({
 }: TotalEstimateCardProps) {
   return (
     <View className="total-estimate-card">
-      <ThemedText type="smallSelected">Gesamtschätzung</ThemedText>
-      <ThemedText type="title">{formatEuro(totalEstimate)}</ThemedText>
-      <ThemedText type="smallMuted">
+      <Txt variant="body" tone="primary" weight="600">
+        Gesamtschätzung
+      </Txt>
+      <Txt variant="title">{formatEuro(totalEstimate)}</Txt>
+      <Txt variant="body" tone="secondary">
         {itemCount} Artikel in {storeCount} {storeCount === 1 ? 'Geschäft' : 'Geschäften'}
-      </ThemedText>
+      </Txt>
     </View>
   );
 }

@@ -1,8 +1,8 @@
 import { Linking, type StyleProp, Switch, View, type ViewStyle } from 'react-native';
-import { ThemedText } from '@/components/theme/themed-text';
+import { useTheme } from '@/components/theme/ThemeProvider';
 import { Card } from '@/components/ui/card';
+import { Txt } from '@/constants/ui';
 // `trackColor` benötigt echte Farbwerte statt CSS-Variablen.
-import { useTheme } from '@/hooks/use-theme';
 
 export type PermissionState = { granted: boolean; canAskAgain: boolean };
 
@@ -41,7 +41,7 @@ export function PermissionCard({
   onDisable,
   style,
 }: PermissionCardProps) {
-  const theme = useTheme();
+  const { colors } = useTheme();
   const [permission, requestPermission] = usePermission();
 
   const granted = permission?.granted ?? false;
@@ -65,15 +65,17 @@ export function PermissionCard({
       <Card title={title}>
         <View className="row-between">
           <View className="row-text">
-            <ThemedText type="bodyBold">{label}</ThemedText>
-            <ThemedText type="small" themeColor="textSecondary">
+            <Txt variant="body" weight="700">
+              {label}
+            </Txt>
+            <Txt variant="body" tone="secondary" weight="500">
               {canAskAgain ? grantedCopy : deniedCopy}
-            </ThemedText>
+            </Txt>
           </View>
           <Switch
             value={granted}
             onValueChange={handleToggle}
-            trackColor={{ false: theme.border, true: theme.accent }}
+            trackColor={{ false: colors.border, true: colors.basil }}
           />
         </View>
       </Card>

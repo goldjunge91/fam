@@ -6,8 +6,9 @@ import { useState } from 'react';
 import { Alert, Platform, Pressable, ScrollView, View } from 'react-native';
 
 import { HubScreen } from '@/components/layout/hub-screen';
-import { ThemedText } from '@/components/theme/themed-text';
+import { useTheme } from '@/components/theme/ThemeProvider';
 import { Button, MenuButton, ProfileButton } from '@/components/ui/buttons';
+import { Txt } from '@/constants/ui';
 import { useSession } from '@/features/auth/session-provider';
 import { signOutAndClearLocalData } from '@/features/auth/sign-out';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
@@ -27,6 +28,7 @@ import { env } from '@/lib/env';
 
 export function SettingsScreen() {
   const { session } = useSession();
+  const { colors } = useTheme();
   const { openDrawer } = useNavigationChrome();
   const queryClient = useQueryClient();
   const [signingOut, setSigningOut] = useState(false);
@@ -94,7 +96,7 @@ export function SettingsScreen() {
             onPress={() => router.push('/profile')}
             accessibilityRole="button"
             className="profile-row">
-            <View className="profile-avatar overflow-hidden">
+            <View className="profile-avatar overflow-hidden" style={{ backgroundColor: colors.basil }}>
               {avatarUrl ? (
                 <Image
                   source={{ uri: avatarUrl }}
@@ -103,22 +105,22 @@ export function SettingsScreen() {
                   contentFit="cover"
                 />
               ) : (
-                <ThemedText type="smallBold" themeColor="onAccent">
+                <Txt variant="body" tone="inverse" weight="700">
                   {initials}
-                </ThemedText>
+                </Txt>
               )}
             </View>
             <View className="row-text">
-              <ThemedText type="smallBold" numberOfLines={1}>
+              <Txt variant="body" weight="700" numberOfLines={1}>
                 {displayName}
-              </ThemedText>
-              <ThemedText type="small" themeColor="textSecondary" numberOfLines={1}>
+              </Txt>
+              <Txt variant="body" tone="secondary" numberOfLines={1}>
                 {session?.user.email ?? '—'}
-              </ThemedText>
+              </Txt>
             </View>
-            <ThemedText type="bodyLarge" themeColor="textSecondary">
+            <Txt variant="body" tone="secondary" style={{ fontSize: 18 }}>
               ›
-            </ThemedText>
+            </Txt>
           </Pressable>
 
           <PlusAndAiPromoCard />
@@ -239,9 +241,9 @@ export function SettingsScreen() {
         </View>
 
         {/* App-Versionsangabe & Build-Nummer */}
-        <ThemedText type="small" className="text-center opacity-60">
+        <Txt variant="body" center style={{ opacity: 0.6 }}>
           {versionLabel}
-        </ThemedText>
+        </Txt>
       </ScrollView>
     </HubScreen>
   );

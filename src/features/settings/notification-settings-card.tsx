@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
 import { Pressable, type StyleProp, View, type ViewStyle } from 'react-native';
-import { ThemedText } from '@/components/theme/themed-text';
+import { useTheme } from '@/components/theme/ThemeProvider';
 import { Card } from '@/components/ui/card';
+import { Txt } from '@/constants/ui';
 import {
   DEFAULT_NOTIFICATION_SETTINGS,
   getNotificationSettings,
@@ -21,6 +22,7 @@ type NotificationSettingsCardProps = {
 };
 
 export function NotificationSettingsCard({ style }: NotificationSettingsCardProps) {
+  const { colors } = useTheme();
   const [settings, setSettings] = useState<NotificationSettings>(DEFAULT_NOTIFICATION_SETTINGS);
 
   useEffect(() => {
@@ -37,7 +39,7 @@ export function NotificationSettingsCard({ style }: NotificationSettingsCardProp
       <Card title="Benachrichtigungen">
         <View className="gap-three">
           <View className="gap-two">
-            <ThemedText type="smallBold">Erinnern ab (Tage im Voraus):</ThemedText>
+            <Txt variant="label" weight="700">Erinnern ab (Tage im Voraus):</Txt>
             <View className="row-wrap">
               {THRESHOLD_OPTIONS.map((days) => {
                 const isSelected = settings.daysThreshold === days;
@@ -45,10 +47,15 @@ export function NotificationSettingsCard({ style }: NotificationSettingsCardProp
                   <Pressable
                     key={days}
                     onPress={() => updateSettings({ ...settings, daysThreshold: days })}
-                    className={`chip ${isSelected ? 'chip-selected' : 'chip-idle'}`}>
-                    <ThemedText type={isSelected ? 'smallSelected' : 'small'}>
+                    className="chip"
+                    style={{
+                      backgroundColor: isSelected ? colors.basil : colors.surface,
+                      borderColor: isSelected ? colors.basil : colors.border,
+                      borderWidth: 1,
+                    }}>
+                    <Txt variant="caption" tone={isSelected ? 'onAccent' : 'secondary'}>
                       {days} {days === 1 ? 'Tag' : 'Tage'}
-                    </ThemedText>
+                    </Txt>
                   </Pressable>
                 );
               })}
@@ -56,7 +63,7 @@ export function NotificationSettingsCard({ style }: NotificationSettingsCardProp
           </View>
 
           <View className="gap-two">
-            <ThemedText type="smallBold">Uhrzeit der Erinnerung:</ThemedText>
+            <Txt variant="label" weight="700">Uhrzeit der Erinnerung:</Txt>
             <View className="row-wrap">
               {TIME_OPTIONS.map((time) => {
                 const isSelected =
@@ -71,10 +78,15 @@ export function NotificationSettingsCard({ style }: NotificationSettingsCardProp
                         reminderMinute: time.minute,
                       })
                     }
-                    className={`chip ${isSelected ? 'chip-selected' : 'chip-idle'}`}>
-                    <ThemedText type={isSelected ? 'smallSelected' : 'small'}>
+                    className="chip"
+                    style={{
+                      backgroundColor: isSelected ? colors.basil : colors.surface,
+                      borderColor: isSelected ? colors.basil : colors.border,
+                      borderWidth: 1,
+                    }}>
+                    <Txt variant="caption" tone={isSelected ? 'onAccent' : 'secondary'}>
                       {time.label}
-                    </ThemedText>
+                    </Txt>
                   </Pressable>
                 );
               })}

@@ -3,8 +3,8 @@ import { useEffect, useRef, useState } from 'react';
 import { Pressable, ScrollView, TextInput, View } from 'react-native';
 
 import { DateWheelField } from '@/components/forms/date-wheel-field';
-import { ThemedText } from '@/components/theme/themed-text';
-import { useTheme } from '@/hooks/use-theme';
+import { useTheme } from '@/components/theme/ThemeProvider';
+import { Txt } from '@/constants/ui';
 import { debugLogEvent } from '@/lib/debug-log';
 import { formatAmount, formatPackageHint } from '@/lib/package-size';
 import { type StorageKind, storageKindForCategory } from '../domain-logik/shopping-categories';
@@ -77,9 +77,13 @@ function TransferRow({
     <View className="transfer-row">
       {/* Artikel-Header */}
       <View className="row-between">
-        <ThemedText type="bodyLarge" numberOfLines={2} className="flex-1 min-w-0 font-bold">
+        <Txt
+          variant="subheading"
+          weight="700"
+          numberOfLines={2}
+          className="flex-1 min-w-0">
           {item.name}
-        </ThemedText>
+        </Txt>
 
         {/* Menge — grüner Pill-Badge, per Antippen als Zahl editierbar
             (Feedback: "im Laden nur 5 statt 6 Brötchen bekommen") */}
@@ -97,9 +101,9 @@ function TransferRow({
               accessibilityLabel={`Menge für ${item.name} eingeben`}
               className="min-w-[32px] p-0 text-body-relaxed font-semibold text-white [font-variant:tabular-nums]"
             />
-            <ThemedText type="small" className="text-white font-semibold">
+            <Txt variant="body" tone="onAccent" weight="600">
               {item.unit}
-            </ThemedText>
+            </Txt>
           </View>
         ) : (
           <Pressable
@@ -108,13 +112,17 @@ function TransferRow({
             accessibilityLabel={`Menge für ${item.name}, ${formatAmount(transfer.quantity, item.unit)}, zum Ändern antippen`}
             className="quantity-badge"
             style={{ flexShrink: 0 }}>
-            <ThemedText type="small" className="text-white font-semibold">
+            <Txt variant="body" tone="onAccent" weight="600">
               {formatAmount(transfer.quantity, item.unit)}
-            </ThemedText>
+            </Txt>
           </Pressable>
         )}
       </View>
-      {packageHint ? <ThemedText type="smallMuted">{packageHint}</ThemedText> : null}
+      {packageHint ? (
+        <Txt variant="body" tone="secondary">
+          {packageHint}
+        </Txt>
+      ) : null}
 
       {/* Location-Picker + MHD */}
       <View className="col-gap">
@@ -132,10 +140,10 @@ function TransferRow({
                 className={`kind-button ${
                   isActive ? 'border-accent bg-accent/10' : 'border-border bg-transparent'
                 }`}>
-                <ThemedText type="detail">{cfg.icon}</ThemedText>
-                <ThemedText type="caption" themeColor={isActive ? 'accent' : 'textSecondary'}>
+                <Txt variant="caption">{cfg.icon}</Txt>
+                <Txt variant="caption" tone="primary">
                   {cfg.label}
-                </ThemedText>
+                </Txt>
               </Pressable>
             );
           })}
@@ -143,9 +151,9 @@ function TransferRow({
 
         {/* MHD */}
         <View className="flex-row items-center">
-          <ThemedText type="smallMuted" numberOfLines={1} className="flex-1">
+          <Txt variant="body" tone="secondary" numberOfLines={1} className="flex-1">
             MHD
-          </ThemedText>
+          </Txt>
           <View className="mhd-field-width ml-auto">
             <DateWheelField value={transfer.expiryDate ?? ''} onChange={onUpdateExpiry} />
           </View>
@@ -167,7 +175,7 @@ interface Props {
 }
 
 export function CompleteRunSheet({ isOpen, checkedItems, onConfirm, onClose }: Props) {
-  const theme = useTheme();
+  const { colors: theme } = useTheme();
   const sheetRef = useRef<BottomSheet>(null);
 
   const [transfers, setTransfers] = useState<Map<string, TransferItem>>(new Map());
@@ -256,7 +264,7 @@ export function CompleteRunSheet({ isOpen, checkedItems, onConfirm, onClose }: P
       snapPoints={['90%']}
       enablePanDownToClose
       onClose={onClose}
-      backgroundStyle={{ backgroundColor: theme.background }}
+      backgroundStyle={{ backgroundColor: theme.bg }}
       handleIndicatorStyle={{ backgroundColor: theme.border }}>
       {}
       <BottomSheetView style={{ flex: 1 }}>
@@ -264,17 +272,19 @@ export function CompleteRunSheet({ isOpen, checkedItems, onConfirm, onClose }: P
           {/* Header */}
           <View className="row-between items-start px-four pt-two pb-three">
             <View>
-              <ThemedText type="subtitle">In Vorrat übernehmen</ThemedText>
-              <ThemedText type="smallMuted">
+              <Txt variant="heading" weight="700">
+                In Vorrat übernehmen
+              </Txt>
+              <Txt variant="body" tone="secondary">
                 {count} {count === 1 ? 'Artikel' : 'Artikel'} abgehakt
-              </ThemedText>
+              </Txt>
             </View>
             <Pressable
               onPress={onClose}
               accessibilityRole="button"
               accessibilityLabel="Schließen"
               className="modal-close-btn">
-              <ThemedText>✕</ThemedText>
+              <Txt>✕</Txt>
             </Pressable>
           </View>
 
@@ -304,13 +314,15 @@ export function CompleteRunSheet({ isOpen, checkedItems, onConfirm, onClose }: P
               accessibilityRole="button"
               accessibilityLabel={`${count} Artikel in Vorrat übernehmen`}
               className={`btn-success ${count === 0 ? 'opacity-50' : 'opacity-100'}`}>
-              <ThemedText type="bodyBold" className="text-white">
+              <Txt variant="body" weight="700" tone="onAccent">
                 ✓ {count} {count === 1 ? 'Artikel' : 'Artikel'} in Vorrat übernehmen
-              </ThemedText>
+              </Txt>
             </Pressable>
 
             <Pressable onPress={onClose} accessibilityRole="button" className="py-two">
-              <ThemedText type="smallMuted">Abbrechen</ThemedText>
+              <Txt variant="body" tone="secondary">
+                Abbrechen
+              </Txt>
             </Pressable>
           </View>
         </View>

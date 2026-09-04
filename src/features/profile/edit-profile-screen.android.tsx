@@ -7,8 +7,9 @@ import { useForm } from 'react-hook-form';
 import { Alert, Pressable, View } from 'react-native';
 import { TextField } from '@/components/forms/text-field';
 import { Screen } from '@/components/layout/screen';
-import { ThemedText } from '@/components/theme/themed-text';
+import { useTheme } from '@/components/theme/ThemeProvider';
 import { Button } from '@/components/ui/buttons';
+import { Txt } from '@/constants/ui';
 import { updatePassword } from '@/features/auth/api';
 import { authErrorMessage } from '@/features/auth/domain/auth-error-message';
 import { useSession } from '@/features/auth/session-provider';
@@ -40,7 +41,6 @@ import {
 import { BiometricsSheet } from '@/features/profile/sheets/biometrics-sheet';
 import { FoodRuleSelectionSheet } from '@/features/profile/sheets/food-rule-selection-sheet';
 import { PasswordChangeSheet } from '@/features/profile/sheets/password-change-sheet';
-import { useTheme } from '@/hooks/use-theme';
 import { type ProfileAccountForm, profileAccountFormSchema } from '@/lib/db/zod/profile.zod';
 import { getInitials } from '@/lib/initials';
 import { getSupabase } from '@/lib/supabase';
@@ -50,7 +50,7 @@ import { getSupabase } from '@/lib/supabase';
  * Verwaltet Accountdaten, Biometrie und persönliche Lebensmittelregeln.
  */
 export function EditProfileScreen() {
-  const theme = useTheme();
+  const { colors } = useTheme();
   const { session } = useSession();
   const userId = session?.user.id;
   const currentEmail = session?.user.email ?? '';
@@ -269,10 +269,12 @@ export function EditProfileScreen() {
       back={{ label: 'Mein Profil', href: '/profile' }}
       backStyle="icon">
       <View className="gap-two">
-        <ThemedText type="smallBold">Profilbild</ThemedText>
+        <Txt variant="body" weight="700">
+          Profilbild
+        </Txt>
         <View className="flex-row items-center gap-four">
           <View
-            style={{ backgroundColor: theme.accent }}
+            style={{ backgroundColor: colors.basil }}
             className="w-20 h-20 rounded-full overflow-hidden items-center justify-center border-2 border-border">
             {avatarUrl ? (
               <Image
@@ -282,9 +284,13 @@ export function EditProfileScreen() {
                 contentFit="cover"
               />
             ) : (
-              <ThemedText type="title" themeColor="onAccent" className="text-2xl font-bold">
+              <Txt
+                variant="body"
+                tone="inverse"
+                weight="700"
+                style={{ fontSize: 24, lineHeight: 30 }}>
                 {initials}
-              </ThemedText>
+              </Txt>
             )}
           </View>
 
@@ -299,16 +305,18 @@ export function EditProfileScreen() {
             />
             {avatarUrl ? (
               <Pressable onPress={handleDeleteImage} hitSlop={8} className="py-one items-center">
-                <ThemedText type="caption" themeColor="danger">
+                <Txt variant="caption" tone="danger">
                   Bild entfernen
-                </ThemedText>
+                </Txt>
               </Pressable>
             ) : null}
           </View>
         </View>
       </View>
       <View className="gap-two">
-        <ThemedText type="smallBold">Persönliche Angaben</ThemedText>
+        <Txt variant="body" weight="700">
+          Persönliche Angaben
+        </Txt>
         <View className="gap-three">
           <TextField
             label="Name"
@@ -398,9 +406,9 @@ export function EditProfileScreen() {
       />
 
       {formError ? (
-        <ThemedText role="alert" type="small" themeColor="danger" className="px-one">
+        <Txt role="alert" variant="body" tone="danger" className="px-one">
           {formError}
-        </ThemedText>
+        </Txt>
       ) : null}
       <Button
         label="Änderungen speichern"

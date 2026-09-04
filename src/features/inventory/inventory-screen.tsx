@@ -4,11 +4,11 @@ import { useDeferredValue, useMemo, useState } from 'react';
 import { Alert, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Screen } from '@/components/layout/screen';
-import { ThemedText } from '@/components/theme/themed-text';
+import { space } from '@/components/theme/index';
 import { Button } from '@/components/ui/buttons';
 import { Card } from '@/components/ui/card';
 import { EmptyState } from '@/components/ui/empty-state';
-import { Layout, Spacing } from '@/constants/layout';
+import { Txt } from '@/constants/ui';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { ProductDetailModal } from '@/features/inventory/product-detail-modal';
 import { useStorageLocations } from '@/features/inventory/use-storage-locations';
@@ -66,7 +66,7 @@ export function InventoryScreen() {
   );
 
   const { bottom } = useSafeAreaInsets();
-  const paddingBottom = Math.max(bottom, Spacing.four) + Layout.floatingActionClearance;
+  const paddingBottom = Math.max(bottom, space.xxl) + space.xxxl;
 
   const deferredSearchQuery = useDeferredValue(searchQuery);
 
@@ -193,12 +193,13 @@ export function InventoryScreen() {
             {/* Sortierleiste (nach Haltbarkeit / alphabetisch) */}
             {allItems.length > 0 ? (
               <View className="fridge-sort-row">
-                <ThemedText
-                  type="captionCompact"
-                  themeColor="textSecondary"
-                  className="uppercase tracking-[0.5px] font-bold">
+                <Txt
+                  variant="caption"
+                  tone="secondary"
+                  weight="700"
+                  className="uppercase tracking-[0.5px]">
                   {sortMode === 'expiry' ? 'Nach Haltbarkeit' : 'Alphabetisch'}
-                </ThemedText>
+                </Txt>
                 <Button
                   variant="link"
                   label="Sortieren"

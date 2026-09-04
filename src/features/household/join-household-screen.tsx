@@ -3,9 +3,9 @@ import { useEffect, useState } from 'react';
 import { View } from 'react-native';
 import { TextField } from '@/components/forms/text-field';
 import { Screen } from '@/components/layout/screen';
-import { ThemedText } from '@/components/theme/themed-text';
 import { Button } from '@/components/ui/buttons';
 import { Card } from '@/components/ui/card';
+import { Txt } from '@/constants/ui';
 import { useRedeemInviteMutation } from '@/features/household/api';
 import { clearPendingInviteToken, peekPendingInviteToken } from '@/lib/pending-invite';
 
@@ -68,7 +68,11 @@ export function JoinHouseholdScreen() {
           />
 
           {/* Fehleranzeige bei ungültigem / abgelaufenem Code */}
-          {errorMsg ? <ThemedText type="smallDanger">{errorMsg}</ThemedText> : null}
+          {errorMsg ? (
+            <Txt variant="body" tone="danger">
+              {errorMsg}
+            </Txt>
+          ) : null}
 
           {/* Beitreten-Aktionsbutton */}
           <Button

@@ -6,9 +6,16 @@ import {
   View,
   type ViewStyle,
 } from 'react-native';
+import Animated, {
+  useAnimatedStyle,
+  useSharedValue,
+  withSpring,
+  withTiming,
+} from 'react-native-reanimated';
 
-import { ThemedText } from '@/components/theme/themed-text';
-import { useTheme } from '@/hooks/use-theme';
+import { useTheme } from '@/components/theme/ThemeProvider';
+import { BUTTON_DEPTH } from '@/components/theme/index';
+import { Txt } from '@/constants/ui';
 
 type ButtonProps = {
   label: string;
@@ -45,34 +52,73 @@ export function Button({
   disabled = false,
   className = '',
 }: ButtonProps) {
-  const theme = useTheme();
+  const { colors } = useTheme();
   const isBlocked = loading || disabled;
   const variantClass = VARIANT_CLASSES[variant] ?? 'btn-primary';
+  const isFilled = variant === 'primary' || variant === 'danger';
+  const depth = useSharedValue(0);
+  const faceStyle = useAnimatedStyle(() => ({
+    transform: [{ translateY: depth.value }],
+  }));
 
   const foreground =
-    variant === 'secondary' ? theme.text : variant === 'link' ? theme.accent : '#ffffff';
-
-  const labelThemeColor =
-    variant === 'secondary' ? 'text' : variant === 'link' ? 'accent' : 'onAccent';
+    variant === 'secondary' ? colors.text : variant === 'link' ? colors.basil : colors.inverse;
+  const labelTone =
+    variant === 'secondary' ? 'primary' : variant === 'link' ? 'accent' : 'onAccent';
+  const buttonBackground =
+    backgroundColor ??
+    (variant === 'primary'
+      ? colors.basil
+      : variant === 'danger'
+        ? colors.tomato
+        : variant === 'secondary'
+          ? colors.surface
+          : 'transparent');
 
   return (
-    <Pressable
-      onPress={onPress}
-      disabled={isBlocked}
-      accessibilityRole="button"
-      accessibilityLabel={accessibilityLabel ?? label}
-      accessibilityState={{ disabled: isBlocked, busy: loading }}
-      className={`${variantClass} ${size === 'compact' ? '!py-two !px-three' : ''} ${isBlocked ? 'opacity-50' : ''} ${className}`.trim()}
-      style={backgroundColor ? [{ backgroundColor }, style] : style}>
-      <View className="flex-row items-center gap-two">
-        {loading ? <ActivityIndicator size="small" color={foreground} /> : null}
-        <ThemedText
-          type={variant === 'link' ? 'small' : 'smallBold'}
-          themeColor={variant === 'danger' ? undefined : labelThemeColor}
-          className={`${variant === 'danger' ? 'text-white' : ''} ${size === 'large' ? 'text-body' : ''}`.trim()}>
-          {label}
-        </ThemedText>
-      </View>
-    </Pressable>
+    <View
+      style={{
+        paddingBottom: isFilled ? BUTTON_DEPTH : 0,
+        borderRadius: 16,
+        backgroundColor: isFilled
+          ? variant === 'danger'
+            ? colors.tomatoShadow
+            : colors.basilShadow
+          : 'transparent',
+      }}>
+      <Animated.View style={faceStyle}>
+        <Pressable
+          onPress={onPress}
+          disabled={isBlocked}
+          accessibilityRole="button"
+          accessibilityLabel={accessibilityLabel ?? label}
+          accessibilityState={{ disabled: isBlocked, busy: loading }}
+          onPressIn={() => {
+            if (isFilled) depth.value = withTiming(BUTTON_DEPTH, { duration: 60 });
+          }}
+          onPressOut={() => {
+            depth.value = withSpring(0, { damping: 14, stiffness: 320, mass: 0.5 });
+          }}
+          className={`${variantClass} ${size === 'compact' ? '!py-two !px-three' : ''} ${isBlocked ? 'opacity-50' : ''} ${className}`.trim()}
+          style={[
+            {
+              backgroundColor: buttonBackground,
+              ...(variant === 'secondary' ? { borderColor: colors.border, borderWidth: 1 } : {}),
+            },
+            style,
+          ]}>
+          <View className="flex-row items-center gap-two">
+            {loading ? <ActivityIndicator size="small" color={foreground} /> : null}
+            <Txt
+              variant="body"
+              tone={labelTone}
+              weight={variant === 'link' ? '400' : '700'}
+              className={size === 'large' ? 'text-body' : ''}>
+              {label}
+            </Txt>
+          </View>
+        </Pressable>
+      </Animated.View>
+    </View>
   );
 }

@@ -1,8 +1,7 @@
 import { Picker } from '@expo/ui/community/picker';
 import { useState } from 'react';
 import { Modal, Pressable, View } from 'react-native';
-
-import { ThemedText } from '@/components/theme/themed-text';
+import { Txt } from '@/constants/ui';
 import { Button } from '../ui/buttons';
 
 export type WheelPickerOption = {
@@ -47,27 +46,28 @@ export function WheelPickerField({
   return (
     <View className="gap-one">
       {label && (
-        <ThemedText
-          type="small"
-          themeColor="textSecondary"
-          className={size === 'large' ? 'text-body' : ''}>
+        <Txt variant="body" tone="secondary" className={size === 'large' ? 'text-body' : ''}>
           {label}
-        </ThemedText>
+        </Txt>
       )}
       <Pressable
         onPress={open}
         accessibilityRole="button"
         accessibilityLabel={label ? `${label} ${selectedLabel} ändern` : `${selectedLabel} ändern`}
         className="input-field active:opacity-75">
-        <ThemedText themeColor="text" className={size === 'large' ? 'text-body-lg' : ''}>
+        <Txt variant="body" tone="primary" className={size === 'large' ? 'text-body-lg' : ''}>
           {selectedLabel}
-        </ThemedText>
+        </Txt>
       </Pressable>
 
       <Modal visible={isOpen} transparent animationType="fade" onRequestClose={cancel}>
         <View className="modal-backdrop">
           <View className="modal-sheet">
-            {label && <ThemedText type="subtitle">{label}</ThemedText>}
+            {label && (
+              <Txt variant="heading" weight="700">
+                {label}
+              </Txt>
+            )}
             <Picker selectedValue={pendingValue} onValueChange={setPendingValue}>
               {options.map((option) => (
                 <Picker.Item key={option.value} label={option.label} value={option.value} />

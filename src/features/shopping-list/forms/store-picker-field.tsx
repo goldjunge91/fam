@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { Alert, Pressable, View } from 'react-native';
 import { TextField } from '@/components/forms/text-field';
-import { ThemedText } from '@/components/theme/themed-text';
+import { useTheme } from '@/components/theme/ThemeProvider';
 import { Button } from '@/components/ui/buttons';
-import { useTheme } from '@/hooks/use-theme';
+import { Txt } from '@/constants/ui';
 import { STORE_COLOR_PALETTE, STORE_PRESETS } from '../domain-logik/store-presets';
 import { findStoreByName, useAddStoreMutation, useStores } from '../hooks/use-stores';
 
@@ -14,7 +14,7 @@ interface StorePickerFieldProps {
 }
 
 export function StorePickerField({ householdId, storeId, onChange }: StorePickerFieldProps) {
-  const theme = useTheme();
+  const { colors: theme } = useTheme();
   const { data: stores = [] } = useStores(householdId);
   const addStoreMutation = useAddStoreMutation();
 
@@ -59,15 +59,17 @@ export function StorePickerField({ householdId, storeId, onChange }: StorePicker
   return (
     <View>
       <View className="row-between mt-two">
-        <ThemedText type="smallBold">Markt (optional)</ThemedText>
+        <Txt variant="body" weight="700">
+          Markt (optional)
+        </Txt>
         {!showAddStore && (
           <Pressable
             onPress={() => setShowAddStore(true)}
             accessibilityRole="button"
             accessibilityLabel="Neuer Markt">
-            <ThemedText type="small" themeColor="accent">
+            <Txt variant="body" tone="primary">
               + Neuer Markt
-            </ThemedText>
+            </Txt>
           </Pressable>
         )}
       </View>
@@ -80,9 +82,9 @@ export function StorePickerField({ householdId, storeId, onChange }: StorePicker
           className={`store-chip ${
             storeId === null ? 'border-accent bg-accent/10' : 'border-border bg-transparent'
           }`}>
-          <ThemedText type="small" themeColor={storeId === null ? 'accent' : 'textSecondary'}>
+          <Txt variant="body" tone="primary">
             Ohne Markt
-          </ThemedText>
+          </Txt>
         </Pressable>
         {stores.map((store) => {
           const isActive = storeId === store.id;
@@ -99,13 +101,13 @@ export function StorePickerField({ householdId, storeId, onChange }: StorePicker
                   ? { borderColor: store.color, backgroundColor: `${store.color}22` }
                   : undefined
               }>
-              <ThemedText
-                type="small"
-                themeColor={isActive ? undefined : 'textSecondary'}
+              <Txt
+                variant="body"
+                tone={isActive ? undefined : 'secondary'}
                 // Dynamische Markt-Farbe
                 style={isActive ? { color: store.color } : undefined}>
                 {store.name}
-              </ThemedText>
+              </Txt>
             </Pressable>
           );
         })}
@@ -119,7 +121,9 @@ export function StorePickerField({ householdId, storeId, onChange }: StorePicker
             value={newStoreName}
             onChangeText={setNewStoreName}
           />
-          <ThemedText type="smallMuted">Vorschläge</ThemedText>
+          <Txt variant="body" tone="secondary">
+            Vorschläge
+          </Txt>
           <View className="row-wrap">
             {STORE_PRESETS.map((preset) => (
               <Pressable
@@ -131,18 +135,20 @@ export function StorePickerField({ householdId, storeId, onChange }: StorePicker
                 style={{ backgroundColor: `${preset.color}18`, borderColor: preset.color }}>
                 {/* Dynamische Preset-Farbe */}
                 <View className="store-preset-dot" style={{ backgroundColor: preset.color }} />
-                <ThemedText
-                  type="small"
-                  className="font-semibold"
+                <Txt
+                  variant="body"
+                  weight="600"
                   // Dynamische Preset-Farbe
                   style={{ color: preset.color }}>
                   {preset.name}
-                </ThemedText>
+                </Txt>
               </Pressable>
             ))}
           </View>
 
-          <ThemedText type="smallMuted">Farbe</ThemedText>
+          <Txt variant="body" tone="secondary">
+            Farbe
+          </Txt>
           <View className="row-wrap">
             {STORE_COLOR_PALETTE.map((color) => (
               <Pressable

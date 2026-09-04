@@ -1,6 +1,6 @@
 import { Pressable, View } from 'react-native';
 
-import { ThemedText } from '@/components/theme/themed-text';
+import { Txt } from '@/constants/ui';
 
 type SectionHeadingProps = {
   title: string;
@@ -22,15 +22,22 @@ export function SectionHeading({
     <View className="min-h-[24px] flex-row items-end justify-between gap-[12px] mb-two">
       <View className="shrink">
         {eyebrow ? (
-          <ThemedText
-            themeColor="textSecondary"
-            className="text-micro leading-[11px] font-semibold uppercase tracking-[0.7px]">
+          <Txt
+            variant="caption"
+            tone="secondary"
+            weight="600"
+            className="uppercase"
+            style={{ fontSize: 9, lineHeight: 14, letterSpacing: 0.7 }}>
             {eyebrow}
-          </ThemedText>
+          </Txt>
         ) : null}
-        <ThemedText className={`text-body-small leading-[18px] font-bold ${titleClassName}`}>
+        <Txt
+          variant="body"
+          weight="700"
+          className={titleClassName}
+          style={{ fontSize: 14, lineHeight: 20 }}>
           {title}
-        </ThemedText>
+        </Txt>
       </View>
       {actionLabel && onActionPress ? (
         <Pressable
@@ -39,9 +46,9 @@ export function SectionHeading({
           aria-label={actionLabel}
           hitSlop={8}
           className="active:opacity-65">
-          <ThemedText themeColor="accent" className="text-caption leading-[16px] font-bold">
+          <Txt variant="caption" tone="primary" weight="700" style={{ lineHeight: 16 }}>
             {actionLabel}
-          </ThemedText>
+          </Txt>
         </Pressable>
       ) : null}
     </View>

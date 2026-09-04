@@ -1,13 +1,13 @@
 import { router } from 'expo-router';
 import { View } from 'react-native';
-import { ThemedText } from '@/components/theme/themed-text';
+import { withAlpha } from '@/components/theme/index';
+import { useTheme } from '@/components/theme/ThemeProvider';
 import { GlassCard } from '@/components/ui/glass-card';
-import { withAlpha } from '@/constants/theme';
+import { Txt } from '@/constants/ui';
 import { type DashboardCardProps, registerCard } from '@/features/dashboard/registry';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { getExpiryInfo } from '@/features/inventory/expiry';
 import { useInventoryItems } from '@/features/inventory/use-inventory-items';
-import { useTheme } from '@/hooks/use-theme';
 
 // GlassView hat kein cssInterop, deshalb RN-Style.
 const WIDGET_GLASS_STYLE = {
@@ -17,7 +17,7 @@ const WIDGET_GLASS_STYLE = {
 };
 
 function ExpiryDashboardCard({ size, onLongPress }: DashboardCardProps) {
-  const theme = useTheme();
+  const { colors } = useTheme();
   const { activeHouseholdId } = useActiveHousehold();
   const householdId = activeHouseholdId ?? undefined;
   const { data: fridgeItems = [] } = useInventoryItems(householdId);
@@ -48,35 +48,39 @@ function ExpiryDashboardCard({ size, onLongPress }: DashboardCardProps) {
         fallbackClassName="dashboard-planned-card"
         glassStyle={{ ...WIDGET_GLASS_STYLE, flexDirection: 'column' as const }}
         outerStyle={{
-          height: 140,
+          minHeight: 140,
           borderRadius: 28,
           borderCurve: 'continuous',
-          boxShadow: `0 8px 22px ${withAlpha(theme.shadowCard, 0.1)}`,
+          boxShadow: `0 8px 22px ${withAlpha(colors.text, 0.1)}`,
         }}>
         <View className="flex-row items-center gap-three">
-          <View className="dashboard-widget-badge bg-warning/20">
-            <ThemedText type="smallBold" themeColor="warning">
+          <View
+            className="dashboard-widget-badge"
+            style={{ backgroundColor: withAlpha(colors.carrot, 0.2) }}>
+            <Txt variant="body" tone="warning" weight="700">
               {expiringCount}
-            </ThemedText>
+            </Txt>
           </View>
-          <ThemedText type="smallBold">Läuft bald ab</ThemedText>
+          <Txt variant="body" weight="700">
+            Läuft bald ab
+          </Txt>
         </View>
         <View className="flex-1 justify-center gap-[2px]">
           {topItems.length > 0 ? (
             topItems.map((item) => (
-              <ThemedText key={item.id} type="small" themeColor="textSecondary" numberOfLines={1}>
+              <Txt key={item.id} variant="body" tone="secondary" numberOfLines={1}>
                 {item.name}
-              </ThemedText>
+              </Txt>
             ))
           ) : (
-            <ThemedText type="small" themeColor="textSecondary">
+            <Txt variant="body" tone="secondary">
               Alles frisch
-            </ThemedText>
+            </Txt>
           )}
         </View>
-        <ThemedText type="smallBold" className="dashboard-widget-action">
+        <Txt variant="body" weight="700" className="dashboard-widget-action">
           Vorrat prüfen
-        </ThemedText>
+        </Txt>
       </GlassCard>
     );
   }
@@ -91,23 +95,25 @@ function ExpiryDashboardCard({ size, onLongPress }: DashboardCardProps) {
       glassStyle={WIDGET_GLASS_STYLE}
       outerStyle={{
         width: '100%',
-        height: 138,
+        minHeight: 138,
         borderRadius: 28,
         borderCurve: 'continuous',
-        boxShadow: `0 8px 20px ${withAlpha(theme.shadowCard, 0.08)}`,
+        boxShadow: `0 8px 20px ${withAlpha(colors.text, 0.08)}`,
       }}>
-      <View className="dashboard-widget-badge bg-warning/20">
-        <ThemedText type="smallBold" themeColor="warning">
+      <View
+        className="dashboard-widget-badge"
+        style={{ backgroundColor: withAlpha(colors.carrot, 0.2) }}>
+        <Txt variant="body" tone="warning" weight="700">
           {expiringCount}
-        </ThemedText>
+        </Txt>
       </View>
       <View className="flex-1" />
-      <ThemedText type="small" themeColor="textSecondary" className="dashboard-widget-label">
+      <Txt variant="body" tone="secondary" className="dashboard-widget-label">
         Läuft bald ab
-      </ThemedText>
-      <ThemedText type="smallBold" className="dashboard-widget-action">
+      </Txt>
+      <Txt variant="body" weight="700" className="dashboard-widget-action">
         Vorrat prüfen
-      </ThemedText>
+      </Txt>
     </GlassCard>
   );
 }

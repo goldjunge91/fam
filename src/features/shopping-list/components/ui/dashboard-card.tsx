@@ -1,13 +1,13 @@
 import { router } from 'expo-router';
 import { View } from 'react-native';
-import { ThemedText } from '@/components/theme/themed-text';
+import { withAlpha } from '@/components/theme/index';
+import { useTheme } from '@/components/theme/ThemeProvider';
 import { GlassCard } from '@/components/ui/glass-card';
 import { ProgressBar } from '@/components/ui/progress-bar';
-import { withAlpha } from '@/constants/theme';
+import { Txt } from '@/constants/ui';
 import { type DashboardCardProps, registerCard } from '@/features/dashboard/registry';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { useShoppingList } from '@/features/shopping-list/hooks/use-shopping-list';
-import { useTheme } from '@/hooks/use-theme';
 
 // GlassView hat kein cssInterop, deshalb RN-Style.
 const WIDGET_GLASS_STYLE = {
@@ -22,7 +22,7 @@ const WIDGET_GLASS_STYLE = {
  * Small = Badge + Label + Action (wie bisher).
  */
 function ShoppingDashboardCard({ size, onLongPress }: DashboardCardProps) {
-  const theme = useTheme();
+  const { colors: theme } = useTheme();
   const { activeHouseholdId } = useActiveHousehold();
   const householdId = activeHouseholdId ?? undefined;
   const { data: shoppingGroups = [] } = useShoppingList(householdId);
@@ -44,36 +44,38 @@ function ShoppingDashboardCard({ size, onLongPress }: DashboardCardProps) {
         fallbackClassName="dashboard-planned-card"
         glassStyle={{ ...WIDGET_GLASS_STYLE, flexDirection: 'column' as const }}
         outerStyle={{
-          height: 140,
+          minHeight: 140,
           borderRadius: 28,
           borderCurve: 'continuous',
-          boxShadow: `0 8px 22px ${withAlpha(theme.shadowCard, 0.1)}`,
+          boxShadow: `0 8px 22px ${withAlpha(theme.text, 0.1)}`,
         }}>
         <View className="flex-row items-center gap-three">
           <View className="dashboard-widget-badge bg-accent/[15%]">
-            <ThemedText type="smallBold" themeColor="accent">
+            <Txt variant="body" weight="700" tone="primary">
               {openCount}
-            </ThemedText>
+            </Txt>
           </View>
-          <ThemedText type="smallBold">Einkauf</ThemedText>
+          <Txt variant="body" weight="700">
+            Einkauf
+          </Txt>
         </View>
         <View className="flex-1 justify-center gap-two">
           {totalCount > 0 ? (
             <>
               <ProgressBar value={progress} />
-              <ThemedText type="small" themeColor="textSecondary">
+              <Txt variant="body" tone="secondary">
                 {checkedCount} von {totalCount} erledigt
-              </ThemedText>
+              </Txt>
             </>
           ) : (
-            <ThemedText type="small" themeColor="textSecondary">
+            <Txt variant="body" tone="secondary">
               Liste ist leer
-            </ThemedText>
+            </Txt>
           )}
         </View>
-        <ThemedText type="smallBold" className="dashboard-widget-action">
+        <Txt variant="body" weight="700" className="dashboard-widget-action">
           {openCount > 0 ? 'Noch offen' : 'Erledigt'}
-        </ThemedText>
+        </Txt>
       </GlassCard>
     );
   }
@@ -88,23 +90,23 @@ function ShoppingDashboardCard({ size, onLongPress }: DashboardCardProps) {
       glassStyle={WIDGET_GLASS_STYLE}
       outerStyle={{
         width: '100%',
-        height: 138,
+        minHeight: 138,
         borderRadius: 28,
         borderCurve: 'continuous',
-        boxShadow: `0 8px 20px ${withAlpha(theme.shadowCard, 0.08)}`,
+        boxShadow: `0 8px 20px ${withAlpha(theme.text, 0.08)}`,
       }}>
       <View className="dashboard-widget-badge bg-accent/[15%]">
-        <ThemedText type="smallBold" themeColor="accent">
+        <Txt variant="body" weight="700" tone="primary">
           {openCount}
-        </ThemedText>
+        </Txt>
       </View>
       <View className="flex-1" />
-      <ThemedText type="small" themeColor="textSecondary" className="dashboard-widget-label">
+      <Txt variant="body" tone="secondary" className="dashboard-widget-label">
         Einkauf
-      </ThemedText>
-      <ThemedText type="smallBold" className="dashboard-widget-action">
+      </Txt>
+      <Txt variant="body" weight="700" className="dashboard-widget-action">
         {openCount > 0 ? 'Noch offen' : 'Erledigt'}
-      </ThemedText>
+      </Txt>
     </GlassCard>
   );
 }

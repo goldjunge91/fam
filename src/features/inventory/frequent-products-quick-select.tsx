@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 import { Pressable, ScrollView } from 'react-native';
 
-import { ThemedText } from '@/components/theme/themed-text';
+import { Txt } from '@/constants/ui';
 import type { CatalogProduct } from '@/features/product-search/types';
 import { getDatabase } from '@/lib/db/client';
 import {
@@ -68,9 +68,9 @@ export function FrequentProductsQuickSelect({
           role="button"
           aria-label={row.name}
           className="frequent-products-chip">
-          <ThemedText type="small" numberOfLines={1}>
+          <Txt variant="body" numberOfLines={1}>
             {row.name}
-          </ThemedText>
+          </Txt>
         </Pressable>
       ))}
     </ScrollView>

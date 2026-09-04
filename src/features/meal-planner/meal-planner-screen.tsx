@@ -4,8 +4,9 @@ import { useState } from 'react';
 import { Alert, Pressable, View } from 'react-native';
 
 import { HubScreen } from '@/components/layout/hub-screen';
-import { ThemedText } from '@/components/theme/themed-text';
+import { useTheme } from '@/components/theme/ThemeProvider';
 import { HeaderIconButton, MenuButton } from '@/components/ui/buttons';
+import { Txt } from '@/constants/ui';
 import { useSession } from '@/features/auth/session-provider';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { useHouseholdMembers } from '@/features/household/api';
@@ -15,7 +16,6 @@ import {
   DEFAULT_MODULE_PREFERENCES,
   useModulePreferences,
 } from '@/features/settings/module-preferences';
-import { useTheme } from '@/hooks/use-theme';
 import { useFeatureFlag } from '@/lib/posthog';
 import { type EntryFormInitial, EntryFormModal } from './components/entry-form-modal';
 import { RecipePickerModal } from './components/recipe-picker-modal';
@@ -48,7 +48,7 @@ type PendingDrop = { date: string; slot: MealSlot; recipe: DraggableRecipe };
 type PendingCell = { date: string; slot: MealSlot };
 
 export function MealPlannerScreen() {
-  const theme = useTheme();
+  const { colors } = useTheme();
   const { openDrawer } = useNavigationChrome();
   const { session } = useSession();
   const userId = session?.user.id;
@@ -216,7 +216,7 @@ export function MealPlannerScreen() {
             <Image
               source="sf:calendar"
               contentFit="contain"
-              tintColor={theme.accent}
+              tintColor={colors.basil}
               // expo-image ist nicht NativeWind-registriert, className wird
               // still ignoriert.
               style={{ width: 19, height: 19 }}
@@ -235,13 +235,15 @@ export function MealPlannerScreen() {
               aria-label={`${VIEW_MODE_LABELS[mode]}-Ansicht`}
               aria-selected={viewMode === mode}
               className={`tab-btn ${viewMode === mode ? 'tab-btn-active' : 'tab-btn-idle'}`}>
-              <ThemedText
+              <Txt
                 // type="detail"
-                type="controlActionLarge"
-                themeColor={viewMode === mode ? 'onAccent' : 'textSecondary'}
-                className="tab-btn-label">
+                variant="heading"
+                color={viewMode === mode ? colors.inverse : colors.textMuted}
+                weight="700"
+                className="tab-btn-label"
+                style={{ fontSize: 22, lineHeight: 24 }}>
                 {VIEW_MODE_LABELS[mode]}
-              </ThemedText>
+              </Txt>
             </Pressable>
           ))}
         </View>
@@ -253,21 +255,23 @@ export function MealPlannerScreen() {
             aria-label="Vorheriger Zeitraum"
             onPress={() => setAnchorDate((date) => shiftAnchor(date, viewMode, -1))}
             className="mp-period-button">
-            <ThemedText themeColor="accent" className="mp-chevron">
+            <Txt tone="secondary" className="mp-chevron">
               ‹
-            </ThemedText>
+            </Txt>
           </Pressable>
           <View className="mp-period-copy">
-            <ThemedText className="mp-period-title">{periodLabel(dates)}</ThemedText>
+            <Txt variant="body" className="mp-period-title">
+              {periodLabel(dates)}
+            </Txt>
           </View>
           <Pressable
             role="button"
             aria-label="Nächster Zeitraum"
             onPress={() => setAnchorDate((date) => shiftAnchor(date, viewMode, 1))}
             className="mp-period-button">
-            <ThemedText themeColor="accent" className="mp-chevron">
+            <Txt tone="secondary" className="mp-chevron">
               ›
-            </ThemedText>
+            </Txt>
           </Pressable>
         </View>
 
@@ -280,9 +284,9 @@ export function MealPlannerScreen() {
               className="mp-action-button"
               // borderCurve ist ein echter Laufzeitwert ohne Tailwind-Aequivalent.
               style={{ borderCurve: 'continuous' }}>
-              <ThemedText themeColor="accent" className="mp-action-label">
+              <Txt variant="body" tone="primary" className="mp-action-label">
                 Vorwoche übernehmen
-              </ThemedText>
+              </Txt>
             </Pressable>
             <Pressable
               role="button"
@@ -298,9 +302,9 @@ export function MealPlannerScreen() {
               className={`mp-action-button ${!plan ? 'mp-action-button-disabled' : ''}`}
               // borderCurve ist ein echter Laufzeitwert ohne Tailwind-Aequivalent.
               style={{ borderCurve: 'continuous' }}>
-              <ThemedText themeColor="accent" className="mp-action-label">
+              <Txt variant="body" tone="primary" className="mp-action-label">
                 Einkauf vorbereiten
-              </ThemedText>
+              </Txt>
             </Pressable>
           </View>
         ) : null}

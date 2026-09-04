@@ -1,14 +1,21 @@
 import * as Haptics from 'expo-haptics';
 import { type ReactElement, useCallback } from 'react';
-import { Pressable, View } from 'react-native';
+import { Pressable, useWindowDimensions, View } from 'react-native';
+import {
+  GridOrientation,
+  type GridPositions,
+  GridStrategy,
+  SortableGrid,
+  SortableGridItem,
+  type SortableGridRenderItemProps,
+} from 'react-native-reanimated-dnd';
 
-import { ThemedText } from '@/components/theme/themed-text';
+import { useTheme } from '@/components/theme/ThemeProvider';
+import { Txt } from '@/constants/ui';
 import { useSession } from '@/features/auth/session-provider';
 import { type CardSize, type DashboardCardDef, getCards } from '@/features/dashboard/registry';
 import { useCardSizes } from '@/features/dashboard/use-card-sizes';
 import { useModulePreferences } from '@/features/settings/module-preferences';
-import { useTheme } from '@/hooks/use-theme';
-import { DashboardDragProvider } from './drag-context';
 import { JiggleWrapper } from './jiggle-wrapper';
 import { WidgetRow } from './widget-row';
 
@@ -33,12 +40,13 @@ export function CardList({
   onOpenGallery,
   onDragStateChange,
 }: CardListProps) {
-  const theme = useTheme();
+  const { colors } = useTheme();
+  const { width, fontScale } = useWindowDimensions();
+  const stackSmallCards = width < 360 || fontScale >= 1.2;
   const { session } = useSession();
   const userId = session?.user.id;
   const { data: modules } = useModulePreferences(userId);
-  const { getSize, setSize, hideCard, isCardHidden, getOrderedCards, moveCardByIndex } =
-    useCardSizes();
+  const { getSize, setSize, hideCard, isCardHidden, getOrderedCards, reorderCards } = useCardSizes();
 
   const handleToggleSize = useCallback(
     (cardId: string, currentSize: CardSize) => {
@@ -60,6 +68,7 @@ export function CardList({
   );
 
   const handleDragStart = useCallback(() => {
+    Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
     if (onDragStateChange) onDragStateChange(true);
   }, [onDragStateChange]);
 
@@ -78,11 +87,91 @@ export function CardList({
   const visibleCards = getOrderedCards(rawVisibleCards);
   const visibleCardIds = visibleCards.map((c) => c.id);
 
-  const handleDrop = useCallback(
-    (fromIdx: number, toIdx: number) => {
-      moveCardByIndex(fromIdx, toIdx, visibleCardIds);
+  const handleGridDrop = useCallback(
+    (_id: string, _position: number, allPositions?: GridPositions) => {
+      if (!allPositions) {
+        handleDragEnd();
+        return;
+      }
+
+      const nextVisibleIds = Object.entries(allPositions)
+        .sort(([, left], [, right]) => left.index - right.index)
+        .map(([id]) => id);
+      if (nextVisibleIds.length !== visibleCardIds.length) {
+        handleDragEnd();
+        return;
+      }
+
+      const nextOrder = getOrderedCards([...allCards]).map((card) => card.id);
+      let visibleIndex = 0;
+      const visibleIdSet = new Set(visibleCardIds);
+      for (let orderIndex = 0; orderIndex < nextOrder.length; orderIndex++) {
+        if (visibleIdSet.has(nextOrder[orderIndex])) {
+          nextOrder[orderIndex] = nextVisibleIds[visibleIndex];
+          visibleIndex++;
+        }
+      }
+
+      reorderCards(nextOrder);
+      handleDragEnd();
     },
-    [moveCardByIndex, visibleCardIds],
+    [allCards, getOrderedCards, handleDragEnd, reorderCards, visibleCardIds],
+  );
+
+  const dashboardContentWidth = Math.max(1, width - 42);
+  const sortableGridColumns = visibleCards.some((card) => getSize(card) === 'large') ? 1 : 2;
+  const sortableGridGap = 15;
+  const sortableGridItemWidth =
+    sortableGridColumns === 1
+      ? dashboardContentWidth
+      : Math.max(1, (dashboardContentWidth - sortableGridGap) / 2);
+  const sortableGridItemHeight =
+    sortableGridColumns === 1 ? (fontScale >= 1.2 ? 220 : 190) : fontScale >= 1.2 ? 170 : 150;
+
+  const renderSortableCard = useCallback(
+    ({
+      item,
+      index,
+      ...sortableItemProps
+    }: SortableGridRenderItemProps<DashboardCardDef>) => {
+      const cardSize = getSize(item);
+
+      return (
+        <SortableGridItem
+          key={item.id}
+          {...sortableItemProps}
+          id={item.id}
+          data={item}
+          activationDelay={160}
+          containerWidth={dashboardContentWidth}
+          style={{ width: sortableGridItemWidth, height: sortableGridItemHeight }}
+          onDragStart={handleDragStart}
+          onDrop={handleGridDrop}>
+          <JiggleWrapper
+            index={index}
+            size={cardSize}
+            fill
+            isEditing
+            onDelete={() => hideCard(item.id)}
+            onToggleSize={() => handleToggleSize(item.id, cardSize)}>
+            <item.component
+              size={cardSize}
+              onLongPress={() => handleLongPress(item.id, cardSize)}
+            />
+          </JiggleWrapper>
+        </SortableGridItem>
+      );
+    },
+    [
+      getSize,
+      handleDragStart,
+      handleGridDrop,
+      handleLongPress,
+      handleToggleSize,
+      hideCard,
+      sortableGridItemHeight,
+      sortableGridItemWidth,
+    ],
   );
 
   if (!modules) return null;
@@ -90,33 +179,35 @@ export function CardList({
   if (visibleCards.length === 0) {
     return (
       <View
-        className="rounded-fam-large p-five items-center justify-center gap-three bg-background-element"
-        style={{ minHeight: 180 }}>
-        <ThemedText type="smallBold" className="text-center">
+        className="rounded-fam-large p-five items-center justify-center gap-three"
+        style={{ minHeight: 180, backgroundColor: colors.surface }}>
+        <Txt variant="body" weight="700" className="text-center">
           Keine Karten auf der Übersicht
-        </ThemedText>
-        <ThemedText type="small" themeColor="textSecondary" className="text-center">
+        </Txt>
+        <Txt variant="body" tone="secondary" className="text-center">
           Füge Karten über die Galerie hinzu oder passe deine Ansicht an.
-        </ThemedText>
+        </Txt>
         {onOpenGallery ? (
           <Pressable
             accessibilityRole="button"
             accessibilityLabel="Karten hinzufügen"
             onPress={onOpenGallery}
-            className="px-four py-two rounded-control bg-accent mt-one">
-            <ThemedText style={{ color: theme.onAccent, fontWeight: '600', fontSize: 14 }}>
+            className="px-four py-two rounded-control mt-one"
+            style={{ backgroundColor: colors.basil }}>
+            <Txt variant="body" tone="onAccent" weight="600">
               + Karten hinzufügen
-            </ThemedText>
+            </Txt>
           </Pressable>
         ) : null}
       </View>
     );
   }
 
-  // Aufeinanderfolgende kleine Karten paarweise gruppieren.
+  // Aufeinanderfolgende kleine Karten in responsive Reihen gruppieren.
   const elements: ReactElement[] = [];
   let i = 0;
   let cardIndex = 0;
+  let rowIndex = 0;
 
   while (i < visibleCards.length) {
     const card = visibleCards[i];
@@ -130,30 +221,31 @@ export function CardList({
         j++;
       }
 
-      for (let k = 0; k < smallGroup.length; k += 2) {
-        const pair = smallGroup.slice(k, k + 2);
+      const cardsPerRow = stackSmallCards ? 1 : 2;
+      for (let k = 0; k < smallGroup.length; k += cardsPerRow) {
+        const pair = smallGroup.slice(k, k + cardsPerRow);
+        const currentRowIndex = rowIndex++;
         elements.push(
-          <WidgetRow key={`row-${pair.map((c) => c.id).join('-')}`}>
+          <WidgetRow
+            key={`row-${currentRowIndex}`}
+            stacked={false}>
             {pair.map((c) => {
               const idx = cardIndex++;
               return (
                 <JiggleWrapper
                   key={c.id}
-                  id={c.id}
                   index={idx}
-                  totalCards={visibleCards.length}
                   size="small"
                   isEditing={isEditing}
                   onDelete={() => hideCard(c.id)}
-                  onToggleSize={() => handleToggleSize(c.id, 'small')}
-                  onDragStart={handleDragStart}
-                  onDragEnd={handleDragEnd}
-                  onDrop={handleDrop}>
+                  onToggleSize={() => handleToggleSize(c.id, 'small')}>
                   <c.component size="small" onLongPress={() => handleLongPress(c.id, 'small')} />
                 </JiggleWrapper>
               );
             })}
-            {pair.length === 1 ? <View key="empty-slot" style={{ flex: 1 }} /> : null}
+            {pair.length === 1 && !stackSmallCards ? (
+              <View key="empty-slot" style={{ flex: 1 }} />
+            ) : null}
           </WidgetRow>,
         );
       }
@@ -161,25 +253,44 @@ export function CardList({
       i = j;
     } else {
       const idx = cardIndex++;
+      const currentRowIndex = rowIndex++;
       elements.push(
-        <JiggleWrapper
-          key={card.id}
-          id={card.id}
-          index={idx}
-          totalCards={visibleCards.length}
-          size="large"
-          isEditing={isEditing}
-          onDelete={() => hideCard(card.id)}
-          onToggleSize={() => handleToggleSize(card.id, 'large')}
-          onDragStart={handleDragStart}
-          onDragEnd={handleDragEnd}
-          onDrop={handleDrop}>
-          <card.component size="large" onLongPress={() => handleLongPress(card.id, 'large')} />
-        </JiggleWrapper>,
+        <WidgetRow
+          key={`row-${currentRowIndex}`}
+          stacked>
+          <JiggleWrapper
+            index={idx}
+            size="large"
+            isEditing={isEditing}
+            onDelete={() => hideCard(card.id)}
+            onToggleSize={() => handleToggleSize(card.id, 'large')}>
+            <card.component size="large" onLongPress={() => handleLongPress(card.id, 'large')} />
+          </JiggleWrapper>
+        </WidgetRow>,
       );
       i++;
     }
   }
 
-  return <DashboardDragProvider>{elements}</DashboardDragProvider>;
+  if (isEditing) {
+    return (
+      <SortableGrid
+        data={visibleCards}
+        renderItem={renderSortableCard}
+        dimensions={{
+          columns: sortableGridColumns,
+          itemWidth: sortableGridItemWidth,
+          itemHeight: sortableGridItemHeight,
+          rowGap: sortableGridGap,
+          columnGap: sortableGridGap,
+        }}
+        orientation={GridOrientation.Vertical}
+        strategy={GridStrategy.Insert}
+        scrollEnabled
+        style={{ flex: 1 }}
+      />
+    );
+  }
+
+  return elements;
 }

@@ -21,12 +21,12 @@ import {
 } from 'react-native';
 
 import { TextField } from '@/components/forms/text-field';
-import { ThemedText } from '@/components/theme/themed-text';
+import { useTheme } from '@/components/theme/ThemeProvider';
+import { Txt } from '@/constants/ui';
 import { useOptionalActiveHousehold } from '@/features/household/active-household-provider';
 import { useProductSearch } from '@/features/product-search/hooks/use-product-search';
 import { usePreferredProductMarketName } from '@/features/product-search/preferred-market';
 import type { CatalogProduct } from '@/features/product-search/types';
-import { useTheme } from '@/hooks/use-theme';
 
 /** Wie nah am unteren Rand (px) das Nachladen beim Scrollen ausloest. */
 const LOAD_MORE_THRESHOLD_PX = 70;
@@ -75,7 +75,7 @@ export const ProductSearchDropdown = forwardRef<
   },
   ref,
 ) {
-  const theme = useTheme();
+  const { colors } = useTheme();
   const activeHousehold = useOptionalActiveHousehold();
   const preferredMarket = usePreferredProductMarketName(
     activeHousehold?.activeHouseholdId ?? undefined,
@@ -187,7 +187,7 @@ export const ProductSearchDropdown = forwardRef<
 
       {searching && (
         <View className="psd-spinner">
-          <ActivityIndicator size="small" color={theme.accent} />
+          <ActivityIndicator size="small" color={colors.basil} />
         </View>
       )}
 
@@ -199,9 +199,9 @@ export const ProductSearchDropdown = forwardRef<
             accessibilityRole="button"
             accessibilityLabel="Trefferliste schließen"
             className="psd-panel-close">
-            <ThemedText themeColor="textSecondary" className="text-[13px] font-bold">
+            <Txt variant="caption" tone="secondary" weight="700">
               ✕
-            </ThemedText>
+            </Txt>
           </Pressable>
           <ScrollView
             className="psd-panel"
@@ -242,17 +242,12 @@ export const ProductSearchDropdown = forwardRef<
                 }}
                 className="psd-row">
                 <View className="flex-1">
-                  <ThemedText
-                    type={size === 'large' ? 'body' : 'smallBold'}
-                    className={size === 'large' ? 'font-bold' : undefined}>
+                  <Txt variant="body" weight="700">
                     + &quot;{value.trim()}&quot; manuell anlegen
-                  </ThemedText>
-                  <ThemedText
-                    type={size === 'large' ? 'body' : 'small'}
-                    themeColor="textSecondary"
-                    className={size === 'large' ? 'font-medium' : undefined}>
+                  </Txt>
+                  <Txt variant="body" tone="secondary">
                     Kein Treffer bei Open Food Facts gefunden
-                  </ThemedText>
+                  </Txt>
                 </View>
               </Pressable>
             ) : null}
@@ -273,40 +268,30 @@ export const ProductSearchDropdown = forwardRef<
                   <Image source={{ uri: item.imageUrl }} className="psd-thumb" />
                 ) : (
                   <View className="psd-thumb-fallback">
-                    <ThemedText type={size === 'large' ? 'body' : 'bodySmall'}>🥫</ThemedText>
+                    <Txt variant="body">🥫</Txt>
                   </View>
                 )}
 
                 <View className="flex-1">
-                  <ThemedText
-                    type={size === 'large' ? 'body' : 'smallBold'}
-                    numberOfLines={1}
-                    className={size === 'large' ? 'font-bold' : undefined}>
+                  <Txt variant="body" weight="700" numberOfLines={1}>
                     {item.name}
-                  </ThemedText>
-                  <ThemedText
-                    type={size === 'large' ? 'body' : 'small'}
-                    themeColor="textSecondary"
-                    numberOfLines={1}
-                    className={size === 'large' ? 'font-medium' : undefined}>
+                  </Txt>
+                  <Txt variant="body" tone="secondary" numberOfLines={1}>
                     {item.brand ? `${item.brand} · ` : ''}
                     {item.quantity !== undefined ? `${item.quantity} ${item.unit ?? ''}` : ''}
                     {item.caloriesPer100g ? ` · ${item.caloriesPer100g} kcal/100g` : ''}
-                  </ThemedText>
+                  </Txt>
                   {item.barcode ? (
-                    <ThemedText
-                      type={size === 'large' ? 'small' : 'captionMuted'}
-                      themeColor="textSecondary"
-                      numberOfLines={1}>
+                    <Txt variant="caption" tone="secondary" numberOfLines={1}>
                       EAN {item.barcode}
-                    </ThemedText>
+                    </Txt>
                   ) : null}
                 </View>
               </Pressable>
             ))}
             {loadingMore && (
               <View className="py-two items-center">
-                <ActivityIndicator size="small" color={theme.accent} />
+                <ActivityIndicator size="small" color={colors.basil} />
               </View>
             )}
             {}

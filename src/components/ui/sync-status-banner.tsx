@@ -1,8 +1,7 @@
 import { createContext, type ReactNode, useContext } from 'react';
 import { Pressable, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-
-import { ThemedText } from '@/components/theme/themed-text';
+import { Txt } from '@/constants/ui';
 import { useSyncStatus } from '@/hooks/use-sync-status';
 import { getDatabase } from '@/lib/db/client';
 import { retryFailedOutboxEntries } from '@/lib/db/outbox-retry';
@@ -65,9 +64,9 @@ export function SyncStatusBanner({
       : `${status.failedCount} Änderungen konnten nicht synchronisiert werden. Erneut versuchen.`;
 
   const content = (
-    <ThemedText type="smallBold" className="text-white text-center">
+    <Txt variant="body" tone="inverse" weight="700" center>
       {label}
-    </ThemedText>
+    </Txt>
   );
 
   return (

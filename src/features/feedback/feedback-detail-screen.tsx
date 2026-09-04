@@ -4,10 +4,11 @@ import { View } from 'react-native';
 
 import { TextField } from '@/components/forms/text-field';
 import { Screen } from '@/components/layout/screen';
-import { ThemedText } from '@/components/theme/themed-text';
-import { ThemedView } from '@/components/theme/themed-view';
+import { withAlpha } from '@/components/theme/index';
+import { useTheme } from '@/components/theme/ThemeProvider';
 import { Button } from '@/components/ui/buttons';
 import { Card } from '@/components/ui/card';
+import { Surface, Txt } from '@/constants/ui';
 import { useSession } from '@/features/auth/session-provider';
 import {
   type FeedbackMessage,
@@ -23,19 +24,26 @@ import {
 import { useFeedbackRealtime } from '@/features/feedback/use-feedback-realtime';
 
 const BANNER_DURATION_MS = 4000;
+const STATUS_TONE = {
+  textSecondary: 'secondary',
+  warning: 'warning',
+  success: 'success',
+} as const;
 
 function MessageBubble({ message }: { message: FeedbackMessage }) {
+  const { colors } = useTheme();
   const isStaff = message.author_type === 'staff';
 
   return (
-    <ThemedView
-      type="backgroundElement"
-      className={`gap-one rounded-card p-two ${isStaff ? 'bg-accent/10' : ''}`}>
-      <ThemedText type="small" themeColor="textSecondary">
+    <Surface
+      tone="surface"
+      className="gap-one rounded-card p-two"
+      style={{ backgroundColor: isStaff ? withAlpha(colors.basil, 0.1) : colors.surface }}>
+      <Txt variant="body" tone="secondary">
         {isStaff ? 'Team' : 'Du'} · {new Date(message.created_at).toLocaleDateString('de-DE')}
-      </ThemedText>
-      <ThemedText>{message.body}</ThemedText>
-    </ThemedView>
+      </Txt>
+      <Txt variant="body">{message.body}</Txt>
+    </Surface>
   );
 }
 
@@ -82,21 +90,26 @@ export function FeedbackDetailScreen() {
   return (
     <Screen title={ticket ? `#${ticket.ticket_number}` : 'Ticket'} back={{ label: 'Feedback' }}>
       {banner ? (
-        <ThemedView type="backgroundElement" className="rounded-card p-two">
-          <ThemedText type="small">{banner}</ThemedText>
-        </ThemedView>
+        <Surface tone="surface" className="rounded-card p-two">
+          <Txt variant="body">{banner}</Txt>
+        </Surface>
       ) : null}
       {ticket ? (
         <Card>
           <View className="gap-one">
-            <ThemedText type="smallBold">{ticket.subject}</ThemedText>
+            <Txt variant="body" weight="700">
+              {ticket.subject}
+            </Txt>
             <View className="flex-row items-center justify-between">
-              <ThemedText type="small" themeColor="textSecondary">
+              <Txt variant="body" tone="secondary">
                 {FEEDBACK_TYPE_LABELS[ticket.type]}
-              </ThemedText>
-              <ThemedText type="smallBold" themeColor={FEEDBACK_STATUS_COLORS[ticket.status]}>
+              </Txt>
+              <Txt
+                variant="body"
+                weight="700"
+                tone={STATUS_TONE[FEEDBACK_STATUS_COLORS[ticket.status]]}>
                 {FEEDBACK_STATUS_LABELS[ticket.status]}
-              </ThemedText>
+              </Txt>
             </View>
           </View>
         </Card>
@@ -109,9 +122,9 @@ export function FeedbackDetailScreen() {
       </View>
 
       {isClosed ? (
-        <ThemedText type="small" themeColor="textSecondary">
+        <Txt variant="body" tone="secondary">
           Dieses Ticket ist geschlossen. Neue Antworten sind nicht mehr möglich.
-        </ThemedText>
+        </Txt>
       ) : (
         <Card>
           <View className="gap-three">
@@ -123,7 +136,11 @@ export function FeedbackDetailScreen() {
               multiline
               numberOfLines={3}
             />
-            {errorMsg ? <ThemedText type="smallDanger">{errorMsg}</ThemedText> : null}
+            {errorMsg ? (
+              <Txt variant="body" tone="danger">
+                {errorMsg}
+              </Txt>
+            ) : null}
             <Button label="Senden" onPress={handleSend} loading={mutation.isPending} />
           </View>
         </Card>

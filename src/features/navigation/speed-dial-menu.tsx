@@ -3,9 +3,9 @@ import { Modal, Pressable, StyleSheet, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { FamIcon } from '@/components/icons/fam-icon';
-import { ThemedText } from '@/components/theme/themed-text';
+import { space } from '@/components/theme/index';
 import { getSpeedDialOptions } from '@/constants/feature-registry';
-import { IconSize, Layout, Spacing } from '@/constants/layout';
+import { Txt } from '@/constants/ui';
 import { DEFAULT_FAB_POSITION, useFabPosition } from '@/features/navigation/fab-position-settings';
 import { useFeatureAccess } from '@/features/settings/use-feature-access';
 import { useDeferredMount } from '@/hooks/use-deferred-mount';
@@ -51,8 +51,8 @@ function SpeedDialMenuContent() {
           className={`speed-dial-column ${isRight ? 'items-end' : 'items-start'}`}
           // Position und Abstand sind Laufzeitwerte.
           style={{
-            [isRight ? 'right' : 'left']: Spacing.four,
-            bottom: insets.bottom + Layout.floatingActionAreaHeight,
+            [isRight ? 'right' : 'left']: space.xl,
+            bottom: insets.bottom + space.xl + space.xxxl,
           }}>
           {visibleOptions.map((option) => (
             <Pressable
@@ -64,11 +64,11 @@ function SpeedDialMenuContent() {
               <View
                 className="speed-dial-chip"
                 style={{ backgroundColor: option.backgroundColor, borderCurve: 'continuous' }}>
-                <FamIcon name={option.icon} size={IconSize.nav} />
+                <FamIcon name={option.icon} size={space.xl} />
               </View>
-              <ThemedText type="smallBold" className="speed-dial-label">
+              <Txt variant="body" weight="700" className="speed-dial-label">
                 {option.title}
-              </ThemedText>
+              </Txt>
             </Pressable>
           ))}
         </View>

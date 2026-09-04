@@ -1,11 +1,11 @@
 import * as Haptics from 'expo-haptics';
 import { Modal, Pressable, ScrollView, StyleSheet, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { ThemedText } from '@/components/theme/themed-text';
-import { withAlpha } from '@/constants/theme';
+import { withAlpha } from '@/components/theme/index';
+import { useTheme } from '@/components/theme/ThemeProvider';
+import { Txt } from '@/constants/ui';
 import { type CardSize, getCards } from '@/features/dashboard/registry';
 import { useCardSizes } from '@/features/dashboard/use-card-sizes';
-import { useTheme } from '@/hooks/use-theme';
 
 type CardGallerySheetProps = {
   visible: boolean;
@@ -40,7 +40,7 @@ const CARD_METADATA: Record<string, { title: string; desc: string; icon: string 
  * Erlaubt das Hinzufuegen/Entfernen von Karten und die Groessenauswahl.
  */
 export function CardGallerySheet({ visible, onClose }: CardGallerySheetProps) {
-  const theme = useTheme();
+  const { colors } = useTheme();
   const insets = useSafeAreaInsets();
   const { getSize, setSize, showCard, hideCard, isCardHidden } = useCardSizes();
   const allCards = getCards();
@@ -72,28 +72,30 @@ export function CardGallerySheet({ visible, onClose }: CardGallerySheetProps) {
           style={[
             styles.sheet,
             {
-              backgroundColor: theme.background,
+              backgroundColor: colors.bg,
               paddingBottom: Math.max(insets.bottom, 24),
-              boxShadow: `0 -10px 30px ${withAlpha(theme.shadowSheet, 0.2)}`,
+              boxShadow: `0 -10px 30px ${withAlpha(colors.text, 0.2)}`,
             },
           ]}>
           <View style={styles.handleWrap}>
-            <View style={[styles.handle, { backgroundColor: theme.border }]} />
+            <View style={[styles.handle, { backgroundColor: colors.border }]} />
           </View>
 
           <View style={styles.header}>
             <View style={styles.headerTextWrap}>
-              <ThemedText type="subtitle">Karten anpassen</ThemedText>
-              <ThemedText type="small" themeColor="textSecondary">
+              <Txt variant="title">Karten anpassen</Txt>
+              <Txt variant="body" tone="secondary">
                 Füge Karten hinzu oder passe deren Größe an
-              </ThemedText>
+              </Txt>
             </View>
             <Pressable
               onPress={onClose}
               accessibilityRole="button"
               accessibilityLabel="Fertig"
-              style={[styles.doneBtn, { backgroundColor: theme.accent }]}>
-              <ThemedText style={styles.doneBtnText}>Fertig</ThemedText>
+              style={[styles.doneBtn, { backgroundColor: colors.basil }]}>
+              <Txt variant="label" tone="onAccent" weight="600" style={styles.doneBtnText}>
+                Fertig
+              </Txt>
             </Pressable>
           </View>
 
@@ -115,19 +117,19 @@ export function CardGallerySheet({ visible, onClose }: CardGallerySheetProps) {
                   style={[
                     styles.cardRow,
                     {
-                      backgroundColor: theme.backgroundElement,
-                      borderColor: isHidden ? theme.border : withAlpha(theme.accent, 0.3),
+                      backgroundColor: colors.surface,
+                      borderColor: isHidden ? colors.border : withAlpha(colors.basil, 0.3),
                       opacity: isHidden ? 0.85 : 1,
                     },
                   ]}>
                   <View style={styles.cardHeaderRow}>
                     <View style={styles.cardInfo}>
-                      <ThemedText type="smallBold">
+                      <Txt variant="body" weight="700">
                         {meta.icon} {meta.title}
-                      </ThemedText>
-                      <ThemedText type="small" themeColor="textSecondary">
+                      </Txt>
+                      <Txt variant="body" tone="secondary">
                         {meta.desc}
-                      </ThemedText>
+                      </Txt>
                     </View>
 
                     <Pressable
@@ -139,16 +141,16 @@ export function CardGallerySheet({ visible, onClose }: CardGallerySheetProps) {
                       style={[
                         styles.toggleBtn,
                         isHidden
-                          ? { backgroundColor: theme.accent }
-                          : { backgroundColor: withAlpha(theme.danger, 0.15) },
+                          ? { backgroundColor: colors.basil }
+                          : { backgroundColor: withAlpha(colors.tomato, 0.15) },
                       ]}>
-                      <ThemedText
-                        style={[
-                          styles.toggleBtnText,
-                          isHidden ? { color: theme.onAccent } : { color: theme.danger },
-                        ]}>
+                      <Txt
+                        variant="label"
+                        color={isHidden ? colors.inverse : colors.tomato}
+                        weight="600"
+                        style={styles.toggleBtnText}>
                         {isHidden ? '+ Hinzufügen' : 'Entfernen'}
-                      </ThemedText>
+                      </Txt>
                     </Pressable>
                   </View>
 
@@ -160,42 +162,32 @@ export function CardGallerySheet({ visible, onClose }: CardGallerySheetProps) {
                         style={[
                           styles.sizeBtn,
                           currentSize === 'small'
-                            ? [styles.sizeBtnActive, { backgroundColor: theme.accent }]
-                            : [
-                                styles.sizeBtnInactive,
-                                { backgroundColor: theme.backgroundSelected },
-                              ],
+                            ? [styles.sizeBtnActive, { backgroundColor: colors.basil }]
+                            : [styles.sizeBtnInactive, { backgroundColor: colors.surfaceSoft }],
                         ]}>
-                        <ThemedText
-                          style={[
-                            styles.sizeBtnText,
-                            currentSize === 'small'
-                              ? { color: theme.onAccent }
-                              : { color: theme.text },
-                          ]}>
+                        <Txt
+                          variant="label"
+                          color={currentSize === 'small' ? colors.inverse : colors.text}
+                          weight="600"
+                          style={styles.sizeBtnText}>
                           Klein
-                        </ThemedText>
+                        </Txt>
                       </Pressable>
                       <Pressable
                         onPress={() => handleSelectSize(card.id, 'large')}
                         style={[
                           styles.sizeBtn,
                           currentSize === 'large'
-                            ? [styles.sizeBtnActive, { backgroundColor: theme.accent }]
-                            : [
-                                styles.sizeBtnInactive,
-                                { backgroundColor: theme.backgroundSelected },
-                              ],
+                            ? [styles.sizeBtnActive, { backgroundColor: colors.basil }]
+                            : [styles.sizeBtnInactive, { backgroundColor: colors.surfaceSoft }],
                         ]}>
-                        <ThemedText
-                          style={[
-                            styles.sizeBtnText,
-                            currentSize === 'large'
-                              ? { color: theme.onAccent }
-                              : { color: theme.text },
-                          ]}>
+                        <Txt
+                          variant="label"
+                          color={currentSize === 'large' ? colors.inverse : colors.text}
+                          weight="600"
+                          style={styles.sizeBtnText}>
                           Groß
-                        </ThemedText>
+                        </Txt>
                       </Pressable>
                     </View>
                   ) : null}

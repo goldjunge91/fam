@@ -1,7 +1,7 @@
 import { Pressable, View } from 'react-native';
-import { ThemedText } from '@/components/theme/themed-text';
+import { useTheme } from '@/components/theme/ThemeProvider';
 import { ProgressBar } from '@/components/ui/progress-bar';
-import { useTheme } from '@/hooks/use-theme';
+import { Txt } from '@/constants/ui';
 import { formatEuro } from '@/lib/format-currency';
 
 interface StoreSummaryCardProps {
@@ -26,7 +26,7 @@ export function StoreSummaryCard({
   openCategoryColors,
   onPress,
 }: StoreSummaryCardProps) {
-  const theme = useTheme();
+  const { colors: theme } = useTheme();
   const progress = totalCount > 0 ? checkedCount / totalCount : 0;
   const isComplete = totalCount > 0 && checkedCount === totalCount;
   const visibleDots = openCategoryColors.slice(0, MAX_CATEGORY_DOTS);
@@ -42,27 +42,23 @@ export function StoreSummaryCard({
 
       <View className="flex-1 gap-1">
         <View className="flex-row items-baseline justify-between gap-two">
-          <ThemedText type="smallBold" numberOfLines={1} className="flex-1">
+          <Txt variant="body" weight="700" numberOfLines={1} className="flex-1">
             {name}
-          </ThemedText>
-          <ThemedText type="caption" themeColor="textSecondary">
+          </Txt>
+          <Txt variant="caption" tone="secondary">
             {checkedCount} / {totalCount}
-          </ThemedText>
+          </Txt>
         </View>
-        <ProgressBar
-          height={3}
-          value={progress}
-          color={isComplete ? theme.success : theme.accent}
-        />
+        <ProgressBar height={3} value={progress} color={isComplete ? theme.basil : theme.basil} />
         <View className="flex-row items-center gap-1 mt-[1px]">
           {totalCount === 0 ? (
-            <ThemedText type="caption" themeColor="textSecondary">
+            <Txt variant="caption" tone="secondary">
               keine Artikel
-            </ThemedText>
+            </Txt>
           ) : isComplete ? (
-            <ThemedText type="caption" themeColor="success" className="font-semibold">
+            <Txt variant="caption" tone="success" weight="600">
               alles erledigt
-            </ThemedText>
+            </Txt>
           ) : (
             <>
               {visibleDots.map((dotColor) => (
@@ -73,17 +69,21 @@ export function StoreSummaryCard({
                   style={{ backgroundColor: dotColor }}
                 />
               ))}
-              <ThemedText type="caption" themeColor="textSecondary">
+              <Txt variant="caption" tone="secondary">
                 offen
-              </ThemedText>
+              </Txt>
             </>
           )}
         </View>
       </View>
 
       <View className="items-end gap-[2px]">
-        <ThemedText type="smallBold">{formatEuro(totalEstimate)}</ThemedText>
-        <ThemedText type="smallMuted">geschätzt</ThemedText>
+        <Txt variant="body" weight="700">
+          {formatEuro(totalEstimate)}
+        </Txt>
+        <Txt variant="body" tone="secondary">
+          geschätzt
+        </Txt>
       </View>
     </Pressable>
   );

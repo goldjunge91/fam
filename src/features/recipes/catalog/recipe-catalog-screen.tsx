@@ -2,7 +2,7 @@ import { type Href, router } from 'expo-router';
 import { ActivityIndicator, Pressable, ScrollView, View } from 'react-native';
 import { HubScreen } from '@/components/layout/hub-screen';
 import { SectionHeading } from '@/components/layout/section-heading';
-import { ThemedText } from '@/components/theme/themed-text';
+import { Txt } from '@/constants/ui';
 import { RecipePreviewCard } from '../components/recipe-preview-card';
 import { getCatalogCoverPath } from './recipe-catalog-image';
 import { useCatalogRecipes } from './use-recipe-catalog';
@@ -18,7 +18,7 @@ export function RecipeCatalogScreen() {
         titleSize: 'large',
         leading: (
           <Pressable onPress={() => router.back()}>
-            <ThemedText>Zurück</ThemedText>
+            <Txt variant="body">Zurück</Txt>
           </Pressable>
         ),
       }}>
@@ -43,7 +43,7 @@ export function RecipeCatalogScreen() {
             ))}
           </View>
         ) : (
-          <ThemedText>Der Rezeptkatalog ist noch leer.</ThemedText>
+          <Txt variant="body">Der Rezeptkatalog ist noch leer.</Txt>
         )}
       </ScrollView>
     </HubScreen>
