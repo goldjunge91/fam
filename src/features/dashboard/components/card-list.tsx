@@ -120,7 +120,7 @@ export function CardList({
 
   const dashboardContentWidth = Math.max(1, width - 42);
   const sortableGridColumns = visibleCards.some((card) => getSize(card) === 'large') ? 1 : 2;
-  const sortableGridGap = 10;
+  const sortableGridGap = 8;
   const sortableGridItemWidth =
     sortableGridColumns === 1
       ? dashboardContentWidth
@@ -156,6 +156,7 @@ export function CardList({
             onToggleSize={() => handleToggleSize(item.id, cardSize)}>
             <item.component
               size={cardSize}
+              editHeight={sortableGridItemHeight}
               onLongPress={() => handleLongPress(item.id, cardSize)}
             />
           </JiggleWrapper>

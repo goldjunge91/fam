@@ -7,7 +7,7 @@ Diese Initiative stabilisiert die bestehende UI-Styling-Architektur von fam. Nat
 ## Module
 
 | Module id | Verantwortung | Abhängigkeiten |
-|---|---|---|
+| --- | --- | --- |
 | `token-integrity` | Eine typisierte, semantische Fam-Tokenquelle für Farben, Abstände, Radien, Typografie, Elevation und Zustände | bestehende `src/constants/theme.ts`, `src/constants/layout.ts` |
 | `theme-runtime` | Ein einziger `ThemeProvider`, System-/Light-/Dark-Auflösung und dynamische StyleSheet-Erzeugung | `token-integrity`, bestehender Gerätespeicher |
 | `typography-contract` | Ersatz für `ThemedText`, vollständige Textrollen, definierte Priorität zwischen Token, NativeWind und Inline-Style | `token-integrity`, `theme-runtime` |

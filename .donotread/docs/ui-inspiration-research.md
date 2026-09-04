@@ -32,6 +32,7 @@ anyone's IP.** My implementation in `src/components/ui/ThreeDButton.tsx`
 uses Tailwind utility classes only — no library, no copied source.
 
 What I deliberately did NOT do:
+
 - Did not match Duolingo's exact corner radius, palette, button proportions,
   bird mascot, or any brand-identifying detail
 - Did not copy code from `react-three-button` / similar packages

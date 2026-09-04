@@ -19,7 +19,7 @@ Die wertvollsten Übernahmen sind:
 ## Entscheidungsmatrix
 
 | ui-Baustein | Konkrete Quelle | Fam-Gegenstück | Übernahmestufe | Aufwand | Risiko | Entscheidung |
-|---|---|---|---|---:|---:|---|
+| --- | --- | --- | --- | ---: | ---: | --- |
 | Expo-Navigation und Bottom Tabs | `mobile/src/app/_layout.tsx`, `mobile/src/app/(tabs)/_layout.tsx` | `src/app/`, bestehendes Expo Router | UX-Muster | niedrig | niedrig | Navigation nicht kopieren. Gute Tab-Hierarchie und Modal-Präsentationen als Referenz nutzen. |
 | Screen-Grundgerüst | `mobile/src/components/Screen.tsx` | `src/components/`, Safe-Area- und Screen-Patterns | adaptieren | niedrig | niedrig | Safe Area, Keyboard Insets, Pull-to-Refresh und begrenzte Inhaltsbreite selektiv übernehmen. |
 | Bottom Sheet | `mobile/src/components/Sheet.tsx` | vorhandene Sheets/Modals in `src/features/*` | adaptieren | niedrig | mittel | Nur UX und Zustandsregeln übernehmen. Fam behält bestehende Sheet-/Gesture-Konventionen. |

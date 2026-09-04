@@ -21,7 +21,7 @@ const WIDGET_GLASS_STYLE = {
  * Large = Badge + Label + Fortschrittsbalken + Action.
  * Small = Badge + Label + Action (wie bisher).
  */
-function ShoppingDashboardCard({ size, onLongPress }: DashboardCardProps) {
+function ShoppingDashboardCard({ size, onLongPress, editHeight }: DashboardCardProps) {
   const { colors: theme } = useTheme();
   const { activeHouseholdId } = useActiveHousehold();
   const householdId = activeHouseholdId ?? undefined;
@@ -45,6 +45,7 @@ function ShoppingDashboardCard({ size, onLongPress }: DashboardCardProps) {
         glassStyle={{ ...WIDGET_GLASS_STYLE, flexDirection: 'column' as const }}
         outerStyle={{
           minHeight: 140,
+          height: editHeight,
           borderRadius: 28,
           borderCurve: 'continuous',
           boxShadow: `0 8px 22px ${withAlpha(theme.text, 0.1)}`,
@@ -91,6 +92,7 @@ function ShoppingDashboardCard({ size, onLongPress }: DashboardCardProps) {
       outerStyle={{
         width: '100%',
         minHeight: 138,
+        height: editHeight,
         borderRadius: 28,
         borderCurve: 'continuous',
         boxShadow: `0 8px 20px ${withAlpha(theme.text, 0.08)}`,
