@@ -150,4 +150,46 @@ describe('useCompleteShoppingRun', () => {
     await waitFor(() => expect(result.current.isSuccess).toBe(true));
     expect(celebrate).toHaveBeenCalledTimes(1);
   });
+
+  it('lässt den Einkaufsabschluss erfolgreich bleiben, wenn Haptik nicht verfügbar ist', async () => {
+    jest.mocked(recordActivity).mockReturnValue({ count: 7, increased: true, milestone: true });
+    jest.mocked(celebrate).mockImplementation(() => {
+      throw new Error('Taptic Engine unavailable');
+    });
+    const { result } = await renderHook(() => useCompleteShoppingRun('hh-1'), { wrapper });
+
+    await act(async () => {
+      await result.current.mutateAsync({
+        householdId: 'hh-1',
+        userId: 'user-1',
+        checkedItems: [
+          {
+            id: 'item-1',
+            household_id: 'hh-1',
+            product_id: null,
+            name: 'Brot',
+            quantity: 1,
+            unit: 'piece',
+            package_size: null,
+            package_size_unit: null,
+            category_id: 'bakery',
+            category_source: 'name_fallback',
+            category_classifier_version: '2026-08-22',
+            category: 'Brot & Backwaren',
+            store_id: null,
+            price_estimate: null,
+            recipe_names: [],
+            checked_at: '2026-08-20T12:00:00Z',
+            checked_by: 'user-1',
+            sort_index: 0,
+            created_at: '2026-08-20T12:00:00Z',
+            updated_at: '2026-08-20T12:00:00Z',
+          },
+        ],
+        transfers: [],
+      });
+    });
+
+    await waitFor(() => expect(result.current.isSuccess).toBe(true));
+  });
 });

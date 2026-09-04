@@ -154,7 +154,13 @@ export function useCompleteShoppingRun(householdId: string | undefined) {
 
       if (input.checkedItems.length > 0) {
         const result = recordActivity();
-        if (result.milestone) celebrate();
+        if (result.milestone) {
+          try {
+            celebrate();
+          } catch {
+            // Optionale Haptik darf den erfolgreichen Einkaufsabschluss nicht blockieren.
+          }
+        }
       }
     },
 

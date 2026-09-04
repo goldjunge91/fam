@@ -69,7 +69,13 @@ export function CookingModeScreen() {
 
     completedRecipeIdRef.current = recipeId;
     const result = recordActivity();
-    if (result.milestone) celebrate();
+    if (result.milestone) {
+      try {
+        celebrate();
+      } catch {
+        // Optionale Haptik darf den erfolgreichen Kochabschluss nicht blockieren.
+      }
+    }
   }, [data?.recipe.id, finished]);
 
   if (isLoading || !data) return <CookingModeLoading />;
