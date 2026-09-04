@@ -106,6 +106,11 @@ describe('useCompleteShoppingRun', () => {
       expect.objectContaining({
         entity: 'fridge_items',
         op: 'insert',
+        payload: expect.objectContaining({
+          opened_at: null,
+          vacuum_sealed: false,
+          expiry_user_set: false,
+        }),
       }),
     );
     expect(recordActivity).toHaveBeenCalledTimes(1);
