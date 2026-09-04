@@ -105,7 +105,7 @@ Fam-Tokens
 ## Risiken und Gegenmaßnahmen
 
 | Risiko | Auswirkung | Gegenmaßnahme |
-|---|---|---|
+| --- | --- | --- |
 | Alte ThemedText-Rollen sind semantisch uneinheitlich | Visuelle Regression bei der Migration | explizite Migrationstabelle und Screenshot-Fälle |
 | NativeWind- und Inline-Style-Priorität wird falsch eingeschätzt | Farben oder Schriftgrößen verschwinden | Kernsemantik in StyleSheet, Style-Reihenfolge testen |
 | ui-Referenzcode wird unverändert übernommen | Fremde Palette und Compile-Fehler | Komponenten, Props und Verhalten behalten, aber nur direkte Fam-Gegenstücke und reale Projektimports ersetzen |

@@ -37,7 +37,7 @@ const PLANNED_GLASS_STYLE_SMALL = {
   paddingVertical: 14,
 };
 
-function MealPlanDashboardCard({ size, onLongPress }: DashboardCardProps) {
+function MealPlanDashboardCard({ size, onLongPress, editHeight }: DashboardCardProps) {
   const { colors } = useTheme();
   const { activeHouseholdId } = useActiveHousehold();
   const householdId = activeHouseholdId ?? undefined;
@@ -65,6 +65,7 @@ function MealPlanDashboardCard({ size, onLongPress }: DashboardCardProps) {
         outerStyle={{
           width: '100%',
           minHeight: 138,
+          height: editHeight,
           borderRadius: 28,
           borderCurve: 'continuous',
           boxShadow: `0 8px 20px ${withAlpha(colors.text, 0.08)}`,
@@ -107,6 +108,7 @@ function MealPlanDashboardCard({ size, onLongPress }: DashboardCardProps) {
       glassStyle={PLANNED_GLASS_STYLE}
       outerStyle={{
         minHeight: 140,
+        height: editHeight,
         borderRadius: 28,
         borderCurve: 'continuous',
         boxShadow: `0 8px 22px ${withAlpha(colors.text, 0.1)}`,

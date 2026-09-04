@@ -16,7 +16,7 @@ const WIDGET_GLASS_STYLE = {
   gap: 8,
 };
 
-function ExpiryDashboardCard({ size, onLongPress }: DashboardCardProps) {
+function ExpiryDashboardCard({ size, onLongPress, editHeight }: DashboardCardProps) {
   const { colors } = useTheme();
   const { activeHouseholdId } = useActiveHousehold();
   const householdId = activeHouseholdId ?? undefined;
@@ -49,6 +49,7 @@ function ExpiryDashboardCard({ size, onLongPress }: DashboardCardProps) {
         glassStyle={{ ...WIDGET_GLASS_STYLE, flexDirection: 'column' as const }}
         outerStyle={{
           minHeight: 140,
+          height: editHeight,
           borderRadius: 28,
           borderCurve: 'continuous',
           boxShadow: `0 8px 22px ${withAlpha(colors.text, 0.1)}`,
@@ -96,6 +97,7 @@ function ExpiryDashboardCard({ size, onLongPress }: DashboardCardProps) {
       outerStyle={{
         width: '100%',
         minHeight: 138,
+        height: editHeight,
         borderRadius: 28,
         borderCurve: 'continuous',
         boxShadow: `0 8px 20px ${withAlpha(colors.text, 0.08)}`,

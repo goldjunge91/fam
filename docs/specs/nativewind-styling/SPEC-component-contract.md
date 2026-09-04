@@ -7,7 +7,7 @@ Die bereits eingefügte `ui.tsx` wird zur fam-kompatiblen Quelle für wiederverw
 ## Komponentenübersicht
 
 | Komponente | Zweck | Semantische Styles | Zustände |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | `Txt` | Text und Typografie | Variant, Tone, Weight, Alignment | normal, muted, disabled über Caller |
 | `Surface` | generischer thematischer Container, Ersatz für `ThemedView` | page, surface, soft, selected, accent | normal |
 | `Card` | Karten und Listencontainer | surface, border, radius, elevation, padding | normal, soft |

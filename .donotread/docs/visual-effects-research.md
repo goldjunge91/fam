@@ -23,7 +23,7 @@ the honest log for that pass.
   here are original Tailwind + CSS keyframes, not lifted from any of
   the referenced repos.
 - **Dependencies added in pass 2:** `three@0.169` + `@react-three/fiber@9`
-  + `@react-three/drei@10` + `framer-motion@11`. All MIT-licensed. The
+  - `@react-three/drei@10` + `framer-motion@11`. All MIT-licensed. The
   three.js bundle ships behind `next/dynamic` so non-/ai-chef visitors
   who hit the cached path don't download it; framer-motion is small
   enough (~28 KB gz) to be a baseline dep. drei@10 was required to
@@ -33,17 +33,17 @@ the honest log for that pass.
 
 | Repo | URL | License (when checked previously) | Adapted into this build? |
 | --- | --- | --- | --- |
-| shadergradient | https://github.com/ruucm/shadergradient | (verify before adapting) | No — inspiration only |
-| paper-design/shaders | https://github.com/paper-design/shaders | (verify before adapting) | No |
-| dashersw/liquid-glass-js | https://github.com/dashersw/liquid-glass-js | (verify) | No |
-| rdev/liquid-glass-react | https://github.com/rdev/liquid-glass-react | (verify) | No |
-| naughtyduk/liquidGL | https://github.com/naughtyduk/liquidGL | (verify) | No |
-| pmndrs/react-three-fiber | https://github.com/pmndrs/react-three-fiber | MIT | Not pulled in this pass |
-| pmndrs/drei | https://github.com/pmndrs/drei | MIT | Not pulled in this pass |
-| framer/motion | https://github.com/framer/motion | MIT | Not pulled — we stay on CSS keyframes + `motion-safe:` |
-| magicuidesign/magicui | https://github.com/magicuidesign/magicui | MIT | No |
-| emilkowalski/sonner | https://github.com/emilkowalski/sonner | MIT | No |
-| emilkowalski/vaul | https://github.com/emilkowalski/vaul | MIT | No |
+| shadergradient | <https://github.com/ruucm/shadergradient> | (verify before adapting) | No — inspiration only |
+| paper-design/shaders | <https://github.com/paper-design/shaders> | (verify before adapting) | No |
+| dashersw/liquid-glass-js | <https://github.com/dashersw/liquid-glass-js> | (verify) | No |
+| rdev/liquid-glass-react | <https://github.com/rdev/liquid-glass-react> | (verify) | No |
+| naughtyduk/liquidGL | <https://github.com/naughtyduk/liquidGL> | (verify) | No |
+| pmndrs/react-three-fiber | <https://github.com/pmndrs/react-three-fiber> | MIT | Not pulled in this pass |
+| pmndrs/drei | <https://github.com/pmndrs/drei> | MIT | Not pulled in this pass |
+| framer/motion | <https://github.com/framer/motion> | MIT | Not pulled — we stay on CSS keyframes + `motion-safe:` |
+| magicuidesign/magicui | <https://github.com/magicuidesign/magicui> | MIT | No |
+| emilkowalski/sonner | <https://github.com/emilkowalski/sonner> | MIT | No |
+| emilkowalski/vaul | <https://github.com/emilkowalski/vaul> | MIT | No |
 
 If a future pass actually adapts code from one of these repos, append an
 entry with the exact files copied, the commit that brought them in, and

@@ -106,6 +106,7 @@ Lizenz und was übernommen wurde — bisher existiert keine.
 ## Was umgesetzt vs. zurückgestellt ist
 
 **In der Spec, in dieser Passe aber noch nicht implementiert:**
+
 - `SPEC-token-contract.md` — vollständiger Token-Vertrag (vollständig spezifiziert)
 - `SPEC-theme-runtime.md` — Provider- und `useThemedStyles()`-Vertrag
 - `SPEC-typography-contract.md` — `Txt`-Rollentabelle, Migration alt→neu
@@ -114,6 +115,7 @@ Lizenz und was übernommen wurde — bisher existiert keine.
 - `SPEC-verification-matrix.md` — automatisierte + manuelle Abnahmematrix
 
 **Laut `CAPABILITY_MAP.md` explizit außerhalb des Scopes:**
+
 - Wechsel zu Uniwind, Unistyles oder Tamagui
 - Jede ui-Farbe (Basil, Karotte, Traube, Pantry-Pop-Palette)
 - Neue native Styling-Abhängigkeiten

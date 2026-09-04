@@ -29,18 +29,18 @@ GitHub-sourced inspiration documented. This is the honest log for that pass.
 
 | Repo | URL | License | Adapted into this build? |
 | --- | --- | --- | --- |
-| shadcn/ui | https://github.com/shadcn-ui/ui | MIT | No — patterns only |
-| Magic UI | https://github.com/magicuidesign/magicui | MIT | No |
-| Radix UI Primitives | https://github.com/radix-ui/primitives | MIT | No |
-| Framer Motion | https://github.com/framer/motion | MIT | No — we stay on CSS keyframes + `motion-safe:` |
-| sonner | https://github.com/emilkowalski/sonner | MIT | No — internal Toast is original |
-| vaul | https://github.com/emilkowalski/vaul | MIT | No |
-| Recharts | https://github.com/recharts/recharts | MIT | Already a runtime dep for charts — used as a library, no source copied |
-| DaisyUI | https://github.com/saadeghi/daisyui | MIT | No |
-| HeroUI | https://github.com/heroui-inc/heroui | MIT | No |
-| Untitled UI React | https://github.com/untitleduico/react | MIT | No |
-| TailGrids | https://github.com/TailGrids/tailgrids | MIT (free tier) | No |
-| Tremor | https://github.com/tremorlabs/tremor | Apache-2.0 | No |
+| shadcn/ui | <https://github.com/shadcn-ui/ui> | MIT | No — patterns only |
+| Magic UI | <https://github.com/magicuidesign/magicui> | MIT | No |
+| Radix UI Primitives | <https://github.com/radix-ui/primitives> | MIT | No |
+| Framer Motion | <https://github.com/framer/motion> | MIT | No — we stay on CSS keyframes + `motion-safe:` |
+| sonner | <https://github.com/emilkowalski/sonner> | MIT | No — internal Toast is original |
+| vaul | <https://github.com/emilkowalski/vaul> | MIT | No |
+| Recharts | <https://github.com/recharts/recharts> | MIT | Already a runtime dep for charts — used as a library, no source copied |
+| DaisyUI | <https://github.com/saadeghi/daisyui> | MIT | No |
+| HeroUI | <https://github.com/heroui-inc/heroui> | MIT | No |
+| Untitled UI React | <https://github.com/untitleduico/react> | MIT | No |
+| TailGrids | <https://github.com/TailGrids/tailgrids> | MIT (free tier) | No |
+| Tremor | <https://github.com/tremorlabs/tremor> | Apache-2.0 | No |
 
 If a future pass DOES adapt code from one of these, append an entry with
 the exact files copied, the commit that brought them in, and the license

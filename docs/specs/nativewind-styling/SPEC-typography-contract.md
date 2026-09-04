@@ -28,7 +28,7 @@ Ein freier `color`-Prop bleibt nur für berechnete Sonderfälle oder externe Ico
 Die Zahlen kommen aus `src/constants/theme.ts` und werden nicht durch ui-Werte ersetzt.
 
 | Variant | Fam-Wert | Default-Gewicht | Default-Ton |
-|---|---:|---:|---|
+| --- | ---: | ---: | --- |
 | `micro` | 9 / 14 | 500 | secondary |
 | `captionCompact` | 11 / 14 | 500 | secondary |
 | `caption` | 11 / 15 | 500 | secondary |
@@ -53,7 +53,7 @@ Die Schreibweise `fontSize / lineHeight` ist Teil des Vertrags. Ein Style darf d
 ## Migration alter Rollen
 
 | Alte Rolle | Neue Form |
-|---|---|
+| --- | --- |
 | `default`, `small`, `body` | `variant="body"` |
 | `smallBold`, `bodyBold` | `variant="body" weight="700"` |
 | `smallMuted`, `bodyMuted` | `variant="body" tone="secondary"` |

@@ -15,7 +15,7 @@ function toIsoDate(date: Date): string {
   return `${y}-${m}-${d}`;
 }
 
-function CalorieDashboardCard({ size, onLongPress }: DashboardCardProps) {
+function CalorieDashboardCard({ size, onLongPress, editHeight }: DashboardCardProps) {
   const { colors } = useTheme();
   const { session } = useSession();
   const userId = session?.user.id;
@@ -45,6 +45,7 @@ function CalorieDashboardCard({ size, onLongPress }: DashboardCardProps) {
         style={{
           width: '100%',
           minHeight: 138,
+          height: editHeight,
           backgroundColor: colors.surface,
           borderCurve: 'continuous',
           boxShadow: `0 8px 20px ${withAlpha(colors.text, 0.08)}`,
@@ -96,6 +97,7 @@ function CalorieDashboardCard({ size, onLongPress }: DashboardCardProps) {
       className="dashboard-calorie-card"
       style={{
         marginBottom: 0,
+        height: editHeight,
         borderCurve: 'continuous',
         boxShadow: `0 8px 22px ${withAlpha(colors.text, 0.1)}`,
       }}>
