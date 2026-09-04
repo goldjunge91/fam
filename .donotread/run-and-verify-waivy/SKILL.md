@@ -1,6 +1,6 @@
 ---
-name: run-and-verify-waivy
-description: How to install, run, and verify Waivy locally. Use whenever you need to confirm a change actually works.
+name: run-and-verify-ui
+description: How to install, run, and verify ui locally. Use whenever you need to confirm a change actually works.
 when_to_use:
   - You finished implementing a change and need to verify it
   - You can't tell if the app builds

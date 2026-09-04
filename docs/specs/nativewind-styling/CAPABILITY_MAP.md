@@ -2,7 +2,7 @@
 
 ## Zweck
 
-Diese Initiative stabilisiert die bestehende UI-Styling-Architektur von fam. NativeWind bleibt installiert und wird weiterverwendet. Die vorhandene Fam-Mauve-/Creme-Palette bleibt die visuelle Wahrheit. Die Waivy-Dateien dienen nur als Referenz für mögliche primitive Komponenten, nicht als neue Marke und nicht als neue Farbpalette.
+Diese Initiative stabilisiert die bestehende UI-Styling-Architektur von fam. NativeWind bleibt installiert und wird weiterverwendet. Die vorhandene Fam-Mauve-/Creme-Palette bleibt die visuelle Wahrheit. Die ui-Dateien dienen nur als Referenz für mögliche primitive Komponenten, nicht als neue Marke und nicht als neue Farbpalette.
 
 ## Module
 
@@ -22,7 +22,7 @@ Diese Initiative stabilisiert die bestehende UI-Styling-Architektur von fam. Nat
 ## Nicht Bestandteil der Initiative
 
 - Wechsel zu Uniwind, Unistyles, Tamagui oder einem anderen Styling-Framework.
-- Übernahme der Waivy-Farben wie Basil, Carrot, Grape oder Pantry Pop.
+- Übernahme der ui-Farben wie Basil, Carrot, Grape oder Pantry Pop.
 - Neue native Styling-Abhängigkeiten.
 - Eine zweite parallele Theme-API neben dem neuen Provider.
 - Ein vollständiges visuelles Redesign der App.

@@ -4,13 +4,13 @@
 
 ## Task 1: Fam-Tokenvertrag konsolidieren
 
-**Description:** Die aktuell Waivy-geprägte `index.ts` wird auf die bestehende Fam-Farb- und Layoutsprache ausgerichtet. Es bleibt eine öffentliche Tokenquelle.
+**Description:** Die aktuell ui-geprägte `index.ts` wird auf die bestehende Fam-Farb- und Layoutsprache ausgerichtet. Es bleibt eine öffentliche Tokenquelle.
 
 **Acceptance criteria:**
 
 - [ ] Light/Dark enthalten dieselben semantischen Fam-Schlüssel.
 - [ ] Bestehende Fam-Werte aus `src/constants/theme.ts` und `src/constants/layout.ts` bleiben erhalten.
-- [ ] Keine Waivy-Farbwerte werden als Production-Default verwendet.
+- [ ] Keine ui-Farbwerte werden als Production-Default verwendet.
 
 **Verification:**
 
@@ -142,7 +142,7 @@
 
 ## Task 6: Cards, Fields und Status-Primitive stabilisieren
 
-**Description:** Card, Field, Badge, Pill, SegmentedControl, EmptyState und SectionHeading behalten ihre Referenz-Props und ihr Verhalten. Direkte Fam-Gegenstücke werden verwendet, Waivy-only Werte werden nicht als globale Theme-Tokens exportiert.
+**Description:** Card, Field, Badge, Pill, SegmentedControl, EmptyState und SectionHeading behalten ihre Referenz-Props und ihr Verhalten. Direkte Fam-Gegenstücke werden verwendet, ui-only Werte werden nicht als globale Theme-Tokens exportiert.
 
 **Acceptance criteria:**
 
@@ -169,7 +169,7 @@
 ## Checkpoint: Core UI review
 
 - [ ] Text, Surface, Card und Button visuell mit Fam-Palette geprüft.
-- [ ] Keine Waivy-Optik versehentlich als neue Designrichtung übernommen.
+- [ ] Keine ui-Optik versehentlich als neue Designrichtung übernommen.
 
 ## Abgeschlossene Layout-Token-Migration
 
@@ -358,7 +358,7 @@ praktisch durch die Elementhöhe begrenzt wird.
 **Acceptance criteria:**
 
 - [ ] Ein Maintainer kann anhand der Dokumentation entscheiden, ob `className` oder `style` zu verwenden ist.
-- [ ] Keine Waivy-Referenz wird als aktuelle Produktentscheidung missverstanden.
+- [ ] Keine ui-Referenz wird als aktuelle Produktentscheidung missverstanden.
 
 **Verification:**
 

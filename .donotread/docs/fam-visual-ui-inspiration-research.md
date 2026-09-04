@@ -22,7 +22,7 @@ bereits in `CAPABILITY_MAP.md` benannt ist.
 
 ## Layout-/Kompositionsmuster, die tatsächlich in `ui.tsx` stecken
 
-Anders als die Bento-Grids und Icon-Tile-Dashboards des Waivy-Webprojekts
+Anders als die Bento-Grids und Icon-Tile-Dashboards des ui-Webprojekts
 (die nicht zutreffen — fam ist eine Mobile-App mit eigenen bestehenden
 Screen-Konventionen, gemäß der Feature-First-Architektur in `AGENTS.md`)
 ist das relevante Vokabular hier die kleinere Menge an **strukturellen
@@ -50,7 +50,7 @@ externen Musters.
   `CAPABILITY_MAP.md` ausschließt ("Ein vollständiges visuelles Redesign
   der App" ist ein Nicht-Ziel).
 - **Ring-Fortschrittsanzeigen, Stat-Dashboards, horizontale
-  Snap-Karussells** — Waivy-Web-spezifische Kompositionen ohne
+  Snap-Karussells** — ui-Web-spezifische Kompositionen ohne
   Gegenstück-Anforderung in irgendeiner `SPEC-*.md`-Datei dieser
   Initiative. Nicht bewertet, nicht übernommen.
 - **Eine zweite Display-Schriftart** — fams Typografievertrag

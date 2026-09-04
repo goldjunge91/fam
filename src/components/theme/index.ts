@@ -7,7 +7,7 @@
 import { Dimensions, Platform } from 'react-native';
 
 /**
- * Legacy Waivy reference values.
+ * Legacy ui reference values.
  *
  * These values remain available for gradual migration or visual comparison,
  * but they are not used by the active Fam palette. This prevents the old
@@ -368,10 +368,20 @@ export const font = {
     sm: rs(13),
     base: rs(15),
     md: rs(17),
+    subheading: rs(20),
     lg: rs(20),
     xl: rs(24),
     xxl: rs(30),
     xxxl: rs(38),
+  },
+  lineHeights: {
+    display: rs(44),
+    title: rs(36),
+    heading: rs(26),
+    subheading: rs(24),
+    body: rs(22),
+    label: rs(17),
+    caption: rs(15),
   },
   weight: {
     regular: '400',

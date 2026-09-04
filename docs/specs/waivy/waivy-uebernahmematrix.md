@@ -1,12 +1,12 @@
-# Waivy → Fam: Übernahmematrix
+# ui → Fam: Übernahmematrix
 
 Stand: 2026-09-02  
-Quelle: `C:\GIT\ai-mobileapp\waivy`  
+Quelle: `C:\GIT\ai-mobileapp\ui`  
 Ziel: Konkrete Entscheidungen darüber, welche Ideen oder Dateien für Fam sinnvoll sind.
 
 ## Kurzentscheidung
 
-Waivy ist vor allem als UX- und Produktideen-Quelle interessant. Die technische Kernarchitektur wird nicht übernommen, weil Fam bereits ein strengeres Modell besitzt: Supabase Auth/RLS, deklaratives Postgres-Schema, lokale SQLite-Spiegel, Drizzle und Outbox-Sync.
+ui ist vor allem als UX- und Produktideen-Quelle interessant. Die technische Kernarchitektur wird nicht übernommen, weil Fam bereits ein strengeres Modell besitzt: Supabase Auth/RLS, deklaratives Postgres-Schema, lokale SQLite-Spiegel, Drizzle und Outbox-Sync.
 
 Die wertvollsten Übernahmen sind:
 
@@ -18,7 +18,7 @@ Die wertvollsten Übernahmen sind:
 
 ## Entscheidungsmatrix
 
-| Waivy-Baustein | Konkrete Quelle | Fam-Gegenstück | Übernahmestufe | Aufwand | Risiko | Entscheidung |
+| ui-Baustein | Konkrete Quelle | Fam-Gegenstück | Übernahmestufe | Aufwand | Risiko | Entscheidung |
 |---|---|---|---|---:|---:|---|
 | Expo-Navigation und Bottom Tabs | `mobile/src/app/_layout.tsx`, `mobile/src/app/(tabs)/_layout.tsx` | `src/app/`, bestehendes Expo Router | UX-Muster | niedrig | niedrig | Navigation nicht kopieren. Gute Tab-Hierarchie und Modal-Präsentationen als Referenz nutzen. |
 | Screen-Grundgerüst | `mobile/src/components/Screen.tsx` | `src/components/`, Safe-Area- und Screen-Patterns | adaptieren | niedrig | niedrig | Safe Area, Keyboard Insets, Pull-to-Refresh und begrenzte Inhaltsbreite prüfen und selektiv übernehmen. |
@@ -33,7 +33,7 @@ Die wertvollsten Übernahmen sind:
 | Nährwertberechnung | `src/lib/nutritionEngine.ts` | `src/features/recipes/domain/nutrition.ts`, Produktnährwerte pro 100 g | nicht kopieren | mittel | hoch | Fam ist mit grammbasierter Komponenten-/Produktberechnung fachlich robuster. Nur Ideen wie Confidence und Missing-Data-Audit übernehmen. |
 | Kostenberechnung | `src/lib/pricing/pricingEngine.ts`, `src/lib/pricing/regions.ts` | Fam-Produkte, Preisfelder und Einkaufslogik | nicht kopieren | mittel | hoch | US-Dollar, US-Regionen und pauschale Multiplikatoren passen nicht. Fam braucht EU-/Haushalts-/Store-Kontext. |
 | Pantry-Matching | `src/lib/recipeScoring.ts`, `mobile/src/lib/catalog.ts` | `src/features/inventory/`, `src/features/meal-planner/` | Domänenidee | mittel | mittel | Die UX übernehmen. Die Berechnung auf Fam-Bestand, Mengen, Einheiten, Lagerorte und Komponentenbedarf aufbauen. |
-| Smart Buy | `recommendSmartBuys()` in `src/lib/recipeScoring.ts` | `src/features/meal-planner/shopping-needs.ts` | Domänenidee | mittel | mittel | Waivy schlägt den Artikel vor, der die meisten Rezepte freischaltet. Fam sollte zusätzlich reale Gramm-Mengen, vorhandenen Bestand und Haushaltslisten berücksichtigen. |
+| Smart Buy | `recommendSmartBuys()` in `src/lib/recipeScoring.ts` | `src/features/meal-planner/shopping-needs.ts` | Domänenidee | mittel | mittel | ui schlägt den Artikel vor, der die meisten Rezepte freischaltet. Fam sollte zusätzlich reale Gramm-Mengen, vorhandenen Bestand und Haushaltslisten berücksichtigen. |
 | Smart Search | `src/lib/search/` | Produkt-/Rezeptsuche in Fam | selektiv übernehmen | mittel | niedrig | Normalisierung, Alias-Behandlung und Suchgründe sind nützlich. Nicht die US-Zutaten-Taxonomie übernehmen. |
 | AI-Chef-Worker | `worker/src/index.ts`, `src/lib/workerClient.ts` | `supabase/functions/ai-gateway/` | Architekturidee | mittel | hoch | Endpoint-Trennung, Timeouts, Fallbacks und Modellkonfiguration übernehmen. Auth, Zod-Validierung, Rate Limits und RLS über Fam/Supabase lösen. |
 | Anonymer KV-Sync | `shared/src/sync/*`, `worker/src/index.ts` `/sync/*` | `src/lib/sync/`, SQLite-Outbox, Supabase Realtime | ablehnen | niedrig | kritisch | Nicht übernehmen. Sync-Code als alleinige Berechtigung kann fremde Haushalts- und Trackingdaten les-/überschreibbar machen. |
@@ -50,7 +50,7 @@ Die wertvollsten Übernahmen sind:
 ### Sofort sinnvoll
 
 - Guided Cooking gegen unseren bestehenden Rezept-Cook-Screen vergleichen.
-- Safe-Area-/Keyboard-/Sheet-Muster aus dem Waivy-Mobile-Port als UX-Referenz verwenden.
+- Safe-Area-/Keyboard-/Sheet-Muster aus dem ui-Mobile-Port als UX-Referenz verwenden.
 - Rezept-Metadaten um Zubereitungsmethode, Sicherheit, Lagerung und Wiederaufwärmen prüfen.
 - Einen gezielten Rezeptdaten-Quality-Gate in unsere bestehende Teststruktur einbauen.
 
@@ -74,4 +74,4 @@ Die wertvollsten Übernahmen sind:
 2. Rezept-Metadaten gegen unser deklaratives Schema abgleichen.
 3. Einen kleinen europäischen Rezept-Datensatz als Import-Pilot auswählen.
 4. Pantry-Matching mit `computeIngredientNeeds()` und echtem Bestand modellieren.
-5. Erst danach entscheiden, ob Waivy-Daten oder nur Waivy-UX dauerhaft einfließen.
+5. Erst danach entscheiden, ob ui-Daten oder nur ui-UX dauerhaft einfließen.

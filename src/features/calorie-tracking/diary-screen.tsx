@@ -87,15 +87,10 @@ function MacroChip({ label, value, target }: { label: string; value: number; tar
           ? `${label}: ${Math.round(value)} von ${Math.round(target)} Gramm`
           : `${label}: ${Math.round(value)} Gramm, kein Ziel gesetzt`
       }>
-      <Txt
-        variant="label"
-        style={{ fontSize: 11, lineHeight: 14, fontWeight: '700' }}>
+      <Txt variant="caption" weight="700">
         {label}
       </Txt>
-      <Txt
-        variant="body"
-        tone="secondary"
-        style={{ fontSize: 13, lineHeight: 16, fontWeight: '700' }}>
+      <Txt variant="label" tone="secondary" weight="700">
         {Math.round(value)} / {target > 0 ? Math.round(target) : '–'} g
       </Txt>
       <ProgressBar
@@ -124,15 +119,10 @@ function MealSection({ meal, entries, isLast, onAdd, onEntry }: MealSectionProps
     <View className={!isLast ? 'diary-meal-section' : undefined}>
       <View className="diary-meal-header pt-[6px]">
         <View className="diary-meal-heading">
-          <Txt
-            variant="subheading"
-            style={{ fontSize: 20, lineHeight: 24, fontWeight: '700' }}>
+          <Txt variant="subheading">
             {MEAL_LABELS[meal]}
           </Txt>
-          <Txt
-            variant="body"
-            tone="secondary"
-            style={{ marginTop: 1, fontSize: 13, lineHeight: 17, fontWeight: '500' }}>
+          <Txt variant="meta" className="mt-[1px]">
             {formatKcal(mealKcal)}
           </Txt>
         </View>
@@ -154,24 +144,19 @@ function MealSection({ meal, entries, isLast, onAdd, onEntry }: MealSectionProps
           aria-label={`${entry.name} bearbeiten`}
           className="diary-entry-row">
           <View className="diary-entry-info">
-            <Txt
-              variant="body"
-              numberOfLines={1}
-              style={{ fontSize: 11, lineHeight: 14, fontWeight: '700' }}>
+            <Txt variant="caption" weight="700" numberOfLines={1}>
               {entry.name}
             </Txt>
             <Txt
-              variant="body"
+              variant="caption"
               tone="secondary"
-              numberOfLines={1}
-              style={{ marginTop: 1, fontSize: 10, lineHeight: 12, fontWeight: '500' }}>
+              weight="500"
+              className="mt-[1px]"
+              numberOfLines={1}>
               {entry.quantity} {entry.unit}
             </Txt>
           </View>
-          <Txt
-            variant="body"
-            tone="secondary"
-            style={{ fontSize: 10, lineHeight: 12, fontWeight: '600' }}>
+          <Txt variant="caption" tone="secondary" weight="600">
             {entry.kcal !== null ? formatKcal(entry.kcal) : '–'}
           </Txt>
         </Pressable>
@@ -299,17 +284,15 @@ export function DiaryScreen() {
             role="button"
             aria-label="Heutigen Tag anzeigen"
             className="diary-date-copy">
-            <Txt
-              variant="body"
-              tone="primary"
-              style={{ fontSize: 14, lineHeight: 18, fontWeight: '700' }}>
+            <Txt variant="label" tone="primary" weight="700">
               {relativeDateLabel(selectedLogicalDate, todayLogicalDate)}
             </Txt>
             <Txt
               variant="body"
               tone="secondary"
-              numberOfLines={1}
-              style={{ marginTop: 1, fontSize: 16, lineHeight: 20, fontWeight: '500' }}>
+              weight="500"
+              className="mt-[1px]"
+              numberOfLines={1}>
               {fullDateLabel(selectedLogicalDate)}
             </Txt>
           </Pressable>
@@ -339,17 +322,12 @@ export function DiaryScreen() {
               : `${formatKcal(totals.kcal)} gegessen, kein Tagesziel hinterlegt`
           }>
           <View className="diary-hero-row">
-            <Txt
-              variant="display"
-              style={{ fontSize: 30, lineHeight: 34, fontWeight: '700' }}>
+            <Txt variant="title" weight="700">
               {Math.round(calorieGoal > 0 ? Math.abs(remaining) : totals.kcal).toLocaleString(
                 'de-DE',
               )}
             </Txt>
-            <Txt
-              variant="body"
-              tone="secondary"
-              style={{ fontSize: 13, lineHeight: 16, fontWeight: '600' }}>
+            <Txt variant="label" tone="secondary" weight="600">
               {calorieGoal > 0
                 ? `kcal ${remaining < 0 ? 'über Ziel' : 'übrig'} · von ${Math.round(calorieGoal).toLocaleString('de-DE')}`
                 : 'kcal gegessen · kein Tagesziel'}

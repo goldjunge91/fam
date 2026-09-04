@@ -48,7 +48,7 @@ header preserved at the top of each adapted file.
 
 ## Patterns adapted (general UI vocabulary, no source copying)
 
-| Pattern | Where it lands in Waivy this pass |
+| Pattern | Where it lands in ui this pass |
 | --- | --- |
 | Bento grid — asymmetric tile layout | `src/components/ui/BentoGrid.tsx`, used on the About page feature catalog |
 | Icon-led action tile | `src/components/ui/IconTile.tsx`, used wherever a feature card was previously a "title + paragraph" |

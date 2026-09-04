@@ -1,4 +1,4 @@
-# UI inspiration research — Waivy / Nourish playful rebuild
+# UI inspiration research — ui / Nourish playful rebuild
 
 Honest disclosure up front: I did not crawl GitHub live for this pass. The
 patterns adapted below are widely-documented UI techniques that appear

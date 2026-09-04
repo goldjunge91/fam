@@ -108,7 +108,7 @@ Fam-Tokens
 |---|---|---|
 | Alte ThemedText-Rollen sind semantisch uneinheitlich | Visuelle Regression bei der Migration | explizite Migrationstabelle und Screenshot-Fälle |
 | NativeWind- und Inline-Style-Priorität wird falsch eingeschätzt | Farben oder Schriftgrößen verschwinden | Kernsemantik in StyleSheet, Style-Reihenfolge testen |
-| Waivy-Referenzcode wird unverändert übernommen | Fremde Palette und Compile-Fehler | Komponenten, Props und Verhalten behalten, aber nur direkte Fam-Gegenstücke und reale Projektimports ersetzen |
+| ui-Referenzcode wird unverändert übernommen | Fremde Palette und Compile-Fehler | Komponenten, Props und Verhalten behalten, aber nur direkte Fam-Gegenstücke und reale Projektimports ersetzen |
 | Provider wird neben dem alten Hook betrieben | Dark Mode bleibt inkonsistent | ein `useTheme`-Export und statischer Importaudit |
 | Spezialkomponenten akzeptieren `className` nicht | Styling wirkt nur scheinbar | Boundary-Matrix und echte `style`-Props |
 | Plattformdetails bleiben ohne Geräteprüfung unbestätigt | spätere native Abweichung | im Scope dokumentieren und keine Geräteabnahme behaupten |

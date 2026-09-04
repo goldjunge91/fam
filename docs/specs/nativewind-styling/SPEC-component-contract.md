@@ -79,7 +79,7 @@ Die 3D-Tiefe und Press-Animation aus der Referenz bleiben Bestandteil des UI-Ver
 - [ ] Neue und leicht ersetzbare `any`-Typen in `ui.tsx` sind durch passende React-Native-Typen ersetzt.
 - [ ] Ein verbleibendes `any` ist nur erlaubt, wenn die Bibliotheks- oder React-Native-Typen keine sichere Alternative bieten, lokal begrenzt und dokumentiert ist.
 - [ ] Bestehende Fam-Tokens werden überall dort verwendet, wo sie ein direktes Gegenstück zu einem Referenzwert darstellen.
-- [ ] Waivy-Komponenten, Props und Verhalten bleiben erhalten, wenn kein Fam-Gegenstück existiert. Waivy-only Werte werden nicht als globale Palette oder neue Theme-Quelle exportiert.
+- [ ] ui-Komponenten, Props und Verhalten bleiben erhalten, wenn kein Fam-Gegenstück existiert. ui-only Werte werden nicht als globale Palette oder neue Theme-Quelle exportiert.
 - [ ] `Surface` deckt alle bisherigen `ThemedView`-Anwendungsfälle ab.
 - [ ] Button-Zustände sind mit fokussierten Tests abgesichert.
 - [ ] `Press`, `Button` und `IconButton` lösen Haptics nur bei tatsächlich erlaubten Aktionen aus.

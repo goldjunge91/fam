@@ -16,7 +16,7 @@ Die fam-App soll eine nachvollziehbare UI-Styling-Quelle für ihre React-Native-
 - Dark Mode wechselt alle semantischen Tokens gemeinsam. Einzelne Komponenten erfinden keine eigene Dark-Mode-Logik.
 - NativeWind-Klassen dürfen nicht versehentlich eine semantische Inline- oder StyleSheet-Entscheidung überschreiben.
 - Komponenten, die kein `className` unterstützen, verwenden ein echtes `style` oder eine typisierte Adaptergrenze.
-- Die vorhandenen Fam-Farben bleiben erhalten. Waivy wird nur dort adaptiert, wo ein primitives Verhalten die Stabilität verbessert.
+- Die vorhandenen Fam-Farben bleiben erhalten. ui wird nur dort adaptiert, wo ein primitives Verhalten die Stabilität verbessert.
 
 ## Explizite Architekturentscheidungen
 
@@ -26,14 +26,14 @@ Die fam-App soll eine nachvollziehbare UI-Styling-Quelle für ihre React-Native-
 4. `useThemedStyles()` ist der einzige erlaubte Helper für dynamische StyleSheets. Er wird nur eingesetzt, wenn Werte aus dem aktiven Theme in `StyleSheet.create()` einfließen.
 5. `Txt` ersetzt `ThemedText`. `Surface` ersetzt die generische Funktion von `ThemedView`; `Card` bleibt die spezialisierte Kartenkomponente.
 6. `src/lib/haptics.ts` ist die einzige Haptics-Implementierung für die neuen Press-/Button-Primitiven.
-7. Bestehende Waivy-Komponenten, Props und Verhalten werden beibehalten. Werte, für die fam bereits ein direktes Gegenstück besitzt, werden durch Fam-Tokens ersetzt. Waivy-only Werte werden nicht zur globalen Fam-Palette oder Theme-Quelle gemacht.
+7. Bestehende ui-Komponenten, Props und Verhalten werden beibehalten. Werte, für die fam bereits ein direktes Gegenstück besitzt, werden durch Fam-Tokens ersetzt. ui-only Werte werden nicht zur globalen Fam-Palette oder Theme-Quelle gemacht.
 
 ## Aktuelle Probleme, die dieser Vertrag behebt
 
 | Kategorie | Beobachtung | Vertragliche Gegenmaßnahme |
 |---|---|---|
 | Import-/Runtime-Fehler | Neue Dateien nutzen `~/theme` und `~/lib/store`, obwohl das Projekt `@/...` und andere Storage-Module verwendet | Imports vor Integration an die Projektstruktur anpassen und typisieren |
-| Falsche Palette | `src/components/theme/index.ts` nutzt aktuell Waivy-Farben | Fam-Palette in den neuen Tokenvertrag überführen; keine Waivy-Hexwerte in Production-Defaults |
+| Falsche Palette | `src/components/theme/index.ts` nutzt aktuell ui-Farben | Fam-Palette in den neuen Tokenvertrag überführen; keine ui-Hexwerte in Production-Defaults |
 | Haptics nicht verdrahtet | `src/lib/haptics.ts` existiert bereits, wird von `ui.tsx` aber noch nicht korrekt importiert | vorhandene Datei direkt einbinden und eine einzige `fireHaptic`-Grenze verwenden |
 | Textgrößen | Alte Rollen sind teils missverständlich; `title` und `subtitle` zeigen andere Größen als ihre Namen vermuten lassen; `bodySmall` ist nicht vollständig im Klassenmapping | Vollständige semantische Typografie-Tabelle und explizite Migrationstabelle |
 | Stilpriorität | `className`, Komponentendefaults und `style` konkurrieren bei Farbe, Font und Hintergrund | Semantische Werte aus StyleSheet; Caller-Style zuletzt; `className` für Layout und dokumentierte Utilities |
@@ -149,7 +149,7 @@ Die vollständige Test-Suite wird während dieser Initiative nicht pauschal ausg
 ### Niemals
 
 - NativeWind durch ein anderes Framework ersetzen.
-- Waivy-Palette als Fam-Palette kopieren.
+- ui-Palette als Fam-Palette kopieren.
 - Alte und neue Theme-API dauerhaft parallel betreiben.
 - `any` als bequemen Workaround, globale `!important`-Regeln oder zufällige Hexwerte als Problemlösung hinzufügen. Ein technisch unvermeidbares bestehendes `any` darf lokal dokumentiert bleiben.
 - Tests löschen oder Datenbankmigrationen für diese UI-Arbeit schreiben.
@@ -160,7 +160,7 @@ Die vollständige Test-Suite wird während dieser Initiative nicht pauschal ausg
 - Die beiden alten Dateien sind erst nach erfolgreicher Migration entfernt.
 - `AppProviders` mountet den Fam-ThemeProvider zusätzlich zum Expo-Router-Provider mit eindeutigem Alias.
 - `ThemeProvider.tsx`, `index.ts`, `ui.tsx` und `haptics.ts` kompilieren mit den tatsächlichen fam-Imports und ohne neue `any`-Typen.
-- Fam-Light- und Fam-Dark-Werte sind die einzigen globalen semantischen Farbwerte der neuen Lösung; Waivy-only Component-Fallbacks werden nicht als Theme exportiert.
+- Fam-Light- und Fam-Dark-Werte sind die einzigen globalen semantischen Farbwerte der neuen Lösung; ui-only Component-Fallbacks werden nicht als Theme exportiert.
 - Jede bestehende Typografie-Rolle hat eine eindeutige Größe und Zeilenhöhe.
 - Buttons, Cards, Surfaces und Fields zeigen in fokussierten Tests und in den zwei Screen-Mocks die erwarteten Zustände.
 - Kein ungültiger oder unwirksamer NativeWind-Utility-Name wird für semantische Tokens verwendet.
