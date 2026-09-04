@@ -5,7 +5,7 @@ import { type ReactNode, useEffect, useState } from 'react';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { KeyboardProvider } from 'react-native-keyboard-controller';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-
+import { CelebrationHost } from '@/components/celebration/celebration-host';
 import { AnimatedSplashOverlay } from '@/components/icons/animated-icon';
 import { ThemeProvider as FamThemeProvider, useTheme } from '@/components/theme/ThemeProvider';
 import { SnackbarProvider } from '@/components/ui/snackbar';
@@ -98,6 +98,7 @@ function ThemeRuntime({
       <SnackbarProvider>
         <AnimatedSplashOverlay />
         {children}
+        <CelebrationHost />
         {env.devTools && !screenshotMode ? <BugBubble config={BUG_BUBBLE_CONFIG} /> : null}
       </SnackbarProvider>
     </RouterThemeProvider>

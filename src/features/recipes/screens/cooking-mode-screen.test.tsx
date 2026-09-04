@@ -1,7 +1,7 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { fireEvent, render, screen } from '@testing-library/react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-import { celebrate } from '@/lib/haptics';
+import { celebrate } from '@/lib/celebration';
 import { recordActivity } from '@/lib/streak';
 import type { CatalogDetail } from '../catalog/use-recipe-catalog';
 import type { RecipeDetail } from '../hooks/use-recipes';
@@ -42,7 +42,7 @@ jest.mock('@/lib/streak', () => ({
   recordActivity: jest.fn(() => ({ count: 1, increased: true, milestone: false })),
 }));
 
-jest.mock('@/lib/haptics', () => ({
+jest.mock('@/lib/celebration', () => ({
   celebrate: jest.fn(),
 }));
 

@@ -2,9 +2,9 @@ import { useMutation, useQueryClient } from '@tanstack/react-query';
 import * as Crypto from 'expo-crypto';
 
 import { useStorageLocations } from '@/features/inventory/use-storage-locations';
+import { celebrate } from '@/lib/celebration';
 import { getDatabase } from '@/lib/db/client';
 import { enqueueMutation } from '@/lib/db/outbox';
-import { celebrate } from '@/lib/haptics';
 import { recordActivity } from '@/lib/streak';
 import { applyLocalMirrorWrite } from '@/lib/sync/mirror-write';
 import { normalizeUnit } from '@/lib/units';
@@ -140,9 +140,9 @@ export function useCompleteShoppingRun(householdId: string | undefined) {
         const result = recordActivity();
         if (result.milestone) {
           try {
-            celebrate();
+            celebrate(`🔥 ${result.count} Tage Streak!`);
           } catch {
-            // Optionale Haptik darf den erfolgreichen Einkaufsabschluss nicht blockieren.
+            // Optionale Celebration darf den erfolgreichen Einkaufsabschluss nicht blockieren.
           }
         }
       }

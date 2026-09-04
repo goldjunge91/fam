@@ -4,8 +4,8 @@ import type React from 'react';
 
 import { useCompleteShoppingRun } from '@/features/shopping-list/hooks/use-complete-shopping-run';
 import type { LocalShoppingItem } from '@/features/shopping-list/hooks/use-shopping-list';
+import { celebrate } from '@/lib/celebration';
 import { enqueueMutation } from '@/lib/db/outbox';
-import { celebrate } from '@/lib/haptics';
 import { recordActivity } from '@/lib/streak';
 
 // `useStorageLocations` erwartet immer eine Liste; `undefined` ist fuer TanStack Query ungueltig.
@@ -27,7 +27,7 @@ jest.mock('@/lib/streak', () => ({
   recordActivity: jest.fn(() => ({ count: 1, increased: true, milestone: false })),
 }));
 
-jest.mock('@/lib/haptics', () => ({
+jest.mock('@/lib/celebration', () => ({
   celebrate: jest.fn(),
 }));
 
