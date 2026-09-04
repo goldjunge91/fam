@@ -1,15 +1,24 @@
 import * as Location from 'expo-location';
 import { useState } from 'react';
-import { Linking, Pressable, Switch, Text, View } from 'react-native';
+import { Linking, Pressable, Switch, View } from 'react-native';
 import { Button } from '@/components/ui/buttons';
+import { Txt } from '@/constants/ui';
 import { requestNotificationPermissions } from '@/lib/notifications';
 import { useOnboarding } from '../onboarding-store';
 
 // Defensiver Import: expo-camera ist nur in einem nativen Dev-Build verfügbar.
 // Gleiches Hook-Pattern wie in barcode-scanner-modal.tsx, damit der Systemdialog
 // wirklich über die native Kamera-API ausgelöst wird.
-// biome-ignore lint/suspicious/noExplicitAny: Dynamic Expo Camera Module
-let useCameraPermissionsHook: any = () => [null, async () => ({ granted: false })];
+type CameraPermission = { granted: boolean; canAskAgain: boolean };
+type CameraPermissionHook = () => [
+  CameraPermission | null,
+  () => Promise<CameraPermission>,
+];
+
+let useCameraPermissionsHook: CameraPermissionHook = () => [
+  null,
+  async () => ({ granted: false, canAskAgain: false }),
+];
 try {
   const ExpoCamera = require('expo-camera');
   if (ExpoCamera?.useCameraPermissions) {
@@ -84,10 +93,12 @@ export function PermissionsStepForm({ onNext, onSkip }: PermissionsStepFormProps
 
   return (
     <View className="gap-three">
-      <Text className="perm-heading">Erlaubnisse & Funktionen</Text>
-      <Text className="perm-subheading">
+      <Txt variant="controlActionLarge" weight="700">
+        Erlaubnisse & Funktionen
+      </Txt>
+      <Txt variant="bodySmall" tone="secondary">
         Damit die App optimal funktioniert, empfehlen wir folgende Berechtigungen:
-      </Text>
+      </Txt>
 
       <View className="perm-list">
         <Pressable
@@ -95,10 +106,12 @@ export function PermissionsStepForm({ onNext, onSkip }: PermissionsStepFormProps
           className={`perm-card ${notifications ? 'perm-card-selected' : 'perm-card-idle'}`}>
           <View className="perm-row">
             <View className="perm-text-col">
-              <Text className="perm-title">🔔 Benachrichtigungen</Text>
-              <Text className="perm-desc">
+              <Txt variant="controlValue" weight="700" tone={notifications ? 'onAccent' : 'primary'}>
+                🔔 Benachrichtigungen
+              </Txt>
+              <Txt variant="label" tone={notifications ? 'onAccent' : 'secondary'}>
                 Erhalte rechtzeitige Erinnerungen, bevor Lebensmittel im Kühlschrank ablaufen.
-              </Text>
+              </Txt>
             </View>
             <Switch value={notifications} onValueChange={handleToggleNotifications} />
           </View>
@@ -109,10 +122,12 @@ export function PermissionsStepForm({ onNext, onSkip }: PermissionsStepFormProps
           className={`perm-card ${camera ? 'perm-card-selected' : 'perm-card-idle'}`}>
           <View className="perm-row">
             <View className="perm-text-col">
-              <Text className="perm-title">📷 Kamera-Zugriff</Text>
-              <Text className="perm-desc">
+              <Txt variant="controlValue" weight="700" tone={camera ? 'onAccent' : 'primary'}>
+                📷 Kamera-Zugriff
+              </Txt>
+              <Txt variant="label" tone={camera ? 'onAccent' : 'secondary'}>
                 Scanne Barcodes von Lebensmitteln oder QR-Codes für den Haushaltsbeitritt.
-              </Text>
+              </Txt>
             </View>
             <Switch value={camera} onValueChange={handleToggleCamera} />
           </View>
@@ -123,8 +138,12 @@ export function PermissionsStepForm({ onNext, onSkip }: PermissionsStepFormProps
           className={`perm-card ${location ? 'perm-card-selected' : 'perm-card-idle'}`}>
           <View className="perm-row">
             <View className="perm-text-col">
-              <Text className="perm-title">📍 Standort-Zugriff</Text>
-              <Text className="perm-desc">Für Prospekte aus deiner Umgebung.</Text>
+              <Txt variant="controlValue" weight="700" tone={location ? 'onAccent' : 'primary'}>
+                📍 Standort-Zugriff
+              </Txt>
+              <Txt variant="label" tone={location ? 'onAccent' : 'secondary'}>
+                Für Prospekte aus deiner Umgebung.
+              </Txt>
             </View>
             <Switch value={location} onValueChange={handleToggleLocation} />
           </View>

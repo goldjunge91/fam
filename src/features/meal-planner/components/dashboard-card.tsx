@@ -37,7 +37,7 @@ const PLANNED_GLASS_STYLE_SMALL = {
   paddingVertical: 14,
 };
 
-function MealPlanDashboardCard({ size, onLongPress, editHeight }: DashboardCardProps) {
+function MealPlanDashboardCard({ size, onLongPress }: DashboardCardProps) {
   const { colors } = useTheme();
   const { activeHouseholdId } = useActiveHousehold();
   const householdId = activeHouseholdId ?? undefined;
@@ -65,7 +65,6 @@ function MealPlanDashboardCard({ size, onLongPress, editHeight }: DashboardCardP
         outerStyle={{
           width: '100%',
           minHeight: 138,
-          height: editHeight,
           borderRadius: 28,
           borderCurve: 'continuous',
           boxShadow: `0 8px 20px ${withAlpha(colors.text, 0.08)}`,
@@ -73,13 +72,13 @@ function MealPlanDashboardCard({ size, onLongPress, editHeight }: DashboardCardP
         <View className="flex-1 justify-between">
           <View className="flex-row items-center justify-between">
             <Txt
-              variant="body"
+              variant="captionCompact"
               tone="danger"
               weight="700"
-              style={{ fontSize: 12, lineHeight: 14, fontWeight: '700', letterSpacing: 0.5 }}>
+              style={{ letterSpacing: 0.5 }}>
               GEPLANT
             </Txt>
-            <Txt variant="body" tone="secondary" style={{ fontSize: 12, lineHeight: 16 }}>
+            <Txt variant="detail" tone="secondary">
               {nextMeal ? MEAL_SLOT_LABELS[nextMeal.meal_slot] : 'Heute'}
             </Txt>
           </View>
@@ -87,10 +86,9 @@ function MealPlanDashboardCard({ size, onLongPress, editHeight }: DashboardCardP
             <FamIcon name="mealArtwork" size={44} />
           </View>
           <Txt
-            variant="body"
+            variant="bodySmall"
             weight="700"
-            numberOfLines={2}
-            style={{ fontSize: 14, lineHeight: 18 }}>
+            numberOfLines={2}>
             {nextMeal?.recipe_title ?? 'Nichts geplant'}
           </Txt>
         </View>
@@ -108,20 +106,19 @@ function MealPlanDashboardCard({ size, onLongPress, editHeight }: DashboardCardP
       glassStyle={PLANNED_GLASS_STYLE}
       outerStyle={{
         minHeight: 140,
-        height: editHeight,
         borderRadius: 28,
         borderCurve: 'continuous',
         boxShadow: `0 8px 22px ${withAlpha(colors.text, 0.1)}`,
       }}>
       <FamIcon name="mealArtwork" size={79} />
       <View className="dashboard-planned-copy">
-        <Txt variant="body" tone="danger" weight="700" className="dashboard-planned-kicker">
+        <Txt variant="caption" tone="danger" weight="700" style={{ letterSpacing: 0.1 }}>
           HEUTE GEPLANT
         </Txt>
-        <Txt variant="body" weight="700" numberOfLines={2} className="dashboard-planned-title">
+        <Txt variant="controlValueLarge" weight="700" numberOfLines={2}>
           {nextMeal?.recipe_title ?? 'Noch nichts geplant'}
         </Txt>
-        <Txt variant="body" tone="secondary" className="dashboard-planned-meta">
+        <Txt variant="detail" tone="secondary">
           {nextMeal
             ? `${MEAL_SLOT_LABELS[nextMeal.meal_slot]} · ${nextMeal.portions} Portionen`
             : 'Wochenplan öffnen'}

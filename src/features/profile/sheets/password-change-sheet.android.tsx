@@ -104,7 +104,6 @@ export function PasswordChangeSheet({
               autoCapitalize="none"
               autoComplete="new-password"
               textContentType="newPassword"
-              className="text-body-small"
             />
             <TextField
               label="Neues Passwort bestätigen"
@@ -121,7 +120,6 @@ export function PasswordChangeSheet({
               textContentType="newPassword"
               returnKeyType="go"
               onSubmitEditing={onApply}
-              className="text-body-small"
             />
           </View>
 

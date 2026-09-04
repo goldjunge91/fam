@@ -62,7 +62,7 @@ function OnboardingContent() {
               im Onboarding-State. */}
           <BackButton label="Zurück" onPress={prevStep} />
           {/* ProgressBar erwartet einen echten Farbwert (kein className-Prop). */}
-          <ProgressBar value={currentStep / TOTAL_STEPS} color={colors.basil} />
+          <ProgressBar value={currentStep / TOTAL_STEPS} color={colors.accent} />
           {session && (
             <Pressable onPress={handleEmergencySignOut} className="signout-link">
               <Txt variant="caption" tone="secondary" className="signout-text">

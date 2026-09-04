@@ -9,6 +9,7 @@ import Animated, {
   withSequence,
   withTiming,
 } from 'react-native-reanimated';
+import { SortableItem } from 'react-native-reanimated-dnd';
 import { withAlpha } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { Txt } from '@/constants/ui';
@@ -76,7 +77,12 @@ export function JiggleWrapper({
     transform: [{ translateY: translateY.value }, { rotateZ: `${rotation.value}deg` }],
   }));
 
-  const containerLayout = size === 'small' ? styles.smallContainer : styles.largeContainer;
+  const containerLayout =
+    size === 'small'
+      ? fill
+        ? styles.smallGridContainer
+        : styles.smallContainer
+      : styles.largeContainer;
   const contentLayout = size === 'small' ? styles.smallCardContent : styles.largeCardContent;
 
   return (
@@ -86,6 +92,12 @@ export function JiggleWrapper({
       <View style={contentLayout} pointerEvents={isEditing ? 'none' : 'auto'}>
         {children}
       </View>
+
+      {isEditing && fill ? (
+        <SortableItem.Handle style={styles.dragHandle}>
+          <View />
+        </SortableItem.Handle>
+      ) : null}
 
       {isEditing && onDelete ? (
         <Pressable
@@ -141,7 +153,18 @@ const styles = StyleSheet.create({
   },
   fillContainer: {
     width: '100%',
-    height: '100%',
+  },
+  dragHandle: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    zIndex: 0,
+  },
+  smallGridContainer: {
+    width: '100%',
+    minHeight: 138,
   },
   largeContainer: {
     width: '100%',

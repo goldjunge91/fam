@@ -6,8 +6,6 @@ export type CardSize = 'large' | 'small';
 export type DashboardCardProps = {
   size: CardSize;
   onLongPress?: () => void;
-  /** Feste Zellhoehe fuer das SortableGrid im Dashboard-Edit-Modus. */
-  editHeight?: number;
 };
 
 export type DashboardCardDef = {

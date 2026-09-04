@@ -23,19 +23,18 @@ export function SectionHeading({
       <View className="shrink">
         {eyebrow ? (
           <Txt
-            variant="caption"
+            variant="micro"
             tone="secondary"
             weight="600"
             className="uppercase"
-            style={{ fontSize: 9, lineHeight: 14, letterSpacing: 0.7 }}>
+            style={{ letterSpacing: 0.7 }}>
             {eyebrow}
           </Txt>
         ) : null}
         <Txt
-          variant="body"
+          variant="bodySmall"
           weight="700"
-          className={titleClassName}
-          style={{ fontSize: 14, lineHeight: 20 }}>
+          className={titleClassName}>
           {title}
         </Txt>
       </View>
@@ -46,7 +45,7 @@ export function SectionHeading({
           aria-label={actionLabel}
           hitSlop={8}
           className="active:opacity-65">
-          <Txt variant="caption" tone="primary" weight="700" style={{ lineHeight: 16 }}>
+          <Txt variant="detail" tone="primary" weight="700">
             {actionLabel}
           </Txt>
         </Pressable>

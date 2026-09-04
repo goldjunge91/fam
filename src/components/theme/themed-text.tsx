@@ -1,6 +1,7 @@
+// TODO: DELETE — maintainer removes this compatibility wrapper after the migration is reviewed.
 import { Text, type TextProps, type TextStyle } from 'react-native';
 
-import { Fonts, type ThemeColor } from '@/constants/theme';
+import { Fonts, type ThemeColor } from '@/components/theme/index';
 
 /**
  * Einzige Quelle fuer feste Schriftgroessen in der App.

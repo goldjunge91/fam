@@ -122,7 +122,7 @@ function MealSection({ meal, entries, isLast, onAdd, onEntry }: MealSectionProps
           <Txt variant="subheading">
             {MEAL_LABELS[meal]}
           </Txt>
-          <Txt variant="meta" className="mt-[1px]">
+          <Txt variant="meta" tone="secondary" className="mt-[1px]">
             {formatKcal(mealKcal)}
           </Txt>
         </View>
@@ -272,12 +272,7 @@ export function DiaryScreen() {
             role="button"
             aria-label="Vorheriger Tag"
             className="diary-date-arrow">
-            <Txt
-              variant="body"
-              tone="secondary"
-              style={{ fontSize: 28, lineHeight: 32, fontWeight: '500' }}>
-              ‹
-            </Txt>
+            <Txt variant="navigationArrow" tone="secondary">‹</Txt>
           </Pressable>
           <Pressable
             onPress={() => setSelectedLogicalDate(todayLogicalDate)}
@@ -301,12 +296,7 @@ export function DiaryScreen() {
             role="button"
             aria-label="Nächster Tag"
             className="diary-date-arrow">
-            <Txt
-              variant="body"
-              tone="secondary"
-              style={{ fontSize: 28, lineHeight: 32, fontWeight: '500' }}>
-              ›
-            </Txt>
+            <Txt variant="navigationArrow" tone="secondary">›</Txt>
           </Pressable>
         </View>
 

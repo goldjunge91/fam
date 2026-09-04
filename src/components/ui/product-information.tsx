@@ -94,7 +94,8 @@ export function ProductInformation({ visible, item, onClose }: ProductInformatio
     <Modal visible={visible} transparent animationType="slide" onRequestClose={onClose}>
       <View className="absolute inset-0">
         <Pressable
-          className="absolute inset-0 bg-[#1F1A21]/30"
+          className="absolute inset-0"
+          style={{ backgroundColor: colors.scrim }}
           onPress={onClose}
           accessibilityRole="button"
           accessibilityLabel="Produktinformationen schließen"
@@ -104,7 +105,7 @@ export function ProductInformation({ visible, item, onClose }: ProductInformatio
           className="absolute left-3 right-3 bottom-[10px] max-h-[82%] rounded-fam-large overflow-hidden shadow-sheet"
           // Bottom-Safe-Area ist ein echter Laufzeitwert (Geraet-abhaengig),
           // kann nicht als Tailwind-Klasse ausgedrueckt werden. 24px = pb-four.
-          style={{ backgroundColor: colors.surface, paddingBottom: insets.bottom + 24 }}>
+          style={{ backgroundColor: colors.backgroundElement, paddingBottom: insets.bottom + 24 }}>
           <View className="w-[42px] h-[4px] rounded-hairline self-center mt-[11px] bg-border" />
           <ScrollView
             showsVerticalScrollIndicator={false}
@@ -123,24 +124,23 @@ export function ProductInformation({ visible, item, onClose }: ProductInformatio
                 accessibilityRole="button"
                 accessibilityLabel="Schließen"
                 className="w-[34px] h-[34px] rounded-sheet items-center justify-center active:opacity-75"
-                style={{ backgroundColor: colors.surfaceSoft }}>
+                style={{ backgroundColor: colors.backgroundSelected }}>
                 <Txt variant="body" tone="secondary">×</Txt>
               </Pressable>
             </View>
 
             <View
               className="min-h-[88px] rounded-sheet p-[12px] flex-row items-center gap-[12px]"
-              style={{ backgroundColor: colors.bg }}>
+              style={{ backgroundColor: colors.background }}>
               <View
                 className={`w-[62px] h-[62px] rounded-card items-center justify-center ${
                   score ? NUTRI_BADGE_CLASSES[score] : ''
                 }`}
-                style={!score ? { backgroundColor: colors.surfaceSoft } : undefined}>
+                style={!score ? { backgroundColor: colors.backgroundSelected } : undefined}>
                 <Txt
-                  variant="body"
+                  variant="controlActionLarge"
                   weight="700"
-                  tone={score ? 'inverse' : 'primary'}
-                  style={{ fontSize: 24, lineHeight: 28 }}>
+                  tone={score ? 'inverse' : 'primary'}>
                   {score?.toUpperCase() ?? '–'}
                 </Txt>
               </View>
@@ -152,7 +152,7 @@ export function ProductInformation({ visible, item, onClose }: ProductInformatio
                   Produktdaten von Open Food Facts
                 </Txt>
               </View>
-              {isFetching ? <ActivityIndicator size="small" color={colors.basil} /> : null}
+              {isFetching ? <ActivityIndicator size="small" color={colors.accent} /> : null}
             </View>
 
             <View className="border-hairline rounded-sheet overflow-hidden border-border">
@@ -176,7 +176,7 @@ export function ProductInformation({ visible, item, onClose }: ProductInformatio
 
             <View
               className="rounded-sheet p-[14px] gap-[6px]"
-              style={{ backgroundColor: colors.bg }}>
+              style={{ backgroundColor: colors.background }}>
               <Txt variant="body" weight="700">
                 Zutaten
               </Txt>
@@ -187,7 +187,7 @@ export function ProductInformation({ visible, item, onClose }: ProductInformatio
 
             <View
               className="rounded-sheet p-[14px] gap-[6px]"
-              style={{ backgroundColor: colors.bg }}>
+              style={{ backgroundColor: colors.background }}>
               <Txt variant="body" weight="700">
                 Allergene
               </Txt>
@@ -204,7 +204,7 @@ export function ProductInformation({ visible, item, onClose }: ProductInformatio
                 <View
                   key={nutrient.label}
                   className="w-[31.6%] min-h-[62px] rounded-card p-[10px] gap-[5px]"
-                  style={{ backgroundColor: colors.surfaceSoft }}>
+                  style={{ backgroundColor: colors.backgroundSelected }}>
                   <Txt variant="body" weight="700" selectable>
                     {nutrient.value}
                   </Txt>

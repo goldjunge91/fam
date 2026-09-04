@@ -26,7 +26,7 @@ export function HeaderIconButton({
       accessibilityRole="button"
       accessibilityLabel={label}
       className={`btn-header-icon ${className}`.trim()}
-      style={[{ backgroundColor: colors.surfaceSoft }, style]}>
+      style={[{ backgroundColor: colors.backgroundSelected }, style]}>
       {children}
     </Pressable>
   );

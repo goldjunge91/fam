@@ -1,7 +1,8 @@
-import { Pressable, Switch, Text, View } from 'react-native';
+import { Pressable, Switch, View } from 'react-native';
 import { ModuleLockedOverlay } from '@/components/module-locked-overlay';
 import { Button } from '@/components/ui/buttons';
 import { getSettingsModules } from '@/constants/feature-registry';
+import { Txt } from '@/constants/ui';
 import { useFeatureAccess } from '@/features/settings/use-feature-access';
 import { useOnboarding } from '../onboarding-store';
 
@@ -22,10 +23,12 @@ export function ModuleSelectorForm({ onNext, onSkip }: ModuleSelectorFormProps) 
 
   return (
     <View className="gap-three">
-      <Text className="perm-heading">Welche Module möchtest du nutzen?</Text>
-      <Text className="perm-subheading">
+      <Txt variant="controlActionLarge" weight="700">
+        Welche Module möchtest du nutzen?
+      </Txt>
+      <Txt variant="bodySmall" tone="secondary">
         Du kannst ungenutzte Module jederzeit später in den Einstellungen anpassen.
-      </Text>
+      </Txt>
 
       <View className="perm-list">
         {SETTINGS_MODULES.map((row) => {
@@ -41,10 +44,12 @@ export function ModuleSelectorForm({ onNext, onSkip }: ModuleSelectorFormProps) 
               disabled={locked}
               className={`onboard-module-row ${state.modules[row.key] ? 'module-row-selected' : 'module-row-idle'}`}>
               <View className={`perm-text-col ${locked ? 'module-row-locked-content' : ''}`}>
-                <Text className="onboard-module-title">
+                <Txt variant="controlValue" weight="700">
                   {row.icon} {row.title}
-                </Text>
-                <Text className="onboard-module-desc">{row.desc}</Text>
+                </Txt>
+                <Txt variant="label" tone="secondary" className="mt-half">
+                  {row.desc}
+                </Txt>
               </View>
               <View className={locked ? 'module-row-locked-content' : undefined}>
                 <Switch

@@ -16,7 +16,7 @@ export function EmptyState({ symbol, title, hint }: EmptyStateProps) {
 
   return (
     <View className="items-center justify-center gap-two py-six px-four">
-      <SymbolView name={symbol} size={40} tintColor={colors.textMuted} />
+      <SymbolView name={symbol} size={40} tintColor={colors.textSecondary} />
       <Txt variant="body" weight="700" className="text-center">
         {title}
       </Txt>

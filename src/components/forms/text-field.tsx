@@ -2,6 +2,7 @@ import type { ReactNode } from 'react';
 import { TextInput, type TextInputProps, View } from 'react-native';
 
 import { useTheme } from '@/components/theme/ThemeProvider';
+import { font } from '@/components/theme/index';
 import { Txt } from '@/constants/ui';
 
 type TextFieldProps = TextInputProps & {
@@ -28,7 +29,7 @@ export function TextField({
   return (
     <View className="gap-one">
       {label ? (
-        <Txt variant="body" tone="secondary" className={size === 'large' ? 'text-body' : ''}>
+        <Txt variant="label" tone="secondary">
           {label}
         </Txt>
       ) : null}
@@ -36,7 +37,7 @@ export function TextField({
       <View className="relative">
         <TextInput
           {...rest}
-          placeholderTextColor={colors.textMuted}
+          placeholderTextColor={colors.textSecondary}
           // accessibilityLabel setzt das Label mit dem Feld in Beziehung; ohne das
           // liest ein Screenreader nur "Textfeld".
           accessibilityLabel={label || rest.placeholder}
@@ -45,8 +46,15 @@ export function TextField({
           accessibilityHint={error}
           className={`input-field ${
             error ? 'input-field-error' : ''
-          } ${size === 'large' ? 'text-body-lg' : ''} ${trailing ? 'pr-[52px]' : ''} ${className}`.trim()}
-          style={style}
+          } ${trailing ? 'pr-[52px]' : ''} ${className}`.trim()}
+          style={[
+            {
+              color: colors.text,
+              fontSize: size === 'large' ? font.sizes.bodyLarge : font.sizes.base,
+              lineHeight: size === 'large' ? font.lineHeights.bodyLarge : font.lineHeights.body,
+            },
+            style,
+          ]}
         />
         {trailing ? (
           <View className="absolute z-10 right-[2px] top-[2px] bottom-[2px] items-center justify-center">
@@ -56,7 +64,7 @@ export function TextField({
       </View>
 
       {error ? (
-        <Txt variant="body" tone="danger" className={size === 'large' ? 'text-body' : ''}>
+        <Txt variant="bodySmall" tone="danger">
           {error}
         </Txt>
       ) : null}

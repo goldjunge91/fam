@@ -46,7 +46,7 @@ export function WheelPickerField({
   return (
     <View className="gap-one">
       {label && (
-        <Txt variant="body" tone="secondary" className={size === 'large' ? 'text-body' : ''}>
+        <Txt variant="label" tone="secondary">
           {label}
         </Txt>
       )}
@@ -55,7 +55,7 @@ export function WheelPickerField({
         accessibilityRole="button"
         accessibilityLabel={label ? `${label} ${selectedLabel} ändern` : `${selectedLabel} ändern`}
         className="input-field active:opacity-75">
-        <Txt variant="body" tone="primary" className={size === 'large' ? 'text-body-lg' : ''}>
+        <Txt variant={size === 'large' ? 'bodyLarge' : 'body'} tone="primary">
           {selectedLabel}
         </Txt>
       </Pressable>

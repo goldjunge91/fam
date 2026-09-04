@@ -240,7 +240,10 @@ export function AddFoodEntryScreen() {
         {/* Lebensmittel-Header mit Bild, Name, Marke und Nutri-Score */}
         <View className="afe-hero">
           {productMeta.imageUrl ? (
-            <Image source={{ uri: productMeta.imageUrl }} className="afe-hero-image" />
+            <Image
+              source={{ uri: productMeta.imageUrl }}
+              style={{ width: 56, height: 56, borderRadius: 16 }}
+            />
           ) : (
             <View className="afe-hero-image-placeholder">
               <Txt variant="body" style={{ fontSize: 28 }}>

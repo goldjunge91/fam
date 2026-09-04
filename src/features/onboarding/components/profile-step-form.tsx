@@ -1,9 +1,10 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
-import { Pressable, Text, View } from 'react-native';
+import { Pressable, View } from 'react-native';
 import { TextField } from '@/components/forms/text-field';
 import { Button } from '@/components/ui/buttons';
+import { Txt } from '@/constants/ui';
 import { useSession } from '@/features/auth/session-provider';
 import { useProfile } from '@/features/profile/api';
 import {
@@ -92,10 +93,12 @@ export function ProfileStepForm({ onNext, onSkip }: ProfileStepFormProps) {
 
   return (
     <View className="gap-three">
-      <Text className="perm-heading">Dein Profil & Körperwerte</Text>
-      <Text className="perm-subheading">
+      <Txt variant="controlActionLarge" weight="700">
+        Dein Profil & Körperwerte
+      </Txt>
+      <Txt variant="bodySmall" tone="secondary">
         Alle Angaben sind freiwillig und dienen der genauen Kalorienberechnung.
-      </Text>
+      </Txt>
 
       <View className="profile-form-section">
         <TextField
@@ -143,7 +146,9 @@ export function ProfileStepForm({ onNext, onSkip }: ProfileStepFormProps) {
           </View>
         </View>
 
-        <Text className="section-label">Berechnungsbasis (Geschlecht)</Text>
+        <Txt variant="bodySmall" weight="600" className="mt-two">
+          Berechnungsbasis (Geschlecht)
+        </Txt>
         <View className="sex-row">
           {SEX_OPTIONS.map((opt) => {
             const selected = sex === opt.value;
@@ -152,15 +157,17 @@ export function ProfileStepForm({ onNext, onSkip }: ProfileStepFormProps) {
                 key={opt.value}
                 onPress={() => setValue('sex', selected ? undefined : opt.value)}
                 className={`option-button ${selected ? 'selectable-selected' : 'selectable-idle'}`}>
-                <Text className={`option-text ${selected ? 'text-on-accent' : 'text-text'}`}>
+                <Txt variant="bodySmall" tone={selected ? 'onAccent' : 'primary'} weight="600">
                   {opt.label}
-                </Text>
+                </Txt>
               </Pressable>
             );
           })}
         </View>
 
-        <Text className="section-label">Ernährungsziel</Text>
+        <Txt variant="bodySmall" weight="600" className="mt-two">
+          Ernährungsziel
+        </Txt>
         <View className="gap-two">
           {GOAL_OPTIONS.map((opt) => {
             const selected = weightGoal === opt.value;
@@ -169,16 +176,17 @@ export function ProfileStepForm({ onNext, onSkip }: ProfileStepFormProps) {
                 key={opt.value}
                 onPress={() => setValue('weightGoal', selected ? undefined : opt.value)}
                 className={`profile-choice-card ${selected ? 'selectable-selected' : 'selectable-idle'}`}>
-                <Text
-                  className={`profile-choice-text ${selected ? 'text-on-accent' : 'text-text'}`}>
+                <Txt variant="bodySmall" tone={selected ? 'onAccent' : 'primary'} weight="500">
                   {opt.label}
-                </Text>
+                </Txt>
               </Pressable>
             );
           })}
         </View>
 
-        <Text className="section-label">Aktivitätslevel im Alltag</Text>
+        <Txt variant="bodySmall" weight="600" className="mt-two">
+          Aktivitätslevel im Alltag
+        </Txt>
         <View className="gap-two">
           {ACTIVITY_OPTIONS.map((opt) => {
             const selected = activityLevel === opt.value;
@@ -187,10 +195,9 @@ export function ProfileStepForm({ onNext, onSkip }: ProfileStepFormProps) {
                 key={opt.value}
                 onPress={() => setValue('activityLevel', selected ? undefined : opt.value)}
                 className={`profile-choice-card ${selected ? 'selectable-selected' : 'selectable-idle'}`}>
-                <Text
-                  className={`profile-choice-text ${selected ? 'text-on-accent' : 'text-text'}`}>
+                <Txt variant="bodySmall" tone={selected ? 'onAccent' : 'primary'} weight="500">
                   {opt.label}
-                </Text>
+                </Txt>
               </Pressable>
             );
           })}

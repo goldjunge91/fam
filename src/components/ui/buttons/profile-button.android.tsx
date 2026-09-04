@@ -20,7 +20,7 @@ export function ProfileButton({ initials, avatarUrl, onPress }: ProfileButtonPro
       accessibilityRole="button"
       accessibilityLabel="Profil öffnen"
       className="btn-profile overflow-hidden"
-      style={{ backgroundColor: colors.basil }}>
+      style={{ backgroundColor: colors.accent }}>
       {avatarUrl ? (
         <Image
           source={{ uri: avatarUrl }}

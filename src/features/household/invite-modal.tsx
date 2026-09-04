@@ -127,9 +127,9 @@ export function InviteModal({ visible, householdId, householdName, onClose }: In
             {selectedToken ? (
               <Card title="Einladungs-Code & QR-Code">
                 <View className="gap-two">
-                  <Txt variant="body" weight="500" className="invite-token-text">
-                    {selectedToken}
-                  </Txt>
+                  <Txt variant="controlValue" tone="accent" center className="invite-token-text">
+                   {selectedToken}
+                 </Txt>
 
                   {showQrCode && (
                     <View className="invite-qr-container">

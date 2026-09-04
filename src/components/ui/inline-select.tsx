@@ -36,7 +36,7 @@ export function InlineSelect({ value, options, onChange, accessibilityLabel }: I
           {selected?.icon ? `${selected.icon} ` : ''}
           {selected?.label ?? value}
         </Txt>
-        <Txt variant="body" tone="secondary" style={{ fontSize: 10, lineHeight: 14 }}>
+        <Txt variant="detail" tone="secondary">
           {open ? '︿' : '⌄'}
         </Txt>
       </Pressable>

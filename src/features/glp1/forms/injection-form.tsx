@@ -2,7 +2,10 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { Controller, useForm } from 'react-hook-form';
 import { Pressable, TextInput, View } from 'react-native';
 import { z } from 'zod';
-import { ThemedText } from '@/components/theme/themed-text';
+import { useTheme } from '@/components/theme/ThemeProvider';
+import { font } from '@/components/theme';
+import { Button } from '@/components/ui/buttons';
+import { Txt } from '@/constants/ui';
 import { formatDateTimeInput } from '@/features/glp1/domain/date-time-input';
 import {
   dateTimeInputSchema,
@@ -16,7 +19,6 @@ import {
   type InjectionSite,
   MEDICATION_UNITS,
 } from '@/features/glp1/domain/medication-options';
-import { useTheme } from '@/hooks/use-theme';
 
 const COMMON_MEDICATIONS = ['Semaglutid', 'Tirzepatid', 'Liraglutid'] as const;
 const COMMON_DOSES = ['0.25', '0.5', '1.0', '1.7', '2.4'] as const;
@@ -57,7 +59,7 @@ export function InjectionForm({
   recentSites = [],
   mode = 'create',
 }: InjectionFormProps) {
-  const theme = useTheme();
+  const { colors } = useTheme();
   const {
     control,
     formState: { errors },
@@ -82,17 +84,29 @@ export function InjectionForm({
   const injectionSite = watch('injectionSite');
   const customMedication = !isCommonMedication(medicationName);
   const customDose = !isCommonDose(dose);
+  const surfaceStyle = {
+    backgroundColor: colors.backgroundElement,
+    borderColor: colors.border,
+  };
+  const inputStyle = {
+    color: colors.text,
+    backgroundColor: colors.backgroundElement,
+    borderColor: colors.border,
+    fontSize: font.sizes.bodyLarge,
+    lineHeight: font.lineHeights.bodyLarge,
+  };
+  const multilineInputStyle = { ...inputStyle, textAlignVertical: 'top' as const };
 
   return (
-    <View className="p-three bg-surface rounded-xl gap-three border border-border">
-      <ThemedText type="labelBold">
+    <View className="p-three rounded-xl gap-three border" style={surfaceStyle}>
+      <Txt variant="label" weight="700">
         {mode === 'edit' ? 'Injektion bearbeiten' : 'Injektion erfassen'}
-      </ThemedText>
+      </Txt>
 
       <View className="gap-one">
-        <ThemedText type="caption" themeColor="textSecondary">
+        <Txt variant="caption" tone="secondary">
           Medikament auswählen:
-        </ThemedText>
+        </Txt>
         <View className="flex-row flex-wrap gap-two">
           {[...COMMON_MEDICATIONS, 'Andere'].map((name) => {
             const isSelected = name === 'Andere' ? customMedication : medicationName === name;
@@ -108,13 +122,13 @@ export function InjectionForm({
                 accessibilityRole="radio"
                 accessibilityState={{ selected: isSelected }}
                 style={{
-                  backgroundColor: isSelected ? theme.accent : theme.backgroundElement,
-                  borderColor: isSelected ? theme.accent : theme.border,
+                  backgroundColor: isSelected ? colors.accent : colors.backgroundElement,
+                  borderColor: isSelected ? colors.accent : colors.border,
                 }}
                 className="py-one px-three rounded-xl border">
-                <ThemedText type="smallBold" themeColor={isSelected ? 'onAccent' : 'text'}>
+                <Txt variant="bodyRelaxed" weight="700" tone={isSelected ? 'onAccent' : 'primary'}>
                   {name}
-                </ThemedText>
+                </Txt>
               </Pressable>
             );
           })}
@@ -129,24 +143,24 @@ export function InjectionForm({
                 onChangeText={onChange}
                 accessibilityLabel="Name des Medikaments"
                 placeholder="Name des Medikaments"
-                className="p-two bg-card rounded-lg border border-border text-sm mt-one"
-                placeholderTextColor={theme.textSecondary}
-                style={{ color: theme.text }}
+                className="p-two rounded-lg border mt-one"
+                placeholderTextColor={colors.textSecondary}
+                style={inputStyle}
               />
             )}
           />
         ) : null}
         {errors.medicationName ? (
-          <ThemedText type="caption" themeColor="danger">
+          <Txt variant="caption" tone="danger">
             {errors.medicationName.message}
-          </ThemedText>
+          </Txt>
         ) : null}
       </View>
 
       <View className="gap-one">
-        <ThemedText type="caption" themeColor="textSecondary">
+        <Txt variant="caption" tone="secondary">
           Einheit:
-        </ThemedText>
+        </Txt>
         <View className="flex-row flex-wrap gap-two">
           {MEDICATION_UNITS.map((value) => {
             const isSelected = unit === value;
@@ -157,13 +171,13 @@ export function InjectionForm({
                 accessibilityRole="radio"
                 accessibilityState={{ selected: isSelected }}
                 style={{
-                  backgroundColor: isSelected ? theme.accent : theme.backgroundElement,
-                  borderColor: isSelected ? theme.accent : theme.border,
+                  backgroundColor: isSelected ? colors.accent : colors.backgroundElement,
+                  borderColor: isSelected ? colors.accent : colors.border,
                 }}
                 className="py-one px-three rounded-xl border">
-                <ThemedText type="smallBold" themeColor={isSelected ? 'onAccent' : 'text'}>
+                <Txt variant="bodyRelaxed" weight="700" tone={isSelected ? 'onAccent' : 'primary'}>
                   {value}
-                </ThemedText>
+                </Txt>
               </Pressable>
             );
           })}
@@ -171,9 +185,9 @@ export function InjectionForm({
       </View>
 
       <View className="gap-one">
-        <ThemedText type="caption" themeColor="textSecondary">
+        <Txt variant="caption" tone="secondary">
           Dosis ({unit}):
-        </ThemedText>
+        </Txt>
         <View className="flex-row flex-wrap gap-two">
           {[...COMMON_DOSES, 'Andere'].map((value) => {
             const isSelected = value === 'Andere' ? customDose : dose === value;
@@ -189,13 +203,13 @@ export function InjectionForm({
                 accessibilityRole="radio"
                 accessibilityState={{ selected: isSelected }}
                 style={{
-                  backgroundColor: isSelected ? theme.accent : theme.backgroundElement,
-                  borderColor: isSelected ? theme.accent : theme.border,
+                  backgroundColor: isSelected ? colors.accent : colors.backgroundElement,
+                  borderColor: isSelected ? colors.accent : colors.border,
                 }}
                 className="py-one px-three rounded-xl border">
-                <ThemedText type="smallBold" themeColor={isSelected ? 'onAccent' : 'text'}>
+                <Txt variant="bodyRelaxed" weight="700" tone={isSelected ? 'onAccent' : 'primary'}>
                   {value === 'Andere' ? 'Andere' : `${value} ${unit}`}
-                </ThemedText>
+                </Txt>
               </Pressable>
             );
           })}
@@ -211,31 +225,31 @@ export function InjectionForm({
                 accessibilityLabel="Dosis"
                 placeholder="z. B. 0.75"
                 keyboardType="decimal-pad"
-                className="p-two bg-card rounded-lg border border-border text-sm mt-one"
-                placeholderTextColor={theme.textSecondary}
-                style={{ color: theme.text }}
+                className="p-two rounded-lg border mt-one"
+                placeholderTextColor={colors.textSecondary}
+                style={inputStyle}
               />
             )}
           />
         ) : null}
         {errors.dose ? (
-          <ThemedText type="caption" themeColor="danger">
+          <Txt variant="caption" tone="danger">
             {errors.dose.message}
-          </ThemedText>
+          </Txt>
         ) : null}
       </View>
 
       <View className="gap-one">
-        <ThemedText type="caption" themeColor="textSecondary">
+        <Txt variant="caption" tone="secondary">
           Injektionsstelle:
-        </ThemedText>
+        </Txt>
         {recentSites.length > 0 ? (
-          <ThemedText type="caption" themeColor="textSecondary">
+          <Txt variant="caption" tone="secondary">
             Zuletzt:{' '}
             {recentSites
               .map((site) => INJECTION_SITES.find((item) => item.value === site)?.label)
               .join(' · ')}
-          </ThemedText>
+          </Txt>
         ) : null}
         <View className="flex-row flex-wrap gap-two">
           <Pressable
@@ -245,13 +259,13 @@ export function InjectionForm({
             accessibilityRole="radio"
             accessibilityState={{ selected: injectionSite === null }}
             style={{
-              backgroundColor: injectionSite === null ? theme.accent : theme.backgroundElement,
-              borderColor: injectionSite === null ? theme.accent : theme.border,
+              backgroundColor: injectionSite === null ? colors.accent : colors.backgroundElement,
+              borderColor: injectionSite === null ? colors.accent : colors.border,
             }}
             className="py-one px-three rounded-xl border">
-            <ThemedText type="smallBold" themeColor={injectionSite === null ? 'onAccent' : 'text'}>
+            <Txt variant="bodyRelaxed" weight="700" tone={injectionSite === null ? 'onAccent' : 'primary'}>
               Keine Angabe
-            </ThemedText>
+            </Txt>
           </Pressable>
           {INJECTION_SITES.map(({ value, label }) => {
             const isSelected = injectionSite === value;
@@ -264,13 +278,13 @@ export function InjectionForm({
                 accessibilityRole="radio"
                 accessibilityState={{ selected: isSelected }}
                 style={{
-                  backgroundColor: isSelected ? theme.accent : theme.backgroundElement,
-                  borderColor: isSelected ? theme.accent : theme.border,
+                  backgroundColor: isSelected ? colors.accent : colors.backgroundElement,
+                  borderColor: isSelected ? colors.accent : colors.border,
                 }}
                 className="py-one px-three rounded-xl border">
-                <ThemedText type="smallBold" themeColor={isSelected ? 'onAccent' : 'text'}>
+                <Txt variant="bodyRelaxed" weight="700" tone={isSelected ? 'onAccent' : 'primary'}>
                   {label}
-                </ThemedText>
+                </Txt>
               </Pressable>
             );
           })}
@@ -278,9 +292,9 @@ export function InjectionForm({
       </View>
 
       <View className="gap-one">
-        <ThemedText type="caption" themeColor="textSecondary">
+        <Txt variant="caption" tone="secondary">
           Zeitpunkt:
-        </ThemedText>
+        </Txt>
         <Controller
           control={control}
           name="administeredAt"
@@ -291,23 +305,23 @@ export function InjectionForm({
               accessibilityLabel="Zeitpunkt der Injektion"
               placeholder="JJJJ-MM-TT HH:MM"
               autoCapitalize="none"
-              className="p-two bg-card rounded-lg border border-border text-sm"
-              placeholderTextColor={theme.textSecondary}
-              style={{ color: theme.text }}
+              className="p-two rounded-lg border"
+              placeholderTextColor={colors.textSecondary}
+              style={inputStyle}
             />
           )}
         />
         {errors.administeredAt ? (
-          <ThemedText type="caption" themeColor="danger">
+          <Txt variant="caption" tone="danger">
             {errors.administeredAt.message}
-          </ThemedText>
+          </Txt>
         ) : null}
       </View>
 
       <View className="gap-one">
-        <ThemedText type="caption" themeColor="textSecondary">
+        <Txt variant="caption" tone="secondary">
           Notiz:
-        </ThemedText>
+        </Txt>
         <Controller
           control={control}
           name="notes"
@@ -318,41 +332,36 @@ export function InjectionForm({
               accessibilityLabel="Notiz zur Injektion"
               placeholder="Optional"
               multiline
-              className="p-two bg-card rounded-lg border border-border text-sm min-h-16"
-              placeholderTextColor={theme.textSecondary}
-              style={{ color: theme.text, textAlignVertical: 'top' }}
+              className="p-two rounded-lg border min-h-16"
+              placeholderTextColor={colors.textSecondary}
+              style={multilineInputStyle}
             />
           )}
         />
         {errors.notes ? (
-          <ThemedText type="caption" themeColor="danger">
+          <Txt variant="caption" tone="danger">
             {errors.notes.message}
-          </ThemedText>
+          </Txt>
         ) : null}
       </View>
 
-      <View className="p-two rounded-lg bg-card border border-border flex-row items-center justify-between">
-        <ThemedText type="small" themeColor="textSecondary">
+      <View
+        className="p-two rounded-lg border flex-row items-center justify-between"
+        style={surfaceStyle}>
+        <Txt variant="bodyRelaxed" tone="secondary">
           Ausgewählt:
-        </ThemedText>
-        <ThemedText type="smallBold">
+        </Txt>
+        <Txt variant="bodyRelaxed" weight="700">
           {medicationName || '–'} ({dose || '–'} {unit})
-        </ThemedText>
+        </Txt>
       </View>
 
-      <Pressable
-        onPress={handleSubmit((value) => onSubmit(value))}
-        disabled={isPending}
-        style={{ backgroundColor: theme.accent }}
-        className="py-three rounded-xl items-center justify-center mt-one">
-        <ThemedText type="labelBold" themeColor="onAccent">
-          {isPending
-            ? 'Speichern...'
-            : mode === 'edit'
-              ? 'Änderungen speichern'
-              : 'Injektion speichern'}
-        </ThemedText>
-      </Pressable>
+      <Button
+        label={mode === 'edit' ? 'Änderungen speichern' : 'Injektion speichern'}
+        onPress={() => void handleSubmit((value) => onSubmit(value))()}
+        loading={isPending}
+        style={{ marginTop: 4 }}
+      />
     </View>
   );
 }

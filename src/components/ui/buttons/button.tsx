@@ -14,15 +14,17 @@ import Animated, {
 } from 'react-native-reanimated';
 
 import { useTheme } from '@/components/theme/ThemeProvider';
-import { BUTTON_DEPTH } from '@/components/theme/index';
+import { BUTTON_DEPTH, type AccentKey, radius, space } from '@/components/theme/index';
 import { Txt } from '@/constants/ui';
+import { medium as hapticMedium } from '@/lib/haptics';
 
 type ButtonProps = {
   label: string;
   onPress: () => void;
-  variant?: 'primary' | 'secondary' | 'danger' | 'link';
+  variant?: 'primary' | 'secondary' | 'danger' | 'link' | 'ghost' | 'accent';
 
   size?: 'default' | 'large' | 'compact';
+  accentKey?: AccentKey;
   accessibilityLabel?: string;
   backgroundColor?: ColorValue;
   style?: StyleProp<ViewStyle>;
@@ -32,19 +34,13 @@ type ButtonProps = {
   className?: string;
 };
 
-const VARIANT_CLASSES: Record<NonNullable<ButtonProps['variant']>, string> = {
-  primary: 'btn-primary',
-  secondary: 'btn-secondary',
-  danger: 'btn-danger',
-  link: 'btn-link',
-};
-
 /** Beschrifteter Standardbutton fuer Formulare und bestaetigende Aktionen. */
 export function Button({
   label,
   onPress,
   variant = 'primary',
   size = 'default',
+  accentKey,
   accessibilityLabel,
   backgroundColor,
   style,
@@ -52,43 +48,63 @@ export function Button({
   disabled = false,
   className = '',
 }: ButtonProps) {
-  const { colors } = useTheme();
+  const { colors, accent } = useTheme();
   const isBlocked = loading || disabled;
-  const variantClass = VARIANT_CLASSES[variant] ?? 'btn-primary';
-  const isFilled = variant === 'primary' || variant === 'danger';
+  const isFilled = variant === 'primary' || variant === 'danger' || variant === 'accent';
   const depth = useSharedValue(0);
   const faceStyle = useAnimatedStyle(() => ({
     transform: [{ translateY: depth.value }],
   }));
 
+  const accentTone = accentKey ? accent[accentKey] : undefined;
   const foreground =
-    variant === 'secondary' ? colors.text : variant === 'link' ? colors.basil : colors.inverse;
+    variant === 'secondary' || variant === 'ghost'
+      ? colors.text
+      : variant === 'link'
+        ? colors.accent
+        : variant === 'accent'
+          ? (accentTone?.on ?? colors.onAccent)
+          : colors.onAccent;
   const labelTone =
-    variant === 'secondary' ? 'primary' : variant === 'link' ? 'accent' : 'onAccent';
+    variant === 'secondary' || variant === 'ghost'
+      ? 'primary'
+      : variant === 'link'
+        ? 'accent'
+        : 'onAccent';
   const buttonBackground =
     backgroundColor ??
     (variant === 'primary'
-      ? colors.basil
+      ? colors.accent
       : variant === 'danger'
-        ? colors.tomato
+        ? colors.danger
         : variant === 'secondary'
-          ? colors.surface
-          : 'transparent');
+          ? colors.backgroundElement
+          : variant === 'ghost'
+            ? colors.backgroundSelected
+            : variant === 'accent'
+              ? (accentTone?.main ?? colors.accent)
+              : 'transparent');
 
   return (
     <View
       style={{
         paddingBottom: isFilled ? BUTTON_DEPTH : 0,
-        borderRadius: 16,
+        borderRadius: radius.md,
         backgroundColor: isFilled
           ? variant === 'danger'
-            ? colors.tomatoShadow
-            : colors.basilShadow
+            ? colors.shadowSheet
+            : variant === 'accent'
+              ? (accentTone?.shadow ?? colors.shadowCard)
+              : colors.shadowCard
           : 'transparent',
       }}>
       <Animated.View style={faceStyle}>
         <Pressable
-          onPress={onPress}
+          onPress={() => {
+            if (isBlocked) return;
+            hapticMedium();
+            onPress();
+          }}
           disabled={isBlocked}
           accessibilityRole="button"
           accessibilityLabel={accessibilityLabel ?? label}
@@ -99,10 +115,32 @@ export function Button({
           onPressOut={() => {
             depth.value = withSpring(0, { damping: 14, stiffness: 320, mass: 0.5 });
           }}
-          className={`${variantClass} ${size === 'compact' ? '!py-two !px-three' : ''} ${isBlocked ? 'opacity-50' : ''} ${className}`.trim()}
+          className={className}
           style={[
             {
               backgroundColor: buttonBackground,
+              borderRadius: variant === 'link' ? radius.sm : radius.md,
+              alignItems: 'center',
+              justifyContent: 'center',
+              alignSelf: variant === 'link' ? 'flex-end' : undefined,
+              minHeight: variant === 'link' ? undefined : 44,
+              paddingHorizontal:
+                variant === 'link'
+                  ? space.md
+                  : size === 'compact'
+                    ? space.md
+                    : size === 'large'
+                      ? space.xl
+                      : space.lg,
+              paddingVertical:
+                variant === 'link'
+                  ? space.sm
+                  : size === 'compact'
+                    ? space.sm
+                    : size === 'large'
+                      ? space.lg
+                      : space.md,
+              opacity: isBlocked ? 0.5 : 1,
               ...(variant === 'secondary' ? { borderColor: colors.border, borderWidth: 1 } : {}),
             },
             style,
@@ -110,10 +148,18 @@ export function Button({
           <View className="flex-row items-center gap-two">
             {loading ? <ActivityIndicator size="small" color={foreground} /> : null}
             <Txt
-              variant="body"
+              variant={
+                variant === 'link'
+                  ? 'link'
+                  : size === 'large'
+                    ? 'controlActionLarge'
+                    : size === 'compact'
+                      ? 'bodySmall'
+                      : 'controlAction'
+              }
               tone={labelTone}
-              weight={variant === 'link' ? '400' : '700'}
-              className={size === 'large' ? 'text-body' : ''}>
+              color={foreground}
+              weight={variant === 'link' ? '400' : '700'}>
               {label}
             </Txt>
           </View>

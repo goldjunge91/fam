@@ -84,17 +84,13 @@ export function Screen({
             <View className="flex-1 items-center gap-[2px]">
               {subtitle ? (
                 <Txt
-                  variant="body"
+                  variant="detail"
                   tone="secondary"
-                  center
-                  style={{ fontSize: 12, lineHeight: 16, fontWeight: '400' }}>
+                  center>
                   {subtitle}
                 </Txt>
               ) : null}
-              <Txt
-                variant="title"
-                center
-                style={{ fontSize: 23, lineHeight: 28, fontWeight: '500', letterSpacing: -0.5 }}>
+              <Txt variant="chromeTitle" center>
                 {title}
               </Txt>
             </View>

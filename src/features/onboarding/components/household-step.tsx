@@ -1,8 +1,9 @@
 import { useState } from 'react';
-import { Pressable, Text, View } from 'react-native';
+import { Pressable, View } from 'react-native';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-controller';
 import { TextField } from '@/components/forms/text-field';
 import { Button } from '@/components/ui/buttons';
+import { Txt } from '@/constants/ui';
 import {
   useCreateHouseholdMutation,
   useHouseholds,
@@ -79,16 +80,22 @@ export function HouseholdStepForm({ onNext, onSkip }: HouseholdStepFormProps) {
       keyboardShouldPersistTaps="handled"
       showsVerticalScrollIndicator={false}
       contentContainerClassName="gap-three pb-six">
-      <Text className="perm-heading">Dein Haushalt</Text>
-      <Text className="perm-subheading">
+      <Txt variant="controlActionLarge" weight="700">
+        Dein Haushalt
+      </Txt>
+      <Txt variant="bodySmall" tone="secondary">
         Entscheide, wie du die App für Vorrat & Einkäufe nutzen möchtest.
-      </Text>
+      </Txt>
 
       {/* Aktiver Haushalt Banner */}
       {activeHousehold ? (
         <View className="household-active-card">
-          <Text className="household-active-badge">✓ Aktiver Haushalt erkannt</Text>
-          <Text className="household-active-title">{activeHousehold.name}</Text>
+          <Txt variant="label" tone="success" weight="700" className="uppercase tracking-[0.5px]">
+            ✓ Aktiver Haushalt erkannt
+          </Txt>
+          <Txt variant="body" weight="700">
+            {activeHousehold.name}
+          </Txt>
         </View>
       ) : null}
 
@@ -96,45 +103,48 @@ export function HouseholdStepForm({ onNext, onSkip }: HouseholdStepFormProps) {
         <Pressable
           onPress={() => setChoice('create')}
           className={`household-choice-card ${choice === 'create' ? 'household-choice-card-selected' : 'household-choice-card-idle'}`}>
-          <Text
-            className={`household-choice-title ${choice === 'create' ? 'text-on-accent' : 'text-text'}`}>
+          <Txt
+            variant="controlValue"
+            tone={choice === 'create' ? 'onAccent' : 'primary'}
+            weight="700">
             🏠 Neuen Haushalt erstellen
-          </Text>
-          <Text
-            className={`household-choice-desc ${choice === 'create' ? 'text-on-accent' : 'text-text-secondary'}`}>
+          </Txt>
+          <Txt variant="label" tone={choice === 'create' ? 'onAccent' : 'secondary'}>
             Erstelle eine eigene Gruppe für deine Familie oder WG und lade Mitglieder ein.
-          </Text>
+          </Txt>
         </Pressable>
 
         <Pressable
           onPress={() => setChoice('join')}
           className={`household-choice-card ${choice === 'join' ? 'household-choice-card-selected' : 'household-choice-card-idle'}`}>
-          <Text
-            className={`household-choice-title ${choice === 'join' ? 'text-on-accent' : 'text-text'}`}>
+          <Txt
+            variant="controlValue"
+            tone={choice === 'join' ? 'onAccent' : 'primary'}
+            weight="700">
             🔗 Einem Haushalt beitreten
-          </Text>
-          <Text
-            className={`household-choice-desc ${choice === 'join' ? 'text-on-accent' : 'text-text-secondary'}`}>
+          </Txt>
+          <Txt variant="label" tone={choice === 'join' ? 'onAccent' : 'secondary'}>
             Gib den Einladungscode ein, den du erhalten hast.
-          </Text>
+          </Txt>
         </Pressable>
 
         <Pressable
           onPress={() => setChoice('solo')}
           className={`household-choice-card ${choice === 'solo' ? 'household-choice-card-selected' : 'household-choice-card-idle'}`}>
-          <Text
-            className={`household-choice-title ${choice === 'solo' ? 'text-on-accent' : 'text-text'}`}>
+          <Txt
+            variant="controlValue"
+            tone={choice === 'solo' ? 'onAccent' : 'primary'}
+            weight="700">
             👤{' '}
             {activeHousehold
               ? `Mit "${activeHousehold.name}" fortfahren`
               : 'Vorerst alleine nutzen'}
-          </Text>
-          <Text
-            className={`household-choice-desc ${choice === 'solo' ? 'text-on-accent' : 'text-text-secondary'}`}>
+          </Txt>
+          <Txt variant="label" tone={choice === 'solo' ? 'onAccent' : 'secondary'}>
             {activeHousehold
               ? 'Behalte deinen bestehenden Haushalt und fahre fort.'
               : 'Starte mit einem privaten Bereich. Du kannst jederzeit andere einladen.'}
-          </Text>
+          </Txt>
         </Pressable>
       </View>
 
@@ -162,7 +172,11 @@ export function HouseholdStepForm({ onNext, onSkip }: HouseholdStepFormProps) {
         />
       )}
 
-      {errorMsg ? <Text className="household-error-text">{errorMsg}</Text> : null}
+      {errorMsg ? (
+        <Txt variant="label" tone="danger" className="mt-one">
+          {errorMsg}
+        </Txt>
+      ) : null}
 
       <View className="perm-button-row">
         <View className="flex-1">

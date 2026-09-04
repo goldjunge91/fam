@@ -2,12 +2,9 @@ import * as Haptics from 'expo-haptics';
 import { type ReactElement, useCallback } from 'react';
 import { Pressable, useWindowDimensions, View } from 'react-native';
 import {
-  GridOrientation,
-  type GridPositions,
-  GridStrategy,
-  SortableGrid,
-  SortableGridItem,
-  type SortableGridRenderItemProps,
+  Sortable,
+  SortableItem,
+  type SortableRenderItemProps,
 } from 'react-native-reanimated-dnd';
 
 import { useTheme } from '@/components/theme/ThemeProvider';
@@ -87,15 +84,15 @@ export function CardList({
   const visibleCards = getOrderedCards(rawVisibleCards);
   const visibleCardIds = visibleCards.map((c) => c.id);
 
-  const handleGridDrop = useCallback(
-    (_id: string, _position: number, allPositions?: GridPositions) => {
+  const handleSortableDrop = useCallback(
+    (_id: string, _position: number, allPositions?: Record<string, number>) => {
       if (!allPositions) {
         handleDragEnd();
         return;
       }
 
       const nextVisibleIds = Object.entries(allPositions)
-        .sort(([, left], [, right]) => left.index - right.index)
+        .sort(([, left], [, right]) => left - right)
         .map(([id]) => id);
       if (nextVisibleIds.length !== visibleCardIds.length) {
         handleDragEnd();
@@ -118,35 +115,23 @@ export function CardList({
     [allCards, getOrderedCards, handleDragEnd, reorderCards, visibleCardIds],
   );
 
-  const dashboardContentWidth = Math.max(1, width - 42);
-  const sortableGridColumns = visibleCards.some((card) => getSize(card) === 'large') ? 1 : 2;
-  const sortableGridGap = 8;
-  const sortableGridItemWidth =
-    sortableGridColumns === 1
-      ? dashboardContentWidth
-      : Math.max(1, (dashboardContentWidth - sortableGridGap) / 2);
-  const sortableGridItemHeight =
-    sortableGridColumns === 1 ? (fontScale >= 1.2 ? 190 : 176) : fontScale >= 1.2 ? 150 : 142;
-
   const renderSortableCard = useCallback(
     ({
       item,
       index,
       ...sortableItemProps
-    }: SortableGridRenderItemProps<DashboardCardDef>) => {
+    }: SortableRenderItemProps<DashboardCardDef>) => {
       const cardSize = getSize(item);
 
       return (
-        <SortableGridItem
+        <SortableItem
           key={`${item.id}-${cardSize}`}
           {...sortableItemProps}
           id={item.id}
           data={item}
-          activationDelay={160}
-          containerWidth={dashboardContentWidth}
-          style={{ width: sortableGridItemWidth, height: sortableGridItemHeight }}
+          style={{ width: '100%' }}
           onDragStart={handleDragStart}
-          onDrop={handleGridDrop}>
+          onDrop={handleSortableDrop}>
           <JiggleWrapper
             index={index}
             size={cardSize}
@@ -154,25 +139,12 @@ export function CardList({
             isEditing
             onDelete={() => hideCard(item.id)}
             onToggleSize={() => handleToggleSize(item.id, cardSize)}>
-            <item.component
-              size={cardSize}
-              editHeight={sortableGridItemHeight}
-              onLongPress={() => handleLongPress(item.id, cardSize)}
-            />
+            <item.component size={cardSize} />
           </JiggleWrapper>
-        </SortableGridItem>
+        </SortableItem>
       );
     },
-    [
-      getSize,
-      handleDragStart,
-      handleGridDrop,
-      handleLongPress,
-      handleToggleSize,
-      hideCard,
-      sortableGridItemHeight,
-      sortableGridItemWidth,
-    ],
+    [getSize, handleDragStart, handleSortableDrop, handleToggleSize, hideCard],
   );
 
   if (!modules) return null;
@@ -275,20 +247,12 @@ export function CardList({
 
   if (isEditing) {
     return (
-      <SortableGrid
+      <Sortable
         data={visibleCards}
         renderItem={renderSortableCard}
-        dimensions={{
-          columns: sortableGridColumns,
-          itemWidth: sortableGridItemWidth,
-          itemHeight: sortableGridItemHeight,
-          rowGap: sortableGridGap,
-          columnGap: sortableGridGap,
-        }}
-        orientation={GridOrientation.Vertical}
-        strategy={GridStrategy.Insert}
-        scrollEnabled
-        style={{ flex: 1 }}
+        enableDynamicHeights
+        estimatedItemHeight={fontScale >= 1.2 ? 170 : 150}
+        style={{ flex: 1, backgroundColor: 'transparent' }}
       />
     );
   }

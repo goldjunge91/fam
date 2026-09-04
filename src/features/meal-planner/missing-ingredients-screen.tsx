@@ -127,7 +127,9 @@ export function MissingIngredientsScreen() {
         </View>
       ) : isLoading ? (
         /* Ladeindikator beim Berechnen der Vorratsabgleiche */
-        <ActivityIndicator className="mis-loading" />
+        <View className="mis-loading">
+          <ActivityIndicator color={colors.accent} />
+        </View>
       ) : missing.length === 0 ? (
         /* Statusanzeige wenn alle Zutaten im Vorrat vorhanden sind */
         <Txt variant="body" tone="secondary">
@@ -195,6 +197,8 @@ function IngredientRow({
   storeId: string | null;
   onStoreChange: (storeId: string | null) => void;
 }) {
+  const { colors } = useTheme();
+
   return (
     <View className="mis-row">
       <Pressable

@@ -1,6 +1,7 @@
 import { useState } from 'react';
-import { Pressable, Text, View } from 'react-native';
+import { Pressable, View } from 'react-native';
 import { Button } from '@/components/ui/buttons';
+import { Txt } from '@/constants/ui';
 
 const SLIDES = [
   {
@@ -39,12 +40,18 @@ export function WelcomeCarousel({ onStart }: WelcomeCarouselProps) {
   return (
     <View className="complete-container">
       <View className="complete-icon-circle">
-        <Text className="complete-icon">{current.icon}</Text>
+        <Txt variant="display" center>
+          {current.icon}
+        </Txt>
       </View>
 
-      <Text className="carousel-title">{current.title}</Text>
+      <Txt variant="controlActionLarge" weight="700" center>
+        {current.title}
+      </Txt>
 
-      <Text className="complete-subheading">{current.description}</Text>
+      <Txt variant="bodyRelaxed" tone="secondary" center className="px-two">
+        {current.description}
+      </Txt>
 
       <View className="pagination-row">
         {SLIDES.map((slide, idx) => (

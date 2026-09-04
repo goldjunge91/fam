@@ -15,7 +15,7 @@ function toIsoDate(date: Date): string {
   return `${y}-${m}-${d}`;
 }
 
-function CalorieDashboardCard({ size, onLongPress, editHeight }: DashboardCardProps) {
+function CalorieDashboardCard({ size, onLongPress }: DashboardCardProps) {
   const { colors } = useTheme();
   const { session } = useSession();
   const userId = session?.user.id;
@@ -45,19 +45,19 @@ function CalorieDashboardCard({ size, onLongPress, editHeight }: DashboardCardPr
         style={{
           width: '100%',
           minHeight: 138,
-          height: editHeight,
-          backgroundColor: colors.surface,
+          backgroundColor: colors.backgroundElement,
           borderCurve: 'continuous',
           boxShadow: `0 8px 20px ${withAlpha(colors.text, 0.08)}`,
         }}>
         <View className="flex-row items-center justify-between">
           <Txt
-            variant="body"
+            variant="captionCompact"
             tone="secondary"
-            style={{ fontSize: 12, lineHeight: 14, fontWeight: '700', letterSpacing: 0.5 }}>
+            weight="700"
+            style={{ letterSpacing: 0.5 }}>
             KALORIEN
           </Txt>
-          <Txt variant="body" tone={ziel === 0 ? 'secondary' : 'primary'} style={{ fontSize: 13 }}>
+          <Txt variant="label" tone={ziel === 0 ? 'secondary' : 'primary'}>
             {ziel === 0 ? '—' : `${Math.round((aufgenommen / (ziel || 1)) * 100)}%`}
           </Txt>
         </View>
@@ -76,10 +76,10 @@ function CalorieDashboardCard({ size, onLongPress, editHeight }: DashboardCardPr
 
         <View className="items-center">
           <Txt
-            variant="body"
+            variant="detail"
             tone={ziel === 0 ? 'secondary' : verbleibend < 0 ? 'danger' : 'primary'}
-            numberOfLines={2}
-            style={{ fontSize: 12, lineHeight: 16, fontWeight: '500' }}>
+            weight="500"
+            numberOfLines={2}>
             {ziel === 0
               ? 'Kein Ziel'
               : verbleibend >= 0
@@ -97,7 +97,6 @@ function CalorieDashboardCard({ size, onLongPress, editHeight }: DashboardCardPr
       className="dashboard-calorie-card"
       style={{
         marginBottom: 0,
-        height: editHeight,
         borderCurve: 'continuous',
         boxShadow: `0 8px 22px ${withAlpha(colors.text, 0.1)}`,
       }}>
@@ -113,19 +112,15 @@ function CalorieDashboardCard({ size, onLongPress, editHeight }: DashboardCardPr
         />
       </View>
       <View className="dashboard-calorie-copy">
-        <Txt variant="body" tone="secondary" className="dashboard-calorie-label">
+        <Txt variant="label" tone="secondary">
           Kalorien heute
         </Txt>
-        <Txt
-          variant="display"
-          className="dashboard-calorie-value"
-          style={{ lineHeight: 44 }}>
+        <Txt variant="metricValue">
           {Math.round(aufgenommen).toLocaleString('de-DE')}
         </Txt>
         <Txt
           variant="body"
-          tone={ziel === 0 ? 'secondary' : verbleibend < 0 ? 'danger' : 'primary'}
-          className="dashboard-calorie-remaining">
+          tone={ziel === 0 ? 'secondary' : verbleibend < 0 ? 'danger' : 'primary'}>
           {ziel === 0
             ? 'Noch kein Ziel gesetzt'
             : verbleibend >= 0

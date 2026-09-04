@@ -265,7 +265,10 @@ export const ProductSearchDropdown = forwardRef<
                 }}
                 className="psd-row">
                 {item.imageUrl ? (
-                  <Image source={{ uri: item.imageUrl }} className="psd-thumb" />
+                  <Image
+                    source={{ uri: item.imageUrl }}
+                    style={{ width: 32, height: 32, borderRadius: 12 }}
+                  />
                 ) : (
                   <View className="psd-thumb-fallback">
                     <Txt variant="body">🥫</Txt>

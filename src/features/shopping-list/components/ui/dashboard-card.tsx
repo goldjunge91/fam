@@ -21,7 +21,7 @@ const WIDGET_GLASS_STYLE = {
  * Large = Badge + Label + Fortschrittsbalken + Action.
  * Small = Badge + Label + Action (wie bisher).
  */
-function ShoppingDashboardCard({ size, onLongPress, editHeight }: DashboardCardProps) {
+function ShoppingDashboardCard({ size, onLongPress }: DashboardCardProps) {
   const { colors: theme } = useTheme();
   const { activeHouseholdId } = useActiveHousehold();
   const householdId = activeHouseholdId ?? undefined;
@@ -45,7 +45,6 @@ function ShoppingDashboardCard({ size, onLongPress, editHeight }: DashboardCardP
         glassStyle={{ ...WIDGET_GLASS_STYLE, flexDirection: 'column' as const }}
         outerStyle={{
           minHeight: 140,
-          height: editHeight,
           borderRadius: 28,
           borderCurve: 'continuous',
           boxShadow: `0 8px 22px ${withAlpha(theme.text, 0.1)}`,
@@ -74,7 +73,7 @@ function ShoppingDashboardCard({ size, onLongPress, editHeight }: DashboardCardP
             </Txt>
           )}
         </View>
-        <Txt variant="body" weight="700" className="dashboard-widget-action">
+        <Txt variant="controlValueLarge" weight="700">
           {openCount > 0 ? 'Noch offen' : 'Erledigt'}
         </Txt>
       </GlassCard>
@@ -92,7 +91,6 @@ function ShoppingDashboardCard({ size, onLongPress, editHeight }: DashboardCardP
       outerStyle={{
         width: '100%',
         minHeight: 138,
-        height: editHeight,
         borderRadius: 28,
         borderCurve: 'continuous',
         boxShadow: `0 8px 20px ${withAlpha(theme.text, 0.08)}`,
@@ -104,17 +102,13 @@ function ShoppingDashboardCard({ size, onLongPress, editHeight }: DashboardCardP
       </View>
       <View className="flex-1" />
       <Txt
-        variant="body"
-        tone="secondary"
-        className="dashboard-widget-label"
-        style={{ fontSize: 15, lineHeight: 22 }}>
+        variant="bodyLarge"
+        tone="secondary">
         Einkauf
       </Txt>
       <Txt
-        variant="body"
-        weight="700"
-        className="dashboard-widget-action"
-        style={{ fontSize: 18, lineHeight: 24 }}>
+        variant="controlValueLarge"
+        weight="700">
         {openCount > 0 ? 'Noch offen' : 'Erledigt'}
       </Txt>
     </GlassCard>

@@ -2,7 +2,10 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { Controller, useForm } from 'react-hook-form';
 import { Pressable, TextInput, View } from 'react-native';
 import { z } from 'zod';
-import { ThemedText } from '@/components/theme/themed-text';
+import { useTheme } from '@/components/theme/ThemeProvider';
+import { font } from '@/components/theme';
+import { Button } from '@/components/ui/buttons';
+import { Txt } from '@/constants/ui';
 import { formatDateTimeInput } from '@/features/glp1/domain/date-time-input';
 import {
   dateTimeInputSchema,
@@ -10,7 +13,6 @@ import {
   positiveDoseInputSchema,
 } from '@/features/glp1/domain/form-schema-primitives';
 import { MEDICATION_UNITS } from '@/features/glp1/domain/medication-options';
-import { useTheme } from '@/hooks/use-theme';
 
 const injectionPlanFormSchema = z.object({
   medicationName: medicationNameInputSchema,
@@ -45,7 +47,7 @@ export function InjectionPlanForm({
   mode,
   onSubmit,
 }: InjectionPlanFormProps) {
-  const theme = useTheme();
+  const { colors } = useTheme();
   const {
     control,
     formState: { errors },
@@ -64,17 +66,28 @@ export function InjectionPlanForm({
     },
   });
   const unit = watch('unit');
+  const surfaceStyle = {
+    backgroundColor: colors.backgroundElement,
+    borderColor: colors.border,
+  };
+  const inputStyle = {
+    color: colors.text,
+    backgroundColor: colors.backgroundElement,
+    borderColor: colors.border,
+    fontSize: font.sizes.bodyLarge,
+    lineHeight: font.lineHeights.bodyLarge,
+  };
 
   return (
-    <View className="p-three bg-surface rounded-xl gap-three border border-border">
-      <ThemedText type="labelBold">
+    <View className="p-three rounded-xl gap-three border" style={surfaceStyle}>
+      <Txt variant="label" weight="700">
         {mode === 'edit' ? 'Injektionsplan bearbeiten' : 'Injektionsplan anlegen'}
-      </ThemedText>
+      </Txt>
 
       <View className="gap-one">
-        <ThemedText type="caption" themeColor="textSecondary">
+        <Txt variant="caption" tone="secondary">
           Medikament:
-        </ThemedText>
+        </Txt>
         <Controller
           control={control}
           name="medicationName"
@@ -83,23 +96,23 @@ export function InjectionPlanForm({
               value={value}
               onChangeText={onChange}
               accessibilityLabel="Medikament im Injektionsplan"
-              className="p-two bg-card rounded-lg border border-border text-sm"
-              placeholderTextColor={theme.textSecondary}
-              style={{ color: theme.text }}
+              className="p-two rounded-lg border"
+              placeholderTextColor={colors.textSecondary}
+              style={inputStyle}
             />
           )}
         />
         {errors.medicationName ? (
-          <ThemedText type="caption" themeColor="danger">
+          <Txt variant="caption" tone="danger">
             {errors.medicationName.message}
-          </ThemedText>
+          </Txt>
         ) : null}
       </View>
 
       <View className="gap-one">
-        <ThemedText type="caption" themeColor="textSecondary">
+        <Txt variant="caption" tone="secondary">
           Einheit:
-        </ThemedText>
+        </Txt>
         <View className="flex-row flex-wrap gap-two">
           {MEDICATION_UNITS.map((value) => {
             const isSelected = unit === value;
@@ -110,13 +123,13 @@ export function InjectionPlanForm({
                 accessibilityRole="radio"
                 accessibilityState={{ selected: isSelected }}
                 style={{
-                  backgroundColor: isSelected ? theme.accent : theme.backgroundElement,
-                  borderColor: isSelected ? theme.accent : theme.border,
+                  backgroundColor: isSelected ? colors.accent : colors.backgroundElement,
+                  borderColor: isSelected ? colors.accent : colors.border,
                 }}
                 className="py-one px-three rounded-xl border">
-                <ThemedText type="smallBold" themeColor={isSelected ? 'onAccent' : 'text'}>
+                <Txt variant="bodyRelaxed" weight="700" tone={isSelected ? 'onAccent' : 'primary'}>
                   {value}
-                </ThemedText>
+                </Txt>
               </Pressable>
             );
           })}
@@ -125,9 +138,9 @@ export function InjectionPlanForm({
 
       <View className="flex-row gap-two">
         <View className="flex-1 gap-one">
-          <ThemedText type="caption" themeColor="textSecondary">
+          <Txt variant="caption" tone="secondary">
             Dosis ({unit}):
-          </ThemedText>
+          </Txt>
           <Controller
             control={control}
             name="dose"
@@ -137,22 +150,22 @@ export function InjectionPlanForm({
                 onChangeText={onChange}
                 accessibilityLabel="Dosis im Injektionsplan"
                 keyboardType="decimal-pad"
-                className="p-two bg-card rounded-lg border border-border text-sm"
-                placeholderTextColor={theme.textSecondary}
-                style={{ color: theme.text }}
+                className="p-two rounded-lg border"
+                placeholderTextColor={colors.textSecondary}
+                style={inputStyle}
               />
             )}
           />
           {errors.dose ? (
-            <ThemedText type="caption" themeColor="danger">
+            <Txt variant="caption" tone="danger">
               {errors.dose.message}
-            </ThemedText>
+            </Txt>
           ) : null}
         </View>
         <View className="flex-1 gap-one">
-          <ThemedText type="caption" themeColor="textSecondary">
+          <Txt variant="caption" tone="secondary">
             Alle wie viele Tage:
-          </ThemedText>
+          </Txt>
           <Controller
             control={control}
             name="cadenceDays"
@@ -162,24 +175,24 @@ export function InjectionPlanForm({
                 onChangeText={onChange}
                 accessibilityLabel="Kadenz in Tagen"
                 keyboardType="number-pad"
-                className="p-two bg-card rounded-lg border border-border text-sm"
-                placeholderTextColor={theme.textSecondary}
-                style={{ color: theme.text }}
+                className="p-two rounded-lg border"
+                placeholderTextColor={colors.textSecondary}
+                style={inputStyle}
               />
             )}
           />
           {errors.cadenceDays ? (
-            <ThemedText type="caption" themeColor="danger">
+            <Txt variant="caption" tone="danger">
               {errors.cadenceDays.message}
-            </ThemedText>
+            </Txt>
           ) : null}
         </View>
       </View>
 
       <View className="gap-one">
-        <ThemedText type="caption" themeColor="textSecondary">
+        <Txt variant="caption" tone="secondary">
           Erster Fälligkeitszeitpunkt:
-        </ThemedText>
+        </Txt>
         <Controller
           control={control}
           name="anchorAt"
@@ -190,28 +203,24 @@ export function InjectionPlanForm({
               accessibilityLabel="Ankerzeitpunkt des Injektionsplans"
               placeholder="JJJJ-MM-TT HH:MM"
               autoCapitalize="none"
-              className="p-two bg-card rounded-lg border border-border text-sm"
-              placeholderTextColor={theme.textSecondary}
-              style={{ color: theme.text }}
+              className="p-two rounded-lg border"
+              placeholderTextColor={colors.textSecondary}
+              style={inputStyle}
             />
           )}
         />
         {errors.anchorAt ? (
-          <ThemedText type="caption" themeColor="danger">
+          <Txt variant="caption" tone="danger">
             {errors.anchorAt.message}
-          </ThemedText>
+          </Txt>
         ) : null}
       </View>
 
-      <Pressable
-        onPress={handleSubmit((value) => onSubmit(value))}
-        disabled={isPending}
-        style={{ backgroundColor: theme.accent }}
-        className="py-three rounded-xl items-center justify-center">
-        <ThemedText type="labelBold" themeColor="onAccent">
-          {isPending ? 'Speichern...' : mode === 'edit' ? 'Änderungen speichern' : 'Plan speichern'}
-        </ThemedText>
-      </Pressable>
+      <Button
+        label={mode === 'edit' ? 'Änderungen speichern' : 'Plan speichern'}
+        onPress={() => void handleSubmit((value) => onSubmit(value))()}
+        loading={isPending}
+      />
     </View>
   );
 }

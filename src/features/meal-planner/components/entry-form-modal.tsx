@@ -122,11 +122,12 @@ export function EntryFormModal({
                 onPress={() => setMode('portions')}
                 className="efm-mode-button"
                 style={{
-                  backgroundColor: mode === 'portions' ? colors.basil : colors.surface,
+                  backgroundColor:
+                    mode === 'portions' ? colors.accent : colors.backgroundElement,
                 }}>
                 <Txt
                   variant="body"
-                  color={mode === 'portions' ? colors.inverse : colors.text}
+                  tone={mode === 'portions' ? 'onAccent' : 'primary'}
                   weight="700">
                   Portionen
                 </Txt>
@@ -138,11 +139,11 @@ export function EntryFormModal({
                 onPress={() => setMode('people')}
                 className="efm-mode-button"
                 style={{
-                  backgroundColor: mode === 'people' ? colors.basil : colors.surface,
+                  backgroundColor: mode === 'people' ? colors.accent : colors.backgroundElement,
                 }}>
                 <Txt
                   variant="body"
-                  color={mode === 'people' ? colors.inverse : colors.text}
+                  tone={mode === 'people' ? 'onAccent' : 'primary'}
                   weight="700">
                   Personen
                 </Txt>
@@ -171,7 +172,7 @@ export function EntryFormModal({
                   accessibilityLabel="Ganzer Haushalt isst"
                   onPress={handleWholeHousehold}
                   className="efm-whole-household-button">
-                  <Txt variant="body" tone="primary" style={{ fontSize: 14, lineHeight: 30 }}>
+                  <Txt variant="link" tone="primary" weight="400">
                     Ganzer Haushalt isst ({householdMemberCount}{' '}
                     {householdMemberCount === 1 ? 'Person' : 'Personen'})
                   </Txt>

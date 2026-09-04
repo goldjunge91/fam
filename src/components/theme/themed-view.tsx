@@ -1,6 +1,7 @@
 import { View, type ViewProps } from 'react-native';
 
-import type { ThemeColor } from '@/constants/theme';
+// TODO: DELETE — maintainer removes this compatibility wrapper after the migration is reviewed.
+import type { ThemeColor } from '@/components/theme/index';
 
 export type ThemedViewProps = ViewProps & {
   lightColor?: string;

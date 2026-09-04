@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Pressable, TextInput, View } from 'react-native';
 
 import { useTheme } from '@/components/theme/ThemeProvider';
+import { font } from '@/components/theme/index';
 import { Txt } from '@/constants/ui';
 
 type QuantityStepperProps = {
@@ -55,10 +56,7 @@ export function QuantityStepper({
         accessibilityLabel={`${label} verringern`}
         className="stepper-btn"
         style={{ opacity: value <= min ? 0.45 : 1 }}>
-        <Txt
-          variant="body"
-          tone="secondary"
-          style={{ fontSize: size === 'large' ? 24 : 20, lineHeight: size === 'large' ? 28 : 24 }}>
+        <Txt variant={size === 'large' ? 'stepperActionLarge' : 'stepperAction'}>
           −
         </Txt>
       </Pressable>
@@ -76,7 +74,7 @@ export function QuantityStepper({
           className="flex-1 self-stretch px-two py-0 text-center [font-variant:tabular-nums]"
           style={{
             color: colors.text,
-            fontSize: size === 'large' ? 18 : 16,
+            fontSize: size === 'large' ? font.sizes.bodyLarge : font.sizes.base,
             fontWeight: '600',
           }}
         />
@@ -87,10 +85,9 @@ export function QuantityStepper({
           accessibilityLabel={`${label} direkt eingeben`}
           className="flex-1 items-center justify-center">
           <Txt
-            variant="body"
+            variant={size === 'large' ? 'bodyLarge' : 'body'}
             weight="600"
-            className="text-center [font-variant:tabular-nums]"
-            style={{ fontSize: size === 'large' ? 18 : 16 }}>
+            className="text-center [font-variant:tabular-nums]">
             {value}
           </Txt>
         </Pressable>
@@ -103,10 +100,7 @@ export function QuantityStepper({
         accessibilityLabel={`${label} erhöhen`}
         className="stepper-btn"
         style={{ opacity: value >= max ? 0.45 : 1 }}>
-        <Txt
-          variant="body"
-          tone="secondary"
-          style={{ fontSize: size === 'large' ? 24 : 20, lineHeight: size === 'large' ? 28 : 24 }}>
+        <Txt variant={size === 'large' ? 'stepperActionLarge' : 'stepperAction'}>
           +
         </Txt>
       </Pressable>

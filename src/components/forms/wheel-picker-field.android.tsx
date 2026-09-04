@@ -25,12 +25,11 @@ export function WheelPickerField({
   value,
   options,
   onChange,
-  size = 'default',
 }: WheelPickerFieldProps) {
   return (
     <View className="gap-one">
       {label && (
-        <Txt variant="body" tone="secondary" className={size === 'large' ? 'text-body' : ''}>
+        <Txt variant="label" tone="secondary">
           {label}
         </Txt>
       )}

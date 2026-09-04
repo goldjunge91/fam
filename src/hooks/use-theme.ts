@@ -1,11 +1,6 @@
-/**
- * Learn more about light and dark modes:
- * https://docs.expo.dev/guides/color-schemes/
- */
+import { useTheme as useFamTheme } from '@/components/theme/ThemeProvider';
 
-import { Colors, normalizeThemeMode } from '@/constants/theme';
-import { useColorScheme } from '@/hooks/use-color-scheme';
-
+/** Legacy adapter. New components should use the Fam theme context directly. */
 export function useTheme() {
-  return Colors[normalizeThemeMode(useColorScheme())];
+  return useFamTheme().colors;
 }

@@ -1,4 +1,5 @@
 import { Pressable, ScrollView, type StyleProp, type TextStyle, View } from 'react-native';
+import { withAlpha } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { Txt } from '@/constants/ui';
 
@@ -11,8 +12,6 @@ import { Txt } from '@/constants/ui';
  * github.com/nativewind/react-native-css/issues/264). Wert entspricht
  * `boxShadow.surface` in tailwind.config.js.
  */
-const ACTIVE_SURFACE_SHADOW = { boxShadow: '0 3px 10px rgba(89, 64, 89, 0.09)' } as const;
-
 export type SegmentOption<T extends string> = {
   value: T;
   label: string;
@@ -44,6 +43,9 @@ export function SegmentedControl<T extends string>({
   labelStyle: _labelStyle,
 }: SegmentedControlProps<T>) {
   const { colors } = useTheme();
+  const activeSurfaceShadow = {
+    boxShadow: `0 3px 10px ${withAlpha(colors.shadowCard, 0.09)}`,
+  };
   const rootClass =
     appearance === 'surface'
       ? 'h-[48px] gap-two rounded-card p-one'
@@ -56,7 +58,7 @@ export function SegmentedControl<T extends string>({
       accessibilityRole="tablist"
       accessibilityLabel={label}
       className={`flex-row ${rootClass} ${scrollable ? 'self-start' : ''}`}
-      style={{ backgroundColor: colors.surfaceSoft }}>
+      style={{ backgroundColor: colors.backgroundSelected }}>
       {options.map((option) => {
         const active = option.value === selected;
         const segmentHeightClass =
@@ -75,12 +77,12 @@ export function SegmentedControl<T extends string>({
             accessibilityState={{ selected: active }}
             onPress={() => onSelect(option.value)}
             style={[
-              isActiveSurface ? ACTIVE_SURFACE_SHADOW : undefined,
+              isActiveSurface ? activeSurfaceShadow : undefined,
               {
                 backgroundColor: active
                   ? appearance === 'surface'
-                    ? colors.surface
-                    : colors.basil
+                    ? colors.backgroundElement
+                    : colors.accent
                   : 'transparent',
               },
             ]}

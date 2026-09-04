@@ -83,8 +83,8 @@ export function ProgressRing({
   }));
 
   const remaining = Math.round(target - value);
-  const activeColor = exceeded ? colors.carrot : (progressColor ?? colors.basil);
-  const backgroundTrackColor = trackColor ?? colors.surfaceSoft;
+  const activeColor = exceeded ? colors.warning : (progressColor ?? colors.accent);
+  const backgroundTrackColor = trackColor ?? colors.backgroundSelected;
 
   const accessibilityLabel =
     label.length > 0
@@ -151,21 +151,18 @@ export function ProgressRing({
             {value}
           </Txt>
         ) : displayMode === 'percent' ? (
-          <Txt variant="body" weight="700" style={{ fontSize: 18, lineHeight: 24 }}>
+          <Txt variant="bodyLarge" weight="700">
             {Math.round(clamped * 100)}%
           </Txt>
         ) : displayMode === 'remaining' ? (
           <>
-            <Txt
-              variant="body"
-              weight="700"
-              style={{ fontSize: 32, lineHeight: 36, fontWeight: '700', letterSpacing: -0.5 }}>
+            <Txt variant="ringValue">
               {target > 0 ? Math.abs(remaining) : Math.round(value)}
             </Txt>
             <Txt
-              variant="body"
+              variant="label"
               tone={exceeded ? 'warning' : 'secondary'}
-              style={{ fontSize: 13, lineHeight: 16, fontWeight: '600' }}>
+              weight="600">
               {target > 0 ? `${unit} ${exceeded ? 'darüber' : 'übrig'}` : unit}
             </Txt>
           </>

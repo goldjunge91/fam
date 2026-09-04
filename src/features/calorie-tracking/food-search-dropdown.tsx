@@ -149,7 +149,9 @@ export function FoodSearchDropdown({
         <View className="fsd-dropdown">
           {isSearchMode ? (
             searching ? (
-              <ActivityIndicator color={colors.basil} className="fss-center-loader" />
+              <View className="fss-center-loader">
+                <ActivityIndicator color={colors.accent} />
+              </View>
             ) : results.length === 0 && searchFailed ? (
               <View className="fss-failed-box">
                 <Txt variant="body" tone="warning" center>
@@ -192,7 +194,9 @@ export function FoodSearchDropdown({
               </>
             )
           ) : historyLoading ? (
-            <ActivityIndicator color={colors.basil} className="fss-center-loader" />
+            <View className="fss-center-loader">
+              <ActivityIndicator color={colors.accent} />
+            </View>
           ) : historyList.length === 0 ? (
             <Txt variant="body" tone="secondary" center className="fss-centered">
               Noch keine Einträge. Suche oben nach einem Lebensmittel.
@@ -224,7 +228,7 @@ function ProductRow({ product, onPress }: { product: CatalogProduct; onPress: ()
   return (
     <Pressable onPress={onPress} className="fss-row">
       {product.imageUrl ? (
-        <Image source={{ uri: product.imageUrl }} className="fss-row-img" />
+        <Image source={{ uri: product.imageUrl }} style={{ width: 36, height: 36, borderRadius: 12 }} />
       ) : (
         <View className="fss-row-img-placeholder">
           <Txt variant="body" style={{ fontSize: 16 }}>

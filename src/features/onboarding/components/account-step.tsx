@@ -1,7 +1,8 @@
 import { router } from 'expo-router';
 import { useEffect, useState } from 'react';
-import { Pressable, Text, View } from 'react-native';
+import { Pressable, View } from 'react-native';
 import { Button } from '@/components/ui/buttons';
+import { Txt } from '@/constants/ui';
 import { AuthProviderOptions } from '@/features/auth/components/auth-provider-options';
 import { EmailVerificationPanel } from '@/features/auth/components/email-verification-panel';
 import { SignInForm } from '@/features/auth/forms/sign-in-form';
@@ -38,18 +39,22 @@ export function AccountStepForm({ onNext }: AccountStepFormProps) {
 
   return (
     <View className="gap-three">
-      <Text className="perm-heading">Dein Account</Text>
-      <Text className="perm-subheading">
+      <Txt variant="controlActionLarge" weight="700">
+        Dein Account
+      </Txt>
+      <Txt variant="bodySmall" tone="secondary">
         Erstelle ein Konto oder melde dich an, um deine Daten zu synchronisieren.
-      </Text>
+      </Txt>
 
       {session ? (
         <View className="account-active-container">
           <View className="account-active-banner">
-            <Text className="account-active-title">✓ Angemeldet als: {session.user.email}</Text>
-            <Text className="perm-desc">
+            <Txt variant="label" tone="accent" weight="700">
+              ✓ Angemeldet als: {session.user.email}
+            </Txt>
+            <Txt variant="label" tone="secondary">
               Dein Account ist aktiv. Du kannst jetzt direkt zum nächsten Schritt wechseln.
-            </Text>
+            </Txt>
           </View>
 
           <Button label="Weiter" onPress={onNext} />
@@ -60,18 +65,22 @@ export function AccountStepForm({ onNext }: AccountStepFormProps) {
             <Pressable
               onPress={() => setAuthMode('sign_up')}
               className={`account-tab-button ${authMode === 'sign_up' ? 'account-tab-button-active' : ''}`}>
-              <Text
-                className={`account-tab-text ${authMode === 'sign_up' ? 'text-on-accent' : 'text-text'}`}>
+              <Txt
+                variant="bodySmall"
+                tone={authMode === 'sign_up' ? 'onAccent' : 'primary'}
+                weight="600">
                 Registrieren
-              </Text>
+              </Txt>
             </Pressable>
             <Pressable
               onPress={() => setAuthMode('sign_in')}
               className={`account-tab-button ${authMode === 'sign_in' ? 'account-tab-button-active' : ''}`}>
-              <Text
-                className={`account-tab-text ${authMode === 'sign_in' ? 'text-on-accent' : 'text-text'}`}>
+              <Txt
+                variant="bodySmall"
+                tone={authMode === 'sign_in' ? 'onAccent' : 'primary'}
+                weight="600">
                 Anmelden
-              </Text>
+              </Txt>
             </Pressable>
           </View>
 

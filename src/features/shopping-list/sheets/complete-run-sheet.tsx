@@ -4,6 +4,7 @@ import { Pressable, ScrollView, TextInput, View } from 'react-native';
 
 import { DateWheelField } from '@/components/forms/date-wheel-field';
 import { useTheme } from '@/components/theme/ThemeProvider';
+import { font } from '@/components/theme/index';
 import { Txt } from '@/constants/ui';
 import { formatAmount, formatPackageHint } from '@/lib/package-size';
 import { type StorageKind, storageKindForCategory } from '../domain-logik/shopping-categories';
@@ -54,6 +55,7 @@ function TransferRow({
   onUpdateExpiry,
   onUpdateQuantity,
 }: TransferRowProps) {
+  const { colors } = useTheme();
   const packageHint = formatPackageHint(item.package_size, item.package_size_unit);
   const [isEditingQty, setIsEditingQty] = useState(false);
   const [qtyDraft, setQtyDraft] = useState(String(transfer.quantity));
@@ -96,7 +98,13 @@ function TransferRow({
               returnKeyType="done"
               onSubmitEditing={commitQtyDraft}
               accessibilityLabel={`Menge für ${item.name} eingeben`}
-              className="min-w-[32px] p-0 text-body-relaxed font-semibold text-white [font-variant:tabular-nums]"
+              className="min-w-[32px] p-0 [font-variant:tabular-nums]"
+              style={{
+                color: colors.onAccent,
+                fontSize: font.sizes.bodyRelaxed,
+                lineHeight: font.lineHeights.bodyRelaxed,
+                fontWeight: '600',
+              }}
             />
             <Txt variant="body" tone="onAccent" weight="600">
               {item.unit}

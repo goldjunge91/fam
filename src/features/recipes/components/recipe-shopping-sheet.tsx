@@ -1,8 +1,9 @@
 import { router } from 'expo-router';
 import { useEffect, useState } from 'react';
-import { ActivityIndicator, Alert, Pressable, View } from 'react-native';
+import { Alert, Pressable, View } from 'react-native';
 
 import { useTheme } from '@/components/theme/ThemeProvider';
+import { Button } from '@/components/ui/buttons';
 import { Txt } from '@/constants/ui';
 import { usePremium } from '@/features/premium/premium-provider';
 import { RowStorePicker } from '@/features/shopping-list/components/ui/row-store-picker';
@@ -124,17 +125,17 @@ export function RecipeShoppingSheet({ visible, detail, servings, onClose }: Prop
       sheetClassName="max-h-[82%]">
       {!hasPlus ? (
         <>
-          <Txt variant="caption" tone="secondary" style={{ lineHeight: 15, fontWeight: '500' }}>
+          <Txt variant="caption" tone="secondary">
             fam vergleicht die Rezeptzutaten mit deinem Vorrat und übernimmt nur Fehlendes in die
             Einkaufsliste.
           </Txt>
           <SheetButton label="Plus ansehen" onPress={openPlusPaywall} />
         </>
       ) : isLoading ? (
-        <ActivityIndicator className="h-[76px]" color={colors.basil} />
+        <ActivityIndicator style={{ height: 76 }} color={colors.accent} />
       ) : missing.length === 0 ? (
         <>
-          <Txt variant="caption" tone="secondary" style={{ lineHeight: 15, fontWeight: '500' }}>
+          <Txt variant="caption" tone="secondary">
             Dein Vorrat deckt alle Zutaten für {servings} {servings === 1 ? 'Portion' : 'Portionen'}{' '}
             ab.
           </Txt>
@@ -142,7 +143,7 @@ export function RecipeShoppingSheet({ visible, detail, servings, onClose }: Prop
         </>
       ) : (
         <>
-          <Txt variant="caption" tone="secondary" style={{ lineHeight: 15, fontWeight: '500' }}>
+          <Txt variant="caption" tone="secondary">
             Bereits vorhandene Mengen wurden abgezogen. Wähle aus, was auf die Einkaufsliste soll.
           </Txt>
           {/* Bulk-Aktion: allen Zutaten auf einen Schlag denselben Markt zuweisen (#342) */}
@@ -161,7 +162,7 @@ export function RecipeShoppingSheet({ visible, detail, servings, onClose }: Prop
           </View>
           <View
             className="mt-[14px] rounded-sheet overflow-hidden"
-            style={{ backgroundColor: colors.surfaceSoft }}>
+            style={{ backgroundColor: colors.backgroundSelected }}>
             {missing.map((item, index) => {
               const checked = selected.has(item.productId);
               return (
@@ -182,32 +183,27 @@ export function RecipeShoppingSheet({ visible, detail, servings, onClose }: Prop
                     <View
                       className="w-[22px] h-[22px] rounded-fam-sm items-center justify-center"
                       style={{
-                        backgroundColor: checked ? colors.basil : 'transparent',
-                        borderColor: colors.basil,
+                        backgroundColor: checked ? colors.accent : 'transparent',
+                        borderColor: colors.accent,
                         borderWidth: 1.5,
                       }}>
                       {checked ? (
                         <Txt
-                          variant="caption"
+                          variant="captionCompact"
                           tone="onAccent"
-                          weight="700"
-                          style={{ fontSize: 12, lineHeight: 14 }}>
+                          weight="700">
                           ✓
                         </Txt>
                       ) : null}
                     </View>
                     <Txt
-                      variant="body"
+                      variant="label"
                       weight="700"
                       className="flex-1"
-                      style={{ fontSize: 13, lineHeight: 18 }}
                       numberOfLines={1}>
                       {item.name}
                     </Txt>
-                    <Txt
-                      variant="caption"
-                      tone="secondary"
-                      style={{ fontSize: 9, lineHeight: 11, fontWeight: '500' }}>
+                    <Txt variant="micro" tone="secondary">
                       {item.missingGrams > 0
                         ? `${item.missingGrams} g`
                         : `${item.neededGrams}g / ${item.availableGrams}g`}
@@ -248,26 +244,14 @@ function SheetButton({
   loading?: boolean;
   disabled?: boolean;
 }) {
-  const { colors } = useTheme();
-
   return (
-    <Pressable
+    <Button
+      label={label}
       onPress={onPress}
-      disabled={disabled || loading}
-      role="button"
-      accessibilityState={{ disabled: disabled || loading, busy: loading }}
-      className="h-12 mt-[14px] rounded-card items-center justify-center px-[14px] active:opacity-75"
-      style={{
-        backgroundColor: colors.basil,
-        opacity: disabled || loading ? 0.45 : 1,
-      }}>
-      {loading ? (
-        <ActivityIndicator color={colors.inverse} />
-      ) : (
-        <Txt variant="caption" tone="onAccent" weight="700">
-          {label}
-        </Txt>
-      )}
-    </Pressable>
+      loading={loading}
+      disabled={disabled}
+      size="large"
+      style={{ alignSelf: 'stretch', marginTop: 14 }}
+    />
   );
 }

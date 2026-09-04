@@ -3,9 +3,10 @@
 @tailwind utilities;
 
 /*
- * fam Farb-Tokens als CSS-Variablen — 1:1 aus src/constants/theme.ts
- * (Colors.light/Colors.dark). Bei Token-Änderungen beide Stellen pflegen,
- * bis theme.ts vollständig durch NativeWind-Klassen abgelöst ist.
+ * fam Farb-Tokens als CSS-Variablen — abgeleitet aus
+ * src/components/theme/index.ts (Colors.light/Colors.dark). Bei
+ * Token-Änderungen beide Stellen pflegen, bis die NativeWind-Klassen die
+ * Laufzeit-Tokens direkt beziehen können.
  *
  * Werte als "R G B"-Kanal-Tripel (nicht Hex): tailwind.config.js baut daraus
  * `rgb(var(--color-x) / <alpha-value>)`, damit Tailwinds Opazitäts-Modifier
@@ -569,14 +570,13 @@
     @apply text-[14px] font-semibold;
   }
 
-  /* Bewusst fest verdrahtete Gruen-/Weiss-Werte statt Tokens: 1:1 aus dem
-     Original uebernommen (kein success-Token dort verwendet). */
+  /* Semantische Erfolgsfarbe fuer den erkannten aktiven Haushalt. */
   .household-active-card {
-    @apply p-three rounded-sm border gap-[4px] my-one bg-[rgba(52,_199,_89,_0.1)] border-[#34c759];
+    @apply p-three rounded-sm border gap-[4px] my-one bg-success/10 border-success;
   }
 
   .household-active-badge {
-    @apply text-[12px] font-bold text-[#2e7d32] uppercase tracking-[0.5px];
+    @apply text-success uppercase tracking-[0.5px];
   }
 
   .household-active-title {
@@ -1285,16 +1285,10 @@
     @apply min-w-0 flex-1 gap-[4px];
   }
 
-  .dashboard-calorie-label {
-    @apply text-[13px] leading-[18px] font-normal;
-  }
-
-  .dashboard-calorie-value {
-    @apply text-[27px] leading-[34px] font-medium;
-  }
-
+  .dashboard-calorie-label,
+  .dashboard-calorie-value,
   .dashboard-calorie-remaining {
-    @apply text-[13px] leading-[18px] font-normal;
+    @apply min-w-0;
   }
 
   .dashboard-planned-card {
@@ -1305,16 +1299,10 @@
     @apply min-w-0 flex-1 gap-[5px];
   }
 
-  .dashboard-planned-kicker {
-    @apply text-[11px] leading-[16px] tracking-[0.1px] font-medium;
-  }
-
-  .dashboard-planned-title {
-    @apply text-[17px] leading-[22px] font-medium;
-  }
-
+  .dashboard-planned-kicker,
+  .dashboard-planned-title,
   .dashboard-planned-meta {
-    @apply text-[12px] leading-[16px] font-normal;
+    @apply min-w-0;
   }
 
   .dashboard-widget-row {
@@ -1333,12 +1321,9 @@
     @apply self-start min-w-[36px] h-[28px] rounded-control items-center justify-center px-one;
   }
 
-  .dashboard-widget-label {
-    @apply text-[14px] leading-[20px] font-normal;
-  }
-
+  .dashboard-widget-label,
   .dashboard-widget-action {
-    @apply text-[17px] leading-[22px] font-medium;
+    @apply min-w-0;
   }
 
   /* household-switcher-modal.tsx */
@@ -1368,7 +1353,7 @@
   }
 
   .invite-token-text {
-    @apply text-[#10B981] font-bold text-[15px] text-center py-[8px];
+    @apply text-accent text-center py-[8px];
   }
 
   .invite-qr-container {
@@ -1761,7 +1746,7 @@
   }
 
   .scanner-target-frame {
-    @apply w-[220px] h-[140px] border-2 rounded-control bg-transparent border-[#10B981];
+    @apply w-[220px] h-[140px] border-2 rounded-control bg-transparent border-accent;
   }
 
   .scanner-status-box {
@@ -1816,11 +1801,11 @@
   }
 
   .diary-date-row {
-    @apply h-[42px] flex-row items-center;
+    @apply h-[50px] flex-row items-center;
   }
 
   .diary-date-arrow {
-    @apply w-[40px] h-[38px] items-center justify-center active:opacity-[0.72];
+    @apply w-[48px] h-[46px] items-center justify-center active:opacity-[0.72];
   }
 
   .diary-chevron {
@@ -2152,16 +2137,8 @@
     @apply w-9 h-[34px] items-center justify-center active:opacity-70;
   }
 
-  .mp-chevron {
-    @apply text-[19px] leading-[22px] font-medium;
-  }
-
   .mp-period-copy {
     @apply flex-1 items-center;
-  }
-
-  .mp-period-title {
-    @apply text-[17px] leading-[21px] font-bold;
   }
 
   .mp-actions-row {
@@ -2177,7 +2154,7 @@
   }
 
   .mp-action-label {
-    @apply text-[10px] leading-[13px] font-bold text-center;
+    @apply text-center;
   }
 
   /* week-grid.tsx — borderCurve bleibt an mehreren Karten als `style`

@@ -1,6 +1,7 @@
 import { router } from 'expo-router';
-import { Text, View } from 'react-native';
+import { View } from 'react-native';
 import { Button } from '@/components/ui/buttons';
+import { Txt } from '@/constants/ui';
 import { useHouseholds } from '@/features/household/api';
 import { useOnboarding } from '../onboarding-store';
 
@@ -27,15 +28,23 @@ export function CompleteStepForm() {
   return (
     <View className="complete-container">
       <View className="complete-icon-circle">
-        <Text className="complete-icon">🎉</Text>
+        <Txt variant="display" center>
+          🎉
+        </Txt>
       </View>
 
-      <Text className="complete-heading">Alles bereit!</Text>
-      <Text className="complete-subheading">
+      <Txt variant="pageTitleLarge" weight="700" center>
+        Alles bereit!
+      </Txt>
+      <Txt variant="bodyRelaxed" tone="secondary" center className="px-two">
         {`Dein Profil ist eingerichtet und du bist startklar für ${householdName}.`}
-      </Text>
+      </Txt>
 
-      {error ? <Text className="complete-error">{error}</Text> : null}
+      {error ? (
+        <Txt variant="label" tone="danger" center>
+          {error}
+        </Txt>
+      ) : null}
 
       <View className="complete-button-container">
         <Button

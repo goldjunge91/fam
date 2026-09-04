@@ -2,14 +2,16 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { Controller, useForm } from 'react-hook-form';
 import { Pressable, TextInput, View } from 'react-native';
 import { z } from 'zod';
-import { ThemedText } from '@/components/theme/themed-text';
+import { useTheme } from '@/components/theme/ThemeProvider';
+import { font } from '@/components/theme';
+import { Button } from '@/components/ui/buttons';
+import { Txt } from '@/constants/ui';
 import { formatDateTimeInput } from '@/features/glp1/domain/date-time-input';
 import {
   dateTimeInputSchema,
   optionalNotesInputSchema,
   sideEffectsInputSchema,
 } from '@/features/glp1/domain/form-schema-primitives';
-import { useTheme } from '@/hooks/use-theme';
 
 const symptomFormSchema = z.object({
   appetiteLevel: z.number().int().min(1).max(5),
@@ -39,12 +41,12 @@ type LevelPickerProps = {
 };
 
 function LevelPicker({ label, levels, selected, onSelect }: LevelPickerProps) {
-  const theme = useTheme();
+  const { colors } = useTheme();
   return (
     <View className="gap-one">
-      <ThemedText type="caption" themeColor="textSecondary">
+      <Txt variant="caption" tone="secondary">
         {label}
-      </ThemedText>
+      </Txt>
       <View className="flex-row gap-two justify-between">
         {levels.map((level) => {
           const isSelected = selected === level;
@@ -55,13 +57,13 @@ function LevelPicker({ label, levels, selected, onSelect }: LevelPickerProps) {
               accessibilityRole="radio"
               accessibilityState={{ selected: isSelected }}
               style={{
-                backgroundColor: isSelected ? theme.accent : theme.backgroundElement,
-                borderColor: isSelected ? theme.accent : theme.border,
+                backgroundColor: isSelected ? colors.accent : colors.backgroundElement,
+                borderColor: isSelected ? colors.accent : colors.border,
               }}
               className="flex-1 h-9 rounded-xl items-center justify-center border">
-              <ThemedText type="labelBold" themeColor={isSelected ? 'onAccent' : 'text'}>
+              <Txt variant="label" weight="700" tone={isSelected ? 'onAccent' : 'primary'}>
                 {level}
-              </ThemedText>
+              </Txt>
             </Pressable>
           );
         })}
@@ -76,7 +78,7 @@ export function SymptomForm({
   initialValue,
   mode = 'create',
 }: SymptomFormProps) {
-  const theme = useTheme();
+  const { colors } = useTheme();
   const {
     control,
     formState: { errors },
@@ -98,12 +100,24 @@ export function SymptomForm({
   const appetite = watch('appetiteLevel');
   const satiety = watch('satietyLevel');
   const nausea = watch('nauseaLevel');
+  const surfaceStyle = {
+    backgroundColor: colors.backgroundElement,
+    borderColor: colors.border,
+  };
+  const inputStyle = {
+    color: colors.text,
+    backgroundColor: colors.backgroundElement,
+    borderColor: colors.border,
+    fontSize: font.sizes.bodyLarge,
+    lineHeight: font.lineHeights.bodyLarge,
+  };
+  const multilineInputStyle = { ...inputStyle, textAlignVertical: 'top' as const };
 
   return (
-    <View className="p-three bg-surface rounded-xl gap-three border border-border">
-      <ThemedText type="labelBold">
+    <View className="p-three rounded-xl gap-three border" style={surfaceStyle}>
+      <Txt variant="label" weight="700">
         {mode === 'edit' ? 'Symptome bearbeiten' : 'Symptom- & Sättigungs-Verlauf'}
-      </ThemedText>
+      </Txt>
 
       <LevelPicker
         label="Appetit (1 = kein Appetit, 5 = starker Heißhunger):"
@@ -131,9 +145,9 @@ export function SymptomForm({
       />
 
       <View className="gap-one">
-        <ThemedText type="caption" themeColor="textSecondary">
+        <Txt variant="caption" tone="secondary">
           Konkrete Nebenwirkungen:
-        </ThemedText>
+        </Txt>
         <Controller
           control={control}
           name="sideEffects"
@@ -143,23 +157,23 @@ export function SymptomForm({
               onChangeText={onChange}
               accessibilityLabel="Konkrete Nebenwirkungen"
               placeholder="z. B. Kopfschmerz, Müdigkeit"
-              className="p-two bg-card rounded-lg border border-border text-sm"
-              placeholderTextColor={theme.textSecondary}
-              style={{ color: theme.text }}
+              className="p-two rounded-lg border"
+              placeholderTextColor={colors.textSecondary}
+              style={inputStyle}
             />
           )}
         />
         {errors.sideEffects ? (
-          <ThemedText type="caption" themeColor="danger">
+          <Txt variant="caption" tone="danger">
             {errors.sideEffects.message}
-          </ThemedText>
+          </Txt>
         ) : null}
       </View>
 
       <View className="gap-one">
-        <ThemedText type="caption" themeColor="textSecondary">
+        <Txt variant="caption" tone="secondary">
           Zeitpunkt:
-        </ThemedText>
+        </Txt>
         <Controller
           control={control}
           name="loggedAt"
@@ -170,23 +184,23 @@ export function SymptomForm({
               accessibilityLabel="Zeitpunkt der Symptome"
               placeholder="JJJJ-MM-TT HH:MM"
               autoCapitalize="none"
-              className="p-two bg-card rounded-lg border border-border text-sm"
-              placeholderTextColor={theme.textSecondary}
-              style={{ color: theme.text }}
+              className="p-two rounded-lg border"
+              placeholderTextColor={colors.textSecondary}
+              style={inputStyle}
             />
           )}
         />
         {errors.loggedAt ? (
-          <ThemedText type="caption" themeColor="danger">
+          <Txt variant="caption" tone="danger">
             {errors.loggedAt.message}
-          </ThemedText>
+          </Txt>
         ) : null}
       </View>
 
       <View className="gap-one">
-        <ThemedText type="caption" themeColor="textSecondary">
+        <Txt variant="caption" tone="secondary">
           Notiz:
-        </ThemedText>
+        </Txt>
         <Controller
           control={control}
           name="notes"
@@ -197,45 +211,36 @@ export function SymptomForm({
               accessibilityLabel="Notiz zu den Symptomen"
               placeholder="Optional"
               multiline
-              className="p-two bg-card rounded-lg border border-border text-sm min-h-16"
-              placeholderTextColor={theme.textSecondary}
-              style={{ color: theme.text, textAlignVertical: 'top' }}
+              className="p-two rounded-lg border min-h-16"
+              placeholderTextColor={colors.textSecondary}
+              style={multilineInputStyle}
             />
           )}
         />
         {errors.notes ? (
-          <ThemedText type="caption" themeColor="danger">
+          <Txt variant="caption" tone="danger">
             {errors.notes.message}
-          </ThemedText>
+          </Txt>
         ) : null}
       </View>
 
-      <View className="p-two rounded-lg bg-card border border-border flex-row items-center justify-between">
-        <ThemedText type="small" themeColor="textSecondary">
+      <View
+        className="p-two rounded-lg border flex-row items-center justify-between"
+        style={surfaceStyle}>
+        <Txt variant="bodyRelaxed" tone="secondary">
           Ausgewählt:
-        </ThemedText>
-        <ThemedText type="smallBold">
+        </Txt>
+        <Txt variant="bodyRelaxed" weight="700">
           Appetit {appetite}/5 · Sättigung {satiety}/5 · Übelkeit {nausea}/5
-        </ThemedText>
+        </Txt>
       </View>
 
-      <Pressable
-        accessibilityRole="button"
-        accessibilityLabel={
-          isPending ? 'Speichern...' : mode === 'edit' ? 'Änderungen speichern' : 'Status speichern'
-        }
-        onPress={handleSubmit((value) => onSubmit(value))}
-        disabled={isPending}
-        style={{ backgroundColor: theme.accent }}
-        className="py-three rounded-xl items-center justify-center mt-one">
-        <ThemedText type="labelBold" themeColor="onAccent">
-          {isPending
-            ? 'Speichern...'
-            : mode === 'edit'
-              ? 'Änderungen speichern'
-              : 'Status speichern'}
-        </ThemedText>
-      </Pressable>
+      <Button
+        label={mode === 'edit' ? 'Änderungen speichern' : 'Status speichern'}
+        onPress={() => void handleSubmit((value) => onSubmit(value))()}
+        loading={isPending}
+        style={{ marginTop: 4 }}
+      />
     </View>
   );
 }

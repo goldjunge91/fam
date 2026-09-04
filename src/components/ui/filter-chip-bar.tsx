@@ -38,7 +38,9 @@ export function FilterChipBar<T extends string>({
             aria-label={`${label}: ${option.label}`}
             aria-pressed={active}
             className="min-h-[28px] justify-center px-[13px] rounded-control active:opacity-75"
-            style={{ backgroundColor: active ? colors.basil : colors.surface }}>
+            style={{
+              backgroundColor: active ? colors.accent : colors.backgroundElement,
+            }}>
             <Txt
               variant="caption"
               tone={active ? 'onAccent' : 'secondary'}
