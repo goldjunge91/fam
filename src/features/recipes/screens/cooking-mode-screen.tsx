@@ -1,9 +1,10 @@
 import { useLocalSearchParams } from 'expo-router';
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { Txt } from '@/constants/ui';
 import { usePremium } from '@/features/premium/premium-provider';
+import { recordActivity } from '@/lib/streak';
 import {
   toCookingRecipeDetail,
   useCatalogImageUrl,
@@ -46,6 +47,7 @@ export function CookingModeScreen() {
   const { hasPlus } = usePremium();
   const [stepIndex, setStepIndex] = useState(0);
   const [finished, setFinished] = useState(false);
+  const completedRecipeIdRef = useRef<string | null>(null);
   const timerStep = data?.steps[Math.min(stepIndex, Math.max((data?.steps.length ?? 0) - 1, 0))];
   const catalogStepImagePath = catalogData?.stepImages.find(
     (image) => image.step_id === timerStep?.id,
@@ -59,6 +61,14 @@ export function CookingModeScreen() {
     pause: pauseTimer,
     reset: resetTimer,
   } = useCookingTimer({ stepId: timerStep?.id, durationSeconds });
+
+  useEffect(() => {
+    const recipeId = data?.recipe.id;
+    if (!finished || !recipeId || completedRecipeIdRef.current === recipeId) return;
+
+    completedRecipeIdRef.current = recipeId;
+    recordActivity();
+  }, [data?.recipe.id, finished]);
 
   if (isLoading || !data) return <CookingModeLoading />;
   if (!hasPlus) return <FreeCookingMode data={data} />;

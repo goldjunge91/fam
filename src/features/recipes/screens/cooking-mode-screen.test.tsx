@@ -1,6 +1,7 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { render, screen } from '@testing-library/react-native';
+import { fireEvent, render, screen } from '@testing-library/react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { recordActivity } from '@/lib/streak';
 import type { CatalogDetail } from '../catalog/use-recipe-catalog';
 import type { RecipeDetail } from '../hooks/use-recipes';
 import { CookingModeScreen } from './cooking-mode-screen';
@@ -34,6 +35,10 @@ let mockIsPremium = false;
 
 jest.mock('@/features/premium/premium-provider', () => ({
   usePremium: () => ({ hasPlus: mockIsPremium }),
+}));
+
+jest.mock('@/lib/streak', () => ({
+  recordActivity: jest.fn(),
 }));
 
 function renderScreen() {
@@ -260,5 +265,17 @@ describe('CookingModeScreen', () => {
     expect(screen.getByText('02:00')).toBeOnTheScreen();
     expect(screen.getByText('Pausiert')).toBeOnTheScreen();
     expect(screen.getByRole('button', { name: 'Timer fortsetzen' })).toBeOnTheScreen();
+  });
+
+  it('zeichnet ein Rezept beim Abschluss des Kochmodus als gekocht auf', async () => {
+    mockDetail = makeDetail();
+    mockIsPremium = true;
+    await renderScreen();
+
+    await fireEvent.press(screen.getByRole('button', { name: 'Nächster Schritt' }));
+    await fireEvent.press(screen.getByRole('button', { name: 'Zubereitung abschließen' }));
+
+    expect(await screen.findByText('Guten Appetit!')).toBeOnTheScreen();
+    expect(recordActivity).toHaveBeenCalledTimes(1);
   });
 });
