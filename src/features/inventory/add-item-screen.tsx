@@ -9,12 +9,12 @@ import { DateWheelField } from '@/components/forms/date-wheel-field';
 import { TextField } from '@/components/forms/text-field';
 import { WheelPickerField } from '@/components/forms/wheel-picker-field';
 import { FamIcon } from '@/components/icons/fam-icon';
-import { ThemedText } from '@/components/theme/themed-text';
-import { ThemedView } from '@/components/theme/themed-view';
+import { useTheme } from '@/components/theme/ThemeProvider';
 import { Button, HeaderIconButton } from '@/components/ui/buttons';
 import { FilterChipBar } from '@/components/ui/filter-chip-bar';
 import { type ItemSource, ItemSourceFilterRow } from '@/components/ui/item-source-filter';
 import { QuantityStepper } from '@/components/ui/quantity-stepper';
+import { Surface, Txt } from '@/constants/ui';
 import { useInterstitialAd } from '@/features/ads';
 import { useSession } from '@/features/auth/session-provider';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
@@ -37,7 +37,6 @@ import {
 } from '@/features/inventory/use-storage-locations';
 import { useProductBarcodeLookup } from '@/features/product-search/hooks/use-product-barcode-lookup';
 import type { CatalogProduct } from '@/features/product-search/types';
-import { useTheme } from '@/hooks/use-theme';
 import { getDatabase } from '@/lib/db/client';
 import { recordProductUsage } from '@/lib/db/product-usage';
 import { normalizeUnit, UNIT_OPTIONS } from '@/lib/units';
@@ -79,7 +78,7 @@ function quickDateOffset(key: QuickDateKey): string {
 }
 
 export function AddItemScreen() {
-  const theme = useTheme();
+  const { colors } = useTheme();
   const { activeHousehold } = useActiveHousehold();
   const currentHousehold = activeHousehold;
   const interstitialAd = useInterstitialAd();
@@ -234,7 +233,7 @@ export function AddItemScreen() {
   }
 
   return (
-    <ThemedView className="flex-1 bg-background">
+    <Surface tone="page" className="flex-1">
       <SafeAreaView className="modal-safe-area" edges={['top', 'left', 'right', 'bottom']}>
         {}
         <Pressable
@@ -245,13 +244,15 @@ export function AddItemScreen() {
           accessible={false}>
           <View className="modal-handle" />
           <View className="modal-header min-h-[54px]">
-            <ThemedText type="headingSmall">Artikel hinzufügen</ThemedText>
+            <Txt variant="heading">Artikel hinzufügen</Txt>
             <Pressable
               onPress={() => router.back()}
               accessibilityRole="button"
               accessibilityLabel="Schließen"
               className="modal-close-btn">
-              <ThemedText themeColor="textSecondary">✕</ThemedText>
+              <Txt variant="body" tone="secondary">
+                ✕
+              </Txt>
             </Pressable>
           </View>
         </Pressable>
@@ -280,7 +281,7 @@ export function AddItemScreen() {
                 label="Barcode scannen"
                 onPress={() => setShowScanner(true)}
                 className="ai-scan-btn">
-                <FamIcon name="camera" size={18} color={theme.accent} />
+                <FamIcon name="camera" size={18} color={colors.basil} />
               </HeaderIconButton>
             }
           />
@@ -307,20 +308,20 @@ export function AddItemScreen() {
           {name.trim() ? (
             <View className="edit-fridge-product-card">
               <View className="edit-fridge-product-copy">
-                <ThemedText type="smallBold" numberOfLines={1}>
+                <Txt variant="body" weight="700" numberOfLines={1}>
                   {name.trim()}
-                </ThemedText>
-                <ThemedText type="small" themeColor="textSecondary" numberOfLines={1}>
+                </Txt>
+                <Txt variant="body" tone="secondary" numberOfLines={1}>
                   {selectedProduct?.brand ?? 'Manueller Eintrag'}
-                </ThemedText>
+                </Txt>
               </View>
               <View className="edit-fridge-product-quantity">
-                <ThemedText type="smallBold">
+                <Txt variant="body" weight="700">
                   {packageSize ? `${packageSize} ${packageSizeUnit}` : `${quantity} ${unit}`}
-                </ThemedText>
-                <ThemedText type="small" themeColor="textSecondary">
+                </Txt>
+                <Txt variant="body" tone="secondary">
                   {packageSize ? 'Packungsinhalt' : 'Menge'}
-                </ThemedText>
+                </Txt>
               </View>
             </View>
           ) : null}
@@ -328,9 +329,9 @@ export function AddItemScreen() {
           {/* Eingabefelder für Menge und Lagerort */}
           <View className="edit-fridge-controls-row">
             <View className="edit-fridge-control-column">
-              <ThemedText type="small" themeColor="textSecondary">
+              <Txt variant="body" tone="secondary">
                 Menge
-              </ThemedText>
+              </Txt>
               <QuantityStepper
                 value={Number.parseInt(quantity, 10) || 1}
                 onChange={(value) => setQuantity(String(value))}
@@ -341,9 +342,9 @@ export function AddItemScreen() {
             </View>
             <View className="edit-fridge-control-column">
               {locationsLoading ? (
-                <ThemedText type="small" themeColor="textSecondary">
+                <Txt variant="body" tone="secondary">
                   Lädt Lagerorte…
-                </ThemedText>
+                </Txt>
               ) : locationOptions.length > 0 ? (
                 <WheelPickerField
                   label="Lagerort"
@@ -353,9 +354,9 @@ export function AddItemScreen() {
                   size="large"
                 />
               ) : (
-                <ThemedText type="small" themeColor="textSecondary">
+                <Txt variant="body" tone="secondary">
                   Kein Lagerort
-                </ThemedText>
+                </Txt>
               )}
             </View>
           </View>
@@ -366,9 +367,9 @@ export function AddItemScreen() {
               onPress={() => setShowAddLocation(true)}
               accessibilityRole="button"
               className="self-start">
-              <ThemedText type="small" themeColor="accent" className="font-bold">
+              <Txt variant="body" tone="primary" weight="700">
                 + Neuer Lagerort
-              </ThemedText>
+              </Txt>
             </Pressable>
           ) : (
             <View className="ai-new-location-box">
@@ -408,10 +409,10 @@ export function AddItemScreen() {
             accessibilityLabel={`${detailsOpen ? 'Weitere Angaben schließen' : 'Weitere Angaben öffnen'}`}
             accessibilityState={{ expanded: detailsOpen }}
             className="edit-fridge-details-toggle">
-            <ThemedText themeColor="accent">{detailsOpen ? '⌄' : '›'}</ThemedText>
-            <ThemedText type="small" themeColor="accent">
+            <Txt tone="secondary">{detailsOpen ? '⌄' : '›'}</Txt>
+            <Txt variant="body" tone="primary">
               Weitere Angaben
-            </ThemedText>
+            </Txt>
           </Pressable>
 
           {detailsOpen ? (
@@ -459,6 +460,6 @@ export function AddItemScreen() {
         errorMessage={barcodeLookup.errorMessage}
       />
       <KeyboardToolbar />
-    </ThemedView>
+    </Surface>
   );
 }

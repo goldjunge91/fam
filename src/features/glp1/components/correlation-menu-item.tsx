@@ -1,6 +1,6 @@
 import { router } from 'expo-router';
 import { Pressable, View } from 'react-native';
-import { ThemedText } from '@/components/theme/themed-text';
+import { Txt } from '@/constants/ui';
 
 type CorrelationMenuItemProps = {
   logicalDate: string;
@@ -29,14 +29,16 @@ export function CorrelationMenuItem({
       }
       className="flex-row items-center justify-between py-two px-three rounded-xl bg-card border border-border">
       <View className="gap-one">
-        <ThemedText type="labelBold">Korrelationsanalyse</ThemedText>
-        <ThemedText type="caption" themeColor="textSecondary">
+        <Txt variant="label" weight="700">
+          Korrelationsanalyse
+        </Txt>
+        <Txt variant="caption" tone="secondary">
           Injektion, Kalorien und Gewicht
-        </ThemedText>
+        </Txt>
       </View>
-      <ThemedText type="labelBold" themeColor="accent">
+      <Txt variant="label" weight="700" tone="primary">
         Öffnen
-      </ThemedText>
+      </Txt>
     </Pressable>
   );
 }

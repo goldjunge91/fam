@@ -2,7 +2,7 @@ import { createContext, useCallback, useContext, useRef, useState } from 'react'
 import { Pressable, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
-import { ThemedText } from '@/components/theme/themed-text';
+import { Txt } from '@/constants/ui';
 
 export type ShowUndoSnackbarInput = {
   message: string;
@@ -54,9 +54,9 @@ export function SnackbarProvider({ children }: { children: React.ReactNode }) {
           className="absolute left-0 right-0 bottom-0"
           pointerEvents="box-none">
           <View className="snackbar-bar">
-            <ThemedText type="small" themeColor="background" className="flex-1">
+            <Txt variant="body" tone="inverse" weight="500" className="flex-1">
               {snackbar.message}
-            </ThemedText>
+            </Txt>
             <Pressable
               onPress={() => {
                 const { onUndo } = snackbar;
@@ -66,9 +66,9 @@ export function SnackbarProvider({ children }: { children: React.ReactNode }) {
               accessibilityRole="button"
               accessibilityLabel="Rückgängig"
               hitSlop={10}>
-              <ThemedText type="smallBold" themeColor="accent">
+              <Txt variant="body" tone="accent" weight="700">
                 Rückgängig
-              </ThemedText>
+              </Txt>
             </Pressable>
           </View>
         </SafeAreaView>

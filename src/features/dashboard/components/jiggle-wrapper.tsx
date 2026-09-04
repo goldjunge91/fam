@@ -1,63 +1,45 @@
 import * as Haptics from 'expo-haptics';
-import { type ReactNode, useEffect } from 'react';
+import { type ReactNode, useCallback, useEffect } from 'react';
 import { Pressable, StyleSheet, View } from 'react-native';
-import { Gesture, GestureDetector } from 'react-native-gesture-handler';
 import Animated, {
   cancelAnimation,
-  runOnJS,
   useAnimatedStyle,
   useSharedValue,
   withRepeat,
   withSequence,
   withTiming,
 } from 'react-native-reanimated';
-import { ThemedText } from '@/components/theme/themed-text';
-import { withAlpha } from '@/constants/theme';
+import { withAlpha } from '@/components/theme/index';
+import { useTheme } from '@/components/theme/ThemeProvider';
+import { Txt } from '@/constants/ui';
 import type { CardSize } from '@/features/dashboard/registry';
-import { useTheme } from '@/hooks/use-theme';
-import { useDashboardDrag } from './drag-context';
 
 type JiggleWrapperProps = {
-  id: string;
   isEditing: boolean;
   index: number;
-  totalCards?: number;
   size?: CardSize;
+  fill?: boolean;
   onToggleSize: () => void;
   onDelete?: () => void;
-  onDragStart?: () => void;
-  onDragEnd?: () => void;
-  onDrop?: (fromIndex: number, toIndex: number) => void;
   children: ReactNode;
 };
 
 export function JiggleWrapper({
-  id: _id,
   isEditing,
   index,
-  totalCards = 1,
   size = 'large',
+  fill = false,
   onToggleSize,
   onDelete,
-  onDragStart,
-  onDragEnd,
-  onDrop,
   children,
 }: JiggleWrapperProps) {
-  const theme = useTheme();
-  const dragCtx = useDashboardDrag();
-
+  const { colors } = useTheme();
   const rotation = useSharedValue(0);
   const translateY = useSharedValue(0);
-  const dragX = useSharedValue(0);
-  const dragY = useSharedValue(0);
-  const scale = useSharedValue(1);
-  const zIndex = useSharedValue(1);
-  const isDragging = useSharedValue(false);
 
   useEffect(() => {
     if (isEditing) {
-      // Leichter Phasenversatz pro Index fuer natuerliches iOS-Wackeln
+      // Leichter Phasenversatz pro Index fuer natuerliches iOS-Wackeln.
       const initialDirection = index % 2 === 0 ? 1 : -1;
       const duration = 120 + (index % 3) * 10;
 
@@ -84,133 +66,71 @@ export function JiggleWrapper({
       rotation.value = withTiming(0, { duration: 150 });
       translateY.value = withTiming(0, { duration: 150 });
     }
-  }, [isEditing, index, rotation, translateY]);
+  }, [index, isEditing, rotation, translateY]);
 
-  function triggerHaptic() {
+  const triggerHaptic = useCallback(() => {
     Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
-  }
-
-  function handleStart() {
-    Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
-    if (onDragStart) onDragStart();
-  }
-
-  function handleDropCommit(fromIdx: number, toIdx: number) {
-    if (onDragEnd) onDragEnd();
-    if (onDrop && fromIdx !== toIdx) {
-      onDrop(fromIdx, toIdx);
-    }
-  }
-
-  const panGesture = Gesture.Pan()
-    .enabled(isEditing)
-    .onStart(() => {
-      isDragging.value = true;
-      scale.value = 1.04;
-      zIndex.value = 999;
-      if (dragCtx) {
-        dragCtx.activeDragIndex.value = index;
-        dragCtx.hoverIndex.value = index;
-        dragCtx.isDraggingShared.value = true;
-      }
-      runOnJS(handleStart)();
-    })
-    .onUpdate((event) => {
-      dragX.value = event.translationX;
-      dragY.value = event.translationY;
-
-      if (dragCtx) {
-        dragCtx.dragTranslationY.value = event.translationY;
-        const rawTarget = index + Math.round(event.translationY / dragCtx.rowHeight);
-        const clamped = Math.max(0, Math.min(totalCards - 1, rawTarget));
-        if (dragCtx.hoverIndex.value !== clamped) {
-          dragCtx.hoverIndex.value = clamped;
-          runOnJS(triggerHaptic)();
-        }
-      }
-    })
-    .onFinalize(() => {
-      isDragging.value = false;
-      let targetSlot = index;
-      if (dragCtx) {
-        targetSlot = dragCtx.hoverIndex.value;
-        dragCtx.activeDragIndex.value = -1;
-        dragCtx.hoverIndex.value = -1;
-        dragCtx.isDraggingShared.value = false;
-      }
-
-      // Sofort hart zurücksetzen ohne Nachbouncen
-      dragX.value = 0;
-      dragY.value = 0;
-      scale.value = 1;
-      zIndex.value = 1;
-      runOnJS(handleDropCommit)(index, targetSlot);
-    });
+  }, []);
 
   const animatedStyle = useAnimatedStyle(() => ({
-    transform: [
-      { translateX: dragX.value },
-      { translateY: translateY.value + dragY.value },
-      { rotateZ: `${rotation.value}deg` },
-      { scale: scale.value },
-    ],
-    zIndex: zIndex.value,
+    transform: [{ translateY: translateY.value }, { rotateZ: `${rotation.value}deg` }],
   }));
 
   const containerLayout = size === 'small' ? styles.smallContainer : styles.largeContainer;
   const contentLayout = size === 'small' ? styles.smallCardContent : styles.largeCardContent;
 
   return (
-    <GestureDetector gesture={panGesture}>
-      <Animated.View style={[styles.baseContainer, containerLayout, animatedStyle]}>
-        {/* Waehrend des Edit-Modus sind Taps auf den Karteninhalt deaktiviert */}
-        <View pointerEvents={isEditing ? 'none' : 'auto'} style={contentLayout}>
-          {children}
-        </View>
+    <Animated.View
+      collapsable={false}
+      style={[styles.baseContainer, containerLayout, fill && styles.fillContainer, animatedStyle]}>
+      <View style={contentLayout} pointerEvents={isEditing ? 'none' : 'auto'}>
+        {children}
+      </View>
 
-        {/* Im Edit-Modus: Delete-Badge oben links */}
-        {isEditing && onDelete ? (
-          <Pressable
-            accessibilityRole="button"
-            accessibilityLabel="Karte entfernen"
-            onPress={() => {
-              triggerHaptic();
-              onDelete();
-            }}
-            style={[
-              styles.badge,
-              styles.deleteBadge,
-              {
-                backgroundColor: theme.danger,
-                boxShadow: `0 2px 8px ${withAlpha(theme.shadowCard, 0.25)}`,
-              },
-            ]}>
-            <ThemedText style={styles.deleteBadgeText}>−</ThemedText>
-          </Pressable>
-        ) : null}
+      {isEditing && onDelete ? (
+        <Pressable
+          accessibilityRole="button"
+          accessibilityLabel="Karte entfernen"
+          onPress={() => {
+            triggerHaptic();
+            onDelete();
+          }}
+          style={[
+            styles.badge,
+            styles.deleteBadge,
+            {
+              backgroundColor: colors.tomato,
+              boxShadow: `0 2px 8px ${withAlpha(colors.text, 0.25)}`,
+            },
+          ]}>
+          <Txt variant="body" tone="inverse" weight="700" style={styles.deleteBadgeText}>
+            −
+          </Txt>
+        </Pressable>
+      ) : null}
 
-        {/* Im Edit-Modus: Groessen-Toggle-Badge oben rechts */}
-        {isEditing ? (
-          <Pressable
-            accessibilityRole="button"
-            accessibilityLabel="Kartengröße umschalten"
-            onPress={() => {
-              triggerHaptic();
-              onToggleSize();
-            }}
-            style={[
-              styles.badge,
-              styles.resizeBadge,
-              {
-                backgroundColor: theme.accent,
-                boxShadow: `0 2px 8px ${withAlpha(theme.shadowCard, 0.25)}`,
-              },
-            ]}>
-            <ThemedText style={styles.badgeText}>⤢</ThemedText>
-          </Pressable>
-        ) : null}
-      </Animated.View>
-    </GestureDetector>
+      {isEditing ? (
+        <Pressable
+          accessibilityRole="button"
+          accessibilityLabel="Kartengröße umschalten"
+          onPress={() => {
+            triggerHaptic();
+            onToggleSize();
+          }}
+          style={[
+            styles.badge,
+            styles.resizeBadge,
+            {
+              backgroundColor: colors.basil,
+              boxShadow: `0 2px 8px ${withAlpha(colors.text, 0.25)}`,
+            },
+          ]}>
+          <Txt variant="body" tone="inverse" weight="700" style={styles.badgeText}>
+            ⤢
+          </Txt>
+        </Pressable>
+      ) : null}
+    </Animated.View>
   );
 }
 
@@ -219,20 +139,23 @@ const styles = StyleSheet.create({
     position: 'relative',
     overflow: 'visible',
   },
+  fillContainer: {
+    width: '100%',
+    height: '100%',
+  },
   largeContainer: {
     width: '100%',
-    marginBottom: 15,
   },
   smallContainer: {
     flex: 1,
-    height: 138,
+    minHeight: 138,
   },
   largeCardContent: {
     width: '100%',
   },
   smallCardContent: {
     width: '100%',
-    height: 138,
+    minHeight: 138,
   },
   badge: {
     position: 'absolute',

@@ -4,9 +4,9 @@ import { KeyboardAvoidingView, Modal, Platform, Pressable, ScrollView, View } fr
 import { DateWheelField } from '@/components/forms/date-wheel-field';
 import { TextField } from '@/components/forms/text-field';
 import { WheelPickerField } from '@/components/forms/wheel-picker-field';
-import { ThemedText } from '@/components/theme/themed-text';
 import { Button } from '@/components/ui/buttons';
 import { QuantityStepper } from '@/components/ui/quantity-stepper';
+import { Txt } from '@/constants/ui';
 import type { StorageLocation } from '@/features/inventory/use-storage-locations';
 import { useSheetShadowStyle } from '@/hooks/use-sheet-shadow-style';
 import { UNIT_OPTIONS } from '@/lib/units';
@@ -101,13 +101,15 @@ export function EditInventoryItemSheet({
             keyboardShouldPersistTaps="handled"
             showsVerticalScrollIndicator={false}>
             <View className="edit-fridge-header">
-              <ThemedText type="subtitle">Artikel bearbeiten</ThemedText>
+              <Txt variant="title">Artikel bearbeiten</Txt>
               <Pressable
                 onPress={onClose}
                 accessibilityRole="button"
                 accessibilityLabel="Schließen"
                 className="edit-fridge-close-button">
-                <ThemedText themeColor="textSecondary">×</ThemedText>
+                <Txt variant="body" tone="secondary">
+                  ×
+                </Txt>
               </Pressable>
             </View>
 
@@ -121,26 +123,28 @@ export function EditInventoryItemSheet({
 
             <View className="edit-fridge-product-card">
               <View className="edit-fridge-product-copy">
-                <ThemedText type="smallBold">{name.trim() || currentItem.name}</ThemedText>
-                <ThemedText type="small" themeColor="textSecondary">
+                <Txt variant="body" weight="700">
+                  {name.trim() || currentItem.name}
+                </Txt>
+                <Txt variant="body" tone="secondary">
                   {locationName}
-                </ThemedText>
+                </Txt>
               </View>
               <View className="edit-fridge-product-quantity">
-                <ThemedText type="smallBold">
+                <Txt variant="body" weight="700">
                   {quantity} {unit}
-                </ThemedText>
-                <ThemedText type="small" themeColor="textSecondary">
+                </Txt>
+                <Txt variant="body" tone="secondary">
                   aktuelle Menge
-                </ThemedText>
+                </Txt>
               </View>
             </View>
 
             <View className="edit-fridge-controls-row">
               <View className="edit-fridge-control-column">
-                <ThemedText type="small" themeColor="textSecondary">
+                <Txt variant="body" tone="secondary">
                   Menge
-                </ThemedText>
+                </Txt>
                 <QuantityStepper
                   value={quantity}
                   onChange={setQuantity}
@@ -165,10 +169,10 @@ export function EditInventoryItemSheet({
               accessibilityLabel={`${detailsOpen ? 'Weitere Angaben schließen' : 'Weitere Angaben öffnen'}`}
               accessibilityState={{ expanded: detailsOpen }}
               className="edit-fridge-details-toggle">
-              <ThemedText themeColor="accent">{detailsOpen ? '⌄' : '›'}</ThemedText>
-              <ThemedText type="small" themeColor="accent">
+              <Txt tone="secondary">{detailsOpen ? '⌄' : '›'}</Txt>
+              <Txt variant="body" tone="primary">
                 Weitere Angaben
-              </ThemedText>
+              </Txt>
             </Pressable>
 
             {detailsOpen ? (

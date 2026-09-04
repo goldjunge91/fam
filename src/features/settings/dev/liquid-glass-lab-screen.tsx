@@ -15,14 +15,14 @@ import { GlassContainer, GlassView } from 'expo-glass-effect';
 import { useState } from 'react';
 import { Alert, Pressable, View } from 'react-native';
 import { Screen } from '@/components/layout/screen';
-import { ThemedText } from '@/components/theme/themed-text';
 import { Card } from '@/components/ui/card';
+import { Txt } from '@/constants/ui';
 import { useGlassAvailable } from '@/components/ui/glass-card';
 import { useHubGradient } from '@/hooks/use-hub-gradient';
-import { useTheme } from '@/hooks/use-theme';
+import { useTheme } from '@/components/theme/ThemeProvider';
 
 export function LiquidGlassLabScreen() {
-  const theme = useTheme();
+  const { colors } = useTheme();
   const hubGradient = useHubGradient();
   const glassAvailable = useGlassAvailable();
   const [segment, setSegment] = useState<'tag' | 'woche' | 'monat'>('woche');
@@ -38,29 +38,29 @@ export function LiquidGlassLabScreen() {
       <Card title="Status">
         <View
           style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
-          <ThemedText type="small" themeColor="textSecondary">
+          <Txt variant="caption" tone="secondary">
             expo-glass-effect verfügbar
-          </ThemedText>
-          <ThemedText type="smallBold" themeColor={glassAvailable ? 'success' : 'danger'}>
+          </Txt>
+          <Txt variant="caption" weight="700" tone={glassAvailable ? 'success' : 'danger'}>
             {glassAvailable ? 'true' : 'false'}
-          </ThemedText>
+          </Txt>
         </View>
-        <ThemedText type="caption" themeColor="textSecondary">
+        <Txt variant="caption" tone="secondary">
           Nur auf iOS 26+ (echtes Gerät oder Simulator-Runtime), ohne Reduce Transparency, außerhalb
           von Expo Go — sonst zeigt jede Kachel unten ihren soliden Fallback.
-        </ThemedText>
+        </Txt>
       </Card>
 
       {/* Buttons & Segment-Controls auf Basis von expo-glass-effect */}
       <Card title="Buttons — expo-glass-effect">
-        <ThemedText type="caption" themeColor="textSecondary" style={{ marginBottom: 12 }}>
+        <Txt variant="caption" tone="secondary" style={{ marginBottom: 12 }}>
           `GlassView` mit verschiedenen Tints/Styles, dieselbe Komponente wie im Dashboard.
-        </ThemedText>
+        </Txt>
 
         <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 10 }}>
-          <GlassLabButton label="Primär" tintColor={theme.accent} onPress={() => {}} />
+          <GlassLabButton label="Primär" tintColor={colors.basil} onPress={() => {}} />
           <GlassLabButton label="Sekundär" onPress={() => {}} />
-          <GlassLabButton label="Löschen" tintColor={theme.danger} onPress={() => {}} />
+          <GlassLabButton label="Löschen" tintColor={colors.tomato} onPress={() => {}} />
           <GlassLabButton label="Clear-Style" glassStyle="clear" onPress={() => {}} />
         </View>
 
@@ -69,13 +69,13 @@ export function LiquidGlassLabScreen() {
           <GlassIconButton
             glyph="✎"
             accessibilityLabel="Bearbeiten"
-            tintColor={theme.accent}
+            tintColor={colors.basil}
             onPress={() => {}}
           />
           <GlassIconButton
             glyph="🗑"
             accessibilityLabel="Löschen"
-            tintColor={theme.danger}
+            tintColor={colors.tomato}
             onPress={() => {}}
           />
           <GlassIconButton
@@ -86,26 +86,26 @@ export function LiquidGlassLabScreen() {
           />
         </View>
 
-        <ThemedText
-          type="caption"
-          themeColor="textSecondary"
+        <Txt
+          variant="caption"
+          tone="secondary"
           style={{ marginTop: 16, marginBottom: 8 }}>
           Segmentierte Auswahl (`GlassContainer` + `isInteractive`)
-        </ThemedText>
+        </Txt>
         <GlassContainer spacing={8} style={{ flexDirection: 'row', gap: 8 }}>
           {(['tag', 'woche', 'monat'] as const).map((value) => (
             <GlassView
               key={value}
               glassEffectStyle="regular"
-              tintColor={segment === value ? theme.accent : undefined}
+              tintColor={segment === value ? colors.basil : undefined}
               isInteractive
               style={{ borderRadius: 999 }}>
               <Pressable
                 onPress={() => setSegment(value)}
                 style={{ paddingHorizontal: 18, paddingVertical: 10 }}>
-                <ThemedText type="smallBold" themeColor={segment === value ? 'onAccent' : 'text'}>
+                <Txt variant="caption" weight="700" tone={segment === value ? 'onAccent' : 'primary'}>
                   {value === 'tag' ? 'Tag' : value === 'woche' ? 'Woche' : 'Monat'}
-                </ThemedText>
+                </Txt>
               </Pressable>
             </GlassView>
           ))}
@@ -114,10 +114,10 @@ export function LiquidGlassLabScreen() {
 
       {/* Native SwiftUI Glass-Buttons via @expo/ui */}
       <Card title="Buttons — @expo/ui (natives SwiftUI-Glass)">
-        <ThemedText type="caption" themeColor="textSecondary" style={{ marginBottom: 12 }}>
+        <Txt variant="caption" tone="secondary" style={{ marginBottom: 12 }}>
           `buttonStyle('glass' | 'glassProminent')` — Apples eigener, system-nativer
           Glas-Button-Stil statt selbst gebauter `GlassView`.
-        </ThemedText>
+        </Txt>
         <Host matchContents style={{ flexDirection: 'row' }}>
           <NativeButton
             label="Glass"
@@ -131,7 +131,7 @@ export function LiquidGlassLabScreen() {
           <NativeButton
             label="Glass Prominent"
             systemImage="star.fill"
-            modifiers={[buttonStyle('glassProminent'), tint(theme.accent)]}
+            modifiers={[buttonStyle('glassProminent'), tint(colors.basil)]}
             onPress={() => Alert.alert('Glass Prominent', 'gedrückt')}
           />
         </Host>
@@ -150,11 +150,11 @@ export function LiquidGlassLabScreen() {
 
       {/* SwiftUI ContextMenu mit Long-Press Trigger und Preview */}
       <Card title="Kontextmenü (Long-Press)">
-        <ThemedText type="caption" themeColor="textSecondary" style={{ marginBottom: 12 }}>
+        <Txt variant="caption" tone="secondary" style={{ marginBottom: 12 }}>
           Systemeigenes `ContextMenu` aus `@expo/ui` — auf iOS 26 rendert das Menü selbst bereits
           Liquid Glass, ohne dass wir etwas dafür tun. Öffnen: gedrückt halten. Schließen: Auswahl
           treffen oder daneben tippen.
-        </ThemedText>
+        </Txt>
         <Host matchContents>
           <ContextMenu>
             {}
@@ -168,7 +168,7 @@ export function LiquidGlassLabScreen() {
                   glassEffect({ glass: { variant: 'regular' }, cornerRadius: 20 }),
                 ]}>
                 <Text modifiers={[font({ weight: 'bold' })]}>Rührei mit Toast</Text>
-                <Text modifiers={[foregroundStyle(theme.textSecondary)]}>
+                <Text modifiers={[foregroundStyle(colors.textMuted)]}>
                   Gedrückt halten für Optionen
                 </Text>
               </VStack>
@@ -181,10 +181,10 @@ export function LiquidGlassLabScreen() {
                   padding({ all: 20 }),
                   frame({ minWidth: 220 }),
                   cornerRadius(20),
-                  backgroundOverlay({ color: theme.backgroundElement }),
+                  backgroundOverlay({ color: colors.bg }),
                 ]}>
                 <Text modifiers={[font({ weight: 'bold' })]}>Rührei mit Toast</Text>
-                <Text modifiers={[foregroundStyle(theme.textSecondary)]}>
+                <Text modifiers={[foregroundStyle(colors.textMuted)]}>
                   Frühstück · 2 Portionen
                 </Text>
               </VStack>
@@ -214,10 +214,10 @@ export function LiquidGlassLabScreen() {
 
       {/* Menü-Varianten (Natives SwiftUI Menu vs. GlassView Popover) */}
       <Card title="Bearbeiten-Menü — zwei Varianten">
-        <ThemedText type="caption" themeColor="textSecondary" style={{ marginBottom: 12 }}>
+        <Txt variant="caption" tone="secondary" style={{ marginBottom: 12 }}>
           Variante A: natives `Menu` aus `@expo/ui`, öffnet/schließt komplett system-gesteuert
           (Tippen öffnet, Auswahl/Antippen daneben schließt).
-        </ThemedText>
+        </Txt>
         <Host matchContents style={{ flexDirection: 'row' }}>
           <Menu label="Bearbeiten" systemImage="ellipsis.circle">
             <NativeButton
@@ -247,11 +247,11 @@ export function LiquidGlassLabScreen() {
 
         <View style={{ height: 20 }} />
 
-        <ThemedText type="caption" themeColor="textSecondary" style={{ marginBottom: 12 }}>
+        <Txt variant="caption" tone="secondary" style={{ marginBottom: 12 }}>
           Variante B: selbst gebautes Popover aus `GlassView`, Öffnen/Schließen per eigenem State —
           das Muster für eigene Action-Sheets (analog `inventory-item-actions-sheet.tsx`), nur mit
           Glas statt solider Fläche.
-        </ThemedText>
+        </Txt>
         <View style={{ position: 'relative', alignItems: 'flex-start' }}>
           <GlassIconButton
             glyph="⋯"
@@ -260,9 +260,9 @@ export function LiquidGlassLabScreen() {
             }
             onPress={() => setEditMenuOpen((open) => !open)}
           />
-          <ThemedText type="caption" themeColor="textSecondary" style={{ marginTop: 6 }}>
+          <Txt variant="caption" tone="secondary" style={{ marginTop: 6 }}>
             Zustand: {editMenuOpen ? 'offen' : 'geschlossen'}
-          </ThemedText>
+          </Txt>
 
           {editMenuOpen ? (
             // Nach oben öffnen, da dies die letzte Karte des Screens ist.
@@ -296,10 +296,10 @@ export function LiquidGlassLabScreen() {
                     paddingHorizontal: 16,
                     paddingVertical: 10,
                   }}>
-                  <ThemedText type="body">{item.glyph}</ThemedText>
-                  <ThemedText type="smallBold" themeColor={item.danger ? 'danger' : 'text'}>
+                  <Txt variant="body">{item.glyph}</Txt>
+                  <Txt variant="caption" weight="700" tone={item.danger ? 'danger' : 'primary'}>
                     {item.label}
-                  </ThemedText>
+                  </Txt>
                 </Pressable>
               ))}
             </GlassView>
@@ -309,10 +309,10 @@ export function LiquidGlassLabScreen() {
 
       {/* Typografie-Vergleich: Glasoberfläche vs. Solider Hintergrund */}
       <Card title="Schriften auf Glas vs. solide">
-        <ThemedText type="caption" themeColor="textSecondary" style={{ marginBottom: 12 }}>
-          Lesbarkeits-Vergleich derselben `ThemedText`-Rollen auf Glas- und solider Fläche, über dem
+        <Txt variant="caption" tone="secondary" style={{ marginBottom: 12 }}>
+          Lesbarkeits-Vergleich derselben `Txt`-Rollen auf Glas- und solider Fläche, über dem
           echten Hub-Verlauf.
-        </ThemedText>
+        </Txt>
         <View style={{ flexDirection: 'row', gap: 12 }}>
           <GlassView
             glassEffectStyle="regular"
@@ -325,7 +325,7 @@ export function LiquidGlassLabScreen() {
               borderRadius: 20,
               padding: 14,
               gap: 4,
-              backgroundColor: theme.backgroundElement,
+              backgroundColor: colors.bg,
             }}>
             <TypeSample />
           </View>
@@ -338,17 +338,17 @@ export function LiquidGlassLabScreen() {
 function TypeSample() {
   return (
     <>
-      <ThemedText type="title">Titel</ThemedText>
-      <ThemedText type="subtitle">Untertitel</ThemedText>
-      <ThemedText type="body">Fließtext in normaler Stärke.</ThemedText>
-      <ThemedText type="bodyBold">Fließtext, fett.</ThemedText>
-      <ThemedText type="small" themeColor="textSecondary">
+      <Txt variant="title">Titel</Txt>
+      <Txt variant="subheading">Untertitel</Txt>
+      <Txt variant="body">Fließtext in normaler Stärke.</Txt>
+      <Txt variant="body" weight="700">Fließtext, fett.</Txt>
+      <Txt variant="caption" tone="secondary">
         Kleiner Text, sekundär.
-      </ThemedText>
-      <ThemedText type="label">LABEL</ThemedText>
-      <ThemedText type="caption" themeColor="textSecondary">
+      </Txt>
+      <Txt variant="label">LABEL</Txt>
+      <Txt variant="caption" tone="secondary">
         Caption-Text für Meta-Infos.
-      </ThemedText>
+      </Txt>
     </>
   );
 }
@@ -373,9 +373,9 @@ function GlassLabButton({
       isInteractive
       style={{ borderRadius: 14 }}>
       <Pressable onPress={onPress} style={{ paddingHorizontal: 16, paddingVertical: 12 }}>
-        <ThemedText type="smallBold" themeColor={tintColor ? 'onAccent' : 'text'}>
+        <Txt variant="caption" weight="700" tone={tintColor ? 'onAccent' : 'primary'}>
           {label}
-        </ThemedText>
+        </Txt>
       </Pressable>
     </GlassView>
   );
@@ -406,7 +406,7 @@ function GlassIconButton({
         accessibilityRole="button"
         accessibilityLabel={accessibilityLabel}
         style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        <ThemedText type="body">{glyph}</ThemedText>
+        <Txt variant="body">{glyph}</Txt>
       </Pressable>
     </GlassView>
   );

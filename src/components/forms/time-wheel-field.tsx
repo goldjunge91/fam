@@ -1,8 +1,8 @@
 import DateTimePicker from '@expo/ui/community/datetime-picker';
 import { useState } from 'react';
 import { Modal, Pressable, View } from 'react-native';
-import { ThemedText } from '@/components/theme/themed-text';
 import { Button } from '@/components/ui/buttons';
+import { Txt } from '@/constants/ui';
 
 function toTime(date: Date): string {
   return `${String(date.getHours()).padStart(2, '0')}:${String(date.getMinutes()).padStart(2, '0')}`;
@@ -38,9 +38,9 @@ export function TimeWheelField({ label, value, onChange }: TimeWheelFieldProps) 
   return (
     <View className="gap-one">
       {label ? (
-        <ThemedText type="caption" themeColor="textSecondary">
+        <Txt variant="caption" tone="secondary">
           {label}
-        </ThemedText>
+        </Txt>
       ) : null}
       <Pressable
         onPress={open}
@@ -49,7 +49,7 @@ export function TimeWheelField({ label, value, onChange }: TimeWheelFieldProps) 
           value ? `${label ?? 'Uhrzeit'} ${value} ändern` : `${label ?? 'Uhrzeit'} auswählen`
         }
         className="input-field active:opacity-75">
-        <ThemedText>{value || 'Uhrzeit auswählen'}</ThemedText>
+        <Txt variant="body">{value || 'Uhrzeit auswählen'}</Txt>
       </Pressable>
 
       <Modal
@@ -59,7 +59,9 @@ export function TimeWheelField({ label, value, onChange }: TimeWheelFieldProps) 
         onRequestClose={() => setIsOpen(false)}>
         <View className="modal-backdrop">
           <View className="modal-sheet">
-            <ThemedText type="subtitle">{label ?? 'Uhrzeit auswählen'}</ThemedText>
+            <Txt variant="title" weight="600">
+              {label ?? 'Uhrzeit auswählen'}
+            </Txt>
             <DateTimePicker
               value={pendingTime}
               mode="time"

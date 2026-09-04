@@ -1,14 +1,14 @@
 import { router } from 'expo-router';
 import { View } from 'react-native';
 import { FamIcon } from '@/components/icons/fam-icon';
-import { ThemedText } from '@/components/theme/themed-text';
+import { withAlpha } from '@/components/theme/index';
+import { useTheme } from '@/components/theme/ThemeProvider';
 import { GlassCard } from '@/components/ui/glass-card';
-import { withAlpha } from '@/constants/theme';
+import { Txt } from '@/constants/ui';
 import { type DashboardCardProps, registerCard } from '@/features/dashboard/registry';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { useMealPlanEntriesInRange } from '@/features/meal-planner/use-meal-plans';
 import { MEAL_SLOT_LABELS, MEAL_SLOTS } from '@/features/meal-planner/week';
-import { useTheme } from '@/hooks/use-theme';
 
 function toIsoDate(date: Date): string {
   const y = date.getFullYear();
@@ -38,7 +38,7 @@ const PLANNED_GLASS_STYLE_SMALL = {
 };
 
 function MealPlanDashboardCard({ size, onLongPress }: DashboardCardProps) {
-  const theme = useTheme();
+  const { colors } = useTheme();
   const { activeHouseholdId } = useActiveHousehold();
   const householdId = activeHouseholdId ?? undefined;
   const todayIso = toIsoDate(new Date());
@@ -64,29 +64,34 @@ function MealPlanDashboardCard({ size, onLongPress }: DashboardCardProps) {
         glassStyle={PLANNED_GLASS_STYLE_SMALL}
         outerStyle={{
           width: '100%',
-          height: 138,
+          minHeight: 138,
           borderRadius: 28,
           borderCurve: 'continuous',
-          boxShadow: `0 8px 20px ${withAlpha(theme.shadowCard, 0.08)}`,
+          boxShadow: `0 8px 20px ${withAlpha(colors.text, 0.08)}`,
         }}>
         <View className="flex-1 justify-between">
           <View className="flex-row items-center justify-between">
-            <ThemedText
-              type="small"
-              themeColor="danger"
+            <Txt
+              variant="body"
+              tone="danger"
+              weight="700"
               style={{ fontSize: 10, lineHeight: 12, fontWeight: '700', letterSpacing: 0.5 }}>
               GEPLANT
-            </ThemedText>
-            <ThemedText type="small" themeColor="textSecondary" style={{ fontSize: 11 }}>
+            </Txt>
+            <Txt variant="body" tone="secondary" style={{ fontSize: 11 }}>
               {nextMeal ? MEAL_SLOT_LABELS[nextMeal.meal_slot] : 'Heute'}
-            </ThemedText>
+            </Txt>
           </View>
           <View className="items-center justify-center my-one">
             <FamIcon name="mealArtwork" size={44} />
           </View>
-          <ThemedText type="smallBold" numberOfLines={1} style={{ fontSize: 12, lineHeight: 16 }}>
+          <Txt
+            variant="body"
+            weight="700"
+            numberOfLines={2}
+            style={{ fontSize: 12, lineHeight: 16 }}>
             {nextMeal?.recipe_title ?? 'Nichts geplant'}
-          </ThemedText>
+          </Txt>
         </View>
       </GlassCard>
     );
@@ -101,24 +106,24 @@ function MealPlanDashboardCard({ size, onLongPress }: DashboardCardProps) {
       fallbackClassName="dashboard-planned-card"
       glassStyle={PLANNED_GLASS_STYLE}
       outerStyle={{
-        height: 140,
+        minHeight: 140,
         borderRadius: 28,
         borderCurve: 'continuous',
-        boxShadow: `0 8px 22px ${withAlpha(theme.shadowCard, 0.1)}`,
+        boxShadow: `0 8px 22px ${withAlpha(colors.text, 0.1)}`,
       }}>
       <FamIcon name="mealArtwork" size={79} />
       <View className="dashboard-planned-copy">
-        <ThemedText type="small" themeColor="danger" className="dashboard-planned-kicker">
+        <Txt variant="body" tone="danger" weight="700" className="dashboard-planned-kicker">
           HEUTE GEPLANT
-        </ThemedText>
-        <ThemedText type="smallBold" numberOfLines={1} className="dashboard-planned-title">
+        </Txt>
+        <Txt variant="body" weight="700" numberOfLines={2} className="dashboard-planned-title">
           {nextMeal?.recipe_title ?? 'Noch nichts geplant'}
-        </ThemedText>
-        <ThemedText type="small" themeColor="textSecondary" className="dashboard-planned-meta">
+        </Txt>
+        <Txt variant="body" tone="secondary" className="dashboard-planned-meta">
           {nextMeal
             ? `${MEAL_SLOT_LABELS[nextMeal.meal_slot]} · ${nextMeal.portions} Portionen`
             : 'Wochenplan öffnen'}
-        </ThemedText>
+        </Txt>
       </View>
       <FamIcon name="chevron" size={20} />
     </GlassCard>

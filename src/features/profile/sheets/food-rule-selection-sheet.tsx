@@ -2,9 +2,9 @@ import { useEffect, useMemo, useState } from 'react';
 import { Modal, Pressable, ScrollView, View } from 'react-native';
 
 import { TextField } from '@/components/forms/text-field';
-import { ThemedText } from '@/components/theme/themed-text';
-import { ThemedView } from '@/components/theme/themed-view';
+import { useTheme } from '@/components/theme/ThemeProvider';
 import { Button } from '@/components/ui/buttons';
+import { Txt } from '@/constants/ui';
 import {
   addFoodSelection,
   createCustomFoodSelection,
@@ -40,6 +40,7 @@ export function FoodRuleSelectionSheet<Code extends string>({
   onApply,
   onClose,
 }: FoodRuleSelectionSheetProps<Code>) {
+  const { colors } = useTheme();
   const [draft, setDraft] = useState<FoodSelection<Code>[]>(value);
   const [query, setQuery] = useState('');
   const [inputError, setInputError] = useState<string | null>(null);
@@ -107,23 +108,23 @@ export function FoodRuleSelectionSheet<Code extends string>({
       statusBarTranslucent
       onRequestClose={onClose}>
       <View className="profile-food-rules-sheet-backdrop">
-        <ThemedView className="profile-food-rules-sheet">
+        <View className="profile-food-rules-sheet" style={{ backgroundColor: colors.surface }}>
           <View className="modal-handle" />
           <View className="profile-food-rules-sheet-header">
             <View className="flex-1 gap-half">
-              <ThemedText type="headingSmall">{title}</ThemedText>
-              <ThemedText type="smallMuted">
+              <Txt variant="heading">{title}</Txt>
+              <Txt variant="caption" tone="secondary">
                 {presets.length > 0
                   ? 'Häufige auswählen oder eigene ergänzen'
                   : 'Eigene Lebensmittel ergänzen'}
-              </ThemedText>
+              </Txt>
             </View>
             <Pressable
               onPress={onClose}
               role="button"
               aria-label={`${title} schließen`}
               className="modal-close-btn">
-              <ThemedText aria-hidden>✕</ThemedText>
+              <Txt variant="body" tone="secondary" aria-hidden>✕</Txt>
             </Pressable>
           </View>
 
@@ -141,9 +142,9 @@ export function FoodRuleSelectionSheet<Code extends string>({
             onSubmitEditing={addCustomEntry}
           />
           {inputError ? (
-            <ThemedText role="alert" type="smallDanger">
+            <Txt role="alert" variant="caption" tone="danger">
               {inputError}
-            </ThemedText>
+            </Txt>
           ) : null}
           <Button label={addLabel} variant="secondary" onPress={addCustomEntry} />
 
@@ -157,18 +158,26 @@ export function FoodRuleSelectionSheet<Code extends string>({
                   role="checkbox"
                   aria-label={preset.label}
                   aria-checked={selected}
-                  className={`profile-food-rules-option ${
-                    index < filteredPresets.length - 1 ? 'profile-food-rules-option-bordered' : ''
-                  }`}>
-                  <ThemedText className="flex-1">{preset.label}</ThemedText>
+                  className="profile-food-rules-option"
+                  style={{
+                    backgroundColor: selected ? colors.basilSoft : colors.surface,
+                    borderBottomColor: colors.border,
+                    borderBottomWidth: index < filteredPresets.length - 1 ? 1 : 0,
+                  }}>
+                  <Txt variant="body" className="flex-1">
+                    {preset.label}
+                  </Txt>
                   <View
-                    className={`checkbox-base ${
-                      selected ? 'checkbox-checked' : 'checkbox-unchecked'
-                    }`}>
+                    className="checkbox-base"
+                    style={{
+                      backgroundColor: selected ? colors.basil : 'transparent',
+                      borderColor: colors.basil,
+                      borderWidth: 1.5,
+                    }}>
                     {selected ? (
-                      <ThemedText type="caption" themeColor="onAccent">
+                      <Txt variant="caption" tone="onAccent">
                         ✓
-                      </ThemedText>
+                      </Txt>
                     ) : null}
                   </View>
                 </Pressable>
@@ -179,7 +188,7 @@ export function FoodRuleSelectionSheet<Code extends string>({
               .filter((selection) => selection.source === 'custom')
               .map((selection) => (
                 <View key={selection.normalizedLabel} className="profile-food-rules-custom-row">
-                  <ThemedText className="flex-1">{selection.label}</ThemedText>
+                  <Txt variant="body" className="flex-1">{selection.label}</Txt>
                   <Pressable
                     onPress={() =>
                       setDraft((current) =>
@@ -193,7 +202,7 @@ export function FoodRuleSelectionSheet<Code extends string>({
                     role="button"
                     aria-label={`${selection.label} entfernen`}
                     className="profile-food-rules-remove">
-                    <ThemedText type="smallMuted">Entfernen</ThemedText>
+                    <Txt variant="caption" tone="secondary">Entfernen</Txt>
                   </Pressable>
                 </View>
               ))}
@@ -206,7 +215,7 @@ export function FoodRuleSelectionSheet<Code extends string>({
               onClose();
             }}
           />
-        </ThemedView>
+        </View>
       </View>
     </Modal>
   );

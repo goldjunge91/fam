@@ -4,10 +4,10 @@ import { View } from 'react-native';
 
 import { TextField } from '@/components/forms/text-field';
 import { Screen } from '@/components/layout/screen';
-import { ThemedText } from '@/components/theme/themed-text';
 import { Button } from '@/components/ui/buttons';
 import { Card } from '@/components/ui/card';
 import { SegmentedControl } from '@/components/ui/segmented-control';
+import { Txt } from '@/constants/ui';
 import { useSession } from '@/features/auth/session-provider';
 import { type FeedbackType, useCreateTicketMutation } from '@/features/feedback/api';
 import { FEEDBACK_TYPE_LABELS } from '@/features/feedback/labels';
@@ -58,8 +58,10 @@ export function FeedbackFormScreen() {
       <Screen title="Feedback geben" back={{ label: 'Feedback' }}>
         <Card>
           <View className="gap-three">
-            <ThemedText type="smallBold">Danke für dein Feedback!</ThemedText>
-            <ThemedText>{`Dein Ticket #${createdTicketNumber} ist eingegangen. Wir melden uns, sobald sich etwas tut.`}</ThemedText>
+            <Txt variant="body" weight="700">
+              Danke für dein Feedback!
+            </Txt>
+            <Txt variant="body">{`Dein Ticket #${createdTicketNumber} ist eingegangen. Wir melden uns, sobald sich etwas tut.`}</Txt>
             <Button
               label="Meine Tickets ansehen"
               onPress={() => router.replace('/settings/feedback')}
@@ -98,7 +100,11 @@ export function FeedbackFormScreen() {
             size="large"
           />
 
-          {errorMsg ? <ThemedText type="smallDanger">{errorMsg}</ThemedText> : null}
+          {errorMsg ? (
+            <Txt variant="body" tone="danger">
+              {errorMsg}
+            </Txt>
+          ) : null}
 
           <Button label="Absenden" onPress={handleSubmit} loading={mutation.isPending} />
         </View>

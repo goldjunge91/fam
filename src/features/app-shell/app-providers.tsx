@@ -1,13 +1,13 @@
 import { BugBubble, type BugBubbleConfig } from '@lokal-dev/react-native-bugbubble';
 import { QueryClientProvider } from '@tanstack/react-query';
-import { DarkTheme, DefaultTheme, ThemeProvider } from 'expo-router';
+import { DarkTheme, DefaultTheme, ThemeProvider as RouterThemeProvider } from 'expo-router';
 import { type ReactNode, useEffect, useState } from 'react';
-import { useColorScheme } from 'react-native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { KeyboardProvider } from 'react-native-keyboard-controller';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import { AnimatedSplashOverlay } from '@/components/icons/animated-icon';
+import { ThemeProvider as FamThemeProvider, useTheme } from '@/components/theme/ThemeProvider';
 import { SnackbarProvider } from '@/components/ui/snackbar';
 import { PostHogIdentitySync } from '@/features/app-shell/posthog-identity-sync';
 import { SessionProvider } from '@/features/auth/session-provider';
@@ -32,7 +32,6 @@ const BUG_BUBBLE_CONFIG = {
 
 /** Hält die globale Provider-Reihenfolge an einem Ort fest. */
 export function AppProviders({ children }: { children: ReactNode }) {
-  const colorScheme = useColorScheme();
   const [screenshotMode, setScreenshotMode] = useState(false);
 
   useEffect(() => {
@@ -70,15 +69,9 @@ export function AppProviders({ children }: { children: ReactNode }) {
                   <ScreenTracker />
                   <ActiveHouseholdProvider>
                     <PremiumProvider>
-                      <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-                        <SnackbarProvider>
-                          <AnimatedSplashOverlay />
-                          {children}
-                          {env.devTools && !screenshotMode ? (
-                            <BugBubble config={BUG_BUBBLE_CONFIG} />
-                          ) : null}
-                        </SnackbarProvider>
-                      </ThemeProvider>
+                      <FamThemeProvider>
+                        <ThemeRuntime screenshotMode={screenshotMode}>{children}</ThemeRuntime>
+                      </FamThemeProvider>
                     </PremiumProvider>
                   </ActiveHouseholdProvider>
                 </PostHogAppProvider>
@@ -88,5 +81,25 @@ export function AppProviders({ children }: { children: ReactNode }) {
         </GestureHandlerRootView>
       </Sentry.ErrorBoundary>
     </SafeAreaProvider>
+  );
+}
+
+function ThemeRuntime({
+  children,
+  screenshotMode,
+}: {
+  children: ReactNode;
+  screenshotMode: boolean;
+}) {
+  const { mode } = useTheme();
+
+  return (
+    <RouterThemeProvider value={mode === 'dark' ? DarkTheme : DefaultTheme}>
+      <SnackbarProvider>
+        <AnimatedSplashOverlay />
+        {children}
+        {env.devTools && !screenshotMode ? <BugBubble config={BUG_BUBBLE_CONFIG} /> : null}
+      </SnackbarProvider>
+    </RouterThemeProvider>
   );
 }

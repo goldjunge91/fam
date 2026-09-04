@@ -1,7 +1,7 @@
 import DateTimePicker from '@expo/ui/community/datetime-picker';
 import { useState } from 'react';
 import { Pressable, View } from 'react-native';
-import { ThemedText } from '@/components/theme/themed-text';
+import { Txt } from '@/constants/ui';
 
 export interface DateWheelFieldProps {
   label?: string;
@@ -46,9 +46,9 @@ export function DateWheelField({
   return (
     <View className="gap-one">
       {label && (
-        <ThemedText type="small" themeColor="textSecondary">
+        <Txt variant="body" tone="secondary">
           {label}
-        </ThemedText>
+        </Txt>
       )}
       <Pressable
         onPress={open}
@@ -59,9 +59,9 @@ export function DateWheelField({
             : `${label ?? 'Datum'} auswählen`
         }
         className="input-field active:opacity-75">
-        <ThemedText themeColor={value ? 'text' : 'textSecondary'}>
+        <Txt variant="body" tone={value ? 'primary' : 'secondary'}>
           {value ? formatIsoDate(value) : placeholder}
-        </ThemedText>
+        </Txt>
       </Pressable>
 
       {isOpen && (

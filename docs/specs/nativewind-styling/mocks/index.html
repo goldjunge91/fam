@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>fam UI Styling Review</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --bg: #f8f4ef;
+        --surface: #fbf7f2;
+        --surface-soft: #e9e1e7;
+        --text: #2d2830;
+        --muted: #786f79;
+        --border: #e4dde3;
+        --accent: #705773;
+        --on-accent: #ffffff;
+        --success: #78906f;
+        --warning: #c69059;
+        --danger: #c65f50;
+        --shadow: rgba(89, 64, 89, 0.16);
+        --shadow-strong: rgba(42, 31, 44, 0.22);
+      }
+
+      [data-theme='dark'] {
+        color-scheme: dark;
+        --bg: #211d23;
+        --surface: #2b262e;
+        --surface-soft: #382f3b;
+        --text: #f2ece7;
+        --muted: #b7adb3;
+        --border: #3e3640;
+        --accent: #b79cba;
+        --on-accent: #211d23;
+        --success: #8fae86;
+        --warning: #d9a86c;
+        --danger: #d9776a;
+        --shadow: rgba(0, 0, 0, 0.24);
+        --shadow-strong: rgba(0, 0, 0, 0.42);
+      }
+
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        min-width: 320px;
+        background: var(--bg);
+        color: var(--text);
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        transition: background-color 160ms ease, color 160ms ease;
+      }
+
+      button { font: inherit; }
+      .review-shell { max-width: 1220px; margin: 0 auto; padding: 44px 24px 64px; }
+      .review-header { display: flex; align-items: end; justify-content: space-between; gap: 24px; margin-bottom: 28px; }
+      .eyebrow { margin: 0 0 8px; color: var(--accent); font-size: 12px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+      h1 { margin: 0; font-size: clamp(28px, 4vw, 44px); line-height: 1.08; letter-spacing: -0.035em; }
+      .intro { max-width: 620px; margin: 12px 0 0; color: var(--muted); font-size: 16px; line-height: 1.5; }
+      .theme-toggle { display: inline-flex; align-items: center; gap: 8px; padding: 10px 14px; border: 1px solid var(--border); border-radius: 12px; background: var(--surface); color: var(--text); cursor: pointer; box-shadow: 0 3px 0 var(--shadow); }
+      .theme-toggle:focus-visible, .mock-button:focus-visible, .icon-button:focus-visible { outline: 3px solid color-mix(in srgb, var(--accent) 45%, transparent); outline-offset: 3px; }
+      .screen-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px; align-items: start; }
+      .mock-label { margin: 0 0 10px; color: var(--muted); font-size: 13px; font-weight: 600; }
+      .phone { overflow: hidden; min-height: 740px; border: 1px solid var(--border); border-radius: 28px; background: var(--bg); box-shadow: 0 18px 40px var(--shadow); }
+      .phone-top { display: flex; justify-content: space-between; align-items: center; padding: 18px 20px 14px; }
+      .status { color: var(--muted); font-size: 12px; font-weight: 600; }
+      .screen-content { padding: 6px 18px 28px; }
+      .screen-header { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 22px; }
+      .screen-title { margin: 0; font-size: 30px; line-height: 1.12; letter-spacing: -0.03em; }
+      .screen-subtitle { margin: 5px 0 0; color: var(--muted); font-size: 13px; line-height: 1.35; }
+      .icon-button { display: grid; width: 38px; height: 38px; place-items: center; border: 1px solid var(--border); border-radius: 999px; background: var(--surface); color: var(--text); cursor: pointer; box-shadow: 0 3px 0 var(--shadow); }
+      .section { margin-top: 22px; }
+      .section-heading { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin-bottom: 10px; }
+      .section-heading h2 { margin: 0; font-size: 18px; line-height: 1.3; }
+      .section-action { color: var(--accent); font-size: 13px; font-weight: 700; }
+      .card { padding: 16px; border: 1px solid var(--border); border-radius: 16px; background: var(--surface); box-shadow: 0 6px 16px var(--shadow); }
+      .hero-card { display: grid; grid-template-columns: 1fr auto; gap: 14px; align-items: center; padding: 18px; }
+      .hero-kicker { margin: 0 0 6px; color: var(--muted); font-size: 12px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; }
+      .hero-value { margin: 0; font-size: 28px; line-height: 1.1; }
+      .hero-meta { margin: 6px 0 0; color: var(--muted); font-size: 13px; line-height: 1.35; }
+      .ring { display: grid; width: 70px; height: 70px; place-items: center; border-radius: 50%; background: conic-gradient(var(--accent) 0 72%, var(--surface-soft) 72% 100%); }
+      .ring::after { display: grid; width: 54px; height: 54px; place-items: center; border-radius: 50%; background: var(--surface); color: var(--accent); content: '72%'; font-size: 13px; font-weight: 800; }
+      .list { display: grid; gap: 8px; }
+      .list-row { display: flex; align-items: center; justify-content: space-between; gap: 14px; min-height: 54px; padding: 10px 12px; border: 1px solid var(--border); border-radius: 12px; background: var(--surface); }
+      .row-copy { min-width: 0; }
+      .row-title { overflow: hidden; margin: 0; font-size: 15px; font-weight: 700; text-overflow: ellipsis; white-space: nowrap; }
+      .row-meta { margin: 4px 0 0; color: var(--muted); font-size: 12px; }
+      .row-status { color: var(--success); font-size: 12px; font-weight: 700; }
+      .row-status.warning { color: var(--warning); }
+      .row-status.danger { color: var(--danger); }
+      .button-row { display: flex; flex-wrap: wrap; gap: 9px; }
+      .mock-button { min-height: 42px; padding: 0 15px; border: 0; border-radius: 12px; font-size: 14px; font-weight: 750; cursor: pointer; transition: transform 90ms ease, opacity 90ms ease; }
+      .mock-button:active { transform: translateY(3px); }
+      .mock-button.primary { background: var(--accent); color: var(--on-accent); box-shadow: 0 4px 0 color-mix(in srgb, var(--accent) 68%, var(--text)); }
+      .mock-button.secondary { border: 1px solid var(--border); background: var(--surface); color: var(--text); box-shadow: 0 3px 0 var(--shadow); }
+      .mock-button.ghost { background: var(--surface-soft); color: var(--accent); }
+      .mock-button.danger { background: var(--danger); color: #fff; box-shadow: 0 4px 0 color-mix(in srgb, var(--danger) 68%, var(--text)); }
+      .mock-button.loading { background: var(--accent); color: var(--on-accent); opacity: .58; cursor: wait; }
+      .mock-button.disabled { background: var(--surface-soft); color: var(--muted); opacity: .65; cursor: not-allowed; }
+      .planner-date { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 14px; padding: 11px 13px; border: 1px solid var(--border); border-radius: 12px; background: var(--surface); }
+      .date-main { font-size: 15px; font-weight: 750; }
+      .date-meta { margin-top: 3px; color: var(--muted); font-size: 12px; }
+      .day-strip { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 5px; margin-bottom: 20px; }
+      .day { padding: 8px 2px; border: 1px solid transparent; border-radius: 10px; background: transparent; color: var(--muted); text-align: center; cursor: pointer; }
+      .day strong { display: block; margin-top: 3px; color: var(--text); font-size: 14px; }
+      .day.selected { border-color: var(--accent); background: var(--surface-soft); color: var(--accent); }
+      .day.selected strong { color: var(--accent); }
+      .meal-card { display: grid; grid-template-columns: 48px 1fr auto; gap: 12px; align-items: center; }
+      .meal-icon { display: grid; width: 48px; height: 48px; place-items: center; border-radius: 12px; background: var(--surface-soft); font-size: 22px; }
+      .meal-title { margin: 0; font-size: 15px; font-weight: 750; }
+      .meal-meta { margin: 4px 0 0; color: var(--muted); font-size: 12px; }
+      .meal-action { color: var(--accent); font-size: 12px; font-weight: 750; }
+      .note { margin-top: 20px; padding: 12px 14px; border-left: 3px solid var(--accent); background: var(--surface-soft); color: var(--muted); font-size: 12px; line-height: 1.45; }
+      .token-strip { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 24px; }
+      .token { display: inline-flex; align-items: center; gap: 6px; color: var(--muted); font-size: 11px; }
+      .swatch { width: 12px; height: 12px; border: 1px solid var(--border); border-radius: 3px; background: var(--accent); }
+      .swatch.surface { background: var(--surface); }
+      .swatch.soft { background: var(--surface-soft); }
+      .swatch.text { background: var(--text); }
+      @media (max-width: 860px) {
+        .review-header { align-items: start; flex-direction: column; }
+        .screen-grid { grid-template-columns: 1fr; max-width: 520px; margin: 0 auto; }
+      }
+      @media (max-width: 480px) {
+        .review-shell { padding: 28px 14px 42px; }
+        .phone { min-height: 0; border-radius: 22px; }
+      }
+    </style>
+  </head>
+  <body data-theme="light">
+    <main class="review-shell">
+      <header class="review-header">
+        <div>
+          <p class="eyebrow">fam · NativeWind Styling Review</p>
+          <h1>Zwei Screens, ein Styling-Vertrag</h1>
+          <p class="intro">Statischer Vergleich für Fam-Farben, Typografie, Cards, Buttons und die übernommene Press-Tiefe. Die Mocks sind keine Produktionskomponenten.</p>
+        </div>
+        <button class="theme-toggle" type="button" aria-pressed="false" data-theme-toggle>◐ <span>Dark Mode testen</span></button>
+      </header>
+
+      <section class="screen-grid" aria-label="Statische Screen-Mocks">
+        <article>
+          <p class="mock-label">Mock 01 · Dashboard</p>
+          <div class="phone">
+            <div class="phone-top"><span class="status">09:41</span><span class="status">Haushalt · Heute</span></div>
+            <div class="screen-content">
+              <header class="screen-header">
+                <div><h2 class="screen-title">Guten Morgen</h2><p class="screen-subtitle">Alles Wichtige für euren Haushalt.</p></div>
+                <button class="icon-button" type="button" aria-label="Benachrichtigungen">♢</button>
+              </header>
+
+              <section class="card hero-card" aria-label="Wochenfortschritt">
+                <div><p class="hero-kicker">Diese Woche</p><h3 class="hero-value">12 Aufgaben offen</h3><p class="hero-meta">4 davon sind heute fällig.</p></div>
+                <div class="ring" aria-label="72 Prozent erledigt"></div>
+              </section>
+
+              <section class="section">
+                <div class="section-heading"><h2>Schnellzugriff</h2><span class="section-action">Anpassen</span></div>
+                <div class="button-row">
+                  <button class="mock-button primary" type="button">+ Einkauf</button>
+                  <button class="mock-button secondary" type="button">Bestand</button>
+                  <button class="mock-button ghost" type="button">Planner</button>
+                </div>
+              </section>
+
+              <section class="section">
+                <div class="section-heading"><h2>Heute</h2><span class="section-action">Alle ansehen</span></div>
+                <div class="list">
+                  <div class="list-row"><div class="row-copy"><p class="row-title">Milch und Haferflocken</p><p class="row-meta">Einkaufsliste · Marco</p></div><span class="row-status">offen</span></div>
+                  <div class="list-row"><div class="row-copy"><p class="row-title">Spinat verbrauchen</p><p class="row-meta">Bestand · Kühlschrank</p></div><span class="row-status warning">bald</span></div>
+                  <div class="list-row"><div class="row-copy"><p class="row-title">Wocheneinkauf planen</p><p class="row-meta">Essensplaner · Sonntag</p></div><span class="row-status danger">heute</span></div>
+                </div>
+              </section>
+
+              <section class="section">
+                <div class="section-heading"><h2>Button-Zustände</h2></div>
+                <div class="button-row">
+                  <button class="mock-button danger" type="button">Löschen</button>
+                  <button class="mock-button loading" type="button" disabled>Speichern …</button>
+                  <button class="mock-button disabled" type="button" disabled>Deaktiviert</button>
+                </div>
+              </section>
+            </div>
+          </div>
+        </article>
+
+        <article>
+          <p class="mock-label">Mock 02 · Essensplaner</p>
+          <div class="phone">
+            <div class="phone-top"><span class="status">09:41</span><span class="status">Essensplan</span></div>
+            <div class="screen-content">
+              <header class="screen-header">
+                <div><h2 class="screen-title">Diese Woche</h2><p class="screen-subtitle">Plant gemeinsam, kocht entspannter.</p></div>
+                <button class="icon-button" type="button" aria-label="Woche wechseln">›</button>
+              </header>
+
+              <div class="planner-date"><div><div class="date-main">16. bis 22. September</div><div class="date-meta">2 von 7 Tagen geplant</div></div><span class="section-action">Heute</span></div>
+              <div class="day-strip" role="tablist" aria-label="Wochentage">
+                <button class="day" type="button"><span>Mo</span><strong>16</strong></button>
+                <button class="day selected" type="button" aria-selected="true"><span>Di</span><strong>17</strong></button>
+                <button class="day" type="button"><span>Mi</span><strong>18</strong></button>
+                <button class="day" type="button"><span>Do</span><strong>19</strong></button>
+                <button class="day" type="button"><span>Fr</span><strong>20</strong></button>
+                <button class="day" type="button"><span>Sa</span><strong>21</strong></button>
+                <button class="day" type="button"><span>So</span><strong>22</strong></button>
+              </div>
+
+              <section class="section">
+                <div class="section-heading"><h2>Dienstag</h2><span class="section-action">Bearbeiten</span></div>
+                <div class="list">
+                  <div class="card meal-card"><div class="meal-icon">🥗</div><div><p class="meal-title">Bunter Couscous-Salat</p><p class="meal-meta">25 min · 4 Portionen</p></div><span class="meal-action">Öffnen</span></div>
+                  <div class="card meal-card"><div class="meal-icon">🍲</div><div><p class="meal-title">Linsen-Kokos-Curry</p><p class="meal-meta">35 min · Zutaten fehlen</p></div><span class="meal-action">Prüfen</span></div>
+                </div>
+              </section>
+
+              <section class="section">
+                <div class="section-heading"><h2>Aktionen</h2></div>
+                <div class="button-row">
+                  <button class="mock-button primary" type="button">+ Gericht planen</button>
+                  <button class="mock-button secondary" type="button">Rezept suchen</button>
+                </div>
+              </section>
+
+              <p class="note">Prüfpunkt: Bleiben Titel, Metadaten und Button-Text in beiden Themes lesbar, ohne dass eine Utility-Klasse die semantischen Werte überschreibt?</p>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <div class="token-strip" aria-label="Verwendete Fam-Semantik">
+        <span class="token"><i class="swatch"></i> accent</span>
+        <span class="token"><i class="swatch surface"></i> surface</span>
+        <span class="token"><i class="swatch soft"></i> selected / soft</span>
+        <span class="token"><i class="swatch text"></i> text</span>
+      </div>
+    </main>
+    <script>
+      const root = document.body;
+      const toggle = document.querySelector('[data-theme-toggle]');
+      toggle.addEventListener('click', () => {
+        const dark = root.dataset.theme !== 'dark';
+        root.dataset.theme = dark ? 'dark' : 'light';
+        toggle.setAttribute('aria-pressed', String(dark));
+        toggle.querySelector('span').textContent = dark ? 'Light Mode testen' : 'Dark Mode testen';
+      });
+    </script>
+  </body>
+</html>

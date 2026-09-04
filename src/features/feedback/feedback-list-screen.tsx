@@ -4,12 +4,11 @@ import { useCallback, useEffect, useState } from 'react';
 import { Pressable, View } from 'react-native';
 
 import { Screen } from '@/components/layout/screen';
-import { ThemedText } from '@/components/theme/themed-text';
-import { ThemedView } from '@/components/theme/themed-view';
+import { space } from '@/components/theme/index';
 import { Button } from '@/components/ui/buttons';
 import { Card } from '@/components/ui/card';
 import { EmptyState } from '@/components/ui/empty-state';
-import { Spacing } from '@/constants/layout';
+import { Surface, Txt } from '@/constants/ui';
 import { useSession } from '@/features/auth/session-provider';
 import { type FeedbackTicket, useMyTickets } from '@/features/feedback/api';
 import {
@@ -20,6 +19,11 @@ import {
 import { useFeedbackRealtime } from '@/features/feedback/use-feedback-realtime';
 
 const BANNER_DURATION_MS = 4000;
+const STATUS_TONE = {
+  textSecondary: 'secondary',
+  warning: 'warning',
+  success: 'success',
+} as const;
 
 function TicketRow({ ticket }: { ticket: FeedbackTicket }) {
   return (
@@ -27,14 +31,17 @@ function TicketRow({ ticket }: { ticket: FeedbackTicket }) {
       <Card>
         <View className="flex-row items-center justify-between">
           <View className="flex-1 gap-one">
-            <ThemedText type="smallBold">{`#${ticket.ticket_number} · ${ticket.subject}`}</ThemedText>
-            <ThemedText type="small" themeColor="textSecondary">
+            <Txt variant="body" weight="700">{`#${ticket.ticket_number} · ${ticket.subject}`}</Txt>
+            <Txt variant="body" tone="secondary">
               {`${FEEDBACK_TYPE_LABELS[ticket.type]} · ${new Date(ticket.created_at).toLocaleDateString('de-DE')}`}
-            </ThemedText>
+            </Txt>
           </View>
-          <ThemedText type="smallBold" themeColor={FEEDBACK_STATUS_COLORS[ticket.status]}>
+          <Txt
+            variant="body"
+            weight="700"
+            tone={STATUS_TONE[FEEDBACK_STATUS_COLORS[ticket.status]]}>
             {FEEDBACK_STATUS_LABELS[ticket.status]}
-          </ThemedText>
+          </Txt>
         </View>
       </Card>
     </Pressable>
@@ -90,15 +97,15 @@ export function FeedbackListScreen() {
       scroll={false}
       back={{ label: 'Einstellungen', href: '/settings' }}>
       {banner ? (
-        <ThemedView type="backgroundElement" className="rounded-card p-two mb-two">
-          <ThemedText type="small">{banner}</ThemedText>
-        </ThemedView>
+        <Surface tone="surface" className="rounded-card p-two mb-two">
+          <Txt variant="body">{banner}</Txt>
+        </Surface>
       ) : null}
       <FlashList
         data={tickets}
         keyExtractor={(item) => item.id}
-        contentContainerStyle={{ paddingVertical: Spacing.two }}
-        ItemSeparatorComponent={() => <View style={{ height: Spacing.two }} />}
+        contentContainerStyle={{ paddingVertical: space.sm }}
+        ItemSeparatorComponent={() => <View style={{ height: space.sm }} />}
         renderItem={({ item }) => <TicketRow ticket={item} />}
       />
     </Screen>

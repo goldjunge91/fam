@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { Pressable, View } from 'react-native';
-import { ThemedText } from '@/components/theme/themed-text';
 import { Card } from '@/components/ui/card';
 import { useSnackbar } from '@/components/ui/snackbar';
+import { Txt } from '@/constants/ui';
 import { CorrelationMenuItem } from '@/features/glp1/components/correlation-menu-item';
 import { Glp1LogHistory } from '@/features/glp1/components/glp1-log-history';
 import { formatDaysSince } from '@/features/glp1/domain/format-days-since';
@@ -174,60 +174,62 @@ export function Glp1Card({
     <Card className="p-four gap-three">
       <View className="flex-row items-center justify-between">
         <View className="flex-row items-center gap-two">
-          <ThemedText type="smallBold">💉 GLP-1 & Medikation</ThemedText>
+          <Txt variant="body" weight="700">
+            💉 GLP-1 & Medikation
+          </Txt>
         </View>
-        <ThemedText type="caption" themeColor="textSecondary">
+        <Txt variant="caption" tone="secondary">
           Privat
-        </ThemedText>
+        </Txt>
       </View>
 
       <View className="flex-row justify-between bg-surface p-three rounded-xl border border-border gap-two">
         <View className="flex-1">
-          <ThemedText type="caption" themeColor="textSecondary">
+          <Txt variant="caption" tone="secondary">
             Letzte Injektion
-          </ThemedText>
+          </Txt>
           {latestInjection ? (
             <View className="mt-one">
-              <ThemedText type="smallBold">
+              <Txt variant="body" weight="700">
                 {latestInjection.medication_name} ({latestInjection.dose} {latestInjection.unit})
-              </ThemedText>
-              <ThemedText type="caption" themeColor="textSecondary">
+              </Txt>
+              <Txt variant="caption" tone="secondary">
                 {formatDaysSince(latestInjection.administered_at)}
-              </ThemedText>
+              </Txt>
             </View>
           ) : (
-            <ThemedText type="small" themeColor="textSecondary" className="mt-one">
+            <Txt variant="body" tone="secondary" className="mt-one">
               Keine Injektion erfasst
-            </ThemedText>
+            </Txt>
           )}
         </View>
 
         <View className="flex-1">
-          <ThemedText type="caption" themeColor="textSecondary">
+          <Txt variant="caption" tone="secondary">
             Letzter Sättigungs-Status
-          </ThemedText>
+          </Txt>
           {latestSymptom ? (
             <View className="mt-one">
-              <ThemedText type="smallBold">
+              <Txt variant="body" weight="700">
                 Appetit {latestSymptom.appetite_level}/5 · Sättigung {latestSymptom.satiety_level}
                 /5
-              </ThemedText>
+              </Txt>
               {(latestSymptom.nausea_level ?? 0) > 0 || latestSymptom.side_effects.length > 0 ? (
-                <ThemedText type="caption" themeColor="warning">
+                <Txt variant="caption" tone="warning">
                   {latestSymptom.side_effects.length > 0
                     ? latestSymptom.side_effects.join(' · ')
                     : `Übelkeit: Stufe ${latestSymptom.nausea_level}/5`}
-                </ThemedText>
+                </Txt>
               ) : (
-                <ThemedText type="caption" themeColor="success">
+                <Txt variant="caption" tone="success">
                   Keine Nebenwirkungen
-                </ThemedText>
+                </Txt>
               )}
             </View>
           ) : (
-            <ThemedText type="small" themeColor="textSecondary" className="mt-one">
+            <Txt variant="body" tone="secondary" className="mt-one">
               Kein Symptom-Log
-            </ThemedText>
+            </Txt>
           )}
         </View>
       </View>
@@ -246,18 +248,18 @@ export function Glp1Card({
             )
           }
           className="flex-1 py-two px-three rounded-xl bg-card border border-border items-center justify-center">
-          <ThemedText type="labelBold">
+          <Txt variant="label" weight="700">
             {activeForm?.kind === 'injection' ? 'Abbrechen' : '+ Injektion eintragen'}
-          </ThemedText>
+          </Txt>
         </Pressable>
         <Pressable
           onPress={() =>
             setActiveForm((current) => (current?.kind === 'symptom' ? null : { kind: 'symptom' }))
           }
           className="flex-1 py-two px-three rounded-xl bg-card border border-border items-center justify-center">
-          <ThemedText type="labelBold">
+          <Txt variant="label" weight="700">
             {activeForm?.kind === 'symptom' ? 'Abbrechen' : '+ Symptome loggen'}
-          </ThemedText>
+          </Txt>
         </Pressable>
       </View>
 

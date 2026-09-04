@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { View } from 'react-native';
-import { ThemedText } from '@/components/theme/themed-text';
 import { SegmentedControl } from '@/components/ui/segmented-control';
+import { Txt } from '@/constants/ui';
 import type { CorrelationSeriesPoint } from '@/features/glp1/domain/correlation-series';
 
 type CorrelationSectionProps = {
@@ -40,30 +40,32 @@ function CorrelationRow({ point }: { point: CorrelationSeriesPoint }) {
   return (
     <View className="gap-one border-b border-border py-two">
       <View className="flex-row items-center justify-between gap-two">
-        <ThemedText type="labelBold">{formatDate(point.date)}</ThemedText>
-        <ThemedText type="caption" themeColor="textSecondary">
+        <Txt variant="label" weight="700">
+          {formatDate(point.date)}
+        </Txt>
+        <Txt variant="caption" tone="secondary">
           {point.daysSinceInjection === null
             ? 'Noch keine Injektion'
             : `Tag ${point.daysSinceInjection}`}
-        </ThemedText>
+        </Txt>
       </View>
 
       {point.injection ? (
         <View className="flex-row flex-wrap items-center gap-two">
-          <ThemedText type="caption" themeColor="accent">
+          <Txt variant="caption" tone="secondary">
             Injektion {point.injection.dose ?? '–'} {point.injection.unit}
-          </ThemedText>
+          </Txt>
           {point.doseChanged ? (
-            <ThemedText type="caption" themeColor="warning">
+            <Txt variant="caption" tone="warning">
               Dosis geändert
-            </ThemedText>
+            </Txt>
           ) : null}
         </View>
       ) : null}
 
       <View className="flex-row items-center justify-between gap-two">
-        <ThemedText type="small">{formatCalories(point.calories)}</ThemedText>
-        <ThemedText type="small">{formatWeight(point.weightKg)}</ThemedText>
+        <Txt variant="body">{formatCalories(point.calories)}</Txt>
+        <Txt variant="body">{formatWeight(point.weightKg)}</Txt>
       </View>
     </View>
   );
@@ -75,7 +77,9 @@ export function CorrelationSection({ series }: CorrelationSectionProps) {
 
   return (
     <View className="gap-two">
-      <ThemedText type="labelBold">Injektion, Kalorien und Gewicht</ThemedText>
+      <Txt variant="label" weight="700">
+        Injektion, Kalorien und Gewicht
+      </Txt>
       <SegmentedControl
         label="Auswertungszeitraum"
         options={PERIOD_OPTIONS}

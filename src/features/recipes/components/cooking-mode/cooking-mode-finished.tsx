@@ -2,7 +2,8 @@ import { router } from 'expo-router';
 import { useState } from 'react';
 import { Pressable, ScrollView, View } from 'react-native';
 
-import { ThemedText } from '@/components/theme/themed-text';
+import { useTheme } from '@/components/theme/ThemeProvider';
+import { Txt } from '@/constants/ui';
 import type { RecipeDetail } from '../../hooks/use-recipes';
 import { RecipeRatingSheet } from '../recipe-rating-sheet';
 import { CookingModeFinishAction } from './cooking-mode-finish-action';
@@ -20,22 +21,28 @@ export function CookingModeFinished({
   isCatalog = false,
 }: CookingModeFinishedProps) {
   const [ratingOpen, setRatingOpen] = useState(false);
+  const { colors } = useTheme();
 
   return (
     <CookingModeShell title="Fertig" backLabel="Zurück zum letzten Schritt" onBack={onBack}>
       <ScrollView
         contentContainerClassName="flex-grow items-center px-four pt-[38px] pb-six"
         showsVerticalScrollIndicator={false}>
-        <View className="w-[82px] h-[82px] rounded-fam-large bg-background-selected" />
-        <ThemedText type="headingSmall" className="pt-[18px]">
+        <View
+          className="w-[82px] h-[82px] rounded-fam-large"
+          style={{ backgroundColor: colors.surfaceSoft }}
+        />
+        <Txt variant="heading" className="pt-[18px]">
           Guten Appetit!
-        </ThemedText>
-        <ThemedText
-          type="detail"
-          themeColor="textSecondary"
-          className="pt-[6px] text-[10px] leading-[13px] font-medium text-center">
+        </Txt>
+        <Txt
+          variant="caption"
+          tone="secondary"
+          center
+          className="pt-[6px]"
+          style={{ fontSize: 10, lineHeight: 13 }}>
           Alles Weitere ist freiwillig und kann übersprungen werden.
-        </ThemedText>
+        </Txt>
 
         {!isCatalog ? (
           <View className="w-full gap-two pt-six">
@@ -66,12 +73,9 @@ export function CookingModeFinished({
           onPress={() => router.back()}
           role="button"
           className="mt-auto px-[10px] py-three">
-          <ThemedText
-            type="detail"
-            themeColor="textSecondary"
-            className="text-[10px] leading-[13px] font-medium">
+          <Txt variant="caption" tone="secondary" style={{ fontSize: 10, lineHeight: 13 }}>
             Ohne Angaben schließen
-          </ThemedText>
+          </Txt>
         </Pressable>
       </ScrollView>
 

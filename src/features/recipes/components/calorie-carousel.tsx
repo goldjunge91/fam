@@ -1,6 +1,7 @@
 import { Pressable, ScrollView, View } from 'react-native';
 
-import { ThemedText } from '@/components/theme/themed-text';
+import { useTheme } from '@/components/theme/ThemeProvider';
+import { Txt } from '@/constants/ui';
 import { CALORIE_BUCKETS } from '@/features/recipes/domain/recipe-calorie-buckets';
 
 /** Dekoratives Food-Emoji je `CALORIE_BUCKETS`-Bucket. */
@@ -13,6 +14,7 @@ type CalorieCarouselProps = {
 
 /** "Rezepte nach Kalorien": 2 Reihen, horizontal scrollend, 10 Buckets a 100 kcal. */
 export function CalorieCarousel({ selectedIndex, onSelect }: CalorieCarouselProps) {
+  const { colors } = useTheme();
   const columns = Array.from({ length: Math.ceil(CALORIE_BUCKETS.length / 2) }, (_, column) =>
     CALORIE_BUCKETS.slice(column * 2, column * 2 + 2),
   );
@@ -34,23 +36,29 @@ export function CalorieCarousel({ selectedIndex, onSelect }: CalorieCarouselProp
                 role="button"
                 aria-label={`${bucket.label} Kilokalorien`}
                 aria-selected={selected}
-                className={`calorie-tile ${selected ? 'selectable-selected' : 'selectable-idle'}`}>
-                <ThemedText className="text-[22px] leading-[25px]">
+                className="calorie-tile"
+                style={{
+                  backgroundColor: selected ? colors.basil : colors.surface,
+                  borderColor: selected ? colors.basil : colors.border,
+                }}>
+                <Txt variant="body" style={{ fontSize: 22, lineHeight: 25 }}>
                   {BUCKET_EMOJI[index]}
-                </ThemedText>
-                <ThemedText
-                  type="captionCompact"
-                  themeColor={selected ? 'onAccent' : 'text'}
-                  className="font-bold mt-half"
+                </Txt>
+                <Txt
+                  variant="body"
+                  tone={selected ? 'onAccent' : 'primary'}
+                  weight="700"
+                  className="mt-half"
+                  style={{ fontSize: 11, lineHeight: 14 }}
                   numberOfLines={1}>
                   {bucket.label}
-                </ThemedText>
-                <ThemedText
-                  type="detail"
-                  themeColor={selected ? 'onAccent' : 'textSecondary'}
-                  className="text-[9px] leading-[11px] font-medium">
+                </Txt>
+                <Txt
+                  variant="caption"
+                  tone={selected ? 'onAccent' : 'secondary'}
+                  style={{ fontSize: 9, lineHeight: 11 }}>
                   kcal
-                </ThemedText>
+                </Txt>
               </Pressable>
             );
           })}

@@ -1,8 +1,7 @@
 import { useState } from 'react';
 import { Modal, Pressable, ScrollView, View } from 'react-native';
-
-import { ThemedText } from '@/components/theme/themed-text';
 import { Button } from '@/components/ui/buttons';
+import { Txt } from '@/constants/ui';
 import { debugLog } from '@/lib/debug-log';
 import {
   normalizePlacementOrder,
@@ -60,9 +59,9 @@ export function PlacementZoneField({
 
   return (
     <View className="gap-one">
-      <ThemedText type="small" themeColor="textSecondary">
+      <Txt variant="body" tone="secondary">
         {label}
-      </ThemedText>
+      </Txt>
       <Pressable
         onPress={() => setIsOpen(true)}
         accessibilityRole="button"
@@ -75,11 +74,11 @@ export function PlacementZoneField({
           />
         ) : null}
         <View className="flex-1 min-w-0">
-          <ThemedText type="body" numberOfLines={1}>
+          <Txt variant="body" numberOfLines={1}>
             {zoneLabel}
-          </ThemedText>
+          </Txt>
         </View>
-        <ThemedText themeColor="textSecondary">⌄</ThemedText>
+        <Txt tone="secondary">⌄</Txt>
       </Pressable>
 
       <Modal
@@ -89,7 +88,9 @@ export function PlacementZoneField({
         onRequestClose={() => setIsOpen(false)}>
         <View className="modal-backdrop">
           <View className="modal-sheet">
-            <ThemedText type="subtitle">{label}</ThemedText>
+            <Txt variant="heading" weight="700">
+              {label}
+            </Txt>
             <ScrollView style={{ maxHeight: 420 }} className="gap-[2px]">
               <PlacementZoneOption
                 label="Automatisch"
@@ -147,10 +148,10 @@ function PlacementZoneOption({
       ) : (
         <View className="w-[10px] h-[10px]" />
       )}
-      <ThemedText type="body" className="flex-1">
+      <Txt variant="body" className="flex-1">
         {label}
-      </ThemedText>
-      {checked ? <ThemedText themeColor="accent">✓</ThemedText> : null}
+      </Txt>
+      {checked ? <Txt tone="success">✓</Txt> : null}
     </Pressable>
   );
 }

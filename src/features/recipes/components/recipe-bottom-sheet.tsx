@@ -1,7 +1,8 @@
 import type { ReactNode } from 'react';
 import { KeyboardAvoidingView, Modal, Pressable, View } from 'react-native';
 
-import { ThemedText } from '@/components/theme/themed-text';
+import { useTheme } from '@/components/theme/ThemeProvider';
+import { Txt } from '@/constants/ui';
 
 type RecipeBottomSheetProps = {
   visible: boolean;
@@ -22,26 +23,29 @@ export function RecipeBottomSheet({
   avoidKeyboard = false,
   children,
 }: RecipeBottomSheetProps) {
+  const { colors } = useTheme();
   if (!visible) return null;
 
   const body = (
     <Pressable className="flex-1 justify-end bg-[#261f27]/30" onPress={onClose}>
       <Pressable
         className={`recipe-sheet-surface ${sheetClassName}`.trim()}
+        style={{ backgroundColor: colors.surface }}
         onPress={(event) => event.stopPropagation()}>
         <View className="modal-handle" />
         <View className="min-h-[58px] pt-[13px] flex-row items-center justify-between gap-three">
-          <ThemedText type="headingSmall" className="flex-1">
+          <Txt variant="heading" className="flex-1">
             {title}
-          </ThemedText>
+          </Txt>
           <Pressable
             onPress={onClose}
             role="button"
             aria-label="Schließen"
-            className="btn-modal-close">
-            <ThemedText themeColor="accent" className="text-[18px] leading-[20px] font-medium">
+            className="btn-modal-close"
+            style={{ backgroundColor: colors.surfaceSoft }}>
+            <Txt variant="body" tone="secondary" style={{ fontSize: 18, lineHeight: 20, fontWeight: '500' }}>
               ×
-            </ThemedText>
+            </Txt>
           </Pressable>
         </View>
         {children}

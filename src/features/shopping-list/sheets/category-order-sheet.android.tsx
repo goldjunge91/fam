@@ -7,9 +7,8 @@ import ReorderableList, {
   useIsActive,
   useReorderableDrag,
 } from 'react-native-reorderable-list';
-
-import { ThemedText } from '@/components/theme/themed-text';
-import { useTheme } from '@/hooks/use-theme';
+import { useTheme } from '@/components/theme/ThemeProvider';
+import { Txt } from '@/constants/ui';
 import { debugLogEvent } from '@/lib/debug-log';
 import {
   parseCategoryOrder,
@@ -37,23 +36,23 @@ interface RowProps {
 }
 
 function Row({ category }: RowProps) {
-  const theme = useTheme();
+  const { colors: theme } = useTheme();
   const drag = useReorderableDrag();
   const isActive = useIsActive();
 
   return (
     <View
       className="category-order-row"
-      style={isActive ? { backgroundColor: theme.backgroundElement } : undefined}>
-      <ThemedText type="default">{category.label}</ThemedText>
+      style={isActive ? { backgroundColor: theme.surface } : undefined}>
+      <Txt variant="body">{category.label}</Txt>
       <Pressable
         onPressIn={drag}
         className="category-order-handle"
         accessibilityRole="adjustable"
         accessibilityLabel={`${category.label} verschieben`}>
-        <ThemedText type="subtitle" className="opacity-50">
+        <Txt variant="heading" weight="700" className="opacity-50">
           ⠿
-        </ThemedText>
+        </Txt>
       </Pressable>
     </View>
   );
@@ -66,7 +65,7 @@ interface Props {
 }
 
 export function CategoryOrderSheet({ isOpen, store, onClose }: Props) {
-  const theme = useTheme();
+  const { colors: theme } = useTheme();
   const sheetRef = useRef<BottomSheet>(null);
 
   const [order, setOrder] = useState<ShoppingCategory[]>(() => resolveOrder(store));
@@ -122,7 +121,7 @@ export function CategoryOrderSheet({ isOpen, store, onClose }: Props) {
       snapPoints={['70%', '90%']}
       enablePanDownToClose
       onClose={onClose}
-      backgroundStyle={{ backgroundColor: theme.background }}
+      backgroundStyle={{ backgroundColor: theme.bg }}
       handleIndicatorStyle={{ backgroundColor: theme.border }}>
       {}
       <BottomSheetView style={{ flex: 1 }}>
@@ -136,14 +135,20 @@ export function CategoryOrderSheet({ isOpen, store, onClose }: Props) {
           contentContainerStyle={{ flexGrow: 1, paddingHorizontal: 24 }}
           ListHeaderComponent={
             <View className="pt-two pb-three gap-[2px]">
-              <ThemedText type="subtitle">Reihenfolge bearbeiten</ThemedText>
-              <ThemedText type="smallMuted">{store?.name ?? ''} — am Griff ⠿ ziehen</ThemedText>
+              <Txt variant="heading" weight="700">
+                Reihenfolge bearbeiten
+              </Txt>
+              <Txt variant="body" tone="secondary">
+                {store?.name ?? ''} — am Griff ⠿ ziehen
+              </Txt>
             </View>
           }
           ListFooterComponent={
             <View className="row-between py-four">
               <Pressable onPress={handleReset} accessibilityRole="button" className="py-two">
-                <ThemedText type="smallMuted">Auf Standard zurücksetzen</ThemedText>
+                <Txt variant="body" tone="secondary">
+                  Auf Standard zurücksetzen
+                </Txt>
               </Pressable>
               <Pressable
                 onPress={handleSave}
@@ -151,10 +156,10 @@ export function CategoryOrderSheet({ isOpen, store, onClose }: Props) {
                 accessibilityRole="button"
                 className="px-four py-three rounded-card"
                 // Dynamische Markt-Farbe aus der Datenbank
-                style={{ backgroundColor: store?.color ?? theme.accent }}>
-                <ThemedText type="default" className="text-white font-bold">
+                style={{ backgroundColor: store?.color ?? theme.basil }}>
+                <Txt variant="body" tone="onAccent" weight="700">
                   Speichern
-                </ThemedText>
+                </Txt>
               </Pressable>
             </View>
           }

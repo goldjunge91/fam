@@ -2,11 +2,11 @@ import { useQuery } from '@tanstack/react-query';
 import { ActivityIndicator, Modal, Pressable, ScrollView, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
-import { ThemedText } from '@/components/theme/themed-text';
+import { useTheme } from '@/components/theme/ThemeProvider';
+import { Txt } from '@/constants/ui';
 import { useProduct } from '@/features/inventory/use-product';
 import { offApiSource } from '@/features/product-search/sources/off-api-source';
 import type { CatalogProduct } from '@/features/product-search/types';
-import { useTheme } from '@/hooks/use-theme';
 
 export type ProductInformationItem = {
   product_id: string | null;
@@ -48,7 +48,7 @@ function formatExpiry(value: string | null | undefined): string {
 }
 
 export function ProductInformation({ visible, item, onClose }: ProductInformationProps) {
-  const theme = useTheme();
+  const { colors } = useTheme();
   const insets = useSafeAreaInsets();
   const { data: localProduct } = useProduct(item?.product_id);
   const { data: openFoodFactsProduct, isFetching } = useQuery({
@@ -101,97 +101,116 @@ export function ProductInformation({ visible, item, onClose }: ProductInformatio
         />
 
         <View
-          className="absolute left-3 right-3 bottom-[10px] max-h-[82%] rounded-fam-large overflow-hidden bg-background-element shadow-sheet"
+          className="absolute left-3 right-3 bottom-[10px] max-h-[82%] rounded-fam-large overflow-hidden shadow-sheet"
           // Bottom-Safe-Area ist ein echter Laufzeitwert (Geraet-abhaengig),
           // kann nicht als Tailwind-Klasse ausgedrueckt werden. 24px = pb-four.
-          style={{ paddingBottom: insets.bottom + 24 }}>
+          style={{ backgroundColor: colors.surface, paddingBottom: insets.bottom + 24 }}>
           <View className="w-[42px] h-[4px] rounded-hairline self-center mt-[11px] bg-border" />
           <ScrollView
             showsVerticalScrollIndicator={false}
             contentContainerClassName="p-[20px] gap-[14px]">
             <View className="flex-row items-start gap-three">
               <View className="flex-1 gap-[3px]">
-                <ThemedText type="subtitle" selectable>
+                <Txt variant="title" weight="600" selectable>
                   {item.name}
-                </ThemedText>
-                <ThemedText type="small" themeColor="textSecondary" selectable>
+                </Txt>
+                <Txt variant="body" tone="secondary" weight="500" selectable>
                   {brand}
-                </ThemedText>
+                </Txt>
               </View>
               <Pressable
                 onPress={onClose}
                 accessibilityRole="button"
                 accessibilityLabel="Schließen"
-                className="w-[34px] h-[34px] rounded-sheet items-center justify-center bg-background-selected active:opacity-75">
-                <ThemedText>×</ThemedText>
+                className="w-[34px] h-[34px] rounded-sheet items-center justify-center active:opacity-75"
+                style={{ backgroundColor: colors.surfaceSoft }}>
+                <Txt variant="body" tone="secondary">×</Txt>
               </Pressable>
             </View>
 
-            <View className="min-h-[88px] rounded-sheet p-[12px] flex-row items-center gap-[12px] bg-background">
+            <View
+              className="min-h-[88px] rounded-sheet p-[12px] flex-row items-center gap-[12px]"
+              style={{ backgroundColor: colors.bg }}>
               <View
                 className={`w-[62px] h-[62px] rounded-card items-center justify-center ${
-                  score ? NUTRI_BADGE_CLASSES[score] : 'bg-background-selected'
-                }`}>
-                <ThemedText
-                  className={`text-[24px] leading-[28px] font-bold ${score ? 'text-white' : ''}`}
-                  themeColor={score ? undefined : 'text'}>
+                  score ? NUTRI_BADGE_CLASSES[score] : ''
+                }`}
+                style={!score ? { backgroundColor: colors.surfaceSoft } : undefined}>
+                <Txt
+                  variant="body"
+                  weight="700"
+                  tone={score ? 'inverse' : 'primary'}
+                  style={{ fontSize: 24, lineHeight: 28 }}>
                   {score?.toUpperCase() ?? '–'}
-                </ThemedText>
+                </Txt>
               </View>
               <View className="flex-1 gap-[3px]">
-                <ThemedText type="smallBold">Nutri-Score {score?.toUpperCase() ?? '–'}</ThemedText>
-                <ThemedText type="small" themeColor="textSecondary">
+                <Txt variant="body" weight="700">
+                  Nutri-Score {score?.toUpperCase() ?? '–'}
+                </Txt>
+                <Txt variant="body" tone="secondary" weight="500">
                   Produktdaten von Open Food Facts
-                </ThemedText>
+                </Txt>
               </View>
-              {isFetching ? <ActivityIndicator size="small" color={theme.accent} /> : null}
+              {isFetching ? <ActivityIndicator size="small" color={colors.basil} /> : null}
             </View>
 
             <View className="border-hairline rounded-sheet overflow-hidden border-border">
               <View className="min-h-[50px] px-[14px] flex-row items-center justify-between gap-three border-b-hairline border-border">
-                <ThemedText type="small" themeColor="textSecondary">
+                <Txt variant="body" tone="secondary" weight="500">
                   Menge und Einheit
-                </ThemedText>
-                <ThemedText type="smallBold" selectable>
+                </Txt>
+                <Txt variant="body" weight="700" selectable>
                   {item.quantity} {item.unit}
-                </ThemedText>
+                </Txt>
               </View>
               <View className="min-h-[50px] px-[14px] flex-row items-center justify-between gap-three">
-                <ThemedText type="small" themeColor="textSecondary">
+                <Txt variant="body" tone="secondary" weight="500">
                   Mindesthaltbarkeitsdatum
-                </ThemedText>
-                <ThemedText type="smallBold" selectable>
+                </Txt>
+                <Txt variant="body" weight="700" selectable>
                   {formatExpiry(item.expiry_date)}
-                </ThemedText>
+                </Txt>
               </View>
             </View>
 
-            <View className="rounded-sheet p-[14px] gap-[6px] bg-background">
-              <ThemedText type="smallBold">Zutaten</ThemedText>
-              <ThemedText type="small" themeColor="textSecondary" selectable>
+            <View
+              className="rounded-sheet p-[14px] gap-[6px]"
+              style={{ backgroundColor: colors.bg }}>
+              <Txt variant="body" weight="700">
+                Zutaten
+              </Txt>
+              <Txt variant="body" tone="secondary" weight="500" selectable>
                 {openFoodFactsProduct?.ingredients ?? 'Keine Zutaten angegeben.'}
-              </ThemedText>
+              </Txt>
             </View>
 
-            <View className="rounded-sheet p-[14px] gap-[6px] bg-background">
-              <ThemedText type="smallBold">Allergene</ThemedText>
-              <ThemedText type="small" themeColor="textSecondary" selectable>
+            <View
+              className="rounded-sheet p-[14px] gap-[6px]"
+              style={{ backgroundColor: colors.bg }}>
+              <Txt variant="body" weight="700">
+                Allergene
+              </Txt>
+              <Txt variant="body" tone="secondary" weight="500" selectable>
                 {openFoodFactsProduct?.allergens?.join(', ') ?? 'Keine Allergene angegeben.'}
-              </ThemedText>
+              </Txt>
             </View>
 
-            <ThemedText type="smallBold">Nährwerte pro {referenceUnit}</ThemedText>
+            <Txt variant="body" weight="700">
+              Nährwerte pro {referenceUnit}
+            </Txt>
             <View className="flex-row flex-wrap gap-[8px]">
               {nutrients.map((nutrient) => (
                 <View
                   key={nutrient.label}
-                  className="w-[31.6%] min-h-[62px] rounded-card p-[10px] gap-[5px] bg-background-selected">
-                  <ThemedText type="smallBold" selectable>
+                  className="w-[31.6%] min-h-[62px] rounded-card p-[10px] gap-[5px]"
+                  style={{ backgroundColor: colors.surfaceSoft }}>
+                  <Txt variant="body" weight="700" selectable>
                     {nutrient.value}
-                  </ThemedText>
-                  <ThemedText type="small" themeColor="textSecondary">
+                  </Txt>
+                  <Txt variant="body" tone="secondary" weight="500">
                     {nutrient.label}
-                  </ThemedText>
+                  </Txt>
                 </View>
               ))}
             </View>

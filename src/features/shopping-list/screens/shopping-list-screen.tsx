@@ -4,11 +4,12 @@ import { Alert, ScrollView, SectionList, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { FamIcon } from '@/components/icons/fam-icon';
 import { Screen } from '@/components/layout/screen';
-import { ThemedText } from '@/components/theme/themed-text';
+import { space } from '@/components/theme/index';
+import { useTheme } from '@/components/theme/ThemeProvider';
 import { Button, HeaderIconButton } from '@/components/ui/buttons';
 import { Card } from '@/components/ui/card';
 import { EmptyState } from '@/components/ui/empty-state';
-import { Layout } from '@/constants/layout';
+import { Txt } from '@/constants/ui';
 import { useAdsEnabled, useInterstitialAd } from '@/features/ads';
 import { useSession } from '@/features/auth/session-provider';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
@@ -18,7 +19,6 @@ import { useProfileAvatar } from '@/features/navigation/use-profile-initials';
 import { useProductBarcodeLookup } from '@/features/product-search/hooks/use-product-barcode-lookup';
 import type { CatalogProduct } from '@/features/product-search/types';
 import { useHubGradient } from '@/hooks/use-hub-gradient';
-import { useTheme } from '@/hooks/use-theme';
 import { ShoppingItemRow } from '../components/ui/shopping-item-row';
 import { ALL_FILTER, StorePickerMenu, UNASSIGNED_FILTER } from '../components/ui/store-picker-menu';
 import { StoreSummaryCard } from '../components/ui/store-summary-card';
@@ -63,7 +63,7 @@ export function ShoppingListScreen() {
   const pendingAdRef = useRef(false);
   const adsEnabled = useAdsEnabled();
   const interstitialAd = useInterstitialAd();
-  const theme = useTheme();
+  const { colors: theme } = useTheme();
   const hubGradient = useHubGradient();
   const scrollRef = useRef<ScrollView>(null);
   const sectionListRef =
@@ -242,16 +242,16 @@ export function ShoppingListScreen() {
       </Screen>
     );
   }
-  const completeActionColor = theme.accent;
+  const completeActionColor = theme.basil;
   // const completeActionColor = isUnassignedFilter
-  //   ? theme.textSecondary
-  //   : (activeStore?.color ?? theme.danger);
+  //   ? theme.textMuted
+  //   : (activeStore?.color ?? theme.tomato);
 
   const completeActionLabel = activeStore
     ? `Einkaufsliste bei ${activeStore.name} abschließen`
     : 'Einkaufliste abschließen';
 
-  const listContentPadding = { paddingBottom: insets.bottom + Layout.floatingActionClearance };
+  const listContentPadding = { paddingBottom: insets.bottom + space.xxxl };
 
   const renderHeader = () => (
     <View className="gap-two">
@@ -271,24 +271,24 @@ export function ShoppingListScreen() {
               setScannedProduct(null);
               setScannerOpen(true);
             }}>
-            <FamIcon name="camera" size={20} color={theme.accent} />
+            <FamIcon name="camera" size={20} color={theme.basil} />
           </HeaderIconButton>
           {!isAllFilter && filteredItems.length > 0 ? (
             <HeaderIconButton
               label={selectionMode ? 'Auswahl schließen' : 'Mehrfachauswahl starten'}
               onPress={selectionMode ? closeSelection : () => setSelectionMode(true)}>
-              <ThemedText type="subtitle" themeColor="accent">
+              <Txt variant="heading" weight="700" tone="secondary">
                 {selectionMode ? '✕' : '☑'}
-              </ThemedText>
+              </Txt>
             </HeaderIconButton>
           ) : null}
         </View>
       </View>
       {selectionMode ? (
         <View className="gap-one">
-          <ThemedText type="smallBold" numberOfLines={1}>
+          <Txt variant="body" weight="700" numberOfLines={1}>
             {selectedItems.length} {selectedItems.length === 1 ? 'Artikel' : 'Artikel'} ausgewählt
-          </ThemedText>
+          </Txt>
           <View className="flex-row items-center justify-end gap-two">
             <Button
               size="compact"
@@ -394,7 +394,7 @@ export function ShoppingListScreen() {
             {/* Übersichtszeile für Artikel ohne Marktzuordnung */}
             <StoreSummaryCard
               name="Ohne Markt"
-              color={theme.textSecondary}
+              color={theme.textMuted}
               totalCount={unassignedItems.length}
               checkedCount={unassignedItems.filter((i) => i.checked_at !== null).length}
               totalEstimate={unassignedItems.reduce((sum, i) => sum + (i.price_estimate ?? 0), 0)}
@@ -464,16 +464,18 @@ export function ShoppingListScreen() {
             </View>
           }
           renderSectionHeader={({ section }) => {
-            const color = colorForCategory(section.title) ?? theme.textSecondary;
+            const color = colorForCategory(section.title) ?? theme.textMuted;
             return (
               <View className="flex-row items-center gap-[6px] px-three pt-three pb-one">
                 <View className="w-[6px] h-[6px] rounded-full" style={{ backgroundColor: color }} />
-                <ThemedText
-                  type="small"
-                  themeColor="textSecondary"
-                  className="uppercase tracking-wider text-body-small font-semibold">
+                <Txt
+                  variant="body"
+                  tone="secondary"
+                  className="uppercase tracking-wider"
+                  weight="600"
+                  style={{ fontSize: 14, lineHeight: 18 }}>
                   {section.title}
-                </ThemedText>
+                </Txt>
               </View>
             );
           }}

@@ -4,9 +4,8 @@ import ReanimatedSwipeable, {
   type SwipeableMethods,
 } from 'react-native-gesture-handler/ReanimatedSwipeable';
 
-import { ThemedText } from '@/components/theme/themed-text';
-import type { ThemeColor } from '@/constants/theme';
-import { useTheme } from '@/hooks/use-theme';
+import { useTheme } from '@/components/theme/ThemeProvider';
+import { Txt } from '@/constants/ui';
 import { formatAmount, formatPackageHint } from '@/lib/package-size';
 
 import type { ExpiryBucket } from '../expiry';
@@ -15,7 +14,10 @@ import type { LocalInventoryItem } from '../use-inventory-items';
 
 // MHD-Ampel als linker Streifen an der Zeile — Farbe kommt aus dem Theme,
 // damit sie mit dem Rest der Statusfarben (Badge, Dark Mode) mitzieht.
-const EXPIRY_LEFT_BORDER_KEY: Record<ExpiryBucket, ThemeColor | 'transparent'> = {
+const EXPIRY_LEFT_BORDER_KEY: Record<
+  ExpiryBucket,
+  'danger' | 'warning' | 'success' | 'transparent'
+> = {
   expired: 'danger',
   critical: 'danger',
   soon: 'warning',
@@ -40,11 +42,18 @@ export const InventoryItemRow = memo(function InventoryItemRow({
   onLongPress,
   onRemove,
 }: InventoryItemRowProps) {
-  const theme = useTheme();
+  const { colors } = useTheme();
   const group = toGroup(item);
   const expiry = group.expiry;
   const borderColorKey = EXPIRY_LEFT_BORDER_KEY[expiry.bucket];
-  const borderColor = borderColorKey === 'transparent' ? 'transparent' : theme[borderColorKey];
+  const borderColor =
+    borderColorKey === 'transparent'
+      ? 'transparent'
+      : borderColorKey === 'danger'
+        ? colors.tomato
+        : borderColorKey === 'warning'
+          ? colors.carrot
+          : colors.basil;
   const expiryLabel =
     expiry.daysLeft === null
       ? null
@@ -77,9 +86,9 @@ export const InventoryItemRow = memo(function InventoryItemRow({
           onRemove();
         }}
         className="fridge-item-remove-action">
-        <ThemedText type="smallBold" className="text-white">
+        <Txt variant="body" tone="onAccent" weight="700">
           {removeLabel}
-        </ThemedText>
+        </Txt>
       </Pressable>
     );
   }
@@ -109,22 +118,25 @@ export const InventoryItemRow = memo(function InventoryItemRow({
 
         {/* Inhalt */}
         <View className="fridge-item-main">
-          <ThemedText type="smallBold">{group.name}</ThemedText>
+          <Txt variant="body" weight="700">
+            {group.name}
+          </Txt>
           {}
           {groupMeta ? (
-            <ThemedText type="captionMuted" numberOfLines={1}>
+            <Txt variant="caption" tone="secondary" numberOfLines={1}>
               {groupMeta}
-            </ThemedText>
+            </Txt>
           ) : null}
         </View>
 
         {/* fontVariant hat keine Tailwind-Entsprechung. */}
-        <ThemedText
-          type="smallBold"
+        <Txt
+          variant="body"
+          weight="700"
           className="fridge-item-quantity"
           style={{ fontVariant: ['tabular-nums'] }}>
           {amount}
-        </ThemedText>
+        </Txt>
       </Pressable>
     </ReanimatedSwipeable>
   );

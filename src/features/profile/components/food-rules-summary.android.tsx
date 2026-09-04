@@ -1,7 +1,6 @@
 import { Pressable, View } from 'react-native';
 
-import { ThemedText } from '@/components/theme/themed-text';
-import { ThemedView } from '@/components/theme/themed-view';
+import { Surface, Txt } from '@/constants/ui';
 import {
   ALLERGY_PRESETS,
   type FoodSelection,
@@ -50,15 +49,15 @@ function SummaryRow({
       className={`profile-food-rules-summary-row ${
         bordered ? 'profile-food-rules-summary-row-bordered' : ''
       }`}>
-      <ThemedText type="smallBold" className="w-32">
+      <Txt variant="body" weight="700" className="w-32">
         {label}
-      </ThemedText>
-      <ThemedText type="smallMuted" className="flex-1 text-right" numberOfLines={2}>
+      </Txt>
+      <Txt variant="body" tone="secondary" className="flex-1 text-right" numberOfLines={2}>
         {summary}
-      </ThemedText>
-      <ThemedText type="controlAction" themeColor="textSecondary" aria-hidden>
+      </Txt>
+      <Txt variant="body" tone="secondary" style={{ fontSize: 20 }} aria-hidden>
         ›
-      </ThemedText>
+      </Txt>
     </Pressable>
   );
 }
@@ -67,10 +66,14 @@ export function FoodRulesSummary({ rules, onSelect }: FoodRulesSummaryProps) {
   return (
     <View className="gap-two">
       <View className="gap-half">
-        <ThemedText type="smallBold">Lebensmittel &amp; Verträglichkeit</ThemedText>
-        <ThemedText type="smallMuted">Keine medizinische Diagnose</ThemedText>
+        <Txt variant="body" weight="700">
+          Lebensmittel &amp; Verträglichkeit
+        </Txt>
+        <Txt variant="body" tone="secondary">
+          Keine medizinische Diagnose
+        </Txt>
       </View>
-      <ThemedView type="backgroundElement" className="profile-food-rules-summary">
+      <Surface tone="surface" className="profile-food-rules-summary">
         <SummaryRow
           label="Allergien"
           summary={summarize(rules.allergies, ALLERGY_PRESETS)}
@@ -88,7 +91,7 @@ export function FoodRulesSummary({ rules, onSelect }: FoodRulesSummaryProps) {
           summary={summarize(rules.dislikedFoods, [])}
           onPress={() => onSelect('dislikedFoods')}
         />
-      </ThemedView>
+      </Surface>
     </View>
   );
 }

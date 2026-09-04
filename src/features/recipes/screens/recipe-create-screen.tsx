@@ -7,6 +7,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { GradientBackground } from '@/components/layout/gradient-background';
 import { PageHeader } from '@/components/layout/page-header';
+import { useTheme } from '@/components/theme/ThemeProvider';
 import { BackButton } from '@/components/ui/buttons';
 import { useSession } from '@/features/auth/session-provider';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
@@ -69,6 +70,7 @@ type ResolvedIngredient = {
 };
 
 export function RecipeCreateScreen() {
+  const { colors } = useTheme();
   const hubGradient = useHubGradient();
   const { id } = useLocalSearchParams<{ id?: string }>();
   const { session } = useSession();
@@ -657,9 +659,8 @@ export function RecipeCreateScreen() {
           {[1, 2, 3, 4].map((step) => (
             <View
               key={step}
-              className={`flex-1 h-1 rounded-sm ${
-                step <= wizardStep ? 'bg-accent' : 'bg-background-selected'
-              }`}
+              className="flex-1 h-1 rounded-sm"
+              style={{ backgroundColor: step <= wizardStep ? colors.basil : colors.surfaceSoft }}
             />
           ))}
         </View>

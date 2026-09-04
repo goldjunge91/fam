@@ -1,6 +1,7 @@
 import { Pressable, View } from 'react-native';
 
-import { ThemedText } from '@/components/theme/themed-text';
+import { useTheme } from '@/components/theme/ThemeProvider';
+import { Txt } from '@/constants/ui';
 import {
   type MentionableIngredient,
   renderMentionPlainText,
@@ -41,6 +42,7 @@ export function CookingModeStep({
   onPreviousStep,
   onNextStep,
 }: CookingModeStepProps) {
+  const { colors } = useTheme();
   const currentStepPlainText = renderMentionPlainText(currentStep.text, mentionIngredients);
 
   return (
@@ -49,24 +51,24 @@ export function CookingModeStep({
         {steps.map((step, index) => (
           <View
             key={step.id}
-            className={`flex-1 h-1 rounded-sm ${
-              index <= stepIndex ? 'bg-accent' : 'bg-background-selected'
-            }`}
+            className="flex-1 h-1 rounded-sm"
+            style={{ backgroundColor: index <= stepIndex ? colors.basil : colors.surfaceSoft }}
           />
         ))}
       </View>
 
-      <ThemedText
-        type="detail"
-        themeColor="textSecondary"
-        className="text-[9px] leading-[11px] font-medium tracking-wider">
+      <Txt
+        variant="caption"
+        tone="secondary"
+        className="tracking-wider"
+        style={{ fontSize: 9, lineHeight: 11 }}>
         SCHRITT {stepIndex + 1} VON {steps.length}
-      </ThemedText>
-      <ThemedText type="headingSmall" className="pt-[6px]" numberOfLines={2}>
+      </Txt>
+      <Txt variant="heading" className="pt-[6px]" numberOfLines={2}>
         {currentStepPlainText.length > 42
           ? `Schritt ${stepIndex + 1}`
           : currentStepPlainText.replace(/[.!?]+$/, '')}
-      </ThemedText>
+      </Txt>
 
       <View className="h-[184px] mt-[13px] rounded-fam-large overflow-hidden">
         <CookingModeArtwork step={currentStep} imageUrl={currentStepImageUrl} />
@@ -74,9 +76,11 @@ export function CookingModeStep({
       <StepMentionText
         text={currentStep.text}
         ingredients={mentionIngredients}
-        type="detail"
-        themeColor="textSecondary"
-        className="pt-three text-[12px] leading-[18px] font-medium"
+        variant="body"
+        tone="secondary"
+        className="pt-three"
+        weight="500"
+        style={{ fontSize: 12, lineHeight: 18 }}
       />
 
       <CookingModeTimer
@@ -94,20 +98,22 @@ export function CookingModeStep({
           disabled={stepIndex === 0}
           role="button"
           aria-label="Vorheriger Schritt"
-          className={`w-12 h-12 rounded-card items-center justify-center bg-background-selected active:opacity-75 ${
+          className={`w-12 h-12 rounded-card items-center justify-center active:opacity-75 ${
             stepIndex === 0 ? 'opacity-35' : ''
-          }`}>
-          <ThemedText type="headingSmall" themeColor="accent" className="font-medium">
+          }`}
+          style={{ backgroundColor: colors.surfaceSoft }}>
+          <Txt variant="heading" tone="secondary" weight="500">
             ‹
-          </ThemedText>
+          </Txt>
         </Pressable>
         <Pressable
           onPress={onNextStep}
           role="button"
-          className="flex-1 min-h-[48px] rounded-card items-center justify-center px-three bg-accent active:opacity-75">
-          <ThemedText type="captionCompact" className="text-white font-bold text-center">
+          className="flex-1 min-h-[48px] rounded-card items-center justify-center px-three active:opacity-75"
+          style={{ backgroundColor: colors.basil }}>
+          <Txt variant="caption" tone="inverse" weight="700" center>
             {stepIndex === steps.length - 1 ? 'Zubereitung abschließen' : 'Nächster Schritt'}
-          </ThemedText>
+          </Txt>
         </Pressable>
       </View>
     </View>

@@ -1,7 +1,8 @@
 import { useState } from 'react';
-import { Pressable, StyleSheet, Text, View } from 'react-native';
+import { Pressable, StyleSheet, View } from 'react-native';
 import { TextField } from '@/components/forms/text-field';
-import { useTheme } from '@/hooks/use-theme';
+import { useTheme } from '@/components/theme/ThemeProvider';
+import { Txt } from '@/constants/ui';
 
 const POSTAL_CODE_PATTERN = /^\d{5}$/;
 
@@ -12,7 +13,7 @@ type PostalCodeEditorProps = {
 
 /** Inline-Formular für die manuelle PLZ-Eingabe, Alternative zum GPS-Standort im Angebote-Bereich. */
 export function PostalCodeEditor({ onSubmit, onCancel }: PostalCodeEditorProps) {
-  const theme = useTheme();
+  const { colors } = useTheme();
   const [value, setValue] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -52,15 +53,17 @@ export function PostalCodeEditor({ onSubmit, onCancel }: PostalCodeEditorProps) 
           onPress={handleSubmit}
           style={[
             styles.button,
-            { backgroundColor: theme.accent, opacity: !isValid || isSubmitting ? 0.5 : 1 },
+            { backgroundColor: colors.basil, opacity: !isValid || isSubmitting ? 0.5 : 1 },
           ]}>
-          <Text style={{ color: theme.onAccent, fontWeight: '700' }}>
+          <Txt variant="body" tone="inverse" weight="700">
             {isSubmitting ? 'Speichert...' : 'Übernehmen'}
-          </Text>
+          </Txt>
         </Pressable>
         {onCancel ? (
           <Pressable role="button" onPress={onCancel} style={styles.button}>
-            <Text style={{ color: theme.textSecondary, fontWeight: '600' }}>Abbrechen</Text>
+            <Txt variant="body" tone="secondary" weight="600">
+              Abbrechen
+            </Txt>
           </Pressable>
         ) : null}
       </View>

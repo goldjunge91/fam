@@ -1,12 +1,12 @@
 import { Modal, Pressable, StyleSheet, View } from 'react-native';
 import { DateWheelField } from '@/components/forms/date-wheel-field';
-import { ThemedText } from '@/components/theme/themed-text';
+import { useTheme } from '@/components/theme/ThemeProvider';
 import { QuantityStepper } from '@/components/ui/quantity-stepper';
+import { Txt } from '@/constants/ui';
 import { useSheetShadowStyle } from '@/hooks/use-sheet-shadow-style';
-import { useTheme } from '@/hooks/use-theme';
 import { formatAmount, formatPackageHint } from '@/lib/package-size';
 
-import { getExpiryInfo } from '../expiry';
+import { type ExpiryThemeColor, getExpiryInfo } from '../expiry';
 import type { LocalInventoryItem } from '../use-inventory-items';
 
 type InventoryItemActionsSheetProps = {
@@ -30,7 +30,7 @@ export function InventoryItemActionsSheet({
   onRemove,
   onExpiryChange,
 }: InventoryItemActionsSheetProps) {
-  const theme = useTheme();
+  const { colors } = useTheme();
   const sheetStyle = useSheetShadowStyle();
 
   if (!item) return null;
@@ -55,18 +55,18 @@ export function InventoryItemActionsSheet({
             {/* Farbe pro Item dynamisch (Ablaufstatus). */}
             <View
               className="fridge-actions-expiry-bar"
-              style={{ backgroundColor: theme[expiry.themeColor] }}
+              style={{ backgroundColor: expiryColor(expiry.themeColor, colors) }}
             />
             <View className="fridge-actions-item-copy">
-              <ThemedText type="subtitle">{item.name}</ThemedText>
-              <ThemedText type="small" style={{ color: theme[expiry.themeColor] }}>
+              <Txt variant="title">{item.name}</Txt>
+              <Txt variant="body" color={expiryColor(expiry.themeColor, colors)}>
                 {expiry.label}
-              </ThemedText>
+              </Txt>
             </View>
             {/* fontVariant hat keine Tailwind-Entsprechung. */}
-            <ThemedText type="smallBold" style={{ fontVariant: ['tabular-nums'] }}>
+            <Txt variant="body" weight="700" style={{ fontVariant: ['tabular-nums'] }}>
               {amount}
-            </ThemedText>
+            </Txt>
           </View>
 
           <View className="fridge-actions-quantity-row">
@@ -77,9 +77,9 @@ export function InventoryItemActionsSheet({
                 label="Aktuelle Menge"
                 size="large"
               />
-              <ThemedText type="small" themeColor="textSecondary">
+              <Txt variant="body" tone="secondary">
                 {packageHint ?? `${amount} aktuelle Menge`}
-              </ThemedText>
+              </Txt>
             </View>
           </View>
 
@@ -107,7 +107,7 @@ const ACTION_VARIANT_CLASSES = {
 } as const;
 
 const ACTION_VARIANT_TEXT_COLOR = {
-  neutral: 'text',
+  neutral: 'primary',
   success: 'success',
   danger: 'danger',
 } as const;
@@ -127,9 +127,18 @@ function SheetAction({
       accessibilityRole="button"
       accessibilityLabel={label}
       className={`fridge-action-btn ${ACTION_VARIANT_CLASSES[variant]}`}>
-      <ThemedText type="small" themeColor={ACTION_VARIANT_TEXT_COLOR[variant]}>
+      <Txt variant="body" tone={ACTION_VARIANT_TEXT_COLOR[variant]}>
         {label}
-      </ThemedText>
+      </Txt>
     </Pressable>
   );
+}
+
+function expiryColor(
+  themeColor: ExpiryThemeColor,
+  colors: ReturnType<typeof useTheme>['colors'],
+): string {
+  if (themeColor === 'danger') return colors.tomato;
+  if (themeColor === 'warning') return colors.carrot;
+  return colors.textMuted;
 }

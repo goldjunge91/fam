@@ -1,16 +1,15 @@
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
-import { Spacing } from '@/constants/layout';
-import { withAlpha } from '@/constants/theme';
-import { useTheme } from '@/hooks/use-theme';
+import { useTheme } from '@/components/theme/ThemeProvider';
+import { space, withAlpha } from '@/components/theme/index';
 
 export function useSheetShadowStyle() {
-  const theme = useTheme();
+  const { colors } = useTheme();
   const insets = useSafeAreaInsets();
 
   return {
-    paddingBottom: Math.max(insets.bottom, Spacing.three),
-    boxShadow: `0 -16px 48px ${withAlpha(theme.shadowSheet, 0.2)}`,
+    paddingBottom: Math.max(insets.bottom, space.lg),
+    boxShadow: `0 -16px 48px ${withAlpha(colors.text, 0.2)}`,
     borderCurve: 'continuous' as const,
   };
 }

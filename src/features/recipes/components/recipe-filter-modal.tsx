@@ -5,8 +5,9 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { GradientBackground } from '@/components/layout/gradient-background';
 import { PageHeader } from '@/components/layout/page-header';
 import { SectionHeading } from '@/components/layout/section-heading';
-import { ThemedText } from '@/components/theme/themed-text';
+import { useTheme } from '@/components/theme/ThemeProvider';
 import { BackButton, Button } from '@/components/ui/buttons';
+import { Txt } from '@/constants/ui';
 import { CalorieCarousel } from '@/features/recipes/components/calorie-carousel';
 import { CategoryCarousel } from '@/features/recipes/components/category-carousel';
 import { useHubGradient } from '@/hooks/use-hub-gradient';
@@ -66,6 +67,7 @@ export function RecipeFilterModal({
   onApply,
   onClose,
 }: RecipeFilterModalProps) {
+  const { colors } = useTheme();
   const hubGradient = useHubGradient();
   const [draft, setDraft] = useState(filters);
 
@@ -144,17 +146,23 @@ export function RecipeFilterModal({
                           mealKey: selected ? null : meal.key,
                         }))
                       }
-                      className={`meal-tile ${
-                        selected ? 'selectable-selected' : 'selectable-idle'
-                      }`}>
-                      <ThemedText className="text-[22px] leading-[26px]">{meal.emoji}</ThemedText>
-                      <ThemedText
-                        type="detail"
-                        themeColor={selected ? 'onAccent' : 'text'}
-                        className="text-[9px] leading-[11px] font-semibold text-center"
+                      className="meal-tile"
+                      style={{
+                        backgroundColor: selected ? colors.basil : colors.surface,
+                        borderColor: selected ? colors.basil : colors.border,
+                        borderWidth: 1,
+                      }}>
+                      <Txt variant="body" center style={{ fontSize: 22, lineHeight: 26 }}>
+                        {meal.emoji}
+                      </Txt>
+                      <Txt
+                        variant="caption"
+                        tone={selected ? 'onAccent' : 'primary'}
+                        center
+                        style={{ fontSize: 9, lineHeight: 11, fontWeight: '600' }}
                         numberOfLines={1}>
                         {meal.label}
-                      </ThemedText>
+                      </Txt>
                     </Pressable>
                   );
                 })}
@@ -179,17 +187,15 @@ export function RecipeFilterModal({
                             tags: toggleTag(current.tags, tag),
                           }))
                         }
-                        className={`tag-pill ${
-                          selected
-                            ? 'bg-background-selected border-accent'
-                            : 'bg-background-element/85 border-border'
-                        }`}>
-                        <ThemedText
-                          type="captionCompact"
-                          themeColor={selected ? 'accent' : 'text'}
-                          className="font-bold">
+                        className="tag-pill"
+                        style={{
+                          backgroundColor: selected ? colors.surfaceSoft : colors.surface,
+                          borderColor: selected ? colors.basil : colors.border,
+                          borderWidth: 1,
+                        }}>
+                        <Txt variant="caption" tone="primary" weight="700">
                           #{tag}
-                        </ThemedText>
+                        </Txt>
                       </Pressable>
                     );
                   })}

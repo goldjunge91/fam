@@ -5,10 +5,11 @@ import { Keyboard, Pressable, View } from 'react-native';
 import { TextField } from '@/components/forms/text-field';
 import { WheelPickerField } from '@/components/forms/wheel-picker-field';
 import { FamIcon } from '@/components/icons/fam-icon';
-import { ThemedText } from '@/components/theme/themed-text';
+import { useTheme } from '@/components/theme/ThemeProvider';
 import { Button, HeaderIconButton } from '@/components/ui/buttons';
 import { type ItemSource, ItemSourceFilterRow } from '@/components/ui/item-source-filter';
 import { QuantityStepper } from '@/components/ui/quantity-stepper';
+import { Txt } from '@/constants/ui';
 import { useSession } from '@/features/auth/session-provider';
 import { BarcodeScannerModal } from '@/features/inventory/barcode-scanner-modal';
 import { persistOffProductIfNeeded } from '@/features/inventory/persist-off-product';
@@ -19,7 +20,6 @@ import {
 import { useAddProductMutation } from '@/features/inventory/use-product-mutations';
 import { useProductBarcodeLookup } from '@/features/product-search/hooks/use-product-barcode-lookup';
 import type { CatalogProduct } from '@/features/product-search/types';
-import { useTheme } from '@/hooks/use-theme';
 import { getDatabase } from '@/lib/db/client';
 import { recordProductUsage } from '@/lib/db/product-usage';
 import { debugLog } from '@/lib/debug-log';
@@ -85,7 +85,7 @@ export const AddItemForm = forwardRef<AddItemFormHandle, AddItemFormProps>(funct
   { householdId, initialStoreId = null, initialProduct = null, onDismiss, onItemAdded },
   ref,
 ) {
-  const theme = useTheme();
+  const { colors: theme } = useTheme();
   const [name, setName] = useState('');
   const [purchaseCount, setPurchaseCount] = useState(1);
   const [unit, setUnit] = useState('piece');
@@ -574,7 +574,7 @@ export const AddItemForm = forwardRef<AddItemFormHandle, AddItemFormProps>(funct
               setShowScanner(true);
             }}
             className="w-10 h-10 rounded-control bg-background-selected">
-            <FamIcon name="camera" size={18} color={theme.accent} />
+            <FamIcon name="camera" size={18} color={theme.basil} />
           </HeaderIconButton>
         }
       />
@@ -582,9 +582,9 @@ export const AddItemForm = forwardRef<AddItemFormHandle, AddItemFormProps>(funct
       {}
       <Pressable className="gap-[10px]" onPress={dismissKeyboard} accessible={false}>
         {nameError ? (
-          <ThemedText type="body" themeColor="danger" className="font-medium">
+          <Txt variant="body" tone="danger" weight="500">
             {nameError}
-          </ThemedText>
+          </Txt>
         ) : null}
 
         {/* Quell- und Vorschlagsfilter (Lebensmittel/Gerichte, Zuletzt/Häufig) —
@@ -619,7 +619,9 @@ export const AddItemForm = forwardRef<AddItemFormHandle, AddItemFormProps>(funct
 
         <View className="flex-row items-end gap-[9px]">
           <View className="flex-[1.15] gap-one">
-            <ThemedText type="labelMuted">Einkaufsmenge</ThemedText>
+            <Txt variant="label" tone="secondary">
+              Einkaufsmenge
+            </Txt>
             <QuantityStepper
               value={purchaseCount}
               onChange={(next) => {
@@ -654,12 +656,12 @@ export const AddItemForm = forwardRef<AddItemFormHandle, AddItemFormProps>(funct
             accessibilityState={{ expanded: detailsOpen }}
             accessibilityLabel="Weitere Angaben"
             className="details-summary">
-            <ThemedText type="body" themeColor="accent" className="font-medium">
+            <Txt variant="body" tone="secondary" weight="500">
               {detailsOpen ? '▾' : '›'}
-            </ThemedText>
-            <ThemedText type="body" themeColor="accent" className="font-medium">
+            </Txt>
+            <Txt variant="body" tone="primary" weight="500">
               Weitere Angaben
-            </ThemedText>
+            </Txt>
           </Pressable>
 
           {detailsOpen ? (
@@ -726,25 +728,23 @@ export const AddItemForm = forwardRef<AddItemFormHandle, AddItemFormProps>(funct
         {name.trim() ? (
           <View className="product-summary">
             <View className="flex-1 min-w-0">
-              <ThemedText type="bodyBold" numberOfLines={1}>
+              <Txt variant="body" weight="700" numberOfLines={1}>
                 {name.trim()}
-              </ThemedText>
-              <ThemedText
-                type="detail"
-                themeColor="textSecondary"
-                numberOfLines={1}
-                className="font-medium">
+              </Txt>
+              <Txt variant="caption" tone="secondary" weight="500" numberOfLines={1}>
                 {selectedProduct?.brand ?? 'Manueller Eintrag'}
-              </ThemedText>
+              </Txt>
               {selectedProduct?.barcode ? (
-                <ThemedText type="captionMuted" numberOfLines={1}>
+                <Txt variant="caption" tone="secondary" numberOfLines={1}>
                   EAN {selectedProduct.barcode}
-                </ThemedText>
+                </Txt>
               ) : null}
             </View>
             <View className="items-end">
-              <ThemedText type="default">{packageHint ?? purchaseAmount}</ThemedText>
-              <ThemedText type="smallMuted">{packageHint ? 'Packungsinhalt' : 'Menge'}</ThemedText>
+              <Txt variant="body">{packageHint ?? purchaseAmount}</Txt>
+              <Txt variant="body" tone="secondary">
+                {packageHint ? 'Packungsinhalt' : 'Menge'}
+              </Txt>
             </View>
           </View>
         ) : null}

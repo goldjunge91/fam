@@ -2,9 +2,9 @@ import * as Clipboard from 'expo-clipboard';
 import { useState } from 'react';
 import { Alert, Modal, Pressable, ScrollView, Share, View } from 'react-native';
 import QRCode from 'react-native-qrcode-svg';
-import { ThemedText } from '@/components/theme/themed-text';
 import { Button } from '@/components/ui/buttons';
 import { Card } from '@/components/ui/card';
+import { Txt } from '@/constants/ui';
 import { useSession } from '@/features/auth/session-provider';
 import {
   useCreateInviteMutation,
@@ -109,23 +109,27 @@ export function InviteModal({ visible, householdId, householdName, onClose }: In
         <View className="invite-modal-box">
           <ScrollView contentContainerClassName="invite-modal-content">
             <View className="modal-header-row">
-              <ThemedText type="subtitle">Mitglied einladen</ThemedText>
+              <Txt variant="title" weight="600">
+                Mitglied einladen
+              </Txt>
               <Pressable onPress={onClose} hitSlop={10}>
-                <ThemedText themeColor="textSecondary" className="text-[18px]">
+                <Txt variant="body" tone="secondary" style={{ fontSize: 18, lineHeight: 22 }}>
                   ✕
-                </ThemedText>
+                </Txt>
               </Pressable>
             </View>
 
-            <ThemedText type="small" themeColor="textSecondary">
+            <Txt variant="body" tone="secondary" weight="500">
               Erstelle einen Einladungs-Link oder Code, um Familienmitglieder oder Mitbewohner zu
               &quot;{householdName}&quot; einzuladen.
-            </ThemedText>
+            </Txt>
 
             {selectedToken ? (
               <Card title="Einladungs-Code & QR-Code">
                 <View className="gap-two">
-                  <ThemedText className="invite-token-text">{selectedToken}</ThemedText>
+                  <Txt variant="body" weight="500" className="invite-token-text">
+                    {selectedToken}
+                  </Txt>
 
                   {showQrCode && (
                     <View className="invite-qr-container">
@@ -174,11 +178,13 @@ export function InviteModal({ visible, householdId, householdName, onClose }: In
               />
             )}
 
-            <ThemedText className="font-bold mt-two">Aktive Einladungen</ThemedText>
+            <Txt variant="body" weight="700" className="mt-two">
+              Aktive Einladungen
+            </Txt>
             {invites.length === 0 ? (
-              <ThemedText type="small" themeColor="textSecondary">
+              <Txt variant="body" tone="secondary" weight="500">
                 Keine aktiven Einladungen vorhanden.
-              </ThemedText>
+              </Txt>
             ) : (
               invites.map((inv) => {
                 const isSelected = inv.token === selectedToken;
@@ -192,13 +198,13 @@ export function InviteModal({ visible, householdId, householdName, onClose }: In
                         setSelectedToken(inv.token);
                         setShowQrCode(true);
                       }}>
-                      <ThemedText type="smallBold" numberOfLines={1}>
+                      <Txt variant="body" weight="700" numberOfLines={1}>
                         {inv.token}
-                      </ThemedText>
-                      <ThemedText type="small" themeColor="textSecondary">
+                      </Txt>
+                      <Txt variant="body" tone="secondary" weight="500">
                         Gültig bis {new Date(inv.expires_at).toLocaleDateString('de-DE')} ·{' '}
                         {inv.uses}/{inv.max_uses} genutzt
-                      </ThemedText>
+                      </Txt>
                     </Pressable>
                     <View className="invite-row-buttons">
                       <Pressable
@@ -208,19 +214,25 @@ export function InviteModal({ visible, householdId, householdName, onClose }: In
                         }}
                         accessibilityLabel="QR-Code anzeigen"
                         className="invite-action-icon-button">
-                        <ThemedText className="invite-action-icon-text">📱</ThemedText>
+                        <Txt variant="body" className="invite-action-icon-text">
+                          📱
+                        </Txt>
                       </Pressable>
                       <Pressable
                         onPress={() => handleShare(inv.token)}
                         accessibilityLabel="Teilen"
                         className="invite-action-icon-button">
-                        <ThemedText className="invite-action-icon-text">📤</ThemedText>
+                        <Txt variant="body" className="invite-action-icon-text">
+                          📤
+                        </Txt>
                       </Pressable>
                       <Pressable
                         onPress={() => handleRevoke(inv.id)}
                         accessibilityLabel="Zurückziehen"
                         className="invite-action-icon-button">
-                        <ThemedText className="invite-action-icon-text">🗑</ThemedText>
+                        <Txt variant="body" className="invite-action-icon-text">
+                          🗑
+                        </Txt>
                       </Pressable>
                     </View>
                   </View>

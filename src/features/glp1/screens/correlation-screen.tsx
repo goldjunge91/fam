@@ -1,6 +1,6 @@
 import { useLocalSearchParams } from 'expo-router';
 import { Screen } from '@/components/layout/screen';
-import { ThemedText } from '@/components/theme/themed-text';
+import { Txt } from '@/constants/ui';
 import { useSession } from '@/features/auth/session-provider';
 import { CorrelationSection } from '@/features/glp1/components/correlation-section';
 import { useCorrelationSeries } from '@/features/glp1/hooks/correlation-api';
@@ -39,19 +39,19 @@ export function CorrelationScreen() {
       back={{ label: 'Tagebuch', href: '/diary' }}
       backStyle="icon">
       {isLoading ? (
-        <ThemedText type="caption" themeColor="textSecondary">
+        <Txt variant="caption" tone="secondary">
           Korrelationsanalyse wird geladen...
-        </ThemedText>
+        </Txt>
       ) : isError ? (
-        <ThemedText type="caption" themeColor="danger">
+        <Txt variant="caption" tone="danger">
           Korrelationsanalyse konnte nicht geladen werden.
-        </ThemedText>
+        </Txt>
       ) : series && series.length > 0 ? (
         <CorrelationSection series={series} />
       ) : (
-        <ThemedText type="caption" themeColor="textSecondary">
+        <Txt variant="caption" tone="secondary">
           Keine Korrelationsdaten vorhanden.
-        </ThemedText>
+        </Txt>
       )}
     </Screen>
   );

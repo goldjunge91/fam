@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 import { ActivityIndicator, Pressable, TextInput, View } from 'react-native';
 
-import { ThemedText } from '@/components/theme/themed-text';
+import { useTheme } from '@/components/theme/ThemeProvider';
+import { Txt } from '@/constants/ui';
 import { useSession } from '@/features/auth/session-provider';
-import { useTheme } from '@/hooks/use-theme';
 import { getRecipeRating, saveRecipeRating } from '../domain/recipe-ratings';
 import { RecipeBottomSheet } from './recipe-bottom-sheet';
 
@@ -14,7 +14,7 @@ type Props = {
 };
 
 export function RecipeRatingSheet({ recipeId, visible, onClose }: Props) {
-  const theme = useTheme();
+  const { colors } = useTheme();
   const { session } = useSession();
   const userId = session?.user.id;
   const [score, setScore] = useState(0);
@@ -54,9 +54,9 @@ export function RecipeRatingSheet({ recipeId, visible, onClose }: Props) {
 
   return (
     <RecipeBottomSheet visible={visible} onClose={onClose} title="Rezept bewerten" avoidKeyboard>
-      <ThemedText type="detail" themeColor="textSecondary" className="font-medium">
+      <Txt variant="body" tone="secondary" style={{ fontWeight: '500' }}>
         Wie hat dir das Rezept gefallen?
-      </ThemedText>
+      </Txt>
 
       <View className="flex-row flex-wrap gap-[7px] pt-[14px]">
         {Array.from({ length: 10 }, (_, index) => index + 1).map((value) => {
@@ -68,50 +68,53 @@ export function RecipeRatingSheet({ recipeId, visible, onClose }: Props) {
               role="button"
               aria-label={`${value} von 10 Sternen`}
               accessibilityState={{ selected: isSelected }}
-              className={`recipe-score-btn ${isSelected ? 'bg-accent' : 'bg-background-selected'}`}>
-              <ThemedText
-                className={`text-[14px] leading-[17px] ${isSelected ? 'text-white' : 'text-accent'}`}>
+              className="recipe-score-btn"
+              style={{ backgroundColor: isSelected ? colors.basil : colors.surfaceSoft }}>
+              <Txt
+                variant="body"
+                tone={isSelected ? 'onAccent' : 'secondary'}
+                style={{ fontSize: 14, lineHeight: 17 }}>
                 ★
-              </ThemedText>
-              <ThemedText
-                type="detail"
-                className={`text-[9px] leading-[11px] font-bold ${
-                  isSelected ? 'text-white' : 'text-text-secondary'
-                }`}>
+              </Txt>
+              <Txt
+                variant="caption"
+                tone={isSelected ? 'onAccent' : 'secondary'}
+                weight="700"
+                style={{ fontSize: 9, lineHeight: 11 }}>
                 {value}
-              </ThemedText>
+              </Txt>
             </Pressable>
           );
         })}
       </View>
-      <ThemedText type="detail" themeColor="accent" className="pt-[10px] font-bold">
+      <Txt variant="caption" tone="primary" weight="700" className="pt-[10px]">
         {score > 0 ? `${score} / 10` : 'Noch keine Bewertung gewählt'}
-      </ThemedText>
+      </Txt>
 
       <TextInput
         value={note}
         onChangeText={setNote}
         placeholder="Optional: Was war besonders gut?"
-        placeholderTextColor={theme.textSecondary}
+        placeholderTextColor={colors.textMuted}
         multiline
         maxLength={500}
         textAlignVertical="top"
         className="recipe-rating-input"
+        style={{ color: colors.text }}
       />
 
       <Pressable
         onPress={submit}
         disabled={score === 0 || saving}
         role="button"
-        className={`h-12 mt-[14px] rounded-card items-center justify-center bg-accent active:opacity-75 ${
-          score === 0 || saving ? 'opacity-45' : ''
-        }`}>
+        className="h-12 mt-[14px] rounded-card items-center justify-center active:opacity-75"
+        style={{ backgroundColor: colors.basil, opacity: score === 0 || saving ? 0.45 : 1 }}>
         {saving ? (
-          <ActivityIndicator color="#FFFFFF" />
+          <ActivityIndicator color={colors.inverse} />
         ) : (
-          <ThemedText type="captionCompact" className="text-white font-bold">
+          <Txt variant="caption" tone="onAccent" weight="700">
             Bewertung speichern
-          </ThemedText>
+          </Txt>
         )}
       </Pressable>
     </RecipeBottomSheet>

@@ -5,9 +5,9 @@ import { useForm } from 'react-hook-form';
 import { View } from 'react-native';
 import { TextField } from '@/components/forms/text-field';
 import { Screen } from '@/components/layout/screen';
-import { ThemedText } from '@/components/theme/themed-text';
 import { Button } from '@/components/ui/buttons';
 import { Card } from '@/components/ui/card';
+import { Txt } from '@/constants/ui';
 import { updatePassword } from '@/features/auth/api';
 import { authErrorMessage } from '@/features/auth/domain/auth-error-message';
 import { type NewPasswordInput, newPasswordSchema } from '@/lib/db/zod/auth.zod';
@@ -71,7 +71,11 @@ export function ResetPasswordScreen() {
           />
 
           {/* Formularfehler */}
-          {formError ? <ThemedText type="smallDanger">{formError}</ThemedText> : null}
+          {formError ? (
+            <Txt variant="body" tone="danger">
+              {formError}
+            </Txt>
+          ) : null}
 
           {/* Absende-Button */}
           <Button

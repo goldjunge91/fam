@@ -3,9 +3,9 @@ import { useState } from 'react';
 import { View } from 'react-native';
 import { TextField } from '@/components/forms/text-field';
 import { Screen } from '@/components/layout/screen';
-import { ThemedText } from '@/components/theme/themed-text';
 import { Button } from '@/components/ui/buttons';
 import { Card } from '@/components/ui/card';
+import { Txt } from '@/constants/ui';
 import { useCreateHouseholdMutation } from '@/features/household/api';
 
 export function CreateHouseholdScreen() {
@@ -57,7 +57,11 @@ export function CreateHouseholdScreen() {
           />
 
           {/* Validierungs- und Serverfehler */}
-          {errorMsg ? <ThemedText type="smallDanger">{errorMsg}</ThemedText> : null}
+          {errorMsg ? (
+            <Txt variant="body" tone="danger">
+              {errorMsg}
+            </Txt>
+          ) : null}
 
           {/* Erstellen-Button */}
           <Button label="Erstellen" onPress={handleSubmit} loading={mutation.isPending} />

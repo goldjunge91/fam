@@ -1,8 +1,9 @@
 import { Pressable, Switch, View } from 'react-native';
 import { Screen } from '@/components/layout/screen';
 import { ModuleLockedOverlay } from '@/components/module-locked-overlay';
-import { ThemedText } from '@/components/theme/themed-text';
+import { useTheme } from '@/components/theme/ThemeProvider';
 import { Card } from '@/components/ui/card';
+import { Txt } from '@/constants/ui';
 import { getSettingsModules } from '@/constants/feature-registry';
 import { useSession } from '@/features/auth/session-provider';
 import {
@@ -15,6 +16,7 @@ const SETTINGS_MODULES = getSettingsModules();
 
 export function ModuleSettingsScreen() {
   const { session } = useSession();
+  const { colors } = useTheme();
   const userId = session?.user.id;
 
   const { modules, isModuleLocked } = useFeatureAccess();
@@ -29,9 +31,9 @@ export function ModuleSettingsScreen() {
     <Screen title="Module" back={{ label: 'Einstellungen', href: '/settings' }} backStyle="icon">
       {/* Hinweistext zur Ausblendung von Modulen */}
       <Card>
-        <ThemedText type="small" themeColor="textSecondary">
+        <Txt variant="body" tone="secondary">
           Deaktivierte Module verschwinden aus der Navigation, deine Daten bleiben erhalten.
-        </ThemedText>
+        </Txt>
       </Card>
 
       <View className="gap-two">
@@ -44,14 +46,18 @@ export function ModuleSettingsScreen() {
               key={row.key}
               onPress={() => !locked && toggle(row.key)}
               disabled={locked}
-              className={`module-row ${modules[row.key] ? 'module-row-selected' : 'module-row-idle'}`}>
+              className="module-row"
+              style={{
+                backgroundColor: modules[row.key] ? colors.surfaceSoft : colors.surface,
+                borderColor: colors.border,
+              }}>
               <View className={`row-text ${locked ? 'module-row-locked-content' : ''}`}>
-                <ThemedText type="smallBold">
+                <Txt variant="body" weight="700">
                   {row.icon} {row.title}
-                </ThemedText>
-                <ThemedText type="small" themeColor="textSecondary">
+                </Txt>
+                <Txt variant="body" tone="secondary">
                   {row.desc}
-                </ThemedText>
+                </Txt>
               </View>
               <View className={locked ? 'module-row-locked-content' : undefined}>
                 <Switch

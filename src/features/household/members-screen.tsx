@@ -4,9 +4,10 @@ import { router } from 'expo-router';
 import { useState } from 'react';
 import { Alert, Pressable, View } from 'react-native';
 import { Screen } from '@/components/layout/screen';
-import { ThemedText } from '@/components/theme/themed-text';
+import { space, withAlpha } from '@/components/theme/index';
+import { useTheme } from '@/components/theme/ThemeProvider';
 import { Button } from '@/components/ui/buttons';
-import { Spacing } from '@/constants/layout';
+import { Txt } from '@/constants/ui';
 import { useSession } from '@/features/auth/session-provider';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import {
@@ -22,6 +23,7 @@ import { InviteModal } from '@/features/household/invite-modal';
 
 export function MembersScreen() {
   const { session } = useSession();
+  const { colors } = useTheme();
   const currentUserId = session?.user.id;
 
   const { activeHousehold, activeHouseholdId, households } = useActiveHousehold();
@@ -189,8 +191,8 @@ export function MembersScreen() {
         keyExtractor={(item) => item.user_id}
         // FlashList positioniert Zeilen selbst, `gap` im Container greift nicht
         // — der Zeilenabstand kommt deshalb ueber einen Separator (#139).
-        contentContainerStyle={{ paddingVertical: Spacing.two }}
-        ItemSeparatorComponent={() => <View style={{ height: Spacing.two }} />}
+        contentContainerStyle={{ paddingVertical: space.sm }}
+        ItemSeparatorComponent={() => <View style={{ height: space.sm }} />}
         renderItem={({ item }) => {
           const isMe = item.user_id === currentUserId;
           const displayName = item.display_name || 'Unbekanntes Mitglied';
@@ -199,7 +201,13 @@ export function MembersScreen() {
           return (
             /* Mitglieder-Zeile mit Avatar, Name, Rolle und Admin-Aktionen */
             <View className="member-row">
-              <View className={`member-avatar ${isMe ? 'member-avatar-selected' : ''}`}>
+              <View
+                className="member-avatar"
+                style={{
+                  backgroundColor: colors.surface,
+                  borderColor: isMe ? colors.basil : undefined,
+                  borderWidth: isMe ? 2 : undefined,
+                }}>
                 {item.avatar_url ? (
                   <Image
                     source={{ uri: item.avatar_url }}
@@ -208,34 +216,38 @@ export function MembersScreen() {
                     contentFit="cover"
                   />
                 ) : (
-                  <ThemedText className="font-bold text-[14px]">{initials}</ThemedText>
+                  <Txt variant="body" weight="700" style={{ fontSize: 14 }}>
+                    {initials}
+                  </Txt>
                 )}
               </View>
 
               <View className="flex-1">
-                <ThemedText className={isMe ? 'font-bold' : 'font-normal'}>
+                <Txt variant="body" weight={isMe ? '700' : '400'}>
                   {displayName} {isMe ? '(Du)' : ''}
-                </ThemedText>
-                <ThemedText type="small" themeColor="textSecondary">
+                </Txt>
+                <Txt variant="body" tone="secondary">
                   Rolle: {item.role === 'admin' ? 'Administrator' : 'Mitglied'}
-                </ThemedText>
+                </Txt>
               </View>
 
               {isAdmin && !isMe && (
                 <View className="member-actions">
                   <Pressable
                     onPress={() => handleToggleRole(item.user_id, item.role, displayName)}
-                    className="member-role-tag">
-                    <ThemedText type="small" themeColor="accent" className="text-[12px]">
+                    className="member-role-tag"
+                    style={{ backgroundColor: withAlpha(colors.basil, 0.1) }}>
+                    <Txt variant="body" tone="primary" style={{ fontSize: 12 }}>
                       {item.role === 'admin' ? 'Admin ▾' : 'Mitglied ▾'}
-                    </ThemedText>
+                    </Txt>
                   </Pressable>
                   <Pressable
                     onPress={() => handleRemoveMember(item.user_id, displayName)}
-                    className="member-remove-tag">
-                    <ThemedText type="small" themeColor="danger" className="text-[12px]">
+                    className="member-remove-tag"
+                    style={{ backgroundColor: withAlpha(colors.tomato, 0.1) }}>
+                    <Txt variant="body" tone="danger" style={{ fontSize: 12 }}>
                       Entfernen
-                    </ThemedText>
+                    </Txt>
                   </Pressable>
                 </View>
               )}
@@ -268,12 +280,9 @@ export function MembersScreen() {
                     }
                   />
                   {adminCount <= 1 && (
-                    <ThemedText
-                      type="small"
-                      themeColor="textSecondary"
-                      className="text-center text-[12px]">
+                    <Txt variant="body" tone="secondary" center style={{ fontSize: 12 }}>
                       Ernenne zuerst einen weiteren Admin, um den Haushalt zu verlassen.
-                    </ThemedText>
+                    </Txt>
                   )}
                   <Button
                     label="Haushalt löschen"

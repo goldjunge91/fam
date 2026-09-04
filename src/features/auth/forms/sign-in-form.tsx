@@ -3,8 +3,8 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { View } from 'react-native';
 import { TextField } from '@/components/forms/text-field';
-import { ThemedText } from '@/components/theme/themed-text';
 import { Button } from '@/components/ui/buttons';
+import { Txt } from '@/constants/ui';
 import { signIn } from '@/features/auth/api';
 import { authErrorMessage } from '@/features/auth/domain/auth-error-message';
 import { type SignInInput, signInSchema } from '@/lib/db/zod/auth.zod';
@@ -74,7 +74,11 @@ export function SignInForm({
         returnKeyType="go"
       />
 
-      {formError ? <ThemedText type="smallDanger">{formError}</ThemedText> : null}
+      {formError ? (
+        <Txt variant="body" tone="danger" weight="500">
+          {formError}
+        </Txt>
+      ) : null}
 
       <Button
         label={submitLabel}

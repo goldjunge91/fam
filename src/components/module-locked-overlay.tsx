@@ -1,20 +1,20 @@
 import { View } from 'react-native';
-import { ThemedText } from '@/components/theme/themed-text';
-import { withAlpha } from '@/constants/theme';
-import { useTheme } from '@/hooks/use-theme';
+import { withAlpha } from '@/components/theme/index';
+import { useTheme } from '@/components/theme/ThemeProvider';
+import { Txt } from '@/constants/ui';
 
 export function ModuleLockedOverlay() {
-  const theme = useTheme();
+  const { colors } = useTheme();
 
   return (
     <View
       className="module-row-locked-overlay"
-      style={{ backgroundColor: withAlpha(theme.backgroundElement, 0.4) }}>
-      <View className="module-row-locked-pill" style={{ backgroundColor: theme.text }}>
+      style={{ backgroundColor: withAlpha(colors.surface, 0.4) }}>
+      <View className="module-row-locked-pill" style={{ backgroundColor: colors.text }}>
         <View className="module-row-locked-pill-dot" />
-        <ThemedText type="smallBold" style={{ color: theme.background }}>
+        <Txt variant="body" weight="700" color={colors.bg}>
           Demnächst verfügbar
-        </ThemedText>
+        </Txt>
       </View>
     </View>
   );

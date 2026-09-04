@@ -1,7 +1,8 @@
 import { useLocalSearchParams } from 'expo-router';
 import { useState } from 'react';
 
-import { ThemedText } from '@/components/theme/themed-text';
+import { useTheme } from '@/components/theme/ThemeProvider';
+import { Txt } from '@/constants/ui';
 import { usePremium } from '@/features/premium/premium-provider';
 import {
   toCookingRecipeDetail,
@@ -19,11 +20,13 @@ import { useCookingTimer } from '../hooks/use-cooking-timer';
 import { useRecipeDetail } from '../hooks/use-recipes';
 
 function CookingModeLoading() {
+  const { colors } = useTheme();
+
   return (
     <CookingModeShell title="Kochmodus" backLabel="Zurück">
-      <ThemedText type="caption" themeColor="textSecondary" className="p-six text-center">
+      <Txt variant="caption" tone="secondary" className="p-six text-center" style={{ color: colors.textMuted }}>
         Kochmodus wird geladen…
-      </ThemedText>
+      </Txt>
     </CookingModeShell>
   );
 }

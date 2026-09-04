@@ -1,7 +1,7 @@
 import { Picker } from '@expo/ui/community/picker';
 import { View } from 'react-native';
 
-import { ThemedText } from '@/components/theme/themed-text';
+import { Txt } from '@/constants/ui';
 
 export type WheelPickerOption = {
   value: string;
@@ -30,12 +30,9 @@ export function WheelPickerField({
   return (
     <View className="gap-one">
       {label && (
-        <ThemedText
-          type="small"
-          themeColor="textSecondary"
-          className={size === 'large' ? 'text-body' : ''}>
+        <Txt variant="body" tone="secondary" className={size === 'large' ? 'text-body' : ''}>
           {label}
-        </ThemedText>
+        </Txt>
       )}
       <Picker selectedValue={value} onValueChange={onChange}>
         {options.map((option) => (

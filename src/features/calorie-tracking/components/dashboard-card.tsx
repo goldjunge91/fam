@@ -1,12 +1,12 @@
 import { Pressable, View } from 'react-native';
-import { ThemedText } from '@/components/theme/themed-text';
+import { withAlpha } from '@/components/theme/index';
+import { useTheme } from '@/components/theme/ThemeProvider';
 import { ProgressRing } from '@/components/ui/progress-ring';
-import { withAlpha } from '@/constants/theme';
+import { Txt } from '@/constants/ui';
 import { useSession } from '@/features/auth/session-provider';
 import { useCurrentGoal, useFoodEntries } from '@/features/calorie-tracking/api';
 import { calculateDailyTotals } from '@/features/calorie-tracking/daily-totals';
 import { type DashboardCardProps, registerCard } from '@/features/dashboard/registry';
-import { useTheme } from '@/hooks/use-theme';
 
 function toIsoDate(date: Date): string {
   const y = date.getFullYear();
@@ -16,7 +16,7 @@ function toIsoDate(date: Date): string {
 }
 
 function CalorieDashboardCard({ size, onLongPress }: DashboardCardProps) {
-  const theme = useTheme();
+  const { colors } = useTheme();
   const { session } = useSession();
   const userId = session?.user.id;
   const todayIso = toIsoDate(new Date());
@@ -41,26 +41,24 @@ function CalorieDashboardCard({ size, onLongPress }: DashboardCardProps) {
     return (
       <Pressable
         onLongPress={onLongPress}
-        className="rounded-fam-large flex-col justify-between p-four bg-background-element"
+        className="rounded-fam-large flex-col justify-between p-four"
         style={{
           width: '100%',
-          height: 138,
+          minHeight: 138,
+          backgroundColor: colors.surface,
           borderCurve: 'continuous',
-          boxShadow: `0 8px 20px ${withAlpha(theme.shadowCard, 0.08)}`,
+          boxShadow: `0 8px 20px ${withAlpha(colors.text, 0.08)}`,
         }}>
         <View className="flex-row items-center justify-between">
-          <ThemedText
-            type="small"
-            themeColor="textSecondary"
+          <Txt
+            variant="body"
+            tone="secondary"
             style={{ fontSize: 10, lineHeight: 12, fontWeight: '700', letterSpacing: 0.5 }}>
             KALORIEN
-          </ThemedText>
-          <ThemedText
-            type="smallBold"
-            themeColor={ziel === 0 ? 'textSecondary' : 'accent'}
-            style={{ fontSize: 11 }}>
+          </Txt>
+          <Txt variant="body" tone={ziel === 0 ? 'secondary' : 'primary'} style={{ fontSize: 11 }}>
             {ziel === 0 ? '—' : `${Math.round((aufgenommen / (ziel || 1)) * 100)}%`}
-          </ThemedText>
+          </Txt>
         </View>
 
         <View className="items-center justify-center my-one">
@@ -70,23 +68,23 @@ function CalorieDashboardCard({ size, onLongPress }: DashboardCardProps) {
             preset="compact"
             label="kcal"
             displayMode="count"
-            progressColor="#D9785C"
-            trackColor="#DAD3DB"
+            progressColor={colors.tomato}
+            trackColor={colors.border}
           />
         </View>
 
         <View className="items-center">
-          <ThemedText
-            type="small"
-            themeColor={ziel === 0 ? 'textSecondary' : 'accent'}
-            numberOfLines={1}
+          <Txt
+            variant="body"
+            tone={ziel === 0 ? 'secondary' : verbleibend < 0 ? 'danger' : 'primary'}
+            numberOfLines={2}
             style={{ fontSize: 11, fontWeight: '500' }}>
             {ziel === 0
               ? 'Kein Ziel'
               : verbleibend >= 0
                 ? `${verbleibend} kcal übrig`
                 : `${Math.abs(verbleibend)} kcal drüber`}
-          </ThemedText>
+          </Txt>
         </View>
       </Pressable>
     );
@@ -99,7 +97,7 @@ function CalorieDashboardCard({ size, onLongPress }: DashboardCardProps) {
       style={{
         marginBottom: 0,
         borderCurve: 'continuous',
-        boxShadow: `0 8px 22px ${withAlpha(theme.shadowCard, 0.1)}`,
+        boxShadow: `0 8px 22px ${withAlpha(colors.text, 0.1)}`,
       }}>
       <View className="dashboard-ring-wrap">
         <ProgressRing
@@ -108,27 +106,30 @@ function CalorieDashboardCard({ size, onLongPress }: DashboardCardProps) {
           preset="dashboard"
           label="Kalorien"
           displayMode="percent"
-          progressColor="#D9785C"
-          trackColor="#DAD3DB"
+          progressColor={colors.tomato}
+          trackColor={colors.border}
         />
       </View>
       <View className="dashboard-calorie-copy">
-        <ThemedText type="small" themeColor="textSecondary" className="dashboard-calorie-label">
+        <Txt variant="body" tone="secondary" className="dashboard-calorie-label">
           Kalorien heute
-        </ThemedText>
-        <ThemedText type="title" className="dashboard-calorie-value">
+        </Txt>
+        <Txt
+          variant="display"
+          className="dashboard-calorie-value"
+          style={{ lineHeight: 44 }}>
           {Math.round(aufgenommen).toLocaleString('de-DE')}
-        </ThemedText>
-        <ThemedText
-          type="small"
-          themeColor={ziel === 0 ? 'textSecondary' : 'accent'}
+        </Txt>
+        <Txt
+          variant="body"
+          tone={ziel === 0 ? 'secondary' : verbleibend < 0 ? 'danger' : 'primary'}
           className="dashboard-calorie-remaining">
           {ziel === 0
             ? 'Noch kein Ziel gesetzt'
             : verbleibend >= 0
               ? `${verbleibend} kcal verbleibend`
               : `${Math.abs(verbleibend)} kcal über dem Ziel`}
-        </ThemedText>
+        </Txt>
       </View>
     </Pressable>
   );

@@ -1,7 +1,8 @@
 import { Image } from 'expo-image';
 import { useState } from 'react';
 import { Pressable, ScrollView, View } from 'react-native';
-import { ThemedText } from '@/components/theme/themed-text';
+import { useTheme } from '@/components/theme/ThemeProvider';
+import { Txt } from '@/constants/ui';
 import type { DietaryTag, Difficulty, DishType } from '@/features/recipes/hooks/use-recipes';
 import { UNIT_OPTIONS } from '@/lib/units';
 import { DIETARY_TAGS, DIFFICULTIES, DISH_TYPES } from './recipe-metadata-options';
@@ -53,6 +54,7 @@ export function RecipeWizardStepPreview({
   onBack,
   onSave,
 }: RecipeWizardStepPreviewProps) {
+  const { colors } = useTheme();
   const [tab, setTab] = useState<PreviewTab>('ingredients');
 
   // Schluessel ist die lokale IngredientItem.id, nicht die (erst beim
@@ -78,16 +80,19 @@ export function RecipeWizardStepPreview({
       className="flex-1"
       contentContainerClassName="px-four pb-six"
       showsVerticalScrollIndicator={false}>
-      <ThemedText
-        type="detail"
-        themeColor="textSecondary"
-        className="pt-two text-[8px] leading-[10px] font-medium tracking-widest">
+      <Txt
+        variant="caption"
+        tone="secondary"
+        className="pt-two tracking-widest"
+        style={{ fontSize: 8, lineHeight: 10, fontWeight: '500' }}>
         SCHRITT 4 VON 4
-      </ThemedText>
-      <ThemedText type="headingSmall" className="pt-[6px] pb-three">
+      </Txt>
+      <Txt variant="heading" className="pt-[6px] pb-three">
         Vorschau
-      </ThemedText>
-      <View className="w-full h-[200px] bg-background-element rounded-sheet overflow-hidden mb-four justify-center items-center">
+      </Txt>
+      <View
+        className="w-full h-[200px] rounded-sheet overflow-hidden mb-four justify-center items-center"
+        style={{ backgroundColor: colors.surface }}>
         {coverPreviewUri ? (
           <Image
             source={{ uri: coverPreviewUri }}
@@ -96,69 +101,75 @@ export function RecipeWizardStepPreview({
             contentFit="cover"
           />
         ) : (
-          <ThemedText type="body" themeColor="textSecondary">
+          <Txt variant="body" tone="secondary">
             Kein Titelbild
-          </ThemedText>
+          </Txt>
         )}
       </View>
 
-      <ThemedText type="headingSmall" className="mb-four">
+      <Txt variant="heading" className="mb-four">
         {title || 'Ohne Titel'}
-      </ThemedText>
+      </Txt>
 
-      <View className="flex-row bg-background-element rounded-fam-large p-one mb-four">
+      <View
+        className="flex-row rounded-fam-large p-one mb-four"
+        style={{ backgroundColor: colors.surface }}>
         <Pressable
           onPress={() => setTab('ingredients')}
           accessibilityRole="tab"
           accessibilityState={{ selected: tab === 'ingredients' }}
-          className={`flex-1 py-[10px] rounded-fam-large items-center ${
-            tab === 'ingredients' ? 'bg-accent' : ''
-          }`}>
-          <ThemedText
-            type="body"
-            themeColor={tab === 'ingredients' ? 'onAccent' : 'accent'}
-            className="font-semibold">
+          className="flex-1 py-[10px] rounded-fam-large items-center"
+          style={{ backgroundColor: tab === 'ingredients' ? colors.basil : 'transparent' }}>
+          <Txt
+            variant="body"
+            tone={tab === 'ingredients' ? 'onAccent' : 'primary'}
+            style={{ fontWeight: '600' }}>
             Zutaten
-          </ThemedText>
+          </Txt>
         </Pressable>
         <Pressable
           onPress={() => setTab('instructions')}
           accessibilityRole="tab"
           accessibilityState={{ selected: tab === 'instructions' }}
-          className={`flex-1 py-[10px] rounded-fam-large items-center ${
-            tab === 'instructions' ? 'bg-accent' : ''
-          }`}>
-          <ThemedText
-            type="body"
-            themeColor={tab === 'instructions' ? 'onAccent' : 'accent'}
-            className="font-semibold">
+          className="flex-1 py-[10px] rounded-fam-large items-center"
+          style={{ backgroundColor: tab === 'instructions' ? colors.basil : 'transparent' }}>
+          <Txt
+            variant="body"
+            tone={tab === 'instructions' ? 'onAccent' : 'primary'}
+            style={{ fontWeight: '600' }}>
             Anleitung
-          </ThemedText>
+          </Txt>
         </Pressable>
       </View>
 
       {tab === 'ingredients' ? (
         <View className="gap-three">
-          {description ? <ThemedText type="body">{description}</ThemedText> : null}
+          {description ? <Txt variant="body">{description}</Txt> : null}
 
           <View className="row-wrap gap-two">
             {cookTimeMinutes ? (
-              <View className="bg-background-element px-three py-[6px] rounded-fam-large">
-                <ThemedText type="label" className="font-semibold">
+              <View
+                className="px-three py-[6px] rounded-fam-large"
+                style={{ backgroundColor: colors.surface }}>
+                <Txt variant="label" style={{ fontWeight: '600' }}>
                   ⏱ {cookTimeMinutes} Min.
-                </ThemedText>
+                </Txt>
               </View>
             ) : null}
-            <View className="bg-background-element px-three py-[6px] rounded-fam-large">
-              <ThemedText type="label" className="font-semibold">
+            <View
+              className="px-three py-[6px] rounded-fam-large"
+              style={{ backgroundColor: colors.surface }}>
+              <Txt variant="label" style={{ fontWeight: '600' }}>
                 🍽 {defaultServings} Portionen
-              </ThemedText>
+              </Txt>
             </View>
             {difficulty ? (
-              <View className="bg-background-element px-three py-[6px] rounded-fam-large">
-                <ThemedText type="label" className="font-semibold">
+              <View
+                className="px-three py-[6px] rounded-fam-large"
+                style={{ backgroundColor: colors.surface }}>
+                <Txt variant="label" style={{ fontWeight: '600' }}>
                   {labelFor(DIFFICULTIES, difficulty)}
-                </ThemedText>
+                </Txt>
               </View>
             ) : null}
           </View>
@@ -166,38 +177,44 @@ export function RecipeWizardStepPreview({
           {dishTypes.length > 0 || dietaryTags.length > 0 ? (
             <View className="row-wrap gap-two">
               {dishTypes.map((d) => (
-                <View key={d} className="bg-background-selected px-[10px] py-[5px] rounded-control">
-                  <ThemedText type="caption" themeColor="accent" className="font-semibold">
+                <View
+                  key={d}
+                  className="px-[10px] py-[5px] rounded-control"
+                  style={{ backgroundColor: colors.surfaceSoft }}>
+                  <Txt variant="caption" tone="primary" style={{ fontWeight: '600' }}>
                     {labelFor(DISH_TYPES, d)}
-                  </ThemedText>
+                  </Txt>
                 </View>
               ))}
               {dietaryTags.map((d) => (
-                <View key={d} className="bg-background-selected px-[10px] py-[5px] rounded-control">
-                  <ThemedText type="caption" themeColor="accent" className="font-semibold">
+                <View
+                  key={d}
+                  className="px-[10px] py-[5px] rounded-control"
+                  style={{ backgroundColor: colors.surfaceSoft }}>
+                  <Txt variant="caption" tone="primary" style={{ fontWeight: '600' }}>
                     {labelFor(DIETARY_TAGS, d)}
-                  </ThemedText>
+                  </Txt>
                 </View>
               ))}
             </View>
           ) : null}
 
           {hashtagsInput.trim() ? (
-            <ThemedText type="label" themeColor="textSecondary">
+            <Txt variant="label" tone="secondary">
               {hashtagsInput}
-            </ThemedText>
+            </Txt>
           ) : null}
 
           {components.map((comp) => (
             <View key={comp.id} className="gap-one">
-              <ThemedText type="bodyBold">{comp.title}</ThemedText>
+              <Txt variant="body" weight="700">{comp.title}</Txt>
               {comp.items
                 .filter((item) => item.product || item.existingProductId)
                 .map((item) => (
-                  <ThemedText key={item.id} type="body">
+                  <Txt key={item.id} variant="body">
                     • {item.product?.name ?? item.productQuery} — {item.quantity}{' '}
                     {unitLabel(item.unit)}
-                  </ThemedText>
+                  </Txt>
                 ))}
             </View>
           ))}
@@ -207,10 +224,13 @@ export function RecipeWizardStepPreview({
           {steps
             .filter((step) => step.text.trim())
             .map((step, index) => (
-              <View key={step.id} className="bg-white/70 rounded-sheet p-three gap-two">
-                <ThemedText type="label" themeColor="accent" className="font-bold">
+              <View
+                key={step.id}
+                className="rounded-sheet p-three gap-two"
+                style={{ backgroundColor: colors.surface }}>
+                <Txt variant="label" tone="primary" weight="700">
                   Schritt {index + 1}
-                </ThemedText>
+                </Txt>
                 {step.localImageUri ? (
                   <Image
                     source={{ uri: step.localImageUri }}
@@ -219,21 +239,22 @@ export function RecipeWizardStepPreview({
                     contentFit="cover"
                   />
                 ) : null}
-                <ThemedText type="body">{step.text}</ThemedText>
+                <Txt variant="body">{step.text}</Txt>
                 {step.timerMinutes !== null ? (
-                  <ThemedText type="caption" themeColor="textSecondary">
+                  <Txt variant="caption" tone="secondary">
                     ⏱ {step.timerMinutes} Min. Timer
-                  </ThemedText>
+                  </Txt>
                 ) : null}
                 {step.ingredientIds.length > 0 ? (
                   <View className="row-wrap gap-[6px]">
                     {step.ingredientIds.map((id) => (
                       <View
                         key={id}
-                        className="bg-background-element px-[10px] py-one rounded-control">
-                        <ThemedText type="caption" themeColor="accent" className="font-semibold">
+                        className="px-[10px] py-one rounded-control"
+                        style={{ backgroundColor: colors.surface }}>
+                        <Txt variant="caption" tone="primary" style={{ fontWeight: '600' }}>
                           {ingredientLabelById.get(id) ?? id}
-                        </ThemedText>
+                        </Txt>
                       </View>
                     ))}
                   </View>
@@ -245,22 +266,22 @@ export function RecipeWizardStepPreview({
 
       <View className="flex-row gap-[14px] mt-five mb-three">
         <Pressable
-          className="flex-1 min-h-[48px] rounded-card items-center justify-center bg-background-element active:opacity-75"
+          className="flex-1 min-h-[48px] rounded-card items-center justify-center active:opacity-75"
+          style={{ backgroundColor: colors.surface }}
           onPress={onBack}>
-          <ThemedText type="captionCompact" themeColor="accent" className="font-semibold">
+          <Txt variant="caption" tone="primary" style={{ fontWeight: '600' }}>
             Zurück
-          </ThemedText>
+          </Txt>
         </Pressable>
         <Pressable
-          className={`flex-1 min-h-[48px] rounded-card items-center justify-center bg-accent active:opacity-75 ${
-            saving ? 'opacity-50' : ''
-          }`}
+          className="flex-1 min-h-[48px] rounded-card items-center justify-center active:opacity-75"
+          style={{ backgroundColor: colors.basil, opacity: saving ? 0.5 : 1 }}
           accessibilityRole="button"
           onPress={onSave}
           disabled={saving}>
-          <ThemedText type="captionCompact" className="text-white font-semibold">
+          <Txt variant="caption" tone="onAccent" style={{ fontWeight: '600' }}>
             {saving ? 'Speichert…' : 'Speichern'}
-          </ThemedText>
+          </Txt>
         </Pressable>
       </View>
     </ScrollView>

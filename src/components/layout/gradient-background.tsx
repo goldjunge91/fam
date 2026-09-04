@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native';
 import Svg, { Defs, LinearGradient, Rect, Stop } from 'react-native-svg';
 
-import type { GradientSpec } from '@/constants/theme';
+import type { GradientSpec } from '@/components/theme/index';
 
 type GradientBackgroundProps = GradientSpec;
 

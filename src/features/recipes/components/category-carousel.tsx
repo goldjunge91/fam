@@ -1,6 +1,7 @@
 import { Pressable, ScrollView } from 'react-native';
 
-import { ThemedText } from '@/components/theme/themed-text';
+import { useTheme } from '@/components/theme/ThemeProvider';
+import { Txt } from '@/constants/ui';
 
 type CategoryMatchInput = {
   dish_types: string[];
@@ -81,6 +82,7 @@ type CategoryCarouselProps = {
 
 /** Horizontale Kategorie-Kacheln mit Icon und Label. */
 export function CategoryCarousel({ selectedKey, onSelect }: CategoryCarouselProps) {
+  const { colors } = useTheme();
   return (
     <ScrollView
       horizontal
@@ -95,15 +97,23 @@ export function CategoryCarousel({ selectedKey, onSelect }: CategoryCarouselProp
             role="button"
             aria-label={tile.label}
             aria-selected={selected}
-            className={`category-tile ${selected ? 'selectable-selected' : 'selectable-idle'}`}>
-            <ThemedText className="text-[24px] leading-[28px]">{tile.emoji}</ThemedText>
-            <ThemedText
-              type="detail"
-              themeColor={selected ? 'onAccent' : 'text'}
-              className="text-[10px] leading-[12px] font-semibold text-center"
+            className="category-tile"
+            style={{
+              backgroundColor: selected ? colors.basil : colors.surface,
+              borderColor: selected ? colors.basil : colors.border,
+            }}>
+            <Txt variant="body" style={{ fontSize: 24, lineHeight: 28 }}>
+              {tile.emoji}
+            </Txt>
+            <Txt
+              variant="body"
+              tone={selected ? 'onAccent' : 'primary'}
+              weight="600"
+              center
+              style={{ fontSize: 10, lineHeight: 12 }}
               numberOfLines={1}>
               {tile.label}
-            </ThemedText>
+            </Txt>
           </Pressable>
         );
       })}

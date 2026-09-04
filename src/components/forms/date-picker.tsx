@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { Modal, Pressable, View } from 'react-native';
 import { TextField } from '@/components/forms/text-field';
-import { ThemedText } from '@/components/theme/themed-text';
 import { Button } from '@/components/ui/buttons';
+import { Txt } from '@/constants/ui';
 
 interface DatePickerProps {
   label?: string;
@@ -73,14 +73,16 @@ export function DatePicker({
           accessibilityRole="button"
           accessibilityLabel="Datum auswählen"
           className="h-[48px] px-three rounded-control border-hairline items-center justify-center bg-background-element border-border">
-          <ThemedText className="text-[18px]">📅</ThemedText>
+          <Txt variant="body" style={{ fontSize: 18, lineHeight: 24 }}>
+            📅
+          </Txt>
         </Pressable>
       </View>
 
       {formattedDisplay && (
-        <ThemedText type="small" themeColor="textSecondary" className="ml-one -mt-[2px]">
+        <Txt variant="body" tone="secondary" className="ml-one -mt-[2px]">
           📅 {formattedDisplay}
-        </ThemedText>
+        </Txt>
       )}
 
       {/* Modal Date Selector */}
@@ -91,59 +93,85 @@ export function DatePicker({
         onRequestClose={() => setShowModal(false)}>
         <View className="modal-backdrop">
           <View className="modal-sheet">
-            <ThemedText type="subtitle">Datum auswählen</ThemedText>
+            <Txt variant="title" weight="600">
+              Datum auswählen
+            </Txt>
 
             <View className="flex-row justify-around my-two">
               {/* Year Adjust */}
               <View className="items-center gap-two">
-                <ThemedText type="smallBold">Jahr</ThemedText>
+                <Txt variant="body" weight="700">
+                  Jahr
+                </Txt>
                 <View className="items-center gap-[6px]">
                   <Pressable
                     onPress={() => setSelYear((y) => Math.max(1900, y - 1))}
                     className="w-[40px] h-[40px] rounded-sheet items-center justify-center bg-background-element">
-                    <ThemedText className="text-body-lg font-bold">-</ThemedText>
+                    <Txt variant="body" weight="700" style={{ fontSize: 18, lineHeight: 24 }}>
+                      -
+                    </Txt>
                   </Pressable>
-                  <ThemedText type="smallBold">{selYear}</ThemedText>
+                  <Txt variant="body" weight="700">
+                    {selYear}
+                  </Txt>
                   <Pressable
                     onPress={() => setSelYear((y) => Math.min(2100, y + 1))}
                     className="w-[40px] h-[40px] rounded-sheet items-center justify-center bg-background-element">
-                    <ThemedText className="text-body-lg font-bold">+</ThemedText>
+                    <Txt variant="body" weight="700" style={{ fontSize: 18, lineHeight: 24 }}>
+                      +
+                    </Txt>
                   </Pressable>
                 </View>
               </View>
 
               {/* Month Adjust */}
               <View className="items-center gap-two">
-                <ThemedText type="smallBold">Monat</ThemedText>
+                <Txt variant="body" weight="700">
+                  Monat
+                </Txt>
                 <View className="items-center gap-[6px]">
                   <Pressable
                     onPress={() => setSelMonth((m) => (m <= 1 ? 12 : m - 1))}
                     className="w-[40px] h-[40px] rounded-sheet items-center justify-center bg-background-element">
-                    <ThemedText className="text-body-lg font-bold">-</ThemedText>
+                    <Txt variant="body" weight="700" style={{ fontSize: 18, lineHeight: 24 }}>
+                      -
+                    </Txt>
                   </Pressable>
-                  <ThemedText type="smallBold">{String(selMonth).padStart(2, '0')}</ThemedText>
+                  <Txt variant="body" weight="700">
+                    {String(selMonth).padStart(2, '0')}
+                  </Txt>
                   <Pressable
                     onPress={() => setSelMonth((m) => (m >= 12 ? 1 : m + 1))}
                     className="w-[40px] h-[40px] rounded-sheet items-center justify-center bg-background-element">
-                    <ThemedText className="text-body-lg font-bold">+</ThemedText>
+                    <Txt variant="body" weight="700" style={{ fontSize: 18, lineHeight: 24 }}>
+                      +
+                    </Txt>
                   </Pressable>
                 </View>
               </View>
 
               {/* Day Adjust */}
               <View className="items-center gap-two">
-                <ThemedText type="smallBold">Tag</ThemedText>
+                <Txt variant="body" weight="700">
+                  Tag
+                </Txt>
                 <View className="items-center gap-[6px]">
                   <Pressable
                     onPress={() => setSelDay((d) => (d <= 1 ? 31 : d - 1))}
                     className="w-[40px] h-[40px] rounded-sheet items-center justify-center bg-background-element">
-                    <ThemedText className="text-body-lg font-bold">-</ThemedText>
+                    <Txt variant="body" weight="700" style={{ fontSize: 18, lineHeight: 24 }}>
+                      -
+                    </Txt>
                   </Pressable>
-                  <ThemedText type="smallBold">{String(selDay).padStart(2, '0')}</ThemedText>
+                  <Txt variant="body" weight="700">
+                    {String(selDay).padStart(2, '0')}
+                  </Txt>
                   <Pressable
                     onPress={() => setSelDay((d) => (d >= 31 ? 1 : d + 1))}
                     className="w-[40px] h-[40px] rounded-sheet items-center justify-center bg-background-element">
-                    <ThemedText className="text-body-lg font-bold">+</ThemedText>
+                    <Txt variant="body" weight="700" style={{ fontSize: 18, lineHeight: 24 }}>
+                      +
+                    </Txt>
                   </Pressable>
                 </View>
               </View>

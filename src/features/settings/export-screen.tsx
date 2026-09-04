@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { Alert, View } from 'react-native';
 import { Screen } from '@/components/layout/screen';
-import { ThemedText } from '@/components/theme/themed-text';
 import { Button } from '@/components/ui/buttons';
 import { Card } from '@/components/ui/card';
+import { Txt } from '@/constants/ui';
 import { useSession } from '@/features/auth/session-provider';
 import { buildUserDataExport } from '@/features/settings/data-export';
 
@@ -47,11 +47,11 @@ export function ExportScreen() {
     <Screen title="Export" back={{ label: 'Einstellungen', href: '/settings' }} backStyle="icon">
       {/* Hinweiskarte zum DSGVO-Datenexportumfang */}
       <Card>
-        <ThemedText type="small" themeColor="textSecondary">
+        <Txt variant="body" tone="secondary">
           Exportiert dein Profil, deine Ziele, das Ernährungstagebuch, deinen Gewichtsverlauf und
           deine Haushaltsmitgliedschaften als JSON-Datei — keine Daten anderer Haushaltsmitglieder.
           Die Datei ist auch ohne die App lesbar.
-        </ThemedText>
+        </Txt>
       </Card>
       {/* Export-Aktionsbutton */}
       <View className="mt-four">

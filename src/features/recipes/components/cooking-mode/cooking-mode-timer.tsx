@@ -1,6 +1,7 @@
 import { Pressable, View } from 'react-native';
 
-import { ThemedText } from '@/components/theme/themed-text';
+import { useTheme } from '@/components/theme/ThemeProvider';
+import { Txt } from '@/constants/ui';
 import type { RecipeStep } from '../../hooks/use-recipe-steps';
 
 export function getCookingTimerDurationSeconds(step: RecipeStep | undefined): number | null {
@@ -36,37 +37,43 @@ export function CookingModeTimer({
   onPause,
   onReset,
 }: CookingModeTimerProps) {
+  const { colors } = useTheme();
   if (!durationSeconds) return null;
 
   return (
-    <View className="min-h-[58px] mt-[14px] rounded-sheet px-[13px] py-three flex-row items-center gap-[5px] bg-background-element/85">
+    <View
+      className="min-h-[58px] mt-[14px] rounded-sheet px-[13px] py-three flex-row items-center gap-[5px]"
+      style={{ backgroundColor: colors.surface }}>
       <View className="flex-1 min-w-0">
-        <ThemedText type="headingSmall">{formatTimer(remainingSeconds)}</ThemedText>
-        <ThemedText
-          type="detail"
-          themeColor="textSecondary"
-          className="pt-half text-[8px] leading-[10px] font-medium">
+        <Txt variant="heading">{formatTimer(remainingSeconds)}</Txt>
+        <Txt
+          variant="caption"
+          tone="secondary"
+          className="pt-half"
+          style={{ fontSize: 8, lineHeight: 10 }}>
           {remainingSeconds === 0 ? 'Abgelaufen' : running ? 'Läuft' : 'Pausiert'}
-        </ThemedText>
+        </Txt>
       </View>
       <Pressable
         onPress={() => (running ? onPause() : onStart())}
         disabled={remainingSeconds === 0}
         role="button"
         aria-label={running ? 'Timer pausieren' : 'Timer fortsetzen'}
-        className="w-[34px] h-[34px] rounded-control items-center justify-center bg-background-selected">
-        <ThemedText type="captionCompact" themeColor="accent" className="font-bold">
+        className="w-[34px] h-[34px] rounded-control items-center justify-center"
+        style={{ backgroundColor: colors.surfaceSoft }}>
+        <Txt variant="caption" tone="primary" weight="700">
           {running ? 'Ⅱ' : '▶'}
-        </ThemedText>
+        </Txt>
       </Pressable>
       <Pressable
         onPress={onReset}
         role="button"
         aria-label="Timer zurücksetzen"
-        className="w-[34px] h-[34px] rounded-control items-center justify-center bg-background-selected">
-        <ThemedText type="captionCompact" themeColor="accent" className="font-bold">
+        className="w-[34px] h-[34px] rounded-control items-center justify-center"
+        style={{ backgroundColor: colors.surfaceSoft }}>
+        <Txt variant="caption" tone="primary" weight="700">
           ↺
-        </ThemedText>
+        </Txt>
       </Pressable>
     </View>
   );

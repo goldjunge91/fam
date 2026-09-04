@@ -1,12 +1,13 @@
 import { useQueryClient } from '@tanstack/react-query';
 import { useEffect } from 'react';
-import { Pressable, Text, View } from 'react-native';
+import { Pressable, View } from 'react-native';
 import { Screen } from '@/components/layout/screen';
+import { useTheme } from '@/components/theme/ThemeProvider';
 import { BackButton } from '@/components/ui/buttons';
 import { ProgressBar } from '@/components/ui/progress-bar';
+import { Txt } from '@/constants/ui';
 import { useSession } from '@/features/auth/session-provider';
 import { signOutAndClearLocalData } from '@/features/auth/sign-out';
-import { useTheme } from '@/hooks/use-theme';
 import { trackAnalyticsEvent } from '@/lib/analytics';
 import { debugLogEvent } from '@/lib/debug-log';
 import { AccountStepForm } from './components/account-step';
@@ -31,7 +32,7 @@ const STEP_NAMES: Record<number, string> = {
 };
 
 function OnboardingContent() {
-  const theme = useTheme();
+  const { colors } = useTheme();
   const { session } = useSession();
   const queryClient = useQueryClient();
   const { state, setStep, nextStep, prevStep } = useOnboarding();
@@ -61,10 +62,12 @@ function OnboardingContent() {
               im Onboarding-State. */}
           <BackButton label="Zurück" onPress={prevStep} />
           {/* ProgressBar erwartet einen echten Farbwert (kein className-Prop). */}
-          <ProgressBar value={currentStep / TOTAL_STEPS} color={theme.accent} />
+          <ProgressBar value={currentStep / TOTAL_STEPS} color={colors.basil} />
           {session && (
             <Pressable onPress={handleEmergencySignOut} className="signout-link">
-              <Text className="signout-text">Nicht du? Abmelden und neu starten</Text>
+              <Txt variant="caption" tone="secondary" className="signout-text">
+                Nicht du? Abmelden und neu starten
+              </Txt>
             </Pressable>
           )}
         </View>

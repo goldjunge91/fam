@@ -5,8 +5,9 @@ import { Modal, Pressable, ScrollView, View } from 'react-native';
 
 import { TextField } from '@/components/forms/text-field';
 import { Screen } from '@/components/layout/screen';
-import { ThemedText } from '@/components/theme/themed-text';
+import { useTheme } from '@/components/theme/ThemeProvider';
 import { Button } from '@/components/ui/buttons';
+import { Txt } from '@/constants/ui';
 import { useSession } from '@/features/auth/session-provider';
 import {
   type TrackingMethod,
@@ -22,7 +23,6 @@ import { InjectionPlanSection } from '@/features/glp1/components/injection-plan-
 import { updateProfile, useProfile } from '@/features/profile/api';
 import { SettingsGroup } from '@/features/settings/settings-menu';
 import { getLogicalDateForTimestamp } from '@/features/tracking/domain/day-boundary';
-import { useTheme } from '@/hooks/use-theme';
 
 function formatHourString(hour: number): string {
   const clamped = Math.max(0, Math.min(23, Math.round(hour)));
@@ -105,7 +105,7 @@ function TimePicker({
   onChange: (time: string) => void;
   disabled?: boolean;
 }) {
-  const theme = useTheme();
+  const { colors } = useTheme();
   const [modalVisible, setModalVisible] = useState(false);
   const [inputTime, setInputTime] = useState(value);
   const [inputError, setInputError] = useState<string | null>(null);
@@ -145,7 +145,7 @@ function TimePicker({
     <View className="gap-three">
       {/* Große digitale Uhr & Stepper */}
       <View
-        style={{ backgroundColor: theme.backgroundElement, borderColor: theme.border }}
+        style={{ backgroundColor: colors.surface, borderColor: colors.border }}
         className="p-four rounded-2xl border flex-row items-center justify-between">
         <Pressable
           onPress={handleOpenModal}
@@ -153,12 +153,12 @@ function TimePicker({
           accessibilityRole="button"
           accessibilityLabel="Uhrzeit für Tagesstart manuell anpassen"
           className="flex-1 mr-two">
-          <ThemedText type="caption" themeColor="textSecondary">
+          <Txt variant="caption" tone="secondary">
             Individueller Tagesstart (Tippen zum Anpassen)
-          </ThemedText>
-          <ThemedText type="title" className="text-3xl font-bold mt-one">
+          </Txt>
+          <Txt variant="display" className="mt-one">
             {value} Uhr ✏️
-          </ThemedText>
+          </Txt>
         </Pressable>
 
         {/* Stepper Buttons (-1h / +1h) */}
@@ -168,27 +168,31 @@ function TimePicker({
             disabled={disabled}
             accessibilityRole="button"
             accessibilityLabel="Eine Stunde früher"
-            style={{ backgroundColor: theme.backgroundElement, borderColor: theme.border }}
+            style={{ backgroundColor: colors.surface, borderColor: colors.border }}
             className="w-12 h-12 rounded-xl border items-center justify-center">
-            <ThemedText type="smallBold">-1h</ThemedText>
+            <Txt variant="body" weight="700">
+              -1h
+            </Txt>
           </Pressable>
           <Pressable
             onPress={() => step(1)}
             disabled={disabled}
             accessibilityRole="button"
             accessibilityLabel="Eine Stunde später"
-            style={{ backgroundColor: theme.backgroundElement, borderColor: theme.border }}
+            style={{ backgroundColor: colors.surface, borderColor: colors.border }}
             className="w-12 h-12 rounded-xl border items-center justify-center">
-            <ThemedText type="smallBold">+1h</ThemedText>
+            <Txt variant="body" weight="700">
+              +1h
+            </Txt>
           </Pressable>
         </View>
       </View>
 
       {/* Schicht-Presets */}
       <View>
-        <ThemedText type="caption" themeColor="textSecondary" className="mb-one">
+        <Txt variant="caption" tone="secondary" className="mb-one">
           Schnellauswahl für Schichtmodelle:
-        </ThemedText>
+        </Txt>
         <ScrollView horizontal showsHorizontalScrollIndicator={false} className="flex-row gap-two">
           {TIME_PRESETS.map((preset) => {
             const isSelected = value === preset.label;
@@ -198,18 +202,16 @@ function TimePicker({
                 onPress={() => onChange(preset.label)}
                 disabled={disabled}
                 style={{
-                  backgroundColor: isSelected ? theme.accent : theme.backgroundElement,
-                  borderColor: isSelected ? theme.accent : theme.border,
+                  backgroundColor: isSelected ? colors.basil : colors.surface,
+                  borderColor: isSelected ? colors.basil : colors.border,
                 }}
                 className="py-two px-three rounded-xl border mr-two items-center">
-                <ThemedText type="smallBold" themeColor={isSelected ? 'onAccent' : 'text'}>
+                <Txt variant="body" weight="700" tone={isSelected ? 'onAccent' : 'primary'}>
                   {preset.label}
-                </ThemedText>
-                <ThemedText
-                  type="captionCompact"
-                  themeColor={isSelected ? 'onAccent' : 'textSecondary'}>
+                </Txt>
+                <Txt variant="caption" tone={isSelected ? 'onAccent' : 'secondary'}>
                   {preset.tag}
-                </ThemedText>
+                </Txt>
               </Pressable>
             );
           })}
@@ -217,11 +219,11 @@ function TimePicker({
       </View>
 
       {/* Präzise Erklärung */}
-      <ThemedText type="caption" themeColor="textSecondary">
+      <Txt variant="caption" tone="secondary">
         {value === '00:00'
           ? 'Standard: Dein Tracking-Tag wechselt um 00:00 Uhr. Das betrifft Mahlzeiten, Injektionen, Symptome und Gewicht. Bestehende Einträge bleiben unverändert.'
           : `Dein Tracking-Tag läuft jeweils 24 Stunden ab ${value} Uhr. Mahlzeiten, Injektionen, Symptome und Gewicht vor ${value} Uhr zählen zum vorherigen Tag. Bestehende Einträge bleiben unverändert.`}
-      </ThemedText>
+      </Txt>
 
       {/* Modal für manuelle Zeiteingabe */}
       <Modal
@@ -230,15 +232,13 @@ function TimePicker({
         animationType="slide"
         onRequestClose={() => setModalVisible(false)}>
         <View className="flex-1 justify-end bg-black/50">
-          <View
-            style={{ backgroundColor: theme.background }}
-            className="p-four rounded-t-3xl gap-four">
+          <View style={{ backgroundColor: colors.bg }} className="p-four rounded-t-3xl gap-four">
             <View className="flex-row justify-between items-center pb-two border-b border-border">
-              <ThemedText type="subtitle">Tagesstart festlegen</ThemedText>
+              <Txt variant="title">Tagesstart festlegen</Txt>
               <Pressable onPress={() => setModalVisible(false)} hitSlop={12}>
-                <ThemedText type="title" themeColor="textSecondary">
+                <Txt variant="title" tone="secondary">
                   ×
-                </ThemedText>
+                </Txt>
               </Pressable>
             </View>
 
@@ -252,9 +252,9 @@ function TimePicker({
                 keyboardType="numbers-and-punctuation"
                 autoCapitalize="none"
               />
-              <ThemedText type="caption" themeColor="textSecondary">
+              <Txt variant="caption" tone="secondary">
                 Gib die Uhrzeit ein, zu der dein persönlicher Tracking-Tag beginnen soll.
-              </ThemedText>
+              </Txt>
             </View>
 
             <View className="pt-two gap-two">
@@ -273,7 +273,7 @@ function TimePicker({
 }
 
 export function TrackingScreen() {
-  const theme = useTheme();
+  const { colors } = useTheme();
   const { session } = useSession();
   const userId = session?.user.id;
   const { data: profile } = useProfile(userId);
@@ -389,9 +389,9 @@ export function TrackingScreen() {
       <ScrollView contentContainerClassName="screen-scroll" showsVerticalScrollIndicator={false}>
         <SettingsGroup title="Deine Tracking-Methode">
           <View className="p-three gap-two">
-            <ThemedText type="small" themeColor="textSecondary" className="mb-one">
+            <Txt variant="body" tone="secondary" className="mb-one">
               Wähle deine aktive Methode für das Ernährungstagebuch:
-            </ThemedText>
+            </Txt>
             <View className="gap-two">
               {TRACKING_METHODS.map((m) => {
                 const isSelected = selectedMethod === m.id;
@@ -402,29 +402,28 @@ export function TrackingScreen() {
                       accessibilityRole="radio"
                       accessibilityState={{ selected: isSelected }}
                       style={{
-                        backgroundColor: isSelected ? theme.accent : theme.backgroundElement,
-                        borderColor: isSelected ? theme.accent : theme.border,
+                        backgroundColor: isSelected ? colors.basil : colors.surface,
+                        borderColor: isSelected ? colors.basil : colors.border,
                       }}
                       className="p-three rounded-xl border flex-row items-center justify-between">
                       <View className="flex-row items-center gap-three flex-1 mr-two">
-                        <ThemedText type="subtitle">{m.icon}</ThemedText>
+                        <Txt variant="title">{m.icon}</Txt>
                         <View className="flex-1">
-                          <ThemedText
-                            type="smallBold"
-                            themeColor={isSelected ? 'onAccent' : 'text'}>
+                          <Txt
+                            variant="body"
+                            weight="700"
+                            tone={isSelected ? 'onAccent' : 'primary'}>
                             {m.label}
-                          </ThemedText>
-                          <ThemedText
-                            type="captionCompact"
-                            themeColor={isSelected ? 'onAccent' : 'textSecondary'}>
+                          </Txt>
+                          <Txt variant="caption" tone={isSelected ? 'onAccent' : 'secondary'}>
                             {m.desc}
-                          </ThemedText>
+                          </Txt>
                         </View>
                       </View>
                       {isSelected ? (
-                        <ThemedText type="smallBold" themeColor="onAccent">
+                        <Txt variant="body" weight="700" tone="onAccent">
                           Aktiv ✓
-                        </ThemedText>
+                        </Txt>
                       ) : null}
                     </Pressable>
                     {m.id === 'glp1' && isSelected ? (
@@ -442,49 +441,49 @@ export function TrackingScreen() {
           <View className="p-three gap-three">
             {/* Große Tagesziel-Kachel für Kalorien */}
             <View
-              style={{ backgroundColor: theme.backgroundElement, borderColor: theme.border }}
+              style={{ backgroundColor: colors.surface, borderColor: colors.border }}
               className="p-four rounded-2xl border items-center">
-              <ThemedText type="caption" themeColor="textSecondary">
+              <Txt variant="caption" tone="secondary">
                 🎯 Kalorien-Tagesziel
-              </ThemedText>
-              <ThemedText type="title" className="text-3xl font-bold mt-one">
+              </Txt>
+              <Txt variant="display" className="mt-one">
                 {currentGoal?.daily_kcal ? `${currentGoal.daily_kcal} kcal` : 'Nicht festgelegt'}
-              </ThemedText>
+              </Txt>
             </View>
 
             {/* 3 Makronährstoff-Kacheln (Protein, Carbs, Fett) */}
             <View className="flex-row gap-two">
               <View
-                style={{ backgroundColor: theme.backgroundElement, borderColor: theme.border }}
+                style={{ backgroundColor: colors.surface, borderColor: colors.border }}
                 className="flex-1 p-three rounded-xl border items-center">
-                <ThemedText type="caption" themeColor="textSecondary">
+                <Txt variant="caption" tone="secondary">
                   🥩 Protein
-                </ThemedText>
-                <ThemedText type="smallBold" className="text-base mt-one">
+                </Txt>
+                <Txt variant="body" weight="700" className="mt-one" style={{ fontSize: 16 }}>
                   {currentGoal ? `${currentGoal.protein_g}g` : '–'}
-                </ThemedText>
+                </Txt>
               </View>
 
               <View
-                style={{ backgroundColor: theme.backgroundElement, borderColor: theme.border }}
+                style={{ backgroundColor: colors.surface, borderColor: colors.border }}
                 className="flex-1 p-three rounded-xl border items-center">
-                <ThemedText type="caption" themeColor="textSecondary">
+                <Txt variant="caption" tone="secondary">
                   🍞 Carbs
-                </ThemedText>
-                <ThemedText type="smallBold" className="text-base mt-one">
+                </Txt>
+                <Txt variant="body" weight="700" className="mt-one" style={{ fontSize: 16 }}>
                   {currentGoal ? `${currentGoal.carbs_g}g` : '–'}
-                </ThemedText>
+                </Txt>
               </View>
 
               <View
-                style={{ backgroundColor: theme.backgroundElement, borderColor: theme.border }}
+                style={{ backgroundColor: colors.surface, borderColor: colors.border }}
                 className="flex-1 p-three rounded-xl border items-center">
-                <ThemedText type="caption" themeColor="textSecondary">
+                <Txt variant="caption" tone="secondary">
                   🥑 Fett
-                </ThemedText>
-                <ThemedText type="smallBold" className="text-base mt-one">
+                </Txt>
+                <Txt variant="body" weight="700" className="mt-one" style={{ fontSize: 16 }}>
                   {currentGoal ? `${currentGoal.fat_g}g` : '–'}
-                </ThemedText>
+                </Txt>
               </View>
             </View>
 
@@ -502,79 +501,84 @@ export function TrackingScreen() {
             {/* 2x2 Grid für Kern-Messwerte */}
             <View className="flex-row gap-two">
               <View
-                style={{ backgroundColor: theme.backgroundElement, borderColor: theme.border }}
+                style={{ backgroundColor: colors.surface, borderColor: colors.border }}
                 className="flex-1 p-three rounded-xl border">
-                <ThemedText type="caption" themeColor="textSecondary">
+                <Txt variant="caption" tone="secondary">
                   📏 Körpergröße
-                </ThemedText>
-                <ThemedText type="smallBold" className="text-base mt-one">
+                </Txt>
+                <Txt variant="body" weight="700" className="mt-one" style={{ fontSize: 16 }}>
                   {profile?.height_cm ? `${profile.height_cm} cm` : 'Nicht gesetzt'}
-                </ThemedText>
+                </Txt>
               </View>
 
               <View
-                style={{ backgroundColor: theme.backgroundElement, borderColor: theme.border }}
+                style={{ backgroundColor: colors.surface, borderColor: colors.border }}
                 className="flex-1 p-three rounded-xl border">
-                <ThemedText type="caption" themeColor="textSecondary">
+                <Txt variant="caption" tone="secondary">
                   ⚖️ Aktuelles Gewicht
-                </ThemedText>
-                <ThemedText type="smallBold" className="text-base mt-one">
+                </Txt>
+                <Txt variant="body" weight="700" className="mt-one" style={{ fontSize: 16 }}>
                   {logicalDayWeight?.weight_kg ? `${logicalDayWeight.weight_kg} kg` : 'Kein Log'}
-                </ThemedText>
+                </Txt>
               </View>
             </View>
 
             <View className="flex-row gap-two">
               <View
-                style={{ backgroundColor: theme.backgroundElement, borderColor: theme.border }}
+                style={{ backgroundColor: colors.surface, borderColor: colors.border }}
                 className="flex-1 p-three rounded-xl border">
-                <ThemedText type="caption" themeColor="textSecondary">
+                <Txt variant="caption" tone="secondary">
                   🧬 Geschlecht & Alter
-                </ThemedText>
-                <ThemedText type="smallBold" className="text-sm mt-one">
+                </Txt>
+                <Txt variant="body" weight="700" className="mt-one" style={{ fontSize: 14 }}>
                   {profile?.sex === 'male'
                     ? 'Männlich'
                     : profile?.sex === 'female'
                       ? 'Weiblich'
                       : '–'}
                   {ageYears !== null ? ` · ${ageYears} J.` : ''}
-                </ThemedText>
+                </Txt>
               </View>
 
               <View
-                style={{ backgroundColor: theme.backgroundElement, borderColor: theme.border }}
+                style={{ backgroundColor: colors.surface, borderColor: colors.border }}
                 className="flex-1 p-three rounded-xl border">
-                <ThemedText type="caption" themeColor="textSecondary">
+                <Txt variant="caption" tone="secondary">
                   🏃 Aktivitätslevel
-                </ThemedText>
-                <ThemedText type="smallBold" className="text-sm mt-one" numberOfLines={1}>
+                </Txt>
+                <Txt
+                  variant="body"
+                  weight="700"
+                  className="mt-one"
+                  style={{ fontSize: 14 }}
+                  numberOfLines={1}>
                   {profile?.activity_level
                     ? (ACTIVITY_LABELS[profile.activity_level] ?? profile.activity_level)
                     : 'Nicht gesetzt'}
-                </ThemedText>
+                </Txt>
               </View>
             </View>
 
             {/* BMR & TDEE Energie-Banner */}
             <View
-              style={{ backgroundColor: theme.backgroundElement, borderColor: theme.border }}
+              style={{ backgroundColor: colors.surface, borderColor: colors.border }}
               className="p-three rounded-xl border flex-row items-center justify-around">
               <View className="items-center">
-                <ThemedText type="caption" themeColor="textSecondary">
+                <Txt variant="caption" tone="secondary">
                   Grundumsatz (BMR)
-                </ThemedText>
-                <ThemedText type="smallBold" className="text-base mt-one">
+                </Txt>
+                <Txt variant="body" weight="700" className="mt-one" style={{ fontSize: 16 }}>
                   {bmrKcal ? `${bmrKcal} kcal` : '–'}
-                </ThemedText>
+                </Txt>
               </View>
-              <View style={{ backgroundColor: theme.border }} className="w-px h-8" />
+              <View style={{ backgroundColor: colors.border }} className="w-px h-8" />
               <View className="items-center">
-                <ThemedText type="caption" themeColor="textSecondary">
+                <Txt variant="caption" tone="secondary">
                   Gesamtbedarf (TDEE)
-                </ThemedText>
-                <ThemedText type="smallBold" className="text-base mt-one">
+                </Txt>
+                <Txt variant="body" weight="700" className="mt-one" style={{ fontSize: 16 }}>
                   {tdeeKcal ? `${tdeeKcal} kcal` : '–'}
-                </ThemedText>
+                </Txt>
               </View>
             </View>
 
@@ -606,14 +610,14 @@ export function TrackingScreen() {
         onRequestClose={() => setBiometricsModalVisible(false)}>
         <View className="flex-1 justify-end bg-black/50">
           <View
-            style={{ backgroundColor: theme.background }}
+            style={{ backgroundColor: colors.bg }}
             className="p-four rounded-t-3xl gap-four max-h-[85%]">
             <View className="flex-row justify-between items-center pb-two border-b border-border">
-              <ThemedText type="subtitle">Biometrie bearbeiten</ThemedText>
+              <Txt variant="title">Biometrie bearbeiten</Txt>
               <Pressable onPress={() => setBiometricsModalVisible(false)} hitSlop={12}>
-                <ThemedText type="title" themeColor="textSecondary">
+                <Txt variant="title" tone="secondary">
                   ×
-                </ThemedText>
+                </Txt>
               </Pressable>
             </View>
 
@@ -627,36 +631,37 @@ export function TrackingScreen() {
               />
 
               <View className="gap-one">
-                <ThemedText type="caption" themeColor="textSecondary">
+                <Txt variant="caption" tone="secondary">
                   Geschlecht (Rechenbasis für Grundumsatz)
-                </ThemedText>
+                </Txt>
                 <View className="flex-row gap-two">
                   <Pressable
                     onPress={() => setEditSex('male')}
                     style={{
-                      backgroundColor: editSex === 'male' ? theme.accent : theme.backgroundElement,
-                      borderColor: editSex === 'male' ? theme.accent : theme.border,
+                      backgroundColor: editSex === 'male' ? colors.basil : colors.surface,
+                      borderColor: editSex === 'male' ? colors.basil : colors.border,
                     }}
                     className="flex-1 py-two rounded-xl border items-center">
-                    <ThemedText
-                      type="smallBold"
-                      themeColor={editSex === 'male' ? 'onAccent' : 'text'}>
+                    <Txt
+                      variant="body"
+                      weight="700"
+                      tone={editSex === 'male' ? 'onAccent' : 'primary'}>
                       Männlich
-                    </ThemedText>
+                    </Txt>
                   </Pressable>
                   <Pressable
                     onPress={() => setEditSex('female')}
                     style={{
-                      backgroundColor:
-                        editSex === 'female' ? theme.accent : theme.backgroundElement,
-                      borderColor: editSex === 'female' ? theme.accent : theme.border,
+                      backgroundColor: editSex === 'female' ? colors.basil : colors.surface,
+                      borderColor: editSex === 'female' ? colors.basil : colors.border,
                     }}
                     className="flex-1 py-two rounded-xl border items-center">
-                    <ThemedText
-                      type="smallBold"
-                      themeColor={editSex === 'female' ? 'onAccent' : 'text'}>
+                    <Txt
+                      variant="body"
+                      weight="700"
+                      tone={editSex === 'female' ? 'onAccent' : 'primary'}>
                       Weiblich
-                    </ThemedText>
+                    </Txt>
                   </Pressable>
                 </View>
               </View>
@@ -669,9 +674,9 @@ export function TrackingScreen() {
               />
 
               <View className="gap-one">
-                <ThemedText type="caption" themeColor="textSecondary">
+                <Txt variant="caption" tone="secondary">
                   Aktivitätslevel
-                </ThemedText>
+                </Txt>
                 <View className="gap-two">
                   {(
                     ['sedentary', 'light', 'moderate', 'active', 'very_active'] as ActivityLevel[]
@@ -682,17 +687,17 @@ export function TrackingScreen() {
                         key={level}
                         onPress={() => setEditActivityLevel(level)}
                         style={{
-                          backgroundColor: isSelected ? theme.accent : theme.backgroundElement,
-                          borderColor: isSelected ? theme.accent : theme.border,
+                          backgroundColor: isSelected ? colors.basil : colors.surface,
+                          borderColor: isSelected ? colors.basil : colors.border,
                         }}
                         className="py-two px-three rounded-xl border flex-row justify-between items-center">
-                        <ThemedText type="smallBold" themeColor={isSelected ? 'onAccent' : 'text'}>
+                        <Txt variant="body" weight="700" tone={isSelected ? 'onAccent' : 'primary'}>
                           {ACTIVITY_LABELS[level]}
-                        </ThemedText>
+                        </Txt>
                         {isSelected ? (
-                          <ThemedText type="caption" themeColor="onAccent">
+                          <Txt variant="caption" tone="onAccent">
                             ✓
-                          </ThemedText>
+                          </Txt>
                         ) : null}
                       </Pressable>
                     );

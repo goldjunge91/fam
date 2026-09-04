@@ -4,9 +4,8 @@ import { Modal, Platform, Pressable, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { TextField } from '@/components/forms/text-field';
-import { ThemedText } from '@/components/theme/themed-text';
-import { ThemedView } from '@/components/theme/themed-view';
-import { Spacing } from '@/constants/layout';
+import { space } from '@/components/theme/index';
+import { Surface, Txt } from '@/constants/ui';
 import type { DraggableRecipe } from './week-grid';
 
 type RecipePickerModalProps = {
@@ -36,16 +35,16 @@ export function RecipePickerModal({
       animationType="slide"
       presentationStyle={Platform.OS === 'ios' ? 'pageSheet' : undefined}
       onRequestClose={onDismiss}>
-      <ThemedView className="rpm-root">
+      <Surface tone="page" className="rpm-root">
         <SafeAreaView className="rpm-safe-area" edges={['top', 'left', 'right', 'bottom']}>
           <View className="rpm-header">
-            <ThemedText type="subtitle">Rezept auswählen</ThemedText>
+            <Txt variant="title">Rezept auswählen</Txt>
             <Pressable
               onPress={onDismiss}
               accessibilityRole="button"
               accessibilityLabel="Schließen"
               className="rpm-close-button">
-              <ThemedText>✕</ThemedText>
+              <Txt variant="body">✕</Txt>
             </Pressable>
           </View>
 
@@ -57,11 +56,11 @@ export function RecipePickerModal({
           />
 
           {filtered.length === 0 ? (
-            <ThemedText type="small" themeColor="textSecondary" className="rpm-empty">
+            <Txt variant="body" tone="secondary" className="rpm-empty">
               {recipes.length === 0
                 ? 'Noch keine Rezepte vorhanden. Lege zuerst ein Rezept an.'
                 : 'Kein Rezept gefunden.'}
-            </ThemedText>
+            </Txt>
           ) : (
             <FlashList
               data={filtered}
@@ -69,20 +68,20 @@ export function RecipePickerModal({
               // FlashList hat kein cssInterop, deshalb RN-Styles statt
               // Tailwind-Klassen — s. glass-card.tsx (#139).
               style={{ flex: 1 }}
-              contentContainerStyle={{ paddingVertical: Spacing.two }}
+              contentContainerStyle={{ paddingVertical: space.sm }}
               renderItem={({ item }) => (
                 <Pressable
                   accessibilityRole="button"
                   accessibilityLabel={`${item.title} eintragen`}
                   onPress={() => onSelect(item)}
                   className="rpm-recipe-row">
-                  <ThemedText>{item.title}</ThemedText>
+                  <Txt variant="body">{item.title}</Txt>
                 </Pressable>
               )}
             />
           )}
         </SafeAreaView>
-      </ThemedView>
+      </Surface>
     </Modal>
   );
 }

@@ -3,10 +3,10 @@ import { useEffect, useRef } from 'react';
 import { Alert, Pressable, ScrollView, View } from 'react-native';
 
 import { GradientBackground } from '@/components/layout/gradient-background';
-import { ThemedText } from '@/components/theme/themed-text';
+import { useTheme } from '@/components/theme/ThemeProvider';
 import { Button } from '@/components/ui/buttons';
+import { Txt } from '@/constants/ui';
 import { SettingsGroup, SettingsRow } from '@/features/settings/settings-menu';
-import { useTheme } from '@/hooks/use-theme';
 import { trackAnalyticsEvent } from '@/lib/analytics';
 import { PaywallPlanCard } from './paywall-plan-card';
 import { usePaywall } from './use-paywall';
@@ -36,7 +36,7 @@ interface PaywallSheetProps {
  * bei Feature-Sperren (z. B. Kochmodus, Rezept-Übernahme in Einkaufsliste).
  */
 export function PaywallSheet({ isOpen, onClose, onPurchased }: PaywallSheetProps) {
-  const theme = useTheme();
+  const { colors } = useTheme();
   const sheetRef = useRef<BottomSheet>(null);
   const {
     plans,
@@ -97,19 +97,19 @@ export function PaywallSheet({ isOpen, onClose, onPurchased }: PaywallSheetProps
       snapPoints={['75%', '92%']}
       enablePanDownToClose
       onClose={onClose}
-      backgroundStyle={{ backgroundColor: theme.background }}
-      handleIndicatorStyle={{ backgroundColor: theme.border }}>
+      backgroundStyle={{ backgroundColor: colors.bg }}
+      handleIndicatorStyle={{ backgroundColor: colors.border }}>
       <BottomSheetView style={{ flex: 1 }}>
         <View className="flex-1">
           {/* Header mit Schließen-Button */}
           <View className="row-between items-center px-four pt-two pb-two">
-            <ThemedText className="font-bold text-subtitle">fam Premium</ThemedText>
+            <Txt variant="title" weight="700">fam Premium</Txt>
             <Pressable
               onPress={onClose}
               accessibilityRole="button"
               accessibilityLabel="Schließen"
               className="modal-close-btn">
-              <ThemedText>✕</ThemedText>
+              <Txt variant="body" tone="secondary">✕</Txt>
             </Pressable>
           </View>
 
@@ -120,15 +120,15 @@ export function PaywallSheet({ isOpen, onClose, onPurchased }: PaywallSheetProps
             {/* Hero-Bereich */}
             <View className="items-center text-center gap-two pt-two">
               <View className="w-12 h-12 rounded-[16px] overflow-hidden items-center justify-center shadow-md">
-                <GradientBackground colors={['#705573', '#c38b75']} />
-                <ThemedText className="text-white text-[22px]">✦</ThemedText>
+                <GradientBackground colors={[colors.basil, colors.carrot]} />
+                <Txt variant="body" tone="onAccent" style={{ fontSize: 22 }}>✦</Txt>
               </View>
-              <ThemedText className="font-bold text-title text-center">
+              <Txt variant="title" weight="700" center>
                 Mehr für euren Haushalt
-              </ThemedText>
-              <ThemedText themeColor="textSecondary" className="text-center text-small px-two">
+              </Txt>
+              <Txt variant="body" tone="secondary" center className="px-two">
                 Ein Abo schaltet alle Funktionen für alle Mitglieder im aktuellen Haushalt frei.
-              </ThemedText>
+              </Txt>
             </View>
 
             {/* Feature-Vorteile */}
@@ -162,18 +162,18 @@ export function PaywallSheet({ isOpen, onClose, onPurchased }: PaywallSheetProps
                 className="w-full"
               />
 
-              <ThemedText themeColor="textSecondary" className="text-[12px] text-center">
+              <Txt variant="caption" tone="secondary" center style={{ fontSize: 12 }}>
                 Jederzeit im App Store kündbar.
-              </ThemedText>
+              </Txt>
 
               <View className="flex-row items-center justify-center gap-three pt-one">
                 <Pressable
                   onPress={handleRestore}
                   disabled={isPurchasing || isRestoring}
                   accessibilityRole="button">
-                  <ThemedText themeColor="textSecondary" className="text-caption underline">
+                  <Txt variant="caption" tone="secondary" className="underline">
                     Käufe wiederherstellen
-                  </ThemedText>
+                  </Txt>
                 </Pressable>
               </View>
             </View>

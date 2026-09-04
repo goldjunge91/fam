@@ -5,8 +5,8 @@ import {
   SafeAreaProvider,
   SafeAreaView,
 } from 'react-native-safe-area-context';
-import { ThemedText } from '@/components/theme/themed-text';
 import { ProgressBar } from '@/components/ui/progress-bar';
+import { Txt } from '@/constants/ui';
 import { formatEuro } from '@/lib/format-currency';
 import { formatAmount } from '@/lib/package-size';
 import { colorForCategory, parseCategoryOrder } from '../domain-logik/shopping-categories';
@@ -36,23 +36,23 @@ export const ShoppingModeRow = memo(function ShoppingModeRow({
       className="shopping-mode-row">
       <View className={`checkbox-base ${isChecked ? 'checkbox-checked' : 'checkbox-unchecked'}`}>
         {isChecked ? (
-          <ThemedText type="detail" themeColor="onAccent">
+          <Txt variant="caption" tone="onAccent">
             ✓
-          </ThemedText>
+          </Txt>
         ) : null}
       </View>
-      <ThemedText
-        type="small"
+      <Txt
+        variant="body"
         className={`flex-1 ${isChecked ? 'line-through opacity-50' : ''}`}
         numberOfLines={1}>
         {item.name}
-      </ThemedText>
-      <ThemedText type="smallMuted" className="w-[84px] text-right" numberOfLines={1}>
+      </Txt>
+      <Txt variant="body" tone="secondary" className="w-[84px] text-right" numberOfLines={1}>
         {formatAmount(item.quantity, item.unit)}
-      </ThemedText>
-      <ThemedText type="captionMuted" className="w-[52px] text-right" numberOfLines={1}>
+      </Txt>
+      <Txt variant="caption" tone="secondary" className="w-[52px] text-right" numberOfLines={1}>
         {item.price_estimate != null ? formatEuro(item.price_estimate) : ''}
-      </ThemedText>
+      </Txt>
     </Pressable>
   );
 });
@@ -108,7 +108,9 @@ export function ShoppingModeScreen({
                 className="w-[9px] h-[9px] rounded-full"
                 style={{ backgroundColor: store.color }}
               />
-              <ThemedText type="smallBold">{store.name}</ThemedText>
+              <Txt variant="body" weight="700">
+                {store.name}
+              </Txt>
             </View>
             <Pressable
               onPress={onClose}
@@ -116,17 +118,19 @@ export function ShoppingModeScreen({
               accessibilityLabel="Einkaufsmodus schließen"
               hitSlop={8}
               className="btn-header-icon">
-              <ThemedText>✕</ThemedText>
+              <Txt>✕</Txt>
             </Pressable>
           </View>
 
           <View className="px-three pb-three gap-[6px]">
             <ProgressBar value={totalCount > 0 ? checkedCount / totalCount : 0} />
             <View className="row-between">
-              <ThemedText type="captionMuted">
+              <Txt variant="caption" tone="secondary">
                 {checkedCount} / {totalCount} abgehakt
-              </ThemedText>
-              <ThemedText type="captionMuted">{formatEuro(totalEstimate)}</ThemedText>
+              </Txt>
+              <Txt variant="caption" tone="secondary">
+                {formatEuro(totalEstimate)}
+              </Txt>
             </View>
           </View>
 
@@ -154,20 +158,20 @@ export function ShoppingModeScreen({
                     {/* Kategorie-Farbe an Punkt, Name und Zähler — nur der
                         getönte Hintergrund/Rand ist raus (passte nicht). */}
                     <View className="w-2 h-2 rounded-full" style={{ backgroundColor: color }} />
-                    <ThemedText
-                      type="captionCompact"
-                      className="flex-1 font-bold uppercase tracking-wider"
+                    <Txt
+                      variant="caption"
+                      className="flex-1 uppercase tracking-wider"
+                      weight="700"
                       style={{ color }}>
                       {group.category}
-                    </ThemedText>
-                    <ThemedText type="captionCompact" style={{ color }}>
+                    </Txt>
+                    <Txt variant="caption" style={{ color }}>
                       {catChecked}/{catItems.length}
                       {isComplete ? ' ✓' : ''}
-                    </ThemedText>
-                    <ThemedText
-                      style={{ color, transform: [{ rotate: collapsed ? '-90deg' : '0deg' }] }}>
+                    </Txt>
+                    <Txt style={{ color, transform: [{ rotate: collapsed ? '-90deg' : '0deg' }] }}>
                       ⌄
-                    </ThemedText>
+                    </Txt>
                   </Pressable>
 
                   {!collapsed &&
@@ -189,9 +193,9 @@ export function ShoppingModeScreen({
                 accessibilityLabel={`Einkauf abschließen, ${checkedCount} von ${totalCount} abgehakt`}
                 className="btn-success"
                 style={{ backgroundColor: store.color }}>
-                <ThemedText type="bodyBold" className="text-white">
+                <Txt variant="body" weight="700" tone="onAccent">
                   🛒 Einkauf abschließen ({checkedCount})
-                </ThemedText>
+                </Txt>
               </Pressable>
             </View>
           ) : null}

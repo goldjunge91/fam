@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react';
 import { Pressable, type StyleProp, type ViewStyle } from 'react-native';
+import { useTheme } from '@/components/theme/ThemeProvider';
 
 type HeaderIconButtonProps = {
   label: string;
@@ -17,13 +18,15 @@ export function HeaderIconButton({
   style,
   className = '',
 }: HeaderIconButtonProps) {
+  const { colors } = useTheme();
+
   return (
     <Pressable
       onPress={onPress}
       accessibilityRole="button"
       accessibilityLabel={label}
       className={`btn-header-icon ${className}`.trim()}
-      style={style}>
+      style={[{ backgroundColor: colors.surfaceSoft }, style]}>
       {children}
     </Pressable>
   );

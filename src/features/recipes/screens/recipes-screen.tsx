@@ -11,9 +11,10 @@ import {
 import { FilterIcon, SearchIcon } from '@/components/icons/fam-icon';
 import { HubScreen } from '@/components/layout/hub-screen';
 import { SectionHeading } from '@/components/layout/section-heading';
-import { ThemedText } from '@/components/theme/themed-text';
+import { useTheme } from '@/components/theme/ThemeProvider';
+import { space } from '@/components/theme/index';
 import { BackButton, HeaderIconButton, MenuButton } from '@/components/ui/buttons';
-import { IconSize } from '@/constants/layout';
+import { Txt } from '@/constants/ui';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { useNavigationChrome } from '@/features/navigation/navigation-chrome-provider';
 import {
@@ -24,7 +25,6 @@ import {
   CALORIE_BUCKETS,
   isInCalorieBucket,
 } from '@/features/recipes/domain/recipe-calorie-buckets';
-import { useTheme } from '@/hooks/use-theme';
 import { CalorieCarousel } from '../components/calorie-carousel';
 import { CATEGORY_TILES, CategoryCarousel } from '../components/category-carousel';
 import {
@@ -238,17 +238,21 @@ function MealSection({ title, entries }: { title: string; entries: RecipeEntry[]
 }
 
 function EmptyPanel({ children }: { children: string }) {
+  const { colors } = useTheme();
+
   return (
-    <View className="min-h-[124px] rounded-sheet items-center justify-center px-seven py-[22px] bg-background-element/80">
-      <ThemedText type="body" className="font-bold text-center">
+    <View
+      className="min-h-[124px] rounded-sheet items-center justify-center px-seven py-[22px]"
+      style={{ backgroundColor: colors.surface }}>
+      <Txt variant="body" weight="700" center>
         {children}
-      </ThemedText>
+      </Txt>
     </View>
   );
 }
 
 export function RecipesScreen() {
-  const theme = useTheme();
+  const { colors } = useTheme();
   const { openDrawer } = useNavigationChrome();
   const [view, setView] = useState<RecipeView>('discover');
   const [searchQuery, setSearchQuery] = useState('');
@@ -385,7 +389,7 @@ export function RecipesScreen() {
             <HeaderIconButton
               label="Rezepte durchsuchen"
               onPress={() => setShowSearch((visible) => !visible)}>
-              <SearchIcon size={IconSize.nav} color={theme.text} />
+              <SearchIcon size={space.xl} color={colors.text} />
             </HeaderIconButton>
             <HeaderIconButton
               label={
@@ -394,10 +398,10 @@ export function RecipesScreen() {
                   : 'Rezepte filtern'
               }
               onPress={() => setShowFilters(true)}
-              className={activeFilterCount > 0 ? 'bg-accent' : undefined}>
+              style={activeFilterCount > 0 ? { backgroundColor: colors.basil } : undefined}>
               <FilterIcon
-                size={IconSize.nav}
-                color={activeFilterCount > 0 ? theme.background : theme.text}
+                size={space.xl}
+                color={activeFilterCount > 0 ? colors.bg : colors.text}
               />
             </HeaderIconButton>
           </View>
@@ -420,17 +424,20 @@ export function RecipesScreen() {
         showsVerticalScrollIndicator={false}>
         {/* Aufklappbare Textsuche für Rezepttitel */}
         {showSearch ? (
-          <View className="h-[42px] flex-row items-center gap-[9px] rounded-fam-large px-[13px] mb-[10px] bg-background-element/85">
-            <SearchIcon color={theme.textSecondary} />
+          <View
+            className="h-[42px] flex-row items-center gap-[9px] rounded-fam-large px-[13px] mb-[10px]"
+            style={{ backgroundColor: colors.surface }}>
+            <SearchIcon color={colors.textMuted} />
             <TextInput
               value={searchQuery}
               onChangeText={setSearchQuery}
               role="searchbox"
               aria-label="Rezepte durchsuchen"
               placeholder="Rezepte durchsuchen…"
-              placeholderTextColor={theme.textSecondary}
+              placeholderTextColor={colors.textMuted}
               autoFocus
-              className="flex-1 h-full text-[14px] font-medium py-0 text-text"
+              className="flex-1 h-full py-0"
+              style={{ color: colors.text, fontSize: 14, lineHeight: 20, fontWeight: '500' }}
             />
           </View>
         ) : null}
@@ -443,39 +450,54 @@ export function RecipesScreen() {
               role="button"
               aria-label="Entdecken"
               aria-selected={view === 'discover'}
-              className={`tab-btn ${view === 'discover' ? 'tab-btn-active' : 'tab-btn-idle'}`}>
-              <ThemedText
-                type="detail"
-                themeColor={view === 'discover' ? 'onAccent' : 'textSecondary'}
-                className="tab-btn-label">
+              className="tab-btn"
+              style={{
+                backgroundColor: view === 'discover' ? colors.basil : colors.surfaceSoft,
+                borderColor: view === 'discover' ? colors.basil : colors.border,
+              }}>
+              <Txt
+                variant="body"
+                tone={view === 'discover' ? 'onAccent' : 'secondary'}
+                weight="700"
+                style={{ fontSize: 14, lineHeight: 18 }}>
                 Entdecken
-              </ThemedText>
+              </Txt>
             </Pressable>
             <Pressable
               onPress={() => setView('household')}
               role="button"
               aria-label="Eigene Rezepte"
               aria-selected={view === 'household'}
-              className={`tab-btn ${view === 'household' ? 'tab-btn-active' : 'tab-btn-idle'}`}>
-              <ThemedText
-                type="detail"
-                themeColor={view === 'household' ? 'onAccent' : 'textSecondary'}
-                className="tab-btn-label">
+              className="tab-btn"
+              style={{
+                backgroundColor: view === 'household' ? colors.basil : colors.surfaceSoft,
+                borderColor: view === 'household' ? colors.basil : colors.border,
+              }}>
+              <Txt
+                variant="body"
+                tone={view === 'household' ? 'onAccent' : 'secondary'}
+                weight="700"
+                style={{ fontSize: 14, lineHeight: 18 }}>
                 Eigene Rezepte
-              </ThemedText>
+              </Txt>
             </Pressable>
             <Pressable
               onPress={() => setView('favorites')}
               role="button"
               aria-label="Meine Favoriten"
               aria-selected={view === 'favorites'}
-              className={`tab-btn ${view === 'favorites' ? 'tab-btn-active' : 'tab-btn-idle'}`}>
-              <ThemedText
-                type="detail"
-                themeColor={view === 'favorites' ? 'onAccent' : 'textSecondary'}
-                className="tab-btn-label">
+              className="tab-btn"
+              style={{
+                backgroundColor: view === 'favorites' ? colors.basil : colors.surfaceSoft,
+                borderColor: view === 'favorites' ? colors.basil : colors.border,
+              }}>
+              <Txt
+                variant="body"
+                tone={view === 'favorites' ? 'onAccent' : 'secondary'}
+                weight="700"
+                style={{ fontSize: 14, lineHeight: 18 }}>
                 Meine Favoriten
-              </ThemedText>
+              </Txt>
             </Pressable>
           </View>
         ) : null}
@@ -484,7 +506,7 @@ export function RecipesScreen() {
         {isLoading ? (
           <ActivityIndicator
             accessibilityLabel="Rezepte werden geladen"
-            color={theme.accent}
+            color={colors.basil}
             className="mt-[42px]"
           />
         ) : view === 'favorites' ? (

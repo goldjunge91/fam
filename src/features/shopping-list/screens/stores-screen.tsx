@@ -2,11 +2,11 @@ import { useState } from 'react';
 import { Alert, Pressable, View } from 'react-native';
 import { TextField } from '@/components/forms/text-field';
 import { Screen } from '@/components/layout/screen';
-import { ThemedText } from '@/components/theme/themed-text';
+import { useTheme } from '@/components/theme/ThemeProvider';
 import { Button } from '@/components/ui/buttons';
 import { Card } from '@/components/ui/card';
+import { Txt } from '@/constants/ui';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
-import { useTheme } from '@/hooks/use-theme';
 import { STORE_COLOR_PALETTE, STORE_PRESETS } from '../domain-logik/store-presets';
 import {
   findStoreByName,
@@ -17,7 +17,7 @@ import {
 } from '../hooks/use-stores';
 
 export function StoresScreen() {
-  const theme = useTheme();
+  const { colors: theme } = useTheme();
   const { activeHousehold } = useActiveHousehold();
   const currentHousehold = activeHousehold;
 
@@ -118,7 +118,9 @@ export function StoresScreen() {
             onChangeText={setNewStoreName}
           />
           {/* Schnellauswahl beliebter Supermarktketten (Presets) */}
-          <ThemedText type="smallMuted">Vorschläge</ThemedText>
+          <Txt variant="body" tone="secondary">
+            Vorschläge
+          </Txt>
           <View className="row-wrap">
             {STORE_PRESETS.map((preset) => (
               <Pressable
@@ -130,19 +132,21 @@ export function StoresScreen() {
                 style={{ backgroundColor: `${preset.color}18`, borderColor: preset.color }}>
                 {/* Dynamische Preset-Farbe */}
                 <View className="store-preset-dot" style={{ backgroundColor: preset.color }} />
-                <ThemedText
-                  type="small"
-                  className="font-semibold"
+                <Txt
+                  variant="body"
+                  weight="600"
                   // Dynamische Preset-Farbe
                   style={{ color: preset.color }}>
                   {preset.name}
-                </ThemedText>
+                </Txt>
               </Pressable>
             ))}
           </View>
 
           {/* Farbauswahl-Palette für den Markt */}
-          <ThemedText type="smallMuted">Farbe</ThemedText>
+          <Txt variant="body" tone="secondary">
+            Farbe
+          </Txt>
           <View className="row-wrap">
             {STORE_COLOR_PALETTE.map((color) => (
               <Pressable
@@ -173,9 +177,11 @@ export function StoresScreen() {
       {/* Liste aller angelegten Märkte mit Bearbeiten- und Löschen-Aktionen */}
       <Card title="Vorhandene Märkte">
         {isLoading ? (
-          <ThemedText>Lädt...</ThemedText>
+          <Txt>Lädt...</Txt>
         ) : stores?.length === 0 ? (
-          <ThemedText type="bodyMuted">Keine Märkte vorhanden.</ThemedText>
+          <Txt variant="body" tone="secondary">
+            Keine Märkte vorhanden.
+          </Txt>
         ) : (
           <View className="col-gap">
             {stores?.map((store) => {
@@ -187,7 +193,9 @@ export function StoresScreen() {
                     /* Inline-Bearbeitung für Markt (Name & Farbe) */
                     <View className="col-gap">
                       <TextField value={editingName} onChangeText={setEditingName} autoFocus />
-                      <ThemedText type="smallMuted">Farbe</ThemedText>
+                      <Txt variant="body" tone="secondary">
+                        Farbe
+                      </Txt>
                       <View className="row-wrap">
                         {STORE_COLOR_PALETTE.map((color) => (
                           <Pressable
@@ -234,9 +242,9 @@ export function StoresScreen() {
                           className="store-color-dot"
                           style={{ backgroundColor: store.color }}
                         />
-                        <ThemedText type="bodyBold" numberOfLines={1} className="flex-1">
+                        <Txt variant="body" weight="700" numberOfLines={1} className="flex-1">
                           {store.name}
-                        </ThemedText>
+                        </Txt>
                       </View>
                       <View className="row-center">
                         <Pressable
@@ -248,16 +256,16 @@ export function StoresScreen() {
                           accessibilityRole="button"
                           accessibilityLabel={`${store.name} bearbeiten`}
                           className="btn-modal-close">
-                          <ThemedText type="small">✎</ThemedText>
+                          <Txt variant="body">✎</Txt>
                         </Pressable>
                         <Pressable
                           onPress={() => handleDelete(store.id, store.name)}
                           accessibilityRole="button"
                           accessibilityLabel={`${store.name} löschen`}
                           className="btn-modal-close">
-                          <ThemedText type="small" themeColor="danger">
+                          <Txt variant="body" tone="danger">
                             🗑
-                          </ThemedText>
+                          </Txt>
                         </Pressable>
                       </View>
                     </View>

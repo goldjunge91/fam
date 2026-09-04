@@ -1,7 +1,7 @@
 import { TextInput, View } from 'react-native';
 
 import { SearchIcon } from '@/components/icons/fam-icon';
-import { useTheme } from '@/hooks/use-theme';
+import { useTheme } from '@/components/theme/ThemeProvider';
 
 interface InventorySearchFieldProps {
   value: string;
@@ -10,16 +10,16 @@ interface InventorySearchFieldProps {
 
 /** Kompaktes Suchfeld neben dem Lagerort-Filter, filtert die Vorratsliste nach Artikelname. */
 export function InventorySearchField({ value, onChangeText }: InventorySearchFieldProps) {
-  const theme = useTheme();
+  const { colors } = useTheme();
 
   return (
     <View className="inventory-search-field">
-      <SearchIcon size={15} color={theme.textSecondary} />
+      <SearchIcon size={15} color={colors.textMuted} />
       <TextInput
         value={value}
         onChangeText={onChangeText}
         placeholder="Artikel suchen"
-        placeholderTextColor={theme.textSecondary}
+        placeholderTextColor={colors.textMuted}
         className="inventory-search-input"
         accessibilityLabel="Artikel suchen"
         returnKeyType="search"

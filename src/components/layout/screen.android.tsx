@@ -1,9 +1,9 @@
 import type { ReactNode } from 'react';
 import { ScrollView, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+
 import { GradientBackground } from '@/components/layout/gradient-background';
-import { ThemedText } from '@/components/theme/themed-text';
-import { ThemedView } from '@/components/theme/themed-view';
+import type { GradientSpec } from '@/components/theme/index';
 import {
   AutoBackButton,
   BackButton,
@@ -12,7 +12,7 @@ import {
   ProfileButton,
 } from '@/components/ui/buttons';
 import { useSyncBannerVisible } from '@/components/ui/sync-status-banner';
-import type { GradientSpec } from '@/constants/theme';
+import { Surface, Txt } from '@/constants/ui';
 
 export type { BackTarget } from '@/components/ui/buttons';
 
@@ -62,7 +62,7 @@ export function Screen({
   const edges = bannerVisible ? (['left', 'right'] as const) : (['top', 'left', 'right'] as const);
 
   return (
-    <ThemedView className="flex-1">
+    <Surface tone="page" className="flex-1">
       {backgroundGradient ? <GradientBackground {...backgroundGradient} /> : null}
       <SafeAreaView className={`screen-body ${chrome ? 'px-[21px]' : 'px-three'}`} edges={edges}>
         {chrome ? null : back ? (
@@ -83,20 +83,20 @@ export function Screen({
 
             <View className="flex-1 items-center gap-[2px]">
               {subtitle ? (
-                <ThemedText
-                  type="small"
-                  themeColor="textSecondary"
-                  className="text-center"
+                <Txt
+                  variant="body"
+                  tone="secondary"
+                  center
                   style={{ fontSize: 12, lineHeight: 16, fontWeight: '400' }}>
                   {subtitle}
-                </ThemedText>
+                </Txt>
               ) : null}
-              <ThemedText
-                type="subtitle"
-                className="text-center"
+              <Txt
+                variant="title"
+                center
                 style={{ fontSize: 23, lineHeight: 28, fontWeight: '500', letterSpacing: -0.5 }}>
                 {title}
-              </ThemedText>
+              </Txt>
             </View>
 
             <View className="flex-row items-center gap-one">
@@ -111,11 +111,13 @@ export function Screen({
         ) : (
           <View className="flex-row items-center justify-between gap-three pt-three pb-four">
             <View className="shrink gap-half">
-              <ThemedText type="subtitle">{title}</ThemedText>
+              <Txt variant="title" weight="600">
+                {title}
+              </Txt>
               {subtitle ? (
-                <ThemedText type="small" themeColor="textSecondary">
+                <Txt variant="body" tone="secondary" weight="500">
                   {subtitle}
-                </ThemedText>
+                </Txt>
               ) : null}
             </View>
             {action}
@@ -139,6 +141,6 @@ export function Screen({
           </View>
         )}
       </SafeAreaView>
-    </ThemedView>
+    </Surface>
   );
 }

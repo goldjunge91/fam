@@ -1,9 +1,8 @@
 import { useRef, useState } from 'react';
 import { Modal, Pressable, View } from 'react-native';
-
-import { ThemedText } from '@/components/theme/themed-text';
+import { useTheme } from '@/components/theme/ThemeProvider';
 import { GlassCard } from '@/components/ui/glass-card';
-import { useTheme } from '@/hooks/use-theme';
+import { Txt } from '@/constants/ui';
 import type { Store } from '../../hooks/use-stores';
 
 export const ALL_FILTER = 'all';
@@ -42,7 +41,7 @@ export function StorePickerMenu({
 }: StorePickerMenuProps) {
   const [anchor, setAnchor] = useState<Anchor | null>(null);
   const anchorRef = useRef<View>(null);
-  const theme = useTheme();
+  const { colors: theme } = useTheme();
   const open = anchor !== null;
 
   const activeStore = stores.find((store) => store.id === activeFilter) ?? null;
@@ -56,7 +55,7 @@ export function StorePickerMenu({
     activeFilter === ALL_FILTER
       ? theme.text
       : activeFilter === UNASSIGNED_FILTER
-        ? theme.textSecondary
+        ? theme.textMuted
         : (activeStore?.color ?? theme.text);
 
   function openMenu() {
@@ -83,9 +82,9 @@ export function StorePickerMenu({
           glassStyle={GLASS_STYLE}
           outerStyle={{ borderRadius: 999 }}>
           <View className="store-picker-dot" style={{ backgroundColor: activeDotColor }} />
-          <ThemedText type="smallBold" numberOfLines={1} className="max-w-[130px]">
+          <Txt variant="body" weight="700" numberOfLines={1} className="max-w-[130px]">
             {activeLabel}
-          </ThemedText>
+          </Txt>
         </GlassCard>
       </View>
 
@@ -103,12 +102,12 @@ export function StorePickerMenu({
                   activeFilter === ALL_FILTER ? 'store-picker-row-active' : ''
                 }`}>
                 <View className="store-picker-dot" style={{ backgroundColor: theme.text }} />
-                <ThemedText type="small" className="flex-1 font-semibold">
+                <Txt variant="body" weight="600" className="flex-1">
                   Alle Listen
-                </ThemedText>
-                <ThemedText type="caption" themeColor="textSecondary">
+                </Txt>
+                <Txt variant="caption" tone="secondary">
                   {totalCount}
-                </ThemedText>
+                </Txt>
               </Pressable>
 
               {stores.map((store) => (
@@ -121,12 +120,12 @@ export function StorePickerMenu({
                     activeFilter === store.id ? 'store-picker-row-active' : ''
                   }`}>
                   <View className="store-picker-dot" style={{ backgroundColor: store.color }} />
-                  <ThemedText type="small" numberOfLines={1} className="flex-1 font-semibold">
+                  <Txt variant="body" weight="600" numberOfLines={1} className="flex-1">
                     {store.name}
-                  </ThemedText>
-                  <ThemedText type="caption" themeColor="textSecondary">
+                  </Txt>
+                  <Txt variant="caption" tone="secondary">
                     {countForStore(store.id)}
-                  </ThemedText>
+                  </Txt>
                 </Pressable>
               ))}
 
@@ -137,16 +136,13 @@ export function StorePickerMenu({
                 className={`store-picker-row ${
                   activeFilter === UNASSIGNED_FILTER ? 'store-picker-row-active' : ''
                 }`}>
-                <View
-                  className="store-picker-dot"
-                  style={{ backgroundColor: theme.textSecondary }}
-                />
-                <ThemedText type="small" className="flex-1 font-semibold">
+                <View className="store-picker-dot" style={{ backgroundColor: theme.textMuted }} />
+                <Txt variant="body" weight="600" className="flex-1">
                   Ohne Markt
-                </ThemedText>
-                <ThemedText type="caption" themeColor="textSecondary">
+                </Txt>
+                <Txt variant="caption" tone="secondary">
                   {unassignedCount}
-                </ThemedText>
+                </Txt>
               </Pressable>
             </View>
           )}

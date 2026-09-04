@@ -1,9 +1,8 @@
 import { View } from 'react-native';
-
-import { ThemedText } from '@/components/theme/themed-text';
+import { withAlpha } from '@/components/theme/index';
+import { useTheme } from '@/components/theme/ThemeProvider';
 import { ProgressRing } from '@/components/ui/progress-ring';
-import { withAlpha } from '@/constants/theme';
-import { useTheme } from '@/hooks/use-theme';
+import { Txt } from '@/constants/ui';
 
 type InventorySummaryCardProps = {
   totalCount: number;
@@ -16,7 +15,7 @@ export function InventorySummaryCard({
   criticalCount,
   soonCount,
 }: InventorySummaryCardProps) {
-  const theme = useTheme();
+  const { colors } = useTheme();
 
   return (
     <View
@@ -28,7 +27,7 @@ export function InventorySummaryCard({
         // boxShadow (dynamische Opazitaet) und borderCurve (kein Tailwind-
         // Aequivalent) sind Ausnahmen.
         style={{
-          boxShadow: `0 10px 24px ${withAlpha(theme.shadowCard, 0.14)}`,
+          boxShadow: `0 10px 24px ${withAlpha(colors.text, 0.14)}`,
           borderCurve: 'continuous',
         }}>
         <ProgressRing
@@ -37,19 +36,19 @@ export function InventorySummaryCard({
           target={totalCount}
           displayMode="count"
           animated={false}
-          progressColor={theme.danger}
-          trackColor={withAlpha(theme.danger, 0.16)}
+          progressColor={colors.tomato}
+          trackColor={withAlpha(colors.tomato, 0.16)}
           label="Läuft bald ab"
         />
-        <ThemedText type="small" themeColor="textSecondary" className="text-center">
+        <Txt variant="body" tone="secondary" className="text-center">
           Läuft bald ab
-        </ThemedText>
+        </Txt>
       </View>
 
       <View
         className="inventory-summary-ring-card"
         style={{
-          boxShadow: `0 10px 24px ${withAlpha(theme.shadowCard, 0.14)}`,
+          boxShadow: `0 10px 24px ${withAlpha(colors.text, 0.14)}`,
           borderCurve: 'continuous',
         }}>
         <ProgressRing
@@ -58,13 +57,13 @@ export function InventorySummaryCard({
           target={totalCount}
           displayMode="count"
           animated={false}
-          progressColor={theme.warning}
-          trackColor={withAlpha(theme.warning, 0.16)}
+          progressColor={colors.carrot}
+          trackColor={withAlpha(colors.carrot, 0.16)}
           label="Bald fällig"
         />
-        <ThemedText type="small" themeColor="textSecondary" className="text-center">
+        <Txt variant="body" tone="secondary" className="text-center">
           Bald fällig
-        </ThemedText>
+        </Txt>
       </View>
     </View>
   );

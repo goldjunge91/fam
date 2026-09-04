@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react';
 import { View } from 'react-native';
 
-import { ThemedText } from '@/components/theme/themed-text';
+import { Txt } from '@/constants/ui';
 
 type PageHeaderProps = {
   title: string;
@@ -13,9 +13,19 @@ type PageHeaderProps = {
   titleSize?: 'default' | 'large';
 };
 
-const TITLE_CLASSES = {
-  default: 'text-[19px] leading-[23px] font-semibold tracking-[-0.5px]',
-  large: 'text-[26px] leading-[30px] font-bold tracking-[-0.6px]',
+const TITLE_STYLES = {
+  default: {
+    fontSize: 19,
+    lineHeight: 23,
+    fontWeight: '600' as const,
+    letterSpacing: -0.5,
+  },
+  large: {
+    fontSize: 26,
+    lineHeight: 30,
+    fontWeight: '700' as const,
+    letterSpacing: -0.6,
+  },
 } as const;
 
 /** Kompakter Header fuer die zentralen App-Bereiche aus dem fam-Designsystem. */
@@ -32,16 +42,19 @@ export function PageHeader({
       <View className="min-w-[39px] min-h-[39px] flex-row items-center gap-[6px]">{leading}</View>
       <View className={`flex-1 min-w-0 ${align === 'center' ? 'items-center' : ''}`}>
         {subtitle ? (
-          <ThemedText
-            themeColor="textSecondary"
-            className="text-[10px] leading-[12px] font-semibold mb-[1px]"
+          <Txt
+            variant="caption"
+            tone="secondary"
+            className="mb-[1px]"
+            weight="600"
+            style={{ fontSize: 10, lineHeight: 12 }}
             numberOfLines={1}>
             {subtitle}
-          </ThemedText>
+          </Txt>
         ) : null}
-        <ThemedText className={TITLE_CLASSES[titleSize]} numberOfLines={1}>
+        <Txt variant="title" style={TITLE_STYLES[titleSize]} numberOfLines={1}>
           {title}
-        </ThemedText>
+        </Txt>
       </View>
       <View className="min-w-[39px] min-h-[39px] flex-row items-center gap-[6px] justify-end">
         {trailing}

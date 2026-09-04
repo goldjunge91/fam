@@ -4,14 +4,13 @@ import { Modal, Pressable, StyleSheet, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { FamIcon, type FamIconName } from '@/components/icons/fam-icon';
-import { FontSize, ThemedText } from '@/components/theme/themed-text';
-import { Radius } from '@/constants/layout';
-import { withAlpha } from '@/constants/theme';
+import { radius, withAlpha } from '@/components/theme/index';
+import { useTheme } from '@/components/theme/ThemeProvider';
+import { Txt } from '@/constants/ui';
 import { useSession } from '@/features/auth/session-provider';
 import { usePremium } from '@/features/premium/premium-provider';
 import { useProfile } from '@/features/profile/api';
 import { useDeferredMount } from '@/hooks/use-deferred-mount';
-import { useTheme } from '@/hooks/use-theme';
 import { getInitials } from '@/lib/initials';
 import { useNavigationChrome } from './navigation-chrome-provider';
 
@@ -25,7 +24,7 @@ export function ProfileSheet() {
 }
 
 function ProfileSheetContent() {
-  const theme = useTheme();
+  const { colors } = useTheme();
   const insets = useSafeAreaInsets();
   const { isProfileOpen, closeProfile } = useNavigationChrome();
   const { session } = useSession();
@@ -45,7 +44,7 @@ function ProfileSheetContent() {
     <Modal visible={isProfileOpen} transparent animationType="slide" onRequestClose={closeProfile}>
       <View style={StyleSheet.absoluteFill}>
         <Pressable
-          style={styles.dim}
+          style={[styles.dim, { backgroundColor: withAlpha(colors.text, 0.3) }]}
           onPress={closeProfile}
           accessibilityRole="button"
           accessibilityLabel="Profil schließen"
@@ -54,9 +53,9 @@ function ProfileSheetContent() {
           style={[
             styles.sheet,
             {
-              backgroundColor: theme.backgroundElement,
+              backgroundColor: colors.surface,
               bottom: Math.max(insets.bottom / 2, 16),
-              boxShadow: `0 -8px 28px ${withAlpha(theme.shadowSheet, 0.18)}`,
+              boxShadow: `0 -8px 28px ${withAlpha(colors.text, 0.18)}`,
             },
           ]}>
           <Pressable
@@ -65,11 +64,11 @@ function ProfileSheetContent() {
             accessibilityLabel="Profil schließen"
             hitSlop={12}
             style={styles.handleArea}>
-            <View style={[styles.handle, { backgroundColor: theme.border }]} />
+            <View style={[styles.handle, { backgroundColor: colors.border }]} />
           </Pressable>
 
-          <View style={[styles.profileCard, { borderBottomColor: theme.border }]}>
-            <View style={[styles.avatar, { backgroundColor: theme.accent }]}>
+          <View style={[styles.profileCard, { borderBottomColor: colors.border }]}>
+            <View style={[styles.avatar, { backgroundColor: colors.basil }]}>
               {avatarUrl ? (
                 <Image
                   source={{ uri: avatarUrl }}
@@ -78,19 +77,19 @@ function ProfileSheetContent() {
                   contentFit="cover"
                 />
               ) : (
-                <ThemedText type="bodySmall" style={[styles.avatarText, { color: '#fff' }]}>
+                <Txt variant="body" tone="onAccent" style={styles.avatarText}>
                   {getInitials(displayName)}
-                </ThemedText>
+                </Txt>
               )}
             </View>
             <View style={styles.identity}>
-              <ThemedText type="smallBold" style={styles.profileName}>
+              <Txt variant="body" weight="700" style={styles.profileName}>
                 {displayName}
-              </ThemedText>
+              </Txt>
               {email ? (
-                <ThemedText type="small" themeColor="textSecondary" style={styles.profileEmail}>
+                <Txt variant="body" tone="secondary" style={styles.profileEmail}>
                   {email}
-                </ThemedText>
+                </Txt>
               ) : null}
             </View>
           </View>
@@ -100,14 +99,14 @@ function ProfileSheetContent() {
             title="Mein Profil"
             subtitle="Persönliche Daten und Einstellungen"
             onPress={() => go('/profile')}
-            borderColor={theme.border}
+            borderColor={colors.border}
           />
           <ProfileRow
             icon="household"
             title="Familie"
             subtitle="Haushalt verwalten"
             onPress={() => go('/household/members')}
-            borderColor={theme.border}
+            borderColor={colors.border}
           />
           <ProfileRow
             icon="premium"
@@ -150,14 +149,14 @@ function ProfileRow({
         <FamIcon name={icon} size={24} />
       </View>
       <View style={styles.rowCopy}>
-        <ThemedText type="smallBold" style={styles.rowTitle}>
+        <Txt variant="body" weight="700" style={styles.rowTitle}>
           {title}
-        </ThemedText>
-        <ThemedText type="small" themeColor="textSecondary" style={styles.rowSubtitle}>
+        </Txt>
+        <Txt variant="body" tone="secondary" style={styles.rowSubtitle}>
           {subtitle}
-        </ThemedText>
+        </Txt>
       </View>
-      <ThemedText themeColor="textSecondary">›</ThemedText>
+      <Txt tone="secondary">›</Txt>
     </Pressable>
   );
 }
@@ -171,7 +170,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     left: 16,
     right: 16,
-    borderRadius: Radius.sheet,
+    borderRadius: radius.lg,
     paddingHorizontal: 20,
     paddingTop: 12,
     paddingBottom: 20,
@@ -185,7 +184,7 @@ const styles = StyleSheet.create({
   handle: {
     width: 44,
     height: 5,
-    borderRadius: Radius.hairline,
+    borderRadius: radius.sm,
   },
   profileCard: {
     flexDirection: 'row',
@@ -199,7 +198,7 @@ const styles = StyleSheet.create({
   avatar: {
     width: 58,
     height: 58,
-    borderRadius: Radius.sheet,
+    borderRadius: radius.lg,
     alignItems: 'center',
     justifyContent: 'center',
     overflow: 'hidden',
@@ -209,7 +208,7 @@ const styles = StyleSheet.create({
     height: '100%',
   },
   avatarText: {
-    ...FontSize[14],
+    fontSize: 14,
     lineHeight: 20,
     fontWeight: '500',
   },
@@ -217,12 +216,12 @@ const styles = StyleSheet.create({
     gap: 6,
   },
   profileName: {
-    ...FontSize[17],
+    fontSize: 17,
     lineHeight: 22,
     fontWeight: '500',
   },
   profileEmail: {
-    ...FontSize[13],
+    fontSize: 13,
     lineHeight: 18,
     fontWeight: '400',
   },
@@ -242,12 +241,12 @@ const styles = StyleSheet.create({
     gap: 4,
   },
   rowTitle: {
-    ...FontSize[14],
+    fontSize: 14,
     lineHeight: 20,
     fontWeight: '500',
   },
   rowSubtitle: {
-    ...FontSize[12],
+    fontSize: 12,
     lineHeight: 16,
     fontWeight: '400',
   },

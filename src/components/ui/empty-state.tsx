@@ -1,8 +1,8 @@
 import { SymbolView, type SymbolViewProps } from 'expo-symbols';
 import { View } from 'react-native';
 
-import { ThemedText } from '@/components/theme/themed-text';
-import { useTheme } from '@/hooks/use-theme';
+import { useTheme } from '@/components/theme/ThemeProvider';
+import { Txt } from '@/constants/ui';
 
 type EmptyStateProps = {
   symbol: SymbolViewProps['name'];
@@ -12,17 +12,17 @@ type EmptyStateProps = {
 };
 
 export function EmptyState({ symbol, title, hint }: EmptyStateProps) {
-  const theme = useTheme();
+  const { colors } = useTheme();
 
   return (
     <View className="items-center justify-center gap-two py-six px-four">
-      <SymbolView name={symbol} size={40} tintColor={theme.textSecondary} />
-      <ThemedText type="smallBold" className="text-center">
+      <SymbolView name={symbol} size={40} tintColor={colors.textMuted} />
+      <Txt variant="body" weight="700" className="text-center">
         {title}
-      </ThemedText>
-      <ThemedText type="small" themeColor="textSecondary" className="text-center">
+      </Txt>
+      <Txt variant="body" tone="secondary" className="text-center">
         {hint}
-      </ThemedText>
+      </Txt>
     </View>
   );
 }

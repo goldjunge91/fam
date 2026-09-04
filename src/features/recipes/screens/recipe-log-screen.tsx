@@ -2,11 +2,11 @@ import { router, useLocalSearchParams } from 'expo-router';
 import { useEffect, useMemo, useState } from 'react';
 import { Alert, KeyboardAvoidingView, Pressable, ScrollView, TextInput, View } from 'react-native';
 import { HubScreen } from '@/components/layout/hub-screen';
-import { ThemedText } from '@/components/theme/themed-text';
+import { useTheme } from '@/components/theme/ThemeProvider';
 import { BackButton } from '@/components/ui/buttons';
 import { FilterChipBar } from '@/components/ui/filter-chip-bar';
+import { Txt } from '@/constants/ui';
 import type { MealType } from '@/features/calorie-tracking/api';
-import { useTheme } from '@/hooks/use-theme';
 import { calculateAdjustedServingNutrition } from '../domain/nutrition';
 import { useUpdateComponentMutation } from '../hooks/use-recipe-components';
 import { useRecipeDetail } from '../hooks/use-recipes';
@@ -30,7 +30,7 @@ function toIsoDate(date: Date): string {
 }
 
 export function RecipeLogScreen() {
-  const theme = useTheme();
+  const { colors } = useTheme();
   const { id, mode } = useLocalSearchParams<{ id: string; mode?: string }>();
   const isWeighMode = mode === 'weigh';
   const { data, isLoading } = useRecipeDetail(id);
@@ -121,18 +121,22 @@ export function RecipeLogScreen() {
         behavior={process.env.EXPO_OS === 'ios' ? 'padding' : undefined}>
         {/* Hintergrund-Header (Erfolgs-Icon & Glückwunsch-Text) */}
         <View className="flex-1 min-h-[150px] items-center pt-[30px] opacity-55">
-          <View className="w-[82px] h-[82px] rounded-fam-large bg-background-selected" />
-          <ThemedText type="headingSmall" className="pt-[18px]">
+          <View
+            className="w-[82px] h-[82px] rounded-fam-large"
+            style={{ backgroundColor: colors.surfaceSoft }}
+          />
+          <Txt variant="heading" className="pt-[18px]">
             Guten Appetit!
-          </ThemedText>
-          <ThemedText
-            type="detail"
-            themeColor="textSecondary"
-            className="pt-[5px] font-medium text-center">
+          </Txt>
+          <Txt
+            variant="caption"
+            tone="secondary"
+            className="pt-[5px] text-center"
+            style={{ fontWeight: '500' }}>
             {isWeighMode
               ? 'Verbessere die Mengen deines Haushaltsrezepts.'
               : 'Trage deine tatsächliche Portion ins Tagebuch ein.'}
-          </ThemedText>
+          </Txt>
         </View>
 
         {/* Unteres Eingabe-Sheet für Mengen & Tagebucheintrag / Gewichte */}
@@ -140,34 +144,39 @@ export function RecipeLogScreen() {
           <View className="modal-handle" />
           <View className="min-h-[65px] pt-[13px] flex-row items-center justify-between gap-three">
             <View>
-              <ThemedText type="headingSmall">
+              <Txt variant="heading">
                 {isWeighMode ? 'Zubereitete Gewichte' : 'Ins Tagebuch eintragen'}
-              </ThemedText>
-              <ThemedText
-                type="detail"
-                themeColor="textSecondary"
-                className="pt-[7px] text-[9px] leading-[12px] font-medium">
+              </Txt>
+              <Txt
+                variant="caption"
+                tone="secondary"
+                className="pt-[7px]"
+                style={{ fontSize: 9, lineHeight: 12, fontWeight: '500' }}>
                 {isWeighMode
                   ? 'Diese Werte verbessern die Berechnung in deinem Haushaltsrezept.'
                   : 'Wie viel davon war auf deinem Teller?'}
-              </ThemedText>
+              </Txt>
             </View>
             <Pressable
               onPress={() => router.back()}
               role="button"
               aria-label="Schließen"
-              className="w-8 h-8 rounded-control items-center justify-center bg-background-selected">
-              <ThemedText themeColor="accent" className="text-[18px] leading-[20px] font-medium">
+              className="w-8 h-8 rounded-control items-center justify-center"
+              style={{ backgroundColor: colors.surfaceSoft }}>
+              <Txt
+                variant="body"
+                tone="secondary"
+                style={{ fontSize: 18, lineHeight: 20, fontWeight: '500' }}>
                 ×
-              </ThemedText>
+              </Txt>
             </Pressable>
           </View>
 
           {isLoading || !data ? (
             /* Ladezustand */
-            <ThemedText type="detail" themeColor="textSecondary" className="py-[30px] text-center">
+            <Txt variant="body" tone="secondary" className="py-[30px] text-center">
               Rezept wird geladen…
-            </ThemedText>
+            </Txt>
           ) : (
             <ScrollView
               showsVerticalScrollIndicator={false}
@@ -187,43 +196,50 @@ export function RecipeLogScreen() {
               <View className="gap-[10px]">
                 {topLevelComponents.map((component) => (
                   <View key={component.id} className="min-h-[40px] flex-row items-center gap-[9px]">
-                    <ThemedText
-                      type="detail"
-                      className="flex-1 text-[10px] leading-[12px] font-bold">
+                    <Txt
+                      variant="label"
+                      weight="700"
+                      className="flex-1"
+                      style={{ fontSize: 10, lineHeight: 12 }}>
                       {component.name}
-                    </ThemedText>
+                    </Txt>
                     <View className="grams-field">
                       <TextInput
                         value={String(gramsById?.[component.id] ?? component.serving_grams ?? 0)}
                         onChangeText={(value) => updateGrams(component.id, value)}
                         keyboardType="decimal-pad"
                         accessibilityLabel={`Grammmenge für ${component.name}`}
-                        className="flex-1 h-full py-0 text-right text-[10px] font-medium text-text"
-                        placeholderTextColor={theme.textSecondary}
+                        className="flex-1 h-full py-0 text-right text-[10px] font-medium"
+                        style={{ color: colors.text }}
+                        placeholderTextColor={colors.textMuted}
                       />
-                      <ThemedText
-                        type="detail"
-                        themeColor="textSecondary"
-                        className="pl-one text-[10px] leading-[12px] font-medium">
+                      <Txt
+                        variant="caption"
+                        tone="secondary"
+                        className="pl-one"
+                        style={{ fontSize: 10, lineHeight: 12, fontWeight: '500' }}>
                         g
-                      </ThemedText>
+                      </Txt>
                     </View>
                   </View>
                 ))}
               </View>
 
               {total && !isWeighMode ? (
-                <View className="min-h-[53px] rounded-card items-center justify-center px-[11px] bg-background-selected">
-                  <ThemedText className="text-[15px] leading-[18px] font-bold">
+                <View
+                  className="min-h-[53px] rounded-card items-center justify-center px-[11px]"
+                  style={{ backgroundColor: colors.surfaceSoft }}>
+                  <Txt variant="body" weight="700" style={{ fontSize: 15, lineHeight: 18 }}>
                     {round(total.kcal)} kcal
-                  </ThemedText>
-                  <ThemedText
-                    type="detail"
-                    themeColor="textSecondary"
-                    className="pt-[3px] text-[8px] leading-[10px] font-medium text-center">
+                  </Txt>
+                  <Txt
+                    variant="caption"
+                    tone="secondary"
+                    className="pt-[3px] text-center"
+                    style={{ fontSize: 8, lineHeight: 10, fontWeight: '500' }}>
                     {round(total.protein_g)} g Protein · {round(total.carbs_g)} g Kohlenhydrate ·{' '}
                     {round(total.fat_g)} g Fett
-                  </ThemedText>
+                  </Txt>
                 </View>
               ) : null}
 
@@ -232,12 +248,14 @@ export function RecipeLogScreen() {
                 onPress={handleSubmit}
                 disabled={!total || updateComponent.isPending}
                 role="button"
-                className={`min-h-[48px] rounded-card items-center justify-center px-four bg-accent active:opacity-75 active:scale-[0.99] ${
-                  !total || updateComponent.isPending ? 'opacity-40' : ''
-                }`}>
-                <ThemedText type="captionCompact" className="text-white font-bold">
+                className="min-h-[48px] rounded-card items-center justify-center px-four active:opacity-75 active:scale-[0.99]"
+                style={{
+                  backgroundColor: colors.basil,
+                  opacity: !total || updateComponent.isPending ? 0.4 : 1,
+                }}>
+                <Txt variant="caption" tone="onAccent" weight="700">
                   {isWeighMode ? 'Gewichte speichern' : 'Ins Tagebuch übernehmen'}
-                </ThemedText>
+                </Txt>
               </Pressable>
             </ScrollView>
           )}

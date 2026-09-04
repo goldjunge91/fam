@@ -3,9 +3,9 @@ import { Alert, ScrollView, View } from 'react-native';
 
 import { GradientBackground } from '@/components/layout/gradient-background';
 import { HubScreen } from '@/components/layout/hub-screen';
-import { ThemedText } from '@/components/theme/themed-text';
 import { BackButton, Button } from '@/components/ui/buttons';
 import { SegmentedControl } from '@/components/ui/segmented-control';
+import { Txt } from '@/constants/ui';
 import { presentCustomerCenter } from '@/features/premium/paywall';
 import { PaywallPlanCard } from '@/features/premium/paywall-plan-card';
 import { usePremium } from '@/features/premium/premium-provider';
@@ -117,14 +117,16 @@ export function PlusAndAiScreen({ initialTier }: PlusAndAiScreenProps) {
         <View className="premium-hero">
           <View className="premium-crown">
             <GradientBackground colors={['#705573', '#c38b75']} />
-            <ThemedText className="premium-crown-glyph">✦</ThemedText>
+            <Txt variant="body" tone="inverse" className="premium-crown-glyph">
+              ✦
+            </Txt>
           </View>
-          <ThemedText className="premium-hero-title">
+          <Txt variant="title" className="premium-hero-title">
             {owned ? content.heroTitleActive : content.heroTitleInactive}
-          </ThemedText>
-          <ThemedText themeColor="textSecondary" className="premium-hero-subtitle">
+          </Txt>
+          <Txt variant="body" tone="secondary" className="premium-hero-subtitle">
             {owned ? content.heroSubtitleActive : content.heroSubtitleInactive}
-          </ThemedText>
+          </Txt>
         </View>
 
         <SettingsGroup>
@@ -143,14 +145,14 @@ export function PlusAndAiScreen({ initialTier }: PlusAndAiScreenProps) {
           /* Aktiver Status & Abo-Verwaltungs-Button fuer das aktive Tab-Tier */
           <>
             <View className="premium-active-box">
-              <ThemedText themeColor="success" className="premium-active-title">
+              <Txt variant="body" tone="success" className="premium-active-title">
                 ✓ {content.activeLabel}
-              </ThemedText>
-              <ThemedText themeColor="textSecondary" className="premium-active-hint">
+              </Txt>
+              <Txt variant="body" tone="secondary" className="premium-active-hint">
                 {isForced && tier === 'plus'
                   ? 'Für diesen Build erzwungen (Entwicklermodus).'
                   : 'Gilt für alle aktuellen Haushaltsmitglieder.'}
-              </ThemedText>
+              </Txt>
             </View>
             <Button label="Abo verwalten" onPress={handleManage} loading={managing} />
 
@@ -158,12 +160,12 @@ export function PlusAndAiScreen({ initialTier }: PlusAndAiScreenProps) {
             {!otherOwned ? (
               <>
                 <View className="premium-upgrade-banner">
-                  <ThemedText className="premium-upgrade-title">
+                  <Txt variant="body" weight="700" className="premium-upgrade-title">
                     {otherContent.crossSellTitle}
-                  </ThemedText>
-                  <ThemedText themeColor="textSecondary" className="premium-upgrade-hint">
+                  </Txt>
+                  <Txt variant="body" tone="secondary" className="premium-upgrade-hint">
                     {otherContent.crossSellHint}
-                  </ThemedText>
+                  </Txt>
                 </View>
                 <Button
                   label={`Zum ${otherContent.tabLabel}-Tab wechseln`}

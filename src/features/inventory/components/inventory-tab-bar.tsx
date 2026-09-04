@@ -1,10 +1,10 @@
 import { useRef, useState } from 'react';
 import { Modal, Pressable, View } from 'react-native';
-import { ThemedText } from '@/components/theme/themed-text';
+import { withAlpha } from '@/components/theme/index';
+import { useTheme } from '@/components/theme/ThemeProvider';
 import { GlassCard } from '@/components/ui/glass-card';
-import { withAlpha } from '@/constants/theme';
+import { Txt } from '@/constants/ui';
 import type { StorageLocation } from '@/features/inventory/use-storage-locations';
-import { useTheme } from '@/hooks/use-theme';
 
 interface InventoryTabBarProps {
   activeTab: string;
@@ -34,7 +34,7 @@ const TRIGGER_GLASS_STYLE = {
 };
 
 export function InventoryTabBar({ activeTab, onTabChange, locations }: InventoryTabBarProps) {
-  const theme = useTheme();
+  const { colors } = useTheme();
   const [isOpen, setIsOpen] = useState(false);
   const [menuPosition, setMenuPosition] = useState<MenuPosition>(FALLBACK_MENU_POSITION);
   const triggerRef = useRef<View>(null);
@@ -76,9 +76,9 @@ export function InventoryTabBar({ activeTab, onTabChange, locations }: Inventory
         onPress={toggleMenu}
         accessibilityRole="button"
         accessibilityLabel={`Lagerort auswählen, aktuell ${activeLocation?.name ?? 'keiner'}`}>
-        <ThemedText type="small" className="font-semibold">
+        <Txt variant="body" weight="600">
           {activeLocation?.name ?? 'Lagerort auswählen'}
-        </ThemedText>
+        </Txt>
         {}
         <View
           className="w-[10px] h-[6px]"
@@ -110,7 +110,7 @@ export function InventoryTabBar({ activeTab, onTabChange, locations }: Inventory
                 top: menuPosition.top,
                 left: menuPosition.left,
                 width: menuPosition.width,
-                boxShadow: `0 10px 28px ${withAlpha(theme.shadowSheet, 0.18)}`,
+                boxShadow: `0 10px 28px ${withAlpha(colors.text, 0.18)}`,
                 borderCurve: 'continuous',
                 elevation: 8,
               }}>
@@ -123,13 +123,12 @@ export function InventoryTabBar({ activeTab, onTabChange, locations }: Inventory
                     accessibilityLabel={location.name}
                     accessibilityState={{ selected }}
                     onPress={() => selectLocation(location.id)}
-                    className={`inventory-tab-bar-option ${index > 0 ? 'inventory-tab-bar-option-bordered' : ''} ${
-                      selected ? 'bg-background-selected' : ''
-                    }`}>
-                    <ThemedText type="default" className={selected ? 'font-bold' : ''}>
+                    className={`inventory-tab-bar-option ${index > 0 ? 'inventory-tab-bar-option-bordered' : ''}`}
+                    style={selected ? { backgroundColor: colors.surfaceSoft } : undefined}>
+                    <Txt variant="body" weight={selected ? '700' : '400'}>
                       {location.name}
-                    </ThemedText>
-                    {selected ? <ThemedText themeColor="accent">✓</ThemedText> : null}
+                    </Txt>
+                    {selected ? <Txt tone="success">✓</Txt> : null}
                   </Pressable>
                 );
               })}

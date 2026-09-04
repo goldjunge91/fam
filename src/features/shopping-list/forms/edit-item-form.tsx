@@ -3,8 +3,8 @@ import { useEffect, useRef, useState } from 'react';
 import { Pressable, View } from 'react-native';
 import { TextField } from '@/components/forms/text-field';
 import { WheelPickerField } from '@/components/forms/wheel-picker-field';
-import { ThemedText } from '@/components/theme/themed-text';
 import { Button } from '@/components/ui/buttons';
+import { Txt } from '@/constants/ui';
 import { useSession } from '@/features/auth/session-provider';
 import { useProduct } from '@/features/inventory/use-product';
 import { debugLog } from '@/lib/debug-log';
@@ -421,12 +421,12 @@ export function EditItemForm({ item, onDismiss }: EditItemFormProps) {
           accessibilityState={{ expanded: detailsOpen }}
           accessibilityLabel="Weitere Angaben"
           className="details-summary">
-          <ThemedText type="body" themeColor="accent" className="font-medium">
+          <Txt variant="body" tone="secondary" weight="500">
             {detailsOpen ? '▾' : '›'}
-          </ThemedText>
-          <ThemedText type="body" themeColor="accent" className="font-medium">
+          </Txt>
+          <Txt variant="body" tone="primary" weight="500">
             Weitere Angaben
-          </ThemedText>
+          </Txt>
         </Pressable>
 
         {detailsOpen ? (
@@ -487,27 +487,25 @@ export function EditItemForm({ item, onDismiss }: EditItemFormProps) {
       {name.trim() ? (
         <View className="product-summary">
           <View className="flex-1 min-w-0">
-            <ThemedText type="bodyBold" numberOfLines={1}>
+            <Txt variant="body" weight="700" numberOfLines={1}>
               {name.trim()}
-            </ThemedText>
-            <ThemedText
-              type="detail"
-              themeColor="textSecondary"
-              numberOfLines={1}
-              className="font-medium">
+            </Txt>
+            <Txt variant="caption" tone="secondary" weight="500" numberOfLines={1}>
               {product?.brand ?? 'Bestehender Eintrag'}
-            </ThemedText>
+            </Txt>
             {product?.barcode ? (
-              <ThemedText type="captionMuted" numberOfLines={1}>
+              <Txt variant="caption" tone="secondary" numberOfLines={1}>
                 EAN {product.barcode}
-              </ThemedText>
+              </Txt>
             ) : null}
           </View>
           <View className="items-end">
-            <ThemedText type="default">
+            <Txt variant="body">
               {packageHint ?? formatAmount(Number(quantity.replace(',', '.')) || 1, unit)}
-            </ThemedText>
-            <ThemedText type="smallMuted">{packageHint ? 'Packungsinhalt' : 'Menge'}</ThemedText>
+            </Txt>
+            <Txt variant="body" tone="secondary">
+              {packageHint ? 'Packungsinhalt' : 'Menge'}
+            </Txt>
           </View>
         </View>
       ) : null}

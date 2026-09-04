@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Pressable, View } from 'react-native';
-import { ThemedText } from '@/components/theme/themed-text';
+import { Txt } from '@/constants/ui';
 import type { CatalogProduct } from '@/features/product-search/types';
 
 import {
@@ -71,15 +71,15 @@ function SuggestionCard({
         suggestion.unit,
       )}`}
       className={`suggestion-card ${selected ? 'selectable-selected' : 'selectable-idle'}`}>
-      <ThemedText type="labelBold" numberOfLines={1}>
+      <Txt variant="label" weight="700" numberOfLines={1}>
         {suggestion.name}
-      </ThemedText>
-      <ThemedText type="captionMuted">
+      </Txt>
+      <Txt variant="caption" tone="secondary">
         {formatPackageSize(suggestion.quantity, suggestion.unit)}
-      </ThemedText>
-      <ThemedText type="caption" themeColor="accent" numberOfLines={1}>
+      </Txt>
+      <Txt variant="caption" tone="secondary" numberOfLines={1}>
         {suggestion.last_store_name ? `Zuletzt: ${suggestion.last_store_name}` : 'Ohne Markt'}
-      </ThemedText>
+      </Txt>
     </Pressable>
   );
 }
@@ -138,12 +138,12 @@ export function ShoppingProductSuggestions({
               expanded ? 'Weniger Vorschläge anzeigen' : 'Weitere Vorschläge anzeigen'
             }
             className="details-summary">
-            <ThemedText type="body" themeColor="accent" className="font-medium">
+            <Txt variant="body" tone="secondary" weight="500">
               {expanded ? '▾' : '›'}
-            </ThemedText>
-            <ThemedText type="body" themeColor="accent" className="font-medium">
+            </Txt>
+            <Txt variant="body" tone="primary" weight="500">
               {expanded ? 'Weniger anzeigen' : `${rest.length} weitere anzeigen`}
-            </ThemedText>
+            </Txt>
           </Pressable>
         </>
       ) : null}

@@ -3,7 +3,7 @@ import { Keyboard, Modal, Pressable, type ScrollViewProps, View } from 'react-na
 import { KeyboardAwareScrollView, KeyboardToolbar } from 'react-native-keyboard-controller';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
-import { ThemedView } from '@/components/theme/themed-view';
+import { Surface } from '@/constants/ui';
 
 type ItemModalShellProps = {
   visible: boolean;
@@ -40,7 +40,7 @@ export function ItemModalShell({
   if (!visible && process.env.NODE_ENV === 'test') return null;
 
   const content = (
-    <ThemedView className={rootClassName}>
+    <Surface className={rootClassName}>
       <SafeAreaView className="modal-safe-area" edges={['top', 'left', 'right', 'bottom']}>
         {}
         <Pressable onPress={onHeaderPress ?? (() => Keyboard.dismiss())} accessible={false}>
@@ -57,7 +57,7 @@ export function ItemModalShell({
           {children}
         </KeyboardAwareScrollView>
       </SafeAreaView>
-    </ThemedView>
+    </Surface>
   );
 
   if (process.env.NODE_ENV === 'test') {

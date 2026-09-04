@@ -1,4 +1,5 @@
 import { View } from 'react-native';
+import { useTheme } from '@/components/theme/ThemeProvider';
 
 type ProgressBarProps = {
   /** 0..1 — Werte ausserhalb werden geklemmt. */
@@ -16,21 +17,20 @@ export function ProgressBar({
   trackColor,
   className = '',
 }: ProgressBarProps) {
+  const { colors } = useTheme();
   const clamped = Math.min(Math.max(value, 0), 1);
 
   return (
     <View
-      className={`w-full overflow-hidden bg-border rounded-full ${height === 4 ? 'h-1' : ''} ${className}`.trim()}
+      className={`w-full overflow-hidden rounded-full ${height === 4 ? 'h-1' : ''} ${className}`.trim()}
       style={
-        height !== 4 || trackColor
-          ? { height, backgroundColor: trackColor, borderRadius: height / 2 }
-          : undefined
+        { height, backgroundColor: trackColor ?? colors.border, borderRadius: height / 2 }
       }>
       <View
-        className="h-full rounded-full bg-accent"
+        className="h-full rounded-full"
         style={{
           width: `${clamped * 100}%`,
-          ...(color ? { backgroundColor: color } : {}),
+          backgroundColor: color ?? colors.basil,
           ...(height !== 4 ? { borderRadius: height / 2 } : {}),
         }}
       />

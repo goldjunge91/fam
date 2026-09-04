@@ -2,9 +2,9 @@ import { useState } from 'react';
 import { Alert, View } from 'react-native';
 import { TextField } from '@/components/forms/text-field';
 import { Screen } from '@/components/layout/screen';
-import { ThemedText } from '@/components/theme/themed-text';
 import { Button } from '@/components/ui/buttons';
 import { Card } from '@/components/ui/card';
+import { Txt } from '@/constants/ui';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import {
   useAddStorageLocationMutation,
@@ -101,9 +101,11 @@ export function StorageLocationsScreen() {
       {/* Liste aller vorhandenen Lagerorte mit Umbenennen- & Löschen-Optionen */}
       <Card title="Vorhandene Lagerorte">
         {isLoading ? (
-          <ThemedText>Lädt...</ThemedText>
+          <Txt variant="body">Lädt...</Txt>
         ) : locations?.length === 0 ? (
-          <ThemedText themeColor="textSecondary">Keine Lagerorte vorhanden.</ThemedText>
+          <Txt variant="body" tone="secondary">
+            Keine Lagerorte vorhanden.
+          </Txt>
         ) : (
           <View className="gap-two">
             {locations?.map((loc) => {
@@ -139,7 +141,9 @@ export function StorageLocationsScreen() {
                   ) : (
                     /* Anzeigezeile für Lagerort mit Umbenennen und Löschen */
                     <>
-                      <ThemedText className="storage-location-name">{loc.name}</ThemedText>
+                      <Txt variant="body" weight="700" className="storage-location-name">
+                        {loc.name}
+                      </Txt>
                       <View className="storage-location-btn-row">
                         <Button
                           label="Umbenennen"

@@ -1,7 +1,6 @@
 import { Modal, Pressable, View } from 'react-native';
-
-import { ThemedText } from '@/components/theme/themed-text';
-import { useTheme } from '@/hooks/use-theme';
+import { useTheme } from '@/components/theme/ThemeProvider';
+import { Txt } from '@/constants/ui';
 import type { LocalShoppingItem } from '../hooks/use-shopping-list';
 import type { Store } from '../hooks/use-stores';
 
@@ -20,7 +19,7 @@ export function MoveItemsModal({
   onSelect,
   onClose,
 }: MoveItemsModalProps) {
-  const theme = useTheme();
+  const { colors: theme } = useTheme();
   const count = selectedItems.length;
 
   function isCurrentTarget(storeId: string | null) {
@@ -39,13 +38,13 @@ export function MoveItemsModal({
         accessibilityState={{ disabled }}
         className={`move-items-target ${disabled ? 'opacity-40' : ''}`}>
         <View className="store-picker-dot" style={{ backgroundColor: color }} />
-        <ThemedText type="default" className="flex-1">
+        <Txt variant="body" className="flex-1">
           {label}
-        </ThemedText>
+        </Txt>
         {disabled ? (
-          <ThemedText type="caption" themeColor="textSecondary">
+          <Txt variant="caption" tone="secondary">
             aktuell
-          </ThemedText>
+          </Txt>
         ) : null}
       </Pressable>
     );
@@ -54,26 +53,28 @@ export function MoveItemsModal({
   return (
     <Modal visible={visible} transparent animationType="slide" onRequestClose={onClose}>
       <View className="move-items-backdrop">
-        <View className="move-items-panel" style={{ backgroundColor: theme.background }}>
+        <View className="move-items-panel" style={{ backgroundColor: theme.bg }}>
           <View className="row-between items-start mb-three">
             <View className="flex-1 gap-half">
-              <ThemedText type="subtitle">Artikel verschieben</ThemedText>
-              <ThemedText type="smallMuted">
+              <Txt variant="heading" weight="700">
+                Artikel verschieben
+              </Txt>
+              <Txt variant="body" tone="secondary">
                 {count} {count === 1 ? 'Artikel' : 'Artikel'} in eine andere Liste verschieben
-              </ThemedText>
+              </Txt>
             </View>
             <Pressable
               onPress={onClose}
               accessibilityRole="button"
               accessibilityLabel="Verschieben schließen"
               className="modal-close-btn">
-              <ThemedText>✕</ThemedText>
+              <Txt>✕</Txt>
             </Pressable>
           </View>
 
           <View className="gap-one">
             {stores.map((store) => renderTarget(store.name, store.id, store.color))}
-            {renderTarget('Ohne Markt', null, theme.textSecondary)}
+            {renderTarget('Ohne Markt', null, theme.textMuted)}
           </View>
         </View>
       </View>

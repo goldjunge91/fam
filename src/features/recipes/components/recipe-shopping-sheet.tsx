@@ -2,12 +2,12 @@ import { router } from 'expo-router';
 import { useEffect, useState } from 'react';
 import { ActivityIndicator, Alert, Pressable, View } from 'react-native';
 
-import { ThemedText } from '@/components/theme/themed-text';
+import { useTheme } from '@/components/theme/ThemeProvider';
+import { Txt } from '@/constants/ui';
 import { usePremium } from '@/features/premium/premium-provider';
 import { RowStorePicker } from '@/features/shopping-list/components/ui/row-store-picker';
 import { useAddShoppingItem } from '@/features/shopping-list/hooks/use-shopping-list-mutations';
 import { resolveCategoryForItem } from '@/features/shopping-list/preferences/api';
-import { useTheme } from '@/hooks/use-theme';
 import { type RecipeShoppingNeed, useRecipeShoppingNeeds } from '../data/use-recipe-shopping-needs';
 import type { RecipeDetail } from '../hooks/use-recipes';
 import { RecipeBottomSheet } from './recipe-bottom-sheet';
@@ -26,7 +26,7 @@ type Props = {
 const EMPTY_MISSING: RecipeShoppingNeed[] = [];
 
 export function RecipeShoppingSheet({ visible, detail, servings, onClose }: Props) {
-  const theme = useTheme();
+  const { colors } = useTheme();
   const { hasPlus } = usePremium();
   const [selected, setSelected] = useState<Set<string>>(new Set());
   // Marktzuweisung pro Zeile, vom Nutzer manuell ueberschrieben (Fallback:
@@ -124,36 +124,27 @@ export function RecipeShoppingSheet({ visible, detail, servings, onClose }: Prop
       sheetClassName="max-h-[82%]">
       {!hasPlus ? (
         <>
-          <ThemedText
-            type="detail"
-            themeColor="textSecondary"
-            className="leading-[15px] font-medium">
+          <Txt variant="caption" tone="secondary" style={{ lineHeight: 15, fontWeight: '500' }}>
             fam vergleicht die Rezeptzutaten mit deinem Vorrat und übernimmt nur Fehlendes in die
             Einkaufsliste.
-          </ThemedText>
+          </Txt>
           <SheetButton label="Plus ansehen" onPress={openPlusPaywall} />
         </>
       ) : isLoading ? (
-        <ActivityIndicator className="h-[76px]" color={theme.accent} />
+        <ActivityIndicator className="h-[76px]" color={colors.basil} />
       ) : missing.length === 0 ? (
         <>
-          <ThemedText
-            type="detail"
-            themeColor="textSecondary"
-            className="leading-[15px] font-medium">
+          <Txt variant="caption" tone="secondary" style={{ lineHeight: 15, fontWeight: '500' }}>
             Dein Vorrat deckt alle Zutaten für {servings} {servings === 1 ? 'Portion' : 'Portionen'}{' '}
             ab.
-          </ThemedText>
+          </Txt>
           <SheetButton label="Schließen" onPress={onClose} />
         </>
       ) : (
         <>
-          <ThemedText
-            type="detail"
-            themeColor="textSecondary"
-            className="leading-[15px] font-medium">
+          <Txt variant="caption" tone="secondary" style={{ lineHeight: 15, fontWeight: '500' }}>
             Bereits vorhandene Mengen wurden abgezogen. Wähle aus, was auf die Einkaufsliste soll.
-          </ThemedText>
+          </Txt>
           {/* Bulk-Aktion: allen Zutaten auf einen Schlag denselben Markt zuweisen (#342) */}
           <View className="mt-[10px] flex-row justify-end">
             <RowStorePicker
@@ -168,15 +159,20 @@ export function RecipeShoppingSheet({ visible, detail, servings, onClose }: Prop
               testID="recipe-bulk-store-picker"
             />
           </View>
-          <View className="mt-[14px] rounded-sheet overflow-hidden bg-background-selected">
+          <View
+            className="mt-[14px] rounded-sheet overflow-hidden"
+            style={{ backgroundColor: colors.surfaceSoft }}>
             {missing.map((item, index) => {
               const checked = selected.has(item.productId);
               return (
                 <View
                   key={item.productId}
-                  className={`min-h-[45px] px-three flex-row items-center gap-[10px] ${
-                    index < missing.length - 1 ? 'border-b-hairline border-border' : ''
-                  }`}>
+                  className="min-h-[45px] px-three flex-row items-center gap-[10px]"
+                  style={
+                    index < missing.length - 1
+                      ? { borderBottomColor: colors.border, borderBottomWidth: 1 }
+                      : undefined
+                  }>
                   <Pressable
                     onPress={() => toggle(item.productId)}
                     role="checkbox"
@@ -184,26 +180,38 @@ export function RecipeShoppingSheet({ visible, detail, servings, onClose }: Prop
                     accessibilityLabel={item.name}
                     className="flex-1 flex-row items-center gap-[10px]">
                     <View
-                      className={`w-[22px] h-[22px] rounded-fam-sm border-[1.5px] items-center justify-center border-accent ${
-                        checked ? 'bg-accent' : 'bg-transparent'
-                      }`}>
+                      className="w-[22px] h-[22px] rounded-fam-sm items-center justify-center"
+                      style={{
+                        backgroundColor: checked ? colors.basil : 'transparent',
+                        borderColor: colors.basil,
+                        borderWidth: 1.5,
+                      }}>
                       {checked ? (
-                        <ThemedText className="text-white text-[12px] leading-[14px] font-bold">
+                        <Txt
+                          variant="caption"
+                          tone="onAccent"
+                          weight="700"
+                          style={{ fontSize: 12, lineHeight: 14 }}>
                           ✓
-                        </ThemedText>
+                        </Txt>
                       ) : null}
                     </View>
-                    <ThemedText type="detail" className="flex-1 font-semibold" numberOfLines={1}>
+                    <Txt
+                      variant="body"
+                      weight="700"
+                      className="flex-1"
+                      style={{ fontSize: 13, lineHeight: 18 }}
+                      numberOfLines={1}>
                       {item.name}
-                    </ThemedText>
-                    <ThemedText
-                      type="detail"
-                      themeColor="textSecondary"
-                      className="text-[9px] leading-[11px] font-medium">
+                    </Txt>
+                    <Txt
+                      variant="caption"
+                      tone="secondary"
+                      style={{ fontSize: 9, lineHeight: 11, fontWeight: '500' }}>
                       {item.missingGrams > 0
                         ? `${item.missingGrams} g`
                         : `${item.neededGrams}g / ${item.availableGrams}g`}
-                    </ThemedText>
+                    </Txt>
                   </Pressable>
                   <RowStorePicker
                     householdId={detail.recipe.household_id}
@@ -240,21 +248,25 @@ function SheetButton({
   loading?: boolean;
   disabled?: boolean;
 }) {
+  const { colors } = useTheme();
+
   return (
     <Pressable
       onPress={onPress}
       disabled={disabled || loading}
       role="button"
       accessibilityState={{ disabled: disabled || loading, busy: loading }}
-      className={`h-12 mt-[14px] rounded-card items-center justify-center px-[14px] bg-accent active:opacity-75 ${
-        disabled || loading ? 'opacity-45' : ''
-      }`}>
+      className="h-12 mt-[14px] rounded-card items-center justify-center px-[14px] active:opacity-75"
+      style={{
+        backgroundColor: colors.basil,
+        opacity: disabled || loading ? 0.45 : 1,
+      }}>
       {loading ? (
-        <ActivityIndicator color="#FFFFFF" />
+        <ActivityIndicator color={colors.inverse} />
       ) : (
-        <ThemedText type="captionCompact" className="text-white font-bold">
+        <Txt variant="caption" tone="onAccent" weight="700">
           {label}
-        </ThemedText>
+        </Txt>
       )}
     </Pressable>
   );

@@ -1,7 +1,7 @@
 import { Modal, Pressable, ScrollView, View } from 'react-native';
 
-import { ThemedText } from '@/components/theme/themed-text';
-import { ThemedView } from '@/components/theme/themed-view';
+import { useTheme } from '@/components/theme/ThemeProvider';
+import { Txt } from '@/constants/ui';
 import type { TrackingMethod } from '@/features/calorie-tracking/api';
 
 export type TrackingMethodOption = {
@@ -27,6 +27,7 @@ export function TrackingMethodSheet({
   onSelect,
   onClose,
 }: TrackingMethodSheetProps) {
+  const { colors } = useTheme();
   return (
     <Modal
       visible={visible}
@@ -35,19 +36,19 @@ export function TrackingMethodSheet({
       statusBarTranslucent
       onRequestClose={onClose}>
       <View className="profile-food-rules-sheet-backdrop">
-        <ThemedView className="profile-food-rules-sheet">
+        <View className="profile-food-rules-sheet" style={{ backgroundColor: colors.surface }}>
           <View className="modal-handle" />
           <View className="profile-food-rules-sheet-header">
             <View className="flex-1 gap-half">
-              <ThemedText type="headingSmall">Tracking-Methode</ThemedText>
-              <ThemedText type="smallMuted">Bestimmt dein Ernährungstagebuch</ThemedText>
+              <Txt variant="heading">Tracking-Methode</Txt>
+              <Txt variant="caption" tone="secondary">Bestimmt dein Ernährungstagebuch</Txt>
             </View>
             <Pressable
               onPress={onClose}
               role="button"
               aria-label="Tracking-Methode schließen"
               className="modal-close-btn">
-              <ThemedText aria-hidden>✕</ThemedText>
+              <Txt variant="body" tone="secondary" aria-hidden>✕</Txt>
             </Pressable>
           </View>
 
@@ -65,31 +66,37 @@ export function TrackingMethodSheet({
                   role="radio"
                   aria-label={method.label}
                   aria-checked={isSelected}
-                  className={`profile-food-rules-option ${
-                    index < methods.length - 1 ? 'profile-food-rules-option-bordered' : ''
-                  }`}>
-                  <ThemedText className="text-[16px]">{method.icon}</ThemedText>
+                  className="profile-food-rules-option"
+                  style={{
+                    backgroundColor: isSelected ? colors.basilSoft : colors.surface,
+                    borderBottomColor: colors.border,
+                    borderBottomWidth: index < methods.length - 1 ? 1 : 0,
+                  }}>
+                  <Txt variant="body" style={{ fontSize: 16 }}>{method.icon}</Txt>
                   <View className="flex-1">
-                    <ThemedText type="smallBold">{method.label}</ThemedText>
-                    <ThemedText type="small" themeColor="textSecondary">
+                    <Txt variant="label" weight="700">{method.label}</Txt>
+                    <Txt variant="caption" tone="secondary">
                       {method.desc}
-                    </ThemedText>
+                    </Txt>
                   </View>
                   <View
-                    className={`checkbox-base ${
-                      isSelected ? 'checkbox-checked' : 'checkbox-unchecked'
-                    }`}>
+                    className="checkbox-base"
+                    style={{
+                      backgroundColor: isSelected ? colors.basil : 'transparent',
+                      borderColor: colors.basil,
+                      borderWidth: 1.5,
+                    }}>
                     {isSelected ? (
-                      <ThemedText type="caption" themeColor="onAccent">
+                      <Txt variant="caption" tone="onAccent">
                         ✓
-                      </ThemedText>
+                      </Txt>
                     ) : null}
                   </View>
                 </Pressable>
               );
             })}
           </ScrollView>
-        </ThemedView>
+        </View>
       </View>
     </Modal>
   );

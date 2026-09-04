@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Pressable, View } from 'react-native';
-import { ThemedText } from '@/components/theme/themed-text';
+import { Txt } from '@/constants/ui';
 import type { Glp1HistoryItem } from '@/features/glp1/domain/log-history';
 import { INJECTION_SITE_LABELS, isInjectionSite } from '@/features/glp1/domain/medication-options';
 import type { MedicationLogRow, SymptomLogRow } from '@/features/glp1/hooks/glp1-api';
@@ -41,12 +41,12 @@ export function Glp1LogHistory({
         accessibilityLabel={isExpanded ? 'Verlauf ausblenden' : 'Bisherigen Verlauf anzeigen'}
         onPress={() => setIsExpanded((current) => !current)}
         className="py-one flex-row items-center justify-between">
-        <ThemedText type="small" themeColor="textSecondary">
+        <Txt variant="body" tone="secondary">
           {isExpanded ? 'Verlauf ausblenden' : 'Bisherigen Verlauf anzeigen'}
-        </ThemedText>
-        <ThemedText type="small" themeColor="textSecondary">
+        </Txt>
+        <Txt variant="body" tone="secondary">
           {isExpanded ? '▲' : '▼'}
-        </ThemedText>
+        </Txt>
       </Pressable>
 
       {isExpanded ? (
@@ -58,32 +58,32 @@ export function Glp1LogHistory({
                 <View
                   key={`medication-${log.id}`}
                   className="p-two rounded-lg bg-surface border border-border gap-one">
-                  <ThemedText type="smallBold">
+                  <Txt variant="body" weight="700">
                     Injektion · {log.medication_name} {log.dose ?? '–'} {log.unit}
-                  </ThemedText>
-                  <ThemedText type="caption" themeColor="textSecondary">
+                  </Txt>
+                  <Txt variant="caption" tone="secondary">
                     {formatHistoryTimestamp(log.administered_at)}
                     {isInjectionSite(log.injection_site)
                       ? ` · ${INJECTION_SITE_LABELS[log.injection_site]}`
                       : ''}
-                  </ThemedText>
-                  {log.notes ? <ThemedText type="small">{log.notes}</ThemedText> : null}
+                  </Txt>
+                  {log.notes ? <Txt variant="body">{log.notes}</Txt> : null}
                   <View className="flex-row gap-three">
                     <Pressable
                       accessibilityRole="button"
                       accessibilityLabel="Injektion bearbeiten"
                       onPress={() => onEditMedication(log)}>
-                      <ThemedText type="caption" themeColor="accent">
+                      <Txt variant="caption" tone="primary">
                         Bearbeiten
-                      </ThemedText>
+                      </Txt>
                     </Pressable>
                     <Pressable
                       accessibilityRole="button"
                       accessibilityLabel="Injektion löschen"
                       onPress={() => onDeleteMedication(log)}>
-                      <ThemedText type="caption" themeColor="danger">
+                      <Txt variant="caption" tone="danger">
                         Löschen
-                      </ThemedText>
+                      </Txt>
                     </Pressable>
                   </View>
                 </View>
@@ -95,33 +95,33 @@ export function Glp1LogHistory({
               <View
                 key={`symptom-${log.id}`}
                 className="p-two rounded-lg bg-surface border border-border gap-one">
-                <ThemedText type="smallBold">
+                <Txt variant="body" weight="700">
                   Symptome · Appetit {log.appetite_level ?? '–'}/5 · Sättigung{' '}
                   {log.satiety_level ?? '–'}/5
-                </ThemedText>
-                <ThemedText type="caption" themeColor="textSecondary">
+                </Txt>
+                <Txt variant="caption" tone="secondary">
                   {formatHistoryTimestamp(log.logged_at)} · Übelkeit {log.nausea_level ?? 0}/5
-                </ThemedText>
+                </Txt>
                 {log.side_effects.length > 0 ? (
-                  <ThemedText type="small">{log.side_effects.join(' · ')}</ThemedText>
+                  <Txt variant="body">{log.side_effects.join(' · ')}</Txt>
                 ) : null}
-                {log.notes ? <ThemedText type="small">{log.notes}</ThemedText> : null}
+                {log.notes ? <Txt variant="body">{log.notes}</Txt> : null}
                 <View className="flex-row gap-three">
                   <Pressable
                     accessibilityRole="button"
                     accessibilityLabel="Symptome bearbeiten"
                     onPress={() => onEditSymptom(log)}>
-                    <ThemedText type="caption" themeColor="accent">
+                    <Txt variant="caption" tone="primary">
                       Bearbeiten
-                    </ThemedText>
+                    </Txt>
                   </Pressable>
                   <Pressable
                     accessibilityRole="button"
                     accessibilityLabel="Symptome löschen"
                     onPress={() => onDeleteSymptom(log)}>
-                    <ThemedText type="caption" themeColor="danger">
+                    <Txt variant="caption" tone="danger">
                       Löschen
-                    </ThemedText>
+                    </Txt>
                   </Pressable>
                 </View>
               </View>

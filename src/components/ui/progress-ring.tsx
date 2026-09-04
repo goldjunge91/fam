@@ -8,9 +8,9 @@ import Animated, {
 } from 'react-native-reanimated';
 import Svg, { Circle } from 'react-native-svg';
 
-import { ThemedText } from '@/components/theme/themed-text';
+import { useTheme } from '@/components/theme/ThemeProvider';
 import { computeRingMetrics, type RingPreset, RingPresetSize } from '@/constants/rings';
-import { useTheme } from '@/hooks/use-theme';
+import { Txt } from '@/constants/ui';
 
 const AnimatedCircle = Animated.createAnimatedComponent(Circle);
 
@@ -55,7 +55,7 @@ export function ProgressRing({
   trackColor,
   children,
 }: ProgressRingProps) {
-  const theme = useTheme();
+  const { colors } = useTheme();
   const reducedMotion = useReducedMotion();
 
   const presetDimensions = preset ? RingPresetSize[preset] : RingPresetSize.large;
@@ -83,8 +83,8 @@ export function ProgressRing({
   }));
 
   const remaining = Math.round(target - value);
-  const activeColor = exceeded ? theme.warning : (progressColor ?? theme.accent);
-  const backgroundTrackColor = trackColor ?? theme.backgroundSelected;
+  const activeColor = exceeded ? colors.carrot : (progressColor ?? colors.basil);
+  const backgroundTrackColor = trackColor ?? colors.surfaceSoft;
 
   const accessibilityLabel =
     label.length > 0
@@ -143,41 +143,48 @@ export function ProgressRing({
         {children !== undefined ? (
           children
         ) : displayMode === 'count' ? (
-          <ThemedText
-            type="body"
-            className="font-bold text-center"
+          <Txt
+            variant="body"
+            weight="700"
+            className="text-center"
             style={{ fontVariant: ['tabular-nums'] }}>
             {value}
-          </ThemedText>
+          </Txt>
         ) : displayMode === 'percent' ? (
-          <ThemedText type="smallBold" className="text-body-lg">
+          <Txt variant="body" weight="700" style={{ fontSize: 18, lineHeight: 24 }}>
             {Math.round(clamped * 100)}%
-          </ThemedText>
+          </Txt>
         ) : displayMode === 'remaining' ? (
           <>
-            <ThemedText
+            <Txt
+              variant="body"
+              weight="700"
               style={{ fontSize: 32, lineHeight: 36, fontWeight: '700', letterSpacing: -0.5 }}>
               {target > 0 ? Math.abs(remaining) : Math.round(value)}
-            </ThemedText>
-            <ThemedText
-              themeColor={exceeded ? 'warning' : 'textSecondary'}
+            </Txt>
+            <Txt
+              variant="body"
+              tone={exceeded ? 'warning' : 'secondary'}
               style={{ fontSize: 13, lineHeight: 16, fontWeight: '600' }}>
               {target > 0 ? `${unit} ${exceeded ? 'darüber' : 'übrig'}` : unit}
-            </ThemedText>
+            </Txt>
           </>
         ) : displayMode === 'value' ? (
           <>
-            <ThemedText type="subtitle">{Math.round(value)}</ThemedText>
-            <ThemedText type="small" themeColor="textSecondary">
+            <Txt variant="title" weight="600">
+              {Math.round(value)}
+            </Txt>
+            <Txt variant="body" tone="secondary" weight="500">
               {target > 0 ? `von ${Math.round(target)} ${unit}` : unit}
-            </ThemedText>
+            </Txt>
             {target > 0 ? (
-              <ThemedText
-                type="small"
-                themeColor={exceeded ? 'warning' : 'textSecondary'}
+              <Txt
+                variant="body"
+                tone={exceeded ? 'warning' : 'secondary'}
+                weight="500"
                 className="mt-half">
                 {exceeded ? `${Math.abs(remaining)} darüber` : `${remaining} übrig`}
-              </ThemedText>
+              </Txt>
             ) : null}
           </>
         ) : null}

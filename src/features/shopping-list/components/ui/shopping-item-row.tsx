@@ -1,7 +1,7 @@
 import { memo } from 'react';
 import { Pressable, View } from 'react-native';
 
-import { ThemedText } from '@/components/theme/themed-text';
+import { Txt } from '@/constants/ui';
 import { formatEuro } from '@/lib/format-currency';
 import { formatAmount, formatPackageHint } from '@/lib/package-size';
 
@@ -45,35 +45,43 @@ export const ShoppingItemRow = memo(function ShoppingItemRow({
           <View
             className={`checkbox-base ${selected ? 'checkbox-checked' : 'checkbox-unchecked'}`}
             accessibilityElementsHidden>
-            {selected ? <ThemedText className="text-white font-bold">✓</ThemedText> : null}
+            {selected ? (
+              <Txt tone="onAccent" weight="700">
+                ✓
+              </Txt>
+            ) : null}
           </View>
         ) : null}
         <View className="flex-1 gap-[2px]">
           {/* Produkt · Menge · Preis als drei Spalten (Mockup
               docs/mockups/einkaufsmodus/), nicht Menge+Preis gestapelt. */}
           <View className="flex-row items-baseline gap-two">
-            <ThemedText
-              type="small"
+            <Txt
+              variant="body"
               className={`flex-1 ${isChecked ? 'line-through opacity-50' : ''}`}
               numberOfLines={1}>
               {item.name}
-            </ThemedText>
-            <ThemedText type="smallMuted" className="w-[84px] text-right" numberOfLines={1}>
+            </Txt>
+            <Txt variant="body" tone="secondary" className="w-[84px] text-right" numberOfLines={1}>
               {formatAmount(item.quantity, item.unit)}
-            </ThemedText>
-            <ThemedText type="captionMuted" className="w-[52px] text-right" numberOfLines={1}>
+            </Txt>
+            <Txt
+              variant="caption"
+              tone="secondary"
+              className="w-[52px] text-right"
+              numberOfLines={1}>
               {item.price_estimate != null ? formatEuro(item.price_estimate) : ''}
-            </ThemedText>
+            </Txt>
           </View>
           {packageHint ? (
-            <ThemedText type="smallMuted" numberOfLines={1}>
+            <Txt variant="body" tone="secondary" numberOfLines={1}>
               {packageHint}
-            </ThemedText>
+            </Txt>
           ) : null}
           {item.recipe_names.length > 0 ? (
-            <ThemedText type="smallMuted" numberOfLines={1} className="opacity-75">
+            <Txt variant="body" tone="secondary" numberOfLines={1} className="opacity-75">
               🍽️ {item.recipe_names.join(', ')}
-            </ThemedText>
+            </Txt>
           ) : null}
         </View>
       </Pressable>
