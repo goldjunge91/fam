@@ -46,6 +46,7 @@ export function PaywallSheet({ isOpen, onClose, onPurchased }: PaywallSheetProps
     restore,
     isPurchasing,
     isRestoring,
+    isLoadingPackages,
   } = usePaywall('plus');
 
   useEffect(() => {
@@ -157,8 +158,8 @@ export function PaywallSheet({ isOpen, onClose, onPurchased }: PaywallSheetProps
               <Button
                 label={ctaLabel}
                 onPress={handleBuy}
-                loading={isPurchasing}
-                disabled={isRestoring}
+                loading={isPurchasing || isLoadingPackages}
+                disabled={isRestoring || isLoadingPackages}
                 className="w-full"
               />
 

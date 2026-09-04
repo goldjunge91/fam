@@ -51,6 +51,7 @@ export function PlusAndAiScreen({ initialTier }: PlusAndAiScreenProps) {
     restore,
     isPurchasing,
     isRestoring,
+    isLoadingPackages,
   } = usePaywall(tier);
 
   useEffect(() => {
@@ -188,8 +189,8 @@ export function PlusAndAiScreen({ initialTier }: PlusAndAiScreenProps) {
             <Button
               label={ctaLabel}
               onPress={handleBuy}
-              loading={isPurchasing}
-              disabled={isRestoring}
+              loading={isPurchasing || isLoadingPackages}
+              disabled={isRestoring || isLoadingPackages}
             />
 
             <Button

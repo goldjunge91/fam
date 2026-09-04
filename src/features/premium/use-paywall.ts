@@ -6,7 +6,6 @@ import { trackAnalyticsEvent } from '@/lib/analytics';
 import {
   buyPackage,
   ENTITLEMENT_IDS,
-  isPurchasesConfigured,
   type PurchaseOutcome,
   packagesForEntitlement,
   restorePurchases,
@@ -43,11 +42,8 @@ export function usePaywall(tier: PaywallTier): UsePaywallResult {
   const entitlementId = tier === 'plus' ? ENTITLEMENT_IDS.PLUS : ENTITLEMENT_IDS.AI;
 
   const fetchPackages = useCallback(async () => {
-    if (!isPurchasesConfigured()) {
-      setIsLoadingPackages(false);
-      return;
-    }
     setIsLoadingPackages(true);
+    setPackages([]);
     try {
       const pkgs = await packagesForEntitlement(entitlementId);
       setPackages(pkgs);
