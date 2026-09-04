@@ -4,6 +4,7 @@ import * as Crypto from 'expo-crypto';
 import { useStorageLocations } from '@/features/inventory/use-storage-locations';
 import { getDatabase } from '@/lib/db/client';
 import { enqueueMutation } from '@/lib/db/outbox';
+import { recordActivity } from '@/lib/streak';
 import { applyLocalMirrorWrite } from '@/lib/sync/mirror-write';
 import { normalizeUnit } from '@/lib/units';
 
@@ -149,6 +150,8 @@ export function useCompleteShoppingRun(householdId: string | undefined) {
           },
         });
       }
+
+      if (input.checkedItems.length > 0) recordActivity();
     },
 
     onSuccess: (_, variables) => {

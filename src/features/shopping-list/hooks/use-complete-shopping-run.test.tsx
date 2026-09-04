@@ -5,6 +5,7 @@ import type React from 'react';
 import { useCompleteShoppingRun } from '@/features/shopping-list/hooks/use-complete-shopping-run';
 import type { LocalShoppingItem } from '@/features/shopping-list/hooks/use-shopping-list';
 import { enqueueMutation } from '@/lib/db/outbox';
+import { recordActivity } from '@/lib/streak';
 
 // `useStorageLocations` erwartet immer eine Liste; `undefined` ist fuer TanStack Query ungueltig.
 const mockDbGetAllAsync = jest.fn().mockResolvedValue([]);
@@ -19,6 +20,10 @@ jest.mock('@/lib/db/client', () => ({
 
 jest.mock('@/lib/db/outbox', () => ({
   enqueueMutation: jest.fn().mockResolvedValue(undefined),
+}));
+
+jest.mock('@/lib/streak', () => ({
+  recordActivity: jest.fn(),
 }));
 
 describe('useCompleteShoppingRun', () => {
@@ -96,5 +101,6 @@ describe('useCompleteShoppingRun', () => {
         op: 'insert',
       }),
     );
+    expect(recordActivity).toHaveBeenCalledTimes(1);
   });
 });
