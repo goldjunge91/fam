@@ -4,15 +4,43 @@
  * synced like other srf: keys). recordActivity() is called from cook-complete
  * and food logging; the home screen shows a 🔥 chip.
  */
-import { kv } from "@shared/platform/kv";
-import { useKVRaw } from "../../store";
+import { useSyncExternalStore } from 'react';
 
-const KEY = "srf:cook-streak";
+import { getDeviceStorage } from './storage/device-storage';
+
+const KEY = 'srf:cook-streak';
 
 type StreakState = { count: number; lastDate: string | null; best: number };
 
+function readRaw(): string | null {
+  try {
+    return getDeviceStorage().getString(KEY) ?? null;
+  } catch {
+    return null;
+  }
+}
+
+function parse(raw: string | null): StreakState {
+  if (raw) {
+    try {
+      const s: unknown = JSON.parse(raw);
+      if (typeof s === 'object' && s !== null && 'count' in s && typeof s.count === 'number') {
+        const state = s as { count: number; lastDate?: unknown; best?: unknown };
+        return {
+          count: state.count,
+          lastDate: typeof state.lastDate === 'string' ? state.lastDate : null,
+          best: typeof state.best === 'number' ? state.best : state.count,
+        };
+      }
+    } catch {
+      /* ignore invalid local state */
+    }
+  }
+  return { count: 0, lastDate: null, best: 0 };
+}
+
 function todayStr(d = new Date()): string {
-  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
 }
 
 function dayDiff(fromISO: string, toISO: string): number {
@@ -20,21 +48,12 @@ function dayDiff(fromISO: string, toISO: string): number {
 }
 
 function read(): StreakState {
-  try {
-    const raw = kv().getItem(KEY);
-    if (raw) {
-      const s = JSON.parse(raw);
-      if (typeof s?.count === "number") return { count: s.count, lastDate: s.lastDate ?? null, best: s.best ?? s.count };
-    }
-  } catch {
-    /* ignore */
-  }
-  return { count: 0, lastDate: null, best: 0 };
+  return parse(readRaw());
 }
 
 function write(s: StreakState): void {
   try {
-    kv().setItem(KEY, JSON.stringify(s));
+    getDeviceStorage().set(KEY, JSON.stringify(s));
   } catch {
     /* ignore */
   }
@@ -42,12 +61,16 @@ function write(s: StreakState): void {
 
 export type StreakView = { count: number; best: number; activeToday: boolean };
 
-/** Current streak, treating it as broken if the last activity was >1 day ago. */
+function toView(s: StreakState, today: string): StreakView {
+  const daysSinceActivity = s.lastDate ? dayDiff(s.lastDate, today) : null;
+  const active = daysSinceActivity === 0 || daysSinceActivity === 1;
+  return { count: active ? s.count : 0, best: s.best, activeToday: daysSinceActivity === 0 };
+}
+
+/** Current streak, treating it as broken unless the last activity was today or yesterday. */
 export function getStreak(): StreakView {
   const s = read();
-  const today = todayStr();
-  const active = s.lastDate ? dayDiff(s.lastDate, today) <= 1 : false;
-  return { count: active ? s.count : 0, best: s.best, activeToday: s.lastDate === today };
+  return toView(s, todayStr());
 }
 
 /**
@@ -66,6 +89,20 @@ export function recordActivity(): { count: number; increased: boolean; milestone
 
 /** Reactive streak for the home screen. */
 export function useStreak(): StreakView {
-  useKVRaw(KEY);
-  return getStreak();
+  const raw = useSyncExternalStore(
+    (onStoreChange) => {
+      try {
+        const listener = getDeviceStorage().addOnValueChangedListener((key) => {
+          if (key === KEY) onStoreChange();
+        });
+        return () => listener.remove();
+      } catch {
+        return () => undefined;
+      }
+    },
+    readRaw,
+    readRaw,
+  );
+  const s = parse(raw);
+  return toView(s, todayStr());
 }
