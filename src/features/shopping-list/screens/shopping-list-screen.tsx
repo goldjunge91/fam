@@ -469,11 +469,10 @@ export function ShoppingListScreen() {
               <View className="flex-row items-center gap-[6px] px-three pt-three pb-one">
                 <View className="w-[6px] h-[6px] rounded-full" style={{ backgroundColor: color }} />
                 <Txt
-                  variant="body"
+                  variant="bodySmall"
                   tone="secondary"
                   className="uppercase tracking-wider"
-                  weight="600"
-                  style={{ fontSize: 14, lineHeight: 18 }}>
+                  weight="600">
                   {section.title}
                 </Txt>
               </View>

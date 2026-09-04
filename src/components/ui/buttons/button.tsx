@@ -12,9 +12,8 @@ import Animated, {
   withSpring,
   withTiming,
 } from 'react-native-reanimated';
-
+import { type AccentKey, BUTTON_DEPTH, radius, space } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
-import { BUTTON_DEPTH, type AccentKey, radius, space } from '@/components/theme/index';
 import { Txt } from '@/constants/ui';
 import { medium as hapticMedium } from '@/lib/haptics';
 

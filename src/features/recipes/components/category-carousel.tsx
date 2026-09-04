@@ -99,18 +99,15 @@ export function CategoryCarousel({ selectedKey, onSelect }: CategoryCarouselProp
             aria-selected={selected}
             className="category-tile"
             style={{
-              backgroundColor: selected ? colors.basil : colors.surface,
-              borderColor: selected ? colors.basil : colors.border,
+              backgroundColor: selected ? colors.accent : colors.backgroundElement,
+              borderColor: selected ? colors.accent : colors.border,
             }}>
-            <Txt variant="body" style={{ fontSize: 24, lineHeight: 28 }}>
-              {tile.emoji}
-            </Txt>
+            <Txt variant="stepperActionLarge">{tile.emoji}</Txt>
             <Txt
-              variant="body"
+              variant="micro"
               tone={selected ? 'onAccent' : 'primary'}
               weight="600"
               center
-              style={{ fontSize: 10, lineHeight: 12 }}
               numberOfLines={1}>
               {tile.label}
             </Txt>

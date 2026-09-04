@@ -239,7 +239,7 @@
 
   /* Hintergrund- und Textfarbe bewusst per Inline-Style (`theme.text`/
      `theme.background`) statt Tailwind-Klasse gesetzt — `className`-Farben
-     auf `ThemedText` koennen von dessen eigener `type`-Farbklasse
+     auf `Txt` koennen von dessen eigener semantischer Tonauflösung
      ueberschrieben werden (beide im selben Tailwind-Layer, Reihenfolge nicht
      garantiert). Inline-`style` gewinnt bei NativeWind immer. */
   .module-row-locked-pill {

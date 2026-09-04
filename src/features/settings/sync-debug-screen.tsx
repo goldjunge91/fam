@@ -210,27 +210,38 @@ export function SyncDebugScreen() {
       <Card title="Letzter Synchronisations-Lauf">
         <View className="debug-row">
           <Txt variant="caption">Uhrzeit:</Txt>
-          <Txt variant="caption" weight="700">{formattedLastSync}</Txt>
+          <Txt variant="caption" weight="700">
+            {formattedLastSync}
+          </Txt>
         </View>
         {lastSyncInfo && (
           <>
             <View className="debug-row">
               <Txt variant="caption">Hochgeladen (Pushed):</Txt>
-              <Txt variant="caption" weight="700">{lastSyncInfo.pushedCount} Einträge</Txt>
+              <Txt variant="caption" weight="700">
+                {lastSyncInfo.pushedCount} Einträge
+              </Txt>
             </View>
             <View className="debug-row">
               <Txt variant="caption">Empfangen (Pulled):</Txt>
-              <Txt variant="caption" weight="700">{lastSyncInfo.pulledCount} Zeilen</Txt>
+              <Txt variant="caption" weight="700">
+                {lastSyncInfo.pulledCount} Zeilen
+              </Txt>
             </View>
           </>
         )}
         <View className="debug-row">
           <Txt variant="caption">Aktueller Sync-Status:</Txt>
-          <Txt variant="caption" weight="700">{syncStatus.kind.toUpperCase()}</Txt>
+          <Txt variant="caption" weight="700">
+            {syncStatus.kind.toUpperCase()}
+          </Txt>
         </View>
         <View className="debug-row">
           <Txt variant="caption">Realtime-Verbindung:</Txt>
-          <Txt variant="caption" weight="700" tone={realtimeStatus === 'SUBSCRIBED' ? 'success' : 'danger'}>
+          <Txt
+            variant="caption"
+            weight="700"
+            tone={realtimeStatus === 'SUBSCRIBED' ? 'success' : 'danger'}>
             {realtimeStatus ?? 'nie verbunden'}
           </Txt>
         </View>
@@ -243,11 +254,16 @@ export function SyncDebugScreen() {
         </View>
         <View className="debug-row">
           <Txt variant="caption">Realtime Status-Wechsel gesamt:</Txt>
-          <Txt variant="caption" weight="700">{realtimeDiagnostics.statusChangeCount}</Txt>
+          <Txt variant="caption" weight="700">
+            {realtimeDiagnostics.statusChangeCount}
+          </Txt>
         </View>
         <View className="debug-row">
           <Txt variant="caption">Realtime Reconnects gesamt:</Txt>
-          <Txt variant="caption" weight="700" tone={realtimeDiagnostics.reconnectCount > 0 ? 'danger' : 'success'}>
+          <Txt
+            variant="caption"
+            weight="700"
+            tone={realtimeDiagnostics.reconnectCount > 0 ? 'danger' : 'success'}>
             {realtimeDiagnostics.reconnectCount}
           </Txt>
         </View>
@@ -364,10 +380,7 @@ export function SyncDebugScreen() {
               <Pressable
                 onPress={() => handleCopyOutbox(row)}
                 accessibilityLabel="Payload kopieren">
-                <Txt
-                  variant="caption"
-                  className="mt-half"
-                  style={{ fontFamily: 'monospace', fontSize: 12, lineHeight: 16 }}>
+                <Txt variant="code" className="mt-half" style={{ fontFamily: 'monospace' }}>
                   Payload: {row.payload}
                 </Txt>
               </Pressable>
@@ -407,7 +420,9 @@ export function SyncDebugScreen() {
         ) : (
           locationRows.map((loc) => (
             <View key={loc.id} className="debug-item">
-              <Txt variant="caption" weight="700">{loc.name}</Txt>
+              <Txt variant="caption" weight="700">
+                {loc.name}
+              </Txt>
               <Txt variant="caption" tone="secondary">
                 Typ: {loc.kind} | ID: {loc.id}
               </Txt>

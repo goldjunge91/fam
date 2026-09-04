@@ -2,8 +2,8 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { Controller, useForm } from 'react-hook-form';
 import { Pressable, TextInput, View } from 'react-native';
 import { z } from 'zod';
-import { useTheme } from '@/components/theme/ThemeProvider';
 import { font } from '@/components/theme';
+import { useTheme } from '@/components/theme/ThemeProvider';
 import { Button } from '@/components/ui/buttons';
 import { Txt } from '@/constants/ui';
 import { formatDateTimeInput } from '@/features/glp1/domain/date-time-input';
@@ -263,7 +263,10 @@ export function InjectionForm({
               borderColor: injectionSite === null ? colors.accent : colors.border,
             }}
             className="py-one px-three rounded-xl border">
-            <Txt variant="bodyRelaxed" weight="700" tone={injectionSite === null ? 'onAccent' : 'primary'}>
+            <Txt
+              variant="bodyRelaxed"
+              weight="700"
+              tone={injectionSite === null ? 'onAccent' : 'primary'}>
               Keine Angabe
             </Txt>
           </Pressable>

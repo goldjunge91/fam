@@ -3,8 +3,8 @@ import { Screen } from '@/components/layout/screen';
 import { ModuleLockedOverlay } from '@/components/module-locked-overlay';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { Card } from '@/components/ui/card';
-import { Txt } from '@/constants/ui';
 import { getSettingsModules } from '@/constants/feature-registry';
+import { Txt } from '@/constants/ui';
 import { useSession } from '@/features/auth/session-provider';
 import {
   type ModulePreferences,

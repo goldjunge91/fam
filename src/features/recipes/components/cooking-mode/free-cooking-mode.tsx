@@ -25,11 +25,7 @@ export function FreeCookingMode({ data }: { data: RecipeDetail }) {
         <IngredientGroups data={data} />
 
         {recipe.instructions ? (
-          <Txt
-            variant="body"
-            tone="secondary"
-            className="pt-three"
-            style={{ fontSize: 12, lineHeight: 18 }}>
+          <Txt variant="detail" tone="secondary" className="pt-three">
             {recipe.instructions}
           </Txt>
         ) : null}
@@ -44,10 +40,9 @@ export function FreeCookingMode({ data }: { data: RecipeDetail }) {
                 <StepMentionText
                   text={step.text}
                   ingredients={mentionIngredients}
-                  variant="caption"
+                  variant="captionCompact"
                   className="flex-1"
                   weight="500"
-                  style={{ fontSize: 11, lineHeight: 18 }}
                 />
               </View>
             ))}

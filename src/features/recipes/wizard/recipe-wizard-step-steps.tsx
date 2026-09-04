@@ -75,11 +75,7 @@ function IngredientLedger({ ingredients, used }: IngredientLedgerProps) {
         onPress={() => setExpanded((prev) => !prev)}
         accessibilityRole="button"
         accessibilityLabel={expanded ? 'Zutatenliste einklappen' : 'Zutatenliste ausklappen'}>
-        <Txt
-          variant="caption"
-          tone="secondary"
-          className="tracking-widest"
-          style={{ fontSize: 9, lineHeight: 11, fontWeight: '700' }}>
+        <Txt variant="micro" tone="secondary" className="tracking-widest" weight="700">
           ZUTATEN
         </Txt>
         <View className="flex-row items-center gap-two">
@@ -88,7 +84,7 @@ function IngredientLedger({ ingredients, used }: IngredientLedgerProps) {
               {doneCount}/{ingredients.length} aufgebraucht
             </Txt>
           ) : null}
-          <Txt variant="caption" tone="secondary" style={{ fontSize: 11 }}>
+          <Txt variant="captionCompact" tone="secondary">
             {expanded ? '▾' : '▸'}
           </Txt>
         </View>
@@ -108,13 +104,17 @@ function IngredientLedger({ ingredients, used }: IngredientLedgerProps) {
                   <Txt
                     variant="body"
                     weight="700"
-                    style={full ? { color: colors.textMuted, textDecorationLine: 'line-through' } : undefined}>
+                    style={
+                      full
+                        ? { color: colors.textMuted, textDecorationLine: 'line-through' }
+                        : undefined
+                    }>
                     {ing.name}
                   </Txt>
                   <Txt
                     variant="caption"
                     tone={full ? 'success' : 'secondary'}
-                    style={full ? { fontWeight: '600' } : undefined}>
+                    weight={full ? '600' : undefined}>
                     {full ? 'aufgebraucht' : `${remaining}${ing.unit} übrig`}
                   </Txt>
                 </View>
@@ -271,14 +271,14 @@ const StepCard = memo(function StepCard({
           <TouchableOpacity
             className="self-start"
             onPress={() => onUpdateStep(step.id, { localImageUri: null, existingImagePath: null })}>
-            <Txt variant="label" tone="primary" style={{ fontWeight: '600' }}>
+            <Txt variant="label" tone="primary" weight="600">
               Bild entfernen
             </Txt>
           </TouchableOpacity>
         </View>
       ) : (
         <TouchableOpacity className="self-start" onPress={() => onPickImage(step.id)}>
-          <Txt variant="label" tone="primary" style={{ fontWeight: '600' }}>
+          <Txt variant="label" tone="primary" weight="600">
             + Bild hinzufügen
           </Txt>
         </TouchableOpacity>
@@ -305,11 +305,11 @@ function StepTimerField({ minutes, onChange }: StepTimerFieldProps) {
   if (minutes !== null) {
     return (
       <View className="row-center gap-two">
-        <Txt variant="label" tone="primary" style={{ fontWeight: '600' }}>
+        <Txt variant="label" tone="primary" weight="600">
           ⏱ {minutes} Min. Timer
         </Txt>
         <TouchableOpacity onPress={() => onChange(null)}>
-          <Txt variant="label" tone="primary" style={{ fontWeight: '600' }}>
+          <Txt variant="label" tone="primary" weight="600">
             Entfernen
           </Txt>
         </TouchableOpacity>
@@ -343,7 +343,7 @@ function StepTimerField({ minutes, onChange }: StepTimerFieldProps) {
             setDraft('');
             setEditing(false);
           }}>
-          <Txt variant="label" tone="primary" style={{ fontWeight: '600' }}>
+          <Txt variant="label" tone="primary" weight="600">
             Übernehmen
           </Txt>
         </TouchableOpacity>
@@ -352,7 +352,7 @@ function StepTimerField({ minutes, onChange }: StepTimerFieldProps) {
             setDraft('');
             setEditing(false);
           }}>
-          <Txt variant="label" tone="secondary" style={{ fontWeight: '600' }}>
+          <Txt variant="label" tone="secondary" weight="600">
             Abbrechen
           </Txt>
         </TouchableOpacity>
@@ -362,7 +362,7 @@ function StepTimerField({ minutes, onChange }: StepTimerFieldProps) {
 
   return (
     <TouchableOpacity className="self-start" onPress={() => setEditing(true)}>
-      <Txt variant="label" tone="primary" style={{ fontWeight: '600' }}>
+      <Txt variant="label" tone="primary" weight="600">
         + Timer hinzufügen
       </Txt>
     </TouchableOpacity>
@@ -418,10 +418,10 @@ export function RecipeWizardStepSteps({
   return (
     <View className="flex-1 px-four">
       <Txt
-        variant="caption"
+        variant="micro"
         tone="secondary"
         className="pt-two pb-[6px] tracking-widest"
-        style={{ fontSize: 8, lineHeight: 10, fontWeight: '500' }}>
+        weight="500">
         SCHRITT 3 VON 4
       </Txt>
       <Txt variant="heading" className="mb-one">
@@ -457,7 +457,7 @@ export function RecipeWizardStepSteps({
               className="w-full h-[42px] rounded-fam-large items-center justify-center mt-one mb-seven active:opacity-75"
               style={{ backgroundColor: colors.surface }}
               onPress={addStep}>
-              <Txt variant="caption" tone="primary" style={{ fontWeight: '600' }}>
+              <Txt variant="captionCompact" tone="primary" weight="600">
                 + Schritt hinzufügen
               </Txt>
             </TouchableOpacity>
@@ -467,7 +467,7 @@ export function RecipeWizardStepSteps({
                 className="flex-1 min-h-[48px] rounded-card items-center justify-center active:opacity-75"
                 style={{ backgroundColor: colors.surface }}
                 onPress={onBack}>
-                <Txt variant="caption" tone="primary" style={{ fontWeight: '600' }}>
+                <Txt variant="captionCompact" tone="primary" weight="600">
                   Zurück
                 </Txt>
               </Pressable>
@@ -476,7 +476,7 @@ export function RecipeWizardStepSteps({
                 style={{ backgroundColor: colors.basil }}
                 accessibilityRole="button"
                 onPress={onNext}>
-                <Txt variant="caption" tone="onAccent" style={{ fontWeight: '600' }}>
+                <Txt variant="captionCompact" tone="onAccent" weight="600">
                   Weiter
                 </Txt>
               </Pressable>

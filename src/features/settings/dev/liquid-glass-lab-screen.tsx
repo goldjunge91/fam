@@ -15,11 +15,11 @@ import { GlassContainer, GlassView } from 'expo-glass-effect';
 import { useState } from 'react';
 import { Alert, Pressable, View } from 'react-native';
 import { Screen } from '@/components/layout/screen';
-import { Card } from '@/components/ui/card';
-import { Txt } from '@/constants/ui';
-import { useGlassAvailable } from '@/components/ui/glass-card';
-import { useHubGradient } from '@/hooks/use-hub-gradient';
 import { useTheme } from '@/components/theme/ThemeProvider';
+import { Card } from '@/components/ui/card';
+import { useGlassAvailable } from '@/components/ui/glass-card';
+import { Txt } from '@/constants/ui';
+import { useHubGradient } from '@/hooks/use-hub-gradient';
 
 export function LiquidGlassLabScreen() {
   const { colors } = useTheme();
@@ -86,10 +86,7 @@ export function LiquidGlassLabScreen() {
           />
         </View>
 
-        <Txt
-          variant="caption"
-          tone="secondary"
-          style={{ marginTop: 16, marginBottom: 8 }}>
+        <Txt variant="caption" tone="secondary" style={{ marginTop: 16, marginBottom: 8 }}>
           Segmentierte Auswahl (`GlassContainer` + `isInteractive`)
         </Txt>
         <GlassContainer spacing={8} style={{ flexDirection: 'row', gap: 8 }}>
@@ -103,7 +100,10 @@ export function LiquidGlassLabScreen() {
               <Pressable
                 onPress={() => setSegment(value)}
                 style={{ paddingHorizontal: 18, paddingVertical: 10 }}>
-                <Txt variant="caption" weight="700" tone={segment === value ? 'onAccent' : 'primary'}>
+                <Txt
+                  variant="caption"
+                  weight="700"
+                  tone={segment === value ? 'onAccent' : 'primary'}>
                   {value === 'tag' ? 'Tag' : value === 'woche' ? 'Woche' : 'Monat'}
                 </Txt>
               </Pressable>
@@ -184,9 +184,7 @@ export function LiquidGlassLabScreen() {
                   backgroundOverlay({ color: colors.bg }),
                 ]}>
                 <Text modifiers={[font({ weight: 'bold' })]}>Rührei mit Toast</Text>
-                <Text modifiers={[foregroundStyle(colors.textMuted)]}>
-                  Frühstück · 2 Portionen
-                </Text>
+                <Text modifiers={[foregroundStyle(colors.textMuted)]}>Frühstück · 2 Portionen</Text>
               </VStack>
             </ContextMenu.Preview>
             <ContextMenu.Items>
@@ -310,8 +308,8 @@ export function LiquidGlassLabScreen() {
       {/* Typografie-Vergleich: Glasoberfläche vs. Solider Hintergrund */}
       <Card title="Schriften auf Glas vs. solide">
         <Txt variant="caption" tone="secondary" style={{ marginBottom: 12 }}>
-          Lesbarkeits-Vergleich derselben `Txt`-Rollen auf Glas- und solider Fläche, über dem
-          echten Hub-Verlauf.
+          Lesbarkeits-Vergleich derselben `Txt`-Rollen auf Glas- und solider Fläche, über dem echten
+          Hub-Verlauf.
         </Txt>
         <View style={{ flexDirection: 'row', gap: 12 }}>
           <GlassView
@@ -341,7 +339,9 @@ function TypeSample() {
       <Txt variant="title">Titel</Txt>
       <Txt variant="subheading">Untertitel</Txt>
       <Txt variant="body">Fließtext in normaler Stärke.</Txt>
-      <Txt variant="body" weight="700">Fließtext, fett.</Txt>
+      <Txt variant="body" weight="700">
+        Fließtext, fett.
+      </Txt>
       <Txt variant="caption" tone="secondary">
         Kleiner Text, sekundär.
       </Txt>

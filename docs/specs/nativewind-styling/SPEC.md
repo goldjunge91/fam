@@ -2,7 +2,7 @@
 
 ## Status
 
-Entwurf zur Freigabe vor Implementierung. Diese Spezifikation ersetzt keine bestehenden Komponenten sofort. Die alten Dateien werden erst gelöscht, wenn alle Importe migriert und die Verifikation erfolgreich ist.
+Implementierungsvertrag. Die alten Wrapper wurden während der Migration als Übergang erhalten und nach ausdrücklicher Maintainer-Freigabe entfernt.
 
 ## Ziel
 
@@ -59,11 +59,11 @@ src/components/theme/
   index.ts                 # Fam-Tokens und semantische Theme-Typen
   ThemeProvider.tsx        # ein Runtime-Provider, useTheme, useThemedStyles
   ui.tsx                   # kanonische UI-Primitiven inklusive Txt und Surface
-  themed-text.tsx          # wird nach vollständiger Migration entfernt
-  themed-view.tsx          # wird nach vollständiger Migration entfernt
+  themed-text.tsx          # nach Maintainer-Freigabe entfernt
+  themed-view.tsx          # nach Maintainer-Freigabe entfernt
 
 src/constants/
-  theme.ts                 # bestehende Werte, während Migration keine zweite Wahrheit
+  theme.ts                 # historische Quelle; aktive Runtime-Quelle ist index.ts
   layout.ts                # bestehende Layoutwerte, in index.ts konsolidieren
 
 src/lib/haptics.ts         # einzige Haptics-Grenze
@@ -157,7 +157,7 @@ Die vollständige Test-Suite wird während dieser Initiative nicht pauschal ausg
 ## Erfolgskriterien
 
 - Keine Production-Importe von `themed-text.tsx` oder `themed-view.tsx`.
-- Die beiden alten Dateien sind erst nach erfolgreicher Migration entfernt.
+- Die beiden alten Dateien wurden nach manueller Maintainer-Freigabe entfernt.
 - `AppProviders` mountet den Fam-ThemeProvider zusätzlich zum Expo-Router-Provider mit eindeutigem Alias.
 - `ThemeProvider.tsx`, `index.ts`, `ui.tsx` und `haptics.ts` kompilieren mit den tatsächlichen fam-Imports und ohne neue `any`-Typen.
 - Fam-Light- und Fam-Dark-Werte sind die einzigen globalen semantischen Farbwerte der neuen Lösung; ui-only Component-Fallbacks werden nicht als Theme exportiert.
@@ -168,7 +168,7 @@ Die vollständige Test-Suite wird während dieser Initiative nicht pauschal ausg
 
 ## Annahmen
 
-1. Die bestehende Fam-Palette in `src/constants/theme.ts` ist die visuelle Quelle und soll nicht neu gestaltet werden.
+1. Die bestehende Fam-Palette aus `src/constants/theme.ts` wird in `src/components/theme/index.ts` konsolidiert und nicht neu gestaltet.
 2. Theme-Präferenz darf als nicht sensible Geräteeinstellung behandelt werden. Falls im Projekt bereits ein anderes Settings-Backend dafür existiert, wird dieses als Adapter verwendet.
 3. Das erste Ziel ist Styling-Stabilität. Eine neue Einstellungsseite für Light/Dark wird nicht als Teil dieser Arbeit eingeführt.
 4. Die Referenzdateien aus `/Users/marco/Downloads` sind nicht automatisch kompilierbarer Projektcode und werden inhaltlich, nicht wörtlich, übernommen.

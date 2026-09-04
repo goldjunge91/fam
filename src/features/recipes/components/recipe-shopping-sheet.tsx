@@ -1,6 +1,6 @@
 import { router } from 'expo-router';
 import { useEffect, useState } from 'react';
-import { Alert, Pressable, View } from 'react-native';
+import { ActivityIndicator, Alert, Pressable, View } from 'react-native';
 
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { Button } from '@/components/ui/buttons';
@@ -188,19 +188,12 @@ export function RecipeShoppingSheet({ visible, detail, servings, onClose }: Prop
                         borderWidth: 1.5,
                       }}>
                       {checked ? (
-                        <Txt
-                          variant="captionCompact"
-                          tone="onAccent"
-                          weight="700">
+                        <Txt variant="captionCompact" tone="onAccent" weight="700">
                           ✓
                         </Txt>
                       ) : null}
                     </View>
-                    <Txt
-                      variant="label"
-                      weight="700"
-                      className="flex-1"
-                      numberOfLines={1}>
+                    <Txt variant="label" weight="700" className="flex-1" numberOfLines={1}>
                       {item.name}
                     </Txt>
                     <Txt variant="micro" tone="secondary">

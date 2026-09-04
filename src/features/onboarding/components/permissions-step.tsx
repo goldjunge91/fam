@@ -10,10 +10,7 @@ import { useOnboarding } from '../onboarding-store';
 // Gleiches Hook-Pattern wie in barcode-scanner-modal.tsx, damit der Systemdialog
 // wirklich über die native Kamera-API ausgelöst wird.
 type CameraPermission = { granted: boolean; canAskAgain: boolean };
-type CameraPermissionHook = () => [
-  CameraPermission | null,
-  () => Promise<CameraPermission>,
-];
+type CameraPermissionHook = () => [CameraPermission | null, () => Promise<CameraPermission>];
 
 let useCameraPermissionsHook: CameraPermissionHook = () => [
   null,
@@ -106,7 +103,10 @@ export function PermissionsStepForm({ onNext, onSkip }: PermissionsStepFormProps
           className={`perm-card ${notifications ? 'perm-card-selected' : 'perm-card-idle'}`}>
           <View className="perm-row">
             <View className="perm-text-col">
-              <Txt variant="controlValue" weight="700" tone={notifications ? 'onAccent' : 'primary'}>
+              <Txt
+                variant="controlValue"
+                weight="700"
+                tone={notifications ? 'onAccent' : 'primary'}>
                 🔔 Benachrichtigungen
               </Txt>
               <Txt variant="label" tone={notifications ? 'onAccent' : 'secondary'}>

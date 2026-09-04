@@ -31,8 +31,8 @@ import Animated, {
 import {
   type AccentKey,
   BUTTON_DEPTH,
-  font,
   Fonts,
+  font,
   type Palette,
   radius,
   shadow,
@@ -321,13 +321,7 @@ const TXT: Record<TxtVariant, TxtDefinition> = {
 
 type ThemeTextColor = keyof Pick<
   Palette,
-  'text'
-  | 'textSecondary'
-  | 'accent'
-  | 'onAccent'
-  | 'success'
-  | 'warning'
-  | 'danger'
+  'text' | 'textSecondary' | 'accent' | 'onAccent' | 'success' | 'warning' | 'danger'
 >;
 
 const TEXT_TONE: Record<TxtTone, ThemeTextColor> = {
@@ -596,7 +590,9 @@ export function Button({
           : colors.border;
   const isFilled = variant === 'primary' || variant === 'danger' || variant === 'accent';
   const fg = isFilled
-    ? variant === 'accent' && acc ? acc.on : colors.onAccent
+    ? variant === 'accent' && acc
+      ? acc.on
+      : colors.onAccent
     : variant === 'ghost'
       ? colors.accent
       : colors.text;
@@ -664,7 +660,9 @@ export function Button({
                 <Feather name={icon} size={fSize + 2} color={fg} />
               ) : null}
               <Txt
-                variant={size === 'sm' ? 'label' : size === 'lg' ? 'controlActionLarge' : 'controlAction'}
+                variant={
+                  size === 'sm' ? 'label' : size === 'lg' ? 'controlActionLarge' : 'controlAction'
+                }
                 color={fg}
                 weight="700">
                 {title}
@@ -794,7 +792,9 @@ export function Pill({
         borderColor: selected ? a.main : colors.border,
         opacity: disabled ? 0.5 : 1,
       }}>
-      {icon ? <Feather name={icon} size={14} color={selected ? a.on : colors.textSecondary} /> : null}
+      {icon ? (
+        <Feather name={icon} size={14} color={selected ? a.on : colors.textSecondary} />
+      ) : null}
       <Txt variant="label" color={selected ? a.on : colors.text} weight="700">
         {label}
       </Txt>
@@ -847,7 +847,11 @@ export function Field({ label, style, ...rest }: TextInputProps & { label?: stri
   return (
     <View style={{ gap: 6 }}>
       {label ? <Txt variant="label">{label}</Txt> : null}
-      <TextInput placeholderTextColor={colors.textSecondary} {...rest} style={[styles.input, style]} />
+      <TextInput
+        placeholderTextColor={colors.textSecondary}
+        {...rest}
+        style={[styles.input, style]}
+      />
     </View>
   );
 }

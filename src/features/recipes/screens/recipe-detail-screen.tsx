@@ -44,7 +44,7 @@ function round(value: number): number {
 
 function MoreGlyph() {
   return (
-    <Txt variant="caption" weight="800" className="tracking-widest" style={{ fontSize: 13, lineHeight: 16 }}>
+    <Txt variant="detail" weight="800" className="tracking-widest">
       •••
     </Txt>
   );
@@ -68,7 +68,7 @@ function DetailFact({
       <Txt variant="heading" center>
         {value}
       </Txt>
-      <Txt variant="caption" tone="secondary" className="pt-[3px] text-center" style={{ lineHeight: 16 }}>
+      <Txt variant="caption" tone="secondary" className="pt-[3px] text-center">
         {label}
       </Txt>
     </View>
@@ -108,12 +108,7 @@ function RecipeStepItem({
           {index + 1}
         </Txt>
         <View className="flex-1 gap-one">
-          <StepMentionText
-            text={step.text}
-            ingredients={ingredients}
-            variant="body"
-            weight="500"
-          />
+          <StepMentionText text={step.text} ingredients={ingredients} variant="body" weight="500" />
           {step.timer_minutes !== null ? (
             <Txt variant="caption" tone="secondary">
               ⏱ {step.timer_minutes} Min. Timer
@@ -130,11 +125,7 @@ function NutritionStat({ value, label }: { value: string; label: string }) {
   return (
     <View className="flex-1 min-h-[58px] min-w-0 items-center justify-center px-half">
       <Txt variant="heading">{value}</Txt>
-      <Txt
-        variant="caption"
-        tone="secondary"
-        className="pt-[3px]"
-        style={{ fontSize: 11, lineHeight: 15, fontWeight: '500' }}>
+      <Txt variant="caption" tone="secondary" className="pt-[3px]" weight="500">
         {label}
       </Txt>
     </View>
@@ -159,13 +150,8 @@ function ManageRow({
       onPress={onPress}
       role="button"
       className="min-h-[45px] justify-center px-[6px] active:opacity-75"
-      style={
-        !isLast ? { borderBottomColor: colors.border, borderBottomWidth: 1 } : undefined
-      }>
-      <Txt
-        variant="caption"
-        tone={danger ? 'danger' : 'primary'}
-        style={{ fontSize: 10, lineHeight: 13, fontWeight: '500' }}>
+      style={!isLast ? { borderBottomColor: colors.border, borderBottomWidth: 1 } : undefined}>
+      <Txt variant="captionCompact" tone={danger ? 'danger' : 'primary'} weight="500">
         {label}
       </Txt>
     </Pressable>
@@ -182,7 +168,11 @@ function IngredientGroups({ data, servings }: { data: RecipeDetail; servings: nu
   const groups = data.components.filter((component) => component.serving_grams !== null);
 
   if (groups.length === 0) {
-    return <Txt variant="body" tone="secondary" className="py-four">Noch keine Zutaten hinterlegt.</Txt>;
+    return (
+      <Txt variant="body" tone="secondary" className="py-four">
+        Noch keine Zutaten hinterlegt.
+      </Txt>
+    );
   }
 
   return (
@@ -217,14 +207,10 @@ function IngredientGroups({ data, servings }: { data: RecipeDetail; servings: nu
                       ? { borderBottomColor: colors.border, borderBottomWidth: 1 }
                       : undefined
                   }>
-                  <Txt
-                    variant="body"
-                    className="flex-1"
-                    style={{ fontWeight: '500' }}
-                    numberOfLines={1}>
+                  <Txt variant="body" weight="500" className="flex-1" numberOfLines={1}>
                     {product?.name ?? 'Zutat'}
                   </Txt>
-                  <Txt variant="body" tone="secondary" style={{ fontWeight: '500' }}>
+                  <Txt variant="body" tone="secondary" weight="500">
                     {round(quantity)} {unit}
                   </Txt>
                 </View>
@@ -341,11 +327,7 @@ export function RecipeDetailScreen() {
         </View>
 
         {/* Rezepttitel */}
-        <Txt
-          variant="display"
-          weight="700"
-          className="pt-[18px] tracking-tight"
-          style={{ fontSize: 28, lineHeight: 32 }}>
+        <Txt variant="pageTitleLarge" weight="700" className="pt-[18px] tracking-tight">
           {recipe.title}
         </Txt>
 
@@ -364,7 +346,7 @@ export function RecipeDetailScreen() {
                 aria-label={label}
                 aria-selected={selected}
                 className="flex-1 min-h-[48px] items-center justify-center border-b-[3px]"
-                style={{ borderBottomColor: selected ? colors.basil : 'transparent' }}>
+                style={{ borderBottomColor: selected ? colors.accent : 'transparent' }}>
                 <Txt variant="heading" tone={selected ? 'primary' : 'secondary'}>
                   {label}
                 </Txt>
@@ -397,10 +379,7 @@ export function RecipeDetailScreen() {
 
             {/* Beschreibung / Allgemeine Kochanleitung */}
             {recipe.instructions ? (
-              <Txt
-                variant="body"
-                className="pt-four"
-                style={{ fontSize: 16, lineHeight: 24, fontWeight: '500' }}>
+              <Txt variant="bodyRelaxed" weight="500" className="pt-four">
                 {recipe.instructions}
               </Txt>
             ) : null}
@@ -409,7 +388,7 @@ export function RecipeDetailScreen() {
             {tags.length > 0 ? (
               <View className="flex-row flex-wrap items-center gap-x-three gap-y-two pt-three">
                 {visibleTags.map((tag) => (
-                  <Txt key={tag} variant="caption" tone="secondary" style={{ fontWeight: '500' }}>
+                  <Txt key={tag} variant="captionCompact" tone="secondary" weight="500">
                     {tag.startsWith('#') ? tag : `#${tag}`}
                   </Txt>
                 ))}
@@ -420,7 +399,7 @@ export function RecipeDetailScreen() {
                     aria-label={showAllTags ? 'Weniger Tags anzeigen' : 'Alle Tags anzeigen'}
                     aria-expanded={showAllTags}
                     hitSlop={8}>
-                    <Txt variant="caption" tone="secondary" className="underline" style={{ fontWeight: '500' }}>
+                    <Txt variant="caption" tone="secondary" className="underline" weight="500">
                       {showAllTags ? 'Weniger' : `+${tags.length - 3} mehr`}
                     </Txt>
                   </Pressable>
@@ -435,13 +414,13 @@ export function RecipeDetailScreen() {
               <Txt variant="heading">Zutaten</Txt>
               <View
                 className="w-[156px] h-[44px] rounded-control flex-row items-center"
-                style={{ backgroundColor: colors.surface }}>
+                style={{ backgroundColor: colors.backgroundElement }}>
                 <Pressable
                   onPress={() => setServings((value) => Math.max(1, value - 1))}
                   role="button"
                   aria-label="Weniger Portionen"
                   className="w-[44px] h-[44px] items-center justify-center">
-                  <Txt variant="heading" tone="secondary" style={{ fontWeight: '500' }}>
+                  <Txt variant="stepperAction" tone="secondary" weight="500">
                     −
                   </Txt>
                 </Pressable>
@@ -453,7 +432,7 @@ export function RecipeDetailScreen() {
                   role="button"
                   aria-label="Mehr Portionen"
                   className="w-[44px] h-[44px] items-center justify-center">
-                  <Txt variant="heading" tone="secondary" style={{ fontWeight: '500' }}>
+                  <Txt variant="stepperAction" tone="secondary" weight="500">
                     +
                   </Txt>
                 </Pressable>
@@ -479,7 +458,12 @@ export function RecipeDetailScreen() {
             {scaledServing ? (
               <View
                 className="flex-row mt-four"
-                style={{ borderTopColor: colors.border, borderTopWidth: 1, borderBottomColor: colors.border, borderBottomWidth: 1 }}>
+                style={{
+                  borderTopColor: colors.border,
+                  borderTopWidth: 1,
+                  borderBottomColor: colors.border,
+                  borderBottomWidth: 1,
+                }}>
                 <NutritionStat value={String(round(scaledServing.kcal))} label="kcal" />
                 <NutritionStat value={`${round(scaledServing.protein_g)} g`} label="Protein" />
                 <NutritionStat value={`${round(scaledServing.carbs_g)} g`} label="Kohlenhydrate" />
@@ -492,7 +476,7 @@ export function RecipeDetailScreen() {
               className="min-h-[58px] row-between gap-three mt-[18px]"
               style={{ borderBottomColor: colors.border, borderBottomWidth: 1 }}>
               <Txt variant="heading">Zubereitung</Txt>
-              <Txt variant="caption" tone="secondary" style={{ fontWeight: '500' }}>
+              <Txt variant="captionCompact" tone="secondary" weight="500">
                 {data.steps.length} {data.steps.length === 1 ? 'Schritt' : 'Schritte'}
               </Txt>
             </View>
@@ -523,16 +507,13 @@ export function RecipeDetailScreen() {
                 <View
                   className="min-h-[58px] row-between gap-four pb-four"
                   style={{ borderBottomColor: colors.border, borderBottomWidth: 1 }}>
-                  <Txt
-                    variant="display"
-                    weight="700"
-                    style={{ fontSize: 28, lineHeight: 34 }}>
+                  <Txt variant="metricValue" weight="700">
                     ★ {rating.score}{' '}
                     <Txt variant="heading" tone="secondary">
                       / 10
                     </Txt>
                   </Txt>
-                  <Txt variant="caption" tone="secondary" style={{ fontWeight: '500' }}>
+                  <Txt variant="captionCompact" tone="secondary" weight="500">
                     Deine Bewertung
                   </Txt>
                 </View>
@@ -542,10 +523,7 @@ export function RecipeDetailScreen() {
                     <Txt variant="heading" className="pt-five">
                       Deine Notiz
                     </Txt>
-                    <Txt
-                      variant="body"
-                      className="pt-two"
-                      style={{ fontSize: 16, lineHeight: 24, fontWeight: '500' }}>
+                    <Txt variant="bodyRelaxed" weight="500" className="pt-two">
                       {rating.note}
                     </Txt>
                   </>
@@ -555,11 +533,7 @@ export function RecipeDetailScreen() {
               /* Leerzustand für Bewertungen */
               <View className="items-center py-six">
                 <Txt variant="heading">Noch keine Bewertung</Txt>
-                <Txt
-                  variant="body"
-                  tone="secondary"
-                  className="pt-[6px] text-center"
-                  style={{ fontSize: 15, lineHeight: 22, fontWeight: '500' }}>
+                <Txt variant="body" tone="secondary" weight="500" className="pt-[6px] text-center">
                   Halte fest, wie dir dieses Rezept gefallen hat.
                 </Txt>
               </View>
@@ -570,7 +544,7 @@ export function RecipeDetailScreen() {
               role="button"
               aria-label={rating ? 'Bewertung bearbeiten' : 'Rezept bewerten'}
               className="min-h-[48px] mt-five rounded-control items-center justify-center px-four active:opacity-75"
-              style={{ backgroundColor: colors.basil }}>
+              style={{ backgroundColor: colors.accent }}>
               <Txt variant="heading" tone="onAccent">
                 {rating ? 'Bewertung bearbeiten' : 'Rezept bewerten'}
               </Txt>
@@ -586,7 +560,7 @@ export function RecipeDetailScreen() {
           role="button"
           aria-label="Kochmodus starten"
           className="min-h-[48px] self-center rounded-control items-center justify-center px-six active:opacity-75"
-          style={{ backgroundColor: colors.basil }}>
+          style={{ backgroundColor: colors.accent }}>
           <Txt variant="heading" tone="onAccent">
             Kochmodus starten
           </Txt>
@@ -601,11 +575,12 @@ export function RecipeDetailScreen() {
         animationType="slide"
         onRequestClose={() => setManageOpen(false)}>
         <Pressable
-          className="flex-1 justify-end bg-[#261F27]/30"
+          className="flex-1 justify-end"
+          style={{ backgroundColor: colors.scrim }}
           onPress={() => setManageOpen(false)}>
           <Pressable
             className="rounded-t-fam-large px-four pt-[10px] pb-[19px]"
-            style={{ backgroundColor: colors.surface }}
+            style={{ backgroundColor: colors.backgroundElement }}
             onPress={() => {}}>
             <View className="w-[38px] h-1 rounded-sm self-center bg-border" />
             <View className="min-h-[58px] pt-[13px] row-between gap-three">
@@ -617,7 +592,7 @@ export function RecipeDetailScreen() {
                 role="button"
                 aria-label="Schließen"
                 className="w-8 h-8 rounded-control items-center justify-center"
-                style={{ backgroundColor: colors.surfaceSoft }}>
+                style={{ backgroundColor: colors.backgroundSelected }}>
                 <Txt variant="heading" tone="secondary">
                   ×
                 </Txt>

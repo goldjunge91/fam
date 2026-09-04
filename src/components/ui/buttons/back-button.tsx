@@ -1,10 +1,9 @@
 import { type Href, router, useNavigation } from 'expo-router';
 import { useEffect, useState } from 'react';
 import { Pressable } from 'react-native';
-
-import { useTheme } from '@/components/theme/ThemeProvider';
 import { FamIcon } from '@/components/icons/fam-icon';
 import { space } from '@/components/theme/index';
+import { useTheme } from '@/components/theme/ThemeProvider';
 import { Txt } from '@/constants/ui';
 
 const ARROW_BUTTON_SIZE = space.xxxl;

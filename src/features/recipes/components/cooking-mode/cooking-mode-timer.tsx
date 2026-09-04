@@ -46,11 +46,7 @@ export function CookingModeTimer({
       style={{ backgroundColor: colors.surface }}>
       <View className="flex-1 min-w-0">
         <Txt variant="heading">{formatTimer(remainingSeconds)}</Txt>
-        <Txt
-          variant="caption"
-          tone="secondary"
-          className="pt-half"
-          style={{ fontSize: 8, lineHeight: 10 }}>
+        <Txt variant="micro" tone="secondary" className="pt-half">
           {remainingSeconds === 0 ? 'Abgelaufen' : running ? 'Läuft' : 'Pausiert'}
         </Txt>
       </View>

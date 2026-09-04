@@ -284,11 +284,7 @@ export function EditProfileScreen() {
                 contentFit="cover"
               />
             ) : (
-              <Txt
-                variant="body"
-                tone="inverse"
-                weight="700"
-                style={{ fontSize: 24, lineHeight: 30 }}>
+              <Txt variant="controlActionLarge" tone="inverse" weight="700">
                 {initials}
               </Txt>
             )}

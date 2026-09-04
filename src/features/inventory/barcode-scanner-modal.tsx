@@ -71,7 +71,7 @@ export function BarcodeScannerModal({
           <View className="modal-header-row">
             <Txt variant="title">📷 Barcode scannen</Txt>
             <Pressable onPress={onClose} hitSlop={10}>
-              <Txt variant="body" tone="secondary" style={{ fontSize: 18 }}>
+              <Txt variant="controlAction" tone="secondary">
                 ✕
               </Txt>
             </Pressable>

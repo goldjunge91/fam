@@ -1,11 +1,7 @@
 import * as Haptics from 'expo-haptics';
 import { type ReactElement, useCallback } from 'react';
 import { Pressable, useWindowDimensions, View } from 'react-native';
-import {
-  Sortable,
-  SortableItem,
-  type SortableRenderItemProps,
-} from 'react-native-reanimated-dnd';
+import { Sortable, SortableItem, type SortableRenderItemProps } from 'react-native-reanimated-dnd';
 
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { Txt } from '@/constants/ui';
@@ -43,7 +39,8 @@ export function CardList({
   const { session } = useSession();
   const userId = session?.user.id;
   const { data: modules } = useModulePreferences(userId);
-  const { getSize, setSize, hideCard, isCardHidden, getOrderedCards, reorderCards } = useCardSizes();
+  const { getSize, setSize, hideCard, isCardHidden, getOrderedCards, reorderCards } =
+    useCardSizes();
 
   const handleToggleSize = useCallback(
     (cardId: string, currentSize: CardSize) => {
@@ -116,11 +113,7 @@ export function CardList({
   );
 
   const renderSortableCard = useCallback(
-    ({
-      item,
-      index,
-      ...sortableItemProps
-    }: SortableRenderItemProps<DashboardCardDef>) => {
+    ({ item, index, ...sortableItemProps }: SortableRenderItemProps<DashboardCardDef>) => {
       const cardSize = getSize(item);
 
       return (
@@ -199,9 +192,7 @@ export function CardList({
         const pair = smallGroup.slice(k, k + cardsPerRow);
         const currentRowIndex = rowIndex++;
         elements.push(
-          <WidgetRow
-            key={`row-${currentRowIndex}`}
-            stacked={false}>
+          <WidgetRow key={`row-${currentRowIndex}`} stacked={false}>
             {pair.map((c) => {
               const idx = cardIndex++;
               return (
@@ -228,9 +219,7 @@ export function CardList({
       const idx = cardIndex++;
       const currentRowIndex = rowIndex++;
       elements.push(
-        <WidgetRow
-          key={`row-${currentRowIndex}`}
-          stacked>
+        <WidgetRow key={`row-${currentRowIndex}`} stacked>
           <JiggleWrapper
             index={idx}
             size="large"

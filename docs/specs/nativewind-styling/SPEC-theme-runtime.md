@@ -60,7 +60,7 @@ Der Router-Provider bleibt für Navigation zuständig. Der Fam-Provider versorgt
 - den Fam-Provider re-exportieren, oder
 - vorübergehend einen typisierten Adapter auf denselben Provider liefern.
 
-Er darf keine eigene `useColorScheme()`- und `Colors[...]`-Auflösung mehr enthalten. Nach der letzten Migration wird der Adapter entfernt, wenn keine Aufrufer bleiben.
+Er darf keine eigene `useColorScheme()`- und `Colors[...]`-Auflösung mehr enthalten. Der Adapter bleibt bis zu einer ausdrücklichen Maintainer-Freigabe bestehen, auch wenn keine Aufrufer mehr bleiben.
 
 ## `useThemedStyles()`
 
@@ -82,9 +82,9 @@ Statische Layoutwerte bleiben außerhalb des Helpers. Der Helper wird nicht verw
 
 ## Acceptance criteria
 
-- [ ] Provider verwendet reale Projektimports und ist typisiert.
-- [ ] Theme-Modus und Palette kommen aus einer gemeinsamen Auflösung.
-- [ ] Provider ist in beiden App-Provider-Dateien korrekt und eindeutig gemountet.
-- [ ] Der alte Hook enthält keine zweite Theme-Logik.
-- [ ] Storage ist gerätebezogen, nicht sensibel, MMKV-basiert und testbar.
-- [ ] `useThemedStyles()` reagiert auf einen Theme-Wechsel und erzeugt keine unnötigen Render-Schleifen.
+- [x] Provider verwendet reale Projektimports und ist typisiert.
+- [x] Theme-Modus und Palette kommen aus einer gemeinsamen Auflösung.
+- [x] Provider ist in beiden App-Provider-Dateien korrekt und eindeutig gemountet.
+- [x] Der alte Hook enthält keine zweite Theme-Logik.
+- [x] Storage ist gerätebezogen, nicht sensibel, MMKV-basiert und testbar.
+- [x] `useThemedStyles()` reagiert auf einen Theme-Wechsel und erzeugt keine unnötigen Render-Schleifen.

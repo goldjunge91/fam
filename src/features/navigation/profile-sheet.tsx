@@ -53,7 +53,7 @@ function ProfileSheetContent() {
           style={[
             styles.sheet,
             {
-              backgroundColor: colors.surface,
+              backgroundColor: colors.backgroundElement,
               bottom: Math.max(insets.bottom / 2, 16),
               boxShadow: `0 -8px 28px ${withAlpha(colors.text, 0.18)}`,
             },
@@ -68,7 +68,7 @@ function ProfileSheetContent() {
           </Pressable>
 
           <View style={[styles.profileCard, { borderBottomColor: colors.border }]}>
-            <View style={[styles.avatar, { backgroundColor: colors.basil }]}>
+            <View style={[styles.avatar, { backgroundColor: colors.accent }]}>
               {avatarUrl ? (
                 <Image
                   source={{ uri: avatarUrl }}
@@ -77,17 +77,17 @@ function ProfileSheetContent() {
                   contentFit="cover"
                 />
               ) : (
-                <Txt variant="body" tone="onAccent" style={styles.avatarText}>
+                <Txt variant="bodySmall" tone="onAccent" weight="500">
                   {getInitials(displayName)}
                 </Txt>
               )}
             </View>
             <View style={styles.identity}>
-              <Txt variant="body" weight="700" style={styles.profileName}>
+              <Txt variant="controlValueLarge" weight="500">
                 {displayName}
               </Txt>
               {email ? (
-                <Txt variant="body" tone="secondary" style={styles.profileEmail}>
+                <Txt variant="label" tone="secondary" weight="400">
                   {email}
                 </Txt>
               ) : null}
@@ -149,14 +149,16 @@ function ProfileRow({
         <FamIcon name={icon} size={24} />
       </View>
       <View style={styles.rowCopy}>
-        <Txt variant="body" weight="700" style={styles.rowTitle}>
+        <Txt variant="bodySmall" weight="500">
           {title}
         </Txt>
-        <Txt variant="body" tone="secondary" style={styles.rowSubtitle}>
+        <Txt variant="detail" tone="secondary">
           {subtitle}
         </Txt>
       </View>
-      <Txt tone="secondary">›</Txt>
+      <Txt variant="stepperAction" tone="secondary">
+        ›
+      </Txt>
     </Pressable>
   );
 }
@@ -207,23 +209,8 @@ const styles = StyleSheet.create({
     width: '100%',
     height: '100%',
   },
-  avatarText: {
-    fontSize: 14,
-    lineHeight: 20,
-    fontWeight: '500',
-  },
   identity: {
     gap: 6,
-  },
-  profileName: {
-    fontSize: 17,
-    lineHeight: 22,
-    fontWeight: '500',
-  },
-  profileEmail: {
-    fontSize: 13,
-    lineHeight: 18,
-    fontWeight: '400',
   },
   profileRow: {
     flexDirection: 'row',
@@ -239,15 +226,5 @@ const styles = StyleSheet.create({
   rowCopy: {
     flex: 1,
     gap: 4,
-  },
-  rowTitle: {
-    fontSize: 14,
-    lineHeight: 20,
-    fontWeight: '500',
-  },
-  rowSubtitle: {
-    fontSize: 12,
-    lineHeight: 16,
-    fontWeight: '400',
   },
 });

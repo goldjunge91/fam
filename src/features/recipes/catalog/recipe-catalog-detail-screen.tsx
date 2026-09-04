@@ -307,10 +307,7 @@ export function RecipeCatalogDetailScreen() {
             </View>
 
             {recipe.instructions ? (
-              <Txt
-                variant="body"
-                className="pt-four"
-                weight="500">
+              <Txt variant="body" className="pt-four" weight="500">
                 {recipe.instructions}
               </Txt>
             ) : null}

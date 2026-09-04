@@ -122,8 +122,7 @@ export function EntryFormModal({
                 onPress={() => setMode('portions')}
                 className="efm-mode-button"
                 style={{
-                  backgroundColor:
-                    mode === 'portions' ? colors.accent : colors.backgroundElement,
+                  backgroundColor: mode === 'portions' ? colors.accent : colors.backgroundElement,
                 }}>
                 <Txt
                   variant="body"
@@ -141,10 +140,7 @@ export function EntryFormModal({
                 style={{
                   backgroundColor: mode === 'people' ? colors.accent : colors.backgroundElement,
                 }}>
-                <Txt
-                  variant="body"
-                  tone={mode === 'people' ? 'onAccent' : 'primary'}
-                  weight="700">
+                <Txt variant="body" tone={mode === 'people' ? 'onAccent' : 'primary'} weight="700">
                   Personen
                 </Txt>
               </Pressable>

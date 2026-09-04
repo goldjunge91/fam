@@ -93,7 +93,7 @@ export function CardGallerySheet({ visible, onClose }: CardGallerySheetProps) {
               accessibilityRole="button"
               accessibilityLabel="Fertig"
               style={[styles.doneBtn, { backgroundColor: colors.basil }]}>
-              <Txt variant="label" tone="onAccent" weight="600" style={styles.doneBtnText}>
+              <Txt variant="label" tone="onAccent" weight="600">
                 Fertig
               </Txt>
             </Pressable>
@@ -144,11 +144,7 @@ export function CardGallerySheet({ visible, onClose }: CardGallerySheetProps) {
                           ? { backgroundColor: colors.basil }
                           : { backgroundColor: withAlpha(colors.tomato, 0.15) },
                       ]}>
-                      <Txt
-                        variant="label"
-                        color={isHidden ? colors.inverse : colors.tomato}
-                        weight="600"
-                        style={styles.toggleBtnText}>
+                      <Txt variant="label" tone={isHidden ? 'onAccent' : 'danger'} weight="600">
                         {isHidden ? '+ Hinzufügen' : 'Entfernen'}
                       </Txt>
                     </Pressable>
@@ -167,9 +163,8 @@ export function CardGallerySheet({ visible, onClose }: CardGallerySheetProps) {
                         ]}>
                         <Txt
                           variant="label"
-                          color={currentSize === 'small' ? colors.inverse : colors.text}
-                          weight="600"
-                          style={styles.sizeBtnText}>
+                          tone={currentSize === 'small' ? 'onAccent' : 'primary'}
+                          weight="600">
                           Klein
                         </Txt>
                       </Pressable>
@@ -183,9 +178,8 @@ export function CardGallerySheet({ visible, onClose }: CardGallerySheetProps) {
                         ]}>
                         <Txt
                           variant="label"
-                          color={currentSize === 'large' ? colors.inverse : colors.text}
-                          weight="600"
-                          style={styles.sizeBtnText}>
+                          tone={currentSize === 'large' ? 'onAccent' : 'primary'}
+                          weight="600">
                           Groß
                         </Txt>
                       </Pressable>
@@ -240,11 +234,6 @@ const styles = StyleSheet.create({
     paddingVertical: 8,
     borderRadius: 14,
   },
-  doneBtnText: {
-    color: '#FFFFFF',
-    fontWeight: '600',
-    fontSize: 14,
-  },
   listContent: {
     paddingHorizontal: 20,
     paddingVertical: 12,
@@ -273,10 +262,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  toggleBtnText: {
-    fontSize: 12,
-    fontWeight: '600',
-  },
   sizeSegmentWrap: {
     flexDirection: 'row',
     gap: 8,
@@ -291,8 +276,4 @@ const styles = StyleSheet.create({
   },
   sizeBtnActive: {},
   sizeBtnInactive: {},
-  sizeBtnText: {
-    fontSize: 13,
-    fontWeight: '600',
-  },
 });

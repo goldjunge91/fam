@@ -83,10 +83,7 @@ export function Screen({
 
             <View className="flex-1 items-center gap-[2px]">
               {subtitle ? (
-                <Txt
-                  variant="detail"
-                  tone="secondary"
-                  center>
+                <Txt variant="detail" tone="secondary" center>
                   {subtitle}
                 </Txt>
               ) : null}

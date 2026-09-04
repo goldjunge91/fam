@@ -108,14 +108,10 @@ function ExpiryDashboardCard({ size, onLongPress }: DashboardCardProps) {
         </Txt>
       </View>
       <View className="flex-1" />
-      <Txt
-        variant="bodyLarge"
-        tone="secondary">
+      <Txt variant="bodyLarge" tone="secondary">
         Läuft bald ab
       </Txt>
-      <Txt
-        variant="controlValueLarge"
-        weight="700">
+      <Txt variant="controlValueLarge" weight="700">
         Vorrat prüfen
       </Txt>
     </GlassCard>

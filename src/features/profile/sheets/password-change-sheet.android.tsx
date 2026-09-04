@@ -79,14 +79,18 @@ export function PasswordChangeSheet({
           <View className="profile-food-rules-sheet-header">
             <View className="flex-1 gap-half">
               <Txt variant="title">Passwort ändern</Txt>
-              <Txt variant="caption" tone="secondary">Speichere dein neues Passwort direkt hier.</Txt>
+              <Txt variant="caption" tone="secondary">
+                Speichere dein neues Passwort direkt hier.
+              </Txt>
             </View>
             <Pressable
               onPress={onClose}
               role="button"
               aria-label="Passwort ändern schließen"
               className="modal-close-btn">
-              <Txt variant="body" tone="secondary" aria-hidden>✕</Txt>
+              <Txt variant="body" tone="secondary" aria-hidden>
+                ✕
+              </Txt>
             </Pressable>
           </View>
 

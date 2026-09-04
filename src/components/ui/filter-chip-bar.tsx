@@ -41,10 +41,7 @@ export function FilterChipBar<T extends string>({
             style={{
               backgroundColor: active ? colors.accent : colors.backgroundElement,
             }}>
-            <Txt
-              variant="caption"
-              tone={active ? 'onAccent' : 'secondary'}
-              weight="600">
+            <Txt variant="caption" tone={active ? 'onAccent' : 'secondary'} weight="600">
               {option.label}
             </Txt>
           </Pressable>

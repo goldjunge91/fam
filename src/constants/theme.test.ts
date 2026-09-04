@@ -1,4 +1,4 @@
-import { withAlpha } from './theme';
+import { withAlpha } from '@/components/theme/index';
 
 describe('withAlpha', () => {
   test('wandelt einen Hex-Farbwert in einen passenden rgba()-String um', () => {

@@ -2,7 +2,7 @@ import { fireEvent, render } from '@testing-library/react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import { Screen } from '@/components/layout/screen';
-import { ThemedText } from '@/components/theme/themed-text';
+import { Txt } from '@/constants/ui';
 
 /**
  * Der Zurueck-Knopf hatte zwei Fehler, die zusammen auftraten: Er erschien auf
@@ -58,7 +58,7 @@ describe('Screen — Zurueck-Knopf', () => {
 
     const { queryByText } = await renderScreen(
       <Screen title="Übersicht">
-        <ThemedText>Inhalt</ThemedText>
+        <Txt>Inhalt</Txt>
       </Screen>,
     );
 
@@ -68,7 +68,7 @@ describe('Screen — Zurueck-Knopf', () => {
   it('benennt das Ziel, statt generisch "Zurück" zu sagen', async () => {
     const { getByText, getByLabelText } = await renderScreen(
       <Screen title="Mitglieder" back={{ label: 'Einstellungen', href: '/settings' }}>
-        <ThemedText>Inhalt</ThemedText>
+        <Txt>Inhalt</Txt>
       </Screen>,
     );
 
@@ -79,7 +79,7 @@ describe('Screen — Zurueck-Knopf', () => {
   it('geht zurueck, wenn es eine Historie gibt', async () => {
     const { getByLabelText } = await renderScreen(
       <Screen title="Mitglieder" back={{ label: 'Einstellungen', href: '/settings' }}>
-        <ThemedText>Inhalt</ThemedText>
+        <Txt>Inhalt</Txt>
       </Screen>,
     );
 
@@ -95,7 +95,7 @@ describe('Screen — Zurueck-Knopf', () => {
     // Navigation mit einer Warnung. Hier passiert stattdessen etwas Sinnvolles.
     const { getByLabelText } = await renderScreen(
       <Screen title="Mitglieder" back={{ label: 'Einstellungen', href: '/settings' }}>
-        <ThemedText>Inhalt</ThemedText>
+        <Txt>Inhalt</Txt>
       </Screen>,
     );
 
@@ -113,7 +113,7 @@ describe('Screen — Zurueck-Knopf', () => {
     mockCanGoBack = false;
     const ohne = await renderScreen(
       <Screen title="Haushalt erstellen" back={{ label: 'Haushalte' }}>
-        <ThemedText>Inhalt</ThemedText>
+        <Txt>Inhalt</Txt>
       </Screen>,
     );
     expect(ohne.queryByText('‹ Haushalte')).toBeNull();
@@ -121,7 +121,7 @@ describe('Screen — Zurueck-Knopf', () => {
     mockCanGoBack = true;
     const mit = await renderScreen(
       <Screen title="Haushalt erstellen" back={{ label: 'Haushalte' }}>
-        <ThemedText>Inhalt</ThemedText>
+        <Txt>Inhalt</Txt>
       </Screen>,
     );
     expect(mit.getByText('‹ Haushalte')).toBeTruthy();

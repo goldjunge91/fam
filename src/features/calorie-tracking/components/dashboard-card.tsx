@@ -115,9 +115,7 @@ function CalorieDashboardCard({ size, onLongPress }: DashboardCardProps) {
         <Txt variant="label" tone="secondary">
           Kalorien heute
         </Txt>
-        <Txt variant="metricValue">
-          {Math.round(aufgenommen).toLocaleString('de-DE')}
-        </Txt>
+        <Txt variant="metricValue">{Math.round(aufgenommen).toLocaleString('de-DE')}</Txt>
         <Txt
           variant="body"
           tone={ziel === 0 ? 'secondary' : verbleibend < 0 ? 'danger' : 'primary'}>

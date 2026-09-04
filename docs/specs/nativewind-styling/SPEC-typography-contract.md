@@ -25,7 +25,7 @@ Ein freier `color`-Prop bleibt nur für berechnete Sonderfälle oder externe Ico
 
 ## Rollen und Werte
 
-Die Zahlen kommen aus `src/constants/theme.ts` und werden nicht durch ui-Werte ersetzt.
+Die Zahlen sind in der kanonischen Typografie von `src/components/theme/index.ts` konsolidiert. Sie werden nicht durch ui-Referenzwerte ersetzt.
 
 | Variant | Fam-Wert | Default-Gewicht | Default-Ton |
 | --- | ---: | ---: | --- |
@@ -79,8 +79,8 @@ Wenn `style` `fontSize`, `lineHeight`, `fontWeight` oder `color` überschreibt, 
 
 ## Acceptance criteria
 
-- [ ] Jeder aktuelle `Typography`-Schlüssel ist in `Txt` verfügbar.
-- [ ] `bodySmall` ist nicht mehr ohne Rolle oder ohne Mapping.
-- [ ] Keine `any`-Typen für Gewicht, Style oder Children.
-- [ ] RNTL-Tests prüfen Variant- und Tone-Auflösung sowie Caller-Style als letzten Style-Eintrag.
-- [ ] Alle Production-Importe von `ThemedText` sind migriert, bevor die Datei gelöscht wird.
+- [x] Jeder aktuelle `Typography`-Schlüssel ist in `Txt` verfügbar.
+- [x] `bodySmall` ist nicht mehr ohne Rolle oder ohne Mapping.
+- [x] Keine `any`-Typen für Gewicht, Style oder Children.
+- [x] RNTL-Tests prüfen Variant- und Tone-Auflösung sowie Caller-Style als letzten Style-Eintrag.
+- [x] Alle Production-Importe von `ThemedText` sind migriert; die alte Datei wurde nach der manuellen Maintainer-Freigabe entfernt.

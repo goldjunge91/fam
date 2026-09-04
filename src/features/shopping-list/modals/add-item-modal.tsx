@@ -1,8 +1,8 @@
 import { Image } from 'expo-image';
 import { useRef } from 'react';
 import { View } from 'react-native';
-import { useTheme } from '@/components/theme/ThemeProvider';
 import { space } from '@/components/theme/index';
+import { useTheme } from '@/components/theme/ThemeProvider';
 import { HeaderIconButton } from '@/components/ui/buttons';
 import { Txt } from '@/constants/ui';
 import type { CatalogProduct } from '@/features/product-search/types';

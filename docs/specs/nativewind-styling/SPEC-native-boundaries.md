@@ -25,6 +25,20 @@ StyleSheet oder ein expliziter Style-Adapter ist erforderlich für:
 
 Diese Liste entspricht dem bestehenden Projektwissen in `docs/design-system/nativewind-liquid-glass-migration.md` und den FlashList-Konventionen.
 
+## Bewusst erlaubte Ausnahmen
+
+| Ausnahme | Begründung |
+|---|---|
+| `TextInput` mit `style` | Schrift, Zeilenhöhe, Placeholder- und Theme-Farbe sind native Laufzeitwerte; `className` bleibt nur für Layout erlaubt. |
+| `expo-image` mit `style` | Dimensionen, absolute Füllung und `contentFit` werden über die echte Image-Style-API übergeben. |
+| SVG-/Icon- und Glyph-Styles | SVG akzeptiert keine normalen NativeWind-Klassen; Rotation, Größe und dynamische Farbe bleiben am nativen Adapter. |
+| benutzer- oder datenbankdefinierte Farben | Markt-, Kategorien- oder Statusfarben sind Laufzeitwerte und werden typisiert über `color`/`style` gesetzt. |
+| Provider-unabhängiger Crash-Fallback | Der Fallback darf bei einem Provider-Fehler nicht vom Theme-Provider abhängen; seine statischen Fallback-Farben sind absichtlich lokal. |
+
+Diese Ausnahmen sind keine zweite Styling-Lösung. Sie markieren ausschließlich
+Komponenten- und Laufzeitgrenzen, an denen NativeWind den Wert nicht zuverlässig
+setzen kann.
+
 ## Konfliktregeln
 
 - Ein semantischer Core-Component entscheidet selbst über seine Hintergrund-, Border-, Text- und Fontwerte.
@@ -43,7 +57,7 @@ Diese Liste entspricht dem bestehenden Projektwissen in `docs/design-system/nati
 
 ## Acceptance criteria
 
-- [ ] Alle `className`-Verwendungen auf inkompatiblen Komponenten sind gefunden und entweder durch `style` ersetzt oder über einen Adapter dokumentiert.
-- [ ] Button-, Card- und Field-Semantik hängt nicht von unregistrierten Tailwind-Klassen ab.
-- [ ] NativeWind-Spezifitätsregeln sind in den betroffenen Tests und der Dokumentation berücksichtigt.
-- [ ] Die gemeinsamen Dateien enthalten die vorgesehenen Layout- und Farbwerte für iOS, Android und Web. Eine Geräteprüfung ist nicht Teil dieser Abnahme.
+- [x] Alle `className`-Verwendungen auf inkompatiblen Komponenten sind gefunden und entweder durch `style` ersetzt oder über einen Adapter dokumentiert.
+- [x] Button-, Card- und Field-Semantik hängt nicht von unregistrierten Tailwind-Klassen ab.
+- [x] NativeWind-Spezifitätsregeln sind in den betroffenen Tests und der Dokumentation berücksichtigt.
+- [x] Die gemeinsamen Dateien enthalten die vorgesehenen Layout- und Farbwerte für iOS, Android und Web. Eine Geräteprüfung ist nicht Teil dieser Abnahme.

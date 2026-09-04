@@ -51,9 +51,27 @@ Die Initiative gilt erst als abgeschlossen, wenn:
 
 ## Migrationsaudit für die nächsten Slices
 
-Stand 2026-09-04 wurden die vorhandenen Aufrufer vor der Feature-Migration per
-`rg` inventarisiert. Die Zahlen enthalten auch Tests und beschreiben aktuelle
-Treffer, keine bereits migrierten Komponenten:
+### Aktueller statischer Stand
+
+Stand 2026-09-04 sind die für diese Initiative relevanten statischen Audits
+aktualisiert:
+
+- Keine Production-Importe von `ThemedText`, `ThemedView`, `themed-text` oder
+  `themed-view` verbleiben. Die Übergangstests wurden auf die neuen Primitive
+  migriert.
+- Keine `lightColor`-/`darkColor`-Props werden im Production-Code verwendet.
+- Keine geprüfte `expo-image`, `ActivityIndicator`, FlashList, Bottom-Sheet-,
+  SVG- oder SymbolView-Nutzung übergibt ein unwirksames `className`.
+- Die frühere Suche nach `bg-card`, `bg-surface`, `text-small` und ähnlichen
+  nicht registrierten semantischen Utilities liefert keine solchen Utilities.
+  `bg-text-secondary` im Inventar-Tab ist ein registrierter Farbtoken für die
+  beiden SVG-nahe Linien und daher keine ungültige Utility.
+- Die alten Wrapper-Dateien wurden nach ausdrücklicher Maintainer-Freigabe
+  entfernt.
+
+Ausgangsaudit vor der Feature-Migration (Stand 2026-09-04) wurden die
+vorhandenen Aufrufer per `rg` inventarisiert. Die folgenden Zahlen dokumentieren
+den Ausgangszustand und sind keine aktuellen Resttreffer:
 
 - 180 Dateien verwenden `ThemedText`.
 - 22 Dateien verwenden `ThemedView`.
@@ -83,6 +101,5 @@ Bekannte NativeWind-Boundary-Kandidaten für einen separaten kleinen Slice:
 - `src/features/meal-planner/missing-ingredients-screen.android.tsx`
 - `src/features/recipes/components/recipe-shopping-sheet.tsx`
 
-Diese Liste ist ein Audit-Ergebnis und noch keine Freigabe zur Änderung. Die
-beiden alten Wrapper bleiben erhalten und sind ausschließlich als manuelles
-`TODO: DELETE` für den Maintainer markiert.
+Diese Liste ist ein historisches Audit-Ergebnis. Die beiden alten Wrapper wurden
+nach der ausdrücklichen Maintainer-Freigabe entfernt.

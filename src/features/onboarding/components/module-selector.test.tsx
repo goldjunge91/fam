@@ -49,7 +49,7 @@ jest.mock('@/lib/posthog', () => ({
 }));
 
 jest.mock('@/hooks/use-theme', () => ({
-  useTheme: () => require('@/constants/theme').Colors.light,
+  useTheme: () => require('@/components/theme/index').Colors.light,
 }));
 
 const onNext = jest.fn();

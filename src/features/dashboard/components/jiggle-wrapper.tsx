@@ -115,7 +115,7 @@ export function JiggleWrapper({
               boxShadow: `0 2px 8px ${withAlpha(colors.text, 0.25)}`,
             },
           ]}>
-          <Txt variant="body" tone="inverse" weight="700" style={styles.deleteBadgeText}>
+          <Txt variant="controlAction" tone="inverse" weight="700">
             −
           </Txt>
         </Pressable>
@@ -137,7 +137,7 @@ export function JiggleWrapper({
               boxShadow: `0 2px 8px ${withAlpha(colors.text, 0.25)}`,
             },
           ]}>
-          <Txt variant="body" tone="inverse" weight="700" style={styles.badgeText}>
+          <Txt variant="controlValueLarge" tone="inverse" weight="700">
             ⤢
           </Txt>
         </Pressable>
@@ -195,17 +195,5 @@ const styles = StyleSheet.create({
   },
   resizeBadge: {
     right: -2,
-  },
-  deleteBadgeText: {
-    color: '#FFFFFF',
-    fontSize: 18,
-    fontWeight: '700',
-    lineHeight: 20,
-  },
-  badgeText: {
-    color: '#FFFFFF',
-    fontSize: 15,
-    fontWeight: '700',
-    lineHeight: 18,
   },
 });

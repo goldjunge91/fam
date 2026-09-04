@@ -212,8 +212,8 @@ export default function BrochureViewerScreen({ brochureId }: { brochureId: strin
 
   if (isLoading || !pages) {
     return (
-      <View style={[styles.loadingContainer, { backgroundColor: colors.bg }]}>
-        <ActivityIndicator color={colors.basil} />
+      <View style={[styles.loadingContainer, { backgroundColor: colors.background }]}>
+        <ActivityIndicator color={colors.accent} />
         <Txt variant="body" tone="secondary">
           Prospekt wird geladen...
         </Txt>
@@ -326,7 +326,7 @@ export default function BrochureViewerScreen({ brochureId }: { brochureId: strin
               styles.bottomSheet,
               {
                 paddingBottom: Math.max(insets.bottom, 24),
-                backgroundColor: colors.surface,
+                backgroundColor: colors.backgroundElement,
                 borderColor: colors.border,
               },
             ]}>
@@ -334,7 +334,7 @@ export default function BrochureViewerScreen({ brochureId }: { brochureId: strin
             <Pressable
               role="button"
               aria-label="Artikeldetails schließen"
-              style={[styles.sheetClose, { backgroundColor: colors.bg }]}
+              style={[styles.sheetClose, { backgroundColor: colors.background }]}
               onPress={closeProductSheet}>
               <Txt variant="body" style={[styles.sheetCloseText, { color: colors.text }]}>
                 ×
@@ -351,24 +351,24 @@ export default function BrochureViewerScreen({ brochureId }: { brochureId: strin
               <Image source={{ uri: activeHotspot.imageUrl }} style={styles.productPreviewImage} />
             ) : null}
 
-            <View style={[styles.productCard, { backgroundColor: colors.basil }]}>
+            <View style={[styles.productCard, { backgroundColor: colors.accent }]}>
               <View style={styles.productCopy}>
-                <Txt variant="heading" tone="inverse" style={styles.productTitle} numberOfLines={2}>
+                <Txt variant="bodySmall" tone="onAccent" weight="600" numberOfLines={2}>
                   {activeHotspot.title}
                 </Txt>
-                <Txt variant="body" tone="inverse" style={styles.storeTitle}>
+                <Txt variant="detail" tone="onAccent" weight="600">
                   {pages?.[0]?.storeName ?? 'Supermarkt'}
                 </Txt>
               </View>
               {hotspotPrice(activeHotspot) ? (
-                <Txt variant="title" tone="inverse" style={styles.productPrice}>
+                <Txt variant="controlValue" tone="onAccent" weight="800">
                   {hotspotPrice(activeHotspot)}
                 </Txt>
               ) : null}
             </View>
 
             {activeHotspot.description ? (
-              <Txt variant="body" tone="secondary" style={styles.productDescription}>
+              <Txt variant="bodySmall" tone="secondary">
                 {activeHotspot.description}
               </Txt>
             ) : null}
@@ -377,7 +377,7 @@ export default function BrochureViewerScreen({ brochureId }: { brochureId: strin
               <View
                 style={[
                   styles.stepper,
-                  { borderColor: colors.border, backgroundColor: colors.bg },
+                  { borderColor: colors.border, backgroundColor: colors.background },
                 ]}>
                 <Pressable
                   role="button"
@@ -385,16 +385,14 @@ export default function BrochureViewerScreen({ brochureId }: { brochureId: strin
                   disabled={quantity === 1}
                   style={styles.stepperButton}
                   onPress={() => setQuantity((current) => Math.max(1, current - 1))}>
-                  <Txt
-                    variant="body"
-                    style={{
-                      color: quantity === 1 ? colors.textMuted : colors.text,
-                      fontSize: 20,
-                    }}>
+                  <Txt variant="stepperAction" tone={quantity === 1 ? 'secondary' : 'primary'}>
                     −
                   </Txt>
                 </Pressable>
-                <Txt variant="body" style={[styles.quantity, { color: colors.text }]}>
+                <Txt
+                  variant="controlValue"
+                  weight="700"
+                  style={[styles.quantity, { color: colors.text }]}>
                   {quantity}×
                 </Txt>
                 <Pressable
@@ -402,7 +400,7 @@ export default function BrochureViewerScreen({ brochureId }: { brochureId: strin
                   aria-label="Menge erhöhen"
                   style={styles.stepperButton}
                   onPress={() => setQuantity((current) => current + 1)}>
-                  <Txt variant="body" style={{ color: colors.text, fontSize: 20 }}>
+                  <Txt variant="stepperAction" tone="primary">
                     +
                   </Txt>
                 </Pressable>
@@ -414,15 +412,15 @@ export default function BrochureViewerScreen({ brochureId }: { brochureId: strin
                 style={[
                   styles.addButton,
                   {
-                    backgroundColor: colors.basil,
+                    backgroundColor: colors.accent,
                     opacity: addShoppingItem.isPending ? 0.6 : 1,
                   },
                 ]}
                 onPress={addActiveHotspot}>
                 {addShoppingItem.isPending ? (
-                  <ActivityIndicator color={colors.inverse} />
+                  <ActivityIndicator color={colors.onAccent} />
                 ) : (
-                  <Txt variant="body" tone="inverse" weight="700" style={styles.addButtonText}>
+                  <Txt variant="bodyRelaxed" tone="onAccent" weight="700">
                     Auf die Liste
                   </Txt>
                 )}
@@ -440,11 +438,11 @@ export default function BrochureViewerScreen({ brochureId }: { brochureId: strin
           styles.hotspotToggle,
           {
             top: Math.max(insets.top, 16),
-            backgroundColor: hotspotsVisible ? colors.basil : withAlpha(colors.text, 0.7),
+            backgroundColor: hotspotsVisible ? colors.accent : withAlpha(colors.text, 0.7),
           },
         ]}
         onPress={() => setHotspotsVisible((visible) => !visible)}>
-        <Txt variant="body" tone="inverse" weight="700" style={styles.headerButtonText}>
+        <Txt variant="bodySmall" tone="onAccent" weight="700">
           Artikel
         </Txt>
       </Pressable>
@@ -456,7 +454,7 @@ export default function BrochureViewerScreen({ brochureId }: { brochureId: strin
           { top: Math.max(insets.top, 16), backgroundColor: withAlpha(colors.text, 0.7) },
         ]}
         onPress={() => router.back()}>
-        <Txt variant="body" tone="inverse" weight="700" style={styles.headerButtonText}>
+        <Txt variant="bodySmall" tone="onAccent" weight="700">
           ✕
         </Txt>
       </Pressable>
@@ -490,7 +488,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     zIndex: 10,
   },
-  headerButtonText: { fontSize: 14, fontWeight: '700' },
   backdropPressArea: { flex: 1, zIndex: 90, backgroundColor: 'rgba(0,0,0,0.22)' },
   bottomSheet: {
     position: 'absolute',
@@ -514,12 +511,8 @@ const styles = StyleSheet.create({
     gap: 12,
   },
   productCopy: { flex: 1, gap: 2 },
-  productTitle: { fontSize: 14, lineHeight: 18, fontWeight: '600' },
-  storeTitle: { fontSize: 12, fontWeight: '600' },
-  productDescription: { fontSize: 14 },
   sheetDiscount: { borderRadius: 8, paddingHorizontal: 8, paddingVertical: 5 },
   sheetDiscountText: { fontSize: 12, fontWeight: '800' },
-  productPrice: { fontSize: 13, fontWeight: '800' },
   productPreviewImage: { width: 248, height: 300, alignSelf: 'center', borderRadius: 4 },
   productCrop: { alignSelf: 'center', overflow: 'hidden', borderRadius: 4 },
   sheetClose: {
@@ -537,7 +530,7 @@ const styles = StyleSheet.create({
   actionRow: { flexDirection: 'row', gap: 12 },
   stepper: { flexDirection: 'row', alignItems: 'center', borderWidth: 1, borderRadius: 12 },
   stepperButton: { width: 42, minHeight: 48, justifyContent: 'center', alignItems: 'center' },
-  quantity: { minWidth: 30, textAlign: 'center', fontSize: 16, fontWeight: '700' },
+  quantity: { minWidth: 30, textAlign: 'center' },
   addButton: {
     flex: 1,
     minHeight: 48,
@@ -545,5 +538,4 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  addButtonText: { fontSize: 16, fontWeight: '700' },
 });

@@ -57,11 +57,7 @@ export function CookingModeStep({
         ))}
       </View>
 
-      <Txt
-        variant="caption"
-        tone="secondary"
-        className="tracking-wider"
-        style={{ fontSize: 9, lineHeight: 11 }}>
+      <Txt variant="micro" tone="secondary" className="tracking-wider">
         SCHRITT {stepIndex + 1} VON {steps.length}
       </Txt>
       <Txt variant="heading" className="pt-[6px]" numberOfLines={2}>
@@ -76,11 +72,10 @@ export function CookingModeStep({
       <StepMentionText
         text={currentStep.text}
         ingredients={mentionIngredients}
-        variant="body"
+        variant="detail"
         tone="secondary"
         className="pt-three"
         weight="500"
-        style={{ fontSize: 12, lineHeight: 18 }}
       />
 
       <CookingModeTimer

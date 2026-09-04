@@ -110,12 +110,7 @@ function DrawerContent() {
           accessibilityLabel="Menü schließen"
           className="drawer-close-btn"
           hitSlop={8}>
-          <Txt
-            variant="body"
-            tone="secondary"
-            className="drawer-close-glyph"
-            // Explizite Werte verhindern eine falsche Zeilenhöhe durch `type`.
-            style={{ fontSize: 20, lineHeight: 20, fontWeight: '400' }}>
+          <Txt variant="controlAction" tone="secondary" weight="400" className="drawer-close-glyph">
             ×
           </Txt>
         </Pressable>

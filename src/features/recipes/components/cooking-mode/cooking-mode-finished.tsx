@@ -30,17 +30,12 @@ export function CookingModeFinished({
         showsVerticalScrollIndicator={false}>
         <View
           className="w-[82px] h-[82px] rounded-fam-large"
-          style={{ backgroundColor: colors.surfaceSoft }}
+          style={{ backgroundColor: colors.backgroundSelected }}
         />
         <Txt variant="heading" className="pt-[18px]">
           Guten Appetit!
         </Txt>
-        <Txt
-          variant="caption"
-          tone="secondary"
-          center
-          className="pt-[6px]"
-          style={{ fontSize: 10, lineHeight: 13 }}>
+        <Txt variant="captionCompact" tone="secondary" center className="pt-[6px]">
           Alles Weitere ist freiwillig und kann übersprungen werden.
         </Txt>
 
@@ -73,7 +68,7 @@ export function CookingModeFinished({
           onPress={() => router.back()}
           role="button"
           className="mt-auto px-[10px] py-three">
-          <Txt variant="caption" tone="secondary" style={{ fontSize: 10, lineHeight: 13 }}>
+          <Txt variant="micro" tone="secondary">
             Ohne Angaben schließen
           </Txt>
         </Pressable>

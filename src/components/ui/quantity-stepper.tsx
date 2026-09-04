@@ -1,8 +1,7 @@
 import { useState } from 'react';
 import { Pressable, TextInput, View } from 'react-native';
-
-import { useTheme } from '@/components/theme/ThemeProvider';
 import { font } from '@/components/theme/index';
+import { useTheme } from '@/components/theme/ThemeProvider';
 import { Txt } from '@/constants/ui';
 
 type QuantityStepperProps = {
@@ -56,9 +55,7 @@ export function QuantityStepper({
         accessibilityLabel={`${label} verringern`}
         className="stepper-btn"
         style={{ opacity: value <= min ? 0.45 : 1 }}>
-        <Txt variant={size === 'large' ? 'stepperActionLarge' : 'stepperAction'}>
-          −
-        </Txt>
+        <Txt variant={size === 'large' ? 'stepperActionLarge' : 'stepperAction'}>−</Txt>
       </Pressable>
 
       {isEditing ? (
@@ -100,9 +97,7 @@ export function QuantityStepper({
         accessibilityLabel={`${label} erhöhen`}
         className="stepper-btn"
         style={{ opacity: value >= max ? 0.45 : 1 }}>
-        <Txt variant={size === 'large' ? 'stepperActionLarge' : 'stepperAction'}>
-          +
-        </Txt>
+        <Txt variant={size === 'large' ? 'stepperActionLarge' : 'stepperAction'}>+</Txt>
       </Pressable>
     </View>
   );

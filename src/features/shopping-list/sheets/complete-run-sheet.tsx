@@ -3,8 +3,8 @@ import { useEffect, useRef, useState } from 'react';
 import { Pressable, ScrollView, TextInput, View } from 'react-native';
 
 import { DateWheelField } from '@/components/forms/date-wheel-field';
-import { useTheme } from '@/components/theme/ThemeProvider';
 import { font } from '@/components/theme/index';
+import { useTheme } from '@/components/theme/ThemeProvider';
 import { Txt } from '@/constants/ui';
 import { formatAmount, formatPackageHint } from '@/lib/package-size';
 import { type StorageKind, storageKindForCategory } from '../domain-logik/shopping-categories';
@@ -76,11 +76,7 @@ function TransferRow({
     <View className="transfer-row">
       {/* Artikel-Header */}
       <View className="row-between">
-        <Txt
-          variant="subheading"
-          weight="700"
-          numberOfLines={2}
-          className="flex-1 min-w-0">
+        <Txt variant="subheading" weight="700" numberOfLines={2} className="flex-1 min-w-0">
           {item.name}
         </Txt>
 

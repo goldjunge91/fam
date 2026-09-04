@@ -1,8 +1,8 @@
 import type { TextProps, TextStyle } from 'react-native';
-import { Txt } from '@/constants/ui';
+import { Txt, type TxtVariant } from '@/constants/ui';
 import { type MentionableIngredient, splitStepMentions } from '../domain/ingredient-mentions';
 
-type StepMentionVariant = 'display' | 'title' | 'heading' | 'subheading' | 'body' | 'label' | 'caption';
+type StepMentionVariant = TxtVariant;
 type StepMentionTone =
   | 'primary'
   | 'secondary'

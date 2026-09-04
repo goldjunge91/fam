@@ -43,7 +43,7 @@ jest.mock('@/features/product-search/preferred-market', () => ({
 }));
 
 jest.mock('@/hooks/use-theme', () => ({
-  useTheme: () => require('@/constants/theme').Colors.light,
+  useTheme: () => require('@/components/theme/index').Colors.light,
 }));
 
 const loadMore = jest.fn();

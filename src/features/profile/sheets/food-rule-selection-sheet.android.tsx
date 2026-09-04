@@ -124,7 +124,9 @@ export function FoodRuleSelectionSheet<Code extends string>({
               role="button"
               aria-label={`${title} schließen`}
               className="modal-close-btn">
-              <Txt variant="body" tone="secondary" aria-hidden>✕</Txt>
+              <Txt variant="body" tone="secondary" aria-hidden>
+                ✕
+              </Txt>
             </Pressable>
           </View>
 
@@ -164,7 +166,9 @@ export function FoodRuleSelectionSheet<Code extends string>({
                     borderBottomColor: colors.border,
                     borderBottomWidth: index < filteredPresets.length - 1 ? 1 : 0,
                   }}>
-                  <Txt variant="body" className="flex-1">{preset.label}</Txt>
+                  <Txt variant="body" className="flex-1">
+                    {preset.label}
+                  </Txt>
                   <View
                     className="checkbox-base"
                     style={{
@@ -186,7 +190,9 @@ export function FoodRuleSelectionSheet<Code extends string>({
               .filter((selection) => selection.source === 'custom')
               .map((selection) => (
                 <View key={selection.normalizedLabel} className="profile-food-rules-custom-row">
-                  <Txt variant="body" className="flex-1">{selection.label}</Txt>
+                  <Txt variant="body" className="flex-1">
+                    {selection.label}
+                  </Txt>
                   <Pressable
                     onPress={() =>
                       setDraft((current) =>
@@ -200,7 +206,9 @@ export function FoodRuleSelectionSheet<Code extends string>({
                     role="button"
                     aria-label={`${selection.label} entfernen`}
                     className="profile-food-rules-remove">
-                    <Txt variant="caption" tone="secondary">Entfernen</Txt>
+                    <Txt variant="caption" tone="secondary">
+                      Entfernen
+                    </Txt>
                   </Pressable>
                 </View>
               ))}

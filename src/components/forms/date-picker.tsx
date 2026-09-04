@@ -73,9 +73,7 @@ export function DatePicker({
           accessibilityRole="button"
           accessibilityLabel="Datum auswählen"
           className="h-[48px] px-three rounded-control border-hairline items-center justify-center bg-background-element border-border">
-          <Txt variant="bodyLarge">
-            📅
-          </Txt>
+          <Txt variant="bodyLarge">📅</Txt>
         </Pressable>
       </View>
 

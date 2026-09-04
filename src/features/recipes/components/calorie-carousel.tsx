@@ -38,25 +38,19 @@ export function CalorieCarousel({ selectedIndex, onSelect }: CalorieCarouselProp
                 aria-selected={selected}
                 className="calorie-tile"
                 style={{
-                  backgroundColor: selected ? colors.basil : colors.surface,
-                  borderColor: selected ? colors.basil : colors.border,
+                  backgroundColor: selected ? colors.accent : colors.backgroundElement,
+                  borderColor: selected ? colors.accent : colors.border,
                 }}>
-                <Txt variant="body" style={{ fontSize: 22, lineHeight: 25 }}>
-                  {BUCKET_EMOJI[index]}
-                </Txt>
+                <Txt variant="controlActionLarge">{BUCKET_EMOJI[index]}</Txt>
                 <Txt
-                  variant="body"
+                  variant="captionCompact"
                   tone={selected ? 'onAccent' : 'primary'}
                   weight="700"
                   className="mt-half"
-                  style={{ fontSize: 11, lineHeight: 14 }}
                   numberOfLines={1}>
                   {bucket.label}
                 </Txt>
-                <Txt
-                  variant="caption"
-                  tone={selected ? 'onAccent' : 'secondary'}
-                  style={{ fontSize: 9, lineHeight: 11 }}>
+                <Txt variant="micro" tone={selected ? 'onAccent' : 'secondary'}>
                   kcal
                 </Txt>
               </Pressable>

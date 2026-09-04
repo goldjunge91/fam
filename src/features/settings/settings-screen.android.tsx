@@ -96,7 +96,9 @@ export function SettingsScreen() {
             onPress={() => router.push('/profile')}
             accessibilityRole="button"
             className="profile-row">
-            <View className="profile-avatar overflow-hidden" style={{ backgroundColor: colors.basil }}>
+            <View
+              className="profile-avatar overflow-hidden"
+              style={{ backgroundColor: colors.basil }}>
               {avatarUrl ? (
                 <Image
                   source={{ uri: avatarUrl }}
@@ -118,7 +120,7 @@ export function SettingsScreen() {
                 {session?.user.email ?? '—'}
               </Txt>
             </View>
-            <Txt variant="body" tone="secondary" style={{ fontSize: 18 }}>
+            <Txt variant="navigationArrow" tone="secondary">
               ›
             </Txt>
           </Pressable>

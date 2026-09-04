@@ -24,7 +24,11 @@ function CookingModeLoading() {
 
   return (
     <CookingModeShell title="Kochmodus" backLabel="Zurück">
-      <Txt variant="caption" tone="secondary" className="p-six text-center" style={{ color: colors.textMuted }}>
+      <Txt
+        variant="caption"
+        tone="secondary"
+        className="p-six text-center"
+        style={{ color: colors.textMuted }}>
         Kochmodus wird geladen…
       </Txt>
     </CookingModeShell>

@@ -166,7 +166,7 @@ export function FastingCard({ userId, childProfileId }: FastingCardProps) {
 
             <View className="flex-row items-baseline gap-two">
               <Txt variant="display">{formatDuration(elapsedMinutes)}</Txt>
-              <Txt variant="body" tone="secondary" style={{ fontSize: 14, lineHeight: 20 }}>
+              <Txt variant="bodySmall" tone="secondary">
                 / Ziel: {formatDuration(targetMinutes)}
               </Txt>
             </View>

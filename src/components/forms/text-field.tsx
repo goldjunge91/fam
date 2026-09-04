@@ -1,8 +1,7 @@
 import type { ReactNode } from 'react';
 import { TextInput, type TextInputProps, View } from 'react-native';
-
-import { useTheme } from '@/components/theme/ThemeProvider';
 import { font } from '@/components/theme/index';
+import { useTheme } from '@/components/theme/ThemeProvider';
 import { Txt } from '@/constants/ui';
 
 type TextFieldProps = TextInputProps & {

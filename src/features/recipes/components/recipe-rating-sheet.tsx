@@ -54,7 +54,7 @@ export function RecipeRatingSheet({ recipeId, visible, onClose }: Props) {
 
   return (
     <RecipeBottomSheet visible={visible} onClose={onClose} title="Rezept bewerten" avoidKeyboard>
-      <Txt variant="body" tone="secondary" style={{ fontWeight: '500' }}>
+      <Txt variant="body" tone="secondary" weight="500">
         Wie hat dir das Rezept gefallen?
       </Txt>
 
@@ -69,18 +69,11 @@ export function RecipeRatingSheet({ recipeId, visible, onClose }: Props) {
               aria-label={`${value} von 10 Sternen`}
               accessibilityState={{ selected: isSelected }}
               className="recipe-score-btn"
-              style={{ backgroundColor: isSelected ? colors.basil : colors.surfaceSoft }}>
-              <Txt
-                variant="body"
-                tone={isSelected ? 'onAccent' : 'secondary'}
-                style={{ fontSize: 14, lineHeight: 17 }}>
+              style={{ backgroundColor: isSelected ? colors.accent : colors.backgroundSelected }}>
+              <Txt variant="label" tone={isSelected ? 'onAccent' : 'secondary'}>
                 ★
               </Txt>
-              <Txt
-                variant="caption"
-                tone={isSelected ? 'onAccent' : 'secondary'}
-                weight="700"
-                style={{ fontSize: 9, lineHeight: 11 }}>
+              <Txt variant="micro" tone={isSelected ? 'onAccent' : 'secondary'} weight="700">
                 {value}
               </Txt>
             </Pressable>
@@ -108,9 +101,9 @@ export function RecipeRatingSheet({ recipeId, visible, onClose }: Props) {
         disabled={score === 0 || saving}
         role="button"
         className="h-12 mt-[14px] rounded-card items-center justify-center active:opacity-75"
-        style={{ backgroundColor: colors.basil, opacity: score === 0 || saving ? 0.45 : 1 }}>
+        style={{ backgroundColor: colors.accent, opacity: score === 0 || saving ? 0.45 : 1 }}>
         {saving ? (
-          <ActivityIndicator color={colors.inverse} />
+          <ActivityIndicator color={colors.onAccent} />
         ) : (
           <Txt variant="caption" tone="onAccent" weight="700">
             Bewertung speichern

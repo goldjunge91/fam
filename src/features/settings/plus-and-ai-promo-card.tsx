@@ -1,8 +1,7 @@
 import { router } from 'expo-router';
 import { Pressable, View } from 'react-native';
-
-import { useTheme } from '@/components/theme/ThemeProvider';
 import { withAlpha } from '@/components/theme/index';
+import { useTheme } from '@/components/theme/ThemeProvider';
 import { Txt } from '@/constants/ui';
 import { usePremium } from '@/features/premium/premium-provider';
 

@@ -104,13 +104,17 @@ export function PaywallSheet({ isOpen, onClose, onPurchased }: PaywallSheetProps
         <View className="flex-1">
           {/* Header mit Schließen-Button */}
           <View className="row-between items-center px-four pt-two pb-two">
-            <Txt variant="title" weight="700">fam Premium</Txt>
+            <Txt variant="title" weight="700">
+              fam Premium
+            </Txt>
             <Pressable
               onPress={onClose}
               accessibilityRole="button"
               accessibilityLabel="Schließen"
               className="modal-close-btn">
-              <Txt variant="body" tone="secondary">✕</Txt>
+              <Txt variant="body" tone="secondary">
+                ✕
+              </Txt>
             </Pressable>
           </View>
 
@@ -122,7 +126,9 @@ export function PaywallSheet({ isOpen, onClose, onPurchased }: PaywallSheetProps
             <View className="items-center text-center gap-two pt-two">
               <View className="w-12 h-12 rounded-[16px] overflow-hidden items-center justify-center shadow-md">
                 <GradientBackground colors={[colors.basil, colors.carrot]} />
-                <Txt variant="body" tone="onAccent" style={{ fontSize: 22 }}>✦</Txt>
+                <Txt variant="body" tone="onAccent" style={{ fontSize: 22 }}>
+                  ✦
+                </Txt>
               </View>
               <Txt variant="title" weight="700" center>
                 Mehr für euren Haushalt
@@ -163,7 +169,7 @@ export function PaywallSheet({ isOpen, onClose, onPurchased }: PaywallSheetProps
                 className="w-full"
               />
 
-              <Txt variant="caption" tone="secondary" center style={{ fontSize: 12 }}>
+              <Txt variant="detail" tone="secondary" center>
                 Jederzeit im App Store kündbar.
               </Txt>
 

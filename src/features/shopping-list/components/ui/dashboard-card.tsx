@@ -101,14 +101,10 @@ function ShoppingDashboardCard({ size, onLongPress }: DashboardCardProps) {
         </Txt>
       </View>
       <View className="flex-1" />
-      <Txt
-        variant="bodyLarge"
-        tone="secondary">
+      <Txt variant="bodyLarge" tone="secondary">
         Einkauf
       </Txt>
-      <Txt
-        variant="controlValueLarge"
-        weight="700">
+      <Txt variant="controlValueLarge" weight="700">
         {openCount > 0 ? 'Noch offen' : 'Erledigt'}
       </Txt>
     </GlassCard>

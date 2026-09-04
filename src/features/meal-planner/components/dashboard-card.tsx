@@ -71,11 +71,7 @@ function MealPlanDashboardCard({ size, onLongPress }: DashboardCardProps) {
         }}>
         <View className="flex-1 justify-between">
           <View className="flex-row items-center justify-between">
-            <Txt
-              variant="captionCompact"
-              tone="danger"
-              weight="700"
-              style={{ letterSpacing: 0.5 }}>
+            <Txt variant="captionCompact" tone="danger" weight="700" style={{ letterSpacing: 0.5 }}>
               GEPLANT
             </Txt>
             <Txt variant="detail" tone="secondary">
@@ -85,10 +81,7 @@ function MealPlanDashboardCard({ size, onLongPress }: DashboardCardProps) {
           <View className="items-center justify-center my-one">
             <FamIcon name="mealArtwork" size={44} />
           </View>
-          <Txt
-            variant="bodySmall"
-            weight="700"
-            numberOfLines={2}>
+          <Txt variant="bodySmall" weight="700" numberOfLines={2}>
             {nextMeal?.recipe_title ?? 'Nichts geplant'}
           </Txt>
         </View>

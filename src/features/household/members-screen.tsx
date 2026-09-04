@@ -204,8 +204,8 @@ export function MembersScreen() {
               <View
                 className="member-avatar"
                 style={{
-                  backgroundColor: colors.surface,
-                  borderColor: isMe ? colors.basil : undefined,
+                  backgroundColor: colors.backgroundElement,
+                  borderColor: isMe ? colors.accent : undefined,
                   borderWidth: isMe ? 2 : undefined,
                 }}>
                 {item.avatar_url ? (
@@ -216,7 +216,7 @@ export function MembersScreen() {
                     contentFit="cover"
                   />
                 ) : (
-                  <Txt variant="body" weight="700" style={{ fontSize: 14 }}>
+                  <Txt variant="bodySmall" weight="700">
                     {initials}
                   </Txt>
                 )}
@@ -236,8 +236,8 @@ export function MembersScreen() {
                   <Pressable
                     onPress={() => handleToggleRole(item.user_id, item.role, displayName)}
                     className="member-role-tag"
-                    style={{ backgroundColor: withAlpha(colors.basil, 0.1) }}>
-                    <Txt variant="body" tone="primary" style={{ fontSize: 12 }}>
+                    style={{ backgroundColor: withAlpha(colors.accent, 0.1) }}>
+                    <Txt variant="detail" tone="primary">
                       {item.role === 'admin' ? 'Admin ▾' : 'Mitglied ▾'}
                     </Txt>
                   </Pressable>
@@ -245,7 +245,7 @@ export function MembersScreen() {
                     onPress={() => handleRemoveMember(item.user_id, displayName)}
                     className="member-remove-tag"
                     style={{ backgroundColor: withAlpha(colors.tomato, 0.1) }}>
-                    <Txt variant="body" tone="danger" style={{ fontSize: 12 }}>
+                    <Txt variant="detail" tone="danger">
                       Entfernen
                     </Txt>
                   </Pressable>
@@ -280,7 +280,7 @@ export function MembersScreen() {
                     }
                   />
                   {adminCount <= 1 && (
-                    <Txt variant="body" tone="secondary" center style={{ fontSize: 12 }}>
+                    <Txt variant="detail" tone="secondary" center>
                       Ernenne zuerst einen weiteren Admin, um den Haushalt zu verlassen.
                     </Txt>
                   )}

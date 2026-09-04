@@ -2,7 +2,7 @@
 
 ## Overview
 
-Wir ersetzen die fehleranfällige Mischung aus alten `ThemedText`-/`ThemedView`-Wrappern, unvollständigen NativeWind-Klassen und dem noch nicht integrierten UI-Referenzcode durch eine einzige Fam-Lösung. NativeWind bleibt für deklaratives Layout aktiv. Theme-abhängige Kernwerte und native Spezialfälle laufen über typisierte React-Native-Styles. Die ausführlichen Verträge stehen in `docs/specs/nativewind-styling/`.
+Wir ersetzen die fehleranfällige Mischung aus alten `ThemedText`-/`ThemedView`-Wrappern, unvollständigen NativeWind-Klassen und dem noch nicht integrierten UI-Referenzcode durch eine einzige Fam-Lösung. NativeWind bleibt für deklaratives Layout aktiv. Theme-abhängige Kernwerte und native Spezialfälle laufen über typisierte React-Native-Styles. Die alten Wrapper sind nach ausdrücklicher Maintainer-Freigabe entfernt. Die ausführlichen Verträge stehen in `docs/specs/nativewind-styling/`.
 
 Dieses Dokument liegt absichtlich unter `tasks/nativewind-styling/`, weil `tasks/plan.md` bereits zu einer anderen, gelöschten Arbeit gehörte. Die neue Arbeit überschreibt keinen bestehenden unvollständigen Plan.
 
@@ -15,7 +15,8 @@ Dieses Dokument liegt absichtlich unter `tasks/nativewind-styling/`, weil `tasks
 - `Txt` und `Surface` leben in `src/constants/ui.tsx` und ersetzen `ThemedText` beziehungsweise `ThemedView`.
 - `src/lib/haptics.ts` bleibt die einzige Haptics-Grenze und wird direkt verwendet.
 - Die Theme-Präferenz wird verbindlich über den vorhandenen MMKV-Gerätespeicher aus `src/lib/storage/device-storage.ts` gehalten.
-- Alte Dateien werden zuletzt gelöscht, nicht am Anfang. So bleibt jeder Zwischenschritt rückrollbar.
+- Alte Wrapper-Dateien wurden nach ausdrücklicher manueller Maintainer-Freigabe
+  entfernt; die Übergangstests verwenden jetzt `Txt` und `Surface`.
 - Die Downloads-Dateien werden als Referenz adaptiert, nicht unverändert kopiert.
 
 ## Abhängigkeitsgraph
@@ -33,7 +34,7 @@ Fam-Tokens
                               |
                               +--> Importmigration nach Feature-Batches
                                       |
-                                      +--> alte Dateien entfernen
+                                      +--> alte Wrapper nach Freigabe entfernen
                                               |
                                               +--> statische und visuelle Abnahme
 ```
@@ -48,52 +49,65 @@ Fam-Tokens
 
 ### Checkpoint: Foundation
 
-- [ ] Fam-Provider ist genau einmal im App-Tree gemountet.
-- [ ] Menschliche Review der Token- und Provider-API vor der Massenmigration.
+- [x] Fam-Provider ist genau einmal im App-Tree gemountet.
+- [x] Menschliche Review der Token- und Provider-API vor der Massenmigration.
 
 ### Phase 2: Core component migration
 
-<!-- - [ ] Task 4: `Txt` und `Surface` implementieren und die alten Theme-Wrapper-Tests auf den neuen Vertrag übertragen. -->
-- [ ] Task 5: Button-, Press- und IconButton-Verträge stabilisieren.
-- [ ] Task 6: Card-, Field-, Badge-, Pill-, SegmentedControl- und EmptyState-Verträge stabilisieren.
+- [x] Task 4: `Txt` und `Surface` implementieren; die alten Wrapper sind nach Freigabe entfernt.
+- [x] Task 5: Button-, Press- und IconButton-Verträge stabilisieren.
+- [x] Task 6: Card-, Field-, Badge-, Pill-, SegmentedControl- und EmptyState-Verträge stabilisieren.
 
 ### Checkpoint: Core UI
 
-- [ ] Fokussierte RNTL-Tests für Typografie, Surface, Buttons und Fields sind grün.
-- [ ] Light/Dark und disabled/loading/pressed sind in der Referenzprüfung sichtbar korrekt.
-- [ ] Neue und leicht ersetzbare `any`-Styles sind typisiert; technisch unvermeidbare Bibliotheksausnahmen sind lokal dokumentiert.
+- [x] Fokussierte RNTL-Tests für Typografie, Surface, Buttons und Fields sind grün.
+- [x] Light/Dark und disabled/loading/pressed sind in der Referenzprüfung sichtbar korrekt.
+- [x] Neue und leicht ersetzbare `any`-Styles sind typisiert; technisch unvermeidbare Bibliotheksausnahmen sind lokal dokumentiert.
 
 ### Phase 3: Migration
 
 - [x] Layout-Token-Importmigration: `src/constants/layout.ts` durch vorhandene
   `space`-/`radius`-Tokens aus `src/components/theme/index.ts` ersetzt und die
   unreferenzierte Datei entfernt. Die Wertänderungen sind in `todo.md` dokumentiert.
-- [ ] Task 7: `useTheme`- und Theme-Imports auf die eine Provider-API migrieren.
-- [ ] Task 8: `ThemedText`-Aufrufe in kleinen Feature-Batches durch `Txt` ersetzen.
-- [ ] Task 9: `ThemedView`-Aufrufe durch `Surface`, `Card` oder explizites View-Layout ersetzen.
-- [ ] Task 10: Konfliktierende und ungültige NativeWind-Klassen bereinigen.
+- [x] Task 7: `useTheme`- und Theme-Imports auf die eine Provider-API migrieren.
+- [x] Task 8: `ThemedText`-Aufrufe in kleinen Feature-Batches durch `Txt` ersetzen.
+- [x] Task 9: `ThemedView`-Aufrufe durch `Surface`, `Card` oder explizites View-Layout ersetzen.
+- [x] Task 10: Konfliktierende und ungültige NativeWind-Klassen bereinigen.
 
 ### Checkpoint: Migration
 
-- [ ] `rg` findet keine Production-Importe aus `themed-text.tsx` oder `themed-view.tsx`.
-- [ ] `rg` findet keine falschen `~/theme`- oder `~/lib/store`-Imports.
-- [ ] Spezialkomponenten verwenden `style` statt unwirksamer `className`-Props.
-- [ ] Bestehende `.android.tsx`-Varianten sind mit ihren gemeinsamen Gegenstücken konsistent.
+- [x] `rg` findet keine Production-Importe aus `themed-text.tsx` oder `themed-view.tsx`.
+- [x] `rg` findet keine falschen `~/theme`- oder `~/lib/store`-Imports.
+- [x] Spezialkomponenten verwenden `style` statt unwirksamer `className`-Props.
+- [x] Bestehende `.android.tsx`-Varianten sind mit ihren gemeinsamen Gegenstücken konsistent.
 
-### Phase 4: Removal and visual decision checkpoint
+### Phase 4: Maintainer approval and visual decision checkpoint
 
-- [ ] Task 11: Alte `themed-text.tsx`- und `themed-view.tsx`-Dateien sowie obsolete Tests entfernen, sobald der Audit null Treffer liefert.
-- [ ] Task 12: Zwei statische Screen-Mocks für Dashboard und Essensplaner erstellen und die visuellen Entscheidungen daran prüfen.
-- [ ] Task 13: Dokumentation des finalen Style-Vertrags und verbleibender Ausnahmen aktualisieren.
+- [x] Task 11: Alte Wrapper nach ausdrücklicher Maintainer-Freigabe entfernt.
+- [x] Task 12: Zwei statische Screen-Mocks für Dashboard und Essensplaner erstellen und die visuellen Entscheidungen daran prüfen.
+- [x] Task 13: Dokumentation des finalen Style-Vertrags und verbleibender Ausnahmen aktualisieren.
 
 ### Checkpoint: Complete
 
-- [ ] `bun run check` erfolgreich.
-- [ ] `bun run check:css` erfolgreich.
-- [ ] `bun run typecheck` erfolgreich.
-- [ ] Betroffene gezielte Tests erfolgreich.
-- [ ] Zwei statische Screen-Mocks geprüft; Geräteprüfung ist außerhalb dieses Scopes.
-- [ ] Keine neue Styling-Abhängigkeit und kein Frameworkwechsel.
+- [x] `bun run check` erfolgreich.
+- [x] `bun run check:css` erfolgreich.
+- [x] `bun run typecheck` erfolgreich.
+- [x] Betroffene gezielte Tests erfolgreich.
+- [x] Zwei statische Screen-Mocks geprüft; Geräteprüfung ist außerhalb dieses Scopes.
+- [x] Keine neue Styling-Abhängigkeit und kein Frameworkwechsel.
+
+## Post-plan build handoff
+
+Nach erfolgreicher Freigabe des Complete-Checkpoints läuft der lokale iOS-Build
+in dieser festen Reihenfolge:
+
+1. `bun run native:rebuild -- --target ios-preview-simulator --approve-rebuild`
+2. `bun run native:rebuild -- --target ios-preview-testflight --approve-rebuild`
+
+Der zweite Build startet erst, wenn der Simulator-Build beendet und sein
+Ergebnis festgehalten ist. Commit und Push erfolgen erst nach erfolgreichem
+Abschluss beider Builds. Der Schedule darf diese Sequenz nicht vor der
+Planfreigabe starten.
 
 ## Parallelisierung
 
@@ -121,4 +135,4 @@ Fam-Tokens
 
 ## Definition of Done
 
-Die Arbeit ist erledigt, wenn alle Success Criteria aus `docs/specs/nativewind-styling/SPEC.md` erfüllt sind, die alten Wrapper nicht mehr importiert werden, die fokussierten Prüfungen erfolgreich sind und die zwei statischen Screen-Mocks die getroffenen visuellen Entscheidungen abbilden. Eine Geräteprüfung ist nicht Teil der Definition of Done.
+Die Arbeit ist erledigt, wenn alle Success Criteria aus `docs/specs/nativewind-styling/SPEC.md` erfüllt sind, die alten Wrapper weder importiert noch vorhanden sind, die fokussierten Prüfungen erfolgreich sind und die zwei statischen Screen-Mocks die getroffenen visuellen Entscheidungen abbilden. Eine Geräteprüfung ist nicht Teil der Definition of Done.

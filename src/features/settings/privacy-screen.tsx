@@ -108,14 +108,18 @@ export function PrivacyScreen() {
           <Card key={section.title}>
             {/* Kein separates marginBottom mehr: card-fam liefert bereits
                 gap-two zwischen Titel und Text (Card-Komponente). */}
-            <Txt variant="body" weight="700">{section.title}</Txt>
+            <Txt variant="body" weight="700">
+              {section.title}
+            </Txt>
             <Txt variant="body" tone="secondary">
               {section.body}
             </Txt>
           </Card>
         ))}
         <Card>
-          <Txt variant="body" weight="700">Werbe-Einstellungen</Txt>
+          <Txt variant="body" weight="700">
+            Werbe-Einstellungen
+          </Txt>
           <Txt variant="body" tone="secondary">
             Verwalte die Einwilligung für personalisierte Werbung und die damit verbundenen
             Anbieter.

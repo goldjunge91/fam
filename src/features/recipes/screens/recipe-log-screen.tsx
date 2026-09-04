@@ -2,8 +2,8 @@ import { router, useLocalSearchParams } from 'expo-router';
 import { useEffect, useMemo, useState } from 'react';
 import { Alert, KeyboardAvoidingView, Pressable, ScrollView, TextInput, View } from 'react-native';
 import { HubScreen } from '@/components/layout/hub-screen';
-import { useTheme } from '@/components/theme/ThemeProvider';
 import { font } from '@/components/theme/index';
+import { useTheme } from '@/components/theme/ThemeProvider';
 import { BackButton, Button } from '@/components/ui/buttons';
 import { FilterChipBar } from '@/components/ui/filter-chip-bar';
 import { Txt } from '@/constants/ui';
@@ -129,11 +129,7 @@ export function RecipeLogScreen() {
           <Txt variant="heading" className="pt-[18px]">
             Guten Appetit!
           </Txt>
-          <Txt
-            variant="caption"
-            tone="secondary"
-            className="pt-[5px] text-center"
-            weight="500">
+          <Txt variant="caption" tone="secondary" className="pt-[5px] text-center" weight="500">
             {isWeighMode
               ? 'Verbessere die Mengen deines Haushaltsrezepts.'
               : 'Trage deine tatsächliche Portion ins Tagebuch ein.'}
@@ -148,11 +144,7 @@ export function RecipeLogScreen() {
               <Txt variant="heading">
                 {isWeighMode ? 'Zubereitete Gewichte' : 'Ins Tagebuch eintragen'}
               </Txt>
-              <Txt
-                variant="micro"
-                tone="secondary"
-                className="pt-[7px]"
-                weight="500">
+              <Txt variant="micro" tone="secondary" className="pt-[7px]" weight="500">
                 {isWeighMode
                   ? 'Diese Werte verbessern die Berechnung in deinem Haushaltsrezept.'
                   : 'Wie viel davon war auf deinem Teller?'}
@@ -164,10 +156,7 @@ export function RecipeLogScreen() {
               aria-label="Schließen"
               className="w-8 h-8 rounded-control items-center justify-center"
               style={{ backgroundColor: colors.backgroundSelected }}>
-              <Txt
-                variant="bodyLarge"
-                tone="secondary"
-                weight="500">
+              <Txt variant="bodyLarge" tone="secondary" weight="500">
                 ×
               </Txt>
             </Pressable>
@@ -197,10 +186,7 @@ export function RecipeLogScreen() {
               <View className="gap-[10px]">
                 {topLevelComponents.map((component) => (
                   <View key={component.id} className="min-h-[40px] flex-row items-center gap-[9px]">
-                    <Txt
-                      variant="micro"
-                      weight="700"
-                      className="flex-1">
+                    <Txt variant="micro" weight="700" className="flex-1">
                       {component.name}
                     </Txt>
                     <View className="grams-field">
@@ -218,10 +204,7 @@ export function RecipeLogScreen() {
                         }}
                         placeholderTextColor={colors.textSecondary}
                       />
-                      <Txt
-                        variant="micro"
-                        tone="secondary"
-                        className="pl-one">
+                      <Txt variant="micro" tone="secondary" className="pl-one">
                         g
                       </Txt>
                     </View>

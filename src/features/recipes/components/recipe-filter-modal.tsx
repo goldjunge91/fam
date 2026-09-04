@@ -156,10 +156,10 @@ export function RecipeFilterModal({
                         {meal.emoji}
                       </Txt>
                       <Txt
-                        variant="caption"
+                        variant="micro"
                         tone={selected ? 'onAccent' : 'primary'}
                         center
-                        style={{ fontSize: 9, lineHeight: 11, fontWeight: '600' }}
+                        weight="600"
                         numberOfLines={1}>
                         {meal.label}
                       </Txt>

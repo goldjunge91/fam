@@ -156,13 +156,8 @@ export function ProgressRing({
           </Txt>
         ) : displayMode === 'remaining' ? (
           <>
-            <Txt variant="ringValue">
-              {target > 0 ? Math.abs(remaining) : Math.round(value)}
-            </Txt>
-            <Txt
-              variant="label"
-              tone={exceeded ? 'warning' : 'secondary'}
-              weight="600">
+            <Txt variant="ringValue">{target > 0 ? Math.abs(remaining) : Math.round(value)}</Txt>
+            <Txt variant="label" tone={exceeded ? 'warning' : 'secondary'} weight="600">
               {target > 0 ? `${unit} ${exceeded ? 'darüber' : 'übrig'}` : unit}
             </Txt>
           </>

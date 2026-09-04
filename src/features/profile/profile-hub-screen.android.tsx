@@ -29,10 +29,10 @@ export function ProfileHubScreen() {
       <ScrollView contentContainerClassName="screen-scroll" showsVerticalScrollIndicator={false}>
         {/* Großer Profil-Header (Avatar, Display-Name, E-Mail) */}
         <View
-          style={{ backgroundColor: colors.surface, borderColor: colors.border }}
+          style={{ backgroundColor: colors.backgroundElement, borderColor: colors.border }}
           className="p-five rounded-3xl border items-center gap-three">
           <View
-            style={{ backgroundColor: colors.basil }}
+            style={{ backgroundColor: colors.accent }}
             className="w-24 h-24 rounded-full overflow-hidden items-center justify-center border-2 border-border shadow-sm">
             {avatarUrl ? (
               <Image
@@ -49,7 +49,7 @@ export function ProfileHubScreen() {
           </View>
 
           <View className="items-center">
-            <Txt variant="body" weight="700" style={{ fontSize: 20, lineHeight: 26 }}>
+            <Txt variant="subheading" weight="700">
               {displayName}
             </Txt>
             <Txt variant="body" tone="secondary" className="mt-half">
@@ -66,16 +66,16 @@ export function ProfileHubScreen() {
               onPress={() => router.push('/profile/edit')}
               accessibilityRole="button"
               accessibilityLabel="Profil und Account bearbeiten"
-              style={{ backgroundColor: colors.surface, borderColor: colors.border }}
+              style={{ backgroundColor: colors.backgroundElement, borderColor: colors.border }}
               className="p-four rounded-2xl border flex-row items-center justify-between">
               <View className="flex-row items-center gap-three flex-1 mr-two">
                 <View
-                  style={{ backgroundColor: colors.bg, borderColor: colors.border }}
+                  style={{ backgroundColor: colors.background, borderColor: colors.border }}
                   className="w-12 h-12 rounded-xl border border-border items-center justify-center">
                   <Txt variant="title">👤</Txt>
                 </View>
                 <View className="flex-1">
-                  <Txt variant="body" weight="700" style={{ fontSize: 16 }}>
+                  <Txt variant="bodyRelaxed" weight="700">
                     Profil & Account-Daten
                   </Txt>
                   <Txt variant="caption" tone="secondary">
@@ -83,7 +83,7 @@ export function ProfileHubScreen() {
                   </Txt>
                 </View>
               </View>
-              <Txt variant="body" tone="secondary" style={{ fontSize: 18 }}>
+              <Txt variant="controlAction" tone="secondary">
                 ›
               </Txt>
             </Pressable>
@@ -93,16 +93,16 @@ export function ProfileHubScreen() {
               onPress={() => router.push('/profile/tracking')}
               accessibilityRole="button"
               accessibilityLabel="Mein Tracking öffnen"
-              style={{ backgroundColor: colors.surface, borderColor: colors.border }}
+              style={{ backgroundColor: colors.backgroundElement, borderColor: colors.border }}
               className="p-four rounded-2xl border flex-row items-center justify-between">
               <View className="flex-row items-center gap-three flex-1 mr-two">
                 <View
-                  style={{ backgroundColor: colors.bg, borderColor: colors.border }}
+                  style={{ backgroundColor: colors.background, borderColor: colors.border }}
                   className="w-12 h-12 rounded-xl border border-border items-center justify-center">
                   <Txt variant="title">🎯</Txt>
                 </View>
                 <View className="flex-1">
-                  <Txt variant="body" weight="700" style={{ fontSize: 16 }}>
+                  <Txt variant="bodyRelaxed" weight="700">
                     Mein Tracking
                   </Txt>
                   <Txt variant="caption" tone="secondary">
@@ -110,7 +110,7 @@ export function ProfileHubScreen() {
                   </Txt>
                 </View>
               </View>
-              <Txt variant="body" tone="secondary" style={{ fontSize: 18 }}>
+              <Txt variant="controlAction" tone="secondary">
                 ›
               </Txt>
             </Pressable>
@@ -120,16 +120,16 @@ export function ProfileHubScreen() {
               onPress={() => router.push('/household/members')}
               accessibilityRole="button"
               accessibilityLabel="Haushalt verwalten"
-              style={{ backgroundColor: colors.surface, borderColor: colors.border }}
+              style={{ backgroundColor: colors.backgroundElement, borderColor: colors.border }}
               className="p-four rounded-2xl border flex-row items-center justify-between">
               <View className="flex-row items-center gap-three flex-1 mr-two">
                 <View
-                  style={{ backgroundColor: colors.bg, borderColor: colors.border }}
+                  style={{ backgroundColor: colors.background, borderColor: colors.border }}
                   className="w-12 h-12 rounded-xl border border-border items-center justify-center">
                   <Txt variant="title">🏠</Txt>
                 </View>
                 <View className="flex-1">
-                  <Txt variant="body" weight="700" style={{ fontSize: 16 }}>
+                  <Txt variant="bodyRelaxed" weight="700">
                     Familie
                   </Txt>
                   <Txt variant="caption" tone="secondary">
@@ -137,7 +137,7 @@ export function ProfileHubScreen() {
                   </Txt>
                 </View>
               </View>
-              <Txt variant="body" tone="secondary" style={{ fontSize: 18 }}>
+              <Txt variant="controlAction" tone="secondary">
                 ›
               </Txt>
             </Pressable>

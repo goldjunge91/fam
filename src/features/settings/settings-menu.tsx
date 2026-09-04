@@ -64,12 +64,16 @@ export function SettingsRow({
       }}>
       {icon ? (
         <View className="settings-icon-tile">
-          <Txt variant="body" center style={{ fontSize: 14 }}>{icon}</Txt>
+          <Txt variant="bodySmall" center>
+            {icon}
+          </Txt>
         </View>
       ) : null}
 
       <View className="settings-label-block">
-        <Txt variant="body" tone={tone === 'danger' ? 'danger' : 'primary'}>{label}</Txt>
+        <Txt variant="body" tone={tone === 'danger' ? 'danger' : 'primary'}>
+          {label}
+        </Txt>
         {hint ? (
           <Txt variant="caption" tone="secondary">
             {hint}
@@ -88,7 +92,7 @@ export function SettingsRow({
       ) : null}
 
       {isNavigable ? (
-        <Txt variant="body" tone="secondary" style={{ fontSize: 20, lineHeight: 20 }}>
+        <Txt variant="navigationArrow" tone="secondary">
           ›
         </Txt>
       ) : null}

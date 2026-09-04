@@ -75,12 +75,12 @@ Die 3D-Tiefe und Press-Animation aus der Referenz bleiben Bestandteil des UI-Ver
 
 ## Acceptance criteria
 
-- [ ] `ui.tsx` nutzt reale `@/...`-Imports und kompiliert ohne undefinierte Symbole.
-- [ ] Neue und leicht ersetzbare `any`-Typen in `ui.tsx` sind durch passende React-Native-Typen ersetzt.
-- [ ] Ein verbleibendes `any` ist nur erlaubt, wenn die Bibliotheks- oder React-Native-Typen keine sichere Alternative bieten, lokal begrenzt und dokumentiert ist.
-- [ ] Bestehende Fam-Tokens werden überall dort verwendet, wo sie ein direktes Gegenstück zu einem Referenzwert darstellen.
-- [ ] ui-Komponenten, Props und Verhalten bleiben erhalten, wenn kein Fam-Gegenstück existiert. ui-only Werte werden nicht als globale Palette oder neue Theme-Quelle exportiert.
-- [ ] `Surface` deckt alle bisherigen `ThemedView`-Anwendungsfälle ab.
-- [ ] Button-Zustände sind mit fokussierten Tests abgesichert.
-- [ ] `Press`, `Button` und `IconButton` lösen Haptics nur bei tatsächlich erlaubten Aktionen aus.
-- [ ] Die bisherige `ThemedText`-/`ThemedView`-API ist nach Migration nicht mehr im Production-Code importiert.
+- [x] `ui.tsx` nutzt reale `@/...`-Imports und kompiliert ohne undefinierte Symbole.
+- [x] Neue und leicht ersetzbare `any`-Typen in `ui.tsx` sind durch passende React-Native-Typen ersetzt.
+- [x] Ein verbleibendes `any` ist nur erlaubt, wenn die Bibliotheks- oder React-Native-Typen keine sichere Alternative bieten, lokal begrenzt und dokumentiert ist.
+- [x] Bestehende Fam-Tokens werden überall dort verwendet, wo sie ein direktes Gegenstück zu einem Referenzwert darstellen.
+- [x] ui-Komponenten, Props und Verhalten bleiben erhalten, wenn kein Fam-Gegenstück existiert. ui-only Werte werden nicht als globale Palette oder neue Theme-Quelle exportiert.
+- [x] `Surface` deckt alle bisherigen `ThemedView`-Anwendungsfälle ab.
+- [x] Button-Zustände sind mit fokussierten Tests abgesichert.
+- [x] `Press`, `Button` und `IconButton` lösen Haptics nur bei tatsächlich erlaubten Aktionen aus.
+- [x] Die bisherige `ThemedText`-/`ThemedView`-API ist nach Migration nicht mehr im Production-Code importiert.

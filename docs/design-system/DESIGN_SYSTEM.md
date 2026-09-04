@@ -13,6 +13,15 @@ war Ausgangsinspiration und liefert Icon-/Illustrations-Assets
 (`src/assets/images/figma/*.svg`, siehe `FamIcon`), ist aber keine Pflicht-
 Referenz mehr, gegen die jede Pixelabweichung ein Bug wäre.
 
+**Aktueller Styling-Vertrag (2026-09-04):** Für NativeWind, Theme-Tokens,
+Typografie und die Hybridgrenze gilt verbindlich
+[`docs/specs/nativewind-styling/`](../specs/nativewind-styling/). Dort ist
+`src/components/theme/index.ts` die aktive Tokenquelle und `src/constants/ui.tsx`
+stellt `Txt` und `Surface` bereit. Die untenstehenden `ThemedText`-/`theme.ts`-
+Verweise dokumentieren den historischen Stand dieser Datei und sind keine
+zusätzliche aktive Theme- oder UI-API. Die alten Wrapper wurden nach der
+manuellen Maintainer-Freigabe entfernt.
+
 ---
 
 ## 1. Grundprinzipien

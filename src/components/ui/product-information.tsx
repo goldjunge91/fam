@@ -125,7 +125,9 @@ export function ProductInformation({ visible, item, onClose }: ProductInformatio
                 accessibilityLabel="Schließen"
                 className="w-[34px] h-[34px] rounded-sheet items-center justify-center active:opacity-75"
                 style={{ backgroundColor: colors.backgroundSelected }}>
-                <Txt variant="body" tone="secondary">×</Txt>
+                <Txt variant="body" tone="secondary">
+                  ×
+                </Txt>
               </Pressable>
             </View>
 
@@ -137,10 +139,7 @@ export function ProductInformation({ visible, item, onClose }: ProductInformatio
                   score ? NUTRI_BADGE_CLASSES[score] : ''
                 }`}
                 style={!score ? { backgroundColor: colors.backgroundSelected } : undefined}>
-                <Txt
-                  variant="controlActionLarge"
-                  weight="700"
-                  tone={score ? 'inverse' : 'primary'}>
+                <Txt variant="controlActionLarge" weight="700" tone={score ? 'inverse' : 'primary'}>
                   {score?.toUpperCase() ?? '–'}
                 </Txt>
               </View>

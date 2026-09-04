@@ -228,7 +228,10 @@ function ProductRow({ product, onPress }: { product: CatalogProduct; onPress: ()
   return (
     <Pressable onPress={onPress} className="fss-row">
       {product.imageUrl ? (
-        <Image source={{ uri: product.imageUrl }} style={{ width: 36, height: 36, borderRadius: 12 }} />
+        <Image
+          source={{ uri: product.imageUrl }}
+          style={{ width: 36, height: 36, borderRadius: 12 }}
+        />
       ) : (
         <View className="fss-row-img-placeholder">
           <Txt variant="body" style={{ fontSize: 16 }}>

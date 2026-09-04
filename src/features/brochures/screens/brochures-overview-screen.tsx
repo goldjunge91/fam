@@ -30,7 +30,7 @@ export default function BrochuresOverviewScreen() {
   if (location.status === 'locating') {
     return (
       <Screen title="Angebote" chrome={chrome}>
-        <View style={[styles.loadingContainer, { backgroundColor: colors.bg }]}>
+        <View style={[styles.loadingContainer, { backgroundColor: colors.background }]}>
           <Txt variant="body" tone="secondary">
             Standort wird ermittelt...
           </Txt>
@@ -45,11 +45,11 @@ export default function BrochuresOverviewScreen() {
     const permanentlyDenied = denied && !location.canAskAgain;
     return (
       <Screen title="Angebote" chrome={chrome}>
-        <View style={[styles.locationState, { backgroundColor: colors.bg }]}>
-          <Txt variant="heading" style={[styles.locationTitle, { color: colors.text }]}>
+        <View style={[styles.locationState, { backgroundColor: colors.background }]}>
+          <Txt variant="headingSmall" style={styles.locationTitle}>
             Standort erforderlich
           </Txt>
-          <Txt variant="body" style={[styles.locationCopy, { color: colors.textMuted }]}>
+          <Txt variant="body" tone="secondary" style={styles.locationCopy}>
             {permanentlyDenied
               ? 'Erlaube den Standortzugriff in den Systemeinstellungen, damit fam die Prospekte für deine PLZ laden kann.'
               : denied
@@ -68,12 +68,12 @@ export default function BrochuresOverviewScreen() {
             <>
               <Pressable
                 role="button"
-                style={[styles.locationButton, { backgroundColor: colors.basil }]}
+                style={[styles.locationButton, { backgroundColor: colors.accent }]}
                 onPress={() => {
                   if (permanentlyDenied) void Linking.openSettings();
                   else location.retry();
                 }}>
-                <Txt variant="body" tone="inverse" weight="700">
+                <Txt variant="body" tone="onAccent" weight="700">
                   {permanentlyDenied ? 'Einstellungen öffnen' : 'Erneut versuchen'}
                 </Txt>
               </Pressable>
@@ -91,7 +91,7 @@ export default function BrochuresOverviewScreen() {
   if (isLoading || isSyncing || !hasSynced) {
     return (
       <Screen title="Angebote" chrome={chrome}>
-        <View style={[styles.loadingContainer, { backgroundColor: colors.bg }]}>
+        <View style={[styles.loadingContainer, { backgroundColor: colors.background }]}>
           <Txt variant="body" tone="secondary">
             Angebote für {postalCode} werden geladen...
           </Txt>
@@ -102,11 +102,11 @@ export default function BrochuresOverviewScreen() {
   if (data?.cacheZip !== postalCode) {
     return (
       <Screen title="Angebote" chrome={chrome}>
-        <View style={[styles.locationState, { backgroundColor: colors.bg }]}>
-          <Txt variant="heading" style={[styles.locationTitle, { color: colors.text }]}>
+        <View style={[styles.locationState, { backgroundColor: colors.background }]}>
+          <Txt variant="headingSmall" style={styles.locationTitle}>
             Noch keine Prospekte
           </Txt>
-          <Txt variant="body" style={[styles.locationCopy, { color: colors.textMuted }]}>
+          <Txt variant="body" tone="secondary" style={styles.locationCopy}>
             Für die PLZ {postalCode} liegt derzeit kein aktueller Dump vor.
           </Txt>
         </View>
@@ -125,7 +125,7 @@ export default function BrochuresOverviewScreen() {
   return (
     <Screen title="Angebote" chrome={chrome} scroll={false} applyBottomPadding={false}>
       <ScrollView
-        style={[styles.container, { backgroundColor: colors.bg }]}
+        style={[styles.container, { backgroundColor: colors.background }]}
         contentContainerStyle={styles.content}>
         {isEditingPostalCode ? (
           <View style={styles.postalCodeEditRow}>
@@ -139,7 +139,7 @@ export default function BrochuresOverviewScreen() {
           </View>
         ) : (
           <View style={styles.postalCodeRow}>
-            <Txt variant="caption" tone="secondary" style={styles.postalCode}>
+            <Txt variant="detail" tone="secondary">
               PLZ {postalCode}
             </Txt>
             <Pressable role="button" onPress={() => setIsEditingPostalCode(true)}>
@@ -158,7 +158,7 @@ export default function BrochuresOverviewScreen() {
         )}
         {favorites.length > 0 && (
           <View style={styles.section}>
-            <Txt variant="heading" style={[styles.sectionTitle, { color: colors.text }]}>
+            <Txt variant="bodyLarge" weight="600" style={styles.sectionTitle}>
               Deine Märkte
             </Txt>
             <ScrollView
@@ -170,25 +170,24 @@ export default function BrochuresOverviewScreen() {
                   {store.logoUrl ? (
                     <Image
                       source={{ uri: store.logoUrl }}
-                      style={styles.storeLogo}
+                      style={[
+                        styles.storeLogo,
+                        { backgroundColor: colors.backgroundElement, borderColor: colors.border },
+                      ]}
                       contentFit="contain"
                     />
                   ) : (
                     <View
                       style={[
                         styles.storeLogoPlaceholder,
-                        { backgroundColor: colors.surfaceSoft },
+                        { backgroundColor: colors.backgroundSelected, borderColor: colors.border },
                       ]}>
-                      <Txt variant="body" tone="secondary" style={styles.storeInitials}>
+                      <Txt variant="subheading" tone="secondary" style={styles.storeInitials}>
                         {store.name.substring(0, 2)}
                       </Txt>
                     </View>
                   )}
-                  <Txt
-                    variant="caption"
-                    tone="secondary"
-                    style={styles.storeName}
-                    numberOfLines={1}>
+                  <Txt variant="detail" tone="secondary" style={styles.storeName} numberOfLines={1}>
                     {store.name}
                   </Txt>
                 </View>
@@ -198,7 +197,7 @@ export default function BrochuresOverviewScreen() {
         )}
 
         <View style={styles.section}>
-          <Txt variant="heading" style={[styles.sectionTitle, { color: colors.text }]}>
+          <Txt variant="bodyLarge" weight="600" style={styles.sectionTitle}>
             Aktuelle Prospekte
           </Txt>
           <ScrollView
@@ -211,12 +210,13 @@ export default function BrochuresOverviewScreen() {
               style={[
                 styles.filterChip,
                 {
-                  backgroundColor: selectedStoreId === null ? colors.basil : colors.surface,
-                  borderColor: selectedStoreId === null ? colors.basil : colors.border,
+                  backgroundColor:
+                    selectedStoreId === null ? colors.accent : colors.backgroundElement,
+                  borderColor: selectedStoreId === null ? colors.accent : colors.border,
                 },
               ]}
               onPress={() => setSelectedStoreId(null)}>
-              <Txt variant="body" color={selectedStoreId === null ? colors.inverse : colors.text}>
+              <Txt variant="body" tone={selectedStoreId === null ? 'onAccent' : 'primary'}>
                 Alle
               </Txt>
             </Pressable>
@@ -230,12 +230,12 @@ export default function BrochuresOverviewScreen() {
                   style={[
                     styles.filterChip,
                     {
-                      backgroundColor: isSelected ? colors.basil : colors.surface,
-                      borderColor: isSelected ? colors.basil : colors.border,
+                      backgroundColor: isSelected ? colors.accent : colors.backgroundElement,
+                      borderColor: isSelected ? colors.accent : colors.border,
                     },
                   ]}
                   onPress={() => setSelectedStoreId(store.id)}>
-                  <Txt variant="body" color={isSelected ? colors.inverse : colors.text}>
+                  <Txt variant="body" tone={isSelected ? 'onAccent' : 'primary'}>
                     {store.name}
                   </Txt>
                 </Pressable>
@@ -248,22 +248,23 @@ export default function BrochuresOverviewScreen() {
                 key={brochure.id}
                 style={[
                   styles.brochureCard,
-                  { backgroundColor: colors.surface, borderColor: colors.border },
+                  { backgroundColor: colors.backgroundElement, borderColor: colors.border },
                 ]}
                 onPress={() => router.push(`/brochures/${brochure.id}`)}>
                 <Image
                   source={{ uri: brochure.coverImage }}
-                  style={styles.brochureCover}
+                  style={[styles.brochureCover, { backgroundColor: colors.backgroundSelected }]}
                   contentFit="cover"
                 />
                 <View style={styles.brochureInfo}>
                   <Txt
-                    variant="body"
-                    style={[styles.brochureTitle, { color: colors.text }]}
+                    variant="bodySmall"
+                    weight="600"
+                    style={styles.brochureTitle}
                     numberOfLines={2}>
                     {brochure.title}
                   </Txt>
-                  <Txt variant="caption" tone="secondary" style={styles.brochureDate}>
+                  <Txt variant="detail" tone="secondary" style={styles.brochureDate}>
                     Bis {new Date(brochure.validUntil).toLocaleDateString()}
                   </Txt>
                 </View>
@@ -302,13 +303,11 @@ const styles = StyleSheet.create({
     gap: 12,
   },
   locationTitle: {
-    fontSize: 20,
-    fontWeight: '700',
+    marginBottom: 0,
   },
   locationCopy: {
     maxWidth: 360,
     textAlign: 'center',
-    lineHeight: 21,
   },
   locationButton: {
     minHeight: 44,
@@ -316,9 +315,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     paddingHorizontal: 18,
   },
-  postalCode: {
-    fontSize: 13,
-  },
+  postalCode: {},
   postalCodeRow: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -332,10 +329,7 @@ const styles = StyleSheet.create({
     marginBottom: 24,
   },
   sectionTitle: {
-    fontSize: 18,
-    fontWeight: '600',
     marginBottom: 12,
-    color: '#1F1A21',
   },
   favoritesScroll: {
     flexDirection: 'row',
@@ -349,28 +343,20 @@ const styles = StyleSheet.create({
     width: 64,
     height: 64,
     borderRadius: 32,
-    backgroundColor: '#fff',
     borderWidth: 1,
-    borderColor: '#E5E5E5',
     marginBottom: 8,
   },
   storeLogoPlaceholder: {
     width: 64,
     height: 64,
     borderRadius: 32,
-    backgroundColor: '#E5E5E5',
+    borderWidth: 1,
     justifyContent: 'center',
     alignItems: 'center',
     marginBottom: 8,
   },
-  storeInitials: {
-    fontSize: 20,
-    fontWeight: 'bold',
-    color: '#666',
-  },
+  storeInitials: {},
   storeName: {
-    fontSize: 12,
-    color: '#666',
     textAlign: 'center',
   },
   grid: {
@@ -388,19 +374,14 @@ const styles = StyleSheet.create({
   brochureCover: {
     width: '100%',
     aspectRatio: 3 / 4,
-    backgroundColor: '#F3F4F6',
   },
   brochureInfo: {
     padding: 12,
   },
   brochureTitle: {
-    fontSize: 14,
-    fontWeight: '600',
     marginBottom: 4,
   },
-  brochureDate: {
-    fontSize: 12,
-  },
+  brochureDate: {},
   filterRow: {
     gap: 8,
     paddingBottom: 14,

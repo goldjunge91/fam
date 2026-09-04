@@ -119,9 +119,7 @@ function MealSection({ meal, entries, isLast, onAdd, onEntry }: MealSectionProps
     <View className={!isLast ? 'diary-meal-section' : undefined}>
       <View className="diary-meal-header pt-[6px]">
         <View className="diary-meal-heading">
-          <Txt variant="subheading">
-            {MEAL_LABELS[meal]}
-          </Txt>
+          <Txt variant="subheading">{MEAL_LABELS[meal]}</Txt>
           <Txt variant="meta" tone="secondary" className="mt-[1px]">
             {formatKcal(mealKcal)}
           </Txt>
@@ -272,7 +270,9 @@ export function DiaryScreen() {
             role="button"
             aria-label="Vorheriger Tag"
             className="diary-date-arrow">
-            <Txt variant="navigationArrow" tone="secondary">‹</Txt>
+            <Txt variant="navigationArrow" tone="secondary">
+              ‹
+            </Txt>
           </Pressable>
           <Pressable
             onPress={() => setSelectedLogicalDate(todayLogicalDate)}
@@ -296,7 +296,9 @@ export function DiaryScreen() {
             role="button"
             aria-label="Nächster Tag"
             className="diary-date-arrow">
-            <Txt variant="navigationArrow" tone="secondary">›</Txt>
+            <Txt variant="navigationArrow" tone="secondary">
+              ›
+            </Txt>
           </Pressable>
         </View>
 

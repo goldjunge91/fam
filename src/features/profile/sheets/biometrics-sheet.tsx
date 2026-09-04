@@ -81,14 +81,18 @@ export function BiometricsSheet({
           <View className="profile-food-rules-sheet-header">
             <View className="flex-1 gap-half">
               <Txt variant="heading">Körper &amp; Aktivität</Txt>
-              <Txt variant="caption" tone="secondary">Persönliche Werte für deine Berechnungen</Txt>
+              <Txt variant="caption" tone="secondary">
+                Persönliche Werte für deine Berechnungen
+              </Txt>
             </View>
             <Pressable
               onPress={onClose}
               role="button"
               aria-label="Körper & Aktivität schließen"
               className="modal-close-btn">
-              <Txt variant="body" tone="secondary" aria-hidden>✕</Txt>
+              <Txt variant="body" tone="secondary" aria-hidden>
+                ✕
+              </Txt>
             </Pressable>
           </View>
 
@@ -113,7 +117,9 @@ export function BiometricsSheet({
               </Txt>
             </View>
 
-            <Txt variant="label" weight="700">Profilangaben</Txt>
+            <Txt variant="label" weight="700">
+              Profilangaben
+            </Txt>
 
             <TextField
               label="Körpergröße (cm)"
@@ -137,7 +143,9 @@ export function BiometricsSheet({
             />
 
             <View className="gap-two">
-              <Txt variant="label" weight="700">Berechnungsbasis</Txt>
+              <Txt variant="label" weight="700">
+                Berechnungsbasis
+              </Txt>
               <View className="input-row" role="radiogroup" aria-label="Berechnungsbasis">
                 {SEX_OPTIONS.map((option) => {
                   const selected = draft.sex === option.value;
@@ -163,8 +171,10 @@ export function BiometricsSheet({
               </View>
             </View>
 
-          <View className="gap-two" role="radiogroup" aria-label="Aktivitätslevel">
-              <Txt variant="label" weight="700">Aktivitätslevel</Txt>
+            <View className="gap-two" role="radiogroup" aria-label="Aktivitätslevel">
+              <Txt variant="label" weight="700">
+                Aktivitätslevel
+              </Txt>
               {[
                 ACTIVITY_OPTIONS.slice(0, 2),
                 ACTIVITY_OPTIONS.slice(2, 4),
@@ -186,10 +196,7 @@ export function BiometricsSheet({
                           borderColor: selected ? colors.basil : colors.border,
                           borderWidth: 1,
                         }}>
-                        <Txt
-                          variant="label"
-                          tone={selected ? 'onAccent' : 'primary'}
-                          weight="700">
+                        <Txt variant="label" tone={selected ? 'onAccent' : 'primary'} weight="700">
                           {option.label}
                         </Txt>
                       </Pressable>

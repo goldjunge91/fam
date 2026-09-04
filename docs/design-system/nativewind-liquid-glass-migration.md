@@ -1,5 +1,11 @@
 # Migration: theme.ts/StyleSheet → NativeWind + Liquid Glass
 
+> Historische Migrationsdokumentation. Für den aktuellen verbindlichen
+> Styling-Vertrag gilt [`docs/specs/nativewind-styling/`](../specs/nativewind-styling/).
+> `src/components/theme/index.ts` ist heute die aktive Tokenquelle; ältere
+> `theme.ts`-/`ThemedText`-Verweise in diesem Dokument beschreiben den früheren
+> Zwischenstand. Die alten Wrapper wurden nach Maintainer-Freigabe entfernt.
+
 > Arbeitsauftrag, parallel bearbeitet von Claude und Gemini. Stand
 > 2026-08-17. Bitte diese Datei bei Fortschritt aktualisieren (erledigte
 > Punkte abhaken, neue Erkenntnisse ergänzen) statt eine zweite Version

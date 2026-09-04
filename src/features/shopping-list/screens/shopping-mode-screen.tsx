@@ -5,6 +5,7 @@ import {
   SafeAreaProvider,
   SafeAreaView,
 } from 'react-native-safe-area-context';
+import { useTheme } from '@/components/theme/ThemeProvider';
 import { ProgressBar } from '@/components/ui/progress-bar';
 import { Txt } from '@/constants/ui';
 import { formatEuro } from '@/lib/format-currency';
@@ -75,6 +76,7 @@ export function ShoppingModeScreen({
   onClose,
   onFinish,
 }: ShoppingModeScreenProps) {
+  const { colors } = useTheme();
   const [collapsedOverrides, setCollapsedOverrides] = useState<Record<string, boolean>>({});
 
   const groups = useMemo(
@@ -143,7 +145,7 @@ export function ShoppingModeScreen({
               const catChecked = catItems.filter((i) => i.checked_at !== null).length;
               const isComplete = catItems.length > 0 && catChecked === catItems.length;
               const collapsed = collapsedOverrides[group.category] ?? isComplete;
-              const color = colorForCategory(group.category) ?? '#786F79';
+              const color = colorForCategory(group.category) ?? colors.textSecondary;
 
               return (
                 <View key={group.category}>
@@ -162,14 +164,17 @@ export function ShoppingModeScreen({
                       variant="caption"
                       className="flex-1 uppercase tracking-wider"
                       weight="700"
-                      style={{ color }}>
+                      color={color}>
                       {group.category}
                     </Txt>
-                    <Txt variant="caption" style={{ color }}>
+                    <Txt variant="caption" color={color}>
                       {catChecked}/{catItems.length}
                       {isComplete ? ' ✓' : ''}
                     </Txt>
-                    <Txt style={{ color, transform: [{ rotate: collapsed ? '-90deg' : '0deg' }] }}>
+                    <Txt
+                      variant="navigationArrow"
+                      color={color}
+                      style={{ transform: [{ rotate: collapsed ? '-90deg' : '0deg' }] }}>
                       ⌄
                     </Txt>
                   </Pressable>

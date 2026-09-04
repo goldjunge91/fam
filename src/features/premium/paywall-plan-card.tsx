@@ -68,7 +68,7 @@ export function PaywallPlanCard({
             <Txt variant="body" weight="700">
               {plans.yearly.title}
             </Txt>
-            <Txt variant="body" tone="secondary" style={{ fontSize: 14 }}>
+            <Txt variant="bodySmall" tone="secondary">
               {plans.yearly.subtext}
             </Txt>
           </View>
@@ -114,7 +114,7 @@ export function PaywallPlanCard({
             <Txt variant="body" weight="700">
               {plans.monthly.title}
             </Txt>
-            <Txt variant="body" tone="secondary" style={{ fontSize: 14 }}>
+            <Txt variant="bodySmall" tone="secondary">
               {plans.monthly.subtext}
             </Txt>
           </View>

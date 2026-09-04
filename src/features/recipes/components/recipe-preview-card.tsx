@@ -161,20 +161,19 @@ export function RecipePreviewCard({
       <FadeShade height="62%" />
       <View className="card-copy-bottom">
         <Txt
-          variant="body"
+          variant="controlAction"
           tone="inverse"
           weight="700"
           className="tracking-tight"
-          style={{ fontSize: 19, lineHeight: 22 }}
           numberOfLines={1}>
           {title}
         </Txt>
         <Txt
-          variant="caption"
+          variant="captionCompact"
           tone="inverse"
           weight="600"
           className="mt-[3px]"
-          style={{ fontSize: 11, lineHeight: 14, opacity: 0.85 }}
+          style={{ opacity: 0.85 }}
           numberOfLines={1}>
           {[meta.left, meta.right].filter(Boolean).join(' · ') || 'Rezept'}
         </Txt>
@@ -215,28 +214,22 @@ export function RecipeHeroCard({
       <View className="absolute inset-0 bg-[#261d29]/20" />
       <View className="card-copy-bottom">
         <Txt
-          variant="caption"
+          variant="micro"
           tone="inverse"
           weight="700"
           className="uppercase tracking-widest"
-          style={{ fontSize: 9, lineHeight: 12, opacity: 0.8 }}>
+          style={{ opacity: 0.8 }}>
           {eyebrow}
         </Txt>
-        <Txt
-          variant="body"
-          tone="inverse"
-          weight="700"
-          className="mt-half"
-          style={{ fontSize: 18, lineHeight: 21 }}
-          numberOfLines={2}>
+        <Txt variant="bodyLarge" tone="inverse" weight="700" className="mt-half" numberOfLines={2}>
           {title}
         </Txt>
         <Txt
-          variant="caption"
+          variant="captionCompact"
           tone="inverse"
           weight="600"
           className="mt-[3px]"
-          style={{ fontSize: 10, lineHeight: 13, opacity: 0.85 }}
+          style={{ opacity: 0.85 }}
           numberOfLines={1}>
           {[meta.left, meta.right].filter(Boolean).join(' · ') || 'Entdecke dieses Rezept'}
         </Txt>

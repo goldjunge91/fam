@@ -41,14 +41,18 @@ export function TrackingMethodSheet({
           <View className="profile-food-rules-sheet-header">
             <View className="flex-1 gap-half">
               <Txt variant="heading">Tracking-Methode</Txt>
-              <Txt variant="caption" tone="secondary">Bestimmt dein Ernährungstagebuch</Txt>
+              <Txt variant="caption" tone="secondary">
+                Bestimmt dein Ernährungstagebuch
+              </Txt>
             </View>
             <Pressable
               onPress={onClose}
               role="button"
               aria-label="Tracking-Methode schließen"
               className="modal-close-btn">
-              <Txt variant="body" tone="secondary" aria-hidden>✕</Txt>
+              <Txt variant="body" tone="secondary" aria-hidden>
+                ✕
+              </Txt>
             </Pressable>
           </View>
 
@@ -72,9 +76,13 @@ export function TrackingMethodSheet({
                     borderBottomColor: colors.border,
                     borderBottomWidth: index < methods.length - 1 ? 1 : 0,
                   }}>
-                  <Txt variant="body" style={{ fontSize: 16 }}>{method.icon}</Txt>
+                  <Txt variant="body" style={{ fontSize: 16 }}>
+                    {method.icon}
+                  </Txt>
                   <View className="flex-1">
-                    <Txt variant="label" weight="700">{method.label}</Txt>
+                    <Txt variant="label" weight="700">
+                      {method.label}
+                    </Txt>
                     <Txt variant="caption" tone="secondary">
                       {method.desc}
                     </Txt>

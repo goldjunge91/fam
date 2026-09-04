@@ -2,7 +2,6 @@ import { Image } from 'expo-image';
 import { StyleSheet } from 'react-native';
 import Svg, { Circle, Defs, LinearGradient, Rect, Stop } from 'react-native-svg';
 
-import { useTheme } from '@/components/theme/ThemeProvider';
 import { Txt } from '@/constants/ui';
 
 export function HeroArtwork({ coverUrl, title }: { coverUrl?: string | null; title: string }) {
@@ -35,13 +34,8 @@ export function HeroArtwork({ coverUrl, title }: { coverUrl?: string | null; tit
 
 /** Favoriten-Herz im Detail-Header, identisch fuer Rezept und Vorlage. */
 export function HeartGlyph({ filled }: { filled: boolean }) {
-  const { colors } = useTheme();
-
   return (
-    <Txt
-      variant="body"
-      tone="accent"
-      style={{ color: colors.basil, fontSize: 24, lineHeight: 27, fontWeight: '500' }}>
+    <Txt variant="controlActionLarge" tone="accent" weight="500">
       {filled ? '♥' : '♡'}
     </Txt>
   );

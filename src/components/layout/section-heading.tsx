@@ -31,10 +31,7 @@ export function SectionHeading({
             {eyebrow}
           </Txt>
         ) : null}
-        <Txt
-          variant="bodySmall"
-          weight="700"
-          className={titleClassName}>
+        <Txt variant="bodySmall" weight="700" className={titleClassName}>
           {title}
         </Txt>
       </View>

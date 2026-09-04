@@ -3,7 +3,7 @@ import { createElement, type ReactNode } from 'react';
 import * as ReactNative from 'react-native';
 import type { MMKV } from 'react-native-mmkv';
 
-import { Colors } from '@/constants/theme';
+import { Colors } from '@/components/theme/index';
 import { getDeviceStorage } from '@/lib/storage/device-storage';
 
 import {
@@ -38,7 +38,9 @@ function createThemeStorage(initialValue?: string): ThemeStorage {
     set: jest.fn((key, nextValue) => {
       if (key !== THEME_KEY || typeof nextValue !== 'string') return;
       value = nextValue;
-      listeners.forEach((listener) => listener(key));
+      listeners.forEach((listener) => {
+        listener(key);
+      });
     }),
     addOnValueChangedListener: jest.fn((listener) => {
       listeners.add(listener);

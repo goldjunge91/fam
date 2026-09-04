@@ -2,11 +2,11 @@
 
 ## Objective
 
-Die neue Theme-Datei darf keine zweite visuelle Sprache einführen. Sie stellt die bestehenden Fam-Farben und Layoutwerte unter einer typisierten, semantischen API bereit, damit UI-Primitiven nicht mehr frei zwischen Tailwind-Klassen, Hexwerten und alten `Colors`-Objekten wählen.
+Die kanonische Theme-Datei darf keine zweite visuelle Sprache einführen. Sie stellt die bestehenden Fam-Farben und Layoutwerte unter einer typisierten, semantischen API bereit, damit UI-Primitiven nicht mehr frei zwischen Tailwind-Klassen, Hexwerten und alten `Colors`-Objekten wählen.
 
 ## Kanonische Tokenquelle
 
-`src/components/theme/index.ts` wird die einzige öffentliche Tokenquelle der neuen UI-Primitiven. Während der Migration dürfen Werte aus `src/constants/theme.ts` und `src/constants/layout.ts` dort importiert oder dorthin verschoben werden. Danach darf kein zweiter, abweichender Tokenbestand bestehen.
+`src/components/theme/index.ts` ist die einzige öffentliche Tokenquelle der UI-Primitiven. Der frühere parallele Bestand in `src/constants/theme.ts` wurde nach der Migration entfernt. Danach darf kein zweiter, abweichender Tokenbestand bestehen.
 
 Die ui-Referenznamen werden nur als mögliche Form verwendet:
 
@@ -67,8 +67,8 @@ Die konkrete Typdefinition darf zusätzliche bestehende Premium- und Gradient-To
 
 ## Acceptance criteria
 
-- [ ] `index.ts` exportiert eine einzige Fam-Palette und die benötigten Layout-/Typografie-Tokens.
-- [ ] Keine ui-Farbwerte erscheinen in Production-Defaults.
-- [ ] Light und Dark besitzen dieselben semantischen Schlüssel.
-- [ ] Token-Schlüssel und Tailwind-Semantik sind entweder identisch oder über eine dokumentierte Mapping-Tabelle verbunden.
-- [ ] Unit-Tests prüfen Schlüsselparität und zentrale Mappings.
+- [x] `index.ts` exportiert eine einzige Fam-Palette und die benötigten Layout-/Typografie-Tokens.
+- [x] Keine ui-Farbwerte erscheinen in Production-Defaults.
+- [x] Light und Dark besitzen dieselben semantischen Schlüssel.
+- [x] Token-Schlüssel und Tailwind-Semantik sind entweder identisch oder über eine dokumentierte Mapping-Tabelle verbunden.
+- [x] Unit-Tests prüfen Schlüsselparität und zentrale Mappings.

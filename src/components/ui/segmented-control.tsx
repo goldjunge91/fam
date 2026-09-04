@@ -91,13 +91,7 @@ export function SegmentedControl<T extends string>({
             }`}>
             <Txt
               variant={appearance === 'surface' ? 'label' : 'caption'}
-              tone={
-                active
-                  ? appearance === 'surface'
-                    ? 'primary'
-                    : 'onAccent'
-                  : 'secondary'
-              }
+              tone={active ? (appearance === 'surface' ? 'primary' : 'onAccent') : 'secondary'}
               weight="600"
               style={_labelStyle}>
               {option.label}
