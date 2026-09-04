@@ -14,6 +14,7 @@ Die fam-App soll eine nachvollziehbare UI-Styling-Quelle für ihre React-Native-
 - Ein Text hat eine explizite semantische Rolle und eine deterministische Schriftgröße, Zeilenhöhe, Schriftstärke und Farbe.
 - Ein Surface oder eine Card erhält seine Hintergrund- und Border-Farben aus dem aktiven Fam-Theme.
 - Dark Mode wechselt alle semantischen Tokens gemeinsam. Einzelne Komponenten erfinden keine eigene Dark-Mode-Logik.
+- Beim Öffnen des Navigationsdrawers ist der aktuell angezeigte Bereich sichtbar markiert.
 - NativeWind-Klassen dürfen nicht versehentlich eine semantische Inline- oder StyleSheet-Entscheidung überschreiben.
 - Komponenten, die kein `className` unterstützen, verwenden ein echtes `style` oder eine typisierte Adaptergrenze.
 - Die vorhandenen Fam-Farben bleiben erhalten. ui wird nur dort adaptiert, wo ein primitives Verhalten die Stabilität verbessert.
@@ -128,6 +129,26 @@ Die vollständige Test-Suite wird während dieser Initiative nicht pauschal ausg
 - Importmigration: statischer `rg`-Audit auf alte Komponenten und veraltete Theme-Imports.
 - NativeWind-Boundaries: statischer Audit für `className` auf inkompatiblen Komponenten.
 - Visuelle Entscheidungsgrundlage: zwei statische Screen-Mocks für Dashboard und Essensplaner. Geprüft werden Light/Dark, Buttonzustände, Karten und Typografie. Geräteprüfung bleibt außerhalb des Scopes.
+
+## Aktive Navigation im Drawer
+
+Der geöffnete Navigationsdrawer leitet den aktiven Bereich ausschließlich aus
+dem aktuellen Expo-Router-Pfad (`usePathname()`) ab. Ein Eintrag ist aktiv,
+wenn sein öffentlicher Pfad exakt dem aktuellen Pfad entspricht oder ein
+Unterpfad davon ist. Route-Gruppen wie `/(app)` werden vor dem Vergleich
+normalisiert. Ein beliebiger String-Präfix ohne Pfadgrenze ist nicht zulässig,
+damit ähnliche Pfade nicht gleichzeitig aktiv erscheinen.
+
+Die aktive Markierung besteht aus mehreren Signalen:
+
+- Fam-Auswahlfläche als Hintergrund,
+- stärkerer Text und Theme-Akzentfarbe am Icon,
+- `accessibilityState={{ selected: true }}` am jeweiligen Pressable.
+
+Das gilt für die gemeinsame und die vorhandene Android-Drawer-Datei.
+„Einstellungen“ berücksichtigt zusätzlich `/settings` und alle
+Einstellungs-Unterseiten. Die Markierung ist nicht an einen zweiten lokalen
+Navigationszustand gebunden und bleibt dadurch automatisch synchron.
 
 ## Grenzen
 

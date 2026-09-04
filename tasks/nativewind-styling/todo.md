@@ -378,3 +378,20 @@ praktisch durch die Elementhöhe begrenzt wird.
 - [x] Keine Frameworkänderung.
 - [x] Keine unfreigegebene Dependency oder native Änderung.
 - [x] Erfolgskriterien aus der Spezifikation erfüllt.
+
+## Ergänzende Designänderung: aktive Drawer-Navigation
+
+- [x] Der geöffnete Drawer markiert den aktuell angezeigten Bereich aus
+  `usePathname()`.
+- [x] Unterseiten und Expo-Route-Gruppen werden korrekt dem Hauptbereich
+  zugeordnet; reine String-Präfixe ohne Pfadgrenze werden nicht verwendet.
+- [x] Die Markierung nutzt Fam-Auswahlfläche, stärkeren Text,
+  Theme-Akzentfarbe am Icon und `accessibilityState.selected`.
+- [x] Gemeinsame und Android-Drawer-Variante bleiben synchron.
+- [x] Die Designregel ist in `SPEC.md`, der Verification-Matrix und dem
+  Design-System dokumentiert.
+
+**Verification:**
+
+- [x] Fokussierter Drawer-Test: 5/5 Tests bestanden.
+- [x] `bun run check` und `bun run typecheck` bestanden.

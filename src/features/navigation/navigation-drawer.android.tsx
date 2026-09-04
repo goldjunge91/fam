@@ -25,6 +25,15 @@ type DrawerRoute = Parameters<typeof router.push>[0];
 
 debugLogEvent('navigation-drawer.module-loaded', { variant: 'android' });
 
+function isRouteActive(pathname: string, href: string): boolean {
+  // Expo Router kann den sichtbaren Route-Group-Namen liefern, obwohl die
+  // Navigationseinträge mit den öffentlichen Pfaden konfiguriert sind.
+  const normalizedPathname = pathname.replace(/\/\([^/]+\)/g, '') || '/';
+  return href === '/'
+    ? normalizedPathname === '/'
+    : normalizedPathname === href || normalizedPathname.startsWith(`${href}/`);
+}
+
 export function NavigationDrawer() {
   const { isDrawerOpen, closeDrawer } = useNavigationChrome();
   const mounted = useDeferredMount(isDrawerOpen);
@@ -102,6 +111,7 @@ function DrawerContent({ onNavigate }: { onNavigate: (href: string) => void }) {
       routes: group.routes.filter((route) => isFeatureEnabled(route.feature)),
     }))
     .filter((group) => group.routes.length > 0);
+  const settingsActive = isRouteActive(pathname, '/settings');
 
   return (
     <>
@@ -132,8 +142,7 @@ function DrawerContent({ onNavigate }: { onNavigate: (href: string) => void }) {
               </Txt>
             )}
             {group.routes.map((route) => {
-              const isActive =
-                route.href === '/' ? pathname === '/' : pathname.startsWith(route.href);
+              const isActive = isRouteActive(pathname, route.href);
               return (
                 <Pressable
                   key={route.href}
@@ -171,11 +180,16 @@ function DrawerContent({ onNavigate }: { onNavigate: (href: string) => void }) {
       <Pressable
         onPress={() => onNavigate('/settings')}
         accessibilityRole="button"
+        accessibilityState={{ selected: settingsActive }}
         className="drawer-manage-row">
         <View className="drawer-settings-icon">
-          <FamIcon name="settings" size={37} color={colors.text} />
+          <FamIcon name="settings" size={37} color={settingsActive ? colors.basil : colors.text} />
         </View>
-        <Txt variant="body" weight="700" className="drawer-nav-label">
+        <Txt
+          variant="body"
+          tone="primary"
+          weight={settingsActive ? '700' : '500'}
+          className="drawer-nav-label">
           Einstellungen
         </Txt>
         <Txt tone="secondary">›</Txt>

@@ -12,7 +12,7 @@ Die Styling-Reparatur wird nicht nur durch einen erfolgreichen Typecheck bewerte
 | CSS-Syntax | Tailwind-Eingang | `bun run check:css` | CSS kompiliert |
 | Types | Provider, Tokens, UI-Props | `bun run typecheck` | kein neuer TypeScript-Fehler; unvermeidbare bestehende Ausnahmen dokumentiert |
 | Token | Light/Dark-Schlüssel und Mapping | gezielter Jest-Test | Parität und Fam-Werte |
-| Components | Button/Card/Field/Surface-Zustände | gezielte RNTL-Tests | Props und Zustände korrekt |
+| Components | Button/Card/Field/Surface-Zustände und aktive Drawer-Route | gezielte RNTL-Tests | Props, Zustände und aktuelle Bereichsmarkierung korrekt |
 | Migration | alte Imports und falsche Pfade | `rg`-Audit | null Treffer |
 | Boundaries | `className` auf Spezialkomponenten | `rg`-Audit plus Ausnahmenliste | jede Ausnahme dokumentiert |
 
@@ -38,6 +38,7 @@ Für jede Plattform werden dieselben Fälle geprüft:
 - Kein `ThemedView` ignoriert weiterhin eine Farbprop.
 - Kein StyleSheet hält veraltete Light-/Dark-Farben fest, nachdem der Theme-Modus gewechselt wurde.
 - Kein Press-Handler löst bei `disabled` oder `loading` die Aktion oder Haptics aus.
+- Der geöffnete Drawer markiert genau den aktuellen Bereich, auch auf Unterseiten und unter `/(app)`-Route-Gruppen.
 
 ## Abnahme
 

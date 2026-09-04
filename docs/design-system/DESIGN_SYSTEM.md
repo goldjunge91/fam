@@ -22,6 +22,16 @@ Verweise dokumentieren den historischen Stand dieser Datei und sind keine
 zusätzliche aktive Theme- oder UI-API. Die alten Wrapper wurden nach der
 manuellen Maintainer-Freigabe entfernt.
 
+**Aktive Drawer-Navigation (2026-09-04):** Beim Öffnen des Navigationsdrawers
+wird der aktuell angezeigte Bereich aus `usePathname()` bestimmt. Der
+öffentliche Pfad wird vor dem Vergleich von Expo-Route-Gruppen wie `/(app)`
+bereinigt. Aktiv sind nur ein exakter Pfad oder ein echter Unterpfad, nicht
+ein beliebiger String-Präfix. Die aktive Zeile verwendet die semantische
+Fam-Auswahlfläche, eine stärkere Textdarstellung, die Theme-Akzentfarbe am
+Icon und den Accessibility-Zustand `selected`. Das gilt für die gemeinsame
+und die Android-Drawer-Variante sowie für `Einstellungen` auf allen
+`/settings`-Unterseiten.
+
 ---
 
 ## 1. Grundprinzipien
@@ -243,6 +253,7 @@ werden ignoriert, selbst wenn sie zusätzlich übergeben würden:
 | `MacroBar` | Balken-Fortschritt je Makronährstoff | `src/components/macro-bar.tsx` |
 | `SegmentedControl` | Umschalter (z. B. Tag/3-Tage/Woche) | `src/components/segmented-control.tsx` |
 | `FamIcon` | Figma-SVG-Icon-Set (Nav, Profil, Illustrationen) | `src/components/fam-icon.tsx` |
+| `NavigationDrawer` | Geöffnete Bereichsnavigation mit synchroner aktiver Route | `src/features/navigation/navigation-drawer.tsx` und `.android.tsx` |
 | `Button` (+ Varianten in `ui/buttons/`) | s. [Abschnitt 6](#6-bekannte-abweichungen--migrations-backlog) — hier ist Konsolidierung nötig | `src/components/ui/buttons/` |
 
 ---
