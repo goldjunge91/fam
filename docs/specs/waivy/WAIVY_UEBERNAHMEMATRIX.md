@@ -1,12 +1,12 @@
-# Waivy → Fam: Übernahmematrix
+# ui → Fam: Übernahmematrix
 
 Stand: 2026-09-02  
-Quelle: `C:\GIT\ai-mobileapp\waivy`  
+Quelle: `C:\GIT\ai-mobileapp\ui`  
 Ziel: Konkrete Entscheidungen darüber, welche Ideen oder Dateien für Fam sinnvoll sind.
 
 ## Kurzentscheidung
 
-Waivy ist vor allem als UX- und Produktideen-Quelle interessant. Die technische Kernarchitektur wird nicht übernommen, weil Fam bereits ein strengeres Modell besitzt: Supabase Auth/RLS, deklaratives Postgres-Schema, lokale SQLite-Spiegel, Drizzle und Outbox-Sync.
+ui ist vor allem als UX- und Produktideen-Quelle interessant. Die technische Kernarchitektur wird nicht übernommen, weil Fam bereits ein strengeres Modell besitzt: Supabase Auth/RLS, deklaratives Postgres-Schema, lokale SQLite-Spiegel, Drizzle und Outbox-Sync.
 
 Die wertvollsten Übernahmen sind:
 
@@ -18,7 +18,7 @@ Die wertvollsten Übernahmen sind:
 
 ## Entscheidungsmatrix
 
-| Waivy-Baustein | Konkrete Quelle | Fam-Gegenstück | Übernahmestufe | Aufwand | Risiko | Entscheidung |
+| ui-Baustein | Konkrete Quelle | Fam-Gegenstück | Übernahmestufe | Aufwand | Risiko | Entscheidung |
 |---|---|---|---|---:|---:|---|
 | Expo-Navigation und Bottom Tabs | `mobile/src/app/_layout.tsx`, `mobile/src/app/(tabs)/_layout.tsx` | `src/app/`, bestehendes Expo Router | UX-Muster | niedrig | niedrig | Navigation nicht kopieren. Gute Tab-Hierarchie und Modal-Präsentationen als Referenz nutzen. |
 | Screen-Grundgerüst | `mobile/src/components/Screen.tsx` | `src/components/`, Safe-Area- und Screen-Patterns | adaptieren | niedrig | niedrig | Safe Area, Keyboard Insets, Pull-to-Refresh und begrenzte Inhaltsbreite selektiv übernehmen. |
@@ -51,7 +51,7 @@ Die wertvollsten Übernahmen sind:
 2. Rezept-Metadaten mit unserem deklarativen Schema abgleichen.
 3. Einen kleinen europäischen Rezept-Datensatz als Import-Pilot auswählen.
 4. Pantry-Matching mit `computeIngredientNeeds()` und echtem Bestand modellieren.
-5. Erst danach entscheiden, ob Waivy-Daten oder nur Waivy-UX dauerhaft einfließen.
+5. Erst danach entscheiden, ob ui-Daten oder nur ui-UX dauerhaft einfließen.
 
 ## Nicht tun
 

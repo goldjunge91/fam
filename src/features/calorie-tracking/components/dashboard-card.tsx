@@ -53,10 +53,10 @@ function CalorieDashboardCard({ size, onLongPress }: DashboardCardProps) {
           <Txt
             variant="body"
             tone="secondary"
-            style={{ fontSize: 10, lineHeight: 12, fontWeight: '700', letterSpacing: 0.5 }}>
+            style={{ fontSize: 12, lineHeight: 14, fontWeight: '700', letterSpacing: 0.5 }}>
             KALORIEN
           </Txt>
-          <Txt variant="body" tone={ziel === 0 ? 'secondary' : 'primary'} style={{ fontSize: 11 }}>
+          <Txt variant="body" tone={ziel === 0 ? 'secondary' : 'primary'} style={{ fontSize: 13 }}>
             {ziel === 0 ? '—' : `${Math.round((aufgenommen / (ziel || 1)) * 100)}%`}
           </Txt>
         </View>
@@ -78,7 +78,7 @@ function CalorieDashboardCard({ size, onLongPress }: DashboardCardProps) {
             variant="body"
             tone={ziel === 0 ? 'secondary' : verbleibend < 0 ? 'danger' : 'primary'}
             numberOfLines={2}
-            style={{ fontSize: 11, fontWeight: '500' }}>
+            style={{ fontSize: 12, lineHeight: 16, fontWeight: '500' }}>
             {ziel === 0
               ? 'Kein Ziel'
               : verbleibend >= 0

@@ -25,7 +25,7 @@ Ein freier `color`-Prop bleibt nur für berechnete Sonderfälle oder externe Ico
 
 ## Rollen und Werte
 
-Die Zahlen kommen aus `src/constants/theme.ts` und werden nicht durch Waivy-Werte ersetzt.
+Die Zahlen kommen aus `src/constants/theme.ts` und werden nicht durch ui-Werte ersetzt.
 
 | Variant | Fam-Wert | Default-Gewicht | Default-Ton |
 |---|---:|---:|---|

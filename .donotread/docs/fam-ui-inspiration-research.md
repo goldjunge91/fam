@@ -10,7 +10,7 @@ fest, woher die *Interaktionsmuster* hinter den neuen `ui.tsx`-Primitiven
 (`docs/specs/nativewind-styling/SPEC-component-contract.md`) stammen — im
 selben Offenlegungsstil wie `ui-inspiration-research.md` in diesem Ordner.
 
-## Quelle: die Waivy-Referenzdateien, kein Live-Crawl
+## Quelle: die ui-Referenzdateien, kein Live-Crawl
 
 `src/lib/haptics.ts` und `src/lib/streak.ts` existieren bereits in diesem
 Repo (vor der Spec eingebracht, noch nicht mit echten Fam-Imports

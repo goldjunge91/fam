@@ -120,13 +120,13 @@ export function CardList({
 
   const dashboardContentWidth = Math.max(1, width - 42);
   const sortableGridColumns = visibleCards.some((card) => getSize(card) === 'large') ? 1 : 2;
-  const sortableGridGap = 15;
+  const sortableGridGap = 10;
   const sortableGridItemWidth =
     sortableGridColumns === 1
       ? dashboardContentWidth
       : Math.max(1, (dashboardContentWidth - sortableGridGap) / 2);
   const sortableGridItemHeight =
-    sortableGridColumns === 1 ? (fontScale >= 1.2 ? 220 : 190) : fontScale >= 1.2 ? 170 : 150;
+    sortableGridColumns === 1 ? (fontScale >= 1.2 ? 190 : 176) : fontScale >= 1.2 ? 150 : 142;
 
   const renderSortableCard = useCallback(
     ({
@@ -138,7 +138,7 @@ export function CardList({
 
       return (
         <SortableGridItem
-          key={item.id}
+          key={`${item.id}-${cardSize}`}
           {...sortableItemProps}
           id={item.id}
           data={item}

@@ -1,5 +1,5 @@
 /**
- * Waivy UI kit — the Pantry Pop design-system primitives, native edition.
+ * ui UI kit — the Pantry Pop design-system primitives, native edition.
  * Big touch targets, rounded cards, 3D buttons, soft shadows, haptics.
  * Theme-aware: colors come from useTheme() so everything flips with dark mode.
  */
@@ -72,7 +72,15 @@ type FeatherName = React.ComponentProps<typeof Feather>['name'];
 
 // ─── Text ────────────────────────────────────────────────────────────────────
 
-type TxtVariant = 'display' | 'title' | 'heading' | 'subheading' | 'body' | 'label' | 'caption';
+type TxtVariant =
+  | 'display'
+  | 'title'
+  | 'heading'
+  | 'subheading'
+  | 'body'
+  | 'label'
+  | 'caption'
+  | 'meta';
 
 type TxtTone =
   | 'primary'
@@ -86,18 +94,60 @@ type TxtTone =
 
 type TxtDefinition = {
   fontSize: number;
+  lineHeight: number;
   fontWeight: TextStyle['fontWeight'];
   tone: 'text' | 'textMuted' | 'textFaint';
 };
 
 const TXT: Record<TxtVariant, TxtDefinition> = {
-  display: { fontSize: font.sizes.xxxl, fontWeight: '800', tone: 'text' },
-  title: { fontSize: font.sizes.xxl, fontWeight: '800', tone: 'text' },
-  heading: { fontSize: font.sizes.lg, fontWeight: '700', tone: 'text' },
-  subheading: { fontSize: font.sizes.md, fontWeight: '700', tone: 'text' },
-  body: { fontSize: font.sizes.base, fontWeight: '400', tone: 'text' },
-  label: { fontSize: font.sizes.sm, fontWeight: '600', tone: 'textMuted' },
-  caption: { fontSize: font.sizes.xs, fontWeight: '500', tone: 'textFaint' },
+  display: {
+    fontSize: font.sizes.xxxl,
+    lineHeight: font.lineHeights.display,
+    fontWeight: '800',
+    tone: 'text',
+  },
+  title: {
+    fontSize: font.sizes.xxl,
+    lineHeight: font.lineHeights.title,
+    fontWeight: '800',
+    tone: 'text',
+  },
+  heading: {
+    fontSize: font.sizes.lg,
+    lineHeight: font.lineHeights.heading,
+    fontWeight: '700',
+    tone: 'text',
+  },
+  subheading: {
+    fontSize: font.sizes.subheading,
+    lineHeight: font.lineHeights.subheading,
+    fontWeight: '700',
+    tone: 'text',
+  },
+  body: {
+    fontSize: font.sizes.base,
+    lineHeight: font.lineHeights.body,
+    fontWeight: '400',
+    tone: 'text',
+  },
+  label: {
+    fontSize: font.sizes.sm,
+    lineHeight: font.lineHeights.label,
+    fontWeight: '600',
+    tone: 'textMuted',
+  },
+  caption: {
+    fontSize: font.sizes.xs,
+    lineHeight: font.lineHeights.caption,
+    fontWeight: '500',
+    tone: 'textFaint',
+  },
+  meta: {
+    fontSize: font.sizes.sm,
+    lineHeight: font.lineHeights.label,
+    fontWeight: '500',
+    tone: 'textMuted',
+  },
 };
 
 type ThemeTextColor = keyof Pick<
@@ -146,6 +196,7 @@ export function Txt({
       style={[
         {
           fontSize: base.fontSize,
+          lineHeight: base.lineHeight,
           fontWeight: base.fontWeight,
           color: textColor,
         },

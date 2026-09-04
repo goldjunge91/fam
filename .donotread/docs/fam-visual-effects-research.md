@@ -24,7 +24,7 @@ gerechtfertigt werden müsste.
 
 ## Was die Referenzdatei tatsächlich tut
 
-Direkt aus der Waivy-`ui.tsx`-Referenz gelesen (nicht aus dem Gedächtnis
+Direkt aus der ui-`ui.tsx`-Referenz gelesen (nicht aus dem Gedächtnis
 zusammengefasst — siehe Grep-Ausschnitt unten):
 
 ```ts
@@ -63,13 +63,13 @@ sich dieser Hinweis auf den *Web*-Build bezieht, gilt derselbe Instinkt
 | Effekt | Status laut Spec | Anmerkung |
 | --- | --- | --- |
 | `Press`-Skalier-Pop | Vertrag übernommen (`SPEC-component-contract.md` nennt `Press` als erforderliche Primitive) | Die Feder-Konstanten selbst werden von der Spec nicht neu justiert — Implementierungsdetail, kein Token |
-| `Button`-3D-Tiefe (`BUTTON_DEPTH`) | Als bestehendes Referenzverhalten übernommen; **visuelle Neubewertung ausdrücklich zurückgestellt** | `SPEC-token-contract.md`: "Eine mögliche sichtbare Anpassung wird erst nach den zwei Screen-Mocks entschieden; daraus entsteht kein neuer globaler Waivy-Token." — d.h. Tiefe/Schattenfarbe jetzt nicht zerreden, Entscheidung erst nach den Dashboard- und Essensplaner-Mocks |
-| Schattenfarben, die den Tiefeneffekt speisen (`colors.basilShadow`, `colors.tomatoShadow`) | **So verworfen** | Waivy-Akzentnamen; fam hat bereits `shadowCard`/`shadowSheet` in `src/constants/theme.ts` und Status-Tokens (`success`/`warning`/`danger`), die das Äquivalent liefern müssen, gemäß der Token-Ablehnungsregel in `fam-theme-research.md` |
+| `Button`-3D-Tiefe (`BUTTON_DEPTH`) | Als bestehendes Referenzverhalten übernommen; **visuelle Neubewertung ausdrücklich zurückgestellt** | `SPEC-token-contract.md`: "Eine mögliche sichtbare Anpassung wird erst nach den zwei Screen-Mocks entschieden; daraus entsteht kein neuer globaler ui-Token." — d.h. Tiefe/Schattenfarbe jetzt nicht zerreden, Entscheidung erst nach den Dashboard- und Essensplaner-Mocks |
+| Schattenfarben, die den Tiefeneffekt speisen (`colors.basilShadow`, `colors.tomatoShadow`) | **So verworfen** | ui-Akzentnamen; fam hat bereits `shadowCard`/`shadowSheet` in `src/constants/theme.ts` und Status-Tokens (`success`/`warning`/`danger`), die das Äquivalent liefern müssen, gemäß der Token-Ablehnungsregel in `fam-theme-research.md` |
 | Kopplung von Haptik und Press-Animation | Übernommen, über `src/lib/haptics.ts` | `SPEC-component-contract.md`: "Press und Button importieren die Intent-Funktionen aus src/lib/haptics.ts. Die neue UI-Datei enthält keine eigene Expo-Haptics-Implementierung." |
 
 ## Keine neue visuelle Ebene über dies hinaus
 
-Anders als die frühere Waivy-"Pass-2"-Visual-Effects-Arbeit
+Anders als die frühere ui-"Pass-2"-Visual-Effects-Arbeit
 (Shader-Gradients, WebGL-Orbs, Chrome-Text, Liquid Glass — alles *Web*,
 Next.js-spezifisch, `visual-effects-research.md` in diesem Ordner) gilt
 davon **nichts für fam**. fam ist React Native; es gibt hier kein

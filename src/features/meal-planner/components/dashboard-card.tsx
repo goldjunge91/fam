@@ -75,10 +75,10 @@ function MealPlanDashboardCard({ size, onLongPress }: DashboardCardProps) {
               variant="body"
               tone="danger"
               weight="700"
-              style={{ fontSize: 10, lineHeight: 12, fontWeight: '700', letterSpacing: 0.5 }}>
+              style={{ fontSize: 12, lineHeight: 14, fontWeight: '700', letterSpacing: 0.5 }}>
               GEPLANT
             </Txt>
-            <Txt variant="body" tone="secondary" style={{ fontSize: 11 }}>
+            <Txt variant="body" tone="secondary" style={{ fontSize: 12, lineHeight: 16 }}>
               {nextMeal ? MEAL_SLOT_LABELS[nextMeal.meal_slot] : 'Heute'}
             </Txt>
           </View>
@@ -89,7 +89,7 @@ function MealPlanDashboardCard({ size, onLongPress }: DashboardCardProps) {
             variant="body"
             weight="700"
             numberOfLines={2}
-            style={{ fontSize: 12, lineHeight: 16 }}>
+            style={{ fontSize: 14, lineHeight: 18 }}>
             {nextMeal?.recipe_title ?? 'Nichts geplant'}
           </Txt>
         </View>

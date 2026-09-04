@@ -108,10 +108,18 @@ function ExpiryDashboardCard({ size, onLongPress }: DashboardCardProps) {
         </Txt>
       </View>
       <View className="flex-1" />
-      <Txt variant="body" tone="secondary" className="dashboard-widget-label">
+      <Txt
+        variant="body"
+        tone="secondary"
+        className="dashboard-widget-label"
+        style={{ fontSize: 15, lineHeight: 22 }}>
         Läuft bald ab
       </Txt>
-      <Txt variant="body" weight="700" className="dashboard-widget-action">
+      <Txt
+        variant="body"
+        weight="700"
+        className="dashboard-widget-action"
+        style={{ fontSize: 18, lineHeight: 24 }}>
         Vorrat prüfen
       </Txt>
     </GlassCard>

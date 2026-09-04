@@ -62,7 +62,7 @@ the license header preserved in each adapted file.
 | --- | --- | --- |
 | Shader gradient hero background | `src/components/visual-effects/ShaderGradientBackground.tsx` — animated conic + radial gradient blend in pure CSS, tinted with Pantry Pop colors. No WebGL. Auto-disables under `prefers-reduced-motion`. | Home hero |
 | Liquid glass panel | `src/components/visual-effects/LiquidGlassPanel.tsx` — `backdrop-filter: blur` + soft inner highlight + tonal tint. Falls back to a Pantry-Pop cream surface when `backdrop-filter` is unsupported (no JS check needed; `@supports` does the work). | Home hero CTA card |
-| Chrome / metallic wordmark | `src/components/visual-effects/ChromeText.tsx` — `background-clip: text` with a 5-stop chrome gradient + slow animated shimmer. Falls back to plain `--text-main` espresso. Mandatory accessible plain-text via `aria-label`. | Reserved for Waivy wordmark and AI Chef "generated" badge — wired but not aggressively applied this pass |
+| Chrome / metallic wordmark | `src/components/visual-effects/ChromeText.tsx` — `background-clip: text` with a 5-stop chrome gradient + slow animated shimmer. Falls back to plain `--text-main` espresso. Mandatory accessible plain-text via `aria-label`. | Reserved for ui wordmark and AI Chef "generated" badge — wired but not aggressively applied this pass |
 | Performance gate | `src/lib/visual-effects/performance.ts` — `shouldUseHeavyEffects({ prefersReducedMotion, isMobile, webglSupported, lowPowerMode })` and small helpers (`prefersReducedMotion()`, `hasWebGL()`). SSR-safe. | Available everywhere |
 
 ## What was deliberately deferred
@@ -109,7 +109,7 @@ half-finished surfaces.
 2. Build an `AIChefGenerationPipeline` that replaces the current staged
    loader with a 6-step lit pipeline.
 3. Apply `LiquidGlassPanel` to the Recipe-detail action row.
-4. Decide whether `ChromeText` belongs on the Waivy wordmark in the
+4. Decide whether `ChromeText` belongs on the ui wordmark in the
    navbar (probably not — it competes with the existing brand mark
    squircle and the wordmark needs to read at small sizes).
 5. Cypress / Playwright run that automates a reduced-motion + WebGL-off

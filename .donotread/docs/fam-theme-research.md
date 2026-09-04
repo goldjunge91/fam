@@ -8,20 +8,20 @@ date: 2026-09-03
 Dieses Dokument hält fest, was tatsächlich in die Token-Arbeit der
 `nativewind-styling`-Initiative eingeflossen ist
 (`docs/specs/nativewind-styling/SPEC-token-contract.md`) — im selben
-ehrlichen Offenlegungsstil wie die früheren Waivy-/Pantry-Pop-Logs in
+ehrlichen Offenlegungsstil wie die früheren ui-/Pantry-Pop-Logs in
 diesem Ordner (`theme-research.md`, `ui-inspiration-research.md`,
 `visual-effects-research.md`, `visual-ui-inspiration-research.md`).
 
 ## Das ist kein GitHub-Crawl — die Quelle ist bekannt und lokal
 
-Anders als die Waivy-Passes (die offenlegten, proprietäre Apps *nicht*
+Anders als die ui-Passes (die offenlegten, proprietäre Apps *nicht*
 gecrawlt zu haben) hat das Referenzmaterial dieser Initiative eine
 konkrete, benannte Herkunft: drei Dateien, abgelegt unter
 `/Users/marco/Downloads` — `index.ts`, `ThemeProvider.tsx`, `ui.tsx` —
 plus `src/lib/haptics.ts`, `src/lib/streak.ts` und `src/lib/tts.ts`, die
 bereits in diesem Repo liegen, aber noch nicht verdrahtet sind (kaputte
 Imports: `@shared/platform/kv`, `../../store`, `~/theme`). In den
-Spec-Dokumenten werden diese informell "Waivy" genannt, nach dem
+Spec-Dokumenten werden diese informell "ui" genannt, nach dem
 Schwesterprojekt, aus dem sie stammen. `docs/specs/nativewind-styling/CAPABILITY_MAP.md`
 hält das explizit unter "Quellen und Einordnung" fest.
 
@@ -34,7 +34,7 @@ Wettbewerbsanalyse.
 | --- | --- | --- |
 | Waivys Provider-Form (`useTheme()`, `useThemedStyles()`) | Übernommen | Löst ein reales Problem: fam hat aktuell keine einzige Runtime-Theme-Quelle (`SPEC-theme-runtime.md`) |
 | Waivys `ui.tsx`-Komponentenoberfläche (`Button`, `Card`, `Field`, `Press`, `SegmentedControl` ...) | Übernommen, neu auf Fam-Tokens ausgerichtet | Die *Vertragsform* ist nützlich; die dahinterliegende Palette nicht |
-| Waivys Hex-Palette (Basil-Grün, Karotte, Traube usw.) | **Vollständig verworfen** | fam hat bereits eine etablierte warme Mauve-/Creme-Palette (`src/constants/theme.ts`, Light+Dark, dokumentiert in `docs/DESIGN_SYSTEM.md`). `CAPABILITY_MAP.md` nennt das als expliziten Nicht-Zweck: "Übernahme der Waivy-Farben ..." ist außerhalb des Scopes |
+| Waivys Hex-Palette (Basil-Grün, Karotte, Traube usw.) | **Vollständig verworfen** | fam hat bereits eine etablierte warme Mauve-/Creme-Palette (`src/constants/theme.ts`, Light+Dark, dokumentiert in `docs/DESIGN_SYSTEM.md`). `CAPABILITY_MAP.md` nennt das als expliziten Nicht-Zweck: "Übernahme der ui-Farben ..." ist außerhalb des Scopes |
 | `useKVRaw` / `srf:settings-theme`-Storage | Verworfen, ersetzt | fam hat bereits eine MMKV-Device-Storage-Schicht (`src/lib/storage/device-storage.ts`); kein Grund, für eine einzelne UI-Präferenz eine zweite KV-Primitive einzuführen |
 | `BUTTON_DEPTH` (3D-Press-Tiefe) | Als bestehendes Referenzverhalten übernommen, aber noch nicht neu bewertet | `SPEC-token-contract.md` verschiebt eine visuelle Entscheidung dazu ausdrücklich auf nach den zwei Screen-Mocks — dieses Log greift dieser Entscheidung nicht vor |
 
@@ -74,15 +74,15 @@ nie allein auf den Farbton verlassen (siehe den Codekommentar zu
 `success`/`warning`/`danger` in `theme.ts` bzgl. Barrierefreiheit für
 Farbfehlsichtige). An dieser Stelle wird durch die
 nativewind-styling-Spezifikation nichts vorgeschlagen oder geändert —
-`SPEC-token-contract.md` verbietet es, Waivy-Hexwerte irgendwo als
+`SPEC-token-contract.md` verbietet es, ui-Hexwerte irgendwo als
 Fallback in Production-Defaults einzubauen.
 
 ## Zuordnung Referenz → fam-Token
 
-Gemäß `SPEC-token-contract.md` werden die Waivy-Referenznamen auf
+Gemäß `SPEC-token-contract.md` werden die ui-Referenznamen auf
 bestehende Fam-Tokens abgebildet statt wortwörtlich übernommen:
 
-| Waivy-Referenzname | fam-Token | Unverändert übernommen? |
+| ui-Referenzname | fam-Token | Unverändert übernommen? |
 | --- | --- | --- |
 | `bg` | `background` | Nur umbenannt |
 | `surface` | `backgroundElement` | Nur umbenannt |
@@ -90,12 +90,12 @@ bestehende Fam-Tokens abgebildet statt wortwörtlich übernommen:
 | `text` | `text` | Gleicher Name |
 | `textMuted` | `textSecondary` | Nur umbenannt |
 | `border` | `border` | Gleicher Name |
-| `basil` / andere Waivy-Akzente | **nicht übernommen** | stattdessen `accent`, `success`, `warning`, `danger` aus fam |
+| `basil` / andere ui-Akzente | **nicht übernommen** | stattdessen `accent`, `success`, `warning`, `danger` aus fam |
 | `scrim` | dokumentierte Fam-Ableitung über `withAlpha()` | Abgeleitet, nicht hartkodiert |
 
-## Von den Waivy-Quelldateien referenzierte Repos (transitiv, ungeprüft)
+## Von den ui-Quelldateien referenzierte Repos (transitiv, ungeprüft)
 
-Die Waivy-Dateien selbst tragen Kommentare, die auf Duolingo-artige
+Die ui-Dateien selbst tragen Kommentare, die auf Duolingo-artige
 Muster hindeuten (siehe `fam-ui-inspiration-research.md`) und referenzieren
 ein `@shared/platform/kv`-Modul, das in fam nicht existiert. Für diese
 Passe wurde kein Repo über die drei lokalen Referenzdateien und fams
@@ -115,7 +115,7 @@ Lizenz und was übernommen wurde — bisher existiert keine.
 
 **Laut `CAPABILITY_MAP.md` explizit außerhalb des Scopes:**
 - Wechsel zu Uniwind, Unistyles oder Tamagui
-- Jede Waivy-Farbe (Basil, Karotte, Traube, Pantry-Pop-Palette)
+- Jede ui-Farbe (Basil, Karotte, Traube, Pantry-Pop-Palette)
 - Neue native Styling-Abhängigkeiten
 - Eine zweite parallele Theme-API
 - Ein vollständiges visuelles Redesign
