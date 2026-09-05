@@ -46,6 +46,7 @@ type GlassCardProps = {
   fallbackStyle?: StyleProp<ViewStyle>;
   onPress: () => void;
   onLongPress?: () => void;
+  disabled?: boolean;
   accessibilityRole: AccessibilityRole;
   accessibilityLabel: string;
   children: ReactNode;
@@ -58,6 +59,7 @@ export function GlassCard({
   fallbackStyle,
   onPress,
   onLongPress,
+  disabled = false,
   accessibilityRole,
   accessibilityLabel,
   children,
@@ -69,6 +71,7 @@ export function GlassCard({
       <Pressable
         onPress={onPress}
         onLongPress={onLongPress}
+        disabled={disabled}
         accessibilityRole={accessibilityRole}
         accessibilityLabel={accessibilityLabel}
         className={fallbackClassName}
@@ -82,10 +85,14 @@ export function GlassCard({
     <Pressable
       onPress={onPress}
       onLongPress={onLongPress}
+      disabled={disabled}
       accessibilityRole={accessibilityRole}
       accessibilityLabel={accessibilityLabel}
       style={outerStyle}>
-      <GlassView glassEffectStyle="regular" isInteractive style={[{ flex: 1 }, glassStyle]}>
+      <GlassView
+        glassEffectStyle="regular"
+        isInteractive={!disabled}
+        style={[{ flex: 1 }, glassStyle]}>
         {children}
       </GlassView>
     </Pressable>
