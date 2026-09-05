@@ -1,6 +1,7 @@
 import { useQueryClient } from '@tanstack/react-query';
 import { useState } from 'react';
 import { RefreshControl, ScrollView, StyleSheet, View } from 'react-native';
+import { DraxProvider } from 'react-native-drax';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { PlusIcon } from '@/components/icons/fam-icon';
@@ -93,6 +94,7 @@ export function DashboardScreen() {
         variant="accent"
         accentKey="pantry"
         size="compact"
+        flat
       />
     </View>
   ) : null;
@@ -108,45 +110,45 @@ export function DashboardScreen() {
 
   return (
     <DashboardCardsProvider>
-      <Screen
-        title="Übersicht"
-        subtitle={heute}
-        scroll={false}
-        applyBottomPadding={false}
-        chrome={{
-          onMenuPress: openDrawer,
-          onAvatarPress: openProfile,
-          initials,
-          avatarUrl,
-          trailing: editChromeTrailing,
-        }}
-        backgroundGradient={hubGradient}>
-        {isEditing ? (
-          <View style={styles.editBody}>
-            {cardList}
-          </View>
-        ) : (
-          <ScrollView
-            testID="dashboard-scroll-view"
-            style={[styles.scroll, { overflow: isDragging ? 'visible' : 'hidden' }]}
-            scrollEnabled={!isDragging}
-            contentContainerStyle={[styles.scrollContent, { paddingBottom: bottomPadding }]}
-            showsVerticalScrollIndicator={false}
-            refreshControl={
-              <RefreshControl
-                testID="dashboard-refresh-control"
-                refreshing={refreshing}
-                onRefresh={handleRefresh}
-                tintColor={colors.accent}
-              />
-            }>
-            {cardList}
-          </ScrollView>
-        )}
+      <DraxProvider>
+        <Screen
+          title="Übersicht"
+          subtitle={heute}
+          scroll={false}
+          applyBottomPadding={false}
+          chrome={{
+            onMenuPress: openDrawer,
+            onAvatarPress: openProfile,
+            initials,
+            avatarUrl,
+            trailing: editChromeTrailing,
+          }}
+          backgroundGradient={hubGradient}>
+          {isEditing ? (
+            <View style={styles.editBody}>{cardList}</View>
+          ) : (
+            <ScrollView
+              testID="dashboard-scroll-view"
+              style={[styles.scroll, { overflow: isDragging ? 'visible' : 'hidden' }]}
+              scrollEnabled={!isDragging}
+              contentContainerStyle={[styles.scrollContent, { paddingBottom: bottomPadding }]}
+              showsVerticalScrollIndicator={false}
+              refreshControl={
+                <RefreshControl
+                  testID="dashboard-refresh-control"
+                  refreshing={refreshing}
+                  onRefresh={handleRefresh}
+                  tintColor={colors.accent}
+                />
+              }>
+              {cardList}
+            </ScrollView>
+          )}
 
-        {/* Galerie-Bottom-Sheet zum Hinzufügen/Entfernen von Dashboard-Karten */}
-        <CardGallerySheet visible={isGalleryOpen} onClose={closeGallery} />
-      </Screen>
+          {/* Galerie-Bottom-Sheet zum Hinzufügen/Entfernen von Dashboard-Karten */}
+          <CardGallerySheet visible={isGalleryOpen} onClose={closeGallery} />
+        </Screen>
+      </DraxProvider>
     </DashboardCardsProvider>
   );
 }

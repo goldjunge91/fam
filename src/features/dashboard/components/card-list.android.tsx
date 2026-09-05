@@ -2,6 +2,7 @@ import * as Haptics from 'expo-haptics';
 import { type ReactElement, useCallback, useMemo, useRef, useState } from 'react';
 import { ScrollView, StyleSheet, useWindowDimensions, View } from 'react-native';
 import {
+  DraxProvider,
   type GridItemSpan,
   packGrid,
   SortableContainer,
@@ -45,8 +46,6 @@ const styles = StyleSheet.create({
     backgroundColor: 'transparent',
   },
 });
-
-const cardKey = (card: DashboardCardDef) => card.id;
 
 const TOGGLE: Record<CardSize, CardSize> = { large: 'small', small: 'large' };
 
@@ -102,19 +101,12 @@ export function CardList({
   const allCards = getCards();
 
   // Nur aktivierte und nicht ausgeblendete Karten anzeigen.
-  const rawVisibleCards = useMemo(
-    () =>
-      allCards.filter(
-        (card) => (!card.moduleKey || modules?.[card.moduleKey]) && !isCardHidden(card.id),
-      ),
-    [allCards, modules, isCardHidden],
+  const rawVisibleCards = allCards.filter(
+    (card) => (!card.moduleKey || modules?.[card.moduleKey]) && !isCardHidden(card.id),
   );
 
   // Gespeicherte Drag-and-Drop-Reihenfolge anwenden.
-  const visibleCards = useMemo(
-    () => getOrderedCards(rawVisibleCards),
-    [getOrderedCards, rawVisibleCards],
-  );
+  const visibleCards = getOrderedCards(rawVisibleCards);
 
   if (!modules) return null;
 
@@ -251,8 +243,6 @@ function EditingCardGrid({
 }: EditingCardGridProps) {
   const scrollRef = useRef<ScrollView>(null);
   const [containerWidth, setContainerWidth] = useState(0);
-  const [isDragging, setIsDragging] = useState(false);
-  const dragActive = useRef(false);
   const [heights, setHeights] = useState<Record<string, number>>({});
   const { width, fontScale } = useWindowDimensions();
   const stackSmallCards = width < 360 || fontScale >= 1.2;
@@ -272,19 +262,11 @@ function EditingCardGrid({
   const sortable = useSortableList({
     data: cards,
     numColumns: columns,
-    keyExtractor: cardKey,
+    keyExtractor: (card) => card.id,
     getItemSpan,
     animationConfig: 'spring',
-    onDragStart: () => {
-      dragActive.current = true;
-      setIsDragging(true);
-      onDragStart();
-    },
-    onDragEnd: () => {
-      dragActive.current = false;
-      setIsDragging(false);
-      onDragEnd();
-    },
+    onDragStart,
+    onDragEnd,
     onReorder: ({ data }) => {
       const nextIds = data.map((card) => card.id);
       const visibleIds = new Set(nextIds);
@@ -308,73 +290,61 @@ function EditingCardGrid({
     ) * rowUnit;
 
   return (
-    <View style={styles.editingList}>
-      <SortableContainer sortable={sortable} scrollRef={scrollRef} style={styles.editingList}>
-        <ScrollView
-          ref={scrollRef}
-          onLayout={(event) => setContainerWidth(event.nativeEvent.layout.width)}
-          onScroll={sortable.onScroll}
-          onContentSizeChange={sortable.onContentSizeChange}
-          scrollEventThrottle={16}
-          scrollEnabled={!isDragging}
-          contentInsetAdjustmentBehavior="never"
-          showsVerticalScrollIndicator={false}>
-          <View style={{ height: contentHeight }}>
-            {containerWidth > 0 &&
-              sortable.data.map((card, index) => {
-                const position = layout.positions[index];
-                const span = getItemSpan(card);
-                const size = getSize(card);
-                return (
-                  <SortableItem
-                    key={sortable.stableKeyExtractor(card, index)}
-                    sortable={sortable}
-                    index={index}
-                    renderHoverContent={({ dimensions }) => (
-                      <View
-                        pointerEvents="none"
-                        style={{
-                          width:
-                            dimensions?.width ??
-                            span.colSpan * cellWidth + (span.colSpan - 1) * gap,
-                          height: dimensions?.height ?? span.rowSpan * rowUnit,
-                        }}>
-                        <card.component size={size} disabled />
-                      </View>
-                    )}
-                    style={{
-                      position: 'absolute',
-                      left: position.col * (cellWidth + gap),
-                      top: position.row * rowUnit,
-                      width: span.colSpan * cellWidth + (span.colSpan - 1) * gap,
-                      height: span.rowSpan * rowUnit,
-                    }}>
-                    <JiggleWrapper
+    <DraxProvider>
+      <View style={styles.editingList}>
+        <SortableContainer sortable={sortable} scrollRef={scrollRef} style={styles.editingList}>
+          <ScrollView
+            ref={scrollRef}
+            onLayout={(event) => setContainerWidth(event.nativeEvent.layout.width)}
+            onScroll={sortable.onScroll}
+            onContentSizeChange={sortable.onContentSizeChange}
+            scrollEventThrottle={16}
+            contentInsetAdjustmentBehavior="never"
+            showsVerticalScrollIndicator={false}>
+            <View style={{ height: contentHeight }}>
+              {containerWidth > 0 &&
+                sortable.data.map((card, index) => {
+                  const position = layout.positions[index];
+                  const span = getItemSpan(card);
+                  const size = getSize(card);
+                  return (
+                    <SortableItem
+                      key={sortable.stableKeyExtractor(card, index)}
+                      sortable={sortable}
                       index={index}
-                      size={size}
-                      isEditing
-                      paused={isDragging}
-                      onDelete={() => hideCard(card.id)}
-                      onToggleSize={() => onToggleSize(card.id, size)}>
-                      <View
-                        onLayout={(event) => {
-                          const height = Math.ceil(event.nativeEvent.layout.height);
-                          if (height <= 0 || dragActive.current) return;
-                          setHeights((previous) =>
-                            previous[card.id] === height
-                              ? previous
-                              : { ...previous, [card.id]: height },
-                          );
-                        }}>
-                        <card.component size={size} disabled />
-                      </View>
-                    </JiggleWrapper>
-                  </SortableItem>
-                );
-              })}
-          </View>
-        </ScrollView>
-      </SortableContainer>
-    </View>
+                      style={{
+                        position: 'absolute',
+                        left: position.col * (cellWidth + gap),
+                        top: position.row * rowUnit,
+                        width: span.colSpan * cellWidth + (span.colSpan - 1) * gap,
+                        height: span.rowSpan * rowUnit,
+                      }}>
+                      <JiggleWrapper
+                        index={index}
+                        size={size}
+                        isEditing
+                        onDelete={() => hideCard(card.id)}
+                        onToggleSize={() => onToggleSize(card.id, size)}>
+                        <View
+                          onLayout={(event) => {
+                            const height = Math.ceil(event.nativeEvent.layout.height);
+                            if (height <= 0) return;
+                            setHeights((previous) =>
+                              previous[card.id] === height
+                                ? previous
+                                : { ...previous, [card.id]: height },
+                            );
+                          }}>
+                          <card.component size={size} disabled />
+                        </View>
+                      </JiggleWrapper>
+                    </SortableItem>
+                  );
+                })}
+            </View>
+          </ScrollView>
+        </SortableContainer>
+      </View>
+    </DraxProvider>
   );
 }

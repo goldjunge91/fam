@@ -3,10 +3,10 @@ import { type ReactNode, useCallback, useEffect } from 'react';
 import { Pressable, StyleSheet, View } from 'react-native';
 import Animated, {
   cancelAnimation,
-  Easing,
   useAnimatedStyle,
   useSharedValue,
   withRepeat,
+  withSequence,
   withTiming,
 } from 'react-native-reanimated';
 import { withAlpha } from '@/components/theme/index';
@@ -16,7 +16,6 @@ import type { CardSize } from '@/features/dashboard/registry';
 
 type JiggleWrapperProps = {
   isEditing: boolean;
-  paused?: boolean;
   index: number;
   size?: CardSize;
   onToggleSize: () => void;
@@ -26,7 +25,6 @@ type JiggleWrapperProps = {
 
 export function JiggleWrapper({
   isEditing,
-  paused = false,
   index,
   size = 'large',
   onToggleSize,
@@ -34,33 +32,46 @@ export function JiggleWrapper({
   children,
 }: JiggleWrapperProps) {
   const { colors } = useTheme();
-  const phase = useSharedValue(0);
+  const rotation = useSharedValue(0);
+  const translateY = useSharedValue(0);
 
   useEffect(() => {
-    cancelAnimation(phase);
-    if (isEditing && !paused) {
-      const direction = index % 2 === 0 ? 1 : -1;
-      phase.value = -direction;
-      phase.value = withRepeat(
-        withTiming(direction, {
-          duration: 140 + (index % 3) * 10,
-          easing: Easing.inOut(Easing.sin),
-        }),
+    if (isEditing) {
+      // Leichter Phasenversatz pro Index fuer natuerliches iOS-Wackeln.
+      const initialDirection = index % 2 === 0 ? 1 : -1;
+      const duration = 120 + (index % 3) * 10;
+
+      rotation.value = withRepeat(
+        withSequence(
+          withTiming(-1.2 * initialDirection, { duration }),
+          withTiming(1.2 * initialDirection, { duration }),
+        ),
+        -1,
+        true,
+      );
+
+      translateY.value = withRepeat(
+        withSequence(
+          withTiming(-0.8 * initialDirection, { duration: duration + 10 }),
+          withTiming(0.8 * initialDirection, { duration: duration + 10 }),
+        ),
         -1,
         true,
       );
     } else {
-      phase.value = withTiming(0, { duration: 100 });
+      cancelAnimation(rotation);
+      cancelAnimation(translateY);
+      rotation.value = withTiming(0, { duration: 150 });
+      translateY.value = withTiming(0, { duration: 150 });
     }
-    return () => cancelAnimation(phase);
-  }, [index, isEditing, paused, phase]);
+  }, [index, isEditing, rotation, translateY]);
 
   const triggerHaptic = useCallback(() => {
     Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
   }, []);
 
   const animatedStyle = useAnimatedStyle(() => ({
-    transform: [{ translateY: phase.value * 0.5 }, { rotateZ: `${phase.value}deg` }],
+    transform: [{ translateY: translateY.value }, { rotateZ: `${rotation.value}deg` }],
   }));
 
   const containerLayout = size === 'small' ? styles.smallContainer : styles.largeContainer;

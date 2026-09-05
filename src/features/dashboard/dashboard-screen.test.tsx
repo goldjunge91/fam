@@ -5,13 +5,12 @@ import { act, type ReactNode } from 'react';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import { DashboardScreen } from '@/features/dashboard/dashboard-screen';
-import type { DashboardCardDef } from '@/features/dashboard/registry';
 
 type MockChildrenProps = { children?: ReactNode };
-type MockSortableProps = {
-  data: DashboardCardDef[];
-  renderItem: (props: { item: DashboardCardDef; index: number }) => ReactNode;
-};
+
+let mockDraxProviderMounts = 0;
+let mockDraxSpans: Array<{ colSpan: number; rowSpan: number }> = [];
+const mockRouterPush = jest.fn();
 
 jest.mock('react-native-gesture-handler', () => {
   const gestureHandlerMock = require('react-native-gesture-handler/lib/commonjs/mocks/mocks');
@@ -22,15 +21,44 @@ jest.mock('react-native-gesture-handler', () => {
   };
 });
 
-jest.mock('react-native-reanimated-dnd', () => {
-  const SortableItem = Object.assign(({ children }: MockChildrenProps) => children, {
-    Handle: ({ children }: MockChildrenProps) => children,
-  });
+jest.mock('react-native-drax', () => {
+  const { useEffect } = require('react');
+
+  function DraxProvider({ children }: MockChildrenProps) {
+    useEffect(() => {
+      mockDraxProviderMounts += 1;
+    }, []);
+    return children;
+  }
+
+  function useSortableList({ data }: { data: unknown[] }) {
+    return {
+      data,
+      onScroll: jest.fn(),
+      onContentSizeChange: jest.fn(),
+      stableKeyExtractor: (_item: unknown, index: number) => `drax-${index}`,
+      _internal: {},
+    };
+  }
+
+  function packGrid(
+    count: number,
+    _columns: number,
+    getSpan: (index: number) => { colSpan: number; rowSpan: number },
+  ) {
+    mockDraxSpans = Array.from({ length: count }, (_, index) => getSpan(index));
+    return {
+      positions: Array.from({ length: count }, (_, index) => ({ col: index % 2, row: 0 })),
+      totalRows: 1,
+    };
+  }
 
   return {
-    Sortable: ({ data, renderItem }: MockSortableProps) =>
-      data.map((item, index) => renderItem({ item, index })),
-    SortableItem,
+    DraxProvider,
+    SortableContainer: ({ children }: MockChildrenProps) => children,
+    SortableItem: ({ children }: MockChildrenProps) => children,
+    useSortableList,
+    packGrid,
   };
 });
 
@@ -41,7 +69,7 @@ jest.mock('@/lib/analytics', () => ({ trackAnalyticsEvent: jest.fn() }));
 let mockFridgeItems: unknown[] = [];
 
 jest.mock('expo-router', () => ({
-  router: { push: jest.fn(), back: jest.fn(), canGoBack: () => false },
+  router: { push: mockRouterPush, back: jest.fn(), canGoBack: () => false },
   useNavigation: () => ({ canGoBack: () => false, addListener: () => () => {} }),
 }));
 
@@ -118,7 +146,7 @@ jest.mock('@/lib/sync/sync-runner', () => ({
 }));
 
 jest.mock('expo-haptics', () => ({
-  impactAsync: jest.fn(),
+  impactAsync: jest.fn().mockResolvedValue(undefined),
   ImpactFeedbackStyle: { Medium: 'medium' },
 }));
 
@@ -146,6 +174,9 @@ function renderScreen() {
 beforeEach(() => {
   mockFridgeItems = [];
   mockTriggerHouseholdSync.mockClear();
+  mockDraxProviderMounts = 0;
+  mockDraxSpans = [];
+  mockRouterPush.mockClear();
 });
 
 describe('DashboardScreen — Vorrat-Widget "Läuft bald ab"', () => {
@@ -213,7 +244,12 @@ describe('DashboardScreen — iOS-Style Wackel-Modus & Plus-Button', () => {
 
     // Plus-Button und Fertig-Button sind nun im Header sichtbar
     expect(screen.getByLabelText('Karten anpassen')).toBeTruthy();
-    expect(screen.getByLabelText('Bearbeitungsmodus beenden')).toBeTruthy();
+    const finishButton = screen.getByLabelText('Bearbeitungsmodus beenden');
+    expect(finishButton).toBeTruthy();
+    expect(finishButton.parent?.parent?.props.style).toEqual(
+      expect.objectContaining({ backgroundColor: 'transparent', paddingBottom: 0 }),
+    );
+    expect(screen.getByLabelText('Essensplan öffnen')).toHaveProp('disabled', true);
 
     // Plus-Button öffnet das Galerie-Sheet
     await fireEvent.press(screen.getByLabelText('Karten anpassen'));
@@ -260,6 +296,27 @@ describe('DashboardScreen — iOS-Style Wackel-Modus & Plus-Button', () => {
     // Alle Standard-Widgets werden in stabiler Reihenfolge gerendert
     expect(screen.getByLabelText('Essensplan öffnen')).toBeTruthy();
     expect(screen.getByText('Läuft bald ab')).toBeTruthy();
+  });
+
+  it('setzt das Drag-and-Drop-Layout nach einem Größenwechsel neu auf', async () => {
+    await renderScreen();
+
+    await fireEvent(screen.getByLabelText('Essensplan öffnen'), 'longPress');
+    expect(mockDraxProviderMounts).toBe(1);
+
+    await fireEvent.press(screen.getAllByLabelText('Kartengröße umschalten')[0]);
+
+    expect(mockDraxProviderMounts).toBe(2);
+  });
+
+  it('positioniert zwei kleine Widgets als einzelne DND-Elemente nebeneinander', async () => {
+    await renderScreen();
+
+    await fireEvent(screen.getByLabelText('Essensplan öffnen'), 'longPress');
+
+    expect(mockDraxSpans.filter((span) => span.colSpan === 1 && span.rowSpan === 1)).toHaveLength(
+      2,
+    );
   });
 });
 

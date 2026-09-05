@@ -63,7 +63,8 @@ export function JiggleWrapper({
     transform: [{ translateY: phase.value * 0.5 }, { rotateZ: `${phase.value}deg` }],
   }));
 
-  const containerLayout = size === 'small' ? styles.smallContainer : styles.largeContainer;
+  const containerLayout =
+    size === 'small' && !isEditing ? styles.smallContainer : styles.largeContainer;
   const contentLayout = size === 'small' ? styles.smallCardContent : styles.largeCardContent;
 
   return (
