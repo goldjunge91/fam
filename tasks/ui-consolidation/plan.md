@@ -1,100 +1,116 @@
 # Implementierungsplan: UI-Konsolidierung (fam-Design-System)
 
-Status: Entwurf zur Freigabe (Plattformparität PLAT-01 out of scope)  
-Stand: 2026-09-05  
-Initiative: `ui-consolidation`  
+Status: Entwurf zur Freigabe
+Stand: 2026-09-05
+Initiative: `ui-consolidation`
 Referenzdokumente:
-- Spezifikation: [SPEC.md](../../docs/specs/ui-consolidation/SPEC.md)
-- Normative Verträge: [docs/design-system/contracts/](../../docs/design-system/contracts/README.md) (Verträge 01 bis 10)
+- Spezifikation: [SPEC.md](../../docs/specs/ui-consolidation/SPEC.md) (Stand 2026-09-05, Contracts-Überarbeitung `fam-c6m`)
+- Normative Verträge: [docs/design-system/contracts/](../../docs/design-system/contracts/README.md) (Verträge 01–10, überarbeitet)
+
+Aufgaben werden **nicht** in einer `todo.md` geführt, sondern als Beads-Arbeitspakete (`bd`) unter dem Epic in Abschnitt „Task List“. Dieses Dokument ist die Design-/Architekturentscheidung und Abhängigkeitskarte dazu.
+
+**Hinweis zu einem vorherigen Plan:** Ein früherer Plan unter diesem Pfad existierte bereits (Stand 2026-09-04) und klammerte Plattformparität (`.android`-Kopien) ausdrücklich als out-of-scope aus. Er wurde vor dieser Planungssitzung bereits gelöscht (git-Status zeigte `D` für `plan.md`/`todo.md`, ungecommittet). Das aktuelle `SPEC.md` wurde am selben Tag auf ausdrücklichen Folgeauftrag überarbeitet und führt Plattformparität als `PLATFORM-01` wieder ins Ziel ein. Dieser Plan folgt dem aktuellen `SPEC.md` als einziger Quelle und widerspricht damit bewusst der alten, gelöschten Fassung in diesem Punkt.
 
 ---
 
-## 1. Übersicht & Ziel
+## 1. Übersicht und Ziel
 
-fam erhält eine konsistente, zugängliche und wartbare Benutzeroberfläche auf Basis des vorhandenen Design-Systems. Ziel ist die Beseitigung historischer Abweichungen (doppelte Button-/Input-/Segment-APIs, ungeprüfte Farb- und Schattenkombinationen, semantische CSS-/NativeWind-Legacy-Klassen, statische Importzeit-Berechnungen von Maßen) bei Erhalt der warmen Mauve-/Creme-Identität und aller bestehenden Produktfunktionen.
+fam erhält eine konsistente, zugängliche UI auf Basis des vorhandenen Design-Systems: genau drei zentrale Verantwortliche (`theme/index.ts`, `ThemeProvider.tsx`, `ui.tsx`), kanonische Produkt-APIs für Button/Field/SegmentedControl/Card, geprüfte Kontraste, reaktive statt importzeitgebundene Maße, vollständige Zustandsunterscheidung (Loading/Empty/Error/Refresh) und eine Referenzseite, die denselben Zustand zeigt wie der Produktcode. Die warme Mauve-/Creme-Identität und alle bestehenden Funktionen bleiben erhalten (siehe SPEC.md §3.2 Nichtziele).
 
-Am Ende der Umsetzung gilt:
-1. **Genau drei Verantwortliche:** Tokens in `src/components/theme/index.ts`, Themeauflösung in `src/components/theme/ThemeProvider.tsx`, Primitiv- und Darstellungsrezepte in `src/constants/ui.tsx`.
-2. **Kanonische Produkt-APIs:** Konsolidierte `Button`-, `TextField`- und `SegmentedControl`-Komponenten, die dieselbe Rezeptbasis nutzen und als Einstiegspunkte für Features dienen.
-3. **Barrierefreiheit & Robustheit:** Reaktivität bei Resize/Rotation (`useWindowDimensions`), 44 × 44 pt Mindesttouchbereich, WCAG-Kontraste (4,5:1 Text, 3:1 Status/Fokus), vollständiges Reduced-Motion- und Offline-Handling.
-4. **Keine semantischen NativeWind-Klassen im Produktcode:** NativeWind steuert ausschließlich statisches Layout (Flex, Gap, Padding, Alignment).
-5. **Scope-Eingrenzung:** `PLAT-01 Plattformparität` (Erstellung/Pflege separater `.android.tsx`-Kopien für Screens) ist ausdrücklich **out of scope**. Änderungen fokussieren sich auf die kanonischen plattformübergreifenden TypeScript/React-Native-Komponenten.
+Erfolg = Abnahmekriterien AC-01 bis AC-17 aus SPEC.md §12 erfüllt, mit Nachweisen gemäß SPEC.md §11.
 
----
+## 2. Architektur- und Designentscheidungen (aus SPEC.md übernommen)
 
-## 2. Architektur- und Designentscheidungen
-
-| ID | Bereich | Verbindliche Entscheidung | Begründung & Referenz |
+| ID | Bereich | Entscheidung | Referenz |
 | --- | --- | --- | --- |
-| **ARC-01** | Verantwortlichkeit | Dreiteilung strikt einhalten: `index.ts` (Werte), `ThemeProvider.tsx` (Zustand & aktive Palette), `ui.tsx` (Rezepte & Primitive). Keine vierte Styling-Schicht. | SPEC.md ARC-01, README.md |
-| **ARC-02** | APIs | Produkt-APIs sind der kanonische Einstieg (`src/components/ui/buttons/`, `src/components/forms/text-field.tsx`, `src/components/ui/segmented-control.tsx`). Foundation-Komponenten adaptieren dieselbe Basis. | SPEC.md ARC-02, Vertrag 07, 08 |
-| **ARC-03** | Styling-Grenzen | `className` nur für statisches Layout; semantische Zustände (`active:`, `focus:`, Farbklassen wie `bg-accent`, `input-field`) werden vollständig durch `ui.tsx`-Rezepte abgelöst. | SPEC.md ARC-03, Vertrag 05 |
-| **THEME-01**| Themeauflösung | Eine aktive Theme-Wahl (`system/light/dark`), Formularzustände bleiben beim Wechsel erhalten. Keine CSS-Theme-Bridge oder `vars()`. | SPEC.md THEME-01, Vertrag 01 |
-| **COLOR-01**| Farbpaare & Kontrast | Geprüfte Vordergrund-/Hintergrundpaare (mind. 4,5:1 Text, 3:1 Nicht-Text). Schattenfarben ausschließlich für Schatten, nie für Text oder Icons. | SPEC.md COLOR-01, Vertrag 01, 04 |
-| **TYPE-01** | Typografie | 7 feste Basiskategorien (`display`, `title`, `heading`, `subheading`, `body`, `label`, `caption`). Reaktiviertes `rs()` begrenzt auf verfügbare Breite via `useWindowDimensions()`; System-Font-Scaling bleibt aktiv. | SPEC.md TYPE-01, Vertrag 02 |
-| **SPACE-01**| Abstände & Layout | Feste Basisskala (`xs` bis `xxxl`). Reaktiv berechnete Inhaltsbreite (`CONTENT_MAX_WIDTH = 600`). Mindesttouchflächen mindestens 44 × 44 pt. | SPEC.md SPACE-01, Vertrag 03 |
-| **BTN-01**  | Buttons & Motion | 4pt sichtbare Tiefe (`BUTTON_DEPTH = 4`), 4pt Druckweg in 60 ms. `flat`-Ausnahme nur für Header-Aktionen. Bei Reduced Motion entfallen Federung/Scale. | SPEC.md BTN-01, PRESS-01, Vertrag 07 |
-| **FIELD-01**| Textfelder | Gemeinsame Eingabebasis für `TextField` und `Field`. Gleichzeitige Darstellung von Fokus + Fehler. Geometriestabilität ohne Layoutsprung (1,5pt Basis, 2pt Fokus). | SPEC.md FIELD-01, Vertrag 08 |
-| **SELECT-01**| Auswahl & Filter | Kanonischer `SegmentedControl` mit Barrierefreiheitsrollen (`tab` vs. Formular-Auswahl), touchfähigen Segmenten, Mehrfachfilter abwählbar. | SPEC.md SELECT-01, Vertrag 08 |
-| **STATE-01**| Datenzustände | Klare Trennung: Initial Loading (ruhig/Skeletons), Empty (konkret), Filter leer, Error (mit gezieltem Retry), Refresh (bestehende Daten bleiben sichtbar). | SPEC.md STATE-01, Vertrag 10 |
-| ~~PLAT-01~~ | Plattformen | *OUT OF SCOPE:* Keine Verpflichtung zur Erstellung oder Synchronisation separater `.android.tsx`-Plattformdateien. | Maintainer-Vorgabe vom 2026-09-05 |
+| ARC-01/02/03 | Verantwortlichkeit & APIs | Dreiteilung strikt einhalten; Produkt-APIs (`src/components/ui/buttons/`, `text-field.tsx`, `segmented-control.tsx`) bleiben kanonischer Einstieg; `className` nur für statisches Layout. | SPEC.md §4 |
+| THEME-01 | Themeauflösung | Eine aktive Wahl, kein Remount, `system` folgt Systemwechsel live. | SPEC.md §5 |
+| COLOR-01/02 | Farbpaare | Geprüfte Vordergrund-/Hintergrundpaare (4,5:1 Text, 3:1 Nicht-Text); Schattenfarben nie als Vordergrund; Legacy-Namen nur intern gemappt. | SPEC.md §5 |
+| TYPE-01/SPACE-01 | Maße | 7 `Txt`-Varianten, feste Basisskala `xs..xxxl`, `rs()` reaktiv über tatsächlich verfügbare Breite, kein Importzeit-Snapshot, Mindesttouch 44×44. | SPEC.md §5 |
+| BTN-01/PRESS-01 | Buttons | 4pt Tiefe/Druckweg, Flat-Ausnahme für Header, Reduced-Motion-Zweig, Haptik nur über `src/lib/haptics.ts`. | SPEC.md §6 |
+| FIELD-01 | Felder | Gemeinsame Basis für `Field`/`TextField`, Fokus+Fehler gleichzeitig ohne Layoutsprung, native Events/RHF-Refs erhalten. | SPEC.md §6 |
+| SELECT-01 | Auswahl | Ein kanonischer `SegmentedControl`, korrekte Rollen (Tab vs. Formularauswahl), abwählbare Mehrfachfilter. | SPEC.md §6 |
+| SURFACE-01 | Flächen | `Surface`-Töne bleiben, keine dekorative Card-in-Card-Verschachtelung, antippbare Cards mit Rolle+Feedback. | SPEC.md §6 |
+| STATE-01 | Datenzustände | Loading/Empty/Filterleere/Error/Refresh/Offline/Kein-Haushalt sauber getrennt, Retry nur Lesevorgang. | SPEC.md §7 |
+| SCREEN-01 | Screens | 320pt + Schriftfaktor 2,0 ohne verbotenen Overflow, ein Scroll-Owner pro Bereich. | SPEC.md §7 |
+| PLATFORM-01 | Plattformparität | **Offene Umsetzungsfrage, siehe Abschnitt 6.** SPEC.md verlangt `.android`-Kopien für „jede betroffene plattformübergreifende Feature-Datei“; für geteilte Primitive (`ui.tsx`, `button.tsx`, `text-field.tsx`, `segmented-control.tsx`, `card.tsx`, `empty-state.tsx`, `theme/index.ts`) ist unklar, ob die Pflicht greift. Marco hat entschieden, dies **nicht jetzt** festzulegen, sondern als offenen Punkt zu führen. | SPEC.md §8, Klärung 2026-09-05 |
+| D-04/D-05 | Mocks | Sichtbare Farb-/Dichte-/Layoutänderungen erst nach mehreren statischen Mocks und Marcos Auswahl. | SPEC.md §14, AGENTS.md „Visual and design work“ |
 
----
+## 3. Ist-Stand-Verifikation (vor Planung geprüft)
 
-## 3. Phasen- und Abhängigkeitsübersicht
+- Alle in SPEC.md §10.2 genannten Dateien existieren am erwarteten Pfad (verifiziert 2026-09-05).
+- `.android`-Pendants existieren bereits für `screen.tsx`, `inventory-screen.tsx`, `shopping-list-screen.tsx` und `profile-button.tsx`. Sie fehlen für `theme/index.ts`, `ThemeProvider.tsx`, `ui.tsx`, `button.tsx`, `text-field.tsx`, `segmented-control.tsx`, `card.tsx`, `empty-state.tsx`.
+- Contracts 01–10 und README sind bereits auf den überarbeiteten Zielzustand aktualisiert (Dokumentation, keine Codeumsetzung).
+- Keine bestehenden Beads-Issues zu `ui-consolidation` gefunden (`bd search` leer); die in SPEC.md referenzierten `fam-jgi`/`fam-c6m` sind über `bd show`/`bd search` aktuell nicht auflösbar (vermutlich außerhalb des lokal synchronisierten Beads-Stands) — kein Blocker für neue Arbeitspakete, aber als Diskrepanz vermerkt.
 
-```mermaid
-graph TD
-  P1[Phase 1: Foundations & Token-Reaktivität] --> P2[Phase 2: Core Primitives & Produkt-Adapter]
-  P2 --> P3[Phase 3: Screen-Layout & Datenzustände]
-  P3 --> P4[Phase 4: Feature-Migration der Kernscreens]
-  P4 --> P5[Phase 5: Showcase-Referenz & Abschlussverifikation]
+## 4. Abhängigkeitsgraph
 
-  subgraph Phase 1
-    T01[Task 1.1: Reaktive Skalierung rs & Window-Hooks]
-    T02[Task 1.2: Farbpaare, Schatten-Trennung & Kontrastmatrix]
-    T03[Task 1.3: Typografie-Basisskala & ThemeProvider-Härtung]
-  end
-
-  subgraph Phase 2
-    T04[Task 2.1: Einheitliche Button-Basis & Reduced Motion]
-    T05[Task 2.2: Gemeinsame Field- & TextField-Eingabebasis]
-    T06[Task 2.3: SegmentedControl-, Pill- & Badge-Konsolidierung]
-    T07[Task 2.4: Surface- & Card-Foundation]
-  end
-
-  subgraph Phase 3
-    T08[Task 3.1: Screen-Gerüst, Safe-Area & Scroll-Ownership]
-    T09[Task 3.2: Standardisierte Datenzustände EmptyState & Loading]
-  end
-
-  subgraph Phase 4
-    T10[Task 4.1: Vorrat Inventory-Screen Migration]
-    T11[Task 4.2: Einkaufsliste Shopping-List-Screen Migration]
-    T12[Task 4.3: Forms-, Settings- & Dashboard-Konsolidierung]
-  end
-
-  subgraph Phase 5
-    T13[Task 5.1: Showcase-Screen /settings/design-system Abgleich]
-    T14[Task 5.2: CSS-Cleanup global.css & Legacy-Bereinigung]
-    T15[Task 5.3: End-to-End-Verifikation & Dokumentationsabgleich]
-  end
+```
+Phase 0: Mock-/Entscheidungs-Gate (D-04 Farbpalette, D-05 Dichte/Zeilenlayout)
+    │
+    ▼
+Phase 1: Foundations (rs()/Fenster-Reaktivität → Farbpaare/Kontrast → Typografie/ThemeProvider)
+    │
+    ▼
+Phase 2: Core Primitives (Button → Field/TextField → SegmentedControl/Pill/Badge → Surface/Card)
+    │
+    ▼
+Phase 3: Screen-Gerüst & Datenzustände (Scroll/Safe-Area → EmptyState/Loading/Error)
+    │
+    ▼
+Phase 4: Feature-Migration (Vorrat → Einkaufsliste → Forms/Settings/Dashboard)
+    │
+    ▼
+Phase 5: Referenz & Abschlussverifikation (Showcase → CSS-Cleanup → AC-01..17-Nachweis)
 ```
 
----
+Phase 0 blockiert nur die Aufgaben, die tatsächlich Farbwerte oder Dichte/Layout ändern (1.2, 3.2, 4.1, 4.2); rein strukturelle/reaktive Arbeit (1.1, 1.3, 2.1–2.4, 3.1) kann parallel zur Mock-Entscheidung beginnen. Die offene PLATFORM-01-Frage blockiert keine der Phasen 1–5; sie wird als eigenes Beads-Issue geführt und vor Abschluss von Phase 5 (AC-14) final entschieden.
 
-## 4. Risiken und Gegenmaßnahmen
+## 5. Task-Liste (Beads)
 
-| Risiko | Schweregrad | Gegenmaßnahme |
+Tracking erfolgt vollständig in Beads unter dem Epic. IDs werden nach dem Anlegen hier nachgetragen.
+
+| Phase | Bead-ID | Titel | Hängt ab von |
+| --- | --- | --- | --- |
+| Epic | `fam-lgl` | UI-Konsolidierung: fam-Design-System | — |
+| 0 | `fam-lgl.1` | Farbpaletten-Mocks (D-04) erstellen und Auswahl einholen | — (ready) |
+| 0 | `fam-lgl.2` | Dichte-/Zeilenlayout-Mocks (D-05) erstellen und Auswahl einholen | — (ready) |
+| 0 | `fam-lgl.3` | PLATFORM-01: Android-Kopie-Pflicht für geteilte Primitive klären | — (ready) |
+| 1 | `fam-lgl.4` | 1.1 Reaktive Skalierung `rs()` und Fenster-Dimensionen | — (ready) |
+| 1 | `fam-lgl.5` | 1.2 Farbpaare, Schattentrennung, Kontrast-Härtung | `fam-lgl.1` |
+| 1 | `fam-lgl.6` | 1.3 Typografie-Basisskala und ThemeProvider-Härtung | `fam-lgl.4` |
+| 2 | `fam-lgl.7` | 2.1 Einheitliche Button-Basis, Haptik, Reduced Motion | `fam-lgl.6` |
+| 2 | `fam-lgl.8` | 2.2 Gemeinsame Field-/TextField-Eingabebasis | `fam-lgl.7` |
+| 2 | `fam-lgl.9` | 2.3 SegmentedControl-/Pill-/Badge-Konsolidierung | `fam-lgl.8` |
+| 2 | `fam-lgl.10` | 2.4 Surface-/Card-Foundation | `fam-lgl.9` |
+| 3 | `fam-lgl.11` | 3.1 Screen-Gerüst, Safe-Area, Scroll-Ownership | `fam-lgl.10` |
+| 3 | `fam-lgl.12` | 3.2 Datenzustände: EmptyState/Loading/Error/Refresh | `fam-lgl.11`, `fam-lgl.2` |
+| 4 | `fam-lgl.13` | 4.1 Vorrat: Screen-Migration | `fam-lgl.12`, `fam-lgl.2` |
+| 4 | `fam-lgl.14` | 4.2 Einkaufsliste: Screen-Migration | `fam-lgl.13` |
+| 4 | `fam-lgl.15` | 4.3 Forms/Settings/Dashboard-Konsolidierung | `fam-lgl.14` |
+| 5 | `fam-lgl.16` | 5.1 Showcase-Referenz `/settings/design-system` abgleichen | `fam-lgl.15` |
+| 5 | `fam-lgl.17` | 5.2 CSS-/Tailwind-Cleanup (`global.css`) | `fam-lgl.16` |
+| 5 | `fam-lgl.18` | 5.3 Abschlussverifikation AC-01..17 und Dokumentationsabgleich | `fam-lgl.17`, `fam-lgl.3` |
+
+Detaillierte Beschreibung, Akzeptanzkriterien, Verifikation und Dateien je Task stehen im jeweiligen Beads-Issue (`bd show <id>`), nicht doppelt hier. `bd ready` zeigt aktuell `fam-lgl.1`, `fam-lgl.2`, `fam-lgl.3` und `fam-lgl.4` als startbereit (verifiziert 2026-09-05).
+
+## 6. Offene Punkte für Marco
+
+1. **PLATFORM-01-Scope** (siehe Abschnitt 2): Gilt die `.android`-Kopiepflicht auch für geteilte Primitive unter `src/components/ui/`, `src/components/forms/`, `src/constants/`, `src/components/theme/`? Aktuell als eigenes Beads-Issue offen geführt, nicht vorentschieden.
+2. **iOS-Prüfhost**: SPEC.md §14 nennt einen verfügbaren iOS-Dev-Client-Host samt Testdaten als offene technische Voraussetzung für die native Abnahme (AC-01..17 native Nachweise). Auf diesem Windows-Host ist iOS nicht nativ verifizierbar (SPEC.md §11.3).
+3. **`fam-jgi`/`fam-c6m`**: In SPEC.md referenziert, aber lokal in Beads nicht auflösbar. Falls diese IDs woanders geführt werden, bitte Pfad/Datenbank nennen, sonst bleibt es eine reine Doku-Referenz ohne Verknüpfung im lokalen Tracker.
+
+## 7. Risiken und Gegenmaßnahmen
+
+| Risiko | Schwere | Gegenmaßnahme |
 | --- | --- | --- |
-| **Reaktives `rs()` führt zu Re-Render-Schleifen oder Performance-Einbußen** | Mittel | Skalierung über reaktiven Hook (`useWindowDimensions()`) nur bei echten Dimension-Änderungen triggern, Tokens als gecachte/memoized Werte bereitstellen. |
-| **Layout-Sprünge bei Feld-Fokussierung (1,5pt vs 2pt Border)** | Niedrig | Geometrieausgleich über Padding-Reduktion um 0,5pt im fokussierten Zustand im zentralen Rezept in `ui.tsx`. |
-| **Kontrastkonflikte in dunklen Badges (`shadowCard` als Text)** | Mittel | Striktes Verbot von Schattenfarben als Vordergrund. Explizite Textfarben-Tokens in `makeAccent()` und `makeCategoryTone()`. |
-| **Bestehende Tests brechen wegen geänderter Props oder Klassen** | Mittel | Dünne Rückwärtskompatibilitäts-Adapter für veraltete Props (`title`, `sm/md/lg`), schrittweise Migration mit gezielten RNTL-Tests. |
+| Reaktives `rs()` verursacht Re-Render-Schleifen/Performance-Einbußen | Mittel | Nur bei echten Dimensionsänderungen (`useWindowDimensions`) neu berechnen, Werte memoisieren. |
+| Layout-Sprung bei Feld-Fokus (1,5pt → 2pt Kontur) | Niedrig | Geometrieausgleich zentral in `ui.tsx` (z. B. kompensierendes Padding), nicht pro Aufrufer. |
+| Kontrastkonflikte bei dunklen Badges (Schattenfarbe als Text) | Mittel | Verbot strikt in `makeAccent()`/`makeCategoryTone()` durchsetzen, per Tokentest abgesichert. |
+| Bestehende Tests/Snapshots brechen an alten Prop-Namen | Mittel | Dünne Kompatibilitätsadapter, schrittweise Migration mit gezielten RNTL-Tests statt Big-Bang. |
+| PLATFORM-01-Unklarheit verzögert Phase-2-Abschluss | Niedrig | Blockiert Phasen 1–5 nicht (siehe Abhängigkeitsgraph); eigenes Issue, Entscheidung spätestens vor Abschlussverifikation nötig. |
+| Sichtbare Änderung ohne Mock-Freigabe rutscht versehentlich in einen Task | Mittel | Jeder Task mit Farb-/Dichteänderung referenziert explizit die Phase-0-Mock-Entscheidung als Dependency; kein Start ohne Pick. |
 
----
+## 8. Was dieser Plan nicht freigibt
 
-## 5. Offene Maintainer-Entscheidungen (vor Ausführung)
-
-1. **Visuelle Mock-Auswahl (D-04 / D-05):** Sichtbare Änderungen an Listen-Dichte (ein- vs. zweizeilige Einkaufsliste) und konkrete Hexwert-Feinjustierungen für Kontrastoptimierung bedürfen vorab statischer Mocks zur Auswahl durch Marco.
-2. **iOS-Verifikation:** Auf Windows-Entwicklungsumgebungen ist die native iOS-Verifikation limitiert. Automatisierte RNTL-Tests und Android-Dev-Client dienen als Primärnachweis.
+Gemäß SPEC.md §13 „Grenzen der späteren Umsetzung“ und AGENTS.md-Leitplanken: keine handgeschriebenen Migrationen, kein Start/Stopp der lokalen Supabase-Instanz, keine `bun test`/volle Testsuite, keine stillen nativen Dependencies, kein Commit/Push ohne ausdrückliche Freigabe, keine Umsetzung sichtbarer Layout-/Copy-Änderungen ohne Mock-Auswahl. Dieser Plan autorisiert keine Codeänderung — das folgt erst nach Freigabe der Beads-Arbeitspakete.
