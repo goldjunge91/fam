@@ -1305,14 +1305,6 @@
     @apply min-w-0;
   }
 
-  .dashboard-widget-row {
-    @apply flex-row gap-[12px];
-  }
-
-  .dashboard-widget-row-stacked {
-    @apply flex-col gap-[15px];
-  }
-
   .dashboard-widget {
     @apply flex-1 min-h-[138px] rounded-fam-large p-[16px] gap-[8px] bg-background-element;
   }
