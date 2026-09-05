@@ -603,11 +603,6 @@ export function DevToolsScreen() {
             onPress={() => router.push('/settings/glass-lab')}
           />
           <Button
-            label="Drax-Drag-Demo öffnen"
-            variant="secondary"
-            onPress={() => router.push('/settings/drax-demo')}
-          />
-          <Button
             label="Design-System-Referenz öffnen"
             variant="secondary"
             onPress={() => router.push('/settings/design-system')}
