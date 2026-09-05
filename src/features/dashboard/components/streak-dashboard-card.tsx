@@ -1,13 +1,47 @@
-import { Pressable, View } from 'react-native';
+import { Pressable, StyleSheet, View } from 'react-native';
 
-import { space, withAlpha } from '@/components/theme/index';
+import { radius, shadow, space } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
-import { Txt } from '@/constants/ui';
+import { Surface, Txt } from '@/constants/ui';
 import { type DashboardCardProps, registerCard } from '@/features/dashboard/registry';
 import { useStreak } from '@/lib/streak';
 
 const DAY_COUNT = 7;
 const STREAK_DAYS = ['day-1', 'day-2', 'day-3', 'day-4', 'day-5', 'day-6', 'day-7'] as const;
+
+const styles = StyleSheet.create({
+  days: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: space.xs,
+  },
+  cardPressable: {
+    width: '100%',
+  },
+  card: {
+    width: '100%',
+    padding: space.lg,
+    borderRadius: radius.xl,
+    borderCurve: 'continuous',
+  },
+  header: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  },
+  metric: {
+    flexDirection: 'row',
+    alignItems: 'baseline',
+    gap: space.sm,
+  },
+  status: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    borderTopWidth: 1,
+    paddingTop: space.sm,
+  },
+});
 
 function StreakDays({ count, activeToday }: { count: number; activeToday: boolean }) {
   const { colors } = useTheme();
@@ -17,8 +51,7 @@ function StreakDays({ count, activeToday }: { count: number; activeToday: boolea
   return (
     <View
       accessibilityLabel={`${activeDays} von ${DAY_COUNT} Streak-Tagen aktiv`}
-      className="flex-row items-center"
-      style={{ gap: space.xs }}>
+      style={styles.days}>
       {STREAK_DAYS.map((day, index) => {
         const active = index < activeDays;
         const isToday = activeToday && index === todayIndex;
@@ -59,15 +92,18 @@ function StreakDashboardCard({ size, onLongPress }: DashboardCardProps) {
     <Pressable
       onLongPress={onLongPress}
       accessibilityLabel={accessibilityLabel}
-      className="rounded-fam-large p-four"
-      style={{
-        width: '100%',
-        minHeight: size === 'large' ? 140 : 138,
-        backgroundColor: colors.backgroundElement,
-        borderCurve: 'continuous',
-        boxShadow: `0 8px ${size === 'large' ? 22 : 20}px ${withAlpha(colors.text, 0.1)}`,
-      }}>
-      <View className="flex-row items-center justify-between">
+      style={styles.cardPressable}>
+      <Surface
+        tone="surface"
+        style={[
+          styles.card,
+          shadow.sm,
+          {
+            minHeight: size === 'large' ? 140 : 138,
+            shadowColor: colors.shadowCard,
+          },
+        ]}>
+      <View style={styles.header}>
         <Txt variant="caption" tone="accent" weight="700" style={{ letterSpacing: 0.5 }}>
           KOCHSTREAK
         </Txt>
@@ -76,7 +112,7 @@ function StreakDashboardCard({ size, onLongPress }: DashboardCardProps) {
         </Txt>
       </View>
 
-      <View className="flex-row items-baseline gap-two">
+      <View style={styles.metric}>
         <Txt variant="body" selectable>
           🔥
         </Txt>
@@ -90,9 +126,7 @@ function StreakDashboardCard({ size, onLongPress }: DashboardCardProps) {
 
       <StreakDays count={streak.count} activeToday={streak.activeToday} />
 
-      <View
-        className="flex-row items-center justify-between"
-        style={{ borderTopWidth: 1, borderTopColor: colors.border, paddingTop: space.sm }}>
+      <View style={[styles.status, { borderTopColor: colors.border }]}>
         <Txt variant="body" tone={hasStreak ? 'success' : 'secondary'} weight="600">
           {status}
         </Txt>
@@ -100,6 +134,7 @@ function StreakDashboardCard({ size, onLongPress }: DashboardCardProps) {
           Bester Wert: {streak.best} Tage
         </Txt>
       </View>
+      </Surface>
     </Pressable>
   );
 }
